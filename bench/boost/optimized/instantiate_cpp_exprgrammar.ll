@@ -1505,16 +1505,16 @@ define weak_odr noundef zeroext i1 @_ZN5boost4wave8grammars22expression_grammar_
   store ptr %6, ptr %16, align 8
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %10) #27
   store i64 7496243243655365000, ptr %10, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i32 1745355140, ptr %.sroa.2.0..sroa_idx, align 8
   invoke void @_ZN5boost6spirit7classic4impl13phrase_parserINS1_11alternativeINS4_INS1_5chlitINS_4wave8token_idEEES8_EES8_EEE5parseISt20_List_const_iteratorINS6_8cpplexer9lex_tokenINS6_4util13file_positionINSG_11flex_stringIcSt11char_traitsIcESaIcENSG_9CowStringINSG_22AllocatorStringStorageIcSL_EEPcEEEEEEEEENS1_6actionINS6_8grammars18expression_grammarENS1_15ref_value_actorINSW_8closures13closure_valueENS1_13assign_actionEEEEEEENS1_10parse_infoIT_EERKS15_S18_RKT0_RKSA_(ptr dead_on_unwind nonnull writable sret(%"struct.boost::spirit::classic::parse_info") align 8 %8, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 4 dereferenceable(12) %10)
           to label %_ZN5boost6spirit7classic5parseISt20_List_const_iteratorINS_4wave8cpplexer9lex_tokenINS4_4util13file_positionINS7_11flex_stringIcSt11char_traitsIcESaIcENS7_9CowStringINS7_22AllocatorStringStorageIcSC_EEPcEEEEEEEEENS1_6actionINS4_8grammars18expression_grammarENS1_15ref_value_actorINSN_8closures13closure_valueENS1_13assign_actionEEEEENS1_11alternativeINSV_INS1_5chlitINS4_8token_idEEESY_EESY_EEEENS1_10parse_infoIT_EERKS12_S15_RKNS1_6parserIT0_EERKNS16_IT1_EE.exit unwind label %55
 
 _ZN5boost6spirit7classic5parseISt20_List_const_iteratorINS_4wave8cpplexer9lex_tokenINS4_4util13file_positionINS7_11flex_stringIcSt11char_traitsIcESaIcENS7_9CowStringINS7_22AllocatorStringStorageIcSC_EEPcEEEEEEEEENS1_6actionINS4_8grammars18expression_grammarENS1_15ref_value_actorINSN_8closures13closure_valueENS1_13assign_actionEEEEENS1_11alternativeINSV_INS1_5chlitINS4_8token_idEEESY_EESY_EEEENS1_10parse_infoIT_EERKS12_S15_RKNS1_6parserIT0_EERKNS16_IT1_EE.exit: ; preds = %15
   %.sroa.074.0.copyload = load i64, ptr %8, align 8, !tbaa !22
-  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 8
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
   %.sroa.6.0.copyload = load i8, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !23
-  %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 9
+  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 9
   %.sroa.8.0.copyload = load i8, ptr %.sroa.8.0..sroa_idx, align 1, !tbaa !23
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %10) #27
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #27
@@ -1568,7 +1568,7 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
   %35 = xor i64 %34, -1
   %36 = ptrtoint ptr %28 to i64
   %37 = add i64 %36, %35
-  %38 = getelementptr inbounds i8, ptr %33, i64 17
+  %38 = getelementptr inbounds nuw i8, ptr %33, i64 17
   %39 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull %38, i64 noundef %37)
           to label %_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEEpLERKSB_.exit.i unwind label %42
 
@@ -1652,7 +1652,7 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
 
 67:                                               ; preds = %65, %_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEEaSEPKc.exit
   %68 = phi ptr [ %.pre.i.i.i, %65 ], [ %61, %_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEEaSEPKc.exit ]
-  %69 = getelementptr inbounds i8, ptr %68, i64 17
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 17
   invoke void @_ZN5boost4wave4util6throw_INS0_20preprocess_exceptionEPKcNS1_13file_positionINS1_11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcSA_EEPcEEEEEEEEvNT_10error_codeET0_RKT1_(i32 noundef 10, ptr noundef nonnull %69, ptr noundef nonnull align 8 dereferenceable(24) %2)
           to label %70 unwind label %59
 
@@ -1822,7 +1822,7 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
   %129 = xor i64 %128, -1
   %130 = ptrtoint ptr %122 to i64
   %131 = add i64 %130, %129
-  %132 = getelementptr inbounds i8, ptr %127, i64 17
+  %132 = getelementptr inbounds nuw i8, ptr %127, i64 17
   %133 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull %132, i64 noundef %131)
           to label %_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEEpLERKSB_.exit.i54 unwind label %136
 
@@ -1888,7 +1888,7 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
 
 155:                                              ; preds = %153, %_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEEaSEPKc.exit58
   %156 = phi ptr [ %.pre.i.i.i60, %153 ], [ %149, %_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEEaSEPKc.exit58 ]
-  %157 = getelementptr inbounds i8, ptr %156, i64 17
+  %157 = getelementptr inbounds nuw i8, ptr %156, i64 17
   invoke void @_ZN5boost4wave4util6throw_INS0_20preprocess_exceptionEPKcNS1_13file_positionINS1_11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcSA_EEPcEEEEEEEEvNT_10error_codeET0_RKT1_(i32 noundef 10, ptr noundef nonnull %157, ptr noundef nonnull align 8 dereferenceable(24) %2)
           to label %158 unwind label %147
 
@@ -1983,7 +1983,7 @@ define linkonce_odr hidden void @_ZN5boost4wave4util6throw_INS0_20preprocess_exc
   %6 = alloca %"class.boost::wave::preprocess_exception", align 8
   call void @llvm.lifetime.start.p0(i64 392, ptr nonnull %4) #27
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %4)
-  %7 = getelementptr inbounds i8, ptr %4, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %8 = sext i32 %0 to i64
   %9 = getelementptr inbounds [50 x i32], ptr @_ZZN5boost4wave20preprocess_exception14severity_levelEiE29preprocess_exception_severity, i64 0, i64 %8
   %10 = load i32, ptr %9, align 4, !tbaa !59
@@ -2085,7 +2085,7 @@ _ZNSolsEPFRSoS_E.exit:                            ; preds = %_ZStlsISt11char_tra
 
 59:                                               ; preds = %57, %47
   %60 = phi ptr [ %.pre.i.i.i, %57 ], [ %53, %47 ]
-  %61 = getelementptr inbounds i8, ptr %60, i64 17
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 17
   %62 = getelementptr inbounds nuw i8, ptr %6, i64 520
   store i64 %50, ptr %62, align 8, !tbaa !71
   %63 = getelementptr inbounds nuw i8, ptr %6, i64 528
@@ -2180,12 +2180,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %45, %44 ]
   %93 = load ptr, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, align 8
   store ptr %93, ptr %4, align 8, !tbaa !61
-  %94 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 64), align 8
+  %94 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 64), align 8
   %95 = getelementptr i8, ptr %93, i64 -24
   %96 = load i64, ptr %95, align 8
   %97 = getelementptr inbounds i8, ptr %4, i64 %96
   store ptr %94, ptr %97, align 8, !tbaa !61
-  %98 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 72), align 8
+  %98 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 72), align 8
   store ptr %98, ptr %7, align 8, !tbaa !61
   %99 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %99, align 8, !tbaa !61
@@ -2212,16 +2212,16 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = 
   store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %99, align 8, !tbaa !61
   %109 = getelementptr inbounds nuw i8, ptr %4, i64 80
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %109) #27
-  %110 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 16), align 8
+  %110 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 16), align 8
   store ptr %110, ptr %4, align 8, !tbaa !61
-  %111 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
+  %111 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %112 = getelementptr i8, ptr %110, i64 -24
   %113 = load i64, ptr %112, align 8
   %114 = getelementptr inbounds i8, ptr %4, i64 %113
   store ptr %111, ptr %114, align 8, !tbaa !61
   %115 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 0, ptr %115, align 8, !tbaa !80
-  %116 = getelementptr inbounds i8, ptr %4, i64 128
+  %116 = getelementptr inbounds nuw i8, ptr %4, i64 128
   call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %116) #27
   call void @llvm.lifetime.end.p0(i64 392, ptr nonnull %4) #27
   resume { ptr, i32 } %.pn.pn.pn
@@ -2304,15 +2304,15 @@ _ZN5boost5mutexD2Ev.exit.i:                       ; preds = %13
   br label %_ZN5boost6spirit7classic4impl19grammar_helper_listINS1_7grammarINS_4wave8grammars18expression_grammarENS1_15closure_contextINS6_8closures16cpp_expr_closureEEEEEED2Ev.exit
 
 _ZN5boost6spirit7classic4impl19grammar_helper_listINS1_7grammarINS_4wave8grammars18expression_grammarENS1_15closure_contextINS6_8closures16cpp_expr_closureEEEEEED2Ev.exit: ; preds = %_ZN5boost5mutexD2Ev.exit.i, %17
-  %23 = getelementptr inbounds i8, ptr %0, i64 16
-  %24 = getelementptr inbounds i8, ptr %0, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %25 = load i64, ptr %24, align 8, !tbaa !97
   %26 = load ptr, ptr %23, align 8, !tbaa !102
   invoke void @_ZN5boost6spirit7classic4impl26object_with_id_base_supplyImE7releaseEm(ptr noundef nonnull align 8 dereferenceable(72) %26, i64 noundef %25)
           to label %_ZN5boost6spirit7classic4impl19object_with_id_baseINS2_11grammar_tagEmE17release_object_idEm.exit.i unwind label %47
 
 _ZN5boost6spirit7classic4impl19object_with_id_baseINS2_11grammar_tagEmE17release_object_idEm.exit.i: ; preds = %_ZN5boost6spirit7classic4impl19grammar_helper_listINS1_7grammarINS_4wave8grammars18expression_grammarENS1_15closure_contextINS6_8closures16cpp_expr_closureEEEEEED2Ev.exit
-  %27 = getelementptr inbounds i8, ptr %0, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %28 = load ptr, ptr %27, align 8, !tbaa !103
   %.not.i.i.i.i1 = icmp eq ptr %28, null
   br i1 %.not.i.i.i.i1, label %_ZN5boost6spirit7classic4impl14object_with_idINS2_11grammar_tagEmED2Ev.exit, label %29
@@ -2325,7 +2325,7 @@ _ZN5boost6spirit7classic4impl19object_with_id_baseINS2_11grammar_tagEmE17release
 
 33:                                               ; preds = %29
   %34 = load ptr, ptr %28, align 8, !tbaa !61
-  %35 = getelementptr inbounds i8, ptr %34, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load ptr, ptr %35, align 8
   invoke void %36(ptr noundef nonnull align 8 dereferenceable(16) %28)
           to label %.noexc.i.i.i.i unwind label %44
@@ -2338,7 +2338,7 @@ _ZN5boost6spirit7classic4impl19object_with_id_baseINS2_11grammar_tagEmE17release
 
 40:                                               ; preds = %.noexc.i.i.i.i
   %41 = load ptr, ptr %28, align 8, !tbaa !61
-  %42 = getelementptr inbounds i8, ptr %41, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 24
   %43 = load ptr, ptr %42, align 8
   invoke void %43(ptr noundef nonnull align 8 dereferenceable(16) %28)
           to label %_ZN5boost6spirit7classic4impl14object_with_idINS2_11grammar_tagEmED2Ev.exit unwind label %44
@@ -2406,7 +2406,7 @@ declare void @__cxa_pure_virtual() unnamed_addr
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK5boost6system14error_category10equivalentEiRKNS0_15error_conditionE(ptr noundef nonnull align 8 dereferenceable(52) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2) unnamed_addr #7 comdat align 2 {
   %4 = load ptr, ptr %0, align 8, !tbaa !61
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call { i32, ptr } %6(ptr noundef nonnull align 8 dereferenceable(52) %0, i32 noundef %1) #27
   %8 = extractvalue { i32, ptr } %7, 0
@@ -2578,10 +2578,10 @@ define internal void @__cxx_global_var_init.50() #13 section ".text.startup" com
 6:                                                ; preds = %3
   store i8 1, ptr @_ZZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEvE1f, align 1, !tbaa !23
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i8 0, i64 64, i1 false)
-  store i64 80, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 64), align 8, !tbaa !116
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 80), align 8, !tbaa !120
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 72), align 8, !tbaa !121
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 88), align 8, !tbaa !122
+  store i64 80, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 64), align 8, !tbaa !116
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 80), align 8, !tbaa !120
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 72), align 8, !tbaa !121
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 88), align 8, !tbaa !122
   br label %_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE14object_creatorC2Ev.exit
 
 _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE14object_creatorC2Ev.exit: ; preds = %6, %3, %0
@@ -2656,7 +2656,7 @@ _ZN5boost6spirit7classic7closureINS_4wave8grammars8closures16cpp_expr_closureENS
 _ZN5boost4wave8grammars8closures16cpp_expr_closureC2Ev.exit: ; preds = %_ZN5boost6spirit7classic7closureINS_4wave8grammars8closures16cpp_expr_closureENS5_13closure_valueEN7phoenix5nil_tES9_S9_S9_S9_EC2Ev.exit.i
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %6, ptr %9, align 8, !tbaa !22
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, i8 0, i64 16, i1 false)
   %11 = invoke noundef i64 @_ZN5boost6spirit7classic4impl19object_with_id_baseINS2_11grammar_tagEmE17acquire_object_idEv(ptr noundef nonnull align 8 dereferenceable(24) %10)
           to label %14 unwind label %12
@@ -2668,7 +2668,7 @@ _ZN5boost4wave8grammars8closures16cpp_expr_closureC2Ev.exit: ; preds = %_ZN5boos
   br label %.body
 
 14:                                               ; preds = %_ZN5boost4wave8grammars8closures16cpp_expr_closureC2Ev.exit
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %11, ptr %15, align 8, !tbaa !97
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %16, i8 0, i64 24, i1 false)
@@ -2751,7 +2751,7 @@ _ZN5boost6spirit7classic4impl19object_with_id_baseINS2_11grammar_tagEmE17release
 
 11:                                               ; preds = %7
   %12 = load ptr, ptr %6, align 8, !tbaa !61
-  %13 = getelementptr inbounds i8, ptr %12, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8
   invoke void %14(ptr noundef nonnull align 8 dereferenceable(16) %6)
           to label %.noexc.i.i.i unwind label %22
@@ -2764,7 +2764,7 @@ _ZN5boost6spirit7classic4impl19object_with_id_baseINS2_11grammar_tagEmE17release
 
 18:                                               ; preds = %.noexc.i.i.i
   %19 = load ptr, ptr %6, align 8, !tbaa !61
-  %20 = getelementptr inbounds i8, ptr %19, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %21 = load ptr, ptr %20, align 8
   invoke void %21(ptr noundef nonnull align 8 dereferenceable(16) %6)
           to label %_ZN5boost6spirit7classic4impl19object_with_id_baseINS2_11grammar_tagEmED2Ev.exit unwind label %22
@@ -3147,7 +3147,7 @@ _ZN5boost10shared_ptrINS_6spirit7classic4impl26object_with_id_base_supplyImEEEC2
 
 66:                                               ; preds = %62
   %67 = load ptr, ptr %61, align 8, !tbaa !61
-  %68 = getelementptr inbounds i8, ptr %67, i64 16
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 16
   %69 = load ptr, ptr %68, align 8
   invoke void %69(ptr noundef nonnull align 8 dereferenceable(16) %61)
           to label %.noexc.i.i.i unwind label %77
@@ -3160,7 +3160,7 @@ _ZN5boost10shared_ptrINS_6spirit7classic4impl26object_with_id_base_supplyImEEEC2
 
 73:                                               ; preds = %.noexc.i.i.i
   %74 = load ptr, ptr %61, align 8, !tbaa !61
-  %75 = getelementptr inbounds i8, ptr %74, i64 24
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 24
   %76 = load ptr, ptr %75, align 8
   invoke void %76(ptr noundef nonnull align 8 dereferenceable(16) %61)
           to label %_ZN5boost10shared_ptrINS_6spirit7classic4impl26object_with_id_base_supplyImEEEaSERKS6_.exit unwind label %77
@@ -3227,7 +3227,7 @@ define linkonce_odr hidden void @_ZN5boost6spirit7classic4impl19object_with_id_b
 
 8:                                                ; preds = %4
   %9 = load ptr, ptr %3, align 8, !tbaa !61
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8
   invoke void %11(ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %.noexc.i.i unwind label %19
@@ -3240,7 +3240,7 @@ define linkonce_odr hidden void @_ZN5boost6spirit7classic4impl19object_with_id_b
 
 15:                                               ; preds = %.noexc.i.i
   %16 = load ptr, ptr %3, align 8, !tbaa !61
-  %17 = getelementptr inbounds i8, ptr %16, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %18 = load ptr, ptr %17, align 8
   invoke void %18(ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %_ZN5boost10shared_ptrINS_6spirit7classic4impl26object_with_id_base_supplyImEEED2Ev.exit unwind label %19
@@ -3271,7 +3271,7 @@ define linkonce_odr hidden void @_ZN5boost10shared_ptrINS_6spirit7classic4impl26
 
 8:                                                ; preds = %4
   %9 = load ptr, ptr %3, align 8, !tbaa !61
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8
   invoke void %11(ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %.noexc.i unwind label %19
@@ -3284,7 +3284,7 @@ define linkonce_odr hidden void @_ZN5boost10shared_ptrINS_6spirit7classic4impl26
 
 15:                                               ; preds = %.noexc.i
   %16 = load ptr, ptr %3, align 8, !tbaa !61
-  %17 = getelementptr inbounds i8, ptr %16, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %18 = load ptr, ptr %17, align 8
   invoke void %18(ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %_ZN5boost6detail12shared_countD2Ev.exit unwind label %19
@@ -3365,7 +3365,7 @@ _ZN5boost10shared_ptrINS_6spirit7classic4impl26object_with_id_base_supplyImEEEC2
 
 25:                                               ; preds = %21
   %26 = load ptr, ptr %20, align 8, !tbaa !61
-  %27 = getelementptr inbounds i8, ptr %26, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %28 = load ptr, ptr %27, align 8
   invoke void %28(ptr noundef nonnull align 8 dereferenceable(16) %20)
           to label %.noexc.i.i unwind label %36
@@ -3378,7 +3378,7 @@ _ZN5boost10shared_ptrINS_6spirit7classic4impl26object_with_id_base_supplyImEEEC2
 
 32:                                               ; preds = %.noexc.i.i
   %33 = load ptr, ptr %20, align 8, !tbaa !61
-  %34 = getelementptr inbounds i8, ptr %33, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 24
   %35 = load ptr, ptr %34, align 8
   invoke void %35(ptr noundef nonnull align 8 dereferenceable(16) %20)
           to label %_ZN5boost10shared_ptrINS_6spirit7classic4impl26object_with_id_base_supplyImEEED2Ev.exit unwind label %36
@@ -3587,7 +3587,7 @@ define linkonce_odr hidden void @_ZN5boost21thread_resource_errorC2EiPKc(ptr nou
 
 9:                                                ; preds = %3
   %10 = load ptr, ptr @_ZN5boost6system6detail18generic_cat_holderIvE8instanceE, align 8, !tbaa !61
-  %11 = getelementptr inbounds i8, ptr %10, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %12 = load ptr, ptr %11, align 8
   %13 = tail call noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(52) @_ZN5boost6system6detail18generic_cat_holderIvE8instanceE, i32 noundef %1) #27
   br label %_ZN5boost16thread_exceptionC2EiPKc.exit
@@ -3614,18 +3614,18 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_21thread_resource_errorEEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(40) %1) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %0, align 8, !tbaa !61
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(40) %1) #27
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost6system12system_errorE, i64 16), ptr %3, align 8, !tbaa !61
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false), !tbaa.struct !147
-  %6 = getelementptr inbounds i8, ptr %0, i64 48
-  %7 = getelementptr inbounds i8, ptr %0, i64 56
-  %8 = getelementptr inbounds i8, ptr %0, i64 80
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   store i32 -1, ptr %8, align 8, !tbaa !148
-  %9 = getelementptr inbounds i8, ptr %0, i64 84
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 84
   store i32 -1, ptr %9, align 4, !tbaa !151
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost10wrapexceptINS_21thread_resource_errorEEE, i64 16), ptr %0, align 8, !tbaa !61
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost10wrapexceptINS_21thread_resource_errorEEE, i64 64), ptr %3, align 8, !tbaa !61
@@ -3637,16 +3637,16 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_21thread_resource_errorEED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !61
-  %3 = getelementptr inbounds i8, ptr %0, i64 56
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8, !tbaa !152
   %.not.i.i.i = icmp eq ptr %4, null
   br i1 %.not.i.i.i, label %_ZN5boost9exceptionD2Ev.exit, label %5
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %4, align 8, !tbaa !61
-  %7 = getelementptr inbounds i8, ptr %6, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %8 = load ptr, ptr %7, align 8
   %9 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %.noexc.i.i unwind label %11
@@ -3666,7 +3666,7 @@ define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_21thread_resource_erro
   unreachable
 
 _ZN5boost9exceptionD2Ev.exit:                     ; preds = %1, %.noexc.i.i, %10
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %14) #27
   ret void
 }
@@ -3678,17 +3678,17 @@ declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #17
 define linkonce_odr hidden noundef ptr @_ZNK5boost10wrapexceptINS_21thread_resource_errorEE5cloneEv(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #30
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %2, align 8, !tbaa !61
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(40) %4) #27
-  %5 = getelementptr inbounds i8, ptr %2, i64 24
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false), !tbaa.struct !147
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost21thread_resource_errorE, i64 16), ptr %3, align 8, !tbaa !61
-  %7 = getelementptr inbounds i8, ptr %2, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %7, align 8, !tbaa !61
-  %8 = getelementptr inbounds i8, ptr %2, i64 56
-  %9 = getelementptr inbounds i8, ptr %0, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %10 = load ptr, ptr %9, align 8, !tbaa !152
   store ptr %10, ptr %8, align 8, !tbaa !152
   %.not.i.i.i.i = icmp eq ptr %10, null
@@ -3696,7 +3696,7 @@ define linkonce_odr hidden noundef ptr @_ZNK5boost10wrapexceptINS_21thread_resou
 
 11:                                               ; preds = %1
   %12 = load ptr, ptr %10, align 8, !tbaa !61
-  %13 = getelementptr inbounds i8, ptr %12, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %14 = load ptr, ptr %13, align 8
   invoke void %14(ptr noundef nonnull align 8 dereferenceable(8) %10)
           to label %16 unwind label %.body
@@ -3709,13 +3709,13 @@ define linkonce_odr hidden noundef ptr @_ZNK5boost10wrapexceptINS_21thread_resou
   br label %24
 
 16:                                               ; preds = %11, %1
-  %17 = getelementptr inbounds i8, ptr %2, i64 64
-  %18 = getelementptr inbounds i8, ptr %0, i64 64
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 64
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %18, i64 24, i1 false)
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost10wrapexceptINS_21thread_resource_errorEEE, i64 16), ptr %2, align 8, !tbaa !61
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost10wrapexceptINS_21thread_resource_errorEEE, i64 64), ptr %3, align 8, !tbaa !61
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost10wrapexceptINS_21thread_resource_errorEEE, i64 104), ptr %7, align 8, !tbaa !61
-  %19 = getelementptr inbounds i8, ptr %0, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 48
   invoke void @_ZN5boost16exception_detail20copy_boost_exceptionEPNS_9exceptionEPKS1_(ptr noundef nonnull %7, ptr noundef nonnull %19)
           to label %_ZN5boost10wrapexceptINS_21thread_resource_errorEE7deleterD2Ev.exit unwind label %_ZN5boost10wrapexceptINS_21thread_resource_errorEE7deleterD2Ev.exit7
 
@@ -3726,7 +3726,7 @@ _ZN5boost10wrapexceptINS_21thread_resource_errorEE7deleterD2Ev.exit7: ; preds = 
   %20 = landingpad { ptr, i32 }
           cleanup
   %21 = load ptr, ptr %2, align 8, !tbaa !61
-  %22 = getelementptr inbounds i8, ptr %21, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %23 = load ptr, ptr %22, align 8
   tail call void %23(ptr noundef nonnull align 8 dereferenceable(88) %2) #27
   br label %24
@@ -3755,16 +3755,16 @@ define linkonce_odr hidden void @_ZNK5boost10wrapexceptINS_21thread_resource_err
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_21thread_resource_errorEED0Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !61
-  %3 = getelementptr inbounds i8, ptr %0, i64 56
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8, !tbaa !152
   %.not.i.i.i.i = icmp eq ptr %4, null
   br i1 %.not.i.i.i.i, label %_ZN5boost10wrapexceptINS_21thread_resource_errorEED2Ev.exit, label %5
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %4, align 8, !tbaa !61
-  %7 = getelementptr inbounds i8, ptr %6, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %8 = load ptr, ptr %7, align 8
   %9 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %.noexc.i.i.i unwind label %11
@@ -3784,7 +3784,7 @@ define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_21thread_resource_erro
   unreachable
 
 _ZN5boost10wrapexceptINS_21thread_resource_errorEED2Ev.exit: ; preds = %1, %.noexc.i.i.i, %10
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %14) #27
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 88) #31
   ret void
@@ -3792,16 +3792,16 @@ _ZN5boost10wrapexceptINS_21thread_resource_errorEED2Ev.exit: ; preds = %1, %.noe
 
 ; Function Attrs: inlinehint nounwind uwtable
 define linkonce_odr hidden void @_ZThn8_N5boost10wrapexceptINS_21thread_resource_errorEED1Ev(ptr noundef %0) unnamed_addr #18 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !61
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8, !tbaa !152
   %.not.i.i.i.i = icmp eq ptr %4, null
   br i1 %.not.i.i.i.i, label %_ZN5boost10wrapexceptINS_21thread_resource_errorEED2Ev.exit, label %5
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %4, align 8, !tbaa !61
-  %7 = getelementptr inbounds i8, ptr %6, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %8 = load ptr, ptr %7, align 8
   %9 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %.noexc.i.i.i unwind label %11
@@ -3827,16 +3827,16 @@ _ZN5boost10wrapexceptINS_21thread_resource_errorEED2Ev.exit: ; preds = %1, %.noe
 
 ; Function Attrs: inlinehint nounwind uwtable
 define linkonce_odr hidden void @_ZThn8_N5boost10wrapexceptINS_21thread_resource_errorEED0Ev(ptr noundef %0) unnamed_addr #18 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !61
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8, !tbaa !152
   %.not.i.i.i.i.i = icmp eq ptr %4, null
   br i1 %.not.i.i.i.i.i, label %_ZN5boost10wrapexceptINS_21thread_resource_errorEED0Ev.exit, label %5
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %4, align 8, !tbaa !61
-  %7 = getelementptr inbounds i8, ptr %6, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %8 = load ptr, ptr %7, align 8
   %9 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %.noexc.i.i.i.i unwind label %11
@@ -3868,14 +3868,14 @@ declare noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 de
 ; Function Attrs: inlinehint nounwind uwtable
 define linkonce_odr hidden void @_ZThn48_N5boost10wrapexceptINS_21thread_resource_errorEED1Ev(ptr noundef %0) unnamed_addr #18 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8, !tbaa !61
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !152
   %.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i, label %_ZN5boost10wrapexceptINS_21thread_resource_errorEED2Ev.exit, label %4
 
 4:                                                ; preds = %1
   %5 = load ptr, ptr %3, align 8, !tbaa !61
-  %6 = getelementptr inbounds i8, ptr %5, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %7 = load ptr, ptr %6, align 8
   %8 = invoke noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %.noexc.i.i.i unwind label %10
@@ -3903,14 +3903,14 @@ _ZN5boost10wrapexceptINS_21thread_resource_errorEED2Ev.exit: ; preds = %1, %.noe
 ; Function Attrs: inlinehint nounwind uwtable
 define linkonce_odr hidden void @_ZThn48_N5boost10wrapexceptINS_21thread_resource_errorEED0Ev(ptr noundef %0) unnamed_addr #18 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8, !tbaa !61
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !152
   %.not.i.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i.i, label %_ZN5boost10wrapexceptINS_21thread_resource_errorEED0Ev.exit, label %4
 
 4:                                                ; preds = %1
   %5 = load ptr, ptr %3, align 8, !tbaa !61
-  %6 = getelementptr inbounds i8, ptr %5, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %7 = load ptr, ptr %6, align 8
   %8 = invoke noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %.noexc.i.i.i.i unwind label %10
@@ -3971,18 +3971,18 @@ define linkonce_odr hidden void @_ZN5boost6system12system_errorD0Ev(ptr noundef 
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_21thread_resource_errorEEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(88) %1) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %0, align 8, !tbaa !61
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(40) %4) #27
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost6system12system_errorE, i64 16), ptr %3, align 8, !tbaa !61
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
-  %6 = getelementptr inbounds i8, ptr %1, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false), !tbaa.struct !147
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost21thread_resource_errorE, i64 16), ptr %3, align 8, !tbaa !61
-  %7 = getelementptr inbounds i8, ptr %0, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %7, align 8, !tbaa !61
-  %8 = getelementptr inbounds i8, ptr %0, i64 56
-  %9 = getelementptr inbounds i8, ptr %1, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %10 = load ptr, ptr %9, align 8, !tbaa !152
   store ptr %10, ptr %8, align 8, !tbaa !152
   %.not.i.i.i = icmp eq ptr %10, null
@@ -3990,14 +3990,14 @@ define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_21thread_resource_erro
 
 11:                                               ; preds = %2
   %12 = load ptr, ptr %10, align 8, !tbaa !61
-  %13 = getelementptr inbounds i8, ptr %12, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %14 = load ptr, ptr %13, align 8
   invoke void %14(ptr noundef nonnull align 8 dereferenceable(8) %10)
           to label %15 unwind label %18
 
 15:                                               ; preds = %2, %11
-  %16 = getelementptr inbounds i8, ptr %0, i64 64
-  %17 = getelementptr inbounds i8, ptr %1, i64 64
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %17, i64 24, i1 false)
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost10wrapexceptINS_21thread_resource_errorEEE, i64 16), ptr %0, align 8, !tbaa !61
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost10wrapexceptINS_21thread_resource_errorEEE, i64 64), ptr %3, align 8, !tbaa !61
@@ -4022,7 +4022,7 @@ define linkonce_odr hidden void @_ZN5boost16exception_detail20copy_boost_excepti
 6:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #27
   %7 = load ptr, ptr %5, align 8, !tbaa !61
-  %8 = getelementptr inbounds i8, ptr %7, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %9 = load ptr, ptr %8, align 8
   invoke void %9(ptr dead_on_unwind nonnull writable sret(%"class.boost::exception_detail::refcount_ptr") align 8 %3, ptr noundef nonnull align 8 dereferenceable(8) %5)
           to label %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEE7releaseEv.exit.i.i unwind label %23
@@ -4034,7 +4034,7 @@ _ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEE7releaseEv
 
 11:                                               ; preds = %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEE7releaseEv.exit.i.i
   %12 = load ptr, ptr %10, align 8, !tbaa !61
-  %13 = getelementptr inbounds i8, ptr %12, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %14 = load ptr, ptr %13, align 8
   invoke void %14(ptr noundef nonnull align 8 dereferenceable(8) %10)
           to label %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEEaSERKS3_.exit unwind label %25
@@ -4046,7 +4046,7 @@ _ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEEaSERKS3_.e
 
 15:                                               ; preds = %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEEaSERKS3_.exit
   %16 = load ptr, ptr %.pr, align 8, !tbaa !61
-  %17 = getelementptr inbounds i8, ptr %16, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %18 = load ptr, ptr %17, align 8
   %19 = invoke noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(8) %.pr)
           to label %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEED2Ev.exit unwind label %20
@@ -4076,7 +4076,7 @@ _ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEED2Ev.exit:
 
 28:                                               ; preds = %25
   %29 = load ptr, ptr %27, align 8, !tbaa !61
-  %30 = getelementptr inbounds i8, ptr %29, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 32
   %31 = load ptr, ptr %30, align 8
   %32 = invoke noundef zeroext i1 %31(ptr noundef nonnull align 8 dereferenceable(8) %27)
           to label %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEED2Ev.exit22 unwind label %33
@@ -4119,7 +4119,7 @@ _ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEED2Ev.exit2
 
 51:                                               ; preds = %36
   %52 = load ptr, ptr %50, align 8, !tbaa !61
-  %53 = getelementptr inbounds i8, ptr %52, i64 32
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 32
   %54 = load ptr, ptr %53, align 8
   %55 = invoke noundef zeroext i1 %54(ptr noundef nonnull align 8 dereferenceable(8) %50)
           to label %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEE7releaseEv.exit.i.i24 unwind label %67
@@ -4131,14 +4131,14 @@ _ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEE7releaseEv
 
 56:                                               ; preds = %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEE7releaseEv.exit.i.i24
   %57 = load ptr, ptr %.sroa.0.0, align 8, !tbaa !61
-  %58 = getelementptr inbounds i8, ptr %57, i64 24
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 24
   %59 = load ptr, ptr %58, align 8
   invoke void %59(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.0.0)
           to label %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEEaSERKS3_.exit28 unwind label %67
 
 _ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEEaSERKS3_.exit28: ; preds = %56
   %60 = load ptr, ptr %.sroa.0.0, align 8, !tbaa !61
-  %61 = getelementptr inbounds i8, ptr %60, i64 32
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 32
   %62 = load ptr, ptr %61, align 8
   %63 = invoke noundef zeroext i1 %62(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.0.0)
           to label %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEED2Ev.exit31 unwind label %64
@@ -4166,7 +4166,7 @@ _ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEED2Ev.exit3
 
 70:                                               ; preds = %69
   %71 = load ptr, ptr %.sroa.0.3, align 8, !tbaa !61
-  %72 = getelementptr inbounds i8, ptr %71, i64 32
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 32
   %73 = load ptr, ptr %72, align 8
   %74 = invoke noundef zeroext i1 %73(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.0.3)
           to label %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEED2Ev.exit34 unwind label %75
@@ -4864,7 +4864,7 @@ define linkonce_odr hidden void @_ZNK5boost6system10error_code7messageB5cxx11Ev(
   %9 = load ptr, ptr %8, align 8, !tbaa !114, !noalias !161
   %10 = load i32, ptr %1, align 8, !tbaa !164, !noalias !161
   %11 = load ptr, ptr %9, align 8, !tbaa !61, !noalias !161
-  %12 = getelementptr inbounds i8, ptr %11, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %13 = load ptr, ptr %12, align 8, !noalias !161
   tail call void %13(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %9, i32 noundef %10)
   br label %37
@@ -4930,7 +4930,7 @@ _ZNK5boost6system10error_code8categoryEv.exit.thread: ; preds = %2
   %32 = load ptr, ptr %31, align 8, !tbaa !15
   %33 = load i32, ptr %1, align 8, !tbaa !15
   %34 = load ptr, ptr %32, align 8, !tbaa !61
-  %35 = getelementptr inbounds i8, ptr %34, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 32
   %36 = load ptr, ptr %35, align 8
   tail call void %36(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(52) %32, i32 noundef %33)
   br label %37
@@ -4962,7 +4962,7 @@ define linkonce_odr hidden void @_ZNK5boost6system10error_code9to_stringB5cxx11E
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8, !tbaa !114
   %13 = load ptr, ptr %12, align 8, !tbaa !61
-  %14 = getelementptr inbounds i8, ptr %13, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = tail call noundef ptr %15(ptr noundef nonnull align 8 dereferenceable(8) %12) #27
   %17 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %16) #27
@@ -5505,7 +5505,7 @@ define linkonce_odr hidden void @_ZN5boost10lock_errorC2EiPKc(ptr noundef nonnul
 
 9:                                                ; preds = %3
   %10 = load ptr, ptr @_ZN5boost6system6detail18generic_cat_holderIvE8instanceE, align 8, !tbaa !61
-  %11 = getelementptr inbounds i8, ptr %10, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %12 = load ptr, ptr %11, align 8
   %13 = tail call noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(52) @_ZN5boost6system6detail18generic_cat_holderIvE8instanceE, i32 noundef %1) #27
   br label %_ZN5boost16thread_exceptionC2EiPKc.exit
@@ -5530,18 +5530,18 @@ declare void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceab
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_10lock_errorEEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(40) %1) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %0, align 8, !tbaa !61
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(40) %1) #27
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost6system12system_errorE, i64 16), ptr %3, align 8, !tbaa !61
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false), !tbaa.struct !147
-  %6 = getelementptr inbounds i8, ptr %0, i64 48
-  %7 = getelementptr inbounds i8, ptr %0, i64 56
-  %8 = getelementptr inbounds i8, ptr %0, i64 80
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   store i32 -1, ptr %8, align 8, !tbaa !148
-  %9 = getelementptr inbounds i8, ptr %0, i64 84
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 84
   store i32 -1, ptr %9, align 4, !tbaa !151
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost10wrapexceptINS_10lock_errorEEE, i64 16), ptr %0, align 8, !tbaa !61
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost10wrapexceptINS_10lock_errorEEE, i64 64), ptr %3, align 8, !tbaa !61
@@ -5551,16 +5551,16 @@ define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_10lock_errorEEC2ERKS1_
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_10lock_errorEED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !61
-  %3 = getelementptr inbounds i8, ptr %0, i64 56
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8, !tbaa !152
   %.not.i.i.i = icmp eq ptr %4, null
   br i1 %.not.i.i.i, label %_ZN5boost9exceptionD2Ev.exit, label %5
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %4, align 8, !tbaa !61
-  %7 = getelementptr inbounds i8, ptr %6, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %8 = load ptr, ptr %7, align 8
   %9 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %.noexc.i.i unwind label %11
@@ -5580,7 +5580,7 @@ define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_10lock_errorEED2Ev(ptr
   unreachable
 
 _ZN5boost9exceptionD2Ev.exit:                     ; preds = %1, %.noexc.i.i, %10
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %14) #27
   ret void
 }
@@ -5589,17 +5589,17 @@ _ZN5boost9exceptionD2Ev.exit:                     ; preds = %1, %.noexc.i.i, %10
 define linkonce_odr hidden noundef ptr @_ZNK5boost10wrapexceptINS_10lock_errorEE5cloneEv(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #30
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %2, align 8, !tbaa !61
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(40) %4) #27
-  %5 = getelementptr inbounds i8, ptr %2, i64 24
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false), !tbaa.struct !147
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost10lock_errorE, i64 16), ptr %3, align 8, !tbaa !61
-  %7 = getelementptr inbounds i8, ptr %2, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %7, align 8, !tbaa !61
-  %8 = getelementptr inbounds i8, ptr %2, i64 56
-  %9 = getelementptr inbounds i8, ptr %0, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %10 = load ptr, ptr %9, align 8, !tbaa !152
   store ptr %10, ptr %8, align 8, !tbaa !152
   %.not.i.i.i.i = icmp eq ptr %10, null
@@ -5607,7 +5607,7 @@ define linkonce_odr hidden noundef ptr @_ZNK5boost10wrapexceptINS_10lock_errorEE
 
 11:                                               ; preds = %1
   %12 = load ptr, ptr %10, align 8, !tbaa !61
-  %13 = getelementptr inbounds i8, ptr %12, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %14 = load ptr, ptr %13, align 8
   invoke void %14(ptr noundef nonnull align 8 dereferenceable(8) %10)
           to label %16 unwind label %.body
@@ -5620,13 +5620,13 @@ define linkonce_odr hidden noundef ptr @_ZNK5boost10wrapexceptINS_10lock_errorEE
   br label %24
 
 16:                                               ; preds = %11, %1
-  %17 = getelementptr inbounds i8, ptr %2, i64 64
-  %18 = getelementptr inbounds i8, ptr %0, i64 64
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 64
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %18, i64 24, i1 false)
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost10wrapexceptINS_10lock_errorEEE, i64 16), ptr %2, align 8, !tbaa !61
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost10wrapexceptINS_10lock_errorEEE, i64 64), ptr %3, align 8, !tbaa !61
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost10wrapexceptINS_10lock_errorEEE, i64 104), ptr %7, align 8, !tbaa !61
-  %19 = getelementptr inbounds i8, ptr %0, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 48
   invoke void @_ZN5boost16exception_detail20copy_boost_exceptionEPNS_9exceptionEPKS1_(ptr noundef nonnull %7, ptr noundef nonnull %19)
           to label %_ZN5boost10wrapexceptINS_10lock_errorEE7deleterD2Ev.exit unwind label %_ZN5boost10wrapexceptINS_10lock_errorEE7deleterD2Ev.exit7
 
@@ -5637,7 +5637,7 @@ _ZN5boost10wrapexceptINS_10lock_errorEE7deleterD2Ev.exit7: ; preds = %16
   %20 = landingpad { ptr, i32 }
           cleanup
   %21 = load ptr, ptr %2, align 8, !tbaa !61
-  %22 = getelementptr inbounds i8, ptr %21, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %23 = load ptr, ptr %22, align 8
   tail call void %23(ptr noundef nonnull align 8 dereferenceable(88) %2) #27
   br label %24
@@ -5666,16 +5666,16 @@ define linkonce_odr hidden void @_ZNK5boost10wrapexceptINS_10lock_errorEE7rethro
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_10lock_errorEED0Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !61
-  %3 = getelementptr inbounds i8, ptr %0, i64 56
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8, !tbaa !152
   %.not.i.i.i.i = icmp eq ptr %4, null
   br i1 %.not.i.i.i.i, label %_ZN5boost10wrapexceptINS_10lock_errorEED2Ev.exit, label %5
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %4, align 8, !tbaa !61
-  %7 = getelementptr inbounds i8, ptr %6, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %8 = load ptr, ptr %7, align 8
   %9 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %.noexc.i.i.i unwind label %11
@@ -5695,7 +5695,7 @@ define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_10lock_errorEED0Ev(ptr
   unreachable
 
 _ZN5boost10wrapexceptINS_10lock_errorEED2Ev.exit: ; preds = %1, %.noexc.i.i.i, %10
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %14) #27
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 88) #31
   ret void
@@ -5703,16 +5703,16 @@ _ZN5boost10wrapexceptINS_10lock_errorEED2Ev.exit: ; preds = %1, %.noexc.i.i.i, %
 
 ; Function Attrs: inlinehint nounwind uwtable
 define linkonce_odr hidden void @_ZThn8_N5boost10wrapexceptINS_10lock_errorEED1Ev(ptr noundef %0) unnamed_addr #18 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !61
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8, !tbaa !152
   %.not.i.i.i.i = icmp eq ptr %4, null
   br i1 %.not.i.i.i.i, label %_ZN5boost10wrapexceptINS_10lock_errorEED2Ev.exit, label %5
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %4, align 8, !tbaa !61
-  %7 = getelementptr inbounds i8, ptr %6, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %8 = load ptr, ptr %7, align 8
   %9 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %.noexc.i.i.i unwind label %11
@@ -5738,16 +5738,16 @@ _ZN5boost10wrapexceptINS_10lock_errorEED2Ev.exit: ; preds = %1, %.noexc.i.i.i, %
 
 ; Function Attrs: inlinehint nounwind uwtable
 define linkonce_odr hidden void @_ZThn8_N5boost10wrapexceptINS_10lock_errorEED0Ev(ptr noundef %0) unnamed_addr #18 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !61
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8, !tbaa !152
   %.not.i.i.i.i.i = icmp eq ptr %4, null
   br i1 %.not.i.i.i.i.i, label %_ZN5boost10wrapexceptINS_10lock_errorEED0Ev.exit, label %5
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %4, align 8, !tbaa !61
-  %7 = getelementptr inbounds i8, ptr %6, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %8 = load ptr, ptr %7, align 8
   %9 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %.noexc.i.i.i.i unwind label %11
@@ -5776,14 +5776,14 @@ _ZN5boost10wrapexceptINS_10lock_errorEED0Ev.exit: ; preds = %1, %.noexc.i.i.i.i,
 ; Function Attrs: inlinehint nounwind uwtable
 define linkonce_odr hidden void @_ZThn48_N5boost10wrapexceptINS_10lock_errorEED1Ev(ptr noundef %0) unnamed_addr #18 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8, !tbaa !61
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !152
   %.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i, label %_ZN5boost10wrapexceptINS_10lock_errorEED2Ev.exit, label %4
 
 4:                                                ; preds = %1
   %5 = load ptr, ptr %3, align 8, !tbaa !61
-  %6 = getelementptr inbounds i8, ptr %5, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %7 = load ptr, ptr %6, align 8
   %8 = invoke noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %.noexc.i.i.i unwind label %10
@@ -5811,14 +5811,14 @@ _ZN5boost10wrapexceptINS_10lock_errorEED2Ev.exit: ; preds = %1, %.noexc.i.i.i, %
 ; Function Attrs: inlinehint nounwind uwtable
 define linkonce_odr hidden void @_ZThn48_N5boost10wrapexceptINS_10lock_errorEED0Ev(ptr noundef %0) unnamed_addr #18 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8, !tbaa !61
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !152
   %.not.i.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i.i, label %_ZN5boost10wrapexceptINS_10lock_errorEED0Ev.exit, label %4
 
 4:                                                ; preds = %1
   %5 = load ptr, ptr %3, align 8, !tbaa !61
-  %6 = getelementptr inbounds i8, ptr %5, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %7 = load ptr, ptr %6, align 8
   %8 = invoke noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %.noexc.i.i.i.i unwind label %10
@@ -5855,18 +5855,18 @@ define linkonce_odr hidden void @_ZN5boost10lock_errorD0Ev(ptr noundef nonnull a
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_10lock_errorEEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(88) %1) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %0, align 8, !tbaa !61
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(40) %4) #27
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost6system12system_errorE, i64 16), ptr %3, align 8, !tbaa !61
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
-  %6 = getelementptr inbounds i8, ptr %1, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false), !tbaa.struct !147
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost10lock_errorE, i64 16), ptr %3, align 8, !tbaa !61
-  %7 = getelementptr inbounds i8, ptr %0, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %7, align 8, !tbaa !61
-  %8 = getelementptr inbounds i8, ptr %0, i64 56
-  %9 = getelementptr inbounds i8, ptr %1, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %10 = load ptr, ptr %9, align 8, !tbaa !152
   store ptr %10, ptr %8, align 8, !tbaa !152
   %.not.i.i.i = icmp eq ptr %10, null
@@ -5874,14 +5874,14 @@ define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_10lock_errorEEC2ERKS2_
 
 11:                                               ; preds = %2
   %12 = load ptr, ptr %10, align 8, !tbaa !61
-  %13 = getelementptr inbounds i8, ptr %12, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %14 = load ptr, ptr %13, align 8
   invoke void %14(ptr noundef nonnull align 8 dereferenceable(8) %10)
           to label %15 unwind label %18
 
 15:                                               ; preds = %2, %11
-  %16 = getelementptr inbounds i8, ptr %0, i64 64
-  %17 = getelementptr inbounds i8, ptr %1, i64 64
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %17, i64 24, i1 false)
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost10wrapexceptINS_10lock_errorEEE, i64 16), ptr %0, align 8, !tbaa !61
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost10wrapexceptINS_10lock_errorEEE, i64 64), ptr %3, align 8, !tbaa !61
@@ -5912,7 +5912,7 @@ define linkonce_odr hidden void @_ZN5boost6detail12shared_countD2Ev(ptr noundef 
 
 7:                                                ; preds = %3
   %8 = load ptr, ptr %2, align 8, !tbaa !61
-  %9 = getelementptr inbounds i8, ptr %8, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load ptr, ptr %9, align 8
   invoke void %10(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %.noexc unwind label %18
@@ -5925,7 +5925,7 @@ define linkonce_odr hidden void @_ZN5boost6detail12shared_countD2Ev(ptr noundef 
 
 14:                                               ; preds = %.noexc
   %15 = load ptr, ptr %2, align 8, !tbaa !61
-  %16 = getelementptr inbounds i8, ptr %15, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %17 = load ptr, ptr %16, align 8
   invoke void %17(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %_ZN5boost6detail15sp_counted_base7releaseEv.exit unwind label %18
@@ -6024,7 +6024,7 @@ _ZN5boost14checked_deleteINS_6spirit7classic4impl26object_with_id_base_supplyImE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost6detail15sp_counted_base7destroyEv(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #10 comdat align 2 {
   %2 = load ptr, ptr %0, align 8, !tbaa !61
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(16) %0) #27
   ret void
@@ -6097,7 +6097,7 @@ define linkonce_odr hidden void @_ZN5boost6spirit7classic4impl26object_with_id_b
 
 24:                                               ; preds = %18
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.76) #28
-          to label %.noexc unwind label %41
+          to label %.noexc unwind label %38
 
 .noexc:                                           ; preds = %24
   unreachable
@@ -6109,77 +6109,73 @@ _ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i.i: ; preds = %18
   %27 = icmp ult i64 %26, %25
   %28 = call i64 @llvm.umin.i64(i64 %26, i64 1152921504606846975)
   %29 = select i1 %27, i64 1152921504606846975, i64 %28
-  %.not.i.i.i = icmp eq i64 %29, 0
-  br i1 %.not.i.i.i, label %_ZNSt12_Vector_baseImSaImEE11_M_allocateEm.exit.i.i, label %30
+  %.not.i.i.i = icmp ne i64 %29, 0
+  call void @llvm.assume(i1 %.not.i.i.i)
+  %30 = shl nuw nsw i64 %29, 3
+  %31 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %30) #30
+          to label %.noexc2 unwind label %38
 
-30:                                               ; preds = %_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i.i
-  %31 = shl nuw nsw i64 %29, 3
-  %32 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %31) #30
-          to label %_ZNSt12_Vector_baseImSaImEE11_M_allocateEm.exit.i.i unwind label %41
+.noexc2:                                          ; preds = %_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i.i
+  %32 = getelementptr inbounds i8, ptr %31, i64 %22
+  store i64 %1, ptr %32, align 8, !tbaa !11
+  %33 = icmp sgt i64 %22, 0
+  br i1 %33, label %34, label %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i
 
-_ZNSt12_Vector_baseImSaImEE11_M_allocateEm.exit.i.i: ; preds = %30, %_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i.i
-  %33 = phi ptr [ null, %_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i.i ], [ %32, %30 ]
-  %34 = getelementptr inbounds nuw i64, ptr %33, i64 %25
-  store i64 %1, ptr %34, align 8, !tbaa !11
-  %35 = icmp sgt i64 %22, 0
-  br i1 %35, label %36, label %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i
-
-36:                                               ; preds = %_ZNSt12_Vector_baseImSaImEE11_M_allocateEm.exit.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %33, ptr align 8 %19, i64 %22, i1 false)
+34:                                               ; preds = %.noexc2
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %31, ptr align 8 %19, i64 %22, i1 false)
   br label %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i
 
-_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i: ; preds = %36, %_ZNSt12_Vector_baseImSaImEE11_M_allocateEm.exit.i.i
-  %37 = getelementptr inbounds i8, ptr %33, i64 %22
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
+_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i: ; preds = %34, %.noexc2
+  %35 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %.not.i17.i.i = icmp eq ptr %19, null
-  br i1 %.not.i17.i.i, label %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i, label %39
+  br i1 %.not.i17.i.i, label %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i, label %36
 
-39:                                               ; preds = %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i
+36:                                               ; preds = %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i
   call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef %22) #31
   br label %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i
 
-_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i: ; preds = %39, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i
-  store ptr %33, ptr %11, align 8, !tbaa !146
-  store ptr %38, ptr %12, align 8, !tbaa !137
-  %40 = getelementptr inbounds nuw i64, ptr %33, i64 %29
-  store ptr %40, ptr %14, align 8, !tbaa !139
+_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i: ; preds = %36, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i
+  store ptr %31, ptr %11, align 8, !tbaa !146
+  store ptr %35, ptr %12, align 8, !tbaa !137
+  %37 = getelementptr inbounds nuw i64, ptr %31, i64 %29
+  store ptr %37, ptr %14, align 8, !tbaa !139
   br label %_ZNSt6vectorImSaImEE9push_backERKm.exit
 
-41:                                               ; preds = %30, %24
-  %42 = landingpad { ptr, i32 }
+38:                                               ; preds = %_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i.i, %24
+  %39 = landingpad { ptr, i32 }
           cleanup
-  %43 = load i8, ptr %4, align 8, !tbaa !130, !range !52, !noundef !53
-  %44 = trunc nuw i8 %43 to i1
-  br i1 %44, label %45, label %_ZN5boost11unique_lockINS_5mutexEED2Ev.exit
+  %40 = load i8, ptr %4, align 8, !tbaa !130, !range !52, !noundef !53
+  %41 = trunc nuw i8 %40 to i1
+  br i1 %41, label %42, label %_ZN5boost11unique_lockINS_5mutexEED2Ev.exit
 
-45:                                               ; preds = %41
-  %46 = load ptr, ptr %3, align 8, !tbaa !128
-  br label %47
+42:                                               ; preds = %38
+  %43 = load ptr, ptr %3, align 8, !tbaa !128
+  br label %44
 
-47:                                               ; preds = %47, %45
-  %48 = call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %46) #27
-  %49 = icmp eq i32 %48, 4
-  br i1 %49, label %47, label %_ZN5boost11unique_lockINS_5mutexEED2Ev.exit, !llvm.loop !131
+44:                                               ; preds = %44, %42
+  %45 = call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %43) #27
+  %46 = icmp eq i32 %45, 4
+  br i1 %46, label %44, label %_ZN5boost11unique_lockINS_5mutexEED2Ev.exit, !llvm.loop !131
 
-_ZN5boost11unique_lockINS_5mutexEED2Ev.exit:      ; preds = %47, %41
+_ZN5boost11unique_lockINS_5mutexEED2Ev.exit:      ; preds = %44, %38
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #27
-  resume { ptr, i32 } %42
+  resume { ptr, i32 } %39
 
 _ZNSt6vectorImSaImEE9push_backERKm.exit:          ; preds = %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i, %16, %8
-  %50 = load i8, ptr %4, align 8, !tbaa !130, !range !52, !noundef !53
-  %51 = trunc nuw i8 %50 to i1
-  br i1 %51, label %52, label %_ZN5boost11unique_lockINS_5mutexEED2Ev.exit3
+  %47 = load i8, ptr %4, align 8, !tbaa !130, !range !52, !noundef !53
+  %48 = trunc nuw i8 %47 to i1
+  br i1 %48, label %49, label %_ZN5boost11unique_lockINS_5mutexEED2Ev.exit3
 
-52:                                               ; preds = %_ZNSt6vectorImSaImEE9push_backERKm.exit
-  %53 = load ptr, ptr %3, align 8, !tbaa !128
-  br label %54
+49:                                               ; preds = %_ZNSt6vectorImSaImEE9push_backERKm.exit
+  %50 = load ptr, ptr %3, align 8, !tbaa !128
+  br label %51
 
-54:                                               ; preds = %54, %52
-  %55 = call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %53) #27
-  %56 = icmp eq i32 %55, 4
-  br i1 %56, label %54, label %_ZN5boost11unique_lockINS_5mutexEED2Ev.exit3, !llvm.loop !131
+51:                                               ; preds = %51, %49
+  %52 = call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %50) #27
+  %53 = icmp eq i32 %52, 4
+  br i1 %53, label %51, label %_ZN5boost11unique_lockINS_5mutexEED2Ev.exit3, !llvm.loop !131
 
-_ZN5boost11unique_lockINS_5mutexEED2Ev.exit3:     ; preds = %54, %_ZNSt6vectorImSaImEE9push_backERKm.exit
+_ZN5boost11unique_lockINS_5mutexEED2Ev.exit3:     ; preds = %51, %_ZNSt6vectorImSaImEE9push_backERKm.exit
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #27
   ret void
 }
@@ -6362,10 +6358,10 @@ define linkonce_odr hidden i64 @_ZNK5boost6spirit7classic11alternativeINS2_INS1_
 27:                                               ; preds = %24
   store i8 1, ptr @_ZZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEvE1f, align 1, !tbaa !23
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i8 0, i64 64, i1 false)
-  store i64 80, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 64), align 8, !tbaa !116
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 80), align 8, !tbaa !120
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 72), align 8, !tbaa !121
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 88), align 8, !tbaa !122
+  store i64 80, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 64), align 8, !tbaa !116
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 80), align 8, !tbaa !120
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 72), align 8, !tbaa !121
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 88), align 8, !tbaa !122
   br label %_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i
 
 _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i: ; preds = %27, %24
@@ -6388,9 +6384,9 @@ _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33defau
   unreachable
 
 _ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS8_EEPcEEEENS4_13file_positionISE_EEEdlEPvm.exit.i: ; preds = %_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i
-  %33 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
+  %33 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
   store ptr %33, ptr %22, align 8, !tbaa !22
-  store ptr %22, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
+  store ptr %22, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
   %34 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE) #27
   br label %_ZN5boost6spirit7classic5matchINS_4wave8cpplexer9lex_tokenINS3_4util13file_positionINS6_11flex_stringIcSt11char_traitsIcESaIcENS6_9CowStringINS6_22AllocatorStringStorageIcSB_EEPcEEEEEEEEED2Ev.exit
 
@@ -6444,10 +6440,10 @@ define linkonce_odr hidden i64 @_ZNK5boost6spirit7classic11alternativeINS1_5chli
 24:                                               ; preds = %21
   store i8 1, ptr @_ZZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEvE1f, align 1, !tbaa !23
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i8 0, i64 64, i1 false)
-  store i64 80, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 64), align 8, !tbaa !116
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 80), align 8, !tbaa !120
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 72), align 8, !tbaa !121
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 88), align 8, !tbaa !122
+  store i64 80, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 64), align 8, !tbaa !116
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 80), align 8, !tbaa !120
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 72), align 8, !tbaa !121
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 88), align 8, !tbaa !122
   br label %_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i
 
 _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i: ; preds = %24, %21
@@ -6470,9 +6466,9 @@ _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33defau
   unreachable
 
 _ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS8_EEPcEEEENS4_13file_positionISE_EEEdlEPvm.exit.i: ; preds = %_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i
-  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
+  %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
   store ptr %30, ptr %19, align 8, !tbaa !22
-  store ptr %19, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
+  store ptr %19, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
   %31 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE) #27
   br label %_ZN5boost6spirit7classic5matchINS_4wave8cpplexer9lex_tokenINS3_4util13file_positionINS6_11flex_stringIcSt11char_traitsIcESaIcENS6_9CowStringINS6_22AllocatorStringStorageIcSB_EEPcEEEEEEEEED2Ev.exit
 
@@ -6519,10 +6515,10 @@ _ZN5boost6spirit7classic5matchINS_4wave8cpplexer9lex_tokenINS3_4util13file_posit
 52:                                               ; preds = %49
   store i8 1, ptr @_ZZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEvE1f, align 1, !tbaa !23
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i8 0, i64 64, i1 false)
-  store i64 80, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 64), align 8, !tbaa !116
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 80), align 8, !tbaa !120
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 72), align 8, !tbaa !121
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 88), align 8, !tbaa !122
+  store i64 80, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 64), align 8, !tbaa !116
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 80), align 8, !tbaa !120
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 72), align 8, !tbaa !121
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 88), align 8, !tbaa !122
   br label %_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i15
 
 _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i15: ; preds = %52, %49
@@ -6545,9 +6541,9 @@ _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33defau
   unreachable
 
 _ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS8_EEPcEEEENS4_13file_positionISE_EEEdlEPvm.exit.i18: ; preds = %_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i15
-  %58 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
+  %58 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
   store ptr %58, ptr %47, align 8, !tbaa !22
-  store ptr %47, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
+  store ptr %47, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
   %59 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE) #27
   br label %_ZN5boost6spirit7classic5matchINS_4wave8cpplexer9lex_tokenINS3_4util13file_positionINS6_11flex_stringIcSt11char_traitsIcESaIcENS6_9CowStringINS6_22AllocatorStringStorageIcSB_EEPcEEEEEEEEED2Ev.exit12
 
@@ -6606,10 +6602,10 @@ _ZN5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcSt
 26:                                               ; preds = %23
   store i8 1, ptr @_ZZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEvE1f, align 1, !tbaa !23
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i8 0, i64 64, i1 false)
-  store i64 80, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 64), align 8, !tbaa !116
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 80), align 8, !tbaa !120
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 72), align 8, !tbaa !121
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 88), align 8, !tbaa !122
+  store i64 80, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 64), align 8, !tbaa !116
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 80), align 8, !tbaa !120
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 72), align 8, !tbaa !121
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 88), align 8, !tbaa !122
   br label %_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i
 
 _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i: ; preds = %26, %23
@@ -6632,9 +6628,9 @@ _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33defau
   unreachable
 
 _ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS8_EEPcEEEENS4_13file_positionISE_EEEdlEPvm.exit.i: ; preds = %_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i
-  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
+  %32 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
   store ptr %32, ptr %12, align 8, !tbaa !22
-  store ptr %12, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
+  store ptr %12, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
   %33 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE) #27
   br i1 %20, label %34, label %45
 
@@ -6691,10 +6687,10 @@ _ZN5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcSt
 56:                                               ; preds = %53
   store i8 1, ptr @_ZZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEvE1f, align 1, !tbaa !23
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i8 0, i64 64, i1 false)
-  store i64 80, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 64), align 8, !tbaa !116
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 80), align 8, !tbaa !120
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 72), align 8, !tbaa !121
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 88), align 8, !tbaa !122
+  store i64 80, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 64), align 8, !tbaa !116
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 80), align 8, !tbaa !120
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 72), align 8, !tbaa !121
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 88), align 8, !tbaa !122
   br label %_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i18
 
 _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i18: ; preds = %56, %53
@@ -6717,9 +6713,9 @@ _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33defau
   unreachable
 
 _ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS8_EEPcEEEENS4_13file_positionISE_EEEdlEPvm.exit.i21: ; preds = %_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i18
-  %62 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
+  %62 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
   store ptr %62, ptr %51, align 8, !tbaa !22
-  store ptr %51, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
+  store ptr %51, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
   %63 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE) #27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #27
   br i1 %switch.ph, label %64, label %66
@@ -6771,10 +6767,10 @@ _ZN5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcSt
 17:                                               ; preds = %14
   store i8 1, ptr @_ZZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEvE1f, align 1, !tbaa !23
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i8 0, i64 64, i1 false)
-  store i64 80, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 64), align 8, !tbaa !116
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 80), align 8, !tbaa !120
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 72), align 8, !tbaa !121
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 88), align 8, !tbaa !122
+  store i64 80, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 64), align 8, !tbaa !116
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 80), align 8, !tbaa !120
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 72), align 8, !tbaa !121
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 88), align 8, !tbaa !122
   br label %_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i
 
 _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i: ; preds = %17, %14
@@ -6797,9 +6793,9 @@ _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33defau
   unreachable
 
 _ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS8_EEPcEEEENS4_13file_positionISE_EEEdlEPvm.exit.i: ; preds = %_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i
-  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
+  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
   store ptr %23, ptr %7, align 8, !tbaa !22
-  store ptr %7, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
+  store ptr %7, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
   %24 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE) #27
   br label %_ZN5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcSt11char_traitsIcESaIcENS3_9CowStringINS3_22AllocatorStringStorageIcS8_EEPcEEEEEEED2Ev.exit
 
@@ -6833,10 +6829,10 @@ define linkonce_odr hidden void @_ZN5boost4wave8cpplexer9lex_tokenINS0_4util13fi
 13:                                               ; preds = %10
   store i8 1, ptr @_ZZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEvE1f, align 1, !tbaa !23
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i8 0, i64 64, i1 false)
-  store i64 80, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 64), align 8, !tbaa !116
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 80), align 8, !tbaa !120
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 72), align 8, !tbaa !121
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 88), align 8, !tbaa !122
+  store i64 80, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 64), align 8, !tbaa !116
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 80), align 8, !tbaa !120
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 72), align 8, !tbaa !121
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 88), align 8, !tbaa !122
   br label %_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i
 
 _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i: ; preds = %13, %10
@@ -6859,9 +6855,9 @@ _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33defau
   unreachable
 
 _ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS8_EEPcEEEENS4_13file_positionISE_EEEdlEPvm.exit: ; preds = %_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i
-  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
+  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
   store ptr %19, ptr %8, align 8, !tbaa !22
-  store ptr %8, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
+  store ptr %8, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
   %20 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE) #27
   br label %21
 
@@ -7010,7 +7006,7 @@ define linkonce_odr hidden void @_ZNK5boost6spirit7classic7grammarINS_4wave8gram
 
 21:                                               ; preds = %.noexc
   %22 = load ptr, ptr %20, align 8, !tbaa !61, !noalias !221
-  %23 = getelementptr inbounds i8, ptr %22, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %24 = load ptr, ptr %23, align 8, !noalias !221
   %25 = invoke i64 %24(ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull align 8 dereferenceable(24) %2)
           to label %_ZN5boost6spirit7classic5matchINS_4wave8grammars8closures13closure_valueEED2Ev.exit unwind label %34
@@ -7018,23 +7014,23 @@ define linkonce_odr hidden void @_ZNK5boost6spirit7classic7grammarINS_4wave8gram
 _ZN5boost6spirit7classic5matchINS_4wave8grammars8closures13closure_valueEED2Ev.exit: ; preds = %.noexc, %21
   %.sroa.010.0.i.i.i.i.i = phi i64 [ -1, %.noexc ], [ %25, %21 ]
   %.sroa.1313.16.copyload = load i32, ptr %4, align 8, !tbaa !226
-  %.sroa.16.16..sroa_idx = getelementptr inbounds i8, ptr %4, i64 4
+  %.sroa.16.16..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 4
   %.sroa.16.16.copyload = load i32, ptr %.sroa.16.16..sroa_idx, align 4
   %.sroa.1617.16.copyload = load i64, ptr %6, align 8, !tbaa !15
   %.sroa.19.16.copyload = load i32, ptr %5, align 8, !tbaa !58
-  %.sroa.20.16..sroa_idx = getelementptr inbounds i8, ptr %4, i64 20
+  %.sroa.20.16..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 20
   %.sroa.20.16.copyload = load i32, ptr %.sroa.20.16..sroa_idx, align 4
   store i64 %.sroa.010.0.i.i.i.i.i, ptr %0, align 8, !tbaa !182
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %.sroa.1313.16.copyload, ptr %27, align 8, !tbaa !226
-  %.sroa.16.16..sroa_idx15 = getelementptr inbounds i8, ptr %0, i64 20
+  %.sroa.16.16..sroa_idx15 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %.sroa.16.16.copyload, ptr %.sroa.16.16..sroa_idx15, align 4
-  %.sroa.1617.16..sroa_idx18 = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.1617.16..sroa_idx18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %.sroa.1617.16.copyload, ptr %.sroa.1617.16..sroa_idx18, align 8, !tbaa !15
-  %.sroa.19.16..sroa_idx20 = getelementptr inbounds i8, ptr %0, i64 32
+  %.sroa.19.16..sroa_idx20 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 %.sroa.19.16.copyload, ptr %.sroa.19.16..sroa_idx20, align 8, !tbaa !58
-  %.sroa.20.16..sroa_idx22 = getelementptr inbounds i8, ptr %0, i64 36
+  %.sroa.20.16..sroa_idx22 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 %.sroa.20.16.copyload, ptr %.sroa.20.16..sroa_idx22, align 4
   store i8 1, ptr %26, align 8, !tbaa !227
   %28 = load ptr, ptr %17, align 8, !tbaa !228
@@ -7191,7 +7187,7 @@ _ZN5boost6detail12shared_countC2ERKNS0_10weak_countENS0_14sp_nothrow_tagE.exit.i
 
 42:                                               ; preds = %38
   %43 = load ptr, ptr %28, align 8, !tbaa !61
-  %44 = getelementptr inbounds i8, ptr %43, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %45 = load ptr, ptr %44, align 8
   invoke void %45(ptr noundef nonnull align 8 dereferenceable(16) %28)
           to label %.noexc.i.i unwind label %53
@@ -7204,7 +7200,7 @@ _ZN5boost6detail12shared_countC2ERKNS0_10weak_countENS0_14sp_nothrow_tagE.exit.i
 
 49:                                               ; preds = %.noexc.i.i
   %50 = load ptr, ptr %28, align 8, !tbaa !61
-  %51 = getelementptr inbounds i8, ptr %50, i64 24
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %52 = load ptr, ptr %51, align 8
   invoke void %52(ptr noundef nonnull align 8 dereferenceable(16) %28)
           to label %_ZN5boost10shared_ptrINS_6spirit7classic4impl14grammar_helperINS2_7grammarINS_4wave8grammars18expression_grammarENS2_15closure_contextINS7_8closures16cpp_expr_closureEEEEES8_NS2_7scannerISt20_List_const_iteratorINS6_8cpplexer9lex_tokenINS6_4util13file_positionINSI_11flex_stringIcSt11char_traitsIcESaIcENSI_9CowStringINSI_22AllocatorStringStorageIcSN_EEPcEEEEEEEEENS2_16scanner_policiesINS2_28skip_parser_iteration_policyINS2_11alternativeINSZ_INS2_5chlitINS6_8token_idEEES12_EES12_EENS2_16iteration_policyEEENS2_12match_policyENS2_13action_policyEEEEEEEED2Ev.exit unwind label %53
@@ -7250,7 +7246,7 @@ define linkonce_odr hidden void @_ZN5boost6spirit7classic4impl14grammar_helperIN
   %9 = extractvalue { ptr, i32 } %8, 0
   %10 = tail call ptr @__cxa_begin_catch(ptr %9) #27
   %11 = load ptr, ptr %0, align 8, !tbaa !61
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(56) %0) #27
   invoke void @__cxa_rethrow() #28
@@ -7306,7 +7302,7 @@ define linkonce_odr hidden void @_ZN5boost6spirit7classic4impl14grammar_helperIN
 
 33:                                               ; preds = %29
   %34 = load ptr, ptr %26, align 8, !tbaa !61
-  %35 = getelementptr inbounds i8, ptr %34, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 24
   %36 = load ptr, ptr %35, align 8
   invoke void %36(ptr noundef nonnull align 8 dereferenceable(16) %26)
           to label %_ZN5boost6detail15sp_counted_base12weak_releaseEv.exit.i.i unwind label %37
@@ -7343,7 +7339,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(696) ptr @_ZN
   %3 = alloca %"class.boost::movelib::unique_ptr", align 8
   %4 = alloca %"class.boost::unique_lock", align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %6 = getelementptr inbounds i8, ptr %1, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %7 = load i64, ptr %6, align 8, !tbaa !97
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -7387,13 +7383,13 @@ _ZNSt6vectorIPN5boost4wave8grammars18expression_grammar10definitionINS0_6spirit7
   %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %7
   %29 = load ptr, ptr %28, align 8, !tbaa !22
   %.not17 = icmp eq ptr %29, null
-  br i1 %.not17, label %30, label %91
+  br i1 %.not17, label %30, label %88
 
 30:                                               ; preds = %_ZNSt6vectorIPN5boost4wave8grammars18expression_grammar10definitionINS0_6spirit7classic7scannerISt20_List_const_iteratorINS1_8cpplexer9lex_tokenINS1_4util13file_positionINSB_11flex_stringIcSt11char_traitsIcESaIcENSB_9CowStringINSB_22AllocatorStringStorageIcSG_EEPcEEEEEEEEENS6_16scanner_policiesINS6_28skip_parser_iteration_policyINS6_11alternativeINSS_INS6_5chlitINS1_8token_idEEESV_EESV_EENS6_16iteration_policyEEENS6_12match_policyENS6_13action_policyEEEEEEESaIS15_EE6resizeEm.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #27
   %31 = tail call noalias noundef nonnull dereferenceable(696) ptr @_Znwm(i64 noundef 696) #30
   invoke void @_ZN5boost4wave8grammars18expression_grammar10definitionINS_6spirit7classic7scannerISt20_List_const_iteratorINS0_8cpplexer9lex_tokenINS0_4util13file_positionINSA_11flex_stringIcSt11char_traitsIcESaIcENSA_9CowStringINSA_22AllocatorStringStorageIcSF_EEPcEEEEEEEEENS5_16scanner_policiesINS5_28skip_parser_iteration_policyINS5_11alternativeINSR_INS5_5chlitINS0_8token_idEEESU_EESU_EENS5_16iteration_policyEEENS5_12match_policyENS5_13action_policyEEEEEEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(696) %31, ptr noundef nonnull align 8 dereferenceable(104) %1)
-          to label %32 unwind label %77
+          to label %32 unwind label %74
 
 32:                                               ; preds = %30
   store ptr %31, ptr %3, align 8, !tbaa !247
@@ -7403,7 +7399,7 @@ _ZNSt6vectorIPN5boost4wave8grammars18expression_grammar10definitionINS0_6spirit7
   %34 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i8 0, ptr %34, align 8, !tbaa !130
   invoke void @_ZN5boost11unique_lockINS_5mutexEE4lockEv(ptr noundef nonnull align 8 dereferenceable(9) %4)
-          to label %_ZN5boost11unique_lockINS_5mutexEEC2ERS1_.exit unwind label %79
+          to label %_ZN5boost11unique_lockINS_5mutexEEC2ERS1_.exit unwind label %76
 
 _ZN5boost11unique_lockINS_5mutexEEC2ERS1_.exit:   ; preds = %32
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -7430,7 +7426,7 @@ _ZN5boost11unique_lockINS_5mutexEEC2ERS1_.exit:   ; preds = %32
 
 48:                                               ; preds = %42
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.76) #28
-          to label %.noexc unwind label %81
+          to label %.noexc unwind label %78
 
 .noexc:                                           ; preds = %48
   unreachable
@@ -7442,107 +7438,103 @@ _ZNKSt6vectorIPN5boost6spirit7classic4impl19grammar_helper_baseINS2_7grammarINS0
   %51 = icmp ult i64 %50, %49
   %52 = call i64 @llvm.umin.i64(i64 %50, i64 1152921504606846975)
   %53 = select i1 %51, i64 1152921504606846975, i64 %52
-  %.not.i.i.i.i = icmp eq i64 %53, 0
-  br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseIPN5boost6spirit7classic4impl19grammar_helper_baseINS2_7grammarINS0_4wave8grammars18expression_grammarENS2_15closure_contextINS7_8closures16cpp_expr_closureEEEEEEESaISF_EE11_M_allocateEm.exit.i.i.i, label %54
+  %.not.i.i.i.i = icmp ne i64 %53, 0
+  call void @llvm.assume(i1 %.not.i.i.i.i)
+  %54 = shl nuw nsw i64 %53, 3
+  %55 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %54) #30
+          to label %.noexc21 unwind label %78
 
-54:                                               ; preds = %_ZNKSt6vectorIPN5boost6spirit7classic4impl19grammar_helper_baseINS2_7grammarINS0_4wave8grammars18expression_grammarENS2_15closure_contextINS7_8closures16cpp_expr_closureEEEEEEESaISF_EE12_M_check_lenEmPKc.exit.i.i.i
-  %55 = shl nuw nsw i64 %53, 3
-  %56 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %55) #30
-          to label %_ZNSt12_Vector_baseIPN5boost6spirit7classic4impl19grammar_helper_baseINS2_7grammarINS0_4wave8grammars18expression_grammarENS2_15closure_contextINS7_8closures16cpp_expr_closureEEEEEEESaISF_EE11_M_allocateEm.exit.i.i.i unwind label %81
+.noexc21:                                         ; preds = %_ZNKSt6vectorIPN5boost6spirit7classic4impl19grammar_helper_baseINS2_7grammarINS0_4wave8grammars18expression_grammarENS2_15closure_contextINS7_8closures16cpp_expr_closureEEEEEEESaISF_EE12_M_check_lenEmPKc.exit.i.i.i
+  %56 = getelementptr inbounds i8, ptr %55, i64 %46
+  store ptr %0, ptr %56, align 8, !tbaa !22
+  %57 = icmp sgt i64 %46, 0
+  br i1 %57, label %58, label %_ZNSt6vectorIPN5boost6spirit7classic4impl19grammar_helper_baseINS2_7grammarINS0_4wave8grammars18expression_grammarENS2_15closure_contextINS7_8closures16cpp_expr_closureEEEEEEESaISF_EE11_S_relocateEPSF_SI_SI_RSG_.exit16.i.i.i
 
-_ZNSt12_Vector_baseIPN5boost6spirit7classic4impl19grammar_helper_baseINS2_7grammarINS0_4wave8grammars18expression_grammarENS2_15closure_contextINS7_8closures16cpp_expr_closureEEEEEEESaISF_EE11_M_allocateEm.exit.i.i.i: ; preds = %54, %_ZNKSt6vectorIPN5boost6spirit7classic4impl19grammar_helper_baseINS2_7grammarINS0_4wave8grammars18expression_grammarENS2_15closure_contextINS7_8closures16cpp_expr_closureEEEEEEESaISF_EE12_M_check_lenEmPKc.exit.i.i.i
-  %57 = phi ptr [ null, %_ZNKSt6vectorIPN5boost6spirit7classic4impl19grammar_helper_baseINS2_7grammarINS0_4wave8grammars18expression_grammarENS2_15closure_contextINS7_8closures16cpp_expr_closureEEEEEEESaISF_EE12_M_check_lenEmPKc.exit.i.i.i ], [ %56, %54 ]
-  %58 = getelementptr inbounds nuw ptr, ptr %57, i64 %49
-  store ptr %0, ptr %58, align 8, !tbaa !22
-  %59 = icmp sgt i64 %46, 0
-  br i1 %59, label %60, label %_ZNSt6vectorIPN5boost6spirit7classic4impl19grammar_helper_baseINS2_7grammarINS0_4wave8grammars18expression_grammarENS2_15closure_contextINS7_8closures16cpp_expr_closureEEEEEEESaISF_EE11_S_relocateEPSF_SI_SI_RSG_.exit16.i.i.i
-
-60:                                               ; preds = %_ZNSt12_Vector_baseIPN5boost6spirit7classic4impl19grammar_helper_baseINS2_7grammarINS0_4wave8grammars18expression_grammarENS2_15closure_contextINS7_8closures16cpp_expr_closureEEEEEEESaISF_EE11_M_allocateEm.exit.i.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %57, ptr align 8 %43, i64 %46, i1 false)
+58:                                               ; preds = %.noexc21
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %55, ptr align 8 %43, i64 %46, i1 false)
   br label %_ZNSt6vectorIPN5boost6spirit7classic4impl19grammar_helper_baseINS2_7grammarINS0_4wave8grammars18expression_grammarENS2_15closure_contextINS7_8closures16cpp_expr_closureEEEEEEESaISF_EE11_S_relocateEPSF_SI_SI_RSG_.exit16.i.i.i
 
-_ZNSt6vectorIPN5boost6spirit7classic4impl19grammar_helper_baseINS2_7grammarINS0_4wave8grammars18expression_grammarENS2_15closure_contextINS7_8closures16cpp_expr_closureEEEEEEESaISF_EE11_S_relocateEPSF_SI_SI_RSG_.exit16.i.i.i: ; preds = %60, %_ZNSt12_Vector_baseIPN5boost6spirit7classic4impl19grammar_helper_baseINS2_7grammarINS0_4wave8grammars18expression_grammarENS2_15closure_contextINS7_8closures16cpp_expr_closureEEEEEEESaISF_EE11_M_allocateEm.exit.i.i.i
-  %61 = getelementptr inbounds i8, ptr %57, i64 %46
-  %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
+_ZNSt6vectorIPN5boost6spirit7classic4impl19grammar_helper_baseINS2_7grammarINS0_4wave8grammars18expression_grammarENS2_15closure_contextINS7_8closures16cpp_expr_closureEEEEEEESaISF_EE11_S_relocateEPSF_SI_SI_RSG_.exit16.i.i.i: ; preds = %58, %.noexc21
+  %59 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %.not.i17.i.i.i = icmp eq ptr %43, null
-  br i1 %.not.i17.i.i.i, label %_ZNSt6vectorIPN5boost6spirit7classic4impl19grammar_helper_baseINS2_7grammarINS0_4wave8grammars18expression_grammarENS2_15closure_contextINS7_8closures16cpp_expr_closureEEEEEEESaISF_EE17_M_realloc_insertIJRKSF_EEEvN9__gnu_cxx17__normal_iteratorIPSF_SH_EEDpOT_.exit.i.i, label %63
+  br i1 %.not.i17.i.i.i, label %_ZNSt6vectorIPN5boost6spirit7classic4impl19grammar_helper_baseINS2_7grammarINS0_4wave8grammars18expression_grammarENS2_15closure_contextINS7_8closures16cpp_expr_closureEEEEEEESaISF_EE17_M_realloc_insertIJRKSF_EEEvN9__gnu_cxx17__normal_iteratorIPSF_SH_EEDpOT_.exit.i.i, label %60
 
-63:                                               ; preds = %_ZNSt6vectorIPN5boost6spirit7classic4impl19grammar_helper_baseINS2_7grammarINS0_4wave8grammars18expression_grammarENS2_15closure_contextINS7_8closures16cpp_expr_closureEEEEEEESaISF_EE11_S_relocateEPSF_SI_SI_RSG_.exit16.i.i.i
+60:                                               ; preds = %_ZNSt6vectorIPN5boost6spirit7classic4impl19grammar_helper_baseINS2_7grammarINS0_4wave8grammars18expression_grammarENS2_15closure_contextINS7_8closures16cpp_expr_closureEEEEEEESaISF_EE11_S_relocateEPSF_SI_SI_RSG_.exit16.i.i.i
   call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %46) #31
   br label %_ZNSt6vectorIPN5boost6spirit7classic4impl19grammar_helper_baseINS2_7grammarINS0_4wave8grammars18expression_grammarENS2_15closure_contextINS7_8closures16cpp_expr_closureEEEEEEESaISF_EE17_M_realloc_insertIJRKSF_EEEvN9__gnu_cxx17__normal_iteratorIPSF_SH_EEDpOT_.exit.i.i
 
-_ZNSt6vectorIPN5boost6spirit7classic4impl19grammar_helper_baseINS2_7grammarINS0_4wave8grammars18expression_grammarENS2_15closure_contextINS7_8closures16cpp_expr_closureEEEEEEESaISF_EE17_M_realloc_insertIJRKSF_EEEvN9__gnu_cxx17__normal_iteratorIPSF_SH_EEDpOT_.exit.i.i: ; preds = %63, %_ZNSt6vectorIPN5boost6spirit7classic4impl19grammar_helper_baseINS2_7grammarINS0_4wave8grammars18expression_grammarENS2_15closure_contextINS7_8closures16cpp_expr_closureEEEEEEESaISF_EE11_S_relocateEPSF_SI_SI_RSG_.exit16.i.i.i
-  store ptr %57, ptr %5, align 8, !tbaa !94
-  store ptr %62, ptr %35, align 8, !tbaa !249
-  %64 = getelementptr inbounds nuw ptr, ptr %57, i64 %53
-  store ptr %64, ptr %37, align 8, !tbaa !96
+_ZNSt6vectorIPN5boost6spirit7classic4impl19grammar_helper_baseINS2_7grammarINS0_4wave8grammars18expression_grammarENS2_15closure_contextINS7_8closures16cpp_expr_closureEEEEEEESaISF_EE17_M_realloc_insertIJRKSF_EEEvN9__gnu_cxx17__normal_iteratorIPSF_SH_EEDpOT_.exit.i.i: ; preds = %60, %_ZNSt6vectorIPN5boost6spirit7classic4impl19grammar_helper_baseINS2_7grammarINS0_4wave8grammars18expression_grammarENS2_15closure_contextINS7_8closures16cpp_expr_closureEEEEEEESaISF_EE11_S_relocateEPSF_SI_SI_RSG_.exit16.i.i.i
+  store ptr %55, ptr %5, align 8, !tbaa !94
+  store ptr %59, ptr %35, align 8, !tbaa !249
+  %61 = getelementptr inbounds nuw ptr, ptr %55, i64 %53
+  store ptr %61, ptr %37, align 8, !tbaa !96
   br label %_ZN5boost6spirit7classic4impl19grammar_helper_listINS1_7grammarINS_4wave8grammars18expression_grammarENS1_15closure_contextINS6_8closures16cpp_expr_closureEEEEEE9push_backEPNS2_19grammar_helper_baseISC_EE.exit
 
 _ZN5boost6spirit7classic4impl19grammar_helper_listINS1_7grammarINS_4wave8grammars18expression_grammarENS1_15closure_contextINS6_8closures16cpp_expr_closureEEEEEE9push_backEPNS2_19grammar_helper_baseISC_EE.exit: ; preds = %_ZNSt6vectorIPN5boost6spirit7classic4impl19grammar_helper_baseINS2_7grammarINS0_4wave8grammars18expression_grammarENS2_15closure_contextINS7_8closures16cpp_expr_closureEEEEEEESaISF_EE17_M_realloc_insertIJRKSF_EEEvN9__gnu_cxx17__normal_iteratorIPSF_SH_EEDpOT_.exit.i.i, %39
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %66 = load i64, ptr %65, align 8, !tbaa !250
-  %67 = add i64 %66, 1
-  store i64 %67, ptr %65, align 8, !tbaa !250
-  %68 = load ptr, ptr %8, align 8, !tbaa !241
-  %69 = getelementptr inbounds nuw ptr, ptr %68, i64 %7
-  store ptr %31, ptr %69, align 8, !tbaa !22
-  %70 = load i8, ptr %34, align 8, !tbaa !130, !range !52, !noundef !53
-  %71 = trunc nuw i8 %70 to i1
-  br i1 %71, label %72, label %_ZN5boost7movelib10unique_ptrINS_4wave8grammars18expression_grammar10definitionINS_6spirit7classic7scannerISt20_List_const_iteratorINS2_8cpplexer9lex_tokenINS2_4util13file_positionINSC_11flex_stringIcSt11char_traitsIcESaIcENSC_9CowStringINSC_22AllocatorStringStorageIcSH_EEPcEEEEEEEEENS7_16scanner_policiesINS7_28skip_parser_iteration_policyINS7_11alternativeINST_INS7_5chlitINS2_8token_idEEESW_EESW_EENS7_16iteration_policyEEENS7_12match_policyENS7_13action_policyEEEEEEENS0_14default_deleteIS15_EEED2Ev.exit
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %63 = load i64, ptr %62, align 8, !tbaa !250
+  %64 = add i64 %63, 1
+  store i64 %64, ptr %62, align 8, !tbaa !250
+  %65 = load ptr, ptr %8, align 8, !tbaa !241
+  %66 = getelementptr inbounds nuw ptr, ptr %65, i64 %7
+  store ptr %31, ptr %66, align 8, !tbaa !22
+  %67 = load i8, ptr %34, align 8, !tbaa !130, !range !52, !noundef !53
+  %68 = trunc nuw i8 %67 to i1
+  br i1 %68, label %69, label %_ZN5boost7movelib10unique_ptrINS_4wave8grammars18expression_grammar10definitionINS_6spirit7classic7scannerISt20_List_const_iteratorINS2_8cpplexer9lex_tokenINS2_4util13file_positionINSC_11flex_stringIcSt11char_traitsIcESaIcENSC_9CowStringINSC_22AllocatorStringStorageIcSH_EEPcEEEEEEEEENS7_16scanner_policiesINS7_28skip_parser_iteration_policyINS7_11alternativeINST_INS7_5chlitINS2_8token_idEEESW_EESW_EENS7_16iteration_policyEEENS7_12match_policyENS7_13action_policyEEEEEEENS0_14default_deleteIS15_EEED2Ev.exit
 
-72:                                               ; preds = %_ZN5boost6spirit7classic4impl19grammar_helper_listINS1_7grammarINS_4wave8grammars18expression_grammarENS1_15closure_contextINS6_8closures16cpp_expr_closureEEEEEE9push_backEPNS2_19grammar_helper_baseISC_EE.exit
-  %73 = load ptr, ptr %4, align 8, !tbaa !128
-  br label %74
+69:                                               ; preds = %_ZN5boost6spirit7classic4impl19grammar_helper_listINS1_7grammarINS_4wave8grammars18expression_grammarENS1_15closure_contextINS6_8closures16cpp_expr_closureEEEEEE9push_backEPNS2_19grammar_helper_baseISC_EE.exit
+  %70 = load ptr, ptr %4, align 8, !tbaa !128
+  br label %71
 
-74:                                               ; preds = %74, %72
-  %75 = call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %73) #27
-  %76 = icmp eq i32 %75, 4
-  br i1 %76, label %74, label %_ZN5boost7movelib10unique_ptrINS_4wave8grammars18expression_grammar10definitionINS_6spirit7classic7scannerISt20_List_const_iteratorINS2_8cpplexer9lex_tokenINS2_4util13file_positionINSC_11flex_stringIcSt11char_traitsIcESaIcENSC_9CowStringINSC_22AllocatorStringStorageIcSH_EEPcEEEEEEEEENS7_16scanner_policiesINS7_28skip_parser_iteration_policyINS7_11alternativeINST_INS7_5chlitINS2_8token_idEEESW_EESW_EENS7_16iteration_policyEEENS7_12match_policyENS7_13action_policyEEEEEEENS0_14default_deleteIS15_EEED2Ev.exit, !llvm.loop !131
+71:                                               ; preds = %71, %69
+  %72 = call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %70) #27
+  %73 = icmp eq i32 %72, 4
+  br i1 %73, label %71, label %_ZN5boost7movelib10unique_ptrINS_4wave8grammars18expression_grammar10definitionINS_6spirit7classic7scannerISt20_List_const_iteratorINS2_8cpplexer9lex_tokenINS2_4util13file_positionINSC_11flex_stringIcSt11char_traitsIcESaIcENSC_9CowStringINSC_22AllocatorStringStorageIcSH_EEPcEEEEEEEEENS7_16scanner_policiesINS7_28skip_parser_iteration_policyINS7_11alternativeINST_INS7_5chlitINS2_8token_idEEESW_EESW_EENS7_16iteration_policyEEENS7_12match_policyENS7_13action_policyEEEEEEENS0_14default_deleteIS15_EEED2Ev.exit, !llvm.loop !131
 
-_ZN5boost7movelib10unique_ptrINS_4wave8grammars18expression_grammar10definitionINS_6spirit7classic7scannerISt20_List_const_iteratorINS2_8cpplexer9lex_tokenINS2_4util13file_positionINSC_11flex_stringIcSt11char_traitsIcESaIcENSC_9CowStringINSC_22AllocatorStringStorageIcSH_EEPcEEEEEEEEENS7_16scanner_policiesINS7_28skip_parser_iteration_policyINS7_11alternativeINST_INS7_5chlitINS2_8token_idEEESW_EESW_EENS7_16iteration_policyEEENS7_12match_policyENS7_13action_policyEEEEEEENS0_14default_deleteIS15_EEED2Ev.exit: ; preds = %74, %_ZN5boost6spirit7classic4impl19grammar_helper_listINS1_7grammarINS_4wave8grammars18expression_grammarENS1_15closure_contextINS6_8closures16cpp_expr_closureEEEEEE9push_backEPNS2_19grammar_helper_baseISC_EE.exit
+_ZN5boost7movelib10unique_ptrINS_4wave8grammars18expression_grammar10definitionINS_6spirit7classic7scannerISt20_List_const_iteratorINS2_8cpplexer9lex_tokenINS2_4util13file_positionINSC_11flex_stringIcSt11char_traitsIcESaIcENSC_9CowStringINSC_22AllocatorStringStorageIcSH_EEPcEEEEEEEEENS7_16scanner_policiesINS7_28skip_parser_iteration_policyINS7_11alternativeINST_INS7_5chlitINS2_8token_idEEESW_EESW_EENS7_16iteration_policyEEENS7_12match_policyENS7_13action_policyEEEEEEENS0_14default_deleteIS15_EEED2Ev.exit: ; preds = %71, %_ZN5boost6spirit7classic4impl19grammar_helper_listINS1_7grammarINS_4wave8grammars18expression_grammarENS1_15closure_contextINS6_8closures16cpp_expr_closureEEEEEE9push_backEPNS2_19grammar_helper_baseISC_EE.exit
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #27
-  br label %91
+  br label %88
 
-77:                                               ; preds = %30
-  %78 = landingpad { ptr, i32 }
+74:                                               ; preds = %30
+  %75 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPvm(ptr noundef nonnull %31, i64 noundef 696) #31
-  br label %90
+  br label %87
 
-79:                                               ; preds = %32
-  %80 = landingpad { ptr, i32 }
+76:                                               ; preds = %32
+  %77 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN5boost11unique_lockINS_5mutexEED2Ev.exit22
 
-81:                                               ; preds = %54, %48
-  %82 = landingpad { ptr, i32 }
+78:                                               ; preds = %_ZNKSt6vectorIPN5boost6spirit7classic4impl19grammar_helper_baseINS2_7grammarINS0_4wave8grammars18expression_grammarENS2_15closure_contextINS7_8closures16cpp_expr_closureEEEEEEESaISF_EE12_M_check_lenEmPKc.exit.i.i.i, %48
+  %79 = landingpad { ptr, i32 }
           cleanup
-  %83 = load i8, ptr %34, align 8, !tbaa !130, !range !52, !noundef !53
-  %84 = trunc nuw i8 %83 to i1
-  br i1 %84, label %85, label %_ZN5boost11unique_lockINS_5mutexEED2Ev.exit22
+  %80 = load i8, ptr %34, align 8, !tbaa !130, !range !52, !noundef !53
+  %81 = trunc nuw i8 %80 to i1
+  br i1 %81, label %82, label %_ZN5boost11unique_lockINS_5mutexEED2Ev.exit22
 
-85:                                               ; preds = %81
-  %86 = load ptr, ptr %4, align 8, !tbaa !128
-  br label %87
+82:                                               ; preds = %78
+  %83 = load ptr, ptr %4, align 8, !tbaa !128
+  br label %84
 
-87:                                               ; preds = %87, %85
-  %88 = call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %86) #27
-  %89 = icmp eq i32 %88, 4
-  br i1 %89, label %87, label %_ZN5boost11unique_lockINS_5mutexEED2Ev.exit22, !llvm.loop !131
+84:                                               ; preds = %84, %82
+  %85 = call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %83) #27
+  %86 = icmp eq i32 %85, 4
+  br i1 %86, label %84, label %_ZN5boost11unique_lockINS_5mutexEED2Ev.exit22, !llvm.loop !131
 
-_ZN5boost11unique_lockINS_5mutexEED2Ev.exit22:    ; preds = %87, %81, %79
-  %.pn = phi { ptr, i32 } [ %80, %79 ], [ %82, %81 ], [ %82, %87 ]
+_ZN5boost11unique_lockINS_5mutexEED2Ev.exit22:    ; preds = %84, %78, %76
+  %.pn = phi { ptr, i32 } [ %77, %76 ], [ %79, %78 ], [ %79, %84 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #27
   call void @_ZN5boost7movelib10unique_ptrINS_4wave8grammars18expression_grammar10definitionINS_6spirit7classic7scannerISt20_List_const_iteratorINS2_8cpplexer9lex_tokenINS2_4util13file_positionINSC_11flex_stringIcSt11char_traitsIcESaIcENSC_9CowStringINSC_22AllocatorStringStorageIcSH_EEPcEEEEEEEEENS7_16scanner_policiesINS7_28skip_parser_iteration_policyINS7_11alternativeINST_INS7_5chlitINS2_8token_idEEESW_EESW_EENS7_16iteration_policyEEENS7_12match_policyENS7_13action_policyEEEEEEENS0_14default_deleteIS15_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #27
-  br label %90
+  br label %87
 
-90:                                               ; preds = %_ZN5boost11unique_lockINS_5mutexEED2Ev.exit22, %77
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZN5boost11unique_lockINS_5mutexEED2Ev.exit22 ], [ %78, %77 ]
+87:                                               ; preds = %_ZN5boost11unique_lockINS_5mutexEED2Ev.exit22, %74
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZN5boost11unique_lockINS_5mutexEED2Ev.exit22 ], [ %75, %74 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #27
   resume { ptr, i32 } %.pn.pn
 
-91:                                               ; preds = %_ZNSt6vectorIPN5boost4wave8grammars18expression_grammar10definitionINS0_6spirit7classic7scannerISt20_List_const_iteratorINS1_8cpplexer9lex_tokenINS1_4util13file_positionINSB_11flex_stringIcSt11char_traitsIcESaIcENSB_9CowStringINSB_22AllocatorStringStorageIcSG_EEPcEEEEEEEEENS6_16scanner_policiesINS6_28skip_parser_iteration_policyINS6_11alternativeINSS_INS6_5chlitINS1_8token_idEEESV_EESV_EENS6_16iteration_policyEEENS6_12match_policyENS6_13action_policyEEEEEEESaIS15_EE6resizeEm.exit, %_ZN5boost7movelib10unique_ptrINS_4wave8grammars18expression_grammar10definitionINS_6spirit7classic7scannerISt20_List_const_iteratorINS2_8cpplexer9lex_tokenINS2_4util13file_positionINSC_11flex_stringIcSt11char_traitsIcESaIcENSC_9CowStringINSC_22AllocatorStringStorageIcSH_EEPcEEEEEEEEENS7_16scanner_policiesINS7_28skip_parser_iteration_policyINS7_11alternativeINST_INS7_5chlitINS2_8token_idEEESW_EESW_EENS7_16iteration_policyEEENS7_12match_policyENS7_13action_policyEEEEEEENS0_14default_deleteIS15_EEED2Ev.exit
+88:                                               ; preds = %_ZNSt6vectorIPN5boost4wave8grammars18expression_grammar10definitionINS0_6spirit7classic7scannerISt20_List_const_iteratorINS1_8cpplexer9lex_tokenINS1_4util13file_positionINSB_11flex_stringIcSt11char_traitsIcESaIcENSB_9CowStringINSB_22AllocatorStringStorageIcSG_EEPcEEEEEEEEENS6_16scanner_policiesINS6_28skip_parser_iteration_policyINS6_11alternativeINSS_INS6_5chlitINS1_8token_idEEESV_EESV_EENS6_16iteration_policyEEENS6_12match_policyENS6_13action_policyEEEEEEESaIS15_EE6resizeEm.exit, %_ZN5boost7movelib10unique_ptrINS_4wave8grammars18expression_grammar10definitionINS_6spirit7classic7scannerISt20_List_const_iteratorINS2_8cpplexer9lex_tokenINS2_4util13file_positionINSC_11flex_stringIcSt11char_traitsIcESaIcENSC_9CowStringINSC_22AllocatorStringStorageIcSH_EEPcEEEEEEEEENS7_16scanner_policiesINS7_28skip_parser_iteration_policyINS7_11alternativeINST_INS7_5chlitINS2_8token_idEEESW_EESW_EENS7_16iteration_policyEEENS7_12match_policyENS7_13action_policyEEEEEEENS0_14default_deleteIS15_EEED2Ev.exit
   %.015 = phi ptr [ %31, %_ZN5boost7movelib10unique_ptrINS_4wave8grammars18expression_grammar10definitionINS_6spirit7classic7scannerISt20_List_const_iteratorINS2_8cpplexer9lex_tokenINS2_4util13file_positionINSC_11flex_stringIcSt11char_traitsIcESaIcENSC_9CowStringINSC_22AllocatorStringStorageIcSH_EEPcEEEEEEEEENS7_16scanner_policiesINS7_28skip_parser_iteration_policyINS7_11alternativeINST_INS7_5chlitINS2_8token_idEEESW_EESW_EENS7_16iteration_policyEEENS7_12match_policyENS7_13action_policyEEEEEEENS0_14default_deleteIS15_EEED2Ev.exit ], [ %29, %_ZNSt6vectorIPN5boost4wave8grammars18expression_grammar10definitionINS0_6spirit7classic7scannerISt20_List_const_iteratorINS1_8cpplexer9lex_tokenINS1_4util13file_positionINSB_11flex_stringIcSt11char_traitsIcESaIcENSB_9CowStringINSB_22AllocatorStringStorageIcSG_EEPcEEEEEEEEENS6_16scanner_policiesINS6_28skip_parser_iteration_policyINS6_11alternativeINSS_INS6_5chlitINS1_8token_idEEESV_EESV_EENS6_16iteration_policyEEENS6_12match_policyENS6_13action_policyEEEEEEESaIS15_EE6resizeEm.exit ]
   ret ptr %.015
 }
@@ -7562,7 +7554,7 @@ define linkonce_odr hidden void @_ZN5boost10shared_ptrINS_6spirit7classic4impl14
 
 8:                                                ; preds = %4
   %9 = load ptr, ptr %3, align 8, !tbaa !61
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8
   invoke void %11(ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %.noexc.i unwind label %19
@@ -7575,7 +7567,7 @@ define linkonce_odr hidden void @_ZN5boost10shared_ptrINS_6spirit7classic4impl14
 
 15:                                               ; preds = %.noexc.i
   %16 = load ptr, ptr %3, align 8, !tbaa !61
-  %17 = getelementptr inbounds i8, ptr %16, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %18 = load ptr, ptr %17, align 8
   invoke void %18(ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %_ZN5boost6detail12shared_countD2Ev.exit unwind label %19
@@ -7626,7 +7618,7 @@ define linkonce_odr hidden void @_ZN5boost19thread_specific_ptrINS_8weak_ptrINS_
 
 10:                                               ; preds = %6
   %11 = load ptr, ptr %5, align 8, !tbaa !61
-  %12 = getelementptr inbounds i8, ptr %11, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %13 = load ptr, ptr %12, align 8
   invoke void %13(ptr noundef nonnull align 8 dereferenceable(16) %5)
           to label %_ZN5boost8weak_ptrINS_6spirit7classic4impl14grammar_helperINS2_7grammarINS_4wave8grammars18expression_grammarENS2_15closure_contextINS7_8closures16cpp_expr_closureEEEEES8_NS2_7scannerISt20_List_const_iteratorINS6_8cpplexer9lex_tokenINS6_4util13file_positionINSI_11flex_stringIcSt11char_traitsIcESaIcENSI_9CowStringINSI_22AllocatorStringStorageIcSN_EEPcEEEEEEEEENS2_16scanner_policiesINS2_28skip_parser_iteration_policyINS2_11alternativeINSZ_INS2_5chlitINS6_8token_idEEES12_EES12_EENS2_16iteration_policyEEENS2_12match_policyENS2_13action_policyEEEEEEEED2Ev.exit unwind label %14
@@ -7654,7 +7646,7 @@ define linkonce_odr hidden void @_ZN5boost19thread_specific_ptrINS_8weak_ptrINS_
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef i32 @_ZN5boost6spirit7classic4impl14grammar_helperINS1_7grammarINS_4wave8grammars18expression_grammarENS1_15closure_contextINS6_8closures16cpp_expr_closureEEEEES7_NS1_7scannerISt20_List_const_iteratorINS5_8cpplexer9lex_tokenINS5_4util13file_positionINSH_11flex_stringIcSt11char_traitsIcESaIcENSH_9CowStringINSH_22AllocatorStringStorageIcSM_EEPcEEEEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeINSY_INS1_5chlitINS5_8token_idEEES11_EES11_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEEE8undefineEPSC_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %1) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %4 = load i64, ptr %3, align 8, !tbaa !97
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -7707,7 +7699,7 @@ define linkonce_odr hidden noundef i32 @_ZN5boost6spirit7classic4impl14grammar_h
 
 33:                                               ; preds = %29
   %34 = load ptr, ptr %28, align 8, !tbaa !61
-  %35 = getelementptr inbounds i8, ptr %34, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load ptr, ptr %35, align 8
   invoke void %36(ptr noundef nonnull align 8 dereferenceable(16) %28)
           to label %.noexc.i.i.i unwind label %44
@@ -7720,7 +7712,7 @@ define linkonce_odr hidden noundef i32 @_ZN5boost6spirit7classic4impl14grammar_h
 
 40:                                               ; preds = %.noexc.i.i.i
   %41 = load ptr, ptr %28, align 8, !tbaa !61
-  %42 = getelementptr inbounds i8, ptr %41, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 24
   %43 = load ptr, ptr %42, align 8
   invoke void %43(ptr noundef nonnull align 8 dereferenceable(16) %28)
           to label %_ZN5boost10shared_ptrINS_6spirit7classic4impl14grammar_helperINS2_7grammarINS_4wave8grammars18expression_grammarENS2_15closure_contextINS7_8closures16cpp_expr_closureEEEEES8_NS2_7scannerISt20_List_const_iteratorINS6_8cpplexer9lex_tokenINS6_4util13file_positionINSI_11flex_stringIcSt11char_traitsIcESaIcENSI_9CowStringINSI_22AllocatorStringStorageIcSN_EEPcEEEEEEEEENS2_16scanner_policiesINS2_28skip_parser_iteration_policyINS2_11alternativeINSZ_INS2_5chlitINS6_8token_idEEES12_EES12_EENS2_16iteration_policyEEENS2_12match_policyENS2_13action_policyEEEEEEEE5resetEv.exit unwind label %44
@@ -7752,7 +7744,7 @@ define linkonce_odr hidden void @_ZN5boost6spirit7classic4impl14grammar_helperIN
 
 8:                                                ; preds = %4
   %9 = load ptr, ptr %3, align 8, !tbaa !61
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8
   invoke void %11(ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %.noexc.i.i unwind label %19
@@ -7765,7 +7757,7 @@ define linkonce_odr hidden void @_ZN5boost6spirit7classic4impl14grammar_helperIN
 
 15:                                               ; preds = %.noexc.i.i
   %16 = load ptr, ptr %3, align 8, !tbaa !61
-  %17 = getelementptr inbounds i8, ptr %16, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %18 = load ptr, ptr %17, align 8
   invoke void %18(ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %_ZN5boost10shared_ptrINS_6spirit7classic4impl14grammar_helperINS2_7grammarINS_4wave8grammars18expression_grammarENS2_15closure_contextINS7_8closures16cpp_expr_closureEEEEES8_NS2_7scannerISt20_List_const_iteratorINS6_8cpplexer9lex_tokenINS6_4util13file_positionINSI_11flex_stringIcSt11char_traitsIcESaIcENSI_9CowStringINSI_22AllocatorStringStorageIcSN_EEPcEEEEEEEEENS2_16scanner_policiesINS2_28skip_parser_iteration_policyINS2_11alternativeINSZ_INS2_5chlitINS6_8token_idEEES12_EES12_EENS2_16iteration_policyEEENS2_12match_policyENS2_13action_policyEEEEEEEED2Ev.exit unwind label %19
@@ -7812,7 +7804,7 @@ define linkonce_odr hidden void @_ZN5boost6spirit7classic4impl14grammar_helperIN
 
 8:                                                ; preds = %4
   %9 = load ptr, ptr %3, align 8, !tbaa !61
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8
   invoke void %11(ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %.noexc.i.i.i unwind label %19
@@ -7825,7 +7817,7 @@ define linkonce_odr hidden void @_ZN5boost6spirit7classic4impl14grammar_helperIN
 
 15:                                               ; preds = %.noexc.i.i.i
   %16 = load ptr, ptr %3, align 8, !tbaa !61
-  %17 = getelementptr inbounds i8, ptr %16, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %18 = load ptr, ptr %17, align 8
   invoke void %18(ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %_ZN5boost10shared_ptrINS_6spirit7classic4impl14grammar_helperINS2_7grammarINS_4wave8grammars18expression_grammarENS2_15closure_contextINS7_8closures16cpp_expr_closureEEEEES8_NS2_7scannerISt20_List_const_iteratorINS6_8cpplexer9lex_tokenINS6_4util13file_positionINSI_11flex_stringIcSt11char_traitsIcESaIcENSI_9CowStringINSI_22AllocatorStringStorageIcSN_EEPcEEEEEEEEENS2_16scanner_policiesINS2_28skip_parser_iteration_policyINS2_11alternativeINSZ_INS2_5chlitINS6_8token_idEEES12_EES12_EENS2_16iteration_policyEEENS2_12match_policyENS2_13action_policyEEEEEEEED2Ev.exit.i unwind label %19
@@ -7877,7 +7869,7 @@ define linkonce_odr hidden void @_ZN5boost6detail17sp_counted_impl_pINS_6spirit7
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %3, align 8, !tbaa !61
-  %7 = getelementptr inbounds i8, ptr %6, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load ptr, ptr %7, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(56) %3) #27
   br label %_ZN5boost14checked_deleteINS_6spirit7classic4impl14grammar_helperINS2_7grammarINS_4wave8grammars18expression_grammarENS2_15closure_contextINS7_8closures16cpp_expr_closureEEEEES8_NS2_7scannerISt20_List_const_iteratorINS6_8cpplexer9lex_tokenINS6_4util13file_positionINSI_11flex_stringIcSt11char_traitsIcESaIcENSI_9CowStringINSI_22AllocatorStringStorageIcSN_EEPcEEEEEEEEENS2_16scanner_policiesINS2_28skip_parser_iteration_policyINS2_11alternativeINSZ_INS2_5chlitINS6_8token_idEEES12_EES12_EENS2_16iteration_policyEEENS2_12match_policyENS2_13action_policyEEEEEEEEEvPT_.exit
@@ -7923,7 +7915,7 @@ _ZN7phoenix7closureIN5boost4wave8grammars8closures13closure_valueENS_5nil_tES6_S
 
 10:                                               ; preds = %_ZN7phoenix7closureIN5boost4wave8grammars8closures13closure_valueENS_5nil_tES6_S6_S6_S6_ED2Ev.exit
   %11 = load ptr, ptr %8, align 8, !tbaa !61
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(8) %8) #27
   br label %_ZN5boost10scoped_ptrINS_6spirit7classic4impl15abstract_parserINS2_7scannerISt20_List_const_iteratorINS_4wave8cpplexer9lex_tokenINS7_4util13file_positionINSA_11flex_stringIcSt11char_traitsIcESaIcENSA_9CowStringINSA_22AllocatorStringStorageIcSF_EEPcEEEEEEEEENS2_16scanner_policiesINS2_28skip_parser_iteration_policyINS2_11alternativeINSR_INS2_5chlitINS7_8token_idEEESU_EESU_EENS2_16iteration_policyEEENS2_12match_policyENS2_13action_policyEEEEENS7_8grammars8closures13closure_valueEEEED2Ev.exit.i
@@ -7948,7 +7940,7 @@ _ZN5boost6spirit7classic4ruleINS1_7scannerISt20_List_const_iteratorINS_4wave8cpp
 
 21:                                               ; preds = %_ZN5boost6spirit7classic4ruleINS1_7scannerISt20_List_const_iteratorINS_4wave8cpplexer9lex_tokenINS5_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeINSP_INS1_5chlitINS5_8token_idEEESS_EESS_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEENS1_15closure_contextINS5_8grammars8closures16cpp_expr_closureEEENS1_5nil_tEED2Ev.exit
   %22 = load ptr, ptr %19, align 8, !tbaa !61
-  %23 = getelementptr inbounds i8, ptr %22, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load ptr, ptr %23, align 8
   tail call void %24(ptr noundef nonnull align 8 dereferenceable(8) %19) #27
   br label %_ZN5boost10scoped_ptrINS_6spirit7classic4impl15abstract_parserINS2_7scannerISt20_List_const_iteratorINS_4wave8cpplexer9lex_tokenINS7_4util13file_positionINSA_11flex_stringIcSt11char_traitsIcESaIcENSA_9CowStringINSA_22AllocatorStringStorageIcSF_EEPcEEEEEEEEENS2_16scanner_policiesINS2_28skip_parser_iteration_policyINS2_11alternativeINSR_INS2_5chlitINS7_8token_idEEESU_EESU_EENS2_16iteration_policyEEENS2_12match_policyENS2_13action_policyEEEEENS7_8grammars8closures13closure_valueEEEED2Ev.exit.i1
@@ -7973,7 +7965,7 @@ _ZN5boost6spirit7classic4ruleINS1_7scannerISt20_List_const_iteratorINS_4wave8cpp
 
 32:                                               ; preds = %_ZN5boost6spirit7classic4ruleINS1_7scannerISt20_List_const_iteratorINS_4wave8cpplexer9lex_tokenINS5_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeINSP_INS1_5chlitINS5_8token_idEEESS_EESS_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEENS1_15closure_contextINS5_8grammars8closures16cpp_expr_closureEEENS1_5nil_tEED2Ev.exit2
   %33 = load ptr, ptr %30, align 8, !tbaa !61
-  %34 = getelementptr inbounds i8, ptr %33, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %35 = load ptr, ptr %34, align 8
   tail call void %35(ptr noundef nonnull align 8 dereferenceable(8) %30) #27
   br label %_ZN5boost10scoped_ptrINS_6spirit7classic4impl15abstract_parserINS2_7scannerISt20_List_const_iteratorINS_4wave8cpplexer9lex_tokenINS7_4util13file_positionINSA_11flex_stringIcSt11char_traitsIcESaIcENSA_9CowStringINSA_22AllocatorStringStorageIcSF_EEPcEEEEEEEEENS2_16scanner_policiesINS2_28skip_parser_iteration_policyINS2_11alternativeINSR_INS2_5chlitINS7_8token_idEEESU_EESU_EENS2_16iteration_policyEEENS2_12match_policyENS2_13action_policyEEEEENS7_8grammars8closures13closure_valueEEEED2Ev.exit.i3
@@ -7998,7 +7990,7 @@ _ZN5boost6spirit7classic4ruleINS1_7scannerISt20_List_const_iteratorINS_4wave8cpp
 
 43:                                               ; preds = %_ZN5boost6spirit7classic4ruleINS1_7scannerISt20_List_const_iteratorINS_4wave8cpplexer9lex_tokenINS5_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeINSP_INS1_5chlitINS5_8token_idEEESS_EESS_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEENS1_15closure_contextINS5_8grammars8closures16cpp_expr_closureEEENS1_5nil_tEED2Ev.exit4
   %44 = load ptr, ptr %41, align 8, !tbaa !61
-  %45 = getelementptr inbounds i8, ptr %44, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %46 = load ptr, ptr %45, align 8
   tail call void %46(ptr noundef nonnull align 8 dereferenceable(8) %41) #27
   br label %_ZN5boost10scoped_ptrINS_6spirit7classic4impl15abstract_parserINS2_7scannerISt20_List_const_iteratorINS_4wave8cpplexer9lex_tokenINS7_4util13file_positionINSA_11flex_stringIcSt11char_traitsIcESaIcENSA_9CowStringINSA_22AllocatorStringStorageIcSF_EEPcEEEEEEEEENS2_16scanner_policiesINS2_28skip_parser_iteration_policyINS2_11alternativeINSR_INS2_5chlitINS7_8token_idEEESU_EESU_EENS2_16iteration_policyEEENS2_12match_policyENS2_13action_policyEEEEENS7_8grammars8closures13closure_valueEEEED2Ev.exit.i5
@@ -8023,7 +8015,7 @@ _ZN5boost6spirit7classic4ruleINS1_7scannerISt20_List_const_iteratorINS_4wave8cpp
 
 54:                                               ; preds = %_ZN5boost6spirit7classic4ruleINS1_7scannerISt20_List_const_iteratorINS_4wave8cpplexer9lex_tokenINS5_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeINSP_INS1_5chlitINS5_8token_idEEESS_EESS_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEENS1_15closure_contextINS5_8grammars8closures16cpp_expr_closureEEENS1_5nil_tEED2Ev.exit6
   %55 = load ptr, ptr %52, align 8, !tbaa !61
-  %56 = getelementptr inbounds i8, ptr %55, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %57 = load ptr, ptr %56, align 8
   tail call void %57(ptr noundef nonnull align 8 dereferenceable(8) %52) #27
   br label %_ZN5boost10scoped_ptrINS_6spirit7classic4impl15abstract_parserINS2_7scannerISt20_List_const_iteratorINS_4wave8cpplexer9lex_tokenINS7_4util13file_positionINSA_11flex_stringIcSt11char_traitsIcESaIcENSA_9CowStringINSA_22AllocatorStringStorageIcSF_EEPcEEEEEEEEENS2_16scanner_policiesINS2_28skip_parser_iteration_policyINS2_11alternativeINSR_INS2_5chlitINS7_8token_idEEESU_EESU_EENS2_16iteration_policyEEENS2_12match_policyENS2_13action_policyEEEEENS7_8grammars8closures13closure_valueEEEED2Ev.exit.i7
@@ -8048,7 +8040,7 @@ _ZN5boost6spirit7classic4ruleINS1_7scannerISt20_List_const_iteratorINS_4wave8cpp
 
 65:                                               ; preds = %_ZN5boost6spirit7classic4ruleINS1_7scannerISt20_List_const_iteratorINS_4wave8cpplexer9lex_tokenINS5_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeINSP_INS1_5chlitINS5_8token_idEEESS_EESS_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEENS1_15closure_contextINS5_8grammars8closures16cpp_expr_closureEEENS1_5nil_tEED2Ev.exit8
   %66 = load ptr, ptr %63, align 8, !tbaa !61
-  %67 = getelementptr inbounds i8, ptr %66, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %68 = load ptr, ptr %67, align 8
   tail call void %68(ptr noundef nonnull align 8 dereferenceable(8) %63) #27
   br label %_ZN5boost10scoped_ptrINS_6spirit7classic4impl15abstract_parserINS2_7scannerISt20_List_const_iteratorINS_4wave8cpplexer9lex_tokenINS7_4util13file_positionINSA_11flex_stringIcSt11char_traitsIcESaIcENSA_9CowStringINSA_22AllocatorStringStorageIcSF_EEPcEEEEEEEEENS2_16scanner_policiesINS2_28skip_parser_iteration_policyINS2_11alternativeINSR_INS2_5chlitINS7_8token_idEEESU_EESU_EENS2_16iteration_policyEEENS2_12match_policyENS2_13action_policyEEEEENS7_8grammars8closures13closure_valueEEEED2Ev.exit.i9
@@ -8073,7 +8065,7 @@ _ZN5boost6spirit7classic4ruleINS1_7scannerISt20_List_const_iteratorINS_4wave8cpp
 
 76:                                               ; preds = %_ZN5boost6spirit7classic4ruleINS1_7scannerISt20_List_const_iteratorINS_4wave8cpplexer9lex_tokenINS5_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeINSP_INS1_5chlitINS5_8token_idEEESS_EESS_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEENS1_15closure_contextINS5_8grammars8closures16cpp_expr_closureEEENS1_5nil_tEED2Ev.exit10
   %77 = load ptr, ptr %74, align 8, !tbaa !61
-  %78 = getelementptr inbounds i8, ptr %77, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 8
   %79 = load ptr, ptr %78, align 8
   tail call void %79(ptr noundef nonnull align 8 dereferenceable(8) %74) #27
   br label %_ZN5boost10scoped_ptrINS_6spirit7classic4impl15abstract_parserINS2_7scannerISt20_List_const_iteratorINS_4wave8cpplexer9lex_tokenINS7_4util13file_positionINSA_11flex_stringIcSt11char_traitsIcESaIcENSA_9CowStringINSA_22AllocatorStringStorageIcSF_EEPcEEEEEEEEENS2_16scanner_policiesINS2_28skip_parser_iteration_policyINS2_11alternativeINSR_INS2_5chlitINS7_8token_idEEESU_EESU_EENS2_16iteration_policyEEENS2_12match_policyENS2_13action_policyEEEEENS7_8grammars8closures13closure_valueEEEED2Ev.exit.i11
@@ -8098,7 +8090,7 @@ _ZN5boost6spirit7classic4ruleINS1_7scannerISt20_List_const_iteratorINS_4wave8cpp
 
 87:                                               ; preds = %_ZN5boost6spirit7classic4ruleINS1_7scannerISt20_List_const_iteratorINS_4wave8cpplexer9lex_tokenINS5_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeINSP_INS1_5chlitINS5_8token_idEEESS_EESS_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEENS1_15closure_contextINS5_8grammars8closures16cpp_expr_closureEEENS1_5nil_tEED2Ev.exit12
   %88 = load ptr, ptr %85, align 8, !tbaa !61
-  %89 = getelementptr inbounds i8, ptr %88, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 8
   %90 = load ptr, ptr %89, align 8
   tail call void %90(ptr noundef nonnull align 8 dereferenceable(8) %85) #27
   br label %_ZN5boost10scoped_ptrINS_6spirit7classic4impl15abstract_parserINS2_7scannerISt20_List_const_iteratorINS_4wave8cpplexer9lex_tokenINS7_4util13file_positionINSA_11flex_stringIcSt11char_traitsIcESaIcENSA_9CowStringINSA_22AllocatorStringStorageIcSF_EEPcEEEEEEEEENS2_16scanner_policiesINS2_28skip_parser_iteration_policyINS2_11alternativeINSR_INS2_5chlitINS7_8token_idEEESU_EESU_EENS2_16iteration_policyEEENS2_12match_policyENS2_13action_policyEEEEENS7_8grammars8closures13closure_valueEEEED2Ev.exit.i13
@@ -8123,7 +8115,7 @@ _ZN5boost6spirit7classic4ruleINS1_7scannerISt20_List_const_iteratorINS_4wave8cpp
 
 98:                                               ; preds = %_ZN5boost6spirit7classic4ruleINS1_7scannerISt20_List_const_iteratorINS_4wave8cpplexer9lex_tokenINS5_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeINSP_INS1_5chlitINS5_8token_idEEESS_EESS_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEENS1_15closure_contextINS5_8grammars8closures16cpp_expr_closureEEENS1_5nil_tEED2Ev.exit14
   %99 = load ptr, ptr %96, align 8, !tbaa !61
-  %100 = getelementptr inbounds i8, ptr %99, i64 8
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 8
   %101 = load ptr, ptr %100, align 8
   tail call void %101(ptr noundef nonnull align 8 dereferenceable(8) %96) #27
   br label %_ZN5boost10scoped_ptrINS_6spirit7classic4impl15abstract_parserINS2_7scannerISt20_List_const_iteratorINS_4wave8cpplexer9lex_tokenINS7_4util13file_positionINSA_11flex_stringIcSt11char_traitsIcESaIcENSA_9CowStringINSA_22AllocatorStringStorageIcSF_EEPcEEEEEEEEENS2_16scanner_policiesINS2_28skip_parser_iteration_policyINS2_11alternativeINSR_INS2_5chlitINS7_8token_idEEESU_EESU_EENS2_16iteration_policyEEENS2_12match_policyENS2_13action_policyEEEEENS7_8grammars8closures13closure_valueEEEED2Ev.exit.i15
@@ -8148,7 +8140,7 @@ _ZN5boost6spirit7classic4ruleINS1_7scannerISt20_List_const_iteratorINS_4wave8cpp
 
 109:                                              ; preds = %_ZN5boost6spirit7classic4ruleINS1_7scannerISt20_List_const_iteratorINS_4wave8cpplexer9lex_tokenINS5_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeINSP_INS1_5chlitINS5_8token_idEEESS_EESS_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEENS1_15closure_contextINS5_8grammars8closures16cpp_expr_closureEEENS1_5nil_tEED2Ev.exit16
   %110 = load ptr, ptr %107, align 8, !tbaa !61
-  %111 = getelementptr inbounds i8, ptr %110, i64 8
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 8
   %112 = load ptr, ptr %111, align 8
   tail call void %112(ptr noundef nonnull align 8 dereferenceable(8) %107) #27
   br label %_ZN5boost10scoped_ptrINS_6spirit7classic4impl15abstract_parserINS2_7scannerISt20_List_const_iteratorINS_4wave8cpplexer9lex_tokenINS7_4util13file_positionINSA_11flex_stringIcSt11char_traitsIcESaIcENSA_9CowStringINSA_22AllocatorStringStorageIcSF_EEPcEEEEEEEEENS2_16scanner_policiesINS2_28skip_parser_iteration_policyINS2_11alternativeINSR_INS2_5chlitINS7_8token_idEEESU_EESU_EENS2_16iteration_policyEEENS2_12match_policyENS2_13action_policyEEEEENS7_8grammars8closures13closure_valueEEEED2Ev.exit.i17
@@ -8173,7 +8165,7 @@ _ZN5boost6spirit7classic4ruleINS1_7scannerISt20_List_const_iteratorINS_4wave8cpp
 
 120:                                              ; preds = %_ZN5boost6spirit7classic4ruleINS1_7scannerISt20_List_const_iteratorINS_4wave8cpplexer9lex_tokenINS5_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeINSP_INS1_5chlitINS5_8token_idEEESS_EESS_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEENS1_15closure_contextINS5_8grammars8closures16cpp_expr_closureEEENS1_5nil_tEED2Ev.exit18
   %121 = load ptr, ptr %118, align 8, !tbaa !61
-  %122 = getelementptr inbounds i8, ptr %121, i64 8
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 8
   %123 = load ptr, ptr %122, align 8
   tail call void %123(ptr noundef nonnull align 8 dereferenceable(8) %118) #27
   br label %_ZN5boost10scoped_ptrINS_6spirit7classic4impl15abstract_parserINS2_7scannerISt20_List_const_iteratorINS_4wave8cpplexer9lex_tokenINS7_4util13file_positionINSA_11flex_stringIcSt11char_traitsIcESaIcENSA_9CowStringINSA_22AllocatorStringStorageIcSF_EEPcEEEEEEEEENS2_16scanner_policiesINS2_28skip_parser_iteration_policyINS2_11alternativeINSR_INS2_5chlitINS7_8token_idEEESU_EESU_EENS2_16iteration_policyEEENS2_12match_policyENS2_13action_policyEEEEENS7_8grammars8closures13closure_valueEEEED2Ev.exit.i19
@@ -8198,7 +8190,7 @@ _ZN5boost6spirit7classic4ruleINS1_7scannerISt20_List_const_iteratorINS_4wave8cpp
 
 131:                                              ; preds = %_ZN5boost6spirit7classic4ruleINS1_7scannerISt20_List_const_iteratorINS_4wave8cpplexer9lex_tokenINS5_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeINSP_INS1_5chlitINS5_8token_idEEESS_EESS_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEENS1_15closure_contextINS5_8grammars8closures16cpp_expr_closureEEENS1_5nil_tEED2Ev.exit20
   %132 = load ptr, ptr %129, align 8, !tbaa !61
-  %133 = getelementptr inbounds i8, ptr %132, i64 8
+  %133 = getelementptr inbounds nuw i8, ptr %132, i64 8
   %134 = load ptr, ptr %133, align 8
   tail call void %134(ptr noundef nonnull align 8 dereferenceable(8) %129) #27
   br label %_ZN5boost10scoped_ptrINS_6spirit7classic4impl15abstract_parserINS2_7scannerISt20_List_const_iteratorINS_4wave8cpplexer9lex_tokenINS7_4util13file_positionINSA_11flex_stringIcSt11char_traitsIcESaIcENSA_9CowStringINSA_22AllocatorStringStorageIcSF_EEPcEEEEEEEEENS2_16scanner_policiesINS2_28skip_parser_iteration_policyINS2_11alternativeINSR_INS2_5chlitINS7_8token_idEEESU_EESU_EENS2_16iteration_policyEEENS2_12match_policyENS2_13action_policyEEEEENS7_8grammars8closures13closure_valueEEEED2Ev.exit.i21
@@ -8223,7 +8215,7 @@ _ZN5boost6spirit7classic4ruleINS1_7scannerISt20_List_const_iteratorINS_4wave8cpp
 
 142:                                              ; preds = %_ZN5boost6spirit7classic4ruleINS1_7scannerISt20_List_const_iteratorINS_4wave8cpplexer9lex_tokenINS5_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeINSP_INS1_5chlitINS5_8token_idEEESS_EESS_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEENS1_15closure_contextINS5_8grammars8closures16cpp_expr_closureEEENS1_5nil_tEED2Ev.exit22
   %143 = load ptr, ptr %140, align 8, !tbaa !61
-  %144 = getelementptr inbounds i8, ptr %143, i64 8
+  %144 = getelementptr inbounds nuw i8, ptr %143, i64 8
   %145 = load ptr, ptr %144, align 8
   tail call void %145(ptr noundef nonnull align 8 dereferenceable(8) %140) #27
   br label %_ZN5boost10scoped_ptrINS_6spirit7classic4impl15abstract_parserINS2_7scannerISt20_List_const_iteratorINS_4wave8cpplexer9lex_tokenINS7_4util13file_positionINSA_11flex_stringIcSt11char_traitsIcESaIcENSA_9CowStringINSA_22AllocatorStringStorageIcSF_EEPcEEEEEEEEENS2_16scanner_policiesINS2_28skip_parser_iteration_policyINS2_11alternativeINSR_INS2_5chlitINS7_8token_idEEESU_EESU_EENS2_16iteration_policyEEENS2_12match_policyENS2_13action_policyEEEEENS7_8grammars8closures13closure_valueEEEED2Ev.exit.i23
@@ -8248,7 +8240,7 @@ _ZN5boost6spirit7classic4ruleINS1_7scannerISt20_List_const_iteratorINS_4wave8cpp
 
 153:                                              ; preds = %_ZN5boost6spirit7classic4ruleINS1_7scannerISt20_List_const_iteratorINS_4wave8cpplexer9lex_tokenINS5_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeINSP_INS1_5chlitINS5_8token_idEEESS_EESS_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEENS1_15closure_contextINS5_8grammars8closures16cpp_expr_closureEEENS1_5nil_tEED2Ev.exit24
   %154 = load ptr, ptr %151, align 8, !tbaa !61
-  %155 = getelementptr inbounds i8, ptr %154, i64 8
+  %155 = getelementptr inbounds nuw i8, ptr %154, i64 8
   %156 = load ptr, ptr %155, align 8
   tail call void %156(ptr noundef nonnull align 8 dereferenceable(8) %151) #27
   br label %_ZN5boost10scoped_ptrINS_6spirit7classic4impl15abstract_parserINS2_7scannerISt20_List_const_iteratorINS_4wave8cpplexer9lex_tokenINS7_4util13file_positionINSA_11flex_stringIcSt11char_traitsIcESaIcENSA_9CowStringINSA_22AllocatorStringStorageIcSF_EEPcEEEEEEEEENS2_16scanner_policiesINS2_28skip_parser_iteration_policyINS2_11alternativeINSR_INS2_5chlitINS7_8token_idEEESU_EESU_EENS2_16iteration_policyEEENS2_12match_policyENS2_13action_policyEEEEENS7_8grammars8closures13closure_valueEEEED2Ev.exit.i25
@@ -8273,7 +8265,7 @@ _ZN5boost6spirit7classic4ruleINS1_7scannerISt20_List_const_iteratorINS_4wave8cpp
 
 164:                                              ; preds = %_ZN5boost6spirit7classic4ruleINS1_7scannerISt20_List_const_iteratorINS_4wave8cpplexer9lex_tokenINS5_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeINSP_INS1_5chlitINS5_8token_idEEESS_EESS_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEENS1_15closure_contextINS5_8grammars8closures16cpp_expr_closureEEENS1_5nil_tEED2Ev.exit26
   %165 = load ptr, ptr %162, align 8, !tbaa !61
-  %166 = getelementptr inbounds i8, ptr %165, i64 8
+  %166 = getelementptr inbounds nuw i8, ptr %165, i64 8
   %167 = load ptr, ptr %166, align 8
   tail call void %167(ptr noundef nonnull align 8 dereferenceable(8) %162) #27
   br label %_ZN5boost10scoped_ptrINS_6spirit7classic4impl15abstract_parserINS2_7scannerISt20_List_const_iteratorINS_4wave8cpplexer9lex_tokenINS7_4util13file_positionINSA_11flex_stringIcSt11char_traitsIcESaIcENSA_9CowStringINSA_22AllocatorStringStorageIcSF_EEPcEEEEEEEEENS2_16scanner_policiesINS2_28skip_parser_iteration_policyINS2_11alternativeINSR_INS2_5chlitINS7_8token_idEEESU_EESU_EENS2_16iteration_policyEEENS2_12match_policyENS2_13action_policyEEEEENS7_8grammars8closures13closure_valueEEEED2Ev.exit.i27
@@ -8298,7 +8290,7 @@ _ZN5boost6spirit7classic4ruleINS1_7scannerISt20_List_const_iteratorINS_4wave8cpp
 
 175:                                              ; preds = %_ZN5boost6spirit7classic4ruleINS1_7scannerISt20_List_const_iteratorINS_4wave8cpplexer9lex_tokenINS5_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeINSP_INS1_5chlitINS5_8token_idEEESS_EESS_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEENS1_15closure_contextINS5_8grammars8closures16cpp_expr_closureEEENS1_5nil_tEED2Ev.exit28
   %176 = load ptr, ptr %173, align 8, !tbaa !61
-  %177 = getelementptr inbounds i8, ptr %176, i64 8
+  %177 = getelementptr inbounds nuw i8, ptr %176, i64 8
   %178 = load ptr, ptr %177, align 8
   tail call void %178(ptr noundef nonnull align 8 dereferenceable(8) %173) #27
   br label %_ZN5boost10scoped_ptrINS_6spirit7classic4impl15abstract_parserINS2_7scannerISt20_List_const_iteratorINS_4wave8cpplexer9lex_tokenINS7_4util13file_positionINSA_11flex_stringIcSt11char_traitsIcESaIcENSA_9CowStringINSA_22AllocatorStringStorageIcSF_EEPcEEEEEEEEENS2_16scanner_policiesINS2_28skip_parser_iteration_policyINS2_11alternativeINSR_INS2_5chlitINS7_8token_idEEESU_EESU_EENS2_16iteration_policyEEENS2_12match_policyENS2_13action_policyEEEEENS7_8grammars8closures13closure_valueEEEED2Ev.exit.i29
@@ -8323,7 +8315,7 @@ _ZN5boost6spirit7classic4ruleINS1_7scannerISt20_List_const_iteratorINS_4wave8cpp
 
 186:                                              ; preds = %_ZN5boost6spirit7classic4ruleINS1_7scannerISt20_List_const_iteratorINS_4wave8cpplexer9lex_tokenINS5_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeINSP_INS1_5chlitINS5_8token_idEEESS_EESS_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEENS1_15closure_contextINS5_8grammars8closures16cpp_expr_closureEEENS1_5nil_tEED2Ev.exit30
   %187 = load ptr, ptr %184, align 8, !tbaa !61
-  %188 = getelementptr inbounds i8, ptr %187, i64 8
+  %188 = getelementptr inbounds nuw i8, ptr %187, i64 8
   %189 = load ptr, ptr %188, align 8
   tail call void %189(ptr noundef nonnull align 8 dereferenceable(8) %184) #27
   br label %_ZN5boost10scoped_ptrINS_6spirit7classic4impl15abstract_parserINS2_7scannerISt20_List_const_iteratorINS_4wave8cpplexer9lex_tokenINS7_4util13file_positionINSA_11flex_stringIcSt11char_traitsIcESaIcENSA_9CowStringINSA_22AllocatorStringStorageIcSF_EEPcEEEEEEEEENS2_16scanner_policiesINS2_28skip_parser_iteration_policyINS2_11alternativeINSR_INS2_5chlitINS7_8token_idEEESU_EESU_EENS2_16iteration_policyEEENS2_12match_policyENS2_13action_policyEEEEENS7_8grammars8closures13closure_valueEEEED2Ev.exit.i31
@@ -8348,7 +8340,7 @@ _ZN5boost6spirit7classic4ruleINS1_7scannerISt20_List_const_iteratorINS_4wave8cpp
 
 197:                                              ; preds = %_ZN5boost6spirit7classic4ruleINS1_7scannerISt20_List_const_iteratorINS_4wave8cpplexer9lex_tokenINS5_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeINSP_INS1_5chlitINS5_8token_idEEESS_EESS_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEENS1_15closure_contextINS5_8grammars8closures16cpp_expr_closureEEENS1_5nil_tEED2Ev.exit32
   %198 = load ptr, ptr %195, align 8, !tbaa !61
-  %199 = getelementptr inbounds i8, ptr %198, i64 8
+  %199 = getelementptr inbounds nuw i8, ptr %198, i64 8
   %200 = load ptr, ptr %199, align 8
   tail call void %200(ptr noundef nonnull align 8 dereferenceable(8) %195) #27
   br label %_ZN5boost10scoped_ptrINS_6spirit7classic4impl15abstract_parserINS2_7scannerISt20_List_const_iteratorINS_4wave8cpplexer9lex_tokenINS7_4util13file_positionINSA_11flex_stringIcSt11char_traitsIcESaIcENSA_9CowStringINSA_22AllocatorStringStorageIcSF_EEPcEEEEEEEEENS2_16scanner_policiesINS2_28skip_parser_iteration_policyINS2_11alternativeINSR_INS2_5chlitINS7_8token_idEEESU_EESU_EENS2_16iteration_policyEEENS2_12match_policyENS2_13action_policyEEEEENS7_8grammars8closures13closure_valueEEEED2Ev.exit.i33
@@ -8373,7 +8365,7 @@ _ZN5boost6spirit7classic4ruleINS1_7scannerISt20_List_const_iteratorINS_4wave8cpp
 
 208:                                              ; preds = %_ZN5boost6spirit7classic4ruleINS1_7scannerISt20_List_const_iteratorINS_4wave8cpplexer9lex_tokenINS5_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeINSP_INS1_5chlitINS5_8token_idEEESS_EESS_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEENS1_15closure_contextINS5_8grammars8closures16cpp_expr_closureEEENS1_5nil_tEED2Ev.exit34
   %209 = load ptr, ptr %206, align 8, !tbaa !61
-  %210 = getelementptr inbounds i8, ptr %209, i64 8
+  %210 = getelementptr inbounds nuw i8, ptr %209, i64 8
   %211 = load ptr, ptr %210, align 8
   tail call void %211(ptr noundef nonnull align 8 dereferenceable(8) %206) #27
   br label %_ZN5boost10scoped_ptrINS_6spirit7classic4impl15abstract_parserINS2_7scannerISt20_List_const_iteratorINS_4wave8cpplexer9lex_tokenINS7_4util13file_positionINSA_11flex_stringIcSt11char_traitsIcESaIcENSA_9CowStringINSA_22AllocatorStringStorageIcSF_EEPcEEEEEEEEENS2_16scanner_policiesINS2_28skip_parser_iteration_policyINS2_11alternativeINSR_INS2_5chlitINS7_8token_idEEESU_EESU_EENS2_16iteration_policyEEENS2_12match_policyENS2_13action_policyEEEEENS7_8grammars8closures13closure_valueEEEED2Ev.exit.i35
@@ -8398,7 +8390,7 @@ _ZN5boost6spirit7classic4ruleINS1_7scannerISt20_List_const_iteratorINS_4wave8cpp
 
 219:                                              ; preds = %_ZN5boost6spirit7classic4ruleINS1_7scannerISt20_List_const_iteratorINS_4wave8cpplexer9lex_tokenINS5_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeINSP_INS1_5chlitINS5_8token_idEEESS_EESS_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEENS1_15closure_contextINS5_8grammars8closures16cpp_expr_closureEEENS1_5nil_tEED2Ev.exit36
   %220 = load ptr, ptr %217, align 8, !tbaa !61
-  %221 = getelementptr inbounds i8, ptr %220, i64 8
+  %221 = getelementptr inbounds nuw i8, ptr %220, i64 8
   %222 = load ptr, ptr %221, align 8
   tail call void %222(ptr noundef nonnull align 8 dereferenceable(8) %217) #27
   br label %_ZN5boost10scoped_ptrINS_6spirit7classic4impl15abstract_parserINS2_7scannerISt20_List_const_iteratorINS_4wave8cpplexer9lex_tokenINS7_4util13file_positionINSA_11flex_stringIcSt11char_traitsIcESaIcENSA_9CowStringINSA_22AllocatorStringStorageIcSF_EEPcEEEEEEEEENS2_16scanner_policiesINS2_28skip_parser_iteration_policyINS2_11alternativeINSR_INS2_5chlitINS7_8token_idEEESU_EESU_EENS2_16iteration_policyEEENS2_12match_policyENS2_13action_policyEEEEENS7_8grammars8closures13closure_valueEEEED2Ev.exit.i37
@@ -8423,7 +8415,7 @@ _ZN5boost6spirit7classic4ruleINS1_7scannerISt20_List_const_iteratorINS_4wave8cpp
 
 230:                                              ; preds = %_ZN5boost6spirit7classic4ruleINS1_7scannerISt20_List_const_iteratorINS_4wave8cpplexer9lex_tokenINS5_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeINSP_INS1_5chlitINS5_8token_idEEESS_EESS_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEENS1_15closure_contextINS5_8grammars8closures16cpp_expr_closureEEENS1_5nil_tEED2Ev.exit38
   %231 = load ptr, ptr %228, align 8, !tbaa !61
-  %232 = getelementptr inbounds i8, ptr %231, i64 8
+  %232 = getelementptr inbounds nuw i8, ptr %231, i64 8
   %233 = load ptr, ptr %232, align 8
   tail call void %233(ptr noundef nonnull align 8 dereferenceable(8) %228) #27
   br label %_ZN5boost10scoped_ptrINS_6spirit7classic4impl15abstract_parserINS2_7scannerISt20_List_const_iteratorINS_4wave8cpplexer9lex_tokenINS7_4util13file_positionINSA_11flex_stringIcSt11char_traitsIcESaIcENSA_9CowStringINSA_22AllocatorStringStorageIcSF_EEPcEEEEEEEEENS2_16scanner_policiesINS2_28skip_parser_iteration_policyINS2_11alternativeINSR_INS2_5chlitINS7_8token_idEEESU_EESU_EENS2_16iteration_policyEEENS2_12match_policyENS2_13action_policyEEEEENS7_8grammars8closures13closure_valueEEEED2Ev.exit.i39
@@ -8448,7 +8440,7 @@ _ZN5boost6spirit7classic4ruleINS1_7scannerISt20_List_const_iteratorINS_4wave8cpp
 
 241:                                              ; preds = %_ZN5boost6spirit7classic4ruleINS1_7scannerISt20_List_const_iteratorINS_4wave8cpplexer9lex_tokenINS5_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeINSP_INS1_5chlitINS5_8token_idEEESS_EESS_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEENS1_15closure_contextINS5_8grammars8closures16cpp_expr_closureEEENS1_5nil_tEED2Ev.exit40
   %242 = load ptr, ptr %239, align 8, !tbaa !61
-  %243 = getelementptr inbounds i8, ptr %242, i64 8
+  %243 = getelementptr inbounds nuw i8, ptr %242, i64 8
   %244 = load ptr, ptr %243, align 8
   tail call void %244(ptr noundef nonnull align 8 dereferenceable(8) %239) #27
   br label %_ZN5boost10scoped_ptrINS_6spirit7classic4impl15abstract_parserINS2_7scannerISt20_List_const_iteratorINS_4wave8cpplexer9lex_tokenINS7_4util13file_positionINSA_11flex_stringIcSt11char_traitsIcESaIcENSA_9CowStringINSA_22AllocatorStringStorageIcSF_EEPcEEEEEEEEENS2_16scanner_policiesINS2_28skip_parser_iteration_policyINS2_11alternativeINSR_INS2_5chlitINS7_8token_idEEESU_EESU_EENS2_16iteration_policyEEENS2_12match_policyENS2_13action_policyEEEEENS7_8grammars8closures13closure_valueEEEED2Ev.exit.i41
@@ -8473,7 +8465,7 @@ _ZN5boost6spirit7classic4ruleINS1_7scannerISt20_List_const_iteratorINS_4wave8cpp
 
 252:                                              ; preds = %_ZN5boost6spirit7classic4ruleINS1_7scannerISt20_List_const_iteratorINS_4wave8cpplexer9lex_tokenINS5_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeINSP_INS1_5chlitINS5_8token_idEEESS_EESS_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEENS1_15closure_contextINS5_8grammars8closures16cpp_expr_closureEEENS1_5nil_tEED2Ev.exit42
   %253 = load ptr, ptr %250, align 8, !tbaa !61
-  %254 = getelementptr inbounds i8, ptr %253, i64 8
+  %254 = getelementptr inbounds nuw i8, ptr %253, i64 8
   %255 = load ptr, ptr %254, align 8
   tail call void %255(ptr noundef nonnull align 8 dereferenceable(8) %250) #27
   br label %_ZN5boost10scoped_ptrINS_6spirit7classic4impl15abstract_parserINS2_7scannerISt20_List_const_iteratorINS_4wave8cpplexer9lex_tokenINS7_4util13file_positionINSA_11flex_stringIcSt11char_traitsIcESaIcENSA_9CowStringINSA_22AllocatorStringStorageIcSF_EEPcEEEEEEEEENS2_16scanner_policiesINS2_28skip_parser_iteration_policyINS2_11alternativeINSR_INS2_5chlitINS7_8token_idEEESU_EESU_EENS2_16iteration_policyEEENS2_12match_policyENS2_13action_policyEEEEENS7_8grammars8closures13closure_valueEEEED2Ev.exit.i43
@@ -8498,7 +8490,7 @@ _ZN5boost6spirit7classic4ruleINS1_7scannerISt20_List_const_iteratorINS_4wave8cpp
 
 263:                                              ; preds = %_ZN5boost6spirit7classic4ruleINS1_7scannerISt20_List_const_iteratorINS_4wave8cpplexer9lex_tokenINS5_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeINSP_INS1_5chlitINS5_8token_idEEESS_EESS_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEENS1_15closure_contextINS5_8grammars8closures16cpp_expr_closureEEENS1_5nil_tEED2Ev.exit44
   %264 = load ptr, ptr %261, align 8, !tbaa !61
-  %265 = getelementptr inbounds i8, ptr %264, i64 8
+  %265 = getelementptr inbounds nuw i8, ptr %264, i64 8
   %266 = load ptr, ptr %265, align 8
   tail call void %266(ptr noundef nonnull align 8 dereferenceable(8) %261) #27
   br label %_ZN5boost10scoped_ptrINS_6spirit7classic4impl15abstract_parserINS2_7scannerISt20_List_const_iteratorINS_4wave8cpplexer9lex_tokenINS7_4util13file_positionINSA_11flex_stringIcSt11char_traitsIcESaIcENSA_9CowStringINSA_22AllocatorStringStorageIcSF_EEPcEEEEEEEEENS2_16scanner_policiesINS2_28skip_parser_iteration_policyINS2_11alternativeINSR_INS2_5chlitINS7_8token_idEEESU_EESU_EENS2_16iteration_policyEEENS2_12match_policyENS2_13action_policyEEEEENS7_8grammars8closures13closure_valueEEEED2Ev.exit.i45
@@ -8523,7 +8515,7 @@ _ZN5boost6spirit7classic4ruleINS1_7scannerISt20_List_const_iteratorINS_4wave8cpp
 
 274:                                              ; preds = %_ZN5boost6spirit7classic4ruleINS1_7scannerISt20_List_const_iteratorINS_4wave8cpplexer9lex_tokenINS5_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeINSP_INS1_5chlitINS5_8token_idEEESS_EESS_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEENS1_15closure_contextINS5_8grammars8closures16cpp_expr_closureEEENS1_5nil_tEED2Ev.exit46
   %275 = load ptr, ptr %272, align 8, !tbaa !61
-  %276 = getelementptr inbounds i8, ptr %275, i64 8
+  %276 = getelementptr inbounds nuw i8, ptr %275, i64 8
   %277 = load ptr, ptr %276, align 8
   tail call void %277(ptr noundef nonnull align 8 dereferenceable(8) %272) #27
   br label %_ZN5boost10scoped_ptrINS_6spirit7classic4impl15abstract_parserINS2_7scannerISt20_List_const_iteratorINS_4wave8cpplexer9lex_tokenINS7_4util13file_positionINSA_11flex_stringIcSt11char_traitsIcESaIcENSA_9CowStringINSA_22AllocatorStringStorageIcSF_EEPcEEEEEEEEENS2_16scanner_policiesINS2_28skip_parser_iteration_policyINS2_11alternativeINSR_INS2_5chlitINS7_8token_idEEESU_EESU_EENS2_16iteration_policyEEENS2_12match_policyENS2_13action_policyEEEEENS7_8grammars8closures13closure_valueEEEED2Ev.exit.i47
@@ -8548,7 +8540,7 @@ _ZN5boost6spirit7classic4ruleINS1_7scannerISt20_List_const_iteratorINS_4wave8cpp
 
 285:                                              ; preds = %_ZN5boost6spirit7classic4ruleINS1_7scannerISt20_List_const_iteratorINS_4wave8cpplexer9lex_tokenINS5_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeINSP_INS1_5chlitINS5_8token_idEEESS_EESS_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEENS1_15closure_contextINS5_8grammars8closures16cpp_expr_closureEEENS1_5nil_tEED2Ev.exit48
   %286 = load ptr, ptr %283, align 8, !tbaa !61
-  %287 = getelementptr inbounds i8, ptr %286, i64 8
+  %287 = getelementptr inbounds nuw i8, ptr %286, i64 8
   %288 = load ptr, ptr %287, align 8
   tail call void %288(ptr noundef nonnull align 8 dereferenceable(8) %283) #27
   br label %_ZN5boost10scoped_ptrINS_6spirit7classic4impl15abstract_parserINS2_7scannerISt20_List_const_iteratorINS_4wave8cpplexer9lex_tokenINS7_4util13file_positionINSA_11flex_stringIcSt11char_traitsIcESaIcENSA_9CowStringINSA_22AllocatorStringStorageIcSF_EEPcEEEEEEEEENS2_16scanner_policiesINS2_28skip_parser_iteration_policyINS2_11alternativeINSR_INS2_5chlitINS7_8token_idEEESU_EESU_EENS2_16iteration_policyEEENS2_12match_policyENS2_13action_policyEEEEENS7_8grammars8closures13closure_valueEEEED2Ev.exit.i49
@@ -8573,7 +8565,7 @@ _ZN5boost6spirit7classic4ruleINS1_7scannerISt20_List_const_iteratorINS_4wave8cpp
 
 296:                                              ; preds = %_ZN5boost6spirit7classic4ruleINS1_7scannerISt20_List_const_iteratorINS_4wave8cpplexer9lex_tokenINS5_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeINSP_INS1_5chlitINS5_8token_idEEESS_EESS_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEENS1_15closure_contextINS5_8grammars8closures16cpp_expr_closureEEENS1_5nil_tEED2Ev.exit50
   %297 = load ptr, ptr %294, align 8, !tbaa !61
-  %298 = getelementptr inbounds i8, ptr %297, i64 8
+  %298 = getelementptr inbounds nuw i8, ptr %297, i64 8
   %299 = load ptr, ptr %298, align 8
   tail call void %299(ptr noundef nonnull align 8 dereferenceable(8) %294) #27
   br label %_ZN5boost10scoped_ptrINS_6spirit7classic4impl15abstract_parserINS2_7scannerISt20_List_const_iteratorINS_4wave8cpplexer9lex_tokenINS7_4util13file_positionINSA_11flex_stringIcSt11char_traitsIcESaIcENSA_9CowStringINSA_22AllocatorStringStorageIcSF_EEPcEEEEEEEEENS2_16scanner_policiesINS2_28skip_parser_iteration_policyINS2_11alternativeINSR_INS2_5chlitINS7_8token_idEEESU_EESU_EENS2_16iteration_policyEEENS2_12match_policyENS2_13action_policyEEEEENS7_8grammars8closures13closure_valueEEEED2Ev.exit.i51
@@ -8598,7 +8590,7 @@ _ZN5boost6spirit7classic4ruleINS1_7scannerISt20_List_const_iteratorINS_4wave8cpp
 
 307:                                              ; preds = %_ZN5boost6spirit7classic4ruleINS1_7scannerISt20_List_const_iteratorINS_4wave8cpplexer9lex_tokenINS5_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeINSP_INS1_5chlitINS5_8token_idEEESS_EESS_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEENS1_15closure_contextINS5_8grammars8closures16cpp_expr_closureEEENS1_5nil_tEED2Ev.exit52
   %308 = load ptr, ptr %305, align 8, !tbaa !61
-  %309 = getelementptr inbounds i8, ptr %308, i64 8
+  %309 = getelementptr inbounds nuw i8, ptr %308, i64 8
   %310 = load ptr, ptr %309, align 8
   tail call void %310(ptr noundef nonnull align 8 dereferenceable(8) %305) #27
   br label %_ZN5boost10scoped_ptrINS_6spirit7classic4impl15abstract_parserINS2_7scannerISt20_List_const_iteratorINS_4wave8cpplexer9lex_tokenINS7_4util13file_positionINSA_11flex_stringIcSt11char_traitsIcESaIcENSA_9CowStringINSA_22AllocatorStringStorageIcSF_EEPcEEEEEEEEENS2_16scanner_policiesINS2_28skip_parser_iteration_policyINS2_11alternativeINSR_INS2_5chlitINS7_8token_idEEESU_EESU_EENS2_16iteration_policyEEENS2_12match_policyENS2_13action_policyEEEEENS7_8grammars8closures13closure_valueEEEED2Ev.exit.i53
@@ -8621,7 +8613,7 @@ _ZN5boost6spirit7classic4ruleINS1_7scannerISt20_List_const_iteratorINS_4wave8cpp
 
 316:                                              ; preds = %_ZN5boost6spirit7classic4ruleINS1_7scannerISt20_List_const_iteratorINS_4wave8cpplexer9lex_tokenINS5_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeINSP_INS1_5chlitINS5_8token_idEEESS_EESS_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEENS1_15closure_contextINS5_8grammars8closures16cpp_expr_closureEEENS1_5nil_tEED2Ev.exit54
   %317 = load ptr, ptr %314, align 8, !tbaa !61
-  %318 = getelementptr inbounds i8, ptr %317, i64 8
+  %318 = getelementptr inbounds nuw i8, ptr %317, i64 8
   %319 = load ptr, ptr %318, align 8
   tail call void %319(ptr noundef nonnull align 8 dereferenceable(8) %314) #27
   br label %_ZN5boost6spirit7classic4ruleINS1_7scannerISt20_List_const_iteratorINS_4wave8cpplexer9lex_tokenINS5_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeINSP_INS1_5chlitINS5_8token_idEEESS_EESS_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEENS1_5nil_tES11_ED2Ev.exit
@@ -8639,7 +8631,7 @@ define linkonce_odr hidden void @_ZN5boost6spirit7classic4ruleINS1_7scannerISt20
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %3, align 8, !tbaa !61
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(8) %3) #27
   br label %_ZN5boost10scoped_ptrINS_6spirit7classic4impl15abstract_parserINS2_7scannerISt20_List_const_iteratorINS_4wave8cpplexer9lex_tokenINS7_4util13file_positionINSA_11flex_stringIcSt11char_traitsIcESaIcENSA_9CowStringINSA_22AllocatorStringStorageIcSF_EEPcEEEEEEEEENS2_16scanner_policiesINS2_28skip_parser_iteration_policyINS2_11alternativeINSR_INS2_5chlitINS7_8token_idEEESU_EESU_EENS2_16iteration_policyEEENS2_12match_policyENS2_13action_policyEEEEENS7_8grammars8closures13closure_valueEEEED2Ev.exit
@@ -9440,7 +9432,7 @@ _ZN5boost6spirit7classic7closureINS_4wave8grammars8closures16cpp_expr_closureENS
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost6spirit7classic4impl15concrete_parserINS1_6actionINS1_4ruleINS1_7scannerISt20_List_const_iteratorINS_4wave8cpplexer9lex_tokenINS8_4util13file_positionINSB_11flex_stringIcSt11char_traitsIcESaIcENSB_9CowStringINSB_22AllocatorStringStorageIcSG_EEPcEEEEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeINSS_INS1_5chlitINS8_8token_idEEESV_EESV_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEENS1_15closure_contextINS8_8grammars8closures16cpp_expr_closureEEENS1_5nil_tEEEN7phoenix5actorINS1B_9compositeINS1B_9assign_opENS1C_INS1B_14closure_memberILi0ENS1B_7closureINS16_13closure_valueENS1B_5nil_tES1I_S1I_S1I_S1I_EEEEEENS1C_INS1B_8argumentILi0EEEEES1I_S1I_S1I_S1I_S1I_EEEEEES13_S19_EE, i64 16), ptr %294, align 8, !tbaa !61
   %296 = getelementptr inbounds nuw i8, ptr %294, i64 8
   store ptr %3, ptr %296, align 8
-  %.sroa.62301.0..sroa_idx = getelementptr inbounds i8, ptr %294, i64 24
+  %.sroa.62301.0..sroa_idx = getelementptr inbounds nuw i8, ptr %294, i64 24
   store i64 %293, ptr %.sroa.62301.0..sroa_idx, align 8
   %297 = load ptr, ptr %0, align 8, !tbaa !219
   store ptr %294, ptr %0, align 8, !tbaa !219
@@ -9449,7 +9441,7 @@ _ZN5boost6spirit7classic7closureINS_4wave8grammars8closures16cpp_expr_closureENS
 
 299:                                              ; preds = %.noexc
   %300 = load ptr, ptr %297, align 8, !tbaa !61
-  %301 = getelementptr inbounds i8, ptr %300, i64 8
+  %301 = getelementptr inbounds nuw i8, ptr %300, i64 8
   %302 = load ptr, ptr %301, align 8
   tail call void %302(ptr noundef nonnull align 8 dereferenceable(8) %297) #27
   %.pre = load i64, ptr %291, align 8, !noalias !263
@@ -9465,27 +9457,27 @@ _ZN5boost6spirit7classic7closureINS_4wave8grammars8closures16cpp_expr_closureENS
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost6spirit7classic4impl15concrete_parserINS1_8sequenceINS1_6actionINS1_4ruleINS1_7scannerISt20_List_const_iteratorINS_4wave8cpplexer9lex_tokenINS9_4util13file_positionINSC_11flex_stringIcSt11char_traitsIcESaIcENSC_9CowStringINSC_22AllocatorStringStorageIcSH_EEPcEEEEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeINST_INS1_5chlitINS9_8token_idEEESW_EESW_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEENS1_15closure_contextINS9_8grammars8closures16cpp_expr_closureEEENS1_5nil_tEEEN7phoenix5actorINS1C_9compositeINS1C_9assign_opENS1D_INS1C_14closure_memberILi0ENS1C_7closureINS17_13closure_valueENS1C_5nil_tES1J_S1J_S1J_S1J_EEEEEENS1D_INS1C_8argumentILi0EEEEES1J_S1J_S1J_S1J_S1J_EEEEEENS1_8optionalINS5_INS1_14subrule_parserILi0ENS4_INS4_INS4_ISW_S1S_EESW_EENS5_IS1B_NS1D_INS1E_IS1F_S1M_NS1D_INS1E_INS16_4impl21operator_questionmarkES1M_S1M_S1P_S1J_S1J_S1J_S1J_EEEES1J_S1J_S1J_S1J_S1J_EEEEEEEES19_EES1R_EEEEEES14_S1I_EE, i64 16), ptr %306, align 8, !tbaa !61
   %307 = getelementptr inbounds nuw i8, ptr %306, i64 8
   store ptr %13, ptr %307, align 8
-  %.sroa.62275.0..sroa_idx = getelementptr inbounds i8, ptr %306, i64 24
+  %.sroa.62275.0..sroa_idx = getelementptr inbounds nuw i8, ptr %306, i64 24
   store i64 %305, ptr %.sroa.62275.0..sroa_idx, align 8
-  %.sroa.82277.0..sroa_idx = getelementptr inbounds i8, ptr %306, i64 40
+  %.sroa.82277.0..sroa_idx = getelementptr inbounds nuw i8, ptr %306, i64 40
   store i32 402915620, ptr %.sroa.82277.0..sroa_idx, align 8
-  %.sroa.102279.0..sroa_idx = getelementptr inbounds i8, ptr %306, i64 48
+  %.sroa.102279.0..sroa_idx = getelementptr inbounds nuw i8, ptr %306, i64 48
   store ptr %3, ptr %.sroa.102279.0..sroa_idx, align 8
-  %.sroa.122281.0..sroa_idx = getelementptr inbounds i8, ptr %306, i64 64
+  %.sroa.122281.0..sroa_idx = getelementptr inbounds nuw i8, ptr %306, i64 64
   store i64 %304, ptr %.sroa.122281.0..sroa_idx, align 8
-  %.sroa.142283.0..sroa_idx = getelementptr inbounds i8, ptr %306, i64 80
+  %.sroa.142283.0..sroa_idx = getelementptr inbounds nuw i8, ptr %306, i64 80
   store i32 402915593, ptr %.sroa.142283.0..sroa_idx, align 8
-  %.sroa.162285.0..sroa_idx = getelementptr inbounds i8, ptr %306, i64 88
+  %.sroa.162285.0..sroa_idx = getelementptr inbounds nuw i8, ptr %306, i64 88
   store ptr %3, ptr %.sroa.162285.0..sroa_idx, align 8
-  %.sroa.182287.0..sroa_idx = getelementptr inbounds i8, ptr %306, i64 104
+  %.sroa.182287.0..sroa_idx = getelementptr inbounds nuw i8, ptr %306, i64 104
   store i64 %304, ptr %.sroa.182287.0..sroa_idx, align 8
-  %.sroa.202289.0..sroa_idx = getelementptr inbounds i8, ptr %306, i64 120
+  %.sroa.202289.0..sroa_idx = getelementptr inbounds nuw i8, ptr %306, i64 120
   store i64 %305, ptr %.sroa.202289.0..sroa_idx, align 8
-  %.sroa.212290.0..sroa_idx = getelementptr inbounds i8, ptr %306, i64 128
+  %.sroa.212290.0..sroa_idx = getelementptr inbounds nuw i8, ptr %306, i64 128
   store i64 %304, ptr %.sroa.212290.0..sroa_idx, align 8
-  %.sroa.232292.0..sroa_idx = getelementptr inbounds i8, ptr %306, i64 144
+  %.sroa.232292.0..sroa_idx = getelementptr inbounds nuw i8, ptr %306, i64 144
   store ptr %283, ptr %.sroa.232292.0..sroa_idx, align 8
-  %.sroa.252294.0..sroa_idx = getelementptr inbounds i8, ptr %306, i64 160
+  %.sroa.252294.0..sroa_idx = getelementptr inbounds nuw i8, ptr %306, i64 160
   store i64 %305, ptr %.sroa.252294.0..sroa_idx, align 8
   %308 = load ptr, ptr %12, align 8, !tbaa !256
   store ptr %306, ptr %12, align 8, !tbaa !256
@@ -9494,7 +9486,7 @@ _ZN5boost6spirit7classic7closureINS_4wave8grammars8closures16cpp_expr_closureENS
 
 310:                                              ; preds = %.noexc422
   %311 = load ptr, ptr %308, align 8, !tbaa !61
-  %312 = getelementptr inbounds i8, ptr %311, i64 8
+  %312 = getelementptr inbounds nuw i8, ptr %311, i64 8
   %313 = load ptr, ptr %312, align 8
   tail call void %313(ptr noundef nonnull align 8 dereferenceable(8) %308) #27
   br label %314
@@ -9509,29 +9501,29 @@ _ZN5boost6spirit7classic7closureINS_4wave8grammars8closures16cpp_expr_closureENS
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost6spirit7classic4impl15concrete_parserINS1_8sequenceINS1_6actionINS1_4ruleINS1_7scannerISt20_List_const_iteratorINS_4wave8cpplexer9lex_tokenINS9_4util13file_positionINSC_11flex_stringIcSt11char_traitsIcESaIcENSC_9CowStringINSC_22AllocatorStringStorageIcSH_EEPcEEEEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeINST_INS1_5chlitINS9_8token_idEEESW_EESW_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEENS1_15closure_contextINS9_8grammars8closures16cpp_expr_closureEEENS1_5nil_tEEEN7phoenix5actorINS1C_9compositeINS1C_9assign_opENS1D_INS1C_14closure_memberILi0ENS1C_7closureINS17_13closure_valueENS1C_5nil_tES1J_S1J_S1J_S1J_EEEEEENS1D_INS1C_8argumentILi0EEEEES1J_S1J_S1J_S1J_S1J_EEEEEENS1_11kleene_starINS2_14if_else_parserINS4_INSC_11pattern_andISV_EENS5_IS1B_NS1D_INS1E_IS1F_S1M_NS1D_INS1E_INS16_4impl16operator_to_boolES1M_S1J_S1J_S1J_S1J_S1J_S1J_EEEES1J_S1J_S1J_S1J_S1J_EEEEEEEENS4_IS1W_NS5_IS1B_NS1D_INS1E_IS1F_S1M_NS1D_INS1E_INS1X_18operator_binary_orES1M_S1P_S1J_S1J_S1J_S1J_S1J_EEEES1J_S1J_S1J_S1J_S1J_EEEEEEEENS1D_INS1E_INS1X_16operator_as_boolES1M_S1J_S1J_S1J_S1J_S1J_S1J_EEEEEEEEEES14_S1I_EE, i64 16), ptr %316, align 8, !tbaa !61
   %317 = getelementptr inbounds nuw i8, ptr %316, i64 8
   store ptr %23, ptr %317, align 8
-  %.sroa.62142.0..sroa_idx = getelementptr inbounds i8, ptr %316, i64 24
+  %.sroa.62142.0..sroa_idx = getelementptr inbounds nuw i8, ptr %316, i64 24
   store i64 %315, ptr %.sroa.62142.0..sroa_idx, align 8
-  %.sroa.82144.sroa.0.sroa.5.0..sroa.82144.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %316, i64 48
+  %.sroa.82144.sroa.0.sroa.5.0..sroa.82144.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %316, i64 48
   store ptr %.sroa.0.0.copyload.i.i424.cast, ptr %.sroa.82144.sroa.0.sroa.5.0..sroa.82144.0..sroa_idx.sroa_idx, align 8
-  %.sroa.82144.sroa.5.0..sroa.82144.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %316, i64 56
+  %.sroa.82144.sroa.5.0..sroa.82144.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %316, i64 56
   store i32 402915614, ptr %.sroa.82144.sroa.5.0..sroa.82144.0..sroa_idx.sroa_idx, align 8
-  %.sroa.82144.sroa.7.0..sroa.82144.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %316, i64 64
+  %.sroa.82144.sroa.7.0..sroa.82144.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %316, i64 64
   store i64 2139619327, ptr %.sroa.82144.sroa.7.0..sroa.82144.0..sroa_idx.sroa_idx, align 8
-  %.sroa.82144.sroa.8.0..sroa.82144.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %316, i64 72
+  %.sroa.82144.sroa.8.0..sroa.82144.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %316, i64 72
   store ptr %163, ptr %.sroa.82144.sroa.8.0..sroa.82144.0..sroa_idx.sroa_idx, align 8
-  %.sroa.82144.sroa.10.0..sroa.82144.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %316, i64 88
+  %.sroa.82144.sroa.10.0..sroa.82144.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %316, i64 88
   store i64 %315, ptr %.sroa.82144.sroa.10.0..sroa.82144.0..sroa_idx.sroa_idx, align 8
-  %.sroa.82144.sroa.12.0..sroa.82144.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %316, i64 104
+  %.sroa.82144.sroa.12.0..sroa.82144.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %316, i64 104
   store ptr %.sroa.0.0.copyload.i.i424.cast, ptr %.sroa.82144.sroa.12.0..sroa.82144.0..sroa_idx.sroa_idx, align 8
-  %.sroa.92145.0..sroa_idx = getelementptr inbounds i8, ptr %316, i64 112
+  %.sroa.92145.0..sroa_idx = getelementptr inbounds nuw i8, ptr %316, i64 112
   store i32 402915614, ptr %.sroa.92145.0..sroa_idx, align 8
-  %.sroa.112147.0..sroa_idx = getelementptr inbounds i8, ptr %316, i64 120
+  %.sroa.112147.0..sroa_idx = getelementptr inbounds nuw i8, ptr %316, i64 120
   store i64 2139619327, ptr %.sroa.112147.0..sroa_idx, align 8
-  %.sroa.122148.0..sroa_idx = getelementptr inbounds i8, ptr %316, i64 128
+  %.sroa.122148.0..sroa_idx = getelementptr inbounds nuw i8, ptr %316, i64 128
   store ptr %23, ptr %.sroa.122148.0..sroa_idx, align 8
-  %.sroa.142150.0..sroa_idx = getelementptr inbounds i8, ptr %316, i64 144
+  %.sroa.142150.0..sroa_idx = getelementptr inbounds nuw i8, ptr %316, i64 144
   store i64 %315, ptr %.sroa.142150.0..sroa_idx, align 8
-  %.sroa.162152.0..sroa_idx = getelementptr inbounds i8, ptr %316, i64 160
+  %.sroa.162152.0..sroa_idx = getelementptr inbounds nuw i8, ptr %316, i64 160
   store i64 %315, ptr %.sroa.162152.0..sroa_idx, align 8
   %318 = load ptr, ptr %22, align 8, !tbaa !256
   store ptr %316, ptr %22, align 8, !tbaa !256
@@ -9540,7 +9532,7 @@ _ZN5boost6spirit7classic7closureINS_4wave8grammars8closures16cpp_expr_closureENS
 
 320:                                              ; preds = %.noexc430
   %321 = load ptr, ptr %318, align 8, !tbaa !61
-  %322 = getelementptr inbounds i8, ptr %321, i64 8
+  %322 = getelementptr inbounds nuw i8, ptr %321, i64 8
   %323 = load ptr, ptr %322, align 8
   tail call void %323(ptr noundef nonnull align 8 dereferenceable(8) %318) #27
   br label %324
@@ -9555,29 +9547,29 @@ _ZN5boost6spirit7classic7closureINS_4wave8grammars8closures16cpp_expr_closureENS
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost6spirit7classic4impl15concrete_parserINS1_8sequenceINS1_6actionINS1_4ruleINS1_7scannerISt20_List_const_iteratorINS_4wave8cpplexer9lex_tokenINS9_4util13file_positionINSC_11flex_stringIcSt11char_traitsIcESaIcENSC_9CowStringINSC_22AllocatorStringStorageIcSH_EEPcEEEEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeINST_INS1_5chlitINS9_8token_idEEESW_EESW_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEENS1_15closure_contextINS9_8grammars8closures16cpp_expr_closureEEENS1_5nil_tEEEN7phoenix5actorINS1C_9compositeINS1C_9assign_opENS1D_INS1C_14closure_memberILi0ENS1C_7closureINS17_13closure_valueENS1C_5nil_tES1J_S1J_S1J_S1J_EEEEEENS1D_INS1C_8argumentILi0EEEEES1J_S1J_S1J_S1J_S1J_EEEEEENS1_11kleene_starINS2_14if_else_parserINS4_INSC_11pattern_andISV_EENS5_IS1B_NS1D_INS1E_IS1F_S1M_NS1D_INS1E_INS16_4impl19operator_binary_andES1M_S1P_S1J_S1J_S1J_S1J_S1J_EEEES1J_S1J_S1J_S1J_S1J_EEEEEEEENS4_IS1W_NS5_IS1B_NS1D_INS1E_IS1F_S1M_NS1D_INS1E_INS1X_16operator_to_boolES1M_S1J_S1J_S1J_S1J_S1J_S1J_EEEES1J_S1J_S1J_S1J_S1J_EEEEEEEENS1D_INS1E_INS1X_16operator_as_boolES1M_S1J_S1J_S1J_S1J_S1J_S1J_EEEEEEEEEES14_S1I_EE, i64 16), ptr %326, align 8, !tbaa !61
   %327 = getelementptr inbounds nuw i8, ptr %326, i64 8
   store ptr %33, ptr %327, align 8
-  %.sroa.62058.0..sroa_idx = getelementptr inbounds i8, ptr %326, i64 24
+  %.sroa.62058.0..sroa_idx = getelementptr inbounds nuw i8, ptr %326, i64 24
   store i64 %325, ptr %.sroa.62058.0..sroa_idx, align 8
-  %.sroa.82060.sroa.0.sroa.5.0..sroa.82060.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %326, i64 48
+  %.sroa.82060.sroa.0.sroa.5.0..sroa.82060.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %326, i64 48
   store ptr %.sroa.0.0.copyload.i.i437.cast, ptr %.sroa.82060.sroa.0.sroa.5.0..sroa.82060.0..sroa_idx.sroa_idx, align 8
-  %.sroa.82060.sroa.5.0..sroa.82060.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %326, i64 56
+  %.sroa.82060.sroa.5.0..sroa.82060.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %326, i64 56
   store i32 402915585, ptr %.sroa.82060.sroa.5.0..sroa.82060.0..sroa_idx.sroa_idx, align 8
-  %.sroa.82060.sroa.7.0..sroa.82060.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %326, i64 64
+  %.sroa.82060.sroa.7.0..sroa.82060.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %326, i64 64
   store i64 2139619327, ptr %.sroa.82060.sroa.7.0..sroa.82060.0..sroa_idx.sroa_idx, align 8
-  %.sroa.82060.sroa.8.0..sroa.82060.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %326, i64 72
+  %.sroa.82060.sroa.8.0..sroa.82060.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %326, i64 72
   store ptr %33, ptr %.sroa.82060.sroa.8.0..sroa.82060.0..sroa_idx.sroa_idx, align 8
-  %.sroa.82060.sroa.10.0..sroa.82060.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %326, i64 88
+  %.sroa.82060.sroa.10.0..sroa.82060.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %326, i64 88
   store i64 %325, ptr %.sroa.82060.sroa.10.0..sroa.82060.0..sroa_idx.sroa_idx, align 8
-  %.sroa.82060.sroa.12.0..sroa.82060.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %326, i64 104
+  %.sroa.82060.sroa.12.0..sroa.82060.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %326, i64 104
   store i64 %325, ptr %.sroa.82060.sroa.12.0..sroa.82060.0..sroa_idx.sroa_idx, align 8
-  %.sroa.92061.0..sroa_idx = getelementptr inbounds i8, ptr %326, i64 120
+  %.sroa.92061.0..sroa_idx = getelementptr inbounds nuw i8, ptr %326, i64 120
   store i32 402915585, ptr %.sroa.92061.0..sroa_idx, align 8
-  %.sroa.112063.0..sroa_idx = getelementptr inbounds i8, ptr %326, i64 128
+  %.sroa.112063.0..sroa_idx = getelementptr inbounds nuw i8, ptr %326, i64 128
   store i64 2139619327, ptr %.sroa.112063.0..sroa_idx, align 8
-  %.sroa.122064.0..sroa_idx = getelementptr inbounds i8, ptr %326, i64 136
+  %.sroa.122064.0..sroa_idx = getelementptr inbounds nuw i8, ptr %326, i64 136
   store ptr %173, ptr %.sroa.122064.0..sroa_idx, align 8
-  %.sroa.142066.0..sroa_idx = getelementptr inbounds i8, ptr %326, i64 152
+  %.sroa.142066.0..sroa_idx = getelementptr inbounds nuw i8, ptr %326, i64 152
   store i64 %325, ptr %.sroa.142066.0..sroa_idx, align 8
-  %.sroa.162068.0..sroa_idx = getelementptr inbounds i8, ptr %326, i64 168
+  %.sroa.162068.0..sroa_idx = getelementptr inbounds nuw i8, ptr %326, i64 168
   store ptr %.sroa.0.0.copyload.i.i437.cast, ptr %.sroa.162068.0..sroa_idx, align 8
   %328 = load ptr, ptr %32, align 8, !tbaa !256
   store ptr %326, ptr %32, align 8, !tbaa !256
@@ -9586,7 +9578,7 @@ _ZN5boost6spirit7classic7closureINS_4wave8grammars8closures16cpp_expr_closureENS
 
 330:                                              ; preds = %.noexc442
   %331 = load ptr, ptr %328, align 8, !tbaa !61
-  %332 = getelementptr inbounds i8, ptr %331, i64 8
+  %332 = getelementptr inbounds nuw i8, ptr %331, i64 8
   %333 = load ptr, ptr %332, align 8
   tail call void %333(ptr noundef nonnull align 8 dereferenceable(8) %328) #27
   br label %334
@@ -9600,17 +9592,17 @@ _ZN5boost6spirit7classic7closureINS_4wave8grammars8closures16cpp_expr_closureENS
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost6spirit7classic4impl15concrete_parserINS1_8sequenceINS1_6actionINS1_4ruleINS1_7scannerISt20_List_const_iteratorINS_4wave8cpplexer9lex_tokenINS9_4util13file_positionINSC_11flex_stringIcSt11char_traitsIcESaIcENSC_9CowStringINSC_22AllocatorStringStorageIcSH_EEPcEEEEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeINST_INS1_5chlitINS9_8token_idEEESW_EESW_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEENS1_15closure_contextINS9_8grammars8closures16cpp_expr_closureEEENS1_5nil_tEEEN7phoenix5actorINS1C_9compositeINS1C_9assign_opENS1D_INS1C_14closure_memberILi0ENS1C_7closureINS17_13closure_valueENS1C_5nil_tES1J_S1J_S1J_S1J_EEEEEENS1D_INS1C_8argumentILi0EEEEES1J_S1J_S1J_S1J_S1J_EEEEEENS1_11kleene_starINS4_INSC_11pattern_andISV_EENS5_IS1B_NS1D_INS1E_IS1F_S1M_NS1D_INS1E_INS16_4impl21operator_binary_bitorES1M_S1P_S1J_S1J_S1J_S1J_S1J_EEEES1J_S1J_S1J_S1J_S1J_EEEEEEEEEEEES14_S1I_EE, i64 16), ptr %336, align 8, !tbaa !61
   %337 = getelementptr inbounds nuw i8, ptr %336, i64 8
   store ptr %43, ptr %337, align 8
-  %.sroa.61978.0..sroa_idx = getelementptr inbounds i8, ptr %336, i64 24
+  %.sroa.61978.0..sroa_idx = getelementptr inbounds nuw i8, ptr %336, i64 24
   store i64 %335, ptr %.sroa.61978.0..sroa_idx, align 8
-  %.sroa.81980.0..sroa_idx = getelementptr inbounds i8, ptr %336, i64 40
+  %.sroa.81980.0..sroa_idx = getelementptr inbounds nuw i8, ptr %336, i64 40
   store i32 402915588, ptr %.sroa.81980.0..sroa_idx, align 8
-  %.sroa.101982.0..sroa_idx = getelementptr inbounds i8, ptr %336, i64 48
+  %.sroa.101982.0..sroa_idx = getelementptr inbounds nuw i8, ptr %336, i64 48
   store i64 2139619327, ptr %.sroa.101982.0..sroa_idx, align 8
-  %.sroa.111983.0..sroa_idx = getelementptr inbounds i8, ptr %336, i64 56
+  %.sroa.111983.0..sroa_idx = getelementptr inbounds nuw i8, ptr %336, i64 56
   store ptr %43, ptr %.sroa.111983.0..sroa_idx, align 8
-  %.sroa.131985.0..sroa_idx = getelementptr inbounds i8, ptr %336, i64 72
+  %.sroa.131985.0..sroa_idx = getelementptr inbounds nuw i8, ptr %336, i64 72
   store i64 %335, ptr %.sroa.131985.0..sroa_idx, align 8
-  %.sroa.151987.0..sroa_idx = getelementptr inbounds i8, ptr %336, i64 88
+  %.sroa.151987.0..sroa_idx = getelementptr inbounds nuw i8, ptr %336, i64 88
   store i64 %335, ptr %.sroa.151987.0..sroa_idx, align 8
   %338 = load ptr, ptr %42, align 8, !tbaa !256
   store ptr %336, ptr %42, align 8, !tbaa !256
@@ -9619,7 +9611,7 @@ _ZN5boost6spirit7classic7closureINS_4wave8grammars8closures16cpp_expr_closureENS
 
 340:                                              ; preds = %.noexc448
   %341 = load ptr, ptr %338, align 8, !tbaa !61
-  %342 = getelementptr inbounds i8, ptr %341, i64 8
+  %342 = getelementptr inbounds nuw i8, ptr %341, i64 8
   %343 = load ptr, ptr %342, align 8
   tail call void %343(ptr noundef nonnull align 8 dereferenceable(8) %338) #27
   br label %344
@@ -9633,17 +9625,17 @@ _ZN5boost6spirit7classic7closureINS_4wave8grammars8closures16cpp_expr_closureENS
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost6spirit7classic4impl15concrete_parserINS1_8sequenceINS1_6actionINS1_4ruleINS1_7scannerISt20_List_const_iteratorINS_4wave8cpplexer9lex_tokenINS9_4util13file_positionINSC_11flex_stringIcSt11char_traitsIcESaIcENSC_9CowStringINSC_22AllocatorStringStorageIcSH_EEPcEEEEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeINST_INS1_5chlitINS9_8token_idEEESW_EESW_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEENS1_15closure_contextINS9_8grammars8closures16cpp_expr_closureEEENS1_5nil_tEEEN7phoenix5actorINS1C_9compositeINS1C_9assign_opENS1D_INS1C_14closure_memberILi0ENS1C_7closureINS17_13closure_valueENS1C_5nil_tES1J_S1J_S1J_S1J_EEEEEENS1D_INS1C_8argumentILi0EEEEES1J_S1J_S1J_S1J_S1J_EEEEEENS1_11kleene_starINS4_INSC_11pattern_andISV_EENS5_IS1B_NS1D_INS1E_IS1F_S1M_NS1D_INS1E_INS16_4impl22operator_binary_bitxorES1M_S1P_S1J_S1J_S1J_S1J_S1J_EEEES1J_S1J_S1J_S1J_S1J_EEEEEEEEEEEES14_S1I_EE, i64 16), ptr %346, align 8, !tbaa !61
   %347 = getelementptr inbounds nuw i8, ptr %346, i64 8
   store ptr %53, ptr %347, align 8
-  %.sroa.61923.0..sroa_idx = getelementptr inbounds i8, ptr %346, i64 24
+  %.sroa.61923.0..sroa_idx = getelementptr inbounds nuw i8, ptr %346, i64 24
   store i64 %345, ptr %.sroa.61923.0..sroa_idx, align 8
-  %.sroa.81925.0..sroa_idx = getelementptr inbounds i8, ptr %346, i64 40
+  %.sroa.81925.0..sroa_idx = getelementptr inbounds nuw i8, ptr %346, i64 40
   store i32 402915590, ptr %.sroa.81925.0..sroa_idx, align 8
-  %.sroa.101927.0..sroa_idx = getelementptr inbounds i8, ptr %346, i64 48
+  %.sroa.101927.0..sroa_idx = getelementptr inbounds nuw i8, ptr %346, i64 48
   store i64 2139619327, ptr %.sroa.101927.0..sroa_idx, align 8
-  %.sroa.111928.0..sroa_idx = getelementptr inbounds i8, ptr %346, i64 56
+  %.sroa.111928.0..sroa_idx = getelementptr inbounds nuw i8, ptr %346, i64 56
   store ptr %53, ptr %.sroa.111928.0..sroa_idx, align 8
-  %.sroa.131930.0..sroa_idx = getelementptr inbounds i8, ptr %346, i64 72
+  %.sroa.131930.0..sroa_idx = getelementptr inbounds nuw i8, ptr %346, i64 72
   store i64 %345, ptr %.sroa.131930.0..sroa_idx, align 8
-  %.sroa.151932.0..sroa_idx = getelementptr inbounds i8, ptr %346, i64 88
+  %.sroa.151932.0..sroa_idx = getelementptr inbounds nuw i8, ptr %346, i64 88
   store i64 %345, ptr %.sroa.151932.0..sroa_idx, align 8
   %348 = load ptr, ptr %52, align 8, !tbaa !256
   store ptr %346, ptr %52, align 8, !tbaa !256
@@ -9652,7 +9644,7 @@ _ZN5boost6spirit7classic7closureINS_4wave8grammars8closures16cpp_expr_closureENS
 
 350:                                              ; preds = %.noexc454
   %351 = load ptr, ptr %348, align 8, !tbaa !61
-  %352 = getelementptr inbounds i8, ptr %351, i64 8
+  %352 = getelementptr inbounds nuw i8, ptr %351, i64 8
   %353 = load ptr, ptr %352, align 8
   tail call void %353(ptr noundef nonnull align 8 dereferenceable(8) %348) #27
   br label %354
@@ -9666,17 +9658,17 @@ _ZN5boost6spirit7classic7closureINS_4wave8grammars8closures16cpp_expr_closureENS
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost6spirit7classic4impl15concrete_parserINS1_8sequenceINS1_6actionINS1_4ruleINS1_7scannerISt20_List_const_iteratorINS_4wave8cpplexer9lex_tokenINS9_4util13file_positionINSC_11flex_stringIcSt11char_traitsIcESaIcENSC_9CowStringINSC_22AllocatorStringStorageIcSH_EEPcEEEEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeINST_INS1_5chlitINS9_8token_idEEESW_EESW_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEENS1_15closure_contextINS9_8grammars8closures16cpp_expr_closureEEENS1_5nil_tEEEN7phoenix5actorINS1C_9compositeINS1C_9assign_opENS1D_INS1C_14closure_memberILi0ENS1C_7closureINS17_13closure_valueENS1C_5nil_tES1J_S1J_S1J_S1J_EEEEEENS1D_INS1C_8argumentILi0EEEEES1J_S1J_S1J_S1J_S1J_EEEEEENS1_11kleene_starINS4_INSC_11pattern_andISV_EENS5_IS1B_NS1D_INS1E_IS1F_S1M_NS1D_INS1E_INS16_4impl22operator_binary_bitandES1M_S1P_S1J_S1J_S1J_S1J_S1J_EEEES1J_S1J_S1J_S1J_S1J_EEEEEEEEEEEES14_S1I_EE, i64 16), ptr %356, align 8, !tbaa !61
   %357 = getelementptr inbounds nuw i8, ptr %356, i64 8
   store ptr %63, ptr %357, align 8
-  %.sroa.61868.0..sroa_idx = getelementptr inbounds i8, ptr %356, i64 24
+  %.sroa.61868.0..sroa_idx = getelementptr inbounds nuw i8, ptr %356, i64 24
   store i64 %355, ptr %.sroa.61868.0..sroa_idx, align 8
-  %.sroa.81870.0..sroa_idx = getelementptr inbounds i8, ptr %356, i64 40
+  %.sroa.81870.0..sroa_idx = getelementptr inbounds nuw i8, ptr %356, i64 40
   store i32 402915584, ptr %.sroa.81870.0..sroa_idx, align 8
-  %.sroa.101872.0..sroa_idx = getelementptr inbounds i8, ptr %356, i64 48
+  %.sroa.101872.0..sroa_idx = getelementptr inbounds nuw i8, ptr %356, i64 48
   store i64 2139619327, ptr %.sroa.101872.0..sroa_idx, align 8
-  %.sroa.111873.0..sroa_idx = getelementptr inbounds i8, ptr %356, i64 56
+  %.sroa.111873.0..sroa_idx = getelementptr inbounds nuw i8, ptr %356, i64 56
   store ptr %63, ptr %.sroa.111873.0..sroa_idx, align 8
-  %.sroa.131875.0..sroa_idx = getelementptr inbounds i8, ptr %356, i64 72
+  %.sroa.131875.0..sroa_idx = getelementptr inbounds nuw i8, ptr %356, i64 72
   store i64 %355, ptr %.sroa.131875.0..sroa_idx, align 8
-  %.sroa.151877.0..sroa_idx = getelementptr inbounds i8, ptr %356, i64 88
+  %.sroa.151877.0..sroa_idx = getelementptr inbounds nuw i8, ptr %356, i64 88
   store i64 %355, ptr %.sroa.151877.0..sroa_idx, align 8
   %358 = load ptr, ptr %62, align 8, !tbaa !256
   store ptr %356, ptr %62, align 8, !tbaa !256
@@ -9685,7 +9677,7 @@ _ZN5boost6spirit7classic7closureINS_4wave8grammars8closures16cpp_expr_closureENS
 
 360:                                              ; preds = %.noexc460
   %361 = load ptr, ptr %358, align 8, !tbaa !61
-  %362 = getelementptr inbounds i8, ptr %361, i64 8
+  %362 = getelementptr inbounds nuw i8, ptr %361, i64 8
   %363 = load ptr, ptr %362, align 8
   tail call void %363(ptr noundef nonnull align 8 dereferenceable(8) %358) #27
   br label %364
@@ -9699,25 +9691,25 @@ _ZN5boost6spirit7classic7closureINS_4wave8grammars8closures16cpp_expr_closureENS
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost6spirit7classic4impl15concrete_parserINS1_8sequenceINS1_6actionINS1_4ruleINS1_7scannerISt20_List_const_iteratorINS_4wave8cpplexer9lex_tokenINS9_4util13file_positionINSC_11flex_stringIcSt11char_traitsIcESaIcENSC_9CowStringINSC_22AllocatorStringStorageIcSH_EEPcEEEEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeINST_INS1_5chlitINS9_8token_idEEESW_EESW_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEENS1_15closure_contextINS9_8grammars8closures16cpp_expr_closureEEENS1_5nil_tEEEN7phoenix5actorINS1C_9compositeINS1C_9assign_opENS1D_INS1C_14closure_memberILi0ENS1C_7closureINS17_13closure_valueENS1C_5nil_tES1J_S1J_S1J_S1J_EEEEEENS1D_INS1C_8argumentILi0EEEEES1J_S1J_S1J_S1J_S1J_EEEEEENS1_11kleene_starINST_INS4_ISW_NS5_IS1B_NS1D_INS1E_IS1F_S1M_NS1D_INS1E_INS16_4impl18operator_binary_eqES1M_S1P_S1J_S1J_S1J_S1J_S1J_EEEES1J_S1J_S1J_S1J_S1J_EEEEEEEENS4_INSC_11pattern_andISV_EENS5_IS1B_NS1D_INS1E_IS1F_S1M_NS1D_INS1E_INS1U_18operator_binary_neES1M_S1P_S1J_S1J_S1J_S1J_S1J_EEEES1J_S1J_S1J_S1J_S1J_EEEEEEEEEEEEEES14_S1I_EE, i64 16), ptr %366, align 8, !tbaa !61
   %367 = getelementptr inbounds nuw i8, ptr %366, i64 8
   store ptr %73, ptr %367, align 8
-  %.sroa.61805.0..sroa_idx = getelementptr inbounds i8, ptr %366, i64 24
+  %.sroa.61805.0..sroa_idx = getelementptr inbounds nuw i8, ptr %366, i64 24
   store i64 %365, ptr %.sroa.61805.0..sroa_idx, align 8
-  %.sroa.81807.0..sroa_idx = getelementptr inbounds i8, ptr %366, i64 40
+  %.sroa.81807.0..sroa_idx = getelementptr inbounds nuw i8, ptr %366, i64 40
   store i32 402915599, ptr %.sroa.81807.0..sroa_idx, align 8
-  %.sroa.101809.0..sroa_idx = getelementptr inbounds i8, ptr %366, i64 48
+  %.sroa.101809.0..sroa_idx = getelementptr inbounds nuw i8, ptr %366, i64 48
   store ptr %73, ptr %.sroa.101809.0..sroa_idx, align 8
-  %.sroa.121811.0..sroa_idx = getelementptr inbounds i8, ptr %366, i64 64
+  %.sroa.121811.0..sroa_idx = getelementptr inbounds nuw i8, ptr %366, i64 64
   store i64 %365, ptr %.sroa.121811.0..sroa_idx, align 8
-  %.sroa.141813.0..sroa_idx = getelementptr inbounds i8, ptr %366, i64 80
+  %.sroa.141813.0..sroa_idx = getelementptr inbounds nuw i8, ptr %366, i64 80
   store i64 %365, ptr %.sroa.141813.0..sroa_idx, align 8
-  %.sroa.161815.0..sroa_idx = getelementptr inbounds i8, ptr %366, i64 96
+  %.sroa.161815.0..sroa_idx = getelementptr inbounds nuw i8, ptr %366, i64 96
   store i32 402915613, ptr %.sroa.161815.0..sroa_idx, align 8
-  %.sroa.181817.0..sroa_idx = getelementptr inbounds i8, ptr %366, i64 104
+  %.sroa.181817.0..sroa_idx = getelementptr inbounds nuw i8, ptr %366, i64 104
   store i64 2139619327, ptr %.sroa.181817.0..sroa_idx, align 8
-  %.sroa.191818.0..sroa_idx = getelementptr inbounds i8, ptr %366, i64 112
+  %.sroa.191818.0..sroa_idx = getelementptr inbounds nuw i8, ptr %366, i64 112
   store ptr %73, ptr %.sroa.191818.0..sroa_idx, align 8
-  %.sroa.211820.0..sroa_idx = getelementptr inbounds i8, ptr %366, i64 128
+  %.sroa.211820.0..sroa_idx = getelementptr inbounds nuw i8, ptr %366, i64 128
   store i64 %365, ptr %.sroa.211820.0..sroa_idx, align 8
-  %.sroa.231822.0..sroa_idx = getelementptr inbounds i8, ptr %366, i64 144
+  %.sroa.231822.0..sroa_idx = getelementptr inbounds nuw i8, ptr %366, i64 144
   store i64 %365, ptr %.sroa.231822.0..sroa_idx, align 8
   %368 = load ptr, ptr %72, align 8, !tbaa !256
   store ptr %366, ptr %72, align 8, !tbaa !256
@@ -9726,7 +9718,7 @@ _ZN5boost6spirit7classic7closureINS_4wave8grammars8closures16cpp_expr_closureENS
 
 370:                                              ; preds = %.noexc470
   %371 = load ptr, ptr %368, align 8, !tbaa !61
-  %372 = getelementptr inbounds i8, ptr %371, i64 8
+  %372 = getelementptr inbounds nuw i8, ptr %371, i64 8
   %373 = load ptr, ptr %372, align 8
   tail call void %373(ptr noundef nonnull align 8 dereferenceable(8) %368) #27
   br label %374
@@ -9740,39 +9732,39 @@ _ZN5boost6spirit7classic7closureINS_4wave8grammars8closures16cpp_expr_closureENS
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost6spirit7classic4impl15concrete_parserINS1_8sequenceINS1_6actionINS1_4ruleINS1_7scannerISt20_List_const_iteratorINS_4wave8cpplexer9lex_tokenINS9_4util13file_positionINSC_11flex_stringIcSt11char_traitsIcESaIcENSC_9CowStringINSC_22AllocatorStringStorageIcSH_EEPcEEEEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeINST_INS1_5chlitINS9_8token_idEEESW_EESW_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEENS1_15closure_contextINS9_8grammars8closures16cpp_expr_closureEEENS1_5nil_tEEEN7phoenix5actorINS1C_9compositeINS1C_9assign_opENS1D_INS1C_14closure_memberILi0ENS1C_7closureINS17_13closure_valueENS1C_5nil_tES1J_S1J_S1J_S1J_EEEEEENS1D_INS1C_8argumentILi0EEEEES1J_S1J_S1J_S1J_S1J_EEEEEENS1_11kleene_starINST_INST_INST_INS4_ISW_NS5_IS1B_NS1D_INS1E_IS1F_S1M_NS1D_INS1E_INS16_4impl22operator_binary_lesseqES1M_S1P_S1J_S1J_S1J_S1J_S1J_EEEES1J_S1J_S1J_S1J_S1J_EEEEEEEENS4_ISW_NS5_IS1B_NS1D_INS1E_IS1F_S1M_NS1D_INS1E_INS1U_23operator_binary_greateqES1M_S1P_S1J_S1J_S1J_S1J_S1J_EEEES1J_S1J_S1J_S1J_S1J_EEEEEEEEEENS4_ISW_NS5_IS1B_NS1D_INS1E_IS1F_S1M_NS1D_INS1E_INS1U_20operator_binary_lessES1M_S1P_S1J_S1J_S1J_S1J_S1J_EEEES1J_S1J_S1J_S1J_S1J_EEEEEEEEEENS4_ISW_NS5_IS1B_NS1D_INS1E_IS1F_S1M_NS1D_INS1E_INS1U_23operator_binary_greaterES1M_S1P_S1J_S1J_S1J_S1J_S1J_EEEES1J_S1J_S1J_S1J_S1J_EEEEEEEEEEEEEES14_S1I_EE, i64 16), ptr %376, align 8, !tbaa !61
   %377 = getelementptr inbounds nuw i8, ptr %376, i64 8
   store ptr %83, ptr %377, align 8
-  %.sroa.61683.0..sroa_idx = getelementptr inbounds i8, ptr %376, i64 24
+  %.sroa.61683.0..sroa_idx = getelementptr inbounds nuw i8, ptr %376, i64 24
   store i64 %375, ptr %.sroa.61683.0..sroa_idx, align 8
-  %.sroa.81685.0..sroa_idx = getelementptr inbounds i8, ptr %376, i64 40
+  %.sroa.81685.0..sroa_idx = getelementptr inbounds nuw i8, ptr %376, i64 40
   store i32 402915604, ptr %.sroa.81685.0..sroa_idx, align 8
-  %.sroa.101687.0..sroa_idx = getelementptr inbounds i8, ptr %376, i64 48
+  %.sroa.101687.0..sroa_idx = getelementptr inbounds nuw i8, ptr %376, i64 48
   store ptr %83, ptr %.sroa.101687.0..sroa_idx, align 8
-  %.sroa.121689.0..sroa_idx = getelementptr inbounds i8, ptr %376, i64 64
+  %.sroa.121689.0..sroa_idx = getelementptr inbounds nuw i8, ptr %376, i64 64
   store i64 %375, ptr %.sroa.121689.0..sroa_idx, align 8
-  %.sroa.141691.0..sroa_idx = getelementptr inbounds i8, ptr %376, i64 80
+  %.sroa.141691.0..sroa_idx = getelementptr inbounds nuw i8, ptr %376, i64 80
   store i64 %375, ptr %.sroa.141691.0..sroa_idx, align 8
-  %.sroa.161693.0..sroa_idx = getelementptr inbounds i8, ptr %376, i64 96
+  %.sroa.161693.0..sroa_idx = getelementptr inbounds nuw i8, ptr %376, i64 96
   store i32 402915601, ptr %.sroa.161693.0..sroa_idx, align 8
-  %.sroa.181695.0..sroa_idx = getelementptr inbounds i8, ptr %376, i64 104
+  %.sroa.181695.0..sroa_idx = getelementptr inbounds nuw i8, ptr %376, i64 104
   store ptr %83, ptr %.sroa.181695.0..sroa_idx, align 8
-  %.sroa.201697.0..sroa_idx = getelementptr inbounds i8, ptr %376, i64 120
+  %.sroa.201697.0..sroa_idx = getelementptr inbounds nuw i8, ptr %376, i64 120
   store i64 %375, ptr %.sroa.201697.0..sroa_idx, align 8
-  %.sroa.221699.0..sroa_idx = getelementptr inbounds i8, ptr %376, i64 136
+  %.sroa.221699.0..sroa_idx = getelementptr inbounds nuw i8, ptr %376, i64 136
   store i64 %375, ptr %.sroa.221699.0..sroa_idx, align 8
-  %.sroa.241701.0..sroa_idx = getelementptr inbounds i8, ptr %376, i64 152
+  %.sroa.241701.0..sroa_idx = getelementptr inbounds nuw i8, ptr %376, i64 152
   store i32 402915603, ptr %.sroa.241701.0..sroa_idx, align 8
-  %.sroa.261703.0..sroa_idx = getelementptr inbounds i8, ptr %376, i64 160
+  %.sroa.261703.0..sroa_idx = getelementptr inbounds nuw i8, ptr %376, i64 160
   store ptr %83, ptr %.sroa.261703.0..sroa_idx, align 8
-  %.sroa.281705.0..sroa_idx = getelementptr inbounds i8, ptr %376, i64 176
+  %.sroa.281705.0..sroa_idx = getelementptr inbounds nuw i8, ptr %376, i64 176
   store i64 %375, ptr %.sroa.281705.0..sroa_idx, align 8
-  %.sroa.301707.0..sroa_idx = getelementptr inbounds i8, ptr %376, i64 192
+  %.sroa.301707.0..sroa_idx = getelementptr inbounds nuw i8, ptr %376, i64 192
   store i64 %375, ptr %.sroa.301707.0..sroa_idx, align 8
-  %.sroa.321709.0..sroa_idx = getelementptr inbounds i8, ptr %376, i64 208
+  %.sroa.321709.0..sroa_idx = getelementptr inbounds nuw i8, ptr %376, i64 208
   store i32 402915600, ptr %.sroa.321709.0..sroa_idx, align 8
-  %.sroa.341711.0..sroa_idx = getelementptr inbounds i8, ptr %376, i64 216
+  %.sroa.341711.0..sroa_idx = getelementptr inbounds nuw i8, ptr %376, i64 216
   store ptr %83, ptr %.sroa.341711.0..sroa_idx, align 8
-  %.sroa.36.0..sroa_idx = getelementptr inbounds i8, ptr %376, i64 232
+  %.sroa.36.0..sroa_idx = getelementptr inbounds nuw i8, ptr %376, i64 232
   store i64 %375, ptr %.sroa.36.0..sroa_idx, align 8
-  %.sroa.38.0..sroa_idx = getelementptr inbounds i8, ptr %376, i64 248
+  %.sroa.38.0..sroa_idx = getelementptr inbounds nuw i8, ptr %376, i64 248
   store i64 %375, ptr %.sroa.38.0..sroa_idx, align 8
   %378 = load ptr, ptr %82, align 8, !tbaa !256
   store ptr %376, ptr %82, align 8, !tbaa !256
@@ -9781,7 +9773,7 @@ _ZN5boost6spirit7classic7closureINS_4wave8grammars8closures16cpp_expr_closureENS
 
 380:                                              ; preds = %.noexc488
   %381 = load ptr, ptr %378, align 8, !tbaa !61
-  %382 = getelementptr inbounds i8, ptr %381, i64 8
+  %382 = getelementptr inbounds nuw i8, ptr %381, i64 8
   %383 = load ptr, ptr %382, align 8
   tail call void %383(ptr noundef nonnull align 8 dereferenceable(8) %378) #27
   br label %384
@@ -9795,19 +9787,19 @@ _ZN5boost6spirit7classic7closureINS_4wave8grammars8closures16cpp_expr_closureENS
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost6spirit7classic4impl15concrete_parserINS1_8sequenceINS1_6actionINS1_4ruleINS1_7scannerISt20_List_const_iteratorINS_4wave8cpplexer9lex_tokenINS9_4util13file_positionINSC_11flex_stringIcSt11char_traitsIcESaIcENSC_9CowStringINSC_22AllocatorStringStorageIcSH_EEPcEEEEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeINST_INS1_5chlitINS9_8token_idEEESW_EESW_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEENS1_15closure_contextINS9_8grammars8closures16cpp_expr_closureEEENS1_5nil_tEEEN7phoenix5actorINS1C_9compositeINS1C_9assign_opENS1D_INS1C_14closure_memberILi0ENS1C_7closureINS17_13closure_valueENS1C_5nil_tES1J_S1J_S1J_S1J_EEEEEENS1D_INS1C_8argumentILi0EEEEES1J_S1J_S1J_S1J_S1J_EEEEEENS1_11kleene_starINST_INS4_ISW_NS5_IS1B_NS1D_INS1E_INS1C_17shift_l_assign_opES1M_S1P_S1J_S1J_S1J_S1J_S1J_EEEEEEEENS4_ISW_NS5_IS1B_NS1D_INS1E_INS1C_17shift_r_assign_opES1M_S1P_S1J_S1J_S1J_S1J_S1J_EEEEEEEEEEEEEES14_S1I_EE, i64 16), ptr %386, align 8, !tbaa !61
   %387 = getelementptr inbounds nuw i8, ptr %386, i64 8
   store ptr %93, ptr %387, align 8
-  %.sroa.61466.0..sroa_idx = getelementptr inbounds i8, ptr %386, i64 24
+  %.sroa.61466.0..sroa_idx = getelementptr inbounds nuw i8, ptr %386, i64 24
   store i64 %385, ptr %.sroa.61466.0..sroa_idx, align 8
-  %.sroa.81468.0..sroa_idx = getelementptr inbounds i8, ptr %386, i64 40
+  %.sroa.81468.0..sroa_idx = getelementptr inbounds nuw i8, ptr %386, i64 40
   store i32 402915626, ptr %.sroa.81468.0..sroa_idx, align 8
-  %.sroa.101470.0..sroa_idx = getelementptr inbounds i8, ptr %386, i64 48
+  %.sroa.101470.0..sroa_idx = getelementptr inbounds nuw i8, ptr %386, i64 48
   store ptr %93, ptr %.sroa.101470.0..sroa_idx, align 8
-  %.sroa.121472.0..sroa_idx = getelementptr inbounds i8, ptr %386, i64 64
+  %.sroa.121472.0..sroa_idx = getelementptr inbounds nuw i8, ptr %386, i64 64
   store i64 %385, ptr %.sroa.121472.0..sroa_idx, align 8
-  %.sroa.141474.0..sroa_idx = getelementptr inbounds i8, ptr %386, i64 80
+  %.sroa.141474.0..sroa_idx = getelementptr inbounds nuw i8, ptr %386, i64 80
   store i32 402915628, ptr %.sroa.141474.0..sroa_idx, align 8
-  %.sroa.161476.0..sroa_idx = getelementptr inbounds i8, ptr %386, i64 88
+  %.sroa.161476.0..sroa_idx = getelementptr inbounds nuw i8, ptr %386, i64 88
   store ptr %93, ptr %.sroa.161476.0..sroa_idx, align 8
-  %.sroa.181478.0..sroa_idx = getelementptr inbounds i8, ptr %386, i64 104
+  %.sroa.181478.0..sroa_idx = getelementptr inbounds nuw i8, ptr %386, i64 104
   store i64 %385, ptr %.sroa.181478.0..sroa_idx, align 8
   %388 = load ptr, ptr %92, align 8, !tbaa !256
   store ptr %386, ptr %92, align 8, !tbaa !256
@@ -9816,7 +9808,7 @@ _ZN5boost6spirit7classic7closureINS_4wave8grammars8closures16cpp_expr_closureENS
 
 390:                                              ; preds = %.noexc492
   %391 = load ptr, ptr %388, align 8, !tbaa !61
-  %392 = getelementptr inbounds i8, ptr %391, i64 8
+  %392 = getelementptr inbounds nuw i8, ptr %391, i64 8
   %393 = load ptr, ptr %392, align 8
   tail call void %393(ptr noundef nonnull align 8 dereferenceable(8) %388) #27
   br label %394
@@ -9830,19 +9822,19 @@ _ZN5boost6spirit7classic7closureINS_4wave8grammars8closures16cpp_expr_closureENS
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost6spirit7classic4impl15concrete_parserINS1_8sequenceINS1_6actionINS1_4ruleINS1_7scannerISt20_List_const_iteratorINS_4wave8cpplexer9lex_tokenINS9_4util13file_positionINSC_11flex_stringIcSt11char_traitsIcESaIcENSC_9CowStringINSC_22AllocatorStringStorageIcSH_EEPcEEEEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeINST_INS1_5chlitINS9_8token_idEEESW_EESW_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEENS1_15closure_contextINS9_8grammars8closures16cpp_expr_closureEEENS1_5nil_tEEEN7phoenix5actorINS1C_9compositeINS1C_9assign_opENS1D_INS1C_14closure_memberILi0ENS1C_7closureINS17_13closure_valueENS1C_5nil_tES1J_S1J_S1J_S1J_EEEEEENS1D_INS1C_8argumentILi0EEEEES1J_S1J_S1J_S1J_S1J_EEEEEENS1_11kleene_starINST_INS4_ISW_NS5_IS1B_NS1D_INS1E_INS1C_14plus_assign_opES1M_S1P_S1J_S1J_S1J_S1J_S1J_EEEEEEEENS4_ISW_NS5_IS1B_NS1D_INS1E_INS1C_15minus_assign_opES1M_S1P_S1J_S1J_S1J_S1J_S1J_EEEEEEEEEEEEEES14_S1I_EE, i64 16), ptr %396, align 8, !tbaa !61
   %397 = getelementptr inbounds nuw i8, ptr %396, i64 8
   store ptr %103, ptr %397, align 8
-  %.sroa.61391.0..sroa_idx = getelementptr inbounds i8, ptr %396, i64 24
+  %.sroa.61391.0..sroa_idx = getelementptr inbounds nuw i8, ptr %396, i64 24
   store i64 %395, ptr %.sroa.61391.0..sroa_idx, align 8
-  %.sroa.81393.0..sroa_idx = getelementptr inbounds i8, ptr %396, i64 40
+  %.sroa.81393.0..sroa_idx = getelementptr inbounds nuw i8, ptr %396, i64 40
   store i32 402915615, ptr %.sroa.81393.0..sroa_idx, align 8
-  %.sroa.101395.0..sroa_idx = getelementptr inbounds i8, ptr %396, i64 48
+  %.sroa.101395.0..sroa_idx = getelementptr inbounds nuw i8, ptr %396, i64 48
   store ptr %103, ptr %.sroa.101395.0..sroa_idx, align 8
-  %.sroa.121397.0..sroa_idx = getelementptr inbounds i8, ptr %396, i64 64
+  %.sroa.121397.0..sroa_idx = getelementptr inbounds nuw i8, ptr %396, i64 64
   store i64 %395, ptr %.sroa.121397.0..sroa_idx, align 8
-  %.sroa.141399.0..sroa_idx = getelementptr inbounds i8, ptr %396, i64 80
+  %.sroa.141399.0..sroa_idx = getelementptr inbounds nuw i8, ptr %396, i64 80
   store i32 402915607, ptr %.sroa.141399.0..sroa_idx, align 8
-  %.sroa.161401.0..sroa_idx = getelementptr inbounds i8, ptr %396, i64 88
+  %.sroa.161401.0..sroa_idx = getelementptr inbounds nuw i8, ptr %396, i64 88
   store ptr %103, ptr %.sroa.161401.0..sroa_idx, align 8
-  %.sroa.181403.0..sroa_idx = getelementptr inbounds i8, ptr %396, i64 104
+  %.sroa.181403.0..sroa_idx = getelementptr inbounds nuw i8, ptr %396, i64 104
   store i64 %395, ptr %.sroa.181403.0..sroa_idx, align 8
   %398 = load ptr, ptr %102, align 8, !tbaa !256
   store ptr %396, ptr %102, align 8, !tbaa !256
@@ -9851,7 +9843,7 @@ _ZN5boost6spirit7classic7closureINS_4wave8grammars8closures16cpp_expr_closureENS
 
 400:                                              ; preds = %.noexc496
   %401 = load ptr, ptr %398, align 8, !tbaa !61
-  %402 = getelementptr inbounds i8, ptr %401, i64 8
+  %402 = getelementptr inbounds nuw i8, ptr %401, i64 8
   %403 = load ptr, ptr %402, align 8
   tail call void %403(ptr noundef nonnull align 8 dereferenceable(8) %398) #27
   br label %404
@@ -9865,25 +9857,25 @@ _ZN5boost6spirit7classic7closureINS_4wave8grammars8closures16cpp_expr_closureENS
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost6spirit7classic4impl15concrete_parserINS1_8sequenceINS1_6actionINS1_4ruleINS1_7scannerISt20_List_const_iteratorINS_4wave8cpplexer9lex_tokenINS9_4util13file_positionINSC_11flex_stringIcSt11char_traitsIcESaIcENSC_9CowStringINSC_22AllocatorStringStorageIcSH_EEPcEEEEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeINST_INS1_5chlitINS9_8token_idEEESW_EESW_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEENS1_15closure_contextINS9_8grammars8closures16cpp_expr_closureEEENS1_5nil_tEEEN7phoenix5actorINS1C_9compositeINS1C_9assign_opENS1D_INS1C_14closure_memberILi0ENS1C_7closureINS17_13closure_valueENS1C_5nil_tES1J_S1J_S1J_S1J_EEEEEENS1D_INS1C_8argumentILi0EEEEES1J_S1J_S1J_S1J_S1J_EEEEEENS1_11kleene_starINST_INST_INS4_ISW_NS5_IS1B_NS1D_INS1E_INS1C_15times_assign_opES1M_S1P_S1J_S1J_S1J_S1J_S1J_EEEEEEEENS4_ISW_NS5_IS1B_NS1D_INS1E_INS1C_16divide_assign_opES1M_S1P_S1J_S1J_S1J_S1J_S1J_EEEEEEEEEENS4_ISW_NS5_IS1B_NS1D_INS1E_INS1C_13mod_assign_opES1M_S1P_S1J_S1J_S1J_S1J_S1J_EEEEEEEEEEEEEES14_S1I_EE, i64 16), ptr %406, align 8, !tbaa !61
   %407 = getelementptr inbounds nuw i8, ptr %406, i64 8
   store ptr %113, ptr %407, align 8
-  %.sroa.61310.0..sroa_idx = getelementptr inbounds i8, ptr %406, i64 24
+  %.sroa.61310.0..sroa_idx = getelementptr inbounds nuw i8, ptr %406, i64 24
   store i64 %405, ptr %.sroa.61310.0..sroa_idx, align 8
-  %.sroa.81312.0..sroa_idx = getelementptr inbounds i8, ptr %406, i64 40
+  %.sroa.81312.0..sroa_idx = getelementptr inbounds nuw i8, ptr %406, i64 40
   store i32 402915630, ptr %.sroa.81312.0..sroa_idx, align 8
-  %.sroa.101314.0..sroa_idx = getelementptr inbounds i8, ptr %406, i64 48
+  %.sroa.101314.0..sroa_idx = getelementptr inbounds nuw i8, ptr %406, i64 48
   store ptr %113, ptr %.sroa.101314.0..sroa_idx, align 8
-  %.sroa.121316.0..sroa_idx = getelementptr inbounds i8, ptr %406, i64 64
+  %.sroa.121316.0..sroa_idx = getelementptr inbounds nuw i8, ptr %406, i64 64
   store i64 %405, ptr %.sroa.121316.0..sroa_idx, align 8
-  %.sroa.141318.0..sroa_idx = getelementptr inbounds i8, ptr %406, i64 80
+  %.sroa.141318.0..sroa_idx = getelementptr inbounds nuw i8, ptr %406, i64 80
   store i32 402915594, ptr %.sroa.141318.0..sroa_idx, align 8
-  %.sroa.161320.0..sroa_idx = getelementptr inbounds i8, ptr %406, i64 88
+  %.sroa.161320.0..sroa_idx = getelementptr inbounds nuw i8, ptr %406, i64 88
   store ptr %113, ptr %.sroa.161320.0..sroa_idx, align 8
-  %.sroa.181322.0..sroa_idx = getelementptr inbounds i8, ptr %406, i64 104
+  %.sroa.181322.0..sroa_idx = getelementptr inbounds nuw i8, ptr %406, i64 104
   store i64 %405, ptr %.sroa.181322.0..sroa_idx, align 8
-  %.sroa.201324.0..sroa_idx = getelementptr inbounds i8, ptr %406, i64 120
+  %.sroa.201324.0..sroa_idx = getelementptr inbounds nuw i8, ptr %406, i64 120
   store i32 402915610, ptr %.sroa.201324.0..sroa_idx, align 8
-  %.sroa.221326.0..sroa_idx = getelementptr inbounds i8, ptr %406, i64 128
+  %.sroa.221326.0..sroa_idx = getelementptr inbounds nuw i8, ptr %406, i64 128
   store ptr %113, ptr %.sroa.221326.0..sroa_idx, align 8
-  %.sroa.241328.0..sroa_idx = getelementptr inbounds i8, ptr %406, i64 144
+  %.sroa.241328.0..sroa_idx = getelementptr inbounds nuw i8, ptr %406, i64 144
   store i64 %405, ptr %.sroa.241328.0..sroa_idx, align 8
   %408 = load ptr, ptr %112, align 8, !tbaa !256
   store ptr %406, ptr %112, align 8, !tbaa !256
@@ -9892,7 +9884,7 @@ _ZN5boost6spirit7classic7closureINS_4wave8grammars8closures16cpp_expr_closureENS
 
 410:                                              ; preds = %.noexc501
   %411 = load ptr, ptr %408, align 8, !tbaa !61
-  %412 = getelementptr inbounds i8, ptr %411, i64 8
+  %412 = getelementptr inbounds nuw i8, ptr %411, i64 8
   %413 = load ptr, ptr %412, align 8
   tail call void %413(ptr noundef nonnull align 8 dereferenceable(8) %408) #27
   br label %414
@@ -9906,35 +9898,35 @@ _ZN5boost6spirit7classic7closureINS_4wave8grammars8closures16cpp_expr_closureENS
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost6spirit7classic4impl15concrete_parserINS1_11alternativeINS4_INS4_INS4_INS1_6actionINS1_4ruleINS1_7scannerISt20_List_const_iteratorINS_4wave8cpplexer9lex_tokenINS9_4util13file_positionINSC_11flex_stringIcSt11char_traitsIcESaIcENSC_9CowStringINSC_22AllocatorStringStorageIcSH_EEPcEEEEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS4_INS4_INS1_5chlitINS9_8token_idEEESV_EESV_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEENS1_15closure_contextINS9_8grammars8closures16cpp_expr_closureEEENS1_5nil_tEEEN7phoenix5actorINS1B_9compositeINS1B_9assign_opENS1C_INS1B_14closure_memberILi0ENS1B_7closureINS16_13closure_valueENS1B_5nil_tES1I_S1I_S1I_S1I_EEEEEENS1C_INS1B_8argumentILi0EEEEES1I_S1I_S1I_S1I_S1I_EEEEEENS1_8sequenceISV_S1R_EEEENS1S_ISV_NS5_IS1A_NS1C_INS1D_IS1E_S1L_NS1C_INS1D_INS1B_11negative_opES1O_S1I_S1I_S1I_S1I_S1I_S1I_EEEES1I_S1I_S1I_S1I_S1I_EEEEEEEEEENS1S_INSC_11pattern_andISU_EENS5_IS1A_NS1C_INS1D_IS1E_S1L_NS1C_INS1D_INS1B_9invert_opES1O_S1I_S1I_S1I_S1I_S1I_S1I_EEEES1I_S1I_S1I_S1I_S1I_EEEEEEEEEENS1S_IS24_NS5_IS1A_NS1C_INS1D_IS1E_S1L_NS1C_INS1D_INS15_4impl18operator_unary_negES1O_S1I_S1I_S1I_S1I_S1I_S1I_EEEES1I_S1I_S1I_S1I_S1I_EEEEEEEEEES13_S1H_EE, i64 16), ptr %416, align 8, !tbaa !61
   %417 = getelementptr inbounds nuw i8, ptr %416, i64 8
   store ptr %123, ptr %417, align 8
-  %.sroa.61190.0..sroa_idx = getelementptr inbounds i8, ptr %416, i64 24
+  %.sroa.61190.0..sroa_idx = getelementptr inbounds nuw i8, ptr %416, i64 24
   store i64 %415, ptr %.sroa.61190.0..sroa_idx, align 8
-  %.sroa.81192.0..sroa_idx = getelementptr inbounds i8, ptr %416, i64 40
+  %.sroa.81192.0..sroa_idx = getelementptr inbounds nuw i8, ptr %416, i64 40
   store i32 402915615, ptr %.sroa.81192.0..sroa_idx, align 8
-  %.sroa.101194.0..sroa_idx = getelementptr inbounds i8, ptr %416, i64 48
+  %.sroa.101194.0..sroa_idx = getelementptr inbounds nuw i8, ptr %416, i64 48
   store ptr %113, ptr %.sroa.101194.0..sroa_idx, align 8
-  %.sroa.121196.0..sroa_idx = getelementptr inbounds i8, ptr %416, i64 64
+  %.sroa.121196.0..sroa_idx = getelementptr inbounds nuw i8, ptr %416, i64 64
   store i64 %415, ptr %.sroa.121196.0..sroa_idx, align 8
-  %.sroa.141198.0..sroa_idx = getelementptr inbounds i8, ptr %416, i64 80
+  %.sroa.141198.0..sroa_idx = getelementptr inbounds nuw i8, ptr %416, i64 80
   store i32 402915607, ptr %.sroa.141198.0..sroa_idx, align 8
-  %.sroa.161200.0..sroa_idx = getelementptr inbounds i8, ptr %416, i64 88
+  %.sroa.161200.0..sroa_idx = getelementptr inbounds nuw i8, ptr %416, i64 88
   store ptr %113, ptr %.sroa.161200.0..sroa_idx, align 8
-  %.sroa.181202.0..sroa_idx = getelementptr inbounds i8, ptr %416, i64 104
+  %.sroa.181202.0..sroa_idx = getelementptr inbounds nuw i8, ptr %416, i64 104
   store i64 %415, ptr %.sroa.181202.0..sroa_idx, align 8
-  %.sroa.201204.0..sroa_idx = getelementptr inbounds i8, ptr %416, i64 120
+  %.sroa.201204.0..sroa_idx = getelementptr inbounds nuw i8, ptr %416, i64 120
   store i32 402915631, ptr %.sroa.201204.0..sroa_idx, align 8
-  %.sroa.221206.0..sroa_idx = getelementptr inbounds i8, ptr %416, i64 128
+  %.sroa.221206.0..sroa_idx = getelementptr inbounds nuw i8, ptr %416, i64 128
   store i64 2139619327, ptr %.sroa.221206.0..sroa_idx, align 8
-  %.sroa.231207.0..sroa_idx = getelementptr inbounds i8, ptr %416, i64 136
+  %.sroa.231207.0..sroa_idx = getelementptr inbounds nuw i8, ptr %416, i64 136
   store ptr %113, ptr %.sroa.231207.0..sroa_idx, align 8
-  %.sroa.251209.0..sroa_idx = getelementptr inbounds i8, ptr %416, i64 152
+  %.sroa.251209.0..sroa_idx = getelementptr inbounds nuw i8, ptr %416, i64 152
   store i64 %415, ptr %.sroa.251209.0..sroa_idx, align 8
-  %.sroa.27.0..sroa_idx = getelementptr inbounds i8, ptr %416, i64 168
+  %.sroa.27.0..sroa_idx = getelementptr inbounds nuw i8, ptr %416, i64 168
   store i32 402915612, ptr %.sroa.27.0..sroa_idx, align 8
-  %.sroa.29.0..sroa_idx = getelementptr inbounds i8, ptr %416, i64 176
+  %.sroa.29.0..sroa_idx = getelementptr inbounds nuw i8, ptr %416, i64 176
   store i64 2139619327, ptr %.sroa.29.0..sroa_idx, align 8
-  %.sroa.30.0..sroa_idx = getelementptr inbounds i8, ptr %416, i64 184
+  %.sroa.30.0..sroa_idx = getelementptr inbounds nuw i8, ptr %416, i64 184
   store ptr %113, ptr %.sroa.30.0..sroa_idx, align 8
-  %.sroa.32.0..sroa_idx = getelementptr inbounds i8, ptr %416, i64 200
+  %.sroa.32.0..sroa_idx = getelementptr inbounds nuw i8, ptr %416, i64 200
   store i64 %415, ptr %.sroa.32.0..sroa_idx, align 8
   %418 = load ptr, ptr %122, align 8, !tbaa !256
   store ptr %416, ptr %122, align 8, !tbaa !256
@@ -9943,7 +9935,7 @@ _ZN5boost6spirit7classic7closureINS_4wave8grammars8closures16cpp_expr_closureENS
 
 420:                                              ; preds = %.noexc507
   %421 = load ptr, ptr %418, align 8, !tbaa !61
-  %422 = getelementptr inbounds i8, ptr %421, i64 8
+  %422 = getelementptr inbounds nuw i8, ptr %421, i64 8
   %423 = load ptr, ptr %422, align 8
   tail call void %423(ptr noundef nonnull align 8 dereferenceable(8) %418) #27
   br label %424
@@ -9957,15 +9949,15 @@ _ZN5boost6spirit7classic7closureINS_4wave8grammars8closures16cpp_expr_closureENS
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost6spirit7classic4impl15concrete_parserINS1_11alternativeINS1_6actionINS1_4ruleINS1_7scannerISt20_List_const_iteratorINS_4wave8cpplexer9lex_tokenINS9_4util13file_positionINSC_11flex_stringIcSt11char_traitsIcESaIcENSC_9CowStringINSC_22AllocatorStringStorageIcSH_EEPcEEEEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS4_INS4_INS1_5chlitINS9_8token_idEEESV_EESV_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEENS1_15closure_contextINS9_8grammars8closures16cpp_expr_closureEEENS1_5nil_tEEEN7phoenix5actorINS1B_9compositeINS1B_9assign_opENS1C_INS1B_14closure_memberILi0ENS1B_7closureINS16_13closure_valueENS1B_5nil_tES1I_S1I_S1I_S1I_EEEEEENS1C_INS1B_8argumentILi0EEEEES1I_S1I_S1I_S1I_S1I_EEEEEENS1_8sequenceINS1S_ISV_S1R_EESV_EEEES13_S1H_EE, i64 16), ptr %426, align 8, !tbaa !61
   %427 = getelementptr inbounds nuw i8, ptr %426, i64 8
   store ptr %133, ptr %427, align 8
-  %.sroa.61060.0..sroa_idx = getelementptr inbounds i8, ptr %426, i64 24
+  %.sroa.61060.0..sroa_idx = getelementptr inbounds nuw i8, ptr %426, i64 24
   store i64 %425, ptr %.sroa.61060.0..sroa_idx, align 8
-  %.sroa.81062.0..sroa_idx = getelementptr inbounds i8, ptr %426, i64 40
+  %.sroa.81062.0..sroa_idx = getelementptr inbounds nuw i8, ptr %426, i64 40
   store i32 402915605, ptr %.sroa.81062.0..sroa_idx, align 8
-  %.sroa.101064.0..sroa_idx = getelementptr inbounds i8, ptr %426, i64 48
+  %.sroa.101064.0..sroa_idx = getelementptr inbounds nuw i8, ptr %426, i64 48
   store ptr %3, ptr %.sroa.101064.0..sroa_idx, align 8
-  %.sroa.121066.0..sroa_idx = getelementptr inbounds i8, ptr %426, i64 64
+  %.sroa.121066.0..sroa_idx = getelementptr inbounds nuw i8, ptr %426, i64 64
   store i64 %425, ptr %.sroa.121066.0..sroa_idx, align 8
-  %.sroa.141068.0..sroa_idx = getelementptr inbounds i8, ptr %426, i64 80
+  %.sroa.141068.0..sroa_idx = getelementptr inbounds nuw i8, ptr %426, i64 80
   store i32 402915622, ptr %.sroa.141068.0..sroa_idx, align 8
   %428 = load ptr, ptr %132, align 8, !tbaa !256
   store ptr %426, ptr %132, align 8, !tbaa !256
@@ -9974,7 +9966,7 @@ _ZN5boost6spirit7classic7closureINS_4wave8grammars8closures16cpp_expr_closureENS
 
 430:                                              ; preds = %.noexc510
   %431 = load ptr, ptr %428, align 8, !tbaa !61
-  %432 = getelementptr inbounds i8, ptr %431, i64 8
+  %432 = getelementptr inbounds nuw i8, ptr %431, i64 8
   %433 = load ptr, ptr %432, align 8
   tail call void %433(ptr noundef nonnull align 8 dereferenceable(8) %428) #27
   br label %434
@@ -9988,19 +9980,19 @@ _ZN5boost6spirit7classic7closureINS_4wave8grammars8closures16cpp_expr_closureENS
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost6spirit7classic4impl15concrete_parserINS1_11alternativeINS4_INS4_INS1_6actionINS1_5chlitINS_4wave8token_idEEEN7phoenix5actorINSA_9compositeINSA_9assign_opENSB_INSA_14closure_memberILi0ENSA_7closureINS7_8grammars8closures13closure_valueENSA_5nil_tESJ_SJ_SJ_SJ_EEEEEENSB_INSC_INSG_4impl14convert_intlitENSB_INSA_8argumentILi0EEEEESJ_SJ_SJ_SJ_SJ_SJ_EEEESJ_SJ_SJ_SJ_SJ_EEEEEESW_EESW_EENS5_IS9_NSB_INSC_ISD_SM_NSB_INSC_INSN_13convert_chlitESR_SJ_SJ_SJ_SJ_SJ_SJ_EEEESJ_SJ_SJ_SJ_SJ_EEEEEEEENS1_7scannerISt20_List_const_iteratorINS7_8cpplexer9lex_tokenINS7_4util13file_positionINS1A_11flex_stringIcSt11char_traitsIcESaIcENS1A_9CowStringINS1A_22AllocatorStringStorageIcS1F_EEPcEEEEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS4_INS4_IS9_S9_EES9_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEESI_EE, i64 16), ptr %436, align 8, !tbaa !61
   %437 = getelementptr inbounds nuw i8, ptr %436, i64 8
   store i32 1879310739, ptr %437, align 8
-  %.sroa.71016.0..sroa_idx = getelementptr inbounds i8, ptr %436, i64 24
+  %.sroa.71016.0..sroa_idx = getelementptr inbounds nuw i8, ptr %436, i64 24
   store i64 %435, ptr %.sroa.71016.0..sroa_idx, align 8
-  %.sroa.91018.0..sroa_idx = getelementptr inbounds i8, ptr %436, i64 40
+  %.sroa.91018.0..sroa_idx = getelementptr inbounds nuw i8, ptr %436, i64 40
   store i32 545522048, ptr %.sroa.91018.0..sroa_idx, align 8
-  %.sroa.121021.0..sroa_idx = getelementptr inbounds i8, ptr %436, i64 56
+  %.sroa.121021.0..sroa_idx = getelementptr inbounds nuw i8, ptr %436, i64 56
   store i64 %435, ptr %.sroa.121021.0..sroa_idx, align 8
-  %.sroa.141023.0..sroa_idx = getelementptr inbounds i8, ptr %436, i64 72
+  %.sroa.141023.0..sroa_idx = getelementptr inbounds nuw i8, ptr %436, i64 72
   store i32 545522049, ptr %.sroa.141023.0..sroa_idx, align 8
-  %.sroa.171026.0..sroa_idx = getelementptr inbounds i8, ptr %436, i64 88
+  %.sroa.171026.0..sroa_idx = getelementptr inbounds nuw i8, ptr %436, i64 88
   store i64 %435, ptr %.sroa.171026.0..sroa_idx, align 8
-  %.sroa.19.0..sroa_idx = getelementptr inbounds i8, ptr %436, i64 104
+  %.sroa.19.0..sroa_idx = getelementptr inbounds nuw i8, ptr %436, i64 104
   store i32 570687877, ptr %.sroa.19.0..sroa_idx, align 8
-  %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %436, i64 120
+  %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %436, i64 120
   store i64 %435, ptr %.sroa.22.0..sroa_idx, align 8
   %438 = load ptr, ptr %142, align 8, !tbaa !256
   store ptr %436, ptr %142, align 8, !tbaa !256
@@ -10009,7 +10001,7 @@ _ZN5boost6spirit7classic7closureINS_4wave8grammars8closures16cpp_expr_closureENS
 
 440:                                              ; preds = %.noexc515
   %441 = load ptr, ptr %438, align 8, !tbaa !61
-  %442 = getelementptr inbounds i8, ptr %441, i64 8
+  %442 = getelementptr inbounds nuw i8, ptr %441, i64 8
   %443 = load ptr, ptr %442, align 8
   tail call void %443(ptr noundef nonnull align 8 dereferenceable(8) %438) #27
   br label %444
@@ -10022,13 +10014,13 @@ _ZN5boost6spirit7classic7closureINS_4wave8grammars8closures16cpp_expr_closureENS
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost6spirit7classic4impl15concrete_parserINS1_8sequenceINS1_4ruleINS1_7scannerISt20_List_const_iteratorINS_4wave8cpplexer9lex_tokenINS8_4util13file_positionINSB_11flex_stringIcSt11char_traitsIcESaIcENSB_9CowStringINSB_22AllocatorStringStorageIcSG_EEPcEEEEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeINSS_INS1_5chlitINS8_8token_idEEESV_EESV_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEENS1_15closure_contextINS8_8grammars8closures16cpp_expr_closureEEENS1_5nil_tEEENS1_8optionalINS4_INS4_INS4_ISV_S1A_EESV_EES1A_EEEEEES13_NS16_13closure_valueEEE, i64 16), ptr %445, align 8, !tbaa !61
   %446 = getelementptr inbounds nuw i8, ptr %445, i64 8
   store ptr %153, ptr %446, align 8
-  %.sroa.5943.0..sroa_idx = getelementptr inbounds i8, ptr %445, i64 16
+  %.sroa.5943.0..sroa_idx = getelementptr inbounds nuw i8, ptr %445, i64 16
   store i32 402915620, ptr %.sroa.5943.0..sroa_idx, align 8
-  %.sroa.7945.0..sroa_idx = getelementptr inbounds i8, ptr %445, i64 24
+  %.sroa.7945.0..sroa_idx = getelementptr inbounds nuw i8, ptr %445, i64 24
   store ptr %143, ptr %.sroa.7945.0..sroa_idx, align 8
-  %.sroa.8946.0..sroa_idx = getelementptr inbounds i8, ptr %445, i64 32
+  %.sroa.8946.0..sroa_idx = getelementptr inbounds nuw i8, ptr %445, i64 32
   store i32 402915593, ptr %.sroa.8946.0..sroa_idx, align 8
-  %.sroa.10948.0..sroa_idx = getelementptr inbounds i8, ptr %445, i64 40
+  %.sroa.10948.0..sroa_idx = getelementptr inbounds nuw i8, ptr %445, i64 40
   store ptr %143, ptr %.sroa.10948.0..sroa_idx, align 8
   %447 = load ptr, ptr %152, align 8, !tbaa !256
   store ptr %445, ptr %152, align 8, !tbaa !256
@@ -10037,7 +10029,7 @@ _ZN5boost6spirit7classic7closureINS_4wave8grammars8closures16cpp_expr_closureENS
 
 449:                                              ; preds = %.noexc516
   %450 = load ptr, ptr %447, align 8, !tbaa !61
-  %451 = getelementptr inbounds i8, ptr %450, i64 8
+  %451 = getelementptr inbounds nuw i8, ptr %450, i64 8
   %452 = load ptr, ptr %451, align 8
   tail call void %452(ptr noundef nonnull align 8 dereferenceable(8) %447) #27
   br label %453
@@ -10050,11 +10042,11 @@ _ZN5boost6spirit7classic7closureINS_4wave8grammars8closures16cpp_expr_closureENS
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost6spirit7classic4impl15concrete_parserINS1_8sequenceINS1_4ruleINS1_7scannerISt20_List_const_iteratorINS_4wave8cpplexer9lex_tokenINS8_4util13file_positionINSB_11flex_stringIcSt11char_traitsIcESaIcENSB_9CowStringINSB_22AllocatorStringStorageIcSG_EEPcEEEEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeINSS_INS1_5chlitINS8_8token_idEEESV_EESV_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEENS1_15closure_contextINS8_8grammars8closures16cpp_expr_closureEEENS1_5nil_tEEENS1_11kleene_starINS4_INSB_11pattern_andISU_EES1A_EEEEEES13_NS16_13closure_valueEEE, i64 16), ptr %454, align 8, !tbaa !61
   %455 = getelementptr inbounds nuw i8, ptr %454, i64 8
   store ptr %163, ptr %455, align 8
-  %.sroa.5916.0..sroa_idx = getelementptr inbounds i8, ptr %454, i64 16
+  %.sroa.5916.0..sroa_idx = getelementptr inbounds nuw i8, ptr %454, i64 16
   store i32 402915614, ptr %.sroa.5916.0..sroa_idx, align 8
-  %.sroa.7918.0..sroa_idx = getelementptr inbounds i8, ptr %454, i64 24
+  %.sroa.7918.0..sroa_idx = getelementptr inbounds nuw i8, ptr %454, i64 24
   store i64 2139619327, ptr %.sroa.7918.0..sroa_idx, align 8
-  %.sroa.8919.0..sroa_idx = getelementptr inbounds i8, ptr %454, i64 32
+  %.sroa.8919.0..sroa_idx = getelementptr inbounds nuw i8, ptr %454, i64 32
   store ptr %163, ptr %.sroa.8919.0..sroa_idx, align 8
   %456 = load ptr, ptr %162, align 8, !tbaa !256
   store ptr %454, ptr %162, align 8, !tbaa !256
@@ -10063,7 +10055,7 @@ _ZN5boost6spirit7classic7closureINS_4wave8grammars8closures16cpp_expr_closureENS
 
 458:                                              ; preds = %.noexc517
   %459 = load ptr, ptr %456, align 8, !tbaa !61
-  %460 = getelementptr inbounds i8, ptr %459, i64 8
+  %460 = getelementptr inbounds nuw i8, ptr %459, i64 8
   %461 = load ptr, ptr %460, align 8
   tail call void %461(ptr noundef nonnull align 8 dereferenceable(8) %456) #27
   br label %462
@@ -10076,11 +10068,11 @@ _ZN5boost6spirit7classic7closureINS_4wave8grammars8closures16cpp_expr_closureENS
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost6spirit7classic4impl15concrete_parserINS1_8sequenceINS1_4ruleINS1_7scannerISt20_List_const_iteratorINS_4wave8cpplexer9lex_tokenINS8_4util13file_positionINSB_11flex_stringIcSt11char_traitsIcESaIcENSB_9CowStringINSB_22AllocatorStringStorageIcSG_EEPcEEEEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeINSS_INS1_5chlitINS8_8token_idEEESV_EESV_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEENS1_15closure_contextINS8_8grammars8closures16cpp_expr_closureEEENS1_5nil_tEEENS1_11kleene_starINS4_INSB_11pattern_andISU_EES1A_EEEEEES13_NS16_13closure_valueEEE, i64 16), ptr %463, align 8, !tbaa !61
   %464 = getelementptr inbounds nuw i8, ptr %463, i64 8
   store ptr %173, ptr %464, align 8
-  %.sroa.5900.0..sroa_idx = getelementptr inbounds i8, ptr %463, i64 16
+  %.sroa.5900.0..sroa_idx = getelementptr inbounds nuw i8, ptr %463, i64 16
   store i32 402915585, ptr %.sroa.5900.0..sroa_idx, align 8
-  %.sroa.7902.0..sroa_idx = getelementptr inbounds i8, ptr %463, i64 24
+  %.sroa.7902.0..sroa_idx = getelementptr inbounds nuw i8, ptr %463, i64 24
   store i64 2139619327, ptr %.sroa.7902.0..sroa_idx, align 8
-  %.sroa.8903.0..sroa_idx = getelementptr inbounds i8, ptr %463, i64 32
+  %.sroa.8903.0..sroa_idx = getelementptr inbounds nuw i8, ptr %463, i64 32
   store ptr %173, ptr %.sroa.8903.0..sroa_idx, align 8
   %465 = load ptr, ptr %172, align 8, !tbaa !256
   store ptr %463, ptr %172, align 8, !tbaa !256
@@ -10089,7 +10081,7 @@ _ZN5boost6spirit7classic7closureINS_4wave8grammars8closures16cpp_expr_closureENS
 
 467:                                              ; preds = %.noexc518
   %468 = load ptr, ptr %465, align 8, !tbaa !61
-  %469 = getelementptr inbounds i8, ptr %468, i64 8
+  %469 = getelementptr inbounds nuw i8, ptr %468, i64 8
   %470 = load ptr, ptr %469, align 8
   tail call void %470(ptr noundef nonnull align 8 dereferenceable(8) %465) #27
   br label %471
@@ -10102,11 +10094,11 @@ _ZN5boost6spirit7classic7closureINS_4wave8grammars8closures16cpp_expr_closureENS
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost6spirit7classic4impl15concrete_parserINS1_8sequenceINS1_4ruleINS1_7scannerISt20_List_const_iteratorINS_4wave8cpplexer9lex_tokenINS8_4util13file_positionINSB_11flex_stringIcSt11char_traitsIcESaIcENSB_9CowStringINSB_22AllocatorStringStorageIcSG_EEPcEEEEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeINSS_INS1_5chlitINS8_8token_idEEESV_EESV_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEENS1_15closure_contextINS8_8grammars8closures16cpp_expr_closureEEENS1_5nil_tEEENS1_11kleene_starINS4_INSB_11pattern_andISU_EES1A_EEEEEES13_NS16_13closure_valueEEE, i64 16), ptr %472, align 8, !tbaa !61
   %473 = getelementptr inbounds nuw i8, ptr %472, i64 8
   store ptr %183, ptr %473, align 8
-  %.sroa.5884.0..sroa_idx = getelementptr inbounds i8, ptr %472, i64 16
+  %.sroa.5884.0..sroa_idx = getelementptr inbounds nuw i8, ptr %472, i64 16
   store i32 402915588, ptr %.sroa.5884.0..sroa_idx, align 8
-  %.sroa.7886.0..sroa_idx = getelementptr inbounds i8, ptr %472, i64 24
+  %.sroa.7886.0..sroa_idx = getelementptr inbounds nuw i8, ptr %472, i64 24
   store i64 2139619327, ptr %.sroa.7886.0..sroa_idx, align 8
-  %.sroa.8887.0..sroa_idx = getelementptr inbounds i8, ptr %472, i64 32
+  %.sroa.8887.0..sroa_idx = getelementptr inbounds nuw i8, ptr %472, i64 32
   store ptr %183, ptr %.sroa.8887.0..sroa_idx, align 8
   %474 = load ptr, ptr %182, align 8, !tbaa !256
   store ptr %472, ptr %182, align 8, !tbaa !256
@@ -10115,7 +10107,7 @@ _ZN5boost6spirit7classic7closureINS_4wave8grammars8closures16cpp_expr_closureENS
 
 476:                                              ; preds = %.noexc520
   %477 = load ptr, ptr %474, align 8, !tbaa !61
-  %478 = getelementptr inbounds i8, ptr %477, i64 8
+  %478 = getelementptr inbounds nuw i8, ptr %477, i64 8
   %479 = load ptr, ptr %478, align 8
   tail call void %479(ptr noundef nonnull align 8 dereferenceable(8) %474) #27
   br label %480
@@ -10128,11 +10120,11 @@ _ZN5boost6spirit7classic7closureINS_4wave8grammars8closures16cpp_expr_closureENS
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost6spirit7classic4impl15concrete_parserINS1_8sequenceINS1_4ruleINS1_7scannerISt20_List_const_iteratorINS_4wave8cpplexer9lex_tokenINS8_4util13file_positionINSB_11flex_stringIcSt11char_traitsIcESaIcENSB_9CowStringINSB_22AllocatorStringStorageIcSG_EEPcEEEEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeINSS_INS1_5chlitINS8_8token_idEEESV_EESV_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEENS1_15closure_contextINS8_8grammars8closures16cpp_expr_closureEEENS1_5nil_tEEENS1_11kleene_starINS4_INSB_11pattern_andISU_EES1A_EEEEEES13_NS16_13closure_valueEEE, i64 16), ptr %481, align 8, !tbaa !61
   %482 = getelementptr inbounds nuw i8, ptr %481, i64 8
   store ptr %193, ptr %482, align 8
-  %.sroa.5868.0..sroa_idx = getelementptr inbounds i8, ptr %481, i64 16
+  %.sroa.5868.0..sroa_idx = getelementptr inbounds nuw i8, ptr %481, i64 16
   store i32 402915590, ptr %.sroa.5868.0..sroa_idx, align 8
-  %.sroa.7870.0..sroa_idx = getelementptr inbounds i8, ptr %481, i64 24
+  %.sroa.7870.0..sroa_idx = getelementptr inbounds nuw i8, ptr %481, i64 24
   store i64 2139619327, ptr %.sroa.7870.0..sroa_idx, align 8
-  %.sroa.8871.0..sroa_idx = getelementptr inbounds i8, ptr %481, i64 32
+  %.sroa.8871.0..sroa_idx = getelementptr inbounds nuw i8, ptr %481, i64 32
   store ptr %193, ptr %.sroa.8871.0..sroa_idx, align 8
   %483 = load ptr, ptr %192, align 8, !tbaa !256
   store ptr %481, ptr %192, align 8, !tbaa !256
@@ -10141,7 +10133,7 @@ _ZN5boost6spirit7classic7closureINS_4wave8grammars8closures16cpp_expr_closureENS
 
 485:                                              ; preds = %.noexc522
   %486 = load ptr, ptr %483, align 8, !tbaa !61
-  %487 = getelementptr inbounds i8, ptr %486, i64 8
+  %487 = getelementptr inbounds nuw i8, ptr %486, i64 8
   %488 = load ptr, ptr %487, align 8
   tail call void %488(ptr noundef nonnull align 8 dereferenceable(8) %483) #27
   br label %489
@@ -10154,11 +10146,11 @@ _ZN5boost6spirit7classic7closureINS_4wave8grammars8closures16cpp_expr_closureENS
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost6spirit7classic4impl15concrete_parserINS1_8sequenceINS1_4ruleINS1_7scannerISt20_List_const_iteratorINS_4wave8cpplexer9lex_tokenINS8_4util13file_positionINSB_11flex_stringIcSt11char_traitsIcESaIcENSB_9CowStringINSB_22AllocatorStringStorageIcSG_EEPcEEEEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeINSS_INS1_5chlitINS8_8token_idEEESV_EESV_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEENS1_15closure_contextINS8_8grammars8closures16cpp_expr_closureEEENS1_5nil_tEEENS1_11kleene_starINS4_INSB_11pattern_andISU_EES1A_EEEEEES13_NS16_13closure_valueEEE, i64 16), ptr %490, align 8, !tbaa !61
   %491 = getelementptr inbounds nuw i8, ptr %490, i64 8
   store ptr %203, ptr %491, align 8
-  %.sroa.5852.0..sroa_idx = getelementptr inbounds i8, ptr %490, i64 16
+  %.sroa.5852.0..sroa_idx = getelementptr inbounds nuw i8, ptr %490, i64 16
   store i32 402915584, ptr %.sroa.5852.0..sroa_idx, align 8
-  %.sroa.7854.0..sroa_idx = getelementptr inbounds i8, ptr %490, i64 24
+  %.sroa.7854.0..sroa_idx = getelementptr inbounds nuw i8, ptr %490, i64 24
   store i64 2139619327, ptr %.sroa.7854.0..sroa_idx, align 8
-  %.sroa.8855.0..sroa_idx = getelementptr inbounds i8, ptr %490, i64 32
+  %.sroa.8855.0..sroa_idx = getelementptr inbounds nuw i8, ptr %490, i64 32
   store ptr %203, ptr %.sroa.8855.0..sroa_idx, align 8
   %492 = load ptr, ptr %202, align 8, !tbaa !256
   store ptr %490, ptr %202, align 8, !tbaa !256
@@ -10167,7 +10159,7 @@ _ZN5boost6spirit7classic7closureINS_4wave8grammars8closures16cpp_expr_closureENS
 
 494:                                              ; preds = %.noexc524
   %495 = load ptr, ptr %492, align 8, !tbaa !61
-  %496 = getelementptr inbounds i8, ptr %495, i64 8
+  %496 = getelementptr inbounds nuw i8, ptr %495, i64 8
   %497 = load ptr, ptr %496, align 8
   tail call void %497(ptr noundef nonnull align 8 dereferenceable(8) %492) #27
   br label %498
@@ -10180,15 +10172,15 @@ _ZN5boost6spirit7classic7closureINS_4wave8grammars8closures16cpp_expr_closureENS
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost6spirit7classic4impl15concrete_parserINS1_8sequenceINS1_4ruleINS1_7scannerISt20_List_const_iteratorINS_4wave8cpplexer9lex_tokenINS8_4util13file_positionINSB_11flex_stringIcSt11char_traitsIcESaIcENSB_9CowStringINSB_22AllocatorStringStorageIcSG_EEPcEEEEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeINSS_INS1_5chlitINS8_8token_idEEESV_EESV_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEENS1_15closure_contextINS8_8grammars8closures16cpp_expr_closureEEENS1_5nil_tEEENS1_11kleene_starINSS_INS4_ISV_S1A_EENS4_INSB_11pattern_andISU_EES1A_EEEEEEEES13_NS16_13closure_valueEEE, i64 16), ptr %499, align 8, !tbaa !61
   %500 = getelementptr inbounds nuw i8, ptr %499, i64 8
   store ptr %213, ptr %500, align 8
-  %.sroa.5833.0..sroa_idx = getelementptr inbounds i8, ptr %499, i64 16
+  %.sroa.5833.0..sroa_idx = getelementptr inbounds nuw i8, ptr %499, i64 16
   store i32 402915599, ptr %.sroa.5833.0..sroa_idx, align 8
-  %.sroa.7835.0..sroa_idx = getelementptr inbounds i8, ptr %499, i64 24
+  %.sroa.7835.0..sroa_idx = getelementptr inbounds nuw i8, ptr %499, i64 24
   store ptr %213, ptr %.sroa.7835.0..sroa_idx, align 8
-  %.sroa.8836.0..sroa_idx = getelementptr inbounds i8, ptr %499, i64 32
+  %.sroa.8836.0..sroa_idx = getelementptr inbounds nuw i8, ptr %499, i64 32
   store i32 402915613, ptr %.sroa.8836.0..sroa_idx, align 8
-  %.sroa.10838.0..sroa_idx = getelementptr inbounds i8, ptr %499, i64 40
+  %.sroa.10838.0..sroa_idx = getelementptr inbounds nuw i8, ptr %499, i64 40
   store i64 2139619327, ptr %.sroa.10838.0..sroa_idx, align 8
-  %.sroa.11839.0..sroa_idx = getelementptr inbounds i8, ptr %499, i64 48
+  %.sroa.11839.0..sroa_idx = getelementptr inbounds nuw i8, ptr %499, i64 48
   store ptr %213, ptr %.sroa.11839.0..sroa_idx, align 8
   %501 = load ptr, ptr %212, align 8, !tbaa !256
   store ptr %499, ptr %212, align 8, !tbaa !256
@@ -10197,7 +10189,7 @@ _ZN5boost6spirit7classic7closureINS_4wave8grammars8closures16cpp_expr_closureENS
 
 503:                                              ; preds = %.noexc528
   %504 = load ptr, ptr %501, align 8, !tbaa !61
-  %505 = getelementptr inbounds i8, ptr %504, i64 8
+  %505 = getelementptr inbounds nuw i8, ptr %504, i64 8
   %506 = load ptr, ptr %505, align 8
   tail call void %506(ptr noundef nonnull align 8 dereferenceable(8) %501) #27
   br label %507
@@ -10210,21 +10202,21 @@ _ZN5boost6spirit7classic7closureINS_4wave8grammars8closures16cpp_expr_closureENS
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost6spirit7classic4impl15concrete_parserINS1_8sequenceINS1_4ruleINS1_7scannerISt20_List_const_iteratorINS_4wave8cpplexer9lex_tokenINS8_4util13file_positionINSB_11flex_stringIcSt11char_traitsIcESaIcENSB_9CowStringINSB_22AllocatorStringStorageIcSG_EEPcEEEEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeINSS_INS1_5chlitINS8_8token_idEEESV_EESV_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEENS1_15closure_contextINS8_8grammars8closures16cpp_expr_closureEEENS1_5nil_tEEENS1_11kleene_starINSS_INSS_INSS_INS4_ISV_S1A_EES1C_EES1C_EES1C_EEEEEES13_NS16_13closure_valueEEE, i64 16), ptr %508, align 8, !tbaa !61
   %509 = getelementptr inbounds nuw i8, ptr %508, i64 8
   store ptr %223, ptr %509, align 8
-  %.sroa.5795.0..sroa_idx = getelementptr inbounds i8, ptr %508, i64 16
+  %.sroa.5795.0..sroa_idx = getelementptr inbounds nuw i8, ptr %508, i64 16
   store i32 402915604, ptr %.sroa.5795.0..sroa_idx, align 8
-  %.sroa.7797.0..sroa_idx = getelementptr inbounds i8, ptr %508, i64 24
+  %.sroa.7797.0..sroa_idx = getelementptr inbounds nuw i8, ptr %508, i64 24
   store ptr %223, ptr %.sroa.7797.0..sroa_idx, align 8
-  %.sroa.8798.0..sroa_idx = getelementptr inbounds i8, ptr %508, i64 32
+  %.sroa.8798.0..sroa_idx = getelementptr inbounds nuw i8, ptr %508, i64 32
   store i32 402915601, ptr %.sroa.8798.0..sroa_idx, align 8
-  %.sroa.10800.0..sroa_idx = getelementptr inbounds i8, ptr %508, i64 40
+  %.sroa.10800.0..sroa_idx = getelementptr inbounds nuw i8, ptr %508, i64 40
   store ptr %223, ptr %.sroa.10800.0..sroa_idx, align 8
-  %.sroa.11801.0..sroa_idx = getelementptr inbounds i8, ptr %508, i64 48
+  %.sroa.11801.0..sroa_idx = getelementptr inbounds nuw i8, ptr %508, i64 48
   store i32 402915603, ptr %.sroa.11801.0..sroa_idx, align 8
-  %.sroa.13803.0..sroa_idx = getelementptr inbounds i8, ptr %508, i64 56
+  %.sroa.13803.0..sroa_idx = getelementptr inbounds nuw i8, ptr %508, i64 56
   store ptr %223, ptr %.sroa.13803.0..sroa_idx, align 8
-  %.sroa.14804.0..sroa_idx = getelementptr inbounds i8, ptr %508, i64 64
+  %.sroa.14804.0..sroa_idx = getelementptr inbounds nuw i8, ptr %508, i64 64
   store i32 402915600, ptr %.sroa.14804.0..sroa_idx, align 8
-  %.sroa.16806.0..sroa_idx = getelementptr inbounds i8, ptr %508, i64 72
+  %.sroa.16806.0..sroa_idx = getelementptr inbounds nuw i8, ptr %508, i64 72
   store ptr %223, ptr %.sroa.16806.0..sroa_idx, align 8
   %510 = load ptr, ptr %222, align 8, !tbaa !256
   store ptr %508, ptr %222, align 8, !tbaa !256
@@ -10233,7 +10225,7 @@ _ZN5boost6spirit7classic7closureINS_4wave8grammars8closures16cpp_expr_closureENS
 
 512:                                              ; preds = %.noexc537
   %513 = load ptr, ptr %510, align 8, !tbaa !61
-  %514 = getelementptr inbounds i8, ptr %513, i64 8
+  %514 = getelementptr inbounds nuw i8, ptr %513, i64 8
   %515 = load ptr, ptr %514, align 8
   tail call void %515(ptr noundef nonnull align 8 dereferenceable(8) %510) #27
   br label %516
@@ -10246,13 +10238,13 @@ _ZN5boost6spirit7classic7closureINS_4wave8grammars8closures16cpp_expr_closureENS
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost6spirit7classic4impl15concrete_parserINS1_8sequenceINS1_4ruleINS1_7scannerISt20_List_const_iteratorINS_4wave8cpplexer9lex_tokenINS8_4util13file_positionINSB_11flex_stringIcSt11char_traitsIcESaIcENSB_9CowStringINSB_22AllocatorStringStorageIcSG_EEPcEEEEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeINSS_INS1_5chlitINS8_8token_idEEESV_EESV_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEENS1_15closure_contextINS8_8grammars8closures16cpp_expr_closureEEENS1_5nil_tEEENS1_11kleene_starINSS_INS4_ISV_S1A_EES1C_EEEEEES13_NS16_13closure_valueEEE, i64 16), ptr %517, align 8, !tbaa !61
   %518 = getelementptr inbounds nuw i8, ptr %517, i64 8
   store ptr %233, ptr %518, align 8
-  %.sroa.5733.0..sroa_idx = getelementptr inbounds i8, ptr %517, i64 16
+  %.sroa.5733.0..sroa_idx = getelementptr inbounds nuw i8, ptr %517, i64 16
   store i32 402915626, ptr %.sroa.5733.0..sroa_idx, align 8
-  %.sroa.7735.0..sroa_idx = getelementptr inbounds i8, ptr %517, i64 24
+  %.sroa.7735.0..sroa_idx = getelementptr inbounds nuw i8, ptr %517, i64 24
   store ptr %233, ptr %.sroa.7735.0..sroa_idx, align 8
-  %.sroa.8736.0..sroa_idx = getelementptr inbounds i8, ptr %517, i64 32
+  %.sroa.8736.0..sroa_idx = getelementptr inbounds nuw i8, ptr %517, i64 32
   store i32 402915628, ptr %.sroa.8736.0..sroa_idx, align 8
-  %.sroa.10738.0..sroa_idx = getelementptr inbounds i8, ptr %517, i64 40
+  %.sroa.10738.0..sroa_idx = getelementptr inbounds nuw i8, ptr %517, i64 40
   store ptr %233, ptr %.sroa.10738.0..sroa_idx, align 8
   %519 = load ptr, ptr %232, align 8, !tbaa !256
   store ptr %517, ptr %232, align 8, !tbaa !256
@@ -10261,7 +10253,7 @@ _ZN5boost6spirit7classic7closureINS_4wave8grammars8closures16cpp_expr_closureENS
 
 521:                                              ; preds = %.noexc542
   %522 = load ptr, ptr %519, align 8, !tbaa !61
-  %523 = getelementptr inbounds i8, ptr %522, i64 8
+  %523 = getelementptr inbounds nuw i8, ptr %522, i64 8
   %524 = load ptr, ptr %523, align 8
   tail call void %524(ptr noundef nonnull align 8 dereferenceable(8) %519) #27
   br label %525
@@ -10274,13 +10266,13 @@ _ZN5boost6spirit7classic7closureINS_4wave8grammars8closures16cpp_expr_closureENS
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost6spirit7classic4impl15concrete_parserINS1_8sequenceINS1_4ruleINS1_7scannerISt20_List_const_iteratorINS_4wave8cpplexer9lex_tokenINS8_4util13file_positionINSB_11flex_stringIcSt11char_traitsIcESaIcENSB_9CowStringINSB_22AllocatorStringStorageIcSG_EEPcEEEEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeINSS_INS1_5chlitINS8_8token_idEEESV_EESV_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEENS1_15closure_contextINS8_8grammars8closures16cpp_expr_closureEEENS1_5nil_tEEENS1_11kleene_starINSS_INS4_ISV_S1A_EES1C_EEEEEES13_NS16_13closure_valueEEE, i64 16), ptr %526, align 8, !tbaa !61
   %527 = getelementptr inbounds nuw i8, ptr %526, i64 8
   store ptr %243, ptr %527, align 8
-  %.sroa.5706.0..sroa_idx = getelementptr inbounds i8, ptr %526, i64 16
+  %.sroa.5706.0..sroa_idx = getelementptr inbounds nuw i8, ptr %526, i64 16
   store i32 402915615, ptr %.sroa.5706.0..sroa_idx, align 8
-  %.sroa.7708.0..sroa_idx = getelementptr inbounds i8, ptr %526, i64 24
+  %.sroa.7708.0..sroa_idx = getelementptr inbounds nuw i8, ptr %526, i64 24
   store ptr %243, ptr %.sroa.7708.0..sroa_idx, align 8
-  %.sroa.8709.0..sroa_idx = getelementptr inbounds i8, ptr %526, i64 32
+  %.sroa.8709.0..sroa_idx = getelementptr inbounds nuw i8, ptr %526, i64 32
   store i32 402915607, ptr %.sroa.8709.0..sroa_idx, align 8
-  %.sroa.10711.0..sroa_idx = getelementptr inbounds i8, ptr %526, i64 40
+  %.sroa.10711.0..sroa_idx = getelementptr inbounds nuw i8, ptr %526, i64 40
   store ptr %243, ptr %.sroa.10711.0..sroa_idx, align 8
   %528 = load ptr, ptr %242, align 8, !tbaa !256
   store ptr %526, ptr %242, align 8, !tbaa !256
@@ -10289,7 +10281,7 @@ _ZN5boost6spirit7classic7closureINS_4wave8grammars8closures16cpp_expr_closureENS
 
 530:                                              ; preds = %.noexc547
   %531 = load ptr, ptr %528, align 8, !tbaa !61
-  %532 = getelementptr inbounds i8, ptr %531, i64 8
+  %532 = getelementptr inbounds nuw i8, ptr %531, i64 8
   %533 = load ptr, ptr %532, align 8
   tail call void %533(ptr noundef nonnull align 8 dereferenceable(8) %528) #27
   br label %534
@@ -10302,17 +10294,17 @@ _ZN5boost6spirit7classic7closureINS_4wave8grammars8closures16cpp_expr_closureENS
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost6spirit7classic4impl15concrete_parserINS1_8sequenceINS1_4ruleINS1_7scannerISt20_List_const_iteratorINS_4wave8cpplexer9lex_tokenINS8_4util13file_positionINSB_11flex_stringIcSt11char_traitsIcESaIcENSB_9CowStringINSB_22AllocatorStringStorageIcSG_EEPcEEEEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeINSS_INS1_5chlitINS8_8token_idEEESV_EESV_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEENS1_15closure_contextINS8_8grammars8closures16cpp_expr_closureEEENS1_5nil_tEEENS1_11kleene_starINSS_INSS_INS4_ISV_S1A_EES1C_EES1C_EEEEEES13_NS16_13closure_valueEEE, i64 16), ptr %535, align 8, !tbaa !61
   %536 = getelementptr inbounds nuw i8, ptr %535, i64 8
   store ptr %253, ptr %536, align 8
-  %.sroa.5676.0..sroa_idx = getelementptr inbounds i8, ptr %535, i64 16
+  %.sroa.5676.0..sroa_idx = getelementptr inbounds nuw i8, ptr %535, i64 16
   store i32 402915630, ptr %.sroa.5676.0..sroa_idx, align 8
-  %.sroa.7678.0..sroa_idx = getelementptr inbounds i8, ptr %535, i64 24
+  %.sroa.7678.0..sroa_idx = getelementptr inbounds nuw i8, ptr %535, i64 24
   store ptr %253, ptr %.sroa.7678.0..sroa_idx, align 8
-  %.sroa.8679.0..sroa_idx = getelementptr inbounds i8, ptr %535, i64 32
+  %.sroa.8679.0..sroa_idx = getelementptr inbounds nuw i8, ptr %535, i64 32
   store i32 402915594, ptr %.sroa.8679.0..sroa_idx, align 8
-  %.sroa.10681.0..sroa_idx = getelementptr inbounds i8, ptr %535, i64 40
+  %.sroa.10681.0..sroa_idx = getelementptr inbounds nuw i8, ptr %535, i64 40
   store ptr %253, ptr %.sroa.10681.0..sroa_idx, align 8
-  %.sroa.11682.0..sroa_idx = getelementptr inbounds i8, ptr %535, i64 48
+  %.sroa.11682.0..sroa_idx = getelementptr inbounds nuw i8, ptr %535, i64 48
   store i32 402915610, ptr %.sroa.11682.0..sroa_idx, align 8
-  %.sroa.13684.0..sroa_idx = getelementptr inbounds i8, ptr %535, i64 56
+  %.sroa.13684.0..sroa_idx = getelementptr inbounds nuw i8, ptr %535, i64 56
   store ptr %253, ptr %.sroa.13684.0..sroa_idx, align 8
   %537 = load ptr, ptr %252, align 8, !tbaa !256
   store ptr %535, ptr %252, align 8, !tbaa !256
@@ -10321,7 +10313,7 @@ _ZN5boost6spirit7classic7closureINS_4wave8grammars8closures16cpp_expr_closureENS
 
 539:                                              ; preds = %.noexc555
   %540 = load ptr, ptr %537, align 8, !tbaa !61
-  %541 = getelementptr inbounds i8, ptr %540, i64 8
+  %541 = getelementptr inbounds nuw i8, ptr %540, i64 8
   %542 = load ptr, ptr %541, align 8
   tail call void %542(ptr noundef nonnull align 8 dereferenceable(8) %537) #27
   br label %543
@@ -10334,25 +10326,25 @@ _ZN5boost6spirit7classic7closureINS_4wave8grammars8closures16cpp_expr_closureENS
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost6spirit7classic4impl15concrete_parserINS1_11alternativeINS4_INS4_INS4_INS1_4ruleINS1_7scannerISt20_List_const_iteratorINS_4wave8cpplexer9lex_tokenINS8_4util13file_positionINSB_11flex_stringIcSt11char_traitsIcESaIcENSB_9CowStringINSB_22AllocatorStringStorageIcSG_EEPcEEEEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS4_INS4_INS1_5chlitINS8_8token_idEEESU_EESU_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEENS1_15closure_contextINS8_8grammars8closures16cpp_expr_closureEEENS1_5nil_tEEENS1_8sequenceISU_S19_EEEES1B_EENS1A_INSB_11pattern_andIST_EES19_EEEES1G_EES12_NS15_13closure_valueEEE, i64 16), ptr %544, align 8, !tbaa !61
   %545 = getelementptr inbounds nuw i8, ptr %544, i64 8
   store ptr %263, ptr %545, align 8
-  %.sroa.5629.0..sroa_idx = getelementptr inbounds i8, ptr %544, i64 16
+  %.sroa.5629.0..sroa_idx = getelementptr inbounds nuw i8, ptr %544, i64 16
   store i32 402915615, ptr %.sroa.5629.0..sroa_idx, align 8
-  %.sroa.7631.0..sroa_idx = getelementptr inbounds i8, ptr %544, i64 24
+  %.sroa.7631.0..sroa_idx = getelementptr inbounds nuw i8, ptr %544, i64 24
   store ptr %253, ptr %.sroa.7631.0..sroa_idx, align 8
-  %.sroa.8632.0..sroa_idx = getelementptr inbounds i8, ptr %544, i64 32
+  %.sroa.8632.0..sroa_idx = getelementptr inbounds nuw i8, ptr %544, i64 32
   store i32 402915607, ptr %.sroa.8632.0..sroa_idx, align 8
-  %.sroa.10634.0..sroa_idx = getelementptr inbounds i8, ptr %544, i64 40
+  %.sroa.10634.0..sroa_idx = getelementptr inbounds nuw i8, ptr %544, i64 40
   store ptr %253, ptr %.sroa.10634.0..sroa_idx, align 8
-  %.sroa.11635.0..sroa_idx = getelementptr inbounds i8, ptr %544, i64 48
+  %.sroa.11635.0..sroa_idx = getelementptr inbounds nuw i8, ptr %544, i64 48
   store i32 402915631, ptr %.sroa.11635.0..sroa_idx, align 8
-  %.sroa.13637.0..sroa_idx = getelementptr inbounds i8, ptr %544, i64 56
+  %.sroa.13637.0..sroa_idx = getelementptr inbounds nuw i8, ptr %544, i64 56
   store i64 2139619327, ptr %.sroa.13637.0..sroa_idx, align 8
-  %.sroa.14638.0..sroa_idx = getelementptr inbounds i8, ptr %544, i64 64
+  %.sroa.14638.0..sroa_idx = getelementptr inbounds nuw i8, ptr %544, i64 64
   store ptr %253, ptr %.sroa.14638.0..sroa_idx, align 8
-  %.sroa.15.0..sroa_idx = getelementptr inbounds i8, ptr %544, i64 72
+  %.sroa.15.0..sroa_idx = getelementptr inbounds nuw i8, ptr %544, i64 72
   store i32 402915612, ptr %.sroa.15.0..sroa_idx, align 8
-  %.sroa.17.0..sroa_idx = getelementptr inbounds i8, ptr %544, i64 80
+  %.sroa.17.0..sroa_idx = getelementptr inbounds nuw i8, ptr %544, i64 80
   store i64 2139619327, ptr %.sroa.17.0..sroa_idx, align 8
-  %.sroa.18.0..sroa_idx = getelementptr inbounds i8, ptr %544, i64 88
+  %.sroa.18.0..sroa_idx = getelementptr inbounds nuw i8, ptr %544, i64 88
   store ptr %253, ptr %.sroa.18.0..sroa_idx, align 8
   %546 = load ptr, ptr %262, align 8, !tbaa !256
   store ptr %544, ptr %262, align 8, !tbaa !256
@@ -10361,7 +10353,7 @@ _ZN5boost6spirit7classic7closureINS_4wave8grammars8closures16cpp_expr_closureENS
 
 548:                                              ; preds = %.noexc560
   %549 = load ptr, ptr %546, align 8, !tbaa !61
-  %550 = getelementptr inbounds i8, ptr %549, i64 8
+  %550 = getelementptr inbounds nuw i8, ptr %549, i64 8
   %551 = load ptr, ptr %550, align 8
   tail call void %551(ptr noundef nonnull align 8 dereferenceable(8) %546) #27
   br label %552
@@ -10374,11 +10366,11 @@ _ZN5boost6spirit7classic7closureINS_4wave8grammars8closures16cpp_expr_closureENS
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost6spirit7classic4impl15concrete_parserINS1_11alternativeINS1_4ruleINS1_7scannerISt20_List_const_iteratorINS_4wave8cpplexer9lex_tokenINS8_4util13file_positionINSB_11flex_stringIcSt11char_traitsIcESaIcENSB_9CowStringINSB_22AllocatorStringStorageIcSG_EEPcEEEEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS4_INS4_INS1_5chlitINS8_8token_idEEESU_EESU_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEENS1_15closure_contextINS8_8grammars8closures16cpp_expr_closureEEENS1_5nil_tEEENS1_8sequenceINS1A_ISU_S19_EESU_EEEES12_NS15_13closure_valueEEE, i64 16), ptr %553, align 8, !tbaa !61
   %554 = getelementptr inbounds nuw i8, ptr %553, i64 8
   store ptr %273, ptr %554, align 8
-  %.sroa.5585.0..sroa_idx = getelementptr inbounds i8, ptr %553, i64 16
+  %.sroa.5585.0..sroa_idx = getelementptr inbounds nuw i8, ptr %553, i64 16
   store i32 402915605, ptr %.sroa.5585.0..sroa_idx, align 8
-  %.sroa.7587.0..sroa_idx = getelementptr inbounds i8, ptr %553, i64 24
+  %.sroa.7587.0..sroa_idx = getelementptr inbounds nuw i8, ptr %553, i64 24
   store ptr %143, ptr %.sroa.7587.0..sroa_idx, align 8
-  %.sroa.8588.0..sroa_idx = getelementptr inbounds i8, ptr %553, i64 32
+  %.sroa.8588.0..sroa_idx = getelementptr inbounds nuw i8, ptr %553, i64 32
   store i32 402915622, ptr %.sroa.8588.0..sroa_idx, align 8
   %555 = load ptr, ptr %272, align 8, !tbaa !256
   store ptr %553, ptr %272, align 8, !tbaa !256
@@ -10387,7 +10379,7 @@ _ZN5boost6spirit7classic7closureINS_4wave8grammars8closures16cpp_expr_closureENS
 
 557:                                              ; preds = %.noexc563
   %558 = load ptr, ptr %555, align 8, !tbaa !61
-  %559 = getelementptr inbounds i8, ptr %558, i64 8
+  %559 = getelementptr inbounds nuw i8, ptr %558, i64 8
   %560 = load ptr, ptr %559, align 8
   tail call void %560(ptr noundef nonnull align 8 dereferenceable(8) %555) #27
   br label %_ZN5boost6spirit7classic4ruleINS1_7scannerISt20_List_const_iteratorINS_4wave8cpplexer9lex_tokenINS5_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeINSP_INS1_5chlitINS5_8token_idEEESS_EESS_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEENS1_15closure_contextINS5_8grammars8closures16cpp_expr_closureEEENS1_5nil_tEEaSINSP_IS17_NS1_8sequenceINS19_ISS_S17_EESS_EEEEEERS17_RKT_.exit
@@ -10400,7 +10392,7 @@ _ZN5boost6spirit7classic4ruleINS1_7scannerISt20_List_const_iteratorINS_4wave8cpp
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost6spirit7classic4impl15concrete_parserINS1_11alternativeINS4_INS4_INS1_5chlitINS_4wave8token_idEEES8_EES8_EES8_EENS1_7scannerISt20_List_const_iteratorINS6_8cpplexer9lex_tokenINS6_4util13file_positionINSG_11flex_stringIcSt11char_traitsIcESaIcENSG_9CowStringINSG_22AllocatorStringStorageIcSL_EEPcEEEEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyISA_NS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEENS6_8grammars8closures13closure_valueEEE, i64 16), ptr %561, align 8, !tbaa !61
   %562 = getelementptr inbounds nuw i8, ptr %561, i64 8
   store i64 2342999357286252947, ptr %562, align 8
-  %.sroa.5576.0..sroa_idx = getelementptr inbounds i8, ptr %561, i64 16
+  %.sroa.5576.0..sroa_idx = getelementptr inbounds nuw i8, ptr %561, i64 16
   store i64 2451085768484192641, ptr %.sroa.5576.0..sroa_idx, align 8
   %563 = load ptr, ptr %282, align 8, !tbaa !256
   store ptr %561, ptr %282, align 8, !tbaa !256
@@ -10409,7 +10401,7 @@ _ZN5boost6spirit7classic4ruleINS1_7scannerISt20_List_const_iteratorINS_4wave8cpp
 
 565:                                              ; preds = %.noexc569
   %566 = load ptr, ptr %563, align 8, !tbaa !61
-  %567 = getelementptr inbounds i8, ptr %566, i64 8
+  %567 = getelementptr inbounds nuw i8, ptr %566, i64 8
   %568 = load ptr, ptr %567, align 8
   tail call void %568(ptr noundef nonnull align 8 dereferenceable(8) %563) #27
   br label %_ZN5boost6spirit7classic4ruleINS1_7scannerISt20_List_const_iteratorINS_4wave8cpplexer9lex_tokenINS5_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeINSP_INS1_5chlitINS5_8token_idEEESS_EESS_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEENS1_15closure_contextINS5_8grammars8closures16cpp_expr_closureEEENS1_5nil_tEEaSINSP_ISU_SS_EEEERS17_RKT_.exit
@@ -10715,7 +10707,7 @@ _ZN5boost6spirit7classic4ruleINS1_7scannerISt20_List_const_iteratorINS_4wave8cpp
 
 630:                                              ; preds = %.body
   %631 = load ptr, ptr %628, align 8, !tbaa !61
-  %632 = getelementptr inbounds i8, ptr %631, i64 8
+  %632 = getelementptr inbounds nuw i8, ptr %631, i64 8
   %633 = load ptr, ptr %632, align 8
   tail call void %633(ptr noundef nonnull align 8 dereferenceable(8) %628) #27
   br label %_ZN5boost6spirit7classic4ruleINS1_7scannerISt20_List_const_iteratorINS_4wave8cpplexer9lex_tokenINS5_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeINSP_INS1_5chlitINS5_8token_idEEESS_EESS_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEENS1_5nil_tES11_ED2Ev.exit
@@ -10957,7 +10949,7 @@ define linkonce_odr hidden void @_ZNK5boost6spirit7classic4impl9rule_baseINS1_4r
 22:                                               ; preds = %14
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #27, !noalias !349
   %23 = load ptr, ptr %21, align 8, !tbaa !61, !noalias !349
-  %24 = getelementptr inbounds i8, ptr %23, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load ptr, ptr %24, align 8, !noalias !349
   invoke void %25(ptr dead_on_unwind nonnull writable sret(%"class.boost::spirit::classic::match.94") align 8 %4, ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull align 8 dereferenceable(24) %2)
           to label %.noexc unwind label %45
@@ -10972,23 +10964,23 @@ define linkonce_odr hidden void @_ZNK5boost6spirit7classic4impl9rule_baseINS1_4r
 _ZNK5boost6spirit7classic4impl9rule_baseINS1_4ruleINS1_7scannerISt20_List_const_iteratorINS_4wave8cpplexer9lex_tokenINS7_4util13file_positionINSA_11flex_stringIcSt11char_traitsIcESaIcENSA_9CowStringINSA_22AllocatorStringStorageIcSF_EEPcEEEEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeINSR_INS1_5chlitINS7_8token_idEEESU_EESU_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEENS1_15closure_contextINS7_8grammars8closures16cpp_expr_closureEEENS1_5nil_tEEERKS19_S12_S17_S18_E10parse_mainIS12_EENS1_13parser_resultIS19_T_E4typeERKS1F_.exit: ; preds = %.noexc
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #27, !noalias !349
   %.sroa.1512.16.copyload13.pre = load i32, ptr %5, align 8, !tbaa !226
-  %.sroa.19.16..sroa_idx15.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 4
+  %.sroa.19.16..sroa_idx15.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.sroa.19.16.copyload16.pre = load i32, ptr %.sroa.19.16..sroa_idx15.phi.trans.insert, align 4
   %.sroa.1919.16.copyload21.pre = load i64, ptr %7, align 8, !tbaa !15
   %.sroa.22.16.copyload25.pre = load i32, ptr %6, align 8, !tbaa !58
-  %.sroa.23.16..sroa_idx28.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 20
+  %.sroa.23.16..sroa_idx28.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 20
   %.sroa.23.16.copyload29.pre = load i32, ptr %.sroa.23.16..sroa_idx28.phi.trans.insert, align 4
   br label %_ZNK5boost6spirit7classic4impl9rule_baseINS1_4ruleINS1_7scannerISt20_List_const_iteratorINS_4wave8cpplexer9lex_tokenINS7_4util13file_positionINSA_11flex_stringIcSt11char_traitsIcESaIcENSA_9CowStringINSA_22AllocatorStringStorageIcSF_EEPcEEEEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeINSR_INS1_5chlitINS7_8token_idEEESU_EESU_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEENS1_15closure_contextINS7_8grammars8closures16cpp_expr_closureEEENS1_5nil_tEEERKS19_S12_S17_S18_E10parse_mainIS12_EENS1_13parser_resultIS19_T_E4typeERKS1F_.exit.thread
 
 30:                                               ; preds = %.noexc
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %.sroa.1512.16.copyload = load i32, ptr %31, align 8, !tbaa !226
-  %.sroa.19.16..sroa_idx = getelementptr inbounds i8, ptr %4, i64 20
+  %.sroa.19.16..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 20
   %.sroa.19.16.copyload = load i32, ptr %.sroa.19.16..sroa_idx, align 4
-  %.sroa.1919.16..sroa_idx = getelementptr inbounds i8, ptr %4, i64 24
+  %.sroa.1919.16..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 24
   %.sroa.1919.16.copyload = load i64, ptr %.sroa.1919.16..sroa_idx, align 8, !tbaa !15
   %.sroa.1919.sroa.0.0.extract.trunc = trunc i64 %.sroa.1919.16.copyload to i8
-  %.sroa.23.16..sroa_idx = getelementptr inbounds i8, ptr %4, i64 36
+  %.sroa.23.16..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 36
   %.sroa.23.16.copyload = load i32, ptr %.sroa.23.16..sroa_idx, align 4
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #27, !noalias !349
   %32 = load i32, ptr %5, align 8, !tbaa !17
@@ -11042,15 +11034,15 @@ _ZN5boost6spirit7classic5matchINS_4wave8grammars8closures13closure_valueEED2Ev.e
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %.sroa.1512.3, ptr %38, align 8, !tbaa !226
-  %.sroa.19.16..sroa_idx17 = getelementptr inbounds i8, ptr %0, i64 20
+  %.sroa.19.16..sroa_idx17 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %.sroa.19.2, ptr %.sroa.19.16..sroa_idx17, align 4
-  %.sroa.1919.16..sroa_idx22 = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.1919.16..sroa_idx22 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.sroa.1919.sroa.0.0.insert.ext = zext i8 %.sroa.1919.sroa.0.4 to i64
   %.sroa.1919.sroa.0.0.insert.insert = or disjoint i64 %.sroa.1919.sroa.9.sroa.0.4.in, %.sroa.1919.sroa.0.0.insert.ext
   store i64 %.sroa.1919.sroa.0.0.insert.insert, ptr %.sroa.1919.16..sroa_idx22, align 8, !tbaa !15
-  %.sroa.22.16..sroa_idx26 = getelementptr inbounds i8, ptr %0, i64 32
+  %.sroa.22.16..sroa_idx26 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 %.sroa.22.0, ptr %.sroa.22.16..sroa_idx26, align 8, !tbaa !58
-  %.sroa.23.16..sroa_idx30 = getelementptr inbounds i8, ptr %0, i64 36
+  %.sroa.23.16..sroa_idx30 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 %.sroa.23.2, ptr %.sroa.23.16..sroa_idx30, align 4
   store i8 1, ptr %37, align 8, !tbaa !227
   %39 = load ptr, ptr %18, align 8, !tbaa !228
@@ -11374,23 +11366,23 @@ define linkonce_odr hidden void @_ZNK5boost6spirit7classic7subruleILi0ENS1_15clo
 
 _ZN5boost6spirit7classic5matchINS_4wave8grammars8closures13closure_valueEED2Ev.exit: ; preds = %14
   %.sroa.1312.16.copyload = load i32, ptr %4, align 8, !tbaa !226
-  %.sroa.16.16..sroa_idx = getelementptr inbounds i8, ptr %4, i64 4
+  %.sroa.16.16..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 4
   %.sroa.16.16.copyload = load i32, ptr %.sroa.16.16..sroa_idx, align 4
   %.sroa.1616.16.copyload = load i64, ptr %7, align 8, !tbaa !15
   %.sroa.19.16.copyload = load i32, ptr %6, align 8, !tbaa !58
-  %.sroa.20.16..sroa_idx = getelementptr inbounds i8, ptr %4, i64 20
+  %.sroa.20.16..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 20
   %.sroa.20.16.copyload = load i32, ptr %.sroa.20.16..sroa_idx, align 4
   store i64 %21, ptr %0, align 8, !tbaa !182
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %.sroa.1312.16.copyload, ptr %23, align 8, !tbaa !226
-  %.sroa.16.16..sroa_idx14 = getelementptr inbounds i8, ptr %0, i64 20
+  %.sroa.16.16..sroa_idx14 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %.sroa.16.16.copyload, ptr %.sroa.16.16..sroa_idx14, align 4
-  %.sroa.1616.16..sroa_idx17 = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.1616.16..sroa_idx17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %.sroa.1616.16.copyload, ptr %.sroa.1616.16..sroa_idx17, align 8, !tbaa !15
-  %.sroa.19.16..sroa_idx19 = getelementptr inbounds i8, ptr %0, i64 32
+  %.sroa.19.16..sroa_idx19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 %.sroa.19.16.copyload, ptr %.sroa.19.16..sroa_idx19, align 8, !tbaa !58
-  %.sroa.20.16..sroa_idx21 = getelementptr inbounds i8, ptr %0, i64 36
+  %.sroa.20.16..sroa_idx21 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 %.sroa.20.16.copyload, ptr %.sroa.20.16..sroa_idx21, align 4
   store i8 1, ptr %22, align 8, !tbaa !227
   %24 = load ptr, ptr %18, align 8, !tbaa !228
@@ -11528,10 +11520,10 @@ define linkonce_odr hidden i64 @_ZNK5boost6spirit7classic8sequenceINS2_INS1_5chl
 24:                                               ; preds = %21
   store i8 1, ptr @_ZZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEvE1f, align 1, !tbaa !23
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i8 0, i64 64, i1 false)
-  store i64 80, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 64), align 8, !tbaa !116
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 80), align 8, !tbaa !120
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 72), align 8, !tbaa !121
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 88), align 8, !tbaa !122
+  store i64 80, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 64), align 8, !tbaa !116
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 80), align 8, !tbaa !120
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 72), align 8, !tbaa !121
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 88), align 8, !tbaa !122
   br label %_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i
 
 _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i: ; preds = %24, %21
@@ -11554,9 +11546,9 @@ _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33defau
   unreachable
 
 _ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS8_EEPcEEEENS4_13file_positionISE_EEEdlEPvm.exit.i: ; preds = %_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i
-  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
+  %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
   store ptr %30, ptr %19, align 8, !tbaa !22
-  store ptr %19, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
+  store ptr %19, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
   %31 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE) #27
   br label %_ZN5boost6spirit7classic5matchINS_4wave8cpplexer9lex_tokenINS3_4util13file_positionINS6_11flex_stringIcSt11char_traitsIcESaIcENS6_9CowStringINS6_22AllocatorStringStorageIcSB_EEPcEEEEEEEEED2Ev.exit
 
@@ -11612,10 +11604,10 @@ define linkonce_odr hidden i64 @_ZNK5boost6spirit7classic8sequenceINS1_5chlitINS
 24:                                               ; preds = %21
   store i8 1, ptr @_ZZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEvE1f, align 1, !tbaa !23
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i8 0, i64 64, i1 false)
-  store i64 80, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 64), align 8, !tbaa !116
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 80), align 8, !tbaa !120
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 72), align 8, !tbaa !121
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 88), align 8, !tbaa !122
+  store i64 80, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 64), align 8, !tbaa !116
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 80), align 8, !tbaa !120
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 72), align 8, !tbaa !121
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 88), align 8, !tbaa !122
   br label %_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i
 
 _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i: ; preds = %24, %21
@@ -11638,9 +11630,9 @@ _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33defau
   unreachable
 
 _ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS8_EEPcEEEENS4_13file_positionISE_EEEdlEPvm.exit.i: ; preds = %_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i
-  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
+  %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
   store ptr %30, ptr %19, align 8, !tbaa !22
-  store ptr %19, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
+  store ptr %19, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
   %31 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE) #27
   br label %_ZN5boost6spirit7classic5matchINS_4wave8cpplexer9lex_tokenINS3_4util13file_positionINS6_11flex_stringIcSt11char_traitsIcESaIcENS6_9CowStringINS6_22AllocatorStringStorageIcSB_EEPcEEEEEEEEED2Ev.exit
 
@@ -11777,10 +11769,10 @@ _ZN5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcSt
 38:                                               ; preds = %35
   store i8 1, ptr @_ZZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEvE1f, align 1, !tbaa !23
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i8 0, i64 64, i1 false)
-  store i64 80, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 64), align 8, !tbaa !116
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 80), align 8, !tbaa !120
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 72), align 8, !tbaa !121
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 88), align 8, !tbaa !122
+  store i64 80, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 64), align 8, !tbaa !116
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 80), align 8, !tbaa !120
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 72), align 8, !tbaa !121
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 88), align 8, !tbaa !122
   br label %_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i
 
 _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i: ; preds = %38, %35
@@ -11803,9 +11795,9 @@ _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33defau
   unreachable
 
 _ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS8_EEPcEEEENS4_13file_positionISE_EEEdlEPvm.exit.i: ; preds = %_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i
-  %44 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
+  %44 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
   store ptr %44, ptr %24, align 8, !tbaa !22
-  store ptr %24, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
+  store ptr %24, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
   %45 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE) #27
   br i1 %32, label %46, label %57
 
@@ -11862,10 +11854,10 @@ _ZN5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcSt
 68:                                               ; preds = %65
   store i8 1, ptr @_ZZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEvE1f, align 1, !tbaa !23
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i8 0, i64 64, i1 false)
-  store i64 80, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 64), align 8, !tbaa !116
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 80), align 8, !tbaa !120
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 72), align 8, !tbaa !121
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 88), align 8, !tbaa !122
+  store i64 80, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 64), align 8, !tbaa !116
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 80), align 8, !tbaa !120
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 72), align 8, !tbaa !121
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 88), align 8, !tbaa !122
   br label %_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i18
 
 _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i18: ; preds = %68, %65
@@ -11888,9 +11880,9 @@ _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33defau
   unreachable
 
 _ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS8_EEPcEEEENS4_13file_positionISE_EEEdlEPvm.exit.i21: ; preds = %_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i18
-  %74 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
+  %74 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
   store ptr %74, ptr %63, align 8, !tbaa !22
-  store ptr %63, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
+  store ptr %63, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
   %75 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE) #27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #27
   br i1 %switch.ph, label %76, label %78
@@ -11952,7 +11944,7 @@ define linkonce_odr hidden void @_ZNK5boost6spirit7classic4impl9rule_baseINS1_4r
 22:                                               ; preds = %14
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #27, !noalias !404
   %23 = load ptr, ptr %21, align 8, !tbaa !61, !noalias !404
-  %24 = getelementptr inbounds i8, ptr %23, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load ptr, ptr %24, align 8, !noalias !404
   invoke void %25(ptr dead_on_unwind nonnull writable sret(%"class.boost::spirit::classic::match.94") align 8 %4, ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %.noexc unwind label %45
@@ -11967,23 +11959,23 @@ define linkonce_odr hidden void @_ZNK5boost6spirit7classic4impl9rule_baseINS1_4r
 _ZNK5boost6spirit7classic4impl9rule_baseINS1_4ruleINS1_7scannerISt20_List_const_iteratorINS_4wave8cpplexer9lex_tokenINS7_4util13file_positionINSA_11flex_stringIcSt11char_traitsIcESaIcENSA_9CowStringINSA_22AllocatorStringStorageIcSF_EEPcEEEEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeINSR_INS1_5chlitINS7_8token_idEEESU_EESU_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEENS1_15closure_contextINS7_8grammars8closures16cpp_expr_closureEEENS1_5nil_tEEERKS19_S12_S17_S18_E10parse_mainINS1_16subrules_scannerIS12_NS1_12subrule_listINS1_14subrule_parserILi0ENS1_8sequenceINS1H_INS1H_ISU_NS1_6actionIS19_N7phoenix5actorINS1J_9compositeINS1J_9assign_opENS1K_INS1J_14closure_memberILi0ENS1J_7closureINS15_13closure_valueENS1J_5nil_tES1Q_S1Q_S1Q_S1Q_EEEEEENS1K_INS1J_8argumentILi0EEEEES1Q_S1Q_S1Q_S1Q_S1Q_EEEEEEEESU_EENS1I_IS19_NS1K_INS1L_IS1M_S1T_NS1K_INS1L_INS14_4impl21operator_questionmarkES1T_S1T_S1W_S1Q_S1Q_S1Q_S1Q_EEEES1Q_S1Q_S1Q_S1Q_S1Q_EEEEEEEES17_EES18_EEEEEENS1_: ; preds = %.noexc
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #27, !noalias !404
   %.sroa.1512.16.copyload13.pre = load i32, ptr %5, align 8, !tbaa !226
-  %.sroa.19.16..sroa_idx15.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 4
+  %.sroa.19.16..sroa_idx15.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.sroa.19.16.copyload16.pre = load i32, ptr %.sroa.19.16..sroa_idx15.phi.trans.insert, align 4
   %.sroa.1919.16.copyload21.pre = load i64, ptr %7, align 8, !tbaa !15
   %.sroa.22.16.copyload25.pre = load i32, ptr %6, align 8, !tbaa !58
-  %.sroa.23.16..sroa_idx28.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 20
+  %.sroa.23.16..sroa_idx28.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 20
   %.sroa.23.16.copyload29.pre = load i32, ptr %.sroa.23.16..sroa_idx28.phi.trans.insert, align 4
   br label %_ZNK5boost6spirit7classic4impl9rule_baseINS1_4ruleINS1_7scannerISt20_List_const_iteratorINS_4wave8cpplexer9lex_tokenINS7_4util13file_positionINSA_11flex_stringIcSt11char_traitsIcESaIcENSA_9CowStringINSA_22AllocatorStringStorageIcSF_EEPcEEEEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeINSR_INS1_5chlitINS7_8token_idEEESU_EESU_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEENS1_15closure_contextINS7_8grammars8closures16cpp_expr_closureEEENS1_5nil_tEEERKS19_S12_S17_S18_E10parse_mainINS1_16subrules_scannerIS12_NS1_12subrule_listINS1_14subrule_parserILi0ENS1_8sequenceINS1H_INS1H_ISU_NS1_6actionIS19_N7phoenix5actorINS1J_9compositeINS1J_9assign_opENS1K_INS1J_14closure_memberILi0ENS1J_7closureINS15_13closure_valueENS1J_5nil_tES1Q_S1Q_S1Q_S1Q_EEEEEENS1K_INS1J_8argumentILi0EEEEES1Q_S1Q_S1Q_S1Q_S1Q_EEEEEEEESU_EENS1I_IS19_NS1K_INS1L_IS1M_S1T_NS1K_INS1L_INS14_4impl21operator_questionmarkES1T_S1T_S1W_S1Q_S1Q_S1Q_S1Q_EEEES1Q_S1Q_S1Q_S1Q_S1Q_EEEEEEEES17_EES18_EEEEEENS47
 
 30:                                               ; preds = %.noexc
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %.sroa.1512.16.copyload = load i32, ptr %31, align 8, !tbaa !226
-  %.sroa.19.16..sroa_idx = getelementptr inbounds i8, ptr %4, i64 20
+  %.sroa.19.16..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 20
   %.sroa.19.16.copyload = load i32, ptr %.sroa.19.16..sroa_idx, align 4
-  %.sroa.1919.16..sroa_idx = getelementptr inbounds i8, ptr %4, i64 24
+  %.sroa.1919.16..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 24
   %.sroa.1919.16.copyload = load i64, ptr %.sroa.1919.16..sroa_idx, align 8, !tbaa !15
   %.sroa.1919.sroa.0.0.extract.trunc = trunc i64 %.sroa.1919.16.copyload to i8
-  %.sroa.23.16..sroa_idx = getelementptr inbounds i8, ptr %4, i64 36
+  %.sroa.23.16..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 36
   %.sroa.23.16.copyload = load i32, ptr %.sroa.23.16..sroa_idx, align 4
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #27, !noalias !404
   %32 = load i32, ptr %5, align 8, !tbaa !17
@@ -12037,15 +12029,15 @@ _ZN5boost6spirit7classic5matchINS_4wave8grammars8closures13closure_valueEED2Ev.e
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %.sroa.1512.3, ptr %38, align 8, !tbaa !226
-  %.sroa.19.16..sroa_idx17 = getelementptr inbounds i8, ptr %0, i64 20
+  %.sroa.19.16..sroa_idx17 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %.sroa.19.2, ptr %.sroa.19.16..sroa_idx17, align 4
-  %.sroa.1919.16..sroa_idx22 = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.1919.16..sroa_idx22 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.sroa.1919.sroa.0.0.insert.ext = zext i8 %.sroa.1919.sroa.0.4 to i64
   %.sroa.1919.sroa.0.0.insert.insert = or disjoint i64 %.sroa.1919.sroa.9.sroa.0.4.in, %.sroa.1919.sroa.0.0.insert.ext
   store i64 %.sroa.1919.sroa.0.0.insert.insert, ptr %.sroa.1919.16..sroa_idx22, align 8, !tbaa !15
-  %.sroa.22.16..sroa_idx26 = getelementptr inbounds i8, ptr %0, i64 32
+  %.sroa.22.16..sroa_idx26 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 %.sroa.22.0, ptr %.sroa.22.16..sroa_idx26, align 8, !tbaa !58
-  %.sroa.23.16..sroa_idx30 = getelementptr inbounds i8, ptr %0, i64 36
+  %.sroa.23.16..sroa_idx30 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 %.sroa.23.2, ptr %.sroa.23.16..sroa_idx30, align 4
   store i8 1, ptr %37, align 8, !tbaa !227
   %39 = load ptr, ptr %18, align 8, !tbaa !228
@@ -12106,10 +12098,10 @@ _ZN5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcSt
 17:                                               ; preds = %14
   store i8 1, ptr @_ZZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEvE1f, align 1, !tbaa !23
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i8 0, i64 64, i1 false)
-  store i64 80, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 64), align 8, !tbaa !116
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 80), align 8, !tbaa !120
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 72), align 8, !tbaa !121
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 88), align 8, !tbaa !122
+  store i64 80, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 64), align 8, !tbaa !116
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 80), align 8, !tbaa !120
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 72), align 8, !tbaa !121
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 88), align 8, !tbaa !122
   br label %_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i
 
 _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i: ; preds = %17, %14
@@ -12132,9 +12124,9 @@ _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33defau
   unreachable
 
 _ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS8_EEPcEEEENS4_13file_positionISE_EEEdlEPvm.exit.i: ; preds = %_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i
-  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
+  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
   store ptr %23, ptr %7, align 8, !tbaa !22
-  store ptr %7, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
+  store ptr %7, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
   %24 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE) #27
   br label %_ZN5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcSt11char_traitsIcESaIcENS3_9CowStringINS3_22AllocatorStringStorageIcS8_EEPcEEEEEEED2Ev.exit
 
@@ -12610,8 +12602,8 @@ _ZN5boost6spirit7classic5matchINS_4wave8grammars8closures13closure_valueEED2Ev.e
 
 27:                                               ; preds = %_ZN5boost6spirit7classic5matchINS_4wave8grammars8closures13closure_valueEED2Ev.exit
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %29 = getelementptr inbounds i8, ptr %0, i64 48
-  %30 = getelementptr inbounds i8, ptr %0, i64 104
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 104
   br label %31
 
 31:                                               ; preds = %_ZNK5boost6spirit7classic4impl14if_else_parserINS1_8sequenceINS_4wave4util11pattern_andINS5_8token_idEEENS1_6actionINS1_4ruleINS1_7scannerISt20_List_const_iteratorINS5_8cpplexer9lex_tokenINS6_13file_positionINS6_11flex_stringIcSt11char_traitsIcESaIcENS6_9CowStringINS6_22AllocatorStringStorageIcSK_EEPcEEEEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeINSW_INS1_5chlitIS8_EESY_EESY_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEENS1_15closure_contextINS5_8grammars8closures16cpp_expr_closureEEENS1_5nil_tEEEN7phoenix5actorINS1E_9compositeINS1E_9assign_opENS1F_INS1E_14closure_memberILi0ENS1E_7closureINS19_13closure_valueENS1E_5nil_tES1L_S1L_S1L_S1L_EEEEEENS1F_INS1G_INS18_4impl16operator_to_boolES1O_S1L_S1L_S1L_S1L_S1L_S1L_EEEES1L_S1L_S1L_S1L_S1L_EEEEEEEENS4_IS9_NSA_IS1D_NS1F_INS1G_IS1H_S1O_NS1F_INS1G_INS1P_18operator_binary_orES1O_NS1F_INS1E_8argumentILi0EEEEES1L_S1L_S1L_S1L_S1L_EEEES1L_S1L_S1L_S1L_S1L_EEEEEEEENS1F_INS1G_INS1P_16operator_as_boolES1O_S1L_S1L_S1, %27
@@ -12691,10 +12683,10 @@ define linkonce_odr hidden i64 @_ZNK5boost6spirit7classic8sequenceINS_4wave4util
 24:                                               ; preds = %21
   store i8 1, ptr @_ZZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEvE1f, align 1, !tbaa !23
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i8 0, i64 64, i1 false)
-  store i64 80, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 64), align 8, !tbaa !116
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 80), align 8, !tbaa !120
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 72), align 8, !tbaa !121
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 88), align 8, !tbaa !122
+  store i64 80, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 64), align 8, !tbaa !116
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 80), align 8, !tbaa !120
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 72), align 8, !tbaa !121
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 88), align 8, !tbaa !122
   br label %_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i
 
 _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i: ; preds = %24, %21
@@ -12717,9 +12709,9 @@ _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33defau
   unreachable
 
 _ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS8_EEPcEEEENS4_13file_positionISE_EEEdlEPvm.exit.i: ; preds = %_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i
-  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
+  %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
   store ptr %30, ptr %19, align 8, !tbaa !22
-  store ptr %19, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
+  store ptr %19, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
   %31 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE) #27
   br label %_ZN5boost6spirit7classic5matchINS_4wave8cpplexer9lex_tokenINS3_4util13file_positionINS6_11flex_stringIcSt11char_traitsIcESaIcENS6_9CowStringINS6_22AllocatorStringStorageIcSB_EEPcEEEEEEEEED2Ev.exit
 
@@ -12826,10 +12818,10 @@ define linkonce_odr hidden i64 @_ZNK5boost6spirit7classic8sequenceINS_4wave4util
 24:                                               ; preds = %21
   store i8 1, ptr @_ZZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEvE1f, align 1, !tbaa !23
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i8 0, i64 64, i1 false)
-  store i64 80, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 64), align 8, !tbaa !116
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 80), align 8, !tbaa !120
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 72), align 8, !tbaa !121
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 88), align 8, !tbaa !122
+  store i64 80, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 64), align 8, !tbaa !116
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 80), align 8, !tbaa !120
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 72), align 8, !tbaa !121
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 88), align 8, !tbaa !122
   br label %_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i
 
 _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i: ; preds = %24, %21
@@ -12852,9 +12844,9 @@ _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33defau
   unreachable
 
 _ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS8_EEPcEEEENS4_13file_positionISE_EEEdlEPvm.exit.i: ; preds = %_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i
-  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
+  %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
   store ptr %30, ptr %19, align 8, !tbaa !22
-  store ptr %19, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
+  store ptr %19, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
   %31 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE) #27
   br label %_ZN5boost6spirit7classic5matchINS_4wave8cpplexer9lex_tokenINS3_4util13file_positionINS6_11flex_stringIcSt11char_traitsIcESaIcENS6_9CowStringINS6_22AllocatorStringStorageIcSB_EEPcEEEEEEEEED2Ev.exit
 
@@ -13046,10 +13038,10 @@ _ZNK5boost6spirit7classic7scannerISt20_List_const_iteratorINS_4wave8cpplexer9lex
 47:                                               ; preds = %44
   store i8 1, ptr @_ZZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEvE1f, align 1, !tbaa !23
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i8 0, i64 64, i1 false)
-  store i64 80, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 64), align 8, !tbaa !116
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 80), align 8, !tbaa !120
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 72), align 8, !tbaa !121
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 88), align 8, !tbaa !122
+  store i64 80, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 64), align 8, !tbaa !116
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 80), align 8, !tbaa !120
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 72), align 8, !tbaa !121
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 88), align 8, !tbaa !122
   br label %_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i
 
 _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i: ; preds = %47, %44
@@ -13072,9 +13064,9 @@ _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33defau
   unreachable
 
 _ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS8_EEPcEEEENS4_13file_positionISE_EEEdlEPvm.exit.i: ; preds = %_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i
-  %53 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
+  %53 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
   store ptr %53, ptr %24, align 8, !tbaa !22
-  store ptr %24, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
+  store ptr %24, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
   %54 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE) #27
   br i1 %41, label %55, label %66
 
@@ -13131,10 +13123,10 @@ _ZN5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcSt
 78:                                               ; preds = %75
   store i8 1, ptr @_ZZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEvE1f, align 1, !tbaa !23
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i8 0, i64 64, i1 false)
-  store i64 80, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 64), align 8, !tbaa !116
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 80), align 8, !tbaa !120
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 72), align 8, !tbaa !121
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 88), align 8, !tbaa !122
+  store i64 80, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 64), align 8, !tbaa !116
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 80), align 8, !tbaa !120
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 72), align 8, !tbaa !121
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 88), align 8, !tbaa !122
   br label %_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i18
 
 _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i18: ; preds = %78, %75
@@ -13157,9 +13149,9 @@ _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33defau
   unreachable
 
 _ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS8_EEPcEEEENS4_13file_positionISE_EEEdlEPvm.exit.i21: ; preds = %_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i18
-  %84 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
+  %84 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
   store ptr %84, ptr %73, align 8, !tbaa !22
-  store ptr %73, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
+  store ptr %73, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
   %85 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE) #27
   br label %_ZN5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcSt11char_traitsIcESaIcENS3_9CowStringINS3_22AllocatorStringStorageIcS8_EEPcEEEEEEED2Ev.exit22
 
@@ -13542,8 +13534,8 @@ _ZN5boost6spirit7classic5matchINS_4wave8grammars8closures13closure_valueEED2Ev.e
 
 27:                                               ; preds = %_ZN5boost6spirit7classic5matchINS_4wave8grammars8closures13closure_valueEED2Ev.exit
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %29 = getelementptr inbounds i8, ptr %0, i64 48
-  %30 = getelementptr inbounds i8, ptr %0, i64 112
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 112
   br label %31
 
 31:                                               ; preds = %_ZNK5boost6spirit7classic4impl14if_else_parserINS1_8sequenceINS_4wave4util11pattern_andINS5_8token_idEEENS1_6actionINS1_4ruleINS1_7scannerISt20_List_const_iteratorINS5_8cpplexer9lex_tokenINS6_13file_positionINS6_11flex_stringIcSt11char_traitsIcESaIcENS6_9CowStringINS6_22AllocatorStringStorageIcSK_EEPcEEEEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeINSW_INS1_5chlitIS8_EESY_EESY_EENS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEENS1_15closure_contextINS5_8grammars8closures16cpp_expr_closureEEENS1_5nil_tEEEN7phoenix5actorINS1E_9compositeINS1E_9assign_opENS1F_INS1E_14closure_memberILi0ENS1E_7closureINS19_13closure_valueENS1E_5nil_tES1L_S1L_S1L_S1L_EEEEEENS1F_INS1G_INS18_4impl19operator_binary_andES1O_NS1F_INS1E_8argumentILi0EEEEES1L_S1L_S1L_S1L_S1L_EEEES1L_S1L_S1L_S1L_S1L_EEEEEEEENS4_IS9_NSA_IS1D_NS1F_INS1G_IS1H_S1O_NS1F_INS1G_INS1P_16operator_to_boolES1O_S1L_S1L_S1L_S1L_S1L_S1L_EEEES1L_S1L_S1L_S1L_S1L_EEEEEEEENS1F_INS1G_INS1P_16operator_as_boolES1O_S1L_S1L_S, %27
@@ -13623,10 +13615,10 @@ define linkonce_odr hidden i64 @_ZNK5boost6spirit7classic8sequenceINS_4wave4util
 24:                                               ; preds = %21
   store i8 1, ptr @_ZZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEvE1f, align 1, !tbaa !23
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i8 0, i64 64, i1 false)
-  store i64 80, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 64), align 8, !tbaa !116
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 80), align 8, !tbaa !120
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 72), align 8, !tbaa !121
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 88), align 8, !tbaa !122
+  store i64 80, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 64), align 8, !tbaa !116
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 80), align 8, !tbaa !120
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 72), align 8, !tbaa !121
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 88), align 8, !tbaa !122
   br label %_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i
 
 _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i: ; preds = %24, %21
@@ -13649,9 +13641,9 @@ _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33defau
   unreachable
 
 _ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS8_EEPcEEEENS4_13file_positionISE_EEEdlEPvm.exit.i: ; preds = %_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i
-  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
+  %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
   store ptr %30, ptr %19, align 8, !tbaa !22
-  store ptr %19, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
+  store ptr %19, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
   %31 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE) #27
   br label %_ZN5boost6spirit7classic5matchINS_4wave8cpplexer9lex_tokenINS3_4util13file_positionINS6_11flex_stringIcSt11char_traitsIcESaIcENS6_9CowStringINS6_22AllocatorStringStorageIcSB_EEPcEEEEEEEEED2Ev.exit
 
@@ -14019,10 +14011,10 @@ define linkonce_odr hidden i64 @_ZNK5boost6spirit7classic8sequenceINS_4wave4util
 24:                                               ; preds = %21
   store i8 1, ptr @_ZZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEvE1f, align 1, !tbaa !23
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i8 0, i64 64, i1 false)
-  store i64 80, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 64), align 8, !tbaa !116
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 80), align 8, !tbaa !120
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 72), align 8, !tbaa !121
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 88), align 8, !tbaa !122
+  store i64 80, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 64), align 8, !tbaa !116
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 80), align 8, !tbaa !120
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 72), align 8, !tbaa !121
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 88), align 8, !tbaa !122
   br label %_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i
 
 _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i: ; preds = %24, %21
@@ -14045,9 +14037,9 @@ _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33defau
   unreachable
 
 _ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS8_EEPcEEEENS4_13file_positionISE_EEEdlEPvm.exit.i: ; preds = %_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i
-  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
+  %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
   store ptr %30, ptr %19, align 8, !tbaa !22
-  store ptr %19, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
+  store ptr %19, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
   %31 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE) #27
   br label %_ZN5boost6spirit7classic5matchINS_4wave8cpplexer9lex_tokenINS3_4util13file_positionINS6_11flex_stringIcSt11char_traitsIcESaIcENS6_9CowStringINS6_22AllocatorStringStorageIcSB_EEPcEEEEEEEEED2Ev.exit
 
@@ -14412,10 +14404,10 @@ define linkonce_odr hidden i64 @_ZNK5boost6spirit7classic8sequenceINS_4wave4util
 24:                                               ; preds = %21
   store i8 1, ptr @_ZZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEvE1f, align 1, !tbaa !23
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i8 0, i64 64, i1 false)
-  store i64 80, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 64), align 8, !tbaa !116
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 80), align 8, !tbaa !120
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 72), align 8, !tbaa !121
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 88), align 8, !tbaa !122
+  store i64 80, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 64), align 8, !tbaa !116
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 80), align 8, !tbaa !120
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 72), align 8, !tbaa !121
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 88), align 8, !tbaa !122
   br label %_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i
 
 _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i: ; preds = %24, %21
@@ -14438,9 +14430,9 @@ _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33defau
   unreachable
 
 _ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS8_EEPcEEEENS4_13file_positionISE_EEEdlEPvm.exit.i: ; preds = %_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i
-  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
+  %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
   store ptr %30, ptr %19, align 8, !tbaa !22
-  store ptr %19, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
+  store ptr %19, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
   %31 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE) #27
   br label %_ZN5boost6spirit7classic5matchINS_4wave8cpplexer9lex_tokenINS3_4util13file_positionINS6_11flex_stringIcSt11char_traitsIcESaIcENS6_9CowStringINS6_22AllocatorStringStorageIcSB_EEPcEEEEEEEEED2Ev.exit
 
@@ -14805,10 +14797,10 @@ define linkonce_odr hidden i64 @_ZNK5boost6spirit7classic8sequenceINS_4wave4util
 24:                                               ; preds = %21
   store i8 1, ptr @_ZZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEvE1f, align 1, !tbaa !23
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i8 0, i64 64, i1 false)
-  store i64 80, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 64), align 8, !tbaa !116
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 80), align 8, !tbaa !120
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 72), align 8, !tbaa !121
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 88), align 8, !tbaa !122
+  store i64 80, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 64), align 8, !tbaa !116
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 80), align 8, !tbaa !120
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 72), align 8, !tbaa !121
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 88), align 8, !tbaa !122
   br label %_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i
 
 _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i: ; preds = %24, %21
@@ -14831,9 +14823,9 @@ _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33defau
   unreachable
 
 _ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS8_EEPcEEEENS4_13file_positionISE_EEEdlEPvm.exit.i: ; preds = %_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i
-  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
+  %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
   store ptr %30, ptr %19, align 8, !tbaa !22
-  store ptr %19, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
+  store ptr %19, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
   %31 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE) #27
   br label %_ZN5boost6spirit7classic5matchINS_4wave8cpplexer9lex_tokenINS3_4util13file_positionINS6_11flex_stringIcSt11char_traitsIcESaIcENS6_9CowStringINS6_22AllocatorStringStorageIcSB_EEPcEEEEEEEEED2Ev.exit
 
@@ -15210,10 +15202,10 @@ define linkonce_odr hidden i64 @_ZNK5boost6spirit7classic8sequenceINS1_5chlitINS
 24:                                               ; preds = %21
   store i8 1, ptr @_ZZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEvE1f, align 1, !tbaa !23
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i8 0, i64 64, i1 false)
-  store i64 80, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 64), align 8, !tbaa !116
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 80), align 8, !tbaa !120
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 72), align 8, !tbaa !121
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 88), align 8, !tbaa !122
+  store i64 80, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 64), align 8, !tbaa !116
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 80), align 8, !tbaa !120
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 72), align 8, !tbaa !121
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 88), align 8, !tbaa !122
   br label %_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i
 
 _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i: ; preds = %24, %21
@@ -15236,9 +15228,9 @@ _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33defau
   unreachable
 
 _ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS8_EEPcEEEENS4_13file_positionISE_EEEdlEPvm.exit.i: ; preds = %_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i
-  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
+  %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
   store ptr %30, ptr %19, align 8, !tbaa !22
-  store ptr %19, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
+  store ptr %19, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
   %31 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE) #27
   br label %_ZN5boost6spirit7classic5matchINS_4wave8cpplexer9lex_tokenINS3_4util13file_positionINS6_11flex_stringIcSt11char_traitsIcESaIcENS6_9CowStringINS6_22AllocatorStringStorageIcSB_EEPcEEEEEEEEED2Ev.exit
 
@@ -15345,10 +15337,10 @@ define linkonce_odr hidden i64 @_ZNK5boost6spirit7classic8sequenceINS_4wave4util
 24:                                               ; preds = %21
   store i8 1, ptr @_ZZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEvE1f, align 1, !tbaa !23
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i8 0, i64 64, i1 false)
-  store i64 80, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 64), align 8, !tbaa !116
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 80), align 8, !tbaa !120
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 72), align 8, !tbaa !121
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 88), align 8, !tbaa !122
+  store i64 80, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 64), align 8, !tbaa !116
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 80), align 8, !tbaa !120
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 72), align 8, !tbaa !121
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 88), align 8, !tbaa !122
   br label %_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i
 
 _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i: ; preds = %24, %21
@@ -15371,9 +15363,9 @@ _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33defau
   unreachable
 
 _ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS8_EEPcEEEENS4_13file_positionISE_EEEdlEPvm.exit.i: ; preds = %_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i
-  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
+  %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
   store ptr %30, ptr %19, align 8, !tbaa !22
-  store ptr %19, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
+  store ptr %19, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
   %31 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE) #27
   br label %_ZN5boost6spirit7classic5matchINS_4wave8cpplexer9lex_tokenINS3_4util13file_positionINS6_11flex_stringIcSt11char_traitsIcESaIcENS6_9CowStringINS6_22AllocatorStringStorageIcSB_EEPcEEEEEEEEED2Ev.exit
 
@@ -15510,10 +15502,10 @@ _ZN5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcSt
 38:                                               ; preds = %35
   store i8 1, ptr @_ZZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEvE1f, align 1, !tbaa !23
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i8 0, i64 64, i1 false)
-  store i64 80, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 64), align 8, !tbaa !116
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 80), align 8, !tbaa !120
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 72), align 8, !tbaa !121
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 88), align 8, !tbaa !122
+  store i64 80, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 64), align 8, !tbaa !116
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 80), align 8, !tbaa !120
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 72), align 8, !tbaa !121
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 88), align 8, !tbaa !122
   br label %_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i
 
 _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i: ; preds = %38, %35
@@ -15536,9 +15528,9 @@ _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33defau
   unreachable
 
 _ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS8_EEPcEEEENS4_13file_positionISE_EEEdlEPvm.exit.i: ; preds = %_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i
-  %44 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
+  %44 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
   store ptr %44, ptr %24, align 8, !tbaa !22
-  store ptr %24, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
+  store ptr %24, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
   %45 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE) #27
   br i1 %32, label %46, label %57
 
@@ -15595,10 +15587,10 @@ _ZN5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcSt
 68:                                               ; preds = %65
   store i8 1, ptr @_ZZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEvE1f, align 1, !tbaa !23
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i8 0, i64 64, i1 false)
-  store i64 80, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 64), align 8, !tbaa !116
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 80), align 8, !tbaa !120
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 72), align 8, !tbaa !121
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 88), align 8, !tbaa !122
+  store i64 80, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 64), align 8, !tbaa !116
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 80), align 8, !tbaa !120
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 72), align 8, !tbaa !121
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 88), align 8, !tbaa !122
   br label %_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i18
 
 _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i18: ; preds = %68, %65
@@ -15621,9 +15613,9 @@ _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33defau
   unreachable
 
 _ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS8_EEPcEEEENS4_13file_positionISE_EEEdlEPvm.exit.i21: ; preds = %_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i18
-  %74 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
+  %74 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
   store ptr %74, ptr %63, align 8, !tbaa !22
-  store ptr %63, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
+  store ptr %63, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
   %75 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE) #27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #27
   br i1 %switch.ph, label %76, label %78
@@ -16139,10 +16131,10 @@ define linkonce_odr hidden i64 @_ZNK5boost6spirit7classic8sequenceINS1_5chlitINS
 24:                                               ; preds = %21
   store i8 1, ptr @_ZZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEvE1f, align 1, !tbaa !23
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i8 0, i64 64, i1 false)
-  store i64 80, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 64), align 8, !tbaa !116
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 80), align 8, !tbaa !120
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 72), align 8, !tbaa !121
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 88), align 8, !tbaa !122
+  store i64 80, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 64), align 8, !tbaa !116
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 80), align 8, !tbaa !120
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 72), align 8, !tbaa !121
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 88), align 8, !tbaa !122
   br label %_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i
 
 _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i: ; preds = %24, %21
@@ -16165,9 +16157,9 @@ _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33defau
   unreachable
 
 _ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS8_EEPcEEEENS4_13file_positionISE_EEEdlEPvm.exit.i: ; preds = %_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i
-  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
+  %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
   store ptr %30, ptr %19, align 8, !tbaa !22
-  store ptr %19, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
+  store ptr %19, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
   %31 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE) #27
   br label %_ZN5boost6spirit7classic5matchINS_4wave8cpplexer9lex_tokenINS3_4util13file_positionINS6_11flex_stringIcSt11char_traitsIcESaIcENS6_9CowStringINS6_22AllocatorStringStorageIcSB_EEPcEEEEEEEEED2Ev.exit
 
@@ -16274,10 +16266,10 @@ define linkonce_odr hidden i64 @_ZNK5boost6spirit7classic8sequenceINS1_5chlitINS
 24:                                               ; preds = %21
   store i8 1, ptr @_ZZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEvE1f, align 1, !tbaa !23
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i8 0, i64 64, i1 false)
-  store i64 80, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 64), align 8, !tbaa !116
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 80), align 8, !tbaa !120
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 72), align 8, !tbaa !121
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 88), align 8, !tbaa !122
+  store i64 80, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 64), align 8, !tbaa !116
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 80), align 8, !tbaa !120
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 72), align 8, !tbaa !121
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 88), align 8, !tbaa !122
   br label %_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i
 
 _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i: ; preds = %24, %21
@@ -16300,9 +16292,9 @@ _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33defau
   unreachable
 
 _ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS8_EEPcEEEENS4_13file_positionISE_EEEdlEPvm.exit.i: ; preds = %_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i
-  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
+  %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
   store ptr %30, ptr %19, align 8, !tbaa !22
-  store ptr %19, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
+  store ptr %19, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
   %31 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE) #27
   br label %_ZN5boost6spirit7classic5matchINS_4wave8cpplexer9lex_tokenINS3_4util13file_positionINS6_11flex_stringIcSt11char_traitsIcESaIcENS6_9CowStringINS6_22AllocatorStringStorageIcSB_EEPcEEEEEEEEED2Ev.exit
 
@@ -16409,10 +16401,10 @@ define linkonce_odr hidden i64 @_ZNK5boost6spirit7classic8sequenceINS1_5chlitINS
 24:                                               ; preds = %21
   store i8 1, ptr @_ZZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEvE1f, align 1, !tbaa !23
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i8 0, i64 64, i1 false)
-  store i64 80, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 64), align 8, !tbaa !116
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 80), align 8, !tbaa !120
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 72), align 8, !tbaa !121
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 88), align 8, !tbaa !122
+  store i64 80, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 64), align 8, !tbaa !116
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 80), align 8, !tbaa !120
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 72), align 8, !tbaa !121
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 88), align 8, !tbaa !122
   br label %_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i
 
 _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i: ; preds = %24, %21
@@ -16435,9 +16427,9 @@ _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33defau
   unreachable
 
 _ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS8_EEPcEEEENS4_13file_positionISE_EEEdlEPvm.exit.i: ; preds = %_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i
-  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
+  %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
   store ptr %30, ptr %19, align 8, !tbaa !22
-  store ptr %19, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
+  store ptr %19, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
   %31 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE) #27
   br label %_ZN5boost6spirit7classic5matchINS_4wave8cpplexer9lex_tokenINS3_4util13file_positionINS6_11flex_stringIcSt11char_traitsIcESaIcENS6_9CowStringINS6_22AllocatorStringStorageIcSB_EEPcEEEEEEEEED2Ev.exit
 
@@ -16544,10 +16536,10 @@ define linkonce_odr hidden i64 @_ZNK5boost6spirit7classic8sequenceINS1_5chlitINS
 24:                                               ; preds = %21
   store i8 1, ptr @_ZZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEvE1f, align 1, !tbaa !23
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i8 0, i64 64, i1 false)
-  store i64 80, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 64), align 8, !tbaa !116
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 80), align 8, !tbaa !120
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 72), align 8, !tbaa !121
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 88), align 8, !tbaa !122
+  store i64 80, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 64), align 8, !tbaa !116
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 80), align 8, !tbaa !120
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 72), align 8, !tbaa !121
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 88), align 8, !tbaa !122
   br label %_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i
 
 _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i: ; preds = %24, %21
@@ -16570,9 +16562,9 @@ _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33defau
   unreachable
 
 _ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS8_EEPcEEEENS4_13file_positionISE_EEEdlEPvm.exit.i: ; preds = %_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i
-  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
+  %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
   store ptr %30, ptr %19, align 8, !tbaa !22
-  store ptr %19, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
+  store ptr %19, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
   %31 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE) #27
   br label %_ZN5boost6spirit7classic5matchINS_4wave8cpplexer9lex_tokenINS3_4util13file_positionINS6_11flex_stringIcSt11char_traitsIcESaIcENS6_9CowStringINS6_22AllocatorStringStorageIcSB_EEPcEEEEEEEEED2Ev.exit
 
@@ -17637,10 +17629,10 @@ define linkonce_odr hidden i64 @_ZNK5boost6spirit7classic8sequenceINS1_5chlitINS
 24:                                               ; preds = %21
   store i8 1, ptr @_ZZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEvE1f, align 1, !tbaa !23
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i8 0, i64 64, i1 false)
-  store i64 80, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 64), align 8, !tbaa !116
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 80), align 8, !tbaa !120
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 72), align 8, !tbaa !121
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 88), align 8, !tbaa !122
+  store i64 80, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 64), align 8, !tbaa !116
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 80), align 8, !tbaa !120
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 72), align 8, !tbaa !121
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 88), align 8, !tbaa !122
   br label %_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i
 
 _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i: ; preds = %24, %21
@@ -17663,9 +17655,9 @@ _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33defau
   unreachable
 
 _ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS8_EEPcEEEENS4_13file_positionISE_EEEdlEPvm.exit.i: ; preds = %_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i
-  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
+  %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
   store ptr %30, ptr %19, align 8, !tbaa !22
-  store ptr %19, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
+  store ptr %19, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
   %31 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE) #27
   br label %_ZN5boost6spirit7classic5matchINS_4wave8cpplexer9lex_tokenINS3_4util13file_positionINS6_11flex_stringIcSt11char_traitsIcESaIcENS6_9CowStringINS6_22AllocatorStringStorageIcSB_EEPcEEEEEEEEED2Ev.exit
 
@@ -17770,10 +17762,10 @@ define linkonce_odr hidden i64 @_ZNK5boost6spirit7classic8sequenceINS1_5chlitINS
 22:                                               ; preds = %19
   store i8 1, ptr @_ZZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEvE1f, align 1, !tbaa !23
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i8 0, i64 64, i1 false)
-  store i64 80, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 64), align 8, !tbaa !116
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 80), align 8, !tbaa !120
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 72), align 8, !tbaa !121
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 88), align 8, !tbaa !122
+  store i64 80, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 64), align 8, !tbaa !116
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 80), align 8, !tbaa !120
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 72), align 8, !tbaa !121
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 88), align 8, !tbaa !122
   br label %_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i
 
 _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i: ; preds = %22, %19
@@ -17796,9 +17788,9 @@ _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33defau
   unreachable
 
 _ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS8_EEPcEEEENS4_13file_positionISE_EEEdlEPvm.exit.i: ; preds = %_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i
-  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
+  %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
   store ptr %28, ptr %17, align 8, !tbaa !22
-  store ptr %17, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
+  store ptr %17, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
   %29 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE) #27
   br label %_ZN5boost6spirit7classic5matchINS_4wave8cpplexer9lex_tokenINS3_4util13file_positionINS6_11flex_stringIcSt11char_traitsIcESaIcENS6_9CowStringINS6_22AllocatorStringStorageIcSB_EEPcEEEEEEEEED2Ev.exit
 
@@ -18314,10 +18306,10 @@ define linkonce_odr hidden i64 @_ZNK5boost6spirit7classic8sequenceINS1_5chlitINS
 22:                                               ; preds = %19
   store i8 1, ptr @_ZZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEvE1f, align 1, !tbaa !23
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i8 0, i64 64, i1 false)
-  store i64 80, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 64), align 8, !tbaa !116
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 80), align 8, !tbaa !120
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 72), align 8, !tbaa !121
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 88), align 8, !tbaa !122
+  store i64 80, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 64), align 8, !tbaa !116
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 80), align 8, !tbaa !120
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 72), align 8, !tbaa !121
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 88), align 8, !tbaa !122
   br label %_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i
 
 _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i: ; preds = %22, %19
@@ -18340,9 +18332,9 @@ _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33defau
   unreachable
 
 _ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS8_EEPcEEEENS4_13file_positionISE_EEEdlEPvm.exit.i: ; preds = %_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i
-  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
+  %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
   store ptr %28, ptr %17, align 8, !tbaa !22
-  store ptr %17, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
+  store ptr %17, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
   %29 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE) #27
   br label %_ZN5boost6spirit7classic5matchINS_4wave8cpplexer9lex_tokenINS3_4util13file_positionINS6_11flex_stringIcSt11char_traitsIcESaIcENS6_9CowStringINS6_22AllocatorStringStorageIcSB_EEPcEEEEEEEEED2Ev.exit
 
@@ -18405,10 +18397,10 @@ define linkonce_odr hidden i64 @_ZNK5boost6spirit7classic8sequenceINS1_5chlitINS
 22:                                               ; preds = %19
   store i8 1, ptr @_ZZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEvE1f, align 1, !tbaa !23
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i8 0, i64 64, i1 false)
-  store i64 80, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 64), align 8, !tbaa !116
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 80), align 8, !tbaa !120
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 72), align 8, !tbaa !121
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 88), align 8, !tbaa !122
+  store i64 80, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 64), align 8, !tbaa !116
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 80), align 8, !tbaa !120
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 72), align 8, !tbaa !121
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 88), align 8, !tbaa !122
   br label %_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i
 
 _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i: ; preds = %22, %19
@@ -18431,9 +18423,9 @@ _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33defau
   unreachable
 
 _ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS8_EEPcEEEENS4_13file_positionISE_EEEdlEPvm.exit.i: ; preds = %_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i
-  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
+  %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
   store ptr %28, ptr %17, align 8, !tbaa !22
-  store ptr %17, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
+  store ptr %17, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
   %29 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE) #27
   br label %_ZN5boost6spirit7classic5matchINS_4wave8cpplexer9lex_tokenINS3_4util13file_positionINS6_11flex_stringIcSt11char_traitsIcESaIcENS6_9CowStringINS6_22AllocatorStringStorageIcSB_EEPcEEEEEEEEED2Ev.exit
 
@@ -19195,10 +19187,10 @@ define linkonce_odr hidden i64 @_ZNK5boost6spirit7classic8sequenceINS1_5chlitINS
 22:                                               ; preds = %19
   store i8 1, ptr @_ZZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEvE1f, align 1, !tbaa !23
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i8 0, i64 64, i1 false)
-  store i64 80, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 64), align 8, !tbaa !116
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 80), align 8, !tbaa !120
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 72), align 8, !tbaa !121
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 88), align 8, !tbaa !122
+  store i64 80, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 64), align 8, !tbaa !116
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 80), align 8, !tbaa !120
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 72), align 8, !tbaa !121
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 88), align 8, !tbaa !122
   br label %_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i
 
 _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i: ; preds = %22, %19
@@ -19221,9 +19213,9 @@ _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33defau
   unreachable
 
 _ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS8_EEPcEEEENS4_13file_positionISE_EEEdlEPvm.exit.i: ; preds = %_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i
-  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
+  %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
   store ptr %28, ptr %17, align 8, !tbaa !22
-  store ptr %17, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
+  store ptr %17, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
   %29 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE) #27
   br label %_ZN5boost6spirit7classic5matchINS_4wave8cpplexer9lex_tokenINS3_4util13file_positionINS6_11flex_stringIcSt11char_traitsIcESaIcENS6_9CowStringINS6_22AllocatorStringStorageIcSB_EEPcEEEEEEEEED2Ev.exit
 
@@ -19286,10 +19278,10 @@ define linkonce_odr hidden i64 @_ZNK5boost6spirit7classic8sequenceINS1_5chlitINS
 22:                                               ; preds = %19
   store i8 1, ptr @_ZZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEvE1f, align 1, !tbaa !23
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i8 0, i64 64, i1 false)
-  store i64 80, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 64), align 8, !tbaa !116
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 80), align 8, !tbaa !120
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 72), align 8, !tbaa !121
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 88), align 8, !tbaa !122
+  store i64 80, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 64), align 8, !tbaa !116
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 80), align 8, !tbaa !120
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 72), align 8, !tbaa !121
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 88), align 8, !tbaa !122
   br label %_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i
 
 _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i: ; preds = %22, %19
@@ -19312,9 +19304,9 @@ _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33defau
   unreachable
 
 _ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS8_EEPcEEEENS4_13file_positionISE_EEEdlEPvm.exit.i: ; preds = %_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i
-  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
+  %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
   store ptr %28, ptr %17, align 8, !tbaa !22
-  store ptr %17, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
+  store ptr %17, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
   %29 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE) #27
   br label %_ZN5boost6spirit7classic5matchINS_4wave8cpplexer9lex_tokenINS3_4util13file_positionINS6_11flex_stringIcSt11char_traitsIcESaIcENS6_9CowStringINS6_22AllocatorStringStorageIcSB_EEPcEEEEEEEEED2Ev.exit
 
@@ -19377,10 +19369,10 @@ define linkonce_odr hidden i64 @_ZNK5boost6spirit7classic8sequenceINS1_5chlitINS
 22:                                               ; preds = %19
   store i8 1, ptr @_ZZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEvE1f, align 1, !tbaa !23
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i8 0, i64 64, i1 false)
-  store i64 80, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 64), align 8, !tbaa !116
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 80), align 8, !tbaa !120
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 72), align 8, !tbaa !121
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 88), align 8, !tbaa !122
+  store i64 80, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 64), align 8, !tbaa !116
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 80), align 8, !tbaa !120
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 72), align 8, !tbaa !121
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 88), align 8, !tbaa !122
   br label %_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i
 
 _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i: ; preds = %22, %19
@@ -19403,9 +19395,9 @@ _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33defau
   unreachable
 
 _ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS8_EEPcEEEENS4_13file_positionISE_EEEdlEPvm.exit.i: ; preds = %_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i
-  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
+  %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
   store ptr %28, ptr %17, align 8, !tbaa !22
-  store ptr %17, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
+  store ptr %17, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
   %29 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE) #27
   br label %_ZN5boost6spirit7classic5matchINS_4wave8cpplexer9lex_tokenINS3_4util13file_positionINS6_11flex_stringIcSt11char_traitsIcESaIcENS6_9CowStringINS6_22AllocatorStringStorageIcSB_EEPcEEEEEEEEED2Ev.exit
 
@@ -20419,10 +20411,10 @@ define linkonce_odr hidden i64 @_ZNK5boost6spirit7classic8sequenceINS_4wave4util
 24:                                               ; preds = %21
   store i8 1, ptr @_ZZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEvE1f, align 1, !tbaa !23
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i8 0, i64 64, i1 false)
-  store i64 80, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 64), align 8, !tbaa !116
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 80), align 8, !tbaa !120
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 72), align 8, !tbaa !121
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 88), align 8, !tbaa !122
+  store i64 80, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 64), align 8, !tbaa !116
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 80), align 8, !tbaa !120
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 72), align 8, !tbaa !121
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 88), align 8, !tbaa !122
   br label %_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i
 
 _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i: ; preds = %24, %21
@@ -20445,9 +20437,9 @@ _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33defau
   unreachable
 
 _ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS8_EEPcEEEENS4_13file_positionISE_EEEdlEPvm.exit.i: ; preds = %_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i
-  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
+  %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
   store ptr %30, ptr %19, align 8, !tbaa !22
-  store ptr %19, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
+  store ptr %19, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
   %31 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE) #27
   br label %_ZN5boost6spirit7classic5matchINS_4wave8cpplexer9lex_tokenINS3_4util13file_positionINS6_11flex_stringIcSt11char_traitsIcESaIcENS6_9CowStringINS6_22AllocatorStringStorageIcSB_EEPcEEEEEEEEED2Ev.exit
 
@@ -20554,10 +20546,10 @@ define linkonce_odr hidden i64 @_ZNK5boost6spirit7classic8sequenceINS_4wave4util
 24:                                               ; preds = %21
   store i8 1, ptr @_ZZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEvE1f, align 1, !tbaa !23
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i8 0, i64 64, i1 false)
-  store i64 80, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 64), align 8, !tbaa !116
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 80), align 8, !tbaa !120
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 72), align 8, !tbaa !121
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 88), align 8, !tbaa !122
+  store i64 80, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 64), align 8, !tbaa !116
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 80), align 8, !tbaa !120
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 72), align 8, !tbaa !121
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 88), align 8, !tbaa !122
   br label %_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i
 
 _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i: ; preds = %24, %21
@@ -20580,9 +20572,9 @@ _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33defau
   unreachable
 
 _ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS8_EEPcEEEENS4_13file_positionISE_EEEdlEPvm.exit.i: ; preds = %_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i
-  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
+  %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
   store ptr %30, ptr %19, align 8, !tbaa !22
-  store ptr %19, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
+  store ptr %19, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
   %31 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE) #27
   br label %_ZN5boost6spirit7classic5matchINS_4wave8cpplexer9lex_tokenINS3_4util13file_positionINS6_11flex_stringIcSt11char_traitsIcESaIcENS6_9CowStringINS6_22AllocatorStringStorageIcSB_EEPcEEEEEEEEED2Ev.exit
 
@@ -20756,10 +20748,10 @@ define linkonce_odr hidden i64 @_ZNK5boost6spirit7classic8sequenceINS1_5chlitINS
 24:                                               ; preds = %21
   store i8 1, ptr @_ZZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEvE1f, align 1, !tbaa !23
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i8 0, i64 64, i1 false)
-  store i64 80, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 64), align 8, !tbaa !116
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 80), align 8, !tbaa !120
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 72), align 8, !tbaa !121
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 88), align 8, !tbaa !122
+  store i64 80, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 64), align 8, !tbaa !116
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 80), align 8, !tbaa !120
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 72), align 8, !tbaa !121
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 88), align 8, !tbaa !122
   br label %_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i
 
 _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i: ; preds = %24, %21
@@ -20782,9 +20774,9 @@ _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33defau
   unreachable
 
 _ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS8_EEPcEEEENS4_13file_positionISE_EEEdlEPvm.exit.i: ; preds = %_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i
-  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
+  %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
   store ptr %30, ptr %19, align 8, !tbaa !22
-  store ptr %19, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
+  store ptr %19, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
   %31 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE) #27
   br label %_ZN5boost6spirit7classic5matchINS_4wave8cpplexer9lex_tokenINS3_4util13file_positionINS6_11flex_stringIcSt11char_traitsIcESaIcENS6_9CowStringINS6_22AllocatorStringStorageIcSB_EEPcEEEEEEEEED2Ev.exit
 
@@ -20891,10 +20883,10 @@ define linkonce_odr hidden i64 @_ZNK5boost6spirit7classic8sequenceINS1_5chlitINS
 24:                                               ; preds = %21
   store i8 1, ptr @_ZZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEvE1f, align 1, !tbaa !23
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i8 0, i64 64, i1 false)
-  store i64 80, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 64), align 8, !tbaa !116
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 80), align 8, !tbaa !120
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 72), align 8, !tbaa !121
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 88), align 8, !tbaa !122
+  store i64 80, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 64), align 8, !tbaa !116
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 80), align 8, !tbaa !120
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 72), align 8, !tbaa !121
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 88), align 8, !tbaa !122
   br label %_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i
 
 _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i: ; preds = %24, %21
@@ -20917,9 +20909,9 @@ _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33defau
   unreachable
 
 _ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS8_EEPcEEEENS4_13file_positionISE_EEEdlEPvm.exit.i: ; preds = %_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i
-  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
+  %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
   store ptr %30, ptr %19, align 8, !tbaa !22
-  store ptr %19, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
+  store ptr %19, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
   %31 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE) #27
   br label %_ZN5boost6spirit7classic5matchINS_4wave8cpplexer9lex_tokenINS3_4util13file_positionINS6_11flex_stringIcSt11char_traitsIcESaIcENS6_9CowStringINS6_22AllocatorStringStorageIcSB_EEPcEEEEEEEEED2Ev.exit
 
@@ -21296,10 +21288,10 @@ define linkonce_odr hidden i64 @_ZNK5boost6spirit7classic8sequenceINS2_INS1_5chl
 24:                                               ; preds = %21
   store i8 1, ptr @_ZZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEvE1f, align 1, !tbaa !23
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i8 0, i64 64, i1 false)
-  store i64 80, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 64), align 8, !tbaa !116
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 80), align 8, !tbaa !120
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 72), align 8, !tbaa !121
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 88), align 8, !tbaa !122
+  store i64 80, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 64), align 8, !tbaa !116
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 80), align 8, !tbaa !120
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 72), align 8, !tbaa !121
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 88), align 8, !tbaa !122
   br label %_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i
 
 _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i: ; preds = %24, %21
@@ -21322,9 +21314,9 @@ _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33defau
   unreachable
 
 _ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS8_EEPcEEEENS4_13file_positionISE_EEEdlEPvm.exit.i: ; preds = %_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i
-  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
+  %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
   store ptr %30, ptr %19, align 8, !tbaa !22
-  store ptr %19, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
+  store ptr %19, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
   %31 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE) #27
   br label %_ZN5boost6spirit7classic5matchINS_4wave8cpplexer9lex_tokenINS3_4util13file_positionINS6_11flex_stringIcSt11char_traitsIcESaIcENS6_9CowStringINS6_22AllocatorStringStorageIcSB_EEPcEEEEEEEEED2Ev.exit
 
@@ -21474,10 +21466,10 @@ _ZN5boost6spirit7classic5matchINS_4wave8cpplexer9lex_tokenINS3_4util13file_posit
 54:                                               ; preds = %51
   store i8 1, ptr @_ZZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEvE1f, align 1, !tbaa !23
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i8 0, i64 64, i1 false)
-  store i64 80, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 64), align 8, !tbaa !116
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 80), align 8, !tbaa !120
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 72), align 8, !tbaa !121
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 88), align 8, !tbaa !122
+  store i64 80, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 64), align 8, !tbaa !116
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 80), align 8, !tbaa !120
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 72), align 8, !tbaa !121
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 88), align 8, !tbaa !122
   br label %_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i
 
 _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i: ; preds = %54, %51
@@ -21500,9 +21492,9 @@ _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33defau
   unreachable
 
 _ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS8_EEPcEEEENS4_13file_positionISE_EEEdlEPvm.exit.i: ; preds = %_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i
-  %60 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
+  %60 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
   store ptr %60, ptr %49, align 8, !tbaa !22
-  store ptr %49, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
+  store ptr %49, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
   %61 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE) #27
   br label %_ZN5boost6spirit7classic5matchINS_4wave8cpplexer9lex_tokenINS3_4util13file_positionINS6_11flex_stringIcSt11char_traitsIcESaIcENS6_9CowStringINS6_22AllocatorStringStorageIcSB_EEPcEEEEEEEEED2Ev.exit
 
@@ -21623,10 +21615,10 @@ _ZN5boost6spirit7classic5matchINS_4wave8cpplexer9lex_tokenINS3_4util13file_posit
 54:                                               ; preds = %51
   store i8 1, ptr @_ZZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEvE1f, align 1, !tbaa !23
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i8 0, i64 64, i1 false)
-  store i64 80, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 64), align 8, !tbaa !116
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 80), align 8, !tbaa !120
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 72), align 8, !tbaa !121
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 88), align 8, !tbaa !122
+  store i64 80, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 64), align 8, !tbaa !116
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 80), align 8, !tbaa !120
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 72), align 8, !tbaa !121
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 88), align 8, !tbaa !122
   br label %_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i
 
 _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i: ; preds = %54, %51
@@ -21649,9 +21641,9 @@ _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33defau
   unreachable
 
 _ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS8_EEPcEEEENS4_13file_positionISE_EEEdlEPvm.exit.i: ; preds = %_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i
-  %60 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
+  %60 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
   store ptr %60, ptr %49, align 8, !tbaa !22
-  store ptr %49, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
+  store ptr %49, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
   %61 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE) #27
   br label %_ZN5boost6spirit7classic5matchINS_4wave8cpplexer9lex_tokenINS3_4util13file_positionINS6_11flex_stringIcSt11char_traitsIcESaIcENS6_9CowStringINS6_22AllocatorStringStorageIcSB_EEPcEEEEEEEEED2Ev.exit
 
@@ -21769,10 +21761,10 @@ common.resume:                                    ; preds = %common.resume.sink.
 51:                                               ; preds = %48
   store i8 1, ptr @_ZZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEvE1f, align 1, !tbaa !23
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i8 0, i64 64, i1 false)
-  store i64 80, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 64), align 8, !tbaa !116
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 80), align 8, !tbaa !120
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 72), align 8, !tbaa !121
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 88), align 8, !tbaa !122
+  store i64 80, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 64), align 8, !tbaa !116
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 80), align 8, !tbaa !120
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 72), align 8, !tbaa !121
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 88), align 8, !tbaa !122
   br label %_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i
 
 _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i: ; preds = %51, %48
@@ -21795,9 +21787,9 @@ _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33defau
   unreachable
 
 _ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS8_EEPcEEEENS4_13file_positionISE_EEEdlEPvm.exit.i: ; preds = %_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i
-  %57 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
+  %57 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
   store ptr %57, ptr %46, align 8, !tbaa !22
-  store ptr %46, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
+  store ptr %46, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
   %58 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE) #27
   br label %_ZN5boost6spirit7classic5matchINS_4wave8cpplexer9lex_tokenINS3_4util13file_positionINS6_11flex_stringIcSt11char_traitsIcESaIcENS6_9CowStringINS6_22AllocatorStringStorageIcSB_EEPcEEEEEEEEED2Ev.exit
 
@@ -21894,10 +21886,10 @@ _ZNK5boost6spirit7classic13action_policy9do_actionIN7phoenix5actorINS4_9composit
 102:                                              ; preds = %99
   store i8 1, ptr @_ZZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEvE1f, align 1, !tbaa !23
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i8 0, i64 64, i1 false)
-  store i64 80, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 64), align 8, !tbaa !116
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 80), align 8, !tbaa !120
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 72), align 8, !tbaa !121
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 88), align 8, !tbaa !122
+  store i64 80, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 64), align 8, !tbaa !116
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 80), align 8, !tbaa !120
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 72), align 8, !tbaa !121
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 88), align 8, !tbaa !122
   br label %_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i20
 
 _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i20: ; preds = %102, %99
@@ -21920,9 +21912,9 @@ _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33defau
   unreachable
 
 _ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS8_EEPcEEEENS4_13file_positionISE_EEEdlEPvm.exit.i23: ; preds = %_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i20
-  %108 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
+  %108 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
   store ptr %108, ptr %97, align 8, !tbaa !22
-  store ptr %97, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
+  store ptr %97, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
   %109 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE) #27
   br label %_ZN5boost6spirit7classic5matchINS_4wave8cpplexer9lex_tokenINS3_4util13file_positionINS6_11flex_stringIcSt11char_traitsIcESaIcENS6_9CowStringINS6_22AllocatorStringStorageIcSB_EEPcEEEEEEEEED2Ev.exit17
 
@@ -22007,7 +21999,7 @@ _ZNK7phoenix14closure_memberILi0ENS_7closureIN5boost4wave8grammars8closures13clo
   %15 = load ptr, ptr %14, align 8, !tbaa !35, !noalias !693
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !28, !noalias !693
-  %18 = getelementptr inbounds i8, ptr %17, i64 17
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 17
   %19 = load i8, ptr %18, align 1, !tbaa !15, !noalias !693
   %20 = icmp eq i8 %19, 76
   br i1 %20, label %_ZN5boost4wave8grammars8closures7as_longERKNS2_13closure_valueE.exit.i.i.i, label %_ZN5boost4wave8grammars8closures8as_ulongERKNS2_13closure_valueE.exit.i.i.i
@@ -22149,10 +22141,10 @@ define linkonce_odr hidden i64 @_ZNK5boost6spirit7classic8sequenceINS2_INS1_5chl
 24:                                               ; preds = %21
   store i8 1, ptr @_ZZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEvE1f, align 1, !tbaa !23
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i8 0, i64 64, i1 false)
-  store i64 80, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 64), align 8, !tbaa !116
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 80), align 8, !tbaa !120
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 72), align 8, !tbaa !121
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 88), align 8, !tbaa !122
+  store i64 80, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 64), align 8, !tbaa !116
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 80), align 8, !tbaa !120
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 72), align 8, !tbaa !121
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 88), align 8, !tbaa !122
   br label %_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i
 
 _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i: ; preds = %24, %21
@@ -22175,9 +22167,9 @@ _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33defau
   unreachable
 
 _ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS8_EEPcEEEENS4_13file_positionISE_EEEdlEPvm.exit.i: ; preds = %_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i
-  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
+  %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
   store ptr %30, ptr %19, align 8, !tbaa !22
-  store ptr %19, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
+  store ptr %19, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
   %31 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE) #27
   br label %_ZN5boost6spirit7classic5matchINS_4wave8cpplexer9lex_tokenINS3_4util13file_positionINS6_11flex_stringIcSt11char_traitsIcESaIcENS6_9CowStringINS6_22AllocatorStringStorageIcSB_EEPcEEEEEEEEED2Ev.exit
 
@@ -22231,10 +22223,10 @@ define linkonce_odr hidden i64 @_ZNK5boost6spirit7classic8sequenceINS1_5chlitINS
 22:                                               ; preds = %19
   store i8 1, ptr @_ZZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEvE1f, align 1, !tbaa !23
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i8 0, i64 64, i1 false)
-  store i64 80, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 64), align 8, !tbaa !116
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 80), align 8, !tbaa !120
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 72), align 8, !tbaa !121
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 88), align 8, !tbaa !122
+  store i64 80, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 64), align 8, !tbaa !116
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 80), align 8, !tbaa !120
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 72), align 8, !tbaa !121
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 88), align 8, !tbaa !122
   br label %_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i
 
 _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i: ; preds = %22, %19
@@ -22257,9 +22249,9 @@ _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33defau
   unreachable
 
 _ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS8_EEPcEEEENS4_13file_positionISE_EEEdlEPvm.exit.i: ; preds = %_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i
-  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
+  %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
   store ptr %28, ptr %17, align 8, !tbaa !22
-  store ptr %17, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
+  store ptr %17, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
   %29 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE) #27
   br label %_ZN5boost6spirit7classic5matchINS_4wave8cpplexer9lex_tokenINS3_4util13file_positionINS6_11flex_stringIcSt11char_traitsIcESaIcENS6_9CowStringINS6_22AllocatorStringStorageIcSB_EEPcEEEEEEEEED2Ev.exit
 
@@ -22381,10 +22373,10 @@ define linkonce_odr hidden i64 @_ZNK5boost6spirit7classic8sequenceINS_4wave4util
 22:                                               ; preds = %19
   store i8 1, ptr @_ZZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEvE1f, align 1, !tbaa !23
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i8 0, i64 64, i1 false)
-  store i64 80, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 64), align 8, !tbaa !116
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 80), align 8, !tbaa !120
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 72), align 8, !tbaa !121
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 88), align 8, !tbaa !122
+  store i64 80, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 64), align 8, !tbaa !116
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 80), align 8, !tbaa !120
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 72), align 8, !tbaa !121
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 88), align 8, !tbaa !122
   br label %_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i
 
 _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i: ; preds = %22, %19
@@ -22407,9 +22399,9 @@ _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33defau
   unreachable
 
 _ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS8_EEPcEEEENS4_13file_positionISE_EEEdlEPvm.exit.i: ; preds = %_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i
-  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
+  %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
   store ptr %28, ptr %17, align 8, !tbaa !22
-  store ptr %17, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
+  store ptr %17, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
   %29 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE) #27
   br label %_ZN5boost6spirit7classic5matchINS_4wave8cpplexer9lex_tokenINS3_4util13file_positionINS6_11flex_stringIcSt11char_traitsIcESaIcENS6_9CowStringINS6_22AllocatorStringStorageIcSB_EEPcEEEEEEEEED2Ev.exit
 
@@ -22947,10 +22939,10 @@ define linkonce_odr hidden i64 @_ZNK5boost6spirit7classic11alternativeINS2_INS2_
 27:                                               ; preds = %24
   store i8 1, ptr @_ZZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEvE1f, align 1, !tbaa !23
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i8 0, i64 64, i1 false)
-  store i64 80, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 64), align 8, !tbaa !116
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 80), align 8, !tbaa !120
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 72), align 8, !tbaa !121
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 88), align 8, !tbaa !122
+  store i64 80, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 64), align 8, !tbaa !116
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 80), align 8, !tbaa !120
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 72), align 8, !tbaa !121
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 88), align 8, !tbaa !122
   br label %_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i
 
 _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i: ; preds = %27, %24
@@ -22973,9 +22965,9 @@ _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33defau
   unreachable
 
 _ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS8_EEPcEEEENS4_13file_positionISE_EEEdlEPvm.exit.i: ; preds = %_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i
-  %33 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
+  %33 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
   store ptr %33, ptr %22, align 8, !tbaa !22
-  store ptr %22, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
+  store ptr %22, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
   %34 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE) #27
   br label %_ZN5boost6spirit7classic5matchINS_4wave8cpplexer9lex_tokenINS3_4util13file_positionINS6_11flex_stringIcSt11char_traitsIcESaIcENS6_9CowStringINS6_22AllocatorStringStorageIcSB_EEPcEEEEEEEEED2Ev.exit
 
@@ -23036,10 +23028,10 @@ define linkonce_odr hidden i64 @_ZNK5boost6spirit7classic11alternativeINS2_INS1_
 27:                                               ; preds = %24
   store i8 1, ptr @_ZZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEvE1f, align 1, !tbaa !23
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i8 0, i64 64, i1 false)
-  store i64 80, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 64), align 8, !tbaa !116
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 80), align 8, !tbaa !120
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 72), align 8, !tbaa !121
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 88), align 8, !tbaa !122
+  store i64 80, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 64), align 8, !tbaa !116
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 80), align 8, !tbaa !120
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 72), align 8, !tbaa !121
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 88), align 8, !tbaa !122
   br label %_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i
 
 _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i: ; preds = %27, %24
@@ -23062,9 +23054,9 @@ _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33defau
   unreachable
 
 _ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS8_EEPcEEEENS4_13file_positionISE_EEEdlEPvm.exit.i: ; preds = %_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i
-  %33 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
+  %33 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
   store ptr %33, ptr %22, align 8, !tbaa !22
-  store ptr %22, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
+  store ptr %22, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
   %34 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE) #27
   br label %_ZN5boost6spirit7classic5matchINS_4wave8cpplexer9lex_tokenINS3_4util13file_positionINS6_11flex_stringIcSt11char_traitsIcESaIcENS6_9CowStringINS6_22AllocatorStringStorageIcSB_EEPcEEEEEEEEED2Ev.exit
 
@@ -23118,10 +23110,10 @@ define linkonce_odr hidden i64 @_ZNK5boost6spirit7classic11alternativeINS1_5chli
 24:                                               ; preds = %21
   store i8 1, ptr @_ZZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEvE1f, align 1, !tbaa !23
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i8 0, i64 64, i1 false)
-  store i64 80, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 64), align 8, !tbaa !116
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 80), align 8, !tbaa !120
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 72), align 8, !tbaa !121
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 88), align 8, !tbaa !122
+  store i64 80, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 64), align 8, !tbaa !116
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 80), align 8, !tbaa !120
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 72), align 8, !tbaa !121
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 88), align 8, !tbaa !122
   br label %_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i
 
 _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i: ; preds = %24, %21
@@ -23144,9 +23136,9 @@ _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33defau
   unreachable
 
 _ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS8_EEPcEEEENS4_13file_positionISE_EEEdlEPvm.exit.i: ; preds = %_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i
-  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
+  %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
   store ptr %30, ptr %19, align 8, !tbaa !22
-  store ptr %19, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
+  store ptr %19, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
   %31 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE) #27
   br label %_ZN5boost6spirit7classic5matchINS_4wave8cpplexer9lex_tokenINS3_4util13file_positionINS6_11flex_stringIcSt11char_traitsIcESaIcENS6_9CowStringINS6_22AllocatorStringStorageIcSB_EEPcEEEEEEEEED2Ev.exit
 
@@ -23193,10 +23185,10 @@ _ZN5boost6spirit7classic5matchINS_4wave8cpplexer9lex_tokenINS3_4util13file_posit
 52:                                               ; preds = %49
   store i8 1, ptr @_ZZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEvE1f, align 1, !tbaa !23
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i8 0, i64 64, i1 false)
-  store i64 80, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 64), align 8, !tbaa !116
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 80), align 8, !tbaa !120
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 72), align 8, !tbaa !121
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 88), align 8, !tbaa !122
+  store i64 80, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 64), align 8, !tbaa !116
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 80), align 8, !tbaa !120
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 72), align 8, !tbaa !121
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 88), align 8, !tbaa !122
   br label %_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i15
 
 _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i15: ; preds = %52, %49
@@ -23219,9 +23211,9 @@ _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33defau
   unreachable
 
 _ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS8_EEPcEEEENS4_13file_positionISE_EEEdlEPvm.exit.i18: ; preds = %_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i15
-  %58 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
+  %58 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
   store ptr %58, ptr %47, align 8, !tbaa !22
-  store ptr %47, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
+  store ptr %47, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !204
   %59 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE) #27
   br label %_ZN5boost6spirit7classic5matchINS_4wave8cpplexer9lex_tokenINS3_4util13file_positionINS6_11flex_stringIcSt11char_traitsIcESaIcENS6_9CowStringINS6_22AllocatorStringStorageIcSB_EEPcEEEEEEEEED2Ev.exit12
 
@@ -23288,7 +23280,7 @@ _ZN5boost4wave4util22AllocatorStringStorageIcSaIcEEC2ERKS4_.exit.i.i.i: ; preds 
 
 _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE5beginEv.exit: ; preds = %6, %_ZN5boost4wave4util22AllocatorStringStorageIcSaIcEEC2ERKS4_.exit.i.i.i
   %27 = phi ptr [ %.pre, %6 ], [ %.pre.i.i, %_ZN5boost4wave4util22AllocatorStringStorageIcSaIcEEC2ERKS4_.exit.i.i.i ]
-  %28 = getelementptr inbounds i8, ptr %27, i64 17
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 17
   %29 = ptrtoint ptr %1 to i64
   %30 = ptrtoint ptr %28 to i64
   %31 = sub i64 %29, %30
@@ -23347,7 +23339,7 @@ _ZN5boost4wave4util22AllocatorStringStorageIcSaIcEEC2ERKS4_.exit.i.i.i10: ; pred
 
 _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE5beginEv.exit14: ; preds = %_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE5beginEv.exit, %_ZN5boost4wave4util22AllocatorStringStorageIcSaIcEEC2ERKS4_.exit.i.i.i10
   %60 = phi ptr [ %39, %_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE5beginEv.exit ], [ %.pre.i.i12, %_ZN5boost4wave4util22AllocatorStringStorageIcSaIcEEC2ERKS4_.exit.i.i.i10 ]
-  %61 = getelementptr inbounds i8, ptr %60, i64 17
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 17
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 %31
   br label %63
 
@@ -23506,8 +23498,8 @@ _ZN5boost4wave4util22AllocatorStringStorageIcSaIcEEC2ERKS4_.exit.i.i.i12: ; pred
 _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE5beginEv.exit16: ; preds = %11, %_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE5beginEv.exit, %_ZN5boost4wave4util22AllocatorStringStorageIcSaIcEEC2ERKS4_.exit.i.i.i12
   %.pre.i.i.pn = phi ptr [ %.pre.i.i, %_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE5beginEv.exit ], [ %.pre.i.i, %_ZN5boost4wave4util22AllocatorStringStorageIcSaIcEEC2ERKS4_.exit.i.i.i12 ], [ %4, %11 ]
   %50 = phi ptr [ %.pre.i.i, %_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE5beginEv.exit ], [ %.pre.i.i14, %_ZN5boost4wave4util22AllocatorStringStorageIcSaIcEEC2ERKS4_.exit.i.i.i12 ], [ %4, %11 ]
-  %51 = getelementptr inbounds i8, ptr %.pre.i.i.pn, i64 17
-  %52 = getelementptr inbounds i8, ptr %50, i64 17
+  %51 = getelementptr inbounds nuw i8, ptr %.pre.i.i.pn, i64 17
+  %52 = getelementptr inbounds nuw i8, ptr %50, i64 17
   %53 = load ptr, ptr %50, align 8, !tbaa !30
   %54 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %55 = ptrtoint ptr %53 to i64
@@ -23808,7 +23800,7 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
   br i1 %.not.i.i.i.i.i, label %_ZSt4copyIPKcPcET0_T_S4_S3_.exit, label %32
 
 32:                                               ; preds = %_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE5beginEv.exit
-  %33 = getelementptr inbounds i8, ptr %31, i64 17
+  %33 = getelementptr inbounds nuw i8, ptr %31, i64 17
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %33, ptr align 1 %1, i64 %2, i1 false)
   %.pre = load ptr, ptr %0, align 8, !tbaa !28
   br label %_ZSt4copyIPKcPcET0_T_S4_S3_.exit
@@ -23914,7 +23906,7 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
   br i1 %.not.i.i.i.i.i16, label %_ZSt4copyIPKcPcET0_T_S4_S3_.exit17, label %78
 
 78:                                               ; preds = %_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE5beginEv.exit15
-  %79 = getelementptr inbounds i8, ptr %77, i64 17
+  %79 = getelementptr inbounds nuw i8, ptr %77, i64 17
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %79, ptr align 1 %1, i64 %10, i1 false)
   %.pre21 = load ptr, ptr %0, align 8, !tbaa !28
   br label %_ZSt4copyIPKcPcET0_T_S4_S3_.exit17
@@ -24166,7 +24158,7 @@ define linkonce_odr hidden noundef ptr @_ZNK5boost4wave20preprocess_exception16g
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK5boost4wave20preprocess_exception14is_recoverableEv(ptr noundef nonnull align 8 dereferenceable(1052) %0) unnamed_addr #10 comdat align 2 {
   %2 = load ptr, ptr %0, align 8, !tbaa !61
-  %3 = getelementptr inbounds i8, ptr %2, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef i32 %4(ptr noundef nonnull align 8 dereferenceable(1052) %0) #27
   %6 = icmp ult i32 %5, 50
@@ -24186,21 +24178,21 @@ define linkonce_odr hidden void @_ZN5boost4wave13cpp_exceptionD0Ev(ptr noundef n
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_4wave20preprocess_exceptionEEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(1104) %0, ptr noundef nonnull align 8 dereferenceable(1052) %1) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %0, align 8, !tbaa !61
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5boost4wave13cpp_exceptionE, i64 16), ptr %3, align 8, !tbaa !61
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %4, ptr noundef nonnull align 8 dereferenceable(528) %5, i64 528, i1 false)
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5boost4wave20preprocess_exceptionE, i64 16), ptr %3, align 8, !tbaa !61
-  %6 = getelementptr inbounds i8, ptr %0, i64 544
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 536
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(516) %6, ptr noundef nonnull align 8 dereferenceable(516) %7, i64 516, i1 false)
-  %8 = getelementptr inbounds i8, ptr %0, i64 1064
-  %9 = getelementptr inbounds i8, ptr %0, i64 1072
-  %10 = getelementptr inbounds i8, ptr %0, i64 1096
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1064
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1072
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
   store i32 -1, ptr %10, align 8, !tbaa !148
-  %11 = getelementptr inbounds i8, ptr %0, i64 1100
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 1100
   store i32 -1, ptr %11, align 4, !tbaa !151
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost10wrapexceptINS_4wave20preprocess_exceptionEEE, i64 16), ptr %0, align 8, !tbaa !61
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5boost10wrapexceptINS_4wave20preprocess_exceptionEEE, i64 64), ptr %3, align 8, !tbaa !61
@@ -24210,16 +24202,16 @@ define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_4wave20preprocess_exce
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_4wave20preprocess_exceptionEED2Ev(ptr noundef nonnull align 8 dereferenceable(1104) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1064
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1064
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !61
-  %3 = getelementptr inbounds i8, ptr %0, i64 1072
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1072
   %4 = load ptr, ptr %3, align 8, !tbaa !152
   %.not.i.i.i = icmp eq ptr %4, null
   br i1 %.not.i.i.i, label %_ZN5boost9exceptionD2Ev.exit, label %5
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %4, align 8, !tbaa !61
-  %7 = getelementptr inbounds i8, ptr %6, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %8 = load ptr, ptr %7, align 8
   %9 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %.noexc.i.i unwind label %11
@@ -24239,7 +24231,7 @@ define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_4wave20preprocess_exce
   unreachable
 
 _ZN5boost9exceptionD2Ev.exit:                     ; preds = %1, %.noexc.i.i, %10
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(1052) %14) #27
   ret void
 }
@@ -24248,18 +24240,18 @@ _ZN5boost9exceptionD2Ev.exit:                     ; preds = %1, %.noexc.i.i, %10
 define linkonce_odr hidden noundef ptr @_ZNK5boost10wrapexceptINS_4wave20preprocess_exceptionEE5cloneEv(ptr noundef nonnull align 8 dereferenceable(1104) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(1104) ptr @_Znwm(i64 noundef 1104) #30
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %2, align 8, !tbaa !61
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
-  %4 = getelementptr inbounds i8, ptr %2, i64 16
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %4, ptr noundef nonnull align 8 dereferenceable(528) %5, i64 528, i1 false)
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5boost4wave20preprocess_exceptionE, i64 16), ptr %3, align 8, !tbaa !61
-  %6 = getelementptr inbounds i8, ptr %2, i64 544
-  %7 = getelementptr inbounds i8, ptr %0, i64 544
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 544
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 544
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(516) %6, ptr noundef nonnull align 8 dereferenceable(516) %7, i64 516, i1 false)
-  %8 = getelementptr inbounds i8, ptr %2, i64 1064
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 1064
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %8, align 8, !tbaa !61
-  %9 = getelementptr inbounds i8, ptr %2, i64 1072
-  %10 = getelementptr inbounds i8, ptr %0, i64 1072
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 1072
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 1072
   %11 = load ptr, ptr %10, align 8, !tbaa !152
   store ptr %11, ptr %9, align 8, !tbaa !152
   %.not.i.i.i.i = icmp eq ptr %11, null
@@ -24267,7 +24259,7 @@ define linkonce_odr hidden noundef ptr @_ZNK5boost10wrapexceptINS_4wave20preproc
 
 12:                                               ; preds = %1
   %13 = load ptr, ptr %11, align 8, !tbaa !61
-  %14 = getelementptr inbounds i8, ptr %13, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = load ptr, ptr %14, align 8
   invoke void %15(ptr noundef nonnull align 8 dereferenceable(8) %11)
           to label %17 unwind label %.body
@@ -24280,13 +24272,13 @@ define linkonce_odr hidden noundef ptr @_ZNK5boost10wrapexceptINS_4wave20preproc
   br label %25
 
 17:                                               ; preds = %12, %1
-  %18 = getelementptr inbounds i8, ptr %2, i64 1080
-  %19 = getelementptr inbounds i8, ptr %0, i64 1080
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 1080
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 1080
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(24) %19, i64 24, i1 false)
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost10wrapexceptINS_4wave20preprocess_exceptionEEE, i64 16), ptr %2, align 8, !tbaa !61
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5boost10wrapexceptINS_4wave20preprocess_exceptionEEE, i64 64), ptr %3, align 8, !tbaa !61
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost10wrapexceptINS_4wave20preprocess_exceptionEEE, i64 144), ptr %8, align 8, !tbaa !61
-  %20 = getelementptr inbounds i8, ptr %0, i64 1064
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 1064
   invoke void @_ZN5boost16exception_detail20copy_boost_exceptionEPNS_9exceptionEPKS1_(ptr noundef nonnull %8, ptr noundef nonnull %20)
           to label %_ZN5boost10wrapexceptINS_4wave20preprocess_exceptionEE7deleterD2Ev.exit unwind label %_ZN5boost10wrapexceptINS_4wave20preprocess_exceptionEE7deleterD2Ev.exit7
 
@@ -24297,7 +24289,7 @@ _ZN5boost10wrapexceptINS_4wave20preprocess_exceptionEE7deleterD2Ev.exit7: ; pred
   %21 = landingpad { ptr, i32 }
           cleanup
   %22 = load ptr, ptr %2, align 8, !tbaa !61
-  %23 = getelementptr inbounds i8, ptr %22, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %24 = load ptr, ptr %23, align 8
   tail call void %24(ptr noundef nonnull align 8 dereferenceable(1104) %2) #27
   br label %25
@@ -24326,16 +24318,16 @@ define linkonce_odr hidden void @_ZNK5boost10wrapexceptINS_4wave20preprocess_exc
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_4wave20preprocess_exceptionEED0Ev(ptr noundef nonnull align 8 dereferenceable(1104) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1064
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1064
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !61
-  %3 = getelementptr inbounds i8, ptr %0, i64 1072
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1072
   %4 = load ptr, ptr %3, align 8, !tbaa !152
   %.not.i.i.i.i = icmp eq ptr %4, null
   br i1 %.not.i.i.i.i, label %_ZN5boost10wrapexceptINS_4wave20preprocess_exceptionEED2Ev.exit, label %5
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %4, align 8, !tbaa !61
-  %7 = getelementptr inbounds i8, ptr %6, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %8 = load ptr, ptr %7, align 8
   %9 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %.noexc.i.i.i unwind label %11
@@ -24355,7 +24347,7 @@ define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_4wave20preprocess_exce
   unreachable
 
 _ZN5boost10wrapexceptINS_4wave20preprocess_exceptionEED2Ev.exit: ; preds = %1, %.noexc.i.i.i, %10
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(1052) %14) #27
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 1104) #31
   ret void
@@ -24363,16 +24355,16 @@ _ZN5boost10wrapexceptINS_4wave20preprocess_exceptionEED2Ev.exit: ; preds = %1, %
 
 ; Function Attrs: inlinehint nounwind uwtable
 define linkonce_odr hidden void @_ZThn8_N5boost10wrapexceptINS_4wave20preprocess_exceptionEED1Ev(ptr noundef %0) unnamed_addr #18 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1056
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1056
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !61
-  %3 = getelementptr inbounds i8, ptr %0, i64 1064
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1064
   %4 = load ptr, ptr %3, align 8, !tbaa !152
   %.not.i.i.i.i = icmp eq ptr %4, null
   br i1 %.not.i.i.i.i, label %_ZN5boost10wrapexceptINS_4wave20preprocess_exceptionEED2Ev.exit, label %5
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %4, align 8, !tbaa !61
-  %7 = getelementptr inbounds i8, ptr %6, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %8 = load ptr, ptr %7, align 8
   %9 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %.noexc.i.i.i unwind label %11
@@ -24398,16 +24390,16 @@ _ZN5boost10wrapexceptINS_4wave20preprocess_exceptionEED2Ev.exit: ; preds = %1, %
 
 ; Function Attrs: inlinehint nounwind uwtable
 define linkonce_odr hidden void @_ZThn8_N5boost10wrapexceptINS_4wave20preprocess_exceptionEED0Ev(ptr noundef %0) unnamed_addr #18 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1056
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1056
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !61
-  %3 = getelementptr inbounds i8, ptr %0, i64 1064
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1064
   %4 = load ptr, ptr %3, align 8, !tbaa !152
   %.not.i.i.i.i.i = icmp eq ptr %4, null
   br i1 %.not.i.i.i.i.i, label %_ZN5boost10wrapexceptINS_4wave20preprocess_exceptionEED0Ev.exit, label %5
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %4, align 8, !tbaa !61
-  %7 = getelementptr inbounds i8, ptr %6, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %8 = load ptr, ptr %7, align 8
   %9 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %.noexc.i.i.i.i unwind label %11
@@ -24436,14 +24428,14 @@ _ZN5boost10wrapexceptINS_4wave20preprocess_exceptionEED0Ev.exit: ; preds = %1, %
 ; Function Attrs: inlinehint nounwind uwtable
 define linkonce_odr hidden void @_ZThn1064_N5boost10wrapexceptINS_4wave20preprocess_exceptionEED1Ev(ptr noundef %0) unnamed_addr #18 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8, !tbaa !61
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !152
   %.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i, label %_ZN5boost10wrapexceptINS_4wave20preprocess_exceptionEED2Ev.exit, label %4
 
 4:                                                ; preds = %1
   %5 = load ptr, ptr %3, align 8, !tbaa !61
-  %6 = getelementptr inbounds i8, ptr %5, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %7 = load ptr, ptr %6, align 8
   %8 = invoke noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %.noexc.i.i.i unwind label %10
@@ -24471,14 +24463,14 @@ _ZN5boost10wrapexceptINS_4wave20preprocess_exceptionEED2Ev.exit: ; preds = %1, %
 ; Function Attrs: inlinehint nounwind uwtable
 define linkonce_odr hidden void @_ZThn1064_N5boost10wrapexceptINS_4wave20preprocess_exceptionEED0Ev(ptr noundef %0) unnamed_addr #18 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8, !tbaa !61
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !152
   %.not.i.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i.i, label %_ZN5boost10wrapexceptINS_4wave20preprocess_exceptionEED0Ev.exit, label %4
 
 4:                                                ; preds = %1
   %5 = load ptr, ptr %3, align 8, !tbaa !61
-  %6 = getelementptr inbounds i8, ptr %5, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %7 = load ptr, ptr %6, align 8
   %8 = invoke noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %.noexc.i.i.i.i unwind label %10
@@ -24508,19 +24500,19 @@ _ZN5boost10wrapexceptINS_4wave20preprocess_exceptionEED0Ev.exit: ; preds = %1, %
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_4wave20preprocess_exceptionEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(1104) %0, ptr noundef nonnull align 8 dereferenceable(1104) %1) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %0, align 8, !tbaa !61
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5boost4wave13cpp_exceptionE, i64 16), ptr %3, align 8, !tbaa !61
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %4, ptr noundef nonnull align 8 dereferenceable(528) %5, i64 528, i1 false)
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5boost4wave20preprocess_exceptionE, i64 16), ptr %3, align 8, !tbaa !61
-  %6 = getelementptr inbounds i8, ptr %0, i64 544
-  %7 = getelementptr inbounds i8, ptr %1, i64 544
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 544
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 544
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(516) %6, ptr noundef nonnull align 8 dereferenceable(516) %7, i64 516, i1 false)
-  %8 = getelementptr inbounds i8, ptr %0, i64 1064
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1064
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %8, align 8, !tbaa !61
-  %9 = getelementptr inbounds i8, ptr %0, i64 1072
-  %10 = getelementptr inbounds i8, ptr %1, i64 1072
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1072
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 1072
   %11 = load ptr, ptr %10, align 8, !tbaa !152
   store ptr %11, ptr %9, align 8, !tbaa !152
   %.not.i.i.i = icmp eq ptr %11, null
@@ -24528,14 +24520,14 @@ define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_4wave20preprocess_exce
 
 12:                                               ; preds = %2
   %13 = load ptr, ptr %11, align 8, !tbaa !61
-  %14 = getelementptr inbounds i8, ptr %13, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = load ptr, ptr %14, align 8
   invoke void %15(ptr noundef nonnull align 8 dereferenceable(8) %11)
           to label %16 unwind label %19
 
 16:                                               ; preds = %2, %12
-  %17 = getelementptr inbounds i8, ptr %0, i64 1080
-  %18 = getelementptr inbounds i8, ptr %1, i64 1080
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 1080
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 1080
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %18, i64 24, i1 false)
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost10wrapexceptINS_4wave20preprocess_exceptionEEE, i64 16), ptr %0, align 8, !tbaa !61
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5boost10wrapexceptINS_4wave20preprocess_exceptionEEE, i64 64), ptr %3, align 8, !tbaa !61

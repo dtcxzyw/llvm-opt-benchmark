@@ -116,9 +116,9 @@ define internal i32 @dissect_alc(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %16
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %1, i64 96
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 72
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 72
   %13 = load i32, ptr %12, align 8
   %14 = icmp eq i32 %13, 220
   %15 = zext i1 %14 to i32
@@ -126,7 +126,7 @@ define internal i32 @dissect_alc(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 16:                                               ; preds = %4, %8, %9
   %.082 = phi i32 [ 0, %8 ], [ %15, %9 ], [ 1, %4 ]
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8
   tail call void @col_set_str(ptr noundef %18, i32 noundef 34, ptr noundef nonnull @.str.13) #2
   %19 = load ptr, ptr %17, align 8
@@ -147,13 +147,13 @@ define internal i32 @dissect_alc(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %.not.i, label %proto_item_set_generated.exit, label %32
 
 32:                                               ; preds = %16
-  %33 = getelementptr inbounds i8, ptr %31, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %31, i64 32
   %34 = load ptr, ptr %33, align 8
   %.not5.i = icmp eq ptr %34, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %35
 
 35:                                               ; preds = %32
-  %36 = getelementptr inbounds i8, ptr %34, i64 28
+  %36 = getelementptr inbounds nuw i8, ptr %34, i64 28
   %37 = load i32, ptr %36, align 4
   %38 = or i32 %37, 2
   store i32 %38, ptr %36, align 4
@@ -174,15 +174,15 @@ proto_item_set_generated.exit:                    ; preds = %16, %32, %35
   %44 = load i32, ptr @g_ext_192, align 4
   store i32 %44, ptr %5, align 4
   %45 = load i32, ptr @g_ext_193, align 4
-  %46 = getelementptr inbounds i8, ptr %5, i64 4
+  %46 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %45, ptr %46, align 4
-  %47 = getelementptr inbounds i8, ptr %5, i64 12
+  %47 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i8 0, ptr %47, align 4
-  %48 = getelementptr inbounds i8, ptr %5, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 0, ptr %48, align 4
-  %49 = getelementptr inbounds i8, ptr %5, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %.082, ptr %49, align 4
-  %50 = getelementptr inbounds i8, ptr %5, i64 20
+  %50 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i32 0, ptr %50, align 4
   %51 = load ptr, ptr @rmt_lct_handle, align 8
   %52 = call i32 @call_dissector_with_data(ptr noundef %51, ptr noundef %43, ptr noundef nonnull %1, ptr noundef %25, ptr noundef nonnull %5) #2
@@ -289,7 +289,7 @@ thread-pre-split:                                 ; preds = %59, %68
 102:                                              ; preds = %100
   %103 = load ptr, ptr %17, align 8
   call void @col_append_sep_str(ptr noundef %103, i32 noundef 25, ptr noundef nonnull @.str.35, ptr noundef nonnull %101) #2
-  %104 = getelementptr inbounds i8, ptr %1, i64 408
+  %104 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %105 = load ptr, ptr %104, align 8
   call void @wmem_free(ptr noundef %105, ptr noundef nonnull %101) #2
   br label %106
@@ -418,13 +418,13 @@ define internal fastcc void @try_uncompress(ptr noundef %0, ptr noundef %1, i32 
   br i1 %.not.i, label %proto_item_set_generated.exit, label %14
 
 14:                                               ; preds = %8
-  %15 = getelementptr inbounds i8, ptr %13, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %16 = load ptr, ptr %15, align 8
   %.not5.i = icmp eq ptr %16, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %17
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %16, i64 28
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 28
   %19 = load i32, ptr %18, align 4
   %20 = or i32 %19, 2
   store i32 %20, ptr %18, align 4
@@ -460,9 +460,9 @@ define internal fastcc void @try_decode_payload(ptr noundef %0, ptr noundef %1, 
   ]
 
 11:                                               ; preds = %9, %9, %9
-  %12 = getelementptr inbounds i8, ptr %1, i64 408
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = tail call ptr @col_get_text(ptr noundef %15, i32 noundef 25) #2
   %17 = tail call noalias ptr @wmem_strdup(ptr noundef %13, ptr noundef %16) #2

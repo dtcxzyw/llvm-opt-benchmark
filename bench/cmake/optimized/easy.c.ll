@@ -215,7 +215,7 @@ define dso_local i32 @curl_easy_perform(ptr noundef %0) local_unnamed_addr #5 {
   br i1 %.not.i, label %easy_perform.exit, label %6
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 424
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %8 = load ptr, ptr %7, align 8
   %.not31.i = icmp eq ptr %8, null
   br i1 %.not31.i, label %10, label %9
@@ -225,7 +225,7 @@ define dso_local i32 @curl_easy_perform(ptr noundef %0) local_unnamed_addr #5 {
   br label %10
 
 10:                                               ; preds = %9, %6
-  %11 = getelementptr inbounds i8, ptr %0, i64 192
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %12 = load ptr, ptr %11, align 8
   %.not32.i = icmp eq ptr %12, null
   br i1 %.not32.i, label %14, label %13
@@ -235,7 +235,7 @@ define dso_local i32 @curl_easy_perform(ptr noundef %0) local_unnamed_addr #5 {
   br label %easy_perform.exit
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %0, i64 200
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %16 = load ptr, ptr %15, align 8
   %.not33.i = icmp eq ptr %16, null
   br i1 %.not33.i, label %17, label %20
@@ -251,14 +251,14 @@ define dso_local i32 @curl_easy_perform(ptr noundef %0) local_unnamed_addr #5 {
 
 20:                                               ; preds = %19, %14
   %.025.i = phi ptr [ %18, %19 ], [ %16, %14 ]
-  %21 = getelementptr inbounds i8, ptr %.025.i, i64 433
+  %21 = getelementptr inbounds nuw i8, ptr %.025.i, i64 433
   %22 = load i8, ptr %21, align 1
   %23 = and i8 %22, 4
   %.not35.i = icmp eq i8 %23, 0
   br i1 %.not35.i, label %24, label %easy_perform.exit
 
 24:                                               ; preds = %20
-  %25 = getelementptr inbounds i8, ptr %0, i64 2636
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 2636
   %26 = load i32, ptr %25, align 4
   %27 = zext i32 %26 to i64
   %28 = tail call i32 (ptr, i32, ...) @curl_multi_setopt(ptr noundef nonnull %.025.i, i32 noundef 6, i64 noundef %27) #12
@@ -275,9 +275,9 @@ define dso_local i32 @curl_easy_perform(ptr noundef %0) local_unnamed_addr #5 {
 
 33:                                               ; preds = %24
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %4)
-  %34 = getelementptr inbounds i8, ptr %0, i64 2642
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 2642
   %35 = load i64, ptr %34, align 2
-  %36 = getelementptr inbounds i8, ptr %5, i64 152
+  %36 = getelementptr inbounds nuw i8, ptr %5, i64 152
   %37 = lshr i64 %35, 32
   %38 = trunc i64 %37 to i8
   %39 = and i8 %38, 1
@@ -333,7 +333,7 @@ easy_transfer.exit.thread.i:                      ; preds = %.thread.i.i
   br label %59
 
 easy_transfer.exit.i:                             ; preds = %53
-  %57 = getelementptr inbounds i8, ptr %54, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %58 = load i32, ptr %57, align 8
   br label %59
 
@@ -372,9 +372,9 @@ define dso_local void @curl_easy_cleanup(ptr noundef %0) local_unnamed_addr #5 {
 
 8:                                                ; preds = %5
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %2)
-  %9 = getelementptr inbounds i8, ptr %0, i64 2642
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 2642
   %10 = load i64, ptr %9, align 2
-  %11 = getelementptr inbounds i8, ptr %4, i64 152
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 152
   %12 = lshr i64 %10, 32
   %13 = trunc i64 %12 to i8
   %14 = and i8 %13, 1
@@ -416,7 +416,7 @@ define dso_local i32 @curl_easy_getinfo(ptr noundef %0, i32 noundef %1, ...) loc
   br i1 %5, label %6, label %12
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %3, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %8 = load ptr, ptr %7, align 16
   %9 = zext nneg i32 %4 to i64
   %10 = getelementptr i8, ptr %8, i64 %9
@@ -425,7 +425,7 @@ define dso_local i32 @curl_easy_getinfo(ptr noundef %0, i32 noundef %1, ...) loc
   br label %16
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %3, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr i8, ptr %14, i64 8
   store ptr %15, ptr %13, align 8
@@ -449,18 +449,18 @@ define dso_local ptr @curl_easy_duphandle(ptr noundef %0) local_unnamed_addr #5 
   br i1 %.not, label %.critedge, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 1676
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1676
   %6 = load i32, ptr %5, align 4
-  %7 = getelementptr inbounds i8, ptr %3, i64 1676
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 1676
   store i32 %6, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %3, i64 408
-  %9 = getelementptr inbounds i8, ptr %0, i64 408
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 408
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2248) %8, ptr noundef nonnull align 8 dereferenceable(2248) %9, i64 2248, i1 false)
-  %10 = getelementptr inbounds i8, ptr %3, i64 800
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 800
   tail call void @Curl_mime_initpart(ptr noundef nonnull %10) #12
-  %11 = getelementptr inbounds i8, ptr %3, i64 1760
-  %12 = getelementptr inbounds i8, ptr %3, i64 2400
-  %13 = getelementptr inbounds i8, ptr %0, i64 1760
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 1760
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 2400
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 1760
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(704) %11, i8 0, i64 704, i1 false)
   br label %16
 
@@ -470,13 +470,13 @@ define dso_local ptr @curl_easy_duphandle(ptr noundef %0) local_unnamed_addr #5 
   br i1 %exitcond.not.i, label %.preheader.i, label %16, !llvm.loop !7
 
 .preheader.i:                                     ; preds = %14
-  %15 = getelementptr inbounds i8, ptr %0, i64 2400
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 2400
   br label %22
 
 16:                                               ; preds = %14, %4
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %14 ]
-  %17 = getelementptr inbounds [80 x ptr], ptr %11, i64 0, i64 %indvars.iv.i
-  %18 = getelementptr inbounds [80 x ptr], ptr %13, i64 0, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw [80 x ptr], ptr %11, i64 0, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw [80 x ptr], ptr %13, i64 0, i64 %indvars.iv.i
   %19 = load ptr, ptr %18, align 8
   %20 = tail call i32 @Curl_setstropt(ptr noundef nonnull %17, ptr noundef %19) #12
   %.not55.i = icmp eq i32 %20, 0
@@ -489,21 +489,21 @@ define dso_local ptr @curl_easy_duphandle(ptr noundef %0) local_unnamed_addr #5 
 
 22:                                               ; preds = %21, %.preheader.i
   %indvars.iv65.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next66.i, %21 ]
-  %23 = getelementptr inbounds [8 x ptr], ptr %12, i64 0, i64 %indvars.iv65.i
-  %24 = getelementptr inbounds [8 x ptr], ptr %15, i64 0, i64 %indvars.iv65.i
+  %23 = getelementptr inbounds nuw [8 x ptr], ptr %12, i64 0, i64 %indvars.iv65.i
+  %24 = getelementptr inbounds nuw [8 x ptr], ptr %15, i64 0, i64 %indvars.iv65.i
   %25 = load ptr, ptr %24, align 8
   %26 = tail call i32 @Curl_setblobopt(ptr noundef nonnull %23, ptr noundef %25) #12
   %.not54.i = icmp eq i32 %26, 0
   br i1 %.not54.i, label %21, label %dupset.exit.thread
 
 27:                                               ; preds = %21
-  %28 = getelementptr inbounds i8, ptr %0, i64 2392
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 2392
   %29 = load ptr, ptr %28, align 8
   %.not.i = icmp eq ptr %29, null
   br i1 %.not.i, label %44, label %30
 
 30:                                               ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %0, i64 504
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 504
   %32 = load i64, ptr %31, align 8
   %33 = icmp eq i64 %32, -1
   br i1 %33, label %34, label %37
@@ -520,28 +520,28 @@ define dso_local ptr @curl_easy_duphandle(ptr noundef %0) local_unnamed_addr #5 
 
 40:                                               ; preds = %37, %34
   %.sink.i = phi ptr [ %36, %34 ], [ %39, %37 ]
-  %41 = getelementptr inbounds i8, ptr %3, i64 2392
+  %41 = getelementptr inbounds nuw i8, ptr %3, i64 2392
   store ptr %.sink.i, ptr %41, align 8
   %.not52.i = icmp eq ptr %.sink.i, null
   br i1 %.not52.i, label %dupset.exit.thread, label %42
 
 42:                                               ; preds = %40
-  %43 = getelementptr inbounds i8, ptr %3, i64 488
+  %43 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store ptr %.sink.i, ptr %43, align 8
   br label %44
 
 44:                                               ; preds = %42, %27
-  %45 = getelementptr inbounds i8, ptr %0, i64 800
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 800
   %46 = tail call i32 @Curl_mime_duppart(ptr noundef nonnull %3, ptr noundef nonnull %10, ptr noundef nonnull %45) #12
-  %47 = getelementptr inbounds i8, ptr %0, i64 1240
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 1240
   %48 = load ptr, ptr %47, align 8
   %.not53.i = icmp eq ptr %48, null
   br i1 %.not53.i, label %dupset.exit, label %49
 
 49:                                               ; preds = %44
-  %50 = getelementptr inbounds i8, ptr %3, i64 1240
+  %50 = getelementptr inbounds nuw i8, ptr %3, i64 1240
   %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %3, i64 4608
+  %52 = getelementptr inbounds nuw i8, ptr %3, i64 4608
   store ptr %51, ptr %52, align 8
   br label %dupset.exit
 
@@ -550,44 +550,44 @@ dupset.exit:                                      ; preds = %44, %49
   br i1 %.not66, label %53, label %dupset.exit.thread
 
 53:                                               ; preds = %dupset.exit
-  %54 = getelementptr inbounds i8, ptr %3, i64 3072
-  %55 = getelementptr inbounds i8, ptr %3, i64 3112
+  %54 = getelementptr inbounds nuw i8, ptr %3, i64 3072
+  %55 = getelementptr inbounds nuw i8, ptr %3, i64 3112
   tail call void @Curl_dyn_init(ptr noundef nonnull %55, i64 noundef 102400) #12
   store ptr null, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %3, i64 3096
-  %57 = getelementptr inbounds i8, ptr %3, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %3, i64 3096
+  %57 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 -1, ptr %57, align 8
-  %58 = getelementptr inbounds i8, ptr %0, i64 2724
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 2724
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %56, i8 -1, i64 16, i1 false)
   %59 = load i32, ptr %58, align 4
-  %60 = getelementptr inbounds i8, ptr %3, i64 2724
+  %60 = getelementptr inbounds nuw i8, ptr %3, i64 2724
   store i32 %59, ptr %60, align 4
-  %61 = getelementptr inbounds i8, ptr %0, i64 3068
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 3068
   %62 = load i8, ptr %61, align 4
   %63 = and i8 %62, 1
-  %64 = getelementptr inbounds i8, ptr %3, i64 3068
+  %64 = getelementptr inbounds nuw i8, ptr %3, i64 3068
   %65 = load i8, ptr %64, align 4
   %66 = and i8 %65, -2
   %67 = or disjoint i8 %66, %63
   store i8 %67, ptr %64, align 4
-  %68 = getelementptr inbounds i8, ptr %3, i64 4816
+  %68 = getelementptr inbounds nuw i8, ptr %3, i64 4816
   store ptr null, ptr %68, align 8
-  %69 = getelementptr inbounds i8, ptr %0, i64 2656
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 2656
   %70 = load ptr, ptr %69, align 8
   %.not67 = icmp eq ptr %70, null
   br i1 %.not67, label %83, label %71
 
 71:                                               ; preds = %53
-  %72 = getelementptr inbounds i8, ptr %0, i64 4940
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 4940
   %73 = load i32, ptr %72, align 4
   %74 = and i32 %73, 8192
   %.not68 = icmp eq i32 %74, 0
   br i1 %.not68, label %83, label %75
 
 75:                                               ; preds = %71
-  %76 = getelementptr inbounds i8, ptr %3, i64 2656
+  %76 = getelementptr inbounds nuw i8, ptr %3, i64 2656
   %77 = load ptr, ptr %76, align 8
-  %78 = getelementptr inbounds i8, ptr %0, i64 2642
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 2642
   %79 = load i64, ptr %78, align 2
   %80 = and i64 %79, 8
   %81 = icmp ne i64 %80, 0
@@ -597,7 +597,7 @@ dupset.exit:                                      ; preds = %44, %49
   br i1 %.not69, label %dupset.exit.thread, label %83
 
 83:                                               ; preds = %75, %71, %53
-  %84 = getelementptr inbounds i8, ptr %0, i64 4816
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 4816
   %85 = load ptr, ptr %84, align 8
   %.not70 = icmp eq ptr %85, null
   br i1 %.not70, label %88, label %86
@@ -609,7 +609,7 @@ dupset.exit:                                      ; preds = %44, %49
   br i1 %.not71, label %dupset.exit.thread, label %88
 
 88:                                               ; preds = %86, %83
-  %89 = getelementptr inbounds i8, ptr %0, i64 4592
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 4592
   %90 = load ptr, ptr %89, align 8
   %.not72 = icmp eq ptr %90, null
   br i1 %.not72, label %99, label %91
@@ -617,20 +617,20 @@ dupset.exit:                                      ; preds = %44, %49
 91:                                               ; preds = %88
   %92 = load ptr, ptr @Curl_cstrdup, align 8
   %93 = tail call ptr %92(ptr noundef nonnull %90) #12
-  %94 = getelementptr inbounds i8, ptr %3, i64 4592
+  %94 = getelementptr inbounds nuw i8, ptr %3, i64 4592
   store ptr %93, ptr %94, align 8
   %.not73 = icmp eq ptr %93, null
   br i1 %.not73, label %dupset.exit.thread, label %95
 
 95:                                               ; preds = %91
-  %96 = getelementptr inbounds i8, ptr %3, i64 4940
+  %96 = getelementptr inbounds nuw i8, ptr %3, i64 4940
   %97 = load i32, ptr %96, align 4
   %98 = or i32 %97, 65536
   store i32 %98, ptr %96, align 4
   br label %99
 
 99:                                               ; preds = %95, %88
-  %100 = getelementptr inbounds i8, ptr %0, i64 4600
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 4600
   %101 = load ptr, ptr %100, align 8
   %.not74 = icmp eq ptr %101, null
   br i1 %.not74, label %110, label %102
@@ -638,20 +638,20 @@ dupset.exit:                                      ; preds = %44, %49
 102:                                              ; preds = %99
   %103 = load ptr, ptr @Curl_cstrdup, align 8
   %104 = tail call ptr %103(ptr noundef nonnull %101) #12
-  %105 = getelementptr inbounds i8, ptr %3, i64 4600
+  %105 = getelementptr inbounds nuw i8, ptr %3, i64 4600
   store ptr %104, ptr %105, align 8
   %.not75 = icmp eq ptr %104, null
   br i1 %.not75, label %dupset.exit.thread, label %106
 
 106:                                              ; preds = %102
-  %107 = getelementptr inbounds i8, ptr %3, i64 4940
+  %107 = getelementptr inbounds nuw i8, ptr %3, i64 4940
   %108 = load i32, ptr %107, align 4
   %109 = or i32 %108, 131072
   store i32 %109, ptr %107, align 4
   br label %110
 
 110:                                              ; preds = %106, %99
-  %111 = getelementptr inbounds i8, ptr %3, i64 2088
+  %111 = getelementptr inbounds nuw i8, ptr %3, i64 2088
   %112 = load ptr, ptr %111, align 8
   %.not76 = icmp eq ptr %112, null
   br i1 %.not76, label %115, label %113
@@ -662,20 +662,20 @@ dupset.exit:                                      ; preds = %44, %49
   br i1 %.not77, label %115, label %dupset.exit.thread
 
 115:                                              ; preds = %113, %110
-  %116 = getelementptr inbounds i8, ptr %0, i64 2664
+  %116 = getelementptr inbounds nuw i8, ptr %0, i64 2664
   %117 = load ptr, ptr %116, align 8
   %.not78 = icmp eq ptr %117, null
   br i1 %.not78, label %129, label %118
 
 118:                                              ; preds = %115
   %119 = tail call ptr @Curl_hsts_init() #12
-  %120 = getelementptr inbounds i8, ptr %3, i64 2664
+  %120 = getelementptr inbounds nuw i8, ptr %3, i64 2664
   store ptr %119, ptr %120, align 8
   %.not79 = icmp eq ptr %119, null
   br i1 %.not79, label %dupset.exit.thread, label %121
 
 121:                                              ; preds = %118
-  %122 = getelementptr inbounds i8, ptr %3, i64 2312
+  %122 = getelementptr inbounds nuw i8, ptr %3, i64 2312
   %123 = load ptr, ptr %122, align 8
   %.not80 = icmp eq ptr %123, null
   br i1 %.not80, label %126, label %124
@@ -697,16 +697,16 @@ dupset.exit:                                      ; preds = %44, %49
 
 dupset.exit.thread:                               ; preds = %16, %22, %40, %dupset.exit, %75, %86, %91, %102, %113, %118
   %131 = load ptr, ptr @Curl_cfree, align 8
-  %132 = getelementptr inbounds i8, ptr %3, i64 2656
+  %132 = getelementptr inbounds nuw i8, ptr %3, i64 2656
   %133 = load ptr, ptr %132, align 8
   tail call void %131(ptr noundef %133) #12
   %134 = load ptr, ptr @Curl_cfree, align 8
-  %135 = getelementptr inbounds i8, ptr %3, i64 3152
+  %135 = getelementptr inbounds nuw i8, ptr %3, i64 3152
   %136 = load ptr, ptr %135, align 8
   tail call void %134(ptr noundef %136) #12
-  %137 = getelementptr inbounds i8, ptr %3, i64 3112
+  %137 = getelementptr inbounds nuw i8, ptr %3, i64 3112
   tail call void @Curl_dyn_free(ptr noundef nonnull %137) #12
-  %138 = getelementptr inbounds i8, ptr %3, i64 2664
+  %138 = getelementptr inbounds nuw i8, ptr %3, i64 2664
   tail call void @Curl_hsts_cleanup(ptr noundef nonnull %138) #12
   tail call void @Curl_freeset(ptr noundef %3) #12
   %139 = load ptr, ptr @Curl_cfree, align 8
@@ -744,21 +744,21 @@ declare void @Curl_freeset(ptr noundef) local_unnamed_addr #6
 define dso_local void @curl_easy_reset(ptr noundef %0) local_unnamed_addr #5 {
   tail call void @Curl_free_request_state(ptr noundef %0) #12
   tail call void @Curl_freeset(ptr noundef %0) #12
-  %2 = getelementptr inbounds i8, ptr %0, i64 408
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 408
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2248) %2, i8 0, i64 2248, i1 false)
   %3 = tail call i32 @Curl_init_userdefined(ptr noundef %0) #12
-  %4 = getelementptr inbounds i8, ptr %0, i64 2672
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 2672
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(400) %4, i8 0, i64 400, i1 false)
   %5 = tail call i32 @Curl_initinfo(ptr noundef %0) #12
-  %6 = getelementptr inbounds i8, ptr %0, i64 2724
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 2724
   %7 = load i32, ptr %6, align 4
   %8 = or i32 %7, 16
   store i32 %8, ptr %6, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 3168
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 3168
   store i64 -1, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 3192
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 3192
   store i32 0, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 3488
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 3488
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %11, i8 0, i64 64, i1 false)
   tail call void @Curl_http_auth_cleanup_digest(ptr noundef %0) #12
   ret void
@@ -784,14 +784,14 @@ define dso_local i32 @curl_easy_pause(ptr noundef %0, i32 noundef %1) local_unna
   br i1 %5, label %6, label %62
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load ptr, ptr %7, align 8
   %.not44 = icmp eq ptr %8, null
   br i1 %.not44, label %62, label %9
 
 9:                                                ; preds = %6
   %10 = tail call zeroext i1 @Curl_is_in_callback(ptr noundef nonnull %0) #12
-  %11 = getelementptr inbounds i8, ptr %0, i64 300
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 300
   %12 = load i32, ptr %11, align 4
   %13 = and i32 %12, 48
   %14 = and i32 %12, -49
@@ -814,20 +814,20 @@ define dso_local i32 @curl_easy_pause(ptr noundef %0, i32 noundef %1) local_unna
   br i1 %.not47, label %38, label %27
 
 27:                                               ; preds = %23
-  %28 = getelementptr inbounds i8, ptr %0, i64 88
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %29 = load i32, ptr %28, align 8
   %30 = and i32 %29, -2
   %switch = icmp eq i32 %30, 12
   br i1 %switch, label %31, label %38
 
 31:                                               ; preds = %27
-  %32 = getelementptr inbounds i8, ptr %0, i64 4504
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 4504
   %33 = load ptr, ptr %32, align 8
   %34 = icmp eq ptr %33, @Curl_mime_read
   br i1 %34, label %35, label %38
 
 35:                                               ; preds = %31
-  %36 = getelementptr inbounds i8, ptr %0, i64 4512
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 4512
   %37 = load ptr, ptr %36, align 8
   tail call void @Curl_mime_unpause(ptr noundef %37) #12
   br label %38
@@ -848,20 +848,20 @@ define dso_local i32 @curl_easy_pause(ptr noundef %0, i32 noundef %1) local_unna
 
 43:                                               ; preds = %42
   tail call void @Curl_expire(ptr noundef nonnull %0, i64 noundef 0, i32 noundef 8) #12
-  %44 = getelementptr inbounds i8, ptr %0, i64 3080
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 3080
   store i64 0, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %0, i64 3336
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 3336
   %46 = load i32, ptr %45, align 8
   %.not50 = icmp eq i32 %46, 0
   br i1 %.not50, label %47, label %49
 
 47:                                               ; preds = %43
-  %48 = getelementptr inbounds i8, ptr %0, i64 4939
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 4939
   store i8 3, ptr %48, align 1
   br label %49
 
 49:                                               ; preds = %47, %43
-  %50 = getelementptr inbounds i8, ptr %0, i64 192
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %51 = load ptr, ptr %50, align 8
   %.not51 = icmp eq ptr %51, null
   br i1 %.not51, label %54, label %52
@@ -872,7 +872,7 @@ define dso_local i32 @curl_easy_pause(ptr noundef %0, i32 noundef %1) local_unna
   br i1 %.not52, label %54, label %62
 
 54:                                               ; preds = %49, %52, %42
-  %55 = getelementptr inbounds i8, ptr %0, i64 4940
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 4940
   %56 = load i32, ptr %55, align 4
   %57 = and i32 %56, 2048
   %.not53 = icmp eq i32 %57, 0
@@ -925,7 +925,7 @@ define dso_local i32 @curl_easy_recv(ptr noundef %0, ptr noundef %1, i64 noundef
   br i1 %.not.i, label %easy_connection.exit.thread, label %9
 
 9:                                                ; preds = %8
-  %10 = getelementptr inbounds i8, ptr %0, i64 2641
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 2641
   %11 = load i8, ptr %10, align 1
   %.not9.i = icmp eq i8 %11, 0
   br i1 %.not9.i, label %.sink.split.i, label %12
@@ -941,7 +941,7 @@ define dso_local i32 @curl_easy_recv(ptr noundef %0, ptr noundef %1, i64 noundef
   br label %easy_connection.exit.thread
 
 easy_connection.exit:                             ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %16 = load ptr, ptr %15, align 8
   %.not15 = icmp eq ptr %16, null
   br i1 %.not15, label %17, label %19
@@ -982,7 +982,7 @@ define dso_local i32 @Curl_senddata(ptr noundef %0, ptr noundef %1, i64 noundef 
   br i1 %.not.i, label %easy_connection.exit.thread, label %9
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %0, i64 2641
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 2641
   %11 = load i8, ptr %10, align 1
   %.not9.i = icmp eq i8 %11, 0
   br i1 %.not9.i, label %.sink.split.i, label %12
@@ -998,7 +998,7 @@ define dso_local i32 @Curl_senddata(ptr noundef %0, ptr noundef %1, i64 noundef 
   br label %easy_connection.exit.thread
 
 easy_connection.exit:                             ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %16 = load ptr, ptr %15, align 8
   %.not16 = icmp eq ptr %16, null
   br i1 %.not16, label %17, label %19
@@ -1011,9 +1011,9 @@ easy_connection.exit:                             ; preds = %12
 19:                                               ; preds = %17, %easy_connection.exit
   store i64 0, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %5)
-  %20 = getelementptr inbounds i8, ptr %0, i64 2642
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 2642
   %21 = load i64, ptr %20, align 2
-  %22 = getelementptr inbounds i8, ptr %8, i64 152
+  %22 = getelementptr inbounds nuw i8, ptr %8, i64 152
   %23 = lshr i64 %21, 32
   %24 = trunc i64 %23 to i8
   %25 = and i8 %24, 1
@@ -1092,18 +1092,18 @@ define dso_local range(i32 0, 44) i32 @curl_easy_upkeep(ptr noundef %0) local_un
   br i1 %5, label %6, label %16
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 200
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %8 = load ptr, ptr %7, align 8
   %.not7 = icmp eq ptr %8, null
   br i1 %.not7, label %16, label %9
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %8, i64 272
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 272
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   %11 = tail call { i64, i32 } @Curl_now() #12
   %12 = extractvalue { i64, i32 } %11, 0
   store i64 %12, ptr %2, align 8
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = extractvalue { i64, i32 } %11, 1
   store i32 %14, ptr %13, align 8
   %15 = call zeroext i1 @Curl_conncache_foreach(ptr noundef nonnull %0, ptr noundef nonnull %10, ptr noundef nonnull %2, ptr noundef nonnull @conn_upkeep) #12
@@ -1163,24 +1163,24 @@ declare zeroext i1 @Curl_conncache_foreach(ptr noundef, ptr noundef, ptr noundef
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @conn_upkeep(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #5 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 696
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 696
   %5 = load i64, ptr %2, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load i32, ptr %6, align 8
   %8 = load i64, ptr %4, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 704
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 704
   %10 = load i32, ptr %9, align 8
   %11 = tail call i64 @Curl_timediff(i64 %5, i32 %7, i64 %8, i32 %10) #12
-  %12 = getelementptr inbounds i8, ptr %0, i64 2584
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 2584
   %13 = load i64, ptr %12, align 8
   %.not = icmp sgt i64 %11, %13
   br i1 %.not, label %14, label %24
 
 14:                                               ; preds = %3
   tail call void @Curl_attach_connection(ptr noundef nonnull %0, ptr noundef nonnull %1) #12
-  %15 = getelementptr inbounds i8, ptr %1, i64 680
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 680
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 112
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 112
   %18 = load ptr, ptr %17, align 8
   %.not15 = icmp eq ptr %18, null
   br i1 %.not15, label %21, label %19

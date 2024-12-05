@@ -17,26 +17,26 @@ define hidden i32 @_ZN11proc_macro29TokenTree4span17h01751e3b2c8c2adfE(ptr nocap
   unreachable
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %.sink.split, label %18
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load i8, ptr %9, align 8
   %11 = icmp eq i8 %10, 2
   br i1 %11, label %.sink.split, label %18
 
 12:                                               ; preds = %1
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load i64, ptr %13, align 8
   %15 = icmp eq i64 %14, -9223372036854775808
   br i1 %15, label %.sink.split, label %18
 
 .sink.split:                                      ; preds = %4, %1, %12, %8
   %.sink7 = phi i64 [ 12, %8 ], [ 20, %12 ], [ 8, %1 ], [ 20, %4 ]
-  %16 = getelementptr inbounds i8, ptr %0, i64 %.sink7
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink7
   %17 = load i32, ptr %16, align 4
   br label %18
 

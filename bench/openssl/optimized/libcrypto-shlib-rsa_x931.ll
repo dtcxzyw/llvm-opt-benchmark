@@ -29,7 +29,7 @@ if.then3:                                         ; preds = %if.end
   br label %if.end11
 
 if.else:                                          ; preds = %if.end
-  %incdec.ptr4 = getelementptr inbounds i8, ptr %to, i64 1
+  %incdec.ptr4 = getelementptr inbounds nuw i8, ptr %to, i64 1
   store i8 107, ptr %to, align 1
   %cmp5 = icmp samesign ugt i32 %sub, 3
   br i1 %cmp5, label %if.then6, label %if.end9
@@ -38,7 +38,7 @@ if.then6:                                         ; preds = %if.else
   %sub7 = add nsw i32 %sub, -3
   %conv = zext nneg i32 %sub7 to i64
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %incdec.ptr4, i8 -69, i64 %conv, i1 false)
-  %add.ptr = getelementptr inbounds i8, ptr %incdec.ptr4, i64 %conv
+  %add.ptr = getelementptr inbounds nuw i8, ptr %incdec.ptr4, i64 %conv
   br label %if.end9
 
 if.end9:                                          ; preds = %if.then6, %if.else
@@ -48,7 +48,7 @@ if.end9:                                          ; preds = %if.then6, %if.else
 
 if.end11:                                         ; preds = %if.end9, %if.then3
   %to.pn = phi ptr [ %to, %if.then3 ], [ %p.1, %if.end9 ]
-  %p.0 = getelementptr inbounds i8, ptr %to.pn, i64 1
+  %p.0 = getelementptr inbounds nuw i8, ptr %to.pn, i64 1
   %conv12 = zext i32 %flen to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %p.0, ptr align 1 %from, i64 %conv12, i1 false)
   %idx.ext13 = sext i32 %flen to i64
@@ -92,7 +92,7 @@ if.then:                                          ; preds = %lor.lhs.false, %ent
   br label %return
 
 if.end:                                           ; preds = %lor.lhs.false
-  %incdec.ptr = getelementptr inbounds i8, ptr %from, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %from, i64 1
   %cmp7 = icmp eq i8 %0, 107
   br i1 %cmp7, label %if.then9, label %if.else
 
@@ -110,7 +110,7 @@ for.body.preheader:                               ; preds = %if.then9
 for.body:                                         ; preds = %for.body.preheader, %for.inc
   %p.019 = phi ptr [ %incdec.ptr12, %for.inc ], [ %incdec.ptr, %for.body.preheader ]
   %i.018 = phi i32 [ %inc, %for.inc ], [ 0, %for.body.preheader ]
-  %incdec.ptr12 = getelementptr inbounds i8, ptr %p.019, i64 1
+  %incdec.ptr12 = getelementptr inbounds nuw i8, ptr %p.019, i64 1
   %4 = load i8, ptr %p.019, align 1
   switch i8 %4, label %if.then21 [
     i8 -70, label %for.end

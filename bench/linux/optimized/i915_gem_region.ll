@@ -29,20 +29,20 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @i915_gem_object_init_memory_region(ptr noundef initializes((704, 712)) %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 704
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 704
   store ptr %1, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 192
-  tail call void @mutex_lock(ptr noundef %4) #7
-  %5 = getelementptr inbounds i8, ptr %0, i64 720
-  %6 = getelementptr inbounds i8, ptr %1, i64 224
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 192
+  tail call void @mutex_lock(ptr noundef nonnull %4) #7
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 720
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 224
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %5, ptr %8, align 8
   store ptr %7, ptr %5, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 728
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 728
   store ptr %6, ptr %9, align 8
   store volatile ptr %5, ptr %6, align 8
-  tail call void @mutex_unlock(ptr noundef %4) #7
+  tail call void @mutex_unlock(ptr noundef nonnull %4) #7
   ret void
 }
 
@@ -54,20 +54,20 @@ declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @i915_gem_object_release_memory_region(ptr nocapture noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 704
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 704
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 192
-  tail call void @mutex_lock(ptr noundef %4) #7
-  %5 = getelementptr inbounds i8, ptr %0, i64 720
-  %6 = getelementptr inbounds i8, ptr %0, i64 728
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 192
+  tail call void @mutex_lock(ptr noundef nonnull %4) #7
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 720
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 728
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %5, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %7, ptr %9, align 8
   store volatile ptr %8, ptr %7, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %5, align 8
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %6, align 8
-  tail call void @mutex_unlock(ptr noundef %4) #7
+  tail call void @mutex_unlock(ptr noundef nonnull %4) #7
   ret void
 }
 
@@ -104,7 +104,7 @@ define internal fastcc ptr @__i915_gem_object_create_region(ptr noundef %0, i64 
   br i1 %14, label %64, label %15
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %0, i64 128
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %17 = load i64, ptr %16, align 8
   %18 = tail call ptr @i915_gem_object_alloc() #7
   %19 = icmp eq ptr %18, null
@@ -124,9 +124,9 @@ define internal fastcc ptr @__i915_gem_object_create_region(ptr noundef %0, i64 
   %31 = icmp ult i64 %22, %30
   %32 = or i32 %29, 32
   %33 = select i1 %31, i32 %32, i32 %29
-  %34 = getelementptr inbounds i8, ptr %0, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %37 = load ptr, ptr %36, align 8
   %38 = tail call i32 %37(ptr noundef nonnull %0, ptr noundef nonnull %18, i64 noundef %1, i64 noundef %26, i64 noundef %3, i32 noundef %33) #7
   %39 = icmp eq i32 %38, 0
@@ -153,7 +153,7 @@ define internal fastcc ptr @__i915_gem_object_create_region(ptr noundef %0, i64 
   br i1 %49, label %54, label %50
 
 50:                                               ; preds = %47
-  %51 = getelementptr inbounds i8, ptr %48, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %52 = load ptr, ptr %51, align 8
   %53 = tail call i32 @__SCT__tp_func_i915_gem_object_create(ptr noundef %52, ptr noundef nonnull %18) #7
   br label %54
@@ -185,7 +185,7 @@ define internal fastcc ptr @__i915_gem_object_create_region(ptr noundef %0, i64 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @i915_gem_object_create_region_at(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 align 16 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 128
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %6 = load i64, ptr %5, align 8
   %7 = add i64 %6, -1
   %8 = or i64 %2, %1
@@ -194,8 +194,8 @@ define dso_local ptr @i915_gem_object_create_region_at(ptr noundef %0, i64 nound
   br i1 %10, label %11, label %42
 
 11:                                               ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %0, i64 48
-  %13 = getelementptr inbounds i8, ptr %0, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %14 = load i64, ptr %13, align 8
   %15 = load i64, ptr %12, align 8
   %16 = add i64 %14, 1
@@ -213,18 +213,18 @@ define dso_local ptr @i915_gem_object_create_region_at(ptr noundef %0, i64 nound
 
 25:                                               ; preds = %22
   %26 = add i64 %2, %1
-  %27 = getelementptr inbounds i8, ptr %0, i64 120
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %28 = load i64, ptr %27, align 8
   %29 = icmp ugt i64 %26, %28
   br i1 %29, label %30, label %39
 
 30:                                               ; preds = %25
   %31 = load ptr, ptr %0, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 9304
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 9304
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 32
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 776
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 776
   %37 = load i64, ptr %36, align 8
   %38 = icmp eq i64 %37, 0
   br i1 %38, label %42, label %39
@@ -245,14 +245,14 @@ define dso_local range(i32 -34, -35) i32 @i915_gem_process_region(ptr noundef %0
   %4 = alloca %struct.i915_gem_ww_ctx, align 8
   %5 = load ptr, ptr %1, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #7
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store volatile ptr %3, ptr %3, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store volatile ptr %3, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 192
-  call void @mutex_lock(ptr noundef %8) #7
-  %9 = getelementptr inbounds i8, ptr %0, i64 224
-  %10 = getelementptr inbounds i8, ptr %1, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  call void @mutex_lock(ptr noundef nonnull %8) #7
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 224
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, i8 0, i64 56, i1 false), !annotation !19
   %11 = load volatile ptr, ptr %9, align 8
@@ -269,10 +269,10 @@ define dso_local range(i32 -34, -35) i32 @i915_gem_process_region(ptr noundef %0
 .lr.ph:                                           ; preds = %2, %.backedge
   %16 = phi ptr [ %111, %.backedge ], [ %13, %2 ]
   %17 = phi ptr [ %109, %.backedge ], [ %11, %2 ]
-  %18 = getelementptr inbounds i8, ptr %17, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = load ptr, ptr %17, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store ptr %19, ptr %21, align 8
   store volatile ptr %20, ptr %19, align 8
   %22 = load ptr, ptr %7, align 8
@@ -315,7 +315,7 @@ define dso_local range(i32 -34, -35) i32 @i915_gem_process_region(ptr noundef %0
   br i1 %39, label %114, label %40, !llvm.loop !24
 
 40:                                               ; preds = %38
-  call void @mutex_unlock(ptr noundef %8) #7
+  call void @mutex_unlock(ptr noundef nonnull %8) #7
   store ptr %4, ptr %6, align 8
   %41 = load i8, ptr %10, align 8
   %42 = and i8 %41, 1
@@ -333,7 +333,7 @@ define dso_local range(i32 -34, -35) i32 @i915_gem_process_region(ptr noundef %0
   br i1 %50, label %58, label %51
 
 51:                                               ; preds = %48
-  %52 = getelementptr inbounds i8, ptr %49, i64 48
+  %52 = getelementptr inbounds nuw i8, ptr %49, i64 48
   %53 = load i8, ptr %52, align 8, !range !25, !noundef !26
   %54 = icmp eq i8 %53, 0
   br i1 %54, label %58, label %55
@@ -372,8 +372,8 @@ define dso_local range(i32 -34, -35) i32 @i915_gem_process_region(ptr noundef %0
   br label %75
 
 75:                                               ; preds = %73, %69
-  %76 = getelementptr inbounds i8, ptr %49, i64 24
-  %77 = getelementptr inbounds i8, ptr %49, i64 32
+  %76 = getelementptr inbounds nuw i8, ptr %49, i64 24
+  %77 = getelementptr inbounds nuw i8, ptr %49, i64 32
   %78 = load ptr, ptr %77, align 8
   store ptr %45, ptr %77, align 8
   store ptr %76, ptr %45, align 8
@@ -406,7 +406,7 @@ define dso_local range(i32 -34, -35) i32 @i915_gem_process_region(ptr noundef %0
   br label %.thread13
 
 .thread13:                                        ; preds = %85, %89
-  %91 = getelementptr inbounds i8, ptr %49, i64 40
+  %91 = getelementptr inbounds nuw i8, ptr %49, i64 40
   store ptr %16, ptr %91, align 8
   br label %select.unfold
 
@@ -456,7 +456,7 @@ select.unfold:                                    ; preds = %.thread13, %98
   br label %.thread17
 
 .thread17:                                        ; preds = %105, %107, %108
-  call void @mutex_lock(ptr noundef %8) #7
+  call void @mutex_lock(ptr noundef nonnull %8) #7
   %.not19 = icmp eq i32 %102, 0
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #7
   br i1 %.not19, label %.backedge, label %.loopexit
@@ -482,10 +482,10 @@ select.unfold:                                    ; preds = %.thread13, %98
   br i1 %117, label %123, label %118
 
 118:                                              ; preds = %.loopexit
-  %119 = getelementptr inbounds i8, ptr %0, i64 232
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %120 = load ptr, ptr %119, align 8
   %121 = load ptr, ptr %7, align 8
-  %122 = getelementptr inbounds i8, ptr %116, i64 8
+  %122 = getelementptr inbounds nuw i8, ptr %116, i64 8
   store ptr %120, ptr %122, align 8
   store ptr %116, ptr %120, align 8
   store ptr %9, ptr %121, align 8
@@ -493,7 +493,7 @@ select.unfold:                                    ; preds = %.thread13, %98
   br label %123
 
 123:                                              ; preds = %118, %.loopexit
-  call void @mutex_unlock(ptr noundef %8) #7
+  call void @mutex_unlock(ptr noundef nonnull %8) #7
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #7
   ret i32 %115
 }

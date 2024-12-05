@@ -103,7 +103,7 @@ define hidden noundef i32 @_ZN4ncnn7Squeeze10load_paramERKNS_9ParamDictE(ptr nou
 
 32:                                               ; preds = %28
   %33 = load ptr, ptr %30, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 24
   %35 = load ptr, ptr %34, align 8
   invoke void %35(ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef %31)
           to label %38 unwind label %107
@@ -178,7 +178,7 @@ define hidden noundef i32 @_ZN4ncnn7Squeeze10load_paramERKNS_9ParamDictE(ptr nou
 
 76:                                               ; preds = %72
   %77 = load ptr, ptr %74, align 8
-  %78 = getelementptr inbounds i8, ptr %77, i64 24
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 24
   %79 = load ptr, ptr %78, align 8
   invoke void %79(ptr noundef nonnull align 8 dereferenceable(8) %74, ptr noundef %75)
           to label %82 unwind label %86
@@ -221,7 +221,7 @@ define hidden noundef i32 @_ZN4ncnn7Squeeze10load_paramERKNS_9ParamDictE(ptr nou
 
 95:                                               ; preds = %92
   %96 = load ptr, ptr %93, align 8
-  %97 = getelementptr inbounds i8, ptr %96, i64 24
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 24
   %98 = load ptr, ptr %97, align 8
   invoke void %98(ptr noundef nonnull align 8 dereferenceable(8) %93, ptr noundef %94)
           to label %101 unwind label %102
@@ -270,7 +270,7 @@ define hidden noundef i32 @_ZN4ncnn7Squeeze10load_paramERKNS_9ParamDictE(ptr nou
 
 117:                                              ; preds = %113
   %118 = load ptr, ptr %115, align 8
-  %119 = getelementptr inbounds i8, ptr %118, i64 24
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 24
   %120 = load ptr, ptr %119, align 8
   invoke void %120(ptr noundef nonnull align 8 dereferenceable(8) %115, ptr noundef %116)
           to label %123 unwind label %126
@@ -317,7 +317,7 @@ define hidden noundef i32 @_ZN4ncnn7Squeeze10load_paramERKNS_9ParamDictE(ptr nou
 
 137:                                              ; preds = %134
   %138 = load ptr, ptr %135, align 8
-  %139 = getelementptr inbounds i8, ptr %138, i64 24
+  %139 = getelementptr inbounds nuw i8, ptr %138, i64 24
   %140 = load ptr, ptr %139, align 8
   invoke void %140(ptr noundef nonnull align 8 dereferenceable(8) %135, ptr noundef %136)
           to label %143 unwind label %144
@@ -426,7 +426,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn7Squeeze7forwardERKNS_3Ma
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split.us.split.us ], [ 0, %.lr.ph ]
   %.111351738.us.us = phi i8 [ %.4.us.us, %.lr.ph.split.us.split.us ], [ 0, %.lr.ph ]
   %.111391737.us.us = phi i8 [ %.5.us.us, %.lr.ph.split.us.split.us ], [ 0, %.lr.ph ]
-  %68 = getelementptr inbounds i32, ptr %42, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw i32, ptr %42, i64 %indvars.iv
   %69 = load i32, ptr %68, align 4
   %70 = icmp slt i32 %69, 0
   %71 = select i1 %70, i32 %.fr, i32 0
@@ -457,7 +457,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn7Squeeze7forwardERKNS_3Ma
   %.11740.us1750 = phi i8 [ %spec.select1782, %.lr.ph.split.split.us ], [ 0, %.lr.ph.split ]
   %.111351738.us1752 = phi i8 [ %.4.us1763, %.lr.ph.split.split.us ], [ 0, %.lr.ph.split ]
   %.111391737.us1753 = phi i8 [ %.5.us1765, %.lr.ph.split.split.us ], [ 0, %.lr.ph.split ]
-  %79 = getelementptr inbounds i32, ptr %42, i64 %indvars.iv1792
+  %79 = getelementptr inbounds nuw i32, ptr %42, i64 %indvars.iv1792
   %80 = load i32, ptr %79, align 4
   %81 = icmp slt i32 %80, 0
   %82 = select i1 %81, i32 %.fr, i32 0
@@ -512,7 +512,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn7Squeeze7forwardERKNS_3Ma
   %.111321739 = phi i8 [ %unswitched.select1748, %.lr.ph.split.split ], [ 0, %.lr.ph.split ]
   %.111351738 = phi i8 [ %.4, %.lr.ph.split.split ], [ 0, %.lr.ph.split ]
   %.111391737 = phi i8 [ %.5, %.lr.ph.split.split ], [ 0, %.lr.ph.split ]
-  %108 = getelementptr inbounds i32, ptr %42, i64 %indvars.iv1796
+  %108 = getelementptr inbounds nuw i32, ptr %42, i64 %indvars.iv1796
   %109 = load i32, ptr %108, align 4
   %110 = lshr i32 %109, 29
   %111 = and i32 %110, 4
@@ -581,7 +581,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn7Squeeze7forwardERKNS_3Ma
 
 138:                                              ; preds = %134
   %139 = load ptr, ptr %136, align 8
-  %140 = getelementptr inbounds i8, ptr %139, i64 24
+  %140 = getelementptr inbounds nuw i8, ptr %139, i64 24
   %141 = load ptr, ptr %140, align 8
   tail call void %141(ptr noundef nonnull align 8 dereferenceable(8) %136, ptr noundef %137)
   br label %144
@@ -684,7 +684,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn7Squeeze7forwardERKNS_3Ma
 
 189:                                              ; preds = %185
   %190 = load ptr, ptr %187, align 8
-  %191 = getelementptr inbounds i8, ptr %190, i64 24
+  %191 = getelementptr inbounds nuw i8, ptr %190, i64 24
   %192 = load ptr, ptr %191, align 8
   invoke void %192(ptr noundef nonnull align 8 dereferenceable(8) %187, ptr noundef %188)
           to label %195 unwind label %241
@@ -759,7 +759,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn7Squeeze7forwardERKNS_3Ma
 
 233:                                              ; preds = %229
   %234 = load ptr, ptr %231, align 8
-  %235 = getelementptr inbounds i8, ptr %234, i64 24
+  %235 = getelementptr inbounds nuw i8, ptr %234, i64 24
   %236 = load ptr, ptr %235, align 8
   invoke void %236(ptr noundef nonnull align 8 dereferenceable(8) %231, ptr noundef %232)
           to label %2454 unwind label %238
@@ -796,7 +796,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn7Squeeze7forwardERKNS_3Ma
 
 251:                                              ; preds = %247
   %252 = load ptr, ptr %249, align 8
-  %253 = getelementptr inbounds i8, ptr %252, i64 24
+  %253 = getelementptr inbounds nuw i8, ptr %252, i64 24
   %254 = load ptr, ptr %253, align 8
   invoke void %254(ptr noundef nonnull align 8 dereferenceable(8) %249, ptr noundef %250)
           to label %2465 unwind label %256
@@ -857,7 +857,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn7Squeeze7forwardERKNS_3Ma
 
 280:                                              ; preds = %276
   %281 = load ptr, ptr %278, align 8
-  %282 = getelementptr inbounds i8, ptr %281, i64 24
+  %282 = getelementptr inbounds nuw i8, ptr %281, i64 24
   %283 = load ptr, ptr %282, align 8
   invoke void %283(ptr noundef nonnull align 8 dereferenceable(8) %278, ptr noundef %279)
           to label %286 unwind label %332
@@ -932,7 +932,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn7Squeeze7forwardERKNS_3Ma
 
 324:                                              ; preds = %320
   %325 = load ptr, ptr %322, align 8
-  %326 = getelementptr inbounds i8, ptr %325, i64 24
+  %326 = getelementptr inbounds nuw i8, ptr %325, i64 24
   %327 = load ptr, ptr %326, align 8
   invoke void %327(ptr noundef nonnull align 8 dereferenceable(8) %322, ptr noundef %323)
           to label %2454 unwind label %329
@@ -969,7 +969,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn7Squeeze7forwardERKNS_3Ma
 
 342:                                              ; preds = %338
   %343 = load ptr, ptr %340, align 8
-  %344 = getelementptr inbounds i8, ptr %343, i64 24
+  %344 = getelementptr inbounds nuw i8, ptr %343, i64 24
   %345 = load ptr, ptr %344, align 8
   invoke void %345(ptr noundef nonnull align 8 dereferenceable(8) %340, ptr noundef %341)
           to label %2465 unwind label %347
@@ -1020,7 +1020,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn7Squeeze7forwardERKNS_3Ma
 
 365:                                              ; preds = %361
   %366 = load ptr, ptr %363, align 8
-  %367 = getelementptr inbounds i8, ptr %366, i64 24
+  %367 = getelementptr inbounds nuw i8, ptr %366, i64 24
   %368 = load ptr, ptr %367, align 8
   invoke void %368(ptr noundef nonnull align 8 dereferenceable(8) %363, ptr noundef %364)
           to label %371 unwind label %417
@@ -1095,7 +1095,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn7Squeeze7forwardERKNS_3Ma
 
 409:                                              ; preds = %405
   %410 = load ptr, ptr %407, align 8
-  %411 = getelementptr inbounds i8, ptr %410, i64 24
+  %411 = getelementptr inbounds nuw i8, ptr %410, i64 24
   %412 = load ptr, ptr %411, align 8
   invoke void %412(ptr noundef nonnull align 8 dereferenceable(8) %407, ptr noundef %408)
           to label %2454 unwind label %414
@@ -1132,7 +1132,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn7Squeeze7forwardERKNS_3Ma
 
 427:                                              ; preds = %423
   %428 = load ptr, ptr %425, align 8
-  %429 = getelementptr inbounds i8, ptr %428, i64 24
+  %429 = getelementptr inbounds nuw i8, ptr %428, i64 24
   %430 = load ptr, ptr %429, align 8
   invoke void %430(ptr noundef nonnull align 8 dereferenceable(8) %425, ptr noundef %426)
           to label %2465 unwind label %432
@@ -1188,7 +1188,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn7Squeeze7forwardERKNS_3Ma
 
 452:                                              ; preds = %448
   %453 = load ptr, ptr %450, align 8
-  %454 = getelementptr inbounds i8, ptr %453, i64 24
+  %454 = getelementptr inbounds nuw i8, ptr %453, i64 24
   %455 = load ptr, ptr %454, align 8
   invoke void %455(ptr noundef nonnull align 8 dereferenceable(8) %450, ptr noundef %451)
           to label %458 unwind label %504
@@ -1263,7 +1263,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn7Squeeze7forwardERKNS_3Ma
 
 496:                                              ; preds = %492
   %497 = load ptr, ptr %494, align 8
-  %498 = getelementptr inbounds i8, ptr %497, i64 24
+  %498 = getelementptr inbounds nuw i8, ptr %497, i64 24
   %499 = load ptr, ptr %498, align 8
   invoke void %499(ptr noundef nonnull align 8 dereferenceable(8) %494, ptr noundef %495)
           to label %2454 unwind label %501
@@ -1300,7 +1300,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn7Squeeze7forwardERKNS_3Ma
 
 514:                                              ; preds = %510
   %515 = load ptr, ptr %512, align 8
-  %516 = getelementptr inbounds i8, ptr %515, i64 24
+  %516 = getelementptr inbounds nuw i8, ptr %515, i64 24
   %517 = load ptr, ptr %516, align 8
   invoke void %517(ptr noundef nonnull align 8 dereferenceable(8) %512, ptr noundef %513)
           to label %2465 unwind label %519
@@ -1365,7 +1365,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn7Squeeze7forwardERKNS_3Ma
 
 545:                                              ; preds = %541
   %546 = load ptr, ptr %543, align 8
-  %547 = getelementptr inbounds i8, ptr %546, i64 24
+  %547 = getelementptr inbounds nuw i8, ptr %546, i64 24
   %548 = load ptr, ptr %547, align 8
   invoke void %548(ptr noundef nonnull align 8 dereferenceable(8) %543, ptr noundef %544)
           to label %551 unwind label %597
@@ -1440,7 +1440,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn7Squeeze7forwardERKNS_3Ma
 
 589:                                              ; preds = %585
   %590 = load ptr, ptr %587, align 8
-  %591 = getelementptr inbounds i8, ptr %590, i64 24
+  %591 = getelementptr inbounds nuw i8, ptr %590, i64 24
   %592 = load ptr, ptr %591, align 8
   invoke void %592(ptr noundef nonnull align 8 dereferenceable(8) %587, ptr noundef %588)
           to label %2454 unwind label %594
@@ -1477,7 +1477,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn7Squeeze7forwardERKNS_3Ma
 
 607:                                              ; preds = %603
   %608 = load ptr, ptr %605, align 8
-  %609 = getelementptr inbounds i8, ptr %608, i64 24
+  %609 = getelementptr inbounds nuw i8, ptr %608, i64 24
   %610 = load ptr, ptr %609, align 8
   invoke void %610(ptr noundef nonnull align 8 dereferenceable(8) %605, ptr noundef %606)
           to label %2465 unwind label %612
@@ -1528,7 +1528,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn7Squeeze7forwardERKNS_3Ma
 
 630:                                              ; preds = %626
   %631 = load ptr, ptr %628, align 8
-  %632 = getelementptr inbounds i8, ptr %631, i64 24
+  %632 = getelementptr inbounds nuw i8, ptr %631, i64 24
   %633 = load ptr, ptr %632, align 8
   invoke void %633(ptr noundef nonnull align 8 dereferenceable(8) %628, ptr noundef %629)
           to label %636 unwind label %682
@@ -1603,7 +1603,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn7Squeeze7forwardERKNS_3Ma
 
 674:                                              ; preds = %670
   %675 = load ptr, ptr %672, align 8
-  %676 = getelementptr inbounds i8, ptr %675, i64 24
+  %676 = getelementptr inbounds nuw i8, ptr %675, i64 24
   %677 = load ptr, ptr %676, align 8
   invoke void %677(ptr noundef nonnull align 8 dereferenceable(8) %672, ptr noundef %673)
           to label %2454 unwind label %679
@@ -1640,7 +1640,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn7Squeeze7forwardERKNS_3Ma
 
 692:                                              ; preds = %688
   %693 = load ptr, ptr %690, align 8
-  %694 = getelementptr inbounds i8, ptr %693, i64 24
+  %694 = getelementptr inbounds nuw i8, ptr %693, i64 24
   %695 = load ptr, ptr %694, align 8
   invoke void %695(ptr noundef nonnull align 8 dereferenceable(8) %690, ptr noundef %691)
           to label %2465 unwind label %697
@@ -1699,7 +1699,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn7Squeeze7forwardERKNS_3Ma
 
 717:                                              ; preds = %713
   %718 = load ptr, ptr %715, align 8
-  %719 = getelementptr inbounds i8, ptr %718, i64 24
+  %719 = getelementptr inbounds nuw i8, ptr %718, i64 24
   %720 = load ptr, ptr %719, align 8
   invoke void %720(ptr noundef nonnull align 8 dereferenceable(8) %715, ptr noundef %716)
           to label %723 unwind label %769
@@ -1774,7 +1774,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn7Squeeze7forwardERKNS_3Ma
 
 761:                                              ; preds = %757
   %762 = load ptr, ptr %759, align 8
-  %763 = getelementptr inbounds i8, ptr %762, i64 24
+  %763 = getelementptr inbounds nuw i8, ptr %762, i64 24
   %764 = load ptr, ptr %763, align 8
   invoke void %764(ptr noundef nonnull align 8 dereferenceable(8) %759, ptr noundef %760)
           to label %2454 unwind label %766
@@ -1811,7 +1811,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn7Squeeze7forwardERKNS_3Ma
 
 779:                                              ; preds = %775
   %780 = load ptr, ptr %777, align 8
-  %781 = getelementptr inbounds i8, ptr %780, i64 24
+  %781 = getelementptr inbounds nuw i8, ptr %780, i64 24
   %782 = load ptr, ptr %781, align 8
   invoke void %782(ptr noundef nonnull align 8 dereferenceable(8) %777, ptr noundef %778)
           to label %2465 unwind label %784
@@ -1865,7 +1865,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn7Squeeze7forwardERKNS_3Ma
 
 802:                                              ; preds = %798
   %803 = load ptr, ptr %800, align 8
-  %804 = getelementptr inbounds i8, ptr %803, i64 24
+  %804 = getelementptr inbounds nuw i8, ptr %803, i64 24
   %805 = load ptr, ptr %804, align 8
   invoke void %805(ptr noundef nonnull align 8 dereferenceable(8) %800, ptr noundef %801)
           to label %808 unwind label %854
@@ -1940,7 +1940,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn7Squeeze7forwardERKNS_3Ma
 
 846:                                              ; preds = %842
   %847 = load ptr, ptr %844, align 8
-  %848 = getelementptr inbounds i8, ptr %847, i64 24
+  %848 = getelementptr inbounds nuw i8, ptr %847, i64 24
   %849 = load ptr, ptr %848, align 8
   invoke void %849(ptr noundef nonnull align 8 dereferenceable(8) %844, ptr noundef %845)
           to label %2454 unwind label %851
@@ -1977,7 +1977,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn7Squeeze7forwardERKNS_3Ma
 
 864:                                              ; preds = %860
   %865 = load ptr, ptr %862, align 8
-  %866 = getelementptr inbounds i8, ptr %865, i64 24
+  %866 = getelementptr inbounds nuw i8, ptr %865, i64 24
   %867 = load ptr, ptr %866, align 8
   invoke void %867(ptr noundef nonnull align 8 dereferenceable(8) %862, ptr noundef %863)
           to label %2465 unwind label %869
@@ -2028,7 +2028,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn7Squeeze7forwardERKNS_3Ma
 
 887:                                              ; preds = %883
   %888 = load ptr, ptr %885, align 8
-  %889 = getelementptr inbounds i8, ptr %888, i64 24
+  %889 = getelementptr inbounds nuw i8, ptr %888, i64 24
   %890 = load ptr, ptr %889, align 8
   invoke void %890(ptr noundef nonnull align 8 dereferenceable(8) %885, ptr noundef %886)
           to label %893 unwind label %939
@@ -2103,7 +2103,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn7Squeeze7forwardERKNS_3Ma
 
 931:                                              ; preds = %927
   %932 = load ptr, ptr %929, align 8
-  %933 = getelementptr inbounds i8, ptr %932, i64 24
+  %933 = getelementptr inbounds nuw i8, ptr %932, i64 24
   %934 = load ptr, ptr %933, align 8
   invoke void %934(ptr noundef nonnull align 8 dereferenceable(8) %929, ptr noundef %930)
           to label %2454 unwind label %936
@@ -2140,7 +2140,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn7Squeeze7forwardERKNS_3Ma
 
 949:                                              ; preds = %945
   %950 = load ptr, ptr %947, align 8
-  %951 = getelementptr inbounds i8, ptr %950, i64 24
+  %951 = getelementptr inbounds nuw i8, ptr %950, i64 24
   %952 = load ptr, ptr %951, align 8
   invoke void %952(ptr noundef nonnull align 8 dereferenceable(8) %947, ptr noundef %948)
           to label %2465 unwind label %954
@@ -2191,7 +2191,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn7Squeeze7forwardERKNS_3Ma
 
 971:                                              ; preds = %967
   %972 = load ptr, ptr %969, align 8
-  %973 = getelementptr inbounds i8, ptr %972, i64 24
+  %973 = getelementptr inbounds nuw i8, ptr %972, i64 24
   %974 = load ptr, ptr %973, align 8
   invoke void %974(ptr noundef nonnull align 8 dereferenceable(8) %969, ptr noundef %970)
           to label %977 unwind label %1023
@@ -2266,7 +2266,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn7Squeeze7forwardERKNS_3Ma
 
 1015:                                             ; preds = %1011
   %1016 = load ptr, ptr %1013, align 8
-  %1017 = getelementptr inbounds i8, ptr %1016, i64 24
+  %1017 = getelementptr inbounds nuw i8, ptr %1016, i64 24
   %1018 = load ptr, ptr %1017, align 8
   invoke void %1018(ptr noundef nonnull align 8 dereferenceable(8) %1013, ptr noundef %1014)
           to label %2454 unwind label %1020
@@ -2303,7 +2303,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn7Squeeze7forwardERKNS_3Ma
 
 1033:                                             ; preds = %1029
   %1034 = load ptr, ptr %1031, align 8
-  %1035 = getelementptr inbounds i8, ptr %1034, i64 24
+  %1035 = getelementptr inbounds nuw i8, ptr %1034, i64 24
   %1036 = load ptr, ptr %1035, align 8
   invoke void %1036(ptr noundef nonnull align 8 dereferenceable(8) %1031, ptr noundef %1032)
           to label %2465 unwind label %1038
@@ -2359,7 +2359,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn7Squeeze7forwardERKNS_3Ma
 
 1059:                                             ; preds = %1055
   %1060 = load ptr, ptr %1057, align 8
-  %1061 = getelementptr inbounds i8, ptr %1060, i64 24
+  %1061 = getelementptr inbounds nuw i8, ptr %1060, i64 24
   %1062 = load ptr, ptr %1061, align 8
   invoke void %1062(ptr noundef nonnull align 8 dereferenceable(8) %1057, ptr noundef %1058)
           to label %1065 unwind label %1111
@@ -2434,7 +2434,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn7Squeeze7forwardERKNS_3Ma
 
 1103:                                             ; preds = %1099
   %1104 = load ptr, ptr %1101, align 8
-  %1105 = getelementptr inbounds i8, ptr %1104, i64 24
+  %1105 = getelementptr inbounds nuw i8, ptr %1104, i64 24
   %1106 = load ptr, ptr %1105, align 8
   invoke void %1106(ptr noundef nonnull align 8 dereferenceable(8) %1101, ptr noundef %1102)
           to label %2454 unwind label %1108
@@ -2471,7 +2471,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn7Squeeze7forwardERKNS_3Ma
 
 1121:                                             ; preds = %1117
   %1122 = load ptr, ptr %1119, align 8
-  %1123 = getelementptr inbounds i8, ptr %1122, i64 24
+  %1123 = getelementptr inbounds nuw i8, ptr %1122, i64 24
   %1124 = load ptr, ptr %1123, align 8
   invoke void %1124(ptr noundef nonnull align 8 dereferenceable(8) %1119, ptr noundef %1120)
           to label %2465 unwind label %1126
@@ -2539,7 +2539,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn7Squeeze7forwardERKNS_3Ma
 
 1153:                                             ; preds = %1149
   %1154 = load ptr, ptr %1151, align 8
-  %1155 = getelementptr inbounds i8, ptr %1154, i64 24
+  %1155 = getelementptr inbounds nuw i8, ptr %1154, i64 24
   %1156 = load ptr, ptr %1155, align 8
   invoke void %1156(ptr noundef nonnull align 8 dereferenceable(8) %1151, ptr noundef %1152)
           to label %1159 unwind label %1205
@@ -2614,7 +2614,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn7Squeeze7forwardERKNS_3Ma
 
 1197:                                             ; preds = %1193
   %1198 = load ptr, ptr %1195, align 8
-  %1199 = getelementptr inbounds i8, ptr %1198, i64 24
+  %1199 = getelementptr inbounds nuw i8, ptr %1198, i64 24
   %1200 = load ptr, ptr %1199, align 8
   invoke void %1200(ptr noundef nonnull align 8 dereferenceable(8) %1195, ptr noundef %1196)
           to label %2454 unwind label %1202
@@ -2651,7 +2651,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn7Squeeze7forwardERKNS_3Ma
 
 1215:                                             ; preds = %1211
   %1216 = load ptr, ptr %1213, align 8
-  %1217 = getelementptr inbounds i8, ptr %1216, i64 24
+  %1217 = getelementptr inbounds nuw i8, ptr %1216, i64 24
   %1218 = load ptr, ptr %1217, align 8
   invoke void %1218(ptr noundef nonnull align 8 dereferenceable(8) %1213, ptr noundef %1214)
           to label %2465 unwind label %1220
@@ -2702,7 +2702,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn7Squeeze7forwardERKNS_3Ma
 
 1238:                                             ; preds = %1234
   %1239 = load ptr, ptr %1236, align 8
-  %1240 = getelementptr inbounds i8, ptr %1239, i64 24
+  %1240 = getelementptr inbounds nuw i8, ptr %1239, i64 24
   %1241 = load ptr, ptr %1240, align 8
   invoke void %1241(ptr noundef nonnull align 8 dereferenceable(8) %1236, ptr noundef %1237)
           to label %1244 unwind label %1290
@@ -2777,7 +2777,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn7Squeeze7forwardERKNS_3Ma
 
 1282:                                             ; preds = %1278
   %1283 = load ptr, ptr %1280, align 8
-  %1284 = getelementptr inbounds i8, ptr %1283, i64 24
+  %1284 = getelementptr inbounds nuw i8, ptr %1283, i64 24
   %1285 = load ptr, ptr %1284, align 8
   invoke void %1285(ptr noundef nonnull align 8 dereferenceable(8) %1280, ptr noundef %1281)
           to label %2454 unwind label %1287
@@ -2814,7 +2814,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn7Squeeze7forwardERKNS_3Ma
 
 1300:                                             ; preds = %1296
   %1301 = load ptr, ptr %1298, align 8
-  %1302 = getelementptr inbounds i8, ptr %1301, i64 24
+  %1302 = getelementptr inbounds nuw i8, ptr %1301, i64 24
   %1303 = load ptr, ptr %1302, align 8
   invoke void %1303(ptr noundef nonnull align 8 dereferenceable(8) %1298, ptr noundef %1299)
           to label %2465 unwind label %1305
@@ -2877,7 +2877,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn7Squeeze7forwardERKNS_3Ma
 
 1327:                                             ; preds = %1323
   %1328 = load ptr, ptr %1325, align 8
-  %1329 = getelementptr inbounds i8, ptr %1328, i64 24
+  %1329 = getelementptr inbounds nuw i8, ptr %1328, i64 24
   %1330 = load ptr, ptr %1329, align 8
   invoke void %1330(ptr noundef nonnull align 8 dereferenceable(8) %1325, ptr noundef %1326)
           to label %1333 unwind label %1379
@@ -2952,7 +2952,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn7Squeeze7forwardERKNS_3Ma
 
 1371:                                             ; preds = %1367
   %1372 = load ptr, ptr %1369, align 8
-  %1373 = getelementptr inbounds i8, ptr %1372, i64 24
+  %1373 = getelementptr inbounds nuw i8, ptr %1372, i64 24
   %1374 = load ptr, ptr %1373, align 8
   invoke void %1374(ptr noundef nonnull align 8 dereferenceable(8) %1369, ptr noundef %1370)
           to label %2454 unwind label %1376
@@ -2989,7 +2989,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn7Squeeze7forwardERKNS_3Ma
 
 1389:                                             ; preds = %1385
   %1390 = load ptr, ptr %1387, align 8
-  %1391 = getelementptr inbounds i8, ptr %1390, i64 24
+  %1391 = getelementptr inbounds nuw i8, ptr %1390, i64 24
   %1392 = load ptr, ptr %1391, align 8
   invoke void %1392(ptr noundef nonnull align 8 dereferenceable(8) %1387, ptr noundef %1388)
           to label %2465 unwind label %1394
@@ -3059,7 +3059,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn7Squeeze7forwardERKNS_3Ma
 
 1418:                                             ; preds = %1414
   %1419 = load ptr, ptr %1416, align 8
-  %1420 = getelementptr inbounds i8, ptr %1419, i64 24
+  %1420 = getelementptr inbounds nuw i8, ptr %1419, i64 24
   %1421 = load ptr, ptr %1420, align 8
   invoke void %1421(ptr noundef nonnull align 8 dereferenceable(8) %1416, ptr noundef %1417)
           to label %1424 unwind label %1470
@@ -3134,7 +3134,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn7Squeeze7forwardERKNS_3Ma
 
 1462:                                             ; preds = %1458
   %1463 = load ptr, ptr %1460, align 8
-  %1464 = getelementptr inbounds i8, ptr %1463, i64 24
+  %1464 = getelementptr inbounds nuw i8, ptr %1463, i64 24
   %1465 = load ptr, ptr %1464, align 8
   invoke void %1465(ptr noundef nonnull align 8 dereferenceable(8) %1460, ptr noundef %1461)
           to label %2454 unwind label %1467
@@ -3171,7 +3171,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn7Squeeze7forwardERKNS_3Ma
 
 1480:                                             ; preds = %1476
   %1481 = load ptr, ptr %1478, align 8
-  %1482 = getelementptr inbounds i8, ptr %1481, i64 24
+  %1482 = getelementptr inbounds nuw i8, ptr %1481, i64 24
   %1483 = load ptr, ptr %1482, align 8
   invoke void %1483(ptr noundef nonnull align 8 dereferenceable(8) %1478, ptr noundef %1479)
           to label %2465 unwind label %1485
@@ -3227,7 +3227,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn7Squeeze7forwardERKNS_3Ma
 
 1506:                                             ; preds = %1502
   %1507 = load ptr, ptr %1504, align 8
-  %1508 = getelementptr inbounds i8, ptr %1507, i64 24
+  %1508 = getelementptr inbounds nuw i8, ptr %1507, i64 24
   %1509 = load ptr, ptr %1508, align 8
   invoke void %1509(ptr noundef nonnull align 8 dereferenceable(8) %1504, ptr noundef %1505)
           to label %1512 unwind label %1558
@@ -3302,7 +3302,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn7Squeeze7forwardERKNS_3Ma
 
 1550:                                             ; preds = %1546
   %1551 = load ptr, ptr %1548, align 8
-  %1552 = getelementptr inbounds i8, ptr %1551, i64 24
+  %1552 = getelementptr inbounds nuw i8, ptr %1551, i64 24
   %1553 = load ptr, ptr %1552, align 8
   invoke void %1553(ptr noundef nonnull align 8 dereferenceable(8) %1548, ptr noundef %1549)
           to label %2454 unwind label %1555
@@ -3339,7 +3339,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn7Squeeze7forwardERKNS_3Ma
 
 1568:                                             ; preds = %1564
   %1569 = load ptr, ptr %1566, align 8
-  %1570 = getelementptr inbounds i8, ptr %1569, i64 24
+  %1570 = getelementptr inbounds nuw i8, ptr %1569, i64 24
   %1571 = load ptr, ptr %1570, align 8
   invoke void %1571(ptr noundef nonnull align 8 dereferenceable(8) %1566, ptr noundef %1567)
           to label %2465 unwind label %1573
@@ -3392,7 +3392,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn7Squeeze7forwardERKNS_3Ma
 
 1592:                                             ; preds = %1588
   %1593 = load ptr, ptr %1590, align 8
-  %1594 = getelementptr inbounds i8, ptr %1593, i64 24
+  %1594 = getelementptr inbounds nuw i8, ptr %1593, i64 24
   %1595 = load ptr, ptr %1594, align 8
   invoke void %1595(ptr noundef nonnull align 8 dereferenceable(8) %1590, ptr noundef %1591)
           to label %1598 unwind label %1644
@@ -3467,7 +3467,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn7Squeeze7forwardERKNS_3Ma
 
 1636:                                             ; preds = %1632
   %1637 = load ptr, ptr %1634, align 8
-  %1638 = getelementptr inbounds i8, ptr %1637, i64 24
+  %1638 = getelementptr inbounds nuw i8, ptr %1637, i64 24
   %1639 = load ptr, ptr %1638, align 8
   invoke void %1639(ptr noundef nonnull align 8 dereferenceable(8) %1634, ptr noundef %1635)
           to label %2454 unwind label %1641
@@ -3504,7 +3504,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn7Squeeze7forwardERKNS_3Ma
 
 1654:                                             ; preds = %1650
   %1655 = load ptr, ptr %1652, align 8
-  %1656 = getelementptr inbounds i8, ptr %1655, i64 24
+  %1656 = getelementptr inbounds nuw i8, ptr %1655, i64 24
   %1657 = load ptr, ptr %1656, align 8
   invoke void %1657(ptr noundef nonnull align 8 dereferenceable(8) %1652, ptr noundef %1653)
           to label %2465 unwind label %1659
@@ -3557,7 +3557,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn7Squeeze7forwardERKNS_3Ma
 
 1678:                                             ; preds = %1674
   %1679 = load ptr, ptr %1676, align 8
-  %1680 = getelementptr inbounds i8, ptr %1679, i64 24
+  %1680 = getelementptr inbounds nuw i8, ptr %1679, i64 24
   %1681 = load ptr, ptr %1680, align 8
   invoke void %1681(ptr noundef nonnull align 8 dereferenceable(8) %1676, ptr noundef %1677)
           to label %1684 unwind label %1730
@@ -3632,7 +3632,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn7Squeeze7forwardERKNS_3Ma
 
 1722:                                             ; preds = %1718
   %1723 = load ptr, ptr %1720, align 8
-  %1724 = getelementptr inbounds i8, ptr %1723, i64 24
+  %1724 = getelementptr inbounds nuw i8, ptr %1723, i64 24
   %1725 = load ptr, ptr %1724, align 8
   invoke void %1725(ptr noundef nonnull align 8 dereferenceable(8) %1720, ptr noundef %1721)
           to label %2454 unwind label %1727
@@ -3669,7 +3669,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn7Squeeze7forwardERKNS_3Ma
 
 1740:                                             ; preds = %1736
   %1741 = load ptr, ptr %1738, align 8
-  %1742 = getelementptr inbounds i8, ptr %1741, i64 24
+  %1742 = getelementptr inbounds nuw i8, ptr %1741, i64 24
   %1743 = load ptr, ptr %1742, align 8
   invoke void %1743(ptr noundef nonnull align 8 dereferenceable(8) %1738, ptr noundef %1739)
           to label %2465 unwind label %1745
@@ -3725,7 +3725,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn7Squeeze7forwardERKNS_3Ma
 
 1766:                                             ; preds = %1762
   %1767 = load ptr, ptr %1764, align 8
-  %1768 = getelementptr inbounds i8, ptr %1767, i64 24
+  %1768 = getelementptr inbounds nuw i8, ptr %1767, i64 24
   %1769 = load ptr, ptr %1768, align 8
   invoke void %1769(ptr noundef nonnull align 8 dereferenceable(8) %1764, ptr noundef %1765)
           to label %1772 unwind label %1818
@@ -3800,7 +3800,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn7Squeeze7forwardERKNS_3Ma
 
 1810:                                             ; preds = %1806
   %1811 = load ptr, ptr %1808, align 8
-  %1812 = getelementptr inbounds i8, ptr %1811, i64 24
+  %1812 = getelementptr inbounds nuw i8, ptr %1811, i64 24
   %1813 = load ptr, ptr %1812, align 8
   invoke void %1813(ptr noundef nonnull align 8 dereferenceable(8) %1808, ptr noundef %1809)
           to label %2454 unwind label %1815
@@ -3837,7 +3837,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn7Squeeze7forwardERKNS_3Ma
 
 1828:                                             ; preds = %1824
   %1829 = load ptr, ptr %1826, align 8
-  %1830 = getelementptr inbounds i8, ptr %1829, i64 24
+  %1830 = getelementptr inbounds nuw i8, ptr %1829, i64 24
   %1831 = load ptr, ptr %1830, align 8
   invoke void %1831(ptr noundef nonnull align 8 dereferenceable(8) %1826, ptr noundef %1827)
           to label %2465 unwind label %1833
@@ -3894,7 +3894,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn7Squeeze7forwardERKNS_3Ma
 
 1855:                                             ; preds = %1851
   %1856 = load ptr, ptr %1853, align 8
-  %1857 = getelementptr inbounds i8, ptr %1856, i64 24
+  %1857 = getelementptr inbounds nuw i8, ptr %1856, i64 24
   %1858 = load ptr, ptr %1857, align 8
   invoke void %1858(ptr noundef nonnull align 8 dereferenceable(8) %1853, ptr noundef %1854)
           to label %1861 unwind label %1907
@@ -3969,7 +3969,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn7Squeeze7forwardERKNS_3Ma
 
 1899:                                             ; preds = %1895
   %1900 = load ptr, ptr %1897, align 8
-  %1901 = getelementptr inbounds i8, ptr %1900, i64 24
+  %1901 = getelementptr inbounds nuw i8, ptr %1900, i64 24
   %1902 = load ptr, ptr %1901, align 8
   invoke void %1902(ptr noundef nonnull align 8 dereferenceable(8) %1897, ptr noundef %1898)
           to label %2454 unwind label %1904
@@ -4006,7 +4006,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn7Squeeze7forwardERKNS_3Ma
 
 1917:                                             ; preds = %1913
   %1918 = load ptr, ptr %1915, align 8
-  %1919 = getelementptr inbounds i8, ptr %1918, i64 24
+  %1919 = getelementptr inbounds nuw i8, ptr %1918, i64 24
   %1920 = load ptr, ptr %1919, align 8
   invoke void %1920(ptr noundef nonnull align 8 dereferenceable(8) %1915, ptr noundef %1916)
           to label %2465 unwind label %1922
@@ -4062,7 +4062,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn7Squeeze7forwardERKNS_3Ma
 
 1942:                                             ; preds = %1938
   %1943 = load ptr, ptr %1940, align 8
-  %1944 = getelementptr inbounds i8, ptr %1943, i64 24
+  %1944 = getelementptr inbounds nuw i8, ptr %1943, i64 24
   %1945 = load ptr, ptr %1944, align 8
   invoke void %1945(ptr noundef nonnull align 8 dereferenceable(8) %1940, ptr noundef %1941)
           to label %1948 unwind label %1994
@@ -4137,7 +4137,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn7Squeeze7forwardERKNS_3Ma
 
 1986:                                             ; preds = %1982
   %1987 = load ptr, ptr %1984, align 8
-  %1988 = getelementptr inbounds i8, ptr %1987, i64 24
+  %1988 = getelementptr inbounds nuw i8, ptr %1987, i64 24
   %1989 = load ptr, ptr %1988, align 8
   invoke void %1989(ptr noundef nonnull align 8 dereferenceable(8) %1984, ptr noundef %1985)
           to label %2454 unwind label %1991
@@ -4174,7 +4174,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn7Squeeze7forwardERKNS_3Ma
 
 2004:                                             ; preds = %2000
   %2005 = load ptr, ptr %2002, align 8
-  %2006 = getelementptr inbounds i8, ptr %2005, i64 24
+  %2006 = getelementptr inbounds nuw i8, ptr %2005, i64 24
   %2007 = load ptr, ptr %2006, align 8
   invoke void %2007(ptr noundef nonnull align 8 dereferenceable(8) %2002, ptr noundef %2003)
           to label %2465 unwind label %2009
@@ -4235,7 +4235,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn7Squeeze7forwardERKNS_3Ma
 
 2031:                                             ; preds = %2027
   %2032 = load ptr, ptr %2029, align 8
-  %2033 = getelementptr inbounds i8, ptr %2032, i64 24
+  %2033 = getelementptr inbounds nuw i8, ptr %2032, i64 24
   %2034 = load ptr, ptr %2033, align 8
   invoke void %2034(ptr noundef nonnull align 8 dereferenceable(8) %2029, ptr noundef %2030)
           to label %2037 unwind label %2083
@@ -4310,7 +4310,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn7Squeeze7forwardERKNS_3Ma
 
 2075:                                             ; preds = %2071
   %2076 = load ptr, ptr %2073, align 8
-  %2077 = getelementptr inbounds i8, ptr %2076, i64 24
+  %2077 = getelementptr inbounds nuw i8, ptr %2076, i64 24
   %2078 = load ptr, ptr %2077, align 8
   invoke void %2078(ptr noundef nonnull align 8 dereferenceable(8) %2073, ptr noundef %2074)
           to label %2454 unwind label %2080
@@ -4347,7 +4347,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn7Squeeze7forwardERKNS_3Ma
 
 2093:                                             ; preds = %2089
   %2094 = load ptr, ptr %2091, align 8
-  %2095 = getelementptr inbounds i8, ptr %2094, i64 24
+  %2095 = getelementptr inbounds nuw i8, ptr %2094, i64 24
   %2096 = load ptr, ptr %2095, align 8
   invoke void %2096(ptr noundef nonnull align 8 dereferenceable(8) %2091, ptr noundef %2092)
           to label %2465 unwind label %2098
@@ -4403,7 +4403,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn7Squeeze7forwardERKNS_3Ma
 
 2119:                                             ; preds = %2115
   %2120 = load ptr, ptr %2117, align 8
-  %2121 = getelementptr inbounds i8, ptr %2120, i64 24
+  %2121 = getelementptr inbounds nuw i8, ptr %2120, i64 24
   %2122 = load ptr, ptr %2121, align 8
   invoke void %2122(ptr noundef nonnull align 8 dereferenceable(8) %2117, ptr noundef %2118)
           to label %2125 unwind label %2171
@@ -4478,7 +4478,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn7Squeeze7forwardERKNS_3Ma
 
 2163:                                             ; preds = %2159
   %2164 = load ptr, ptr %2161, align 8
-  %2165 = getelementptr inbounds i8, ptr %2164, i64 24
+  %2165 = getelementptr inbounds nuw i8, ptr %2164, i64 24
   %2166 = load ptr, ptr %2165, align 8
   invoke void %2166(ptr noundef nonnull align 8 dereferenceable(8) %2161, ptr noundef %2162)
           to label %2454 unwind label %2168
@@ -4515,7 +4515,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn7Squeeze7forwardERKNS_3Ma
 
 2181:                                             ; preds = %2177
   %2182 = load ptr, ptr %2179, align 8
-  %2183 = getelementptr inbounds i8, ptr %2182, i64 24
+  %2183 = getelementptr inbounds nuw i8, ptr %2182, i64 24
   %2184 = load ptr, ptr %2183, align 8
   invoke void %2184(ptr noundef nonnull align 8 dereferenceable(8) %2179, ptr noundef %2180)
           to label %2465 unwind label %2186
@@ -4571,7 +4571,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn7Squeeze7forwardERKNS_3Ma
 
 2207:                                             ; preds = %2203
   %2208 = load ptr, ptr %2205, align 8
-  %2209 = getelementptr inbounds i8, ptr %2208, i64 24
+  %2209 = getelementptr inbounds nuw i8, ptr %2208, i64 24
   %2210 = load ptr, ptr %2209, align 8
   invoke void %2210(ptr noundef nonnull align 8 dereferenceable(8) %2205, ptr noundef %2206)
           to label %2213 unwind label %2259
@@ -4646,7 +4646,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn7Squeeze7forwardERKNS_3Ma
 
 2251:                                             ; preds = %2247
   %2252 = load ptr, ptr %2249, align 8
-  %2253 = getelementptr inbounds i8, ptr %2252, i64 24
+  %2253 = getelementptr inbounds nuw i8, ptr %2252, i64 24
   %2254 = load ptr, ptr %2253, align 8
   invoke void %2254(ptr noundef nonnull align 8 dereferenceable(8) %2249, ptr noundef %2250)
           to label %2454 unwind label %2256
@@ -4683,7 +4683,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn7Squeeze7forwardERKNS_3Ma
 
 2269:                                             ; preds = %2265
   %2270 = load ptr, ptr %2267, align 8
-  %2271 = getelementptr inbounds i8, ptr %2270, i64 24
+  %2271 = getelementptr inbounds nuw i8, ptr %2270, i64 24
   %2272 = load ptr, ptr %2271, align 8
   invoke void %2272(ptr noundef nonnull align 8 dereferenceable(8) %2267, ptr noundef %2268)
           to label %2465 unwind label %2274
@@ -4739,7 +4739,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn7Squeeze7forwardERKNS_3Ma
 
 2295:                                             ; preds = %2291
   %2296 = load ptr, ptr %2293, align 8
-  %2297 = getelementptr inbounds i8, ptr %2296, i64 24
+  %2297 = getelementptr inbounds nuw i8, ptr %2296, i64 24
   %2298 = load ptr, ptr %2297, align 8
   invoke void %2298(ptr noundef nonnull align 8 dereferenceable(8) %2293, ptr noundef %2294)
           to label %2301 unwind label %2347
@@ -4814,7 +4814,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn7Squeeze7forwardERKNS_3Ma
 
 2339:                                             ; preds = %2335
   %2340 = load ptr, ptr %2337, align 8
-  %2341 = getelementptr inbounds i8, ptr %2340, i64 24
+  %2341 = getelementptr inbounds nuw i8, ptr %2340, i64 24
   %2342 = load ptr, ptr %2341, align 8
   invoke void %2342(ptr noundef nonnull align 8 dereferenceable(8) %2337, ptr noundef %2338)
           to label %2454 unwind label %2344
@@ -4851,7 +4851,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn7Squeeze7forwardERKNS_3Ma
 
 2357:                                             ; preds = %2353
   %2358 = load ptr, ptr %2355, align 8
-  %2359 = getelementptr inbounds i8, ptr %2358, i64 24
+  %2359 = getelementptr inbounds nuw i8, ptr %2358, i64 24
   %2360 = load ptr, ptr %2359, align 8
   invoke void %2360(ptr noundef nonnull align 8 dereferenceable(8) %2355, ptr noundef %2356)
           to label %2465 unwind label %2362
@@ -4908,7 +4908,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn7Squeeze7forwardERKNS_3Ma
 
 2384:                                             ; preds = %2380
   %2385 = load ptr, ptr %2382, align 8
-  %2386 = getelementptr inbounds i8, ptr %2385, i64 24
+  %2386 = getelementptr inbounds nuw i8, ptr %2385, i64 24
   %2387 = load ptr, ptr %2386, align 8
   invoke void %2387(ptr noundef nonnull align 8 dereferenceable(8) %2382, ptr noundef %2383)
           to label %2390 unwind label %2436
@@ -4983,7 +4983,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn7Squeeze7forwardERKNS_3Ma
 
 2428:                                             ; preds = %2424
   %2429 = load ptr, ptr %2426, align 8
-  %2430 = getelementptr inbounds i8, ptr %2429, i64 24
+  %2430 = getelementptr inbounds nuw i8, ptr %2429, i64 24
   %2431 = load ptr, ptr %2430, align 8
   invoke void %2431(ptr noundef nonnull align 8 dereferenceable(8) %2426, ptr noundef %2427)
           to label %2454 unwind label %2433
@@ -5020,7 +5020,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn7Squeeze7forwardERKNS_3Ma
 
 2446:                                             ; preds = %2442
   %2447 = load ptr, ptr %2444, align 8
-  %2448 = getelementptr inbounds i8, ptr %2447, i64 24
+  %2448 = getelementptr inbounds nuw i8, ptr %2447, i64 24
   %2449 = load ptr, ptr %2448, align 8
   invoke void %2449(ptr noundef nonnull align 8 dereferenceable(8) %2444, ptr noundef %2445)
           to label %2465 unwind label %2451
@@ -5101,7 +5101,7 @@ define linkonce_odr hidden void @_ZN4ncnn7SqueezeD2Ev(ptr noundef nonnull align 
 
 12:                                               ; preds = %8
   %13 = load ptr, ptr %10, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = load ptr, ptr %14, align 8
   invoke void %15(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef %11)
           to label %18 unwind label %21
@@ -5154,7 +5154,7 @@ define linkonce_odr hidden void @_ZN4ncnn7SqueezeD0Ev(ptr noundef nonnull align 
 
 12:                                               ; preds = %8
   %13 = load ptr, ptr %10, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = load ptr, ptr %14, align 8
   invoke void %15(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef %11)
           to label %_ZN4ncnn7SqueezeD2Ev.exit unwind label %18

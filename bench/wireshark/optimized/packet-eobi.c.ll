@@ -484,7 +484,7 @@ define internal range(i32 0, 65536) i32 @get_eobi_message_len(ptr nocapture read
 define internal i32 @dissect_eobi_message(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca [8 x i32], align 16
   %6 = alloca [21 x i8], align 16
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void @col_set_str(ptr noundef %8, i32 noundef 34, ptr noundef nonnull @.str.183) #5
   %9 = load ptr, ptr %7, align 8
@@ -642,15 +642,15 @@ define internal i32 @dissect_eobi_message(ptr noundef %0, ptr noundef %1, ptr no
   %75 = add i32 %.0470610, -1
   %76 = sext i32 %.0460615 to i64
   %77 = getelementptr [279 x %struct.ETI_Field], ptr @dissect_eobi_message.fields, i64 0, i64 %76
-  %78 = getelementptr inbounds i8, ptr %77, i64 4
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 4
   %79 = load i16, ptr %78, align 4
   %80 = zext i16 %79 to i32
-  %81 = getelementptr inbounds i8, ptr %77, i64 6
+  %81 = getelementptr inbounds nuw i8, ptr %77, i64 6
   %82 = load i16, ptr %81, align 2
   %83 = zext i16 %82 to i64
   %84 = getelementptr [7 x i32], ptr @ett_eobi, i64 0, i64 %83
   %85 = load i32, ptr %84, align 4
-  %86 = getelementptr inbounds i8, ptr %77, i64 2
+  %86 = getelementptr inbounds nuw i8, ptr %77, i64 2
   %87 = load i16, ptr %86, align 2
   %88 = zext i16 %87 to i64
   %89 = getelementptr [93 x i8], ptr @dissect_eobi_message.struct_names, i64 0, i64 %88
@@ -663,7 +663,7 @@ define internal i32 @dissect_eobi_message(ptr noundef %0, ptr noundef %1, ptr no
   br label %532
 
 94:                                               ; preds = %67, %67
-  %95 = getelementptr inbounds i8, ptr %68, i64 1
+  %95 = getelementptr inbounds nuw i8, ptr %68, i64 1
   %96 = load i8, ptr %95, align 1
   %97 = zext i8 %96 to i64
   %98 = icmp ult i8 %96, 8
@@ -685,12 +685,12 @@ define internal i32 @dissect_eobi_message(ptr noundef %0, ptr noundef %1, ptr no
 
 .thread:                                          ; preds = %100, %102
   %105 = phi i32 [ %104, %102 ], [ 1, %100 ]
-  %106 = getelementptr inbounds i8, ptr %68, i64 6
+  %106 = getelementptr inbounds nuw i8, ptr %68, i64 6
   %107 = load i16, ptr %106, align 2
   %108 = zext i16 %107 to i64
   %109 = getelementptr [7 x i32], ptr @ett_eobi, i64 0, i64 %108
   %110 = load i32, ptr %109, align 4
-  %111 = getelementptr inbounds i8, ptr %68, i64 2
+  %111 = getelementptr inbounds nuw i8, ptr %68, i64 2
   %112 = load i16, ptr %111, align 2
   %113 = zext i16 %112 to i64
   %114 = getelementptr [93 x i8], ptr @dissect_eobi_message.struct_names, i64 0, i64 %113
@@ -703,7 +703,7 @@ define internal i32 @dissect_eobi_message(ptr noundef %0, ptr noundef %1, ptr no
   unreachable
 
 118:                                              ; preds = %.thread
-  %119 = getelementptr inbounds i8, ptr %68, i64 4
+  %119 = getelementptr inbounds nuw i8, ptr %68, i64 4
   %120 = load i16, ptr %119, align 4
   %121 = zext i16 %120 to i32
   %122 = add i32 %105, -1
@@ -714,7 +714,7 @@ define internal i32 @dissect_eobi_message(ptr noundef %0, ptr noundef %1, ptr no
   br label %532
 
 125:                                              ; preds = %67
-  %126 = getelementptr inbounds i8, ptr %68, i64 2
+  %126 = getelementptr inbounds nuw i8, ptr %68, i64 2
   %127 = load i16, ptr %126, align 2
   %128 = zext i16 %127 to i32
   %129 = add i32 %.0466612, %128
@@ -722,12 +722,12 @@ define internal i32 @dissect_eobi_message(ptr noundef %0, ptr noundef %1, ptr no
   br label %532
 
 131:                                              ; preds = %67
-  %132 = getelementptr inbounds i8, ptr %68, i64 4
+  %132 = getelementptr inbounds nuw i8, ptr %68, i64 4
   %133 = load i16, ptr %132, align 4
   %134 = zext i16 %133 to i64
   %135 = getelementptr [83 x i32], ptr @hf_eobi, i64 0, i64 %134
   %136 = load i32, ptr %135, align 4
-  %137 = getelementptr inbounds i8, ptr %68, i64 2
+  %137 = getelementptr inbounds nuw i8, ptr %68, i64 2
   %138 = load i16, ptr %137, align 2
   %139 = zext i16 %138 to i32
   %140 = call ptr @proto_tree_add_item(ptr noundef %.0472609, i32 noundef %136, ptr noundef %0, i32 noundef %.0466612, i32 noundef %139, i32 noundef 0) #5
@@ -739,12 +739,12 @@ define internal i32 @dissect_eobi_message(ptr noundef %0, ptr noundef %1, ptr no
 144:                                              ; preds = %67
   %145 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0466612) #5
   %.not532 = icmp eq i8 %145, 0
-  %146 = getelementptr inbounds i8, ptr %68, i64 4
+  %146 = getelementptr inbounds nuw i8, ptr %68, i64 4
   %147 = load i16, ptr %146, align 4
   %148 = zext i16 %147 to i64
   %149 = getelementptr [83 x i32], ptr @hf_eobi, i64 0, i64 %148
   %150 = load i32, ptr %149, align 4
-  %151 = getelementptr inbounds i8, ptr %68, i64 2
+  %151 = getelementptr inbounds nuw i8, ptr %68, i64 2
   %152 = load i16, ptr %151, align 2
   %153 = zext i16 %152 to i32
   br i1 %.not532, label %156, label %154
@@ -771,7 +771,7 @@ define internal i32 @dissect_eobi_message(ptr noundef %0, ptr noundef %1, ptr no
   br label %532
 
 166:                                              ; preds = %67
-  %167 = getelementptr inbounds i8, ptr %68, i64 1
+  %167 = getelementptr inbounds nuw i8, ptr %68, i64 1
   %168 = load i8, ptr %167, align 1
   %169 = zext i8 %168 to i64
   %170 = icmp ult i8 %168, 8
@@ -782,7 +782,7 @@ define internal i32 @dissect_eobi_message(ptr noundef %0, ptr noundef %1, ptr no
   unreachable
 
 172:                                              ; preds = %166
-  %173 = getelementptr inbounds i8, ptr %68, i64 4
+  %173 = getelementptr inbounds nuw i8, ptr %68, i64 4
   %174 = load i16, ptr %173, align 4
   %175 = zext i16 %174 to i64
   %176 = getelementptr [83 x i32], ptr @hf_eobi, i64 0, i64 %175
@@ -797,7 +797,7 @@ define internal i32 @dissect_eobi_message(ptr noundef %0, ptr noundef %1, ptr no
   br label %532
 
 185:                                              ; preds = %67
-  %186 = getelementptr inbounds i8, ptr %68, i64 1
+  %186 = getelementptr inbounds nuw i8, ptr %68, i64 1
   %187 = load i8, ptr %186, align 1
   %188 = icmp ult i8 %187, 8
   br i1 %188, label %191, label %189
@@ -808,7 +808,7 @@ define internal i32 @dissect_eobi_message(ptr noundef %0, ptr noundef %1, ptr no
   unreachable
 
 191:                                              ; preds = %185
-  %192 = getelementptr inbounds i8, ptr %68, i64 2
+  %192 = getelementptr inbounds nuw i8, ptr %68, i64 2
   %193 = load i16, ptr %192, align 2
   %194 = icmp ult i16 %193, 3
   br i1 %194, label %197, label %195
@@ -828,7 +828,7 @@ define internal i32 @dissect_eobi_message(ptr noundef %0, ptr noundef %1, ptr no
   %199 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0466612) #5
   %200 = zext i8 %199 to i32
   %201 = icmp eq i8 %199, -1
-  %202 = getelementptr inbounds i8, ptr %68, i64 4
+  %202 = getelementptr inbounds nuw i8, ptr %68, i64 4
   %203 = load i16, ptr %202, align 4
   %204 = zext i16 %203 to i64
   %205 = getelementptr [83 x i32], ptr @hf_eobi, i64 0, i64 %204
@@ -844,7 +844,7 @@ define internal i32 @dissect_eobi_message(ptr noundef %0, ptr noundef %1, ptr no
 
 211:                                              ; preds = %198
   %212 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %.0472609, i32 noundef %206, ptr noundef %0, i32 noundef %.0466612, i32 noundef 1, i32 noundef %200, ptr noundef nonnull @.str.300, i32 noundef %200) #5
-  %213 = getelementptr inbounds i8, ptr %68, i64 6
+  %213 = getelementptr inbounds nuw i8, ptr %68, i64 6
   %214 = load i16, ptr %213, align 2
   %215 = zext i16 %214 to i32
   %216 = icmp samesign ugt i32 %200, %215
@@ -865,7 +865,7 @@ define internal i32 @dissect_eobi_message(ptr noundef %0, ptr noundef %1, ptr no
   %223 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %.0466612) #5
   %224 = zext i16 %223 to i32
   %225 = icmp eq i16 %223, -1
-  %226 = getelementptr inbounds i8, ptr %68, i64 4
+  %226 = getelementptr inbounds nuw i8, ptr %68, i64 4
   %227 = load i16, ptr %226, align 4
   %228 = zext i16 %227 to i64
   %229 = getelementptr [83 x i32], ptr @hf_eobi, i64 0, i64 %228
@@ -881,7 +881,7 @@ define internal i32 @dissect_eobi_message(ptr noundef %0, ptr noundef %1, ptr no
 
 235:                                              ; preds = %222
   %236 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %.0472609, i32 noundef %230, ptr noundef %0, i32 noundef %.0466612, i32 noundef 2, i32 noundef %224, ptr noundef nonnull @.str.300, i32 noundef %224) #5
-  %237 = getelementptr inbounds i8, ptr %68, i64 6
+  %237 = getelementptr inbounds nuw i8, ptr %68, i64 6
   %238 = load i16, ptr %237, align 2
   %239 = icmp ugt i16 %223, %238
   br i1 %239, label %240, label %245
@@ -908,7 +908,7 @@ define internal i32 @dissect_eobi_message(ptr noundef %0, ptr noundef %1, ptr no
   br label %532
 
 253:                                              ; preds = %67
-  %254 = getelementptr inbounds i8, ptr %68, i64 2
+  %254 = getelementptr inbounds nuw i8, ptr %68, i64 2
   %255 = load i16, ptr %254, align 2
   switch i16 %255, label %340 [
     i16 1, label %256
@@ -923,7 +923,7 @@ define internal i32 @dissect_eobi_message(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %258, label %259, label %270
 
 259:                                              ; preds = %256
-  %260 = getelementptr inbounds i8, ptr %68, i64 4
+  %260 = getelementptr inbounds nuw i8, ptr %68, i64 4
   %261 = load i16, ptr %260, align 4
   %262 = zext i16 %261 to i64
   %263 = getelementptr [83 x i32], ptr @hf_eobi, i64 0, i64 %262
@@ -940,7 +940,7 @@ define internal i32 @dissect_eobi_message(ptr noundef %0, ptr noundef %1, ptr no
 
 270:                                              ; preds = %256
   %271 = zext i8 %257 to i32
-  %272 = getelementptr inbounds i8, ptr %68, i64 4
+  %272 = getelementptr inbounds nuw i8, ptr %68, i64 4
   %273 = load i16, ptr %272, align 4
   %274 = zext i16 %273 to i64
   %275 = getelementptr [83 x i32], ptr @hf_eobi, i64 0, i64 %274
@@ -961,7 +961,7 @@ define internal i32 @dissect_eobi_message(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %282, label %283, label %294
 
 283:                                              ; preds = %280
-  %284 = getelementptr inbounds i8, ptr %68, i64 4
+  %284 = getelementptr inbounds nuw i8, ptr %68, i64 4
   %285 = load i16, ptr %284, align 4
   %286 = zext i16 %285 to i64
   %287 = getelementptr [83 x i32], ptr @hf_eobi, i64 0, i64 %286
@@ -978,7 +978,7 @@ define internal i32 @dissect_eobi_message(ptr noundef %0, ptr noundef %1, ptr no
 
 294:                                              ; preds = %280
   %295 = zext i16 %281 to i32
-  %296 = getelementptr inbounds i8, ptr %68, i64 4
+  %296 = getelementptr inbounds nuw i8, ptr %68, i64 4
   %297 = load i16, ptr %296, align 4
   %298 = zext i16 %297 to i64
   %299 = getelementptr [83 x i32], ptr @hf_eobi, i64 0, i64 %298
@@ -996,7 +996,7 @@ define internal i32 @dissect_eobi_message(ptr noundef %0, ptr noundef %1, ptr no
 304:                                              ; preds = %253
   %305 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0466612) #5
   %306 = icmp eq i32 %305, -1
-  %307 = getelementptr inbounds i8, ptr %68, i64 4
+  %307 = getelementptr inbounds nuw i8, ptr %68, i64 4
   %308 = load i16, ptr %307, align 4
   %309 = zext i16 %308 to i64
   %310 = getelementptr [83 x i32], ptr @hf_eobi, i64 0, i64 %309
@@ -1028,7 +1028,7 @@ define internal i32 @dissect_eobi_message(ptr noundef %0, ptr noundef %1, ptr no
 322:                                              ; preds = %253
   %323 = call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef %.0466612) #5
   %324 = icmp eq i64 %323, -1
-  %325 = getelementptr inbounds i8, ptr %68, i64 4
+  %325 = getelementptr inbounds nuw i8, ptr %68, i64 4
   %326 = load i16, ptr %325, align 4
   %327 = zext i16 %326 to i64
   %328 = getelementptr [83 x i32], ptr @hf_eobi, i64 0, i64 %327
@@ -1065,7 +1065,7 @@ define internal i32 @dissect_eobi_message(ptr noundef %0, ptr noundef %1, ptr no
   br label %532
 
 345:                                              ; preds = %67
-  %346 = getelementptr inbounds i8, ptr %68, i64 2
+  %346 = getelementptr inbounds nuw i8, ptr %68, i64 2
   %347 = load i16, ptr %346, align 2
   switch i16 %347, label %432 [
     i16 1, label %348
@@ -1080,7 +1080,7 @@ define internal i32 @dissect_eobi_message(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %350, label %351, label %362
 
 351:                                              ; preds = %348
-  %352 = getelementptr inbounds i8, ptr %68, i64 4
+  %352 = getelementptr inbounds nuw i8, ptr %68, i64 4
   %353 = load i16, ptr %352, align 4
   %354 = zext i16 %353 to i64
   %355 = getelementptr [83 x i32], ptr @hf_eobi, i64 0, i64 %354
@@ -1097,7 +1097,7 @@ define internal i32 @dissect_eobi_message(ptr noundef %0, ptr noundef %1, ptr no
 
 362:                                              ; preds = %348
   %363 = sext i8 %349 to i32
-  %364 = getelementptr inbounds i8, ptr %68, i64 4
+  %364 = getelementptr inbounds nuw i8, ptr %68, i64 4
   %365 = load i16, ptr %364, align 4
   %366 = zext i16 %365 to i64
   %367 = getelementptr [83 x i32], ptr @hf_eobi, i64 0, i64 %366
@@ -1118,7 +1118,7 @@ define internal i32 @dissect_eobi_message(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %374, label %375, label %386
 
 375:                                              ; preds = %372
-  %376 = getelementptr inbounds i8, ptr %68, i64 4
+  %376 = getelementptr inbounds nuw i8, ptr %68, i64 4
   %377 = load i16, ptr %376, align 4
   %378 = zext i16 %377 to i64
   %379 = getelementptr [83 x i32], ptr @hf_eobi, i64 0, i64 %378
@@ -1135,7 +1135,7 @@ define internal i32 @dissect_eobi_message(ptr noundef %0, ptr noundef %1, ptr no
 
 386:                                              ; preds = %372
   %387 = sext i16 %373 to i32
-  %388 = getelementptr inbounds i8, ptr %68, i64 4
+  %388 = getelementptr inbounds nuw i8, ptr %68, i64 4
   %389 = load i16, ptr %388, align 4
   %390 = zext i16 %389 to i64
   %391 = getelementptr [83 x i32], ptr @hf_eobi, i64 0, i64 %390
@@ -1153,7 +1153,7 @@ define internal i32 @dissect_eobi_message(ptr noundef %0, ptr noundef %1, ptr no
 396:                                              ; preds = %345
   %397 = call i32 @tvb_get_letohil(ptr noundef %0, i32 noundef %.0466612) #5
   %398 = icmp eq i32 %397, -2147483648
-  %399 = getelementptr inbounds i8, ptr %68, i64 4
+  %399 = getelementptr inbounds nuw i8, ptr %68, i64 4
   %400 = load i16, ptr %399, align 4
   %401 = zext i16 %400 to i64
   %402 = getelementptr [83 x i32], ptr @hf_eobi, i64 0, i64 %401
@@ -1185,7 +1185,7 @@ define internal i32 @dissect_eobi_message(ptr noundef %0, ptr noundef %1, ptr no
 414:                                              ; preds = %345
   %415 = call i64 @tvb_get_letohi64(ptr noundef %0, i32 noundef %.0466612) #5
   %416 = icmp eq i64 %415, -9223372036854775808
-  %417 = getelementptr inbounds i8, ptr %68, i64 4
+  %417 = getelementptr inbounds nuw i8, ptr %68, i64 4
   %418 = load i16, ptr %417, align 4
   %419 = zext i16 %418 to i64
   %420 = getelementptr [83 x i32], ptr @hf_eobi, i64 0, i64 %419
@@ -1222,12 +1222,12 @@ define internal i32 @dissect_eobi_message(ptr noundef %0, ptr noundef %1, ptr no
   br label %532
 
 437:                                              ; preds = %67, %67
-  %438 = getelementptr inbounds i8, ptr %68, i64 4
+  %438 = getelementptr inbounds nuw i8, ptr %68, i64 4
   %439 = load i16, ptr %438, align 4
   %440 = zext i16 %439 to i64
   %441 = getelementptr [83 x i32], ptr @hf_eobi, i64 0, i64 %440
   %442 = load i32, ptr %441, align 4
-  %443 = getelementptr inbounds i8, ptr %68, i64 2
+  %443 = getelementptr inbounds nuw i8, ptr %68, i64 2
   %444 = load i16, ptr %443, align 2
   %445 = zext i16 %444 to i32
   %446 = call ptr @proto_tree_add_item(ptr noundef %.0472609, i32 noundef %442, ptr noundef %0, i32 noundef %.0466612, i32 noundef %445, i32 noundef -2147483648) #5
@@ -1237,7 +1237,7 @@ define internal i32 @dissect_eobi_message(ptr noundef %0, ptr noundef %1, ptr no
   br label %532
 
 450:                                              ; preds = %67
-  %451 = getelementptr inbounds i8, ptr %68, i64 2
+  %451 = getelementptr inbounds nuw i8, ptr %68, i64 2
   %452 = load i16, ptr %451, align 2
   %453 = icmp eq i16 %452, 8
   br i1 %453, label %456, label %454
@@ -1248,7 +1248,7 @@ define internal i32 @dissect_eobi_message(ptr noundef %0, ptr noundef %1, ptr no
   unreachable
 
 456:                                              ; preds = %450
-  %457 = getelementptr inbounds i8, ptr %68, i64 1
+  %457 = getelementptr inbounds nuw i8, ptr %68, i64 1
   %458 = load i8, ptr %457, align 1
   %.not522 = icmp eq i8 %458, 0
   br i1 %.not522, label %459, label %460
@@ -1272,7 +1272,7 @@ define internal i32 @dissect_eobi_message(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %466, label %467, label %478
 
 467:                                              ; preds = %464
-  %468 = getelementptr inbounds i8, ptr %68, i64 4
+  %468 = getelementptr inbounds nuw i8, ptr %68, i64 4
   %469 = load i16, ptr %468, align 4
   %470 = zext i16 %469 to i64
   %471 = getelementptr [83 x i32], ptr @hf_eobi, i64 0, i64 %470
@@ -1303,7 +1303,7 @@ define internal i32 @dissect_eobi_message(ptr noundef %0, ptr noundef %1, ptr no
 
 485:                                              ; preds = %478
   %486 = sub nsw i32 %481, %479
-  %487 = getelementptr inbounds i8, ptr %68, i64 4
+  %487 = getelementptr inbounds nuw i8, ptr %68, i64 4
   %488 = load i16, ptr %487, align 4
   %489 = zext i16 %488 to i64
   %490 = getelementptr [83 x i32], ptr @hf_eobi, i64 0, i64 %489
@@ -1320,7 +1320,7 @@ define internal i32 @dissect_eobi_message(ptr noundef %0, ptr noundef %1, ptr no
   br label %532
 
 499:                                              ; preds = %67
-  %500 = getelementptr inbounds i8, ptr %68, i64 2
+  %500 = getelementptr inbounds nuw i8, ptr %68, i64 2
   %501 = load i16, ptr %500, align 2
   %502 = icmp eq i16 %501, 8
   br i1 %502, label %505, label %503
@@ -1331,7 +1331,7 @@ define internal i32 @dissect_eobi_message(ptr noundef %0, ptr noundef %1, ptr no
   unreachable
 
 505:                                              ; preds = %499
-  %506 = getelementptr inbounds i8, ptr %68, i64 4
+  %506 = getelementptr inbounds nuw i8, ptr %68, i64 4
   %507 = load i16, ptr %506, align 4
   %508 = zext i16 %507 to i64
   %509 = getelementptr [83 x i32], ptr @hf_eobi, i64 0, i64 %508
@@ -1343,7 +1343,7 @@ define internal i32 @dissect_eobi_message(ptr noundef %0, ptr noundef %1, ptr no
   br label %532
 
 515:                                              ; preds = %67
-  %516 = getelementptr inbounds i8, ptr %68, i64 2
+  %516 = getelementptr inbounds nuw i8, ptr %68, i64 2
   %517 = load i16, ptr %516, align 2
   %518 = icmp eq i16 %517, 1
   br i1 %518, label %521, label %519
@@ -1354,7 +1354,7 @@ define internal i32 @dissect_eobi_message(ptr noundef %0, ptr noundef %1, ptr no
   unreachable
 
 521:                                              ; preds = %515
-  %522 = getelementptr inbounds i8, ptr %68, i64 4
+  %522 = getelementptr inbounds nuw i8, ptr %68, i64 4
   %523 = load i16, ptr %522, align 4
   %524 = zext i16 %523 to i64
   %525 = getelementptr [83 x i32], ptr @hf_eobi, i64 0, i64 %524

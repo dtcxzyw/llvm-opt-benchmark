@@ -227,7 +227,7 @@ define range(i32 -2147483648, 1) i32 @prte_hwloc_base_register() local_unnamed_a
   %56 = load ptr, ptr @default_cpu_list, align 8
   %57 = tail call noalias ptr @strdup(ptr noundef %56) #9
   store ptr %57, ptr @prte_hwloc_default_cpu_list, align 8
-  %58 = getelementptr inbounds i8, ptr %54, i64 1
+  %58 = getelementptr inbounds nuw i8, ptr %54, i64 1
   %59 = tail call i32 @strcasecmp(ptr noundef nonnull %58, ptr noundef nonnull @.str.30) #10
   %60 = icmp eq i32 %59, 0
   br i1 %60, label %61, label %62
@@ -318,7 +318,7 @@ define range(i32 -43, 1) i32 @prte_hwloc_base_set_binding_policy(ptr noundef %0,
 
 7:                                                ; preds = %4
   store i8 0, ptr %6, align 1
-  %8 = getelementptr inbounds i8, ptr %6, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 1
   %9 = tail call ptr @PMIx_Argv_split(ptr noundef nonnull %8, i32 noundef 58) #9
   %10 = load ptr, ptr %9, align 8
   %.not6570 = icmp eq ptr %10, null
@@ -326,14 +326,14 @@ define range(i32 -43, 1) i32 @prte_hwloc_base_set_binding_policy(ptr noundef %0,
 
 .lr.ph:                                           ; preds = %7
   %11 = icmp eq ptr %0, null
-  %12 = getelementptr inbounds i8, ptr %0, i64 784
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 784
   br i1 %11, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %32
   %indvars.iv79 = phi i64 [ %indvars.iv.next80, %32 ], [ 0, %.lr.ph ]
   %13 = phi ptr [ %34, %32 ], [ %10, %.lr.ph ]
   %.171.us = phi i16 [ %.2.us, %32 ], [ 0, %.lr.ph ]
-  %14 = getelementptr inbounds ptr, ptr %9, i64 %indvars.iv79
+  %14 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv79
   %15 = tail call fastcc zeroext i1 @pmix_check_cli_option(ptr noundef nonnull %13, ptr noundef nonnull @.str.50)
   br i1 %15, label %30, label %16
 
@@ -368,7 +368,7 @@ define range(i32 -43, 1) i32 @prte_hwloc_base_set_binding_policy(ptr noundef %0,
 32:                                               ; preds = %30, %28, %25
   %.2.us = phi i16 [ %31, %30 ], [ %29, %28 ], [ %27, %25 ]
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
-  %33 = getelementptr inbounds ptr, ptr %9, i64 %indvars.iv.next80
+  %33 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv.next80
   %34 = load ptr, ptr %33, align 8
   %.not65.us = icmp eq ptr %34, null
   br i1 %.not65.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !4
@@ -377,7 +377,7 @@ define range(i32 -43, 1) i32 @prte_hwloc_base_set_binding_policy(ptr noundef %0,
   %indvars.iv = phi i64 [ %indvars.iv.next, %59 ], [ 0, %.lr.ph ]
   %35 = phi ptr [ %61, %59 ], [ %10, %.lr.ph ]
   %.171 = phi i16 [ %.2, %59 ], [ 0, %.lr.ph ]
-  %36 = getelementptr inbounds ptr, ptr %9, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
   %37 = tail call fastcc zeroext i1 @pmix_check_cli_option(ptr noundef nonnull %35, ptr noundef nonnull @.str.50)
   br i1 %37, label %38, label %40
 
@@ -428,7 +428,7 @@ define range(i32 -43, 1) i32 @prte_hwloc_base_set_binding_policy(ptr noundef %0,
 59:                                               ; preds = %38, %48, %54, %43
   %.2 = phi i16 [ %39, %38 ], [ %44, %43 ], [ %50, %48 ], [ %.171, %54 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %60 = getelementptr inbounds ptr, ptr %9, i64 %indvars.iv.next
+  %60 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv.next
   %61 = load ptr, ptr %60, align 8
   %.not65 = icmp eq ptr %61, null
   br i1 %.not65, label %._crit_edge, label %.lr.ph.split, !llvm.loop !4
@@ -495,7 +495,7 @@ define range(i32 -43, 1) i32 @prte_hwloc_base_set_binding_policy(ptr noundef %0,
   br label %96
 
 88:                                               ; preds = %84
-  %89 = getelementptr inbounds i8, ptr %0, i64 472
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %90 = load ptr, ptr %89, align 8
   %91 = icmp eq ptr %90, null
   br i1 %91, label %92, label %94
@@ -506,7 +506,7 @@ define range(i32 -43, 1) i32 @prte_hwloc_base_set_binding_policy(ptr noundef %0,
   br label %96
 
 94:                                               ; preds = %88
-  %95 = getelementptr inbounds i8, ptr %90, i64 140
+  %95 = getelementptr inbounds nuw i8, ptr %90, i64 140
   store i16 %85, ptr %95, align 4
   br label %96
 
@@ -555,12 +555,12 @@ declare void @hwloc_topology_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define noundef i32 @prte_hwloc_base_set_default_binding(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 784
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 784
   %4 = tail call zeroext i1 @prte_get_attribute(ptr noundef nonnull %3, i16 noundef zeroext 277, ptr noundef null, i16 noundef zeroext 13) #9
   br i1 %4, label %5, label %50
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 2
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %7 = load i8, ptr %6, align 2
   %8 = trunc i8 %7 to i1
   br i1 %8, label %12, label %9
@@ -571,16 +571,16 @@ define noundef i32 @prte_hwloc_base_set_default_binding(ptr noundef %0, ptr noca
   br i1 %11, label %12, label %31
 
 12:                                               ; preds = %9, %5
-  %13 = getelementptr inbounds i8, ptr %1, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %14 = load i32, ptr %13, align 4
   %or.cond = icmp ult i32 %14, 64
   br i1 %or.cond, label %15, label %22
 
 15:                                               ; preds = %12
   %16 = zext nneg i32 %14 to i64
-  %17 = getelementptr inbounds [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %16, i32 2
+  %17 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %16, i32 2
   %18 = load i32, ptr %17, align 4
-  %19 = getelementptr inbounds i8, ptr %1, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %20 = load i32, ptr %19, align 8
   %.not245 = icmp slt i32 %18, %20
   br i1 %.not245, label %22, label %21
@@ -590,9 +590,9 @@ define noundef i32 @prte_hwloc_base_set_default_binding(ptr noundef %0, ptr noca
   br label %22
 
 22:                                               ; preds = %12, %15, %21
-  %23 = getelementptr inbounds i8, ptr %0, i64 472
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 140
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 140
   %26 = load i16, ptr %25, align 4
   %27 = and i16 %26, 16384
   %.not246 = icmp eq i16 %27, 0
@@ -605,16 +605,16 @@ define noundef i32 @prte_hwloc_base_set_default_binding(ptr noundef %0, ptr noca
   br label %410
 
 31:                                               ; preds = %9
-  %32 = getelementptr inbounds i8, ptr %1, i64 4
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %33 = load i32, ptr %32, align 4
   %or.cond249 = icmp ult i32 %33, 64
   br i1 %or.cond249, label %34, label %41
 
 34:                                               ; preds = %31
   %35 = zext nneg i32 %33 to i64
-  %36 = getelementptr inbounds [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %35, i32 2
+  %36 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %35, i32 2
   %37 = load i32, ptr %36, align 4
-  %38 = getelementptr inbounds i8, ptr %1, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %39 = load i32, ptr %38, align 8
   %.not243 = icmp slt i32 %37, %39
   br i1 %.not243, label %41, label %40
@@ -624,9 +624,9 @@ define noundef i32 @prte_hwloc_base_set_default_binding(ptr noundef %0, ptr noca
   br label %41
 
 41:                                               ; preds = %31, %34, %40
-  %42 = getelementptr inbounds i8, ptr %0, i64 472
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 140
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 140
   %45 = load i16, ptr %44, align 4
   %46 = and i16 %45, 16384
   %.not244 = icmp eq i16 %46, 0
@@ -639,16 +639,16 @@ define noundef i32 @prte_hwloc_base_set_default_binding(ptr noundef %0, ptr noca
   br label %410
 
 50:                                               ; preds = %2
-  %51 = getelementptr inbounds i8, ptr %0, i64 780
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 780
   %52 = load i16, ptr %51, align 4
   %53 = and i16 %52, 4096
   %.not = icmp eq i16 %53, 0
-  %54 = getelementptr inbounds i8, ptr %0, i64 472
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %55 = load ptr, ptr %54, align 8
   br i1 %.not, label %61, label %56
 
 56:                                               ; preds = %50
-  %57 = getelementptr inbounds i8, ptr %55, i64 140
+  %57 = getelementptr inbounds nuw i8, ptr %55, i64 140
   %58 = load i16, ptr %57, align 4
   %59 = and i16 %58, -16640
   %60 = or disjoint i16 %59, 16385
@@ -656,7 +656,7 @@ define noundef i32 @prte_hwloc_base_set_default_binding(ptr noundef %0, ptr noca
   br label %410
 
 61:                                               ; preds = %50
-  %62 = getelementptr inbounds i8, ptr %55, i64 136
+  %62 = getelementptr inbounds nuw i8, ptr %55, i64 136
   %63 = load i16, ptr %62, align 8
   %trunc = trunc i16 %63 to i8
   switch i8 %trunc, label %345 [
@@ -672,16 +672,16 @@ define noundef i32 @prte_hwloc_base_set_default_binding(ptr noundef %0, ptr noca
   ]
 
 64:                                               ; preds = %61
-  %65 = getelementptr inbounds i8, ptr %1, i64 4
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %66 = load i32, ptr %65, align 4
   %or.cond250 = icmp ult i32 %66, 64
   br i1 %or.cond250, label %67, label %74
 
 67:                                               ; preds = %64
   %68 = zext nneg i32 %66 to i64
-  %69 = getelementptr inbounds [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %68, i32 2
+  %69 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %68, i32 2
   %70 = load i32, ptr %69, align 4
-  %71 = getelementptr inbounds i8, ptr %1, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %72 = load i32, ptr %71, align 8
   %.not241 = icmp slt i32 %70, %72
   br i1 %.not241, label %74, label %73
@@ -693,7 +693,7 @@ define noundef i32 @prte_hwloc_base_set_default_binding(ptr noundef %0, ptr noca
 
 74:                                               ; preds = %64, %67, %73
   %75 = phi ptr [ %55, %64 ], [ %55, %67 ], [ %.pre275, %73 ]
-  %76 = getelementptr inbounds i8, ptr %75, i64 140
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 140
   %77 = load i16, ptr %76, align 4
   %78 = and i16 %77, 16384
   %.not242 = icmp eq i16 %78, 0
@@ -706,16 +706,16 @@ define noundef i32 @prte_hwloc_base_set_default_binding(ptr noundef %0, ptr noca
   br label %410
 
 82:                                               ; preds = %61
-  %83 = getelementptr inbounds i8, ptr %1, i64 4
+  %83 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %84 = load i32, ptr %83, align 4
   %or.cond251 = icmp ult i32 %84, 64
   br i1 %or.cond251, label %85, label %92
 
 85:                                               ; preds = %82
   %86 = zext nneg i32 %84 to i64
-  %87 = getelementptr inbounds [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %86, i32 2
+  %87 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %86, i32 2
   %88 = load i32, ptr %87, align 4
-  %89 = getelementptr inbounds i8, ptr %1, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %90 = load i32, ptr %89, align 8
   %.not239 = icmp slt i32 %88, %90
   br i1 %.not239, label %92, label %91
@@ -727,7 +727,7 @@ define noundef i32 @prte_hwloc_base_set_default_binding(ptr noundef %0, ptr noca
 
 92:                                               ; preds = %82, %85, %91
   %93 = phi ptr [ %55, %82 ], [ %55, %85 ], [ %.pre274, %91 ]
-  %94 = getelementptr inbounds i8, ptr %93, i64 140
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 140
   %95 = load i16, ptr %94, align 4
   %96 = and i16 %95, 16384
   %.not240 = icmp eq i16 %96, 0
@@ -740,16 +740,16 @@ define noundef i32 @prte_hwloc_base_set_default_binding(ptr noundef %0, ptr noca
   br label %410
 
 100:                                              ; preds = %61
-  %101 = getelementptr inbounds i8, ptr %1, i64 4
+  %101 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %102 = load i32, ptr %101, align 4
   %or.cond252 = icmp ult i32 %102, 64
   br i1 %or.cond252, label %103, label %110
 
 103:                                              ; preds = %100
   %104 = zext nneg i32 %102 to i64
-  %105 = getelementptr inbounds [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %104, i32 2
+  %105 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %104, i32 2
   %106 = load i32, ptr %105, align 4
-  %107 = getelementptr inbounds i8, ptr %1, i64 8
+  %107 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %108 = load i32, ptr %107, align 8
   %.not237 = icmp slt i32 %106, %108
   br i1 %.not237, label %110, label %109
@@ -761,7 +761,7 @@ define noundef i32 @prte_hwloc_base_set_default_binding(ptr noundef %0, ptr noca
 
 110:                                              ; preds = %100, %103, %109
   %111 = phi ptr [ %55, %100 ], [ %55, %103 ], [ %.pre273, %109 ]
-  %112 = getelementptr inbounds i8, ptr %111, i64 140
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 140
   %113 = load i16, ptr %112, align 4
   %114 = and i16 %113, 16384
   %.not238 = icmp eq i16 %114, 0
@@ -774,16 +774,16 @@ define noundef i32 @prte_hwloc_base_set_default_binding(ptr noundef %0, ptr noca
   br label %410
 
 118:                                              ; preds = %61
-  %119 = getelementptr inbounds i8, ptr %1, i64 4
+  %119 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %120 = load i32, ptr %119, align 4
   %or.cond253 = icmp ult i32 %120, 64
   br i1 %or.cond253, label %121, label %128
 
 121:                                              ; preds = %118
   %122 = zext nneg i32 %120 to i64
-  %123 = getelementptr inbounds [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %122, i32 2
+  %123 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %122, i32 2
   %124 = load i32, ptr %123, align 4
-  %125 = getelementptr inbounds i8, ptr %1, i64 8
+  %125 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %126 = load i32, ptr %125, align 8
   %.not235 = icmp slt i32 %124, %126
   br i1 %.not235, label %128, label %127
@@ -795,7 +795,7 @@ define noundef i32 @prte_hwloc_base_set_default_binding(ptr noundef %0, ptr noca
 
 128:                                              ; preds = %118, %121, %127
   %129 = phi ptr [ %55, %118 ], [ %55, %121 ], [ %.pre272, %127 ]
-  %130 = getelementptr inbounds i8, ptr %129, i64 140
+  %130 = getelementptr inbounds nuw i8, ptr %129, i64 140
   %131 = load i16, ptr %130, align 4
   %132 = and i16 %131, 16384
   %.not236 = icmp eq i16 %132, 0
@@ -808,16 +808,16 @@ define noundef i32 @prte_hwloc_base_set_default_binding(ptr noundef %0, ptr noca
   br label %410
 
 136:                                              ; preds = %61
-  %137 = getelementptr inbounds i8, ptr %1, i64 4
+  %137 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %138 = load i32, ptr %137, align 4
   %or.cond254 = icmp ult i32 %138, 64
   br i1 %or.cond254, label %139, label %146
 
 139:                                              ; preds = %136
   %140 = zext nneg i32 %138 to i64
-  %141 = getelementptr inbounds [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %140, i32 2
+  %141 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %140, i32 2
   %142 = load i32, ptr %141, align 4
-  %143 = getelementptr inbounds i8, ptr %1, i64 8
+  %143 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %144 = load i32, ptr %143, align 8
   %.not233 = icmp slt i32 %142, %144
   br i1 %.not233, label %146, label %145
@@ -829,7 +829,7 @@ define noundef i32 @prte_hwloc_base_set_default_binding(ptr noundef %0, ptr noca
 
 146:                                              ; preds = %136, %139, %145
   %147 = phi ptr [ %55, %136 ], [ %55, %139 ], [ %.pre271, %145 ]
-  %148 = getelementptr inbounds i8, ptr %147, i64 140
+  %148 = getelementptr inbounds nuw i8, ptr %147, i64 140
   %149 = load i16, ptr %148, align 4
   %150 = and i16 %149, 16384
   %.not234 = icmp eq i16 %150, 0
@@ -842,16 +842,16 @@ define noundef i32 @prte_hwloc_base_set_default_binding(ptr noundef %0, ptr noca
   br label %410
 
 154:                                              ; preds = %61
-  %155 = getelementptr inbounds i8, ptr %1, i64 4
+  %155 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %156 = load i32, ptr %155, align 4
   %or.cond255 = icmp ult i32 %156, 64
   br i1 %or.cond255, label %157, label %164
 
 157:                                              ; preds = %154
   %158 = zext nneg i32 %156 to i64
-  %159 = getelementptr inbounds [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %158, i32 2
+  %159 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %158, i32 2
   %160 = load i32, ptr %159, align 4
-  %161 = getelementptr inbounds i8, ptr %1, i64 8
+  %161 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %162 = load i32, ptr %161, align 8
   %.not231 = icmp slt i32 %160, %162
   br i1 %.not231, label %164, label %163
@@ -863,7 +863,7 @@ define noundef i32 @prte_hwloc_base_set_default_binding(ptr noundef %0, ptr noca
 
 164:                                              ; preds = %154, %157, %163
   %165 = phi ptr [ %55, %154 ], [ %55, %157 ], [ %.pre270, %163 ]
-  %166 = getelementptr inbounds i8, ptr %165, i64 140
+  %166 = getelementptr inbounds nuw i8, ptr %165, i64 140
   %167 = load i16, ptr %166, align 4
   %168 = and i16 %167, 16384
   %.not232 = icmp eq i16 %168, 0
@@ -876,16 +876,16 @@ define noundef i32 @prte_hwloc_base_set_default_binding(ptr noundef %0, ptr noca
   br label %410
 
 172:                                              ; preds = %61
-  %173 = getelementptr inbounds i8, ptr %1, i64 4
+  %173 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %174 = load i32, ptr %173, align 4
   %or.cond256 = icmp ult i32 %174, 64
   br i1 %or.cond256, label %175, label %182
 
 175:                                              ; preds = %172
   %176 = zext nneg i32 %174 to i64
-  %177 = getelementptr inbounds [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %176, i32 2
+  %177 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %176, i32 2
   %178 = load i32, ptr %177, align 4
-  %179 = getelementptr inbounds i8, ptr %1, i64 8
+  %179 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %180 = load i32, ptr %179, align 8
   %.not229 = icmp slt i32 %178, %180
   br i1 %.not229, label %182, label %181
@@ -897,7 +897,7 @@ define noundef i32 @prte_hwloc_base_set_default_binding(ptr noundef %0, ptr noca
 
 182:                                              ; preds = %172, %175, %181
   %183 = phi ptr [ %55, %172 ], [ %55, %175 ], [ %.pre269, %181 ]
-  %184 = getelementptr inbounds i8, ptr %183, i64 140
+  %184 = getelementptr inbounds nuw i8, ptr %183, i64 140
   %185 = load i16, ptr %184, align 4
   %186 = and i16 %185, 16384
   %.not230 = icmp eq i16 %186, 0
@@ -910,10 +910,10 @@ define noundef i32 @prte_hwloc_base_set_default_binding(ptr noundef %0, ptr noca
   br label %410
 
 190:                                              ; preds = %61
-  %191 = getelementptr inbounds i8, ptr %1, i64 2
+  %191 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %192 = load i8, ptr %191, align 2
   %193 = trunc i8 %192 to i1
-  %194 = getelementptr inbounds i8, ptr %1, i64 4
+  %194 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %195 = load i32, ptr %194, align 4
   %or.cond257 = icmp ult i32 %195, 64
   br i1 %193, label %196, label %212
@@ -923,9 +923,9 @@ define noundef i32 @prte_hwloc_base_set_default_binding(ptr noundef %0, ptr noca
 
 197:                                              ; preds = %196
   %198 = zext nneg i32 %195 to i64
-  %199 = getelementptr inbounds [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %198, i32 2
+  %199 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %198, i32 2
   %200 = load i32, ptr %199, align 4
-  %201 = getelementptr inbounds i8, ptr %1, i64 8
+  %201 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %202 = load i32, ptr %201, align 8
   %.not227 = icmp slt i32 %200, %202
   br i1 %.not227, label %204, label %203
@@ -937,7 +937,7 @@ define noundef i32 @prte_hwloc_base_set_default_binding(ptr noundef %0, ptr noca
 
 204:                                              ; preds = %196, %197, %203
   %205 = phi ptr [ %55, %196 ], [ %55, %197 ], [ %.pre268, %203 ]
-  %206 = getelementptr inbounds i8, ptr %205, i64 140
+  %206 = getelementptr inbounds nuw i8, ptr %205, i64 140
   %207 = load i16, ptr %206, align 4
   %208 = and i16 %207, 16384
   %.not228 = icmp eq i16 %208, 0
@@ -954,9 +954,9 @@ define noundef i32 @prte_hwloc_base_set_default_binding(ptr noundef %0, ptr noca
 
 213:                                              ; preds = %212
   %214 = zext nneg i32 %195 to i64
-  %215 = getelementptr inbounds [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %214, i32 2
+  %215 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %214, i32 2
   %216 = load i32, ptr %215, align 4
-  %217 = getelementptr inbounds i8, ptr %1, i64 8
+  %217 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %218 = load i32, ptr %217, align 8
   %.not225 = icmp slt i32 %216, %218
   br i1 %.not225, label %220, label %219
@@ -968,7 +968,7 @@ define noundef i32 @prte_hwloc_base_set_default_binding(ptr noundef %0, ptr noca
 
 220:                                              ; preds = %212, %213, %219
   %221 = phi ptr [ %55, %212 ], [ %55, %213 ], [ %.pre267, %219 ]
-  %222 = getelementptr inbounds i8, ptr %221, i64 140
+  %222 = getelementptr inbounds nuw i8, ptr %221, i64 140
   %223 = load i16, ptr %222, align 4
   %224 = and i16 %223, 16384
   %.not226 = icmp eq i16 %224, 0
@@ -981,7 +981,7 @@ define noundef i32 @prte_hwloc_base_set_default_binding(ptr noundef %0, ptr noca
   br label %410
 
 228:                                              ; preds = %61
-  %229 = getelementptr inbounds i8, ptr %1, i64 52
+  %229 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %230 = load i32, ptr %229, align 4
   switch i32 %230, label %410 [
     i32 0, label %231
@@ -995,13 +995,13 @@ define noundef i32 @prte_hwloc_base_set_default_binding(ptr noundef %0, ptr noca
   ]
 
 231:                                              ; preds = %228
-  %232 = getelementptr inbounds i8, ptr %1, i64 48
+  %232 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %233 = load i32, ptr %232, align 8
   %234 = icmp slt i32 %233, 3
   br i1 %234, label %235, label %278
 
 235:                                              ; preds = %231
-  %236 = getelementptr inbounds i8, ptr %1, i64 2
+  %236 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %237 = load i8, ptr %236, align 2
   %238 = trunc i8 %237 to i1
   br i1 %238, label %242, label %239
@@ -1012,16 +1012,16 @@ define noundef i32 @prte_hwloc_base_set_default_binding(ptr noundef %0, ptr noca
   br i1 %241, label %242, label %260
 
 242:                                              ; preds = %239, %235
-  %243 = getelementptr inbounds i8, ptr %1, i64 4
+  %243 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %244 = load i32, ptr %243, align 4
   %or.cond259 = icmp ult i32 %244, 64
   br i1 %or.cond259, label %245, label %252
 
 245:                                              ; preds = %242
   %246 = zext nneg i32 %244 to i64
-  %247 = getelementptr inbounds [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %246, i32 2
+  %247 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %246, i32 2
   %248 = load i32, ptr %247, align 4
-  %249 = getelementptr inbounds i8, ptr %1, i64 8
+  %249 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %250 = load i32, ptr %249, align 8
   %.not223 = icmp slt i32 %248, %250
   br i1 %.not223, label %252, label %251
@@ -1033,7 +1033,7 @@ define noundef i32 @prte_hwloc_base_set_default_binding(ptr noundef %0, ptr noca
 
 252:                                              ; preds = %242, %245, %251
   %253 = phi ptr [ %55, %242 ], [ %55, %245 ], [ %.pre266, %251 ]
-  %254 = getelementptr inbounds i8, ptr %253, i64 140
+  %254 = getelementptr inbounds nuw i8, ptr %253, i64 140
   %255 = load i16, ptr %254, align 4
   %256 = and i16 %255, 16384
   %.not224 = icmp eq i16 %256, 0
@@ -1046,16 +1046,16 @@ define noundef i32 @prte_hwloc_base_set_default_binding(ptr noundef %0, ptr noca
   br label %410
 
 260:                                              ; preds = %239
-  %261 = getelementptr inbounds i8, ptr %1, i64 4
+  %261 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %262 = load i32, ptr %261, align 4
   %or.cond260 = icmp ult i32 %262, 64
   br i1 %or.cond260, label %263, label %270
 
 263:                                              ; preds = %260
   %264 = zext nneg i32 %262 to i64
-  %265 = getelementptr inbounds [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %264, i32 2
+  %265 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %264, i32 2
   %266 = load i32, ptr %265, align 4
-  %267 = getelementptr inbounds i8, ptr %1, i64 8
+  %267 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %268 = load i32, ptr %267, align 8
   %.not221 = icmp slt i32 %266, %268
   br i1 %.not221, label %270, label %269
@@ -1067,7 +1067,7 @@ define noundef i32 @prte_hwloc_base_set_default_binding(ptr noundef %0, ptr noca
 
 270:                                              ; preds = %260, %263, %269
   %271 = phi ptr [ %55, %260 ], [ %55, %263 ], [ %.pre265, %269 ]
-  %272 = getelementptr inbounds i8, ptr %271, i64 140
+  %272 = getelementptr inbounds nuw i8, ptr %271, i64 140
   %273 = load i16, ptr %272, align 4
   %274 = and i16 %273, 16384
   %.not222 = icmp eq i16 %274, 0
@@ -1080,16 +1080,16 @@ define noundef i32 @prte_hwloc_base_set_default_binding(ptr noundef %0, ptr noca
   br label %410
 
 278:                                              ; preds = %231
-  %279 = getelementptr inbounds i8, ptr %1, i64 4
+  %279 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %280 = load i32, ptr %279, align 4
   %or.cond261 = icmp ult i32 %280, 64
   br i1 %or.cond261, label %281, label %288
 
 281:                                              ; preds = %278
   %282 = zext nneg i32 %280 to i64
-  %283 = getelementptr inbounds [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %282, i32 2
+  %283 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %282, i32 2
   %284 = load i32, ptr %283, align 4
-  %285 = getelementptr inbounds i8, ptr %1, i64 8
+  %285 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %286 = load i32, ptr %285, align 8
   %.not219 = icmp slt i32 %284, %286
   br i1 %.not219, label %288, label %287
@@ -1101,7 +1101,7 @@ define noundef i32 @prte_hwloc_base_set_default_binding(ptr noundef %0, ptr noca
 
 288:                                              ; preds = %278, %281, %287
   %289 = phi ptr [ %55, %278 ], [ %55, %281 ], [ %.pre, %287 ]
-  %290 = getelementptr inbounds i8, ptr %289, i64 140
+  %290 = getelementptr inbounds nuw i8, ptr %289, i64 140
   %291 = load i16, ptr %290, align 4
   %292 = and i16 %291, 16384
   %.not220 = icmp eq i16 %292, 0
@@ -1114,7 +1114,7 @@ define noundef i32 @prte_hwloc_base_set_default_binding(ptr noundef %0, ptr noca
   br label %410
 
 296:                                              ; preds = %228
-  %297 = getelementptr inbounds i8, ptr %55, i64 140
+  %297 = getelementptr inbounds nuw i8, ptr %55, i64 140
   %298 = load i16, ptr %297, align 4
   %299 = and i16 %298, 16384
   %.not218 = icmp eq i16 %299, 0
@@ -1127,7 +1127,7 @@ define noundef i32 @prte_hwloc_base_set_default_binding(ptr noundef %0, ptr noca
   br label %410
 
 303:                                              ; preds = %228
-  %304 = getelementptr inbounds i8, ptr %55, i64 140
+  %304 = getelementptr inbounds nuw i8, ptr %55, i64 140
   %305 = load i16, ptr %304, align 4
   %306 = and i16 %305, 16384
   %.not217 = icmp eq i16 %306, 0
@@ -1140,7 +1140,7 @@ define noundef i32 @prte_hwloc_base_set_default_binding(ptr noundef %0, ptr noca
   br label %410
 
 310:                                              ; preds = %228
-  %311 = getelementptr inbounds i8, ptr %55, i64 140
+  %311 = getelementptr inbounds nuw i8, ptr %55, i64 140
   %312 = load i16, ptr %311, align 4
   %313 = and i16 %312, 16384
   %.not216 = icmp eq i16 %313, 0
@@ -1153,7 +1153,7 @@ define noundef i32 @prte_hwloc_base_set_default_binding(ptr noundef %0, ptr noca
   br label %410
 
 317:                                              ; preds = %228
-  %318 = getelementptr inbounds i8, ptr %55, i64 140
+  %318 = getelementptr inbounds nuw i8, ptr %55, i64 140
   %319 = load i16, ptr %318, align 4
   %320 = and i16 %319, 16384
   %.not215 = icmp eq i16 %320, 0
@@ -1166,7 +1166,7 @@ define noundef i32 @prte_hwloc_base_set_default_binding(ptr noundef %0, ptr noca
   br label %410
 
 324:                                              ; preds = %228
-  %325 = getelementptr inbounds i8, ptr %55, i64 140
+  %325 = getelementptr inbounds nuw i8, ptr %55, i64 140
   %326 = load i16, ptr %325, align 4
   %327 = and i16 %326, 16384
   %.not214 = icmp eq i16 %327, 0
@@ -1179,7 +1179,7 @@ define noundef i32 @prte_hwloc_base_set_default_binding(ptr noundef %0, ptr noca
   br label %410
 
 331:                                              ; preds = %228
-  %332 = getelementptr inbounds i8, ptr %55, i64 140
+  %332 = getelementptr inbounds nuw i8, ptr %55, i64 140
   %333 = load i16, ptr %332, align 4
   %334 = and i16 %333, 16384
   %.not213 = icmp eq i16 %334, 0
@@ -1192,7 +1192,7 @@ define noundef i32 @prte_hwloc_base_set_default_binding(ptr noundef %0, ptr noca
   br label %410
 
 338:                                              ; preds = %228
-  %339 = getelementptr inbounds i8, ptr %55, i64 140
+  %339 = getelementptr inbounds nuw i8, ptr %55, i64 140
   %340 = load i16, ptr %339, align 4
   %341 = and i16 %340, 16384
   %.not212 = icmp eq i16 %341, 0
@@ -1205,13 +1205,13 @@ define noundef i32 @prte_hwloc_base_set_default_binding(ptr noundef %0, ptr noca
   br label %410
 
 345:                                              ; preds = %61
-  %346 = getelementptr inbounds i8, ptr %1, i64 48
+  %346 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %347 = load i32, ptr %346, align 8
   %348 = icmp slt i32 %347, 3
   br i1 %348, label %349, label %392
 
 349:                                              ; preds = %345
-  %350 = getelementptr inbounds i8, ptr %1, i64 2
+  %350 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %351 = load i8, ptr %350, align 2
   %352 = trunc i8 %351 to i1
   br i1 %352, label %356, label %353
@@ -1222,16 +1222,16 @@ define noundef i32 @prte_hwloc_base_set_default_binding(ptr noundef %0, ptr noca
   br i1 %355, label %356, label %374
 
 356:                                              ; preds = %353, %349
-  %357 = getelementptr inbounds i8, ptr %1, i64 4
+  %357 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %358 = load i32, ptr %357, align 4
   %or.cond262 = icmp ult i32 %358, 64
   br i1 %or.cond262, label %359, label %366
 
 359:                                              ; preds = %356
   %360 = zext nneg i32 %358 to i64
-  %361 = getelementptr inbounds [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %360, i32 2
+  %361 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %360, i32 2
   %362 = load i32, ptr %361, align 4
-  %363 = getelementptr inbounds i8, ptr %1, i64 8
+  %363 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %364 = load i32, ptr %363, align 8
   %.not210 = icmp slt i32 %362, %364
   br i1 %.not210, label %366, label %365
@@ -1243,7 +1243,7 @@ define noundef i32 @prte_hwloc_base_set_default_binding(ptr noundef %0, ptr noca
 
 366:                                              ; preds = %356, %359, %365
   %367 = phi ptr [ %55, %356 ], [ %55, %359 ], [ %.pre278, %365 ]
-  %368 = getelementptr inbounds i8, ptr %367, i64 140
+  %368 = getelementptr inbounds nuw i8, ptr %367, i64 140
   %369 = load i16, ptr %368, align 4
   %370 = and i16 %369, 16384
   %.not211 = icmp eq i16 %370, 0
@@ -1256,16 +1256,16 @@ define noundef i32 @prte_hwloc_base_set_default_binding(ptr noundef %0, ptr noca
   br label %410
 
 374:                                              ; preds = %353
-  %375 = getelementptr inbounds i8, ptr %1, i64 4
+  %375 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %376 = load i32, ptr %375, align 4
   %or.cond263 = icmp ult i32 %376, 64
   br i1 %or.cond263, label %377, label %384
 
 377:                                              ; preds = %374
   %378 = zext nneg i32 %376 to i64
-  %379 = getelementptr inbounds [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %378, i32 2
+  %379 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %378, i32 2
   %380 = load i32, ptr %379, align 4
-  %381 = getelementptr inbounds i8, ptr %1, i64 8
+  %381 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %382 = load i32, ptr %381, align 8
   %.not208 = icmp slt i32 %380, %382
   br i1 %.not208, label %384, label %383
@@ -1277,7 +1277,7 @@ define noundef i32 @prte_hwloc_base_set_default_binding(ptr noundef %0, ptr noca
 
 384:                                              ; preds = %374, %377, %383
   %385 = phi ptr [ %55, %374 ], [ %55, %377 ], [ %.pre277, %383 ]
-  %386 = getelementptr inbounds i8, ptr %385, i64 140
+  %386 = getelementptr inbounds nuw i8, ptr %385, i64 140
   %387 = load i16, ptr %386, align 4
   %388 = and i16 %387, 16384
   %.not209 = icmp eq i16 %388, 0
@@ -1290,16 +1290,16 @@ define noundef i32 @prte_hwloc_base_set_default_binding(ptr noundef %0, ptr noca
   br label %410
 
 392:                                              ; preds = %345
-  %393 = getelementptr inbounds i8, ptr %1, i64 4
+  %393 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %394 = load i32, ptr %393, align 4
   %or.cond264 = icmp ult i32 %394, 64
   br i1 %or.cond264, label %395, label %402
 
 395:                                              ; preds = %392
   %396 = zext nneg i32 %394 to i64
-  %397 = getelementptr inbounds [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %396, i32 2
+  %397 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %396, i32 2
   %398 = load i32, ptr %397, align 4
-  %399 = getelementptr inbounds i8, ptr %1, i64 8
+  %399 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %400 = load i32, ptr %399, align 8
   %.not206 = icmp slt i32 %398, %400
   br i1 %.not206, label %402, label %401
@@ -1311,7 +1311,7 @@ define noundef i32 @prte_hwloc_base_set_default_binding(ptr noundef %0, ptr noca
 
 402:                                              ; preds = %392, %395, %401
   %403 = phi ptr [ %55, %392 ], [ %55, %395 ], [ %.pre276, %401 ]
-  %404 = getelementptr inbounds i8, ptr %403, i64 140
+  %404 = getelementptr inbounds nuw i8, ptr %403, i64 140
   %405 = load i16, ptr %404, align 4
   %406 = and i16 %405, 16384
   %.not207 = icmp eq i16 %406, 0
@@ -1324,9 +1324,9 @@ define noundef i32 @prte_hwloc_base_set_default_binding(ptr noundef %0, ptr noca
   br label %410
 
 410:                                              ; preds = %228, %56, %92, %97, %128, %133, %164, %169, %225, %220, %209, %204, %389, %384, %371, %366, %402, %407, %293, %288, %252, %257, %270, %275, %303, %307, %317, %321, %331, %335, %342, %338, %328, %324, %314, %310, %300, %296, %187, %182, %151, %146, %115, %110, %79, %74, %22, %28, %41, %47
-  %411 = getelementptr inbounds i8, ptr %0, i64 472
+  %411 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %412 = load ptr, ptr %411, align 8
-  %413 = getelementptr inbounds i8, ptr %412, i64 140
+  %413 = getelementptr inbounds nuw i8, ptr %412, i64 140
   %414 = load i16, ptr %413, align 4
   %415 = and i16 %414, 256
   %.not247 = icmp eq i16 %415, 0
@@ -1378,14 +1378,14 @@ define ptr @prte_hwloc_get_print_buffer() local_unnamed_addr #0 {
 10:                                               ; preds = %8, %10
   %indvars.iv = phi i64 [ 0, %8 ], [ %indvars.iv.next, %10 ]
   %11 = tail call noalias dereferenceable_or_null(51) ptr @malloc(i64 noundef 51) #11
-  %12 = getelementptr inbounds [16 x ptr], ptr %9, i64 0, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [16 x ptr], ptr %9, i64 0, i64 %indvars.iv
   store ptr %11, ptr %12, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
   br i1 %exitcond.not, label %13, label %10, !llvm.loop !6
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %9, i64 128
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 128
   store i32 0, ptr %14, align 8
   %15 = load i32, ptr @print_tsd_key, align 4
   %16 = tail call i32 @pthread_setspecific(i32 noundef %15, ptr noundef nonnull %9) #9
@@ -1405,7 +1405,7 @@ define internal void @buffer_cleanup(ptr noundef %0) #0 {
 
 .preheader:                                       ; preds = %1, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %1 ]
-  %2 = getelementptr inbounds [16 x ptr], ptr %0, i64 0, i64 %indvars.iv
+  %2 = getelementptr inbounds nuw [16 x ptr], ptr %0, i64 0, i64 %indvars.iv
   %3 = load ptr, ptr %2, align 8
   tail call void @free(ptr noundef %3) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1450,14 +1450,14 @@ define ptr @prte_hwloc_base_print_locality(i16 noundef zeroext %0) local_unnamed
 11:                                               ; preds = %11, %9
   %indvars.iv.i = phi i64 [ 0, %9 ], [ %indvars.iv.next.i, %11 ]
   %12 = tail call noalias dereferenceable_or_null(51) ptr @malloc(i64 noundef 51) #11
-  %13 = getelementptr inbounds [16 x ptr], ptr %10, i64 0, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw [16 x ptr], ptr %10, i64 0, i64 %indvars.iv.i
   store ptr %12, ptr %13, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
   br i1 %exitcond.not.i, label %14, label %11, !llvm.loop !6
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %10, i64 128
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 128
   store i32 0, ptr %15, align 8
   %16 = load i32, ptr @print_tsd_key, align 4
   %17 = tail call i32 @pthread_setspecific(i32 noundef %16, ptr noundef nonnull %10) #9
@@ -1465,7 +1465,7 @@ define ptr @prte_hwloc_base_print_locality(i16 noundef zeroext %0) local_unnamed
 
 18:                                               ; preds = %14, %5
   %.04.i.ph = phi ptr [ %7, %5 ], [ %10, %14 ]
-  %19 = getelementptr inbounds i8, ptr %.04.i.ph, i64 128
+  %19 = getelementptr inbounds nuw i8, ptr %.04.i.ph, i64 128
   %20 = load i32, ptr %19, align 8
   %21 = icmp eq i32 %20, 16
   br i1 %21, label %22, label %23
@@ -1490,13 +1490,13 @@ define ptr @prte_hwloc_base_print_locality(i16 noundef zeroext %0) local_unnamed
   %32 = sext i32 %31 to i64
   %33 = getelementptr inbounds [16 x ptr], ptr %.04.i.ph, i64 0, i64 %32
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 1
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 1
   store i8 76, ptr %35, align 1
   %36 = load i32, ptr %19, align 8
   %37 = sext i32 %36 to i64
   %38 = getelementptr inbounds [16 x ptr], ptr %.04.i.ph, i64 0, i64 %37
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 2
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 2
   store i8 58, ptr %40, align 1
   br label %41
 
@@ -1512,22 +1512,22 @@ define ptr @prte_hwloc_base_print_locality(i16 noundef zeroext %0) local_unnamed
   %46 = getelementptr inbounds [16 x ptr], ptr %.04.i.ph, i64 0, i64 %45
   %47 = load ptr, ptr %46, align 8
   %48 = zext nneg i32 %.0 to i64
-  %49 = getelementptr inbounds i8, ptr %47, i64 %48
+  %49 = getelementptr inbounds nuw i8, ptr %47, i64 %48
   store i8 67, ptr %49, align 1
   %50 = load i32, ptr %19, align 8
   %51 = sext i32 %50 to i64
   %52 = getelementptr inbounds [16 x ptr], ptr %.04.i.ph, i64 0, i64 %51
   %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 %48
-  %55 = getelementptr inbounds i8, ptr %54, i64 1
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 %48
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 1
   store i8 85, ptr %55, align 1
   %56 = load i32, ptr %19, align 8
   %57 = sext i32 %56 to i64
   %58 = getelementptr inbounds [16 x ptr], ptr %.04.i.ph, i64 0, i64 %57
   %59 = load ptr, ptr %58, align 8
   %60 = add nuw nsw i32 %.0, 3
-  %61 = getelementptr inbounds i8, ptr %59, i64 %48
-  %62 = getelementptr inbounds i8, ptr %61, i64 2
+  %61 = getelementptr inbounds nuw i8, ptr %59, i64 %48
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 2
   store i8 58, ptr %62, align 1
   br label %63
 
@@ -1543,7 +1543,7 @@ define ptr @prte_hwloc_base_print_locality(i16 noundef zeroext %0) local_unnamed
   %68 = getelementptr inbounds [16 x ptr], ptr %.04.i.ph, i64 0, i64 %67
   %69 = load ptr, ptr %68, align 8
   %70 = zext nneg i32 %.1 to i64
-  %71 = getelementptr inbounds i8, ptr %69, i64 %70
+  %71 = getelementptr inbounds nuw i8, ptr %69, i64 %70
   store i8 78, ptr %71, align 1
   %72 = load i32, ptr %19, align 8
   %73 = sext i32 %72 to i64
@@ -1567,7 +1567,7 @@ define ptr @prte_hwloc_base_print_locality(i16 noundef zeroext %0) local_unnamed
   %84 = getelementptr inbounds [16 x ptr], ptr %.04.i.ph, i64 0, i64 %83
   %85 = load ptr, ptr %84, align 8
   %86 = zext nneg i32 %.2 to i64
-  %87 = getelementptr inbounds i8, ptr %85, i64 %86
+  %87 = getelementptr inbounds nuw i8, ptr %85, i64 %86
   store i8 83, ptr %87, align 1
   %88 = load i32, ptr %19, align 8
   %89 = sext i32 %88 to i64
@@ -1591,7 +1591,7 @@ define ptr @prte_hwloc_base_print_locality(i16 noundef zeroext %0) local_unnamed
   %100 = getelementptr inbounds [16 x ptr], ptr %.04.i.ph, i64 0, i64 %99
   %101 = load ptr, ptr %100, align 8
   %102 = zext nneg i32 %.3 to i64
-  %103 = getelementptr inbounds i8, ptr %101, i64 %102
+  %103 = getelementptr inbounds nuw i8, ptr %101, i64 %102
   store i8 78, ptr %103, align 1
   %104 = load i32, ptr %19, align 8
   %105 = sext i32 %104 to i64
@@ -1622,7 +1622,7 @@ define ptr @prte_hwloc_base_print_locality(i16 noundef zeroext %0) local_unnamed
   %122 = getelementptr inbounds [16 x ptr], ptr %.04.i.ph, i64 0, i64 %121
   %123 = load ptr, ptr %122, align 8
   %124 = zext nneg i32 %.4 to i64
-  %125 = getelementptr inbounds i8, ptr %123, i64 %124
+  %125 = getelementptr inbounds nuw i8, ptr %123, i64 %124
   store i8 76, ptr %125, align 1
   %126 = load i32, ptr %19, align 8
   %127 = sext i32 %126 to i64
@@ -1653,7 +1653,7 @@ define ptr @prte_hwloc_base_print_locality(i16 noundef zeroext %0) local_unnamed
   %144 = getelementptr inbounds [16 x ptr], ptr %.04.i.ph, i64 0, i64 %143
   %145 = load ptr, ptr %144, align 8
   %146 = zext nneg i32 %.5 to i64
-  %147 = getelementptr inbounds i8, ptr %145, i64 %146
+  %147 = getelementptr inbounds nuw i8, ptr %145, i64 %146
   store i8 76, ptr %147, align 1
   %148 = load i32, ptr %19, align 8
   %149 = sext i32 %148 to i64
@@ -1684,7 +1684,7 @@ define ptr @prte_hwloc_base_print_locality(i16 noundef zeroext %0) local_unnamed
   %166 = getelementptr inbounds [16 x ptr], ptr %.04.i.ph, i64 0, i64 %165
   %167 = load ptr, ptr %166, align 8
   %168 = zext nneg i32 %.6 to i64
-  %169 = getelementptr inbounds i8, ptr %167, i64 %168
+  %169 = getelementptr inbounds nuw i8, ptr %167, i64 %168
   store i8 76, ptr %169, align 1
   %170 = load i32, ptr %19, align 8
   %171 = sext i32 %170 to i64
@@ -1715,7 +1715,7 @@ define ptr @prte_hwloc_base_print_locality(i16 noundef zeroext %0) local_unnamed
   %188 = getelementptr inbounds [16 x ptr], ptr %.04.i.ph, i64 0, i64 %187
   %189 = load ptr, ptr %188, align 8
   %190 = zext nneg i32 %.7 to i64
-  %191 = getelementptr inbounds i8, ptr %189, i64 %190
+  %191 = getelementptr inbounds nuw i8, ptr %189, i64 %190
   store i8 67, ptr %191, align 1
   %192 = load i32, ptr %19, align 8
   %193 = sext i32 %192 to i64
@@ -1739,7 +1739,7 @@ define ptr @prte_hwloc_base_print_locality(i16 noundef zeroext %0) local_unnamed
   %203 = getelementptr inbounds [16 x ptr], ptr %.04.i.ph, i64 0, i64 %202
   %204 = load ptr, ptr %203, align 8
   %205 = zext nneg i32 %.8 to i64
-  %206 = getelementptr inbounds i8, ptr %204, i64 %205
+  %206 = getelementptr inbounds nuw i8, ptr %204, i64 %205
   store i8 72, ptr %206, align 1
   %207 = load i32, ptr %19, align 8
   %208 = sext i32 %207 to i64

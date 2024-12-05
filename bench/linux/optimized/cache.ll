@@ -35,7 +35,7 @@ declare dso_local ptr @kmem_cache_create(ptr noundef, i32 noundef, i32 noundef, 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid memory(argmem: readwrite, inaccessiblemem: readwrite)
 define internal void @init_once(ptr noundef %0) #2 align 16 {
   store volatile ptr %0, ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store volatile ptr %0, ptr %2, align 8
   ret void
 }
@@ -65,10 +65,10 @@ define dso_local void @fat_cache_inval_inode(ptr noundef %0) local_unnamed_addr 
 
 8:                                                ; preds = %19, %6
   %9 = phi ptr [ %4, %6 ], [ %21, %19 ]
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr %9, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %11, ptr %13, align 8
   store volatile ptr %12, ptr %11, align 8
   store volatile ptr %9, ptr %9, align 8
@@ -106,13 +106,13 @@ define dso_local void @fat_cache_inval_inode(ptr noundef %0) local_unnamed_addr 
 define dso_local range(i32 -2147483648, 268435456) i32 @fat_get_cluster(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3) local_unnamed_addr #3 align 16 {
   %5 = alloca %struct.fat_entry, align 8
   %6 = alloca %struct.fat_cache_id, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 872
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 872
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %8, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %12 = load i64, ptr %11, align 32
-  %13 = getelementptr inbounds i8, ptr %10, i64 2
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 2
   %14 = load i16, ptr %13, align 2
   %15 = zext nneg i16 %14 to i64
   %16 = ashr i64 %12, %15
@@ -140,15 +140,15 @@ define dso_local range(i32 -2147483648, 268435456) i32 @fat_get_cluster(ptr noun
 26:                                               ; preds = %23
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false), !annotation !14
   %27 = zext nneg i32 %24 to i64
-  %28 = getelementptr inbounds i8, ptr %10, i64 48
+  %28 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %29 = load i64, ptr %28, align 8
   %30 = icmp ugt i64 %29, %27
   br i1 %30, label %38, label %31
 
 31:                                               ; preds = %26, %23
   %32 = load ptr, ptr %9, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 296
-  %34 = tail call i32 @___ratelimit(ptr noundef %33, ptr noundef nonnull @__func__.fat_get_cluster) #8
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 296
+  %34 = tail call i32 @___ratelimit(ptr noundef nonnull %33, ptr noundef nonnull @__func__.fat_get_cluster) #8
   %35 = getelementptr i8, ptr %0, i64 -96
   %36 = load i64, ptr %35, align 8
   %37 = load i32, ptr %3, align 4
@@ -175,19 +175,19 @@ define dso_local range(i32 -2147483648, 268435456) i32 @fat_get_cluster(ptr noun
   %44 = phi ptr [ %64, %61 ], [ %42, %40 ]
   %45 = phi ptr [ %63, %61 ], [ @fat_cache_lookup.nohit, %40 ]
   %46 = phi i32 [ %62, %61 ], [ -1, %40 ]
-  %47 = getelementptr inbounds i8, ptr %44, i64 20
+  %47 = getelementptr inbounds nuw i8, ptr %44, i64 20
   %48 = load i32, ptr %47, align 4
   %49 = icmp sgt i32 %48, %1
   br i1 %49, label %61, label %50
 
 50:                                               ; preds = %.preheader12
-  %51 = getelementptr inbounds i8, ptr %45, i64 20
+  %51 = getelementptr inbounds nuw i8, ptr %45, i64 20
   %52 = load i32, ptr %51, align 4
   %53 = icmp slt i32 %52, %48
   br i1 %53, label %54, label %61
 
 54:                                               ; preds = %50
-  %55 = getelementptr inbounds i8, ptr %44, i64 16
+  %55 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %56 = load i32, ptr %55, align 8
   %57 = add i32 %56, %48
   %58 = icmp slt i32 %57, %1
@@ -215,14 +215,14 @@ define dso_local range(i32 -2147483648, 268435456) i32 @fat_get_cluster(ptr noun
   br i1 %70, label %78, label %71
 
 71:                                               ; preds = %69
-  %72 = getelementptr inbounds i8, ptr %67, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %73 = load ptr, ptr %72, align 8
   %74 = load ptr, ptr %67, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 8
   store ptr %73, ptr %75, align 8
   store volatile ptr %74, ptr %73, align 8
   %76 = load ptr, ptr %41, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 8
   store ptr %67, ptr %77, align 8
   store ptr %76, ptr %67, align 8
   store ptr %41, ptr %72, align 8
@@ -233,17 +233,17 @@ define dso_local range(i32 -2147483648, 268435456) i32 @fat_get_cluster(ptr noun
   %79 = getelementptr i8, ptr %0, i64 -124
   %80 = load i32, ptr %79, align 4
   store i32 %80, ptr %6, align 4
-  %81 = getelementptr inbounds i8, ptr %67, i64 16
+  %81 = getelementptr inbounds nuw i8, ptr %67, i64 16
   %82 = load i32, ptr %81, align 8
-  %83 = getelementptr inbounds i8, ptr %6, i64 4
+  %83 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 %82, ptr %83, align 4
-  %84 = getelementptr inbounds i8, ptr %67, i64 20
+  %84 = getelementptr inbounds nuw i8, ptr %67, i64 20
   %85 = load i32, ptr %84, align 4
-  %86 = getelementptr inbounds i8, ptr %6, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %85, ptr %86, align 4
-  %87 = getelementptr inbounds i8, ptr %67, i64 24
+  %87 = getelementptr inbounds nuw i8, ptr %67, i64 24
   %88 = load i32, ptr %87, align 8
-  %89 = getelementptr inbounds i8, ptr %6, i64 12
+  %89 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 %88, ptr %89, align 4
   %90 = add i32 %85, %66
   store i32 %90, ptr %2, align 4
@@ -261,11 +261,11 @@ define dso_local range(i32 -2147483648, 268435456) i32 @fat_get_cluster(ptr noun
   br i1 %97, label %98, label %102
 
 98:                                               ; preds = %.thread11, %92
-  %99 = getelementptr inbounds i8, ptr %6, i64 8
+  %99 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 -1, ptr %99, align 4
-  %100 = getelementptr inbounds i8, ptr %6, i64 12
+  %100 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 -1, ptr %100, align 4
-  %101 = getelementptr inbounds i8, ptr %6, i64 4
+  %101 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 0, ptr %101, align 4
   br label %102
 
@@ -274,21 +274,21 @@ define dso_local range(i32 -2147483648, 268435456) i32 @fat_get_cluster(ptr noun
   %104 = phi i32 [ -1, %98 ], [ %94, %92 ]
   %105 = phi i32 [ 0, %98 ], [ %95, %92 ]
   %106 = phi i32 [ 0, %98 ], [ %96, %92 ]
-  %107 = getelementptr inbounds i8, ptr %5, i64 24
+  %107 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i32 0, ptr %107, align 8
   store i32 0, ptr %5, align 8
-  %108 = getelementptr inbounds i8, ptr %5, i64 8
+  %108 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr null, ptr %108, align 8
-  %109 = getelementptr inbounds i8, ptr %5, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(24) %109, i8 0, i64 24, i1 false)
+  %109 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %109, i8 0, i64 24, i1 false)
   %110 = load i32, ptr %2, align 4
   %111 = icmp slt i32 %110, %1
   br i1 %111, label %112, label %155
 
 112:                                              ; preds = %102
-  %113 = getelementptr inbounds i8, ptr %6, i64 4
-  %114 = getelementptr inbounds i8, ptr %6, i64 12
-  %115 = getelementptr inbounds i8, ptr %6, i64 8
+  %113 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %114 = getelementptr inbounds nuw i8, ptr %6, i64 12
+  %115 = getelementptr inbounds nuw i8, ptr %6, i64 8
   br label %116
 
 116:                                              ; preds = %148, %112
@@ -302,8 +302,8 @@ define dso_local range(i32 -2147483648, 268435456) i32 @fat_get_cluster(ptr noun
 
 123:                                              ; preds = %116
   %124 = load ptr, ptr %9, align 8
-  %125 = getelementptr inbounds i8, ptr %124, i64 296
-  %126 = call i32 @___ratelimit(ptr noundef %125, ptr noundef nonnull @__func__.fat_get_cluster) #8
+  %125 = getelementptr inbounds nuw i8, ptr %124, i64 296
+  %126 = call i32 @___ratelimit(ptr noundef nonnull %125, ptr noundef nonnull @__func__.fat_get_cluster) #8
   %127 = getelementptr i8, ptr %0, i64 -96
   %128 = load i64, ptr %127, align 8
   call void (ptr, i32, ptr, ...) @__fat_fs_error(ptr noundef %8, i32 noundef %126, ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.fat_get_cluster, i64 noundef %128) #9
@@ -323,8 +323,8 @@ define dso_local range(i32 -2147483648, 268435456) i32 @fat_get_cluster(ptr noun
 
 134:                                              ; preds = %133
   %135 = load ptr, ptr %9, align 8
-  %136 = getelementptr inbounds i8, ptr %135, i64 296
-  %137 = call i32 @___ratelimit(ptr noundef %136, ptr noundef nonnull @__func__.fat_get_cluster) #8
+  %136 = getelementptr inbounds nuw i8, ptr %135, i64 296
+  %137 = call i32 @___ratelimit(ptr noundef nonnull %136, ptr noundef nonnull @__func__.fat_get_cluster) #8
   %138 = getelementptr i8, ptr %0, i64 -96
   %139 = load i64, ptr %138, align 8
   call void (ptr, i32, ptr, ...) @__fat_fs_error(ptr noundef %8, i32 noundef %137, ptr noundef nonnull @.str.4, ptr noundef nonnull @__func__.fat_get_cluster, i64 noundef %139) #9
@@ -423,7 +423,7 @@ declare dso_local i32 @fat_ent_read(ptr noundef, ptr noundef, i32 noundef) local
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @fat_cache_add(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, -1
   br i1 %5, label %108, label %6
@@ -452,16 +452,16 @@ define internal fastcc void @fat_cache_add(ptr noundef %0, ptr nocapture noundef
   br i1 %19, label %.thread, label %20
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %18, i64 20
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 20
   %22 = load i32, ptr %21, align 4
   %23 = load i32, ptr %3, align 4
   %24 = icmp eq i32 %22, %23
   br i1 %24, label %25, label %16, !llvm.loop !18
 
 25:                                               ; preds = %20
-  %26 = getelementptr inbounds i8, ptr %18, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %27 = load i32, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %1, i64 12
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %29 = load i32, ptr %28, align 4
   %30 = icmp eq i32 %27, %29
   br i1 %30, label %32, label %31, !prof !5
@@ -472,9 +472,9 @@ define internal fastcc void @fat_cache_add(ptr noundef %0, ptr nocapture noundef
   unreachable
 
 32:                                               ; preds = %25
-  %33 = getelementptr inbounds i8, ptr %1, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %34 = load i32, ptr %33, align 4
-  %35 = getelementptr inbounds i8, ptr %18, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %36 = load i32, ptr %35, align 8
   %37 = icmp sgt i32 %34, %36
   br i1 %37, label %38, label %39
@@ -516,16 +516,16 @@ define internal fastcc void @fat_cache_add(ptr noundef %0, ptr nocapture noundef
   br i1 %54, label %.thread10, label %55
 
 55:                                               ; preds = %.preheader
-  %56 = getelementptr inbounds i8, ptr %53, i64 20
+  %56 = getelementptr inbounds nuw i8, ptr %53, i64 20
   %57 = load i32, ptr %56, align 4
   %58 = load i32, ptr %3, align 4
   %59 = icmp eq i32 %57, %58
   br i1 %59, label %60, label %.preheader, !llvm.loop !18
 
 60:                                               ; preds = %55
-  %61 = getelementptr inbounds i8, ptr %53, i64 24
+  %61 = getelementptr inbounds nuw i8, ptr %53, i64 24
   %62 = load i32, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %1, i64 12
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %64 = load i32, ptr %63, align 4
   %65 = icmp eq i32 %62, %64
   br i1 %65, label %67, label %66, !prof !5
@@ -536,9 +536,9 @@ define internal fastcc void @fat_cache_add(ptr noundef %0, ptr nocapture noundef
   unreachable
 
 67:                                               ; preds = %60
-  %68 = getelementptr inbounds i8, ptr %1, i64 4
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %69 = load i32, ptr %68, align 4
-  %70 = getelementptr inbounds i8, ptr %53, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %71 = load i32, ptr %70, align 8
   %72 = icmp sgt i32 %69, %71
   br i1 %72, label %73, label %74
@@ -577,15 +577,15 @@ define internal fastcc void @fat_cache_add(ptr noundef %0, ptr nocapture noundef
 .thread10:                                        ; preds = %.preheader, %84, %74
   %87 = phi ptr [ %86, %84 ], [ %47, %74 ], [ %47, %.preheader ]
   %88 = load i32, ptr %3, align 4
-  %89 = getelementptr inbounds i8, ptr %87, i64 20
+  %89 = getelementptr inbounds nuw i8, ptr %87, i64 20
   store i32 %88, ptr %89, align 4
-  %90 = getelementptr inbounds i8, ptr %1, i64 12
+  %90 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %91 = load i32, ptr %90, align 4
-  %92 = getelementptr inbounds i8, ptr %87, i64 24
+  %92 = getelementptr inbounds nuw i8, ptr %87, i64 24
   store i32 %91, ptr %92, align 8
-  %93 = getelementptr inbounds i8, ptr %1, i64 4
+  %93 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %94 = load i32, ptr %93, align 4
-  %95 = getelementptr inbounds i8, ptr %87, i64 16
+  %95 = getelementptr inbounds nuw i8, ptr %87, i64 16
   store i32 %94, ptr %95, align 8
   br label %96
 
@@ -596,14 +596,14 @@ define internal fastcc void @fat_cache_add(ptr noundef %0, ptr nocapture noundef
   br i1 %99, label %107, label %100
 
 100:                                              ; preds = %96
-  %101 = getelementptr inbounds i8, ptr %97, i64 8
+  %101 = getelementptr inbounds nuw i8, ptr %97, i64 8
   %102 = load ptr, ptr %101, align 8
   %103 = load ptr, ptr %97, align 8
-  %104 = getelementptr inbounds i8, ptr %103, i64 8
+  %104 = getelementptr inbounds nuw i8, ptr %103, i64 8
   store ptr %102, ptr %104, align 8
   store volatile ptr %103, ptr %102, align 8
   %105 = load ptr, ptr %15, align 8
-  %106 = getelementptr inbounds i8, ptr %105, i64 8
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 8
   store ptr %97, ptr %106, align 8
   store ptr %105, ptr %97, align 8
   store ptr %15, ptr %101, align 8
@@ -625,13 +625,13 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
 define dso_local range(i32 -2147483648, 1) i32 @fat_get_mapped_cluster(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #3 align 16 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 872
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 872
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 2
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 2
   %13 = load i16, ptr %12, align 2
-  %14 = getelementptr inbounds i8, ptr %9, i64 20
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 20
   %15 = load i8, ptr %14, align 4
   %16 = load i16, ptr %11, align 8
   %17 = zext i16 %16 to i64
@@ -695,7 +695,7 @@ define dso_local range(i32 -2147483648, 1) i32 @fat_get_mapped_cluster(ptr nound
   %45 = load i16, ptr %11, align 8
   %46 = zext i16 %45 to i64
   %47 = mul nsw i64 %44, %46
-  %48 = getelementptr inbounds i8, ptr %11, i64 40
+  %48 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %49 = load i64, ptr %48, align 8
   %50 = shl i64 %19, 32
   %51 = ashr exact i64 %50, 32
@@ -719,28 +719,28 @@ define dso_local range(i32 -2147483648, 1) i32 @fat_get_mapped_cluster(ptr nound
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local range(i32 -2147483648, 1) i32 @fat_bmap(ptr noundef %0, i64 noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2, ptr nocapture noundef writeonly initializes((0, 8)) %3, i32 noundef %4, i1 noundef zeroext %5) local_unnamed_addr #3 align 16 {
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 872
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 872
   %10 = load ptr, ptr %9, align 8
   store i64 0, ptr %2, align 8
   store i64 0, ptr %3, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 9
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 9
   %12 = load i8, ptr %11, align 1
   %13 = icmp eq i8 %12, 32
   br i1 %13, label %31, label %14
 
 14:                                               ; preds = %6
-  %15 = getelementptr inbounds i8, ptr %0, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %16 = load i64, ptr %15, align 8
   %17 = icmp eq i64 %16, 1
   br i1 %17, label %18, label %31
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds i8, ptr %10, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %20 = load i16, ptr %19, align 8
   %21 = zext i16 %20 to i32
-  %22 = getelementptr inbounds i8, ptr %10, i64 260
+  %22 = getelementptr inbounds nuw i8, ptr %10, i64 260
   %23 = load i32, ptr %22, align 4
   %24 = lshr i32 %21, %23
   %25 = zext nneg i32 %24 to i64
@@ -748,7 +748,7 @@ define dso_local range(i32 -2147483648, 1) i32 @fat_bmap(ptr noundef %0, i64 nou
   br i1 %26, label %27, label %.thread4
 
 27:                                               ; preds = %18
-  %28 = getelementptr inbounds i8, ptr %10, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %29 = load i64, ptr %28, align 8
   %30 = add i64 %29, %1
   store i64 %30, ptr %2, align 8
@@ -760,11 +760,11 @@ define dso_local range(i32 -2147483648, 1) i32 @fat_bmap(ptr noundef %0, i64 nou
 
 32:                                               ; preds = %31
   %33 = load ptr, ptr %7, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 24
   %35 = load i64, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %33, i64 20
+  %36 = getelementptr inbounds nuw i8, ptr %33, i64 20
   %37 = load i8, ptr %36, align 4
-  %38 = getelementptr inbounds i8, ptr %0, i64 80
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %39 = load i64, ptr %38, align 8
   %40 = add i64 %35, -1
   %41 = add i64 %39, %40
@@ -786,10 +786,10 @@ define dso_local range(i32 -2147483648, 1) i32 @fat_bmap(ptr noundef %0, i64 nou
   br i1 %52, label %.thread, label %.thread4
 
 53:                                               ; preds = %31
-  %54 = getelementptr inbounds i8, ptr %0, i64 144
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %55 = load i64, ptr %54, align 8
   %56 = load ptr, ptr %7, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 20
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 20
   %58 = load i8, ptr %57, align 4
   %59 = zext i8 %58 to i64
   %60 = add nuw nsw i64 %59, 4294967287

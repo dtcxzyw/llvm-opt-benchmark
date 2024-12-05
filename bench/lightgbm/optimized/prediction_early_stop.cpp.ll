@@ -54,12 +54,12 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN8LightGBM10CreateNoneERKNS_25PredictionEarlyStopConfigE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.LightGBM::PredictionEarlyStopInstance") align 8 initializes((0, 36)) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFbPKdiEZN8LightGBM10CreateNoneERKNS3_25PredictionEarlyStopConfigEE3$_0E9_M_invokeERKSt9_Any_dataOS1_Oi", ptr %4, align 8
   store ptr @"_ZNSt17_Function_handlerIFbPKdiEZN8LightGBM10CreateNoneERKNS3_25PredictionEarlyStopConfigEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation", ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 2147483647, ptr %5, align 8
   ret void
 }
@@ -95,16 +95,16 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN8LightGBM16CreateMulticlassERKNS_25PredictionEarlyStopConfigE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.LightGBM::PredictionEarlyStopInstance") align 8 initializes((0, 36)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %7, align 8
   store i64 %4, ptr %0, align 8
   store ptr @"_ZNSt17_Function_handlerIFbPKdiEZN8LightGBM16CreateMulticlassERKNS3_25PredictionEarlyStopConfigEE3$_0E9_M_invokeERKSt9_Any_dataOS1_Oi", ptr %6, align 8
   store ptr @"_ZNSt17_Function_handlerIFbPKdiEZN8LightGBM16CreateMulticlassERKNS3_25PredictionEarlyStopConfigEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation", ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load i32, ptr %1, align 8
   store i32 %9, ptr %8, align 8
   ret void
@@ -153,7 +153,7 @@ _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i.i: ; preds = %.noexc1
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.preheader.i.i.i, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i
   %.0.i.i.i.i.i43.i.i.i = phi ptr [ %.0.i.i.i.i.i45.i.i.i, %.lr.ph.preheader.i.i.i ], [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i ]
   %.sroa.023.042.i.i.i = phi ptr [ %9, %.lr.ph.preheader.i.i.i ], [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i ]
-  %14 = getelementptr inbounds i8, ptr %.sroa.023.042.i.i.i, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %.sroa.023.042.i.i.i, i64 16
   invoke void @_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_comp_iterISt7greaterIdEEEEvT_SC_SC_T0_(ptr %.sroa.023.042.i.i.i, ptr nonnull %14, ptr %.0.i.i.i.i.i43.i.i.i)
           to label %"_ZSt10__invoke_rIbRZN8LightGBM16CreateMulticlassERKNS0_25PredictionEarlyStopConfigEE3$_0JPKdiEENSt9enable_ifIXsr6__and_ISt6__not_ISt7is_voidIT_EESt14is_convertibleINSt15__invoke_resultIT0_JDpT1_EE4typeESB_EEE5valueESB_E4typeEOSG_DpOSH_.exit" unwind label %15
 
@@ -171,7 +171,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit22.i.i.i:            ; preds = %17, %15
   resume { ptr, i32 } %16
 
 "_ZSt10__invoke_rIbRZN8LightGBM16CreateMulticlassERKNS0_25PredictionEarlyStopConfigEE3$_0JPKdiEENSt9enable_ifIXsr6__and_ISt6__not_ISt7is_voidIT_EESt14is_convertibleINSt15__invoke_resultIT0_JDpT1_EE4typeESB_EEE5valueESB_E4typeEOSG_DpOSH_.exit": ; preds = %._crit_edge.i.i.i
-  %18 = getelementptr inbounds i8, ptr %.sroa.023.042.i.i.i, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %.sroa.023.042.i.i.i, i64 8
   %19 = load double, ptr %18, align 8
   %20 = load double, ptr %.sroa.023.042.i.i.i, align 8
   %21 = fsub double %19, %20
@@ -380,13 +380,13 @@ define linkonce_odr void @_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPdS
   %.019.i.i.i.us = phi i64 [ %.0920.i.i78.i.us, %42 ], [ %.1.i.i.us, %37 ]
   %.0920.in.i.i.i.us = add nsw i64 %.019.i.i.i.us, -1
   %.0920.i.i78.i.us = lshr i64 %.0920.in.i.i.i.us, 1
-  %39 = getelementptr inbounds double, ptr %0, i64 %.0920.i.i78.i.us
+  %39 = getelementptr inbounds nuw double, ptr %0, i64 %.0920.i.i78.i.us
   %40 = load double, ptr %39, align 8
   %41 = fcmp ogt double %40, %20
   br i1 %41, label %42, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_comp_iterISt7greaterIdEEEEvT_SC_SC_RT0_.exit.us
 
 42:                                               ; preds = %.lr.ph.i.i.i.us
-  %43 = getelementptr inbounds double, ptr %0, i64 %.019.i.i.i.us
+  %43 = getelementptr inbounds nuw double, ptr %0, i64 %.019.i.i.i.us
   store double %40, ptr %43, align 8
   %.not.i.us = icmp ult i64 %.0920.in.i.i.i.us, 2
   br i1 %.not.i.us, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_comp_iterISt7greaterIdEEEEvT_SC_SC_RT0_.exit.us, label %.lr.ph.i.i.i.us, !llvm.loop !7
@@ -398,7 +398,7 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops1
   br label %45
 
 45:                                               ; preds = %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_comp_iterISt7greaterIdEEEEvT_SC_SC_RT0_.exit.us, %.lr.ph.split.us
-  %46 = getelementptr inbounds i8, ptr %.sroa.0.011.us, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %.sroa.0.011.us, i64 8
   %47 = icmp ult ptr %46, %2
   br i1 %47, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !8
 
@@ -408,7 +408,7 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops1
   br i1 %or.cond, label %35, label %37
 
 .lr.ph.split:                                     ; preds = %.lr.ph
-  %49 = getelementptr inbounds i8, ptr %0, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br i1 %14, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split
@@ -428,12 +428,12 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops1
   store double %54, ptr %0, align 8
   %55 = fcmp ule double %54, %51
   %.0.lcssa.i.i.i.ph.us24.us = zext i1 %55 to i64
-  %56 = getelementptr inbounds double, ptr %0, i64 %.0.lcssa.i.i.i.ph.us24.us
+  %56 = getelementptr inbounds nuw double, ptr %0, i64 %.0.lcssa.i.i.i.ph.us24.us
   store double %51, ptr %56, align 8
   br label %57
 
 57:                                               ; preds = %._crit_edge.i.i.us13.us, %.lr.ph.split.split.us.split.us
-  %58 = getelementptr inbounds i8, ptr %.sroa.0.011.us12.us, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %.sroa.0.011.us12.us, i64 8
   %59 = icmp ult ptr %58, %2
   br i1 %59, label %.lr.ph.split.split.us.split.us, label %._crit_edge, !llvm.loop !8
 
@@ -455,7 +455,7 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops1
 
 64:                                               ; preds = %._crit_edge.i.i.us13, %60
   %65 = phi double [ %62, %._crit_edge.i.i.us13 ], [ %61, %60 ]
-  %66 = getelementptr inbounds i8, ptr %.sroa.0.011.us12, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %.sroa.0.011.us12, i64 8
   %67 = icmp ult ptr %66, %2
   br i1 %67, label %60, label %._crit_edge, !llvm.loop !8
 
@@ -477,7 +477,7 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops1
 
 72:                                               ; preds = %68, %._crit_edge.i.i
   %73 = phi double [ %69, %68 ], [ %70, %._crit_edge.i.i ]
-  %74 = getelementptr inbounds i8, ptr %.sroa.0.011, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %.sroa.0.011, i64 8
   %75 = icmp ult ptr %74, %2
   br i1 %75, label %68, label %._crit_edge, !llvm.loop !8
 
@@ -508,7 +508,7 @@ define linkonce_odr void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPdSt6
 .split.split.preheader:                           ; preds = %.split
   %16 = or disjoint i64 %9, 1
   %17 = getelementptr inbounds double, ptr %0, i64 %16
-  %18 = getelementptr inbounds double, ptr %0, i64 %15
+  %18 = getelementptr inbounds nuw double, ptr %0, i64 %15
   br label %.split.split
 
 .split.split.us:                                  ; preds = %.split, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEldNS0_5__ops15_Iter_comp_iterISt7greaterIdEEEEvT_T0_SD_T1_T2_.exit.us
@@ -632,16 +632,16 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEldNS0_5_
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN8LightGBM12CreateBinaryERKNS_25PredictionEarlyStopConfigE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.LightGBM::PredictionEarlyStopInstance") align 8 initializes((0, 36)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %7, align 8
   store i64 %4, ptr %0, align 8
   store ptr @"_ZNSt17_Function_handlerIFbPKdiEZN8LightGBM12CreateBinaryERKNS3_25PredictionEarlyStopConfigEE3$_0E9_M_invokeERKSt9_Any_dataOS1_Oi", ptr %6, align 8
   store ptr @"_ZNSt17_Function_handlerIFbPKdiEZN8LightGBM12CreateBinaryERKNS3_25PredictionEarlyStopConfigEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation", ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load i32, ptr %1, align 8
   store i32 %9, ptr %8, align 8
   ret void
@@ -702,12 +702,12 @@ define void @_ZN8LightGBM33CreatePredictionEarlyStopInstanceERKNSt7__cxx1112basi
   br i1 %5, label %6, label %10
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 16, i1 false), !alias.scope !10
   store ptr @"_ZNSt17_Function_handlerIFbPKdiEZN8LightGBM10CreateNoneERKNS3_25PredictionEarlyStopConfigEE3$_0E9_M_invokeERKSt9_Any_dataOS1_Oi", ptr %8, align 8, !alias.scope !10
   store ptr @"_ZNSt17_Function_handlerIFbPKdiEZN8LightGBM10CreateNoneERKNS3_25PredictionEarlyStopConfigEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation", ptr %7, align 8, !alias.scope !10
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 2147483647, ptr %9, align 8, !alias.scope !10
   br label %37
 
@@ -718,16 +718,16 @@ define void @_ZN8LightGBM33CreatePredictionEarlyStopInstanceERKNSt7__cxx1112basi
 
 13:                                               ; preds = %10
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13)
-  %14 = getelementptr inbounds i8, ptr %2, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %15 = load i64, ptr %14, align 8, !noalias !13
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
-  %17 = getelementptr inbounds i8, ptr %0, i64 24
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %18, align 8, !alias.scope !13
   store i64 %15, ptr %0, align 8, !alias.scope !13
   store ptr @"_ZNSt17_Function_handlerIFbPKdiEZN8LightGBM16CreateMulticlassERKNS3_25PredictionEarlyStopConfigEE3$_0E9_M_invokeERKSt9_Any_dataOS1_Oi", ptr %17, align 8, !alias.scope !13
   store ptr @"_ZNSt17_Function_handlerIFbPKdiEZN8LightGBM16CreateMulticlassERKNS3_25PredictionEarlyStopConfigEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation", ptr %16, align 8, !alias.scope !13
-  %19 = getelementptr inbounds i8, ptr %0, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %20 = load i32, ptr %2, align 8, !noalias !13
   store i32 %20, ptr %19, align 8, !alias.scope !13
   br label %37
@@ -739,16 +739,16 @@ define void @_ZN8LightGBM33CreatePredictionEarlyStopInstanceERKNSt7__cxx1112basi
 
 24:                                               ; preds = %21
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16)
-  %25 = getelementptr inbounds i8, ptr %2, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %26 = load i64, ptr %25, align 8, !noalias !16
-  %27 = getelementptr inbounds i8, ptr %0, i64 16
-  %28 = getelementptr inbounds i8, ptr %0, i64 24
-  %29 = getelementptr inbounds i8, ptr %0, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %29, align 8, !alias.scope !16
   store i64 %26, ptr %0, align 8, !alias.scope !16
   store ptr @"_ZNSt17_Function_handlerIFbPKdiEZN8LightGBM12CreateBinaryERKNS3_25PredictionEarlyStopConfigEE3$_0E9_M_invokeERKSt9_Any_dataOS1_Oi", ptr %28, align 8, !alias.scope !16
   store ptr @"_ZNSt17_Function_handlerIFbPKdiEZN8LightGBM12CreateBinaryERKNS3_25PredictionEarlyStopConfigEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation", ptr %27, align 8, !alias.scope !16
-  %30 = getelementptr inbounds i8, ptr %0, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %31 = load i32, ptr %2, align 8, !noalias !16
   store i32 %31, ptr %30, align 8, !alias.scope !16
   br label %37
@@ -756,12 +756,12 @@ define void @_ZN8LightGBM33CreatePredictionEarlyStopInstanceERKNSt7__cxx1112basi
 32:                                               ; preds = %21
   %33 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #21
   tail call void (ptr, ...) @_ZN8LightGBM3Log5FatalEPKcz(ptr noundef nonnull @.str.7, ptr noundef %33)
-  %34 = getelementptr inbounds i8, ptr %0, i64 16
-  %35 = getelementptr inbounds i8, ptr %0, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 16, i1 false), !alias.scope !19
   store ptr @"_ZNSt17_Function_handlerIFbPKdiEZN8LightGBM10CreateNoneERKNS3_25PredictionEarlyStopConfigEE3$_0E9_M_invokeERKSt9_Any_dataOS1_Oi", ptr %35, align 8, !alias.scope !19
   store ptr @"_ZNSt17_Function_handlerIFbPKdiEZN8LightGBM10CreateNoneERKNS3_25PredictionEarlyStopConfigEE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation", ptr %34, align 8, !alias.scope !19
-  %36 = getelementptr inbounds i8, ptr %0, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 2147483647, ptr %36, align 8, !alias.scope !19
   br label %37
 

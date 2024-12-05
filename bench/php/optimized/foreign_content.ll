@@ -49,11 +49,11 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @lxb_html_tree_insertion_mode_foreign_content(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 88
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 1
   %.not = icmp eq i32 %5, 0
-  %6 = getelementptr inbounds i8, ptr %1, i64 80
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %7 = load i64, ptr %6, align 8
   br i1 %.not, label %49, label %8
 
@@ -66,15 +66,15 @@ define hidden zeroext i1 @lxb_html_tree_insertion_mode_foreign_content(ptr nound
   br label %lxb_html_tree_insertion_mode_foreign_content_anything_else_closed.exit
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load i64, ptr %14, align 8
   %16 = icmp eq i64 %15, 0
   br i1 %16, label %17, label %21
 
 17:                                               ; preds = %11
-  %18 = getelementptr inbounds i8, ptr %0, i64 88
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %19 = load ptr, ptr %18, align 8
   %20 = tail call zeroext i1 %19(ptr noundef nonnull %0, ptr noundef nonnull %1) #4
   br label %lxb_html_tree_insertion_mode_foreign_content_anything_else_closed.exit
@@ -88,7 +88,7 @@ define hidden zeroext i1 @lxb_html_tree_insertion_mode_foreign_content(ptr nound
 24:                                               ; preds = %21
   %25 = getelementptr inbounds ptr, ptr %22, i64 %23
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load i64, ptr %27, align 8
   %.not31.i = icmp eq i64 %28, %7
   br i1 %.not31.i, label %30, label %29
@@ -107,7 +107,7 @@ define hidden zeroext i1 @lxb_html_tree_insertion_mode_foreign_content(ptr nound
 32:                                               ; preds = %38, %30
   %33 = phi ptr [ %.pre34.i, %30 ], [ %41, %38 ]
   %.0.i = phi i64 [ %23, %30 ], [ %39, %38 ]
-  %34 = getelementptr inbounds i8, ptr %33, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %35 = load i64, ptr %34, align 8
   %36 = icmp eq i64 %35, %31
   br i1 %36, label %37, label %38
@@ -120,7 +120,7 @@ define hidden zeroext i1 @lxb_html_tree_insertion_mode_foreign_content(ptr nound
   %39 = add i64 %.0.i, -1
   %40 = getelementptr inbounds ptr, ptr %22, i64 %39
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 24
   %43 = load i64, ptr %42, align 8
   %44 = icmp ne i64 %43, 2
   %45 = icmp ne i64 %39, 0
@@ -128,7 +128,7 @@ define hidden zeroext i1 @lxb_html_tree_insertion_mode_foreign_content(ptr nound
   br i1 %or.cond.i, label %32, label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %38, %21
-  %46 = getelementptr inbounds i8, ptr %0, i64 88
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %47 = load ptr, ptr %46, align 8
   %48 = tail call zeroext i1 %47(ptr noundef %0, ptr noundef %1) #4
   br label %lxb_html_tree_insertion_mode_foreign_content_anything_else_closed.exit
@@ -197,20 +197,20 @@ define hidden zeroext i1 @lxb_html_tree_insertion_mode_foreign_content(ptr nound
   br label %lxb_html_tree_insertion_mode_foreign_content_anything_else_closed.exit
 
 55:                                               ; preds = %49
-  %56 = getelementptr inbounds i8, ptr %1, i64 48
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %.036.i = load ptr, ptr %56, align 8
   %.not37.i = icmp eq ptr %.036.i, null
   br i1 %.not37.i, label %.critedge.sink.split.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %55, %62
   %.038.i = phi ptr [ %.0.i19, %62 ], [ %.036.i, %55 ]
-  %57 = getelementptr inbounds i8, ptr %.038.i, i64 32
+  %57 = getelementptr inbounds nuw i8, ptr %.038.i, i64 32
   %58 = load ptr, ptr %57, align 8
   %.not26.i = icmp eq ptr %58, null
   br i1 %.not26.i, label %62, label %59
 
 59:                                               ; preds = %.lr.ph.i
-  %60 = getelementptr inbounds i8, ptr %58, i64 40
+  %60 = getelementptr inbounds nuw i8, ptr %58, i64 40
   %61 = load i64, ptr %60, align 8
   switch i64 %61, label %62 [
     i64 6, label %.loopexit.i18
@@ -219,14 +219,14 @@ define hidden zeroext i1 @lxb_html_tree_insertion_mode_foreign_content(ptr nound
   ]
 
 62:                                               ; preds = %59, %.lr.ph.i
-  %63 = getelementptr inbounds i8, ptr %.038.i, i64 56
+  %63 = getelementptr inbounds nuw i8, ptr %.038.i, i64 56
   %.0.i19 = load ptr, ptr %63, align 8
   %.not.i = icmp eq ptr %.0.i19, null
   br i1 %.not.i, label %.critedge.sink.split.i, label %.lr.ph.i
 
 .loopexit.i18:                                    ; preds = %59, %59, %59, %49, %49, %49, %49, %49, %49, %49, %49, %49, %49, %49, %49, %49, %49, %49, %49, %49, %49, %49, %49, %49, %49, %49, %49, %49, %49, %49, %49, %49, %49, %49, %49, %49, %49, %49, %49, %49, %49, %49, %49, %49, %49, %49
   tail call void @lxb_html_tree_parse_error(ptr noundef %0, ptr noundef %1, i32 noundef 0) #4
-  %64 = getelementptr inbounds i8, ptr %0, i64 16
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %65 = load ptr, ptr %64, align 8
   %.not27.i = icmp eq ptr %65, null
   br i1 %.not27.i, label %.preheader.i, label %.critedge.sink.split.i
@@ -239,7 +239,7 @@ define hidden zeroext i1 @lxb_html_tree_insertion_mode_foreign_content(ptr nound
   %.val30.i = load ptr, ptr %66, align 8
   %68 = tail call ptr @lexbor_array_pop(ptr noundef %.val30.i) #4
   %.val.i = load ptr, ptr %66, align 8
-  %69 = getelementptr inbounds i8, ptr %.val.i, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %.val.i, i64 16
   %70 = load i64, ptr %69, align 8
   %71 = icmp eq i64 %70, 0
   br i1 %71, label %lxb_html_tree_insertion_mode_foreign_content_anything_else_closed.exit, label %lxb_html_tree_current_node.exit.i
@@ -253,13 +253,13 @@ lxb_html_tree_current_node.exit.i:                ; preds = %67
   br i1 %.not28.i, label %lxb_html_tree_insertion_mode_foreign_content_anything_else_closed.exit, label %76
 
 76:                                               ; preds = %lxb_html_tree_current_node.exit.i
-  %77 = getelementptr inbounds i8, ptr %75, i64 24
+  %77 = getelementptr inbounds nuw i8, ptr %75, i64 24
   %78 = load i64, ptr %77, align 8
   %79 = icmp eq i64 %78, 3
   br i1 %79, label %80, label %lxb_html_tree_mathml_text_integration_point.exit.i
 
 80:                                               ; preds = %76
-  %81 = getelementptr inbounds i8, ptr %75, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %75, i64 8
   %82 = load i64, ptr %81, align 8
   %.off.i.i = add i64 %82, -128
   %switch.i.i = icmp ult i64 %.off.i.i, 5
@@ -291,7 +291,7 @@ lxb_html_tree_insertion_mode_foreign_content_anything_else_closed.exit: ; preds 
 define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_foreign_content_script_closed(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 32
   %.val = load ptr, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %.val, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %.val, i64 16
   %5 = load i64, ptr %4, align 8
   %6 = icmp eq i64 %5, 0
   br i1 %6, label %lxb_html_tree_current_node.exit, label %7
@@ -305,13 +305,13 @@ define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_foreign_content_
 
 lxb_html_tree_current_node.exit:                  ; preds = %2, %7
   %.0.i = phi ptr [ %11, %7 ], [ null, %2 ]
-  %12 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %13 = load i64, ptr %12, align 8
   %.not = icmp eq i64 %13, 161
   br i1 %.not, label %14, label %17
 
 14:                                               ; preds = %lxb_html_tree_current_node.exit
-  %15 = getelementptr inbounds i8, ptr %.0.i, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
   %16 = load i64, ptr %15, align 8
   %.not7 = icmp eq i64 %16, 4
   br i1 %.not7, label %52, label %17
@@ -320,7 +320,7 @@ lxb_html_tree_current_node.exit:                  ; preds = %2, %7
   br i1 %6, label %18, label %22
 
 18:                                               ; preds = %17
-  %19 = getelementptr inbounds i8, ptr %0, i64 88
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %20 = load ptr, ptr %19, align 8
   %21 = tail call zeroext i1 %20(ptr noundef nonnull %0, ptr noundef %1) #4
   br label %lxb_html_tree_insertion_mode_foreign_content_anything_else_closed.exit
@@ -334,9 +334,9 @@ lxb_html_tree_current_node.exit:                  ; preds = %2, %7
 25:                                               ; preds = %22
   %26 = getelementptr inbounds ptr, ptr %23, i64 %24
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load i64, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %1, i64 80
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %31 = load i64, ptr %30, align 8
   %.not31.i = icmp eq i64 %29, %31
   br i1 %.not31.i, label %33, label %32
@@ -355,7 +355,7 @@ lxb_html_tree_current_node.exit:                  ; preds = %2, %7
 35:                                               ; preds = %41, %33
   %36 = phi ptr [ %.pre34.i, %33 ], [ %44, %41 ]
   %.0.i9 = phi i64 [ %24, %33 ], [ %42, %41 ]
-  %37 = getelementptr inbounds i8, ptr %36, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %38 = load i64, ptr %37, align 8
   %39 = icmp eq i64 %38, %34
   br i1 %39, label %40, label %41
@@ -368,7 +368,7 @@ lxb_html_tree_current_node.exit:                  ; preds = %2, %7
   %42 = add i64 %.0.i9, -1
   %43 = getelementptr inbounds ptr, ptr %23, i64 %42
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 24
   %46 = load i64, ptr %45, align 8
   %47 = icmp ne i64 %46, 2
   %48 = icmp ne i64 %42, 0
@@ -376,7 +376,7 @@ lxb_html_tree_current_node.exit:                  ; preds = %2, %7
   br i1 %or.cond.i, label %35, label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %41, %22
-  %49 = getelementptr inbounds i8, ptr %0, i64 88
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %50 = load ptr, ptr %49, align 8
   %51 = tail call zeroext i1 %50(ptr noundef %0, ptr noundef %1) #4
   br label %lxb_html_tree_insertion_mode_foreign_content_anything_else_closed.exit
@@ -393,31 +393,31 @@ lxb_html_tree_insertion_mode_foreign_content_anything_else_closed.exit: ; preds 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_foreign_content_text(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.lexbor_str_t, align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 72
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %5 = load i64, ptr %4, align 8
   %.not = icmp eq i64 %5, 0
   br i1 %.not, label %12, label %6
 
 6:                                                ; preds = %2
   tail call void @lxb_html_tree_parse_error(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 2) #4
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 192
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 192
   %10 = load ptr, ptr %9, align 8
   %11 = call i32 @lxb_html_token_make_text_replace_null(ptr noundef nonnull %1, ptr noundef nonnull %3, ptr noundef %10) #4
   br label %18
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 192
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 192
   %16 = load ptr, ptr %15, align 8
   %17 = call i32 @lxb_html_token_make_text(ptr noundef nonnull %1, ptr noundef nonnull %3, ptr noundef %16) #4
   br label %18
 
 18:                                               ; preds = %12, %6
   %.sink = phi i32 [ %17, %12 ], [ %11, %6 ]
-  %19 = getelementptr inbounds i8, ptr %0, i64 112
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i32 %.sink, ptr %19, align 8
   %.not33 = icmp eq i32 %.sink, 0
   br i1 %.not33, label %22, label %20
@@ -427,21 +427,21 @@ define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_foreign_content_
   br label %55
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %3, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %24 = load i64, ptr %23, align 8
   %25 = icmp eq i64 %24, 0
   br i1 %25, label %26, label %32
 
 26:                                               ; preds = %22
-  %27 = getelementptr inbounds i8, ptr %0, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 192
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 192
   %30 = load ptr, ptr %29, align 8
   %31 = call ptr @lexbor_str_destroy(ptr noundef nonnull %3, ptr noundef %30, i1 noundef zeroext false) #4
   br label %55
 
 32:                                               ; preds = %22
-  %33 = getelementptr inbounds i8, ptr %0, i64 81
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 81
   %34 = load i8, ptr %33, align 1
   %35 = trunc i8 %34 to i1
   br i1 %35, label %.lr.ph, label %.loopexit
@@ -471,13 +471,13 @@ define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_foreign_content_
 
 .backedge:                                        ; preds = %46, %48
   %.sink40 = phi i64 [ 1, %48 ], [ 3, %46 ]
-  %47 = getelementptr inbounds i8, ptr %.03039, i64 %.sink40
+  %47 = getelementptr inbounds nuw i8, ptr %.03039, i64 %.sink40
   %.not34 = icmp eq ptr %47, %37
   br i1 %.not34, label %.loopexit, label %39
 
 48:                                               ; preds = %39
   %49 = zext i8 %40 to i64
-  %50 = getelementptr inbounds [256 x i8], ptr @lexbor_tokenizer_chars_map, i64 0, i64 %49
+  %50 = getelementptr inbounds nuw [256 x i8], ptr @lexbor_tokenizer_chars_map, i64 0, i64 %49
   %51 = load i8, ptr %50, align 1
   %.not35 = icmp eq i8 %51, 2
   br i1 %.not35, label %.backedge, label %.loopexit.sink.split
@@ -508,7 +508,7 @@ define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_foreign_content_
   br i1 %4, label %5, label %8
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 112
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i32 2, ptr %6, align 8
   %7 = tail call zeroext i1 @lxb_html_tree_process_abort(ptr noundef %0) #4
   br label %8
@@ -520,12 +520,12 @@ define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_foreign_content_
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_foreign_content_anything_else(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp ne ptr %4, null
   %.phi.trans.insert.i = getelementptr i8, ptr %0, i64 32
   %.val.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
-  %.phi.trans.insert7.i = getelementptr inbounds i8, ptr %.val.pre.i, i64 16
+  %.phi.trans.insert7.i = getelementptr inbounds nuw i8, ptr %.val.pre.i, i64 16
   %.pre.i = load i64, ptr %.phi.trans.insert7.i, align 8
   %5 = icmp eq i64 %.pre.i, 1
   %or.cond.i = select i1 %.not.i, i1 %5, i1 false
@@ -542,7 +542,7 @@ define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_foreign_content_
 
 lxb_html_tree_adjusted_current_node.exit:         ; preds = %2, %._crit_edge.i
   %.0.i = phi ptr [ %10, %._crit_edge.i ], [ %4, %2 ]
-  %11 = getelementptr inbounds i8, ptr %.0.i, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
   %12 = load i64, ptr %11, align 8
   switch i64 %12, label %15 [
     i64 3, label %.sink.split
@@ -554,7 +554,7 @@ lxb_html_tree_adjusted_current_node.exit:         ; preds = %2, %._crit_edge.i
 
 .sink.split:                                      ; preds = %lxb_html_tree_adjusted_current_node.exit, %13
   %lxb_html_tree_adjust_attributes_svg.sink = phi ptr [ @lxb_html_tree_adjust_attributes_svg, %13 ], [ @lxb_html_tree_adjust_attributes_mathml, %lxb_html_tree_adjusted_current_node.exit ]
-  %14 = getelementptr inbounds i8, ptr %0, i64 104
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr %lxb_html_tree_adjust_attributes_svg.sink, ptr %14, align 8
   br label %15
 
@@ -565,9 +565,9 @@ lxb_html_tree_adjusted_current_node.exit:         ; preds = %2, %._crit_edge.i
   br i1 %18, label %19, label %23
 
 19:                                               ; preds = %15
-  %20 = getelementptr inbounds i8, ptr %0, i64 104
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr null, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 112
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i32 2, ptr %21, align 8
   %22 = tail call zeroext i1 @lxb_html_tree_process_abort(ptr noundef nonnull %0) #4
   br label %lxb_html_tree_acknowledge_token_self_closing.exit40
@@ -578,10 +578,10 @@ lxb_html_tree_adjusted_current_node.exit:         ; preds = %2, %._crit_edge.i
   br i1 %25, label %26, label %38
 
 26:                                               ; preds = %23
-  %27 = getelementptr inbounds i8, ptr %17, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %28 = load i64, ptr %27, align 8
   %29 = icmp ugt i64 %28, 195
-  %30 = getelementptr inbounds [196 x %struct.lxb_html_tag_fixname_t], ptr @lxb_html_tag_res_fixname_svg, i64 0, i64 %28
+  %30 = getelementptr inbounds nuw [196 x %struct.lxb_html_tag_fixname_t], ptr @lxb_html_tag_res_fixname_svg, i64 0, i64 %28
   br i1 %29, label %38, label %31
 
 31:                                               ; preds = %26
@@ -590,16 +590,16 @@ lxb_html_tree_adjusted_current_node.exit:         ; preds = %2, %._crit_edge.i
   br i1 %.not36, label %38, label %33
 
 33:                                               ; preds = %31
-  %34 = getelementptr inbounds i8, ptr %30, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %35 = load i32, ptr %34, align 8
   %36 = zext i32 %35 to i64
   %37 = tail call i32 @lxb_dom_element_qualified_name_set(ptr noundef nonnull %17, ptr noundef null, i64 noundef 0, ptr noundef nonnull %32, i64 noundef %36) #4
   br label %38
 
 38:                                               ; preds = %26, %31, %33, %23
-  %39 = getelementptr inbounds i8, ptr %0, i64 104
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr null, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %1, i64 88
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %41 = load i32, ptr %40, align 8
   %42 = and i32 %41, 2
   %43 = icmp eq i32 %42, 0
@@ -607,7 +607,7 @@ lxb_html_tree_adjusted_current_node.exit:         ; preds = %2, %._crit_edge.i
 
 44:                                               ; preds = %38
   %.val = load ptr, ptr %.phi.trans.insert.i, align 8
-  %45 = getelementptr inbounds i8, ptr %.val, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %.val, i64 16
   %46 = load i64, ptr %45, align 8
   %47 = icmp eq i64 %46, 0
   br i1 %47, label %lxb_html_tree_current_node.exit, label %48
@@ -621,13 +621,13 @@ lxb_html_tree_adjusted_current_node.exit:         ; preds = %2, %._crit_edge.i
 
 lxb_html_tree_current_node.exit:                  ; preds = %44, %48
   %.0.i39 = phi ptr [ %52, %48 ], [ null, %44 ]
-  %53 = getelementptr inbounds i8, ptr %1, i64 80
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %54 = load i64, ptr %53, align 8
   %55 = icmp eq i64 %54, 161
   br i1 %55, label %56, label %61
 
 56:                                               ; preds = %lxb_html_tree_current_node.exit
-  %57 = getelementptr inbounds i8, ptr %.0.i39, i64 24
+  %57 = getelementptr inbounds nuw i8, ptr %.0.i39, i64 24
   %58 = load i64, ptr %57, align 8
   %59 = icmp eq i64 %58, 4
   br i1 %59, label %lxb_html_tree_acknowledge_token_self_closing.exit, label %61

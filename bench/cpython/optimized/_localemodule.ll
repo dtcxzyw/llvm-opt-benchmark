@@ -341,7 +341,7 @@ entry:
 
 if.end.i:                                         ; preds = %entry
   %call1.i = tail call ptr @localeconv() #6
-  %int_curr_symbol.i.i = getelementptr inbounds i8, ptr %call1.i, i64 24
+  %int_curr_symbol.i.i = getelementptr inbounds nuw i8, ptr %call1.i, i64 24
   %0 = load ptr, ptr %int_curr_symbol.i.i, align 8
   %call.i.i.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #7
   %cmp.i48.i.i = icmp eq i64 %call.i.i.i, 1
@@ -353,7 +353,7 @@ locale_is_ascii.exit.i.i:                         ; preds = %if.end.i
   br i1 %cmp1.i.i.i, label %if.then.i.i, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %locale_is_ascii.exit.i.i
-  %currency_symbol.i.i = getelementptr inbounds i8, ptr %call1.i, i64 32
+  %currency_symbol.i.i = getelementptr inbounds nuw i8, ptr %call1.i, i64 32
   %2 = load ptr, ptr %currency_symbol.i.i, align 8
   %call.i49.i.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #7
   %cmp.i50.i.i = icmp eq i64 %call.i49.i.i, 1
@@ -365,7 +365,7 @@ locale_is_ascii.exit54.i.i:                       ; preds = %lor.lhs.false.i.i
   br i1 %cmp1.i53.i.i, label %if.then.i.i, label %lor.lhs.false3.i.i
 
 lor.lhs.false3.i.i:                               ; preds = %locale_is_ascii.exit54.i.i
-  %mon_decimal_point.i.i = getelementptr inbounds i8, ptr %call1.i, i64 40
+  %mon_decimal_point.i.i = getelementptr inbounds nuw i8, ptr %call1.i, i64 40
   %4 = load ptr, ptr %mon_decimal_point.i.i, align 8
   %call.i55.i.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %4) #7
   %cmp.i56.i.i = icmp eq i64 %call.i55.i.i, 1
@@ -377,7 +377,7 @@ locale_is_ascii.exit60.i.i:                       ; preds = %lor.lhs.false3.i.i
   br i1 %cmp1.i59.i.i, label %if.then.i.i, label %lor.rhs.i.i
 
 lor.rhs.i.i:                                      ; preds = %locale_is_ascii.exit60.i.i
-  %mon_thousands_sep.i.i = getelementptr inbounds i8, ptr %call1.i, i64 48
+  %mon_thousands_sep.i.i = getelementptr inbounds nuw i8, ptr %call1.i, i64 48
   %6 = load ptr, ptr %mon_thousands_sep.i.i, align 8
   %call.i61.i.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %6) #7
   %cmp.i62.i.i = icmp eq i64 %call.i61.i.i, 1
@@ -460,7 +460,7 @@ if.then1.i127.i.i:                                ; preds = %if.end.i124.i.i
   br label %do.body36.i.i
 
 do.body36.i.i:                                    ; preds = %if.then1.i127.i.i, %if.end.i124.i.i, %if.end35.i.i
-  %currency_symbol38.i.i = getelementptr inbounds i8, ptr %call1.i, i64 32
+  %currency_symbol38.i.i = getelementptr inbounds nuw i8, ptr %call1.i, i64 32
   %12 = load ptr, ptr %currency_symbol38.i.i, align 8
   %call39.i.i = tail call ptr @PyUnicode_DecodeLocale(ptr noundef %12, ptr noundef null) #6
   %cmp40.i.i = icmp eq ptr %call39.i.i, null
@@ -497,7 +497,7 @@ if.then1.i109.i.i:                                ; preds = %if.end.i106.i.i
   br label %do.body48.i.i
 
 do.body48.i.i:                                    ; preds = %if.then1.i109.i.i, %if.end.i106.i.i, %if.end46.i.i
-  %mon_decimal_point50.i.i = getelementptr inbounds i8, ptr %call1.i, i64 40
+  %mon_decimal_point50.i.i = getelementptr inbounds nuw i8, ptr %call1.i, i64 40
   %15 = load ptr, ptr %mon_decimal_point50.i.i, align 8
   %call51.i.i = tail call ptr @PyUnicode_DecodeLocale(ptr noundef %15, ptr noundef null) #6
   %cmp52.i.i = icmp eq ptr %call51.i.i, null
@@ -534,7 +534,7 @@ if.then1.i91.i.i:                                 ; preds = %if.end.i88.i.i
   br label %do.body60.i.i
 
 do.body60.i.i:                                    ; preds = %if.then1.i91.i.i, %if.end.i88.i.i, %if.end58.i.i
-  %mon_thousands_sep62.i.i = getelementptr inbounds i8, ptr %call1.i, i64 48
+  %mon_thousands_sep62.i.i = getelementptr inbounds nuw i8, ptr %call1.i, i64 48
   %18 = load ptr, ptr %mon_thousands_sep62.i.i, align 8
   %call63.i.i = tail call ptr @PyUnicode_DecodeLocale(ptr noundef %18, ptr noundef null) #6
   %cmp64.i.i = icmp eq ptr %call63.i.i, null
@@ -585,7 +585,7 @@ locale_decode_monetary.exit.i:                    ; preds = %if.then73.i.i, %don
   br i1 %res.0.i.i, label %failed.i, label %if.end4.i
 
 if.end4.i:                                        ; preds = %locale_decode_monetary.exit.i
-  %mon_grouping.i = getelementptr inbounds i8, ptr %call1.i, i64 56
+  %mon_grouping.i = getelementptr inbounds nuw i8, ptr %call1.i, i64 56
   %22 = load ptr, ptr %mon_grouping.i, align 8
   %call5.i = tail call fastcc ptr @copy_grouping(ptr noundef %22)
   %cmp6.i = icmp eq ptr %call5.i, null
@@ -626,7 +626,7 @@ if.then1.i432.i:                                  ; preds = %if.end.i429.i
   br label %do.body13.i
 
 do.body13.i:                                      ; preds = %if.then1.i432.i, %if.end.i429.i, %if.end12.i
-  %positive_sign.i = getelementptr inbounds i8, ptr %call1.i, i64 64
+  %positive_sign.i = getelementptr inbounds nuw i8, ptr %call1.i, i64 64
   %25 = load ptr, ptr %positive_sign.i, align 8
   %call14.i = tail call ptr @PyUnicode_DecodeLocale(ptr noundef %25, ptr noundef null) #6
   %cmp16.i = icmp eq ptr %call14.i, null
@@ -667,7 +667,7 @@ if.then1.i414.i:                                  ; preds = %if.end.i411.i
   br label %do.body25.i
 
 do.body25.i:                                      ; preds = %if.then1.i414.i, %if.end.i411.i, %if.end22.i
-  %negative_sign.i = getelementptr inbounds i8, ptr %call1.i, i64 72
+  %negative_sign.i = getelementptr inbounds nuw i8, ptr %call1.i, i64 72
   %28 = load ptr, ptr %negative_sign.i, align 8
   %call26.i = tail call ptr @PyUnicode_DecodeLocale(ptr noundef %28, ptr noundef null) #6
   %cmp28.i = icmp eq ptr %call26.i, null
@@ -708,7 +708,7 @@ if.then1.i396.i:                                  ; preds = %if.end.i393.i
   br label %do.body37.i
 
 do.body37.i:                                      ; preds = %if.then1.i396.i, %if.end.i393.i, %if.end34.i
-  %int_frac_digits.i = getelementptr inbounds i8, ptr %call1.i, i64 80
+  %int_frac_digits.i = getelementptr inbounds nuw i8, ptr %call1.i, i64 80
   %31 = load i8, ptr %int_frac_digits.i, align 8
   %conv.i = sext i8 %31 to i64
   %call38.i = tail call ptr @PyLong_FromLong(i64 noundef %conv.i) #6
@@ -750,7 +750,7 @@ if.then1.i378.i:                                  ; preds = %if.end.i375.i
   br label %do.body51.i
 
 do.body51.i:                                      ; preds = %if.then1.i378.i, %if.end.i375.i, %if.end48.i
-  %frac_digits.i = getelementptr inbounds i8, ptr %call1.i, i64 81
+  %frac_digits.i = getelementptr inbounds nuw i8, ptr %call1.i, i64 81
   %34 = load i8, ptr %frac_digits.i, align 1
   %conv52.i = sext i8 %34 to i64
   %call53.i = tail call ptr @PyLong_FromLong(i64 noundef %conv52.i) #6
@@ -792,7 +792,7 @@ if.then1.i360.i:                                  ; preds = %if.end.i357.i
   br label %do.body66.i
 
 do.body66.i:                                      ; preds = %if.then1.i360.i, %if.end.i357.i, %if.end63.i
-  %p_cs_precedes.i = getelementptr inbounds i8, ptr %call1.i, i64 82
+  %p_cs_precedes.i = getelementptr inbounds nuw i8, ptr %call1.i, i64 82
   %37 = load i8, ptr %p_cs_precedes.i, align 2
   %conv67.i = sext i8 %37 to i64
   %call68.i = tail call ptr @PyLong_FromLong(i64 noundef %conv67.i) #6
@@ -834,7 +834,7 @@ if.then1.i342.i:                                  ; preds = %if.end.i339.i
   br label %do.body81.i
 
 do.body81.i:                                      ; preds = %if.then1.i342.i, %if.end.i339.i, %if.end78.i
-  %p_sep_by_space.i = getelementptr inbounds i8, ptr %call1.i, i64 83
+  %p_sep_by_space.i = getelementptr inbounds nuw i8, ptr %call1.i, i64 83
   %40 = load i8, ptr %p_sep_by_space.i, align 1
   %conv82.i = sext i8 %40 to i64
   %call83.i = tail call ptr @PyLong_FromLong(i64 noundef %conv82.i) #6
@@ -876,7 +876,7 @@ if.then1.i324.i:                                  ; preds = %if.end.i321.i
   br label %do.body96.i
 
 do.body96.i:                                      ; preds = %if.then1.i324.i, %if.end.i321.i, %if.end93.i
-  %n_cs_precedes.i = getelementptr inbounds i8, ptr %call1.i, i64 84
+  %n_cs_precedes.i = getelementptr inbounds nuw i8, ptr %call1.i, i64 84
   %43 = load i8, ptr %n_cs_precedes.i, align 4
   %conv97.i = sext i8 %43 to i64
   %call98.i = tail call ptr @PyLong_FromLong(i64 noundef %conv97.i) #6
@@ -918,7 +918,7 @@ if.then1.i306.i:                                  ; preds = %if.end.i303.i
   br label %do.body111.i
 
 do.body111.i:                                     ; preds = %if.then1.i306.i, %if.end.i303.i, %if.end108.i
-  %n_sep_by_space.i = getelementptr inbounds i8, ptr %call1.i, i64 85
+  %n_sep_by_space.i = getelementptr inbounds nuw i8, ptr %call1.i, i64 85
   %46 = load i8, ptr %n_sep_by_space.i, align 1
   %conv112.i = sext i8 %46 to i64
   %call113.i = tail call ptr @PyLong_FromLong(i64 noundef %conv112.i) #6
@@ -960,7 +960,7 @@ if.then1.i288.i:                                  ; preds = %if.end.i285.i
   br label %do.body126.i
 
 do.body126.i:                                     ; preds = %if.then1.i288.i, %if.end.i285.i, %if.end123.i
-  %p_sign_posn.i = getelementptr inbounds i8, ptr %call1.i, i64 86
+  %p_sign_posn.i = getelementptr inbounds nuw i8, ptr %call1.i, i64 86
   %49 = load i8, ptr %p_sign_posn.i, align 2
   %conv127.i = sext i8 %49 to i64
   %call128.i = tail call ptr @PyLong_FromLong(i64 noundef %conv127.i) #6
@@ -1002,7 +1002,7 @@ if.then1.i270.i:                                  ; preds = %if.end.i267.i
   br label %do.body141.i
 
 do.body141.i:                                     ; preds = %if.then1.i270.i, %if.end.i267.i, %if.end138.i
-  %n_sign_posn.i = getelementptr inbounds i8, ptr %call1.i, i64 87
+  %n_sign_posn.i = getelementptr inbounds nuw i8, ptr %call1.i, i64 87
   %52 = load i8, ptr %n_sign_posn.i, align 1
   %conv142.i = sext i8 %52 to i64
   %call143.i = tail call ptr @PyLong_FromLong(i64 noundef %conv142.i) #6
@@ -1146,7 +1146,7 @@ if.then1.i207.i:                                  ; preds = %if.end.i204.i
   br label %Py_DECREF.exit209.i
 
 Py_DECREF.exit209.i:                              ; preds = %if.then1.i207.i, %if.end.i204.i, %if.end170.i
-  %grouping.i = getelementptr inbounds i8, ptr %call1.i, i64 16
+  %grouping.i = getelementptr inbounds nuw i8, ptr %call1.i, i64 16
   %67 = load ptr, ptr %grouping.i, align 8
   %call171.i = call fastcc ptr @copy_grouping(ptr noundef %67)
   %cmp173.i = icmp eq ptr %call171.i, null
@@ -1403,7 +1403,7 @@ for.cond.i:                                       ; preds = %for.body.i
 for.body.i:                                       ; preds = %entry, %for.cond.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.cond.i ], [ 0, %entry ]
   %arrayidx2.i = phi ptr [ %arrayidx.i, %for.cond.i ], [ @langinfo_constants, %entry ]
-  %value.i = getelementptr inbounds i8, ptr %arrayidx2.i, i64 8
+  %value.i = getelementptr inbounds nuw i8, ptr %arrayidx2.i, i64 8
   %0 = load i32, ptr %value.i, align 8
   %cmp.i = icmp eq i32 %0, %call
   br i1 %cmp.i, label %if.then.i, label %for.cond.i
@@ -1434,7 +1434,7 @@ for.cond.i9:                                      ; preds = %for.body.i4
 for.body.i4:                                      ; preds = %land.lhs.true, %for.cond.i9
   %indvars.iv.i5 = phi i64 [ %indvars.iv.next.i10, %for.cond.i9 ], [ 0, %land.lhs.true ]
   %arrayidx2.i6 = phi ptr [ %arrayidx.i11, %for.cond.i9 ], [ @langinfo_constants, %land.lhs.true ]
-  %value.i7 = getelementptr inbounds i8, ptr %arrayidx2.i6, i64 8
+  %value.i7 = getelementptr inbounds nuw i8, ptr %arrayidx2.i6, i64 8
   %2 = load i32, ptr %value.i7, align 8
   %cmp.i8 = icmp eq i32 %2, -1
   br i1 %cmp.i8, label %if.then.i15, label %for.cond.i9
@@ -2243,7 +2243,7 @@ for.body:                                         ; preds = %do.end42, %for.cond
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.cond ], [ 0, %do.end42 ]
   %1 = phi ptr [ %0, %for.cond ], [ @.str.42, %do.end42 ]
   %arrayidx16 = phi ptr [ %arrayidx, %for.cond ], [ @langinfo_constants, %do.end42 ]
-  %value = getelementptr inbounds i8, ptr %arrayidx16, i64 8
+  %value = getelementptr inbounds nuw i8, ptr %arrayidx16, i64 8
   %2 = load i32, ptr %value, align 8
   %conv = sext i32 %2 to i64
   %call55 = tail call i32 @PyModule_AddIntConstant(ptr noundef %module, ptr noundef nonnull %1, i64 noundef %conv) #6

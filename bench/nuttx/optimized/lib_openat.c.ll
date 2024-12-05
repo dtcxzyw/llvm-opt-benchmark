@@ -31,7 +31,7 @@ define noundef i32 @openat(i32 noundef %0, ptr noundef %1, i32 noundef %2, ...) 
   br i1 %15, label %16, label %22
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %5, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %18 = load ptr, ptr %17, align 16
   %19 = zext nneg i32 %14 to i64
   %20 = getelementptr i8, ptr %18, i64 %19
@@ -40,7 +40,7 @@ define noundef i32 @openat(i32 noundef %0, ptr noundef %1, i32 noundef %2, ...) 
   br label %26
 
 22:                                               ; preds = %13
-  %23 = getelementptr inbounds i8, ptr %5, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr i8, ptr %24, i64 8
   store ptr %25, ptr %23, align 8

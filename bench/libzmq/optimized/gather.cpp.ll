@@ -21,18 +21,18 @@ define void @_ZN3zmq8gather_tC2EPNS_5ctx_tEji(ptr noundef nonnull align 8 derefe
 entry:
   tail call void @_ZN3zmq13socket_base_tC2EPNS_5ctx_tEjib(ptr noundef nonnull align 8 dereferenceable(1825) %this, ptr noundef %parent_, i32 noundef %tid_, i32 noundef %sid_, i1 noundef zeroext true)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq8gather_tE, i64 16), ptr %this, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %this, i64 1448
+  %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 1448
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq8gather_tE, i64 392), ptr %add.ptr, align 8
-  %add.ptr2 = getelementptr inbounds i8, ptr %this, i64 1464
+  %add.ptr2 = getelementptr inbounds nuw i8, ptr %this, i64 1464
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq8gather_tE, i64 424), ptr %add.ptr2, align 8
-  %add.ptr3 = getelementptr inbounds i8, ptr %this, i64 1472
+  %add.ptr3 = getelementptr inbounds nuw i8, ptr %this, i64 1472
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq8gather_tE, i64 480), ptr %add.ptr3, align 8
-  %_fq = getelementptr inbounds i8, ptr %this, i64 1832
+  %_fq = getelementptr inbounds nuw i8, ptr %this, i64 1832
   invoke void @_ZN3zmq4fq_tC1Ev(ptr noundef nonnull align 8 dereferenceable(41) %_fq)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %type = getelementptr inbounds i8, ptr %this, i64 332
+  %type = getelementptr inbounds nuw i8, ptr %this, i64 332
   store i8 16, ptr %type, align 4
   ret void
 
@@ -55,7 +55,7 @@ declare void @_ZN3zmq13socket_base_tD2Ev(ptr noundef nonnull align 8 dereference
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3zmq8gather_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1880) %this) unnamed_addr #3 align 2 {
 entry:
-  %_fq = getelementptr inbounds i8, ptr %this, i64 1832
+  %_fq = getelementptr inbounds nuw i8, ptr %this, i64 1832
   tail call void @_ZN3zmq4fq_tD1Ev(ptr noundef nonnull align 8 dereferenceable(41) %_fq) #7
   tail call void @_ZN3zmq13socket_base_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1825) %this) #7
   ret void
@@ -141,7 +141,7 @@ if.then:                                          ; preds = %entry
   br label %do.end
 
 do.end:                                           ; preds = %entry, %if.then
-  %_fq = getelementptr inbounds i8, ptr %this, i64 1832
+  %_fq = getelementptr inbounds nuw i8, ptr %this, i64 1832
   tail call void @_ZN3zmq4fq_t6attachEPNS_6pipe_tE(ptr noundef nonnull align 8 dereferenceable(41) %_fq, ptr noundef %pipe_)
   ret void
 }
@@ -159,7 +159,7 @@ declare void @_ZN3zmq4fq_t6attachEPNS_6pipe_tE(ptr noundef nonnull align 8 deref
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3zmq8gather_t15xread_activatedEPNS_6pipe_tE(ptr noundef nonnull align 8 dereferenceable(1880) %this, ptr noundef %pipe_) unnamed_addr #0 align 2 {
 entry:
-  %_fq = getelementptr inbounds i8, ptr %this, i64 1832
+  %_fq = getelementptr inbounds nuw i8, ptr %this, i64 1832
   tail call void @_ZN3zmq4fq_t9activatedEPNS_6pipe_tE(ptr noundef nonnull align 8 dereferenceable(41) %_fq, ptr noundef %pipe_)
   ret void
 }
@@ -169,7 +169,7 @@ declare void @_ZN3zmq4fq_t9activatedEPNS_6pipe_tE(ptr noundef nonnull align 8 de
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3zmq8gather_t16xpipe_terminatedEPNS_6pipe_tE(ptr noundef nonnull align 8 dereferenceable(1880) %this, ptr noundef %pipe_) unnamed_addr #0 align 2 {
 entry:
-  %_fq = getelementptr inbounds i8, ptr %this, i64 1832
+  %_fq = getelementptr inbounds nuw i8, ptr %this, i64 1832
   tail call void @_ZN3zmq4fq_t15pipe_terminatedEPNS_6pipe_tE(ptr noundef nonnull align 8 dereferenceable(41) %_fq, ptr noundef %pipe_)
   ret void
 }
@@ -179,7 +179,7 @@ declare void @_ZN3zmq4fq_t15pipe_terminatedEPNS_6pipe_tE(ptr noundef nonnull ali
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZN3zmq8gather_t5xrecvEPNS_5msg_tE(ptr noundef nonnull align 8 dereferenceable(1880) %this, ptr noundef %msg_) unnamed_addr #0 align 2 {
 entry:
-  %_fq = getelementptr inbounds i8, ptr %this, i64 1832
+  %_fq = getelementptr inbounds nuw i8, ptr %this, i64 1832
   %call = tail call noundef i32 @_ZN3zmq4fq_t8recvpipeEPNS_5msg_tEPPNS_6pipe_tE(ptr noundef nonnull align 8 dereferenceable(41) %_fq, ptr noundef %msg_, ptr noundef null)
   %cmp11 = icmp eq i32 %call, 0
   br i1 %cmp11, label %land.rhs, label %while.end19
@@ -221,7 +221,7 @@ declare noundef zeroext i8 @_ZNK3zmq5msg_t5flagsEv(ptr noundef nonnull align 8 d
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN3zmq8gather_t7xhas_inEv(ptr noundef nonnull align 8 dereferenceable(1880) %this) unnamed_addr #0 align 2 {
 entry:
-  %_fq = getelementptr inbounds i8, ptr %this, i64 1832
+  %_fq = getelementptr inbounds nuw i8, ptr %this, i64 1832
   %call = tail call noundef zeroext i1 @_ZN3zmq4fq_t6has_inEv(ptr noundef nonnull align 8 dereferenceable(41) %_fq)
   ret i1 %call
 }

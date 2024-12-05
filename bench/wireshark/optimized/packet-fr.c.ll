@@ -272,7 +272,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_fr_uncompressed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.87) #2
   %7 = load ptr, ptr %5, align 8
@@ -609,13 +609,13 @@ define internal fastcc void @dissect_fr_nlpid(ptr noundef %0, i32 noundef %1, pt
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %29
 
 29:                                               ; preds = %26
-  %30 = getelementptr inbounds i8, ptr %28, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %28, i64 32
   %31 = load ptr, ptr %30, align 8
   %.not5.i = icmp eq ptr %31, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %32
 
 32:                                               ; preds = %29
-  %33 = getelementptr inbounds i8, ptr %31, i64 28
+  %33 = getelementptr inbounds nuw i8, ptr %31, i64 28
   %34 = load i32, ptr %33, align 4
   %35 = or i32 %34, 1
   store i32 %35, ptr %33, align 4
@@ -695,7 +695,7 @@ declare i32 @call_dissector(ptr noundef, ptr noundef, ptr noundef, ptr noundef) 
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @dissect_fr_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void @col_set_str(ptr noundef %7, i32 noundef 34, ptr noundef nonnull @.str.87) #2
   %8 = load ptr, ptr %6, align 8
@@ -704,7 +704,7 @@ define internal fastcc void @dissect_fr_common(ptr noundef %0, ptr noundef %1, p
   br i1 %.not, label %14, label %.sink.split
 
 .sink.split:                                      ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %1, i64 88
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %10 = load ptr, ptr %9, align 8
   %11 = load i8, ptr %10, align 8
   %.not240 = icmp sgt i8 %11, -1

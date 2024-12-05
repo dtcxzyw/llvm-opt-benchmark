@@ -26,13 +26,13 @@ define ptr @Cudd_PrioritySelect(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   br i1 %15, label %.lr.ph, label %.loopexit133.thread
 
 .lr.ph:                                           ; preds = %.preheader
-  %16 = getelementptr inbounds i8, ptr %0, i64 136
-  %17 = getelementptr inbounds i8, ptr %0, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %wide.trip.count = zext nneg i32 %6 to i64
   br label %21
 
 18:                                               ; preds = %10
-  %19 = getelementptr inbounds i8, ptr %0, i64 624
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 624
   store i32 1, ptr %19, align 8
   br label %105
 
@@ -53,7 +53,7 @@ define ptr @Cudd_PrioritySelect(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   %27 = xor i64 %26, 1
   %28 = inttoptr i64 %27 to ptr
   %29 = tail call ptr @cuddUniqueInter(ptr noundef nonnull %0, i32 noundef %22, ptr noundef %25, ptr noundef %28) #6
-  %30 = getelementptr inbounds ptr, ptr %13, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
   store ptr %29, ptr %30, align 8
   %31 = icmp eq ptr %29, null
   br i1 %31, label %.thread.thread, label %20
@@ -73,7 +73,7 @@ define ptr @Cudd_PrioritySelect(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   %36 = ptrtoint ptr %33 to i64
   %37 = and i64 %36, -2
   %38 = inttoptr i64 %37 to ptr
-  %39 = getelementptr inbounds i8, ptr %38, i64 4
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 4
   %40 = load i32, ptr %39, align 4
   %41 = add i32 %40, 1
   store i32 %41, ptr %39, align 4
@@ -83,12 +83,12 @@ define ptr @Cudd_PrioritySelect(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   %.084149 = phi ptr [ %.084148, %35 ], [ %.084, %.loopexit133 ]
   %.187 = phi ptr [ %33, %35 ], [ %5, %.loopexit133 ]
   %.181 = phi i32 [ 1, %35 ], [ 0, %.loopexit133 ]
-  %43 = getelementptr inbounds i8, ptr %0, i64 40
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %44 = load ptr, ptr %43, align 8
   %45 = ptrtoint ptr %44 to i64
   %46 = and i64 %45, -2
   %47 = inttoptr i64 %46 to ptr
-  %48 = getelementptr inbounds i8, ptr %47, i64 4
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 4
   %49 = load i32, ptr %48, align 4
   %50 = add i32 %49, 1
   store i32 %50, ptr %48, align 4
@@ -103,7 +103,7 @@ define ptr @Cudd_PrioritySelect(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   %indvars.iv144 = phi i64 [ %52, %.lr.ph140.preheader ], [ %indvars.iv.next145, %57 ]
   %.189138 = phi ptr [ %44, %.lr.ph140.preheader ], [ %55, %57 ]
   %indvars.iv.next145 = add nsw i64 %indvars.iv144, -1
-  %53 = getelementptr inbounds ptr, ptr %.084149, i64 %indvars.iv.next145
+  %53 = getelementptr inbounds nuw ptr, ptr %.084149, i64 %indvars.iv.next145
   %54 = load ptr, ptr %53, align 8
   %55 = tail call ptr @Cudd_bddAnd(ptr noundef %0, ptr noundef %54, ptr noundef %.189138) #6
   %56 = icmp eq ptr %55, null
@@ -113,7 +113,7 @@ define ptr @Cudd_PrioritySelect(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   %58 = ptrtoint ptr %55 to i64
   %59 = and i64 %58, -2
   %60 = inttoptr i64 %59 to ptr
-  %61 = getelementptr inbounds i8, ptr %60, i64 4
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 4
   %62 = load i32, ptr %61, align 4
   %63 = add i32 %62, 1
   store i32 %63, ptr %61, align 4
@@ -131,7 +131,7 @@ define ptr @Cudd_PrioritySelect(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   %68 = ptrtoint ptr %65 to i64
   %69 = and i64 %68, -2
   %70 = inttoptr i64 %69 to ptr
-  %71 = getelementptr inbounds i8, ptr %70, i64 4
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 4
   %72 = load i32, ptr %71, align 4
   %73 = add i32 %72, 1
   store i32 %73, ptr %71, align 4
@@ -143,7 +143,7 @@ define ptr @Cudd_PrioritySelect(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   %77 = ptrtoint ptr %74 to i64
   %78 = and i64 %77, -2
   %79 = inttoptr i64 %78 to ptr
-  %80 = getelementptr inbounds i8, ptr %79, i64 4
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 4
   %81 = load i32, ptr %80, align 4
   %82 = add i32 %81, 1
   store i32 %82, ptr %80, align 4
@@ -158,7 +158,7 @@ define ptr @Cudd_PrioritySelect(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   %88 = ptrtoint ptr %85 to i64
   %89 = and i64 %88, -2
   %90 = inttoptr i64 %89 to ptr
-  %91 = getelementptr inbounds i8, ptr %90, i64 4
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 4
   %92 = load i32, ptr %91, align 4
   %93 = add i32 %92, 1
   store i32 %93, ptr %91, align 4
@@ -214,7 +214,7 @@ define ptr @Cudd_PrioritySelect(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   %99 = ptrtoint ptr %.090114131 to i64
   %100 = and i64 %99, -2
   %101 = inttoptr i64 %100 to ptr
-  %102 = getelementptr inbounds i8, ptr %101, i64 4
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 4
   %103 = load i32, ptr %102, align 4
   %104 = add i32 %103, -1
   store i32 %104, ptr %102, align 4
@@ -260,7 +260,7 @@ define ptr @Cudd_Xgty(ptr noundef %0, i32 noundef %1, ptr nocapture noundef read
   %18 = ptrtoint ptr %15 to i64
   %19 = and i64 %18, -2
   %20 = inttoptr i64 %19 to ptr
-  %21 = getelementptr inbounds i8, ptr %20, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
   %22 = load i32, ptr %21, align 4
   %23 = add i32 %22, 1
   store i32 %23, ptr %21, align 4
@@ -275,7 +275,7 @@ define ptr @Cudd_Xgty(ptr noundef %0, i32 noundef %1, ptr nocapture noundef read
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %63
   %indvars.iv = phi i64 [ %26, %.lr.ph.preheader ], [ %indvars.iv.next, %63 ]
   %.04860 = phi ptr [ %15, %.lr.ph.preheader ], [ %60, %63 ]
-  %27 = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
   %28 = load ptr, ptr %27, align 8
   %29 = ptrtoint ptr %.04860 to i64
   %30 = xor i64 %29, 1
@@ -292,7 +292,7 @@ define ptr @Cudd_Xgty(ptr noundef %0, i32 noundef %1, ptr nocapture noundef read
   %36 = ptrtoint ptr %32 to i64
   %37 = and i64 %36, -2
   %38 = inttoptr i64 %37 to ptr
-  %39 = getelementptr inbounds i8, ptr %38, i64 4
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 4
   %40 = load i32, ptr %39, align 4
   %41 = add i32 %40, 1
   store i32 %41, ptr %39, align 4
@@ -313,12 +313,12 @@ define ptr @Cudd_Xgty(ptr noundef %0, i32 noundef %1, ptr nocapture noundef read
   %50 = ptrtoint ptr %46 to i64
   %51 = and i64 %50, -2
   %52 = inttoptr i64 %51 to ptr
-  %53 = getelementptr inbounds i8, ptr %52, i64 4
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 4
   %54 = load i32, ptr %53, align 4
   %55 = add i32 %54, 1
   store i32 %55, ptr %53, align 4
   tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef nonnull %.04860) #6
-  %56 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
   %57 = load ptr, ptr %56, align 8
   %58 = xor i64 %36, 1
   %59 = inttoptr i64 %58 to ptr
@@ -335,7 +335,7 @@ define ptr @Cudd_Xgty(ptr noundef %0, i32 noundef %1, ptr nocapture noundef read
   %64 = ptrtoint ptr %60 to i64
   %65 = and i64 %64, -2
   %66 = inttoptr i64 %65 to ptr
-  %67 = getelementptr inbounds i8, ptr %66, i64 4
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 4
   %68 = load i32, ptr %67, align 4
   %69 = add i32 %68, 1
   store i32 %69, ptr %67, align 4
@@ -348,7 +348,7 @@ define ptr @Cudd_Xgty(ptr noundef %0, i32 noundef %1, ptr nocapture noundef read
 ._crit_edge:                                      ; preds = %63, %17
   %.pre-phi75 = phi ptr [ %20, %17 ], [ %66, %63 ]
   %.048.lcssa = phi ptr [ %15, %17 ], [ %60, %63 ]
-  %71 = getelementptr inbounds i8, ptr %.pre-phi75, i64 4
+  %71 = getelementptr inbounds nuw i8, ptr %.pre-phi75, i64 4
   %72 = load i32, ptr %71, align 4
   %73 = add i32 %72, -1
   store i32 %73, ptr %71, align 4
@@ -380,7 +380,7 @@ define ptr @Cudd_Xeqy(ptr noundef %0, i32 noundef %1, ptr nocapture noundef read
   %17 = ptrtoint ptr %14 to i64
   %18 = and i64 %17, -2
   %19 = inttoptr i64 %18 to ptr
-  %20 = getelementptr inbounds i8, ptr %19, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %21 = load i32, ptr %20, align 4
   %22 = add i32 %21, 1
   store i32 %22, ptr %20, align 4
@@ -395,7 +395,7 @@ define ptr @Cudd_Xeqy(ptr noundef %0, i32 noundef %1, ptr nocapture noundef read
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %57
   %indvars.iv = phi i64 [ %25, %.lr.ph.preheader ], [ %indvars.iv.next, %57 ]
   %.05062 = phi ptr [ %14, %.lr.ph.preheader ], [ %54, %57 ]
-  %26 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8
   %28 = tail call ptr @Cudd_bddAnd(ptr noundef %0, ptr noundef %27, ptr noundef nonnull %.05062) #6
   %29 = icmp eq ptr %28, null
@@ -409,7 +409,7 @@ define ptr @Cudd_Xeqy(ptr noundef %0, i32 noundef %1, ptr nocapture noundef read
   %32 = ptrtoint ptr %28 to i64
   %33 = and i64 %32, -2
   %34 = inttoptr i64 %33 to ptr
-  %35 = getelementptr inbounds i8, ptr %34, i64 4
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 4
   %36 = load i32, ptr %35, align 4
   %37 = add i32 %36, 1
   store i32 %37, ptr %35, align 4
@@ -430,12 +430,12 @@ define ptr @Cudd_Xeqy(ptr noundef %0, i32 noundef %1, ptr nocapture noundef read
   %46 = ptrtoint ptr %42 to i64
   %47 = and i64 %46, -2
   %48 = inttoptr i64 %47 to ptr
-  %49 = getelementptr inbounds i8, ptr %48, i64 4
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 4
   %50 = load i32, ptr %49, align 4
   %51 = add i32 %50, 1
   store i32 %51, ptr %49, align 4
   tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef nonnull %.05062) #6
-  %52 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
   %53 = load ptr, ptr %52, align 8
   %54 = tail call ptr @Cudd_bddIte(ptr noundef %0, ptr noundef %53, ptr noundef nonnull %28, ptr noundef nonnull %42) #6
   %55 = icmp eq ptr %54, null
@@ -450,7 +450,7 @@ define ptr @Cudd_Xeqy(ptr noundef %0, i32 noundef %1, ptr nocapture noundef read
   %58 = ptrtoint ptr %54 to i64
   %59 = and i64 %58, -2
   %60 = inttoptr i64 %59 to ptr
-  %61 = getelementptr inbounds i8, ptr %60, i64 4
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 4
   %62 = load i32, ptr %61, align 4
   %63 = add i32 %62, 1
   store i32 %63, ptr %61, align 4
@@ -463,7 +463,7 @@ define ptr @Cudd_Xeqy(ptr noundef %0, i32 noundef %1, ptr nocapture noundef read
 ._crit_edge:                                      ; preds = %57, %16
   %.pre-phi77 = phi ptr [ %19, %16 ], [ %60, %57 ]
   %.050.lcssa = phi ptr [ %14, %16 ], [ %54, %57 ]
-  %65 = getelementptr inbounds i8, ptr %.pre-phi77, i64 4
+  %65 = getelementptr inbounds nuw i8, ptr %.pre-phi77, i64 4
   %66 = load i32, ptr %65, align 4
   %67 = add i32 %66, -1
   store i32 %67, ptr %65, align 4
@@ -476,9 +476,9 @@ define ptr @Cudd_Xeqy(ptr noundef %0, i32 noundef %1, ptr nocapture noundef read
 
 ; Function Attrs: nounwind uwtable
 define ptr @Cudd_addXeqy(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load ptr, ptr %7, align 8
   %9 = add nsw i32 %1, -1
   %10 = sext i32 %9 to i64
@@ -492,7 +492,7 @@ define ptr @Cudd_addXeqy(ptr noundef %0, i32 noundef %1, ptr nocapture noundef r
   %16 = ptrtoint ptr %13 to i64
   %17 = and i64 %16, -2
   %18 = inttoptr i64 %17 to ptr
-  %19 = getelementptr inbounds i8, ptr %18, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %20 = load i32, ptr %19, align 4
   %21 = add i32 %20, 1
   store i32 %21, ptr %19, align 4
@@ -509,7 +509,7 @@ define ptr @Cudd_addXeqy(ptr noundef %0, i32 noundef %1, ptr nocapture noundef r
   %27 = ptrtoint ptr %23 to i64
   %28 = and i64 %27, -2
   %29 = inttoptr i64 %28 to ptr
-  %30 = getelementptr inbounds i8, ptr %29, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 4
   %31 = load i32, ptr %30, align 4
   %32 = add i32 %31, 1
   store i32 %32, ptr %30, align 4
@@ -528,7 +528,7 @@ define ptr @Cudd_addXeqy(ptr noundef %0, i32 noundef %1, ptr nocapture noundef r
   %39 = ptrtoint ptr %35 to i64
   %40 = and i64 %39, -2
   %41 = inttoptr i64 %40 to ptr
-  %42 = getelementptr inbounds i8, ptr %41, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 4
   %43 = load i32, ptr %42, align 4
   %44 = add i32 %43, 1
   store i32 %44, ptr %42, align 4
@@ -545,7 +545,7 @@ define ptr @Cudd_addXeqy(ptr noundef %0, i32 noundef %1, ptr nocapture noundef r
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %64
   %indvars.iv = phi i64 [ %47, %.lr.ph.preheader ], [ %indvars.iv.next, %64 ]
   %.07585 = phi ptr [ %35, %.lr.ph.preheader ], [ %73, %64 ]
-  %48 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
   %49 = load ptr, ptr %48, align 8
   %50 = tail call ptr @Cudd_addIte(ptr noundef %0, ptr noundef %49, ptr noundef %.07585, ptr noundef %8) #6
   %51 = icmp eq ptr %50, null
@@ -559,7 +559,7 @@ define ptr @Cudd_addXeqy(ptr noundef %0, i32 noundef %1, ptr nocapture noundef r
   %54 = ptrtoint ptr %50 to i64
   %55 = and i64 %54, -2
   %56 = inttoptr i64 %55 to ptr
-  %57 = getelementptr inbounds i8, ptr %56, i64 4
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 4
   %58 = load i32, ptr %57, align 4
   %59 = add i32 %58, 1
   store i32 %59, ptr %57, align 4
@@ -577,18 +577,18 @@ define ptr @Cudd_addXeqy(ptr noundef %0, i32 noundef %1, ptr nocapture noundef r
   %65 = ptrtoint ptr %61 to i64
   %66 = and i64 %65, -2
   %67 = inttoptr i64 %66 to ptr
-  %68 = getelementptr inbounds i8, ptr %67, i64 4
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 4
   %69 = load i32, ptr %68, align 4
   %70 = add i32 %69, 1
   store i32 %70, ptr %68, align 4
   tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.07585) #6
-  %71 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv
+  %71 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
   %72 = load ptr, ptr %71, align 8
   %73 = tail call ptr @Cudd_addIte(ptr noundef %0, ptr noundef %72, ptr noundef nonnull %50, ptr noundef nonnull %61) #6
   %74 = ptrtoint ptr %73 to i64
   %75 = and i64 %74, -2
   %76 = inttoptr i64 %75 to ptr
-  %77 = getelementptr inbounds i8, ptr %76, i64 4
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 4
   %78 = load i32, ptr %77, align 4
   %79 = add i32 %78, 1
   store i32 %79, ptr %77, align 4
@@ -601,7 +601,7 @@ define ptr @Cudd_addXeqy(ptr noundef %0, i32 noundef %1, ptr nocapture noundef r
 ._crit_edge:                                      ; preds = %64, %38
   %.pre-phi94 = phi ptr [ %41, %38 ], [ %76, %64 ]
   %.075.lcssa = phi ptr [ %35, %38 ], [ %73, %64 ]
-  %81 = getelementptr inbounds i8, ptr %.pre-phi94, i64 4
+  %81 = getelementptr inbounds nuw i8, ptr %.pre-phi94, i64 4
   %82 = load i32, ptr %81, align 4
   %83 = add i32 %82, -1
   store i32 %83, ptr %81, align 4
@@ -616,7 +616,7 @@ declare ptr @Cudd_addIte(ptr noundef, ptr noundef, ptr noundef, ptr noundef) loc
 
 ; Function Attrs: nounwind uwtable
 define ptr @Cudd_Dxygtdxz(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4) local_unnamed_addr #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8
   %8 = ptrtoint ptr %7 to i64
   %9 = xor i64 %8, 1
@@ -638,7 +638,7 @@ define ptr @Cudd_Dxygtdxz(ptr noundef %0, i32 noundef %1, ptr nocapture noundef 
   %23 = ptrtoint ptr %20 to i64
   %24 = and i64 %23, -2
   %25 = inttoptr i64 %24 to ptr
-  %26 = getelementptr inbounds i8, ptr %25, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 4
   %27 = load i32, ptr %26, align 4
   %28 = add i32 %27, 1
   store i32 %28, ptr %26, align 4
@@ -656,7 +656,7 @@ define ptr @Cudd_Dxygtdxz(ptr noundef %0, i32 noundef %1, ptr nocapture noundef 
   %35 = ptrtoint ptr %31 to i64
   %36 = and i64 %35, -2
   %37 = inttoptr i64 %36 to ptr
-  %38 = getelementptr inbounds i8, ptr %37, i64 4
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 4
   %39 = load i32, ptr %38, align 4
   %40 = add i32 %39, 1
   store i32 %40, ptr %38, align 4
@@ -675,7 +675,7 @@ define ptr @Cudd_Dxygtdxz(ptr noundef %0, i32 noundef %1, ptr nocapture noundef 
   %47 = ptrtoint ptr %43 to i64
   %48 = and i64 %47, -2
   %49 = inttoptr i64 %48 to ptr
-  %50 = getelementptr inbounds i8, ptr %49, i64 4
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 4
   %51 = load i32, ptr %50, align 4
   %52 = add i32 %51, 1
   store i32 %52, ptr %50, align 4
@@ -692,7 +692,7 @@ define ptr @Cudd_Dxygtdxz(ptr noundef %0, i32 noundef %1, ptr nocapture noundef 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %134
   %indvars.iv = phi i64 [ %55, %.lr.ph.preheader ], [ %indvars.iv.next, %134 ]
   %.0145190 = phi ptr [ %43, %.lr.ph.preheader ], [ %131, %134 ]
-  %56 = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
   %57 = load ptr, ptr %56, align 8
   %58 = ptrtoint ptr %.0145190 to i64
   %59 = xor i64 %58, 1
@@ -709,7 +709,7 @@ define ptr @Cudd_Dxygtdxz(ptr noundef %0, i32 noundef %1, ptr nocapture noundef 
   %65 = ptrtoint ptr %61 to i64
   %66 = and i64 %65, -2
   %67 = inttoptr i64 %66 to ptr
-  %68 = getelementptr inbounds i8, ptr %67, i64 4
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 4
   %69 = load i32, ptr %68, align 4
   %70 = add i32 %69, 1
   store i32 %70, ptr %68, align 4
@@ -727,7 +727,7 @@ define ptr @Cudd_Dxygtdxz(ptr noundef %0, i32 noundef %1, ptr nocapture noundef 
   %76 = ptrtoint ptr %72 to i64
   %77 = and i64 %76, -2
   %78 = inttoptr i64 %77 to ptr
-  %79 = getelementptr inbounds i8, ptr %78, i64 4
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 4
   %80 = load i32, ptr %79, align 4
   %81 = add i32 %80, 1
   store i32 %81, ptr %79, align 4
@@ -746,7 +746,7 @@ define ptr @Cudd_Dxygtdxz(ptr noundef %0, i32 noundef %1, ptr nocapture noundef 
   %87 = ptrtoint ptr %83 to i64
   %88 = and i64 %87, -2
   %89 = inttoptr i64 %88 to ptr
-  %90 = getelementptr inbounds i8, ptr %89, i64 4
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 4
   %91 = load i32, ptr %90, align 4
   %92 = add i32 %91, 1
   store i32 %92, ptr %90, align 4
@@ -766,12 +766,12 @@ define ptr @Cudd_Dxygtdxz(ptr noundef %0, i32 noundef %1, ptr nocapture noundef 
   %98 = ptrtoint ptr %94 to i64
   %99 = and i64 %98, -2
   %100 = inttoptr i64 %99 to ptr
-  %101 = getelementptr inbounds i8, ptr %100, i64 4
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 4
   %102 = load i32, ptr %101, align 4
   %103 = add i32 %102, 1
   store i32 %103, ptr %101, align 4
   tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef nonnull %.0145190) #6
-  %104 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv
+  %104 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
   %105 = load ptr, ptr %104, align 8
   %106 = xor i64 %65, 1
   %107 = inttoptr i64 %106 to ptr
@@ -790,7 +790,7 @@ define ptr @Cudd_Dxygtdxz(ptr noundef %0, i32 noundef %1, ptr nocapture noundef 
   %112 = ptrtoint ptr %108 to i64
   %113 = and i64 %112, -2
   %114 = inttoptr i64 %113 to ptr
-  %115 = getelementptr inbounds i8, ptr %114, i64 4
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 4
   %116 = load i32, ptr %115, align 4
   %117 = add i32 %116, 1
   store i32 %117, ptr %115, align 4
@@ -811,7 +811,7 @@ define ptr @Cudd_Dxygtdxz(ptr noundef %0, i32 noundef %1, ptr nocapture noundef 
   %123 = ptrtoint ptr %119 to i64
   %124 = and i64 %123, -2
   %125 = inttoptr i64 %124 to ptr
-  %126 = getelementptr inbounds i8, ptr %125, i64 4
+  %126 = getelementptr inbounds nuw i8, ptr %125, i64 4
   %127 = load i32, ptr %126, align 4
   %128 = add i32 %127, 1
   store i32 %128, ptr %126, align 4
@@ -819,7 +819,7 @@ define ptr @Cudd_Dxygtdxz(ptr noundef %0, i32 noundef %1, ptr nocapture noundef 
   tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef nonnull %72) #6
   tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef nonnull %83) #6
   tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef nonnull %94) #6
-  %129 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv
+  %129 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
   %130 = load ptr, ptr %129, align 8
   %131 = tail call ptr @Cudd_bddIte(ptr noundef %0, ptr noundef %130, ptr noundef nonnull %108, ptr noundef nonnull %119) #6
   %132 = icmp eq ptr %131, null
@@ -834,7 +834,7 @@ define ptr @Cudd_Dxygtdxz(ptr noundef %0, i32 noundef %1, ptr nocapture noundef 
   %135 = ptrtoint ptr %131 to i64
   %136 = and i64 %135, -2
   %137 = inttoptr i64 %136 to ptr
-  %138 = getelementptr inbounds i8, ptr %137, i64 4
+  %138 = getelementptr inbounds nuw i8, ptr %137, i64 4
   %139 = load i32, ptr %138, align 4
   %140 = add i32 %139, 1
   store i32 %140, ptr %138, align 4
@@ -847,7 +847,7 @@ define ptr @Cudd_Dxygtdxz(ptr noundef %0, i32 noundef %1, ptr nocapture noundef 
 ._crit_edge:                                      ; preds = %134, %46
   %.pre-phi235 = phi ptr [ %49, %46 ], [ %137, %134 ]
   %.pre-phi = phi i64 [ %47, %46 ], [ %135, %134 ]
-  %142 = getelementptr inbounds i8, ptr %.pre-phi235, i64 4
+  %142 = getelementptr inbounds nuw i8, ptr %.pre-phi235, i64 4
   %143 = load i32, ptr %142, align 4
   %144 = add i32 %143, -1
   store i32 %144, ptr %142, align 4
@@ -862,7 +862,7 @@ define ptr @Cudd_Dxygtdxz(ptr noundef %0, i32 noundef %1, ptr nocapture noundef 
 
 ; Function Attrs: nounwind uwtable
 define ptr @Cudd_Dxygtdyz(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4) local_unnamed_addr #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8
   %8 = ptrtoint ptr %7 to i64
   %9 = xor i64 %8, 1
@@ -881,7 +881,7 @@ define ptr @Cudd_Dxygtdyz(ptr noundef %0, i32 noundef %1, ptr nocapture noundef 
   %20 = ptrtoint ptr %17 to i64
   %21 = and i64 %20, -2
   %22 = inttoptr i64 %21 to ptr
-  %23 = getelementptr inbounds i8, ptr %22, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 4
   %24 = load i32, ptr %23, align 4
   %25 = add i32 %24, 1
   store i32 %25, ptr %23, align 4
@@ -899,7 +899,7 @@ define ptr @Cudd_Dxygtdyz(ptr noundef %0, i32 noundef %1, ptr nocapture noundef 
   %32 = ptrtoint ptr %28 to i64
   %33 = and i64 %32, -2
   %34 = inttoptr i64 %33 to ptr
-  %35 = getelementptr inbounds i8, ptr %34, i64 4
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 4
   %36 = load i32, ptr %35, align 4
   %37 = add i32 %36, 1
   store i32 %37, ptr %35, align 4
@@ -920,7 +920,7 @@ define ptr @Cudd_Dxygtdyz(ptr noundef %0, i32 noundef %1, ptr nocapture noundef 
   %46 = ptrtoint ptr %42 to i64
   %47 = and i64 %46, -2
   %48 = inttoptr i64 %47 to ptr
-  %49 = getelementptr inbounds i8, ptr %48, i64 4
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 4
   %50 = load i32, ptr %49, align 4
   %51 = add i32 %50, 1
   store i32 %51, ptr %49, align 4
@@ -937,7 +937,7 @@ define ptr @Cudd_Dxygtdyz(ptr noundef %0, i32 noundef %1, ptr nocapture noundef 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %135
   %indvars.iv = phi i64 [ %54, %.lr.ph.preheader ], [ %indvars.iv.next, %135 ]
   %.0145190 = phi ptr [ %42, %.lr.ph.preheader ], [ %132, %135 ]
-  %55 = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
   %56 = load ptr, ptr %55, align 8
   %57 = tail call ptr @Cudd_bddIte(ptr noundef %0, ptr noundef %56, ptr noundef nonnull %.0145190, ptr noundef %10) #6
   %58 = icmp eq ptr %57, null
@@ -951,7 +951,7 @@ define ptr @Cudd_Dxygtdyz(ptr noundef %0, i32 noundef %1, ptr nocapture noundef 
   %61 = ptrtoint ptr %57 to i64
   %62 = and i64 %61, -2
   %63 = inttoptr i64 %62 to ptr
-  %64 = getelementptr inbounds i8, ptr %63, i64 4
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 4
   %65 = load i32, ptr %64, align 4
   %66 = add i32 %65, 1
   store i32 %66, ptr %64, align 4
@@ -969,7 +969,7 @@ define ptr @Cudd_Dxygtdyz(ptr noundef %0, i32 noundef %1, ptr nocapture noundef 
   %72 = ptrtoint ptr %68 to i64
   %73 = and i64 %72, -2
   %74 = inttoptr i64 %73 to ptr
-  %75 = getelementptr inbounds i8, ptr %74, i64 4
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 4
   %76 = load i32, ptr %75, align 4
   %77 = add i32 %76, 1
   store i32 %77, ptr %75, align 4
@@ -988,7 +988,7 @@ define ptr @Cudd_Dxygtdyz(ptr noundef %0, i32 noundef %1, ptr nocapture noundef 
   %83 = ptrtoint ptr %79 to i64
   %84 = and i64 %83, -2
   %85 = inttoptr i64 %84 to ptr
-  %86 = getelementptr inbounds i8, ptr %85, i64 4
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 4
   %87 = load i32, ptr %86, align 4
   %88 = add i32 %87, 1
   store i32 %88, ptr %86, align 4
@@ -1011,12 +1011,12 @@ define ptr @Cudd_Dxygtdyz(ptr noundef %0, i32 noundef %1, ptr nocapture noundef 
   %97 = ptrtoint ptr %93 to i64
   %98 = and i64 %97, -2
   %99 = inttoptr i64 %98 to ptr
-  %100 = getelementptr inbounds i8, ptr %99, i64 4
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 4
   %101 = load i32, ptr %100, align 4
   %102 = add i32 %101, 1
   store i32 %102, ptr %100, align 4
   tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef nonnull %.0145190) #6
-  %103 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv
+  %103 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
   %104 = load ptr, ptr %103, align 8
   %105 = tail call ptr @Cudd_bddIte(ptr noundef %0, ptr noundef %104, ptr noundef nonnull %68, ptr noundef nonnull %57) #6
   %106 = icmp eq ptr %105, null
@@ -1033,7 +1033,7 @@ define ptr @Cudd_Dxygtdyz(ptr noundef %0, i32 noundef %1, ptr nocapture noundef 
   %109 = ptrtoint ptr %105 to i64
   %110 = and i64 %109, -2
   %111 = inttoptr i64 %110 to ptr
-  %112 = getelementptr inbounds i8, ptr %111, i64 4
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 4
   %113 = load i32, ptr %112, align 4
   %114 = add i32 %113, 1
   store i32 %114, ptr %112, align 4
@@ -1056,7 +1056,7 @@ define ptr @Cudd_Dxygtdyz(ptr noundef %0, i32 noundef %1, ptr nocapture noundef 
   %122 = ptrtoint ptr %118 to i64
   %123 = and i64 %122, -2
   %124 = inttoptr i64 %123 to ptr
-  %125 = getelementptr inbounds i8, ptr %124, i64 4
+  %125 = getelementptr inbounds nuw i8, ptr %124, i64 4
   %126 = load i32, ptr %125, align 4
   %127 = add i32 %126, 1
   store i32 %127, ptr %125, align 4
@@ -1064,7 +1064,7 @@ define ptr @Cudd_Dxygtdyz(ptr noundef %0, i32 noundef %1, ptr nocapture noundef 
   tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef nonnull %68) #6
   tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef nonnull %79) #6
   tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef nonnull %93) #6
-  %128 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv
+  %128 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
   %129 = load ptr, ptr %128, align 8
   %130 = xor i64 %122, 1
   %131 = inttoptr i64 %130 to ptr
@@ -1081,7 +1081,7 @@ define ptr @Cudd_Dxygtdyz(ptr noundef %0, i32 noundef %1, ptr nocapture noundef 
   %136 = ptrtoint ptr %132 to i64
   %137 = and i64 %136, -2
   %138 = inttoptr i64 %137 to ptr
-  %139 = getelementptr inbounds i8, ptr %138, i64 4
+  %139 = getelementptr inbounds nuw i8, ptr %138, i64 4
   %140 = load i32, ptr %139, align 4
   %141 = add i32 %140, 1
   store i32 %141, ptr %139, align 4
@@ -1094,7 +1094,7 @@ define ptr @Cudd_Dxygtdyz(ptr noundef %0, i32 noundef %1, ptr nocapture noundef 
 ._crit_edge:                                      ; preds = %135, %45
   %.pre-phi235 = phi ptr [ %48, %45 ], [ %138, %135 ]
   %.pre-phi = phi i64 [ %46, %45 ], [ %136, %135 ]
-  %143 = getelementptr inbounds i8, ptr %.pre-phi235, i64 4
+  %143 = getelementptr inbounds nuw i8, ptr %.pre-phi235, i64 4
   %144 = load i32, ptr %143, align 4
   %145 = add i32 %144, -1
   store i32 %145, ptr %143, align 4
@@ -1110,7 +1110,7 @@ define ptr @Cudd_Dxygtdyz(ptr noundef %0, i32 noundef %1, ptr nocapture noundef 
 ; Function Attrs: nounwind uwtable
 define ptr @Cudd_Inequality(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4) local_unnamed_addr #0 {
   %6 = add nsw i32 %2, -1
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load ptr, ptr %7, align 8
   %9 = ptrtoint ptr %8 to i64
   %10 = xor i64 %9, 1
@@ -1277,7 +1277,7 @@ define ptr @Cudd_Inequality(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr 
   %71 = ptrtoint ptr %60 to i64
   %72 = and i64 %71, -2
   %73 = inttoptr i64 %72 to ptr
-  %74 = getelementptr inbounds i8, ptr %73, i64 4
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 4
   %75 = load i32, ptr %74, align 4
   %76 = add i32 %75, 1
   store i32 %76, ptr %74, align 4
@@ -1323,7 +1323,7 @@ define ptr @Cudd_Inequality(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr 
   %89 = ptrtoint ptr %78 to i64
   %90 = and i64 %89, -2
   %91 = inttoptr i64 %90 to ptr
-  %92 = getelementptr inbounds i8, ptr %91, i64 4
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 4
   %93 = load i32, ptr %92, align 4
   %94 = add i32 %93, 1
   store i32 %94, ptr %92, align 4
@@ -1370,7 +1370,7 @@ define ptr @Cudd_Inequality(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr 
   %107 = ptrtoint ptr %96 to i64
   %108 = and i64 %107, -2
   %109 = inttoptr i64 %108 to ptr
-  %110 = getelementptr inbounds i8, ptr %109, i64 4
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 4
   %111 = load i32, ptr %110, align 4
   %112 = add i32 %111, 1
   store i32 %112, ptr %110, align 4
@@ -1423,7 +1423,7 @@ define ptr @Cudd_Inequality(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr 
   %120 = ptrtoint ptr %.1.lcssa to i64
   %121 = and i64 %120, -2
   %122 = inttoptr i64 %121 to ptr
-  %123 = getelementptr inbounds i8, ptr %122, i64 4
+  %123 = getelementptr inbounds nuw i8, ptr %122, i64 4
   %124 = load i32, ptr %123, align 4
   %125 = add i32 %124, -1
   store i32 %125, ptr %123, align 4
@@ -1440,7 +1440,7 @@ declare void @Cudd_IterDerefBdd(ptr noundef, ptr noundef) local_unnamed_addr #2
 define ptr @Cudd_Disequality(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4) local_unnamed_addr #0 {
   %6 = add nsw i32 %2, 1
   %7 = add nsw i32 %2, -1
-  %8 = getelementptr inbounds i8, ptr %0, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = load ptr, ptr %8, align 8
   %10 = ptrtoint ptr %9 to i64
   %11 = xor i64 %10, 1
@@ -1617,7 +1617,7 @@ define ptr @Cudd_Disequality(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr
   %78 = ptrtoint ptr %67 to i64
   %79 = and i64 %78, -2
   %80 = inttoptr i64 %79 to ptr
-  %81 = getelementptr inbounds i8, ptr %80, i64 4
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 4
   %82 = load i32, ptr %81, align 4
   %83 = add i32 %82, 1
   store i32 %83, ptr %81, align 4
@@ -1663,7 +1663,7 @@ define ptr @Cudd_Disequality(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr
   %96 = ptrtoint ptr %85 to i64
   %97 = and i64 %96, -2
   %98 = inttoptr i64 %97 to ptr
-  %99 = getelementptr inbounds i8, ptr %98, i64 4
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 4
   %100 = load i32, ptr %99, align 4
   %101 = add i32 %100, 1
   store i32 %101, ptr %99, align 4
@@ -1710,7 +1710,7 @@ define ptr @Cudd_Disequality(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr
   %114 = ptrtoint ptr %103 to i64
   %115 = and i64 %114, -2
   %116 = inttoptr i64 %115 to ptr
-  %117 = getelementptr inbounds i8, ptr %116, i64 4
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 4
   %118 = load i32, ptr %117, align 4
   %119 = add i32 %118, 1
   store i32 %119, ptr %117, align 4
@@ -1763,7 +1763,7 @@ define ptr @Cudd_Disequality(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr
   %127 = ptrtoint ptr %.1.lcssa to i64
   %128 = and i64 %127, -2
   %129 = inttoptr i64 %128 to ptr
-  %130 = getelementptr inbounds i8, ptr %129, i64 4
+  %130 = getelementptr inbounds nuw i8, ptr %129, i64 4
   %131 = load i32, ptr %130, align 4
   %132 = add i32 %131, -1
   store i32 %132, ptr %130, align 4
@@ -1776,14 +1776,14 @@ define ptr @Cudd_Disequality(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr
 
 ; Function Attrs: nounwind uwtable
 define ptr @Cudd_bddInterval(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8
   %8 = ptrtoint ptr %7 to i64
   %9 = xor i64 %8, 1
   %10 = inttoptr i64 %9 to ptr
   %11 = and i64 %8, -2
   %12 = inttoptr i64 %11 to ptr
-  %13 = getelementptr inbounds i8, ptr %12, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %14 = load i32, ptr %13, align 4
   %15 = add i32 %14, 2
   store i32 %15, ptr %13, align 4
@@ -1801,7 +1801,7 @@ define ptr @Cudd_bddInterval(ptr noundef %0, i32 noundef %1, ptr nocapture nound
   %.06578 = phi ptr [ %7, %.lr.ph.preheader ], [ %23, %40 ]
   %.06677 = phi i32 [ %4, %.lr.ph.preheader ], [ %48, %40 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %18 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv.next
+  %18 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.next
   %19 = load ptr, ptr %18, align 8
   %20 = and i32 %.06280, 1
   %.not = icmp eq i32 %20, 0
@@ -1820,7 +1820,7 @@ define ptr @Cudd_bddInterval(ptr noundef %0, i32 noundef %1, ptr nocapture nound
   %27 = ptrtoint ptr %23 to i64
   %28 = and i64 %27, -2
   %29 = inttoptr i64 %28 to ptr
-  %30 = getelementptr inbounds i8, ptr %29, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 4
   %31 = load i32, ptr %30, align 4
   %32 = add i32 %31, 1
   store i32 %32, ptr %30, align 4
@@ -1844,7 +1844,7 @@ define ptr @Cudd_bddInterval(ptr noundef %0, i32 noundef %1, ptr nocapture nound
   %42 = ptrtoint ptr %37 to i64
   %43 = and i64 %42, -2
   %44 = inttoptr i64 %43 to ptr
-  %45 = getelementptr inbounds i8, ptr %44, i64 4
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 4
   %46 = load i32, ptr %45, align 4
   %47 = add i32 %46, 1
   store i32 %47, ptr %45, align 4
@@ -1869,7 +1869,7 @@ define ptr @Cudd_bddInterval(ptr noundef %0, i32 noundef %1, ptr nocapture nound
   %54 = ptrtoint ptr %50 to i64
   %55 = and i64 %54, -2
   %56 = inttoptr i64 %55 to ptr
-  %57 = getelementptr inbounds i8, ptr %56, i64 4
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 4
   %58 = load i32, ptr %57, align 4
   %59 = add i32 %58, 1
   store i32 %59, ptr %57, align 4
@@ -1892,10 +1892,10 @@ define ptr @Cudd_CProjection(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 
   br i1 %5, label %6, label %11
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 616
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i64 @fwrite(ptr nonnull @.str, i64 63, i64 1, ptr %8)
-  %10 = getelementptr inbounds i8, ptr %0, i64 624
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 624
   store i32 4, ptr %10, align 8
   br label %38
 
@@ -1908,11 +1908,11 @@ define ptr @Cudd_CProjection(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 
   %15 = ptrtoint ptr %12 to i64
   %16 = and i64 %15, -2
   %17 = inttoptr i64 %16 to ptr
-  %18 = getelementptr inbounds i8, ptr %17, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %19 = load i32, ptr %18, align 4
   %20 = add i32 %19, 1
   store i32 %20, ptr %18, align 4
-  %21 = getelementptr inbounds i8, ptr %0, i64 448
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 448
   br label %22
 
 22:                                               ; preds = %22, %14
@@ -1934,7 +1934,7 @@ define ptr @Cudd_CProjection(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 
   %30 = ptrtoint ptr %23 to i64
   %31 = and i64 %30, -2
   %32 = inttoptr i64 %31 to ptr
-  %33 = getelementptr inbounds i8, ptr %32, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 4
   %34 = load i32, ptr %33, align 4
   %35 = add i32 %34, 1
   store i32 %35, ptr %33, align 4
@@ -1955,7 +1955,7 @@ declare ptr @Cudd_Support(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define ptr @cuddCProjectionRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %2, %6
   br i1 %7, label %212, label %8
@@ -1981,10 +1981,10 @@ define ptr @cuddCProjectionRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %20, label %27, label %21
 
 21:                                               ; preds = %15
-  %22 = getelementptr inbounds i8, ptr %0, i64 312
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %23 = load ptr, ptr %22, align 8
   %24 = zext i32 %19 to i64
-  %25 = getelementptr inbounds i32, ptr %23, i64 %24
+  %25 = getelementptr inbounds nuw i32, ptr %23, i64 %24
   %26 = load i32, ptr %25, align 4
   br label %27
 
@@ -1998,10 +1998,10 @@ define ptr @cuddCProjectionRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %33, label %40, label %34
 
 34:                                               ; preds = %27
-  %35 = getelementptr inbounds i8, ptr %0, i64 312
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %36 = load ptr, ptr %35, align 8
   %37 = zext i32 %32 to i64
-  %38 = getelementptr inbounds i32, ptr %36, i64 %37
+  %38 = getelementptr inbounds nuw i32, ptr %36, i64 %37
   %39 = load i32, ptr %38, align 4
   br label %40
 
@@ -2011,9 +2011,9 @@ define ptr @cuddCProjectionRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %.not194, label %54, label %42
 
 42:                                               ; preds = %40
-  %43 = getelementptr inbounds i8, ptr %18, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %18, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %46 = load ptr, ptr %45, align 8
   %.not195 = icmp eq ptr %1, %18
   br i1 %.not195, label %54, label %47
@@ -2043,7 +2043,7 @@ define ptr @cuddCProjectionRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %60 = ptrtoint ptr %57 to i64
   %61 = and i64 %60, -2
   %62 = inttoptr i64 %61 to ptr
-  %63 = getelementptr inbounds i8, ptr %62, i64 4
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 4
   %64 = load i32, ptr %63, align 4
   %65 = add i32 %64, 1
   store i32 %65, ptr %63, align 4
@@ -2059,14 +2059,14 @@ define ptr @cuddCProjectionRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %70 = ptrtoint ptr %66 to i64
   %71 = and i64 %70, -2
   %72 = inttoptr i64 %71 to ptr
-  %73 = getelementptr inbounds i8, ptr %72, i64 4
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 4
   %74 = load i32, ptr %73, align 4
   %75 = add i32 %74, 1
   store i32 %75, ptr %73, align 4
-  %76 = getelementptr inbounds i8, ptr %0, i64 344
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %77 = load ptr, ptr %76, align 8
   %78 = zext i32 %.0163 to i64
-  %79 = getelementptr inbounds ptr, ptr %77, i64 %78
+  %79 = getelementptr inbounds nuw ptr, ptr %77, i64 %78
   %80 = load ptr, ptr %79, align 8
   %81 = tail call ptr @cuddBddIteRecur(ptr noundef nonnull %0, ptr noundef %80, ptr noundef nonnull %57, ptr noundef nonnull %66) #6
   %82 = icmp eq ptr %81, null
@@ -2087,7 +2087,7 @@ define ptr @cuddCProjectionRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %211
 
 89:                                               ; preds = %54
-  %90 = getelementptr inbounds i8, ptr %31, i64 16
+  %90 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %91 = load ptr, ptr %90, align 8
   %.not196 = icmp eq ptr %2, %31
   %92 = ptrtoint ptr %91 to i64
@@ -2098,16 +2098,16 @@ define ptr @cuddCProjectionRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %95, label %96, label %110
 
 96:                                               ; preds = %89
-  %97 = getelementptr inbounds i8, ptr %31, i64 24
+  %97 = getelementptr inbounds nuw i8, ptr %31, i64 24
   %98 = load ptr, ptr %97, align 8
   %99 = ptrtoint ptr %98 to i64
   %100 = xor i64 %99, 1
   %101 = inttoptr i64 %100 to ptr
   %.0170 = select i1 %.not196, ptr %98, ptr %101
-  %102 = getelementptr inbounds i8, ptr %0, i64 344
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %103 = load ptr, ptr %102, align 8
   %104 = zext i32 %32 to i64
-  %105 = getelementptr inbounds ptr, ptr %103, i64 %104
+  %105 = getelementptr inbounds nuw ptr, ptr %103, i64 %104
   %106 = load ptr, ptr %105, align 8
   %107 = ptrtoint ptr %106 to i64
   %108 = xor i64 %107, 1
@@ -2115,10 +2115,10 @@ define ptr @cuddCProjectionRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %116
 
 110:                                              ; preds = %89
-  %111 = getelementptr inbounds i8, ptr %0, i64 344
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %112 = load ptr, ptr %111, align 8
   %113 = zext i32 %32 to i64
-  %114 = getelementptr inbounds ptr, ptr %112, i64 %113
+  %114 = getelementptr inbounds nuw ptr, ptr %112, i64 %113
   %115 = load ptr, ptr %114, align 8
   br label %116
 
@@ -2127,7 +2127,7 @@ define ptr @cuddCProjectionRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %.0168 = phi ptr [ %.0172, %96 ], [ %.0166, %110 ]
   %.0167 = phi ptr [ %.0166, %96 ], [ %.0172, %110 ]
   %.0165 = phi ptr [ %109, %96 ], [ %115, %110 ]
-  %117 = getelementptr inbounds i8, ptr %3, i64 16
+  %117 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %118 = load ptr, ptr %117, align 8
   %119 = tail call ptr @cuddBddExistAbstractRecur(ptr noundef nonnull %0, ptr noundef %.0168, ptr noundef %118) #6
   %120 = icmp eq ptr %119, null
@@ -2147,7 +2147,7 @@ define ptr @cuddCProjectionRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %128 = ptrtoint ptr %125 to i64
   %129 = and i64 %128, -2
   %130 = inttoptr i64 %129 to ptr
-  %131 = getelementptr inbounds i8, ptr %130, i64 4
+  %131 = getelementptr inbounds nuw i8, ptr %130, i64 4
   %132 = load i32, ptr %131, align 4
   %133 = add i32 %132, 1
   store i32 %133, ptr %131, align 4
@@ -2179,7 +2179,7 @@ define ptr @cuddCProjectionRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %147 = ptrtoint ptr %144 to i64
   %148 = and i64 %147, -2
   %149 = inttoptr i64 %148 to ptr
-  %150 = getelementptr inbounds i8, ptr %149, i64 4
+  %150 = getelementptr inbounds nuw i8, ptr %149, i64 4
   %151 = load i32, ptr %150, align 4
   %152 = add i32 %151, 1
   store i32 %152, ptr %150, align 4
@@ -2204,7 +2204,7 @@ define ptr @cuddCProjectionRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %163 = ptrtoint ptr %119 to i64
   %164 = and i64 %163, -2
   %165 = inttoptr i64 %164 to ptr
-  %166 = getelementptr inbounds i8, ptr %165, i64 4
+  %166 = getelementptr inbounds nuw i8, ptr %165, i64 4
   %167 = load i32, ptr %166, align 4
   %168 = add i32 %167, 1
   store i32 %168, ptr %166, align 4
@@ -2221,7 +2221,7 @@ define ptr @cuddCProjectionRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %174 = ptrtoint ptr %170 to i64
   %175 = and i64 %174, -2
   %176 = inttoptr i64 %175 to ptr
-  %177 = getelementptr inbounds i8, ptr %176, i64 4
+  %177 = getelementptr inbounds nuw i8, ptr %176, i64 4
   %178 = load i32, ptr %177, align 4
   %179 = add i32 %178, 1
   store i32 %179, ptr %177, align 4
@@ -2240,7 +2240,7 @@ define ptr @cuddCProjectionRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %186 = ptrtoint ptr %182 to i64
   %187 = and i64 %186, -2
   %188 = inttoptr i64 %187 to ptr
-  %189 = getelementptr inbounds i8, ptr %188, i64 4
+  %189 = getelementptr inbounds nuw i8, ptr %188, i64 4
   %190 = load i32, ptr %189, align 4
   %191 = add i32 %190, 1
   store i32 %191, ptr %189, align 4
@@ -2259,7 +2259,7 @@ define ptr @cuddCProjectionRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %197 = ptrtoint ptr %193 to i64
   %198 = and i64 %197, -2
   %199 = inttoptr i64 %198 to ptr
-  %200 = getelementptr inbounds i8, ptr %199, i64 4
+  %200 = getelementptr inbounds nuw i8, ptr %199, i64 4
   %201 = load i32, ptr %200, align 4
   %202 = add i32 %201, 1
   store i32 %202, ptr %200, align 4
@@ -2293,12 +2293,12 @@ define ptr @cuddCProjectionRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 ; Function Attrs: nounwind uwtable
 define ptr @Cudd_addHamming(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8
   %7 = ptrtoint ptr %6 to i64
   %8 = and i64 %7, -2
   %9 = inttoptr i64 %8 to ptr
-  %10 = getelementptr inbounds i8, ptr %9, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %11 = load i32, ptr %10, align 4
   %12 = add i32 %11, 1
   store i32 %12, ptr %10, align 4
@@ -2312,9 +2312,9 @@ define ptr @Cudd_addHamming(ptr noundef %0, ptr nocapture noundef readonly %1, p
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %44
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %44 ]
   %.04354 = phi ptr [ %6, %.lr.ph.preheader ], [ %41, %44 ]
-  %14 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8
   %18 = ptrtoint ptr %17 to i64
   %19 = xor i64 %18, 1
@@ -2331,7 +2331,7 @@ define ptr @Cudd_addHamming(ptr noundef %0, ptr nocapture noundef readonly %1, p
   %25 = ptrtoint ptr %21 to i64
   %26 = and i64 %25, -2
   %27 = inttoptr i64 %26 to ptr
-  %28 = getelementptr inbounds i8, ptr %27, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 4
   %29 = load i32, ptr %28, align 4
   %30 = add i32 %29, 1
   store i32 %30, ptr %28, align 4
@@ -2348,7 +2348,7 @@ define ptr @Cudd_addHamming(ptr noundef %0, ptr nocapture noundef readonly %1, p
   %35 = ptrtoint ptr %31 to i64
   %36 = and i64 %35, -2
   %37 = inttoptr i64 %36 to ptr
-  %38 = getelementptr inbounds i8, ptr %37, i64 4
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 4
   %39 = load i32, ptr %38, align 4
   %40 = add i32 %39, 1
   store i32 %40, ptr %38, align 4
@@ -2366,7 +2366,7 @@ define ptr @Cudd_addHamming(ptr noundef %0, ptr nocapture noundef readonly %1, p
   %45 = ptrtoint ptr %41 to i64
   %46 = and i64 %45, -2
   %47 = inttoptr i64 %46 to ptr
-  %48 = getelementptr inbounds i8, ptr %47, i64 4
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 4
   %49 = load i32, ptr %48, align 4
   %50 = add i32 %49, 1
   store i32 %50, ptr %48, align 4
@@ -2379,7 +2379,7 @@ define ptr @Cudd_addHamming(ptr noundef %0, ptr nocapture noundef readonly %1, p
 ._crit_edge:                                      ; preds = %44, %4
   %.pre-phi69 = phi ptr [ %9, %4 ], [ %47, %44 ]
   %.043.lcssa = phi ptr [ %6, %4 ], [ %41, %44 ]
-  %51 = getelementptr inbounds i8, ptr %.pre-phi69, i64 4
+  %51 = getelementptr inbounds nuw i8, ptr %.pre-phi69, i64 4
   %52 = load i32, ptr %51, align 4
   %53 = add i32 %52, -1
   store i32 %53, ptr %51, align 4
@@ -2423,7 +2423,7 @@ declare void @Cudd_SetEpsilon(ptr noundef, double noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @cuddMinHammingDistRecur(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %3) unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %2, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq i32 %3, 0
   br i1 %7, label %85, label %8
@@ -2437,13 +2437,13 @@ define internal fastcc i32 @cuddMinHammingDistRecur(ptr noundef %0, ptr noundef 
   br i1 %13, label %14, label %25
 
 14:                                               ; preds = %8
-  %15 = getelementptr inbounds i8, ptr %6, i64 72
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 72
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %0, %16
   br i1 %17, label %85, label %18
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds i8, ptr %6, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %20 = load ptr, ptr %19, align 8
   %21 = ptrtoint ptr %20 to i64
   %22 = xor i64 %21, 1
@@ -2458,19 +2458,19 @@ define internal fastcc i32 @cuddMinHammingDistRecur(ptr noundef %0, ptr noundef 
   br i1 %.not, label %42, label %27
 
 27:                                               ; preds = %25
-  %28 = getelementptr inbounds i8, ptr %26, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %29 = load double, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %26, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %26, i64 4
   %31 = load i32, ptr %30, align 4
   %32 = icmp eq i32 %31, 0
   br i1 %32, label %33, label %40
 
 33:                                               ; preds = %27
-  %34 = getelementptr inbounds i8, ptr %6, i64 236
+  %34 = getelementptr inbounds nuw i8, ptr %6, i64 236
   %35 = load i32, ptr %34, align 4
   %36 = add i32 %35, 1
   store i32 %36, ptr %34, align 4
-  %37 = getelementptr inbounds i8, ptr %6, i64 192
+  %37 = getelementptr inbounds nuw i8, ptr %6, i64 192
   %38 = load i32, ptr %37, align 8
   %39 = add i32 %38, 1
   store i32 %39, ptr %37, align 8
@@ -2481,9 +2481,9 @@ define internal fastcc i32 @cuddMinHammingDistRecur(ptr noundef %0, ptr noundef 
   br label %85
 
 42:                                               ; preds = %25
-  %43 = getelementptr inbounds i8, ptr %11, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %11, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %46 = load ptr, ptr %45, align 8
   %47 = and i64 %9, 1
   %.not66 = icmp eq i64 %47, 0
@@ -2497,7 +2497,7 @@ define internal fastcc i32 @cuddMinHammingDistRecur(ptr noundef %0, ptr noundef 
   %.056 = select i1 %.not66, ptr %44, ptr %50
   %54 = load i32, ptr %11, align 8
   %55 = zext i32 %54 to i64
-  %56 = getelementptr inbounds i32, ptr %1, i64 %55
+  %56 = getelementptr inbounds nuw i32, ptr %1, i64 %55
   %57 = load i32, ptr %56, align 4
   %58 = icmp eq i32 %57, 0
   %.1 = select i1 %58, ptr %.057, ptr %.056
@@ -2521,7 +2521,7 @@ define internal fastcc i32 @cuddMinHammingDistRecur(ptr noundef %0, ptr noundef 
   %66 = fadd double %.059, 1.000000e+00
   %67 = fcmp olt double %66, %60
   %68 = select i1 %67, double %66, double %60
-  %69 = getelementptr inbounds i8, ptr %11, i64 4
+  %69 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %70 = load i32, ptr %69, align 4
   %.not67 = icmp eq i32 %70, 1
   br i1 %.not67, label %83, label %71
@@ -2538,7 +2538,7 @@ define internal fastcc i32 @cuddMinHammingDistRecur(ptr noundef %0, ptr noundef 
   %77 = ptrtoint ptr %74 to i64
   %78 = and i64 %77, -2
   %79 = inttoptr i64 %78 to ptr
-  %80 = getelementptr inbounds i8, ptr %79, i64 4
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 4
   %81 = load i32, ptr %80, align 4
   %82 = add i32 %81, 1
   store i32 %82, ptr %80, align 4
@@ -2558,7 +2558,7 @@ declare void @cuddHashTableQuit(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define ptr @Cudd_bddClosestCube(ptr noundef initializes((448, 452)) %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 448
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 448
   br label %6
 
 6:                                                ; preds = %6, %4
@@ -2576,14 +2576,14 @@ define ptr @Cudd_bddClosestCube(ptr noundef initializes((448, 452)) %0, ptr noun
   %13 = ptrtoint ptr %7 to i64
   %14 = and i64 %13, -2
   %15 = inttoptr i64 %14 to ptr
-  %16 = getelementptr inbounds i8, ptr %15, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %17 = load i32, ptr %16, align 4
   %18 = add i32 %17, 1
   store i32 %18, ptr %16, align 4
-  %19 = getelementptr inbounds i8, ptr %7, i64 16
-  %20 = getelementptr inbounds i8, ptr %0, i64 48
-  %21 = getelementptr inbounds i8, ptr %7, i64 24
-  %22 = getelementptr inbounds i8, ptr %0, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %23
 
 23:                                               ; preds = %separateCube.exit, %12
@@ -2608,7 +2608,7 @@ define ptr @Cudd_bddClosestCube(ptr noundef initializes((448, 452)) %0, ptr noun
   br i1 %36, label %37, label %47
 
 37:                                               ; preds = %30
-  %38 = getelementptr inbounds i8, ptr %31, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %39 = load double, ptr %38, align 8
   %40 = fcmp ugt double %39, 0.000000e+00
   br i1 %40, label %47, label %41
@@ -2623,7 +2623,7 @@ define ptr @Cudd_bddClosestCube(ptr noundef initializes((448, 452)) %0, ptr noun
 
 47:                                               ; preds = %37, %30
   %48 = load ptr, ptr %21, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %50 = load double, ptr %49, align 8
   %51 = fneg double %50
   %52 = load i32, ptr %7, align 8
@@ -2650,7 +2650,7 @@ separateCube.exit:                                ; preds = %26, %41, %47
   %61 = ptrtoint ptr %.0.i to i64
   %62 = and i64 %61, -2
   %63 = inttoptr i64 %62 to ptr
-  %64 = getelementptr inbounds i8, ptr %63, i64 4
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 4
   %65 = load i32, ptr %64, align 4
   %66 = add i32 %65, 1
   store i32 %66, ptr %64, align 4
@@ -2676,7 +2676,7 @@ separateCube.exit:                                ; preds = %26, %41, %47
   %75 = ptrtoint ptr %68 to i64
   %76 = and i64 %75, -2
   %77 = inttoptr i64 %76 to ptr
-  %78 = getelementptr inbounds i8, ptr %77, i64 4
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 4
   %79 = load i32, ptr %78, align 4
   %80 = add i32 %79, 1
   store i32 %80, ptr %78, align 4
@@ -2698,9 +2698,9 @@ define ptr @cuddBddClosestCube(ptr noundef %0, ptr noundef %1, ptr noundef %2, d
   %5 = alloca double, align 8
   %6 = alloca double, align 8
   %7 = alloca double, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %11 = load ptr, ptr %10, align 8
   %12 = ptrtoint ptr %2 to i64
   %13 = xor i64 %12, 1
@@ -2731,13 +2731,13 @@ define ptr @cuddBddClosestCube(ptr noundef %0, ptr noundef %1, ptr noundef %2, d
   %30 = inttoptr i64 %29 to ptr
   %31 = and i64 %12, -2
   %32 = inttoptr i64 %31 to ptr
-  %33 = getelementptr inbounds i8, ptr %30, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %30, i64 4
   %34 = load i32, ptr %33, align 4
   %.not = icmp eq i32 %34, 1
   br i1 %.not, label %35, label %38
 
 35:                                               ; preds = %27
-  %36 = getelementptr inbounds i8, ptr %32, i64 4
+  %36 = getelementptr inbounds nuw i8, ptr %32, i64 4
   %37 = load i32, ptr %36, align 4
   %.not241 = icmp eq i32 %37, 1
   br i1 %.not241, label %40, label %38
@@ -2753,10 +2753,10 @@ define ptr @cuddBddClosestCube(ptr noundef %0, ptr noundef %1, ptr noundef %2, d
   br i1 %42, label %49, label %43
 
 43:                                               ; preds = %40
-  %44 = getelementptr inbounds i8, ptr %0, i64 312
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %45 = load ptr, ptr %44, align 8
   %46 = zext i32 %41 to i64
-  %47 = getelementptr inbounds i32, ptr %45, i64 %46
+  %47 = getelementptr inbounds nuw i32, ptr %45, i64 %46
   %48 = load i32, ptr %47, align 4
   br label %49
 
@@ -2767,10 +2767,10 @@ define ptr @cuddBddClosestCube(ptr noundef %0, ptr noundef %1, ptr noundef %2, d
   br i1 %52, label %59, label %53
 
 53:                                               ; preds = %49
-  %54 = getelementptr inbounds i8, ptr %0, i64 312
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %55 = load ptr, ptr %54, align 8
   %56 = zext i32 %51 to i64
-  %57 = getelementptr inbounds i32, ptr %55, i64 %56
+  %57 = getelementptr inbounds nuw i32, ptr %55, i64 %56
   %58 = load i32, ptr %57, align 4
   br label %59
 
@@ -2780,9 +2780,9 @@ define ptr @cuddBddClosestCube(ptr noundef %0, ptr noundef %1, ptr noundef %2, d
   br i1 %.not243, label %74, label %61
 
 61:                                               ; preds = %59
-  %62 = getelementptr inbounds i8, ptr %30, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %63 = load ptr, ptr %62, align 8
-  %64 = getelementptr inbounds i8, ptr %30, i64 24
+  %64 = getelementptr inbounds nuw i8, ptr %30, i64 24
   %65 = load ptr, ptr %64, align 8
   %66 = and i64 %28, 1
   %.not244 = icmp eq i64 %66, 0
@@ -2805,9 +2805,9 @@ define ptr @cuddBddClosestCube(ptr noundef %0, ptr noundef %1, ptr noundef %2, d
   br i1 %.not245, label %88, label %75
 
 75:                                               ; preds = %74
-  %76 = getelementptr inbounds i8, ptr %32, i64 16
+  %76 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %77 = load ptr, ptr %76, align 8
-  %78 = getelementptr inbounds i8, ptr %32, i64 24
+  %78 = getelementptr inbounds nuw i8, ptr %32, i64 24
   %79 = load ptr, ptr %78, align 8
   %80 = and i64 %12, 1
   %.not246 = icmp eq i64 %80, 0
@@ -2833,7 +2833,7 @@ define ptr @cuddBddClosestCube(ptr noundef %0, ptr noundef %1, ptr noundef %2, d
   %92 = ptrtoint ptr %89 to i64
   %93 = and i64 %92, -2
   %94 = inttoptr i64 %93 to ptr
-  %95 = getelementptr inbounds i8, ptr %94, i64 4
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 4
   %96 = load i32, ptr %95, align 4
   %97 = add i32 %96, 1
   store i32 %97, ptr %95, align 4
@@ -2848,7 +2848,7 @@ separateCube.exit.thread:                         ; preds = %91
   br label %133
 
 103:                                              ; preds = %91
-  %104 = getelementptr inbounds i8, ptr %89, i64 16
+  %104 = getelementptr inbounds nuw i8, ptr %89, i64 16
   %105 = load ptr, ptr %104, align 8
   %106 = ptrtoint ptr %105 to i64
   %107 = and i64 %106, -2
@@ -2858,7 +2858,7 @@ separateCube.exit.thread:                         ; preds = %91
   br i1 %110, label %111, label %122
 
 111:                                              ; preds = %103
-  %112 = getelementptr inbounds i8, ptr %105, i64 16
+  %112 = getelementptr inbounds nuw i8, ptr %105, i64 16
   %113 = load double, ptr %112, align 8
   %114 = fcmp ugt double %113, 0.000000e+00
   br i1 %114, label %122, label %115
@@ -2867,15 +2867,15 @@ separateCube.exit.thread:                         ; preds = %91
   %116 = fneg double %113
   %117 = load i32, ptr %89, align 8
   %118 = load ptr, ptr %10, align 8
-  %119 = getelementptr inbounds i8, ptr %89, i64 24
+  %119 = getelementptr inbounds nuw i8, ptr %89, i64 24
   %120 = load ptr, ptr %119, align 8
   %121 = tail call ptr @cuddUniqueInter(ptr noundef nonnull %0, i32 noundef %117, ptr noundef %118, ptr noundef %120) #6
   br label %separateCube.exit
 
 122:                                              ; preds = %111, %103
-  %123 = getelementptr inbounds i8, ptr %89, i64 24
+  %123 = getelementptr inbounds nuw i8, ptr %89, i64 24
   %124 = load ptr, ptr %123, align 8
-  %125 = getelementptr inbounds i8, ptr %124, i64 16
+  %125 = getelementptr inbounds nuw i8, ptr %124, i64 16
   %126 = load double, ptr %125, align 8
   %127 = fneg double %126
   %128 = load i32, ptr %89, align 8
@@ -2903,7 +2903,7 @@ separateCube.exit._crit_edge:                     ; preds = %separateCube.exit
   %.pre-phi266 = phi ptr [ %.pre265, %separateCube.exit._crit_edge ], [ %94, %separateCube.exit.thread ]
   %.0.i262 = phi ptr [ %.0.i, %separateCube.exit._crit_edge ], [ %89, %separateCube.exit.thread ]
   %.0258261 = phi double [ %.0258, %separateCube.exit._crit_edge ], [ %102, %separateCube.exit.thread ]
-  %134 = getelementptr inbounds i8, ptr %.pre-phi266, i64 4
+  %134 = getelementptr inbounds nuw i8, ptr %.pre-phi266, i64 4
   %135 = load i32, ptr %134, align 4
   %136 = add i32 %135, 1
   store i32 %136, ptr %134, align 4
@@ -2922,7 +2922,7 @@ separateCube.exit._crit_edge:                     ; preds = %separateCube.exit
   %143 = ptrtoint ptr %139 to i64
   %144 = and i64 %143, -2
   %145 = inttoptr i64 %144 to ptr
-  %146 = getelementptr inbounds i8, ptr %145, i64 4
+  %146 = getelementptr inbounds nuw i8, ptr %145, i64 4
   %147 = load i32, ptr %146, align 4
   %148 = add i32 %147, 1
   store i32 %148, ptr %146, align 4
@@ -2939,7 +2939,7 @@ separateCube.exit._crit_edge:                     ; preds = %separateCube.exit
   %153 = ptrtoint ptr %149 to i64
   %154 = and i64 %153, -2
   %155 = inttoptr i64 %154 to ptr
-  %156 = getelementptr inbounds i8, ptr %155, i64 4
+  %156 = getelementptr inbounds nuw i8, ptr %155, i64 4
   %157 = load i32, ptr %156, align 4
   %158 = add i32 %157, 1
   store i32 %158, ptr %156, align 4
@@ -2978,7 +2978,7 @@ separateCube.exit._crit_edge:                     ; preds = %separateCube.exit
   %176 = ptrtoint ptr %172 to i64
   %177 = and i64 %176, -2
   %178 = inttoptr i64 %177 to ptr
-  %179 = getelementptr inbounds i8, ptr %178, i64 4
+  %179 = getelementptr inbounds nuw i8, ptr %178, i64 4
   %180 = load i32, ptr %179, align 4
   %181 = add i32 %180, 1
   store i32 %181, ptr %179, align 4
@@ -2996,7 +2996,7 @@ separateCube.exit._crit_edge:                     ; preds = %separateCube.exit
   %186 = ptrtoint ptr %182 to i64
   %187 = and i64 %186, -2
   %188 = inttoptr i64 %187 to ptr
-  %189 = getelementptr inbounds i8, ptr %188, i64 4
+  %189 = getelementptr inbounds nuw i8, ptr %188, i64 4
   %190 = load i32, ptr %189, align 4
   %191 = add i32 %190, 1
   store i32 %191, ptr %189, align 4
@@ -3011,7 +3011,7 @@ separateCube.exit._crit_edge:                     ; preds = %separateCube.exit
   %197 = ptrtoint ptr %11 to i64
   %198 = and i64 %197, -2
   %199 = inttoptr i64 %198 to ptr
-  %200 = getelementptr inbounds i8, ptr %199, i64 4
+  %200 = getelementptr inbounds nuw i8, ptr %199, i64 4
   %201 = load i32, ptr %200, align 4
   %202 = add i32 %201, 1
   store i32 %202, ptr %200, align 4
@@ -3052,7 +3052,7 @@ separateCube.exit._crit_edge:                     ; preds = %separateCube.exit
   %218 = ptrtoint ptr %214 to i64
   %219 = and i64 %218, -2
   %220 = inttoptr i64 %219 to ptr
-  %221 = getelementptr inbounds i8, ptr %220, i64 4
+  %221 = getelementptr inbounds nuw i8, ptr %220, i64 4
   %222 = load i32, ptr %221, align 4
   %223 = add i32 %222, 1
   store i32 %223, ptr %221, align 4
@@ -3071,7 +3071,7 @@ separateCube.exit._crit_edge:                     ; preds = %separateCube.exit
   %228 = ptrtoint ptr %224 to i64
   %229 = and i64 %228, -2
   %230 = inttoptr i64 %229 to ptr
-  %231 = getelementptr inbounds i8, ptr %230, i64 4
+  %231 = getelementptr inbounds nuw i8, ptr %230, i64 4
   %232 = load i32, ptr %231, align 4
   %233 = add i32 %232, 1
   store i32 %233, ptr %231, align 4
@@ -3086,7 +3086,7 @@ separateCube.exit._crit_edge:                     ; preds = %separateCube.exit
   %239 = ptrtoint ptr %11 to i64
   %240 = and i64 %239, -2
   %241 = inttoptr i64 %240 to ptr
-  %242 = getelementptr inbounds i8, ptr %241, i64 4
+  %242 = getelementptr inbounds nuw i8, ptr %241, i64 4
   %243 = load i32, ptr %242, align 4
   %244 = add i32 %243, 1
   store i32 %244, ptr %242, align 4
@@ -3149,7 +3149,7 @@ separateCube.exit._crit_edge:                     ; preds = %separateCube.exit
   %269 = ptrtoint ptr %.0209 to i64
   %270 = and i64 %269, -2
   %271 = inttoptr i64 %270 to ptr
-  %272 = getelementptr inbounds i8, ptr %271, i64 4
+  %272 = getelementptr inbounds nuw i8, ptr %271, i64 4
   %273 = load i32, ptr %272, align 4
   %274 = add i32 %273, 1
   store i32 %274, ptr %272, align 4
@@ -3162,7 +3162,7 @@ separateCube.exit._crit_edge:                     ; preds = %separateCube.exit
   br i1 %.not247, label %276, label %279
 
 276:                                              ; preds = %268
-  %277 = getelementptr inbounds i8, ptr %32, i64 4
+  %277 = getelementptr inbounds nuw i8, ptr %32, i64 4
   %278 = load i32, ptr %277, align 4
   %.not248 = icmp eq i32 %278, 1
   %.not249 = icmp eq ptr %.0209, %11
@@ -3198,7 +3198,7 @@ define internal fastcc ptr @separateCube(ptr noundef %0, ptr noundef nonnull %1,
   br i1 %8, label %9, label %14
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %1, %11
   %13 = select i1 %12, double 0.000000e+00, double 0x41E0000000000000
@@ -3206,7 +3206,7 @@ define internal fastcc ptr @separateCube(ptr noundef %0, ptr noundef nonnull %1,
   br label %44
 
 14:                                               ; preds = %3
-  %15 = getelementptr inbounds i8, ptr %1, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = ptrtoint ptr %16 to i64
   %18 = and i64 %17, -2
@@ -3216,7 +3216,7 @@ define internal fastcc ptr @separateCube(ptr noundef %0, ptr noundef nonnull %1,
   br i1 %21, label %22, label %34
 
 22:                                               ; preds = %14
-  %23 = getelementptr inbounds i8, ptr %16, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %24 = load double, ptr %23, align 8
   %25 = fcmp ugt double %24, 0.000000e+00
   br i1 %25, label %34, label %26
@@ -3225,22 +3225,22 @@ define internal fastcc ptr @separateCube(ptr noundef %0, ptr noundef nonnull %1,
   %27 = fneg double %24
   store double %27, ptr %2, align 8
   %28 = load i32, ptr %1, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 48
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %1, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %32 = load ptr, ptr %31, align 8
   %33 = tail call ptr @cuddUniqueInter(ptr noundef %0, i32 noundef %28, ptr noundef %30, ptr noundef %32) #6
   br label %44
 
 34:                                               ; preds = %22, %14
-  %35 = getelementptr inbounds i8, ptr %1, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = load double, ptr %37, align 8
   %39 = fneg double %38
   store double %39, ptr %2, align 8
   %40 = load i32, ptr %1, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 48
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %42 = load ptr, ptr %41, align 8
   %43 = tail call ptr @cuddUniqueInter(ptr noundef %0, i32 noundef %40, ptr noundef %16, ptr noundef %42) #6
   br label %44
@@ -3285,23 +3285,23 @@ define internal fastcc ptr @createResult(ptr noundef %0, i32 noundef %1, i32 nou
   %18 = ptrtoint ptr %15 to i64
   %19 = and i64 %18, -2
   %20 = inttoptr i64 %19 to ptr
-  %21 = getelementptr inbounds i8, ptr %20, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
   %22 = load i32, ptr %21, align 4
   %23 = add i32 %22, 1
   store i32 %23, ptr %21, align 4
   br i1 %6, label %24, label %37
 
 24:                                               ; preds = %17
-  %25 = getelementptr inbounds i8, ptr %3, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 48
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %28 = load ptr, ptr %27, align 8
   %29 = icmp eq ptr %26, %28
   %30 = load i32, ptr %3, align 8
   br i1 %29, label %31, label %35
 
 31:                                               ; preds = %24
-  %32 = getelementptr inbounds i8, ptr %3, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %33 = load ptr, ptr %32, align 8
   %34 = tail call ptr @cuddUniqueInter(ptr noundef nonnull %0, i32 noundef %30, ptr noundef nonnull %15, ptr noundef %33) #6
   br label %42

@@ -15,7 +15,7 @@ define dso_local void @_ZN4llvm18DecodeINSERTPSMaskEjRNS_15SmallVectorImplIiEE(i
   br i1 %.not.i.i.i, label %6, label %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %7, i64 noundef %4, i64 noundef 4) #4
   br label %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit
 
@@ -34,7 +34,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit: ; preds = %2, %6
   br i1 %.not.i.i.i21, label %16, label %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit22
 
 16:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit
-  %17 = getelementptr inbounds i8, ptr %1, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %17, i64 noundef %14, i64 noundef 4) #4
   br label %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit22
 
@@ -53,7 +53,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit22: ; preds = %_ZN4llvm
   br i1 %.not.i.i.i23, label %26, label %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit24
 
 26:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit22
-  %27 = getelementptr inbounds i8, ptr %1, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 16
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %27, i64 noundef %24, i64 noundef 4) #4
   br label %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit24
 
@@ -72,7 +72,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit24: ; preds = %_ZN4llvm
   br i1 %.not.i.i.i25, label %36, label %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit26
 
 36:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit24
-  %37 = getelementptr inbounds i8, ptr %1, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 16
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %37, i64 noundef %34, i64 noundef 4) #4
   br label %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit26
 
@@ -91,7 +91,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit26: ; preds = %_ZN4llvm
   %47 = or disjoint i32 %46, 4
   %48 = zext nneg i32 %44 to i64
   %49 = load ptr, ptr %1, align 8
-  %50 = getelementptr inbounds i32, ptr %49, i64 %48
+  %50 = getelementptr inbounds nuw i32, ptr %49, i64 %48
   store i32 %47, ptr %50, align 4
   %51 = and i32 %0, 1
   %.not = icmp eq i32 %51, 0
@@ -109,7 +109,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit26: ; preds = %_ZN4llvm
 
 56:                                               ; preds = %54
   %57 = load ptr, ptr %1, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 4
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 4
   store i32 -2, ptr %58, align 4
   br label %59
 
@@ -120,7 +120,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit26: ; preds = %_ZN4llvm
 
 61:                                               ; preds = %59
   %62 = load ptr, ptr %1, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
   store i32 -2, ptr %63, align 4
   br label %64
 
@@ -131,7 +131,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit26: ; preds = %_ZN4llvm
 
 66:                                               ; preds = %64
   %67 = load ptr, ptr %1, align 8
-  %68 = getelementptr inbounds i8, ptr %67, i64 12
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 12
   store i32 -2, ptr %68, align 4
   br label %69
 
@@ -145,7 +145,7 @@ define dso_local void @_ZN4llvm23DecodeInsertElementMaskEjjjRNS_15SmallVectorImp
   br i1 %.not15, label %.preheader, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
-  %5 = getelementptr inbounds i8, ptr %3, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   br label %7
 
 .preheader:                                       ; preds = %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit, %4
@@ -187,7 +187,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit: ; preds = %7, %11
   %20 = add i32 %1, %18
   %21 = zext i32 %20 to i64
   %22 = load ptr, ptr %3, align 8
-  %23 = getelementptr inbounds i32, ptr %22, i64 %21
+  %23 = getelementptr inbounds nuw i32, ptr %22, i64 %21
   store i32 %19, ptr %23, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not14 = icmp eq i64 %indvars.iv.next, %6
@@ -204,11 +204,11 @@ define dso_local void @_ZN4llvm17DecodeMOVHLPSMaskEjRNS_15SmallVectorImplIiEE(i3
   br i1 %.not17, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %1, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br label %6
 
 .lr.ph21:                                         ; preds = %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br label %18
 
 6:                                                ; preds = %.lr.ph, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit
@@ -271,11 +271,11 @@ define dso_local void @_ZN4llvm17DecodeMOVLHPSMaskEjRNS_15SmallVectorImplIiEE(i3
   br i1 %.not15, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %1, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br label %6
 
 .lr.ph19:                                         ; preds = %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br label %17
 
 6:                                                ; preds = %.lr.ph, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit
@@ -338,7 +338,7 @@ define dso_local void @_ZN4llvm18DecodeMOVSLDUPMaskEjRNS_15SmallVectorImplIiEE(i
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %1, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br label %5
 
 5:                                                ; preds = %.lr.ph, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit8
@@ -395,7 +395,7 @@ define dso_local void @_ZN4llvm18DecodeMOVSHDUPMaskEjRNS_15SmallVectorImplIiEE(i
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %1, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br label %5
 
 5:                                                ; preds = %.lr.ph, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit8
@@ -452,7 +452,7 @@ define dso_local void @_ZN4llvm17DecodeMOVDDUPMaskEjRNS_15SmallVectorImplIiEE(i3
   br i1 %.not, label %._crit_edge, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %2
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %15
@@ -496,7 +496,7 @@ define dso_local void @_ZN4llvm16DecodePSLLDQMaskEjjRNS_15SmallVectorImplIiEE(i3
   br i1 %.not16, label %._crit_edge, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %3
-  %4 = getelementptr inbounds i8, ptr %2, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %18
@@ -546,7 +546,7 @@ define dso_local void @_ZN4llvm16DecodePSRLDQMaskEjjRNS_15SmallVectorImplIiEE(i3
   br i1 %.not, label %._crit_edge, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %3
-  %4 = getelementptr inbounds i8, ptr %2, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %18
@@ -598,7 +598,7 @@ define dso_local void @_ZN4llvm17DecodePALIGNRMaskEjjRNS_15SmallVectorImplIiEE(i
 
 .preheader.lr.ph:                                 ; preds = %3
   %4 = add i32 %0, -16
-  %5 = getelementptr inbounds i8, ptr %2, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %21
@@ -652,7 +652,7 @@ define dso_local void @_ZN4llvm16DecodeVALIGNMaskEjjRNS_15SmallVectorImplIiEE(i3
   br i1 %.not7, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   br label %7
 
 7:                                                ; preds = %.lr.ph, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit
@@ -695,7 +695,7 @@ define dso_local void @_ZN4llvm15DecodePSHUFMaskEjjjRNS_15SmallVectorImplIiEE(i3
 
 .preheader.lr.ph:                                 ; preds = %4
   %.not2324 = icmp ugt i32 %spec.store.select, %0
-  %8 = getelementptr inbounds i8, ptr %3, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   br i1 %.not2324, label %._crit_edge30, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %.preheader.lr.ph
@@ -751,7 +751,7 @@ define dso_local void @_ZN4llvm17DecodePSHUFHWMaskEjjRNS_15SmallVectorImplIiEE(i
   br i1 %.not27, label %._crit_edge, label %.preheader23.lr.ph
 
 .preheader23.lr.ph:                               ; preds = %3
-  %4 = getelementptr inbounds i8, ptr %2, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   br label %.preheader23
 
 .preheader23:                                     ; preds = %.preheader23.lr.ph, %30
@@ -830,7 +830,7 @@ define dso_local void @_ZN4llvm17DecodePSHUFLWMaskEjjRNS_15SmallVectorImplIiEE(i
   br i1 %.not27, label %._crit_edge, label %.preheader23.lr.ph
 
 .preheader23.lr.ph:                               ; preds = %3
-  %4 = getelementptr inbounds i8, ptr %2, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   br label %.preheader23
 
 .preheader23:                                     ; preds = %.preheader23.lr.ph, %30
@@ -906,11 +906,11 @@ define dso_local void @_ZN4llvm15DecodePSWAPMaskEjRNS_15SmallVectorImplIiEE(i32 
   br i1 %.not16, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %1, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br label %6
 
 .lr.ph20:                                         ; preds = %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br label %18
 
 6:                                                ; preds = %.lr.ph, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit
@@ -976,7 +976,7 @@ define dso_local void @_ZN4llvm15DecodeSHUFPMaskEjjjRNS_15SmallVectorImplIiEE(i3
   %6 = shl i32 %0, 1
   %.not2531 = icmp eq i32 %6, 0
   %7 = lshr i32 %5, 1
-  %8 = getelementptr inbounds i8, ptr %3, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.not2628 = icmp ugt i32 %1, 64
   %or.cond = or i1 %.not2531, %.not2628
   br i1 %or.cond, label %._crit_edge40, label %.preheader27.lr.ph.split.split
@@ -1097,7 +1097,7 @@ define dso_local void @_ZN4llvm16DecodeUNPCKHMaskEjjRNS_15SmallVectorImplIiEE(i3
 
 .lr.ph30:                                         ; preds = %3
   %7 = lshr i32 %6, 1
-  %8 = getelementptr inbounds i8, ptr %2, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.not2326 = icmp ugt i32 %spec.store.select, %0
   br label %9
 
@@ -1172,7 +1172,7 @@ define dso_local void @_ZN4llvm16DecodeUNPCKLMaskEjjRNS_15SmallVectorImplIiEE(i3
 
 .lr.ph29:                                         ; preds = %3
   %7 = lshr i32 %6, 1
-  %8 = getelementptr inbounds i8, ptr %2, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.not2124 = icmp ult i32 %6, 2
   br label %9
 
@@ -1243,7 +1243,7 @@ define dso_local void @_ZN4llvm21DecodeVectorBroadcastEjRNS_15SmallVectorImplIiE
   br i1 %.not.i.i.i, label %7, label %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE28reserveForParamAndGetAddressERim.exit.i
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %1, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %8, i64 noundef %5, i64 noundef 4) #4
   br label %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE28reserveForParamAndGetAddressERim.exit.i
 
@@ -1273,7 +1273,7 @@ define dso_local void @_ZN4llvm24DecodeSubVectorBroadcastEjjRNS_15SmallVectorImp
   br i1 %.not12, label %._crit_edge, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %2, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %17
@@ -1322,7 +1322,7 @@ define dso_local void @_ZN4llvm25decodeVSHUF64x2FamilyMaskEjjjRNS_15SmallVectorI
 
 .lr.ph:                                           ; preds = %4
   %7 = lshr i32 %0, 1
-  %8 = getelementptr inbounds i8, ptr %3, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   br label %9
 
 9:                                                ; preds = %.lr.ph, %26
@@ -1373,7 +1373,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit: ; preds = %14, %19
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm20DecodeVPERM2X128MaskEjjRNS_15SmallVectorImplIiEE(i32 noundef %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2) local_unnamed_addr #0 {
   %4 = lshr i32 %0, 1
-  %5 = getelementptr inbounds i8, ptr %2, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.not1618 = icmp ult i32 %0, 2
   br label %6
 
@@ -1457,13 +1457,13 @@ define dso_local void @_ZN4llvm16DecodePSHUFBMaskENS_8ArrayRefImEERKNS_5APIntERN
 
 .lr.ph:                                           ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %wide.trip.count = and i64 %1, 2147483647
   br label %9
 
 9:                                                ; preds = %.lr.ph, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit ]
-  %10 = getelementptr inbounds i64, ptr %0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv
   %11 = load i64, ptr %10, align 8
   %12 = trunc nuw nsw i64 %indvars.iv to i32
   %13 = and i64 %indvars.iv, 63
@@ -1473,7 +1473,7 @@ define dso_local void @_ZN4llvm16DecodePSHUFBMaskENS_8ArrayRefImEERKNS_5APIntERN
   %17 = load ptr, ptr %2, align 8
   %18 = lshr i64 %indvars.iv, 6
   %19 = and i64 %18, 67108863
-  %20 = getelementptr inbounds i64, ptr %17, i64 %19
+  %20 = getelementptr inbounds nuw i64, ptr %17, i64 %19
   %.in.i.i = select i1 %16, ptr %2, ptr %20
   %21 = load i64, ptr %.in.i.i, align 8
   %22 = and i64 %21, %14
@@ -1539,7 +1539,7 @@ define dso_local void @_ZN4llvm15DecodeBLENDMaskEjjRNS_15SmallVectorImplIiEE(i32
   br i1 %.not11, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
-  %4 = getelementptr inbounds i8, ptr %2, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   br label %5
 
 5:                                                ; preds = %.lr.ph, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit
@@ -1584,7 +1584,7 @@ define dso_local void @_ZN4llvm16DecodeVPPERMMaskENS_8ArrayRefImEERKNS_5APIntERN
 
 .lr.ph:                                           ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %wide.trip.count = and i64 %1, 2147483647
   br label %9
 
@@ -1597,7 +1597,7 @@ define dso_local void @_ZN4llvm16DecodeVPPERMMaskENS_8ArrayRefImEERKNS_5APIntERN
   %14 = load ptr, ptr %2, align 8
   %15 = lshr i64 %indvars.iv, 6
   %16 = and i64 %15, 67108863
-  %17 = getelementptr inbounds i64, ptr %14, i64 %16
+  %17 = getelementptr inbounds nuw i64, ptr %14, i64 %16
   %.in.i.i = select i1 %13, ptr %2, ptr %17
   %18 = load i64, ptr %.in.i.i, align 8
   %19 = and i64 %18, %11
@@ -1612,7 +1612,7 @@ define dso_local void @_ZN4llvm16DecodeVPPERMMaskENS_8ArrayRefImEERKNS_5APIntERN
   br i1 %.not.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit.sink.split, label %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit
 
 24:                                               ; preds = %9
-  %25 = getelementptr inbounds i64, ptr %0, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv
   %26 = load i64, ptr %25, align 8
   %27 = lshr i64 %26, 5
   %28 = and i64 %27, 7
@@ -1672,7 +1672,7 @@ define dso_local void @_ZN4llvm15DecodeVPERMMaskEjjRNS_15SmallVectorImplIiEE(i32
   br i1 %.not11, label %._crit_edge, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %3
-  %4 = getelementptr inbounds i8, ptr %2, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %20
@@ -1724,7 +1724,7 @@ define dso_local void @_ZN4llvm20DecodeZeroExtendMaskEjjjbRNS_15SmallVectorImplI
 
 .lr.ph:                                           ; preds = %5
   %7 = udiv i32 %1, %0
-  %8 = getelementptr inbounds i8, ptr %4, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %9 = add i32 %7, -1
   %10 = zext i32 %9 to i64
   %11 = icmp eq i32 %9, 0
@@ -1767,13 +1767,13 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE28reserveForParamAndGetAddressERim.exit.
 
 28:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE28reserveForParamAndGetAddressERim.exit.i
   %29 = getelementptr inbounds i32, ptr %26, i64 %27
-  %30 = getelementptr inbounds i32, ptr %29, i64 %10
+  %30 = getelementptr inbounds nuw i32, ptr %29, i64 %10
   br label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %.lr.ph.i.i.i.i.i.i.i, %28
   %.06.i.i.i.i.i.i.i = phi ptr [ %31, %.lr.ph.i.i.i.i.i.i.i ], [ %29, %28 ]
   store i32 %6, ptr %.06.i.i.i.i.i.i.i, align 4
-  %31 = getelementptr inbounds i8, ptr %.06.i.i.i.i.i.i.i, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i.i.i, i64 4
   %.not.i.i.i.i.i.i.i = icmp eq ptr %31, %30
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN4llvm15SmallVectorImplIiE6appendEmi.exit, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !50
 
@@ -1798,7 +1798,7 @@ define dso_local void @_ZN4llvm21DecodeZeroMoveLowMaskEjRNS_15SmallVectorImplIiE
   br i1 %.not.i.i.i, label %6, label %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %7, i64 noundef %4, i64 noundef 4) #4
   br label %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit
 
@@ -1819,7 +1819,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit: ; preds = %2, %6
   br i1 %.not.i.i.i2, label %18, label %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE28reserveForParamAndGetAddressERim.exit.i
 
 18:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit
-  %19 = getelementptr inbounds i8, ptr %1, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %19, i64 noundef %16, i64 noundef 4) #4
   br label %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE28reserveForParamAndGetAddressERim.exit.i
 
@@ -1831,13 +1831,13 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE28reserveForParamAndGetAddressERim.exit.
 
 23:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE28reserveForParamAndGetAddressERim.exit.i
   %24 = getelementptr inbounds i32, ptr %20, i64 %21
-  %25 = getelementptr inbounds i32, ptr %24, i64 %14
+  %25 = getelementptr inbounds nuw i32, ptr %24, i64 %14
   br label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %.lr.ph.i.i.i.i.i.i.i, %23
   %.06.i.i.i.i.i.i.i = phi ptr [ %26, %.lr.ph.i.i.i.i.i.i.i ], [ %24, %23 ]
   store i32 -2, ptr %.06.i.i.i.i.i.i.i, align 4
-  %26 = getelementptr inbounds i8, ptr %.06.i.i.i.i.i.i.i, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i.i.i, i64 4
   %.not.i.i.i.i.i.i.i = icmp eq ptr %26, %25
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN4llvm15SmallVectorImplIiE6appendEmi.exit, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !50
 
@@ -1857,7 +1857,7 @@ define dso_local void @_ZN4llvm20DecodeScalarMoveMaskEjbRNS_15SmallVectorImplIiE
   br i1 %.not.i.i.i, label %7, label %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %2, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %8, i64 noundef %5, i64 noundef 4) #4
   br label %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit
 
@@ -1873,7 +1873,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit: ; preds = %3, %7
   br i1 %14, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit
-  %15 = getelementptr inbounds i8, ptr %2, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
   br i1 %1, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit8.us
@@ -1959,7 +1959,7 @@ define dso_local void @_ZN4llvm16DecodeEXTRQIMaskEjjiiRNS_15SmallVectorImplIiEE(
   br i1 %.not.i.i.i, label %22, label %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE28reserveForParamAndGetAddressERim.exit.i
 
 22:                                               ; preds = %17
-  %23 = getelementptr inbounds i8, ptr %4, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 16
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %23, i64 noundef %20, i64 noundef 4) #4
   br label %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE28reserveForParamAndGetAddressERim.exit.i
 
@@ -1987,7 +1987,7 @@ _ZN4llvm15SmallVectorImplIiE6appendEmi.exit:      ; preds = %_ZN4llvm15SmallVect
   br i1 %.not3648, label %.preheader47, label %.lr.ph
 
 .lr.ph:                                           ; preds = %31
-  %33 = getelementptr inbounds i8, ptr %4, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 16
   br label %35
 
 .preheader47:                                     ; preds = %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit, %31
@@ -1995,7 +1995,7 @@ _ZN4llvm15SmallVectorImplIiE6appendEmi.exit:      ; preds = %_ZN4llvm15SmallVect
   br i1 %.not3750, label %.preheader, label %.lr.ph52
 
 .lr.ph52:                                         ; preds = %.preheader47
-  %34 = getelementptr inbounds i8, ptr %4, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 16
   br label %48
 
 35:                                               ; preds = %.lr.ph, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit
@@ -2028,7 +2028,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit: ; preds = %35, %40
   br i1 %.not3853, label %.loopexit, label %.lr.ph55
 
 .lr.ph55:                                         ; preds = %.preheader
-  %47 = getelementptr inbounds i8, ptr %4, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %4, i64 16
   br label %59
 
 48:                                               ; preds = %.lr.ph52, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit43
@@ -2114,7 +2114,7 @@ define dso_local void @_ZN4llvm18DecodeINSERTQIMaskEjjiiRNS_15SmallVectorImplIiE
   br i1 %.not.i.i.i, label %22, label %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE28reserveForParamAndGetAddressERim.exit.i
 
 22:                                               ; preds = %17
-  %23 = getelementptr inbounds i8, ptr %4, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 16
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %23, i64 noundef %20, i64 noundef 4) #4
   br label %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE28reserveForParamAndGetAddressERim.exit.i
 
@@ -2142,7 +2142,7 @@ _ZN4llvm15SmallVectorImplIiE6appendEmi.exit:      ; preds = %_ZN4llvm15SmallVect
   br i1 %.not4561, label %.preheader60, label %.lr.ph
 
 .lr.ph:                                           ; preds = %31
-  %33 = getelementptr inbounds i8, ptr %4, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 16
   br label %35
 
 .preheader60:                                     ; preds = %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit, %31
@@ -2150,7 +2150,7 @@ _ZN4llvm15SmallVectorImplIiE6appendEmi.exit:      ; preds = %_ZN4llvm15SmallVect
   br i1 %.not4663, label %._crit_edge, label %.lr.ph65
 
 .lr.ph65:                                         ; preds = %.preheader60
-  %34 = getelementptr inbounds i8, ptr %4, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 16
   br label %46
 
 35:                                               ; preds = %.lr.ph, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit
@@ -2208,7 +2208,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit53: ; preds = %46, %51
   br i1 %.not4766, label %.preheader, label %.lr.ph69
 
 .lr.ph69:                                         ; preds = %._crit_edge
-  %59 = getelementptr inbounds i8, ptr %4, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %4, i64 16
   br label %61
 
 .preheader:                                       ; preds = %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit56, %._crit_edge
@@ -2216,7 +2216,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit53: ; preds = %46, %51
   br i1 %.not4870, label %.loopexit, label %.lr.ph72
 
 .lr.ph72:                                         ; preds = %.preheader
-  %60 = getelementptr inbounds i8, ptr %4, i64 16
+  %60 = getelementptr inbounds nuw i8, ptr %4, i64 16
   br label %72
 
 61:                                               ; preds = %.lr.ph69, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit56
@@ -2282,7 +2282,7 @@ define dso_local void @_ZN4llvm18DecodeVPERMILPMaskEjjNS_8ArrayRefImEERKNS_5APIn
   %9 = lshr i32 %8, 7
   %10 = udiv i32 %0, %9
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %12 = getelementptr inbounds i8, ptr %5, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %13 = icmp eq i32 %1, 64
   %14 = sub i32 0, %10
   %wide.trip.count = and i64 %3, 4294967295
@@ -2297,7 +2297,7 @@ define dso_local void @_ZN4llvm18DecodeVPERMILPMaskEjjNS_8ArrayRefImEERKNS_5APIn
   %20 = load ptr, ptr %4, align 8
   %21 = lshr i64 %indvars.iv, 6
   %22 = and i64 %21, 67108863
-  %23 = getelementptr inbounds i64, ptr %20, i64 %22
+  %23 = getelementptr inbounds nuw i64, ptr %20, i64 %22
   %.in.i.i = select i1 %19, ptr %4, ptr %23
   %24 = load i64, ptr %.in.i.i, align 8
   %25 = and i64 %24, %17
@@ -2313,7 +2313,7 @@ define dso_local void @_ZN4llvm18DecodeVPERMILPMaskEjjNS_8ArrayRefImEERKNS_5APIn
 
 30:                                               ; preds = %15
   %31 = trunc nuw i64 %indvars.iv to i32
-  %32 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv
   %33 = load i64, ptr %32, align 8
   %34 = lshr i64 %33, 1
   %35 = and i64 %34, 1
@@ -2362,7 +2362,7 @@ define dso_local void @_ZN4llvm19DecodeVPERMIL2PMaskEjjjNS_8ArrayRefImEERKNS_5AP
   %10 = lshr i32 %9, 7
   %11 = udiv i32 %0, %10
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %13 = getelementptr inbounds i8, ptr %6, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %14 = and i32 %2, 2
   %.not = icmp eq i32 %14, 0
   %15 = sub i32 0, %11
@@ -2380,7 +2380,7 @@ define dso_local void @_ZN4llvm19DecodeVPERMIL2PMaskEjjjNS_8ArrayRefImEERKNS_5AP
   %23 = load ptr, ptr %5, align 8
   %24 = lshr i64 %indvars.iv, 6
   %25 = and i64 %24, 67108863
-  %26 = getelementptr inbounds i64, ptr %23, i64 %25
+  %26 = getelementptr inbounds nuw i64, ptr %23, i64 %25
   %.in.i.i = select i1 %22, ptr %5, ptr %26
   %27 = load i64, ptr %.in.i.i, align 8
   %28 = and i64 %27, %20
@@ -2395,7 +2395,7 @@ define dso_local void @_ZN4llvm19DecodeVPERMIL2PMaskEjjjNS_8ArrayRefImEERKNS_5AP
   br i1 %.not.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit.sink.split, label %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit
 
 33:                                               ; preds = %17
-  %34 = getelementptr inbounds i64, ptr %3, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv
   %35 = load i64, ptr %34, align 8
   %.pre = trunc i64 %35 to i32
   br i1 %.not, label %._crit_edge40, label %36
@@ -2463,7 +2463,7 @@ define dso_local void @_ZN4llvm16DecodeVPERMVMaskENS_8ArrayRefImEERKNS_5APIntERN
 
 .lr.ph:                                           ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %9 = and i64 %1, 4294967295
   br label %10
 
@@ -2476,7 +2476,7 @@ define dso_local void @_ZN4llvm16DecodeVPERMVMaskENS_8ArrayRefImEERKNS_5APIntERN
   %15 = load ptr, ptr %2, align 8
   %16 = lshr i64 %indvars.iv, 6
   %17 = and i64 %16, 67108863
-  %18 = getelementptr inbounds i64, ptr %15, i64 %17
+  %18 = getelementptr inbounds nuw i64, ptr %15, i64 %17
   %.in.i.i = select i1 %14, ptr %2, ptr %18
   %19 = load i64, ptr %.in.i.i, align 8
   %20 = and i64 %19, %12
@@ -2491,7 +2491,7 @@ define dso_local void @_ZN4llvm16DecodeVPERMVMaskENS_8ArrayRefImEERKNS_5APIntERN
   br i1 %.not.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit.sink.split, label %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit
 
 25:                                               ; preds = %10
-  %26 = getelementptr inbounds i64, ptr %0, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv
   %27 = load i64, ptr %26, align 8
   %28 = and i64 %27, %5
   %29 = trunc i64 %28 to i32
@@ -2534,7 +2534,7 @@ define dso_local void @_ZN4llvm17DecodeVPERMV3MaskENS_8ArrayRefImEERKNS_5APIntER
 
 .lr.ph:                                           ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %10 = and i64 %1, 4294967295
   br label %11
 
@@ -2547,7 +2547,7 @@ define dso_local void @_ZN4llvm17DecodeVPERMV3MaskENS_8ArrayRefImEERKNS_5APIntER
   %16 = load ptr, ptr %2, align 8
   %17 = lshr i64 %indvars.iv, 6
   %18 = and i64 %17, 67108863
-  %19 = getelementptr inbounds i64, ptr %16, i64 %18
+  %19 = getelementptr inbounds nuw i64, ptr %16, i64 %18
   %.in.i.i = select i1 %15, ptr %2, ptr %19
   %20 = load i64, ptr %.in.i.i, align 8
   %21 = and i64 %20, %13
@@ -2562,7 +2562,7 @@ define dso_local void @_ZN4llvm17DecodeVPERMV3MaskENS_8ArrayRefImEERKNS_5APIntER
   br i1 %.not.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit.sink.split, label %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit
 
 26:                                               ; preds = %11
-  %27 = getelementptr inbounds i64, ptr %0, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv
   %28 = load i64, ptr %27, align 8
   %29 = and i64 %28, %6
   %30 = trunc i64 %29 to i32

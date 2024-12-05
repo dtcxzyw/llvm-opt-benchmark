@@ -740,7 +740,7 @@ define hidden void @zbee_append_info(ptr noundef %0, ptr nocapture noundef reado
   %5 = call i32 @vsnprintf(ptr noundef nonnull @zbee_append_info.buffer, i64 noundef 512, ptr noundef %2, ptr noundef nonnull %4) #4
   call void @llvm.va_end.p0(ptr nonnull %4)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %0, ptr noundef nonnull @.str.115, ptr noundef nonnull @zbee_append_info.buffer) #4
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   call void @col_append_str(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @zbee_append_info.buffer) #4
   ret void
@@ -954,7 +954,7 @@ define hidden void @zdp_parse_node_desc(ptr noundef %0, ptr nocapture noundef re
 
 switch.lookup:                                    ; preds = %17
   %26 = zext nneg i16 %19 to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table.zdp_parse_node_desc, i64 0, i64 %26
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.zdp_parse_node_desc, i64 0, i64 %26
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %.sink.split
 
@@ -1252,7 +1252,7 @@ define hidden void @zdp_parse_complex_desc(ptr nocapture noundef readonly %0, pt
   %20 = load i32, ptr %4, align 4
   %21 = add i32 %20, 1
   %22 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %3, i32 noundef %21) #4
-  %23 = getelementptr inbounds i8, ptr %0, i64 408
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %24 = load ptr, ptr %23, align 8
   %25 = tail call ptr @format_char(ptr noundef %24, i8 noundef signext %22) #4
   %26 = load i32, ptr %4, align 4
@@ -1265,13 +1265,13 @@ define hidden void @zdp_parse_complex_desc(ptr nocapture noundef readonly %0, pt
   br label %53
 
 33:                                               ; preds = %12
-  %34 = getelementptr inbounds i8, ptr %0, i64 408
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %35 = load ptr, ptr %34, align 8
   %36 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %35, ptr noundef nonnull @.str.142, ptr noundef nonnull @.str.136, ptr noundef nonnull @.str.136) #4
   br label %53
 
 37:                                               ; preds = %12
-  %38 = getelementptr inbounds i8, ptr %0, i64 408
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %39 = load ptr, ptr %38, align 8
   %40 = load i32, ptr %4, align 4
   %41 = add i32 %40, 1
@@ -1352,10 +1352,10 @@ define internal i32 @dissect_zbee_zdp(ptr noundef %0, ptr noundef %1, ptr nounde
   %13 = load i32, ptr @hf_zbee_zdp_seqno, align 4
   %14 = zext i8 %12 to i32
   %15 = tail call ptr @proto_tree_add_uint(ptr noundef %11, i32 noundef %13, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %14) #4
-  %16 = getelementptr inbounds i8, ptr %3, i64 26
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 26
   %17 = load i8, ptr %16, align 2
   %18 = icmp ult i8 %17, 2
-  %19 = getelementptr inbounds i8, ptr %3, i64 56
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %20 = load i16, ptr %19, align 8
   br i1 %18, label %21, label %select.unfold
 
@@ -1373,7 +1373,7 @@ select.unfold:                                    ; preds = %21, %6
   %26 = zext i16 %.0469 to i32
   %27 = tail call ptr @val_to_str_const(i32 noundef %26, ptr noundef nonnull @zbee_zdp_cluster_names, ptr noundef nonnull @.str.487) #4
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %11, ptr noundef nonnull @.str.486, ptr noundef %27) #4
-  %28 = getelementptr inbounds i8, ptr %1, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %29 = load ptr, ptr %28, align 8
   %30 = tail call ptr @val_to_str_const(i32 noundef %26, ptr noundef nonnull @zbee_zdp_cluster_names, ptr noundef nonnull @.str.487) #4
   tail call void @col_set_str(ptr noundef %29, i32 noundef 25, ptr noundef %30) #4

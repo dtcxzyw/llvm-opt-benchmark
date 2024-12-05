@@ -23,7 +23,7 @@ define dso_local noundef zeroext i1 @_ZN3ozz8strmatchEPKcS1_(ptr noundef %0, ptr
   br i1 %.not23, label %.loopexit, label %18
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %.0, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %.0, i64 1
   %9 = tail call noundef zeroext i1 @_ZN3ozz8strmatchEPKcS1_(ptr noundef %.016, ptr noundef nonnull %8)
   br i1 %9, label %.loopexit, label %10
 
@@ -33,7 +33,7 @@ define dso_local noundef zeroext i1 @_ZN3ozz8strmatchEPKcS1_(ptr noundef %0, ptr
   br i1 %.not22, label %15, label %12
 
 12:                                               ; preds = %10
-  %13 = getelementptr inbounds i8, ptr %.016, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %.016, i64 1
   %14 = tail call noundef zeroext i1 @_ZN3ozz8strmatchEPKcS1_(ptr noundef nonnull %13, ptr noundef nonnull %.0)
   br i1 %14, label %.loopexit, label %15
 
@@ -46,8 +46,8 @@ define dso_local noundef zeroext i1 @_ZN3ozz8strmatchEPKcS1_(ptr noundef %0, ptr
   br i1 %.not21, label %18, label %.loopexit
 
 18:                                               ; preds = %5, %16
-  %19 = getelementptr inbounds i8, ptr %.016, i64 1
-  %20 = getelementptr inbounds i8, ptr %.0, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %.016, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %.0, i64 1
   br label %3, !llvm.loop !5
 
 21:                                               ; preds = %3

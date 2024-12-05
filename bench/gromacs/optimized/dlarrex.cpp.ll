@@ -50,7 +50,7 @@ define void @dlarrex_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noc
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %53
   %41 = phi i32 [ 1, %.lr.ph.preheader ], [ %54, %53 ]
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %53 ]
-  %42 = getelementptr inbounds double, ptr %34, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw double, ptr %34, i64 %indvars.iv
   %43 = load double, ptr %42, align 8
   %44 = tail call noundef double @llvm.fabs.f64(double %43)
   %45 = load double, ptr %8, align 8
@@ -99,7 +99,7 @@ define void @dlarrex_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noc
   %.0574768 = phi double [ 0.000000e+00, %.lr.ph771 ], [ %.3577, %.loopexit660 ]
   %.0579767 = phi i32 [ 1, %.lr.ph771 ], [ %.1580.pre-phi, %.loopexit660 ]
   %.0583766 = phi double [ 0.000000e+00, %.lr.ph771 ], [ %.4587, %.loopexit660 ]
-  %62 = getelementptr inbounds i32, ptr %33, i64 %indvars.iv924
+  %62 = getelementptr inbounds nuw i32, ptr %33, i64 %indvars.iv924
   %63 = load i32, ptr %62, align 4
   %64 = icmp eq i32 %.0579767, %63
   %65 = sext i32 %.0579767 to i64
@@ -331,7 +331,7 @@ define void @dlarrex_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noc
 .lr.ph700.us:                                     ; preds = %.split.us, %.lr.ph700.us
   %indvars.iv873 = phi i64 [ %indvars.iv.next874, %.lr.ph700.us ], [ 1, %.split.us ]
   %indvars.iv871 = phi i64 [ %indvars.iv.next872, %.lr.ph700.us ], [ %65, %.split.us ]
-  %188 = getelementptr inbounds double, ptr %28, i64 %indvars.iv873
+  %188 = getelementptr inbounds nuw double, ptr %28, i64 %indvars.iv873
   %189 = load double, ptr %188, align 8
   %190 = fdiv double 1.000000e+00, %189
   %gep1014 = getelementptr double, ptr %invariant.gep, i64 %indvars.iv873
@@ -363,7 +363,7 @@ define void @dlarrex_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noc
 
 .preheader659.us:                                 ; preds = %.preheader659.us.preheader, %200
   %indvars.iv880 = phi i64 [ %indvars.iv.next881, %200 ], [ %183, %.preheader659.us.preheader ]
-  %202 = getelementptr inbounds double, ptr %28, i64 %indvars.iv880
+  %202 = getelementptr inbounds nuw double, ptr %28, i64 %indvars.iv880
   %203 = load double, ptr %202, align 8
   %204 = fmul double %.2576, %203
   %205 = fcmp olt double %204, 0.000000e+00
@@ -412,19 +412,19 @@ define void @dlarrex_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noc
   %224 = zext nneg i32 %221 to i64
   %225 = sext i32 %222 to i64
   %wide.trip.count886 = zext nneg i32 %219 to i64
-  %invariant.gep1019 = getelementptr inbounds double, ptr %28, i64 %223
-  %invariant.gep1021 = getelementptr inbounds double, ptr %28, i64 %224
+  %invariant.gep1019 = getelementptr inbounds nuw double, ptr %28, i64 %223
+  %invariant.gep1021 = getelementptr inbounds nuw double, ptr %28, i64 %224
   %invariant.gep1023 = getelementptr double, ptr %28, i64 %225
   br label %226
 
 226:                                              ; preds = %.lr.ph709, %226
   %indvars.iv883 = phi i64 [ 1, %.lr.ph709 ], [ %indvars.iv.next884, %226 ]
-  %227 = getelementptr inbounds double, ptr %28, i64 %indvars.iv883
+  %227 = getelementptr inbounds nuw double, ptr %28, i64 %indvars.iv883
   %228 = load double, ptr %227, align 8
-  %gep1020 = getelementptr inbounds double, ptr %invariant.gep1019, i64 %indvars.iv883
+  %gep1020 = getelementptr inbounds nuw double, ptr %invariant.gep1019, i64 %indvars.iv883
   %229 = load double, ptr %gep1020, align 8
   %230 = fmul double %228, %229
-  %gep1022 = getelementptr inbounds double, ptr %invariant.gep1021, i64 %indvars.iv883
+  %gep1022 = getelementptr inbounds nuw double, ptr %invariant.gep1021, i64 %indvars.iv883
   store double %230, ptr %gep1022, align 8
   %231 = fmul double %230, %229
   %gep1024 = getelementptr double, ptr %invariant.gep1023, i64 %indvars.iv883
@@ -565,7 +565,7 @@ define void @dlarrex_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noc
 
 296:                                              ; preds = %.lr.ph721.us, %294
   %indvars.iv897 = phi i64 [ %.pre-phi995, %.lr.ph721.us ], [ %indvars.iv.next898, %294 ]
-  %297 = getelementptr inbounds double, ptr %28, i64 %indvars.iv897
+  %297 = getelementptr inbounds nuw double, ptr %28, i64 %indvars.iv897
   %298 = load double, ptr %297, align 8
   %299 = fmul double %.2576, %298
   %300 = fcmp olt double %299, 0.000000e+00
@@ -591,7 +591,7 @@ define void @dlarrex_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noc
   %308 = getelementptr inbounds double, ptr %35, i64 %indvars.iv888
   %309 = load double, ptr %308, align 8
   %310 = fadd double %.0604714.us, %309
-  %311 = getelementptr inbounds double, ptr %28, i64 %indvars.iv890
+  %311 = getelementptr inbounds nuw double, ptr %28, i64 %indvars.iv890
   store double %310, ptr %311, align 8
   %312 = fdiv double 1.000000e+00, %310
   %gep1026 = getelementptr double, ptr %invariant.gep1025, i64 %indvars.iv890
@@ -686,8 +686,8 @@ define void @dlarrex_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noc
   %354 = load double, ptr %353, align 8
   %355 = fmul double %354, %354
   %356 = fmul double %351, %355
-  %.idx = shl i64 %indvars.iv907, 4
-  %357 = getelementptr inbounds i8, ptr %28, i64 %.idx
+  %.idx = shl nuw i64 %indvars.iv907, 4
+  %357 = getelementptr inbounds nuw i8, ptr %28, i64 %.idx
   store double %356, ptr %357, align 8
   %indvars.iv.next906 = add nsw i64 %indvars.iv905, 1
   %indvars.iv.next908 = add nuw nsw i64 %indvars.iv907, 1
@@ -760,7 +760,7 @@ define void @dlarrex_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noc
   %385 = load i32, ptr %11, align 4
   %386 = add nsw i32 %385, 1
   store i32 %386, ptr %11, align 4
-  %387 = getelementptr inbounds double, ptr %28, i64 %indvars.iv914
+  %387 = getelementptr inbounds nuw double, ptr %28, i64 %indvars.iv914
   %388 = load double, ptr %387, align 8
   %389 = fneg double %388
   %390 = sext i32 %386 to i64
@@ -805,7 +805,7 @@ define void @dlarrex_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noc
 .lr.ph832:                                        ; preds = %.lr.ph832.preheader, %._crit_edge827
   %indvars.iv974 = phi i64 [ 1, %.lr.ph832.preheader ], [ %indvars.iv.next975, %._crit_edge827 ]
   %.2581830 = phi i32 [ 1, %.lr.ph832.preheader ], [ %.pre-phi999, %._crit_edge827 ]
-  %402 = getelementptr inbounds i32, ptr %33, i64 %indvars.iv974
+  %402 = getelementptr inbounds nuw i32, ptr %33, i64 %indvars.iv974
   %403 = load i32, ptr %402, align 4
   %404 = load double, ptr %2, align 8
   %405 = sext i32 %403 to i64
@@ -910,13 +910,13 @@ define void @dlarrex_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noc
   %448 = sext i32 %447 to i64
   %gep819 = getelementptr double, ptr %invariant.gep818, i64 %448
   %449 = load double, ptr %gep819, align 8
-  %450 = getelementptr inbounds double, ptr %32, i64 %indvars.iv964
+  %450 = getelementptr inbounds nuw double, ptr %32, i64 %indvars.iv964
   store double %449, ptr %450, align 8
   %451 = load i32, ptr %4, align 4
   %452 = trunc i64 %indvars.iv964 to i32
   %453 = add i32 %452, -1
   %454 = add i32 %453, %451
-  %455 = getelementptr inbounds i32, ptr %30, i64 %indvars.iv964
+  %455 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv964
   store i32 %454, ptr %455, align 4
   %indvars.iv.next965 = add nuw nsw i64 %indvars.iv964, 1
   %exitcond968 = icmp eq i64 %indvars.iv.next965, %wide.trip.count967
@@ -925,7 +925,7 @@ define void @dlarrex_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noc
 .lr.ph781:                                        ; preds = %.lr.ph781.preheader, %._crit_edge777
   %indvars.iv934 = phi i64 [ 1, %.lr.ph781.preheader ], [ %indvars.iv.next935, %._crit_edge777 ]
   %.3582780 = phi i32 [ 1, %.lr.ph781.preheader ], [ %.pre-phi1001, %._crit_edge777 ]
-  %456 = getelementptr inbounds i32, ptr %33, i64 %indvars.iv934
+  %456 = getelementptr inbounds nuw i32, ptr %33, i64 %indvars.iv934
   %457 = load i32, ptr %456, align 4
   %.not638773 = icmp sgt i32 %.3582780, %457
   br i1 %.not638773, label %.lr.ph781.._crit_edge777_crit_edge, label %.lr.ph776
@@ -976,10 +976,10 @@ define void @dlarrex_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noc
 
 .lr.ph787:                                        ; preds = %.lr.ph787.preheader, %.lr.ph787
   %indvars.iv939 = phi i64 [ 1, %.lr.ph787.preheader ], [ %indvars.iv.next940, %.lr.ph787 ]
-  %471 = getelementptr inbounds i32, ptr %27, i64 %indvars.iv939
+  %471 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv939
   %472 = trunc nuw nsw i64 %indvars.iv939 to i32
   store i32 %472, ptr %471, align 4
-  %473 = getelementptr inbounds i32, ptr %31, i64 %indvars.iv939
+  %473 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv939
   %474 = load i32, ptr %473, align 4
   %475 = load i32, ptr %1, align 4
   %476 = add nsw i32 %475, %472
@@ -1013,14 +1013,14 @@ define void @dlarrex_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noc
   %486 = sext i32 %485 to i64
   %487 = getelementptr inbounds double, ptr %32, i64 %486
   %488 = load double, ptr %487, align 8
-  %489 = getelementptr inbounds double, ptr %28, i64 %indvars.iv944
+  %489 = getelementptr inbounds nuw double, ptr %28, i64 %indvars.iv944
   store double %488, ptr %489, align 8
   %490 = load i32, ptr %1, align 4
   %491 = add nsw i32 %490, %485
   %492 = sext i32 %491 to i64
   %493 = getelementptr inbounds i32, ptr %27, i64 %492
   %494 = load i32, ptr %493, align 4
-  %495 = getelementptr inbounds i32, ptr %31, i64 %indvars.iv944
+  %495 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv944
   store i32 %494, ptr %495, align 4
   %indvars.iv.next945 = add nuw nsw i64 %indvars.iv944, 1
   %exitcond948.not = icmp eq i64 %indvars.iv.next945, %wide.trip.count947
@@ -1049,7 +1049,7 @@ define void @dlarrex_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noc
   %504 = sext i32 %503 to i64
   %505 = getelementptr inbounds i32, ptr %27, i64 %504
   store i32 %501, ptr %505, align 4
-  %506 = getelementptr inbounds i32, ptr %27, i64 %indvars.iv949
+  %506 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv949
   store i32 %498, ptr %506, align 4
   %indvars.iv.next950 = add nuw nsw i64 %indvars.iv949, 1
   %exitcond953.not = icmp eq i64 %indvars.iv.next950, %wide.trip.count952
@@ -1095,14 +1095,14 @@ define void @dlarrex_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noc
   %.5814 = phi i32 [ %.4, %.lr.ph817.preheader ], [ %.6, %581 ]
   %.0590813 = phi i32 [ %507, %.lr.ph817.preheader ], [ %.1591, %581 ]
   %.6612812 = phi i32 [ 1, %.lr.ph817.preheader ], [ %.7, %581 ]
-  %525 = getelementptr inbounds i32, ptr %27, i64 %indvars.iv959
+  %525 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv959
   %526 = load i32, ptr %525, align 4
   %527 = sext i32 %526 to i64
   %528 = getelementptr inbounds double, ptr %28, i64 %527
   %529 = load double, ptr %528, align 8
-  %530 = getelementptr inbounds double, ptr %32, i64 %indvars.iv959
+  %530 = getelementptr inbounds nuw double, ptr %32, i64 %indvars.iv959
   store double %529, ptr %530, align 8
-  %531 = getelementptr inbounds i32, ptr %31, i64 %indvars.iv959
+  %531 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv959
   %532 = load i32, ptr %531, align 4
   %.not636 = icmp eq i32 %532, %.0590813
   br i1 %.not636, label %533, label %537

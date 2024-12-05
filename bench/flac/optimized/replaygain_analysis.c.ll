@@ -44,7 +44,7 @@ while.body.i:                                     ; preds = %while.body.i.outer,
 for.body.i:                                       ; preds = %for.inc.i, %while.body.i
   %indvars.iv.i = phi i64 [ 0, %while.body.i ], [ %indvars.iv.next.i, %for.inc.i ]
   %maxrate.120.i = phi i64 [ %maxrate.0.i, %while.body.i ], [ %spec.select.i, %for.inc.i ]
-  %arrayidx.i = getelementptr inbounds [13 x %struct.ReplayGainFilter], ptr @ReplayGainFilters, i64 0, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds nuw [13 x %struct.ReplayGainFilter], ptr @ReplayGainFilters, i64 0, i64 %indvars.iv.i
   %0 = load i64, ptr %arrayidx.i, align 16
   %cmp12.i = icmp eq i64 %0, %samplefreq.addr.0.i.ph
   br i1 %cmp12.i, label %return, label %for.inc.i
@@ -99,7 +99,7 @@ while.body.i.i:                                   ; preds = %while.body.i.i.oute
 for.body.i.i:                                     ; preds = %for.inc.i.i, %while.body.i.i
   %indvars.iv.i.i = phi i64 [ 0, %while.body.i.i ], [ %indvars.iv.next.i.i, %for.inc.i.i ]
   %maxrate.120.i.i = phi i64 [ %maxrate.0.i.i, %while.body.i.i ], [ %spec.select.i.i, %for.inc.i.i ]
-  %arrayidx.i.i = getelementptr inbounds [13 x %struct.ReplayGainFilter], ptr @ReplayGainFilters, i64 0, i64 %indvars.iv.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [13 x %struct.ReplayGainFilter], ptr @ReplayGainFilters, i64 0, i64 %indvars.iv.i.i
   %1 = load i64, ptr %arrayidx.i.i, align 16
   %cmp12.i.i = icmp eq i64 %1, %samplefreq.addr.0.i.i.ph
   br i1 %cmp12.i.i, label %CreateGainFilter.exit.i, label %for.inc.i.i
@@ -136,7 +136,7 @@ CreateGainFilter.exit.thread.i:                   ; preds = %while.end27.i.i, %e
 
 CreateGainFilter.exit.i:                          ; preds = %for.body.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %call.i.i, ptr noundef nonnull align 16 dereferenceable(128) %arrayidx.i.i, i64 128, i1 false)
-  %downsample17.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
+  %downsample17.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 8
   store i32 %downsample.0.i.i.ph, ptr %downsample17.i.i, align 8
   store ptr %call.i.i, ptr @replaygainfilter, align 8
   %2 = load i64, ptr %call.i.i, align 8
@@ -221,17 +221,17 @@ for.body.i.preheader:                             ; preds = %ReallocateWindowBuf
 
 for.body.i:                                       ; preds = %for.body.i.preheader, %for.body.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i ], [ 0, %for.body.i.preheader ]
-  %arrayidx.i = getelementptr inbounds float, ptr %7, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv.i
   store float 0.000000e+00, ptr %arrayidx.i, align 4
-  %arrayidx15.i = getelementptr inbounds float, ptr %8, i64 %indvars.iv.i
+  %arrayidx15.i = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv.i
   store float 0.000000e+00, ptr %arrayidx15.i, align 4
-  %arrayidx17.i = getelementptr inbounds [20 x float], ptr @rinprebuf, i64 0, i64 %indvars.iv.i
+  %arrayidx17.i = getelementptr inbounds nuw [20 x float], ptr @rinprebuf, i64 0, i64 %indvars.iv.i
   store float 0.000000e+00, ptr %arrayidx17.i, align 4
-  %arrayidx19.i = getelementptr inbounds float, ptr %9, i64 %indvars.iv.i
+  %arrayidx19.i = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv.i
   store float 0.000000e+00, ptr %arrayidx19.i, align 4
-  %arrayidx21.i = getelementptr inbounds float, ptr %10, i64 %indvars.iv.i
+  %arrayidx21.i = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv.i
   store float 0.000000e+00, ptr %arrayidx21.i, align 4
-  %arrayidx23.i = getelementptr inbounds [20 x float], ptr @linprebuf, i64 0, i64 %indvars.iv.i
+  %arrayidx23.i = getelementptr inbounds nuw [20 x float], ptr @linprebuf, i64 0, i64 %indvars.iv.i
   store float 0.000000e+00, ptr %arrayidx23.i, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 10
@@ -245,16 +245,16 @@ if.end:                                           ; preds = %for.body.i
   store ptr getelementptr inbounds (i8, ptr @linprebuf, i64 40), ptr @linpre, align 8
   store ptr getelementptr inbounds (i8, ptr @rinprebuf, i64 40), ptr @rinpre, align 8
   %11 = load ptr, ptr @lstepbuf, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %11, i64 40
+  %add.ptr = getelementptr inbounds nuw i8, ptr %11, i64 40
   store ptr %add.ptr, ptr @lstep, align 8
   %12 = load ptr, ptr @rstepbuf, align 8
-  %add.ptr1 = getelementptr inbounds i8, ptr %12, i64 40
+  %add.ptr1 = getelementptr inbounds nuw i8, ptr %12, i64 40
   store ptr %add.ptr1, ptr @rstep, align 8
   %13 = load ptr, ptr @loutbuf, align 8
-  %add.ptr2 = getelementptr inbounds i8, ptr %13, i64 40
+  %add.ptr2 = getelementptr inbounds nuw i8, ptr %13, i64 40
   store ptr %add.ptr2, ptr @lout, align 8
   %14 = load ptr, ptr @routbuf, align 8
-  %add.ptr3 = getelementptr inbounds i8, ptr %14, i64 40
+  %add.ptr3 = getelementptr inbounds nuw i8, ptr %14, i64 40
   store ptr %add.ptr3, ptr @rout, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48000) @B, i8 0, i64 48000, i1 false)
   br label %return
@@ -271,7 +271,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 define dso_local range(i32 0, 2) i32 @AnalyzeSamples(ptr nocapture noundef readonly %left_samples, ptr nocapture noundef readonly %right_samples, i64 noundef %num_samples, i32 noundef %num_channels) local_unnamed_addr #4 {
 entry:
   %0 = load ptr, ptr @replaygainfilter, align 8
-  %downsample1 = getelementptr inbounds i8, ptr %0, i64 8
+  %downsample1 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1 = load i32, ptr %downsample1, align 8
   %conv = zext i32 %1 to i64
   %div = udiv i64 %num_samples, %conv
@@ -298,14 +298,14 @@ for.body:                                         ; preds = %for.body.preheader,
   %2 = trunc nuw nsw i64 %indvars.iv to i32
   %mul = mul i32 %1, %2
   %idxprom = zext i32 %mul to i64
-  %arrayidx = getelementptr inbounds float, ptr %left_samples, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw float, ptr %left_samples, i64 %idxprom
   %3 = load float, ptr %arrayidx, align 4
   %4 = add nuw nsw i64 %indvars.iv, 10
-  %arrayidx12 = getelementptr inbounds [20 x float], ptr @linprebuf, i64 0, i64 %4
+  %arrayidx12 = getelementptr inbounds nuw [20 x float], ptr @linprebuf, i64 0, i64 %4
   store float %3, ptr %arrayidx12, align 4
-  %arrayidx15 = getelementptr inbounds float, ptr %right_samples.addr.0, i64 %idxprom
+  %arrayidx15 = getelementptr inbounds nuw float, ptr %right_samples.addr.0, i64 %idxprom
   %5 = load float, ptr %arrayidx15, align 4
-  %arrayidx18 = getelementptr inbounds [20 x float], ptr @rinprebuf, i64 0, i64 %4
+  %arrayidx18 = getelementptr inbounds nuw [20 x float], ptr @rinprebuf, i64 0, i64 %4
   store float %5, ptr %arrayidx18, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %cmp9 = icmp samesign ugt i64 %spec.select, %indvars.iv.next
@@ -337,12 +337,12 @@ if.then28:                                        ; preds = %while.body
 
 if.else:                                          ; preds = %while.body
   %10 = load ptr, ptr @replaygainfilter, align 8
-  %downsample36 = getelementptr inbounds i8, ptr %10, i64 8
+  %downsample36 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %11 = load i32, ptr %downsample36, align 8
   %conv37 = zext i32 %11 to i64
   %mul38 = mul nuw nsw i64 %cursamplepos.0, %conv37
-  %add.ptr39 = getelementptr inbounds float, ptr %left_samples, i64 %mul38
-  %add.ptr42 = getelementptr inbounds float, ptr %right_samples.addr.0, i64 %mul38
+  %add.ptr39 = getelementptr inbounds nuw float, ptr %left_samples, i64 %mul38
+  %add.ptr42 = getelementptr inbounds nuw float, ptr %right_samples.addr.0, i64 %mul38
   br label %if.end43
 
 if.end43:                                         ; preds = %if.then28, %if.else
@@ -360,8 +360,8 @@ for.body.lr.ph.i:                                 ; preds = %if.then28, %if.end4
   %.pn = load ptr, ptr @lstep, align 8
   %add.ptr44182 = getelementptr inbounds float, ptr %.pn, i64 %7
   %12 = load ptr, ptr @replaygainfilter, align 8
-  %AYule184 = getelementptr inbounds i8, ptr %12, i64 56
-  %BYule186 = getelementptr inbounds i8, ptr %12, i64 12
+  %AYule184 = getelementptr inbounds nuw i8, ptr %12, i64 56
+  %BYule186 = getelementptr inbounds nuw i8, ptr %12, i64 12
   %idx.ext.i = zext i32 %downsample.0175 to i64
   %idx.neg.i = sub nsw i64 0, %idx.ext.i
   br label %for.body.i
@@ -384,10 +384,10 @@ for.body4.i:                                      ; preds = %for.body4.i, %for.b
   %add.ptr.i = getelementptr inbounds float, ptr %input_tail.017.i, i64 %idx.neg.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %output_tail.018.i, i64 -4
   %15 = load float, ptr %add.ptr.i, align 4
-  %arrayidx5.i = getelementptr inbounds float, ptr %BYule186, i64 %k.016.i
+  %arrayidx5.i = getelementptr inbounds nuw float, ptr %BYule186, i64 %k.016.i
   %16 = load float, ptr %arrayidx5.i, align 4
   %17 = load float, ptr %incdec.ptr.i, align 4
-  %arrayidx7.i = getelementptr inbounds float, ptr %AYule184, i64 %k.016.i
+  %arrayidx7.i = getelementptr inbounds nuw float, ptr %AYule184, i64 %k.016.i
   %18 = load float, ptr %arrayidx7.i, align 4
   %19 = fneg float %18
   %neg.i = fmul float %17, %19
@@ -403,8 +403,8 @@ for.end.i:                                        ; preds = %for.body4.i
   %arrayidx11.i = getelementptr inbounds float, ptr %add.ptr44182, i64 %i.020.i
   store float %conv10.i, ptr %arrayidx11.i, align 4
   %inc13.i = add nuw i64 %i.020.i, 1
-  %add.ptr15.i = getelementptr inbounds float, ptr %input_head.021.i, i64 %idx.ext.i
-  %incdec.ptr16.i = getelementptr inbounds i8, ptr %output_head.022.i, i64 4
+  %add.ptr15.i = getelementptr inbounds nuw float, ptr %input_head.021.i, i64 %idx.ext.i
+  %incdec.ptr16.i = getelementptr inbounds nuw i8, ptr %output_head.022.i, i64 4
   %exitcond23.not.i = icmp eq i64 %inc13.i, %cursamples.0180
   br i1 %exitcond23.not.i, label %filter.exit, label %for.body.i, !llvm.loop !11
 
@@ -431,10 +431,10 @@ for.body4.i85:                                    ; preds = %for.body4.i85, %for
   %add.ptr.i90 = getelementptr inbounds float, ptr %input_tail.017.i87, i64 %idx.neg.i
   %incdec.ptr.i91 = getelementptr inbounds i8, ptr %output_tail.018.i86, i64 -4
   %24 = load float, ptr %add.ptr.i90, align 4
-  %arrayidx5.i92 = getelementptr inbounds float, ptr %BYule186, i64 %k.016.i88
+  %arrayidx5.i92 = getelementptr inbounds nuw float, ptr %BYule186, i64 %k.016.i88
   %25 = load float, ptr %arrayidx5.i92, align 4
   %26 = load float, ptr %incdec.ptr.i91, align 4
-  %arrayidx7.i93 = getelementptr inbounds float, ptr %AYule184, i64 %k.016.i88
+  %arrayidx7.i93 = getelementptr inbounds nuw float, ptr %AYule184, i64 %k.016.i88
   %27 = load float, ptr %arrayidx7.i93, align 4
   %28 = fneg float %27
   %neg.i94 = fmul float %26, %28
@@ -450,16 +450,16 @@ for.end.i99:                                      ; preds = %for.body4.i85
   %arrayidx11.i101 = getelementptr inbounds float, ptr %add.ptr46, i64 %i.020.i82
   store float %conv10.i100, ptr %arrayidx11.i101, align 4
   %inc13.i102 = add nuw i64 %i.020.i82, 1
-  %add.ptr15.i103 = getelementptr inbounds float, ptr %input_head.021.i81, i64 %idx.ext.i
-  %incdec.ptr16.i104 = getelementptr inbounds i8, ptr %output_head.022.i80, i64 4
+  %add.ptr15.i103 = getelementptr inbounds nuw float, ptr %input_head.021.i81, i64 %idx.ext.i
+  %incdec.ptr16.i104 = getelementptr inbounds nuw i8, ptr %output_head.022.i80, i64 4
   %exitcond23.not.i105 = icmp eq i64 %inc13.i102, %cursamples.0180
   br i1 %exitcond23.not.i105, label %filter.exit106, label %for.body.i79, !llvm.loop !11
 
 filter.exit106:                                   ; preds = %for.end.i99
   %30 = load ptr, ptr @lout, align 8
   %add.ptr52 = getelementptr float, ptr %30, i64 %7
-  %AButter = getelementptr inbounds i8, ptr %12, i64 112
-  %BButter = getelementptr inbounds i8, ptr %12, i64 100
+  %AButter = getelementptr inbounds nuw i8, ptr %12, i64 112
+  %BButter = getelementptr inbounds nuw i8, ptr %12, i64 100
   br label %for.body.i109
 
 for.body.i109:                                    ; preds = %for.end.i129, %filter.exit106
@@ -480,10 +480,10 @@ for.body4.i115:                                   ; preds = %for.body4.i115, %fo
   %add.ptr.i120 = getelementptr inbounds i8, ptr %input_tail.017.i117, i64 -4
   %incdec.ptr.i121 = getelementptr inbounds i8, ptr %output_tail.018.i116, i64 -4
   %33 = load float, ptr %add.ptr.i120, align 4
-  %arrayidx5.i122 = getelementptr inbounds float, ptr %BButter, i64 %k.016.i118
+  %arrayidx5.i122 = getelementptr inbounds nuw float, ptr %BButter, i64 %k.016.i118
   %34 = load float, ptr %arrayidx5.i122, align 4
   %35 = load float, ptr %incdec.ptr.i121, align 4
-  %arrayidx7.i123 = getelementptr inbounds float, ptr %AButter, i64 %k.016.i118
+  %arrayidx7.i123 = getelementptr inbounds nuw float, ptr %AButter, i64 %k.016.i118
   %36 = load float, ptr %arrayidx7.i123, align 4
   %37 = fneg float %36
   %neg.i124 = fmul float %35, %37
@@ -499,8 +499,8 @@ for.end.i129:                                     ; preds = %for.body4.i115
   %arrayidx11.i131 = getelementptr inbounds float, ptr %add.ptr52, i64 %i.020.i112
   store float %conv10.i130, ptr %arrayidx11.i131, align 4
   %inc13.i132 = add nuw i64 %i.020.i112, 1
-  %add.ptr15.i133 = getelementptr inbounds i8, ptr %input_head.021.i111, i64 4
-  %incdec.ptr16.i134 = getelementptr inbounds i8, ptr %output_head.022.i110, i64 4
+  %add.ptr15.i133 = getelementptr inbounds nuw i8, ptr %input_head.021.i111, i64 4
+  %incdec.ptr16.i134 = getelementptr inbounds nuw i8, ptr %output_head.022.i110, i64 4
   %exitcond23.not.i135 = icmp eq i64 %inc13.i132, %cursamples.0180
   br i1 %exitcond23.not.i135, label %filter.exit136, label %for.body.i109, !llvm.loop !11
 
@@ -527,10 +527,10 @@ for.body4.i145:                                   ; preds = %for.body4.i145, %fo
   %add.ptr.i150 = getelementptr inbounds i8, ptr %input_tail.017.i147, i64 -4
   %incdec.ptr.i151 = getelementptr inbounds i8, ptr %output_tail.018.i146, i64 -4
   %42 = load float, ptr %add.ptr.i150, align 4
-  %arrayidx5.i152 = getelementptr inbounds float, ptr %BButter, i64 %k.016.i148
+  %arrayidx5.i152 = getelementptr inbounds nuw float, ptr %BButter, i64 %k.016.i148
   %43 = load float, ptr %arrayidx5.i152, align 4
   %44 = load float, ptr %incdec.ptr.i151, align 4
-  %arrayidx7.i153 = getelementptr inbounds float, ptr %AButter, i64 %k.016.i148
+  %arrayidx7.i153 = getelementptr inbounds nuw float, ptr %AButter, i64 %k.016.i148
   %45 = load float, ptr %arrayidx7.i153, align 4
   %46 = fneg float %45
   %neg.i154 = fmul float %44, %46
@@ -546,8 +546,8 @@ for.end.i159:                                     ; preds = %for.body4.i145
   %arrayidx11.i161 = getelementptr inbounds float, ptr %add.ptr56, i64 %i.020.i142
   store float %conv10.i160, ptr %arrayidx11.i161, align 4
   %inc13.i162 = add nuw i64 %i.020.i142, 1
-  %add.ptr15.i163 = getelementptr inbounds i8, ptr %input_head.021.i141, i64 4
-  %incdec.ptr16.i164 = getelementptr inbounds i8, ptr %output_head.022.i140, i64 4
+  %add.ptr15.i163 = getelementptr inbounds nuw i8, ptr %input_head.021.i141, i64 4
+  %incdec.ptr16.i164 = getelementptr inbounds nuw i8, ptr %output_head.022.i140, i64 4
   %exitcond23.not.i165 = icmp eq i64 %inc13.i162, %cursamples.0180
   br i1 %exitcond23.not.i165, label %filter.exit166, label %for.body.i139, !llvm.loop !11
 
@@ -607,7 +607,7 @@ if.then93:                                        ; preds = %for.end86
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %conv99, i32 0)
   %spec.store.select1 = tail call i32 @llvm.umin.i32(i32 %spec.store.select, i32 11999)
   %idxprom108 = zext nneg i32 %spec.store.select1 to i64
-  %arrayidx109 = getelementptr inbounds [12000 x i32], ptr @A, i64 0, i64 %idxprom108
+  %arrayidx109 = getelementptr inbounds nuw [12000 x i32], ptr @A, i64 0, i64 %idxprom108
   %55 = load i32, ptr %arrayidx109, align 4
   %inc110 = add i32 %55, 1
   store i32 %inc110, ptr %arrayidx109, align 4
@@ -641,11 +641,11 @@ while.end:                                        ; preds = %while.cond
   br i1 %cmp4, label %if.then123, label %if.else135
 
 if.then123:                                       ; preds = %while.end
-  %add.ptr124 = getelementptr inbounds float, ptr @linprebuf, i64 %div
+  %add.ptr124 = getelementptr inbounds nuw float, ptr @linprebuf, i64 %div
   %62 = shl nuw nsw i64 %div, 2
   %mul126 = sub nuw nsw i64 40, %62
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 16 @linprebuf, ptr nonnull align 4 %add.ptr124, i64 %mul126, i1 false)
-  %add.ptr127 = getelementptr inbounds float, ptr @rinprebuf, i64 %div
+  %add.ptr127 = getelementptr inbounds nuw float, ptr @rinprebuf, i64 %div
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 16 @rinprebuf, ptr nonnull align 4 %add.ptr127, i64 %mul126, i1 false)
   %idx.neg = sub nsw i64 0, %div
   %add.ptr130 = getelementptr inbounds float, ptr getelementptr inbounds (i8, ptr @linprebuf, i64 40), i64 %idx.neg
@@ -656,7 +656,7 @@ if.then123:                                       ; preds = %while.end
 
 if.else135:                                       ; preds = %while.end
   %63 = load ptr, ptr @replaygainfilter, align 8
-  %downsample136 = getelementptr inbounds i8, ptr %63, i64 8
+  %downsample136 = getelementptr inbounds nuw i8, ptr %63, i64 8
   %64 = load i32, ptr %downsample136, align 8
   %sub137 = add i64 %div, -10
   %conv138 = zext i32 %64 to i64
@@ -670,13 +670,13 @@ for.body148:                                      ; preds = %if.else135, %for.bo
   %65 = trunc nuw nsw i64 %indvars.iv242 to i32
   %mul149 = mul i32 %64, %65
   %idxprom150 = zext i32 %mul149 to i64
-  %arrayidx151 = getelementptr inbounds float, ptr %add.ptr140, i64 %idxprom150
+  %arrayidx151 = getelementptr inbounds nuw float, ptr %add.ptr140, i64 %idxprom150
   %66 = load float, ptr %arrayidx151, align 4
-  %arrayidx153 = getelementptr inbounds [20 x float], ptr @linprebuf, i64 0, i64 %indvars.iv242
+  %arrayidx153 = getelementptr inbounds nuw [20 x float], ptr @linprebuf, i64 0, i64 %indvars.iv242
   store float %66, ptr %arrayidx153, align 4
-  %arrayidx156 = getelementptr inbounds float, ptr %add.ptr144, i64 %idxprom150
+  %arrayidx156 = getelementptr inbounds nuw float, ptr %add.ptr144, i64 %idxprom150
   %67 = load float, ptr %arrayidx156, align 4
-  %arrayidx158 = getelementptr inbounds [20 x float], ptr @rinprebuf, i64 0, i64 %indvars.iv242
+  %arrayidx158 = getelementptr inbounds nuw [20 x float], ptr @rinprebuf, i64 0, i64 %indvars.iv242
   store float %67, ptr %arrayidx158, align 4
   %indvars.iv.next243 = add nuw nsw i64 %indvars.iv242, 1
   %exitcond245.not = icmp eq i64 %indvars.iv.next243, 10
@@ -707,7 +707,7 @@ entry:
 for.body.i:                                       ; preds = %for.body.i, %entry
   %i.012.i = phi i64 [ 0, %entry ], [ %inc.i, %for.body.i ]
   %elems.011.i = phi i32 [ 0, %entry ], [ %add.i, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds i32, ptr @A, i64 %i.012.i
+  %arrayidx.i = getelementptr inbounds nuw i32, ptr @A, i64 %i.012.i
   %0 = load i32, ptr %arrayidx.i, align 4
   %add.i = add i32 %0, %elems.011.i
   %inc.i = add nuw nsw i64 %i.012.i, 1
@@ -753,9 +753,9 @@ analyzeResult.exit:                               ; preds = %for.end.i, %for.end
 
 for.body:                                         ; preds = %analyzeResult.exit, %for.body
   %indvars.iv = phi i64 [ 0, %analyzeResult.exit ], [ %indvars.iv.next, %for.body ]
-  %arrayidx = getelementptr inbounds [12000 x i32], ptr @A, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [12000 x i32], ptr @A, i64 0, i64 %indvars.iv
   %2 = load i32, ptr %arrayidx, align 4
-  %arrayidx4 = getelementptr inbounds [12000 x i32], ptr @B, i64 0, i64 %indvars.iv
+  %arrayidx4 = getelementptr inbounds nuw [12000 x i32], ptr @B, i64 0, i64 %indvars.iv
   %3 = load i32, ptr %arrayidx4, align 4
   %add = add i32 %3, %2
   store i32 %add, ptr %arrayidx4, align 4
@@ -773,17 +773,17 @@ for.body10.preheader:                             ; preds = %for.body
 
 for.body10:                                       ; preds = %for.body10.preheader, %for.body10
   %indvars.iv16 = phi i64 [ %indvars.iv.next17, %for.body10 ], [ 0, %for.body10.preheader ]
-  %arrayidx12 = getelementptr inbounds float, ptr %4, i64 %indvars.iv16
+  %arrayidx12 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv16
   store float 0.000000e+00, ptr %arrayidx12, align 4
-  %arrayidx14 = getelementptr inbounds float, ptr %5, i64 %indvars.iv16
+  %arrayidx14 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv16
   store float 0.000000e+00, ptr %arrayidx14, align 4
-  %arrayidx16 = getelementptr inbounds [20 x float], ptr @rinprebuf, i64 0, i64 %indvars.iv16
+  %arrayidx16 = getelementptr inbounds nuw [20 x float], ptr @rinprebuf, i64 0, i64 %indvars.iv16
   store float 0.000000e+00, ptr %arrayidx16, align 4
-  %arrayidx18 = getelementptr inbounds float, ptr %6, i64 %indvars.iv16
+  %arrayidx18 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv16
   store float 0.000000e+00, ptr %arrayidx18, align 4
-  %arrayidx20 = getelementptr inbounds float, ptr %7, i64 %indvars.iv16
+  %arrayidx20 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv16
   store float 0.000000e+00, ptr %arrayidx20, align 4
-  %arrayidx22 = getelementptr inbounds [20 x float], ptr @linprebuf, i64 0, i64 %indvars.iv16
+  %arrayidx22 = getelementptr inbounds nuw [20 x float], ptr @linprebuf, i64 0, i64 %indvars.iv16
   store float 0.000000e+00, ptr %arrayidx22, align 4
   %indvars.iv.next17 = add nuw nsw i64 %indvars.iv16, 1
   %exitcond19.not = icmp eq i64 %indvars.iv.next17, 10
@@ -804,7 +804,7 @@ entry:
 for.body.i:                                       ; preds = %for.body.i, %entry
   %i.012.i = phi i64 [ 0, %entry ], [ %inc.i, %for.body.i ]
   %elems.011.i = phi i32 [ 0, %entry ], [ %add.i, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds i32, ptr @B, i64 %i.012.i
+  %arrayidx.i = getelementptr inbounds nuw i32, ptr @B, i64 %i.012.i
   %0 = load i32, ptr %arrayidx.i, align 4
   %add.i = add i32 %0, %elems.011.i
   %inc.i = add nuw nsw i64 %i.012.i, 1

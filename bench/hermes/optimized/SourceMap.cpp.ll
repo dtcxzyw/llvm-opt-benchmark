@@ -33,8 +33,8 @@ entry:
 
 lor.lhs.false.i:                                  ; preds = %entry
   %conv.i = zext i32 %line to i64
-  %lines_.i = getelementptr inbounds i8, ptr %this, i64 56
-  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  %lines_.i = getelementptr inbounds nuw i8, ptr %this, i64 56
+  %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load ptr, ptr %_M_finish.i.i, align 8, !noalias !4
   %1 = load ptr, ptr %lines_.i, align 8, !noalias !4
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -47,9 +47,9 @@ lor.lhs.false.i:                                  ; preds = %entry
 if.end.i:                                         ; preds = %lor.lhs.false.i
   %sub.i = add i32 %line, -1
   %conv4.i = zext i32 %sub.i to i64
-  %add.ptr.i.i = getelementptr inbounds %"class.std::vector.33", ptr %1, i64 %conv4.i
+  %add.ptr.i.i = getelementptr inbounds nuw %"class.std::vector.33", ptr %1, i64 %conv4.i
   %2 = load ptr, ptr %add.ptr.i.i, align 8, !noalias !4
-  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
+  %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 8
   %3 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !4
   %cmp.i.i.i = icmp eq ptr %2, %3
   br i1 %cmp.i.i.i, label %return, label %if.end8.i
@@ -70,10 +70,10 @@ while.body.i.i.i:                                 ; preds = %while.body.i.i.i, %
   %__len.04.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i5.i.i.i, %while.body.preheader.i.i.i ]
   %__first.sroa.0.03.i.i.i = phi ptr [ %__first.sroa.0.1.i.i.i, %while.body.i.i.i ], [ %2, %while.body.preheader.i.i.i ]
   %shr.i.i.i = lshr i64 %__len.04.i.i.i, 1
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds %"struct.hermes::SourceMap::Segment", ptr %__first.sroa.0.03.i.i.i, i64 %shr.i.i.i
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw %"struct.hermes::SourceMap::Segment", ptr %__first.sroa.0.03.i.i.i, i64 %shr.i.i.i
   %call.val.i.i.i.i = load i32, ptr %add.ptr.i.i.i.i.i.i, align 4, !noalias !4
   %cmp.i.i5.i.i.i = icmp ult i32 %sub9.i, %call.val.i.i.i.i
-  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i, i64 28
+  %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i.i, i64 28
   %4 = xor i64 %shr.i.i.i, -1
   %sub9.i.i.i = add nsw i64 %__len.04.i.i.i, %4
   %__first.sroa.0.1.i.i.i = select i1 %cmp.i.i5.i.i.i, ptr %__first.sroa.0.03.i.i.i, ptr %incdec.ptr.i.i.i.i
@@ -126,8 +126,8 @@ entry:
 
 lor.lhs.false:                                    ; preds = %entry
   %conv = zext i32 %line to i64
-  %lines_ = getelementptr inbounds i8, ptr %this, i64 56
-  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 64
+  %lines_ = getelementptr inbounds nuw i8, ptr %this, i64 56
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %lines_, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
@@ -138,22 +138,22 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp2, label %if.then, label %if.end
 
 if.then:                                          ; preds = %lor.lhs.false, %entry
-  %hasVal.i.i = getelementptr inbounds i8, ptr %agg.result, i64 28
+  %hasVal.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 28
   store i8 0, ptr %hasVal.i.i, align 4
   br label %return
 
 if.end:                                           ; preds = %lor.lhs.false
   %sub = add i32 %line, -1
   %conv4 = zext i32 %sub to i64
-  %add.ptr.i = getelementptr inbounds %"class.std::vector.33", ptr %1, i64 %conv4
+  %add.ptr.i = getelementptr inbounds nuw %"class.std::vector.33", ptr %1, i64 %conv4
   %2 = load ptr, ptr %add.ptr.i, align 8
-  %_M_finish.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 8
+  %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 8
   %3 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.i = icmp eq ptr %2, %3
   br i1 %cmp.i.i, label %if.then7, label %if.end8
 
 if.then7:                                         ; preds = %if.end
-  %hasVal.i.i8 = getelementptr inbounds i8, ptr %agg.result, i64 28
+  %hasVal.i.i8 = getelementptr inbounds nuw i8, ptr %agg.result, i64 28
   store i8 0, ptr %hasVal.i.i8, align 4
   br label %return
 
@@ -173,10 +173,10 @@ while.body.i.i:                                   ; preds = %while.body.i.i, %wh
   %__len.04.i.i = phi i64 [ %__len.1.i.i, %while.body.i.i ], [ %sub.ptr.div.i.i.i5.i.i, %while.body.preheader.i.i ]
   %__first.sroa.0.03.i.i = phi ptr [ %__first.sroa.0.1.i.i, %while.body.i.i ], [ %2, %while.body.preheader.i.i ]
   %shr.i.i = lshr i64 %__len.04.i.i, 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds %"struct.hermes::SourceMap::Segment", ptr %__first.sroa.0.03.i.i, i64 %shr.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw %"struct.hermes::SourceMap::Segment", ptr %__first.sroa.0.03.i.i, i64 %shr.i.i
   %call.val.i.i.i = load i32, ptr %add.ptr.i.i.i.i.i, align 4
   %cmp.i.i5.i.i = icmp ult i32 %sub9, %call.val.i.i.i
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 28
+  %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i, i64 28
   %4 = xor i64 %shr.i.i, -1
   %sub9.i.i = add nsw i64 %__len.04.i.i, %4
   %__first.sroa.0.1.i.i = select i1 %cmp.i.i5.i.i, ptr %__first.sroa.0.03.i.i, ptr %incdec.ptr.i.i.i
@@ -189,13 +189,13 @@ while.body.i.i:                                   ; preds = %while.body.i.i, %wh
   br i1 %cmp.i, label %if.then22, label %if.end23
 
 if.then22:                                        ; preds = %if.end8, %"_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN6hermes9SourceMap7SegmentESt6vectorIS4_SaIS4_EEEEjZNKS3_20getSegmentForAddressEjjE3$_0ET_SC_SC_RKT0_T1_.exit"
-  %hasVal.i.i11 = getelementptr inbounds i8, ptr %agg.result, i64 28
+  %hasVal.i.i11 = getelementptr inbounds nuw i8, ptr %agg.result, i64 28
   store i8 0, ptr %hasVal.i.i11, align 4
   br label %return
 
 if.end23:                                         ; preds = %"_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN6hermes9SourceMap7SegmentESt6vectorIS4_SaIS4_EEEEjZNKS3_20getSegmentForAddressEjjE3$_0ET_SC_SC_RKT0_T1_.exit"
   %cond-lvalue = getelementptr inbounds i8, ptr %__first.sroa.0.1.i.i, i64 -28
-  %hasVal.i.i15 = getelementptr inbounds i8, ptr %agg.result, i64 28
+  %hasVal.i.i15 = getelementptr inbounds nuw i8, ptr %agg.result, i64 28
   store i8 1, ptr %hasVal.i.i15, align 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %agg.result, ptr noundef nonnull align 4 dereferenceable(28) %cond-lvalue, i64 28, i1 false)
   br label %return
@@ -213,8 +213,8 @@ entry:
 
 lor.lhs.false.i.i:                                ; preds = %entry
   %conv.i.i = zext i32 %line to i64
-  %lines_.i.i = getelementptr inbounds i8, ptr %this, i64 56
-  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  %lines_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
+  %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !9
   %1 = load ptr, ptr %lines_.i.i, align 8, !noalias !9
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %0 to i64
@@ -227,9 +227,9 @@ lor.lhs.false.i.i:                                ; preds = %entry
 if.end.i.i:                                       ; preds = %lor.lhs.false.i.i
   %sub.i.i = add i32 %line, -1
   %conv4.i.i = zext i32 %sub.i.i to i64
-  %add.ptr.i.i.i = getelementptr inbounds %"class.std::vector.33", ptr %1, i64 %conv4.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw %"class.std::vector.33", ptr %1, i64 %conv4.i.i
   %2 = load ptr, ptr %add.ptr.i.i.i, align 8, !noalias !9
-  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 8
+  %_M_finish.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i, i64 8
   %3 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !noalias !9
   %cmp.i.i.i.i = icmp eq ptr %2, %3
   br i1 %cmp.i.i.i.i, label %if.then, label %if.end8.i.i
@@ -250,10 +250,10 @@ while.body.i.i.i.i:                               ; preds = %while.body.i.i.i.i,
   %__len.04.i.i.i.i = phi i64 [ %__len.1.i.i.i.i, %while.body.i.i.i.i ], [ %sub.ptr.div.i.i.i5.i.i.i.i, %while.body.preheader.i.i.i.i ]
   %__first.sroa.0.03.i.i.i.i = phi ptr [ %__first.sroa.0.1.i.i.i.i, %while.body.i.i.i.i ], [ %2, %while.body.preheader.i.i.i.i ]
   %shr.i.i.i.i = lshr i64 %__len.04.i.i.i.i, 1
-  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds %"struct.hermes::SourceMap::Segment", ptr %__first.sroa.0.03.i.i.i.i, i64 %shr.i.i.i.i
+  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw %"struct.hermes::SourceMap::Segment", ptr %__first.sroa.0.03.i.i.i.i, i64 %shr.i.i.i.i
   %call.val.i.i.i.i.i = load i32, ptr %add.ptr.i.i.i.i.i.i.i, align 4, !noalias !9
   %cmp.i.i5.i.i.i.i = icmp ult i32 %sub9.i.i, %call.val.i.i.i.i.i
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i.i, i64 28
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i.i.i, i64 28
   %4 = xor i64 %shr.i.i.i.i, -1
   %sub9.i.i.i.i = add nsw i64 %__len.04.i.i.i.i, %4
   %__first.sroa.0.1.i.i.i.i = select i1 %cmp.i.i5.i.i.i.i, ptr %__first.sroa.0.03.i.i.i.i, ptr %incdec.ptr.i.i.i.i.i
@@ -272,7 +272,7 @@ lor.lhs.false.i:                                  ; preds = %"_ZSt11upper_boundI
   br i1 %tobool.i2.i, label %if.end, label %if.then
 
 if.then:                                          ; preds = %lor.lhs.false.i, %lor.lhs.false.i.i, %entry, %if.end.i.i, %"_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKN6hermes9SourceMap7SegmentESt6vectorIS4_SaIS4_EEEEjZNKS3_20getSegmentForAddressEjjE3$_0ET_SC_SC_RKT0_T1_.exit.i.i", %if.end8.i.i
-  %hasVal.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %hasVal.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i8 0, ptr %hasVal.i.i, align 8
   br label %return
 
@@ -286,19 +286,19 @@ if.end:                                           ; preds = %lor.lhs.false.i
   %add.i = add i32 %seg.sroa.2.0.copyload.i, 1
   %add15.i = add i32 %seg.sroa.3.0.copyload.i, 1
   %5 = zext i32 %seg.sroa.1.0.copyload.i to i64
-  %sources_.i = getelementptr inbounds i8, ptr %this, i64 32
+  %sources_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %6 = load ptr, ptr %sources_.i, align 8, !noalias !12
-  %add.ptr.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %6, i64 %5
+  %add.ptr.i.i = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %6, i64 %5
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(104) %this) #6
   %call.i.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i) #6
-  %line4 = getelementptr inbounds i8, ptr %ref.tmp, i64 32
+  %line4 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 32
   store i32 %add.i, ptr %line4, align 8
-  %column7 = getelementptr inbounds i8, ptr %ref.tmp, i64 36
+  %column7 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 36
   store i32 %add15.i, ptr %column7, align 4
-  %hasVal.i.i1 = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %hasVal.i.i1 = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i8 1, ptr %hasVal.i.i1, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(48) %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp) #6
-  %line.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %line.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   %7 = load i64, ptr %line4, align 8
   store i64 %7, ptr %line.i.i.i, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp) #6

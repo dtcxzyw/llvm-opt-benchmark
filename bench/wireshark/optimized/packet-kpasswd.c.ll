@@ -121,7 +121,7 @@ define internal i32 @dissect_kpasswd_udp(ptr noundef %0, ptr noundef %1, ptr nou
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_kpasswd_tcp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.40) #2
   %7 = load ptr, ptr %5, align 8
@@ -145,7 +145,7 @@ declare void @dissector_add_uint_with_preference(ptr noundef, i32 noundef, ptr n
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @dissect_kpasswd_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.40) #2
   %7 = load ptr, ptr %5, align 8
@@ -296,7 +296,7 @@ define internal i32 @dissect_kpasswd_user_data_reply(ptr nocapture noundef reado
   %5 = load i32, ptr @hf_kpasswd_result, align 4
   %6 = zext i16 %4 to i32
   %7 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %5, ptr noundef %1, i32 noundef 0, i32 noundef 2, i32 noundef %6) #2
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = tail call ptr @val_to_str(i32 noundef %6, ptr noundef nonnull @kpasswd_result_types, ptr noundef nonnull @.str.42) #2
   tail call void @col_add_str(ptr noundef %9, i32 noundef 25, ptr noundef %10) #2
@@ -330,14 +330,14 @@ declare i32 @get_krb_pdu_len(ptr noundef, ptr noundef, i32 noundef, ptr noundef)
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_kpasswd_tcp_pdu(ptr noundef %0, ptr noundef initializes((272, 276)) %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 272
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 272
   store i32 1, ptr %5, align 8
   %6 = tail call fastcc i32 @dissect_kpasswd_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 1)
   %7 = icmp slt i32 %6, 0
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8
   tail call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.43) #2
   br label %11

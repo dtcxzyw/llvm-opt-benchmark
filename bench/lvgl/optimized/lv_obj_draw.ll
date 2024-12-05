@@ -91,7 +91,7 @@ define void @lv_obj_init_draw_rect_dsc(ptr noundef %0, i32 noundef %1, ptr nound
   %53 = ptrtoint ptr %52 to i64
   %.sroa.01.0.extract.trunc.i166 = trunc i64 %53 to i24
   store i24 %.sroa.01.0.extract.trunc.i166, ptr %50, align 8
-  %54 = getelementptr inbounds i8, ptr %2, i64 61
+  %54 = getelementptr inbounds nuw i8, ptr %2, i64 61
   %55 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 35) #5
   %56 = tail call ptr @lv_obj_style_apply_color_filter(ptr noundef %0, i32 noundef %1, ptr %55) #5
   %57 = ptrtoint ptr %56 to i64
@@ -105,7 +105,7 @@ define void @lv_obj_init_draw_rect_dsc(ptr noundef %0, i32 noundef %1, ptr nound
   %62 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 34) #5
   %63 = ptrtoint ptr %62 to i64
   %64 = trunc i64 %63 to i8
-  %65 = getelementptr inbounds i8, ptr %2, i64 65
+  %65 = getelementptr inbounds nuw i8, ptr %2, i64 65
   store i8 %64, ptr %65, align 1, !tbaa !20
   %66 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 36) #5
   %67 = ptrtoint ptr %66 to i64
@@ -115,7 +115,7 @@ define void @lv_obj_init_draw_rect_dsc(ptr noundef %0, i32 noundef %1, ptr nound
   %70 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef %1, i8 noundef zeroext 37) #5
   %71 = ptrtoint ptr %70 to i64
   %72 = trunc i64 %71 to i8
-  %73 = getelementptr inbounds i8, ptr %2, i64 64
+  %73 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store i8 %72, ptr %73, align 1, !tbaa !22
   br label %74
 

@@ -468,8 +468,8 @@ define void @dhgeqz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %306 = fmul double %193, %187
   %307 = fmul double %168, 1.000000e+02
   %308 = fneg double %193
-  %309 = getelementptr inbounds i8, ptr %29, i64 8
-  %310 = getelementptr inbounds i8, ptr %29, i64 16
+  %309 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  %310 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %311 = uitofp nneg i32 %299 to double
   %312 = fmul double %168, %311
   %313 = fdiv double 1.000000e+00, %312
@@ -2862,12 +2862,12 @@ split:                                            ; preds = %749, %._crit_edge17
   %1972 = sext i32 %1971 to i64
   %1973 = getelementptr inbounds double, ptr %63, i64 %1972
   %1974 = load double, ptr %1973, align 8, !tbaa !7
-  %1975 = getelementptr inbounds double, ptr %68, i64 %1923
+  %1975 = getelementptr inbounds nuw double, ptr %68, i64 %1923
   store double %1974, ptr %1975, align 8, !tbaa !7
-  %1976 = getelementptr inbounds double, ptr %69, i64 %1923
+  %1976 = getelementptr inbounds nuw double, ptr %69, i64 %1923
   store double 0.000000e+00, ptr %1976, align 8, !tbaa !7
   %1977 = load double, ptr %1930, align 8, !tbaa !7
-  %1978 = getelementptr inbounds double, ptr %70, i64 %1923
+  %1978 = getelementptr inbounds nuw double, ptr %70, i64 %1923
   store double %1977, ptr %1978, align 8, !tbaa !7
   %1979 = add nuw nsw i64 %1923, 1
   %1980 = add nuw nsw i64 %1924, 1

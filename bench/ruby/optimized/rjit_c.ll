@@ -767,9 +767,9 @@ define internal range(i64 0, 21) i64 @rjit_enabled_p(ptr nocapture readnone %0, 
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @builtin_inline_class_12(ptr nocapture noundef readonly %0, i64 %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr i8, ptr %6, i64 -24
   %8 = load i64, ptr %7, align 8
@@ -904,9 +904,9 @@ define internal i64 @dump_disasm(ptr nocapture readnone %0, i64 %1, i64 %2, i64 
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @builtin_inline_class_41(ptr nocapture noundef readonly %0, i64 %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr i8, ptr %6, i64 -24
   %8 = load i64, ptr %7, align 8
@@ -929,9 +929,9 @@ rb_ull2num_inline.exit:                           ; preds = %10, %13
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 0, 21) i64 @builtin_inline_class_45(ptr nocapture noundef readonly %0, i64 %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr i8, ptr %6, i64 -24
   %8 = load i64, ptr %7, align 8
@@ -979,9 +979,9 @@ rb_num2int_inline.exit7:                          ; preds = %20, %22
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 1, 8589934592) i64 @builtin_inline_class_50(ptr nocapture noundef readonly %0, i64 %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr i8, ptr %6, i64 -24
   %8 = load i64, ptr %7, align 8
@@ -1025,9 +1025,9 @@ rb_num2ull_inline.exit7:                          ; preds = %17, %19
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
 define internal i64 @builtin_inline_class_54(ptr nocapture noundef readonly %0, i64 %1) #2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr i8, ptr %6, i64 -24
   %8 = load i64, ptr %7, align 8
@@ -1039,7 +1039,7 @@ define internal i64 @builtin_inline_class_54(ptr nocapture noundef readonly %0, 
 
 13:                                               ; preds = %2
   %14 = inttoptr i64 %8 to ptr
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   br label %rb_class_of.exit
 
 16:                                               ; preds = %2
@@ -1074,9 +1074,9 @@ rb_class_of.exit:                                 ; preds = %13, %16, %17, %18, 
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @builtin_inline_class_58(ptr nocapture noundef readonly %0, i64 %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr i8, ptr %6, i64 -32
   %8 = load i64, ptr %7, align 8
@@ -1105,9 +1105,9 @@ rb_ull2num_inline.exit:                           ; preds = %16, %19
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 1, 8) i64 @builtin_inline_class_65(ptr nocapture noundef readonly %0, i64 %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr i8, ptr %6, i64 -24
   %8 = load i64, ptr %7, align 8
@@ -1135,9 +1135,9 @@ rb_num2ull_inline.exit:                           ; preds = %10, %12
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 0, 21) i64 @builtin_inline_class_70(ptr nocapture noundef readonly %0, i64 %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr i8, ptr %6, i64 -24
   %8 = load i64, ptr %7, align 8
@@ -1163,9 +1163,9 @@ rb_num2ull_inline.exit:                           ; preds = %10, %12
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 0, 21) i64 @builtin_inline_class_75(ptr nocapture noundef readonly %0, i64 %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr i8, ptr %6, i64 -24
   %8 = load i64, ptr %7, align 8
@@ -1193,9 +1193,9 @@ rb_num2ull_inline.exit:                           ; preds = %10, %12
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 1, 64) i64 @builtin_inline_class_80(ptr nocapture noundef readonly %0, i64 %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr i8, ptr %6, i64 -24
   %8 = load i64, ptr %7, align 8
@@ -1223,9 +1223,9 @@ rb_num2ull_inline.exit:                           ; preds = %10, %12
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 0, 21) i64 @builtin_inline_class_84(ptr nocapture noundef readonly %0, i64 %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr i8, ptr %6, i64 -24
   %8 = load i64, ptr %7, align 8
@@ -1269,7 +1269,7 @@ switch.hole_check:                                ; preds = %21
   br i1 %switch.lobit, label %switch.lookup, label %24
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %switch.gep = getelementptr inbounds [10 x i32], ptr @switch.table.builtin_inline_class_84, i64 0, i64 %22
+  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @switch.table.builtin_inline_class_84, i64 0, i64 %22
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %rb_type.exit.i
 
@@ -1284,9 +1284,9 @@ rb_type.exit.i:                                   ; preds = %switch.lookup, %26,
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 1, 8589934592) i64 @builtin_inline_class_89(ptr nocapture noundef readonly %0, i64 %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr i8, ptr %6, i64 -24
   %8 = load i64, ptr %7, align 8
@@ -1323,9 +1323,9 @@ define internal range(i64 1, 0) i64 @builtin_inline_class_93(ptr nocapture readn
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 1, 8589934592) i64 @builtin_inline_class_97(ptr nocapture noundef readonly %0, i64 %1) #0 {
   %3 = alloca i32, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr i8, ptr %7, i64 -24
   %9 = load i64, ptr %8, align 8
@@ -1372,9 +1372,9 @@ rb_num2ull_inline.exit9:                          ; preds = %20, %22
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 0, 21) i64 @builtin_inline_class_106(ptr nocapture noundef readonly %0, i64 %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr i8, ptr %6, i64 -24
   %8 = load i64, ptr %7, align 8
@@ -1404,9 +1404,9 @@ rb_num2ull_inline.exit:                           ; preds = %12, %14
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 0, 21) i64 @builtin_inline_class_110(ptr nocapture noundef readonly %0, i64 %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr i8, ptr %6, i64 -24
   %8 = load i64, ptr %7, align 8
@@ -1460,9 +1460,9 @@ define internal noundef i64 @rjit_for_each_iseq(ptr nocapture readnone %0, i64 %
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @builtin_inline_class_118(ptr nocapture noundef readonly %0, i64 %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr i8, ptr %6, i64 -24
   %8 = load i64, ptr %7, align 8
@@ -1486,9 +1486,9 @@ rb_ull2num_inline.exit:                           ; preds = %11, %14
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @builtin_inline_class_123(ptr nocapture noundef readonly %0, i64 %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr i8, ptr %6, i64 -32
   %8 = load i64, ptr %7, align 8
@@ -1528,9 +1528,9 @@ rb_ull2num_inline.exit:                           ; preds = %18, %21
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @builtin_inline_class_129(ptr nocapture noundef readonly %0, i64 %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr i8, ptr %6, i64 -24
   %8 = load i64, ptr %7, align 8
@@ -1540,9 +1540,9 @@ define internal i64 @builtin_inline_class_129(ptr nocapture noundef readonly %0,
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @builtin_inline_class_133(ptr nocapture noundef readonly %0, i64 %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr i8, ptr %6, i64 -24
   %8 = load i64, ptr %7, align 8
@@ -1566,9 +1566,9 @@ rb_num2ull_inline.exit:                           ; preds = %10, %12
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @builtin_inline_class_137(ptr nocapture noundef readonly %0, i64 %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr i8, ptr %6, i64 -24
   %8 = load i64, ptr %7, align 8
@@ -1580,9 +1580,9 @@ define internal i64 @builtin_inline_class_137(ptr nocapture noundef readonly %0,
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 0, 21) i64 @builtin_inline_class_142(ptr nocapture noundef readonly %0, i64 %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr i8, ptr %6, i64 -24
   %8 = load i64, ptr %7, align 8
@@ -1630,9 +1630,9 @@ imemo_type_p.exit.thread:                         ; preds = %rb_num2ull_inline.e
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 0, 21) i64 @builtin_inline_class_147(ptr nocapture noundef readonly %0, i64 %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr i8, ptr %6, i64 -24
   %8 = load i64, ptr %7, align 8
@@ -1658,9 +1658,9 @@ rb_num2ull_inline.exit:                           ; preds = %10, %12
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 0, 21) i64 @builtin_inline_class_155(ptr nocapture noundef readonly %0, i64 %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr i8, ptr %6, i64 -24
   %8 = load i64, ptr %7, align 8
@@ -1686,9 +1686,9 @@ rb_num2ull_inline.exit:                           ; preds = %10, %12
 
 ; Function Attrs: mustprogress nofree nounwind sspstrong willreturn memory(read) uwtable
 define internal i64 @builtin_inline_class_162(ptr nocapture noundef readonly %0, i64 %1) #3 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr i8, ptr %6, i64 -24
   %8 = load i64, ptr %7, align 8
@@ -1698,9 +1698,9 @@ define internal i64 @builtin_inline_class_162(ptr nocapture noundef readonly %0,
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @builtin_inline_class_166(ptr nocapture noundef readonly %0, i64 %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr i8, ptr %6, i64 -24
   %8 = load i64, ptr %7, align 8
@@ -1708,7 +1708,7 @@ define internal i64 @builtin_inline_class_166(ptr nocapture noundef readonly %0,
   %10 = load i64, ptr %9, align 8, !noalias !7
   %11 = and i64 %10, 8192
   %.not.i.i = icmp eq i64 %11, 0
-  %12 = getelementptr inbounds i8, ptr %9, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 24
   br i1 %.not.i.i, label %RSTRING_PTR.exit, label %13
 
 13:                                               ; preds = %2
@@ -1737,9 +1737,9 @@ rb_ull2num_inline.exit:                           ; preds = %16, %19
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @builtin_inline_class_170(ptr nocapture noundef readonly %0, i64 %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr i8, ptr %6, i64 -32
   %8 = load i64, ptr %7, align 8
@@ -1780,9 +1780,9 @@ rb_ull2num_inline.exit:                           ; preds = %19, %22
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @builtin_inline_class_176(ptr nocapture noundef readonly %0, i64 %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr i8, ptr %6, i64 -32
   %8 = load i64, ptr %7, align 8
@@ -1840,9 +1840,9 @@ rb_ull2num_inline.exit:                           ; preds = %27, %30
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 1, 8589934592) i64 @builtin_inline_class_182(ptr nocapture noundef readonly %0, i64 %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr i8, ptr %6, i64 -24
   %8 = load i64, ptr %7, align 8
@@ -1870,9 +1870,9 @@ rb_num2ull_inline.exit:                           ; preds = %10, %12
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @builtin_inline_class_186(ptr nocapture noundef readonly %0, i64 %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr i8, ptr %6, i64 -24
   %8 = load i64, ptr %7, align 8
@@ -1882,9 +1882,9 @@ define internal i64 @builtin_inline_class_186(ptr nocapture noundef readonly %0,
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @builtin_inline_class_190(ptr nocapture noundef readonly %0, i64 %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr i8, ptr %6, i64 -24
   %8 = load i64, ptr %7, align 8
@@ -1894,9 +1894,9 @@ define internal i64 @builtin_inline_class_190(ptr nocapture noundef readonly %0,
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @builtin_inline_class_195(ptr nocapture noundef readonly %0, i64 %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr i8, ptr %6, i64 -32
   %8 = load i64, ptr %7, align 8
@@ -1936,9 +1936,9 @@ rb_ull2num_inline.exit:                           ; preds = %18, %21
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @builtin_inline_class_203(ptr nocapture noundef readonly %0, i64 %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr i8, ptr %6, i64 -32
   %8 = load i64, ptr %7, align 8
@@ -1957,7 +1957,7 @@ define internal i64 @builtin_inline_class_203(ptr nocapture noundef readonly %0,
 rb_num2ull_inline.exit:                           ; preds = %10, %12
   %.0.i = phi i64 [ %11, %10 ], [ %13, %12 ]
   %14 = inttoptr i64 %.0.i to ptr
-  %15 = getelementptr inbounds i8, ptr %14, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %16 = load ptr, ptr %15, align 8
   %17 = ptrtoint ptr %16 to i64
   %18 = icmp ult ptr %16, inttoptr (i64 4611686018427387904 to ptr)
@@ -1979,9 +1979,9 @@ rb_ull2num_inline.exit:                           ; preds = %19, %22
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @builtin_inline_class_212(ptr nocapture noundef readonly %0, i64 %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr i8, ptr %6, i64 -32
   %8 = load i64, ptr %7, align 8
@@ -2008,9 +2008,9 @@ rb_ull2num_inline.exit:                           ; preds = %14, %17
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @builtin_inline_class_218(ptr nocapture noundef readonly %0, i64 %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr i8, ptr %6, i64 -32
   %8 = load i64, ptr %7, align 8
@@ -2047,9 +2047,9 @@ rb_ull2num_inline.exit:                           ; preds = %15, %18
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @builtin_inline_class_224(ptr nocapture noundef readonly %0, i64 %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr i8, ptr %6, i64 -24
   %8 = load i64, ptr %7, align 8
@@ -2074,9 +2074,9 @@ rb_num2ull_inline.exit:                           ; preds = %10, %12
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 1, 8589934592) i64 @builtin_inline_class_229(ptr nocapture noundef readonly %0, i64 %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr i8, ptr %6, i64 -24
   %8 = load i64, ptr %7, align 8
@@ -2105,7 +2105,7 @@ rb_num2ull_inline.exit:                           ; preds = %10, %12
 
 18:                                               ; preds = %rb_num2ull_inline.exit
   %19 = inttoptr i64 %.0.i to ptr
-  %20 = getelementptr inbounds i8, ptr %19, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 32
   %21 = load i64, ptr %20, align 8
   %22 = and i64 %21, 4294967295
   br label %vm_ci_argc.exit
@@ -2119,9 +2119,9 @@ vm_ci_argc.exit:                                  ; preds = %15, %18
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 1, 8589934592) i64 @builtin_inline_class_234(ptr nocapture noundef readonly %0, i64 %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr i8, ptr %6, i64 -24
   %8 = load i64, ptr %7, align 8
@@ -2150,7 +2150,7 @@ rb_num2ull_inline.exit:                           ; preds = %10, %12
 
 18:                                               ; preds = %rb_num2ull_inline.exit
   %19 = inttoptr i64 %.0.i to ptr
-  %20 = getelementptr inbounds i8, ptr %19, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %21 = load i64, ptr %20, align 8
   %22 = trunc i64 %21 to i32
   br label %vm_ci_flag.exit
@@ -2165,9 +2165,9 @@ vm_ci_flag.exit:                                  ; preds = %15, %18
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @builtin_inline_class_239(ptr nocapture noundef readonly %0, i64 %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr i8, ptr %6, i64 -32
   %8 = load i64, ptr %7, align 8
@@ -2191,7 +2191,7 @@ rb_num2ull_inline.exit:                           ; preds = %10, %12
 
 vm_ci_kwarg.exit:                                 ; preds = %rb_num2ull_inline.exit
   %15 = inttoptr i64 %.0.i to ptr
-  %16 = getelementptr inbounds i8, ptr %15, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = ptrtoint ptr %17 to i64
   %19 = icmp ult ptr %17, inttoptr (i64 4611686018427387904 to ptr)
@@ -2214,9 +2214,9 @@ rb_ull2num_inline.exit:                           ; preds = %vm_ci_kwarg.exit.th
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @builtin_inline_class_245(ptr nocapture noundef readonly %0, i64 %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr i8, ptr %6, i64 -24
   %8 = load i64, ptr %7, align 8
@@ -2244,7 +2244,7 @@ vm_ci_mid.exit.thread:                            ; preds = %rb_num2ull_inline.e
 
 vm_ci_mid.exit:                                   ; preds = %rb_num2ull_inline.exit
   %16 = inttoptr i64 %.0.i to ptr
-  %17 = getelementptr inbounds i8, ptr %16, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = load i64, ptr %17, align 8
   %19 = icmp ult i64 %18, 4611686018427387904
   br i1 %19, label %20, label %23
@@ -2285,9 +2285,9 @@ rb_ull2num_inline.exit:                           ; preds = %4, %7
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i64 @builtin_inline_class_254(ptr nocapture noundef readonly %0, i64 %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr i8, ptr %6, i64 -24
   %8 = load i64, ptr %7, align 8
@@ -2295,7 +2295,7 @@ define internal noundef i64 @builtin_inline_class_254(ptr nocapture noundef read
   %10 = load i64, ptr %9, align 8, !noalias !10
   %11 = and i64 %10, 8192
   %.not.i.i = icmp eq i64 %11, 0
-  %12 = getelementptr inbounds i8, ptr %9, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 24
   br i1 %.not.i.i, label %RSTRING_PTR.exit, label %13
 
 13:                                               ; preds = %2
@@ -2310,9 +2310,9 @@ RSTRING_PTR.exit:                                 ; preds = %2, %13
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 1, 0) i64 @builtin_inline_class_263(ptr nocapture noundef readonly %0, i64 %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr i8, ptr %6, i64 -24
   %8 = load i64, ptr %7, align 8
@@ -2340,9 +2340,9 @@ rb_num2ull_inline.exit:                           ; preds = %10, %12
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @builtin_inline_class_268(ptr nocapture noundef readonly %0, i64 %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr i8, ptr %6, i64 -24
   %8 = load i64, ptr %7, align 8
@@ -2383,7 +2383,7 @@ define internal i64 @builtin_inline_class_282(ptr nocapture readnone %0, i64 %1)
   br label %rb_array_len.exit.i
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %4, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %12 = load i64, ptr %11, align 8
   br label %rb_array_len.exit.i
 
@@ -2410,11 +2410,11 @@ rb_array_len.exit.i:                              ; preds = %10, %7
   br i1 %.not.i.i.i, label %27, label %25
 
 25:                                               ; preds = %.lr.ph107.i
-  %26 = getelementptr inbounds i8, ptr %22, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %22, i64 16
   br label %RARRAY_AREF.exit.i
 
 27:                                               ; preds = %.lr.ph107.i
-  %28 = getelementptr inbounds i8, ptr %22, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %29 = load ptr, ptr %28, align 8
   br label %RARRAY_AREF.exit.i
 
@@ -2445,11 +2445,11 @@ rb_num2int_inline.exit.i:                         ; preds = %35, %33
   br i1 %.not.i.i44.i, label %44, label %42
 
 42:                                               ; preds = %rb_num2int_inline.exit.i
-  %43 = getelementptr inbounds i8, ptr %39, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %39, i64 16
   br label %RARRAY_AREF.exit46.i
 
 44:                                               ; preds = %rb_num2int_inline.exit.i
-  %45 = getelementptr inbounds i8, ptr %39, i64 32
+  %45 = getelementptr inbounds nuw i8, ptr %39, i64 32
   %46 = load ptr, ptr %45, align 8
   br label %RARRAY_AREF.exit46.i
 
@@ -2511,11 +2511,11 @@ rb_ull2num_inline.exit.i:                         ; preds = %59, %56
   br i1 %.not.i.i51.i, label %74, label %72
 
 72:                                               ; preds = %.lr.ph.i
-  %73 = getelementptr inbounds i8, ptr %69, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %69, i64 16
   br label %RARRAY_AREF.exit53.i
 
 74:                                               ; preds = %.lr.ph.i
-  %75 = getelementptr inbounds i8, ptr %69, i64 32
+  %75 = getelementptr inbounds nuw i8, ptr %69, i64 32
   %76 = load ptr, ptr %75, align 8
   br label %RARRAY_AREF.exit53.i
 
@@ -2675,11 +2675,11 @@ rjit_add_frame.exit.i:                            ; preds = %120, %rb_ull2num_in
   br i1 %.not.i.i58.i, label %128, label %126
 
 126:                                              ; preds = %rjit_add_frame.exit.i
-  %127 = getelementptr inbounds i8, ptr %123, i64 16
+  %127 = getelementptr inbounds nuw i8, ptr %123, i64 16
   br label %RARRAY_AREF.exit60.i
 
 128:                                              ; preds = %rjit_add_frame.exit.i
-  %129 = getelementptr inbounds i8, ptr %123, i64 32
+  %129 = getelementptr inbounds nuw i8, ptr %123, i64 32
   %130 = load ptr, ptr %129, align 8
   br label %RARRAY_AREF.exit60.i
 
@@ -2710,11 +2710,11 @@ rb_ull2num_inline.exit62.i:                       ; preds = %137, %134
   br i1 %.not.i.i63.i, label %146, label %144
 
 144:                                              ; preds = %rb_ull2num_inline.exit62.i
-  %145 = getelementptr inbounds i8, ptr %141, i64 16
+  %145 = getelementptr inbounds nuw i8, ptr %141, i64 16
   br label %RARRAY_AREF.exit65.i
 
 146:                                              ; preds = %rb_ull2num_inline.exit62.i
-  %147 = getelementptr inbounds i8, ptr %141, i64 32
+  %147 = getelementptr inbounds nuw i8, ptr %141, i64 32
   %148 = load ptr, ptr %147, align 8
   br label %RARRAY_AREF.exit65.i
 
@@ -2739,11 +2739,11 @@ RARRAY_AREF.exit65.i:                             ; preds = %146, %144
   br i1 %.not.i.i66.i, label %159, label %157
 
 157:                                              ; preds = %._crit_edge.i
-  %158 = getelementptr inbounds i8, ptr %154, i64 16
+  %158 = getelementptr inbounds nuw i8, ptr %154, i64 16
   br label %RARRAY_AREF.exit68.i
 
 159:                                              ; preds = %._crit_edge.i
-  %160 = getelementptr inbounds i8, ptr %154, i64 32
+  %160 = getelementptr inbounds nuw i8, ptr %154, i64 32
   %161 = load ptr, ptr %160, align 8
   br label %RARRAY_AREF.exit68.i
 
@@ -2760,11 +2760,11 @@ RARRAY_AREF.exit68.i:                             ; preds = %159, %157
   br i1 %.not.i.i69.i, label %171, label %169
 
 169:                                              ; preds = %RARRAY_AREF.exit68.i
-  %170 = getelementptr inbounds i8, ptr %166, i64 16
+  %170 = getelementptr inbounds nuw i8, ptr %166, i64 16
   br label %RARRAY_AREF.exit71.i
 
 171:                                              ; preds = %RARRAY_AREF.exit68.i
-  %172 = getelementptr inbounds i8, ptr %166, i64 32
+  %172 = getelementptr inbounds nuw i8, ptr %166, i64 32
   %173 = load ptr, ptr %172, align 8
   br label %RARRAY_AREF.exit71.i
 
@@ -2783,11 +2783,11 @@ RARRAY_AREF.exit71.i:                             ; preds = %171, %169
   br i1 %.not.i.i72.i, label %185, label %183
 
 183:                                              ; preds = %RARRAY_AREF.exit71.i
-  %184 = getelementptr inbounds i8, ptr %180, i64 16
+  %184 = getelementptr inbounds nuw i8, ptr %180, i64 16
   br label %RARRAY_AREF.exit74.i
 
 185:                                              ; preds = %RARRAY_AREF.exit71.i
-  %186 = getelementptr inbounds i8, ptr %180, i64 32
+  %186 = getelementptr inbounds nuw i8, ptr %180, i64 32
   %187 = load ptr, ptr %186, align 8
   br label %RARRAY_AREF.exit74.i
 
@@ -2804,11 +2804,11 @@ RARRAY_AREF.exit74.i:                             ; preds = %185, %183
   br i1 %.not.i.i75.i, label %197, label %195
 
 195:                                              ; preds = %RARRAY_AREF.exit74.i
-  %196 = getelementptr inbounds i8, ptr %192, i64 16
+  %196 = getelementptr inbounds nuw i8, ptr %192, i64 16
   br label %RARRAY_AREF.exit77.i
 
 197:                                              ; preds = %RARRAY_AREF.exit74.i
-  %198 = getelementptr inbounds i8, ptr %192, i64 32
+  %198 = getelementptr inbounds nuw i8, ptr %192, i64 32
   %199 = load ptr, ptr %198, align 8
   br label %RARRAY_AREF.exit77.i
 
@@ -2869,9 +2869,9 @@ rjit_exit_traces.exit:                            ; preds = %.lr.ph.i88.i, %rbim
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @builtin_inline_class_287(ptr nocapture noundef readonly %0, i64 %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr i8, ptr %6, i64 -32
   %8 = load i64, ptr %7, align 8
@@ -2911,9 +2911,9 @@ rb_ull2num_inline.exit:                           ; preds = %18, %21
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @builtin_inline_class_292(ptr nocapture noundef readonly %0, i64 %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr i8, ptr %6, i64 -24
   %8 = load i64, ptr %7, align 8
@@ -2924,9 +2924,9 @@ define internal i64 @builtin_inline_class_292(ptr nocapture noundef readonly %0,
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @builtin_inline_class_296(ptr nocapture noundef readonly %0, i64 %1) #0 {
   %3 = alloca i64, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr i8, ptr %7, i64 -24
   %9 = load i64, ptr %8, align 8
@@ -2940,9 +2940,9 @@ define internal i64 @builtin_inline_class_296(ptr nocapture noundef readonly %0,
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @builtin_inline_class_304(ptr nocapture noundef readonly %0, i64 %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr i8, ptr %6, i64 -24
   %8 = load i64, ptr %7, align 8
@@ -2952,9 +2952,9 @@ define internal i64 @builtin_inline_class_304(ptr nocapture noundef readonly %0,
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @builtin_inline_class_308(ptr nocapture noundef readonly %0, i64 %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr i8, ptr %6, i64 -24
   %8 = load i64, ptr %7, align 8
@@ -2978,9 +2978,9 @@ rb_ull2num_inline.exit:                           ; preds = %11, %14
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @builtin_inline_class_312(ptr nocapture noundef readonly %0, i64 %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr i8, ptr %6, i64 -32
   %8 = load i64, ptr %7, align 8
@@ -3021,9 +3021,9 @@ rb_ull2num_inline.exit:                           ; preds = %19, %22
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 0, 21) i64 @builtin_inline_class_318(ptr nocapture noundef readonly %0, i64 %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr i8, ptr %6, i64 -24
   %8 = load i64, ptr %7, align 8
@@ -3051,9 +3051,9 @@ rb_num2ull_inline.exit:                           ; preds = %12, %14
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 0, 21) i64 @builtin_inline_class_323(ptr nocapture noundef readonly %0, i64 %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr i8, ptr %6, i64 -24
   %8 = load i64, ptr %7, align 8
@@ -3073,7 +3073,7 @@ rb_num2ull_inline.exit.thread:                    ; preds = %2
 rb_num2ull_inline.exit7:                          ; preds = %rb_num2ull_inline.exit
   %11 = tail call i64 @rb_num2ull(i64 noundef %8) #17
   %12 = inttoptr i64 %11 to ptr
-  %13 = getelementptr inbounds i8, ptr %12, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8
   %.not4 = icmp eq ptr %14, null
   br i1 %.not4, label %26, label %19
@@ -3081,7 +3081,7 @@ rb_num2ull_inline.exit7:                          ; preds = %rb_num2ull_inline.e
 rb_num2ull_inline.exit7.thread:                   ; preds = %rb_num2ull_inline.exit.thread
   %15 = ashr i64 %8, 1
   %16 = inttoptr i64 %15 to ptr
-  %17 = getelementptr inbounds i8, ptr %16, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = load ptr, ptr %17, align 8
   %.not414 = icmp eq ptr %18, null
   br i1 %.not414, label %26, label %rb_num2ull_inline.exit10
@@ -3089,7 +3089,7 @@ rb_num2ull_inline.exit7.thread:                   ; preds = %rb_num2ull_inline.e
 19:                                               ; preds = %rb_num2ull_inline.exit7
   %20 = tail call i64 @rb_num2ull(i64 noundef %8) #17
   %.phi.trans.insert = inttoptr i64 %20 to ptr
-  %.phi.trans.insert16 = getelementptr inbounds i8, ptr %.phi.trans.insert, i64 16
+  %.phi.trans.insert16 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert, i64 16
   %.pre = load ptr, ptr %.phi.trans.insert16, align 8
   br label %rb_num2ull_inline.exit10
 
@@ -3108,23 +3108,23 @@ rb_num2ull_inline.exit10:                         ; preds = %rb_num2ull_inline.e
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
 define internal i64 @builtin_inline_class_327(ptr nocapture noundef readonly %0, i64 %1) #2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr i8, ptr %6, i64 -24
   %8 = load i64, ptr %7, align 8
   %9 = inttoptr i64 %8 to ptr
-  %10 = getelementptr inbounds i8, ptr %9, i64 112
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 112
   %11 = load i64, ptr %10, align 8
   ret i64 %11
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @builtin_inline_class_337(ptr nocapture noundef readonly %0, i64 %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr i8, ptr %6, i64 -24
   %8 = load i64, ptr %7, align 8
@@ -3167,9 +3167,9 @@ rb_ull2num_inline.exit:                           ; preds = %20, %23
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @builtin_inline_class_342(ptr nocapture noundef readonly %0, i64 %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr i8, ptr %6, i64 -32
   %8 = load i64, ptr %7, align 8
@@ -7682,13 +7682,13 @@ define internal i64 @rb_ary_entry_internal(i64 noundef %0, i64 noundef %1) #2 {
 6:                                                ; preds = %2
   %7 = lshr i64 %4, 15
   %8 = and i64 %7, 127
-  %9 = getelementptr inbounds i8, ptr %3, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   br label %rb_array_const_ptr.exit
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %3, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %12 = load i64, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %3, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %14 = load ptr, ptr %13, align 8
   br label %rb_array_const_ptr.exit
 
@@ -7894,10 +7894,10 @@ declare i64 @rb_str_dup(i64 noundef) #5
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 0, 21) i64 @rb_str_eql_internal(i64 noundef %0, i64 noundef %1) #0 {
   %3 = inttoptr i64 %0 to ptr
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load i64, ptr %4, align 8
   %6 = inttoptr i64 %1 to ptr
-  %7 = getelementptr inbounds i8, ptr %6, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i64, ptr %7, align 8
   %.not = icmp eq i64 %5, %8
   br i1 %.not, label %9, label %23
@@ -7911,7 +7911,7 @@ define internal range(i64 0, 21) i64 @rb_str_eql_internal(i64 noundef %0, i64 no
   %12 = load i64, ptr %3, align 8, !noalias !19
   %13 = and i64 %12, 8192
   %.not.i.i = icmp eq i64 %13, 0
-  %14 = getelementptr inbounds i8, ptr %3, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 24
   br i1 %.not.i.i, label %RSTRING_PTR.exit, label %15
 
 15:                                               ; preds = %11
@@ -7923,7 +7923,7 @@ RSTRING_PTR.exit:                                 ; preds = %11, %15
   %16 = load i64, ptr %6, align 8, !noalias !22
   %17 = and i64 %16, 8192
   %.not.i.i14 = icmp eq i64 %17, 0
-  %18 = getelementptr inbounds i8, ptr %6, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 24
   br i1 %.not.i.i14, label %RSTRING_PTR.exit17, label %19
 
 19:                                               ; preds = %RSTRING_PTR.exit
@@ -7991,7 +7991,7 @@ vm_ci_kwarg.exit:
   %3 = and i64 %2, 1
   %.not.i.not.i = icmp eq i64 %3, 0
   tail call void @llvm.assume(i1 %.not.i.not.i)
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load i32, ptr %5, align 8
   %7 = sext i32 %6 to i64
@@ -8000,7 +8000,7 @@ vm_ci_kwarg.exit:
   br i1 %9, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %vm_ci_kwarg.exit
-  %10 = getelementptr inbounds i8, ptr %5, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %11 = sub nsw i64 0, %7
   %12 = getelementptr i64, ptr %1, i64 %11
   %wide.trip.count = zext nneg i32 %6 to i64
@@ -8025,11 +8025,11 @@ vm_ci_kwarg.exit:
 define internal void @rjit_full_cfunc_return(ptr noundef %0, i64 noundef %1) #0 {
   %3 = alloca %struct.rb_trace_arg_struct, align 8
   %4 = alloca %struct.ruby_dtrace_method_hook_args, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %6, %10
   br i1 %11, label %13, label %12
@@ -8052,7 +8052,7 @@ define internal void @rjit_full_cfunc_return(ptr noundef %0, i64 noundef %1) #0 
   unreachable
 
 19:                                               ; preds = %13
-  %20 = getelementptr inbounds i8, ptr %14, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %21 = load ptr, ptr %20, align 8
   %22 = load i8, ptr %21, align 8
   %23 = and i8 %22, 15
@@ -8067,45 +8067,45 @@ rb_ec_ractor_hooks.exit:                          ; preds = %19
   tail call void @rb_vm_pop_frame(ptr noundef nonnull %0) #17
   %26 = getelementptr i8, ptr %0, i64 48
   %.val22 = load ptr, ptr %26, align 8, !nonnull !26, !noundef !26
-  %27 = getelementptr inbounds i8, ptr %.val22, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %.val22, i64 24
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %30 = load i32, ptr %29, align 8
   %31 = and i32 %30, 64
   %.not = icmp eq i32 %31, 0
   br i1 %.not, label %53, label %32
 
 32:                                               ; preds = %rb_ec_ractor_hooks.exit
-  %33 = getelementptr inbounds i8, ptr %28, i64 16
-  %34 = getelementptr inbounds i8, ptr %6, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %28, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %35 = load i64, ptr %34, align 8
   %36 = load ptr, ptr %20, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 32
   %38 = load i64, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %14, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %40 = load i64, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %14, i64 32
+  %41 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %42 = load i64, ptr %41, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3)
   store i32 64, ptr %3, align 8
-  %43 = getelementptr inbounds i8, ptr %3, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %0, ptr %43, align 8
   %44 = load ptr, ptr %5, align 8
-  %45 = getelementptr inbounds i8, ptr %3, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %44, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %3, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %35, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %3, i64 32
+  %47 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i64 %38, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %3, i64 40
+  %48 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 %40, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %3, i64 48
+  %49 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i64 %42, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %3, i64 56
+  %50 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store i64 %1, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %3, i64 72
+  %51 = getelementptr inbounds nuw i8, ptr %3, i64 72
   store i64 36, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %3, i64 64
+  %52 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i32 0, ptr %52, align 8
   call void @rb_exec_event_hooks(ptr noundef nonnull %3, ptr noundef nonnull %33, i32 noundef 0) #17
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3)
@@ -8117,10 +8117,10 @@ rb_ec_ractor_hooks.exit:                          ; preds = %19
   br i1 %.not20, label %70, label %55
 
 55:                                               ; preds = %53
-  %56 = getelementptr inbounds i8, ptr %14, i64 32
+  %56 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %57 = load i64, ptr %56, align 8
   %58 = load ptr, ptr %20, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 32
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 32
   %60 = load i64, ptr %59, align 8
   %61 = call i32 @rb_dtrace_setup(ptr noundef nonnull %0, i64 noundef %57, i64 noundef %60, ptr noundef nonnull %4) #17
   %.not21 = icmp eq i32 %61, 0
@@ -8129,11 +8129,11 @@ rb_ec_ractor_hooks.exit:                          ; preds = %19
 62:                                               ; preds = %55
   call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i16) @ruby_cmethod__return_semaphore) #17, !srcloc !27
   %63 = load ptr, ptr %4, align 8
-  %64 = getelementptr inbounds i8, ptr %4, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %65 = load ptr, ptr %64, align 8
-  %66 = getelementptr inbounds i8, ptr %4, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds i8, ptr %4, i64 24
+  %68 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %69 = load i32, ptr %68, align 8
   call void asm sideeffect ".altmacro\0A.macro _SDT_SIGN x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.iflt \\x\0A.ascii \22-\22\0A.endif\0A.popsection\0A.endm\0A.macro _SDT_SIZE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ascii \22\\x\22\0A.popsection\0A.endm\0A.macro _SDT_SIZE x\0A_SDT_SIZE_ %((-(-\\x*((-\\x>0)-(-\\x<0))))>>8)\0A.endm\0A.macro _SDT_TYPE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ifc 8,\\x\0A.ascii \22f\22\0A.endif\0A.ascii \22@\22\0A.popsection\0A.endm\0A.macro _SDT_TYPE x\0A_SDT_TYPE_ %((\\x)&(0xff))\0A.endm\0A990: nop\0A.pushsection .note.stapsdt,\22?\22,\22note\22\0A.balign 4\0A.4byte 992f-991f,994f-993f,3\0A991: .asciz \22stapsdt\22\0A992: .balign 4\0A993: .8byte 990b\0A.8byte _.stapsdt.base\0A.8byte ruby_cmethod__return_semaphore\0A.asciz \22ruby\22\0A.asciz \22cmethod__return\22\0A_SDT_SIGN ${0:n}\0A_SDT_SIZE ${0:n}\0A_SDT_TYPE ${0:n}\0A.ascii \22$1\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${2:n}\0A_SDT_SIZE ${2:n}\0A_SDT_TYPE ${2:n}\0A.ascii \22$3\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${4:n}\0A_SDT_SIZE ${4:n}\0A_SDT_TYPE ${4:n}\0A.ascii \22$5\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${6:n}\0A_SDT_SIZE ${6:n}\0A_SDT_TYPE ${6:n}\0A.ascii \22$7\22\0A.ascii \22\\x00\22\0A.purgem _SDT_SIGN\0A.purgem _SDT_SIZE_\0A.purgem _SDT_SIZE\0A.purgem _SDT_TYPE_\0A.purgem _SDT_TYPE\0A994: .balign 4\0A.popsection\0A", "n,norfxy,n,norfxy,n,norfxy,n,norfxy,~{dirflag},~{fpsr},~{flags}"(i32 -2053, ptr %63, i32 -2053, ptr %65, i32 -2053, ptr %67, i32 1025, i32 %69) #17, !srcloc !28
   call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !29
@@ -8141,11 +8141,11 @@ rb_ec_ractor_hooks.exit:                          ; preds = %19
 
 70:                                               ; preds = %53, %62, %55
   %71 = load ptr, ptr %5, align 8
-  %72 = getelementptr inbounds i8, ptr %71, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %73 = load ptr, ptr %72, align 8
   store i64 %1, ptr %73, align 8
   %74 = load ptr, ptr %5, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 8
   %76 = load ptr, ptr %75, align 8
   %77 = getelementptr i8, ptr %76, i64 8
   store ptr %77, ptr %75, align 8
@@ -8166,7 +8166,7 @@ declare void @rb_exec_event_hooks(ptr noundef, ptr noundef, i32 noundef) local_u
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @rjit_optimized_call(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i64 noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i64 @rb_vm_invoke_proc(ptr noundef %1, ptr noundef %8, i32 noundef %2, ptr noundef %3, i32 noundef %4, i64 noundef %5) #17
   ret i64 %9
@@ -8188,7 +8188,7 @@ define internal i64 @rjit_rb_ary_subseq_length(i64 noundef %0, i64 noundef %1) #
   br label %rb_array_len.exit
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %3, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %11 = load i64, ptr %10, align 8
   br label %rb_array_len.exit
 
@@ -8225,7 +8225,7 @@ define internal void @rjit_record_exit_stack(ptr nocapture noundef readonly %0) 
   br i1 %.not.i, label %rb_array_len.exit, label %rb_array_len.exit.thread
 
 rb_array_len.exit:                                ; preds = %6
-  %17 = getelementptr inbounds i8, ptr %13, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %18 = load i64, ptr %17, align 8
   %.not = icmp slt i64 %18, %16
   br i1 %.not, label %.loopexit, label %23
@@ -8237,11 +8237,11 @@ rb_array_len.exit.thread:                         ; preds = %6
   br i1 %.not56, label %.loopexit, label %21
 
 21:                                               ; preds = %rb_array_len.exit.thread
-  %22 = getelementptr inbounds i8, ptr %13, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %13, i64 16
   br label %RARRAY_AREF.exit
 
 23:                                               ; preds = %rb_array_len.exit
-  %24 = getelementptr inbounds i8, ptr %13, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %25 = load ptr, ptr %24, align 8
   br label %RARRAY_AREF.exit
 
@@ -8279,7 +8279,7 @@ rb_num2int_inline.exit:                           ; preds = %RARRAY_AREF.exit
   %37 = load i64, ptr %36, align 8
   %38 = and i64 %37, 8192
   %.not.i.i40 = icmp eq i64 %38, 0
-  %39 = getelementptr inbounds i8, ptr %36, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %36, i64 16
   br i1 %.not.i.i40, label %.lr.ph.split.us, label %RARRAY_AREF.exit42.preheader
 
 RARRAY_AREF.exit42.preheader:                     ; preds = %.lr.ph
@@ -8287,7 +8287,7 @@ RARRAY_AREF.exit42.preheader:                     ; preds = %.lr.ph
   br label %RARRAY_AREF.exit42
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
-  %40 = getelementptr inbounds i8, ptr %36, i64 32
+  %40 = getelementptr inbounds nuw i8, ptr %36, i64 32
   %41 = load ptr, ptr %40, align 8
   %wide.trip.count73 = zext i32 %10 to i64
   br label %RARRAY_AREF.exit42.us
@@ -8342,14 +8342,14 @@ RARRAY_AREF.exit42:                               ; preds = %RARRAY_AREF.exit42.
 62:                                               ; preds = %.critedge
   %63 = shl i64 %60, 17
   %64 = and i64 %63, 545460846592
-  %65 = getelementptr inbounds i8, ptr %.pre-phi, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %.pre-phi, i64 16
   br label %RARRAY_AREF.exit48
 
 66:                                               ; preds = %.critedge
-  %67 = getelementptr inbounds i8, ptr %.pre-phi, i64 16
+  %67 = getelementptr inbounds nuw i8, ptr %.pre-phi, i64 16
   %68 = load i64, ptr %67, align 8
   %69 = shl i64 %68, 32
-  %70 = getelementptr inbounds i8, ptr %.pre-phi, i64 32
+  %70 = getelementptr inbounds nuw i8, ptr %.pre-phi, i64 32
   %71 = load ptr, ptr %70, align 8
   br label %RARRAY_AREF.exit48
 
@@ -8436,7 +8436,7 @@ rb_num2int_inline.exit51:                         ; preds = %76, %78
   br label %rb_array_len.exit54
 
 117:                                              ; preds = %._crit_edge
-  %118 = getelementptr inbounds i8, ptr %111, i64 16
+  %118 = getelementptr inbounds nuw i8, ptr %111, i64 16
   %119 = load i64, ptr %118, align 8
   br label %rb_array_len.exit54
 
@@ -8465,10 +8465,10 @@ declare i32 @rb_profile_frames(i32 noundef, i32 noundef, ptr noundef, ptr nounde
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 0, 21) i64 @rjit_str_neq_internal(i64 noundef %0, i64 noundef %1) #0 {
   %3 = inttoptr i64 %0 to ptr
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load i64, ptr %4, align 8
   %6 = inttoptr i64 %1 to ptr
-  %7 = getelementptr inbounds i8, ptr %6, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i64, ptr %7, align 8
   %.not.i = icmp eq i64 %5, %8
   br i1 %.not.i, label %9, label %rb_str_eql_internal.exit.thread
@@ -8482,7 +8482,7 @@ define internal range(i64 0, 21) i64 @rjit_str_neq_internal(i64 noundef %0, i64 
   %12 = load i64, ptr %3, align 8, !noalias !32
   %13 = and i64 %12, 8192
   %.not.i.i.i = icmp eq i64 %13, 0
-  %14 = getelementptr inbounds i8, ptr %3, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 24
   br i1 %.not.i.i.i, label %RSTRING_PTR.exit.i, label %15
 
 15:                                               ; preds = %11
@@ -8494,7 +8494,7 @@ RSTRING_PTR.exit.i:                               ; preds = %15, %11
   %16 = load i64, ptr %6, align 8, !noalias !35
   %17 = and i64 %16, 8192
   %.not.i.i14.i = icmp eq i64 %17, 0
-  %18 = getelementptr inbounds i8, ptr %6, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 24
   br i1 %.not.i.i14.i, label %RSTRING_PTR.exit17.i, label %19
 
 19:                                               ; preds = %RSTRING_PTR.exit.i
@@ -8525,7 +8525,7 @@ define internal i64 @rjit_str_simple_append(i64 noundef %0, i64 noundef %1) #0 {
   %4 = load i64, ptr %3, align 8, !noalias !38
   %5 = and i64 %4, 8192
   %.not.i.i = icmp eq i64 %5, 0
-  %6 = getelementptr inbounds i8, ptr %3, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
   br i1 %.not.i.i, label %RSTRING_PTR.exit, label %7
 
 7:                                                ; preds = %2
@@ -8534,7 +8534,7 @@ define internal i64 @rjit_str_simple_append(i64 noundef %0, i64 noundef %1) #0 {
 
 RSTRING_PTR.exit:                                 ; preds = %2, %7
   %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %7 ], [ %6, %2 ]
-  %8 = getelementptr inbounds i8, ptr %3, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %9 = load i64, ptr %8, align 8
   %10 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef %.sroa.2.0.i, i64 noundef %9) #17
   ret i64 %10

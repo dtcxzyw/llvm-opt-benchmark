@@ -185,7 +185,7 @@ define internal i32 @dissect_pcnfsd2_auth_call(ptr noundef %0, ptr nocapture nou
   br i1 %.not46, label %pcnfsd_decode_obscure.exit, label %19
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %1, i64 408
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %21 = load ptr, ptr %20, align 8
   %22 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %16) #4
   %23 = trunc i64 %22 to i32
@@ -258,7 +258,7 @@ pcnfsd_decode_obscure.exit:                       ; preds = %.lr.ph.i, %19, %17
   br i1 %.not51, label %pcnfsd_decode_obscure.exit57, label %57
 
 57:                                               ; preds = %55
-  %58 = getelementptr inbounds i8, ptr %1, i64 408
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %59 = load ptr, ptr %58, align 8
   %60 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %54) #4
   %61 = trunc i64 %60 to i32

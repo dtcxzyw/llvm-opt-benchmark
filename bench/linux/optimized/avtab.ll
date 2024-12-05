@@ -38,21 +38,21 @@ define dso_local ptr @avtab_insert_nonunique(ptr noundef %0, ptr nocapture nound
   br i1 %4, label %125, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 12
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %7 = load i32, ptr %6, align 4
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %125, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load i32, ptr %10, align 8
   %12 = icmp eq i32 %11, -1
   br i1 %12, label %125, label %13
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load i32, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %17 = load i16, ptr %16, align 2
   %18 = zext i16 %17 to i32
   %19 = mul i32 %18, -862048943
@@ -65,7 +65,7 @@ define dso_local ptr @avtab_insert_nonunique(ptr noundef %0, ptr nocapture nound
   %26 = or disjoint i32 %25, %24
   %27 = mul i32 %26, 5
   %28 = add i32 %27, -430675100
-  %29 = getelementptr inbounds i8, ptr %1, i64 2
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %30 = load i16, ptr %29, align 2
   %31 = zext i16 %30 to i32
   %32 = mul i32 %31, -862048943
@@ -105,7 +105,7 @@ define dso_local ptr @avtab_insert_nonunique(ptr noundef %0, ptr nocapture nound
   br i1 %65, label %.loopexit, label %66
 
 66:                                               ; preds = %13
-  %67 = getelementptr inbounds i8, ptr %1, i64 6
+  %67 = getelementptr inbounds nuw i8, ptr %1, i64 6
   %68 = load i16, ptr %67, align 2
   %69 = and i16 %68, 32767
   br label %70
@@ -118,19 +118,19 @@ define dso_local ptr @avtab_insert_nonunique(ptr noundef %0, ptr nocapture nound
   br i1 %74, label %75, label %.thread9
 
 75:                                               ; preds = %70
-  %76 = getelementptr inbounds i8, ptr %71, i64 2
+  %76 = getelementptr inbounds nuw i8, ptr %71, i64 2
   %77 = load i16, ptr %76, align 2
   %78 = icmp eq i16 %30, %77
   br i1 %78, label %79, label %.thread.thread
 
 79:                                               ; preds = %75
-  %80 = getelementptr inbounds i8, ptr %71, i64 4
+  %80 = getelementptr inbounds nuw i8, ptr %71, i64 4
   %81 = load i16, ptr %80, align 2
   %82 = icmp eq i16 %17, %81
   br i1 %82, label %83, label %.thread
 
 83:                                               ; preds = %79
-  %84 = getelementptr inbounds i8, ptr %71, i64 6
+  %84 = getelementptr inbounds nuw i8, ptr %71, i64 6
   %85 = load i16, ptr %84, align 2
   %86 = and i16 %69, %85
   %.not = icmp ne i16 %86, 0
@@ -151,13 +151,13 @@ define dso_local ptr @avtab_insert_nonunique(ptr noundef %0, ptr nocapture nound
   br i1 %89, label %.loopexit, label %.thread10
 
 90:                                               ; preds = %.thread, %83
-  %91 = getelementptr inbounds i8, ptr %71, i64 4
+  %91 = getelementptr inbounds nuw i8, ptr %71, i64 4
   %92 = load i16, ptr %91, align 2
   %93 = icmp ult i16 %17, %92
   br i1 %93, label %.loopexit, label %.thread10
 
 .thread10:                                        ; preds = %.thread.thread, %.thread9, %90
-  %94 = getelementptr inbounds i8, ptr %71, i64 16
+  %94 = getelementptr inbounds nuw i8, ptr %71, i64 16
   %95 = load ptr, ptr %94, align 8
   %96 = icmp eq ptr %95, null
   br i1 %96, label %.loopexit, label %70, !llvm.loop !5
@@ -165,7 +165,7 @@ define dso_local ptr @avtab_insert_nonunique(ptr noundef %0, ptr nocapture nound
 .loopexit:                                        ; preds = %.thread9, %.thread10, %90, %.thread, %83, %.thread.thread, %13
   %97 = phi ptr [ null, %13 ], [ %72, %.thread.thread ], [ %72, %.thread9 ], [ %72, %90 ], [ %72, %.thread ], [ %72, %83 ], [ %71, %.thread10 ]
   %98 = icmp eq ptr %97, null
-  %99 = getelementptr inbounds i8, ptr %97, i64 16
+  %99 = getelementptr inbounds nuw i8, ptr %97, i64 16
   %100 = select i1 %98, ptr %63, ptr %99
   %101 = load ptr, ptr @avtab_node_cachep, align 8
   %102 = tail call noalias align 8 ptr @kmem_cache_alloc(ptr noundef %101, i32 noundef 3520) #13
@@ -193,19 +193,19 @@ define dso_local ptr @avtab_insert_nonunique(ptr noundef %0, ptr nocapture nound
 114:                                              ; preds = %108
   %115 = load ptr, ptr %2, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %110, ptr noundef align 4 dereferenceable(36) %115, i64 36, i1 false)
-  %116 = getelementptr inbounds i8, ptr %102, i64 8
+  %116 = getelementptr inbounds nuw i8, ptr %102, i64 8
   store ptr %110, ptr %116, align 8
   br label %120
 
 117:                                              ; preds = %104
   %118 = load i32, ptr %2, align 8
-  %119 = getelementptr inbounds i8, ptr %102, i64 8
+  %119 = getelementptr inbounds nuw i8, ptr %102, i64 8
   store i32 %118, ptr %119, align 8
   br label %120
 
 120:                                              ; preds = %117, %114
   %121 = load ptr, ptr %100, align 8
-  %122 = getelementptr inbounds i8, ptr %102, i64 16
+  %122 = getelementptr inbounds nuw i8, ptr %102, i64 16
   store ptr %121, ptr %122, align 8
   store ptr %102, ptr %100, align 8
   %123 = load i32, ptr %10, align 8
@@ -230,15 +230,15 @@ define dso_local noundef ptr @avtab_search_node(ptr noundef readonly %0, ptr noc
   br i1 %3, label %.thread9, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 12
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %6 = load i32, ptr %5, align 4
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %.thread9, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i32, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %12 = load i16, ptr %11, align 2
   %13 = zext i16 %12 to i32
   %14 = mul i32 %13, -862048943
@@ -251,7 +251,7 @@ define dso_local noundef ptr @avtab_search_node(ptr noundef readonly %0, ptr noc
   %21 = or disjoint i32 %20, %19
   %22 = mul i32 %21, 5
   %23 = add i32 %22, -430675100
-  %24 = getelementptr inbounds i8, ptr %1, i64 2
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %25 = load i16, ptr %24, align 2
   %26 = zext i16 %25 to i32
   %27 = mul i32 %26, -862048943
@@ -291,7 +291,7 @@ define dso_local noundef ptr @avtab_search_node(ptr noundef readonly %0, ptr noc
   br i1 %60, label %.thread9, label %61
 
 61:                                               ; preds = %8
-  %62 = getelementptr inbounds i8, ptr %1, i64 6
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 6
   %63 = load i16, ptr %62, align 2
   %64 = and i16 %63, 32767
   br label %65
@@ -303,19 +303,19 @@ define dso_local noundef ptr @avtab_search_node(ptr noundef readonly %0, ptr noc
   br i1 %68, label %69, label %.thread
 
 69:                                               ; preds = %65
-  %70 = getelementptr inbounds i8, ptr %66, i64 2
+  %70 = getelementptr inbounds nuw i8, ptr %66, i64 2
   %71 = load i16, ptr %70, align 2
   %72 = icmp eq i16 %25, %71
   br i1 %72, label %73, label %.thread11
 
 73:                                               ; preds = %69
-  %74 = getelementptr inbounds i8, ptr %66, i64 4
+  %74 = getelementptr inbounds nuw i8, ptr %66, i64 4
   %75 = load i16, ptr %74, align 2
   %76 = icmp eq i16 %12, %75
   br i1 %76, label %77, label %82
 
 77:                                               ; preds = %73
-  %78 = getelementptr inbounds i8, ptr %66, i64 6
+  %78 = getelementptr inbounds nuw i8, ptr %66, i64 6
   %79 = load i16, ptr %78, align 2
   %80 = and i16 %64, %79
   %81 = icmp eq i16 %80, 0
@@ -334,13 +334,13 @@ define dso_local noundef ptr @avtab_search_node(ptr noundef readonly %0, ptr noc
   br i1 %85, label %.thread9, label %.thread5
 
 86:                                               ; preds = %82
-  %87 = getelementptr inbounds i8, ptr %66, i64 4
+  %87 = getelementptr inbounds nuw i8, ptr %66, i64 4
   %88 = load i16, ptr %87, align 2
   %89 = icmp ult i16 %12, %88
   br i1 %89, label %.thread9, label %.thread5
 
 .thread5:                                         ; preds = %.thread11, %.thread, %86
-  %90 = getelementptr inbounds i8, ptr %66, i64 16
+  %90 = getelementptr inbounds nuw i8, ptr %66, i64 16
   %91 = load ptr, ptr %90, align 8
   %92 = icmp eq ptr %91, null
   br i1 %92, label %.thread9, label %65, !llvm.loop !8
@@ -363,7 +363,7 @@ define dso_local noundef ptr @avtab_search_node_next(ptr noundef readonly %0, i1
   %9 = lshr i64 %5, 32
   %10 = trunc i64 %9 to i16
   %11 = and i16 %1, 32767
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %.thread8, label %.lr.ph
@@ -375,19 +375,19 @@ define dso_local noundef ptr @avtab_search_node_next(ptr noundef readonly %0, i1
   br i1 %17, label %18, label %.thread
 
 18:                                               ; preds = %.lr.ph
-  %19 = getelementptr inbounds i8, ptr %15, i64 2
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 2
   %20 = load i16, ptr %19, align 2
   %21 = icmp eq i16 %20, %8
   br i1 %21, label %22, label %.thread17
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %15, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %24 = load i16, ptr %23, align 2
   %25 = icmp eq i16 %24, %10
   br i1 %25, label %26, label %31
 
 26:                                               ; preds = %22
-  %27 = getelementptr inbounds i8, ptr %15, i64 6
+  %27 = getelementptr inbounds nuw i8, ptr %15, i64 6
   %28 = load i16, ptr %27, align 2
   %29 = and i16 %11, %28
   %30 = icmp eq i16 %29, 0
@@ -406,13 +406,13 @@ define dso_local noundef ptr @avtab_search_node_next(ptr noundef readonly %0, i1
   br i1 %34, label %.thread8, label %.thread4
 
 35:                                               ; preds = %31
-  %36 = getelementptr inbounds i8, ptr %15, i64 4
+  %36 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %37 = load i16, ptr %36, align 2
   %38 = icmp ugt i16 %37, %10
   br i1 %38, label %.thread8, label %.thread4
 
 .thread4:                                         ; preds = %.thread17, %.thread, %35
-  %39 = getelementptr inbounds i8, ptr %15, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %40 = load ptr, ptr %39, align 8
   %41 = icmp eq ptr %40, null
   br i1 %41, label %.thread8, label %.lr.ph
@@ -434,7 +434,7 @@ define dso_local void @avtab_destroy(ptr noundef %0) local_unnamed_addr #0 align
   br i1 %2, label %32, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 12
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %5 = load i32, ptr %4, align 4
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %.loopexit5, label %.preheader4
@@ -450,9 +450,9 @@ define dso_local void @avtab_destroy(ptr noundef %0) local_unnamed_addr #0 align
 
 .preheader:                                       ; preds = %.preheader4, %24
   %13 = phi ptr [ %15, %24 ], [ %11, %.preheader4 ]
-  %14 = getelementptr inbounds i8, ptr %13, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %13, i64 6
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 6
   %17 = load i16, ptr %16, align 2
   %18 = and i16 %17, 1792
   %19 = icmp eq i16 %18, 0
@@ -460,7 +460,7 @@ define dso_local void @avtab_destroy(ptr noundef %0) local_unnamed_addr #0 align
 
 20:                                               ; preds = %.preheader
   %21 = load ptr, ptr @avtab_xperms_cachep, align 8
-  %22 = getelementptr inbounds i8, ptr %13, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %23 = load ptr, ptr %22, align 8
   tail call void @kmem_cache_free(ptr noundef %21, ptr noundef %23) #13
   br label %24
@@ -534,10 +534,10 @@ define dso_local noundef range(i32 -12, 1) i32 @avtab_alloc(ptr nocapture nounde
   br i1 %19, label %.thread1, label %20
 
 20:                                               ; preds = %.thread
-  %21 = getelementptr inbounds i8, ptr %0, i64 12
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %15, ptr %21, align 4
   %22 = add nsw i32 %15, -1
-  %23 = getelementptr inbounds i8, ptr %0, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %22, ptr %23, align 8
   br label %.thread1
 
@@ -548,7 +548,7 @@ define dso_local noundef range(i32 -12, 1) i32 @avtab_alloc(ptr nocapture nounde
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -12, 1) i32 @avtab_alloc_dup(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 12
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %15, label %6
@@ -562,10 +562,10 @@ define dso_local noundef range(i32 -12, 1) i32 @avtab_alloc_dup(ptr nocapture no
   br i1 %10, label %15, label %11
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %0, i64 12
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %4, ptr %12, align 4
   %13 = add i32 %4, -1
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %13, ptr %14, align 8
   br label %15
 
@@ -586,12 +586,12 @@ define dso_local i32 @avtab_read_item(ptr noundef %0, ptr nocapture noundef %1, 
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %8, i8 0, i64 36, i1 false), !annotation !12
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %9, i8 0, i64 32, i1 false), !annotation !12
-  %10 = getelementptr inbounds i8, ptr %2, i64 576
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 576
   %11 = load i32, ptr %10, align 8
   store i64 0, ptr %6, align 8
   store i64 0, ptr %7, align 8
   %12 = icmp ult i32 %11, 20
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load i64, ptr %13, align 8
   br i1 %12, label %15, label %106
 
@@ -645,10 +645,10 @@ define dso_local i32 @avtab_read_item(ptr noundef %0, ptr nocapture noundef %1, 
   br label %.loopexit
 
 41:                                               ; preds = %33
-  %42 = getelementptr inbounds i8, ptr %9, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %43 = load i32, ptr %42, align 4
   %44 = trunc i32 %43 to i16
-  %45 = getelementptr inbounds i8, ptr %6, i64 2
+  %45 = getelementptr inbounds nuw i8, ptr %6, i64 2
   store i16 %44, ptr %45, align 2
   %46 = icmp ult i32 %43, 65536
   br i1 %46, label %49, label %47
@@ -658,10 +658,10 @@ define dso_local i32 @avtab_read_item(ptr noundef %0, ptr nocapture noundef %1, 
   br label %.loopexit
 
 49:                                               ; preds = %41
-  %50 = getelementptr inbounds i8, ptr %9, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %51 = load i32, ptr %50, align 8
   %52 = trunc i32 %51 to i16
-  %53 = getelementptr inbounds i8, ptr %6, i64 4
+  %53 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i16 %52, ptr %53, align 4
   %54 = icmp ult i32 %51, 65536
   br i1 %54, label %57, label %55
@@ -671,7 +671,7 @@ define dso_local i32 @avtab_read_item(ptr noundef %0, ptr nocapture noundef %1, 
   br label %.loopexit
 
 57:                                               ; preds = %49
-  %58 = getelementptr inbounds i8, ptr %9, i64 12
+  %58 = getelementptr inbounds nuw i8, ptr %9, i64 12
   %59 = load i32, ptr %58, align 4
   %60 = lshr i32 %59, 16
   %61 = and i32 %59, 119
@@ -702,7 +702,7 @@ define dso_local i32 @avtab_read_item(ptr noundef %0, ptr nocapture noundef %1, 
 76:                                               ; preds = %73
   %77 = trunc nuw i32 %60 to i16
   %78 = and i16 %77, -32768
-  %79 = getelementptr inbounds i8, ptr %6, i64 6
+  %79 = getelementptr inbounds nuw i8, ptr %6, i64 6
   br label %82
 
 80:                                               ; preds = %73
@@ -756,22 +756,22 @@ define dso_local i32 @avtab_read_item(ptr noundef %0, ptr nocapture noundef %1, 
 110:                                              ; preds = %106
   %111 = load ptr, ptr %1, align 8
   %112 = load i16, ptr %111, align 1
-  %113 = getelementptr inbounds i8, ptr %111, i64 2
+  %113 = getelementptr inbounds nuw i8, ptr %111, i64 2
   %114 = load i16, ptr %113, align 1
-  %115 = getelementptr inbounds i8, ptr %111, i64 4
+  %115 = getelementptr inbounds nuw i8, ptr %111, i64 4
   %116 = load i16, ptr %115, align 1
-  %117 = getelementptr inbounds i8, ptr %111, i64 6
+  %117 = getelementptr inbounds nuw i8, ptr %111, i64 6
   %118 = load i16, ptr %117, align 1
   %119 = getelementptr i8, ptr %111, i64 8
   store ptr %119, ptr %1, align 8
   %120 = add i64 %14, -8
   store i64 %120, ptr %13, align 8
   store i16 %112, ptr %6, align 8
-  %121 = getelementptr inbounds i8, ptr %6, i64 2
+  %121 = getelementptr inbounds nuw i8, ptr %6, i64 2
   store i16 %114, ptr %121, align 2
-  %122 = getelementptr inbounds i8, ptr %6, i64 4
+  %122 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i16 %116, ptr %122, align 4
-  %123 = getelementptr inbounds i8, ptr %6, i64 6
+  %123 = getelementptr inbounds nuw i8, ptr %6, i64 6
   store i16 %118, ptr %123, align 2
   %124 = zext i16 %112 to i32
   %125 = tail call i32 @policydb_type_isvalid(ptr noundef %2, i32 noundef %124) #13
@@ -845,7 +845,7 @@ define dso_local i32 @avtab_read_item(ptr noundef %0, ptr nocapture noundef %1, 
   br label %.loopexit
 
 165:                                              ; preds = %157
-  %166 = getelementptr inbounds i8, ptr %8, i64 1
+  %166 = getelementptr inbounds nuw i8, ptr %8, i64 1
   %167 = load i8, ptr %160, align 1
   store i8 %167, ptr %166, align 1
   %168 = getelementptr i8, ptr %158, i64 2
@@ -861,8 +861,8 @@ define dso_local i32 @avtab_read_item(ptr noundef %0, ptr nocapture noundef %1, 
   store ptr %172, ptr %1, align 8
   %173 = add i64 %153, -34
   store i64 %173, ptr %13, align 8
-  %174 = getelementptr inbounds i8, ptr %8, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(32) %174, ptr noundef nonnull align 16 dereferenceable(32) %9, i64 32, i1 false)
+  %174 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %174, ptr noundef nonnull align 16 dereferenceable(32) %9, i64 32, i1 false)
   store ptr %8, ptr %7, align 8
   %175 = ptrtoint ptr %8 to i64
   %176 = trunc i64 %175 to i32
@@ -930,7 +930,7 @@ declare dso_local i32 @policydb_class_isvalid(ptr noundef, i32 noundef) local_un
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @avtab_read(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = icmp ult i64 %5, 4
   br i1 %6, label %.thread, label %7
@@ -970,10 +970,10 @@ define dso_local noundef i32 @avtab_read(ptr noundef %0, ptr nocapture noundef %
   br i1 %28, label %.loopexit12, label %29
 
 29:                                               ; preds = %.thread8
-  %30 = getelementptr inbounds i8, ptr %0, i64 12
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %24, ptr %30, align 4
   %31 = add nsw i32 %24, -1
-  %32 = getelementptr inbounds i8, ptr %0, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %31, ptr %32, align 8
   br label %.preheader28
 
@@ -1013,7 +1013,7 @@ define dso_local noundef i32 @avtab_read(ptr noundef %0, ptr nocapture noundef %
   br i1 %44, label %.loopexit13, label %45
 
 45:                                               ; preds = %.loopexit12
-  %46 = getelementptr inbounds i8, ptr %0, i64 12
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %47 = load i32, ptr %46, align 4
   %48 = icmp eq i32 %47, 0
   br i1 %48, label %.loopexit11, label %.preheader10
@@ -1029,9 +1029,9 @@ define dso_local noundef i32 @avtab_read(ptr noundef %0, ptr nocapture noundef %
 
 .preheader:                                       ; preds = %.preheader10, %66
   %55 = phi ptr [ %57, %66 ], [ %53, %.preheader10 ]
-  %56 = getelementptr inbounds i8, ptr %55, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 16
   %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %55, i64 6
+  %58 = getelementptr inbounds nuw i8, ptr %55, i64 6
   %59 = load i16, ptr %58, align 2
   %60 = and i16 %59, 1792
   %61 = icmp eq i16 %60, 0
@@ -1039,7 +1039,7 @@ define dso_local noundef i32 @avtab_read(ptr noundef %0, ptr nocapture noundef %
 
 62:                                               ; preds = %.preheader
   %63 = load ptr, ptr @avtab_xperms_cachep, align 8
-  %64 = getelementptr inbounds i8, ptr %55, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %65 = load ptr, ptr %64, align 8
   tail call void @kmem_cache_free(ptr noundef %63, ptr noundef %65) #13
   br label %66
@@ -1074,21 +1074,21 @@ define internal noundef range(i32 -22, 1) i32 @avtab_insertf(ptr noundef %0, ptr
   br i1 %5, label %131, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %0, i64 12
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %8 = load i32, ptr %7, align 4
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %131, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load i32, ptr %11, align 8
   %13 = icmp eq i32 %12, -1
   br i1 %13, label %131, label %14
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load i32, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %18 = load i16, ptr %17, align 2
   %19 = zext i16 %18 to i32
   %20 = mul i32 %19, -862048943
@@ -1101,7 +1101,7 @@ define internal noundef range(i32 -22, 1) i32 @avtab_insertf(ptr noundef %0, ptr
   %27 = or disjoint i32 %26, %25
   %28 = mul i32 %27, 5
   %29 = add i32 %28, -430675100
-  %30 = getelementptr inbounds i8, ptr %1, i64 2
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %31 = load i16, ptr %30, align 2
   %32 = zext i16 %31 to i32
   %33 = mul i32 %32, -862048943
@@ -1141,7 +1141,7 @@ define internal noundef range(i32 -22, 1) i32 @avtab_insertf(ptr noundef %0, ptr
   br i1 %66, label %.thread9, label %67
 
 67:                                               ; preds = %14
-  %68 = getelementptr inbounds i8, ptr %1, i64 6
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 6
   %69 = load i16, ptr %68, align 2
   %70 = and i16 %69, 32767
   %71 = and i16 %69, 1792
@@ -1149,7 +1149,7 @@ define internal noundef range(i32 -22, 1) i32 @avtab_insertf(ptr noundef %0, ptr
   br label %76
 
 .thread7:                                         ; preds = %.thread15, %.thread, %98
-  %73 = getelementptr inbounds i8, ptr %77, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %77, i64 16
   %74 = load ptr, ptr %73, align 8
   %75 = icmp eq ptr %74, null
   br i1 %75, label %.thread9, label %76, !llvm.loop !16
@@ -1162,19 +1162,19 @@ define internal noundef range(i32 -22, 1) i32 @avtab_insertf(ptr noundef %0, ptr
   br i1 %80, label %81, label %.thread
 
 81:                                               ; preds = %76
-  %82 = getelementptr inbounds i8, ptr %77, i64 2
+  %82 = getelementptr inbounds nuw i8, ptr %77, i64 2
   %83 = load i16, ptr %82, align 2
   %84 = icmp eq i16 %31, %83
   br i1 %84, label %85, label %.thread15
 
 85:                                               ; preds = %81
-  %86 = getelementptr inbounds i8, ptr %77, i64 4
+  %86 = getelementptr inbounds nuw i8, ptr %77, i64 4
   %87 = load i16, ptr %86, align 2
   %88 = icmp eq i16 %18, %87
   br i1 %88, label %89, label %94
 
 89:                                               ; preds = %85
-  %90 = getelementptr inbounds i8, ptr %77, i64 6
+  %90 = getelementptr inbounds nuw i8, ptr %77, i64 6
   %91 = load i16, ptr %90, align 2
   %92 = and i16 %70, %91
   %93 = icmp eq i16 %92, 0
@@ -1193,7 +1193,7 @@ define internal noundef range(i32 -22, 1) i32 @avtab_insertf(ptr noundef %0, ptr
   br i1 %97, label %.thread9, label %.thread7
 
 98:                                               ; preds = %94
-  %99 = getelementptr inbounds i8, ptr %77, i64 4
+  %99 = getelementptr inbounds nuw i8, ptr %77, i64 4
   %100 = load i16, ptr %99, align 2
   %101 = icmp ult i16 %18, %100
   br i1 %101, label %.thread9, label %.thread7
@@ -1204,7 +1204,7 @@ define internal noundef range(i32 -22, 1) i32 @avtab_insertf(ptr noundef %0, ptr
 .thread9:                                         ; preds = %94, %98, %.thread, %.thread7, %.thread15, %102, %14
   %103 = phi ptr [ null, %14 ], [ %78, %102 ], [ %78, %.thread15 ], [ %78, %94 ], [ %78, %98 ], [ %78, %.thread ], [ %77, %.thread7 ]
   %104 = icmp eq ptr %103, null
-  %105 = getelementptr inbounds i8, ptr %103, i64 16
+  %105 = getelementptr inbounds nuw i8, ptr %103, i64 16
   %106 = select i1 %104, ptr %64, ptr %105
   %107 = load ptr, ptr @avtab_node_cachep, align 8
   %108 = tail call noalias align 8 ptr @kmem_cache_alloc(ptr noundef %107, i32 noundef 3520) #13
@@ -1232,19 +1232,19 @@ define internal noundef range(i32 -22, 1) i32 @avtab_insertf(ptr noundef %0, ptr
 120:                                              ; preds = %114
   %121 = load ptr, ptr %2, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %116, ptr noundef align 4 dereferenceable(36) %121, i64 36, i1 false)
-  %122 = getelementptr inbounds i8, ptr %108, i64 8
+  %122 = getelementptr inbounds nuw i8, ptr %108, i64 8
   store ptr %116, ptr %122, align 8
   br label %126
 
 123:                                              ; preds = %110
   %124 = load i32, ptr %2, align 8
-  %125 = getelementptr inbounds i8, ptr %108, i64 8
+  %125 = getelementptr inbounds nuw i8, ptr %108, i64 8
   store i32 %124, ptr %125, align 8
   br label %126
 
 126:                                              ; preds = %123, %120
   %127 = load ptr, ptr %106, align 8
-  %128 = getelementptr inbounds i8, ptr %108, i64 16
+  %128 = getelementptr inbounds nuw i8, ptr %108, i64 16
   store ptr %127, ptr %128, align 8
   store ptr %108, ptr %106, align 8
   %129 = load i32, ptr %11, align 8
@@ -1261,26 +1261,26 @@ define internal noundef range(i32 -22, 1) i32 @avtab_insertf(ptr noundef %0, ptr
 define dso_local noundef range(i32 -22, 1) i32 @avtab_write_item(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) local_unnamed_addr #8 align 16 {
   %4 = alloca [7 x i32], align 4
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %4)
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = icmp ugt i64 %6, 7
   br i1 %7, label %8, label %.thread1
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %1, i64 6
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 6
   %10 = load i16, ptr %9, align 2
-  %11 = getelementptr inbounds i8, ptr %1, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %12 = load i16, ptr %11, align 4
-  %13 = getelementptr inbounds i8, ptr %1, i64 2
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %14 = load i16, ptr %13, align 2
   %15 = load i16, ptr %1, align 8
   %16 = load ptr, ptr %2, align 8
   store i16 %15, ptr %16, align 1
-  %17 = getelementptr inbounds i8, ptr %16, i64 2
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 2
   store i16 %14, ptr %17, align 1
-  %18 = getelementptr inbounds i8, ptr %16, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 4
   store i16 %12, ptr %18, align 1
-  %19 = getelementptr inbounds i8, ptr %16, i64 6
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 6
   store i16 %10, ptr %19, align 1
   %20 = load ptr, ptr %2, align 8
   %21 = getelementptr i8, ptr %20, i64 8
@@ -1294,7 +1294,7 @@ define dso_local noundef range(i32 -22, 1) i32 @avtab_write_item(ptr nocapture r
   br i1 %26, label %53, label %27
 
 27:                                               ; preds = %8
-  %28 = getelementptr inbounds i8, ptr %1, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %29 = icmp eq i64 %23, 0
   br i1 %29, label %.thread1, label %30
 
@@ -1313,7 +1313,7 @@ define dso_local noundef range(i32 -22, 1) i32 @avtab_write_item(ptr nocapture r
 
 38:                                               ; preds = %30
   %39 = load ptr, ptr %28, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 1
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 1
   %41 = load i8, ptr %40, align 1
   store i8 %41, ptr %34, align 1
   %42 = load ptr, ptr %2, align 8
@@ -1323,17 +1323,17 @@ define dso_local noundef range(i32 -22, 1) i32 @avtab_write_item(ptr nocapture r
   %45 = add i64 %44, -1
   store i64 %45, ptr %5, align 8
   %46 = load ptr, ptr %28, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 4
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 4
   %48 = load i32, ptr %47, align 4
-  %49 = getelementptr inbounds i8, ptr %46, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %4, ptr noundef align 4 dereferenceable(28) %49, i64 28, i1 false)
+  %49 = getelementptr inbounds nuw i8, ptr %46, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %4, ptr noundef nonnull align 4 dereferenceable(28) %49, i64 28, i1 false)
   %50 = icmp ult i64 %45, 32
   br i1 %50, label %.thread1, label %51
 
 51:                                               ; preds = %38
   store i32 %48, ptr %43, align 1
   %52 = getelementptr i8, ptr %42, i64 5
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(28) %52, ptr noundef nonnull align 4 dereferenceable(28) %4, i64 28, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(28) %52, ptr noundef nonnull align 4 dereferenceable(28) %4, i64 28, i1 false)
   br label %58
 
 53:                                               ; preds = %8
@@ -1341,7 +1341,7 @@ define dso_local noundef range(i32 -22, 1) i32 @avtab_write_item(ptr nocapture r
   br i1 %54, label %.thread1, label %55
 
 55:                                               ; preds = %53
-  %56 = getelementptr inbounds i8, ptr %1, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %57 = load i32, ptr %56, align 8
   store i32 %57, ptr %21, align 1
   br label %58
@@ -1366,13 +1366,13 @@ define dso_local noundef range(i32 -22, 1) i32 @avtab_write_item(ptr nocapture r
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
 define dso_local noundef range(i32 -22, 1) i32 @avtab_write(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) local_unnamed_addr #9 align 16 {
   %4 = alloca [7 x i32], align 4
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = icmp ugt i64 %6, 3
   br i1 %7, label %8, label %.loopexit4
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load i32, ptr %9, align 8
   %11 = load ptr, ptr %2, align 8
   store i32 %10, ptr %11, align 1
@@ -1382,7 +1382,7 @@ define dso_local noundef range(i32 -22, 1) i32 @avtab_write(ptr nocapture nounde
   %14 = load i64, ptr %5, align 8
   %15 = add i64 %14, -4
   store i64 %15, ptr %5, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 12
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %17 = load i32, ptr %16, align 4
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %.loopexit4, label %.preheader
@@ -1408,7 +1408,7 @@ define dso_local noundef range(i32 -22, 1) i32 @avtab_write(ptr nocapture nounde
   %32 = add i64 %31, %28
   store i64 %32, ptr %5, align 8
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %4)
-  %33 = getelementptr inbounds i8, ptr %38, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %34 = load ptr, ptr %33, align 8
   %35 = icmp eq ptr %34, null
   br i1 %35, label %.loopexit.loopexit, label %thread-pre-split, !llvm.loop !17
@@ -1422,19 +1422,19 @@ thread-pre-split:                                 ; preds = %.preheader, %26
   br i1 %39, label %40, label %avtab_write_item.exit.thread
 
 40:                                               ; preds = %thread-pre-split
-  %41 = getelementptr inbounds i8, ptr %38, i64 6
+  %41 = getelementptr inbounds nuw i8, ptr %38, i64 6
   %42 = load i16, ptr %41, align 2
-  %43 = getelementptr inbounds i8, ptr %38, i64 4
+  %43 = getelementptr inbounds nuw i8, ptr %38, i64 4
   %44 = load i16, ptr %43, align 4
-  %45 = getelementptr inbounds i8, ptr %38, i64 2
+  %45 = getelementptr inbounds nuw i8, ptr %38, i64 2
   %46 = load i16, ptr %45, align 2
   %47 = load i16, ptr %38, align 8
   store i16 %47, ptr %36, align 1
-  %48 = getelementptr inbounds i8, ptr %36, i64 2
+  %48 = getelementptr inbounds nuw i8, ptr %36, i64 2
   store i16 %46, ptr %48, align 1
-  %49 = getelementptr inbounds i8, ptr %36, i64 4
+  %49 = getelementptr inbounds nuw i8, ptr %36, i64 4
   store i16 %44, ptr %49, align 1
-  %50 = getelementptr inbounds i8, ptr %36, i64 6
+  %50 = getelementptr inbounds nuw i8, ptr %36, i64 6
   store i16 %42, ptr %50, align 1
   %51 = load ptr, ptr %2, align 8
   %52 = getelementptr i8, ptr %51, i64 8
@@ -1448,7 +1448,7 @@ thread-pre-split:                                 ; preds = %.preheader, %26
   br i1 %57, label %84, label %58
 
 58:                                               ; preds = %40
-  %59 = getelementptr inbounds i8, ptr %38, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %60 = icmp eq i64 %54, 0
   br i1 %60, label %avtab_write_item.exit.thread, label %61
 
@@ -1467,7 +1467,7 @@ thread-pre-split:                                 ; preds = %.preheader, %26
 
 69:                                               ; preds = %61
   %70 = load ptr, ptr %59, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 1
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 1
   %72 = load i8, ptr %71, align 1
   store i8 %72, ptr %65, align 1
   %73 = load ptr, ptr %2, align 8
@@ -1477,17 +1477,17 @@ thread-pre-split:                                 ; preds = %.preheader, %26
   %76 = add i64 %75, -1
   store i64 %76, ptr %5, align 8
   %77 = load ptr, ptr %59, align 8
-  %78 = getelementptr inbounds i8, ptr %77, i64 4
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 4
   %79 = load i32, ptr %78, align 4
-  %80 = getelementptr inbounds i8, ptr %77, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %4, ptr noundef align 4 dereferenceable(28) %80, i64 28, i1 false)
+  %80 = getelementptr inbounds nuw i8, ptr %77, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %4, ptr noundef nonnull align 4 dereferenceable(28) %80, i64 28, i1 false)
   %81 = icmp ult i64 %76, 32
   br i1 %81, label %avtab_write_item.exit.thread, label %82
 
 82:                                               ; preds = %69
   store i32 %79, ptr %74, align 1
   %83 = getelementptr i8, ptr %73, i64 5
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(28) %83, ptr noundef nonnull align 4 dereferenceable(28) %4, i64 28, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(28) %83, ptr noundef nonnull align 4 dereferenceable(28) %4, i64 28, i1 false)
   br label %26
 
 84:                                               ; preds = %40
@@ -1495,7 +1495,7 @@ thread-pre-split:                                 ; preds = %.preheader, %26
   br i1 %85, label %avtab_write_item.exit.thread, label %86
 
 86:                                               ; preds = %84
-  %87 = getelementptr inbounds i8, ptr %38, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %88 = load i32, ptr %87, align 8
   store i32 %88, ptr %52, align 1
   br label %26

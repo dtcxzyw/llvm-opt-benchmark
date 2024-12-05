@@ -31,7 +31,7 @@ define hidden range(i32 -1, 2) i32 @mpeg_open(ptr nocapture noundef %0, ptr noun
   br i1 %.not, label %8, label %.preheader
 
 .preheader:                                       ; preds = %3
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @magic, i64 8), align 8
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @magic, i64 8), align 8
   %.not2729 = icmp eq ptr %7, null
   br i1 %.not2729, label %.loopexit, label %.lr.ph
 
@@ -64,29 +64,29 @@ define hidden range(i32 -1, 2) i32 @mpeg_open(ptr nocapture noundef %0, ptr noun
 
 21:                                               ; preds = %17
   %22 = load i32, ptr @mpeg_file_type_subtype, align 4
-  %23 = getelementptr inbounds i8, ptr %0, i64 20
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %22, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %0, i64 144
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i32 96, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 148
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 148
   store i32 9, ptr %25, align 4
-  %26 = getelementptr inbounds i8, ptr %0, i64 112
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr @mpeg_read, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 120
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr @mpeg_seek_read, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %28, align 8
   %29 = call noalias dereferenceable_or_null(32) ptr @g_malloc_n(i64 noundef 1, i64 noundef 32) #8
-  %30 = getelementptr inbounds i8, ptr %0, i64 96
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %29, ptr %30, align 8
   store i64 0, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %29, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store i32 0, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %29, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 16
   store i64 0, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %.02430, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %.02430, i64 16
   %34 = load i32, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %29, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %29, i64 24
   store i32 %34, ptr %35, align 8
   br label %.loopexit
 
@@ -113,7 +113,7 @@ define internal range(i32 0, 2) i32 @mpeg_read(ptr nocapture noundef readonly %0
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @mpeg_seek_read(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i64 @file_seek(ptr noundef %8, i64 noundef %1, i32 noundef 0, ptr noundef %4) #7
   %10 = icmp eq i64 %9, -1
@@ -170,7 +170,7 @@ define internal fastcc range(i32 0, 2) i32 @mpeg_read_packet(ptr nocapture %.96.
   %14 = alloca %struct.mpa, align 4
   %15 = alloca %struct.nstime_t, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(16) %.96.val, i64 16, i1 false)
-  %16 = getelementptr inbounds i8, ptr %.96.val, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %.96.val, i64 24
   %17 = load i32, ptr %16, align 8
   %.not = icmp eq i32 %17, 0
   br i1 %.not, label %91, label %18
@@ -232,7 +232,7 @@ define internal fastcc range(i32 0, 2) i32 @mpeg_read_packet(ptr nocapture %.96.
   %48 = udiv i32 1000000000, %47
   %49 = call i32 @mpa_samples(ptr noundef nonnull %14) #7
   %50 = mul i32 %49, %48
-  %51 = getelementptr inbounds i8, ptr %.96.val, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %.96.val, i64 8
   %52 = load i32, ptr %51, align 8
   %53 = add i32 %52, %50
   store i32 %53, ptr %51, align 8
@@ -444,7 +444,7 @@ mpeg_read_audio_packet.exit:                      ; preds = %18, %20, %37, %46, 
   %145 = mul nuw nsw i64 %142, 300
   %146 = add nuw nsw i64 %145, %144
   %147 = urem i64 %146, 27000000
-  %148 = getelementptr inbounds i8, ptr %.96.val, i64 16
+  %148 = getelementptr inbounds nuw i8, ptr %.96.val, i64 16
   %149 = load i64, ptr %148, align 8
   %150 = udiv i64 %146, 27000000
   %151 = add i64 %149, %150
@@ -452,7 +452,7 @@ mpeg_read_audio_packet.exit:                      ; preds = %18, %20, %37, %46, 
   %152 = mul nuw nsw i64 %147, 1000000000
   %153 = udiv i64 %152, 27000000
   %154 = trunc nuw nsw i64 %153 to i32
-  %155 = getelementptr inbounds i8, ptr %.96.val, i64 8
+  %155 = getelementptr inbounds nuw i8, ptr %.96.val, i64 8
   store i32 %154, ptr %155, align 8
   br label %162
 
@@ -499,23 +499,23 @@ mpeg_read_pes_packet.exit:                        ; preds = %92, %94, %106, %102
 169:                                              ; preds = %167
   store i32 0, ptr %1, align 8
   %170 = call ptr @wtap_block_create(i32 noundef 5) #7
-  %171 = getelementptr inbounds i8, ptr %1, i64 232
+  %171 = getelementptr inbounds nuw i8, ptr %1, i64 232
   store ptr %170, ptr %171, align 8
-  %172 = getelementptr inbounds i8, ptr %1, i64 4
+  %172 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 0, ptr %172, align 4
   %.not31 = icmp eq i32 %3, 0
   br i1 %.not31, label %173, label %175
 
 173:                                              ; preds = %169
   store i32 1, ptr %172, align 4
-  %174 = getelementptr inbounds i8, ptr %1, i64 16
+  %174 = getelementptr inbounds nuw i8, ptr %1, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %174, ptr noundef nonnull align 8 dereferenceable(16) %15, i64 16, i1 false)
   br label %175
 
 175:                                              ; preds = %173, %169
-  %176 = getelementptr inbounds i8, ptr %1, i64 64
+  %176 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store i32 %.0, ptr %176, align 8
-  %177 = getelementptr inbounds i8, ptr %1, i64 68
+  %177 = getelementptr inbounds nuw i8, ptr %1, i64 68
   store i32 %.0, ptr %177, align 4
   br label %178
 

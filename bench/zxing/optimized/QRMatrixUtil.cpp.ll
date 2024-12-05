@@ -47,9 +47,9 @@ define void @_ZN5ZXing6QRCode11BuildMatrixERKNS_8BitArrayENS0_20ErrorCorrectionL
   %14 = alloca %"class.std::__cxx11::basic_string", align 8
   %15 = alloca %"class.std::__cxx11::basic_string", align 8
   %16 = alloca %"class.ZXing::BitArray", align 8
-  %17 = getelementptr inbounds i8, ptr %4, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %4, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %20 = load ptr, ptr %19, align 8
   %.not5.i.i.i.i.i = icmp eq ptr %18, %20
   br i1 %.not5.i.i.i.i.i, label %.preheader51.i.i.preheader, label %.lr.ph.preheader.i.i.i.i.i
@@ -71,7 +71,7 @@ define void @_ZN5ZXing6QRCode11BuildMatrixERKNS_8BitArrayENS0_20ErrorCorrectionL
   br label %48
 
 .preheader.i.i:                                   ; preds = %60
-  %26 = getelementptr inbounds i8, ptr %4, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 4
   br label %.preheader.split.split.us.i.i
 
 .preheader.split.split.us.i.i:                    ; preds = %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit35.us63.i.i", %.preheader.i.i
@@ -92,7 +92,7 @@ define void @_ZN5ZXing6QRCode11BuildMatrixERKNS_8BitArrayENS0_20ErrorCorrectionL
   %33 = add nuw nsw i32 %32, %.054.us55.i.i
   %34 = zext nneg i32 %33 to i64
   %35 = load ptr, ptr %17, align 8
-  %36 = getelementptr inbounds %"class.ZXing::Trit", ptr %35, i64 %34
+  %36 = getelementptr inbounds nuw %"class.ZXing::Trit", ptr %35, i64 %34
   store i8 0, ptr %36, align 1
   %.pre73.i.i = load i32, ptr %4, align 8
   %.pre75.i.i = load i32, ptr %26, align 4
@@ -110,8 +110,8 @@ define void @_ZN5ZXing6QRCode11BuildMatrixERKNS_8BitArrayENS0_20ErrorCorrectionL
   %42 = mul nuw nsw i32 %38, %.054.us55.i.i
   %43 = load ptr, ptr %17, align 8
   %44 = zext nneg i32 %42 to i64
-  %45 = getelementptr inbounds %"class.ZXing::Trit", ptr %43, i64 %44
-  %46 = getelementptr inbounds i8, ptr %45, i64 7
+  %45 = getelementptr inbounds nuw %"class.ZXing::Trit", ptr %43, i64 %44
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 7
   store i8 0, ptr %46, align 1
   br label %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit35.us63.i.i"
 
@@ -164,9 +164,9 @@ _ZN5ZXing6QRCodeL43EmbedPositionDetectionPatternsAndSeparatorsERNS_6MatrixINS_4T
   br i1 %75, label %_ZN5ZXing6QRCodeL31EmbedPositionAdjustmentPatternsERKNS0_7VersionERNS_6MatrixINS_4TritEEE.exit, label %76
 
 76:                                               ; preds = %_ZN5ZXing6QRCodeL43EmbedPositionDetectionPatternsAndSeparatorsERNS_6MatrixINS_4TritEEE.exit
-  %77 = getelementptr inbounds i8, ptr %2, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %2, i64 16
+  %79 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %80 = load ptr, ptr %79, align 8
   %.not31.i = icmp eq ptr %78, %80
   br i1 %.not31.i, label %_ZN5ZXing6QRCodeL31EmbedPositionAdjustmentPatternsERKNS0_7VersionERNS_6MatrixINS_4TritEEE.exit, label %.lr.ph34.split.i
@@ -233,7 +233,7 @@ _ZN5ZXing6QRCodeL43EmbedPositionDetectionPatternsAndSeparatorsERNS_6MatrixINS_4T
   br i1 %exitcond16.not.i.us.i, label %_ZN5ZXing6QRCodeL30EmbedPositionAdjustmentPatternEiiRNS_6MatrixINS_4TritEEE.exit.us.i, label %.preheader.i.us.i, !llvm.loop !9
 
 _ZN5ZXing6QRCodeL30EmbedPositionAdjustmentPatternEiiRNS_6MatrixINS_4TritEEE.exit.us.i: ; preds = %110, %88
-  %112 = getelementptr inbounds i8, ptr %.sroa.021.030.us.i, i64 4
+  %112 = getelementptr inbounds nuw i8, ptr %.sroa.021.030.us.i, i64 4
   %.not28.us.i = icmp eq ptr %112, %83
   br i1 %.not28.us.i, label %._crit_edge.i, label %.lr.ph.split.us.i
 
@@ -285,12 +285,12 @@ _ZN5ZXing6QRCodeL30EmbedPositionAdjustmentPatternEiiRNS_6MatrixINS_4TritEEE.exit
   br i1 %exitcond16.not.i.i, label %_ZN5ZXing6QRCodeL30EmbedPositionAdjustmentPatternEiiRNS_6MatrixINS_4TritEEE.exit.i, label %.preheader.i.i13, !llvm.loop !9
 
 _ZN5ZXing6QRCodeL30EmbedPositionAdjustmentPatternEiiRNS_6MatrixINS_4TritEEE.exit.i: ; preds = %137, %115, %.lr.ph.split.i
-  %139 = getelementptr inbounds i8, ptr %.sroa.021.030.i, i64 4
+  %139 = getelementptr inbounds nuw i8, ptr %.sroa.021.030.i, i64 4
   %.not28.i = icmp eq ptr %139, %83
   br i1 %.not28.i, label %._crit_edge.i, label %.lr.ph.split.i
 
 ._crit_edge.i:                                    ; preds = %_ZN5ZXing6QRCodeL30EmbedPositionAdjustmentPatternEiiRNS_6MatrixINS_4TritEEE.exit.us.i, %_ZN5ZXing6QRCodeL30EmbedPositionAdjustmentPatternEiiRNS_6MatrixINS_4TritEEE.exit.i, %.lr.ph34.split.i
-  %140 = getelementptr inbounds i8, ptr %.sroa.025.032.i, i64 4
+  %140 = getelementptr inbounds nuw i8, ptr %.sroa.025.032.i, i64 4
   %.not.i = icmp eq ptr %140, %80
   br i1 %.not.i, label %_ZN5ZXing6QRCodeL31EmbedPositionAdjustmentPatternsERKNS0_7VersionERNS_6MatrixINS_4TritEEE.exit, label %.lr.ph34.split.i, !llvm.loop !10
 
@@ -356,8 +356,8 @@ _ZN5ZXing6QRCodeL19EmbedTimingPatternsERNS_6MatrixINS_4TritEEE.exit: ; preds = %
 169:                                              ; preds = %167
   %170 = shl i32 %168, 3
   %171 = or disjoint i32 %170, %3
-  %172 = getelementptr inbounds i8, ptr %16, i64 8
-  %173 = getelementptr inbounds i8, ptr %16, i64 16
+  %172 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %173 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %.promoted31.i = load ptr, ptr %172, align 8
   %.promoted35.i = load ptr, ptr %16, align 8
   br label %174
@@ -419,14 +419,14 @@ _ZNSt6vectorIhSaIhEE11_S_relocateEPhS2_S2_RS0_.exit16.i.i.i.i.i.i: ; preds = %19
   br label %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i.i.i
 
 _ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i.i.i: ; preds = %199, %_ZNSt6vectorIhSaIhEE11_S_relocateEPhS2_S2_RS0_.exit16.i.i.i.i.i.i
-  %200 = getelementptr inbounds i8, ptr %195, i64 %192
+  %200 = getelementptr inbounds nuw i8, ptr %195, i64 %192
   br label %_ZNSt6vectorIhSaIhEE9push_backEOh.exit.i.i.i
 
 _ZNSt6vectorIhSaIhEE9push_backEOh.exit.i.i.i:     ; preds = %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i.i.i, %183
   %.promoted47.i = phi ptr [ %175, %183 ], [ %195, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i.i.i ]
   %.promoted39.i = phi ptr [ %177, %183 ], [ %200, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i.i.i ]
   %.pn.i = phi ptr [ %176, %183 ], [ %196, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i.i.i ]
-  %.pre.i26.i.i = getelementptr inbounds i8, ptr %.pn.i, i64 1
+  %.pre.i26.i.i = getelementptr inbounds nuw i8, ptr %.pn.i, i64 1
   %.not.i.i.i = icmp eq i32 %179, 0
   br i1 %.not.i.i.i, label %_ZN5ZXing8BitArray10appendBitsEii.exit.i.i, label %174, !llvm.loop !16
 
@@ -522,14 +522,14 @@ _ZNSt6vectorIhSaIhEE11_S_relocateEPhS2_S2_RS0_.exit16.i.i.i.i35.i.i: ; preds = %
   br label %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i37.i.i
 
 _ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i37.i.i: ; preds = %232, %_ZNSt6vectorIhSaIhEE11_S_relocateEPhS2_S2_RS0_.exit16.i.i.i.i35.i.i
-  %233 = getelementptr inbounds i8, ptr %228, i64 %225
+  %233 = getelementptr inbounds nuw i8, ptr %228, i64 %225
   br label %_ZNSt6vectorIhSaIhEE9push_backEOh.exit.i29.i.i
 
 _ZNSt6vectorIhSaIhEE9push_backEOh.exit.i29.i.i:   ; preds = %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i37.i.i, %216
   %234 = phi ptr [ %209, %216 ], [ %228, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i37.i.i ]
   %235 = phi ptr [ %211, %216 ], [ %233, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i37.i.i ]
   %.pn52.i = phi ptr [ %210, %216 ], [ %229, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i37.i.i ]
-  %236 = getelementptr inbounds i8, ptr %.pn52.i, i64 1
+  %236 = getelementptr inbounds nuw i8, ptr %.pn52.i, i64 1
   %.not.i30.i.i = icmp eq i32 %212, 0
   br i1 %.not.i30.i.i, label %_ZN5ZXing8BitArray10appendBitsEii.exit40.i.i, label %208, !llvm.loop !16
 
@@ -538,8 +538,8 @@ _ZN5ZXing8BitArray10appendBitsEii.exit40.i.i:     ; preds = %_ZNSt6vectorIhSaIhE
   store ptr %236, ptr %172, align 8
   store ptr %234, ptr %16, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, i8 0, i64 24, i1 false), !noalias !13
-  %237 = getelementptr inbounds i8, ptr %13, i64 8
-  %238 = getelementptr inbounds i8, ptr %13, i64 16
+  %237 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %238 = getelementptr inbounds nuw i8, ptr %13, i64 16
   br label %239
 
 239:                                              ; preds = %_ZNSt6vectorIhSaIhEE9push_backEOh.exit.i45.i.i, %_ZN5ZXing8BitArray10appendBitsEii.exit40.i.i
@@ -556,7 +556,7 @@ _ZN5ZXing8BitArray10appendBitsEii.exit40.i.i:     ; preds = %_ZNSt6vectorIhSaIhE
 246:                                              ; preds = %239
   store i8 %244, ptr %240, align 1, !noalias !13
   %247 = load ptr, ptr %237, align 8, !noalias !13
-  %248 = getelementptr inbounds i8, ptr %247, i64 1
+  %248 = getelementptr inbounds nuw i8, ptr %247, i64 1
   store ptr %248, ptr %237, align 8, !noalias !13
   br label %_ZNSt6vectorIhSaIhEE9push_backEOh.exit.i45.i.i
 
@@ -600,7 +600,7 @@ _ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.i.i.i.i50.i.i: ; preds = %260, %
   br label %_ZNSt6vectorIhSaIhEE11_S_relocateEPhS2_S2_RS0_.exit16.i.i.i.i51.i.i
 
 _ZNSt6vectorIhSaIhEE11_S_relocateEPhS2_S2_RS0_.exit16.i.i.i.i51.i.i: ; preds = %265, %_ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.i.i.i.i50.i.i
-  %266 = getelementptr inbounds i8, ptr %263, i64 1
+  %266 = getelementptr inbounds nuw i8, ptr %263, i64 1
   %.not.i17.i.i.i.i52.i.i = icmp eq ptr %250, null
   br i1 %.not.i17.i.i.i.i52.i.i, label %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i53.i.i, label %267
 
@@ -611,7 +611,7 @@ _ZNSt6vectorIhSaIhEE11_S_relocateEPhS2_S2_RS0_.exit16.i.i.i.i51.i.i: ; preds = %
 _ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i53.i.i: ; preds = %267, %_ZNSt6vectorIhSaIhEE11_S_relocateEPhS2_S2_RS0_.exit16.i.i.i.i51.i.i
   store ptr %262, ptr %13, align 8, !noalias !13
   store ptr %266, ptr %237, align 8, !noalias !13
-  %268 = getelementptr inbounds i8, ptr %262, i64 %259
+  %268 = getelementptr inbounds nuw i8, ptr %262, i64 %259
   store ptr %268, ptr %238, align 8, !noalias !13
   br label %_ZNSt6vectorIhSaIhEE9push_backEOh.exit.i45.i.i
 
@@ -784,7 +784,7 @@ _ZN5ZXing6QRCodeL16MakeTypeInfoBitsENS0_20ErrorCorrectionLevelEi.exit.i: ; preds
   %313 = getelementptr inbounds i8, ptr %306, i64 %310
   %314 = load i8, ptr %313, align 1
   %315 = icmp ne i8 %314, 0
-  %316 = getelementptr inbounds [15 x %"struct.ZXing::PointT"], ptr @__const._ZN5ZXing6QRCodeL13EmbedTypeInfoENS0_20ErrorCorrectionLevelEiRNS_6MatrixINS_4TritEEE.TYPE_INFO_COORDINATES, i64 0, i64 %indvars.iv.i
+  %316 = getelementptr inbounds nuw [15 x %"struct.ZXing::PointT"], ptr @__const._ZN5ZXing6QRCodeL13EmbedTypeInfoENS0_20ErrorCorrectionLevelEiRNS_6MatrixINS_4TritEEE.TYPE_INFO_COORDINATES, i64 0, i64 %indvars.iv.i
   %.sroa.0.0.copyload.i = load i64, ptr %316, align 8
   %317 = zext i1 %315 to i8
   %.sroa.01.0.extract.trunc.i.i = trunc i64 %.sroa.0.0.copyload.i to i32
@@ -930,14 +930,14 @@ _ZNSt6vectorIhSaIhEE11_S_relocateEPhS2_S2_RS0_.exit16.i.i.i.i.i.i51: ; preds = %
   br label %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i.i.i53
 
 _ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i.i.i53: ; preds = %382, %_ZNSt6vectorIhSaIhEE11_S_relocateEPhS2_S2_RS0_.exit16.i.i.i.i.i.i51
-  %383 = getelementptr inbounds i8, ptr %378, i64 %375
+  %383 = getelementptr inbounds nuw i8, ptr %378, i64 %375
   br label %_ZNSt6vectorIhSaIhEE9push_backEOh.exit.i.i.i22
 
 _ZNSt6vectorIhSaIhEE9push_backEOh.exit.i.i.i22:   ; preds = %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i.i.i53, %365
   %.sroa.16.1.i = phi ptr [ %383, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i.i.i53 ], [ %.sroa.16.0.i, %365 ]
   %.pn.i23 = phi ptr [ %379, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i.i.i53 ], [ %360, %365 ]
   %.sroa.025.1.i = phi ptr [ %378, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i.i.i53 ], [ %.sroa.025.0.i, %365 ]
-  %.sroa.9.1.i = getelementptr inbounds i8, ptr %.pn.i23, i64 1
+  %.sroa.9.1.i = getelementptr inbounds nuw i8, ptr %.pn.i23, i64 1
   %.not.i.i.i24 = icmp eq i32 %361, 0
   br i1 %.not.i.i.i24, label %_ZN5ZXing8BitArray10appendBitsEii.exit.i.i25, label %359, !llvm.loop !16
 
@@ -1028,14 +1028,14 @@ _ZNSt6vectorIhSaIhEE11_S_relocateEPhS2_S2_RS0_.exit16.i.i.i.i24.i.i: ; preds = %
   br label %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i26.i.i
 
 _ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i26.i.i: ; preds = %415, %_ZNSt6vectorIhSaIhEE11_S_relocateEPhS2_S2_RS0_.exit16.i.i.i.i24.i.i
-  %416 = getelementptr inbounds i8, ptr %411, i64 %408
+  %416 = getelementptr inbounds nuw i8, ptr %411, i64 %408
   br label %_ZNSt6vectorIhSaIhEE9push_backEOh.exit.i18.i.i
 
 _ZNSt6vectorIhSaIhEE9push_backEOh.exit.i18.i.i:   ; preds = %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i26.i.i, %398
   %.sroa.16.3.i = phi ptr [ %416, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i26.i.i ], [ %.sroa.16.2.i, %398 ]
   %.pn34.i = phi ptr [ %412, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i26.i.i ], [ %393, %398 ]
   %.sroa.025.3.i = phi ptr [ %411, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i.i26.i.i ], [ %.sroa.025.2.i, %398 ]
-  %.sroa.9.3.i = getelementptr inbounds i8, ptr %.pn34.i, i64 1
+  %.sroa.9.3.i = getelementptr inbounds nuw i8, ptr %.pn34.i, i64 1
   %.not.i19.i.i = icmp eq i32 %394, 0
   br i1 %.not.i19.i.i, label %_ZN5ZXing8BitArray10appendBitsEii.exit29.i.i, label %392, !llvm.loop !16
 
@@ -1197,7 +1197,7 @@ _ZN5ZXing6QRCodeL16EmbedVersionInfoERKNS0_7VersionERNS_6MatrixINS_4TritEEE.exit:
   %468 = add nsw i32 %466, -1
   %469 = load i32, ptr %26, align 4
   %470 = add nsw i32 %469, -1
-  %471 = getelementptr inbounds i8, ptr %0, i64 8
+  %471 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %472
 
 472:                                              ; preds = %.critedge.i, %.lr.ph.i58
@@ -1371,7 +1371,7 @@ _ZN5ZXing6QRCode14GetDataMaskBitEiiib.exit.i:     ; preds = %530, %526, %522, %5
 
 ._crit_edge.i54:                                  ; preds = %.critedge.i, %_ZN5ZXing6QRCodeL16EmbedVersionInfoERKNS0_7VersionERNS_6MatrixINS_4TritEEE.exit
   %.054.lcssa.i = phi i32 [ 0, %_ZN5ZXing6QRCodeL16EmbedVersionInfoERKNS0_7VersionERNS_6MatrixINS_4TritEEE.exit ], [ %.155.lcssa.i, %.critedge.i ]
-  %556 = getelementptr inbounds i8, ptr %0, i64 8
+  %556 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %557 = load ptr, ptr %556, align 8
   %558 = load ptr, ptr %0, align 8
   %559 = ptrtoint ptr %557 to i64
@@ -1471,7 +1471,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal fastcc void @_ZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEE(i32 noundef range(i32 -2147483648, 2147483641) %0, i32 noundef range(i32 -2147483648, 2147483641) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #2 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %.preheader51
 
 .preheader51:                                     ; preds = %3, %111
@@ -1488,7 +1488,7 @@ define internal fastcc void @_ZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEii
   %11 = add nsw i32 %0, 7
   %12 = icmp sgt i32 %0, -8
   %13 = icmp sgt i32 %1, 0
-  %14 = getelementptr inbounds i8, ptr %2, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %15 = add nsw i32 %1, 7
   %16 = icmp sgt i32 %1, -8
   br i1 %10, label %.preheader.split.us, label %.preheader.split
@@ -1513,7 +1513,7 @@ define internal fastcc void @_ZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEii
   %24 = add nuw nsw i32 %23, %17
   %25 = zext nneg i32 %24 to i64
   %26 = load ptr, ptr %4, align 8
-  %27 = getelementptr inbounds %"class.ZXing::Trit", ptr %26, i64 %25
+  %27 = getelementptr inbounds nuw %"class.ZXing::Trit", ptr %26, i64 %25
   store i8 0, ptr %27, align 1
   %.pre77 = load i32, ptr %2, align 8
   %.pre78 = load i32, ptr %14, align 4
@@ -1533,7 +1533,7 @@ define internal fastcc void @_ZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEii
   %35 = add nuw nsw i32 %34, %17
   %36 = zext nneg i32 %35 to i64
   %37 = load ptr, ptr %4, align 8
-  %38 = getelementptr inbounds %"class.ZXing::Trit", ptr %37, i64 %36
+  %38 = getelementptr inbounds nuw %"class.ZXing::Trit", ptr %37, i64 %36
   store i8 0, ptr %38, align 1
   %.pre79 = load i32, ptr %2, align 8
   %.pre81 = load i32, ptr %14, align 4
@@ -1555,7 +1555,7 @@ define internal fastcc void @_ZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEii
   %47 = add nuw nsw i32 %9, %46
   %48 = zext nneg i32 %47 to i64
   %49 = load ptr, ptr %4, align 8
-  %50 = getelementptr inbounds %"class.ZXing::Trit", ptr %49, i64 %48
+  %50 = getelementptr inbounds nuw %"class.ZXing::Trit", ptr %49, i64 %48
   store i8 0, ptr %50, align 1
   br label %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit33.us"
 
@@ -1576,7 +1576,7 @@ define internal fastcc void @_ZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEii
   %58 = add nuw nsw i32 %57, %11
   %59 = zext nneg i32 %58 to i64
   %60 = load ptr, ptr %4, align 8
-  %61 = getelementptr inbounds %"class.ZXing::Trit", ptr %60, i64 %59
+  %61 = getelementptr inbounds nuw %"class.ZXing::Trit", ptr %60, i64 %59
   store i8 0, ptr %61, align 1
   br label %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit35.us"
 
@@ -1608,7 +1608,7 @@ define internal fastcc void @_ZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEii
   %70 = add nuw nsw i32 %69, %63
   %71 = zext nneg i32 %70 to i64
   %72 = load ptr, ptr %4, align 8
-  %73 = getelementptr inbounds %"class.ZXing::Trit", ptr %72, i64 %71
+  %73 = getelementptr inbounds nuw %"class.ZXing::Trit", ptr %72, i64 %71
   store i8 0, ptr %73, align 1
   %.pre71 = load i32, ptr %2, align 8
   %.pre72 = load i32, ptr %14, align 4
@@ -1628,7 +1628,7 @@ define internal fastcc void @_ZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEii
   %81 = add nuw nsw i32 %80, %63
   %82 = zext nneg i32 %81 to i64
   %83 = load ptr, ptr %4, align 8
-  %84 = getelementptr inbounds %"class.ZXing::Trit", ptr %83, i64 %82
+  %84 = getelementptr inbounds nuw %"class.ZXing::Trit", ptr %83, i64 %82
   store i8 0, ptr %84, align 1
   %.pre73 = load i32, ptr %2, align 8
   %.pre75 = load i32, ptr %14, align 4
@@ -1650,7 +1650,7 @@ define internal fastcc void @_ZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEii
   %93 = add nuw nsw i32 %92, %11
   %94 = zext nneg i32 %93 to i64
   %95 = load ptr, ptr %4, align 8
-  %96 = getelementptr inbounds %"class.ZXing::Trit", ptr %95, i64 %94
+  %96 = getelementptr inbounds nuw %"class.ZXing::Trit", ptr %95, i64 %94
   store i8 0, ptr %96, align 1
   br label %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit35.us63"
 
@@ -1703,7 +1703,7 @@ define internal fastcc void @_ZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEii
   %122 = add nuw nsw i32 %121, %113
   %123 = zext nneg i32 %122 to i64
   %124 = load ptr, ptr %4, align 8
-  %125 = getelementptr inbounds %"class.ZXing::Trit", ptr %124, i64 %123
+  %125 = getelementptr inbounds nuw %"class.ZXing::Trit", ptr %124, i64 %123
   store i8 0, ptr %125, align 1
   %.pre = load i32, ptr %2, align 8
   %.pre70 = load i32, ptr %14, align 4
@@ -1723,7 +1723,7 @@ define internal fastcc void @_ZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEii
   %133 = add nuw nsw i32 %132, %113
   %134 = zext nneg i32 %133 to i64
   %135 = load ptr, ptr %4, align 8
-  %136 = getelementptr inbounds %"class.ZXing::Trit", ptr %135, i64 %134
+  %136 = getelementptr inbounds nuw %"class.ZXing::Trit", ptr %135, i64 %134
   store i8 0, ptr %136, align 1
   br label %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit31"
 
@@ -1841,17 +1841,17 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
   %33 = udiv i32 %.020.i, 100
   %34 = or disjoint i32 %32, 1
   %35 = zext nneg i32 %34 to i64
-  %36 = getelementptr inbounds [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %35
   %37 = load i8, ptr %36, align 1
   %38 = zext i32 %.01819.i to i64
-  %39 = getelementptr inbounds i8, ptr %27, i64 %38
+  %39 = getelementptr inbounds nuw i8, ptr %27, i64 %38
   store i8 %37, ptr %39, align 1
   %40 = zext nneg i32 %32 to i64
-  %41 = getelementptr inbounds [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %40
   %42 = load i8, ptr %41, align 2
   %43 = add i32 %.01819.i, -1
   %44 = zext i32 %43 to i64
-  %45 = getelementptr inbounds i8, ptr %27, i64 %44
+  %45 = getelementptr inbounds nuw i8, ptr %27, i64 %44
   store i8 %42, ptr %45, align 1
   %46 = add i32 %.01819.i, -2
   %47 = icmp ugt i32 %.020.i, 9999
@@ -1866,12 +1866,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
   %50 = shl nuw nsw i32 %.0.lcssa.i, 1
   %51 = or disjoint i32 %50, 1
   %52 = zext nneg i32 %51 to i64
-  %53 = getelementptr inbounds [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %52
+  %53 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %52
   %54 = load i8, ptr %53, align 1
-  %55 = getelementptr inbounds i8, ptr %27, i64 1
+  %55 = getelementptr inbounds nuw i8, ptr %27, i64 1
   store i8 %54, ptr %55, align 1
   %56 = zext nneg i32 %50 to i64
-  %57 = getelementptr inbounds [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %56
+  %57 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %56
   %58 = load i8, ptr %57, align 2
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 

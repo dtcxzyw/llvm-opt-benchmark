@@ -109,7 +109,7 @@ define void @dlaed2_(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, p
 79:                                               ; preds = %79, %75
   %80 = phi i64 [ %77, %75 ], [ %85, %79 ]
   %81 = load i32, ptr %2, align 4, !tbaa !3
-  %82 = getelementptr inbounds i32, ptr %30, i64 %80
+  %82 = getelementptr inbounds nuw i32, ptr %30, i64 %80
   %83 = load i32, ptr %82, align 4, !tbaa !3
   %84 = add nsw i32 %83, %81
   store i32 %84, ptr %82, align 4, !tbaa !3
@@ -135,12 +135,12 @@ thread-pre-split21:                               ; preds = %79
 
 94:                                               ; preds = %94, %91
   %95 = phi i64 [ 1, %91 ], [ %102, %94 ]
-  %96 = getelementptr inbounds i32, ptr %30, i64 %95
+  %96 = getelementptr inbounds nuw i32, ptr %30, i64 %95
   %97 = load i32, ptr %96, align 4, !tbaa !3
   %98 = sext i32 %97 to i64
   %99 = getelementptr inbounds double, ptr %25, i64 %98
   %100 = load double, ptr %99, align 8, !tbaa !7
-  %101 = getelementptr inbounds double, ptr %32, i64 %95
+  %101 = getelementptr inbounds nuw double, ptr %32, i64 %95
   store double %100, ptr %101, align 8, !tbaa !7
   %102 = add nuw nsw i64 %95, 1
   %103 = icmp eq i64 %102, %93
@@ -160,12 +160,12 @@ thread-pre-split21:                               ; preds = %79
 
 109:                                              ; preds = %109, %106
   %110 = phi i64 [ 1, %106 ], [ %117, %109 ]
-  %111 = getelementptr inbounds i32, ptr %36, i64 %110
+  %111 = getelementptr inbounds nuw i32, ptr %36, i64 %110
   %112 = load i32, ptr %111, align 4, !tbaa !3
   %113 = sext i32 %112 to i64
   %114 = getelementptr inbounds i32, ptr %30, i64 %113
   %115 = load i32, ptr %114, align 4, !tbaa !3
-  %116 = getelementptr inbounds i32, ptr %35, i64 %110
+  %116 = getelementptr inbounds nuw i32, ptr %35, i64 %110
   store i32 %115, ptr %116, align 4, !tbaa !3
   %117 = add nuw nsw i64 %110, 1
   %118 = icmp eq i64 %117, %108
@@ -207,7 +207,7 @@ thread-pre-split21:                               ; preds = %79
 .preheader33:                                     ; preds = %141, %.preheader33
   %145 = phi i64 [ %160, %.preheader33 ], [ 1, %141 ]
   %146 = phi i32 [ %159, %.preheader33 ], [ 1, %141 ]
-  %147 = getelementptr inbounds i32, ptr %35, i64 %145
+  %147 = getelementptr inbounds nuw i32, ptr %35, i64 %145
   %148 = load i32, ptr %147, align 4, !tbaa !3
   %149 = mul nsw i32 %148, %26
   %150 = sext i32 %149 to i64
@@ -218,7 +218,7 @@ thread-pre-split21:                               ; preds = %79
   %154 = sext i32 %148 to i64
   %155 = getelementptr inbounds double, ptr %25, i64 %154
   %156 = load double, ptr %155, align 8, !tbaa !7
-  %157 = getelementptr inbounds double, ptr %32, i64 %145
+  %157 = getelementptr inbounds nuw double, ptr %32, i64 %145
   store double %156, ptr %157, align 8, !tbaa !7
   %158 = load i32, ptr %1, align 4, !tbaa !3
   %159 = add nsw i32 %158, %146
@@ -245,7 +245,7 @@ thread-pre-split21:                               ; preds = %79
 
 170:                                              ; preds = %170, %167
   %171 = phi i64 [ 1, %167 ], [ %173, %170 ]
-  %172 = getelementptr inbounds i32, ptr %38, i64 %171
+  %172 = getelementptr inbounds nuw i32, ptr %38, i64 %171
   store i32 1, ptr %172, align 4, !tbaa !3
   %173 = add nuw nsw i64 %171, 1
   %174 = icmp eq i64 %173, %169
@@ -528,7 +528,7 @@ thread-pre-split21:                               ; preds = %79
 
 357:                                              ; preds = %357, %354
   %358 = phi i64 [ 1, %354 ], [ %366, %357 ]
-  %359 = getelementptr inbounds i32, ptr %38, i64 %358
+  %359 = getelementptr inbounds nuw i32, ptr %38, i64 %358
   %360 = load i32, ptr %359, align 4, !tbaa !3
   %361 = add nsw i32 %360, -1
   %362 = sext i32 %361 to i64
@@ -542,11 +542,11 @@ thread-pre-split21:                               ; preds = %79
 
 thread-pre-split23:                               ; preds = %357
   %.pr24 = load i32, ptr %19, align 16, !tbaa !3
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %19, i64 4
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %19, i64 4
   %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !3
-  %.phi.trans.insert74 = getelementptr inbounds i8, ptr %19, i64 8
+  %.phi.trans.insert74 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %.pre75 = load i32, ptr %.phi.trans.insert74, align 8, !tbaa !3
-  %.phi.trans.insert76 = getelementptr inbounds i8, ptr %19, i64 12
+  %.phi.trans.insert76 = getelementptr inbounds nuw i8, ptr %19, i64 12
   %.pre77 = load i32, ptr %.phi.trans.insert76, align 4, !tbaa !3
   br label %368
 
@@ -557,17 +557,17 @@ thread-pre-split23:                               ; preds = %357
   %372 = phi i32 [ %.pr24, %thread-pre-split23 ], [ 0, %.loopexit28 ]
   store i32 1, ptr %24, align 16, !tbaa !3
   %373 = add nsw i32 %372, 1
-  %374 = getelementptr inbounds i8, ptr %24, i64 4
+  %374 = getelementptr inbounds nuw i8, ptr %24, i64 4
   store i32 %373, ptr %374, align 4, !tbaa !3
-  %375 = getelementptr inbounds i8, ptr %19, i64 4
+  %375 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %376 = add nsw i32 %371, %373
-  %377 = getelementptr inbounds i8, ptr %24, i64 8
+  %377 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i32 %376, ptr %377, align 8, !tbaa !3
-  %378 = getelementptr inbounds i8, ptr %19, i64 8
+  %378 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %379 = add nsw i32 %370, %376
-  %380 = getelementptr inbounds i8, ptr %24, i64 12
+  %380 = getelementptr inbounds nuw i8, ptr %24, i64 12
   store i32 %379, ptr %380, align 4, !tbaa !3
-  %381 = getelementptr inbounds i8, ptr %19, i64 12
+  %381 = getelementptr inbounds nuw i8, ptr %19, i64 12
   %382 = sub nsw i32 %352, %369
   store i32 %382, ptr %0, align 4, !tbaa !3
   %383 = load i32, ptr %1, align 4, !tbaa !3
@@ -581,7 +581,7 @@ thread-pre-split23:                               ; preds = %357
 
 388:                                              ; preds = %388, %385
   %389 = phi i64 [ 1, %385 ], [ %404, %388 ]
-  %390 = getelementptr inbounds i32, ptr %37, i64 %389
+  %390 = getelementptr inbounds nuw i32, ptr %37, i64 %389
   %391 = load i32, ptr %390, align 4, !tbaa !3
   %392 = sext i32 %391 to i64
   %393 = getelementptr inbounds i32, ptr %38, i64 %392
@@ -616,7 +616,7 @@ thread-pre-split23:                               ; preds = %357
   %412 = phi i64 [ %426, %.preheader ], [ 1, %.loopexit25 ]
   %413 = phi i32 [ %428, %.preheader ], [ 1, %.loopexit25 ]
   %414 = trunc i64 %412 to i32
-  %415 = getelementptr inbounds i32, ptr %35, i64 %412
+  %415 = getelementptr inbounds nuw i32, ptr %35, i64 %412
   %416 = load i32, ptr %415, align 4, !tbaa !3
   %417 = mul nsw i32 %416, %26
   %418 = sext i32 %417 to i64
@@ -627,7 +627,7 @@ thread-pre-split23:                               ; preds = %357
   %422 = sext i32 %416 to i64
   %423 = getelementptr inbounds double, ptr %25, i64 %422
   %424 = load double, ptr %423, align 8, !tbaa !7
-  %425 = getelementptr inbounds double, ptr %31, i64 %412
+  %425 = getelementptr inbounds nuw double, ptr %31, i64 %412
   store double %424, ptr %425, align 8, !tbaa !7
   %426 = add nuw nsw i64 %412, 1
   %427 = load i32, ptr %2, align 4, !tbaa !3
@@ -657,7 +657,7 @@ thread-pre-split23:                               ; preds = %357
   %442 = phi i32 [ %409, %438 ], [ %467, %440 ]
   %443 = phi i32 [ %435, %438 ], [ %465, %440 ]
   %444 = phi i32 [ 1, %438 ], [ %468, %440 ]
-  %445 = getelementptr inbounds i32, ptr %35, i64 %441
+  %445 = getelementptr inbounds nuw i32, ptr %35, i64 %441
   %446 = load i32, ptr %445, align 4, !tbaa !3
   %447 = mul nsw i32 %446, %26
   %448 = sext i32 %447 to i64
@@ -676,7 +676,7 @@ thread-pre-split23:                               ; preds = %357
   %459 = sext i32 %446 to i64
   %460 = getelementptr inbounds double, ptr %25, i64 %459
   %461 = load double, ptr %460, align 8, !tbaa !7
-  %462 = getelementptr inbounds double, ptr %31, i64 %441
+  %462 = getelementptr inbounds nuw double, ptr %31, i64 %441
   store double %461, ptr %462, align 8, !tbaa !7
   %463 = add nuw nsw i64 %441, 1
   %464 = load i32, ptr %2, align 4, !tbaa !3
@@ -708,7 +708,7 @@ thread-pre-split23:                               ; preds = %357
   %481 = phi i64 [ %479, %478 ], [ %498, %480 ]
   %482 = phi i32 [ %475, %478 ], [ %500, %480 ]
   %483 = phi i32 [ 1, %478 ], [ %501, %480 ]
-  %484 = getelementptr inbounds i32, ptr %35, i64 %481
+  %484 = getelementptr inbounds nuw i32, ptr %35, i64 %481
   %485 = load i32, ptr %484, align 4, !tbaa !3
   %486 = load i32, ptr %2, align 4, !tbaa !3
   %487 = add nsw i32 %486, 1
@@ -722,7 +722,7 @@ thread-pre-split23:                               ; preds = %357
   %494 = sext i32 %485 to i64
   %495 = getelementptr inbounds double, ptr %25, i64 %494
   %496 = load double, ptr %495, align 8, !tbaa !7
-  %497 = getelementptr inbounds double, ptr %31, i64 %481
+  %497 = getelementptr inbounds nuw double, ptr %31, i64 %481
   store double %496, ptr %497, align 8, !tbaa !7
   %498 = add nuw nsw i64 %481, 1
   %499 = load i32, ptr %23, align 4, !tbaa !3
@@ -756,7 +756,7 @@ thread-pre-split23:                               ; preds = %357
   %514 = phi i64 [ %512, %511 ], [ %530, %513 ]
   %515 = phi i32 [ %508, %511 ], [ %525, %513 ]
   %516 = phi i32 [ 1, %511 ], [ %531, %513 ]
-  %517 = getelementptr inbounds i32, ptr %35, i64 %514
+  %517 = getelementptr inbounds nuw i32, ptr %35, i64 %514
   %518 = load i32, ptr %517, align 4, !tbaa !3
   %519 = mul nsw i32 %518, %26
   %520 = sext i32 %519 to i64
@@ -769,7 +769,7 @@ thread-pre-split23:                               ; preds = %357
   %526 = sext i32 %518 to i64
   %527 = getelementptr inbounds double, ptr %25, i64 %526
   %528 = load double, ptr %527, align 8, !tbaa !7
-  %529 = getelementptr inbounds double, ptr %31, i64 %514
+  %529 = getelementptr inbounds nuw double, ptr %31, i64 %514
   store double %528, ptr %529, align 8, !tbaa !7
   %530 = add nuw nsw i64 %514, 1
   %531 = add nuw nsw i32 %516, 1

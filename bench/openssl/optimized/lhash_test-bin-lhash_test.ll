@@ -70,7 +70,7 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %entry ]
-  %add.ptr = getelementptr inbounds i32, ptr @int_tests, i64 %indvars.iv
+  %add.ptr = getelementptr inbounds nuw i32, ptr @int_tests, i64 %indvars.iv
   %call.i39 = tail call ptr @OPENSSL_LH_insert(ptr noundef %call.i, ptr noundef nonnull %add.ptr) #6
   %call3 = tail call i32 @test_ptr_null(ptr noundef nonnull @.str.2, i32 noundef 103, ptr noundef nonnull @.str.4, ptr noundef %call.i39) #6
   %tobool4.not = icmp eq i32 %call3, 0
@@ -95,7 +95,7 @@ for.end:                                          ; preds = %for.inc
 
 for.body15:                                       ; preds = %for.end, %for.inc23
   %indvars.iv67 = phi i64 [ %indvars.iv.next68, %for.inc23 ], [ 0, %for.end ]
-  %add.ptr17 = getelementptr inbounds i32, ptr @int_tests, i64 %indvars.iv67
+  %add.ptr17 = getelementptr inbounds nuw i32, ptr @int_tests, i64 %indvars.iv67
   %call.i41 = tail call ptr @OPENSSL_LH_retrieve(ptr noundef %call.i, ptr noundef nonnull %add.ptr17) #6
   %1 = load i32, ptr %call.i41, align 4
   %2 = load i32, ptr %add.ptr17, align 4
@@ -115,7 +115,7 @@ for.inc23:                                        ; preds = %for.body15
 
 for.body29:                                       ; preds = %for.inc23, %for.inc39
   %indvars.iv71 = phi i64 [ %indvars.iv.next72, %for.inc39 ], [ 0, %for.inc23 ]
-  %add.ptr31 = getelementptr inbounds i32, ptr @int_tests, i64 %indvars.iv71
+  %add.ptr31 = getelementptr inbounds nuw i32, ptr @int_tests, i64 %indvars.iv71
   %call.i42 = tail call ptr @OPENSSL_LH_retrieve(ptr noundef %call.i, ptr noundef nonnull %add.ptr31) #6
   %call35 = tail call i32 @test_ptr_eq(ptr noundef nonnull @.str.2, i32 noundef 119, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, ptr noundef %call.i42, ptr noundef nonnull %add.ptr31) #6
   %tobool36.not = icmp eq i32 %call35, 0
@@ -172,7 +172,7 @@ if.then64:                                        ; preds = %if.end60
 
 for.body69:                                       ; preds = %if.end60, %for.inc77
   %indvars.iv75 = phi i64 [ %indvars.iv.next76, %for.inc77 ], [ 0, %if.end60 ]
-  %arrayidx71 = getelementptr inbounds [21 x i16], ptr @int_found, i64 0, i64 %indvars.iv75
+  %arrayidx71 = getelementptr inbounds nuw [21 x i16], ptr @int_found, i64 0, i64 %indvars.iv75
   %6 = load i16, ptr %arrayidx71, align 2
   %conv72 = sext i16 %6 to i32
   %call73 = call i32 @test_int_eq(ptr noundef nonnull @.str.2, i32 noundef 145, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.25, i32 noundef %conv72, i32 noundef 1) #6
@@ -205,7 +205,7 @@ if.then83:                                        ; preds = %for.end79
 
 for.body88:                                       ; preds = %for.end79, %for.inc96
   %indvars.iv79 = phi i64 [ %indvars.iv.next80, %for.inc96 ], [ 0, %for.end79 ]
-  %arrayidx90 = getelementptr inbounds [21 x i16], ptr @int_found, i64 0, i64 %indvars.iv79
+  %arrayidx90 = getelementptr inbounds nuw [21 x i16], ptr @int_found, i64 0, i64 %indvars.iv79
   %9 = load i16, ptr %arrayidx90, align 2
   %conv91 = sext i16 %9 to i32
   %call92 = call i32 @test_int_eq(ptr noundef nonnull @.str.2, i32 noundef 159, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.25, i32 noundef %conv91, i32 noundef 1) #6
@@ -224,11 +224,11 @@ for.inc96:                                        ; preds = %for.body88
 
 for.body102:                                      ; preds = %for.inc96, %for.inc114
   %indvars.iv83 = phi i64 [ %indvars.iv.next84, %for.inc114 ], [ 0, %for.inc96 ]
-  %arrayidx104 = getelementptr inbounds [6 x %struct.anon], ptr @test_int_lhash.dels, i64 0, i64 %indvars.iv83
+  %arrayidx104 = getelementptr inbounds nuw [6 x %struct.anon], ptr @test_int_lhash.dels, i64 0, i64 %indvars.iv83
   %call.i46 = call ptr @OPENSSL_LH_delete(ptr noundef %call.i, ptr noundef nonnull %arrayidx104) #6
   %cmp106 = icmp eq ptr %call.i46, null
   %conv107 = zext i1 %cmp106 to i32
-  %null = getelementptr inbounds i8, ptr %arrayidx104, i64 4
+  %null = getelementptr inbounds nuw i8, ptr %arrayidx104, i64 4
   %11 = load i32, ptr %null, align 4
   %xor = xor i32 %11, %conv107
   %call110 = call i32 @test_int_eq(ptr noundef nonnull @.str.2, i32 noundef 167, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.22, i32 noundef %xor, i32 noundef 0) #6
@@ -374,7 +374,7 @@ entry:
 
 for.body.i:                                       ; preds = %for.inc.i, %entry
   %indvars.iv.i = phi i64 [ 0, %entry ], [ %indvars.iv.next.i, %for.inc.i ]
-  %arrayidx.i = getelementptr inbounds [21 x i32], ptr @int_tests, i64 0, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds nuw [21 x i32], ptr @int_tests, i64 0, i64 %indvars.iv.i
   %1 = load i32, ptr %arrayidx.i, align 4
   %cmp1.i = icmp eq i32 %1, %0
   br i1 %cmp1.i, label %if.else, label %for.inc.i
@@ -392,7 +392,7 @@ if.then:                                          ; preds = %for.inc.i
 
 if.else:                                          ; preds = %for.body.i
   %idxprom = and i64 %indvars.iv.i, 4294967295
-  %arrayidx = getelementptr inbounds [21 x i16], ptr @int_found, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [21 x i16], ptr @int_found, i64 0, i64 %idxprom
   %3 = load i16, ptr %arrayidx, align 2
   %inc1 = add i16 %3, 1
   store i16 %inc1, ptr %arrayidx, align 2
@@ -410,7 +410,7 @@ entry:
 
 for.body.i:                                       ; preds = %for.inc.i, %entry
   %indvars.iv.i = phi i64 [ 0, %entry ], [ %indvars.iv.next.i, %for.inc.i ]
-  %arrayidx.i = getelementptr inbounds [21 x i32], ptr @int_tests, i64 0, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds nuw [21 x i32], ptr @int_tests, i64 0, i64 %indvars.iv.i
   %1 = load i32, ptr %arrayidx.i, align 4
   %cmp1.i = icmp eq i32 %1, %0
   br i1 %cmp1.i, label %if.else, label %for.inc.i
@@ -428,7 +428,7 @@ if.then:                                          ; preds = %for.inc.i
 
 if.else:                                          ; preds = %for.body.i
   %idxprom = and i64 %indvars.iv.i, 4294967295
-  %arrayidx = getelementptr inbounds i16, ptr %f, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw i16, ptr %f, i64 %idxprom
   %3 = load i16, ptr %arrayidx, align 2
   %inc1 = add i16 %3, 1
   store i16 %inc1, ptr %arrayidx, align 2

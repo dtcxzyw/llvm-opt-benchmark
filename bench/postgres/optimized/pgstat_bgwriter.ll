@@ -27,7 +27,7 @@ define dso_local void @pgstat_report_bgwriter() local_unnamed_addr #0 {
 
 2:                                                ; preds = %0
   %3 = load ptr, ptr @pgStatLocal, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 344
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 344
   %5 = load volatile i32, ptr @CritSectionCount, align 4
   %6 = add i32 %5, 1
   store volatile i32 %6, ptr @CritSectionCount, align 4
@@ -36,17 +36,17 @@ define dso_local void @pgstat_report_bgwriter() local_unnamed_addr #0 {
   store i32 %8, ptr %4, align 4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !5
   %9 = load i64, ptr @PendingBgWriterStats, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 352
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 352
   %11 = load i64, ptr %10, align 8
   %12 = add i64 %11, %9
   store i64 %12, ptr %10, align 8
   %13 = load i64, ptr getelementptr inbounds (i8, ptr @PendingBgWriterStats, i64 8), align 8
-  %14 = getelementptr inbounds i8, ptr %3, i64 360
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 360
   %15 = load i64, ptr %14, align 8
   %16 = add i64 %15, %13
   store i64 %16, ptr %14, align 8
   %17 = load i64, ptr getelementptr inbounds (i8, ptr @PendingBgWriterStats, i64 16), align 8
-  %18 = getelementptr inbounds i8, ptr %3, i64 368
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 368
   %19 = load i64, ptr %18, align 8
   %20 = add i64 %19, %17
   store i64 %20, ptr %18, align 8
@@ -78,11 +78,11 @@ declare void @pgstat_snapshot_fixed(i32 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local void @pgstat_bgwriter_reset_all_cb(i64 noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @pgStatLocal, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 328
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 328
   %4 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %3, i32 noundef 0) #5
-  %5 = getelementptr inbounds i8, ptr %2, i64 384
-  %6 = getelementptr inbounds i8, ptr %2, i64 352
-  %7 = getelementptr inbounds i8, ptr %2, i64 344
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 384
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 352
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 344
   br label %pgstat_end_changecount_read.exit.i
 
 pgstat_end_changecount_read.exit.i:               ; preds = %pgstat_end_changecount_read.exit.i.backedge, %1
@@ -112,7 +112,7 @@ pgstat_end_changecount_read.exit.i.backedge:      ; preds = %12, %pgstat_begin_c
   br label %pgstat_end_changecount_read.exit.i, !llvm.loop !9
 
 pgstat_copy_changecounted_stats.exit:             ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %2, i64 376
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 376
   store i64 %0, ptr %15, align 8
   tail call void @LWLockRelease(ptr noundef nonnull %3) #5
   ret void
@@ -125,8 +125,8 @@ declare void @LWLockRelease(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local void @pgstat_bgwriter_snapshot_cb() local_unnamed_addr #0 {
   %1 = load ptr, ptr @pgStatLocal, align 8
-  %2 = getelementptr inbounds i8, ptr %1, i64 352
-  %3 = getelementptr inbounds i8, ptr %1, i64 344
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 352
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 344
   br label %pgstat_end_changecount_read.exit.i
 
 pgstat_end_changecount_read.exit.i:               ; preds = %pgstat_end_changecount_read.exit.i.backedge, %0
@@ -156,13 +156,13 @@ pgstat_end_changecount_read.exit.i.backedge:      ; preds = %8, %pgstat_begin_ch
   br label %pgstat_end_changecount_read.exit.i, !llvm.loop !9
 
 pgstat_copy_changecounted_stats.exit:             ; preds = %8
-  %11 = getelementptr inbounds i8, ptr %1, i64 384
-  %12 = getelementptr inbounds i8, ptr %1, i64 328
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 384
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %13 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %12, i32 noundef 1) #5
   %.sroa.0.0.copyload = load i64, ptr %11, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 392
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 392
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 400
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 400
   %.sroa.3.0.copyload = load i64, ptr %.sroa.3.0..sroa_idx, align 8
   tail call void @LWLockRelease(ptr noundef nonnull %12) #5
   %14 = load i64, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 192), align 8

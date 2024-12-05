@@ -98,7 +98,7 @@ define hidden noundef i32 @_ZNK4ncnn15HardSigmoid_x8615forward_inplaceERNS_3MatE
 44:                                               ; preds = %.lr.ph114.us, %36, %39
   %.sink = phi float [ %43, %39 ], [ 1.000000e+00, %36 ], [ 0.000000e+00, %.lr.ph114.us ]
   store float %.sink, ptr %.1113.us, align 4
-  %45 = getelementptr inbounds i8, ptr %.1113.us, i64 4
+  %45 = getelementptr inbounds nuw i8, ptr %.1113.us, i64 4
   %46 = add nuw nsw i32 %.193112.us, 1
   %exitcond130.not = icmp eq i32 %46, %16
   br i1 %exitcond130.not, label %._crit_edge.us, label %.lr.ph114.us, !llvm.loop !6
@@ -117,7 +117,7 @@ define hidden noundef i32 @_ZNK4ncnn15HardSigmoid_x8615forward_inplaceERNS_3MatE
   %56 = tail call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> %55, <4 x float> zeroinitializer)
   %57 = tail call fast noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> %56, <4 x float> splat (float 1.000000e+00))
   store <4 x float> %57, ptr %.091110.us, align 16
-  %58 = getelementptr inbounds i8, ptr %.091110.us, i64 16
+  %58 = getelementptr inbounds nuw i8, ptr %.091110.us, i64 16
   %59 = add nuw nsw i32 %.092109.us, 4
   %60 = or disjoint i32 %59, 3
   %61 = icmp slt i32 %60, %16
@@ -167,7 +167,7 @@ define hidden noundef i32 @_ZNK4ncnn15HardSigmoid_x8615forward_inplaceERNS_3MatE
 81:                                               ; preds = %69, %73, %76
   %.sink137 = phi float [ %80, %76 ], [ 1.000000e+00, %73 ], [ 0.000000e+00, %69 ]
   store float %.sink137, ptr %.1113.us121, align 4
-  %82 = getelementptr inbounds i8, ptr %.1113.us121, i64 4
+  %82 = getelementptr inbounds nuw i8, ptr %.1113.us121, i64 4
   %83 = add nuw nsw i32 %.193112.us122, 1
   %exitcond.not = icmp eq i32 %83, %16
   br i1 %exitcond.not, label %._crit_edge.us124, label %69, !llvm.loop !6

@@ -32,7 +32,7 @@ define range(i32 0, 2) i32 @compute_hierarchy(ptr noundef %0, i32 noundef %1, do
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %15 = getelementptr inbounds i32, ptr %13, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv
   %16 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %16, ptr %15, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -72,7 +72,7 @@ define range(i32 0, 2) i32 @compute_hierarchy(ptr noundef %0, i32 noundef %1, do
 .lr.ph86:                                         ; preds = %.lr.ph86.preheader, %.lr.ph86
   %indvars.iv93 = phi i64 [ 1, %.lr.ph86.preheader ], [ %indvars.iv.next94, %.lr.ph86 ]
   %.06584 = phi i32 [ 0, %.lr.ph86.preheader ], [ %.166, %.lr.ph86 ]
-  %34 = getelementptr inbounds i32, ptr %13, i64 %indvars.iv93
+  %34 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv93
   %35 = load i32, ptr %34, align 4
   %36 = sext i32 %35 to i64
   %37 = getelementptr inbounds double, ptr %.067, i64 %36
@@ -121,7 +121,7 @@ gv_calloc.exit:                                   ; preds = %48
 .lr.ph91:                                         ; preds = %.lr.ph91.preheader, %73
   %indvars.iv98 = phi i64 [ 1, %.lr.ph91.preheader ], [ %indvars.iv.next99, %73 ]
   %.089 = phi i32 [ 0, %.lr.ph91.preheader ], [ %.1, %73 ]
-  %56 = getelementptr inbounds i32, ptr %13, i64 %indvars.iv98
+  %56 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv98
   %57 = load i32, ptr %56, align 4
   %58 = sext i32 %57 to i64
   %59 = getelementptr inbounds double, ptr %.067, i64 %58

@@ -181,13 +181,13 @@ sub_0:                                            ; preds = %15
   br i1 %.not, label %sub_1, label %.tail.thread.thread
 
 sub_1:                                            ; preds = %sub_0
-  %21 = getelementptr inbounds i8, ptr %17, i64 1
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 1
   %22 = load i8, ptr %21, align 1
   %.not142 = icmp eq i8 %22, 63
   br i1 %.not142, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_1
-  %23 = getelementptr inbounds i8, ptr %17, i64 2
+  %23 = getelementptr inbounds nuw i8, ptr %17, i64 2
   %24 = load i8, ptr %23, align 1
   %25 = icmp eq i8 %24, 0
   br i1 %25, label %26, label %.thread149
@@ -213,13 +213,13 @@ sub_1:                                            ; preds = %sub_0
   br i1 %32, label %38, label %sub_1138
 
 sub_1138:                                         ; preds = %.tail.thread, %.thread149
-  %33 = getelementptr inbounds i8, ptr %17, i64 1
+  %33 = getelementptr inbounds nuw i8, ptr %17, i64 1
   %34 = load i8, ptr %33, align 1
   %.not144 = icmp eq i8 %34, 86
   br i1 %.not144, label %.tail136, label %.tail136.thread
 
 .tail136:                                         ; preds = %sub_1138
-  %35 = getelementptr inbounds i8, ptr %17, i64 2
+  %35 = getelementptr inbounds nuw i8, ptr %17, i64 2
   %36 = load i8, ptr %35, align 1
   %37 = icmp eq i8 %36, 0
   br i1 %37, label %38, label %.tail136.thread
@@ -230,37 +230,37 @@ sub_1138:                                         ; preds = %.tail.thread, %.thr
   unreachable
 
 .tail136.thread:                                  ; preds = %.tail.thread.thread, %sub_1138, %.tail136, %2
-  %40 = getelementptr inbounds i8, ptr %11, i64 224
-  %41 = getelementptr inbounds i8, ptr %11, i64 152
-  %42 = getelementptr inbounds i8, ptr %11, i64 168
-  %43 = getelementptr inbounds i8, ptr %11, i64 256
-  %44 = getelementptr inbounds i8, ptr %11, i64 208
-  %45 = getelementptr inbounds i8, ptr %11, i64 156
-  %46 = getelementptr inbounds i8, ptr %11, i64 176
-  %47 = getelementptr inbounds i8, ptr %11, i64 160
-  %48 = getelementptr inbounds i8, ptr %11, i64 192
-  %49 = getelementptr inbounds i8, ptr %11, i64 164
-  %50 = getelementptr inbounds i8, ptr %11, i64 240
-  %51 = getelementptr inbounds i8, ptr %11, i64 96
-  %52 = getelementptr inbounds i8, ptr %11, i64 32
-  %53 = getelementptr inbounds i8, ptr %11, i64 372
-  %54 = getelementptr inbounds i8, ptr %11, i64 332
-  %55 = getelementptr inbounds i8, ptr %11, i64 104
-  %56 = getelementptr inbounds i8, ptr %11, i64 312
-  %57 = getelementptr inbounds i8, ptr %11, i64 100
-  %58 = getelementptr inbounds i8, ptr %11, i64 304
-  %59 = getelementptr inbounds i8, ptr %11, i64 24
-  %60 = getelementptr inbounds i8, ptr %11, i64 92
-  %61 = getelementptr inbounds i8, ptr %11, i64 288
-  %62 = getelementptr inbounds i8, ptr %11, i64 4
-  %63 = getelementptr inbounds i8, ptr %11, i64 128
-  %64 = getelementptr inbounds i8, ptr %11, i64 124
-  %65 = getelementptr inbounds i8, ptr %11, i64 296
-  %66 = getelementptr inbounds i8, ptr %11, i64 144
-  %67 = getelementptr inbounds i8, ptr %11, i64 80
-  %68 = getelementptr inbounds i8, ptr %11, i64 280
-  %69 = getelementptr inbounds i8, ptr %11, i64 40
-  %70 = getelementptr inbounds i8, ptr %11, i64 88
+  %40 = getelementptr inbounds nuw i8, ptr %11, i64 224
+  %41 = getelementptr inbounds nuw i8, ptr %11, i64 152
+  %42 = getelementptr inbounds nuw i8, ptr %11, i64 168
+  %43 = getelementptr inbounds nuw i8, ptr %11, i64 256
+  %44 = getelementptr inbounds nuw i8, ptr %11, i64 208
+  %45 = getelementptr inbounds nuw i8, ptr %11, i64 156
+  %46 = getelementptr inbounds nuw i8, ptr %11, i64 176
+  %47 = getelementptr inbounds nuw i8, ptr %11, i64 160
+  %48 = getelementptr inbounds nuw i8, ptr %11, i64 192
+  %49 = getelementptr inbounds nuw i8, ptr %11, i64 164
+  %50 = getelementptr inbounds nuw i8, ptr %11, i64 240
+  %51 = getelementptr inbounds nuw i8, ptr %11, i64 96
+  %52 = getelementptr inbounds nuw i8, ptr %11, i64 32
+  %53 = getelementptr inbounds nuw i8, ptr %11, i64 372
+  %54 = getelementptr inbounds nuw i8, ptr %11, i64 332
+  %55 = getelementptr inbounds nuw i8, ptr %11, i64 104
+  %56 = getelementptr inbounds nuw i8, ptr %11, i64 312
+  %57 = getelementptr inbounds nuw i8, ptr %11, i64 100
+  %58 = getelementptr inbounds nuw i8, ptr %11, i64 304
+  %59 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  %60 = getelementptr inbounds nuw i8, ptr %11, i64 92
+  %61 = getelementptr inbounds nuw i8, ptr %11, i64 288
+  %62 = getelementptr inbounds nuw i8, ptr %11, i64 4
+  %63 = getelementptr inbounds nuw i8, ptr %11, i64 128
+  %64 = getelementptr inbounds nuw i8, ptr %11, i64 124
+  %65 = getelementptr inbounds nuw i8, ptr %11, i64 296
+  %66 = getelementptr inbounds nuw i8, ptr %11, i64 144
+  %67 = getelementptr inbounds nuw i8, ptr %11, i64 80
+  %68 = getelementptr inbounds nuw i8, ptr %11, i64 280
+  %69 = getelementptr inbounds nuw i8, ptr %11, i64 40
+  %70 = getelementptr inbounds nuw i8, ptr %11, i64 88
   br label %71
 
 71:                                               ; preds = %.backedge, %.tail136.thread
@@ -654,7 +654,7 @@ read_restore_filters.exit:                        ; preds = %154, %134
   unreachable
 
 184:                                              ; preds = %181
-  %185 = getelementptr inbounds i8, ptr %11, i64 272
+  %185 = getelementptr inbounds nuw i8, ptr %11, i64 272
   store i32 1, ptr %185, align 8
   br label %.thread
 
@@ -711,34 +711,34 @@ read_restore_filters.exit:                        ; preds = %154, %134
 
 .thread150:                                       ; preds = %194, %196
   %200 = load i32, ptr @main.disable_triggers, align 4
-  %201 = getelementptr inbounds i8, ptr %11, i64 16
+  %201 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i32 %200, ptr %201, align 8
   %202 = load i32, ptr @main.enable_row_security, align 4
-  %203 = getelementptr inbounds i8, ptr %11, i64 384
+  %203 = getelementptr inbounds nuw i8, ptr %11, i64 384
   store i32 %202, ptr %203, align 8
   %204 = load i32, ptr @main.no_data_for_failed_tables, align 4
-  %205 = getelementptr inbounds i8, ptr %11, i64 328
+  %205 = getelementptr inbounds nuw i8, ptr %11, i64 328
   store i32 %204, ptr %205, align 8
   %206 = load i32, ptr @main.outputNoTableAm, align 4
-  %207 = getelementptr inbounds i8, ptr %11, i64 8
+  %207 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i32 %206, ptr %207, align 8
   %208 = load i32, ptr @main.outputNoTablespaces, align 4
-  %209 = getelementptr inbounds i8, ptr %11, i64 12
+  %209 = getelementptr inbounds nuw i8, ptr %11, i64 12
   store i32 %208, ptr %209, align 4
   %210 = load i32, ptr @main.use_setsessauth, align 4
-  %211 = getelementptr inbounds i8, ptr %11, i64 20
+  %211 = getelementptr inbounds nuw i8, ptr %11, i64 20
   store i32 %210, ptr %211, align 4
   %212 = load i32, ptr @main.no_comments, align 4
-  %213 = getelementptr inbounds i8, ptr %11, i64 60
+  %213 = getelementptr inbounds nuw i8, ptr %11, i64 60
   store i32 %212, ptr %213, align 4
   %214 = load i32, ptr @main.no_publications, align 4
-  %215 = getelementptr inbounds i8, ptr %11, i64 64
+  %215 = getelementptr inbounds nuw i8, ptr %11, i64 64
   store i32 %214, ptr %215, align 8
   %216 = load i32, ptr @main.no_security_labels, align 4
-  %217 = getelementptr inbounds i8, ptr %11, i64 68
+  %217 = getelementptr inbounds nuw i8, ptr %11, i64 68
   store i32 %216, ptr %217, align 4
   %218 = load i32, ptr @main.no_subscriptions, align 4
-  %219 = getelementptr inbounds i8, ptr %11, i64 72
+  %219 = getelementptr inbounds nuw i8, ptr %11, i64 72
   store i32 %218, ptr %219, align 8
   %220 = load i32, ptr @main.if_exists, align 4
   %.not121 = icmp eq i32 %220, 0
@@ -755,17 +755,17 @@ read_restore_filters.exit:                        ; preds = %154, %134
   unreachable
 
 224:                                              ; preds = %221, %.thread150
-  %225 = getelementptr inbounds i8, ptr %11, i64 56
+  %225 = getelementptr inbounds nuw i8, ptr %11, i64 56
   store i32 %220, ptr %225, align 8
   %226 = load i32, ptr @main.strict_names, align 4
-  %227 = getelementptr inbounds i8, ptr %11, i64 76
+  %227 = getelementptr inbounds nuw i8, ptr %11, i64 76
   store i32 %226, ptr %227, align 4
   %228 = load ptr, ptr %66, align 8
   %.not123 = icmp eq ptr %228, null
   br i1 %.not123, label %._crit_edge, label %229
 
 ._crit_edge:                                      ; preds = %224
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %11, i64 136
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %11, i64 136
   %.pre146 = load i32, ptr %.phi.trans.insert, align 8
   br label %238
 
@@ -781,17 +781,17 @@ read_restore_filters.exit:                        ; preds = %154, %134
   ]
 
 231:                                              ; preds = %229, %229
-  %232 = getelementptr inbounds i8, ptr %11, i64 136
+  %232 = getelementptr inbounds nuw i8, ptr %11, i64 136
   store i32 1, ptr %232, align 8
   br label %238
 
 233:                                              ; preds = %229, %229
-  %234 = getelementptr inbounds i8, ptr %11, i64 136
+  %234 = getelementptr inbounds nuw i8, ptr %11, i64 136
   store i32 5, ptr %234, align 8
   br label %238
 
 235:                                              ; preds = %229, %229
-  %236 = getelementptr inbounds i8, ptr %11, i64 136
+  %236 = getelementptr inbounds nuw i8, ptr %11, i64 136
   store i32 3, ptr %236, align 8
   br label %238
 
@@ -806,11 +806,11 @@ read_restore_filters.exit:                        ; preds = %154, %134
   call void @SetArchiveOptions(ptr noundef %240, ptr noundef null, ptr noundef nonnull %11) #10
   call void @on_exit_close_archive(ptr noundef %240) #10
   %241 = load i32, ptr %57, align 4
-  %242 = getelementptr inbounds i8, ptr %240, i64 16
+  %242 = getelementptr inbounds nuw i8, ptr %240, i64 16
   store i32 %241, ptr %242, align 8
   %243 = load i32, ptr %54, align 4
   %244 = icmp ne i32 %243, 0
-  %245 = getelementptr inbounds i8, ptr %240, i64 88
+  %245 = getelementptr inbounds nuw i8, ptr %240, i64 88
   %246 = zext i1 %244 to i8
   store i8 %246, ptr %245, align 8
   %247 = load ptr, ptr %63, align 8
@@ -823,7 +823,7 @@ read_restore_filters.exit:                        ; preds = %154, %134
 
 249:                                              ; preds = %248, %238
   %250 = load i32, ptr %7, align 4
-  %251 = getelementptr inbounds i8, ptr %240, i64 48
+  %251 = getelementptr inbounds nuw i8, ptr %240, i64 48
   store i32 %250, ptr %251, align 8
   %252 = load i32, ptr %64, align 4
   %.not125 = icmp eq i32 %252, 0
@@ -839,7 +839,7 @@ read_restore_filters.exit:                        ; preds = %154, %134
   br label %255
 
 255:                                              ; preds = %254, %253
-  %256 = getelementptr inbounds i8, ptr %240, i64 92
+  %256 = getelementptr inbounds nuw i8, ptr %240, i64 92
   %257 = load i32, ptr %256, align 4
   %.not126 = icmp eq i32 %257, 0
   br i1 %.not126, label %261, label %258

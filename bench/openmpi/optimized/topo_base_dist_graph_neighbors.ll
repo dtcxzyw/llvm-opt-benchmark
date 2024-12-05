@@ -5,39 +5,39 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define range(i32 -13, 1) i32 @mca_topo_base_dist_graph_neighbors(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr noundef writeonly %3, i32 noundef %4, ptr nocapture noundef writeonly %5, ptr noundef writeonly %6) local_unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %0, i64 280
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 96
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 96
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 224
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %13 = load i32, ptr %12, align 8
   %14 = and i32 %13, 1024
   %.not = icmp eq i32 %14, 0
   br i1 %.not, label %.loopexit, label %15
 
 15:                                               ; preds = %7
-  %16 = getelementptr inbounds i8, ptr %11, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 48
   %17 = load i32, ptr %16, align 8
   %spec.select = tail call i32 @llvm.smin.i32(i32 %1, i32 %17)
-  %18 = getelementptr inbounds i8, ptr %11, i64 52
+  %18 = getelementptr inbounds nuw i8, ptr %11, i64 52
   %19 = load i32, ptr %18, align 4
   %.036 = tail call i32 @llvm.smin.i32(i32 %4, i32 %19)
   %20 = icmp sgt i32 %spec.select, 0
   br i1 %20, label %.lr.ph, label %.preheader
 
 .lr.ph:                                           ; preds = %15
-  %21 = getelementptr inbounds i8, ptr %11, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %.not47 = icmp eq ptr %3, inttoptr (i64 2 to ptr)
-  %22 = getelementptr inbounds i8, ptr %11, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %wide.trip.count58 = zext nneg i32 %spec.select to i64
   br i1 %.not47, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
   %indvars.iv55 = phi i64 [ %indvars.iv.next56, %.lr.ph.split.us ], [ 0, %.lr.ph ]
   %23 = load ptr, ptr %21, align 8
-  %24 = getelementptr inbounds i32, ptr %23, i64 %indvars.iv55
+  %24 = getelementptr inbounds nuw i32, ptr %23, i64 %indvars.iv55
   %25 = load i32, ptr %24, align 4
-  %26 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv55
+  %26 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv55
   store i32 %25, ptr %26, align 4
   %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
   %exitcond59.not = icmp eq i64 %indvars.iv.next56, %wide.trip.count58
@@ -48,18 +48,18 @@ define range(i32 -13, 1) i32 @mca_topo_base_dist_graph_neighbors(ptr nocapture n
   br i1 %27, label %.lr.ph51, label %.loopexit
 
 .lr.ph51:                                         ; preds = %.preheader
-  %28 = getelementptr inbounds i8, ptr %11, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %.not45 = icmp eq ptr %6, inttoptr (i64 2 to ptr)
-  %29 = getelementptr inbounds i8, ptr %11, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %wide.trip.count68 = zext nneg i32 %.036 to i64
   br i1 %.not45, label %.lr.ph51.split.us, label %.lr.ph51.split
 
 .lr.ph51.split.us:                                ; preds = %.lr.ph51, %.lr.ph51.split.us
   %indvars.iv65 = phi i64 [ %indvars.iv.next66, %.lr.ph51.split.us ], [ 0, %.lr.ph51 ]
   %30 = load ptr, ptr %28, align 8
-  %31 = getelementptr inbounds i32, ptr %30, i64 %indvars.iv65
+  %31 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv65
   %32 = load i32, ptr %31, align 4
-  %33 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv65
+  %33 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv65
   store i32 %32, ptr %33, align 4
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
   %exitcond69.not = icmp eq i64 %indvars.iv.next66, %wide.trip.count68
@@ -68,18 +68,18 @@ define range(i32 -13, 1) i32 @mca_topo_base_dist_graph_neighbors(ptr nocapture n
 .lr.ph.split:                                     ; preds = %.lr.ph, %43
   %indvars.iv = phi i64 [ %indvars.iv.next, %43 ], [ 0, %.lr.ph ]
   %34 = load ptr, ptr %21, align 8
-  %35 = getelementptr inbounds i32, ptr %34, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw i32, ptr %34, i64 %indvars.iv
   %36 = load i32, ptr %35, align 4
-  %37 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
   store i32 %36, ptr %37, align 4
   %38 = load ptr, ptr %22, align 8
   %.not48 = icmp eq ptr %38, null
   br i1 %.not48, label %43, label %39
 
 39:                                               ; preds = %.lr.ph.split
-  %40 = getelementptr inbounds i32, ptr %38, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw i32, ptr %38, i64 %indvars.iv
   %41 = load i32, ptr %40, align 4
-  %42 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
   store i32 %41, ptr %42, align 4
   br label %43
 
@@ -91,18 +91,18 @@ define range(i32 -13, 1) i32 @mca_topo_base_dist_graph_neighbors(ptr nocapture n
 .lr.ph51.split:                                   ; preds = %.lr.ph51, %53
   %indvars.iv60 = phi i64 [ %indvars.iv.next61, %53 ], [ 0, %.lr.ph51 ]
   %44 = load ptr, ptr %28, align 8
-  %45 = getelementptr inbounds i32, ptr %44, i64 %indvars.iv60
+  %45 = getelementptr inbounds nuw i32, ptr %44, i64 %indvars.iv60
   %46 = load i32, ptr %45, align 4
-  %47 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv60
+  %47 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv60
   store i32 %46, ptr %47, align 4
   %48 = load ptr, ptr %29, align 8
   %.not46 = icmp eq ptr %48, null
   br i1 %.not46, label %53, label %49
 
 49:                                               ; preds = %.lr.ph51.split
-  %50 = getelementptr inbounds i32, ptr %48, i64 %indvars.iv60
+  %50 = getelementptr inbounds nuw i32, ptr %48, i64 %indvars.iv60
   %51 = load i32, ptr %50, align 4
-  %52 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv60
+  %52 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv60
   store i32 %51, ptr %52, align 4
   br label %53
 

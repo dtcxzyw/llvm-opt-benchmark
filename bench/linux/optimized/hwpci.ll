@@ -25,7 +25,7 @@ define dso_local i32 @acpi_hw_derive_pci_id(ptr noundef %0, ptr noundef readnone
 
 .preheader22:                                     ; preds = %34, %.preheader22
   %13 = phi ptr [ %15, %.preheader22 ], [ %26, %34 ]
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8
   call void @kfree(ptr noundef nonnull %13) #4
   %16 = icmp eq ptr %15, null
@@ -57,14 +57,14 @@ define dso_local i32 @acpi_hw_derive_pci_id(ptr noundef %0, ptr noundef readnone
 
 .preheader:                                       ; preds = %28, %.preheader
   %30 = phi ptr [ %32, %.preheader ], [ %17, %28 ]
-  %31 = getelementptr inbounds i8, ptr %30, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load ptr, ptr %31, align 8
   call void @kfree(ptr noundef nonnull %30) #4
   %33 = icmp eq ptr %32, null
   br i1 %33, label %.thread17, label %.preheader, !llvm.loop !6
 
 34:                                               ; preds = %20
-  %35 = getelementptr inbounds i8, ptr %26, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store ptr %17, ptr %35, align 8
   %36 = load ptr, ptr %8, align 8
   store ptr %36, ptr %26, align 8
@@ -79,14 +79,14 @@ define dso_local i32 @acpi_hw_derive_pci_id(ptr noundef %0, ptr noundef readnone
 
 39:                                               ; preds = %.preheader24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #4
-  %40 = getelementptr inbounds i8, ptr %0, i64 2
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %41 = icmp eq ptr %17, null
   br i1 %41, label %.thread21, label %42
 
 42:                                               ; preds = %39
   %43 = load i16, ptr %40, align 2
-  %44 = getelementptr inbounds i8, ptr %0, i64 4
-  %45 = getelementptr inbounds i8, ptr %0, i64 6
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 6
   br label %46
 
 46:                                               ; preds = %87, %42
@@ -172,7 +172,7 @@ define dso_local i32 @acpi_hw_derive_pci_id(ptr noundef %0, ptr noundef readnone
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #4
-  %88 = getelementptr inbounds i8, ptr %47, i64 8
+  %88 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %89 = load ptr, ptr %88, align 8
   %90 = icmp eq ptr %89, null
   br i1 %90, label %.loopexit, label %46, !llvm.loop !11
@@ -183,7 +183,7 @@ define dso_local i32 @acpi_hw_derive_pci_id(ptr noundef %0, ptr noundef readnone
 
 92:                                               ; preds = %.loopexit, %92
   %93 = phi ptr [ %95, %92 ], [ %17, %.loopexit ]
-  %94 = getelementptr inbounds i8, ptr %93, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 8
   %95 = load ptr, ptr %94, align 8
   call void @kfree(ptr noundef nonnull %93) #4
   %96 = icmp eq ptr %95, null

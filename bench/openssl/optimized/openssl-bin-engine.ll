@@ -96,7 +96,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %argv, align 8
-  %arrayidx7112 = getelementptr inbounds i8, ptr %argv, i64 8
+  %arrayidx7112 = getelementptr inbounds nuw i8, ptr %argv, i64 8
   %1 = load ptr, ptr %arrayidx7112, align 8
   %cmp8.not113 = icmp eq ptr %1, null
   br i1 %cmp8.not113, label %while.end, label %land.rhs.preheader
@@ -117,7 +117,7 @@ while.body:                                       ; preds = %land.rhs.preheader,
   %4 = phi ptr [ %5, %land.rhs ], [ %1, %land.rhs.preheader ]
   %call13 = tail call i32 @OPENSSL_sk_push(ptr noundef %call, ptr noundef nonnull %4) #7
   %dec = add nsw i32 %argc.addr.0115213, -1
-  %arrayidx7 = getelementptr inbounds i8, ptr %arrayidx7116212, i64 8
+  %arrayidx7 = getelementptr inbounds nuw i8, ptr %arrayidx7116212, i64 8
   %5 = load ptr, ptr %arrayidx7, align 8
   %cmp8.not = icmp eq ptr %5, null
   br i1 %cmp8.not, label %while.end, label %land.rhs, !llvm.loop !5
@@ -221,7 +221,7 @@ if.then48:                                        ; preds = %for.body
 
 if.end51:                                         ; preds = %for.body
   %call54 = tail call i32 @OPENSSL_sk_push(ptr noundef %call, ptr noundef nonnull %8) #7
-  %incdec.ptr55 = getelementptr inbounds i8, ptr %argv.addr.1121, i64 8
+  %incdec.ptr55 = getelementptr inbounds nuw i8, ptr %argv.addr.1121, i64 8
   %12 = load ptr, ptr %incdec.ptr55, align 8
   %tobool.not = icmp eq ptr %12, null
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !8
@@ -251,9 +251,9 @@ if.end73:                                         ; preds = %for.body65, %if.the
 
 for.body79.lr.ph:                                 ; preds = %if.end73
   %tobool97.not = icmp eq i32 %list_cap.0.ph230, 0
-  %cap_buf189 = getelementptr inbounds i8, ptr %store_ctx, i64 8
-  %cap_size190 = getelementptr inbounds i8, ptr %store_ctx, i64 16
-  %ok = getelementptr inbounds i8, ptr %store_ctx, i64 24
+  %cap_buf189 = getelementptr inbounds nuw i8, ptr %store_ctx, i64 8
+  %cap_size190 = getelementptr inbounds nuw i8, ptr %store_ctx, i64 16
+  %ok = getelementptr inbounds nuw i8, ptr %store_ctx, i64 24
   %tobool206.not = icmp eq i32 %test_avail.0.ph, 0
   %tobool215.not = icmp eq i32 %test_avail_noise.0.ph, 0
   %cmp220 = icmp sgt i32 %verbose.0.ph233, 0
@@ -352,7 +352,7 @@ for.cond136:                                      ; preds = %for.body139
 for.body139:                                      ; preds = %for.body139.preheader, %for.cond136
   %indvars.iv = phi i64 [ 0, %for.body139.preheader ], [ %indvars.iv.next, %for.cond136 ]
   %13 = load ptr, ptr %nids, align 8
-  %arrayidx140 = getelementptr inbounds i32, ptr %13, i64 %indvars.iv
+  %arrayidx140 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv
   %14 = load i32, ptr %arrayidx140, align 4
   %call141 = call ptr @OBJ_nid2sn(i32 noundef %14) #7
   %call142 = call fastcc i32 @append_buf(ptr noundef nonnull %cap_buf, ptr noundef nonnull %cap_size, ptr noundef %call141)
@@ -381,7 +381,7 @@ for.cond155:                                      ; preds = %for.body158
 for.body158:                                      ; preds = %for.body158.preheader, %for.cond155
   %indvars.iv161 = phi i64 [ 0, %for.body158.preheader ], [ %indvars.iv.next162, %for.cond155 ]
   %15 = load ptr, ptr %nids, align 8
-  %arrayidx160 = getelementptr inbounds i32, ptr %15, i64 %indvars.iv161
+  %arrayidx160 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv161
   %16 = load i32, ptr %arrayidx160, align 4
   %call161 = call ptr @OBJ_nid2sn(i32 noundef %16) #7
   %call162 = call fastcc i32 @append_buf(ptr noundef nonnull %cap_buf, ptr noundef nonnull %cap_size, ptr noundef %call161)
@@ -410,7 +410,7 @@ for.cond175:                                      ; preds = %for.body178
 for.body178:                                      ; preds = %for.body178.preheader, %for.cond175
   %indvars.iv166 = phi i64 [ 0, %for.body178.preheader ], [ %indvars.iv.next167, %for.cond175 ]
   %17 = load ptr, ptr %nids, align 8
-  %arrayidx180 = getelementptr inbounds i32, ptr %17, i64 %indvars.iv166
+  %arrayidx180 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv166
   %18 = load i32, ptr %arrayidx180, align 4
   %call181 = call ptr @OBJ_nid2sn(i32 noundef %18) #7
   %call182 = call fastcc i32 @append_buf(ptr noundef nonnull %cap_buf, ptr noundef nonnull %cap_size, ptr noundef %call181)
@@ -816,7 +816,7 @@ if.end30:                                         ; preds = %if.else
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buf, ptr align 1 %call5, i64 %conv21, i1 false)
   %arrayidx = getelementptr inbounds [256 x i8], ptr %buf, i64 0, i64 %sub.ptr.sub
   store i8 0, ptr %arrayidx, align 1
-  %incdec.ptr = getelementptr inbounds i8, ptr %strchr, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %strchr, i64 1
   %call26 = call i32 @ENGINE_ctrl_cmd_string(ptr noundef nonnull %e, ptr noundef nonnull %buf, ptr noundef nonnull %incdec.ptr, i32 noundef 0) #7
   %tobool27.not = icmp eq i32 %call26, 0
   br i1 %tobool27.not, label %if.else34, label %if.then32
@@ -901,10 +901,10 @@ if.end25:                                         ; preds = %if.end24, %if.else
 
 if.then28:                                        ; preds = %if.end25
   %idx.ext = and i64 %call5, 2147483647
-  %add.ptr = getelementptr inbounds i8, ptr %p.1, i64 %idx.ext
-  %incdec.ptr = getelementptr inbounds i8, ptr %add.ptr, i64 1
+  %add.ptr = getelementptr inbounds nuw i8, ptr %p.1, i64 %idx.ext
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %add.ptr, i64 1
   store i8 44, ptr %add.ptr, align 1
-  %incdec.ptr29 = getelementptr inbounds i8, ptr %add.ptr, i64 2
+  %incdec.ptr29 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 2
   store i8 32, ptr %incdec.ptr, align 1
   br label %if.end31
 
@@ -946,16 +946,16 @@ entry:
 if.then:                                          ; preds = %entry
   %call1 = tail call ptr @OSSL_STORE_LOADER_get0_scheme(ptr noundef %loader) #7
   %call2 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %buf, i64 noundef 256, ptr noundef nonnull @.str.47, ptr noundef %call1) #7
-  %cap_buf = getelementptr inbounds i8, ptr %arg, i64 8
+  %cap_buf = getelementptr inbounds nuw i8, ptr %arg, i64 8
   %1 = load ptr, ptr %cap_buf, align 8
-  %cap_size = getelementptr inbounds i8, ptr %arg, i64 16
+  %cap_size = getelementptr inbounds nuw i8, ptr %arg, i64 16
   %2 = load ptr, ptr %cap_size, align 8
   %call4 = call fastcc i32 @append_buf(ptr noundef %1, ptr noundef %2, ptr noundef nonnull %buf)
   %tobool.not = icmp eq i32 %call4, 0
   br i1 %tobool.not, label %if.then5, label %if.end6
 
 if.then5:                                         ; preds = %if.then
-  %ok = getelementptr inbounds i8, ptr %arg, i64 24
+  %ok = getelementptr inbounds nuw i8, ptr %arg, i64 24
   store i32 0, ptr %ok, align 8
   br label %if.end6
 

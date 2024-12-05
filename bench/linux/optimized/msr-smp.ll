@@ -71,10 +71,10 @@ define dso_local i32 @rdmsr_on_cpu(i32 noundef %0, i32 noundef %1, ptr nocapture
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
   store i32 %1, ptr %5, align 8
   %6 = call i32 @smp_call_function_single(i32 noundef %0, ptr noundef nonnull @__rdmsr_on_cpu, ptr noundef nonnull %5, i32 noundef 1) #7
-  %7 = getelementptr inbounds i8, ptr %5, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %8 = load i32, ptr %7, align 8
   store i32 %8, ptr %2, align 4
-  %9 = getelementptr inbounds i8, ptr %5, i64 12
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %10 = load i32, ptr %9, align 4
   store i32 %10, ptr %3, align 4
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #7
@@ -93,7 +93,7 @@ declare dso_local i32 @smp_call_function_single(i32 noundef, ptr noundef, ptr no
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @__rdmsr_on_cpu(ptr nocapture noundef %0) #0 align 16 {
   %2 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #7, !srcloc !6
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %13, label %6
@@ -108,7 +108,7 @@ define internal void @__rdmsr_on_cpu(ptr nocapture noundef %0) #0 align 16 {
   br label %15
 
 13:                                               ; preds = %1
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %15
 
 15:                                               ; preds = %13, %6
@@ -131,7 +131,7 @@ define internal void @__rdmsr_on_cpu(ptr nocapture noundef %0) #0 align 16 {
   store i32 %25, ptr %16, align 8
   %26 = lshr i64 %22, 32
   %27 = trunc nuw i64 %26 to i32
-  %28 = getelementptr inbounds i8, ptr %16, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %16, i64 4
   store i32 %27, ptr %28, align 4
   ret void
 }
@@ -146,7 +146,7 @@ define dso_local i32 @rdmsrl_on_cpu(i32 noundef %0, i32 noundef %1, ptr nocaptur
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
   store i32 %1, ptr %4, align 8
   %5 = call i32 @smp_call_function_single(i32 noundef %0, ptr noundef nonnull @__rdmsr_on_cpu, ptr noundef nonnull %4, i32 noundef 1) #7
-  %6 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %2, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #7
@@ -159,9 +159,9 @@ define dso_local i32 @wrmsr_on_cpu(i32 noundef %0, i32 noundef %1, i32 noundef %
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
   store i32 %1, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %2, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 12
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 %3, ptr %7, align 4
   %8 = call i32 @smp_call_function_single(i32 noundef %0, ptr noundef nonnull @__wrmsr_on_cpu, ptr noundef nonnull %5, i32 noundef 1) #7
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #7
@@ -171,7 +171,7 @@ define dso_local i32 @wrmsr_on_cpu(i32 noundef %0, i32 noundef %1, i32 noundef %
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @__wrmsr_on_cpu(ptr nocapture noundef readonly %0) #0 align 16 {
   %2 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #7, !srcloc !9
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %13, label %6
@@ -186,14 +186,14 @@ define internal void @__wrmsr_on_cpu(ptr nocapture noundef readonly %0) #0 align
   br label %15
 
 13:                                               ; preds = %1
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %15
 
 15:                                               ; preds = %13, %6
   %16 = phi ptr [ %12, %6 ], [ %14, %13 ]
   %17 = load i32, ptr %0, align 8
   %18 = load i32, ptr %16, align 8
-  %19 = getelementptr inbounds i8, ptr %16, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %20 = load i32, ptr %19, align 4
   tail call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %17, i32 %18, i32 %20) #7, !srcloc !10
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_write_msr, i64 8), i32 2) #7
@@ -217,7 +217,7 @@ define dso_local i32 @wrmsrl_on_cpu(i32 noundef %0, i32 noundef %1, i64 noundef 
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
   store i32 %1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %2, ptr %5, align 8
   %6 = call i32 @smp_call_function_single(i32 noundef %0, ptr noundef nonnull @__wrmsr_on_cpu, ptr noundef nonnull %4, i32 noundef 1) #7
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #7
@@ -228,7 +228,7 @@ define dso_local i32 @wrmsrl_on_cpu(i32 noundef %0, i32 noundef %1, i64 noundef 
 define dso_local void @rdmsr_on_cpus(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 align 16 {
   %4 = alloca %struct.msr_info, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #7
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
   store ptr %2, ptr %5, align 8
   store i32 %1, ptr %4, align 8
@@ -257,7 +257,7 @@ define dso_local void @rdmsr_on_cpus(ptr noundef %0, i32 noundef %1, ptr noundef
   br label %23
 
 21:                                               ; preds = %11
-  %22 = getelementptr inbounds i8, ptr %4, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %23
 
 23:                                               ; preds = %21, %14
@@ -279,7 +279,7 @@ define dso_local void @rdmsr_on_cpus(ptr noundef %0, i32 noundef %1, ptr noundef
   store i32 %32, ptr %24, align 8
   %33 = lshr i64 %29, 32
   %34 = trunc nuw i64 %33 to i32
-  %35 = getelementptr inbounds i8, ptr %24, i64 4
+  %35 = getelementptr inbounds nuw i8, ptr %24, i64 4
   store i32 %34, ptr %35, align 4
   br label %36
 
@@ -307,7 +307,7 @@ define dso_local void @rdmsr_on_cpus(ptr noundef %0, i32 noundef %1, ptr noundef
 define dso_local void @wrmsr_on_cpus(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 align 16 {
   %4 = alloca %struct.msr_info, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #7
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
   store ptr %2, ptr %5, align 8
   store i32 %1, ptr %4, align 8
@@ -337,13 +337,13 @@ define dso_local void @wrmsr_on_cpus(ptr noundef %0, i32 noundef %1, ptr noundef
   br label %23
 
 21:                                               ; preds = %11
-  %22 = getelementptr inbounds i8, ptr %4, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %23
 
 23:                                               ; preds = %21, %14
   %24 = phi i32 [ %.pre, %14 ], [ 0, %21 ]
   %25 = phi ptr [ %20, %14 ], [ %22, %21 ]
-  %26 = getelementptr inbounds i8, ptr %25, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 4
   %27 = load i32, ptr %26, align 4
   tail call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %1, i32 %24, i32 %27) #7, !srcloc !10
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_write_msr, i64 8), i32 2) #7
@@ -383,32 +383,32 @@ define dso_local i32 @rdmsr_safe_on_cpu(i32 noundef %0, i32 noundef %1, ptr noca
   %6 = alloca %struct.__call_single_data, align 32
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #7
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #7
-  %7 = getelementptr inbounds i8, ptr %6, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(32) %6, i8 0, i64 32, i1 false)
   store ptr @__rdmsr_safe_on_cpu, ptr %7, align 16
-  %8 = getelementptr inbounds i8, ptr %6, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %5, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %5, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, i8 0, i64 64, i1 false)
-  call void @__init_swait_queue_head(ptr noundef %9, ptr noundef nonnull @.str.1, ptr noundef nonnull @init_completion.__key) #7
+  call void @__init_swait_queue_head(ptr noundef nonnull %9, ptr noundef nonnull @.str.1, ptr noundef nonnull @init_completion.__key) #7
   store i32 %1, ptr %5, align 8
   %10 = call i32 @smp_call_function_single_async(i32 noundef %0, ptr noundef nonnull %6) #7
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %12, label %16
 
 12:                                               ; preds = %4
-  %13 = getelementptr inbounds i8, ptr %5, i64 32
-  call void @wait_for_completion(ptr noundef %13) #7
-  %14 = getelementptr inbounds i8, ptr %5, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  call void @wait_for_completion(ptr noundef nonnull %13) #7
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %15 = load i32, ptr %14, align 8
   br label %16
 
 16:                                               ; preds = %12, %4
   %17 = phi i32 [ %10, %4 ], [ %15, %12 ]
-  %18 = getelementptr inbounds i8, ptr %5, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %19 = load i32, ptr %18, align 8
   store i32 %19, ptr %2, align 4
-  %20 = getelementptr inbounds i8, ptr %5, i64 12
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %21 = load i32, ptr %20, align 4
   store i32 %21, ptr %3, align 4
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #7
@@ -440,16 +440,16 @@ define internal void @__rdmsr_safe_on_cpu(ptr noundef initializes((8, 16), (24, 
 10:                                               ; preds = %._crit_edge, %7
   %.pre-phi2 = phi i64 [ %.pre1, %._crit_edge ], [ %9, %7 ]
   %11 = trunc i64 %5 to i32
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %11, ptr %12, align 8
   %13 = lshr i64 %.pre-phi2, 32
   %14 = trunc nuw i64 %13 to i32
-  %15 = getelementptr inbounds i8, ptr %0, i64 12
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %14, ptr %15, align 4
-  %16 = getelementptr inbounds i8, ptr %0, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %4, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 32
-  tail call void @complete(ptr noundef %17) #7
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  tail call void @complete(ptr noundef nonnull %17) #7
   ret void
 }
 
@@ -465,13 +465,13 @@ define dso_local i32 @wrmsr_safe_on_cpu(i32 noundef %0, i32 noundef %1, i32 noun
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
   store i32 %1, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %2, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 12
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 %3, ptr %7, align 4
   %8 = call i32 @smp_call_function_single(i32 noundef %0, ptr noundef nonnull @__wrmsr_safe_on_cpu, ptr noundef nonnull %5, i32 noundef 1) #7
   %9 = icmp eq i32 %8, 0
-  %10 = getelementptr inbounds i8, ptr %5, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %11 = load i32, ptr %10, align 8
   %12 = select i1 %9, i32 %11, i32 %8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #7
@@ -481,9 +481,9 @@ define dso_local i32 @wrmsr_safe_on_cpu(i32 noundef %0, i32 noundef %1, i32 noun
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @__wrmsr_safe_on_cpu(ptr nocapture noundef initializes((24, 28)) %0) #0 align 16 {
   %2 = load i32, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 12
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %6 = load i32, ptr %5, align 4
   %7 = tail call i32 asm sideeffect "1: wrmsr ; xor $0,$0\0A2:\0A\09 .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A.macro extable_type_reg type:req reg:req\0A.set .Lfound, 0\0A.set .Lregnr, 0\0A.irp rs,rax,rcx,rdx,rbx,rsp,rbp,rsi,rdi,r8,r9,r10,r11,r12,r13,r14,r15\0A.ifc \\reg, %\\rs\0A.set .Lfound, .Lfound+1\0A.long \\type + (.Lregnr << 8)\0A.endif\0A.set .Lregnr, .Lregnr+1\0A.endr\0A.set .Lregnr, 0\0A.irp rs,eax,ecx,edx,ebx,esp,ebp,esi,edi,r8d,r9d,r10d,r11d,r12d,r13d,r14d,r15d\0A.ifc \\reg, %\\rs\0A.set .Lfound, .Lfound+1\0A.long \\type + (.Lregnr << 8)\0A.endif\0A.set .Lregnr, .Lregnr+1\0A.endr\0A.if (.Lfound != 1)\0A.error \22extable_type_reg: bad register argument\22\0A.endif\0A.endm\0Aextable_type_reg reg=$0, type=10 \0A.purgem extable_type_reg\0A .popsection\0A", "={ax},{cx},0,{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %2, i32 %4, i32 %6) #7, !srcloc !20
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_write_msr, i64 8), i32 2) #7
@@ -498,7 +498,7 @@ define internal void @__wrmsr_safe_on_cpu(ptr nocapture noundef initializes((24,
   br label %13
 
 13:                                               ; preds = %8, %1
-  %14 = getelementptr inbounds i8, ptr %0, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %7, ptr %14, align 8
   ret void
 }
@@ -509,11 +509,11 @@ define dso_local i32 @wrmsrl_safe_on_cpu(i32 noundef %0, i32 noundef %1, i64 nou
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
   store i32 %1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %2, ptr %5, align 8
   %6 = call i32 @smp_call_function_single(i32 noundef %0, ptr noundef nonnull @__wrmsr_safe_on_cpu, ptr noundef nonnull %4, i32 noundef 1) #7
   %7 = icmp eq i32 %6, 0
-  %8 = getelementptr inbounds i8, ptr %4, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %9 = load i32, ptr %8, align 8
   %10 = select i1 %7, i32 %9, i32 %6
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #7
@@ -526,29 +526,29 @@ define dso_local i32 @rdmsrl_safe_on_cpu(i32 noundef %0, i32 noundef %1, ptr noc
   %5 = alloca %struct.__call_single_data, align 32
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #7
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #7
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(32) %5, i8 0, i64 32, i1 false)
   store ptr @__rdmsr_safe_on_cpu, ptr %6, align 16
-  %7 = getelementptr inbounds i8, ptr %5, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %4, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, i8 0, i64 64, i1 false)
-  call void @__init_swait_queue_head(ptr noundef %8, ptr noundef nonnull @.str.1, ptr noundef nonnull @init_completion.__key) #7
+  call void @__init_swait_queue_head(ptr noundef nonnull %8, ptr noundef nonnull @.str.1, ptr noundef nonnull @init_completion.__key) #7
   store i32 %1, ptr %4, align 8
   %9 = call i32 @smp_call_function_single_async(i32 noundef %0, ptr noundef nonnull %5) #7
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %11, label %15
 
 11:                                               ; preds = %3
-  %12 = getelementptr inbounds i8, ptr %4, i64 32
-  call void @wait_for_completion(ptr noundef %12) #7
-  %13 = getelementptr inbounds i8, ptr %4, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  call void @wait_for_completion(ptr noundef nonnull %12) #7
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %14 = load i32, ptr %13, align 8
   br label %15
 
 15:                                               ; preds = %11, %3
   %16 = phi i32 [ %9, %3 ], [ %14, %11 ]
-  %17 = getelementptr inbounds i8, ptr %4, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %18 = load i64, ptr %17, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #7
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #7
@@ -560,10 +560,10 @@ define dso_local i32 @rdmsrl_safe_on_cpu(i32 noundef %0, i32 noundef %1, ptr noc
 define dso_local i32 @rdmsr_safe_regs_on_cpu(i32 noundef %0, ptr noundef %1) #0 align 16 {
   %3 = alloca %struct.msr_regs_info, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #7
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 0, ptr %4, align 8, !annotation !21
   store ptr %1, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 -5, ptr %5, align 8
   %6 = call i32 @smp_call_function_single(i32 noundef %0, ptr noundef nonnull @__rdmsr_safe_regs_on_cpu, ptr noundef nonnull %3, i32 noundef 1) #7
   %7 = icmp eq i32 %6, 0
@@ -577,7 +577,7 @@ define dso_local i32 @rdmsr_safe_regs_on_cpu(i32 noundef %0, ptr noundef %1) #0 
 define internal void @__rdmsr_safe_regs_on_cpu(ptr nocapture noundef initializes((8, 12)) %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = tail call i32 @rdmsr_safe_regs(ptr noundef %2) #7
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %3, ptr %4, align 8
   ret void
 }
@@ -586,10 +586,10 @@ define internal void @__rdmsr_safe_regs_on_cpu(ptr nocapture noundef initializes
 define dso_local i32 @wrmsr_safe_regs_on_cpu(i32 noundef %0, ptr noundef %1) #0 align 16 {
   %3 = alloca %struct.msr_regs_info, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #7
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 0, ptr %4, align 8, !annotation !21
   store ptr %1, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 -5, ptr %5, align 8
   %6 = call i32 @smp_call_function_single(i32 noundef %0, ptr noundef nonnull @__wrmsr_safe_regs_on_cpu, ptr noundef nonnull %3, i32 noundef 1) #7
   %7 = icmp eq i32 %6, 0
@@ -603,7 +603,7 @@ define dso_local i32 @wrmsr_safe_regs_on_cpu(i32 noundef %0, ptr noundef %1) #0 
 define internal void @__wrmsr_safe_regs_on_cpu(ptr nocapture noundef initializes((8, 12)) %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = tail call i32 @wrmsr_safe_regs(ptr noundef %2) #7
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %3, ptr %4, align 8
   ret void
 }

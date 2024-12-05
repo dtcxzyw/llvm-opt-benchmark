@@ -142,7 +142,7 @@ if.then2:                                         ; preds = %if.end
 
 if.end3:                                          ; preds = %if.end
   %call4 = tail call ptr @ossl_pkcs7_get0_ctx(ptr noundef %p7) #2
-  %ctx = getelementptr inbounds i8, ptr %call1, i64 64
+  %ctx = getelementptr inbounds nuw i8, ptr %call1, i64 64
   store ptr %call4, ptr %ctx, align 8
   %and = and i32 %flags, 2
   %tobool5.not = icmp eq i32 %and, 0
@@ -265,7 +265,7 @@ if.then70:                                        ; preds = %if.end67
   br i1 %cmp14.i, label %for.body.lr.ph.i, label %pkcs7_copy_existing_digest.exit.thread
 
 for.body.lr.ph.i:                                 ; preds = %if.then70
-  %digest_alg.i = getelementptr inbounds i8, ptr %call1, i64 16
+  %digest_alg.i = getelementptr inbounds nuw i8, ptr %call1, i64 16
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
@@ -275,7 +275,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   br i1 %cmp5.i, label %pkcs7_copy_existing_digest.exit.thread, label %if.end.i
 
 if.end.i:                                         ; preds = %for.body.i
-  %auth_attr.i = getelementptr inbounds i8, ptr %call4.i, i64 24
+  %auth_attr.i = getelementptr inbounds nuw i8, ptr %call4.i, i64 24
   %0 = load ptr, ptr %auth_attr.i, align 8
   %call7.i = tail call i32 @OPENSSL_sk_num(ptr noundef %0) #2
   %cmp8.i = icmp slt i32 %call7.i, 1
@@ -284,7 +284,7 @@ if.end.i:                                         ; preds = %for.body.i
 if.end10.i:                                       ; preds = %if.end.i
   %1 = load ptr, ptr %digest_alg.i, align 8
   %2 = load ptr, ptr %1, align 8
-  %digest_alg11.i = getelementptr inbounds i8, ptr %call4.i, i64 16
+  %digest_alg11.i = getelementptr inbounds nuw i8, ptr %call4.i, i64 16
   %3 = load ptr, ptr %digest_alg11.i, align 8
   %4 = load ptr, ptr %3, align 8
   %call13.i = tail call i32 @OBJ_cmp(ptr noundef %2, ptr noundef %4) #2
@@ -298,7 +298,7 @@ for.inc.i:                                        ; preds = %if.end10.i, %if.end
   br i1 %cmp.i, label %for.body.i, label %pkcs7_copy_existing_digest.exit.thread, !llvm.loop !6
 
 for.end.i:                                        ; preds = %if.end10.i
-  %auth_attr.i.le = getelementptr inbounds i8, ptr %call4.i, i64 24
+  %auth_attr.i.le = getelementptr inbounds nuw i8, ptr %call4.i, i64 24
   %5 = load ptr, ptr %auth_attr.i.le, align 8
   %call16.i = tail call ptr @PKCS7_digest_from_attributes(ptr noundef %5) #2
   %cmp18.not.i = icmp eq ptr %call16.i, null
@@ -310,7 +310,7 @@ pkcs7_copy_existing_digest.exit.thread:           ; preds = %for.body.i, %for.in
   br label %err.sink.split
 
 pkcs7_copy_existing_digest.exit:                  ; preds = %for.end.i
-  %data.i = getelementptr inbounds i8, ptr %call16.i, i64 8
+  %data.i = getelementptr inbounds nuw i8, ptr %call16.i, i64 8
   %6 = load ptr, ptr %data.i, align 8
   %7 = load i32, ptr %call16.i, align 8
   %call20.i = tail call i32 @PKCS7_add1_attrib_digest(ptr noundef nonnull %call1, ptr noundef %6, i32 noundef %7) #2
@@ -474,7 +474,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %type = getelementptr inbounds i8, ptr %p7, i64 24
+  %type = getelementptr inbounds nuw i8, ptr %p7, i64 24
   %0 = load ptr, ptr %type, align 8
   %call = tail call i32 @OBJ_obj2nid(ptr noundef %0) #2
   %cmp1 = icmp eq i32 %call, 22
@@ -559,7 +559,7 @@ for.cond.preheader:                               ; preds = %if.end34
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %and43 = and i32 %flags, 8
   %tobool44.not = icmp eq i32 %and43, 0
-  %d = getelementptr inbounds i8, ptr %p7, i64 32
+  %d = getelementptr inbounds nuw i8, ptr %p7, i64 32
   %and59 = and i32 %flags, 8192
   %tobool60.not = icmp eq i32 %and59, 0
   br i1 %tobool44.not, label %for.body.us, label %for.body.lr.ph.split
@@ -568,7 +568,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   %k.066.us = phi i32 [ %inc.us, %for.cond.us ], [ 0, %for.body.lr.ph ]
   %call42.us = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %call24, i32 noundef %k.066.us) #2
   %1 = load ptr, ptr %d, align 8
-  %cert.us = getelementptr inbounds i8, ptr %1, i64 16
+  %cert.us = getelementptr inbounds nuw i8, ptr %1, i64 16
   %2 = load ptr, ptr %cert.us, align 8
   %call46.us = tail call i32 @X509_STORE_CTX_init(ptr noundef nonnull %call31, ptr noundef %store, ptr noundef %call42.us, ptr noundef %2) #2
   %tobool47.not.us = icmp eq i32 %call46.us, 0
@@ -590,7 +590,7 @@ if.end58.us:                                      ; preds = %if.end49.us
 
 if.then61.us:                                     ; preds = %if.end58.us
   %3 = load ptr, ptr %d, align 8
-  %crl.us = getelementptr inbounds i8, ptr %3, i64 24
+  %crl.us = getelementptr inbounds nuw i8, ptr %3, i64 24
   %4 = load ptr, ptr %crl.us, align 8
   tail call void @X509_STORE_CTX_set0_crls(ptr noundef nonnull %call31, ptr noundef %4) #2
   br label %if.end63.us
@@ -618,7 +618,7 @@ for.cond.us70:                                    ; preds = %if.end58.us73
 
 if.end58.us73:                                    ; preds = %for.body.us67
   %5 = load ptr, ptr %d, align 8
-  %crl.us75 = getelementptr inbounds i8, ptr %5, i64 24
+  %crl.us75 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %6 = load ptr, ptr %crl.us75, align 8
   tail call void @X509_STORE_CTX_set0_crls(ptr noundef nonnull %call31, ptr noundef %6) #2
   %call64.us77 = tail call i32 @X509_verify_cert(ptr noundef nonnull %call31) #2
@@ -805,7 +805,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %type = getelementptr inbounds i8, ptr %p7, i64 24
+  %type = getelementptr inbounds nuw i8, ptr %p7, i64 24
   %0 = load ptr, ptr %type, align 8
   %call = tail call i32 @OBJ_obj2nid(ptr noundef %0) #2
   %cmp1 = icmp eq i32 %call, 22
@@ -843,7 +843,7 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %cmp19.not = icmp eq ptr %certs, null
   %and = and i32 %flags, 16
   %tobool.not = icmp eq i32 %and, 0
-  %d = getelementptr inbounds i8, ptr %p7, i64 32
+  %d = getelementptr inbounds nuw i8, ptr %p7, i64 32
   br i1 %tobool.not, label %for.body.lr.ph.split.us, label %for.body.lr.ph.split
 
 for.body.lr.ph.split.us:                          ; preds = %for.body.lr.ph
@@ -853,7 +853,7 @@ for.body.us.us:                                   ; preds = %for.body.lr.ph.spli
   %i.028.us.us = phi i32 [ %inc.us.us, %for.cond.us.us ], [ 0, %for.body.lr.ph.split.us ]
   %call18.us.us = tail call ptr @OPENSSL_sk_value(ptr noundef %call4, i32 noundef %i.028.us.us) #2
   %1 = load ptr, ptr %d, align 8
-  %cert.us.us = getelementptr inbounds i8, ptr %1, i64 16
+  %cert.us.us = getelementptr inbounds nuw i8, ptr %1, i64 16
   %2 = load ptr, ptr %cert.us.us, align 8
   %tobool25.not.us.us = icmp eq ptr %2, null
   br i1 %tobool25.not.us.us, label %if.then34, label %if.end32.us.us
@@ -865,10 +865,10 @@ for.cond.us.us:                                   ; preds = %if.end36.us.us
   br i1 %cmp16.us.us, label %for.body.us.us, label %return, !llvm.loop !9
 
 if.end32.us.us:                                   ; preds = %for.body.us.us
-  %issuer_and_serial.us.us = getelementptr inbounds i8, ptr %call18.us.us, i64 8
+  %issuer_and_serial.us.us = getelementptr inbounds nuw i8, ptr %call18.us.us, i64 8
   %3 = load ptr, ptr %issuer_and_serial.us.us, align 8
   %4 = load ptr, ptr %3, align 8
-  %serial30.us.us = getelementptr inbounds i8, ptr %3, i64 8
+  %serial30.us.us = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %serial30.us.us, align 8
   %call31.us.us = tail call ptr @X509_find_by_issuer_and_serial(ptr noundef nonnull %2, ptr noundef %4, ptr noundef %5) #2
   %cmp33.us.us = icmp eq ptr %call31.us.us, null
@@ -882,10 +882,10 @@ if.end36.us.us:                                   ; preds = %if.end32.us.us
 for.body.us:                                      ; preds = %for.body.lr.ph.split.us, %for.cond.us
   %i.028.us = phi i32 [ %inc.us, %for.cond.us ], [ 0, %for.body.lr.ph.split.us ]
   %call18.us = tail call ptr @OPENSSL_sk_value(ptr noundef %call4, i32 noundef %i.028.us) #2
-  %issuer_and_serial.us = getelementptr inbounds i8, ptr %call18.us, i64 8
+  %issuer_and_serial.us = getelementptr inbounds nuw i8, ptr %call18.us, i64 8
   %6 = load ptr, ptr %issuer_and_serial.us, align 8
   %7 = load ptr, ptr %6, align 8
-  %serial.us = getelementptr inbounds i8, ptr %6, i64 8
+  %serial.us = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %serial.us, align 8
   %call21.us = tail call ptr @X509_find_by_issuer_and_serial(ptr noundef nonnull %certs, ptr noundef %7, ptr noundef %8) #2
   %cmp23.us = icmp eq ptr %call21.us, null
@@ -899,7 +899,7 @@ for.cond.us:                                      ; preds = %if.end36.us
 
 land.lhs.true.us:                                 ; preds = %for.body.us
   %9 = load ptr, ptr %d, align 8
-  %cert.us = getelementptr inbounds i8, ptr %9, i64 16
+  %cert.us = getelementptr inbounds nuw i8, ptr %9, i64 16
   %10 = load ptr, ptr %cert.us, align 8
   %tobool25.not.us = icmp eq ptr %10, null
   br i1 %tobool25.not.us, label %if.then34, label %if.end32.us
@@ -939,10 +939,10 @@ for.cond:                                         ; preds = %if.end36
 for.body:                                         ; preds = %for.body.lr.ph.split, %for.cond
   %i.028 = phi i32 [ %inc, %for.cond ], [ 0, %for.body.lr.ph.split ]
   %call18 = tail call ptr @OPENSSL_sk_value(ptr noundef %call4, i32 noundef %i.028) #2
-  %issuer_and_serial = getelementptr inbounds i8, ptr %call18, i64 8
+  %issuer_and_serial = getelementptr inbounds nuw i8, ptr %call18, i64 8
   %13 = load ptr, ptr %issuer_and_serial, align 8
   %14 = load ptr, ptr %13, align 8
-  %serial = getelementptr inbounds i8, ptr %13, i64 8
+  %serial = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %serial, align 8
   %call21 = tail call ptr @X509_find_by_issuer_and_serial(ptr noundef nonnull %certs, ptr noundef %14, ptr noundef %15) #2
   %cmp23 = icmp eq ptr %call21, null
@@ -1108,7 +1108,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %type = getelementptr inbounds i8, ptr %p7, i64 24
+  %type = getelementptr inbounds nuw i8, ptr %p7, i64 24
   %0 = load ptr, ptr %type, align 8
   %call = tail call i32 @OBJ_obj2nid(ptr noundef %0) #2
   %cmp1 = icmp eq i32 %call, 23

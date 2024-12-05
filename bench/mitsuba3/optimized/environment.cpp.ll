@@ -13,7 +13,7 @@ define dso_local noundef i32 @_ZNK6asmjit9_abi_1_1011Environment14stackAlignment
   br i1 %4, label %22, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 3
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %7 = load i8, ptr %6, align 1, !tbaa !13
   %8 = add i8 %7, -3
   %9 = icmp ult i8 %8, 11
@@ -33,7 +33,7 @@ define dso_local noundef i32 @_ZNK6asmjit9_abi_1_1011Environment14stackAlignment
 
 18:                                               ; preds = %10
   %19 = zext nneg i8 %11 to i64
-  %20 = getelementptr inbounds [9 x i32], ptr @switch.table._ZNK6asmjit9_abi_1_1011Environment14stackAlignmentEv, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw [9 x i32], ptr @switch.table._ZNK6asmjit9_abi_1_1011Environment14stackAlignmentEv, i64 0, i64 %19
   %21 = load i32, ptr %20, align 4
   br label %22
 

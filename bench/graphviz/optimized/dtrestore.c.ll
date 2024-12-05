@@ -5,10 +5,10 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @dtrestore(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   %.not.not.not = icmp eq ptr %1, null
   br i1 %.not.not.not, label %8, label %14
@@ -20,12 +20,12 @@ define range(i32 -1, 1) i32 @dtrestore(ptr noundef %0, ptr noundef %1) local_unn
   br i1 %.not41, label %.loopexit, label %11
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %7, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %13 = load ptr, ptr %12, align 8
   br label %17
 
 14:                                               ; preds = %2
-  %15 = getelementptr inbounds i8, ptr %7, i64 28
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 28
   %16 = load i32, ptr %15, align 4
   %.not42 = icmp eq i32 %16, 0
   br i1 %.not42, label %._crit_edge, label %.loopexit
@@ -46,15 +46,15 @@ define range(i32 -1, 1) i32 @dtrestore(ptr noundef %0, ptr noundef %1) local_unn
   br i1 %.not43, label %44, label %23
 
 23:                                               ; preds = %17
-  %24 = getelementptr inbounds i8, ptr %20, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store ptr null, ptr %24, align 8
   %25 = load ptr, ptr %6, align 8
   br i1 %.not.not.not, label %26, label %40
 
 26:                                               ; preds = %23
-  %27 = getelementptr inbounds i8, ptr %25, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %25, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %30 = load i32, ptr %29, align 8
   %31 = sext i32 %30 to i64
   %32 = getelementptr inbounds ptr, ptr %28, i64 %31
@@ -76,12 +76,12 @@ define range(i32 -1, 1) i32 @dtrestore(ptr noundef %0, ptr noundef %1) local_unn
 
 37:                                               ; preds = %.lr.ph52, %35
   %.2 = phi ptr [ %36, %35 ], [ %.151, %.lr.ph52 ]
-  %38 = getelementptr inbounds i8, ptr %.03750, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %.03750, i64 8
   %39 = icmp ult ptr %38, %32
   br i1 %39, label %.lr.ph52, label %.loopexit
 
 40:                                               ; preds = %23
-  %41 = getelementptr inbounds i8, ptr %25, i64 28
+  %41 = getelementptr inbounds nuw i8, ptr %25, i64 28
   store i32 0, ptr %41, align 4
   %.not48 = icmp eq ptr %.036, null
   br i1 %.not48, label %.loopexit, label %.lr.ph
@@ -96,7 +96,7 @@ define range(i32 -1, 1) i32 @dtrestore(ptr noundef %0, ptr noundef %1) local_unn
 44:                                               ; preds = %17
   %45 = and i32 %21, 12
   %.not44 = icmp eq i32 %45, 0
-  %46 = getelementptr inbounds i8, ptr %20, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %20, i64 8
   br i1 %.not44, label %48, label %47
 
 47:                                               ; preds = %44
@@ -106,7 +106,7 @@ define range(i32 -1, 1) i32 @dtrestore(ptr noundef %0, ptr noundef %1) local_unn
 48:                                               ; preds = %44
   store ptr null, ptr %46, align 8
   %49 = load ptr, ptr %6, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 16
   store ptr %.036, ptr %50, align 8
   br label %51
 
@@ -115,7 +115,7 @@ define range(i32 -1, 1) i32 @dtrestore(ptr noundef %0, ptr noundef %1) local_unn
 
 52:                                               ; preds = %51
   %53 = load ptr, ptr %6, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 28
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 28
   store i32 -1, ptr %54, align 4
   br label %.loopexit
 

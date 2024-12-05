@@ -22,7 +22,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %if.end
-  %print_error = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %0 = load ptr, ptr %print_error, align 8
   %call = tail call i32 (ptr, i32, ptr, ...) %0(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef %nent) #3
   br label %return
@@ -32,7 +32,7 @@ if.end3:                                          ; preds = %if.end
   br i1 %cmp4, label %if.then6, label %if.end9
 
 if.then6:                                         ; preds = %if.end3
-  %print_error7 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error7 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %1 = load ptr, ptr %print_error7, align 8
   %call8 = tail call i32 (ptr, i32, ptr, ...) %1(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.1, i32 noundef %nent) #3
   br label %return
@@ -42,7 +42,7 @@ if.end9:                                          ; preds = %if.end3
   br i1 %tobool10.not, label %if.then11, label %if.end13
 
 if.then11:                                        ; preds = %if.end9
-  %report_error = getelementptr inbounds i8, ptr %ctxt, i64 64
+  %report_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 64
   %2 = load ptr, ptr %report_error, align 8
   %call12 = tail call i32 %2(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.2) #3
   br label %return
@@ -53,23 +53,23 @@ if.end13:                                         ; preds = %if.end9
   br i1 %cmp14.not, label %return, label %if.then16
 
 if.then16:                                        ; preds = %if.end13
-  %alloc_fn = getelementptr inbounds i8, ptr %ctxt, i64 88
+  %alloc_fn = getelementptr inbounds nuw i8, ptr %ctxt, i64 88
   %3 = load ptr, ptr %alloc_fn, align 8
   %call17 = tail call ptr %3(i64 noundef %mul) #3
-  %arr = getelementptr inbounds i8, ptr %fv, i64 8
+  %arr = getelementptr inbounds nuw i8, ptr %fv, i64 8
   store ptr %call17, ptr %arr, align 8
   %cmp19 = icmp eq ptr %call17, null
   br i1 %cmp19, label %if.then21, label %if.end23
 
 if.then21:                                        ; preds = %if.then16
-  %standard_error = getelementptr inbounds i8, ptr %ctxt, i64 56
+  %standard_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 56
   %4 = load ptr, ptr %standard_error, align 8
   %call22 = tail call i32 %4(ptr noundef nonnull %ctxt, i32 noundef 1) #3
   br label %return
 
 if.end23:                                         ; preds = %if.then16
   store i32 %nent, ptr %fv, align 8
-  %alloc_size = getelementptr inbounds i8, ptr %fv, i64 4
+  %alloc_size = getelementptr inbounds nuw i8, ptr %fv, i64 4
   store i32 %nent, ptr %alloc_size, align 4
   br label %return
 
@@ -95,7 +95,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %if.then1, label %if.end2
 
 if.then1:                                         ; preds = %if.end
-  %print_error = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %0 = load ptr, ptr %print_error, align 8
   %call = tail call i32 (ptr, i32, ptr, ...) %0(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef %nent) #3
   br label %return
@@ -105,7 +105,7 @@ if.end2:                                          ; preds = %if.end
   br i1 %tobool3.not, label %if.then4, label %if.end6
 
 if.then4:                                         ; preds = %if.end2
-  %report_error = getelementptr inbounds i8, ptr %ctxt, i64 64
+  %report_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 64
   %1 = load ptr, ptr %report_error, align 8
   %call5 = tail call i32 %1(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.2) #3
   br label %return
@@ -115,16 +115,16 @@ if.end6:                                          ; preds = %if.end2
   br i1 %tobool7.not, label %if.then8, label %if.end11
 
 if.then8:                                         ; preds = %if.end6
-  %report_error9 = getelementptr inbounds i8, ptr %ctxt, i64 64
+  %report_error9 = getelementptr inbounds nuw i8, ptr %ctxt, i64 64
   %2 = load ptr, ptr %report_error9, align 8
   %call10 = tail call i32 %2(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.3) #3
   br label %return
 
 if.end11:                                         ; preds = %if.end6
-  %arr12 = getelementptr inbounds i8, ptr %fv, i64 8
+  %arr12 = getelementptr inbounds nuw i8, ptr %fv, i64 8
   store ptr %arr, ptr %arr12, align 8
   store i32 %nent, ptr %fv, align 8
-  %alloc_size = getelementptr inbounds i8, ptr %fv, i64 4
+  %alloc_size = getelementptr inbounds nuw i8, ptr %fv, i64 4
   store i32 0, ptr %alloc_size, align 4
   br label %return
 
@@ -146,7 +146,7 @@ if.end:                                           ; preds = %entry
   br i1 %or.cond, label %if.end.i, label %if.then3
 
 if.then3:                                         ; preds = %if.end
-  %report_error = getelementptr inbounds i8, ptr %ctxt, i64 64
+  %report_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 64
   %0 = load ptr, ptr %report_error, align 8
   %call = tail call i32 %0(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.4) #3
   br label %return
@@ -158,7 +158,7 @@ if.end.i:                                         ; preds = %if.end
   br i1 %cmp.i, label %if.then2.i, label %if.end3.i
 
 if.then2.i:                                       ; preds = %if.end.i
-  %print_error.i = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error.i = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %1 = load ptr, ptr %print_error.i, align 8
   %call.i = tail call i32 (ptr, i32, ptr, ...) %1(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef %nent) #3
   br label %return
@@ -168,7 +168,7 @@ if.end3.i:                                        ; preds = %if.end.i
   br i1 %cmp4.i, label %if.then6.i, label %if.end13.i
 
 if.then6.i:                                       ; preds = %if.end3.i
-  %print_error7.i = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error7.i = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %2 = load ptr, ptr %print_error7.i, align 8
   %call8.i = tail call i32 (ptr, i32, ptr, ...) %2(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.1, i32 noundef %nent) #3
   br label %exr_attr_float_vector_init.exit
@@ -179,23 +179,23 @@ if.end13.i:                                       ; preds = %if.end3.i
   br i1 %cmp14.not.i, label %return, label %if.then16.i
 
 if.then16.i:                                      ; preds = %if.end13.i
-  %alloc_fn.i = getelementptr inbounds i8, ptr %ctxt, i64 88
+  %alloc_fn.i = getelementptr inbounds nuw i8, ptr %ctxt, i64 88
   %3 = load ptr, ptr %alloc_fn.i, align 8
   %call17.i = tail call ptr %3(i64 noundef %mul.i) #3
-  %arr.i = getelementptr inbounds i8, ptr %fv, i64 8
+  %arr.i = getelementptr inbounds nuw i8, ptr %fv, i64 8
   store ptr %call17.i, ptr %arr.i, align 8
   %cmp19.i = icmp eq ptr %call17.i, null
   br i1 %cmp19.i, label %if.then21.i, label %if.end23.i
 
 if.then21.i:                                      ; preds = %if.then16.i
-  %standard_error.i = getelementptr inbounds i8, ptr %ctxt, i64 56
+  %standard_error.i = getelementptr inbounds nuw i8, ptr %ctxt, i64 56
   %4 = load ptr, ptr %standard_error.i, align 8
   %call22.i = tail call i32 %4(ptr noundef nonnull %ctxt, i32 noundef 1) #3
   br label %exr_attr_float_vector_init.exit
 
 if.end23.i:                                       ; preds = %if.then16.i
   store i32 %nent, ptr %fv, align 8
-  %alloc_size.i = getelementptr inbounds i8, ptr %fv, i64 4
+  %alloc_size.i = getelementptr inbounds nuw i8, ptr %fv, i64 4
   store i32 %nent, ptr %alloc_size.i, align 4
   br label %exr_attr_float_vector_init.exit
 
@@ -207,7 +207,7 @@ exr_attr_float_vector_init.exit:                  ; preds = %if.then6.i, %if.the
   br i1 %or.cond1, label %if.then7, label %return
 
 if.then7:                                         ; preds = %exr_attr_float_vector_init.exit
-  %arr8 = getelementptr inbounds i8, ptr %fv, i64 8
+  %arr8 = getelementptr inbounds nuw i8, ptr %fv, i64 8
   %5 = load ptr, ptr %arr8, align 8
   %conv = zext nneg i32 %nent to i64
   %mul = shl nuw nsw i64 %conv, 2
@@ -230,19 +230,19 @@ if.end:                                           ; preds = %entry
   br i1 %tobool1.not, label %return, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  %arr = getelementptr inbounds i8, ptr %fv, i64 8
+  %arr = getelementptr inbounds nuw i8, ptr %fv, i64 8
   %0 = load ptr, ptr %arr, align 8
   %tobool3.not = icmp eq ptr %0, null
   br i1 %tobool3.not, label %if.end6, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.then2
-  %alloc_size = getelementptr inbounds i8, ptr %fv, i64 4
+  %alloc_size = getelementptr inbounds nuw i8, ptr %fv, i64 4
   %1 = load i32, ptr %alloc_size, align 4
   %cmp = icmp sgt i32 %1, 0
   br i1 %cmp, label %if.then4, label %if.end6
 
 if.then4:                                         ; preds = %land.lhs.true
-  %free_fn = getelementptr inbounds i8, ptr %ctxt, i64 96
+  %free_fn = getelementptr inbounds nuw i8, ptr %ctxt, i64 96
   %2 = load ptr, ptr %free_fn, align 8
   tail call void %2(ptr noundef nonnull %0) #3
   br label %if.end6

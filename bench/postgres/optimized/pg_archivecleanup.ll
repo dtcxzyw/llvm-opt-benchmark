@@ -102,13 +102,13 @@ sub_0:                                            ; preds = %16
   br i1 %.not, label %sub_1, label %.tail.thread.thread
 
 sub_1:                                            ; preds = %sub_0
-  %22 = getelementptr inbounds i8, ptr %18, i64 1
+  %22 = getelementptr inbounds nuw i8, ptr %18, i64 1
   %23 = load i8, ptr %22, align 1
   %.not23 = icmp eq i8 %23, 63
   br i1 %.not23, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_1
-  %24 = getelementptr inbounds i8, ptr %18, i64 2
+  %24 = getelementptr inbounds nuw i8, ptr %18, i64 2
   %25 = load i8, ptr %24, align 1
   %26 = icmp eq i8 %25, 0
   br i1 %26, label %27, label %.thread
@@ -134,13 +134,13 @@ sub_1:                                            ; preds = %sub_0
   br i1 %33, label %39, label %sub_120
 
 sub_120:                                          ; preds = %.tail.thread, %.thread
-  %34 = getelementptr inbounds i8, ptr %18, i64 1
+  %34 = getelementptr inbounds nuw i8, ptr %18, i64 1
   %35 = load i8, ptr %34, align 1
   %.not25 = icmp eq i8 %35, 86
   br i1 %.not25, label %.tail18, label %.tail18.thread.preheader
 
 .tail18:                                          ; preds = %sub_120
-  %36 = getelementptr inbounds i8, ptr %18, i64 2
+  %36 = getelementptr inbounds nuw i8, ptr %18, i64 2
   %37 = load i8, ptr %36, align 1
   %38 = icmp eq i8 %37, 0
   br i1 %38, label %39, label %.tail18.thread.preheader
@@ -240,7 +240,7 @@ sub_120:                                          ; preds = %.tail.thread, %.thr
   br i1 %.not.i, label %73, label %78
 
 73:                                               ; preds = %71
-  %74 = getelementptr inbounds i8, ptr %10, i64 24
+  %74 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %75 = load i32, ptr %74, align 8
   %76 = and i32 %75, 61440
   %77 = icmp eq i32 %76, 16384
@@ -463,8 +463,8 @@ define internal fastcc void @CleanupPriorWALFiles() unnamed_addr #3 {
   br i1 %.not14, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %8 = getelementptr inbounds i8, ptr %1, i64 24
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %12
 
 10:                                               ; preds = %0
@@ -475,7 +475,7 @@ define internal fastcc void @CleanupPriorWALFiles() unnamed_addr #3 {
 
 12:                                               ; preds = %.lr.ph, %.backedge
   %13 = phi ptr [ %7, %.lr.ph ], [ %54, %.backedge ]
-  %14 = getelementptr inbounds i8, ptr %13, i64 19
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 19
   %15 = call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %14, i64 noundef 1024) #12
   %16 = load ptr, ptr @additional_ext, align 8
   %17 = icmp eq ptr %16, null

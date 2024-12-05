@@ -388,20 +388,20 @@ entry:
   %__dnew.i.i = alloca i64, align 8
   %stack_unroller = alloca %class.StackUnroller, align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  %0 = getelementptr inbounds i8, ptr %vtt, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %vtt, i64 8
   %1 = load ptr, ptr %0, align 8
   store ptr %1, ptr %this, align 8, !tbaa !12
-  %2 = getelementptr inbounds i8, ptr %vtt, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %vtt, i64 16
   %3 = load ptr, ptr %2, align 8
   %vbase.offset.ptr.i = getelementptr i8, ptr %1, i64 -24
   %vbase.offset.i = load i64, ptr %vbase.offset.ptr.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 %vbase.offset.i
   store ptr %3, ptr %add.ptr.i, align 8, !tbaa !12
-  %4 = getelementptr inbounds i8, ptr %this, i64 8
-  %5 = getelementptr inbounds i8, ptr %vtt, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %vtt, i64 24
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %4, align 8, !tbaa !12
-  %7 = getelementptr inbounds i8, ptr %vtt, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %vtt, i64 32
   %8 = load ptr, ptr %7, align 8
   %vbase.offset.ptr.i101 = getelementptr i8, ptr %6, i64 -24
   %vbase.offset.i102 = load i64, ptr %vbase.offset.ptr.i101, align 8
@@ -409,33 +409,33 @@ entry:
   store ptr %8, ptr %add.ptr.i103, align 8, !tbaa !12
   %9 = load ptr, ptr %vtt, align 8
   store ptr %9, ptr %this, align 8, !tbaa !12
-  %10 = getelementptr inbounds i8, ptr %vtt, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %vtt, i64 40
   %11 = load ptr, ptr %10, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %9, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 %vbase.offset
   store ptr %11, ptr %add.ptr, align 8, !tbaa !12
-  %12 = getelementptr inbounds i8, ptr %vtt, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %vtt, i64 48
   %13 = load ptr, ptr %12, align 8
   store ptr %13, ptr %4, align 8, !tbaa !12
   %vtable4 = load ptr, ptr %this, align 8, !tbaa !12
   %vbase.offset.ptr5 = getelementptr i8, ptr %vtable4, i64 -24
   %vbase.offset6 = load i64, ptr %vbase.offset.ptr5, align 8
   %add.ptr7 = getelementptr inbounds i8, ptr %this, i64 %vbase.offset6
-  %m_server = getelementptr inbounds i8, ptr %parent, i64 152
+  %m_server = getelementptr inbounds nuw i8, ptr %parent, i64 152
   %14 = load ptr, ptr %m_server, align 8, !tbaa !14
   %15 = icmp eq ptr %14, null
-  %add.ptr8 = getelementptr inbounds i8, ptr %14, i64 16
+  %add.ptr8 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %cast.result = select i1 %15, ptr null, ptr %add.ptr8
-  %m_gamedef.i = getelementptr inbounds i8, ptr %add.ptr7, i64 104
+  %m_gamedef.i = getelementptr inbounds nuw i8, ptr %add.ptr7, i64 104
   store ptr %cast.result, ptr %m_gamedef.i, align 8, !tbaa !38
   %vbase.offset13 = load i64, ptr %vbase.offset.ptr5, align 8
   %add.ptr14 = getelementptr inbounds i8, ptr %this, i64 %vbase.offset13
-  %m_emerge.i = getelementptr inbounds i8, ptr %add.ptr14, i64 128
+  %m_emerge.i = getelementptr inbounds nuw i8, ptr %add.ptr14, i64 128
   store ptr %parent, ptr %m_emerge.i, align 8, !tbaa !44
   %vbase.offset18 = load i64, ptr %vbase.offset.ptr5, align 8
   %add.ptr19 = getelementptr inbounds i8, ptr %this, i64 %vbase.offset18
-  %m_luastackmutex = getelementptr inbounds i8, ptr %add.ptr19, i64 8
+  %m_luastackmutex = getelementptr inbounds nuw i8, ptr %add.ptr19, i64 8
   %call1.i.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %m_luastackmutex) #19
   %tobool.not.i.i.i = icmp eq i32 %call1.i.i.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %invoke.cont21, label %if.then.i.i.i
@@ -449,13 +449,13 @@ invoke.cont21:                                    ; preds = %entry
   %vbase.offset.ptr23 = getelementptr i8, ptr %vtable22, i64 -24
   %vbase.offset24 = load i64, ptr %vbase.offset.ptr23, align 8
   %add.ptr25 = getelementptr inbounds i8, ptr %this, i64 %vbase.offset24
-  %m_lock_recursion_count = getelementptr inbounds i8, ptr %add.ptr25, i64 84
+  %m_lock_recursion_count = getelementptr inbounds nuw i8, ptr %add.ptr25, i64 84
   %16 = load i32, ptr %m_lock_recursion_count, align 4, !tbaa !45
   %cmp.i = icmp sgt i32 %16, 0
   br i1 %cmp.i, label %_ZN11LockCheckerC2EPiPNSt6thread2idE.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %invoke.cont21
-  %m_owning_thread = getelementptr inbounds i8, ptr %add.ptr25, i64 88
+  %m_owning_thread = getelementptr inbounds nuw i8, ptr %add.ptr25, i64 88
   %call.i.i = tail call i64 @pthread_self() #21
   store i64 %call.i.i, ptr %m_owning_thread, align 8, !tbaa !46
   br label %_ZN11LockCheckerC2EPiPNSt6thread2idE.exit
@@ -473,7 +473,7 @@ invoke.cont37:                                    ; preds = %_ZN11LockCheckerC2E
   %vbase.offset.ptr39 = getelementptr i8, ptr %vtable38, i64 -24
   %vbase.offset40 = load i64, ptr %vbase.offset.ptr39, align 8
   %add.ptr41 = getelementptr inbounds i8, ptr %this, i64 %vbase.offset40
-  %m_luastack.i = getelementptr inbounds i8, ptr %add.ptr41, i64 96
+  %m_luastack.i = getelementptr inbounds nuw i8, ptr %add.ptr41, i64 96
   %17 = load ptr, ptr %m_luastack.i, align 8, !tbaa !47
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %stack_unroller) #19
   store ptr %17, ptr %stack_unroller, align 8, !tbaa !48
@@ -481,11 +481,11 @@ invoke.cont37:                                    ; preds = %_ZN11LockCheckerC2E
           to label %invoke.cont45 unwind label %lpad44
 
 invoke.cont45:                                    ; preds = %invoke.cont37
-  %m_original_top.i = getelementptr inbounds i8, ptr %stack_unroller, i64 8
+  %m_original_top.i = getelementptr inbounds nuw i8, ptr %stack_unroller, i64 8
   store i32 %call.i104, ptr %m_original_top.i, align 8, !tbaa !50
   %18 = load ptr, ptr @g_settings, align 8, !tbaa !51
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp) #19
-  %19 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   store ptr %19, ptr %ref.tmp, align 8, !tbaa !52
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i) #19
   store i64 22, ptr %__dnew.i.i, align 8, !tbaa !46
@@ -497,7 +497,7 @@ call2.i11.i.noexc:                                ; preds = %invoke.cont45
   %20 = load i64, ptr %__dnew.i.i, align 8, !tbaa !46
   store i64 %20, ptr %19, align 8, !tbaa !53
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(22) %call2.i11.i106, ptr noundef nonnull align 1 dereferenceable(22) @.str.21, i64 22, i1 false)
-  %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %_M_string_length.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   store i64 %20, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !11
   %21 = load ptr, ptr %ref.tmp, align 8, !tbaa !4
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %21, i64 %20
@@ -588,7 +588,7 @@ invoke.cont61:                                    ; preds = %invoke.cont59
           to label %invoke.cont63 unwind label %lpad62
 
 invoke.cont63:                                    ; preds = %invoke.cont61
-  %m_lua_globals_data = getelementptr inbounds i8, ptr %call64, i64 72
+  %m_lua_globals_data = getelementptr inbounds nuw i8, ptr %call64, i64 72
   %31 = load ptr, ptr %m_lua_globals_data, align 8, !tbaa !51
   invoke void @_Z13script_unpackP9lua_StateP11PackedValue(ptr noundef %17, ptr noundef %31)
           to label %invoke.cont66 unwind label %lpad62
@@ -703,7 +703,7 @@ declare void @lua_pushstring(ptr noundef, ptr noundef) local_unnamed_addr #0
 define linkonce_odr dso_local void @_ZN13StackUnrollerD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8, !tbaa !48
-  %m_original_top = getelementptr inbounds i8, ptr %this, i64 8
+  %m_original_top = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i32, ptr %m_original_top, align 8, !tbaa !50
   invoke void @lua_settop(ptr noundef %0, i32 noundef %1)
           to label %invoke.cont unwind label %terminate.lpad
@@ -725,22 +725,22 @@ entry:
   %__dnew.i.i = alloca i64, align 8
   %stack_unroller = alloca %class.StackUnroller, align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  %0 = getelementptr inbounds i8, ptr %this, i64 16
+  %0 = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @_ZN13ScriptApiBaseC2E13ScriptingType(ptr noundef nonnull align 8 dereferenceable(137) %0, i8 noundef zeroext 4)
-  %1 = getelementptr inbounds i8, ptr %this, i64 8
+  %1 = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV15EmergeScripting, i64 24), ptr %this, align 8, !tbaa !12
   store ptr getelementptr inbounds (i8, ptr @_ZTV15EmergeScripting, i64 104), ptr %0, align 8, !tbaa !12
   store ptr getelementptr inbounds (i8, ptr @_ZTV15EmergeScripting, i64 64), ptr %1, align 8, !tbaa !12
-  %m_server = getelementptr inbounds i8, ptr %parent, i64 152
+  %m_server = getelementptr inbounds nuw i8, ptr %parent, i64 152
   %2 = load ptr, ptr %m_server, align 8, !tbaa !14
   %3 = icmp eq ptr %2, null
-  %add.ptr6 = getelementptr inbounds i8, ptr %2, i64 16
+  %add.ptr6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %cast.result = select i1 %3, ptr null, ptr %add.ptr6
-  %m_gamedef.i = getelementptr inbounds i8, ptr %this, i64 120
+  %m_gamedef.i = getelementptr inbounds nuw i8, ptr %this, i64 120
   store ptr %cast.result, ptr %m_gamedef.i, align 8, !tbaa !38
-  %m_emerge.i = getelementptr inbounds i8, ptr %this, i64 144
+  %m_emerge.i = getelementptr inbounds nuw i8, ptr %this, i64 144
   store ptr %parent, ptr %m_emerge.i, align 8, !tbaa !44
-  %m_luastackmutex = getelementptr inbounds i8, ptr %this, i64 24
+  %m_luastackmutex = getelementptr inbounds nuw i8, ptr %this, i64 24
   %call1.i.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %m_luastackmutex) #19
   %tobool.not.i.i.i = icmp eq i32 %call1.i.i.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %invoke.cont19, label %if.then.i.i.i
@@ -757,13 +757,13 @@ invoke.cont19:                                    ; preds = %entry
   %vbase.offset.ptr21 = getelementptr i8, ptr %vtable20, i64 -24
   %vbase.offset22 = load i64, ptr %vbase.offset.ptr21, align 8
   %add.ptr23 = getelementptr inbounds i8, ptr %this, i64 %vbase.offset22
-  %m_lock_recursion_count = getelementptr inbounds i8, ptr %add.ptr23, i64 84
+  %m_lock_recursion_count = getelementptr inbounds nuw i8, ptr %add.ptr23, i64 84
   %4 = load i32, ptr %m_lock_recursion_count, align 4, !tbaa !45
   %cmp.i = icmp sgt i32 %4, 0
   br i1 %cmp.i, label %_ZN11LockCheckerC2EPiPNSt6thread2idE.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %invoke.cont19
-  %m_owning_thread = getelementptr inbounds i8, ptr %add.ptr23, i64 88
+  %m_owning_thread = getelementptr inbounds nuw i8, ptr %add.ptr23, i64 88
   %call.i.i = tail call i64 @pthread_self() #21
   store i64 %call.i.i, ptr %m_owning_thread, align 8, !tbaa !46
   br label %_ZN11LockCheckerC2EPiPNSt6thread2idE.exit
@@ -781,7 +781,7 @@ invoke.cont35:                                    ; preds = %_ZN11LockCheckerC2E
   %vbase.offset.ptr37 = getelementptr i8, ptr %vtable36, i64 -24
   %vbase.offset38 = load i64, ptr %vbase.offset.ptr37, align 8
   %add.ptr39 = getelementptr inbounds i8, ptr %this, i64 %vbase.offset38
-  %m_luastack.i = getelementptr inbounds i8, ptr %add.ptr39, i64 96
+  %m_luastack.i = getelementptr inbounds nuw i8, ptr %add.ptr39, i64 96
   %5 = load ptr, ptr %m_luastack.i, align 8, !tbaa !47
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %stack_unroller) #19
   store ptr %5, ptr %stack_unroller, align 8, !tbaa !48
@@ -789,11 +789,11 @@ invoke.cont35:                                    ; preds = %_ZN11LockCheckerC2E
           to label %invoke.cont43 unwind label %lpad42
 
 invoke.cont43:                                    ; preds = %invoke.cont35
-  %m_original_top.i = getelementptr inbounds i8, ptr %stack_unroller, i64 8
+  %m_original_top.i = getelementptr inbounds nuw i8, ptr %stack_unroller, i64 8
   store i32 %call.i101, ptr %m_original_top.i, align 8, !tbaa !50
   %6 = load ptr, ptr @g_settings, align 8, !tbaa !51
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp) #19
-  %7 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   store ptr %7, ptr %ref.tmp, align 8, !tbaa !52
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i) #19
   store i64 22, ptr %__dnew.i.i, align 8, !tbaa !46
@@ -805,7 +805,7 @@ call2.i11.i.noexc:                                ; preds = %invoke.cont43
   %8 = load i64, ptr %__dnew.i.i, align 8, !tbaa !46
   store i64 %8, ptr %7, align 8, !tbaa !53
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(22) %call2.i11.i103, ptr noundef nonnull align 1 dereferenceable(22) @.str.21, i64 22, i1 false)
-  %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %_M_string_length.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   store i64 %8, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !11
   %9 = load ptr, ptr %ref.tmp, align 8, !tbaa !4
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %9, i64 %8
@@ -901,7 +901,7 @@ invoke.cont59:                                    ; preds = %invoke.cont57
           to label %invoke.cont61 unwind label %lpad60
 
 invoke.cont61:                                    ; preds = %invoke.cont59
-  %m_lua_globals_data = getelementptr inbounds i8, ptr %call62, i64 72
+  %m_lua_globals_data = getelementptr inbounds nuw i8, ptr %call62, i64 72
   %20 = load ptr, ptr %m_lua_globals_data, align 8, !tbaa !51
   invoke void @_Z13script_unpackP9lua_StateP11PackedValue(ptr noundef %5, ptr noundef %20)
           to label %invoke.cont64 unwind label %lpad60
@@ -1037,7 +1037,7 @@ entry:
 
 _ZNKSt14default_deleteI18ServerActiveObjectEclEPS0_.exit: ; preds = %entry
   %vtable.i = load ptr, ptr %0, align 8, !tbaa !12
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 88
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 88
   %1 = load ptr, ptr %vfn.i, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(192) %0) #19
   br label %if.end
@@ -1050,7 +1050,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN15EmergeScriptingD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #8 comdat align 2 {
 entry:
-  %0 = getelementptr inbounds i8, ptr %this, i64 16
+  %0 = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @_ZN13ScriptApiBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(137) %0) #19
   ret void
 }
@@ -1058,7 +1058,7 @@ entry:
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN15EmergeScriptingD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #8 comdat align 2 {
 entry:
-  %0 = getelementptr inbounds i8, ptr %this, i64 16
+  %0 = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @_ZN13ScriptApiBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(137) %0) #19
   tail call void @_ZdlPv(ptr noundef nonnull %this) #18
   ret void
@@ -1067,7 +1067,7 @@ entry:
 ; Function Attrs: inlinehint nounwind uwtable
 define linkonce_odr dso_local void @_ZThn8_N15EmergeScriptingD1Ev(ptr noundef %this) unnamed_addr #9 comdat align 2 {
 entry:
-  %0 = getelementptr inbounds i8, ptr %this, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZN13ScriptApiBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(137) %0) #19
   ret void
 }
@@ -1076,7 +1076,7 @@ entry:
 define linkonce_odr dso_local void @_ZThn8_N15EmergeScriptingD0Ev(ptr noundef %this) unnamed_addr #9 comdat align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -8
-  %1 = getelementptr inbounds i8, ptr %this, i64 8
+  %1 = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZN13ScriptApiBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(137) %1) #19
   tail call void @_ZdlPv(ptr noundef nonnull %0) #18
   ret void
@@ -1089,7 +1089,7 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -24
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   tail call void @_ZN13ScriptApiBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(137) %4) #19
   ret void
 }
@@ -1101,7 +1101,7 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -24
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   tail call void @_ZN13ScriptApiBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(137) %4) #19
   tail call void @_ZdlPv(ptr noundef nonnull %3) #18
   ret void

@@ -1482,9 +1482,9 @@ switch.hole_check:                                ; preds = %4
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %8 = zext nneg i32 %6 to i64
-  %switch.gep = getelementptr inbounds [7 x i32], ptr @switch.table.dissect_omron_fins_tcp_pdu, i64 0, i64 %8
+  %switch.gep = getelementptr inbounds nuw [7 x i32], ptr @switch.table.dissect_omron_fins_tcp_pdu, i64 0, i64 %8
   %switch.load = load i32, ptr %switch.gep, align 4
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8
   tail call void @col_set_str(ptr noundef %10, i32 noundef 34, ptr noundef nonnull @.str.901) #2
   %11 = load ptr, ptr %9, align 8
@@ -1569,7 +1569,7 @@ define internal fastcc i32 @dissect_omron_fins_common(ptr noundef %0, ptr nounde
   %7 = alloca i32, align 4
   store ptr null, ptr %4, align 8
   store i32 -1, ptr %5, align 4
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void @col_set_str(ptr noundef %9, i32 noundef 34, ptr noundef nonnull @.str.901) #2
   %10 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 10) #2
@@ -1580,7 +1580,7 @@ define internal fastcc i32 @dissect_omron_fins_common(ptr noundef %0, ptr nounde
   br i1 %14, label %15, label %19
 
 15:                                               ; preds = %3
-  %16 = getelementptr inbounds i8, ptr %1, i64 408
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %17 = load ptr, ptr %16, align 8
   %18 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %17, ptr noundef nonnull @.str.903, i32 noundef %11) #2
   br label %19

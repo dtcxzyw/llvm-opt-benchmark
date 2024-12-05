@@ -6,14 +6,14 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define ptr @nxsig_remove_pendingsignal(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %3) #3, !srcloc !6
   %6 = load i64, ptr %3, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !7
-  %7 = getelementptr inbounds i8, ptr %5, i64 880
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 880
   br label %8
 
 8:                                                ; preds = %9, %2
@@ -24,7 +24,7 @@ define ptr @nxsig_remove_pendingsignal(ptr nocapture noundef readonly %0, i32 no
   br i1 %.not, label %.critedge16, label %9
 
 9:                                                ; preds = %8
-  %10 = getelementptr inbounds i8, ptr %.0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %11 = load i8, ptr %10, align 8
   %12 = zext i8 %11 to i32
   %.not14 = icmp eq i32 %1, %12

@@ -1177,7 +1177,7 @@ define hidden range(i32 0, 2048) i32 @wimax_decode_dlmapc(ptr noundef %0, ptr no
   store ptr null, ptr %4, align 8
   store ptr null, ptr %5, align 8
   %6 = tail call i32 @tvb_reported_length(ptr noundef %0) #2
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void @col_append_sep_str(ptr noundef %8, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.2) #2
   store i32 0, ptr @INC_CID, align 4
@@ -4176,13 +4176,13 @@ switch.lookup:                                    ; preds = %.lr.ph.i369
   %2146 = sdiv i32 %2144, 8
   %2147 = srem i32 %2144, 8
   %2148 = zext nneg i32 %2141 to i64
-  %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table.dissect_dlmap_ie, i64 0, i64 %2148
+  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table.dissect_dlmap_ie, i64 0, i64 %2148
   %switch.load = load i32, ptr %switch.gep, align 4
   %2149 = zext nneg i32 %2141 to i64
-  %switch.gep473 = getelementptr inbounds [4 x ptr], ptr @switch.table.dissect_dlmap_ie.1, i64 0, i64 %2149
+  %switch.gep473 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.dissect_dlmap_ie.1, i64 0, i64 %2149
   %switch.load474 = load ptr, ptr %switch.gep473, align 8
   %2150 = zext nneg i32 %2141 to i64
-  %switch.gep475 = getelementptr inbounds [4 x i32], ptr @switch.table.dissect_dlmap_ie.2, i64 0, i64 %2150
+  %switch.gep475 = getelementptr inbounds nuw [4 x i32], ptr @switch.table.dissect_dlmap_ie.2, i64 0, i64 %2150
   %switch.load476 = load i32, ptr %switch.gep475, align 4
   %2151 = add nsw i32 %switch.load, %2147
   %2152 = lshr i32 %2151, 3

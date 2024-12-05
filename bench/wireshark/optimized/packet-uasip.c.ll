@@ -143,14 +143,14 @@ define internal i32 @dissect_uasip(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %.b, label %5, label %13
 
 5:                                                ; preds = %4
-  %6 = getelementptr inbounds i8, ptr %1, i64 216
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 216
   %7 = load ptr, ptr %6, align 8
   %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %7, ptr noundef nonnull dereferenceable(4) @proxy_ipaddr, i64 4)
   %8 = icmp eq i32 %bcmp, 0
   br i1 %8, label %14, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %1, i64 240
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 240
   %11 = load ptr, ptr %10, align 8
   %bcmp14 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %11, ptr noundef nonnull dereferenceable(4) @proxy_ipaddr, i64 4)
   %12 = icmp eq i32 %bcmp14, 0
@@ -239,7 +239,7 @@ define internal fastcc void @_dissect_uasip(ptr noundef %0, ptr noundef %1, ptr 
   %6 = alloca i32, align 4
   %7 = load i32, ptr @noesip_enabled, align 4
   %.not = icmp eq i32 %7, 0
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   %.str.58..str.57 = select i1 %.not, ptr @.str.58, ptr @.str.57
   tail call void @col_append_str(ptr noundef %9, i32 noundef 34, ptr noundef nonnull %.str.58..str.57) #3
@@ -248,7 +248,7 @@ define internal fastcc void @_dissect_uasip(ptr noundef %0, ptr noundef %1, ptr 
   store i32 %11, ptr @ua_tap_info, align 4
   store i32 0, ptr getelementptr inbounds (i8, ptr @ua_tap_info, i64 4), align 4
   store i32 0, ptr getelementptr inbounds (i8, ptr @ua_tap_info, i64 8), align 4
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = tail call ptr @val_to_str_ext(i32 noundef %11, ptr noundef nonnull @uaudp_opcode_str_ext, ptr noundef nonnull @.str.59) #3
   tail call void @col_add_str(ptr noundef %13, i32 noundef 25, ptr noundef %14) #3

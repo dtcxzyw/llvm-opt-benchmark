@@ -62,9 +62,9 @@ softfloat_lt128.exit:                             ; preds = %29, %23
   %34 = sub nsw i64 0, %1
   call void @softfloat_shiftRightJam128Extra(ptr dead_on_unwind nonnull writable sret(%struct.uint128_extra) align 8 %6, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %34) #2
   %.sroa.019.0.copyload = load i64, ptr %6, align 8
-  %.sroa.220.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 8
+  %.sroa.220.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.220.0.copyload = load i64, ptr %.sroa.220.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 16
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
   %.sroa.3.0.copyload = load i64, ptr %.sroa.3.0..sroa_idx, align 8
   %35 = icmp ne i64 %.sroa.019.0.copyload, 0
   %or.cond6 = select i1 %33, i1 %35, i1 false

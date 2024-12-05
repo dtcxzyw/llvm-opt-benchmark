@@ -942,10 +942,10 @@ define dso_local i32 @LZ4_decompress_fast(ptr noundef %0, ptr noundef %1, i32 no
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
 define dso_local noundef i32 @LZ4_setStreamDecode(ptr nocapture noundef writeonly initializes((0, 32)) %0, ptr noundef %1, i32 noundef %2) #1 align 16 {
   %4 = sext i32 %2 to i64
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %4, ptr %5, align 8
   %6 = getelementptr i8, ptr %1, i64 %4
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %6, ptr %7, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   ret i32 1
@@ -953,7 +953,7 @@ define dso_local noundef i32 @LZ4_setStreamDecode(ptr nocapture noundef writeonl
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
 define dso_local i32 @LZ4_decompress_safe_continue(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #0 align 16 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load i64, ptr %6, align 8
   %8 = icmp eq i64 %7, 0
   br i1 %8, label %9, label %16
@@ -967,12 +967,12 @@ define dso_local i32 @LZ4_decompress_safe_continue(ptr nocapture noundef %0, ptr
   %13 = zext nneg i32 %10 to i64
   store i64 %13, ptr %6, align 8
   %14 = getelementptr i8, ptr %2, i64 %13
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %14, ptr %15, align 8
   br label %.thread
 
 16:                                               ; preds = %5
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, %2
   br i1 %19, label %20, label %239
@@ -986,7 +986,7 @@ define dso_local i32 @LZ4_decompress_safe_continue(ptr nocapture noundef %0, ptr
   br label %231
 
 24:                                               ; preds = %20
-  %25 = getelementptr inbounds i8, ptr %0, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %26 = load i64, ptr %25, align 8
   %27 = icmp eq i64 %26, 0
   br i1 %27, label %28, label %30
@@ -1380,7 +1380,7 @@ define dso_local i32 @LZ4_decompress_safe_continue(ptr nocapture noundef %0, ptr
   br label %.thread
 
 239:                                              ; preds = %16
-  %240 = getelementptr inbounds i8, ptr %0, i64 8
+  %240 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %7, ptr %240, align 8
   %241 = sub i64 0, %7
   %242 = getelementptr i8, ptr %18, i64 %241
@@ -2411,7 +2411,7 @@ define internal fastcc i32 @LZ4_decompress_safe_forceExtDict(ptr noundef %0, ptr
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
 define dso_local i32 @LZ4_decompress_fast_continue(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 align 16 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i64, ptr %5, align 8
   %7 = icmp eq i64 %6, 0
   br i1 %7, label %8, label %15
@@ -2425,12 +2425,12 @@ define dso_local i32 @LZ4_decompress_fast_continue(ptr nocapture noundef %0, ptr
   %12 = sext i32 %3 to i64
   store i64 %12, ptr %5, align 8
   %13 = getelementptr i8, ptr %2, i64 %12
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %13, ptr %14, align 8
   br label %.thread
 
 15:                                               ; preds = %4
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, %2
   br i1 %18, label %19, label %201
@@ -2440,7 +2440,7 @@ define dso_local i32 @LZ4_decompress_fast_continue(ptr nocapture noundef %0, ptr
   br i1 %20, label %25, label %21
 
 21:                                               ; preds = %19
-  %22 = getelementptr inbounds i8, ptr %0, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load i64, ptr %22, align 8
   %24 = icmp eq i64 %23, 0
   br i1 %24, label %25, label %27
@@ -2792,7 +2792,7 @@ define dso_local i32 @LZ4_decompress_fast_continue(ptr nocapture noundef %0, ptr
   br label %.thread
 
 201:                                              ; preds = %15
-  %202 = getelementptr inbounds i8, ptr %0, i64 8
+  %202 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %6, ptr %202, align 8
   %203 = sub i64 0, %6
   %204 = getelementptr i8, ptr %17, i64 %203

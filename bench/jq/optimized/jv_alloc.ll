@@ -47,7 +47,7 @@ tsd_init_nomem_handler.exit:                      ; preds = %2, %7
 
 20:                                               ; preds = %tsd_init_nomem_handler.exit
   store ptr %0, ptr %15, align 8
-  %21 = getelementptr inbounds i8, ptr %15, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %1, ptr %21, align 8
   ret void
 }
@@ -247,7 +247,7 @@ tsd_init_nomem_handler.exit:                      ; preds = %0, %5
   br i1 %.not5, label %19, label %16
 
 16:                                               ; preds = %14
-  %17 = getelementptr inbounds i8, ptr %13, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %18 = load ptr, ptr %17, align 8
   tail call void %15(ptr noundef %18) #15
   br label %19

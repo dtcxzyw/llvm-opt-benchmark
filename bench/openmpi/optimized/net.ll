@@ -85,7 +85,7 @@ define noundef i32 @opal_net_init() local_unnamed_addr #0 {
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %48
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %48 ]
   %.032 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1, %48 ]
-  %17 = getelementptr inbounds ptr, ptr %7, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8
   %19 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %18, ptr noundef nonnull @.str.1, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #11
   %20 = load i32, ptr %1, align 4
@@ -123,10 +123,10 @@ define noundef i32 @opal_net_init() local_unnamed_addr #0 {
   %42 = or disjoint i32 %41, %26
   %43 = call i32 @htonl(i32 noundef %42) #13
   %44 = load ptr, ptr @private_ipv4, align 8
-  %45 = getelementptr inbounds %struct.private_ipv4_t, ptr %44, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw %struct.private_ipv4_t, ptr %44, i64 %indvars.iv
   store i32 %43, ptr %45, align 4
   %46 = load i32, ptr %5, align 4
-  %47 = getelementptr inbounds %struct.private_ipv4_t, ptr %44, i64 %indvars.iv, i32 1
+  %47 = getelementptr inbounds nuw %struct.private_ipv4_t, ptr %44, i64 %indvars.iv, i32 1
   store i32 %46, ptr %47, align 4
   br label %48
 
@@ -144,9 +144,9 @@ define noundef i32 @opal_net_init() local_unnamed_addr #0 {
 ._crit_edge:                                      ; preds = %.preheader, %._crit_edge.loopexit
   %50 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %13, %.preheader ]
   %.025.lcssa = phi i64 [ %49, %._crit_edge.loopexit ], [ 0, %.preheader ]
-  %51 = getelementptr inbounds %struct.private_ipv4_t, ptr %50, i64 %.025.lcssa
+  %51 = getelementptr inbounds nuw %struct.private_ipv4_t, ptr %50, i64 %.025.lcssa
   store i32 0, ptr %51, align 4
-  %52 = getelementptr inbounds %struct.private_ipv4_t, ptr %50, i64 %.025.lcssa, i32 1
+  %52 = getelementptr inbounds nuw %struct.private_ipv4_t, ptr %50, i64 %.025.lcssa, i32 1
   store i32 0, ptr %52, align 4
   call void @opal_argv_free(ptr noundef nonnull %7) #11
   br label %53
@@ -203,7 +203,7 @@ define zeroext i1 @opal_net_islocalhost(ptr nocapture noundef readonly %0) local
   br i1 %cond, label %3, label %9
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = tail call i32 @ntohl(i32 noundef %5) #13
   %7 = and i32 %6, 2130706432
@@ -238,9 +238,9 @@ define zeroext i1 @opal_net_samenetwork(ptr nocapture noundef readonly %0, ptr n
 8:                                                ; preds = %7
   %9 = icmp eq i32 %2, 0
   %. = select i1 %9, i32 32, i32 %2
-  %.sroa.13.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 4
+  %.sroa.13.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.sroa.13.0.copyload = load i32, ptr %.sroa.13.0..sroa_idx, align 2
-  %.sroa.1.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 4
+  %.sroa.1.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.sroa.1.0.copyload = load i32, ptr %.sroa.1.0..sroa_idx, align 2
   %notmask.i = shl nsw i32 -1, %.
   %10 = xor i32 %notmask.i, -1
@@ -278,13 +278,13 @@ define noundef zeroext i1 @opal_net_addr_isipv4public(ptr nocapture noundef read
   br i1 %.not11, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %7 = getelementptr inbounds i8, ptr %0, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %8 = load i32, ptr %7, align 4
   br label %12
 
 9:                                                ; preds = %12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %10 = getelementptr inbounds %struct.private_ipv4_t, ptr %4, i64 %indvars.iv.next
+  %10 = getelementptr inbounds nuw %struct.private_ipv4_t, ptr %4, i64 %indvars.iv.next
   %11 = load i32, ptr %10, align 4
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %.loopexit, label %12, !llvm.loop !6
@@ -292,7 +292,7 @@ define noundef zeroext i1 @opal_net_addr_isipv4public(ptr nocapture noundef read
 12:                                               ; preds = %.lr.ph, %9
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %9 ]
   %13 = phi i32 [ %6, %.lr.ph ], [ %11, %9 ]
-  %14 = getelementptr inbounds %struct.private_ipv4_t, ptr %4, i64 %indvars.iv, i32 1
+  %14 = getelementptr inbounds nuw %struct.private_ipv4_t, ptr %4, i64 %indvars.iv, i32 1
   %15 = load i32, ptr %14, align 4
   %notmask.i = shl nsw i32 -1, %15
   %16 = xor i32 %notmask.i, -1
@@ -330,7 +330,7 @@ define noundef zeroext i1 @opal_net_addr_isipv6linklocal(ptr nocapture noundef r
 
 ; Function Attrs: nounwind uwtable
 define ptr @opal_net_get_hostname(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 4
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   %4 = tail call ptr @inet_ntoa(i32 %3) #11
   ret ptr %4
@@ -346,7 +346,7 @@ define range(i32 -1, 65536) i32 @opal_net_get_port(ptr nocapture noundef readonl
   br i1 %cond, label %3, label %8
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 2
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %5 = load i16, ptr %4, align 2
   %6 = tail call zeroext i16 @ntohs(i16 noundef zeroext %5) #13
   %7 = zext i16 %6 to i32

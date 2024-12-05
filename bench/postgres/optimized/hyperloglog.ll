@@ -24,13 +24,13 @@ define dso_local void @initHyperLogLog(ptr nocapture noundef %0, i8 noundef zero
   store i8 %1, ptr %0, align 8
   %8 = zext nneg i8 %1 to i64
   %9 = shl nuw nsw i64 1, %8
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %9, ptr %10, align 8
   %11 = add nuw nsw i64 %9, 1
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %11, ptr %12, align 8
   %13 = tail call ptr @palloc0(i64 noundef %11) #11
-  %14 = getelementptr inbounds i8, ptr %0, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %13, ptr %14, align 8
   %15 = load i64, ptr %10, align 8
   switch i64 %15, label %18 [
@@ -57,7 +57,7 @@ define dso_local void @initHyperLogLog(ptr nocapture noundef %0, i8 noundef zero
   %24 = uitofp i64 %15 to double
   %25 = fmul double %.0, %24
   %26 = fmul double %25, %24
-  %27 = getelementptr inbounds i8, ptr %0, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double %26, ptr %27, align 8
   ret void
 }
@@ -107,13 +107,13 @@ define dso_local void @initHyperLogLogError(ptr nocapture noundef %0, double nou
   store i8 %.0.lcssa11, ptr %0, align 8
   %15 = zext nneg i8 %.0.lcssa11 to i64
   %16 = shl nuw nsw i64 1, %15
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %16, ptr %17, align 8
   %18 = or disjoint i64 %16, 1
-  %19 = getelementptr inbounds i8, ptr %0, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %18, ptr %19, align 8
   %20 = tail call ptr @palloc0(i64 noundef %18) #11
-  %21 = getelementptr inbounds i8, ptr %0, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %20, ptr %21, align 8
   %22 = load i64, ptr %17, align 8
   switch i64 %22, label %25 [
@@ -140,14 +140,14 @@ initHyperLogLog.exit:                             ; preds = %.thread, %23, %24, 
   %30 = uitofp i64 %22 to double
   %31 = fmul double %.0.i, %30
   %32 = fmul double %31, %30
-  %33 = getelementptr inbounds i8, ptr %0, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double %32, ptr %33, align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @freeHyperLogLog(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   tail call void @pfree(ptr noundef %3) #11
   ret void
@@ -184,7 +184,7 @@ rho.exit:                                         ; preds = %10, %12
   %.0.i = phi i8 [ %11, %10 ], [ %spec.select.i, %12 ]
   %19 = trunc nsw i64 %5 to i32
   %20 = lshr i32 %1, %19
-  %21 = getelementptr inbounds i8, ptr %0, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %22 = load ptr, ptr %21, align 8
   %23 = zext i32 %20 to i64
   %24 = getelementptr i8, ptr %22, i64 %23
@@ -196,13 +196,13 @@ rho.exit:                                         ; preds = %10, %12
 
 ; Function Attrs: nofree nounwind uwtable
 define dso_local double @estimateHyperLogLog(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %.not40 = icmp eq i64 %3, 0
   br i1 %.not40, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %5
 
 5:                                                ; preds = %.lr.ph, %5
@@ -223,7 +223,7 @@ define dso_local double @estimateHyperLogLog(ptr nocapture noundef readonly %0) 
   br i1 %16, label %5, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %5
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load double, ptr %17, align 8
   %19 = fdiv double %18, %12
   %20 = uitofp i64 %15 to double
@@ -232,7 +232,7 @@ define dso_local double @estimateHyperLogLog(ptr nocapture noundef readonly %0) 
   br i1 %22, label %41, label %.preheader
 
 ._crit_edge.thread:                               ; preds = %1
-  %23 = getelementptr inbounds i8, ptr %0, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %24 = load double, ptr %23, align 8
   %25 = fdiv double %24, 0.000000e+00
   %26 = fcmp ugt double %25, 0.000000e+00
@@ -243,7 +243,7 @@ define dso_local double @estimateHyperLogLog(ptr nocapture noundef readonly %0) 
   br i1 %.not41, label %._crit_edge38.thread, label %.lr.ph37
 
 .lr.ph37:                                         ; preds = %.preheader
-  %27 = getelementptr inbounds i8, ptr %0, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %28 = load ptr, ptr %27, align 8
   br label %29
 

@@ -351,7 +351,7 @@ define weak_odr void @_ZN5boost6locale4conv6detail17charset_converterIccE7conver
   %6 = load i64, ptr %5, align 8, !tbaa !9
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 %6
   %8 = load ptr, ptr %1, align 8, !tbaa !10
-  %9 = getelementptr inbounds i8, ptr %8, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load ptr, ptr %9, align 8
   tail call void %10(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %4, ptr noundef %7)
   ret void
@@ -1957,7 +1957,7 @@ define weak_odr void @_ZN5boost6locale4conv6detail17charset_converterIcwE7conver
   %6 = load i64, ptr %5, align 8, !tbaa !9
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 %6
   %8 = load ptr, ptr %1, align 8, !tbaa !10
-  %9 = getelementptr inbounds i8, ptr %8, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load ptr, ptr %9, align 8
   tail call void %10(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string.35") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %4, ptr noundef %7)
   ret void
@@ -3229,7 +3229,7 @@ define weak_odr void @_ZN5boost6locale4conv6detail17charset_converterIwcE7conver
   %6 = load i64, ptr %5, align 8, !tbaa !111
   %7 = getelementptr inbounds nuw i32, ptr %4, i64 %6
   %8 = load ptr, ptr %1, align 8, !tbaa !10
-  %9 = getelementptr inbounds i8, ptr %8, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load ptr, ptr %9, align 8
   tail call void %10(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %4, ptr noundef %7)
   ret void

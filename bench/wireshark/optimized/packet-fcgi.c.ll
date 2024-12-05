@@ -144,7 +144,7 @@ define internal range(i32 8, 65799) i32 @get_fcgi_record_len(ptr nocapture readn
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_fcgi_record(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #2
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void @col_set_str(ptr noundef %7, i32 noundef 34, ptr noundef nonnull @.str.27) #2
   %8 = load ptr, ptr %6, align 8
@@ -300,7 +300,7 @@ define internal fastcc void @dissect_nv_pairs(ptr noundef %0, ptr nocapture noun
   br i1 %.not49, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %1, i64 408
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %8
 
 8:                                                ; preds = %.lr.ph, %41

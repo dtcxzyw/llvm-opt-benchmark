@@ -35,7 +35,7 @@ define i32 @CountLiterals() local_unnamed_addr #0 {
 .lr.ph:                                           ; preds = %0, %.lr.ph
   %.06 = phi i32 [ %5, %.lr.ph ], [ 0, %0 ]
   %.035 = phi ptr [ %6, %.lr.ph ], [ %1, %0 ]
-  %2 = getelementptr inbounds i8, ptr %.035, i64 2
+  %2 = getelementptr inbounds nuw i8, ptr %.035, i64 2
   %3 = load i16, ptr %2, align 2
   %4 = sext i16 %3 to i32
   %5 = add nsw i32 %.06, %4
@@ -62,7 +62,7 @@ define i32 @CountLiteralsCheck() local_unnamed_addr #0 {
   %.026 = phi i32 [ %5, %._crit_edge ], [ 0, %0 ]
   %.01625 = phi i32 [ %.1.lcssa, %._crit_edge ], [ 0, %0 ]
   %.01824 = phi ptr [ %17, %._crit_edge ], [ %1, %0 ]
-  %2 = getelementptr inbounds i8, ptr %.01824, i64 2
+  %2 = getelementptr inbounds nuw i8, ptr %.01824, i64 2
   %3 = load i16, ptr %2, align 2
   %4 = sext i16 %3 to i32
   %5 = add nsw i32 %.026, %4
@@ -161,7 +161,7 @@ define void @WriteTableIntoFile(ptr nocapture noundef %0) local_unnamed_addr #0 
 
 switch.lookup:                                    ; preds = %.lr.ph
   %7 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table.WriteTableIntoFile, i64 0, i64 %7
+  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table.WriteTableIntoFile, i64 0, i64 %7
   %switch.load = load i32, ptr %switch.gep, align 4
   %fputc37 = tail call i32 @fputc(i32 %switch.load, ptr %0)
   br label %8
@@ -180,7 +180,7 @@ switch.lookup:                                    ; preds = %.lr.ph
   br i1 %14, label %.preheader.lr.ph, label %._crit_edge44
 
 .preheader.lr.ph:                                 ; preds = %._crit_edge
-  %15 = getelementptr inbounds i8, ptr %.02546, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %.02546, i64 16
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %26
@@ -192,7 +192,7 @@ switch.lookup:                                    ; preds = %.lr.ph
   %.141 = phi i32 [ 0, %.preheader ], [ %24, %16 ]
   %.12740 = phi i32 [ %.02642, %.preheader ], [ %22, %16 ]
   %17 = load ptr, ptr %15, align 8
-  %18 = getelementptr inbounds i32, ptr %17, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv
   %19 = load i32, ptr %18, align 4
   %20 = shl nuw i32 1, %.141
   %21 = and i32 %19, %20
@@ -250,7 +250,7 @@ define range(i32 0, 2) i32 @WriteResultIntoFile(ptr nocapture noundef readonly %
   %.026.i = phi i32 [ %16, %._crit_edge.i ], [ 0, %8 ]
   %.01625.i = phi i32 [ %.1.lcssa.i, %._crit_edge.i ], [ 0, %8 ]
   %.01824.i = phi ptr [ %28, %._crit_edge.i ], [ %12, %8 ]
-  %13 = getelementptr inbounds i8, ptr %.01824.i, i64 2
+  %13 = getelementptr inbounds nuw i8, ptr %.01824.i, i64 2
   %14 = load i16, ptr %13, align 2
   %15 = sext i16 %14 to i32
   %16 = add nsw i32 %.026.i, %15

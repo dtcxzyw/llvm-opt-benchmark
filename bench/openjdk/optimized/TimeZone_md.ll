@@ -96,7 +96,7 @@ define hidden ptr @findJavaTZ_md(ptr nocapture noundef readnone %0) local_unname
   br i1 %28, label %22, label %.thread25, !llvm.loop !6
 
 .critedge53.i:                                    ; preds = %22
-  %29 = getelementptr inbounds i8, ptr %2, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %30 = load i32, ptr %29, align 8
   %31 = and i32 %30, 61440
   %32 = icmp eq i32 %31, 40960
@@ -143,7 +143,7 @@ thread-pre-split.i.i:                             ; preds = %.critedge2.i.i, %th
   br i1 %48, label %49, label %.critedge.i.i.preheader
 
 49:                                               ; preds = %47
-  %50 = getelementptr inbounds i8, ptr %.120.i.i, i64 1
+  %50 = getelementptr inbounds nuw i8, ptr %.120.i.i, i64 1
   %51 = load i8, ptr %50, align 1
   %52 = icmp eq i8 %51, 47
   br i1 %52, label %47, label %.critedge.i.i.preheader, !llvm.loop !8
@@ -161,14 +161,14 @@ thread-pre-split.i.i:                             ; preds = %.critedge2.i.i, %th
   ]
 
 54:                                               ; preds = %.critedge.i.i
-  %55 = getelementptr inbounds i8, ptr %.2.i.i, i64 1
+  %55 = getelementptr inbounds nuw i8, ptr %.2.i.i, i64 1
   %56 = load i8, ptr %55, align 1
   %.not.i.i = icmp eq i8 %56, 47
   br i1 %.not.i.i, label %.critedge2.i.i, label %.critedge23.i.i
 
 .critedge23.i.i:                                  ; preds = %54, %.critedge.i.i
-  %57 = getelementptr inbounds i8, ptr %.2.i.i, i64 1
-  %58 = getelementptr inbounds i8, ptr %.1.i.i, i64 1
+  %57 = getelementptr inbounds nuw i8, ptr %.2.i.i, i64 1
+  %58 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 1
   store i8 %53, ptr %.1.i.i, align 1
   br label %.critedge.i.i, !llvm.loop !9
 
@@ -177,7 +177,7 @@ thread-pre-split.i.i:                             ; preds = %.critedge2.i.i, %th
   br label %removeDuplicateSlashes.exit.i
 
 .critedge2.i.i:                                   ; preds = %54
-  %60 = getelementptr inbounds i8, ptr %.2.i.i, i64 1
+  %60 = getelementptr inbounds nuw i8, ptr %.2.i.i, i64 1
   %61 = icmp ult ptr %60, %44
   br i1 %61, label %thread-pre-split.i.i, label %removeDuplicateSlashes.exit.i, !llvm.loop !10
 
@@ -188,7 +188,7 @@ removeDuplicateSlashes.exit.i:                    ; preds = %.critedge2.i.i, %59
   br i1 %63, label %.preheader, label %64
 
 64:                                               ; preds = %removeDuplicateSlashes.exit.i
-  %65 = getelementptr inbounds i8, ptr %62, i64 9
+  %65 = getelementptr inbounds nuw i8, ptr %62, i64 9
   %66 = call noalias ptr @strdup(ptr noundef nonnull %65) #14
   br label %99
 
@@ -219,7 +219,7 @@ removeDuplicateSlashes.exit.i:                    ; preds = %.critedge2.i.i, %59
   br label %.thread25
 
 .critedge55.i:                                    ; preds = %.critedge54.i
-  %81 = getelementptr inbounds i8, ptr %2, i64 48
+  %81 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %82 = load i64, ptr %81, align 8
   %83 = call noalias ptr @malloc(i64 noundef %82) #17
   %84 = icmp eq ptr %83, null
@@ -277,11 +277,11 @@ removeDuplicateSlashes.exit.i:                    ; preds = %.critedge2.i.i, %59
   %100 = load i8, ptr %.01723, align 1
   %101 = icmp eq i8 %100, 58
   %spec.select.idx = zext i1 %101 to i64
-  %spec.select = getelementptr inbounds i8, ptr %.01723, i64 %spec.select.idx
+  %spec.select = getelementptr inbounds nuw i8, ptr %.01723, i64 %spec.select.idx
   %102 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %spec.select, ptr noundef nonnull dereferenceable(7) @.str.1, i64 noundef 6) #15
   %103 = icmp eq i32 %102, 0
   %.2.idx = select i1 %103, i64 6, i64 0
-  %.2 = getelementptr inbounds i8, ptr %spec.select, i64 %.2.idx
+  %.2 = getelementptr inbounds nuw i8, ptr %spec.select, i64 %.2.idx
   %104 = icmp eq ptr %.024, null
   br i1 %104, label %105, label %107
 
@@ -334,17 +334,17 @@ define hidden noalias ptr @getGMTOffsetID() local_unnamed_addr #0 {
   br i1 %11, label %42, label %12
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %3, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %14 = load i32, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %5, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %16 = load i32, ptr %15, align 8
   %17 = icmp eq i32 %14, %16
   br i1 %17, label %18, label %24
 
 18:                                               ; preds = %12
-  %19 = getelementptr inbounds i8, ptr %3, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %20 = load i32, ptr %19, align 4
-  %21 = getelementptr inbounds i8, ptr %5, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %22 = load i32, ptr %21, align 4
   %23 = icmp eq i32 %20, %22
   br i1 %23, label %42, label %24
@@ -357,16 +357,16 @@ define hidden noalias ptr @getGMTOffsetID() local_unnamed_addr #0 {
 26:                                               ; preds = %24
   %27 = load i8, ptr %2, align 1
   %28 = sext i8 %27 to i32
-  %29 = getelementptr inbounds i8, ptr %2, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %30 = load i8, ptr %29, align 1
   %31 = sext i8 %30 to i32
-  %32 = getelementptr inbounds i8, ptr %2, i64 2
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %33 = load i8, ptr %32, align 1
   %34 = sext i8 %33 to i32
-  %35 = getelementptr inbounds i8, ptr %2, i64 3
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 3
   %36 = load i8, ptr %35, align 1
   %37 = sext i8 %36 to i32
-  %38 = getelementptr inbounds i8, ptr %2, i64 4
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %39 = load i8, ptr %38, align 1
   %40 = sext i8 %39 to i32
   %41 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %1, i64 noundef 32, ptr noundef nonnull @.str.4, i32 noundef %28, i32 noundef %31, i32 noundef %34, i32 noundef %37, i32 noundef %40) #14
@@ -444,7 +444,7 @@ define internal fastcc ptr @findZoneinfoFile(ptr nocapture noundef readonly %0, 
 .preheader45:                                     ; preds = %3, %getPathName.exit.thread
   %6 = phi i1 [ false, %getPathName.exit.thread ], [ true, %3 ]
   %indvars.iv = phi i64 [ 1, %getPathName.exit.thread ], [ 0, %3 ]
-  %7 = getelementptr inbounds [2 x [4 x i8]], ptr @popularZones, i64 0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [2 x [4 x i8]], ptr @popularZones, i64 0, i64 %indvars.iv
   %8 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #15
   %9 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %7) #15
   %10 = add i64 %8, 2
@@ -479,7 +479,7 @@ getPathName.exit.thread:                          ; preds = %.preheader45, %14
 
 .lr.ph:                                           ; preds = %.preheader, %.backedge
   %21 = phi ptr [ %34, %.backedge ], [ %20, %.preheader ]
-  %22 = getelementptr inbounds i8, ptr %21, i64 19
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 19
   %23 = load i8, ptr %22, align 1
   %24 = icmp eq i8 %23, 46
   br i1 %24, label %.backedge, label %25
@@ -557,7 +557,7 @@ define internal fastcc ptr @isFileIdentical(ptr nocapture noundef readonly %0, i
   br i1 %11, label %5, label %.critedge, !llvm.loop !16
 
 .critedge37:                                      ; preds = %5
-  %12 = getelementptr inbounds i8, ptr %4, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %13 = load i32, ptr %12, align 8
   %14 = trunc i32 %13 to i16
   %trunc = and i16 %14, -4096
@@ -571,7 +571,7 @@ define internal fastcc ptr @isFileIdentical(ptr nocapture noundef readonly %0, i
   br label %.critedge
 
 17:                                               ; preds = %.critedge37
-  %18 = getelementptr inbounds i8, ptr %4, i64 48
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %19 = load i64, ptr %18, align 8
   %20 = icmp eq i64 %19, %1
   br i1 %20, label %21, label %.critedge
@@ -621,7 +621,7 @@ define internal fastcc ptr @isFileIdentical(ptr nocapture noundef readonly %0, i
   br i1 %42, label %.critedge2, label %43
 
 43:                                               ; preds = %40
-  %44 = getelementptr inbounds i8, ptr %41, i64 9
+  %44 = getelementptr inbounds nuw i8, ptr %41, i64 9
   %45 = tail call noalias ptr @strdup(ptr noundef nonnull %44) #14
   br label %.critedge2
 

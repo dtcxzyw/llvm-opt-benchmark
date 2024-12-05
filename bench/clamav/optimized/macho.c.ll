@@ -86,13 +86,13 @@ define range(i32 0, 27) i32 @cli_scanmacho(ptr noundef %0, ptr noundef %1) local
   %9 = alloca [16 x i8], align 16
   %10 = alloca %struct.macho_thread_state_ppc, align 4
   %11 = alloca %struct.macho_thread_state_ppc64, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 96
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %13 = load ptr, ptr %12, align 8
   %.not.not = icmp eq ptr %1, null
   br i1 %.not.not, label %18, label %14
 
 14:                                               ; preds = %2
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load i32, ptr %15, align 8
   %.not204 = icmp eq i32 %16, 0
   br i1 %.not204, label %18, label %17
@@ -102,14 +102,14 @@ define range(i32 0, 27) i32 @cli_scanmacho(ptr noundef %0, ptr noundef %1) local
   br label %18
 
 18:                                               ; preds = %14, %17, %2
-  %19 = getelementptr inbounds i8, ptr %13, i64 88
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 88
   %20 = load i64, ptr %19, align 8
   %.not.i = icmp eq i64 %20, 0
   br i1 %.not.i, label %fmap_readn.exit.thread, label %21
 
 21:                                               ; preds = %18
   %spec.select.i = tail call i64 @llvm.umin.i64(i64 %20, i64 28)
-  %22 = getelementptr inbounds i8, ptr %13, i64 104
+  %22 = getelementptr inbounds nuw i8, ptr %13, i64 104
   %23 = load ptr, ptr %22, align 8
   %24 = tail call ptr %23(ptr noundef nonnull %13, i64 noundef 0, i64 noundef %spec.select.i, i32 noundef 0) #7
   %.not26.i = icmp eq ptr %24, null
@@ -146,7 +146,7 @@ fmap_readn.exit.thread:                           ; preds = %21, %18, %fmap_read
 29:                                               ; preds = %25, %27
   %30 = phi i1 [ true, %27 ], [ false, %25 ]
   %31 = phi i1 [ false, %27 ], [ true, %25 ]
-  %.4..4..4..sroa_idx530 = getelementptr inbounds i8, ptr %3, i64 4
+  %.4..4..4..sroa_idx530 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %.4..4..4.290 = load i32, ptr %.4..4..4..sroa_idx530, align 4
   %32 = tail call i32 @llvm.bswap.i32(i32 %.4..4..4.290)
   br label %34
@@ -154,7 +154,7 @@ fmap_readn.exit.thread:                           ; preds = %21, %18, %fmap_read
 33:                                               ; preds = %26, %25
   %.ph = phi i1 [ false, %25 ], [ true, %26 ]
   %.ph314 = phi i1 [ true, %25 ], [ false, %26 ]
-  %.4..4..4..sroa_idx531 = getelementptr inbounds i8, ptr %3, i64 4
+  %.4..4..4..sroa_idx531 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %.4..4..4.290317 = load i32, ptr %.4..4..4..sroa_idx531, align 4
   br label %34
 
@@ -224,7 +224,7 @@ fmap_readn.exit.thread:                           ; preds = %21, %18, %fmap_read
 52:                                               ; preds = %49, %47, %39, %51, %45, %43, %41
   %53 = phi i1 [ true, %49 ], [ true, %47 ], [ true, %39 ], [ false, %41 ], [ false, %43 ], [ false, %45 ], [ false, %51 ]
   %.0190.ph = phi i32 [ 3, %49 ], [ 2, %47 ], [ 1, %39 ], [ 0, %41 ], [ 0, %43 ], [ 0, %45 ], [ 0, %51 ]
-  %.12..12..12..sroa_idx = getelementptr inbounds i8, ptr %3, i64 12
+  %.12..12..12..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 12
   %.12..12..12.296 = load i32, ptr %.12..12..12..sroa_idx, align 4
   %54 = tail call i32 @llvm.bswap.i32(i32 %.12..12..12.296)
   %55 = select i1 %.not206318, i32 %.12..12..12.296, i32 %54
@@ -281,12 +281,12 @@ fmap_readn.exit.thread:                           ; preds = %21, %18, %fmap_read
   br label %66
 
 66:                                               ; preds = %65, %64, %63, %62, %61, %60, %59, %58, %57, %56
-  %.16..16..16..sroa_idx = getelementptr inbounds i8, ptr %3, i64 16
+  %.16..16..16..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.16..16..16.302 = load i32, ptr %.16..16..16..sroa_idx, align 4
   %67 = tail call i32 @llvm.bswap.i32(i32 %.16..16..16.302)
   %68 = select i1 %.not206318, i32 %.16..16..16.302, i32 %67
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.20, i32 noundef %68) #7
-  %.20..20..20..sroa_idx = getelementptr inbounds i8, ptr %3, i64 20
+  %.20..20..20..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 20
   %.20..20..20.311 = load i32, ptr %.20..20..20..sroa_idx, align 4
   %69 = tail call i32 @llvm.bswap.i32(i32 %.20..20..20.311)
   %70 = select i1 %.not206318, i32 %.20..20..20.311, i32 %69
@@ -296,11 +296,11 @@ fmap_readn.exit.thread:                           ; preds = %21, %18, %fmap_read
 .critedge:                                        ; preds = %40, %42, %44, %50, %38, %46, %48, %66
   %.0190327 = phi i32 [ %.0190.ph, %66 ], [ 0, %50 ], [ 0, %44 ], [ 0, %42 ], [ 0, %40 ], [ 1, %38 ], [ 2, %46 ], [ 3, %48 ]
   %.not210325 = phi i1 [ %53, %66 ], [ false, %50 ], [ false, %44 ], [ false, %42 ], [ false, %40 ], [ true, %38 ], [ true, %46 ], [ true, %48 ]
-  %.16..16..16..sroa_idx532 = getelementptr inbounds i8, ptr %3, i64 16
+  %.16..16..16..sroa_idx532 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.16..16..16.306 = load i32, ptr %.16..16..16..sroa_idx532, align 4
   %71 = tail call i32 @llvm.bswap.i32(i32 %.16..16..16.306)
   %72 = select i1 %.not206318, i32 %.16..16..16.306, i32 %71
-  %.16..16..16..sroa_idx533 = getelementptr inbounds i8, ptr %3, i64 16
+  %.16..16..16..sroa_idx533 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 %72, ptr %.16..16..16..sroa_idx533, align 4
   %73 = add i32 %72, -1025
   %or.cond = icmp ult i32 %73, -1024
@@ -308,26 +308,26 @@ fmap_readn.exit.thread:                           ; preds = %21, %18, %fmap_read
 
 .lr.ph:                                           ; preds = %.critedge
   %spec.select = select i1 %36, i64 32, i64 28
-  %74 = getelementptr inbounds i8, ptr %5, i64 40
-  %75 = getelementptr inbounds i8, ptr %9, i64 15
-  %76 = getelementptr inbounds i8, ptr %6, i64 56
-  %77 = getelementptr inbounds i8, ptr %7, i64 32
-  %78 = getelementptr inbounds i8, ptr %7, i64 36
-  %79 = getelementptr inbounds i8, ptr %7, i64 40
-  %80 = getelementptr inbounds i8, ptr %7, i64 44
-  %81 = getelementptr inbounds i8, ptr %8, i64 32
-  %82 = getelementptr inbounds i8, ptr %8, i64 40
-  %83 = getelementptr inbounds i8, ptr %8, i64 48
-  %84 = getelementptr inbounds i8, ptr %8, i64 52
-  %.4..4..4..sroa_idx = getelementptr inbounds i8, ptr %4, i64 4
-  %.16..16..16..sroa_idx534 = getelementptr inbounds i8, ptr %3, i64 16
+  %74 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  %75 = getelementptr inbounds nuw i8, ptr %9, i64 15
+  %76 = getelementptr inbounds nuw i8, ptr %6, i64 56
+  %77 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %78 = getelementptr inbounds nuw i8, ptr %7, i64 36
+  %79 = getelementptr inbounds nuw i8, ptr %7, i64 40
+  %80 = getelementptr inbounds nuw i8, ptr %7, i64 44
+  %81 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %82 = getelementptr inbounds nuw i8, ptr %8, i64 40
+  %83 = getelementptr inbounds nuw i8, ptr %8, i64 48
+  %84 = getelementptr inbounds nuw i8, ptr %8, i64 52
+  %.4..4..4..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %.16..16..16..sroa_idx534 = getelementptr inbounds nuw i8, ptr %3, i64 16
   br label %95
 
 85:                                               ; preds = %.critedge
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.22, i32 noundef %72) #7
-  %86 = getelementptr inbounds i8, ptr %0, i64 64
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %87 = load ptr, ptr %86, align 8
-  %88 = getelementptr inbounds i8, ptr %87, i64 8
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
   %89 = load i32, ptr %88, align 4
   %90 = and i32 %89, 2
   %.not231 = icmp eq i32 %90, 0
@@ -367,9 +367,9 @@ fmap_readn.exit238:                               ; preds = %97
 fmap_readn.exit238.thread:                        ; preds = %97, %95, %fmap_readn.exit238
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.24) #7
   call void @free(ptr noundef %.0185421) #7
-  %101 = getelementptr inbounds i8, ptr %0, i64 64
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %102 = load ptr, ptr %101, align 8
-  %103 = getelementptr inbounds i8, ptr %102, i64 8
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 8
   %104 = load i32, ptr %103, align 4
   %105 = and i32 %104, 2
   %.not230 = icmp eq i32 %105, 0
@@ -420,9 +420,9 @@ fmap_readn.exit243:                               ; preds = %119
 fmap_readn.exit243.thread:                        ; preds = %119, %118, %fmap_readn.exit243
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.25) #7
   call void @free(ptr noundef %.0185421) #7
-  %123 = getelementptr inbounds i8, ptr %0, i64 64
+  %123 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %124 = load ptr, ptr %123, align 8
-  %125 = getelementptr inbounds i8, ptr %124, i64 8
+  %125 = getelementptr inbounds nuw i8, ptr %124, i64 8
   %126 = load i32, ptr %125, align 4
   %127 = and i32 %126, 2
   %.not229 = icmp eq i32 %127, 0
@@ -460,9 +460,9 @@ fmap_readn.exit248:                               ; preds = %136
 fmap_readn.exit248.thread:                        ; preds = %136, %135, %fmap_readn.exit248
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.25) #7
   call void @free(ptr noundef %.0185421) #7
-  %140 = getelementptr inbounds i8, ptr %0, i64 64
+  %140 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %141 = load ptr, ptr %140, align 8
-  %142 = getelementptr inbounds i8, ptr %141, i64 8
+  %142 = getelementptr inbounds nuw i8, ptr %141, i64 8
   %143 = load i32, ptr %142, align 4
   %144 = and i32 %143, 2
   %.not218 = icmp eq i32 %144, 0
@@ -503,9 +503,9 @@ fmap_readn.exit248.thread:                        ; preds = %136, %135, %fmap_re
 159:                                              ; preds = %157
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.28) #7
   call void @free(ptr noundef %.0185421) #7
-  %160 = getelementptr inbounds i8, ptr %0, i64 64
+  %160 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %161 = load ptr, ptr %160, align 8
-  %162 = getelementptr inbounds i8, ptr %161, i64 8
+  %162 = getelementptr inbounds nuw i8, ptr %161, i64 8
   %163 = load i32, ptr %162, align 4
   %164 = and i32 %163, 2
   %.not228 = icmp eq i32 %164, 0
@@ -568,9 +568,9 @@ fmap_readn.exit253:                               ; preds = %180
 fmap_readn.exit253.thread:                        ; preds = %180, %179, %fmap_readn.exit253
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.31) #7
   call void @free(ptr noundef %176) #7
-  %184 = getelementptr inbounds i8, ptr %0, i64 64
+  %184 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %185 = load ptr, ptr %184, align 8
-  %186 = getelementptr inbounds i8, ptr %185, i64 8
+  %186 = getelementptr inbounds nuw i8, ptr %185, i64 8
   %187 = load i32, ptr %186, align 4
   %188 = and i32 %187, 2
   %.not227 = icmp eq i32 %188, 0
@@ -591,18 +591,18 @@ fmap_readn.exit253.thread:                        ; preds = %180, %179, %fmap_re
   %197 = select i1 %.not206318, i64 %195, i64 %196
   %198 = trunc i64 %197 to i32
   %199 = zext i32 %.2197415 to i64
-  %200 = getelementptr inbounds %struct.cli_exe_section, ptr %176, i64 %199
+  %200 = getelementptr inbounds nuw %struct.cli_exe_section, ptr %176, i64 %199
   store i32 %198, ptr %200, align 4
   %201 = load i64, ptr %82, align 8
   %202 = call i64 @llvm.bswap.i64(i64 %201)
   %203 = select i1 %.not206318, i64 %201, i64 %202
   %204 = trunc i64 %203 to i32
-  %205 = getelementptr inbounds i8, ptr %200, i64 4
+  %205 = getelementptr inbounds nuw i8, ptr %200, i64 4
   store i32 %204, ptr %205, align 4
   %206 = load i32, ptr %83, align 8
   %207 = call i32 @llvm.bswap.i32(i32 %206)
   %208 = select i1 %.not206318, i32 %206, i32 %207
-  %209 = getelementptr inbounds i8, ptr %200, i64 8
+  %209 = getelementptr inbounds nuw i8, ptr %200, i64 8
   store i32 %208, ptr %209, align 4
   %210 = load i32, ptr %84, align 4
   %211 = call i32 @llvm.bswap.i32(i32 %210)
@@ -630,9 +630,9 @@ fmap_readn.exit258:                               ; preds = %215
 fmap_readn.exit258.thread:                        ; preds = %215, %214, %fmap_readn.exit258
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.31) #7
   call void @free(ptr noundef %176) #7
-  %219 = getelementptr inbounds i8, ptr %0, i64 64
+  %219 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %220 = load ptr, ptr %219, align 8
-  %221 = getelementptr inbounds i8, ptr %220, i64 8
+  %221 = getelementptr inbounds nuw i8, ptr %220, i64 8
   %222 = load i32, ptr %221, align 4
   %223 = and i32 %222, 2
   %.not224 = icmp eq i32 %223, 0
@@ -651,17 +651,17 @@ fmap_readn.exit258.thread:                        ; preds = %215, %214, %fmap_re
   %230 = call i32 @llvm.bswap.i32(i32 %229)
   %231 = select i1 %.not206318, i32 %229, i32 %230
   %232 = zext i32 %.2197415 to i64
-  %233 = getelementptr inbounds %struct.cli_exe_section, ptr %176, i64 %232
+  %233 = getelementptr inbounds nuw %struct.cli_exe_section, ptr %176, i64 %232
   store i32 %231, ptr %233, align 4
   %234 = load i32, ptr %78, align 4
   %235 = call i32 @llvm.bswap.i32(i32 %234)
   %236 = select i1 %.not206318, i32 %234, i32 %235
-  %237 = getelementptr inbounds i8, ptr %233, i64 4
+  %237 = getelementptr inbounds nuw i8, ptr %233, i64 4
   store i32 %236, ptr %237, align 4
   %238 = load i32, ptr %79, align 4
   %239 = call i32 @llvm.bswap.i32(i32 %238)
   %240 = select i1 %.not206318, i32 %238, i32 %239
-  %241 = getelementptr inbounds i8, ptr %233, i64 8
+  %241 = getelementptr inbounds nuw i8, ptr %233, i64 8
   store i32 %240, ptr %241, align 4
   %242 = load i32, ptr %80, align 4
   %243 = call i32 @llvm.bswap.i32(i32 %242)
@@ -672,9 +672,9 @@ fmap_readn.exit258.thread:                        ; preds = %215, %214, %fmap_re
 246:                                              ; preds = %228
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.32) #7
   call void @free(ptr noundef nonnull %176) #7
-  %247 = getelementptr inbounds i8, ptr %0, i64 64
+  %247 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %248 = load ptr, ptr %247, align 8
-  %249 = getelementptr inbounds i8, ptr %248, i64 8
+  %249 = getelementptr inbounds nuw i8, ptr %248, i64 8
   %250 = load i32, ptr %249, align 4
   %251 = and i32 %250, 2
   %.not223 = icmp eq i32 %251, 0
@@ -705,7 +705,7 @@ fmap_readn.exit258.thread:                        ; preds = %215, %214, %fmap_re
   %263 = sub i32 %.sink489, %262
   %264 = and i32 %263, %261
   %265 = add i32 %264, %.sink488
-  %266 = getelementptr inbounds %struct.cli_exe_section, ptr %176, i64 %260, i32 3
+  %266 = getelementptr inbounds nuw %struct.cli_exe_section, ptr %176, i64 %260, i32 3
   store i32 %265, ptr %266, align 4
   %267 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %.sink477, i64 noundef 16) #7
   store i8 0, ptr %75, align 1
@@ -715,16 +715,16 @@ fmap_readn.exit258.thread:                        ; preds = %215, %214, %fmap_re
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.33, i32 noundef %.2197415) #7
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.34, ptr noundef nonnull %9) #7
   %269 = zext i32 %.2197415 to i64
-  %270 = getelementptr inbounds %struct.cli_exe_section, ptr %176, i64 %269
+  %270 = getelementptr inbounds nuw %struct.cli_exe_section, ptr %176, i64 %269
   %271 = load i32, ptr %270, align 4
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.35, i32 noundef %271) #7
-  %272 = getelementptr inbounds i8, ptr %270, i64 4
+  %272 = getelementptr inbounds nuw i8, ptr %270, i64 4
   %273 = load i32, ptr %272, align 4
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.36, i32 noundef %273) #7
-  %274 = getelementptr inbounds i8, ptr %270, i64 12
+  %274 = getelementptr inbounds nuw i8, ptr %270, i64 12
   %275 = load i32, ptr %274, align 4
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.37, i32 noundef %275) #7
-  %276 = getelementptr inbounds i8, ptr %270, i64 8
+  %276 = getelementptr inbounds nuw i8, ptr %270, i64 8
   %277 = load i32, ptr %276, align 4
   %.not226 = icmp eq i32 %277, 0
   br i1 %.not226, label %279, label %278
@@ -783,9 +783,9 @@ fmap_readn.exit258.thread:                        ; preds = %215, %214, %fmap_re
 fmap_readn.exit263.thread:                        ; preds = %289, %288
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.39) #7
   call void @free(ptr noundef %.0185421) #7
-  %293 = getelementptr inbounds i8, ptr %0, i64 64
+  %293 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %294 = load ptr, ptr %293, align 8
-  %295 = getelementptr inbounds i8, ptr %294, i64 8
+  %295 = getelementptr inbounds nuw i8, ptr %294, i64 8
   %296 = load i32, ptr %295, align 4
   %297 = and i32 %296, 2
   %.not216 = icmp eq i32 %297, 0
@@ -822,9 +822,9 @@ fmap_readn.exit268:                               ; preds = %305
 fmap_readn.exit268.thread:                        ; preds = %305, %304, %fmap_readn.exit268
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.40) #7
   call void @free(ptr noundef %.0185421) #7
-  %309 = getelementptr inbounds i8, ptr %0, i64 64
+  %309 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %310 = load ptr, ptr %309, align 8
-  %311 = getelementptr inbounds i8, ptr %310, i64 8
+  %311 = getelementptr inbounds nuw i8, ptr %310, i64 8
   %312 = load i32, ptr %311, align 4
   %313 = and i32 %312, 2
   %.not214 = icmp eq i32 %313, 0
@@ -864,9 +864,9 @@ fmap_readn.exit273:                               ; preds = %323
 fmap_readn.exit273.thread:                        ; preds = %323, %322, %fmap_readn.exit273
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.41) #7
   call void @free(ptr noundef %.0185421) #7
-  %327 = getelementptr inbounds i8, ptr %0, i64 64
+  %327 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %328 = load ptr, ptr %327, align 8
-  %329 = getelementptr inbounds i8, ptr %328, i64 8
+  %329 = getelementptr inbounds nuw i8, ptr %328, i64 8
   %330 = load i32, ptr %329, align 4
   %331 = and i32 %330, 2
   %.not212 = icmp eq i32 %331, 0
@@ -939,13 +939,13 @@ default.unreachable:                              ; preds = %285
 
 .lr.ph.i:                                         ; preds = %362, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %362 ]
-  %355 = getelementptr inbounds %struct.cli_exe_section, ptr %.1186, i64 %indvars.iv.i
+  %355 = getelementptr inbounds nuw %struct.cli_exe_section, ptr %.1186, i64 %indvars.iv.i
   %356 = load i32, ptr %355, align 4
   %.not.i274 = icmp ugt i32 %356, %.1188
   br i1 %.not.i274, label %362, label %357
 
 357:                                              ; preds = %.lr.ph.i
-  %358 = getelementptr inbounds i8, ptr %355, i64 4
+  %358 = getelementptr inbounds nuw i8, ptr %355, i64 4
   %359 = load i32, ptr %358, align 4
   %360 = add i32 %359, %356
   %361 = icmp ugt i32 %360, %.1188
@@ -963,7 +963,7 @@ default.unreachable:                              ; preds = %285
 
 363:                                              ; preds = %357
   %364 = sub i32 %.1188, %356
-  %365 = getelementptr inbounds i8, ptr %355, i64 8
+  %365 = getelementptr inbounds nuw i8, ptr %355, i64 8
   %366 = load i32, ptr %365, align 4
   %367 = add i32 %366, %364
   br i1 %.not.not, label %.thread348, label %.thread350
@@ -977,10 +977,10 @@ default.unreachable:                              ; preds = %285
 
 .thread350:                                       ; preds = %363, %368
   %.2189352 = phi i32 [ %.1188, %368 ], [ %367, %363 ]
-  %369 = getelementptr inbounds i8, ptr %1, i64 12
+  %369 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 %.2189352, ptr %369, align 4
   %370 = trunc i32 %.1196 to i16
-  %371 = getelementptr inbounds i8, ptr %1, i64 16
+  %371 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i16 %370, ptr %371, align 8
   store ptr %.1186, ptr %1, align 8
   br label %373
@@ -1018,16 +1018,16 @@ define range(i32 0, 27) i32 @cli_machoheader(ptr noundef %0, ptr noundef %1) loc
 define i32 @cli_scanmacho_unibin(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.macho_fat_header, align 4
   %3 = alloca %struct.macho_fat_arch, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 96
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 88
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 88
   %7 = load i64, ptr %6, align 8
   %.not.i = icmp eq i64 %7, 0
   br i1 %.not.i, label %fmap_readn.exit.thread, label %8
 
 8:                                                ; preds = %1
   %spec.select.i = tail call i64 @llvm.umin.i64(i64 %7, i64 8)
-  %9 = getelementptr inbounds i8, ptr %5, i64 104
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 104
   %10 = load ptr, ptr %9, align 8
   %11 = tail call ptr %10(ptr noundef nonnull %5, i64 noundef 0, i64 noundef %spec.select.i, i32 noundef 0) #7
   %.not26.i = icmp eq ptr %11, null
@@ -1056,13 +1056,13 @@ fmap_readn.exit.thread:                           ; preds = %8, %1, %fmap_readn.
   br label %.loopexit
 
 17:                                               ; preds = %14
-  %.4..4..4..sroa_idx71 = getelementptr inbounds i8, ptr %2, i64 4
+  %.4..4..4..sroa_idx71 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %.4..4..4.55 = load i32, ptr %.4..4..4..sroa_idx71, align 4
   %18 = tail call i32 @llvm.bswap.i32(i32 %.4..4..4.55)
   br label %19
 
 .critedge:                                        ; preds = %12
-  %.4..4..4..sroa_idx = getelementptr inbounds i8, ptr %2, i64 4
+  %.4..4..4..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 4
   %.4..4..4. = load i32, ptr %.4..4..4..sroa_idx, align 4
   br label %19
 
@@ -1082,10 +1082,10 @@ fmap_readn.exit.thread:                           ; preds = %8, %1, %fmap_readn.
 
 26:                                               ; preds = %23
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.49, i32 noundef %20) #7
-  %.8..8..8..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
-  %.8..8..8..sroa_idx69 = getelementptr inbounds i8, ptr %3, i64 8
-  %.12..12..12..sroa_idx = getelementptr inbounds i8, ptr %3, i64 12
-  %.12..12..12..sroa_idx70 = getelementptr inbounds i8, ptr %3, i64 12
+  %.8..8..8..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.8..8..8..sroa_idx69 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.12..12..12..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 12
+  %.12..12..12..sroa_idx70 = getelementptr inbounds nuw i8, ptr %3, i64 12
   br label %27
 
 27:                                               ; preds = %62, %26
@@ -1114,9 +1114,9 @@ fmap_readn.exit39:                                ; preds = %30
 
 fmap_readn.exit39.thread:                         ; preds = %30, %28, %fmap_readn.exit39
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.50) #7
-  %34 = getelementptr inbounds i8, ptr %0, i64 64
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %37 = load i32, ptr %36, align 4
   %38 = and i32 %37, 2
   %.not34 = icmp eq i32 %38, 0
@@ -1150,9 +1150,9 @@ fmap_readn.exit39.thread:                         ; preds = %30, %28, %fmap_read
 
 52:                                               ; preds = %43
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.54, i32 noundef %46) #7
-  %53 = getelementptr inbounds i8, ptr %0, i64 64
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %56 = load i32, ptr %55, align 4
   %57 = and i32 %56, 2
   %.not33 = icmp eq i32 %57, 0
@@ -1194,9 +1194,9 @@ define i32 @cli_unpackmacho(ptr noundef %0) local_unnamed_addr #0 {
 4:                                                ; preds = %1
   tail call void @cli_bytecode_context_setctx(ptr noundef nonnull %3, ptr noundef %0) #7
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.56) #7
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 96
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 @cli_bytecode_runhook(ptr noundef %0, ptr noundef %6, ptr noundef nonnull %3, i32 noundef 262, ptr noundef %8) #7
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.57) #7
@@ -1236,9 +1236,9 @@ define i32 @cli_unpackmacho(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not27, label %.thread43, label %23
 
 23:                                               ; preds = %.thread
-  %24 = getelementptr inbounds i8, ptr %0, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 40
   %27 = load i32, ptr %26, align 8
   %.not28 = icmp eq i32 %27, 0
   br i1 %.not28, label %28, label %30

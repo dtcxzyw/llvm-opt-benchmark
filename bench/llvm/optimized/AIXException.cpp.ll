@@ -71,10 +71,10 @@ define hidden void @_ZN4llvm12AIXException22emitExceptionInfoTableEPKNS_8MCSymbo
 17:                                               ; preds = %3
   %18 = getelementptr inbounds nuw i8, ptr %10, i64 128
   %.sroa.0.0.copyload.i = load ptr, ptr %18, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %10, i64 136
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %10, i64 136
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8
   %19 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i
-  %20 = getelementptr inbounds i8, ptr %4, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 24
   call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(152) %4, ptr noundef nonnull %20, i64 noundef 128) #8
   call void @_ZN4llvm15SmallVectorImplIcE6appendIPKcvEEvT_S5_(ptr noundef nonnull align 8 dereferenceable(152) %4, ptr noundef %.sroa.0.0.copyload.i, ptr noundef %19)
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -101,7 +101,7 @@ define hidden void @_ZN4llvm12AIXException22emitExceptionInfoTableEPKNS_8MCSymbo
   br label %_ZN4llvmlsINS_19raw_svector_ostreamEcEENSt9enable_ifIXaantsr3stdE14is_reference_vIT_Esr3stdE12is_base_of_vINS_11raw_ostreamES3_EEOS3_E4typeES5_RKT0_.exit
 
 32:                                               ; preds = %17
-  %33 = getelementptr inbounds i8, ptr %27, i64 1
+  %33 = getelementptr inbounds nuw i8, ptr %27, i64 1
   store ptr %33, ptr %26, align 8
   store i8 46, ptr %27, align 1
   br label %_ZN4llvmlsINS_19raw_svector_ostreamEcEENSt9enable_ifIXaantsr3stdE14is_reference_vIT_Esr3stdE12is_base_of_vINS_11raw_ostreamES3_EEOS3_E4typeES5_RKT0_.exit
@@ -165,7 +165,7 @@ _ZN4llvm11SmallStringILj128EED2Ev.exit:           ; preds = %64, %_ZN4llvmlsINS_
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 80
   %67 = load ptr, ptr %66, align 8
   %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 168
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 168
   %70 = load ptr, ptr %69, align 8
   call void %70(ptr noundef nonnull align 8 dereferenceable(288) %67, ptr noundef %.0, i32 noundef 0) #8
   %71 = load ptr, ptr %6, align 8
@@ -176,7 +176,7 @@ _ZN4llvm11SmallStringILj128EED2Ev.exit:           ; preds = %64, %_ZN4llvmlsINS_
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 80
   %77 = load ptr, ptr %76, align 8
   %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %78, i64 200
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 200
   %80 = load ptr, ptr %79, align 8
   call void %80(ptr noundef nonnull align 8 dereferenceable(288) %77, ptr noundef %74, ptr null) #8
   %81 = load ptr, ptr %6, align 8
@@ -195,7 +195,7 @@ _ZN4llvm11SmallStringILj128EED2Ev.exit:           ; preds = %64, %_ZN4llvmlsINS_
   %93 = trunc nuw nsw i64 %92 to i8
   %94 = sub nsw i8 63, %93
   %95 = load ptr, ptr %90, align 8
-  %96 = getelementptr inbounds i8, ptr %95, i64 640
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 640
   %97 = load ptr, ptr %96, align 8
   call void %97(ptr noundef nonnull align 8 dereferenceable(288) %90, i8 %94, i64 noundef 0, i32 noundef 1, i32 noundef 0) #8
   %98 = load ptr, ptr %6, align 8
@@ -363,7 +363,7 @@ _ZN4llvm25SmallVectorTemplateCommonIcvE20assertSafeToAddRangeEPKcS3_.exit: ; pre
   br i1 %14, label %15, label %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit
 
 15:                                               ; preds = %_ZN4llvm25SmallVectorTemplateCommonIcvE20assertSafeToAddRangeEPKcS3_.exit
-  %16 = getelementptr inbounds i8, ptr %0, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %16, i64 noundef %12, i64 noundef 1) #8
   br label %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit
 

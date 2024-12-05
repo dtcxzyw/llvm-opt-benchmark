@@ -63,20 +63,20 @@ define internal noundef zeroext i1 @_ZL28Test_TfRegistryManagerUnloadv() #1 pers
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug8_SetNodeERNS0_5_NodeEPKcb(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_30TF_DISCOVERY_TERSE__DebugCodesEE5nodesE, i64 12), ptr noundef nonnull @.str.9, i1 noundef zeroext true)
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug8_SetNodeERNS0_5_NodeEPKcb(ptr noundef nonnull align 4 dereferenceable(4) getelementptr inbounds (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__7TfDebug5_DataINS_30TF_DISCOVERY_TERSE__DebugCodesEE5nodesE, i64 16), ptr noundef nonnull @.str.10, i1 noundef zeroext true)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #11
-  %.sink18.sroa.gep19 = getelementptr inbounds i8, ptr %1, i64 8
-  %.sink18.sroa.gep22 = getelementptr inbounds i8, ptr %1, i64 16
-  %.sink18.sroa.gep25 = getelementptr inbounds i8, ptr %1, i64 24
-  %.sink18.sroa.gep28 = getelementptr inbounds i8, ptr %1, i64 32
+  %.sink18.sroa.gep19 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sink18.sroa.gep22 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.sink18.sroa.gep25 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %.sink18.sroa.gep28 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.sink18.sroa.gep31 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %6 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__18ArchGetAddressInfoEPvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS0_S7_S8_(ptr noundef nonnull @_ZL28Test_TfRegistryManagerUnloadv, ptr noundef nonnull %3, ptr noundef null, ptr noundef null, ptr noundef null)
           to label %7 unwind label %23
 
 7:                                                ; preds = %0
   %.sink18.sroa.gep30 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %.sink18.sroa.gep27 = getelementptr inbounds i8, ptr %2, i64 32
-  %.sink18.sroa.gep24 = getelementptr inbounds i8, ptr %2, i64 24
-  %.sink18.sroa.gep21 = getelementptr inbounds i8, ptr %2, i64 16
-  %.sink18.sroa.gep = getelementptr inbounds i8, ptr %2, i64 8
+  %.sink18.sroa.gep27 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %.sink18.sroa.gep24 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %.sink18.sroa.gep21 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %.sink18.sroa.gep = getelementptr inbounds nuw i8, ptr %2, i64 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2)
   br i1 %6, label %8, label %.invoke
 
@@ -196,18 +196,18 @@ define internal fastcc void @_ZL27_LoadAndUnloadSharedLibraryRKNSt7__cxx1112basi
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #11
   %8 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #11
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #11
-  %.sink33.sroa.gep = getelementptr inbounds i8, ptr %4, i64 8
-  %.sink33.sroa.gep34 = getelementptr inbounds i8, ptr %3, i64 8
-  %.sink33.sroa.gep35 = getelementptr inbounds i8, ptr %2, i64 8
-  %.sink33.sroa.gep37 = getelementptr inbounds i8, ptr %4, i64 16
-  %.sink33.sroa.gep38 = getelementptr inbounds i8, ptr %3, i64 16
-  %.sink33.sroa.gep39 = getelementptr inbounds i8, ptr %2, i64 16
-  %.sink33.sroa.gep41 = getelementptr inbounds i8, ptr %4, i64 24
-  %.sink33.sroa.gep42 = getelementptr inbounds i8, ptr %3, i64 24
-  %.sink33.sroa.gep43 = getelementptr inbounds i8, ptr %2, i64 24
-  %.sink33.sroa.gep45 = getelementptr inbounds i8, ptr %4, i64 32
-  %.sink33.sroa.gep46 = getelementptr inbounds i8, ptr %3, i64 32
-  %.sink33.sroa.gep47 = getelementptr inbounds i8, ptr %2, i64 32
+  %.sink33.sroa.gep = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %.sink33.sroa.gep34 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.sink33.sroa.gep35 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %.sink33.sroa.gep37 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %.sink33.sroa.gep38 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %.sink33.sroa.gep39 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %.sink33.sroa.gep41 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %.sink33.sroa.gep42 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink33.sroa.gep43 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %.sink33.sroa.gep45 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %.sink33.sroa.gep46 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %.sink33.sroa.gep47 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %.sink33.sroa.gep49 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %.sink33.sroa.gep50 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %.sink33.sroa.gep51 = getelementptr inbounds nuw i8, ptr %2, i64 40

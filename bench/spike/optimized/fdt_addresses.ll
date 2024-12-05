@@ -94,12 +94,12 @@ define i32 @fdt_appendprop_addrrange(ptr noundef %0, i32 noundef %1, i32 noundef
   %10 = call ptr @fdt_getprop(ptr noundef %0, i32 noundef %1, ptr noundef nonnull @.str, ptr noundef nonnull %8) #4
   %.not.i.i = icmp eq ptr %10, null
   %11 = load i32, ptr %8, align 4
-  %.sink49.sroa.gep = getelementptr inbounds i8, ptr %9, i64 7
-  %.sink49.sroa.gep64 = getelementptr inbounds i8, ptr %9, i64 3
-  %.sink51.sroa.gep = getelementptr inbounds i8, ptr %9, i64 6
-  %.sink51.sroa.gep65 = getelementptr inbounds i8, ptr %9, i64 2
-  %.sink54.sroa.gep = getelementptr inbounds i8, ptr %9, i64 5
-  %.sink54.sroa.gep66 = getelementptr inbounds i8, ptr %9, i64 1
+  %.sink49.sroa.gep = getelementptr inbounds nuw i8, ptr %9, i64 7
+  %.sink49.sroa.gep64 = getelementptr inbounds nuw i8, ptr %9, i64 3
+  %.sink51.sroa.gep = getelementptr inbounds nuw i8, ptr %9, i64 6
+  %.sink51.sroa.gep65 = getelementptr inbounds nuw i8, ptr %9, i64 2
+  %.sink54.sroa.gep = getelementptr inbounds nuw i8, ptr %9, i64 5
+  %.sink54.sroa.gep66 = getelementptr inbounds nuw i8, ptr %9, i64 1
   br i1 %.not.i.i, label %fdt_cells.exit.i, label %12
 
 12:                                               ; preds = %6
@@ -189,19 +189,19 @@ fdt_size_cells.exit.thread:                       ; preds = %fdt_cells.exit.i43,
   store i8 %36, ptr %9, align 16
   %37 = lshr i64 %4, 48
   %38 = trunc i64 %37 to i8
-  %39 = getelementptr inbounds i8, ptr %9, i64 1
+  %39 = getelementptr inbounds nuw i8, ptr %9, i64 1
   store i8 %38, ptr %39, align 1
   %40 = lshr i64 %4, 40
   %41 = trunc i64 %40 to i8
-  %42 = getelementptr inbounds i8, ptr %9, i64 2
+  %42 = getelementptr inbounds nuw i8, ptr %9, i64 2
   store i8 %41, ptr %42, align 2
   %43 = lshr i64 %4, 32
   %44 = trunc i64 %43 to i8
-  %45 = getelementptr inbounds i8, ptr %9, i64 3
+  %45 = getelementptr inbounds nuw i8, ptr %9, i64 3
   store i8 %44, ptr %45, align 1
   %46 = lshr i64 %4, 24
   %47 = trunc i64 %46 to i8
-  %48 = getelementptr inbounds i8, ptr %9, i64 4
+  %48 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i8 %47, ptr %48, align 4
   br label %49
 
@@ -219,7 +219,7 @@ fdt_size_cells.exit.thread:                       ; preds = %fdt_cells.exit.i43,
   store i8 %54, ptr %.sink49.sroa.phi, align 1
   %55 = zext nneg i32 %.0.i47 to i64
   %56 = shl nuw nsw i64 %55, 2
-  %57 = getelementptr inbounds i8, ptr %9, i64 %56
+  %57 = getelementptr inbounds nuw i8, ptr %9, i64 %56
   switch i32 %26, label %fdt_address_cells.exit.thread [
     i32 1, label %58
     i32 2, label %63
@@ -241,19 +241,19 @@ fdt_size_cells.exit.thread:                       ; preds = %fdt_cells.exit.i43,
   store i8 %65, ptr %57, align 4
   %66 = lshr i64 %5, 48
   %67 = trunc i64 %66 to i8
-  %68 = getelementptr inbounds i8, ptr %57, i64 1
+  %68 = getelementptr inbounds nuw i8, ptr %57, i64 1
   store i8 %67, ptr %68, align 1
   %69 = lshr i64 %5, 40
   %70 = trunc i64 %69 to i8
-  %71 = getelementptr inbounds i8, ptr %57, i64 2
+  %71 = getelementptr inbounds nuw i8, ptr %57, i64 2
   store i8 %70, ptr %71, align 2
   %72 = lshr i64 %5, 32
   %73 = trunc i64 %72 to i8
-  %74 = getelementptr inbounds i8, ptr %57, i64 3
+  %74 = getelementptr inbounds nuw i8, ptr %57, i64 3
   store i8 %73, ptr %74, align 1
   %75 = lshr i64 %5, 24
   %76 = trunc i64 %75 to i8
-  %77 = getelementptr inbounds i8, ptr %57, i64 4
+  %77 = getelementptr inbounds nuw i8, ptr %57, i64 4
   store i8 %76, ptr %77, align 4
   br label %78
 
@@ -263,14 +263,14 @@ fdt_size_cells.exit.thread:                       ; preds = %fdt_cells.exit.i43,
   %.sink57 = phi i64 [ 7, %63 ], [ 3, %60 ]
   %79 = lshr i64 %5, 16
   %80 = trunc i64 %79 to i8
-  %81 = getelementptr inbounds i8, ptr %57, i64 %.sink62
+  %81 = getelementptr inbounds nuw i8, ptr %57, i64 %.sink62
   store i8 %80, ptr %81, align 1
   %82 = lshr i64 %5, 8
   %83 = trunc i64 %82 to i8
-  %84 = getelementptr inbounds i8, ptr %57, i64 %.sink59
+  %84 = getelementptr inbounds nuw i8, ptr %57, i64 %.sink59
   store i8 %83, ptr %84, align 2
   %85 = trunc i64 %5 to i8
-  %86 = getelementptr inbounds i8, ptr %57, i64 %.sink57
+  %86 = getelementptr inbounds nuw i8, ptr %57, i64 %.sink57
   store i8 %85, ptr %86, align 1
   %87 = add nuw nsw i32 %26, %.0.i47
   %88 = shl nuw nsw i32 %87, 2

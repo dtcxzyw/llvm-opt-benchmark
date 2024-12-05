@@ -249,7 +249,7 @@ declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden range(i32 0, 2) i32 @is_down_link(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 348
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 348
   %3 = load i32, ptr %2, align 4
   %4 = icmp eq i32 %3, 1
   br i1 %4, label %20, label %5
@@ -262,21 +262,21 @@ define hidden range(i32 0, 2) i32 @is_down_link(ptr nocapture noundef readonly %
   br i1 %or.cond, label %9, label %cmp_address.exit.thread
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %0, i64 208
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %11 = load i32, ptr @bs_address, align 8
   %12 = load i32, ptr %10, align 8
   %or.cond8.not = icmp eq i32 %11, %12
   br i1 %or.cond8.not, label %13, label %cmp_address.exit.thread
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %0, i64 212
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 212
   %15 = load i32, ptr %14, align 4
   %or.cond9.not = icmp eq i32 %7, %15
   br i1 %or.cond9.not, label %cmp_address.exit, label %cmp_address.exit.thread
 
 cmp_address.exit:                                 ; preds = %13
   %16 = load ptr, ptr getelementptr inbounds (i8, ptr @bs_address, i64 8), align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 216
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %18 = load ptr, ptr %17, align 8
   %19 = sext i32 %7 to i64
   %bcmp = tail call i32 @bcmp(ptr %16, ptr %18, i64 %19)
@@ -344,7 +344,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_wimax(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.18) #4
   %7 = load ptr, ptr %5, align 8

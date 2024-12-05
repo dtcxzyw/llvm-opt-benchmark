@@ -82,7 +82,7 @@ declare dso_local void @kfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @intel_connector_free(ptr noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1904
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %3 = load ptr, ptr %2, align 8
   tail call void @kfree(ptr noundef %3) #5
   tail call void @kfree(ptr noundef %0) #5
@@ -91,13 +91,13 @@ define dso_local void @intel_connector_free(ptr noundef %0) local_unnamed_addr #
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @intel_connector_destroy(ptr noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 2400
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 2400
   %3 = load ptr, ptr %2, align 8
   tail call void @drm_edid_free(ptr noundef %3) #5
   tail call void @intel_hdcp_cleanup(ptr noundef %0) #5
   tail call void @intel_panel_fini(ptr noundef %0) #5
   tail call void @drm_connector_cleanup(ptr noundef %0) #5
-  %4 = getelementptr inbounds i8, ptr %0, i64 2416
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 2416
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %8, label %7
@@ -157,7 +157,7 @@ define dso_local void @intel_connector_unregister(ptr noundef %0) local_unnamed_
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @intel_connector_attach_encoder(ptr noundef initializes((1976, 1984)) %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 1976
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1976
   store ptr %1, ptr %3, align 8
   %4 = tail call i32 @drm_connector_attach_encoder(ptr noundef %0, ptr noundef %1) #5
   ret void
@@ -171,9 +171,9 @@ define dso_local zeroext i1 @intel_connector_get_hw_state(ptr nocapture noundef 
   %2 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #5
   store i32 0, ptr %2, align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 1976
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1976
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 248
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 248
   %6 = load ptr, ptr %5, align 8
   %7 = call zeroext i1 %6(ptr noundef %4, ptr noundef nonnull %2) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #5
@@ -183,17 +183,17 @@ define dso_local zeroext i1 @intel_connector_get_hw_state(ptr nocapture noundef 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @intel_connector_get_pipe(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 400
-  %4 = tail call zeroext i1 @mutex_is_locked(ptr noundef %3) #5
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 400
+  %4 = tail call zeroext i1 @mutex_is_locked(ptr noundef nonnull %3) #5
   br i1 %4, label %17, label %5, !prof !5
 
 5:                                                ; preds = %1
   tail call void asm sideeffect "593: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 593b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 593) #5, !srcloc !6
-  %6 = getelementptr inbounds i8, ptr %2, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = tail call ptr @dev_driver_string(ptr noundef %7) #5
   %9 = load ptr, ptr %6, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 80
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %13, label %15
@@ -212,15 +212,15 @@ define dso_local i32 @intel_connector_get_pipe(ptr nocapture noundef readonly %0
   br label %17
 
 17:                                               ; preds = %15, %1
-  %18 = getelementptr inbounds i8, ptr %0, i64 1904
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, null
   br i1 %22, label %26, label %23
 
 23:                                               ; preds = %17
-  %24 = getelementptr inbounds i8, ptr %21, i64 1648
+  %24 = getelementptr inbounds nuw i8, ptr %21, i64 1648
   %25 = load i32, ptr %24, align 8
   br label %26
 
@@ -271,7 +271,7 @@ declare dso_local ptr @drm_edid_read_ddc(ptr noundef, ptr noundef) local_unnamed
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @intel_attach_force_audio_property(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 3328
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 3328
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %10
@@ -287,8 +287,8 @@ define dso_local void @intel_attach_force_audio_property(ptr noundef %0) local_u
 
 10:                                               ; preds = %9, %1
   %11 = phi ptr [ %7, %9 ], [ %4, %1 ]
-  %12 = getelementptr inbounds i8, ptr %0, i64 64
-  tail call void @drm_object_attach_property(ptr noundef %12, ptr noundef nonnull %11, i64 noundef 0) #5
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  tail call void @drm_object_attach_property(ptr noundef nonnull %12, ptr noundef nonnull %11, i64 noundef 0) #5
   br label %13
 
 13:                                               ; preds = %10, %6
@@ -304,7 +304,7 @@ declare dso_local void @drm_object_attach_property(ptr noundef, ptr noundef, i64
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @intel_attach_broadcast_rgb_property(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 3320
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 3320
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %10
@@ -320,8 +320,8 @@ define dso_local void @intel_attach_broadcast_rgb_property(ptr noundef %0) local
 
 10:                                               ; preds = %9, %1
   %11 = phi ptr [ %7, %9 ], [ %4, %1 ]
-  %12 = getelementptr inbounds i8, ptr %0, i64 64
-  tail call void @drm_object_attach_property(ptr noundef %12, ptr noundef nonnull %11, i64 noundef 0) #5
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  tail call void @drm_object_attach_property(ptr noundef nonnull %12, ptr noundef nonnull %11, i64 noundef 0) #5
   br label %13
 
 13:                                               ; preds = %10, %6
@@ -336,11 +336,11 @@ define dso_local void @intel_attach_aspect_ratio_property(ptr noundef %0) local_
   br i1 %4, label %5, label %10
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 1272
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 1272
   %9 = load ptr, ptr %8, align 8
-  tail call void @drm_object_attach_property(ptr noundef %6, ptr noundef %9, i64 noundef 0) #5
+  tail call void @drm_object_attach_property(ptr noundef nonnull %6, ptr noundef %9, i64 noundef 0) #5
   br label %10
 
 10:                                               ; preds = %5, %1
@@ -390,16 +390,16 @@ declare dso_local i32 @drm_mode_create_dp_colorspace_property(ptr noundef, i32 n
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @intel_attach_scaling_mode_property(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 2624
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 2624
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 28
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %6 = load i16, ptr %5, align 4
   %7 = and i16 %6, 128
   %8 = icmp eq i16 %7, 0
   br i1 %8, label %13, label %9
 
 9:                                                ; preds = %1
-  %10 = getelementptr inbounds i8, ptr %0, i64 140
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 7
   br i1 %12, label %13, label %14
@@ -410,9 +410,9 @@ define dso_local void @intel_attach_scaling_mode_property(ptr noundef %0) local_
 14:                                               ; preds = %13, %9
   %15 = phi i32 [ 14, %13 ], [ 10, %9 ]
   %16 = tail call i32 @drm_connector_attach_scaling_mode_property(ptr noundef %0, i32 noundef %15) #5
-  %17 = getelementptr inbounds i8, ptr %0, i64 1904
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 120
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 120
   store i32 3, ptr %19, align 8
   ret void
 }

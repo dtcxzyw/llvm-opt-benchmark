@@ -19,7 +19,7 @@ define ptr @mspack_create_oab_decompressor(ptr noundef %0) local_unnamed_addr #0
   br i1 %.not15, label %13, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %spec.select, i64 56
+  %5 = getelementptr inbounds nuw i8, ptr %spec.select, i64 56
   %6 = load ptr, ptr %5, align 8
   %7 = tail call ptr %6(ptr noundef %spec.select, i64 noundef 40) #5
   %.not16 = icmp eq ptr %7, null
@@ -27,13 +27,13 @@ define ptr @mspack_create_oab_decompressor(ptr noundef %0) local_unnamed_addr #0
 
 8:                                                ; preds = %4
   store ptr @oabd_decompress, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %7, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr @oabd_decompress_incremental, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %7, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr @oabd_param, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %7, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr %spec.select, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %7, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store i32 4096, ptr %12, align 8
   br label %13
 
@@ -54,7 +54,7 @@ define internal i32 @oabd_decompress(ptr noundef readonly %0, ptr noundef %1, pt
   br i1 %.not, label %138, label %8
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %10, align 8
   %12 = tail call ptr %11(ptr noundef nonnull %10, ptr noundef %1, i32 noundef 0) #5
@@ -62,7 +62,7 @@ define internal i32 @oabd_decompress(ptr noundef readonly %0, ptr noundef %1, pt
   br i1 %.not114, label %copy_fh.exit.thread145.thread.thread174, label %13
 
 13:                                               ; preds = %8
-  %14 = getelementptr inbounds i8, ptr %10, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = call i32 %15(ptr noundef nonnull %12, ptr noundef nonnull %4, i32 noundef 16) #5
   %.not115 = icmp eq i32 %16, 16
@@ -71,16 +71,16 @@ define internal i32 @oabd_decompress(ptr noundef readonly %0, ptr noundef %1, pt
 17:                                               ; preds = %13
   %18 = load i32, ptr %4, align 16
   %.not116 = icmp eq i32 %18, 3
-  %19 = getelementptr inbounds i8, ptr %4, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %20 = load i32, ptr %19, align 4
   %.not117 = icmp eq i32 %20, 1
   %or.cond178 = select i1 %.not116, i1 %.not117, i1 false
   br i1 %or.cond178, label %21, label %copy_fh.exit.thread145.thread.thread
 
 21:                                               ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %4, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %23 = load i32, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %4, i64 12
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %25 = load i32, ptr %24, align 4
   %26 = load ptr, ptr %10, align 8
   %27 = call ptr %26(ptr noundef nonnull %10, ptr noundef %2, i32 noundef 1) #5
@@ -88,9 +88,9 @@ define internal i32 @oabd_decompress(ptr noundef readonly %0, ptr noundef %1, pt
   br i1 %.not118, label %copy_fh.exit.thread145.thread.thread, label %28
 
 28:                                               ; preds = %21
-  %29 = getelementptr inbounds i8, ptr %10, i64 56
+  %29 = getelementptr inbounds nuw i8, ptr %10, i64 56
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %32 = load i32, ptr %31, align 8
   %33 = sext i32 %32 to i64
   %34 = call ptr %30(ptr noundef nonnull %10, i64 noundef %33) #5
@@ -99,32 +99,32 @@ define internal i32 @oabd_decompress(ptr noundef readonly %0, ptr noundef %1, pt
 
 35:                                               ; preds = %28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %5, ptr noundef nonnull align 8 dereferenceable(88) %10, i64 88, i1 false)
-  %36 = getelementptr inbounds i8, ptr %5, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr @oabd_sys_read, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %5, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr @oabd_sys_write, ptr %37, align 8
   store ptr %10, ptr %6, align 8
-  %38 = getelementptr inbounds i8, ptr %6, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %12, ptr %38, align 8
   store ptr %10, ptr %7, align 8
-  %39 = getelementptr inbounds i8, ptr %7, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %27, ptr %39, align 8
   %.not120185 = icmp eq i32 %25, 0
   br i1 %.not120185, label %copy_fh.exit.thread145.thread160, label %.lr.ph
 
 .lr.ph:                                           ; preds = %35
   %40 = getelementptr i8, ptr %34, i64 2
-  %41 = getelementptr inbounds i8, ptr %34, i64 1
-  %42 = getelementptr inbounds i8, ptr %34, i64 4
+  %41 = getelementptr inbounds nuw i8, ptr %34, i64 1
+  %42 = getelementptr inbounds nuw i8, ptr %34, i64 4
   %43 = getelementptr i8, ptr %34, i64 6
-  %44 = getelementptr inbounds i8, ptr %34, i64 5
-  %45 = getelementptr inbounds i8, ptr %34, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %34, i64 5
+  %45 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %46 = getelementptr i8, ptr %34, i64 10
-  %47 = getelementptr inbounds i8, ptr %34, i64 9
-  %48 = getelementptr inbounds i8, ptr %34, i64 12
-  %49 = getelementptr inbounds i8, ptr %6, i64 24
-  %50 = getelementptr inbounds i8, ptr %7, i64 16
-  %51 = getelementptr inbounds i8, ptr %10, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %34, i64 9
+  %48 = getelementptr inbounds nuw i8, ptr %34, i64 12
+  %49 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %50 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %10, i64 24
   br label %52
 
 52:                                               ; preds = %.lr.ph, %copy_fh.exit.thread
@@ -275,7 +275,7 @@ copy_fh.exit.thread:                              ; preds = %104, %93, %.loopexi
 
 copy_fh.exit.thread145.thread160:                 ; preds = %.loopexit, %112, %92, %55, %88, %52, %copy_fh.exit.thread, %117, %.lr.ph.split.us.i133, %.lr.ph.split.i, %101, %35, %28
   %.092151167 = phi i32 [ 6, %28 ], [ 0, %35 ], [ 4, %101 ], [ 3, %.lr.ph.split.i ], [ 3, %.lr.ph.split.us.i133 ], [ 9, %.loopexit ], [ 6, %112 ], [ 8, %92 ], [ 8, %55 ], [ 8, %88 ], [ 3, %52 ], [ 0, %copy_fh.exit.thread ], [ %118, %117 ]
-  %132 = getelementptr inbounds i8, ptr %10, i64 8
+  %132 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %133 = load ptr, ptr %132, align 8
   call void %133(ptr noundef nonnull %27) #5
   br label %copy_fh.exit.thread145.thread.thread
@@ -283,7 +283,7 @@ copy_fh.exit.thread145.thread160:                 ; preds = %.loopexit, %112, %9
 copy_fh.exit.thread145.thread.thread:             ; preds = %copy_fh.exit.thread145.thread160, %21, %17, %13
   %.091152158172 = phi ptr [ %34, %copy_fh.exit.thread145.thread160 ], [ null, %13 ], [ null, %17 ], [ null, %21 ]
   %.092151159170 = phi i32 [ %.092151167, %copy_fh.exit.thread145.thread160 ], [ 3, %13 ], [ 7, %17 ], [ 2, %21 ]
-  %134 = getelementptr inbounds i8, ptr %10, i64 8
+  %134 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %135 = load ptr, ptr %134, align 8
   call void %135(ptr noundef nonnull %12) #5
   br label %copy_fh.exit.thread145.thread.thread174
@@ -291,7 +291,7 @@ copy_fh.exit.thread145.thread.thread:             ; preds = %copy_fh.exit.thread
 copy_fh.exit.thread145.thread.thread174:          ; preds = %8, %copy_fh.exit.thread145.thread.thread
   %.091152158173 = phi ptr [ %.091152158172, %copy_fh.exit.thread145.thread.thread ], [ null, %8 ]
   %.092151159171 = phi i32 [ %.092151159170, %copy_fh.exit.thread145.thread.thread ], [ 2, %8 ]
-  %136 = getelementptr inbounds i8, ptr %10, i64 64
+  %136 = getelementptr inbounds nuw i8, ptr %10, i64 64
   %137 = load ptr, ptr %136, align 8
   call void %137(ptr noundef %.091152158173) #5
   br label %138
@@ -311,7 +311,7 @@ define internal i32 @oabd_decompress_incremental(ptr noundef readonly %0, ptr no
   br i1 %.not, label %122, label %9
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr %11, align 8
   %13 = tail call ptr %12(ptr noundef nonnull %11, ptr noundef %1, i32 noundef 0) #5
@@ -319,7 +319,7 @@ define internal i32 @oabd_decompress_incremental(ptr noundef readonly %0, ptr no
   br i1 %.not120, label %copy_fh.exit.thread141.thread.thread.thread190, label %14
 
 14:                                               ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %11, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = call i32 %16(ptr noundef nonnull %13, ptr noundef nonnull %5, i32 noundef 28) #5
   %.not121 = icmp eq i32 %17, 28
@@ -328,16 +328,16 @@ define internal i32 @oabd_decompress_incremental(ptr noundef readonly %0, ptr no
 18:                                               ; preds = %14
   %19 = load i32, ptr %5, align 16
   %.not122 = icmp eq i32 %19, 3
-  %20 = getelementptr inbounds i8, ptr %5, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %21 = load i32, ptr %20, align 4
   %.not123 = icmp eq i32 %21, 2
   %or.cond194 = select i1 %.not122, i1 %.not123, i1 false
   br i1 %or.cond194, label %22, label %copy_fh.exit.thread141.thread.thread.thread
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %5, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %24 = load i32, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %5, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %26 = load i32, ptr %25, align 16
   %spec.store.select = call i32 @llvm.umax.i32(i32 %24, i32 16)
   %27 = load ptr, ptr %11, align 8
@@ -352,9 +352,9 @@ define internal i32 @oabd_decompress_incremental(ptr noundef readonly %0, ptr no
   br i1 %.not125, label %copy_fh.exit.thread141.thread.thread176, label %32
 
 32:                                               ; preds = %29
-  %33 = getelementptr inbounds i8, ptr %11, i64 56
+  %33 = getelementptr inbounds nuw i8, ptr %11, i64 56
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %36 = load i32, ptr %35, align 8
   %37 = sext i32 %36 to i64
   %38 = call ptr %34(ptr noundef nonnull %11, i64 noundef %37) #5
@@ -363,29 +363,29 @@ define internal i32 @oabd_decompress_incremental(ptr noundef readonly %0, ptr no
 
 39:                                               ; preds = %32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %6, ptr noundef nonnull align 8 dereferenceable(88) %11, i64 88, i1 false)
-  %40 = getelementptr inbounds i8, ptr %6, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr @oabd_sys_read, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %6, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr @oabd_sys_write, ptr %41, align 8
   store ptr %11, ptr %7, align 8
-  %42 = getelementptr inbounds i8, ptr %7, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %13, ptr %42, align 8
   store ptr %11, ptr %8, align 8
-  %43 = getelementptr inbounds i8, ptr %8, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %31, ptr %43, align 8
   %.not127197 = icmp eq i32 %26, 0
   br i1 %.not127197, label %copy_fh.exit.thread141.thread160, label %.lr.ph
 
 .lr.ph:                                           ; preds = %39
-  %44 = getelementptr inbounds i8, ptr %38, i64 4
+  %44 = getelementptr inbounds nuw i8, ptr %38, i64 4
   %45 = getelementptr i8, ptr %38, i64 6
-  %46 = getelementptr inbounds i8, ptr %38, i64 5
-  %47 = getelementptr inbounds i8, ptr %38, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %38, i64 5
+  %47 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %48 = getelementptr i8, ptr %38, i64 10
-  %49 = getelementptr inbounds i8, ptr %38, i64 9
-  %50 = getelementptr inbounds i8, ptr %38, i64 12
-  %51 = getelementptr inbounds i8, ptr %7, i64 24
-  %52 = getelementptr inbounds i8, ptr %8, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %38, i64 9
+  %50 = getelementptr inbounds nuw i8, ptr %38, i64 12
+  %51 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %52 = getelementptr inbounds nuw i8, ptr %8, i64 16
   br label %55
 
 53:                                               ; preds = %.loopexit
@@ -500,7 +500,7 @@ copy_fh.exit:                                     ; preds = %98, %100
 
 copy_fh.exit.thread141.thread160:                 ; preds = %.loopexit, %95, %58, %55, %53, %.lr.ph.split.us.i, %39, %copy_fh.exit, %32
   %.097149168 = phi i32 [ 6, %32 ], [ %.097, %copy_fh.exit ], [ 0, %39 ], [ 3, %.lr.ph.split.us.i ], [ 0, %53 ], [ 3, %55 ], [ 8, %58 ], [ 6, %95 ], [ 9, %.loopexit ]
-  %114 = getelementptr inbounds i8, ptr %11, i64 8
+  %114 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %115 = load ptr, ptr %114, align 8
   call void %115(ptr noundef nonnull %31) #5
   br label %copy_fh.exit.thread141.thread.thread176
@@ -508,7 +508,7 @@ copy_fh.exit.thread141.thread160:                 ; preds = %.loopexit, %95, %58
 copy_fh.exit.thread141.thread.thread176:          ; preds = %copy_fh.exit.thread141.thread160, %29
   %.097149158182 = phi i32 [ %.097149168, %copy_fh.exit.thread141.thread160 ], [ 2, %29 ]
   %.0102148159181 = phi ptr [ %38, %copy_fh.exit.thread141.thread160 ], [ null, %29 ]
-  %116 = getelementptr inbounds i8, ptr %11, i64 8
+  %116 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %117 = load ptr, ptr %116, align 8
   call void %117(ptr noundef nonnull %28) #5
   br label %copy_fh.exit.thread141.thread.thread.thread
@@ -516,7 +516,7 @@ copy_fh.exit.thread141.thread.thread176:          ; preds = %copy_fh.exit.thread
 copy_fh.exit.thread141.thread.thread.thread:      ; preds = %copy_fh.exit.thread141.thread.thread176, %14, %18, %22
   %.0102148159174188 = phi ptr [ %.0102148159181, %copy_fh.exit.thread141.thread.thread176 ], [ null, %22 ], [ null, %18 ], [ null, %14 ]
   %.097149158175186 = phi i32 [ %.097149158182, %copy_fh.exit.thread141.thread.thread176 ], [ 2, %22 ], [ 7, %18 ], [ 3, %14 ]
-  %118 = getelementptr inbounds i8, ptr %11, i64 8
+  %118 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %119 = load ptr, ptr %118, align 8
   call void %119(ptr noundef nonnull %13) #5
   br label %copy_fh.exit.thread141.thread.thread.thread190
@@ -524,7 +524,7 @@ copy_fh.exit.thread141.thread.thread.thread:      ; preds = %copy_fh.exit.thread
 copy_fh.exit.thread141.thread.thread.thread190:   ; preds = %9, %copy_fh.exit.thread141.thread.thread.thread
   %.0102148159174189 = phi ptr [ %.0102148159174188, %copy_fh.exit.thread141.thread.thread.thread ], [ null, %9 ]
   %.097149158175187 = phi i32 [ %.097149158175186, %copy_fh.exit.thread141.thread.thread.thread ], [ 2, %9 ]
-  %120 = getelementptr inbounds i8, ptr %11, i64 64
+  %120 = getelementptr inbounds nuw i8, ptr %11, i64 64
   %121 = load ptr, ptr %120, align 8
   call void %121(ptr noundef %.0102148159174189) #5
   br label %122
@@ -544,7 +544,7 @@ define internal range(i32 0, 2) i32 @oabd_param(ptr noundef writeonly %0, i32 no
   br i1 %or.cond3, label %7, label %9
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 %2, ptr %8, align 8
   br label %9
 
@@ -559,9 +559,9 @@ define void @mspack_destroy_oab_decompressor(ptr noundef %0) local_unnamed_addr 
   br i1 %.not, label %7, label %2
 
 2:                                                ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %6 = load ptr, ptr %5, align 8
   tail call void %6(ptr noundef nonnull %0) #5
   br label %7
@@ -576,15 +576,15 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: nounwind uwtable
 define internal i32 @oabd_sys_read(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = sext i32 %2 to i64
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i64, ptr %5, align 8
   %7 = icmp ult i64 %6, %4
   %8 = trunc i64 %6 to i32
   %spec.select = select i1 %7, i32 %8, i32 %2
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = tail call i32 %11(ptr noundef %13, ptr noundef %1, i32 noundef %spec.select) #5
   %15 = icmp slt i32 %14, 0
@@ -604,16 +604,16 @@ define internal i32 @oabd_sys_read(ptr nocapture noundef %0, ptr noundef %1, i32
 ; Function Attrs: nounwind uwtable
 define internal i32 @oabd_sys_write(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 %6(ptr noundef %8, ptr noundef %1, i32 noundef %2) #5
   %10 = icmp sgt i32 %9, 0
   br i1 %10, label %11, label %24
 
 11:                                               ; preds = %3
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load i32, ptr %12, align 8
   br label %14
 
@@ -622,12 +622,12 @@ define internal i32 @oabd_sys_write(ptr nocapture noundef %0, ptr noundef %1, i3
   %.059.i = phi i32 [ %9, %11 ], [ %15, %14 ]
   %.068.i = phi i32 [ %13, %11 ], [ %22, %14 ]
   %15 = add nsw i32 %.059.i, -1
-  %16 = getelementptr inbounds i8, ptr %.010.i, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %.010.i, i64 1
   %17 = load i8, ptr %.010.i, align 1
   %.06.tr.i = trunc i32 %.068.i to i8
   %.narrow.i = xor i8 %17, %.06.tr.i
   %18 = zext i8 %.narrow.i to i64
-  %19 = getelementptr inbounds [256 x i32], ptr @crc32_table, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw [256 x i32], ptr @crc32_table, i64 0, i64 %18
   %20 = load i32, ptr %19, align 4
   %21 = lshr i32 %.068.i, 8
   %22 = xor i32 %20, %21

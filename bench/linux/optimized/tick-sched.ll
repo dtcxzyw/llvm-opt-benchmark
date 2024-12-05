@@ -124,7 +124,7 @@ define dso_local range(i64 -9223372036854775, 9223372036854776) i64 @get_cpu_idl
   %5 = load i64, ptr %4, align 8
   %6 = add i64 %5, ptrtoint (ptr @tick_cpu_sched to i64)
   %7 = inttoptr i64 %6 to ptr
-  %8 = getelementptr inbounds i8, ptr %7, i64 200
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 200
   %9 = tail call i32 @nr_iowait_cpu(i32 noundef %0) #14
   %.fr4 = freeze i32 %9
   %10 = icmp eq i32 %.fr4, 0
@@ -143,8 +143,8 @@ define dso_local range(i64 -9223372036854775, 9223372036854776) i64 @get_cpu_idl
   br label %18
 
 18:                                               ; preds = %16, %13
-  %19 = getelementptr inbounds i8, ptr %7, i64 112
-  %20 = getelementptr inbounds i8, ptr %7, i64 120
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 112
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 120
   br i1 %10, label %.split, label %.split.us
 
 .split.us:                                        ; preds = %18, %.loopexit.us
@@ -228,7 +228,7 @@ define dso_local range(i64 -9223372036854775, 9223372036854776) i64 @get_cpu_iow
   %5 = load i64, ptr %4, align 8
   %6 = add i64 %5, ptrtoint (ptr @tick_cpu_sched to i64)
   %7 = inttoptr i64 %6 to ptr
-  %8 = getelementptr inbounds i8, ptr %7, i64 208
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 208
   %9 = tail call i32 @nr_iowait_cpu(i32 noundef %0) #14
   %.fr4 = freeze i32 %9
   %.not = icmp eq i32 %.fr4, 0
@@ -247,8 +247,8 @@ define dso_local range(i64 -9223372036854775, 9223372036854776) i64 @get_cpu_iow
   br label %17
 
 17:                                               ; preds = %15, %12
-  %18 = getelementptr inbounds i8, ptr %7, i64 112
-  %19 = getelementptr inbounds i8, ptr %7, i64 120
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 112
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 120
   br i1 %.not, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %17, %.loopexit.us
@@ -327,13 +327,13 @@ define dso_local void @tick_nohz_idle_stop_tick() local_unnamed_addr #5 align 16
   %1 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @tick_cpu_sched) #15, !srcloc !14
   %2 = inttoptr i64 %1 to ptr
   %3 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #15, !srcloc !15
-  %4 = getelementptr inbounds i8, ptr %2, i64 144
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 144
   %5 = load i64, ptr %4, align 8
   %6 = icmp eq i64 %5, 0
   br i1 %6, label %10, label %7
 
 7:                                                ; preds = %0
-  %8 = getelementptr inbounds i8, ptr %2, i64 152
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 152
   %9 = load i64, ptr %8, align 8
   br label %54
 
@@ -355,12 +355,12 @@ define dso_local void @tick_nohz_idle_stop_tick() local_unnamed_addr #5 align 16
   br label %19
 
 19:                                               ; preds = %18, %15
-  %20 = getelementptr inbounds i8, ptr %2, i64 88
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 88
   store i64 0, ptr %20, align 8
   br label %168
 
 21:                                               ; preds = %10
-  %22 = getelementptr inbounds i8, ptr %2, i64 128
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 128
   %23 = load i32, ptr %22, align 8
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %168, label %25, !prof !17
@@ -412,7 +412,7 @@ define dso_local void @tick_nohz_idle_stop_tick() local_unnamed_addr #5 align 16
 
 54:                                               ; preds = %52, %7
   %55 = phi i64 [ %9, %7 ], [ %53, %52 ]
-  %56 = getelementptr inbounds i8, ptr %2, i64 176
+  %56 = getelementptr inbounds nuw i8, ptr %2, i64 176
   %57 = load i64, ptr %56, align 8
   %58 = add i64 %57, 1
   store i64 %58, ptr %56, align 8
@@ -424,7 +424,7 @@ define dso_local void @tick_nohz_idle_stop_tick() local_unnamed_addr #5 align 16
   %62 = tail call i64 asm "movq %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) @tick_cpu_device) #15, !srcloc !22
   %63 = inttoptr i64 %62 to ptr
   %64 = load i64, ptr %4, align 8
-  %65 = getelementptr inbounds i8, ptr %2, i64 152
+  %65 = getelementptr inbounds nuw i8, ptr %2, i64 152
   %66 = load i64, ptr %65, align 8
   store i64 0, ptr %4, align 8
   %67 = load i32, ptr @tick_do_timer_cpu, align 4
@@ -457,7 +457,7 @@ define dso_local void @tick_nohz_idle_stop_tick() local_unnamed_addr #5 align 16
   br i1 %81, label %103, label %82
 
 82:                                               ; preds = %78
-  %83 = getelementptr inbounds i8, ptr %2, i64 88
+  %83 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %84 = load i64, ptr %83, align 8
   %85 = icmp eq i64 %66, %84
   br i1 %85, label %86, label %103
@@ -467,8 +467,8 @@ define dso_local void @tick_nohz_idle_stop_tick() local_unnamed_addr #5 align 16
   br i1 %87, label %152, label %88
 
 88:                                               ; preds = %86
-  %89 = getelementptr inbounds i8, ptr %2, i64 16
-  %90 = getelementptr inbounds i8, ptr %2, i64 40
+  %89 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %90 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %91 = load i64, ptr %90, align 8
   %92 = icmp eq i64 %66, %91
   br i1 %92, label %152, label %93
@@ -483,9 +483,9 @@ define dso_local void @tick_nohz_idle_stop_tick() local_unnamed_addr #5 align 16
 95:                                               ; preds = %93
   store i1 true, ptr @tick_nohz_stop_tick.__already_done, align 1
   %96 = load i64, ptr %83, align 8
-  %97 = getelementptr inbounds i8, ptr %63, i64 24
+  %97 = getelementptr inbounds nuw i8, ptr %63, i64 24
   %98 = load i64, ptr %97, align 8
-  %99 = tail call zeroext i1 @hrtimer_active(ptr noundef %89) #14
+  %99 = tail call zeroext i1 @hrtimer_active(ptr noundef nonnull %89) #14
   %100 = zext i1 %99 to i32
   %101 = load i64, ptr %90, align 8
   %102 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.4, i64 noundef %64, i64 noundef %96, i64 noundef %98, i32 noundef %100, i64 noundef %101) #17
@@ -500,9 +500,9 @@ define dso_local void @tick_nohz_idle_stop_tick() local_unnamed_addr #5 align 16
 107:                                              ; preds = %103
   tail call void @calc_load_nohz_start() #14
   tail call void @quiet_vmstat() #14
-  %108 = getelementptr inbounds i8, ptr %2, i64 40
+  %108 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %109 = load i64, ptr %108, align 8
-  %110 = getelementptr inbounds i8, ptr %2, i64 80
+  %110 = getelementptr inbounds nuw i8, ptr %2, i64 80
   store i64 %109, ptr %110, align 8
   %111 = load i8, ptr %2, align 8
   %112 = or i8 %111, 2
@@ -527,7 +527,7 @@ define dso_local void @tick_nohz_idle_stop_tick() local_unnamed_addr #5 align 16
   br i1 %121, label %126, label %122
 
 122:                                              ; preds = %119
-  %123 = getelementptr inbounds i8, ptr %120, i64 8
+  %123 = getelementptr inbounds nuw i8, ptr %120, i64 8
   %124 = load ptr, ptr %123, align 8
   %125 = tail call i32 @__SCT__tp_func_tick_stop(ptr noundef %124, i32 noundef 1, i32 noundef 0) #14
   br label %126
@@ -547,10 +547,10 @@ define dso_local void @tick_nohz_idle_stop_tick() local_unnamed_addr #5 align 16
   br label %133
 
 133:                                              ; preds = %130, %126, %113, %107, %103
-  %134 = getelementptr inbounds i8, ptr %2, i64 88
+  %134 = getelementptr inbounds nuw i8, ptr %2, i64 88
   store i64 %66, ptr %134, align 8
   %135 = icmp eq i64 %66, 9223372036854775807
-  %136 = getelementptr inbounds i8, ptr %2, i64 128
+  %136 = getelementptr inbounds nuw i8, ptr %2, i64 128
   %137 = load i32, ptr %136, align 8
   %138 = icmp eq i32 %137, 2
   br i1 %135, label %139, label %145, !prof !17
@@ -559,8 +559,8 @@ define dso_local void @tick_nohz_idle_stop_tick() local_unnamed_addr #5 align 16
   br i1 %138, label %140, label %143
 
 140:                                              ; preds = %139
-  %141 = getelementptr inbounds i8, ptr %2, i64 16
-  %142 = tail call i32 @hrtimer_cancel(ptr noundef %141) #14
+  %141 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %142 = tail call i32 @hrtimer_cancel(ptr noundef nonnull %141) #14
   br label %152
 
 143:                                              ; preds = %139
@@ -571,24 +571,24 @@ define dso_local void @tick_nohz_idle_stop_tick() local_unnamed_addr #5 align 16
   br i1 %138, label %146, label %148
 
 146:                                              ; preds = %145
-  %147 = getelementptr inbounds i8, ptr %2, i64 16
-  tail call void @hrtimer_start_range_ns(ptr noundef %147, i64 noundef %66, i64 noundef 0, i32 noundef 10) #14
+  %147 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  tail call void @hrtimer_start_range_ns(ptr noundef nonnull %147, i64 noundef %66, i64 noundef 0, i32 noundef 10) #14
   br label %152
 
 148:                                              ; preds = %145
-  %149 = getelementptr inbounds i8, ptr %2, i64 40
+  %149 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i64 %66, ptr %149, align 8
-  %150 = getelementptr inbounds i8, ptr %2, i64 48
+  %150 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store i64 %66, ptr %150, align 8
   %151 = tail call i32 @tick_program_event(i64 noundef %66, i32 noundef 1) #14
   br label %152
 
 152:                                              ; preds = %148, %146, %143, %140, %88, %86
-  %153 = getelementptr inbounds i8, ptr %2, i64 184
+  %153 = getelementptr inbounds nuw i8, ptr %2, i64 184
   %154 = load i64, ptr %153, align 8
   %155 = add i64 %154, 1
   store i64 %155, ptr %153, align 8
-  %156 = getelementptr inbounds i8, ptr %2, i64 168
+  %156 = getelementptr inbounds nuw i8, ptr %2, i64 168
   store i64 %55, ptr %156, align 8
   %157 = and i8 %61, 2
   %158 = icmp eq i8 %157, 0
@@ -601,9 +601,9 @@ define dso_local void @tick_nohz_idle_stop_tick() local_unnamed_addr #5 align 16
   br i1 %162, label %168, label %163
 
 163:                                              ; preds = %159
-  %164 = getelementptr inbounds i8, ptr %2, i64 136
+  %164 = getelementptr inbounds nuw i8, ptr %2, i64 136
   %165 = load i64, ptr %164, align 8
-  %166 = getelementptr inbounds i8, ptr %2, i64 96
+  %166 = getelementptr inbounds nuw i8, ptr %2, i64 96
   store i64 %165, ptr %166, align 8
   tail call void @nohz_balance_enter_idle(i32 noundef %3) #14
   br label %168
@@ -644,9 +644,9 @@ define internal fastcc i64 @tick_nohz_next_event(ptr nocapture noundef %0, i32 n
   br i1 %14, label %15, label %3, !llvm.loop !35
 
 15:                                               ; preds = %.loopexit
-  %16 = getelementptr inbounds i8, ptr %0, i64 136
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store i64 %12, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 144
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i64 %11, ptr %17, align 8
   %18 = tail call i32 @rcu_needs_cpu() #14
   %19 = icmp eq i32 %18, 0
@@ -668,7 +668,7 @@ define internal fastcc i64 @tick_nohz_next_event(ptr nocapture noundef %0, i32 n
 
 28:                                               ; preds = %22
   %29 = tail call i64 @get_next_timer_interrupt(i64 noundef %12, i64 noundef %11) #14
-  %30 = getelementptr inbounds i8, ptr %0, i64 160
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store i64 %29, ptr %30, align 8
   br label %31
 
@@ -726,7 +726,7 @@ define internal fastcc i64 @tick_nohz_next_event(ptr nocapture noundef %0, i32 n
 
 61:                                               ; preds = %54, %39
   %62 = phi i64 [ %60, %54 ], [ 0, %39 ]
-  %63 = getelementptr inbounds i8, ptr %0, i64 152
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store i64 %62, ptr %63, align 8
   ret i64 %62
 }
@@ -738,7 +738,7 @@ declare dso_local void @nohz_balance_enter_idle(i32 noundef) local_unnamed_addr 
 define dso_local void @tick_nohz_idle_retain_tick() local_unnamed_addr #5 align 16 {
   %1 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @tick_cpu_sched) #15, !srcloc !40
   %2 = inttoptr i64 %1 to ptr
-  %3 = getelementptr inbounds i8, ptr %2, i64 144
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 144
   store i64 0, ptr %3, align 8
   tail call void @timer_clear_idle() #14
   ret void
@@ -752,7 +752,7 @@ define dso_local void @tick_nohz_idle_enter() local_unnamed_addr #5 align 16 {
   tail call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !41
   %1 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @tick_cpu_sched) #15, !srcloc !42
   %2 = inttoptr i64 %1 to ptr
-  %3 = getelementptr inbounds i8, ptr %2, i64 144
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 144
   %4 = load i64, ptr %3, align 8
   %5 = icmp eq i64 %4, 0
   br i1 %5, label %7, label %6, !prof !20
@@ -767,13 +767,13 @@ define dso_local void @tick_nohz_idle_enter() local_unnamed_addr #5 align 16 {
   %8 = load i8, ptr %2, align 8
   %9 = or i8 %8, 1
   store i8 %9, ptr %2, align 8
-  %10 = getelementptr inbounds i8, ptr %2, i64 112
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 112
   %11 = load i32, ptr %10, align 4
   %12 = add i32 %11, 1
   store i32 %12, ptr %10, align 4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !46
   %13 = tail call i64 @ktime_get() #14
-  %14 = getelementptr inbounds i8, ptr %2, i64 120
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 120
   store i64 %13, ptr %14, align 8
   %15 = load i8, ptr %2, align 8
   %16 = or i8 %15, 4
@@ -797,13 +797,13 @@ define dso_local void @tick_nohz_irq_exit() local_unnamed_addr #5 align 16 {
   br i1 %5, label %16, label %6
 
 6:                                                ; preds = %0
-  %7 = getelementptr inbounds i8, ptr %2, i64 112
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 112
   %8 = load i32, ptr %7, align 4
   %9 = add i32 %8, 1
   store i32 %9, ptr %7, align 4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !46
   %10 = tail call i64 @ktime_get() #14
-  %11 = getelementptr inbounds i8, ptr %2, i64 120
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 120
   store i64 %10, ptr %11, align 8
   %12 = load i8, ptr %2, align 8
   %13 = or i8 %12, 4
@@ -845,7 +845,7 @@ define dso_local noundef zeroext i1 @tick_nohz_idle_got_tick() local_unnamed_add
 define dso_local i64 @tick_nohz_get_next_hrtimer() local_unnamed_addr #3 align 16 {
   %1 = tail call i64 asm "movq %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) @tick_cpu_device) #15, !srcloc !52
   %2 = inttoptr i64 %1 to ptr
-  %3 = getelementptr inbounds i8, ptr %2, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %4 = load i64, ptr %3, align 8
   ret i64 %4
 }
@@ -857,7 +857,7 @@ define dso_local i64 @tick_nohz_get_sleep_length(ptr nocapture noundef initializ
   %4 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @tick_cpu_sched) #15, !srcloc !54
   %5 = inttoptr i64 %4 to ptr
   %6 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #15, !srcloc !55
-  %7 = getelementptr inbounds i8, ptr %5, i64 120
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 120
   %8 = load i64, ptr %7, align 8
   %9 = load i8, ptr %5, align 8
   %10 = and i8 %9, 1
@@ -871,7 +871,7 @@ define dso_local i64 @tick_nohz_get_sleep_length(ptr nocapture noundef initializ
   br label %13
 
 13:                                               ; preds = %12, %1
-  %14 = getelementptr inbounds i8, ptr %3, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %15 = load i64, ptr %14, align 8
   %16 = sub i64 %15, %8
   store i64 %16, ptr %0, align 8
@@ -892,12 +892,12 @@ define dso_local i64 @tick_nohz_get_sleep_length(ptr nocapture noundef initializ
   br label %25
 
 25:                                               ; preds = %24, %21
-  %26 = getelementptr inbounds i8, ptr %5, i64 88
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 88
   store i64 0, ptr %26, align 8
   br label %58
 
 27:                                               ; preds = %13
-  %28 = getelementptr inbounds i8, ptr %5, i64 128
+  %28 = getelementptr inbounds nuw i8, ptr %5, i64 128
   %29 = load i32, ptr %28, align 8
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %58, label %31, !prof !17
@@ -957,8 +957,8 @@ define dso_local i64 @tick_nohz_get_sleep_length(ptr nocapture noundef initializ
   br label %70
 
 65:                                               ; preds = %60
-  %66 = getelementptr inbounds i8, ptr %5, i64 16
-  %67 = tail call i64 @hrtimer_next_event_without(ptr noundef %66) #14
+  %66 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %67 = tail call i64 @hrtimer_next_event_without(ptr noundef nonnull %66) #14
   %68 = tail call i64 @llvm.umin.i64(i64 %61, i64 %67)
   %69 = sub i64 %68, %8
   br label %70
@@ -978,7 +978,7 @@ define dso_local i64 @tick_nohz_get_idle_calls_cpu(i32 noundef %0) local_unnamed
   %4 = load i64, ptr %3, align 8
   %5 = add i64 %4, ptrtoint (ptr @tick_cpu_sched to i64)
   %6 = inttoptr i64 %5 to ptr
-  %7 = getelementptr inbounds i8, ptr %6, i64 176
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 176
   %8 = load i64, ptr %7, align 8
   ret i64 %8
 }
@@ -987,7 +987,7 @@ define dso_local i64 @tick_nohz_get_idle_calls_cpu(i32 noundef %0) local_unnamed
 define dso_local i64 @tick_nohz_get_idle_calls() local_unnamed_addr #3 align 16 {
   %1 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @tick_cpu_sched) #15, !srcloc !59
   %2 = inttoptr i64 %1 to ptr
-  %3 = getelementptr inbounds i8, ptr %2, i64 176
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 176
   %4 = load i64, ptr %3, align 8
   ret i64 %4
 }
@@ -1004,10 +1004,10 @@ define dso_local void @tick_nohz_idle_restart_tick() local_unnamed_addr #5 align
 6:                                                ; preds = %0
   %7 = tail call i64 @ktime_get() #14
   tail call fastcc void @tick_nohz_restart_sched_tick(ptr noundef %2, i64 noundef %7)
-  %8 = getelementptr inbounds i8, ptr %2, i64 192
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 192
   store i64 %7, ptr %8, align 8
   %9 = load volatile i64, ptr @jiffies, align 64
-  %10 = getelementptr inbounds i8, ptr %2, i64 96
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %11 = load i64, ptr %10, align 8
   %12 = sub i64 %9, %11
   %13 = icmp ne i64 %9, %11
@@ -1034,16 +1034,16 @@ define internal fastcc void @tick_nohz_restart_sched_tick(ptr noundef %0, i64 no
   %3 = load i8, ptr %0, align 8
   %4 = and i8 %3, -3
   store i8 %4, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
-  %6 = tail call i32 @hrtimer_cancel(ptr noundef %5) #14
-  %7 = getelementptr inbounds i8, ptr %0, i64 80
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %6 = tail call i32 @hrtimer_cancel(ptr noundef nonnull %5) #14
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %8, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %8, ptr %10, align 8
-  %11 = tail call i64 @hrtimer_forward(ptr noundef %5, i64 noundef %1, i64 noundef 1000000) #14
-  %12 = getelementptr inbounds i8, ptr %0, i64 128
+  %11 = tail call i64 @hrtimer_forward(ptr noundef nonnull %5, i64 noundef %1, i64 noundef 1000000) #14
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %13 = load i32, ptr %12, align 8
   %14 = icmp eq i32 %13, 2
   br i1 %14, label %15, label %19
@@ -1052,7 +1052,7 @@ define internal fastcc void @tick_nohz_restart_sched_tick(ptr noundef %0, i64 no
   %16 = load i64, ptr %10, align 8
   %17 = load i64, ptr %9, align 8
   %18 = sub i64 %17, %16
-  tail call void @hrtimer_start_range_ns(ptr noundef %5, i64 noundef %16, i64 noundef %18, i32 noundef 10) #14
+  tail call void @hrtimer_start_range_ns(ptr noundef nonnull %5, i64 noundef %16, i64 noundef %18, i32 noundef 10) #14
   br label %22
 
 19:                                               ; preds = %2
@@ -1061,7 +1061,7 @@ define internal fastcc void @tick_nohz_restart_sched_tick(ptr noundef %0, i64 no
   br label %22
 
 22:                                               ; preds = %19, %15
-  %23 = getelementptr inbounds i8, ptr %0, i64 88
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i64 0, ptr %23, align 8
   ret void
 }
@@ -1083,7 +1083,7 @@ define dso_local void @tick_nohz_idle_exit() local_unnamed_addr #5 align 16 {
   br label %7
 
 7:                                                ; preds = %6, %0
-  %8 = getelementptr inbounds i8, ptr %2, i64 144
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 144
   %9 = load i64, ptr %8, align 8
   %10 = icmp eq i64 %9, 0
   br i1 %10, label %12, label %11, !prof !20
@@ -1127,10 +1127,10 @@ define dso_local void @tick_nohz_idle_exit() local_unnamed_addr #5 align 16 {
   br label %48
 
 30:                                               ; preds = %25
-  %31 = getelementptr inbounds i8, ptr %2, i64 120
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 120
   %32 = load i64, ptr %31, align 8
   %33 = sub i64 %24, %32
-  %34 = getelementptr inbounds i8, ptr %2, i64 112
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 112
   %35 = load i32, ptr %34, align 4
   %36 = add i32 %35, 1
   store i32 %36, ptr %34, align 4
@@ -1139,7 +1139,7 @@ define dso_local void @tick_nohz_idle_exit() local_unnamed_addr #5 align 16 {
   %38 = tail call i32 @nr_iowait_cpu(i32 noundef %37) #14
   %39 = icmp eq i32 %38, 0
   %40 = select i1 %39, i64 200, i64 208
-  %41 = getelementptr inbounds i8, ptr %2, i64 %40
+  %41 = getelementptr inbounds nuw i8, ptr %2, i64 %40
   %42 = load i64, ptr %41, align 8
   %43 = add i64 %33, %42
   store i64 %43, ptr %41, align 8
@@ -1160,10 +1160,10 @@ define dso_local void @tick_nohz_idle_exit() local_unnamed_addr #5 align 16 {
 49:                                               ; preds = %48
   %50 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #15, !srcloc !72
   tail call fastcc void @tick_nohz_restart_sched_tick(ptr noundef %2, i64 noundef %24)
-  %51 = getelementptr inbounds i8, ptr %2, i64 192
+  %51 = getelementptr inbounds nuw i8, ptr %2, i64 192
   store i64 %24, ptr %51, align 8
   %52 = load volatile i64, ptr @jiffies, align 64
-  %53 = getelementptr inbounds i8, ptr %2, i64 96
+  %53 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %54 = load i64, ptr %53, align 8
   %55 = sub i64 %52, %54
   %56 = icmp ne i64 %52, %54
@@ -1199,10 +1199,10 @@ define dso_local void @tick_irq_enter() local_unnamed_addr #5 align 16 {
   br i1 %11, label %30, label %12
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %3, i64 120
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 120
   %14 = load i64, ptr %13, align 8
   %15 = sub i64 %8, %14
-  %16 = getelementptr inbounds i8, ptr %3, i64 112
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 112
   %17 = load i32, ptr %16, align 4
   %18 = add i32 %17, 1
   store i32 %18, ptr %16, align 4
@@ -1211,7 +1211,7 @@ define dso_local void @tick_irq_enter() local_unnamed_addr #5 align 16 {
   %20 = tail call i32 @nr_iowait_cpu(i32 noundef %19) #14
   %21 = icmp eq i32 %20, 0
   %22 = select i1 %21, i64 200, i64 208
-  %23 = getelementptr inbounds i8, ptr %3, i64 %22
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 %22
   %24 = load i64, ptr %23, align 8
   %25 = add i64 %15, %24
   store i64 %25, ptr %23, align 8
@@ -1270,9 +1270,9 @@ define dso_local void @tick_setup_sched_timer() local_unnamed_addr #5 align 16 {
   %1 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @tick_cpu_sched) #15, !srcloc !77
   %2 = inttoptr i64 %1 to ptr
   %3 = tail call i64 @ktime_get() #14
-  %4 = getelementptr inbounds i8, ptr %2, i64 16
-  tail call void @hrtimer_init(ptr noundef %4, i32 noundef 1, i32 noundef 8) #14
-  %5 = getelementptr inbounds i8, ptr %2, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  tail call void @hrtimer_init(ptr noundef nonnull %4, i32 noundef 1, i32 noundef 8) #14
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store ptr @tick_nohz_highres_handler, ptr %5, align 8
   tail call void @_raw_spin_lock(ptr noundef nonnull @jiffies_lock) #14
   %6 = load i32, ptr @jiffies_seq, align 4
@@ -1307,9 +1307,9 @@ define dso_local void @tick_setup_sched_timer() local_unnamed_addr #5 align 16 {
   %22 = add i32 %21, 1
   store i32 %22, ptr @jiffies_seq, align 4
   tail call void @_raw_spin_unlock(ptr noundef nonnull @jiffies_lock) #14
-  %23 = getelementptr inbounds i8, ptr %2, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i64 %20, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %2, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store i64 %20, ptr %24, align 8
   %25 = load i32, ptr @sched_skew_tick, align 4
   %26 = icmp eq i32 %25, 0
@@ -1330,17 +1330,17 @@ define dso_local void @tick_setup_sched_timer() local_unnamed_addr #5 align 16 {
   br label %37
 
 37:                                               ; preds = %27, %19
-  %38 = tail call i64 @hrtimer_forward(ptr noundef %4, i64 noundef %3, i64 noundef 1000000) #14
+  %38 = tail call i64 @hrtimer_forward(ptr noundef nonnull %4, i64 noundef %3, i64 noundef 1000000) #14
   %39 = load i64, ptr %24, align 8
   %40 = load i64, ptr %23, align 8
   %41 = sub i64 %40, %39
-  tail call void @hrtimer_start_range_ns(ptr noundef %4, i64 noundef %39, i64 noundef %41, i32 noundef 10) #14
+  tail call void @hrtimer_start_range_ns(ptr noundef nonnull %4, i64 noundef %39, i64 noundef %41, i32 noundef 10) #14
   %42 = load i8, ptr @tick_nohz_enabled, align 1, !range !80, !noundef !81
   %43 = icmp eq i8 %42, 0
   br i1 %43, label %50, label %44
 
 44:                                               ; preds = %37
-  %45 = getelementptr inbounds i8, ptr %2, i64 128
+  %45 = getelementptr inbounds nuw i8, ptr %2, i64 128
   store i32 2, ptr %45, align 8
   %46 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @tick_nohz_active, i64 0, ptr nonnull elementtype(i64) @tick_nohz_active) #14, !srcloc !82
   %47 = icmp ult i8 %46, 2
@@ -1431,7 +1431,7 @@ define internal noundef range(i32 0, 2) i32 @tick_nohz_highres_handler(ptr nound
 37:                                               ; preds = %34
   %38 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #16, !srcloc !18
   %39 = inttoptr i64 %38 to ptr
-  %40 = getelementptr inbounds i8, ptr %39, i64 44
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 44
   %41 = load i32, ptr %40, align 4
   %42 = and i32 %41, 2
   %43 = icmp eq i32 %42, 0
@@ -1450,7 +1450,7 @@ define internal noundef range(i32 0, 2) i32 @tick_nohz_highres_handler(ptr nound
   br label %50
 
 50:                                               ; preds = %48, %34
-  %51 = getelementptr inbounds i8, ptr %4, i64 136
+  %51 = getelementptr inbounds nuw i8, ptr %4, i64 136
   %52 = load i64, ptr %51, align 8
   %53 = and i64 %52, 3
   %54 = icmp ne i64 %53, 0
@@ -1490,24 +1490,24 @@ define dso_local void @tick_cancel_sched_timer(i32 noundef %0) local_unnamed_add
   %4 = load i64, ptr %3, align 8
   %5 = add i64 %4, ptrtoint (ptr @tick_cpu_sched to i64)
   %6 = inttoptr i64 %5 to ptr
-  %7 = getelementptr inbounds i8, ptr %6, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %13, label %10
 
 10:                                               ; preds = %1
-  %11 = getelementptr inbounds i8, ptr %6, i64 16
-  %12 = tail call i32 @hrtimer_cancel(ptr noundef %11) #14
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %12 = tail call i32 @hrtimer_cancel(ptr noundef nonnull %11) #14
   br label %13
 
 13:                                               ; preds = %10, %1
-  %14 = getelementptr inbounds i8, ptr %6, i64 200
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 200
   %15 = load i64, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %6, i64 208
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 208
   %17 = load i64, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %6, i64 176
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 176
   %19 = load i64, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %6, i64 184
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 184
   %21 = load i64, ptr %20, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(232) %6, i8 0, i64 232, i1 false)
   store i64 %15, ptr %14, align 8
@@ -1547,8 +1547,8 @@ define dso_local void @tick_clock_notify() local_unnamed_addr #5 align 16 {
   %14 = load i64, ptr %13, align 8
   %15 = add i64 %14, ptrtoint (ptr @tick_cpu_sched to i64)
   %16 = inttoptr i64 %15 to ptr
-  %17 = getelementptr inbounds i8, ptr %16, i64 224
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %17, i32 1, ptr elementtype(i8) %17) #14, !srcloc !86
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 224
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %17, i32 1, ptr nonnull elementtype(i8) %17) #14, !srcloc !86
   %18 = add nuw nsw i64 %8, 1
   %19 = and i64 %18, 127
   %20 = icmp samesign ugt i64 %19, 63
@@ -1562,8 +1562,8 @@ define dso_local void @tick_clock_notify() local_unnamed_addr #5 align 16 {
 define dso_local void @tick_oneshot_notify() local_unnamed_addr #5 align 16 {
   %1 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @tick_cpu_sched) #15, !srcloc !89
   %2 = inttoptr i64 %1 to ptr
-  %3 = getelementptr inbounds i8, ptr %2, i64 224
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %3, i32 1, ptr elementtype(i8) %3) #14, !srcloc !86
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 224
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %3, i32 1, ptr nonnull elementtype(i8) %3) #14, !srcloc !86
   ret void
 }
 
@@ -1571,15 +1571,15 @@ define dso_local void @tick_oneshot_notify() local_unnamed_addr #5 align 16 {
 define dso_local noundef range(i32 0, 2) i32 @tick_check_oneshot_change(i32 noundef %0) local_unnamed_addr #5 align 16 {
   %2 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @tick_cpu_sched) #15, !srcloc !90
   %3 = inttoptr i64 %2 to ptr
-  %4 = getelementptr inbounds i8, ptr %3, i64 224
-  %5 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %4, i64 0, ptr elementtype(i64) %4) #14, !srcloc !91
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 224
+  %5 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %4, i64 0, ptr nonnull elementtype(i64) %4) #14, !srcloc !91
   %6 = icmp ult i8 %5, 2
   tail call void @llvm.assume(i1 %6)
   %7 = icmp eq i8 %5, 0
   br i1 %7, label %65, label %8
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %3, i64 128
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 128
   %10 = load i32, ptr %9, align 8
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %12, label %65
@@ -1611,8 +1611,8 @@ define dso_local noundef range(i32 0, 2) i32 @tick_check_oneshot_change(i32 noun
   br i1 %27, label %28, label %65
 
 28:                                               ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %22, i64 16
-  tail call void @hrtimer_init(ptr noundef %29, i32 noundef 1, i32 noundef 8) #14
+  %29 = getelementptr inbounds nuw i8, ptr %22, i64 16
+  tail call void @hrtimer_init(ptr noundef nonnull %29, i32 noundef 1, i32 noundef 8) #14
   tail call void @_raw_spin_lock(ptr noundef nonnull @jiffies_lock) #14
   %30 = load i32, ptr @jiffies_seq, align 4
   %31 = add i32 %30, 1
@@ -1646,16 +1646,16 @@ define dso_local noundef range(i32 0, 2) i32 @tick_check_oneshot_change(i32 noun
   %46 = add i32 %45, 1
   store i32 %46, ptr @jiffies_seq, align 4
   tail call void @_raw_spin_unlock(ptr noundef nonnull @jiffies_lock) #14
-  %47 = getelementptr inbounds i8, ptr %22, i64 40
+  %47 = getelementptr inbounds nuw i8, ptr %22, i64 40
   store i64 %44, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %22, i64 48
+  %48 = getelementptr inbounds nuw i8, ptr %22, i64 48
   store i64 %44, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %22, i64 64
+  %49 = getelementptr inbounds nuw i8, ptr %22, i64 64
   %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 48
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 48
   %52 = load ptr, ptr %51, align 16
   %53 = tail call i64 %52() #14
-  %54 = tail call i64 @hrtimer_forward(ptr noundef %29, i64 noundef %53, i64 noundef 1000000) #14
+  %54 = tail call i64 @hrtimer_forward(ptr noundef nonnull %29, i64 noundef %53, i64 noundef 1000000) #14
   %55 = load i64, ptr %47, align 8
   %56 = tail call i32 @tick_program_event(i64 noundef %55, i32 noundef 1) #14
   %57 = load i8, ptr @tick_nohz_enabled, align 1, !range !80, !noundef !81
@@ -1663,7 +1663,7 @@ define dso_local noundef range(i32 0, 2) i32 @tick_check_oneshot_change(i32 noun
   br i1 %58, label %65, label %59
 
 59:                                               ; preds = %43
-  %60 = getelementptr inbounds i8, ptr %22, i64 128
+  %60 = getelementptr inbounds nuw i8, ptr %22, i64 128
   store i32 1, ptr %60, align 8
   %61 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @tick_nohz_active, i64 0, ptr nonnull elementtype(i64) @tick_nohz_active) #14, !srcloc !82
   %62 = icmp ult i8 %61, 2
@@ -1840,7 +1840,7 @@ define internal void @tick_nohz_lowres_handler(ptr nocapture noundef writeonly i
   %4 = tail call i64 asm "movq %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) @__irq_regs) #15, !srcloc !83
   %5 = inttoptr i64 %4 to ptr
   %6 = tail call i64 @ktime_get() #14
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 9223372036854775807, ptr %7, align 8
   %8 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #15, !srcloc !84
   %9 = load i32, ptr @tick_do_timer_cpu, align 4
@@ -1860,11 +1860,11 @@ define internal void @tick_nohz_lowres_handler(ptr nocapture noundef writeonly i
   br label %14
 
 14:                                               ; preds = %13, %11
-  %15 = getelementptr inbounds i8, ptr %3, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %16 = load i64, ptr %15, align 8
   %17 = load volatile i64, ptr @jiffies, align 64
   %18 = icmp eq i64 %16, %17
-  %19 = getelementptr inbounds i8, ptr %3, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 4
   br i1 %18, label %20, label %25
 
 20:                                               ; preds = %14
@@ -1904,26 +1904,26 @@ define internal void @tick_nohz_lowres_handler(ptr nocapture noundef writeonly i
 37:                                               ; preds = %33
   %38 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #16, !srcloc !18
   %39 = inttoptr i64 %38 to ptr
-  %40 = getelementptr inbounds i8, ptr %39, i64 44
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 44
   %41 = load i32, ptr %40, align 4
   %42 = and i32 %41, 2
   %43 = icmp eq i32 %42, 0
   br i1 %43, label %48, label %44
 
 44:                                               ; preds = %37
-  %45 = getelementptr inbounds i8, ptr %3, i64 96
+  %45 = getelementptr inbounds nuw i8, ptr %3, i64 96
   %46 = load i64, ptr %45, align 8
   %47 = add i64 %46, 1
   store i64 %47, ptr %45, align 8
   br label %48
 
 48:                                               ; preds = %44, %37
-  %49 = getelementptr inbounds i8, ptr %3, i64 88
+  %49 = getelementptr inbounds nuw i8, ptr %3, i64 88
   store i64 0, ptr %49, align 8
   br label %50
 
 50:                                               ; preds = %48, %33
-  %51 = getelementptr inbounds i8, ptr %5, i64 136
+  %51 = getelementptr inbounds nuw i8, ptr %5, i64 136
   %52 = load i64, ptr %51, align 8
   %53 = and i64 %52, 3
   %54 = icmp ne i64 %53, 0
@@ -1936,9 +1936,9 @@ define internal void @tick_nohz_lowres_handler(ptr nocapture noundef writeonly i
   br i1 %58, label %59, label %65, !prof !20
 
 59:                                               ; preds = %50
-  %60 = getelementptr inbounds i8, ptr %3, i64 16
-  %61 = tail call i64 @hrtimer_forward(ptr noundef %60, i64 noundef %6, i64 noundef 1000000) #14
-  %62 = getelementptr inbounds i8, ptr %3, i64 40
+  %60 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %61 = tail call i64 @hrtimer_forward(ptr noundef nonnull %60, i64 noundef %6, i64 noundef 1000000) #14
+  %62 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %63 = load i64, ptr %62, align 8
   %64 = tail call i32 @tick_program_event(i64 noundef %63, i32 noundef 1) #14
   br label %65

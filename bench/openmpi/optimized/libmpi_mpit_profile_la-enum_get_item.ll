@@ -17,7 +17,7 @@ define range(i32 0, 73) i32 @PMPI_T_enum_get_item(ptr noundef %0, i32 noundef %1
 
 9:                                                ; preds = %5
   tail call void @ompi_mpit_lock() #3
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load ptr, ptr %10, align 8
   %12 = call i32 %11(ptr noundef %0, ptr noundef nonnull %7) #3
   %.not15 = icmp eq i32 %12, 0
@@ -29,7 +29,7 @@ define range(i32 0, 73) i32 @PMPI_T_enum_get_item(ptr noundef %0, i32 noundef %1
   br i1 %.not16, label %15, label %mpit_copy_string.exit
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %0, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %17 = load ptr, ptr %16, align 8
   %18 = call i32 %17(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2, ptr noundef nonnull %6) #3
   %.not17 = icmp eq i32 %18, 0

@@ -21,7 +21,7 @@ define hidden range(i32 0, 2) i32 @main(i32 noundef %0, ptr nocapture noundef re
   br i1 %6, label %sub_0.lr.ph, label %.loopexit
 
 sub_0.lr.ph:                                      ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %3, i64 20
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 20
   %wide.trip.count = zext nneg i32 %0 to i64
   br label %sub_0
 
@@ -30,20 +30,20 @@ sub_0:                                            ; preds = %sub_0.lr.ph, %Proce
   %.031 = phi i32 [ 0, %sub_0.lr.ph ], [ %33, %ProcessEvents.exit ]
   store ptr null, ptr %4, align 8
   store i64 0, ptr %5, align 8
-  %8 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8
   %10 = load i8, ptr %9, align 1
   %.not32 = icmp eq i8 %10, 45
   br i1 %.not32, label %sub_1, label %.tail.thread
 
 sub_1:                                            ; preds = %sub_0
-  %11 = getelementptr inbounds i8, ptr %9, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 1
   %12 = load i8, ptr %11, align 1
   %.not33 = icmp eq i8 %12, 104
   br i1 %.not33, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_1
-  %13 = getelementptr inbounds i8, ptr %9, i64 2
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 2
   %14 = load i8, ptr %13, align 1
   %15 = icmp eq i8 %14, 0
   br i1 %15, label %16, label %.tail.thread

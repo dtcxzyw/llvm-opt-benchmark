@@ -9,7 +9,7 @@ define ptr @cs_qr(ptr noundef readonly %0, ptr noundef readonly %1) local_unname
   br i1 %.not, label %179, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, -1
   %7 = icmp ne ptr %1, null
@@ -17,28 +17,28 @@ define ptr @cs_qr(ptr noundef readonly %0, ptr noundef readonly %1) local_unname
   br i1 %or.cond, label %8, label %179
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i32, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %20 = load ptr, ptr %19, align 8
   %21 = load ptr, ptr %1, align 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %23 = load i32, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %1, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %25 = load double, ptr %24, align 8
   %26 = fptosi double %25 to i32
-  %27 = getelementptr inbounds i8, ptr %1, i64 56
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %28 = load double, ptr %27, align 8
   %29 = fptosi double %28 to i32
-  %30 = getelementptr inbounds i8, ptr %1, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %31 = load ptr, ptr %30, align 8
   %32 = add nsw i32 %23, %10
   %33 = tail call ptr @cs_malloc(i32 noundef %32, i64 noundef 4) #3
@@ -67,10 +67,10 @@ define ptr @cs_qr(ptr noundef readonly %0, ptr noundef readonly %1) local_unname
   %45 = tail call ptr @cs_spalloc(i32 noundef %23, i32 noundef %10, i32 noundef %26, i32 noundef 1, i32 noundef 0) #3
   store ptr %45, ptr %35, align 8
   %46 = tail call ptr @cs_spalloc(i32 noundef %23, i32 noundef %10, i32 noundef %29, i32 noundef 1, i32 noundef 0) #3
-  %47 = getelementptr inbounds i8, ptr %35, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store ptr %46, ptr %47, align 8
   %48 = tail call ptr @cs_malloc(i32 noundef %10, i64 noundef 8) #3
-  %49 = getelementptr inbounds i8, ptr %35, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %35, i64 24
   store ptr %48, ptr %49, align 8
   %50 = icmp ne ptr %46, null
   %51 = icmp ne ptr %45, null
@@ -80,17 +80,17 @@ define ptr @cs_qr(ptr noundef readonly %0, ptr noundef readonly %1) local_unname
   br i1 %or.cond9, label %53, label %.sink.split
 
 53:                                               ; preds = %._crit_edge
-  %54 = getelementptr inbounds i8, ptr %46, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %46, i64 24
+  %56 = getelementptr inbounds nuw i8, ptr %46, i64 24
   %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %46, i64 32
+  %58 = getelementptr inbounds nuw i8, ptr %46, i64 32
   %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %45, i64 16
+  %60 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %45, i64 24
+  %62 = getelementptr inbounds nuw i8, ptr %45, i64 24
   %63 = load ptr, ptr %62, align 8
-  %64 = getelementptr inbounds i8, ptr %45, i64 32
+  %64 = getelementptr inbounds nuw i8, ptr %45, i64 32
   %65 = load ptr, ptr %64, align 8
   br i1 %42, label %.lr.ph226.preheader, label %.preheader222
 
@@ -113,11 +113,11 @@ define ptr @cs_qr(ptr noundef readonly %0, ptr noundef readonly %1) local_unname
   %indvars.iv289 = phi i64 [ 0, %.lr.ph257 ], [ %indvars.iv.next290, %._crit_edge253 ]
   %.0196255 = phi i32 [ 0, %.lr.ph257 ], [ %.3.lcssa, %._crit_edge253 ]
   %.0203254 = phi i32 [ 0, %.lr.ph257 ], [ %173, %._crit_edge253 ]
-  %70 = getelementptr inbounds i32, ptr %55, i64 %indvars.iv289
+  %70 = getelementptr inbounds nuw i32, ptr %55, i64 %indvars.iv289
   store i32 %.0203254, ptr %70, align 4
-  %71 = getelementptr inbounds i32, ptr %61, i64 %indvars.iv289
+  %71 = getelementptr inbounds nuw i32, ptr %61, i64 %indvars.iv289
   store i32 %.0196255, ptr %71, align 4
-  %72 = getelementptr inbounds i32, ptr %33, i64 %indvars.iv289
+  %72 = getelementptr inbounds nuw i32, ptr %33, i64 %indvars.iv289
   %73 = trunc nuw nsw i64 %indvars.iv289 to i32
   store i32 %73, ptr %72, align 4
   %74 = add nsw i32 %.0196255, 1
@@ -127,7 +127,7 @@ define ptr @cs_qr(ptr noundef readonly %0, ptr noundef readonly %1) local_unname
   br i1 %.not218, label %80, label %77
 
 77:                                               ; preds = %69
-  %78 = getelementptr inbounds i32, ptr %18, i64 %indvars.iv289
+  %78 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv289
   %79 = load i32, ptr %78, align 4
   br label %80
 
@@ -186,7 +186,7 @@ define ptr @cs_qr(ptr noundef readonly %0, ptr noundef readonly %1) local_unname
   %105 = phi i64 [ %108, %.lr.ph232 ], [ %96, %.lr.ph242 ]
   %.1230 = phi i32 [ %.1, %.lr.ph232 ], [ %.1227, %.lr.ph242 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %106 = getelementptr inbounds i32, ptr %41, i64 %indvars.iv
+  %106 = getelementptr inbounds nuw i32, ptr %41, i64 %indvars.iv
   store i32 %.1230, ptr %106, align 4
   store i32 %73, ptr %104, align 4
   %107 = getelementptr inbounds i32, ptr %20, i64 %105
@@ -202,7 +202,7 @@ define ptr @cs_qr(ptr noundef readonly %0, ptr noundef readonly %1) local_unname
   %indvars.iv270 = phi i64 [ %103, %.lr.ph235.preheader ], [ %indvars.iv.next271, %.lr.ph235 ]
   %indvars.iv268 = phi i64 [ %102, %.lr.ph235.preheader ], [ %indvars.iv.next269, %.lr.ph235 ]
   %indvars.iv.next271 = add nsw i64 %indvars.iv270, -1
-  %112 = getelementptr inbounds i32, ptr %41, i64 %indvars.iv.next271
+  %112 = getelementptr inbounds nuw i32, ptr %41, i64 %indvars.iv.next271
   %113 = load i32, ptr %112, align 4
   %indvars.iv.next269 = add nsw i64 %indvars.iv268, -1
   %114 = getelementptr inbounds i32, ptr %41, i64 %indvars.iv.next269
@@ -322,7 +322,7 @@ define ptr @cs_qr(ptr noundef readonly %0, ptr noundef readonly %1) local_unname
   %168 = getelementptr inbounds i32, ptr %57, i64 %167
   store i32 %73, ptr %168, align 4
   %169 = getelementptr inbounds double, ptr %65, i64 %75
-  %170 = getelementptr inbounds double, ptr %48, i64 %indvars.iv289
+  %170 = getelementptr inbounds nuw double, ptr %48, i64 %indvars.iv289
   %171 = sub nsw i32 %.3.lcssa, %.0196255
   %172 = tail call double @cs_house(ptr noundef %169, ptr noundef nonnull %170, i32 noundef %171) #3
   %173 = add nsw i32 %.1204.lcssa, 1

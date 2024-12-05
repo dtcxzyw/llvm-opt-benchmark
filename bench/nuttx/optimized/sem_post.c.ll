@@ -32,7 +32,7 @@ define range(i32 -75, 1) i32 @nxsem_post(ptr noundef %0) local_unnamed_addr #0 {
   call void @nxsem_release_holder(ptr noundef nonnull %0) #3
   %10 = add nsw i16 %4, 1
   store volatile i16 %10, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 2
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %12 = load i8, ptr %11, align 2
   %13 = and i8 %12, 3
   %14 = icmp eq i8 %13, 1
@@ -47,7 +47,7 @@ define range(i32 -75, 1) i32 @nxsem_post(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %18, label %19, label %33
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = call ptr @dq_remfirst(ptr noundef nonnull %20) #3
   %.not = icmp eq ptr %21, null
   br i1 %.not, label %33, label %22
@@ -55,18 +55,18 @@ define range(i32 -75, 1) i32 @nxsem_post(ptr noundef %0) local_unnamed_addr #0 {
 22:                                               ; preds = %19
   %23 = load ptr, ptr @g_readytorun, align 8
   call void @nxsem_add_holder_tcb(ptr noundef nonnull %21, ptr noundef nonnull %0) #3
-  %24 = getelementptr inbounds i8, ptr %21, i64 88
+  %24 = getelementptr inbounds nuw i8, ptr %21, i64 88
   %25 = load ptr, ptr %24, align 8
   %.not26 = icmp eq ptr %25, null
   br i1 %.not26, label %29, label %26
 
 26:                                               ; preds = %22
-  %27 = getelementptr inbounds i8, ptr %21, i64 72
+  %27 = getelementptr inbounds nuw i8, ptr %21, i64 72
   %28 = call i32 @wd_cancel(ptr noundef nonnull %27) #3
   br label %29
 
 29:                                               ; preds = %26, %22
-  %30 = getelementptr inbounds i8, ptr %21, i64 128
+  %30 = getelementptr inbounds nuw i8, ptr %21, i64 128
   store ptr null, ptr %30, align 16
   %31 = call zeroext i1 @nxsched_add_readytorun(ptr noundef nonnull %21) #3
   br i1 %31, label %32, label %33

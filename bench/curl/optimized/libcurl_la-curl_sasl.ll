@@ -31,7 +31,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %ntlm = getelementptr inbounds i8, ptr %conn, i64 808
+  %ntlm = getelementptr inbounds nuw i8, ptr %conn, i64 808
   tail call void @Curl_auth_cleanup_ntlm(ptr noundef nonnull %ntlm) #7
   br label %if.end
 
@@ -51,7 +51,7 @@ for.body.us:                                      ; preds = %entry, %for.inc.us
   %indvars.iv38 = phi i64 [ %indvars.iv.next39, %for.inc.us ], [ 0, %entry ]
   %0 = phi ptr [ %5, %for.inc.us ], [ @.str.8, %entry ]
   %arrayidx28.us = phi ptr [ %arrayidx.us, %for.inc.us ], [ @mechtable, %entry ]
-  %len3.us = getelementptr inbounds i8, ptr %arrayidx28.us, i64 8
+  %len3.us = getelementptr inbounds nuw i8, ptr %arrayidx28.us, i64 8
   %1 = load i64, ptr %len3.us, align 8
   %cmp.not.us = icmp ult i64 %maxlen, %1
   br i1 %cmp.not.us, label %for.inc.us, label %land.lhs.true.us
@@ -84,7 +84,7 @@ switch.early.test.us:                             ; preds = %if.end23.us
 
 for.inc.us:                                       ; preds = %switch.early.test.us, %switch.early.test.us, %if.end23.us, %land.lhs.true.us, %for.body.us
   %indvars.iv.next39 = add nuw nsw i64 %indvars.iv38, 1
-  %arrayidx.us = getelementptr inbounds [12 x %struct.anon], ptr @mechtable, i64 0, i64 %indvars.iv.next39
+  %arrayidx.us = getelementptr inbounds nuw [12 x %struct.anon], ptr @mechtable, i64 0, i64 %indvars.iv.next39
   %5 = load ptr, ptr %arrayidx.us, align 8
   %exitcond41 = icmp eq i64 %indvars.iv.next39, 11
   br i1 %exitcond41, label %return, label %for.body.us, !llvm.loop !4
@@ -93,7 +93,7 @@ for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %entry ]
   %6 = phi ptr [ %11, %for.inc ], [ @.str.8, %entry ]
   %arrayidx28 = phi ptr [ %arrayidx, %for.inc ], [ @mechtable, %entry ]
-  %len3 = getelementptr inbounds i8, ptr %arrayidx28, i64 8
+  %len3 = getelementptr inbounds nuw i8, ptr %arrayidx28, i64 8
   %7 = load i64, ptr %len3, align 8
   %cmp.not = icmp ult i64 %maxlen, %7
   br i1 %cmp.not, label %for.inc, label %land.lhs.true
@@ -127,14 +127,14 @@ switch.early.test:                                ; preds = %if.end23
 
 for.inc:                                          ; preds = %switch.early.test, %switch.early.test, %for.body, %land.lhs.true, %if.end23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %arrayidx = getelementptr inbounds [12 x %struct.anon], ptr @mechtable, i64 0, i64 %indvars.iv.next
+  %arrayidx = getelementptr inbounds nuw [12 x %struct.anon], ptr @mechtable, i64 0, i64 %indvars.iv.next
   %11 = load ptr, ptr %arrayidx, align 8
   %exitcond = icmp eq i64 %indvars.iv.next, 11
   br i1 %exitcond, label %return, label %for.body, !llvm.loop !4
 
 return.sink.split:                                ; preds = %switch.early.test, %if.then, %switch.early.test.us, %if.then.us
   %.us-phi29.sink = phi ptr [ %arrayidx28.us, %if.then.us ], [ %arrayidx28.us, %switch.early.test.us ], [ %arrayidx28, %if.then ], [ %arrayidx28, %switch.early.test ]
-  %bit53 = getelementptr inbounds i8, ptr %.us-phi29.sink, i64 16
+  %bit53 = getelementptr inbounds nuw i8, ptr %.us-phi29.sink, i64 16
   %12 = load i16, ptr %bit53, align 8
   br label %return
 
@@ -150,7 +150,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %resetprefs = getelementptr inbounds i8, ptr %sasl, i64 30
+  %resetprefs = getelementptr inbounds nuw i8, ptr %sasl, i64 30
   %bf.load = load i8, ptr %resetprefs, align 2
   %bf.clear = and i8 %bf.load, 1
   %tobool1.not = icmp eq i8 %bf.clear, 0
@@ -159,7 +159,7 @@ if.end:                                           ; preds = %entry
 if.then2:                                         ; preds = %if.end
   %bf.clear5 = and i8 %bf.load, -2
   store i8 %bf.clear5, ptr %resetprefs, align 2
-  %prefmech = getelementptr inbounds i8, ptr %sasl, i64 26
+  %prefmech = getelementptr inbounds nuw i8, ptr %sasl, i64 26
   store i16 0, ptr %prefmech, align 2
   br label %if.end6
 
@@ -169,7 +169,7 @@ if.end6:                                          ; preds = %if.then2, %if.end
   br i1 %tobool7.not, label %if.then8, label %for.body.i
 
 if.then8:                                         ; preds = %if.end6
-  %prefmech9 = getelementptr inbounds i8, ptr %sasl, i64 26
+  %prefmech9 = getelementptr inbounds nuw i8, ptr %sasl, i64 26
   store i16 -33, ptr %prefmech9, align 2
   br label %return
 
@@ -177,7 +177,7 @@ for.body.i:                                       ; preds = %if.end6, %for.inc.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.inc.i ], [ 0, %if.end6 ]
   %0 = phi ptr [ %5, %for.inc.i ], [ @.str.8, %if.end6 ]
   %arrayidx28.i = phi ptr [ %arrayidx.i, %for.inc.i ], [ @mechtable, %if.end6 ]
-  %len3.i = getelementptr inbounds i8, ptr %arrayidx28.i, i64 8
+  %len3.i = getelementptr inbounds nuw i8, ptr %arrayidx28.i, i64 8
   %1 = load i64, ptr %len3.i, align 8
   %cmp.not.i = icmp ult i64 %len, %1
   br i1 %cmp.not.i, label %for.inc.i, label %land.lhs.true.i
@@ -210,14 +210,14 @@ switch.early.test.i:                              ; preds = %if.end23.i
 
 for.inc.i:                                        ; preds = %switch.early.test.i, %switch.early.test.i, %if.end23.i, %land.lhs.true.i, %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %arrayidx.i = getelementptr inbounds [12 x %struct.anon], ptr @mechtable, i64 0, i64 %indvars.iv.next.i
+  %arrayidx.i = getelementptr inbounds nuw [12 x %struct.anon], ptr @mechtable, i64 0, i64 %indvars.iv.next.i
   %5 = load ptr, ptr %arrayidx.i, align 8
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, 11
   br i1 %exitcond.i, label %return, label %for.body.i, !llvm.loop !4
 
 Curl_sasl_decode_mech.exit:                       ; preds = %if.then.i, %switch.early.test.i
   %.lcssa = phi i64 [ %len, %if.then.i ], [ %1, %switch.early.test.i ]
-  %bit53.i = getelementptr inbounds i8, ptr %arrayidx28.i, i64 16
+  %bit53.i = getelementptr inbounds nuw i8, ptr %arrayidx28.i, i64 16
   %6 = load i16, ptr %bit53.i, align 8
   %tobool11.not = icmp ne i16 %6, 0
   %cmp = icmp eq i64 %.lcssa, %len
@@ -225,7 +225,7 @@ Curl_sasl_decode_mech.exit:                       ; preds = %if.then.i, %switch.
   br i1 %or.cond, label %if.then13, label %return
 
 if.then13:                                        ; preds = %Curl_sasl_decode_mech.exit
-  %prefmech15 = getelementptr inbounds i8, ptr %sasl, i64 26
+  %prefmech15 = getelementptr inbounds nuw i8, ptr %sasl, i64 26
   %7 = load i16, ptr %prefmech15, align 2
   %or10 = or i16 %7, %6
   store i16 %or10, ptr %prefmech15, align 2
@@ -242,22 +242,22 @@ declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @Curl_sasl_init(ptr nocapture noundef initializes((0, 12), (16, 30)) %sasl, ptr nocapture noundef readonly %data, ptr noundef %params) local_unnamed_addr #4 {
 entry:
-  %httpauth = getelementptr inbounds i8, ptr %data, i64 472
+  %httpauth = getelementptr inbounds nuw i8, ptr %data, i64 472
   %0 = load i64, ptr %httpauth, align 8
   store ptr %params, ptr %sasl, align 8
-  %state = getelementptr inbounds i8, ptr %sasl, i64 8
+  %state = getelementptr inbounds nuw i8, ptr %sasl, i64 8
   store i32 0, ptr %state, align 8
-  %curmech = getelementptr inbounds i8, ptr %sasl, i64 16
+  %curmech = getelementptr inbounds nuw i8, ptr %sasl, i64 16
   store ptr null, ptr %curmech, align 8
-  %authmechs = getelementptr inbounds i8, ptr %sasl, i64 24
+  %authmechs = getelementptr inbounds nuw i8, ptr %sasl, i64 24
   store i16 0, ptr %authmechs, align 8
-  %defmechs = getelementptr inbounds i8, ptr %params, i64 56
+  %defmechs = getelementptr inbounds nuw i8, ptr %params, i64 56
   %1 = load i16, ptr %defmechs, align 8
-  %prefmech = getelementptr inbounds i8, ptr %sasl, i64 26
+  %prefmech = getelementptr inbounds nuw i8, ptr %sasl, i64 26
   store i16 %1, ptr %prefmech, align 2
-  %authused = getelementptr inbounds i8, ptr %sasl, i64 28
+  %authused = getelementptr inbounds nuw i8, ptr %sasl, i64 28
   store i16 0, ptr %authused, align 4
-  %resetprefs = getelementptr inbounds i8, ptr %sasl, i64 30
+  %resetprefs = getelementptr inbounds nuw i8, ptr %sasl, i64 30
   %bf.load = load i8, ptr %resetprefs, align 2
   %bf.set = and i8 %bf.load, -8
   %bf.clear3 = or disjoint i8 %bf.set, 1
@@ -299,15 +299,15 @@ if.end48:                                         ; preds = %if.then, %if.then42
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden zeroext i1 @Curl_sasl_can_authenticate(ptr nocapture noundef readonly %sasl, ptr nocapture noundef readonly %data) local_unnamed_addr #5 {
 entry:
-  %user = getelementptr inbounds i8, ptr %data, i64 5008
+  %user = getelementptr inbounds nuw i8, ptr %data, i64 5008
   %0 = load ptr, ptr %user, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %authmechs = getelementptr inbounds i8, ptr %sasl, i64 24
+  %authmechs = getelementptr inbounds nuw i8, ptr %sasl, i64 24
   %1 = load i16, ptr %authmechs, align 8
-  %prefmech = getelementptr inbounds i8, ptr %sasl, i64 26
+  %prefmech = getelementptr inbounds nuw i8, ptr %sasl, i64 26
   %2 = load i16, ptr %prefmech, align 2
   %and3 = and i16 %1, 32
   %3 = and i16 %and3, %2
@@ -327,9 +327,9 @@ entry:
   %disp_hostname = alloca ptr, align 8
   %port = alloca i32, align 4
   %nullmsg = alloca %struct.bufref, align 8
-  %conn1 = getelementptr inbounds i8, ptr %data, i64 32
+  %conn1 = getelementptr inbounds nuw i8, ptr %data, i64 32
   %0 = load ptr, ptr %conn1, align 8
-  %arrayidx = getelementptr inbounds i8, ptr %data, i64 2272
+  %arrayidx = getelementptr inbounds nuw i8, ptr %data, i64 2272
   %1 = load ptr, ptr %arrayidx, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %cond.false, label %cond.end
@@ -341,22 +341,22 @@ cond.false:                                       ; preds = %entry
 
 cond.end:                                         ; preds = %entry, %cond.false
   %cond = phi ptr [ %3, %cond.false ], [ %1, %entry ]
-  %arrayidx8 = getelementptr inbounds i8, ptr %data, i64 2328
+  %arrayidx8 = getelementptr inbounds nuw i8, ptr %data, i64 2328
   %4 = load ptr, ptr %arrayidx8, align 8
   call void @Curl_conn_get_host(ptr noundef nonnull %data, i32 noundef 0, ptr noundef nonnull %hostname, ptr noundef nonnull %disp_hostname, ptr noundef nonnull %port) #7
   call void @Curl_bufref_init(ptr noundef nonnull %nullmsg) #7
   call void @Curl_bufref_init(ptr noundef nonnull %resp) #7
-  %force_ir10 = getelementptr inbounds i8, ptr %sasl, i64 30
+  %force_ir10 = getelementptr inbounds nuw i8, ptr %sasl, i64 30
   %bf.load = load i8, ptr %force_ir10, align 2
   %bf.shl = select i1 %force_ir, i8 4, i8 0
   %bf.clear = and i8 %bf.load, -5
   %bf.set = or disjoint i8 %bf.clear, %bf.shl
   store i8 %bf.set, ptr %force_ir10, align 2
-  %authused = getelementptr inbounds i8, ptr %sasl, i64 28
+  %authused = getelementptr inbounds nuw i8, ptr %sasl, i64 28
   store i16 0, ptr %authused, align 4
-  %authmechs = getelementptr inbounds i8, ptr %sasl, i64 24
+  %authmechs = getelementptr inbounds nuw i8, ptr %sasl, i64 24
   %5 = load i16, ptr %authmechs, align 8
-  %prefmech = getelementptr inbounds i8, ptr %sasl, i64 26
+  %prefmech = getelementptr inbounds nuw i8, ptr %sasl, i64 26
   %6 = load i16, ptr %prefmech, align 2
   %and69 = and i16 %6, %5
   store i32 0, ptr %progress, align 4
@@ -366,7 +366,7 @@ cond.end:                                         ; preds = %entry, %cond.false
   br i1 %tobool16.not, label %if.else, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %cond.end
-  %passwd = getelementptr inbounds i8, ptr %0, i64 312
+  %passwd = getelementptr inbounds nuw i8, ptr %0, i64 312
   %7 = load ptr, ptr %passwd, align 8
   %8 = load i8, ptr %7, align 1
   %tobool18.not = icmp eq i8 %8, 0
@@ -377,20 +377,20 @@ if.then:                                          ; preds = %land.lhs.true
   br i1 %force_ir, label %if.then26, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.then
-  %sasl_ir = getelementptr inbounds i8, ptr %data, i64 2706
+  %sasl_ir = getelementptr inbounds nuw i8, ptr %data, i64 2706
   %bf.load23 = load i64, ptr %sasl_ir, align 2
   %9 = and i64 %bf.load23, 549755813888
   %tobool25.not = icmp eq i64 %9, 0
   br i1 %tobool25.not, label %if.then166, label %if.then26
 
 if.then26:                                        ; preds = %lor.lhs.false, %if.then
-  %user = getelementptr inbounds i8, ptr %0, i64 304
+  %user = getelementptr inbounds nuw i8, ptr %0, i64 304
   %10 = load ptr, ptr %user, align 8
   %call = call i32 @Curl_auth_create_external_message(ptr noundef %10, ptr noundef nonnull %resp) #7
   br label %if.end162
 
 if.else:                                          ; preds = %land.lhs.true, %cond.end
-  %user27 = getelementptr inbounds i8, ptr %data, i64 5008
+  %user27 = getelementptr inbounds nuw i8, ptr %data, i64 5008
   %11 = load ptr, ptr %user27, align 8
   %tobool28.not = icmp eq ptr %11, null
   br i1 %tobool28.not, label %if.end196, label %if.then29
@@ -423,19 +423,19 @@ if.then51:                                        ; preds = %land.lhs.true48
   br i1 %force_ir, label %if.then63, label %lor.lhs.false55
 
 lor.lhs.false55:                                  ; preds = %if.then51
-  %sasl_ir57 = getelementptr inbounds i8, ptr %data, i64 2706
+  %sasl_ir57 = getelementptr inbounds nuw i8, ptr %data, i64 2706
   %bf.load58 = load i64, ptr %sasl_ir57, align 2
   %12 = and i64 %bf.load58, 549755813888
   %tobool62.not = icmp eq i64 %12, 0
   br i1 %tobool62.not, label %if.then166, label %if.then63
 
 if.then63:                                        ; preds = %lor.lhs.false55, %if.then51
-  %user64 = getelementptr inbounds i8, ptr %0, i64 304
+  %user64 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %13 = load ptr, ptr %user64, align 8
-  %passwd65 = getelementptr inbounds i8, ptr %0, i64 312
+  %passwd65 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %14 = load ptr, ptr %passwd65, align 8
   %15 = load ptr, ptr %hostname, align 8
-  %ntlm = getelementptr inbounds i8, ptr %0, i64 808
+  %ntlm = getelementptr inbounds nuw i8, ptr %0, i64 808
   %call66 = call i32 @Curl_auth_create_ntlm_type1_message(ptr noundef nonnull %data, ptr noundef %13, ptr noundef %14, ptr noundef %cond, ptr noundef %15, ptr noundef nonnull %ntlm, ptr noundef nonnull %resp) #7
   br label %if.end162
 
@@ -451,14 +451,14 @@ if.then74:                                        ; preds = %if.else68
   br i1 %force_ir, label %if.then86, label %lor.lhs.false78
 
 lor.lhs.false78:                                  ; preds = %if.then74
-  %sasl_ir80 = getelementptr inbounds i8, ptr %data, i64 2706
+  %sasl_ir80 = getelementptr inbounds nuw i8, ptr %data, i64 2706
   %bf.load81 = load i64, ptr %sasl_ir80, align 2
   %16 = and i64 %bf.load81, 549755813888
   %tobool85.not = icmp eq i64 %16, 0
   br i1 %tobool85.not, label %if.then166, label %if.then86
 
 if.then86:                                        ; preds = %lor.lhs.false78, %if.then74
-  %user87 = getelementptr inbounds i8, ptr %0, i64 304
+  %user87 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %17 = load ptr, ptr %user87, align 8
   %18 = load ptr, ptr %hostname, align 8
   %19 = load i32, ptr %port, align 4
@@ -477,14 +477,14 @@ if.then97:                                        ; preds = %if.else91
   br i1 %force_ir, label %if.then109, label %lor.lhs.false101
 
 lor.lhs.false101:                                 ; preds = %if.then97
-  %sasl_ir103 = getelementptr inbounds i8, ptr %data, i64 2706
+  %sasl_ir103 = getelementptr inbounds nuw i8, ptr %data, i64 2706
   %bf.load104 = load i64, ptr %sasl_ir103, align 2
   %20 = and i64 %bf.load104, 549755813888
   %tobool108.not = icmp eq i64 %20, 0
   br i1 %tobool108.not, label %if.then166, label %if.then109
 
 if.then109:                                       ; preds = %lor.lhs.false101, %if.then97
-  %user110 = getelementptr inbounds i8, ptr %0, i64 304
+  %user110 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %21 = load ptr, ptr %user110, align 8
   %call111 = call i32 @Curl_auth_create_xoauth_bearer_message(ptr noundef %21, ptr noundef nonnull %4, ptr noundef nonnull %resp) #7
   br label %if.end162
@@ -499,18 +499,18 @@ if.then117:                                       ; preds = %if.else113
   br i1 %force_ir, label %if.then129, label %lor.lhs.false121
 
 lor.lhs.false121:                                 ; preds = %if.then117
-  %sasl_ir123 = getelementptr inbounds i8, ptr %data, i64 2706
+  %sasl_ir123 = getelementptr inbounds nuw i8, ptr %data, i64 2706
   %bf.load124 = load i64, ptr %sasl_ir123, align 2
   %22 = and i64 %bf.load124, 549755813888
   %tobool128.not = icmp eq i64 %22, 0
   br i1 %tobool128.not, label %if.then166, label %if.then129
 
 if.then129:                                       ; preds = %lor.lhs.false121, %if.then117
-  %sasl_authzid = getelementptr inbounds i8, ptr %0, i64 328
+  %sasl_authzid = getelementptr inbounds nuw i8, ptr %0, i64 328
   %23 = load ptr, ptr %sasl_authzid, align 8
-  %user130 = getelementptr inbounds i8, ptr %0, i64 304
+  %user130 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %24 = load ptr, ptr %user130, align 8
-  %passwd131 = getelementptr inbounds i8, ptr %0, i64 312
+  %passwd131 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %25 = load ptr, ptr %passwd131, align 8
   %call132 = call i32 @Curl_auth_create_plain_message(ptr noundef %23, ptr noundef %24, ptr noundef %25, ptr noundef nonnull %resp) #7
   br label %if.end162
@@ -525,14 +525,14 @@ if.then138:                                       ; preds = %if.else134
   br i1 %force_ir, label %if.then150, label %lor.lhs.false142
 
 lor.lhs.false142:                                 ; preds = %if.then138
-  %sasl_ir144 = getelementptr inbounds i8, ptr %data, i64 2706
+  %sasl_ir144 = getelementptr inbounds nuw i8, ptr %data, i64 2706
   %bf.load145 = load i64, ptr %sasl_ir144, align 2
   %26 = and i64 %bf.load145, 549755813888
   %tobool149.not = icmp eq i64 %26, 0
   br i1 %tobool149.not, label %if.then166, label %if.then150
 
 if.then150:                                       ; preds = %lor.lhs.false142, %if.then138
-  %user151 = getelementptr inbounds i8, ptr %0, i64 304
+  %user151 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %27 = load ptr, ptr %user151, align 8
   %call152 = call i32 @Curl_auth_create_login_message(ptr noundef %27, ptr noundef nonnull %resp) #7
   br label %if.end162
@@ -556,7 +556,7 @@ if.then166:                                       ; preds = %if.then166.sink.spl
   %mech.092 = phi ptr [ %mech.0, %if.end162 ], [ @.str.1, %lor.lhs.false ], [ @.str.8, %lor.lhs.false142 ], [ @.str.7, %lor.lhs.false121 ], [ @.str.6, %lor.lhs.false101 ], [ @.str.5, %lor.lhs.false78 ], [ @.str.4, %lor.lhs.false55 ], [ %mech.092.ph, %if.then166.sink.split ]
   %state2.091 = phi i32 [ %state2.0, %if.end162 ], [ 17, %lor.lhs.false ], [ 3, %lor.lhs.false142 ], [ 17, %lor.lhs.false121 ], [ 17, %lor.lhs.false101 ], [ 14, %lor.lhs.false78 ], [ 9, %lor.lhs.false55 ], [ 17, %if.then166.sink.split ]
   %state1.090 = phi i32 [ %state1.0, %if.end162 ], [ 4, %lor.lhs.false ], [ 2, %lor.lhs.false142 ], [ 1, %lor.lhs.false121 ], [ 13, %lor.lhs.false101 ], [ 13, %lor.lhs.false78 ], [ 8, %lor.lhs.false55 ], [ %state1.090.ph, %if.then166.sink.split ]
-  %curmech = getelementptr inbounds i8, ptr %sasl, i64 16
+  %curmech = getelementptr inbounds nuw i8, ptr %sasl, i64 16
   store ptr %mech.092, ptr %curmech, align 8
   %call167 = call ptr @Curl_bufref_ptr(ptr noundef nonnull %resp) #7
   %tobool168.not = icmp eq ptr %call167, null
@@ -572,7 +572,7 @@ if.then169:                                       ; preds = %if.then166
 if.end171:                                        ; preds = %if.then169, %if.then166
   %result.2 = phi i32 [ %call170, %if.then169 ], [ 0, %if.then166 ]
   %29 = load ptr, ptr %sasl, align 8
-  %maxirlen = getelementptr inbounds i8, ptr %29, i64 40
+  %maxirlen = getelementptr inbounds nuw i8, ptr %29, i64 40
   %30 = load i64, ptr %maxirlen, align 8
   %tobool173.not = icmp eq i64 %30, 0
   br i1 %tobool173.not, label %if.end181, label %land.lhs.true174
@@ -582,7 +582,7 @@ land.lhs.true174:                                 ; preds = %if.end171
   %call176 = call i64 @Curl_bufref_len(ptr noundef nonnull %resp) #7
   %add = add i64 %call176, %call175
   %31 = load ptr, ptr %sasl, align 8
-  %maxirlen178 = getelementptr inbounds i8, ptr %31, i64 40
+  %maxirlen178 = getelementptr inbounds nuw i8, ptr %31, i64 40
   %32 = load i64, ptr %maxirlen178, align 8
   %cmp = icmp ugt i64 %add, %32
   br i1 %cmp, label %if.then180, label %if.end181
@@ -597,7 +597,7 @@ if.end181:                                        ; preds = %if.then180, %land.l
 
 if.end186:                                        ; preds = %if.end181
   %33 = load ptr, ptr %sasl, align 8
-  %sendauth = getelementptr inbounds i8, ptr %33, i64 8
+  %sendauth = getelementptr inbounds nuw i8, ptr %33, i64 8
   %34 = load ptr, ptr %sendauth, align 8
   %call185 = call i32 %34(ptr noundef nonnull %data, ptr noundef nonnull %mech.092, ptr noundef nonnull %resp) #7
   %tobool187.not = icmp eq i32 %call185, 0
@@ -608,7 +608,7 @@ if.then188:                                       ; preds = %if.end186
   %call189 = call ptr @Curl_bufref_ptr(ptr noundef nonnull %resp) #7
   %tobool190.not = icmp eq ptr %call189, null
   %cond194 = select i1 %tobool190.not, i32 %state1.090, i32 %state2.091
-  %state.i = getelementptr inbounds i8, ptr %sasl, i64 8
+  %state.i = getelementptr inbounds nuw i8, ptr %sasl, i64 8
   store i32 %cond194, ptr %state.i, align 8
   br label %if.end196
 
@@ -700,9 +700,9 @@ entry:
   %disp_hostname = alloca ptr, align 8
   %port = alloca i32, align 4
   %serverdata = alloca %struct.bufref, align 8
-  %conn1 = getelementptr inbounds i8, ptr %data, i64 32
+  %conn1 = getelementptr inbounds nuw i8, ptr %data, i64 32
   %0 = load ptr, ptr %conn1, align 8
-  %arrayidx = getelementptr inbounds i8, ptr %data, i64 2272
+  %arrayidx = getelementptr inbounds nuw i8, ptr %data, i64 2272
   %1 = load ptr, ptr %arrayidx, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %cond.false, label %cond.end
@@ -714,13 +714,13 @@ cond.false:                                       ; preds = %entry
 
 cond.end:                                         ; preds = %entry, %cond.false
   %cond = phi ptr [ %3, %cond.false ], [ %1, %entry ]
-  %arrayidx8 = getelementptr inbounds i8, ptr %data, i64 2328
+  %arrayidx8 = getelementptr inbounds nuw i8, ptr %data, i64 2328
   %4 = load ptr, ptr %arrayidx8, align 8
   call void @Curl_conn_get_host(ptr noundef nonnull %data, i32 noundef 0, ptr noundef nonnull %hostname, ptr noundef nonnull %disp_hostname, ptr noundef nonnull %port) #7
   call void @Curl_bufref_init(ptr noundef nonnull %serverdata) #7
   call void @Curl_bufref_init(ptr noundef nonnull %resp) #7
   store i32 1, ptr %progress, align 4
-  %state = getelementptr inbounds i8, ptr %sasl, i64 8
+  %state = getelementptr inbounds nuw i8, ptr %sasl, i64 8
   %5 = load i32, ptr %state, align 8
   switch i32 %5, label %land.lhs.true17 [
     i32 17, label %if.then
@@ -734,7 +734,7 @@ cond.end.sw.bb85_crit_edge:                       ; preds = %cond.end
 
 if.then:                                          ; preds = %cond.end
   %6 = load ptr, ptr %sasl, align 8
-  %finalcode = getelementptr inbounds i8, ptr %6, i64 52
+  %finalcode = getelementptr inbounds nuw i8, ptr %6, i64 52
   %7 = load i32, ptr %finalcode, align 4
   %cmp10.not = icmp eq i32 %code, %7
   %spec.select = select i1 %cmp10.not, i32 0, i32 67
@@ -744,7 +744,7 @@ if.then:                                          ; preds = %cond.end
 
 land.lhs.true17:                                  ; preds = %cond.end
   %8 = load ptr, ptr %sasl, align 8
-  %contcode = getelementptr inbounds i8, ptr %8, i64 48
+  %contcode = getelementptr inbounds nuw i8, ptr %8, i64 48
   %9 = load i32, ptr %contcode, align 8
   %cmp19.not = icmp eq i32 %code, %9
   br i1 %cmp19.not, label %if.end21, label %if.then20
@@ -775,29 +775,29 @@ sw.bb:                                            ; preds = %if.end21
   br label %return
 
 sw.bb23:                                          ; preds = %if.end21
-  %sasl_authzid = getelementptr inbounds i8, ptr %0, i64 328
+  %sasl_authzid = getelementptr inbounds nuw i8, ptr %0, i64 328
   %10 = load ptr, ptr %sasl_authzid, align 8
-  %user = getelementptr inbounds i8, ptr %0, i64 304
+  %user = getelementptr inbounds nuw i8, ptr %0, i64 304
   %11 = load ptr, ptr %user, align 8
-  %passwd = getelementptr inbounds i8, ptr %0, i64 312
+  %passwd = getelementptr inbounds nuw i8, ptr %0, i64 312
   %12 = load ptr, ptr %passwd, align 8
   %call = call i32 @Curl_auth_create_plain_message(ptr noundef %10, ptr noundef %11, ptr noundef %12, ptr noundef nonnull %resp) #7
   br label %sw.epilog
 
 sw.bb24:                                          ; preds = %if.end21
-  %user25 = getelementptr inbounds i8, ptr %0, i64 304
+  %user25 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %13 = load ptr, ptr %user25, align 8
   %call26 = call i32 @Curl_auth_create_login_message(ptr noundef %13, ptr noundef nonnull %resp) #7
   br label %sw.epilog
 
 sw.bb27:                                          ; preds = %if.end21
-  %passwd28 = getelementptr inbounds i8, ptr %0, i64 312
+  %passwd28 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %14 = load ptr, ptr %passwd28, align 8
   %call29 = call i32 @Curl_auth_create_login_message(ptr noundef %14, ptr noundef nonnull %resp) #7
   br label %sw.epilog
 
 sw.bb30:                                          ; preds = %if.end21
-  %user31 = getelementptr inbounds i8, ptr %0, i64 304
+  %user31 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %15 = load ptr, ptr %user31, align 8
   %call32 = call i32 @Curl_auth_create_external_message(ptr noundef %15, ptr noundef nonnull %resp) #7
   br label %sw.epilog
@@ -808,9 +808,9 @@ sw.bb33:                                          ; preds = %if.end21
   br i1 %tobool35.not, label %if.then36, label %sw.epilog
 
 if.then36:                                        ; preds = %sw.bb33
-  %user37 = getelementptr inbounds i8, ptr %0, i64 304
+  %user37 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %16 = load ptr, ptr %user37, align 8
-  %passwd38 = getelementptr inbounds i8, ptr %0, i64 312
+  %passwd38 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %17 = load ptr, ptr %passwd38, align 8
   %call39 = call i32 @Curl_auth_create_cram_md5_message(ptr noundef nonnull %serverdata, ptr noundef %16, ptr noundef %17, ptr noundef nonnull %resp) #7
   br label %sw.epilog
@@ -821,9 +821,9 @@ sw.bb41:                                          ; preds = %if.end21
   br i1 %tobool43.not, label %if.end48, label %sw.epilog
 
 if.end48:                                         ; preds = %sw.bb41
-  %user45 = getelementptr inbounds i8, ptr %0, i64 304
+  %user45 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %18 = load ptr, ptr %user45, align 8
-  %passwd46 = getelementptr inbounds i8, ptr %0, i64 312
+  %passwd46 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %19 = load ptr, ptr %passwd46, align 8
   %call47 = call i32 @Curl_auth_create_digest_md5_message(ptr noundef nonnull %data, ptr noundef nonnull %serverdata, ptr noundef %18, ptr noundef %19, ptr noundef %cond, ptr noundef nonnull %resp) #7
   %tobool49.not = icmp eq i32 %call47, 0
@@ -831,7 +831,7 @@ if.end48:                                         ; preds = %sw.bb41
 
 land.lhs.true50:                                  ; preds = %if.end48
   %20 = load ptr, ptr %sasl, align 8
-  %flags = getelementptr inbounds i8, ptr %20, i64 58
+  %flags = getelementptr inbounds nuw i8, ptr %20, i64 58
   %21 = load i16, ptr %flags, align 2
   %22 = and i16 %21, 1
   %tobool52.not = icmp eq i16 %22, 0
@@ -839,12 +839,12 @@ land.lhs.true50:                                  ; preds = %if.end48
   br label %sw.epilog.thread
 
 sw.bb56:                                          ; preds = %if.end21
-  %user57 = getelementptr inbounds i8, ptr %0, i64 304
+  %user57 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %23 = load ptr, ptr %user57, align 8
-  %passwd58 = getelementptr inbounds i8, ptr %0, i64 312
+  %passwd58 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %24 = load ptr, ptr %passwd58, align 8
   %25 = load ptr, ptr %hostname, align 8
-  %ntlm = getelementptr inbounds i8, ptr %0, i64 808
+  %ntlm = getelementptr inbounds nuw i8, ptr %0, i64 808
   %call59 = call i32 @Curl_auth_create_ntlm_type1_message(ptr noundef nonnull %data, ptr noundef %23, ptr noundef %24, ptr noundef %cond, ptr noundef %25, ptr noundef nonnull %ntlm, ptr noundef nonnull %resp) #7
   br label %sw.epilog
 
@@ -854,24 +854,24 @@ sw.bb60:                                          ; preds = %if.end21
   br i1 %tobool62.not, label %if.end66, label %sw.epilog
 
 if.end66:                                         ; preds = %sw.bb60
-  %ntlm64 = getelementptr inbounds i8, ptr %0, i64 808
+  %ntlm64 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %call65 = call i32 @Curl_auth_decode_ntlm_type2_message(ptr noundef nonnull %data, ptr noundef nonnull %serverdata, ptr noundef nonnull %ntlm64) #7
   %tobool67.not = icmp eq i32 %call65, 0
   br i1 %tobool67.not, label %if.then68, label %sw.epilog
 
 if.then68:                                        ; preds = %if.end66
-  %user69 = getelementptr inbounds i8, ptr %0, i64 304
+  %user69 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %26 = load ptr, ptr %user69, align 8
-  %passwd70 = getelementptr inbounds i8, ptr %0, i64 312
+  %passwd70 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %27 = load ptr, ptr %passwd70, align 8
   %call72 = call i32 @Curl_auth_create_ntlm_type3_message(ptr noundef nonnull %data, ptr noundef %26, ptr noundef %27, ptr noundef nonnull %ntlm64, ptr noundef nonnull %resp) #7
   br label %sw.epilog
 
 sw.bb74:                                          ; preds = %if.end21
-  %authused = getelementptr inbounds i8, ptr %sasl, i64 28
+  %authused = getelementptr inbounds nuw i8, ptr %sasl, i64 28
   %28 = load i16, ptr %authused, align 4
   %cmp76 = icmp eq i16 %28, 256
-  %user79 = getelementptr inbounds i8, ptr %0, i64 304
+  %user79 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %29 = load ptr, ptr %user79, align 8
   br i1 %cmp76, label %if.then78, label %if.else
 
@@ -888,7 +888,7 @@ if.else:                                          ; preds = %sw.bb74
 
 sw.bb85:                                          ; preds = %cond.end.sw.bb85_crit_edge, %if.end21
   %32 = phi ptr [ %.pre, %cond.end.sw.bb85_crit_edge ], [ %8, %if.end21 ]
-  %finalcode87 = getelementptr inbounds i8, ptr %32, i64 52
+  %finalcode87 = getelementptr inbounds nuw i8, ptr %32, i64 52
   %33 = load i32, ptr %finalcode87, align 4
   %cmp88 = icmp eq i32 %code, %33
   br i1 %cmp88, label %if.then90, label %if.else91
@@ -899,7 +899,7 @@ if.then90:                                        ; preds = %sw.bb85
   br label %return
 
 if.else91:                                        ; preds = %sw.bb85
-  %contcode93 = getelementptr inbounds i8, ptr %32, i64 48
+  %contcode93 = getelementptr inbounds nuw i8, ptr %32, i64 48
   %34 = load i32, ptr %contcode93, align 8
   %cmp94 = icmp eq i32 %code, %34
   br i1 %cmp94, label %if.then96, label %if.else97
@@ -914,13 +914,13 @@ if.else97:                                        ; preds = %if.else91
   br label %return
 
 sw.bb98:                                          ; preds = %cond.end
-  %authused99 = getelementptr inbounds i8, ptr %sasl, i64 28
+  %authused99 = getelementptr inbounds nuw i8, ptr %sasl, i64 28
   %35 = load i16, ptr %authused99, align 4
-  %authmechs = getelementptr inbounds i8, ptr %sasl, i64 24
+  %authmechs = getelementptr inbounds nuw i8, ptr %sasl, i64 24
   %36 = load i16, ptr %authmechs, align 8
   %xor89 = xor i16 %36, %35
   store i16 %xor89, ptr %authmechs, align 8
-  %force_ir = getelementptr inbounds i8, ptr %sasl, i64 30
+  %force_ir = getelementptr inbounds nuw i8, ptr %sasl, i64 30
   %bf.load = load i8, ptr %force_ir, align 2
   %37 = and i8 %bf.load, 4
   %tobool103 = icmp ne i8 %37, 0
@@ -948,9 +948,9 @@ sw.epilog:                                        ; preds = %sw.bb60, %sw.bb41, 
 
 sw.bb105:                                         ; preds = %sw.epilog
   %38 = load ptr, ptr %sasl, align 8
-  %cancelauth = getelementptr inbounds i8, ptr %38, i64 24
+  %cancelauth = getelementptr inbounds nuw i8, ptr %38, i64 24
   %39 = load ptr, ptr %cancelauth, align 8
-  %curmech = getelementptr inbounds i8, ptr %sasl, i64 16
+  %curmech = getelementptr inbounds nuw i8, ptr %sasl, i64 16
   %40 = load ptr, ptr %curmech, align 8
   %call107 = call i32 %39(ptr noundef nonnull %data, ptr noundef %40) #7
   br label %sw.epilog117
@@ -966,9 +966,9 @@ sw.bb108:                                         ; preds = %sw.epilog.thread, %
 
 if.then111:                                       ; preds = %sw.bb108
   %42 = load ptr, ptr %sasl, align 8
-  %contauth = getelementptr inbounds i8, ptr %42, i64 16
+  %contauth = getelementptr inbounds nuw i8, ptr %42, i64 16
   %43 = load ptr, ptr %contauth, align 8
-  %curmech113 = getelementptr inbounds i8, ptr %sasl, i64 16
+  %curmech113 = getelementptr inbounds nuw i8, ptr %sasl, i64 16
   %44 = load ptr, ptr %curmech113, align 8
   %call114 = call i32 %43(ptr noundef nonnull %data, ptr noundef %44, ptr noundef nonnull %resp) #7
   br label %sw.epilog117
@@ -996,7 +996,7 @@ entry:
   %msg = alloca ptr, align 8
   %msglen = alloca i64, align 8
   %0 = load ptr, ptr %sasl, align 8
-  %getmessage = getelementptr inbounds i8, ptr %0, i64 32
+  %getmessage = getelementptr inbounds nuw i8, ptr %0, i64 32
   %1 = load ptr, ptr %getmessage, align 8
   %call = tail call i32 %1(ptr noundef %data, ptr noundef nonnull %out) #7
   %tobool.not = icmp eq i32 %call, 0
@@ -1004,7 +1004,7 @@ entry:
 
 land.lhs.true:                                    ; preds = %entry
   %2 = load ptr, ptr %sasl, align 8
-  %flags = getelementptr inbounds i8, ptr %2, i64 58
+  %flags = getelementptr inbounds nuw i8, ptr %2, i64 58
   %3 = load i16, ptr %flags, align 2
   %4 = and i16 %3, 1
   %tobool2.not = icmp eq i16 %4, 0

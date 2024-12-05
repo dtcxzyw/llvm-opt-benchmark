@@ -31,8 +31,8 @@ define noundef double @_Z20gmx_cycles_calibrated(double noundef %0) local_unname
   %.neg26 = sub i32 0, %18
   %.neg26.z = zext i32 %.neg26 to i64
   %19 = load i64, ptr %2, align 8
-  %20 = getelementptr inbounds i8, ptr %3, i64 8
-  %21 = getelementptr inbounds i8, ptr %2, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %22 = load i64, ptr %21, align 8
   br label %23
 

@@ -651,14 +651,14 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define hidden void @proto_register_ansi_637() local_unnamed_addr #0 {
   %1 = alloca [47 x ptr], align 16
-  %2 = getelementptr inbounds i8, ptr %1, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(376) %2, i8 0, i64 344, i1 false)
   store ptr @ett_ansi_637_tele, ptr %1, align 16
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr @ett_ansi_637_trans, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr @ett_ansi_637_header_ind, ptr %4, align 16
-  %5 = getelementptr inbounds i8, ptr %1, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store ptr @ett_params, ptr %5, align 8
   br label %6
 
@@ -743,7 +743,7 @@ define internal i32 @dissect_ansi_637_tele(ptr noundef %0, ptr noundef %1, ptr n
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   store i32 0, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void @col_set_str(ptr noundef %9, i32 noundef 34, ptr noundef nonnull @.str.326) #6
   %.not = icmp eq ptr %2, null
@@ -751,7 +751,7 @@ define internal i32 @dissect_ansi_637_tele(ptr noundef %0, ptr noundef %1, ptr n
 
 10:                                               ; preds = %4
   store ptr %2, ptr @g_tree, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 292
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 292
   %12 = load i32, ptr %11, align 4
   %13 = tail call ptr @try_val_to_str(i32 noundef %12, ptr noundef nonnull @ansi_tele_id_strings) #6
   %14 = icmp eq ptr %13, null
@@ -917,7 +917,7 @@ define internal i32 @dissect_ansi_637_trans(ptr noundef %0, ptr noundef %1, ptr 
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void @col_set_str(ptr noundef %9, i32 noundef 34, ptr noundef nonnull @.str.326) #6
   %.not = icmp eq ptr %2, null
@@ -963,7 +963,7 @@ define internal i32 @dissect_ansi_637_trans(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %.not2739, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %30
-  %33 = getelementptr inbounds i8, ptr %1, i64 408
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %34
 
 34:                                               ; preds = %.lr.ph, %dissect_ansi_637_trans_param.exit
@@ -1042,7 +1042,7 @@ dissect_ansi_637_trans_param.exit:                ; preds = %39, %60, %62, %66
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_ansi_637_trans_app(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.443) #6
   %7 = load ptr, ptr %5, align 8
@@ -1169,7 +1169,7 @@ define internal void @tele_param_user_data_cmas(ptr noundef %0, ptr noundef %1, 
 switch.lookup:                                    ; preds = %.lr.ph
   %switch.idx.cast = zext nneg i8 %32 to i64
   %35 = zext nneg i8 %32 to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table.tele_param_user_data_cmas, i64 0, i64 %35
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.tele_param_user_data_cmas, i64 0, i64 %35
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %36
 
@@ -1574,16 +1574,16 @@ define internal void @tele_param_user_data(ptr noundef %0, ptr noundef %1, ptr n
 
 .thread95:                                        ; preds = %80, %.thread95condstore.split, %.thread, %77, %72
   %.2 = phi i8 [ 3, %72 ], [ 3, %77 ], [ 3, %.thread ], [ %.2.ph, %.thread95condstore.split ], [ %.2.ph, %80 ]
-  %84 = getelementptr inbounds i8, ptr %11, i64 2
+  %84 = getelementptr inbounds nuw i8, ptr %11, i64 2
   %85 = load i16, ptr %84, align 2
   %.not92 = icmp eq i16 %85, 0
   br i1 %.not92, label %93, label %86
 
 86:                                               ; preds = %.thread95
   %87 = zext i16 %85 to i32
-  %88 = getelementptr inbounds i8, ptr %1, i64 8
+  %88 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %89 = load ptr, ptr %88, align 8
-  %90 = getelementptr inbounds i8, ptr %11, i64 4
+  %90 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %91 = load i16, ptr %90, align 2
   %92 = zext i16 %91 to i32
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %89, i32 noundef 25, ptr noundef nonnull @.str.329, i32 noundef %92, i32 noundef %87) #6
@@ -1623,9 +1623,9 @@ define internal void @tele_param_user_data(ptr noundef %0, ptr noundef %1, ptr n
   %110 = add i32 %106, -11
   %111 = trunc i16 %49 to i8
   %112 = add i8 %111, -3
-  %113 = getelementptr inbounds i8, ptr %12, i64 4
+  %113 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store i8 %112, ptr %113, align 4
-  %114 = getelementptr inbounds i8, ptr %12, i64 8
+  %114 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i32 8, ptr %114, align 8
   br label %117
 
@@ -1644,7 +1644,7 @@ define internal void @tele_param_user_data(ptr noundef %0, ptr noundef %1, ptr n
   %121 = zext nneg i8 %118 to i64
   %122 = getelementptr [3 x %struct.crumb_spec_t], ptr %12, i64 0, i64 %121
   store i32 0, ptr %122, align 8
-  %123 = getelementptr inbounds i8, ptr %122, i64 4
+  %123 = getelementptr inbounds nuw i8, ptr %122, i64 4
   store i8 0, ptr %123, align 4
   %124 = load i32, ptr @hf_ansi_637_reserved_bits_16_generic, align 4
   %125 = call ptr @proto_tree_add_split_bits_item_ret_val(ptr noundef %2, i32 noundef %124, ptr noundef %0, i32 noundef %.0, ptr noundef nonnull %12, ptr noundef null) #6
@@ -1954,7 +1954,7 @@ define internal void @tele_param_cb_num(ptr noundef %0, ptr noundef %1, ptr noun
 
 30:                                               ; preds = %25
   %31 = add i32 %4, 2
-  %32 = getelementptr inbounds i8, ptr %1, i64 408
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %33 = load ptr, ptr %32, align 8
   %34 = tail call ptr @tvb_get_string_enc(ptr noundef %33, ptr noundef %0, i32 noundef %31, i32 noundef %23, i32 noundef 0) #6
   %35 = load i32, ptr @hf_ansi_637_tele_cb_num_number, align 4
@@ -2184,9 +2184,9 @@ define internal void @tele_param_mult_enc_user_data(ptr noundef %0, ptr noundef 
   %60 = add i32 %56, -11
   %61 = trunc i32 %.161 to i8
   %62 = add i8 %61, -3
-  %63 = getelementptr inbounds i8, ptr %9, i64 4
+  %63 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i8 %62, ptr %63, align 4
-  %64 = getelementptr inbounds i8, ptr %9, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 8, ptr %64, align 8
   br label %67
 
@@ -2205,7 +2205,7 @@ define internal void @tele_param_mult_enc_user_data(ptr noundef %0, ptr noundef 
   %71 = zext nneg i8 %68 to i64
   %72 = getelementptr [3 x %struct.crumb_spec_t], ptr %9, i64 0, i64 %71
   store i32 0, ptr %72, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 4
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 4
   store i8 0, ptr %73, align 4
   %74 = load i32, ptr @hf_ansi_637_reserved_bits_16_generic, align 4
   %75 = call ptr @proto_tree_add_split_bits_item_ret_val(ptr noundef %2, i32 noundef %74, ptr noundef %0, i32 noundef %.0, ptr noundef nonnull %9, ptr noundef null) #6
@@ -2365,9 +2365,9 @@ define internal void @tele_param_srvc_cat_prog_data(ptr noundef %0, ptr noundef 
   %75 = add i32 %71, -11
   %76 = trunc i32 %.084.lcssa101 to i8
   %77 = add i8 %76, -3
-  %78 = getelementptr inbounds i8, ptr %9, i64 4
+  %78 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i8 %77, ptr %78, align 4
-  %79 = getelementptr inbounds i8, ptr %9, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 8, ptr %79, align 8
   br label %82
 
@@ -2386,7 +2386,7 @@ define internal void @tele_param_srvc_cat_prog_data(ptr noundef %0, ptr noundef 
   %86 = zext nneg i8 %83 to i64
   %87 = getelementptr [3 x %struct.crumb_spec_t], ptr %9, i64 0, i64 %86
   store i32 0, ptr %87, align 8
-  %88 = getelementptr inbounds i8, ptr %87, i64 4
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 4
   store i8 0, ptr %88, align 4
   %89 = load i32, ptr @hf_ansi_637_reserved_bits_16_generic, align 4
   %90 = call ptr @proto_tree_add_split_bits_item_ret_val(ptr noundef %2, i32 noundef %89, ptr noundef %0, i32 noundef %.0, ptr noundef nonnull %9, ptr noundef null) #6
@@ -2539,7 +2539,7 @@ default.unreachable25:                            ; preds = %9
 
 switch.lookup:                                    ; preds = %18
   %34 = zext nneg i8 %16 to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.tele_param_msg_status, i64 0, i64 %34
+  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.tele_param_msg_status, i64 0, i64 %34
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %35
 
@@ -2620,7 +2620,7 @@ define internal fastcc void @text_decoder(ptr noundef %0, ptr noundef %1, ptr no
   br label %59
 
 24:                                               ; preds = %10
-  %25 = getelementptr inbounds i8, ptr %1, i64 408
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %26 = load ptr, ptr %25, align 8
   %27 = tail call ptr @tvb_bytes_to_str(ptr noundef %26, ptr noundef %21, i32 noundef 0, i32 noundef %16) #6
   %28 = tail call ptr @proto_tree_add_string(ptr noundef %2, i32 noundef %9, ptr noundef %21, i32 noundef 0, i32 noundef %16, ptr noundef %27) #6
@@ -2632,7 +2632,7 @@ define internal fastcc void @text_decoder(ptr noundef %0, ptr noundef %1, ptr no
   br label %59
 
 32:                                               ; preds = %10
-  %33 = getelementptr inbounds i8, ptr %1, i64 408
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %34 = load ptr, ptr %33, align 8
   %35 = zext i8 %5 to i32
   %36 = tail call ptr @tvb_get_ascii_7bits_string(ptr noundef %34, ptr noundef %21, i32 noundef 0, i32 noundef %35) #6
@@ -2662,7 +2662,7 @@ define internal fastcc void @text_decoder(ptr noundef %0, ptr noundef %1, ptr no
   br label %59
 
 51:                                               ; preds = %10
-  %52 = getelementptr inbounds i8, ptr %1, i64 408
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %53 = load ptr, ptr %52, align 8
   %54 = call ptr @proto_tree_add_item_ret_string(ptr noundef %2, i32 noundef %9, ptr noundef %21, i32 noundef 0, i32 noundef %16, i32 noundef 82, ptr noundef %53, ptr noundef nonnull %11) #6
   %55 = load ptr, ptr %11, align 8
@@ -2800,7 +2800,7 @@ define internal fastcc void @tele_param_timestamp_rel(ptr noundef %0, ptr nounde
 
 switch.lookup:                                    ; preds = %4
   %26 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.tele_param_timestamp_rel, i64 0, i64 %26
+  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.tele_param_timestamp_rel, i64 0, i64 %26
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %27
 
@@ -2946,7 +2946,7 @@ define internal void @trans_param_srvc_cat(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %or.cond, label %19, label %22
 
 19:                                               ; preds = %10
-  %20 = getelementptr inbounds i8, ptr %1, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %21 = load ptr, ptr %20, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %21, i32 noundef 25, ptr noundef nonnull @.str.397, ptr noundef %13) #6
   br label %22

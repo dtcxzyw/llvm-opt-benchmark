@@ -5,7 +5,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define i32 @fputs_unlocked(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 194
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 194
   %4 = load i8, ptr %3, align 2
   %5 = and i8 %4, 4
   %.not = icmp eq i8 %5, 0
@@ -37,7 +37,7 @@ define i32 @fputs_unlocked(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0
 
 16:                                               ; preds = %10, %13
   %17 = add nuw nsw i32 %.01725, 1
-  %18 = getelementptr inbounds i8, ptr %.01824, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %.01824, i64 1
   %19 = load i8, ptr %18, align 1
   %.not21 = icmp eq i8 %19, 0
   br i1 %.not21, label %.loopexit, label %.lr.ph, !llvm.loop !6
@@ -71,7 +71,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define i32 @fputs(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   tail call void @flockfile(ptr noundef %1)
-  %3 = getelementptr inbounds i8, ptr %1, i64 194
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 194
   %4 = load i8, ptr %3, align 2
   %5 = and i8 %4, 4
   %.not.i = icmp eq i8 %5, 0
@@ -103,7 +103,7 @@ define i32 @fputs(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 
 16:                                               ; preds = %13, %10
   %17 = add nuw nsw i32 %.01725.i, 1
-  %18 = getelementptr inbounds i8, ptr %.01824.i, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %.01824.i, i64 1
   %19 = load i8, ptr %18, align 1
   %.not21.i = icmp eq i8 %19, 0
   br i1 %.not21.i, label %fputs_unlocked.exit, label %.lr.ph.i, !llvm.loop !6

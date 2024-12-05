@@ -112,11 +112,11 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol___default_ke
 define dso_local range(i32 -12, 1) i32 @kernel_ident_mapping_init(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 align 16 {
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load i64, ptr %7, align 8
   %9 = add i64 %8, %2
   %10 = add i64 %8, %3
-  %11 = getelementptr inbounds i8, ptr %0, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %12 = load i64, ptr %11, align 8
   %13 = icmp eq i64 %12, 0
   %spec.select = select i1 %13, i64 99, i64 %12
@@ -127,7 +127,7 @@ define dso_local range(i32 -12, 1) i32 @kernel_ident_mapping_init(ptr nocapture 
   br i1 %16, label %17, label %.thread
 
 17:                                               ; preds = %4
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %19
 
 19:                                               ; preds = %select.unfold, %17
@@ -261,8 +261,8 @@ define internal fastcc range(i32 -12, 1) i32 @ident_p4d_init(ptr nocapture nound
   br i1 %7, label %8, label %.thread
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %11
 
 11:                                               ; preds = %select.unfold, %8
@@ -365,13 +365,13 @@ sub_0:
   br i1 %.not, label %sub_1, label %.tail.thread
 
 sub_1:                                            ; preds = %sub_0
-  %2 = getelementptr inbounds i8, ptr %0, i64 1
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %3 = load i8, ptr %2, align 1
   %.not1 = icmp eq i8 %3, 110
   br i1 %.not1, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_1
-  %4 = getelementptr inbounds i8, ptr %0, i64 2
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %5 = load i8, ptr %4, align 1
   %6 = icmp eq i8 %5, 0
   br i1 %6, label %7, label %.tail.thread
@@ -2005,8 +2005,8 @@ define internal fastcc void @sync_global_pgds(i64 noundef %0, i64 noundef %1) un
   %35 = and i64 %34, 511
   %36 = getelementptr %struct.pgd_t, ptr %31, i64 %35
   %37 = tail call ptr @pgd_page_get_mm(ptr noundef %24) #18
-  %38 = getelementptr inbounds i8, ptr %37, i64 172
-  tail call void @_raw_spin_lock(ptr noundef %38) #18
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 172
+  tail call void @_raw_spin_lock(ptr noundef nonnull %38) #18
   %39 = load i64, ptr %16, align 8
   callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 528, i32 1, ptr nonnull getelementptr inbounds (i8, ptr @boot_cpu_data, i64 106)) #18
           to label %40 [label %40, label %.critedge12], !srcloc !5
@@ -2069,7 +2069,7 @@ thread-pre-split:                                 ; preds = %40, %42
   br label %.critedge16
 
 .critedge16:                                      ; preds = %49, %56, %51
-  tail call void @_raw_spin_unlock(ptr noundef %38) #18
+  tail call void @_raw_spin_unlock(ptr noundef nonnull %38) #18
   %58 = load ptr, ptr %23, align 8
   %59 = icmp eq ptr %58, @pgd_list
   br i1 %59, label %.loopexit, label %.preheader, !llvm.loop !29
@@ -2177,8 +2177,8 @@ thread-pre-split:                                 ; preds = %40, %42
 125:                                              ; preds = %114, %99
   %126 = phi ptr [ %124, %114 ], [ %113, %99 ]
   %127 = tail call ptr @pgd_page_get_mm(ptr noundef %101) #18
-  %128 = getelementptr inbounds i8, ptr %127, i64 172
-  tail call void @_raw_spin_lock(ptr noundef %128) #18
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 172
+  tail call void @_raw_spin_lock(ptr noundef nonnull %128) #18
   %129 = load i64, ptr %90, align 8
   %130 = and i64 %129, -97
   %131 = icmp eq i64 %130, 0
@@ -2238,7 +2238,7 @@ thread-pre-split:                                 ; preds = %40, %42
   br label %.thread33
 
 .thread33:                                        ; preds = %134, %146, %139
-  tail call void @_raw_spin_unlock(ptr noundef %128) #18
+  tail call void @_raw_spin_unlock(ptr noundef nonnull %128) #18
   %147 = load ptr, ptr %100, align 8
   %148 = icmp eq ptr %147, @pgd_list
   br i1 %148, label %.loopexit25, label %99, !llvm.loop !35
@@ -2286,11 +2286,11 @@ define internal fastcc noundef range(i32 -12, 1) i32 @ident_pud_init(ptr nocaptu
   br i1 %9, label %10, label %.loopexit12
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %16
 
 16:                                               ; preds = %.loopexit11, %10

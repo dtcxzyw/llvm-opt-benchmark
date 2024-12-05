@@ -5,10 +5,10 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: none) uwtable
 define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h569881dcf9df09a6E(ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull readonly align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !alias.scope !4, !noalias !7, !noundef !9
   %5 = load i64, ptr %0, align 8, !alias.scope !4, !noalias !7, !noundef !9
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load <2 x i64>, ptr %6, align 8, !alias.scope !4, !noalias !7
   %8 = load ptr, ptr %1, align 8, !noalias !10, !noundef !9
   %9 = icmp ne ptr %8, null
@@ -20,7 +20,7 @@ define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h569881dcf9df09a
   %15 = xor i128 %14, %13
   %16 = trunc i128 %15 to i64
   %17 = icmp eq ptr %8, null
-  %18 = getelementptr inbounds i8, ptr %1, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br i1 %17, label %19, label %28
 
 19:                                               ; preds = %2
@@ -36,7 +36,7 @@ define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h569881dcf9df09a
 
 28:                                               ; preds = %2
   %29 = load ptr, ptr %18, align 8, !noalias !19, !noundef !9
-  %30 = getelementptr inbounds i8, ptr %1, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %31 = load i64, ptr %30, align 8, !noalias !19, !noundef !9
   %32 = add i64 %31, %16
   %33 = mul i64 %32, 6364136223846793005
@@ -146,7 +146,7 @@ _ZN5ahash10operations10read_small17h38e68769ac70e63bE.exit.i.i: ; preds = %"_ZN6
   %.sroa.0.0101.i.i = phi ptr [ %29, %"_ZN62_$LT$$u5b$u8$u5d$$u20$as$u20$ahash..convert..ReadFromSlice$GT$14read_last_u12817h4e85f1bc3ec5355dE.exit.i.i" ], [ %98, %"_ZN62_$LT$$u5b$u8$u5d$$u20$as$u20$ahash..convert..ReadFromSlice$GT$9read_u12817h59d7cd823e977dccE.exit.i.i" ]
   %.sroa.7.0100.i.i = phi i64 [ %31, %"_ZN62_$LT$$u5b$u8$u5d$$u20$as$u20$ahash..convert..ReadFromSlice$GT$14read_last_u12817h4e85f1bc3ec5355dE.exit.i.i" ], [ %99, %"_ZN62_$LT$$u5b$u8$u5d$$u20$as$u20$ahash..convert..ReadFromSlice$GT$9read_u12817h59d7cd823e977dccE.exit.i.i" ]
   %storemerge99.i.i = phi i64 [ %97, %"_ZN62_$LT$$u5b$u8$u5d$$u20$as$u20$ahash..convert..ReadFromSlice$GT$14read_last_u12817h4e85f1bc3ec5355dE.exit.i.i" ], [ %111, %"_ZN62_$LT$$u5b$u8$u5d$$u20$as$u20$ahash..convert..ReadFromSlice$GT$9read_u12817h59d7cd823e977dccE.exit.i.i" ]
-  %98 = getelementptr inbounds i8, ptr %.sroa.0.0101.i.i, i64 16
+  %98 = getelementptr inbounds nuw i8, ptr %.sroa.0.0101.i.i, i64 16
   %99 = add i64 %.sroa.7.0100.i.i, -16
   %100 = load i128, ptr %.sroa.0.0101.i.i, align 1, !alias.scope !30, !noalias !41
   %.sroa.016.0.extract.trunc.i.i = trunc i128 %100 to i64
@@ -186,7 +186,7 @@ define hidden void @"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for
   %4 = load ptr, ptr %3, align 8, !noalias !51, !noundef !9
   %5 = icmp ne ptr %4, null
   %6 = zext i1 %5 to i64
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i64, ptr %7, align 8, !alias.scope !52, !noundef !9
   %9 = xor i64 %8, %6
   %10 = zext i64 %9 to i128
@@ -199,7 +199,7 @@ define hidden void @"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for
   br i1 %15, label %16, label %26
 
 16:                                               ; preds = %2
-  %17 = getelementptr inbounds i8, ptr %3, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %18 = load i8, ptr %17, align 8, !range !18, !noalias !51, !noundef !9
   %19 = zext nneg i8 %18 to i64
   %20 = xor i64 %19, %14
@@ -221,7 +221,7 @@ define hidden void @"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZN4core4hash6Hasher11write_isize17h5cfb1409560b505aE.llvm.11216692093828096343(ptr noalias nocapture noundef align 8 dereferenceable(32) %0, i64 noundef %1) unnamed_addr #2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8, !alias.scope !62, !noundef !9
   %5 = xor i64 %4, %1
   %6 = zext i64 %5 to i128
@@ -235,13 +235,13 @@ define hidden void @_ZN4core4hash6Hasher11write_isize17h5cfb1409560b505aE.llvm.1
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define hidden void @"_ZN63_$LT$http..header..name..Custom$u20$as$u20$core..hash..Hash$GT$4hash17h748c107e7e2e3a6eE.llvm.11216692093828096343"(ptr nocapture noundef nonnull readonly align 8 %0, ptr noalias nocapture noundef align 8 dereferenceable(32) %1) unnamed_addr #3 personality ptr @rust_eh_personality {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !noundef !9
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !9
   tail call void @llvm.experimental.noalias.scope.decl(metadata !65)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !68)
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i64, ptr %7, align 8, !alias.scope !65, !noalias !68, !noundef !9
   %9 = add i64 %8, %6
   %10 = mul i64 %9, 6364136223846793005
@@ -288,7 +288,7 @@ _ZN5ahash10operations10read_small17h38e68769ac70e63bE.exit.i: ; preds = %"_ZN62_
   %.sroa.564.0.i = phi i64 [ %32, %"_ZN62_$LT$$u5b$u8$u5d$$u20$as$u20$ahash..convert..ReadFromSlice$GT$8read_u3217h4e2ffcd040c895baE.exit.i" ], [ %26, %"_ZN62_$LT$$u5b$u8$u5d$$u20$as$u20$ahash..convert..ReadFromSlice$GT$8read_u1617h663f10b04bff3df3E.exit.i" ], [ %20, %18 ], [ 0, %14 ]
   %33 = load i64, ptr %1, align 8, !alias.scope !65, !noalias !68, !noundef !9
   %34 = xor i64 %33, %.sroa.063.0.i
-  %35 = getelementptr inbounds i8, ptr %1, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %36 = load i64, ptr %35, align 8, !alias.scope !65, !noalias !68, !noundef !9
   %37 = xor i64 %36, %.sroa.564.0.i
   %38 = zext i64 %34 to i128
@@ -297,7 +297,7 @@ _ZN5ahash10operations10read_small17h38e68769ac70e63bE.exit.i: ; preds = %"_ZN62_
   %41 = lshr i128 %40, 64
   %42 = xor i128 %41, %40
   %43 = trunc i128 %42 to i64
-  %44 = getelementptr inbounds i8, ptr %1, i64 24
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %45 = load i64, ptr %44, align 8, !alias.scope !65, !noalias !68, !noundef !9
   %46 = add i64 %45, %10
   %47 = xor i64 %46, %43
@@ -315,7 +315,7 @@ _ZN5ahash10operations10read_small17h38e68769ac70e63bE.exit.i: ; preds = %"_ZN62_
   %54 = load i64, ptr %53, align 1, !alias.scope !68, !noalias !65
   %55 = load i64, ptr %1, align 8, !alias.scope !65, !noalias !68, !noundef !9
   %56 = xor i64 %55, %51
-  %57 = getelementptr inbounds i8, ptr %1, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %58 = load i64, ptr %57, align 8, !alias.scope !65, !noalias !68, !noundef !9
   %59 = xor i64 %58, %54
   %60 = zext i64 %56 to i128
@@ -324,7 +324,7 @@ _ZN5ahash10operations10read_small17h38e68769ac70e63bE.exit.i: ; preds = %"_ZN62_
   %63 = lshr i128 %62, 64
   %64 = xor i128 %63, %62
   %65 = trunc i128 %64 to i64
-  %66 = getelementptr inbounds i8, ptr %1, i64 24
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %67 = load i64, ptr %66, align 8, !alias.scope !65, !noalias !68, !noundef !9
   %68 = add i64 %67, %10
   %69 = xor i64 %68, %65
@@ -340,7 +340,7 @@ _ZN5ahash10operations10read_small17h38e68769ac70e63bE.exit.i: ; preds = %"_ZN62_
   %.sroa.415.0.extract.trunc.i = trunc nuw i128 %.sroa.415.0.extract.shift.i to i64
   %74 = load i64, ptr %1, align 8, !alias.scope !65, !noalias !68, !noundef !9
   %75 = xor i64 %74, %.sroa.014.0.extract.trunc.i
-  %76 = getelementptr inbounds i8, ptr %1, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %77 = load i64, ptr %76, align 8, !alias.scope !65, !noalias !68, !noundef !9
   %78 = xor i64 %77, %.sroa.415.0.extract.trunc.i
   %79 = zext i64 %75 to i128
@@ -349,7 +349,7 @@ _ZN5ahash10operations10read_small17h38e68769ac70e63bE.exit.i: ; preds = %"_ZN62_
   %82 = lshr i128 %81, 64
   %83 = xor i128 %82, %81
   %84 = trunc i128 %83 to i64
-  %85 = getelementptr inbounds i8, ptr %1, i64 24
+  %85 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %86 = load i64, ptr %85, align 8, !alias.scope !65, !noalias !68, !noundef !9
   %87 = add i64 %86, %10
   %88 = xor i64 %87, %84
@@ -360,7 +360,7 @@ _ZN5ahash10operations10read_small17h38e68769ac70e63bE.exit.i: ; preds = %"_ZN62_
   %.sroa.0.0101.i = phi ptr [ %4, %"_ZN62_$LT$$u5b$u8$u5d$$u20$as$u20$ahash..convert..ReadFromSlice$GT$14read_last_u12817h4e85f1bc3ec5355dE.exit.i" ], [ %90, %"_ZN62_$LT$$u5b$u8$u5d$$u20$as$u20$ahash..convert..ReadFromSlice$GT$9read_u12817h59d7cd823e977dccE.exit.i" ]
   %.sroa.7.0100.i = phi i64 [ %6, %"_ZN62_$LT$$u5b$u8$u5d$$u20$as$u20$ahash..convert..ReadFromSlice$GT$14read_last_u12817h4e85f1bc3ec5355dE.exit.i" ], [ %91, %"_ZN62_$LT$$u5b$u8$u5d$$u20$as$u20$ahash..convert..ReadFromSlice$GT$9read_u12817h59d7cd823e977dccE.exit.i" ]
   %storemerge99.i = phi i64 [ %89, %"_ZN62_$LT$$u5b$u8$u5d$$u20$as$u20$ahash..convert..ReadFromSlice$GT$14read_last_u12817h4e85f1bc3ec5355dE.exit.i" ], [ %103, %"_ZN62_$LT$$u5b$u8$u5d$$u20$as$u20$ahash..convert..ReadFromSlice$GT$9read_u12817h59d7cd823e977dccE.exit.i" ]
-  %90 = getelementptr inbounds i8, ptr %.sroa.0.0101.i, i64 16
+  %90 = getelementptr inbounds nuw i8, ptr %.sroa.0.0101.i, i64 16
   %91 = add i64 %.sroa.7.0100.i, -16
   %92 = load i128, ptr %.sroa.0.0101.i, align 1, !alias.scope !68, !noalias !84
   %.sroa.016.0.extract.trunc.i = trunc i128 %92 to i64
@@ -392,7 +392,7 @@ define hidden void @"_ZN67_$LT$http..header..name..HeaderName$u20$as$u20$core..h
   %3 = load ptr, ptr %0, align 8, !noalias !87, !noundef !9
   %4 = icmp ne ptr %3, null
   %5 = zext i1 %4 to i64
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load i64, ptr %6, align 8, !alias.scope !90, !noundef !9
   %8 = xor i64 %7, %5
   %9 = zext i64 %8 to i128
@@ -405,7 +405,7 @@ define hidden void @"_ZN67_$LT$http..header..name..HeaderName$u20$as$u20$core..h
   br i1 %14, label %15, label %25
 
 15:                                               ; preds = %2
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load i8, ptr %16, align 8, !range !18, !noalias !87, !noundef !9
   %18 = zext nneg i8 %17 to i64
   %19 = xor i64 %18, %13
@@ -427,7 +427,7 @@ define hidden void @"_ZN67_$LT$http..header..name..HeaderName$u20$as$u20$core..h
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @"_ZN68_$LT$ahash..fallback_hash..AHasher$u20$as$u20$core..hash..Hasher$GT$11write_usize17h1ad7d572bb56c0d6E.llvm.11216692093828096343"(ptr noalias nocapture noundef align 8 dereferenceable(32) %0, i64 noundef %1) unnamed_addr #2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8, !noundef !9
   %5 = xor i64 %4, %1
   %6 = zext i64 %5 to i128
@@ -441,9 +441,9 @@ define hidden void @"_ZN68_$LT$ahash..fallback_hash..AHasher$u20$as$u20$core..ha
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden noundef i64 @"_ZN68_$LT$ahash..fallback_hash..AHasher$u20$as$u20$core..hash..Hasher$GT$6finish17h6fd8e5a140567879E.llvm.11216692093828096343"(ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %0) unnamed_addr #4 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i64, ptr %2, align 8, !noundef !9
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i64, ptr %4, align 8, !noundef !9
   %6 = zext i64 %3 to i128
   %7 = zext i64 %5 to i128
@@ -460,7 +460,7 @@ define hidden void @"_ZN70_$LT$http..header..name..Repr$LT$T$GT$$u20$as$u20$core
   %3 = load ptr, ptr %0, align 8, !noundef !9
   %4 = icmp ne ptr %3, null
   %5 = zext i1 %4 to i64
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load i64, ptr %6, align 8, !alias.scope !100, !noundef !9
   %8 = xor i64 %7, %5
   %9 = zext i64 %8 to i128
@@ -473,7 +473,7 @@ define hidden void @"_ZN70_$LT$http..header..name..Repr$LT$T$GT$$u20$as$u20$core
   br i1 %14, label %15, label %25
 
 15:                                               ; preds = %2
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load i8, ptr %16, align 8, !range !18, !noundef !9
   %18 = zext nneg i8 %17 to i64
   %19 = xor i64 %18, %13
@@ -495,14 +495,14 @@ define hidden void @"_ZN70_$LT$http..header..name..Repr$LT$T$GT$$u20$as$u20$core
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @"_ZN76_$LT$ahash..random_state..RandomState$u20$as$u20$core..hash..BuildHasher$GT$12build_hasher17he4305e7e7e4d722aE.llvm.11216692093828096343"(ptr noalias nocapture noundef writeonly sret({ [2 x i64], i64, i64 }) align 8 dereferenceable(32) initializes((0, 32)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !9
   %5 = load i64, ptr %1, align 8, !noundef !9
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load <2 x i64>, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %4, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %5, ptr %9, align 8
   store <2 x i64> %7, ptr %0, align 8
   ret void

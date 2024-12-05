@@ -114,7 +114,7 @@ define noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__26Ts_GetClosestKeyFrame
   br i1 %13, label %14, label %.critedge
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %8, i64 72
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 72
   br label %.critedge
 
 .critedge:                                        ; preds = %7, %14, %10
@@ -155,7 +155,7 @@ define { ptr, ptr } @_ZN32pxrInternal_v0_24__pxrReserved__33Ts_GetClosestKeyFram
   br i1 %17, label %18, label %.critedge
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds i8, ptr %8, i64 72
+  %19 = getelementptr inbounds nuw i8, ptr %8, i64 72
   br label %.critedge
 
 .critedge:                                        ; preds = %7, %18, %14
@@ -292,7 +292,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__27Ts_GetClosestKeyFrameBeforeERKNS_13TsKeyF
   br i1 %63, label %64, label %.critedge.i
 
 64:                                               ; preds = %60
-  %65 = getelementptr inbounds i8, ptr %58, i64 72
+  %65 = getelementptr inbounds nuw i8, ptr %58, i64 72
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %64, %60, %57
@@ -310,11 +310,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__26Ts_GetClosestKeyFrameAfterERKNS_13TsKeyFr
 67:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__26Ts_GetClosestKeyFrameAfterERKNS_13TsKeyFrameMapEd.exit
   %68 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TsLoopParams17GetMasterIntervalEv(ptr noundef nonnull align 8 dereferenceable(80) %2)
   %.sroa.0.0.copyload = load double, ptr %68, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %68, i64 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %68, i64 8
   %.sroa.4.0.copyload = load i8, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.797.0..sroa_idx = getelementptr inbounds i8, ptr %68, i64 16
+  %.sroa.797.0..sroa_idx = getelementptr inbounds nuw i8, ptr %68, i64 16
   %.sroa.797.0.copyload = load double, ptr %.sroa.797.0..sroa_idx, align 8
-  %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %68, i64 24
+  %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %68, i64 24
   %.sroa.10.0.copyload = load i8, ptr %.sroa.10.0..sroa_idx, align 8
   %69 = fcmp ogt double %46, %.sroa.0.0.copyload
   br i1 %69, label %74, label %70

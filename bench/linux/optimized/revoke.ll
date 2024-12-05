@@ -102,7 +102,7 @@ define dso_local noundef range(i32 -12, 1) i32 @jbd2_journal_init_revoke_table_c
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -12, 1) i32 @jbd2_journal_init_revoke(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 1168
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1168
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %7, label %6, !prof !5
@@ -137,7 +137,7 @@ define dso_local noundef range(i32 -12, 1) i32 @jbd2_journal_init_revoke(ptr noc
 
 .thread.i:                                        ; preds = %18
   store i32 %1, ptr %16, align 8
-  %20 = getelementptr inbounds i8, ptr %16, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 4
   store i32 0, ptr %20, align 4
   br label %30
 
@@ -151,13 +151,13 @@ define dso_local noundef range(i32 -12, 1) i32 @jbd2_journal_init_revoke(ptr noc
 
 26:                                               ; preds = %.preheader.i
   store i32 %1, ptr %16, align 8
-  %27 = getelementptr inbounds i8, ptr %16, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %16, i64 4
   store i32 %24, ptr %27, align 4
   %28 = icmp slt i32 %1, 0
   br i1 %28, label %.thread2.i, label %30, !prof !19
 
 .thread2.i:                                       ; preds = %26
-  %29 = getelementptr inbounds i8, ptr %16, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr null, ptr %29, align 8
   br label %36
 
@@ -165,7 +165,7 @@ define dso_local noundef range(i32 -12, 1) i32 @jbd2_journal_init_revoke(ptr noc
   %31 = zext nneg i32 %1 to i64
   %32 = shl nuw nsw i64 %31, 4
   %33 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %32, i32 noundef 3264) #10
-  %34 = getelementptr inbounds i8, ptr %16, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %33, ptr %34, align 8
   %35 = icmp eq ptr %33, null
   br i1 %35, label %36, label %.preheader8
@@ -179,7 +179,7 @@ define dso_local noundef range(i32 -12, 1) i32 @jbd2_journal_init_revoke(ptr noc
   %38 = phi i64 [ %41, %.preheader8 ], [ 0, %30 ]
   %39 = getelementptr %struct.list_head, ptr %33, i64 %38
   store volatile ptr %39, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   store volatile ptr %39, ptr %40, align 8
   %41 = add nuw nsw i64 %38, 1
   %42 = icmp eq i64 %41, %31
@@ -201,7 +201,7 @@ jbd2_journal_init_revoke_table.exit:              ; preds = %.preheader8
 
 .thread.i6:                                       ; preds = %46
   store i32 %1, ptr %44, align 8
-  %47 = getelementptr inbounds i8, ptr %44, i64 4
+  %47 = getelementptr inbounds nuw i8, ptr %44, i64 4
   store i32 0, ptr %47, align 4
   br label %57
 
@@ -215,19 +215,19 @@ jbd2_journal_init_revoke_table.exit:              ; preds = %.preheader8
 
 53:                                               ; preds = %.preheader.i4
   store i32 %1, ptr %44, align 8
-  %54 = getelementptr inbounds i8, ptr %44, i64 4
+  %54 = getelementptr inbounds nuw i8, ptr %44, i64 4
   store i32 %51, ptr %54, align 4
   %55 = icmp slt i32 %1, 0
   br i1 %55, label %.thread2.i5, label %57, !prof !19
 
 .thread2.i5:                                      ; preds = %53
-  %56 = getelementptr inbounds i8, ptr %44, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %44, i64 8
   store ptr null, ptr %56, align 8
   br label %61
 
 57:                                               ; preds = %53, %.thread.i6
   %58 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %32, i32 noundef 3264) #10
-  %59 = getelementptr inbounds i8, ptr %44, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %44, i64 8
   store ptr %58, ptr %59, align 8
   %60 = icmp eq ptr %58, null
   br i1 %60, label %61, label %.preheader
@@ -241,7 +241,7 @@ jbd2_journal_init_revoke_table.exit:              ; preds = %.preheader8
   %63 = phi i64 [ %66, %.preheader ], [ 0, %57 ]
   %64 = getelementptr %struct.list_head, ptr %58, i64 %63
   store volatile ptr %64, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
   store volatile ptr %64, ptr %65, align 8
   %66 = add nuw nsw i64 %63, 1
   %67 = icmp eq i64 %66, %31
@@ -253,16 +253,16 @@ jbd2_journal_init_revoke_table.exit7.thread:      ; preds = %61, %jbd2_journal_i
   %69 = load ptr, ptr %3, align 8
   %70 = load i32, ptr %69, align 8
   %71 = icmp sgt i32 %70, 0
-  %72 = getelementptr inbounds i8, ptr %69, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %73 = load ptr, ptr %72, align 8
   br i1 %71, label %77, label %.loopexit
 
 jbd2_journal_init_revoke_table.exit7:             ; preds = %.preheader
   %74 = getelementptr i8, ptr %0, i64 1176
   store ptr %44, ptr %74, align 8
-  %75 = getelementptr inbounds i8, ptr %0, i64 1160
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 1160
   store ptr %44, ptr %75, align 8
-  %76 = getelementptr inbounds i8, ptr %0, i64 1152
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 1152
   store i32 0, ptr %76, align 8
   br label %89
 
@@ -301,9 +301,9 @@ jbd2_journal_init_revoke_table.exit7:             ; preds = %.preheader
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @jbd2_journal_destroy_revoke(ptr nocapture noundef initializes((1160, 1168)) %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1160
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1160
   store ptr null, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 1168
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1168
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %23, label %6
@@ -311,7 +311,7 @@ define dso_local void @jbd2_journal_destroy_revoke(ptr nocapture noundef initial
 6:                                                ; preds = %1
   %7 = load i32, ptr %4, align 8
   %8 = icmp sgt i32 %7, 0
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load ptr, ptr %9, align 8
   br i1 %8, label %11, label %.loopexit6
 
@@ -351,7 +351,7 @@ define dso_local void @jbd2_journal_destroy_revoke(ptr nocapture noundef initial
 27:                                               ; preds = %23
   %28 = load i32, ptr %25, align 8
   %29 = icmp sgt i32 %28, 0
-  %30 = getelementptr inbounds i8, ptr %25, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %31 = load ptr, ptr %30, align 8
   br i1 %29, label %32, label %.loopexit
 
@@ -405,16 +405,16 @@ define dso_local noundef range(i32 -12, 1) i32 @jbd2_journal_revoke(ptr noundef 
   br i1 %11, label %18, label %12
 
 12:                                               ; preds = %10
-  %13 = getelementptr inbounds i8, ptr %6, i64 1024
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 1024
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %6, i64 952
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 952
   %16 = load i32, ptr %15, align 8
   %17 = tail call ptr @__find_get_block(ptr noundef %14, i64 noundef %1, i32 noundef %16) #8
   br label %18
 
 18:                                               ; preds = %12, %10
   %19 = phi ptr [ %2, %10 ], [ %17, %12 ]
-  %20 = getelementptr inbounds i8, ptr %0, i64 20
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %21 = load i32, ptr %20, align 4
   %22 = icmp slt i32 %21, 1
   br i1 %22, label %23, label %27, !prof !26
@@ -488,7 +488,7 @@ define dso_local noundef range(i32 -12, 1) i32 @jbd2_journal_revoke(ptr noundef 
   %55 = add i32 %54, -1
   store i32 %55, ptr %20, align 4
   %56 = load ptr, ptr %0, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %58 = load i32, ptr %57, align 8
   %59 = load ptr, ptr @jbd2_revoke_record_cache, align 8
   %60 = tail call noalias align 8 ptr @kmem_cache_alloc(ptr noundef %59, i32 noundef 35904) #8
@@ -496,15 +496,15 @@ define dso_local noundef range(i32 -12, 1) i32 @jbd2_journal_revoke(ptr noundef 
   br i1 %61, label %82, label %62
 
 62:                                               ; preds = %53
-  %63 = getelementptr inbounds i8, ptr %60, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %60, i64 16
   store i32 %58, ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %60, i64 24
+  %64 = getelementptr inbounds nuw i8, ptr %60, i64 24
   store i64 %1, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %6, i64 1160
+  %65 = getelementptr inbounds nuw i8, ptr %6, i64 1160
   %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %66, i64 4
+  %69 = getelementptr inbounds nuw i8, ptr %66, i64 4
   %70 = load i32, ptr %69, align 4
   %71 = mul i64 %1, 7046029254386353131
   %72 = sub i32 64, %70
@@ -513,16 +513,16 @@ define dso_local noundef range(i32 -12, 1) i32 @jbd2_journal_revoke(ptr noundef 
   %75 = shl i64 %74, 32
   %76 = ashr exact i64 %75, 28
   %77 = getelementptr i8, ptr %68, i64 %76
-  %78 = getelementptr inbounds i8, ptr %6, i64 1152
-  tail call void @_raw_spin_lock(ptr noundef %78) #8
+  %78 = getelementptr inbounds nuw i8, ptr %6, i64 1152
+  tail call void @_raw_spin_lock(ptr noundef nonnull %78) #8
   %79 = load ptr, ptr %77, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
   store ptr %60, ptr %80, align 8
   store ptr %79, ptr %60, align 8
-  %81 = getelementptr inbounds i8, ptr %60, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %60, i64 8
   store ptr %77, ptr %81, align 8
   store volatile ptr %60, ptr %77, align 8
-  tail call void @_raw_spin_unlock(ptr noundef %78) #8
+  tail call void @_raw_spin_unlock(ptr noundef nonnull %78) #8
   br label %82
 
 82:                                               ; preds = %62, %53, %36, %33, %26, %23
@@ -566,13 +566,13 @@ define dso_local noundef range(i32 0, 2) i32 @jbd2_journal_cancel_revoke(ptr noc
   br i1 %13, label %.thread4, label %14
 
 14:                                               ; preds = %.thread, %10
-  %15 = getelementptr inbounds i8, ptr %5, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %16 = load i64, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %4, i64 1160
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 1160
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %18, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %22 = load i32, ptr %21, align 4
   %23 = mul i64 %16, 7046029254386353131
   %24 = sub i32 64, %22
@@ -581,8 +581,8 @@ define dso_local noundef range(i32 0, 2) i32 @jbd2_journal_cancel_revoke(ptr noc
   %27 = shl i64 %26, 32
   %28 = ashr exact i64 %27, 28
   %29 = getelementptr i8, ptr %20, i64 %28
-  %30 = getelementptr inbounds i8, ptr %4, i64 1152
-  tail call void @_raw_spin_lock(ptr noundef %30) #8
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 1152
+  tail call void @_raw_spin_lock(ptr noundef nonnull %30) #8
   br label %31
 
 31:                                               ; preds = %35, %14
@@ -592,41 +592,41 @@ define dso_local noundef range(i32 0, 2) i32 @jbd2_journal_cancel_revoke(ptr noc
   br i1 %34, label %.thread3, label %35
 
 .thread3:                                         ; preds = %31
-  tail call void @_raw_spin_unlock(ptr noundef %30) #8
+  tail call void @_raw_spin_unlock(ptr noundef nonnull %30) #8
   br label %47
 
 35:                                               ; preds = %31
-  %36 = getelementptr inbounds i8, ptr %33, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %33, i64 24
   %37 = load i64, ptr %36, align 8
   %38 = icmp eq i64 %37, %16
   br i1 %38, label %39, label %31, !llvm.loop !34
 
 39:                                               ; preds = %35
-  tail call void @_raw_spin_unlock(ptr noundef %30) #8
+  tail call void @_raw_spin_unlock(ptr noundef nonnull %30) #8
   %40 = icmp eq ptr %33, null
   br i1 %40, label %47, label %41
 
 41:                                               ; preds = %39
-  tail call void @_raw_spin_lock(ptr noundef %30) #8
-  %42 = getelementptr inbounds i8, ptr %33, i64 8
+  tail call void @_raw_spin_lock(ptr noundef nonnull %30) #8
+  %42 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %43 = load ptr, ptr %42, align 8
   %44 = load ptr, ptr %33, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   store ptr %43, ptr %45, align 8
   store volatile ptr %44, ptr %43, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %33, align 8
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %42, align 8
-  tail call void @_raw_spin_unlock(ptr noundef %30) #8
+  tail call void @_raw_spin_unlock(ptr noundef nonnull %30) #8
   %46 = load ptr, ptr @jbd2_revoke_record_cache, align 8
   tail call void @kmem_cache_free(ptr noundef %46, ptr noundef nonnull %33) #8
   br label %47
 
 47:                                               ; preds = %39, %.thread3, %41
   %48 = phi i32 [ 1, %41 ], [ 0, %.thread3 ], [ 0, %39 ]
-  %49 = getelementptr inbounds i8, ptr %5, i64 48
+  %49 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %50 = load ptr, ptr %49, align 8
   %51 = load i64, ptr %15, align 8
-  %52 = getelementptr inbounds i8, ptr %5, i64 32
+  %52 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %53 = load i64, ptr %52, align 8
   %54 = trunc i64 %53 to i32
   %55 = tail call ptr @__find_get_block(ptr noundef %50, i64 noundef %51, i32 noundef %54) #8
@@ -656,16 +656,16 @@ declare dso_local void @kmem_cache_free(ptr noundef, ptr noundef) local_unnamed_
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @jbd2_clear_buffer_revoked_flags(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1160
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1160
   %3 = load ptr, ptr %2, align 8
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %6, label %.loopexit4
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %3, i64 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 1024
-  %9 = getelementptr inbounds i8, ptr %0, i64 952
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1024
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 952
   br label %10
 
 10:                                               ; preds = %.loopexit, %6
@@ -680,7 +680,7 @@ define dso_local void @jbd2_clear_buffer_revoked_flags(ptr nocapture noundef rea
 .preheader:                                       ; preds = %10, %26
   %17 = phi ptr [ %27, %26 ], [ %15, %10 ]
   %18 = load ptr, ptr %8, align 8
-  %19 = getelementptr inbounds i8, ptr %17, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %20 = load i64, ptr %19, align 8
   %21 = load i32, ptr %9, align 8
   %22 = tail call ptr @__find_get_block(ptr noundef %18, i64 noundef %20, i32 noundef %21) #8
@@ -715,9 +715,9 @@ define dso_local void @jbd2_clear_buffer_revoked_flags(ptr nocapture noundef rea
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid
 define dso_local void @jbd2_journal_switch_revoke_table(ptr nocapture noundef %0) local_unnamed_addr #4 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1160
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1160
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 1168
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1168
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %3, %5
   br i1 %6, label %7, label %10
@@ -737,11 +737,11 @@ define dso_local void @jbd2_journal_switch_revoke_table(ptr nocapture noundef %0
 .preheader:                                       ; preds = %10, %.preheader
   %14 = phi i64 [ %20, %.preheader ], [ 0, %10 ]
   %15 = phi ptr [ %21, %.preheader ], [ %11, %10 ]
-  %16 = getelementptr inbounds i8, ptr %15, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr %struct.list_head, ptr %17, i64 %14
   store volatile ptr %18, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store volatile ptr %18, ptr %19, align 8
   %20 = add nuw nsw i64 %14, 1
   %21 = load ptr, ptr %2, align 8
@@ -757,9 +757,9 @@ define dso_local void @jbd2_journal_switch_revoke_table(ptr nocapture noundef %0
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @jbd2_journal_write_revoke_records(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 1160
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 1160
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 1168
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 1168
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %5, %7
   br i1 %8, label %9, label %12
@@ -776,8 +776,8 @@ define dso_local void @jbd2_journal_write_revoke_records(ptr noundef %0, ptr nou
   br i1 %15, label %16, label %.thread8
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %13, i64 8
-  %18 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %19
 
 19:                                               ; preds = %.loopexit, %16
@@ -802,35 +802,35 @@ define dso_local void @jbd2_journal_write_revoke_records(ptr noundef %0, ptr nou
   br i1 %34, label %35, label %142
 
 35:                                               ; preds = %.preheader
-  %36 = getelementptr inbounds i8, ptr %31, i64 56
+  %36 = getelementptr inbounds nuw i8, ptr %31, i64 56
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 4
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 4
   %39 = load i32, ptr %38, align 4
   %40 = icmp eq i32 %39, 50331648
   br i1 %40, label %.thread20, label %45
 
 .thread20:                                        ; preds = %35
-  %41 = getelementptr inbounds i8, ptr %31, i64 1368
+  %41 = getelementptr inbounds nuw i8, ptr %31, i64 1368
   %42 = load ptr, ptr %41, align 8
   %43 = icmp eq ptr %42, null
   %44 = select i1 %43, i32 0, i32 -4
   br label %73
 
 45:                                               ; preds = %35
-  %46 = getelementptr inbounds i8, ptr %37, i64 40
+  %46 = getelementptr inbounds nuw i8, ptr %37, i64 40
   %47 = load i32, ptr %46, align 4
   %48 = and i32 %47, 402653184
   %49 = icmp eq i32 %48, 0
   br i1 %49, label %.thread, label %50
 
 50:                                               ; preds = %45
-  %51 = getelementptr inbounds i8, ptr %31, i64 1368
+  %51 = getelementptr inbounds nuw i8, ptr %31, i64 1368
   %52 = load ptr, ptr %51, align 8
   %53 = icmp eq ptr %52, null
   br i1 %53, label %58, label %.thread, !prof !26
 
 .thread:                                          ; preds = %50, %45
-  %54 = getelementptr inbounds i8, ptr %31, i64 1368
+  %54 = getelementptr inbounds nuw i8, ptr %31, i64 1368
   %55 = load ptr, ptr %54, align 8
   %56 = icmp eq ptr %55, null
   %57 = select i1 %56, i32 0, i32 -4
@@ -841,9 +841,9 @@ define dso_local void @jbd2_journal_write_revoke_records(ptr noundef %0, ptr nou
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.9, i32 1744, i32 2307, i64 12) #8, !srcloc !39
   tail call void asm sideeffect "411: nop\0A\09.pushsection .discard.instr_end\0A\09.long 411b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 411) #8, !srcloc !40
   %.pre = load ptr, ptr %36, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 4
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 4
   %.pre15 = load i32, ptr %.phi.trans.insert, align 4
-  %59 = getelementptr inbounds i8, ptr %31, i64 1368
+  %59 = getelementptr inbounds nuw i8, ptr %31, i64 1368
   %60 = load ptr, ptr %59, align 8
   %61 = icmp eq ptr %60, null
   %62 = select i1 %61, i32 0, i32 -4
@@ -854,7 +854,7 @@ define dso_local void @jbd2_journal_write_revoke_records(ptr noundef %0, ptr nou
   %65 = phi i32 [ %57, %.thread ], [ %62, %58 ]
   %66 = phi ptr [ %37, %.thread ], [ %.pre, %58 ]
   %67 = phi i32 [ %39, %.thread ], [ %.pre15, %58 ]
-  %68 = getelementptr inbounds i8, ptr %66, i64 40
+  %68 = getelementptr inbounds nuw i8, ptr %66, i64 40
   %69 = load i32, ptr %68, align 4
   %70 = and i32 %69, 33554432
   %71 = icmp eq i32 %70, 0
@@ -871,7 +871,7 @@ define dso_local void @jbd2_journal_write_revoke_records(ptr noundef %0, ptr nou
 
 79:                                               ; preds = %73
   %80 = add i32 %77, %29
-  %81 = getelementptr inbounds i8, ptr %31, i64 952
+  %81 = getelementptr inbounds nuw i8, ptr %31, i64 952
   %82 = load i32, ptr %81, align 8
   %83 = add i32 %82, %74
   %84 = icmp sgt i32 %80, %83
@@ -884,10 +884,10 @@ define dso_local void @jbd2_journal_write_revoke_records(ptr noundef %0, ptr nou
   br i1 %88, label %89, label %105
 
 89:                                               ; preds = %85
-  %90 = getelementptr inbounds i8, ptr %30, i64 40
+  %90 = getelementptr inbounds nuw i8, ptr %30, i64 40
   %91 = load ptr, ptr %90, align 8
   %92 = tail call i32 @llvm.bswap.i32(i32 %29)
-  %93 = getelementptr inbounds i8, ptr %91, i64 12
+  %93 = getelementptr inbounds nuw i8, ptr %91, i64 12
   store i32 %92, ptr %93, align 4
   tail call void @jbd2_descriptor_block_csum_set(ptr noundef %31, ptr noundef nonnull %30) #8
   %94 = load volatile i64, ptr %30, align 8
@@ -920,15 +920,15 @@ define dso_local void @jbd2_journal_write_revoke_records(ptr noundef %0, ptr nou
   br i1 %107, label %142, label %108
 
 108:                                              ; preds = %105
-  %109 = getelementptr inbounds i8, ptr %106, i64 72
+  %109 = getelementptr inbounds nuw i8, ptr %106, i64 72
   %110 = load ptr, ptr %18, align 8
   store ptr %109, ptr %18, align 8
   store ptr %1, ptr %109, align 8
-  %111 = getelementptr inbounds i8, ptr %106, i64 80
+  %111 = getelementptr inbounds nuw i8, ptr %106, i64 80
   store ptr %110, ptr %111, align 8
   store volatile ptr %109, ptr %110, align 8
   %.pre16 = load ptr, ptr %36, align 8
-  %.phi.trans.insert17 = getelementptr inbounds i8, ptr %.pre16, i64 4
+  %.phi.trans.insert17 = getelementptr inbounds nuw i8, ptr %.pre16, i64 4
   %.pre18 = load i32, ptr %.phi.trans.insert17, align 4
   br label %112
 
@@ -941,17 +941,17 @@ define dso_local void @jbd2_journal_write_revoke_records(ptr noundef %0, ptr nou
   br i1 %117, label %131, label %118
 
 118:                                              ; preds = %112
-  %119 = getelementptr inbounds i8, ptr %114, i64 40
+  %119 = getelementptr inbounds nuw i8, ptr %114, i64 40
   %120 = load i32, ptr %119, align 4
   %121 = and i32 %120, 33554432
   %122 = icmp eq i32 %121, 0
   br i1 %122, label %131, label %123
 
 123:                                              ; preds = %118
-  %124 = getelementptr inbounds i8, ptr %28, i64 24
+  %124 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %125 = load i64, ptr %124, align 8
   %126 = tail call i64 @llvm.bswap.i64(i64 %125)
-  %127 = getelementptr inbounds i8, ptr %115, i64 40
+  %127 = getelementptr inbounds nuw i8, ptr %115, i64 40
   %128 = load ptr, ptr %127, align 8
   %129 = sext i32 %116 to i64
   %130 = getelementptr i8, ptr %128, i64 %129
@@ -959,11 +959,11 @@ define dso_local void @jbd2_journal_write_revoke_records(ptr noundef %0, ptr nou
   br label %140
 
 131:                                              ; preds = %118, %112
-  %132 = getelementptr inbounds i8, ptr %28, i64 24
+  %132 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %133 = load i64, ptr %132, align 8
   %134 = trunc i64 %133 to i32
   %135 = tail call i32 @llvm.bswap.i32(i32 %134)
-  %136 = getelementptr inbounds i8, ptr %115, i64 40
+  %136 = getelementptr inbounds nuw i8, ptr %115, i64 40
   %137 = load ptr, ptr %136, align 8
   %138 = sext i32 %116 to i64
   %139 = getelementptr i8, ptr %137, i64 %138
@@ -977,10 +977,10 @@ define dso_local void @jbd2_journal_write_revoke_records(ptr noundef %0, ptr nou
 142:                                              ; preds = %140, %105, %.preheader
   %143 = phi ptr [ %30, %105 ], [ %115, %140 ], [ %30, %.preheader ]
   %144 = phi i32 [ %29, %105 ], [ %141, %140 ], [ %29, %.preheader ]
-  %145 = getelementptr inbounds i8, ptr %28, i64 8
+  %145 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %146 = load ptr, ptr %145, align 8
   %147 = load ptr, ptr %28, align 8
-  %148 = getelementptr inbounds i8, ptr %147, i64 8
+  %148 = getelementptr inbounds nuw i8, ptr %147, i64 8
   store ptr %146, ptr %148, align 8
   store volatile ptr %147, ptr %146, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %28, align 8
@@ -1015,10 +1015,10 @@ define dso_local void @jbd2_journal_write_revoke_records(ptr noundef %0, ptr nou
   br i1 %163, label %164, label %.thread8
 
 164:                                              ; preds = %160
-  %165 = getelementptr inbounds i8, ptr %153, i64 40
+  %165 = getelementptr inbounds nuw i8, ptr %153, i64 40
   %166 = load ptr, ptr %165, align 8
   %167 = tail call i32 @llvm.bswap.i32(i32 %154)
-  %168 = getelementptr inbounds i8, ptr %166, i64 12
+  %168 = getelementptr inbounds nuw i8, ptr %166, i64 12
   store i32 %167, ptr %168, align 4
   tail call void @jbd2_descriptor_block_csum_set(ptr noundef %3, ptr noundef nonnull %153) #8
   %169 = load volatile i64, ptr %153, align 8
@@ -1051,11 +1051,11 @@ define dso_local void @jbd2_journal_write_revoke_records(ptr noundef %0, ptr nou
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -12, 1) i32 @jbd2_journal_set_revoke(ptr noundef %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 1160
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1160
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %9 = load i32, ptr %8, align 4
   %10 = mul i64 %1, 7046029254386353131
   %11 = sub i32 64, %9
@@ -1064,8 +1064,8 @@ define dso_local noundef range(i32 -12, 1) i32 @jbd2_journal_set_revoke(ptr noun
   %14 = shl i64 %13, 32
   %15 = ashr exact i64 %14, 28
   %16 = getelementptr i8, ptr %7, i64 %15
-  %17 = getelementptr inbounds i8, ptr %0, i64 1152
-  tail call void @_raw_spin_lock(ptr noundef %17) #8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 1152
+  tail call void @_raw_spin_lock(ptr noundef nonnull %17) #8
   br label %18
 
 18:                                               ; preds = %22, %3
@@ -1075,22 +1075,22 @@ define dso_local noundef range(i32 -12, 1) i32 @jbd2_journal_set_revoke(ptr noun
   br i1 %21, label %.thread, label %22
 
 .thread:                                          ; preds = %18
-  tail call void @_raw_spin_unlock(ptr noundef %17) #8
+  tail call void @_raw_spin_unlock(ptr noundef nonnull %17) #8
   br label %34
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %20, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %24 = load i64, ptr %23, align 8
   %25 = icmp eq i64 %24, %1
   br i1 %25, label %26, label %18, !llvm.loop !34
 
 26:                                               ; preds = %22
-  tail call void @_raw_spin_unlock(ptr noundef %17) #8
+  tail call void @_raw_spin_unlock(ptr noundef nonnull %17) #8
   %27 = icmp eq ptr %20, null
   br i1 %27, label %34, label %28
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds i8, ptr %20, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %30 = load i32, ptr %29, align 8
   %31 = sub i32 %2, %30
   %32 = icmp slt i32 %31, 1
@@ -1107,14 +1107,14 @@ define dso_local noundef range(i32 -12, 1) i32 @jbd2_journal_set_revoke(ptr noun
   br i1 %37, label %55, label %38
 
 38:                                               ; preds = %34
-  %39 = getelementptr inbounds i8, ptr %36, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %36, i64 16
   store i32 %2, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %36, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %36, i64 24
   store i64 %1, ptr %40, align 8
   %41 = load ptr, ptr %4, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %41, i64 4
+  %44 = getelementptr inbounds nuw i8, ptr %41, i64 4
   %45 = load i32, ptr %44, align 4
   %46 = sub i32 64, %45
   %47 = zext nneg i32 %46 to i64
@@ -1122,15 +1122,15 @@ define dso_local noundef range(i32 -12, 1) i32 @jbd2_journal_set_revoke(ptr noun
   %49 = shl i64 %48, 32
   %50 = ashr exact i64 %49, 28
   %51 = getelementptr i8, ptr %43, i64 %50
-  tail call void @_raw_spin_lock(ptr noundef %17) #8
+  tail call void @_raw_spin_lock(ptr noundef nonnull %17) #8
   %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
   store ptr %36, ptr %53, align 8
   store ptr %52, ptr %36, align 8
-  %54 = getelementptr inbounds i8, ptr %36, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %36, i64 8
   store ptr %51, ptr %54, align 8
   store volatile ptr %36, ptr %51, align 8
-  tail call void @_raw_spin_unlock(ptr noundef %17) #8
+  tail call void @_raw_spin_unlock(ptr noundef nonnull %17) #8
   br label %55
 
 55:                                               ; preds = %38, %34, %33, %28
@@ -1140,11 +1140,11 @@ define dso_local noundef range(i32 -12, 1) i32 @jbd2_journal_set_revoke(ptr noun
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local range(i32 0, 2) i32 @jbd2_journal_test_revoke(ptr noundef %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 1160
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1160
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %9 = load i32, ptr %8, align 4
   %10 = mul i64 %1, 7046029254386353131
   %11 = sub i32 64, %9
@@ -1153,8 +1153,8 @@ define dso_local range(i32 0, 2) i32 @jbd2_journal_test_revoke(ptr noundef %0, i
   %14 = shl i64 %13, 32
   %15 = ashr exact i64 %14, 28
   %16 = getelementptr i8, ptr %7, i64 %15
-  %17 = getelementptr inbounds i8, ptr %0, i64 1152
-  tail call void @_raw_spin_lock(ptr noundef %17) #8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 1152
+  tail call void @_raw_spin_lock(ptr noundef nonnull %17) #8
   br label %18
 
 18:                                               ; preds = %22, %3
@@ -1164,22 +1164,22 @@ define dso_local range(i32 0, 2) i32 @jbd2_journal_test_revoke(ptr noundef %0, i
   br i1 %21, label %.thread, label %22
 
 .thread:                                          ; preds = %18
-  tail call void @_raw_spin_unlock(ptr noundef %17) #8
+  tail call void @_raw_spin_unlock(ptr noundef nonnull %17) #8
   br label %34
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %20, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %24 = load i64, ptr %23, align 8
   %25 = icmp eq i64 %24, %1
   br i1 %25, label %26, label %18, !llvm.loop !34
 
 26:                                               ; preds = %22
-  tail call void @_raw_spin_unlock(ptr noundef %17) #8
+  tail call void @_raw_spin_unlock(ptr noundef nonnull %17) #8
   %27 = icmp eq ptr %20, null
   br i1 %27, label %34, label %28
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds i8, ptr %20, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %30 = load i32, ptr %29, align 8
   %31 = sub i32 %2, %30
   %32 = icmp slt i32 %31, 1
@@ -1193,14 +1193,14 @@ define dso_local range(i32 0, 2) i32 @jbd2_journal_test_revoke(ptr noundef %0, i
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @jbd2_journal_clear_revoke(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1160
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1160
   %3 = load ptr, ptr %2, align 8
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %6, label %.loopexit2
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %3, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %8
 
 8:                                                ; preds = %.loopexit, %6
@@ -1214,10 +1214,10 @@ define dso_local void @jbd2_journal_clear_revoke(ptr nocapture noundef readonly 
 
 .preheader:                                       ; preds = %8, %.preheader
   %15 = phi ptr [ %21, %.preheader ], [ %13, %8 ]
-  %16 = getelementptr inbounds i8, ptr %15, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr %15, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr %17, ptr %19, align 8
   store volatile ptr %18, ptr %17, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %15, align 8

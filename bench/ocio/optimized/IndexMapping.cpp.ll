@@ -40,9 +40,9 @@ $_ZNSt6vectorISt4pairIffESaIS1_EE6resizeEm = comdat any
 define hidden void @_ZN19OpenColorIO_v2_4dev12IndexMappingC2Em(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 88)) %this, i64 noundef %dimension) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12IndexMappingE, i64 16), ptr %this, align 8
-  %m_dimension = getelementptr inbounds i8, ptr %this, i64 8
+  %m_dimension = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i64 %dimension, ptr %m_dimension, align 8
-  %scevgep = getelementptr inbounds i8, ptr %this, i64 16
+  %scevgep = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %scevgep, i8 0, i64 72, i1 false)
   invoke void @_ZNSt6vectorISt4pairIffESaIS1_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %scevgep, i64 noundef %dimension)
           to label %invoke.cont unwind label %lpad
@@ -78,9 +78,9 @@ eh.resume:                                        ; preds = %_ZNSt6vectorISt4pai
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN19OpenColorIO_v2_4dev12IndexMapping6resizeEm(ptr noundef nonnull align 8 dereferenceable(88) initializes((8, 16)) %this, i64 noundef %dimension) local_unnamed_addr #0 align 2 {
 entry:
-  %m_dimension = getelementptr inbounds i8, ptr %this, i64 8
+  %m_dimension = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i64 %dimension, ptr %m_dimension, align 8
-  %m_indices = getelementptr inbounds i8, ptr %this, i64 16
+  %m_indices = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @_ZNSt6vectorISt4pairIffESaIS1_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %m_indices, i64 noundef %dimension)
   ret void
 }
@@ -146,7 +146,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt6vectorISt4pairIffESaIS1_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %__new_size) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
@@ -158,7 +158,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %sub = sub nuw i64 %__new_size, %sub.ptr.div.i
-  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_end_of_storage.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8
   %sub.ptr.lhs.cast.i9 = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i10 = sub i64 %sub.ptr.lhs.cast.i9, %sub.ptr.lhs.cast.i
@@ -205,8 +205,8 @@ for.body.i.i.i.i.i:                               ; preds = %_ZNKSt6vectorISt4pa
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7)
   %6 = load i64, ptr %__first.addr.06.i.i.i.i.i, align 4, !alias.scope !7, !noalias !4
   store i64 %6, ptr %__cur.07.i.i.i.i.i, align 4, !alias.scope !4, !noalias !7
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i, i64 8
-  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i, i64 8
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i.i.i, i64 8
+  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i.i.i, i64 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %0
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt6vectorISt4pairIffESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i, label %for.body.i.i.i.i.i, !llvm.loop !9
 
@@ -222,7 +222,7 @@ _ZNSt12_Vector_baseISt4pairIffESaIS1_EE13_M_deallocateEPS1_m.exit28.i: ; preds =
   store ptr %call5.i.i.i.i, ptr %this, align 8
   %add.ptr37.i = getelementptr inbounds %"struct.std::pair", ptr %add.ptr.i, i64 %sub
   store ptr %add.ptr37.i, ptr %_M_finish.i, align 8
-  %add.ptr40.i = getelementptr inbounds %"struct.std::pair", ptr %call5.i.i.i.i, i64 %4
+  %add.ptr40.i = getelementptr inbounds nuw %"struct.std::pair", ptr %call5.i.i.i.i, i64 %4
   store ptr %add.ptr40.i, ptr %_M_end_of_storage.i, align 8
   br label %if.end6
 
@@ -246,7 +246,7 @@ if.end6:                                          ; preds = %invoke.cont.i, %if.
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef i64 @_ZNK19OpenColorIO_v2_4dev12IndexMapping12getDimensionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %m_dimension = getelementptr inbounds i8, ptr %this, i64 8
+  %m_dimension = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i64, ptr %m_dimension, align 8
   ret i64 %0
 }
@@ -254,7 +254,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef nonnull align 8 dereferenceable(72) ptr @_ZNK19OpenColorIO_v2_4dev12IndexMapping10getIndicesEv(ptr noundef nonnull readnone align 8 dereferenceable(88) %this) local_unnamed_addr #4 align 2 {
 entry:
-  %m_indices = getelementptr inbounds i8, ptr %this, i64 16
+  %m_indices = getelementptr inbounds nuw i8, ptr %this, i64 16
   ret ptr %m_indices
 }
 
@@ -269,8 +269,8 @@ define hidden void @_ZNK19OpenColorIO_v2_4dev12IndexMapping13validateIndexEm(ptr
 entry:
   %oss = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  %m_indices = getelementptr inbounds i8, ptr %this, i64 16
-  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 24
+  %m_indices = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %m_indices, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
@@ -393,7 +393,7 @@ declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(p
 define hidden void @_ZNK19OpenColorIO_v2_4dev12IndexMapping7getPairEmRfS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %this, i64 noundef %index, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %first, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %second) local_unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZNK19OpenColorIO_v2_4dev12IndexMapping13validateIndexEm(ptr noundef nonnull align 8 dereferenceable(88) %this, i64 noundef %index)
-  %m_indices = getelementptr inbounds i8, ptr %this, i64 16
+  %m_indices = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_indices, align 8
   %add.ptr.i = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %index
   %1 = load float, ptr %add.ptr.i, align 4
@@ -409,7 +409,7 @@ entry:
 define hidden void @_ZN19OpenColorIO_v2_4dev12IndexMapping7setPairEmff(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %this, i64 noundef %index, float noundef %first, float noundef %second) local_unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZNK19OpenColorIO_v2_4dev12IndexMapping13validateIndexEm(ptr noundef nonnull align 8 dereferenceable(88) %this, i64 noundef %index)
-  %m_indices = getelementptr inbounds i8, ptr %this, i64 16
+  %m_indices = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_indices, align 8
   %add.ptr.i = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %index
   store float %first, ptr %add.ptr.i, align 4
@@ -422,13 +422,13 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZNK19OpenColorIO_v2_4dev12IndexMapping8validateEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_dimension = getelementptr inbounds i8, ptr %this, i64 8
+  %m_dimension = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i64, ptr %m_dimension, align 8
   %cmp7 = icmp ugt i64 %0, 1
   br i1 %cmp7, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %m_indices.i = getelementptr inbounds i8, ptr %this, i64 16
+  %m_indices.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   br label %for.body
 
 for.cond:                                         ; preds = %for.body
@@ -443,17 +443,17 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %i.08 = phi i32 [ 1, %for.body.lr.ph ], [ %inc, %for.cond ]
   tail call void @_ZNK19OpenColorIO_v2_4dev12IndexMapping13validateIndexEm(ptr noundef nonnull readonly align 8 dereferenceable(88) %this, i64 noundef %conv9)
   %2 = load ptr, ptr %m_indices.i, align 8
-  %add.ptr.i.i = getelementptr inbounds %"struct.std::pair", ptr %2, i64 %conv9
+  %add.ptr.i.i = getelementptr inbounds nuw %"struct.std::pair", ptr %2, i64 %conv9
   %3 = load float, ptr %add.ptr.i.i, align 4
-  %second6.i = getelementptr inbounds %"struct.std::pair", ptr %2, i64 %conv9, i32 1
+  %second6.i = getelementptr inbounds nuw %"struct.std::pair", ptr %2, i64 %conv9, i32 1
   %4 = load float, ptr %second6.i, align 4
   %sub = add i32 %i.08, -1
   %conv3 = zext i32 %sub to i64
   tail call void @_ZNK19OpenColorIO_v2_4dev12IndexMapping13validateIndexEm(ptr noundef nonnull readonly align 8 dereferenceable(88) %this, i64 noundef %conv3)
   %5 = load ptr, ptr %m_indices.i, align 8
-  %add.ptr.i.i5 = getelementptr inbounds %"struct.std::pair", ptr %5, i64 %conv3
+  %add.ptr.i.i5 = getelementptr inbounds nuw %"struct.std::pair", ptr %5, i64 %conv3
   %6 = load float, ptr %add.ptr.i.i5, align 4
-  %second6.i6 = getelementptr inbounds %"struct.std::pair", ptr %5, i64 %conv3, i32 1
+  %second6.i6 = getelementptr inbounds nuw %"struct.std::pair", ptr %5, i64 %conv3, i32 1
   %7 = load float, ptr %second6.i6, align 4
   %cmp4 = fcmp ugt float %3, %6
   %cmp5 = fcmp ugt float %4, %7
@@ -486,29 +486,29 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %m_dimension = getelementptr inbounds i8, ptr %this, i64 8
+  %m_dimension = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i64, ptr %m_dimension, align 8
-  %m_dimension2 = getelementptr inbounds i8, ptr %other, i64 8
+  %m_dimension2 = getelementptr inbounds nuw i8, ptr %other, i64 8
   %1 = load i64, ptr %m_dimension2, align 8
   %cmp3.not = icmp eq i64 %0, %1
   br i1 %cmp3.not, label %for.cond.preheader, label %return
 
 for.cond.preheader:                               ; preds = %if.end
-  %m_indices = getelementptr inbounds i8, ptr %this, i64 16
-  %m_indices7 = getelementptr inbounds i8, ptr %other, i64 16
+  %m_indices = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %m_indices7 = getelementptr inbounds nuw i8, ptr %other, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
   %indvars.iv = phi i64 [ 0, %for.cond.preheader ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds [3 x %"class.std::vector"], ptr %m_indices, i64 0, i64 %indvars.iv
-  %arrayidx9 = getelementptr inbounds [3 x %"class.std::vector"], ptr %m_indices7, i64 0, i64 %indvars.iv
-  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %arrayidx = getelementptr inbounds nuw [3 x %"class.std::vector"], ptr %m_indices, i64 0, i64 %indvars.iv
+  %arrayidx9 = getelementptr inbounds nuw [3 x %"class.std::vector"], ptr %m_indices7, i64 0, i64 %indvars.iv
+  %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %2 = load ptr, ptr %_M_finish.i.i.i, align 8
   %3 = load ptr, ptr %arrayidx, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %_M_finish.i4.i.i = getelementptr inbounds i8, ptr %arrayidx9, i64 8
+  %_M_finish.i4.i.i = getelementptr inbounds nuw i8, ptr %arrayidx9, i64 8
   %4 = load ptr, ptr %_M_finish.i4.i.i, align 8
   %5 = load ptr, ptr %arrayidx9, align 8
   %sub.ptr.lhs.cast.i5.i.i = ptrtoint ptr %4 to i64
@@ -527,17 +527,17 @@ for.body.i.i.i.i.i.i:                             ; preds = %land.rhs.i.i, %for.
   %6 = load float, ptr %__first1.addr.05.i.i.i.i.i.i, align 4
   %7 = load float, ptr %__first2.addr.06.i.i.i.i.i.i, align 4
   %cmp.i.i.i.i.i.i.i = fcmp une float %6, %7
-  %second.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first1.addr.05.i.i.i.i.i.i, i64 4
+  %second.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first1.addr.05.i.i.i.i.i.i, i64 4
   %8 = load float, ptr %second.i.i.i.i.i.i.i, align 4
-  %second2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first2.addr.06.i.i.i.i.i.i, i64 4
+  %second2.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first2.addr.06.i.i.i.i.i.i, i64 4
   %9 = load float, ptr %second2.i.i.i.i.i.i.i, align 4
   %cmp3.i.i.i.i.i.i.i = fcmp une float %8, %9
   %.not.i = select i1 %cmp.i.i.i.i.i.i.i, i1 true, i1 %cmp3.i.i.i.i.i.i.i
   br i1 %.not.i, label %return, label %for.inc.i.i.i.i.i.i
 
 for.inc.i.i.i.i.i.i:                              ; preds = %for.body.i.i.i.i.i.i
-  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first1.addr.05.i.i.i.i.i.i, i64 8
-  %incdec.ptr1.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first2.addr.06.i.i.i.i.i.i, i64 8
+  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first1.addr.05.i.i.i.i.i.i, i64 8
+  %incdec.ptr1.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first2.addr.06.i.i.i.i.i.i, i64 8
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %2
   br i1 %cmp.not.i.i.i.i.i.i, label %for.inc, label %for.body.i.i.i.i.i.i, !llvm.loop !12
 

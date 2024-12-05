@@ -221,7 +221,7 @@ define ptr @zend_get_opcode_name(i8 noundef zeroext %0) local_unnamed_addr #0 {
 
 3:                                                ; preds = %1
   %4 = zext i8 %0 to i64
-  %5 = getelementptr inbounds [209 x ptr], ptr @zend_vm_opcodes_names, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw [209 x ptr], ptr @zend_vm_opcodes_names, i64 0, i64 %4
   %6 = load ptr, ptr %5, align 8
   br label %7
 
@@ -235,7 +235,7 @@ define i32 @zend_get_opcode_flags(i8 noundef zeroext %0) local_unnamed_addr #0 {
   %2 = icmp ugt i8 %0, -48
   %spec.store.select = select i1 %2, i8 0, i8 %0
   %3 = zext i8 %spec.store.select to i64
-  %4 = getelementptr inbounds [209 x i32], ptr @zend_vm_opcodes_flags, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw [209 x i32], ptr @zend_vm_opcodes_flags, i64 0, i64 %3
   %5 = load i32, ptr %4, align 4
   ret i32 %5
 }
@@ -250,7 +250,7 @@ define zeroext range(i8 0, -46) i8 @zend_get_opcode_id(ptr nocapture noundef rea
   br i1 %.not, label %9, label %4
 
 4:                                                ; preds = %3
-  %5 = getelementptr inbounds [209 x ptr], ptr @zend_vm_opcodes_names, i64 0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [209 x ptr], ptr @zend_vm_opcodes_names, i64 0, i64 %indvars.iv
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 @strncmp(ptr noundef %6, ptr noundef %0, i64 noundef %1) #3
   %8 = icmp eq i32 %7, 0

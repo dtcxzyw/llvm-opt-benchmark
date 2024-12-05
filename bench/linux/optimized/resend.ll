@@ -18,8 +18,8 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @clear_irq_resend(ptr nocapture noundef %0) local_unnamed_addr #0 align 16 {
   tail call void @_raw_spin_lock(ptr noundef nonnull @irq_resend_lock) #5
-  %2 = getelementptr inbounds i8, ptr %0, i64 408
-  %3 = getelementptr inbounds i8, ptr %0, i64 416
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 408
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %12, label %6
@@ -31,12 +31,12 @@ define dso_local void @clear_irq_resend(ptr nocapture noundef %0) local_unnamed_
   br i1 %8, label %11, label %9
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %7, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store volatile ptr %4, ptr %10, align 8
   br label %11
 
 11:                                               ; preds = %9, %6
-  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   br label %12
 
 12:                                               ; preds = %11, %1
@@ -52,18 +52,18 @@ declare dso_local void @_raw_spin_unlock(ptr noundef) local_unnamed_addr #1 sect
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
 define dso_local void @irq_resend_init(ptr nocapture noundef writeonly initializes((408, 424)) %0) local_unnamed_addr #2 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 408
-  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 408
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -22, 1) i32 @check_irq_resend(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 120
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 256
   %6 = icmp eq i32 %5, 0
-  %7 = getelementptr inbounds i8, ptr %0, i64 124
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 124
   %8 = load i32, ptr %7, align 4
   br i1 %6, label %11, label %9
 
@@ -85,20 +85,20 @@ define dso_local noundef range(i32 -22, 1) i32 @check_irq_resend(ptr noundef %0,
 18:                                               ; preds = %14
   %19 = and i32 %8, -577
   store i32 %19, ptr %7, align 4
-  %20 = getelementptr inbounds i8, ptr %0, i64 40
-  %21 = getelementptr inbounds i8, ptr %0, i64 64
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 88
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 88
   %24 = load ptr, ptr %23, align 8
   %25 = icmp eq ptr %24, null
   br i1 %25, label %28, label %26
 
 26:                                               ; preds = %18
-  %27 = tail call i32 %24(ptr noundef %20) #5
+  %27 = tail call i32 %24(ptr noundef nonnull %20) #5
   br label %30
 
 28:                                               ; preds = %18
-  %29 = tail call i32 @irq_chip_retrigger_hierarchy(ptr noundef %20) #5
+  %29 = tail call i32 @irq_chip_retrigger_hierarchy(ptr noundef nonnull %20) #5
   br label %30
 
 30:                                               ; preds = %28, %26
@@ -107,7 +107,7 @@ define dso_local noundef range(i32 -22, 1) i32 @check_irq_resend(ptr noundef %0,
   br i1 %32, label %33, label %67
 
 33:                                               ; preds = %30
-  %34 = getelementptr inbounds i8, ptr %0, i64 56
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %35 = load ptr, ptr %34, align 8
   %36 = load i32, ptr %35, align 8
   %37 = and i32 %36, 134217728
@@ -121,7 +121,7 @@ define dso_local noundef range(i32 -22, 1) i32 @check_irq_resend(ptr noundef %0,
   br i1 %42, label %50, label %43
 
 43:                                               ; preds = %39
-  %44 = getelementptr inbounds i8, ptr %0, i64 384
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %45 = load i32, ptr %44, align 64
   %46 = icmp eq i32 %45, 0
   br i1 %46, label %73, label %47
@@ -134,8 +134,8 @@ define dso_local noundef range(i32 -22, 1) i32 @check_irq_resend(ptr noundef %0,
 50:                                               ; preds = %47, %39
   %51 = phi ptr [ %48, %47 ], [ %0, %39 ]
   tail call void @_raw_spin_lock(ptr noundef nonnull @irq_resend_lock) #5
-  %52 = getelementptr inbounds i8, ptr %51, i64 408
-  %53 = getelementptr inbounds i8, ptr %51, i64 416
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 408
+  %53 = getelementptr inbounds nuw i8, ptr %51, i64 416
   %54 = load ptr, ptr %53, align 8
   %55 = icmp eq ptr %54, null
   br i1 %55, label %56, label %62
@@ -147,7 +147,7 @@ define dso_local noundef range(i32 -22, 1) i32 @check_irq_resend(ptr noundef %0,
   br i1 %58, label %61, label %59
 
 59:                                               ; preds = %56
-  %60 = getelementptr inbounds i8, ptr %57, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %57, i64 8
   store volatile ptr %52, ptr %60, align 8
   br label %61
 
@@ -206,7 +206,7 @@ define internal void @resend_irqs(ptr nocapture readnone %0) #0 align 16 {
 .preheader:                                       ; preds = %1, %15
   %4 = phi ptr [ %18, %15 ], [ %2, %1 ]
   %5 = getelementptr i8, ptr %4, i64 -408
-  %6 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %15, label %9
@@ -218,7 +218,7 @@ define internal void @resend_irqs(ptr nocapture readnone %0) #0 align 16 {
   br i1 %11, label %14, label %12
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %10, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store volatile ptr %7, ptr %13, align 8
   br label %14
 

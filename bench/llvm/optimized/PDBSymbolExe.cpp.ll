@@ -29,7 +29,7 @@ $_ZNK4llvm3pdb9PDBSymbol9dumpRightERNS0_12PDBSymDumperE = comdat any
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZNK4llvm3pdb12PDBSymbolExe4dumpERNS0_12PDBSymDumperE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(9) %1) unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 72
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %5 = load ptr, ptr %4, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(9) %1, ptr noundef nonnull align 8 dereferenceable(32) %0) #5
   ret void
@@ -43,7 +43,7 @@ define dso_local noundef i32 @_ZNK4llvm3pdb12PDBSymbolExe18getPointerByteSizeEv(
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8, !noalias !7
   %6 = load ptr, ptr %5, align 8, !noalias !7
-  %7 = getelementptr inbounds i8, ptr %6, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %8 = load ptr, ptr %7, align 8, !noalias !7
   call void %8(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.18") align 8 %3, ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef 14) #5, !noalias !7
   %9 = load ptr, ptr %3, align 8, !noalias !7
@@ -54,7 +54,7 @@ define dso_local noundef i32 @_ZNK4llvm3pdb12PDBSymbolExe18getPointerByteSizeEv(
 _ZNKSt14default_deleteIN4llvm3pdb24ConcreteSymbolEnumeratorINS1_20PDBSymbolTypePointerEEEEclEPS4_.exit.i.i: ; preds = %1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2), !noalias !4
   %10 = load ptr, ptr %9, align 8, !noalias !10
-  %11 = getelementptr inbounds i8, ptr %10, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %12 = load ptr, ptr %11, align 8, !noalias !10
   call void %12(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.27") align 8 %2, ptr noundef nonnull align 8 dereferenceable(8) %9) #5, !noalias !10
   %13 = load ptr, ptr %2, align 8, !noalias !10
@@ -73,7 +73,7 @@ _ZN4llvm23unique_dyn_cast_or_nullINS_3pdb20PDBSymbolTypePointerENS1_9PDBSymbolEE
 
 _ZNKSt14default_deleteIN4llvm3pdb9PDBSymbolEEclEPS2_.exit.i.i.i: ; preds = %_ZN4llvm23unique_dyn_cast_or_nullINS_3pdb20PDBSymbolTypePointerENS1_9PDBSymbolEEEDaOSt10unique_ptrIT0_St14default_deleteIS5_EE.exit.i.i
   %18 = load ptr, ptr %17, align 8, !noalias !10
-  %19 = getelementptr inbounds i8, ptr %18, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load ptr, ptr %19, align 8, !noalias !10
   call void %20(ptr noundef nonnull align 8 dereferenceable(32) %17) #5, !noalias !10
   br label %_ZNK4llvm3pdb9PDBSymbol12findOneChildINS0_20PDBSymbolTypePointerEEESt10unique_ptrIT_St14default_deleteIS5_EEv.exit
@@ -82,7 +82,7 @@ _ZNK4llvm3pdb9PDBSymbol12findOneChildINS0_20PDBSymbolTypePointerEEESt10unique_pt
   %.sroa.0.0 = phi ptr [ null, %_ZN4llvm23unique_dyn_cast_or_nullINS_3pdb20PDBSymbolTypePointerENS1_9PDBSymbolEEEDaOSt10unique_ptrIT0_St14default_deleteIS5_EE.exit.i.i ], [ null, %_ZNKSt14default_deleteIN4llvm3pdb9PDBSymbolEEclEPS2_.exit.i.i.i ], [ null, %_ZNKSt14default_deleteIN4llvm3pdb24ConcreteSymbolEnumeratorINS1_20PDBSymbolTypePointerEEEEclEPS4_.exit.i.i ], [ %17, %14 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2), !noalias !4
   %21 = load ptr, ptr %9, align 8, !noalias !4
-  %22 = getelementptr inbounds i8, ptr %21, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load ptr, ptr %22, align 8, !noalias !4
   call void %23(ptr noundef nonnull align 8 dereferenceable(8) %9) #5, !noalias !4
   %.not = icmp eq ptr %.sroa.0.0, null
@@ -91,7 +91,7 @@ _ZNK4llvm3pdb9PDBSymbol12findOneChildINS0_20PDBSymbolTypePointerEEESt10unique_pt
 .thread:                                          ; preds = %_ZNK4llvm3pdb9PDBSymbol12findOneChildINS0_20PDBSymbolTypePointerEEESt10unique_ptrIT_St14default_deleteIS5_EEv.exit, %1
   %24 = load ptr, ptr %4, align 8
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 736
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 736
   %27 = load ptr, ptr %26, align 8
   %28 = call noundef i32 %27(ptr noundef nonnull align 8 dereferenceable(8) %24) #5
   %29 = icmp eq i32 %28, 332
@@ -102,12 +102,12 @@ _ZNKSt14default_deleteIN4llvm3pdb20PDBSymbolTypePointerEEclEPS2_.exit.i: ; preds
   %30 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 24
   %31 = load ptr, ptr %30, align 8
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 752
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 752
   %34 = load ptr, ptr %33, align 8
   %35 = call noundef i64 %34(ptr noundef nonnull align 8 dereferenceable(8) %31) #5
   %36 = trunc i64 %35 to i32
   %37 = load ptr, ptr %.sroa.0.0, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %39 = load ptr, ptr %38, align 8
   call void %39(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.0) #5
   br label %_ZNSt10unique_ptrIN4llvm3pdb20PDBSymbolTypePointerESt14default_deleteIS2_EED2Ev.exit

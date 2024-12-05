@@ -37,31 +37,31 @@ $_ZN9LogPrefixILN6LogTag4typeE49ELS1_162ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN27ShenandoahObjToScanQueueSet5clearEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(156) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %wide.trip.count = zext i32 %3 to i64
   br label %5
 
 5:                                                ; preds = %.lr.ph, %_ZN25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE5clearEv.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE5clearEv.exit ]
   %6 = load ptr, ptr %4, align 8
-  %7 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 712
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 712
   store i8 1, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %8, i64 128
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 128
   store volatile i32 0, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %8, i64 256
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 256
   store volatile i64 0, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %8, i64 640
-  %13 = getelementptr inbounds i8, ptr %8, i64 696
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 640
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 696
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %8, i64 648
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 648
   %16 = load i64, ptr %15, align 8
   %17 = shl i64 %16, 3
   %18 = add i64 %17, 8
@@ -75,7 +75,7 @@ define hidden void @_ZN27ShenandoahObjToScanQueueSet5clearEv(ptr nocapture nound
   %21 = getelementptr inbounds i8, ptr %.06.i.i.i, i64 %20
   %22 = load ptr, ptr %21, align 8
   %23 = load ptr, ptr %12, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load ptr, ptr %24, align 8
   tail call void %25(ptr noundef nonnull align 8 dereferenceable(72) %12, ptr noundef nonnull %.06.i.i.i, i64 noundef %18) #4
   %.not.i.i.i = icmp eq ptr %22, null
@@ -87,9 +87,9 @@ _ZN5StackI18ShenandoahMarkTaskL8MEMFLAGS5EE5clearEb.exit.loopexit.i: ; preds = %
 
 _ZN25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE5clearEv.exit: ; preds = %5, %_ZN5StackI18ShenandoahMarkTaskL8MEMFLAGS5EE5clearEb.exit.loopexit.i
   %26 = phi i64 [ %.pre.i, %_ZN5StackI18ShenandoahMarkTaskL8MEMFLAGS5EE5clearEb.exit.loopexit.i ], [ %16, %5 ]
-  %27 = getelementptr inbounds i8, ptr %8, i64 672
+  %27 = getelementptr inbounds nuw i8, ptr %8, i64 672
   store i64 %26, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %8, i64 680
+  %28 = getelementptr inbounds nuw i8, ptr %8, i64 680
   store i64 0, ptr %28, align 8
   store ptr null, ptr %13, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -102,13 +102,13 @@ _ZN25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE5clearE
 
 ; Function Attrs: mustprogress nofree norecurse nounwind uwtable
 define hidden noundef zeroext i1 @_ZN27ShenandoahObjToScanQueueSet8is_emptyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(156) %0) local_unnamed_addr #1 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %_ZNK25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE8is_emptyEv.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   %wide.trip.count = zext i32 %3 to i64
   br label %8
@@ -120,17 +120,17 @@ define hidden noundef zeroext i1 @_ZN27ShenandoahObjToScanQueueSet8is_emptyEv(pt
 
 8:                                                ; preds = %.lr.ph, %7
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
-  %9 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 712
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 712
   %12 = load i8, ptr %11, align 8
   %13 = trunc i8 %12 to i1
   br i1 %13, label %14, label %_ZNK25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE8is_emptyEv.exit.thread
 
 14:                                               ; preds = %8
-  %15 = getelementptr inbounds i8, ptr %10, i64 128
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 128
   %16 = load volatile i32, ptr %15, align 4
-  %17 = getelementptr inbounds i8, ptr %10, i64 256
+  %17 = getelementptr inbounds nuw i8, ptr %10, i64 256
   %18 = load volatile i32, ptr %17, align 4
   %19 = sub i32 %16, %18
   %20 = and i32 %19, 131071
@@ -140,7 +140,7 @@ define hidden noundef zeroext i1 @_ZN27ShenandoahObjToScanQueueSet8is_emptyEv(pt
   ]
 
 _ZNK25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE8is_emptyEv.exit: ; preds = %14, %14
-  %21 = getelementptr inbounds i8, ptr %10, i64 696
+  %21 = getelementptr inbounds nuw i8, ptr %10, i64 696
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, null
   br i1 %23, label %7, label %_ZNK25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE8is_emptyEv.exit.thread
@@ -152,9 +152,9 @@ _ZNK25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE8is_em
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN30ShenandoahTerminatorTerminator23should_exit_terminationEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 1552
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 1552
   %5 = load volatile i8, ptr %4, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !10
   %6 = icmp eq i8 %5, 1

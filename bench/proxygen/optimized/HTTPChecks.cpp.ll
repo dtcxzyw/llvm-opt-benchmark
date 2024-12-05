@@ -238,7 +238,7 @@ entry:
   %ex = alloca %"class.proxygen::HTTPException", align 8
   %agg.tmp12 = alloca %"class.std::unique_ptr", align 8
   %0 = load ptr, ptr %msg, align 8
-  %fields_.i = getelementptr inbounds i8, ptr %0, i64 168
+  %fields_.i = getelementptr inbounds nuw i8, ptr %0, i64 168
   %1 = load i8, ptr %fields_.i, align 8
   %cmp.i = icmp eq i8 %1, 1
   br i1 %cmp.i, label %land.lhs.true, label %if.end
@@ -251,27 +251,27 @@ land.lhs.true:                                    ; preds = %entry
 
 land.lhs.true5:                                   ; preds = %land.lhs.true
   %2 = load ptr, ptr %msg, align 8
-  %headers_.i = getelementptr inbounds i8, ptr %2, i64 480
+  %headers_.i = getelementptr inbounds nuw i8, ptr %2, i64 480
   %call8 = call noundef zeroext i1 @_ZN8proxygen7RFC261611bodyImpliedERKNS_11HTTPHeadersE(ptr noundef nonnull align 8 dereferenceable(32) %headers_.i)
   br i1 %call8, label %if.then, label %if.end
 
 if.then:                                          ; preds = %land.lhs.true5
   call void @_ZN8proxygen13HTTPExceptionC1ENS0_9DirectionEPKc(ptr noundef nonnull align 8 dereferenceable(96) %ex, i32 noundef 0, ptr noundef nonnull @.str)
-  %proxygenError_.i = getelementptr inbounds i8, ptr %ex, i64 44
+  %proxygenError_.i = getelementptr inbounds nuw i8, ptr %ex, i64 44
   store i32 16, ptr %proxygenError_.i, align 4
-  %httpStatusCode_.i = getelementptr inbounds i8, ptr %ex, i64 52
+  %httpStatusCode_.i = getelementptr inbounds nuw i8, ptr %ex, i64 52
   store i32 400, ptr %httpStatusCode_.i, align 4
-  %callback_ = getelementptr inbounds i8, ptr %this, i64 32
+  %callback_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %3 = load ptr, ptr %callback_, align 8
   %vtable = load ptr, ptr %3, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 72
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 72
   %4 = load ptr, ptr %vfn, align 8
   invoke void %4(ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef %stream, ptr noundef nonnull align 8 dereferenceable(96) %ex, i1 noundef zeroext true)
           to label %invoke.cont10 unwind label %lpad
 
 invoke.cont10:                                    ; preds = %if.then
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen13HTTPExceptionE, i64 16), ptr %ex, align 8
-  %partialMsg_.i = getelementptr inbounds i8, ptr %ex, i64 88
+  %partialMsg_.i = getelementptr inbounds nuw i8, ptr %ex, i64 88
   %5 = load ptr, ptr %partialMsg_.i, align 8
   %cmp.not.i.i = icmp eq ptr %5, null
   br i1 %cmp.not.i.i, label %_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit.i, label %_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i.i
@@ -283,7 +283,7 @@ _ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i.i: ; preds = %inv
 
 _ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i.i, %invoke.cont10
   store ptr null, ptr %partialMsg_.i, align 8
-  %currentIngressBuf_.i = getelementptr inbounds i8, ptr %ex, i64 80
+  %currentIngressBuf_.i = getelementptr inbounds nuw i8, ptr %ex, i64 80
   %6 = load ptr, ptr %currentIngressBuf_.i, align 8
   %cmp.not.i1.i = icmp eq ptr %6, null
   br i1 %cmp.not.i1.i, label %_ZN8proxygen13HTTPExceptionD2Ev.exit, label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i
@@ -296,7 +296,7 @@ _ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i: ; preds = %_ZNSt10unique
 _ZN8proxygen13HTTPExceptionD2Ev.exit:             ; preds = %_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit.i, %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i
   store ptr null, ptr %currentIngressBuf_.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen9ExceptionE, i64 16), ptr %ex, align 8
-  %msg_.i.i = getelementptr inbounds i8, ptr %ex, i64 8
+  %msg_.i.i = getelementptr inbounds nuw i8, ptr %ex, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %msg_.i.i) #15
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %ex) #15
   br label %return
@@ -308,13 +308,13 @@ lpad:                                             ; preds = %if.then
   br label %eh.resume
 
 if.end:                                           ; preds = %land.lhs.true5, %land.lhs.true, %entry
-  %callback_11 = getelementptr inbounds i8, ptr %this, i64 32
+  %callback_11 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %8 = load ptr, ptr %callback_11, align 8
   %9 = load i64, ptr %msg, align 8
   store i64 %9, ptr %agg.tmp12, align 8
   store ptr null, ptr %msg, align 8
   %vtable13 = load ptr, ptr %8, align 8
-  %vfn14 = getelementptr inbounds i8, ptr %vtable13, i64 24
+  %vfn14 = getelementptr inbounds nuw i8, ptr %vtable13, i64 24
   %10 = load ptr, ptr %vfn14, align 8
   invoke void %10(ptr noundef nonnull align 8 dereferenceable(8) %8, i64 noundef %stream, ptr noundef nonnull %agg.tmp12)
           to label %invoke.cont16 unwind label %lpad15
@@ -357,7 +357,7 @@ declare i32 @__gxx_personality_v0(...)
 define linkonce_odr void @_ZN8proxygen13HTTPExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen13HTTPExceptionE, i64 16), ptr %this, align 8
-  %partialMsg_ = getelementptr inbounds i8, ptr %this, i64 88
+  %partialMsg_ = getelementptr inbounds nuw i8, ptr %this, i64 88
   %0 = load ptr, ptr %partialMsg_, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i
@@ -369,7 +369,7 @@ _ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i: ; preds = %entry
 
 _ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit: ; preds = %entry, %_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i
   store ptr null, ptr %partialMsg_, align 8
-  %currentIngressBuf_ = getelementptr inbounds i8, ptr %this, i64 80
+  %currentIngressBuf_ = getelementptr inbounds nuw i8, ptr %this, i64 80
   %1 = load ptr, ptr %currentIngressBuf_, align 8
   %cmp.not.i1 = icmp eq ptr %1, null
   br i1 %cmp.not.i1, label %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i
@@ -382,7 +382,7 @@ _ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i: ; preds = %_ZNSt10unique_p
 _ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit, %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i
   store ptr null, ptr %currentIngressBuf_, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen9ExceptionE, i64 16), ptr %this, align 8
-  %msg_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %msg_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %msg_.i) #15
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) #15
   ret void
@@ -418,13 +418,13 @@ define void @_ZN8proxygen10HTTPChecks14generateHeaderERN5folly10IOBufQueueEmRKNS
 entry:
   %agg.tmp = alloca %"class.folly::Optional.49", align 4
   %ref.tmp5 = alloca %"class.google::LogMessageFatal", align 8
-  %fields_.i = getelementptr inbounds i8, ptr %msg, i64 168
+  %fields_.i = getelementptr inbounds nuw i8, ptr %msg, i64 168
   %0 = load i8, ptr %fields_.i, align 8
   %cmp.i = icmp eq i8 %0, 1
   br i1 %cmp.i, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
-  %headers_.i = getelementptr inbounds i8, ptr %msg, i64 480
+  %headers_.i = getelementptr inbounds nuw i8, ptr %msg, i64 480
   %call3 = tail call noundef zeroext i1 @_ZN8proxygen7RFC261611bodyImpliedERKNS_11HTTPHeadersE(ptr noundef nonnull align 8 dereferenceable(32) %headers_.i)
   br i1 %call3, label %if.then, label %if.end
 
@@ -454,10 +454,10 @@ lpad:                                             ; preds = %invoke.cont, %cond.
   unreachable
 
 if.end:                                           ; preds = %if.then, %land.lhs.true, %entry
-  %call_ = getelementptr inbounds i8, ptr %this, i64 24
+  %call_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %2 = load ptr, ptr %call_, align 8
   %vtable = load ptr, ptr %2, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 184
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 184
   %3 = load ptr, ptr %vfn, align 8
   call void %3(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(72) %writeBuf, i64 noundef %stream, ptr noundef nonnull align 8 dereferenceable(616) %msg, i1 noundef zeroext %eom, ptr noundef %sizeOut, ptr noundef nonnull align 8 dereferenceable(40) %extraHeaders)
   ret void
@@ -476,14 +476,14 @@ declare void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 derefe
 define linkonce_odr void @_ZN8proxygen10HTTPChecksD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EEE, i64 16), ptr %this, align 8
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EEE, i64 464), ptr %add.ptr.i.i, align 8
-  %callbackSource_.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  %callbackSource_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   store ptr null, ptr %callbackSource_.i.i, align 8
-  %next_.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %next_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %next_.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
-  %call_.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %call_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load ptr, ptr %call_.i.i, align 8
   %cond.i.i = select i1 %tobool.not.i.i, ptr %1, ptr %0
   invoke void @_ZN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EE4dropEv(ptr noundef nonnull align 8 dereferenceable(72) %this)
@@ -495,7 +495,7 @@ invoke.cont.i.i:                                  ; preds = %entry
 
 _ZNKSt14default_deleteIN8proxygen9HTTPCodecEEclEPS1_.exit.i.i: ; preds = %invoke.cont.i.i
   %vtable.i.i.i = load ptr, ptr %cond.i.i, align 8
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
+  %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 8
   %2 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(8) %cond.i.i) #15
   br label %_ZN8proxygen26PassThroughHTTPCodecFilterD2Ev.exit
@@ -515,14 +515,14 @@ _ZN8proxygen26PassThroughHTTPCodecFilterD2Ev.exit: ; preds = %invoke.cont.i.i, %
 define linkonce_odr void @_ZN8proxygen10HTTPChecksD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EEE, i64 16), ptr %this, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EEE, i64 464), ptr %add.ptr.i.i.i, align 8
-  %callbackSource_.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  %callbackSource_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   store ptr null, ptr %callbackSource_.i.i.i, align 8
-  %next_.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %next_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %next_.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
-  %call_.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %call_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load ptr, ptr %call_.i.i.i, align 8
   %cond.i.i.i = select i1 %tobool.not.i.i.i, ptr %1, ptr %0
   invoke void @_ZN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EE4dropEv(ptr noundef nonnull align 8 dereferenceable(72) %this)
@@ -534,7 +534,7 @@ invoke.cont.i.i.i:                                ; preds = %entry
 
 _ZNKSt14default_deleteIN8proxygen9HTTPCodecEEclEPS1_.exit.i.i.i: ; preds = %invoke.cont.i.i.i
   %vtable.i.i.i.i = load ptr, ptr %cond.i.i.i, align 8
-  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 8
+  %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 8
   %2 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(8) %cond.i.i.i) #15
   br label %_ZN8proxygen10HTTPChecksD2Ev.exit
@@ -622,14 +622,14 @@ define linkonce_odr noundef i64 @_ZN8proxygen9HTTPCodec23generateImmediateGoaway
 entry:
   %agg.tmp = alloca %"class.std::unique_ptr.55", align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 392
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 392
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(8) %this)
   %1 = load i64, ptr %debugData, align 8
   store i64 %1, ptr %agg.tmp, align 8
   store ptr null, ptr %debugData, align 8
   %vtable2 = load ptr, ptr %this, align 8
-  %vfn3 = getelementptr inbounds i8, ptr %vtable2, i64 264
+  %vfn3 = getelementptr inbounds nuw i8, ptr %vtable2, i64 264
   %2 = load ptr, ptr %vfn3, align 8
   %call4 = invoke noundef i64 %2(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(72) %writeBuf, i64 noundef %call, i8 noundef zeroext %code, ptr noundef nonnull %agg.tmp)
           to label %invoke.cont unwind label %lpad
@@ -808,12 +808,12 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EEE, i64 16), ptr %0, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EEE, i64 464), ptr %this, align 8
-  %callbackSource_.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
+  %callbackSource_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   store ptr null, ptr %callbackSource_.i.i.i, align 8
-  %next_.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %next_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %1 = load ptr, ptr %next_.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %1, null
-  %call_.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %call_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load ptr, ptr %call_.i.i.i, align 8
   %cond.i.i.i = select i1 %tobool.not.i.i.i, ptr %2, ptr %1
   invoke void @_ZN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EE4dropEv(ptr noundef nonnull align 8 dereferenceable(72) %0)
@@ -825,7 +825,7 @@ invoke.cont.i.i.i:                                ; preds = %entry
 
 _ZNKSt14default_deleteIN8proxygen9HTTPCodecEEclEPS1_.exit.i.i.i: ; preds = %invoke.cont.i.i.i
   %vtable.i.i.i.i = load ptr, ptr %cond.i.i.i, align 8
-  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 8
+  %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 8
   %3 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(8) %cond.i.i.i) #15
   br label %_ZN8proxygen10HTTPChecksD2Ev.exit
@@ -847,12 +847,12 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EEE, i64 16), ptr %0, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EEE, i64 464), ptr %this, align 8
-  %callbackSource_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
+  %callbackSource_.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   store ptr null, ptr %callbackSource_.i.i.i.i, align 8
-  %next_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %next_.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %1 = load ptr, ptr %next_.i.i.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %1, null
-  %call_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %call_.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load ptr, ptr %call_.i.i.i.i, align 8
   %cond.i.i.i.i = select i1 %tobool.not.i.i.i.i, ptr %2, ptr %1
   invoke void @_ZN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EE4dropEv(ptr noundef nonnull align 8 dereferenceable(72) %0)
@@ -864,7 +864,7 @@ invoke.cont.i.i.i.i:                              ; preds = %entry
 
 _ZNKSt14default_deleteIN8proxygen9HTTPCodecEEclEPS1_.exit.i.i.i.i: ; preds = %invoke.cont.i.i.i.i
   %vtable.i.i.i.i.i = load ptr, ptr %cond.i.i.i.i, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 8
+  %vfn.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i, i64 8
   %3 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(8) %cond.i.i.i.i) #15
   br label %_ZN8proxygen10HTTPChecksD0Ev.exit
@@ -902,7 +902,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 define linkonce_odr void @_ZN8proxygen13HTTPExceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen13HTTPExceptionE, i64 16), ptr %this, align 8
-  %partialMsg_.i = getelementptr inbounds i8, ptr %this, i64 88
+  %partialMsg_.i = getelementptr inbounds nuw i8, ptr %this, i64 88
   %0 = load ptr, ptr %partialMsg_.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit.i, label %_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i.i
@@ -914,7 +914,7 @@ _ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i.i: ; preds = %ent
 
 _ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i.i, %entry
   store ptr null, ptr %partialMsg_.i, align 8
-  %currentIngressBuf_.i = getelementptr inbounds i8, ptr %this, i64 80
+  %currentIngressBuf_.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   %1 = load ptr, ptr %currentIngressBuf_.i, align 8
   %cmp.not.i1.i = icmp eq ptr %1, null
   br i1 %cmp.not.i1.i, label %_ZN8proxygen13HTTPExceptionD2Ev.exit, label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i
@@ -927,7 +927,7 @@ _ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i: ; preds = %_ZNSt10unique
 _ZN8proxygen13HTTPExceptionD2Ev.exit:             ; preds = %_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit.i, %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i
   store ptr null, ptr %currentIngressBuf_.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen9ExceptionE, i64 16), ptr %this, align 8
-  %msg_.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %msg_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %msg_.i.i) #15
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) #15
   tail call void @_ZdlPv(ptr noundef nonnull %this) #16
@@ -970,15 +970,15 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EE4dropEv(ptr noundef nonnull align 8 dereferenceable(72) %this) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %prev_ = getelementptr inbounds i8, ptr %this, i64 48
+  %prev_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %prev_, align 8
   %tobool.not = icmp eq ptr %0, null
-  %next_4.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 40
+  %next_4.phi.trans.insert = getelementptr inbounds nuw i8, ptr %this, i64 40
   %.pre = load ptr, ptr %next_4.phi.trans.insert, align 8
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %next_3 = getelementptr inbounds i8, ptr %0, i64 40
+  %next_3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.pre, ptr %next_3, align 8
   br label %if.end
 
@@ -988,26 +988,26 @@ if.end:                                           ; preds = %entry, %if.then
 
 if.then6:                                         ; preds = %if.end
   %1 = load ptr, ptr %prev_, align 8
-  %prev_9 = getelementptr inbounds i8, ptr %.pre, i64 48
+  %prev_9 = getelementptr inbounds nuw i8, ptr %.pre, i64 48
   store ptr %1, ptr %prev_9, align 8
   br label %if.end10
 
 if.end10:                                         ; preds = %if.then6, %if.end
-  %kWantsCalls_ = getelementptr inbounds i8, ptr %this, i64 16
+  %kWantsCalls_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load i8, ptr %kWantsCalls_, align 8
   %tobool11 = trunc i8 %2 to i1
   br i1 %tobool11, label %land.lhs.true, label %if.end26
 
 land.lhs.true:                                    ; preds = %if.end10
-  %callSource_ = getelementptr inbounds i8, ptr %this, i64 56
+  %callSource_ = getelementptr inbounds nuw i8, ptr %this, i64 56
   %3 = load ptr, ptr %callSource_, align 8
   %tobool12.not = icmp eq ptr %3, null
   br i1 %tobool12.not, label %if.end26, label %if.then13
 
 if.then13:                                        ; preds = %land.lhs.true
-  %call_ = getelementptr inbounds i8, ptr %this, i64 24
+  %call_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %4 = load ptr, ptr %call_, align 8
-  %call_15 = getelementptr inbounds i8, ptr %3, i64 24
+  %call_15 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %4, ptr %call_15, align 8
   %tobool17.not = icmp eq ptr %4, null
   br i1 %tobool17.not, label %if.end26, label %dynamic_cast.notnull
@@ -1019,18 +1019,18 @@ dynamic_cast.notnull:                             ; preds = %if.then13
 
 if.then21:                                        ; preds = %dynamic_cast.notnull
   %6 = load ptr, ptr %callSource_, align 8
-  %callSource_23 = getelementptr inbounds i8, ptr %5, i64 56
+  %callSource_23 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store ptr %6, ptr %callSource_23, align 8
   br label %if.end26
 
 if.end26:                                         ; preds = %if.then13, %if.then21, %dynamic_cast.notnull, %land.lhs.true, %if.end10
-  %kWantsCallbacks_ = getelementptr inbounds i8, ptr %this, i64 17
+  %kWantsCallbacks_ = getelementptr inbounds nuw i8, ptr %this, i64 17
   %7 = load i8, ptr %kWantsCallbacks_, align 1
   %tobool27 = trunc i8 %7 to i1
   br i1 %tobool27, label %land.lhs.true28, label %if.end45
 
 land.lhs.true28:                                  ; preds = %if.end26
-  %callbackSource_ = getelementptr inbounds i8, ptr %this, i64 64
+  %callbackSource_ = getelementptr inbounds nuw i8, ptr %this, i64 64
   %8 = load ptr, ptr %callbackSource_, align 8
   %tobool29.not = icmp eq ptr %8, null
   br i1 %tobool29.not, label %if.end45, label %if.then30
@@ -1039,7 +1039,7 @@ if.then30:                                        ; preds = %land.lhs.true28
   %vtable = load ptr, ptr %8, align 8
   %9 = getelementptr i8, ptr %vtable, i64 72, !nosanitize !4
   %memptr.virtualfn = load ptr, ptr %9, align 8, !nosanitize !4
-  %callback_ = getelementptr inbounds i8, ptr %this, i64 32
+  %callback_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %10 = load ptr, ptr %callback_, align 8
   tail call void %memptr.virtualfn(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %10)
   %11 = load ptr, ptr %callback_, align 8
@@ -1053,12 +1053,12 @@ dynamic_cast.notnull36:                           ; preds = %if.then30
 
 if.then40:                                        ; preds = %dynamic_cast.notnull36
   %13 = load ptr, ptr %callbackSource_, align 8
-  %callbackSource_42 = getelementptr inbounds i8, ptr %12, i64 64
+  %callbackSource_42 = getelementptr inbounds nuw i8, ptr %12, i64 64
   store ptr %13, ptr %callbackSource_42, align 8
   br label %if.end45
 
 if.end45:                                         ; preds = %if.then30, %if.then40, %dynamic_cast.notnull36, %land.lhs.true28, %if.end26
-  %call_47 = getelementptr inbounds i8, ptr %this, i64 24
+  %call_47 = getelementptr inbounds nuw i8, ptr %this, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %call_47, i8 0, i64 48, i1 false)
   ret void
 }
@@ -1067,14 +1067,14 @@ if.end45:                                         ; preds = %if.then30, %if.then
 define linkonce_odr void @_ZN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EEE, i64 16), ptr %this, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %this, i64 8
+  %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EEE, i64 464), ptr %add.ptr, align 8
-  %callbackSource_ = getelementptr inbounds i8, ptr %this, i64 64
+  %callbackSource_ = getelementptr inbounds nuw i8, ptr %this, i64 64
   store ptr null, ptr %callbackSource_, align 8
-  %next_ = getelementptr inbounds i8, ptr %this, i64 40
+  %next_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %next_, align 8
   %tobool.not = icmp eq ptr %0, null
-  %call_ = getelementptr inbounds i8, ptr %this, i64 24
+  %call_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load ptr, ptr %call_, align 8
   %cond = select i1 %tobool.not, ptr %1, ptr %0
   invoke void @_ZN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EE4dropEv(ptr noundef nonnull align 8 dereferenceable(72) %this)
@@ -1086,7 +1086,7 @@ invoke.cont:                                      ; preds = %entry
 
 _ZNKSt14default_deleteIN8proxygen9HTTPCodecEEclEPS1_.exit: ; preds = %invoke.cont
   %vtable.i = load ptr, ptr %cond, align 8
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 8
   %2 = load ptr, ptr %vfn.i, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(8) %cond) #15
   br label %if.end
@@ -1442,12 +1442,12 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EEE, i64 16), ptr %0, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EEE, i64 464), ptr %this, align 8
-  %callbackSource_.i = getelementptr inbounds i8, ptr %this, i64 56
+  %callbackSource_.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   store ptr null, ptr %callbackSource_.i, align 8
-  %next_.i = getelementptr inbounds i8, ptr %this, i64 32
+  %next_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %1 = load ptr, ptr %next_.i, align 8
   %tobool.not.i = icmp eq ptr %1, null
-  %call_.i = getelementptr inbounds i8, ptr %this, i64 16
+  %call_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load ptr, ptr %call_.i, align 8
   %cond.i = select i1 %tobool.not.i, ptr %2, ptr %1
   invoke void @_ZN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EE4dropEv(ptr noundef nonnull align 8 dereferenceable(72) %0)
@@ -1459,7 +1459,7 @@ invoke.cont.i:                                    ; preds = %entry
 
 _ZNKSt14default_deleteIN8proxygen9HTTPCodecEEclEPS1_.exit.i: ; preds = %invoke.cont.i
   %vtable.i.i = load ptr, ptr %cond.i, align 8
-  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
+  %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 8
   %3 = load ptr, ptr %vfn.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(8) %cond.i) #15
   br label %_ZN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EED2Ev.exit

@@ -23,7 +23,7 @@ $_ZN4absl13base_internal10AtomicHookIPFvPKvlEE13DummyFunctionES3_l = comdat any
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define dso_local void @_ZN4absl13base_internal24RegisterSpinLockProfilerEPFvPKvlE(ptr noundef %fn) local_unnamed_addr #0 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4absl13base_internalL19submit_profile_dataE, i64 8), align 8
+  %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl13base_internalL19submit_profile_dataE, i64 8), align 8
   %1 = ptrtoint ptr %0 to i64
   %2 = ptrtoint ptr %fn to i64
   %3 = cmpxchg ptr @_ZN4absl13base_internalL19submit_profile_dataE, i64 %1, i64 %2 acq_rel acquire, align 8

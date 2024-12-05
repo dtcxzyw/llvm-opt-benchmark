@@ -29,15 +29,15 @@ $__clang_call_terminate = comdat any
 define hidden void @_ZN7nanogui10ImagePanelC2EPNS_6WidgetE(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   tail call void @_ZN7nanogui6WidgetC2EPS0_(ptr noundef nonnull align 8 dereferenceable(140) %0, ptr noundef %1)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7nanogui10ImagePanelE, i64 16), ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 144
-  %4 = getelementptr inbounds i8, ptr %0, i64 200
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 200
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 56, i1 false)
   store i32 64, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 204
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 204
   store i32 10, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 208
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 208
   store i32 10, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 212
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 212
   store i32 -1, ptr %7, align 4
   ret void
 }
@@ -46,17 +46,17 @@ declare void @_ZN7nanogui6WidgetC2EPS0_(ptr noundef nonnull align 8 dereferencea
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden range(i64 1, 0) i64 @_ZNK7nanogui10ImagePanel9grid_sizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(216) %0) local_unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i32, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 208
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %5 = load i32, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 200
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %7 = load i32, ptr %6, align 8
   %8 = shl i32 %5, 1
   %9 = add i32 %7, %8
   %10 = sub i32 %3, %9
   %11 = sitofp i32 %10 to float
-  %12 = getelementptr inbounds i8, ptr %0, i64 204
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 204
   %13 = load i32, ptr %12, align 4
   %14 = add nsw i32 %13, %7
   %15 = sitofp i32 %14 to float
@@ -64,8 +64,8 @@ define hidden range(i64 1, 0) i64 @_ZNK7nanogui10ImagePanel9grid_sizeEv(ptr noca
   %17 = fptosi float %16 to i32
   %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %17, i32 0)
   %18 = add nuw nsw i32 %.sroa.speculated, 1
-  %19 = getelementptr inbounds i8, ptr %0, i64 144
-  %20 = getelementptr inbounds i8, ptr %0, i64 152
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %21 = load ptr, ptr %20, align 8
   %22 = load ptr, ptr %19, align 8
   %23 = ptrtoint ptr %21 to i64
@@ -85,25 +85,25 @@ define hidden range(i64 1, 0) i64 @_ZNK7nanogui10ImagePanel9grid_sizeEv(ptr noca
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef i32 @_ZNK7nanogui10ImagePanel18index_for_positionERKNS_5ArrayIiLm2EEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(216) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1) local_unnamed_addr #3 align 2 {
 _ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.critedge:
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i32, ptr %1, align 4
   %4 = load i32, ptr %2, align 8
   %5 = sub nsw i32 %3, %4
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %7 = load i32, ptr %6, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 44
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %9 = load i32, ptr %8, align 4
   %10 = sub nsw i32 %7, %9
   %11 = sitofp i32 %5 to float
   %12 = sitofp i32 %10 to float
-  %13 = getelementptr inbounds i8, ptr %0, i64 208
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %14 = load i32, ptr %13, align 8
   %15 = sitofp i32 %14 to float
   %16 = fsub float %11, %15
   %17 = fsub float %12, %15
-  %18 = getelementptr inbounds i8, ptr %0, i64 200
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %19 = load i32, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 204
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 204
   %21 = load i32, ptr %20, align 4
   %22 = add nsw i32 %21, %19
   %23 = sitofp i32 %22 to float
@@ -111,7 +111,7 @@ _ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.critedge:
   %25 = fdiv float %17, %23
   %26 = fptosi float %24 to i32
   %27 = fptosi float %25 to i32
-  %28 = getelementptr inbounds i8, ptr %0, i64 48
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %29 = load i32, ptr %28, align 8
   %.neg = mul i32 %14, -2
   %.neg68 = sub i32 %.neg, %19
@@ -125,10 +125,10 @@ _ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.critedge:
   br i1 %35, label %36, label %53
 
 36:                                               ; preds = %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.critedge
-  %37 = getelementptr inbounds i8, ptr %0, i64 152
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %38 = load ptr, ptr %37, align 8
   %39 = ptrtoint ptr %38 to i64
-  %40 = getelementptr inbounds i8, ptr %0, i64 144
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %41 = load ptr, ptr %40, align 8
   %42 = ptrtoint ptr %41 to i64
   %43 = sub i64 %39, %42
@@ -168,7 +168,7 @@ _ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.critedge:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden noundef zeroext i1 @_ZN7nanogui10ImagePanel18mouse_motion_eventERKNS_5ArrayIiLm2EEES4_ii(ptr nocapture noundef nonnull align 8 dereferenceable(216) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1, ptr nocapture nonnull readnone align 4 %2, i32 %3, i32 %4) unnamed_addr #4 align 2 {
   %6 = tail call noundef i32 @_ZNK7nanogui10ImagePanel18index_for_positionERKNS_5ArrayIiLm2EEE(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull align 4 dereferenceable(8) %1)
-  %7 = getelementptr inbounds i8, ptr %0, i64 212
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 212
   store i32 %6, ptr %7, align 4
   ret i1 true
 }
@@ -181,8 +181,8 @@ define hidden noundef zeroext i1 @_ZN7nanogui10ImagePanel18mouse_button_eventERK
   br i1 %8, label %9, label %26
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %0, i64 144
-  %11 = getelementptr inbounds i8, ptr %0, i64 152
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr %10, align 8
   %14 = ptrtoint ptr %12 to i64
@@ -194,17 +194,17 @@ define hidden noundef zeroext i1 @_ZN7nanogui10ImagePanel18mouse_button_eventERK
   br i1 %19, label %20, label %26
 
 20:                                               ; preds = %9
-  %21 = getelementptr inbounds i8, ptr %0, i64 184
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %22 = load ptr, ptr %21, align 8
   %.not.i.i.not = icmp ne ptr %22, null
   %brmerge.not = and i1 %3, %.not.i.i.not
   br i1 %brmerge.not, label %_ZNKSt8functionIFviEEclEi.exit, label %26
 
 _ZNKSt8functionIFviEEclEi.exit:                   ; preds = %20
-  %23 = getelementptr inbounds i8, ptr %0, i64 168
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 168
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   store i32 %7, ptr %6, align 4
-  %24 = getelementptr inbounds i8, ptr %0, i64 192
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %25 = load ptr, ptr %24, align 8
   call void %25(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 4 dereferenceable(4) %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
@@ -216,17 +216,17 @@ _ZNKSt8functionIFviEEclEi.exit:                   ; preds = %20
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden i64 @_ZNK7nanogui10ImagePanel14preferred_sizeEP10NVGcontext(ptr nocapture noundef nonnull readonly align 8 dereferenceable(216) %0, ptr nocapture readnone %1) unnamed_addr #2 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i32, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 208
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %6 = load i32, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 200
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %8 = load i32, ptr %7, align 8
   %9 = shl i32 %6, 1
   %10 = add i32 %9, %8
   %11 = sub i32 %4, %10
   %12 = sitofp i32 %11 to float
-  %13 = getelementptr inbounds i8, ptr %0, i64 204
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 204
   %14 = load i32, ptr %13, align 4
   %15 = add nsw i32 %14, %8
   %16 = sitofp i32 %15 to float
@@ -234,8 +234,8 @@ define hidden i64 @_ZNK7nanogui10ImagePanel14preferred_sizeEP10NVGcontext(ptr no
   %18 = fptosi float %17 to i32
   %.sroa.speculated.i = tail call i32 @llvm.smax.i32(i32 %18, i32 0)
   %19 = add nuw nsw i32 %.sroa.speculated.i, 1
-  %20 = getelementptr inbounds i8, ptr %0, i64 144
-  %21 = getelementptr inbounds i8, ptr %0, i64 152
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %22 = load ptr, ptr %21, align 8
   %23 = load ptr, ptr %20, align 8
   %24 = ptrtoint ptr %22 to i64
@@ -268,17 +268,17 @@ define hidden void @_ZN7nanogui10ImagePanel4drawEP10NVGcontext(ptr nocapture nou
   %5 = alloca %struct.NVGpaint, align 8
   %6 = alloca %struct.NVGpaint, align 8
   %7 = alloca %struct.NVGcolor, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %9 = load i32, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 208
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %11 = load i32, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 200
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %13 = load i32, ptr %12, align 8
   %14 = shl i32 %11, 1
   %15 = add i32 %14, %13
   %16 = sub i32 %9, %15
   %17 = sitofp i32 %16 to float
-  %18 = getelementptr inbounds i8, ptr %0, i64 204
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 204
   %19 = load i32, ptr %18, align 4
   %20 = add nsw i32 %19, %13
   %21 = sitofp i32 %20 to float
@@ -286,18 +286,18 @@ define hidden void @_ZN7nanogui10ImagePanel4drawEP10NVGcontext(ptr nocapture nou
   %23 = fptosi float %22 to i32
   %.sroa.speculated.i = tail call i32 @llvm.smax.i32(i32 %23, i32 0)
   %24 = add nuw nsw i32 %.sroa.speculated.i, 1
-  %25 = getelementptr inbounds i8, ptr %0, i64 144
-  %26 = getelementptr inbounds i8, ptr %0, i64 152
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %27 = load ptr, ptr %26, align 8
   %28 = load ptr, ptr %25, align 8
   %.not = icmp eq ptr %27, %28
   br i1 %.not, label %._crit_edge, label %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge.lr.ph
 
 _ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge.lr.ph: ; preds = %2
-  %29 = getelementptr inbounds i8, ptr %0, i64 40
-  %30 = getelementptr inbounds i8, ptr %0, i64 44
-  %31 = getelementptr inbounds i8, ptr %0, i64 212
-  %32 = getelementptr inbounds i8, ptr %7, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 212
+  %32 = getelementptr inbounds nuw i8, ptr %7, i64 8
   br label %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge
 
 _ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge:       ; preds = %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge.lr.ph, %70
@@ -453,13 +453,13 @@ declare void @nvgStroke(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7nanogui10ImagePanelD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7nanogui10ImagePanelE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 184
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i, label %_ZNSt8functionIFviEED2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 168
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %6 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %_ZNSt8functionIFviEED2Ev.exit unwind label %7
 
@@ -471,18 +471,18 @@ define linkonce_odr hidden void @_ZN7nanogui10ImagePanelD2Ev(ptr noundef nonnull
   unreachable
 
 _ZNSt8functionIFviEED2Ev.exit:                    ; preds = %1, %4
-  %10 = getelementptr inbounds i8, ptr %0, i64 144
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 152
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %13 = load ptr, ptr %12, align 8
   %.not4.i.i.i.i = icmp eq ptr %11, %13
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPSt4pairIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEES7_EvT_S9_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNSt8functionIFviEED2Ev.exit, %.lr.ph.i.i.i.i
   %.05.i.i.i.i = phi ptr [ %15, %.lr.ph.i.i.i.i ], [ %11, %_ZNSt8functionIFviEED2Ev.exit ]
-  %14 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #16
-  %15 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 40
   %.not.i.i.i.i = icmp eq ptr %15, %13
   br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPSt4pairIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEES7_EvT_S9_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !7
 
@@ -507,13 +507,13 @@ _ZNSt6vectorISt4pairIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS7
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7nanogui10ImagePanelD0Ev(ptr noundef nonnull align 8 dereferenceable(216) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7nanogui10ImagePanelE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 184
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i, label %_ZNSt8functionIFviEED2Ev.exit.i, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 168
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %6 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %_ZNSt8functionIFviEED2Ev.exit.i unwind label %7
 
@@ -525,18 +525,18 @@ define linkonce_odr hidden void @_ZN7nanogui10ImagePanelD0Ev(ptr noundef nonnull
   unreachable
 
 _ZNSt8functionIFviEED2Ev.exit.i:                  ; preds = %4, %1
-  %10 = getelementptr inbounds i8, ptr %0, i64 144
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 152
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %13 = load ptr, ptr %12, align 8
   %.not4.i.i.i.i.i = icmp eq ptr %11, %13
   br i1 %.not4.i.i.i.i.i, label %_ZSt8_DestroyIPSt4pairIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEES7_EvT_S9_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZNSt8functionIFviEED2Ev.exit.i, %.lr.ph.i.i.i.i.i
   %.05.i.i.i.i.i = phi ptr [ %15, %.lr.ph.i.i.i.i.i ], [ %11, %_ZNSt8functionIFviEED2Ev.exit.i ]
-  %14 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #16
-  %15 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 40
   %.not.i.i.i.i.i = icmp eq ptr %15, %13
   br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPSt4pairIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEES7_EvT_S9_RSaIT0_E.exitthread-pre-split.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !7
 

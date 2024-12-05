@@ -38,9 +38,9 @@ define range(i32 -2147483648, 1) i32 @PaUtil_InitializeBufferProcessor(ptr nound
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %11, ptr %29, align 8
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %31 = getelementptr inbounds i8, ptr %0, i64 216
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  %33 = getelementptr inbounds i8, ptr %0, i64 256
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %34 = icmp eq i64 %9, 0
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %30, i8 0, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %32, i8 0, i64 16, i1 false)
@@ -238,7 +238,7 @@ CalculateFrameShift.exit:                         ; preds = %.lr.ph.i, %LCM.exit
   br i1 %126, label %181, label %127
 
 127:                                              ; preds = %123
-  %128 = getelementptr inbounds %struct.PaUtilChannelDescriptor, ptr %125, i64 %113
+  %128 = getelementptr inbounds nuw %struct.PaUtilChannelDescriptor, ptr %125, i64 %113
   store ptr %128, ptr %31, align 8
   br label %129
 
@@ -313,7 +313,7 @@ CalculateFrameShift.exit:                         ; preds = %.lr.ph.i, %LCM.exit
   br i1 %172, label %181, label %173
 
 173:                                              ; preds = %169
-  %174 = getelementptr inbounds %struct.PaUtilChannelDescriptor, ptr %171, i64 %159
+  %174 = getelementptr inbounds nuw %struct.PaUtilChannelDescriptor, ptr %171, i64 %159
   store ptr %174, ptr %33, align 8
   br label %175
 
@@ -569,10 +569,10 @@ define void @PaUtil_SetInputChannel(ptr nocapture noundef readonly %0, i32 nound
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %6 = load ptr, ptr %5, align 8
   %7 = zext i32 %1 to i64
-  %8 = getelementptr inbounds %struct.PaUtilChannelDescriptor, ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw %struct.PaUtilChannelDescriptor, ptr %6, i64 %7
   store ptr %2, ptr %8, align 8
   %9 = load ptr, ptr %5, align 8
-  %10 = getelementptr inbounds %struct.PaUtilChannelDescriptor, ptr %9, i64 %7, i32 1
+  %10 = getelementptr inbounds nuw %struct.PaUtilChannelDescriptor, ptr %9, i64 %7, i32 1
   store i32 %3, ptr %10, align 8
   ret void
 }
@@ -602,13 +602,13 @@ define void @PaUtil_SetInterleavedInputChannels(ptr nocapture noundef readonly %
   %13 = trunc nuw i64 %indvars.iv to i32
   %14 = add i32 %1, %13
   %15 = zext i32 %14 to i64
-  %16 = getelementptr inbounds %struct.PaUtilChannelDescriptor, ptr %12, i64 %15
+  %16 = getelementptr inbounds nuw %struct.PaUtilChannelDescriptor, ptr %12, i64 %15
   store ptr %.020, ptr %16, align 8
   %17 = load i32, ptr %10, align 4
   %18 = zext i32 %17 to i64
-  %19 = getelementptr inbounds i8, ptr %.020, i64 %18
+  %19 = getelementptr inbounds nuw i8, ptr %.020, i64 %18
   %20 = load ptr, ptr %9, align 8
-  %21 = getelementptr inbounds %struct.PaUtilChannelDescriptor, ptr %20, i64 %15, i32 1
+  %21 = getelementptr inbounds nuw %struct.PaUtilChannelDescriptor, ptr %20, i64 %15, i32 1
   store i32 %.01624, ptr %21, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -623,30 +623,30 @@ define void @PaUtil_SetNonInterleavedInputChannel(ptr nocapture noundef readonly
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %5 = load ptr, ptr %4, align 8
   %6 = zext i32 %1 to i64
-  %7 = getelementptr inbounds %struct.PaUtilChannelDescriptor, ptr %5, i64 %6
+  %7 = getelementptr inbounds nuw %struct.PaUtilChannelDescriptor, ptr %5, i64 %6
   store ptr %2, ptr %7, align 8
   %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds %struct.PaUtilChannelDescriptor, ptr %8, i64 %6, i32 1
+  %9 = getelementptr inbounds nuw %struct.PaUtilChannelDescriptor, ptr %8, i64 %6, i32 1
   store i32 1, ptr %9, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @PaUtil_Set2ndInputFrameCount(ptr nocapture noundef writeonly initializes((200, 208)) %0, i64 noundef %1) local_unnamed_addr #7 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 200
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 200
   store i64 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @PaUtil_Set2ndInputChannel(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #2 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 216
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %6 = load ptr, ptr %5, align 8
   %7 = zext i32 %1 to i64
-  %8 = getelementptr inbounds %struct.PaUtilChannelDescriptor, ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw %struct.PaUtilChannelDescriptor, ptr %6, i64 %7
   store ptr %2, ptr %8, align 8
   %9 = load ptr, ptr %5, align 8
-  %10 = getelementptr inbounds %struct.PaUtilChannelDescriptor, ptr %9, i64 %7, i32 1
+  %10 = getelementptr inbounds nuw %struct.PaUtilChannelDescriptor, ptr %9, i64 %7, i32 1
   store i32 %3, ptr %10, align 8
   ret void
 }
@@ -664,7 +664,7 @@ define void @PaUtil_Set2ndInterleavedInputChannels(ptr nocapture noundef readonl
 
 .lr.ph:                                           ; preds = %4, %6
   %.01624 = phi i32 [ %8, %6 ], [ %3, %4 ]
-  %9 = getelementptr inbounds i8, ptr %0, i64 216
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %wide.trip.count = zext i32 %.01624 to i64
   br label %11
@@ -676,13 +676,13 @@ define void @PaUtil_Set2ndInterleavedInputChannels(ptr nocapture noundef readonl
   %13 = trunc nuw i64 %indvars.iv to i32
   %14 = add i32 %1, %13
   %15 = zext i32 %14 to i64
-  %16 = getelementptr inbounds %struct.PaUtilChannelDescriptor, ptr %12, i64 %15
+  %16 = getelementptr inbounds nuw %struct.PaUtilChannelDescriptor, ptr %12, i64 %15
   store ptr %.020, ptr %16, align 8
   %17 = load i32, ptr %10, align 4
   %18 = zext i32 %17 to i64
-  %19 = getelementptr inbounds i8, ptr %.020, i64 %18
+  %19 = getelementptr inbounds nuw i8, ptr %.020, i64 %18
   %20 = load ptr, ptr %9, align 8
-  %21 = getelementptr inbounds %struct.PaUtilChannelDescriptor, ptr %20, i64 %15, i32 1
+  %21 = getelementptr inbounds nuw %struct.PaUtilChannelDescriptor, ptr %20, i64 %15, i32 1
   store i32 %.01624, ptr %21, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -694,13 +694,13 @@ define void @PaUtil_Set2ndInterleavedInputChannels(ptr nocapture noundef readonl
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @PaUtil_Set2ndNonInterleavedInputChannel(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 216
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %5 = load ptr, ptr %4, align 8
   %6 = zext i32 %1 to i64
-  %7 = getelementptr inbounds %struct.PaUtilChannelDescriptor, ptr %5, i64 %6
+  %7 = getelementptr inbounds nuw %struct.PaUtilChannelDescriptor, ptr %5, i64 %6
   store ptr %2, ptr %7, align 8
   %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds %struct.PaUtilChannelDescriptor, ptr %8, i64 %6, i32 1
+  %9 = getelementptr inbounds nuw %struct.PaUtilChannelDescriptor, ptr %8, i64 %6, i32 1
   store i32 1, ptr %9, align 8
   ret void
 }
@@ -735,10 +735,10 @@ define void @PaUtil_SetOutputChannel(ptr nocapture noundef readonly %0, i32 noun
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %6 = load ptr, ptr %5, align 8
   %7 = zext i32 %1 to i64
-  %8 = getelementptr inbounds %struct.PaUtilChannelDescriptor, ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw %struct.PaUtilChannelDescriptor, ptr %6, i64 %7
   store ptr %2, ptr %8, align 8
   %9 = load ptr, ptr %5, align 8
-  %10 = getelementptr inbounds %struct.PaUtilChannelDescriptor, ptr %9, i64 %7, i32 1
+  %10 = getelementptr inbounds nuw %struct.PaUtilChannelDescriptor, ptr %9, i64 %7, i32 1
   store i32 %3, ptr %10, align 8
   ret void
 }
@@ -768,14 +768,14 @@ define void @PaUtil_SetInterleavedOutputChannels(ptr nocapture noundef readonly 
   %13 = add i32 %1, %12
   %14 = load ptr, ptr %9, align 8
   %15 = zext i32 %13 to i64
-  %16 = getelementptr inbounds %struct.PaUtilChannelDescriptor, ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw %struct.PaUtilChannelDescriptor, ptr %14, i64 %15
   store ptr %.017, ptr %16, align 8
   %17 = load ptr, ptr %9, align 8
-  %18 = getelementptr inbounds %struct.PaUtilChannelDescriptor, ptr %17, i64 %15, i32 1
+  %18 = getelementptr inbounds nuw %struct.PaUtilChannelDescriptor, ptr %17, i64 %15, i32 1
   store i32 %.01321, ptr %18, align 8
   %19 = load i32, ptr %10, align 4
   %20 = zext i32 %19 to i64
-  %21 = getelementptr inbounds i8, ptr %.017, i64 %20
+  %21 = getelementptr inbounds nuw i8, ptr %.017, i64 %20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !8
@@ -789,30 +789,30 @@ define void @PaUtil_SetNonInterleavedOutputChannel(ptr nocapture noundef readonl
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %5 = load ptr, ptr %4, align 8
   %6 = zext i32 %1 to i64
-  %7 = getelementptr inbounds %struct.PaUtilChannelDescriptor, ptr %5, i64 %6
+  %7 = getelementptr inbounds nuw %struct.PaUtilChannelDescriptor, ptr %5, i64 %6
   store ptr %2, ptr %7, align 8
   %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds %struct.PaUtilChannelDescriptor, ptr %8, i64 %6, i32 1
+  %9 = getelementptr inbounds nuw %struct.PaUtilChannelDescriptor, ptr %8, i64 %6, i32 1
   store i32 1, ptr %9, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @PaUtil_Set2ndOutputFrameCount(ptr nocapture noundef writeonly initializes((240, 248)) %0, i64 noundef %1) local_unnamed_addr #7 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 240
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 240
   store i64 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @PaUtil_Set2ndOutputChannel(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #2 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 256
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %6 = load ptr, ptr %5, align 8
   %7 = zext i32 %1 to i64
-  %8 = getelementptr inbounds %struct.PaUtilChannelDescriptor, ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw %struct.PaUtilChannelDescriptor, ptr %6, i64 %7
   store ptr %2, ptr %8, align 8
   %9 = load ptr, ptr %5, align 8
-  %10 = getelementptr inbounds %struct.PaUtilChannelDescriptor, ptr %9, i64 %7, i32 1
+  %10 = getelementptr inbounds nuw %struct.PaUtilChannelDescriptor, ptr %9, i64 %7, i32 1
   store i32 %3, ptr %10, align 8
   ret void
 }
@@ -830,7 +830,7 @@ define void @PaUtil_Set2ndInterleavedOutputChannels(ptr nocapture noundef readon
 
 .lr.ph:                                           ; preds = %4, %6
   %.01321 = phi i32 [ %8, %6 ], [ %3, %4 ]
-  %9 = getelementptr inbounds i8, ptr %0, i64 256
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %wide.trip.count = zext i32 %.01321 to i64
   br label %11
@@ -842,14 +842,14 @@ define void @PaUtil_Set2ndInterleavedOutputChannels(ptr nocapture noundef readon
   %13 = add i32 %1, %12
   %14 = load ptr, ptr %9, align 8
   %15 = zext i32 %13 to i64
-  %16 = getelementptr inbounds %struct.PaUtilChannelDescriptor, ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw %struct.PaUtilChannelDescriptor, ptr %14, i64 %15
   store ptr %.017, ptr %16, align 8
   %17 = load ptr, ptr %9, align 8
-  %18 = getelementptr inbounds %struct.PaUtilChannelDescriptor, ptr %17, i64 %15, i32 1
+  %18 = getelementptr inbounds nuw %struct.PaUtilChannelDescriptor, ptr %17, i64 %15, i32 1
   store i32 %.01321, ptr %18, align 8
   %19 = load i32, ptr %10, align 4
   %20 = zext i32 %19 to i64
-  %21 = getelementptr inbounds i8, ptr %.017, i64 %20
+  %21 = getelementptr inbounds nuw i8, ptr %.017, i64 %20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !9
@@ -860,13 +860,13 @@ define void @PaUtil_Set2ndInterleavedOutputChannels(ptr nocapture noundef readon
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @PaUtil_Set2ndNonInterleavedOutputChannel(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 256
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %5 = load ptr, ptr %4, align 8
   %6 = zext i32 %1 to i64
-  %7 = getelementptr inbounds %struct.PaUtilChannelDescriptor, ptr %5, i64 %6
+  %7 = getelementptr inbounds nuw %struct.PaUtilChannelDescriptor, ptr %5, i64 %6
   store ptr %2, ptr %7, align 8
   %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds %struct.PaUtilChannelDescriptor, ptr %8, i64 %6, i32 1
+  %9 = getelementptr inbounds nuw %struct.PaUtilChannelDescriptor, ptr %8, i64 %6, i32 1
   store i32 1, ptr %9, align 8
   ret void
 }
@@ -895,9 +895,9 @@ define void @PaUtil_BeginBufferProcessing(ptr nocapture noundef initializes((168
   store double %20, ptr %18, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store i64 %2, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 200
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 200
   store i64 0, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 240
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 240
   store i64 0, ptr %23, align 8
   ret void
 }
@@ -928,13 +928,13 @@ define i64 @PaUtil_EndBufferProcessing(ptr noundef %0, ptr nocapture noundef %1)
 12:                                               ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %14 = load i64, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 240
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %16 = load i64, ptr %15, align 8
   %17 = add i64 %16, %14
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %20 = getelementptr inbounds i8, ptr %0, i64 200
-  %21 = getelementptr inbounds i8, ptr %0, i64 216
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 216
   br label %22
 
 22:                                               ; preds = %30, %12
@@ -967,7 +967,7 @@ define i64 @PaUtil_EndBufferProcessing(ptr noundef %0, ptr nocapture noundef %1)
   %.not113 = icmp eq i64 %32, 0
   %.088 = select i1 %.not113, ptr %15, ptr %13
   %.0.in.v = select i1 %.not113, i64 256, i64 248
-  %.0.in = getelementptr inbounds i8, ptr %0, i64 %.0.in.v
+  %.0.in = getelementptr inbounds nuw i8, ptr %0, i64 %.0.in.v
   %.0 = load ptr, ptr %.0.in, align 8
   %33 = load i64, ptr %.088, align 8
   %34 = tail call i64 @llvm.umin.i64(i64 %31, i64 %33)
@@ -995,15 +995,15 @@ define i64 @PaUtil_EndBufferProcessing(ptr noundef %0, ptr nocapture noundef %1)
   %49 = load i32, ptr %4, align 8
   %.not107 = icmp eq i32 %49, 0
   %.in108.v = select i1 %.not107, i64 240, i64 200
-  %.in108 = getelementptr inbounds i8, ptr %0, i64 %.in108.v
+  %.in108 = getelementptr inbounds nuw i8, ptr %0, i64 %.in108.v
   %50 = load i64, ptr %.in108, align 8
   %.not109 = icmp eq i64 %50, 0
   br i1 %.not109, label %.loopexit, label %51
 
 51:                                               ; preds = %42
-  %52 = getelementptr inbounds i8, ptr %0, i64 216
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %0, i64 256
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %55 = load ptr, ptr %54, align 8
   %56 = tail call fastcc i64 @NonAdaptingProcess(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %53, ptr noundef %55, i64 noundef %50)
   %57 = add i64 %56, %48
@@ -1038,13 +1038,13 @@ define i64 @PaUtil_EndBufferProcessing(ptr noundef %0, ptr nocapture noundef %1)
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %74 = load ptr, ptr %73, align 8
   %75 = tail call fastcc i64 @AdaptingInputOnlyProcess(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %74, i64 noundef %72)
-  %76 = getelementptr inbounds i8, ptr %0, i64 200
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %77 = load i64, ptr %76, align 8
   %.not103 = icmp eq i64 %77, 0
   br i1 %.not103, label %.loopexit, label %78
 
 78:                                               ; preds = %70
-  %79 = getelementptr inbounds i8, ptr %0, i64 216
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %80 = load ptr, ptr %79, align 8
   %81 = tail call fastcc i64 @AdaptingInputOnlyProcess(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %80, i64 noundef %77)
   %82 = add i64 %81, %75
@@ -1056,13 +1056,13 @@ define i64 @PaUtil_EndBufferProcessing(ptr noundef %0, ptr nocapture noundef %1)
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %87 = load ptr, ptr %86, align 8
   %88 = tail call fastcc i64 @AdaptingOutputOnlyProcess(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %87, i64 noundef %85)
-  %89 = getelementptr inbounds i8, ptr %0, i64 240
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %90 = load i64, ptr %89, align 8
   %.not102 = icmp eq i64 %90, 0
   br i1 %.not102, label %.loopexit, label %91
 
 91:                                               ; preds = %83
-  %92 = getelementptr inbounds i8, ptr %0, i64 256
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %93 = load ptr, ptr %92, align 8
   %94 = tail call fastcc i64 @AdaptingOutputOnlyProcess(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %93, i64 noundef %90)
   %95 = add i64 %94, %88
@@ -1174,10 +1174,10 @@ define internal fastcc i64 @NonAdaptingProcess(ptr noundef %0, ptr nocapture nou
 
 .lr.ph:                                           ; preds = %62, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %62 ]
-  %65 = getelementptr inbounds %struct.PaUtilChannelDescriptor, ptr %2, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw %struct.PaUtilChannelDescriptor, ptr %2, i64 %indvars.iv
   %66 = load ptr, ptr %65, align 8
   %67 = load ptr, ptr %17, align 8
-  %68 = getelementptr inbounds ptr, ptr %67, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw ptr, ptr %67, i64 %indvars.iv
   store ptr %66, ptr %68, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %69 = load i32, ptr %9, align 8
@@ -1195,7 +1195,7 @@ define internal fastcc i64 @NonAdaptingProcess(ptr noundef %0, ptr nocapture nou
   %77 = mul i64 %..1206, %76
   %78 = getelementptr inbounds i8, ptr %72, i64 %77
   %79 = load ptr, ptr %17, align 8
-  %80 = getelementptr inbounds ptr, ptr %79, i64 %indvars.iv315
+  %80 = getelementptr inbounds nuw ptr, ptr %79, i64 %indvars.iv315
   store ptr %78, ptr %80, align 8
   %indvars.iv.next316 = add nuw nsw i64 %indvars.iv315, 1
   %81 = load i32, ptr %9, align 8
@@ -1246,7 +1246,7 @@ define internal fastcc i64 @NonAdaptingProcess(ptr noundef %0, ptr nocapture nou
   %.1217283 = phi ptr [ %.0216351380, %.lr.ph285 ], [ %97, %95 ]
   %96 = load ptr, ptr %21, align 8
   tail call void %96(ptr noundef %.1217283, i32 noundef %.0213353379, i32 noundef %93) #11
-  %97 = getelementptr inbounds i8, ptr %.1217283, i64 %94
+  %97 = getelementptr inbounds nuw i8, ptr %.1217283, i64 %94
   %98 = add nuw i32 %.2210284, 1
   %99 = load i32, ptr %9, align 8
   %100 = icmp ult i32 %98, %99
@@ -1273,7 +1273,7 @@ define internal fastcc i64 @NonAdaptingProcess(ptr noundef %0, ptr nocapture nou
 
 .lr.ph279:                                        ; preds = %.lr.ph279.preheader, %.lr.ph279
   %indvars.iv318 = phi i64 [ 0, %.lr.ph279.preheader ], [ %indvars.iv.next319, %.lr.ph279 ]
-  %104 = getelementptr inbounds %struct.PaUtilChannelDescriptor, ptr %2, i64 %indvars.iv318
+  %104 = getelementptr inbounds nuw %struct.PaUtilChannelDescriptor, ptr %2, i64 %indvars.iv318
   %105 = load ptr, ptr %104, align 8
   %106 = getelementptr inbounds nuw i8, ptr %104, i64 8
   %107 = load i32, ptr %106, align 8
@@ -1294,12 +1294,12 @@ define internal fastcc i64 @NonAdaptingProcess(ptr noundef %0, ptr nocapture nou
   %indvars.iv321 = phi i64 [ 0, %.lr.ph282 ], [ %indvars.iv.next322, %117 ]
   %.2218280 = phi ptr [ %43, %.lr.ph282 ], [ %123, %117 ]
   %118 = load ptr, ptr %19, align 8
-  %119 = getelementptr inbounds %struct.PaUtilChannelDescriptor, ptr %2, i64 %indvars.iv321
+  %119 = getelementptr inbounds nuw %struct.PaUtilChannelDescriptor, ptr %2, i64 %indvars.iv321
   %120 = load ptr, ptr %119, align 8
   %121 = getelementptr inbounds nuw i8, ptr %119, i64 8
   %122 = load i32, ptr %121, align 8
   tail call void %118(ptr noundef %.2218280, i32 noundef %.0213, ptr noundef %120, i32 noundef %122, i32 noundef %102, ptr noundef nonnull %20) #11
-  %123 = getelementptr inbounds i8, ptr %.2218280, i64 %103
+  %123 = getelementptr inbounds nuw i8, ptr %.2218280, i64 %103
   %124 = load ptr, ptr %119, align 8
   %125 = load i32, ptr %121, align 8
   %126 = zext i32 %125 to i64
@@ -1363,10 +1363,10 @@ define internal fastcc i64 @NonAdaptingProcess(ptr noundef %0, ptr nocapture nou
 
 .lr.ph287:                                        ; preds = %151, %.lr.ph287
   %indvars.iv324 = phi i64 [ %indvars.iv.next325, %.lr.ph287 ], [ 0, %151 ]
-  %153 = getelementptr inbounds %struct.PaUtilChannelDescriptor, ptr %3, i64 %indvars.iv324
+  %153 = getelementptr inbounds nuw %struct.PaUtilChannelDescriptor, ptr %3, i64 %indvars.iv324
   %154 = load ptr, ptr %153, align 8
   %155 = load ptr, ptr %28, align 8
-  %156 = getelementptr inbounds ptr, ptr %155, i64 %indvars.iv324
+  %156 = getelementptr inbounds nuw ptr, ptr %155, i64 %indvars.iv324
   store ptr %154, ptr %156, align 8
   %indvars.iv.next325 = add nuw nsw i64 %indvars.iv324, 1
   %157 = load i32, ptr %22, align 8
@@ -1384,7 +1384,7 @@ define internal fastcc i64 @NonAdaptingProcess(ptr noundef %0, ptr nocapture nou
   %165 = mul i64 %..1206, %164
   %166 = getelementptr inbounds i8, ptr %160, i64 %165
   %167 = load ptr, ptr %28, align 8
-  %168 = getelementptr inbounds ptr, ptr %167, i64 %indvars.iv327
+  %168 = getelementptr inbounds nuw ptr, ptr %167, i64 %indvars.iv327
   store ptr %166, ptr %168, align 8
   %indvars.iv.next328 = add nuw nsw i64 %indvars.iv327, 1
   %169 = load i32, ptr %22, align 8
@@ -1438,7 +1438,7 @@ define internal fastcc i64 @NonAdaptingProcess(ptr noundef %0, ptr nocapture nou
 
 .lr.ph291:                                        ; preds = %195, %.lr.ph291
   %indvars.iv330 = phi i64 [ %indvars.iv.next331, %.lr.ph291 ], [ 0, %195 ]
-  %196 = getelementptr inbounds %struct.PaUtilChannelDescriptor, ptr %3, i64 %indvars.iv330
+  %196 = getelementptr inbounds nuw %struct.PaUtilChannelDescriptor, ptr %3, i64 %indvars.iv330
   %197 = load ptr, ptr %196, align 8
   %198 = getelementptr inbounds nuw i8, ptr %196, i64 8
   %199 = load i32, ptr %198, align 8
@@ -1472,12 +1472,12 @@ define internal fastcc i64 @NonAdaptingProcess(ptr noundef %0, ptr nocapture nou
   %indvars.iv333 = phi i64 [ 0, %.lr.ph294 ], [ %indvars.iv.next334, %216 ]
   %.0219292 = phi ptr [ %209, %.lr.ph294 ], [ %222, %216 ]
   %217 = load ptr, ptr %37, align 8
-  %218 = getelementptr inbounds %struct.PaUtilChannelDescriptor, ptr %3, i64 %indvars.iv333
+  %218 = getelementptr inbounds nuw %struct.PaUtilChannelDescriptor, ptr %3, i64 %indvars.iv333
   %219 = load ptr, ptr %218, align 8
   %220 = getelementptr inbounds nuw i8, ptr %218, i64 8
   %221 = load i32, ptr %220, align 8
   tail call void %217(ptr noundef %219, i32 noundef %221, ptr noundef %.0219292, i32 noundef %.0215, i32 noundef %214, ptr noundef nonnull %20) #11
-  %222 = getelementptr inbounds i8, ptr %.0219292, i64 %215
+  %222 = getelementptr inbounds nuw i8, ptr %.0219292, i64 %215
   %223 = load ptr, ptr %218, align 8
   %224 = load i32, ptr %220, align 8
   %225 = zext i32 %224 to i64
@@ -1537,7 +1537,7 @@ define internal fastcc i64 @NonAdaptingProcess(ptr noundef %0, ptr nocapture nou
 249:                                              ; preds = %.lr.ph296, %249
   %indvars.iv336 = phi i64 [ 0, %.lr.ph296 ], [ %indvars.iv.next337, %249 ]
   %250 = load ptr, ptr %246, align 8
-  %251 = getelementptr inbounds %struct.PaUtilChannelDescriptor, ptr %3, i64 %indvars.iv336
+  %251 = getelementptr inbounds nuw %struct.PaUtilChannelDescriptor, ptr %3, i64 %indvars.iv336
   %252 = load ptr, ptr %251, align 8
   %253 = getelementptr inbounds nuw i8, ptr %251, i64 8
   %254 = load i32, ptr %253, align 8
@@ -1570,7 +1570,7 @@ define internal fastcc i64 @NonAdaptingProcess(ptr noundef %0, ptr nocapture nou
 define internal fastcc i64 @AdaptingProcess(ptr noundef %0, ptr nocapture noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %5 = load i64, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 200
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %7 = load i64, ptr %6, align 8
   %8 = add i64 %7, %5
   %.not = icmp eq i32 %2, 0
@@ -1629,14 +1629,14 @@ define internal fastcc i64 @AdaptingProcess(ptr noundef %0, ptr nocapture nounde
 .preheader178:                                    ; preds = %41, %66
   %43 = phi i1 [ false, %66 ], [ true, %41 ]
   %indvars.iv219 = phi i64 [ 1, %66 ], [ 0, %41 ]
-  %44 = getelementptr inbounds [2 x i64], ptr %15, i64 0, i64 %indvars.iv219
+  %44 = getelementptr inbounds nuw [2 x i64], ptr %15, i64 0, i64 %indvars.iv219
   %45 = load i64, ptr %44, align 8
   %46 = trunc i64 %45 to i32
   %.not175 = icmp eq i32 %46, 0
   br i1 %.not175, label %66, label %47
 
 47:                                               ; preds = %.preheader178
-  %48 = getelementptr inbounds [2 x ptr], ptr %16, i64 0, i64 %indvars.iv219
+  %48 = getelementptr inbounds nuw [2 x ptr], ptr %16, i64 0, i64 %indvars.iv219
   %49 = load ptr, ptr %48, align 8
   %50 = load i32, ptr %17, align 8
   %.not214 = icmp eq i32 %50, 0
@@ -1645,7 +1645,7 @@ define internal fastcc i64 @AdaptingProcess(ptr noundef %0, ptr nocapture nounde
 .lr.ph:                                           ; preds = %47, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %47 ]
   %51 = load ptr, ptr %18, align 8
-  %52 = getelementptr inbounds %struct.PaUtilChannelDescriptor, ptr %49, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw %struct.PaUtilChannelDescriptor, ptr %49, i64 %indvars.iv
   %53 = load ptr, ptr %52, align 8
   %54 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %55 = load i32, ptr %54, align 8
@@ -1656,7 +1656,7 @@ define internal fastcc i64 @AdaptingProcess(ptr noundef %0, ptr nocapture nounde
   %59 = load i32, ptr %19, align 4
   %60 = mul i32 %58, %59
   %61 = zext i32 %60 to i64
-  %62 = getelementptr inbounds i8, ptr %56, i64 %61
+  %62 = getelementptr inbounds nuw i8, ptr %56, i64 %61
   store ptr %62, ptr %52, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %63 = load i32, ptr %17, align 8
@@ -1697,7 +1697,7 @@ define internal fastcc i64 @AdaptingProcess(ptr noundef %0, ptr nocapture nounde
   %.not172 = icmp eq i64 %70, 0
   %. = select i1 %.not172, i64 %73, i64 %70
   %.233.v = select i1 %.not172, i64 216, i64 208
-  %.233 = getelementptr inbounds i8, ptr %0, i64 %.233.v
+  %.233 = getelementptr inbounds nuw i8, ptr %0, i64 %.233.v
   %.176 = tail call i64 @llvm.umin.i64(i64 %., i64 %76)
   %.0153 = load ptr, ptr %.233, align 8
   %.0151 = trunc i64 %.176 to i32
@@ -1737,19 +1737,19 @@ define internal fastcc i64 @AdaptingProcess(ptr noundef %0, ptr nocapture nounde
   %indvars.iv222 = phi i64 [ 0, %.lr.ph186 ], [ %indvars.iv.next223, %89 ]
   %.1150183 = phi ptr [ %.0149, %.lr.ph186 ], [ %95, %89 ]
   %90 = load ptr, ptr %25, align 8
-  %91 = getelementptr inbounds %struct.PaUtilChannelDescriptor, ptr %.0153, i64 %indvars.iv222
+  %91 = getelementptr inbounds nuw %struct.PaUtilChannelDescriptor, ptr %.0153, i64 %indvars.iv222
   %92 = load ptr, ptr %91, align 8
   %93 = getelementptr inbounds nuw i8, ptr %91, i64 8
   %94 = load i32, ptr %93, align 8
   tail call void %90(ptr noundef %.1150183, i32 noundef %.0148, ptr noundef %92, i32 noundef %94, i32 noundef %.0151, ptr noundef nonnull %26) #11
-  %95 = getelementptr inbounds i8, ptr %.1150183, i64 %88
+  %95 = getelementptr inbounds nuw i8, ptr %.1150183, i64 %88
   %96 = load ptr, ptr %91, align 8
   %97 = load i32, ptr %93, align 8
   %98 = mul i32 %97, %.0151
   %99 = load i32, ptr %27, align 4
   %100 = mul i32 %98, %99
   %101 = zext i32 %100 to i64
-  %102 = getelementptr inbounds i8, ptr %96, i64 %101
+  %102 = getelementptr inbounds nuw i8, ptr %96, i64 %101
   store ptr %102, ptr %91, align 8
   %indvars.iv.next223 = add nuw nsw i64 %indvars.iv222, 1
   %103 = load i32, ptr %24, align 8
@@ -1827,7 +1827,7 @@ define internal fastcc i64 @AdaptingProcess(ptr noundef %0, ptr nocapture nounde
   %136 = mul i64 %133, %135
   %137 = getelementptr inbounds i8, ptr %131, i64 %136
   %138 = load ptr, ptr %28, align 8
-  %139 = getelementptr inbounds ptr, ptr %138, i64 %indvars.iv225
+  %139 = getelementptr inbounds nuw ptr, ptr %138, i64 %indvars.iv225
   store ptr %137, ptr %139, align 8
   %indvars.iv.next226 = add nuw nsw i64 %indvars.iv225, 1
   %140 = load i32, ptr %24, align 8
@@ -1857,7 +1857,7 @@ define internal fastcc i64 @AdaptingProcess(ptr noundef %0, ptr nocapture nounde
   %150 = mul i64 %147, %149
   %151 = getelementptr inbounds i8, ptr %145, i64 %150
   %152 = load ptr, ptr %32, align 8
-  %153 = getelementptr inbounds ptr, ptr %152, i64 %indvars.iv228
+  %153 = getelementptr inbounds nuw ptr, ptr %152, i64 %indvars.iv228
   store ptr %151, ptr %153, align 8
   %indvars.iv.next229 = add nuw nsw i64 %indvars.iv228, 1
   %154 = load i32, ptr %17, align 8
@@ -1975,7 +1975,7 @@ define internal fastcc i64 @AdaptingInputOnlyProcess(ptr noundef %0, ptr nocaptu
   %42 = mul i64 %41, %40
   %43 = getelementptr inbounds i8, ptr %36, i64 %42
   %44 = load ptr, ptr %10, align 8
-  %45 = getelementptr inbounds ptr, ptr %44, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw ptr, ptr %44, i64 %indvars.iv
   store ptr %43, ptr %45, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %46 = load i32, ptr %7, align 8
@@ -2009,12 +2009,12 @@ define internal fastcc i64 @AdaptingInputOnlyProcess(ptr noundef %0, ptr nocaptu
   %indvars.iv94 = phi i64 [ 0, %.lr.ph89 ], [ %indvars.iv.next95, %55 ]
   %.18186 = phi ptr [ %.080, %.lr.ph89 ], [ %61, %55 ]
   %56 = load ptr, ptr %11, align 8
-  %57 = getelementptr inbounds %struct.PaUtilChannelDescriptor, ptr %2, i64 %indvars.iv94
+  %57 = getelementptr inbounds nuw %struct.PaUtilChannelDescriptor, ptr %2, i64 %indvars.iv94
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %60 = load i32, ptr %59, align 8
   tail call void %56(ptr noundef %.18186, i32 noundef %.079, ptr noundef %58, i32 noundef %60, i32 noundef %53, ptr noundef nonnull %12) #11
-  %61 = getelementptr inbounds i8, ptr %.18186, i64 %54
+  %61 = getelementptr inbounds nuw i8, ptr %.18186, i64 %54
   %62 = load ptr, ptr %57, align 8
   %63 = load i32, ptr %59, align 8
   %64 = zext i32 %63 to i64
@@ -2129,7 +2129,7 @@ define internal fastcc i64 @AdaptingOutputOnlyProcess(ptr noundef %0, ptr nocapt
   %34 = mul i64 %31, %33
   %35 = getelementptr inbounds i8, ptr %29, i64 %34
   %36 = load ptr, ptr %10, align 8
-  %37 = getelementptr inbounds ptr, ptr %36, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv
   store ptr %35, ptr %37, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %38 = load i32, ptr %8, align 8
@@ -2229,12 +2229,12 @@ thread-pre-split:                                 ; preds = %._crit_edge
   %indvars.iv123 = phi i64 [ 0, %.lr.ph115 ], [ %indvars.iv.next124, %84 ]
   %.1102112 = phi ptr [ %.0101, %.lr.ph115 ], [ %90, %84 ]
   %85 = load ptr, ptr %16, align 8
-  %86 = getelementptr inbounds %struct.PaUtilChannelDescriptor, ptr %2, i64 %indvars.iv123
+  %86 = getelementptr inbounds nuw %struct.PaUtilChannelDescriptor, ptr %2, i64 %indvars.iv123
   %87 = load ptr, ptr %86, align 8
   %88 = getelementptr inbounds nuw i8, ptr %86, i64 8
   %89 = load i32, ptr %88, align 8
   tail call void %85(ptr noundef %87, i32 noundef %89, ptr noundef %.1102112, i32 noundef %.0100, i32 noundef %82, ptr noundef nonnull %17) #11
-  %90 = getelementptr inbounds i8, ptr %.1102112, i64 %83
+  %90 = getelementptr inbounds nuw i8, ptr %.1102112, i64 %83
   %91 = load ptr, ptr %86, align 8
   %92 = load i32, ptr %88, align 8
   %93 = zext i32 %92 to i64
@@ -2263,7 +2263,7 @@ thread-pre-split:                                 ; preds = %._crit_edge
 104:                                              ; preds = %.lr.ph118, %104
   %indvars.iv126 = phi i64 [ 0, %.lr.ph118 ], [ %indvars.iv.next127, %104 ]
   %105 = load ptr, ptr %19, align 8
-  %106 = getelementptr inbounds %struct.PaUtilChannelDescriptor, ptr %2, i64 %indvars.iv126
+  %106 = getelementptr inbounds nuw %struct.PaUtilChannelDescriptor, ptr %2, i64 %indvars.iv126
   %107 = load ptr, ptr %106, align 8
   %108 = getelementptr inbounds nuw i8, ptr %106, i64 8
   %109 = load i32, ptr %108, align 8
@@ -2336,19 +2336,19 @@ define range(i64 0, 4294967296) i64 @PaUtil_CopyInput(ptr noundef %0, ptr nocapt
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %21 ]
   %.06771 = phi ptr [ %16, %.lr.ph ], [ %27, %21 ]
   %22 = load ptr, ptr %17, align 8
-  %23 = getelementptr inbounds %struct.PaUtilChannelDescriptor, ptr %5, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw %struct.PaUtilChannelDescriptor, ptr %5, i64 %indvars.iv
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %26 = load i32, ptr %25, align 8
   tail call void %22(ptr noundef %.06771, i32 noundef %13, ptr noundef %24, i32 noundef %26, i32 noundef %8, ptr noundef nonnull %18) #11
-  %27 = getelementptr inbounds i8, ptr %.06771, i64 %19
+  %27 = getelementptr inbounds nuw i8, ptr %.06771, i64 %19
   %28 = load ptr, ptr %23, align 8
   %29 = load i32, ptr %25, align 8
   %30 = mul i32 %29, %8
   %31 = load i32, ptr %20, align 4
   %32 = mul i32 %30, %31
   %33 = zext i32 %32 to i64
-  %34 = getelementptr inbounds i8, ptr %28, i64 %33
+  %34 = getelementptr inbounds nuw i8, ptr %28, i64 %33
   store ptr %34, ptr %23, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %35 = load i32, ptr %12, align 8
@@ -2363,7 +2363,7 @@ define range(i64 0, 4294967296) i64 @PaUtil_CopyInput(ptr noundef %0, ptr nocapt
   %40 = load i32, ptr %14, align 8
   %41 = mul i32 %39, %40
   %42 = zext i32 %41 to i64
-  %43 = getelementptr inbounds i8, ptr %38, i64 %42
+  %43 = getelementptr inbounds nuw i8, ptr %38, i64 %42
   store ptr %43, ptr %1, align 8
   br label %.loopexit
 
@@ -2383,10 +2383,10 @@ define range(i64 0, 4294967296) i64 @PaUtil_CopyInput(ptr noundef %0, ptr nocapt
 
 52:                                               ; preds = %.lr.ph75, %52
   %indvars.iv80 = phi i64 [ 0, %.lr.ph75 ], [ %indvars.iv.next81, %52 ]
-  %53 = getelementptr inbounds ptr, ptr %45, i64 %indvars.iv80
+  %53 = getelementptr inbounds nuw ptr, ptr %45, i64 %indvars.iv80
   %54 = load ptr, ptr %53, align 8
   %55 = load ptr, ptr %48, align 8
-  %56 = getelementptr inbounds %struct.PaUtilChannelDescriptor, ptr %5, i64 %indvars.iv80
+  %56 = getelementptr inbounds nuw %struct.PaUtilChannelDescriptor, ptr %5, i64 %indvars.iv80
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %59 = load i32, ptr %58, align 8
@@ -2394,7 +2394,7 @@ define range(i64 0, 4294967296) i64 @PaUtil_CopyInput(ptr noundef %0, ptr nocapt
   %60 = load i32, ptr %50, align 8
   %61 = mul i32 %60, %8
   %62 = zext i32 %61 to i64
-  %63 = getelementptr inbounds i8, ptr %54, i64 %62
+  %63 = getelementptr inbounds nuw i8, ptr %54, i64 %62
   store ptr %63, ptr %53, align 8
   %64 = load ptr, ptr %56, align 8
   %65 = load i32, ptr %58, align 8
@@ -2402,7 +2402,7 @@ define range(i64 0, 4294967296) i64 @PaUtil_CopyInput(ptr noundef %0, ptr nocapt
   %67 = load i32, ptr %51, align 4
   %68 = mul i32 %66, %67
   %69 = zext i32 %68 to i64
-  %70 = getelementptr inbounds i8, ptr %64, i64 %69
+  %70 = getelementptr inbounds nuw i8, ptr %64, i64 %69
   store ptr %70, ptr %56, align 8
   %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
   %71 = load i32, ptr %46, align 8
@@ -2451,19 +2451,19 @@ define range(i64 0, 4294967296) i64 @PaUtil_CopyOutput(ptr noundef %0, ptr nocap
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %21 ]
   %.06771 = phi ptr [ %16, %.lr.ph ], [ %27, %21 ]
   %22 = load ptr, ptr %17, align 8
-  %23 = getelementptr inbounds %struct.PaUtilChannelDescriptor, ptr %5, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw %struct.PaUtilChannelDescriptor, ptr %5, i64 %indvars.iv
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %26 = load i32, ptr %25, align 8
   tail call void %22(ptr noundef %24, i32 noundef %26, ptr noundef %.06771, i32 noundef %13, i32 noundef %8, ptr noundef nonnull %18) #11
-  %27 = getelementptr inbounds i8, ptr %.06771, i64 %19
+  %27 = getelementptr inbounds nuw i8, ptr %.06771, i64 %19
   %28 = load ptr, ptr %23, align 8
   %29 = load i32, ptr %25, align 8
   %30 = mul i32 %29, %8
   %31 = load i32, ptr %20, align 4
   %32 = mul i32 %30, %31
   %33 = zext i32 %32 to i64
-  %34 = getelementptr inbounds i8, ptr %28, i64 %33
+  %34 = getelementptr inbounds nuw i8, ptr %28, i64 %33
   store ptr %34, ptr %23, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %35 = load i32, ptr %12, align 8
@@ -2478,7 +2478,7 @@ define range(i64 0, 4294967296) i64 @PaUtil_CopyOutput(ptr noundef %0, ptr nocap
   %40 = load i32, ptr %14, align 8
   %41 = mul i32 %39, %40
   %42 = zext i32 %41 to i64
-  %43 = getelementptr inbounds i8, ptr %38, i64 %42
+  %43 = getelementptr inbounds nuw i8, ptr %38, i64 %42
   store ptr %43, ptr %1, align 8
   br label %.loopexit
 
@@ -2498,10 +2498,10 @@ define range(i64 0, 4294967296) i64 @PaUtil_CopyOutput(ptr noundef %0, ptr nocap
 
 52:                                               ; preds = %.lr.ph75, %52
   %indvars.iv80 = phi i64 [ 0, %.lr.ph75 ], [ %indvars.iv.next81, %52 ]
-  %53 = getelementptr inbounds ptr, ptr %45, i64 %indvars.iv80
+  %53 = getelementptr inbounds nuw ptr, ptr %45, i64 %indvars.iv80
   %54 = load ptr, ptr %53, align 8
   %55 = load ptr, ptr %48, align 8
-  %56 = getelementptr inbounds %struct.PaUtilChannelDescriptor, ptr %5, i64 %indvars.iv80
+  %56 = getelementptr inbounds nuw %struct.PaUtilChannelDescriptor, ptr %5, i64 %indvars.iv80
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %59 = load i32, ptr %58, align 8
@@ -2509,7 +2509,7 @@ define range(i64 0, 4294967296) i64 @PaUtil_CopyOutput(ptr noundef %0, ptr nocap
   %60 = load i32, ptr %50, align 8
   %61 = mul i32 %60, %8
   %62 = zext i32 %61 to i64
-  %63 = getelementptr inbounds i8, ptr %54, i64 %62
+  %63 = getelementptr inbounds nuw i8, ptr %54, i64 %62
   store ptr %63, ptr %53, align 8
   %64 = load ptr, ptr %56, align 8
   %65 = load i32, ptr %58, align 8
@@ -2517,7 +2517,7 @@ define range(i64 0, 4294967296) i64 @PaUtil_CopyOutput(ptr noundef %0, ptr nocap
   %67 = load i32, ptr %51, align 4
   %68 = mul i32 %66, %67
   %69 = zext i32 %68 to i64
-  %70 = getelementptr inbounds i8, ptr %64, i64 %69
+  %70 = getelementptr inbounds nuw i8, ptr %64, i64 %69
   store ptr %70, ptr %56, align 8
   %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
   %71 = load i32, ptr %46, align 8
@@ -2554,7 +2554,7 @@ define range(i64 0, 4294967296) i64 @PaUtil_ZeroOutput(ptr nocapture noundef %0,
 12:                                               ; preds = %.lr.ph, %12
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %12 ]
   %13 = load ptr, ptr %10, align 8
-  %14 = getelementptr inbounds %struct.PaUtilChannelDescriptor, ptr %4, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw %struct.PaUtilChannelDescriptor, ptr %4, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %17 = load i32, ptr %16, align 8
@@ -2565,7 +2565,7 @@ define range(i64 0, 4294967296) i64 @PaUtil_ZeroOutput(ptr nocapture noundef %0,
   %21 = load i32, ptr %11, align 4
   %22 = mul i32 %20, %21
   %23 = zext i32 %22 to i64
-  %24 = getelementptr inbounds i8, ptr %18, i64 %23
+  %24 = getelementptr inbounds nuw i8, ptr %18, i64 %23
   store ptr %24, ptr %14, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %25 = load i32, ptr %8, align 8
@@ -2594,7 +2594,7 @@ define internal fastcc void @CopyTempOutputBuffersToHostOutputBuffers(ptr nounde
   br i1 %.not73, label %.critedge, label %.lr.ph75
 
 .lr.ph75:                                         ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 240
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -2617,7 +2617,7 @@ define internal fastcc void @CopyTempOutputBuffersToHostOutputBuffers(ptr nounde
   %.not67 = icmp eq i64 %14, 0
   %. = select i1 %.not67, i64 %16, i64 %14
   %.81.v = select i1 %.not67, i64 256, i64 248
-  %.81 = getelementptr inbounds i8, ptr %0, i64 %.81.v
+  %.81 = getelementptr inbounds nuw i8, ptr %0, i64 %.81.v
   %.70 = tail call i64 @llvm.umin.i64(i64 %., i64 %15)
   %.061 = load ptr, ptr %.81, align 8
   %.060 = trunc i64 %.70 to i32
@@ -2663,19 +2663,19 @@ define internal fastcc void @CopyTempOutputBuffersToHostOutputBuffers(ptr nounde
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %39 ]
   %.171 = phi ptr [ %.059, %.lr.ph ], [ %45, %39 ]
   %40 = load ptr, ptr %10, align 8
-  %41 = getelementptr inbounds %struct.PaUtilChannelDescriptor, ptr %.061, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw %struct.PaUtilChannelDescriptor, ptr %.061, i64 %indvars.iv
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %44 = load i32, ptr %43, align 8
   tail call void %40(ptr noundef %42, i32 noundef %44, ptr noundef %.171, i32 noundef %.058, i32 noundef %.060, ptr noundef nonnull %11) #11
-  %45 = getelementptr inbounds i8, ptr %.171, i64 %38
+  %45 = getelementptr inbounds nuw i8, ptr %.171, i64 %38
   %46 = load ptr, ptr %41, align 8
   %47 = load i32, ptr %43, align 8
   %48 = mul i32 %47, %.060
   %49 = load i32, ptr %12, align 4
   %50 = mul i32 %48, %49
   %51 = zext i32 %50 to i64
-  %52 = getelementptr inbounds i8, ptr %46, i64 %51
+  %52 = getelementptr inbounds nuw i8, ptr %46, i64 %51
   store ptr %52, ptr %41, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %53 = load i32, ptr %9, align 8

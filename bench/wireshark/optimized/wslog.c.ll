@@ -118,7 +118,7 @@ define noundef nonnull ptr @ws_log_level_to_string(i32 noundef %0) local_unnamed
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds [9 x ptr], ptr @switch.table.ws_log_level_to_string, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw [9 x ptr], ptr @switch.table.ws_log_level_to_string, i64 0, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -168,7 +168,7 @@ define zeroext i1 @ws_log_msg_is_active(ptr noundef %0, i32 noundef %1) local_un
 
 filter_contains.exit:                             ; preds = %.lr.ph.i
   %21 = load ptr, ptr @fatal_filter, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load i8, ptr %22, align 8
   %24 = trunc i8 %23 to i1
   br i1 %24, label %level_filter_matches.exit, label %thread-pre-split
@@ -207,10 +207,10 @@ thread-pre-split:                                 ; preds = %15, %12, %filter_co
   br i1 %39, label %filter_contains.exit.i, label %34
 
 filter_contains.exit.i:                           ; preds = %.lr.ph.i.i
-  %40 = getelementptr inbounds i8, ptr %29, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %41 = load i8, ptr %40, align 8
   %42 = trunc i8 %41 to i1
-  %43 = getelementptr inbounds i8, ptr %29, i64 12
+  %43 = getelementptr inbounds nuw i8, ptr %29, i64 12
   %44 = load i32, ptr %43, align 4
   br i1 %42, label %45, label %47
 
@@ -252,10 +252,10 @@ filter_contains.exit.i:                           ; preds = %.lr.ph.i.i
   br i1 %61, label %filter_contains.exit.i27, label %56
 
 filter_contains.exit.i27:                         ; preds = %.lr.ph.i.i23
-  %62 = getelementptr inbounds i8, ptr %48, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %63 = load i8, ptr %62, align 8
   %64 = trunc i8 %63 to i1
-  %65 = getelementptr inbounds i8, ptr %48, i64 12
+  %65 = getelementptr inbounds nuw i8, ptr %48, i64 12
   %66 = load i32, ptr %65, align 4
   br i1 %64, label %67, label %69
 
@@ -307,7 +307,7 @@ filter_contains.exit.i27:                         ; preds = %.lr.ph.i.i23
 
 filter_contains.exit37:                           ; preds = %.lr.ph.i33
   %87 = load ptr, ptr @domain_filter, align 8
-  %88 = getelementptr inbounds i8, ptr %87, i64 8
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
   %89 = load i8, ptr %88, align 8
   %90 = trunc i8 %89 to i1
   br label %level_filter_matches.exit
@@ -318,7 +318,7 @@ filter_contains.exit37:                           ; preds = %.lr.ph.i33
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %78
   %91 = phi ptr [ %.pre, %.loopexit.loopexit ], [ %73, %78 ]
-  %92 = getelementptr inbounds i8, ptr %91, i64 8
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 8
   %93 = load i8, ptr %92, align 8
   %94 = trunc i8 %93 to i1
   %95 = xor i1 %94, true
@@ -884,10 +884,10 @@ free_log_filter.exit.i:                           ; preds = %113, %110
   %123 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #21
   %124 = tail call ptr @g_strsplit_set(ptr noundef nonnull %spec.select.i.i, ptr noundef nonnull @.str.61, i32 noundef -1) #20
   store ptr %124, ptr %123, align 8
-  %125 = getelementptr inbounds i8, ptr %123, i64 8
+  %125 = getelementptr inbounds nuw i8, ptr %123, i64 8
   %126 = zext i1 %119 to i8
   store i8 %126, ptr %125, align 8
-  %127 = getelementptr inbounds i8, ptr %123, i64 12
+  %127 = getelementptr inbounds nuw i8, ptr %123, i64 12
   store i32 0, ptr %127, align 4
   store ptr %123, ptr @domain_filter, align 8
   br label %ws_log_set_domain_filter.exit
@@ -927,10 +927,10 @@ free_log_filter.exit.i183:                        ; preds = %133, %130
   %143 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #21
   %144 = tail call ptr @g_strsplit_set(ptr noundef nonnull %spec.select.i.i186, ptr noundef nonnull @.str.61, i32 noundef -1) #20
   store ptr %144, ptr %143, align 8
-  %145 = getelementptr inbounds i8, ptr %143, i64 8
+  %145 = getelementptr inbounds nuw i8, ptr %143, i64 8
   %146 = zext i1 %139 to i8
   store i8 %146, ptr %145, align 8
-  %147 = getelementptr inbounds i8, ptr %143, i64 12
+  %147 = getelementptr inbounds nuw i8, ptr %143, i64 12
   store i32 0, ptr %147, align 4
   store ptr %143, ptr @fatal_filter, align 8
   br label %ws_log_set_domain_filter.exit
@@ -1029,10 +1029,10 @@ free_log_filter.exit.i191:                        ; preds = %176, %173
   %186 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #21
   %187 = tail call ptr @g_strsplit_set(ptr noundef nonnull %spec.select.i.i194, ptr noundef nonnull @.str.61, i32 noundef -1) #20
   store ptr %187, ptr %186, align 8
-  %188 = getelementptr inbounds i8, ptr %186, i64 8
+  %188 = getelementptr inbounds nuw i8, ptr %186, i64 8
   %189 = zext i1 %182 to i8
   store i8 %189, ptr %188, align 8
-  %190 = getelementptr inbounds i8, ptr %186, i64 12
+  %190 = getelementptr inbounds nuw i8, ptr %186, i64 12
   store i32 2, ptr %190, align 4
   store ptr %186, ptr @debug_filter, align 8
   br label %ws_log_set_domain_filter.exit
@@ -1072,10 +1072,10 @@ free_log_filter.exit.i195:                        ; preds = %196, %193
   %206 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #21
   %207 = tail call ptr @g_strsplit_set(ptr noundef nonnull %spec.select.i.i198, ptr noundef nonnull @.str.61, i32 noundef -1) #20
   store ptr %207, ptr %206, align 8
-  %208 = getelementptr inbounds i8, ptr %206, i64 8
+  %208 = getelementptr inbounds nuw i8, ptr %206, i64 8
   %209 = zext i1 %202 to i8
   store i8 %209, ptr %208, align 8
-  %210 = getelementptr inbounds i8, ptr %206, i64 12
+  %210 = getelementptr inbounds nuw i8, ptr %206, i64 12
   store i32 1, ptr %210, align 4
   store ptr %206, ptr @noisy_filter, align 8
   br label %ws_log_set_domain_filter.exit
@@ -1119,13 +1119,13 @@ sub_0:                                            ; preds = %3
   br i1 %.not35, label %sub_1, label %.tail.thread
 
 sub_1:                                            ; preds = %sub_0
-  %8 = getelementptr inbounds i8, ptr %5, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %9 = load i8, ptr %8, align 1
   %.not36 = icmp eq i8 %9, 111
   br i1 %.not36, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_1
-  %10 = getelementptr inbounds i8, ptr %5, i64 2
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 2
   %11 = load i8, ptr %10, align 1
   %12 = icmp eq i8 %11, 0
   br i1 %12, label %13, label %.tail.thread
@@ -1281,10 +1281,10 @@ free_log_filter.exit:                             ; preds = %1, %4
   %14 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #21
   %15 = tail call ptr @g_strsplit_set(ptr noundef nonnull %spec.select.i, ptr noundef nonnull @.str.61, i32 noundef -1) #20
   store ptr %15, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %14, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %17 = zext i1 %10 to i8
   store i8 %17, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %14, i64 12
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 12
   store i32 0, ptr %18, align 4
   store ptr %14, ptr @domain_filter, align 8
   br label %tokenize_filter_str.exit
@@ -1325,10 +1325,10 @@ free_log_filter.exit:                             ; preds = %1, %4
   %14 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #21
   %15 = tail call ptr @g_strsplit_set(ptr noundef nonnull %spec.select.i, ptr noundef nonnull @.str.61, i32 noundef -1) #20
   store ptr %15, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %14, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %17 = zext i1 %10 to i8
   store i8 %17, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %14, i64 12
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 12
   store i32 0, ptr %18, align 4
   store ptr %14, ptr @fatal_filter, align 8
   br label %tokenize_filter_str.exit
@@ -1410,10 +1410,10 @@ free_log_filter.exit:                             ; preds = %1, %4
   %14 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #21
   %15 = tail call ptr @g_strsplit_set(ptr noundef nonnull %spec.select.i, ptr noundef nonnull @.str.61, i32 noundef -1) #20
   store ptr %15, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %14, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %17 = zext i1 %10 to i8
   store i8 %17, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %14, i64 12
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 12
   store i32 2, ptr %18, align 4
   store ptr %14, ptr @debug_filter, align 8
   br label %tokenize_filter_str.exit
@@ -1454,10 +1454,10 @@ free_log_filter.exit:                             ; preds = %1, %4
   %14 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #21
   %15 = tail call ptr @g_strsplit_set(ptr noundef nonnull %spec.select.i, ptr noundef nonnull @.str.61, i32 noundef -1) #20
   store ptr %15, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %14, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %17 = zext i1 %10 to i8
   store i8 %17, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %14, i64 12
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 12
   store i32 1, ptr %18, align 4
   store ptr %14, ptr @noisy_filter, align 8
   br label %tokenize_filter_str.exit
@@ -1663,10 +1663,10 @@ ws_log_set_domain_filter.exit.sink.split:         ; preds = %free_log_filter.exi
   %54 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #21
   %55 = tail call ptr @g_strsplit_set(ptr noundef nonnull %spec.select.i.i44.sink, ptr noundef nonnull @.str.61, i32 noundef -1) #20
   store ptr %55, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %54, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %57 = zext i1 %.sink69 to i8
   store i8 %57, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %54, i64 12
+  %58 = getelementptr inbounds nuw i8, ptr %54, i64 12
   store i32 0, ptr %58, align 4
   store ptr %54, ptr @domain_filter, align 8
   br label %ws_log_set_domain_filter.exit
@@ -1733,10 +1733,10 @@ ws_log_set_fatal_domain_filter.exit.sink.split:   ; preds = %free_log_filter.exi
   %82 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #21
   %83 = tail call ptr @g_strsplit_set(ptr noundef nonnull %spec.select.i.i53.sink, ptr noundef nonnull @.str.61, i32 noundef -1) #20
   store ptr %83, ptr %82, align 8
-  %84 = getelementptr inbounds i8, ptr %82, i64 8
+  %84 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %85 = zext i1 %.sink77 to i8
   store i8 %85, ptr %84, align 8
-  %86 = getelementptr inbounds i8, ptr %82, i64 12
+  %86 = getelementptr inbounds nuw i8, ptr %82, i64 12
   store i32 0, ptr %86, align 4
   store ptr %82, ptr @fatal_filter, align 8
   br label %ws_log_set_fatal_domain_filter.exit
@@ -1773,10 +1773,10 @@ free_log_filter.exit.i55:                         ; preds = %88, %91
   %99 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #21
   %100 = tail call ptr @g_strsplit_set(ptr noundef nonnull %spec.select.i.i58, ptr noundef nonnull @.str.61, i32 noundef -1) #20
   store ptr %100, ptr %99, align 8
-  %101 = getelementptr inbounds i8, ptr %99, i64 8
+  %101 = getelementptr inbounds nuw i8, ptr %99, i64 8
   %102 = zext i1 %95 to i8
   store i8 %102, ptr %101, align 8
-  %103 = getelementptr inbounds i8, ptr %99, i64 12
+  %103 = getelementptr inbounds nuw i8, ptr %99, i64 12
   store i32 2, ptr %103, align 4
   store ptr %99, ptr @debug_filter, align 8
   br label %ws_log_set_debug_filter.exit
@@ -1813,10 +1813,10 @@ free_log_filter.exit.i59:                         ; preds = %105, %108
   %116 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #21
   %117 = tail call ptr @g_strsplit_set(ptr noundef nonnull %spec.select.i.i62, ptr noundef nonnull @.str.61, i32 noundef -1) #20
   store ptr %117, ptr %116, align 8
-  %118 = getelementptr inbounds i8, ptr %116, i64 8
+  %118 = getelementptr inbounds nuw i8, ptr %116, i64 8
   %119 = zext i1 %112 to i8
   store i8 %119, ptr %118, align 8
-  %120 = getelementptr inbounds i8, ptr %116, i64 12
+  %120 = getelementptr inbounds nuw i8, ptr %116, i64 12
   store i32 1, ptr %120, align 4
   store ptr %116, ptr @noisy_filter, align 8
   br label %ws_log_set_noisy_filter.exit
@@ -1988,19 +1988,19 @@ define void @ws_logv(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef
 11:                                               ; preds = %8
   %12 = call i64 @time(ptr noundef null) #20
   store i64 %12, ptr %5, align 8
-  %13 = getelementptr inbounds i8, ptr %5, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 -1, ptr %13, align 8
   br label %14
 
 14:                                               ; preds = %8, %11
   %15 = call ptr @ws_localtime_r(ptr noundef nonnull %5, ptr noundef nonnull %6) #20
-  %16 = getelementptr inbounds i8, ptr %5, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %17 = load i64, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %6, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 56
   store i64 %17, ptr %18, align 8
   %19 = call i32 @getpid() #20
   %20 = sext i32 %19 to i64
-  %21 = getelementptr inbounds i8, ptr %6, i64 64
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 64
   store i64 %20, ptr %21, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   call fastcc void @log_write_dispatch(ptr noundef %0, i32 noundef %1, ptr noundef null, i64 noundef -1, ptr noundef null, ptr noundef %6, ptr noundef %2, ptr noundef %3)
@@ -2052,7 +2052,7 @@ define internal fastcc void @log_write_dispatch(ptr noundef %0, i32 noundef %1, 
 
 filter_contains.exit:                             ; preds = %.lr.ph.i
   %28 = load ptr, ptr @fatal_filter, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load i8, ptr %29, align 8
   %31 = trunc i8 %30 to i1
   br i1 %31, label %32, label %filter_contains.exit.thread
@@ -2070,9 +2070,9 @@ filter_contains.exit.thread:                      ; preds = %22, %19, %16, %8, %
 
 34:                                               ; preds = %filter_contains.exit.thread
   call void @llvm.va_copy.p0(ptr nonnull %9, ptr %7)
-  %35 = getelementptr inbounds i8, ptr %5, i64 56
+  %35 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %36 = load i64, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %5, i64 64
+  %37 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %38 = load i64, ptr %37, align 8
   call fastcc void @log_write_do_work(ptr noundef nonnull %33, i1 noundef zeroext false, ptr noundef nonnull %5, i64 noundef %36, i64 noundef %38, ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %6, ptr noundef nonnull %9)
   call void @llvm.va_end.p0(ptr nonnull %9)
@@ -2117,9 +2117,9 @@ console_color_enabled.exit:                       ; preds = %50, %console_file.e
   %.0.in.in.i = phi ptr [ @stderr_color_enabled, %console_file.exit ], [ %spec.select, %50 ]
   %.0.in.i49 = load i8, ptr %.0.in.in.i, align 1
   %.0.i50 = trunc i8 %.0.in.i49 to i1
-  %53 = getelementptr inbounds i8, ptr %5, i64 56
+  %53 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %54 = load i64, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %5, i64 64
+  %55 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %56 = load i64, ptr %55, align 8
   call fastcc void @log_write_do_work(ptr noundef %.0.i58, i1 noundef zeroext %.0.i50, ptr noundef nonnull %5, i64 noundef %54, i64 noundef %56, ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %6, ptr noundef %7)
   br i1 %.not46, label %65, label %57
@@ -2170,19 +2170,19 @@ define void @ws_logv_full(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 no
 14:                                               ; preds = %11
   %15 = call i64 @time(ptr noundef null) #20
   store i64 %15, ptr %8, align 8
-  %16 = getelementptr inbounds i8, ptr %8, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 -1, ptr %16, align 8
   br label %17
 
 17:                                               ; preds = %11, %14
   %18 = call ptr @ws_localtime_r(ptr noundef nonnull %8, ptr noundef nonnull %9) #20
-  %19 = getelementptr inbounds i8, ptr %8, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %20 = load i64, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %9, i64 56
+  %21 = getelementptr inbounds nuw i8, ptr %9, i64 56
   store i64 %20, ptr %21, align 8
   %22 = call i32 @getpid() #20
   %23 = sext i32 %22 to i64
-  %24 = getelementptr inbounds i8, ptr %9, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %9, i64 64
   store i64 %23, ptr %24, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   call fastcc void @log_write_dispatch(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %9, ptr noundef %5, ptr noundef %6)
@@ -2209,19 +2209,19 @@ define void @ws_log(ptr noundef %0, i32 noundef %1, ptr noundef %2, ...) local_u
 11:                                               ; preds = %8
   %12 = call i64 @time(ptr noundef null) #20
   store i64 %12, ptr %4, align 8
-  %13 = getelementptr inbounds i8, ptr %4, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 -1, ptr %13, align 8
   br label %14
 
 14:                                               ; preds = %8, %11
   %15 = call ptr @ws_localtime_r(ptr noundef nonnull %4, ptr noundef nonnull %5) #20
-  %16 = getelementptr inbounds i8, ptr %4, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %17 = load i64, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %5, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store i64 %17, ptr %18, align 8
   %19 = call i32 @getpid() #20
   %20 = sext i32 %19 to i64
-  %21 = getelementptr inbounds i8, ptr %5, i64 64
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 64
   store i64 %20, ptr %21, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   call void @llvm.va_start.p0(ptr nonnull %6)
@@ -2250,19 +2250,19 @@ define void @ws_log_full(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 nou
 14:                                               ; preds = %11
   %15 = call i64 @time(ptr noundef null) #20
   store i64 %15, ptr %7, align 8
-  %16 = getelementptr inbounds i8, ptr %7, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 -1, ptr %16, align 8
   br label %17
 
 17:                                               ; preds = %11, %14
   %18 = call ptr @ws_localtime_r(ptr noundef nonnull %7, ptr noundef nonnull %8) #20
-  %19 = getelementptr inbounds i8, ptr %7, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %20 = load i64, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %8, i64 56
+  %21 = getelementptr inbounds nuw i8, ptr %8, i64 56
   store i64 %20, ptr %21, align 8
   %22 = call i32 @getpid() #20
   %23 = sext i32 %22 to i64
-  %24 = getelementptr inbounds i8, ptr %8, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %8, i64 64
   store i64 %23, ptr %24, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   call void @llvm.va_start.p0(ptr nonnull %9)
@@ -2296,19 +2296,19 @@ define internal fastcc void @fill_manifest(ptr noundef nonnull %0) unnamed_addr 
 5:                                                ; preds = %1
   %6 = call i64 @time(ptr noundef null) #20
   store i64 %6, ptr %2, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 -1, ptr %7, align 8
   br label %get_timestamp.exit
 
 get_timestamp.exit:                               ; preds = %1, %5
   %8 = call ptr @ws_localtime_r(ptr noundef nonnull %2, ptr noundef nonnull %0) #20
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %10 = load i64, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 %10, ptr %11, align 8
   %12 = call i32 @getpid() #20
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds i8, ptr %0, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i64 %13, ptr %14, align 8
   ret void
 }
@@ -2329,19 +2329,19 @@ define void @ws_log_write_always_full(ptr noundef %0, i32 noundef %1, ptr nounde
 12:                                               ; preds = %6
   %13 = call i64 @time(ptr noundef null) #20
   store i64 %13, ptr %7, align 8
-  %14 = getelementptr inbounds i8, ptr %7, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 -1, ptr %14, align 8
   br label %fill_manifest.exit
 
 fill_manifest.exit:                               ; preds = %6, %12
   %15 = call ptr @ws_localtime_r(ptr noundef nonnull %7, ptr noundef nonnull %8) #20
-  %16 = getelementptr inbounds i8, ptr %7, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %17 = load i64, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %8, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %8, i64 56
   store i64 %17, ptr %18, align 8
   %19 = call i32 @getpid() #20
   %20 = sext i32 %19 to i64
-  %21 = getelementptr inbounds i8, ptr %8, i64 64
+  %21 = getelementptr inbounds nuw i8, ptr %8, i64 64
   store i64 %20, ptr %21, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   call void @llvm.va_start.p0(ptr nonnull %9)
@@ -2480,7 +2480,7 @@ define void @ws_log_utf8_full(ptr noundef %0, i32 noundef %1, ptr noundef %2, i6
 
 make_utf8_display.exit:                           ; preds = %65, %._crit_edge.i
   call void @wmem_strbuf_append_c(ptr noundef %25, i8 noundef signext 10) #20
-  %66 = getelementptr inbounds i8, ptr %26, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %67 = load ptr, ptr %66, align 8
   call void @wmem_strbuf_append(ptr noundef %25, ptr noundef %67) #20
   call void @wmem_strbuf_destroy(ptr noundef %26) #20
@@ -2529,9 +2529,9 @@ declare void @wmem_free(ptr noundef, ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind uwtable
 define void @ws_log_file_writer(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef %6, ptr nocapture noundef readonly %7, ptr noundef %8) local_unnamed_addr #7 {
-  %10 = getelementptr inbounds i8, ptr %6, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %11 = load i64, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %6, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %13 = load i64, ptr %12, align 8
   tail call fastcc void @log_write_do_work(ptr noundef %0, i1 noundef zeroext false, ptr noundef %6, i64 noundef %11, i64 noundef %13, ptr noundef %1, i32 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef %7, ptr noundef %8)
   ret void
@@ -2546,9 +2546,9 @@ define internal fastcc void @log_write_do_work(ptr nocapture noundef %0, i1 noun
   br i1 %.not, label %27, label %16
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %2, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %18 = load i32, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %2, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %20 = load i32, ptr %19, align 4
   %21 = load i32, ptr %2, align 8
   %22 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.70, i32 noundef %18, i32 noundef %20, i32 noundef %21) #20
@@ -2696,9 +2696,9 @@ console_color_enabled.exit:                       ; preds = %10, %console_file.e
   %.0.in.in.i = phi ptr [ @stderr_color_enabled, %console_file.exit ], [ %spec.select, %10 ]
   %.0.in.i11 = load i8, ptr %.0.in.in.i, align 1
   %.0.i12 = trunc i8 %.0.in.i11 to i1
-  %13 = getelementptr inbounds i8, ptr %5, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %14 = load i64, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %5, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %16 = load i64, ptr %15, align 8
   tail call fastcc void @log_write_do_work(ptr noundef %.0.i16, i1 noundef zeroext %.0.i12, ptr noundef %5, i64 noundef %14, i64 noundef %16, ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %6, ptr noundef %7)
   ret void

@@ -49,7 +49,7 @@ define noundef i32 @PMPI_Pready(i32 noundef %0, ptr noundef %1) #0 {
   br i1 %11, label %.sink.split, label %12
 
 12:                                               ; preds = %10
-  %13 = getelementptr inbounds i8, ptr %1, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %14 = load i32, ptr %13, align 8
   %.not = icmp eq i32 %14, 8
   br i1 %.not, label %.thread, label %.sink.split
@@ -99,7 +99,7 @@ define noundef i32 @PMPI_Pready(i32 noundef %0, ptr noundef %1) #0 {
 32:                                               ; preds = %30, %.lr.ph.i
   %33 = phi i8 [ %26, %.lr.ph.i ], [ %.pre.i.i, %30 ]
   %34 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_errcodes_intern, i64 112), align 8
-  %35 = getelementptr inbounds ptr, ptr %34, i64 %indvars.iv.i
+  %35 = getelementptr inbounds nuw ptr, ptr %34, i64 %indvars.iv.i
   %36 = load ptr, ptr %35, align 8
   %37 = trunc i8 %33 to i1
   br i1 %37, label %38, label %opal_pointer_array_get_item.exit.i
@@ -111,13 +111,13 @@ define noundef i32 @PMPI_Pready(i32 noundef %0, ptr noundef %1) #0 {
 
 opal_pointer_array_get_item.exit.i:               ; preds = %38, %32
   %40 = phi i8 [ %33, %32 ], [ %.pre.i, %38 ]
-  %41 = getelementptr inbounds i8, ptr %36, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %42 = load i32, ptr %41, align 8
   %43 = icmp eq i32 %42, %17
   br i1 %43, label %44, label %22
 
 44:                                               ; preds = %opal_pointer_array_get_item.exit.i
-  %45 = getelementptr inbounds i8, ptr %36, i64 20
+  %45 = getelementptr inbounds nuw i8, ptr %36, i64 20
   %46 = load i32, ptr %45, align 4
   br label %.sink.split
 

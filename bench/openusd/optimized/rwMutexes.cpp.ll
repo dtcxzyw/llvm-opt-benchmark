@@ -124,7 +124,7 @@ _ZSt8_DestroyIPSt6threadS0_EvT_S2_RSaIT0_E.exit.i.thread46.i: ; preds = %_ZNSt6v
   %27 = shl nuw nsw i64 %23, 3
   %28 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %27) #15
   store ptr %28, ptr %19, align 8
-  %29 = getelementptr inbounds %"class.std::thread", ptr %28, i64 %23
+  %29 = getelementptr inbounds nuw %"class.std::thread", ptr %28, i64 %23
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %28, i8 0, i64 %27, i1 false)
   %scevgep.i.i.i.i.i.i = getelementptr i8, ptr %28, i64 %27
   %30 = getelementptr inbounds nuw i8, ptr %19, i64 8
@@ -144,9 +144,9 @@ _ZSt8_DestroyIPSt6threadS0_EvT_S2_RSaIT0_E.exit.i.thread46.i: ; preds = %_ZNSt6v
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZL22Test_RWMutexThroughputI6SpinRWEvvEUlvE_EEEEEE, i64 16), ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   store ptr %18, ptr %33, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %32, i64 16
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %32, i64 16
   store ptr %17, ptr %.sroa.2.0..sroa_idx.i, align 8
-  %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %32, i64 24
+  %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %32, i64 24
   store float 2.000000e+00, ptr %.sroa.3.0..sroa_idx.i, align 8
   store ptr %32, ptr %16, align 8
   invoke void @_ZNSt6thread15_M_start_threadESt10unique_ptrINS_6_StateESt14default_deleteIS1_EEPFvvE(ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull %16, ptr noundef null)
@@ -159,7 +159,7 @@ _ZSt8_DestroyIPSt6threadS0_EvT_S2_RSaIT0_E.exit.i.thread46.i: ; preds = %_ZNSt6v
 
 _ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i.i.i: ; preds = %34
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %38 = load ptr, ptr %37, align 8
   call void %38(ptr noundef nonnull align 8 dereferenceable(8) %35) #11
   br label %45
@@ -173,7 +173,7 @@ _ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i.i.i: ; preds = %34
 
 _ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i6.i.i: ; preds = %39
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %44 = load ptr, ptr %43, align 8
   call void %44(ptr noundef nonnull align 8 dereferenceable(8) %41) #11
   br label %.body.i
@@ -192,7 +192,7 @@ _ZNSt6threadD2Ev.exit.i:                          ; preds = %45
   %47 = load i64, ptr %20, align 8
   store i64 %47, ptr %.sroa.020.025.i, align 8
   store i64 0, ptr %20, align 8
-  %48 = getelementptr inbounds i8, ptr %.sroa.020.025.i, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %.sroa.020.025.i, i64 8
   %.not.i = icmp eq ptr %48, %scevgep.i.i.i.i.i.i
   br i1 %.not.i, label %.lr.ph29.i, label %.lr.ph.i
 
@@ -221,7 +221,7 @@ common.resume:                                    ; preds = %96, %_ZNKSt14defaul
           to label %49 unwind label %.loopexit.i
 
 49:                                               ; preds = %.lr.ph29.i
-  %50 = getelementptr inbounds i8, ptr %.sroa.015.027.i, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %.sroa.015.027.i, i64 8
   %.not23.i = icmp eq ptr %50, %scevgep.i.i.i.i.i.i
   br i1 %.not23.i, label %._crit_edge30.i, label %.lr.ph29.i
 
@@ -231,7 +231,7 @@ common.resume:                                    ; preds = %96, %_ZNKSt14defaul
   br label %_ZSt8_DestroyISt6threadEvPT_.exit.i.i.i.i.i
 
 53:                                               ; preds = %_ZSt8_DestroyISt6threadEvPT_.exit.i.i.i.i.i
-  %54 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 8
   %.not.i.i.i.i14.i = icmp eq ptr %54, %scevgep.i.i.i.i.i.i
   br i1 %.not.i.i.i.i14.i, label %_ZSt8_DestroyIPSt6threadS0_EvT_S2_RSaIT0_E.exit.i.thread.i, label %_ZSt8_DestroyISt6threadEvPT_.exit.i.i.i.i.i, !llvm.loop !5
 
@@ -290,7 +290,7 @@ _ZSt8_DestroyIPSt6threadS0_EvT_S2_RSaIT0_E.exit.i.thread50.i: ; preds = %_ZNSt6v
 
 65:                                               ; preds = %.lr.ph.preheader.i.i.i.i.i.i
   store ptr %64, ptr %14, align 8
-  %66 = getelementptr inbounds %"class.std::thread", ptr %64, i64 %58
+  %66 = getelementptr inbounds nuw %"class.std::thread", ptr %64, i64 %58
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %64, i8 0, i64 %63, i1 false)
   %scevgep.i.i.i.i.i.i3 = getelementptr i8, ptr %64, i64 %63
   %67 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -310,9 +310,9 @@ _ZSt8_DestroyIPSt6threadS0_EvT_S2_RSaIT0_E.exit.i.thread50.i: ; preds = %_ZNSt6v
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZL22Test_RWMutexThroughputI5BigRWEvvEUlvE_EEEEEE, i64 16), ptr %69, align 8
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
   store ptr %13, ptr %70, align 8
-  %.sroa.2.0..sroa_idx.i10 = getelementptr inbounds i8, ptr %69, i64 16
+  %.sroa.2.0..sroa_idx.i10 = getelementptr inbounds nuw i8, ptr %69, i64 16
   store ptr %12, ptr %.sroa.2.0..sroa_idx.i10, align 8
-  %.sroa.3.0..sroa_idx.i11 = getelementptr inbounds i8, ptr %69, i64 24
+  %.sroa.3.0..sroa_idx.i11 = getelementptr inbounds nuw i8, ptr %69, i64 24
   store float 2.000000e+00, ptr %.sroa.3.0..sroa_idx.i11, align 8
   store ptr %69, ptr %11, align 8
   invoke void @_ZNSt6thread15_M_start_threadESt10unique_ptrINS_6_StateESt14default_deleteIS1_EEPFvvE(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull %11, ptr noundef null)
@@ -325,7 +325,7 @@ _ZSt8_DestroyIPSt6threadS0_EvT_S2_RSaIT0_E.exit.i.thread50.i: ; preds = %_ZNSt6v
 
 _ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i.i.i15: ; preds = %71
   %73 = load ptr, ptr %72, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 8
   %75 = load ptr, ptr %74, align 8
   call void %75(ptr noundef nonnull align 8 dereferenceable(8) %72) #11
   br label %82
@@ -339,7 +339,7 @@ _ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i.i.i15: ; preds = %71
 
 _ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i6.i.i13: ; preds = %76
   %79 = load ptr, ptr %78, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
   %81 = load ptr, ptr %80, align 8
   call void %81(ptr noundef nonnull align 8 dereferenceable(8) %78) #11
   br label %.body.i7
@@ -358,7 +358,7 @@ _ZNSt6threadD2Ev.exit.i18:                        ; preds = %82
   %84 = load i64, ptr %15, align 8
   store i64 %84, ptr %.sroa.024.029.i, align 8
   store i64 0, ptr %15, align 8
-  %85 = getelementptr inbounds i8, ptr %.sroa.024.029.i, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %.sroa.024.029.i, i64 8
   %.not.i19 = icmp eq ptr %85, %scevgep.i.i.i.i.i.i3
   br i1 %.not.i19, label %.lr.ph33.i, label %.lr.ph.i4
 
@@ -388,7 +388,7 @@ _ZNSt6threadD2Ev.exit.i18:                        ; preds = %82
           to label %88 unwind label %.loopexit.i21
 
 88:                                               ; preds = %.lr.ph33.i
-  %89 = getelementptr inbounds i8, ptr %.sroa.019.031.i, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %.sroa.019.031.i, i64 8
   %.not27.i = icmp eq ptr %89, %scevgep.i.i.i.i.i.i3
   br i1 %.not27.i, label %._crit_edge34.i, label %.lr.ph33.i
 
@@ -398,7 +398,7 @@ _ZNSt6threadD2Ev.exit.i18:                        ; preds = %82
   br label %_ZSt8_DestroyISt6threadEvPT_.exit.i.i.i.i.i23
 
 92:                                               ; preds = %_ZSt8_DestroyISt6threadEvPT_.exit.i.i.i.i.i23
-  %93 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i24, i64 8
+  %93 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i24, i64 8
   %.not.i.i.i.i14.i27 = icmp eq ptr %93, %scevgep.i.i.i.i.i.i3
   br i1 %.not.i.i.i.i14.i27, label %_ZSt8_DestroyIPSt6threadS0_EvT_S2_RSaIT0_E.exit.i.thread.i28, label %_ZSt8_DestroyISt6threadEvPT_.exit.i.i.i.i.i23, !llvm.loop !5
 
@@ -469,7 +469,7 @@ _ZSt8_DestroyIPSt6threadS0_EvT_S2_RSaIT0_E.exit.i.thread46.i66: ; preds = %_ZNSt
   %105 = shl nuw nsw i64 %100, 3
   %106 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %105) #15
   store ptr %106, ptr %9, align 8
-  %107 = getelementptr inbounds %"class.std::thread", ptr %106, i64 %100
+  %107 = getelementptr inbounds nuw %"class.std::thread", ptr %106, i64 %100
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %106, i8 0, i64 %105, i1 false)
   %scevgep.i.i.i.i.i.i33 = getelementptr i8, ptr %106, i64 %105
   %108 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -489,9 +489,9 @@ _ZSt8_DestroyIPSt6threadS0_EvT_S2_RSaIT0_E.exit.i.thread46.i66: ; preds = %_ZNSt
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZL22Test_RWMutexThroughputI9TbbSpinRWEvvEUlvE_EEEEEE, i64 16), ptr %110, align 8
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 8
   store ptr %8, ptr %111, align 8
-  %.sroa.2.0..sroa_idx.i41 = getelementptr inbounds i8, ptr %110, i64 16
+  %.sroa.2.0..sroa_idx.i41 = getelementptr inbounds nuw i8, ptr %110, i64 16
   store ptr %7, ptr %.sroa.2.0..sroa_idx.i41, align 8
-  %.sroa.3.0..sroa_idx.i42 = getelementptr inbounds i8, ptr %110, i64 24
+  %.sroa.3.0..sroa_idx.i42 = getelementptr inbounds nuw i8, ptr %110, i64 24
   store float 2.000000e+00, ptr %.sroa.3.0..sroa_idx.i42, align 8
   store ptr %110, ptr %6, align 8
   invoke void @_ZNSt6thread15_M_start_threadESt10unique_ptrINS_6_StateESt14default_deleteIS1_EEPFvvE(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull %6, ptr noundef null)
@@ -504,7 +504,7 @@ _ZSt8_DestroyIPSt6threadS0_EvT_S2_RSaIT0_E.exit.i.thread46.i66: ; preds = %_ZNSt
 
 _ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i.i.i46: ; preds = %112
   %114 = load ptr, ptr %113, align 8
-  %115 = getelementptr inbounds i8, ptr %114, i64 8
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 8
   %116 = load ptr, ptr %115, align 8
   call void %116(ptr noundef nonnull align 8 dereferenceable(8) %113) #11
   br label %123
@@ -518,7 +518,7 @@ _ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i.i.i46: ; preds = %112
 
 _ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i6.i.i44: ; preds = %117
   %120 = load ptr, ptr %119, align 8
-  %121 = getelementptr inbounds i8, ptr %120, i64 8
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 8
   %122 = load ptr, ptr %121, align 8
   call void %122(ptr noundef nonnull align 8 dereferenceable(8) %119) #11
   br label %.body.i38
@@ -537,7 +537,7 @@ _ZNSt6threadD2Ev.exit.i49:                        ; preds = %123
   %125 = load i64, ptr %10, align 8
   store i64 %125, ptr %.sroa.020.025.i35, align 8
   store i64 0, ptr %10, align 8
-  %126 = getelementptr inbounds i8, ptr %.sroa.020.025.i35, i64 8
+  %126 = getelementptr inbounds nuw i8, ptr %.sroa.020.025.i35, i64 8
   %.not.i50 = icmp eq ptr %126, %scevgep.i.i.i.i.i.i33
   br i1 %.not.i50, label %.lr.ph29.i52, label %.lr.ph.i34
 
@@ -562,7 +562,7 @@ _ZNSt6threadD2Ev.exit.i49:                        ; preds = %123
           to label %127 unwind label %.loopexit.i54
 
 127:                                              ; preds = %.lr.ph29.i52
-  %128 = getelementptr inbounds i8, ptr %.sroa.015.027.i53, i64 8
+  %128 = getelementptr inbounds nuw i8, ptr %.sroa.015.027.i53, i64 8
   %.not23.i56 = icmp eq ptr %128, %scevgep.i.i.i.i.i.i33
   br i1 %.not23.i56, label %._crit_edge30.i57, label %.lr.ph29.i52
 
@@ -572,7 +572,7 @@ _ZNSt6threadD2Ev.exit.i49:                        ; preds = %123
   br label %_ZSt8_DestroyISt6threadEvPT_.exit.i.i.i.i.i58
 
 131:                                              ; preds = %_ZSt8_DestroyISt6threadEvPT_.exit.i.i.i.i.i58
-  %132 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i59, i64 8
+  %132 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i59, i64 8
   %.not.i.i.i.i14.i62 = icmp eq ptr %132, %scevgep.i.i.i.i.i.i33
   br i1 %.not.i.i.i.i14.i62, label %_ZSt8_DestroyIPSt6threadS0_EvT_S2_RSaIT0_E.exit.i.thread.i63, label %_ZSt8_DestroyISt6threadEvPT_.exit.i.i.i.i.i58, !llvm.loop !5
 
@@ -623,7 +623,7 @@ _ZSt8_DestroyIPSt6threadS0_EvT_S2_RSaIT0_E.exit.i.thread46.i103: ; preds = %_ZNS
   %140 = shl nuw nsw i64 %136, 3
   %141 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %140) #15
   store ptr %141, ptr %4, align 8
-  %142 = getelementptr inbounds %"class.std::thread", ptr %141, i64 %136
+  %142 = getelementptr inbounds nuw %"class.std::thread", ptr %141, i64 %136
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %141, i8 0, i64 %140, i1 false)
   %scevgep.i.i.i.i.i.i70 = getelementptr i8, ptr %141, i64 %140
   %143 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -643,9 +643,9 @@ _ZSt8_DestroyIPSt6threadS0_EvT_S2_RSaIT0_E.exit.i.thread46.i103: ; preds = %_ZNS
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZL22Test_RWMutexThroughputI6TbbQRWEvvEUlvE_EEEEEE, i64 16), ptr %145, align 8
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 8
   store ptr %3, ptr %146, align 8
-  %.sroa.2.0..sroa_idx.i78 = getelementptr inbounds i8, ptr %145, i64 16
+  %.sroa.2.0..sroa_idx.i78 = getelementptr inbounds nuw i8, ptr %145, i64 16
   store ptr %2, ptr %.sroa.2.0..sroa_idx.i78, align 8
-  %.sroa.3.0..sroa_idx.i79 = getelementptr inbounds i8, ptr %145, i64 24
+  %.sroa.3.0..sroa_idx.i79 = getelementptr inbounds nuw i8, ptr %145, i64 24
   store float 2.000000e+00, ptr %.sroa.3.0..sroa_idx.i79, align 8
   store ptr %145, ptr %1, align 8
   invoke void @_ZNSt6thread15_M_start_threadESt10unique_ptrINS_6_StateESt14default_deleteIS1_EEPFvvE(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull %1, ptr noundef null)
@@ -658,7 +658,7 @@ _ZSt8_DestroyIPSt6threadS0_EvT_S2_RSaIT0_E.exit.i.thread46.i103: ; preds = %_ZNS
 
 _ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i.i.i83: ; preds = %147
   %149 = load ptr, ptr %148, align 8
-  %150 = getelementptr inbounds i8, ptr %149, i64 8
+  %150 = getelementptr inbounds nuw i8, ptr %149, i64 8
   %151 = load ptr, ptr %150, align 8
   call void %151(ptr noundef nonnull align 8 dereferenceable(8) %148) #11
   br label %158
@@ -672,7 +672,7 @@ _ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i.i.i83: ; preds = %147
 
 _ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i6.i.i81: ; preds = %152
   %155 = load ptr, ptr %154, align 8
-  %156 = getelementptr inbounds i8, ptr %155, i64 8
+  %156 = getelementptr inbounds nuw i8, ptr %155, i64 8
   %157 = load ptr, ptr %156, align 8
   call void %157(ptr noundef nonnull align 8 dereferenceable(8) %154) #11
   br label %.body.i75
@@ -691,7 +691,7 @@ _ZNSt6threadD2Ev.exit.i86:                        ; preds = %158
   %160 = load i64, ptr %5, align 8
   store i64 %160, ptr %.sroa.020.025.i72, align 8
   store i64 0, ptr %5, align 8
-  %161 = getelementptr inbounds i8, ptr %.sroa.020.025.i72, i64 8
+  %161 = getelementptr inbounds nuw i8, ptr %.sroa.020.025.i72, i64 8
   %.not.i87 = icmp eq ptr %161, %scevgep.i.i.i.i.i.i70
   br i1 %.not.i87, label %.lr.ph29.i89, label %.lr.ph.i71
 
@@ -716,7 +716,7 @@ _ZNSt6threadD2Ev.exit.i86:                        ; preds = %158
           to label %162 unwind label %.loopexit.i91
 
 162:                                              ; preds = %.lr.ph29.i89
-  %163 = getelementptr inbounds i8, ptr %.sroa.015.027.i90, i64 8
+  %163 = getelementptr inbounds nuw i8, ptr %.sroa.015.027.i90, i64 8
   %.not23.i93 = icmp eq ptr %163, %scevgep.i.i.i.i.i.i70
   br i1 %.not23.i93, label %._crit_edge30.i94, label %.lr.ph29.i89
 
@@ -726,7 +726,7 @@ _ZNSt6threadD2Ev.exit.i86:                        ; preds = %158
   br label %_ZSt8_DestroyISt6threadEvPT_.exit.i.i.i.i.i95
 
 166:                                              ; preds = %_ZSt8_DestroyISt6threadEvPT_.exit.i.i.i.i.i95
-  %167 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i96, i64 8
+  %167 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i96, i64 8
   %.not.i.i.i.i14.i99 = icmp eq ptr %167, %scevgep.i.i.i.i.i.i70
   br i1 %.not.i.i.i.i14.i99, label %_ZSt8_DestroyIPSt6threadS0_EvT_S2_RSaIT0_E.exit.i.thread.i100, label %_ZSt8_DestroyISt6threadEvPT_.exit.i.i.i.i.i95, !llvm.loop !5
 
@@ -771,7 +771,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorISt6threadSaIS0_EED2Ev(ptr nound
   br i1 %.not4.i.i.i, label %_ZSt8_DestroyIPSt6threadS0_EvT_S2_RSaIT0_E.exit, label %_ZSt8_DestroyISt6threadEvPT_.exit.i.i.i
 
 5:                                                ; preds = %_ZSt8_DestroyISt6threadEvPT_.exit.i.i.i
-  %6 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 8
   %.not.i.i.i = icmp eq ptr %6, %4
   br i1 %.not.i.i.i, label %_ZSt8_DestroyIPSt6threadS0_EvT_S2_RSaIT0_E.exit, label %_ZSt8_DestroyISt6threadEvPT_.exit.i.i.i, !llvm.loop !5
 
@@ -992,7 +992,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
 
 17:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit.i.i.i.i.i.i.i
   %18 = load ptr, ptr %13, align 8
-  %19 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::TfBigRWMutex::_LockState", ptr %18, i64 %9
+  %19 = getelementptr inbounds nuw %"struct.pxrInternal_v0_24__pxrReserved__::TfBigRWMutex::_LockState", ptr %18, i64 %9
   %20 = atomicrmw add ptr %19, i32 2 seq_cst, align 4
   %21 = and i32 %20, 1
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %21, 0
@@ -1014,7 +1014,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12TfBigRWMutex10ScopedLock7AcquireEb.exit.i
   %27 = add i64 %.131.i.i.i.i.i, %26
   %28 = load ptr, ptr %2, align 8
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::TfBigRWMutex::_LockState", ptr %29, i64 %9
+  %30 = getelementptr inbounds nuw %"struct.pxrInternal_v0_24__pxrReserved__::TfBigRWMutex::_LockState", ptr %29, i64 %9
   %31 = atomicrmw sub ptr %30, i32 2 seq_cst, align 4
   store i32 -1, ptr %4, align 8
   %32 = add nuw nsw i32 %.032.i.i.i.i.i, 1

@@ -14,9 +14,9 @@ define hidden range(i32 0, 2) i32 @VP8LColorCacheInit(ptr nocapture noundef writ
 
 7:                                                ; preds = %2
   %8 = sub nsw i32 32, %1
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %8, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %1, ptr %10, align 4
   br label %11
 
@@ -48,7 +48,7 @@ declare void @WebPSafeFree(ptr noundef) local_unnamed_addr #1
 define hidden void @VP8LColorCacheCopy(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 12
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %6 = load i32, ptr %5, align 4
   %7 = zext nneg i32 %6 to i64
   %8 = shl i64 4, %7

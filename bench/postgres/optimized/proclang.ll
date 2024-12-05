@@ -25,7 +25,7 @@ define dso_local { i64, i32 } @CreateProceduralLanguage(ptr nocapture noundef re
   %6 = alloca [9 x i8], align 1
   %7 = alloca %struct.nameData, align 1
   %8 = alloca %struct.ObjectAddress, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 @GetUserId() #5
   %12 = tail call zeroext i1 @superuser() #5
@@ -40,7 +40,7 @@ define dso_local { i64, i32 } @CreateProceduralLanguage(ptr nocapture noundef re
   unreachable
 
 17:                                               ; preds = %1
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load ptr, ptr %18, align 8
   %20 = tail call i32 @LookupFuncName(ptr noundef %19, i32 noundef 0, ptr noundef null, i1 noundef zeroext false) #5
   %21 = tail call i32 @get_func_rettype(i32 noundef %20) #5
@@ -58,7 +58,7 @@ define dso_local { i64, i32 } @CreateProceduralLanguage(ptr nocapture noundef re
   unreachable
 
 28:                                               ; preds = %17
-  %29 = getelementptr inbounds i8, ptr %0, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %30 = load ptr, ptr %29, align 8
   %.not53 = icmp eq ptr %30, null
   br i1 %.not53, label %33, label %31
@@ -70,7 +70,7 @@ define dso_local { i64, i32 } @CreateProceduralLanguage(ptr nocapture noundef re
 
 33:                                               ; preds = %28, %31
   %.0 = phi i32 [ %32, %31 ], [ 0, %28 ]
-  %34 = getelementptr inbounds i8, ptr %0, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %35 = load ptr, ptr %34, align 8
   %.not54 = icmp eq ptr %35, null
   br i1 %.not54, label %38, label %36
@@ -83,36 +83,36 @@ define dso_local { i64, i32 } @CreateProceduralLanguage(ptr nocapture noundef re
 38:                                               ; preds = %33, %36
   %.049 = phi i32 [ %37, %36 ], [ 0, %33 ]
   %39 = call ptr @table_open(i32 noundef 2612, i32 noundef 3) #5
-  %40 = getelementptr inbounds i8, ptr %39, i64 64
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 64
   %41 = load ptr, ptr %40, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %4, i8 0, i64 72, i1 false)
   store i64 0, ptr %5, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %6, i8 1, i64 9, i1 false)
   call void @namestrcpy(ptr noundef nonnull %7, ptr noundef %10) #5
   %42 = ptrtoint ptr %7 to i64
-  %43 = getelementptr inbounds i8, ptr %4, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %42, ptr %43, align 8
   %44 = zext i32 %11 to i64
-  %45 = getelementptr inbounds i8, ptr %4, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 %44, ptr %45, align 16
-  %46 = getelementptr inbounds i8, ptr %4, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 1, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %0, i64 40
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %48 = load i8, ptr %47, align 8
   %49 = and i8 %48, 1
   %50 = zext nneg i8 %49 to i64
-  %51 = getelementptr inbounds i8, ptr %4, i64 32
+  %51 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i64 %50, ptr %51, align 16
   %52 = zext i32 %20 to i64
-  %53 = getelementptr inbounds i8, ptr %4, i64 40
+  %53 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i64 %52, ptr %53, align 8
   %54 = zext i32 %.0 to i64
-  %55 = getelementptr inbounds i8, ptr %4, i64 48
+  %55 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store i64 %54, ptr %55, align 16
   %56 = zext i32 %.049 to i64
-  %57 = getelementptr inbounds i8, ptr %4, i64 56
+  %57 = getelementptr inbounds nuw i8, ptr %4, i64 56
   store i64 %56, ptr %57, align 8
-  %58 = getelementptr inbounds i8, ptr %5, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i8 1, ptr %58, align 8
   %59 = ptrtoint ptr %10 to i64
   %60 = call ptr @SearchSysCache1(i32 noundef 33, i64 noundef %59) #5
@@ -120,7 +120,7 @@ define dso_local { i64, i32 } @CreateProceduralLanguage(ptr nocapture noundef re
   br i1 %.not55, label %61, label %.critedge
 
 61:                                               ; preds = %38
-  %62 = getelementptr inbounds i8, ptr %0, i64 4
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %63 = load i8, ptr %62, align 4
   %64 = trunc i8 %63 to i1
   br i1 %64, label %69, label %65
@@ -134,26 +134,26 @@ define dso_local { i64, i32 } @CreateProceduralLanguage(ptr nocapture noundef re
   unreachable
 
 69:                                               ; preds = %61
-  %70 = getelementptr inbounds i8, ptr %60, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %60, i64 16
   %71 = load ptr, ptr %70, align 8
-  %72 = getelementptr inbounds i8, ptr %71, i64 22
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 22
   %73 = load i8, ptr %72, align 2
   %74 = zext i8 %73 to i64
   %75 = getelementptr i8, ptr %71, i64 %74
   store i8 0, ptr %6, align 1
-  %76 = getelementptr inbounds i8, ptr %6, i64 2
+  %76 = getelementptr inbounds nuw i8, ptr %6, i64 2
   store i8 0, ptr %76, align 1
-  %77 = getelementptr inbounds i8, ptr %6, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i8 0, ptr %77, align 1
   %78 = call ptr @heap_modify_tuple(ptr noundef nonnull %60, ptr noundef %41, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6) #5
-  %79 = getelementptr inbounds i8, ptr %78, i64 4
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 4
   call void @CatalogTupleUpdate(ptr noundef nonnull %39, ptr noundef nonnull %79, ptr noundef %78) #5
   %80 = load i32, ptr %75, align 4
   call void @ReleaseSysCache(ptr noundef nonnull %60) #5
   store i32 2612, ptr %2, align 8
-  %81 = getelementptr inbounds i8, ptr %2, i64 4
+  %81 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %80, ptr %81, align 4
-  %82 = getelementptr inbounds i8, ptr %2, i64 8
+  %82 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 0, ptr %82, align 8
   %83 = call i64 @deleteDependencyRecordsFor(i32 noundef 2612, i32 noundef %80, i1 noundef zeroext true) #5
   br label %89
@@ -165,9 +165,9 @@ define dso_local { i64, i32 } @CreateProceduralLanguage(ptr nocapture noundef re
   %86 = call ptr @heap_form_tuple(ptr noundef %41, ptr noundef nonnull %4, ptr noundef nonnull %5) #5
   call void @CatalogTupleInsert(ptr noundef nonnull %39, ptr noundef %86) #5
   store i32 2612, ptr %2, align 8
-  %87 = getelementptr inbounds i8, ptr %2, i64 4
+  %87 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %84, ptr %87, align 4
-  %88 = getelementptr inbounds i8, ptr %2, i64 8
+  %88 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 0, ptr %88, align 8
   call void @recordDependencyOnOwner(i32 noundef 2612, i32 noundef %84, i32 noundef %11) #5
   br label %89
@@ -178,9 +178,9 @@ define dso_local { i64, i32 } @CreateProceduralLanguage(ptr nocapture noundef re
   call void @recordDependencyOnCurrentExtension(ptr noundef nonnull %2, i1 noundef zeroext %.not55) #5
   %92 = call ptr @new_object_addresses() #5
   store i32 1255, ptr %8, align 4
-  %93 = getelementptr inbounds i8, ptr %8, i64 4
+  %93 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 %20, ptr %93, align 4
-  %94 = getelementptr inbounds i8, ptr %8, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 0, ptr %94, align 4
   call void @add_exact_object_address(ptr noundef nonnull %8, ptr noundef %92) #5
   %.not56 = icmp eq i32 %.0, 0

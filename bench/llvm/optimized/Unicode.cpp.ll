@@ -21,12 +21,12 @@ _ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i: ; preds = %1, 
   %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i ], [ @_ZZN4llvm3sys7unicode11isPrintableEiE15PrintableRanges, %1 ]
   %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i ], [ 711, %1 ]
   %3 = lshr i64 %.01116.i.i.i, 1
-  %4 = getelementptr inbounds %"struct.llvm::sys::UnicodeCharRange", ptr %.017.i.i.i, i64 %3
+  %4 = getelementptr inbounds nuw %"struct.llvm::sys::UnicodeCharRange", ptr %.017.i.i.i, i64 %3
   %.sroa.0.0.copyload.i.i.i.i = load i64, ptr %4, align 4
   %.sroa.1.0.extract.shift.i.i.i.i.i = lshr i64 %.sroa.0.0.copyload.i.i.i.i, 32
   %.sroa.1.0.extract.trunc.i.i.i.i.i = trunc nuw i64 %.sroa.1.0.extract.shift.i.i.i.i.i to i32
   %5 = icmp ugt i32 %0, %.sroa.1.0.extract.trunc.i.i.i.i.i
-  %6 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %7 = xor i64 %3, -1
   %8 = add nsw i64 %.01116.i.i.i, %7
   %.112.i.i.i = select i1 %5, i64 %8, i64 %3
@@ -57,12 +57,12 @@ _ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i: ; preds = %_ZS
   %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i ], [ @_ZZN4llvm3sys7unicode12isFormattingEiE2Cf, %1 ]
   %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i ], [ 21, %1 ]
   %2 = lshr i64 %.01116.i.i.i, 1
-  %3 = getelementptr inbounds %"struct.llvm::sys::UnicodeCharRange", ptr %.017.i.i.i, i64 %2
+  %3 = getelementptr inbounds nuw %"struct.llvm::sys::UnicodeCharRange", ptr %.017.i.i.i, i64 %2
   %.sroa.0.0.copyload.i.i.i.i = load i64, ptr %3, align 4
   %.sroa.1.0.extract.shift.i.i.i.i.i = lshr i64 %.sroa.0.0.copyload.i.i.i.i, 32
   %.sroa.1.0.extract.trunc.i.i.i.i.i = trunc nuw i64 %.sroa.1.0.extract.shift.i.i.i.i.i to i32
   %4 = icmp ugt i32 %0, %.sroa.1.0.extract.trunc.i.i.i.i.i
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = xor i64 %2, -1
   %7 = add nsw i64 %.01116.i.i.i, %6
   %.112.i.i.i = select i1 %4, i64 %7, i64 %2
@@ -94,7 +94,7 @@ define dso_local noundef i32 @_ZN4llvm3sys7unicode15columnWidthUTF8ENS_9StringRe
   br i1 %.not39, label %_ZN4llvm3sys7unicodeL9charWidthEi.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %3, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 4
   br label %7
 
 7:                                                ; preds = %.lr.ph, %50
@@ -128,7 +128,7 @@ define dso_local noundef i32 @_ZN4llvm3sys7unicode15columnWidthUTF8ENS_9StringRe
 21:                                               ; preds = %17
   store ptr %8, ptr %4, align 8
   store ptr %3, ptr %5, align 8
-  %22 = getelementptr inbounds i8, ptr %8, i64 %18
+  %22 = getelementptr inbounds nuw i8, ptr %8, i64 %18
   %23 = call noundef i32 @_ZN4llvm18ConvertUTF8toUTF32EPPKhS1_PPjS3_NS_15ConversionFlagsE(ptr noundef nonnull %4, ptr noundef nonnull %22, ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef 0) #3
   %.not = icmp eq i32 %23, 0
   br i1 %.not, label %24, label %_ZN4llvm3sys7unicodeL9charWidthEi.exit
@@ -142,12 +142,12 @@ _ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i.i.i: ; preds = 
   %.017.i.i.i.i.i = phi ptr [ %.1.i.i.i.i.i, %_ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i.i.i ], [ @_ZZN4llvm3sys7unicode11isPrintableEiE15PrintableRanges, %24 ]
   %.01116.i.i.i.i.i = phi i64 [ %.112.i.i.i.i.i, %_ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i.i.i ], [ 711, %24 ]
   %27 = lshr i64 %.01116.i.i.i.i.i, 1
-  %28 = getelementptr inbounds %"struct.llvm::sys::UnicodeCharRange", ptr %.017.i.i.i.i.i, i64 %27
+  %28 = getelementptr inbounds nuw %"struct.llvm::sys::UnicodeCharRange", ptr %.017.i.i.i.i.i, i64 %27
   %.sroa.0.0.copyload.i.i.i.i.i.i = load i64, ptr %28, align 4
   %.sroa.1.0.extract.shift.i.i.i.i.i.i.i = lshr i64 %.sroa.0.0.copyload.i.i.i.i.i.i, 32
   %.sroa.1.0.extract.trunc.i.i.i.i.i.i.i = trunc nuw i64 %.sroa.1.0.extract.shift.i.i.i.i.i.i.i to i32
   %29 = icmp ugt i32 %25, %.sroa.1.0.extract.trunc.i.i.i.i.i.i.i
-  %30 = getelementptr inbounds i8, ptr %28, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %31 = xor i64 %27, -1
   %32 = add nsw i64 %.01116.i.i.i.i.i, %31
   %.112.i.i.i.i.i = select i1 %29, i64 %32, i64 %27
@@ -172,12 +172,12 @@ _ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i.i: ; preds = %_
   %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i.i ], [ @_ZZN4llvm3sys7unicodeL9charWidthEiE24CombiningCharacterRanges, %_ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i.i.preheader ]
   %.01116.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i.i ], [ 343, %_ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i.i.preheader ]
   %34 = lshr i64 %.01116.i.i.i.i, 1
-  %35 = getelementptr inbounds %"struct.llvm::sys::UnicodeCharRange", ptr %.017.i.i.i.i, i64 %34
+  %35 = getelementptr inbounds nuw %"struct.llvm::sys::UnicodeCharRange", ptr %.017.i.i.i.i, i64 %34
   %.sroa.0.0.copyload.i.i.i.i.i = load i64, ptr %35, align 4
   %.sroa.1.0.extract.shift.i.i.i.i.i.i = lshr i64 %.sroa.0.0.copyload.i.i.i.i.i, 32
   %.sroa.1.0.extract.trunc.i.i.i.i.i.i = trunc nuw i64 %.sroa.1.0.extract.shift.i.i.i.i.i.i to i32
   %36 = icmp ugt i32 %25, %.sroa.1.0.extract.trunc.i.i.i.i.i.i
-  %37 = getelementptr inbounds i8, ptr %35, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %38 = xor i64 %34, -1
   %39 = add nsw i64 %.01116.i.i.i.i, %38
   %.112.i.i.i.i = select i1 %36, i64 %39, i64 %34
@@ -202,12 +202,12 @@ _ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i4.i: ; preds = %
   %.017.i.i.i5.i = phi ptr [ %.1.i.i.i13.i, %_ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i4.i ], [ @_ZZN4llvm3sys7unicodeL9charWidthEiE26DoubleWidthCharacterRanges, %_ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i4.i.preheader ]
   %.01116.i.i.i6.i = phi i64 [ %.112.i.i.i12.i, %_ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i4.i ], [ 100, %_ZSt7advanceIPKN4llvm3sys16UnicodeCharRangeElEvRT_T0_.exit.i.i.i4.i.preheader ]
   %41 = lshr i64 %.01116.i.i.i6.i, 1
-  %42 = getelementptr inbounds %"struct.llvm::sys::UnicodeCharRange", ptr %.017.i.i.i5.i, i64 %41
+  %42 = getelementptr inbounds nuw %"struct.llvm::sys::UnicodeCharRange", ptr %.017.i.i.i5.i, i64 %41
   %.sroa.0.0.copyload.i.i.i.i9.i = load i64, ptr %42, align 4
   %.sroa.1.0.extract.shift.i.i.i.i.i10.i = lshr i64 %.sroa.0.0.copyload.i.i.i.i9.i, 32
   %.sroa.1.0.extract.trunc.i.i.i.i.i11.i = trunc nuw i64 %.sroa.1.0.extract.shift.i.i.i.i.i10.i to i32
   %43 = icmp ugt i32 %25, %.sroa.1.0.extract.trunc.i.i.i.i.i11.i
-  %44 = getelementptr inbounds i8, ptr %42, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %45 = xor i64 %41, -1
   %46 = add nsw i64 %.01116.i.i.i6.i, %45
   %.112.i.i.i12.i = select i1 %43, i64 %46, i64 %41

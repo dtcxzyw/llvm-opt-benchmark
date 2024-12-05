@@ -23,11 +23,11 @@ define internal void @opal_fifo_construct(ptr noundef initializes((48, 56)) %0) 
   br label %5
 
 5:                                                ; preds = %4, %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr @opal_list_item_t_class, ptr %6, align 16
-  %7 = getelementptr inbounds i8, ptr %0, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store volatile i32 1, ptr %7, align 8
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_list_item_t_class, i64 40), align 8
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_list_item_t_class, i64 40), align 8
   %9 = load ptr, ptr %8, align 8
   %.not6.i = icmp eq ptr %9, null
   br i1 %.not6.i, label %opal_obj_run_constructors.exit, label %.lr.ph.i
@@ -36,24 +36,24 @@ define internal void @opal_fifo_construct(ptr noundef initializes((48, 56)) %0) 
   %10 = phi ptr [ %12, %.lr.ph.i ], [ %9, %5 ]
   %.07.i = phi ptr [ %11, %.lr.ph.i ], [ %8, %5 ]
   tail call void %10(ptr noundef nonnull %6) #2
-  %11 = getelementptr inbounds i8, ptr %.07.i, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
   %12 = load ptr, ptr %11, align 8
   %.not.i = icmp eq ptr %12, null
   br i1 %.not.i, label %opal_obj_run_constructors.exit, label %.lr.ph.i, !llvm.loop !4
 
 opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %5
-  %13 = getelementptr inbounds i8, ptr %0, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store volatile ptr %6, ptr %13, align 16
-  %14 = getelementptr inbounds i8, ptr %0, i64 80
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 0, ptr %14, align 16
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store volatile i64 0, ptr %15, align 16
   %16 = ptrtoint ptr %6 to i64
-  %17 = getelementptr inbounds i8, ptr %0, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store volatile i64 %16, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store volatile i64 0, ptr %18, align 16
-  %19 = getelementptr inbounds i8, ptr %0, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store volatile i64 %16, ptr %19, align 8
   ret void
 }

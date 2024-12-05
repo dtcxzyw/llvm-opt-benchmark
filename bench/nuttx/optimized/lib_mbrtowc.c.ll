@@ -53,9 +53,9 @@ define i64 @mbrtowc(ptr noundef writeonly %0, ptr noundef readonly %1, i64 nound
   br i1 %23, label %.loopexit60, label %24
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds i8, ptr %1, i64 1
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %26 = zext nneg i32 %22 to i64
-  %27 = getelementptr inbounds [51 x i32], ptr @g_bittab, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw [51 x i32], ptr @g_bittab, i64 0, i64 %26
   %28 = load i32, ptr %27, align 4
   %29 = add i64 %2, -1
   %.not = icmp eq i64 %29, 0
@@ -81,7 +81,7 @@ define i64 @mbrtowc(ptr noundef writeonly %0, ptr noundef readonly %1, i64 nound
   %.136 = phi ptr [ %39, %48 ], [ %.03558, %.thread ]
   %.2 = phi i32 [ %42, %48 ], [ %.059, %.thread ]
   %38 = shl i32 %.2, 6
-  %39 = getelementptr inbounds i8, ptr %.136, i64 1
+  %39 = getelementptr inbounds nuw i8, ptr %.136, i64 1
   %40 = zext i8 %37 to i32
   %41 = add nsw i32 %40, -128
   %42 = or i32 %41, %38

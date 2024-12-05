@@ -51,9 +51,9 @@ define hidden void @_ZN15NativeCallStackC2EPPhi(ptr nocapture noundef nonnull wr
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %11 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds [4 x ptr], ptr %0, i64 0, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [4 x ptr], ptr %0, i64 0, i64 %indvars.iv
   store ptr %12, ptr %13, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -69,7 +69,7 @@ define hidden noundef i32 @_ZNK15NativeCallStack6framesEv(ptr nocapture noundef 
 
 2:                                                ; preds = %1, %6
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %6 ]
-  %3 = getelementptr inbounds [4 x ptr], ptr %0, i64 0, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw [4 x ptr], ptr %0, i64 0, i64 %indvars.iv
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.split.loop.exit, label %6
@@ -114,7 +114,7 @@ define hidden void @_ZNK15NativeCallStack11print_frameEP12outputStreamPh(ptr noc
   %17 = sext i8 %16 to i32
   %18 = call noundef ptr @strrchr(ptr noundef nonnull dereferenceable(1) %4, i32 noundef %17) #8
   %.not = icmp eq ptr %18, null
-  %19 = getelementptr inbounds i8, ptr %18, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 1
   %20 = select i1 %.not, ptr %4, ptr %19
   br label %21
 
@@ -137,7 +137,7 @@ define hidden void @_ZNK15NativeCallStack11print_frameEP12outputStreamPh(ptr noc
   %28 = sext i8 %27 to i32
   %29 = call noundef ptr @strrchr(ptr noundef nonnull dereferenceable(1) %4, i32 noundef %28) #8
   %.not23 = icmp eq ptr %29, null
-  %30 = getelementptr inbounds i8, ptr %29, i64 1
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 1
   %.0 = select i1 %.not23, ptr %4, ptr %30
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.7, ptr noundef nonnull %.0) #7
   br i1 %9, label %33, label %31
@@ -172,7 +172,7 @@ define hidden void @_ZNK15NativeCallStack8print_onEP12outputStream(ptr nocapture
 
 3:                                                ; preds = %2, %6
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %6 ]
-  %4 = getelementptr inbounds [4 x ptr], ptr %0, i64 0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [4 x ptr], ptr %0, i64 0, i64 %indvars.iv
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %.critedge, label %6

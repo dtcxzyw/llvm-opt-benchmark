@@ -25,13 +25,13 @@ define noundef zeroext i1 @zend_gdb_register_code(ptr nocapture noundef readonly
   br i1 %5, label %6, label %15
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %4, i64 32
-  %8 = getelementptr inbounds i8, ptr %4, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %7, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 %1, ptr %9, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %7, ptr align 1 %0, i64 %1, i1 false)
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr null, ptr %10, align 8
   %11 = load ptr, ptr getelementptr inbounds (i8, ptr @__jit_debug_descriptor, i64 16), align 8
   store ptr %11, ptr %4, align 8
@@ -39,7 +39,7 @@ define noundef zeroext i1 @zend_gdb_register_code(ptr nocapture noundef readonly
   br i1 %.not, label %14, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %11, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %4, ptr %13, align 8
   br label %14
 
@@ -75,7 +75,7 @@ define void @zend_gdb_unregister_all() local_unnamed_addr #0 {
   br i1 %.not6, label %6, label %4
 
 4:                                                ; preds = %.lr.ph
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr null, ptr %5, align 8
   br label %6
 
@@ -108,14 +108,14 @@ define zeroext i1 @zend_gdb_present() local_unnamed_addr #0 {
   br i1 %7, label %8, label %24
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds [1024 x i8], ptr %1, i64 0, i64 %6
+  %9 = getelementptr inbounds nuw [1024 x i8], ptr %1, i64 0, i64 %6
   store i8 0, ptr %9, align 1
   %10 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) @.str.1) #11
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %24, label %11
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %10, i64 10
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 10
   br label %13
 
 13:                                               ; preds = %.critedge, %11
@@ -127,7 +127,7 @@ define zeroext i1 @zend_gdb_present() local_unnamed_addr #0 {
   ]
 
 .critedge:                                        ; preds = %13, %13
-  %15 = getelementptr inbounds i8, ptr %.013, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %.013, i64 1
   br label %13
 
 16:                                               ; preds = %13

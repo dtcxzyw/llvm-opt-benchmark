@@ -96,11 +96,11 @@ define hidden range(i32 -1, 2) i32 @snoop_open(ptr noundef %0, ptr noundef %1, p
   br i1 %.not50, label %42, label %87
 
 27:                                               ; preds = %20
-  %28 = getelementptr inbounds i8, ptr %6, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %29 = load i32, ptr %28, align 4
   %30 = call i32 @llvm.bswap.i32(i32 %29)
   %31 = zext i32 %30 to i64
-  %32 = getelementptr inbounds i8, ptr %6, i64 4
+  %32 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %33 = load i32, ptr %32, align 4
   %34 = call i32 @llvm.bswap.i32(i32 %33)
   %35 = zext i32 %34 to i64
@@ -123,7 +123,7 @@ define hidden range(i32 -1, 2) i32 @snoop_open(ptr noundef %0, ptr noundef %1, p
   br i1 %45, label %87, label %46
 
 46:                                               ; preds = %42
-  %47 = getelementptr inbounds i8, ptr %5, i64 4
+  %47 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %48 = load i32, ptr %47, align 4
   %49 = call i32 @llvm.bswap.i32(i32 %48)
   store i32 %49, ptr %47, align 4
@@ -193,20 +193,20 @@ define hidden range(i32 -1, 2) i32 @snoop_open(ptr noundef %0, ptr noundef %1, p
   %76 = load i32, ptr @shomiti_file_type_subtype, align 4
   %77 = load i32, ptr @snoop_file_type_subtype, align 4
   %78 = select i1 %.not51, i32 %77, i32 %76
-  %79 = getelementptr inbounds i8, ptr %0, i64 20
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %78, ptr %79, align 4
   %80 = call noalias dereferenceable_or_null(4) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 4) #8
-  %81 = getelementptr inbounds i8, ptr %0, i64 96
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %80, ptr %81, align 8
-  %82 = getelementptr inbounds i8, ptr %0, i64 112
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr @snoop_read, ptr %82, align 8
-  %83 = getelementptr inbounds i8, ptr %0, i64 120
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr @snoop_seek_read, ptr %83, align 8
-  %84 = getelementptr inbounds i8, ptr %0, i64 144
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i32 %.039, ptr %84, align 8
-  %85 = getelementptr inbounds i8, ptr %0, i64 24
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %85, align 8
-  %86 = getelementptr inbounds i8, ptr %0, i64 148
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 148
   store i32 6, ptr %86, align 4
   store i32 %.038, ptr %80, align 4
   call void @wtap_add_generated_idb(ptr noundef nonnull %0) #7
@@ -258,7 +258,7 @@ define internal range(i32 0, 2) i32 @snoop_read(ptr nocapture noundef readonly %
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @snoop_seek_read(ptr nocapture noundef readonly %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i64 @file_seek(ptr noundef %8, i64 noundef %1, i32 noundef 0, ptr noundef %4) #7
   %10 = icmp eq i64 %9, -1
@@ -307,19 +307,19 @@ declare void @wtap_register_backwards_compatibility_lua_name(ptr noundef, i32 no
 define internal fastcc i32 @snoop_read_packet(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca %struct.snooprec_hdr, align 4
   %8 = alloca i32, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 96
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %10 = load ptr, ptr %9, align 8
   %11 = call i32 @wtap_read_bytes_or_eof(ptr noundef %1, ptr noundef nonnull %7, i32 noundef 24, ptr noundef %4, ptr noundef %5) #7
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %101, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %7, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %14 = load i32, ptr %13, align 4
   %15 = call i32 @llvm.bswap.i32(i32 %14)
   %16 = load i32, ptr %7, align 4
   %17 = call i32 @llvm.bswap.i32(i32 %16)
-  %18 = getelementptr inbounds i8, ptr %7, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %19 = load i32, ptr %18, align 4
   %20 = call i32 @llvm.bswap.i32(i32 %19)
   %21 = icmp ugt i32 %17, 262144
@@ -352,7 +352,7 @@ define internal fastcc i32 @snoop_read_packet(ptr nocapture noundef readonly %0,
   br label %101
 
 32:                                               ; preds = %28
-  %33 = getelementptr inbounds i8, ptr %0, i64 144
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %34 = load i32, ptr %33, align 8
   switch i32 %34, label %63 [
     i32 13, label %35
@@ -371,7 +371,7 @@ define internal fastcc i32 @snoop_read_packet(ptr nocapture noundef readonly %0,
   br label %101
 
 39:                                               ; preds = %35
-  %40 = getelementptr inbounds i8, ptr %2, i64 80
+  %40 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %41 = call fastcc i32 @snoop_read_atm_pseudoheader(ptr noundef %1, ptr noundef nonnull %40, ptr noundef %4, ptr noundef %5)
   %.not81 = icmp eq i32 %41, 0
   br i1 %.not81, label %101, label %42
@@ -385,7 +385,7 @@ define internal fastcc i32 @snoop_read_packet(ptr nocapture noundef readonly %0,
 46:                                               ; preds = %32
   %47 = load i32, ptr %10, align 4
   %.not80 = icmp eq i32 %47, 0
-  %48 = getelementptr inbounds i8, ptr %2, i64 80
+  %48 = getelementptr inbounds nuw i8, ptr %2, i64 80
   br i1 %.not80, label %50, label %49
 
 49:                                               ; preds = %46
@@ -407,7 +407,7 @@ define internal fastcc i32 @snoop_read_packet(ptr nocapture noundef readonly %0,
   br label %101
 
 55:                                               ; preds = %51
-  %56 = getelementptr inbounds i8, ptr %2, i64 80
+  %56 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %57 = call fastcc i32 @snoop_read_shomiti_wireless_pseudoheader(ptr noundef %1, ptr noundef nonnull %56, ptr noundef %4, ptr noundef %5, ptr noundef %8)
   %.not79 = icmp eq i32 %57, 0
   br i1 %.not79, label %101, label %58
@@ -425,25 +425,25 @@ define internal fastcc i32 @snoop_read_packet(ptr nocapture noundef readonly %0,
   %.0 = phi i32 [ %17, %32 ], [ %61, %58 ], [ %17, %49 ], [ %17, %50 ], [ %44, %42 ]
   store i32 0, ptr %2, align 8
   %64 = call ptr @wtap_block_create(i32 noundef 5) #7
-  %65 = getelementptr inbounds i8, ptr %2, i64 232
+  %65 = getelementptr inbounds nuw i8, ptr %2, i64 232
   store ptr %64, ptr %65, align 8
-  %66 = getelementptr inbounds i8, ptr %2, i64 4
+  %66 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 3, ptr %66, align 4
-  %67 = getelementptr inbounds i8, ptr %7, i64 16
+  %67 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %68 = load i32, ptr %67, align 4
   %69 = call i32 @llvm.bswap.i32(i32 %68)
   %70 = zext i32 %69 to i64
-  %71 = getelementptr inbounds i8, ptr %2, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 %70, ptr %71, align 8
-  %72 = getelementptr inbounds i8, ptr %7, i64 20
+  %72 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %73 = load i32, ptr %72, align 4
   %74 = call i32 @llvm.bswap.i32(i32 %73)
   %75 = mul i32 %74, 1000
-  %76 = getelementptr inbounds i8, ptr %2, i64 24
+  %76 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 %75, ptr %76, align 8
-  %77 = getelementptr inbounds i8, ptr %2, i64 64
+  %77 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store i32 %.071, ptr %77, align 8
-  %78 = getelementptr inbounds i8, ptr %2, i64 68
+  %78 = getelementptr inbounds nuw i8, ptr %2, i64 68
   store i32 %.0, ptr %78, align 4
   %79 = zext i32 %.072 to i64
   %80 = zext i32 %.071 to i64
@@ -468,14 +468,14 @@ define internal fastcc i32 @snoop_read_packet(ptr nocapture noundef readonly %0,
   br i1 %89, label %90, label %99
 
 90:                                               ; preds = %87
-  %91 = getelementptr inbounds i8, ptr %2, i64 85
+  %91 = getelementptr inbounds nuw i8, ptr %2, i64 85
   %92 = load i8, ptr %91, align 1
   %93 = icmp eq i8 %92, 3
   br i1 %93, label %94, label %99
 
 94:                                               ; preds = %90
   %95 = load ptr, ptr %3, align 8
-  %96 = getelementptr inbounds i8, ptr %3, i64 16
+  %96 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %97 = load i64, ptr %96, align 8
   %98 = getelementptr i8, ptr %95, i64 %97
   call void @atm_guess_lane_type(ptr noundef nonnull %2, ptr noundef %98) #7
@@ -499,11 +499,11 @@ define internal fastcc range(i32 0, 2) i32 @snoop_read_atm_pseudoheader(ptr noun
   br i1 %.not, label %37, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %5, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %9 = load i8, ptr %8, align 1
-  %10 = getelementptr inbounds i8, ptr %5, i64 2
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 2
   %.val = load i8, ptr %10, align 2
-  %11 = getelementptr inbounds i8, ptr %5, i64 3
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 3
   %.val34 = load i8, ptr %11, align 1
   %12 = zext i8 %.val to i16
   %13 = shl nuw i16 %12, 8
@@ -536,29 +536,29 @@ switch.lookup:                                    ; preds = %7
 24:                                               ; preds = %switch.lookup, %19
   %spec.select.sink = phi i8 [ %spec.select, %19 ], [ %switch.masked, %switch.lookup ]
   %.sink = phi i8 [ 0, %19 ], [ %switch.masked40, %switch.lookup ]
-  %25 = getelementptr inbounds i8, ptr %1, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i8 %spec.select.sink, ptr %25, align 4
-  %26 = getelementptr inbounds i8, ptr %1, i64 5
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 5
   store i8 %.sink, ptr %26, align 1
-  %27 = getelementptr inbounds i8, ptr %1, i64 6
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 6
   store i8 0, ptr %27, align 2
   %28 = zext i8 %9 to i16
-  %29 = getelementptr inbounds i8, ptr %1, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i16 %28, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %1, i64 10
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 10
   store i16 %15, ptr %30, align 2
   %.not33 = icmp sgt i8 %16, -1
   %31 = zext i1 %.not33 to i16
-  %32 = getelementptr inbounds i8, ptr %1, i64 14
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 14
   store i16 %31, ptr %32, align 2
   store i32 0, ptr %1, align 8
-  %33 = getelementptr inbounds i8, ptr %1, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i16 0, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %1, i64 18
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 18
   store i16 0, ptr %34, align 2
-  %35 = getelementptr inbounds i8, ptr %1, i64 20
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 20
   store i16 0, ptr %35, align 4
-  %36 = getelementptr inbounds i8, ptr %1, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i32 0, ptr %36, align 8
   br label %37
 
@@ -575,7 +575,7 @@ define internal fastcc range(i32 0, 2) i32 @snoop_read_shomiti_wireless_pseudohe
   br i1 %.not, label %36, label %8
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %6, i64 3
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 3
   %10 = load i8, ptr %9, align 1
   %11 = zext i8 %10 to i32
   %12 = icmp ult i8 %10, 8
@@ -596,23 +596,23 @@ define internal fastcc range(i32 0, 2) i32 @snoop_read_shomiti_wireless_pseudohe
 18:                                               ; preds = %15
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %1, i8 0, i64 72, i1 false)
   store i32 4, ptr %1, align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 0, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 28
-  %21 = getelementptr inbounds i8, ptr %6, i64 11
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 28
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 11
   %22 = load i8, ptr %21, align 1
   %23 = zext i8 %22 to i16
-  %24 = getelementptr inbounds i8, ptr %1, i64 30
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 30
   store i16 %23, ptr %24, align 2
-  %25 = getelementptr inbounds i8, ptr %6, i64 6
+  %25 = getelementptr inbounds nuw i8, ptr %6, i64 6
   %26 = load i8, ptr %25, align 1
   %27 = zext i8 %26 to i16
-  %28 = getelementptr inbounds i8, ptr %1, i64 36
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 36
   store i16 %27, ptr %28, align 4
   store i16 13, ptr %20, align 4
-  %29 = getelementptr inbounds i8, ptr %6, i64 9
+  %29 = getelementptr inbounds nuw i8, ptr %6, i64 9
   %30 = load i8, ptr %29, align 1
-  %31 = getelementptr inbounds i8, ptr %1, i64 38
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 38
   store i8 %30, ptr %31, align 2
   switch i8 %26, label %34 [
     i8 2, label %.sink.split
@@ -685,7 +685,7 @@ define internal range(i32 -9, 1) i32 @snoop_dump_can_write_encap(i32 noundef %0)
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @snoop_dump_open(ptr noundef initializes((64, 72)) %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
   %4 = alloca %struct.snoop_hdr, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr @snoop_dump, ptr %5, align 8
   %6 = tail call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull @snoop_magic, i64 noundef 8, ptr noundef %1) #7
   %.not = icmp eq i32 %6, 0
@@ -693,13 +693,13 @@ define internal range(i32 0, 2) i32 @snoop_dump_open(ptr noundef initializes((64
 
 7:                                                ; preds = %3
   store i32 33554432, ptr %4, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i32, ptr %8, align 8
   %10 = sext i32 %9 to i64
   %11 = getelementptr [14 x i32], ptr @wtap_encap, i64 0, i64 %10
   %12 = load i32, ptr %11, align 4
   %13 = tail call i32 @llvm.bswap.i32(i32 %12)
-  %14 = getelementptr inbounds i8, ptr %4, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %13, ptr %14, align 4
   %15 = call i32 @wtap_dump_file_write(ptr noundef nonnull %0, ptr noundef nonnull %4, i64 noundef 8, ptr noundef %1) #7
   %.not9 = icmp ne i32 %15, 0
@@ -715,7 +715,7 @@ define internal range(i32 0, 2) i32 @snoop_dump_open(ptr noundef initializes((64
 define internal range(i32 0, 2) i32 @snoop_dump(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4) #0 {
   %6 = alloca %struct.snooprec_hdr, align 4
   %7 = alloca %struct.snoop_atm_hdr, align 2
-  %8 = getelementptr inbounds i8, ptr %1, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %9 = load i32, ptr %1, align 8
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %11, label %10
@@ -725,9 +725,9 @@ define internal range(i32 0, 2) i32 @snoop_dump(ptr noundef %0, ptr nocapture no
   br label %79
 
 11:                                               ; preds = %5
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load i32, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 72
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %15 = load i32, ptr %14, align 8
   %.not64 = icmp eq i32 %13, %15
   br i1 %.not64, label %17, label %16
@@ -753,30 +753,30 @@ define internal range(i32 0, 2) i32 @snoop_dump(ptr noundef %0, ptr nocapture no
   br label %79
 
 27:                                               ; preds = %17
-  %28 = getelementptr inbounds i8, ptr %1, i64 68
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %29 = load i32, ptr %28, align 4
   %30 = add i32 %29, %.
   %31 = tail call i32 @llvm.bswap.i32(i32 %30)
   store i32 %31, ptr %6, align 4
   %32 = tail call i32 @llvm.bswap.i32(i32 %20)
-  %33 = getelementptr inbounds i8, ptr %6, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 %32, ptr %33, align 4
   %34 = tail call i32 @llvm.bswap.i32(i32 %23)
-  %35 = getelementptr inbounds i8, ptr %6, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %34, ptr %35, align 4
-  %36 = getelementptr inbounds i8, ptr %6, i64 12
+  %36 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 0, ptr %36, align 4
-  %37 = getelementptr inbounds i8, ptr %1, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %38 = load i64, ptr %37, align 8
   %trunc = trunc i64 %38 to i32
   %39 = tail call i32 @llvm.bswap.i32(i32 %trunc)
-  %40 = getelementptr inbounds i8, ptr %6, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 %39, ptr %40, align 4
-  %41 = getelementptr inbounds i8, ptr %1, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %42 = load i32, ptr %41, align 8
   %43 = sdiv i32 %42, 1000
   %44 = tail call i32 @llvm.bswap.i32(i32 %43)
-  %45 = getelementptr inbounds i8, ptr %6, i64 20
+  %45 = getelementptr inbounds nuw i8, ptr %6, i64 20
   store i32 %44, ptr %45, align 4
   %46 = call i32 @wtap_dump_file_write(ptr noundef nonnull %0, ptr noundef nonnull %6, i64 noundef 24, ptr noundef %3) #7
   %.not66 = icmp eq i32 %46, 0
@@ -788,12 +788,12 @@ define internal range(i32 0, 2) i32 @snoop_dump(ptr noundef %0, ptr nocapture no
   br i1 %49, label %50, label %72
 
 50:                                               ; preds = %47
-  %51 = getelementptr inbounds i8, ptr %1, i64 94
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 94
   %52 = load i16, ptr %51, align 2
   %53 = icmp eq i16 %52, 0
   %54 = select i1 %53, i8 -128, i8 0
   store i8 %54, ptr %7, align 2
-  %55 = getelementptr inbounds i8, ptr %1, i64 84
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 84
   %56 = load i8, ptr %55, align 4
   switch i8 %56, label %63 [
     i8 6, label %.sink.split
@@ -801,7 +801,7 @@ define internal range(i32 0, 2) i32 @snoop_dump(ptr noundef %0, ptr nocapture no
   ]
 
 57:                                               ; preds = %50
-  %58 = getelementptr inbounds i8, ptr %1, i64 85
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 85
   %59 = load i8, ptr %58, align 1
   switch i8 %59, label %63 [
     i8 3, label %.sink.split
@@ -822,15 +822,15 @@ define internal range(i32 0, 2) i32 @snoop_dump(ptr noundef %0, ptr nocapture no
   br label %63
 
 63:                                               ; preds = %.sink.split, %57, %50
-  %64 = getelementptr inbounds i8, ptr %1, i64 88
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %65 = load i16, ptr %64, align 8
   %66 = trunc i16 %65 to i8
-  %67 = getelementptr inbounds i8, ptr %7, i64 1
+  %67 = getelementptr inbounds nuw i8, ptr %7, i64 1
   store i8 %66, ptr %67, align 1
-  %68 = getelementptr inbounds i8, ptr %1, i64 90
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 90
   %69 = load i16, ptr %68, align 2
   %rev = call i16 @llvm.bswap.i16(i16 %69)
-  %70 = getelementptr inbounds i8, ptr %7, i64 2
+  %70 = getelementptr inbounds nuw i8, ptr %7, i64 2
   store i16 %rev, ptr %70, align 2
   %71 = call i32 @wtap_dump_file_write(ptr noundef nonnull %0, ptr noundef nonnull %7, i64 noundef 4, ptr noundef %3) #7
   %.not67 = icmp eq i32 %71, 0

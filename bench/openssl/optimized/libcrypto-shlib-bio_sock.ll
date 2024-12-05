@@ -510,11 +510,11 @@ for.body.preheader:                               ; preds = %if.end4
   %shl = shl nuw i64 1, %sh_prom
   %div11 = lshr i32 %fd, 6
   %idxprom11 = zext nneg i32 %div11 to i64
-  %arrayidx12 = getelementptr inbounds [16 x i64], ptr %confds, i64 0, i64 %idxprom11
+  %arrayidx12 = getelementptr inbounds nuw [16 x i64], ptr %confds, i64 0, i64 %idxprom11
   %0 = load i64, ptr %arrayidx12, align 8
   %or = or i64 %0, %shl
   store i64 %or, ptr %arrayidx12, align 8
-  %tv_usec = getelementptr inbounds i8, ptr %tv, i64 8
+  %tv_usec = getelementptr inbounds nuw i8, ptr %tv, i64 8
   store i64 0, ptr %tv_usec, align 8
   %sub = sub nsw i64 %max_time, %call
   store i64 %sub, ptr %tv, align 8

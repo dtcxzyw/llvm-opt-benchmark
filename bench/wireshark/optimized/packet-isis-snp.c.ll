@@ -236,7 +236,7 @@ define internal i32 @dissect_isis_l2_psnp(ptr noundef %0, ptr noundef %1, ptr no
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @dissect_isis_csnp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void @col_set_str(ptr noundef %7, i32 noundef 34, ptr noundef nonnull @.str.48) #2
   %8 = load i32, ptr @proto_isis_csnp, align 4
@@ -248,9 +248,9 @@ define internal fastcc void @dissect_isis_csnp(ptr noundef %0, ptr noundef %1, p
   br i1 %13, label %14, label %20
 
 14:                                               ; preds = %5
-  %15 = getelementptr inbounds i8, ptr %4, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %4, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %18 = load ptr, ptr %17, align 8
   %19 = tail call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %16, ptr noundef %18) #2
   br label %107
@@ -281,7 +281,7 @@ define internal fastcc void @dissect_isis_csnp(ptr noundef %0, ptr noundef %1, p
 34:                                               ; preds = %.sink.split, %27
   %35 = load i8, ptr %4, align 8
   %36 = zext i8 %35 to i32
-  %37 = getelementptr inbounds i8, ptr %4, i64 1
+  %37 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %38 = load i8, ptr %37, align 1
   %39 = zext i8 %38 to i32
   %40 = add nuw nsw i32 %39, 11
@@ -289,9 +289,9 @@ define internal fastcc void @dissect_isis_csnp(ptr noundef %0, ptr noundef %1, p
   br i1 %41, label %42, label %48
 
 42:                                               ; preds = %34
-  %43 = getelementptr inbounds i8, ptr %4, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %4, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %46 = load ptr, ptr %45, align 8
   %47 = tail call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %44, ptr noundef %46) #2
   br label %107
@@ -300,7 +300,7 @@ define internal fastcc void @dissect_isis_csnp(ptr noundef %0, ptr noundef %1, p
   %49 = load i32, ptr @hf_isis_csnp_source_id, align 4
   %50 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %49, ptr noundef %0, i32 noundef 10, i32 noundef %39, i32 noundef 0) #2
   %51 = load ptr, ptr %6, align 8
-  %52 = getelementptr inbounds i8, ptr %1, i64 408
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %53 = load ptr, ptr %52, align 8
   %54 = load i8, ptr %37, align 1
   %55 = zext i8 %54 to i32
@@ -322,9 +322,9 @@ define internal fastcc void @dissect_isis_csnp(ptr noundef %0, ptr noundef %1, p
   br i1 %68, label %69, label %75
 
 69:                                               ; preds = %48
-  %70 = getelementptr inbounds i8, ptr %4, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %71 = load ptr, ptr %70, align 8
-  %72 = getelementptr inbounds i8, ptr %4, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %73 = load ptr, ptr %72, align 8
   %74 = tail call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %71, ptr noundef %73) #2
   br label %107
@@ -361,7 +361,7 @@ define internal fastcc void @dissect_isis_csnp(ptr noundef %0, ptr noundef %1, p
   %100 = zext i8 %99 to i32
   %101 = add nuw nsw i32 %89, 2
   %102 = add nuw nsw i32 %101, %100
-  %103 = getelementptr inbounds i8, ptr %4, i64 2
+  %103 = getelementptr inbounds nuw i8, ptr %4, i64 2
   store i16 %21, ptr %103, align 2
   %104 = load i32, ptr @ett_isis_csnp_clv_unknown, align 4
   %105 = load i32, ptr @hf_isis_csnp_clv_type, align 4
@@ -409,7 +409,7 @@ define internal void @dissect_snp_lsp_entries_clv(ptr noundef %0, ptr noundef %1
   br i1 %7, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %6
-  %8 = getelementptr inbounds i8, ptr %4, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %.pre = load i8, ptr %8, align 1
   br label %9
 
@@ -506,7 +506,7 @@ define internal void @dissect_snp_checksum_clv(ptr noundef %0, ptr noundef %1, p
   br label %30
 
 17:                                               ; preds = %10
-  %18 = getelementptr inbounds i8, ptr %4, i64 2
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 2
   %19 = load i16, ptr %18, align 2
   %20 = zext i16 %19 to i32
   %21 = call i32 @osi_check_and_get_checksum(ptr noundef %0, i32 noundef 0, i32 noundef %20, i32 noundef %3, ptr noundef nonnull %7) #2
@@ -543,7 +543,7 @@ declare i32 @osi_check_and_get_checksum(ptr noundef, i32 noundef, i32 noundef, i
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @dissect_isis_psnp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void @col_set_str(ptr noundef %7, i32 noundef 34, ptr noundef nonnull @.str.62) #2
   %8 = load i32, ptr @proto_isis_psnp, align 4
@@ -555,9 +555,9 @@ define internal fastcc void @dissect_isis_psnp(ptr noundef %0, ptr noundef %1, p
   br i1 %13, label %14, label %20
 
 14:                                               ; preds = %5
-  %15 = getelementptr inbounds i8, ptr %4, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %4, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %18 = load ptr, ptr %17, align 8
   %19 = tail call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %16, ptr noundef %18) #2
   br label %69
@@ -588,7 +588,7 @@ define internal fastcc void @dissect_isis_psnp(ptr noundef %0, ptr noundef %1, p
 34:                                               ; preds = %.sink.split, %27
   %35 = load i8, ptr %4, align 8
   %36 = zext i8 %35 to i32
-  %37 = getelementptr inbounds i8, ptr %4, i64 1
+  %37 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %38 = load i8, ptr %37, align 1
   %39 = zext i8 %38 to i32
   %40 = add nuw nsw i32 %39, 11
@@ -596,9 +596,9 @@ define internal fastcc void @dissect_isis_psnp(ptr noundef %0, ptr noundef %1, p
   br i1 %41, label %42, label %48
 
 42:                                               ; preds = %34
-  %43 = getelementptr inbounds i8, ptr %4, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %4, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %46 = load ptr, ptr %45, align 8
   %47 = tail call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %44, ptr noundef %46) #2
   br label %69
@@ -607,7 +607,7 @@ define internal fastcc void @dissect_isis_psnp(ptr noundef %0, ptr noundef %1, p
   %49 = load i32, ptr @hf_isis_psnp_source_id, align 4
   %50 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %49, ptr noundef %0, i32 noundef 10, i32 noundef %39, i32 noundef 0) #2
   %51 = load ptr, ptr %6, align 8
-  %52 = getelementptr inbounds i8, ptr %1, i64 408
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %53 = load ptr, ptr %52, align 8
   %54 = load i8, ptr %37, align 1
   %55 = zext i8 %54 to i32
@@ -623,7 +623,7 @@ define internal fastcc void @dissect_isis_psnp(ptr noundef %0, ptr noundef %1, p
 
 63:                                               ; preds = %48
   %64 = add nuw nsw i32 %59, 11
-  %65 = getelementptr inbounds i8, ptr %4, i64 2
+  %65 = getelementptr inbounds nuw i8, ptr %4, i64 2
   store i16 %21, ptr %65, align 2
   %66 = load i32, ptr @ett_isis_psnp_clv_unknown, align 4
   %67 = load i32, ptr @hf_isis_psnp_clv_type, align 4

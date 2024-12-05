@@ -138,7 +138,7 @@ get_code_entry.exit.thread.i:                     ; preds = %61, %Decomp_hash_fu
 
 get_code_entry.exit.i:                            ; preds = %61
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  %65 = getelementptr inbounds i8, ptr %63, i64 4
+  %65 = getelementptr inbounds nuw i8, ptr %63, i64 4
   %66 = load i8, ptr %65, align 4
   br label %get_canonical_class.exit
 
@@ -193,7 +193,7 @@ get_canonical_class.exit99.thread:                ; preds = %Decomp_hash_func.ex
 
 get_canonical_class.exit99:                       ; preds = %88
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  %92 = getelementptr inbounds i8, ptr %90, i64 4
+  %92 = getelementptr inbounds nuw i8, ptr %90, i64 4
   %93 = load i8, ptr %92, align 4
   %94 = icmp ne i8 %.0.i, 0
   %95 = icmp ne i8 %93, 0
@@ -290,7 +290,7 @@ get_code_entry.exit.thread.i108:                  ; preds = %129, %Decomp_hash_f
 
 get_code_entry.exit.i110:                         ; preds = %129
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  %133 = getelementptr inbounds i8, ptr %131, i64 4
+  %133 = getelementptr inbounds nuw i8, ptr %131, i64 4
   %134 = load i8, ptr %133, align 4
   br label %get_canonical_class.exit111
 
@@ -380,7 +380,7 @@ Recomp_hash_func.exit.i:                          ; preds = %161
   %184 = load i16, ptr %183, align 2
   %185 = zext i16 %184 to i64
   %186 = getelementptr [6775 x %struct.pg_unicode_decomposition], ptr @UnicodeDecompMain, i64 0, i64 %185
-  %187 = getelementptr inbounds i8, ptr %186, i64 6
+  %187 = getelementptr inbounds nuw i8, ptr %186, i64 6
   %188 = load i16, ptr %187, align 2
   %189 = zext i16 %188 to i64
   %190 = getelementptr [5098 x i32], ptr @UnicodeDecomp_codepoints, i64 0, i64 %189
@@ -515,7 +515,7 @@ get_code_entry.exit.thread:                       ; preds = %Decomp_hash_func.ex
 
 get_code_entry.exit:                              ; preds = %29
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
-  %33 = getelementptr inbounds i8, ptr %31, i64 5
+  %33 = getelementptr inbounds nuw i8, ptr %31, i64 5
   %34 = load i8, ptr %33, align 1
   %35 = zext i8 %34 to i32
   %36 = and i32 %35, 31
@@ -531,7 +531,7 @@ get_code_entry.exit:                              ; preds = %29
 40:                                               ; preds = %38
   %41 = and i32 %35, 64
   %.not.i26 = icmp eq i32 %41, 0
-  %42 = getelementptr inbounds i8, ptr %31, i64 6
+  %42 = getelementptr inbounds nuw i8, ptr %31, i64 6
   %43 = load i16, ptr %42, align 2
   br i1 %.not.i26, label %46, label %44
 
@@ -658,7 +658,7 @@ get_code_entry.exit.thread:                       ; preds = %Decomp_hash_func.ex
 
 get_code_entry.exit:                              ; preds = %49
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  %53 = getelementptr inbounds i8, ptr %51, i64 5
+  %53 = getelementptr inbounds nuw i8, ptr %51, i64 5
   %54 = load i8, ptr %53, align 1
   %55 = zext i8 %54 to i32
   %56 = and i32 %55, 31
@@ -679,7 +679,7 @@ get_code_entry.exit:                              ; preds = %49
 63:                                               ; preds = %58
   %64 = and i32 %55, 64
   %.not.i44 = icmp eq i32 %64, 0
-  %65 = getelementptr inbounds i8, ptr %51, i64 6
+  %65 = getelementptr inbounds nuw i8, ptr %51, i64 6
   %66 = load i16, ptr %65, align 2
   br i1 %.not.i44, label %69, label %67
 
@@ -794,7 +794,7 @@ get_canonical_class.exit.thread:                  ; preds = %Decomp_hash_func.ex
 
 get_canonical_class.exit:                         ; preds = %30
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  %34 = getelementptr inbounds i8, ptr %32, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 4
   %35 = load i8, ptr %34, align 4
   %36 = icmp ugt i8 %.02039, %35
   %37 = icmp ne i8 %35, 0

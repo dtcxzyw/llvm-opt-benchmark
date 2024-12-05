@@ -520,7 +520,7 @@ for.cond:                                         ; preds = %if.end3, %for.inc
   %hpa.1 = phi i1 [ %hpa.2, %for.inc ], [ true, %if.end3 ]
   %i.0 = phi i32 [ %inc, %for.inc ], [ 0, %if.end3 ]
   %idxprom = zext i32 %i.0 to i64
-  %arrayidx = getelementptr inbounds i8, ptr %opts, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw i8, ptr %opts, i64 %idxprom
   %0 = load i8, ptr %arrayidx, align 1
   switch i8 %0, label %for.inc [
     i8 0, label %if.end20
@@ -585,15 +585,15 @@ if.end20:                                         ; preds = %for.cond
 
 do.end.i:                                         ; preds = %if.end20
   store i32 1, ptr %emitter, align 8
-  %write_cb1.i = getelementptr inbounds i8, ptr %emitter, i64 8
+  %write_cb1.i = getelementptr inbounds nuw i8, ptr %emitter, i64 8
   store ptr %write_cb, ptr %write_cb1.i, align 8
-  %cbopaque2.i = getelementptr inbounds i8, ptr %emitter, i64 16
+  %cbopaque2.i = getelementptr inbounds nuw i8, ptr %emitter, i64 16
   store ptr %cbopaque, ptr %cbopaque2.i, align 8
-  %item_at_depth.i = getelementptr inbounds i8, ptr %emitter, i64 28
+  %item_at_depth.i = getelementptr inbounds nuw i8, ptr %emitter, i64 28
   store i8 0, ptr %item_at_depth.i, align 4
-  %emitted_key.i = getelementptr inbounds i8, ptr %emitter, i64 29
+  %emitted_key.i = getelementptr inbounds nuw i8, ptr %emitter, i64 29
   store i8 0, ptr %emitted_key.i, align 1
-  %nesting_depth.i = getelementptr inbounds i8, ptr %emitter, i64 24
+  %nesting_depth.i = getelementptr inbounds nuw i8, ptr %emitter, i64 24
   store i32 0, ptr %nesting_depth.i, align 8
   call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.27)
   store i32 1, ptr %nesting_depth.i, align 8
@@ -611,15 +611,15 @@ if.else.i:                                        ; preds = %if.end3, %if.end20
   %merged.031.ph = phi i1 [ %merged.1, %if.end20 ], [ true, %if.end3 ]
   %general.030.ph = phi i1 [ %general.1, %if.end20 ], [ true, %if.end3 ]
   store i32 2, ptr %emitter, align 8
-  %write_cb1.i49 = getelementptr inbounds i8, ptr %emitter, i64 8
+  %write_cb1.i49 = getelementptr inbounds nuw i8, ptr %emitter, i64 8
   store ptr %write_cb, ptr %write_cb1.i49, align 8
-  %cbopaque2.i50 = getelementptr inbounds i8, ptr %emitter, i64 16
+  %cbopaque2.i50 = getelementptr inbounds nuw i8, ptr %emitter, i64 16
   store ptr %cbopaque, ptr %cbopaque2.i50, align 8
-  %item_at_depth.i51 = getelementptr inbounds i8, ptr %emitter, i64 28
+  %item_at_depth.i51 = getelementptr inbounds nuw i8, ptr %emitter, i64 28
   store i8 0, ptr %item_at_depth.i51, align 4
-  %emitted_key.i52 = getelementptr inbounds i8, ptr %emitter, i64 29
+  %emitted_key.i52 = getelementptr inbounds nuw i8, ptr %emitter, i64 29
   store i8 0, ptr %emitted_key.i52, align 1
-  %nesting_depth.i53 = getelementptr inbounds i8, ptr %emitter, i64 24
+  %nesting_depth.i53 = getelementptr inbounds nuw i8, ptr %emitter, i64 24
   store i32 0, ptr %nesting_depth.i53, align 8
   call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.29)
   br label %emitter_begin.exit
@@ -722,9 +722,9 @@ entry:
 
 if.then:                                          ; preds = %entry
   call void @llvm.va_start.p0(ptr nonnull %ap)
-  %write_cb = getelementptr inbounds i8, ptr %emitter, i64 8
+  %write_cb = getelementptr inbounds nuw i8, ptr %emitter, i64 8
   %1 = load ptr, ptr %write_cb, align 8
-  %cbopaque = getelementptr inbounds i8, ptr %emitter, i64 16
+  %cbopaque = getelementptr inbounds nuw i8, ptr %emitter, i64 16
   %2 = load ptr, ptr %cbopaque, align 8
   call void @malloc_vcprintf(ptr noundef %1, ptr noundef %2, ptr noundef %format, ptr noundef nonnull %ap) #13
   call void @llvm.va_end.p0(ptr nonnull %ap)
@@ -829,7 +829,7 @@ if.else.i:                                        ; preds = %do.end2
   br i1 %cmp.i.i, label %if.then.i.i, label %emitter_dict_begin.exit
 
 if.then.i.i:                                      ; preds = %if.else.i
-  %nesting_depth.i.i.i = getelementptr inbounds i8, ptr %emitter, i64 24
+  %nesting_depth.i.i.i = getelementptr inbounds nuw i8, ptr %emitter, i64 24
   %0 = load i32, ptr %nesting_depth.i.i.i, align 8
   %cmp15.i.i.i = icmp sgt i32 %0, 0
   br i1 %cmp15.i.i.i, label %for.body.preheader.i.i.i, label %emitter_indent.exit.i.i
@@ -850,7 +850,7 @@ emitter_indent.exit.i.i:                          ; preds = %for.body.i.i.i, %if
   %1 = load i32, ptr %nesting_depth.i.i.i, align 8
   %inc.i5.i.i = add nsw i32 %1, 1
   store i32 %inc.i5.i.i, ptr %nesting_depth.i.i.i, align 8
-  %item_at_depth.i.i.i = getelementptr inbounds i8, ptr %emitter, i64 28
+  %item_at_depth.i.i.i = getelementptr inbounds nuw i8, ptr %emitter, i64 28
   store i8 0, ptr %item_at_depth.i.i.i, align 4
   br label %emitter_dict_begin.exit
 
@@ -993,11 +993,11 @@ do.end122:                                        ; preds = %do.end111
   br i1 %spec.select.i.i138, label %do.end.i.i, label %if.else.i139
 
 do.end.i.i:                                       ; preds = %do.end122
-  %nesting_depth.i.i.i142 = getelementptr inbounds i8, ptr %emitter, i64 24
+  %nesting_depth.i.i.i142 = getelementptr inbounds nuw i8, ptr %emitter, i64 24
   %2 = load i32, ptr %nesting_depth.i.i.i142, align 8
   %dec.i.i.i = add nsw i32 %2, -1
   store i32 %dec.i.i.i, ptr %nesting_depth.i.i.i142, align 8
-  %item_at_depth.i.i.i143 = getelementptr inbounds i8, ptr %emitter, i64 28
+  %item_at_depth.i.i.i143 = getelementptr inbounds nuw i8, ptr %emitter, i64 28
   store i8 1, ptr %item_at_depth.i.i.i143, align 4
   %cmp.not.i.i = icmp eq i32 %emitter.val.i137, 1
   br i1 %cmp.not.i.i, label %emitter_dict_end.exit, label %if.then1.i.i
@@ -1028,11 +1028,11 @@ if.else.i139:                                     ; preds = %do.end122
   br i1 %cmp.i.i140, label %if.else.i153.thread, label %emitter_dict_begin.exit168
 
 if.else.i153.thread:                              ; preds = %if.else.i139
-  %nesting_depth.i.i4.i = getelementptr inbounds i8, ptr %emitter, i64 24
+  %nesting_depth.i.i4.i = getelementptr inbounds nuw i8, ptr %emitter, i64 24
   %5 = load i32, ptr %nesting_depth.i.i4.i, align 8
   %dec.i.i5.i = add nsw i32 %5, -1
   store i32 %dec.i.i5.i, ptr %nesting_depth.i.i4.i, align 8
-  %item_at_depth.i.i6.i = getelementptr inbounds i8, ptr %emitter, i64 28
+  %item_at_depth.i.i6.i = getelementptr inbounds nuw i8, ptr %emitter, i64 28
   store i8 1, ptr %item_at_depth.i.i6.i, align 4
   br label %if.then.i.i155
 
@@ -1052,7 +1052,7 @@ if.else.i153:                                     ; preds = %emitter_dict_end.ex
   br i1 %cmp.i.i154, label %if.then.i.i155, label %emitter_dict_begin.exit168
 
 if.then.i.i155:                                   ; preds = %if.else.i153.thread, %if.else.i153
-  %nesting_depth.i.i.i156 = getelementptr inbounds i8, ptr %emitter, i64 24
+  %nesting_depth.i.i.i156 = getelementptr inbounds nuw i8, ptr %emitter, i64 24
   %6 = load i32, ptr %nesting_depth.i.i.i156, align 8
   %cmp15.i.i.i157 = icmp sgt i32 %6, 0
   br i1 %cmp15.i.i.i157, label %for.body.preheader.i.i.i161, label %emitter_indent.exit.i.i158
@@ -1073,7 +1073,7 @@ emitter_indent.exit.i.i158:                       ; preds = %for.body.i.i.i163, 
   %7 = load i32, ptr %nesting_depth.i.i.i156, align 8
   %inc.i5.i.i159 = add nsw i32 %7, 1
   store i32 %inc.i5.i.i159, ptr %nesting_depth.i.i.i156, align 8
-  %item_at_depth.i.i.i160 = getelementptr inbounds i8, ptr %emitter, i64 28
+  %item_at_depth.i.i.i160 = getelementptr inbounds nuw i8, ptr %emitter, i64 28
   store i8 0, ptr %item_at_depth.i.i.i160, align 4
   br label %emitter_dict_begin.exit168
 
@@ -1668,11 +1668,11 @@ if.end384:                                        ; preds = %if.then383, %if.end
   br i1 %spec.select.i.i170, label %do.end.i.i177, label %if.else.i171
 
 do.end.i.i177:                                    ; preds = %if.end384
-  %nesting_depth.i.i.i178 = getelementptr inbounds i8, ptr %emitter, i64 24
+  %nesting_depth.i.i.i178 = getelementptr inbounds nuw i8, ptr %emitter, i64 24
   %9 = load i32, ptr %nesting_depth.i.i.i178, align 8
   %dec.i.i.i179 = add nsw i32 %9, -1
   store i32 %dec.i.i.i179, ptr %nesting_depth.i.i.i178, align 8
-  %item_at_depth.i.i.i180 = getelementptr inbounds i8, ptr %emitter, i64 28
+  %item_at_depth.i.i.i180 = getelementptr inbounds nuw i8, ptr %emitter, i64 28
   store i8 1, ptr %item_at_depth.i.i.i180, align 4
   %cmp.not.i.i181 = icmp eq i32 %emitter.val.i169, 1
   br i1 %cmp.not.i.i181, label %emitter_json_object_end.exit.i186, label %if.then1.i.i182
@@ -1707,11 +1707,11 @@ if.else.i171:                                     ; preds = %if.end384
   br i1 %cmp.i.i172, label %if.then.i.i173, label %emitter_dict_end.exit194
 
 if.then.i.i173:                                   ; preds = %if.else.i171
-  %nesting_depth.i.i4.i174 = getelementptr inbounds i8, ptr %emitter, i64 24
+  %nesting_depth.i.i4.i174 = getelementptr inbounds nuw i8, ptr %emitter, i64 24
   %12 = load i32, ptr %nesting_depth.i.i4.i174, align 8
   %dec.i.i5.i175 = add nsw i32 %12, -1
   store i32 %dec.i.i5.i175, ptr %nesting_depth.i.i4.i174, align 8
-  %item_at_depth.i.i6.i176 = getelementptr inbounds i8, ptr %emitter, i64 28
+  %item_at_depth.i.i6.i176 = getelementptr inbounds nuw i8, ptr %emitter, i64 28
   store i8 1, ptr %item_at_depth.i.i6.i176, align 4
   br label %emitter_dict_end.exit194
 
@@ -1821,7 +1821,7 @@ if.then453:                                       ; preds = %do.end451
   call fastcc void @emitter_json_array_kv_begin(ptr noundef %emitter, ptr noundef nonnull @.str.199)
   store i64 7, ptr %miblen_new, align 8
   %13 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tsd_tls)
-  %state.i769 = getelementptr inbounds i8, ptr %13, i64 832
+  %state.i769 = getelementptr inbounds nuw i8, ptr %13, i64 832
   %14 = load i8, ptr %state.i769, align 8
   %cmp6.i.not = icmp eq i8 %14, 0
   br i1 %cmp6.i.not, label %tsd_fetch_impl.exit, label %if.then11.i
@@ -1842,9 +1842,9 @@ for.cond.preheader:                               ; preds = %tsd_fetch_impl.exit
   br i1 %cmp468285.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %arrayidx = getelementptr inbounds i8, ptr %arenas_bin_mib, i64 16
-  %nesting_depth.i.i = getelementptr inbounds i8, ptr %emitter, i64 24
-  %item_at_depth.i.i = getelementptr inbounds i8, ptr %emitter, i64 28
+  %arrayidx = getelementptr inbounds nuw i8, ptr %arenas_bin_mib, i64 16
+  %nesting_depth.i.i = getelementptr inbounds nuw i8, ptr %emitter, i64 24
+  %item_at_depth.i.i = getelementptr inbounds nuw i8, ptr %emitter, i64 28
   br label %for.body
 
 if.then462:                                       ; preds = %tsd_fetch_impl.exit
@@ -2002,11 +2002,11 @@ for.end:                                          ; preds = %emitter_json_object
   br i1 %spec.select.i.i199, label %do.end.i200, label %do.body538
 
 do.end.i200:                                      ; preds = %for.end
-  %nesting_depth.i.i201 = getelementptr inbounds i8, ptr %emitter, i64 24
+  %nesting_depth.i.i201 = getelementptr inbounds nuw i8, ptr %emitter, i64 24
   %25 = load i32, ptr %nesting_depth.i.i201, align 8
   %dec.i.i202 = add nsw i32 %25, -1
   store i32 %dec.i.i202, ptr %nesting_depth.i.i201, align 8
-  %item_at_depth.i.i203 = getelementptr inbounds i8, ptr %emitter, i64 28
+  %item_at_depth.i.i203 = getelementptr inbounds nuw i8, ptr %emitter, i64 28
   store i8 1, ptr %item_at_depth.i.i203, align 4
   %cmp.not.i204 = icmp eq i32 %emitter.val.i198, 1
   br i1 %cmp.not.i204, label %if.end.i209, label %if.then1.i205
@@ -2057,7 +2057,7 @@ if.then549:                                       ; preds = %do.end547
   call fastcc void @emitter_json_array_kv_begin(ptr noundef %emitter, ptr noundef nonnull @.str.210)
   store i64 7, ptr %miblen_new553, align 8
   %28 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tsd_tls)
-  %state.i759 = getelementptr inbounds i8, ptr %28, i64 832
+  %state.i759 = getelementptr inbounds nuw i8, ptr %28, i64 832
   %29 = load i8, ptr %state.i759, align 8
   %cmp6.i709.not = icmp eq i8 %29, 0
   br i1 %cmp6.i709.not, label %tsd_fetch_impl.exit720, label %if.then11.i714
@@ -2078,9 +2078,9 @@ for.cond567.preheader:                            ; preds = %tsd_fetch_impl.exit
   br i1 %cmp568287.not, label %for.end592, label %for.body570.lr.ph
 
 for.body570.lr.ph:                                ; preds = %for.cond567.preheader
-  %arrayidx572 = getelementptr inbounds i8, ptr %arenas_lextent_mib, i64 16
-  %nesting_depth.i.i221 = getelementptr inbounds i8, ptr %emitter, i64 24
-  %item_at_depth.i.i223 = getelementptr inbounds i8, ptr %emitter, i64 28
+  %arrayidx572 = getelementptr inbounds nuw i8, ptr %arenas_lextent_mib, i64 16
+  %nesting_depth.i.i221 = getelementptr inbounds nuw i8, ptr %emitter, i64 24
+  %item_at_depth.i.i223 = getelementptr inbounds nuw i8, ptr %emitter, i64 28
   br label %for.body570
 
 if.then560:                                       ; preds = %tsd_fetch_impl.exit720
@@ -2166,11 +2166,11 @@ for.end592:                                       ; preds = %emitter_json_object
   br i1 %spec.select.i.i239, label %do.end.i240, label %emitter_json_object_end.exit277
 
 do.end.i240:                                      ; preds = %for.end592
-  %nesting_depth.i.i241 = getelementptr inbounds i8, ptr %emitter, i64 24
+  %nesting_depth.i.i241 = getelementptr inbounds nuw i8, ptr %emitter, i64 24
   %37 = load i32, ptr %nesting_depth.i.i241, align 8
   %dec.i.i242 = add nsw i32 %37, -1
   store i32 %dec.i.i242, ptr %nesting_depth.i.i241, align 8
-  %item_at_depth.i.i243 = getelementptr inbounds i8, ptr %emitter, i64 28
+  %item_at_depth.i.i243 = getelementptr inbounds nuw i8, ptr %emitter, i64 28
   store i8 1, ptr %item_at_depth.i.i243, align 4
   %cmp.not.i244 = icmp eq i32 %emitter.val.i238, 1
   br i1 %cmp.not.i244, label %if.end593, label %if.then1.i245
@@ -2458,11 +2458,11 @@ do.end99:                                         ; preds = %do.body91
   br i1 %spec.select.i.i, label %do.end.i, label %emitter_json_object_end.exit
 
 do.end.i:                                         ; preds = %do.end99
-  %nesting_depth.i.i = getelementptr inbounds i8, ptr %emitter, i64 24
+  %nesting_depth.i.i = getelementptr inbounds nuw i8, ptr %emitter, i64 24
   %8 = load i32, ptr %nesting_depth.i.i, align 8
   %dec.i.i = add nsw i32 %8, -1
   store i32 %dec.i.i, ptr %nesting_depth.i.i, align 8
-  %item_at_depth.i.i = getelementptr inbounds i8, ptr %emitter, i64 28
+  %item_at_depth.i.i = getelementptr inbounds nuw i8, ptr %emitter, i64 28
   store i8 1, ptr %item_at_depth.i.i, align 4
   %cmp.not.i = icmp eq i32 %emitter.val.i, 1
   br i1 %cmp.not.i, label %if.end.i, label %if.then1.i
@@ -2514,13 +2514,13 @@ if.end.i74:                                       ; preds = %if.then100
 for.body.i:                                       ; preds = %if.end.i74, %for.body.i
   %col.011.i = phi ptr [ %20, %for.body.i ], [ %15, %if.end.i74 ]
   %16 = load i32, ptr %col.011.i, align 8
-  %width.i = getelementptr inbounds i8, ptr %col.011.i, i64 4
+  %width.i = getelementptr inbounds nuw i8, ptr %col.011.i, i64 4
   %17 = load i32, ptr %width.i, align 4
-  %type.i = getelementptr inbounds i8, ptr %col.011.i, i64 8
+  %type.i = getelementptr inbounds nuw i8, ptr %col.011.i, i64 8
   %18 = load i32, ptr %type.i, align 8
-  %19 = getelementptr inbounds i8, ptr %col.011.i, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %col.011.i, i64 16
   call fastcc void @emitter_print_value(ptr noundef nonnull readonly %emitter, i32 noundef %16, i32 noundef %17, i32 noundef %18, ptr noundef nonnull %19)
-  %link.i = getelementptr inbounds i8, ptr %col.011.i, i64 24
+  %link.i = getelementptr inbounds nuw i8, ptr %col.011.i, i64 24
   %20 = load ptr, ptr %link.i, align 8
   %21 = load ptr, ptr %row, align 8
   %cmp4.not.i = icmp eq ptr %20, %21
@@ -2547,7 +2547,7 @@ if.then108:                                       ; preds = %emitter_table_row.e
   unreachable
 
 do.end110:                                        ; preds = %emitter_table_row.exit
-  %arrayidx = getelementptr inbounds i8, ptr %mib, i64 16
+  %arrayidx = getelementptr inbounds nuw i8, ptr %mib, i64 16
   store i64 0, ptr %arrayidx, align 16
   %22 = load i64, ptr %miblen, align 8
   %call113 = call i32 @je_mallctlbymib(ptr noundef nonnull %mib, i64 noundef %22, ptr noundef nonnull %uptime, ptr noundef nonnull %sz103, ptr noundef null, i64 noundef 0) #13
@@ -2562,7 +2562,7 @@ if.then115:                                       ; preds = %do.end110
 do.end121:                                        ; preds = %do.end110
   store i64 7, ptr %miblen_new, align 8
   %23 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tsd_tls)
-  %state.i = getelementptr inbounds i8, ptr %23, i64 832
+  %state.i = getelementptr inbounds nuw i8, ptr %23, i64 832
   %24 = load i8, ptr %state.i, align 8
   %cmp6.i.not = icmp eq i8 %24, 0
   br i1 %cmp6.i.not, label %tsd_fetch_impl.exit, label %if.then11.i
@@ -2578,33 +2578,33 @@ tsd_fetch_impl.exit:                              ; preds = %do.end121, %if.then
   br i1 %cmp126.not, label %for.cond.preheader, label %if.then127
 
 for.cond.preheader:                               ; preds = %tsd_fetch_impl.exit
-  %25 = getelementptr inbounds i8, ptr %name, i64 16
-  %type.i76 = getelementptr inbounds i8, ptr %col64, i64 8
-  %26 = getelementptr inbounds i8, ptr %col64, i64 16
-  %type23.i = getelementptr inbounds i8, ptr %col64, i64 48
-  %27 = getelementptr inbounds i8, ptr %col64, i64 56
-  %type27.i = getelementptr inbounds i8, ptr %col64, i64 88
-  %28 = getelementptr inbounds i8, ptr %col64, i64 96
-  %type44.i = getelementptr inbounds i8, ptr %col64, i64 128
-  %29 = getelementptr inbounds i8, ptr %col64, i64 136
-  %type49.i = getelementptr inbounds i8, ptr %col64, i64 168
-  %30 = getelementptr inbounds i8, ptr %col64, i64 176
-  %type66.i = getelementptr inbounds i8, ptr %col64, i64 208
-  %31 = getelementptr inbounds i8, ptr %col64, i64 216
-  %type71.i = getelementptr inbounds i8, ptr %col64, i64 248
-  %32 = getelementptr inbounds i8, ptr %col64, i64 256
-  %type88.i = getelementptr inbounds i8, ptr %col64, i64 288
-  %33 = getelementptr inbounds i8, ptr %col64, i64 296
-  %type93.i = getelementptr inbounds i8, ptr %col64, i64 328
-  %34 = getelementptr inbounds i8, ptr %col64, i64 336
-  %type110.i = getelementptr inbounds i8, ptr %col64, i64 368
-  %35 = getelementptr inbounds i8, ptr %col64, i64 376
-  %type115.i = getelementptr inbounds i8, ptr %col64, i64 408
-  %36 = getelementptr inbounds i8, ptr %col64, i64 416
-  %type132.i = getelementptr inbounds i8, ptr %col32, i64 8
-  %37 = getelementptr inbounds i8, ptr %col32, i64 16
-  %nesting_depth.i.i81 = getelementptr inbounds i8, ptr %emitter, i64 24
-  %item_at_depth.i.i83 = getelementptr inbounds i8, ptr %emitter, i64 28
+  %25 = getelementptr inbounds nuw i8, ptr %name, i64 16
+  %type.i76 = getelementptr inbounds nuw i8, ptr %col64, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %col64, i64 16
+  %type23.i = getelementptr inbounds nuw i8, ptr %col64, i64 48
+  %27 = getelementptr inbounds nuw i8, ptr %col64, i64 56
+  %type27.i = getelementptr inbounds nuw i8, ptr %col64, i64 88
+  %28 = getelementptr inbounds nuw i8, ptr %col64, i64 96
+  %type44.i = getelementptr inbounds nuw i8, ptr %col64, i64 128
+  %29 = getelementptr inbounds nuw i8, ptr %col64, i64 136
+  %type49.i = getelementptr inbounds nuw i8, ptr %col64, i64 168
+  %30 = getelementptr inbounds nuw i8, ptr %col64, i64 176
+  %type66.i = getelementptr inbounds nuw i8, ptr %col64, i64 208
+  %31 = getelementptr inbounds nuw i8, ptr %col64, i64 216
+  %type71.i = getelementptr inbounds nuw i8, ptr %col64, i64 248
+  %32 = getelementptr inbounds nuw i8, ptr %col64, i64 256
+  %type88.i = getelementptr inbounds nuw i8, ptr %col64, i64 288
+  %33 = getelementptr inbounds nuw i8, ptr %col64, i64 296
+  %type93.i = getelementptr inbounds nuw i8, ptr %col64, i64 328
+  %34 = getelementptr inbounds nuw i8, ptr %col64, i64 336
+  %type110.i = getelementptr inbounds nuw i8, ptr %col64, i64 368
+  %35 = getelementptr inbounds nuw i8, ptr %col64, i64 376
+  %type115.i = getelementptr inbounds nuw i8, ptr %col64, i64 408
+  %36 = getelementptr inbounds nuw i8, ptr %col64, i64 416
+  %type132.i = getelementptr inbounds nuw i8, ptr %col32, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %col32, i64 16
+  %nesting_depth.i.i81 = getelementptr inbounds nuw i8, ptr %emitter, i64 24
+  %item_at_depth.i.i83 = getelementptr inbounds nuw i8, ptr %emitter, i64 28
   br label %for.body
 
 if.then127:                                       ; preds = %tsd_fetch_impl.exit
@@ -2614,7 +2614,7 @@ if.then127:                                       ; preds = %tsd_fetch_impl.exit
 
 for.body:                                         ; preds = %for.cond.preheader, %emitter_json_object_end.exit97
   %indvars.iv = phi i64 [ 0, %for.cond.preheader ], [ %indvars.iv.next, %emitter_json_object_end.exit97 ]
-  %arrayidx135 = getelementptr inbounds [9 x ptr], ptr @global_mutex_names, i64 0, i64 %indvars.iv
+  %arrayidx135 = getelementptr inbounds nuw [9 x ptr], ptr @global_mutex_names, i64 0, i64 %indvars.iv
   %38 = load ptr, ptr %arrayidx135, align 8
   %39 = load i64, ptr %uptime, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %miblen_new.i)
@@ -3011,11 +3011,11 @@ if.end142:                                        ; preds = %if.end.i109, %emitt
   br i1 %spec.select.i.i119, label %do.end.i120, label %emitter_json_object_end.exit137
 
 do.end.i120:                                      ; preds = %if.end142
-  %nesting_depth.i.i121 = getelementptr inbounds i8, ptr %emitter, i64 24
+  %nesting_depth.i.i121 = getelementptr inbounds nuw i8, ptr %emitter, i64 24
   %60 = load i32, ptr %nesting_depth.i.i121, align 8
   %dec.i.i122 = add nsw i32 %60, -1
   store i32 %dec.i.i122, ptr %nesting_depth.i.i121, align 8
-  %item_at_depth.i.i123 = getelementptr inbounds i8, ptr %emitter, i64 28
+  %item_at_depth.i.i123 = getelementptr inbounds nuw i8, ptr %emitter, i64 28
   store i8 1, ptr %item_at_depth.i.i123, align 4
   %cmp.not.i124 = icmp eq i32 %emitter.val.i118.pr, 1
   br i1 %cmp.not.i124, label %if.end.i129, label %if.then1.i125
@@ -3079,7 +3079,7 @@ for.cond168.preheader:                            ; preds = %do.end156
   br i1 %cmp169202.not, label %for.end191, label %for.body170.lr.ph
 
 for.body170.lr.ph:                                ; preds = %for.cond168.preheader
-  %arrayidx171 = getelementptr inbounds i8, ptr %mib157, i64 8
+  %arrayidx171 = getelementptr inbounds nuw i8, ptr %mib157, i64 8
   br label %for.body170
 
 if.then165:                                       ; preds = %do.end156
@@ -3093,7 +3093,7 @@ for.body170:                                      ; preds = %for.body170.lr.ph, 
   store i64 %indvars.iv209, ptr %arrayidx171, align 8
   store i64 1, ptr %sz159, align 8
   %67 = load i64, ptr %miblen158, align 8
-  %arrayidx175 = getelementptr inbounds i8, ptr %vla, i64 %indvars.iv209
+  %arrayidx175 = getelementptr inbounds nuw i8, ptr %vla, i64 %indvars.iv209
   %call176 = call i32 @je_mallctlbymib(ptr noundef nonnull %mib157, i64 noundef %67, ptr noundef nonnull %arrayidx175, ptr noundef nonnull %sz159, ptr noundef null, i64 noundef 0) #13
   %cmp177.not = icmp eq i32 %call176, 0
   br i1 %cmp177.not, label %do.end182, label %if.then179
@@ -3120,7 +3120,7 @@ for.end191.loopexit:                              ; preds = %do.end182
 
 for.end191:                                       ; preds = %for.end191.loopexit, %for.cond168.preheader
   %ninitialized.0.lcssa = phi i1 [ true, %for.cond168.preheader ], [ %72, %for.end191.loopexit ]
-  %arrayidx192 = getelementptr inbounds i8, ptr %mib157, i64 8
+  %arrayidx192 = getelementptr inbounds nuw i8, ptr %mib157, i64 8
   store i64 4097, ptr %arrayidx192, align 8
   store i64 1, ptr %sz159, align 8
   %73 = load i64, ptr %miblen158, align 8
@@ -3163,11 +3163,11 @@ if.then220:                                       ; preds = %if.end214
   br i1 %spec.select.i.i139, label %do.end.i140, label %if.end226
 
 do.end.i140:                                      ; preds = %if.then220
-  %nesting_depth.i.i141 = getelementptr inbounds i8, ptr %emitter, i64 24
+  %nesting_depth.i.i141 = getelementptr inbounds nuw i8, ptr %emitter, i64 24
   %75 = load i32, ptr %nesting_depth.i.i141, align 8
   %dec.i.i142 = add nsw i32 %75, -1
   store i32 %dec.i.i142, ptr %nesting_depth.i.i141, align 8
-  %item_at_depth.i.i143 = getelementptr inbounds i8, ptr %emitter, i64 28
+  %item_at_depth.i.i143 = getelementptr inbounds nuw i8, ptr %emitter, i64 28
   store i8 1, ptr %item_at_depth.i.i143, align 4
   %cmp.not.i144 = icmp eq i32 %emitter.val.i138, 1
   br i1 %cmp.not.i144, label %if.end.i149, label %if.then1.i145
@@ -3204,13 +3204,13 @@ if.end226:                                        ; preds = %if.end.i149, %if.th
   br i1 %or.cond207, label %for.body232.lr.ph, label %if.end250
 
 for.body232.lr.ph:                                ; preds = %if.end226
-  %nesting_depth.i.i161 = getelementptr inbounds i8, ptr %emitter, i64 24
-  %item_at_depth.i.i163 = getelementptr inbounds i8, ptr %emitter, i64 28
+  %nesting_depth.i.i161 = getelementptr inbounds nuw i8, ptr %emitter, i64 24
+  %item_at_depth.i.i163 = getelementptr inbounds nuw i8, ptr %emitter, i64 28
   br label %for.body232
 
 for.body232:                                      ; preds = %for.body232.lr.ph, %for.inc247
   %indvars.iv212 = phi i64 [ 0, %for.body232.lr.ph ], [ %indvars.iv.next213, %for.inc247 ]
-  %arrayidx234 = getelementptr inbounds i8, ptr %vla, i64 %indvars.iv212
+  %arrayidx234 = getelementptr inbounds nuw i8, ptr %vla, i64 %indvars.iv212
   %79 = load i8, ptr %arrayidx234, align 1
   %tobool235 = trunc i8 %79 to i1
   br i1 %tobool235, label %if.then236, label %for.inc247
@@ -3272,11 +3272,11 @@ if.end250:                                        ; preds = %for.inc247, %if.end
   br i1 %spec.select.i.i179, label %do.end.i180, label %emitter_json_object_end.exit197
 
 do.end.i180:                                      ; preds = %if.end250
-  %nesting_depth.i.i181 = getelementptr inbounds i8, ptr %emitter, i64 24
+  %nesting_depth.i.i181 = getelementptr inbounds nuw i8, ptr %emitter, i64 24
   %86 = load i32, ptr %nesting_depth.i.i181, align 8
   %dec.i.i182 = add nsw i32 %86, -1
   store i32 %dec.i.i182, ptr %nesting_depth.i.i181, align 8
-  %item_at_depth.i.i183 = getelementptr inbounds i8, ptr %emitter, i64 28
+  %item_at_depth.i.i183 = getelementptr inbounds nuw i8, ptr %emitter, i64 28
   store i8 1, ptr %item_at_depth.i.i183, align 4
   %cmp.not.i184 = icmp eq i32 %emitter.val.i178, 1
   br i1 %cmp.not.i184, label %if.end.i189, label %if.then1.i185
@@ -3322,11 +3322,11 @@ entry:
   br i1 %spec.select.i, label %do.end, label %if.end2
 
 do.end:                                           ; preds = %entry
-  %nesting_depth.i = getelementptr inbounds i8, ptr %emitter, i64 24
+  %nesting_depth.i = getelementptr inbounds nuw i8, ptr %emitter, i64 24
   %0 = load i32, ptr %nesting_depth.i, align 8
   %dec.i = add nsw i32 %0, -1
   store i32 %dec.i, ptr %nesting_depth.i, align 8
-  %item_at_depth.i = getelementptr inbounds i8, ptr %emitter, i64 28
+  %item_at_depth.i = getelementptr inbounds nuw i8, ptr %emitter, i64 28
   store i8 1, ptr %item_at_depth.i, align 4
   %cmp.not = icmp eq i32 %emitter.val, 1
   br i1 %cmp.not, label %if.end, label %if.then1
@@ -3471,9 +3471,9 @@ define internal void @emitter_printf(ptr nocapture noundef nonnull readonly %emi
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %ap)
-  %write_cb = getelementptr inbounds i8, ptr %emitter, i64 8
+  %write_cb = getelementptr inbounds nuw i8, ptr %emitter, i64 8
   %0 = load ptr, ptr %write_cb, align 8
-  %cbopaque = getelementptr inbounds i8, ptr %emitter, i64 16
+  %cbopaque = getelementptr inbounds nuw i8, ptr %emitter, i64 16
   %1 = load ptr, ptr %cbopaque, align 8
   call void @malloc_vcprintf(ptr noundef %0, ptr noundef %1, ptr noundef %format, ptr noundef nonnull %ap) #13
   call void @llvm.va_end.p0(ptr nonnull %ap)
@@ -3496,7 +3496,7 @@ entry:
   br i1 %spec.select.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %emitted_key.i = getelementptr inbounds i8, ptr %emitter, i64 29
+  %emitted_key.i = getelementptr inbounds nuw i8, ptr %emitter, i64 29
   %0 = load i8, ptr %emitted_key.i, align 1
   %tobool.i = trunc i8 %0 to i1
   br i1 %tobool.i, label %if.then.i, label %if.end.i
@@ -3506,7 +3506,7 @@ if.then.i:                                        ; preds = %if.then
   br label %emitter_json_key_prefix.exit
 
 if.end.i:                                         ; preds = %if.then
-  %item_at_depth.i = getelementptr inbounds i8, ptr %emitter, i64 28
+  %item_at_depth.i = getelementptr inbounds nuw i8, ptr %emitter, i64 28
   %1 = load i8, ptr %item_at_depth.i, align 4
   %tobool2.i = trunc i8 %1 to i1
   br i1 %tobool2.i, label %if.then3.i, label %if.end4.i
@@ -3523,7 +3523,7 @@ if.end4.i:                                        ; preds = %if.then3.i, %if.end
 
 if.then5.i:                                       ; preds = %if.end4.i
   tail call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.33)
-  %nesting_depth.i.i = getelementptr inbounds i8, ptr %emitter, i64 24
+  %nesting_depth.i.i = getelementptr inbounds nuw i8, ptr %emitter, i64 24
   %3 = load i32, ptr %nesting_depth.i.i, align 8
   %4 = load i32, ptr %emitter, align 8
   %cmp.i.i = icmp ne i32 %4, 0
@@ -3574,7 +3574,7 @@ entry:
   br i1 %spec.select.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %emitted_key.i = getelementptr inbounds i8, ptr %emitter, i64 29
+  %emitted_key.i = getelementptr inbounds nuw i8, ptr %emitter, i64 29
   %0 = load i8, ptr %emitted_key.i, align 1
   %tobool.i = trunc i8 %0 to i1
   br i1 %tobool.i, label %if.then.i, label %if.end.i
@@ -3584,7 +3584,7 @@ if.then.i:                                        ; preds = %if.then
   br label %emitter_json_key_prefix.exit
 
 if.end.i:                                         ; preds = %if.then
-  %item_at_depth.i = getelementptr inbounds i8, ptr %emitter, i64 28
+  %item_at_depth.i = getelementptr inbounds nuw i8, ptr %emitter, i64 28
   %1 = load i8, ptr %item_at_depth.i, align 4
   %tobool2.i = trunc i8 %1 to i1
   br i1 %tobool2.i, label %if.then3.i, label %if.end4.i
@@ -3601,7 +3601,7 @@ if.end4.i:                                        ; preds = %if.then3.i, %if.end
 
 if.then5.i:                                       ; preds = %if.end4.i
   tail call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.33)
-  %nesting_depth.i.i = getelementptr inbounds i8, ptr %emitter, i64 24
+  %nesting_depth.i.i = getelementptr inbounds nuw i8, ptr %emitter, i64 24
   %3 = load i32, ptr %nesting_depth.i.i, align 8
   %4 = load i32, ptr %emitter, align 8
   %cmp.i.i = icmp ne i32 %4, 0
@@ -3623,11 +3623,11 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
 
 emitter_json_key_prefix.exit:                     ; preds = %for.body.i.i, %if.then.i, %if.end4.i, %if.then5.i
   tail call void (ptr, ptr, ...) @emitter_printf(ptr noundef %emitter, ptr noundef nonnull @.str.27)
-  %nesting_depth.i = getelementptr inbounds i8, ptr %emitter, i64 24
+  %nesting_depth.i = getelementptr inbounds nuw i8, ptr %emitter, i64 24
   %5 = load i32, ptr %nesting_depth.i, align 8
   %inc.i = add nsw i32 %5, 1
   store i32 %inc.i, ptr %nesting_depth.i, align 8
-  %item_at_depth.i4 = getelementptr inbounds i8, ptr %emitter, i64 28
+  %item_at_depth.i4 = getelementptr inbounds nuw i8, ptr %emitter, i64 28
   store i8 0, ptr %item_at_depth.i4, align 4
   br label %if.end
 
@@ -3656,7 +3656,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp.i, label %if.then.i, label %if.end
 
 if.then.i:                                        ; preds = %if.else
-  %nesting_depth.i.i = getelementptr inbounds i8, ptr %emitter, i64 24
+  %nesting_depth.i.i = getelementptr inbounds nuw i8, ptr %emitter, i64 24
   %0 = load i32, ptr %nesting_depth.i.i, align 8
   %cmp15.i.i = icmp sgt i32 %0, 0
   br i1 %cmp15.i.i, label %for.body.preheader.i.i, label %emitter_indent.exit.i
@@ -3689,7 +3689,7 @@ if.end.i:                                         ; preds = %if.then2.i, %emitte
   br label %if.end
 
 if.end:                                           ; preds = %if.end.i, %if.else, %if.then
-  %item_at_depth = getelementptr inbounds i8, ptr %emitter, i64 28
+  %item_at_depth = getelementptr inbounds nuw i8, ptr %emitter, i64 28
   store i8 1, ptr %item_at_depth, align 4
   ret void
 }
@@ -3703,7 +3703,7 @@ entry:
   br i1 %spec.select.i.i, label %if.then.i, label %emitter_json_array_begin.exit
 
 if.then.i:                                        ; preds = %entry
-  %emitted_key.i.i = getelementptr inbounds i8, ptr %emitter, i64 29
+  %emitted_key.i.i = getelementptr inbounds nuw i8, ptr %emitter, i64 29
   %0 = load i8, ptr %emitted_key.i.i, align 1
   %tobool.i.i = trunc i8 %0 to i1
   br i1 %tobool.i.i, label %if.then.i.i, label %if.end.i.i
@@ -3713,7 +3713,7 @@ if.then.i.i:                                      ; preds = %if.then.i
   br label %emitter_json_key_prefix.exit.i
 
 if.end.i.i:                                       ; preds = %if.then.i
-  %item_at_depth.i.i = getelementptr inbounds i8, ptr %emitter, i64 28
+  %item_at_depth.i.i = getelementptr inbounds nuw i8, ptr %emitter, i64 28
   %1 = load i8, ptr %item_at_depth.i.i, align 4
   %tobool2.i.i = trunc i8 %1 to i1
   br i1 %tobool2.i.i, label %if.then3.i.i, label %if.end4.i.i
@@ -3730,7 +3730,7 @@ if.end4.i.i:                                      ; preds = %if.then3.i.i, %if.e
 
 if.then5.i.i:                                     ; preds = %if.end4.i.i
   tail call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.33)
-  %nesting_depth.i.i.i = getelementptr inbounds i8, ptr %emitter, i64 24
+  %nesting_depth.i.i.i = getelementptr inbounds nuw i8, ptr %emitter, i64 24
   %3 = load i32, ptr %nesting_depth.i.i.i, align 8
   %4 = load i32, ptr %emitter, align 8
   %cmp.i.i.i = icmp ne i32 %4, 0
@@ -3752,11 +3752,11 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %fo
 
 emitter_json_key_prefix.exit.i:                   ; preds = %for.body.i.i.i, %if.then5.i.i, %if.end4.i.i, %if.then.i.i
   tail call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.228)
-  %nesting_depth.i.i = getelementptr inbounds i8, ptr %emitter, i64 24
+  %nesting_depth.i.i = getelementptr inbounds nuw i8, ptr %emitter, i64 24
   %5 = load i32, ptr %nesting_depth.i.i, align 8
   %inc.i.i = add nsw i32 %5, 1
   store i32 %inc.i.i, ptr %nesting_depth.i.i, align 8
-  %item_at_depth.i4.i = getelementptr inbounds i8, ptr %emitter, i64 28
+  %item_at_depth.i4.i = getelementptr inbounds nuw i8, ptr %emitter, i64 28
   store i8 0, ptr %item_at_depth.i4.i, align 4
   br label %emitter_json_array_begin.exit
 
@@ -3776,7 +3776,7 @@ entry:
   br i1 %spec.select.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %emitted_key.i = getelementptr inbounds i8, ptr %emitter, i64 29
+  %emitted_key.i = getelementptr inbounds nuw i8, ptr %emitter, i64 29
   %0 = load i8, ptr %emitted_key.i, align 1
   %tobool.i = trunc i8 %0 to i1
   br i1 %tobool.i, label %if.then.i, label %if.end.i
@@ -3786,7 +3786,7 @@ if.then.i:                                        ; preds = %if.then
   br label %emitter_json_key_prefix.exit
 
 if.end.i:                                         ; preds = %if.then
-  %item_at_depth.i = getelementptr inbounds i8, ptr %emitter, i64 28
+  %item_at_depth.i = getelementptr inbounds nuw i8, ptr %emitter, i64 28
   %1 = load i8, ptr %item_at_depth.i, align 4
   %tobool2.i = trunc i8 %1 to i1
   br i1 %tobool2.i, label %if.then3.i, label %if.end4.i
@@ -3803,7 +3803,7 @@ if.end4.i:                                        ; preds = %if.then3.i, %if.end
 
 if.then5.i:                                       ; preds = %if.end4.i
   tail call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.33)
-  %nesting_depth.i.i = getelementptr inbounds i8, ptr %emitter, i64 24
+  %nesting_depth.i.i = getelementptr inbounds nuw i8, ptr %emitter, i64 24
   %3 = load i32, ptr %nesting_depth.i.i, align 8
   %4 = load i32, ptr %emitter, align 8
   %cmp.i.i = icmp ne i32 %4, 0
@@ -3825,7 +3825,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
 
 emitter_json_key_prefix.exit:                     ; preds = %for.body.i.i, %if.then.i, %if.end4.i, %if.then5.i
   tail call fastcc void @emitter_print_value(ptr noundef %emitter, i32 noundef 2, i32 noundef -1, i32 noundef %value_type, ptr noundef %value)
-  %item_at_depth = getelementptr inbounds i8, ptr %emitter, i64 28
+  %item_at_depth = getelementptr inbounds nuw i8, ptr %emitter, i64 28
   store i8 1, ptr %item_at_depth, align 4
   br label %if.end
 
@@ -3858,15 +3858,15 @@ sw.bb:                                            ; preds = %entry
   ]
 
 if.then.i:                                        ; preds = %sw.bb
-  %call.i = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %fmt, i64 noundef 10, ptr noundef nonnull @.str.222, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.28, i64 1)) #13
+  %call.i = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %fmt, i64 noundef 10, ptr noundef nonnull @.str.222, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.28, i64 1)) #13
   br label %emitter_gen_fmt.exit
 
 if.then2.i:                                       ; preds = %sw.bb
-  %call3.i = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %fmt, i64 noundef 10, ptr noundef nonnull @.str.223, i32 noundef %width, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.28, i64 1)) #13
+  %call3.i = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %fmt, i64 noundef 10, ptr noundef nonnull @.str.223, i32 noundef %width, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.28, i64 1)) #13
   br label %emitter_gen_fmt.exit
 
 if.else4.i:                                       ; preds = %sw.bb
-  %call5.i = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %fmt, i64 noundef 10, ptr noundef nonnull @.str.224, i32 noundef %width, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.28, i64 1)) #13
+  %call5.i = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %fmt, i64 noundef 10, ptr noundef nonnull @.str.224, i32 noundef %width, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.28, i64 1)) #13
   br label %emitter_gen_fmt.exit
 
 emitter_gen_fmt.exit:                             ; preds = %if.then.i, %if.then2.i, %if.else4.i
@@ -3883,15 +3883,15 @@ sw.bb1:                                           ; preds = %entry
   ]
 
 if.then.i39:                                      ; preds = %sw.bb1
-  %call.i40 = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %fmt, i64 noundef 10, ptr noundef nonnull @.str.222, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.215, i64 1)) #13
+  %call.i40 = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %fmt, i64 noundef 10, ptr noundef nonnull @.str.222, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.215, i64 1)) #13
   br label %emitter_gen_fmt.exit43
 
 if.then2.i37:                                     ; preds = %sw.bb1
-  %call3.i38 = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %fmt, i64 noundef 10, ptr noundef nonnull @.str.223, i32 noundef %width, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.215, i64 1)) #13
+  %call3.i38 = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %fmt, i64 noundef 10, ptr noundef nonnull @.str.223, i32 noundef %width, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.215, i64 1)) #13
   br label %emitter_gen_fmt.exit43
 
 if.else4.i41:                                     ; preds = %sw.bb1
-  %call5.i42 = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %fmt, i64 noundef 10, ptr noundef nonnull @.str.224, i32 noundef %width, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.215, i64 1)) #13
+  %call5.i42 = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %fmt, i64 noundef 10, ptr noundef nonnull @.str.224, i32 noundef %width, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.215, i64 1)) #13
   br label %emitter_gen_fmt.exit43
 
 emitter_gen_fmt.exit43:                           ; preds = %if.then.i39, %if.then2.i37, %if.else4.i41
@@ -3906,15 +3906,15 @@ sw.bb4:                                           ; preds = %entry
   ]
 
 if.then.i46:                                      ; preds = %sw.bb4
-  %call.i47 = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %fmt, i64 noundef 10, ptr noundef nonnull @.str.222, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.216, i64 1)) #13
+  %call.i47 = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %fmt, i64 noundef 10, ptr noundef nonnull @.str.222, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.216, i64 1)) #13
   br label %emitter_gen_fmt.exit50
 
 if.then2.i44:                                     ; preds = %sw.bb4
-  %call3.i45 = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %fmt, i64 noundef 10, ptr noundef nonnull @.str.223, i32 noundef %width, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.216, i64 1)) #13
+  %call3.i45 = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %fmt, i64 noundef 10, ptr noundef nonnull @.str.223, i32 noundef %width, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.216, i64 1)) #13
   br label %emitter_gen_fmt.exit50
 
 if.else4.i48:                                     ; preds = %sw.bb4
-  %call5.i49 = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %fmt, i64 noundef 10, ptr noundef nonnull @.str.224, i32 noundef %width, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.216, i64 1)) #13
+  %call5.i49 = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %fmt, i64 noundef 10, ptr noundef nonnull @.str.224, i32 noundef %width, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.216, i64 1)) #13
   br label %emitter_gen_fmt.exit50
 
 emitter_gen_fmt.exit50:                           ; preds = %if.then.i46, %if.then2.i44, %if.else4.i48
@@ -3929,15 +3929,15 @@ sw.bb7:                                           ; preds = %entry
   ]
 
 if.then.i53:                                      ; preds = %sw.bb7
-  %call.i54 = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %fmt, i64 noundef 10, ptr noundef nonnull @.str.222, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.217, i64 1)) #13
+  %call.i54 = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %fmt, i64 noundef 10, ptr noundef nonnull @.str.222, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.217, i64 1)) #13
   br label %emitter_gen_fmt.exit57
 
 if.then2.i51:                                     ; preds = %sw.bb7
-  %call3.i52 = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %fmt, i64 noundef 10, ptr noundef nonnull @.str.223, i32 noundef %width, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.217, i64 1)) #13
+  %call3.i52 = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %fmt, i64 noundef 10, ptr noundef nonnull @.str.223, i32 noundef %width, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.217, i64 1)) #13
   br label %emitter_gen_fmt.exit57
 
 if.else4.i55:                                     ; preds = %sw.bb7
-  %call5.i56 = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %fmt, i64 noundef 10, ptr noundef nonnull @.str.224, i32 noundef %width, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.217, i64 1)) #13
+  %call5.i56 = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %fmt, i64 noundef 10, ptr noundef nonnull @.str.224, i32 noundef %width, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.217, i64 1)) #13
   br label %emitter_gen_fmt.exit57
 
 emitter_gen_fmt.exit57:                           ; preds = %if.then.i53, %if.then2.i51, %if.else4.i55
@@ -3952,15 +3952,15 @@ sw.bb10:                                          ; preds = %entry
   ]
 
 if.then.i60:                                      ; preds = %sw.bb10
-  %call.i61 = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %fmt, i64 noundef 10, ptr noundef nonnull @.str.222, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.218, i64 1)) #13
+  %call.i61 = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %fmt, i64 noundef 10, ptr noundef nonnull @.str.222, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.218, i64 1)) #13
   br label %emitter_gen_fmt.exit64
 
 if.then2.i58:                                     ; preds = %sw.bb10
-  %call3.i59 = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %fmt, i64 noundef 10, ptr noundef nonnull @.str.223, i32 noundef %width, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.218, i64 1)) #13
+  %call3.i59 = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %fmt, i64 noundef 10, ptr noundef nonnull @.str.223, i32 noundef %width, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.218, i64 1)) #13
   br label %emitter_gen_fmt.exit64
 
 if.else4.i62:                                     ; preds = %sw.bb10
-  %call5.i63 = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %fmt, i64 noundef 10, ptr noundef nonnull @.str.224, i32 noundef %width, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.218, i64 1)) #13
+  %call5.i63 = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %fmt, i64 noundef 10, ptr noundef nonnull @.str.224, i32 noundef %width, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.218, i64 1)) #13
   br label %emitter_gen_fmt.exit64
 
 emitter_gen_fmt.exit64:                           ; preds = %if.then.i60, %if.then2.i58, %if.else4.i62
@@ -3975,15 +3975,15 @@ sw.bb13:                                          ; preds = %entry
   ]
 
 if.then.i67:                                      ; preds = %sw.bb13
-  %call.i68 = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %fmt, i64 noundef 10, ptr noundef nonnull @.str.222, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.219, i64 1)) #13
+  %call.i68 = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %fmt, i64 noundef 10, ptr noundef nonnull @.str.222, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.219, i64 1)) #13
   br label %emitter_gen_fmt.exit71
 
 if.then2.i65:                                     ; preds = %sw.bb13
-  %call3.i66 = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %fmt, i64 noundef 10, ptr noundef nonnull @.str.223, i32 noundef %width, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.219, i64 1)) #13
+  %call3.i66 = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %fmt, i64 noundef 10, ptr noundef nonnull @.str.223, i32 noundef %width, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.219, i64 1)) #13
   br label %emitter_gen_fmt.exit71
 
 if.else4.i69:                                     ; preds = %sw.bb13
-  %call5.i70 = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %fmt, i64 noundef 10, ptr noundef nonnull @.str.224, i32 noundef %width, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.219, i64 1)) #13
+  %call5.i70 = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %fmt, i64 noundef 10, ptr noundef nonnull @.str.224, i32 noundef %width, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.219, i64 1)) #13
   br label %emitter_gen_fmt.exit71
 
 emitter_gen_fmt.exit71:                           ; preds = %if.then.i67, %if.then2.i65, %if.else4.i69
@@ -4000,15 +4000,15 @@ sw.bb16:                                          ; preds = %entry
   ]
 
 if.then.i74:                                      ; preds = %sw.bb16
-  %call.i75 = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %fmt, i64 noundef 10, ptr noundef nonnull @.str.222, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.28, i64 1)) #13
+  %call.i75 = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %fmt, i64 noundef 10, ptr noundef nonnull @.str.222, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.28, i64 1)) #13
   br label %emitter_gen_fmt.exit78
 
 if.then2.i72:                                     ; preds = %sw.bb16
-  %call3.i73 = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %fmt, i64 noundef 10, ptr noundef nonnull @.str.223, i32 noundef %width, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.28, i64 1)) #13
+  %call3.i73 = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %fmt, i64 noundef 10, ptr noundef nonnull @.str.223, i32 noundef %width, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.28, i64 1)) #13
   br label %emitter_gen_fmt.exit78
 
 if.else4.i76:                                     ; preds = %sw.bb16
-  %call5.i77 = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %fmt, i64 noundef 10, ptr noundef nonnull @.str.224, i32 noundef %width, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.28, i64 1)) #13
+  %call5.i77 = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %fmt, i64 noundef 10, ptr noundef nonnull @.str.224, i32 noundef %width, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.28, i64 1)) #13
   br label %emitter_gen_fmt.exit78
 
 emitter_gen_fmt.exit78:                           ; preds = %if.then.i74, %if.then2.i72, %if.else4.i76
@@ -4022,15 +4022,15 @@ sw.bb22:                                          ; preds = %entry
   ]
 
 if.then.i81:                                      ; preds = %sw.bb22
-  %call.i82 = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %fmt, i64 noundef 10, ptr noundef nonnull @.str.222, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.217, i64 1)) #13
+  %call.i82 = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %fmt, i64 noundef 10, ptr noundef nonnull @.str.222, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.217, i64 1)) #13
   br label %emitter_gen_fmt.exit85
 
 if.then2.i79:                                     ; preds = %sw.bb22
-  %call3.i80 = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %fmt, i64 noundef 10, ptr noundef nonnull @.str.223, i32 noundef %width, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.217, i64 1)) #13
+  %call3.i80 = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %fmt, i64 noundef 10, ptr noundef nonnull @.str.223, i32 noundef %width, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.217, i64 1)) #13
   br label %emitter_gen_fmt.exit85
 
 if.else4.i83:                                     ; preds = %sw.bb22
-  %call5.i84 = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %fmt, i64 noundef 10, ptr noundef nonnull @.str.224, i32 noundef %width, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.217, i64 1)) #13
+  %call5.i84 = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %fmt, i64 noundef 10, ptr noundef nonnull @.str.224, i32 noundef %width, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.217, i64 1)) #13
   br label %emitter_gen_fmt.exit85
 
 emitter_gen_fmt.exit85:                           ; preds = %if.then.i81, %if.then2.i79, %if.else4.i83
@@ -4045,15 +4045,15 @@ sw.bb25:                                          ; preds = %entry
   ]
 
 if.then.i88:                                      ; preds = %sw.bb25
-  %call.i89 = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %fmt, i64 noundef 10, ptr noundef nonnull @.str.222, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.221, i64 1)) #13
+  %call.i89 = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %fmt, i64 noundef 10, ptr noundef nonnull @.str.222, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.221, i64 1)) #13
   br label %emitter_gen_fmt.exit92
 
 if.then2.i86:                                     ; preds = %sw.bb25
-  %call3.i87 = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %fmt, i64 noundef 10, ptr noundef nonnull @.str.223, i32 noundef %width, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.221, i64 1)) #13
+  %call3.i87 = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %fmt, i64 noundef 10, ptr noundef nonnull @.str.223, i32 noundef %width, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.221, i64 1)) #13
   br label %emitter_gen_fmt.exit92
 
 if.else4.i90:                                     ; preds = %sw.bb25
-  %call5.i91 = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %fmt, i64 noundef 10, ptr noundef nonnull @.str.224, i32 noundef %width, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.221, i64 1)) #13
+  %call5.i91 = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %fmt, i64 noundef 10, ptr noundef nonnull @.str.224, i32 noundef %width, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.221, i64 1)) #13
   br label %emitter_gen_fmt.exit92
 
 emitter_gen_fmt.exit92:                           ; preds = %if.then.i88, %if.then2.i86, %if.else4.i90
@@ -4068,15 +4068,15 @@ sw.bb28:                                          ; preds = %entry
   ]
 
 if.then.i95:                                      ; preds = %sw.bb28
-  %call.i96 = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %fmt, i64 noundef 10, ptr noundef nonnull @.str.222, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.28, i64 1)) #13
+  %call.i96 = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %fmt, i64 noundef 10, ptr noundef nonnull @.str.222, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.28, i64 1)) #13
   br label %emitter_gen_fmt.exit99
 
 if.then2.i93:                                     ; preds = %sw.bb28
-  %call3.i94 = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %fmt, i64 noundef 10, ptr noundef nonnull @.str.223, i32 noundef %width, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.28, i64 1)) #13
+  %call3.i94 = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %fmt, i64 noundef 10, ptr noundef nonnull @.str.223, i32 noundef %width, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.28, i64 1)) #13
   br label %emitter_gen_fmt.exit99
 
 if.else4.i97:                                     ; preds = %sw.bb28
-  %call5.i98 = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %fmt, i64 noundef 10, ptr noundef nonnull @.str.224, i32 noundef %width, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.28, i64 1)) #13
+  %call5.i98 = call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef nonnull %fmt, i64 noundef 10, ptr noundef nonnull @.str.224, i32 noundef %width, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.28, i64 1)) #13
   br label %emitter_gen_fmt.exit99
 
 emitter_gen_fmt.exit99:                           ; preds = %if.then.i95, %if.then2.i93, %if.else4.i97
@@ -4105,32 +4105,32 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %link.i = getelementptr inbounds i8, ptr %name, i64 24
+  %link.i = getelementptr inbounds nuw i8, ptr %name, i64 24
   store ptr %name, ptr %link.i, align 8
-  %qre_prev.i = getelementptr inbounds i8, ptr %name, i64 32
+  %qre_prev.i = getelementptr inbounds nuw i8, ptr %name, i64 32
   store ptr %name, ptr %qre_prev.i, align 8
   %0 = load ptr, ptr %row, align 8
   %cmp.i = icmp eq ptr %0, null
   br i1 %cmp.i, label %emitter_col_init.exit, label %do.body3.i
 
 do.body3.i:                                       ; preds = %if.then
-  %qre_prev7.i = getelementptr inbounds i8, ptr %0, i64 32
+  %qre_prev7.i = getelementptr inbounds nuw i8, ptr %0, i64 32
   %1 = load ptr, ptr %qre_prev7.i, align 8
   store ptr %1, ptr %link.i, align 8
   %2 = load ptr, ptr %row, align 8
-  %qre_prev17.i = getelementptr inbounds i8, ptr %2, i64 32
+  %qre_prev17.i = getelementptr inbounds nuw i8, ptr %2, i64 32
   store ptr %name, ptr %qre_prev17.i, align 8
   %3 = load ptr, ptr %qre_prev.i, align 8
-  %link20.i = getelementptr inbounds i8, ptr %3, i64 24
+  %link20.i = getelementptr inbounds nuw i8, ptr %3, i64 24
   %4 = load ptr, ptr %link20.i, align 8
   store ptr %4, ptr %qre_prev.i, align 8
   %5 = load ptr, ptr %row, align 8
-  %qre_prev29.i = getelementptr inbounds i8, ptr %5, i64 32
+  %qre_prev29.i = getelementptr inbounds nuw i8, ptr %5, i64 32
   %6 = load ptr, ptr %qre_prev29.i, align 8
-  %link30.i = getelementptr inbounds i8, ptr %6, i64 24
+  %link30.i = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %5, ptr %link30.i, align 8
   %7 = load ptr, ptr %qre_prev.i, align 8
-  %link34.i = getelementptr inbounds i8, ptr %7, i64 24
+  %link34.i = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr %name, ptr %link34.i, align 8
   %.pre.i = load ptr, ptr %link.i, align 8
   br label %emitter_col_init.exit
@@ -4139,41 +4139,41 @@ emitter_col_init.exit:                            ; preds = %if.then, %do.body3.
   %8 = phi ptr [ %.pre.i, %do.body3.i ], [ %name, %if.then ]
   store ptr %8, ptr %row, align 8
   store i32 0, ptr %name, align 8
-  %width = getelementptr inbounds i8, ptr %name, i64 4
+  %width = getelementptr inbounds nuw i8, ptr %name, i64 4
   store i32 21, ptr %width, align 4
-  %type = getelementptr inbounds i8, ptr %name, i64 8
+  %type = getelementptr inbounds nuw i8, ptr %name, i64 8
   store i32 9, ptr %type, align 8
-  %9 = getelementptr inbounds i8, ptr %name, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %name, i64 16
   store ptr %table_name, ptr %9, align 8
   br label %if.end
 
 if.end:                                           ; preds = %emitter_col_init.exit, %entry
-  %link.i110 = getelementptr inbounds i8, ptr %col_uint64_t, i64 24
+  %link.i110 = getelementptr inbounds nuw i8, ptr %col_uint64_t, i64 24
   store ptr %col_uint64_t, ptr %link.i110, align 8
-  %qre_prev.i111 = getelementptr inbounds i8, ptr %col_uint64_t, i64 32
+  %qre_prev.i111 = getelementptr inbounds nuw i8, ptr %col_uint64_t, i64 32
   store ptr %col_uint64_t, ptr %qre_prev.i111, align 8
   %10 = load ptr, ptr %row, align 8
   %cmp.i112 = icmp eq ptr %10, null
   br i1 %cmp.i112, label %emitter_col_init.exit121, label %do.body3.i113
 
 do.body3.i113:                                    ; preds = %if.end
-  %qre_prev7.i114 = getelementptr inbounds i8, ptr %10, i64 32
+  %qre_prev7.i114 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %11 = load ptr, ptr %qre_prev7.i114, align 8
   store ptr %11, ptr %link.i110, align 8
   %12 = load ptr, ptr %row, align 8
-  %qre_prev17.i115 = getelementptr inbounds i8, ptr %12, i64 32
+  %qre_prev17.i115 = getelementptr inbounds nuw i8, ptr %12, i64 32
   store ptr %col_uint64_t, ptr %qre_prev17.i115, align 8
   %13 = load ptr, ptr %qre_prev.i111, align 8
-  %link20.i116 = getelementptr inbounds i8, ptr %13, i64 24
+  %link20.i116 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %14 = load ptr, ptr %link20.i116, align 8
   store ptr %14, ptr %qre_prev.i111, align 8
   %15 = load ptr, ptr %row, align 8
-  %qre_prev29.i117 = getelementptr inbounds i8, ptr %15, i64 32
+  %qre_prev29.i117 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %16 = load ptr, ptr %qre_prev29.i117, align 8
-  %link30.i118 = getelementptr inbounds i8, ptr %16, i64 24
+  %link30.i118 = getelementptr inbounds nuw i8, ptr %16, i64 24
   store ptr %15, ptr %link30.i118, align 8
   %17 = load ptr, ptr %qre_prev.i111, align 8
-  %link34.i119 = getelementptr inbounds i8, ptr %17, i64 24
+  %link34.i119 = getelementptr inbounds nuw i8, ptr %17, i64 24
   store ptr %col_uint64_t, ptr %link34.i119, align 8
   %.pre.i120 = load ptr, ptr %link.i110, align 8
   br label %emitter_col_init.exit121
@@ -4182,39 +4182,39 @@ emitter_col_init.exit121:                         ; preds = %if.end, %do.body3.i
   %18 = phi ptr [ %.pre.i120, %do.body3.i113 ], [ %col_uint64_t, %if.end ]
   store ptr %18, ptr %row, align 8
   store i32 1, ptr %col_uint64_t, align 8
-  %width2 = getelementptr inbounds i8, ptr %col_uint64_t, i64 4
+  %width2 = getelementptr inbounds nuw i8, ptr %col_uint64_t, i64 4
   store i32 16, ptr %width2, align 4
-  %type3 = getelementptr inbounds i8, ptr %col_uint64_t, i64 8
+  %type3 = getelementptr inbounds nuw i8, ptr %col_uint64_t, i64 8
   store i32 9, ptr %type3, align 8
-  %19 = getelementptr inbounds i8, ptr %col_uint64_t, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %col_uint64_t, i64 16
   store ptr @.str.266, ptr %19, align 8
-  %arrayidx5 = getelementptr inbounds i8, ptr %col_uint64_t, i64 40
-  %link.i122 = getelementptr inbounds i8, ptr %col_uint64_t, i64 64
+  %arrayidx5 = getelementptr inbounds nuw i8, ptr %col_uint64_t, i64 40
+  %link.i122 = getelementptr inbounds nuw i8, ptr %col_uint64_t, i64 64
   store ptr %arrayidx5, ptr %link.i122, align 8
-  %qre_prev.i123 = getelementptr inbounds i8, ptr %col_uint64_t, i64 72
+  %qre_prev.i123 = getelementptr inbounds nuw i8, ptr %col_uint64_t, i64 72
   store ptr %arrayidx5, ptr %qre_prev.i123, align 8
   %20 = load ptr, ptr %row, align 8
   %cmp.i124 = icmp eq ptr %20, null
   br i1 %cmp.i124, label %emitter_col_init.exit133, label %do.body3.i125
 
 do.body3.i125:                                    ; preds = %emitter_col_init.exit121
-  %qre_prev7.i126 = getelementptr inbounds i8, ptr %20, i64 32
+  %qre_prev7.i126 = getelementptr inbounds nuw i8, ptr %20, i64 32
   %21 = load ptr, ptr %qre_prev7.i126, align 8
   store ptr %21, ptr %link.i122, align 8
   %22 = load ptr, ptr %row, align 8
-  %qre_prev17.i127 = getelementptr inbounds i8, ptr %22, i64 32
+  %qre_prev17.i127 = getelementptr inbounds nuw i8, ptr %22, i64 32
   store ptr %arrayidx5, ptr %qre_prev17.i127, align 8
   %23 = load ptr, ptr %qre_prev.i123, align 8
-  %link20.i128 = getelementptr inbounds i8, ptr %23, i64 24
+  %link20.i128 = getelementptr inbounds nuw i8, ptr %23, i64 24
   %24 = load ptr, ptr %link20.i128, align 8
   store ptr %24, ptr %qre_prev.i123, align 8
   %25 = load ptr, ptr %row, align 8
-  %qre_prev29.i129 = getelementptr inbounds i8, ptr %25, i64 32
+  %qre_prev29.i129 = getelementptr inbounds nuw i8, ptr %25, i64 32
   %26 = load ptr, ptr %qre_prev29.i129, align 8
-  %link30.i130 = getelementptr inbounds i8, ptr %26, i64 24
+  %link30.i130 = getelementptr inbounds nuw i8, ptr %26, i64 24
   store ptr %25, ptr %link30.i130, align 8
   %27 = load ptr, ptr %qre_prev.i123, align 8
-  %link34.i131 = getelementptr inbounds i8, ptr %27, i64 24
+  %link34.i131 = getelementptr inbounds nuw i8, ptr %27, i64 24
   store ptr %arrayidx5, ptr %link34.i131, align 8
   %.pre.i132 = load ptr, ptr %link.i122, align 8
   br label %emitter_col_init.exit133
@@ -4223,39 +4223,39 @@ emitter_col_init.exit133:                         ; preds = %emitter_col_init.ex
   %28 = phi ptr [ %.pre.i132, %do.body3.i125 ], [ %arrayidx5, %emitter_col_init.exit121 ]
   store ptr %28, ptr %row, align 8
   store i32 1, ptr %arrayidx5, align 8
-  %width8 = getelementptr inbounds i8, ptr %col_uint64_t, i64 44
+  %width8 = getelementptr inbounds nuw i8, ptr %col_uint64_t, i64 44
   store i32 8, ptr %width8, align 4
-  %type9 = getelementptr inbounds i8, ptr %col_uint64_t, i64 48
+  %type9 = getelementptr inbounds nuw i8, ptr %col_uint64_t, i64 48
   store i32 9, ptr %type9, align 8
-  %29 = getelementptr inbounds i8, ptr %col_uint64_t, i64 56
+  %29 = getelementptr inbounds nuw i8, ptr %col_uint64_t, i64 56
   store ptr @.str.267, ptr %29, align 8
-  %arrayidx11 = getelementptr inbounds i8, ptr %col_uint64_t, i64 80
-  %link.i134 = getelementptr inbounds i8, ptr %col_uint64_t, i64 104
+  %arrayidx11 = getelementptr inbounds nuw i8, ptr %col_uint64_t, i64 80
+  %link.i134 = getelementptr inbounds nuw i8, ptr %col_uint64_t, i64 104
   store ptr %arrayidx11, ptr %link.i134, align 8
-  %qre_prev.i135 = getelementptr inbounds i8, ptr %col_uint64_t, i64 112
+  %qre_prev.i135 = getelementptr inbounds nuw i8, ptr %col_uint64_t, i64 112
   store ptr %arrayidx11, ptr %qre_prev.i135, align 8
   %30 = load ptr, ptr %row, align 8
   %cmp.i136 = icmp eq ptr %30, null
   br i1 %cmp.i136, label %emitter_col_init.exit145, label %do.body3.i137
 
 do.body3.i137:                                    ; preds = %emitter_col_init.exit133
-  %qre_prev7.i138 = getelementptr inbounds i8, ptr %30, i64 32
+  %qre_prev7.i138 = getelementptr inbounds nuw i8, ptr %30, i64 32
   %31 = load ptr, ptr %qre_prev7.i138, align 8
   store ptr %31, ptr %link.i134, align 8
   %32 = load ptr, ptr %row, align 8
-  %qre_prev17.i139 = getelementptr inbounds i8, ptr %32, i64 32
+  %qre_prev17.i139 = getelementptr inbounds nuw i8, ptr %32, i64 32
   store ptr %arrayidx11, ptr %qre_prev17.i139, align 8
   %33 = load ptr, ptr %qre_prev.i135, align 8
-  %link20.i140 = getelementptr inbounds i8, ptr %33, i64 24
+  %link20.i140 = getelementptr inbounds nuw i8, ptr %33, i64 24
   %34 = load ptr, ptr %link20.i140, align 8
   store ptr %34, ptr %qre_prev.i135, align 8
   %35 = load ptr, ptr %row, align 8
-  %qre_prev29.i141 = getelementptr inbounds i8, ptr %35, i64 32
+  %qre_prev29.i141 = getelementptr inbounds nuw i8, ptr %35, i64 32
   %36 = load ptr, ptr %qre_prev29.i141, align 8
-  %link30.i142 = getelementptr inbounds i8, ptr %36, i64 24
+  %link30.i142 = getelementptr inbounds nuw i8, ptr %36, i64 24
   store ptr %35, ptr %link30.i142, align 8
   %37 = load ptr, ptr %qre_prev.i135, align 8
-  %link34.i143 = getelementptr inbounds i8, ptr %37, i64 24
+  %link34.i143 = getelementptr inbounds nuw i8, ptr %37, i64 24
   store ptr %arrayidx11, ptr %link34.i143, align 8
   %.pre.i144 = load ptr, ptr %link.i134, align 8
   br label %emitter_col_init.exit145
@@ -4264,39 +4264,39 @@ emitter_col_init.exit145:                         ; preds = %emitter_col_init.ex
   %38 = phi ptr [ %.pre.i144, %do.body3.i137 ], [ %arrayidx11, %emitter_col_init.exit133 ]
   store ptr %38, ptr %row, align 8
   store i32 1, ptr %arrayidx11, align 8
-  %width14 = getelementptr inbounds i8, ptr %col_uint64_t, i64 84
+  %width14 = getelementptr inbounds nuw i8, ptr %col_uint64_t, i64 84
   store i32 16, ptr %width14, align 4
-  %type15 = getelementptr inbounds i8, ptr %col_uint64_t, i64 88
+  %type15 = getelementptr inbounds nuw i8, ptr %col_uint64_t, i64 88
   store i32 9, ptr %type15, align 8
-  %39 = getelementptr inbounds i8, ptr %col_uint64_t, i64 96
+  %39 = getelementptr inbounds nuw i8, ptr %col_uint64_t, i64 96
   store ptr @.str.268, ptr %39, align 8
-  %arrayidx17 = getelementptr inbounds i8, ptr %col_uint64_t, i64 120
-  %link.i146 = getelementptr inbounds i8, ptr %col_uint64_t, i64 144
+  %arrayidx17 = getelementptr inbounds nuw i8, ptr %col_uint64_t, i64 120
+  %link.i146 = getelementptr inbounds nuw i8, ptr %col_uint64_t, i64 144
   store ptr %arrayidx17, ptr %link.i146, align 8
-  %qre_prev.i147 = getelementptr inbounds i8, ptr %col_uint64_t, i64 152
+  %qre_prev.i147 = getelementptr inbounds nuw i8, ptr %col_uint64_t, i64 152
   store ptr %arrayidx17, ptr %qre_prev.i147, align 8
   %40 = load ptr, ptr %row, align 8
   %cmp.i148 = icmp eq ptr %40, null
   br i1 %cmp.i148, label %emitter_col_init.exit157, label %do.body3.i149
 
 do.body3.i149:                                    ; preds = %emitter_col_init.exit145
-  %qre_prev7.i150 = getelementptr inbounds i8, ptr %40, i64 32
+  %qre_prev7.i150 = getelementptr inbounds nuw i8, ptr %40, i64 32
   %41 = load ptr, ptr %qre_prev7.i150, align 8
   store ptr %41, ptr %link.i146, align 8
   %42 = load ptr, ptr %row, align 8
-  %qre_prev17.i151 = getelementptr inbounds i8, ptr %42, i64 32
+  %qre_prev17.i151 = getelementptr inbounds nuw i8, ptr %42, i64 32
   store ptr %arrayidx17, ptr %qre_prev17.i151, align 8
   %43 = load ptr, ptr %qre_prev.i147, align 8
-  %link20.i152 = getelementptr inbounds i8, ptr %43, i64 24
+  %link20.i152 = getelementptr inbounds nuw i8, ptr %43, i64 24
   %44 = load ptr, ptr %link20.i152, align 8
   store ptr %44, ptr %qre_prev.i147, align 8
   %45 = load ptr, ptr %row, align 8
-  %qre_prev29.i153 = getelementptr inbounds i8, ptr %45, i64 32
+  %qre_prev29.i153 = getelementptr inbounds nuw i8, ptr %45, i64 32
   %46 = load ptr, ptr %qre_prev29.i153, align 8
-  %link30.i154 = getelementptr inbounds i8, ptr %46, i64 24
+  %link30.i154 = getelementptr inbounds nuw i8, ptr %46, i64 24
   store ptr %45, ptr %link30.i154, align 8
   %47 = load ptr, ptr %qre_prev.i147, align 8
-  %link34.i155 = getelementptr inbounds i8, ptr %47, i64 24
+  %link34.i155 = getelementptr inbounds nuw i8, ptr %47, i64 24
   store ptr %arrayidx17, ptr %link34.i155, align 8
   %.pre.i156 = load ptr, ptr %link.i146, align 8
   br label %emitter_col_init.exit157
@@ -4305,39 +4305,39 @@ emitter_col_init.exit157:                         ; preds = %emitter_col_init.ex
   %48 = phi ptr [ %.pre.i156, %do.body3.i149 ], [ %arrayidx17, %emitter_col_init.exit145 ]
   store ptr %48, ptr %row, align 8
   store i32 1, ptr %arrayidx17, align 8
-  %width20 = getelementptr inbounds i8, ptr %col_uint64_t, i64 124
+  %width20 = getelementptr inbounds nuw i8, ptr %col_uint64_t, i64 124
   store i32 8, ptr %width20, align 4
-  %type21 = getelementptr inbounds i8, ptr %col_uint64_t, i64 128
+  %type21 = getelementptr inbounds nuw i8, ptr %col_uint64_t, i64 128
   store i32 9, ptr %type21, align 8
-  %49 = getelementptr inbounds i8, ptr %col_uint64_t, i64 136
+  %49 = getelementptr inbounds nuw i8, ptr %col_uint64_t, i64 136
   store ptr @.str.267, ptr %49, align 8
-  %arrayidx23 = getelementptr inbounds i8, ptr %col_uint64_t, i64 160
-  %link.i158 = getelementptr inbounds i8, ptr %col_uint64_t, i64 184
+  %arrayidx23 = getelementptr inbounds nuw i8, ptr %col_uint64_t, i64 160
+  %link.i158 = getelementptr inbounds nuw i8, ptr %col_uint64_t, i64 184
   store ptr %arrayidx23, ptr %link.i158, align 8
-  %qre_prev.i159 = getelementptr inbounds i8, ptr %col_uint64_t, i64 192
+  %qre_prev.i159 = getelementptr inbounds nuw i8, ptr %col_uint64_t, i64 192
   store ptr %arrayidx23, ptr %qre_prev.i159, align 8
   %50 = load ptr, ptr %row, align 8
   %cmp.i160 = icmp eq ptr %50, null
   br i1 %cmp.i160, label %emitter_col_init.exit169, label %do.body3.i161
 
 do.body3.i161:                                    ; preds = %emitter_col_init.exit157
-  %qre_prev7.i162 = getelementptr inbounds i8, ptr %50, i64 32
+  %qre_prev7.i162 = getelementptr inbounds nuw i8, ptr %50, i64 32
   %51 = load ptr, ptr %qre_prev7.i162, align 8
   store ptr %51, ptr %link.i158, align 8
   %52 = load ptr, ptr %row, align 8
-  %qre_prev17.i163 = getelementptr inbounds i8, ptr %52, i64 32
+  %qre_prev17.i163 = getelementptr inbounds nuw i8, ptr %52, i64 32
   store ptr %arrayidx23, ptr %qre_prev17.i163, align 8
   %53 = load ptr, ptr %qre_prev.i159, align 8
-  %link20.i164 = getelementptr inbounds i8, ptr %53, i64 24
+  %link20.i164 = getelementptr inbounds nuw i8, ptr %53, i64 24
   %54 = load ptr, ptr %link20.i164, align 8
   store ptr %54, ptr %qre_prev.i159, align 8
   %55 = load ptr, ptr %row, align 8
-  %qre_prev29.i165 = getelementptr inbounds i8, ptr %55, i64 32
+  %qre_prev29.i165 = getelementptr inbounds nuw i8, ptr %55, i64 32
   %56 = load ptr, ptr %qre_prev29.i165, align 8
-  %link30.i166 = getelementptr inbounds i8, ptr %56, i64 24
+  %link30.i166 = getelementptr inbounds nuw i8, ptr %56, i64 24
   store ptr %55, ptr %link30.i166, align 8
   %57 = load ptr, ptr %qre_prev.i159, align 8
-  %link34.i167 = getelementptr inbounds i8, ptr %57, i64 24
+  %link34.i167 = getelementptr inbounds nuw i8, ptr %57, i64 24
   store ptr %arrayidx23, ptr %link34.i167, align 8
   %.pre.i168 = load ptr, ptr %link.i158, align 8
   br label %emitter_col_init.exit169
@@ -4346,39 +4346,39 @@ emitter_col_init.exit169:                         ; preds = %emitter_col_init.ex
   %58 = phi ptr [ %.pre.i168, %do.body3.i161 ], [ %arrayidx23, %emitter_col_init.exit157 ]
   store ptr %58, ptr %row, align 8
   store i32 1, ptr %arrayidx23, align 8
-  %width26 = getelementptr inbounds i8, ptr %col_uint64_t, i64 164
+  %width26 = getelementptr inbounds nuw i8, ptr %col_uint64_t, i64 164
   store i32 16, ptr %width26, align 4
-  %type27 = getelementptr inbounds i8, ptr %col_uint64_t, i64 168
+  %type27 = getelementptr inbounds nuw i8, ptr %col_uint64_t, i64 168
   store i32 9, ptr %type27, align 8
-  %59 = getelementptr inbounds i8, ptr %col_uint64_t, i64 176
+  %59 = getelementptr inbounds nuw i8, ptr %col_uint64_t, i64 176
   store ptr @.str.269, ptr %59, align 8
-  %arrayidx29 = getelementptr inbounds i8, ptr %col_uint64_t, i64 200
-  %link.i170 = getelementptr inbounds i8, ptr %col_uint64_t, i64 224
+  %arrayidx29 = getelementptr inbounds nuw i8, ptr %col_uint64_t, i64 200
+  %link.i170 = getelementptr inbounds nuw i8, ptr %col_uint64_t, i64 224
   store ptr %arrayidx29, ptr %link.i170, align 8
-  %qre_prev.i171 = getelementptr inbounds i8, ptr %col_uint64_t, i64 232
+  %qre_prev.i171 = getelementptr inbounds nuw i8, ptr %col_uint64_t, i64 232
   store ptr %arrayidx29, ptr %qre_prev.i171, align 8
   %60 = load ptr, ptr %row, align 8
   %cmp.i172 = icmp eq ptr %60, null
   br i1 %cmp.i172, label %emitter_col_init.exit181, label %do.body3.i173
 
 do.body3.i173:                                    ; preds = %emitter_col_init.exit169
-  %qre_prev7.i174 = getelementptr inbounds i8, ptr %60, i64 32
+  %qre_prev7.i174 = getelementptr inbounds nuw i8, ptr %60, i64 32
   %61 = load ptr, ptr %qre_prev7.i174, align 8
   store ptr %61, ptr %link.i170, align 8
   %62 = load ptr, ptr %row, align 8
-  %qre_prev17.i175 = getelementptr inbounds i8, ptr %62, i64 32
+  %qre_prev17.i175 = getelementptr inbounds nuw i8, ptr %62, i64 32
   store ptr %arrayidx29, ptr %qre_prev17.i175, align 8
   %63 = load ptr, ptr %qre_prev.i171, align 8
-  %link20.i176 = getelementptr inbounds i8, ptr %63, i64 24
+  %link20.i176 = getelementptr inbounds nuw i8, ptr %63, i64 24
   %64 = load ptr, ptr %link20.i176, align 8
   store ptr %64, ptr %qre_prev.i171, align 8
   %65 = load ptr, ptr %row, align 8
-  %qre_prev29.i177 = getelementptr inbounds i8, ptr %65, i64 32
+  %qre_prev29.i177 = getelementptr inbounds nuw i8, ptr %65, i64 32
   %66 = load ptr, ptr %qre_prev29.i177, align 8
-  %link30.i178 = getelementptr inbounds i8, ptr %66, i64 24
+  %link30.i178 = getelementptr inbounds nuw i8, ptr %66, i64 24
   store ptr %65, ptr %link30.i178, align 8
   %67 = load ptr, ptr %qre_prev.i171, align 8
-  %link34.i179 = getelementptr inbounds i8, ptr %67, i64 24
+  %link34.i179 = getelementptr inbounds nuw i8, ptr %67, i64 24
   store ptr %arrayidx29, ptr %link34.i179, align 8
   %.pre.i180 = load ptr, ptr %link.i170, align 8
   br label %emitter_col_init.exit181
@@ -4387,39 +4387,39 @@ emitter_col_init.exit181:                         ; preds = %emitter_col_init.ex
   %68 = phi ptr [ %.pre.i180, %do.body3.i173 ], [ %arrayidx29, %emitter_col_init.exit169 ]
   store ptr %68, ptr %row, align 8
   store i32 1, ptr %arrayidx29, align 8
-  %width32 = getelementptr inbounds i8, ptr %col_uint64_t, i64 204
+  %width32 = getelementptr inbounds nuw i8, ptr %col_uint64_t, i64 204
   store i32 8, ptr %width32, align 4
-  %type33 = getelementptr inbounds i8, ptr %col_uint64_t, i64 208
+  %type33 = getelementptr inbounds nuw i8, ptr %col_uint64_t, i64 208
   store i32 9, ptr %type33, align 8
-  %69 = getelementptr inbounds i8, ptr %col_uint64_t, i64 216
+  %69 = getelementptr inbounds nuw i8, ptr %col_uint64_t, i64 216
   store ptr @.str.267, ptr %69, align 8
-  %arrayidx35 = getelementptr inbounds i8, ptr %col_uint64_t, i64 240
-  %link.i182 = getelementptr inbounds i8, ptr %col_uint64_t, i64 264
+  %arrayidx35 = getelementptr inbounds nuw i8, ptr %col_uint64_t, i64 240
+  %link.i182 = getelementptr inbounds nuw i8, ptr %col_uint64_t, i64 264
   store ptr %arrayidx35, ptr %link.i182, align 8
-  %qre_prev.i183 = getelementptr inbounds i8, ptr %col_uint64_t, i64 272
+  %qre_prev.i183 = getelementptr inbounds nuw i8, ptr %col_uint64_t, i64 272
   store ptr %arrayidx35, ptr %qre_prev.i183, align 8
   %70 = load ptr, ptr %row, align 8
   %cmp.i184 = icmp eq ptr %70, null
   br i1 %cmp.i184, label %emitter_col_init.exit193, label %do.body3.i185
 
 do.body3.i185:                                    ; preds = %emitter_col_init.exit181
-  %qre_prev7.i186 = getelementptr inbounds i8, ptr %70, i64 32
+  %qre_prev7.i186 = getelementptr inbounds nuw i8, ptr %70, i64 32
   %71 = load ptr, ptr %qre_prev7.i186, align 8
   store ptr %71, ptr %link.i182, align 8
   %72 = load ptr, ptr %row, align 8
-  %qre_prev17.i187 = getelementptr inbounds i8, ptr %72, i64 32
+  %qre_prev17.i187 = getelementptr inbounds nuw i8, ptr %72, i64 32
   store ptr %arrayidx35, ptr %qre_prev17.i187, align 8
   %73 = load ptr, ptr %qre_prev.i183, align 8
-  %link20.i188 = getelementptr inbounds i8, ptr %73, i64 24
+  %link20.i188 = getelementptr inbounds nuw i8, ptr %73, i64 24
   %74 = load ptr, ptr %link20.i188, align 8
   store ptr %74, ptr %qre_prev.i183, align 8
   %75 = load ptr, ptr %row, align 8
-  %qre_prev29.i189 = getelementptr inbounds i8, ptr %75, i64 32
+  %qre_prev29.i189 = getelementptr inbounds nuw i8, ptr %75, i64 32
   %76 = load ptr, ptr %qre_prev29.i189, align 8
-  %link30.i190 = getelementptr inbounds i8, ptr %76, i64 24
+  %link30.i190 = getelementptr inbounds nuw i8, ptr %76, i64 24
   store ptr %75, ptr %link30.i190, align 8
   %77 = load ptr, ptr %qre_prev.i183, align 8
-  %link34.i191 = getelementptr inbounds i8, ptr %77, i64 24
+  %link34.i191 = getelementptr inbounds nuw i8, ptr %77, i64 24
   store ptr %arrayidx35, ptr %link34.i191, align 8
   %.pre.i192 = load ptr, ptr %link.i182, align 8
   br label %emitter_col_init.exit193
@@ -4428,39 +4428,39 @@ emitter_col_init.exit193:                         ; preds = %emitter_col_init.ex
   %78 = phi ptr [ %.pre.i192, %do.body3.i185 ], [ %arrayidx35, %emitter_col_init.exit181 ]
   store ptr %78, ptr %row, align 8
   store i32 1, ptr %arrayidx35, align 8
-  %width38 = getelementptr inbounds i8, ptr %col_uint64_t, i64 244
+  %width38 = getelementptr inbounds nuw i8, ptr %col_uint64_t, i64 244
   store i32 16, ptr %width38, align 4
-  %type39 = getelementptr inbounds i8, ptr %col_uint64_t, i64 248
+  %type39 = getelementptr inbounds nuw i8, ptr %col_uint64_t, i64 248
   store i32 9, ptr %type39, align 8
-  %79 = getelementptr inbounds i8, ptr %col_uint64_t, i64 256
+  %79 = getelementptr inbounds nuw i8, ptr %col_uint64_t, i64 256
   store ptr @.str.270, ptr %79, align 8
-  %arrayidx41 = getelementptr inbounds i8, ptr %col_uint64_t, i64 280
-  %link.i194 = getelementptr inbounds i8, ptr %col_uint64_t, i64 304
+  %arrayidx41 = getelementptr inbounds nuw i8, ptr %col_uint64_t, i64 280
+  %link.i194 = getelementptr inbounds nuw i8, ptr %col_uint64_t, i64 304
   store ptr %arrayidx41, ptr %link.i194, align 8
-  %qre_prev.i195 = getelementptr inbounds i8, ptr %col_uint64_t, i64 312
+  %qre_prev.i195 = getelementptr inbounds nuw i8, ptr %col_uint64_t, i64 312
   store ptr %arrayidx41, ptr %qre_prev.i195, align 8
   %80 = load ptr, ptr %row, align 8
   %cmp.i196 = icmp eq ptr %80, null
   br i1 %cmp.i196, label %emitter_col_init.exit205, label %do.body3.i197
 
 do.body3.i197:                                    ; preds = %emitter_col_init.exit193
-  %qre_prev7.i198 = getelementptr inbounds i8, ptr %80, i64 32
+  %qre_prev7.i198 = getelementptr inbounds nuw i8, ptr %80, i64 32
   %81 = load ptr, ptr %qre_prev7.i198, align 8
   store ptr %81, ptr %link.i194, align 8
   %82 = load ptr, ptr %row, align 8
-  %qre_prev17.i199 = getelementptr inbounds i8, ptr %82, i64 32
+  %qre_prev17.i199 = getelementptr inbounds nuw i8, ptr %82, i64 32
   store ptr %arrayidx41, ptr %qre_prev17.i199, align 8
   %83 = load ptr, ptr %qre_prev.i195, align 8
-  %link20.i200 = getelementptr inbounds i8, ptr %83, i64 24
+  %link20.i200 = getelementptr inbounds nuw i8, ptr %83, i64 24
   %84 = load ptr, ptr %link20.i200, align 8
   store ptr %84, ptr %qre_prev.i195, align 8
   %85 = load ptr, ptr %row, align 8
-  %qre_prev29.i201 = getelementptr inbounds i8, ptr %85, i64 32
+  %qre_prev29.i201 = getelementptr inbounds nuw i8, ptr %85, i64 32
   %86 = load ptr, ptr %qre_prev29.i201, align 8
-  %link30.i202 = getelementptr inbounds i8, ptr %86, i64 24
+  %link30.i202 = getelementptr inbounds nuw i8, ptr %86, i64 24
   store ptr %85, ptr %link30.i202, align 8
   %87 = load ptr, ptr %qre_prev.i195, align 8
-  %link34.i203 = getelementptr inbounds i8, ptr %87, i64 24
+  %link34.i203 = getelementptr inbounds nuw i8, ptr %87, i64 24
   store ptr %arrayidx41, ptr %link34.i203, align 8
   %.pre.i204 = load ptr, ptr %link.i194, align 8
   br label %emitter_col_init.exit205
@@ -4469,39 +4469,39 @@ emitter_col_init.exit205:                         ; preds = %emitter_col_init.ex
   %88 = phi ptr [ %.pre.i204, %do.body3.i197 ], [ %arrayidx41, %emitter_col_init.exit193 ]
   store ptr %88, ptr %row, align 8
   store i32 1, ptr %arrayidx41, align 8
-  %width44 = getelementptr inbounds i8, ptr %col_uint64_t, i64 284
+  %width44 = getelementptr inbounds nuw i8, ptr %col_uint64_t, i64 284
   store i32 8, ptr %width44, align 4
-  %type45 = getelementptr inbounds i8, ptr %col_uint64_t, i64 288
+  %type45 = getelementptr inbounds nuw i8, ptr %col_uint64_t, i64 288
   store i32 9, ptr %type45, align 8
-  %89 = getelementptr inbounds i8, ptr %col_uint64_t, i64 296
+  %89 = getelementptr inbounds nuw i8, ptr %col_uint64_t, i64 296
   store ptr @.str.267, ptr %89, align 8
-  %arrayidx47 = getelementptr inbounds i8, ptr %col_uint64_t, i64 320
-  %link.i206 = getelementptr inbounds i8, ptr %col_uint64_t, i64 344
+  %arrayidx47 = getelementptr inbounds nuw i8, ptr %col_uint64_t, i64 320
+  %link.i206 = getelementptr inbounds nuw i8, ptr %col_uint64_t, i64 344
   store ptr %arrayidx47, ptr %link.i206, align 8
-  %qre_prev.i207 = getelementptr inbounds i8, ptr %col_uint64_t, i64 352
+  %qre_prev.i207 = getelementptr inbounds nuw i8, ptr %col_uint64_t, i64 352
   store ptr %arrayidx47, ptr %qre_prev.i207, align 8
   %90 = load ptr, ptr %row, align 8
   %cmp.i208 = icmp eq ptr %90, null
   br i1 %cmp.i208, label %emitter_col_init.exit217, label %do.body3.i209
 
 do.body3.i209:                                    ; preds = %emitter_col_init.exit205
-  %qre_prev7.i210 = getelementptr inbounds i8, ptr %90, i64 32
+  %qre_prev7.i210 = getelementptr inbounds nuw i8, ptr %90, i64 32
   %91 = load ptr, ptr %qre_prev7.i210, align 8
   store ptr %91, ptr %link.i206, align 8
   %92 = load ptr, ptr %row, align 8
-  %qre_prev17.i211 = getelementptr inbounds i8, ptr %92, i64 32
+  %qre_prev17.i211 = getelementptr inbounds nuw i8, ptr %92, i64 32
   store ptr %arrayidx47, ptr %qre_prev17.i211, align 8
   %93 = load ptr, ptr %qre_prev.i207, align 8
-  %link20.i212 = getelementptr inbounds i8, ptr %93, i64 24
+  %link20.i212 = getelementptr inbounds nuw i8, ptr %93, i64 24
   %94 = load ptr, ptr %link20.i212, align 8
   store ptr %94, ptr %qre_prev.i207, align 8
   %95 = load ptr, ptr %row, align 8
-  %qre_prev29.i213 = getelementptr inbounds i8, ptr %95, i64 32
+  %qre_prev29.i213 = getelementptr inbounds nuw i8, ptr %95, i64 32
   %96 = load ptr, ptr %qre_prev29.i213, align 8
-  %link30.i214 = getelementptr inbounds i8, ptr %96, i64 24
+  %link30.i214 = getelementptr inbounds nuw i8, ptr %96, i64 24
   store ptr %95, ptr %link30.i214, align 8
   %97 = load ptr, ptr %qre_prev.i207, align 8
-  %link34.i215 = getelementptr inbounds i8, ptr %97, i64 24
+  %link34.i215 = getelementptr inbounds nuw i8, ptr %97, i64 24
   store ptr %arrayidx47, ptr %link34.i215, align 8
   %.pre.i216 = load ptr, ptr %link.i206, align 8
   br label %emitter_col_init.exit217
@@ -4510,39 +4510,39 @@ emitter_col_init.exit217:                         ; preds = %emitter_col_init.ex
   %98 = phi ptr [ %.pre.i216, %do.body3.i209 ], [ %arrayidx47, %emitter_col_init.exit205 ]
   store ptr %98, ptr %row, align 8
   store i32 1, ptr %arrayidx47, align 8
-  %width50 = getelementptr inbounds i8, ptr %col_uint64_t, i64 324
+  %width50 = getelementptr inbounds nuw i8, ptr %col_uint64_t, i64 324
   store i32 16, ptr %width50, align 4
-  %type51 = getelementptr inbounds i8, ptr %col_uint64_t, i64 328
+  %type51 = getelementptr inbounds nuw i8, ptr %col_uint64_t, i64 328
   store i32 9, ptr %type51, align 8
-  %99 = getelementptr inbounds i8, ptr %col_uint64_t, i64 336
+  %99 = getelementptr inbounds nuw i8, ptr %col_uint64_t, i64 336
   store ptr @.str.271, ptr %99, align 8
-  %arrayidx53 = getelementptr inbounds i8, ptr %col_uint64_t, i64 360
-  %link.i218 = getelementptr inbounds i8, ptr %col_uint64_t, i64 384
+  %arrayidx53 = getelementptr inbounds nuw i8, ptr %col_uint64_t, i64 360
+  %link.i218 = getelementptr inbounds nuw i8, ptr %col_uint64_t, i64 384
   store ptr %arrayidx53, ptr %link.i218, align 8
-  %qre_prev.i219 = getelementptr inbounds i8, ptr %col_uint64_t, i64 392
+  %qre_prev.i219 = getelementptr inbounds nuw i8, ptr %col_uint64_t, i64 392
   store ptr %arrayidx53, ptr %qre_prev.i219, align 8
   %100 = load ptr, ptr %row, align 8
   %cmp.i220 = icmp eq ptr %100, null
   br i1 %cmp.i220, label %emitter_col_init.exit229, label %do.body3.i221
 
 do.body3.i221:                                    ; preds = %emitter_col_init.exit217
-  %qre_prev7.i222 = getelementptr inbounds i8, ptr %100, i64 32
+  %qre_prev7.i222 = getelementptr inbounds nuw i8, ptr %100, i64 32
   %101 = load ptr, ptr %qre_prev7.i222, align 8
   store ptr %101, ptr %link.i218, align 8
   %102 = load ptr, ptr %row, align 8
-  %qre_prev17.i223 = getelementptr inbounds i8, ptr %102, i64 32
+  %qre_prev17.i223 = getelementptr inbounds nuw i8, ptr %102, i64 32
   store ptr %arrayidx53, ptr %qre_prev17.i223, align 8
   %103 = load ptr, ptr %qre_prev.i219, align 8
-  %link20.i224 = getelementptr inbounds i8, ptr %103, i64 24
+  %link20.i224 = getelementptr inbounds nuw i8, ptr %103, i64 24
   %104 = load ptr, ptr %link20.i224, align 8
   store ptr %104, ptr %qre_prev.i219, align 8
   %105 = load ptr, ptr %row, align 8
-  %qre_prev29.i225 = getelementptr inbounds i8, ptr %105, i64 32
+  %qre_prev29.i225 = getelementptr inbounds nuw i8, ptr %105, i64 32
   %106 = load ptr, ptr %qre_prev29.i225, align 8
-  %link30.i226 = getelementptr inbounds i8, ptr %106, i64 24
+  %link30.i226 = getelementptr inbounds nuw i8, ptr %106, i64 24
   store ptr %105, ptr %link30.i226, align 8
   %107 = load ptr, ptr %qre_prev.i219, align 8
-  %link34.i227 = getelementptr inbounds i8, ptr %107, i64 24
+  %link34.i227 = getelementptr inbounds nuw i8, ptr %107, i64 24
   store ptr %arrayidx53, ptr %link34.i227, align 8
   %.pre.i228 = load ptr, ptr %link.i218, align 8
   br label %emitter_col_init.exit229
@@ -4551,39 +4551,39 @@ emitter_col_init.exit229:                         ; preds = %emitter_col_init.ex
   %108 = phi ptr [ %.pre.i228, %do.body3.i221 ], [ %arrayidx53, %emitter_col_init.exit217 ]
   store ptr %108, ptr %row, align 8
   store i32 1, ptr %arrayidx53, align 8
-  %width56 = getelementptr inbounds i8, ptr %col_uint64_t, i64 364
+  %width56 = getelementptr inbounds nuw i8, ptr %col_uint64_t, i64 364
   store i32 8, ptr %width56, align 4
-  %type57 = getelementptr inbounds i8, ptr %col_uint64_t, i64 368
+  %type57 = getelementptr inbounds nuw i8, ptr %col_uint64_t, i64 368
   store i32 9, ptr %type57, align 8
-  %109 = getelementptr inbounds i8, ptr %col_uint64_t, i64 376
+  %109 = getelementptr inbounds nuw i8, ptr %col_uint64_t, i64 376
   store ptr @.str.267, ptr %109, align 8
-  %arrayidx59 = getelementptr inbounds i8, ptr %col_uint64_t, i64 400
-  %link.i230 = getelementptr inbounds i8, ptr %col_uint64_t, i64 424
+  %arrayidx59 = getelementptr inbounds nuw i8, ptr %col_uint64_t, i64 400
+  %link.i230 = getelementptr inbounds nuw i8, ptr %col_uint64_t, i64 424
   store ptr %arrayidx59, ptr %link.i230, align 8
-  %qre_prev.i231 = getelementptr inbounds i8, ptr %col_uint64_t, i64 432
+  %qre_prev.i231 = getelementptr inbounds nuw i8, ptr %col_uint64_t, i64 432
   store ptr %arrayidx59, ptr %qre_prev.i231, align 8
   %110 = load ptr, ptr %row, align 8
   %cmp.i232 = icmp eq ptr %110, null
   br i1 %cmp.i232, label %emitter_col_init.exit241, label %do.body3.i233
 
 do.body3.i233:                                    ; preds = %emitter_col_init.exit229
-  %qre_prev7.i234 = getelementptr inbounds i8, ptr %110, i64 32
+  %qre_prev7.i234 = getelementptr inbounds nuw i8, ptr %110, i64 32
   %111 = load ptr, ptr %qre_prev7.i234, align 8
   store ptr %111, ptr %link.i230, align 8
   %112 = load ptr, ptr %row, align 8
-  %qre_prev17.i235 = getelementptr inbounds i8, ptr %112, i64 32
+  %qre_prev17.i235 = getelementptr inbounds nuw i8, ptr %112, i64 32
   store ptr %arrayidx59, ptr %qre_prev17.i235, align 8
   %113 = load ptr, ptr %qre_prev.i231, align 8
-  %link20.i236 = getelementptr inbounds i8, ptr %113, i64 24
+  %link20.i236 = getelementptr inbounds nuw i8, ptr %113, i64 24
   %114 = load ptr, ptr %link20.i236, align 8
   store ptr %114, ptr %qre_prev.i231, align 8
   %115 = load ptr, ptr %row, align 8
-  %qre_prev29.i237 = getelementptr inbounds i8, ptr %115, i64 32
+  %qre_prev29.i237 = getelementptr inbounds nuw i8, ptr %115, i64 32
   %116 = load ptr, ptr %qre_prev29.i237, align 8
-  %link30.i238 = getelementptr inbounds i8, ptr %116, i64 24
+  %link30.i238 = getelementptr inbounds nuw i8, ptr %116, i64 24
   store ptr %115, ptr %link30.i238, align 8
   %117 = load ptr, ptr %qre_prev.i231, align 8
-  %link34.i239 = getelementptr inbounds i8, ptr %117, i64 24
+  %link34.i239 = getelementptr inbounds nuw i8, ptr %117, i64 24
   store ptr %arrayidx59, ptr %link34.i239, align 8
   %.pre.i240 = load ptr, ptr %link.i230, align 8
   br label %emitter_col_init.exit241
@@ -4592,38 +4592,38 @@ emitter_col_init.exit241:                         ; preds = %emitter_col_init.ex
   %118 = phi ptr [ %.pre.i240, %do.body3.i233 ], [ %arrayidx59, %emitter_col_init.exit229 ]
   store ptr %118, ptr %row, align 8
   store i32 1, ptr %arrayidx59, align 8
-  %width62 = getelementptr inbounds i8, ptr %col_uint64_t, i64 404
+  %width62 = getelementptr inbounds nuw i8, ptr %col_uint64_t, i64 404
   store i32 16, ptr %width62, align 4
-  %type63 = getelementptr inbounds i8, ptr %col_uint64_t, i64 408
+  %type63 = getelementptr inbounds nuw i8, ptr %col_uint64_t, i64 408
   store i32 9, ptr %type63, align 8
-  %119 = getelementptr inbounds i8, ptr %col_uint64_t, i64 416
+  %119 = getelementptr inbounds nuw i8, ptr %col_uint64_t, i64 416
   store ptr @.str.272, ptr %119, align 8
-  %link.i242 = getelementptr inbounds i8, ptr %col_uint32_t, i64 24
+  %link.i242 = getelementptr inbounds nuw i8, ptr %col_uint32_t, i64 24
   store ptr %col_uint32_t, ptr %link.i242, align 8
-  %qre_prev.i243 = getelementptr inbounds i8, ptr %col_uint32_t, i64 32
+  %qre_prev.i243 = getelementptr inbounds nuw i8, ptr %col_uint32_t, i64 32
   store ptr %col_uint32_t, ptr %qre_prev.i243, align 8
   %120 = load ptr, ptr %row, align 8
   %cmp.i244 = icmp eq ptr %120, null
   br i1 %cmp.i244, label %emitter_col_init.exit253, label %do.body3.i245
 
 do.body3.i245:                                    ; preds = %emitter_col_init.exit241
-  %qre_prev7.i246 = getelementptr inbounds i8, ptr %120, i64 32
+  %qre_prev7.i246 = getelementptr inbounds nuw i8, ptr %120, i64 32
   %121 = load ptr, ptr %qre_prev7.i246, align 8
   store ptr %121, ptr %link.i242, align 8
   %122 = load ptr, ptr %row, align 8
-  %qre_prev17.i247 = getelementptr inbounds i8, ptr %122, i64 32
+  %qre_prev17.i247 = getelementptr inbounds nuw i8, ptr %122, i64 32
   store ptr %col_uint32_t, ptr %qre_prev17.i247, align 8
   %123 = load ptr, ptr %qre_prev.i243, align 8
-  %link20.i248 = getelementptr inbounds i8, ptr %123, i64 24
+  %link20.i248 = getelementptr inbounds nuw i8, ptr %123, i64 24
   %124 = load ptr, ptr %link20.i248, align 8
   store ptr %124, ptr %qre_prev.i243, align 8
   %125 = load ptr, ptr %row, align 8
-  %qre_prev29.i249 = getelementptr inbounds i8, ptr %125, i64 32
+  %qre_prev29.i249 = getelementptr inbounds nuw i8, ptr %125, i64 32
   %126 = load ptr, ptr %qre_prev29.i249, align 8
-  %link30.i250 = getelementptr inbounds i8, ptr %126, i64 24
+  %link30.i250 = getelementptr inbounds nuw i8, ptr %126, i64 24
   store ptr %125, ptr %link30.i250, align 8
   %127 = load ptr, ptr %qre_prev.i243, align 8
-  %link34.i251 = getelementptr inbounds i8, ptr %127, i64 24
+  %link34.i251 = getelementptr inbounds nuw i8, ptr %127, i64 24
   store ptr %col_uint32_t, ptr %link34.i251, align 8
   %.pre.i252 = load ptr, ptr %link.i242, align 8
   br label %emitter_col_init.exit253
@@ -4632,11 +4632,11 @@ emitter_col_init.exit253:                         ; preds = %emitter_col_init.ex
   %128 = phi ptr [ %.pre.i252, %do.body3.i245 ], [ %col_uint32_t, %emitter_col_init.exit241 ]
   store ptr %128, ptr %row, align 8
   store i32 1, ptr %col_uint32_t, align 8
-  %width68 = getelementptr inbounds i8, ptr %col_uint32_t, i64 4
+  %width68 = getelementptr inbounds nuw i8, ptr %col_uint32_t, i64 4
   store i32 12, ptr %width68, align 4
-  %type69 = getelementptr inbounds i8, ptr %col_uint32_t, i64 8
+  %type69 = getelementptr inbounds nuw i8, ptr %col_uint32_t, i64 8
   store i32 9, ptr %type69, align 8
-  %129 = getelementptr inbounds i8, ptr %col_uint32_t, i64 16
+  %129 = getelementptr inbounds nuw i8, ptr %col_uint32_t, i64 16
   store ptr @.str.273, ptr %129, align 8
   store i32 10, ptr %width56, align 4
   ret void
@@ -4667,13 +4667,13 @@ if.end.i:                                         ; preds = %if.then
 for.body.i:                                       ; preds = %if.end.i, %for.body.i
   %col.011.i = phi ptr [ %6, %for.body.i ], [ %1, %if.end.i ]
   %2 = load i32, ptr %col.011.i, align 8
-  %width.i = getelementptr inbounds i8, ptr %col.011.i, i64 4
+  %width.i = getelementptr inbounds nuw i8, ptr %col.011.i, i64 4
   %3 = load i32, ptr %width.i, align 4
-  %type.i = getelementptr inbounds i8, ptr %col.011.i, i64 8
+  %type.i = getelementptr inbounds nuw i8, ptr %col.011.i, i64 8
   %4 = load i32, ptr %type.i, align 8
-  %5 = getelementptr inbounds i8, ptr %col.011.i, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %col.011.i, i64 16
   tail call fastcc void @emitter_print_value(ptr noundef nonnull readonly %emitter, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef nonnull %5)
-  %link.i = getelementptr inbounds i8, ptr %col.011.i, i64 24
+  %link.i = getelementptr inbounds nuw i8, ptr %col.011.i, i64 24
   %6 = load ptr, ptr %link.i, align 8
   %7 = load ptr, ptr %row, align 8
   %cmp4.not.i = icmp eq ptr %6, %7
@@ -4686,25 +4686,25 @@ for.end.i:                                        ; preds = %for.body.i, %if.end
   br label %if.end
 
 if.end:                                           ; preds = %for.end.i, %if.then, %entry
-  %8 = getelementptr inbounds i8, ptr %col_uint64_t, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %col_uint64_t, i64 16
   tail call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.274)
   tail call fastcc void @emitter_json_value(ptr noundef nonnull %emitter, i32 noundef 5, ptr noundef nonnull readonly %8)
-  %9 = getelementptr inbounds i8, ptr %col_uint64_t, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %col_uint64_t, i64 56
   tail call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.275)
   tail call fastcc void @emitter_json_value(ptr noundef nonnull %emitter, i32 noundef 5, ptr noundef nonnull readonly %9)
-  %10 = getelementptr inbounds i8, ptr %col_uint64_t, i64 96
+  %10 = getelementptr inbounds nuw i8, ptr %col_uint64_t, i64 96
   tail call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.276)
   tail call fastcc void @emitter_json_value(ptr noundef nonnull %emitter, i32 noundef 5, ptr noundef nonnull readonly %10)
-  %11 = getelementptr inbounds i8, ptr %col_uint64_t, i64 136
+  %11 = getelementptr inbounds nuw i8, ptr %col_uint64_t, i64 136
   tail call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.277)
   tail call fastcc void @emitter_json_value(ptr noundef nonnull %emitter, i32 noundef 5, ptr noundef nonnull readonly %11)
-  %12 = getelementptr inbounds i8, ptr %col_uint64_t, i64 176
+  %12 = getelementptr inbounds nuw i8, ptr %col_uint64_t, i64 176
   tail call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.278)
   tail call fastcc void @emitter_json_value(ptr noundef nonnull %emitter, i32 noundef 5, ptr noundef nonnull readonly %12)
-  %13 = getelementptr inbounds i8, ptr %col_uint64_t, i64 216
+  %13 = getelementptr inbounds nuw i8, ptr %col_uint64_t, i64 216
   tail call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.279)
   tail call fastcc void @emitter_json_value(ptr noundef nonnull %emitter, i32 noundef 5, ptr noundef nonnull readonly %13)
-  %14 = getelementptr inbounds i8, ptr %col_uint32_t, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %col_uint32_t, i64 16
   tail call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.280)
   tail call fastcc void @emitter_json_value(ptr noundef nonnull %emitter, i32 noundef 4, ptr noundef nonnull readonly %14)
   ret void
@@ -5023,7 +5023,7 @@ if.then12:                                        ; preds = %do.body7
 
 do.end14:                                         ; preds = %do.body7
   %conv = zext i32 %i to i64
-  %arrayidx = getelementptr inbounds i8, ptr %mib, i64 16
+  %arrayidx = getelementptr inbounds nuw i8, ptr %mib, i64 16
   store i64 %conv, ptr %arrayidx, align 16
   %0 = load i64, ptr %miblen, align 8
   %call17 = call i32 @je_mallctlbymib(ptr noundef nonnull %mib, i64 noundef %0, ptr noundef nonnull %nthreads, ptr noundef nonnull %sz8, ptr noundef null, i64 noundef 0) #13
@@ -5049,7 +5049,7 @@ if.then33:                                        ; preds = %do.end23
   unreachable
 
 do.end35:                                         ; preds = %do.end23
-  %arrayidx37 = getelementptr inbounds i8, ptr %mib25, i64 16
+  %arrayidx37 = getelementptr inbounds nuw i8, ptr %mib25, i64 16
   store i64 %conv, ptr %arrayidx37, align 16
   %1 = load i64, ptr %miblen26, align 8
   %call40 = call i32 @je_mallctlbymib(ptr noundef nonnull %mib25, i64 noundef %1, ptr noundef nonnull %uptime, ptr noundef nonnull %sz27, ptr noundef null, i64 noundef 0) #13
@@ -5075,7 +5075,7 @@ if.then56:                                        ; preds = %do.end46
   unreachable
 
 do.end58:                                         ; preds = %do.end46
-  %arrayidx60 = getelementptr inbounds i8, ptr %mib48, i64 16
+  %arrayidx60 = getelementptr inbounds nuw i8, ptr %mib48, i64 16
   store i64 %conv, ptr %arrayidx60, align 16
   %2 = load i64, ptr %miblen49, align 8
   %call63 = call i32 @je_mallctlbymib(ptr noundef nonnull %mib48, i64 noundef %2, ptr noundef nonnull %dss, ptr noundef nonnull %sz50, ptr noundef null, i64 noundef 0) #13
@@ -5101,7 +5101,7 @@ if.then79:                                        ; preds = %do.end69
   unreachable
 
 do.end81:                                         ; preds = %do.end69
-  %arrayidx83 = getelementptr inbounds i8, ptr %mib71, i64 16
+  %arrayidx83 = getelementptr inbounds nuw i8, ptr %mib71, i64 16
   store i64 %conv, ptr %arrayidx83, align 16
   %3 = load i64, ptr %miblen72, align 8
   %call86 = call i32 @je_mallctlbymib(ptr noundef nonnull %mib71, i64 noundef %3, ptr noundef nonnull %dirty_decay_ms, ptr noundef nonnull %sz73, ptr noundef null, i64 noundef 0) #13
@@ -5126,7 +5126,7 @@ if.then102:                                       ; preds = %do.body93
   unreachable
 
 do.end104:                                        ; preds = %do.body93
-  %arrayidx106 = getelementptr inbounds i8, ptr %mib94, i64 16
+  %arrayidx106 = getelementptr inbounds nuw i8, ptr %mib94, i64 16
   store i64 %conv, ptr %arrayidx106, align 16
   %4 = load i64, ptr %miblen95, align 8
   %call109 = call i32 @je_mallctlbymib(ptr noundef nonnull %mib94, i64 noundef %4, ptr noundef nonnull %muzzy_decay_ms, ptr noundef nonnull %sz96, ptr noundef null, i64 noundef 0) #13
@@ -5151,7 +5151,7 @@ if.then125:                                       ; preds = %do.body116
   unreachable
 
 do.end127:                                        ; preds = %do.body116
-  %arrayidx129 = getelementptr inbounds i8, ptr %mib117, i64 16
+  %arrayidx129 = getelementptr inbounds nuw i8, ptr %mib117, i64 16
   store i64 %conv, ptr %arrayidx129, align 16
   %5 = load i64, ptr %miblen118, align 8
   %call132 = call i32 @je_mallctlbymib(ptr noundef nonnull %mib117, i64 noundef %5, ptr noundef nonnull %pactive, ptr noundef nonnull %sz119, ptr noundef null, i64 noundef 0) #13
@@ -5176,7 +5176,7 @@ if.then148:                                       ; preds = %do.body139
   unreachable
 
 do.end150:                                        ; preds = %do.body139
-  %arrayidx152 = getelementptr inbounds i8, ptr %mib140, i64 16
+  %arrayidx152 = getelementptr inbounds nuw i8, ptr %mib140, i64 16
   store i64 %conv, ptr %arrayidx152, align 16
   %6 = load i64, ptr %miblen141, align 8
   %call155 = call i32 @je_mallctlbymib(ptr noundef nonnull %mib140, i64 noundef %6, ptr noundef nonnull %pdirty, ptr noundef nonnull %sz142, ptr noundef null, i64 noundef 0) #13
@@ -5201,7 +5201,7 @@ if.then171:                                       ; preds = %do.body162
   unreachable
 
 do.end173:                                        ; preds = %do.body162
-  %arrayidx175 = getelementptr inbounds i8, ptr %mib163, i64 16
+  %arrayidx175 = getelementptr inbounds nuw i8, ptr %mib163, i64 16
   store i64 %conv, ptr %arrayidx175, align 16
   %7 = load i64, ptr %miblen164, align 8
   %call178 = call i32 @je_mallctlbymib(ptr noundef nonnull %mib163, i64 noundef %7, ptr noundef nonnull %pmuzzy, ptr noundef nonnull %sz165, ptr noundef null, i64 noundef 0) #13
@@ -5226,7 +5226,7 @@ if.then194:                                       ; preds = %do.body185
   unreachable
 
 do.end196:                                        ; preds = %do.body185
-  %arrayidx198 = getelementptr inbounds i8, ptr %mib186, i64 16
+  %arrayidx198 = getelementptr inbounds nuw i8, ptr %mib186, i64 16
   store i64 %conv, ptr %arrayidx198, align 16
   %8 = load i64, ptr %miblen187, align 8
   %call201 = call i32 @je_mallctlbymib(ptr noundef nonnull %mib186, i64 noundef %8, ptr noundef nonnull %dirty_npurge, ptr noundef nonnull %sz188, ptr noundef null, i64 noundef 0) #13
@@ -5251,7 +5251,7 @@ if.then217:                                       ; preds = %do.body208
   unreachable
 
 do.end219:                                        ; preds = %do.body208
-  %arrayidx221 = getelementptr inbounds i8, ptr %mib209, i64 16
+  %arrayidx221 = getelementptr inbounds nuw i8, ptr %mib209, i64 16
   store i64 %conv, ptr %arrayidx221, align 16
   %9 = load i64, ptr %miblen210, align 8
   %call224 = call i32 @je_mallctlbymib(ptr noundef nonnull %mib209, i64 noundef %9, ptr noundef nonnull %dirty_nmadvise, ptr noundef nonnull %sz211, ptr noundef null, i64 noundef 0) #13
@@ -5276,7 +5276,7 @@ if.then240:                                       ; preds = %do.body231
   unreachable
 
 do.end242:                                        ; preds = %do.body231
-  %arrayidx244 = getelementptr inbounds i8, ptr %mib232, i64 16
+  %arrayidx244 = getelementptr inbounds nuw i8, ptr %mib232, i64 16
   store i64 %conv, ptr %arrayidx244, align 16
   %10 = load i64, ptr %miblen233, align 8
   %call247 = call i32 @je_mallctlbymib(ptr noundef nonnull %mib232, i64 noundef %10, ptr noundef nonnull %dirty_purged, ptr noundef nonnull %sz234, ptr noundef null, i64 noundef 0) #13
@@ -5301,7 +5301,7 @@ if.then263:                                       ; preds = %do.body254
   unreachable
 
 do.end265:                                        ; preds = %do.body254
-  %arrayidx267 = getelementptr inbounds i8, ptr %mib255, i64 16
+  %arrayidx267 = getelementptr inbounds nuw i8, ptr %mib255, i64 16
   store i64 %conv, ptr %arrayidx267, align 16
   %11 = load i64, ptr %miblen256, align 8
   %call270 = call i32 @je_mallctlbymib(ptr noundef nonnull %mib255, i64 noundef %11, ptr noundef nonnull %muzzy_npurge, ptr noundef nonnull %sz257, ptr noundef null, i64 noundef 0) #13
@@ -5326,7 +5326,7 @@ if.then286:                                       ; preds = %do.body277
   unreachable
 
 do.end288:                                        ; preds = %do.body277
-  %arrayidx290 = getelementptr inbounds i8, ptr %mib278, i64 16
+  %arrayidx290 = getelementptr inbounds nuw i8, ptr %mib278, i64 16
   store i64 %conv, ptr %arrayidx290, align 16
   %12 = load i64, ptr %miblen279, align 8
   %call293 = call i32 @je_mallctlbymib(ptr noundef nonnull %mib278, i64 noundef %12, ptr noundef nonnull %muzzy_nmadvise, ptr noundef nonnull %sz280, ptr noundef null, i64 noundef 0) #13
@@ -5351,7 +5351,7 @@ if.then309:                                       ; preds = %do.body300
   unreachable
 
 do.end311:                                        ; preds = %do.body300
-  %arrayidx313 = getelementptr inbounds i8, ptr %mib301, i64 16
+  %arrayidx313 = getelementptr inbounds nuw i8, ptr %mib301, i64 16
   store i64 %conv, ptr %arrayidx313, align 16
   %13 = load i64, ptr %miblen302, align 8
   %call316 = call i32 @je_mallctlbymib(ptr noundef nonnull %mib301, i64 noundef %13, ptr noundef nonnull %muzzy_purged, ptr noundef nonnull %sz303, ptr noundef null, i64 noundef 0) #13
@@ -5386,80 +5386,80 @@ emitter_col_init.exit165:                         ; preds = %do.end311
   call fastcc void @emitter_json_value(ptr noundef nonnull %emitter, i32 noundef 5, ptr noundef nonnull readonly %muzzy_nmadvise)
   call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.307)
   call fastcc void @emitter_json_value(ptr noundef nonnull %emitter, i32 noundef 5, ptr noundef nonnull readonly %muzzy_purged)
-  %link.i = getelementptr inbounds i8, ptr %col_decay_type, i64 24
-  %qre_prev.i = getelementptr inbounds i8, ptr %col_decay_type, i64 32
+  %link.i = getelementptr inbounds nuw i8, ptr %col_decay_type, i64 24
+  %qre_prev.i = getelementptr inbounds nuw i8, ptr %col_decay_type, i64 32
   store i32 1, ptr %col_decay_type, align 8
-  %width = getelementptr inbounds i8, ptr %col_decay_type, i64 4
+  %width = getelementptr inbounds nuw i8, ptr %col_decay_type, i64 4
   store i32 9, ptr %width, align 4
-  %type = getelementptr inbounds i8, ptr %col_decay_type, i64 8
+  %type = getelementptr inbounds nuw i8, ptr %col_decay_type, i64 8
   store i32 9, ptr %type, align 8
-  %14 = getelementptr inbounds i8, ptr %col_decay_type, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %col_decay_type, i64 16
   store ptr @.str.308, ptr %14, align 8
-  %link.i106 = getelementptr inbounds i8, ptr %col_decay_time, i64 24
-  %qre_prev.i107 = getelementptr inbounds i8, ptr %col_decay_time, i64 32
+  %link.i106 = getelementptr inbounds nuw i8, ptr %col_decay_time, i64 24
+  %qre_prev.i107 = getelementptr inbounds nuw i8, ptr %col_decay_time, i64 32
   store ptr %col_decay_type, ptr %qre_prev.i107, align 8
   store ptr %col_decay_time, ptr %link.i, align 8
   store i32 1, ptr %col_decay_time, align 8
-  %width324 = getelementptr inbounds i8, ptr %col_decay_time, i64 4
+  %width324 = getelementptr inbounds nuw i8, ptr %col_decay_time, i64 4
   store i32 6, ptr %width324, align 4
-  %type325 = getelementptr inbounds i8, ptr %col_decay_time, i64 8
+  %type325 = getelementptr inbounds nuw i8, ptr %col_decay_time, i64 8
   store i32 9, ptr %type325, align 8
-  %15 = getelementptr inbounds i8, ptr %col_decay_time, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %col_decay_time, i64 16
   store ptr @.str.309, ptr %15, align 8
-  %qre_prev.i119 = getelementptr inbounds i8, ptr %col_decay_npages, i64 32
+  %qre_prev.i119 = getelementptr inbounds nuw i8, ptr %col_decay_npages, i64 32
   store ptr %col_decay_time, ptr %qre_prev.i119, align 8
   store ptr %col_decay_npages, ptr %link.i106, align 8
   store i32 1, ptr %col_decay_npages, align 8
-  %width327 = getelementptr inbounds i8, ptr %col_decay_npages, i64 4
+  %width327 = getelementptr inbounds nuw i8, ptr %col_decay_npages, i64 4
   store i32 13, ptr %width327, align 4
-  %type328 = getelementptr inbounds i8, ptr %col_decay_npages, i64 8
+  %type328 = getelementptr inbounds nuw i8, ptr %col_decay_npages, i64 8
   store i32 9, ptr %type328, align 8
-  %16 = getelementptr inbounds i8, ptr %col_decay_npages, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %col_decay_npages, i64 16
   store ptr @.str.310, ptr %16, align 8
-  %qre_prev.i131 = getelementptr inbounds i8, ptr %col_decay_sweeps, i64 32
+  %qre_prev.i131 = getelementptr inbounds nuw i8, ptr %col_decay_sweeps, i64 32
   store ptr %col_decay_npages, ptr %qre_prev.i131, align 8
-  %link34.i139 = getelementptr inbounds i8, ptr %col_decay_npages, i64 24
+  %link34.i139 = getelementptr inbounds nuw i8, ptr %col_decay_npages, i64 24
   store ptr %col_decay_sweeps, ptr %link34.i139, align 8
   store i32 1, ptr %col_decay_sweeps, align 8
-  %width330 = getelementptr inbounds i8, ptr %col_decay_sweeps, i64 4
+  %width330 = getelementptr inbounds nuw i8, ptr %col_decay_sweeps, i64 4
   store i32 13, ptr %width330, align 4
-  %type331 = getelementptr inbounds i8, ptr %col_decay_sweeps, i64 8
+  %type331 = getelementptr inbounds nuw i8, ptr %col_decay_sweeps, i64 8
   store i32 9, ptr %type331, align 8
-  %17 = getelementptr inbounds i8, ptr %col_decay_sweeps, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %col_decay_sweeps, i64 16
   store ptr @.str.311, ptr %17, align 8
-  %link.i142 = getelementptr inbounds i8, ptr %col_decay_madvises, i64 24
-  %qre_prev.i143 = getelementptr inbounds i8, ptr %col_decay_madvises, i64 32
+  %link.i142 = getelementptr inbounds nuw i8, ptr %col_decay_madvises, i64 24
+  %qre_prev.i143 = getelementptr inbounds nuw i8, ptr %col_decay_madvises, i64 32
   store ptr %col_decay_madvises, ptr %qre_prev.i, align 8
   store ptr %col_decay_sweeps, ptr %qre_prev.i143, align 8
   store ptr %col_decay_type, ptr %link.i142, align 8
-  %link34.i151 = getelementptr inbounds i8, ptr %col_decay_sweeps, i64 24
+  %link34.i151 = getelementptr inbounds nuw i8, ptr %col_decay_sweeps, i64 24
   store ptr %col_decay_madvises, ptr %link34.i151, align 8
   store i32 1, ptr %col_decay_madvises, align 8
-  %width333 = getelementptr inbounds i8, ptr %col_decay_madvises, i64 4
+  %width333 = getelementptr inbounds nuw i8, ptr %col_decay_madvises, i64 4
   store i32 13, ptr %width333, align 4
-  %type334 = getelementptr inbounds i8, ptr %col_decay_madvises, i64 8
+  %type334 = getelementptr inbounds nuw i8, ptr %col_decay_madvises, i64 8
   store i32 9, ptr %type334, align 8
-  %18 = getelementptr inbounds i8, ptr %col_decay_madvises, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %col_decay_madvises, i64 16
   store ptr @.str.312, ptr %18, align 8
-  %link.i154 = getelementptr inbounds i8, ptr %col_decay_purged, i64 24
-  %qre_prev.i155 = getelementptr inbounds i8, ptr %col_decay_purged, i64 32
+  %link.i154 = getelementptr inbounds nuw i8, ptr %col_decay_purged, i64 24
+  %qre_prev.i155 = getelementptr inbounds nuw i8, ptr %col_decay_purged, i64 32
   store ptr %col_decay_purged, ptr %qre_prev.i155, align 8
-  %qre_prev7.i158 = getelementptr inbounds i8, ptr %col_decay_type, i64 32
+  %qre_prev7.i158 = getelementptr inbounds nuw i8, ptr %col_decay_type, i64 32
   %19 = load ptr, ptr %qre_prev7.i158, align 8
   store ptr %19, ptr %link.i154, align 8
   store ptr %col_decay_purged, ptr %qre_prev7.i158, align 8
   store ptr %19, ptr %qre_prev.i155, align 8
-  %link30.i162 = getelementptr inbounds i8, ptr %col_decay_purged, i64 24
+  %link30.i162 = getelementptr inbounds nuw i8, ptr %col_decay_purged, i64 24
   store ptr %col_decay_type, ptr %link30.i162, align 8
-  %link34.i163 = getelementptr inbounds i8, ptr %19, i64 24
+  %link34.i163 = getelementptr inbounds nuw i8, ptr %19, i64 24
   store ptr %col_decay_purged, ptr %link34.i163, align 8
   %.pre.i164 = load ptr, ptr %link.i154, align 8
   store i32 1, ptr %col_decay_purged, align 8
-  %width336 = getelementptr inbounds i8, ptr %col_decay_purged, i64 4
+  %width336 = getelementptr inbounds nuw i8, ptr %col_decay_purged, i64 4
   store i32 13, ptr %width336, align 4
-  %type337 = getelementptr inbounds i8, ptr %col_decay_purged, i64 8
+  %type337 = getelementptr inbounds nuw i8, ptr %col_decay_purged, i64 8
   store i32 9, ptr %type337, align 8
-  %20 = getelementptr inbounds i8, ptr %col_decay_purged, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %col_decay_purged, i64 16
   store ptr @.str.313, ptr %20, align 8
   %21 = load i32, ptr %emitter, align 8
   %cmp.not.i = icmp eq i32 %21, 2
@@ -5472,13 +5472,13 @@ if.end.i:                                         ; preds = %emitter_col_init.ex
 for.body.i:                                       ; preds = %if.end.i, %for.body.i
   %col.011.i = phi ptr [ %26, %for.body.i ], [ %.pre.i164, %if.end.i ]
   %22 = load i32, ptr %col.011.i, align 8
-  %width.i = getelementptr inbounds i8, ptr %col.011.i, i64 4
+  %width.i = getelementptr inbounds nuw i8, ptr %col.011.i, i64 4
   %23 = load i32, ptr %width.i, align 4
-  %type.i = getelementptr inbounds i8, ptr %col.011.i, i64 8
+  %type.i = getelementptr inbounds nuw i8, ptr %col.011.i, i64 8
   %24 = load i32, ptr %type.i, align 8
-  %25 = getelementptr inbounds i8, ptr %col.011.i, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %col.011.i, i64 16
   call fastcc void @emitter_print_value(ptr noundef nonnull readonly %emitter, i32 noundef %22, i32 noundef %23, i32 noundef %24, ptr noundef nonnull %25)
-  %link.i166 = getelementptr inbounds i8, ptr %col.011.i, i64 24
+  %link.i166 = getelementptr inbounds nuw i8, ptr %col.011.i, i64 24
   %26 = load ptr, ptr %link.i166, align 8
   %cmp4.not.i = icmp eq ptr %26, %.pre.i164
   %cmp1.not12.i = icmp eq ptr %26, null
@@ -5521,13 +5521,13 @@ if.end.i168:                                      ; preds = %emitter_table_row.e
 for.body.i170:                                    ; preds = %if.end.i168, %for.body.i170
   %col.011.i171 = phi ptr [ %38, %for.body.i170 ], [ %.pre.i164, %if.end.i168 ]
   %34 = load i32, ptr %col.011.i171, align 8
-  %width.i172 = getelementptr inbounds i8, ptr %col.011.i171, i64 4
+  %width.i172 = getelementptr inbounds nuw i8, ptr %col.011.i171, i64 4
   %35 = load i32, ptr %width.i172, align 4
-  %type.i173 = getelementptr inbounds i8, ptr %col.011.i171, i64 8
+  %type.i173 = getelementptr inbounds nuw i8, ptr %col.011.i171, i64 8
   %36 = load i32, ptr %type.i173, align 8
-  %37 = getelementptr inbounds i8, ptr %col.011.i171, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %col.011.i171, i64 16
   call fastcc void @emitter_print_value(ptr noundef nonnull readonly %emitter, i32 noundef %34, i32 noundef %35, i32 noundef %36, ptr noundef nonnull %37)
-  %link.i174 = getelementptr inbounds i8, ptr %col.011.i171, i64 24
+  %link.i174 = getelementptr inbounds nuw i8, ptr %col.011.i171, i64 24
   %38 = load ptr, ptr %link.i174, align 8
   %cmp4.not.i175 = icmp eq ptr %38, %.pre.i164
   %cmp1.not12.i176 = icmp eq ptr %38, null
@@ -5570,13 +5570,13 @@ if.end.i181:                                      ; preds = %emitter_table_row.e
 for.body.i183:                                    ; preds = %if.end.i181, %for.body.i183
   %col.011.i184 = phi ptr [ %50, %for.body.i183 ], [ %.pre.i164, %if.end.i181 ]
   %46 = load i32, ptr %col.011.i184, align 8
-  %width.i185 = getelementptr inbounds i8, ptr %col.011.i184, i64 4
+  %width.i185 = getelementptr inbounds nuw i8, ptr %col.011.i184, i64 4
   %47 = load i32, ptr %width.i185, align 4
-  %type.i186 = getelementptr inbounds i8, ptr %col.011.i184, i64 8
+  %type.i186 = getelementptr inbounds nuw i8, ptr %col.011.i184, i64 8
   %48 = load i32, ptr %type.i186, align 8
-  %49 = getelementptr inbounds i8, ptr %col.011.i184, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %col.011.i184, i64 16
   call fastcc void @emitter_print_value(ptr noundef nonnull readonly %emitter, i32 noundef %46, i32 noundef %47, i32 noundef %48, ptr noundef nonnull %49)
-  %link.i187 = getelementptr inbounds i8, ptr %col.011.i184, i64 24
+  %link.i187 = getelementptr inbounds nuw i8, ptr %col.011.i184, i64 24
   %50 = load ptr, ptr %link.i187, align 8
   %cmp4.not.i188 = icmp eq ptr %50, %.pre.i164
   %cmp1.not12.i189 = icmp eq ptr %50, null
@@ -5588,102 +5588,102 @@ for.end.i191:                                     ; preds = %for.body.i183, %if.
   br label %emitter_col_init.exit270
 
 emitter_col_init.exit270:                         ; preds = %for.end.i191, %emitter_table_row.exit179
-  %link.i193 = getelementptr inbounds i8, ptr %col_count_title, i64 24
-  %qre_prev.i194 = getelementptr inbounds i8, ptr %col_count_title, i64 32
+  %link.i193 = getelementptr inbounds nuw i8, ptr %col_count_title, i64 24
+  %qre_prev.i194 = getelementptr inbounds nuw i8, ptr %col_count_title, i64 32
   store i32 0, ptr %col_count_title, align 8
-  %width360 = getelementptr inbounds i8, ptr %col_count_title, i64 4
+  %width360 = getelementptr inbounds nuw i8, ptr %col_count_title, i64 4
   store i32 21, ptr %width360, align 4
-  %type361 = getelementptr inbounds i8, ptr %col_count_title, i64 8
+  %type361 = getelementptr inbounds nuw i8, ptr %col_count_title, i64 8
   store i32 9, ptr %type361, align 8
-  %51 = getelementptr inbounds i8, ptr %col_count_title, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %col_count_title, i64 16
   store ptr @.str.29, ptr %51, align 8
-  %link.i206 = getelementptr inbounds i8, ptr %col_count_allocated, i64 24
-  %qre_prev.i207 = getelementptr inbounds i8, ptr %col_count_allocated, i64 32
+  %link.i206 = getelementptr inbounds nuw i8, ptr %col_count_allocated, i64 24
+  %qre_prev.i207 = getelementptr inbounds nuw i8, ptr %col_count_allocated, i64 32
   store ptr %col_count_title, ptr %qre_prev.i207, align 8
   store ptr %col_count_allocated, ptr %link.i193, align 8
   store i32 1, ptr %col_count_allocated, align 8
-  %width363 = getelementptr inbounds i8, ptr %col_count_allocated, i64 4
+  %width363 = getelementptr inbounds nuw i8, ptr %col_count_allocated, i64 4
   store i32 16, ptr %width363, align 4
-  %type364 = getelementptr inbounds i8, ptr %col_count_allocated, i64 8
+  %type364 = getelementptr inbounds nuw i8, ptr %col_count_allocated, i64 8
   store i32 9, ptr %type364, align 8
-  %52 = getelementptr inbounds i8, ptr %col_count_allocated, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %col_count_allocated, i64 16
   store ptr @.str.241, ptr %52, align 8
-  %qre_prev.i220 = getelementptr inbounds i8, ptr %col_count_nmalloc, i64 32
+  %qre_prev.i220 = getelementptr inbounds nuw i8, ptr %col_count_nmalloc, i64 32
   store ptr %col_count_allocated, ptr %qre_prev.i220, align 8
   store ptr %col_count_nmalloc, ptr %link.i206, align 8
   store i32 1, ptr %col_count_nmalloc, align 8
-  %width366 = getelementptr inbounds i8, ptr %col_count_nmalloc, i64 4
+  %width366 = getelementptr inbounds nuw i8, ptr %col_count_nmalloc, i64 4
   store i32 16, ptr %width366, align 4
-  %type367 = getelementptr inbounds i8, ptr %col_count_nmalloc, i64 8
+  %type367 = getelementptr inbounds nuw i8, ptr %col_count_nmalloc, i64 8
   store i32 9, ptr %type367, align 8
-  %53 = getelementptr inbounds i8, ptr %col_count_nmalloc, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %col_count_nmalloc, i64 16
   store ptr @.str.317, ptr %53, align 8
-  %qre_prev.i233 = getelementptr inbounds i8, ptr %col_count_nmalloc_ps, i64 32
+  %qre_prev.i233 = getelementptr inbounds nuw i8, ptr %col_count_nmalloc_ps, i64 32
   store ptr %col_count_nmalloc, ptr %qre_prev.i233, align 8
-  %link34.i241 = getelementptr inbounds i8, ptr %col_count_nmalloc, i64 24
+  %link34.i241 = getelementptr inbounds nuw i8, ptr %col_count_nmalloc, i64 24
   store ptr %col_count_nmalloc_ps, ptr %link34.i241, align 8
   store i32 1, ptr %col_count_nmalloc_ps, align 8
-  %width369 = getelementptr inbounds i8, ptr %col_count_nmalloc_ps, i64 4
+  %width369 = getelementptr inbounds nuw i8, ptr %col_count_nmalloc_ps, i64 4
   store i32 10, ptr %width369, align 4
-  %type370 = getelementptr inbounds i8, ptr %col_count_nmalloc_ps, i64 8
+  %type370 = getelementptr inbounds nuw i8, ptr %col_count_nmalloc_ps, i64 8
   store i32 9, ptr %type370, align 8
-  %54 = getelementptr inbounds i8, ptr %col_count_nmalloc_ps, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %col_count_nmalloc_ps, i64 16
   store ptr @.str.267, ptr %54, align 8
-  %link.i245 = getelementptr inbounds i8, ptr %col_count_ndalloc, i64 24
-  %qre_prev.i246 = getelementptr inbounds i8, ptr %col_count_ndalloc, i64 32
+  %link.i245 = getelementptr inbounds nuw i8, ptr %col_count_ndalloc, i64 24
+  %qre_prev.i246 = getelementptr inbounds nuw i8, ptr %col_count_ndalloc, i64 32
   store ptr %col_count_ndalloc, ptr %qre_prev.i194, align 8
   store ptr %col_count_nmalloc_ps, ptr %qre_prev.i246, align 8
   store ptr %col_count_title, ptr %link.i245, align 8
-  %link34.i254 = getelementptr inbounds i8, ptr %col_count_nmalloc_ps, i64 24
+  %link34.i254 = getelementptr inbounds nuw i8, ptr %col_count_nmalloc_ps, i64 24
   store ptr %col_count_ndalloc, ptr %link34.i254, align 8
   store i32 1, ptr %col_count_ndalloc, align 8
-  %width372 = getelementptr inbounds i8, ptr %col_count_ndalloc, i64 4
+  %width372 = getelementptr inbounds nuw i8, ptr %col_count_ndalloc, i64 4
   store i32 16, ptr %width372, align 4
-  %type373 = getelementptr inbounds i8, ptr %col_count_ndalloc, i64 8
+  %type373 = getelementptr inbounds nuw i8, ptr %col_count_ndalloc, i64 8
   store i32 9, ptr %type373, align 8
-  %55 = getelementptr inbounds i8, ptr %col_count_ndalloc, i64 16
+  %55 = getelementptr inbounds nuw i8, ptr %col_count_ndalloc, i64 16
   store ptr @.str.318, ptr %55, align 8
-  %link.i258 = getelementptr inbounds i8, ptr %col_count_ndalloc_ps, i64 24
-  %qre_prev.i259 = getelementptr inbounds i8, ptr %col_count_ndalloc_ps, i64 32
+  %link.i258 = getelementptr inbounds nuw i8, ptr %col_count_ndalloc_ps, i64 24
+  %qre_prev.i259 = getelementptr inbounds nuw i8, ptr %col_count_ndalloc_ps, i64 32
   store ptr %col_count_ndalloc_ps, ptr %qre_prev.i259, align 8
-  %qre_prev7.i262 = getelementptr inbounds i8, ptr %col_count_title, i64 32
+  %qre_prev7.i262 = getelementptr inbounds nuw i8, ptr %col_count_title, i64 32
   %56 = load ptr, ptr %qre_prev7.i262, align 8
   store ptr %56, ptr %link.i258, align 8
   store ptr %col_count_ndalloc_ps, ptr %qre_prev7.i262, align 8
   store ptr %56, ptr %qre_prev.i259, align 8
-  %link30.i266 = getelementptr inbounds i8, ptr %col_count_ndalloc_ps, i64 24
+  %link30.i266 = getelementptr inbounds nuw i8, ptr %col_count_ndalloc_ps, i64 24
   store ptr %col_count_title, ptr %link30.i266, align 8
-  %link34.i267 = getelementptr inbounds i8, ptr %56, i64 24
+  %link34.i267 = getelementptr inbounds nuw i8, ptr %56, i64 24
   store ptr %col_count_ndalloc_ps, ptr %link34.i267, align 8
   %.pre.i268 = load ptr, ptr %link.i258, align 8
   store i32 1, ptr %col_count_ndalloc_ps, align 8
-  %width375 = getelementptr inbounds i8, ptr %col_count_ndalloc_ps, i64 4
+  %width375 = getelementptr inbounds nuw i8, ptr %col_count_ndalloc_ps, i64 4
   store i32 10, ptr %width375, align 4
-  %type376 = getelementptr inbounds i8, ptr %col_count_ndalloc_ps, i64 8
+  %type376 = getelementptr inbounds nuw i8, ptr %col_count_ndalloc_ps, i64 8
   store i32 9, ptr %type376, align 8
-  %57 = getelementptr inbounds i8, ptr %col_count_ndalloc_ps, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %col_count_ndalloc_ps, i64 16
   store ptr @.str.267, ptr %57, align 8
-  %link.i271 = getelementptr inbounds i8, ptr %col_count_nrequests, i64 24
+  %link.i271 = getelementptr inbounds nuw i8, ptr %col_count_nrequests, i64 24
   store ptr %col_count_nrequests, ptr %link.i271, align 8
-  %qre_prev.i272 = getelementptr inbounds i8, ptr %col_count_nrequests, i64 32
+  %qre_prev.i272 = getelementptr inbounds nuw i8, ptr %col_count_nrequests, i64 32
   store ptr %col_count_nrequests, ptr %qre_prev.i272, align 8
   %cmp.i273 = icmp eq ptr %.pre.i268, null
   br i1 %cmp.i273, label %emitter_col_init.exit283, label %do.body3.i274
 
 do.body3.i274:                                    ; preds = %emitter_col_init.exit270
-  %qre_prev7.i275 = getelementptr inbounds i8, ptr %.pre.i268, i64 32
+  %qre_prev7.i275 = getelementptr inbounds nuw i8, ptr %.pre.i268, i64 32
   %58 = load ptr, ptr %qre_prev7.i275, align 8
   store ptr %58, ptr %link.i271, align 8
   store ptr %col_count_nrequests, ptr %qre_prev7.i275, align 8
   %59 = load ptr, ptr %qre_prev.i272, align 8
-  %link20.i277 = getelementptr inbounds i8, ptr %59, i64 24
+  %link20.i277 = getelementptr inbounds nuw i8, ptr %59, i64 24
   %60 = load ptr, ptr %link20.i277, align 8
   store ptr %60, ptr %qre_prev.i272, align 8
   %61 = load ptr, ptr %qre_prev7.i275, align 8
-  %link30.i279 = getelementptr inbounds i8, ptr %61, i64 24
+  %link30.i279 = getelementptr inbounds nuw i8, ptr %61, i64 24
   store ptr %.pre.i268, ptr %link30.i279, align 8
   %62 = load ptr, ptr %qre_prev.i272, align 8
-  %link34.i280 = getelementptr inbounds i8, ptr %62, i64 24
+  %link34.i280 = getelementptr inbounds nuw i8, ptr %62, i64 24
   store ptr %col_count_nrequests, ptr %link34.i280, align 8
   %.pre.i281 = load ptr, ptr %link.i271, align 8
   br label %emitter_col_init.exit283
@@ -5691,33 +5691,33 @@ do.body3.i274:                                    ; preds = %emitter_col_init.ex
 emitter_col_init.exit283:                         ; preds = %emitter_col_init.exit270, %do.body3.i274
   %63 = phi ptr [ %.pre.i281, %do.body3.i274 ], [ %col_count_nrequests, %emitter_col_init.exit270 ]
   store i32 1, ptr %col_count_nrequests, align 8
-  %width378 = getelementptr inbounds i8, ptr %col_count_nrequests, i64 4
+  %width378 = getelementptr inbounds nuw i8, ptr %col_count_nrequests, i64 4
   store i32 16, ptr %width378, align 4
-  %type379 = getelementptr inbounds i8, ptr %col_count_nrequests, i64 8
+  %type379 = getelementptr inbounds nuw i8, ptr %col_count_nrequests, i64 8
   store i32 9, ptr %type379, align 8
-  %64 = getelementptr inbounds i8, ptr %col_count_nrequests, i64 16
+  %64 = getelementptr inbounds nuw i8, ptr %col_count_nrequests, i64 16
   store ptr @.str.319, ptr %64, align 8
-  %link.i284 = getelementptr inbounds i8, ptr %col_count_nrequests_ps, i64 24
+  %link.i284 = getelementptr inbounds nuw i8, ptr %col_count_nrequests_ps, i64 24
   store ptr %col_count_nrequests_ps, ptr %link.i284, align 8
-  %qre_prev.i285 = getelementptr inbounds i8, ptr %col_count_nrequests_ps, i64 32
+  %qre_prev.i285 = getelementptr inbounds nuw i8, ptr %col_count_nrequests_ps, i64 32
   store ptr %col_count_nrequests_ps, ptr %qre_prev.i285, align 8
   %cmp.i286 = icmp eq ptr %63, null
   br i1 %cmp.i286, label %emitter_col_init.exit296, label %do.body3.i287
 
 do.body3.i287:                                    ; preds = %emitter_col_init.exit283
-  %qre_prev7.i288 = getelementptr inbounds i8, ptr %63, i64 32
+  %qre_prev7.i288 = getelementptr inbounds nuw i8, ptr %63, i64 32
   %65 = load ptr, ptr %qre_prev7.i288, align 8
   store ptr %65, ptr %link.i284, align 8
   store ptr %col_count_nrequests_ps, ptr %qre_prev7.i288, align 8
   %66 = load ptr, ptr %qre_prev.i285, align 8
-  %link20.i290 = getelementptr inbounds i8, ptr %66, i64 24
+  %link20.i290 = getelementptr inbounds nuw i8, ptr %66, i64 24
   %67 = load ptr, ptr %link20.i290, align 8
   store ptr %67, ptr %qre_prev.i285, align 8
   %68 = load ptr, ptr %qre_prev7.i288, align 8
-  %link30.i292 = getelementptr inbounds i8, ptr %68, i64 24
+  %link30.i292 = getelementptr inbounds nuw i8, ptr %68, i64 24
   store ptr %63, ptr %link30.i292, align 8
   %69 = load ptr, ptr %qre_prev.i285, align 8
-  %link34.i293 = getelementptr inbounds i8, ptr %69, i64 24
+  %link34.i293 = getelementptr inbounds nuw i8, ptr %69, i64 24
   store ptr %col_count_nrequests_ps, ptr %link34.i293, align 8
   %.pre.i294 = load ptr, ptr %link.i284, align 8
   br label %emitter_col_init.exit296
@@ -5725,33 +5725,33 @@ do.body3.i287:                                    ; preds = %emitter_col_init.ex
 emitter_col_init.exit296:                         ; preds = %emitter_col_init.exit283, %do.body3.i287
   %70 = phi ptr [ %.pre.i294, %do.body3.i287 ], [ %col_count_nrequests_ps, %emitter_col_init.exit283 ]
   store i32 1, ptr %col_count_nrequests_ps, align 8
-  %width381 = getelementptr inbounds i8, ptr %col_count_nrequests_ps, i64 4
+  %width381 = getelementptr inbounds nuw i8, ptr %col_count_nrequests_ps, i64 4
   store i32 10, ptr %width381, align 4
-  %type382 = getelementptr inbounds i8, ptr %col_count_nrequests_ps, i64 8
+  %type382 = getelementptr inbounds nuw i8, ptr %col_count_nrequests_ps, i64 8
   store i32 9, ptr %type382, align 8
-  %71 = getelementptr inbounds i8, ptr %col_count_nrequests_ps, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %col_count_nrequests_ps, i64 16
   store ptr @.str.267, ptr %71, align 8
-  %link.i297 = getelementptr inbounds i8, ptr %col_count_nfills, i64 24
+  %link.i297 = getelementptr inbounds nuw i8, ptr %col_count_nfills, i64 24
   store ptr %col_count_nfills, ptr %link.i297, align 8
-  %qre_prev.i298 = getelementptr inbounds i8, ptr %col_count_nfills, i64 32
+  %qre_prev.i298 = getelementptr inbounds nuw i8, ptr %col_count_nfills, i64 32
   store ptr %col_count_nfills, ptr %qre_prev.i298, align 8
   %cmp.i299 = icmp eq ptr %70, null
   br i1 %cmp.i299, label %emitter_col_init.exit309, label %do.body3.i300
 
 do.body3.i300:                                    ; preds = %emitter_col_init.exit296
-  %qre_prev7.i301 = getelementptr inbounds i8, ptr %70, i64 32
+  %qre_prev7.i301 = getelementptr inbounds nuw i8, ptr %70, i64 32
   %72 = load ptr, ptr %qre_prev7.i301, align 8
   store ptr %72, ptr %link.i297, align 8
   store ptr %col_count_nfills, ptr %qre_prev7.i301, align 8
   %73 = load ptr, ptr %qre_prev.i298, align 8
-  %link20.i303 = getelementptr inbounds i8, ptr %73, i64 24
+  %link20.i303 = getelementptr inbounds nuw i8, ptr %73, i64 24
   %74 = load ptr, ptr %link20.i303, align 8
   store ptr %74, ptr %qre_prev.i298, align 8
   %75 = load ptr, ptr %qre_prev7.i301, align 8
-  %link30.i305 = getelementptr inbounds i8, ptr %75, i64 24
+  %link30.i305 = getelementptr inbounds nuw i8, ptr %75, i64 24
   store ptr %70, ptr %link30.i305, align 8
   %76 = load ptr, ptr %qre_prev.i298, align 8
-  %link34.i306 = getelementptr inbounds i8, ptr %76, i64 24
+  %link34.i306 = getelementptr inbounds nuw i8, ptr %76, i64 24
   store ptr %col_count_nfills, ptr %link34.i306, align 8
   %.pre.i307 = load ptr, ptr %link.i297, align 8
   br label %emitter_col_init.exit309
@@ -5759,33 +5759,33 @@ do.body3.i300:                                    ; preds = %emitter_col_init.ex
 emitter_col_init.exit309:                         ; preds = %emitter_col_init.exit296, %do.body3.i300
   %77 = phi ptr [ %.pre.i307, %do.body3.i300 ], [ %col_count_nfills, %emitter_col_init.exit296 ]
   store i32 1, ptr %col_count_nfills, align 8
-  %width384 = getelementptr inbounds i8, ptr %col_count_nfills, i64 4
+  %width384 = getelementptr inbounds nuw i8, ptr %col_count_nfills, i64 4
   store i32 16, ptr %width384, align 4
-  %type385 = getelementptr inbounds i8, ptr %col_count_nfills, i64 8
+  %type385 = getelementptr inbounds nuw i8, ptr %col_count_nfills, i64 8
   store i32 9, ptr %type385, align 8
-  %78 = getelementptr inbounds i8, ptr %col_count_nfills, i64 16
+  %78 = getelementptr inbounds nuw i8, ptr %col_count_nfills, i64 16
   store ptr @.str.320, ptr %78, align 8
-  %link.i310 = getelementptr inbounds i8, ptr %col_count_nfills_ps, i64 24
+  %link.i310 = getelementptr inbounds nuw i8, ptr %col_count_nfills_ps, i64 24
   store ptr %col_count_nfills_ps, ptr %link.i310, align 8
-  %qre_prev.i311 = getelementptr inbounds i8, ptr %col_count_nfills_ps, i64 32
+  %qre_prev.i311 = getelementptr inbounds nuw i8, ptr %col_count_nfills_ps, i64 32
   store ptr %col_count_nfills_ps, ptr %qre_prev.i311, align 8
   %cmp.i312 = icmp eq ptr %77, null
   br i1 %cmp.i312, label %emitter_col_init.exit322, label %do.body3.i313
 
 do.body3.i313:                                    ; preds = %emitter_col_init.exit309
-  %qre_prev7.i314 = getelementptr inbounds i8, ptr %77, i64 32
+  %qre_prev7.i314 = getelementptr inbounds nuw i8, ptr %77, i64 32
   %79 = load ptr, ptr %qre_prev7.i314, align 8
   store ptr %79, ptr %link.i310, align 8
   store ptr %col_count_nfills_ps, ptr %qre_prev7.i314, align 8
   %80 = load ptr, ptr %qre_prev.i311, align 8
-  %link20.i316 = getelementptr inbounds i8, ptr %80, i64 24
+  %link20.i316 = getelementptr inbounds nuw i8, ptr %80, i64 24
   %81 = load ptr, ptr %link20.i316, align 8
   store ptr %81, ptr %qre_prev.i311, align 8
   %82 = load ptr, ptr %qre_prev7.i314, align 8
-  %link30.i318 = getelementptr inbounds i8, ptr %82, i64 24
+  %link30.i318 = getelementptr inbounds nuw i8, ptr %82, i64 24
   store ptr %77, ptr %link30.i318, align 8
   %83 = load ptr, ptr %qre_prev.i311, align 8
-  %link34.i319 = getelementptr inbounds i8, ptr %83, i64 24
+  %link34.i319 = getelementptr inbounds nuw i8, ptr %83, i64 24
   store ptr %col_count_nfills_ps, ptr %link34.i319, align 8
   %.pre.i320 = load ptr, ptr %link.i310, align 8
   br label %emitter_col_init.exit322
@@ -5793,33 +5793,33 @@ do.body3.i313:                                    ; preds = %emitter_col_init.ex
 emitter_col_init.exit322:                         ; preds = %emitter_col_init.exit309, %do.body3.i313
   %84 = phi ptr [ %.pre.i320, %do.body3.i313 ], [ %col_count_nfills_ps, %emitter_col_init.exit309 ]
   store i32 1, ptr %col_count_nfills_ps, align 8
-  %width387 = getelementptr inbounds i8, ptr %col_count_nfills_ps, i64 4
+  %width387 = getelementptr inbounds nuw i8, ptr %col_count_nfills_ps, i64 4
   store i32 10, ptr %width387, align 4
-  %type388 = getelementptr inbounds i8, ptr %col_count_nfills_ps, i64 8
+  %type388 = getelementptr inbounds nuw i8, ptr %col_count_nfills_ps, i64 8
   store i32 9, ptr %type388, align 8
-  %85 = getelementptr inbounds i8, ptr %col_count_nfills_ps, i64 16
+  %85 = getelementptr inbounds nuw i8, ptr %col_count_nfills_ps, i64 16
   store ptr @.str.267, ptr %85, align 8
-  %link.i323 = getelementptr inbounds i8, ptr %col_count_nflushes, i64 24
+  %link.i323 = getelementptr inbounds nuw i8, ptr %col_count_nflushes, i64 24
   store ptr %col_count_nflushes, ptr %link.i323, align 8
-  %qre_prev.i324 = getelementptr inbounds i8, ptr %col_count_nflushes, i64 32
+  %qre_prev.i324 = getelementptr inbounds nuw i8, ptr %col_count_nflushes, i64 32
   store ptr %col_count_nflushes, ptr %qre_prev.i324, align 8
   %cmp.i325 = icmp eq ptr %84, null
   br i1 %cmp.i325, label %emitter_col_init.exit335, label %do.body3.i326
 
 do.body3.i326:                                    ; preds = %emitter_col_init.exit322
-  %qre_prev7.i327 = getelementptr inbounds i8, ptr %84, i64 32
+  %qre_prev7.i327 = getelementptr inbounds nuw i8, ptr %84, i64 32
   %86 = load ptr, ptr %qre_prev7.i327, align 8
   store ptr %86, ptr %link.i323, align 8
   store ptr %col_count_nflushes, ptr %qre_prev7.i327, align 8
   %87 = load ptr, ptr %qre_prev.i324, align 8
-  %link20.i329 = getelementptr inbounds i8, ptr %87, i64 24
+  %link20.i329 = getelementptr inbounds nuw i8, ptr %87, i64 24
   %88 = load ptr, ptr %link20.i329, align 8
   store ptr %88, ptr %qre_prev.i324, align 8
   %89 = load ptr, ptr %qre_prev7.i327, align 8
-  %link30.i331 = getelementptr inbounds i8, ptr %89, i64 24
+  %link30.i331 = getelementptr inbounds nuw i8, ptr %89, i64 24
   store ptr %84, ptr %link30.i331, align 8
   %90 = load ptr, ptr %qre_prev.i324, align 8
-  %link34.i332 = getelementptr inbounds i8, ptr %90, i64 24
+  %link34.i332 = getelementptr inbounds nuw i8, ptr %90, i64 24
   store ptr %col_count_nflushes, ptr %link34.i332, align 8
   %.pre.i333 = load ptr, ptr %link.i323, align 8
   br label %emitter_col_init.exit335
@@ -5827,33 +5827,33 @@ do.body3.i326:                                    ; preds = %emitter_col_init.ex
 emitter_col_init.exit335:                         ; preds = %emitter_col_init.exit322, %do.body3.i326
   %91 = phi ptr [ %.pre.i333, %do.body3.i326 ], [ %col_count_nflushes, %emitter_col_init.exit322 ]
   store i32 1, ptr %col_count_nflushes, align 8
-  %width390 = getelementptr inbounds i8, ptr %col_count_nflushes, i64 4
+  %width390 = getelementptr inbounds nuw i8, ptr %col_count_nflushes, i64 4
   store i32 16, ptr %width390, align 4
-  %type391 = getelementptr inbounds i8, ptr %col_count_nflushes, i64 8
+  %type391 = getelementptr inbounds nuw i8, ptr %col_count_nflushes, i64 8
   store i32 9, ptr %type391, align 8
-  %92 = getelementptr inbounds i8, ptr %col_count_nflushes, i64 16
+  %92 = getelementptr inbounds nuw i8, ptr %col_count_nflushes, i64 16
   store ptr @.str.321, ptr %92, align 8
-  %link.i336 = getelementptr inbounds i8, ptr %col_count_nflushes_ps, i64 24
+  %link.i336 = getelementptr inbounds nuw i8, ptr %col_count_nflushes_ps, i64 24
   store ptr %col_count_nflushes_ps, ptr %link.i336, align 8
-  %qre_prev.i337 = getelementptr inbounds i8, ptr %col_count_nflushes_ps, i64 32
+  %qre_prev.i337 = getelementptr inbounds nuw i8, ptr %col_count_nflushes_ps, i64 32
   store ptr %col_count_nflushes_ps, ptr %qre_prev.i337, align 8
   %cmp.i338 = icmp eq ptr %91, null
   br i1 %cmp.i338, label %emitter_col_init.exit348, label %do.body3.i339
 
 do.body3.i339:                                    ; preds = %emitter_col_init.exit335
-  %qre_prev7.i340 = getelementptr inbounds i8, ptr %91, i64 32
+  %qre_prev7.i340 = getelementptr inbounds nuw i8, ptr %91, i64 32
   %93 = load ptr, ptr %qre_prev7.i340, align 8
   store ptr %93, ptr %link.i336, align 8
   store ptr %col_count_nflushes_ps, ptr %qre_prev7.i340, align 8
   %94 = load ptr, ptr %qre_prev.i337, align 8
-  %link20.i342 = getelementptr inbounds i8, ptr %94, i64 24
+  %link20.i342 = getelementptr inbounds nuw i8, ptr %94, i64 24
   %95 = load ptr, ptr %link20.i342, align 8
   store ptr %95, ptr %qre_prev.i337, align 8
   %96 = load ptr, ptr %qre_prev7.i340, align 8
-  %link30.i344 = getelementptr inbounds i8, ptr %96, i64 24
+  %link30.i344 = getelementptr inbounds nuw i8, ptr %96, i64 24
   store ptr %91, ptr %link30.i344, align 8
   %97 = load ptr, ptr %qre_prev.i337, align 8
-  %link34.i345 = getelementptr inbounds i8, ptr %97, i64 24
+  %link34.i345 = getelementptr inbounds nuw i8, ptr %97, i64 24
   store ptr %col_count_nflushes_ps, ptr %link34.i345, align 8
   %.pre.i346 = load ptr, ptr %link.i336, align 8
   br label %emitter_col_init.exit348
@@ -5861,11 +5861,11 @@ do.body3.i339:                                    ; preds = %emitter_col_init.ex
 emitter_col_init.exit348:                         ; preds = %emitter_col_init.exit335, %do.body3.i339
   %98 = phi ptr [ %.pre.i346, %do.body3.i339 ], [ %col_count_nflushes_ps, %emitter_col_init.exit335 ]
   store i32 1, ptr %col_count_nflushes_ps, align 8
-  %width393 = getelementptr inbounds i8, ptr %col_count_nflushes_ps, i64 4
+  %width393 = getelementptr inbounds nuw i8, ptr %col_count_nflushes_ps, i64 4
   store i32 10, ptr %width393, align 4
-  %type394 = getelementptr inbounds i8, ptr %col_count_nflushes_ps, i64 8
+  %type394 = getelementptr inbounds nuw i8, ptr %col_count_nflushes_ps, i64 8
   store i32 9, ptr %type394, align 8
-  %99 = getelementptr inbounds i8, ptr %col_count_nflushes_ps, i64 16
+  %99 = getelementptr inbounds nuw i8, ptr %col_count_nflushes_ps, i64 16
   store ptr @.str.267, ptr %99, align 8
   %100 = load i32, ptr %emitter, align 8
   %cmp.not.i349 = icmp eq i32 %100, 2
@@ -5878,13 +5878,13 @@ if.end.i350:                                      ; preds = %emitter_col_init.ex
 for.body.i352:                                    ; preds = %if.end.i350, %for.body.i352
   %col.011.i353 = phi ptr [ %105, %for.body.i352 ], [ %98, %if.end.i350 ]
   %101 = load i32, ptr %col.011.i353, align 8
-  %width.i354 = getelementptr inbounds i8, ptr %col.011.i353, i64 4
+  %width.i354 = getelementptr inbounds nuw i8, ptr %col.011.i353, i64 4
   %102 = load i32, ptr %width.i354, align 4
-  %type.i355 = getelementptr inbounds i8, ptr %col.011.i353, i64 8
+  %type.i355 = getelementptr inbounds nuw i8, ptr %col.011.i353, i64 8
   %103 = load i32, ptr %type.i355, align 8
-  %104 = getelementptr inbounds i8, ptr %col.011.i353, i64 16
+  %104 = getelementptr inbounds nuw i8, ptr %col.011.i353, i64 16
   call fastcc void @emitter_print_value(ptr noundef nonnull readonly %emitter, i32 noundef %101, i32 noundef %102, i32 noundef %103, ptr noundef nonnull %104)
-  %link.i356 = getelementptr inbounds i8, ptr %col.011.i353, i64 24
+  %link.i356 = getelementptr inbounds nuw i8, ptr %col.011.i353, i64 24
   %105 = load ptr, ptr %link.i356, align 8
   %cmp4.not.i357 = icmp eq ptr %105, %98
   %cmp1.not12.i358 = icmp eq ptr %105, null
@@ -5916,7 +5916,7 @@ if.then409:                                       ; preds = %emitter_table_row.e
   unreachable
 
 do.end411:                                        ; preds = %emitter_table_row.exit361
-  %arrayidx413 = getelementptr inbounds i8, ptr %mib401, i64 16
+  %arrayidx413 = getelementptr inbounds nuw i8, ptr %mib401, i64 16
   store i64 %conv, ptr %arrayidx413, align 16
   %106 = load i64, ptr %miblen402, align 8
   %call416 = call i32 @je_mallctlbymib(ptr noundef nonnull %mib401, i64 noundef %106, ptr noundef nonnull %small_allocated, ptr noundef nonnull %sz403, ptr noundef null, i64 noundef 0) #13
@@ -5946,7 +5946,7 @@ if.then433:                                       ; preds = %do.end422
   unreachable
 
 do.end435:                                        ; preds = %do.end422
-  %arrayidx437 = getelementptr inbounds i8, ptr %mib425, i64 16
+  %arrayidx437 = getelementptr inbounds nuw i8, ptr %mib425, i64 16
   store i64 %conv, ptr %arrayidx437, align 16
   %108 = load i64, ptr %miblen426, align 8
   %call440 = call i32 @je_mallctlbymib(ptr noundef nonnull %mib425, i64 noundef %108, ptr noundef nonnull %small_nmalloc, ptr noundef nonnull %sz427, ptr noundef null, i64 noundef 0) #13
@@ -5994,7 +5994,7 @@ if.then458:                                       ; preds = %rate_per_second.exi
   unreachable
 
 do.end460:                                        ; preds = %rate_per_second.exit
-  %arrayidx462 = getelementptr inbounds i8, ptr %mib450, i64 16
+  %arrayidx462 = getelementptr inbounds nuw i8, ptr %mib450, i64 16
   store i64 %conv, ptr %arrayidx462, align 16
   %111 = load i64, ptr %miblen451, align 8
   %call465 = call i32 @je_mallctlbymib(ptr noundef nonnull %mib450, i64 noundef %111, ptr noundef nonnull %small_ndalloc, ptr noundef nonnull %sz452, ptr noundef null, i64 noundef 0) #13
@@ -6042,7 +6042,7 @@ if.then483:                                       ; preds = %rate_per_second.exi
   unreachable
 
 do.end485:                                        ; preds = %rate_per_second.exit373
-  %arrayidx487 = getelementptr inbounds i8, ptr %mib475, i64 16
+  %arrayidx487 = getelementptr inbounds nuw i8, ptr %mib475, i64 16
   store i64 %conv, ptr %arrayidx487, align 16
   %114 = load i64, ptr %miblen476, align 8
   %call490 = call i32 @je_mallctlbymib(ptr noundef nonnull %mib475, i64 noundef %114, ptr noundef nonnull %small_nrequests, ptr noundef nonnull %sz477, ptr noundef null, i64 noundef 0) #13
@@ -6090,7 +6090,7 @@ if.then508:                                       ; preds = %rate_per_second.exi
   unreachable
 
 do.end510:                                        ; preds = %rate_per_second.exit383
-  %arrayidx512 = getelementptr inbounds i8, ptr %mib500, i64 16
+  %arrayidx512 = getelementptr inbounds nuw i8, ptr %mib500, i64 16
   store i64 %conv, ptr %arrayidx512, align 16
   %117 = load i64, ptr %miblen501, align 8
   %call515 = call i32 @je_mallctlbymib(ptr noundef nonnull %mib500, i64 noundef %117, ptr noundef nonnull %small_nfills, ptr noundef nonnull %sz502, ptr noundef null, i64 noundef 0) #13
@@ -6138,7 +6138,7 @@ if.then533:                                       ; preds = %rate_per_second.exi
   unreachable
 
 do.end535:                                        ; preds = %rate_per_second.exit393
-  %arrayidx537 = getelementptr inbounds i8, ptr %mib525, i64 16
+  %arrayidx537 = getelementptr inbounds nuw i8, ptr %mib525, i64 16
   store i64 %conv, ptr %arrayidx537, align 16
   %120 = load i64, ptr %miblen526, align 8
   %call540 = call i32 @je_mallctlbymib(ptr noundef nonnull %mib525, i64 noundef %120, ptr noundef nonnull %small_nflushes, ptr noundef nonnull %sz527, ptr noundef null, i64 noundef 0) #13
@@ -6185,13 +6185,13 @@ if.end.i405:                                      ; preds = %rate_per_second.exi
 for.body.i407:                                    ; preds = %if.end.i405, %for.body.i407
   %col.011.i408 = phi ptr [ %128, %for.body.i407 ], [ %98, %if.end.i405 ]
   %124 = load i32, ptr %col.011.i408, align 8
-  %width.i409 = getelementptr inbounds i8, ptr %col.011.i408, i64 4
+  %width.i409 = getelementptr inbounds nuw i8, ptr %col.011.i408, i64 4
   %125 = load i32, ptr %width.i409, align 4
-  %type.i410 = getelementptr inbounds i8, ptr %col.011.i408, i64 8
+  %type.i410 = getelementptr inbounds nuw i8, ptr %col.011.i408, i64 8
   %126 = load i32, ptr %type.i410, align 8
-  %127 = getelementptr inbounds i8, ptr %col.011.i408, i64 16
+  %127 = getelementptr inbounds nuw i8, ptr %col.011.i408, i64 16
   call fastcc void @emitter_print_value(ptr noundef nonnull readonly %emitter, i32 noundef %124, i32 noundef %125, i32 noundef %126, ptr noundef nonnull %127)
-  %link.i411 = getelementptr inbounds i8, ptr %col.011.i408, i64 24
+  %link.i411 = getelementptr inbounds nuw i8, ptr %col.011.i408, i64 24
   %128 = load ptr, ptr %link.i411, align 8
   %cmp4.not.i412 = icmp eq ptr %128, %98
   %cmp1.not12.i413 = icmp eq ptr %128, null
@@ -6209,11 +6209,11 @@ emitter_table_row.exit416:                        ; preds = %rate_per_second.exi
   br i1 %spec.select.i.i, label %do.end.i, label %emitter_json_object_end.exit
 
 do.end.i:                                         ; preds = %emitter_table_row.exit416
-  %nesting_depth.i.i = getelementptr inbounds i8, ptr %emitter, i64 24
+  %nesting_depth.i.i = getelementptr inbounds nuw i8, ptr %emitter, i64 24
   %129 = load i32, ptr %nesting_depth.i.i, align 8
   %dec.i.i = add nsw i32 %129, -1
   store i32 %dec.i.i, ptr %nesting_depth.i.i, align 8
-  %item_at_depth.i.i = getelementptr inbounds i8, ptr %emitter, i64 28
+  %item_at_depth.i.i = getelementptr inbounds nuw i8, ptr %emitter, i64 28
   store i8 1, ptr %item_at_depth.i.i, align 4
   %cmp.not.i417 = icmp eq i32 %emitter.val.i, 1
   br i1 %cmp.not.i417, label %if.end.i418, label %if.then1.i
@@ -6259,7 +6259,7 @@ if.then558:                                       ; preds = %emitter_json_object
   unreachable
 
 do.end560:                                        ; preds = %emitter_json_object_end.exit
-  %arrayidx562 = getelementptr inbounds i8, ptr %mib550, i64 16
+  %arrayidx562 = getelementptr inbounds nuw i8, ptr %mib550, i64 16
   store i64 %conv, ptr %arrayidx562, align 16
   %132 = load i64, ptr %miblen551, align 8
   %call565 = call i32 @je_mallctlbymib(ptr noundef nonnull %mib550, i64 noundef %132, ptr noundef nonnull %large_allocated, ptr noundef nonnull %sz552, ptr noundef null, i64 noundef 0) #13
@@ -6289,7 +6289,7 @@ if.then582:                                       ; preds = %do.end571
   unreachable
 
 do.end584:                                        ; preds = %do.end571
-  %arrayidx586 = getelementptr inbounds i8, ptr %mib574, i64 16
+  %arrayidx586 = getelementptr inbounds nuw i8, ptr %mib574, i64 16
   store i64 %conv, ptr %arrayidx586, align 16
   %134 = load i64, ptr %miblen575, align 8
   %call589 = call i32 @je_mallctlbymib(ptr noundef nonnull %mib574, i64 noundef %134, ptr noundef nonnull %large_nmalloc, ptr noundef nonnull %sz576, ptr noundef null, i64 noundef 0) #13
@@ -6337,7 +6337,7 @@ if.then607:                                       ; preds = %rate_per_second.exi
   unreachable
 
 do.end609:                                        ; preds = %rate_per_second.exit428
-  %arrayidx611 = getelementptr inbounds i8, ptr %mib599, i64 16
+  %arrayidx611 = getelementptr inbounds nuw i8, ptr %mib599, i64 16
   store i64 %conv, ptr %arrayidx611, align 16
   %137 = load i64, ptr %miblen600, align 8
   %call614 = call i32 @je_mallctlbymib(ptr noundef nonnull %mib599, i64 noundef %137, ptr noundef nonnull %large_ndalloc, ptr noundef nonnull %sz601, ptr noundef null, i64 noundef 0) #13
@@ -6385,7 +6385,7 @@ if.then632:                                       ; preds = %rate_per_second.exi
   unreachable
 
 do.end634:                                        ; preds = %rate_per_second.exit438
-  %arrayidx636 = getelementptr inbounds i8, ptr %mib624, i64 16
+  %arrayidx636 = getelementptr inbounds nuw i8, ptr %mib624, i64 16
   store i64 %conv, ptr %arrayidx636, align 16
   %140 = load i64, ptr %miblen625, align 8
   %call639 = call i32 @je_mallctlbymib(ptr noundef nonnull %mib624, i64 noundef %140, ptr noundef nonnull %large_nrequests, ptr noundef nonnull %sz626, ptr noundef null, i64 noundef 0) #13
@@ -6433,7 +6433,7 @@ if.then657:                                       ; preds = %rate_per_second.exi
   unreachable
 
 do.end659:                                        ; preds = %rate_per_second.exit448
-  %arrayidx661 = getelementptr inbounds i8, ptr %mib649, i64 16
+  %arrayidx661 = getelementptr inbounds nuw i8, ptr %mib649, i64 16
   store i64 %conv, ptr %arrayidx661, align 16
   %143 = load i64, ptr %miblen650, align 8
   %call664 = call i32 @je_mallctlbymib(ptr noundef nonnull %mib649, i64 noundef %143, ptr noundef nonnull %large_nfills, ptr noundef nonnull %sz651, ptr noundef null, i64 noundef 0) #13
@@ -6481,7 +6481,7 @@ if.then682:                                       ; preds = %rate_per_second.exi
   unreachable
 
 do.end684:                                        ; preds = %rate_per_second.exit458
-  %arrayidx686 = getelementptr inbounds i8, ptr %mib674, i64 16
+  %arrayidx686 = getelementptr inbounds nuw i8, ptr %mib674, i64 16
   store i64 %conv, ptr %arrayidx686, align 16
   %146 = load i64, ptr %miblen675, align 8
   %call689 = call i32 @je_mallctlbymib(ptr noundef nonnull %mib674, i64 noundef %146, ptr noundef nonnull %large_nflushes, ptr noundef nonnull %sz676, ptr noundef null, i64 noundef 0) #13
@@ -6528,13 +6528,13 @@ if.end.i470:                                      ; preds = %rate_per_second.exi
 for.body.i472:                                    ; preds = %if.end.i470, %for.body.i472
   %col.011.i473 = phi ptr [ %154, %for.body.i472 ], [ %98, %if.end.i470 ]
   %150 = load i32, ptr %col.011.i473, align 8
-  %width.i474 = getelementptr inbounds i8, ptr %col.011.i473, i64 4
+  %width.i474 = getelementptr inbounds nuw i8, ptr %col.011.i473, i64 4
   %151 = load i32, ptr %width.i474, align 4
-  %type.i475 = getelementptr inbounds i8, ptr %col.011.i473, i64 8
+  %type.i475 = getelementptr inbounds nuw i8, ptr %col.011.i473, i64 8
   %152 = load i32, ptr %type.i475, align 8
-  %153 = getelementptr inbounds i8, ptr %col.011.i473, i64 16
+  %153 = getelementptr inbounds nuw i8, ptr %col.011.i473, i64 16
   call fastcc void @emitter_print_value(ptr noundef nonnull readonly %emitter, i32 noundef %150, i32 noundef %151, i32 noundef %152, ptr noundef nonnull %153)
-  %link.i476 = getelementptr inbounds i8, ptr %col.011.i473, i64 24
+  %link.i476 = getelementptr inbounds nuw i8, ptr %col.011.i473, i64 24
   %154 = load ptr, ptr %link.i476, align 8
   %cmp4.not.i477 = icmp eq ptr %154, %98
   %cmp1.not12.i478 = icmp eq ptr %154, null
@@ -6552,11 +6552,11 @@ emitter_table_row.exit481:                        ; preds = %rate_per_second.exi
   br i1 %spec.select.i.i483, label %do.end.i484, label %emitter_json_object_end.exit501
 
 do.end.i484:                                      ; preds = %emitter_table_row.exit481
-  %nesting_depth.i.i485 = getelementptr inbounds i8, ptr %emitter, i64 24
+  %nesting_depth.i.i485 = getelementptr inbounds nuw i8, ptr %emitter, i64 24
   %155 = load i32, ptr %nesting_depth.i.i485, align 8
   %dec.i.i486 = add nsw i32 %155, -1
   store i32 %dec.i.i486, ptr %nesting_depth.i.i485, align 8
-  %item_at_depth.i.i487 = getelementptr inbounds i8, ptr %emitter, i64 28
+  %item_at_depth.i.i487 = getelementptr inbounds nuw i8, ptr %emitter, i64 28
   store i8 1, ptr %item_at_depth.i.i487, align 4
   %cmp.not.i488 = icmp eq i32 %emitter.val.i482, 1
   br i1 %cmp.not.i488, label %if.end.i493, label %if.then1.i489
@@ -6705,13 +6705,13 @@ if.end.i553:                                      ; preds = %rate_per_second.exi
 for.body.i555:                                    ; preds = %if.end.i553, %for.body.i555
   %col.011.i556 = phi ptr [ %176, %for.body.i555 ], [ %98, %if.end.i553 ]
   %172 = load i32, ptr %col.011.i556, align 8
-  %width.i557 = getelementptr inbounds i8, ptr %col.011.i556, i64 4
+  %width.i557 = getelementptr inbounds nuw i8, ptr %col.011.i556, i64 4
   %173 = load i32, ptr %width.i557, align 4
-  %type.i558 = getelementptr inbounds i8, ptr %col.011.i556, i64 8
+  %type.i558 = getelementptr inbounds nuw i8, ptr %col.011.i556, i64 8
   %174 = load i32, ptr %type.i558, align 8
-  %175 = getelementptr inbounds i8, ptr %col.011.i556, i64 16
+  %175 = getelementptr inbounds nuw i8, ptr %col.011.i556, i64 16
   call fastcc void @emitter_print_value(ptr noundef nonnull readonly %emitter, i32 noundef %172, i32 noundef %173, i32 noundef %174, ptr noundef nonnull %175)
-  %link.i559 = getelementptr inbounds i8, ptr %col.011.i556, i64 24
+  %link.i559 = getelementptr inbounds nuw i8, ptr %col.011.i556, i64 24
   %176 = load ptr, ptr %link.i559, align 8
   %cmp4.not.i560 = icmp eq ptr %176, %98
   %cmp1.not12.i561 = icmp eq ptr %176, null
@@ -6726,40 +6726,40 @@ for.end.i563:                                     ; preds = %for.body.i555, %if.
 
 emitter_col_init.exit590:                         ; preds = %for.end.i563, %rate_per_second.exit551
   %cmp.not.i591 = phi i1 [ %177, %for.end.i563 ], [ false, %rate_per_second.exit551 ]
-  %link.i565 = getelementptr inbounds i8, ptr %mem_count_title, i64 24
-  %qre_prev.i566 = getelementptr inbounds i8, ptr %mem_count_title, i64 32
+  %link.i565 = getelementptr inbounds nuw i8, ptr %mem_count_title, i64 24
+  %qre_prev.i566 = getelementptr inbounds nuw i8, ptr %mem_count_title, i64 32
   store i32 0, ptr %mem_count_title, align 8
-  %width709 = getelementptr inbounds i8, ptr %mem_count_title, i64 4
+  %width709 = getelementptr inbounds nuw i8, ptr %mem_count_title, i64 4
   store i32 21, ptr %width709, align 4
-  %type710 = getelementptr inbounds i8, ptr %mem_count_title, i64 8
+  %type710 = getelementptr inbounds nuw i8, ptr %mem_count_title, i64 8
   store i32 9, ptr %type710, align 8
-  %178 = getelementptr inbounds i8, ptr %mem_count_title, i64 16
+  %178 = getelementptr inbounds nuw i8, ptr %mem_count_title, i64 16
   store ptr @.str.29, ptr %178, align 8
-  %link.i578 = getelementptr inbounds i8, ptr %mem_count_val, i64 24
-  %qre_prev.i579 = getelementptr inbounds i8, ptr %mem_count_val, i64 32
+  %link.i578 = getelementptr inbounds nuw i8, ptr %mem_count_val, i64 24
+  %qre_prev.i579 = getelementptr inbounds nuw i8, ptr %mem_count_val, i64 32
   store ptr %mem_count_val, ptr %qre_prev.i566, align 8
   store ptr %mem_count_title, ptr %qre_prev.i579, align 8
   store ptr %mem_count_title, ptr %link.i578, align 8
   store ptr %mem_count_val, ptr %link.i565, align 8
   store i32 1, ptr %mem_count_val, align 8
-  %width712 = getelementptr inbounds i8, ptr %mem_count_val, i64 4
+  %width712 = getelementptr inbounds nuw i8, ptr %mem_count_val, i64 4
   store i32 16, ptr %width712, align 4
-  %type713 = getelementptr inbounds i8, ptr %mem_count_val, i64 8
+  %type713 = getelementptr inbounds nuw i8, ptr %mem_count_val, i64 8
   store i32 9, ptr %type713, align 8
-  %179 = getelementptr inbounds i8, ptr %mem_count_val, i64 16
+  %179 = getelementptr inbounds nuw i8, ptr %mem_count_val, i64 16
   store ptr @.str.29, ptr %179, align 8
   br i1 %cmp.not.i591, label %for.body.i594, label %emitter_table_row.exit616.critedge
 
 for.body.i594:                                    ; preds = %emitter_col_init.exit590, %for.body.i594
   %col.011.i595 = phi ptr [ %184, %for.body.i594 ], [ %mem_count_title, %emitter_col_init.exit590 ]
   %180 = load i32, ptr %col.011.i595, align 8
-  %width.i596 = getelementptr inbounds i8, ptr %col.011.i595, i64 4
+  %width.i596 = getelementptr inbounds nuw i8, ptr %col.011.i595, i64 4
   %181 = load i32, ptr %width.i596, align 4
-  %type.i597 = getelementptr inbounds i8, ptr %col.011.i595, i64 8
+  %type.i597 = getelementptr inbounds nuw i8, ptr %col.011.i595, i64 8
   %182 = load i32, ptr %type.i597, align 8
-  %183 = getelementptr inbounds i8, ptr %col.011.i595, i64 16
+  %183 = getelementptr inbounds nuw i8, ptr %col.011.i595, i64 16
   call fastcc void @emitter_print_value(ptr noundef nonnull readonly %emitter, i32 noundef %180, i32 noundef %181, i32 noundef %182, ptr noundef nonnull %183)
-  %link.i598 = getelementptr inbounds i8, ptr %col.011.i595, i64 24
+  %link.i598 = getelementptr inbounds nuw i8, ptr %col.011.i595, i64 24
   %184 = load ptr, ptr %link.i598, align 8
   %cmp4.not.i599 = icmp eq ptr %184, %mem_count_title
   %cmp1.not12.i600 = icmp eq ptr %184, null
@@ -6781,13 +6781,13 @@ for.end.i602:                                     ; preds = %for.body.i594
 for.body.i607:                                    ; preds = %for.end.i602, %for.body.i607
   %col.011.i608 = phi ptr [ %192, %for.body.i607 ], [ %mem_count_title, %for.end.i602 ]
   %188 = load i32, ptr %col.011.i608, align 8
-  %width.i609 = getelementptr inbounds i8, ptr %col.011.i608, i64 4
+  %width.i609 = getelementptr inbounds nuw i8, ptr %col.011.i608, i64 4
   %189 = load i32, ptr %width.i609, align 4
-  %type.i610 = getelementptr inbounds i8, ptr %col.011.i608, i64 8
+  %type.i610 = getelementptr inbounds nuw i8, ptr %col.011.i608, i64 8
   %190 = load i32, ptr %type.i610, align 8
-  %191 = getelementptr inbounds i8, ptr %col.011.i608, i64 16
+  %191 = getelementptr inbounds nuw i8, ptr %col.011.i608, i64 16
   call fastcc void @emitter_print_value(ptr noundef nonnull readonly %emitter, i32 noundef %188, i32 noundef %189, i32 noundef %190, ptr noundef nonnull %191)
-  %link.i611 = getelementptr inbounds i8, ptr %col.011.i608, i64 24
+  %link.i611 = getelementptr inbounds nuw i8, ptr %col.011.i608, i64 24
   %192 = load ptr, ptr %link.i611, align 8
   %cmp4.not.i612 = icmp eq ptr %192, %mem_count_title
   %cmp1.not12.i613 = icmp eq ptr %192, null
@@ -6820,7 +6820,7 @@ if.then724:                                       ; preds = %emitter_table_row.e
   unreachable
 
 do.end726:                                        ; preds = %emitter_table_row.exit616
-  %arrayidx728 = getelementptr inbounds i8, ptr %mib716, i64 16
+  %arrayidx728 = getelementptr inbounds nuw i8, ptr %mib716, i64 16
   store i64 %conv, ptr %arrayidx728, align 16
   %195 = load i64, ptr %miblen717, align 8
   %call731 = call i32 @je_mallctlbymib(ptr noundef nonnull %mib716, i64 noundef %195, ptr noundef nonnull %mapped, ptr noundef nonnull %sz718, ptr noundef null, i64 noundef 0) #13
@@ -6845,13 +6845,13 @@ do.end737:                                        ; preds = %do.end726
 for.body.i620:                                    ; preds = %do.end737, %for.body.i620
   %col.011.i621 = phi ptr [ %202, %for.body.i620 ], [ %mem_count_title, %do.end737 ]
   %198 = load i32, ptr %col.011.i621, align 8
-  %width.i622 = getelementptr inbounds i8, ptr %col.011.i621, i64 4
+  %width.i622 = getelementptr inbounds nuw i8, ptr %col.011.i621, i64 4
   %199 = load i32, ptr %width.i622, align 4
-  %type.i623 = getelementptr inbounds i8, ptr %col.011.i621, i64 8
+  %type.i623 = getelementptr inbounds nuw i8, ptr %col.011.i621, i64 8
   %200 = load i32, ptr %type.i623, align 8
-  %201 = getelementptr inbounds i8, ptr %col.011.i621, i64 16
+  %201 = getelementptr inbounds nuw i8, ptr %col.011.i621, i64 16
   call fastcc void @emitter_print_value(ptr noundef nonnull readonly %emitter, i32 noundef %198, i32 noundef %199, i32 noundef %200, ptr noundef nonnull %201)
-  %link.i624 = getelementptr inbounds i8, ptr %col.011.i621, i64 24
+  %link.i624 = getelementptr inbounds nuw i8, ptr %col.011.i621, i64 24
   %202 = load ptr, ptr %link.i624, align 8
   %cmp4.not.i625 = icmp eq ptr %202, %mem_count_title
   %cmp1.not12.i626 = icmp eq ptr %202, null
@@ -6875,7 +6875,7 @@ if.then747:                                       ; preds = %emitter_table_row.e
   unreachable
 
 do.end749:                                        ; preds = %emitter_table_row.exit629
-  %arrayidx751 = getelementptr inbounds i8, ptr %mib739, i64 16
+  %arrayidx751 = getelementptr inbounds nuw i8, ptr %mib739, i64 16
   store i64 %conv, ptr %arrayidx751, align 16
   %203 = load i64, ptr %miblen740, align 8
   %call754 = call i32 @je_mallctlbymib(ptr noundef nonnull %mib739, i64 noundef %203, ptr noundef nonnull %retained, ptr noundef nonnull %sz741, ptr noundef null, i64 noundef 0) #13
@@ -6900,13 +6900,13 @@ do.end760:                                        ; preds = %do.end749
 for.body.i633:                                    ; preds = %do.end760, %for.body.i633
   %col.011.i634 = phi ptr [ %210, %for.body.i633 ], [ %mem_count_title, %do.end760 ]
   %206 = load i32, ptr %col.011.i634, align 8
-  %width.i635 = getelementptr inbounds i8, ptr %col.011.i634, i64 4
+  %width.i635 = getelementptr inbounds nuw i8, ptr %col.011.i634, i64 4
   %207 = load i32, ptr %width.i635, align 4
-  %type.i636 = getelementptr inbounds i8, ptr %col.011.i634, i64 8
+  %type.i636 = getelementptr inbounds nuw i8, ptr %col.011.i634, i64 8
   %208 = load i32, ptr %type.i636, align 8
-  %209 = getelementptr inbounds i8, ptr %col.011.i634, i64 16
+  %209 = getelementptr inbounds nuw i8, ptr %col.011.i634, i64 16
   call fastcc void @emitter_print_value(ptr noundef nonnull readonly %emitter, i32 noundef %206, i32 noundef %207, i32 noundef %208, ptr noundef nonnull %209)
-  %link.i637 = getelementptr inbounds i8, ptr %col.011.i634, i64 24
+  %link.i637 = getelementptr inbounds nuw i8, ptr %col.011.i634, i64 24
   %210 = load ptr, ptr %link.i637, align 8
   %cmp4.not.i638 = icmp eq ptr %210, %mem_count_title
   %cmp1.not12.i639 = icmp eq ptr %210, null
@@ -6930,7 +6930,7 @@ if.then770:                                       ; preds = %emitter_table_row.e
   unreachable
 
 do.end772:                                        ; preds = %emitter_table_row.exit642
-  %arrayidx774 = getelementptr inbounds i8, ptr %mib762, i64 16
+  %arrayidx774 = getelementptr inbounds nuw i8, ptr %mib762, i64 16
   store i64 %conv, ptr %arrayidx774, align 16
   %211 = load i64, ptr %miblen763, align 8
   %call777 = call i32 @je_mallctlbymib(ptr noundef nonnull %mib762, i64 noundef %211, ptr noundef nonnull %base, ptr noundef nonnull %sz764, ptr noundef null, i64 noundef 0) #13
@@ -6955,13 +6955,13 @@ do.end783:                                        ; preds = %do.end772
 for.body.i646:                                    ; preds = %do.end783, %for.body.i646
   %col.011.i647 = phi ptr [ %218, %for.body.i646 ], [ %mem_count_title, %do.end783 ]
   %214 = load i32, ptr %col.011.i647, align 8
-  %width.i648 = getelementptr inbounds i8, ptr %col.011.i647, i64 4
+  %width.i648 = getelementptr inbounds nuw i8, ptr %col.011.i647, i64 4
   %215 = load i32, ptr %width.i648, align 4
-  %type.i649 = getelementptr inbounds i8, ptr %col.011.i647, i64 8
+  %type.i649 = getelementptr inbounds nuw i8, ptr %col.011.i647, i64 8
   %216 = load i32, ptr %type.i649, align 8
-  %217 = getelementptr inbounds i8, ptr %col.011.i647, i64 16
+  %217 = getelementptr inbounds nuw i8, ptr %col.011.i647, i64 16
   call fastcc void @emitter_print_value(ptr noundef nonnull readonly %emitter, i32 noundef %214, i32 noundef %215, i32 noundef %216, ptr noundef nonnull %217)
-  %link.i650 = getelementptr inbounds i8, ptr %col.011.i647, i64 24
+  %link.i650 = getelementptr inbounds nuw i8, ptr %col.011.i647, i64 24
   %218 = load ptr, ptr %link.i650, align 8
   %cmp4.not.i651 = icmp eq ptr %218, %mem_count_title
   %cmp1.not12.i652 = icmp eq ptr %218, null
@@ -6985,7 +6985,7 @@ if.then793:                                       ; preds = %emitter_table_row.e
   unreachable
 
 do.end795:                                        ; preds = %emitter_table_row.exit655
-  %arrayidx797 = getelementptr inbounds i8, ptr %mib785, i64 16
+  %arrayidx797 = getelementptr inbounds nuw i8, ptr %mib785, i64 16
   store i64 %conv, ptr %arrayidx797, align 16
   %219 = load i64, ptr %miblen786, align 8
   %call800 = call i32 @je_mallctlbymib(ptr noundef nonnull %mib785, i64 noundef %219, ptr noundef nonnull %internal, ptr noundef nonnull %sz787, ptr noundef null, i64 noundef 0) #13
@@ -7010,13 +7010,13 @@ do.end806:                                        ; preds = %do.end795
 for.body.i659:                                    ; preds = %do.end806, %for.body.i659
   %col.011.i660 = phi ptr [ %226, %for.body.i659 ], [ %mem_count_title, %do.end806 ]
   %222 = load i32, ptr %col.011.i660, align 8
-  %width.i661 = getelementptr inbounds i8, ptr %col.011.i660, i64 4
+  %width.i661 = getelementptr inbounds nuw i8, ptr %col.011.i660, i64 4
   %223 = load i32, ptr %width.i661, align 4
-  %type.i662 = getelementptr inbounds i8, ptr %col.011.i660, i64 8
+  %type.i662 = getelementptr inbounds nuw i8, ptr %col.011.i660, i64 8
   %224 = load i32, ptr %type.i662, align 8
-  %225 = getelementptr inbounds i8, ptr %col.011.i660, i64 16
+  %225 = getelementptr inbounds nuw i8, ptr %col.011.i660, i64 16
   call fastcc void @emitter_print_value(ptr noundef nonnull readonly %emitter, i32 noundef %222, i32 noundef %223, i32 noundef %224, ptr noundef nonnull %225)
-  %link.i663 = getelementptr inbounds i8, ptr %col.011.i660, i64 24
+  %link.i663 = getelementptr inbounds nuw i8, ptr %col.011.i660, i64 24
   %226 = load ptr, ptr %link.i663, align 8
   %cmp4.not.i664 = icmp eq ptr %226, %mem_count_title
   %cmp1.not12.i665 = icmp eq ptr %226, null
@@ -7040,7 +7040,7 @@ if.then816:                                       ; preds = %emitter_table_row.e
   unreachable
 
 do.end818:                                        ; preds = %emitter_table_row.exit668
-  %arrayidx820 = getelementptr inbounds i8, ptr %mib808, i64 16
+  %arrayidx820 = getelementptr inbounds nuw i8, ptr %mib808, i64 16
   store i64 %conv, ptr %arrayidx820, align 16
   %227 = load i64, ptr %miblen809, align 8
   %call823 = call i32 @je_mallctlbymib(ptr noundef nonnull %mib808, i64 noundef %227, ptr noundef nonnull %metadata_thp, ptr noundef nonnull %sz810, ptr noundef null, i64 noundef 0) #13
@@ -7065,13 +7065,13 @@ do.end829:                                        ; preds = %do.end818
 for.body.i672:                                    ; preds = %do.end829, %for.body.i672
   %col.011.i673 = phi ptr [ %234, %for.body.i672 ], [ %mem_count_title, %do.end829 ]
   %230 = load i32, ptr %col.011.i673, align 8
-  %width.i674 = getelementptr inbounds i8, ptr %col.011.i673, i64 4
+  %width.i674 = getelementptr inbounds nuw i8, ptr %col.011.i673, i64 4
   %231 = load i32, ptr %width.i674, align 4
-  %type.i675 = getelementptr inbounds i8, ptr %col.011.i673, i64 8
+  %type.i675 = getelementptr inbounds nuw i8, ptr %col.011.i673, i64 8
   %232 = load i32, ptr %type.i675, align 8
-  %233 = getelementptr inbounds i8, ptr %col.011.i673, i64 16
+  %233 = getelementptr inbounds nuw i8, ptr %col.011.i673, i64 16
   call fastcc void @emitter_print_value(ptr noundef nonnull readonly %emitter, i32 noundef %230, i32 noundef %231, i32 noundef %232, ptr noundef nonnull %233)
-  %link.i676 = getelementptr inbounds i8, ptr %col.011.i673, i64 24
+  %link.i676 = getelementptr inbounds nuw i8, ptr %col.011.i673, i64 24
   %234 = load ptr, ptr %link.i676, align 8
   %cmp4.not.i677 = icmp eq ptr %234, %mem_count_title
   %cmp1.not12.i678 = icmp eq ptr %234, null
@@ -7095,7 +7095,7 @@ if.then839:                                       ; preds = %emitter_table_row.e
   unreachable
 
 do.end841:                                        ; preds = %emitter_table_row.exit681
-  %arrayidx843 = getelementptr inbounds i8, ptr %mib831, i64 16
+  %arrayidx843 = getelementptr inbounds nuw i8, ptr %mib831, i64 16
   store i64 %conv, ptr %arrayidx843, align 16
   %235 = load i64, ptr %miblen832, align 8
   %call846 = call i32 @je_mallctlbymib(ptr noundef nonnull %mib831, i64 noundef %235, ptr noundef nonnull %tcache_bytes, ptr noundef nonnull %sz833, ptr noundef null, i64 noundef 0) #13
@@ -7120,13 +7120,13 @@ do.end852:                                        ; preds = %do.end841
 for.body.i685:                                    ; preds = %do.end852, %for.body.i685
   %col.011.i686 = phi ptr [ %242, %for.body.i685 ], [ %mem_count_title, %do.end852 ]
   %238 = load i32, ptr %col.011.i686, align 8
-  %width.i687 = getelementptr inbounds i8, ptr %col.011.i686, i64 4
+  %width.i687 = getelementptr inbounds nuw i8, ptr %col.011.i686, i64 4
   %239 = load i32, ptr %width.i687, align 4
-  %type.i688 = getelementptr inbounds i8, ptr %col.011.i686, i64 8
+  %type.i688 = getelementptr inbounds nuw i8, ptr %col.011.i686, i64 8
   %240 = load i32, ptr %type.i688, align 8
-  %241 = getelementptr inbounds i8, ptr %col.011.i686, i64 16
+  %241 = getelementptr inbounds nuw i8, ptr %col.011.i686, i64 16
   call fastcc void @emitter_print_value(ptr noundef nonnull readonly %emitter, i32 noundef %238, i32 noundef %239, i32 noundef %240, ptr noundef nonnull %241)
-  %link.i689 = getelementptr inbounds i8, ptr %col.011.i686, i64 24
+  %link.i689 = getelementptr inbounds nuw i8, ptr %col.011.i686, i64 24
   %242 = load ptr, ptr %link.i689, align 8
   %cmp4.not.i690 = icmp eq ptr %242, %mem_count_title
   %cmp1.not12.i691 = icmp eq ptr %242, null
@@ -7150,7 +7150,7 @@ if.then862:                                       ; preds = %emitter_table_row.e
   unreachable
 
 do.end864:                                        ; preds = %emitter_table_row.exit694
-  %arrayidx866 = getelementptr inbounds i8, ptr %mib854, i64 16
+  %arrayidx866 = getelementptr inbounds nuw i8, ptr %mib854, i64 16
   store i64 %conv, ptr %arrayidx866, align 16
   %243 = load i64, ptr %miblen855, align 8
   %call869 = call i32 @je_mallctlbymib(ptr noundef nonnull %mib854, i64 noundef %243, ptr noundef nonnull %tcache_stashed_bytes, ptr noundef nonnull %sz856, ptr noundef null, i64 noundef 0) #13
@@ -7175,13 +7175,13 @@ do.end875:                                        ; preds = %do.end864
 for.body.i698:                                    ; preds = %do.end875, %for.body.i698
   %col.011.i699 = phi ptr [ %250, %for.body.i698 ], [ %mem_count_title, %do.end875 ]
   %246 = load i32, ptr %col.011.i699, align 8
-  %width.i700 = getelementptr inbounds i8, ptr %col.011.i699, i64 4
+  %width.i700 = getelementptr inbounds nuw i8, ptr %col.011.i699, i64 4
   %247 = load i32, ptr %width.i700, align 4
-  %type.i701 = getelementptr inbounds i8, ptr %col.011.i699, i64 8
+  %type.i701 = getelementptr inbounds nuw i8, ptr %col.011.i699, i64 8
   %248 = load i32, ptr %type.i701, align 8
-  %249 = getelementptr inbounds i8, ptr %col.011.i699, i64 16
+  %249 = getelementptr inbounds nuw i8, ptr %col.011.i699, i64 16
   call fastcc void @emitter_print_value(ptr noundef nonnull readonly %emitter, i32 noundef %246, i32 noundef %247, i32 noundef %248, ptr noundef nonnull %249)
-  %link.i702 = getelementptr inbounds i8, ptr %col.011.i699, i64 24
+  %link.i702 = getelementptr inbounds nuw i8, ptr %col.011.i699, i64 24
   %250 = load ptr, ptr %link.i702, align 8
   %cmp4.not.i703 = icmp eq ptr %250, %mem_count_title
   %cmp1.not12.i704 = icmp eq ptr %250, null
@@ -7205,7 +7205,7 @@ if.then885:                                       ; preds = %emitter_table_row.e
   unreachable
 
 do.end887:                                        ; preds = %emitter_table_row.exit707
-  %arrayidx889 = getelementptr inbounds i8, ptr %mib877, i64 16
+  %arrayidx889 = getelementptr inbounds nuw i8, ptr %mib877, i64 16
   store i64 %conv, ptr %arrayidx889, align 16
   %251 = load i64, ptr %miblen878, align 8
   %call892 = call i32 @je_mallctlbymib(ptr noundef nonnull %mib877, i64 noundef %251, ptr noundef nonnull %resident, ptr noundef nonnull %sz879, ptr noundef null, i64 noundef 0) #13
@@ -7230,13 +7230,13 @@ do.end898:                                        ; preds = %do.end887
 for.body.i711:                                    ; preds = %do.end898, %for.body.i711
   %col.011.i712 = phi ptr [ %258, %for.body.i711 ], [ %mem_count_title, %do.end898 ]
   %254 = load i32, ptr %col.011.i712, align 8
-  %width.i713 = getelementptr inbounds i8, ptr %col.011.i712, i64 4
+  %width.i713 = getelementptr inbounds nuw i8, ptr %col.011.i712, i64 4
   %255 = load i32, ptr %width.i713, align 4
-  %type.i714 = getelementptr inbounds i8, ptr %col.011.i712, i64 8
+  %type.i714 = getelementptr inbounds nuw i8, ptr %col.011.i712, i64 8
   %256 = load i32, ptr %type.i714, align 8
-  %257 = getelementptr inbounds i8, ptr %col.011.i712, i64 16
+  %257 = getelementptr inbounds nuw i8, ptr %col.011.i712, i64 16
   call fastcc void @emitter_print_value(ptr noundef nonnull readonly %emitter, i32 noundef %254, i32 noundef %255, i32 noundef %256, ptr noundef nonnull %257)
-  %link.i715 = getelementptr inbounds i8, ptr %col.011.i712, i64 24
+  %link.i715 = getelementptr inbounds nuw i8, ptr %col.011.i712, i64 24
   %258 = load ptr, ptr %link.i715, align 8
   %cmp4.not.i716 = icmp eq ptr %258, %mem_count_title
   %cmp1.not12.i717 = icmp eq ptr %258, null
@@ -7260,7 +7260,7 @@ if.then908:                                       ; preds = %emitter_table_row.e
   unreachable
 
 do.end910:                                        ; preds = %emitter_table_row.exit720
-  %arrayidx912 = getelementptr inbounds i8, ptr %mib900, i64 16
+  %arrayidx912 = getelementptr inbounds nuw i8, ptr %mib900, i64 16
   store i64 %conv, ptr %arrayidx912, align 16
   %259 = load i64, ptr %miblen901, align 8
   %call915 = call i32 @je_mallctlbymib(ptr noundef nonnull %mib900, i64 noundef %259, ptr noundef nonnull %abandoned_vm, ptr noundef nonnull %sz902, ptr noundef null, i64 noundef 0) #13
@@ -7285,13 +7285,13 @@ do.end921:                                        ; preds = %do.end910
 for.body.i724:                                    ; preds = %do.end921, %for.body.i724
   %col.011.i725 = phi ptr [ %266, %for.body.i724 ], [ %mem_count_title, %do.end921 ]
   %262 = load i32, ptr %col.011.i725, align 8
-  %width.i726 = getelementptr inbounds i8, ptr %col.011.i725, i64 4
+  %width.i726 = getelementptr inbounds nuw i8, ptr %col.011.i725, i64 4
   %263 = load i32, ptr %width.i726, align 4
-  %type.i727 = getelementptr inbounds i8, ptr %col.011.i725, i64 8
+  %type.i727 = getelementptr inbounds nuw i8, ptr %col.011.i725, i64 8
   %264 = load i32, ptr %type.i727, align 8
-  %265 = getelementptr inbounds i8, ptr %col.011.i725, i64 16
+  %265 = getelementptr inbounds nuw i8, ptr %col.011.i725, i64 16
   call fastcc void @emitter_print_value(ptr noundef nonnull readonly %emitter, i32 noundef %262, i32 noundef %263, i32 noundef %264, ptr noundef nonnull %265)
-  %link.i728 = getelementptr inbounds i8, ptr %col.011.i725, i64 24
+  %link.i728 = getelementptr inbounds nuw i8, ptr %col.011.i725, i64 24
   %266 = load ptr, ptr %link.i728, align 8
   %cmp4.not.i729 = icmp eq ptr %266, %mem_count_title
   %cmp1.not12.i730 = icmp eq ptr %266, null
@@ -7315,7 +7315,7 @@ if.then931:                                       ; preds = %emitter_table_row.e
   unreachable
 
 do.end933:                                        ; preds = %emitter_table_row.exit733
-  %arrayidx935 = getelementptr inbounds i8, ptr %mib923, i64 16
+  %arrayidx935 = getelementptr inbounds nuw i8, ptr %mib923, i64 16
   store i64 %conv, ptr %arrayidx935, align 16
   %267 = load i64, ptr %miblen924, align 8
   %call938 = call i32 @je_mallctlbymib(ptr noundef nonnull %mib923, i64 noundef %267, ptr noundef nonnull %extent_avail, ptr noundef nonnull %sz925, ptr noundef null, i64 noundef 0) #13
@@ -7340,13 +7340,13 @@ do.end944:                                        ; preds = %do.end933
 for.body.i737:                                    ; preds = %do.end944, %for.body.i737
   %col.011.i738 = phi ptr [ %274, %for.body.i737 ], [ %mem_count_title, %do.end944 ]
   %270 = load i32, ptr %col.011.i738, align 8
-  %width.i739 = getelementptr inbounds i8, ptr %col.011.i738, i64 4
+  %width.i739 = getelementptr inbounds nuw i8, ptr %col.011.i738, i64 4
   %271 = load i32, ptr %width.i739, align 4
-  %type.i740 = getelementptr inbounds i8, ptr %col.011.i738, i64 8
+  %type.i740 = getelementptr inbounds nuw i8, ptr %col.011.i738, i64 8
   %272 = load i32, ptr %type.i740, align 8
-  %273 = getelementptr inbounds i8, ptr %col.011.i738, i64 16
+  %273 = getelementptr inbounds nuw i8, ptr %col.011.i738, i64 16
   call fastcc void @emitter_print_value(ptr noundef nonnull readonly %emitter, i32 noundef %270, i32 noundef %271, i32 noundef %272, ptr noundef nonnull %273)
-  %link.i741 = getelementptr inbounds i8, ptr %col.011.i738, i64 24
+  %link.i741 = getelementptr inbounds nuw i8, ptr %col.011.i738, i64 24
   %274 = load ptr, ptr %link.i741, align 8
   %cmp4.not.i742 = icmp eq ptr %274, %mem_count_title
   %cmp1.not12.i743 = icmp eq ptr %274, null
@@ -7385,13 +7385,13 @@ if.end.i.i:                                       ; preds = %if.then945
 for.body.i.i750:                                  ; preds = %if.end.i.i, %for.body.i.i750
   %col.011.i.i = phi ptr [ %282, %for.body.i.i750 ], [ %277, %if.end.i.i ]
   %278 = load i32, ptr %col.011.i.i, align 8
-  %width.i.i = getelementptr inbounds i8, ptr %col.011.i.i, i64 4
+  %width.i.i = getelementptr inbounds nuw i8, ptr %col.011.i.i, i64 4
   %279 = load i32, ptr %width.i.i, align 4
-  %type.i.i = getelementptr inbounds i8, ptr %col.011.i.i, i64 8
+  %type.i.i = getelementptr inbounds nuw i8, ptr %col.011.i.i, i64 8
   %280 = load i32, ptr %type.i.i, align 8
-  %281 = getelementptr inbounds i8, ptr %col.011.i.i, i64 16
+  %281 = getelementptr inbounds nuw i8, ptr %col.011.i.i, i64 16
   call fastcc void @emitter_print_value(ptr noundef nonnull readonly %emitter, i32 noundef %278, i32 noundef %279, i32 noundef %280, ptr noundef nonnull %281)
-  %link.i.i = getelementptr inbounds i8, ptr %col.011.i.i, i64 24
+  %link.i.i = getelementptr inbounds nuw i8, ptr %col.011.i.i, i64 24
   %282 = load ptr, ptr %link.i.i, align 8
   %283 = load ptr, ptr %row.i, align 8
   %cmp4.not.i.i = icmp eq ptr %282, %283
@@ -7406,7 +7406,7 @@ for.end.i.i:                                      ; preds = %for.body.i.i750, %i
 emitter_table_row.exit.i:                         ; preds = %for.end.i.i, %if.then945
   store i64 7, ptr %miblen_new.i, align 8
   %284 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tsd_tls)
-  %state.i64.i = getelementptr inbounds i8, ptr %284, i64 832
+  %state.i64.i = getelementptr inbounds nuw i8, ptr %284, i64 832
   %285 = load i8, ptr %state.i64.i, align 8
   %cmp6.i.not.i = icmp eq i8 %285, 0
   br i1 %cmp6.i.not.i, label %tsd_fetch_impl.exit.i, label %if.then11.i.i
@@ -7427,7 +7427,7 @@ if.then.i:                                        ; preds = %tsd_fetch_impl.exit
   unreachable
 
 do.end9.i:                                        ; preds = %tsd_fetch_impl.exit.i
-  %arrayidx.i = getelementptr inbounds i8, ptr %stats_arenas_mib.i, i64 16
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %stats_arenas_mib.i, i64 16
   store i64 %conv, ptr %arrayidx.i, align 16
   store i64 7, ptr %miblen_new13.i, align 8
   %286 = load i8, ptr %state.i64.i, align 8
@@ -7445,36 +7445,36 @@ tsd_fetch_impl.exit59.i:                          ; preds = %if.then11.i53.i, %d
   br i1 %cmp18.not.i, label %for.cond.preheader.i, label %if.then20.i
 
 for.cond.preheader.i:                             ; preds = %tsd_fetch_impl.exit59.i
-  %287 = getelementptr inbounds i8, ptr %col_name.i, i64 16
-  %type.i18.i = getelementptr inbounds i8, ptr %col64.i, i64 8
-  %288 = getelementptr inbounds i8, ptr %col64.i, i64 16
-  %type23.i.i = getelementptr inbounds i8, ptr %col64.i, i64 48
+  %287 = getelementptr inbounds nuw i8, ptr %col_name.i, i64 16
+  %type.i18.i = getelementptr inbounds nuw i8, ptr %col64.i, i64 8
+  %288 = getelementptr inbounds nuw i8, ptr %col64.i, i64 16
+  %type23.i.i = getelementptr inbounds nuw i8, ptr %col64.i, i64 48
   %cmp.i.i.i = icmp eq i64 %275, 0
   %cmp2.i.i.i = icmp ult i64 %275, 1000000000
   %div.i.i.i = udiv i64 %275, 1000000000
-  %289 = getelementptr inbounds i8, ptr %col64.i, i64 56
-  %type27.i.i = getelementptr inbounds i8, ptr %col64.i, i64 88
-  %290 = getelementptr inbounds i8, ptr %col64.i, i64 96
-  %type44.i.i = getelementptr inbounds i8, ptr %col64.i, i64 128
-  %291 = getelementptr inbounds i8, ptr %col64.i, i64 136
-  %type49.i.i = getelementptr inbounds i8, ptr %col64.i, i64 168
-  %292 = getelementptr inbounds i8, ptr %col64.i, i64 176
-  %type66.i.i = getelementptr inbounds i8, ptr %col64.i, i64 208
-  %293 = getelementptr inbounds i8, ptr %col64.i, i64 216
-  %type71.i.i = getelementptr inbounds i8, ptr %col64.i, i64 248
-  %294 = getelementptr inbounds i8, ptr %col64.i, i64 256
-  %type88.i.i = getelementptr inbounds i8, ptr %col64.i, i64 288
-  %295 = getelementptr inbounds i8, ptr %col64.i, i64 296
-  %type93.i.i = getelementptr inbounds i8, ptr %col64.i, i64 328
-  %296 = getelementptr inbounds i8, ptr %col64.i, i64 336
-  %type110.i.i = getelementptr inbounds i8, ptr %col64.i, i64 368
-  %297 = getelementptr inbounds i8, ptr %col64.i, i64 376
-  %type115.i.i = getelementptr inbounds i8, ptr %col64.i, i64 408
-  %298 = getelementptr inbounds i8, ptr %col64.i, i64 416
-  %type132.i.i = getelementptr inbounds i8, ptr %col32.i, i64 8
-  %299 = getelementptr inbounds i8, ptr %col32.i, i64 16
-  %nesting_depth.i.i.i = getelementptr inbounds i8, ptr %emitter, i64 24
-  %item_at_depth.i.i.i = getelementptr inbounds i8, ptr %emitter, i64 28
+  %289 = getelementptr inbounds nuw i8, ptr %col64.i, i64 56
+  %type27.i.i = getelementptr inbounds nuw i8, ptr %col64.i, i64 88
+  %290 = getelementptr inbounds nuw i8, ptr %col64.i, i64 96
+  %type44.i.i = getelementptr inbounds nuw i8, ptr %col64.i, i64 128
+  %291 = getelementptr inbounds nuw i8, ptr %col64.i, i64 136
+  %type49.i.i = getelementptr inbounds nuw i8, ptr %col64.i, i64 168
+  %292 = getelementptr inbounds nuw i8, ptr %col64.i, i64 176
+  %type66.i.i = getelementptr inbounds nuw i8, ptr %col64.i, i64 208
+  %293 = getelementptr inbounds nuw i8, ptr %col64.i, i64 216
+  %type71.i.i = getelementptr inbounds nuw i8, ptr %col64.i, i64 248
+  %294 = getelementptr inbounds nuw i8, ptr %col64.i, i64 256
+  %type88.i.i = getelementptr inbounds nuw i8, ptr %col64.i, i64 288
+  %295 = getelementptr inbounds nuw i8, ptr %col64.i, i64 296
+  %type93.i.i = getelementptr inbounds nuw i8, ptr %col64.i, i64 328
+  %296 = getelementptr inbounds nuw i8, ptr %col64.i, i64 336
+  %type110.i.i = getelementptr inbounds nuw i8, ptr %col64.i, i64 368
+  %297 = getelementptr inbounds nuw i8, ptr %col64.i, i64 376
+  %type115.i.i = getelementptr inbounds nuw i8, ptr %col64.i, i64 408
+  %298 = getelementptr inbounds nuw i8, ptr %col64.i, i64 416
+  %type132.i.i = getelementptr inbounds nuw i8, ptr %col32.i, i64 8
+  %299 = getelementptr inbounds nuw i8, ptr %col32.i, i64 16
+  %nesting_depth.i.i.i = getelementptr inbounds nuw i8, ptr %emitter, i64 24
+  %item_at_depth.i.i.i = getelementptr inbounds nuw i8, ptr %emitter, i64 28
   br label %for.body.i748
 
 if.then20.i:                                      ; preds = %tsd_fetch_impl.exit59.i
@@ -7484,7 +7484,7 @@ if.then20.i:                                      ; preds = %tsd_fetch_impl.exit
 
 for.body.i748:                                    ; preds = %emitter_json_object_end.exit.i, %for.cond.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.cond.preheader.i ], [ %indvars.iv.next.i, %emitter_json_object_end.exit.i ]
-  %arrayidx28.i = getelementptr inbounds [12 x ptr], ptr @arena_mutex_names, i64 0, i64 %indvars.iv.i
+  %arrayidx28.i = getelementptr inbounds nuw [12 x ptr], ptr @arena_mutex_names, i64 0, i64 %indvars.iv.i
   %300 = load ptr, ptr %arrayidx28.i, align 8
   call fastcc void @emitter_json_key(ptr noundef nonnull %emitter, ptr noundef %300)
   call fastcc void @emitter_json_object_begin(ptr noundef nonnull %emitter)
@@ -7997,7 +7997,7 @@ if.then.i754:                                     ; preds = %if.then958
   unreachable
 
 do.end.i755:                                      ; preds = %if.then958
-  %arrayidx.i757 = getelementptr inbounds i8, ptr %mib.i, i64 16
+  %arrayidx.i757 = getelementptr inbounds nuw i8, ptr %mib.i, i64 16
   store i64 %conv, ptr %arrayidx.i757, align 16
   %323 = load i64, ptr %miblen.i, align 8
   %call4.i = call i32 @je_mallctlbymib(ptr noundef nonnull %mib.i, i64 noundef %323, ptr noundef nonnull %npurge_passes.i, ptr noundef nonnull %sz.i, ptr noundef null, i64 noundef 0) #13
@@ -8022,7 +8022,7 @@ if.then20.i760:                                   ; preds = %do.body11.i
   unreachable
 
 do.end22.i:                                       ; preds = %do.body11.i
-  %arrayidx24.i = getelementptr inbounds i8, ptr %mib12.i, i64 16
+  %arrayidx24.i = getelementptr inbounds nuw i8, ptr %mib12.i, i64 16
   store i64 %conv, ptr %arrayidx24.i, align 16
   %324 = load i64, ptr %miblen13.i, align 8
   %call27.i = call i32 @je_mallctlbymib(ptr noundef nonnull %mib12.i, i64 noundef %324, ptr noundef nonnull %npurges.i, ptr noundef nonnull %sz14.i, ptr noundef null, i64 noundef 0) #13
@@ -8047,7 +8047,7 @@ if.then43.i:                                      ; preds = %do.body34.i
   unreachable
 
 do.end45.i:                                       ; preds = %do.body34.i
-  %arrayidx47.i = getelementptr inbounds i8, ptr %mib35.i, i64 16
+  %arrayidx47.i = getelementptr inbounds nuw i8, ptr %mib35.i, i64 16
   store i64 %conv, ptr %arrayidx47.i, align 16
   %325 = load i64, ptr %miblen36.i, align 8
   %call50.i = call i32 @je_mallctlbymib(ptr noundef nonnull %mib35.i, i64 noundef %325, ptr noundef nonnull %nhugifies.i, ptr noundef nonnull %sz37.i, ptr noundef null, i64 noundef 0) #13
@@ -8072,7 +8072,7 @@ if.then66.i:                                      ; preds = %do.body57.i
   unreachable
 
 do.end68.i:                                       ; preds = %do.body57.i
-  %arrayidx70.i = getelementptr inbounds i8, ptr %mib58.i, i64 16
+  %arrayidx70.i = getelementptr inbounds nuw i8, ptr %mib58.i, i64 16
   store i64 %conv, ptr %arrayidx70.i, align 16
   %326 = load i64, ptr %miblen59.i, align 8
   %call73.i = call i32 @je_mallctlbymib(ptr noundef nonnull %mib58.i, i64 noundef %326, ptr noundef nonnull %ndehugifies.i, ptr noundef nonnull %sz60.i, ptr noundef null, i64 noundef 0) #13
@@ -8097,7 +8097,7 @@ if.then89.i:                                      ; preds = %do.body80.i
   unreachable
 
 do.end91.i:                                       ; preds = %do.body80.i
-  %arrayidx93.i = getelementptr inbounds i8, ptr %mib81.i, i64 16
+  %arrayidx93.i = getelementptr inbounds nuw i8, ptr %mib81.i, i64 16
   store i64 %conv, ptr %arrayidx93.i, align 16
   %327 = load i64, ptr %miblen82.i, align 8
   %call96.i = call i32 @je_mallctlbymib(ptr noundef nonnull %mib81.i, i64 noundef %327, ptr noundef nonnull %sec_bytes.i, ptr noundef nonnull %sz83.i, ptr noundef null, i64 noundef 0) #13
@@ -8199,7 +8199,7 @@ if.then116.i:                                     ; preds = %rate_per_second.exi
   unreachable
 
 do.end118.i:                                      ; preds = %rate_per_second.exit131.i
-  %arrayidx120.i = getelementptr inbounds i8, ptr %mib108.i, i64 16
+  %arrayidx120.i = getelementptr inbounds nuw i8, ptr %mib108.i, i64 16
   store i64 %conv, ptr %arrayidx120.i, align 16
   %332 = load i64, ptr %miblen109.i, align 8
   %call123.i = call i32 @je_mallctlbymib(ptr noundef nonnull %mib108.i, i64 noundef %332, ptr noundef nonnull %npageslabs_huge.i, ptr noundef nonnull %sz110.i, ptr noundef null, i64 noundef 0) #13
@@ -8224,7 +8224,7 @@ if.then139.i:                                     ; preds = %do.body130.i
   unreachable
 
 do.end141.i:                                      ; preds = %do.body130.i
-  %arrayidx143.i = getelementptr inbounds i8, ptr %mib131.i, i64 16
+  %arrayidx143.i = getelementptr inbounds nuw i8, ptr %mib131.i, i64 16
   store i64 %conv, ptr %arrayidx143.i, align 16
   %333 = load i64, ptr %miblen132.i, align 8
   %call146.i = call i32 @je_mallctlbymib(ptr noundef nonnull %mib131.i, i64 noundef %333, ptr noundef nonnull %nactive_huge.i, ptr noundef nonnull %sz133.i, ptr noundef null, i64 noundef 0) #13
@@ -8249,7 +8249,7 @@ if.then162.i:                                     ; preds = %do.body153.i
   unreachable
 
 do.end164.i:                                      ; preds = %do.body153.i
-  %arrayidx166.i = getelementptr inbounds i8, ptr %mib154.i, i64 16
+  %arrayidx166.i = getelementptr inbounds nuw i8, ptr %mib154.i, i64 16
   store i64 %conv, ptr %arrayidx166.i, align 16
   %334 = load i64, ptr %miblen155.i, align 8
   %call169.i = call i32 @je_mallctlbymib(ptr noundef nonnull %mib154.i, i64 noundef %334, ptr noundef nonnull %ndirty_huge.i, ptr noundef nonnull %sz156.i, ptr noundef null, i64 noundef 0) #13
@@ -8274,7 +8274,7 @@ if.then185.i:                                     ; preds = %do.body176.i
   unreachable
 
 do.end187.i:                                      ; preds = %do.body176.i
-  %arrayidx189.i = getelementptr inbounds i8, ptr %mib177.i, i64 16
+  %arrayidx189.i = getelementptr inbounds nuw i8, ptr %mib177.i, i64 16
   store i64 %conv, ptr %arrayidx189.i, align 16
   %335 = load i64, ptr %miblen178.i, align 8
   %call192.i = call i32 @je_mallctlbymib(ptr noundef nonnull %mib177.i, i64 noundef %335, ptr noundef nonnull %npageslabs_nonhuge.i, ptr noundef nonnull %sz179.i, ptr noundef null, i64 noundef 0) #13
@@ -8299,7 +8299,7 @@ if.then208.i:                                     ; preds = %do.body199.i
   unreachable
 
 do.end210.i:                                      ; preds = %do.body199.i
-  %arrayidx212.i = getelementptr inbounds i8, ptr %mib200.i, i64 16
+  %arrayidx212.i = getelementptr inbounds nuw i8, ptr %mib200.i, i64 16
   store i64 %conv, ptr %arrayidx212.i, align 16
   %336 = load i64, ptr %miblen201.i, align 8
   %call215.i = call i32 @je_mallctlbymib(ptr noundef nonnull %mib200.i, i64 noundef %336, ptr noundef nonnull %nactive_nonhuge.i, ptr noundef nonnull %sz202.i, ptr noundef null, i64 noundef 0) #13
@@ -8324,7 +8324,7 @@ if.then231.i:                                     ; preds = %do.body222.i
   unreachable
 
 do.end233.i:                                      ; preds = %do.body222.i
-  %arrayidx235.i = getelementptr inbounds i8, ptr %mib223.i, i64 16
+  %arrayidx235.i = getelementptr inbounds nuw i8, ptr %mib223.i, i64 16
   store i64 %conv, ptr %arrayidx235.i, align 16
   %337 = load i64, ptr %miblen224.i, align 8
   %call238.i = call i32 @je_mallctlbymib(ptr noundef nonnull %mib223.i, i64 noundef %337, ptr noundef nonnull %ndirty_nonhuge.i, ptr noundef nonnull %sz225.i, ptr noundef null, i64 noundef 0) #13
@@ -8366,11 +8366,11 @@ do.end244.i:                                      ; preds = %do.end233.i
   br i1 %spec.select.i.i.i764, label %do.end.i.i791, label %emitter_json_object_end.exit.i765
 
 do.end.i.i791:                                    ; preds = %do.end244.i
-  %nesting_depth.i.i.i792 = getelementptr inbounds i8, ptr %emitter, i64 24
+  %nesting_depth.i.i.i792 = getelementptr inbounds nuw i8, ptr %emitter, i64 24
   %345 = load i32, ptr %nesting_depth.i.i.i792, align 8
   %dec.i.i.i793 = add nsw i32 %345, -1
   store i32 %dec.i.i.i793, ptr %nesting_depth.i.i.i792, align 8
-  %item_at_depth.i.i.i794 = getelementptr inbounds i8, ptr %emitter, i64 28
+  %item_at_depth.i.i.i794 = getelementptr inbounds nuw i8, ptr %emitter, i64 28
   store i8 1, ptr %item_at_depth.i.i.i794, align 4
   %cmp.not.i.i795 = icmp eq i32 %emitter.val.i.i763, 1
   br i1 %cmp.not.i.i795, label %if.end.i132.i, label %if.then1.i.i796
@@ -8413,7 +8413,7 @@ if.then255.i:                                     ; preds = %emitter_json_object
   unreachable
 
 do.end257.i:                                      ; preds = %emitter_json_object_end.exit.i765
-  %arrayidx259.i = getelementptr inbounds i8, ptr %mib247.i, i64 16
+  %arrayidx259.i = getelementptr inbounds nuw i8, ptr %mib247.i, i64 16
   store i64 %conv, ptr %arrayidx259.i, align 16
   %348 = load i64, ptr %miblen248.i, align 8
   %call262.i = call i32 @je_mallctlbymib(ptr noundef nonnull %mib247.i, i64 noundef %348, ptr noundef nonnull %npageslabs_huge.i, ptr noundef nonnull %sz249.i, ptr noundef null, i64 noundef 0) #13
@@ -8438,7 +8438,7 @@ if.then278.i:                                     ; preds = %do.body269.i
   unreachable
 
 do.end280.i:                                      ; preds = %do.body269.i
-  %arrayidx282.i = getelementptr inbounds i8, ptr %mib270.i, i64 16
+  %arrayidx282.i = getelementptr inbounds nuw i8, ptr %mib270.i, i64 16
   store i64 %conv, ptr %arrayidx282.i, align 16
   %349 = load i64, ptr %miblen271.i, align 8
   %call285.i = call i32 @je_mallctlbymib(ptr noundef nonnull %mib270.i, i64 noundef %349, ptr noundef nonnull %nactive_huge.i, ptr noundef nonnull %sz272.i, ptr noundef null, i64 noundef 0) #13
@@ -8463,7 +8463,7 @@ if.then301.i:                                     ; preds = %do.body292.i
   unreachable
 
 do.end303.i:                                      ; preds = %do.body292.i
-  %arrayidx305.i = getelementptr inbounds i8, ptr %mib293.i, i64 16
+  %arrayidx305.i = getelementptr inbounds nuw i8, ptr %mib293.i, i64 16
   store i64 %conv, ptr %arrayidx305.i, align 16
   %350 = load i64, ptr %miblen294.i, align 8
   %call308.i = call i32 @je_mallctlbymib(ptr noundef nonnull %mib293.i, i64 noundef %350, ptr noundef nonnull %ndirty_huge.i, ptr noundef nonnull %sz295.i, ptr noundef null, i64 noundef 0) #13
@@ -8488,7 +8488,7 @@ if.then324.i:                                     ; preds = %do.body315.i
   unreachable
 
 do.end326.i:                                      ; preds = %do.body315.i
-  %arrayidx328.i = getelementptr inbounds i8, ptr %mib316.i, i64 16
+  %arrayidx328.i = getelementptr inbounds nuw i8, ptr %mib316.i, i64 16
   store i64 %conv, ptr %arrayidx328.i, align 16
   %351 = load i64, ptr %miblen317.i, align 8
   %call331.i = call i32 @je_mallctlbymib(ptr noundef nonnull %mib316.i, i64 noundef %351, ptr noundef nonnull %npageslabs_nonhuge.i, ptr noundef nonnull %sz318.i, ptr noundef null, i64 noundef 0) #13
@@ -8513,7 +8513,7 @@ if.then347.i:                                     ; preds = %do.body338.i
   unreachable
 
 do.end349.i:                                      ; preds = %do.body338.i
-  %arrayidx351.i = getelementptr inbounds i8, ptr %mib339.i, i64 16
+  %arrayidx351.i = getelementptr inbounds nuw i8, ptr %mib339.i, i64 16
   store i64 %conv, ptr %arrayidx351.i, align 16
   %352 = load i64, ptr %miblen340.i, align 8
   %call354.i = call i32 @je_mallctlbymib(ptr noundef nonnull %mib339.i, i64 noundef %352, ptr noundef nonnull %nactive_nonhuge.i, ptr noundef nonnull %sz341.i, ptr noundef null, i64 noundef 0) #13
@@ -8538,7 +8538,7 @@ if.then370.i:                                     ; preds = %do.body361.i
   unreachable
 
 do.end372.i:                                      ; preds = %do.body361.i
-  %arrayidx374.i = getelementptr inbounds i8, ptr %mib362.i, i64 16
+  %arrayidx374.i = getelementptr inbounds nuw i8, ptr %mib362.i, i64 16
   store i64 %conv, ptr %arrayidx374.i, align 16
   %353 = load i64, ptr %miblen363.i, align 8
   %call377.i = call i32 @je_mallctlbymib(ptr noundef nonnull %mib362.i, i64 noundef %353, ptr noundef nonnull %ndirty_nonhuge.i, ptr noundef nonnull %sz364.i, ptr noundef null, i64 noundef 0) #13
@@ -8580,11 +8580,11 @@ do.end383.i:                                      ; preds = %do.end372.i
   br i1 %spec.select.i.i134.i, label %do.end.i135.i, label %emitter_col_init.exit375.i
 
 do.end.i135.i:                                    ; preds = %do.end383.i
-  %nesting_depth.i.i136.i = getelementptr inbounds i8, ptr %emitter, i64 24
+  %nesting_depth.i.i136.i = getelementptr inbounds nuw i8, ptr %emitter, i64 24
   %361 = load i32, ptr %nesting_depth.i.i136.i, align 8
   %dec.i.i137.i = add nsw i32 %361, -1
   store i32 %dec.i.i137.i, ptr %nesting_depth.i.i136.i, align 8
-  %item_at_depth.i.i138.i = getelementptr inbounds i8, ptr %emitter, i64 28
+  %item_at_depth.i.i138.i = getelementptr inbounds nuw i8, ptr %emitter, i64 28
   store i8 1, ptr %item_at_depth.i.i138.i, align 4
   %cmp.not.i139.i = icmp eq i32 %emitter.val.i133.i, 1
   br i1 %cmp.not.i139.i, label %if.end.i144.i, label %if.then1.i140.i
@@ -8615,189 +8615,189 @@ if.end.i144.i:                                    ; preds = %for.body.i.i148.i, 
   br label %emitter_col_init.exit375.i
 
 emitter_col_init.exit375.i:                       ; preds = %if.end.i144.i, %do.end383.i
-  %link.i.i766 = getelementptr inbounds i8, ptr %col_size.i, i64 24
-  %qre_prev.i.i = getelementptr inbounds i8, ptr %col_size.i, i64 32
+  %link.i.i766 = getelementptr inbounds nuw i8, ptr %col_size.i, i64 24
+  %qre_prev.i.i = getelementptr inbounds nuw i8, ptr %col_size.i, i64 32
   store i32 1, ptr %col_size.i, align 8
-  %width.i767 = getelementptr inbounds i8, ptr %col_size.i, i64 4
+  %width.i767 = getelementptr inbounds nuw i8, ptr %col_size.i, i64 4
   store i32 20, ptr %width.i767, align 4
-  %type.i768 = getelementptr inbounds i8, ptr %col_size.i, i64 8
+  %type.i768 = getelementptr inbounds nuw i8, ptr %col_size.i, i64 8
   store i32 6, ptr %type.i768, align 8
-  %link.i155.i = getelementptr inbounds i8, ptr %header_size.i, i64 24
-  %qre_prev.i156.i = getelementptr inbounds i8, ptr %header_size.i, i64 32
+  %link.i155.i = getelementptr inbounds nuw i8, ptr %header_size.i, i64 24
+  %qre_prev.i156.i = getelementptr inbounds nuw i8, ptr %header_size.i, i64 32
   store i32 1, ptr %header_size.i, align 8
-  %width388.i = getelementptr inbounds i8, ptr %header_size.i, i64 4
+  %width388.i = getelementptr inbounds nuw i8, ptr %header_size.i, i64 4
   store i32 20, ptr %width388.i, align 4
-  %type389.i = getelementptr inbounds i8, ptr %header_size.i, i64 8
+  %type389.i = getelementptr inbounds nuw i8, ptr %header_size.i, i64 8
   store i32 9, ptr %type389.i, align 8
-  %364 = getelementptr inbounds i8, ptr %header_size.i, i64 16
+  %364 = getelementptr inbounds nuw i8, ptr %header_size.i, i64 16
   store ptr @.str.202, ptr %364, align 8
-  %link.i168.i = getelementptr inbounds i8, ptr %col_ind.i, i64 24
-  %qre_prev.i169.i = getelementptr inbounds i8, ptr %col_ind.i, i64 32
+  %link.i168.i = getelementptr inbounds nuw i8, ptr %col_ind.i, i64 24
+  %qre_prev.i169.i = getelementptr inbounds nuw i8, ptr %col_ind.i, i64 32
   store ptr %col_size.i, ptr %qre_prev.i169.i, align 8
   store ptr %col_ind.i, ptr %link.i.i766, align 8
   store i32 1, ptr %col_ind.i, align 8
-  %width391.i = getelementptr inbounds i8, ptr %col_ind.i, i64 4
+  %width391.i = getelementptr inbounds nuw i8, ptr %col_ind.i, i64 4
   store i32 4, ptr %width391.i, align 4
-  %type392.i = getelementptr inbounds i8, ptr %col_ind.i, i64 8
+  %type392.i = getelementptr inbounds nuw i8, ptr %col_ind.i, i64 8
   store i32 3, ptr %type392.i, align 8
-  %link.i181.i = getelementptr inbounds i8, ptr %header_ind.i, i64 24
-  %qre_prev.i182.i = getelementptr inbounds i8, ptr %header_ind.i, i64 32
+  %link.i181.i = getelementptr inbounds nuw i8, ptr %header_ind.i, i64 24
+  %qre_prev.i182.i = getelementptr inbounds nuw i8, ptr %header_ind.i, i64 32
   store ptr %header_size.i, ptr %qre_prev.i182.i, align 8
   store ptr %header_ind.i, ptr %link.i155.i, align 8
   store i32 1, ptr %header_ind.i, align 8
-  %width394.i = getelementptr inbounds i8, ptr %header_ind.i, i64 4
+  %width394.i = getelementptr inbounds nuw i8, ptr %header_ind.i, i64 4
   store i32 4, ptr %width394.i, align 4
-  %type395.i = getelementptr inbounds i8, ptr %header_ind.i, i64 8
+  %type395.i = getelementptr inbounds nuw i8, ptr %header_ind.i, i64 8
   store i32 9, ptr %type395.i, align 8
-  %365 = getelementptr inbounds i8, ptr %header_ind.i, i64 16
+  %365 = getelementptr inbounds nuw i8, ptr %header_ind.i, i64 16
   store ptr @.str.365, ptr %365, align 8
-  %qre_prev.i195.i = getelementptr inbounds i8, ptr %col_npageslabs_huge.i, i64 32
+  %qre_prev.i195.i = getelementptr inbounds nuw i8, ptr %col_npageslabs_huge.i, i64 32
   store ptr %col_ind.i, ptr %qre_prev.i195.i, align 8
   store ptr %col_npageslabs_huge.i, ptr %link.i168.i, align 8
   store i32 1, ptr %col_npageslabs_huge.i, align 8
-  %width397.i = getelementptr inbounds i8, ptr %col_npageslabs_huge.i, i64 4
+  %width397.i = getelementptr inbounds nuw i8, ptr %col_npageslabs_huge.i, i64 4
   store i32 16, ptr %width397.i, align 4
-  %type398.i = getelementptr inbounds i8, ptr %col_npageslabs_huge.i, i64 8
+  %type398.i = getelementptr inbounds nuw i8, ptr %col_npageslabs_huge.i, i64 8
   store i32 6, ptr %type398.i, align 8
-  %qre_prev.i208.i = getelementptr inbounds i8, ptr %header_npageslabs_huge.i, i64 32
+  %qre_prev.i208.i = getelementptr inbounds nuw i8, ptr %header_npageslabs_huge.i, i64 32
   store ptr %header_ind.i, ptr %qre_prev.i208.i, align 8
   store ptr %header_npageslabs_huge.i, ptr %link.i181.i, align 8
   store i32 1, ptr %header_npageslabs_huge.i, align 8
-  %width400.i = getelementptr inbounds i8, ptr %header_npageslabs_huge.i, i64 4
+  %width400.i = getelementptr inbounds nuw i8, ptr %header_npageslabs_huge.i, i64 4
   store i32 16, ptr %width400.i, align 4
-  %type401.i = getelementptr inbounds i8, ptr %header_npageslabs_huge.i, i64 8
+  %type401.i = getelementptr inbounds nuw i8, ptr %header_npageslabs_huge.i, i64 8
   store i32 9, ptr %type401.i, align 8
-  %366 = getelementptr inbounds i8, ptr %header_npageslabs_huge.i, i64 16
+  %366 = getelementptr inbounds nuw i8, ptr %header_npageslabs_huge.i, i64 16
   store ptr @.str.432, ptr %366, align 8
-  %qre_prev.i221.i = getelementptr inbounds i8, ptr %col_nactive_huge.i, i64 32
+  %qre_prev.i221.i = getelementptr inbounds nuw i8, ptr %col_nactive_huge.i, i64 32
   store ptr %col_npageslabs_huge.i, ptr %qre_prev.i221.i, align 8
-  %link34.i229.i = getelementptr inbounds i8, ptr %col_npageslabs_huge.i, i64 24
+  %link34.i229.i = getelementptr inbounds nuw i8, ptr %col_npageslabs_huge.i, i64 24
   store ptr %col_nactive_huge.i, ptr %link34.i229.i, align 8
   store i32 1, ptr %col_nactive_huge.i, align 8
-  %width403.i = getelementptr inbounds i8, ptr %col_nactive_huge.i, i64 4
+  %width403.i = getelementptr inbounds nuw i8, ptr %col_nactive_huge.i, i64 4
   store i32 16, ptr %width403.i, align 4
-  %type404.i = getelementptr inbounds i8, ptr %col_nactive_huge.i, i64 8
+  %type404.i = getelementptr inbounds nuw i8, ptr %col_nactive_huge.i, i64 8
   store i32 6, ptr %type404.i, align 8
-  %link.i233.i = getelementptr inbounds i8, ptr %header_nactive_huge.i, i64 24
-  %qre_prev.i234.i = getelementptr inbounds i8, ptr %header_nactive_huge.i, i64 32
+  %link.i233.i = getelementptr inbounds nuw i8, ptr %header_nactive_huge.i, i64 24
+  %qre_prev.i234.i = getelementptr inbounds nuw i8, ptr %header_nactive_huge.i, i64 32
   store ptr %header_npageslabs_huge.i, ptr %qre_prev.i234.i, align 8
-  %link34.i242.i = getelementptr inbounds i8, ptr %header_npageslabs_huge.i, i64 24
+  %link34.i242.i = getelementptr inbounds nuw i8, ptr %header_npageslabs_huge.i, i64 24
   store ptr %header_nactive_huge.i, ptr %link34.i242.i, align 8
   store i32 1, ptr %header_nactive_huge.i, align 8
-  %width406.i = getelementptr inbounds i8, ptr %header_nactive_huge.i, i64 4
+  %width406.i = getelementptr inbounds nuw i8, ptr %header_nactive_huge.i, i64 4
   store i32 16, ptr %width406.i, align 4
-  %type407.i = getelementptr inbounds i8, ptr %header_nactive_huge.i, i64 8
+  %type407.i = getelementptr inbounds nuw i8, ptr %header_nactive_huge.i, i64 8
   store i32 9, ptr %type407.i, align 8
-  %367 = getelementptr inbounds i8, ptr %header_nactive_huge.i, i64 16
+  %367 = getelementptr inbounds nuw i8, ptr %header_nactive_huge.i, i64 16
   store ptr @.str.433, ptr %367, align 8
-  %link.i246.i = getelementptr inbounds i8, ptr %col_ndirty_huge.i, i64 24
-  %qre_prev.i247.i = getelementptr inbounds i8, ptr %col_ndirty_huge.i, i64 32
+  %link.i246.i = getelementptr inbounds nuw i8, ptr %col_ndirty_huge.i, i64 24
+  %qre_prev.i247.i = getelementptr inbounds nuw i8, ptr %col_ndirty_huge.i, i64 32
   store ptr %col_nactive_huge.i, ptr %qre_prev.i247.i, align 8
-  %link34.i255.i = getelementptr inbounds i8, ptr %col_nactive_huge.i, i64 24
+  %link34.i255.i = getelementptr inbounds nuw i8, ptr %col_nactive_huge.i, i64 24
   store ptr %col_ndirty_huge.i, ptr %link34.i255.i, align 8
   store i32 1, ptr %col_ndirty_huge.i, align 8
-  %width409.i = getelementptr inbounds i8, ptr %col_ndirty_huge.i, i64 4
+  %width409.i = getelementptr inbounds nuw i8, ptr %col_ndirty_huge.i, i64 4
   store i32 16, ptr %width409.i, align 4
-  %type410.i = getelementptr inbounds i8, ptr %col_ndirty_huge.i, i64 8
+  %type410.i = getelementptr inbounds nuw i8, ptr %col_ndirty_huge.i, i64 8
   store i32 6, ptr %type410.i, align 8
-  %link.i259.i = getelementptr inbounds i8, ptr %header_ndirty_huge.i, i64 24
-  %qre_prev.i260.i = getelementptr inbounds i8, ptr %header_ndirty_huge.i, i64 32
+  %link.i259.i = getelementptr inbounds nuw i8, ptr %header_ndirty_huge.i, i64 24
+  %qre_prev.i260.i = getelementptr inbounds nuw i8, ptr %header_ndirty_huge.i, i64 32
   store ptr %header_nactive_huge.i, ptr %qre_prev.i260.i, align 8
   store ptr %header_ndirty_huge.i, ptr %link.i233.i, align 8
   store i32 1, ptr %header_ndirty_huge.i, align 8
-  %width412.i = getelementptr inbounds i8, ptr %header_ndirty_huge.i, i64 4
+  %width412.i = getelementptr inbounds nuw i8, ptr %header_ndirty_huge.i, i64 4
   store i32 16, ptr %width412.i, align 4
-  %type413.i = getelementptr inbounds i8, ptr %header_ndirty_huge.i, i64 8
+  %type413.i = getelementptr inbounds nuw i8, ptr %header_ndirty_huge.i, i64 8
   store i32 9, ptr %type413.i, align 8
-  %368 = getelementptr inbounds i8, ptr %header_ndirty_huge.i, i64 16
+  %368 = getelementptr inbounds nuw i8, ptr %header_ndirty_huge.i, i64 16
   store ptr @.str.445, ptr %368, align 8
-  %link.i272.i = getelementptr inbounds i8, ptr %col_npageslabs_nonhuge.i, i64 24
-  %qre_prev.i273.i = getelementptr inbounds i8, ptr %col_npageslabs_nonhuge.i, i64 32
+  %link.i272.i = getelementptr inbounds nuw i8, ptr %col_npageslabs_nonhuge.i, i64 24
+  %qre_prev.i273.i = getelementptr inbounds nuw i8, ptr %col_npageslabs_nonhuge.i, i64 32
   store ptr %col_ndirty_huge.i, ptr %qre_prev.i273.i, align 8
   store ptr %col_npageslabs_nonhuge.i, ptr %link.i246.i, align 8
   store i32 1, ptr %col_npageslabs_nonhuge.i, align 8
-  %width415.i = getelementptr inbounds i8, ptr %col_npageslabs_nonhuge.i, i64 4
+  %width415.i = getelementptr inbounds nuw i8, ptr %col_npageslabs_nonhuge.i, i64 4
   store i32 20, ptr %width415.i, align 4
-  %type416.i = getelementptr inbounds i8, ptr %col_npageslabs_nonhuge.i, i64 8
+  %type416.i = getelementptr inbounds nuw i8, ptr %col_npageslabs_nonhuge.i, i64 8
   store i32 6, ptr %type416.i, align 8
-  %link.i285.i = getelementptr inbounds i8, ptr %header_npageslabs_nonhuge.i, i64 24
-  %qre_prev.i286.i = getelementptr inbounds i8, ptr %header_npageslabs_nonhuge.i, i64 32
+  %link.i285.i = getelementptr inbounds nuw i8, ptr %header_npageslabs_nonhuge.i, i64 24
+  %qre_prev.i286.i = getelementptr inbounds nuw i8, ptr %header_npageslabs_nonhuge.i, i64 32
   store ptr %header_ndirty_huge.i, ptr %qre_prev.i286.i, align 8
   store ptr %header_npageslabs_nonhuge.i, ptr %link.i259.i, align 8
   store i32 1, ptr %header_npageslabs_nonhuge.i, align 8
-  %width418.i = getelementptr inbounds i8, ptr %header_npageslabs_nonhuge.i, i64 4
+  %width418.i = getelementptr inbounds nuw i8, ptr %header_npageslabs_nonhuge.i, i64 4
   store i32 20, ptr %width418.i, align 4
-  %type419.i = getelementptr inbounds i8, ptr %header_npageslabs_nonhuge.i, i64 8
+  %type419.i = getelementptr inbounds nuw i8, ptr %header_npageslabs_nonhuge.i, i64 8
   store i32 9, ptr %type419.i, align 8
-  %369 = getelementptr inbounds i8, ptr %header_npageslabs_nonhuge.i, i64 16
+  %369 = getelementptr inbounds nuw i8, ptr %header_npageslabs_nonhuge.i, i64 16
   store ptr @.str.434, ptr %369, align 8
-  %link.i298.i = getelementptr inbounds i8, ptr %col_nactive_nonhuge.i, i64 24
-  %qre_prev.i299.i = getelementptr inbounds i8, ptr %col_nactive_nonhuge.i, i64 32
+  %link.i298.i = getelementptr inbounds nuw i8, ptr %col_nactive_nonhuge.i, i64 24
+  %qre_prev.i299.i = getelementptr inbounds nuw i8, ptr %col_nactive_nonhuge.i, i64 32
   store ptr %col_npageslabs_nonhuge.i, ptr %qre_prev.i299.i, align 8
   store ptr %col_nactive_nonhuge.i, ptr %link.i272.i, align 8
   store i32 1, ptr %col_nactive_nonhuge.i, align 8
-  %width421.i = getelementptr inbounds i8, ptr %col_nactive_nonhuge.i, i64 4
+  %width421.i = getelementptr inbounds nuw i8, ptr %col_nactive_nonhuge.i, i64 4
   store i32 20, ptr %width421.i, align 4
-  %type422.i = getelementptr inbounds i8, ptr %col_nactive_nonhuge.i, i64 8
+  %type422.i = getelementptr inbounds nuw i8, ptr %col_nactive_nonhuge.i, i64 8
   store i32 6, ptr %type422.i, align 8
-  %link.i311.i = getelementptr inbounds i8, ptr %header_nactive_nonhuge.i, i64 24
-  %qre_prev.i312.i = getelementptr inbounds i8, ptr %header_nactive_nonhuge.i, i64 32
+  %link.i311.i = getelementptr inbounds nuw i8, ptr %header_nactive_nonhuge.i, i64 24
+  %qre_prev.i312.i = getelementptr inbounds nuw i8, ptr %header_nactive_nonhuge.i, i64 32
   store ptr %header_npageslabs_nonhuge.i, ptr %qre_prev.i312.i, align 8
   store ptr %header_nactive_nonhuge.i, ptr %link.i285.i, align 8
   store i32 1, ptr %header_nactive_nonhuge.i, align 8
-  %width424.i = getelementptr inbounds i8, ptr %header_nactive_nonhuge.i, i64 4
+  %width424.i = getelementptr inbounds nuw i8, ptr %header_nactive_nonhuge.i, i64 4
   store i32 20, ptr %width424.i, align 4
-  %type425.i = getelementptr inbounds i8, ptr %header_nactive_nonhuge.i, i64 8
+  %type425.i = getelementptr inbounds nuw i8, ptr %header_nactive_nonhuge.i, i64 8
   store i32 9, ptr %type425.i, align 8
-  %370 = getelementptr inbounds i8, ptr %header_nactive_nonhuge.i, i64 16
+  %370 = getelementptr inbounds nuw i8, ptr %header_nactive_nonhuge.i, i64 16
   store ptr @.str.435, ptr %370, align 8
-  %qre_prev.i325.i = getelementptr inbounds i8, ptr %col_ndirty_nonhuge.i, i64 32
+  %qre_prev.i325.i = getelementptr inbounds nuw i8, ptr %col_ndirty_nonhuge.i, i64 32
   store ptr %col_nactive_nonhuge.i, ptr %qre_prev.i325.i, align 8
   store ptr %col_ndirty_nonhuge.i, ptr %link.i298.i, align 8
   store i32 1, ptr %col_ndirty_nonhuge.i, align 8
-  %width427.i = getelementptr inbounds i8, ptr %col_ndirty_nonhuge.i, i64 4
+  %width427.i = getelementptr inbounds nuw i8, ptr %col_ndirty_nonhuge.i, i64 4
   store i32 20, ptr %width427.i, align 4
-  %type428.i = getelementptr inbounds i8, ptr %col_ndirty_nonhuge.i, i64 8
+  %type428.i = getelementptr inbounds nuw i8, ptr %col_ndirty_nonhuge.i, i64 8
   store i32 6, ptr %type428.i, align 8
-  %qre_prev.i338.i = getelementptr inbounds i8, ptr %header_ndirty_nonhuge.i, i64 32
+  %qre_prev.i338.i = getelementptr inbounds nuw i8, ptr %header_ndirty_nonhuge.i, i64 32
   store ptr %header_nactive_nonhuge.i, ptr %qre_prev.i338.i, align 8
   store ptr %header_ndirty_nonhuge.i, ptr %link.i311.i, align 8
   store i32 1, ptr %header_ndirty_nonhuge.i, align 8
-  %width430.i = getelementptr inbounds i8, ptr %header_ndirty_nonhuge.i, i64 4
+  %width430.i = getelementptr inbounds nuw i8, ptr %header_ndirty_nonhuge.i, i64 4
   store i32 20, ptr %width430.i, align 4
-  %type431.i = getelementptr inbounds i8, ptr %header_ndirty_nonhuge.i, i64 8
+  %type431.i = getelementptr inbounds nuw i8, ptr %header_ndirty_nonhuge.i, i64 8
   store i32 9, ptr %type431.i, align 8
-  %371 = getelementptr inbounds i8, ptr %header_ndirty_nonhuge.i, i64 16
+  %371 = getelementptr inbounds nuw i8, ptr %header_ndirty_nonhuge.i, i64 16
   store ptr @.str.436, ptr %371, align 8
-  %link.i350.i = getelementptr inbounds i8, ptr %col_nretained_nonhuge.i, i64 24
-  %qre_prev.i351.i = getelementptr inbounds i8, ptr %col_nretained_nonhuge.i, i64 32
+  %link.i350.i = getelementptr inbounds nuw i8, ptr %col_nretained_nonhuge.i, i64 24
+  %qre_prev.i351.i = getelementptr inbounds nuw i8, ptr %col_nretained_nonhuge.i, i64 32
   store ptr %col_nretained_nonhuge.i, ptr %qre_prev.i.i, align 8
   store ptr %col_ndirty_nonhuge.i, ptr %qre_prev.i351.i, align 8
   store ptr %col_size.i, ptr %link.i350.i, align 8
-  %link34.i359.i = getelementptr inbounds i8, ptr %col_ndirty_nonhuge.i, i64 24
+  %link34.i359.i = getelementptr inbounds nuw i8, ptr %col_ndirty_nonhuge.i, i64 24
   store ptr %col_nretained_nonhuge.i, ptr %link34.i359.i, align 8
   store i32 1, ptr %col_nretained_nonhuge.i, align 8
-  %width433.i = getelementptr inbounds i8, ptr %col_nretained_nonhuge.i, i64 4
+  %width433.i = getelementptr inbounds nuw i8, ptr %col_nretained_nonhuge.i, i64 4
   store i32 20, ptr %width433.i, align 4
-  %type434.i = getelementptr inbounds i8, ptr %col_nretained_nonhuge.i, i64 8
+  %type434.i = getelementptr inbounds nuw i8, ptr %col_nretained_nonhuge.i, i64 8
   store i32 6, ptr %type434.i, align 8
-  %link.i363.i = getelementptr inbounds i8, ptr %header_nretained_nonhuge.i, i64 24
-  %qre_prev.i364.i = getelementptr inbounds i8, ptr %header_nretained_nonhuge.i, i64 32
+  %link.i363.i = getelementptr inbounds nuw i8, ptr %header_nretained_nonhuge.i, i64 24
+  %qre_prev.i364.i = getelementptr inbounds nuw i8, ptr %header_nretained_nonhuge.i, i64 32
   store ptr %header_nretained_nonhuge.i, ptr %qre_prev.i156.i, align 8
   store ptr %header_ndirty_nonhuge.i, ptr %qre_prev.i364.i, align 8
   store ptr %header_size.i, ptr %link.i363.i, align 8
-  %link34.i372.i = getelementptr inbounds i8, ptr %header_ndirty_nonhuge.i, i64 24
+  %link34.i372.i = getelementptr inbounds nuw i8, ptr %header_ndirty_nonhuge.i, i64 24
   store ptr %header_nretained_nonhuge.i, ptr %link34.i372.i, align 8
   store i32 1, ptr %header_nretained_nonhuge.i, align 8
-  %width436.i = getelementptr inbounds i8, ptr %header_nretained_nonhuge.i, i64 4
+  %width436.i = getelementptr inbounds nuw i8, ptr %header_nretained_nonhuge.i, i64 4
   store i32 20, ptr %width436.i, align 4
-  %type437.i = getelementptr inbounds i8, ptr %header_nretained_nonhuge.i, i64 8
+  %type437.i = getelementptr inbounds nuw i8, ptr %header_nretained_nonhuge.i, i64 8
   store i32 9, ptr %type437.i, align 8
-  %372 = getelementptr inbounds i8, ptr %header_nretained_nonhuge.i, i64 16
+  %372 = getelementptr inbounds nuw i8, ptr %header_nretained_nonhuge.i, i64 16
   store ptr @.str.446, ptr %372, align 8
   store i64 7, ptr %miblen_new.i752, align 8
   %373 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tsd_tls)
-  %state.i807.i = getelementptr inbounds i8, ptr %373, i64 832
+  %state.i807.i = getelementptr inbounds nuw i8, ptr %373, i64 832
   %374 = load i8, ptr %state.i807.i, align 8
   %cmp6.i.not.i769 = icmp eq i8 %374, 0
   br i1 %cmp6.i.not.i769, label %tsd_fetch_impl.exit.i772, label %if.then11.i.i770
@@ -8818,7 +8818,7 @@ if.then447.i:                                     ; preds = %tsd_fetch_impl.exit
   unreachable
 
 do.end452.i:                                      ; preds = %tsd_fetch_impl.exit.i772
-  %arrayidx454.i = getelementptr inbounds i8, ptr %stats_arenas_mib.i751, i64 16
+  %arrayidx454.i = getelementptr inbounds nuw i8, ptr %stats_arenas_mib.i751, i64 16
   store i64 %conv, ptr %arrayidx454.i, align 16
   store i64 7, ptr %miblen_new458.i, align 8
   %375 = load i8, ptr %state.i807.i, align 8
@@ -8848,13 +8848,13 @@ do.end470.i:                                      ; preds = %tsd_fetch_impl.exit
 for.body.i.i783:                                  ; preds = %do.end470.i, %for.body.i.i783
   %col.011.i.i784 = phi ptr [ %381, %for.body.i.i783 ], [ %header_size.i, %do.end470.i ]
   %377 = load i32, ptr %col.011.i.i784, align 8
-  %width.i.i785 = getelementptr inbounds i8, ptr %col.011.i.i784, i64 4
+  %width.i.i785 = getelementptr inbounds nuw i8, ptr %col.011.i.i784, i64 4
   %378 = load i32, ptr %width.i.i785, align 4
-  %type.i.i786 = getelementptr inbounds i8, ptr %col.011.i.i784, i64 8
+  %type.i.i786 = getelementptr inbounds nuw i8, ptr %col.011.i.i784, i64 8
   %379 = load i32, ptr %type.i.i786, align 8
-  %380 = getelementptr inbounds i8, ptr %col.011.i.i784, i64 16
+  %380 = getelementptr inbounds nuw i8, ptr %col.011.i.i784, i64 16
   call fastcc void @emitter_print_value(ptr noundef nonnull readonly %emitter, i32 noundef %377, i32 noundef %378, i32 noundef %379, ptr noundef nonnull %380)
-  %link.i378.i = getelementptr inbounds i8, ptr %col.011.i.i784, i64 24
+  %link.i378.i = getelementptr inbounds nuw i8, ptr %col.011.i.i784, i64 24
   %381 = load ptr, ptr %link.i378.i, align 8
   %cmp4.not.i.i787 = icmp eq ptr %381, %header_size.i
   %cmp1.not12.i.i788 = icmp eq ptr %381, null
@@ -8867,18 +8867,18 @@ for.end.i.i790:                                   ; preds = %for.body.i.i783
 
 emitter_table_row.exit.i774:                      ; preds = %for.end.i.i790, %do.end470.i
   call fastcc void @emitter_json_array_kv_begin(ptr noundef nonnull %emitter, ptr noundef nonnull @.str.375)
-  %arrayidx477.i = getelementptr inbounds i8, ptr %stats_arenas_mib.i751, i64 40
-  %382 = getelementptr inbounds i8, ptr %col_size.i, i64 16
-  %383 = getelementptr inbounds i8, ptr %col_ind.i, i64 16
-  %384 = getelementptr inbounds i8, ptr %col_npageslabs_huge.i, i64 16
-  %385 = getelementptr inbounds i8, ptr %col_nactive_huge.i, i64 16
-  %386 = getelementptr inbounds i8, ptr %col_ndirty_huge.i, i64 16
-  %387 = getelementptr inbounds i8, ptr %col_npageslabs_nonhuge.i, i64 16
-  %388 = getelementptr inbounds i8, ptr %col_nactive_nonhuge.i, i64 16
-  %389 = getelementptr inbounds i8, ptr %col_ndirty_nonhuge.i, i64 16
-  %390 = getelementptr inbounds i8, ptr %col_nretained_nonhuge.i, i64 16
-  %nesting_depth.i.i395.i = getelementptr inbounds i8, ptr %emitter, i64 24
-  %item_at_depth.i.i397.i = getelementptr inbounds i8, ptr %emitter, i64 28
+  %arrayidx477.i = getelementptr inbounds nuw i8, ptr %stats_arenas_mib.i751, i64 40
+  %382 = getelementptr inbounds nuw i8, ptr %col_size.i, i64 16
+  %383 = getelementptr inbounds nuw i8, ptr %col_ind.i, i64 16
+  %384 = getelementptr inbounds nuw i8, ptr %col_npageslabs_huge.i, i64 16
+  %385 = getelementptr inbounds nuw i8, ptr %col_nactive_huge.i, i64 16
+  %386 = getelementptr inbounds nuw i8, ptr %col_ndirty_huge.i, i64 16
+  %387 = getelementptr inbounds nuw i8, ptr %col_npageslabs_nonhuge.i, i64 16
+  %388 = getelementptr inbounds nuw i8, ptr %col_nactive_nonhuge.i, i64 16
+  %389 = getelementptr inbounds nuw i8, ptr %col_ndirty_nonhuge.i, i64 16
+  %390 = getelementptr inbounds nuw i8, ptr %col_nretained_nonhuge.i, i64 16
+  %nesting_depth.i.i395.i = getelementptr inbounds nuw i8, ptr %emitter, i64 24
+  %item_at_depth.i.i397.i = getelementptr inbounds nuw i8, ptr %emitter, i64 28
   br label %for.body.i775
 
 for.body.i775:                                    ; preds = %emitter_json_object_end.exit411.i, %emitter_table_row.exit.i774
@@ -9044,7 +9044,7 @@ if.end594.i:                                      ; preds = %if.then593.i, %do.e
   %404 = phi i64 [ %398, %do.end579.i ], [ %.pre527.i, %if.then593.i ]
   %405 = phi i64 [ %397, %do.end579.i ], [ %.pre526.i, %if.then593.i ]
   %406 = phi i64 [ %401, %do.end579.i ], [ %.pre.i778, %if.then593.i ]
-  %arrayidx.i.i.i = getelementptr inbounds [200 x i64], ptr @sz_pind2sz_tab, i64 0, i64 %indvars.iv.i776
+  %arrayidx.i.i.i = getelementptr inbounds nuw [200 x i64], ptr @sz_pind2sz_tab, i64 0, i64 %indvars.iv.i776
   %407 = load i64, ptr %arrayidx.i.i.i, align 8
   store i64 %407, ptr %382, align 8
   store i64 %indvars.iv.i776, ptr %383, align 8
@@ -9067,13 +9067,13 @@ if.then598.i:                                     ; preds = %if.end594.i
 for.body.i382.i:                                  ; preds = %if.then598.i, %for.body.i382.i
   %col.011.i383.i = phi ptr [ %415, %for.body.i382.i ], [ %col_size.i, %if.then598.i ]
   %411 = load i32, ptr %col.011.i383.i, align 8
-  %width.i384.i = getelementptr inbounds i8, ptr %col.011.i383.i, i64 4
+  %width.i384.i = getelementptr inbounds nuw i8, ptr %col.011.i383.i, i64 4
   %412 = load i32, ptr %width.i384.i, align 4
-  %type.i385.i = getelementptr inbounds i8, ptr %col.011.i383.i, i64 8
+  %type.i385.i = getelementptr inbounds nuw i8, ptr %col.011.i383.i, i64 8
   %413 = load i32, ptr %type.i385.i, align 8
-  %414 = getelementptr inbounds i8, ptr %col.011.i383.i, i64 16
+  %414 = getelementptr inbounds nuw i8, ptr %col.011.i383.i, i64 16
   call fastcc void @emitter_print_value(ptr noundef nonnull readonly %emitter, i32 noundef %411, i32 noundef %412, i32 noundef %413, ptr noundef nonnull %414)
-  %link.i386.i = getelementptr inbounds i8, ptr %col.011.i383.i, i64 24
+  %link.i386.i = getelementptr inbounds nuw i8, ptr %col.011.i383.i, i64 24
   %415 = load ptr, ptr %link.i386.i, align 8
   %cmp4.not.i387.i = icmp eq ptr %415, %col_size.i
   %cmp1.not12.i388.i = icmp eq ptr %415, null
@@ -9471,152 +9471,152 @@ if.then8:                                         ; preds = %do.body3
   unreachable
 
 emitter_col_init.exit248:                         ; preds = %do.body3
-  %link.i = getelementptr inbounds i8, ptr %col_size, i64 24
-  %qre_prev.i = getelementptr inbounds i8, ptr %col_size, i64 32
+  %link.i = getelementptr inbounds nuw i8, ptr %col_size, i64 24
+  %qre_prev.i = getelementptr inbounds nuw i8, ptr %col_size, i64 32
   store i32 1, ptr %col_size, align 8
-  %width = getelementptr inbounds i8, ptr %col_size, i64 4
+  %width = getelementptr inbounds nuw i8, ptr %col_size, i64 4
   store i32 20, ptr %width, align 4
-  %type = getelementptr inbounds i8, ptr %col_size, i64 8
+  %type = getelementptr inbounds nuw i8, ptr %col_size, i64 8
   store i32 6, ptr %type, align 8
-  %link.i129 = getelementptr inbounds i8, ptr %header_size, i64 24
-  %qre_prev.i130 = getelementptr inbounds i8, ptr %header_size, i64 32
+  %link.i129 = getelementptr inbounds nuw i8, ptr %header_size, i64 24
+  %qre_prev.i130 = getelementptr inbounds nuw i8, ptr %header_size, i64 32
   store i32 1, ptr %header_size, align 8
-  %width13 = getelementptr inbounds i8, ptr %header_size, i64 4
+  %width13 = getelementptr inbounds nuw i8, ptr %header_size, i64 4
   store i32 20, ptr %width13, align 4
-  %type14 = getelementptr inbounds i8, ptr %header_size, i64 8
+  %type14 = getelementptr inbounds nuw i8, ptr %header_size, i64 8
   store i32 9, ptr %type14, align 8
-  %0 = getelementptr inbounds i8, ptr %header_size, i64 16
+  %0 = getelementptr inbounds nuw i8, ptr %header_size, i64 16
   store ptr @.str.202, ptr %0, align 8
-  %link.i141 = getelementptr inbounds i8, ptr %col_ind, i64 24
-  %qre_prev.i142 = getelementptr inbounds i8, ptr %col_ind, i64 32
+  %link.i141 = getelementptr inbounds nuw i8, ptr %col_ind, i64 24
+  %qre_prev.i142 = getelementptr inbounds nuw i8, ptr %col_ind, i64 32
   store ptr %col_size, ptr %qre_prev.i142, align 8
   store ptr %col_ind, ptr %link.i, align 8
   store i32 1, ptr %col_ind, align 8
-  %width16 = getelementptr inbounds i8, ptr %col_ind, i64 4
+  %width16 = getelementptr inbounds nuw i8, ptr %col_ind, i64 4
   store i32 4, ptr %width16, align 4
-  %type17 = getelementptr inbounds i8, ptr %col_ind, i64 8
+  %type17 = getelementptr inbounds nuw i8, ptr %col_ind, i64 8
   store i32 3, ptr %type17, align 8
-  %link.i153 = getelementptr inbounds i8, ptr %header_ind, i64 24
-  %qre_prev.i154 = getelementptr inbounds i8, ptr %header_ind, i64 32
+  %link.i153 = getelementptr inbounds nuw i8, ptr %header_ind, i64 24
+  %qre_prev.i154 = getelementptr inbounds nuw i8, ptr %header_ind, i64 32
   store ptr %header_size, ptr %qre_prev.i154, align 8
   store ptr %header_ind, ptr %link.i129, align 8
   store i32 1, ptr %header_ind, align 8
-  %width19 = getelementptr inbounds i8, ptr %header_ind, i64 4
+  %width19 = getelementptr inbounds nuw i8, ptr %header_ind, i64 4
   store i32 4, ptr %width19, align 4
-  %type20 = getelementptr inbounds i8, ptr %header_ind, i64 8
+  %type20 = getelementptr inbounds nuw i8, ptr %header_ind, i64 8
   store i32 9, ptr %type20, align 8
-  %1 = getelementptr inbounds i8, ptr %header_ind, i64 16
+  %1 = getelementptr inbounds nuw i8, ptr %header_ind, i64 16
   store ptr @.str.365, ptr %1, align 8
-  %qre_prev.i166 = getelementptr inbounds i8, ptr %col_allocated, i64 32
+  %qre_prev.i166 = getelementptr inbounds nuw i8, ptr %col_allocated, i64 32
   store ptr %col_ind, ptr %qre_prev.i166, align 8
   store ptr %col_allocated, ptr %link.i141, align 8
   store i32 1, ptr %col_allocated, align 8
-  %width22 = getelementptr inbounds i8, ptr %col_allocated, i64 4
+  %width22 = getelementptr inbounds nuw i8, ptr %col_allocated, i64 4
   store i32 13, ptr %width22, align 4
-  %type23 = getelementptr inbounds i8, ptr %col_allocated, i64 8
+  %type23 = getelementptr inbounds nuw i8, ptr %col_allocated, i64 8
   store i32 5, ptr %type23, align 8
-  %qre_prev.i178 = getelementptr inbounds i8, ptr %header_allocated, i64 32
+  %qre_prev.i178 = getelementptr inbounds nuw i8, ptr %header_allocated, i64 32
   store ptr %header_ind, ptr %qre_prev.i178, align 8
   store ptr %header_allocated, ptr %link.i153, align 8
   store i32 1, ptr %header_allocated, align 8
-  %width25 = getelementptr inbounds i8, ptr %header_allocated, i64 4
+  %width25 = getelementptr inbounds nuw i8, ptr %header_allocated, i64 4
   store i32 13, ptr %width25, align 4
-  %type26 = getelementptr inbounds i8, ptr %header_allocated, i64 8
+  %type26 = getelementptr inbounds nuw i8, ptr %header_allocated, i64 8
   store i32 9, ptr %type26, align 8
-  %2 = getelementptr inbounds i8, ptr %header_allocated, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %header_allocated, i64 16
   store ptr @.str.241, ptr %2, align 8
-  %qre_prev.i190 = getelementptr inbounds i8, ptr %col_nmalloc, i64 32
+  %qre_prev.i190 = getelementptr inbounds nuw i8, ptr %col_nmalloc, i64 32
   store ptr %col_allocated, ptr %qre_prev.i190, align 8
-  %link34.i198 = getelementptr inbounds i8, ptr %col_allocated, i64 24
+  %link34.i198 = getelementptr inbounds nuw i8, ptr %col_allocated, i64 24
   store ptr %col_nmalloc, ptr %link34.i198, align 8
   store i32 1, ptr %col_nmalloc, align 8
-  %width28 = getelementptr inbounds i8, ptr %col_nmalloc, i64 4
+  %width28 = getelementptr inbounds nuw i8, ptr %col_nmalloc, i64 4
   store i32 13, ptr %width28, align 4
-  %type29 = getelementptr inbounds i8, ptr %col_nmalloc, i64 8
+  %type29 = getelementptr inbounds nuw i8, ptr %col_nmalloc, i64 8
   store i32 5, ptr %type29, align 8
-  %link.i201 = getelementptr inbounds i8, ptr %header_nmalloc, i64 24
-  %qre_prev.i202 = getelementptr inbounds i8, ptr %header_nmalloc, i64 32
+  %link.i201 = getelementptr inbounds nuw i8, ptr %header_nmalloc, i64 24
+  %qre_prev.i202 = getelementptr inbounds nuw i8, ptr %header_nmalloc, i64 32
   store ptr %header_nmalloc, ptr %qre_prev.i130, align 8
   store ptr %header_allocated, ptr %qre_prev.i202, align 8
   store ptr %header_size, ptr %link.i201, align 8
-  %link34.i210 = getelementptr inbounds i8, ptr %header_allocated, i64 24
+  %link34.i210 = getelementptr inbounds nuw i8, ptr %header_allocated, i64 24
   store ptr %header_nmalloc, ptr %link34.i210, align 8
   store i32 1, ptr %header_nmalloc, align 8
-  %width31 = getelementptr inbounds i8, ptr %header_nmalloc, i64 4
+  %width31 = getelementptr inbounds nuw i8, ptr %header_nmalloc, i64 4
   store i32 13, ptr %width31, align 4
-  %type32 = getelementptr inbounds i8, ptr %header_nmalloc, i64 8
+  %type32 = getelementptr inbounds nuw i8, ptr %header_nmalloc, i64 8
   store i32 9, ptr %type32, align 8
-  %3 = getelementptr inbounds i8, ptr %header_nmalloc, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %header_nmalloc, i64 16
   store ptr @.str.317, ptr %3, align 8
-  %link.i213 = getelementptr inbounds i8, ptr %col_nmalloc_ps, i64 24
-  %qre_prev.i214 = getelementptr inbounds i8, ptr %col_nmalloc_ps, i64 32
+  %link.i213 = getelementptr inbounds nuw i8, ptr %col_nmalloc_ps, i64 24
+  %qre_prev.i214 = getelementptr inbounds nuw i8, ptr %col_nmalloc_ps, i64 32
   store ptr %col_nmalloc_ps, ptr %qre_prev.i, align 8
   store ptr %col_nmalloc, ptr %qre_prev.i214, align 8
   store ptr %col_size, ptr %link.i213, align 8
-  %link34.i222 = getelementptr inbounds i8, ptr %col_nmalloc, i64 24
+  %link34.i222 = getelementptr inbounds nuw i8, ptr %col_nmalloc, i64 24
   store ptr %col_nmalloc_ps, ptr %link34.i222, align 8
   store i32 1, ptr %col_nmalloc_ps, align 8
-  %width34 = getelementptr inbounds i8, ptr %col_nmalloc_ps, i64 4
+  %width34 = getelementptr inbounds nuw i8, ptr %col_nmalloc_ps, i64 4
   store i32 8, ptr %width34, align 4
-  %type35 = getelementptr inbounds i8, ptr %col_nmalloc_ps, i64 8
+  %type35 = getelementptr inbounds nuw i8, ptr %col_nmalloc_ps, i64 8
   store i32 5, ptr %type35, align 8
-  %link.i225 = getelementptr inbounds i8, ptr %header_nmalloc_ps, i64 24
-  %qre_prev.i226 = getelementptr inbounds i8, ptr %header_nmalloc_ps, i64 32
+  %link.i225 = getelementptr inbounds nuw i8, ptr %header_nmalloc_ps, i64 24
+  %qre_prev.i226 = getelementptr inbounds nuw i8, ptr %header_nmalloc_ps, i64 32
   %4 = load ptr, ptr %qre_prev.i130, align 8
   store ptr %header_nmalloc_ps, ptr %qre_prev.i130, align 8
   store ptr %4, ptr %qre_prev.i226, align 8
   store ptr %header_size, ptr %link.i225, align 8
-  %link34.i234 = getelementptr inbounds i8, ptr %4, i64 24
+  %link34.i234 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %header_nmalloc_ps, ptr %link34.i234, align 8
   %.pre.i235 = load ptr, ptr %link.i225, align 8
   store ptr %.pre.i235, ptr %header_row, align 8
   store i32 1, ptr %header_nmalloc_ps, align 8
-  %width37 = getelementptr inbounds i8, ptr %header_nmalloc_ps, i64 4
+  %width37 = getelementptr inbounds nuw i8, ptr %header_nmalloc_ps, i64 4
   store i32 8, ptr %width37, align 4
-  %type38 = getelementptr inbounds i8, ptr %header_nmalloc_ps, i64 8
+  %type38 = getelementptr inbounds nuw i8, ptr %header_nmalloc_ps, i64 8
   store i32 9, ptr %type38, align 8
-  %5 = getelementptr inbounds i8, ptr %header_nmalloc_ps, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %header_nmalloc_ps, i64 16
   store ptr @.str.267, ptr %5, align 8
-  %link.i237 = getelementptr inbounds i8, ptr %col_ndalloc, i64 24
-  %qre_prev.i238 = getelementptr inbounds i8, ptr %col_ndalloc, i64 32
+  %link.i237 = getelementptr inbounds nuw i8, ptr %col_ndalloc, i64 24
+  %qre_prev.i238 = getelementptr inbounds nuw i8, ptr %col_ndalloc, i64 32
   store ptr %col_ndalloc, ptr %qre_prev.i238, align 8
-  %qre_prev7.i241 = getelementptr inbounds i8, ptr %col_size, i64 32
+  %qre_prev7.i241 = getelementptr inbounds nuw i8, ptr %col_size, i64 32
   %6 = load ptr, ptr %qre_prev7.i241, align 8
   store ptr %6, ptr %link.i237, align 8
   store ptr %col_ndalloc, ptr %qre_prev7.i241, align 8
   store ptr %6, ptr %qre_prev.i238, align 8
-  %link30.i245 = getelementptr inbounds i8, ptr %col_ndalloc, i64 24
+  %link30.i245 = getelementptr inbounds nuw i8, ptr %col_ndalloc, i64 24
   store ptr %col_size, ptr %link30.i245, align 8
-  %link34.i246 = getelementptr inbounds i8, ptr %6, i64 24
+  %link34.i246 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %col_ndalloc, ptr %link34.i246, align 8
   %.pre.i247 = load ptr, ptr %link.i237, align 8
   store ptr %.pre.i247, ptr %row, align 8
   store i32 1, ptr %col_ndalloc, align 8
-  %width40 = getelementptr inbounds i8, ptr %col_ndalloc, i64 4
+  %width40 = getelementptr inbounds nuw i8, ptr %col_ndalloc, i64 4
   store i32 13, ptr %width40, align 4
-  %type41 = getelementptr inbounds i8, ptr %col_ndalloc, i64 8
+  %type41 = getelementptr inbounds nuw i8, ptr %col_ndalloc, i64 8
   store i32 5, ptr %type41, align 8
-  %link.i249 = getelementptr inbounds i8, ptr %header_ndalloc, i64 24
+  %link.i249 = getelementptr inbounds nuw i8, ptr %header_ndalloc, i64 24
   store ptr %header_ndalloc, ptr %link.i249, align 8
-  %qre_prev.i250 = getelementptr inbounds i8, ptr %header_ndalloc, i64 32
+  %qre_prev.i250 = getelementptr inbounds nuw i8, ptr %header_ndalloc, i64 32
   store ptr %header_ndalloc, ptr %qre_prev.i250, align 8
   %cmp.i251 = icmp eq ptr %.pre.i235, null
   br i1 %cmp.i251, label %emitter_col_init.exit260, label %do.body3.i252
 
 do.body3.i252:                                    ; preds = %emitter_col_init.exit248
-  %qre_prev7.i253 = getelementptr inbounds i8, ptr %.pre.i235, i64 32
+  %qre_prev7.i253 = getelementptr inbounds nuw i8, ptr %.pre.i235, i64 32
   %7 = load ptr, ptr %qre_prev7.i253, align 8
   store ptr %7, ptr %link.i249, align 8
   store ptr %header_ndalloc, ptr %qre_prev7.i253, align 8
   %8 = load ptr, ptr %qre_prev.i250, align 8
-  %link20.i255 = getelementptr inbounds i8, ptr %8, i64 24
+  %link20.i255 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %9 = load ptr, ptr %link20.i255, align 8
   store ptr %9, ptr %qre_prev.i250, align 8
   %10 = load ptr, ptr %qre_prev7.i253, align 8
-  %link30.i257 = getelementptr inbounds i8, ptr %10, i64 24
+  %link30.i257 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store ptr %.pre.i235, ptr %link30.i257, align 8
   %11 = load ptr, ptr %qre_prev.i250, align 8
-  %link34.i258 = getelementptr inbounds i8, ptr %11, i64 24
+  %link34.i258 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store ptr %header_ndalloc, ptr %link34.i258, align 8
   %.pre.i259 = load ptr, ptr %link.i249, align 8
   br label %emitter_col_init.exit260
@@ -9625,33 +9625,33 @@ emitter_col_init.exit260:                         ; preds = %emitter_col_init.ex
   %12 = phi ptr [ %.pre.i259, %do.body3.i252 ], [ %header_ndalloc, %emitter_col_init.exit248 ]
   store ptr %12, ptr %header_row, align 8
   store i32 1, ptr %header_ndalloc, align 8
-  %width43 = getelementptr inbounds i8, ptr %header_ndalloc, i64 4
+  %width43 = getelementptr inbounds nuw i8, ptr %header_ndalloc, i64 4
   store i32 13, ptr %width43, align 4
-  %type44 = getelementptr inbounds i8, ptr %header_ndalloc, i64 8
+  %type44 = getelementptr inbounds nuw i8, ptr %header_ndalloc, i64 8
   store i32 9, ptr %type44, align 8
-  %13 = getelementptr inbounds i8, ptr %header_ndalloc, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %header_ndalloc, i64 16
   store ptr @.str.318, ptr %13, align 8
-  %link.i261 = getelementptr inbounds i8, ptr %col_ndalloc_ps, i64 24
+  %link.i261 = getelementptr inbounds nuw i8, ptr %col_ndalloc_ps, i64 24
   store ptr %col_ndalloc_ps, ptr %link.i261, align 8
-  %qre_prev.i262 = getelementptr inbounds i8, ptr %col_ndalloc_ps, i64 32
+  %qre_prev.i262 = getelementptr inbounds nuw i8, ptr %col_ndalloc_ps, i64 32
   store ptr %col_ndalloc_ps, ptr %qre_prev.i262, align 8
   %cmp.i263 = icmp eq ptr %.pre.i247, null
   br i1 %cmp.i263, label %emitter_col_init.exit272, label %do.body3.i264
 
 do.body3.i264:                                    ; preds = %emitter_col_init.exit260
-  %qre_prev7.i265 = getelementptr inbounds i8, ptr %.pre.i247, i64 32
+  %qre_prev7.i265 = getelementptr inbounds nuw i8, ptr %.pre.i247, i64 32
   %14 = load ptr, ptr %qre_prev7.i265, align 8
   store ptr %14, ptr %link.i261, align 8
   store ptr %col_ndalloc_ps, ptr %qre_prev7.i265, align 8
   %15 = load ptr, ptr %qre_prev.i262, align 8
-  %link20.i267 = getelementptr inbounds i8, ptr %15, i64 24
+  %link20.i267 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %16 = load ptr, ptr %link20.i267, align 8
   store ptr %16, ptr %qre_prev.i262, align 8
   %17 = load ptr, ptr %qre_prev7.i265, align 8
-  %link30.i269 = getelementptr inbounds i8, ptr %17, i64 24
+  %link30.i269 = getelementptr inbounds nuw i8, ptr %17, i64 24
   store ptr %.pre.i247, ptr %link30.i269, align 8
   %18 = load ptr, ptr %qre_prev.i262, align 8
-  %link34.i270 = getelementptr inbounds i8, ptr %18, i64 24
+  %link34.i270 = getelementptr inbounds nuw i8, ptr %18, i64 24
   store ptr %col_ndalloc_ps, ptr %link34.i270, align 8
   %.pre.i271 = load ptr, ptr %link.i261, align 8
   br label %emitter_col_init.exit272
@@ -9660,31 +9660,31 @@ emitter_col_init.exit272:                         ; preds = %emitter_col_init.ex
   %19 = phi ptr [ %.pre.i271, %do.body3.i264 ], [ %col_ndalloc_ps, %emitter_col_init.exit260 ]
   store ptr %19, ptr %row, align 8
   store i32 1, ptr %col_ndalloc_ps, align 8
-  %width46 = getelementptr inbounds i8, ptr %col_ndalloc_ps, i64 4
+  %width46 = getelementptr inbounds nuw i8, ptr %col_ndalloc_ps, i64 4
   store i32 8, ptr %width46, align 4
-  %type47 = getelementptr inbounds i8, ptr %col_ndalloc_ps, i64 8
+  %type47 = getelementptr inbounds nuw i8, ptr %col_ndalloc_ps, i64 8
   store i32 5, ptr %type47, align 8
-  %link.i273 = getelementptr inbounds i8, ptr %header_ndalloc_ps, i64 24
+  %link.i273 = getelementptr inbounds nuw i8, ptr %header_ndalloc_ps, i64 24
   store ptr %header_ndalloc_ps, ptr %link.i273, align 8
-  %qre_prev.i274 = getelementptr inbounds i8, ptr %header_ndalloc_ps, i64 32
+  %qre_prev.i274 = getelementptr inbounds nuw i8, ptr %header_ndalloc_ps, i64 32
   store ptr %header_ndalloc_ps, ptr %qre_prev.i274, align 8
   %cmp.i275 = icmp eq ptr %12, null
   br i1 %cmp.i275, label %emitter_col_init.exit284, label %do.body3.i276
 
 do.body3.i276:                                    ; preds = %emitter_col_init.exit272
-  %qre_prev7.i277 = getelementptr inbounds i8, ptr %12, i64 32
+  %qre_prev7.i277 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %20 = load ptr, ptr %qre_prev7.i277, align 8
   store ptr %20, ptr %link.i273, align 8
   store ptr %header_ndalloc_ps, ptr %qre_prev7.i277, align 8
   %21 = load ptr, ptr %qre_prev.i274, align 8
-  %link20.i279 = getelementptr inbounds i8, ptr %21, i64 24
+  %link20.i279 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %22 = load ptr, ptr %link20.i279, align 8
   store ptr %22, ptr %qre_prev.i274, align 8
   %23 = load ptr, ptr %qre_prev7.i277, align 8
-  %link30.i281 = getelementptr inbounds i8, ptr %23, i64 24
+  %link30.i281 = getelementptr inbounds nuw i8, ptr %23, i64 24
   store ptr %12, ptr %link30.i281, align 8
   %24 = load ptr, ptr %qre_prev.i274, align 8
-  %link34.i282 = getelementptr inbounds i8, ptr %24, i64 24
+  %link34.i282 = getelementptr inbounds nuw i8, ptr %24, i64 24
   store ptr %header_ndalloc_ps, ptr %link34.i282, align 8
   %.pre.i283 = load ptr, ptr %link.i273, align 8
   br label %emitter_col_init.exit284
@@ -9693,33 +9693,33 @@ emitter_col_init.exit284:                         ; preds = %emitter_col_init.ex
   %25 = phi ptr [ %.pre.i283, %do.body3.i276 ], [ %header_ndalloc_ps, %emitter_col_init.exit272 ]
   store ptr %25, ptr %header_row, align 8
   store i32 1, ptr %header_ndalloc_ps, align 8
-  %width49 = getelementptr inbounds i8, ptr %header_ndalloc_ps, i64 4
+  %width49 = getelementptr inbounds nuw i8, ptr %header_ndalloc_ps, i64 4
   store i32 8, ptr %width49, align 4
-  %type50 = getelementptr inbounds i8, ptr %header_ndalloc_ps, i64 8
+  %type50 = getelementptr inbounds nuw i8, ptr %header_ndalloc_ps, i64 8
   store i32 9, ptr %type50, align 8
-  %26 = getelementptr inbounds i8, ptr %header_ndalloc_ps, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %header_ndalloc_ps, i64 16
   store ptr @.str.267, ptr %26, align 8
-  %link.i285 = getelementptr inbounds i8, ptr %col_nrequests, i64 24
+  %link.i285 = getelementptr inbounds nuw i8, ptr %col_nrequests, i64 24
   store ptr %col_nrequests, ptr %link.i285, align 8
-  %qre_prev.i286 = getelementptr inbounds i8, ptr %col_nrequests, i64 32
+  %qre_prev.i286 = getelementptr inbounds nuw i8, ptr %col_nrequests, i64 32
   store ptr %col_nrequests, ptr %qre_prev.i286, align 8
   %cmp.i287 = icmp eq ptr %19, null
   br i1 %cmp.i287, label %emitter_col_init.exit296, label %do.body3.i288
 
 do.body3.i288:                                    ; preds = %emitter_col_init.exit284
-  %qre_prev7.i289 = getelementptr inbounds i8, ptr %19, i64 32
+  %qre_prev7.i289 = getelementptr inbounds nuw i8, ptr %19, i64 32
   %27 = load ptr, ptr %qre_prev7.i289, align 8
   store ptr %27, ptr %link.i285, align 8
   store ptr %col_nrequests, ptr %qre_prev7.i289, align 8
   %28 = load ptr, ptr %qre_prev.i286, align 8
-  %link20.i291 = getelementptr inbounds i8, ptr %28, i64 24
+  %link20.i291 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %29 = load ptr, ptr %link20.i291, align 8
   store ptr %29, ptr %qre_prev.i286, align 8
   %30 = load ptr, ptr %qre_prev7.i289, align 8
-  %link30.i293 = getelementptr inbounds i8, ptr %30, i64 24
+  %link30.i293 = getelementptr inbounds nuw i8, ptr %30, i64 24
   store ptr %19, ptr %link30.i293, align 8
   %31 = load ptr, ptr %qre_prev.i286, align 8
-  %link34.i294 = getelementptr inbounds i8, ptr %31, i64 24
+  %link34.i294 = getelementptr inbounds nuw i8, ptr %31, i64 24
   store ptr %col_nrequests, ptr %link34.i294, align 8
   %.pre.i295 = load ptr, ptr %link.i285, align 8
   br label %emitter_col_init.exit296
@@ -9728,31 +9728,31 @@ emitter_col_init.exit296:                         ; preds = %emitter_col_init.ex
   %32 = phi ptr [ %.pre.i295, %do.body3.i288 ], [ %col_nrequests, %emitter_col_init.exit284 ]
   store ptr %32, ptr %row, align 8
   store i32 1, ptr %col_nrequests, align 8
-  %width52 = getelementptr inbounds i8, ptr %col_nrequests, i64 4
+  %width52 = getelementptr inbounds nuw i8, ptr %col_nrequests, i64 4
   store i32 13, ptr %width52, align 4
-  %type53 = getelementptr inbounds i8, ptr %col_nrequests, i64 8
+  %type53 = getelementptr inbounds nuw i8, ptr %col_nrequests, i64 8
   store i32 5, ptr %type53, align 8
-  %link.i297 = getelementptr inbounds i8, ptr %header_nrequests, i64 24
+  %link.i297 = getelementptr inbounds nuw i8, ptr %header_nrequests, i64 24
   store ptr %header_nrequests, ptr %link.i297, align 8
-  %qre_prev.i298 = getelementptr inbounds i8, ptr %header_nrequests, i64 32
+  %qre_prev.i298 = getelementptr inbounds nuw i8, ptr %header_nrequests, i64 32
   store ptr %header_nrequests, ptr %qre_prev.i298, align 8
   %cmp.i299 = icmp eq ptr %25, null
   br i1 %cmp.i299, label %emitter_col_init.exit308, label %do.body3.i300
 
 do.body3.i300:                                    ; preds = %emitter_col_init.exit296
-  %qre_prev7.i301 = getelementptr inbounds i8, ptr %25, i64 32
+  %qre_prev7.i301 = getelementptr inbounds nuw i8, ptr %25, i64 32
   %33 = load ptr, ptr %qre_prev7.i301, align 8
   store ptr %33, ptr %link.i297, align 8
   store ptr %header_nrequests, ptr %qre_prev7.i301, align 8
   %34 = load ptr, ptr %qre_prev.i298, align 8
-  %link20.i303 = getelementptr inbounds i8, ptr %34, i64 24
+  %link20.i303 = getelementptr inbounds nuw i8, ptr %34, i64 24
   %35 = load ptr, ptr %link20.i303, align 8
   store ptr %35, ptr %qre_prev.i298, align 8
   %36 = load ptr, ptr %qre_prev7.i301, align 8
-  %link30.i305 = getelementptr inbounds i8, ptr %36, i64 24
+  %link30.i305 = getelementptr inbounds nuw i8, ptr %36, i64 24
   store ptr %25, ptr %link30.i305, align 8
   %37 = load ptr, ptr %qre_prev.i298, align 8
-  %link34.i306 = getelementptr inbounds i8, ptr %37, i64 24
+  %link34.i306 = getelementptr inbounds nuw i8, ptr %37, i64 24
   store ptr %header_nrequests, ptr %link34.i306, align 8
   %.pre.i307 = load ptr, ptr %link.i297, align 8
   br label %emitter_col_init.exit308
@@ -9761,33 +9761,33 @@ emitter_col_init.exit308:                         ; preds = %emitter_col_init.ex
   %38 = phi ptr [ %.pre.i307, %do.body3.i300 ], [ %header_nrequests, %emitter_col_init.exit296 ]
   store ptr %38, ptr %header_row, align 8
   store i32 1, ptr %header_nrequests, align 8
-  %width55 = getelementptr inbounds i8, ptr %header_nrequests, i64 4
+  %width55 = getelementptr inbounds nuw i8, ptr %header_nrequests, i64 4
   store i32 13, ptr %width55, align 4
-  %type56 = getelementptr inbounds i8, ptr %header_nrequests, i64 8
+  %type56 = getelementptr inbounds nuw i8, ptr %header_nrequests, i64 8
   store i32 9, ptr %type56, align 8
-  %39 = getelementptr inbounds i8, ptr %header_nrequests, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %header_nrequests, i64 16
   store ptr @.str.319, ptr %39, align 8
-  %link.i309 = getelementptr inbounds i8, ptr %col_nrequests_ps, i64 24
+  %link.i309 = getelementptr inbounds nuw i8, ptr %col_nrequests_ps, i64 24
   store ptr %col_nrequests_ps, ptr %link.i309, align 8
-  %qre_prev.i310 = getelementptr inbounds i8, ptr %col_nrequests_ps, i64 32
+  %qre_prev.i310 = getelementptr inbounds nuw i8, ptr %col_nrequests_ps, i64 32
   store ptr %col_nrequests_ps, ptr %qre_prev.i310, align 8
   %cmp.i311 = icmp eq ptr %32, null
   br i1 %cmp.i311, label %emitter_col_init.exit320, label %do.body3.i312
 
 do.body3.i312:                                    ; preds = %emitter_col_init.exit308
-  %qre_prev7.i313 = getelementptr inbounds i8, ptr %32, i64 32
+  %qre_prev7.i313 = getelementptr inbounds nuw i8, ptr %32, i64 32
   %40 = load ptr, ptr %qre_prev7.i313, align 8
   store ptr %40, ptr %link.i309, align 8
   store ptr %col_nrequests_ps, ptr %qre_prev7.i313, align 8
   %41 = load ptr, ptr %qre_prev.i310, align 8
-  %link20.i315 = getelementptr inbounds i8, ptr %41, i64 24
+  %link20.i315 = getelementptr inbounds nuw i8, ptr %41, i64 24
   %42 = load ptr, ptr %link20.i315, align 8
   store ptr %42, ptr %qre_prev.i310, align 8
   %43 = load ptr, ptr %qre_prev7.i313, align 8
-  %link30.i317 = getelementptr inbounds i8, ptr %43, i64 24
+  %link30.i317 = getelementptr inbounds nuw i8, ptr %43, i64 24
   store ptr %32, ptr %link30.i317, align 8
   %44 = load ptr, ptr %qre_prev.i310, align 8
-  %link34.i318 = getelementptr inbounds i8, ptr %44, i64 24
+  %link34.i318 = getelementptr inbounds nuw i8, ptr %44, i64 24
   store ptr %col_nrequests_ps, ptr %link34.i318, align 8
   %.pre.i319 = load ptr, ptr %link.i309, align 8
   br label %emitter_col_init.exit320
@@ -9796,31 +9796,31 @@ emitter_col_init.exit320:                         ; preds = %emitter_col_init.ex
   %45 = phi ptr [ %.pre.i319, %do.body3.i312 ], [ %col_nrequests_ps, %emitter_col_init.exit308 ]
   store ptr %45, ptr %row, align 8
   store i32 1, ptr %col_nrequests_ps, align 8
-  %width58 = getelementptr inbounds i8, ptr %col_nrequests_ps, i64 4
+  %width58 = getelementptr inbounds nuw i8, ptr %col_nrequests_ps, i64 4
   store i32 10, ptr %width58, align 4
-  %type59 = getelementptr inbounds i8, ptr %col_nrequests_ps, i64 8
+  %type59 = getelementptr inbounds nuw i8, ptr %col_nrequests_ps, i64 8
   store i32 5, ptr %type59, align 8
-  %link.i321 = getelementptr inbounds i8, ptr %header_nrequests_ps, i64 24
+  %link.i321 = getelementptr inbounds nuw i8, ptr %header_nrequests_ps, i64 24
   store ptr %header_nrequests_ps, ptr %link.i321, align 8
-  %qre_prev.i322 = getelementptr inbounds i8, ptr %header_nrequests_ps, i64 32
+  %qre_prev.i322 = getelementptr inbounds nuw i8, ptr %header_nrequests_ps, i64 32
   store ptr %header_nrequests_ps, ptr %qre_prev.i322, align 8
   %cmp.i323 = icmp eq ptr %38, null
   br i1 %cmp.i323, label %emitter_col_init.exit332, label %do.body3.i324
 
 do.body3.i324:                                    ; preds = %emitter_col_init.exit320
-  %qre_prev7.i325 = getelementptr inbounds i8, ptr %38, i64 32
+  %qre_prev7.i325 = getelementptr inbounds nuw i8, ptr %38, i64 32
   %46 = load ptr, ptr %qre_prev7.i325, align 8
   store ptr %46, ptr %link.i321, align 8
   store ptr %header_nrequests_ps, ptr %qre_prev7.i325, align 8
   %47 = load ptr, ptr %qre_prev.i322, align 8
-  %link20.i327 = getelementptr inbounds i8, ptr %47, i64 24
+  %link20.i327 = getelementptr inbounds nuw i8, ptr %47, i64 24
   %48 = load ptr, ptr %link20.i327, align 8
   store ptr %48, ptr %qre_prev.i322, align 8
   %49 = load ptr, ptr %qre_prev7.i325, align 8
-  %link30.i329 = getelementptr inbounds i8, ptr %49, i64 24
+  %link30.i329 = getelementptr inbounds nuw i8, ptr %49, i64 24
   store ptr %38, ptr %link30.i329, align 8
   %50 = load ptr, ptr %qre_prev.i322, align 8
-  %link34.i330 = getelementptr inbounds i8, ptr %50, i64 24
+  %link34.i330 = getelementptr inbounds nuw i8, ptr %50, i64 24
   store ptr %header_nrequests_ps, ptr %link34.i330, align 8
   %.pre.i331 = load ptr, ptr %link.i321, align 8
   br label %emitter_col_init.exit332
@@ -9829,33 +9829,33 @@ emitter_col_init.exit332:                         ; preds = %emitter_col_init.ex
   %51 = phi ptr [ %.pre.i331, %do.body3.i324 ], [ %header_nrequests_ps, %emitter_col_init.exit320 ]
   store ptr %51, ptr %header_row, align 8
   store i32 1, ptr %header_nrequests_ps, align 8
-  %width61 = getelementptr inbounds i8, ptr %header_nrequests_ps, i64 4
+  %width61 = getelementptr inbounds nuw i8, ptr %header_nrequests_ps, i64 4
   store i32 10, ptr %width61, align 4
-  %type62 = getelementptr inbounds i8, ptr %header_nrequests_ps, i64 8
+  %type62 = getelementptr inbounds nuw i8, ptr %header_nrequests_ps, i64 8
   store i32 9, ptr %type62, align 8
-  %52 = getelementptr inbounds i8, ptr %header_nrequests_ps, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %header_nrequests_ps, i64 16
   store ptr @.str.267, ptr %52, align 8
-  %link.i333 = getelementptr inbounds i8, ptr %col_nshards, i64 24
+  %link.i333 = getelementptr inbounds nuw i8, ptr %col_nshards, i64 24
   store ptr %col_nshards, ptr %link.i333, align 8
-  %qre_prev.i334 = getelementptr inbounds i8, ptr %col_nshards, i64 32
+  %qre_prev.i334 = getelementptr inbounds nuw i8, ptr %col_nshards, i64 32
   store ptr %col_nshards, ptr %qre_prev.i334, align 8
   %cmp.i335 = icmp eq ptr %45, null
   br i1 %cmp.i335, label %emitter_col_init.exit344, label %do.body3.i336
 
 do.body3.i336:                                    ; preds = %emitter_col_init.exit332
-  %qre_prev7.i337 = getelementptr inbounds i8, ptr %45, i64 32
+  %qre_prev7.i337 = getelementptr inbounds nuw i8, ptr %45, i64 32
   %53 = load ptr, ptr %qre_prev7.i337, align 8
   store ptr %53, ptr %link.i333, align 8
   store ptr %col_nshards, ptr %qre_prev7.i337, align 8
   %54 = load ptr, ptr %qre_prev.i334, align 8
-  %link20.i339 = getelementptr inbounds i8, ptr %54, i64 24
+  %link20.i339 = getelementptr inbounds nuw i8, ptr %54, i64 24
   %55 = load ptr, ptr %link20.i339, align 8
   store ptr %55, ptr %qre_prev.i334, align 8
   %56 = load ptr, ptr %qre_prev7.i337, align 8
-  %link30.i341 = getelementptr inbounds i8, ptr %56, i64 24
+  %link30.i341 = getelementptr inbounds nuw i8, ptr %56, i64 24
   store ptr %45, ptr %link30.i341, align 8
   %57 = load ptr, ptr %qre_prev.i334, align 8
-  %link34.i342 = getelementptr inbounds i8, ptr %57, i64 24
+  %link34.i342 = getelementptr inbounds nuw i8, ptr %57, i64 24
   store ptr %col_nshards, ptr %link34.i342, align 8
   %.pre.i343 = load ptr, ptr %link.i333, align 8
   br label %emitter_col_init.exit344
@@ -9864,31 +9864,31 @@ emitter_col_init.exit344:                         ; preds = %emitter_col_init.ex
   %58 = phi ptr [ %.pre.i343, %do.body3.i336 ], [ %col_nshards, %emitter_col_init.exit332 ]
   store ptr %58, ptr %row, align 8
   store i32 1, ptr %col_nshards, align 8
-  %width90 = getelementptr inbounds i8, ptr %col_nshards, i64 4
+  %width90 = getelementptr inbounds nuw i8, ptr %col_nshards, i64 4
   store i32 9, ptr %width90, align 4
-  %type91 = getelementptr inbounds i8, ptr %col_nshards, i64 8
+  %type91 = getelementptr inbounds nuw i8, ptr %col_nshards, i64 8
   store i32 3, ptr %type91, align 8
-  %link.i345 = getelementptr inbounds i8, ptr %header_nshards, i64 24
+  %link.i345 = getelementptr inbounds nuw i8, ptr %header_nshards, i64 24
   store ptr %header_nshards, ptr %link.i345, align 8
-  %qre_prev.i346 = getelementptr inbounds i8, ptr %header_nshards, i64 32
+  %qre_prev.i346 = getelementptr inbounds nuw i8, ptr %header_nshards, i64 32
   store ptr %header_nshards, ptr %qre_prev.i346, align 8
   %cmp.i347 = icmp eq ptr %51, null
   br i1 %cmp.i347, label %emitter_col_init.exit356, label %do.body3.i348
 
 do.body3.i348:                                    ; preds = %emitter_col_init.exit344
-  %qre_prev7.i349 = getelementptr inbounds i8, ptr %51, i64 32
+  %qre_prev7.i349 = getelementptr inbounds nuw i8, ptr %51, i64 32
   %59 = load ptr, ptr %qre_prev7.i349, align 8
   store ptr %59, ptr %link.i345, align 8
   store ptr %header_nshards, ptr %qre_prev7.i349, align 8
   %60 = load ptr, ptr %qre_prev.i346, align 8
-  %link20.i351 = getelementptr inbounds i8, ptr %60, i64 24
+  %link20.i351 = getelementptr inbounds nuw i8, ptr %60, i64 24
   %61 = load ptr, ptr %link20.i351, align 8
   store ptr %61, ptr %qre_prev.i346, align 8
   %62 = load ptr, ptr %qre_prev7.i349, align 8
-  %link30.i353 = getelementptr inbounds i8, ptr %62, i64 24
+  %link30.i353 = getelementptr inbounds nuw i8, ptr %62, i64 24
   store ptr %51, ptr %link30.i353, align 8
   %63 = load ptr, ptr %qre_prev.i346, align 8
-  %link34.i354 = getelementptr inbounds i8, ptr %63, i64 24
+  %link34.i354 = getelementptr inbounds nuw i8, ptr %63, i64 24
   store ptr %header_nshards, ptr %link34.i354, align 8
   %.pre.i355 = load ptr, ptr %link.i345, align 8
   br label %emitter_col_init.exit356
@@ -9897,33 +9897,33 @@ emitter_col_init.exit356:                         ; preds = %emitter_col_init.ex
   %64 = phi ptr [ %.pre.i355, %do.body3.i348 ], [ %header_nshards, %emitter_col_init.exit344 ]
   store ptr %64, ptr %header_row, align 8
   store i32 1, ptr %header_nshards, align 8
-  %width93 = getelementptr inbounds i8, ptr %header_nshards, i64 4
+  %width93 = getelementptr inbounds nuw i8, ptr %header_nshards, i64 4
   store i32 9, ptr %width93, align 4
-  %type94 = getelementptr inbounds i8, ptr %header_nshards, i64 8
+  %type94 = getelementptr inbounds nuw i8, ptr %header_nshards, i64 8
   store i32 9, ptr %type94, align 8
-  %65 = getelementptr inbounds i8, ptr %header_nshards, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %header_nshards, i64 16
   store ptr @.str.206, ptr %65, align 8
-  %link.i357 = getelementptr inbounds i8, ptr %col_curregs, i64 24
+  %link.i357 = getelementptr inbounds nuw i8, ptr %col_curregs, i64 24
   store ptr %col_curregs, ptr %link.i357, align 8
-  %qre_prev.i358 = getelementptr inbounds i8, ptr %col_curregs, i64 32
+  %qre_prev.i358 = getelementptr inbounds nuw i8, ptr %col_curregs, i64 32
   store ptr %col_curregs, ptr %qre_prev.i358, align 8
   %cmp.i359 = icmp eq ptr %58, null
   br i1 %cmp.i359, label %emitter_col_init.exit368, label %do.body3.i360
 
 do.body3.i360:                                    ; preds = %emitter_col_init.exit356
-  %qre_prev7.i361 = getelementptr inbounds i8, ptr %58, i64 32
+  %qre_prev7.i361 = getelementptr inbounds nuw i8, ptr %58, i64 32
   %66 = load ptr, ptr %qre_prev7.i361, align 8
   store ptr %66, ptr %link.i357, align 8
   store ptr %col_curregs, ptr %qre_prev7.i361, align 8
   %67 = load ptr, ptr %qre_prev.i358, align 8
-  %link20.i363 = getelementptr inbounds i8, ptr %67, i64 24
+  %link20.i363 = getelementptr inbounds nuw i8, ptr %67, i64 24
   %68 = load ptr, ptr %link20.i363, align 8
   store ptr %68, ptr %qre_prev.i358, align 8
   %69 = load ptr, ptr %qre_prev7.i361, align 8
-  %link30.i365 = getelementptr inbounds i8, ptr %69, i64 24
+  %link30.i365 = getelementptr inbounds nuw i8, ptr %69, i64 24
   store ptr %58, ptr %link30.i365, align 8
   %70 = load ptr, ptr %qre_prev.i358, align 8
-  %link34.i366 = getelementptr inbounds i8, ptr %70, i64 24
+  %link34.i366 = getelementptr inbounds nuw i8, ptr %70, i64 24
   store ptr %col_curregs, ptr %link34.i366, align 8
   %.pre.i367 = load ptr, ptr %link.i357, align 8
   br label %emitter_col_init.exit368
@@ -9932,31 +9932,31 @@ emitter_col_init.exit368:                         ; preds = %emitter_col_init.ex
   %71 = phi ptr [ %.pre.i367, %do.body3.i360 ], [ %col_curregs, %emitter_col_init.exit356 ]
   store ptr %71, ptr %row, align 8
   store i32 1, ptr %col_curregs, align 8
-  %width96 = getelementptr inbounds i8, ptr %col_curregs, i64 4
+  %width96 = getelementptr inbounds nuw i8, ptr %col_curregs, i64 4
   store i32 13, ptr %width96, align 4
-  %type97 = getelementptr inbounds i8, ptr %col_curregs, i64 8
+  %type97 = getelementptr inbounds nuw i8, ptr %col_curregs, i64 8
   store i32 6, ptr %type97, align 8
-  %link.i369 = getelementptr inbounds i8, ptr %header_curregs, i64 24
+  %link.i369 = getelementptr inbounds nuw i8, ptr %header_curregs, i64 24
   store ptr %header_curregs, ptr %link.i369, align 8
-  %qre_prev.i370 = getelementptr inbounds i8, ptr %header_curregs, i64 32
+  %qre_prev.i370 = getelementptr inbounds nuw i8, ptr %header_curregs, i64 32
   store ptr %header_curregs, ptr %qre_prev.i370, align 8
   %cmp.i371 = icmp eq ptr %64, null
   br i1 %cmp.i371, label %emitter_col_init.exit380, label %do.body3.i372
 
 do.body3.i372:                                    ; preds = %emitter_col_init.exit368
-  %qre_prev7.i373 = getelementptr inbounds i8, ptr %64, i64 32
+  %qre_prev7.i373 = getelementptr inbounds nuw i8, ptr %64, i64 32
   %72 = load ptr, ptr %qre_prev7.i373, align 8
   store ptr %72, ptr %link.i369, align 8
   store ptr %header_curregs, ptr %qre_prev7.i373, align 8
   %73 = load ptr, ptr %qre_prev.i370, align 8
-  %link20.i375 = getelementptr inbounds i8, ptr %73, i64 24
+  %link20.i375 = getelementptr inbounds nuw i8, ptr %73, i64 24
   %74 = load ptr, ptr %link20.i375, align 8
   store ptr %74, ptr %qre_prev.i370, align 8
   %75 = load ptr, ptr %qre_prev7.i373, align 8
-  %link30.i377 = getelementptr inbounds i8, ptr %75, i64 24
+  %link30.i377 = getelementptr inbounds nuw i8, ptr %75, i64 24
   store ptr %64, ptr %link30.i377, align 8
   %76 = load ptr, ptr %qre_prev.i370, align 8
-  %link34.i378 = getelementptr inbounds i8, ptr %76, i64 24
+  %link34.i378 = getelementptr inbounds nuw i8, ptr %76, i64 24
   store ptr %header_curregs, ptr %link34.i378, align 8
   %.pre.i379 = load ptr, ptr %link.i369, align 8
   br label %emitter_col_init.exit380
@@ -9965,33 +9965,33 @@ emitter_col_init.exit380:                         ; preds = %emitter_col_init.ex
   %77 = phi ptr [ %.pre.i379, %do.body3.i372 ], [ %header_curregs, %emitter_col_init.exit368 ]
   store ptr %77, ptr %header_row, align 8
   store i32 1, ptr %header_curregs, align 8
-  %width99 = getelementptr inbounds i8, ptr %header_curregs, i64 4
+  %width99 = getelementptr inbounds nuw i8, ptr %header_curregs, i64 4
   store i32 13, ptr %width99, align 4
-  %type100 = getelementptr inbounds i8, ptr %header_curregs, i64 8
+  %type100 = getelementptr inbounds nuw i8, ptr %header_curregs, i64 8
   store i32 9, ptr %type100, align 8
-  %78 = getelementptr inbounds i8, ptr %header_curregs, i64 16
+  %78 = getelementptr inbounds nuw i8, ptr %header_curregs, i64 16
   store ptr @.str.373, ptr %78, align 8
-  %link.i381 = getelementptr inbounds i8, ptr %col_curslabs, i64 24
+  %link.i381 = getelementptr inbounds nuw i8, ptr %col_curslabs, i64 24
   store ptr %col_curslabs, ptr %link.i381, align 8
-  %qre_prev.i382 = getelementptr inbounds i8, ptr %col_curslabs, i64 32
+  %qre_prev.i382 = getelementptr inbounds nuw i8, ptr %col_curslabs, i64 32
   store ptr %col_curslabs, ptr %qre_prev.i382, align 8
   %cmp.i383 = icmp eq ptr %71, null
   br i1 %cmp.i383, label %emitter_col_init.exit392, label %do.body3.i384
 
 do.body3.i384:                                    ; preds = %emitter_col_init.exit380
-  %qre_prev7.i385 = getelementptr inbounds i8, ptr %71, i64 32
+  %qre_prev7.i385 = getelementptr inbounds nuw i8, ptr %71, i64 32
   %79 = load ptr, ptr %qre_prev7.i385, align 8
   store ptr %79, ptr %link.i381, align 8
   store ptr %col_curslabs, ptr %qre_prev7.i385, align 8
   %80 = load ptr, ptr %qre_prev.i382, align 8
-  %link20.i387 = getelementptr inbounds i8, ptr %80, i64 24
+  %link20.i387 = getelementptr inbounds nuw i8, ptr %80, i64 24
   %81 = load ptr, ptr %link20.i387, align 8
   store ptr %81, ptr %qre_prev.i382, align 8
   %82 = load ptr, ptr %qre_prev7.i385, align 8
-  %link30.i389 = getelementptr inbounds i8, ptr %82, i64 24
+  %link30.i389 = getelementptr inbounds nuw i8, ptr %82, i64 24
   store ptr %71, ptr %link30.i389, align 8
   %83 = load ptr, ptr %qre_prev.i382, align 8
-  %link34.i390 = getelementptr inbounds i8, ptr %83, i64 24
+  %link34.i390 = getelementptr inbounds nuw i8, ptr %83, i64 24
   store ptr %col_curslabs, ptr %link34.i390, align 8
   %.pre.i391 = load ptr, ptr %link.i381, align 8
   br label %emitter_col_init.exit392
@@ -10000,31 +10000,31 @@ emitter_col_init.exit392:                         ; preds = %emitter_col_init.ex
   %84 = phi ptr [ %.pre.i391, %do.body3.i384 ], [ %col_curslabs, %emitter_col_init.exit380 ]
   store ptr %84, ptr %row, align 8
   store i32 1, ptr %col_curslabs, align 8
-  %width102 = getelementptr inbounds i8, ptr %col_curslabs, i64 4
+  %width102 = getelementptr inbounds nuw i8, ptr %col_curslabs, i64 4
   store i32 13, ptr %width102, align 4
-  %type103 = getelementptr inbounds i8, ptr %col_curslabs, i64 8
+  %type103 = getelementptr inbounds nuw i8, ptr %col_curslabs, i64 8
   store i32 6, ptr %type103, align 8
-  %link.i393 = getelementptr inbounds i8, ptr %header_curslabs, i64 24
+  %link.i393 = getelementptr inbounds nuw i8, ptr %header_curslabs, i64 24
   store ptr %header_curslabs, ptr %link.i393, align 8
-  %qre_prev.i394 = getelementptr inbounds i8, ptr %header_curslabs, i64 32
+  %qre_prev.i394 = getelementptr inbounds nuw i8, ptr %header_curslabs, i64 32
   store ptr %header_curslabs, ptr %qre_prev.i394, align 8
   %cmp.i395 = icmp eq ptr %77, null
   br i1 %cmp.i395, label %emitter_col_init.exit404, label %do.body3.i396
 
 do.body3.i396:                                    ; preds = %emitter_col_init.exit392
-  %qre_prev7.i397 = getelementptr inbounds i8, ptr %77, i64 32
+  %qre_prev7.i397 = getelementptr inbounds nuw i8, ptr %77, i64 32
   %85 = load ptr, ptr %qre_prev7.i397, align 8
   store ptr %85, ptr %link.i393, align 8
   store ptr %header_curslabs, ptr %qre_prev7.i397, align 8
   %86 = load ptr, ptr %qre_prev.i394, align 8
-  %link20.i399 = getelementptr inbounds i8, ptr %86, i64 24
+  %link20.i399 = getelementptr inbounds nuw i8, ptr %86, i64 24
   %87 = load ptr, ptr %link20.i399, align 8
   store ptr %87, ptr %qre_prev.i394, align 8
   %88 = load ptr, ptr %qre_prev7.i397, align 8
-  %link30.i401 = getelementptr inbounds i8, ptr %88, i64 24
+  %link30.i401 = getelementptr inbounds nuw i8, ptr %88, i64 24
   store ptr %77, ptr %link30.i401, align 8
   %89 = load ptr, ptr %qre_prev.i394, align 8
-  %link34.i402 = getelementptr inbounds i8, ptr %89, i64 24
+  %link34.i402 = getelementptr inbounds nuw i8, ptr %89, i64 24
   store ptr %header_curslabs, ptr %link34.i402, align 8
   %.pre.i403 = load ptr, ptr %link.i393, align 8
   br label %emitter_col_init.exit404
@@ -10033,33 +10033,33 @@ emitter_col_init.exit404:                         ; preds = %emitter_col_init.ex
   %90 = phi ptr [ %.pre.i403, %do.body3.i396 ], [ %header_curslabs, %emitter_col_init.exit392 ]
   store ptr %90, ptr %header_row, align 8
   store i32 1, ptr %header_curslabs, align 8
-  %width105 = getelementptr inbounds i8, ptr %header_curslabs, i64 4
+  %width105 = getelementptr inbounds nuw i8, ptr %header_curslabs, i64 4
   store i32 13, ptr %width105, align 4
-  %type106 = getelementptr inbounds i8, ptr %header_curslabs, i64 8
+  %type106 = getelementptr inbounds nuw i8, ptr %header_curslabs, i64 8
   store i32 9, ptr %type106, align 8
-  %91 = getelementptr inbounds i8, ptr %header_curslabs, i64 16
+  %91 = getelementptr inbounds nuw i8, ptr %header_curslabs, i64 16
   store ptr @.str.374, ptr %91, align 8
-  %link.i405 = getelementptr inbounds i8, ptr %col_nonfull_slabs, i64 24
+  %link.i405 = getelementptr inbounds nuw i8, ptr %col_nonfull_slabs, i64 24
   store ptr %col_nonfull_slabs, ptr %link.i405, align 8
-  %qre_prev.i406 = getelementptr inbounds i8, ptr %col_nonfull_slabs, i64 32
+  %qre_prev.i406 = getelementptr inbounds nuw i8, ptr %col_nonfull_slabs, i64 32
   store ptr %col_nonfull_slabs, ptr %qre_prev.i406, align 8
   %cmp.i407 = icmp eq ptr %84, null
   br i1 %cmp.i407, label %emitter_col_init.exit416, label %do.body3.i408
 
 do.body3.i408:                                    ; preds = %emitter_col_init.exit404
-  %qre_prev7.i409 = getelementptr inbounds i8, ptr %84, i64 32
+  %qre_prev7.i409 = getelementptr inbounds nuw i8, ptr %84, i64 32
   %92 = load ptr, ptr %qre_prev7.i409, align 8
   store ptr %92, ptr %link.i405, align 8
   store ptr %col_nonfull_slabs, ptr %qre_prev7.i409, align 8
   %93 = load ptr, ptr %qre_prev.i406, align 8
-  %link20.i411 = getelementptr inbounds i8, ptr %93, i64 24
+  %link20.i411 = getelementptr inbounds nuw i8, ptr %93, i64 24
   %94 = load ptr, ptr %link20.i411, align 8
   store ptr %94, ptr %qre_prev.i406, align 8
   %95 = load ptr, ptr %qre_prev7.i409, align 8
-  %link30.i413 = getelementptr inbounds i8, ptr %95, i64 24
+  %link30.i413 = getelementptr inbounds nuw i8, ptr %95, i64 24
   store ptr %84, ptr %link30.i413, align 8
   %96 = load ptr, ptr %qre_prev.i406, align 8
-  %link34.i414 = getelementptr inbounds i8, ptr %96, i64 24
+  %link34.i414 = getelementptr inbounds nuw i8, ptr %96, i64 24
   store ptr %col_nonfull_slabs, ptr %link34.i414, align 8
   %.pre.i415 = load ptr, ptr %link.i405, align 8
   br label %emitter_col_init.exit416
@@ -10068,31 +10068,31 @@ emitter_col_init.exit416:                         ; preds = %emitter_col_init.ex
   %97 = phi ptr [ %.pre.i415, %do.body3.i408 ], [ %col_nonfull_slabs, %emitter_col_init.exit404 ]
   store ptr %97, ptr %row, align 8
   store i32 1, ptr %col_nonfull_slabs, align 8
-  %width108 = getelementptr inbounds i8, ptr %col_nonfull_slabs, i64 4
+  %width108 = getelementptr inbounds nuw i8, ptr %col_nonfull_slabs, i64 4
   store i32 15, ptr %width108, align 4
-  %type109 = getelementptr inbounds i8, ptr %col_nonfull_slabs, i64 8
+  %type109 = getelementptr inbounds nuw i8, ptr %col_nonfull_slabs, i64 8
   store i32 6, ptr %type109, align 8
-  %link.i417 = getelementptr inbounds i8, ptr %header_nonfull_slabs, i64 24
+  %link.i417 = getelementptr inbounds nuw i8, ptr %header_nonfull_slabs, i64 24
   store ptr %header_nonfull_slabs, ptr %link.i417, align 8
-  %qre_prev.i418 = getelementptr inbounds i8, ptr %header_nonfull_slabs, i64 32
+  %qre_prev.i418 = getelementptr inbounds nuw i8, ptr %header_nonfull_slabs, i64 32
   store ptr %header_nonfull_slabs, ptr %qre_prev.i418, align 8
   %cmp.i419 = icmp eq ptr %90, null
   br i1 %cmp.i419, label %emitter_col_init.exit428, label %do.body3.i420
 
 do.body3.i420:                                    ; preds = %emitter_col_init.exit416
-  %qre_prev7.i421 = getelementptr inbounds i8, ptr %90, i64 32
+  %qre_prev7.i421 = getelementptr inbounds nuw i8, ptr %90, i64 32
   %98 = load ptr, ptr %qre_prev7.i421, align 8
   store ptr %98, ptr %link.i417, align 8
   store ptr %header_nonfull_slabs, ptr %qre_prev7.i421, align 8
   %99 = load ptr, ptr %qre_prev.i418, align 8
-  %link20.i423 = getelementptr inbounds i8, ptr %99, i64 24
+  %link20.i423 = getelementptr inbounds nuw i8, ptr %99, i64 24
   %100 = load ptr, ptr %link20.i423, align 8
   store ptr %100, ptr %qre_prev.i418, align 8
   %101 = load ptr, ptr %qre_prev7.i421, align 8
-  %link30.i425 = getelementptr inbounds i8, ptr %101, i64 24
+  %link30.i425 = getelementptr inbounds nuw i8, ptr %101, i64 24
   store ptr %90, ptr %link30.i425, align 8
   %102 = load ptr, ptr %qre_prev.i418, align 8
-  %link34.i426 = getelementptr inbounds i8, ptr %102, i64 24
+  %link34.i426 = getelementptr inbounds nuw i8, ptr %102, i64 24
   store ptr %header_nonfull_slabs, ptr %link34.i426, align 8
   %.pre.i427 = load ptr, ptr %link.i417, align 8
   br label %emitter_col_init.exit428
@@ -10101,33 +10101,33 @@ emitter_col_init.exit428:                         ; preds = %emitter_col_init.ex
   %103 = phi ptr [ %.pre.i427, %do.body3.i420 ], [ %header_nonfull_slabs, %emitter_col_init.exit416 ]
   store ptr %103, ptr %header_row, align 8
   store i32 1, ptr %header_nonfull_slabs, align 8
-  %width111 = getelementptr inbounds i8, ptr %header_nonfull_slabs, i64 4
+  %width111 = getelementptr inbounds nuw i8, ptr %header_nonfull_slabs, i64 4
   store i32 15, ptr %width111, align 4
-  %type112 = getelementptr inbounds i8, ptr %header_nonfull_slabs, i64 8
+  %type112 = getelementptr inbounds nuw i8, ptr %header_nonfull_slabs, i64 8
   store i32 9, ptr %type112, align 8
-  %104 = getelementptr inbounds i8, ptr %header_nonfull_slabs, i64 16
+  %104 = getelementptr inbounds nuw i8, ptr %header_nonfull_slabs, i64 16
   store ptr @.str.375, ptr %104, align 8
-  %link.i429 = getelementptr inbounds i8, ptr %col_regs, i64 24
+  %link.i429 = getelementptr inbounds nuw i8, ptr %col_regs, i64 24
   store ptr %col_regs, ptr %link.i429, align 8
-  %qre_prev.i430 = getelementptr inbounds i8, ptr %col_regs, i64 32
+  %qre_prev.i430 = getelementptr inbounds nuw i8, ptr %col_regs, i64 32
   store ptr %col_regs, ptr %qre_prev.i430, align 8
   %cmp.i431 = icmp eq ptr %97, null
   br i1 %cmp.i431, label %emitter_col_init.exit440, label %do.body3.i432
 
 do.body3.i432:                                    ; preds = %emitter_col_init.exit428
-  %qre_prev7.i433 = getelementptr inbounds i8, ptr %97, i64 32
+  %qre_prev7.i433 = getelementptr inbounds nuw i8, ptr %97, i64 32
   %105 = load ptr, ptr %qre_prev7.i433, align 8
   store ptr %105, ptr %link.i429, align 8
   store ptr %col_regs, ptr %qre_prev7.i433, align 8
   %106 = load ptr, ptr %qre_prev.i430, align 8
-  %link20.i435 = getelementptr inbounds i8, ptr %106, i64 24
+  %link20.i435 = getelementptr inbounds nuw i8, ptr %106, i64 24
   %107 = load ptr, ptr %link20.i435, align 8
   store ptr %107, ptr %qre_prev.i430, align 8
   %108 = load ptr, ptr %qre_prev7.i433, align 8
-  %link30.i437 = getelementptr inbounds i8, ptr %108, i64 24
+  %link30.i437 = getelementptr inbounds nuw i8, ptr %108, i64 24
   store ptr %97, ptr %link30.i437, align 8
   %109 = load ptr, ptr %qre_prev.i430, align 8
-  %link34.i438 = getelementptr inbounds i8, ptr %109, i64 24
+  %link34.i438 = getelementptr inbounds nuw i8, ptr %109, i64 24
   store ptr %col_regs, ptr %link34.i438, align 8
   %.pre.i439 = load ptr, ptr %link.i429, align 8
   br label %emitter_col_init.exit440
@@ -10136,31 +10136,31 @@ emitter_col_init.exit440:                         ; preds = %emitter_col_init.ex
   %110 = phi ptr [ %.pre.i439, %do.body3.i432 ], [ %col_regs, %emitter_col_init.exit428 ]
   store ptr %110, ptr %row, align 8
   store i32 1, ptr %col_regs, align 8
-  %width114 = getelementptr inbounds i8, ptr %col_regs, i64 4
+  %width114 = getelementptr inbounds nuw i8, ptr %col_regs, i64 4
   store i32 5, ptr %width114, align 4
-  %type115 = getelementptr inbounds i8, ptr %col_regs, i64 8
+  %type115 = getelementptr inbounds nuw i8, ptr %col_regs, i64 8
   store i32 3, ptr %type115, align 8
-  %link.i441 = getelementptr inbounds i8, ptr %header_regs, i64 24
+  %link.i441 = getelementptr inbounds nuw i8, ptr %header_regs, i64 24
   store ptr %header_regs, ptr %link.i441, align 8
-  %qre_prev.i442 = getelementptr inbounds i8, ptr %header_regs, i64 32
+  %qre_prev.i442 = getelementptr inbounds nuw i8, ptr %header_regs, i64 32
   store ptr %header_regs, ptr %qre_prev.i442, align 8
   %cmp.i443 = icmp eq ptr %103, null
   br i1 %cmp.i443, label %emitter_col_init.exit452, label %do.body3.i444
 
 do.body3.i444:                                    ; preds = %emitter_col_init.exit440
-  %qre_prev7.i445 = getelementptr inbounds i8, ptr %103, i64 32
+  %qre_prev7.i445 = getelementptr inbounds nuw i8, ptr %103, i64 32
   %111 = load ptr, ptr %qre_prev7.i445, align 8
   store ptr %111, ptr %link.i441, align 8
   store ptr %header_regs, ptr %qre_prev7.i445, align 8
   %112 = load ptr, ptr %qre_prev.i442, align 8
-  %link20.i447 = getelementptr inbounds i8, ptr %112, i64 24
+  %link20.i447 = getelementptr inbounds nuw i8, ptr %112, i64 24
   %113 = load ptr, ptr %link20.i447, align 8
   store ptr %113, ptr %qre_prev.i442, align 8
   %114 = load ptr, ptr %qre_prev7.i445, align 8
-  %link30.i449 = getelementptr inbounds i8, ptr %114, i64 24
+  %link30.i449 = getelementptr inbounds nuw i8, ptr %114, i64 24
   store ptr %103, ptr %link30.i449, align 8
   %115 = load ptr, ptr %qre_prev.i442, align 8
-  %link34.i450 = getelementptr inbounds i8, ptr %115, i64 24
+  %link34.i450 = getelementptr inbounds nuw i8, ptr %115, i64 24
   store ptr %header_regs, ptr %link34.i450, align 8
   %.pre.i451 = load ptr, ptr %link.i441, align 8
   br label %emitter_col_init.exit452
@@ -10169,33 +10169,33 @@ emitter_col_init.exit452:                         ; preds = %emitter_col_init.ex
   %116 = phi ptr [ %.pre.i451, %do.body3.i444 ], [ %header_regs, %emitter_col_init.exit440 ]
   store ptr %116, ptr %header_row, align 8
   store i32 1, ptr %header_regs, align 8
-  %width117 = getelementptr inbounds i8, ptr %header_regs, i64 4
+  %width117 = getelementptr inbounds nuw i8, ptr %header_regs, i64 4
   store i32 5, ptr %width117, align 4
-  %type118 = getelementptr inbounds i8, ptr %header_regs, i64 8
+  %type118 = getelementptr inbounds nuw i8, ptr %header_regs, i64 8
   store i32 9, ptr %type118, align 8
-  %117 = getelementptr inbounds i8, ptr %header_regs, i64 16
+  %117 = getelementptr inbounds nuw i8, ptr %header_regs, i64 16
   store ptr @.str.376, ptr %117, align 8
-  %link.i453 = getelementptr inbounds i8, ptr %col_pgs, i64 24
+  %link.i453 = getelementptr inbounds nuw i8, ptr %col_pgs, i64 24
   store ptr %col_pgs, ptr %link.i453, align 8
-  %qre_prev.i454 = getelementptr inbounds i8, ptr %col_pgs, i64 32
+  %qre_prev.i454 = getelementptr inbounds nuw i8, ptr %col_pgs, i64 32
   store ptr %col_pgs, ptr %qre_prev.i454, align 8
   %cmp.i455 = icmp eq ptr %110, null
   br i1 %cmp.i455, label %emitter_col_init.exit464, label %do.body3.i456
 
 do.body3.i456:                                    ; preds = %emitter_col_init.exit452
-  %qre_prev7.i457 = getelementptr inbounds i8, ptr %110, i64 32
+  %qre_prev7.i457 = getelementptr inbounds nuw i8, ptr %110, i64 32
   %118 = load ptr, ptr %qre_prev7.i457, align 8
   store ptr %118, ptr %link.i453, align 8
   store ptr %col_pgs, ptr %qre_prev7.i457, align 8
   %119 = load ptr, ptr %qre_prev.i454, align 8
-  %link20.i459 = getelementptr inbounds i8, ptr %119, i64 24
+  %link20.i459 = getelementptr inbounds nuw i8, ptr %119, i64 24
   %120 = load ptr, ptr %link20.i459, align 8
   store ptr %120, ptr %qre_prev.i454, align 8
   %121 = load ptr, ptr %qre_prev7.i457, align 8
-  %link30.i461 = getelementptr inbounds i8, ptr %121, i64 24
+  %link30.i461 = getelementptr inbounds nuw i8, ptr %121, i64 24
   store ptr %110, ptr %link30.i461, align 8
   %122 = load ptr, ptr %qre_prev.i454, align 8
-  %link34.i462 = getelementptr inbounds i8, ptr %122, i64 24
+  %link34.i462 = getelementptr inbounds nuw i8, ptr %122, i64 24
   store ptr %col_pgs, ptr %link34.i462, align 8
   %.pre.i463 = load ptr, ptr %link.i453, align 8
   br label %emitter_col_init.exit464
@@ -10204,31 +10204,31 @@ emitter_col_init.exit464:                         ; preds = %emitter_col_init.ex
   %123 = phi ptr [ %.pre.i463, %do.body3.i456 ], [ %col_pgs, %emitter_col_init.exit452 ]
   store ptr %123, ptr %row, align 8
   store i32 1, ptr %col_pgs, align 8
-  %width120 = getelementptr inbounds i8, ptr %col_pgs, i64 4
+  %width120 = getelementptr inbounds nuw i8, ptr %col_pgs, i64 4
   store i32 4, ptr %width120, align 4
-  %type121 = getelementptr inbounds i8, ptr %col_pgs, i64 8
+  %type121 = getelementptr inbounds nuw i8, ptr %col_pgs, i64 8
   store i32 6, ptr %type121, align 8
-  %link.i465 = getelementptr inbounds i8, ptr %header_pgs, i64 24
+  %link.i465 = getelementptr inbounds nuw i8, ptr %header_pgs, i64 24
   store ptr %header_pgs, ptr %link.i465, align 8
-  %qre_prev.i466 = getelementptr inbounds i8, ptr %header_pgs, i64 32
+  %qre_prev.i466 = getelementptr inbounds nuw i8, ptr %header_pgs, i64 32
   store ptr %header_pgs, ptr %qre_prev.i466, align 8
   %cmp.i467 = icmp eq ptr %116, null
   br i1 %cmp.i467, label %emitter_col_init.exit476, label %do.body3.i468
 
 do.body3.i468:                                    ; preds = %emitter_col_init.exit464
-  %qre_prev7.i469 = getelementptr inbounds i8, ptr %116, i64 32
+  %qre_prev7.i469 = getelementptr inbounds nuw i8, ptr %116, i64 32
   %124 = load ptr, ptr %qre_prev7.i469, align 8
   store ptr %124, ptr %link.i465, align 8
   store ptr %header_pgs, ptr %qre_prev7.i469, align 8
   %125 = load ptr, ptr %qre_prev.i466, align 8
-  %link20.i471 = getelementptr inbounds i8, ptr %125, i64 24
+  %link20.i471 = getelementptr inbounds nuw i8, ptr %125, i64 24
   %126 = load ptr, ptr %link20.i471, align 8
   store ptr %126, ptr %qre_prev.i466, align 8
   %127 = load ptr, ptr %qre_prev7.i469, align 8
-  %link30.i473 = getelementptr inbounds i8, ptr %127, i64 24
+  %link30.i473 = getelementptr inbounds nuw i8, ptr %127, i64 24
   store ptr %116, ptr %link30.i473, align 8
   %128 = load ptr, ptr %qre_prev.i466, align 8
-  %link34.i474 = getelementptr inbounds i8, ptr %128, i64 24
+  %link34.i474 = getelementptr inbounds nuw i8, ptr %128, i64 24
   store ptr %header_pgs, ptr %link34.i474, align 8
   %.pre.i475 = load ptr, ptr %link.i465, align 8
   br label %emitter_col_init.exit476
@@ -10237,33 +10237,33 @@ emitter_col_init.exit476:                         ; preds = %emitter_col_init.ex
   %129 = phi ptr [ %.pre.i475, %do.body3.i468 ], [ %header_pgs, %emitter_col_init.exit464 ]
   store ptr %129, ptr %header_row, align 8
   store i32 1, ptr %header_pgs, align 8
-  %width123 = getelementptr inbounds i8, ptr %header_pgs, i64 4
+  %width123 = getelementptr inbounds nuw i8, ptr %header_pgs, i64 4
   store i32 4, ptr %width123, align 4
-  %type124 = getelementptr inbounds i8, ptr %header_pgs, i64 8
+  %type124 = getelementptr inbounds nuw i8, ptr %header_pgs, i64 8
   store i32 9, ptr %type124, align 8
-  %130 = getelementptr inbounds i8, ptr %header_pgs, i64 16
+  %130 = getelementptr inbounds nuw i8, ptr %header_pgs, i64 16
   store ptr @.str.377, ptr %130, align 8
-  %link.i477 = getelementptr inbounds i8, ptr %col_justify_spacer, i64 24
+  %link.i477 = getelementptr inbounds nuw i8, ptr %col_justify_spacer, i64 24
   store ptr %col_justify_spacer, ptr %link.i477, align 8
-  %qre_prev.i478 = getelementptr inbounds i8, ptr %col_justify_spacer, i64 32
+  %qre_prev.i478 = getelementptr inbounds nuw i8, ptr %col_justify_spacer, i64 32
   store ptr %col_justify_spacer, ptr %qre_prev.i478, align 8
   %cmp.i479 = icmp eq ptr %123, null
   br i1 %cmp.i479, label %emitter_col_init.exit488, label %do.body3.i480
 
 do.body3.i480:                                    ; preds = %emitter_col_init.exit476
-  %qre_prev7.i481 = getelementptr inbounds i8, ptr %123, i64 32
+  %qre_prev7.i481 = getelementptr inbounds nuw i8, ptr %123, i64 32
   %131 = load ptr, ptr %qre_prev7.i481, align 8
   store ptr %131, ptr %link.i477, align 8
   store ptr %col_justify_spacer, ptr %qre_prev7.i481, align 8
   %132 = load ptr, ptr %qre_prev.i478, align 8
-  %link20.i483 = getelementptr inbounds i8, ptr %132, i64 24
+  %link20.i483 = getelementptr inbounds nuw i8, ptr %132, i64 24
   %133 = load ptr, ptr %link20.i483, align 8
   store ptr %133, ptr %qre_prev.i478, align 8
   %134 = load ptr, ptr %qre_prev7.i481, align 8
-  %link30.i485 = getelementptr inbounds i8, ptr %134, i64 24
+  %link30.i485 = getelementptr inbounds nuw i8, ptr %134, i64 24
   store ptr %123, ptr %link30.i485, align 8
   %135 = load ptr, ptr %qre_prev.i478, align 8
-  %link34.i486 = getelementptr inbounds i8, ptr %135, i64 24
+  %link34.i486 = getelementptr inbounds nuw i8, ptr %135, i64 24
   store ptr %col_justify_spacer, ptr %link34.i486, align 8
   %.pre.i487 = load ptr, ptr %link.i477, align 8
   br label %emitter_col_init.exit488
@@ -10272,31 +10272,31 @@ emitter_col_init.exit488:                         ; preds = %emitter_col_init.ex
   %136 = phi ptr [ %.pre.i487, %do.body3.i480 ], [ %col_justify_spacer, %emitter_col_init.exit476 ]
   store ptr %136, ptr %row, align 8
   store i32 1, ptr %col_justify_spacer, align 8
-  %width126 = getelementptr inbounds i8, ptr %col_justify_spacer, i64 4
+  %width126 = getelementptr inbounds nuw i8, ptr %col_justify_spacer, i64 4
   store i32 1, ptr %width126, align 4
-  %type127 = getelementptr inbounds i8, ptr %col_justify_spacer, i64 8
+  %type127 = getelementptr inbounds nuw i8, ptr %col_justify_spacer, i64 8
   store i32 9, ptr %type127, align 8
-  %link.i489 = getelementptr inbounds i8, ptr %header_justify_spacer, i64 24
+  %link.i489 = getelementptr inbounds nuw i8, ptr %header_justify_spacer, i64 24
   store ptr %header_justify_spacer, ptr %link.i489, align 8
-  %qre_prev.i490 = getelementptr inbounds i8, ptr %header_justify_spacer, i64 32
+  %qre_prev.i490 = getelementptr inbounds nuw i8, ptr %header_justify_spacer, i64 32
   store ptr %header_justify_spacer, ptr %qre_prev.i490, align 8
   %cmp.i491 = icmp eq ptr %129, null
   br i1 %cmp.i491, label %emitter_col_init.exit500, label %do.body3.i492
 
 do.body3.i492:                                    ; preds = %emitter_col_init.exit488
-  %qre_prev7.i493 = getelementptr inbounds i8, ptr %129, i64 32
+  %qre_prev7.i493 = getelementptr inbounds nuw i8, ptr %129, i64 32
   %137 = load ptr, ptr %qre_prev7.i493, align 8
   store ptr %137, ptr %link.i489, align 8
   store ptr %header_justify_spacer, ptr %qre_prev7.i493, align 8
   %138 = load ptr, ptr %qre_prev.i490, align 8
-  %link20.i495 = getelementptr inbounds i8, ptr %138, i64 24
+  %link20.i495 = getelementptr inbounds nuw i8, ptr %138, i64 24
   %139 = load ptr, ptr %link20.i495, align 8
   store ptr %139, ptr %qre_prev.i490, align 8
   %140 = load ptr, ptr %qre_prev7.i493, align 8
-  %link30.i497 = getelementptr inbounds i8, ptr %140, i64 24
+  %link30.i497 = getelementptr inbounds nuw i8, ptr %140, i64 24
   store ptr %129, ptr %link30.i497, align 8
   %141 = load ptr, ptr %qre_prev.i490, align 8
-  %link34.i498 = getelementptr inbounds i8, ptr %141, i64 24
+  %link34.i498 = getelementptr inbounds nuw i8, ptr %141, i64 24
   store ptr %header_justify_spacer, ptr %link34.i498, align 8
   %.pre.i499 = load ptr, ptr %link.i489, align 8
   br label %emitter_col_init.exit500
@@ -10305,33 +10305,33 @@ emitter_col_init.exit500:                         ; preds = %emitter_col_init.ex
   %142 = phi ptr [ %.pre.i499, %do.body3.i492 ], [ %header_justify_spacer, %emitter_col_init.exit488 ]
   store ptr %142, ptr %header_row, align 8
   store i32 1, ptr %header_justify_spacer, align 8
-  %width129 = getelementptr inbounds i8, ptr %header_justify_spacer, i64 4
+  %width129 = getelementptr inbounds nuw i8, ptr %header_justify_spacer, i64 4
   store i32 1, ptr %width129, align 4
-  %type130 = getelementptr inbounds i8, ptr %header_justify_spacer, i64 8
+  %type130 = getelementptr inbounds nuw i8, ptr %header_justify_spacer, i64 8
   store i32 9, ptr %type130, align 8
-  %143 = getelementptr inbounds i8, ptr %header_justify_spacer, i64 16
+  %143 = getelementptr inbounds nuw i8, ptr %header_justify_spacer, i64 16
   store ptr @.str.378, ptr %143, align 8
-  %link.i501 = getelementptr inbounds i8, ptr %col_util, i64 24
+  %link.i501 = getelementptr inbounds nuw i8, ptr %col_util, i64 24
   store ptr %col_util, ptr %link.i501, align 8
-  %qre_prev.i502 = getelementptr inbounds i8, ptr %col_util, i64 32
+  %qre_prev.i502 = getelementptr inbounds nuw i8, ptr %col_util, i64 32
   store ptr %col_util, ptr %qre_prev.i502, align 8
   %cmp.i503 = icmp eq ptr %136, null
   br i1 %cmp.i503, label %emitter_col_init.exit512, label %do.body3.i504
 
 do.body3.i504:                                    ; preds = %emitter_col_init.exit500
-  %qre_prev7.i505 = getelementptr inbounds i8, ptr %136, i64 32
+  %qre_prev7.i505 = getelementptr inbounds nuw i8, ptr %136, i64 32
   %144 = load ptr, ptr %qre_prev7.i505, align 8
   store ptr %144, ptr %link.i501, align 8
   store ptr %col_util, ptr %qre_prev7.i505, align 8
   %145 = load ptr, ptr %qre_prev.i502, align 8
-  %link20.i507 = getelementptr inbounds i8, ptr %145, i64 24
+  %link20.i507 = getelementptr inbounds nuw i8, ptr %145, i64 24
   %146 = load ptr, ptr %link20.i507, align 8
   store ptr %146, ptr %qre_prev.i502, align 8
   %147 = load ptr, ptr %qre_prev7.i505, align 8
-  %link30.i509 = getelementptr inbounds i8, ptr %147, i64 24
+  %link30.i509 = getelementptr inbounds nuw i8, ptr %147, i64 24
   store ptr %136, ptr %link30.i509, align 8
   %148 = load ptr, ptr %qre_prev.i502, align 8
-  %link34.i510 = getelementptr inbounds i8, ptr %148, i64 24
+  %link34.i510 = getelementptr inbounds nuw i8, ptr %148, i64 24
   store ptr %col_util, ptr %link34.i510, align 8
   %.pre.i511 = load ptr, ptr %link.i501, align 8
   br label %emitter_col_init.exit512
@@ -10340,31 +10340,31 @@ emitter_col_init.exit512:                         ; preds = %emitter_col_init.ex
   %149 = phi ptr [ %.pre.i511, %do.body3.i504 ], [ %col_util, %emitter_col_init.exit500 ]
   store ptr %149, ptr %row, align 8
   store i32 1, ptr %col_util, align 8
-  %width132 = getelementptr inbounds i8, ptr %col_util, i64 4
+  %width132 = getelementptr inbounds nuw i8, ptr %col_util, i64 4
   store i32 6, ptr %width132, align 4
-  %type133 = getelementptr inbounds i8, ptr %col_util, i64 8
+  %type133 = getelementptr inbounds nuw i8, ptr %col_util, i64 8
   store i32 9, ptr %type133, align 8
-  %link.i513 = getelementptr inbounds i8, ptr %header_util, i64 24
+  %link.i513 = getelementptr inbounds nuw i8, ptr %header_util, i64 24
   store ptr %header_util, ptr %link.i513, align 8
-  %qre_prev.i514 = getelementptr inbounds i8, ptr %header_util, i64 32
+  %qre_prev.i514 = getelementptr inbounds nuw i8, ptr %header_util, i64 32
   store ptr %header_util, ptr %qre_prev.i514, align 8
   %cmp.i515 = icmp eq ptr %142, null
   br i1 %cmp.i515, label %emitter_col_init.exit524, label %do.body3.i516
 
 do.body3.i516:                                    ; preds = %emitter_col_init.exit512
-  %qre_prev7.i517 = getelementptr inbounds i8, ptr %142, i64 32
+  %qre_prev7.i517 = getelementptr inbounds nuw i8, ptr %142, i64 32
   %150 = load ptr, ptr %qre_prev7.i517, align 8
   store ptr %150, ptr %link.i513, align 8
   store ptr %header_util, ptr %qre_prev7.i517, align 8
   %151 = load ptr, ptr %qre_prev.i514, align 8
-  %link20.i519 = getelementptr inbounds i8, ptr %151, i64 24
+  %link20.i519 = getelementptr inbounds nuw i8, ptr %151, i64 24
   %152 = load ptr, ptr %link20.i519, align 8
   store ptr %152, ptr %qre_prev.i514, align 8
   %153 = load ptr, ptr %qre_prev7.i517, align 8
-  %link30.i521 = getelementptr inbounds i8, ptr %153, i64 24
+  %link30.i521 = getelementptr inbounds nuw i8, ptr %153, i64 24
   store ptr %142, ptr %link30.i521, align 8
   %154 = load ptr, ptr %qre_prev.i514, align 8
-  %link34.i522 = getelementptr inbounds i8, ptr %154, i64 24
+  %link34.i522 = getelementptr inbounds nuw i8, ptr %154, i64 24
   store ptr %header_util, ptr %link34.i522, align 8
   %.pre.i523 = load ptr, ptr %link.i513, align 8
   br label %emitter_col_init.exit524
@@ -10373,33 +10373,33 @@ emitter_col_init.exit524:                         ; preds = %emitter_col_init.ex
   %155 = phi ptr [ %.pre.i523, %do.body3.i516 ], [ %header_util, %emitter_col_init.exit512 ]
   store ptr %155, ptr %header_row, align 8
   store i32 1, ptr %header_util, align 8
-  %width135 = getelementptr inbounds i8, ptr %header_util, i64 4
+  %width135 = getelementptr inbounds nuw i8, ptr %header_util, i64 4
   store i32 6, ptr %width135, align 4
-  %type136 = getelementptr inbounds i8, ptr %header_util, i64 8
+  %type136 = getelementptr inbounds nuw i8, ptr %header_util, i64 8
   store i32 9, ptr %type136, align 8
-  %156 = getelementptr inbounds i8, ptr %header_util, i64 16
+  %156 = getelementptr inbounds nuw i8, ptr %header_util, i64 16
   store ptr @.str.379, ptr %156, align 8
-  %link.i525 = getelementptr inbounds i8, ptr %col_nfills, i64 24
+  %link.i525 = getelementptr inbounds nuw i8, ptr %col_nfills, i64 24
   store ptr %col_nfills, ptr %link.i525, align 8
-  %qre_prev.i526 = getelementptr inbounds i8, ptr %col_nfills, i64 32
+  %qre_prev.i526 = getelementptr inbounds nuw i8, ptr %col_nfills, i64 32
   store ptr %col_nfills, ptr %qre_prev.i526, align 8
   %cmp.i527 = icmp eq ptr %149, null
   br i1 %cmp.i527, label %emitter_col_init.exit536, label %do.body3.i528
 
 do.body3.i528:                                    ; preds = %emitter_col_init.exit524
-  %qre_prev7.i529 = getelementptr inbounds i8, ptr %149, i64 32
+  %qre_prev7.i529 = getelementptr inbounds nuw i8, ptr %149, i64 32
   %157 = load ptr, ptr %qre_prev7.i529, align 8
   store ptr %157, ptr %link.i525, align 8
   store ptr %col_nfills, ptr %qre_prev7.i529, align 8
   %158 = load ptr, ptr %qre_prev.i526, align 8
-  %link20.i531 = getelementptr inbounds i8, ptr %158, i64 24
+  %link20.i531 = getelementptr inbounds nuw i8, ptr %158, i64 24
   %159 = load ptr, ptr %link20.i531, align 8
   store ptr %159, ptr %qre_prev.i526, align 8
   %160 = load ptr, ptr %qre_prev7.i529, align 8
-  %link30.i533 = getelementptr inbounds i8, ptr %160, i64 24
+  %link30.i533 = getelementptr inbounds nuw i8, ptr %160, i64 24
   store ptr %149, ptr %link30.i533, align 8
   %161 = load ptr, ptr %qre_prev.i526, align 8
-  %link34.i534 = getelementptr inbounds i8, ptr %161, i64 24
+  %link34.i534 = getelementptr inbounds nuw i8, ptr %161, i64 24
   store ptr %col_nfills, ptr %link34.i534, align 8
   %.pre.i535 = load ptr, ptr %link.i525, align 8
   br label %emitter_col_init.exit536
@@ -10408,31 +10408,31 @@ emitter_col_init.exit536:                         ; preds = %emitter_col_init.ex
   %162 = phi ptr [ %.pre.i535, %do.body3.i528 ], [ %col_nfills, %emitter_col_init.exit524 ]
   store ptr %162, ptr %row, align 8
   store i32 1, ptr %col_nfills, align 8
-  %width138 = getelementptr inbounds i8, ptr %col_nfills, i64 4
+  %width138 = getelementptr inbounds nuw i8, ptr %col_nfills, i64 4
   store i32 13, ptr %width138, align 4
-  %type139 = getelementptr inbounds i8, ptr %col_nfills, i64 8
+  %type139 = getelementptr inbounds nuw i8, ptr %col_nfills, i64 8
   store i32 5, ptr %type139, align 8
-  %link.i537 = getelementptr inbounds i8, ptr %header_nfills, i64 24
+  %link.i537 = getelementptr inbounds nuw i8, ptr %header_nfills, i64 24
   store ptr %header_nfills, ptr %link.i537, align 8
-  %qre_prev.i538 = getelementptr inbounds i8, ptr %header_nfills, i64 32
+  %qre_prev.i538 = getelementptr inbounds nuw i8, ptr %header_nfills, i64 32
   store ptr %header_nfills, ptr %qre_prev.i538, align 8
   %cmp.i539 = icmp eq ptr %155, null
   br i1 %cmp.i539, label %emitter_col_init.exit548, label %do.body3.i540
 
 do.body3.i540:                                    ; preds = %emitter_col_init.exit536
-  %qre_prev7.i541 = getelementptr inbounds i8, ptr %155, i64 32
+  %qre_prev7.i541 = getelementptr inbounds nuw i8, ptr %155, i64 32
   %163 = load ptr, ptr %qre_prev7.i541, align 8
   store ptr %163, ptr %link.i537, align 8
   store ptr %header_nfills, ptr %qre_prev7.i541, align 8
   %164 = load ptr, ptr %qre_prev.i538, align 8
-  %link20.i543 = getelementptr inbounds i8, ptr %164, i64 24
+  %link20.i543 = getelementptr inbounds nuw i8, ptr %164, i64 24
   %165 = load ptr, ptr %link20.i543, align 8
   store ptr %165, ptr %qre_prev.i538, align 8
   %166 = load ptr, ptr %qre_prev7.i541, align 8
-  %link30.i545 = getelementptr inbounds i8, ptr %166, i64 24
+  %link30.i545 = getelementptr inbounds nuw i8, ptr %166, i64 24
   store ptr %155, ptr %link30.i545, align 8
   %167 = load ptr, ptr %qre_prev.i538, align 8
-  %link34.i546 = getelementptr inbounds i8, ptr %167, i64 24
+  %link34.i546 = getelementptr inbounds nuw i8, ptr %167, i64 24
   store ptr %header_nfills, ptr %link34.i546, align 8
   %.pre.i547 = load ptr, ptr %link.i537, align 8
   br label %emitter_col_init.exit548
@@ -10441,33 +10441,33 @@ emitter_col_init.exit548:                         ; preds = %emitter_col_init.ex
   %168 = phi ptr [ %.pre.i547, %do.body3.i540 ], [ %header_nfills, %emitter_col_init.exit536 ]
   store ptr %168, ptr %header_row, align 8
   store i32 1, ptr %header_nfills, align 8
-  %width141 = getelementptr inbounds i8, ptr %header_nfills, i64 4
+  %width141 = getelementptr inbounds nuw i8, ptr %header_nfills, i64 4
   store i32 13, ptr %width141, align 4
-  %type142 = getelementptr inbounds i8, ptr %header_nfills, i64 8
+  %type142 = getelementptr inbounds nuw i8, ptr %header_nfills, i64 8
   store i32 9, ptr %type142, align 8
-  %169 = getelementptr inbounds i8, ptr %header_nfills, i64 16
+  %169 = getelementptr inbounds nuw i8, ptr %header_nfills, i64 16
   store ptr @.str.329, ptr %169, align 8
-  %link.i549 = getelementptr inbounds i8, ptr %col_nfills_ps, i64 24
+  %link.i549 = getelementptr inbounds nuw i8, ptr %col_nfills_ps, i64 24
   store ptr %col_nfills_ps, ptr %link.i549, align 8
-  %qre_prev.i550 = getelementptr inbounds i8, ptr %col_nfills_ps, i64 32
+  %qre_prev.i550 = getelementptr inbounds nuw i8, ptr %col_nfills_ps, i64 32
   store ptr %col_nfills_ps, ptr %qre_prev.i550, align 8
   %cmp.i551 = icmp eq ptr %162, null
   br i1 %cmp.i551, label %emitter_col_init.exit560, label %do.body3.i552
 
 do.body3.i552:                                    ; preds = %emitter_col_init.exit548
-  %qre_prev7.i553 = getelementptr inbounds i8, ptr %162, i64 32
+  %qre_prev7.i553 = getelementptr inbounds nuw i8, ptr %162, i64 32
   %170 = load ptr, ptr %qre_prev7.i553, align 8
   store ptr %170, ptr %link.i549, align 8
   store ptr %col_nfills_ps, ptr %qre_prev7.i553, align 8
   %171 = load ptr, ptr %qre_prev.i550, align 8
-  %link20.i555 = getelementptr inbounds i8, ptr %171, i64 24
+  %link20.i555 = getelementptr inbounds nuw i8, ptr %171, i64 24
   %172 = load ptr, ptr %link20.i555, align 8
   store ptr %172, ptr %qre_prev.i550, align 8
   %173 = load ptr, ptr %qre_prev7.i553, align 8
-  %link30.i557 = getelementptr inbounds i8, ptr %173, i64 24
+  %link30.i557 = getelementptr inbounds nuw i8, ptr %173, i64 24
   store ptr %162, ptr %link30.i557, align 8
   %174 = load ptr, ptr %qre_prev.i550, align 8
-  %link34.i558 = getelementptr inbounds i8, ptr %174, i64 24
+  %link34.i558 = getelementptr inbounds nuw i8, ptr %174, i64 24
   store ptr %col_nfills_ps, ptr %link34.i558, align 8
   %.pre.i559 = load ptr, ptr %link.i549, align 8
   br label %emitter_col_init.exit560
@@ -10476,31 +10476,31 @@ emitter_col_init.exit560:                         ; preds = %emitter_col_init.ex
   %175 = phi ptr [ %.pre.i559, %do.body3.i552 ], [ %col_nfills_ps, %emitter_col_init.exit548 ]
   store ptr %175, ptr %row, align 8
   store i32 1, ptr %col_nfills_ps, align 8
-  %width144 = getelementptr inbounds i8, ptr %col_nfills_ps, i64 4
+  %width144 = getelementptr inbounds nuw i8, ptr %col_nfills_ps, i64 4
   store i32 8, ptr %width144, align 4
-  %type145 = getelementptr inbounds i8, ptr %col_nfills_ps, i64 8
+  %type145 = getelementptr inbounds nuw i8, ptr %col_nfills_ps, i64 8
   store i32 5, ptr %type145, align 8
-  %link.i561 = getelementptr inbounds i8, ptr %header_nfills_ps, i64 24
+  %link.i561 = getelementptr inbounds nuw i8, ptr %header_nfills_ps, i64 24
   store ptr %header_nfills_ps, ptr %link.i561, align 8
-  %qre_prev.i562 = getelementptr inbounds i8, ptr %header_nfills_ps, i64 32
+  %qre_prev.i562 = getelementptr inbounds nuw i8, ptr %header_nfills_ps, i64 32
   store ptr %header_nfills_ps, ptr %qre_prev.i562, align 8
   %cmp.i563 = icmp eq ptr %168, null
   br i1 %cmp.i563, label %emitter_col_init.exit572, label %do.body3.i564
 
 do.body3.i564:                                    ; preds = %emitter_col_init.exit560
-  %qre_prev7.i565 = getelementptr inbounds i8, ptr %168, i64 32
+  %qre_prev7.i565 = getelementptr inbounds nuw i8, ptr %168, i64 32
   %176 = load ptr, ptr %qre_prev7.i565, align 8
   store ptr %176, ptr %link.i561, align 8
   store ptr %header_nfills_ps, ptr %qre_prev7.i565, align 8
   %177 = load ptr, ptr %qre_prev.i562, align 8
-  %link20.i567 = getelementptr inbounds i8, ptr %177, i64 24
+  %link20.i567 = getelementptr inbounds nuw i8, ptr %177, i64 24
   %178 = load ptr, ptr %link20.i567, align 8
   store ptr %178, ptr %qre_prev.i562, align 8
   %179 = load ptr, ptr %qre_prev7.i565, align 8
-  %link30.i569 = getelementptr inbounds i8, ptr %179, i64 24
+  %link30.i569 = getelementptr inbounds nuw i8, ptr %179, i64 24
   store ptr %168, ptr %link30.i569, align 8
   %180 = load ptr, ptr %qre_prev.i562, align 8
-  %link34.i570 = getelementptr inbounds i8, ptr %180, i64 24
+  %link34.i570 = getelementptr inbounds nuw i8, ptr %180, i64 24
   store ptr %header_nfills_ps, ptr %link34.i570, align 8
   %.pre.i571 = load ptr, ptr %link.i561, align 8
   br label %emitter_col_init.exit572
@@ -10509,33 +10509,33 @@ emitter_col_init.exit572:                         ; preds = %emitter_col_init.ex
   %181 = phi ptr [ %.pre.i571, %do.body3.i564 ], [ %header_nfills_ps, %emitter_col_init.exit560 ]
   store ptr %181, ptr %header_row, align 8
   store i32 1, ptr %header_nfills_ps, align 8
-  %width147 = getelementptr inbounds i8, ptr %header_nfills_ps, i64 4
+  %width147 = getelementptr inbounds nuw i8, ptr %header_nfills_ps, i64 4
   store i32 8, ptr %width147, align 4
-  %type148 = getelementptr inbounds i8, ptr %header_nfills_ps, i64 8
+  %type148 = getelementptr inbounds nuw i8, ptr %header_nfills_ps, i64 8
   store i32 9, ptr %type148, align 8
-  %182 = getelementptr inbounds i8, ptr %header_nfills_ps, i64 16
+  %182 = getelementptr inbounds nuw i8, ptr %header_nfills_ps, i64 16
   store ptr @.str.267, ptr %182, align 8
-  %link.i573 = getelementptr inbounds i8, ptr %col_nflushes, i64 24
+  %link.i573 = getelementptr inbounds nuw i8, ptr %col_nflushes, i64 24
   store ptr %col_nflushes, ptr %link.i573, align 8
-  %qre_prev.i574 = getelementptr inbounds i8, ptr %col_nflushes, i64 32
+  %qre_prev.i574 = getelementptr inbounds nuw i8, ptr %col_nflushes, i64 32
   store ptr %col_nflushes, ptr %qre_prev.i574, align 8
   %cmp.i575 = icmp eq ptr %175, null
   br i1 %cmp.i575, label %emitter_col_init.exit584, label %do.body3.i576
 
 do.body3.i576:                                    ; preds = %emitter_col_init.exit572
-  %qre_prev7.i577 = getelementptr inbounds i8, ptr %175, i64 32
+  %qre_prev7.i577 = getelementptr inbounds nuw i8, ptr %175, i64 32
   %183 = load ptr, ptr %qre_prev7.i577, align 8
   store ptr %183, ptr %link.i573, align 8
   store ptr %col_nflushes, ptr %qre_prev7.i577, align 8
   %184 = load ptr, ptr %qre_prev.i574, align 8
-  %link20.i579 = getelementptr inbounds i8, ptr %184, i64 24
+  %link20.i579 = getelementptr inbounds nuw i8, ptr %184, i64 24
   %185 = load ptr, ptr %link20.i579, align 8
   store ptr %185, ptr %qre_prev.i574, align 8
   %186 = load ptr, ptr %qre_prev7.i577, align 8
-  %link30.i581 = getelementptr inbounds i8, ptr %186, i64 24
+  %link30.i581 = getelementptr inbounds nuw i8, ptr %186, i64 24
   store ptr %175, ptr %link30.i581, align 8
   %187 = load ptr, ptr %qre_prev.i574, align 8
-  %link34.i582 = getelementptr inbounds i8, ptr %187, i64 24
+  %link34.i582 = getelementptr inbounds nuw i8, ptr %187, i64 24
   store ptr %col_nflushes, ptr %link34.i582, align 8
   %.pre.i583 = load ptr, ptr %link.i573, align 8
   br label %emitter_col_init.exit584
@@ -10544,31 +10544,31 @@ emitter_col_init.exit584:                         ; preds = %emitter_col_init.ex
   %188 = phi ptr [ %.pre.i583, %do.body3.i576 ], [ %col_nflushes, %emitter_col_init.exit572 ]
   store ptr %188, ptr %row, align 8
   store i32 1, ptr %col_nflushes, align 8
-  %width150 = getelementptr inbounds i8, ptr %col_nflushes, i64 4
+  %width150 = getelementptr inbounds nuw i8, ptr %col_nflushes, i64 4
   store i32 13, ptr %width150, align 4
-  %type151 = getelementptr inbounds i8, ptr %col_nflushes, i64 8
+  %type151 = getelementptr inbounds nuw i8, ptr %col_nflushes, i64 8
   store i32 5, ptr %type151, align 8
-  %link.i585 = getelementptr inbounds i8, ptr %header_nflushes, i64 24
+  %link.i585 = getelementptr inbounds nuw i8, ptr %header_nflushes, i64 24
   store ptr %header_nflushes, ptr %link.i585, align 8
-  %qre_prev.i586 = getelementptr inbounds i8, ptr %header_nflushes, i64 32
+  %qre_prev.i586 = getelementptr inbounds nuw i8, ptr %header_nflushes, i64 32
   store ptr %header_nflushes, ptr %qre_prev.i586, align 8
   %cmp.i587 = icmp eq ptr %181, null
   br i1 %cmp.i587, label %emitter_col_init.exit596, label %do.body3.i588
 
 do.body3.i588:                                    ; preds = %emitter_col_init.exit584
-  %qre_prev7.i589 = getelementptr inbounds i8, ptr %181, i64 32
+  %qre_prev7.i589 = getelementptr inbounds nuw i8, ptr %181, i64 32
   %189 = load ptr, ptr %qre_prev7.i589, align 8
   store ptr %189, ptr %link.i585, align 8
   store ptr %header_nflushes, ptr %qre_prev7.i589, align 8
   %190 = load ptr, ptr %qre_prev.i586, align 8
-  %link20.i591 = getelementptr inbounds i8, ptr %190, i64 24
+  %link20.i591 = getelementptr inbounds nuw i8, ptr %190, i64 24
   %191 = load ptr, ptr %link20.i591, align 8
   store ptr %191, ptr %qre_prev.i586, align 8
   %192 = load ptr, ptr %qre_prev7.i589, align 8
-  %link30.i593 = getelementptr inbounds i8, ptr %192, i64 24
+  %link30.i593 = getelementptr inbounds nuw i8, ptr %192, i64 24
   store ptr %181, ptr %link30.i593, align 8
   %193 = load ptr, ptr %qre_prev.i586, align 8
-  %link34.i594 = getelementptr inbounds i8, ptr %193, i64 24
+  %link34.i594 = getelementptr inbounds nuw i8, ptr %193, i64 24
   store ptr %header_nflushes, ptr %link34.i594, align 8
   %.pre.i595 = load ptr, ptr %link.i585, align 8
   br label %emitter_col_init.exit596
@@ -10577,33 +10577,33 @@ emitter_col_init.exit596:                         ; preds = %emitter_col_init.ex
   %194 = phi ptr [ %.pre.i595, %do.body3.i588 ], [ %header_nflushes, %emitter_col_init.exit584 ]
   store ptr %194, ptr %header_row, align 8
   store i32 1, ptr %header_nflushes, align 8
-  %width153 = getelementptr inbounds i8, ptr %header_nflushes, i64 4
+  %width153 = getelementptr inbounds nuw i8, ptr %header_nflushes, i64 4
   store i32 13, ptr %width153, align 4
-  %type154 = getelementptr inbounds i8, ptr %header_nflushes, i64 8
+  %type154 = getelementptr inbounds nuw i8, ptr %header_nflushes, i64 8
   store i32 9, ptr %type154, align 8
-  %195 = getelementptr inbounds i8, ptr %header_nflushes, i64 16
+  %195 = getelementptr inbounds nuw i8, ptr %header_nflushes, i64 16
   store ptr @.str.331, ptr %195, align 8
-  %link.i597 = getelementptr inbounds i8, ptr %col_nflushes_ps, i64 24
+  %link.i597 = getelementptr inbounds nuw i8, ptr %col_nflushes_ps, i64 24
   store ptr %col_nflushes_ps, ptr %link.i597, align 8
-  %qre_prev.i598 = getelementptr inbounds i8, ptr %col_nflushes_ps, i64 32
+  %qre_prev.i598 = getelementptr inbounds nuw i8, ptr %col_nflushes_ps, i64 32
   store ptr %col_nflushes_ps, ptr %qre_prev.i598, align 8
   %cmp.i599 = icmp eq ptr %188, null
   br i1 %cmp.i599, label %emitter_col_init.exit608, label %do.body3.i600
 
 do.body3.i600:                                    ; preds = %emitter_col_init.exit596
-  %qre_prev7.i601 = getelementptr inbounds i8, ptr %188, i64 32
+  %qre_prev7.i601 = getelementptr inbounds nuw i8, ptr %188, i64 32
   %196 = load ptr, ptr %qre_prev7.i601, align 8
   store ptr %196, ptr %link.i597, align 8
   store ptr %col_nflushes_ps, ptr %qre_prev7.i601, align 8
   %197 = load ptr, ptr %qre_prev.i598, align 8
-  %link20.i603 = getelementptr inbounds i8, ptr %197, i64 24
+  %link20.i603 = getelementptr inbounds nuw i8, ptr %197, i64 24
   %198 = load ptr, ptr %link20.i603, align 8
   store ptr %198, ptr %qre_prev.i598, align 8
   %199 = load ptr, ptr %qre_prev7.i601, align 8
-  %link30.i605 = getelementptr inbounds i8, ptr %199, i64 24
+  %link30.i605 = getelementptr inbounds nuw i8, ptr %199, i64 24
   store ptr %188, ptr %link30.i605, align 8
   %200 = load ptr, ptr %qre_prev.i598, align 8
-  %link34.i606 = getelementptr inbounds i8, ptr %200, i64 24
+  %link34.i606 = getelementptr inbounds nuw i8, ptr %200, i64 24
   store ptr %col_nflushes_ps, ptr %link34.i606, align 8
   %.pre.i607 = load ptr, ptr %link.i597, align 8
   br label %emitter_col_init.exit608
@@ -10612,31 +10612,31 @@ emitter_col_init.exit608:                         ; preds = %emitter_col_init.ex
   %201 = phi ptr [ %.pre.i607, %do.body3.i600 ], [ %col_nflushes_ps, %emitter_col_init.exit596 ]
   store ptr %201, ptr %row, align 8
   store i32 1, ptr %col_nflushes_ps, align 8
-  %width156 = getelementptr inbounds i8, ptr %col_nflushes_ps, i64 4
+  %width156 = getelementptr inbounds nuw i8, ptr %col_nflushes_ps, i64 4
   store i32 8, ptr %width156, align 4
-  %type157 = getelementptr inbounds i8, ptr %col_nflushes_ps, i64 8
+  %type157 = getelementptr inbounds nuw i8, ptr %col_nflushes_ps, i64 8
   store i32 5, ptr %type157, align 8
-  %link.i609 = getelementptr inbounds i8, ptr %header_nflushes_ps, i64 24
+  %link.i609 = getelementptr inbounds nuw i8, ptr %header_nflushes_ps, i64 24
   store ptr %header_nflushes_ps, ptr %link.i609, align 8
-  %qre_prev.i610 = getelementptr inbounds i8, ptr %header_nflushes_ps, i64 32
+  %qre_prev.i610 = getelementptr inbounds nuw i8, ptr %header_nflushes_ps, i64 32
   store ptr %header_nflushes_ps, ptr %qre_prev.i610, align 8
   %cmp.i611 = icmp eq ptr %194, null
   br i1 %cmp.i611, label %emitter_col_init.exit620, label %do.body3.i612
 
 do.body3.i612:                                    ; preds = %emitter_col_init.exit608
-  %qre_prev7.i613 = getelementptr inbounds i8, ptr %194, i64 32
+  %qre_prev7.i613 = getelementptr inbounds nuw i8, ptr %194, i64 32
   %202 = load ptr, ptr %qre_prev7.i613, align 8
   store ptr %202, ptr %link.i609, align 8
   store ptr %header_nflushes_ps, ptr %qre_prev7.i613, align 8
   %203 = load ptr, ptr %qre_prev.i610, align 8
-  %link20.i615 = getelementptr inbounds i8, ptr %203, i64 24
+  %link20.i615 = getelementptr inbounds nuw i8, ptr %203, i64 24
   %204 = load ptr, ptr %link20.i615, align 8
   store ptr %204, ptr %qre_prev.i610, align 8
   %205 = load ptr, ptr %qre_prev7.i613, align 8
-  %link30.i617 = getelementptr inbounds i8, ptr %205, i64 24
+  %link30.i617 = getelementptr inbounds nuw i8, ptr %205, i64 24
   store ptr %194, ptr %link30.i617, align 8
   %206 = load ptr, ptr %qre_prev.i610, align 8
-  %link34.i618 = getelementptr inbounds i8, ptr %206, i64 24
+  %link34.i618 = getelementptr inbounds nuw i8, ptr %206, i64 24
   store ptr %header_nflushes_ps, ptr %link34.i618, align 8
   %.pre.i619 = load ptr, ptr %link.i609, align 8
   br label %emitter_col_init.exit620
@@ -10645,33 +10645,33 @@ emitter_col_init.exit620:                         ; preds = %emitter_col_init.ex
   %207 = phi ptr [ %.pre.i619, %do.body3.i612 ], [ %header_nflushes_ps, %emitter_col_init.exit608 ]
   store ptr %207, ptr %header_row, align 8
   store i32 1, ptr %header_nflushes_ps, align 8
-  %width159 = getelementptr inbounds i8, ptr %header_nflushes_ps, i64 4
+  %width159 = getelementptr inbounds nuw i8, ptr %header_nflushes_ps, i64 4
   store i32 8, ptr %width159, align 4
-  %type160 = getelementptr inbounds i8, ptr %header_nflushes_ps, i64 8
+  %type160 = getelementptr inbounds nuw i8, ptr %header_nflushes_ps, i64 8
   store i32 9, ptr %type160, align 8
-  %208 = getelementptr inbounds i8, ptr %header_nflushes_ps, i64 16
+  %208 = getelementptr inbounds nuw i8, ptr %header_nflushes_ps, i64 16
   store ptr @.str.267, ptr %208, align 8
-  %link.i621 = getelementptr inbounds i8, ptr %col_nslabs, i64 24
+  %link.i621 = getelementptr inbounds nuw i8, ptr %col_nslabs, i64 24
   store ptr %col_nslabs, ptr %link.i621, align 8
-  %qre_prev.i622 = getelementptr inbounds i8, ptr %col_nslabs, i64 32
+  %qre_prev.i622 = getelementptr inbounds nuw i8, ptr %col_nslabs, i64 32
   store ptr %col_nslabs, ptr %qre_prev.i622, align 8
   %cmp.i623 = icmp eq ptr %201, null
   br i1 %cmp.i623, label %emitter_col_init.exit632, label %do.body3.i624
 
 do.body3.i624:                                    ; preds = %emitter_col_init.exit620
-  %qre_prev7.i625 = getelementptr inbounds i8, ptr %201, i64 32
+  %qre_prev7.i625 = getelementptr inbounds nuw i8, ptr %201, i64 32
   %209 = load ptr, ptr %qre_prev7.i625, align 8
   store ptr %209, ptr %link.i621, align 8
   store ptr %col_nslabs, ptr %qre_prev7.i625, align 8
   %210 = load ptr, ptr %qre_prev.i622, align 8
-  %link20.i627 = getelementptr inbounds i8, ptr %210, i64 24
+  %link20.i627 = getelementptr inbounds nuw i8, ptr %210, i64 24
   %211 = load ptr, ptr %link20.i627, align 8
   store ptr %211, ptr %qre_prev.i622, align 8
   %212 = load ptr, ptr %qre_prev7.i625, align 8
-  %link30.i629 = getelementptr inbounds i8, ptr %212, i64 24
+  %link30.i629 = getelementptr inbounds nuw i8, ptr %212, i64 24
   store ptr %201, ptr %link30.i629, align 8
   %213 = load ptr, ptr %qre_prev.i622, align 8
-  %link34.i630 = getelementptr inbounds i8, ptr %213, i64 24
+  %link34.i630 = getelementptr inbounds nuw i8, ptr %213, i64 24
   store ptr %col_nslabs, ptr %link34.i630, align 8
   %.pre.i631 = load ptr, ptr %link.i621, align 8
   br label %emitter_col_init.exit632
@@ -10680,31 +10680,31 @@ emitter_col_init.exit632:                         ; preds = %emitter_col_init.ex
   %214 = phi ptr [ %.pre.i631, %do.body3.i624 ], [ %col_nslabs, %emitter_col_init.exit620 ]
   store ptr %214, ptr %row, align 8
   store i32 1, ptr %col_nslabs, align 8
-  %width162 = getelementptr inbounds i8, ptr %col_nslabs, i64 4
+  %width162 = getelementptr inbounds nuw i8, ptr %col_nslabs, i64 4
   store i32 13, ptr %width162, align 4
-  %type163 = getelementptr inbounds i8, ptr %col_nslabs, i64 8
+  %type163 = getelementptr inbounds nuw i8, ptr %col_nslabs, i64 8
   store i32 5, ptr %type163, align 8
-  %link.i633 = getelementptr inbounds i8, ptr %header_nslabs, i64 24
+  %link.i633 = getelementptr inbounds nuw i8, ptr %header_nslabs, i64 24
   store ptr %header_nslabs, ptr %link.i633, align 8
-  %qre_prev.i634 = getelementptr inbounds i8, ptr %header_nslabs, i64 32
+  %qre_prev.i634 = getelementptr inbounds nuw i8, ptr %header_nslabs, i64 32
   store ptr %header_nslabs, ptr %qre_prev.i634, align 8
   %cmp.i635 = icmp eq ptr %207, null
   br i1 %cmp.i635, label %emitter_col_init.exit644, label %do.body3.i636
 
 do.body3.i636:                                    ; preds = %emitter_col_init.exit632
-  %qre_prev7.i637 = getelementptr inbounds i8, ptr %207, i64 32
+  %qre_prev7.i637 = getelementptr inbounds nuw i8, ptr %207, i64 32
   %215 = load ptr, ptr %qre_prev7.i637, align 8
   store ptr %215, ptr %link.i633, align 8
   store ptr %header_nslabs, ptr %qre_prev7.i637, align 8
   %216 = load ptr, ptr %qre_prev.i634, align 8
-  %link20.i639 = getelementptr inbounds i8, ptr %216, i64 24
+  %link20.i639 = getelementptr inbounds nuw i8, ptr %216, i64 24
   %217 = load ptr, ptr %link20.i639, align 8
   store ptr %217, ptr %qre_prev.i634, align 8
   %218 = load ptr, ptr %qre_prev7.i637, align 8
-  %link30.i641 = getelementptr inbounds i8, ptr %218, i64 24
+  %link30.i641 = getelementptr inbounds nuw i8, ptr %218, i64 24
   store ptr %207, ptr %link30.i641, align 8
   %219 = load ptr, ptr %qre_prev.i634, align 8
-  %link34.i642 = getelementptr inbounds i8, ptr %219, i64 24
+  %link34.i642 = getelementptr inbounds nuw i8, ptr %219, i64 24
   store ptr %header_nslabs, ptr %link34.i642, align 8
   %.pre.i643 = load ptr, ptr %link.i633, align 8
   br label %emitter_col_init.exit644
@@ -10713,33 +10713,33 @@ emitter_col_init.exit644:                         ; preds = %emitter_col_init.ex
   %220 = phi ptr [ %.pre.i643, %do.body3.i636 ], [ %header_nslabs, %emitter_col_init.exit632 ]
   store ptr %220, ptr %header_row, align 8
   store i32 1, ptr %header_nslabs, align 8
-  %width165 = getelementptr inbounds i8, ptr %header_nslabs, i64 4
+  %width165 = getelementptr inbounds nuw i8, ptr %header_nslabs, i64 4
   store i32 13, ptr %width165, align 4
-  %type166 = getelementptr inbounds i8, ptr %header_nslabs, i64 8
+  %type166 = getelementptr inbounds nuw i8, ptr %header_nslabs, i64 8
   store i32 9, ptr %type166, align 8
-  %221 = getelementptr inbounds i8, ptr %header_nslabs, i64 16
+  %221 = getelementptr inbounds nuw i8, ptr %header_nslabs, i64 16
   store ptr @.str.382, ptr %221, align 8
-  %link.i645 = getelementptr inbounds i8, ptr %col_nreslabs, i64 24
+  %link.i645 = getelementptr inbounds nuw i8, ptr %col_nreslabs, i64 24
   store ptr %col_nreslabs, ptr %link.i645, align 8
-  %qre_prev.i646 = getelementptr inbounds i8, ptr %col_nreslabs, i64 32
+  %qre_prev.i646 = getelementptr inbounds nuw i8, ptr %col_nreslabs, i64 32
   store ptr %col_nreslabs, ptr %qre_prev.i646, align 8
   %cmp.i647 = icmp eq ptr %214, null
   br i1 %cmp.i647, label %emitter_col_init.exit656, label %do.body3.i648
 
 do.body3.i648:                                    ; preds = %emitter_col_init.exit644
-  %qre_prev7.i649 = getelementptr inbounds i8, ptr %214, i64 32
+  %qre_prev7.i649 = getelementptr inbounds nuw i8, ptr %214, i64 32
   %222 = load ptr, ptr %qre_prev7.i649, align 8
   store ptr %222, ptr %link.i645, align 8
   store ptr %col_nreslabs, ptr %qre_prev7.i649, align 8
   %223 = load ptr, ptr %qre_prev.i646, align 8
-  %link20.i651 = getelementptr inbounds i8, ptr %223, i64 24
+  %link20.i651 = getelementptr inbounds nuw i8, ptr %223, i64 24
   %224 = load ptr, ptr %link20.i651, align 8
   store ptr %224, ptr %qre_prev.i646, align 8
   %225 = load ptr, ptr %qre_prev7.i649, align 8
-  %link30.i653 = getelementptr inbounds i8, ptr %225, i64 24
+  %link30.i653 = getelementptr inbounds nuw i8, ptr %225, i64 24
   store ptr %214, ptr %link30.i653, align 8
   %226 = load ptr, ptr %qre_prev.i646, align 8
-  %link34.i654 = getelementptr inbounds i8, ptr %226, i64 24
+  %link34.i654 = getelementptr inbounds nuw i8, ptr %226, i64 24
   store ptr %col_nreslabs, ptr %link34.i654, align 8
   %.pre.i655 = load ptr, ptr %link.i645, align 8
   br label %emitter_col_init.exit656
@@ -10748,31 +10748,31 @@ emitter_col_init.exit656:                         ; preds = %emitter_col_init.ex
   %227 = phi ptr [ %.pre.i655, %do.body3.i648 ], [ %col_nreslabs, %emitter_col_init.exit644 ]
   store ptr %227, ptr %row, align 8
   store i32 1, ptr %col_nreslabs, align 8
-  %width168 = getelementptr inbounds i8, ptr %col_nreslabs, i64 4
+  %width168 = getelementptr inbounds nuw i8, ptr %col_nreslabs, i64 4
   store i32 13, ptr %width168, align 4
-  %type169 = getelementptr inbounds i8, ptr %col_nreslabs, i64 8
+  %type169 = getelementptr inbounds nuw i8, ptr %col_nreslabs, i64 8
   store i32 5, ptr %type169, align 8
-  %link.i657 = getelementptr inbounds i8, ptr %header_nreslabs, i64 24
+  %link.i657 = getelementptr inbounds nuw i8, ptr %header_nreslabs, i64 24
   store ptr %header_nreslabs, ptr %link.i657, align 8
-  %qre_prev.i658 = getelementptr inbounds i8, ptr %header_nreslabs, i64 32
+  %qre_prev.i658 = getelementptr inbounds nuw i8, ptr %header_nreslabs, i64 32
   store ptr %header_nreslabs, ptr %qre_prev.i658, align 8
   %cmp.i659 = icmp eq ptr %220, null
   br i1 %cmp.i659, label %emitter_col_init.exit668, label %do.body3.i660
 
 do.body3.i660:                                    ; preds = %emitter_col_init.exit656
-  %qre_prev7.i661 = getelementptr inbounds i8, ptr %220, i64 32
+  %qre_prev7.i661 = getelementptr inbounds nuw i8, ptr %220, i64 32
   %228 = load ptr, ptr %qre_prev7.i661, align 8
   store ptr %228, ptr %link.i657, align 8
   store ptr %header_nreslabs, ptr %qre_prev7.i661, align 8
   %229 = load ptr, ptr %qre_prev.i658, align 8
-  %link20.i663 = getelementptr inbounds i8, ptr %229, i64 24
+  %link20.i663 = getelementptr inbounds nuw i8, ptr %229, i64 24
   %230 = load ptr, ptr %link20.i663, align 8
   store ptr %230, ptr %qre_prev.i658, align 8
   %231 = load ptr, ptr %qre_prev7.i661, align 8
-  %link30.i665 = getelementptr inbounds i8, ptr %231, i64 24
+  %link30.i665 = getelementptr inbounds nuw i8, ptr %231, i64 24
   store ptr %220, ptr %link30.i665, align 8
   %232 = load ptr, ptr %qre_prev.i658, align 8
-  %link34.i666 = getelementptr inbounds i8, ptr %232, i64 24
+  %link34.i666 = getelementptr inbounds nuw i8, ptr %232, i64 24
   store ptr %header_nreslabs, ptr %link34.i666, align 8
   %.pre.i667 = load ptr, ptr %link.i657, align 8
   br label %emitter_col_init.exit668
@@ -10781,33 +10781,33 @@ emitter_col_init.exit668:                         ; preds = %emitter_col_init.ex
   %233 = phi ptr [ %.pre.i667, %do.body3.i660 ], [ %header_nreslabs, %emitter_col_init.exit656 ]
   store ptr %233, ptr %header_row, align 8
   store i32 1, ptr %header_nreslabs, align 8
-  %width171 = getelementptr inbounds i8, ptr %header_nreslabs, i64 4
+  %width171 = getelementptr inbounds nuw i8, ptr %header_nreslabs, i64 4
   store i32 13, ptr %width171, align 4
-  %type172 = getelementptr inbounds i8, ptr %header_nreslabs, i64 8
+  %type172 = getelementptr inbounds nuw i8, ptr %header_nreslabs, i64 8
   store i32 9, ptr %type172, align 8
-  %234 = getelementptr inbounds i8, ptr %header_nreslabs, i64 16
+  %234 = getelementptr inbounds nuw i8, ptr %header_nreslabs, i64 16
   store ptr @.str.383, ptr %234, align 8
-  %link.i669 = getelementptr inbounds i8, ptr %col_nreslabs_ps, i64 24
+  %link.i669 = getelementptr inbounds nuw i8, ptr %col_nreslabs_ps, i64 24
   store ptr %col_nreslabs_ps, ptr %link.i669, align 8
-  %qre_prev.i670 = getelementptr inbounds i8, ptr %col_nreslabs_ps, i64 32
+  %qre_prev.i670 = getelementptr inbounds nuw i8, ptr %col_nreslabs_ps, i64 32
   store ptr %col_nreslabs_ps, ptr %qre_prev.i670, align 8
   %cmp.i671 = icmp eq ptr %227, null
   br i1 %cmp.i671, label %emitter_col_init.exit680, label %do.body3.i672
 
 do.body3.i672:                                    ; preds = %emitter_col_init.exit668
-  %qre_prev7.i673 = getelementptr inbounds i8, ptr %227, i64 32
+  %qre_prev7.i673 = getelementptr inbounds nuw i8, ptr %227, i64 32
   %235 = load ptr, ptr %qre_prev7.i673, align 8
   store ptr %235, ptr %link.i669, align 8
   store ptr %col_nreslabs_ps, ptr %qre_prev7.i673, align 8
   %236 = load ptr, ptr %qre_prev.i670, align 8
-  %link20.i675 = getelementptr inbounds i8, ptr %236, i64 24
+  %link20.i675 = getelementptr inbounds nuw i8, ptr %236, i64 24
   %237 = load ptr, ptr %link20.i675, align 8
   store ptr %237, ptr %qre_prev.i670, align 8
   %238 = load ptr, ptr %qre_prev7.i673, align 8
-  %link30.i677 = getelementptr inbounds i8, ptr %238, i64 24
+  %link30.i677 = getelementptr inbounds nuw i8, ptr %238, i64 24
   store ptr %227, ptr %link30.i677, align 8
   %239 = load ptr, ptr %qre_prev.i670, align 8
-  %link34.i678 = getelementptr inbounds i8, ptr %239, i64 24
+  %link34.i678 = getelementptr inbounds nuw i8, ptr %239, i64 24
   store ptr %col_nreslabs_ps, ptr %link34.i678, align 8
   %.pre.i679 = load ptr, ptr %link.i669, align 8
   br label %emitter_col_init.exit680
@@ -10816,31 +10816,31 @@ emitter_col_init.exit680:                         ; preds = %emitter_col_init.ex
   %240 = phi ptr [ %.pre.i679, %do.body3.i672 ], [ %col_nreslabs_ps, %emitter_col_init.exit668 ]
   store ptr %240, ptr %row, align 8
   store i32 1, ptr %col_nreslabs_ps, align 8
-  %width174 = getelementptr inbounds i8, ptr %col_nreslabs_ps, i64 4
+  %width174 = getelementptr inbounds nuw i8, ptr %col_nreslabs_ps, i64 4
   store i32 8, ptr %width174, align 4
-  %type175 = getelementptr inbounds i8, ptr %col_nreslabs_ps, i64 8
+  %type175 = getelementptr inbounds nuw i8, ptr %col_nreslabs_ps, i64 8
   store i32 5, ptr %type175, align 8
-  %link.i681 = getelementptr inbounds i8, ptr %header_nreslabs_ps, i64 24
+  %link.i681 = getelementptr inbounds nuw i8, ptr %header_nreslabs_ps, i64 24
   store ptr %header_nreslabs_ps, ptr %link.i681, align 8
-  %qre_prev.i682 = getelementptr inbounds i8, ptr %header_nreslabs_ps, i64 32
+  %qre_prev.i682 = getelementptr inbounds nuw i8, ptr %header_nreslabs_ps, i64 32
   store ptr %header_nreslabs_ps, ptr %qre_prev.i682, align 8
   %cmp.i683 = icmp eq ptr %233, null
   br i1 %cmp.i683, label %emitter_col_init.exit692, label %do.body3.i684
 
 do.body3.i684:                                    ; preds = %emitter_col_init.exit680
-  %qre_prev7.i685 = getelementptr inbounds i8, ptr %233, i64 32
+  %qre_prev7.i685 = getelementptr inbounds nuw i8, ptr %233, i64 32
   %241 = load ptr, ptr %qre_prev7.i685, align 8
   store ptr %241, ptr %link.i681, align 8
   store ptr %header_nreslabs_ps, ptr %qre_prev7.i685, align 8
   %242 = load ptr, ptr %qre_prev.i682, align 8
-  %link20.i687 = getelementptr inbounds i8, ptr %242, i64 24
+  %link20.i687 = getelementptr inbounds nuw i8, ptr %242, i64 24
   %243 = load ptr, ptr %link20.i687, align 8
   store ptr %243, ptr %qre_prev.i682, align 8
   %244 = load ptr, ptr %qre_prev7.i685, align 8
-  %link30.i689 = getelementptr inbounds i8, ptr %244, i64 24
+  %link30.i689 = getelementptr inbounds nuw i8, ptr %244, i64 24
   store ptr %233, ptr %link30.i689, align 8
   %245 = load ptr, ptr %qre_prev.i682, align 8
-  %link34.i690 = getelementptr inbounds i8, ptr %245, i64 24
+  %link34.i690 = getelementptr inbounds nuw i8, ptr %245, i64 24
   store ptr %header_nreslabs_ps, ptr %link34.i690, align 8
   %.pre.i691 = load ptr, ptr %link.i681, align 8
   br label %emitter_col_init.exit692
@@ -10849,14 +10849,14 @@ emitter_col_init.exit692:                         ; preds = %emitter_col_init.ex
   %246 = phi ptr [ %.pre.i691, %do.body3.i684 ], [ %header_nreslabs_ps, %emitter_col_init.exit680 ]
   store ptr %246, ptr %header_row, align 8
   store i32 1, ptr %header_nreslabs_ps, align 8
-  %width177 = getelementptr inbounds i8, ptr %header_nreslabs_ps, i64 4
+  %width177 = getelementptr inbounds nuw i8, ptr %header_nreslabs_ps, i64 4
   store i32 8, ptr %width177, align 4
-  %type178 = getelementptr inbounds i8, ptr %header_nreslabs_ps, i64 8
+  %type178 = getelementptr inbounds nuw i8, ptr %header_nreslabs_ps, i64 8
   store i32 9, ptr %type178, align 8
-  %247 = getelementptr inbounds i8, ptr %header_nreslabs_ps, i64 16
+  %247 = getelementptr inbounds nuw i8, ptr %header_nreslabs_ps, i64 16
   store ptr @.str.267, ptr %247, align 8
   store ptr @.str.31, ptr %143, align 8
-  %248 = getelementptr inbounds i8, ptr %col_justify_spacer, i64 16
+  %248 = getelementptr inbounds nuw i8, ptr %col_justify_spacer, i64 16
   store ptr @.str.31, ptr %248, align 8
   br i1 %mutex, label %if.then180, label %if.end184
 
@@ -10883,13 +10883,13 @@ if.end.i:                                         ; preds = %if.end184
 for.body.i:                                       ; preds = %if.end.i, %for.body.i
   %col.011.i = phi ptr [ %256, %for.body.i ], [ %251, %if.end.i ]
   %252 = load i32, ptr %col.011.i, align 8
-  %width.i = getelementptr inbounds i8, ptr %col.011.i, i64 4
+  %width.i = getelementptr inbounds nuw i8, ptr %col.011.i, i64 4
   %253 = load i32, ptr %width.i, align 4
-  %type.i = getelementptr inbounds i8, ptr %col.011.i, i64 8
+  %type.i = getelementptr inbounds nuw i8, ptr %col.011.i, i64 8
   %254 = load i32, ptr %type.i, align 8
-  %255 = getelementptr inbounds i8, ptr %col.011.i, i64 16
+  %255 = getelementptr inbounds nuw i8, ptr %col.011.i, i64 16
   call fastcc void @emitter_print_value(ptr noundef nonnull readonly %emitter, i32 noundef %252, i32 noundef %253, i32 noundef %254, ptr noundef nonnull %255)
-  %link.i693 = getelementptr inbounds i8, ptr %col.011.i, i64 24
+  %link.i693 = getelementptr inbounds nuw i8, ptr %col.011.i, i64 24
   %256 = load ptr, ptr %link.i693, align 8
   %cmp4.not.i = icmp eq ptr %256, %251
   %cmp1.not12.i = icmp eq ptr %256, null
@@ -10904,7 +10904,7 @@ emitter_table_row.exit:                           ; preds = %if.end184, %for.end
   call fastcc void @emitter_json_array_kv_begin(ptr noundef %emitter, ptr noundef nonnull @.str.386)
   store i64 7, ptr %miblen_new, align 8
   %257 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tsd_tls)
-  %state.i1166 = getelementptr inbounds i8, ptr %257, i64 832
+  %state.i1166 = getelementptr inbounds nuw i8, ptr %257, i64 832
   %258 = load i8, ptr %state.i1166, align 8
   %cmp6.i.not = icmp eq i8 %258, 0
   br i1 %cmp6.i.not, label %tsd_fetch_impl.exit, label %if.then11.i
@@ -10926,7 +10926,7 @@ if.then194:                                       ; preds = %tsd_fetch_impl.exit
 
 do.end199:                                        ; preds = %tsd_fetch_impl.exit
   %conv = zext i32 %i to i64
-  %arrayidx = getelementptr inbounds i8, ptr %stats_arenas_mib, i64 16
+  %arrayidx = getelementptr inbounds nuw i8, ptr %stats_arenas_mib, i64 16
   store i64 %conv, ptr %arrayidx, align 16
   store i64 7, ptr %miblen_new203, align 8
   %259 = load i8, ptr %state.i1166, align 8
@@ -10970,60 +10970,60 @@ for.cond.preheader:                               ; preds = %tsd_fetch_impl.exit
   br i1 %cmp251833.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %arrayidx254 = getelementptr inbounds i8, ptr %stats_arenas_mib, i64 32
-  %arrayidx256 = getelementptr inbounds i8, ptr %arenas_bin_mib, i64 16
-  %type.i695 = getelementptr inbounds i8, ptr %col_mutex64, i64 8
-  %262 = getelementptr inbounds i8, ptr %col_mutex64, i64 16
-  %type23.i = getelementptr inbounds i8, ptr %col_mutex64, i64 48
+  %arrayidx254 = getelementptr inbounds nuw i8, ptr %stats_arenas_mib, i64 32
+  %arrayidx256 = getelementptr inbounds nuw i8, ptr %arenas_bin_mib, i64 16
+  %type.i695 = getelementptr inbounds nuw i8, ptr %col_mutex64, i64 8
+  %262 = getelementptr inbounds nuw i8, ptr %col_mutex64, i64 16
+  %type23.i = getelementptr inbounds nuw i8, ptr %col_mutex64, i64 48
   %cmp.i.i = icmp eq i64 %uptime, 0
   %cmp2.i.i = icmp ult i64 %uptime, 1000000000
   %div.i.i = udiv i64 %uptime, 1000000000
-  %263 = getelementptr inbounds i8, ptr %col_mutex64, i64 56
-  %type27.i = getelementptr inbounds i8, ptr %col_mutex64, i64 88
-  %264 = getelementptr inbounds i8, ptr %col_mutex64, i64 96
-  %type44.i = getelementptr inbounds i8, ptr %col_mutex64, i64 128
-  %265 = getelementptr inbounds i8, ptr %col_mutex64, i64 136
-  %type49.i = getelementptr inbounds i8, ptr %col_mutex64, i64 168
-  %266 = getelementptr inbounds i8, ptr %col_mutex64, i64 176
-  %type66.i = getelementptr inbounds i8, ptr %col_mutex64, i64 208
-  %267 = getelementptr inbounds i8, ptr %col_mutex64, i64 216
-  %type71.i = getelementptr inbounds i8, ptr %col_mutex64, i64 248
-  %268 = getelementptr inbounds i8, ptr %col_mutex64, i64 256
-  %type88.i = getelementptr inbounds i8, ptr %col_mutex64, i64 288
-  %269 = getelementptr inbounds i8, ptr %col_mutex64, i64 296
-  %type93.i = getelementptr inbounds i8, ptr %col_mutex64, i64 328
-  %270 = getelementptr inbounds i8, ptr %col_mutex64, i64 336
-  %type110.i = getelementptr inbounds i8, ptr %col_mutex64, i64 368
-  %271 = getelementptr inbounds i8, ptr %col_mutex64, i64 376
-  %type115.i = getelementptr inbounds i8, ptr %col_mutex64, i64 408
-  %272 = getelementptr inbounds i8, ptr %col_mutex64, i64 416
-  %type132.i = getelementptr inbounds i8, ptr %col_mutex32, i64 8
-  %273 = getelementptr inbounds i8, ptr %col_mutex32, i64 16
-  %nesting_depth.i.i = getelementptr inbounds i8, ptr %emitter, i64 24
-  %item_at_depth.i.i = getelementptr inbounds i8, ptr %emitter, i64 28
-  %274 = getelementptr inbounds i8, ptr %col_size, i64 16
-  %275 = getelementptr inbounds i8, ptr %col_ind, i64 16
-  %276 = getelementptr inbounds i8, ptr %col_allocated, i64 16
-  %277 = getelementptr inbounds i8, ptr %col_nmalloc, i64 16
-  %278 = getelementptr inbounds i8, ptr %col_nmalloc_ps, i64 16
-  %279 = getelementptr inbounds i8, ptr %col_ndalloc, i64 16
-  %280 = getelementptr inbounds i8, ptr %col_ndalloc_ps, i64 16
-  %281 = getelementptr inbounds i8, ptr %col_nrequests, i64 16
-  %282 = getelementptr inbounds i8, ptr %col_nrequests_ps, i64 16
-  %283 = getelementptr inbounds i8, ptr %col_nshards, i64 16
-  %284 = getelementptr inbounds i8, ptr %col_curregs, i64 16
-  %285 = getelementptr inbounds i8, ptr %col_curslabs, i64 16
-  %286 = getelementptr inbounds i8, ptr %col_nonfull_slabs, i64 16
-  %287 = getelementptr inbounds i8, ptr %col_regs, i64 16
-  %288 = getelementptr inbounds i8, ptr %col_pgs, i64 16
-  %289 = getelementptr inbounds i8, ptr %col_util, i64 16
-  %290 = getelementptr inbounds i8, ptr %col_nfills, i64 16
-  %291 = getelementptr inbounds i8, ptr %col_nfills_ps, i64 16
-  %292 = getelementptr inbounds i8, ptr %col_nflushes, i64 16
-  %293 = getelementptr inbounds i8, ptr %col_nflushes_ps, i64 16
-  %294 = getelementptr inbounds i8, ptr %col_nslabs, i64 16
-  %295 = getelementptr inbounds i8, ptr %col_nreslabs, i64 16
-  %296 = getelementptr inbounds i8, ptr %col_nreslabs_ps, i64 16
+  %263 = getelementptr inbounds nuw i8, ptr %col_mutex64, i64 56
+  %type27.i = getelementptr inbounds nuw i8, ptr %col_mutex64, i64 88
+  %264 = getelementptr inbounds nuw i8, ptr %col_mutex64, i64 96
+  %type44.i = getelementptr inbounds nuw i8, ptr %col_mutex64, i64 128
+  %265 = getelementptr inbounds nuw i8, ptr %col_mutex64, i64 136
+  %type49.i = getelementptr inbounds nuw i8, ptr %col_mutex64, i64 168
+  %266 = getelementptr inbounds nuw i8, ptr %col_mutex64, i64 176
+  %type66.i = getelementptr inbounds nuw i8, ptr %col_mutex64, i64 208
+  %267 = getelementptr inbounds nuw i8, ptr %col_mutex64, i64 216
+  %type71.i = getelementptr inbounds nuw i8, ptr %col_mutex64, i64 248
+  %268 = getelementptr inbounds nuw i8, ptr %col_mutex64, i64 256
+  %type88.i = getelementptr inbounds nuw i8, ptr %col_mutex64, i64 288
+  %269 = getelementptr inbounds nuw i8, ptr %col_mutex64, i64 296
+  %type93.i = getelementptr inbounds nuw i8, ptr %col_mutex64, i64 328
+  %270 = getelementptr inbounds nuw i8, ptr %col_mutex64, i64 336
+  %type110.i = getelementptr inbounds nuw i8, ptr %col_mutex64, i64 368
+  %271 = getelementptr inbounds nuw i8, ptr %col_mutex64, i64 376
+  %type115.i = getelementptr inbounds nuw i8, ptr %col_mutex64, i64 408
+  %272 = getelementptr inbounds nuw i8, ptr %col_mutex64, i64 416
+  %type132.i = getelementptr inbounds nuw i8, ptr %col_mutex32, i64 8
+  %273 = getelementptr inbounds nuw i8, ptr %col_mutex32, i64 16
+  %nesting_depth.i.i = getelementptr inbounds nuw i8, ptr %emitter, i64 24
+  %item_at_depth.i.i = getelementptr inbounds nuw i8, ptr %emitter, i64 28
+  %274 = getelementptr inbounds nuw i8, ptr %col_size, i64 16
+  %275 = getelementptr inbounds nuw i8, ptr %col_ind, i64 16
+  %276 = getelementptr inbounds nuw i8, ptr %col_allocated, i64 16
+  %277 = getelementptr inbounds nuw i8, ptr %col_nmalloc, i64 16
+  %278 = getelementptr inbounds nuw i8, ptr %col_nmalloc_ps, i64 16
+  %279 = getelementptr inbounds nuw i8, ptr %col_ndalloc, i64 16
+  %280 = getelementptr inbounds nuw i8, ptr %col_ndalloc_ps, i64 16
+  %281 = getelementptr inbounds nuw i8, ptr %col_nrequests, i64 16
+  %282 = getelementptr inbounds nuw i8, ptr %col_nrequests_ps, i64 16
+  %283 = getelementptr inbounds nuw i8, ptr %col_nshards, i64 16
+  %284 = getelementptr inbounds nuw i8, ptr %col_curregs, i64 16
+  %285 = getelementptr inbounds nuw i8, ptr %col_curslabs, i64 16
+  %286 = getelementptr inbounds nuw i8, ptr %col_nonfull_slabs, i64 16
+  %287 = getelementptr inbounds nuw i8, ptr %col_regs, i64 16
+  %288 = getelementptr inbounds nuw i8, ptr %col_pgs, i64 16
+  %289 = getelementptr inbounds nuw i8, ptr %col_util, i64 16
+  %290 = getelementptr inbounds nuw i8, ptr %col_nfills, i64 16
+  %291 = getelementptr inbounds nuw i8, ptr %col_nfills_ps, i64 16
+  %292 = getelementptr inbounds nuw i8, ptr %col_nflushes, i64 16
+  %293 = getelementptr inbounds nuw i8, ptr %col_nflushes_ps, i64 16
+  %294 = getelementptr inbounds nuw i8, ptr %col_nslabs, i64 16
+  %295 = getelementptr inbounds nuw i8, ptr %col_nreslabs, i64 16
+  %296 = getelementptr inbounds nuw i8, ptr %col_nreslabs_ps, i64 16
   br label %for.body
 
 if.then226:                                       ; preds = %tsd_fetch_impl.exit681
@@ -11941,13 +11941,13 @@ if.end.i778:                                      ; preds = %rate_per_second.exi
 for.body.i780:                                    ; preds = %if.end.i778, %for.body.i780
   %col.011.i781 = phi ptr [ %356, %for.body.i780 ], [ %351, %if.end.i778 ]
   %352 = load i32, ptr %col.011.i781, align 8
-  %width.i782 = getelementptr inbounds i8, ptr %col.011.i781, i64 4
+  %width.i782 = getelementptr inbounds nuw i8, ptr %col.011.i781, i64 4
   %353 = load i32, ptr %width.i782, align 4
-  %type.i783 = getelementptr inbounds i8, ptr %col.011.i781, i64 8
+  %type.i783 = getelementptr inbounds nuw i8, ptr %col.011.i781, i64 8
   %354 = load i32, ptr %type.i783, align 8
-  %355 = getelementptr inbounds i8, ptr %col.011.i781, i64 16
+  %355 = getelementptr inbounds nuw i8, ptr %col.011.i781, i64 16
   call fastcc void @emitter_print_value(ptr noundef nonnull readonly %emitter, i32 noundef %352, i32 noundef %353, i32 noundef %354, ptr noundef nonnull %355)
-  %link.i784 = getelementptr inbounds i8, ptr %col.011.i781, i64 24
+  %link.i784 = getelementptr inbounds nuw i8, ptr %col.011.i781, i64 24
   %356 = load ptr, ptr %link.i784, align 8
   %cmp4.not.i785 = icmp eq ptr %356, %351
   %cmp1.not12.i786 = icmp eq ptr %356, null
@@ -11972,11 +11972,11 @@ for.end:                                          ; preds = %for.inc, %for.cond.
   br i1 %spec.select.i.i791, label %do.end.i792, label %emitter_json_array_end.exit
 
 do.end.i792:                                      ; preds = %for.end
-  %nesting_depth.i.i793 = getelementptr inbounds i8, ptr %emitter, i64 24
+  %nesting_depth.i.i793 = getelementptr inbounds nuw i8, ptr %emitter, i64 24
   %359 = load i32, ptr %nesting_depth.i.i793, align 8
   %dec.i.i794 = add nsw i32 %359, -1
   store i32 %dec.i.i794, ptr %nesting_depth.i.i793, align 8
-  %item_at_depth.i.i795 = getelementptr inbounds i8, ptr %emitter, i64 28
+  %item_at_depth.i.i795 = getelementptr inbounds nuw i8, ptr %emitter, i64 28
   store i8 1, ptr %item_at_depth.i.i795, align 4
   %cmp.not.i796 = icmp eq i32 %emitter.val.i790, 1
   br i1 %cmp.not.i796, label %if.end.i801, label %if.then1.i797
@@ -12086,150 +12086,150 @@ if.then8:                                         ; preds = %do.body3
   unreachable
 
 emitter_col_init.exit191:                         ; preds = %do.body3
-  %link.i = getelementptr inbounds i8, ptr %col_size, i64 24
-  %qre_prev.i = getelementptr inbounds i8, ptr %col_size, i64 32
+  %link.i = getelementptr inbounds nuw i8, ptr %col_size, i64 24
+  %qre_prev.i = getelementptr inbounds nuw i8, ptr %col_size, i64 32
   store i32 1, ptr %col_size, align 8
-  %width = getelementptr inbounds i8, ptr %col_size, i64 4
+  %width = getelementptr inbounds nuw i8, ptr %col_size, i64 4
   store i32 20, ptr %width, align 4
-  %type = getelementptr inbounds i8, ptr %col_size, i64 8
+  %type = getelementptr inbounds nuw i8, ptr %col_size, i64 8
   store i32 6, ptr %type, align 8
-  %link.i72 = getelementptr inbounds i8, ptr %header_size, i64 24
-  %qre_prev.i73 = getelementptr inbounds i8, ptr %header_size, i64 32
+  %link.i72 = getelementptr inbounds nuw i8, ptr %header_size, i64 24
+  %qre_prev.i73 = getelementptr inbounds nuw i8, ptr %header_size, i64 32
   store i32 1, ptr %header_size, align 8
-  %width13 = getelementptr inbounds i8, ptr %header_size, i64 4
+  %width13 = getelementptr inbounds nuw i8, ptr %header_size, i64 4
   store i32 20, ptr %width13, align 4
-  %type14 = getelementptr inbounds i8, ptr %header_size, i64 8
+  %type14 = getelementptr inbounds nuw i8, ptr %header_size, i64 8
   store i32 9, ptr %type14, align 8
-  %0 = getelementptr inbounds i8, ptr %header_size, i64 16
+  %0 = getelementptr inbounds nuw i8, ptr %header_size, i64 16
   store ptr @.str.202, ptr %0, align 8
-  %link.i84 = getelementptr inbounds i8, ptr %col_ind, i64 24
-  %qre_prev.i85 = getelementptr inbounds i8, ptr %col_ind, i64 32
+  %link.i84 = getelementptr inbounds nuw i8, ptr %col_ind, i64 24
+  %qre_prev.i85 = getelementptr inbounds nuw i8, ptr %col_ind, i64 32
   store ptr %col_size, ptr %qre_prev.i85, align 8
   store ptr %col_ind, ptr %link.i, align 8
   store i32 1, ptr %col_ind, align 8
-  %width16 = getelementptr inbounds i8, ptr %col_ind, i64 4
+  %width16 = getelementptr inbounds nuw i8, ptr %col_ind, i64 4
   store i32 4, ptr %width16, align 4
-  %type17 = getelementptr inbounds i8, ptr %col_ind, i64 8
+  %type17 = getelementptr inbounds nuw i8, ptr %col_ind, i64 8
   store i32 3, ptr %type17, align 8
-  %link.i96 = getelementptr inbounds i8, ptr %header_ind, i64 24
-  %qre_prev.i97 = getelementptr inbounds i8, ptr %header_ind, i64 32
+  %link.i96 = getelementptr inbounds nuw i8, ptr %header_ind, i64 24
+  %qre_prev.i97 = getelementptr inbounds nuw i8, ptr %header_ind, i64 32
   store ptr %header_size, ptr %qre_prev.i97, align 8
   store ptr %header_ind, ptr %link.i72, align 8
   store i32 1, ptr %header_ind, align 8
-  %width19 = getelementptr inbounds i8, ptr %header_ind, i64 4
+  %width19 = getelementptr inbounds nuw i8, ptr %header_ind, i64 4
   store i32 4, ptr %width19, align 4
-  %type20 = getelementptr inbounds i8, ptr %header_ind, i64 8
+  %type20 = getelementptr inbounds nuw i8, ptr %header_ind, i64 8
   store i32 9, ptr %type20, align 8
-  %1 = getelementptr inbounds i8, ptr %header_ind, i64 16
+  %1 = getelementptr inbounds nuw i8, ptr %header_ind, i64 16
   store ptr @.str.365, ptr %1, align 8
-  %qre_prev.i109 = getelementptr inbounds i8, ptr %col_allocated, i64 32
+  %qre_prev.i109 = getelementptr inbounds nuw i8, ptr %col_allocated, i64 32
   store ptr %col_ind, ptr %qre_prev.i109, align 8
   store ptr %col_allocated, ptr %link.i84, align 8
   store i32 1, ptr %col_allocated, align 8
-  %width22 = getelementptr inbounds i8, ptr %col_allocated, i64 4
+  %width22 = getelementptr inbounds nuw i8, ptr %col_allocated, i64 4
   store i32 13, ptr %width22, align 4
-  %type23 = getelementptr inbounds i8, ptr %col_allocated, i64 8
+  %type23 = getelementptr inbounds nuw i8, ptr %col_allocated, i64 8
   store i32 6, ptr %type23, align 8
-  %qre_prev.i121 = getelementptr inbounds i8, ptr %header_allocated, i64 32
+  %qre_prev.i121 = getelementptr inbounds nuw i8, ptr %header_allocated, i64 32
   store ptr %header_ind, ptr %qre_prev.i121, align 8
   store ptr %header_allocated, ptr %link.i96, align 8
   store i32 1, ptr %header_allocated, align 8
-  %width25 = getelementptr inbounds i8, ptr %header_allocated, i64 4
+  %width25 = getelementptr inbounds nuw i8, ptr %header_allocated, i64 4
   store i32 13, ptr %width25, align 4
-  %type26 = getelementptr inbounds i8, ptr %header_allocated, i64 8
+  %type26 = getelementptr inbounds nuw i8, ptr %header_allocated, i64 8
   store i32 9, ptr %type26, align 8
-  %2 = getelementptr inbounds i8, ptr %header_allocated, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %header_allocated, i64 16
   store ptr @.str.241, ptr %2, align 8
-  %qre_prev.i133 = getelementptr inbounds i8, ptr %col_nmalloc, i64 32
+  %qre_prev.i133 = getelementptr inbounds nuw i8, ptr %col_nmalloc, i64 32
   store ptr %col_allocated, ptr %qre_prev.i133, align 8
-  %link34.i141 = getelementptr inbounds i8, ptr %col_allocated, i64 24
+  %link34.i141 = getelementptr inbounds nuw i8, ptr %col_allocated, i64 24
   store ptr %col_nmalloc, ptr %link34.i141, align 8
   store i32 1, ptr %col_nmalloc, align 8
-  %width28 = getelementptr inbounds i8, ptr %col_nmalloc, i64 4
+  %width28 = getelementptr inbounds nuw i8, ptr %col_nmalloc, i64 4
   store i32 13, ptr %width28, align 4
-  %type29 = getelementptr inbounds i8, ptr %col_nmalloc, i64 8
+  %type29 = getelementptr inbounds nuw i8, ptr %col_nmalloc, i64 8
   store i32 5, ptr %type29, align 8
-  %link.i144 = getelementptr inbounds i8, ptr %header_nmalloc, i64 24
-  %qre_prev.i145 = getelementptr inbounds i8, ptr %header_nmalloc, i64 32
+  %link.i144 = getelementptr inbounds nuw i8, ptr %header_nmalloc, i64 24
+  %qre_prev.i145 = getelementptr inbounds nuw i8, ptr %header_nmalloc, i64 32
   store ptr %header_nmalloc, ptr %qre_prev.i73, align 8
   store ptr %header_allocated, ptr %qre_prev.i145, align 8
   store ptr %header_size, ptr %link.i144, align 8
-  %link34.i153 = getelementptr inbounds i8, ptr %header_allocated, i64 24
+  %link34.i153 = getelementptr inbounds nuw i8, ptr %header_allocated, i64 24
   store ptr %header_nmalloc, ptr %link34.i153, align 8
   store i32 1, ptr %header_nmalloc, align 8
-  %width31 = getelementptr inbounds i8, ptr %header_nmalloc, i64 4
+  %width31 = getelementptr inbounds nuw i8, ptr %header_nmalloc, i64 4
   store i32 13, ptr %width31, align 4
-  %type32 = getelementptr inbounds i8, ptr %header_nmalloc, i64 8
+  %type32 = getelementptr inbounds nuw i8, ptr %header_nmalloc, i64 8
   store i32 9, ptr %type32, align 8
-  %3 = getelementptr inbounds i8, ptr %header_nmalloc, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %header_nmalloc, i64 16
   store ptr @.str.317, ptr %3, align 8
-  %link.i156 = getelementptr inbounds i8, ptr %col_nmalloc_ps, i64 24
-  %qre_prev.i157 = getelementptr inbounds i8, ptr %col_nmalloc_ps, i64 32
+  %link.i156 = getelementptr inbounds nuw i8, ptr %col_nmalloc_ps, i64 24
+  %qre_prev.i157 = getelementptr inbounds nuw i8, ptr %col_nmalloc_ps, i64 32
   store ptr %col_nmalloc_ps, ptr %qre_prev.i, align 8
   store ptr %col_nmalloc, ptr %qre_prev.i157, align 8
   store ptr %col_size, ptr %link.i156, align 8
-  %link34.i165 = getelementptr inbounds i8, ptr %col_nmalloc, i64 24
+  %link34.i165 = getelementptr inbounds nuw i8, ptr %col_nmalloc, i64 24
   store ptr %col_nmalloc_ps, ptr %link34.i165, align 8
   store i32 1, ptr %col_nmalloc_ps, align 8
-  %width34 = getelementptr inbounds i8, ptr %col_nmalloc_ps, i64 4
+  %width34 = getelementptr inbounds nuw i8, ptr %col_nmalloc_ps, i64 4
   store i32 8, ptr %width34, align 4
-  %type35 = getelementptr inbounds i8, ptr %col_nmalloc_ps, i64 8
+  %type35 = getelementptr inbounds nuw i8, ptr %col_nmalloc_ps, i64 8
   store i32 5, ptr %type35, align 8
-  %link.i168 = getelementptr inbounds i8, ptr %header_nmalloc_ps, i64 24
-  %qre_prev.i169 = getelementptr inbounds i8, ptr %header_nmalloc_ps, i64 32
+  %link.i168 = getelementptr inbounds nuw i8, ptr %header_nmalloc_ps, i64 24
+  %qre_prev.i169 = getelementptr inbounds nuw i8, ptr %header_nmalloc_ps, i64 32
   %4 = load ptr, ptr %qre_prev.i73, align 8
   store ptr %header_nmalloc_ps, ptr %qre_prev.i73, align 8
   store ptr %4, ptr %qre_prev.i169, align 8
   store ptr %header_size, ptr %link.i168, align 8
-  %link34.i177 = getelementptr inbounds i8, ptr %4, i64 24
+  %link34.i177 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %header_nmalloc_ps, ptr %link34.i177, align 8
   %.pre.i178 = load ptr, ptr %link.i168, align 8
   store i32 1, ptr %header_nmalloc_ps, align 8
-  %width37 = getelementptr inbounds i8, ptr %header_nmalloc_ps, i64 4
+  %width37 = getelementptr inbounds nuw i8, ptr %header_nmalloc_ps, i64 4
   store i32 8, ptr %width37, align 4
-  %type38 = getelementptr inbounds i8, ptr %header_nmalloc_ps, i64 8
+  %type38 = getelementptr inbounds nuw i8, ptr %header_nmalloc_ps, i64 8
   store i32 9, ptr %type38, align 8
-  %5 = getelementptr inbounds i8, ptr %header_nmalloc_ps, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %header_nmalloc_ps, i64 16
   store ptr @.str.267, ptr %5, align 8
-  %link.i180 = getelementptr inbounds i8, ptr %col_ndalloc, i64 24
-  %qre_prev.i181 = getelementptr inbounds i8, ptr %col_ndalloc, i64 32
+  %link.i180 = getelementptr inbounds nuw i8, ptr %col_ndalloc, i64 24
+  %qre_prev.i181 = getelementptr inbounds nuw i8, ptr %col_ndalloc, i64 32
   store ptr %col_ndalloc, ptr %qre_prev.i181, align 8
-  %qre_prev7.i184 = getelementptr inbounds i8, ptr %col_size, i64 32
+  %qre_prev7.i184 = getelementptr inbounds nuw i8, ptr %col_size, i64 32
   %6 = load ptr, ptr %qre_prev7.i184, align 8
   store ptr %6, ptr %link.i180, align 8
   store ptr %col_ndalloc, ptr %qre_prev7.i184, align 8
   store ptr %6, ptr %qre_prev.i181, align 8
-  %link30.i188 = getelementptr inbounds i8, ptr %col_ndalloc, i64 24
+  %link30.i188 = getelementptr inbounds nuw i8, ptr %col_ndalloc, i64 24
   store ptr %col_size, ptr %link30.i188, align 8
-  %link34.i189 = getelementptr inbounds i8, ptr %6, i64 24
+  %link34.i189 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %col_ndalloc, ptr %link34.i189, align 8
   %.pre.i190 = load ptr, ptr %link.i180, align 8
   store i32 1, ptr %col_ndalloc, align 8
-  %width40 = getelementptr inbounds i8, ptr %col_ndalloc, i64 4
+  %width40 = getelementptr inbounds nuw i8, ptr %col_ndalloc, i64 4
   store i32 13, ptr %width40, align 4
-  %type41 = getelementptr inbounds i8, ptr %col_ndalloc, i64 8
+  %type41 = getelementptr inbounds nuw i8, ptr %col_ndalloc, i64 8
   store i32 5, ptr %type41, align 8
-  %link.i192 = getelementptr inbounds i8, ptr %header_ndalloc, i64 24
+  %link.i192 = getelementptr inbounds nuw i8, ptr %header_ndalloc, i64 24
   store ptr %header_ndalloc, ptr %link.i192, align 8
-  %qre_prev.i193 = getelementptr inbounds i8, ptr %header_ndalloc, i64 32
+  %qre_prev.i193 = getelementptr inbounds nuw i8, ptr %header_ndalloc, i64 32
   store ptr %header_ndalloc, ptr %qre_prev.i193, align 8
   %cmp.i194 = icmp eq ptr %.pre.i178, null
   br i1 %cmp.i194, label %emitter_col_init.exit203, label %do.body3.i195
 
 do.body3.i195:                                    ; preds = %emitter_col_init.exit191
-  %qre_prev7.i196 = getelementptr inbounds i8, ptr %.pre.i178, i64 32
+  %qre_prev7.i196 = getelementptr inbounds nuw i8, ptr %.pre.i178, i64 32
   %7 = load ptr, ptr %qre_prev7.i196, align 8
   store ptr %7, ptr %link.i192, align 8
   store ptr %header_ndalloc, ptr %qre_prev7.i196, align 8
   %8 = load ptr, ptr %qre_prev.i193, align 8
-  %link20.i198 = getelementptr inbounds i8, ptr %8, i64 24
+  %link20.i198 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %9 = load ptr, ptr %link20.i198, align 8
   store ptr %9, ptr %qre_prev.i193, align 8
   %10 = load ptr, ptr %qre_prev7.i196, align 8
-  %link30.i200 = getelementptr inbounds i8, ptr %10, i64 24
+  %link30.i200 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store ptr %.pre.i178, ptr %link30.i200, align 8
   %11 = load ptr, ptr %qre_prev.i193, align 8
-  %link34.i201 = getelementptr inbounds i8, ptr %11, i64 24
+  %link34.i201 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store ptr %header_ndalloc, ptr %link34.i201, align 8
   %.pre.i202 = load ptr, ptr %link.i192, align 8
   br label %emitter_col_init.exit203
@@ -12237,33 +12237,33 @@ do.body3.i195:                                    ; preds = %emitter_col_init.ex
 emitter_col_init.exit203:                         ; preds = %emitter_col_init.exit191, %do.body3.i195
   %12 = phi ptr [ %.pre.i202, %do.body3.i195 ], [ %header_ndalloc, %emitter_col_init.exit191 ]
   store i32 1, ptr %header_ndalloc, align 8
-  %width43 = getelementptr inbounds i8, ptr %header_ndalloc, i64 4
+  %width43 = getelementptr inbounds nuw i8, ptr %header_ndalloc, i64 4
   store i32 13, ptr %width43, align 4
-  %type44 = getelementptr inbounds i8, ptr %header_ndalloc, i64 8
+  %type44 = getelementptr inbounds nuw i8, ptr %header_ndalloc, i64 8
   store i32 9, ptr %type44, align 8
-  %13 = getelementptr inbounds i8, ptr %header_ndalloc, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %header_ndalloc, i64 16
   store ptr @.str.318, ptr %13, align 8
-  %link.i204 = getelementptr inbounds i8, ptr %col_ndalloc_ps, i64 24
+  %link.i204 = getelementptr inbounds nuw i8, ptr %col_ndalloc_ps, i64 24
   store ptr %col_ndalloc_ps, ptr %link.i204, align 8
-  %qre_prev.i205 = getelementptr inbounds i8, ptr %col_ndalloc_ps, i64 32
+  %qre_prev.i205 = getelementptr inbounds nuw i8, ptr %col_ndalloc_ps, i64 32
   store ptr %col_ndalloc_ps, ptr %qre_prev.i205, align 8
   %cmp.i206 = icmp eq ptr %.pre.i190, null
   br i1 %cmp.i206, label %emitter_col_init.exit215, label %do.body3.i207
 
 do.body3.i207:                                    ; preds = %emitter_col_init.exit203
-  %qre_prev7.i208 = getelementptr inbounds i8, ptr %.pre.i190, i64 32
+  %qre_prev7.i208 = getelementptr inbounds nuw i8, ptr %.pre.i190, i64 32
   %14 = load ptr, ptr %qre_prev7.i208, align 8
   store ptr %14, ptr %link.i204, align 8
   store ptr %col_ndalloc_ps, ptr %qre_prev7.i208, align 8
   %15 = load ptr, ptr %qre_prev.i205, align 8
-  %link20.i210 = getelementptr inbounds i8, ptr %15, i64 24
+  %link20.i210 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %16 = load ptr, ptr %link20.i210, align 8
   store ptr %16, ptr %qre_prev.i205, align 8
   %17 = load ptr, ptr %qre_prev7.i208, align 8
-  %link30.i212 = getelementptr inbounds i8, ptr %17, i64 24
+  %link30.i212 = getelementptr inbounds nuw i8, ptr %17, i64 24
   store ptr %.pre.i190, ptr %link30.i212, align 8
   %18 = load ptr, ptr %qre_prev.i205, align 8
-  %link34.i213 = getelementptr inbounds i8, ptr %18, i64 24
+  %link34.i213 = getelementptr inbounds nuw i8, ptr %18, i64 24
   store ptr %col_ndalloc_ps, ptr %link34.i213, align 8
   %.pre.i214 = load ptr, ptr %link.i204, align 8
   br label %emitter_col_init.exit215
@@ -12271,31 +12271,31 @@ do.body3.i207:                                    ; preds = %emitter_col_init.ex
 emitter_col_init.exit215:                         ; preds = %emitter_col_init.exit203, %do.body3.i207
   %19 = phi ptr [ %.pre.i214, %do.body3.i207 ], [ %col_ndalloc_ps, %emitter_col_init.exit203 ]
   store i32 1, ptr %col_ndalloc_ps, align 8
-  %width46 = getelementptr inbounds i8, ptr %col_ndalloc_ps, i64 4
+  %width46 = getelementptr inbounds nuw i8, ptr %col_ndalloc_ps, i64 4
   store i32 8, ptr %width46, align 4
-  %type47 = getelementptr inbounds i8, ptr %col_ndalloc_ps, i64 8
+  %type47 = getelementptr inbounds nuw i8, ptr %col_ndalloc_ps, i64 8
   store i32 5, ptr %type47, align 8
-  %link.i216 = getelementptr inbounds i8, ptr %header_ndalloc_ps, i64 24
+  %link.i216 = getelementptr inbounds nuw i8, ptr %header_ndalloc_ps, i64 24
   store ptr %header_ndalloc_ps, ptr %link.i216, align 8
-  %qre_prev.i217 = getelementptr inbounds i8, ptr %header_ndalloc_ps, i64 32
+  %qre_prev.i217 = getelementptr inbounds nuw i8, ptr %header_ndalloc_ps, i64 32
   store ptr %header_ndalloc_ps, ptr %qre_prev.i217, align 8
   %cmp.i218 = icmp eq ptr %12, null
   br i1 %cmp.i218, label %emitter_col_init.exit227, label %do.body3.i219
 
 do.body3.i219:                                    ; preds = %emitter_col_init.exit215
-  %qre_prev7.i220 = getelementptr inbounds i8, ptr %12, i64 32
+  %qre_prev7.i220 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %20 = load ptr, ptr %qre_prev7.i220, align 8
   store ptr %20, ptr %link.i216, align 8
   store ptr %header_ndalloc_ps, ptr %qre_prev7.i220, align 8
   %21 = load ptr, ptr %qre_prev.i217, align 8
-  %link20.i222 = getelementptr inbounds i8, ptr %21, i64 24
+  %link20.i222 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %22 = load ptr, ptr %link20.i222, align 8
   store ptr %22, ptr %qre_prev.i217, align 8
   %23 = load ptr, ptr %qre_prev7.i220, align 8
-  %link30.i224 = getelementptr inbounds i8, ptr %23, i64 24
+  %link30.i224 = getelementptr inbounds nuw i8, ptr %23, i64 24
   store ptr %12, ptr %link30.i224, align 8
   %24 = load ptr, ptr %qre_prev.i217, align 8
-  %link34.i225 = getelementptr inbounds i8, ptr %24, i64 24
+  %link34.i225 = getelementptr inbounds nuw i8, ptr %24, i64 24
   store ptr %header_ndalloc_ps, ptr %link34.i225, align 8
   %.pre.i226 = load ptr, ptr %link.i216, align 8
   br label %emitter_col_init.exit227
@@ -12303,33 +12303,33 @@ do.body3.i219:                                    ; preds = %emitter_col_init.ex
 emitter_col_init.exit227:                         ; preds = %emitter_col_init.exit215, %do.body3.i219
   %25 = phi ptr [ %.pre.i226, %do.body3.i219 ], [ %header_ndalloc_ps, %emitter_col_init.exit215 ]
   store i32 1, ptr %header_ndalloc_ps, align 8
-  %width49 = getelementptr inbounds i8, ptr %header_ndalloc_ps, i64 4
+  %width49 = getelementptr inbounds nuw i8, ptr %header_ndalloc_ps, i64 4
   store i32 8, ptr %width49, align 4
-  %type50 = getelementptr inbounds i8, ptr %header_ndalloc_ps, i64 8
+  %type50 = getelementptr inbounds nuw i8, ptr %header_ndalloc_ps, i64 8
   store i32 9, ptr %type50, align 8
-  %26 = getelementptr inbounds i8, ptr %header_ndalloc_ps, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %header_ndalloc_ps, i64 16
   store ptr @.str.267, ptr %26, align 8
-  %link.i228 = getelementptr inbounds i8, ptr %col_nrequests, i64 24
+  %link.i228 = getelementptr inbounds nuw i8, ptr %col_nrequests, i64 24
   store ptr %col_nrequests, ptr %link.i228, align 8
-  %qre_prev.i229 = getelementptr inbounds i8, ptr %col_nrequests, i64 32
+  %qre_prev.i229 = getelementptr inbounds nuw i8, ptr %col_nrequests, i64 32
   store ptr %col_nrequests, ptr %qre_prev.i229, align 8
   %cmp.i230 = icmp eq ptr %19, null
   br i1 %cmp.i230, label %emitter_col_init.exit239, label %do.body3.i231
 
 do.body3.i231:                                    ; preds = %emitter_col_init.exit227
-  %qre_prev7.i232 = getelementptr inbounds i8, ptr %19, i64 32
+  %qre_prev7.i232 = getelementptr inbounds nuw i8, ptr %19, i64 32
   %27 = load ptr, ptr %qre_prev7.i232, align 8
   store ptr %27, ptr %link.i228, align 8
   store ptr %col_nrequests, ptr %qre_prev7.i232, align 8
   %28 = load ptr, ptr %qre_prev.i229, align 8
-  %link20.i234 = getelementptr inbounds i8, ptr %28, i64 24
+  %link20.i234 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %29 = load ptr, ptr %link20.i234, align 8
   store ptr %29, ptr %qre_prev.i229, align 8
   %30 = load ptr, ptr %qre_prev7.i232, align 8
-  %link30.i236 = getelementptr inbounds i8, ptr %30, i64 24
+  %link30.i236 = getelementptr inbounds nuw i8, ptr %30, i64 24
   store ptr %19, ptr %link30.i236, align 8
   %31 = load ptr, ptr %qre_prev.i229, align 8
-  %link34.i237 = getelementptr inbounds i8, ptr %31, i64 24
+  %link34.i237 = getelementptr inbounds nuw i8, ptr %31, i64 24
   store ptr %col_nrequests, ptr %link34.i237, align 8
   %.pre.i238 = load ptr, ptr %link.i228, align 8
   br label %emitter_col_init.exit239
@@ -12337,31 +12337,31 @@ do.body3.i231:                                    ; preds = %emitter_col_init.ex
 emitter_col_init.exit239:                         ; preds = %emitter_col_init.exit227, %do.body3.i231
   %32 = phi ptr [ %.pre.i238, %do.body3.i231 ], [ %col_nrequests, %emitter_col_init.exit227 ]
   store i32 1, ptr %col_nrequests, align 8
-  %width52 = getelementptr inbounds i8, ptr %col_nrequests, i64 4
+  %width52 = getelementptr inbounds nuw i8, ptr %col_nrequests, i64 4
   store i32 13, ptr %width52, align 4
-  %type53 = getelementptr inbounds i8, ptr %col_nrequests, i64 8
+  %type53 = getelementptr inbounds nuw i8, ptr %col_nrequests, i64 8
   store i32 5, ptr %type53, align 8
-  %link.i240 = getelementptr inbounds i8, ptr %header_nrequests, i64 24
+  %link.i240 = getelementptr inbounds nuw i8, ptr %header_nrequests, i64 24
   store ptr %header_nrequests, ptr %link.i240, align 8
-  %qre_prev.i241 = getelementptr inbounds i8, ptr %header_nrequests, i64 32
+  %qre_prev.i241 = getelementptr inbounds nuw i8, ptr %header_nrequests, i64 32
   store ptr %header_nrequests, ptr %qre_prev.i241, align 8
   %cmp.i242 = icmp eq ptr %25, null
   br i1 %cmp.i242, label %emitter_col_init.exit251, label %do.body3.i243
 
 do.body3.i243:                                    ; preds = %emitter_col_init.exit239
-  %qre_prev7.i244 = getelementptr inbounds i8, ptr %25, i64 32
+  %qre_prev7.i244 = getelementptr inbounds nuw i8, ptr %25, i64 32
   %33 = load ptr, ptr %qre_prev7.i244, align 8
   store ptr %33, ptr %link.i240, align 8
   store ptr %header_nrequests, ptr %qre_prev7.i244, align 8
   %34 = load ptr, ptr %qre_prev.i241, align 8
-  %link20.i246 = getelementptr inbounds i8, ptr %34, i64 24
+  %link20.i246 = getelementptr inbounds nuw i8, ptr %34, i64 24
   %35 = load ptr, ptr %link20.i246, align 8
   store ptr %35, ptr %qre_prev.i241, align 8
   %36 = load ptr, ptr %qre_prev7.i244, align 8
-  %link30.i248 = getelementptr inbounds i8, ptr %36, i64 24
+  %link30.i248 = getelementptr inbounds nuw i8, ptr %36, i64 24
   store ptr %25, ptr %link30.i248, align 8
   %37 = load ptr, ptr %qre_prev.i241, align 8
-  %link34.i249 = getelementptr inbounds i8, ptr %37, i64 24
+  %link34.i249 = getelementptr inbounds nuw i8, ptr %37, i64 24
   store ptr %header_nrequests, ptr %link34.i249, align 8
   %.pre.i250 = load ptr, ptr %link.i240, align 8
   br label %emitter_col_init.exit251
@@ -12369,33 +12369,33 @@ do.body3.i243:                                    ; preds = %emitter_col_init.ex
 emitter_col_init.exit251:                         ; preds = %emitter_col_init.exit239, %do.body3.i243
   %38 = phi ptr [ %.pre.i250, %do.body3.i243 ], [ %header_nrequests, %emitter_col_init.exit239 ]
   store i32 1, ptr %header_nrequests, align 8
-  %width55 = getelementptr inbounds i8, ptr %header_nrequests, i64 4
+  %width55 = getelementptr inbounds nuw i8, ptr %header_nrequests, i64 4
   store i32 13, ptr %width55, align 4
-  %type56 = getelementptr inbounds i8, ptr %header_nrequests, i64 8
+  %type56 = getelementptr inbounds nuw i8, ptr %header_nrequests, i64 8
   store i32 9, ptr %type56, align 8
-  %39 = getelementptr inbounds i8, ptr %header_nrequests, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %header_nrequests, i64 16
   store ptr @.str.319, ptr %39, align 8
-  %link.i252 = getelementptr inbounds i8, ptr %col_nrequests_ps, i64 24
+  %link.i252 = getelementptr inbounds nuw i8, ptr %col_nrequests_ps, i64 24
   store ptr %col_nrequests_ps, ptr %link.i252, align 8
-  %qre_prev.i253 = getelementptr inbounds i8, ptr %col_nrequests_ps, i64 32
+  %qre_prev.i253 = getelementptr inbounds nuw i8, ptr %col_nrequests_ps, i64 32
   store ptr %col_nrequests_ps, ptr %qre_prev.i253, align 8
   %cmp.i254 = icmp eq ptr %32, null
   br i1 %cmp.i254, label %emitter_col_init.exit263, label %do.body3.i255
 
 do.body3.i255:                                    ; preds = %emitter_col_init.exit251
-  %qre_prev7.i256 = getelementptr inbounds i8, ptr %32, i64 32
+  %qre_prev7.i256 = getelementptr inbounds nuw i8, ptr %32, i64 32
   %40 = load ptr, ptr %qre_prev7.i256, align 8
   store ptr %40, ptr %link.i252, align 8
   store ptr %col_nrequests_ps, ptr %qre_prev7.i256, align 8
   %41 = load ptr, ptr %qre_prev.i253, align 8
-  %link20.i258 = getelementptr inbounds i8, ptr %41, i64 24
+  %link20.i258 = getelementptr inbounds nuw i8, ptr %41, i64 24
   %42 = load ptr, ptr %link20.i258, align 8
   store ptr %42, ptr %qre_prev.i253, align 8
   %43 = load ptr, ptr %qre_prev7.i256, align 8
-  %link30.i260 = getelementptr inbounds i8, ptr %43, i64 24
+  %link30.i260 = getelementptr inbounds nuw i8, ptr %43, i64 24
   store ptr %32, ptr %link30.i260, align 8
   %44 = load ptr, ptr %qre_prev.i253, align 8
-  %link34.i261 = getelementptr inbounds i8, ptr %44, i64 24
+  %link34.i261 = getelementptr inbounds nuw i8, ptr %44, i64 24
   store ptr %col_nrequests_ps, ptr %link34.i261, align 8
   %.pre.i262 = load ptr, ptr %link.i252, align 8
   br label %emitter_col_init.exit263
@@ -12403,31 +12403,31 @@ do.body3.i255:                                    ; preds = %emitter_col_init.ex
 emitter_col_init.exit263:                         ; preds = %emitter_col_init.exit251, %do.body3.i255
   %45 = phi ptr [ %.pre.i262, %do.body3.i255 ], [ %col_nrequests_ps, %emitter_col_init.exit251 ]
   store i32 1, ptr %col_nrequests_ps, align 8
-  %width58 = getelementptr inbounds i8, ptr %col_nrequests_ps, i64 4
+  %width58 = getelementptr inbounds nuw i8, ptr %col_nrequests_ps, i64 4
   store i32 8, ptr %width58, align 4
-  %type59 = getelementptr inbounds i8, ptr %col_nrequests_ps, i64 8
+  %type59 = getelementptr inbounds nuw i8, ptr %col_nrequests_ps, i64 8
   store i32 5, ptr %type59, align 8
-  %link.i264 = getelementptr inbounds i8, ptr %header_nrequests_ps, i64 24
+  %link.i264 = getelementptr inbounds nuw i8, ptr %header_nrequests_ps, i64 24
   store ptr %header_nrequests_ps, ptr %link.i264, align 8
-  %qre_prev.i265 = getelementptr inbounds i8, ptr %header_nrequests_ps, i64 32
+  %qre_prev.i265 = getelementptr inbounds nuw i8, ptr %header_nrequests_ps, i64 32
   store ptr %header_nrequests_ps, ptr %qre_prev.i265, align 8
   %cmp.i266 = icmp eq ptr %38, null
   br i1 %cmp.i266, label %emitter_col_init.exit275, label %do.body3.i267
 
 do.body3.i267:                                    ; preds = %emitter_col_init.exit263
-  %qre_prev7.i268 = getelementptr inbounds i8, ptr %38, i64 32
+  %qre_prev7.i268 = getelementptr inbounds nuw i8, ptr %38, i64 32
   %46 = load ptr, ptr %qre_prev7.i268, align 8
   store ptr %46, ptr %link.i264, align 8
   store ptr %header_nrequests_ps, ptr %qre_prev7.i268, align 8
   %47 = load ptr, ptr %qre_prev.i265, align 8
-  %link20.i270 = getelementptr inbounds i8, ptr %47, i64 24
+  %link20.i270 = getelementptr inbounds nuw i8, ptr %47, i64 24
   %48 = load ptr, ptr %link20.i270, align 8
   store ptr %48, ptr %qre_prev.i265, align 8
   %49 = load ptr, ptr %qre_prev7.i268, align 8
-  %link30.i272 = getelementptr inbounds i8, ptr %49, i64 24
+  %link30.i272 = getelementptr inbounds nuw i8, ptr %49, i64 24
   store ptr %38, ptr %link30.i272, align 8
   %50 = load ptr, ptr %qre_prev.i265, align 8
-  %link34.i273 = getelementptr inbounds i8, ptr %50, i64 24
+  %link34.i273 = getelementptr inbounds nuw i8, ptr %50, i64 24
   store ptr %header_nrequests_ps, ptr %link34.i273, align 8
   %.pre.i274 = load ptr, ptr %link.i264, align 8
   br label %emitter_col_init.exit275
@@ -12435,33 +12435,33 @@ do.body3.i267:                                    ; preds = %emitter_col_init.ex
 emitter_col_init.exit275:                         ; preds = %emitter_col_init.exit263, %do.body3.i267
   %51 = phi ptr [ %.pre.i274, %do.body3.i267 ], [ %header_nrequests_ps, %emitter_col_init.exit263 ]
   store i32 1, ptr %header_nrequests_ps, align 8
-  %width61 = getelementptr inbounds i8, ptr %header_nrequests_ps, i64 4
+  %width61 = getelementptr inbounds nuw i8, ptr %header_nrequests_ps, i64 4
   store i32 8, ptr %width61, align 4
-  %type62 = getelementptr inbounds i8, ptr %header_nrequests_ps, i64 8
+  %type62 = getelementptr inbounds nuw i8, ptr %header_nrequests_ps, i64 8
   store i32 9, ptr %type62, align 8
-  %52 = getelementptr inbounds i8, ptr %header_nrequests_ps, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %header_nrequests_ps, i64 16
   store ptr @.str.267, ptr %52, align 8
-  %link.i276 = getelementptr inbounds i8, ptr %col_curlextents, i64 24
+  %link.i276 = getelementptr inbounds nuw i8, ptr %col_curlextents, i64 24
   store ptr %col_curlextents, ptr %link.i276, align 8
-  %qre_prev.i277 = getelementptr inbounds i8, ptr %col_curlextents, i64 32
+  %qre_prev.i277 = getelementptr inbounds nuw i8, ptr %col_curlextents, i64 32
   store ptr %col_curlextents, ptr %qre_prev.i277, align 8
   %cmp.i278 = icmp eq ptr %45, null
   br i1 %cmp.i278, label %emitter_col_init.exit287, label %do.body3.i279
 
 do.body3.i279:                                    ; preds = %emitter_col_init.exit275
-  %qre_prev7.i280 = getelementptr inbounds i8, ptr %45, i64 32
+  %qre_prev7.i280 = getelementptr inbounds nuw i8, ptr %45, i64 32
   %53 = load ptr, ptr %qre_prev7.i280, align 8
   store ptr %53, ptr %link.i276, align 8
   store ptr %col_curlextents, ptr %qre_prev7.i280, align 8
   %54 = load ptr, ptr %qre_prev.i277, align 8
-  %link20.i282 = getelementptr inbounds i8, ptr %54, i64 24
+  %link20.i282 = getelementptr inbounds nuw i8, ptr %54, i64 24
   %55 = load ptr, ptr %link20.i282, align 8
   store ptr %55, ptr %qre_prev.i277, align 8
   %56 = load ptr, ptr %qre_prev7.i280, align 8
-  %link30.i284 = getelementptr inbounds i8, ptr %56, i64 24
+  %link30.i284 = getelementptr inbounds nuw i8, ptr %56, i64 24
   store ptr %45, ptr %link30.i284, align 8
   %57 = load ptr, ptr %qre_prev.i277, align 8
-  %link34.i285 = getelementptr inbounds i8, ptr %57, i64 24
+  %link34.i285 = getelementptr inbounds nuw i8, ptr %57, i64 24
   store ptr %col_curlextents, ptr %link34.i285, align 8
   %.pre.i286 = load ptr, ptr %link.i276, align 8
   br label %emitter_col_init.exit287
@@ -12469,31 +12469,31 @@ do.body3.i279:                                    ; preds = %emitter_col_init.ex
 emitter_col_init.exit287:                         ; preds = %emitter_col_init.exit275, %do.body3.i279
   %58 = phi ptr [ %.pre.i286, %do.body3.i279 ], [ %col_curlextents, %emitter_col_init.exit275 ]
   store i32 1, ptr %col_curlextents, align 8
-  %width90 = getelementptr inbounds i8, ptr %col_curlextents, i64 4
+  %width90 = getelementptr inbounds nuw i8, ptr %col_curlextents, i64 4
   store i32 13, ptr %width90, align 4
-  %type91 = getelementptr inbounds i8, ptr %col_curlextents, i64 8
+  %type91 = getelementptr inbounds nuw i8, ptr %col_curlextents, i64 8
   store i32 6, ptr %type91, align 8
-  %link.i288 = getelementptr inbounds i8, ptr %header_curlextents, i64 24
+  %link.i288 = getelementptr inbounds nuw i8, ptr %header_curlextents, i64 24
   store ptr %header_curlextents, ptr %link.i288, align 8
-  %qre_prev.i289 = getelementptr inbounds i8, ptr %header_curlextents, i64 32
+  %qre_prev.i289 = getelementptr inbounds nuw i8, ptr %header_curlextents, i64 32
   store ptr %header_curlextents, ptr %qre_prev.i289, align 8
   %cmp.i290 = icmp eq ptr %51, null
   br i1 %cmp.i290, label %emitter_col_init.exit299, label %do.body3.i291
 
 do.body3.i291:                                    ; preds = %emitter_col_init.exit287
-  %qre_prev7.i292 = getelementptr inbounds i8, ptr %51, i64 32
+  %qre_prev7.i292 = getelementptr inbounds nuw i8, ptr %51, i64 32
   %59 = load ptr, ptr %qre_prev7.i292, align 8
   store ptr %59, ptr %link.i288, align 8
   store ptr %header_curlextents, ptr %qre_prev7.i292, align 8
   %60 = load ptr, ptr %qre_prev.i289, align 8
-  %link20.i294 = getelementptr inbounds i8, ptr %60, i64 24
+  %link20.i294 = getelementptr inbounds nuw i8, ptr %60, i64 24
   %61 = load ptr, ptr %link20.i294, align 8
   store ptr %61, ptr %qre_prev.i289, align 8
   %62 = load ptr, ptr %qre_prev7.i292, align 8
-  %link30.i296 = getelementptr inbounds i8, ptr %62, i64 24
+  %link30.i296 = getelementptr inbounds nuw i8, ptr %62, i64 24
   store ptr %51, ptr %link30.i296, align 8
   %63 = load ptr, ptr %qre_prev.i289, align 8
-  %link34.i297 = getelementptr inbounds i8, ptr %63, i64 24
+  %link34.i297 = getelementptr inbounds nuw i8, ptr %63, i64 24
   store ptr %header_curlextents, ptr %link34.i297, align 8
   %.pre.i298 = load ptr, ptr %link.i288, align 8
   br label %emitter_col_init.exit299
@@ -12501,11 +12501,11 @@ do.body3.i291:                                    ; preds = %emitter_col_init.ex
 emitter_col_init.exit299:                         ; preds = %emitter_col_init.exit287, %do.body3.i291
   %64 = phi ptr [ %.pre.i298, %do.body3.i291 ], [ %header_curlextents, %emitter_col_init.exit287 ]
   store i32 1, ptr %header_curlextents, align 8
-  %width93 = getelementptr inbounds i8, ptr %header_curlextents, i64 4
+  %width93 = getelementptr inbounds nuw i8, ptr %header_curlextents, i64 4
   store i32 13, ptr %width93, align 4
-  %type94 = getelementptr inbounds i8, ptr %header_curlextents, i64 8
+  %type94 = getelementptr inbounds nuw i8, ptr %header_curlextents, i64 8
   store i32 9, ptr %type94, align 8
-  %65 = getelementptr inbounds i8, ptr %header_curlextents, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %header_curlextents, i64 16
   store ptr @.str.397, ptr %65, align 8
   store i32 14, ptr %width13, align 4
   call void (ptr, ptr, ...) @emitter_table_printf(ptr noundef %emitter, ptr noundef nonnull @.str.332)
@@ -12520,13 +12520,13 @@ if.end.i:                                         ; preds = %emitter_col_init.ex
 for.body.i:                                       ; preds = %if.end.i, %for.body.i
   %col.011.i = phi ptr [ %71, %for.body.i ], [ %64, %if.end.i ]
   %67 = load i32, ptr %col.011.i, align 8
-  %width.i = getelementptr inbounds i8, ptr %col.011.i, i64 4
+  %width.i = getelementptr inbounds nuw i8, ptr %col.011.i, i64 4
   %68 = load i32, ptr %width.i, align 4
-  %type.i = getelementptr inbounds i8, ptr %col.011.i, i64 8
+  %type.i = getelementptr inbounds nuw i8, ptr %col.011.i, i64 8
   %69 = load i32, ptr %type.i, align 8
-  %70 = getelementptr inbounds i8, ptr %col.011.i, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %col.011.i, i64 16
   call fastcc void @emitter_print_value(ptr noundef nonnull readonly %emitter, i32 noundef %67, i32 noundef %68, i32 noundef %69, ptr noundef nonnull %70)
-  %link.i300 = getelementptr inbounds i8, ptr %col.011.i, i64 24
+  %link.i300 = getelementptr inbounds nuw i8, ptr %col.011.i, i64 24
   %71 = load ptr, ptr %link.i300, align 8
   %cmp4.not.i = icmp eq ptr %71, %64
   %cmp1.not12.i = icmp eq ptr %71, null
@@ -12541,7 +12541,7 @@ emitter_table_row.exit:                           ; preds = %emitter_col_init.ex
   call fastcc void @emitter_json_array_kv_begin(ptr noundef %emitter, ptr noundef nonnull @.str.398)
   store i64 7, ptr %miblen_new, align 8
   %72 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tsd_tls)
-  %state.i611 = getelementptr inbounds i8, ptr %72, i64 832
+  %state.i611 = getelementptr inbounds nuw i8, ptr %72, i64 832
   %73 = load i8, ptr %state.i611, align 8
   %cmp6.i.not = icmp eq i8 %73, 0
   br i1 %cmp6.i.not, label %tsd_fetch_impl.exit, label %if.then11.i
@@ -12563,7 +12563,7 @@ if.then103:                                       ; preds = %tsd_fetch_impl.exit
 
 do.end108:                                        ; preds = %tsd_fetch_impl.exit
   %conv = zext i32 %i to i64
-  %arrayidx = getelementptr inbounds i8, ptr %stats_arenas_mib, i64 16
+  %arrayidx = getelementptr inbounds nuw i8, ptr %stats_arenas_mib, i64 16
   store i64 %conv, ptr %arrayidx, align 16
   store i64 7, ptr %miblen_new112, align 8
   %74 = load i8, ptr %state.i611, align 8
@@ -12607,23 +12607,23 @@ for.cond.preheader:                               ; preds = %tsd_fetch_impl.exit
   br i1 %cmp160424.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %arrayidx163 = getelementptr inbounds i8, ptr %stats_arenas_mib, i64 32
-  %arrayidx165 = getelementptr inbounds i8, ptr %arenas_lextent_mib, i64 16
-  %nesting_depth.i.i = getelementptr inbounds i8, ptr %emitter, i64 24
-  %item_at_depth.i.i = getelementptr inbounds i8, ptr %emitter, i64 28
-  %77 = getelementptr inbounds i8, ptr %col_size, i64 16
-  %78 = getelementptr inbounds i8, ptr %col_ind, i64 16
-  %79 = getelementptr inbounds i8, ptr %col_allocated, i64 16
-  %80 = getelementptr inbounds i8, ptr %col_nmalloc, i64 16
+  %arrayidx163 = getelementptr inbounds nuw i8, ptr %stats_arenas_mib, i64 32
+  %arrayidx165 = getelementptr inbounds nuw i8, ptr %arenas_lextent_mib, i64 16
+  %nesting_depth.i.i = getelementptr inbounds nuw i8, ptr %emitter, i64 24
+  %item_at_depth.i.i = getelementptr inbounds nuw i8, ptr %emitter, i64 28
+  %77 = getelementptr inbounds nuw i8, ptr %col_size, i64 16
+  %78 = getelementptr inbounds nuw i8, ptr %col_ind, i64 16
+  %79 = getelementptr inbounds nuw i8, ptr %col_allocated, i64 16
+  %80 = getelementptr inbounds nuw i8, ptr %col_nmalloc, i64 16
   %cmp.i303 = icmp eq i64 %uptime, 0
   %cmp2.i = icmp ult i64 %uptime, 1000000000
   %div.i = udiv i64 %uptime, 1000000000
-  %81 = getelementptr inbounds i8, ptr %col_nmalloc_ps, i64 16
-  %82 = getelementptr inbounds i8, ptr %col_ndalloc, i64 16
-  %83 = getelementptr inbounds i8, ptr %col_ndalloc_ps, i64 16
-  %84 = getelementptr inbounds i8, ptr %col_nrequests, i64 16
-  %85 = getelementptr inbounds i8, ptr %col_nrequests_ps, i64 16
-  %86 = getelementptr inbounds i8, ptr %col_curlextents, i64 16
+  %81 = getelementptr inbounds nuw i8, ptr %col_nmalloc_ps, i64 16
+  %82 = getelementptr inbounds nuw i8, ptr %col_ndalloc, i64 16
+  %83 = getelementptr inbounds nuw i8, ptr %col_ndalloc_ps, i64 16
+  %84 = getelementptr inbounds nuw i8, ptr %col_nrequests, i64 16
+  %85 = getelementptr inbounds nuw i8, ptr %col_nrequests_ps, i64 16
+  %86 = getelementptr inbounds nuw i8, ptr %col_curlextents, i64 16
   %cmp1.not10.i327 = icmp eq ptr %58, null
   br label %for.body
 
@@ -12864,13 +12864,13 @@ if.end.i326:                                      ; preds = %if.then315
 for.body.i328:                                    ; preds = %if.end.i326, %for.body.i328
   %col.011.i329 = phi ptr [ %108, %for.body.i328 ], [ %58, %if.end.i326 ]
   %104 = load i32, ptr %col.011.i329, align 8
-  %width.i330 = getelementptr inbounds i8, ptr %col.011.i329, i64 4
+  %width.i330 = getelementptr inbounds nuw i8, ptr %col.011.i329, i64 4
   %105 = load i32, ptr %width.i330, align 4
-  %type.i331 = getelementptr inbounds i8, ptr %col.011.i329, i64 8
+  %type.i331 = getelementptr inbounds nuw i8, ptr %col.011.i329, i64 8
   %106 = load i32, ptr %type.i331, align 8
-  %107 = getelementptr inbounds i8, ptr %col.011.i329, i64 16
+  %107 = getelementptr inbounds nuw i8, ptr %col.011.i329, i64 16
   call fastcc void @emitter_print_value(ptr noundef nonnull readonly %emitter, i32 noundef %104, i32 noundef %105, i32 noundef %106, ptr noundef nonnull %107)
-  %link.i332 = getelementptr inbounds i8, ptr %col.011.i329, i64 24
+  %link.i332 = getelementptr inbounds nuw i8, ptr %col.011.i329, i64 24
   %108 = load ptr, ptr %link.i332, align 8
   %cmp4.not.i333 = icmp eq ptr %108, %58
   %cmp1.not12.i334 = icmp eq ptr %108, null
@@ -12895,11 +12895,11 @@ for.end:                                          ; preds = %for.inc, %for.cond.
   br i1 %spec.select.i.i339, label %do.end.i340, label %emitter_json_array_end.exit
 
 do.end.i340:                                      ; preds = %for.end
-  %nesting_depth.i.i341 = getelementptr inbounds i8, ptr %emitter, i64 24
+  %nesting_depth.i.i341 = getelementptr inbounds nuw i8, ptr %emitter, i64 24
   %111 = load i32, ptr %nesting_depth.i.i341, align 8
   %dec.i.i342 = add nsw i32 %111, -1
   store i32 %dec.i.i342, ptr %nesting_depth.i.i341, align 8
-  %item_at_depth.i.i343 = getelementptr inbounds i8, ptr %emitter, i64 28
+  %item_at_depth.i.i343 = getelementptr inbounds nuw i8, ptr %emitter, i64 28
   store i8 1, ptr %item_at_depth.i.i343, align 4
   %cmp.not.i344 = icmp eq i32 %emitter.val.i338, 1
   br i1 %cmp.not.i344, label %if.end.i349, label %if.then1.i345
@@ -12984,150 +12984,150 @@ emitter_col_init.exit174:
   %sz158 = alloca i64, align 8
   %miblen_new174 = alloca i64, align 8
   %sz175 = alloca i64, align 8
-  %link.i = getelementptr inbounds i8, ptr %col_size, i64 24
-  %qre_prev.i = getelementptr inbounds i8, ptr %col_size, i64 32
+  %link.i = getelementptr inbounds nuw i8, ptr %col_size, i64 24
+  %qre_prev.i = getelementptr inbounds nuw i8, ptr %col_size, i64 32
   store i32 1, ptr %col_size, align 8
-  %width = getelementptr inbounds i8, ptr %col_size, i64 4
+  %width = getelementptr inbounds nuw i8, ptr %col_size, i64 4
   store i32 20, ptr %width, align 4
-  %type = getelementptr inbounds i8, ptr %col_size, i64 8
+  %type = getelementptr inbounds nuw i8, ptr %col_size, i64 8
   store i32 6, ptr %type, align 8
-  %link.i55 = getelementptr inbounds i8, ptr %header_size, i64 24
-  %qre_prev.i56 = getelementptr inbounds i8, ptr %header_size, i64 32
+  %link.i55 = getelementptr inbounds nuw i8, ptr %header_size, i64 24
+  %qre_prev.i56 = getelementptr inbounds nuw i8, ptr %header_size, i64 32
   store i32 1, ptr %header_size, align 8
-  %width2 = getelementptr inbounds i8, ptr %header_size, i64 4
+  %width2 = getelementptr inbounds nuw i8, ptr %header_size, i64 4
   store i32 20, ptr %width2, align 4
-  %type3 = getelementptr inbounds i8, ptr %header_size, i64 8
+  %type3 = getelementptr inbounds nuw i8, ptr %header_size, i64 8
   store i32 9, ptr %type3, align 8
-  %0 = getelementptr inbounds i8, ptr %header_size, i64 16
+  %0 = getelementptr inbounds nuw i8, ptr %header_size, i64 16
   store ptr @.str.202, ptr %0, align 8
-  %link.i67 = getelementptr inbounds i8, ptr %col_ind, i64 24
-  %qre_prev.i68 = getelementptr inbounds i8, ptr %col_ind, i64 32
+  %link.i67 = getelementptr inbounds nuw i8, ptr %col_ind, i64 24
+  %qre_prev.i68 = getelementptr inbounds nuw i8, ptr %col_ind, i64 32
   store ptr %col_size, ptr %qre_prev.i68, align 8
   store ptr %col_ind, ptr %link.i, align 8
   store i32 1, ptr %col_ind, align 8
-  %width5 = getelementptr inbounds i8, ptr %col_ind, i64 4
+  %width5 = getelementptr inbounds nuw i8, ptr %col_ind, i64 4
   store i32 4, ptr %width5, align 4
-  %type6 = getelementptr inbounds i8, ptr %col_ind, i64 8
+  %type6 = getelementptr inbounds nuw i8, ptr %col_ind, i64 8
   store i32 3, ptr %type6, align 8
-  %link.i79 = getelementptr inbounds i8, ptr %header_ind, i64 24
-  %qre_prev.i80 = getelementptr inbounds i8, ptr %header_ind, i64 32
+  %link.i79 = getelementptr inbounds nuw i8, ptr %header_ind, i64 24
+  %qre_prev.i80 = getelementptr inbounds nuw i8, ptr %header_ind, i64 32
   store ptr %header_size, ptr %qre_prev.i80, align 8
   store ptr %header_ind, ptr %link.i55, align 8
   store i32 1, ptr %header_ind, align 8
-  %width8 = getelementptr inbounds i8, ptr %header_ind, i64 4
+  %width8 = getelementptr inbounds nuw i8, ptr %header_ind, i64 4
   store i32 4, ptr %width8, align 4
-  %type9 = getelementptr inbounds i8, ptr %header_ind, i64 8
+  %type9 = getelementptr inbounds nuw i8, ptr %header_ind, i64 8
   store i32 9, ptr %type9, align 8
-  %1 = getelementptr inbounds i8, ptr %header_ind, i64 16
+  %1 = getelementptr inbounds nuw i8, ptr %header_ind, i64 16
   store ptr @.str.365, ptr %1, align 8
-  %qre_prev.i92 = getelementptr inbounds i8, ptr %col_ndirty, i64 32
+  %qre_prev.i92 = getelementptr inbounds nuw i8, ptr %col_ndirty, i64 32
   store ptr %col_ind, ptr %qre_prev.i92, align 8
   store ptr %col_ndirty, ptr %link.i67, align 8
   store i32 1, ptr %col_ndirty, align 8
-  %width11 = getelementptr inbounds i8, ptr %col_ndirty, i64 4
+  %width11 = getelementptr inbounds nuw i8, ptr %col_ndirty, i64 4
   store i32 13, ptr %width11, align 4
-  %type12 = getelementptr inbounds i8, ptr %col_ndirty, i64 8
+  %type12 = getelementptr inbounds nuw i8, ptr %col_ndirty, i64 8
   store i32 6, ptr %type12, align 8
-  %qre_prev.i104 = getelementptr inbounds i8, ptr %header_ndirty, i64 32
+  %qre_prev.i104 = getelementptr inbounds nuw i8, ptr %header_ndirty, i64 32
   store ptr %header_ind, ptr %qre_prev.i104, align 8
   store ptr %header_ndirty, ptr %link.i79, align 8
   store i32 1, ptr %header_ndirty, align 8
-  %width14 = getelementptr inbounds i8, ptr %header_ndirty, i64 4
+  %width14 = getelementptr inbounds nuw i8, ptr %header_ndirty, i64 4
   store i32 13, ptr %width14, align 4
-  %type15 = getelementptr inbounds i8, ptr %header_ndirty, i64 8
+  %type15 = getelementptr inbounds nuw i8, ptr %header_ndirty, i64 8
   store i32 9, ptr %type15, align 8
-  %2 = getelementptr inbounds i8, ptr %header_ndirty, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %header_ndirty, i64 16
   store ptr @.str.400, ptr %2, align 8
-  %qre_prev.i116 = getelementptr inbounds i8, ptr %col_dirty, i64 32
+  %qre_prev.i116 = getelementptr inbounds nuw i8, ptr %col_dirty, i64 32
   store ptr %col_ndirty, ptr %qre_prev.i116, align 8
-  %link34.i124 = getelementptr inbounds i8, ptr %col_ndirty, i64 24
+  %link34.i124 = getelementptr inbounds nuw i8, ptr %col_ndirty, i64 24
   store ptr %col_dirty, ptr %link34.i124, align 8
   store i32 1, ptr %col_dirty, align 8
-  %width17 = getelementptr inbounds i8, ptr %col_dirty, i64 4
+  %width17 = getelementptr inbounds nuw i8, ptr %col_dirty, i64 4
   store i32 13, ptr %width17, align 4
-  %type18 = getelementptr inbounds i8, ptr %col_dirty, i64 8
+  %type18 = getelementptr inbounds nuw i8, ptr %col_dirty, i64 8
   store i32 6, ptr %type18, align 8
-  %link.i127 = getelementptr inbounds i8, ptr %header_dirty, i64 24
-  %qre_prev.i128 = getelementptr inbounds i8, ptr %header_dirty, i64 32
+  %link.i127 = getelementptr inbounds nuw i8, ptr %header_dirty, i64 24
+  %qre_prev.i128 = getelementptr inbounds nuw i8, ptr %header_dirty, i64 32
   store ptr %header_dirty, ptr %qre_prev.i56, align 8
   store ptr %header_ndirty, ptr %qre_prev.i128, align 8
   store ptr %header_size, ptr %link.i127, align 8
-  %link34.i136 = getelementptr inbounds i8, ptr %header_ndirty, i64 24
+  %link34.i136 = getelementptr inbounds nuw i8, ptr %header_ndirty, i64 24
   store ptr %header_dirty, ptr %link34.i136, align 8
   store i32 1, ptr %header_dirty, align 8
-  %width20 = getelementptr inbounds i8, ptr %header_dirty, i64 4
+  %width20 = getelementptr inbounds nuw i8, ptr %header_dirty, i64 4
   store i32 13, ptr %width20, align 4
-  %type21 = getelementptr inbounds i8, ptr %header_dirty, i64 8
+  %type21 = getelementptr inbounds nuw i8, ptr %header_dirty, i64 8
   store i32 9, ptr %type21, align 8
-  %3 = getelementptr inbounds i8, ptr %header_dirty, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %header_dirty, i64 16
   store ptr @.str.401, ptr %3, align 8
-  %link.i139 = getelementptr inbounds i8, ptr %col_nmuzzy, i64 24
-  %qre_prev.i140 = getelementptr inbounds i8, ptr %col_nmuzzy, i64 32
+  %link.i139 = getelementptr inbounds nuw i8, ptr %col_nmuzzy, i64 24
+  %qre_prev.i140 = getelementptr inbounds nuw i8, ptr %col_nmuzzy, i64 32
   store ptr %col_nmuzzy, ptr %qre_prev.i, align 8
   store ptr %col_dirty, ptr %qre_prev.i140, align 8
   store ptr %col_size, ptr %link.i139, align 8
-  %link34.i148 = getelementptr inbounds i8, ptr %col_dirty, i64 24
+  %link34.i148 = getelementptr inbounds nuw i8, ptr %col_dirty, i64 24
   store ptr %col_nmuzzy, ptr %link34.i148, align 8
   store i32 1, ptr %col_nmuzzy, align 8
-  %width23 = getelementptr inbounds i8, ptr %col_nmuzzy, i64 4
+  %width23 = getelementptr inbounds nuw i8, ptr %col_nmuzzy, i64 4
   store i32 13, ptr %width23, align 4
-  %type24 = getelementptr inbounds i8, ptr %col_nmuzzy, i64 8
+  %type24 = getelementptr inbounds nuw i8, ptr %col_nmuzzy, i64 8
   store i32 6, ptr %type24, align 8
-  %link.i151 = getelementptr inbounds i8, ptr %header_nmuzzy, i64 24
-  %qre_prev.i152 = getelementptr inbounds i8, ptr %header_nmuzzy, i64 32
+  %link.i151 = getelementptr inbounds nuw i8, ptr %header_nmuzzy, i64 24
+  %qre_prev.i152 = getelementptr inbounds nuw i8, ptr %header_nmuzzy, i64 32
   %4 = load ptr, ptr %qre_prev.i56, align 8
   store ptr %header_nmuzzy, ptr %qre_prev.i56, align 8
   store ptr %4, ptr %qre_prev.i152, align 8
   store ptr %header_size, ptr %link.i151, align 8
-  %link34.i160 = getelementptr inbounds i8, ptr %4, i64 24
+  %link34.i160 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %header_nmuzzy, ptr %link34.i160, align 8
   %.pre.i161 = load ptr, ptr %link.i151, align 8
   store i32 1, ptr %header_nmuzzy, align 8
-  %width26 = getelementptr inbounds i8, ptr %header_nmuzzy, i64 4
+  %width26 = getelementptr inbounds nuw i8, ptr %header_nmuzzy, i64 4
   store i32 13, ptr %width26, align 4
-  %type27 = getelementptr inbounds i8, ptr %header_nmuzzy, i64 8
+  %type27 = getelementptr inbounds nuw i8, ptr %header_nmuzzy, i64 8
   store i32 9, ptr %type27, align 8
-  %5 = getelementptr inbounds i8, ptr %header_nmuzzy, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %header_nmuzzy, i64 16
   store ptr @.str.402, ptr %5, align 8
-  %link.i163 = getelementptr inbounds i8, ptr %col_muzzy, i64 24
-  %qre_prev.i164 = getelementptr inbounds i8, ptr %col_muzzy, i64 32
+  %link.i163 = getelementptr inbounds nuw i8, ptr %col_muzzy, i64 24
+  %qre_prev.i164 = getelementptr inbounds nuw i8, ptr %col_muzzy, i64 32
   store ptr %col_muzzy, ptr %qre_prev.i164, align 8
-  %qre_prev7.i167 = getelementptr inbounds i8, ptr %col_size, i64 32
+  %qre_prev7.i167 = getelementptr inbounds nuw i8, ptr %col_size, i64 32
   %6 = load ptr, ptr %qre_prev7.i167, align 8
   store ptr %6, ptr %link.i163, align 8
   store ptr %col_muzzy, ptr %qre_prev7.i167, align 8
   store ptr %6, ptr %qre_prev.i164, align 8
-  %link30.i171 = getelementptr inbounds i8, ptr %col_muzzy, i64 24
+  %link30.i171 = getelementptr inbounds nuw i8, ptr %col_muzzy, i64 24
   store ptr %col_size, ptr %link30.i171, align 8
-  %link34.i172 = getelementptr inbounds i8, ptr %6, i64 24
+  %link34.i172 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %col_muzzy, ptr %link34.i172, align 8
   %.pre.i173 = load ptr, ptr %link.i163, align 8
   store i32 1, ptr %col_muzzy, align 8
-  %width29 = getelementptr inbounds i8, ptr %col_muzzy, i64 4
+  %width29 = getelementptr inbounds nuw i8, ptr %col_muzzy, i64 4
   store i32 13, ptr %width29, align 4
-  %type30 = getelementptr inbounds i8, ptr %col_muzzy, i64 8
+  %type30 = getelementptr inbounds nuw i8, ptr %col_muzzy, i64 8
   store i32 6, ptr %type30, align 8
-  %link.i175 = getelementptr inbounds i8, ptr %header_muzzy, i64 24
+  %link.i175 = getelementptr inbounds nuw i8, ptr %header_muzzy, i64 24
   store ptr %header_muzzy, ptr %link.i175, align 8
-  %qre_prev.i176 = getelementptr inbounds i8, ptr %header_muzzy, i64 32
+  %qre_prev.i176 = getelementptr inbounds nuw i8, ptr %header_muzzy, i64 32
   store ptr %header_muzzy, ptr %qre_prev.i176, align 8
   %cmp.i177 = icmp eq ptr %.pre.i161, null
   br i1 %cmp.i177, label %emitter_col_init.exit186, label %do.body3.i178
 
 do.body3.i178:                                    ; preds = %emitter_col_init.exit174
-  %qre_prev7.i179 = getelementptr inbounds i8, ptr %.pre.i161, i64 32
+  %qre_prev7.i179 = getelementptr inbounds nuw i8, ptr %.pre.i161, i64 32
   %7 = load ptr, ptr %qre_prev7.i179, align 8
   store ptr %7, ptr %link.i175, align 8
   store ptr %header_muzzy, ptr %qre_prev7.i179, align 8
   %8 = load ptr, ptr %qre_prev.i176, align 8
-  %link20.i181 = getelementptr inbounds i8, ptr %8, i64 24
+  %link20.i181 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %9 = load ptr, ptr %link20.i181, align 8
   store ptr %9, ptr %qre_prev.i176, align 8
   %10 = load ptr, ptr %qre_prev7.i179, align 8
-  %link30.i183 = getelementptr inbounds i8, ptr %10, i64 24
+  %link30.i183 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store ptr %.pre.i161, ptr %link30.i183, align 8
   %11 = load ptr, ptr %qre_prev.i176, align 8
-  %link34.i184 = getelementptr inbounds i8, ptr %11, i64 24
+  %link34.i184 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store ptr %header_muzzy, ptr %link34.i184, align 8
   %.pre.i185 = load ptr, ptr %link.i175, align 8
   br label %emitter_col_init.exit186
@@ -13135,33 +13135,33 @@ do.body3.i178:                                    ; preds = %emitter_col_init.ex
 emitter_col_init.exit186:                         ; preds = %emitter_col_init.exit174, %do.body3.i178
   %12 = phi ptr [ %.pre.i185, %do.body3.i178 ], [ %header_muzzy, %emitter_col_init.exit174 ]
   store i32 1, ptr %header_muzzy, align 8
-  %width32 = getelementptr inbounds i8, ptr %header_muzzy, i64 4
+  %width32 = getelementptr inbounds nuw i8, ptr %header_muzzy, i64 4
   store i32 13, ptr %width32, align 4
-  %type33 = getelementptr inbounds i8, ptr %header_muzzy, i64 8
+  %type33 = getelementptr inbounds nuw i8, ptr %header_muzzy, i64 8
   store i32 9, ptr %type33, align 8
-  %13 = getelementptr inbounds i8, ptr %header_muzzy, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %header_muzzy, i64 16
   store ptr @.str.403, ptr %13, align 8
-  %link.i187 = getelementptr inbounds i8, ptr %col_nretained, i64 24
+  %link.i187 = getelementptr inbounds nuw i8, ptr %col_nretained, i64 24
   store ptr %col_nretained, ptr %link.i187, align 8
-  %qre_prev.i188 = getelementptr inbounds i8, ptr %col_nretained, i64 32
+  %qre_prev.i188 = getelementptr inbounds nuw i8, ptr %col_nretained, i64 32
   store ptr %col_nretained, ptr %qre_prev.i188, align 8
   %cmp.i189 = icmp eq ptr %.pre.i173, null
   br i1 %cmp.i189, label %emitter_col_init.exit198, label %do.body3.i190
 
 do.body3.i190:                                    ; preds = %emitter_col_init.exit186
-  %qre_prev7.i191 = getelementptr inbounds i8, ptr %.pre.i173, i64 32
+  %qre_prev7.i191 = getelementptr inbounds nuw i8, ptr %.pre.i173, i64 32
   %14 = load ptr, ptr %qre_prev7.i191, align 8
   store ptr %14, ptr %link.i187, align 8
   store ptr %col_nretained, ptr %qre_prev7.i191, align 8
   %15 = load ptr, ptr %qre_prev.i188, align 8
-  %link20.i193 = getelementptr inbounds i8, ptr %15, i64 24
+  %link20.i193 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %16 = load ptr, ptr %link20.i193, align 8
   store ptr %16, ptr %qre_prev.i188, align 8
   %17 = load ptr, ptr %qre_prev7.i191, align 8
-  %link30.i195 = getelementptr inbounds i8, ptr %17, i64 24
+  %link30.i195 = getelementptr inbounds nuw i8, ptr %17, i64 24
   store ptr %.pre.i173, ptr %link30.i195, align 8
   %18 = load ptr, ptr %qre_prev.i188, align 8
-  %link34.i196 = getelementptr inbounds i8, ptr %18, i64 24
+  %link34.i196 = getelementptr inbounds nuw i8, ptr %18, i64 24
   store ptr %col_nretained, ptr %link34.i196, align 8
   %.pre.i197 = load ptr, ptr %link.i187, align 8
   br label %emitter_col_init.exit198
@@ -13169,31 +13169,31 @@ do.body3.i190:                                    ; preds = %emitter_col_init.ex
 emitter_col_init.exit198:                         ; preds = %emitter_col_init.exit186, %do.body3.i190
   %19 = phi ptr [ %.pre.i197, %do.body3.i190 ], [ %col_nretained, %emitter_col_init.exit186 ]
   store i32 1, ptr %col_nretained, align 8
-  %width35 = getelementptr inbounds i8, ptr %col_nretained, i64 4
+  %width35 = getelementptr inbounds nuw i8, ptr %col_nretained, i64 4
   store i32 13, ptr %width35, align 4
-  %type36 = getelementptr inbounds i8, ptr %col_nretained, i64 8
+  %type36 = getelementptr inbounds nuw i8, ptr %col_nretained, i64 8
   store i32 6, ptr %type36, align 8
-  %link.i199 = getelementptr inbounds i8, ptr %header_nretained, i64 24
+  %link.i199 = getelementptr inbounds nuw i8, ptr %header_nretained, i64 24
   store ptr %header_nretained, ptr %link.i199, align 8
-  %qre_prev.i200 = getelementptr inbounds i8, ptr %header_nretained, i64 32
+  %qre_prev.i200 = getelementptr inbounds nuw i8, ptr %header_nretained, i64 32
   store ptr %header_nretained, ptr %qre_prev.i200, align 8
   %cmp.i201 = icmp eq ptr %12, null
   br i1 %cmp.i201, label %emitter_col_init.exit210, label %do.body3.i202
 
 do.body3.i202:                                    ; preds = %emitter_col_init.exit198
-  %qre_prev7.i203 = getelementptr inbounds i8, ptr %12, i64 32
+  %qre_prev7.i203 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %20 = load ptr, ptr %qre_prev7.i203, align 8
   store ptr %20, ptr %link.i199, align 8
   store ptr %header_nretained, ptr %qre_prev7.i203, align 8
   %21 = load ptr, ptr %qre_prev.i200, align 8
-  %link20.i205 = getelementptr inbounds i8, ptr %21, i64 24
+  %link20.i205 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %22 = load ptr, ptr %link20.i205, align 8
   store ptr %22, ptr %qre_prev.i200, align 8
   %23 = load ptr, ptr %qre_prev7.i203, align 8
-  %link30.i207 = getelementptr inbounds i8, ptr %23, i64 24
+  %link30.i207 = getelementptr inbounds nuw i8, ptr %23, i64 24
   store ptr %12, ptr %link30.i207, align 8
   %24 = load ptr, ptr %qre_prev.i200, align 8
-  %link34.i208 = getelementptr inbounds i8, ptr %24, i64 24
+  %link34.i208 = getelementptr inbounds nuw i8, ptr %24, i64 24
   store ptr %header_nretained, ptr %link34.i208, align 8
   %.pre.i209 = load ptr, ptr %link.i199, align 8
   br label %emitter_col_init.exit210
@@ -13201,33 +13201,33 @@ do.body3.i202:                                    ; preds = %emitter_col_init.ex
 emitter_col_init.exit210:                         ; preds = %emitter_col_init.exit198, %do.body3.i202
   %25 = phi ptr [ %.pre.i209, %do.body3.i202 ], [ %header_nretained, %emitter_col_init.exit198 ]
   store i32 1, ptr %header_nretained, align 8
-  %width38 = getelementptr inbounds i8, ptr %header_nretained, i64 4
+  %width38 = getelementptr inbounds nuw i8, ptr %header_nretained, i64 4
   store i32 13, ptr %width38, align 4
-  %type39 = getelementptr inbounds i8, ptr %header_nretained, i64 8
+  %type39 = getelementptr inbounds nuw i8, ptr %header_nretained, i64 8
   store i32 9, ptr %type39, align 8
-  %26 = getelementptr inbounds i8, ptr %header_nretained, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %header_nretained, i64 16
   store ptr @.str.404, ptr %26, align 8
-  %link.i211 = getelementptr inbounds i8, ptr %col_retained, i64 24
+  %link.i211 = getelementptr inbounds nuw i8, ptr %col_retained, i64 24
   store ptr %col_retained, ptr %link.i211, align 8
-  %qre_prev.i212 = getelementptr inbounds i8, ptr %col_retained, i64 32
+  %qre_prev.i212 = getelementptr inbounds nuw i8, ptr %col_retained, i64 32
   store ptr %col_retained, ptr %qre_prev.i212, align 8
   %cmp.i213 = icmp eq ptr %19, null
   br i1 %cmp.i213, label %emitter_col_init.exit222, label %do.body3.i214
 
 do.body3.i214:                                    ; preds = %emitter_col_init.exit210
-  %qre_prev7.i215 = getelementptr inbounds i8, ptr %19, i64 32
+  %qre_prev7.i215 = getelementptr inbounds nuw i8, ptr %19, i64 32
   %27 = load ptr, ptr %qre_prev7.i215, align 8
   store ptr %27, ptr %link.i211, align 8
   store ptr %col_retained, ptr %qre_prev7.i215, align 8
   %28 = load ptr, ptr %qre_prev.i212, align 8
-  %link20.i217 = getelementptr inbounds i8, ptr %28, i64 24
+  %link20.i217 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %29 = load ptr, ptr %link20.i217, align 8
   store ptr %29, ptr %qre_prev.i212, align 8
   %30 = load ptr, ptr %qre_prev7.i215, align 8
-  %link30.i219 = getelementptr inbounds i8, ptr %30, i64 24
+  %link30.i219 = getelementptr inbounds nuw i8, ptr %30, i64 24
   store ptr %19, ptr %link30.i219, align 8
   %31 = load ptr, ptr %qre_prev.i212, align 8
-  %link34.i220 = getelementptr inbounds i8, ptr %31, i64 24
+  %link34.i220 = getelementptr inbounds nuw i8, ptr %31, i64 24
   store ptr %col_retained, ptr %link34.i220, align 8
   %.pre.i221 = load ptr, ptr %link.i211, align 8
   br label %emitter_col_init.exit222
@@ -13235,31 +13235,31 @@ do.body3.i214:                                    ; preds = %emitter_col_init.ex
 emitter_col_init.exit222:                         ; preds = %emitter_col_init.exit210, %do.body3.i214
   %32 = phi ptr [ %.pre.i221, %do.body3.i214 ], [ %col_retained, %emitter_col_init.exit210 ]
   store i32 1, ptr %col_retained, align 8
-  %width41 = getelementptr inbounds i8, ptr %col_retained, i64 4
+  %width41 = getelementptr inbounds nuw i8, ptr %col_retained, i64 4
   store i32 13, ptr %width41, align 4
-  %type42 = getelementptr inbounds i8, ptr %col_retained, i64 8
+  %type42 = getelementptr inbounds nuw i8, ptr %col_retained, i64 8
   store i32 6, ptr %type42, align 8
-  %link.i223 = getelementptr inbounds i8, ptr %header_retained, i64 24
+  %link.i223 = getelementptr inbounds nuw i8, ptr %header_retained, i64 24
   store ptr %header_retained, ptr %link.i223, align 8
-  %qre_prev.i224 = getelementptr inbounds i8, ptr %header_retained, i64 32
+  %qre_prev.i224 = getelementptr inbounds nuw i8, ptr %header_retained, i64 32
   store ptr %header_retained, ptr %qre_prev.i224, align 8
   %cmp.i225 = icmp eq ptr %25, null
   br i1 %cmp.i225, label %emitter_col_init.exit234, label %do.body3.i226
 
 do.body3.i226:                                    ; preds = %emitter_col_init.exit222
-  %qre_prev7.i227 = getelementptr inbounds i8, ptr %25, i64 32
+  %qre_prev7.i227 = getelementptr inbounds nuw i8, ptr %25, i64 32
   %33 = load ptr, ptr %qre_prev7.i227, align 8
   store ptr %33, ptr %link.i223, align 8
   store ptr %header_retained, ptr %qre_prev7.i227, align 8
   %34 = load ptr, ptr %qre_prev.i224, align 8
-  %link20.i229 = getelementptr inbounds i8, ptr %34, i64 24
+  %link20.i229 = getelementptr inbounds nuw i8, ptr %34, i64 24
   %35 = load ptr, ptr %link20.i229, align 8
   store ptr %35, ptr %qre_prev.i224, align 8
   %36 = load ptr, ptr %qre_prev7.i227, align 8
-  %link30.i231 = getelementptr inbounds i8, ptr %36, i64 24
+  %link30.i231 = getelementptr inbounds nuw i8, ptr %36, i64 24
   store ptr %25, ptr %link30.i231, align 8
   %37 = load ptr, ptr %qre_prev.i224, align 8
-  %link34.i232 = getelementptr inbounds i8, ptr %37, i64 24
+  %link34.i232 = getelementptr inbounds nuw i8, ptr %37, i64 24
   store ptr %header_retained, ptr %link34.i232, align 8
   %.pre.i233 = load ptr, ptr %link.i223, align 8
   br label %emitter_col_init.exit234
@@ -13267,33 +13267,33 @@ do.body3.i226:                                    ; preds = %emitter_col_init.ex
 emitter_col_init.exit234:                         ; preds = %emitter_col_init.exit222, %do.body3.i226
   %38 = phi ptr [ %.pre.i233, %do.body3.i226 ], [ %header_retained, %emitter_col_init.exit222 ]
   store i32 1, ptr %header_retained, align 8
-  %width44 = getelementptr inbounds i8, ptr %header_retained, i64 4
+  %width44 = getelementptr inbounds nuw i8, ptr %header_retained, i64 4
   store i32 13, ptr %width44, align 4
-  %type45 = getelementptr inbounds i8, ptr %header_retained, i64 8
+  %type45 = getelementptr inbounds nuw i8, ptr %header_retained, i64 8
   store i32 9, ptr %type45, align 8
-  %39 = getelementptr inbounds i8, ptr %header_retained, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %header_retained, i64 16
   store ptr @.str.246, ptr %39, align 8
-  %link.i235 = getelementptr inbounds i8, ptr %col_ntotal, i64 24
+  %link.i235 = getelementptr inbounds nuw i8, ptr %col_ntotal, i64 24
   store ptr %col_ntotal, ptr %link.i235, align 8
-  %qre_prev.i236 = getelementptr inbounds i8, ptr %col_ntotal, i64 32
+  %qre_prev.i236 = getelementptr inbounds nuw i8, ptr %col_ntotal, i64 32
   store ptr %col_ntotal, ptr %qre_prev.i236, align 8
   %cmp.i237 = icmp eq ptr %32, null
   br i1 %cmp.i237, label %emitter_col_init.exit246, label %do.body3.i238
 
 do.body3.i238:                                    ; preds = %emitter_col_init.exit234
-  %qre_prev7.i239 = getelementptr inbounds i8, ptr %32, i64 32
+  %qre_prev7.i239 = getelementptr inbounds nuw i8, ptr %32, i64 32
   %40 = load ptr, ptr %qre_prev7.i239, align 8
   store ptr %40, ptr %link.i235, align 8
   store ptr %col_ntotal, ptr %qre_prev7.i239, align 8
   %41 = load ptr, ptr %qre_prev.i236, align 8
-  %link20.i241 = getelementptr inbounds i8, ptr %41, i64 24
+  %link20.i241 = getelementptr inbounds nuw i8, ptr %41, i64 24
   %42 = load ptr, ptr %link20.i241, align 8
   store ptr %42, ptr %qre_prev.i236, align 8
   %43 = load ptr, ptr %qre_prev7.i239, align 8
-  %link30.i243 = getelementptr inbounds i8, ptr %43, i64 24
+  %link30.i243 = getelementptr inbounds nuw i8, ptr %43, i64 24
   store ptr %32, ptr %link30.i243, align 8
   %44 = load ptr, ptr %qre_prev.i236, align 8
-  %link34.i244 = getelementptr inbounds i8, ptr %44, i64 24
+  %link34.i244 = getelementptr inbounds nuw i8, ptr %44, i64 24
   store ptr %col_ntotal, ptr %link34.i244, align 8
   %.pre.i245 = load ptr, ptr %link.i235, align 8
   br label %emitter_col_init.exit246
@@ -13301,31 +13301,31 @@ do.body3.i238:                                    ; preds = %emitter_col_init.ex
 emitter_col_init.exit246:                         ; preds = %emitter_col_init.exit234, %do.body3.i238
   %45 = phi ptr [ %.pre.i245, %do.body3.i238 ], [ %col_ntotal, %emitter_col_init.exit234 ]
   store i32 1, ptr %col_ntotal, align 8
-  %width47 = getelementptr inbounds i8, ptr %col_ntotal, i64 4
+  %width47 = getelementptr inbounds nuw i8, ptr %col_ntotal, i64 4
   store i32 13, ptr %width47, align 4
-  %type48 = getelementptr inbounds i8, ptr %col_ntotal, i64 8
+  %type48 = getelementptr inbounds nuw i8, ptr %col_ntotal, i64 8
   store i32 6, ptr %type48, align 8
-  %link.i247 = getelementptr inbounds i8, ptr %header_ntotal, i64 24
+  %link.i247 = getelementptr inbounds nuw i8, ptr %header_ntotal, i64 24
   store ptr %header_ntotal, ptr %link.i247, align 8
-  %qre_prev.i248 = getelementptr inbounds i8, ptr %header_ntotal, i64 32
+  %qre_prev.i248 = getelementptr inbounds nuw i8, ptr %header_ntotal, i64 32
   store ptr %header_ntotal, ptr %qre_prev.i248, align 8
   %cmp.i249 = icmp eq ptr %38, null
   br i1 %cmp.i249, label %emitter_col_init.exit258, label %do.body3.i250
 
 do.body3.i250:                                    ; preds = %emitter_col_init.exit246
-  %qre_prev7.i251 = getelementptr inbounds i8, ptr %38, i64 32
+  %qre_prev7.i251 = getelementptr inbounds nuw i8, ptr %38, i64 32
   %46 = load ptr, ptr %qre_prev7.i251, align 8
   store ptr %46, ptr %link.i247, align 8
   store ptr %header_ntotal, ptr %qre_prev7.i251, align 8
   %47 = load ptr, ptr %qre_prev.i248, align 8
-  %link20.i253 = getelementptr inbounds i8, ptr %47, i64 24
+  %link20.i253 = getelementptr inbounds nuw i8, ptr %47, i64 24
   %48 = load ptr, ptr %link20.i253, align 8
   store ptr %48, ptr %qre_prev.i248, align 8
   %49 = load ptr, ptr %qre_prev7.i251, align 8
-  %link30.i255 = getelementptr inbounds i8, ptr %49, i64 24
+  %link30.i255 = getelementptr inbounds nuw i8, ptr %49, i64 24
   store ptr %38, ptr %link30.i255, align 8
   %50 = load ptr, ptr %qre_prev.i248, align 8
-  %link34.i256 = getelementptr inbounds i8, ptr %50, i64 24
+  %link34.i256 = getelementptr inbounds nuw i8, ptr %50, i64 24
   store ptr %header_ntotal, ptr %link34.i256, align 8
   %.pre.i257 = load ptr, ptr %link.i247, align 8
   br label %emitter_col_init.exit258
@@ -13333,33 +13333,33 @@ do.body3.i250:                                    ; preds = %emitter_col_init.ex
 emitter_col_init.exit258:                         ; preds = %emitter_col_init.exit246, %do.body3.i250
   %51 = phi ptr [ %.pre.i257, %do.body3.i250 ], [ %header_ntotal, %emitter_col_init.exit246 ]
   store i32 1, ptr %header_ntotal, align 8
-  %width50 = getelementptr inbounds i8, ptr %header_ntotal, i64 4
+  %width50 = getelementptr inbounds nuw i8, ptr %header_ntotal, i64 4
   store i32 13, ptr %width50, align 4
-  %type51 = getelementptr inbounds i8, ptr %header_ntotal, i64 8
+  %type51 = getelementptr inbounds nuw i8, ptr %header_ntotal, i64 8
   store i32 9, ptr %type51, align 8
-  %52 = getelementptr inbounds i8, ptr %header_ntotal, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %header_ntotal, i64 16
   store ptr @.str.405, ptr %52, align 8
-  %link.i259 = getelementptr inbounds i8, ptr %col_total, i64 24
+  %link.i259 = getelementptr inbounds nuw i8, ptr %col_total, i64 24
   store ptr %col_total, ptr %link.i259, align 8
-  %qre_prev.i260 = getelementptr inbounds i8, ptr %col_total, i64 32
+  %qre_prev.i260 = getelementptr inbounds nuw i8, ptr %col_total, i64 32
   store ptr %col_total, ptr %qre_prev.i260, align 8
   %cmp.i261 = icmp eq ptr %45, null
   br i1 %cmp.i261, label %emitter_col_init.exit270, label %do.body3.i262
 
 do.body3.i262:                                    ; preds = %emitter_col_init.exit258
-  %qre_prev7.i263 = getelementptr inbounds i8, ptr %45, i64 32
+  %qre_prev7.i263 = getelementptr inbounds nuw i8, ptr %45, i64 32
   %53 = load ptr, ptr %qre_prev7.i263, align 8
   store ptr %53, ptr %link.i259, align 8
   store ptr %col_total, ptr %qre_prev7.i263, align 8
   %54 = load ptr, ptr %qre_prev.i260, align 8
-  %link20.i265 = getelementptr inbounds i8, ptr %54, i64 24
+  %link20.i265 = getelementptr inbounds nuw i8, ptr %54, i64 24
   %55 = load ptr, ptr %link20.i265, align 8
   store ptr %55, ptr %qre_prev.i260, align 8
   %56 = load ptr, ptr %qre_prev7.i263, align 8
-  %link30.i267 = getelementptr inbounds i8, ptr %56, i64 24
+  %link30.i267 = getelementptr inbounds nuw i8, ptr %56, i64 24
   store ptr %45, ptr %link30.i267, align 8
   %57 = load ptr, ptr %qre_prev.i260, align 8
-  %link34.i268 = getelementptr inbounds i8, ptr %57, i64 24
+  %link34.i268 = getelementptr inbounds nuw i8, ptr %57, i64 24
   store ptr %col_total, ptr %link34.i268, align 8
   %.pre.i269 = load ptr, ptr %link.i259, align 8
   br label %emitter_col_init.exit270
@@ -13367,31 +13367,31 @@ do.body3.i262:                                    ; preds = %emitter_col_init.ex
 emitter_col_init.exit270:                         ; preds = %emitter_col_init.exit258, %do.body3.i262
   %58 = phi ptr [ %.pre.i269, %do.body3.i262 ], [ %col_total, %emitter_col_init.exit258 ]
   store i32 1, ptr %col_total, align 8
-  %width53 = getelementptr inbounds i8, ptr %col_total, i64 4
+  %width53 = getelementptr inbounds nuw i8, ptr %col_total, i64 4
   store i32 13, ptr %width53, align 4
-  %type54 = getelementptr inbounds i8, ptr %col_total, i64 8
+  %type54 = getelementptr inbounds nuw i8, ptr %col_total, i64 8
   store i32 6, ptr %type54, align 8
-  %link.i271 = getelementptr inbounds i8, ptr %header_total, i64 24
+  %link.i271 = getelementptr inbounds nuw i8, ptr %header_total, i64 24
   store ptr %header_total, ptr %link.i271, align 8
-  %qre_prev.i272 = getelementptr inbounds i8, ptr %header_total, i64 32
+  %qre_prev.i272 = getelementptr inbounds nuw i8, ptr %header_total, i64 32
   store ptr %header_total, ptr %qre_prev.i272, align 8
   %cmp.i273 = icmp eq ptr %51, null
   br i1 %cmp.i273, label %emitter_col_init.exit282, label %do.body3.i274
 
 do.body3.i274:                                    ; preds = %emitter_col_init.exit270
-  %qre_prev7.i275 = getelementptr inbounds i8, ptr %51, i64 32
+  %qre_prev7.i275 = getelementptr inbounds nuw i8, ptr %51, i64 32
   %59 = load ptr, ptr %qre_prev7.i275, align 8
   store ptr %59, ptr %link.i271, align 8
   store ptr %header_total, ptr %qre_prev7.i275, align 8
   %60 = load ptr, ptr %qre_prev.i272, align 8
-  %link20.i277 = getelementptr inbounds i8, ptr %60, i64 24
+  %link20.i277 = getelementptr inbounds nuw i8, ptr %60, i64 24
   %61 = load ptr, ptr %link20.i277, align 8
   store ptr %61, ptr %qre_prev.i272, align 8
   %62 = load ptr, ptr %qre_prev7.i275, align 8
-  %link30.i279 = getelementptr inbounds i8, ptr %62, i64 24
+  %link30.i279 = getelementptr inbounds nuw i8, ptr %62, i64 24
   store ptr %51, ptr %link30.i279, align 8
   %63 = load ptr, ptr %qre_prev.i272, align 8
-  %link34.i280 = getelementptr inbounds i8, ptr %63, i64 24
+  %link34.i280 = getelementptr inbounds nuw i8, ptr %63, i64 24
   store ptr %header_total, ptr %link34.i280, align 8
   %.pre.i281 = load ptr, ptr %link.i271, align 8
   br label %emitter_col_init.exit282
@@ -13399,11 +13399,11 @@ do.body3.i274:                                    ; preds = %emitter_col_init.ex
 emitter_col_init.exit282:                         ; preds = %emitter_col_init.exit270, %do.body3.i274
   %64 = phi ptr [ %.pre.i281, %do.body3.i274 ], [ %header_total, %emitter_col_init.exit270 ]
   store i32 1, ptr %header_total, align 8
-  %width56 = getelementptr inbounds i8, ptr %header_total, i64 4
+  %width56 = getelementptr inbounds nuw i8, ptr %header_total, i64 4
   store i32 13, ptr %width56, align 4
-  %type57 = getelementptr inbounds i8, ptr %header_total, i64 8
+  %type57 = getelementptr inbounds nuw i8, ptr %header_total, i64 8
   store i32 9, ptr %type57, align 8
-  %65 = getelementptr inbounds i8, ptr %header_total, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %header_total, i64 16
   store ptr @.str.406, ptr %65, align 8
   store i32 12, ptr %width2, align 4
   call void (ptr, ptr, ...) @emitter_table_printf(ptr noundef %emitter, ptr noundef nonnull @.str.407)
@@ -13418,13 +13418,13 @@ if.end.i:                                         ; preds = %emitter_col_init.ex
 for.body.i:                                       ; preds = %if.end.i, %for.body.i
   %col.011.i = phi ptr [ %71, %for.body.i ], [ %64, %if.end.i ]
   %67 = load i32, ptr %col.011.i, align 8
-  %width.i = getelementptr inbounds i8, ptr %col.011.i, i64 4
+  %width.i = getelementptr inbounds nuw i8, ptr %col.011.i, i64 4
   %68 = load i32, ptr %width.i, align 4
-  %type.i = getelementptr inbounds i8, ptr %col.011.i, i64 8
+  %type.i = getelementptr inbounds nuw i8, ptr %col.011.i, i64 8
   %69 = load i32, ptr %type.i, align 8
-  %70 = getelementptr inbounds i8, ptr %col.011.i, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %col.011.i, i64 16
   call fastcc void @emitter_print_value(ptr noundef nonnull readonly %emitter, i32 noundef %67, i32 noundef %68, i32 noundef %69, ptr noundef nonnull %70)
-  %link.i283 = getelementptr inbounds i8, ptr %col.011.i, i64 24
+  %link.i283 = getelementptr inbounds nuw i8, ptr %col.011.i, i64 24
   %71 = load ptr, ptr %link.i283, align 8
   %cmp4.not.i = icmp eq ptr %71, %64
   %cmp1.not12.i = icmp eq ptr %71, null
@@ -13439,7 +13439,7 @@ emitter_table_row.exit:                           ; preds = %emitter_col_init.ex
   call fastcc void @emitter_json_array_kv_begin(ptr noundef %emitter, ptr noundef nonnull @.str.408)
   store i64 7, ptr %miblen_new, align 8
   %72 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tsd_tls)
-  %state.i411 = getelementptr inbounds i8, ptr %72, i64 832
+  %state.i411 = getelementptr inbounds nuw i8, ptr %72, i64 832
   %73 = load i8, ptr %state.i411, align 8
   %cmp6.i.not = icmp eq i8 %73, 0
   br i1 %cmp6.i.not, label %tsd_fetch_impl.exit, label %if.then11.i
@@ -13461,7 +13461,7 @@ if.then:                                          ; preds = %tsd_fetch_impl.exit
 
 do.end65:                                         ; preds = %tsd_fetch_impl.exit
   %conv = zext i32 %i to i64
-  %arrayidx = getelementptr inbounds i8, ptr %stats_arenas_mib, i64 16
+  %arrayidx = getelementptr inbounds nuw i8, ptr %stats_arenas_mib, i64 16
   store i64 %conv, ptr %arrayidx, align 16
   store i64 7, ptr %miblen_new69, align 8
   %74 = load i8, ptr %state.i411, align 8
@@ -13479,19 +13479,19 @@ tsd_fetch_impl.exit238:                           ; preds = %do.end65, %if.then1
   br i1 %cmp74.not, label %for.cond.preheader, label %if.then76
 
 for.cond.preheader:                               ; preds = %tsd_fetch_impl.exit238
-  %arrayidx86 = getelementptr inbounds i8, ptr %stats_arenas_mib, i64 32
-  %nesting_depth.i.i = getelementptr inbounds i8, ptr %emitter, i64 24
-  %item_at_depth.i.i = getelementptr inbounds i8, ptr %emitter, i64 28
-  %75 = getelementptr inbounds i8, ptr %col_size, i64 16
-  %76 = getelementptr inbounds i8, ptr %col_ind, i64 16
-  %77 = getelementptr inbounds i8, ptr %col_ndirty, i64 16
-  %78 = getelementptr inbounds i8, ptr %col_dirty, i64 16
-  %79 = getelementptr inbounds i8, ptr %col_nmuzzy, i64 16
-  %80 = getelementptr inbounds i8, ptr %col_muzzy, i64 16
-  %81 = getelementptr inbounds i8, ptr %col_nretained, i64 16
-  %82 = getelementptr inbounds i8, ptr %col_retained, i64 16
-  %83 = getelementptr inbounds i8, ptr %col_ntotal, i64 16
-  %84 = getelementptr inbounds i8, ptr %col_total, i64 16
+  %arrayidx86 = getelementptr inbounds nuw i8, ptr %stats_arenas_mib, i64 32
+  %nesting_depth.i.i = getelementptr inbounds nuw i8, ptr %emitter, i64 24
+  %item_at_depth.i.i = getelementptr inbounds nuw i8, ptr %emitter, i64 28
+  %75 = getelementptr inbounds nuw i8, ptr %col_size, i64 16
+  %76 = getelementptr inbounds nuw i8, ptr %col_ind, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %col_ndirty, i64 16
+  %78 = getelementptr inbounds nuw i8, ptr %col_dirty, i64 16
+  %79 = getelementptr inbounds nuw i8, ptr %col_nmuzzy, i64 16
+  %80 = getelementptr inbounds nuw i8, ptr %col_muzzy, i64 16
+  %81 = getelementptr inbounds nuw i8, ptr %col_nretained, i64 16
+  %82 = getelementptr inbounds nuw i8, ptr %col_retained, i64 16
+  %83 = getelementptr inbounds nuw i8, ptr %col_ntotal, i64 16
+  %84 = getelementptr inbounds nuw i8, ptr %col_total, i64 16
   %cmp1.not10.i288 = icmp eq ptr %58, null
   br label %for.body
 
@@ -13707,7 +13707,7 @@ if.end.i285:                                      ; preds = %for.body.i.i, %if.t
   br label %emitter_json_object_end.exit
 
 emitter_json_object_end.exit:                     ; preds = %if.end198, %if.end.i285
-  %arrayidx.i.i = getelementptr inbounds [200 x i64], ptr @sz_pind2sz_tab, i64 0, i64 %indvars.iv
+  %arrayidx.i.i = getelementptr inbounds nuw [200 x i64], ptr @sz_pind2sz_tab, i64 0, i64 %indvars.iv
   %100 = load i64, ptr %arrayidx.i.i, align 8
   store i64 %100, ptr %75, align 8
   store i64 %indvars.iv, ptr %76, align 8
@@ -13738,13 +13738,13 @@ if.end.i287:                                      ; preds = %if.then202
 for.body.i289:                                    ; preds = %if.end.i287, %for.body.i289
   %col.011.i290 = phi ptr [ %112, %for.body.i289 ], [ %58, %if.end.i287 ]
   %108 = load i32, ptr %col.011.i290, align 8
-  %width.i291 = getelementptr inbounds i8, ptr %col.011.i290, i64 4
+  %width.i291 = getelementptr inbounds nuw i8, ptr %col.011.i290, i64 4
   %109 = load i32, ptr %width.i291, align 4
-  %type.i292 = getelementptr inbounds i8, ptr %col.011.i290, i64 8
+  %type.i292 = getelementptr inbounds nuw i8, ptr %col.011.i290, i64 8
   %110 = load i32, ptr %type.i292, align 8
-  %111 = getelementptr inbounds i8, ptr %col.011.i290, i64 16
+  %111 = getelementptr inbounds nuw i8, ptr %col.011.i290, i64 16
   call fastcc void @emitter_print_value(ptr noundef nonnull readonly %emitter, i32 noundef %108, i32 noundef %109, i32 noundef %110, ptr noundef nonnull %111)
-  %link.i293 = getelementptr inbounds i8, ptr %col.011.i290, i64 24
+  %link.i293 = getelementptr inbounds nuw i8, ptr %col.011.i290, i64 24
   %112 = load ptr, ptr %link.i293, align 8
   %cmp4.not.i294 = icmp eq ptr %112, %58
   %cmp1.not12.i295 = icmp eq ptr %112, null

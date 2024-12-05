@@ -26,18 +26,18 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_ttm_agp_tt_c
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @ttm_agp_bind(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
   %3 = load ptr, ptr @ttm_glob, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, 2
-  %7 = getelementptr inbounds i8, ptr %0, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %47
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %0, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 12
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %14 = load i32, ptr %13, align 4
   %15 = zext i32 %14 to i64
   %16 = tail call ptr @agp_allocate_memory(ptr noundef %12, i64 noundef %15, i32 noundef 65536) #5
@@ -45,14 +45,14 @@ define dso_local i32 @ttm_agp_bind(ptr nocapture noundef %0, ptr nocapture nound
   br i1 %17, label %47, label %18, !prof !5
 
 18:                                               ; preds = %10
-  %19 = getelementptr inbounds i8, ptr %16, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 32
   store i64 0, ptr %19, align 8
   %20 = load i32, ptr %13, align 4
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %.loopexit, label %22
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %16, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %16, i64 24
   br label %24
 
 24:                                               ; preds = %24, %22
@@ -76,10 +76,10 @@ define dso_local i32 @ttm_agp_bind(ptr nocapture noundef %0, ptr nocapture nound
 
 .loopexit:                                        ; preds = %24, %18
   store ptr %16, ptr %7, align 8
-  %39 = getelementptr inbounds i8, ptr %16, i64 65
+  %39 = getelementptr inbounds nuw i8, ptr %16, i64 65
   store i8 1, ptr %39, align 1
   %40 = select i1 %6, i32 65537, i32 65536
-  %41 = getelementptr inbounds i8, ptr %16, i64 56
+  %41 = getelementptr inbounds nuw i8, ptr %16, i64 56
   store i32 %40, ptr %41, align 8
   %42 = load i64, ptr %1, align 8
   %43 = tail call i32 @agp_bind_memory(ptr noundef nonnull %16, i64 noundef %42) #5
@@ -106,13 +106,13 @@ declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @ttm_agp_unbind(ptr nocapture noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %12, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %3, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %7 = load i8, ptr %6, align 8, !range !9, !noundef !10
   %8 = icmp eq i8 %7, 0
   br i1 %8, label %11, label %9
@@ -142,7 +142,7 @@ define dso_local zeroext i1 @ttm_agp_is_bound(ptr noundef readonly %0) #3 align 
   br i1 %2, label %7, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = icmp ne ptr %5, null
   br label %7
@@ -154,13 +154,13 @@ define dso_local zeroext i1 @ttm_agp_is_bound(ptr noundef readonly %0) #3 align 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @ttm_agp_destroy(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %12, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %3, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %7 = load i8, ptr %6, align 8, !range !9, !noundef !10
   %8 = icmp eq i8 %7, 0
   br i1 %8, label %11, label %9
@@ -194,9 +194,9 @@ define dso_local noundef ptr @ttm_agp_tt_create(ptr noundef %0, ptr noundef %1, 
   br i1 %6, label %13, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %5, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store ptr null, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %5, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store ptr %1, ptr %9, align 8
   %10 = tail call i32 @ttm_tt_init(ptr noundef nonnull %5, ptr noundef %0, i32 noundef %2, i32 noundef 1, i64 noundef 0) #5
   %11 = icmp eq i32 %10, 0

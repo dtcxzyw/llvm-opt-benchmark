@@ -223,9 +223,9 @@ if.end69:                                         ; preds = %if.end65
   br i1 %cmp70.not, label %if.end74, label %if.then72
 
 if.then72:                                        ; preds = %if.end69
-  %arrayidx73 = getelementptr inbounds [64 x i8], ptr %md_buf, i64 0, i64 %indvars.iv
+  %arrayidx73 = getelementptr inbounds nuw [64 x i8], ptr %md_buf, i64 0, i64 %indvars.iv
   %4 = load i8, ptr %arrayidx73, align 1
-  %incdec.ptr = getelementptr inbounds i8, ptr %key.addr.2, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %key.addr.2, i64 1
   store i8 %4, ptr %key.addr.2, align 1
   br label %if.end74
 
@@ -266,9 +266,9 @@ if.end90:                                         ; preds = %if.end86
 
 if.then93:                                        ; preds = %if.end90
   %idxprom94 = zext i32 %i.3 to i64
-  %arrayidx95 = getelementptr inbounds [64 x i8], ptr %md_buf, i64 0, i64 %idxprom94
+  %arrayidx95 = getelementptr inbounds nuw [64 x i8], ptr %md_buf, i64 0, i64 %idxprom94
   %8 = load i8, ptr %arrayidx95, align 1
-  %incdec.ptr96 = getelementptr inbounds i8, ptr %iv.addr.2, i64 1
+  %incdec.ptr96 = getelementptr inbounds nuw i8, ptr %iv.addr.2, i64 1
   store i8 %8, ptr %iv.addr.2, align 1
   br label %if.end97
 

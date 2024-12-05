@@ -36,7 +36,7 @@ define range(i64 -2, 2) i64 @amd_l_valid(i64 noundef %0, i64 noundef %1, ptr nou
   %.058 = phi i64 [ %.1.lcssa, %.loopexit ], [ 0, %.preheader51 ]
   %.04057 = phi i64 [ %16, %.loopexit ], [ 0, %.preheader51 ]
   %16 = add nuw nsw i64 %.04057, 1
-  %17 = getelementptr inbounds i64, ptr %2, i64 %16
+  %17 = getelementptr inbounds nuw i64, ptr %2, i64 %16
   %18 = load i64, ptr %17, align 8
   %19 = icmp sgt i64 %15, %18
   br i1 %19, label %.loopexit50, label %.preheader

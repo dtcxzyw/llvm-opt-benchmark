@@ -43,7 +43,7 @@ define noundef ptr @Aig_ManStaticFanoutStart(ptr nocapture noundef readonly %0) 
   %.047 = phi i32 [ %.1, %29 ], [ 0, %1 ]
   %15 = getelementptr i8, ptr %14, i64 8
   %.val39 = load ptr, ptr %15, align 8
-  %16 = getelementptr inbounds ptr, ptr %.val39, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw ptr, ptr %.val39, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, null
   br i1 %18, label %29, label %19
@@ -51,9 +51,9 @@ define noundef ptr @Aig_ManStaticFanoutStart(ptr nocapture noundef readonly %0) 
 19:                                               ; preds = %.lr.ph
   %20 = sext i32 %.047 to i64
   %21 = getelementptr inbounds ptr, ptr %11, i64 %20
-  %22 = getelementptr inbounds i8, ptr %17, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %17, i64 40
   store ptr %21, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %17, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %24 = load i64, ptr %23, align 8
   %25 = trunc i64 %24 to i32
   %26 = lshr i32 %25, 6
@@ -78,7 +78,7 @@ define noundef ptr @Aig_ManStaticFanoutStart(ptr nocapture noundef readonly %0) 
   %34 = phi ptr [ %73, %.critedge ], [ %30, %.critedge.preheader ]
   %35 = getelementptr i8, ptr %34, i64 8
   %.val40 = load ptr, ptr %35, align 8
-  %36 = getelementptr inbounds ptr, ptr %.val40, i64 %indvars.iv52
+  %36 = getelementptr inbounds nuw ptr, ptr %.val40, i64 %indvars.iv52
   %37 = load ptr, ptr %36, align 8
   %38 = icmp eq ptr %37, null
   br i1 %38, label %.critedge, label %39
@@ -93,9 +93,9 @@ define noundef ptr @Aig_ManStaticFanoutStart(ptr nocapture noundef readonly %0) 
   %42 = ptrtoint ptr %.val41 to i64
   %43 = and i64 %42, -2
   %44 = inttoptr i64 %43 to ptr
-  %45 = getelementptr inbounds i8, ptr %44, i64 40
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 40
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %44, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %44, i64 24
   %48 = load i64, ptr %47, align 8
   %49 = lshr i64 %48, 6
   %50 = add i64 %48, 64
@@ -104,7 +104,7 @@ define noundef ptr @Aig_ManStaticFanoutStart(ptr nocapture noundef readonly %0) 
   %53 = or disjoint i64 %51, %52
   store i64 %53, ptr %47, align 8
   %54 = and i64 %49, 67108863
-  %55 = getelementptr inbounds ptr, ptr %46, i64 %54
+  %55 = getelementptr inbounds nuw ptr, ptr %46, i64 %54
   store ptr %37, ptr %55, align 8
   br label %56
 
@@ -118,9 +118,9 @@ define noundef ptr @Aig_ManStaticFanoutStart(ptr nocapture noundef readonly %0) 
   %59 = ptrtoint ptr %.val43 to i64
   %60 = and i64 %59, -2
   %61 = inttoptr i64 %60 to ptr
-  %62 = getelementptr inbounds i8, ptr %61, i64 40
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 40
   %63 = load ptr, ptr %62, align 8
-  %64 = getelementptr inbounds i8, ptr %61, i64 24
+  %64 = getelementptr inbounds nuw i8, ptr %61, i64 24
   %65 = load i64, ptr %64, align 8
   %66 = lshr i64 %65, 6
   %67 = add i64 %65, 64
@@ -129,7 +129,7 @@ define noundef ptr @Aig_ManStaticFanoutStart(ptr nocapture noundef readonly %0) 
   %70 = or disjoint i64 %68, %69
   store i64 %70, ptr %64, align 8
   %71 = and i64 %66, 67108863
-  %72 = getelementptr inbounds ptr, ptr %63, i64 %71
+  %72 = getelementptr inbounds nuw ptr, ptr %63, i64 %71
   store ptr %37, ptr %72, align 8
   br label %.critedge
 
@@ -161,7 +161,7 @@ define void @Aig_ManMarkAutonomous_rec(ptr nocapture noundef readonly %0, ptr no
 5:                                                ; preds = %2
   store i32 %.val, ptr %4, align 8
   %6 = getelementptr i8, ptr %1, i64 40
-  %7 = getelementptr inbounds i8, ptr %1, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load i64, ptr %7, align 8
   %9 = and i64 %8, 4294967232
   %.not17 = icmp eq i64 %9, 0
@@ -170,7 +170,7 @@ define void @Aig_ManMarkAutonomous_rec(ptr nocapture noundef readonly %0, ptr no
 .lr.ph:                                           ; preds = %5, %12
   %indvars.iv = phi i64 [ %indvars.iv.next, %12 ], [ 0, %5 ]
   %.val14 = load ptr, ptr %6, align 8
-  %10 = getelementptr inbounds ptr, ptr %.val14, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw ptr, ptr %.val14, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
   %.not11 = icmp eq ptr %11, null
   br i1 %.not11, label %.critedge, label %12
@@ -220,9 +220,9 @@ define void @Saig_ManMarkAutonomous(ptr noundef %0) local_unnamed_addr #3 {
   %16 = sext i32 %15 to i64
   %17 = getelementptr inbounds ptr, ptr %.val43.val, i64 %16
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr %13, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %13, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %21 = load i64, ptr %20, align 8
   %22 = and i64 %21, -4294967233
   %23 = or disjoint i64 %22, 64
@@ -244,7 +244,7 @@ define void @Saig_ManMarkAutonomous(ptr noundef %0) local_unnamed_addr #3 {
   br i1 %29, label %.lr.ph53, label %.critedge2
 
 .lr.ph53:                                         ; preds = %.critedge
-  %30 = getelementptr inbounds i8, ptr %0, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %31
 
 31:                                               ; preds = %.lr.ph53, %31
@@ -252,7 +252,7 @@ define void @Saig_ManMarkAutonomous(ptr noundef %0) local_unnamed_addr #3 {
   %32 = load ptr, ptr %30, align 8
   %33 = getelementptr i8, ptr %32, i64 8
   %.val = load ptr, ptr %33, align 8
-  %34 = getelementptr inbounds ptr, ptr %.val, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw ptr, ptr %.val, i64 %indvars.iv
   %35 = load ptr, ptr %34, align 8
   tail call void @Aig_ManMarkAutonomous_rec(ptr noundef nonnull %0, ptr noundef %35)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -298,9 +298,9 @@ define void @Saig_ManMarkAutonomous(ptr noundef %0) local_unnamed_addr #3 {
   %52 = sext i32 %51 to i64
   %53 = getelementptr inbounds ptr, ptr %.val45.val, i64 %52
   %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
   store ptr null, ptr %55, align 8
-  %56 = getelementptr inbounds i8, ptr %49, i64 24
+  %56 = getelementptr inbounds nuw i8, ptr %49, i64 24
   %57 = load i64, ptr %56, align 8
   %58 = and i64 %57, -4294967233
   store i64 %58, ptr %56, align 8
@@ -329,7 +329,7 @@ define ptr @Saig_ManRetimeForwardOne(ptr noundef %0, ptr nocapture noundef initi
   br i1 %5, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = getelementptr i8, ptr %0, i64 108
   %8 = getelementptr i8, ptr %0, i64 312
   br label %9
@@ -369,7 +369,7 @@ define ptr @Saig_ManRetimeForwardOne(ptr noundef %0, ptr nocapture noundef initi
 
 .critedge:                                        ; preds = %22, %3
   store i32 0, ptr %2, align 4
-  %25 = getelementptr inbounds i8, ptr %0, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr i8, ptr %26, i64 4
   %.val83129 = load i32, ptr %27, align 4
@@ -386,7 +386,7 @@ define ptr @Saig_ManRetimeForwardOne(ptr noundef %0, ptr nocapture noundef initi
   br i1 %30, label %.lr.ph134, label %.critedge4
 
 .lr.ph134:                                        ; preds = %.critedge2.preheader
-  %31 = getelementptr inbounds i8, ptr %0, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %32 = getelementptr i8, ptr %0, i64 108
   %33 = getelementptr i8, ptr %0, i64 312
   %.val98.pre = load i32, ptr %33, align 8
@@ -397,7 +397,7 @@ define ptr @Saig_ManRetimeForwardOne(ptr noundef %0, ptr nocapture noundef initi
   %indvars.iv = phi i64 [ 0, %.lr.ph131 ], [ %indvars.iv.next, %61 ]
   %36 = getelementptr i8, ptr %35, i64 8
   %.val86 = load ptr, ptr %36, align 8
-  %37 = getelementptr inbounds ptr, ptr %.val86, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw ptr, ptr %.val86, i64 %indvars.iv
   %38 = load ptr, ptr %37, align 8
   %39 = icmp eq ptr %38, null
   br i1 %39, label %61, label %40
@@ -435,7 +435,7 @@ define ptr @Saig_ManRetimeForwardOne(ptr noundef %0, ptr nocapture noundef initi
   br i1 %.not124, label %57, label %61
 
 57:                                               ; preds = %51
-  %58 = getelementptr inbounds i8, ptr %38, i64 32
+  %58 = getelementptr inbounds nuw i8, ptr %38, i64 32
   store i32 %.val94, ptr %58, align 8
   %59 = load i32, ptr %2, align 4
   %60 = add nsw i32 %59, 1
@@ -462,7 +462,7 @@ define ptr @Saig_ManRetimeForwardOne(ptr noundef %0, ptr nocapture noundef initi
   %69 = sext i32 %67 to i64
   %70 = getelementptr inbounds ptr, ptr %.val85, i64 %69
   %71 = load ptr, ptr %70, align 8
-  %72 = getelementptr inbounds i8, ptr %71, i64 32
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 32
   store i32 %.val98.pre, ptr %72, align 8
   %73 = add nuw nsw i32 %.2133, 1
   %.val101 = load i32, ptr %4, align 8
@@ -471,11 +471,11 @@ define ptr @Saig_ManRetimeForwardOne(ptr noundef %0, ptr nocapture noundef initi
 
 .critedge4:                                       ; preds = %.critedge2, %.critedge2.preheader
   %75 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #12
-  %76 = getelementptr inbounds i8, ptr %75, i64 4
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 4
   store i32 0, ptr %76, align 4
   store i32 1000, ptr %75, align 8
   %77 = tail call noalias dereferenceable_or_null(8000) ptr @malloc(i64 noundef 8000) #12
-  %78 = getelementptr inbounds i8, ptr %75, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %75, i64 8
   store ptr %77, ptr %78, align 8
   tail call void @Aig_ManIncrementTravId(ptr noundef nonnull %0) #13
   %79 = load ptr, ptr %25, align 8
@@ -493,7 +493,7 @@ define ptr @Saig_ManRetimeForwardOne(ptr noundef %0, ptr nocapture noundef initi
   %84 = phi ptr [ %79, %.lr.ph137 ], [ %164, %163 ]
   %85 = getelementptr i8, ptr %84, i64 8
   %.val84 = load ptr, ptr %85, align 8
-  %86 = getelementptr inbounds ptr, ptr %.val84, i64 %indvars.iv139
+  %86 = getelementptr inbounds nuw ptr, ptr %.val84, i64 %indvars.iv139
   %87 = load ptr, ptr %86, align 8
   %88 = icmp eq ptr %87, null
   br i1 %88, label %163, label %89
@@ -709,9 +709,9 @@ define ptr @Saig_ManRetimeForward(ptr noundef %0, i32 noundef %1, i32 noundef %2
   br i1 %10, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %7, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %.not18 = icmp eq i32 %2, 0
-  %12 = getelementptr inbounds i8, ptr %6, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 8
   br i1 %.not18, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %16
@@ -811,7 +811,7 @@ Abc_Clock.exit23:                                 ; preds = %Abc_Clock.exit, %38
 54:                                               ; preds = %._crit_edge
   %55 = load i64, ptr %5, align 8
   %.neg28 = mul i64 %55, -1000000
-  %56 = getelementptr inbounds i8, ptr %5, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %57 = load i64, ptr %56, align 8
   %.neg = sdiv i64 %57, -1000
   %.neg29 = add i64 %.neg, %.neg28
@@ -834,7 +834,7 @@ Abc_Clock.exit25:                                 ; preds = %._crit_edge, %54
 62:                                               ; preds = %59
   %63 = load i64, ptr %4, align 8
   %64 = mul nsw i64 %63, 1000000
-  %65 = getelementptr inbounds i8, ptr %4, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %66 = load i64, ptr %65, align 8
   %67 = sdiv i64 %66, 1000
   %68 = add nsw i64 %67, %64

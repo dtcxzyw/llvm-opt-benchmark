@@ -210,7 +210,7 @@ define internal noundef i32 @dissect_nfsacl2_access_call(ptr noundef %0, ptr nou
   store i32 %7, ptr %5, align 4
   %8 = tail call ptr @wmem_file_scope() #2
   %9 = call noalias ptr @wmem_memdup(ptr noundef %8, ptr noundef nonnull %5, i64 noundef 4) #2
-  %10 = getelementptr inbounds i8, ptr %3, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store ptr %9, ptr %10, align 8
   %11 = load i32, ptr %5, align 4
   %12 = call ptr @display_access_items(ptr noundef %0, i32 noundef %6, ptr noundef %1, ptr noundef %2, i32 noundef %11, i8 noundef signext 67, i32 noundef 3, ptr noundef null, ptr noundef nonnull @.str.62) #2

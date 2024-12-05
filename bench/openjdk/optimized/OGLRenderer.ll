@@ -178,9 +178,9 @@ define hidden void @OGLRenderer_DrawPoly(ptr noundef readnone %0, i32 noundef %1
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.057 = phi i1 [ true, %.lr.ph.preheader ], [ %narrow, %.lr.ph ]
-  %17 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
   %18 = load i32, ptr %17, align 4
-  %19 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
   %20 = load i32, ptr %19, align 4
   %21 = icmp eq i32 %18, %14
   %22 = icmp eq i32 %20, %15
@@ -260,7 +260,7 @@ declare void @J2dTraceImpl(i32 noundef, i8 noundef zeroext, ptr noundef, ...) lo
 ; Function Attrs: nounwind uwtable
 define void @Java_sun_java2d_opengl_OGLRenderer_drawPoly(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i8 noundef zeroext %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 1776
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 1776
   %11 = load ptr, ptr %10, align 8
   %12 = tail call ptr %11(ptr noundef nonnull %0, ptr noundef %2, ptr noundef null) #4
   %.not = icmp eq ptr %12, null
@@ -268,7 +268,7 @@ define void @Java_sun_java2d_opengl_OGLRenderer_drawPoly(ptr noundef %0, ptr noc
 
 13:                                               ; preds = %8
   %14 = load ptr, ptr %0, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 1776
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 1776
   %16 = load ptr, ptr %15, align 8
   %17 = tail call ptr %16(ptr noundef nonnull %0, ptr noundef %3, ptr noundef null) #4
   %.not24 = icmp eq ptr %17, null
@@ -289,14 +289,14 @@ define void @Java_sun_java2d_opengl_OGLRenderer_drawPoly(ptr noundef %0, ptr noc
 
 23:                                               ; preds = %21, %18
   %24 = load ptr, ptr %0, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 1784
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 1784
   %26 = load ptr, ptr %25, align 8
   tail call void %26(ptr noundef nonnull %0, ptr noundef %3, ptr noundef nonnull %17, i32 noundef 2) #4
   br label %27
 
 27:                                               ; preds = %23, %13
   %28 = load ptr, ptr %0, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 1784
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 1784
   %30 = load ptr, ptr %29, align 8
   tail call void %30(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %12, i32 noundef 2) #4
   br label %31
@@ -322,15 +322,15 @@ define hidden void @OGLRenderer_DrawScanlines(ptr noundef readnone %0, i32 nound
 .lr.ph:                                           ; preds = %6, %.lr.ph
   %.014 = phi i32 [ %22, %.lr.ph ], [ %1, %6 ]
   %.01113 = phi ptr [ %16, %.lr.ph ], [ %2, %6 ]
-  %8 = getelementptr inbounds i8, ptr %.01113, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %.01113, i64 4
   %9 = load i32, ptr %.01113, align 4
   %10 = sitofp i32 %9 to float
   %11 = fadd float %10, 0x3FC99999A0000000
-  %12 = getelementptr inbounds i8, ptr %.01113, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.01113, i64 8
   %13 = load i32, ptr %8, align 4
   %14 = sitofp i32 %13 to float
   %15 = fadd float %14, 0x3FF3333340000000
-  %16 = getelementptr inbounds i8, ptr %.01113, i64 12
+  %16 = getelementptr inbounds nuw i8, ptr %.01113, i64 12
   %17 = load i32, ptr %12, align 4
   %18 = sitofp i32 %17 to float
   %19 = fadd float %18, 5.000000e-01
@@ -388,13 +388,13 @@ define hidden void @OGLRenderer_FillSpans(ptr noundef readnone %0, i32 noundef %
 .lr.ph:                                           ; preds = %6, %.lr.ph
   %.019 = phi i32 [ %20, %.lr.ph ], [ %1, %6 ]
   %.01618 = phi ptr [ %14, %.lr.ph ], [ %2, %6 ]
-  %8 = getelementptr inbounds i8, ptr %.01618, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %.01618, i64 4
   %9 = load i32, ptr %.01618, align 4
-  %10 = getelementptr inbounds i8, ptr %.01618, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.01618, i64 8
   %11 = load i32, ptr %8, align 4
-  %12 = getelementptr inbounds i8, ptr %.01618, i64 12
+  %12 = getelementptr inbounds nuw i8, ptr %.01618, i64 12
   %13 = load i32, ptr %10, align 4
-  %14 = getelementptr inbounds i8, ptr %.01618, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %.01618, i64 16
   %15 = load i32, ptr %12, align 4
   %16 = load ptr, ptr @j2d_glVertex2i, align 8
   tail call void %16(i32 noundef %9, i32 noundef %11) #4

@@ -128,17 +128,17 @@ entry:
   br i1 %cmp, label %if.end22, label %if.end
 
 if.end:                                           ; preds = %entry
-  %did_crypto_frame = getelementptr inbounds i8, ptr %ch, i64 1616
+  %did_crypto_frame = getelementptr inbounds nuw i8, ptr %ch, i64 1616
   %bf.load = load i64, ptr %did_crypto_frame, align 8
   %bf.clear = and i64 %bf.load, -134217729
   store i64 %bf.clear, ptr %did_crypto_frame, align 8
-  %0 = getelementptr inbounds i8, ptr %ackm_data, i64 16
+  %0 = getelementptr inbounds nuw i8, ptr %ackm_data, i64 16
   store i64 0, ptr %0, align 8
-  %pn = getelementptr inbounds i8, ptr %qpacket, i64 32
+  %pn = getelementptr inbounds nuw i8, ptr %qpacket, i64 32
   %1 = load i64, ptr %pn, align 8
   store i64 %1, ptr %ackm_data, align 8
-  %time = getelementptr inbounds i8, ptr %ackm_data, i64 8
-  %time1 = getelementptr inbounds i8, ptr %qpacket, i64 40
+  %time = getelementptr inbounds nuw i8, ptr %ackm_data, i64 8
+  %time1 = getelementptr inbounds nuw i8, ptr %qpacket, i64 40
   %2 = load i64, ptr %time1, align 8
   store i64 %2, ptr %time, align 8
   %3 = load ptr, ptr %qpacket, align 8
@@ -155,24 +155,24 @@ switch.hole_check:                                ; preds = %if.end
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %5 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [5 x i32], ptr @switch.table.ossl_quic_handle_frames, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table.ossl_quic_handle_frames, i64 0, i64 %5
   %switch.load = load i32, ptr %switch.gep, align 4
   %6 = shl nuw nsw i8 %switch.tableidx, 3
   %switch.shiftamt = zext nneg i8 %6 to i40
   %switch.downshift = lshr i40 8590000640, %switch.shiftamt
   %switch.masked = trunc i40 %switch.downshift to i8
-  %pkt_space = getelementptr inbounds i8, ptr %ackm_data, i64 16
+  %pkt_space = getelementptr inbounds nuw i8, ptr %ackm_data, i64 16
   store i8 %switch.masked, ptr %pkt_space, align 8
-  %len = getelementptr inbounds i8, ptr %3, i64 72
+  %len = getelementptr inbounds nuw i8, ptr %3, i64 72
   %7 = load i64, ptr %len, align 8
   %cmp.i = icmp slt i64 %7, 0
   br i1 %cmp.i, label %if.then20, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %switch.lookup
-  %data = getelementptr inbounds i8, ptr %3, i64 80
+  %data = getelementptr inbounds nuw i8, ptr %3, i64 80
   %8 = load ptr, ptr %data, align 8
   store ptr %8, ptr %pkt, align 8
-  %remaining.i = getelementptr inbounds i8, ptr %pkt, i64 8
+  %remaining.i = getelementptr inbounds nuw i8, ptr %pkt, i64 8
   store i64 %7, ptr %remaining.i, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %was_minimal.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %frame_type.i)
@@ -185,38 +185,38 @@ lor.lhs.false:                                    ; preds = %switch.lookup
 while.cond.preheader.i:                           ; preds = %lor.lhs.false
   %bf.load.i = load i32, ptr %3, align 8
   %bf.clear.i = and i32 %bf.load.i, 255
-  %msg_callback.i = getelementptr inbounds i8, ptr %ch, i64 1112
+  %msg_callback.i = getelementptr inbounds nuw i8, ptr %ch, i64 1112
   %cmp190.not.i = icmp eq i32 %bf.clear.i, 5
   %trunc.i18 = trunc i32 %bf.load.i to i8
-  %cfq.i.i = getelementptr inbounds i8, ptr %ch, i64 272
-  %max_local_streams_uni.i.i = getelementptr inbounds i8, ptr %ch, i64 1432
-  %qsm12.i.i = getelementptr inbounds i8, ptr %ch, i64 888
-  %max_local_streams_bidi.i.i = getelementptr inbounds i8, ptr %ch, i64 1424
-  %conn_txfc.i.i = getelementptr inbounds i8, ptr %ch, i64 280
-  %offset.i.i = getelementptr inbounds i8, ptr %frame_data.i189.i, i64 8
-  %len.i203.i = getelementptr inbounds i8, ptr %frame_data.i189.i, i64 16
-  %is_fin.i.i = getelementptr inbounds i8, ptr %frame_data.i189.i, i64 32
-  %data.i219.i = getelementptr inbounds i8, ptr %frame_data.i189.i, i64 24
+  %cfq.i.i = getelementptr inbounds nuw i8, ptr %ch, i64 272
+  %max_local_streams_uni.i.i = getelementptr inbounds nuw i8, ptr %ch, i64 1432
+  %qsm12.i.i = getelementptr inbounds nuw i8, ptr %ch, i64 888
+  %max_local_streams_bidi.i.i = getelementptr inbounds nuw i8, ptr %ch, i64 1424
+  %conn_txfc.i.i = getelementptr inbounds nuw i8, ptr %ch, i64 280
+  %offset.i.i = getelementptr inbounds nuw i8, ptr %frame_data.i189.i, i64 8
+  %len.i203.i = getelementptr inbounds nuw i8, ptr %frame_data.i189.i, i64 16
+  %is_fin.i.i = getelementptr inbounds nuw i8, ptr %frame_data.i189.i, i64 32
+  %data.i219.i = getelementptr inbounds nuw i8, ptr %frame_data.i189.i, i64 24
   %cmp55.i = icmp eq i32 %bf.clear.i, 2
-  %len.i.i = getelementptr inbounds i8, ptr %f.i.i, i64 8
-  %crypto_recv.i.i = getelementptr inbounds i8, ptr %ch, i64 1160
-  %crypto_rxfc.i.i = getelementptr inbounds i8, ptr %ch, i64 408
-  %data.i.i = getelementptr inbounds i8, ptr %f.i.i, i64 16
-  %app_error_code.i165.i = getelementptr inbounds i8, ptr %frame_data.i152.i, i64 8
-  %final_size.i.i = getelementptr inbounds i8, ptr %frame_data.i.i, i64 16
-  %app_error_code.i.i = getelementptr inbounds i8, ptr %frame_data.i.i, i64 8
-  %rx_ack_delay_exp.i.i = getelementptr inbounds i8, ptr %ch, i64 1408
-  %num_ack_range_scratch.i.i = getelementptr inbounds i8, ptr %ch, i64 1640
-  %ack_range_scratch.i.i = getelementptr inbounds i8, ptr %ch, i64 1632
-  %num_ack_ranges.i.i = getelementptr inbounds i8, ptr %ack.i.i, i64 8
-  %key_epoch.i.i = getelementptr inbounds i8, ptr %qpacket, i64 56
-  %qrx.i.i = getelementptr inbounds i8, ptr %ch, i64 1104
-  %txku_pn.i.i = getelementptr inbounds i8, ptr %ch, i64 1600
-  %ackm.i.i = getelementptr inbounds i8, ptr %ch, i64 1080
-  %diag_num_rx_ack.i.i = getelementptr inbounds i8, ptr %ch, i64 1512
-  %txp.i.i = getelementptr inbounds i8, ptr %ch, i64 256
-  %msg_callback_ssl.i = getelementptr inbounds i8, ptr %ch, i64 1128
-  %msg_callback_arg.i = getelementptr inbounds i8, ptr %ch, i64 1120
+  %len.i.i = getelementptr inbounds nuw i8, ptr %f.i.i, i64 8
+  %crypto_recv.i.i = getelementptr inbounds nuw i8, ptr %ch, i64 1160
+  %crypto_rxfc.i.i = getelementptr inbounds nuw i8, ptr %ch, i64 408
+  %data.i.i = getelementptr inbounds nuw i8, ptr %f.i.i, i64 16
+  %app_error_code.i165.i = getelementptr inbounds nuw i8, ptr %frame_data.i152.i, i64 8
+  %final_size.i.i = getelementptr inbounds nuw i8, ptr %frame_data.i.i, i64 16
+  %app_error_code.i.i = getelementptr inbounds nuw i8, ptr %frame_data.i.i, i64 8
+  %rx_ack_delay_exp.i.i = getelementptr inbounds nuw i8, ptr %ch, i64 1408
+  %num_ack_range_scratch.i.i = getelementptr inbounds nuw i8, ptr %ch, i64 1640
+  %ack_range_scratch.i.i = getelementptr inbounds nuw i8, ptr %ch, i64 1632
+  %num_ack_ranges.i.i = getelementptr inbounds nuw i8, ptr %ack.i.i, i64 8
+  %key_epoch.i.i = getelementptr inbounds nuw i8, ptr %qpacket, i64 56
+  %qrx.i.i = getelementptr inbounds nuw i8, ptr %ch, i64 1104
+  %txku_pn.i.i = getelementptr inbounds nuw i8, ptr %ch, i64 1600
+  %ackm.i.i = getelementptr inbounds nuw i8, ptr %ch, i64 1080
+  %diag_num_rx_ack.i.i = getelementptr inbounds nuw i8, ptr %ch, i64 1512
+  %txp.i.i = getelementptr inbounds nuw i8, ptr %ch, i64 256
+  %msg_callback_ssl.i = getelementptr inbounds nuw i8, ptr %ch, i64 1128
+  %msg_callback_arg.i = getelementptr inbounds nuw i8, ptr %ch, i64 1120
   br label %while.body.i
 
 if.then.i:                                        ; preds = %lor.lhs.false
@@ -386,7 +386,7 @@ lor.lhs.false23.i.i:                              ; preds = %land.lhs.true.i.i
 
 land.lhs.true27.i.i:                              ; preds = %lor.lhs.false23.i.i, %land.lhs.true.i.i
   %25 = load ptr, ptr %ack.i.i, align 8
-  %end.i.i = getelementptr inbounds i8, ptr %25, i64 8
+  %end.i.i = getelementptr inbounds nuw i8, ptr %25, i64 8
   %26 = load i64, ptr %end.i.i, align 8
   %27 = load i64, ptr %txku_pn.i.i, align 8
   %cmp29.not.i.i = icmp ult i64 %26, %27
@@ -464,7 +464,7 @@ if.then9.i.i:                                     ; preds = %if.end6.i.i
   br label %depack_do_frame_reset_stream.exit.thread.i
 
 if.end10.i.i:                                     ; preds = %if.end6.i.i
-  %rxfc.i.i = getelementptr inbounds i8, ptr %31, i64 160
+  %rxfc.i.i = getelementptr inbounds nuw i8, ptr %31, i64 160
   %34 = load i64, ptr %final_size.i.i, align 8
   %call11.i.i = call i32 @ossl_quic_rxfc_on_rx_stream_frame(ptr noundef nonnull %rxfc.i.i, i64 noundef %34, i32 noundef 1) #3
   %tobool12.not.i.i = icmp eq i32 %call11.i.i, 0
@@ -549,7 +549,7 @@ if.end10.i164.i:                                  ; preds = %if.end6.i161.i
   %bf.set.i.i = or i64 %.val.i162.i, 134217728
   store i64 %bf.set.i.i, ptr %39, align 8
   %41 = load i64, ptr %app_error_code.i165.i, align 8
-  %peer_stop_sending_aec.i.i = getelementptr inbounds i8, ptr %38, i64 80
+  %peer_stop_sending_aec.i.i = getelementptr inbounds nuw i8, ptr %38, i64 80
   store i64 %41, ptr %peer_stop_sending_aec.i.i, align 8
   %call12.i.i = call i32 @ossl_quic_stream_map_reset_stream_send_part(ptr noundef nonnull %qsm12.i.i, ptr noundef nonnull %38, i64 noundef %41) #3
   br label %depack_do_frame_stop_sending.exit.i
@@ -589,13 +589,13 @@ if.end.i172.i:                                    ; preds = %if.end57.i
 if.end2.i.i:                                      ; preds = %if.end.i172.i
   %bf.clear.i175.i = and i8 %bf.load.i174.i, 3
   %idxprom.i.i = zext nneg i8 %bf.clear.i175.i to i64
-  %arrayidx.i.i = getelementptr inbounds [3 x ptr], ptr %crypto_recv.i.i, i64 0, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [3 x ptr], ptr %crypto_recv.i.i, i64 0, i64 %idxprom.i.i
   %43 = load ptr, ptr %arrayidx.i.i, align 8
   %cmp3.not.i.i = icmp eq ptr %43, null
   br i1 %cmp3.not.i.i, label %depack_do_frame_crypto.exit.thread.i, label %if.end10.i176.i
 
 if.end10.i176.i:                                  ; preds = %if.end2.i.i
-  %arrayidx16.i.i = getelementptr inbounds [3 x %struct.quic_rxfc_st], ptr %crypto_rxfc.i.i, i64 0, i64 %idxprom.i.i
+  %arrayidx16.i.i = getelementptr inbounds nuw [3 x %struct.quic_rxfc_st], ptr %crypto_rxfc.i.i, i64 0, i64 %idxprom.i.i
   %44 = load i64, ptr %f.i.i, align 8
   %add.i.i = add i64 %44, %42
   %call18.i.i = call i32 @ossl_quic_rxfc_on_rx_stream_frame(ptr noundef nonnull %arrayidx16.i.i, i64 noundef %add.i.i, i32 noundef 0) #3
@@ -728,7 +728,7 @@ if.then9.i221.i:                                  ; preds = %if.end6.i198.i
   br label %depack_do_frame_stream.exit.thread.i
 
 if.end10.i201.i:                                  ; preds = %if.end6.i198.i
-  %rxfc.i202.i = getelementptr inbounds i8, ptr %51, i64 160
+  %rxfc.i202.i = getelementptr inbounds nuw i8, ptr %51, i64 160
   %54 = load i64, ptr %offset.i.i, align 8
   %55 = load i64, ptr %len.i203.i, align 8
   %add.i204.i = add i64 %55, %54
@@ -801,7 +801,7 @@ if.end46.i.i:                                     ; preds = %if.end39.i.i
   br i1 %or.cond.i218.i, label %if.end67.i.i, label %land.lhs.true56.i.i
 
 land.lhs.true56.i.i:                              ; preds = %if.end46.i.i
-  %rstream.i.i = getelementptr inbounds i8, ptr %51, i64 120
+  %rstream.i.i = getelementptr inbounds nuw i8, ptr %51, i64 120
   %63 = load ptr, ptr %rstream.i.i, align 8
   %64 = load i64, ptr %offset.i.i, align 8
   %65 = load ptr, ptr %data.i219.i, align 8
@@ -827,7 +827,7 @@ if.end67.i.i:                                     ; preds = %land.lhs.true56.if.
   br i1 %cmp73.i.i, label %land.lhs.true75.i.i, label %if.end85.i.i
 
 land.lhs.true75.i.i:                              ; preds = %if.end67.i.i
-  %rstream76.i.i = getelementptr inbounds i8, ptr %51, i64 120
+  %rstream76.i.i = getelementptr inbounds nuw i8, ptr %51, i64 120
   %67 = load ptr, ptr %rstream76.i.i, align 8
   %call77.i.i = call i32 @ossl_quic_rstream_available(ptr noundef %67, ptr noundef nonnull %rs_avail.i.i, ptr noundef nonnull %rs_fin.i.i) #3
   %tobool78.not.i.i = icmp eq i32 %call77.i.i, 0
@@ -941,7 +941,7 @@ if.then9.i245.i:                                  ; preds = %if.end6.i238.i
   br label %depack_do_frame_max_stream_data.exit.thread.i
 
 if.end10.i241.i:                                  ; preds = %if.end6.i238.i
-  %txfc.i.i = getelementptr inbounds i8, ptr %72, i64 128
+  %txfc.i.i = getelementptr inbounds nuw i8, ptr %72, i64 128
   %75 = load i64, ptr %max_stream_data.i.i, align 8
   %call11.i242.i = call i32 @ossl_quic_txfc_bump_cwm(ptr noundef nonnull %txfc.i.i, i64 noundef %75) #3
   call void @ossl_quic_stream_map_update_state(ptr noundef nonnull %qsm12.i.i, ptr noundef nonnull %72) #3
@@ -1391,7 +1391,7 @@ if.then20.sink.split:                             ; preds = %if.end211.i, %depac
 
 if.then20:                                        ; preds = %if.then20.sink.split, %switch.lookup
   %cmp23.ph = phi i32 [ 0, %switch.lookup ], [ %cmp23.ph.ph, %if.then20.sink.split ]
-  %ackm = getelementptr inbounds i8, ptr %ch, i64 1080
+  %ackm = getelementptr inbounds nuw i8, ptr %ch, i64 1080
   %91 = load ptr, ptr %ackm, align 8
   %call21 = call i32 @ossl_ackm_on_rx_packet(ptr noundef %91, ptr noundef nonnull %ackm_data) #3
   br label %if.end22
@@ -1428,7 +1428,7 @@ declare i32 @ossl_quic_wire_decode_frame_reset_stream(ptr noundef, ptr noundef) 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @depack_do_implicit_stream_create(ptr noundef nonnull %ch, i64 noundef %stream_id, i64 noundef %frame_type, ptr nocapture noundef nonnull writeonly %result) unnamed_addr #0 {
 entry:
-  %qsm = getelementptr inbounds i8, ptr %ch, i64 888
+  %qsm = getelementptr inbounds nuw i8, ptr %ch, i64 888
   %call = tail call ptr @ossl_quic_stream_map_get_by_id(ptr noundef nonnull %qsm, i64 noundef %stream_id) #3
   %cmp.not = icmp eq ptr %call, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -1438,7 +1438,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %is_server = getelementptr inbounds i8, ptr %ch, i64 1616
+  %is_server = getelementptr inbounds nuw i8, ptr %ch, i64 1616
   %bf.load = load i64, ptr %is_server, align 8
   %0 = lshr i64 %bf.load, 24
   %.lobit32 = xor i64 %0, %stream_id
@@ -1451,9 +1451,9 @@ if.end:                                           ; preds = %entry
 
 if.then7:                                         ; preds = %if.end
   %cond9.v = select i1 %cmp4.not, i64 1480, i64 1488
-  %cond9 = getelementptr inbounds i8, ptr %ch, i64 %cond9.v
+  %cond9 = getelementptr inbounds nuw i8, ptr %ch, i64 %cond9.v
   %cond14.v = select i1 %cmp4.not, i64 696, i64 792
-  %cond14 = getelementptr inbounds i8, ptr %ch, i64 %cond14.v
+  %cond14 = getelementptr inbounds nuw i8, ptr %ch, i64 %cond14.v
   %add = add nuw nsw i64 %shr, 1
   %call15 = tail call i32 @ossl_quic_rxfc_on_rx_stream_frame(ptr noundef nonnull %cond14, i64 noundef %add, i32 noundef 0) #3
   %tobool16.not = icmp eq i32 %call15, 0
@@ -1502,7 +1502,7 @@ if.end31:                                         ; preds = %while.body
 
 if.else:                                          ; preds = %if.end
   %cond36.v = select i1 %cmp4.not, i64 1464, i64 1472
-  %cond36 = getelementptr inbounds i8, ptr %ch, i64 %cond36.v
+  %cond36 = getelementptr inbounds nuw i8, ptr %ch, i64 %cond36.v
   %5 = load i64, ptr %cond36, align 8
   %cmp37.not = icmp ult i64 %shr, %5
   br i1 %cmp37.not, label %if.end41, label %if.then39
@@ -1562,7 +1562,7 @@ declare void @ossl_quic_stream_map_visit(ptr noundef, ptr noundef, ptr noundef) 
 ; Function Attrs: nounwind uwtable
 define internal void @update_streams(ptr noundef %s, ptr noundef %arg) #0 {
 entry:
-  %qsm = getelementptr inbounds i8, ptr %arg, i64 888
+  %qsm = getelementptr inbounds nuw i8, ptr %arg, i64 888
   tail call void @ossl_quic_stream_map_update_state(ptr noundef nonnull %qsm, ptr noundef %s) #3
   ret void
 }
@@ -1581,7 +1581,7 @@ entry:
   br i1 %cmp.i.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %qsm = getelementptr inbounds i8, ptr %arg, i64 888
+  %qsm = getelementptr inbounds nuw i8, ptr %arg, i64 888
   tail call void @ossl_quic_stream_map_update_state(ptr noundef nonnull %qsm, ptr noundef nonnull %s) #3
   br label %return
 
@@ -1599,7 +1599,7 @@ entry:
   br i1 %cmp.i.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %qsm = getelementptr inbounds i8, ptr %arg, i64 888
+  %qsm = getelementptr inbounds nuw i8, ptr %arg, i64 888
   tail call void @ossl_quic_stream_map_update_state(ptr noundef nonnull %qsm, ptr noundef nonnull %s) #3
   br label %return
 

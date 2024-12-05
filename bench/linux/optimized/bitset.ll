@@ -214,9 +214,9 @@ define dso_local range(i32 -90, 1) i32 @ethnl_put_bitset32(ptr noundef %0, i32 n
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = or i32 %1, 32768
-  %11 = getelementptr inbounds i8, ptr %0, i64 192
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 184
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %14 = load i32, ptr %13, align 8
   %15 = zext i32 %14 to i64
   %16 = getelementptr i8, ptr %12, i64 %15
@@ -429,7 +429,7 @@ define dso_local range(i32 -90, 1) i32 @ethnl_put_bitset32(ptr noundef %0, i32 n
   br label %163
 
 .thread12:                                        ; preds = %105, %121, %100, %91, %63, %50, %30, %26, %23
-  %153 = getelementptr inbounds i8, ptr %0, i64 200
+  %153 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %154 = load ptr, ptr %153, align 8
   %155 = icmp ugt ptr %154, %16
   br i1 %155, label %156, label %157, !prof !9
@@ -465,7 +465,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define dso_local range(i32 -2147483648, 1) i32 @ethnl_bitset_is_compact(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #2 align 16 {
   %3 = alloca [6 x ptr], align 16
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #8
-  %4 = getelementptr inbounds i8, ptr %0, i64 2
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %5 = load i16, ptr %4, align 2
   %6 = icmp sgt i16 %5, -1
   br i1 %6, label %.thread, label %7
@@ -485,26 +485,26 @@ define dso_local range(i32 -2147483648, 1) i32 @ethnl_bitset_is_compact(ptr noun
   br i1 %13, label %36, label %14
 
 14:                                               ; preds = %7
-  %15 = getelementptr inbounds i8, ptr %3, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
   br i1 %17, label %26, label %18
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds i8, ptr %3, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %20 = load ptr, ptr %19, align 16
   %21 = icmp ne ptr %20, null
-  %22 = getelementptr inbounds i8, ptr %3, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %23 = load ptr, ptr %22, align 8
   %24 = icmp ne ptr %23, null
   %25 = select i1 %21, i1 true, i1 %24
   br i1 %25, label %36, label %34
 
 26:                                               ; preds = %14
-  %27 = getelementptr inbounds i8, ptr %3, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %28 = load ptr, ptr %27, align 16
   %29 = icmp ne ptr %28, null
-  %30 = getelementptr inbounds i8, ptr %3, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %31 = load ptr, ptr %30, align 16
   %32 = icmp ne ptr %31, null
   %33 = select i1 %29, i1 %32, i1 false
@@ -534,7 +534,7 @@ define dso_local range(i32 -2147483648, 1) i32 @ethnl_update_bitset32(ptr nocapt
   br i1 %10, label %.critedge, label %11
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %2, i64 2
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %13 = load i16, ptr %12, align 2
   %14 = icmp sgt i16 %13, -1
   br i1 %14, label %15, label %20
@@ -546,9 +546,9 @@ define dso_local range(i32 -2147483648, 1) i32 @ethnl_update_bitset32(ptr nocapt
 
 17:                                               ; preds = %15
   store ptr @nla_parse_nested.__msg, ptr %4, align 8
-  %18 = getelementptr inbounds i8, ptr %4, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %2, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %4, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr null, ptr %19, align 8
   br label %.critedge
 
@@ -563,13 +563,13 @@ define dso_local range(i32 -2147483648, 1) i32 @ethnl_update_bitset32(ptr nocapt
   br i1 %26, label %.critedge, label %27
 
 27:                                               ; preds = %20
-  %28 = getelementptr inbounds i8, ptr %9, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq ptr %29, null
   br i1 %30, label %136, label %31
 
 31:                                               ; preds = %27
-  %32 = getelementptr inbounds i8, ptr %9, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %33 = load ptr, ptr %32, align 16
   %34 = icmp eq ptr %33, null
   br i1 %34, label %41, label %35
@@ -582,14 +582,14 @@ define dso_local range(i32 -2147483648, 1) i32 @ethnl_update_bitset32(ptr nocapt
 37:                                               ; preds = %35
   store ptr @ethnl_update_bitset32_verbose.__msg, ptr %4, align 8
   %38 = load ptr, ptr %32, align 16
-  %39 = getelementptr inbounds i8, ptr %4, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %38, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %4, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr null, ptr %40, align 8
   br label %.critedge
 
 41:                                               ; preds = %31
-  %42 = getelementptr inbounds i8, ptr %9, i64 40
+  %42 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %43 = load ptr, ptr %42, align 8
   %44 = icmp eq ptr %43, null
   br i1 %44, label %51, label %45
@@ -602,14 +602,14 @@ define dso_local range(i32 -2147483648, 1) i32 @ethnl_update_bitset32(ptr nocapt
 47:                                               ; preds = %45
   store ptr @ethnl_update_bitset32_verbose.__msg.3, ptr %4, align 8
   %48 = load ptr, ptr %42, align 8
-  %49 = getelementptr inbounds i8, ptr %4, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %48, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %4, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr null, ptr %50, align 8
   br label %.critedge
 
 51:                                               ; preds = %41
-  %52 = getelementptr inbounds i8, ptr %9, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %53 = load ptr, ptr %52, align 8
   %54 = icmp ne ptr %53, null
   br i1 %54, label %55, label %84
@@ -670,8 +670,8 @@ define dso_local range(i32 -2147483648, 1) i32 @ethnl_update_bitset32(ptr nocapt
   %85 = load i16, ptr %29, align 2
   %86 = add i16 %85, -4
   %87 = icmp eq ptr %4, null
-  %88 = getelementptr inbounds i8, ptr %4, i64 8
-  %89 = getelementptr inbounds i8, ptr %4, i64 16
+  %88 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %90 = icmp ugt i16 %86, 3
   br i1 %90, label %.lr.ph.preheader, label %.critedge
 
@@ -695,7 +695,7 @@ define dso_local range(i32 -2147483648, 1) i32 @ethnl_update_bitset32(ptr nocapt
   store i8 0, ptr %7, align 1, !annotation !13
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #8
   store i32 0, ptr %8, align 4, !annotation !13
-  %99 = getelementptr inbounds i8, ptr %93, i64 2
+  %99 = getelementptr inbounds nuw i8, ptr %93, i64 2
   %100 = load i16, ptr %99, align 2
   %101 = and i16 %100, 16383
   %102 = icmp eq i16 %101, 1
@@ -766,16 +766,16 @@ define dso_local range(i32 -2147483648, 1) i32 @ethnl_update_bitset32(ptr nocapt
   br i1 %138, label %.critedge, label %139
 
 139:                                              ; preds = %136
-  %140 = getelementptr inbounds i8, ptr %9, i64 8
+  %140 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %141 = load ptr, ptr %140, align 8
   %142 = icmp eq ptr %141, null
-  %143 = getelementptr inbounds i8, ptr %9, i64 16
+  %143 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %144 = load ptr, ptr %143, align 16
   %145 = getelementptr i8, ptr %144, i64 4
   %146 = load i32, ptr %145, align 4
   %147 = icmp ult i32 %146, %1
   %148 = call i32 @llvm.umin.i32(i32 %146, i32 %1)
-  %149 = getelementptr inbounds i8, ptr %9, i64 32
+  %149 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %150 = load ptr, ptr %149, align 16
   %151 = getelementptr i8, ptr %150, i64 4
   br i1 %142, label %155, label %.preheader.preheader
@@ -791,7 +791,7 @@ define dso_local range(i32 -2147483648, 1) i32 @ethnl_update_bitset32(ptr nocapt
   br i1 %156, label %.critedge, label %.lr.ph33.preheader
 
 .lr.ph33.preheader:                               ; preds = %155
-  %157 = getelementptr inbounds i8, ptr %9, i64 40
+  %157 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %158 = load ptr, ptr %157, align 8
   %159 = getelementptr i8, ptr %158, i64 4
   %160 = and i32 %148, 31
@@ -1179,9 +1179,9 @@ define internal fastcc noundef range(i32 -22, 1) i32 @ethnl_compact_sanity_check
 
 120:                                              ; preds = %119, %63, %50, %37, %29, %22, %14
   %121 = phi ptr [ %69, %119 ], [ %64, %63 ], [ %51, %50 ], [ %1, %37 ], [ %1, %29 ], [ %1, %22 ], [ %15, %14 ]
-  %122 = getelementptr inbounds i8, ptr %3, i64 8
+  %122 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %121, ptr %122, align 8
-  %123 = getelementptr inbounds i8, ptr %3, i64 16
+  %123 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr null, ptr %123, align 8
   br label %124
 
@@ -1200,7 +1200,7 @@ define dso_local range(i32 -2147483648, 1) i32 @ethnl_parse_bitset(ptr noundef %
   br i1 %10, label %.critedge, label %11
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %3, i64 2
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 2
   %13 = load i16, ptr %12, align 2
   %14 = icmp sgt i16 %13, -1
   br i1 %14, label %15, label %20
@@ -1212,9 +1212,9 @@ define dso_local range(i32 -2147483648, 1) i32 @ethnl_parse_bitset(ptr noundef %
 
 17:                                               ; preds = %15
   store ptr @nla_parse_nested.__msg, ptr %5, align 8
-  %18 = getelementptr inbounds i8, ptr %5, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %3, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %5, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr null, ptr %19, align 8
   br label %.critedge
 
@@ -1229,10 +1229,10 @@ define dso_local range(i32 -2147483648, 1) i32 @ethnl_parse_bitset(ptr noundef %
   br i1 %26, label %.critedge, label %27
 
 27:                                               ; preds = %20
-  %28 = getelementptr inbounds i8, ptr %7, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %29 = load ptr, ptr %28, align 8
   %.not15 = icmp eq ptr %29, null
-  %30 = getelementptr inbounds i8, ptr %7, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %31 = load ptr, ptr %30, align 8
   %32 = icmp eq ptr %31, null
   br i1 %32, label %33, label %60
@@ -1243,12 +1243,12 @@ define dso_local range(i32 -2147483648, 1) i32 @ethnl_parse_bitset(ptr noundef %
   br i1 %35, label %.critedge, label %36
 
 36:                                               ; preds = %33
-  %37 = getelementptr inbounds i8, ptr %7, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %38 = load ptr, ptr %37, align 16
   %39 = getelementptr i8, ptr %38, i64 4
   %40 = load i32, ptr %39, align 4
   %41 = call i32 @llvm.umin.i32(i32 %40, i32 %2)
-  %42 = getelementptr inbounds i8, ptr %7, i64 32
+  %42 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %43 = load ptr, ptr %42, align 16
   %44 = getelementptr i8, ptr %43, i64 4
   call void @bitmap_from_arr32(ptr noundef %0, ptr noundef %44, i32 noundef %41) #8
@@ -1264,7 +1264,7 @@ define dso_local range(i32 -2147483648, 1) i32 @ethnl_parse_bitset(ptr noundef %
   br i1 %.not15, label %.thread11, label %51
 
 .thread11:                                        ; preds = %.thread10
-  %48 = getelementptr inbounds i8, ptr %7, i64 40
+  %48 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %49 = load ptr, ptr %48, align 8
   %50 = getelementptr i8, ptr %49, i64 4
   call void @bitmap_from_arr32(ptr noundef %1, ptr noundef %50, i32 noundef %41) #8
@@ -1279,7 +1279,7 @@ define dso_local range(i32 -2147483648, 1) i32 @ethnl_parse_bitset(ptr noundef %
   br label %.critedge
 
 56:                                               ; preds = %46
-  %57 = getelementptr inbounds i8, ptr %7, i64 40
+  %57 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr i8, ptr %58, i64 4
   call void @bitmap_from_arr32(ptr noundef %1, ptr noundef %59, i32 noundef %41) #8
@@ -1287,7 +1287,7 @@ define dso_local range(i32 -2147483648, 1) i32 @ethnl_parse_bitset(ptr noundef %
   br label %.critedge
 
 60:                                               ; preds = %27
-  %61 = getelementptr inbounds i8, ptr %7, i64 32
+  %61 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %62 = load ptr, ptr %61, align 16
   %63 = icmp eq ptr %62, null
   br i1 %63, label %70, label %64
@@ -1300,14 +1300,14 @@ define dso_local range(i32 -2147483648, 1) i32 @ethnl_parse_bitset(ptr noundef %
 66:                                               ; preds = %64
   store ptr @ethnl_parse_bitset.__msg, ptr %5, align 8
   %67 = load ptr, ptr %61, align 16
-  %68 = getelementptr inbounds i8, ptr %5, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %67, ptr %68, align 8
-  %69 = getelementptr inbounds i8, ptr %5, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr null, ptr %69, align 8
   br label %.critedge
 
 70:                                               ; preds = %60
-  %71 = getelementptr inbounds i8, ptr %7, i64 40
+  %71 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %72 = load ptr, ptr %71, align 8
   %73 = icmp eq ptr %72, null
   br i1 %73, label %80, label %74
@@ -1320,9 +1320,9 @@ define dso_local range(i32 -2147483648, 1) i32 @ethnl_parse_bitset(ptr noundef %
 76:                                               ; preds = %74
   store ptr @ethnl_parse_bitset.__msg.1, ptr %5, align 8
   %77 = load ptr, ptr %71, align 8
-  %78 = getelementptr inbounds i8, ptr %5, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %77, ptr %78, align 8
-  %79 = getelementptr inbounds i8, ptr %5, i64 16
+  %79 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr null, ptr %79, align 8
   br label %.critedge
 
@@ -1467,7 +1467,7 @@ declare dso_local void @do_trace_netlink_extack(ptr noundef) local_unnamed_addr 
 define internal fastcc range(i32 -2147483648, 1) i32 @ethnl_parse_bit(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1, i32 noundef %2, ptr noundef %3, i1 noundef zeroext %4, ptr noundef readonly %5, ptr noundef %6) unnamed_addr #2 align 16 {
   %8 = alloca [4 x ptr], align 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #8
-  %9 = getelementptr inbounds i8, ptr %3, i64 2
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 2
   %10 = load i16, ptr %9, align 2
   %11 = icmp sgt i16 %10, -1
   br i1 %11, label %12, label %17
@@ -1479,9 +1479,9 @@ define internal fastcc range(i32 -2147483648, 1) i32 @ethnl_parse_bit(ptr nocapt
 
 14:                                               ; preds = %12
   store ptr @nla_parse_nested.__msg, ptr %6, align 8
-  %15 = getelementptr inbounds i8, ptr %6, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %3, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %6, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr null, ptr %16, align 8
   br label %.thread
 
@@ -1496,7 +1496,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @ethnl_parse_bit(ptr nocapt
   br i1 %23, label %.thread, label %24
 
 24:                                               ; preds = %17
-  %25 = getelementptr inbounds i8, ptr %8, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, null
   br i1 %27, label %61, label %28
@@ -1522,7 +1522,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @ethnl_parse_bit(ptr nocapt
   %38 = sext i32 %30 to i64
   %39 = getelementptr [32 x i8], ptr %5, i64 %38
   %40 = select i1 %37, ptr null, ptr %39
-  %41 = getelementptr inbounds i8, ptr %8, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %42 = load ptr, ptr %41, align 16
   %43 = icmp ne ptr %42, null
   %44 = icmp ne ptr %40, null
@@ -1550,14 +1550,14 @@ define internal fastcc range(i32 -2147483648, 1) i32 @ethnl_parse_bit(ptr nocapt
 56:                                               ; preds = %55, %34
   %57 = phi ptr [ %3, %55 ], [ %35, %34 ]
   %58 = phi i32 [ -22, %55 ], [ -95, %34 ]
-  %59 = getelementptr inbounds i8, ptr %6, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %57, ptr %59, align 8
-  %60 = getelementptr inbounds i8, ptr %6, i64 16
+  %60 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr null, ptr %60, align 8
   br label %.thread
 
 61:                                               ; preds = %24
-  %62 = getelementptr inbounds i8, ptr %8, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %63 = load ptr, ptr %62, align 16
   %64 = icmp eq ptr %63, null
   br i1 %64, label %91, label %65
@@ -1603,9 +1603,9 @@ define internal fastcc range(i32 -2147483648, 1) i32 @ethnl_parse_bit(ptr nocapt
 87:                                               ; preds = %.thread14
   store ptr @ethnl_parse_bit.__msg.12, ptr %6, align 8
   %88 = load ptr, ptr %62, align 16
-  %89 = getelementptr inbounds i8, ptr %6, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %88, ptr %89, align 8
-  %90 = getelementptr inbounds i8, ptr %6, i64 16
+  %90 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr null, ptr %90, align 8
   br label %.thread
 
@@ -1616,16 +1616,16 @@ define internal fastcc range(i32 -2147483648, 1) i32 @ethnl_parse_bit(ptr nocapt
 
 93:                                               ; preds = %91
   store ptr @ethnl_parse_bit.__msg.13, ptr %6, align 8
-  %94 = getelementptr inbounds i8, ptr %6, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %3, ptr %94, align 8
-  %95 = getelementptr inbounds i8, ptr %6, i64 16
+  %95 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr null, ptr %95, align 8
   br label %.thread
 
 96:                                               ; preds = %36, %46, %83
   %97 = phi i32 [ %84, %83 ], [ %30, %46 ], [ %30, %36 ]
   store i32 %97, ptr %0, align 4
-  %98 = getelementptr inbounds i8, ptr %8, i64 24
+  %98 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %99 = load ptr, ptr %98, align 8
   %100 = icmp ne ptr %99, null
   %101 = select i1 %4, i1 true, i1 %100

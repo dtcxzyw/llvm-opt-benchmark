@@ -3,8 +3,6 @@ source_filename = "bench/openusd/original/shaderProgram.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"class.pxrInternal_v0_24__pxrReserved__::HgiHandle" = type { ptr, i64 }
-
 @_ZTVN32pxrInternal_v0_24__pxrReserved__16HgiShaderProgramE = unnamed_addr constant { [9 x ptr] } { [9 x ptr] [ptr null, ptr @_ZTIN32pxrInternal_v0_24__pxrReserved__16HgiShaderProgramE, ptr @_ZN32pxrInternal_v0_24__pxrReserved__16HgiShaderProgramD1Ev, ptr @_ZN32pxrInternal_v0_24__pxrReserved__16HgiShaderProgramD0Ev, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual] }, align 8
 @_ZTVN10__cxxabiv117__class_type_infoE = external global [0 x ptr]
 @_ZTSN32pxrInternal_v0_24__pxrReserved__16HgiShaderProgramE = constant [55 x i8] c"N32pxrInternal_v0_24__pxrReserved__16HgiShaderProgramE\00", align 1
@@ -26,57 +24,56 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__16HgiShaderProgramC2ERKNS_20Hg
   %9 = ptrtoint ptr %7 to i64
   %10 = ptrtoint ptr %8 to i64
   %11 = sub i64 %9, %10
-  %12 = ashr exact i64 %11, 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   %.not.i.i.i.i.i = icmp eq ptr %7, %8
-  br i1 %.not.i.i.i.i.i, label %.noexc4.i, label %13
+  br i1 %.not.i.i.i.i.i, label %.noexc4.i, label %12
 
-13:                                               ; preds = %2
-  %14 = icmp ugt i64 %12, 576460752303423487
-  br i1 %14, label %.noexc.i.i.i, label %_ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__9HgiHandleINS0_17HgiShaderFunctionEEEEE8allocateERS4_m.exit.i.i.i.i.i
+12:                                               ; preds = %2
+  %13 = icmp ugt i64 %11, 9223372036854775792
+  br i1 %13, label %.noexc.i.i.i, label %_ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__9HgiHandleINS0_17HgiShaderFunctionEEEEE8allocateERS4_m.exit.i.i.i.i.i
 
-.noexc.i.i.i:                                     ; preds = %13
+.noexc.i.i.i:                                     ; preds = %12
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #12
-          to label %.noexc.i unwind label %24
+          to label %.noexc.i unwind label %23
 
 .noexc.i:                                         ; preds = %.noexc.i.i.i
   unreachable
 
-_ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__9HgiHandleINS0_17HgiShaderFunctionEEEEE8allocateERS4_m.exit.i.i.i.i.i: ; preds = %13
-  %15 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %11) #13
-          to label %.noexc4.i unwind label %24
+_ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__9HgiHandleINS0_17HgiShaderFunctionEEEEE8allocateERS4_m.exit.i.i.i.i.i: ; preds = %12
+  %14 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %11) #13
+          to label %.noexc4.i unwind label %23
 
 .noexc4.i:                                        ; preds = %_ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__9HgiHandleINS0_17HgiShaderFunctionEEEEE8allocateERS4_m.exit.i.i.i.i.i, %2
-  %16 = phi ptr [ null, %2 ], [ %15, %_ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__9HgiHandleINS0_17HgiShaderFunctionEEEEE8allocateERS4_m.exit.i.i.i.i.i ]
-  store ptr %16, ptr %4, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %16, ptr %17, align 8
-  %18 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::HgiHandle", ptr %16, i64 %12
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr %18, ptr %19, align 8
-  %20 = load ptr, ptr %5, align 8
-  %21 = load ptr, ptr %6, align 8
-  %.not7.i.i.i.i.i.i = icmp eq ptr %20, %21
+  %15 = phi ptr [ null, %2 ], [ %14, %_ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__9HgiHandleINS0_17HgiShaderFunctionEEEEE8allocateERS4_m.exit.i.i.i.i.i ]
+  store ptr %15, ptr %4, align 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store ptr %15, ptr %16, align 8
+  %17 = getelementptr inbounds i8, ptr %15, i64 %11
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store ptr %17, ptr %18, align 8
+  %19 = load ptr, ptr %5, align 8
+  %20 = load ptr, ptr %6, align 8
+  %.not7.i.i.i.i.i.i = icmp eq ptr %19, %20
   br i1 %.not7.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__20HgiShaderProgramDescC2ERKS0_.exit, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %.noexc4.i, %.lr.ph.i.i.i.i.i.i
-  %.09.i.i.i.i.i.i = phi ptr [ %23, %.lr.ph.i.i.i.i.i.i ], [ %16, %.noexc4.i ]
-  %.sroa.04.08.i.i.i.i.i.i = phi ptr [ %22, %.lr.ph.i.i.i.i.i.i ], [ %20, %.noexc4.i ]
+  %.09.i.i.i.i.i.i = phi ptr [ %22, %.lr.ph.i.i.i.i.i.i ], [ %15, %.noexc4.i ]
+  %.sroa.04.08.i.i.i.i.i.i = phi ptr [ %21, %.lr.ph.i.i.i.i.i.i ], [ %19, %.noexc4.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.09.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.04.08.i.i.i.i.i.i, i64 16, i1 false)
-  %22 = getelementptr inbounds i8, ptr %.sroa.04.08.i.i.i.i.i.i, i64 16
-  %23 = getelementptr inbounds i8, ptr %.09.i.i.i.i.i.i, i64 16
-  %.not.i.i.i.i.i.i = icmp eq ptr %22, %21
+  %21 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 16
+  %.not.i.i.i.i.i.i = icmp eq ptr %21, %20
   br i1 %.not.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__20HgiShaderProgramDescC2ERKS0_.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !4
 
-24:                                               ; preds = %_ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__9HgiHandleINS0_17HgiShaderFunctionEEEEE8allocateERS4_m.exit.i.i.i.i.i, %.noexc.i.i.i
-  %25 = landingpad { ptr, i32 }
+23:                                               ; preds = %_ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__9HgiHandleINS0_17HgiShaderFunctionEEEEE8allocateERS4_m.exit.i.i.i.i.i, %.noexc.i.i.i
+  %24 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #14
-  resume { ptr, i32 } %25
+  resume { ptr, i32 } %24
 
 _ZN32pxrInternal_v0_24__pxrReserved__20HgiShaderProgramDescC2ERKS0_.exit: ; preds = %.lr.ph.i.i.i.i.i.i, %.noexc4.i
-  %.0.lcssa.i.i.i.i.i.i = phi ptr [ %16, %.noexc4.i ], [ %23, %.lr.ph.i.i.i.i.i.i ]
-  store ptr %.0.lcssa.i.i.i.i.i.i, ptr %17, align 8
+  %.0.lcssa.i.i.i.i.i.i = phi ptr [ %15, %.noexc4.i ], [ %22, %.lr.ph.i.i.i.i.i.i ]
+  store ptr %.0.lcssa.i.i.i.i.i.i, ptr %16, align 8
   ret void
 }
 

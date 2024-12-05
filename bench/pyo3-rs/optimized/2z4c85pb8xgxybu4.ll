@@ -3228,19 +3228,19 @@ define hidden void @"_ZN19pyo3_macros_backend10attributes2kw1_95_$LT$impl$u20$sy
   %5 = alloca [24 x i8], align 8
   %6 = alloca [40 x i8], align 8
   %7 = load ptr, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   call void @_ZN3syn6buffer6Cursor5ident17hb2e5b639e5c4dad3E(ptr nonnull sret([40 x i8]) align 8 %6, ptr %7, ptr %9)
-  %10 = getelementptr inbounds i8, ptr %6, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %11 = load i8, ptr %10, align 8
   %.not = icmp eq i8 %11, 3
   br i1 %.not, label %29, label %12
 
 12:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
-  %13 = getelementptr inbounds i8, ptr %6, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %6, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %16 = load ptr, ptr %15, align 8
   store ptr @anon.74668acf83f6cb7e822c747400a118d9.1, ptr %4, align 8
   %17 = invoke zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h053dada444d40dceE"(ptr nonnull align 8 %5, ptr nonnull align 8 %4)
@@ -3260,27 +3260,27 @@ define hidden void @"_ZN19pyo3_macros_backend10attributes2kw1_95_$LT$impl$u20$sy
   br label %29
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds i8, ptr %5, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %24 = load i8, ptr %23, align 8
   %25 = icmp eq i8 %24, 2
-  %26 = getelementptr inbounds i8, ptr %5, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %27 = load i32, ptr %26, align 4
   %.sroa.05.0 = select i1 %25, i32 %27, i32 0
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.sroa.05.0, ptr %28, align 8
-  %.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.21.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %14, ptr %.sroa.21.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %16, ptr %.sroa.3.0..sroa_idx, align 8
   store i64 0, ptr %0, align 8
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5)
   br label %33
 
 29:                                               ; preds = %2, %21
-  %30 = getelementptr inbounds i8, ptr %1, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %31 = load i32, ptr %30, align 8
   call void @_ZN3syn5error6new_at17hd0ee7c6f29cc9e3aE(ptr nonnull sret([24 x i8]) align 8 %3, i32 %31, ptr %7, ptr %9, ptr nonnull align 1 @anon.74668acf83f6cb7e822c747400a118d9.2, i64 21)
-  %32 = getelementptr inbounds i8, ptr %0, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   store i64 1, ptr %0, align 8
   br label %33
@@ -3305,19 +3305,19 @@ define hidden void @"_ZN19pyo3_macros_backend10attributes2kw1_94_$LT$impl$u20$sy
   %5 = alloca [24 x i8], align 8
   %6 = alloca [40 x i8], align 8
   %7 = load ptr, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   call void @_ZN3syn6buffer6Cursor5ident17hb2e5b639e5c4dad3E(ptr nonnull sret([40 x i8]) align 8 %6, ptr %7, ptr %9)
-  %10 = getelementptr inbounds i8, ptr %6, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %11 = load i8, ptr %10, align 8
   %.not = icmp eq i8 %11, 3
   br i1 %.not, label %29, label %12
 
 12:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
-  %13 = getelementptr inbounds i8, ptr %6, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %6, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %16 = load ptr, ptr %15, align 8
   store ptr @anon.74668acf83f6cb7e822c747400a118d9.4, ptr %4, align 8
   %17 = invoke zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h053dada444d40dceE"(ptr nonnull align 8 %5, ptr nonnull align 8 %4)
@@ -3337,27 +3337,27 @@ define hidden void @"_ZN19pyo3_macros_backend10attributes2kw1_94_$LT$impl$u20$sy
   br label %29
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds i8, ptr %5, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %24 = load i8, ptr %23, align 8
   %25 = icmp eq i8 %24, 2
-  %26 = getelementptr inbounds i8, ptr %5, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %27 = load i32, ptr %26, align 4
   %.sroa.05.0 = select i1 %25, i32 %27, i32 0
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.sroa.05.0, ptr %28, align 8
-  %.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.21.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %14, ptr %.sroa.21.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %16, ptr %.sroa.3.0..sroa_idx, align 8
   store i64 0, ptr %0, align 8
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5)
   br label %33
 
 29:                                               ; preds = %2, %21
-  %30 = getelementptr inbounds i8, ptr %1, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %31 = load i32, ptr %30, align 8
   call void @_ZN3syn5error6new_at17hd0ee7c6f29cc9e3aE(ptr nonnull sret([24 x i8]) align 8 %3, i32 %31, ptr %7, ptr %9, ptr nonnull align 1 @anon.74668acf83f6cb7e822c747400a118d9.5, i64 20)
-  %32 = getelementptr inbounds i8, ptr %0, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   store i64 1, ptr %0, align 8
   br label %33
@@ -3382,19 +3382,19 @@ define hidden void @"_ZN19pyo3_macros_backend10attributes2kw1_98_$LT$impl$u20$sy
   %5 = alloca [24 x i8], align 8
   %6 = alloca [40 x i8], align 8
   %7 = load ptr, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   call void @_ZN3syn6buffer6Cursor5ident17hb2e5b639e5c4dad3E(ptr nonnull sret([40 x i8]) align 8 %6, ptr %7, ptr %9)
-  %10 = getelementptr inbounds i8, ptr %6, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %11 = load i8, ptr %10, align 8
   %.not = icmp eq i8 %11, 3
   br i1 %.not, label %29, label %12
 
 12:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
-  %13 = getelementptr inbounds i8, ptr %6, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %6, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %16 = load ptr, ptr %15, align 8
   store ptr @anon.74668acf83f6cb7e822c747400a118d9.7, ptr %4, align 8
   %17 = invoke zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h053dada444d40dceE"(ptr nonnull align 8 %5, ptr nonnull align 8 %4)
@@ -3414,27 +3414,27 @@ define hidden void @"_ZN19pyo3_macros_backend10attributes2kw1_98_$LT$impl$u20$sy
   br label %29
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds i8, ptr %5, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %24 = load i8, ptr %23, align 8
   %25 = icmp eq i8 %24, 2
-  %26 = getelementptr inbounds i8, ptr %5, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %27 = load i32, ptr %26, align 4
   %.sroa.05.0 = select i1 %25, i32 %27, i32 0
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.sroa.05.0, ptr %28, align 8
-  %.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.21.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %14, ptr %.sroa.21.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %16, ptr %.sroa.3.0..sroa_idx, align 8
   store i64 0, ptr %0, align 8
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5)
   br label %33
 
 29:                                               ; preds = %2, %21
-  %30 = getelementptr inbounds i8, ptr %1, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %31 = load i32, ptr %30, align 8
   call void @_ZN3syn5error6new_at17hd0ee7c6f29cc9e3aE(ptr nonnull sret([24 x i8]) align 8 %3, i32 %31, ptr %7, ptr %9, ptr nonnull align 1 @anon.74668acf83f6cb7e822c747400a118d9.8, i64 24)
-  %32 = getelementptr inbounds i8, ptr %0, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   store i64 1, ptr %0, align 8
   br label %33
@@ -3459,19 +3459,19 @@ define hidden void @"_ZN19pyo3_macros_backend10attributes2kw1_96_$LT$impl$u20$sy
   %5 = alloca [24 x i8], align 8
   %6 = alloca [40 x i8], align 8
   %7 = load ptr, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   call void @_ZN3syn6buffer6Cursor5ident17hb2e5b639e5c4dad3E(ptr nonnull sret([40 x i8]) align 8 %6, ptr %7, ptr %9)
-  %10 = getelementptr inbounds i8, ptr %6, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %11 = load i8, ptr %10, align 8
   %.not = icmp eq i8 %11, 3
   br i1 %.not, label %29, label %12
 
 12:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
-  %13 = getelementptr inbounds i8, ptr %6, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %6, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %16 = load ptr, ptr %15, align 8
   store ptr @anon.74668acf83f6cb7e822c747400a118d9.10, ptr %4, align 8
   %17 = invoke zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h053dada444d40dceE"(ptr nonnull align 8 %5, ptr nonnull align 8 %4)
@@ -3491,27 +3491,27 @@ define hidden void @"_ZN19pyo3_macros_backend10attributes2kw1_96_$LT$impl$u20$sy
   br label %29
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds i8, ptr %5, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %24 = load i8, ptr %23, align 8
   %25 = icmp eq i8 %24, 2
-  %26 = getelementptr inbounds i8, ptr %5, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %27 = load i32, ptr %26, align 4
   %.sroa.05.0 = select i1 %25, i32 %27, i32 0
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.sroa.05.0, ptr %28, align 8
-  %.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.21.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %14, ptr %.sroa.21.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %16, ptr %.sroa.3.0..sroa_idx, align 8
   store i64 0, ptr %0, align 8
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5)
   br label %33
 
 29:                                               ; preds = %2, %21
-  %30 = getelementptr inbounds i8, ptr %1, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %31 = load i32, ptr %30, align 8
   call void @_ZN3syn5error6new_at17hd0ee7c6f29cc9e3aE(ptr nonnull sret([24 x i8]) align 8 %3, i32 %31, ptr %7, ptr %9, ptr nonnull align 1 @anon.74668acf83f6cb7e822c747400a118d9.11, i64 22)
-  %32 = getelementptr inbounds i8, ptr %0, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   store i64 1, ptr %0, align 8
   br label %33
@@ -3536,19 +3536,19 @@ define hidden void @"_ZN19pyo3_macros_backend10attributes2kw1_89_$LT$impl$u20$sy
   %5 = alloca [24 x i8], align 8
   %6 = alloca [40 x i8], align 8
   %7 = load ptr, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   call void @_ZN3syn6buffer6Cursor5ident17hb2e5b639e5c4dad3E(ptr nonnull sret([40 x i8]) align 8 %6, ptr %7, ptr %9)
-  %10 = getelementptr inbounds i8, ptr %6, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %11 = load i8, ptr %10, align 8
   %.not = icmp eq i8 %11, 3
   br i1 %.not, label %29, label %12
 
 12:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
-  %13 = getelementptr inbounds i8, ptr %6, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %6, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %16 = load ptr, ptr %15, align 8
   store ptr @anon.74668acf83f6cb7e822c747400a118d9.13, ptr %4, align 8
   %17 = invoke zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h053dada444d40dceE"(ptr nonnull align 8 %5, ptr nonnull align 8 %4)
@@ -3568,27 +3568,27 @@ define hidden void @"_ZN19pyo3_macros_backend10attributes2kw1_89_$LT$impl$u20$sy
   br label %29
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds i8, ptr %5, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %24 = load i8, ptr %23, align 8
   %25 = icmp eq i8 %24, 2
-  %26 = getelementptr inbounds i8, ptr %5, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %27 = load i32, ptr %26, align 4
   %.sroa.05.0 = select i1 %25, i32 %27, i32 0
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.sroa.05.0, ptr %28, align 8
-  %.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.21.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %14, ptr %.sroa.21.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %16, ptr %.sroa.3.0..sroa_idx, align 8
   store i64 0, ptr %0, align 8
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5)
   br label %33
 
 29:                                               ; preds = %2, %21
-  %30 = getelementptr inbounds i8, ptr %1, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %31 = load i32, ptr %30, align 8
   call void @_ZN3syn5error6new_at17hd0ee7c6f29cc9e3aE(ptr nonnull sret([24 x i8]) align 8 %3, i32 %31, ptr %7, ptr %9, ptr nonnull align 1 @anon.74668acf83f6cb7e822c747400a118d9.14, i64 15)
-  %32 = getelementptr inbounds i8, ptr %0, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   store i64 1, ptr %0, align 8
   br label %33
@@ -3613,19 +3613,19 @@ define hidden void @"_ZN19pyo3_macros_backend10attributes2kw1_87_$LT$impl$u20$sy
   %5 = alloca [24 x i8], align 8
   %6 = alloca [40 x i8], align 8
   %7 = load ptr, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   call void @_ZN3syn6buffer6Cursor5ident17hb2e5b639e5c4dad3E(ptr nonnull sret([40 x i8]) align 8 %6, ptr %7, ptr %9)
-  %10 = getelementptr inbounds i8, ptr %6, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %11 = load i8, ptr %10, align 8
   %.not = icmp eq i8 %11, 3
   br i1 %.not, label %29, label %12
 
 12:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
-  %13 = getelementptr inbounds i8, ptr %6, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %6, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %16 = load ptr, ptr %15, align 8
   store ptr @anon.74668acf83f6cb7e822c747400a118d9.16, ptr %4, align 8
   %17 = invoke zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h053dada444d40dceE"(ptr nonnull align 8 %5, ptr nonnull align 8 %4)
@@ -3645,27 +3645,27 @@ define hidden void @"_ZN19pyo3_macros_backend10attributes2kw1_87_$LT$impl$u20$sy
   br label %29
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds i8, ptr %5, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %24 = load i8, ptr %23, align 8
   %25 = icmp eq i8 %24, 2
-  %26 = getelementptr inbounds i8, ptr %5, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %27 = load i32, ptr %26, align 4
   %.sroa.05.0 = select i1 %25, i32 %27, i32 0
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.sroa.05.0, ptr %28, align 8
-  %.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.21.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %14, ptr %.sroa.21.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %16, ptr %.sroa.3.0..sroa_idx, align 8
   store i64 0, ptr %0, align 8
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5)
   br label %33
 
 29:                                               ; preds = %2, %21
-  %30 = getelementptr inbounds i8, ptr %1, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %31 = load i32, ptr %30, align 8
   call void @_ZN3syn5error6new_at17hd0ee7c6f29cc9e3aE(ptr nonnull sret([24 x i8]) align 8 %3, i32 %31, ptr %7, ptr %9, ptr nonnull align 1 @anon.74668acf83f6cb7e822c747400a118d9.17, i64 13)
-  %32 = getelementptr inbounds i8, ptr %0, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   store i64 1, ptr %0, align 8
   br label %33
@@ -3690,19 +3690,19 @@ define hidden void @"_ZN19pyo3_macros_backend10attributes2kw1_91_$LT$impl$u20$sy
   %5 = alloca [24 x i8], align 8
   %6 = alloca [40 x i8], align 8
   %7 = load ptr, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   call void @_ZN3syn6buffer6Cursor5ident17hb2e5b639e5c4dad3E(ptr nonnull sret([40 x i8]) align 8 %6, ptr %7, ptr %9)
-  %10 = getelementptr inbounds i8, ptr %6, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %11 = load i8, ptr %10, align 8
   %.not = icmp eq i8 %11, 3
   br i1 %.not, label %29, label %12
 
 12:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
-  %13 = getelementptr inbounds i8, ptr %6, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %6, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %16 = load ptr, ptr %15, align 8
   store ptr @anon.74668acf83f6cb7e822c747400a118d9.19, ptr %4, align 8
   %17 = invoke zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h053dada444d40dceE"(ptr nonnull align 8 %5, ptr nonnull align 8 %4)
@@ -3722,27 +3722,27 @@ define hidden void @"_ZN19pyo3_macros_backend10attributes2kw1_91_$LT$impl$u20$sy
   br label %29
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds i8, ptr %5, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %24 = load i8, ptr %23, align 8
   %25 = icmp eq i8 %24, 2
-  %26 = getelementptr inbounds i8, ptr %5, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %27 = load i32, ptr %26, align 4
   %.sroa.05.0 = select i1 %25, i32 %27, i32 0
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.sroa.05.0, ptr %28, align 8
-  %.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.21.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %14, ptr %.sroa.21.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %16, ptr %.sroa.3.0..sroa_idx, align 8
   store i64 0, ptr %0, align 8
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5)
   br label %33
 
 29:                                               ; preds = %2, %21
-  %30 = getelementptr inbounds i8, ptr %1, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %31 = load i32, ptr %30, align 8
   call void @_ZN3syn5error6new_at17hd0ee7c6f29cc9e3aE(ptr nonnull sret([24 x i8]) align 8 %3, i32 %31, ptr %7, ptr %9, ptr nonnull align 1 @anon.74668acf83f6cb7e822c747400a118d9.20, i64 17)
-  %32 = getelementptr inbounds i8, ptr %0, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   store i64 1, ptr %0, align 8
   br label %33
@@ -3767,19 +3767,19 @@ define hidden void @"_ZN19pyo3_macros_backend10attributes2kw1_92_$LT$impl$u20$sy
   %5 = alloca [24 x i8], align 8
   %6 = alloca [40 x i8], align 8
   %7 = load ptr, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   call void @_ZN3syn6buffer6Cursor5ident17hb2e5b639e5c4dad3E(ptr nonnull sret([40 x i8]) align 8 %6, ptr %7, ptr %9)
-  %10 = getelementptr inbounds i8, ptr %6, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %11 = load i8, ptr %10, align 8
   %.not = icmp eq i8 %11, 3
   br i1 %.not, label %29, label %12
 
 12:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
-  %13 = getelementptr inbounds i8, ptr %6, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %6, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %16 = load ptr, ptr %15, align 8
   store ptr @anon.74668acf83f6cb7e822c747400a118d9.22, ptr %4, align 8
   %17 = invoke zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h053dada444d40dceE"(ptr nonnull align 8 %5, ptr nonnull align 8 %4)
@@ -3799,27 +3799,27 @@ define hidden void @"_ZN19pyo3_macros_backend10attributes2kw1_92_$LT$impl$u20$sy
   br label %29
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds i8, ptr %5, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %24 = load i8, ptr %23, align 8
   %25 = icmp eq i8 %24, 2
-  %26 = getelementptr inbounds i8, ptr %5, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %27 = load i32, ptr %26, align 4
   %.sroa.05.0 = select i1 %25, i32 %27, i32 0
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.sroa.05.0, ptr %28, align 8
-  %.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.21.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %14, ptr %.sroa.21.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %16, ptr %.sroa.3.0..sroa_idx, align 8
   store i64 0, ptr %0, align 8
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5)
   br label %33
 
 29:                                               ; preds = %2, %21
-  %30 = getelementptr inbounds i8, ptr %1, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %31 = load i32, ptr %30, align 8
   call void @_ZN3syn5error6new_at17hd0ee7c6f29cc9e3aE(ptr nonnull sret([24 x i8]) align 8 %3, i32 %31, ptr %7, ptr %9, ptr nonnull align 1 @anon.74668acf83f6cb7e822c747400a118d9.23, i64 18)
-  %32 = getelementptr inbounds i8, ptr %0, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   store i64 1, ptr %0, align 8
   br label %33
@@ -3844,19 +3844,19 @@ define hidden void @"_ZN19pyo3_macros_backend10attributes2kw1_93_$LT$impl$u20$sy
   %5 = alloca [24 x i8], align 8
   %6 = alloca [40 x i8], align 8
   %7 = load ptr, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   call void @_ZN3syn6buffer6Cursor5ident17hb2e5b639e5c4dad3E(ptr nonnull sret([40 x i8]) align 8 %6, ptr %7, ptr %9)
-  %10 = getelementptr inbounds i8, ptr %6, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %11 = load i8, ptr %10, align 8
   %.not = icmp eq i8 %11, 3
   br i1 %.not, label %29, label %12
 
 12:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
-  %13 = getelementptr inbounds i8, ptr %6, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %6, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %16 = load ptr, ptr %15, align 8
   store ptr @anon.74668acf83f6cb7e822c747400a118d9.25, ptr %4, align 8
   %17 = invoke zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h053dada444d40dceE"(ptr nonnull align 8 %5, ptr nonnull align 8 %4)
@@ -3876,27 +3876,27 @@ define hidden void @"_ZN19pyo3_macros_backend10attributes2kw1_93_$LT$impl$u20$sy
   br label %29
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds i8, ptr %5, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %24 = load i8, ptr %23, align 8
   %25 = icmp eq i8 %24, 2
-  %26 = getelementptr inbounds i8, ptr %5, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %27 = load i32, ptr %26, align 4
   %.sroa.05.0 = select i1 %25, i32 %27, i32 0
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.sroa.05.0, ptr %28, align 8
-  %.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.21.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %14, ptr %.sroa.21.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %16, ptr %.sroa.3.0..sroa_idx, align 8
   store i64 0, ptr %0, align 8
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5)
   br label %33
 
 29:                                               ; preds = %2, %21
-  %30 = getelementptr inbounds i8, ptr %1, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %31 = load i32, ptr %30, align 8
   call void @_ZN3syn5error6new_at17hd0ee7c6f29cc9e3aE(ptr nonnull sret([24 x i8]) align 8 %3, i32 %31, ptr %7, ptr %9, ptr nonnull align 1 @anon.74668acf83f6cb7e822c747400a118d9.26, i64 19)
-  %32 = getelementptr inbounds i8, ptr %0, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   store i64 1, ptr %0, align 8
   br label %33
@@ -3921,19 +3921,19 @@ define hidden void @"_ZN19pyo3_macros_backend10attributes2kw1_97_$LT$impl$u20$sy
   %5 = alloca [24 x i8], align 8
   %6 = alloca [40 x i8], align 8
   %7 = load ptr, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   call void @_ZN3syn6buffer6Cursor5ident17hb2e5b639e5c4dad3E(ptr nonnull sret([40 x i8]) align 8 %6, ptr %7, ptr %9)
-  %10 = getelementptr inbounds i8, ptr %6, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %11 = load i8, ptr %10, align 8
   %.not = icmp eq i8 %11, 3
   br i1 %.not, label %29, label %12
 
 12:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
-  %13 = getelementptr inbounds i8, ptr %6, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %6, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %16 = load ptr, ptr %15, align 8
   store ptr @anon.74668acf83f6cb7e822c747400a118d9.28, ptr %4, align 8
   %17 = invoke zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h053dada444d40dceE"(ptr nonnull align 8 %5, ptr nonnull align 8 %4)
@@ -3953,27 +3953,27 @@ define hidden void @"_ZN19pyo3_macros_backend10attributes2kw1_97_$LT$impl$u20$sy
   br label %29
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds i8, ptr %5, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %24 = load i8, ptr %23, align 8
   %25 = icmp eq i8 %24, 2
-  %26 = getelementptr inbounds i8, ptr %5, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %27 = load i32, ptr %26, align 4
   %.sroa.05.0 = select i1 %25, i32 %27, i32 0
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.sroa.05.0, ptr %28, align 8
-  %.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.21.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %14, ptr %.sroa.21.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %16, ptr %.sroa.3.0..sroa_idx, align 8
   store i64 0, ptr %0, align 8
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5)
   br label %33
 
 29:                                               ; preds = %2, %21
-  %30 = getelementptr inbounds i8, ptr %1, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %31 = load i32, ptr %30, align 8
   call void @_ZN3syn5error6new_at17hd0ee7c6f29cc9e3aE(ptr nonnull sret([24 x i8]) align 8 %3, i32 %31, ptr %7, ptr %9, ptr nonnull align 1 @anon.74668acf83f6cb7e822c747400a118d9.29, i64 23)
-  %32 = getelementptr inbounds i8, ptr %0, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   store i64 1, ptr %0, align 8
   br label %33
@@ -3998,19 +3998,19 @@ define hidden void @"_ZN19pyo3_macros_backend10attributes2kw1_91_$LT$impl$u20$sy
   %5 = alloca [24 x i8], align 8
   %6 = alloca [40 x i8], align 8
   %7 = load ptr, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   call void @_ZN3syn6buffer6Cursor5ident17hb2e5b639e5c4dad3E(ptr nonnull sret([40 x i8]) align 8 %6, ptr %7, ptr %9)
-  %10 = getelementptr inbounds i8, ptr %6, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %11 = load i8, ptr %10, align 8
   %.not = icmp eq i8 %11, 3
   br i1 %.not, label %29, label %12
 
 12:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
-  %13 = getelementptr inbounds i8, ptr %6, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %6, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %16 = load ptr, ptr %15, align 8
   store ptr @anon.74668acf83f6cb7e822c747400a118d9.31, ptr %4, align 8
   %17 = invoke zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h053dada444d40dceE"(ptr nonnull align 8 %5, ptr nonnull align 8 %4)
@@ -4030,27 +4030,27 @@ define hidden void @"_ZN19pyo3_macros_backend10attributes2kw1_91_$LT$impl$u20$sy
   br label %29
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds i8, ptr %5, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %24 = load i8, ptr %23, align 8
   %25 = icmp eq i8 %24, 2
-  %26 = getelementptr inbounds i8, ptr %5, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %27 = load i32, ptr %26, align 4
   %.sroa.05.0 = select i1 %25, i32 %27, i32 0
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.sroa.05.0, ptr %28, align 8
-  %.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.21.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %14, ptr %.sroa.21.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %16, ptr %.sroa.3.0..sroa_idx, align 8
   store i64 0, ptr %0, align 8
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5)
   br label %33
 
 29:                                               ; preds = %2, %21
-  %30 = getelementptr inbounds i8, ptr %1, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %31 = load i32, ptr %30, align 8
   call void @_ZN3syn5error6new_at17hd0ee7c6f29cc9e3aE(ptr nonnull sret([24 x i8]) align 8 %3, i32 %31, ptr %7, ptr %9, ptr nonnull align 1 @anon.74668acf83f6cb7e822c747400a118d9.32, i64 17)
-  %32 = getelementptr inbounds i8, ptr %0, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   store i64 1, ptr %0, align 8
   br label %33
@@ -4075,19 +4075,19 @@ define hidden void @"_ZN19pyo3_macros_backend10attributes2kw1_88_$LT$impl$u20$sy
   %5 = alloca [24 x i8], align 8
   %6 = alloca [40 x i8], align 8
   %7 = load ptr, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   call void @_ZN3syn6buffer6Cursor5ident17hb2e5b639e5c4dad3E(ptr nonnull sret([40 x i8]) align 8 %6, ptr %7, ptr %9)
-  %10 = getelementptr inbounds i8, ptr %6, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %11 = load i8, ptr %10, align 8
   %.not = icmp eq i8 %11, 3
   br i1 %.not, label %29, label %12
 
 12:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
-  %13 = getelementptr inbounds i8, ptr %6, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %6, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %16 = load ptr, ptr %15, align 8
   store ptr @anon.74668acf83f6cb7e822c747400a118d9.34, ptr %4, align 8
   %17 = invoke zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h053dada444d40dceE"(ptr nonnull align 8 %5, ptr nonnull align 8 %4)
@@ -4107,27 +4107,27 @@ define hidden void @"_ZN19pyo3_macros_backend10attributes2kw1_88_$LT$impl$u20$sy
   br label %29
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds i8, ptr %5, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %24 = load i8, ptr %23, align 8
   %25 = icmp eq i8 %24, 2
-  %26 = getelementptr inbounds i8, ptr %5, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %27 = load i32, ptr %26, align 4
   %.sroa.05.0 = select i1 %25, i32 %27, i32 0
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.sroa.05.0, ptr %28, align 8
-  %.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.21.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %14, ptr %.sroa.21.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %16, ptr %.sroa.3.0..sroa_idx, align 8
   store i64 0, ptr %0, align 8
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5)
   br label %33
 
 29:                                               ; preds = %2, %21
-  %30 = getelementptr inbounds i8, ptr %1, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %31 = load i32, ptr %30, align 8
   call void @_ZN3syn5error6new_at17hd0ee7c6f29cc9e3aE(ptr nonnull sret([24 x i8]) align 8 %3, i32 %31, ptr %7, ptr %9, ptr nonnull align 1 @anon.74668acf83f6cb7e822c747400a118d9.35, i64 14)
-  %32 = getelementptr inbounds i8, ptr %0, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   store i64 1, ptr %0, align 8
   br label %33
@@ -4152,19 +4152,19 @@ define hidden void @"_ZN19pyo3_macros_backend10attributes2kw1_92_$LT$impl$u20$sy
   %5 = alloca [24 x i8], align 8
   %6 = alloca [40 x i8], align 8
   %7 = load ptr, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   call void @_ZN3syn6buffer6Cursor5ident17hb2e5b639e5c4dad3E(ptr nonnull sret([40 x i8]) align 8 %6, ptr %7, ptr %9)
-  %10 = getelementptr inbounds i8, ptr %6, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %11 = load i8, ptr %10, align 8
   %.not = icmp eq i8 %11, 3
   br i1 %.not, label %29, label %12
 
 12:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
-  %13 = getelementptr inbounds i8, ptr %6, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %6, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %16 = load ptr, ptr %15, align 8
   store ptr @anon.74668acf83f6cb7e822c747400a118d9.37, ptr %4, align 8
   %17 = invoke zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h053dada444d40dceE"(ptr nonnull align 8 %5, ptr nonnull align 8 %4)
@@ -4184,27 +4184,27 @@ define hidden void @"_ZN19pyo3_macros_backend10attributes2kw1_92_$LT$impl$u20$sy
   br label %29
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds i8, ptr %5, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %24 = load i8, ptr %23, align 8
   %25 = icmp eq i8 %24, 2
-  %26 = getelementptr inbounds i8, ptr %5, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %27 = load i32, ptr %26, align 4
   %.sroa.05.0 = select i1 %25, i32 %27, i32 0
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.sroa.05.0, ptr %28, align 8
-  %.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.21.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %14, ptr %.sroa.21.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %16, ptr %.sroa.3.0..sroa_idx, align 8
   store i64 0, ptr %0, align 8
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5)
   br label %33
 
 29:                                               ; preds = %2, %21
-  %30 = getelementptr inbounds i8, ptr %1, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %31 = load i32, ptr %30, align 8
   call void @_ZN3syn5error6new_at17hd0ee7c6f29cc9e3aE(ptr nonnull sret([24 x i8]) align 8 %3, i32 %31, ptr %7, ptr %9, ptr nonnull align 1 @anon.74668acf83f6cb7e822c747400a118d9.38, i64 18)
-  %32 = getelementptr inbounds i8, ptr %0, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   store i64 1, ptr %0, align 8
   br label %33
@@ -4229,19 +4229,19 @@ define hidden void @"_ZN19pyo3_macros_backend10attributes2kw1_89_$LT$impl$u20$sy
   %5 = alloca [24 x i8], align 8
   %6 = alloca [40 x i8], align 8
   %7 = load ptr, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   call void @_ZN3syn6buffer6Cursor5ident17hb2e5b639e5c4dad3E(ptr nonnull sret([40 x i8]) align 8 %6, ptr %7, ptr %9)
-  %10 = getelementptr inbounds i8, ptr %6, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %11 = load i8, ptr %10, align 8
   %.not = icmp eq i8 %11, 3
   br i1 %.not, label %29, label %12
 
 12:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
-  %13 = getelementptr inbounds i8, ptr %6, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %6, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %16 = load ptr, ptr %15, align 8
   store ptr @anon.74668acf83f6cb7e822c747400a118d9.40, ptr %4, align 8
   %17 = invoke zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h053dada444d40dceE"(ptr nonnull align 8 %5, ptr nonnull align 8 %4)
@@ -4261,27 +4261,27 @@ define hidden void @"_ZN19pyo3_macros_backend10attributes2kw1_89_$LT$impl$u20$sy
   br label %29
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds i8, ptr %5, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %24 = load i8, ptr %23, align 8
   %25 = icmp eq i8 %24, 2
-  %26 = getelementptr inbounds i8, ptr %5, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %27 = load i32, ptr %26, align 4
   %.sroa.05.0 = select i1 %25, i32 %27, i32 0
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.sroa.05.0, ptr %28, align 8
-  %.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.21.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %14, ptr %.sroa.21.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %16, ptr %.sroa.3.0..sroa_idx, align 8
   store i64 0, ptr %0, align 8
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5)
   br label %33
 
 29:                                               ; preds = %2, %21
-  %30 = getelementptr inbounds i8, ptr %1, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %31 = load i32, ptr %30, align 8
   call void @_ZN3syn5error6new_at17hd0ee7c6f29cc9e3aE(ptr nonnull sret([24 x i8]) align 8 %3, i32 %31, ptr %7, ptr %9, ptr nonnull align 1 @anon.74668acf83f6cb7e822c747400a118d9.41, i64 15)
-  %32 = getelementptr inbounds i8, ptr %0, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   store i64 1, ptr %0, align 8
   br label %33
@@ -4306,19 +4306,19 @@ define hidden void @"_ZN19pyo3_macros_backend10attributes2kw1_89_$LT$impl$u20$sy
   %5 = alloca [24 x i8], align 8
   %6 = alloca [40 x i8], align 8
   %7 = load ptr, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   call void @_ZN3syn6buffer6Cursor5ident17hb2e5b639e5c4dad3E(ptr nonnull sret([40 x i8]) align 8 %6, ptr %7, ptr %9)
-  %10 = getelementptr inbounds i8, ptr %6, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %11 = load i8, ptr %10, align 8
   %.not = icmp eq i8 %11, 3
   br i1 %.not, label %29, label %12
 
 12:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
-  %13 = getelementptr inbounds i8, ptr %6, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %6, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %16 = load ptr, ptr %15, align 8
   store ptr @anon.74668acf83f6cb7e822c747400a118d9.43, ptr %4, align 8
   %17 = invoke zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h053dada444d40dceE"(ptr nonnull align 8 %5, ptr nonnull align 8 %4)
@@ -4338,27 +4338,27 @@ define hidden void @"_ZN19pyo3_macros_backend10attributes2kw1_89_$LT$impl$u20$sy
   br label %29
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds i8, ptr %5, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %24 = load i8, ptr %23, align 8
   %25 = icmp eq i8 %24, 2
-  %26 = getelementptr inbounds i8, ptr %5, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %27 = load i32, ptr %26, align 4
   %.sroa.05.0 = select i1 %25, i32 %27, i32 0
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.sroa.05.0, ptr %28, align 8
-  %.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.21.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %14, ptr %.sroa.21.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %16, ptr %.sroa.3.0..sroa_idx, align 8
   store i64 0, ptr %0, align 8
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5)
   br label %33
 
 29:                                               ; preds = %2, %21
-  %30 = getelementptr inbounds i8, ptr %1, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %31 = load i32, ptr %30, align 8
   call void @_ZN3syn5error6new_at17hd0ee7c6f29cc9e3aE(ptr nonnull sret([24 x i8]) align 8 %3, i32 %31, ptr %7, ptr %9, ptr nonnull align 1 @anon.74668acf83f6cb7e822c747400a118d9.44, i64 15)
-  %32 = getelementptr inbounds i8, ptr %0, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   store i64 1, ptr %0, align 8
   br label %33
@@ -4383,19 +4383,19 @@ define hidden void @"_ZN19pyo3_macros_backend10attributes2kw1_98_$LT$impl$u20$sy
   %5 = alloca [24 x i8], align 8
   %6 = alloca [40 x i8], align 8
   %7 = load ptr, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   call void @_ZN3syn6buffer6Cursor5ident17hb2e5b639e5c4dad3E(ptr nonnull sret([40 x i8]) align 8 %6, ptr %7, ptr %9)
-  %10 = getelementptr inbounds i8, ptr %6, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %11 = load i8, ptr %10, align 8
   %.not = icmp eq i8 %11, 3
   br i1 %.not, label %29, label %12
 
 12:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
-  %13 = getelementptr inbounds i8, ptr %6, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %6, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %16 = load ptr, ptr %15, align 8
   store ptr @anon.74668acf83f6cb7e822c747400a118d9.46, ptr %4, align 8
   %17 = invoke zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h053dada444d40dceE"(ptr nonnull align 8 %5, ptr nonnull align 8 %4)
@@ -4415,27 +4415,27 @@ define hidden void @"_ZN19pyo3_macros_backend10attributes2kw1_98_$LT$impl$u20$sy
   br label %29
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds i8, ptr %5, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %24 = load i8, ptr %23, align 8
   %25 = icmp eq i8 %24, 2
-  %26 = getelementptr inbounds i8, ptr %5, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %27 = load i32, ptr %26, align 4
   %.sroa.05.0 = select i1 %25, i32 %27, i32 0
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.sroa.05.0, ptr %28, align 8
-  %.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.21.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %14, ptr %.sroa.21.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %16, ptr %.sroa.3.0..sroa_idx, align 8
   store i64 0, ptr %0, align 8
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5)
   br label %33
 
 29:                                               ; preds = %2, %21
-  %30 = getelementptr inbounds i8, ptr %1, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %31 = load i32, ptr %30, align 8
   call void @_ZN3syn5error6new_at17hd0ee7c6f29cc9e3aE(ptr nonnull sret([24 x i8]) align 8 %3, i32 %31, ptr %7, ptr %9, ptr nonnull align 1 @anon.74668acf83f6cb7e822c747400a118d9.47, i64 24)
-  %32 = getelementptr inbounds i8, ptr %0, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   store i64 1, ptr %0, align 8
   br label %33
@@ -4460,19 +4460,19 @@ define hidden void @"_ZN19pyo3_macros_backend10attributes2kw1_92_$LT$impl$u20$sy
   %5 = alloca [24 x i8], align 8
   %6 = alloca [40 x i8], align 8
   %7 = load ptr, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   call void @_ZN3syn6buffer6Cursor5ident17hb2e5b639e5c4dad3E(ptr nonnull sret([40 x i8]) align 8 %6, ptr %7, ptr %9)
-  %10 = getelementptr inbounds i8, ptr %6, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %11 = load i8, ptr %10, align 8
   %.not = icmp eq i8 %11, 3
   br i1 %.not, label %29, label %12
 
 12:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
-  %13 = getelementptr inbounds i8, ptr %6, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %6, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %16 = load ptr, ptr %15, align 8
   store ptr @anon.74668acf83f6cb7e822c747400a118d9.49, ptr %4, align 8
   %17 = invoke zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h053dada444d40dceE"(ptr nonnull align 8 %5, ptr nonnull align 8 %4)
@@ -4492,27 +4492,27 @@ define hidden void @"_ZN19pyo3_macros_backend10attributes2kw1_92_$LT$impl$u20$sy
   br label %29
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds i8, ptr %5, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %24 = load i8, ptr %23, align 8
   %25 = icmp eq i8 %24, 2
-  %26 = getelementptr inbounds i8, ptr %5, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %27 = load i32, ptr %26, align 4
   %.sroa.05.0 = select i1 %25, i32 %27, i32 0
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.sroa.05.0, ptr %28, align 8
-  %.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.21.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %14, ptr %.sroa.21.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %16, ptr %.sroa.3.0..sroa_idx, align 8
   store i64 0, ptr %0, align 8
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5)
   br label %33
 
 29:                                               ; preds = %2, %21
-  %30 = getelementptr inbounds i8, ptr %1, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %31 = load i32, ptr %30, align 8
   call void @_ZN3syn5error6new_at17hd0ee7c6f29cc9e3aE(ptr nonnull sret([24 x i8]) align 8 %3, i32 %31, ptr %7, ptr %9, ptr nonnull align 1 @anon.74668acf83f6cb7e822c747400a118d9.50, i64 18)
-  %32 = getelementptr inbounds i8, ptr %0, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   store i64 1, ptr %0, align 8
   br label %33
@@ -4537,19 +4537,19 @@ define hidden void @"_ZN19pyo3_macros_backend10attributes2kw1_91_$LT$impl$u20$sy
   %5 = alloca [24 x i8], align 8
   %6 = alloca [40 x i8], align 8
   %7 = load ptr, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   call void @_ZN3syn6buffer6Cursor5ident17hb2e5b639e5c4dad3E(ptr nonnull sret([40 x i8]) align 8 %6, ptr %7, ptr %9)
-  %10 = getelementptr inbounds i8, ptr %6, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %11 = load i8, ptr %10, align 8
   %.not = icmp eq i8 %11, 3
   br i1 %.not, label %29, label %12
 
 12:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
-  %13 = getelementptr inbounds i8, ptr %6, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %6, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %16 = load ptr, ptr %15, align 8
   store ptr @anon.74668acf83f6cb7e822c747400a118d9.52, ptr %4, align 8
   %17 = invoke zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h053dada444d40dceE"(ptr nonnull align 8 %5, ptr nonnull align 8 %4)
@@ -4569,27 +4569,27 @@ define hidden void @"_ZN19pyo3_macros_backend10attributes2kw1_91_$LT$impl$u20$sy
   br label %29
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds i8, ptr %5, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %24 = load i8, ptr %23, align 8
   %25 = icmp eq i8 %24, 2
-  %26 = getelementptr inbounds i8, ptr %5, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %27 = load i32, ptr %26, align 4
   %.sroa.05.0 = select i1 %25, i32 %27, i32 0
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.sroa.05.0, ptr %28, align 8
-  %.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.21.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %14, ptr %.sroa.21.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %16, ptr %.sroa.3.0..sroa_idx, align 8
   store i64 0, ptr %0, align 8
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5)
   br label %33
 
 29:                                               ; preds = %2, %21
-  %30 = getelementptr inbounds i8, ptr %1, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %31 = load i32, ptr %30, align 8
   call void @_ZN3syn5error6new_at17hd0ee7c6f29cc9e3aE(ptr nonnull sret([24 x i8]) align 8 %3, i32 %31, ptr %7, ptr %9, ptr nonnull align 1 @anon.74668acf83f6cb7e822c747400a118d9.53, i64 17)
-  %32 = getelementptr inbounds i8, ptr %0, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   store i64 1, ptr %0, align 8
   br label %33
@@ -4614,19 +4614,19 @@ define hidden void @"_ZN19pyo3_macros_backend10attributes2kw1_89_$LT$impl$u20$sy
   %5 = alloca [24 x i8], align 8
   %6 = alloca [40 x i8], align 8
   %7 = load ptr, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   call void @_ZN3syn6buffer6Cursor5ident17hb2e5b639e5c4dad3E(ptr nonnull sret([40 x i8]) align 8 %6, ptr %7, ptr %9)
-  %10 = getelementptr inbounds i8, ptr %6, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %11 = load i8, ptr %10, align 8
   %.not = icmp eq i8 %11, 3
   br i1 %.not, label %29, label %12
 
 12:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
-  %13 = getelementptr inbounds i8, ptr %6, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %6, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %16 = load ptr, ptr %15, align 8
   store ptr @anon.74668acf83f6cb7e822c747400a118d9.55, ptr %4, align 8
   %17 = invoke zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h053dada444d40dceE"(ptr nonnull align 8 %5, ptr nonnull align 8 %4)
@@ -4646,27 +4646,27 @@ define hidden void @"_ZN19pyo3_macros_backend10attributes2kw1_89_$LT$impl$u20$sy
   br label %29
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds i8, ptr %5, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %24 = load i8, ptr %23, align 8
   %25 = icmp eq i8 %24, 2
-  %26 = getelementptr inbounds i8, ptr %5, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %27 = load i32, ptr %26, align 4
   %.sroa.05.0 = select i1 %25, i32 %27, i32 0
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.sroa.05.0, ptr %28, align 8
-  %.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.21.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %14, ptr %.sroa.21.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %16, ptr %.sroa.3.0..sroa_idx, align 8
   store i64 0, ptr %0, align 8
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5)
   br label %33
 
 29:                                               ; preds = %2, %21
-  %30 = getelementptr inbounds i8, ptr %1, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %31 = load i32, ptr %30, align 8
   call void @_ZN3syn5error6new_at17hd0ee7c6f29cc9e3aE(ptr nonnull sret([24 x i8]) align 8 %3, i32 %31, ptr %7, ptr %9, ptr nonnull align 1 @anon.74668acf83f6cb7e822c747400a118d9.56, i64 15)
-  %32 = getelementptr inbounds i8, ptr %0, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   store i64 1, ptr %0, align 8
   br label %33
@@ -4691,19 +4691,19 @@ define hidden void @"_ZN19pyo3_macros_backend10attributes2kw1_88_$LT$impl$u20$sy
   %5 = alloca [24 x i8], align 8
   %6 = alloca [40 x i8], align 8
   %7 = load ptr, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   call void @_ZN3syn6buffer6Cursor5ident17hb2e5b639e5c4dad3E(ptr nonnull sret([40 x i8]) align 8 %6, ptr %7, ptr %9)
-  %10 = getelementptr inbounds i8, ptr %6, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %11 = load i8, ptr %10, align 8
   %.not = icmp eq i8 %11, 3
   br i1 %.not, label %29, label %12
 
 12:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
-  %13 = getelementptr inbounds i8, ptr %6, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %6, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %16 = load ptr, ptr %15, align 8
   store ptr @anon.74668acf83f6cb7e822c747400a118d9.58, ptr %4, align 8
   %17 = invoke zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h053dada444d40dceE"(ptr nonnull align 8 %5, ptr nonnull align 8 %4)
@@ -4723,27 +4723,27 @@ define hidden void @"_ZN19pyo3_macros_backend10attributes2kw1_88_$LT$impl$u20$sy
   br label %29
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds i8, ptr %5, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %24 = load i8, ptr %23, align 8
   %25 = icmp eq i8 %24, 2
-  %26 = getelementptr inbounds i8, ptr %5, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %27 = load i32, ptr %26, align 4
   %.sroa.05.0 = select i1 %25, i32 %27, i32 0
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.sroa.05.0, ptr %28, align 8
-  %.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.21.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %14, ptr %.sroa.21.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %16, ptr %.sroa.3.0..sroa_idx, align 8
   store i64 0, ptr %0, align 8
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5)
   br label %33
 
 29:                                               ; preds = %2, %21
-  %30 = getelementptr inbounds i8, ptr %1, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %31 = load i32, ptr %30, align 8
   call void @_ZN3syn5error6new_at17hd0ee7c6f29cc9e3aE(ptr nonnull sret([24 x i8]) align 8 %3, i32 %31, ptr %7, ptr %9, ptr nonnull align 1 @anon.74668acf83f6cb7e822c747400a118d9.59, i64 14)
-  %32 = getelementptr inbounds i8, ptr %0, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   store i64 1, ptr %0, align 8
   br label %33
@@ -4768,19 +4768,19 @@ define hidden void @"_ZN19pyo3_macros_backend10attributes2kw1_96_$LT$impl$u20$sy
   %5 = alloca [24 x i8], align 8
   %6 = alloca [40 x i8], align 8
   %7 = load ptr, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   call void @_ZN3syn6buffer6Cursor5ident17hb2e5b639e5c4dad3E(ptr nonnull sret([40 x i8]) align 8 %6, ptr %7, ptr %9)
-  %10 = getelementptr inbounds i8, ptr %6, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %11 = load i8, ptr %10, align 8
   %.not = icmp eq i8 %11, 3
   br i1 %.not, label %29, label %12
 
 12:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
-  %13 = getelementptr inbounds i8, ptr %6, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %6, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %16 = load ptr, ptr %15, align 8
   store ptr @anon.74668acf83f6cb7e822c747400a118d9.61, ptr %4, align 8
   %17 = invoke zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h053dada444d40dceE"(ptr nonnull align 8 %5, ptr nonnull align 8 %4)
@@ -4800,27 +4800,27 @@ define hidden void @"_ZN19pyo3_macros_backend10attributes2kw1_96_$LT$impl$u20$sy
   br label %29
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds i8, ptr %5, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %24 = load i8, ptr %23, align 8
   %25 = icmp eq i8 %24, 2
-  %26 = getelementptr inbounds i8, ptr %5, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %27 = load i32, ptr %26, align 4
   %.sroa.05.0 = select i1 %25, i32 %27, i32 0
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.sroa.05.0, ptr %28, align 8
-  %.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.21.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %14, ptr %.sroa.21.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %16, ptr %.sroa.3.0..sroa_idx, align 8
   store i64 0, ptr %0, align 8
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5)
   br label %33
 
 29:                                               ; preds = %2, %21
-  %30 = getelementptr inbounds i8, ptr %1, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %31 = load i32, ptr %30, align 8
   call void @_ZN3syn5error6new_at17hd0ee7c6f29cc9e3aE(ptr nonnull sret([24 x i8]) align 8 %3, i32 %31, ptr %7, ptr %9, ptr nonnull align 1 @anon.74668acf83f6cb7e822c747400a118d9.62, i64 22)
-  %32 = getelementptr inbounds i8, ptr %0, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   store i64 1, ptr %0, align 8
   br label %33
@@ -4845,19 +4845,19 @@ define hidden void @"_ZN19pyo3_macros_backend10attributes2kw1_95_$LT$impl$u20$sy
   %5 = alloca [24 x i8], align 8
   %6 = alloca [40 x i8], align 8
   %7 = load ptr, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   call void @_ZN3syn6buffer6Cursor5ident17hb2e5b639e5c4dad3E(ptr nonnull sret([40 x i8]) align 8 %6, ptr %7, ptr %9)
-  %10 = getelementptr inbounds i8, ptr %6, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %11 = load i8, ptr %10, align 8
   %.not = icmp eq i8 %11, 3
   br i1 %.not, label %29, label %12
 
 12:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
-  %13 = getelementptr inbounds i8, ptr %6, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %6, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %16 = load ptr, ptr %15, align 8
   store ptr @anon.74668acf83f6cb7e822c747400a118d9.64, ptr %4, align 8
   %17 = invoke zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h053dada444d40dceE"(ptr nonnull align 8 %5, ptr nonnull align 8 %4)
@@ -4877,27 +4877,27 @@ define hidden void @"_ZN19pyo3_macros_backend10attributes2kw1_95_$LT$impl$u20$sy
   br label %29
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds i8, ptr %5, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %24 = load i8, ptr %23, align 8
   %25 = icmp eq i8 %24, 2
-  %26 = getelementptr inbounds i8, ptr %5, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %27 = load i32, ptr %26, align 4
   %.sroa.05.0 = select i1 %25, i32 %27, i32 0
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.sroa.05.0, ptr %28, align 8
-  %.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.21.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %14, ptr %.sroa.21.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %16, ptr %.sroa.3.0..sroa_idx, align 8
   store i64 0, ptr %0, align 8
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5)
   br label %33
 
 29:                                               ; preds = %2, %21
-  %30 = getelementptr inbounds i8, ptr %1, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %31 = load i32, ptr %30, align 8
   call void @_ZN3syn5error6new_at17hd0ee7c6f29cc9e3aE(ptr nonnull sret([24 x i8]) align 8 %3, i32 %31, ptr %7, ptr %9, ptr nonnull align 1 @anon.74668acf83f6cb7e822c747400a118d9.65, i64 21)
-  %32 = getelementptr inbounds i8, ptr %0, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   store i64 1, ptr %0, align 8
   br label %33
@@ -4922,19 +4922,19 @@ define hidden void @"_ZN19pyo3_macros_backend10attributes2kw1_93_$LT$impl$u20$sy
   %5 = alloca [24 x i8], align 8
   %6 = alloca [40 x i8], align 8
   %7 = load ptr, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   call void @_ZN3syn6buffer6Cursor5ident17hb2e5b639e5c4dad3E(ptr nonnull sret([40 x i8]) align 8 %6, ptr %7, ptr %9)
-  %10 = getelementptr inbounds i8, ptr %6, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %11 = load i8, ptr %10, align 8
   %.not = icmp eq i8 %11, 3
   br i1 %.not, label %29, label %12
 
 12:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
-  %13 = getelementptr inbounds i8, ptr %6, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %6, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %16 = load ptr, ptr %15, align 8
   store ptr @anon.74668acf83f6cb7e822c747400a118d9.67, ptr %4, align 8
   %17 = invoke zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h053dada444d40dceE"(ptr nonnull align 8 %5, ptr nonnull align 8 %4)
@@ -4954,27 +4954,27 @@ define hidden void @"_ZN19pyo3_macros_backend10attributes2kw1_93_$LT$impl$u20$sy
   br label %29
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds i8, ptr %5, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %24 = load i8, ptr %23, align 8
   %25 = icmp eq i8 %24, 2
-  %26 = getelementptr inbounds i8, ptr %5, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %27 = load i32, ptr %26, align 4
   %.sroa.05.0 = select i1 %25, i32 %27, i32 0
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.sroa.05.0, ptr %28, align 8
-  %.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.21.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %14, ptr %.sroa.21.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %16, ptr %.sroa.3.0..sroa_idx, align 8
   store i64 0, ptr %0, align 8
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5)
   br label %33
 
 29:                                               ; preds = %2, %21
-  %30 = getelementptr inbounds i8, ptr %1, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %31 = load i32, ptr %30, align 8
   call void @_ZN3syn5error6new_at17hd0ee7c6f29cc9e3aE(ptr nonnull sret([24 x i8]) align 8 %3, i32 %31, ptr %7, ptr %9, ptr nonnull align 1 @anon.74668acf83f6cb7e822c747400a118d9.68, i64 19)
-  %32 = getelementptr inbounds i8, ptr %0, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   store i64 1, ptr %0, align 8
   br label %33
@@ -4999,19 +4999,19 @@ define hidden void @"_ZN19pyo3_macros_backend10attributes2kw1_88_$LT$impl$u20$sy
   %5 = alloca [24 x i8], align 8
   %6 = alloca [40 x i8], align 8
   %7 = load ptr, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   call void @_ZN3syn6buffer6Cursor5ident17hb2e5b639e5c4dad3E(ptr nonnull sret([40 x i8]) align 8 %6, ptr %7, ptr %9)
-  %10 = getelementptr inbounds i8, ptr %6, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %11 = load i8, ptr %10, align 8
   %.not = icmp eq i8 %11, 3
   br i1 %.not, label %29, label %12
 
 12:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
-  %13 = getelementptr inbounds i8, ptr %6, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %6, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %16 = load ptr, ptr %15, align 8
   store ptr @anon.74668acf83f6cb7e822c747400a118d9.70, ptr %4, align 8
   %17 = invoke zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h053dada444d40dceE"(ptr nonnull align 8 %5, ptr nonnull align 8 %4)
@@ -5031,27 +5031,27 @@ define hidden void @"_ZN19pyo3_macros_backend10attributes2kw1_88_$LT$impl$u20$sy
   br label %29
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds i8, ptr %5, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %24 = load i8, ptr %23, align 8
   %25 = icmp eq i8 %24, 2
-  %26 = getelementptr inbounds i8, ptr %5, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %27 = load i32, ptr %26, align 4
   %.sroa.05.0 = select i1 %25, i32 %27, i32 0
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.sroa.05.0, ptr %28, align 8
-  %.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.21.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %14, ptr %.sroa.21.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %16, ptr %.sroa.3.0..sroa_idx, align 8
   store i64 0, ptr %0, align 8
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5)
   br label %33
 
 29:                                               ; preds = %2, %21
-  %30 = getelementptr inbounds i8, ptr %1, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %31 = load i32, ptr %30, align 8
   call void @_ZN3syn5error6new_at17hd0ee7c6f29cc9e3aE(ptr nonnull sret([24 x i8]) align 8 %3, i32 %31, ptr %7, ptr %9, ptr nonnull align 1 @anon.74668acf83f6cb7e822c747400a118d9.71, i64 14)
-  %32 = getelementptr inbounds i8, ptr %0, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   store i64 1, ptr %0, align 8
   br label %33
@@ -5076,19 +5076,19 @@ define hidden void @"_ZN19pyo3_macros_backend10attributes2kw1_92_$LT$impl$u20$sy
   %5 = alloca [24 x i8], align 8
   %6 = alloca [40 x i8], align 8
   %7 = load ptr, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   call void @_ZN3syn6buffer6Cursor5ident17hb2e5b639e5c4dad3E(ptr nonnull sret([40 x i8]) align 8 %6, ptr %7, ptr %9)
-  %10 = getelementptr inbounds i8, ptr %6, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %11 = load i8, ptr %10, align 8
   %.not = icmp eq i8 %11, 3
   br i1 %.not, label %29, label %12
 
 12:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
-  %13 = getelementptr inbounds i8, ptr %6, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %6, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %16 = load ptr, ptr %15, align 8
   store ptr @anon.74668acf83f6cb7e822c747400a118d9.73, ptr %4, align 8
   %17 = invoke zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h053dada444d40dceE"(ptr nonnull align 8 %5, ptr nonnull align 8 %4)
@@ -5108,27 +5108,27 @@ define hidden void @"_ZN19pyo3_macros_backend10attributes2kw1_92_$LT$impl$u20$sy
   br label %29
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds i8, ptr %5, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %24 = load i8, ptr %23, align 8
   %25 = icmp eq i8 %24, 2
-  %26 = getelementptr inbounds i8, ptr %5, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %27 = load i32, ptr %26, align 4
   %.sroa.05.0 = select i1 %25, i32 %27, i32 0
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.sroa.05.0, ptr %28, align 8
-  %.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.21.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %14, ptr %.sroa.21.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %16, ptr %.sroa.3.0..sroa_idx, align 8
   store i64 0, ptr %0, align 8
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5)
   br label %33
 
 29:                                               ; preds = %2, %21
-  %30 = getelementptr inbounds i8, ptr %1, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %31 = load i32, ptr %30, align 8
   call void @_ZN3syn5error6new_at17hd0ee7c6f29cc9e3aE(ptr nonnull sret([24 x i8]) align 8 %3, i32 %31, ptr %7, ptr %9, ptr nonnull align 1 @anon.74668acf83f6cb7e822c747400a118d9.74, i64 18)
-  %32 = getelementptr inbounds i8, ptr %0, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   store i64 1, ptr %0, align 8
   br label %33
@@ -5153,19 +5153,19 @@ define hidden void @"_ZN19pyo3_macros_backend10attributes2kw1_94_$LT$impl$u20$sy
   %5 = alloca [24 x i8], align 8
   %6 = alloca [40 x i8], align 8
   %7 = load ptr, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   call void @_ZN3syn6buffer6Cursor5ident17hb2e5b639e5c4dad3E(ptr nonnull sret([40 x i8]) align 8 %6, ptr %7, ptr %9)
-  %10 = getelementptr inbounds i8, ptr %6, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %11 = load i8, ptr %10, align 8
   %.not = icmp eq i8 %11, 3
   br i1 %.not, label %29, label %12
 
 12:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
-  %13 = getelementptr inbounds i8, ptr %6, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %6, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %16 = load ptr, ptr %15, align 8
   store ptr @anon.74668acf83f6cb7e822c747400a118d9.76, ptr %4, align 8
   %17 = invoke zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h053dada444d40dceE"(ptr nonnull align 8 %5, ptr nonnull align 8 %4)
@@ -5185,27 +5185,27 @@ define hidden void @"_ZN19pyo3_macros_backend10attributes2kw1_94_$LT$impl$u20$sy
   br label %29
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds i8, ptr %5, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %24 = load i8, ptr %23, align 8
   %25 = icmp eq i8 %24, 2
-  %26 = getelementptr inbounds i8, ptr %5, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %27 = load i32, ptr %26, align 4
   %.sroa.05.0 = select i1 %25, i32 %27, i32 0
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.sroa.05.0, ptr %28, align 8
-  %.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.21.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %14, ptr %.sroa.21.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %16, ptr %.sroa.3.0..sroa_idx, align 8
   store i64 0, ptr %0, align 8
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5)
   br label %33
 
 29:                                               ; preds = %2, %21
-  %30 = getelementptr inbounds i8, ptr %1, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %31 = load i32, ptr %30, align 8
   call void @_ZN3syn5error6new_at17hd0ee7c6f29cc9e3aE(ptr nonnull sret([24 x i8]) align 8 %3, i32 %31, ptr %7, ptr %9, ptr nonnull align 1 @anon.74668acf83f6cb7e822c747400a118d9.77, i64 20)
-  %32 = getelementptr inbounds i8, ptr %0, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   store i64 1, ptr %0, align 8
   br label %33
@@ -5230,19 +5230,19 @@ define hidden void @"_ZN19pyo3_macros_backend10attributes2kw1_93_$LT$impl$u20$sy
   %5 = alloca [24 x i8], align 8
   %6 = alloca [40 x i8], align 8
   %7 = load ptr, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   call void @_ZN3syn6buffer6Cursor5ident17hb2e5b639e5c4dad3E(ptr nonnull sret([40 x i8]) align 8 %6, ptr %7, ptr %9)
-  %10 = getelementptr inbounds i8, ptr %6, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %11 = load i8, ptr %10, align 8
   %.not = icmp eq i8 %11, 3
   br i1 %.not, label %29, label %12
 
 12:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
-  %13 = getelementptr inbounds i8, ptr %6, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %6, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %16 = load ptr, ptr %15, align 8
   store ptr @anon.74668acf83f6cb7e822c747400a118d9.79, ptr %4, align 8
   %17 = invoke zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h053dada444d40dceE"(ptr nonnull align 8 %5, ptr nonnull align 8 %4)
@@ -5262,27 +5262,27 @@ define hidden void @"_ZN19pyo3_macros_backend10attributes2kw1_93_$LT$impl$u20$sy
   br label %29
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds i8, ptr %5, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %24 = load i8, ptr %23, align 8
   %25 = icmp eq i8 %24, 2
-  %26 = getelementptr inbounds i8, ptr %5, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %27 = load i32, ptr %26, align 4
   %.sroa.05.0 = select i1 %25, i32 %27, i32 0
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.sroa.05.0, ptr %28, align 8
-  %.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.21.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %14, ptr %.sroa.21.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %16, ptr %.sroa.3.0..sroa_idx, align 8
   store i64 0, ptr %0, align 8
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5)
   br label %33
 
 29:                                               ; preds = %2, %21
-  %30 = getelementptr inbounds i8, ptr %1, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %31 = load i32, ptr %30, align 8
   call void @_ZN3syn5error6new_at17hd0ee7c6f29cc9e3aE(ptr nonnull sret([24 x i8]) align 8 %3, i32 %31, ptr %7, ptr %9, ptr nonnull align 1 @anon.74668acf83f6cb7e822c747400a118d9.80, i64 19)
-  %32 = getelementptr inbounds i8, ptr %0, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   store i64 1, ptr %0, align 8
   br label %33
@@ -5307,19 +5307,19 @@ define hidden void @"_ZN19pyo3_macros_backend10attributes2kw1_99_$LT$impl$u20$sy
   %5 = alloca [24 x i8], align 8
   %6 = alloca [40 x i8], align 8
   %7 = load ptr, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   call void @_ZN3syn6buffer6Cursor5ident17hb2e5b639e5c4dad3E(ptr nonnull sret([40 x i8]) align 8 %6, ptr %7, ptr %9)
-  %10 = getelementptr inbounds i8, ptr %6, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %11 = load i8, ptr %10, align 8
   %.not = icmp eq i8 %11, 3
   br i1 %.not, label %29, label %12
 
 12:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
-  %13 = getelementptr inbounds i8, ptr %6, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %6, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %16 = load ptr, ptr %15, align 8
   store ptr @anon.74668acf83f6cb7e822c747400a118d9.82, ptr %4, align 8
   %17 = invoke zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h053dada444d40dceE"(ptr nonnull align 8 %5, ptr nonnull align 8 %4)
@@ -5339,27 +5339,27 @@ define hidden void @"_ZN19pyo3_macros_backend10attributes2kw1_99_$LT$impl$u20$sy
   br label %29
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds i8, ptr %5, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %24 = load i8, ptr %23, align 8
   %25 = icmp eq i8 %24, 2
-  %26 = getelementptr inbounds i8, ptr %5, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %27 = load i32, ptr %26, align 4
   %.sroa.05.0 = select i1 %25, i32 %27, i32 0
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.sroa.05.0, ptr %28, align 8
-  %.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.21.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %14, ptr %.sroa.21.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %16, ptr %.sroa.3.0..sroa_idx, align 8
   store i64 0, ptr %0, align 8
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5)
   br label %33
 
 29:                                               ; preds = %2, %21
-  %30 = getelementptr inbounds i8, ptr %1, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %31 = load i32, ptr %30, align 8
   call void @_ZN3syn5error6new_at17hd0ee7c6f29cc9e3aE(ptr nonnull sret([24 x i8]) align 8 %3, i32 %31, ptr %7, ptr %9, ptr nonnull align 1 @anon.74668acf83f6cb7e822c747400a118d9.83, i64 25)
-  %32 = getelementptr inbounds i8, ptr %0, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   store i64 1, ptr %0, align 8
   br label %33
@@ -5384,19 +5384,19 @@ define hidden void @"_ZN19pyo3_macros_backend10attributes2kw1_96_$LT$impl$u20$sy
   %5 = alloca [24 x i8], align 8
   %6 = alloca [40 x i8], align 8
   %7 = load ptr, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   call void @_ZN3syn6buffer6Cursor5ident17hb2e5b639e5c4dad3E(ptr nonnull sret([40 x i8]) align 8 %6, ptr %7, ptr %9)
-  %10 = getelementptr inbounds i8, ptr %6, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %11 = load i8, ptr %10, align 8
   %.not = icmp eq i8 %11, 3
   br i1 %.not, label %29, label %12
 
 12:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
-  %13 = getelementptr inbounds i8, ptr %6, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %6, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %16 = load ptr, ptr %15, align 8
   store ptr @anon.74668acf83f6cb7e822c747400a118d9.85, ptr %4, align 8
   %17 = invoke zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h053dada444d40dceE"(ptr nonnull align 8 %5, ptr nonnull align 8 %4)
@@ -5416,27 +5416,27 @@ define hidden void @"_ZN19pyo3_macros_backend10attributes2kw1_96_$LT$impl$u20$sy
   br label %29
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds i8, ptr %5, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %24 = load i8, ptr %23, align 8
   %25 = icmp eq i8 %24, 2
-  %26 = getelementptr inbounds i8, ptr %5, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %27 = load i32, ptr %26, align 4
   %.sroa.05.0 = select i1 %25, i32 %27, i32 0
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.sroa.05.0, ptr %28, align 8
-  %.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.21.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %14, ptr %.sroa.21.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %16, ptr %.sroa.3.0..sroa_idx, align 8
   store i64 0, ptr %0, align 8
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5)
   br label %33
 
 29:                                               ; preds = %2, %21
-  %30 = getelementptr inbounds i8, ptr %1, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %31 = load i32, ptr %30, align 8
   call void @_ZN3syn5error6new_at17hd0ee7c6f29cc9e3aE(ptr nonnull sret([24 x i8]) align 8 %3, i32 %31, ptr %7, ptr %9, ptr nonnull align 1 @anon.74668acf83f6cb7e822c747400a118d9.86, i64 22)
-  %32 = getelementptr inbounds i8, ptr %0, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   store i64 1, ptr %0, align 8
   br label %33
@@ -5461,19 +5461,19 @@ define hidden void @"_ZN19pyo3_macros_backend10attributes2kw1_95_$LT$impl$u20$sy
   %5 = alloca [24 x i8], align 8
   %6 = alloca [40 x i8], align 8
   %7 = load ptr, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   call void @_ZN3syn6buffer6Cursor5ident17hb2e5b639e5c4dad3E(ptr nonnull sret([40 x i8]) align 8 %6, ptr %7, ptr %9)
-  %10 = getelementptr inbounds i8, ptr %6, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %11 = load i8, ptr %10, align 8
   %.not = icmp eq i8 %11, 3
   br i1 %.not, label %29, label %12
 
 12:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
-  %13 = getelementptr inbounds i8, ptr %6, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %6, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %16 = load ptr, ptr %15, align 8
   store ptr @anon.74668acf83f6cb7e822c747400a118d9.88, ptr %4, align 8
   %17 = invoke zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h053dada444d40dceE"(ptr nonnull align 8 %5, ptr nonnull align 8 %4)
@@ -5493,27 +5493,27 @@ define hidden void @"_ZN19pyo3_macros_backend10attributes2kw1_95_$LT$impl$u20$sy
   br label %29
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds i8, ptr %5, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %24 = load i8, ptr %23, align 8
   %25 = icmp eq i8 %24, 2
-  %26 = getelementptr inbounds i8, ptr %5, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %27 = load i32, ptr %26, align 4
   %.sroa.05.0 = select i1 %25, i32 %27, i32 0
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.sroa.05.0, ptr %28, align 8
-  %.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.21.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %14, ptr %.sroa.21.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %16, ptr %.sroa.3.0..sroa_idx, align 8
   store i64 0, ptr %0, align 8
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5)
   br label %33
 
 29:                                               ; preds = %2, %21
-  %30 = getelementptr inbounds i8, ptr %1, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %31 = load i32, ptr %30, align 8
   call void @_ZN3syn5error6new_at17hd0ee7c6f29cc9e3aE(ptr nonnull sret([24 x i8]) align 8 %3, i32 %31, ptr %7, ptr %9, ptr nonnull align 1 @anon.74668acf83f6cb7e822c747400a118d9.89, i64 21)
-  %32 = getelementptr inbounds i8, ptr %0, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   store i64 1, ptr %0, align 8
   br label %33
@@ -5538,19 +5538,19 @@ define hidden void @"_ZN19pyo3_macros_backend10attributes2kw1_92_$LT$impl$u20$sy
   %5 = alloca [24 x i8], align 8
   %6 = alloca [40 x i8], align 8
   %7 = load ptr, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   call void @_ZN3syn6buffer6Cursor5ident17hb2e5b639e5c4dad3E(ptr nonnull sret([40 x i8]) align 8 %6, ptr %7, ptr %9)
-  %10 = getelementptr inbounds i8, ptr %6, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %11 = load i8, ptr %10, align 8
   %.not = icmp eq i8 %11, 3
   br i1 %.not, label %29, label %12
 
 12:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
-  %13 = getelementptr inbounds i8, ptr %6, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %6, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %16 = load ptr, ptr %15, align 8
   store ptr @anon.74668acf83f6cb7e822c747400a118d9.91, ptr %4, align 8
   %17 = invoke zeroext i1 @"_ZN73_$LT$proc_macro2..imp..Ident$u20$as$u20$core..cmp..PartialEq$LT$T$GT$$GT$2eq17h053dada444d40dceE"(ptr nonnull align 8 %5, ptr nonnull align 8 %4)
@@ -5570,27 +5570,27 @@ define hidden void @"_ZN19pyo3_macros_backend10attributes2kw1_92_$LT$impl$u20$sy
   br label %29
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds i8, ptr %5, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %24 = load i8, ptr %23, align 8
   %25 = icmp eq i8 %24, 2
-  %26 = getelementptr inbounds i8, ptr %5, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %27 = load i32, ptr %26, align 4
   %.sroa.05.0 = select i1 %25, i32 %27, i32 0
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.sroa.05.0, ptr %28, align 8
-  %.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.21.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %14, ptr %.sroa.21.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %16, ptr %.sroa.3.0..sroa_idx, align 8
   store i64 0, ptr %0, align 8
   call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr nonnull align 8 %5)
   br label %33
 
 29:                                               ; preds = %2, %21
-  %30 = getelementptr inbounds i8, ptr %1, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %31 = load i32, ptr %30, align 8
   call void @_ZN3syn5error6new_at17hd0ee7c6f29cc9e3aE(ptr nonnull sret([24 x i8]) align 8 %3, i32 %31, ptr %7, ptr %9, ptr nonnull align 1 @anon.74668acf83f6cb7e822c747400a118d9.92, i64 18)
-  %32 = getelementptr inbounds i8, ptr %0, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   store i64 1, ptr %0, align 8
   br label %33

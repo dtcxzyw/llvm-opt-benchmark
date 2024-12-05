@@ -29,10 +29,10 @@ define i32 @php_crc32_bulk_update(i32 noundef %0, ptr noundef %1, i64 noundef %2
   %.tr = trunc i32 %8 to i8
   %.narrow = xor i8 %11, %.tr
   %12 = zext i8 %.narrow to i64
-  %13 = getelementptr inbounds [256 x i32], ptr @crc32tab, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw [256 x i32], ptr @crc32tab, i64 0, i64 %12
   %14 = load i32, ptr %13, align 4
   %15 = xor i32 %14, %10
-  %16 = getelementptr inbounds i8, ptr %.011, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %.011, i64 1
   %.not = icmp eq i64 %9, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -82,10 +82,10 @@ define range(i32 -1, 1) i32 @php_crc32_stream_bulk_update(ptr nocapture noundef 
   %.tr.i = trunc i32 %14 to i8
   %.narrow.i = xor i8 %17, %.tr.i
   %18 = zext i8 %.narrow.i to i64
-  %19 = getelementptr inbounds [256 x i32], ptr @crc32tab, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw [256 x i32], ptr @crc32tab, i64 0, i64 %18
   %20 = load i32, ptr %19, align 4
   %21 = xor i32 %20, %16
-  %22 = getelementptr inbounds i8, ptr %.011.i, i64 1
+  %22 = getelementptr inbounds nuw i8, ptr %.011.i, i64 1
   %.not.i = icmp eq i64 %15, 0
   br i1 %.not.i, label %php_crc32_bulk_update.exit, label %.lr.ph.i
 
@@ -108,7 +108,7 @@ declare i64 @_php_stream_read(ptr noundef, ptr noundef, i64 noundef) local_unnam
 define hidden void @zif_crc32(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 44
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4
   %cond = icmp eq i32 %6, 1
   br i1 %cond, label %7, label %.thread81
@@ -118,8 +118,8 @@ define hidden void @zif_crc32(ptr noundef %0, ptr nocapture noundef writeonly %1
   br label %15
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 80
-  %9 = getelementptr inbounds i8, ptr %0, i64 88
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %10 = load i8, ptr %9, align 8
   %11 = icmp eq i8 %10, 6
   br i1 %11, label %.thread, label %13
@@ -147,9 +147,9 @@ define hidden void @zif_crc32(ptr noundef %0, ptr nocapture noundef writeonly %1
 
 16:                                               ; preds = %._crit_edge, %.thread
   %17 = phi ptr [ %.pre, %._crit_edge ], [ %12, %.thread ]
-  %18 = getelementptr inbounds i8, ptr %17, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load i64, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %17, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 24
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   store i32 -1, ptr %3, align 4
   %21 = call i64 @crc32_x86_simd_update(i32 noundef 1, ptr noundef nonnull %3, ptr noundef nonnull %20, i64 noundef %19) #4
@@ -172,10 +172,10 @@ define hidden void @zif_crc32(ptr noundef %0, ptr nocapture noundef writeonly %1
   %.tr.i = trunc i32 %24 to i8
   %.narrow.i = xor i8 %27, %.tr.i
   %28 = zext i8 %.narrow.i to i64
-  %29 = getelementptr inbounds [256 x i32], ptr @crc32tab, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw [256 x i32], ptr @crc32tab, i64 0, i64 %28
   %30 = load i32, ptr %29, align 4
   %31 = xor i32 %30, %26
-  %32 = getelementptr inbounds i8, ptr %.011.i, i64 1
+  %32 = getelementptr inbounds nuw i8, ptr %.011.i, i64 1
   %.not.i = icmp eq i64 %25, 0
   br i1 %.not.i, label %php_crc32_bulk_update.exit, label %.lr.ph.i
 
@@ -185,7 +185,7 @@ php_crc32_bulk_update.exit:                       ; preds = %.lr.ph.i, %16
   %34 = xor i32 %33, -1
   %35 = zext i32 %34 to i64
   store i64 %35, ptr %1, align 8
-  %36 = getelementptr inbounds i8, ptr %1, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 4, ptr %36, align 8
   br label %37
 

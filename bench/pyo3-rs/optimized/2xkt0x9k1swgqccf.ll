@@ -23,11 +23,11 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN19pyo3_macros_backend12deprecations12Deprecations3new17h84af1d2ab74840dbE(ptr nocapture writeonly sret([32 x i8]) align 8 initializes((0, 32)) %0, ptr align 8 %1) unnamed_addr #0 {
   store i64 0, ptr %0, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr inttoptr (i64 4 to ptr), ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %.sroa.3.0..sroa_idx, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1, ptr %3, align 8
   ret void
 }
@@ -51,13 +51,13 @@ define void @"_ZN94_$LT$pyo3_macros_backend..deprecations..Deprecations$u20$as$u
   %11 = alloca [24 x i8], align 8
   %12 = alloca [32 x i8], align 8
   %13 = alloca [16 x i8], align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %15 = load ptr, ptr %14, align 8
   %16 = tail call { ptr, ptr } @"_ZN94_$LT$$RF$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17haeb29ce5e98fb1a7E"(ptr align 8 %0)
   %17 = extractvalue { ptr, ptr } %16, 0
   %18 = extractvalue { ptr, ptr } %16, 1
   store ptr %17, ptr %13, align 8
-  %19 = getelementptr inbounds i8, ptr %13, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %18, ptr %19, align 8
   %20 = call align 4 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2f32e76de677ac72E"(ptr nonnull align 8 %13)
   %21 = icmp eq ptr %20, null
@@ -293,19 +293,19 @@ define hidden void @_ZN19pyo3_macros_backend12deprecations33deprecate_trailing_o
   %15 = alloca [32 x i8], align 8
   %16 = alloca [24 x i8], align 8
   %17 = alloca [16 x i8], align 8
-  %18 = getelementptr inbounds i8, ptr %1, i64 136
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %19 = load i64, ptr %18, align 8
   %.not = icmp eq i64 %19, -9223372036854775808
   br i1 %.not, label %20, label %28
 
 20:                                               ; preds = %2
-  %21 = getelementptr inbounds i8, ptr %1, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %24 = load i64, ptr %23, align 8
   %25 = getelementptr inbounds { i64, [40 x i64] }, ptr %22, i64 %24
   store ptr %22, ptr %17, align 8
-  %26 = getelementptr inbounds i8, ptr %17, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %25, ptr %26, align 8
   %27 = call zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h379610dc4a5e1b5bE"(ptr nonnull align 8 %17)
   br i1 %27, label %29, label %28
@@ -350,15 +350,15 @@ define hidden void @_ZN19pyo3_macros_backend12deprecations33deprecate_trailing_o
           to label %40 unwind label %32
 
 40:                                               ; preds = %39
-  %41 = getelementptr inbounds i8, ptr %1, i64 296
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 296
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %44 = load i8, ptr %43, align 8
   %45 = icmp eq i8 %44, 2
   br i1 %45, label %46, label %49
 
 46:                                               ; preds = %40
-  %47 = getelementptr inbounds i8, ptr %42, i64 4
+  %47 = getelementptr inbounds nuw i8, ptr %42, i64 4
   %48 = load i32, ptr %47, align 4
   br label %49
 

@@ -15,14 +15,14 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @acpi_ns_check_package(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = load ptr, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %5, i64 7
   %7 = load i8, ptr %6, align 1
   tail call void @acpi_ns_remove_null_elements(ptr noundef %0, i8 noundef zeroext %7, ptr noundef %3) #3
-  %8 = getelementptr inbounds i8, ptr %3, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 44
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 44
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 0
   %13 = load i8, ptr %6, align 1
@@ -33,9 +33,9 @@ define dso_local i32 @acpi_ns_check_package(ptr noundef %0, ptr noundef %1) loca
   br i1 %15, label %.thread, label %16
 
 16:                                               ; preds = %14
-  %17 = getelementptr inbounds i8, ptr %0, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 82
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 82
   %20 = load i16, ptr %19, align 2
   tail call void (ptr, i32, ptr, i16, ptr, ...) @acpi_ut_predefined_warning(ptr noundef nonnull @_acpi_module_name, i32 noundef 94, ptr noundef %18, i16 noundef zeroext %20, ptr noundef nonnull @.str) #3
   br label %.thread
@@ -63,21 +63,21 @@ define dso_local i32 @acpi_ns_check_package(ptr noundef %0, ptr noundef %1) loca
 
 24:                                               ; preds = %21
   %25 = load ptr, ptr %9, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 9
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 9
   %27 = load i8, ptr %26, align 1
   %28 = icmp eq i8 %27, 1
   br i1 %28, label %34, label %29
 
 29:                                               ; preds = %24
-  %30 = getelementptr inbounds i8, ptr %0, i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 82
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 82
   %33 = load i16, ptr %32, align 2
   tail call void (ptr, i32, ptr, i16, ptr, ...) @acpi_ut_predefined_warning(ptr noundef nonnull @_acpi_module_name, i32 noundef 635, ptr noundef %31, i16 noundef zeroext %33, ptr noundef nonnull @.str.6) #3
   br label %.thread
 
 34:                                               ; preds = %24
-  %35 = getelementptr inbounds i8, ptr %25, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %36 = load i64, ptr %35, align 8
   %37 = and i64 %36, 4294967295
   %38 = icmp eq i64 %37, 0
@@ -86,9 +86,9 @@ define dso_local i32 @acpi_ns_check_package(ptr noundef %0, ptr noundef %1) loca
   br i1 %40, label %41, label %.preheader27
 
 41:                                               ; preds = %34
-  %42 = getelementptr inbounds i8, ptr %0, i64 40
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %0, i64 82
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 82
   %45 = load i16, ptr %44, align 2
   tail call void (ptr, i32, ptr, i16, ptr, ...) @acpi_ut_predefined_warning(ptr noundef nonnull @_acpi_module_name, i32 noundef 649, ptr noundef %43, i16 noundef zeroext %45, ptr noundef nonnull @.str.3, i32 noundef %11, i32 noundef %39) #3
   br label %.thread
@@ -261,7 +261,7 @@ define dso_local i32 @acpi_ns_check_package(ptr noundef %0, ptr noundef %1) loca
 
 158:                                              ; preds = %155
   %159 = load ptr, ptr %9, align 8
-  %160 = getelementptr inbounds i8, ptr %159, i64 16
+  %160 = getelementptr inbounds nuw i8, ptr %159, i64 16
   %161 = load i64, ptr %160, align 8
   %162 = trunc i64 %161 to i32
   %163 = icmp ugt i32 %11, %162
@@ -278,7 +278,7 @@ define dso_local i32 @acpi_ns_check_package(ptr noundef %0, ptr noundef %1) loca
   br i1 %169, label %181, label %170
 
 170:                                              ; preds = %167
-  %171 = getelementptr inbounds i8, ptr %168, i64 9
+  %171 = getelementptr inbounds nuw i8, ptr %168, i64 9
   %172 = load i8, ptr %171, align 1
   %173 = icmp eq i8 %172, 4
   br i1 %173, label %181, label %174
@@ -290,7 +290,7 @@ define dso_local i32 @acpi_ns_check_package(ptr noundef %0, ptr noundef %1) loca
 
 177:                                              ; preds = %174
   %178 = load ptr, ptr %1, align 8
-  %179 = getelementptr inbounds i8, ptr %178, i64 24
+  %179 = getelementptr inbounds nuw i8, ptr %178, i64 24
   %180 = load ptr, ptr %179, align 8
   br label %181
 
@@ -325,15 +325,15 @@ define dso_local i32 @acpi_ns_check_package(ptr noundef %0, ptr noundef %1) loca
 
 200:                                              ; preds = %193
   %201 = load ptr, ptr %195, align 8
-  %202 = getelementptr inbounds i8, ptr %201, i64 24
+  %202 = getelementptr inbounds nuw i8, ptr %201, i64 24
   %203 = load i32, ptr %202, align 8
   %204 = icmp eq i32 %203, 16
   br i1 %204, label %210, label %205
 
 205:                                              ; preds = %200
-  %206 = getelementptr inbounds i8, ptr %0, i64 40
+  %206 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %207 = load ptr, ptr %206, align 8
-  %208 = getelementptr inbounds i8, ptr %0, i64 82
+  %208 = getelementptr inbounds nuw i8, ptr %0, i64 82
   %209 = load i16, ptr %208, align 2
   tail call void (ptr, i32, ptr, i16, ptr, ...) @acpi_ut_predefined_warning(ptr noundef nonnull @_acpi_module_name, i32 noundef 325, ptr noundef %207, i16 noundef zeroext %209, ptr noundef nonnull @.str.1) #3
   br label %.thread
@@ -354,18 +354,18 @@ define dso_local i32 @acpi_ns_check_package(ptr noundef %0, ptr noundef %1) loca
 
 220:                                              ; preds = %21
   %221 = zext i8 %13 to i32
-  %222 = getelementptr inbounds i8, ptr %0, i64 40
+  %222 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %223 = load ptr, ptr %222, align 8
-  %224 = getelementptr inbounds i8, ptr %0, i64 82
+  %224 = getelementptr inbounds nuw i8, ptr %0, i64 82
   %225 = load i16, ptr %224, align 2
   tail call void (ptr, i32, ptr, i16, ptr, ...) @acpi_ut_predefined_warning(ptr noundef nonnull @_acpi_module_name, i32 noundef 348, ptr noundef %223, i16 noundef zeroext %225, ptr noundef nonnull @.str.2, i32 noundef %221) #3
   br label %.thread
 
 226:                                              ; preds = %191, %158, %116, %67
   %227 = phi i32 [ %192, %191 ], [ %162, %158 ], [ %119, %116 ], [ %74, %67 ]
-  %228 = getelementptr inbounds i8, ptr %0, i64 40
+  %228 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %229 = load ptr, ptr %228, align 8
-  %230 = getelementptr inbounds i8, ptr %0, i64 82
+  %230 = getelementptr inbounds nuw i8, ptr %0, i64 82
   %231 = load i16, ptr %230, align 2
   tail call void (ptr, i32, ptr, i16, ptr, ...) @acpi_ut_predefined_warning(ptr noundef nonnull @_acpi_module_name, i32 noundef 362, ptr noundef %229, i16 noundef zeroext %231, ptr noundef nonnull @.str.3, i32 noundef %11, i32 noundef %227) #3
   br label %.thread
@@ -395,11 +395,11 @@ define internal fastcc i32 @acpi_ns_check_package_list(ptr noundef %0, ptr nocap
   br i1 %6, label %.loopexit, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 64
-  %9 = getelementptr inbounds i8, ptr %1, i64 2
-  %10 = getelementptr inbounds i8, ptr %1, i64 1
-  %11 = getelementptr inbounds i8, ptr %1, i64 4
-  %12 = getelementptr inbounds i8, ptr %1, i64 3
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 3
   br label %13
 
 13:                                               ; preds = %.thread, %7
@@ -407,7 +407,7 @@ define internal fastcc i32 @acpi_ns_check_package_list(ptr noundef %0, ptr nocap
   %15 = phi ptr [ %2, %7 ], [ %177, %.thread ]
   %16 = load ptr, ptr %15, align 8
   store ptr %16, ptr %5, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %18 = load ptr, ptr %17, align 8
   store ptr %16, ptr %8, align 8
   %19 = call i32 @acpi_ns_check_object_type(ptr noundef %0, ptr noundef nonnull %5, i32 noundef 16, i32 noundef %14) #3
@@ -435,7 +435,7 @@ define internal fastcc i32 @acpi_ns_check_package_list(ptr noundef %0, ptr nocap
   %27 = load i8, ptr %11, align 1
   %28 = zext i8 %27 to i32
   %29 = add nuw nsw i32 %28, %26
-  %30 = getelementptr inbounds i8, ptr %22, i64 44
+  %30 = getelementptr inbounds nuw i8, ptr %22, i64 44
   %31 = load i32, ptr %30, align 4
   %32 = icmp ult i32 %31, %29
   br i1 %32, label %180, label %33
@@ -489,7 +489,7 @@ define internal fastcc i32 @acpi_ns_check_package_list(ptr noundef %0, ptr nocap
   %63 = load i8, ptr %11, align 1
   %64 = zext i8 %63 to i32
   %65 = add nuw nsw i32 %64, %62
-  %66 = getelementptr inbounds i8, ptr %22, i64 44
+  %66 = getelementptr inbounds nuw i8, ptr %22, i64 44
   %67 = load i32, ptr %66, align 4
   %68 = icmp ult i32 %67, %65
   br i1 %68, label %180, label %69
@@ -541,7 +541,7 @@ define internal fastcc i32 @acpi_ns_check_package_list(ptr noundef %0, ptr nocap
 97:                                               ; preds = %21
   %98 = load i8, ptr %10, align 1
   %99 = zext i8 %98 to i32
-  %100 = getelementptr inbounds i8, ptr %22, i64 44
+  %100 = getelementptr inbounds nuw i8, ptr %22, i64 44
   %101 = load i32, ptr %100, align 4
   %102 = icmp ult i32 %101, %99
   br i1 %102, label %180, label %103
@@ -573,7 +573,7 @@ define internal fastcc i32 @acpi_ns_check_package_list(ptr noundef %0, ptr nocap
 119:                                              ; preds = %21
   %120 = load i8, ptr %9, align 1
   %121 = zext i8 %120 to i32
-  %122 = getelementptr inbounds i8, ptr %22, i64 44
+  %122 = getelementptr inbounds nuw i8, ptr %22, i64 44
   %123 = load i32, ptr %122, align 4
   %124 = icmp ult i32 %123, %121
   br i1 %124, label %180, label %125
@@ -607,11 +607,11 @@ define internal fastcc i32 @acpi_ns_check_package_list(ptr noundef %0, ptr nocap
 
 142:                                              ; preds = %139
   %143 = load ptr, ptr %18, align 8
-  %144 = getelementptr inbounds i8, ptr %143, i64 16
+  %144 = getelementptr inbounds nuw i8, ptr %143, i64 16
   %145 = load i64, ptr %144, align 8
   %146 = trunc i64 %145 to i32
   %147 = load ptr, ptr %5, align 8
-  %148 = getelementptr inbounds i8, ptr %147, i64 44
+  %148 = getelementptr inbounds nuw i8, ptr %147, i64 44
   %149 = load i32, ptr %148, align 4
   %150 = icmp ult i32 %149, %146
   br i1 %150, label %180, label %151
@@ -669,9 +669,9 @@ define internal fastcc i32 @acpi_ns_check_package_list(ptr noundef %0, ptr nocap
 180:                                              ; preds = %151, %142, %119, %97, %60, %24
   %181 = phi i32 [ %149, %142 ], [ %123, %119 ], [ %101, %97 ], [ %67, %60 ], [ %31, %24 ], [ %149, %151 ]
   %182 = phi i32 [ %146, %142 ], [ %121, %119 ], [ %99, %97 ], [ %65, %60 ], [ %29, %24 ], [ %153, %151 ]
-  %183 = getelementptr inbounds i8, ptr %0, i64 40
+  %183 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %184 = load ptr, ptr %183, align 8
-  %185 = getelementptr inbounds i8, ptr %0, i64 82
+  %185 = getelementptr inbounds nuw i8, ptr %0, i64 82
   %186 = load i16, ptr %185, align 2
   call void (ptr, i32, ptr, i16, ptr, ...) @acpi_ut_predefined_warning(ptr noundef nonnull @_acpi_module_name, i32 noundef 597, ptr noundef %184, i16 noundef zeroext %186, ptr noundef nonnull @.str.5, i32 noundef %14, i32 noundef %181, i32 noundef %182) #3
   br label %.loopexit

@@ -55,9 +55,9 @@ define internal void @protocolinfo_init(ptr noundef %0, ptr nocapture readnone %
 
 11:                                               ; preds = %8
   %12 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #9
-  %13 = getelementptr inbounds i8, ptr %9, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %14 = load i32, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %12, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i32 %14, ptr %15, align 8
   %16 = ptrtoint ptr %7 to i64
   %17 = ptrtoint ptr %5 to i64
@@ -120,7 +120,7 @@ declare ptr @register_tap_listener(ptr noundef, ptr noundef, ptr noundef, i32 no
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @protocolinfo_packet(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, i32 %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 @col_get_writable(ptr noundef %7, i32 noundef 25) #6
   %.not = icmp eq i32 %8, 0
@@ -132,16 +132,16 @@ define internal noundef i32 @protocolinfo_packet(ptr nocapture noundef readonly 
   unreachable
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %2, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load i32, ptr %13, align 8
   %15 = tail call ptr @proto_get_finfo_ptr_array(ptr noundef %12, i32 noundef %14) #6
   %.not16 = icmp eq ptr %15, null
   br i1 %.not16, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %10
-  %16 = getelementptr inbounds i8, ptr %15, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load i32, ptr %16, align 8
   %.not19 = icmp eq i32 %17, 0
   br i1 %.not19, label %.loopexit, label %.lr.ph

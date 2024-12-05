@@ -30,17 +30,17 @@ define void @cblas_drotm(i32 noundef %0, ptr nocapture noundef %1, i32 noundef %
   br i1 %21, label %23, label %39
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds i8, ptr %5, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %25 = load double, ptr %24, align 8, !tbaa !3
-  %26 = getelementptr inbounds i8, ptr %5, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %27 = load double, ptr %26, align 8, !tbaa !3
   br label %28
 
 28:                                               ; preds = %28, %23
   %29 = phi i64 [ 1, %23 ], [ %36, %28 ]
-  %30 = getelementptr inbounds double, ptr %8, i64 %29
+  %30 = getelementptr inbounds nuw double, ptr %8, i64 %29
   %31 = load double, ptr %30, align 8, !tbaa !3
-  %32 = getelementptr inbounds double, ptr %7, i64 %29
+  %32 = getelementptr inbounds nuw double, ptr %7, i64 %29
   %33 = load double, ptr %32, align 8, !tbaa !3
   %34 = tail call double @llvm.fmuladd.f64(double %33, double %25, double %31)
   store double %34, ptr %30, align 8, !tbaa !3
@@ -52,17 +52,17 @@ define void @cblas_drotm(i32 noundef %0, ptr nocapture noundef %1, i32 noundef %
   br i1 %38, label %.loopexit, label %28, !llvm.loop !7
 
 39:                                               ; preds = %20
-  %40 = getelementptr inbounds i8, ptr %5, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %41 = load double, ptr %40, align 8, !tbaa !3
-  %42 = getelementptr inbounds i8, ptr %5, i64 32
+  %42 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %43 = load double, ptr %42, align 8, !tbaa !3
   br label %44
 
 44:                                               ; preds = %44, %39
   %45 = phi i64 [ 1, %39 ], [ %53, %44 ]
-  %46 = getelementptr inbounds double, ptr %8, i64 %45
+  %46 = getelementptr inbounds nuw double, ptr %8, i64 %45
   %47 = load double, ptr %46, align 8, !tbaa !3
-  %48 = getelementptr inbounds double, ptr %7, i64 %45
+  %48 = getelementptr inbounds nuw double, ptr %7, i64 %45
   %49 = load double, ptr %48, align 8, !tbaa !3
   %50 = tail call double @llvm.fmuladd.f64(double %47, double %41, double %49)
   store double %50, ptr %46, align 8, !tbaa !3
@@ -75,22 +75,22 @@ define void @cblas_drotm(i32 noundef %0, ptr nocapture noundef %1, i32 noundef %
   br i1 %55, label %.loopexit, label %44, !llvm.loop !10
 
 56:                                               ; preds = %17
-  %57 = getelementptr inbounds i8, ptr %5, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %58 = load double, ptr %57, align 8, !tbaa !3
-  %59 = getelementptr inbounds i8, ptr %5, i64 24
+  %59 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %60 = load double, ptr %59, align 8, !tbaa !3
-  %61 = getelementptr inbounds i8, ptr %5, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %62 = load double, ptr %61, align 8, !tbaa !3
-  %63 = getelementptr inbounds i8, ptr %5, i64 32
+  %63 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %64 = load double, ptr %63, align 8, !tbaa !3
   %65 = zext nneg i32 %2 to i64
   br label %66
 
 66:                                               ; preds = %66, %56
   %67 = phi i64 [ 1, %56 ], [ %76, %66 ]
-  %68 = getelementptr inbounds double, ptr %8, i64 %67
+  %68 = getelementptr inbounds nuw double, ptr %8, i64 %67
   %69 = load double, ptr %68, align 8, !tbaa !3
-  %70 = getelementptr inbounds double, ptr %7, i64 %67
+  %70 = getelementptr inbounds nuw double, ptr %7, i64 %67
   %71 = load double, ptr %70, align 8, !tbaa !3
   %72 = fmul double %60, %71
   %73 = tail call double @llvm.fmuladd.f64(double %69, double %58, double %72)
@@ -125,9 +125,9 @@ define void @cblas_drotm(i32 noundef %0, ptr nocapture noundef %1, i32 noundef %
   br i1 %91, label %96, label %115
 
 96:                                               ; preds = %90
-  %97 = getelementptr inbounds i8, ptr %5, i64 24
+  %97 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %98 = load double, ptr %97, align 8, !tbaa !3
-  %99 = getelementptr inbounds i8, ptr %5, i64 16
+  %99 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %100 = load double, ptr %99, align 8, !tbaa !3
   br label %101
 
@@ -150,9 +150,9 @@ define void @cblas_drotm(i32 noundef %0, ptr nocapture noundef %1, i32 noundef %
   br i1 %114, label %.loopexit, label %101, !llvm.loop !12
 
 115:                                              ; preds = %90
-  %116 = getelementptr inbounds i8, ptr %5, i64 8
+  %116 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %117 = load double, ptr %116, align 8, !tbaa !3
-  %118 = getelementptr inbounds i8, ptr %5, i64 32
+  %118 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %119 = load double, ptr %118, align 8, !tbaa !3
   br label %120
 
@@ -176,13 +176,13 @@ define void @cblas_drotm(i32 noundef %0, ptr nocapture noundef %1, i32 noundef %
   br i1 %134, label %.loopexit, label %120, !llvm.loop !13
 
 135:                                              ; preds = %79
-  %136 = getelementptr inbounds i8, ptr %5, i64 8
+  %136 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %137 = load double, ptr %136, align 8, !tbaa !3
-  %138 = getelementptr inbounds i8, ptr %5, i64 24
+  %138 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %139 = load double, ptr %138, align 8, !tbaa !3
-  %140 = getelementptr inbounds i8, ptr %5, i64 16
+  %140 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %141 = load double, ptr %140, align 8, !tbaa !3
-  %142 = getelementptr inbounds i8, ptr %5, i64 32
+  %142 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %143 = load double, ptr %142, align 8, !tbaa !3
   %144 = sext i32 %88 to i64
   %145 = sext i32 %4 to i64

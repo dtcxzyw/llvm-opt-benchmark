@@ -64,7 +64,7 @@ declare i32 @MIDI_OUT_SendShortMessage(ptr noundef, i32 noundef, i32 noundef) lo
 ; Function Attrs: nounwind uwtable
 define void @Java_com_sun_media_sound_MidiOutDevice_nSendLongMessage(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2, ptr noundef %3, i32 noundef %4, i64 noundef %5) local_unnamed_addr #0 {
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 1472
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 1472
   %9 = load ptr, ptr %8, align 8
   %10 = tail call ptr %9(ptr noundef nonnull %0, ptr noundef %3, ptr noundef null) #3
   %.not = icmp eq ptr %10, null
@@ -78,12 +78,12 @@ define void @Java_com_sun_media_sound_MidiOutDevice_nSendLongMessage(ptr noundef
   %15 = sext i1 %or.cond to i32
   %.017 = add nsw i32 %4, %15
   %.0.idx = zext i1 %or.cond to i64
-  %.0 = getelementptr inbounds i8, ptr %10, i64 %.0.idx
+  %.0 = getelementptr inbounds nuw i8, ptr %10, i64 %.0.idx
   %16 = inttoptr i64 %2 to ptr
   %17 = trunc i64 %5 to i32
   %18 = tail call i32 @MIDI_OUT_SendLongMessage(ptr noundef %16, ptr noundef nonnull %.0, i32 noundef %.017, i32 noundef %17) #3
   %19 = load ptr, ptr %0, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 1536
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 1536
   %21 = load ptr, ptr %20, align 8
   tail call void %21(ptr noundef nonnull %0, ptr noundef %3, ptr noundef nonnull %10, i32 noundef 2) #3
   br label %22

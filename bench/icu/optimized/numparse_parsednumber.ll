@@ -11,19 +11,19 @@ target triple = "x86_64-unknown-linux-gnu"
 define void @_ZN6icu_758numparse4impl12ParsedNumberC2Ev(ptr noundef nonnull align 8 dereferenceable(216) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont3:
   tail call void @_ZN6icu_756number4impl15DecimalQuantityC1Ev(ptr noundef nonnull align 8 dereferenceable(66) %this)
-  %prefix = getelementptr inbounds i8, ptr %this, i64 80
+  %prefix = getelementptr inbounds nuw i8, ptr %this, i64 80
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %prefix, align 8
-  %fUnion2.i = getelementptr inbounds i8, ptr %this, i64 88
+  %fUnion2.i = getelementptr inbounds nuw i8, ptr %this, i64 88
   store i16 2, ptr %fUnion2.i, align 8
-  %suffix = getelementptr inbounds i8, ptr %this, i64 144
+  %suffix = getelementptr inbounds nuw i8, ptr %this, i64 144
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %suffix, align 8
-  %fUnion2.i3 = getelementptr inbounds i8, ptr %this, i64 152
+  %fUnion2.i3 = getelementptr inbounds nuw i8, ptr %this, i64 152
   store i16 2, ptr %fUnion2.i3, align 8
-  %bogus.i = getelementptr inbounds i8, ptr %this, i64 8
+  %bogus.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i8 1, ptr %bogus.i, align 8
-  %charEnd.i = getelementptr inbounds i8, ptr %this, i64 72
+  %charEnd.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   store i32 0, ptr %charEnd.i, align 8
-  %flags.i = getelementptr inbounds i8, ptr %this, i64 76
+  %flags.i = getelementptr inbounds nuw i8, ptr %this, i64 76
   store i32 0, ptr %flags.i, align 4
   invoke void @_ZN6icu_7513UnicodeString10setToBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %prefix)
           to label %.noexc unwind label %lpad4
@@ -33,7 +33,7 @@ invoke.cont3:
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %.noexc
-  %currencyCode.i = getelementptr inbounds i8, ptr %this, i64 208
+  %currencyCode.i = getelementptr inbounds nuw i8, ptr %this, i64 208
   store i16 0, ptr %currencyCode.i, align 8
   ret void
 
@@ -53,17 +53,17 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_758numparse4impl12ParsedNumber5clearEv(ptr noundef nonnull align 8 dereferenceable(216) initializes((8, 9), (72, 80)) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %bogus = getelementptr inbounds i8, ptr %this, i64 8
+  %bogus = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i8 1, ptr %bogus, align 8
-  %charEnd = getelementptr inbounds i8, ptr %this, i64 72
+  %charEnd = getelementptr inbounds nuw i8, ptr %this, i64 72
   store i32 0, ptr %charEnd, align 8
-  %flags = getelementptr inbounds i8, ptr %this, i64 76
+  %flags = getelementptr inbounds nuw i8, ptr %this, i64 76
   store i32 0, ptr %flags, align 4
-  %prefix = getelementptr inbounds i8, ptr %this, i64 80
+  %prefix = getelementptr inbounds nuw i8, ptr %this, i64 80
   tail call void @_ZN6icu_7513UnicodeString10setToBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %prefix)
-  %suffix = getelementptr inbounds i8, ptr %this, i64 144
+  %suffix = getelementptr inbounds nuw i8, ptr %this, i64 144
   tail call void @_ZN6icu_7513UnicodeString10setToBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %suffix)
-  %currencyCode = getelementptr inbounds i8, ptr %this, i64 208
+  %currencyCode = getelementptr inbounds nuw i8, ptr %this, i64 208
   store i16 0, ptr %currencyCode, align 8
   ret void
 }
@@ -80,7 +80,7 @@ declare void @_ZN6icu_7513UnicodeString10setToBogusEv(ptr noundef nonnull align 
 define void @_ZN6icu_758numparse4impl12ParsedNumber16setCharsConsumedERKNS_13StringSegmentE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(216) initializes((72, 76)) %this, ptr noundef nonnull align 8 dereferenceable(17) %segment) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noundef i32 @_ZNK6icu_7513StringSegment9getOffsetEv(ptr noundef nonnull align 8 dereferenceable(17) %segment)
-  %charEnd = getelementptr inbounds i8, ptr %this, i64 72
+  %charEnd = getelementptr inbounds nuw i8, ptr %this, i64 72
   store i32 %call, ptr %charEnd, align 8
   ret void
 }
@@ -90,13 +90,13 @@ declare noundef i32 @_ZNK6icu_7513StringSegment9getOffsetEv(ptr noundef nonnull 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_758numparse4impl12ParsedNumber11postProcessEv(ptr noundef nonnull align 8 dereferenceable(216) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %bogus = getelementptr inbounds i8, ptr %this, i64 8
+  %bogus = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i8, ptr %bogus, align 8
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %flags = getelementptr inbounds i8, ptr %this, i64 76
+  %flags = getelementptr inbounds nuw i8, ptr %this, i64 76
   %1 = load i32, ptr %flags, align 4
   %and = and i32 %1, 1
   %cmp.not = icmp eq i32 %and, 0
@@ -115,10 +115,10 @@ declare void @_ZN6icu_756number4impl15DecimalQuantity6negateEv(ptr noundef nonnu
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZNK6icu_758numparse4impl12ParsedNumber7successEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(216) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %charEnd = getelementptr inbounds i8, ptr %this, i64 72
+  %charEnd = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = load i32, ptr %charEnd, align 8
   %cmp = icmp sgt i32 %0, 0
-  %flags = getelementptr inbounds i8, ptr %this, i64 76
+  %flags = getelementptr inbounds nuw i8, ptr %this, i64 76
   %1 = load i32, ptr %flags, align 4
   %and = and i32 %1, 256
   %cmp2 = icmp eq i32 %and, 0
@@ -129,13 +129,13 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZNK6icu_758numparse4impl12ParsedNumber10seenNumberEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(216) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %bogus = getelementptr inbounds i8, ptr %this, i64 8
+  %bogus = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i8, ptr %bogus, align 8
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %lor.lhs.false, label %lor.end
 
 lor.lhs.false:                                    ; preds = %entry
-  %flags = getelementptr inbounds i8, ptr %this, i64 76
+  %flags = getelementptr inbounds nuw i8, ptr %this, i64 76
   %1 = load i32, ptr %flags, align 4
   %and = and i32 %1, 64
   %cmp.not = icmp eq i32 %and, 0
@@ -154,7 +154,7 @@ lor.end:                                          ; preds = %lor.rhs, %lor.lhs.f
 ; Function Attrs: mustprogress uwtable
 define noundef double @_ZNK6icu_758numparse4impl12ParsedNumber9getDoubleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %status) local_unnamed_addr #0 align 2 {
 entry:
-  %flags = getelementptr inbounds i8, ptr %this, i64 76
+  %flags = getelementptr inbounds nuw i8, ptr %this, i64 76
   %0 = load i32, ptr %flags, align 4
   %and = and i32 %0, 64
   %cmp.not = icmp eq i32 %and, 0
@@ -176,7 +176,7 @@ if.then7:                                         ; preds = %if.end
   br label %return
 
 if.end12:                                         ; preds = %if.end
-  %bogus = getelementptr inbounds i8, ptr %this, i64 8
+  %bogus = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i8, ptr %bogus, align 8
   %tobool13 = trunc i8 %1 to i1
   br i1 %tobool13, label %if.then14, label %if.end15
@@ -226,7 +226,7 @@ declare noundef double @_ZNK6icu_756number4impl15DecimalQuantity8toDoubleEv(ptr 
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK6icu_758numparse4impl12ParsedNumber19populateFormattableERNS_11FormattableEi(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr noundef nonnull align 8 dereferenceable(112) %output, i32 noundef %parseFlags) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %flags = getelementptr inbounds i8, ptr %this, i64 76
+  %flags = getelementptr inbounds nuw i8, ptr %this, i64 76
   %0 = load i32, ptr %flags, align 4
   %and = and i32 %0, 64
   %cmp.not = icmp eq i32 %and, 0
@@ -308,9 +308,9 @@ declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZN6icu_758numparse4impl12ParsedNumber12isBetterThanERKS2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(216) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(216) %other) local_unnamed_addr #3 align 2 {
 entry:
-  %charEnd = getelementptr inbounds i8, ptr %this, i64 72
+  %charEnd = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = load i32, ptr %charEnd, align 8
-  %charEnd2 = getelementptr inbounds i8, ptr %other, i64 72
+  %charEnd2 = getelementptr inbounds nuw i8, ptr %other, i64 72
   %1 = load i32, ptr %charEnd2, align 8
   %cmp = icmp sgt i32 %0, %1
   ret i1 %cmp

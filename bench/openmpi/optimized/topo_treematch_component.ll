@@ -51,9 +51,9 @@ define internal noundef ptr @mca_topo_treematch_query(ptr nocapture readnone %0,
 
 12:                                               ; preds = %11
   store ptr @mca_topo_treematch_module_t_class, ptr %7, align 8
-  %13 = getelementptr inbounds i8, ptr %7, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store volatile i32 1, ptr %13, align 8
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_topo_treematch_module_t_class, i64 40), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_topo_treematch_module_t_class, i64 40), align 8
   %15 = load ptr, ptr %14, align 8
   %.not6.i.i = icmp eq ptr %15, null
   br i1 %.not6.i.i, label %opal_obj_new.exit.thread7, label %.lr.ph.i.i
@@ -62,16 +62,16 @@ define internal noundef ptr @mca_topo_treematch_query(ptr nocapture readnone %0,
   %16 = phi ptr [ %18, %.lr.ph.i.i ], [ %15, %12 ]
   %.07.i.i = phi ptr [ %17, %.lr.ph.i.i ], [ %14, %12 ]
   tail call void %16(ptr noundef nonnull %7) #4
-  %17 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %.07.i.i, i64 8
   %18 = load ptr, ptr %17, align 8
   %.not.i.i = icmp eq ptr %18, null
   br i1 %.not.i.i, label %opal_obj_new.exit.thread7, label %.lr.ph.i.i, !llvm.loop !4
 
 opal_obj_new.exit.thread7:                        ; preds = %.lr.ph.i.i, %12
-  %19 = getelementptr inbounds i8, ptr %7, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr @mca_topo_treematch_dist_graph_create, ptr %19, align 8
   store i32 42, ptr %2, align 4
-  %20 = getelementptr inbounds i8, ptr %7, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i32 1024, ptr %20, align 8
   br label %opal_obj_new.exit.thread
 

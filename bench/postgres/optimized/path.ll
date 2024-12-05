@@ -265,19 +265,19 @@ sub_0:                                            ; preds = %.preheader, %30
   br i1 %.not135, label %.tail, label %.tail123
 
 .tail:                                            ; preds = %sub_0
-  %33 = getelementptr inbounds i8, ptr %.177, i64 1
+  %33 = getelementptr inbounds nuw i8, ptr %.177, i64 1
   %34 = load i8, ptr %33, align 1
   %35 = icmp eq i8 %34, 0
   br i1 %35, label %25, label %sub_1125, !llvm.loop !13
 
 sub_1125:                                         ; preds = %.tail
-  %36 = getelementptr inbounds i8, ptr %.177, i64 1
+  %36 = getelementptr inbounds nuw i8, ptr %.177, i64 1
   %37 = load i8, ptr %36, align 1
   %.not137 = icmp eq i8 %37, 46
   br i1 %.not137, label %sub_2, label %.tail123
 
 sub_2:                                            ; preds = %sub_1125
-  %38 = getelementptr inbounds i8, ptr %.177, i64 2
+  %38 = getelementptr inbounds nuw i8, ptr %.177, i64 2
   %39 = load i8, ptr %38, align 1
   %40 = icmp eq i8 %39, 0
   br label %.tail123

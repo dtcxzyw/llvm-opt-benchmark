@@ -32,12 +32,12 @@ define dso_local void @irq_migrate_all_off_this_cpu() local_unnamed_addr #0 alig
 .preheader:                                       ; preds = %0, %121
   %4 = phi i32 [ %123, %121 ], [ %1, %0 ]
   %5 = tail call ptr @irq_to_desc(i32 noundef %4) #4
-  %6 = getelementptr inbounds i8, ptr %5, i64 164
-  tail call void @_raw_spin_lock(ptr noundef %6) #4
-  %7 = getelementptr inbounds i8, ptr %5, i64 40
-  %8 = getelementptr inbounds i8, ptr %5, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 164
+  tail call void @_raw_spin_lock(ptr noundef nonnull %6) #4
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 163840
@@ -46,7 +46,7 @@ define dso_local void @irq_migrate_all_off_this_cpu() local_unnamed_addr #0 alig
   br i1 %15, label %121, label %16
 
 16:                                               ; preds = %.preheader
-  %17 = getelementptr inbounds i8, ptr %9, i64 80
+  %17 = getelementptr inbounds nuw i8, ptr %9, i64 80
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
   br i1 %19, label %121, label %20
@@ -57,11 +57,11 @@ define dso_local void @irq_migrate_all_off_this_cpu() local_unnamed_addr #0 alig
   br i1 %22, label %23, label %69
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds i8, ptr %11, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %25 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #5, !srcloc !5
   %26 = load i64, ptr %24, align 8
   %27 = icmp eq i64 %26, 0
-  %28 = getelementptr inbounds i8, ptr %11, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %29 = select i1 %27, ptr %28, ptr %24
   br label %30
 
@@ -111,14 +111,14 @@ define dso_local void @irq_migrate_all_off_this_cpu() local_unnamed_addr #0 alig
   br i1 %59, label %64, label %60
 
 60:                                               ; preds = %57
-  %61 = getelementptr inbounds i8, ptr %5, i64 44
+  %61 = getelementptr inbounds nuw i8, ptr %5, i64 44
   %62 = load i32, ptr %61, align 4
-  %63 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.2, i32 noundef %47, ptr noundef %29, i32 noundef %62, i32 noundef %25) #6
+  %63 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.2, i32 noundef %47, ptr noundef nonnull %29, i32 noundef %62, i32 noundef %25) #6
   br label %71
 
 64:                                               ; preds = %57, %.thread
   %65 = zext i32 %25 to i64
-  %66 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %29, i64 %65) #4, !srcloc !11
+  %66 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %29, i64 %65) #4, !srcloc !11
   %67 = icmp ult i8 %66, 2
   tail call void @llvm.assume(i1 %67)
   %68 = icmp eq i8 %66, 0
@@ -134,12 +134,12 @@ define dso_local void @irq_migrate_all_off_this_cpu() local_unnamed_addr #0 alig
   br i1 %72, label %73, label %75
 
 73:                                               ; preds = %71
-  %74 = getelementptr inbounds i8, ptr %5, i64 200
+  %74 = getelementptr inbounds nuw i8, ptr %5, i64 200
   br label %78
 
 75:                                               ; preds = %71
   %76 = load ptr, ptr %10, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 24
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 24
   br label %78
 
 78:                                               ; preds = %75, %73
@@ -147,13 +147,13 @@ define dso_local void @irq_migrate_all_off_this_cpu() local_unnamed_addr #0 alig
   br i1 %14, label %80, label %85
 
 80:                                               ; preds = %78
-  %81 = getelementptr inbounds i8, ptr %9, i64 48
+  %81 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %82 = load ptr, ptr %81, align 8
   %83 = icmp eq ptr %82, null
   br i1 %83, label %85, label %84
 
 84:                                               ; preds = %80
-  tail call void %82(ptr noundef %7) #4
+  tail call void %82(ptr noundef nonnull %7) #4
   br label %85
 
 85:                                               ; preds = %84, %80, %78
@@ -189,7 +189,7 @@ define dso_local void @irq_migrate_all_off_this_cpu() local_unnamed_addr #0 alig
 
 104:                                              ; preds = %97, %93
   %105 = phi ptr [ %79, %93 ], [ @__cpu_online_mask, %97 ]
-  %106 = tail call i32 @irq_do_set_affinity(ptr noundef %7, ptr noundef %105, i1 noundef zeroext false) #4
+  %106 = tail call i32 @irq_do_set_affinity(ptr noundef nonnull %7, ptr noundef nonnull %105, i1 noundef zeroext false) #4
   %107 = icmp eq i32 %106, 0
   br i1 %107, label %115, label %108
 
@@ -199,7 +199,7 @@ define dso_local void @irq_migrate_all_off_this_cpu() local_unnamed_addr #0 alig
   br i1 %110, label %115, label %111
 
 111:                                              ; preds = %108
-  %112 = getelementptr inbounds i8, ptr %5, i64 44
+  %112 = getelementptr inbounds nuw i8, ptr %5, i64 44
   %113 = load i32, ptr %112, align 4
   %114 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str, i32 noundef %113, i32 noundef %106) #6
   br label %115
@@ -208,17 +208,17 @@ define dso_local void @irq_migrate_all_off_this_cpu() local_unnamed_addr #0 alig
   br i1 %14, label %116, label %121
 
 116:                                              ; preds = %115
-  %117 = getelementptr inbounds i8, ptr %9, i64 64
+  %117 = getelementptr inbounds nuw i8, ptr %9, i64 64
   %118 = load ptr, ptr %117, align 8
   %119 = icmp eq ptr %118, null
   br i1 %119, label %121, label %120
 
 120:                                              ; preds = %116
-  tail call void %118(ptr noundef %7) #4
+  tail call void %118(ptr noundef nonnull %7) #4
   br label %121
 
 121:                                              ; preds = %120, %116, %115, %102, %69, %16, %.preheader
-  tail call void @_raw_spin_unlock(ptr noundef %6) #4
+  tail call void @_raw_spin_unlock(ptr noundef nonnull %6) #4
   %122 = add i32 %4, 1
   %123 = tail call i32 @irq_get_next_irq(i32 noundef %122) #4
   %124 = load i32, ptr @nr_irqs, align 4
@@ -256,31 +256,31 @@ define dso_local noundef i32 @irq_affinity_online_cpu(i32 noundef %0) local_unna
 7:                                                ; preds = %57, %5
   %8 = phi i32 [ %2, %5 ], [ %59, %57 ]
   %9 = tail call ptr @irq_to_desc(i32 noundef %8) #4
-  %10 = getelementptr inbounds i8, ptr %9, i64 164
-  tail call void @_raw_spin_lock_irq(ptr noundef %10) #4
-  %11 = getelementptr inbounds i8, ptr %9, i64 40
-  %12 = getelementptr inbounds i8, ptr %9, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 164
+  tail call void @_raw_spin_lock_irq(ptr noundef nonnull %10) #4
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 56
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = load i32, ptr %13, align 8
   %16 = and i32 %15, 2097152
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %57, label %18
 
 18:                                               ; preds = %7
-  %19 = getelementptr inbounds i8, ptr %9, i64 112
+  %19 = getelementptr inbounds nuw i8, ptr %9, i64 112
   %20 = load ptr, ptr %19, align 16
   %21 = icmp eq ptr %20, null
   br i1 %21, label %57, label %22
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %9, i64 64
+  %23 = getelementptr inbounds nuw i8, ptr %9, i64 64
   %24 = load ptr, ptr %23, align 8
   %25 = icmp eq ptr %24, null
   br i1 %25, label %57, label %26
 
 26:                                               ; preds = %22
-  %27 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %14, i64 %6) #4, !srcloc !11
+  %27 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %14, i64 %6) #4, !srcloc !11
   %28 = icmp ult i8 %27, 2
   tail call void @llvm.assume(i1 %28)
   %29 = icmp eq i8 %27, 0
@@ -309,7 +309,7 @@ define dso_local noundef i32 @irq_affinity_online_cpu(i32 noundef %0) local_unna
 42:                                               ; preds = %40
   %43 = tail call ptr @housekeeping_cpumask(i32 noundef 7) #4
   %44 = load ptr, ptr %12, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 32
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 32
   %46 = load i64, ptr %45, align 8
   %47 = load i64, ptr %43, align 8
   %48 = xor i64 %47, -1
@@ -325,11 +325,11 @@ define dso_local noundef i32 @irq_affinity_online_cpu(i32 noundef %0) local_unna
   br i1 %54, label %57, label %55
 
 55:                                               ; preds = %51, %37
-  %56 = tail call i32 @irq_set_affinity_locked(ptr noundef %11, ptr noundef %14, i1 noundef zeroext false) #4
+  %56 = tail call i32 @irq_set_affinity_locked(ptr noundef nonnull %11, ptr noundef nonnull %14, i1 noundef zeroext false) #4
   br label %57
 
 57:                                               ; preds = %55, %51, %42, %40, %35, %26, %22, %18, %7
-  tail call void @_raw_spin_unlock_irq(ptr noundef %10) #4
+  tail call void @_raw_spin_unlock_irq(ptr noundef nonnull %10) #4
   %58 = add nuw i32 %8, 1
   %59 = tail call i32 @irq_get_next_irq(i32 noundef %58) #4
   %60 = load i32, ptr @nr_irqs, align 4

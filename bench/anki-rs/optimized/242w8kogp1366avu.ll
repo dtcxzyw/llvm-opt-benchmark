@@ -7,7 +7,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define void @_ZN4core4iter6traits8iterator8Iterator4fold17h8413a6a015ff070cE(i32 %0, i32 %1, ptr align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i32, i32 }, align 4
   store i32 %0, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %4, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %1, ptr %5, align 4
   br label %6
 
@@ -49,7 +49,7 @@ define void @_ZN4core4iter6traits8iterator8Iterator4fold17h8413a6a015ff070cE(i32
 define void @_ZN4core4iter6traits8iterator8Iterator4fold17h8d00b7c9752bbe91E(i32 %0, i32 %1, ptr align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i32, i32 }, align 4
   store i32 %0, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %4, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %1, ptr %5, align 4
   %6 = call { i32, i32 } @"_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$4next17ha41f11d50ec6c876E"(ptr nonnull align 4 %4)
   %.fca.0.extract4 = extractvalue { i32, i32 } %6, 0

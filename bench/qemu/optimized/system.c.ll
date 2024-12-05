@@ -106,7 +106,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local i32 @gdb_get_cpu_index(ptr nocapture noundef readonly %cpu) local_unnamed_addr #0 {
 entry:
-  %cpu_index = getelementptr inbounds i8, ptr %cpu, i64 712
+  %cpu_index = getelementptr inbounds nuw i8, ptr %cpu, i64 712
   %0 = load i32, ptr %cpu_index, align 8
   %add = add i32 %0, 1
   ret i32 %add
@@ -153,7 +153,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %call.i = tail call ptr @cpus_get_accel() #15
-  %supports_guest_debug.i = getelementptr inbounds i8, ptr %call.i, i64 208
+  %supports_guest_debug.i = getelementptr inbounds nuw i8, ptr %call.i, i64 208
   %1 = load ptr, ptr %supports_guest_debug.i, align 8
   %tobool.not.i = icmp eq ptr %1, null
   br i1 %tobool.not.i, label %cleanup, label %gdb_supports_guest_debug.exit
@@ -163,7 +163,7 @@ gdb_supports_guest_debug.exit:                    ; preds = %if.end
   br i1 %call2.i, label %if.end3, label %cleanup
 
 if.end3:                                          ; preds = %gdb_supports_guest_debug.exit
-  %len = getelementptr inbounds i8, ptr %call, i64 8
+  %len = getelementptr inbounds nuw i8, ptr %call, i64 8
   %2 = load i64, ptr %len, align 8
   %cmp = icmp eq i64 %2, 0
   br i1 %cmp, label %if.then.i.i9, label %if.end5
@@ -193,7 +193,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #15
   %call10.i.i = tail call i32 @qemu_get_thread_id() #15
   %8 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %9 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.16, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, ptr noundef %3) #15
   br label %trace_gdbstub_op_start.exit
@@ -225,7 +225,7 @@ if.else:                                          ; preds = %if.then9
   br i1 %cmp15, label %if.then16, label %if.end19
 
 if.then16:                                        ; preds = %if.else
-  %12 = getelementptr inbounds i8, ptr %act, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %act, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %12, i8 0, i64 144, i1 false)
   store ptr @gdb_sigterm_handler, ptr %act, align 8
   %call17 = call i32 @sigaction(i32 noundef 2, ptr noundef nonnull %act, ptr noundef null) #15
@@ -318,7 +318,7 @@ declare void @error_report(ptr noundef, ...) local_unnamed_addr #3
 define dso_local zeroext i1 @gdb_supports_guest_debug() local_unnamed_addr #2 {
 entry:
   %call = tail call ptr @cpus_get_accel() #15
-  %supports_guest_debug = getelementptr inbounds i8, ptr %call, i64 208
+  %supports_guest_debug = getelementptr inbounds nuw i8, ptr %call, i64 208
   %0 = load ptr, ptr %supports_guest_debug, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %if.then
@@ -404,20 +404,20 @@ if.end10:                                         ; preds = %if.end7
   ]
 
 sw.bb:                                            ; preds = %if.end10
-  %watchpoint_hit = getelementptr inbounds i8, ptr %0, i64 616
+  %watchpoint_hit = getelementptr inbounds nuw i8, ptr %0, i64 616
   %3 = load ptr, ptr %watchpoint_hit, align 8
   %tobool11.not = icmp eq ptr %3, null
   br i1 %tobool11.not, label %if.else, label %if.then12
 
 if.then12:                                        ; preds = %sw.bb
-  %flags = getelementptr inbounds i8, ptr %3, i64 28
+  %flags = getelementptr inbounds nuw i8, ptr %3, i64 28
   %4 = load i32, ptr %flags, align 4
   %and = and i32 %4, 3
   %switch.selectcmp = icmp eq i32 %and, 3
   %switch.select = select i1 %switch.selectcmp, ptr @.str.19, ptr @.str.20
   %switch.selectcmp14 = icmp eq i32 %and, 1
   %switch.select15 = select i1 %switch.selectcmp14, ptr @.str.18, ptr %switch.select
-  %cpu_index.i = getelementptr inbounds i8, ptr %0, i64 712
+  %cpu_index.i = getelementptr inbounds nuw i8, ptr %0, i64 712
   %5 = load i32, ptr %cpu_index.i, align 8
   %add.i = add i32 %5, 1
   %6 = load i64, ptr %3, align 8
@@ -538,13 +538,13 @@ entry:
   br i1 %cond, label %for.cond.preheader, label %sw.epilog
 
 for.cond.preheader:                               ; preds = %entry
-  %process_num = getelementptr inbounds i8, ptr %opaque, i64 4168
+  %process_num = getelementptr inbounds nuw i8, ptr %opaque, i64 4168
   %0 = load i32, ptr %process_num, align 8
   %cmp8 = icmp sgt i32 %0, 0
   br i1 %cmp8, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %processes = getelementptr inbounds i8, ptr %opaque, i64 4160
+  %processes = getelementptr inbounds nuw i8, ptr %opaque, i64 4160
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -562,9 +562,9 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 for.end:                                          ; preds = %for.body, %for.cond.preheader
   %call = tail call ptr @gdb_first_attached_cpu() #15
-  %c_cpu = getelementptr inbounds i8, ptr %opaque, i64 8
+  %c_cpu = getelementptr inbounds nuw i8, ptr %opaque, i64 8
   store ptr %call, ptr %c_cpu, align 8
-  %g_cpu = getelementptr inbounds i8, ptr %opaque, i64 16
+  %g_cpu = getelementptr inbounds nuw i8, ptr %opaque, i64 16
   store ptr %call, ptr %g_cpu, align 8
   %call2 = tail call i32 @vm_stop(i32 noundef 4) #15
   tail call void @replay_gdb_attached() #15
@@ -625,7 +625,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #15
   %call10.i.i = tail call i32 @qemu_get_thread_id() #15
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = and i32 %code, 255
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i32 noundef %conv11.i.i) #15
@@ -692,7 +692,7 @@ if.else:                                          ; preds = %if.then
 if.end4:                                          ; preds = %entry
   %call.i = tail call ptr @object_get_class(ptr noundef %cpu) #15
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.48, i32 noundef 64, ptr noundef nonnull @__func__.CPU_GET_CLASS) #15
-  %memory_rw_debug = getelementptr inbounds i8, ptr %call1.i, i64 200
+  %memory_rw_debug = getelementptr inbounds nuw i8, ptr %call1.i, i64 200
   %0 = load ptr, ptr %memory_rw_debug, align 8
   %tobool5.not = icmp eq ptr %0, null
   br i1 %tobool5.not, label %if.end10, label %if.then6
@@ -718,7 +718,7 @@ define dso_local i32 @gdb_get_max_cpus() local_unnamed_addr #2 {
 entry:
   %call = tail call ptr @qdev_get_machine() #15
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE) #15
-  %max_cpus = getelementptr inbounds i8, ptr %call.i, i64 320
+  %max_cpus = getelementptr inbounds nuw i8, ptr %call.i, i64 320
   %0 = load i32, ptr %max_cpus, align 8
   ret i32 %0
 }
@@ -751,7 +751,7 @@ declare void @gdb_put_strbuf() local_unnamed_addr #3
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @gdb_handle_set_qemu_phy_mem_mode(ptr nocapture noundef readonly %params, ptr nocapture noundef readnone %user_ctx) local_unnamed_addr #2 {
 entry:
-  %len = getelementptr inbounds i8, ptr %params, i64 8
+  %len = getelementptr inbounds nuw i8, ptr %params, i64 8
   %0 = load i32, ptr %len, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %return, label %if.end
@@ -774,7 +774,7 @@ define dso_local void @gdb_handle_query_rcmd(ptr nocapture noundef readonly %par
 entry:
   %zero = alloca i8, align 1
   store i8 0, ptr %zero, align 1
-  %len1 = getelementptr inbounds i8, ptr %params, i64 8
+  %len1 = getelementptr inbounds nuw i8, ptr %params, i64 8
   %0 = load i32, ptr %len1, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.then, label %if.end
@@ -798,7 +798,7 @@ if.then4:                                         ; preds = %if.end
 
 do.body:                                          ; preds = %if.end
   %4 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4184), align 8
-  %len7 = getelementptr inbounds i8, ptr %4, i64 8
+  %len7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %5 = load i32, ptr %len7, align 8
   %cmp = icmp eq i32 %5, 0
   br i1 %cmp, label %do.end, label %if.else
@@ -815,7 +815,7 @@ do.end:                                           ; preds = %do.body
   %7 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_system_state, i64 56), align 8
   %8 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4184), align 8
   %9 = load ptr, ptr %8, align 8
-  %len15 = getelementptr inbounds i8, ptr %8, i64 8
+  %len15 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load i32, ptr %len15, align 8
   call void @qemu_chr_be_write(ptr noundef %7, ptr noundef %9, i32 noundef %10) #15
   %call16 = call i32 @gdb_put_packet(ptr noundef nonnull @.str.12) #15
@@ -872,7 +872,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #15
   %call10.i.i = tail call i32 @qemu_get_thread_id() #15
   %4 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.51, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5) #15
   br label %trace_gdbstub_op_continue.exit
@@ -911,7 +911,7 @@ if.then:                                          ; preds = %entry
 for.body:                                         ; preds = %if.then, %while.end7
   %cpu.031.in = phi i64 [ %3, %while.end7 ], [ %0, %if.then ]
   %cpu.031 = inttoptr i64 %cpu.031.in to ptr
-  %cpu_index = getelementptr inbounds i8, ptr %cpu.031, i64 712
+  %cpu_index = getelementptr inbounds nuw i8, ptr %cpu.031, i64 712
   %1 = load i32, ptr %cpu_index, align 8
   %idxprom = sext i32 %1 to i64
   %arrayidx = getelementptr i8, ptr %newstates, i64 %idxprom
@@ -920,7 +920,7 @@ for.body:                                         ; preds = %if.then, %while.end
   br i1 %cmp, label %for.end, label %while.end7
 
 while.end7:                                       ; preds = %for.body
-  %node = getelementptr inbounds i8, ptr %cpu.031, i64 568
+  %node = getelementptr inbounds nuw i8, ptr %cpu.031, i64 568
   %3 = load atomic i64, ptr %node monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !10
   %tobool.not.not = icmp eq i64 %3, 0
@@ -939,8 +939,8 @@ while.end18:                                      ; preds = %for.end
   br i1 %tobool21.not35, label %return, label %for.body22.lr.ph
 
 for.body22.lr.ph:                                 ; preds = %while.end18
-  %tv_usec.i.i25 = getelementptr inbounds i8, ptr %_now.i.i12, i64 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i25 = getelementptr inbounds nuw i8, ptr %_now.i.i12, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   br label %for.body22
 
 for.body22:                                       ; preds = %for.body22.lr.ph, %while.end36
@@ -948,7 +948,7 @@ for.body22:                                       ; preds = %for.body22.lr.ph, %
   %res.137 = phi i32 [ 0, %for.body22.lr.ph ], [ %res.2, %while.end36 ]
   %flag.136 = phi i32 [ 0, %for.body22.lr.ph ], [ %flag.2, %while.end36 ]
   %cpu.138 = inttoptr i64 %cpu.138.in to ptr
-  %cpu_index23 = getelementptr inbounds i8, ptr %cpu.138, i64 712
+  %cpu_index23 = getelementptr inbounds nuw i8, ptr %cpu.138, i64 712
   %5 = load i32, ptr %cpu_index23, align 8
   %idxprom24 = sext i32 %5 to i64
   %arrayidx25 = getelementptr i8, ptr %newstates, i64 %idxprom24
@@ -1042,7 +1042,7 @@ sw.default:                                       ; preds = %for.body22
 while.end36:                                      ; preds = %trace_gdbstub_op_stepping.exit, %trace_gdbstub_op_continue_cpu.exit, %sw.default, %for.body22, %for.body22
   %flag.2 = phi i32 [ %flag.136, %sw.default ], [ 1, %trace_gdbstub_op_continue_cpu.exit ], [ 1, %trace_gdbstub_op_stepping.exit ], [ %flag.136, %for.body22 ], [ %flag.136, %for.body22 ]
   %res.2 = phi i32 [ -1, %sw.default ], [ %res.137, %trace_gdbstub_op_continue_cpu.exit ], [ %res.137, %trace_gdbstub_op_stepping.exit ], [ %res.137, %for.body22 ], [ %res.137, %for.body22 ]
-  %node37 = getelementptr inbounds i8, ptr %cpu.138, i64 568
+  %node37 = getelementptr inbounds nuw i8, ptr %cpu.138, i64 568
   %20 = load atomic i64, ptr %node37 monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !13
   %tobool21.not = icmp eq i64 %20, 0
@@ -1085,7 +1085,7 @@ declare ptr @cpus_get_accel() local_unnamed_addr #3
 define dso_local i32 @gdb_breakpoint_insert(ptr noundef %cs, i32 noundef %type, i64 noundef %addr, i64 noundef %len) local_unnamed_addr #2 {
 entry:
   %call = tail call ptr @cpus_get_accel() #15
-  %insert_breakpoint = getelementptr inbounds i8, ptr %call, i64 224
+  %insert_breakpoint = getelementptr inbounds nuw i8, ptr %call, i64 224
   %0 = load ptr, ptr %insert_breakpoint, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %if.then
@@ -1103,7 +1103,7 @@ return:                                           ; preds = %entry, %if.then
 define dso_local i32 @gdb_breakpoint_remove(ptr noundef %cs, i32 noundef %type, i64 noundef %addr, i64 noundef %len) local_unnamed_addr #2 {
 entry:
   %call = tail call ptr @cpus_get_accel() #15
-  %remove_breakpoint = getelementptr inbounds i8, ptr %call, i64 232
+  %remove_breakpoint = getelementptr inbounds nuw i8, ptr %call, i64 232
   %0 = load ptr, ptr %remove_breakpoint, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %if.then
@@ -1121,7 +1121,7 @@ return:                                           ; preds = %entry, %if.then
 define dso_local void @gdb_breakpoint_remove_all(ptr noundef %cs) local_unnamed_addr #2 {
 entry:
   %call = tail call ptr @cpus_get_accel() #15
-  %remove_all_breakpoints = getelementptr inbounds i8, ptr %call, i64 240
+  %remove_all_breakpoints = getelementptr inbounds nuw i8, ptr %call, i64 240
   %0 = load ptr, ptr %remove_all_breakpoints, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -1176,7 +1176,7 @@ if.then8.i:                                       ; preds = %if.then.i
   %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #15
   %call10.i = tail call i32 @qemu_get_thread_id() #15
   %4 = load i64, ptr %_now.i, align 8
-  %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
+  %tv_usec.i = getelementptr inbounds nuw i8, ptr %_now.i, i64 8
   %5 = load i64, ptr %tv_usec.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.23, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5, ptr noundef %type, i32 noundef %cpu_gdb_index, i64 noundef %vaddr) #15
   br label %_nocheck__trace_gdbstub_hit_watchpoint.exit
@@ -1217,7 +1217,7 @@ if.then8.i:                                       ; preds = %if.then.i
   %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #15
   %call10.i = tail call i32 @qemu_get_thread_id() #15
   %4 = load i64, ptr %_now.i, align 8
-  %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
+  %tv_usec.i = getelementptr inbounds nuw i8, ptr %_now.i, i64 8
   %5 = load i64, ptr %tv_usec.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.25, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5) #15
   br label %_nocheck__trace_gdbstub_hit_break.exit
@@ -1260,7 +1260,7 @@ if.then8.i:                                       ; preds = %if.then.i
   %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #15
   %call10.i = tail call i32 @qemu_get_thread_id() #15
   %4 = load i64, ptr %_now.i, align 8
-  %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
+  %tv_usec.i = getelementptr inbounds nuw i8, ptr %_now.i, i64 8
   %5 = load i64, ptr %tv_usec.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.27, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5) #15
   br label %_nocheck__trace_gdbstub_hit_paused.exit
@@ -1301,7 +1301,7 @@ if.then8.i:                                       ; preds = %if.then.i
   %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #15
   %call10.i = tail call i32 @qemu_get_thread_id() #15
   %4 = load i64, ptr %_now.i, align 8
-  %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
+  %tv_usec.i = getelementptr inbounds nuw i8, ptr %_now.i, i64 8
   %5 = load i64, ptr %tv_usec.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.29, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5) #15
   br label %_nocheck__trace_gdbstub_hit_shutdown.exit
@@ -1342,7 +1342,7 @@ if.then8.i:                                       ; preds = %if.then.i
   %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #15
   %call10.i = tail call i32 @qemu_get_thread_id() #15
   %4 = load i64, ptr %_now.i, align 8
-  %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
+  %tv_usec.i = getelementptr inbounds nuw i8, ptr %_now.i, i64 8
   %5 = load i64, ptr %tv_usec.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.31, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5) #15
   br label %_nocheck__trace_gdbstub_hit_io_error.exit
@@ -1383,7 +1383,7 @@ if.then8.i:                                       ; preds = %if.then.i
   %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #15
   %call10.i = tail call i32 @qemu_get_thread_id() #15
   %4 = load i64, ptr %_now.i, align 8
-  %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
+  %tv_usec.i = getelementptr inbounds nuw i8, ptr %_now.i, i64 8
   %5 = load i64, ptr %tv_usec.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.33, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5) #15
   br label %_nocheck__trace_gdbstub_hit_watchdog.exit
@@ -1424,7 +1424,7 @@ if.then8.i:                                       ; preds = %if.then.i
   %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #15
   %call10.i = tail call i32 @qemu_get_thread_id() #15
   %4 = load i64, ptr %_now.i, align 8
-  %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
+  %tv_usec.i = getelementptr inbounds nuw i8, ptr %_now.i, i64 8
   %5 = load i64, ptr %tv_usec.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.35, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5) #15
   br label %_nocheck__trace_gdbstub_hit_internal_error.exit
@@ -1465,7 +1465,7 @@ if.then8.i:                                       ; preds = %if.then.i
   %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #15
   %call10.i = tail call i32 @qemu_get_thread_id() #15
   %4 = load i64, ptr %_now.i, align 8
-  %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
+  %tv_usec.i = getelementptr inbounds nuw i8, ptr %_now.i, i64 8
   %5 = load i64, ptr %tv_usec.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.37, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5, i32 noundef %state) #15
   br label %_nocheck__trace_gdbstub_hit_unknown.exit
@@ -1496,16 +1496,16 @@ entry:
 
 if.then:                                          ; preds = %entry
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %child, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.41, i32 noundef 58, ptr noundef nonnull @__func__.CPU_CLUSTER) #15
-  %processes = getelementptr inbounds i8, ptr %opaque, i64 4160
+  %processes = getelementptr inbounds nuw i8, ptr %opaque, i64 4160
   %0 = load ptr, ptr %processes, align 8
-  %process_num = getelementptr inbounds i8, ptr %opaque, i64 4168
+  %process_num = getelementptr inbounds nuw i8, ptr %opaque, i64 4168
   %1 = load i32, ptr %process_num, align 8
   %inc = add i32 %1, 1
   store i32 %inc, ptr %process_num, align 8
   %conv = sext i32 %inc to i64
   %call2 = tail call ptr @g_realloc_n(ptr noundef %0, i64 noundef %conv, i64 noundef 16) #15
   store ptr %call2, ptr %processes, align 8
-  %cluster_id = getelementptr inbounds i8, ptr %call.i, i64 160
+  %cluster_id = getelementptr inbounds nuw i8, ptr %call.i, i64 160
   %2 = load i32, ptr %cluster_id, align 8
   %cmp.not = icmp eq i32 %2, -1
   br i1 %cmp.not, label %if.else, label %if.end
@@ -1521,9 +1521,9 @@ if.end:                                           ; preds = %if.then
   %arrayidx = getelementptr %struct.GDBProcess, ptr %call2, i64 %idxprom
   %add = add nuw i32 %2, 1
   store i32 %add, ptr %arrayidx, align 8
-  %attached = getelementptr inbounds i8, ptr %arrayidx, i64 4
+  %attached = getelementptr inbounds nuw i8, ptr %arrayidx, i64 4
   store i8 0, ptr %attached, align 4
-  %target_xml = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %target_xml = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   store ptr null, ptr %target_xml, align 8
   br label %return
 
@@ -1571,11 +1571,11 @@ declare ptr @type_register_static(ptr noundef) local_unnamed_addr #3
 define internal void @char_gdb_class_init(ptr noundef %oc, ptr nocapture readnone %data) #2 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.43, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV_CLASS) #15
-  %internal = getelementptr inbounds i8, ptr %call.i, i64 96
+  %internal = getelementptr inbounds nuw i8, ptr %call.i, i64 96
   store i8 1, ptr %internal, align 8
-  %open = getelementptr inbounds i8, ptr %call.i, i64 112
+  %open = getelementptr inbounds nuw i8, ptr %call.i, i64 112
   store ptr @gdb_monitor_open, ptr %open, align 8
-  %chr_write = getelementptr inbounds i8, ptr %call.i, i64 120
+  %chr_write = getelementptr inbounds nuw i8, ptr %call.i, i64 120
   store ptr @gdb_monitor_write, ptr %chr_write, align 8
   ret void
 }

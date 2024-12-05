@@ -117,14 +117,14 @@ define dso_local noundef i64 @__recover_optprobed_insn(ptr noundef %0, i64 nound
   br i1 %9, label %21, label %10
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %8, i64 120
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 120
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 4
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %21, label %15
 
 15:                                               ; preds = %10
-  %16 = getelementptr inbounds i8, ptr %8, i64 128
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 128
   %17 = load volatile ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, %16
   br i1 %18, label %24, label %19
@@ -144,18 +144,18 @@ define dso_local noundef i64 @__recover_optprobed_insn(ptr noundef %0, i64 nound
   br i1 %26, label %27, label %.loopexit
 
 27:                                               ; preds = %24
-  %28 = getelementptr inbounds i8, ptr %8, i64 40
+  %28 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %29 = load ptr, ptr %28, align 8
   %30 = ptrtoint ptr %29 to i64
   %31 = icmp eq i64 %1, %30
   br i1 %31, label %32, label %38
 
 32:                                               ; preds = %27
-  %33 = getelementptr inbounds i8, ptr %8, i64 80
+  %33 = getelementptr inbounds nuw i8, ptr %8, i64 80
   %34 = load i8, ptr %33, align 8
   store i8 %34, ptr %0, align 1
   %35 = getelementptr i8, ptr %0, i64 1
-  %36 = getelementptr inbounds i8, ptr %8, i64 144
+  %36 = getelementptr inbounds nuw i8, ptr %8, i64 144
   %37 = load i32, ptr %36, align 8
   store i32 %37, ptr %35, align 1
   br label %44
@@ -163,7 +163,7 @@ define dso_local noundef i64 @__recover_optprobed_insn(ptr noundef %0, i64 nound
 38:                                               ; preds = %27
   %39 = xor i64 %30, -1
   %40 = add i64 %1, %39
-  %41 = getelementptr inbounds i8, ptr %8, i64 144
+  %41 = getelementptr inbounds nuw i8, ptr %8, i64 144
   %42 = getelementptr i8, ptr %41, i64 %40
   %43 = sub i64 4, %40
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %0, ptr align 1 %42, i64 %43, i1 false)
@@ -201,7 +201,7 @@ declare dso_local void @optprobe_template_func() #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @optimized_callback(ptr noundef %0, ptr noundef %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 120
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 3
   %6 = icmp eq i32 %5, 0
@@ -221,19 +221,19 @@ define internal void @optimized_callback(ptr noundef %0, ptr noundef %1) #0 alig
 11:                                               ; preds = %7
   %12 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @kprobe_ctlblk) #11, !srcloc !12
   %13 = inttoptr i64 %12 to ptr
-  %14 = getelementptr inbounds i8, ptr %1, i64 152
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %15 = load i64, ptr %14, align 8
   %16 = add i64 %15, 8
   store i64 %16, ptr %14, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 136
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 136
   store i64 16, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %19 = load ptr, ptr %18, align 8
   %20 = ptrtoint ptr %19 to i64
   %21 = add i64 %20, 1
-  %22 = getelementptr inbounds i8, ptr %1, i64 128
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 128
   store i64 %21, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 120
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 120
   store i64 -1, ptr %23, align 8
   %24 = ptrtoint ptr %0 to i64
   tail call void asm "movq $1, %gs:$0", "=*m,re,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) @current_kprobe, i64 %24, ptr nonnull elementtype(ptr) @current_kprobe) #10, !srcloc !13
@@ -262,13 +262,13 @@ define internal void @optimized_callback(ptr noundef %0, ptr noundef %1) #0 alig
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -17, 1) i32 @arch_check_optimized_kprobe(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 160
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %3 = load i64, ptr %2, align 8
   %4 = icmp ugt i64 %3, 1
   br i1 %4, label %5, label %.loopexit
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %7
 
 7:                                                ; preds = %16, %5
@@ -301,13 +301,13 @@ declare dso_local zeroext i1 @kprobe_disarmed(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
 define dso_local range(i32 0, 2) i32 @arch_within_optimized_kprobe(ptr nocapture noundef readonly %0, ptr noundef readnone %1) local_unnamed_addr #4 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = icmp ugt ptr %4, %1
   br i1 %5, label %12, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 160
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %8 = load i64, ptr %7, align 8
   %9 = getelementptr i8, ptr %4, i64 %8
   %10 = icmp ugt ptr %9, %1
@@ -321,20 +321,20 @@ define dso_local range(i32 0, 2) i32 @arch_within_optimized_kprobe(ptr nocapture
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @arch_remove_optimized_kprobe(ptr nocapture noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 152
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %11, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 160
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %7 = load i64, ptr %6, align 8
   %8 = trunc i64 %7 to i32
   %9 = add i32 %8, trunc (i64 add (i64 sub (i64 ptrtoint (ptr @optprobe_template_end to i64), i64 ptrtoint (ptr @optprobe_template_entry to i64)), i64 5) to i32)
   %10 = sext i32 %9 to i64
   tail call void @perf_event_text_poke(ptr noundef nonnull %3, ptr noundef nonnull %3, i64 noundef %10, ptr noundef null, i64 noundef 0) #10
   tail call void @__free_insn_slot(ptr noundef nonnull @kprobe_optinsn_slots, ptr noundef nonnull %3, i32 noundef 1) #10
-  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   br label %11
 
 11:                                               ; preds = %5, %1
@@ -348,7 +348,7 @@ define dso_local range(i32 -84, 1) i32 @arch_prepare_optimized_kprobe(ptr nounde
   %5 = alloca i64, align 8
   %6 = alloca %struct.insn, align 8
   %7 = alloca [15 x i8], align 1
-  %8 = getelementptr inbounds i8, ptr %0, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = load ptr, ptr %8, align 8
   %10 = ptrtoint ptr %9 to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #10
@@ -378,13 +378,13 @@ define dso_local range(i32 -84, 1) i32 @arch_prepare_optimized_kprobe(ptr nounde
 
 22:                                               ; preds = %17
   %23 = sub i64 %10, %19
-  %24 = getelementptr inbounds i8, ptr %6, i64 88
-  %25 = getelementptr inbounds i8, ptr %6, i64 82
-  %26 = getelementptr inbounds i8, ptr %6, i64 104
+  %24 = getelementptr inbounds nuw i8, ptr %6, i64 88
+  %25 = getelementptr inbounds nuw i8, ptr %6, i64 82
+  %26 = getelementptr inbounds nuw i8, ptr %6, i64 104
   %27 = add i64 %10, 1
-  %28 = getelementptr inbounds i8, ptr %6, i64 24
-  %29 = getelementptr inbounds i8, ptr %6, i64 25
-  %30 = getelementptr inbounds i8, ptr %6, i64 56
+  %28 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %6, i64 25
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %31 = add i64 %10, 5
   %32 = add i64 %23, %18
   %33 = icmp ult i64 %23, %32
@@ -464,7 +464,7 @@ define dso_local range(i32 -84, 1) i32 @arch_prepare_optimized_kprobe(ptr nounde
 
 70:                                               ; preds = %._crit_edge
   %71 = call ptr @__get_insn_slot(ptr noundef nonnull @kprobe_optinsn_slots) #10
-  %72 = getelementptr inbounds i8, ptr %0, i64 152
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store ptr %71, ptr %72, align 8
   %73 = icmp eq ptr %71, null
   br i1 %73, label %139, label %74
@@ -529,7 +529,7 @@ define dso_local range(i32 -84, 1) i32 @arch_prepare_optimized_kprobe(ptr nounde
 
 113:                                              ; preds = %110
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %3) #10
-  %114 = getelementptr inbounds i8, ptr %0, i64 160
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store i64 %102, ptr %114, align 8
   %115 = add i32 %88, trunc (i64 sub (i64 ptrtoint (ptr @optprobe_template_end to i64), i64 ptrtoint (ptr @optprobe_template_entry to i64)) to i32)
   %116 = load volatile i64, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 72), align 8
@@ -586,7 +586,7 @@ define dso_local range(i32 -84, 1) i32 @arch_prepare_optimized_kprobe(ptr nounde
   %142 = phi i32 [ %.ph, %.loopexit ], [ -34, %74 ]
   %143 = phi ptr [ %.pre, %.loopexit ], [ %71, %74 ]
   call void @__free_insn_slot(ptr noundef nonnull @kprobe_optinsn_slots, ptr noundef nonnull %143, i32 noundef 0) #10
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %72, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %72, i8 0, i64 16, i1 false)
   br label %139
 
 .thread13:                                        ; preds = %62, %40, %37, %.lr.ph, %17, %13, %2
@@ -626,7 +626,7 @@ define dso_local void @arch_optimize_kprobes(ptr noundef readonly %0) local_unna
 
 5:                                                ; preds = %1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %2, i8 0, i64 5, i1 false), !annotation !20
-  %6 = getelementptr inbounds i8, ptr %2, i64 1
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 1
   br label %7
 
 7:                                                ; preds = %25, %5
@@ -663,10 +663,10 @@ define dso_local void @arch_optimize_kprobes(ptr noundef readonly %0) local_unna
   store i8 -23, ptr %2, align 1
   store i32 %19, ptr %6, align 1
   call void @text_poke_bp(ptr noundef %26, ptr noundef nonnull %2, i64 noundef 5, ptr noundef null) #10
-  %29 = getelementptr inbounds i8, ptr %8, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %30 = load ptr, ptr %29, align 8
   %31 = load ptr, ptr %8, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store ptr %30, ptr %32, align 8
   store volatile ptr %31, ptr %30, align 8
   store volatile ptr %8, ptr %8, align 8
@@ -691,18 +691,18 @@ define dso_local void @arch_unoptimize_kprobe(ptr nocapture noundef readonly %0)
   %3 = alloca [5 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %2) #10
   store i8 -52, ptr %2, align 1
-  %4 = getelementptr inbounds i8, ptr %2, i64 1
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 1
   call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %3) #10
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %3, ptr noundef align 1 dereferenceable(5) %6, i64 5, i1 false)
-  %7 = getelementptr inbounds i8, ptr %0, i64 144
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %8 = load i32, ptr %7, align 8
   store i32 %8, ptr %4, align 1
   %9 = call ptr @text_poke(ptr noundef %6, ptr noundef nonnull %2, i64 noundef 1) #10
   call void @text_poke_sync() #10
   %10 = getelementptr i8, ptr %6, i64 1
-  %11 = call ptr @text_poke(ptr noundef %10, ptr noundef %4, i64 noundef 4) #10
+  %11 = call ptr @text_poke(ptr noundef %10, ptr noundef nonnull %4, i64 noundef 4) #10
   call void @text_poke_sync() #10
   %12 = load ptr, ptr %5, align 8
   call void @perf_event_text_poke(ptr noundef %12, ptr noundef nonnull %3, i64 noundef 5, ptr noundef nonnull %2, i64 noundef 5) #10
@@ -723,7 +723,7 @@ define dso_local void @arch_unoptimize_kprobes(ptr noundef readonly %0, ptr noun
   br i1 %6, label %.loopexit, label %7
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %3, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 1
   br label %9
 
 9:                                                ; preds = %9, %7
@@ -743,20 +743,20 @@ define dso_local void @arch_unoptimize_kprobes(ptr noundef readonly %0, ptr noun
   %16 = call ptr @text_poke(ptr noundef %13, ptr noundef nonnull %3, i64 noundef 1) #10
   call void @text_poke_sync() #10
   %17 = getelementptr i8, ptr %13, i64 1
-  %18 = call ptr @text_poke(ptr noundef %17, ptr noundef %8, i64 noundef 4) #10
+  %18 = call ptr @text_poke(ptr noundef %17, ptr noundef nonnull %8, i64 noundef 4) #10
   call void @text_poke_sync() #10
   %19 = load ptr, ptr %12, align 8
   call void @perf_event_text_poke(ptr noundef %19, ptr noundef nonnull %4, i64 noundef 5, ptr noundef nonnull %3, i64 noundef 5) #10
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %4) #10
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %3) #10
-  %20 = getelementptr inbounds i8, ptr %10, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %21 = load ptr, ptr %20, align 8
   %22 = load ptr, ptr %10, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr %21, ptr %23, align 8
   store volatile ptr %22, ptr %21, align 8
   %24 = load ptr, ptr %1, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store ptr %10, ptr %25, align 8
   store ptr %24, ptr %10, align 8
   store ptr %1, ptr %20, align 8
@@ -770,18 +770,18 @@ define dso_local void @arch_unoptimize_kprobes(ptr noundef readonly %0, ptr noun
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 0, 2) i32 @setup_detour_execution(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 120
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 4
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %16, label %8
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 152
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %10 = load ptr, ptr %9, align 8
   %11 = ptrtoint ptr %10 to i64
   %12 = add i64 %11, sub (i64 ptrtoint (ptr @optprobe_template_end to i64), i64 ptrtoint (ptr @optprobe_template_entry to i64))
-  %13 = getelementptr inbounds i8, ptr %1, i64 128
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 128
   store i64 %12, ptr %13, align 8
   %14 = icmp eq i32 %2, 0
   br i1 %14, label %15, label %16

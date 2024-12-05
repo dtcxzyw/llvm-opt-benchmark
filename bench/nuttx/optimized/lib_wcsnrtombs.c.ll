@@ -50,14 +50,14 @@ define i64 @wcsnrtombs(ptr noundef %0, ptr nocapture noundef %1, i64 noundef %2,
   br label %24
 
 24:                                               ; preds = %23, %20
-  %25 = getelementptr inbounds i8, ptr %.054, i64 %17
+  %25 = getelementptr inbounds nuw i8, ptr %.054, i64 %17
   %26 = sub i64 %.13448, %17
   br label %27
 
 27:                                               ; preds = %24, %19
   %.2 = phi i64 [ %26, %24 ], [ %.13448, %19 ]
   %.1 = phi ptr [ %25, %24 ], [ null, %19 ]
-  %28 = getelementptr inbounds i8, ptr %.03050, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %.03050, i64 4
   %29 = add i64 %.03249, -1
   %30 = add i64 %17, %.02852
   %.not65 = icmp eq i64 %29, 0

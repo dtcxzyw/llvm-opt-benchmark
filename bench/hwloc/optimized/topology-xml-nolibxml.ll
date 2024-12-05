@@ -67,7 +67,7 @@ define internal range(i32 -1, 1) i32 @hwloc_nolibxml_backend_init(ptr nocapture 
   br i1 %.not, label %23, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %0, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %5, ptr %7, align 8
   %.not24 = icmp eq ptr %2, null
   br i1 %.not24, label %15, label %8
@@ -75,7 +75,7 @@ define internal range(i32 -1, 1) i32 @hwloc_nolibxml_backend_init(ptr nocapture 
 8:                                                ; preds = %6
   %9 = sext i32 %3 to i64
   %10 = tail call noalias ptr @malloc(i64 noundef %9) #19
-  %11 = getelementptr inbounds i8, ptr %5, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %10, ptr %11, align 8
   %.not25 = icmp eq ptr %10, null
   br i1 %.not25, label %22, label %12
@@ -89,16 +89,16 @@ define internal range(i32 -1, 1) i32 @hwloc_nolibxml_backend_init(ptr nocapture 
   br label %19
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %5, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %17 = tail call fastcc i32 @hwloc_nolibxml_read_file(ptr noundef %1, ptr noundef %16, ptr noundef %5)
   %18 = icmp slt i32 %17, 0
   br i1 %18, label %22, label %19
 
 19:                                               ; preds = %15, %12
   store ptr @hwloc_nolibxml_look_init, ptr %0, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @hwloc_nolibxml_look_done, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr @hwloc_nolibxml_backend_exit, ptr %21, align 8
   br label %23
 
@@ -148,7 +148,7 @@ sub_0:                                            ; preds = %._crit_edge.i, %12
   br i1 %.not26, label %hwloc_nolibxml_export_buffer.exit.tail, label %hwloc_nolibxml_export_buffer.exit.tail.thread
 
 hwloc_nolibxml_export_buffer.exit.tail:           ; preds = %sub_0
-  %16 = getelementptr inbounds i8, ptr %2, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %17 = load i8, ptr %16, align 1
   %18 = icmp eq i8 %17, 0
   br i1 %18, label %19, label %hwloc_nolibxml_export_buffer.exit.tail.thread
@@ -251,7 +251,7 @@ define internal i32 @hwloc_nolibxml_import_diff(ptr noundef %0, ptr nocapture no
   %9 = alloca i64, align 8
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %19, label %13
 
@@ -297,39 +297,39 @@ define internal i32 @hwloc_nolibxml_import_diff(ptr noundef %0, ptr nocapture no
 .critedge:                                        ; preds = %24, %26
   %28 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.0, i32 noundef 10) #23
   %.not51 = icmp eq ptr %28, null
-  %29 = getelementptr inbounds i8, ptr %28, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 1
   br i1 %.not51, label %hwloc__nolibxml_import_find_child.exit.thread, label %24, !llvm.loop !4
 
 30:                                               ; preds = %26
-  %31 = getelementptr inbounds i8, ptr %0, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 24
   store ptr @hwloc__nolibxml_import_next_attr, ptr %33, align 8
   %34 = load ptr, ptr %31, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 32
   store ptr @hwloc__nolibxml_import_find_child, ptr %35, align 8
   %36 = load ptr, ptr %31, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 40
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 40
   store ptr @hwloc__nolibxml_import_close_tag, ptr %37, align 8
   %38 = load ptr, ptr %31, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 48
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 48
   store ptr @hwloc__nolibxml_import_close_child, ptr %39, align 8
   %40 = load ptr, ptr %31, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 56
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 56
   store ptr @hwloc__nolibxml_import_get_content, ptr %41, align 8
   %42 = load ptr, ptr %31, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 64
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 64
   store ptr @hwloc__nolibxml_import_close_content, ptr %43, align 8
   store ptr null, ptr %0, align 8
-  %44 = getelementptr inbounds i8, ptr %0, i64 40
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 0, ptr %44, align 8
   store ptr %.0, ptr %12, align 8
-  %45 = getelementptr inbounds i8, ptr %0, i64 24
-  %46 = getelementptr inbounds i8, ptr %7, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %7, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %45, i8 0, i64 16, i1 false)
   store ptr %0, ptr %7, align 8
   %47 = load ptr, ptr %31, align 8
-  %48 = getelementptr inbounds i8, ptr %7, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %47, ptr %48, align 8
   %49 = tail call i64 @strspn(ptr noundef readonly %.0, ptr noundef nonnull @.str.18) #23
   %50 = getelementptr inbounds i8, ptr %.0, i64 %49
@@ -338,13 +338,13 @@ define internal i32 @hwloc_nolibxml_import_diff(ptr noundef %0, ptr nocapture no
   br i1 %.not40.i, label %52, label %hwloc__nolibxml_import_find_child.exit.thread
 
 52:                                               ; preds = %30
-  %53 = getelementptr inbounds i8, ptr %50, i64 1
+  %53 = getelementptr inbounds nuw i8, ptr %50, i64 1
   %54 = load i8, ptr %53, align 1
   %55 = icmp eq i8 %54, 47
   br i1 %55, label %hwloc__nolibxml_import_find_child.exit.thread, label %56
 
 56:                                               ; preds = %52
-  %57 = getelementptr inbounds i8, ptr %7, i64 32
+  %57 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr %53, ptr %57, align 8
   %58 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %53, i32 noundef 62) #23
   %.not41.i = icmp eq ptr %58, null
@@ -352,12 +352,12 @@ define internal i32 @hwloc_nolibxml_import_diff(ptr noundef %0, ptr nocapture no
 
 59:                                               ; preds = %56
   store i8 0, ptr %58, align 1
-  %60 = getelementptr inbounds i8, ptr %58, i64 1
+  %60 = getelementptr inbounds nuw i8, ptr %58, i64 1
   store ptr %60, ptr %46, align 8
   %61 = getelementptr inbounds i8, ptr %58, i64 -1
   %62 = load i8, ptr %61, align 1
   %63 = icmp eq i8 %62, 47
-  %64 = getelementptr inbounds i8, ptr %7, i64 40
+  %64 = getelementptr inbounds nuw i8, ptr %7, i64 40
   br i1 %63, label %65, label %66
 
 65:                                               ; preds = %59
@@ -380,12 +380,12 @@ define internal i32 @hwloc_nolibxml_import_diff(ptr noundef %0, ptr nocapture no
 
 71:                                               ; preds = %67
   store i8 0, ptr %69, align 1
-  %72 = getelementptr inbounds i8, ptr %69, i64 1
+  %72 = getelementptr inbounds nuw i8, ptr %69, i64 1
   br label %hwloc__nolibxml_import_find_child.exit
 
 hwloc__nolibxml_import_find_child.exit:           ; preds = %67, %71
   %.sink.i = phi ptr [ %72, %71 ], [ null, %67 ]
-  %73 = getelementptr inbounds i8, ptr %7, i64 24
+  %73 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr %.sink.i, ptr %73, align 8
   %74 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %53, ptr noundef nonnull dereferenceable(13) @.str.44) #23
   %.not49 = icmp eq i32 %74, 0
@@ -479,7 +479,7 @@ sub_0:                                            ; preds = %._crit_edge.i, %11
   br i1 %.not25, label %hwloc_nolibxml_export_diff_buffer.exit.tail, label %hwloc_nolibxml_export_diff_buffer.exit.tail.thread
 
 hwloc_nolibxml_export_diff_buffer.exit.tail:      ; preds = %sub_0
-  %15 = getelementptr inbounds i8, ptr %2, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %16 = load i8, ptr %15, align 1
   %17 = icmp eq i8 %16, 0
   br i1 %17, label %18, label %hwloc_nolibxml_export_diff_buffer.exit.tail.thread
@@ -584,7 +584,7 @@ sub_0:
   br i1 %.not48, label %sub_1, label %.tail
 
 sub_1:                                            ; preds = %sub_0
-  %5 = getelementptr inbounds i8, ptr %0, i64 1
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %6 = load i8, ptr %5, align 1
   %7 = icmp eq i8 %6, 0
   %8 = select i1 %7, ptr @.str.1, ptr %0
@@ -602,14 +602,14 @@ sub_1:                                            ; preds = %sub_0
   br i1 %.not38, label %12, label %21
 
 12:                                               ; preds = %10
-  %13 = getelementptr inbounds i8, ptr %3, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %14 = load i32, ptr %13, align 8
   %15 = and i32 %14, 61440
   %16 = icmp eq i32 %15, 32768
   br i1 %16, label %17, label %21
 
 17:                                               ; preds = %12
-  %18 = getelementptr inbounds i8, ptr %3, i64 48
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %19 = load i64, ptr %18, align 8
   %20 = add nsw i64 %19, 1
   br label %21
@@ -674,10 +674,10 @@ sub_1:                                            ; preds = %sub_0
 define internal range(i32 -1, 1) i32 @hwloc_nolibxml_look_init(ptr nocapture noundef %0, ptr nocapture noundef %1) #4 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
-  %6 = getelementptr inbounds i8, ptr %0, i64 80
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8
   br label %10
 
@@ -695,7 +695,7 @@ define internal range(i32 -1, 1) i32 @hwloc_nolibxml_look_init(ptr nocapture nou
 .critedge:                                        ; preds = %10, %12
   %14 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.033, i32 noundef 10) #23
   %.not40 = icmp eq ptr %14, null
-  %15 = getelementptr inbounds i8, ptr %14, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 1
   br i1 %.not40, label %.loopexit, label %10, !llvm.loop !6
 
 16:                                               ; preds = %12
@@ -705,13 +705,13 @@ define internal range(i32 -1, 1) i32 @hwloc_nolibxml_look_init(ptr nocapture nou
 
 19:                                               ; preds = %16
   %20 = load i32, ptr %3, align 4
-  %21 = getelementptr inbounds i8, ptr %0, i64 88
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i32 %20, ptr %21, align 8
   %22 = load i32, ptr %4, align 4
-  %23 = getelementptr inbounds i8, ptr %0, i64 92
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 92
   store i32 %22, ptr %23, align 4
   %24 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.033, i32 noundef 62) #23
-  %25 = getelementptr inbounds i8, ptr %24, i64 1
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 1
   br label %38
 
 26:                                               ; preds = %16
@@ -720,11 +720,11 @@ define internal range(i32 -1, 1) i32 @hwloc_nolibxml_look_init(ptr nocapture nou
   br i1 %.not38, label %28, label %32
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds i8, ptr %0, i64 88
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i32 1, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 92
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 92
   store i32 0, ptr %30, align 4
-  %31 = getelementptr inbounds i8, ptr %.033, i64 10
+  %31 = getelementptr inbounds nuw i8, ptr %.033, i64 10
   br label %38
 
 32:                                               ; preds = %26
@@ -733,42 +733,42 @@ define internal range(i32 -1, 1) i32 @hwloc_nolibxml_look_init(ptr nocapture nou
   br i1 %.not39, label %34, label %.loopexit
 
 34:                                               ; preds = %32
-  %35 = getelementptr inbounds i8, ptr %0, i64 88
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i32 0, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 92
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 92
   store i32 9, ptr %36, align 4
-  %37 = getelementptr inbounds i8, ptr %.033, i64 6
+  %37 = getelementptr inbounds nuw i8, ptr %.033, i64 6
   br label %38
 
 38:                                               ; preds = %28, %34, %19
   %.034 = phi ptr [ %25, %19 ], [ %37, %34 ], [ %31, %28 ]
   %.0 = phi ptr [ @.str.6, %19 ], [ @.str.9, %34 ], [ @.str.6, %28 ]
-  %39 = getelementptr inbounds i8, ptr %1, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 24
   store ptr @hwloc__nolibxml_import_next_attr, ptr %41, align 8
   %42 = load ptr, ptr %39, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 32
   store ptr @hwloc__nolibxml_import_find_child, ptr %43, align 8
   %44 = load ptr, ptr %39, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 40
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 40
   store ptr @hwloc__nolibxml_import_close_tag, ptr %45, align 8
   %46 = load ptr, ptr %39, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 48
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 48
   store ptr @hwloc__nolibxml_import_close_child, ptr %47, align 8
   %48 = load ptr, ptr %39, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 56
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 56
   store ptr @hwloc__nolibxml_import_get_content, ptr %49, align 8
   %50 = load ptr, ptr %39, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 64
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 64
   store ptr @hwloc__nolibxml_import_close_content, ptr %51, align 8
   store ptr null, ptr %1, align 8
-  %52 = getelementptr inbounds i8, ptr %1, i64 40
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store i32 0, ptr %52, align 8
   store ptr %.034, ptr %5, align 8
-  %53 = getelementptr inbounds i8, ptr %1, i64 32
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store ptr %.0, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %1, i64 24
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store ptr null, ptr %54, align 8
   br label %.loopexit
 
@@ -781,7 +781,7 @@ define internal range(i32 -1, 1) i32 @hwloc_nolibxml_look_init(ptr nocapture nou
 define internal void @hwloc_nolibxml_look_done(ptr nocapture noundef readonly %0, i32 noundef %1) #0 {
   %3 = getelementptr i8, ptr %0, i64 80
   %.val = load ptr, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %.val, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   %5 = load ptr, ptr %4, align 8
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %hwloc_nolibxml_free_buffers.exit, label %6
@@ -811,9 +811,9 @@ hwloc_nolibxml_free_buffers.exit:                 ; preds = %2, %6
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define internal void @hwloc_nolibxml_backend_exit(ptr nocapture noundef readonly %0) #5 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 80
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %hwloc_nolibxml_free_buffers.exit, label %6
@@ -859,7 +859,7 @@ declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocaptu
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal range(i32 -1, 1) i32 @hwloc__nolibxml_import_next_attr(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) #10 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %.loopexit, label %6
@@ -882,7 +882,7 @@ define internal range(i32 -1, 1) i32 @hwloc__nolibxml_import_next_attr(ptr nocap
 15:                                               ; preds = %12
   store i8 0, ptr %10, align 1
   store ptr %8, ptr %1, align 8
-  %16 = getelementptr inbounds i8, ptr %10, i64 2
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 2
   store ptr %16, ptr %2, align 8
   %.pre = load i8, ptr %16, align 1
   br label %17
@@ -923,13 +923,13 @@ sub_0:                                            ; preds = %26
   br i1 %.not106, label %sub_1, label %.tail.thread
 
 sub_1:                                            ; preds = %sub_0
-  %31 = getelementptr inbounds i8, ptr %22, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %22, i64 1
   %32 = load i8, ptr %31, align 1
   %.not107 = icmp eq i8 %32, 57
   br i1 %.not107, label %.tail, label %.tail.thread.thread
 
 .tail:                                            ; preds = %sub_1
-  %33 = getelementptr inbounds i8, ptr %22, i64 2
+  %33 = getelementptr inbounds nuw i8, ptr %22, i64 2
   %34 = load i8, ptr %33, align 1
   %35 = icmp eq i8 %34, 59
   br i1 %35, label %36, label %.thread
@@ -964,13 +964,13 @@ sub_094:                                          ; preds = %.tail.thread
   ]
 
 sub_195:                                          ; preds = %sub_094
-  %43 = getelementptr inbounds i8, ptr %22, i64 1
+  %43 = getelementptr inbounds nuw i8, ptr %22, i64 1
   %44 = load i8, ptr %43, align 1
   %.not109 = icmp eq i8 %44, 116
   br i1 %.not109, label %.tail93, label %.tail98.thread
 
 .tail93:                                          ; preds = %sub_195
-  %45 = getelementptr inbounds i8, ptr %22, i64 2
+  %45 = getelementptr inbounds nuw i8, ptr %22, i64 2
   %46 = load i8, ptr %45, align 1
   %47 = icmp eq i8 %46, 59
   br i1 %47, label %48, label %.tail98.thread
@@ -980,13 +980,13 @@ sub_195:                                          ; preds = %sub_094
   br label %60
 
 sub_1100:                                         ; preds = %sub_094
-  %50 = getelementptr inbounds i8, ptr %22, i64 1
+  %50 = getelementptr inbounds nuw i8, ptr %22, i64 1
   %51 = load i8, ptr %50, align 1
   %.not111 = icmp eq i8 %51, 116
   br i1 %.not111, label %.tail98, label %.tail98.thread
 
 .tail98:                                          ; preds = %sub_1100
-  %52 = getelementptr inbounds i8, ptr %22, i64 2
+  %52 = getelementptr inbounds nuw i8, ptr %22, i64 2
   %53 = load i8, ptr %52, align 1
   %54 = icmp eq i8 %53, 59
   br i1 %54, label %55, label %.tail98.thread
@@ -1031,15 +1031,15 @@ sub_1100:                                         ; preds = %sub_094
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define internal range(i32 -1, 2) i32 @hwloc__nolibxml_import_find_child(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 16)) %1, ptr nocapture noundef writeonly %2) #11 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %4, align 8
   store ptr %0, ptr %1, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %8, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = load i32, ptr %10, align 8
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %12, label %38
@@ -1052,13 +1052,13 @@ define internal range(i32 -1, 2) i32 @hwloc__nolibxml_import_find_child(ptr noun
   br i1 %.not40, label %16, label %38
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %14, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 1
   %18 = load i8, ptr %17, align 1
   %19 = icmp eq i8 %18, 47
   br i1 %19, label %38, label %20
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %1, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store ptr %17, ptr %21, align 8
   %22 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %17, i32 noundef 62) #23
   %.not41 = icmp eq ptr %22, null
@@ -1066,12 +1066,12 @@ define internal range(i32 -1, 2) i32 @hwloc__nolibxml_import_find_child(ptr noun
 
 23:                                               ; preds = %20
   store i8 0, ptr %22, align 1
-  %24 = getelementptr inbounds i8, ptr %22, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 1
   store ptr %24, ptr %5, align 8
   %25 = getelementptr inbounds i8, ptr %22, i64 -1
   %26 = load i8, ptr %25, align 1
   %27 = icmp eq i8 %26, 47
-  %28 = getelementptr inbounds i8, ptr %1, i64 40
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 40
   br i1 %27, label %29, label %30
 
 29:                                               ; preds = %23
@@ -1094,12 +1094,12 @@ define internal range(i32 -1, 2) i32 @hwloc__nolibxml_import_find_child(ptr noun
 
 35:                                               ; preds = %31
   store i8 0, ptr %33, align 1
-  %36 = getelementptr inbounds i8, ptr %33, i64 1
+  %36 = getelementptr inbounds nuw i8, ptr %33, i64 1
   br label %.sink.split
 
 .sink.split:                                      ; preds = %31, %35
   %.sink = phi ptr [ %36, %35 ], [ null, %31 ]
-  %37 = getelementptr inbounds i8, ptr %1, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store ptr %.sink, ptr %37, align 8
   store ptr %17, ptr %2, align 8
   br label %38
@@ -1111,8 +1111,8 @@ define internal range(i32 -1, 2) i32 @hwloc__nolibxml_import_find_child(ptr noun
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define internal range(i32 -1, 1) i32 @hwloc__nolibxml_import_close_tag(ptr nocapture noundef %0) #11 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %21
@@ -1126,22 +1126,22 @@ define internal range(i32 -1, 1) i32 @hwloc__nolibxml_import_close_tag(ptr nocap
   br i1 %.not15, label %10, label %21
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %8, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 1
   %12 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %11, i32 noundef 62) #23
   %.not16 = icmp eq ptr %12, null
   br i1 %.not16, label %21, label %13
 
 13:                                               ; preds = %10
   store i8 0, ptr %12, align 1
-  %14 = getelementptr inbounds i8, ptr %12, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 1
   store ptr %14, ptr %2, align 8
   %15 = load i8, ptr %11, align 1
   %.not17 = icmp eq i8 %15, 47
   br i1 %.not17, label %16, label %21
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %8, i64 2
-  %18 = getelementptr inbounds i8, ptr %0, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %8, i64 2
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %19 = load ptr, ptr %18, align 8
   %20 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(1) %19) #23
   %.not18 = icmp ne i32 %20, 0
@@ -1155,9 +1155,9 @@ define internal range(i32 -1, 1) i32 @hwloc__nolibxml_import_close_tag(ptr nocap
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal void @hwloc__nolibxml_import_close_child(ptr nocapture noundef readonly %0) #12 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load ptr, ptr %2, align 8
   store ptr %5, ptr %4, align 8
   ret void
@@ -1165,9 +1165,9 @@ define internal void @hwloc__nolibxml_import_close_child(ptr nocapture noundef r
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define internal range(i32 -1, 2) i32 @hwloc__nolibxml_import_get_content(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, i64 noundef %2) #11 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load i32, ptr %6, align 8
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %9, label %8
@@ -1204,13 +1204,13 @@ define internal range(i32 -1, 2) i32 @hwloc__nolibxml_import_get_content(ptr noc
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal void @hwloc__nolibxml_import_close_content(ptr nocapture noundef readonly %0) #12 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i32, ptr %2, align 8
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %7
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   store i8 60, ptr %6, align 1
   br label %7
@@ -1237,27 +1237,27 @@ declare ptr @__errno_location() local_unnamed_addr #15
 define internal fastcc i64 @hwloc___nolibxml_prepare_export(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %3, i64 noundef %4) unnamed_addr #0 {
   %6 = alloca %struct.hwloc__xml_export_state_s, align 8
   %7 = alloca %struct.hwloc__xml_export_state_s, align 8
-  %8 = getelementptr inbounds i8, ptr %6, i64 48
-  %9 = getelementptr inbounds i8, ptr %6, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr @hwloc__nolibxml_export_new_child, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %6, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr @hwloc__nolibxml_export_new_prop, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %6, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr @hwloc__nolibxml_export_add_content, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %6, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr @hwloc__nolibxml_export_end_object, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %6, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store ptr %1, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %6, i64 72
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 72
   store i32 0, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %6, i64 56
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 56
   store i64 0, ptr %15, align 8
   store ptr %2, ptr %8, align 8
   %16 = sext i32 %3 to i64
-  %17 = getelementptr inbounds i8, ptr %6, i64 64
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 64
   store i64 %16, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %6, i64 76
-  %19 = getelementptr inbounds i8, ptr %6, i64 80
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 76
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 80
   store i32 0, ptr %19, align 8
   %20 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %2, i64 noundef %16, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.24) #20
   %21 = icmp sgt i32 %20, -1
@@ -1280,29 +1280,29 @@ hwloc__nolibxml_export_update_buffer.exit.i:      ; preds = %22, %5
   %27 = phi i64 [ %16, %5 ], [ %26, %22 ]
   %28 = phi i64 [ 0, %5 ], [ %23, %22 ]
   %29 = phi ptr [ %2, %5 ], [ %25, %22 ]
-  %30 = getelementptr inbounds i8, ptr %7, i64 48
+  %30 = getelementptr inbounds nuw i8, ptr %7, i64 48
   store i32 2, ptr %18, align 4
   store ptr %6, ptr %7, align 8
-  %31 = getelementptr inbounds i8, ptr %7, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr @hwloc__nolibxml_export_new_child, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %7, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr @hwloc__nolibxml_export_new_prop, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %7, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr @hwloc__nolibxml_export_add_content, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %7, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr @hwloc__nolibxml_export_end_object, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %7, i64 40
+  %35 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store ptr %1, ptr %35, align 8
   store ptr %29, ptr %30, align 8
-  %36 = getelementptr inbounds i8, ptr %7, i64 56
+  %36 = getelementptr inbounds nuw i8, ptr %7, i64 56
   store i64 %28, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %7, i64 64
+  %37 = getelementptr inbounds nuw i8, ptr %7, i64 64
   store i64 %27, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %7, i64 72
+  %38 = getelementptr inbounds nuw i8, ptr %7, i64 72
   store i32 2, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %7, i64 76
+  %39 = getelementptr inbounds nuw i8, ptr %7, i64 76
   store i32 0, ptr %39, align 4
-  %40 = getelementptr inbounds i8, ptr %7, i64 80
+  %40 = getelementptr inbounds nuw i8, ptr %7, i64 80
   store i32 0, ptr %40, align 8
   %41 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %29, i64 noundef %27, ptr noundef nonnull @.str.29, i32 noundef 0, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.6) #20
   %42 = icmp sgt i32 %41, -1
@@ -1350,7 +1350,7 @@ hwloc__nolibxml_export_new_child.exit:            ; preds = %hwloc__nolibxml_exp
   br i1 %.not20.i, label %66, label %62
 
 62:                                               ; preds = %58
-  %63 = getelementptr inbounds i8, ptr %52, i64 72
+  %63 = getelementptr inbounds nuw i8, ptr %52, i64 72
   %64 = load i32, ptr %63, align 8
   %65 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %60, i64 noundef %61, ptr noundef nonnull @.str.42, i32 noundef %64, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.6) #20
   br label %68
@@ -1385,13 +1385,13 @@ hwloc__nolibxml_export_new_child.exit:            ; preds = %hwloc__nolibxml_exp
 
 hwloc__nolibxml_export_end_object.exit:           ; preds = %68, %70
   %80 = phi ptr [ %.pre.i, %68 ], [ %78, %70 ]
-  %81 = getelementptr inbounds i8, ptr %52, i64 48
+  %81 = getelementptr inbounds nuw i8, ptr %52, i64 48
   store ptr %80, ptr %81, align 8
   %82 = load i64, ptr %36, align 8
-  %83 = getelementptr inbounds i8, ptr %52, i64 56
+  %83 = getelementptr inbounds nuw i8, ptr %52, i64 56
   store i64 %82, ptr %83, align 8
   %84 = load i64, ptr %37, align 8
-  %85 = getelementptr inbounds i8, ptr %52, i64 64
+  %85 = getelementptr inbounds nuw i8, ptr %52, i64 64
   store i64 %84, ptr %85, align 8
   %86 = load i64, ptr %15, align 8
   %87 = add i64 %86, 1
@@ -1400,15 +1400,15 @@ hwloc__nolibxml_export_end_object.exit:           ; preds = %68, %70
 
 ; Function Attrs: nofree nounwind uwtable
 define internal void @hwloc__nolibxml_export_new_child(ptr noundef %0, ptr nocapture noundef initializes((0, 84)) %1, ptr noundef %2) #4 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
-  %5 = getelementptr inbounds i8, ptr %0, i64 76
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %6 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %7, label %hwloc__nolibxml_export_update_buffer.exit
 
 7:                                                ; preds = %3
   %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %10 = load i64, ptr %9, align 8
   %11 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %8, i64 noundef %10, ptr noundef nonnull @.str.28) #20
   %12 = icmp sgt i32 %11, -1
@@ -1416,7 +1416,7 @@ define internal void @hwloc__nolibxml_export_new_child(ptr noundef %0, ptr nocap
 
 13:                                               ; preds = %7
   %14 = zext nneg i32 %11 to i64
-  %15 = getelementptr inbounds i8, ptr %0, i64 56
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %16 = load i64, ptr %15, align 8
   %17 = add i64 %16, %14
   store i64 %17, ptr %15, align 8
@@ -1436,49 +1436,49 @@ define internal void @hwloc__nolibxml_export_new_child(ptr noundef %0, ptr nocap
   br label %hwloc__nolibxml_export_update_buffer.exit
 
 hwloc__nolibxml_export_update_buffer.exit:        ; preds = %13, %7, %3
-  %25 = getelementptr inbounds i8, ptr %1, i64 48
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %26 = load i32, ptr %5, align 4
   %27 = add i32 %26, 1
   store i32 %27, ptr %5, align 4
   store ptr %0, ptr %1, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %1, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %29, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %1, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr %32, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %1, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store ptr %35, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %0, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %1, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store ptr %38, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 40
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %1, i64 40
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store ptr %41, ptr %42, align 8
   %43 = load ptr, ptr %4, align 8
   store ptr %43, ptr %25, align 8
-  %44 = getelementptr inbounds i8, ptr %0, i64 56
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %45 = load i64, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %1, i64 56
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 56
   store i64 %45, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %0, i64 64
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %48 = load i64, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %1, i64 64
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store i64 %48, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %0, i64 72
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %51 = load i32, ptr %50, align 8
   %52 = add i32 %51, 2
-  %53 = getelementptr inbounds i8, ptr %1, i64 72
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 72
   store i32 %52, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %1, i64 76
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 76
   store i32 0, ptr %54, align 4
-  %55 = getelementptr inbounds i8, ptr %1, i64 80
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 80
   store i32 0, ptr %55, align 8
   %56 = load i32, ptr %50, align 8
   %57 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %43, i64 noundef %48, ptr noundef nonnull @.str.29, i32 noundef %56, ptr noundef nonnull @.str.20, ptr noundef %2) #20
@@ -1511,7 +1511,7 @@ hwloc__nolibxml_export_update_buffer.exit39:      ; preds = %hwloc__nolibxml_exp
 
 ; Function Attrs: nounwind uwtable
 define internal void @hwloc__nolibxml_export_new_prop(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #23
   %6 = tail call i64 @strcspn(ptr noundef readonly %2, ptr noundef nonnull @.str.31) #23
   %7 = icmp eq i64 %6, %5
@@ -1571,8 +1571,8 @@ define internal void @hwloc__nolibxml_export_new_prop(ptr nocapture noundef %0, 
 
 23:                                               ; preds = %22, %21, %20, %19, %18, %17, %16, %14
   %.0.i = phi i64 [ 5, %22 ], [ 4, %21 ], [ 4, %20 ], [ 6, %19 ], [ 4, %18 ], [ 5, %17 ], [ 5, %16 ], [ 0, %14 ]
-  %24 = getelementptr inbounds i8, ptr %.035.i, i64 %.0.i
-  %25 = getelementptr inbounds i8, ptr %.037.i, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %.035.i, i64 %.0.i
+  %25 = getelementptr inbounds nuw i8, ptr %.037.i, i64 1
   %26 = tail call i64 @strcspn(ptr noundef nonnull %25, ptr noundef nonnull @.str.31) #23
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %24, ptr nonnull align 1 %25, i64 %26, i1 false)
   %27 = getelementptr inbounds i8, ptr %25, i64 %26
@@ -1586,7 +1586,7 @@ define internal void @hwloc__nolibxml_export_new_prop(ptr nocapture noundef %0, 
 hwloc__nolibxml_export_escape_string.exit:        ; preds = %3, %29
   %.036.i = phi ptr [ %11, %29 ], [ null, %3 ]
   %30 = load ptr, ptr %4, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 64
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %32 = load i64, ptr %31, align 8
   %.not = icmp eq ptr %.036.i, null
   %33 = select i1 %.not, ptr %2, ptr %.036.i
@@ -1596,7 +1596,7 @@ hwloc__nolibxml_export_escape_string.exit:        ; preds = %3, %29
 
 36:                                               ; preds = %hwloc__nolibxml_export_escape_string.exit
   %37 = zext nneg i32 %34 to i64
-  %38 = getelementptr inbounds i8, ptr %0, i64 56
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %39 = load i64, ptr %38, align 8
   %40 = add i64 %39, %37
   store i64 %40, ptr %38, align 8
@@ -1622,15 +1622,15 @@ hwloc__nolibxml_export_update_buffer.exit:        ; preds = %hwloc__nolibxml_exp
 
 ; Function Attrs: nofree nounwind uwtable
 define internal void @hwloc__nolibxml_export_add_content(ptr nocapture noundef %0, ptr noundef %1, i64 %2) #4 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
-  %5 = getelementptr inbounds i8, ptr %0, i64 80
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %6 = load i32, ptr %5, align 8
   %.not = icmp eq i32 %6, 0
   %.pre16 = load ptr, ptr %4, align 8
   br i1 %.not, label %7, label %hwloc__nolibxml_export_update_buffer.exit
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %9 = load i64, ptr %8, align 8
   %10 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.pre16, i64 noundef %9, ptr noundef nonnull @.str.39) #20
   %11 = icmp sgt i32 %10, -1
@@ -1639,7 +1639,7 @@ define internal void @hwloc__nolibxml_export_add_content(ptr nocapture noundef %
 
 12:                                               ; preds = %7
   %13 = zext nneg i32 %10 to i64
-  %14 = getelementptr inbounds i8, ptr %0, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %15 = load i64, ptr %14, align 8
   %16 = add i64 %15, %13
   store i64 %16, ptr %14, align 8
@@ -1660,7 +1660,7 @@ define internal void @hwloc__nolibxml_export_add_content(ptr nocapture noundef %
 hwloc__nolibxml_export_update_buffer.exit:        ; preds = %12, %7, %3
   %23 = phi ptr [ %21, %12 ], [ %.pre, %7 ], [ %.pre16, %3 ]
   store i32 1, ptr %5, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %25 = load i64, ptr %24, align 8
   %26 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %23, i64 noundef %25, ptr noundef nonnull @.str.40, ptr noundef %1) #20
   %27 = icmp sgt i32 %26, -1
@@ -1668,7 +1668,7 @@ hwloc__nolibxml_export_update_buffer.exit:        ; preds = %12, %7, %3
 
 28:                                               ; preds = %hwloc__nolibxml_export_update_buffer.exit
   %29 = zext nneg i32 %26 to i64
-  %30 = getelementptr inbounds i8, ptr %0, i64 56
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %31 = load i64, ptr %30, align 8
   %32 = add i64 %31, %29
   store i64 %32, ptr %30, align 8
@@ -1693,31 +1693,31 @@ hwloc__nolibxml_export_update_buffer.exit15:      ; preds = %hwloc__nolibxml_exp
 
 ; Function Attrs: nofree nounwind uwtable
 define internal void @hwloc__nolibxml_export_end_object(ptr nocapture noundef %0, ptr noundef %1) #4 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 80
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %6 = load i32, ptr %5, align 8
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %12, label %7
 
 7:                                                ; preds = %2
   %8 = load ptr, ptr %3, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %10 = load i64, ptr %9, align 8
   %11 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %8, i64 noundef %10, ptr noundef nonnull @.str.41, ptr noundef %1) #20
   br label %24
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %0, i64 76
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %14 = load i32, ptr %13, align 4
   %.not20 = icmp eq i32 %14, 0
   %15 = load ptr, ptr %3, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 64
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %17 = load i64, ptr %16, align 8
   br i1 %.not20, label %22, label %18
 
 18:                                               ; preds = %12
-  %19 = getelementptr inbounds i8, ptr %4, i64 72
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %20 = load i32, ptr %19, align 8
   %21 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %15, i64 noundef %17, ptr noundef nonnull @.str.42, i32 noundef %20, ptr noundef nonnull @.str.20, ptr noundef %1) #20
   br label %24
@@ -1734,11 +1734,11 @@ define internal void @hwloc__nolibxml_export_end_object(ptr nocapture noundef %0
 
 26:                                               ; preds = %24
   %27 = zext nneg i32 %.0 to i64
-  %28 = getelementptr inbounds i8, ptr %0, i64 56
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %29 = load i64, ptr %28, align 8
   %30 = add i64 %29, %27
   store i64 %30, ptr %28, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 64
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %32 = load i64, ptr %31, align 8
   %33 = trunc i64 %32 to i32
   %.not.i = icmp slt i32 %.0, %33
@@ -1755,15 +1755,15 @@ define internal void @hwloc__nolibxml_export_end_object(ptr nocapture noundef %0
 
 hwloc__nolibxml_export_update_buffer.exit:        ; preds = %24, %26
   %38 = phi ptr [ %.pre, %24 ], [ %36, %26 ]
-  %39 = getelementptr inbounds i8, ptr %4, i64 48
+  %39 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store ptr %38, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 56
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %41 = load i64, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %4, i64 56
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 56
   store i64 %41, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %0, i64 64
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %44 = load i64, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %4, i64 64
+  %45 = getelementptr inbounds nuw i8, ptr %4, i64 64
   store i64 %44, ptr %45, align 8
   ret void
 }
@@ -1788,27 +1788,27 @@ declare i32 @hwloc__xml_import_diff(ptr noundef, ptr noundef) local_unnamed_addr
 define internal fastcc i64 @hwloc___nolibxml_prepare_export_diff(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca %struct.hwloc__xml_export_state_s, align 8
   %6 = alloca %struct.hwloc__xml_export_state_s, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 48
-  %8 = getelementptr inbounds i8, ptr %5, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @hwloc__nolibxml_export_new_child, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %5, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr @hwloc__nolibxml_export_new_prop, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr @hwloc__nolibxml_export_add_content, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr @hwloc__nolibxml_export_end_object, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %5, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store ptr null, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %5, i64 72
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 72
   store i32 0, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %5, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store i64 0, ptr %14, align 8
   store ptr %2, ptr %7, align 8
   %15 = sext i32 %3 to i64
-  %16 = getelementptr inbounds i8, ptr %5, i64 64
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 64
   store i64 %15, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %5, i64 76
-  %18 = getelementptr inbounds i8, ptr %5, i64 80
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 76
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 80
   store i32 0, ptr %18, align 8
   %19 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %2, i64 noundef %15, ptr noundef nonnull @.str.46) #20
   %20 = icmp sgt i32 %19, -1
@@ -1831,29 +1831,29 @@ hwloc__nolibxml_export_update_buffer.exit.i:      ; preds = %21, %4
   %26 = phi i64 [ %15, %4 ], [ %25, %21 ]
   %27 = phi i64 [ 0, %4 ], [ %22, %21 ]
   %28 = phi ptr [ %2, %4 ], [ %24, %21 ]
-  %29 = getelementptr inbounds i8, ptr %6, i64 48
+  %29 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store i32 2, ptr %17, align 4
   store ptr %5, ptr %6, align 8
-  %30 = getelementptr inbounds i8, ptr %6, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr @hwloc__nolibxml_export_new_child, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %6, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr @hwloc__nolibxml_export_new_prop, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %6, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr @hwloc__nolibxml_export_add_content, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %6, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr @hwloc__nolibxml_export_end_object, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %6, i64 40
+  %34 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store ptr null, ptr %34, align 8
   store ptr %28, ptr %29, align 8
-  %35 = getelementptr inbounds i8, ptr %6, i64 56
+  %35 = getelementptr inbounds nuw i8, ptr %6, i64 56
   store i64 %27, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %6, i64 64
+  %36 = getelementptr inbounds nuw i8, ptr %6, i64 64
   store i64 %26, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %6, i64 72
+  %37 = getelementptr inbounds nuw i8, ptr %6, i64 72
   store i32 2, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %6, i64 76
+  %38 = getelementptr inbounds nuw i8, ptr %6, i64 76
   store i32 0, ptr %38, align 4
-  %39 = getelementptr inbounds i8, ptr %6, i64 80
+  %39 = getelementptr inbounds nuw i8, ptr %6, i64 80
   store i32 0, ptr %39, align 8
   %40 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %28, i64 noundef %26, ptr noundef nonnull @.str.29, i32 noundef 0, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.44) #20
   %41 = icmp sgt i32 %40, -1
@@ -1905,7 +1905,7 @@ hwloc__nolibxml_export_new_child.exit:            ; preds = %hwloc__nolibxml_exp
   br i1 %.not20.i, label %66, label %62
 
 62:                                               ; preds = %58
-  %63 = getelementptr inbounds i8, ptr %52, i64 72
+  %63 = getelementptr inbounds nuw i8, ptr %52, i64 72
   %64 = load i32, ptr %63, align 8
   %65 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %60, i64 noundef %61, ptr noundef nonnull @.str.42, i32 noundef %64, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.44) #20
   br label %68
@@ -1940,13 +1940,13 @@ hwloc__nolibxml_export_new_child.exit:            ; preds = %hwloc__nolibxml_exp
 
 hwloc__nolibxml_export_end_object.exit:           ; preds = %68, %70
   %80 = phi ptr [ %.pre.i, %68 ], [ %78, %70 ]
-  %81 = getelementptr inbounds i8, ptr %52, i64 48
+  %81 = getelementptr inbounds nuw i8, ptr %52, i64 48
   store ptr %80, ptr %81, align 8
   %82 = load i64, ptr %35, align 8
-  %83 = getelementptr inbounds i8, ptr %52, i64 56
+  %83 = getelementptr inbounds nuw i8, ptr %52, i64 56
   store i64 %82, ptr %83, align 8
   %84 = load i64, ptr %36, align 8
-  %85 = getelementptr inbounds i8, ptr %52, i64 64
+  %85 = getelementptr inbounds nuw i8, ptr %52, i64 64
   store i64 %84, ptr %85, align 8
   %86 = load i64, ptr %14, align 8
   %87 = add i64 %86, 1

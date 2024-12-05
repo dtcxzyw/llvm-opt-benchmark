@@ -140,13 +140,13 @@ define internal range(i32 0, 256) i32 @get_djiuav_pdu_len(ptr nocapture readnone
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 256) i32 @dissect_djiuav_pdu(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca %struct.nstime_t, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 292
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 292
   %7 = load i32, ptr %6, align 4
-  %8 = getelementptr inbounds i8, ptr %1, i64 288
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %9 = load i32, ptr %8, align 8
   %10 = icmp eq i32 %7, %9
   %11 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 6) #5
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8
   tail call void @col_set_str(ptr noundef %13, i32 noundef 34, ptr noundef nonnull @.str.30) #5
   %14 = load ptr, ptr %12, align 8
@@ -184,9 +184,9 @@ define internal range(i32 0, 256) i32 @dissect_djiuav_pdu(ptr noundef %0, ptr no
 
 37:                                               ; preds = %31, %4
   %.0.i = phi ptr [ %30, %4 ], [ %33, %31 ]
-  %38 = getelementptr inbounds i8, ptr %1, i64 80
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 50
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 50
   %41 = load i16, ptr %40, align 2
   %42 = and i16 %41, 8
   %.not58.i = icmp eq i16 %42, 0
@@ -204,13 +204,13 @@ define internal range(i32 0, 256) i32 @dissect_djiuav_pdu(ptr noundef %0, ptr no
   br i1 %.not59.i, label %request_response_handling.exit, label %49
 
 49:                                               ; preds = %44
-  %50 = getelementptr inbounds i8, ptr %48, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %51 = load i32, ptr %50, align 8
   %52 = icmp eq i32 %51, 0
   br i1 %52, label %53, label %61
 
 53:                                               ; preds = %49
-  %54 = getelementptr inbounds i8, ptr %1, i64 20
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %55 = load i32, ptr %54, align 4
   store i32 %55, ptr %50, align 8
   br label %61
@@ -232,17 +232,17 @@ define internal range(i32 0, 256) i32 @dissect_djiuav_pdu(ptr noundef %0, ptr no
 .thread70.i:                                      ; preds = %43
   %64 = tail call ptr @wmem_file_scope() #5
   %65 = tail call noalias ptr @wmem_alloc(ptr noundef %64, i64 noundef 32) #5
-  %66 = getelementptr inbounds i8, ptr %1, i64 20
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %67 = load i32, ptr %66, align 4
-  %68 = getelementptr inbounds i8, ptr %65, i64 4
+  %68 = getelementptr inbounds nuw i8, ptr %65, i64 4
   store i32 %67, ptr %68, align 4
-  %69 = getelementptr inbounds i8, ptr %65, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %65, i64 8
   store i32 0, ptr %69, align 8
-  %70 = getelementptr inbounds i8, ptr %65, i64 16
-  %71 = getelementptr inbounds i8, ptr %1, i64 24
+  %70 = getelementptr inbounds nuw i8, ptr %65, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %70, ptr noundef nonnull align 8 dereferenceable(16) %71, i64 16, i1 false)
   store i16 %26, ptr %65, align 8
-  %72 = getelementptr inbounds i8, ptr %65, i64 2
+  %72 = getelementptr inbounds nuw i8, ptr %65, i64 2
   store i8 %27, ptr %72, align 2
   %73 = load ptr, ptr %.0.i, align 8
   %74 = zext i16 %26 to i64
@@ -256,7 +256,7 @@ define internal range(i32 0, 256) i32 @dissect_djiuav_pdu(ptr noundef %0, ptr no
 
 .thread74.i:                                      ; preds = %77, %.thread70.i
   %.0527376.i = phi ptr [ %.052.i, %77 ], [ %65, %.thread70.i ]
-  %78 = getelementptr inbounds i8, ptr %.0527376.i, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %.0527376.i, i64 8
   %79 = load i32, ptr %78, align 8
   %.not61.i = icmp eq i32 %79, 0
   br i1 %.not61.i, label %request_response_handling.exit, label %80
@@ -268,13 +268,13 @@ define internal range(i32 0, 256) i32 @dissect_djiuav_pdu(ptr noundef %0, ptr no
   br i1 %.not.i.i, label %request_response_handling.exit, label %83
 
 83:                                               ; preds = %80
-  %84 = getelementptr inbounds i8, ptr %82, i64 32
+  %84 = getelementptr inbounds nuw i8, ptr %82, i64 32
   %85 = load ptr, ptr %84, align 8
   %.not5.i.i = icmp eq ptr %85, null
   br i1 %.not5.i.i, label %request_response_handling.exit, label %proto_item_set_generated.exit.sink.split.i
 
 86:                                               ; preds = %77
-  %87 = getelementptr inbounds i8, ptr %.052.i, i64 4
+  %87 = getelementptr inbounds nuw i8, ptr %.052.i, i64 4
   %88 = load i32, ptr %87, align 4
   %.not60.i = icmp eq i32 %88, 0
   br i1 %.not60.i, label %request_response_handling.exit, label %89
@@ -286,21 +286,21 @@ define internal range(i32 0, 256) i32 @dissect_djiuav_pdu(ptr noundef %0, ptr no
   br i1 %.not.i62.i, label %proto_item_set_generated.exit64.i, label %92
 
 92:                                               ; preds = %89
-  %93 = getelementptr inbounds i8, ptr %91, i64 32
+  %93 = getelementptr inbounds nuw i8, ptr %91, i64 32
   %94 = load ptr, ptr %93, align 8
   %.not5.i63.i = icmp eq ptr %94, null
   br i1 %.not5.i63.i, label %proto_item_set_generated.exit64.i, label %95
 
 95:                                               ; preds = %92
-  %96 = getelementptr inbounds i8, ptr %94, i64 28
+  %96 = getelementptr inbounds nuw i8, ptr %94, i64 28
   %97 = load i32, ptr %96, align 4
   %98 = or i32 %97, 2
   store i32 %98, ptr %96, align 4
   br label %proto_item_set_generated.exit64.i
 
 proto_item_set_generated.exit64.i:                ; preds = %95, %92, %89
-  %99 = getelementptr inbounds i8, ptr %1, i64 24
-  %100 = getelementptr inbounds i8, ptr %.052.i, i64 16
+  %99 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %100 = getelementptr inbounds nuw i8, ptr %.052.i, i64 16
   call void @nstime_delta(ptr noundef nonnull %5, ptr noundef nonnull %99, ptr noundef nonnull %100) #5
   %101 = load i32, ptr @hf_djiuav_response_time, align 4
   %102 = call ptr @proto_tree_add_time(ptr noundef nonnull %22, i32 noundef %101, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %5) #5
@@ -308,14 +308,14 @@ proto_item_set_generated.exit64.i:                ; preds = %95, %92, %89
   br i1 %.not.i65.i, label %request_response_handling.exit, label %103
 
 103:                                              ; preds = %proto_item_set_generated.exit64.i
-  %104 = getelementptr inbounds i8, ptr %102, i64 32
+  %104 = getelementptr inbounds nuw i8, ptr %102, i64 32
   %105 = load ptr, ptr %104, align 8
   %.not5.i66.i = icmp eq ptr %105, null
   br i1 %.not5.i66.i, label %request_response_handling.exit, label %proto_item_set_generated.exit.sink.split.i
 
 proto_item_set_generated.exit.sink.split.i:       ; preds = %103, %83
   %.sink80.i = phi ptr [ %85, %83 ], [ %105, %103 ]
-  %106 = getelementptr inbounds i8, ptr %.sink80.i, i64 28
+  %106 = getelementptr inbounds nuw i8, ptr %.sink80.i, i64 28
   %107 = load i32, ptr %106, align 4
   %108 = or i32 %107, 2
   store i32 %108, ptr %106, align 4

@@ -110,7 +110,7 @@ define hidden void @_ZN17NativeHeapTrimmer10initializeEv() local_unnamed_addr #0
   %3 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 944, i8 noundef zeroext 2, i32 noundef 0) #7
   tail call void @_ZN23NativeHeapTrimmerThreadC2Ev(ptr noundef nonnull align 8 dereferenceable(944) %3)
   store ptr %3, ptr @_ZL16g_trimmer_thread, align 8
-  %4 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE164ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %4 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE164ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not3 = icmp eq ptr %4, null
   br i1 %.not3, label %7, label %5
 
@@ -127,7 +127,7 @@ define hidden void @_ZN17NativeHeapTrimmer10initializeEv() local_unnamed_addr #0
 define linkonce_odr hidden void @_ZN23NativeHeapTrimmerThreadC2Ev(ptr noundef nonnull align 8 dereferenceable(944) %0) unnamed_addr #0 comdat align 2 {
   tail call void @_ZN11NamedThreadC2Ev(ptr noundef nonnull align 8 dereferenceable(916) %0) #7
   store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTV23NativeHeapTrimmerThread, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 920
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 920
   %3 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 128, i8 noundef zeroext 22, i32 noundef 1) #7
   %4 = icmp eq ptr %3, null
   br i1 %4, label %6, label %5
@@ -138,11 +138,11 @@ define linkonce_odr hidden void @_ZN23NativeHeapTrimmerThreadC2Ev(ptr noundef no
 
 6:                                                ; preds = %5, %1
   store ptr %3, ptr %2, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 928
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 928
   store i8 0, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 930
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 930
   store i16 0, ptr %8, align 2
-  %9 = getelementptr inbounds i8, ptr %0, i64 936
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 936
   store i64 0, ptr %9, align 8
   tail call void (ptr, ptr, ...) @_ZN11NamedThread8set_nameEPKcz(ptr noundef nonnull align 8 dereferenceable(916) %0, ptr noundef nonnull @.str.8) #7
   %10 = tail call noundef zeroext i1 @_ZN2os13create_threadEP6ThreadNS_10ThreadTypeEm(ptr noundef nonnull %0, i32 noundef 0, i64 noundef 0) #7
@@ -172,7 +172,7 @@ define hidden void @_ZN17NativeHeapTrimmer7cleanupEv() local_unnamed_addr #0 ali
   br i1 %.not, label %7, label %2
 
 2:                                                ; preds = %0
-  %3 = getelementptr inbounds i8, ptr %1, i64 920
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 920
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i = icmp eq ptr %4, null
   br i1 %.not.i.i.i, label %_ZN23NativeHeapTrimmerThread4stopEv.exit, label %5
@@ -182,7 +182,7 @@ define hidden void @_ZN17NativeHeapTrimmer7cleanupEv() local_unnamed_addr #0 ali
   br label %_ZN23NativeHeapTrimmerThread4stopEv.exit
 
 _ZN23NativeHeapTrimmerThread4stopEv.exit:         ; preds = %2, %5
-  %6 = getelementptr inbounds i8, ptr %1, i64 928
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 928
   store i8 1, ptr %6, align 8
   tail call void @_ZN7Monitor10notify_allEv(ptr noundef nonnull align 8 dereferenceable(104) %4) #7
   tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %4) #7
@@ -199,13 +199,13 @@ define hidden void @_ZN17NativeHeapTrimmer21suspend_periodic_trimEPKc(ptr nounde
   br i1 %.not, label %_ZN23NativeHeapTrimmerThread7suspendEPKc.exit, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %2, i64 920
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 920
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i = icmp eq ptr %5, null
   br i1 %.not.i.i.i, label %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit.thread.i, label %9
 
 _ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit.thread.i: ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %2, i64 930
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 930
   %7 = load i16, ptr %6, align 2
   %8 = add i16 %7, 1
   store i16 %8, ptr %6, align 2
@@ -213,7 +213,7 @@ _ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit.thread.i: ; pred
 
 9:                                                ; preds = %3
   tail call void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull align 8 dereferenceable(104) %5) #7
-  %10 = getelementptr inbounds i8, ptr %2, i64 930
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 930
   %11 = load i16, ptr %10, align 2
   %12 = add i16 %11, 1
   store i16 %12, ptr %10, align 2
@@ -222,7 +222,7 @@ _ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit.thread.i: ; pred
 
 _ZN13MonitorLockerD2Ev.exit.i:                    ; preds = %9, %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit.thread.i
   %13 = phi i16 [ %8, %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit.thread.i ], [ %12, %9 ]
-  %14 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE164ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %14 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE164ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not.i = icmp eq ptr %14, null
   br i1 %.not.i, label %_ZN23NativeHeapTrimmerThread7suspendEPKc.exit, label %15
 
@@ -251,13 +251,13 @@ define hidden void @_ZN17NativeHeapTrimmer20resume_periodic_trimEPKc(ptr noundef
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN23NativeHeapTrimmerThread6resumeEPKc(ptr noundef nonnull align 8 dereferenceable(944) %0, ptr noundef %1) local_unnamed_addr #0 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 920
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 920
   %4 = load ptr, ptr %3, align 8
   %.not.i.i = icmp eq ptr %4, null
   br i1 %.not.i.i, label %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit, label %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit.thread
 
 _ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit: ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 930
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 930
   %6 = load i16, ptr %5, align 2
   %7 = add i16 %6, -1
   store i16 %7, ptr %5, align 2
@@ -266,7 +266,7 @@ _ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit: ; preds = %2
 
 _ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit.thread: ; preds = %2
   tail call void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull align 8 dereferenceable(104) %4) #7
-  %9 = getelementptr inbounds i8, ptr %0, i64 930
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 930
   %10 = load i16, ptr %9, align 2
   %11 = add i16 %10, -1
   store i16 %11, ptr %9, align 2
@@ -276,7 +276,7 @@ _ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit.thread: ; preds 
 _ZN13MonitorLockerD2Ev.exit:                      ; preds = %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit.thread, %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit
   tail call void @_ZN7Monitor10notify_allEv(ptr noundef nonnull align 8 dereferenceable(104) %4) #7
   tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %4) #7
-  %13 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE164ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %13 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE164ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not10 = icmp eq ptr %13, null
   br i1 %.not10, label %19, label %14
 
@@ -290,7 +290,7 @@ _ZN13MonitorLockerD2Ev.exit:                      ; preds = %_ZN13MonitorLockerC
 
 _ZN13MonitorLockerD2Ev.exit7:                     ; preds = %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit, %15
   %.in = phi i16 [ %11, %15 ], [ %7, %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit ]
-  %16 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE164ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %16 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE164ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %19, label %17
 
@@ -313,7 +313,7 @@ define hidden void @_ZN17NativeHeapTrimmer11print_stateEP12outputStream(ptr noun
   %4 = load i32, ptr @TrimNativeHeapInterval, align 4
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.4, i32 noundef %4) #7
   %5 = load ptr, ptr @_ZL16g_trimmer_thread, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 920
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 920
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef zeroext i1 @_ZN7VMError17is_error_reportedEv() #7
   %.not.i.i5.i = icmp eq ptr %7, null
@@ -321,21 +321,21 @@ define hidden void @_ZN17NativeHeapTrimmer11print_stateEP12outputStream(ptr noun
   br i1 %.not.i.i.i, label %_ZN22ConditionalMutexLockerC2EP5MutexbNS0_18SafepointCheckFlagE.exit.thread.i, label %15
 
 _ZN22ConditionalMutexLockerC2EP5MutexbNS0_18SafepointCheckFlagE.exit.thread.i: ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %5, i64 936
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 936
   %10 = load i64, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 928
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 928
   %12 = load i8, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %5, i64 930
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 930
   %14 = load i16, ptr %13, align 2
   br label %_ZNK23NativeHeapTrimmerThread11print_stateEP12outputStream.exit
 
 15:                                               ; preds = %3
   tail call void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull align 8 dereferenceable(104) %7) #7
-  %16 = getelementptr inbounds i8, ptr %5, i64 936
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 936
   %17 = load i64, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %5, i64 928
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 928
   %19 = load i8, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %5, i64 930
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 930
   %21 = load i16, ptr %20, align 2
   tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %7) #7
   br label %_ZNK23NativeHeapTrimmerThread11print_stateEP12outputStream.exit
@@ -410,7 +410,7 @@ define linkonce_odr hidden void @_ZN23NativeHeapTrimmerThreadD0Ev(ptr noundef no
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN23NativeHeapTrimmerThread3runEv(ptr noundef nonnull align 8 dereferenceable(944) %0) unnamed_addr #0 comdat align 2 {
-  %2 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE164ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %2 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE164ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not.i.i = icmp eq ptr %2, null
   br i1 %.not.i.i, label %_ZN23NativeHeapTrimmerThread16LogStartStopMarkC2Ev.exit, label %3
 
@@ -422,9 +422,9 @@ _ZN23NativeHeapTrimmerThread16LogStartStopMarkC2Ev.exit: ; preds = %1, %3
   %4 = load i32, ptr @TrimNativeHeapInterval, align 4
   %5 = uitofp i32 %4 to double
   %6 = fdiv double %5, 1.000000e+03
-  %7 = getelementptr inbounds i8, ptr %0, i64 920
-  %8 = getelementptr inbounds i8, ptr %0, i64 928
-  %9 = getelementptr inbounds i8, ptr %0, i64 930
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 920
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 928
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 930
   br label %10
 
 10:                                               ; preds = %53, %_ZN23NativeHeapTrimmerThread16LogStartStopMarkC2Ev.exit
@@ -543,7 +543,7 @@ _ZN13MonitorLockerD2Ev.exit:                      ; preds = %.loopexit, %49
   br i1 %cond, label %50, label %54
 
 50:                                               ; preds = %_ZN13MonitorLockerD2Ev.exit
-  %51 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE164ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %51 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE164ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not39 = icmp eq ptr %51, null
   br i1 %.not39, label %53, label %52
 
@@ -556,7 +556,7 @@ _ZN13MonitorLockerD2Ev.exit:                      ; preds = %.loopexit, %49
   br label %10, !llvm.loop !8
 
 54:                                               ; preds = %_ZN13MonitorLockerD2Ev.exit
-  %55 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE164ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %55 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE164ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not.i.i33 = icmp eq ptr %55, null
   br i1 %.not.i.i33, label %_ZN23NativeHeapTrimmerThread16LogStartStopMarkD2Ev.exit, label %56
 
@@ -649,7 +649,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK6Thread21is_active_Java_threa
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNK11NamedThread4nameEv(ptr noundef nonnull align 8 dereferenceable(916) %0) unnamed_addr #0 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 896
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 896
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   %spec.select = select i1 %4, ptr @.str.19, ptr %3
@@ -694,14 +694,14 @@ define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE164ELS1_0ELS1_0ELS1_
 define linkonce_odr hidden void @_ZN23NativeHeapTrimmerThread20execute_trim_and_logEd(ptr noundef nonnull align 8 dereferenceable(944) %0, double noundef %1) local_unnamed_addr #0 comdat align 2 {
   %3 = alloca %"struct.os::size_change_t", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
-  %4 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE164ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %4 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE164ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not37 = icmp eq ptr %4, null
   %. = select i1 %.not37, ptr null, ptr %3
   %5 = call noundef zeroext i1 @_ZN2os16trim_native_heapEPNS_13size_change_tE(ptr noundef %.) #7
   br i1 %5, label %6, label %56
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 936
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 936
   %8 = load i64, ptr %7, align 8
   %9 = add i64 %8, 1
   store i64 %9, ptr %7, align 8
@@ -709,7 +709,7 @@ define linkonce_odr hidden void @_ZN23NativeHeapTrimmerThread20execute_trim_and_
 
 10:                                               ; preds = %6
   %11 = call noundef double @_ZN2os11elapsedTimeEv() #7
-  %12 = getelementptr inbounds i8, ptr %3, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %13 = load i64, ptr %12, align 8
   %.not = icmp eq i64 %13, -1
   br i1 %.not, label %50, label %14
@@ -720,7 +720,7 @@ define linkonce_odr hidden void @_ZN23NativeHeapTrimmerThread20execute_trim_and_
   %17 = sub nuw i64 %15, %13
   %18 = sub nuw i64 %13, %15
   %19 = select i1 %16, i64 %17, i64 %18
-  %20 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE164ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %20 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE164ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not38 = icmp eq ptr %20, null
   br i1 %.not38, label %56, label %21
 
@@ -808,7 +808,7 @@ _Z25proper_unit_for_byte_sizem.exit22:            ; preds = %.thread35, %_Z24byt
   br label %56
 
 50:                                               ; preds = %10
-  %51 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE164ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %51 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE164ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not39 = icmp eq ptr %51, null
   br i1 %.not39, label %56, label %52
 

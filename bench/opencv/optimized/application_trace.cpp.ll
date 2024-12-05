@@ -431,29 +431,29 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 .lr.ph:                                           ; preds = %142
   call void @_ZN2cv4UMatC1ENS_14UMatUsageFlagsE(ptr noundef nonnull align 8 dereferenceable(80) %34, i32 noundef 0) #10
   %144 = icmp slt i32 %.016, 1
-  %145 = getelementptr inbounds i8, ptr %37, i64 8
-  %146 = getelementptr inbounds i8, ptr %37, i64 16
-  %147 = getelementptr inbounds i8, ptr %6, i64 16
-  %148 = getelementptr inbounds i8, ptr %6, i64 20
-  %149 = getelementptr inbounds i8, ptr %6, i64 8
-  %150 = getelementptr inbounds i8, ptr %9, i64 16
-  %151 = getelementptr inbounds i8, ptr %9, i64 20
-  %152 = getelementptr inbounds i8, ptr %9, i64 8
-  %153 = getelementptr inbounds i8, ptr %10, i64 8
-  %154 = getelementptr inbounds i8, ptr %10, i64 16
-  %155 = getelementptr inbounds i8, ptr %11, i64 16
-  %156 = getelementptr inbounds i8, ptr %11, i64 20
-  %157 = getelementptr inbounds i8, ptr %11, i64 8
-  %158 = getelementptr inbounds i8, ptr %12, i64 8
-  %159 = getelementptr inbounds i8, ptr %12, i64 16
-  %160 = getelementptr inbounds i8, ptr %15, i64 16
-  %161 = getelementptr inbounds i8, ptr %15, i64 20
-  %162 = getelementptr inbounds i8, ptr %15, i64 8
-  %163 = getelementptr inbounds i8, ptr %3, i64 8
-  %164 = getelementptr inbounds i8, ptr %39, i64 8
-  %165 = getelementptr inbounds i8, ptr %38, i64 8
-  %166 = getelementptr inbounds i8, ptr %36, i64 8
-  %167 = getelementptr inbounds i8, ptr %35, i64 8
+  %145 = getelementptr inbounds nuw i8, ptr %37, i64 8
+  %146 = getelementptr inbounds nuw i8, ptr %37, i64 16
+  %147 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %148 = getelementptr inbounds nuw i8, ptr %6, i64 20
+  %149 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %150 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %151 = getelementptr inbounds nuw i8, ptr %9, i64 20
+  %152 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %153 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %154 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %155 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %156 = getelementptr inbounds nuw i8, ptr %11, i64 20
+  %157 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %158 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %159 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %160 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %161 = getelementptr inbounds nuw i8, ptr %15, i64 20
+  %162 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %163 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %164 = getelementptr inbounds nuw i8, ptr %39, i64 8
+  %165 = getelementptr inbounds nuw i8, ptr %38, i64 8
+  %166 = getelementptr inbounds nuw i8, ptr %36, i64 8
+  %167 = getelementptr inbounds nuw i8, ptr %35, i64 8
   br label %172
 
 168:                                              ; preds = %_ZN2cv5utils5trace7details6RegionD2Ev.exit69
@@ -809,7 +809,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit69._crit_edge: ; preds = %168, %_ZN2cv
 256:                                              ; preds = %45, %254
   %.033 = phi i32 [ %.134, %254 ], [ 0, %45 ]
   call void @_ZN2cv17CommandLineParserD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %20) #10
-  %257 = getelementptr inbounds i8, ptr %19, i64 8
+  %257 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %258 = load i32, ptr %257, align 8
   %.not.i70 = icmp eq i32 %258, 0
   br i1 %.not.i70, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit71, label %259
@@ -898,7 +898,7 @@ declare noundef i32 @_ZN2cv7waitKeyEi(i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %5, label %4

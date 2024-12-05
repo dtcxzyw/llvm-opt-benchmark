@@ -165,7 +165,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %if
 
 for.cond28.i.us:                                  ; preds = %for.body.us, %for.cond28.i.us
   %indvars.iv28.i.us = phi i64 [ %indvars.iv.next29.i.us, %for.cond28.i.us ], [ 0, %for.body.us ]
-  %arrayidx30.i.us = getelementptr inbounds i8, ptr %3, i64 %indvars.iv28.i.us
+  %arrayidx30.i.us = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv28.i.us
   %4 = load i8, ptr %arrayidx30.i.us, align 1
   %5 = add i8 %4, -48
   %or.cond21.i.us = icmp ult i8 %5, 10
@@ -188,14 +188,14 @@ if.end70.us:                                      ; preds = %if.then55.us
   %tobool74.not.us = icmp eq i32 %call73.us, 0
   %cond75.us = select i1 %tobool74.not.us, ptr @.str.35, ptr @.str.34
   %call76.us = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %9, ptr noundef nonnull @.str.33, ptr noundef %10, ptr noundef nonnull %cond75.us) #3
-  %incdec.ptr.us = getelementptr inbounds i8, ptr %argv.addr.034.us, i64 8
+  %incdec.ptr.us = getelementptr inbounds nuw i8, ptr %argv.addr.034.us, i64 8
   %12 = load ptr, ptr %incdec.ptr.us, align 8
   %tobool52.not.us = icmp eq ptr %12, null
   br i1 %tobool52.not.us, label %end, label %for.body.us, !llvm.loop !8
 
 check_num.exit.loopexit.us:                       ; preds = %for.cond28.i.us
   %idxprom45.i.us = and i64 %indvars.iv28.i.us, 4294967295
-  %arrayidx46.i.us = getelementptr inbounds i8, ptr %3, i64 %idxprom45.i.us
+  %arrayidx46.i.us = getelementptr inbounds nuw i8, ptr %3, i64 %idxprom45.i.us
   %13 = load i8, ptr %arrayidx46.i.us, align 1
   %cmp48.i.not.us = icmp eq i8 %13, 0
   br i1 %cmp48.i.not.us, label %if.then55.us, label %if.then67
@@ -265,7 +265,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
 
 for.cond.i:                                       ; preds = %for.body, %for.inc.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.inc.i ], [ 0, %for.body ]
-  %arrayidx.i = getelementptr inbounds i8, ptr %19, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %19, i64 %indvars.iv.i
   %20 = load i8, ptr %arrayidx.i, align 1
   %.fr25.i = freeze i8 %20
   %21 = add i8 %.fr25.i, -48
@@ -294,7 +294,7 @@ for.inc.i:                                        ; preds = %switch.early.test.i
 
 check_num.exit.loopexit18:                        ; preds = %switch.early.test.i
   %idxprom45.i = and i64 %indvars.iv.i, 4294967295
-  %arrayidx46.i = getelementptr inbounds i8, ptr %19, i64 %idxprom45.i
+  %arrayidx46.i = getelementptr inbounds nuw i8, ptr %19, i64 %idxprom45.i
   %22 = load i8, ptr %arrayidx46.i, align 1
   %cmp48.i.not = icmp eq i8 %22, 0
   br i1 %cmp48.i.not, label %cond.true57, label %if.then67
@@ -322,7 +322,7 @@ if.end70:                                         ; preds = %cond.true57
   %tobool74.not = icmp eq i32 %call73, 0
   %cond75 = select i1 %tobool74.not, ptr @.str.35, ptr @.str.34
   %call76 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %28, ptr noundef nonnull @.str.33, ptr noundef %29, ptr noundef nonnull %cond75) #3
-  %incdec.ptr = getelementptr inbounds i8, ptr %argv.addr.034, i64 8
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %argv.addr.034, i64 8
   %31 = load ptr, ptr %incdec.ptr, align 8
   %tobool52.not = icmp eq ptr %31, null
   br i1 %tobool52.not, label %end, label %for.body, !llvm.loop !8

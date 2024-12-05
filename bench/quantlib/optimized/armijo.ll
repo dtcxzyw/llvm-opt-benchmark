@@ -144,7 +144,7 @@ _ZN8QuantLib5ArrayaSERKS0_.exit:                  ; preds = %_ZN8QuantLib5ArrayC
   store i32 %inc.i, ptr %functionEvaluation_.i, align 8, !tbaa !28
   %16 = load ptr, ptr %P, align 8, !tbaa !29
   %vtable.i = load ptr, ptr %16, align 8, !tbaa !30
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 16
   %17 = load ptr, ptr %vfn.i, align 8
   %call.i28 = tail call noundef double %17(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull align 8 dereferenceable(16) %xtd_)
   store double %call.i28, ptr %qt_, align 8, !tbaa !23
@@ -202,7 +202,7 @@ _ZN8QuantLib5ArrayaSERKS0_.exit39:                ; preds = %_ZN8QuantLib5ArrayC
   store i32 %inc.i41, ptr %functionEvaluation_.i, align 8, !tbaa !28
   %29 = load ptr, ptr %P, align 8, !tbaa !29
   %vtable.i42 = load ptr, ptr %29, align 8, !tbaa !30
-  %vfn.i43 = getelementptr inbounds i8, ptr %vtable.i42, i64 16
+  %vfn.i43 = getelementptr inbounds nuw i8, ptr %vtable.i42, i64 16
   %30 = load ptr, ptr %vfn.i43, align 8
   %call.i44 = tail call noundef double %30(ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef nonnull align 8 dereferenceable(16) %xtd_)
   store double %call.i44, ptr %qt_, align 8, !tbaa !23
@@ -211,7 +211,7 @@ _ZN8QuantLib5ArrayaSERKS0_.exit39:                ; preds = %_ZN8QuantLib5ArrayC
   store i32 %inc.i45, ptr %gradientEvaluation_.i, align 4, !tbaa !35
   %32 = load ptr, ptr %P, align 8, !tbaa !29
   %vtable.i46 = load ptr, ptr %32, align 8, !tbaa !30
-  %vfn.i47 = getelementptr inbounds i8, ptr %vtable.i46, i64 32
+  %vfn.i47 = getelementptr inbounds nuw i8, ptr %vtable.i46, i64 32
   %33 = load ptr, ptr %vfn.i47, align 8
   tail call void %33(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull align 8 dereferenceable(16) %gradient_, ptr noundef nonnull align 8 dereferenceable(16) %xtd_)
   %call36 = tail call noundef zeroext i1 @_ZNK8QuantLib11EndCriteria18checkMaxIterationsEmRNS0_4TypeE(ptr noundef nonnull align 8 dereferenceable(40) %endCriteria, i64 noundef %inc, ptr noundef nonnull align 4 dereferenceable(4) %ecType)
@@ -254,7 +254,7 @@ if.end56:                                         ; preds = %_ZN8QuantLib5Arraya
   store i32 %inc.i49, ptr %gradientEvaluation_.i48, align 4, !tbaa !35
   %39 = load ptr, ptr %P, align 8, !tbaa !29
   %vtable.i50 = load ptr, ptr %39, align 8, !tbaa !30
-  %vfn.i51 = getelementptr inbounds i8, ptr %vtable.i50, i64 32
+  %vfn.i51 = getelementptr inbounds nuw i8, ptr %vtable.i50, i64 32
   %40 = load ptr, ptr %vfn.i51, align 8
   tail call void %40(ptr noundef nonnull align 8 dereferenceable(8) %39, ptr noundef nonnull align 8 dereferenceable(16) %gradient_, ptr noundef nonnull align 8 dereferenceable(16) %xtd_)
   %call61 = tail call noundef double @_ZN8QuantLib10DotProductERKNS_5ArrayES2_(ptr noundef nonnull align 8 dereferenceable(16) %gradient_, ptr noundef nonnull align 8 dereferenceable(16) %gradient_)
@@ -615,7 +615,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %vtable.i.i.i = load ptr, ptr %0, align 8, !tbaa !30
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
+  %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 16
   %2 = load ptr, ptr %vfn.i.i.i, align 8
   invoke void %2(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %.noexc.i.i unwind label %terminate.lpad.i.i
@@ -628,7 +628,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
 
 if.then.i.i.i.i:                                  ; preds = %.noexc.i.i
   %vtable.i.i.i.i = load ptr, ptr %0, align 8, !tbaa !30
-  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 24
+  %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 24
   %4 = load ptr, ptr %vfn.i.i.i.i, align 8
   invoke void %4(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN5boost10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit unwind label %terminate.lpad.i.i

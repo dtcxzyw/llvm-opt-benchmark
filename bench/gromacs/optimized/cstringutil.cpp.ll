@@ -47,7 +47,7 @@ define noundef range(i32 0, 2) i32 @_Z10continuingPc(ptr noundef %0) local_unnam
 
 .lr.ph.i:                                         ; preds = %.critedge2.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ %7, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.critedge2.i ]
-  %8 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.i
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %_Z5rtrimPc.exit [
     i8 32, label %.critedge2.i
@@ -69,7 +69,7 @@ _Z5rtrimPc.exit:                                  ; preds = %.lr.ph.i, %.critedg
 14:                                               ; preds = %_Z5rtrimPc.exit
   %15 = add i64 %11, 4294967295
   %16 = and i64 %15, 4294967295
-  %17 = getelementptr inbounds i8, ptr %0, i64 %16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 %16
   %18 = load i8, ptr %17, align 1
   %19 = icmp eq i8 %18, 92
   br i1 %19, label %20, label %21
@@ -101,7 +101,7 @@ define void @_Z5rtrimPc(ptr noundef %0) local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.critedge2
   %indvars.iv = phi i64 [ %7, %.lr.ph.preheader ], [ %indvars.iv.next, %.critedge2 ]
-  %8 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %.critedge [
     i8 32, label %.critedge2
@@ -194,7 +194,7 @@ define linkonce_odr void @_ZNSt10filesystem7__cxx114pathC2IA129_cS1_EERKT_NS1_6f
   %9 = extractvalue { i64, ptr } %7, 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %4, i64 %8, ptr %9) #22
   %10 = load i64, ptr %4, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %12 = load ptr, ptr %11, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 %10, ptr %12, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %13 unwind label %17
@@ -202,7 +202,7 @@ define linkonce_odr void @_ZNSt10filesystem7__cxx114pathC2IA129_cS1_EERKT_NS1_6f
 13:                                               ; preds = %3
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #22
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   invoke void @_ZNSt10filesystem7__cxx114path5_ListC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %14)
           to label %15 unwind label %19
 
@@ -253,7 +253,7 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i, label %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit, label %4
@@ -362,7 +362,7 @@ define void @_Z5ltrimPc(ptr noundef %0) local_unnamed_addr #9 {
 7:                                                ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %8 = add nuw nsw i32 %.01826, 1
-  %9 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.next
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.next
   %10 = load i8, ptr %9, align 1
   %.not = icmp eq i8 %10, 0
   br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !8
@@ -375,7 +375,7 @@ define void @_Z5ltrimPc(ptr noundef %0) local_unnamed_addr #9 {
 .preheader:                                       ; preds = %7, %.critedge
   %.018.lcssa40 = phi i32 [ %11, %.critedge ], [ %8, %7 ]
   %12 = zext nneg i32 %.018.lcssa40 to i64
-  %13 = getelementptr inbounds i8, ptr %0, i64 %12
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 %12
   %14 = load i8, ptr %13, align 1
   %.not2329 = icmp eq i8 %14, 0
   br i1 %.not2329, label %._crit_edge, label %.lr.ph31.preheader
@@ -391,7 +391,7 @@ define void @_Z5ltrimPc(ptr noundef %0) local_unnamed_addr #9 {
   %18 = getelementptr inbounds i8, ptr %0, i64 %17
   store i8 %16, ptr %18, align 1
   %indvars.iv.next34 = add nuw nsw i64 %indvars.iv33, 1
-  %19 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.next34
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.next34
   %20 = load i8, ptr %19, align 1
   %.not23 = icmp eq i8 %20, 0
   br i1 %.not23, label %._crit_edge.loopexit, label %.lr.ph31, !llvm.loop !9
@@ -437,7 +437,7 @@ define void @_Z4trimPc(ptr noundef %0) local_unnamed_addr #9 {
 7:                                                ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %8 = add nuw nsw i32 %.01826.i, 1
-  %9 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.next.i
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.next.i
   %10 = load i8, ptr %9, align 1
   %.not.i = icmp eq i8 %10, 0
   br i1 %.not.i, label %.preheader.i, label %.lr.ph.i, !llvm.loop !8
@@ -450,7 +450,7 @@ define void @_Z4trimPc(ptr noundef %0) local_unnamed_addr #9 {
 .preheader.i:                                     ; preds = %7, %.critedge.i
   %.018.lcssa40.i = phi i32 [ %11, %.critedge.i ], [ %8, %7 ]
   %12 = zext nneg i32 %.018.lcssa40.i to i64
-  %13 = getelementptr inbounds i8, ptr %0, i64 %12
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 %12
   %14 = load i8, ptr %13, align 1
   %.not2329.i = icmp eq i8 %14, 0
   br i1 %.not2329.i, label %._crit_edge.i, label %.lr.ph31.preheader.i
@@ -466,7 +466,7 @@ define void @_Z4trimPc(ptr noundef %0) local_unnamed_addr #9 {
   %18 = getelementptr inbounds i8, ptr %0, i64 %17
   store i8 %16, ptr %18, align 1
   %indvars.iv.next34.i = add nuw nsw i64 %indvars.iv33.i, 1
-  %19 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.next34.i
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.next34.i
   %20 = load i8, ptr %19, align 1
   %.not23.i = icmp eq i8 %20, 0
   br i1 %.not23.i, label %._crit_edge.loopexit.i, label %.lr.ph31.i, !llvm.loop !9
@@ -496,7 +496,7 @@ define void @_Z4trimPc(ptr noundef %0) local_unnamed_addr #9 {
 
 .lr.ph.i3:                                        ; preds = %.critedge2.i, %.lr.ph.preheader.i
   %indvars.iv.i4 = phi i64 [ %29, %.lr.ph.preheader.i ], [ %indvars.iv.next.i5, %.critedge2.i ]
-  %30 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.i4
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.i4
   %31 = load i8, ptr %30, align 1
   switch i8 %31, label %_Z5rtrimPc.exit [
     i8 32, label %.critedge2.i
@@ -524,7 +524,7 @@ define noundef range(i32 -255, 256) i32 @_Z18gmx_strcasecmp_minPKcS0_(ptr nocapt
 
 .backedge19:                                      ; preds = %.backedge19.backedge, %3
   %.112 = phi ptr [ %.011, %3 ], [ %4, %.backedge19.backedge ]
-  %4 = getelementptr inbounds i8, ptr %.112, i64 1
+  %4 = getelementptr inbounds nuw i8, ptr %.112, i64 1
   %5 = load i8, ptr %.112, align 1
   %6 = sext i8 %5 to i32
   %7 = tail call i32 @toupper(i32 noundef %6) #21
@@ -539,7 +539,7 @@ define noundef range(i32 -255, 256) i32 @_Z18gmx_strcasecmp_minPKcS0_(ptr nocapt
 
 .preheader:                                       ; preds = %.backedge19, %.preheader.backedge
   %.1 = phi ptr [ %8, %.preheader.backedge ], [ %.0, %.backedge19 ]
-  %8 = getelementptr inbounds i8, ptr %.1, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %.1, i64 1
   %9 = load i8, ptr %.1, align 1
   %10 = sext i8 %9 to i32
   %11 = tail call i32 @toupper(i32 noundef %10) #21
@@ -585,7 +585,7 @@ define noundef range(i32 -255, 256) i32 @_Z19gmx_strncasecmp_minPKcS0_i(ptr noun
 
 .backedge31:                                      ; preds = %.backedge31.backedge, %7
   %.1 = phi ptr [ %.019, %7 ], [ %8, %.backedge31.backedge ]
-  %8 = getelementptr inbounds i8, ptr %.1, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %.1, i64 1
   %9 = load i8, ptr %.1, align 1
   %10 = sext i8 %9 to i32
   %11 = tail call i32 @toupper(i32 noundef %10) #21
@@ -600,7 +600,7 @@ define noundef range(i32 -255, 256) i32 @_Z19gmx_strncasecmp_minPKcS0_i(ptr noun
 
 .preheader:                                       ; preds = %.backedge31, %.preheader.backedge
   %.121 = phi ptr [ %12, %.preheader.backedge ], [ %.020, %.backedge31 ]
-  %12 = getelementptr inbounds i8, ptr %.121, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %.121, i64 1
   %13 = load i8, ptr %.121, align 1
   %14 = sext i8 %13 to i32
   %15 = tail call i32 @toupper(i32 noundef %14) #21
@@ -667,8 +667,8 @@ define noundef range(i32 -255, 256) i32 @_Z14gmx_strcasecmpPKcS0_(ptr nocapture 
   br label %.loopexit
 
 14:                                               ; preds = %3
-  %15 = getelementptr inbounds i8, ptr %.0, i64 1
-  %16 = getelementptr inbounds i8, ptr %.07, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %.0, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %.07, i64 1
   %.not12 = icmp eq i32 %sext, 0
   br i1 %.not12, label %.loopexit, label %3, !llvm.loop !12
 
@@ -704,8 +704,8 @@ define noundef range(i32 -255, 256) i32 @_Z15gmx_strncasecmpPKcS0_i(ptr nocaptur
   br label %.loopexit
 
 15:                                               ; preds = %.preheader
-  %16 = getelementptr inbounds i8, ptr %.010, i64 1
-  %17 = getelementptr inbounds i8, ptr %.011, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %.010, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %.011, i64 1
   %18 = add nsw i32 %.0, -1
   %19 = icmp ne i32 %sext, 0
   %20 = icmp ne i32 %18, 0
@@ -757,7 +757,7 @@ define noundef i32 @_Z24gmx_string_fullhash_funcPKcj(ptr nocapture noundef reado
   %.08 = phi i32 [ %8, %.lr.ph ], [ %1, %2 ]
   %.047 = phi ptr [ %6, %.lr.ph ], [ %0, %2 ]
   %5 = sext i8 %4 to i32
-  %6 = getelementptr inbounds i8, ptr %.047, i64 1
+  %6 = getelementptr inbounds nuw i8, ptr %.047, i64 1
   %7 = mul i32 %.08, 33
   %8 = xor i32 %7, %5
   %9 = load i8, ptr %6, align 1
@@ -781,7 +781,7 @@ define noundef i32 @_Z20gmx_string_hash_funcPKcj(ptr nocapture noundef readonly 
   %6 = phi i32 [ %13, %.lr.ph ], [ %5, %2 ]
   %.010 = phi i32 [ %.1, %.lr.ph ], [ %1, %2 ]
   %.059 = phi ptr [ %7, %.lr.ph ], [ %0, %2 ]
-  %7 = getelementptr inbounds i8, ptr %.059, i64 1
+  %7 = getelementptr inbounds nuw i8, ptr %.059, i64 1
   %8 = tail call i32 @isalnum(i32 noundef %6) #21
   %.not7 = icmp eq i32 %8, 0
   %9 = mul i32 %.010, 33
@@ -836,7 +836,7 @@ define noundef range(i32 0, 2) i32 @_Z11gmx_wcmatchPKcS0_(ptr nocapture noundef 
   br i1 %.not3346, label %.loopexit, label %.lr.ph
 
 .critedge:                                        ; preds = %.preheader35, %.preheader35
-  %7 = getelementptr inbounds i8, ptr %.126, i64 1
+  %7 = getelementptr inbounds nuw i8, ptr %.126, i64 1
   %8 = load i8, ptr %7, align 1
   %9 = icmp eq i8 %8, 63
   br i1 %9, label %10, label %.preheader35, !llvm.loop !16
@@ -847,7 +847,7 @@ define noundef range(i32 0, 2) i32 @_Z11gmx_wcmatchPKcS0_(ptr nocapture noundef 
   br i1 %12, label %.loopexit, label %13
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %.1.ph, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %.1.ph, i64 1
   br label %.preheader35.outer, !llvm.loop !16
 
 .lr.ph:                                           ; preds = %.preheader, %19
@@ -862,7 +862,7 @@ define noundef range(i32 0, 2) i32 @_Z11gmx_wcmatchPKcS0_(ptr nocapture noundef 
   br i1 %.not34.not, label %.loopexit, label %19
 
 19:                                               ; preds = %17, %.lr.ph
-  %20 = getelementptr inbounds i8, ptr %.347, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %.347, i64 1
   %21 = load i8, ptr %20, align 1
   %.not33 = icmp eq i8 %21, 0
   br i1 %.not33, label %.loopexit, label %.lr.ph, !llvm.loop !17
@@ -878,8 +878,8 @@ define noundef range(i32 0, 2) i32 @_Z11gmx_wcmatchPKcS0_(ptr nocapture noundef 
   br i1 %25, label %26, label %.loopexit
 
 26:                                               ; preds = %24, %22
-  %27 = getelementptr inbounds i8, ptr %.024, i64 1
-  %28 = getelementptr inbounds i8, ptr %.025, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %.024, i64 1
+  %28 = getelementptr inbounds nuw i8, ptr %.025, i64 1
   br label %3, !llvm.loop !18
 
 29:                                               ; preds = %3

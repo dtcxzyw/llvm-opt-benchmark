@@ -22,7 +22,7 @@ define hidden range(i32 -1, 2) i32 @camins_open(ptr noundef %0, ptr noundef %1, 
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %6)
-  %8 = getelementptr inbounds i8, ptr %6, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 1
   br label %9
 
 9:                                                ; preds = %25, %3
@@ -115,21 +115,21 @@ detect_camins_file.exit:                          ; preds = %25, %28, %28
   br i1 %34, label %45, label %35
 
 35:                                               ; preds = %31
-  %36 = getelementptr inbounds i8, ptr %0, i64 144
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i32 132, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %0, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 148
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 148
   store i32 6, ptr %38, align 4
   %39 = call noalias dereferenceable_or_null(8) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 8) #5
-  %40 = getelementptr inbounds i8, ptr %0, i64 96
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %39, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 112
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr @camins_read, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %0, i64 120
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr @camins_seek_read, ptr %42, align 8
   %43 = load i32, ptr @camins_file_type_subtype, align 4
-  %44 = getelementptr inbounds i8, ptr %0, i64 20
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %43, ptr %44, align 4
   store i32 0, ptr %1, align 4
   call void @wtap_add_generated_idb(ptr noundef nonnull %0) #4
@@ -151,7 +151,7 @@ define internal range(i32 0, 2) i32 @camins_read(ptr nocapture noundef readonly 
   %8 = tail call i64 @file_tell(ptr noundef %7) #4
   store i64 %8, ptr %5, align 8
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 96
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %11 = load ptr, ptr %10, align 8
   %12 = tail call fastcc i32 @camins_read_packet(ptr noundef %9, ptr noundef %1, ptr noundef %2, ptr noundef %11, ptr noundef %3, ptr noundef %4)
   ret i32 %12
@@ -159,7 +159,7 @@ define internal range(i32 0, 2) i32 @camins_read(ptr nocapture noundef readonly 
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @camins_seek_read(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i64 @file_seek(ptr noundef %8, i64 noundef %1, i32 noundef 0, ptr noundef %4) #4
   %10 = icmp eq i64 %9, -1
@@ -198,7 +198,7 @@ define internal fastcc range(i32 0, 2) i32 @camins_read_packet(ptr noundef %0, p
   %7 = alloca [2 x i8], align 1
   %8 = alloca [2 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %8)
-  %9 = getelementptr inbounds i8, ptr %8, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 1
   %.not.i.i = icmp eq ptr %3, null
   %10 = call i32 @wtap_read_bytes_or_eof(ptr noundef %0, ptr noundef nonnull %8, i32 noundef 2, ptr noundef %4, ptr noundef %5) #4
   %.not.i90 = icmp eq i32 %10, 0
@@ -376,7 +376,7 @@ find_next_pkt_info.exit:                          ; preds = %process_timestamp.e
   %84 = add nuw nsw i64 %83, 4
   call void @ws_buffer_assure_space(ptr noundef %2, i64 noundef %84) #4
   %85 = load ptr, ptr %2, align 8
-  %86 = getelementptr inbounds i8, ptr %2, i64 16
+  %86 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %87 = load i64, ptr %86, align 8
   %88 = getelementptr i8, ptr %85, i64 %87
   store i8 0, ptr %88, align 1
@@ -399,7 +399,7 @@ find_next_pkt_info.exit:                          ; preds = %process_timestamp.e
   br i1 %.not40.i40, label %.loopexit.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
-  %96 = getelementptr inbounds i8, ptr %7, i64 1
+  %96 = getelementptr inbounds nuw i8, ptr %7, i64 1
   br i1 %.not.i.i, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %process_timestamp.exit.us.i
@@ -513,12 +513,12 @@ read_packet_data.exit.thread:                     ; preds = %.thread77, %.split.
   %137 = add nuw nsw i32 %.027.i, 4
   store i32 0, ptr %1, align 8
   %138 = call ptr @wtap_block_create(i32 noundef 5) #4
-  %139 = getelementptr inbounds i8, ptr %1, i64 232
+  %139 = getelementptr inbounds nuw i8, ptr %1, i64 232
   store ptr %138, ptr %139, align 8
-  %140 = getelementptr inbounds i8, ptr %1, i64 4
+  %140 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 0, ptr %140, align 4
-  %141 = getelementptr inbounds i8, ptr %1, i64 64
-  %142 = getelementptr inbounds i8, ptr %1, i64 72
+  %141 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %142 = getelementptr inbounds nuw i8, ptr %1, i64 72
   store i32 132, ptr %142, align 8
   br i1 %.not.i.i, label %152, label %143
 
@@ -526,19 +526,19 @@ read_packet_data.exit.thread:                     ; preds = %.thread77, %.split.
   store i32 1, ptr %140, align 4
   %144 = load i64, ptr %3, align 8
   %145 = udiv i64 %144, 1000000
-  %146 = getelementptr inbounds i8, ptr %1, i64 16
+  %146 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i64 %145, ptr %146, align 8
   %147 = load i64, ptr %3, align 8
   %148 = urem i64 %147, 1000000
   %149 = trunc nuw nsw i64 %148 to i32
   %150 = mul nuw nsw i32 %149, 1000
-  %151 = getelementptr inbounds i8, ptr %1, i64 24
+  %151 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i32 %150, ptr %151, align 8
   br label %152
 
 152:                                              ; preds = %143, %.loopexit.i
   store i32 %137, ptr %141, align 8
-  %153 = getelementptr inbounds i8, ptr %1, i64 68
+  %153 = getelementptr inbounds nuw i8, ptr %1, i64 68
   store i32 %137, ptr %153, align 4
   br label %154
 

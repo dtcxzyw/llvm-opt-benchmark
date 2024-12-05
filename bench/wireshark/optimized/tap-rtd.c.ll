@@ -29,13 +29,13 @@ define hidden noundef zeroext i1 @register_rtd_tables(ptr nocapture noundef read
   %4 = alloca %struct._stat_tap_ui, align 8
   %5 = tail call ptr @rtd_table_get_tap_string(ptr noundef %1) #7
   store i32 6, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr null, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %5, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr @dissector_rtd_init, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   call void @register_stat_tap_ui(ptr noundef nonnull %4, ptr noundef %1) #7
   call void @g_free(ptr noundef %5) #7
@@ -70,13 +70,13 @@ define internal void @dissector_rtd_init(ptr noundef %0, ptr noundef %1) #0 {
   %13 = call ptr @proto_get_protocol_short_name(ptr noundef %12) #7
   store ptr %13, ptr %10, align 8
   %14 = call noalias ptr @g_strdup(ptr noundef %9) #7
-  %15 = getelementptr inbounds i8, ptr %10, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %14, ptr %15, align 8
   %16 = call ptr @get_rtd_value_string(ptr noundef %1) #7
-  %17 = getelementptr inbounds i8, ptr %10, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %16, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %10, i64 24
-  %19 = getelementptr inbounds i8, ptr %10, i64 48
+  %18 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %10, i64 48
   store ptr %10, ptr %19, align 8
   call void @rtd_table_dissector_init(ptr noundef %1, ptr noundef nonnull %18, ptr noundef null, ptr noundef null) #7
   %20 = call ptr @get_rtd_tap_listener_name(ptr noundef %1) #7
@@ -131,38 +131,38 @@ declare ptr @get_rtd_packet_func(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @rtd_draw(ptr nocapture noundef readonly %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %putchar = tail call i32 @putchar(i32 10)
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.3)
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, ptr noundef %4)
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   %spec.select = select i1 %.not, ptr @.str.6, ptr %7
   %8 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, ptr noundef nonnull %spec.select)
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i32, ptr %9, align 8
   %11 = icmp eq i32 %10, 1
   br i1 %11, label %12, label %77
 
 12:                                               ; preds = %1
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load i32, ptr %15, align 8
   %17 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %16)
   %18 = load ptr, ptr %13, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 28
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 28
   %20 = load i32, ptr %19, align 4
   %21 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %20)
   %22 = load ptr, ptr %13, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %24 = load i32, ptr %23, align 8
   %25 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef %24)
   %26 = load ptr, ptr %13, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 20
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %28 = load i32, ptr %27, align 4
   %29 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, i32 noundef %28)
   %puts99 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.2)
@@ -172,14 +172,14 @@ define internal void @rtd_draw(ptr nocapture noundef readonly %0) #0 {
   br i1 %.not110, label %.loopexit, label %.lr.ph107
 
 .lr.ph107:                                        ; preds = %12
-  %32 = getelementptr inbounds i8, ptr %3, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 16
   br label %33
 
 33:                                               ; preds = %.lr.ph107, %72
   %34 = phi i32 [ %31, %.lr.ph107 ], [ %73, %72 ]
   %35 = phi ptr [ %30, %.lr.ph107 ], [ %74, %72 ]
   %indvars.iv116 = phi i64 [ 0, %.lr.ph107 ], [ %indvars.iv.next117, %72 ]
-  %36 = getelementptr inbounds i8, ptr %35, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %37 = load ptr, ptr %36, align 8
   %38 = getelementptr %struct._timestat_t, ptr %37, i64 %indvars.iv116
   %39 = load i32, ptr %38, align 8
@@ -191,31 +191,31 @@ define internal void @rtd_draw(ptr nocapture noundef readonly %0) #0 {
   %42 = trunc nuw i64 %indvars.iv116 to i32
   %43 = tail call ptr @val_to_str_wmem(ptr noundef null, i32 noundef %42, ptr noundef %41, ptr noundef nonnull @.str.12) #7
   %44 = load ptr, ptr %13, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %46 = load ptr, ptr %45, align 8
   %47 = getelementptr %struct._timestat_t, ptr %46, i64 %indvars.iv116
   %48 = load i32, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %47, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %50 = tail call double @nstime_to_msec(ptr noundef nonnull %49) #7
   %51 = load ptr, ptr %13, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %53 = load ptr, ptr %52, align 8
   %54 = getelementptr %struct._timestat_t, ptr %53, i64 %indvars.iv116, i32 4
   %55 = tail call double @nstime_to_msec(ptr noundef %54) #7
   %56 = load ptr, ptr %13, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr %struct._timestat_t, ptr %58, i64 %indvars.iv116
-  %60 = getelementptr inbounds i8, ptr %59, i64 48
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 48
   %61 = load i32, ptr %59, align 8
   %62 = tail call double @get_average(ptr noundef nonnull %60, i32 noundef %61) #7
   %63 = load ptr, ptr %13, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
   %65 = load ptr, ptr %64, align 8
   %66 = getelementptr %struct._timestat_t, ptr %65, i64 %indvars.iv116
-  %67 = getelementptr inbounds i8, ptr %66, i64 4
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 4
   %68 = load i32, ptr %67, align 4
-  %69 = getelementptr inbounds i8, ptr %66, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %70 = load i32, ptr %69, align 8
   %71 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, ptr noundef %43, i32 noundef %48, double noundef %50, double noundef %55, double noundef %62, i32 noundef %68, i32 noundef %70)
   tail call void @wmem_free(ptr noundef null, ptr noundef %43) #7
@@ -238,8 +238,8 @@ define internal void @rtd_draw(ptr nocapture noundef readonly %0) #0 {
   br i1 %.not108, label %.loopexit, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %77
-  %79 = getelementptr inbounds i8, ptr %0, i64 16
-  %80 = getelementptr inbounds i8, ptr %3, i64 16
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %80 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.pre = load ptr, ptr %79, align 8
   br label %.preheader
 
@@ -276,7 +276,7 @@ define internal void @rtd_draw(ptr nocapture noundef readonly %0) #0 {
   %98 = load ptr, ptr %97, align 8
   %99 = getelementptr %struct._timestat_t, ptr %98, i64 %indvars.iv
   %100 = load i32, ptr %99, align 8
-  %101 = getelementptr inbounds i8, ptr %99, i64 16
+  %101 = getelementptr inbounds nuw i8, ptr %99, i64 16
   %102 = tail call double @nstime_to_msec(ptr noundef nonnull %101) #7
   %103 = load ptr, ptr %79, align 8
   %104 = getelementptr %struct._rtd_timestat, ptr %103, i64 %indvars.iv113, i32 1
@@ -287,23 +287,23 @@ define internal void @rtd_draw(ptr nocapture noundef readonly %0) #0 {
   %109 = getelementptr %struct._rtd_timestat, ptr %108, i64 %indvars.iv113, i32 1
   %110 = load ptr, ptr %109, align 8
   %111 = getelementptr %struct._timestat_t, ptr %110, i64 %indvars.iv
-  %112 = getelementptr inbounds i8, ptr %111, i64 48
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 48
   %113 = load i32, ptr %111, align 8
   %114 = tail call double @get_average(ptr noundef nonnull %112, i32 noundef %113) #7
   %115 = load ptr, ptr %79, align 8
   %116 = getelementptr %struct._rtd_timestat, ptr %115, i64 %indvars.iv113
-  %117 = getelementptr inbounds i8, ptr %116, i64 8
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 8
   %118 = load ptr, ptr %117, align 8
   %119 = getelementptr %struct._timestat_t, ptr %118, i64 %indvars.iv
-  %120 = getelementptr inbounds i8, ptr %119, i64 4
+  %120 = getelementptr inbounds nuw i8, ptr %119, i64 4
   %121 = load i32, ptr %120, align 4
-  %122 = getelementptr inbounds i8, ptr %119, i64 8
+  %122 = getelementptr inbounds nuw i8, ptr %119, i64 8
   %123 = load i32, ptr %122, align 8
-  %124 = getelementptr inbounds i8, ptr %116, i64 16
+  %124 = getelementptr inbounds nuw i8, ptr %116, i64 16
   %125 = load i32, ptr %124, align 8
-  %126 = getelementptr inbounds i8, ptr %116, i64 20
+  %126 = getelementptr inbounds nuw i8, ptr %116, i64 20
   %127 = load i32, ptr %126, align 4
-  %128 = getelementptr inbounds i8, ptr %116, i64 24
+  %128 = getelementptr inbounds nuw i8, ptr %116, i64 24
   %129 = load i32, ptr %128, align 8
   %130 = load i32, ptr %119, align 8
   %.not97 = icmp eq i32 %130, 0
@@ -312,7 +312,7 @@ define internal void @rtd_draw(ptr nocapture noundef readonly %0) #0 {
   %133 = uitofp i32 %130 to double
   %134 = fdiv double %132, %133
   %135 = select i1 %.not97, double 0.000000e+00, double %134
-  %136 = getelementptr inbounds i8, ptr %116, i64 28
+  %136 = getelementptr inbounds nuw i8, ptr %116, i64 28
   %137 = load i32, ptr %136, align 4
   %138 = uitofp i32 %137 to double
   %139 = fmul double %138, 1.000000e+02

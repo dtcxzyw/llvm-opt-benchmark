@@ -55,28 +55,28 @@ $_ZN9LogPrefixILN6LogTag4typeE49ELS1_162ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN20ShenandoahController19pacing_notify_allocEm(ptr noundef nonnull align 8 dereferenceable(1728) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 1112
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1112
   %4 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %1, ptr nonnull %3) #6, !srcloc !6
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i64 @_ZN20ShenandoahController17reset_allocs_seenEv(ptr noundef nonnull align 8 dereferenceable(1728) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1112
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1112
   %3 = tail call noundef i64 asm sideeffect "xchgq ($2),$0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(i64 0, ptr nonnull %2) #6, !srcloc !7
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN20ShenandoahController29prepare_for_graceful_shutdownEv(ptr noundef nonnull align 8 dereferenceable(1728) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 982
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 982
   %3 = tail call i8 asm sideeffect "xchgb ($2),$0", "=q,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 1, ptr nonnull %2) #6, !srcloc !8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN20ShenandoahController20in_graceful_shutdownEv(ptr noundef nonnull align 8 dereferenceable(1728) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 982
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 982
   %3 = load volatile i8, ptr %2, align 2
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !9
   %4 = icmp eq i8 %3, 1
@@ -85,14 +85,14 @@ define hidden noundef zeroext i1 @_ZN20ShenandoahController20in_graceful_shutdow
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN20ShenandoahController12update_gc_idEv(ptr noundef nonnull align 8 dereferenceable(1728) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1184
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1184
   %3 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 1, ptr nonnull %2) #6, !srcloc !6
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define hidden noundef i64 @_ZN20ShenandoahController9get_gc_idEv(ptr noundef nonnull align 8 dereferenceable(1728) %0) local_unnamed_addr #1 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1184
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1184
   %3 = load volatile i64, ptr %2, align 8
   ret i64 %3
 }
@@ -100,14 +100,14 @@ define hidden noundef i64 @_ZN20ShenandoahController9get_gc_idEv(ptr noundef non
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN20ShenandoahController20handle_alloc_failureER22ShenandoahAllocRequestb(ptr noundef nonnull align 8 dereferenceable(1728) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
   %4 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = load i64, ptr @_ZN20ShenandoahHeapRegion23HumongousThresholdWordsE, align 8
   %8 = icmp ugt i64 %6, %7
   br i1 %8, label %9, label %_ZN20ShenandoahSharedFlag7try_setEv.exit.i
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %0, i64 1449
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 1449
   %11 = load volatile i8, ptr %10, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !9
   %12 = icmp eq i8 %11, 1
@@ -118,7 +118,7 @@ define hidden void @_ZN20ShenandoahController20handle_alloc_failureER22Shenandoa
   br label %_ZN20ShenandoahSharedFlag7try_setEv.exit.i
 
 _ZN20ShenandoahSharedFlag7try_setEv.exit.i:       ; preds = %13, %9, %3
-  %15 = getelementptr inbounds i8, ptr %0, i64 1320
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 1320
   %16 = load volatile i8, ptr %15, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !9
   %17 = icmp eq i8 %16, 1
@@ -130,12 +130,12 @@ _ZN20ShenandoahController24try_set_alloc_failure_gcEb.exit: ; preds = %_ZN20Shen
   br i1 %19, label %20, label %_ZN20ShenandoahController24try_set_alloc_failure_gcEb.exit.thread
 
 20:                                               ; preds = %_ZN20ShenandoahController24try_set_alloc_failure_gcEb.exit
-  %21 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %21 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not = icmp eq ptr %21, null
   br i1 %.not, label %39, label %22
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds i8, ptr %1, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %24 = load i32, ptr %23, align 8
   %25 = icmp ult i32 %24, 4
   br i1 %25, label %switch.lookup, label %26
@@ -148,7 +148,7 @@ _ZN20ShenandoahController24try_set_alloc_failure_gcEb.exit: ; preds = %_ZN20Shen
 
 switch.lookup:                                    ; preds = %22
   %28 = zext nneg i32 %24 to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN20ShenandoahController20handle_alloc_failureER22ShenandoahAllocRequestb, i64 0, i64 %28
+  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN20ShenandoahController20handle_alloc_failureER22ShenandoahAllocRequestb, i64 0, i64 %28
   %switch.load = load ptr, ptr %switch.gep, align 8
   %29 = load i64, ptr %5, align 8
   %30 = shl i64 %29, 3
@@ -188,7 +188,7 @@ _ZN20ShenandoahController24try_set_alloc_failure_gcEb.exit.thread: ; preds = %_Z
   br i1 %2, label %40, label %47
 
 40:                                               ; preds = %_ZN20ShenandoahController24try_set_alloc_failure_gcEb.exit.thread
-  %41 = getelementptr inbounds i8, ptr %0, i64 1520
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 1520
   tail call void @_ZN5Mutex4lockEv(ptr noundef nonnull align 8 dereferenceable(104) %41) #6
   %42 = load volatile i8, ptr %15, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !9
@@ -215,7 +215,7 @@ define hidden noundef zeroext i1 @_ZN20ShenandoahController24try_set_alloc_failu
   br i1 %1, label %3, label %_ZN20ShenandoahSharedFlag7try_setEv.exit
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 1449
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1449
   %5 = load volatile i8, ptr %4, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !9
   %6 = icmp eq i8 %5, 1
@@ -226,7 +226,7 @@ define hidden noundef zeroext i1 @_ZN20ShenandoahController24try_set_alloc_failu
   br label %_ZN20ShenandoahSharedFlag7try_setEv.exit
 
 _ZN20ShenandoahSharedFlag7try_setEv.exit:         ; preds = %7, %3, %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 1320
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1320
   %10 = load volatile i8, ptr %9, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !9
   %11 = icmp eq i8 %10, 1
@@ -255,7 +255,7 @@ declare void @_ZN14ShenandoahHeap9cancel_gcEN7GCCause5CauseE(ptr noundef nonnull
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN20ShenandoahController19is_alloc_failure_gcEv(ptr noundef nonnull align 8 dereferenceable(1728) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1320
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1320
   %3 = load volatile i8, ptr %2, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !9
   %4 = icmp eq i8 %3, 1
@@ -270,7 +270,7 @@ define hidden void @_ZN20ShenandoahController25handle_alloc_failure_evacEm(ptr n
   br i1 %5, label %6, label %_ZN20ShenandoahSharedFlag7try_setEv.exit.i
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 1449
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1449
   %8 = load volatile i8, ptr %7, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !9
   %9 = icmp eq i8 %8, 1
@@ -281,7 +281,7 @@ define hidden void @_ZN20ShenandoahController25handle_alloc_failure_evacEm(ptr n
   br label %_ZN20ShenandoahSharedFlag7try_setEv.exit.i
 
 _ZN20ShenandoahSharedFlag7try_setEv.exit.i:       ; preds = %10, %6, %2
-  %12 = getelementptr inbounds i8, ptr %0, i64 1320
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 1320
   %13 = load volatile i8, ptr %12, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !9
   %14 = icmp eq i8 %13, 1
@@ -293,7 +293,7 @@ _ZN20ShenandoahController24try_set_alloc_failure_gcEb.exit: ; preds = %_ZN20Shen
   br i1 %16, label %17, label %_ZN20ShenandoahController24try_set_alloc_failure_gcEb.exit.thread
 
 17:                                               ; preds = %_ZN20ShenandoahController24try_set_alloc_failure_gcEb.exit
-  %18 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %18 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not = icmp eq ptr %18, null
   br i1 %.not, label %_ZN20ShenandoahController24try_set_alloc_failure_gcEb.exit.thread, label %19
 
@@ -335,11 +335,11 @@ _ZN20ShenandoahController24try_set_alloc_failure_gcEb.exit.thread: ; preds = %_Z
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN20ShenandoahController28notify_alloc_failure_waitersEv(ptr noundef nonnull align 8 dereferenceable(1728) %0) local_unnamed_addr #0 align 2 {
 _ZN13MonitorLockerD2Ev.exit:
-  %1 = getelementptr inbounds i8, ptr %0, i64 1320
+  %1 = getelementptr inbounds nuw i8, ptr %0, i64 1320
   %2 = tail call i8 asm sideeffect "xchgb ($2),$0", "=q,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 0, ptr nonnull %1) #6, !srcloc !8
-  %3 = getelementptr inbounds i8, ptr %0, i64 1449
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1449
   %4 = tail call i8 asm sideeffect "xchgb ($2),$0", "=q,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 0, ptr nonnull %3) #6, !srcloc !8
-  %5 = getelementptr inbounds i8, ptr %0, i64 1520
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1520
   tail call void @_ZN5Mutex4lockEv(ptr noundef nonnull align 8 dereferenceable(104) %5) #6
   tail call void @_ZN7Monitor10notify_allEv(ptr noundef nonnull align 8 dereferenceable(104) %5) #6
   tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %5) #6

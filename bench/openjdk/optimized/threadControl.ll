@@ -144,10 +144,10 @@ define hidden void @threadControl_onHook() local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
-  %11 = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
   %13 = call fastcc ptr @insertThread(ptr noundef %2, ptr noundef nonnull @runningThreads, ptr noundef %12)
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load i16, ptr %14, align 8
   %16 = or i16 %15, 16
   store i16 %16, ptr %14, align 8
@@ -163,7 +163,7 @@ define hidden void @threadControl_onHook() local_unnamed_addr #0 {
 
 20:                                               ; preds = %._crit_edge, %8
   %21 = load ptr, ptr @gdata, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 528
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 528
   %23 = load i32, ptr %22, align 8
   %24 = and i32 %23, 2
   %.not = icmp eq i32 %24, 0
@@ -176,7 +176,7 @@ define hidden void @threadControl_onHook() local_unnamed_addr #0 {
 
 26:                                               ; preds = %20, %25
   %27 = load ptr, ptr %2, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 160
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 160
   %29 = load ptr, ptr %28, align 8
   %30 = call ptr %29(ptr noundef nonnull %2, ptr noundef null) #6
   %31 = load ptr, ptr @threadLock, align 8
@@ -267,7 +267,7 @@ define internal fastcc ptr @insertThread(ptr noundef %0, ptr noundef %1, ptr nou
 
 .lr.ph.i:                                         ; preds = %27, %32
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %32 ], [ 0, %27 ]
-  %36 = getelementptr inbounds [10 x ptr], ptr @debugThreads, i64 0, i64 %indvars.iv.i
+  %36 = getelementptr inbounds nuw [10 x ptr], ptr @debugThreads, i64 0, i64 %indvars.iv.i
   %37 = load ptr, ptr %36, align 8
   %38 = tail call zeroext i8 @isSameObject(ptr noundef %28, ptr noundef nonnull %21, ptr noundef %37) #6
   %.not.i = icmp eq i8 %38, 0
@@ -286,14 +286,14 @@ define internal fastcc ptr @insertThread(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %43, label %44, label %74
 
 44:                                               ; preds = %.loopexit
-  %45 = getelementptr inbounds i8, ptr %9, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i32 %42, ptr %45, align 8
   br label %.sink.split
 
 46:                                               ; preds = %26
   store i32 0, ptr %4, align 4
   %47 = load ptr, ptr @gdata, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 528
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 528
   %49 = load i32, ptr %48, align 8
   %50 = and i32 %49, 4
   %.not.i51 = icmp eq i32 %50, 0
@@ -309,7 +309,7 @@ threadState.exit:                                 ; preds = %46, %51
   %52 = phi ptr [ %47, %46 ], [ %.pre.i, %51 ]
   %53 = load ptr, ptr %52, align 8
   %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 128
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 128
   %56 = load ptr, ptr %55, align 8
   %57 = call i32 %56(ptr noundef nonnull %53, ptr noundef nonnull %21, ptr noundef nonnull %4) #6
   %.not48 = icmp eq i32 %57, 0
@@ -332,7 +332,7 @@ threadState.exit:                                 ; preds = %46, %51
   br i1 %66, label %67, label %70
 
 67:                                               ; preds = %61
-  %68 = getelementptr inbounds i8, ptr %9, i64 24
+  %68 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i32 %65, ptr %68, align 8
   %69 = icmp eq i32 %62, 0
   br i1 %69, label %.sink.split, label %.thread55
@@ -348,7 +348,7 @@ threadState.exit:                                 ; preds = %46, %51
   %.sink60 = phi i16 [ 16, %.thread55 ], [ 4, %39 ], [ 8, %44 ], [ 8, %67 ]
   %.ph = phi i16 [ 32, %.thread55 ], [ 0, %39 ], [ 0, %44 ], [ 32, %67 ]
   %.039.ph = phi ptr [ %spec.select, %.thread55 ], [ %1, %39 ], [ %1, %44 ], [ %spec.select, %67 ]
-  %71 = getelementptr inbounds i8, ptr %9, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %72 = load i16, ptr %71, align 8
   %73 = or i16 %72, %.sink60
   store i16 %73, ptr %71, align 8
@@ -357,19 +357,19 @@ threadState.exit:                                 ; preds = %46, %51
 74:                                               ; preds = %.sink.split, %70, %.loopexit
   %75 = phi i16 [ 32, %70 ], [ 0, %.loopexit ], [ %.ph, %.sink.split ]
   %.039 = phi ptr [ %spec.select, %70 ], [ %1, %.loopexit ], [ %.039.ph, %.sink.split ]
-  %76 = getelementptr inbounds i8, ptr %9, i64 12
+  %76 = getelementptr inbounds nuw i8, ptr %9, i64 12
   store i32 0, ptr %76, align 4
-  %77 = getelementptr inbounds i8, ptr %9, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %78 = load i16, ptr %77, align 8
   %79 = and i16 %78, -33
   %80 = or disjoint i16 %79, %75
   store i16 %80, ptr %77, align 8
-  %81 = getelementptr inbounds i8, ptr %9, i64 28
+  %81 = getelementptr inbounds nuw i8, ptr %9, i64 28
   store i32 0, ptr %81, align 4
-  %82 = getelementptr inbounds i8, ptr %9, i64 192
+  %82 = getelementptr inbounds nuw i8, ptr %9, i64 192
   store ptr %15, ptr %82, align 8
-  %83 = getelementptr inbounds i8, ptr %9, i64 232
-  %84 = getelementptr inbounds i8, ptr %9, i64 256
+  %83 = getelementptr inbounds nuw i8, ptr %9, i64 232
+  %84 = getelementptr inbounds nuw i8, ptr %9, i64 256
   store ptr null, ptr %84, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %83, i8 0, i64 16, i1 false)
   %85 = load ptr, ptr %.039, align 8
@@ -377,7 +377,7 @@ threadState.exit:                                 ; preds = %46, %51
   br i1 %86, label %90, label %87
 
 87:                                               ; preds = %74
-  %88 = getelementptr inbounds i8, ptr %85, i64 240
+  %88 = getelementptr inbounds nuw i8, ptr %85, i64 240
   store ptr %9, ptr %88, align 8
   %89 = load ptr, ptr %.039, align 8
   store ptr %89, ptr %83, align 8
@@ -460,7 +460,7 @@ define internal fastcc i32 @commonSuspend(ptr noundef %0, ptr noundef %1, i8 nou
 9:                                                ; preds = %.sink.split, %3
   %.0 = phi ptr [ %5, %3 ], [ %8, %.sink.split ]
   %.not12 = icmp eq i8 %2, 0
-  %10 = getelementptr inbounds i8, ptr %.0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %11 = load i16, ptr %10, align 8
   %12 = and i16 %11, 4
   %.not.i14 = icmp eq i16 %12, 0
@@ -470,7 +470,7 @@ define internal fastcc i32 @commonSuspend(ptr noundef %0, ptr noundef %1, i8 nou
   br i1 %.not.i14, label %14, label %deferredSuspendThreadByNode.exit
 
 14:                                               ; preds = %13
-  %15 = getelementptr inbounds i8, ptr %.0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %.0, i64 24
   %16 = load i32, ptr %15, align 8
   %17 = icmp sgt i32 %16, 0
   br i1 %17, label %18, label %23
@@ -501,7 +501,7 @@ define internal fastcc i32 @commonSuspend(ptr noundef %0, ptr noundef %1, i8 nou
 28:                                               ; preds = %27
   %29 = and i16 %11, 8
   %.not12.i = icmp eq i16 %29, 0
-  %30 = getelementptr inbounds i8, ptr %.0, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %.0, i64 24
   %31 = load i32, ptr %30, align 8
   br i1 %.not12.i, label %34, label %32
 
@@ -567,23 +567,23 @@ commonResume.exit:                                ; preds = %2, %6
 
 .lr.ph.i:                                         ; preds = %commonResume.exit, %31
   %.02.i = phi ptr [ %10, %31 ], [ %8, %commonResume.exit ]
-  %9 = getelementptr inbounds i8, ptr %.02.i, i64 232
+  %9 = getelementptr inbounds nuw i8, ptr %.02.i, i64 232
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %.02.i, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %.02.i, i64 24
   %12 = load i32, ptr %11, align 8
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %14, label %31
 
 14:                                               ; preds = %.lr.ph.i
-  %15 = getelementptr inbounds i8, ptr %.02.i, i64 240
+  %15 = getelementptr inbounds nuw i8, ptr %.02.i, i64 240
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %.02.i, i64 256
+  %17 = getelementptr inbounds nuw i8, ptr %.02.i, i64 256
   %18 = load ptr, ptr %17, align 8
   %.not.i.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i.i, label %21, label %19
 
 19:                                               ; preds = %14
-  %20 = getelementptr inbounds i8, ptr %16, i64 232
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 232
   store ptr %10, ptr %20, align 8
   br label %21
 
@@ -592,7 +592,7 @@ commonResume.exit:                                ; preds = %2, %6
   br i1 %.not17.i.i.i, label %24, label %22
 
 22:                                               ; preds = %21
-  %23 = getelementptr inbounds i8, ptr %10, i64 240
+  %23 = getelementptr inbounds nuw i8, ptr %10, i64 240
   store ptr %16, ptr %23, align 8
   br label %24
 
@@ -663,7 +663,7 @@ define hidden noundef i32 @threadControl_suspendCount(ptr noundef %0, ptr nocapt
 
 .thread:                                          ; preds = %2, %8
   %.022 = phi ptr [ %9, %8 ], [ %6, %2 ]
-  %10 = getelementptr inbounds i8, ptr %.022, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %.022, i64 24
   %11 = load i32, ptr %10, align 8
   br label %33
 
@@ -675,7 +675,7 @@ define hidden noundef i32 @threadControl_suspendCount(ptr noundef %0, ptr nocapt
 14:                                               ; preds = %12
   store i32 0, ptr %3, align 4
   %15 = load ptr, ptr @gdata, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 528
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 528
   %17 = load i32, ptr %16, align 8
   %18 = and i32 %17, 4
   %.not.i19 = icmp eq i32 %18, 0
@@ -691,7 +691,7 @@ threadState.exit:                                 ; preds = %14, %19
   %20 = phi ptr [ %15, %14 ], [ %.pre.i, %19 ]
   %21 = load ptr, ptr %20, align 8
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 128
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 128
   %24 = load ptr, ptr %23, align 8
   %25 = call i32 %24(ptr noundef nonnull %21, ptr noundef %0, ptr noundef nonnull %3) #6
   %.not18 = icmp eq i32 %25, 0
@@ -725,7 +725,7 @@ define internal fastcc ptr @findThread(ptr noundef readnone %0, ptr noundef %1) 
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store ptr null, ptr %3, align 8
   %4 = load ptr, ptr @gdata, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 528
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 528
   %6 = load i32, ptr %5, align 8
   %7 = and i32 %6, 4
   %.not.i = icmp eq i32 %7, 0
@@ -741,7 +741,7 @@ define internal fastcc ptr @findThread(ptr noundef readnone %0, ptr noundef %1) 
   %10 = phi ptr [ %4, %2 ], [ %.pre.i, %8 ]
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 808
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 808
   %14 = load ptr, ptr %13, align 8
   %15 = call i32 %14(ptr noundef nonnull %11, ptr noundef %1, ptr noundef nonnull %3) #6
   switch i32 %15, label %16 [
@@ -786,7 +786,7 @@ getThreadLocalStorage.exit:                       ; preds = %9, %16
   br i1 %.not7.i, label %28, label %nonTlsSearch.exit
 
 28:                                               ; preds = %.lr.ph.i
-  %29 = getelementptr inbounds i8, ptr %.010.i, i64 232
+  %29 = getelementptr inbounds nuw i8, ptr %.010.i, i64 232
   %.0.i41 = load ptr, ptr %29, align 8
   %.not.i42 = icmp eq ptr %.0.i41, null
   br i1 %.not.i42, label %nonTlsSearch.exit, label %.lr.ph.i, !llvm.loop !10
@@ -794,13 +794,13 @@ getThreadLocalStorage.exit:                       ; preds = %9, %16
 nonTlsSearch.exit:                                ; preds = %28, %.lr.ph.i, %24, %21
   %.1 = phi ptr [ null, %21 ], [ null, %24 ], [ null, %28 ], [ %.010.i, %.lr.ph.i ]
   %30 = load ptr, ptr @gdata, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 577
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 577
   %32 = load volatile i8, ptr %31, align 1
   %.not = icmp eq i8 %32, 0
   br i1 %.not, label %33, label %52
 
 33:                                               ; preds = %nonTlsSearch.exit
-  %34 = getelementptr inbounds i8, ptr %30, i64 17
+  %34 = getelementptr inbounds nuw i8, ptr %30, i64 17
   %35 = load i8, ptr %34, align 1
   %.not35 = icmp eq i8 %35, 0
   br i1 %.not35, label %nonTlsSearch.exit51.thread, label %36
@@ -819,7 +819,7 @@ nonTlsSearch.exit:                                ; preds = %28, %.lr.ph.i, %24,
   br i1 %.not7.i47, label %40, label %nonTlsSearch.exit51
 
 40:                                               ; preds = %.lr.ph.i45
-  %41 = getelementptr inbounds i8, ptr %.010.i46, i64 232
+  %41 = getelementptr inbounds nuw i8, ptr %.010.i46, i64 232
   %.0.i49 = load ptr, ptr %41, align 8
   %.not.i50 = icmp eq ptr %.0.i49, null
   br i1 %.not.i50, label %nonTlsSearch.exit51.thread, label %.lr.ph.i45, !llvm.loop !10
@@ -834,7 +834,7 @@ nonTlsSearch.exit51.thread:                       ; preds = %40, %36, %nonTlsSea
   br i1 %.not37, label %nonTlsSearch.exit69, label %43
 
 43:                                               ; preds = %nonTlsSearch.exit51.thread
-  %44 = getelementptr inbounds i8, ptr %42, i64 17
+  %44 = getelementptr inbounds nuw i8, ptr %42, i64 17
   %45 = load i8, ptr %44, align 1
   %.not38 = icmp eq i8 %45, 0
   br i1 %.not38, label %nonTlsSearch.exit69, label %46
@@ -853,7 +853,7 @@ nonTlsSearch.exit51.thread:                       ; preds = %40, %36, %nonTlsSea
   br i1 %.not7.i56, label %50, label %nonTlsSearch.exit60
 
 50:                                               ; preds = %.lr.ph.i54
-  %51 = getelementptr inbounds i8, ptr %.010.i55, i64 232
+  %51 = getelementptr inbounds nuw i8, ptr %.010.i55, i64 232
   %.0.i58 = load ptr, ptr %51, align 8
   %.not.i59 = icmp eq ptr %.0.i58, null
   br i1 %.not.i59, label %nonTlsSearch.exit69, label %.lr.ph.i54, !llvm.loop !10
@@ -885,7 +885,7 @@ nonTlsSearch.exit60:                              ; preds = %.lr.ph.i54
   br i1 %.not7.i65, label %60, label %nonTlsSearch.exit69
 
 60:                                               ; preds = %.lr.ph.i63
-  %61 = getelementptr inbounds i8, ptr %.010.i64, i64 232
+  %61 = getelementptr inbounds nuw i8, ptr %.010.i64, i64 232
   %.0.i67 = load ptr, ptr %61, align 8
   %.not.i68 = icmp eq ptr %.0.i67, null
   br i1 %.not.i68, label %.loopexit, label %.lr.ph.i63, !llvm.loop !10
@@ -908,7 +908,7 @@ nonTlsSearch.exit69:                              ; preds = %.lr.ph.i63, %50, %4
   br i1 %or.cond7, label %68, label %nonTlsSearch.exit69.thread76
 
 68:                                               ; preds = %nonTlsSearch.exit69
-  %69 = getelementptr inbounds i8, ptr %.0, i64 256
+  %69 = getelementptr inbounds nuw i8, ptr %.0, i64 256
   %70 = load ptr, ptr %69, align 8
   %.not40 = icmp eq ptr %70, %0
   %spec.select = select i1 %.not40, ptr %.0, ptr null
@@ -935,7 +935,7 @@ define hidden i32 @threadControl_suspendAll() local_unnamed_addr #0 {
   tail call void @debugMonitorEnter(ptr noundef %3) #6
   tail call void @createLocalRefSpace(ptr noundef %2, i32 noundef 1) #6
   %4 = load ptr, ptr @gdata, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 19
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 19
   %6 = load i8, ptr %5, align 1
   %.not = icmp eq i8 %6, 0
   br i1 %.not, label %enumerateOverThreadList.exit, label %7
@@ -946,7 +946,7 @@ define hidden i32 @threadControl_suspendAll() local_unnamed_addr #0 {
   br i1 %9, label %10, label %27
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %4, i64 528
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 528
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 4
   %.not23 = icmp eq i32 %13, 0
@@ -962,7 +962,7 @@ define hidden i32 @threadControl_suspendAll() local_unnamed_addr #0 {
   %16 = phi ptr [ %4, %10 ], [ %.pre, %14 ]
   %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 936
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 936
   %20 = load ptr, ptr %19, align 8
   %21 = tail call i32 %20(ptr noundef nonnull %17, i32 noundef 0, ptr noundef null) #6
   %.not24 = icmp eq i32 %21, 0
@@ -987,15 +987,15 @@ define hidden i32 @threadControl_suspendAll() local_unnamed_addr #0 {
 
 .preheader:                                       ; preds = %27, %.preheader
   %.0814.i = phi ptr [ %.08.i, %.preheader ], [ %.0812.i, %27 ]
-  %28 = getelementptr inbounds i8, ptr %.0814.i, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %.0814.i, i64 8
   %29 = load i16, ptr %28, align 8
   %30 = or i16 %29, 1
   store i16 %30, ptr %28, align 8
-  %31 = getelementptr inbounds i8, ptr %.0814.i, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %.0814.i, i64 24
   %32 = load i32, ptr %31, align 8
   %33 = add nsw i32 %32, 1
   store i32 %33, ptr %31, align 8
-  %34 = getelementptr inbounds i8, ptr %.0814.i, i64 232
+  %34 = getelementptr inbounds nuw i8, ptr %.0814.i, i64 232
   %.08.i = load ptr, ptr %34, align 8
   %.not.i = icmp eq ptr %.08.i, null
   br i1 %.not.i, label %enumerateOverThreadList.exit, label %.preheader, !llvm.loop !11
@@ -1036,7 +1036,7 @@ newArray.exit.i:                                  ; preds = %37
 .lr.ph.i28:                                       ; preds = %72, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %72 ]
   %.05262.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.153.i, %72 ]
-  %48 = getelementptr inbounds ptr, ptr %35, i64 %indvars.iv.i
+  %48 = getelementptr inbounds nuw ptr, ptr %35, i64 %indvars.iv.i
   %49 = load ptr, ptr %48, align 8
   %50 = call fastcc ptr @findThread(ptr noundef nonnull @runningThreads, ptr noundef %49)
   %51 = icmp eq ptr %50, null
@@ -1049,7 +1049,7 @@ newArray.exit.i:                                  ; preds = %37
 
 55:                                               ; preds = %52, %.lr.ph.i28
   %.051.i = phi ptr [ %54, %52 ], [ %50, %.lr.ph.i28 ]
-  %56 = getelementptr inbounds i8, ptr %.051.i, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %.051.i, i64 8
   %57 = load i16, ptr %56, align 8
   %58 = and i16 %57, 4
   %.not58.i = icmp eq i16 %58, 0
@@ -1058,7 +1058,7 @@ newArray.exit.i:                                  ; preds = %37
 59:                                               ; preds = %55
   %60 = and i16 %57, 8
   %.not59.i = icmp ne i16 %60, 0
-  %61 = getelementptr inbounds i8, ptr %.051.i, i64 24
+  %61 = getelementptr inbounds nuw i8, ptr %.051.i, i64 24
   %62 = load i32, ptr %61, align 8
   %63 = icmp sgt i32 %62, 0
   %or.cond.i = select i1 %.not59.i, i1 true, i1 %63
@@ -1112,7 +1112,7 @@ newArray.exit61.i:                                ; preds = %74
 
 82:                                               ; preds = %79, %newArray.exit61.i
   %83 = load ptr, ptr @gdata, align 8
-  %84 = getelementptr inbounds i8, ptr %83, i64 528
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 528
   %85 = load i32, ptr %84, align 8
   %86 = and i32 %85, 4
   %.not.i29 = icmp eq i32 %86, 0
@@ -1128,7 +1128,7 @@ newArray.exit61.i:                                ; preds = %74
   %88 = phi ptr [ %83, %82 ], [ %.pre75.i, %87 ]
   %89 = load ptr, ptr %88, align 8
   %90 = load ptr, ptr %89, align 8
-  %91 = getelementptr inbounds i8, ptr %90, i64 728
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 728
   %92 = load ptr, ptr %91, align 8
   %93 = call i32 %92(ptr noundef nonnull %89, i32 noundef %.153.i, ptr noundef %40, ptr noundef %76) #6
   %wide.trip.count72.i = zext nneg i32 %.153.i to i64
@@ -1136,7 +1136,7 @@ newArray.exit61.i:                                ; preds = %74
 
 .lr.ph66.i:                                       ; preds = %125, %.lr.ph66.preheader.i
   %indvars.iv69.i = phi i64 [ 0, %.lr.ph66.preheader.i ], [ %indvars.iv.next70.i, %125 ]
-  %94 = getelementptr inbounds ptr, ptr %40, i64 %indvars.iv69.i
+  %94 = getelementptr inbounds nuw ptr, ptr %40, i64 %indvars.iv69.i
   %95 = load ptr, ptr %94, align 8
   %96 = call fastcc ptr @findThread(ptr noundef null, ptr noundef %95)
   %97 = icmp eq ptr %96, null
@@ -1151,7 +1151,7 @@ newArray.exit61.i:                                ; preds = %74
 
 101:                                              ; preds = %98, %.lr.ph66.i
   %102 = load ptr, ptr @gdata, align 8
-  %103 = getelementptr inbounds i8, ptr %102, i64 528
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 528
   %104 = load i32, ptr %103, align 8
   %105 = and i32 %104, 8
   %.not57.i = icmp eq i32 %105, 0
@@ -1164,7 +1164,7 @@ newArray.exit61.i:                                ; preds = %74
   br label %108
 
 108:                                              ; preds = %106, %101
-  %109 = getelementptr inbounds i32, ptr %76, i64 %indvars.iv69.i
+  %109 = getelementptr inbounds nuw i32, ptr %76, i64 %indvars.iv69.i
   %110 = load i32, ptr %109, align 4
   switch i32 %110, label %119 [
     i32 0, label %111
@@ -1173,7 +1173,7 @@ newArray.exit61.i:                                ; preds = %74
   ]
 
 111:                                              ; preds = %108
-  %112 = getelementptr inbounds i8, ptr %96, i64 8
+  %112 = getelementptr inbounds nuw i8, ptr %96, i64 8
   %113 = load i16, ptr %112, align 8
   %114 = or i16 %113, 1
   store i16 %114, ptr %112, align 8
@@ -1181,7 +1181,7 @@ newArray.exit61.i:                                ; preds = %74
   br label %119
 
 115:                                              ; preds = %108
-  %116 = getelementptr inbounds i8, ptr %96, i64 8
+  %116 = getelementptr inbounds nuw i8, ptr %96, i64 8
   %117 = load i16, ptr %116, align 8
   %118 = or i16 %117, 8
   store i16 %118, ptr %116, align 8
@@ -1197,7 +1197,7 @@ newArray.exit61.i:                                ; preds = %74
   br label %.thread.i
 
 .thread.i:                                        ; preds = %.thread.sink.split.i, %119
-  %122 = getelementptr inbounds i8, ptr %96, i64 24
+  %122 = getelementptr inbounds nuw i8, ptr %96, i64 24
   %123 = load i32, ptr %122, align 8
   %124 = add nsw i32 %123, 1
   store i32 %124, ptr %122, align 8
@@ -1238,7 +1238,7 @@ commonSuspendList.exit:                           ; preds = %46, %._crit_edge.i,
 
 .lr.ph.i.i.us:                                    ; preds = %134, %.lr.ph.i32.us
   %indvars.iv.i.i.us = phi i64 [ 0, %.lr.ph.i32.us ], [ %indvars.iv.next.i.i.us, %134 ]
-  %131 = getelementptr inbounds ptr, ptr %35, i64 %indvars.iv.i.i.us
+  %131 = getelementptr inbounds nuw ptr, ptr %35, i64 %indvars.iv.i.i.us
   %132 = load ptr, ptr %131, align 8
   %133 = call zeroext i8 @isSameObject(ptr noundef %2, ptr noundef %132, ptr noundef %130) #6
   %.not.i.i41.us = icmp eq i8 %133, 0
@@ -1256,13 +1256,13 @@ commonSuspendList.exit:                           ; preds = %46, %._crit_edge.i,
   br i1 %.not11.i34.us, label %suspendAllHelper.exit.thread.us, label %enumerateOverThreadList.exit39
 
 suspendAllHelper.exit.thread.us:                  ; preds = %.lr.ph.i.i.us, %.loopexit.loopexit.i.us
-  %136 = getelementptr inbounds i8, ptr %.0814.i33.us, i64 232
+  %136 = getelementptr inbounds nuw i8, ptr %.0814.i33.us, i64 232
   %.08.i37.us = load ptr, ptr %136, align 8
   %.not.i38.us = icmp eq ptr %.08.i37.us, null
   br i1 %.not.i38.us, label %.loopexit, label %.lr.ph.i32.us, !llvm.loop !11
 
 suspendAllHelper.exit.thread:                     ; preds = %.lr.ph.i32
-  %137 = getelementptr inbounds i8, ptr %.0814.i33, i64 232
+  %137 = getelementptr inbounds nuw i8, ptr %.0814.i33, i64 232
   %.08.i37 = load ptr, ptr %137, align 8
   %.not.i38 = icmp eq ptr %.08.i37, null
   br i1 %.not.i38, label %.loopexit, label %.lr.ph.i32, !llvm.loop !11
@@ -1285,7 +1285,7 @@ enumerateOverThreadList.exit39:                   ; preds = %.lr.ph.i32, %.loope
   %.0 = phi i32 [ %.0.i, %commonSuspendList.exit ], [ 0, %.loopexit ], [ 188, %enumerateOverThreadList.exit ], [ %135, %.loopexit.loopexit.i.us ], [ %139, %.lr.ph.i32 ]
   call void @jvmtiDeallocate(ptr noundef %35) #6
   %142 = load ptr, ptr @gdata, align 8
-  %143 = getelementptr inbounds i8, ptr %142, i64 528
+  %143 = getelementptr inbounds nuw i8, ptr %142, i64 528
   %144 = load i32, ptr %143, align 8
   %145 = and i32 %144, 2
   %.not27 = icmp eq i32 %145, 0
@@ -1298,7 +1298,7 @@ enumerateOverThreadList.exit39:                   ; preds = %.lr.ph.i32, %.loope
 
 147:                                              ; preds = %enumerateOverThreadList.exit39, %146
   %148 = load ptr, ptr %2, align 8
-  %149 = getelementptr inbounds i8, ptr %148, i64 160
+  %149 = getelementptr inbounds nuw i8, ptr %148, i64 160
   %150 = load ptr, ptr %149, align 8
   %151 = call ptr %150(ptr noundef nonnull %2, ptr noundef null) #6
   %152 = load ptr, ptr @threadLock, align 8
@@ -1325,7 +1325,7 @@ define hidden i32 @threadControl_resumeAll() local_unnamed_addr #0 {
   %2 = load ptr, ptr @threadLock, align 8
   tail call void @debugMonitorEnter(ptr noundef %2) #6
   %3 = load ptr, ptr @gdata, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 19
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 19
   %5 = load i8, ptr %4, align 1
   %6 = icmp ne i8 %5, 0
   %7 = load i32, ptr @suspendAllCount, align 4
@@ -1346,13 +1346,13 @@ define hidden i32 @threadControl_resumeAll() local_unnamed_addr #0 {
   br i1 %.not.i46, label %excludeCountHelper.exit, label %11
 
 11:                                               ; preds = %.lr.ph.i
-  %12 = getelementptr inbounds i8, ptr %10, i64 17
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 17
   %13 = load i8, ptr %12, align 1
   %.not4.i = icmp eq i8 %13, 0
   br i1 %.not4.i, label %excludeCountHelper.exit, label %14
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %.0814.i, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %.0814.i, i64 8
   %16 = load i16, ptr %15, align 8
   %17 = and i16 %16, 32
   %.not5.i = icmp eq i16 %17, 0
@@ -1365,12 +1365,12 @@ define hidden i32 @threadControl_resumeAll() local_unnamed_addr #0 {
 
 excludeCountHelper.exit:                          ; preds = %18, %14, %11, %.lr.ph.i
   %19 = phi ptr [ %.pre, %18 ], [ %10, %14 ], [ %10, %11 ], [ null, %.lr.ph.i ]
-  %20 = getelementptr inbounds i8, ptr %.0814.i, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %.0814.i, i64 24
   %21 = load i32, ptr %20, align 8
   %22 = icmp sgt i32 %21, 0
   %23 = zext i1 %22 to i32
   %.2 = add nuw nsw i32 %.052, %23
-  %24 = getelementptr inbounds i8, ptr %.0814.i, i64 232
+  %24 = getelementptr inbounds nuw i8, ptr %.0814.i, i64 232
   %.08.i = load ptr, ptr %24, align 8
   %.not.i = icmp eq ptr %.08.i, null
   br i1 %.not.i, label %enumerateOverThreadList.exit, label %.lr.ph.i, !llvm.loop !11
@@ -1405,7 +1405,7 @@ newArray.exit:                                    ; preds = %25
 
 excludeCopyHelper.exit:                           ; preds = %48, %44
   %.1 = phi ptr [ %50, %48 ], [ %.051, %44 ]
-  %34 = getelementptr inbounds i8, ptr %.0814.i24, i64 232
+  %34 = getelementptr inbounds nuw i8, ptr %.0814.i24, i64 232
   %.08.i27 = load ptr, ptr %34, align 8
   %.not.i28 = icmp eq ptr %.08.i27, null
   br i1 %.not.i28, label %enumerateOverThreadList.exit29, label %.lr.ph.i23, !llvm.loop !11
@@ -1418,13 +1418,13 @@ excludeCopyHelper.exit:                           ; preds = %48, %44
   br i1 %.not.i47, label %44, label %36
 
 36:                                               ; preds = %.lr.ph.i23
-  %37 = getelementptr inbounds i8, ptr %35, i64 17
+  %37 = getelementptr inbounds nuw i8, ptr %35, i64 17
   %38 = load i8, ptr %37, align 1
   %.not6.i = icmp eq i8 %38, 0
   br i1 %.not6.i, label %44, label %39
 
 39:                                               ; preds = %36
-  %40 = getelementptr inbounds i8, ptr %.0814.i24, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %.0814.i24, i64 8
   %41 = load i16, ptr %40, align 8
   %42 = and i16 %41, 32
   %.not7.i = icmp eq i16 %42, 0
@@ -1435,7 +1435,7 @@ excludeCopyHelper.exit:                           ; preds = %48, %44
   br label %44
 
 44:                                               ; preds = %43, %39, %36, %.lr.ph.i23
-  %45 = getelementptr inbounds i8, ptr %.0814.i24, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %.0814.i24, i64 24
   %46 = load i32, ptr %45, align 8
   %47 = icmp sgt i32 %46, 0
   br i1 %47, label %48, label %excludeCopyHelper.exit
@@ -1443,14 +1443,14 @@ excludeCopyHelper.exit:                           ; preds = %48, %44
 48:                                               ; preds = %44
   %49 = load ptr, ptr %.0814.i24, align 8
   store ptr %49, ptr %.051, align 8
-  %50 = getelementptr inbounds i8, ptr %.051, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %.051, i64 8
   br label %excludeCopyHelper.exit
 
 enumerateOverThreadList.exit29:                   ; preds = %excludeCopyHelper.exit, %9, %33, %enumerateOverThreadList.exit
   %.15355 = phi i32 [ 0, %enumerateOverThreadList.exit ], [ %.2, %33 ], [ 0, %9 ], [ %.2, %excludeCopyHelper.exit ]
   %.0 = phi ptr [ null, %enumerateOverThreadList.exit ], [ %27, %33 ], [ null, %9 ], [ %27, %excludeCopyHelper.exit ]
   %51 = load ptr, ptr @gdata, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 528
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 528
   %53 = load i32, ptr %52, align 8
   %54 = and i32 %53, 4
   %.not = icmp eq i32 %54, 0
@@ -1466,7 +1466,7 @@ enumerateOverThreadList.exit29:                   ; preds = %excludeCopyHelper.e
   %57 = phi ptr [ %51, %enumerateOverThreadList.exit29 ], [ %.pre58, %55 ]
   %58 = load ptr, ptr %57, align 8
   %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 944
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 944
   %61 = load ptr, ptr %60, align 8
   %62 = tail call i32 %61(ptr noundef nonnull %58, i32 noundef %.15355, ptr noundef %.0) #6
   %.not19 = icmp eq i32 %62, 0
@@ -1491,7 +1491,7 @@ enumerateOverThreadList.exit29:                   ; preds = %excludeCopyHelper.e
 
 resumeCountHelper.exit.i:                         ; preds = %85, %73, %.lr.ph.i.i
   %.111.i = phi i32 [ %.010.i, %73 ], [ %86, %85 ], [ %.010.i, %.lr.ph.i.i ]
-  %69 = getelementptr inbounds i8, ptr %.0814.i.i, i64 232
+  %69 = getelementptr inbounds nuw i8, ptr %.0814.i.i, i64 232
   %.08.i.i = load ptr, ptr %69, align 8
   %.not.i.i = icmp eq ptr %.08.i.i, null
   br i1 %.not.i.i, label %enumerateOverThreadList.exit.i, label %.lr.ph.i.i, !llvm.loop !11
@@ -1499,14 +1499,14 @@ resumeCountHelper.exit.i:                         ; preds = %85, %73, %.lr.ph.i.
 .lr.ph.i.i:                                       ; preds = %68, %resumeCountHelper.exit.i
   %.010.i = phi i32 [ %.111.i, %resumeCountHelper.exit.i ], [ 0, %68 ]
   %.0814.i.i = phi ptr [ %.08.i.i, %resumeCountHelper.exit.i ], [ %.0812.i.i, %68 ]
-  %70 = getelementptr inbounds i8, ptr %.0814.i.i, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %.0814.i.i, i64 8
   %71 = load i16, ptr %70, align 8
   %72 = and i16 %71, 4
   %.not.i75.i = icmp eq i16 %72, 0
   br i1 %.not.i75.i, label %73, label %resumeCountHelper.exit.i
 
 73:                                               ; preds = %.lr.ph.i.i
-  %74 = getelementptr inbounds i8, ptr %.0814.i.i, i64 24
+  %74 = getelementptr inbounds nuw i8, ptr %.0814.i.i, i64 24
   %75 = load i32, ptr %74, align 8
   %76 = icmp ne i32 %75, 1
   %77 = and i16 %71, 1
@@ -1520,7 +1520,7 @@ resumeCountHelper.exit.i:                         ; preds = %85, %73, %.lr.ph.i.
   br i1 %.not7.i.i, label %85, label %80
 
 80:                                               ; preds = %78
-  %81 = getelementptr inbounds i8, ptr %79, i64 17
+  %81 = getelementptr inbounds nuw i8, ptr %79, i64 17
   %82 = load i8, ptr %81, align 1
   %.not8.i.i = icmp eq i8 %82, 0
   %83 = and i16 %71, 8
@@ -1544,7 +1544,7 @@ enumerateOverThreadList.exit.i:                   ; preds = %resumeCountHelper.e
 
 resumeCountHelper.exit83.i:                       ; preds = %103, %91, %.lr.ph.i28.i
   %.414.i = phi i32 [ %.313.i, %91 ], [ %104, %103 ], [ %.313.i, %.lr.ph.i28.i ]
-  %87 = getelementptr inbounds i8, ptr %.0814.i29.i, i64 232
+  %87 = getelementptr inbounds nuw i8, ptr %.0814.i29.i, i64 232
   %.08.i32.i = load ptr, ptr %87, align 8
   %.not.i33.i = icmp eq ptr %.08.i32.i, null
   br i1 %.not.i33.i, label %enumerateOverThreadList.exit34.i, label %.lr.ph.i28.i, !llvm.loop !11
@@ -1552,14 +1552,14 @@ resumeCountHelper.exit83.i:                       ; preds = %103, %91, %.lr.ph.i
 .lr.ph.i28.i:                                     ; preds = %enumerateOverThreadList.exit.i, %resumeCountHelper.exit83.i
   %.313.i = phi i32 [ %.414.i, %resumeCountHelper.exit83.i ], [ %.212.i, %enumerateOverThreadList.exit.i ]
   %.0814.i29.i = phi ptr [ %.08.i32.i, %resumeCountHelper.exit83.i ], [ %.0812.i26.i, %enumerateOverThreadList.exit.i ]
-  %88 = getelementptr inbounds i8, ptr %.0814.i29.i, i64 8
+  %88 = getelementptr inbounds nuw i8, ptr %.0814.i29.i, i64 8
   %89 = load i16, ptr %88, align 8
   %90 = and i16 %89, 4
   %.not.i76.i = icmp eq i16 %90, 0
   br i1 %.not.i76.i, label %91, label %resumeCountHelper.exit83.i
 
 91:                                               ; preds = %.lr.ph.i28.i
-  %92 = getelementptr inbounds i8, ptr %.0814.i29.i, i64 24
+  %92 = getelementptr inbounds nuw i8, ptr %.0814.i29.i, i64 24
   %93 = load i32, ptr %92, align 8
   %94 = icmp ne i32 %93, 1
   %95 = and i16 %89, 1
@@ -1573,7 +1573,7 @@ resumeCountHelper.exit83.i:                       ; preds = %103, %91, %.lr.ph.i
   br i1 %.not7.i79.i, label %103, label %98
 
 98:                                               ; preds = %96
-  %99 = getelementptr inbounds i8, ptr %97, i64 17
+  %99 = getelementptr inbounds nuw i8, ptr %97, i64 17
   %100 = load i8, ptr %99, align 1
   %.not8.i80.i = icmp eq i8 %100, 0
   %101 = and i16 %89, 8
@@ -1605,21 +1605,21 @@ resumeCopyHelper.exit.sink.split.i:               ; preds = %126, %122, %120, %1
   br label %resumeCopyHelper.exit.i
 
 resumeCopyHelper.exit.i:                          ; preds = %117, %.lr.ph.i37.i, %resumeCopyHelper.exit.sink.split.i
-  %107 = getelementptr inbounds i8, ptr %.0814.i38.i, i64 232
+  %107 = getelementptr inbounds nuw i8, ptr %.0814.i38.i, i64 232
   %.08.i41.i = load ptr, ptr %107, align 8
   %.not.i42.i = icmp eq ptr %.08.i41.i, null
   br i1 %.not.i42.i, label %enumerateOverThreadList.exit43.i, label %.lr.ph.i37.i, !llvm.loop !11
 
 .lr.ph.i37.i:                                     ; preds = %106, %resumeCopyHelper.exit.i
   %.0814.i38.i = phi ptr [ %.08.i41.i, %resumeCopyHelper.exit.i ], [ %.0812.i35.i, %106 ]
-  %108 = getelementptr inbounds i8, ptr %.0814.i38.i, i64 8
+  %108 = getelementptr inbounds nuw i8, ptr %.0814.i38.i, i64 8
   %109 = load i16, ptr %108, align 8
   %110 = and i16 %109, 4
   %.not.i84.i = icmp eq i16 %110, 0
   br i1 %.not.i84.i, label %111, label %resumeCopyHelper.exit.i
 
 111:                                              ; preds = %.lr.ph.i37.i
-  %112 = getelementptr inbounds i8, ptr %.0814.i38.i, i64 24
+  %112 = getelementptr inbounds nuw i8, ptr %.0814.i38.i, i64 24
   %113 = load i32, ptr %112, align 8
   %114 = icmp sgt i32 %113, 1
   br i1 %114, label %115, label %117
@@ -1641,7 +1641,7 @@ resumeCopyHelper.exit.i:                          ; preds = %117, %.lr.ph.i37.i,
   br i1 %.not23.i.i, label %resumeCopyHelper.exit.sink.split.i, label %122
 
 122:                                              ; preds = %120
-  %123 = getelementptr inbounds i8, ptr %121, i64 17
+  %123 = getelementptr inbounds nuw i8, ptr %121, i64 17
   %124 = load i8, ptr %123, align 1
   %.not24.i.i = icmp eq i8 %124, 0
   %125 = and i16 %109, 1
@@ -1666,21 +1666,21 @@ resumeCopyHelper.exit95.sink.split.i:             ; preds = %147, %143, %141, %1
   br label %resumeCopyHelper.exit95.i
 
 resumeCopyHelper.exit95.i:                        ; preds = %138, %.lr.ph.i46.i, %resumeCopyHelper.exit95.sink.split.i
-  %128 = getelementptr inbounds i8, ptr %.0814.i47.i, i64 232
+  %128 = getelementptr inbounds nuw i8, ptr %.0814.i47.i, i64 232
   %.08.i50.i = load ptr, ptr %128, align 8
   %.not.i51.i = icmp eq ptr %.08.i50.i, null
   br i1 %.not.i51.i, label %commonResumeList.exit, label %.lr.ph.i46.i, !llvm.loop !11
 
 .lr.ph.i46.i:                                     ; preds = %enumerateOverThreadList.exit43.i, %resumeCopyHelper.exit95.i
   %.0814.i47.i = phi ptr [ %.08.i50.i, %resumeCopyHelper.exit95.i ], [ %.0812.i44.i, %enumerateOverThreadList.exit43.i ]
-  %129 = getelementptr inbounds i8, ptr %.0814.i47.i, i64 8
+  %129 = getelementptr inbounds nuw i8, ptr %.0814.i47.i, i64 8
   %130 = load i16, ptr %129, align 8
   %131 = and i16 %130, 4
   %.not.i86.i = icmp eq i16 %131, 0
   br i1 %.not.i86.i, label %132, label %resumeCopyHelper.exit95.i
 
 132:                                              ; preds = %.lr.ph.i46.i
-  %133 = getelementptr inbounds i8, ptr %.0814.i47.i, i64 24
+  %133 = getelementptr inbounds nuw i8, ptr %.0814.i47.i, i64 24
   %134 = load i32, ptr %133, align 8
   %135 = icmp sgt i32 %134, 1
   br i1 %135, label %136, label %138
@@ -1702,7 +1702,7 @@ resumeCopyHelper.exit95.i:                        ; preds = %138, %.lr.ph.i46.i,
   br i1 %.not23.i89.i, label %resumeCopyHelper.exit95.sink.split.i, label %143
 
 143:                                              ; preds = %141
-  %144 = getelementptr inbounds i8, ptr %142, i64 17
+  %144 = getelementptr inbounds nuw i8, ptr %142, i64 17
   %145 = load i8, ptr %144, align 1
   %.not24.i90.i = icmp eq i8 %145, 0
   %146 = and i16 %130, 1
@@ -1761,7 +1761,7 @@ newArray.exit55.i:                                ; preds = %157
 
 resumeCopyHelper.exit105.i:                       ; preds = %197, %189, %187, %174, %.lr.ph.i58.i
   %.1.i30 = phi ptr [ %.09.i, %174 ], [ %.09.i, %189 ], [ %199, %197 ], [ %.09.i, %187 ], [ %.09.i, %.lr.ph.i58.i ]
-  %166 = getelementptr inbounds i8, ptr %.0814.i59.i, i64 232
+  %166 = getelementptr inbounds nuw i8, ptr %.0814.i59.i, i64 232
   %.08.i62.i = load ptr, ptr %166, align 8
   %.not.i63.i = icmp eq ptr %.08.i62.i, null
   br i1 %.not.i63.i, label %enumerateOverThreadList.exit64.i, label %.lr.ph.i58.i, !llvm.loop !11
@@ -1769,14 +1769,14 @@ resumeCopyHelper.exit105.i:                       ; preds = %197, %189, %187, %1
 .lr.ph.i58.i:                                     ; preds = %165, %resumeCopyHelper.exit105.i
   %.09.i = phi ptr [ %.1.i30, %resumeCopyHelper.exit105.i ], [ %151, %165 ]
   %.0814.i59.i = phi ptr [ %.08.i62.i, %resumeCopyHelper.exit105.i ], [ %.0812.i56.i, %165 ]
-  %167 = getelementptr inbounds i8, ptr %.0814.i59.i, i64 8
+  %167 = getelementptr inbounds nuw i8, ptr %.0814.i59.i, i64 8
   %168 = load i16, ptr %167, align 8
   %169 = and i16 %168, 4
   %.not.i96.i = icmp eq i16 %169, 0
   br i1 %.not.i96.i, label %170, label %resumeCopyHelper.exit105.i
 
 170:                                              ; preds = %.lr.ph.i58.i
-  %171 = getelementptr inbounds i8, ptr %.0814.i59.i, i64 24
+  %171 = getelementptr inbounds nuw i8, ptr %.0814.i59.i, i64 24
   %172 = load i32, ptr %171, align 8
   %173 = icmp sgt i32 %172, 1
   br i1 %173, label %174, label %176
@@ -1799,7 +1799,7 @@ resumeCopyHelper.exit105.i:                       ; preds = %197, %189, %187, %1
   br i1 %.not23.i99.i, label %187, label %181
 
 181:                                              ; preds = %179
-  %182 = getelementptr inbounds i8, ptr %180, i64 17
+  %182 = getelementptr inbounds nuw i8, ptr %180, i64 17
   %183 = load i8, ptr %182, align 1
   %.not24.i100.i = icmp eq i8 %183, 0
   %184 = and i16 %168, 1
@@ -1830,7 +1830,7 @@ resumeCopyHelper.exit105.i:                       ; preds = %197, %189, %187, %1
   br i1 %.not20.i.i, label %197, label %193
 
 193:                                              ; preds = %191
-  %194 = getelementptr inbounds i8, ptr %192, i64 17
+  %194 = getelementptr inbounds nuw i8, ptr %192, i64 17
   %195 = load i8, ptr %194, align 1
   %.not21.i.i = icmp eq i8 %195, 0
   %or.cond27.i.i = or i1 %.not18.i97.i, %.not21.i.i
@@ -1843,7 +1843,7 @@ resumeCopyHelper.exit105.i:                       ; preds = %197, %189, %187, %1
 197:                                              ; preds = %196, %193, %191
   %198 = load ptr, ptr %.0814.i59.i, align 8
   store ptr %198, ptr %.09.i, align 8
-  %199 = getelementptr inbounds i8, ptr %.09.i, i64 8
+  %199 = getelementptr inbounds nuw i8, ptr %.09.i, i64 8
   br label %resumeCopyHelper.exit105.i
 
 enumerateOverThreadList.exit64.i:                 ; preds = %resumeCopyHelper.exit105.i, %165
@@ -1854,7 +1854,7 @@ enumerateOverThreadList.exit64.i:                 ; preds = %resumeCopyHelper.ex
 
 resumeCopyHelper.exit119.i:                       ; preds = %231, %223, %221, %208, %.lr.ph.i67.i
   %.4.i = phi ptr [ %.3.i, %208 ], [ %.3.i, %223 ], [ %233, %231 ], [ %.3.i, %221 ], [ %.3.i, %.lr.ph.i67.i ]
-  %200 = getelementptr inbounds i8, ptr %.0814.i68.i, i64 232
+  %200 = getelementptr inbounds nuw i8, ptr %.0814.i68.i, i64 232
   %.08.i71.i = load ptr, ptr %200, align 8
   %.not.i72.i = icmp eq ptr %.08.i71.i, null
   br i1 %.not.i72.i, label %enumerateOverThreadList.exit73.i, label %.lr.ph.i67.i, !llvm.loop !11
@@ -1862,14 +1862,14 @@ resumeCopyHelper.exit119.i:                       ; preds = %231, %223, %221, %2
 .lr.ph.i67.i:                                     ; preds = %enumerateOverThreadList.exit64.i, %resumeCopyHelper.exit119.i
   %.3.i = phi ptr [ %.4.i, %resumeCopyHelper.exit119.i ], [ %.2.i, %enumerateOverThreadList.exit64.i ]
   %.0814.i68.i = phi ptr [ %.08.i71.i, %resumeCopyHelper.exit119.i ], [ %.0812.i65.i, %enumerateOverThreadList.exit64.i ]
-  %201 = getelementptr inbounds i8, ptr %.0814.i68.i, i64 8
+  %201 = getelementptr inbounds nuw i8, ptr %.0814.i68.i, i64 8
   %202 = load i16, ptr %201, align 8
   %203 = and i16 %202, 4
   %.not.i106.i = icmp eq i16 %203, 0
   br i1 %.not.i106.i, label %204, label %resumeCopyHelper.exit119.i
 
 204:                                              ; preds = %.lr.ph.i67.i
-  %205 = getelementptr inbounds i8, ptr %.0814.i68.i, i64 24
+  %205 = getelementptr inbounds nuw i8, ptr %.0814.i68.i, i64 24
   %206 = load i32, ptr %205, align 8
   %207 = icmp sgt i32 %206, 1
   br i1 %207, label %208, label %210
@@ -1892,7 +1892,7 @@ resumeCopyHelper.exit119.i:                       ; preds = %231, %223, %221, %2
   br i1 %.not23.i109.i, label %221, label %215
 
 215:                                              ; preds = %213
-  %216 = getelementptr inbounds i8, ptr %214, i64 17
+  %216 = getelementptr inbounds nuw i8, ptr %214, i64 17
   %217 = load i8, ptr %216, align 1
   %.not24.i110.i = icmp eq i8 %217, 0
   %218 = and i16 %202, 1
@@ -1923,7 +1923,7 @@ resumeCopyHelper.exit119.i:                       ; preds = %231, %223, %221, %2
   br i1 %.not20.i116.i, label %231, label %227
 
 227:                                              ; preds = %225
-  %228 = getelementptr inbounds i8, ptr %226, i64 17
+  %228 = getelementptr inbounds nuw i8, ptr %226, i64 17
   %229 = load i8, ptr %228, align 1
   %.not21.i117.i = icmp eq i8 %229, 0
   %or.cond27.i118.i = or i1 %.not18.i107.i, %.not21.i117.i
@@ -1936,12 +1936,12 @@ resumeCopyHelper.exit119.i:                       ; preds = %231, %223, %221, %2
 231:                                              ; preds = %230, %227, %225
   %232 = load ptr, ptr %.0814.i68.i, align 8
   store ptr %232, ptr %.3.i, align 8
-  %233 = getelementptr inbounds i8, ptr %.3.i, i64 8
+  %233 = getelementptr inbounds nuw i8, ptr %.3.i, i64 8
   br label %resumeCopyHelper.exit119.i
 
 enumerateOverThreadList.exit73.i:                 ; preds = %resumeCopyHelper.exit119.i, %enumerateOverThreadList.exit64.i
   %234 = load ptr, ptr @gdata, align 8
-  %235 = getelementptr inbounds i8, ptr %234, i64 528
+  %235 = getelementptr inbounds nuw i8, ptr %234, i64 528
   %236 = load i32, ptr %235, align 8
   %237 = and i32 %236, 4
   %.not.i31 = icmp eq i32 %237, 0
@@ -1957,7 +1957,7 @@ enumerateOverThreadList.exit73.i:                 ; preds = %resumeCopyHelper.ex
   %240 = phi ptr [ %234, %enumerateOverThreadList.exit73.i ], [ %.pre.i, %238 ]
   %241 = load ptr, ptr %240, align 8
   %242 = load ptr, ptr %241, align 8
-  %243 = getelementptr inbounds i8, ptr %242, i64 736
+  %243 = getelementptr inbounds nuw i8, ptr %242, i64 736
   %244 = load ptr, ptr %243, align 8
   %245 = tail call i32 %244(ptr noundef nonnull %241, i32 noundef %.5.i, ptr noundef %151, ptr noundef %159) #6
   %246 = icmp sgt i32 %.5.i, 0
@@ -1969,7 +1969,7 @@ enumerateOverThreadList.exit73.i:                 ; preds = %resumeCopyHelper.ex
 
 .lr.ph.i32:                                       ; preds = %262, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %262 ]
-  %247 = getelementptr inbounds ptr, ptr %151, i64 %indvars.iv.i
+  %247 = getelementptr inbounds nuw ptr, ptr %151, i64 %indvars.iv.i
   %248 = load ptr, ptr %247, align 8
   %249 = tail call zeroext i8 @isVThread(ptr noundef %248) #6
   %.not.i74.i = icmp eq i8 %249, 0
@@ -1987,7 +1987,7 @@ enumerateOverThreadList.exit73.i:                 ; preds = %resumeCopyHelper.ex
 
 255:                                              ; preds = %252, %.lr.ph.i32
   %256 = load ptr, ptr @gdata, align 8
-  %257 = getelementptr inbounds i8, ptr %256, i64 528
+  %257 = getelementptr inbounds nuw i8, ptr %256, i64 528
   %258 = load i32, ptr %257, align 8
   %259 = and i32 %258, 8
   %.not25.i = icmp eq i32 %259, 0
@@ -2000,15 +2000,15 @@ enumerateOverThreadList.exit73.i:                 ; preds = %resumeCopyHelper.ex
   br label %262
 
 262:                                              ; preds = %260, %255
-  %263 = getelementptr inbounds i8, ptr %250, i64 24
+  %263 = getelementptr inbounds nuw i8, ptr %250, i64 24
   %264 = load i32, ptr %263, align 8
   %265 = add nsw i32 %264, -1
   store i32 %265, ptr %263, align 8
-  %266 = getelementptr inbounds i8, ptr %250, i64 8
+  %266 = getelementptr inbounds nuw i8, ptr %250, i64 8
   %267 = load i16, ptr %266, align 8
   %268 = and i16 %267, -2
   store i16 %268, ptr %266, align 8
-  %269 = getelementptr inbounds i8, ptr %250, i64 248
+  %269 = getelementptr inbounds nuw i8, ptr %250, i64 248
   %270 = load i64, ptr %269, align 8
   %271 = add nsw i64 %270, 1
   store i64 %271, ptr %269, align 8
@@ -2032,7 +2032,7 @@ commonResumeList.exit:                            ; preds = %resumeCopyHelper.ex
   br i1 %or.cond, label %.lr.ph.i35, label %removeResumed.exit
 
 276:                                              ; preds = %.lr.ph.i35
-  %277 = getelementptr inbounds i8, ptr %.0814.i36, i64 232
+  %277 = getelementptr inbounds nuw i8, ptr %.0814.i36, i64 232
   %.08.i40 = load ptr, ptr %277, align 8
   %.not.i41 = icmp eq ptr %.08.i40, null
   br i1 %.not.i41, label %enumerateOverThreadList.exit42, label %.lr.ph.i35, !llvm.loop !11
@@ -2050,23 +2050,23 @@ enumerateOverThreadList.exit42:                   ; preds = %276, %.lr.ph.i35
 
 .lr.ph.i43:                                       ; preds = %enumerateOverThreadList.exit42, %302
   %.02.i = phi ptr [ %281, %302 ], [ %279, %enumerateOverThreadList.exit42 ]
-  %280 = getelementptr inbounds i8, ptr %.02.i, i64 232
+  %280 = getelementptr inbounds nuw i8, ptr %.02.i, i64 232
   %281 = load ptr, ptr %280, align 8
-  %282 = getelementptr inbounds i8, ptr %.02.i, i64 24
+  %282 = getelementptr inbounds nuw i8, ptr %.02.i, i64 24
   %283 = load i32, ptr %282, align 8
   %284 = icmp eq i32 %283, 0
   br i1 %284, label %285, label %302
 
 285:                                              ; preds = %.lr.ph.i43
-  %286 = getelementptr inbounds i8, ptr %.02.i, i64 240
+  %286 = getelementptr inbounds nuw i8, ptr %.02.i, i64 240
   %287 = load ptr, ptr %286, align 8
-  %288 = getelementptr inbounds i8, ptr %.02.i, i64 256
+  %288 = getelementptr inbounds nuw i8, ptr %.02.i, i64 256
   %289 = load ptr, ptr %288, align 8
   %.not.i.i.i = icmp eq ptr %287, null
   br i1 %.not.i.i.i, label %292, label %290
 
 290:                                              ; preds = %285
-  %291 = getelementptr inbounds i8, ptr %287, i64 232
+  %291 = getelementptr inbounds nuw i8, ptr %287, i64 232
   store ptr %281, ptr %291, align 8
   br label %292
 
@@ -2075,7 +2075,7 @@ enumerateOverThreadList.exit42:                   ; preds = %276, %.lr.ph.i35
   br i1 %.not17.i.i.i, label %295, label %293
 
 293:                                              ; preds = %292
-  %294 = getelementptr inbounds i8, ptr %281, i64 240
+  %294 = getelementptr inbounds nuw i8, ptr %281, i64 240
   store ptr %287, ptr %294, align 8
   br label %295
 
@@ -2138,7 +2138,7 @@ define hidden ptr @threadControl_getStepRequest(ptr noundef %0) local_unnamed_ad
   %runningThreads.runningVThreads.i = select i1 %.not.i, ptr @runningThreads, ptr @runningVThreads
   %4 = tail call fastcc ptr @findThread(ptr noundef nonnull %runningThreads.runningVThreads.i, ptr noundef %0)
   %.not = icmp eq ptr %4, null
-  %5 = getelementptr inbounds i8, ptr %4, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %spec.select = select i1 %.not, ptr null, ptr %5
   %6 = load ptr, ptr @threadLock, align 8
   tail call void @debugMonitorExit(ptr noundef %6) #6
@@ -2154,7 +2154,7 @@ define hidden ptr @threadControl_getInvokeRequest(ptr noundef %0) local_unnamed_
   %runningThreads.runningVThreads.i = select i1 %.not.i, ptr @runningThreads, ptr @runningVThreads
   %4 = tail call fastcc ptr @findThread(ptr noundef nonnull %runningThreads.runningVThreads.i, ptr noundef %0)
   %.not = icmp eq ptr %4, null
-  %5 = getelementptr inbounds i8, ptr %4, i64 112
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 112
   %spec.select = select i1 %.not, ptr null, ptr %5
   %6 = load ptr, ptr @threadLock, align 8
   tail call void @debugMonitorExit(ptr noundef %6) #6
@@ -2215,7 +2215,7 @@ define hidden zeroext range(i8 0, 2) i8 @threadControl_isDebugThread(ptr noundef
 
 .lr.ph:                                           ; preds = %1, %6
   %indvars.iv = phi i64 [ %indvars.iv.next, %6 ], [ 0, %1 ]
-  %10 = getelementptr inbounds [10 x ptr], ptr @debugThreads, i64 0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [10 x ptr], ptr @debugThreads, i64 0, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
   %12 = tail call zeroext i8 @isSameObject(ptr noundef %2, ptr noundef %0, ptr noundef %11) #6
   %.not = icmp eq i8 %12, 0
@@ -2259,7 +2259,7 @@ initLocks.exit:                                   ; preds = %2, %5
   br i1 %.not.i, label %threadControl_getInstructionStepMode.exit, label %13
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %12, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 28
   %15 = load i32, ptr %14, align 4
   br label %threadControl_getInstructionStepMode.exit
 
@@ -2287,7 +2287,7 @@ threadControl_getInstructionStepMode.exit:        ; preds = %9, %13
 23:                                               ; preds = %22
   %24 = add nuw i32 %.022, 1
   %25 = load ptr, ptr @gdata, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 528
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 528
   %27 = load i32, ptr %26, align 8
   %28 = and i32 %27, 4
   %.not.i31 = icmp eq i32 %28, 0
@@ -2303,7 +2303,7 @@ threadControl_getInstructionStepMode.exit:        ; preds = %9, %13
   %31 = phi ptr [ %25, %23 ], [ %.pre.i, %29 ]
   %32 = load ptr, ptr %31, align 8
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 632
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 632
   %35 = load ptr, ptr %34, align 8
   %36 = tail call i32 %35(ptr noundef nonnull %32, ptr noundef %0) #6
   %.not15.i = icmp eq i32 %36, 0
@@ -2311,7 +2311,7 @@ threadControl_getInstructionStepMode.exit:        ; preds = %9, %13
 
 37:                                               ; preds = %30
   %38 = load ptr, ptr @gdata, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 528
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 528
   %40 = load i32, ptr %39, align 8
   %41 = and i32 %40, 8
   %.not16.i = icmp eq i32 %41, 0
@@ -2321,7 +2321,7 @@ threadControl_getInstructionStepMode.exit:        ; preds = %9, %13
   tail call void @log_message_begin(ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.5, i32 noundef 1891) #6
   tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.68, ptr noundef %0) #6
   %.pre22.i = load ptr, ptr @gdata, align 8
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.pre22.i, i64 528
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.pre22.i, i64 528
   %.pre23.i = load i32, ptr %.phi.trans.insert.i, align 8
   br label %43
 
@@ -2342,7 +2342,7 @@ threadControl_getInstructionStepMode.exit:        ; preds = %9, %13
   %49 = phi ptr [ %45, %43 ], [ %.pre24.i, %47 ]
   %50 = load ptr, ptr %49, align 8
   %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 40
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 40
   %53 = load ptr, ptr %52, align 8
   %54 = tail call i32 %53(ptr noundef nonnull %50, ptr noundef %0) #6
   %.not18.i = icmp eq i32 %54, 0
@@ -2369,7 +2369,7 @@ getPopFrameEvent.exit.thread.i:                   ; preds = %56
   br label %68
 
 getPopFrameEvent.exit.i:                          ; preds = %56
-  %63 = getelementptr inbounds i8, ptr %58, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %64 = load i16, ptr %63, align 8
   %65 = load ptr, ptr @threadLock, align 8
   tail call void @debugMonitorExit(ptr noundef %65) #6
@@ -2386,7 +2386,7 @@ getPopFrameEvent.exit.i:                          ; preds = %56
   %71 = load ptr, ptr @popFrameProceedLock, align 8
   tail call void @debugMonitorEnter(ptr noundef %71) #6
   %72 = load ptr, ptr @gdata, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 528
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 528
   %74 = load i32, ptr %73, align 8
   %75 = and i32 %74, 8
   %.not19.i = icmp eq i32 %75, 0
@@ -2396,7 +2396,7 @@ getPopFrameEvent.exit.i:                          ; preds = %56
   tail call void @log_message_begin(ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.5, i32 noundef 1907) #6
   tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.69, ptr noundef %0) #6
   %.pre25.i = load ptr, ptr @gdata, align 8
-  %.phi.trans.insert26.i = getelementptr inbounds i8, ptr %.pre25.i, i64 528
+  %.phi.trans.insert26.i = getelementptr inbounds nuw i8, ptr %.pre25.i, i64 528
   %.pre27.i = load i32, ptr %.phi.trans.insert26.i, align 8
   br label %77
 
@@ -2417,7 +2417,7 @@ popOneFrame.exit:                                 ; preds = %77, %81
   %82 = phi ptr [ %79, %77 ], [ %.pre28.i, %81 ]
   %83 = load ptr, ptr %82, align 8
   %84 = load ptr, ptr %83, align 8
-  %85 = getelementptr inbounds i8, ptr %84, i64 32
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 32
   %86 = load ptr, ptr %85, align 8
   %87 = tail call i32 %86(ptr noundef nonnull %83, ptr noundef %0) #6
   tail call fastcc void @setPopFrameProceed(ptr noundef %0, i8 noundef zeroext 1)
@@ -2469,7 +2469,7 @@ define hidden i32 @threadControl_getInstructionStepMode(ptr noundef %0) local_un
   br i1 %.not, label %8, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %4, i64 28
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %7 = load i32, ptr %6, align 4
   br label %8
 
@@ -2489,7 +2489,7 @@ define hidden i32 @threadControl_setEventMode(i32 noundef %0, i32 noundef %1, pt
 
 5:                                                ; preds = %3
   %6 = load ptr, ptr @gdata, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 528
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 528
   %8 = load i32, ptr %7, align 8
   %9 = and i32 %8, 4
   %.not18 = icmp eq i32 %9, 0
@@ -2505,7 +2505,7 @@ define hidden i32 @threadControl_setEventMode(i32 noundef %0, i32 noundef %1, pt
   %12 = phi ptr [ %6, %5 ], [ %.pre, %10 ]
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = tail call i32 @eventIndex2jvmti(i32 noundef %1) #6
   %18 = tail call i32 (ptr, i32, i32, ptr, ...) %16(ptr noundef nonnull %13, i32 noundef %0, i32 noundef %17, ptr noundef null) #6
@@ -2522,7 +2522,7 @@ define hidden i32 @threadControl_setEventMode(i32 noundef %0, i32 noundef %1, pt
   br i1 %23, label %28, label %24
 
 24:                                               ; preds = %19
-  %25 = getelementptr inbounds i8, ptr %22, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %26 = load i16, ptr %25, align 8
   %27 = and i16 %26, 16
   %.not = icmp eq i16 %27, 0
@@ -2535,20 +2535,20 @@ define hidden i32 @threadControl_setEventMode(i32 noundef %0, i32 noundef %1, pt
   br i1 %31, label %addDeferredEventMode.exit, label %32
 
 32:                                               ; preds = %28
-  %33 = getelementptr inbounds i8, ptr %30, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store ptr null, ptr %33, align 8
   tail call void @saveGlobalRef(ptr noundef %29, ptr noundef nonnull %2, ptr noundef nonnull %33) #6
-  %34 = getelementptr inbounds i8, ptr %30, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %30, i64 4
   store i32 %0, ptr %34, align 4
   store i32 %1, ptr %30, align 8
-  %35 = getelementptr inbounds i8, ptr %30, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %30, i64 16
   store ptr null, ptr %35, align 8
   %36 = load ptr, ptr getelementptr inbounds (i8, ptr @deferredEventModes, i64 8), align 8
   %.not.i.i = icmp eq ptr %36, null
   br i1 %.not.i.i, label %39, label %37
 
 37:                                               ; preds = %32
-  %38 = getelementptr inbounds i8, ptr %36, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 16
   store ptr %30, ptr %38, align 8
   br label %insertEventMode.exit.i
 
@@ -2565,13 +2565,13 @@ insertEventMode.exit.i:                           ; preds = %39, %37
   br i1 %41, label %42, label %44
 
 42:                                               ; preds = %40
-  %43 = getelementptr inbounds i8, ptr %22, i64 28
+  %43 = getelementptr inbounds nuw i8, ptr %22, i64 28
   store i32 %0, ptr %43, align 4
   br label %44
 
 44:                                               ; preds = %42, %40
   %45 = load ptr, ptr @gdata, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 528
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 528
   %47 = load i32, ptr %46, align 8
   %48 = and i32 %47, 4
   %.not.i19 = icmp eq i32 %48, 0
@@ -2587,7 +2587,7 @@ threadSetEventNotificationMode.exit:              ; preds = %44, %49
   %50 = phi ptr [ %45, %44 ], [ %.pre.i, %49 ]
   %51 = load ptr, ptr %50, align 8
   %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %54 = load ptr, ptr %53, align 8
   %55 = tail call i32 @eventIndex2jvmti(i32 noundef %1) #6
   %56 = tail call i32 (ptr, i32, i32, ptr, ...) %54(ptr noundef nonnull %51, i32 noundef %0, i32 noundef %55, ptr noundef nonnull %2) #6
@@ -2620,7 +2620,7 @@ define internal fastcc void @setPopFrameThread(ptr noundef %0, i8 noundef zeroex
   br label %16
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %11 = zext nneg i8 %1 to i16
   %12 = load i16, ptr %10, align 8
   %13 = shl nuw nsw i16 %11, 8
@@ -2642,7 +2642,7 @@ declare void @invoker_enableInvokeRequests(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define hidden ptr @threadControl_onEventHandlerEntry(i8 noundef signext %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = load i32, ptr %1, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call ptr @getEnv() #6
   tail call void @log_debugee_location(ptr noundef nonnull @.str.22, ptr noundef %6, ptr noundef null, i64 noundef 0) #6
@@ -2658,7 +2658,7 @@ getPopFrameThread.exit.thread.i:                  ; preds = %3
   br label %checkForPopFrameEvents.exit
 
 getPopFrameThread.exit.i:                         ; preds = %3
-  %12 = getelementptr inbounds i8, ptr %9, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %13 = load i16, ptr %12, align 8
   %14 = load ptr, ptr @threadLock, align 8
   tail call void @debugMonitorExit(ptr noundef %14) #6
@@ -2699,7 +2699,7 @@ getPopFrameThread.exit.i:                         ; preds = %3
   br i1 %.not6.i, label %checkForPopFrameEvents.exit, label %23
 
 23:                                               ; preds = %21
-  %24 = getelementptr inbounds i8, ptr %22, i64 17
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 17
   %25 = load i8, ptr %24, align 1
   %.not7.i = icmp eq i8 %25, 0
   br i1 %.not7.i, label %checkForPopFrameEvents.exit, label %26
@@ -2715,7 +2715,7 @@ getPopFrameThread.exit.i:                         ; preds = %3
 28:                                               ; preds = %27, %16, %16, %16, %16, %16, %16
   %.not58 = icmp eq ptr %2, null
   %29 = load ptr, ptr @gdata, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 528
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 528
   %31 = load i32, ptr %30, align 8
   %32 = and i32 %31, 2
   %.not59 = icmp eq i32 %32, 0
@@ -2731,7 +2731,7 @@ getPopFrameThread.exit.i:                         ; preds = %3
 
 35:                                               ; preds = %33, %34
   %36 = load ptr, ptr %7, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 104
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 104
   %38 = load ptr, ptr %37, align 8
   %39 = tail call i32 %38(ptr noundef nonnull %7, ptr noundef nonnull %2) #6
   br label %169
@@ -2746,7 +2746,7 @@ getPopFrameThread.exit.i:                         ; preds = %3
 
 42:                                               ; preds = %40, %41
   %43 = load ptr, ptr %7, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 136
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 136
   %45 = load ptr, ptr %44, align 8
   tail call void %45(ptr noundef nonnull %7) #6
   br label %169
@@ -2759,22 +2759,22 @@ checkForPopFrameEvents.exit:                      ; preds = %26, %23, %21, %20, 
   br i1 %.not51, label %89, label %48
 
 48:                                               ; preds = %checkForPopFrameEvents.exit
-  %49 = getelementptr inbounds i8, ptr %47, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %50 = load i16, ptr %49, align 8
   %51 = and i16 %50, 32
   %.not53.not = icmp eq i16 %51, 0
   %52 = select i1 %.not53.not, ptr @runningThreads, ptr @runningVThreads
-  %53 = getelementptr inbounds i8, ptr %47, i64 240
+  %53 = getelementptr inbounds nuw i8, ptr %47, i64 240
   %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %47, i64 232
+  %55 = getelementptr inbounds nuw i8, ptr %47, i64 232
   %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %47, i64 256
+  %57 = getelementptr inbounds nuw i8, ptr %47, i64 256
   %58 = load ptr, ptr %57, align 8
   %.not.i.i = icmp eq ptr %54, null
   br i1 %.not.i.i, label %61, label %59
 
 59:                                               ; preds = %48
-  %60 = getelementptr inbounds i8, ptr %54, i64 232
+  %60 = getelementptr inbounds nuw i8, ptr %54, i64 232
   store ptr %56, ptr %60, align 8
   br label %61
 
@@ -2783,7 +2783,7 @@ checkForPopFrameEvents.exit:                      ; preds = %26, %23, %21, %20, 
   br i1 %.not17.i.i, label %64, label %62
 
 62:                                               ; preds = %61
-  %63 = getelementptr inbounds i8, ptr %56, i64 240
+  %63 = getelementptr inbounds nuw i8, ptr %56, i64 240
   store ptr %54, ptr %63, align 8
   br label %64
 
@@ -2812,7 +2812,7 @@ removeNode.exit.i:                                ; preds = %68, %66
   br i1 %.not.i61, label %80, label %72
 
 72:                                               ; preds = %removeNode.exit.i
-  %73 = getelementptr inbounds i8, ptr %71, i64 17
+  %73 = getelementptr inbounds nuw i8, ptr %71, i64 17
   %74 = load i8, ptr %73, align 1
   %.not5.i = icmp eq i8 %74, 0
   br i1 %.not5.i, label %80, label %75
@@ -2834,7 +2834,7 @@ removeNode.exit.i:                                ; preds = %68, %66
   br i1 %82, label %85, label %83
 
 83:                                               ; preds = %80
-  %84 = getelementptr inbounds i8, ptr %81, i64 240
+  %84 = getelementptr inbounds nuw i8, ptr %81, i64 240
   store ptr %47, ptr %84, align 8
   store ptr %81, ptr %55, align 8
   br label %85
@@ -2855,7 +2855,7 @@ moveNode.exit:                                    ; preds = %85, %86
   br label %96
 
 89:                                               ; preds = %checkForPopFrameEvents.exit
-  %90 = getelementptr inbounds i8, ptr %1, i64 16
+  %90 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %91 = load i8, ptr %90, align 8
   %.not52 = icmp eq i8 %91, 0
   br i1 %.not52, label %94, label %92
@@ -2875,7 +2875,7 @@ moveNode.exit:                                    ; preds = %85, %86
   br i1 %.not54, label %.thread, label %98
 
 98:                                               ; preds = %96
-  %99 = getelementptr inbounds i8, ptr %97, i64 17
+  %99 = getelementptr inbounds nuw i8, ptr %97, i64 17
   %100 = load i8, ptr %99, align 1
   %101 = icmp eq i8 %100, 0
   %102 = icmp ne i32 %4, 21
@@ -2887,7 +2887,7 @@ moveNode.exit:                                    ; preds = %85, %86
   br label %processDeferredEventModes.exit
 
 104:                                              ; preds = %98
-  %105 = getelementptr inbounds i8, ptr %97, i64 17
+  %105 = getelementptr inbounds nuw i8, ptr %97, i64 17
   %106 = load i8, ptr %105, align 1
   %107 = icmp eq i8 %106, 0
   %108 = icmp ne i32 %4, 22
@@ -2905,7 +2905,7 @@ moveNode.exit:                                    ; preds = %85, %86
   ]
 
 109:                                              ; preds = %.thread
-  %110 = getelementptr inbounds i8, ptr %.045, i64 8
+  %110 = getelementptr inbounds nuw i8, ptr %.045, i64 8
   %111 = load i16, ptr %110, align 8
   %112 = or i16 %111, 16
   store i16 %112, ptr %110, align 8
@@ -2914,22 +2914,22 @@ moveNode.exit:                                    ; preds = %85, %86
   br i1 %.not23.i, label %processDeferredEventModes.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %109
-  %114 = getelementptr inbounds i8, ptr %.045, i64 28
+  %114 = getelementptr inbounds nuw i8, ptr %.045, i64 28
   br label %115
 
 115:                                              ; preds = %153, %.lr.ph.i
   %.025.i = phi ptr [ %113, %.lr.ph.i ], [ %117, %153 ]
   %.01924.i = phi ptr [ null, %.lr.ph.i ], [ %.1.i, %153 ]
-  %116 = getelementptr inbounds i8, ptr %.025.i, i64 16
+  %116 = getelementptr inbounds nuw i8, ptr %.025.i, i64 16
   %117 = load ptr, ptr %116, align 8
-  %118 = getelementptr inbounds i8, ptr %.025.i, i64 8
+  %118 = getelementptr inbounds nuw i8, ptr %.025.i, i64 8
   %119 = load ptr, ptr %118, align 8
   %120 = tail call zeroext i8 @isSameObject(ptr noundef %7, ptr noundef %6, ptr noundef %119) #6
   %.not21.i = icmp eq i8 %120, 0
   br i1 %.not21.i, label %153, label %121
 
 121:                                              ; preds = %115
-  %122 = getelementptr inbounds i8, ptr %.025.i, i64 4
+  %122 = getelementptr inbounds nuw i8, ptr %.025.i, i64 4
   %123 = load i32, ptr %122, align 4
   %124 = load i32, ptr %.025.i, align 8
   %125 = load ptr, ptr %118, align 8
@@ -2942,7 +2942,7 @@ moveNode.exit:                                    ; preds = %85, %86
 
 128:                                              ; preds = %127, %121
   %129 = load ptr, ptr @gdata, align 8
-  %130 = getelementptr inbounds i8, ptr %129, i64 528
+  %130 = getelementptr inbounds nuw i8, ptr %129, i64 528
   %131 = load i32, ptr %130, align 8
   %132 = and i32 %131, 4
   %.not.i.i62 = icmp eq i32 %132, 0
@@ -2958,7 +2958,7 @@ threadSetEventNotificationMode.exit.i:            ; preds = %133, %128
   %134 = phi ptr [ %129, %128 ], [ %.pre.i.i, %133 ]
   %135 = load ptr, ptr %134, align 8
   %136 = load ptr, ptr %135, align 8
-  %137 = getelementptr inbounds i8, ptr %136, i64 8
+  %137 = getelementptr inbounds nuw i8, ptr %136, i64 8
   %138 = load ptr, ptr %137, align 8
   %139 = tail call i32 @eventIndex2jvmti(i32 noundef %124) #6
   %140 = tail call i32 (ptr, i32, i32, ptr, ...) %138(ptr noundef nonnull %135, i32 noundef %123, i32 noundef %139, ptr noundef %125) #6
@@ -2982,7 +2982,7 @@ threadSetEventNotificationMode.exit.i:            ; preds = %133, %128
   br label %150
 
 148:                                              ; preds = %144
-  %149 = getelementptr inbounds i8, ptr %.01924.i, i64 16
+  %149 = getelementptr inbounds nuw i8, ptr %.01924.i, i64 16
   store ptr %146, ptr %149, align 8
   br label %150
 
@@ -3005,18 +3005,18 @@ removeEventMode.exit.i:                           ; preds = %152, %150
   br i1 %.not.i63, label %processDeferredEventModes.exit, label %115, !llvm.loop !18
 
 154:                                              ; preds = %.thread
-  %155 = getelementptr inbounds i8, ptr %.045, i64 8
+  %155 = getelementptr inbounds nuw i8, ptr %.045, i64 8
   %156 = load i16, ptr %155, align 8
   %157 = or i16 %156, 16
   store i16 %157, ptr %155, align 8
   br label %processDeferredEventModes.exit
 
 processDeferredEventModes.exit:                   ; preds = %153, %103, %109, %.thread67, %.thread, %154
-  %158 = getelementptr inbounds i8, ptr %.045, i64 12
+  %158 = getelementptr inbounds nuw i8, ptr %.045, i64 12
   store i32 %4, ptr %158, align 4
-  %159 = getelementptr inbounds i8, ptr %.045, i64 192
+  %159 = getelementptr inbounds nuw i8, ptr %.045, i64 192
   %160 = load ptr, ptr %159, align 8
-  %161 = getelementptr inbounds i8, ptr %.045, i64 8
+  %161 = getelementptr inbounds nuw i8, ptr %.045, i64 8
   %162 = load i16, ptr %161, align 8
   %163 = and i16 %162, 8
   %.not56 = icmp eq i16 %163, 0
@@ -3046,7 +3046,7 @@ processDeferredEventModes.exit:                   ; preds = %153, %103, %109, %.
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @setThreadLocalStorage(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load ptr, ptr @gdata, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 528
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 528
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 4
   %.not = icmp eq i32 %6, 0
@@ -3062,7 +3062,7 @@ define internal fastcc void @setThreadLocalStorage(ptr noundef %0, ptr noundef %
   %9 = phi ptr [ %3, %2 ], [ %.pre, %7 ]
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 816
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 816
   %13 = load ptr, ptr %12, align 8
   %14 = tail call i32 %13(ptr noundef nonnull %10, ptr noundef %0, ptr noundef %1) #6
   %15 = icmp ne i32 %14, 15
@@ -3105,17 +3105,17 @@ define hidden void @threadControl_onEventHandlerExit(i32 noundef %0, ptr noundef
   br i1 %11, label %.split20, label %.split
 
 .split:                                           ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %10, i64 240
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 240
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %10, i64 232
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 232
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %10, i64 256
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 256
   %17 = load ptr, ptr %16, align 8
   %.not.i.i = icmp eq ptr %13, null
   br i1 %.not.i.i, label %20, label %18
 
 18:                                               ; preds = %.split
-  %19 = getelementptr inbounds i8, ptr %13, i64 232
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 232
   store ptr %15, ptr %19, align 8
   br label %20
 
@@ -3124,7 +3124,7 @@ define hidden void @threadControl_onEventHandlerExit(i32 noundef %0, ptr noundef
   br i1 %.not17.i.i, label %23, label %21
 
 21:                                               ; preds = %20
-  %22 = getelementptr inbounds i8, ptr %15, i64 240
+  %22 = getelementptr inbounds nuw i8, ptr %15, i64 240
   store ptr %13, ptr %22, align 8
   br label %23
 
@@ -3153,7 +3153,7 @@ define hidden void @threadControl_onEventHandlerExit(i32 noundef %0, ptr noundef
   tail call void (ptr, ptr, ptr, ptr, ...) @print_message(ptr noundef %30, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef %31, i32 noundef 201, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.5, i32 noundef 2156) #6
   tail call void @debugInit_exit(i32 noundef 201, ptr noundef nonnull @.str.28) #6
   %32 = load ptr, ptr @gdata, align 8, !nonnull !19, !noundef !19
-  %33 = getelementptr inbounds i8, ptr %32, i64 17
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 17
   %34 = load i8, ptr %33, align 1
   %35 = icmp ne i8 %34, 0
   tail call void @llvm.assume(i1 %35)
@@ -3185,18 +3185,18 @@ removeThread.exit:                                ; preds = %27, %25
   br label %45
 
 45:                                               ; preds = %42, %37
-  %46 = getelementptr inbounds i8, ptr %40, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %47 = load i16, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %40, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %49 = load ptr, ptr %48, align 8
   store ptr %49, ptr %4, align 8
   %50 = load ptr, ptr %40, align 8
   %51 = and i16 %47, -3
   store i16 %51, ptr %46, align 8
   store ptr null, ptr %48, align 8
-  %52 = getelementptr inbounds i8, ptr %40, i64 192
+  %52 = getelementptr inbounds nuw i8, ptr %40, i64 192
   store ptr %2, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %40, i64 12
+  %53 = getelementptr inbounds nuw i8, ptr %40, i64 12
   store i32 0, ptr %53, align 4
   %54 = load ptr, ptr @threadLock, align 8
   tail call void @debugMonitorExit(ptr noundef %54) #6
@@ -3206,7 +3206,7 @@ removeThread.exit:                                ; preds = %27, %25
 
 56:                                               ; preds = %45
   %57 = load ptr, ptr @gdata, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 528
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 528
   %59 = load i32, ptr %58, align 8
   %60 = and i32 %59, 4
   %.not4.i = icmp eq i32 %60, 0
@@ -3222,7 +3222,7 @@ removeThread.exit:                                ; preds = %27, %25
   %63 = phi ptr [ %57, %56 ], [ %.pre.i, %61 ]
   %64 = load ptr, ptr %63, align 8
   %65 = load ptr, ptr %64, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 56
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 56
   %67 = load ptr, ptr %66, align 8
   %68 = tail call i32 %67(ptr noundef nonnull %64, ptr noundef %50) #6
   br label %69
@@ -3233,7 +3233,7 @@ removeThread.exit:                                ; preds = %27, %25
 
 70:                                               ; preds = %69
   %71 = load ptr, ptr @gdata, align 8
-  %72 = getelementptr inbounds i8, ptr %71, i64 528
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 528
   %73 = load i32, ptr %72, align 8
   %74 = and i32 %73, 4
   %.not6.i = icmp eq i32 %74, 0
@@ -3249,7 +3249,7 @@ removeThread.exit:                                ; preds = %27, %25
   %77 = phi ptr [ %71, %70 ], [ %.pre1.i, %75 ]
   %78 = load ptr, ptr %77, align 8
   %79 = load ptr, ptr %78, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 48
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 48
   %81 = load ptr, ptr %80, align 8
   %82 = tail call i32 %81(ptr noundef nonnull %78, ptr noundef %50, ptr noundef nonnull %49) #6
   call void @tossGlobalRef(ptr noundef %5, ptr noundef nonnull %4) #6
@@ -3269,7 +3269,7 @@ define hidden i32 @threadControl_applicationThreadStatus(ptr noundef %0, ptr noc
   tail call void @debugMonitorEnter(ptr noundef %5) #6
   store i32 0, ptr %4, align 4
   %6 = load ptr, ptr @gdata, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 528
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 528
   %8 = load i32, ptr %7, align 8
   %9 = and i32 %8, 4
   %.not.i = icmp eq i32 %9, 0
@@ -3285,7 +3285,7 @@ threadState.exit:                                 ; preds = %3, %10
   %11 = phi ptr [ %6, %3 ], [ %.pre.i, %10 ]
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 128
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 128
   %15 = load ptr, ptr %14, align 8
   %16 = call i32 %15(ptr noundef nonnull %12, ptr noundef %0, ptr noundef nonnull %4) #6
   %17 = load i32, ptr %4, align 4
@@ -3306,7 +3306,7 @@ threadState.exit:                                 ; preds = %3, %10
   br i1 %.not, label %29, label %25
 
 25:                                               ; preds = %22
-  %26 = getelementptr inbounds i8, ptr %24, i64 12
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 12
   %27 = load i32, ptr %26, align 4
   %.not9 = icmp eq i32 %27, 0
   br i1 %.not9, label %29, label %28
@@ -3329,7 +3329,7 @@ declare i32 @map2jdwpSuspendStatus(i32 noundef) local_unnamed_addr #1
 define hidden i32 @threadControl_interrupt(ptr noundef %0) local_unnamed_addr #0 {
   tail call void @log_debugee_location(ptr noundef nonnull @.str.30, ptr noundef %0, ptr noundef null, i64 noundef 0) #6
   %2 = load ptr, ptr @gdata, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 528
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 528
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 4
   %.not = icmp eq i32 %5, 0
@@ -3345,7 +3345,7 @@ define hidden i32 @threadControl_interrupt(ptr noundef %0) local_unnamed_addr #0
   %8 = phi ptr [ %2, %1 ], [ %.pre, %6 ]
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 56
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i32 %12(ptr noundef nonnull %9, ptr noundef %0) #6
   ret i32 %13
@@ -3363,9 +3363,9 @@ define hidden void @threadControl_clearCLEInfo(ptr noundef %0, ptr noundef %1) l
   br i1 %.not, label %11, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %5, i64 200
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 200
   store i32 0, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 208
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 208
   %9 = load ptr, ptr %8, align 8
   %.not6 = icmp eq ptr %9, null
   br i1 %.not6, label %11, label %10
@@ -3392,25 +3392,25 @@ define hidden zeroext range(i8 0, 2) i8 @threadControl_cmpCLEInfo(ptr noundef %0
   br i1 %.not, label %24, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %8, i64 200
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 200
   %11 = load i32, ptr %10, align 8
   %.not11 = icmp eq i32 %11, 0
   br i1 %.not11, label %24, label %12
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %8, i64 216
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 216
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, %3
   br i1 %15, label %16, label %24
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %8, i64 224
+  %17 = getelementptr inbounds nuw i8, ptr %8, i64 224
   %18 = load i64, ptr %17, align 8
   %19 = icmp eq i64 %18, %4
   br i1 %19, label %20, label %24
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %8, i64 208
+  %21 = getelementptr inbounds nuw i8, ptr %8, i64 208
   %22 = load ptr, ptr %21, align 8
   %23 = tail call zeroext i8 @isSameObject(ptr noundef %0, ptr noundef %22, ptr noundef %2) #6
   %.not12 = icmp ne i8 %23, 0
@@ -3436,13 +3436,13 @@ define hidden void @threadControl_saveCLEInfo(ptr noundef %0, ptr noundef %1, i3
   br i1 %.not, label %15, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %9, i64 200
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 200
   store i32 %2, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %9, i64 208
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 208
   tail call void @saveGlobalRef(ptr noundef %0, ptr noundef %3, ptr noundef nonnull %12) #6
-  %13 = getelementptr inbounds i8, ptr %9, i64 216
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 216
   store ptr %4, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %9, i64 224
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 224
   store i64 %5, ptr %14, align 8
   br label %15
 
@@ -3465,7 +3465,7 @@ define hidden void @threadControl_setPendingInterrupt(ptr noundef %0) local_unna
   br i1 %.not, label %12, label %6
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %5, i64 17
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 17
   %8 = load i8, ptr %7, align 1
   %9 = icmp eq i8 %8, 0
   %10 = icmp ne ptr %4, null
@@ -3477,7 +3477,7 @@ define hidden void @threadControl_setPendingInterrupt(ptr noundef %0) local_unna
   br label %12
 
 12:                                               ; preds = %1, %6, %11
-  %13 = getelementptr inbounds i8, ptr %4, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %14 = load i16, ptr %13, align 8
   %15 = or i16 %14, 2
   store i16 %15, ptr %13, align 8
@@ -3496,14 +3496,14 @@ define hidden i32 @threadControl_stop(ptr noundef %0, ptr noundef %1) local_unna
   br i1 %5, label %9, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %4, i64 12
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %8 = load i32, ptr %7, align 4
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %9, label %22
 
 9:                                                ; preds = %6, %2
   %10 = load ptr, ptr @gdata, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 528
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 528
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 4
   %.not10 = icmp eq i32 %13, 0
@@ -3519,14 +3519,14 @@ define hidden i32 @threadControl_stop(ptr noundef %0, ptr noundef %1) local_unna
   %16 = phi ptr [ %10, %9 ], [ %.pre, %14 ]
   %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 48
   %20 = load ptr, ptr %19, align 8
   %21 = tail call i32 %20(ptr noundef nonnull %17, ptr noundef %0, ptr noundef %1) #6
   br label %25
 
 22:                                               ; preds = %6
   %23 = tail call ptr @getEnv() #6
-  %24 = getelementptr inbounds i8, ptr %4, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 16
   tail call void @saveGlobalRef(ptr noundef %23, ptr noundef %1, ptr noundef nonnull %24) #6
   br label %25
 
@@ -3549,9 +3549,9 @@ define hidden void @threadControl_detachInvokes() local_unnamed_addr #0 {
 
 .preheader:                                       ; preds = %0, %.preheader
   %.0814.i = phi ptr [ %.08.i, %.preheader ], [ %.0812.i, %0 ]
-  %3 = getelementptr inbounds i8, ptr %.0814.i, i64 112
+  %3 = getelementptr inbounds nuw i8, ptr %.0814.i, i64 112
   tail call void @invoker_detach(ptr noundef nonnull %3) #6
-  %4 = getelementptr inbounds i8, ptr %.0814.i, i64 232
+  %4 = getelementptr inbounds nuw i8, ptr %.0814.i, i64 232
   %.08.i = load ptr, ptr %4, align 8
   %.not.i = icmp eq ptr %.08.i, null
   br i1 %.not.i, label %enumerateOverThreadList.exit, label %.preheader, !llvm.loop !11
@@ -3574,7 +3574,7 @@ define hidden void @threadControl_reset() local_unnamed_addr #0 {
   %2 = load ptr, ptr @threadLock, align 8
   tail call void @debugMonitorEnter(ptr noundef %2) #6
   %3 = load ptr, ptr @gdata, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 19
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 19
   %5 = load i8, ptr %4, align 1
   %6 = icmp ne i8 %5, 0
   %7 = load i32, ptr @suspendAllCount, align 4
@@ -3583,7 +3583,7 @@ define hidden void @threadControl_reset() local_unnamed_addr #0 {
   br i1 %or.cond3, label %9, label %24
 
 9:                                                ; preds = %0
-  %10 = getelementptr inbounds i8, ptr %3, i64 528
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 528
   %11 = load i32, ptr %10, align 8
   %12 = and i32 %11, 4
   %.not = icmp eq i32 %12, 0
@@ -3599,7 +3599,7 @@ define hidden void @threadControl_reset() local_unnamed_addr #0 {
   %15 = phi ptr [ %3, %9 ], [ %.pre, %13 ]
   %16 = load ptr, ptr %15, align 8
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 944
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 944
   %19 = load ptr, ptr %18, align 8
   %20 = tail call i32 %19(ptr noundef nonnull %16, i32 noundef 0, ptr noundef null) #6
   %.not13 = icmp eq i32 %20, 0
@@ -3618,7 +3618,7 @@ define hidden void @threadControl_reset() local_unnamed_addr #0 {
   br i1 %.not13.i, label %enumerateOverThreadList.exit, label %.lr.ph.i
 
 25:                                               ; preds = %.lr.ph.i
-  %26 = getelementptr inbounds i8, ptr %.0814.i, i64 232
+  %26 = getelementptr inbounds nuw i8, ptr %.0814.i, i64 232
   %.08.i = load ptr, ptr %26, align 8
   %.not.i = icmp eq ptr %.08.i, null
   br i1 %.not.i, label %enumerateOverThreadList.exit, label %.lr.ph.i, !llvm.loop !11
@@ -3635,7 +3635,7 @@ enumerateOverThreadList.exit:                     ; preds = %25, %.lr.ph.i, %24
   br i1 %.not13.i17, label %enumerateOverThreadList.exit24, label %.lr.ph.i18
 
 28:                                               ; preds = %.lr.ph.i18
-  %29 = getelementptr inbounds i8, ptr %.0814.i19, i64 232
+  %29 = getelementptr inbounds nuw i8, ptr %.0814.i19, i64 232
   %.08.i22 = load ptr, ptr %29, align 8
   %.not.i23 = icmp eq ptr %.08.i22, null
   br i1 %.not.i23, label %enumerateOverThreadList.exit24, label %.lr.ph.i18, !llvm.loop !11
@@ -3652,7 +3652,7 @@ enumerateOverThreadList.exit24:                   ; preds = %28, %.lr.ph.i18, %e
   br i1 %.not13.i26, label %enumerateOverThreadList.exit33, label %.lr.ph.i27
 
 31:                                               ; preds = %.lr.ph.i27
-  %32 = getelementptr inbounds i8, ptr %.0814.i28, i64 232
+  %32 = getelementptr inbounds nuw i8, ptr %.0814.i28, i64 232
   %.08.i31 = load ptr, ptr %32, align 8
   %.not.i32 = icmp eq ptr %.08.i31, null
   br i1 %.not.i32, label %enumerateOverThreadList.exit33, label %.lr.ph.i27, !llvm.loop !11
@@ -3670,23 +3670,23 @@ enumerateOverThreadList.exit33:                   ; preds = %31, %.lr.ph.i27, %e
 
 .lr.ph.i34:                                       ; preds = %enumerateOverThreadList.exit33, %57
   %.02.i = phi ptr [ %36, %57 ], [ %34, %enumerateOverThreadList.exit33 ]
-  %35 = getelementptr inbounds i8, ptr %.02.i, i64 232
+  %35 = getelementptr inbounds nuw i8, ptr %.02.i, i64 232
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %.02.i, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %.02.i, i64 24
   %38 = load i32, ptr %37, align 8
   %39 = icmp eq i32 %38, 0
   br i1 %39, label %40, label %57
 
 40:                                               ; preds = %.lr.ph.i34
-  %41 = getelementptr inbounds i8, ptr %.02.i, i64 240
+  %41 = getelementptr inbounds nuw i8, ptr %.02.i, i64 240
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %.02.i, i64 256
+  %43 = getelementptr inbounds nuw i8, ptr %.02.i, i64 256
   %44 = load ptr, ptr %43, align 8
   %.not.i.i.i = icmp eq ptr %42, null
   br i1 %.not.i.i.i, label %47, label %45
 
 45:                                               ; preds = %40
-  %46 = getelementptr inbounds i8, ptr %42, i64 232
+  %46 = getelementptr inbounds nuw i8, ptr %42, i64 232
   store ptr %36, ptr %46, align 8
   br label %47
 
@@ -3695,7 +3695,7 @@ enumerateOverThreadList.exit33:                   ; preds = %31, %.lr.ph.i27, %e
   br i1 %.not17.i.i.i, label %50, label %48
 
 48:                                               ; preds = %47
-  %49 = getelementptr inbounds i8, ptr %36, i64 240
+  %49 = getelementptr inbounds nuw i8, ptr %36, i64 240
   store ptr %42, ptr %49, align 8
   br label %50
 
@@ -3733,9 +3733,9 @@ removeResumed.exit:                               ; preds = %57, %enumerateOverT
 
 .lr.ph.i36:                                       ; preds = %removeResumed.exit, %.lr.ph.i36
   %.07.i = phi ptr [ %60, %.lr.ph.i36 ], [ %58, %removeResumed.exit ]
-  %59 = getelementptr inbounds i8, ptr %.07.i, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %.07.i, i64 16
   %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %.07.i, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
   tail call void @tossGlobalRef(ptr noundef %1, ptr noundef nonnull %61) #6
   tail call void @jvmtiDeallocate(ptr noundef nonnull %.07.i) #6
   %.not.i37 = icmp eq ptr %60, null
@@ -3749,7 +3749,7 @@ freeDeferredEventModes.exit:                      ; preds = %.lr.ph.i36, %remove
   br i1 %.not14, label %70, label %63
 
 63:                                               ; preds = %freeDeferredEventModes.exit
-  %64 = getelementptr inbounds i8, ptr %62, i64 17
+  %64 = getelementptr inbounds nuw i8, ptr %62, i64 17
   %65 = load i8, ptr %64, align 1
   %66 = icmp eq i8 %65, 0
   %67 = load ptr, ptr @otherThreads, align 8
@@ -3768,7 +3768,7 @@ freeDeferredEventModes.exit:                      ; preds = %.lr.ph.i36, %remove
   tail call void @debugMonitorExit(ptr noundef %72) #6
   tail call void @eventHandler_unlock() #6
   %73 = load ptr, ptr @gdata, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i64 21
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 21
   %75 = load i8, ptr %74, align 1
   %.not15 = icmp eq i8 %75, 0
   br i1 %.not15, label %76, label %98
@@ -3783,17 +3783,17 @@ freeDeferredEventModes.exit:                      ; preds = %.lr.ph.i36, %remove
 
 .lr.ph.i38:                                       ; preds = %76, %removeNode.exit.i
   %.08.i39 = phi ptr [ %80, %removeNode.exit.i ], [ %78, %76 ]
-  %79 = getelementptr inbounds i8, ptr %.08.i39, i64 232
+  %79 = getelementptr inbounds nuw i8, ptr %.08.i39, i64 232
   %80 = load ptr, ptr %79, align 8
-  %81 = getelementptr inbounds i8, ptr %.08.i39, i64 240
+  %81 = getelementptr inbounds nuw i8, ptr %.08.i39, i64 240
   %82 = load ptr, ptr %81, align 8
-  %83 = getelementptr inbounds i8, ptr %.08.i39, i64 256
+  %83 = getelementptr inbounds nuw i8, ptr %.08.i39, i64 256
   %84 = load ptr, ptr %83, align 8
   %.not.i.i = icmp eq ptr %82, null
   br i1 %.not.i.i, label %87, label %85
 
 85:                                               ; preds = %.lr.ph.i38
-  %86 = getelementptr inbounds i8, ptr %82, i64 232
+  %86 = getelementptr inbounds nuw i8, ptr %82, i64 232
   store ptr %80, ptr %86, align 8
   br label %87
 
@@ -3802,7 +3802,7 @@ freeDeferredEventModes.exit:                      ; preds = %.lr.ph.i36, %remove
   br i1 %.not17.i.i, label %90, label %88
 
 88:                                               ; preds = %87
-  %89 = getelementptr inbounds i8, ptr %80, i64 240
+  %89 = getelementptr inbounds nuw i8, ptr %80, i64 240
   store ptr %82, ptr %89, align 8
   br label %90
 
@@ -3840,7 +3840,7 @@ removeVThreads.exit:                              ; preds = %removeNode.exit.i, 
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef i32 @resetHelper(ptr noundef %0) unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i16, ptr %2, align 8
   %4 = and i16 %3, 1
   %.not = icmp eq i16 %4, 0
@@ -3848,7 +3848,7 @@ define internal fastcc noundef i32 @resetHelper(ptr noundef %0) unnamed_addr #0 
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr @gdata, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 528
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 528
   %8 = load i32, ptr %7, align 8
   %9 = and i32 %8, 8
   %.not9 = icmp eq i32 %9, 0
@@ -3859,7 +3859,7 @@ define internal fastcc noundef i32 @resetHelper(ptr noundef %0) unnamed_addr #0 
   %11 = load ptr, ptr %0, align 8
   tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.45, ptr noundef %11) #6
   %.pre = load ptr, ptr @gdata, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 528
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 528
   %.pre11 = load i32, ptr %.phi.trans.insert, align 8
   br label %12
 
@@ -3880,11 +3880,11 @@ define internal fastcc noundef i32 @resetHelper(ptr noundef %0) unnamed_addr #0 
   %18 = phi ptr [ %14, %12 ], [ %.pre12, %16 ]
   %19 = load ptr, ptr %18, align 8
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 40
   %22 = load ptr, ptr %21, align 8
   %23 = load ptr, ptr %0, align 8
   %24 = tail call i32 %22(ptr noundef nonnull %19, ptr noundef %23) #6
-  %25 = getelementptr inbounds i8, ptr %0, i64 248
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %26 = load i64, ptr %25, align 8
   %27 = add nsw i64 %26, 1
   store i64 %27, ptr %25, align 8
@@ -3892,10 +3892,10 @@ define internal fastcc noundef i32 @resetHelper(ptr noundef %0) unnamed_addr #0 
 
 28:                                               ; preds = %17, %1
   %29 = load ptr, ptr %0, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @stepControl_clearRequest(ptr noundef %29, ptr noundef nonnull %30) #6
   %31 = load i16, ptr %2, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %32, align 8
   %33 = and i16 %31, -10
   store i16 %33, ptr %2, align 8
@@ -3911,7 +3911,7 @@ define hidden ptr @threadControl_currentThread() local_unnamed_addr #0 {
   %1 = alloca ptr, align 8
   store ptr null, ptr %1, align 8
   %2 = load ptr, ptr @gdata, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 528
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 528
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 4
   %.not = icmp eq i32 %5, 0
@@ -3927,7 +3927,7 @@ define hidden ptr @threadControl_currentThread() local_unnamed_addr #0 {
   %8 = phi ptr [ %2, %0 ], [ %.pre, %6 ]
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 136
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 136
   %12 = load ptr, ptr %11, align 8
   %13 = call i32 %12(ptr noundef nonnull %9, ptr noundef nonnull %1) #6
   %14 = load ptr, ptr %1, align 8
@@ -3943,7 +3943,7 @@ define hidden i64 @threadControl_getFrameGeneration(ptr noundef %0) local_unname
   br i1 %.not, label %7, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %3, i64 248
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 248
   %6 = load i64, ptr %5, align 8
   br label %7
 
@@ -3962,7 +3962,7 @@ define hidden ptr @threadControl_allVThreads(ptr nocapture noundef writeonly ini
   %4 = load i32, ptr @numRunningVThreads, align 4
   store i32 %4, ptr %0, align 4
   %5 = load ptr, ptr @gdata, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 17
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 17
   %7 = load i8, ptr %6, align 1
   %.not = icmp eq i8 %7, 0
   br i1 %.not, label %12, label %.preheader21
@@ -3976,7 +3976,7 @@ define hidden ptr @threadControl_allVThreads(ptr nocapture noundef writeonly ini
   %.01225 = phi ptr [ %.012, %.lr.ph ], [ %.01222, %.preheader21 ]
   %.01124 = phi i32 [ %8, %.lr.ph ], [ 0, %.preheader21 ]
   %8 = add nuw nsw i32 %.01124, 1
-  %9 = getelementptr inbounds i8, ptr %.01225, i64 232
+  %9 = getelementptr inbounds nuw i8, ptr %.01225, i64 232
   %.012 = load ptr, ptr %9, align 8
   %.not15 = icmp eq ptr %.012, null
   br i1 %.not15, label %._crit_edge, label %.lr.ph, !llvm.loop !22
@@ -4008,9 +4008,9 @@ define hidden ptr @threadControl_allVThreads(ptr nocapture noundef writeonly ini
   %.129 = phi ptr [ %.1, %.lr.ph30 ], [ %.126, %12 ]
   %16 = load ptr, ptr %.129, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %17 = getelementptr inbounds ptr, ptr %15, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
   store ptr %16, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %.129, i64 232
+  %18 = getelementptr inbounds nuw i8, ptr %.129, i64 232
   %.1 = load ptr, ptr %18, align 8
   %.not19 = icmp eq ptr %.1, null
   br i1 %.not19, label %.loopexit, label %.lr.ph30, !llvm.loop !23
@@ -4039,7 +4039,7 @@ declare void @commonRef_lock() local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @commonSuspendByNode(ptr nocapture noundef %0) unnamed_addr #0 {
   %2 = load ptr, ptr @gdata, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 528
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 528
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 8
   %.not = icmp eq i32 %5, 0
@@ -4050,7 +4050,7 @@ define internal fastcc i32 @commonSuspendByNode(ptr nocapture noundef %0) unname
   %7 = load ptr, ptr %0, align 8
   tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.41, ptr noundef %7) #6
   %.pre = load ptr, ptr @gdata, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 528
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 528
   %.pre8 = load i32, ptr %.phi.trans.insert, align 8
   br label %8
 
@@ -4071,7 +4071,7 @@ define internal fastcc i32 @commonSuspendByNode(ptr nocapture noundef %0) unname
   %14 = phi ptr [ %10, %8 ], [ %.pre9, %12 ]
   %15 = load ptr, ptr %14, align 8
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %18 = load ptr, ptr %17, align 8
   %19 = load ptr, ptr %0, align 8
   %20 = tail call i32 %18(ptr noundef nonnull %15, ptr noundef %19) #6
@@ -4079,7 +4079,7 @@ define internal fastcc i32 @commonSuspendByNode(ptr nocapture noundef %0) unname
   br i1 %21, label %22, label %26
 
 22:                                               ; preds = %13
-  %23 = getelementptr inbounds i8, ptr %0, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load i16, ptr %23, align 8
   %25 = or i16 %24, 1
   store i16 %25, ptr %23, align 8
@@ -4091,7 +4091,7 @@ define internal fastcc i32 @commonSuspendByNode(ptr nocapture noundef %0) unname
   br i1 %.not7, label %34, label %28
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds i8, ptr %27, i64 17
+  %29 = getelementptr inbounds nuw i8, ptr %27, i64 17
   %30 = load i8, ptr %29, align 1
   %31 = icmp eq i8 %30, 0
   %32 = icmp ne i32 %20, 14
@@ -4114,14 +4114,14 @@ declare void @eventHelper_unlock() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @resumeThreadByNode(ptr nocapture noundef %0) unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i16, ptr %2, align 8
   %4 = and i16 %3, 4
   %.not = icmp eq i16 %4, 0
   br i1 %.not, label %5, label %51
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load i32, ptr %6, align 8
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %9, label %51
@@ -4143,7 +4143,7 @@ define internal fastcc i32 @resumeThreadByNode(ptr nocapture noundef %0) unnamed
 
 17:                                               ; preds = %14
   %18 = load ptr, ptr @gdata, align 8, !nonnull !19, !noundef !19
-  %19 = getelementptr inbounds i8, ptr %18, i64 17
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 17
   %20 = load i8, ptr %19, align 1
   %.not19 = icmp eq i8 %20, 0
   %21 = and i16 %15, 8
@@ -4158,7 +4158,7 @@ define internal fastcc i32 @resumeThreadByNode(ptr nocapture noundef %0) unnamed
 
 23:                                               ; preds = %17, %22
   %24 = phi ptr [ %18, %17 ], [ %.pre, %22 ]
-  %25 = getelementptr inbounds i8, ptr %24, i64 528
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 528
   %26 = load i32, ptr %25, align 8
   %27 = and i32 %26, 8
   %.not21 = icmp eq i32 %27, 0
@@ -4169,7 +4169,7 @@ define internal fastcc i32 @resumeThreadByNode(ptr nocapture noundef %0) unnamed
   %29 = load ptr, ptr %0, align 8
   tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.45, ptr noundef %29) #6
   %.pre24 = load ptr, ptr @gdata, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre24, i64 528
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre24, i64 528
   %.pre25 = load i32, ptr %.phi.trans.insert, align 8
   br label %30
 
@@ -4190,11 +4190,11 @@ define internal fastcc i32 @resumeThreadByNode(ptr nocapture noundef %0) unnamed
   %36 = phi ptr [ %32, %30 ], [ %.pre26, %34 ]
   %37 = load ptr, ptr %36, align 8
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 40
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 40
   %40 = load ptr, ptr %39, align 8
   %41 = load ptr, ptr %0, align 8
   %42 = tail call i32 %40(ptr noundef nonnull %37, ptr noundef %41) #6
-  %43 = getelementptr inbounds i8, ptr %0, i64 248
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %44 = load i64, ptr %43, align 8
   %45 = add nsw i64 %44, 1
   store i64 %45, ptr %43, align 8
@@ -4229,7 +4229,7 @@ define internal fastcc noundef ptr @nonTlsSearch(ptr noundef %0, ptr nocapture n
   br i1 %.not7, label %6, label %._crit_edge
 
 6:                                                ; preds = %.lr.ph
-  %7 = getelementptr inbounds i8, ptr %.010, i64 232
+  %7 = getelementptr inbounds nuw i8, ptr %.010, i64 232
   %.0 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
@@ -4255,14 +4255,14 @@ define internal fastcc void @setPopFrameEvent(ptr noundef %0, i8 noundef zeroext
   br label %19
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %11 = load i16, ptr %10, align 8
   %12 = shl nuw nsw i8 %1, 6
   %13 = zext nneg i8 %12 to i16
   %14 = and i16 %11, -65
   %15 = or disjoint i16 %14, %13
   store i16 %15, ptr %10, align 8
-  %16 = getelementptr inbounds i8, ptr %4, i64 248
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 248
   %17 = load i64, ptr %16, align 8
   %18 = add nsw i64 %17, 1
   store i64 %18, ptr %16, align 8
@@ -4292,7 +4292,7 @@ define internal fastcc void @setPopFrameProceed(ptr noundef %0, i8 noundef zeroe
   br label %16
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %11 = load i16, ptr %10, align 8
   %12 = shl nuw i8 %1, 7
   %13 = zext i8 %12 to i16
@@ -4340,7 +4340,7 @@ getPopFrameProceed.exit.thread:                   ; preds = %6
   br label %18
 
 getPopFrameProceed.exit:                          ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %8, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %14 = load i16, ptr %13, align 8
   %15 = load ptr, ptr @threadLock, align 8
   tail call void @debugMonitorExit(ptr noundef %15) #6
@@ -4361,7 +4361,7 @@ getPopFrameProceed.exit:                          ; preds = %6
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @clearThread(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %6, label %5
@@ -4372,9 +4372,9 @@ define internal fastcc void @clearThread(ptr noundef %0, ptr noundef %1) unnamed
 
 6:                                                ; preds = %5, %2
   %7 = load ptr, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 32
   tail call void @stepControl_clearRequest(ptr noundef %7, ptr noundef nonnull %8) #6
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load i16, ptr %9, align 8
   %11 = and i16 %10, 4
   %.not12 = icmp eq i16 %11, 0
@@ -4392,14 +4392,14 @@ define internal fastcc void @clearThread(ptr noundef %0, ptr noundef %1) unnamed
 .lr.ph.i:                                         ; preds = %12, %30
   %indvars.iv28.i = phi i64 [ %indvars.iv.next29.i, %30 ], [ 1, %12 ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %30 ], [ 0, %12 ]
-  %18 = getelementptr inbounds [10 x ptr], ptr @debugThreads, i64 0, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw [10 x ptr], ptr @debugThreads, i64 0, i64 %indvars.iv.i
   %19 = load ptr, ptr %18, align 8
   %20 = tail call zeroext i8 @isSameObject(ptr noundef %14, ptr noundef %13, ptr noundef %19) #6
   %.not.i = icmp eq i8 %20, 0
   br i1 %.not.i, label %30, label %21
 
 21:                                               ; preds = %.lr.ph.i
-  %22 = getelementptr inbounds [10 x ptr], ptr @debugThreads, i64 0, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw [10 x ptr], ptr @debugThreads, i64 0, i64 %indvars.iv.i
   %23 = trunc nuw nsw i64 %indvars.iv.i to i32
   tail call void @tossGlobalRef(ptr noundef %14, ptr noundef nonnull %22) #6
   %24 = load i32, ptr @debugThreadCount, align 4
@@ -4415,9 +4415,9 @@ define internal fastcc void @clearThread(ptr noundef %0, ptr noundef %1) unnamed
 .lr.ph22.i:                                       ; preds = %.lr.ph22.i, %.lr.ph22.preheader.i
   %indvars.iv34.i = phi i64 [ %indvars.iv.i, %.lr.ph22.preheader.i ], [ %indvars.iv.next35.i, %.lr.ph22.i ]
   %indvars.iv31.i = phi i64 [ %indvars.iv28.i, %.lr.ph22.preheader.i ], [ %indvars.iv.next32.i, %.lr.ph22.i ]
-  %27 = getelementptr inbounds [10 x ptr], ptr @debugThreads, i64 0, i64 %indvars.iv31.i
+  %27 = getelementptr inbounds nuw [10 x ptr], ptr @debugThreads, i64 0, i64 %indvars.iv31.i
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds [10 x ptr], ptr @debugThreads, i64 0, i64 %indvars.iv34.i
+  %29 = getelementptr inbounds nuw [10 x ptr], ptr @debugThreads, i64 0, i64 %indvars.iv34.i
   store ptr %28, ptr %29, align 8
   %indvars.iv.next32.i = add nuw nsw i64 %indvars.iv31.i, 1
   %indvars.iv.next35.i = add nuw nsw i64 %indvars.iv34.i, 1
@@ -4445,7 +4445,7 @@ threadControl_removeDebugThread.exit:             ; preds = %30, %12, %._crit_ed
   %36 = load ptr, ptr %1, align 8
   tail call fastcc void @setThreadLocalStorage(ptr noundef %36, ptr noundef null)
   tail call void @tossGlobalRef(ptr noundef %0, ptr noundef nonnull %1) #6
-  %37 = getelementptr inbounds i8, ptr %1, i64 192
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %38 = load ptr, ptr %37, align 8
   tail call void @bagDestroyBag(ptr noundef %38) #6
   tail call void @jvmtiDeallocate(ptr noundef nonnull %1) #6

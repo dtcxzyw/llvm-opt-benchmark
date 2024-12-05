@@ -364,7 +364,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 define internal i32 @dissect_gsup(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #4
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void @col_set_str(ptr noundef %8, i32 noundef 34, ptr noundef nonnull @.str.107) #4
   %9 = load ptr, ptr %7, align 8
@@ -453,20 +453,20 @@ define internal fastcc void @dissect_gsup_tlvs(ptr noundef %0, i32 noundef %1, i
   br i1 %18, label %.lr.ph285, label %.loopexit
 
 .lr.ph285:                                        ; preds = %7
-  %19 = getelementptr inbounds i8, ptr %3, i64 408
-  %20 = getelementptr inbounds i8, ptr %3, i64 348
-  %21 = getelementptr inbounds i8, ptr %3, i64 8
-  %22 = getelementptr inbounds i8, ptr %3, i64 384
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 408
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 348
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 384
   %switch.tableidx4 = add i8 %6, -36
   %23 = icmp ult i8 %switch.tableidx4, 7
   %switch.shifted = lshr i8 119, %switch.tableidx4
   %switch.lobit = trunc i8 %switch.shifted to i1
   %24 = zext nneg i8 %switch.tableidx4 to i64
-  %switch.gep6 = getelementptr inbounds [7 x i32], ptr @switch.table.dissect_gsup_tlvs.1, i64 0, i64 %24
+  %switch.gep6 = getelementptr inbounds nuw [7 x i32], ptr @switch.table.dissect_gsup_tlvs.1, i64 0, i64 %24
   %switch.tableidx = add i8 %6, -80
   %25 = icmp ult i8 %switch.tableidx, 3
   %26 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table.dissect_gsup_tlvs, i64 0, i64 %26
+  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table.dissect_gsup_tlvs, i64 0, i64 %26
   br label %27
 
 27:                                               ; preds = %.lr.ph285, %dissect_sm_rp_da_ie.exit
@@ -969,7 +969,7 @@ dissect_an_apdu_ie.exit:                          ; preds = %241, %244, %247
   br i1 %.not.i.i, label %.sink.split.i, label %262
 
 262:                                              ; preds = %261
-  %263 = getelementptr inbounds i8, ptr %259, i64 32
+  %263 = getelementptr inbounds nuw i8, ptr %259, i64 32
   %264 = load ptr, ptr %263, align 8
   %.not5.i.i = icmp eq ptr %264, null
   br i1 %.not5.i.i, label %.sink.split.i, label %.sink.split.sink.split.i
@@ -986,7 +986,7 @@ dissect_an_apdu_ie.exit:                          ; preds = %241, %244, %247
   br i1 %.not.i26.i, label %.sink.split.i, label %270
 
 270:                                              ; preds = %269
-  %271 = getelementptr inbounds i8, ptr %267, i64 32
+  %271 = getelementptr inbounds nuw i8, ptr %267, i64 32
   %272 = load ptr, ptr %271, align 8
   %.not5.i27.i = icmp eq ptr %272, null
   br i1 %.not5.i27.i, label %.sink.split.i, label %.sink.split.sink.split.i
@@ -994,7 +994,7 @@ dissect_an_apdu_ie.exit:                          ; preds = %241, %244, %247
 .sink.split.sink.split.i:                         ; preds = %270, %262
   %.sink31.i = phi ptr [ %264, %262 ], [ %272, %270 ]
   %hf_gsup_destination_name_text.sink.ph.i = phi ptr [ @hf_gsup_source_name_text, %262 ], [ @hf_gsup_destination_name_text, %270 ]
-  %273 = getelementptr inbounds i8, ptr %.sink31.i, i64 28
+  %273 = getelementptr inbounds nuw i8, ptr %.sink31.i, i64 28
   %274 = load i32, ptr %273, align 4
   %275 = or i32 %274, 1
   store i32 %275, ptr %273, align 4

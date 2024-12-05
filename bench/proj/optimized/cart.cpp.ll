@@ -16,13 +16,13 @@ define hidden noundef ptr @pj_cart(ptr noundef writeonly %0) local_unnamed_addr 
   br i1 %.not, label %7, label %2
 
 2:                                                ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 120
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr @_ZL9cartesian6PJ_LPZP8PJconsts, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 128
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store ptr @_ZL8geodetic6PJ_XYZP8PJconsts, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 104
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr @_ZL12cart_forward5PJ_LPP8PJconsts, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 112
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr @_ZL12cart_reverse5PJ_XYP8PJconsts, ptr %6, align 8
   br label %.sink.split
 
@@ -32,20 +32,20 @@ define hidden noundef ptr @pj_cart(ptr noundef writeonly %0) local_unnamed_addr 
   br i1 %9, label %16, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %8, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr @.str, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %8, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr @_ZL8des_cart, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %8, i64 360
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 360
   store i32 1, ptr %13, align 8
   br label %.sink.split
 
 .sink.split:                                      ; preds = %2, %10
   %.sink15 = phi ptr [ %8, %10 ], [ %0, %2 ]
   %.sink = phi i32 [ 1, %10 ], [ 3, %2 ]
-  %14 = getelementptr inbounds i8, ptr %.sink15, i64 380
+  %14 = getelementptr inbounds nuw i8, ptr %.sink15, i64 380
   store i32 4, ptr %14, align 4
-  %15 = getelementptr inbounds i8, ptr %.sink15, i64 384
+  %15 = getelementptr inbounds nuw i8, ptr %.sink15, i64 384
   store i32 %.sink, ptr %15, align 8
   br label %16
 
@@ -56,17 +56,17 @@ define hidden noundef ptr @pj_cart(ptr noundef writeonly %0) local_unnamed_addr 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden noundef ptr @_Z33pj_projection_specific_setup_cartP8PJconsts(ptr noundef returned writeonly initializes((104, 136), (380, 388)) %0) local_unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 120
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr @_ZL9cartesian6PJ_LPZP8PJconsts, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 128
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store ptr @_ZL8geodetic6PJ_XYZP8PJconsts, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 104
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr @_ZL12cart_forward5PJ_LPP8PJconsts, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 112
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr @_ZL12cart_reverse5PJ_XYP8PJconsts, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 380
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 380
   store i32 4, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 384
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 384
   store i32 3, ptr %7, align 8
   ret ptr %0
 }
@@ -75,13 +75,13 @@ declare noundef ptr @_Z6pj_newv() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
 define internal void @_ZL9cartesian6PJ_LPZP8PJconsts(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.PJ_XYZ) align 8 initializes((0, 24)) %0, ptr nocapture noundef readonly byval(%struct.PJ_LPZ) align 8 %1, ptr nocapture noundef readonly %2) #3 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load double, ptr %4, align 8
   %6 = tail call double @cos(double noundef %5) #7
   %7 = tail call double @sin(double noundef %5) #7
-  %8 = getelementptr inbounds i8, ptr %2, i64 168
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 168
   %9 = load double, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %2, i64 216
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 216
   %11 = load double, ptr %10, align 8
   %12 = fcmp oeq double %11, 0.000000e+00
   br i1 %12, label %_ZL26normal_radius_of_curvatureddd.exit, label %13
@@ -96,7 +96,7 @@ define internal void @_ZL9cartesian6PJ_LPZP8PJconsts(ptr dead_on_unwind noalias 
 
 _ZL26normal_radius_of_curvatureddd.exit:          ; preds = %3, %13
   %.0.i = phi double [ %18, %13 ], [ %9, %3 ]
-  %19 = getelementptr inbounds i8, ptr %1, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %20 = load double, ptr %19, align 8
   %21 = fadd double %.0.i, %20
   %22 = fmul double %6, %21
@@ -106,13 +106,13 @@ _ZL26normal_radius_of_curvatureddd.exit:          ; preds = %3, %13
   store double %25, ptr %0, align 8
   %26 = tail call double @sin(double noundef %23) #7
   %27 = fmul double %22, %26
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %27, ptr %28, align 8
   %29 = load double, ptr %10, align 8
   %30 = fsub double 1.000000e+00, %29
   %31 = tail call double @llvm.fmuladd.f64(double %.0.i, double %30, double %20)
   %32 = fmul double %7, %31
-  %33 = getelementptr inbounds i8, ptr %0, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double %32, ptr %33, align 8
   ret void
 }
@@ -120,19 +120,19 @@ _ZL26normal_radius_of_curvatureddd.exit:          ; preds = %3, %13
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
 define internal void @_ZL8geodetic6PJ_XYZP8PJconsts(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.PJ_LPZ) align 8 initializes((0, 24)) %0, ptr nocapture noundef readonly byval(%struct.PJ_XYZ) align 8 %1, ptr nocapture noundef readonly %2) #3 {
   %4 = load double, ptr %1, align 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 184
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 184
   %6 = load double, ptr %5, align 8
   %7 = fmul double %4, %6
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load double, ptr %8, align 8
   %10 = fmul double %6, %9
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load double, ptr %11, align 8
   %13 = fmul double %6, %12
   %14 = fmul double %10, %10
   %15 = tail call double @llvm.fmuladd.f64(double %7, double %7, double %14)
   %sqrt71 = tail call double @llvm.sqrt.f64(double %15)
-  %16 = getelementptr inbounds i8, ptr %2, i64 272
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 272
   %17 = load double, ptr %16, align 8
   %18 = fsub double 1.000000e+00, %17
   %19 = fmul double %18, %sqrt71
@@ -145,13 +145,13 @@ define internal void @_ZL8geodetic6PJ_XYZP8PJconsts(ptr dead_on_unwind noalias n
   %25 = fmul double %13, %23
   %.059 = select i1 %22, double %25, double 0.000000e+00
   %.0 = select i1 %22, double %24, double 1.000000e+00
-  %26 = getelementptr inbounds i8, ptr %2, i64 232
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 232
   %27 = load double, ptr %26, align 8
   %28 = fmul double %27, %18
   %29 = fmul double %28, %.059
   %30 = fmul double %.059, %29
   %31 = tail call double @llvm.fmuladd.f64(double %30, double %.059, double %13)
-  %32 = getelementptr inbounds i8, ptr %2, i64 216
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 216
   %33 = load double, ptr %32, align 8
   %34 = fmul double %33, %.0
   %35 = fneg double %.0
@@ -167,7 +167,7 @@ define internal void @_ZL8geodetic6PJ_XYZP8PJconsts(ptr dead_on_unwind noalias n
   %.061 = select i1 %40, double %43, double 0.000000e+00
   %.060 = select i1 %40, double %42, double 1.000000e+00
   %44 = fcmp ugt double %37, 0.000000e+00
-  %45 = getelementptr inbounds i8, ptr %0, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br i1 %44, label %50, label %.thread
 
 .thread:                                          ; preds = %3
@@ -191,7 +191,7 @@ define internal void @_ZL8geodetic6PJ_XYZP8PJconsts(ptr dead_on_unwind noalias n
 55:                                               ; preds = %.thread, %50
   %.169 = phi double [ 0.000000e+00, %.thread ], [ %.060, %50 ]
   %.16268 = phi double [ %48, %.thread ], [ %.061, %50 ]
-  %56 = getelementptr inbounds i8, ptr %2, i64 168
+  %56 = getelementptr inbounds nuw i8, ptr %2, i64 168
   %57 = load double, ptr %56, align 8
   %58 = fmul double %.169, %.169
   %59 = fmul double %.16268, %.16268
@@ -207,7 +207,7 @@ define internal void @_ZL8geodetic6PJ_XYZP8PJconsts(ptr dead_on_unwind noalias n
   br label %84
 
 69:                                               ; preds = %50
-  %70 = getelementptr inbounds i8, ptr %2, i64 168
+  %70 = getelementptr inbounds nuw i8, ptr %2, i64 168
   %71 = load double, ptr %70, align 8
   %72 = load double, ptr %32, align 8
   %73 = fcmp oeq double %72, 0.000000e+00
@@ -232,7 +232,7 @@ _ZL26normal_radius_of_curvatureddd.exit:          ; preds = %69, %74
 
 84:                                               ; preds = %_ZL26normal_radius_of_curvatureddd.exit, %55
   %.sink = phi double [ %83, %_ZL26normal_radius_of_curvatureddd.exit ], [ %68, %55 ]
-  %85 = getelementptr inbounds i8, ptr %0, i64 16
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double %.sink, ptr %85, align 8
   ret void
 }
@@ -241,9 +241,9 @@ _ZL26normal_radius_of_curvatureddd.exit:          ; preds = %69, %74
 define internal { double, double } @_ZL12cart_forward5PJ_LPP8PJconsts(double %0, double %1, ptr nocapture noundef readonly %2) #3 {
   %4 = tail call double @cos(double noundef %1) #7, !noalias !4
   %5 = tail call double @sin(double noundef %1) #7, !noalias !4
-  %6 = getelementptr inbounds i8, ptr %2, i64 168
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 168
   %7 = load double, ptr %6, align 8, !noalias !4
-  %8 = getelementptr inbounds i8, ptr %2, i64 216
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 216
   %9 = load double, ptr %8, align 8, !noalias !4
   %10 = fcmp oeq double %9, 0.000000e+00
   br i1 %10, label %_ZL9cartesian6PJ_LPZP8PJconsts.exit, label %11
@@ -274,13 +274,13 @@ define internal { double, double } @_ZL12cart_reverse5PJ_XYP8PJconsts(double %0,
   %4 = alloca %struct.PJ_LPZ, align 8
   %5 = alloca %struct.PJ_XYZ, align 8
   store double %0, ptr %5, align 8
-  %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
+  %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store double %1, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 16
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
   store double 0.000000e+00, ptr %.sroa.4.0..sroa_idx, align 8
   call void @_ZL8geodetic6PJ_XYZP8PJconsts(ptr dead_on_unwind nonnull writable sret(%struct.PJ_LPZ) align 8 %4, ptr noundef nonnull byval(%struct.PJ_XYZ) align 8 %5, ptr noundef %2)
   %.sroa.0.sroa.0.0.copyload4 = load double, ptr %4, align 8
-  %.sroa.0.sroa.4.0..sroa_idx6 = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.0.sroa.4.0..sroa_idx6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.sroa.0.sroa.4.0.copyload7 = load double, ptr %.sroa.0.sroa.4.0..sroa_idx6, align 8
   %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.0.sroa.0.0.copyload4, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.0.sroa.4.0.copyload7, 1

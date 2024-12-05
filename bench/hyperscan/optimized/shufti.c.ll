@@ -32,18 +32,18 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   %conv.i = zext i8 %2 to i32
   %and.i = and i32 %conv.i, 15
   %idxprom.i = zext nneg i32 %and.i to i64
-  %arrayidx.i = getelementptr inbounds i8, ptr %mask_lo.addr, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %mask_lo.addr, i64 %idxprom.i
   %3 = load i8, ptr %arrayidx.i, align 1
   %shr.i = lshr i32 %conv.i, 4
   %idxprom3.i = zext nneg i32 %shr.i to i64
-  %arrayidx4.i = getelementptr inbounds i8, ptr %mask_hi.addr, i64 %idxprom3.i
+  %arrayidx4.i = getelementptr inbounds nuw i8, ptr %mask_hi.addr, i64 %idxprom3.i
   %4 = load i8, ptr %arrayidx4.i, align 1
   %and6.i59 = and i8 %4, %3
   %tobool.i.not = icmp eq i8 %and6.i59, 0
   br i1 %tobool.i.not, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %for.body.i
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %buf.addr.i.065, i64 1
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %buf.addr.i.065, i64 1
   %exitcond.not = icmp eq ptr %incdec.ptr.i, %buf_end
   br i1 %exitcond.not, label %return, label %for.body.i, !llvm.loop !5
 
@@ -64,13 +64,13 @@ if.end:                                           ; preds = %entry
   %14 = xor i16 %13, -1
   %15 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %14, i1 true)
   %idx.ext.i = zext nneg i16 %15 to i64
-  %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %buf, i64 %idx.ext.i
   br i1 %cmp.i88.not, label %if.end6, label %return
 
 if.end6:                                          ; preds = %if.end
   %rem = and i64 %sub.ptr.rhs.cast, 15
   %sub = sub nuw nsw i64 16, %rem
-  %add.ptr = getelementptr inbounds i8, ptr %buf, i64 %sub
+  %add.ptr = getelementptr inbounds nuw i8, ptr %buf, i64 %sub
   %add.ptr7 = getelementptr inbounds i8, ptr %buf_end, i64 -16
   %cmp862 = icmp ult ptr %add.ptr, %add.ptr7
   br i1 %cmp862, label %while.body, label %while.end
@@ -93,7 +93,7 @@ while.body:                                       ; preds = %if.end6, %if.end13
   br i1 %cmp.i97.not, label %if.end13, label %return.loopexit60
 
 if.end13:                                         ; preds = %while.body
-  %add.ptr14 = getelementptr inbounds i8, ptr %buf.addr.063, i64 16
+  %add.ptr14 = getelementptr inbounds nuw i8, ptr %buf.addr.063, i64 16
   %cmp8 = icmp ult ptr %add.ptr14, %add.ptr7
   br i1 %cmp8, label %while.body, label %while.end, !llvm.loop !7
 
@@ -113,7 +113,7 @@ while.end:                                        ; preds = %if.end13, %if.end6
   %32 = xor i16 %31, -1
   %33 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %32, i1 true)
   %idx.ext.i122 = zext nneg i16 %33 to i64
-  %add.ptr.i123 = getelementptr inbounds i8, ptr %add.ptr7, i64 %idx.ext.i122
+  %add.ptr.i123 = getelementptr inbounds nuw i8, ptr %add.ptr7, i64 %idx.ext.i122
   %spec.select = select i1 %cmp.i113.not, ptr %buf_end, ptr %add.ptr.i123
   br label %return
 
@@ -121,7 +121,7 @@ return.loopexit60:                                ; preds = %while.body
   %34 = xor i16 %23, -1
   %35 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %34, i1 true)
   %idx.ext.i106.le = zext nneg i16 %35 to i64
-  %add.ptr.i107.le = getelementptr inbounds i8, ptr %buf.addr.063, i64 %idx.ext.i106.le
+  %add.ptr.i107.le = getelementptr inbounds nuw i8, ptr %buf.addr.063, i64 %idx.ext.i106.le
   br label %return
 
 return:                                           ; preds = %for.body.i, %if.end.i, %for.cond.i.preheader, %return.loopexit60, %while.end, %if.end
@@ -155,11 +155,11 @@ for.body.i:                                       ; preds = %for.cond.i
   %conv.i = zext i8 %2 to i32
   %and.i = and i32 %conv.i, 15
   %idxprom.i = zext nneg i32 %and.i to i64
-  %arrayidx.i = getelementptr inbounds i8, ptr %mask_lo.addr, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %mask_lo.addr, i64 %idxprom.i
   %3 = load i8, ptr %arrayidx.i, align 1
   %shr.i = lshr i32 %conv.i, 4
   %idxprom3.i = zext nneg i32 %shr.i to i64
-  %arrayidx4.i = getelementptr inbounds i8, ptr %mask_hi.addr, i64 %idxprom3.i
+  %arrayidx4.i = getelementptr inbounds nuw i8, ptr %mask_hi.addr, i64 %idxprom3.i
   %4 = load i8, ptr %arrayidx4.i, align 1
   %and6.i59 = and i8 %4, %3
   %tobool.i.not = icmp eq i8 %and6.i59, 0
@@ -188,13 +188,13 @@ lastMatch.exit:                                   ; preds = %if.end
   %15 = tail call range(i32 16, 33) i32 @llvm.ctlz.i32(i32 %and.i162, i1 true)
   %sub.i = xor i32 %15, 31
   %idx.ext.i = zext nneg i32 %sub.i to i64
-  %add.ptr.i = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 %idx.ext.i
   br label %return
 
 if.end7:                                          ; preds = %if.end
   %and = and i64 %sub.ptr.lhs.cast, -16
   %16 = inttoptr i64 %and to ptr
-  %add.ptr8 = getelementptr inbounds i8, ptr %buf, i64 16
+  %add.ptr8 = getelementptr inbounds nuw i8, ptr %buf, i64 16
   br label %while.cond
 
 while.cond:                                       ; preds = %while.body, %if.end7
@@ -225,7 +225,7 @@ lastMatch.exit186.thread:                         ; preds = %while.body
   %26 = tail call range(i32 16, 33) i32 @llvm.ctlz.i32(i32 %and.i181, i1 true)
   %sub.i183 = xor i32 %26, 31
   %idx.ext.i184 = zext nneg i32 %sub.i183 to i64
-  %add.ptr.i185 = getelementptr inbounds i8, ptr %add.ptr10, i64 %idx.ext.i184
+  %add.ptr.i185 = getelementptr inbounds nuw i8, ptr %add.ptr10, i64 %idx.ext.i184
   br label %return
 
 while.end:                                        ; preds = %while.cond
@@ -249,7 +249,7 @@ if.then.i203:                                     ; preds = %while.end
   %36 = tail call range(i32 16, 33) i32 @llvm.ctlz.i32(i32 %and.i205, i1 true)
   %sub.i207 = xor i32 %36, 31
   %idx.ext.i208 = zext nneg i32 %sub.i207 to i64
-  %add.ptr.i209 = getelementptr inbounds i8, ptr %buf, i64 %idx.ext.i208
+  %add.ptr.i209 = getelementptr inbounds nuw i8, ptr %buf, i64 %idx.ext.i208
   br label %lastMatch.exit210
 
 lastMatch.exit210:                                ; preds = %while.end, %if.then.i203
@@ -291,14 +291,14 @@ entry:
   %14 = xor i16 %13, -1
   %15 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %14, i1 true)
   %idx.ext.i = zext nneg i16 %15 to i64
-  %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %buf, i64 %idx.ext.i
   br i1 %cmp.i.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
   %16 = ptrtoint ptr %buf to i64
   %rem = and i64 %16, 15
   %sub = sub nuw nsw i64 16, %rem
-  %add.ptr = getelementptr inbounds i8, ptr %buf, i64 %sub
+  %add.ptr = getelementptr inbounds nuw i8, ptr %buf, i64 %sub
   %add.ptr4 = getelementptr inbounds i8, ptr %buf_end, i64 -16
   %cmp87 = icmp ult ptr %add.ptr, %add.ptr4
   br i1 %cmp87, label %while.body, label %while.end
@@ -326,7 +326,7 @@ while.body:                                       ; preds = %if.end, %if.end9
   br i1 %cmp.i129.not, label %if.end9, label %return.loopexit
 
 if.end9:                                          ; preds = %while.body
-  %add.ptr10 = getelementptr inbounds i8, ptr %buf.addr.088, i64 16
+  %add.ptr10 = getelementptr inbounds nuw i8, ptr %buf.addr.088, i64 16
   %cmp = icmp ult ptr %add.ptr10, %add.ptr4
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !10
 
@@ -351,7 +351,7 @@ while.end:                                        ; preds = %if.end9, %if.end
   %37 = xor i16 %36, -1
   %38 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %37, i1 true)
   %idx.ext.i154 = zext nneg i16 %38 to i64
-  %add.ptr.i155 = getelementptr inbounds i8, ptr %add.ptr4, i64 %idx.ext.i154
+  %add.ptr.i155 = getelementptr inbounds nuw i8, ptr %add.ptr4, i64 %idx.ext.i154
   %spec.select = select i1 %cmp.i145.not, ptr %buf_end, ptr %add.ptr.i155
   br label %return
 
@@ -359,7 +359,7 @@ return.loopexit:                                  ; preds = %while.body
   %39 = xor i16 %26, -1
   %40 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %39, i1 true)
   %idx.ext.i138.le = zext nneg i16 %40 to i64
-  %add.ptr.i139.le = getelementptr inbounds i8, ptr %buf.addr.088, i64 %idx.ext.i138.le
+  %add.ptr.i139.le = getelementptr inbounds nuw i8, ptr %buf.addr.088, i64 %idx.ext.i138.le
   br label %return
 
 return:                                           ; preds = %return.loopexit, %while.end, %entry

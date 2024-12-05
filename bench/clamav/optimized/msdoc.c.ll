@@ -211,10 +211,10 @@ define i32 @cli_ole2_summary_json(ptr noundef %0, i32 noundef %1, i32 noundef %2
   br label %83
 
 12:                                               ; preds = %10
-  %13 = getelementptr inbounds i8, ptr %4, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %13, i8 0, i64 64, i1 false)
   store ptr %0, ptr %4, align 8
-  %14 = getelementptr inbounds i8, ptr %4, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %2, ptr %14, align 8
   %15 = call i32 @fstat(i32 noundef %1, ptr noundef nonnull %5) #10
   %16 = icmp eq i32 %15, -1
@@ -225,10 +225,10 @@ define i32 @cli_ole2_summary_json(ptr noundef %0, i32 noundef %1, i32 noundef %2
   br label %83
 
 18:                                               ; preds = %12
-  %19 = getelementptr inbounds i8, ptr %5, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %20 = load i64, ptr %19, align 8
   %21 = tail call ptr @fmap(i32 noundef %1, i64 noundef 0, i64 noundef %20, ptr noundef null) #10
-  %22 = getelementptr inbounds i8, ptr %4, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %21, ptr %22, align 8
   %.not = icmp eq ptr %21, null
   br i1 %.not, label %23, label %24
@@ -238,14 +238,14 @@ define i32 @cli_ole2_summary_json(ptr noundef %0, i32 noundef %1, i32 noundef %2
   br label %83
 
 24:                                               ; preds = %18
-  %25 = getelementptr inbounds i8, ptr %21, i64 88
+  %25 = getelementptr inbounds nuw i8, ptr %21, i64 88
   %26 = load i64, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %4, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i64 %26, ptr %27, align 8
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.5, i64 noundef %26) #10
-  %28 = getelementptr inbounds i8, ptr %0, i64 160
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %4, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %switch.selectcmp = icmp eq i32 %2, 2
   %switch.select = select i1 %switch.selectcmp, ptr @.str.7, ptr @.str.8
   %switch.selectcmp50 = icmp eq i32 %2, 1
@@ -261,35 +261,35 @@ define i32 @cli_ole2_summary_json(ptr noundef %0, i32 noundef %1, i32 noundef %2
   br label %83
 
 34:                                               ; preds = %24
-  %35 = getelementptr inbounds i8, ptr %4, i64 48
+  %35 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store i16 0, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %4, i64 52
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 52
   store i32 0, ptr %36, align 4
   %37 = icmp ult i64 %26, 28
   br i1 %37, label %38, label %41
 
 38:                                               ; preds = %34
-  %39 = getelementptr inbounds i8, ptr %4, i64 40
+  %39 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i32 1, ptr %39, align 8
   %40 = call fastcc i32 @cli_ole2_summary_json_cleanup(ptr noundef %4, i32 noundef 26)
   br label %83
 
 41:                                               ; preds = %34
-  %42 = getelementptr inbounds i8, ptr %21, i64 104
+  %42 = getelementptr inbounds nuw i8, ptr %21, i64 104
   %43 = load ptr, ptr %42, align 8
   %44 = tail call ptr %43(ptr noundef nonnull %21, i64 noundef 0, i64 noundef 28, i32 noundef 0) #10
   %.not46 = icmp eq ptr %44, null
   br i1 %.not46, label %45, label %48
 
 45:                                               ; preds = %41
-  %46 = getelementptr inbounds i8, ptr %4, i64 40
+  %46 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i32 4, ptr %46, align 8
   %47 = call fastcc i32 @cli_ole2_summary_json_cleanup(ptr noundef %4, i32 noundef 12)
   br label %83
 
 48:                                               ; preds = %41
   %.sroa.06.0.copyload = load i16, ptr %44, align 1
-  %.sroa.1010.0..sroa_idx = getelementptr inbounds i8, ptr %44, i64 24
+  %.sroa.1010.0..sroa_idx = getelementptr inbounds nuw i8, ptr %44, i64 24
   %.sroa.1010.0.copyload = load i32, ptr %.sroa.1010.0..sroa_idx, align 1
   %.not47 = icmp eq i16 %.sroa.06.0.copyload, -2
   br i1 %.not47, label %53, label %49
@@ -297,7 +297,7 @@ define i32 @cli_ole2_summary_json(ptr noundef %0, i32 noundef %1, i32 noundef %2
 49:                                               ; preds = %48
   %50 = zext i16 %.sroa.06.0.copyload to i32
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.10, i32 noundef %50) #10
-  %51 = getelementptr inbounds i8, ptr %4, i64 40
+  %51 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i32 8, ptr %51, align 8
   %52 = call fastcc i32 @cli_ole2_summary_json_cleanup(ptr noundef %4, i32 noundef 26)
   br label %83
@@ -309,7 +309,7 @@ define i32 @cli_ole2_summary_json(ptr noundef %0, i32 noundef %1, i32 noundef %2
 
 55:                                               ; preds = %53
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.11) #10
-  %56 = getelementptr inbounds i8, ptr %4, i64 40
+  %56 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i32 8, ptr %56, align 8
   %57 = call fastcc i32 @cli_ole2_summary_json_cleanup(ptr noundef %4, i32 noundef 26)
   br label %83
@@ -322,7 +322,7 @@ define i32 @cli_ole2_summary_json(ptr noundef %0, i32 noundef %1, i32 noundef %2
   br i1 %60, label %61, label %64
 
 61:                                               ; preds = %58
-  %62 = getelementptr inbounds i8, ptr %4, i64 40
+  %62 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i32 1, ptr %62, align 8
   %63 = call fastcc i32 @cli_ole2_summary_json_cleanup(ptr noundef %4, i32 noundef 26)
   br label %83
@@ -334,13 +334,13 @@ define i32 @cli_ole2_summary_json(ptr noundef %0, i32 noundef %1, i32 noundef %2
   br i1 %.not48, label %67, label %70
 
 67:                                               ; preds = %64
-  %68 = getelementptr inbounds i8, ptr %4, i64 40
+  %68 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i32 4, ptr %68, align 8
   %69 = call fastcc i32 @cli_ole2_summary_json_cleanup(ptr noundef %4, i32 noundef 12)
   br label %83
 
 70:                                               ; preds = %64
-  %.sroa.1.0..sroa_idx = getelementptr inbounds i8, ptr %66, i64 16
+  %.sroa.1.0..sroa_idx = getelementptr inbounds nuw i8, ptr %66, i64 16
   %.sroa.1.0.copyload = load i32, ptr %.sroa.1.0..sroa_idx, align 1
   %71 = zext i32 %.sroa.1.0.copyload to i64
   %72 = call fastcc i32 @ole2_summary_propset_json(ptr noundef %4, i64 noundef %71)
@@ -356,7 +356,7 @@ define i32 @cli_ole2_summary_json(ptr noundef %0, i32 noundef %1, i32 noundef %2
   br i1 %76, label %77, label %81
 
 77:                                               ; preds = %75
-  %78 = getelementptr inbounds i8, ptr %0, i64 160
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %79 = load ptr, ptr %78, align 8
   %80 = call i32 @cli_jsonbool(ptr noundef %79, ptr noundef nonnull @.str.14, i32 noundef 1) #10
   br label %81
@@ -386,16 +386,16 @@ declare void @cli_errmsg(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef i32 @cli_ole2_summary_json_cleanup(ptr nocapture noundef nonnull readonly %0, i32 noundef returned %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.15, i32 noundef %1, i32 noundef %4) #10
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %10, label %7
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %6, i64 96
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 96
   %9 = load ptr, ptr %8, align 8
   tail call void %9(ptr noundef nonnull %6) #10
   br label %10
@@ -406,7 +406,7 @@ define internal fastcc noundef i32 @cli_ole2_summary_json_cleanup(ptr nocapture 
   br i1 %.not36, label %.thread, label %12
 
 12:                                               ; preds = %10
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load ptr, ptr %13, align 8
   %15 = tail call ptr @cli_jsonarray(ptr noundef %14, ptr noundef nonnull @.str.16) #10
   %16 = load i32, ptr %3, align 8
@@ -580,53 +580,53 @@ define internal fastcc i32 @ole2_summary_propset_json(ptr noundef nonnull initia
   %3 = alloca [256 x i8], align 16
   %4 = alloca [256 x i8], align 16
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.32) #10
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i16 0, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 52
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i32 0, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr null, ptr %7, align 8
   %8 = add nuw nsw i64 %1, 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load i64, ptr %9, align 8
   %11 = icmp ugt i64 %8, %10
   br i1 %11, label %12, label %16
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %0, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %14 = load i32, ptr %13, align 8
   %15 = or i32 %14, 1
   store i32 %15, ptr %13, align 8
   br label %.loopexit
 
 16:                                               ; preds = %2
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 104
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 104
   %20 = load ptr, ptr %19, align 8
   %21 = tail call ptr %20(ptr noundef %18, i64 noundef range(i64 0, 4294967296) %1, i64 noundef 8, i32 noundef 0) #10
   %.not = icmp eq ptr %21, null
   br i1 %.not, label %22, label %26
 
 22:                                               ; preds = %16
-  %23 = getelementptr inbounds i8, ptr %0, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %24 = load i32, ptr %23, align 8
   %25 = or i32 %24, 4
   store i32 %25, ptr %23, align 8
   br label %.loopexit
 
 26:                                               ; preds = %16
-  %27 = getelementptr inbounds i8, ptr %0, i64 44
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %28 = load i32, ptr %21, align 1
   store i32 %28, ptr %27, align 4
-  %29 = getelementptr inbounds i8, ptr %21, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %21, i64 4
   %.0.copyload24 = load i32, ptr %29, align 1
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.33, i32 noundef %28, i32 noundef %.0.copyload24) #10
   %30 = icmp ugt i32 %.0.copyload24, 25
   br i1 %30, label %31, label %35
 
 31:                                               ; preds = %26
-  %32 = getelementptr inbounds i8, ptr %0, i64 40
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %33 = load i32, ptr %32, align 8
   %34 = or i32 %33, 16
   store i32 %34, ptr %32, align 8
@@ -643,7 +643,7 @@ define internal fastcc i32 @ole2_summary_propset_json(ptr noundef nonnull initia
   br i1 %40, label %41, label %45
 
 41:                                               ; preds = %35
-  %42 = getelementptr inbounds i8, ptr %0, i64 40
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %43 = load i32, ptr %42, align 8
   %44 = or i32 %43, 1
   store i32 %44, ptr %42, align 8
@@ -651,7 +651,7 @@ define internal fastcc i32 @ole2_summary_propset_json(ptr noundef nonnull initia
 
 45:                                               ; preds = %35
   %46 = load ptr, ptr %17, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 104
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 104
   %48 = load ptr, ptr %47, align 8
   %49 = tail call ptr %48(ptr noundef %46, i64 noundef range(i64 0, 4294967296) %1, i64 noundef range(i64 0, 4294967296) %37, i32 noundef 0) #10
   %.not72 = icmp eq ptr %49, null
@@ -662,14 +662,14 @@ define internal fastcc i32 @ole2_summary_propset_json(ptr noundef nonnull initia
   br i1 %.not94, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %50 = getelementptr inbounds i8, ptr %0, i64 8
-  %51 = getelementptr inbounds i8, ptr %0, i64 40
-  %52 = getelementptr inbounds i8, ptr %0, i64 64
-  %53 = getelementptr inbounds i8, ptr %0, i64 24
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %58
 
 54:                                               ; preds = %45
-  %55 = getelementptr inbounds i8, ptr %0, i64 40
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %56 = load i32, ptr %55, align 8
   %57 = or i32 %56, 4
   store i32 %57, ptr %55, align 8
@@ -692,9 +692,9 @@ define internal fastcc i32 @ole2_summary_propset_json(ptr noundef nonnull initia
 
 66:                                               ; preds = %58
   %67 = or disjoint i64 %.06691, 4
-  %68 = getelementptr inbounds i8, ptr %49, i64 %.06691
+  %68 = getelementptr inbounds nuw i8, ptr %49, i64 %.06691
   %.0.copyload3 = load i32, ptr %68, align 1
-  %69 = getelementptr inbounds i8, ptr %49, i64 %67
+  %69 = getelementptr inbounds nuw i8, ptr %49, i64 %67
   %.0.copyload = load i32, ptr %69, align 1
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.35, i32 noundef %.0.copyload3, i32 noundef %.0.copyload) #10
   store ptr null, ptr %7, align 8
@@ -937,7 +937,7 @@ ole2_translate_docsummary_propid.exit.thread:     ; preds = %ole2_translate_docs
 131:                                              ; preds = %122
   %132 = add i32 %.0.copyload, 2
   %133 = zext i32 %132 to i64
-  %134 = getelementptr inbounds i8, ptr %49, i64 %133
+  %134 = getelementptr inbounds nuw i8, ptr %49, i64 %133
   %.0.copyload89.i = load i16, ptr %134, align 1
   %135 = add i32 %.0.copyload, 4
   %.not272.i = icmp eq i16 %.0.copyload89.i, 0
@@ -951,7 +951,7 @@ ole2_translate_docsummary_propid.exit.thread:     ; preds = %ole2_translate_docs
   br label %ole2_process_property.exit.thread
 
 139:                                              ; preds = %131
-  %140 = getelementptr inbounds i8, ptr %49, i64 %123
+  %140 = getelementptr inbounds nuw i8, ptr %49, i64 %123
   %.0.copyload91.i = load i16, ptr %140, align 1
   switch i16 %.0.copyload91.i, label %409 [
     i16 0, label %141
@@ -995,7 +995,7 @@ ole2_translate_docsummary_propid.exit.thread:     ; preds = %ole2_translate_docs
   br label %ole2_process_property.exit.thread
 
 152:                                              ; preds = %145
-  %153 = getelementptr inbounds i8, ptr %49, i64 %146
+  %153 = getelementptr inbounds nuw i8, ptr %49, i64 %146
   %.0.copyload80.i = load i16, ptr %153, align 1
   %154 = load i32, ptr %6, align 4
   %.not285.i = icmp eq i32 %154, 0
@@ -1029,7 +1029,7 @@ ole2_translate_docsummary_propid.exit.thread:     ; preds = %ole2_translate_docs
   br label %ole2_process_property.exit.thread
 
 172:                                              ; preds = %165
-  %173 = getelementptr inbounds i8, ptr %49, i64 %166
+  %173 = getelementptr inbounds nuw i8, ptr %49, i64 %166
   %.0.copyload77.i = load i32, ptr %173, align 1
   %174 = load ptr, ptr %53, align 8
   %175 = load ptr, ptr %7, align 8
@@ -1049,7 +1049,7 @@ ole2_translate_docsummary_propid.exit.thread:     ; preds = %ole2_translate_docs
   br label %ole2_process_property.exit.thread
 
 184:                                              ; preds = %177
-  %185 = getelementptr inbounds i8, ptr %49, i64 %178
+  %185 = getelementptr inbounds nuw i8, ptr %49, i64 %178
   %.0.copyload76.i = load float, ptr %185, align 1
   %186 = fptoui float %.0.copyload76.i to i32
   %187 = load ptr, ptr %53, align 8
@@ -1071,7 +1071,7 @@ ole2_translate_docsummary_propid.exit.thread:     ; preds = %ole2_translate_docs
   br label %ole2_process_property.exit.thread
 
 198:                                              ; preds = %191
-  %199 = getelementptr inbounds i8, ptr %49, i64 %192
+  %199 = getelementptr inbounds nuw i8, ptr %49, i64 %192
   %.0.copyload73.i = load double, ptr %199, align 1
   %200 = fptoui double %.0.copyload73.i to i64
   %201 = uitofp i64 %200 to double
@@ -1093,7 +1093,7 @@ ole2_translate_docsummary_propid.exit.thread:     ; preds = %ole2_translate_docs
   br label %ole2_process_property.exit.thread
 
 212:                                              ; preds = %205
-  %213 = getelementptr inbounds i8, ptr %49, i64 %206
+  %213 = getelementptr inbounds nuw i8, ptr %49, i64 %206
   %.0.copyload69.i = load i16, ptr %213, align 1
   %214 = load ptr, ptr %53, align 8
   %215 = load ptr, ptr %7, align 8
@@ -1113,7 +1113,7 @@ ole2_translate_docsummary_propid.exit.thread:     ; preds = %ole2_translate_docs
 
 222:                                              ; preds = %218
   %223 = zext i32 %135 to i64
-  %224 = getelementptr inbounds i8, ptr %49, i64 %223
+  %224 = getelementptr inbounds nuw i8, ptr %49, i64 %223
   %.0.copyload67.i = load i8, ptr %224, align 1
   %225 = load ptr, ptr %53, align 8
   %226 = load ptr, ptr %7, align 8
@@ -1133,7 +1133,7 @@ ole2_translate_docsummary_propid.exit.thread:     ; preds = %ole2_translate_docs
 
 233:                                              ; preds = %229
   %234 = zext i32 %135 to i64
-  %235 = getelementptr inbounds i8, ptr %49, i64 %234
+  %235 = getelementptr inbounds nuw i8, ptr %49, i64 %234
   %.0.copyload65.i = load i8, ptr %235, align 1
   %236 = load ptr, ptr %53, align 8
   %237 = load ptr, ptr %7, align 8
@@ -1154,7 +1154,7 @@ ole2_translate_docsummary_propid.exit.thread:     ; preds = %ole2_translate_docs
   br label %ole2_process_property.exit.thread
 
 247:                                              ; preds = %240
-  %248 = getelementptr inbounds i8, ptr %49, i64 %241
+  %248 = getelementptr inbounds nuw i8, ptr %49, i64 %241
   %.0.copyload61.i = load i16, ptr %248, align 1
   %249 = load i32, ptr %6, align 4
   %.not282.i = icmp eq i32 %249, 0
@@ -1184,7 +1184,7 @@ ole2_translate_docsummary_propid.exit.thread:     ; preds = %ole2_translate_docs
   br label %ole2_process_property.exit.thread
 
 263:                                              ; preds = %256
-  %264 = getelementptr inbounds i8, ptr %49, i64 %257
+  %264 = getelementptr inbounds nuw i8, ptr %49, i64 %257
   %.0.copyload58.i = load i32, ptr %264, align 1
   %265 = load ptr, ptr %53, align 8
   %266 = load ptr, ptr %7, align 8
@@ -1204,7 +1204,7 @@ ole2_translate_docsummary_propid.exit.thread:     ; preds = %ole2_translate_docs
   br label %ole2_process_property.exit.thread
 
 275:                                              ; preds = %268
-  %276 = getelementptr inbounds i8, ptr %49, i64 %269
+  %276 = getelementptr inbounds nuw i8, ptr %49, i64 %269
   %.0.copyload55.i = load i64, ptr %276, align 1
   %277 = load ptr, ptr %53, align 8
   %278 = load ptr, ptr %7, align 8
@@ -1224,7 +1224,7 @@ ole2_translate_docsummary_propid.exit.thread:     ; preds = %ole2_translate_docs
   br label %ole2_process_property.exit.thread
 
 287:                                              ; preds = %280
-  %288 = getelementptr inbounds i8, ptr %49, i64 %281
+  %288 = getelementptr inbounds nuw i8, ptr %49, i64 %281
   %.0.copyload52.i = load i64, ptr %288, align 1
   %289 = load ptr, ptr %53, align 8
   %290 = load ptr, ptr %7, align 8
@@ -1256,7 +1256,7 @@ ole2_translate_docsummary_propid.exit.thread:     ; preds = %ole2_translate_docs
   br label %ole2_process_property.exit.thread
 
 305:                                              ; preds = %298
-  %306 = getelementptr inbounds i8, ptr %49, i64 %299
+  %306 = getelementptr inbounds nuw i8, ptr %49, i64 %299
   %.0.copyload43.i = load i32, ptr %306, align 1
   %307 = trunc nuw i64 %300 to i32
   %308 = add i32 %.0.copyload43.i, %307
@@ -1290,7 +1290,7 @@ ole2_translate_docsummary_propid.exit.thread:     ; preds = %ole2_translate_docs
   br i1 %.not278.i, label %ole2_process_property.exit.thread, label %323
 
 323:                                              ; preds = %319
-  %324 = getelementptr inbounds i8, ptr %49, i64 %300
+  %324 = getelementptr inbounds nuw i8, ptr %49, i64 %300
   %325 = zext nneg i32 %.0259.i to i64
   %326 = call ptr @strncpy(ptr noundef nonnull %322, ptr noundef nonnull readonly %324, i64 noundef %325) #10
   %327 = call fastcc ptr @ole2_convert_utf(ptr noundef nonnull %0, ptr noundef %322, i64 noundef %325, ptr noundef null)
@@ -1342,7 +1342,7 @@ ole2_translate_docsummary_propid.exit.thread:     ; preds = %ole2_translate_docs
   br label %ole2_process_property.exit.thread
 
 348:                                              ; preds = %341
-  %349 = getelementptr inbounds i8, ptr %49, i64 %342
+  %349 = getelementptr inbounds nuw i8, ptr %49, i64 %342
   %.0.copyload22.i = load i32, ptr %349, align 1
   %350 = trunc nuw i64 %343 to i32
   %351 = shl i32 %.0.copyload22.i, 1
@@ -1379,7 +1379,7 @@ ole2_translate_docsummary_propid.exit.thread:     ; preds = %ole2_translate_docs
   br i1 %.not274.i, label %ole2_process_property.exit.thread, label %368
 
 368:                                              ; preds = %364
-  %369 = getelementptr inbounds i8, ptr %49, i64 %343
+  %369 = getelementptr inbounds nuw i8, ptr %49, i64 %343
   %370 = zext nneg i32 %.0256.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %367, ptr nonnull readonly align 1 %369, i64 %370, i1 false)
   %371 = call fastcc ptr @ole2_convert_utf(ptr noundef nonnull %0, ptr noundef %367, i64 noundef %370, ptr noundef nonnull @.str.88)
@@ -1431,10 +1431,10 @@ ole2_translate_docsummary_propid.exit.thread:     ; preds = %ole2_translate_docs
 
 392:                                              ; preds = %385
   %393 = add i32 %.0.copyload, 8
-  %394 = getelementptr inbounds i8, ptr %49, i64 %386
+  %394 = getelementptr inbounds nuw i8, ptr %49, i64 %386
   %.0.copyload8.i = load i32, ptr %394, align 1
   %395 = zext i32 %393 to i64
-  %396 = getelementptr inbounds i8, ptr %49, i64 %395
+  %396 = getelementptr inbounds nuw i8, ptr %49, i64 %395
   %.0.copyload.i = load i32, ptr %396, align 1
   %397 = zext i32 %.0.copyload.i to i64
   %398 = shl nuw i64 %397, 32
@@ -1530,7 +1530,7 @@ define internal fastcc ptr @ole2_convert_utf(ptr nocapture noundef nonnull %0, p
   br label %.loopexit126
 
 13:                                               ; preds = %4
-  %14 = getelementptr inbounds i8, ptr %0, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %15 = load i16, ptr %14, align 8
   switch i16 %15, label %39 [
     i16 20127, label %16
@@ -1550,7 +1550,7 @@ define internal fastcc ptr @ole2_convert_utf(ptr nocapture noundef nonnull %0, p
   br i1 %21, label %22, label %.loopexit126
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %18, i64 %2
+  %23 = getelementptr inbounds nuw i8, ptr %18, i64 %2
   %24 = getelementptr inbounds i8, ptr %23, i64 -1
   %25 = load i8, ptr %24, align 1
   %.not120 = icmp sgt i8 %25, -1
@@ -1630,13 +1630,13 @@ define internal fastcc ptr @ole2_convert_utf(ptr nocapture noundef nonnull %0, p
 43:                                               ; preds = %.preheader125, %52
   %.091149 = phi i64 [ 0, %.preheader125 ], [ %53, %52 ]
   %.198148 = phi ptr [ null, %.preheader125 ], [ %.2, %52 ]
-  %44 = getelementptr inbounds [152 x %struct.codepage_entry], ptr @codepage_entries, i64 0, i64 %.091149
+  %44 = getelementptr inbounds nuw [152 x %struct.codepage_entry], ptr @codepage_entries, i64 0, i64 %.091149
   %45 = load i16, ptr %44, align 16
   %46 = icmp eq i16 %42, %45
   br i1 %46, label %47, label %50
 
 47:                                               ; preds = %43
-  %48 = getelementptr inbounds i8, ptr %44, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %49 = load ptr, ptr %48, align 8
   br label %52
 
@@ -1658,7 +1658,7 @@ define internal fastcc ptr @ole2_convert_utf(ptr nocapture noundef nonnull %0, p
 55:                                               ; preds = %54
   %56 = zext i16 %42 to i32
   tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.94, i32 noundef %56) #10
-  %57 = getelementptr inbounds i8, ptr %0, i64 40
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %58 = load i32, ptr %57, align 8
   %59 = or i32 %58, 1024
   store i32 %59, ptr %57, align 8
@@ -1683,7 +1683,7 @@ define internal fastcc ptr @ole2_convert_utf(ptr nocapture noundef nonnull %0, p
   %68 = load i32, ptr %67, align 4
   %69 = call ptr @cli_strerror(i32 noundef %68, ptr noundef nonnull %9, i64 noundef 128) #10
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.96, ptr noundef nonnull %.097, ptr noundef nonnull %9) #10
-  %70 = getelementptr inbounds i8, ptr %0, i64 40
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %71 = load i32, ptr %70, align 8
   %72 = or i32 %71, 2048
   store i32 %72, ptr %70, align 8
@@ -1742,7 +1742,7 @@ define internal fastcc ptr @ole2_convert_utf(ptr nocapture noundef nonnull %0, p
   %.sink185 = phi i32 [ 4096, %.lr.ph ], [ 8192, %83 ]
   %.195.ph = phi i64 [ %79, %.lr.ph ], [ -1, %83 ]
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull %.str.98.sink) #10
-  %97 = getelementptr inbounds i8, ptr %0, i64 40
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %98 = load i32, ptr %97, align 8
   %99 = or i32 %98, %.sink185
   store i32 %99, ptr %97, align 8
@@ -1758,7 +1758,7 @@ define internal fastcc ptr @ole2_convert_utf(ptr nocapture noundef nonnull %0, p
 
 103:                                              ; preds = %.loopexit
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.100) #10
-  %104 = getelementptr inbounds i8, ptr %0, i64 40
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %105 = load i32, ptr %104, align 8
   %106 = or i32 %105, 8192
   store i32 %106, ptr %104, align 8

@@ -15,7 +15,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ExecReScan(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %4
@@ -25,20 +25,20 @@ define dso_local void @ExecReScan(ptr noundef %0) local_unnamed_addr #0 {
   br label %5
 
 5:                                                ; preds = %4, %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 104
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %7 = load ptr, ptr %6, align 8
   %.not90 = icmp eq ptr %7, null
   br i1 %.not90, label %65, label %8
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 88
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %.not91 = icmp eq ptr %10, null
   br i1 %.not91, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %10, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %13 = load i32, ptr %11, align 4
   %14 = icmp sgt i32 %13, 0
   br i1 %14, label %.lr.ph111, label %._crit_edge
@@ -48,11 +48,11 @@ define dso_local void @ExecReScan(ptr noundef %0) local_unnamed_addr #0 {
   %15 = load ptr, ptr %12, align 8
   %16 = getelementptr %union.ListCell, ptr %15, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 88
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 88
   %23 = load ptr, ptr %22, align 8
   %.not100 = icmp eq ptr %23, null
   br i1 %.not100, label %26, label %24
@@ -63,7 +63,7 @@ define dso_local void @ExecReScan(ptr noundef %0) local_unnamed_addr #0 {
   br label %26
 
 26:                                               ; preds = %24, %.lr.ph111
-  %27 = getelementptr inbounds i8, ptr %19, i64 104
+  %27 = getelementptr inbounds nuw i8, ptr %19, i64 104
   %28 = load ptr, ptr %27, align 8
   %.not101 = icmp eq ptr %28, null
   br i1 %.not101, label %30, label %29
@@ -80,14 +80,14 @@ define dso_local void @ExecReScan(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %33, label %.lr.ph111, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %30, %.lr.ph, %8
-  %34 = getelementptr inbounds i8, ptr %0, i64 96
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 4
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 4
   %.not93 = icmp eq ptr %35, null
   br i1 %.not93, label %._crit_edge115, label %.lr.ph114
 
 .lr.ph114:                                        ; preds = %._crit_edge
-  %37 = getelementptr inbounds i8, ptr %35, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %38 = load i32, ptr %36, align 4
   %39 = icmp sgt i32 %38, 0
   br i1 %39, label %.lr.ph118, label %._crit_edge115
@@ -98,11 +98,11 @@ define dso_local void @ExecReScan(ptr noundef %0) local_unnamed_addr #0 {
   %41 = load ptr, ptr %37, align 8
   %42 = getelementptr %union.ListCell, ptr %41, i64 %indvars.iv120
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 88
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 88
   %49 = load ptr, ptr %48, align 8
   %.not99 = icmp eq ptr %49, null
   br i1 %.not99, label %52, label %50
@@ -121,7 +121,7 @@ define dso_local void @ExecReScan(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %55, label %.lr.ph118, label %._crit_edge115
 
 ._crit_edge115:                                   ; preds = %52, %.lr.ph114, %._crit_edge
-  %56 = getelementptr inbounds i8, ptr %0, i64 72
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %57 = load ptr, ptr %56, align 8
   %.not95 = icmp eq ptr %57, null
   br i1 %.not95, label %60, label %58
@@ -132,7 +132,7 @@ define dso_local void @ExecReScan(ptr noundef %0) local_unnamed_addr #0 {
   br label %60
 
 60:                                               ; preds = %58, %._crit_edge115
-  %61 = getelementptr inbounds i8, ptr %0, i64 80
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %62 = load ptr, ptr %61, align 8
   %.not96 = icmp eq ptr %62, null
   br i1 %.not96, label %65, label %63
@@ -143,7 +143,7 @@ define dso_local void @ExecReScan(ptr noundef %0) local_unnamed_addr #0 {
   br label %65
 
 65:                                               ; preds = %60, %63, %5
-  %66 = getelementptr inbounds i8, ptr %0, i64 128
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %67 = load ptr, ptr %66, align 8
   %.not97 = icmp eq ptr %67, null
   br i1 %.not97, label %69, label %68
@@ -620,7 +620,7 @@ define dso_local zeroext i1 @ExecSupportsMarkRestore(ptr nocapture noundef reado
 
 tailrecurse:                                      ; preds = %tailrecurse.backedge, %1
   %.tr = phi ptr [ %0, %1 ], [ %.tr.be, %tailrecurse.backedge ]
-  %2 = getelementptr inbounds i8, ptr %.tr, i64 4
+  %2 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
   %3 = load i32, ptr %2, align 4
   switch i32 %3, label %list_length.exit.thread [
     i32 325, label %4
@@ -634,15 +634,15 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   ]
 
 4:                                                ; preds = %tailrecurse, %tailrecurse
-  %5 = getelementptr inbounds i8, ptr %.tr, i64 72
+  %5 = getelementptr inbounds nuw i8, ptr %.tr, i64 72
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 179
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 179
   %8 = load i8, ptr %7, align 1
   %9 = trunc i8 %8 to i1
   br label %list_length.exit.thread
 
 10:                                               ; preds = %tailrecurse
-  %11 = getelementptr inbounds i8, ptr %.tr, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %.tr, i64 72
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 2
   %.not = icmp ne i32 %13, 0
@@ -654,7 +654,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   br i1 %cond, label %16, label %list_length.exit.thread
 
 16:                                               ; preds = %14
-  %17 = getelementptr inbounds i8, ptr %.tr, i64 72
+  %17 = getelementptr inbounds nuw i8, ptr %.tr, i64 72
   br label %tailrecurse.backedge
 
 tailrecurse.backedge:                             ; preds = %16, %24, %32
@@ -663,13 +663,13 @@ tailrecurse.backedge:                             ; preds = %16, %24, %32
   br label %tailrecurse
 
 18:                                               ; preds = %tailrecurse
-  %19 = getelementptr inbounds i8, ptr %.tr, i64 72
+  %19 = getelementptr inbounds nuw i8, ptr %.tr, i64 72
   %20 = load ptr, ptr %19, align 8
   %.not.i = icmp eq ptr %20, null
   br i1 %.not.i, label %list_length.exit.thread, label %list_length.exit
 
 list_length.exit:                                 ; preds = %18
-  %21 = getelementptr inbounds i8, ptr %20, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
   %22 = load i32, ptr %21, align 4
   %23 = icmp eq i32 %22, 1
   br i1 %23, label %24, label %list_length.exit.thread
@@ -680,13 +680,13 @@ list_length.exit:                                 ; preds = %18
   br label %tailrecurse.backedge
 
 26:                                               ; preds = %tailrecurse
-  %27 = getelementptr inbounds i8, ptr %.tr, i64 72
+  %27 = getelementptr inbounds nuw i8, ptr %.tr, i64 72
   %28 = load ptr, ptr %27, align 8
   %.not.i16 = icmp eq ptr %28, null
   br i1 %.not.i16, label %list_length.exit.thread, label %list_length.exit17
 
 list_length.exit17:                               ; preds = %26
-  %29 = getelementptr inbounds i8, ptr %28, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 4
   %30 = load i32, ptr %29, align 4
   %31 = icmp eq i32 %30, 1
   br i1 %31, label %32, label %list_length.exit.thread
@@ -711,7 +711,7 @@ define dso_local zeroext i1 @ExecSupportsBackwardScan(ptr noundef readonly %0) l
 
 .lr.ph:                                           ; preds = %1, %tailrecurse.backedge
   %.tr34 = phi ptr [ %.tr.be, %tailrecurse.backedge ], [ %0, %1 ]
-  %3 = getelementptr inbounds i8, ptr %.tr34, i64 36
+  %3 = getelementptr inbounds nuw i8, ptr %.tr34, i64 36
   %4 = load i8, ptr %3, align 4
   %5 = trunc i8 %4 to i1
   br i1 %5, label %.thread, label %6
@@ -738,26 +738,26 @@ define dso_local zeroext i1 @ExecSupportsBackwardScan(ptr noundef readonly %0) l
   ]
 
 8:                                                ; preds = %6
-  %9 = getelementptr inbounds i8, ptr %.tr34, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %.tr34, i64 64
   %10 = load ptr, ptr %9, align 8
   %.not24 = icmp eq ptr %10, null
   br i1 %.not24, label %.thread, label %tailrecurse.backedge
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %.tr34, i64 120
+  %12 = getelementptr inbounds nuw i8, ptr %.tr34, i64 120
   %13 = load i32, ptr %12, align 8
   %14 = icmp sgt i32 %13, 0
   br i1 %14, label %.thread, label %15
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %.tr34, i64 112
+  %16 = getelementptr inbounds nuw i8, ptr %.tr34, i64 112
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %.not22 = icmp eq ptr %17, null
   br i1 %.not22, label %.thread, label %.lr.ph55
 
 .lr.ph55:                                         ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %17, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %20 = load i32, ptr %18, align 4
   %21 = icmp sgt i32 %20, 0
   br i1 %21, label %.lr.ph64, label %.thread
@@ -778,13 +778,13 @@ define dso_local zeroext i1 @ExecSupportsBackwardScan(ptr noundef readonly %0) l
   br i1 %29, label %22, label %.thread
 
 30:                                               ; preds = %6
-  %31 = getelementptr inbounds i8, ptr %.tr34, i64 112
+  %31 = getelementptr inbounds nuw i8, ptr %.tr34, i64 112
   %32 = load i32, ptr %31, align 8
   %33 = tail call fastcc zeroext i1 @IndexSupportsBackwardScan(i32 noundef %32)
   br label %.thread
 
 34:                                               ; preds = %6
-  %35 = getelementptr inbounds i8, ptr %.tr34, i64 112
+  %35 = getelementptr inbounds nuw i8, ptr %.tr34, i64 112
   %36 = load i32, ptr %35, align 8
   %37 = tail call fastcc zeroext i1 @IndexSupportsBackwardScan(i32 noundef %36)
   br label %.thread
@@ -794,7 +794,7 @@ define dso_local zeroext i1 @ExecSupportsBackwardScan(ptr noundef readonly %0) l
 
 tailrecurse.backedge.sink.split:                  ; preds = %6, %6, %38
   %.sink79 = phi i64 [ 112, %38 ], [ 64, %6 ], [ 64, %6 ]
-  %39 = getelementptr inbounds i8, ptr %.tr34, i64 %.sink79
+  %39 = getelementptr inbounds nuw i8, ptr %.tr34, i64 %.sink79
   %40 = load ptr, ptr %39, align 8
   br label %tailrecurse.backedge
 
@@ -804,7 +804,7 @@ tailrecurse.backedge:                             ; preds = %tailrecurse.backedg
   br i1 %41, label %.thread, label %.lr.ph
 
 42:                                               ; preds = %6
-  %43 = getelementptr inbounds i8, ptr %.tr34, i64 112
+  %43 = getelementptr inbounds nuw i8, ptr %.tr34, i64 112
   %44 = load i32, ptr %43, align 8
   %45 = and i32 %44, 1
   %.not = icmp ne i32 %45, 0
@@ -833,16 +833,16 @@ define internal fastcc zeroext i1 @IndexSupportsBackwardScan(i32 noundef %0) unn
   unreachable
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %3, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 22
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 22
   %11 = load i8, ptr %10, align 2
   %12 = zext i8 %11 to i64
   %13 = getelementptr i8, ptr %9, i64 %12
-  %14 = getelementptr inbounds i8, ptr %13, i64 84
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 84
   %15 = load i32, ptr %14, align 4
   %16 = tail call ptr @GetIndexAmRoutineByAmId(i32 noundef %15, i1 noundef zeroext false) #6
-  %17 = getelementptr inbounds i8, ptr %16, i64 12
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 12
   %18 = load i8, ptr %17, align 4
   %19 = trunc i8 %18 to i1
   tail call void @pfree(ptr noundef %16) #6

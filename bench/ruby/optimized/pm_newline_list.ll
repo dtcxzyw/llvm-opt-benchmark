@@ -6,16 +6,16 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nofree nounwind sspstrong willreturn memory(argmem: write, inaccessiblemem: readwrite) uwtable
 define hidden noundef zeroext i1 @pm_newline_list_init(ptr nocapture noundef writeonly initializes((24, 32)) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = tail call noalias ptr @calloc(i64 noundef %2, i64 noundef 8) #6
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %4, ptr %5, align 8
   %6 = icmp ne ptr %4, null
   br i1 %6, label %7, label %10
 
 7:                                                ; preds = %3
   store ptr %1, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 1, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %2, ptr %9, align 8
   br label %10
 
@@ -28,15 +28,15 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 
 ; Function Attrs: mustprogress nounwind sspstrong willreturn uwtable
 define hidden noundef zeroext i1 @pm_newline_list_append(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8
   %7 = icmp eq i64 %4, %6
   br i1 %7, label %8, label %17
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
   %11 = mul i64 %4, 3
   %12 = lshr i64 %11, 1
@@ -60,7 +60,7 @@ define hidden noundef zeroext i1 @pm_newline_list_append(ptr nocapture noundef %
   %21 = ptrtoint ptr %19 to i64
   %22 = add i64 %20, 1
   %23 = sub i64 %22, %21
-  %24 = getelementptr inbounds i8, ptr %0, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %25 = load ptr, ptr %24, align 8
   %26 = add i64 %18, 1
   store i64 %26, ptr %3, align 8
@@ -85,10 +85,10 @@ define hidden i64 @pm_newline_list_line_column(ptr nocapture noundef readonly %0
   %5 = ptrtoint ptr %1 to i64
   %6 = ptrtoint ptr %4 to i64
   %7 = sub i64 %5, %6
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i64, ptr %8, align 8
   %10 = add i64 %9, -1
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load ptr, ptr %11, align 8
   br label %13
 
@@ -138,7 +138,7 @@ define hidden i64 @pm_newline_list_line_column(ptr nocapture noundef readonly %0
 
 ; Function Attrs: mustprogress nounwind sspstrong willreturn uwtable
 define hidden void @pm_newline_list_free(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   tail call void @free(ptr noundef %3) #7
   ret void

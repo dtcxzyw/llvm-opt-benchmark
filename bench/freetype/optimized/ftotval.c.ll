@@ -23,7 +23,7 @@ define i32 @FT_OpenType_Validate(ptr noundef %0, i32 noundef %1, ptr noundef %2,
   br i1 %or.cond7, label %14, label %21
 
 14:                                               ; preds = %8
-  %15 = getelementptr inbounds i8, ptr %0, i64 176
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %16 = load ptr, ptr %15, align 8
   %17 = tail call ptr @ft_module_get_service(ptr noundef %16, ptr noundef nonnull @.str, i8 noundef zeroext 1) #2
   %.not31 = icmp eq ptr %17, null
@@ -47,7 +47,7 @@ define void @FT_OpenType_Free(ptr noundef readonly %0, ptr noundef %1) local_unn
   br i1 %.not, label %6, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 184
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %5 = load ptr, ptr %4, align 8
   tail call void @ft_mem_free(ptr noundef %5, ptr noundef %1) #2
   br label %6

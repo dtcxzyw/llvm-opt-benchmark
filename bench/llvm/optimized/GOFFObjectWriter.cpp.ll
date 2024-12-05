@@ -35,12 +35,12 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_116GOFFObjectWriterESt14default_deleteIS1_EED2Ev
   store ptr null, ptr %1, align 8, !noalias !4
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN4llvm14MCObjectWriterE, i64 16), ptr %3, align 8, !noalias !4
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %6, i64 noundef 0) #10, !noalias !4
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #10, !noalias !4
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 88
-  %9 = getelementptr inbounds i8, ptr %3, i64 104
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(26) %7, i8 0, i64 26, i1 false), !noalias !4
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull %9, i64 noundef 0) #10, !noalias !4
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN12_GLOBAL__N_116GOFFObjectWriterE, i64 16), ptr %3, align 8, !noalias !4
@@ -116,7 +116,7 @@ _ZN12_GLOBAL__N_111GOFFOstreamD2Ev.exit:          ; preds = %16, %19
 
 _ZNKSt14default_deleteIN4llvm24MCGOFFObjectTargetWriterEEclEPS1_.exit.i: ; preds = %_ZN12_GLOBAL__N_111GOFFOstreamD2Ev.exit
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load ptr, ptr %23, align 8
   tail call void %24(ptr noundef nonnull align 8 dereferenceable(8) %21) #10
   br label %_ZNSt10unique_ptrIN4llvm24MCGOFFObjectTargetWriterESt14default_deleteIS1_EED2Ev.exit
@@ -171,7 +171,7 @@ _ZN12_GLOBAL__N_111GOFFOstreamD2Ev.exit.i:        ; preds = %19, %16
 
 _ZNKSt14default_deleteIN4llvm24MCGOFFObjectTargetWriterEEclEPS1_.exit.i.i: ; preds = %_ZN12_GLOBAL__N_111GOFFOstreamD2Ev.exit.i
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load ptr, ptr %23, align 8
   tail call void %24(ptr noundef nonnull align 8 dereferenceable(8) %21) #10
   br label %_ZN12_GLOBAL__N_116GOFFObjectWriterD2Ev.exit
@@ -210,7 +210,7 @@ define internal noundef i64 @_ZN12_GLOBAL__N_116GOFFObjectWriter11writeObjectERN
   %11 = alloca i32, align 4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 80
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 80
   %15 = load ptr, ptr %14, align 8
   %16 = tail call noundef i64 %15(ptr noundef nonnull align 8 dereferenceable(48) %12) #10
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -358,7 +358,7 @@ _ZN12_GLOBAL__N_111GOFFOstream9newRecordEN4llvm4GOFF10RecordTypeEm.exit.i: ; pre
 
 _ZN12_GLOBAL__N_116GOFFObjectWriter8writeEndEv.exit: ; preds = %80, %83
   %84 = load ptr, ptr %12, align 8
-  %85 = getelementptr inbounds i8, ptr %84, i64 80
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 80
   %86 = load ptr, ptr %85, align 8
   %87 = call noundef i64 %86(ptr noundef nonnull align 8 dereferenceable(48) %12) #10
   %88 = load ptr, ptr %17, align 8
@@ -474,7 +474,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm11raw_ostream12is_displa
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm11raw_ostream10has_colorsEv(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(48) %0) #10
   ret i1 %5
@@ -522,7 +522,7 @@ define internal void @_ZN12_GLOBAL__N_111GOFFOstream10write_implEPKcm(ptr nocapt
   br label %_ZN4llvm11raw_ostreamlsEh.exit.i
 
 26:                                               ; preds = %7
-  %27 = getelementptr inbounds i8, ptr %21, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %21, i64 1
   store ptr %27, ptr %20, align 8
   store i8 3, ptr %21, align 1
   br label %_ZN4llvm11raw_ostreamlsEh.exit.i
@@ -541,7 +541,7 @@ _ZN4llvm11raw_ostreamlsEh.exit.i:                 ; preds = %26, %24
   br label %_ZN4llvm11raw_ostreamlsEh.exit7.i
 
 34:                                               ; preds = %_ZN4llvm11raw_ostreamlsEh.exit.i
-  %35 = getelementptr inbounds i8, ptr %29, i64 1
+  %35 = getelementptr inbounds nuw i8, ptr %29, i64 1
   store ptr %35, ptr %28, align 8
   store i8 %spec.select.i, ptr %29, align 1
   br label %_ZN4llvm11raw_ostreamlsEh.exit7.i
@@ -560,7 +560,7 @@ _ZN4llvm11raw_ostreamlsEh.exit7.i:                ; preds = %34, %32
   br label %_ZN12_GLOBAL__N_111GOFFOstream17writeRecordPrefixERN4llvm11raw_ostreamENS1_4GOFF10RecordTypeEmh.exit
 
 42:                                               ; preds = %_ZN4llvm11raw_ostreamlsEh.exit7.i
-  %43 = getelementptr inbounds i8, ptr %37, i64 1
+  %43 = getelementptr inbounds nuw i8, ptr %37, i64 1
   store ptr %43, ptr %36, align 8
   store i8 0, ptr %37, align 1
   br label %_ZN12_GLOBAL__N_111GOFFOstream17writeRecordPrefixERN4llvm11raw_ostreamENS1_4GOFF10RecordTypeEmh.exit
@@ -617,7 +617,7 @@ _ZN12_GLOBAL__N_111GOFFOstream17writeRecordPrefixERN4llvm11raw_ostreamENS1_4GOFF
   br label %_ZN4llvm11raw_ostreamlsEh.exit.i20
 
 69:                                               ; preds = %56
-  %70 = getelementptr inbounds i8, ptr %64, i64 1
+  %70 = getelementptr inbounds nuw i8, ptr %64, i64 1
   store ptr %70, ptr %63, align 8
   store i8 3, ptr %64, align 1
   br label %_ZN4llvm11raw_ostreamlsEh.exit.i20
@@ -636,7 +636,7 @@ _ZN4llvm11raw_ostreamlsEh.exit.i20:               ; preds = %69, %67
   br label %_ZN4llvm11raw_ostreamlsEh.exit7.i23
 
 77:                                               ; preds = %_ZN4llvm11raw_ostreamlsEh.exit.i20
-  %78 = getelementptr inbounds i8, ptr %72, i64 1
+  %78 = getelementptr inbounds nuw i8, ptr %72, i64 1
   store ptr %78, ptr %71, align 8
   store i8 %spec.select.i18, ptr %72, align 1
   br label %_ZN4llvm11raw_ostreamlsEh.exit7.i23
@@ -655,7 +655,7 @@ _ZN4llvm11raw_ostreamlsEh.exit7.i23:              ; preds = %77, %75
   br label %_ZN12_GLOBAL__N_111GOFFOstream17writeRecordPrefixERN4llvm11raw_ostreamENS1_4GOFF10RecordTypeEmh.exit26.backedge
 
 85:                                               ; preds = %_ZN4llvm11raw_ostreamlsEh.exit7.i23
-  %86 = getelementptr inbounds i8, ptr %80, i64 1
+  %86 = getelementptr inbounds nuw i8, ptr %80, i64 1
   store ptr %86, ptr %79, align 8
   store i8 0, ptr %80, align 1
   br label %_ZN12_GLOBAL__N_111GOFFOstream17writeRecordPrefixERN4llvm11raw_ostreamENS1_4GOFF10RecordTypeEmh.exit26.backedge
@@ -672,7 +672,7 @@ define internal noundef i64 @_ZNK12_GLOBAL__N_111GOFFOstream11current_posEv(ptr 
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 80
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef i64 %6(ptr noundef nonnull align 8 dereferenceable(48) %3) #10
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 32

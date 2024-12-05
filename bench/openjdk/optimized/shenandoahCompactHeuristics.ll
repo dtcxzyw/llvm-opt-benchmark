@@ -100,7 +100,7 @@ define hidden void @_ZN27ShenandoahCompactHeuristicsC2EP19ShenandoahSpaceInfo(pt
   br i1 %6, label %11, label %7
 
 7:                                                ; preds = %4
-  %8 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %8 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %10, label %9
 
@@ -122,7 +122,7 @@ define hidden void @_ZN27ShenandoahCompactHeuristicsC2EP19ShenandoahSpaceInfo(pt
   br i1 %15, label %20, label %16
 
 16:                                               ; preds = %13
-  %17 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %17 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not2 = icmp eq ptr %17, null
   br i1 %.not2, label %19, label %18
 
@@ -144,7 +144,7 @@ define hidden void @_ZN27ShenandoahCompactHeuristicsC2EP19ShenandoahSpaceInfo(pt
   br i1 %24, label %29, label %25
 
 25:                                               ; preds = %22
-  %26 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %26 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not3 = icmp eq ptr %26, null
   br i1 %.not3, label %28, label %27
 
@@ -166,7 +166,7 @@ define hidden void @_ZN27ShenandoahCompactHeuristicsC2EP19ShenandoahSpaceInfo(pt
   br i1 %33, label %38, label %34
 
 34:                                               ; preds = %31
-  %35 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %35 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not4 = icmp eq ptr %35, null
   br i1 %.not4, label %37, label %36
 
@@ -183,7 +183,7 @@ define hidden void @_ZN27ShenandoahCompactHeuristicsC2EP19ShenandoahSpaceInfo(pt
   br i1 %39, label %40, label %44
 
 40:                                               ; preds = %38
-  %41 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %41 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not5 = icmp eq ptr %41, null
   br i1 %.not5, label %43, label %42
 
@@ -200,7 +200,7 @@ define hidden void @_ZN27ShenandoahCompactHeuristicsC2EP19ShenandoahSpaceInfo(pt
   br i1 %45, label %46, label %50
 
 46:                                               ; preds = %44
-  %47 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %47 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not6 = icmp eq ptr %47, null
   br i1 %.not6, label %49, label %48
 
@@ -217,7 +217,7 @@ define hidden void @_ZN27ShenandoahCompactHeuristicsC2EP19ShenandoahSpaceInfo(pt
   br i1 %51, label %52, label %56
 
 52:                                               ; preds = %50
-  %53 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %53 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not7 = icmp eq ptr %53, null
   br i1 %.not7, label %55, label %54
 
@@ -234,7 +234,7 @@ define hidden void @_ZN27ShenandoahCompactHeuristicsC2EP19ShenandoahSpaceInfo(pt
   br i1 %57, label %58, label %62
 
 58:                                               ; preds = %56
-  %59 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %59 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not8 = icmp eq ptr %59, null
   br i1 %.not8, label %61, label %60
 
@@ -251,7 +251,7 @@ define hidden void @_ZN27ShenandoahCompactHeuristicsC2EP19ShenandoahSpaceInfo(pt
   br i1 %63, label %64, label %68
 
 64:                                               ; preds = %62
-  %65 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %65 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not9 = icmp eq ptr %65, null
   br i1 %.not9, label %67, label %66
 
@@ -282,10 +282,10 @@ define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN27ShenandoahCompactHeuristics15should_start_gcEv(ptr noundef nonnull align 8 dereferenceable(193) %0) unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef i64 %6(ptr noundef nonnull align 8 dereferenceable(8) %3) #6
   %8 = load ptr, ptr %2, align 8
@@ -294,7 +294,7 @@ define hidden noundef zeroext i1 @_ZN27ShenandoahCompactHeuristics15should_start
   %11 = tail call noundef i64 %10(ptr noundef nonnull align 8 dereferenceable(8) %8) #6
   %12 = load ptr, ptr %2, align 8
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = tail call noundef i64 %15(ptr noundef nonnull align 8 dereferenceable(8) %12) #6
   %17 = sub i64 %7, %11
@@ -308,7 +308,7 @@ define hidden noundef zeroext i1 @_ZN27ShenandoahCompactHeuristics15should_start
   br i1 %24, label %25, label %44
 
 25:                                               ; preds = %1
-  %26 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %26 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not63 = icmp eq ptr %26, null
   br i1 %.not63, label %72, label %27
 
@@ -369,14 +369,14 @@ _Z25proper_unit_for_byte_sizem.exit31:            ; preds = %.thread51, %_Z24byt
 44:                                               ; preds = %1
   %45 = load ptr, ptr %2, align 8
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 24
   %48 = load ptr, ptr %47, align 8
   %49 = tail call noundef i64 %48(ptr noundef nonnull align 8 dereferenceable(8) %45) #6
   %50 = icmp ugt i64 %49, %21
   br i1 %50, label %51, label %70
 
 51:                                               ; preds = %44
-  %52 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %52 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not = icmp eq ptr %52, null
   br i1 %.not, label %72, label %53
 
@@ -449,7 +449,7 @@ declare noundef zeroext i1 @_ZN20ShenandoahHeuristics15should_start_gcEv(ptr nou
 define hidden void @_ZN27ShenandoahCompactHeuristics37choose_collection_set_from_regiondataEP23ShenandoahCollectionSetPN20ShenandoahHeuristics10RegionDataEmm(ptr nocapture nonnull readnone align 8 %0, ptr noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, i64 noundef %4) unnamed_addr #0 align 2 {
   %6 = mul i64 %4, 3
   %7 = lshr i64 %6, 2
-  %8 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %8 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %26, label %9
 
@@ -520,7 +520,7 @@ _Z25proper_unit_for_byte_sizem.exit26:            ; preds = %.thread34, %_Z24byt
   %.01838 = phi i64 [ %52, %51 ], [ 0, %26 ]
   %31 = getelementptr inbounds %"struct.ShenandoahHeuristics::RegionData", ptr %2, i64 %.01838
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 72
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 72
   %34 = load volatile i64, ptr %33, align 8
   %35 = shl i64 %34, 3
   %36 = add i64 %35, %.039
@@ -528,9 +528,9 @@ _Z25proper_unit_for_byte_sizem.exit26:            ; preds = %.thread34, %_Z24byt
   br i1 %37, label %38, label %51
 
 38:                                               ; preds = %.lr.ph
-  %39 = getelementptr inbounds i8, ptr %32, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %32, i64 48
+  %41 = getelementptr inbounds nuw i8, ptr %32, i64 48
   %42 = load ptr, ptr %41, align 8
   %43 = ptrtoint ptr %42 to i64
   %44 = ptrtoint ptr %40 to i64

@@ -122,7 +122,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier1
 15:                                               ; preds = %12
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i = load ptr, ptr %16, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 16
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8
   %17 = tail call { ptr, i64 } @_ZN4llvm7msgpack7DocNode10fromStringENS_9StringRefES2_(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i, ptr nonnull @.str, i64 0) #5
   %18 = load ptr, ptr %1, align 8
@@ -169,7 +169,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier1
 12:                                               ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load ptr, ptr %13, align 8
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %1, i64 16
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   %14 = tail call { ptr, i64 } @_ZN4llvm7msgpack7DocNode10fromStringENS_9StringRefES2_(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr %.sroa.0.0.copyload.i.i, i64 %.sroa.2.0.copyload.i.i, ptr nonnull @.str, i64 0) #5
   %15 = load ptr, ptr %1, align 8
@@ -198,7 +198,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier1
 24:                                               ; preds = %21
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i8 = load ptr, ptr %25, align 8
-  %.sroa.2.0..sroa_idx.i.i9 = getelementptr inbounds i8, ptr %1, i64 16
+  %.sroa.2.0..sroa_idx.i.i9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.2.0.copyload.i.i10 = load i64, ptr %.sroa.2.0..sroa_idx.i.i9, align 8
   %26 = tail call { ptr, i64 } @_ZN4llvm7msgpack7DocNode10fromStringENS_9StringRefES2_(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr %.sroa.0.0.copyload.i.i8, i64 %.sroa.2.0.copyload.i.i10, ptr nonnull @.str, i64 0) #5
   %27 = load ptr, ptr %1, align 8
@@ -270,22 +270,22 @@ _ZN4llvm7msgpack7DocNode8getArrayEb.exit._crit_edge: ; preds = %_ZN4llvm7msgpack
   br i1 %27, label %28, label %_ZN4llvm6all_ofIRNS_7msgpack12ArrayDocNodeENS_12function_refIFbRNS1_7DocNodeEEEEEEbOT_T0_.exit
 
 28:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %29 = getelementptr inbounds i8, ptr %.sroa.038.048.i.i.i.i.i, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %.sroa.038.048.i.i.i.i.i, i64 24
   %30 = tail call noundef zeroext i1 %2(i64 noundef %3, ptr noundef nonnull align 8 dereferenceable(24) %29) #5
   br i1 %30, label %31, label %_ZN4llvm6all_ofIRNS_7msgpack12ArrayDocNodeENS_12function_refIFbRNS1_7DocNodeEEEEEEbOT_T0_.exit
 
 31:                                               ; preds = %28
-  %32 = getelementptr inbounds i8, ptr %.sroa.038.048.i.i.i.i.i, i64 48
+  %32 = getelementptr inbounds nuw i8, ptr %.sroa.038.048.i.i.i.i.i, i64 48
   %33 = tail call noundef zeroext i1 %2(i64 noundef %3, ptr noundef nonnull align 8 dereferenceable(24) %32) #5
   br i1 %33, label %34, label %_ZN4llvm6all_ofIRNS_7msgpack12ArrayDocNodeENS_12function_refIFbRNS1_7DocNodeEEEEEEbOT_T0_.exit
 
 34:                                               ; preds = %31
-  %35 = getelementptr inbounds i8, ptr %.sroa.038.048.i.i.i.i.i, i64 72
+  %35 = getelementptr inbounds nuw i8, ptr %.sroa.038.048.i.i.i.i.i, i64 72
   %36 = tail call noundef zeroext i1 %2(i64 noundef %3, ptr noundef nonnull align 8 dereferenceable(24) %35) #5
   br i1 %36, label %37, label %_ZN4llvm6all_ofIRNS_7msgpack12ArrayDocNodeENS_12function_refIFbRNS1_7DocNodeEEEEEEbOT_T0_.exit
 
 37:                                               ; preds = %34
-  %38 = getelementptr inbounds i8, ptr %.sroa.038.048.i.i.i.i.i, i64 96
+  %38 = getelementptr inbounds nuw i8, ptr %.sroa.038.048.i.i.i.i.i, i64 96
   %39 = add nsw i64 %.049.i.i.i.i.i, -1
   %40 = icmp sgt i64 %.049.i.i.i.i.i, 1
   br i1 %40, label %.lr.ph.i.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i.i, !llvm.loop !4
@@ -310,7 +310,7 @@ _ZN4llvm7msgpack7DocNode8getArrayEb.exit._crit_edge: ; preds = %_ZN4llvm7msgpack
   br i1 %43, label %44, label %_ZN4llvm6all_ofIRNS_7msgpack12ArrayDocNodeENS_12function_refIFbRNS1_7DocNodeEEEEEEbOT_T0_.exit
 
 44:                                               ; preds = %42
-  %45 = getelementptr inbounds i8, ptr %.sroa.038.0.lcssa.i.i.i.i.i, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %.sroa.038.0.lcssa.i.i.i.i.i, i64 24
   br label %46
 
 46:                                               ; preds = %44, %._crit_edge.i.i.i.i.i
@@ -319,7 +319,7 @@ _ZN4llvm7msgpack7DocNode8getArrayEb.exit._crit_edge: ; preds = %_ZN4llvm7msgpack
   br i1 %47, label %48, label %_ZN4llvm6all_ofIRNS_7msgpack12ArrayDocNodeENS_12function_refIFbRNS1_7DocNodeEEEEEEbOT_T0_.exit
 
 48:                                               ; preds = %46
-  %49 = getelementptr inbounds i8, ptr %.sroa.038.1.i.i.i.i.i, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %.sroa.038.1.i.i.i.i.i, i64 24
   br label %50
 
 50:                                               ; preds = %48, %._crit_edge.i.i.i.i.i
@@ -343,7 +343,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier1
   %7 = tail call ptr @_ZN4llvm7msgpack10MapDocNode4findENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr %2, i64 %3) #5
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = icmp eq ptr %7, %10
   br i1 %11, label %12, label %14
 
@@ -369,12 +369,12 @@ declare ptr @_ZN4llvm7msgpack10MapDocNode4findENS_9StringRefE(ptr noundef nonnul
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier17verifyScalarEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS4_4TypeENS_12function_refIFbRNS4_7DocNodeEEEE(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr %2, i64 %3, i1 noundef zeroext %4, i8 noundef zeroext %5, ptr nocapture noundef readonly byval(%"class.llvm::function_ref") align 8 %6) local_unnamed_addr #0 align 2 {
   %.sroa.2.16.copyload = load ptr, ptr %6, align 8
-  %.sroa.4.16..sroa_idx = getelementptr inbounds i8, ptr %6, i64 8
+  %.sroa.4.16..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.4.16.copyload = load i64, ptr %.sroa.4.16..sroa_idx, align 8
   %8 = tail call ptr @_ZN4llvm7msgpack10MapDocNode4findENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr %2, i64 %3) #5
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = icmp eq ptr %8, %11
   br i1 %12, label %13, label %15
 
@@ -405,7 +405,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier1
 26:                                               ; preds = %23
   %27 = getelementptr inbounds nuw i8, ptr %8, i64 64
   %.sroa.0.0.copyload.i.i.i.i = load ptr, ptr %27, align 8
-  %.sroa.2.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 72
+  %.sroa.2.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 72
   %.sroa.2.0.copyload.i.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i.i, align 8
   %28 = tail call { ptr, i64 } @_ZN4llvm7msgpack7DocNode10fromStringENS_9StringRefES2_(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr %.sroa.0.0.copyload.i.i.i.i, i64 %.sroa.2.0.copyload.i.i.i.i, ptr nonnull @.str, i64 0) #5
   %29 = load ptr, ptr %16, align 8
@@ -432,7 +432,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier1
   %6 = tail call ptr @_ZN4llvm7msgpack10MapDocNode4findENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr %2, i64 %3) #5
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = icmp eq ptr %6, %9
   br i1 %10, label %11, label %13
 
@@ -463,7 +463,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier1
 24:                                               ; preds = %21
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %.sroa.0.0.copyload.i.i.i.i.i = load ptr, ptr %25, align 8
-  %.sroa.2.0..sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 72
+  %.sroa.2.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 72
   %.sroa.2.0.copyload.i.i.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i, align 8
   %26 = tail call { ptr, i64 } @_ZN4llvm7msgpack7DocNode10fromStringENS_9StringRefES2_(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr %.sroa.0.0.copyload.i.i.i.i.i, i64 %.sroa.2.0.copyload.i.i.i.i.i, ptr nonnull @.str, i64 0) #5
   %27 = load ptr, ptr %14, align 8
@@ -492,7 +492,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier1
 36:                                               ; preds = %33
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %.sroa.0.0.copyload.i.i8.i.i.i = load ptr, ptr %37, align 8
-  %.sroa.2.0..sroa_idx.i.i9.i.i.i = getelementptr inbounds i8, ptr %6, i64 72
+  %.sroa.2.0..sroa_idx.i.i9.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 72
   %.sroa.2.0.copyload.i.i10.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i9.i.i.i, align 8
   %38 = tail call { ptr, i64 } @_ZN4llvm7msgpack7DocNode10fromStringENS_9StringRefES2_(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr %.sroa.0.0.copyload.i.i8.i.i.i, i64 %.sroa.2.0.copyload.i.i10.i.i.i, ptr nonnull @.str, i64 0) #5
   %39 = load ptr, ptr %14, align 8
@@ -531,7 +531,7 @@ _ZN4llvm7msgpack7DocNode6getMapEb.exit:           ; preds = %2
   %17 = tail call ptr @_ZN4llvm7msgpack10MapDocNode4findENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr nonnull @.str.1, i64 5) #5
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = icmp eq ptr %17, %20
   br i1 %21, label %27, label %22
 
@@ -546,7 +546,7 @@ _ZN4llvm7msgpack7DocNode6getMapEb.exit:           ; preds = %2
 27:                                               ; preds = %22, %_ZN4llvm7msgpack7DocNode6getMapEb.exit
   %28 = tail call ptr @_ZN4llvm7msgpack10MapDocNode4findENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr nonnull @.str.2, i64 10) #5
   %29 = load ptr, ptr %18, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = icmp eq ptr %28, %30
   br i1 %31, label %37, label %32
 
@@ -569,7 +569,7 @@ _ZN4llvm7msgpack7DocNode6getMapEb.exit:           ; preds = %2
 41:                                               ; preds = %39
   %42 = tail call ptr @_ZN4llvm7msgpack10MapDocNode4findENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr nonnull @.str.5, i64 11) #5
   %43 = load ptr, ptr %18, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %45 = icmp eq ptr %42, %44
   br i1 %45, label %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier17verifyScalarEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS4_4TypeENS_12function_refIFbRNS4_7DocNodeEEEE.exit, label %46
 
@@ -657,7 +657,7 @@ _ZN4llvm7msgpack7DocNode6getMapEb.exit:           ; preds = %2
   %14 = tail call ptr @_ZN4llvm7msgpack10MapDocNode4findENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr nonnull @.str.1, i64 5) #5
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = icmp eq ptr %14, %17
   br i1 %18, label %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier17verifyScalarEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS4_4TypeENS_12function_refIFbRNS4_7DocNodeEEEE.exit.thread, label %19
 
@@ -672,7 +672,7 @@ _ZN4llvm7msgpack7DocNode6getMapEb.exit:           ; preds = %2
 _ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier17verifyScalarEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS4_4TypeENS_12function_refIFbRNS4_7DocNodeEEEE.exit: ; preds = %19
   %24 = tail call ptr @_ZN4llvm7msgpack10MapDocNode4findENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr nonnull @.str.14, i64 7) #5
   %25 = load ptr, ptr %15, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = icmp eq ptr %24, %26
   br i1 %27, label %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier17verifyScalarEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS4_4TypeENS_12function_refIFbRNS4_7DocNodeEEEE.exit.thread, label %28
 
@@ -687,7 +687,7 @@ _ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier17verifyScalarEntryERNS_7msgpack10MapD
 _ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier17verifyScalarEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS4_4TypeENS_12function_refIFbRNS4_7DocNodeEEEE.exit32: ; preds = %28
   %33 = tail call ptr @_ZN4llvm7msgpack10MapDocNode4findENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr nonnull @.str.15, i64 9) #5
   %34 = load ptr, ptr %15, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = icmp eq ptr %33, %35
   br i1 %36, label %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier17verifyScalarEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS4_4TypeENS_12function_refIFbRNS4_7DocNodeEEEE.exit39.thread117, label %37
 
@@ -707,7 +707,7 @@ _ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier17verifyScalarEntryERNS_7msgpack10MapD
   store ptr %0, ptr %3, align 8
   %43 = tail call ptr @_ZN4llvm7msgpack10MapDocNode4findENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr nonnull @.str.16, i64 17) #5
   %44 = load ptr, ptr %15, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %46 = icmp eq ptr %43, %45
   br i1 %46, label %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit.thread, label %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit
 
@@ -721,7 +721,7 @@ _ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNode
   store ptr %0, ptr %4, align 8
   %50 = call ptr @_ZN4llvm7msgpack10MapDocNode4findENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr nonnull @.str.17, i64 5) #5
   %51 = load ptr, ptr %15, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %53 = icmp eq ptr %50, %52
   br i1 %53, label %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit41.thread, label %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit41
 
@@ -735,7 +735,7 @@ _ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNode
   store ptr %0, ptr %5, align 8
   %57 = call ptr @_ZN4llvm7msgpack10MapDocNode4findENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr nonnull @.str.18, i64 20) #5
   %58 = load ptr, ptr %15, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %60 = icmp eq ptr %57, %59
   br i1 %60, label %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit43.thread, label %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit43
 
@@ -749,7 +749,7 @@ _ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNode
   store ptr %0, ptr %6, align 8
   %64 = call ptr @_ZN4llvm7msgpack10MapDocNode4findENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr nonnull @.str.19, i64 20) #5
   %65 = load ptr, ptr %15, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %67 = icmp eq ptr %64, %66
   br i1 %67, label %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit45.thread, label %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit45
 
@@ -839,7 +839,7 @@ _ZN4llvm7msgpack7DocNode6getMapEb.exit:           ; preds = %2
   %7 = tail call ptr @_ZN4llvm7msgpack10MapDocNode4findENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr nonnull @.str.35, i64 14) #5
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = icmp eq ptr %7, %10
   br i1 %11, label %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit10, label %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit
 
@@ -852,7 +852,7 @@ _ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNode
   br i1 %14, label %_ZN4llvm7msgpack7DocNode8getArrayEb.exit.i.i.i, label %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit10
 
 _ZN4llvm7msgpack7DocNode8getArrayEb.exit.i.i.i:   ; preds = %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit
-  %15 = getelementptr inbounds i8, ptr %7, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %.val2.i = load ptr, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %.val2.i, i64 8
   %17 = load ptr, ptr %16, align 8
@@ -885,7 +885,7 @@ _ZN4llvm7msgpack7DocNode8getArrayEb.exit.i.i.i:   ; preds = %_ZN4llvm6AMDGPU5HSA
 31:                                               ; preds = %28
   %32 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %.sroa.0.0.copyload.i.i.i.i.i.i.i = load ptr, ptr %32, align 8
-  %.sroa.2.0..sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %18, i64 16
+  %.sroa.2.0..sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %18, i64 16
   %.sroa.2.0.copyload.i.i.i.i.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i.i.i, align 8
   %33 = tail call { ptr, i64 } @_ZN4llvm7msgpack7DocNode10fromStringENS_9StringRefES2_(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr %.sroa.0.0.copyload.i.i.i.i.i.i.i, i64 %.sroa.2.0.copyload.i.i.i.i.i.i.i, ptr nonnull @.str, i64 0) #5
   %34 = load ptr, ptr %18, align 8
@@ -914,7 +914,7 @@ _ZN4llvm7msgpack7DocNode8getArrayEb.exit.i.i.i:   ; preds = %_ZN4llvm6AMDGPU5HSA
 43:                                               ; preds = %40
   %44 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %.sroa.0.0.copyload.i.i8.i.i.i.i.i = load ptr, ptr %44, align 8
-  %.sroa.2.0..sroa_idx.i.i9.i.i.i.i.i = getelementptr inbounds i8, ptr %18, i64 16
+  %.sroa.2.0..sroa_idx.i.i9.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %18, i64 16
   %.sroa.2.0.copyload.i.i10.i.i.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i9.i.i.i.i.i, align 8
   %45 = tail call { ptr, i64 } @_ZN4llvm7msgpack7DocNode10fromStringENS_9StringRefES2_(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr %.sroa.0.0.copyload.i.i8.i.i.i.i.i, i64 %.sroa.2.0.copyload.i.i10.i.i.i.i.i, ptr nonnull @.str, i64 0) #5
   %46 = load ptr, ptr %18, align 8
@@ -924,7 +924,7 @@ _ZN4llvm7msgpack7DocNode8getArrayEb.exit.i.i.i:   ; preds = %_ZN4llvm6AMDGPU5HSA
   br i1 %.not15.i11.i.i.i.i.i, label %49, label %"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier6verifyES3_E3$_0EEblS3_.exit"
 
 49:                                               ; preds = %43, %.thread.i.i.i.i.i, %31, %27
-  %50 = getelementptr inbounds i8, ptr %18, i64 24
+  %50 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %51 = load ptr, ptr %50, align 8
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %53 = load i8, ptr %52, align 8
@@ -944,9 +944,9 @@ _ZN4llvm7msgpack7DocNode8getArrayEb.exit.i.i.i:   ; preds = %_ZN4llvm6AMDGPU5HSA
   br i1 %or.cond.not.i.i.i.i8.i.i, label %.thread.i.i.i14.i.i, label %60
 
 60:                                               ; preds = %57
-  %61 = getelementptr inbounds i8, ptr %18, i64 32
+  %61 = getelementptr inbounds nuw i8, ptr %18, i64 32
   %.sroa.0.0.copyload.i.i.i.i.i9.i.i = load ptr, ptr %61, align 8
-  %.sroa.2.0..sroa_idx.i.i.i.i.i10.i.i = getelementptr inbounds i8, ptr %18, i64 40
+  %.sroa.2.0..sroa_idx.i.i.i.i.i10.i.i = getelementptr inbounds nuw i8, ptr %18, i64 40
   %.sroa.2.0.copyload.i.i.i.i.i11.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i10.i.i, align 8
   %62 = tail call { ptr, i64 } @_ZN4llvm7msgpack7DocNode10fromStringENS_9StringRefES2_(ptr noundef nonnull align 8 dereferenceable(24) %50, ptr %.sroa.0.0.copyload.i.i.i.i.i9.i.i, i64 %.sroa.2.0.copyload.i.i.i.i.i11.i.i, ptr nonnull @.str, i64 0) #5
   %63 = load ptr, ptr %50, align 8
@@ -973,9 +973,9 @@ _ZN4llvm7msgpack7DocNode8getArrayEb.exit.i.i.i:   ; preds = %_ZN4llvm6AMDGPU5HSA
   br i1 %or.cond.not.i7.i.i.i17.i.i, label %"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier6verifyES3_E3$_0EEblS3_.exit", label %72
 
 72:                                               ; preds = %69
-  %73 = getelementptr inbounds i8, ptr %18, i64 32
+  %73 = getelementptr inbounds nuw i8, ptr %18, i64 32
   %.sroa.0.0.copyload.i.i8.i.i.i18.i.i = load ptr, ptr %73, align 8
-  %.sroa.2.0..sroa_idx.i.i9.i.i.i19.i.i = getelementptr inbounds i8, ptr %18, i64 40
+  %.sroa.2.0..sroa_idx.i.i9.i.i.i19.i.i = getelementptr inbounds nuw i8, ptr %18, i64 40
   %.sroa.2.0.copyload.i.i10.i.i.i20.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i9.i.i.i19.i.i, align 8
   %74 = tail call { ptr, i64 } @_ZN4llvm7msgpack7DocNode10fromStringENS_9StringRefES2_(ptr noundef nonnull align 8 dereferenceable(24) %50, ptr %.sroa.0.0.copyload.i.i8.i.i.i18.i.i, i64 %.sroa.2.0.copyload.i.i10.i.i.i20.i.i, ptr nonnull @.str, i64 0) #5
   %75 = load ptr, ptr %50, align 8
@@ -992,7 +992,7 @@ _ZN4llvm7msgpack7DocNode8getArrayEb.exit.i.i.i:   ; preds = %_ZN4llvm6AMDGPU5HSA
 "_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier6verifyES3_E3$_0EEblS3_.exit.thread62": ; preds = %72, %.thread.i.i.i14.i.i, %60, %56, %"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier6verifyES3_E3$_0EEblS3_.exit"
   %79 = tail call ptr @_ZN4llvm7msgpack10MapDocNode4findENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr nonnull @.str.36, i64 13) #5
   %80 = load ptr, ptr %8, align 8
-  %81 = getelementptr inbounds i8, ptr %80, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 8
   %82 = icmp eq ptr %79, %81
   br i1 %82, label %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit8.thread, label %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit8
 
@@ -1005,7 +1005,7 @@ _ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNode
   br i1 %85, label %86, label %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit10
 
 86:                                               ; preds = %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit8
-  %87 = getelementptr inbounds i8, ptr %79, i64 64
+  %87 = getelementptr inbounds nuw i8, ptr %79, i64 64
   %.val2.i31 = load ptr, ptr %87, align 8
   %.pre7.i.i.i = load ptr, ptr %.val2.i31, align 8
   %.phi.trans.insert8.i.i.i = getelementptr inbounds nuw i8, ptr %.val2.i31, i64 8
@@ -1033,7 +1033,7 @@ _ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNode
   br i1 %.not.i.i.i.i.i, label %94, label %"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier6verifyES3_E3$_1EEblS3_.exit"
 
 94:                                               ; preds = %.lr.ph.i.i.i.i.i.i.i.i
-  %95 = getelementptr inbounds i8, ptr %.sroa.038.048.i.i.i.i.i.i.i.i, i64 24
+  %95 = getelementptr inbounds nuw i8, ptr %.sroa.038.048.i.i.i.i.i.i.i.i, i64 24
   %96 = load ptr, ptr %95, align 8
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 8
   %98 = load i8, ptr %97, align 8
@@ -1041,7 +1041,7 @@ _ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNode
   br i1 %.not.i.i.i2.i.i, label %99, label %"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier6verifyES3_E3$_1EEblS3_.exit.loopexit.split.loop.exit81"
 
 99:                                               ; preds = %94
-  %100 = getelementptr inbounds i8, ptr %.sroa.038.048.i.i.i.i.i.i.i.i, i64 48
+  %100 = getelementptr inbounds nuw i8, ptr %.sroa.038.048.i.i.i.i.i.i.i.i, i64 48
   %101 = load ptr, ptr %100, align 8
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 8
   %103 = load i8, ptr %102, align 8
@@ -1049,7 +1049,7 @@ _ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNode
   br i1 %.not.i.i.i3.i.i, label %104, label %"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier6verifyES3_E3$_1EEblS3_.exit.loopexit.split.loop.exit79"
 
 104:                                              ; preds = %99
-  %105 = getelementptr inbounds i8, ptr %.sroa.038.048.i.i.i.i.i.i.i.i, i64 72
+  %105 = getelementptr inbounds nuw i8, ptr %.sroa.038.048.i.i.i.i.i.i.i.i, i64 72
   %106 = load ptr, ptr %105, align 8
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 8
   %108 = load i8, ptr %107, align 8
@@ -1057,7 +1057,7 @@ _ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNode
   br i1 %.not.i.i.i4.i.i, label %109, label %"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier6verifyES3_E3$_1EEblS3_.exit.loopexit.split.loop.exit"
 
 109:                                              ; preds = %104
-  %110 = getelementptr inbounds i8, ptr %.sroa.038.048.i.i.i.i.i.i.i.i, i64 96
+  %110 = getelementptr inbounds nuw i8, ptr %.sroa.038.048.i.i.i.i.i.i.i.i, i64 96
   %111 = add nsw i64 %.049.i.i.i.i.i.i.i.i, -1
   %112 = icmp sgt i64 %.049.i.i.i.i.i.i.i.i, 1
   br i1 %112, label %.lr.ph.i.i.i.i.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i.i.i.i.i, !llvm.loop !4
@@ -1085,7 +1085,7 @@ _ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNode
   br i1 %.not.i.i.i5.i.i, label %118, label %"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier6verifyES3_E3$_1EEblS3_.exit"
 
 118:                                              ; preds = %114
-  %119 = getelementptr inbounds i8, ptr %.sroa.038.0.lcssa.i.i.i.i.i.i.i.i, i64 24
+  %119 = getelementptr inbounds nuw i8, ptr %.sroa.038.0.lcssa.i.i.i.i.i.i.i.i, i64 24
   br label %120
 
 120:                                              ; preds = %118, %._crit_edge.i.i.i.i.i.i.i.i32
@@ -1097,7 +1097,7 @@ _ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNode
   br i1 %.not.i.i.i6.i.i, label %124, label %"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier6verifyES3_E3$_1EEblS3_.exit"
 
 124:                                              ; preds = %120
-  %125 = getelementptr inbounds i8, ptr %.sroa.038.1.i.i.i.i.i.i.i.i, i64 24
+  %125 = getelementptr inbounds nuw i8, ptr %.sroa.038.1.i.i.i.i.i.i.i.i, i64 24
   br label %126
 
 126:                                              ; preds = %124, %._crit_edge.i.i.i.i.i.i.i.i32
@@ -1110,15 +1110,15 @@ _ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNode
   br label %"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier6verifyES3_E3$_1EEblS3_.exit"
 
 "_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier6verifyES3_E3$_1EEblS3_.exit.loopexit.split.loop.exit": ; preds = %104
-  %130 = getelementptr inbounds i8, ptr %.sroa.038.048.i.i.i.i.i.i.i.i, i64 72
+  %130 = getelementptr inbounds nuw i8, ptr %.sroa.038.048.i.i.i.i.i.i.i.i, i64 72
   br label %"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier6verifyES3_E3$_1EEblS3_.exit"
 
 "_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier6verifyES3_E3$_1EEblS3_.exit.loopexit.split.loop.exit79": ; preds = %99
-  %131 = getelementptr inbounds i8, ptr %.sroa.038.048.i.i.i.i.i.i.i.i, i64 48
+  %131 = getelementptr inbounds nuw i8, ptr %.sroa.038.048.i.i.i.i.i.i.i.i, i64 48
   br label %"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier6verifyES3_E3$_1EEblS3_.exit"
 
 "_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier6verifyES3_E3$_1EEblS3_.exit.loopexit.split.loop.exit81": ; preds = %94
-  %132 = getelementptr inbounds i8, ptr %.sroa.038.048.i.i.i.i.i.i.i.i, i64 24
+  %132 = getelementptr inbounds nuw i8, ptr %.sroa.038.048.i.i.i.i.i.i.i.i, i64 24
   br label %"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier6verifyES3_E3$_1EEblS3_.exit"
 
 "_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier6verifyES3_E3$_1EEblS3_.exit": ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier6verifyES3_E3$_1EEblS3_.exit.loopexit.split.loop.exit", %"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier6verifyES3_E3$_1EEblS3_.exit.loopexit.split.loop.exit79", %"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier6verifyES3_E3$_1EEblS3_.exit.loopexit.split.loop.exit81", %114, %120, %126
@@ -1129,7 +1129,7 @@ _ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNode
 _ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit8.thread: ; preds = %._crit_edge.i.i.i.i.i.i.i.i32, %"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier6verifyES3_E3$_0EEblS3_.exit.thread62", %"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier6verifyES3_E3$_1EEblS3_.exit"
   %134 = tail call ptr @_ZN4llvm7msgpack10MapDocNode4findENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr nonnull @.str.37, i64 14) #5
   %135 = load ptr, ptr %8, align 8
-  %136 = getelementptr inbounds i8, ptr %135, i64 8
+  %136 = getelementptr inbounds nuw i8, ptr %135, i64 8
   %137 = icmp eq ptr %134, %136
   br i1 %137, label %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit10, label %138
 
@@ -1142,7 +1142,7 @@ _ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNode
   br i1 %141, label %142, label %_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNodeENS_9StringRefEbNS_12function_refIFbRNS4_7DocNodeEEEE.exit10
 
 142:                                              ; preds = %138
-  %143 = getelementptr inbounds i8, ptr %134, i64 64
+  %143 = getelementptr inbounds nuw i8, ptr %134, i64 64
   %.val2.i39 = load ptr, ptr %143, align 8
   %.pre7.i.i.i40 = load ptr, ptr %.val2.i39, align 8
   %.phi.trans.insert8.i.i.i41 = getelementptr inbounds nuw i8, ptr %.val2.i39, i64 8
@@ -1162,22 +1162,22 @@ _ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNode
   br i1 %146, label %147, label %_ZN4llvm6all_ofIRNS_7msgpack12ArrayDocNodeENS_12function_refIFbRNS1_7DocNodeEEEEEEbOT_T0_.exit.i.i.i52
 
 147:                                              ; preds = %.lr.ph.i.i.i.i.i.i.i.i55
-  %148 = getelementptr inbounds i8, ptr %.sroa.038.048.i.i.i.i.i.i.i.i57, i64 24
+  %148 = getelementptr inbounds nuw i8, ptr %.sroa.038.048.i.i.i.i.i.i.i.i57, i64 24
   %149 = tail call noundef zeroext i1 @_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier12verifyKernelERNS_7msgpack7DocNodeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(24) %148)
   br i1 %149, label %150, label %_ZN4llvm6all_ofIRNS_7msgpack12ArrayDocNodeENS_12function_refIFbRNS1_7DocNodeEEEEEEbOT_T0_.exit.i.i.i52
 
 150:                                              ; preds = %147
-  %151 = getelementptr inbounds i8, ptr %.sroa.038.048.i.i.i.i.i.i.i.i57, i64 48
+  %151 = getelementptr inbounds nuw i8, ptr %.sroa.038.048.i.i.i.i.i.i.i.i57, i64 48
   %152 = tail call noundef zeroext i1 @_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier12verifyKernelERNS_7msgpack7DocNodeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(24) %151)
   br i1 %152, label %153, label %_ZN4llvm6all_ofIRNS_7msgpack12ArrayDocNodeENS_12function_refIFbRNS1_7DocNodeEEEEEEbOT_T0_.exit.i.i.i52
 
 153:                                              ; preds = %150
-  %154 = getelementptr inbounds i8, ptr %.sroa.038.048.i.i.i.i.i.i.i.i57, i64 72
+  %154 = getelementptr inbounds nuw i8, ptr %.sroa.038.048.i.i.i.i.i.i.i.i57, i64 72
   %155 = tail call noundef zeroext i1 @_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier12verifyKernelERNS_7msgpack7DocNodeE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(24) %154)
   br i1 %155, label %156, label %_ZN4llvm6all_ofIRNS_7msgpack12ArrayDocNodeENS_12function_refIFbRNS1_7DocNodeEEEEEEbOT_T0_.exit.i.i.i52
 
 156:                                              ; preds = %153
-  %157 = getelementptr inbounds i8, ptr %.sroa.038.048.i.i.i.i.i.i.i.i57, i64 96
+  %157 = getelementptr inbounds nuw i8, ptr %.sroa.038.048.i.i.i.i.i.i.i.i57, i64 96
   %158 = add nsw i64 %.049.i.i.i.i.i.i.i.i56, -1
   %159 = icmp sgt i64 %.049.i.i.i.i.i.i.i.i56, 1
   br i1 %159, label %.lr.ph.i.i.i.i.i.i.i.i55, label %._crit_edge.loopexit.i.i.i.i.i.i.i.i58, !llvm.loop !4
@@ -1202,7 +1202,7 @@ _ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNode
   br i1 %162, label %163, label %_ZN4llvm6all_ofIRNS_7msgpack12ArrayDocNodeENS_12function_refIFbRNS1_7DocNodeEEEEEEbOT_T0_.exit.i.i.i52
 
 163:                                              ; preds = %161
-  %164 = getelementptr inbounds i8, ptr %.sroa.038.0.lcssa.i.i.i.i.i.i.i.i49, i64 24
+  %164 = getelementptr inbounds nuw i8, ptr %.sroa.038.0.lcssa.i.i.i.i.i.i.i.i49, i64 24
   br label %165
 
 165:                                              ; preds = %163, %._crit_edge.i.i.i.i.i.i.i.i47
@@ -1211,7 +1211,7 @@ _ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNode
   br i1 %166, label %167, label %_ZN4llvm6all_ofIRNS_7msgpack12ArrayDocNodeENS_12function_refIFbRNS1_7DocNodeEEEEEEbOT_T0_.exit.i.i.i52
 
 167:                                              ; preds = %165
-  %168 = getelementptr inbounds i8, ptr %.sroa.038.1.i.i.i.i.i.i.i.i54, i64 24
+  %168 = getelementptr inbounds nuw i8, ptr %.sroa.038.1.i.i.i.i.i.i.i.i54, i64 24
   br label %169
 
 169:                                              ; preds = %167, %._crit_edge.i.i.i.i.i.i.i.i47
@@ -1232,9 +1232,9 @@ _ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier11verifyEntryERNS_7msgpack10MapDocNode
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal fastcc noundef zeroext i1 @"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier16verifyKernelArgsES3_E3$_0EEblS3_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val = load ptr, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.val1 = load i64, ptr %3, align 8
   switch i64 %.val1, label %"_ZZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier16verifyKernelArgsERNS_7msgpack7DocNodeEENK3$_0clES6_.exit" [
     i64 8, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i
@@ -1428,9 +1428,9 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i238.i:         ; preds = %_ZN4llvmeqENS_9Stri
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef zeroext i1 @"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier16verifyKernelArgsES3_E3$_1EEblS3_"(i64 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) #3 align 2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val = load ptr, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.val1 = load i64, ptr %4, align 8
   switch i64 %.val1, label %.thread48.i [
     i64 7, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i
@@ -1479,9 +1479,9 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i38.i:          ; preds = %_ZN4llvmeqENS_9Stri
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef zeroext i1 @"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier16verifyKernelArgsES3_E3$_2EEblS3_"(i64 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) #3 align 2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val = load ptr, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.val1 = load i64, ptr %4, align 8
   switch i64 %.val1, label %.thread16.i [
     i64 9, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i
@@ -1513,9 +1513,9 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i14.i:          ; preds = %_ZN4llvmeqENS_9Stri
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef zeroext i1 @"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier16verifyKernelArgsES3_E3$_3EEblS3_"(i64 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) #3 align 2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val = load ptr, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.val1 = load i64, ptr %4, align 8
   switch i64 %.val1, label %.thread16.i [
     i64 9, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i
@@ -1547,9 +1547,9 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i14.i:          ; preds = %_ZN4llvmeqENS_9Stri
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal fastcc noundef zeroext i1 @"_ZN4llvm12function_refIFbRNS_7msgpack7DocNodeEEE11callback_fnIZNS_6AMDGPU5HSAMD2V316MetadataVerifier12verifyKernelES3_E3$_0EEblS3_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val = load ptr, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.val1 = load i64, ptr %3, align 8
   switch i64 %.val1, label %"_ZZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier12verifyKernelERNS_7msgpack7DocNodeEENK3$_0clES6_.exit" [
     i64 8, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i
@@ -1608,7 +1608,7 @@ define internal fastcc noundef zeroext i1 @"_ZN4llvm12function_refIFbRNS_7msgpac
   br i1 %5, label %_ZN4llvm7msgpack7DocNode8getArrayEb.exit.i.i, label %"_ZZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier12verifyKernelERNS_7msgpack7DocNodeEENK3$_1clES6_.exit"
 
 _ZN4llvm7msgpack7DocNode8getArrayEb.exit.i.i:     ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val2 = load ptr, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %.val2, i64 8
   %8 = load ptr, ptr %7, align 8
@@ -1641,7 +1641,7 @@ _ZN4llvm7msgpack7DocNode8getArrayEb.exit.i.i:     ; preds = %2
 22:                                               ; preds = %19
   %23 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %.sroa.0.0.copyload.i.i.i.i.i.i = load ptr, ptr %23, align 8
-  %.sroa.2.0..sroa_idx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 16
+  %.sroa.2.0..sroa_idx.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 16
   %.sroa.2.0.copyload.i.i.i.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i.i, align 8
   %24 = tail call { ptr, i64 } @_ZN4llvm7msgpack7DocNode10fromStringENS_9StringRefES2_(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr %.sroa.0.0.copyload.i.i.i.i.i.i, i64 %.sroa.2.0.copyload.i.i.i.i.i.i, ptr nonnull @.str, i64 0) #5
   %25 = load ptr, ptr %9, align 8
@@ -1670,7 +1670,7 @@ _ZN4llvm7msgpack7DocNode8getArrayEb.exit.i.i:     ; preds = %2
 34:                                               ; preds = %31
   %35 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %.sroa.0.0.copyload.i.i8.i.i.i.i = load ptr, ptr %35, align 8
-  %.sroa.2.0..sroa_idx.i.i9.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 16
+  %.sroa.2.0..sroa_idx.i.i9.i.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 16
   %.sroa.2.0.copyload.i.i10.i.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i9.i.i.i.i, align 8
   %36 = tail call { ptr, i64 } @_ZN4llvm7msgpack7DocNode10fromStringENS_9StringRefES2_(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr %.sroa.0.0.copyload.i.i8.i.i.i.i, i64 %.sroa.2.0.copyload.i.i10.i.i.i.i, ptr nonnull @.str, i64 0) #5
   %37 = load ptr, ptr %9, align 8
@@ -1680,7 +1680,7 @@ _ZN4llvm7msgpack7DocNode8getArrayEb.exit.i.i:     ; preds = %2
   br i1 %.not15.i11.i.i.i.i, label %40, label %_ZN4llvm6all_ofIRNS_7msgpack12ArrayDocNodeENS_12function_refIFbRNS1_7DocNodeEEEEEEbOT_T0_.exit.i.i
 
 40:                                               ; preds = %34, %.thread.i.i.i.i, %22, %18
-  %41 = getelementptr inbounds i8, ptr %9, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %44 = load i8, ptr %43, align 8
@@ -1700,9 +1700,9 @@ _ZN4llvm7msgpack7DocNode8getArrayEb.exit.i.i:     ; preds = %2
   br i1 %or.cond.not.i.i.i.i8.i, label %.thread.i.i.i14.i, label %51
 
 51:                                               ; preds = %48
-  %52 = getelementptr inbounds i8, ptr %9, i64 32
+  %52 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %.sroa.0.0.copyload.i.i.i.i.i9.i = load ptr, ptr %52, align 8
-  %.sroa.2.0..sroa_idx.i.i.i.i.i10.i = getelementptr inbounds i8, ptr %9, i64 40
+  %.sroa.2.0..sroa_idx.i.i.i.i.i10.i = getelementptr inbounds nuw i8, ptr %9, i64 40
   %.sroa.2.0.copyload.i.i.i.i.i11.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i10.i, align 8
   %53 = tail call { ptr, i64 } @_ZN4llvm7msgpack7DocNode10fromStringENS_9StringRefES2_(ptr noundef nonnull align 8 dereferenceable(24) %41, ptr %.sroa.0.0.copyload.i.i.i.i.i9.i, i64 %.sroa.2.0.copyload.i.i.i.i.i11.i, ptr nonnull @.str, i64 0) #5
   %54 = load ptr, ptr %41, align 8
@@ -1729,9 +1729,9 @@ _ZN4llvm7msgpack7DocNode8getArrayEb.exit.i.i:     ; preds = %2
   br i1 %or.cond.not.i7.i.i.i17.i, label %_ZN4llvm6all_ofIRNS_7msgpack12ArrayDocNodeENS_12function_refIFbRNS1_7DocNodeEEEEEEbOT_T0_.exit.i.i, label %63
 
 63:                                               ; preds = %60
-  %64 = getelementptr inbounds i8, ptr %9, i64 32
+  %64 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %.sroa.0.0.copyload.i.i8.i.i.i18.i = load ptr, ptr %64, align 8
-  %.sroa.2.0..sroa_idx.i.i9.i.i.i19.i = getelementptr inbounds i8, ptr %9, i64 40
+  %.sroa.2.0..sroa_idx.i.i9.i.i.i19.i = getelementptr inbounds nuw i8, ptr %9, i64 40
   %.sroa.2.0.copyload.i.i10.i.i.i20.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i9.i.i.i19.i, align 8
   %65 = tail call { ptr, i64 } @_ZN4llvm7msgpack7DocNode10fromStringENS_9StringRefES2_(ptr noundef nonnull align 8 dereferenceable(24) %41, ptr %.sroa.0.0.copyload.i.i8.i.i.i18.i, i64 %.sroa.2.0.copyload.i.i10.i.i.i20.i, ptr nonnull @.str, i64 0) #5
   %66 = load ptr, ptr %41, align 8
@@ -1764,7 +1764,7 @@ define internal fastcc noundef zeroext i1 @"_ZN4llvm12function_refIFbRNS_7msgpac
   br i1 %5, label %6, label %"_ZZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier12verifyKernelERNS_7msgpack7DocNodeEENK3$_2clES6_.exit"
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val2 = load ptr, ptr %7, align 8
   %.pre7.i.i = load ptr, ptr %.val2, align 8
   %.phi.trans.insert8.i.i = getelementptr inbounds nuw i8, ptr %.val2, i64 8
@@ -1784,22 +1784,22 @@ define internal fastcc noundef zeroext i1 @"_ZN4llvm12function_refIFbRNS_7msgpac
   br i1 %10, label %11, label %_ZN4llvm6all_ofIRNS_7msgpack12ArrayDocNodeENS_12function_refIFbRNS1_7DocNodeEEEEEEbOT_T0_.exit.i.i
 
 11:                                               ; preds = %.lr.ph.i.i.i.i.i.i.i
-  %12 = getelementptr inbounds i8, ptr %.sroa.038.048.i.i.i.i.i.i.i, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %.sroa.038.048.i.i.i.i.i.i.i, i64 24
   %13 = tail call noundef zeroext i1 @_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier16verifyKernelArgsERNS_7msgpack7DocNodeE(ptr noundef nonnull readonly align 1 dereferenceable(1) %.val, ptr noundef nonnull align 8 dereferenceable(24) %12)
   br i1 %13, label %14, label %_ZN4llvm6all_ofIRNS_7msgpack12ArrayDocNodeENS_12function_refIFbRNS1_7DocNodeEEEEEEbOT_T0_.exit.i.i
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %.sroa.038.048.i.i.i.i.i.i.i, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %.sroa.038.048.i.i.i.i.i.i.i, i64 48
   %16 = tail call noundef zeroext i1 @_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier16verifyKernelArgsERNS_7msgpack7DocNodeE(ptr noundef nonnull readonly align 1 dereferenceable(1) %.val, ptr noundef nonnull align 8 dereferenceable(24) %15)
   br i1 %16, label %17, label %_ZN4llvm6all_ofIRNS_7msgpack12ArrayDocNodeENS_12function_refIFbRNS1_7DocNodeEEEEEEbOT_T0_.exit.i.i
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %.sroa.038.048.i.i.i.i.i.i.i, i64 72
+  %18 = getelementptr inbounds nuw i8, ptr %.sroa.038.048.i.i.i.i.i.i.i, i64 72
   %19 = tail call noundef zeroext i1 @_ZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier16verifyKernelArgsERNS_7msgpack7DocNodeE(ptr noundef nonnull readonly align 1 dereferenceable(1) %.val, ptr noundef nonnull align 8 dereferenceable(24) %18)
   br i1 %19, label %20, label %_ZN4llvm6all_ofIRNS_7msgpack12ArrayDocNodeENS_12function_refIFbRNS1_7DocNodeEEEEEEbOT_T0_.exit.i.i
 
 20:                                               ; preds = %17
-  %21 = getelementptr inbounds i8, ptr %.sroa.038.048.i.i.i.i.i.i.i, i64 96
+  %21 = getelementptr inbounds nuw i8, ptr %.sroa.038.048.i.i.i.i.i.i.i, i64 96
   %22 = add nsw i64 %.049.i.i.i.i.i.i.i, -1
   %23 = icmp sgt i64 %.049.i.i.i.i.i.i.i, 1
   br i1 %23, label %.lr.ph.i.i.i.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i.i.i.i, !llvm.loop !4
@@ -1824,7 +1824,7 @@ define internal fastcc noundef zeroext i1 @"_ZN4llvm12function_refIFbRNS_7msgpac
   br i1 %26, label %27, label %_ZN4llvm6all_ofIRNS_7msgpack12ArrayDocNodeENS_12function_refIFbRNS1_7DocNodeEEEEEEbOT_T0_.exit.i.i
 
 27:                                               ; preds = %25
-  %28 = getelementptr inbounds i8, ptr %.sroa.038.0.lcssa.i.i.i.i.i.i.i, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %.sroa.038.0.lcssa.i.i.i.i.i.i.i, i64 24
   br label %29
 
 29:                                               ; preds = %27, %._crit_edge.i.i.i.i.i.i.i
@@ -1833,7 +1833,7 @@ define internal fastcc noundef zeroext i1 @"_ZN4llvm12function_refIFbRNS_7msgpac
   br i1 %30, label %31, label %_ZN4llvm6all_ofIRNS_7msgpack12ArrayDocNodeENS_12function_refIFbRNS1_7DocNodeEEEEEEbOT_T0_.exit.i.i
 
 31:                                               ; preds = %29
-  %32 = getelementptr inbounds i8, ptr %.sroa.038.1.i.i.i.i.i.i.i, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %.sroa.038.1.i.i.i.i.i.i.i, i64 24
   br label %33
 
 33:                                               ; preds = %31, %._crit_edge.i.i.i.i.i.i.i
@@ -1863,7 +1863,7 @@ define internal fastcc noundef zeroext i1 @"_ZN4llvm12function_refIFbRNS_7msgpac
   br i1 %5, label %_ZN4llvm7msgpack7DocNode8getArrayEb.exit.i.i, label %"_ZZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier12verifyKernelERNS_7msgpack7DocNodeEENK3$_3clES6_.exit"
 
 _ZN4llvm7msgpack7DocNode8getArrayEb.exit.i.i:     ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val2 = load ptr, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %.val2, i64 8
   %8 = load ptr, ptr %7, align 8
@@ -1896,7 +1896,7 @@ _ZN4llvm7msgpack7DocNode8getArrayEb.exit.i.i:     ; preds = %2
 22:                                               ; preds = %19
   %23 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %.sroa.0.0.copyload.i.i.i.i.i.i = load ptr, ptr %23, align 8
-  %.sroa.2.0..sroa_idx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 16
+  %.sroa.2.0..sroa_idx.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 16
   %.sroa.2.0.copyload.i.i.i.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i.i, align 8
   %24 = tail call { ptr, i64 } @_ZN4llvm7msgpack7DocNode10fromStringENS_9StringRefES2_(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr %.sroa.0.0.copyload.i.i.i.i.i.i, i64 %.sroa.2.0.copyload.i.i.i.i.i.i, ptr nonnull @.str, i64 0) #5
   %25 = load ptr, ptr %9, align 8
@@ -1925,7 +1925,7 @@ _ZN4llvm7msgpack7DocNode8getArrayEb.exit.i.i:     ; preds = %2
 34:                                               ; preds = %31
   %35 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %.sroa.0.0.copyload.i.i8.i.i.i.i = load ptr, ptr %35, align 8
-  %.sroa.2.0..sroa_idx.i.i9.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 16
+  %.sroa.2.0..sroa_idx.i.i9.i.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 16
   %.sroa.2.0.copyload.i.i10.i.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i9.i.i.i.i, align 8
   %36 = tail call { ptr, i64 } @_ZN4llvm7msgpack7DocNode10fromStringENS_9StringRefES2_(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr %.sroa.0.0.copyload.i.i8.i.i.i.i, i64 %.sroa.2.0.copyload.i.i10.i.i.i.i, ptr nonnull @.str, i64 0) #5
   %37 = load ptr, ptr %9, align 8
@@ -1935,7 +1935,7 @@ _ZN4llvm7msgpack7DocNode8getArrayEb.exit.i.i:     ; preds = %2
   br i1 %.not15.i11.i.i.i.i, label %40, label %_ZN4llvm6all_ofIRNS_7msgpack12ArrayDocNodeENS_12function_refIFbRNS1_7DocNodeEEEEEEbOT_T0_.exit.i.i
 
 40:                                               ; preds = %34, %.thread.i.i.i.i, %22, %18
-  %41 = getelementptr inbounds i8, ptr %9, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %44 = load i8, ptr %43, align 8
@@ -1955,9 +1955,9 @@ _ZN4llvm7msgpack7DocNode8getArrayEb.exit.i.i:     ; preds = %2
   br i1 %or.cond.not.i.i.i.i8.i, label %.thread.i.i.i14.i, label %51
 
 51:                                               ; preds = %48
-  %52 = getelementptr inbounds i8, ptr %9, i64 32
+  %52 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %.sroa.0.0.copyload.i.i.i.i.i9.i = load ptr, ptr %52, align 8
-  %.sroa.2.0..sroa_idx.i.i.i.i.i10.i = getelementptr inbounds i8, ptr %9, i64 40
+  %.sroa.2.0..sroa_idx.i.i.i.i.i10.i = getelementptr inbounds nuw i8, ptr %9, i64 40
   %.sroa.2.0.copyload.i.i.i.i.i11.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i10.i, align 8
   %53 = tail call { ptr, i64 } @_ZN4llvm7msgpack7DocNode10fromStringENS_9StringRefES2_(ptr noundef nonnull align 8 dereferenceable(24) %41, ptr %.sroa.0.0.copyload.i.i.i.i.i9.i, i64 %.sroa.2.0.copyload.i.i.i.i.i11.i, ptr nonnull @.str, i64 0) #5
   %54 = load ptr, ptr %41, align 8
@@ -1984,9 +1984,9 @@ _ZN4llvm7msgpack7DocNode8getArrayEb.exit.i.i:     ; preds = %2
   br i1 %or.cond.not.i7.i.i.i17.i, label %_ZN4llvm6all_ofIRNS_7msgpack12ArrayDocNodeENS_12function_refIFbRNS1_7DocNodeEEEEEEbOT_T0_.exit.i.i, label %63
 
 63:                                               ; preds = %60
-  %64 = getelementptr inbounds i8, ptr %9, i64 32
+  %64 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %.sroa.0.0.copyload.i.i8.i.i.i18.i = load ptr, ptr %64, align 8
-  %.sroa.2.0..sroa_idx.i.i9.i.i.i19.i = getelementptr inbounds i8, ptr %9, i64 40
+  %.sroa.2.0..sroa_idx.i.i9.i.i.i19.i = getelementptr inbounds nuw i8, ptr %9, i64 40
   %.sroa.2.0.copyload.i.i10.i.i.i20.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i9.i.i.i19.i, align 8
   %65 = tail call { ptr, i64 } @_ZN4llvm7msgpack7DocNode10fromStringENS_9StringRefES2_(ptr noundef nonnull align 8 dereferenceable(24) %41, ptr %.sroa.0.0.copyload.i.i8.i.i.i18.i, i64 %.sroa.2.0.copyload.i.i10.i.i.i20.i, ptr nonnull @.str, i64 0) #5
   %66 = load ptr, ptr %41, align 8
@@ -1996,7 +1996,7 @@ _ZN4llvm7msgpack7DocNode8getArrayEb.exit.i.i:     ; preds = %2
   br i1 %.not15.i11.i.i.i21.i, label %69, label %_ZN4llvm6all_ofIRNS_7msgpack12ArrayDocNodeENS_12function_refIFbRNS1_7DocNodeEEEEEEbOT_T0_.exit.i.i
 
 69:                                               ; preds = %63, %.thread.i.i.i14.i, %51, %47
-  %70 = getelementptr inbounds i8, ptr %9, i64 48
+  %70 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %71 = load ptr, ptr %70, align 8
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %73 = load i8, ptr %72, align 8
@@ -2016,9 +2016,9 @@ _ZN4llvm7msgpack7DocNode8getArrayEb.exit.i.i:     ; preds = %2
   br i1 %or.cond.not.i.i.i.i28.i, label %.thread.i.i.i34.i, label %80
 
 80:                                               ; preds = %77
-  %81 = getelementptr inbounds i8, ptr %9, i64 56
+  %81 = getelementptr inbounds nuw i8, ptr %9, i64 56
   %.sroa.0.0.copyload.i.i.i.i.i29.i = load ptr, ptr %81, align 8
-  %.sroa.2.0..sroa_idx.i.i.i.i.i30.i = getelementptr inbounds i8, ptr %9, i64 64
+  %.sroa.2.0..sroa_idx.i.i.i.i.i30.i = getelementptr inbounds nuw i8, ptr %9, i64 64
   %.sroa.2.0.copyload.i.i.i.i.i31.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i30.i, align 8
   %82 = tail call { ptr, i64 } @_ZN4llvm7msgpack7DocNode10fromStringENS_9StringRefES2_(ptr noundef nonnull align 8 dereferenceable(24) %70, ptr %.sroa.0.0.copyload.i.i.i.i.i29.i, i64 %.sroa.2.0.copyload.i.i.i.i.i31.i, ptr nonnull @.str, i64 0) #5
   %83 = load ptr, ptr %70, align 8
@@ -2045,9 +2045,9 @@ _ZN4llvm7msgpack7DocNode8getArrayEb.exit.i.i:     ; preds = %2
   br i1 %or.cond.not.i7.i.i.i37.i, label %_ZN4llvm6all_ofIRNS_7msgpack12ArrayDocNodeENS_12function_refIFbRNS1_7DocNodeEEEEEEbOT_T0_.exit.i.i, label %92
 
 92:                                               ; preds = %89
-  %93 = getelementptr inbounds i8, ptr %9, i64 56
+  %93 = getelementptr inbounds nuw i8, ptr %9, i64 56
   %.sroa.0.0.copyload.i.i8.i.i.i38.i = load ptr, ptr %93, align 8
-  %.sroa.2.0..sroa_idx.i.i9.i.i.i39.i = getelementptr inbounds i8, ptr %9, i64 64
+  %.sroa.2.0..sroa_idx.i.i9.i.i.i39.i = getelementptr inbounds nuw i8, ptr %9, i64 64
   %.sroa.2.0.copyload.i.i10.i.i.i40.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i9.i.i.i39.i, align 8
   %94 = tail call { ptr, i64 } @_ZN4llvm7msgpack7DocNode10fromStringENS_9StringRefES2_(ptr noundef nonnull align 8 dereferenceable(24) %70, ptr %.sroa.0.0.copyload.i.i8.i.i.i38.i, i64 %.sroa.2.0.copyload.i.i10.i.i.i40.i, ptr nonnull @.str, i64 0) #5
   %95 = load ptr, ptr %70, align 8
@@ -2080,7 +2080,7 @@ define internal fastcc noundef zeroext i1 @"_ZN4llvm12function_refIFbRNS_7msgpac
   br i1 %5, label %_ZN4llvm7msgpack7DocNode8getArrayEb.exit.i.i, label %"_ZZN4llvm6AMDGPU5HSAMD2V316MetadataVerifier12verifyKernelERNS_7msgpack7DocNodeEENK3$_4clES6_.exit"
 
 _ZN4llvm7msgpack7DocNode8getArrayEb.exit.i.i:     ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val2 = load ptr, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %.val2, i64 8
   %8 = load ptr, ptr %7, align 8
@@ -2113,7 +2113,7 @@ _ZN4llvm7msgpack7DocNode8getArrayEb.exit.i.i:     ; preds = %2
 22:                                               ; preds = %19
   %23 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %.sroa.0.0.copyload.i.i.i.i.i.i = load ptr, ptr %23, align 8
-  %.sroa.2.0..sroa_idx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 16
+  %.sroa.2.0..sroa_idx.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 16
   %.sroa.2.0.copyload.i.i.i.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i.i, align 8
   %24 = tail call { ptr, i64 } @_ZN4llvm7msgpack7DocNode10fromStringENS_9StringRefES2_(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr %.sroa.0.0.copyload.i.i.i.i.i.i, i64 %.sroa.2.0.copyload.i.i.i.i.i.i, ptr nonnull @.str, i64 0) #5
   %25 = load ptr, ptr %9, align 8
@@ -2142,7 +2142,7 @@ _ZN4llvm7msgpack7DocNode8getArrayEb.exit.i.i:     ; preds = %2
 34:                                               ; preds = %31
   %35 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %.sroa.0.0.copyload.i.i8.i.i.i.i = load ptr, ptr %35, align 8
-  %.sroa.2.0..sroa_idx.i.i9.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 16
+  %.sroa.2.0..sroa_idx.i.i9.i.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 16
   %.sroa.2.0.copyload.i.i10.i.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i9.i.i.i.i, align 8
   %36 = tail call { ptr, i64 } @_ZN4llvm7msgpack7DocNode10fromStringENS_9StringRefES2_(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr %.sroa.0.0.copyload.i.i8.i.i.i.i, i64 %.sroa.2.0.copyload.i.i10.i.i.i.i, ptr nonnull @.str, i64 0) #5
   %37 = load ptr, ptr %9, align 8
@@ -2152,7 +2152,7 @@ _ZN4llvm7msgpack7DocNode8getArrayEb.exit.i.i:     ; preds = %2
   br i1 %.not15.i11.i.i.i.i, label %40, label %_ZN4llvm6all_ofIRNS_7msgpack12ArrayDocNodeENS_12function_refIFbRNS1_7DocNodeEEEEEEbOT_T0_.exit.i.i
 
 40:                                               ; preds = %34, %.thread.i.i.i.i, %22, %18
-  %41 = getelementptr inbounds i8, ptr %9, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %44 = load i8, ptr %43, align 8
@@ -2172,9 +2172,9 @@ _ZN4llvm7msgpack7DocNode8getArrayEb.exit.i.i:     ; preds = %2
   br i1 %or.cond.not.i.i.i.i8.i, label %.thread.i.i.i14.i, label %51
 
 51:                                               ; preds = %48
-  %52 = getelementptr inbounds i8, ptr %9, i64 32
+  %52 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %.sroa.0.0.copyload.i.i.i.i.i9.i = load ptr, ptr %52, align 8
-  %.sroa.2.0..sroa_idx.i.i.i.i.i10.i = getelementptr inbounds i8, ptr %9, i64 40
+  %.sroa.2.0..sroa_idx.i.i.i.i.i10.i = getelementptr inbounds nuw i8, ptr %9, i64 40
   %.sroa.2.0.copyload.i.i.i.i.i11.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i10.i, align 8
   %53 = tail call { ptr, i64 } @_ZN4llvm7msgpack7DocNode10fromStringENS_9StringRefES2_(ptr noundef nonnull align 8 dereferenceable(24) %41, ptr %.sroa.0.0.copyload.i.i.i.i.i9.i, i64 %.sroa.2.0.copyload.i.i.i.i.i11.i, ptr nonnull @.str, i64 0) #5
   %54 = load ptr, ptr %41, align 8
@@ -2201,9 +2201,9 @@ _ZN4llvm7msgpack7DocNode8getArrayEb.exit.i.i:     ; preds = %2
   br i1 %or.cond.not.i7.i.i.i17.i, label %_ZN4llvm6all_ofIRNS_7msgpack12ArrayDocNodeENS_12function_refIFbRNS1_7DocNodeEEEEEEbOT_T0_.exit.i.i, label %63
 
 63:                                               ; preds = %60
-  %64 = getelementptr inbounds i8, ptr %9, i64 32
+  %64 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %.sroa.0.0.copyload.i.i8.i.i.i18.i = load ptr, ptr %64, align 8
-  %.sroa.2.0..sroa_idx.i.i9.i.i.i19.i = getelementptr inbounds i8, ptr %9, i64 40
+  %.sroa.2.0..sroa_idx.i.i9.i.i.i19.i = getelementptr inbounds nuw i8, ptr %9, i64 40
   %.sroa.2.0.copyload.i.i10.i.i.i20.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i9.i.i.i19.i, align 8
   %65 = tail call { ptr, i64 } @_ZN4llvm7msgpack7DocNode10fromStringENS_9StringRefES2_(ptr noundef nonnull align 8 dereferenceable(24) %41, ptr %.sroa.0.0.copyload.i.i8.i.i.i18.i, i64 %.sroa.2.0.copyload.i.i10.i.i.i20.i, ptr nonnull @.str, i64 0) #5
   %66 = load ptr, ptr %41, align 8
@@ -2213,7 +2213,7 @@ _ZN4llvm7msgpack7DocNode8getArrayEb.exit.i.i:     ; preds = %2
   br i1 %.not15.i11.i.i.i21.i, label %69, label %_ZN4llvm6all_ofIRNS_7msgpack12ArrayDocNodeENS_12function_refIFbRNS1_7DocNodeEEEEEEbOT_T0_.exit.i.i
 
 69:                                               ; preds = %63, %.thread.i.i.i14.i, %51, %47
-  %70 = getelementptr inbounds i8, ptr %9, i64 48
+  %70 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %71 = load ptr, ptr %70, align 8
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %73 = load i8, ptr %72, align 8
@@ -2233,9 +2233,9 @@ _ZN4llvm7msgpack7DocNode8getArrayEb.exit.i.i:     ; preds = %2
   br i1 %or.cond.not.i.i.i.i28.i, label %.thread.i.i.i34.i, label %80
 
 80:                                               ; preds = %77
-  %81 = getelementptr inbounds i8, ptr %9, i64 56
+  %81 = getelementptr inbounds nuw i8, ptr %9, i64 56
   %.sroa.0.0.copyload.i.i.i.i.i29.i = load ptr, ptr %81, align 8
-  %.sroa.2.0..sroa_idx.i.i.i.i.i30.i = getelementptr inbounds i8, ptr %9, i64 64
+  %.sroa.2.0..sroa_idx.i.i.i.i.i30.i = getelementptr inbounds nuw i8, ptr %9, i64 64
   %.sroa.2.0.copyload.i.i.i.i.i31.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i30.i, align 8
   %82 = tail call { ptr, i64 } @_ZN4llvm7msgpack7DocNode10fromStringENS_9StringRefES2_(ptr noundef nonnull align 8 dereferenceable(24) %70, ptr %.sroa.0.0.copyload.i.i.i.i.i29.i, i64 %.sroa.2.0.copyload.i.i.i.i.i31.i, ptr nonnull @.str, i64 0) #5
   %83 = load ptr, ptr %70, align 8
@@ -2262,9 +2262,9 @@ _ZN4llvm7msgpack7DocNode8getArrayEb.exit.i.i:     ; preds = %2
   br i1 %or.cond.not.i7.i.i.i37.i, label %_ZN4llvm6all_ofIRNS_7msgpack12ArrayDocNodeENS_12function_refIFbRNS1_7DocNodeEEEEEEbOT_T0_.exit.i.i, label %92
 
 92:                                               ; preds = %89
-  %93 = getelementptr inbounds i8, ptr %9, i64 56
+  %93 = getelementptr inbounds nuw i8, ptr %9, i64 56
   %.sroa.0.0.copyload.i.i8.i.i.i38.i = load ptr, ptr %93, align 8
-  %.sroa.2.0..sroa_idx.i.i9.i.i.i39.i = getelementptr inbounds i8, ptr %9, i64 64
+  %.sroa.2.0..sroa_idx.i.i9.i.i.i39.i = getelementptr inbounds nuw i8, ptr %9, i64 64
   %.sroa.2.0.copyload.i.i10.i.i.i40.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i9.i.i.i39.i, align 8
   %94 = tail call { ptr, i64 } @_ZN4llvm7msgpack7DocNode10fromStringENS_9StringRefES2_(ptr noundef nonnull align 8 dereferenceable(24) %70, ptr %.sroa.0.0.copyload.i.i8.i.i.i38.i, i64 %.sroa.2.0.copyload.i.i10.i.i.i40.i, ptr nonnull @.str, i64 0) #5
   %95 = load ptr, ptr %70, align 8

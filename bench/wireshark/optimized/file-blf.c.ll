@@ -759,7 +759,7 @@ define internal i32 @dissect_blf_ethernetstatus_obj(ptr noundef %0, ptr nocaptur
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void @col_set_str(ptr noundef %9, i32 noundef 34, ptr noundef nonnull @.str.187) #3
   %10 = load ptr, ptr %8, align 8
@@ -919,7 +919,7 @@ define internal i32 @dissect_blf_ethernetphystate_obj(ptr noundef %0, ptr nocapt
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8
   tail call void @col_set_str(ptr noundef %10, i32 noundef 34, ptr noundef nonnull @.str.190) #3
   %11 = load ptr, ptr %9, align 8

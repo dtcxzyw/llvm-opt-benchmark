@@ -8,14 +8,14 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN6hermes2vm9JSWeakRef13_markWeakImplEPNS0_6GCCellERNS0_15WeakRefAcceptorE(ptr noundef %cell, ptr noundef nonnull align 8 dereferenceable(8) %acceptor) #0 align 2 {
 entry:
-  %ref_ = getelementptr inbounds i8, ptr %cell, i64 24
+  %ref_ = getelementptr inbounds nuw i8, ptr %cell, i64 24
   %0 = load ptr, ptr %ref_, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %vtable = load ptr, ptr %acceptor, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %acceptor, ptr noundef nonnull align 8 dereferenceable(8) %ref_) #4
   br label %if.end
@@ -41,20 +41,20 @@ declare noundef zeroext i1 @_ZN6hermes2vm8JSObject23_checkAllOwnIndexedImplEPS1_
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN6hermes2vm18JSWeakRefBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE(ptr noundef %cell, ptr noundef nonnull align 8 dereferenceable(224) %mb) local_unnamed_addr #0 {
 entry:
-  %hasValue_.i.i = getelementptr inbounds i8, ptr %mb, i64 212
+  %hasValue_.i.i = getelementptr inbounds nuw i8, ptr %mb, i64 212
   %0 = load i8, ptr %hasValue_.i.i, align 4
   %tobool.i.i = trunc i8 %0 to i1
   br i1 %tobool.i.i, label %_ZN6hermes2vm8Metadata7Builder23addJSObjectOverlapSlotsEj.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %jsObjectOverlapSlots_.i = getelementptr inbounds i8, ptr %mb, i64 208
+  %jsObjectOverlapSlots_.i = getelementptr inbounds nuw i8, ptr %mb, i64 208
   store i32 3, ptr %jsObjectOverlapSlots_.i, align 8
   store i8 1, ptr %hasValue_.i.i, align 4
   br label %_ZN6hermes2vm8Metadata7Builder23addJSObjectOverlapSlotsEj.exit
 
 _ZN6hermes2vm8Metadata7Builder23addJSObjectOverlapSlotsEj.exit: ; preds = %entry, %if.then.i
   tail call void @_ZN6hermes2vm17JSObjectBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE(ptr noundef %cell, ptr noundef nonnull align 8 dereferenceable(224) %mb) #4
-  %vtp_.i = getelementptr inbounds i8, ptr %mb, i64 216
+  %vtp_.i = getelementptr inbounds nuw i8, ptr %mb, i64 216
   store ptr @_ZN6hermes2vm9JSWeakRef2vtE, ptr %vtp_.i, align 8
   ret void
 }
@@ -64,17 +64,17 @@ declare void @_ZN6hermes2vm17JSObjectBuildMetaEPKNS0_6GCCellERNS0_8Metadata7Buil
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN6hermes2vm9JSWeakRef6createERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nocapture readonly %parentHandle.coerce) local_unnamed_addr #0 align 2 {
 entry:
-  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %runtime, i64 9536
-  %level_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %runtime, i64 1656
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 9536
+  %level_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 1656
   %0 = load ptr, ptr %level_.i.i.i.i.i.i, align 8
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 40
-  %effectiveEnd_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %runtime, i64 1664
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %effectiveEnd_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 1664
   %1 = load ptr, ptr %effectiveEnd_.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i = icmp ugt ptr %add.ptr.i.i.i.i.i.i, %1
   br i1 %cmp.i.i.i.i.i.i, label %cond.true.i.i.i.i.i, label %cond.false.i.i.i.i.i
 
 cond.true.i.i.i.i.i:                              ; preds = %entry
-  %heapStorage_.i.i = getelementptr inbounds i8, ptr %runtime, i64 840
+  %heapStorage_.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 840
   %call3.i.i.i.i.i = tail call noundef ptr @_ZN6hermes2vm7HadesGC9allocSlowEj(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i, i32 noundef 40) #4
   br label %_ZN6hermes2vm7Runtime10makeAFixedINS0_9JSWeakRefELNS0_12HasFinalizerE0ELNS0_9LongLivedE0EJRS1_RNS0_6HandleINS0_8JSObjectEEENS7_INS0_11HiddenClassEEEEEEPT_DpOT2_.exit
 
@@ -88,31 +88,31 @@ _ZN6hermes2vm7Runtime10makeAFixedINS0_9JSWeakRefELNS0_12HasFinalizerE0ELNS0_9Lon
   %and.i.i.i.i.i.i.i.i.i.i.i = and i64 %retval.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i, 281474976710655
   %retval.sroa.0.0.copyload.i.i.i1.i.i.i.i.i.i = load i64, ptr %arrayidx.i.i.i, align 8
   %and.i.i.i.i.i2.i.i.i.i.i.i = and i64 %retval.sroa.0.0.copyload.i.i.i1.i.i.i.i.i.i, 281474976710655
-  %flags_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i.i, i64 4
+  %flags_.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i.i, i64 4
   store i32 0, ptr %flags_.i.i.i.i.i.i.i.i, align 4
-  %parent_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i.i, i64 8
+  %parent_.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i.i, i64 8
   %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %and.i.i.i.i.i.i.i.i.i.i.i, 0
   %2 = ptrtoint ptr %runtime to i64
   %sub.i.i.i.i.i.i.i.i.i.i.i.i.i.i = sub i64 %retval.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i, %2
   %conv.i.i.i.i.i.i.i.i.i.i.i.i.i.i = trunc i64 %sub.i.i.i.i.i.i.i.i.i.i.i.i.i.i to i32
   %retval.sroa.0.0.i.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i.i, i32 0, i32 %conv.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   store i32 %retval.sroa.0.0.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr %parent_.i.i.i.i.i.i.i.i, align 4
-  %clazz_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i.i, i64 12
+  %clazz_.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i.i, i64 12
   %tobool.not.i.i.i.i.i5.i.i.i.i.i.i.i.i = icmp eq i64 %and.i.i.i.i.i2.i.i.i.i.i.i, 0
   %sub.i.i.i.i.i.i6.i.i.i.i.i.i.i.i = sub i64 %retval.sroa.0.0.copyload.i.i.i1.i.i.i.i.i.i, %2
   %conv.i.i.i.i.i.i7.i.i.i.i.i.i.i.i = trunc i64 %sub.i.i.i.i.i.i6.i.i.i.i.i.i.i.i to i32
   %retval.sroa.0.0.i.i.i.i.i8.i.i.i.i.i.i.i.i = select i1 %tobool.not.i.i.i.i.i5.i.i.i.i.i.i.i.i, i32 0, i32 %conv.i.i.i.i.i.i7.i.i.i.i.i.i.i.i
   store i32 %retval.sroa.0.0.i.i.i.i.i8.i.i.i.i.i.i.i.i, ptr %clazz_.i.i.i.i.i.i.i.i, align 4
-  %propStorage_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i.i, i64 16
+  %propStorage_.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i.i, i64 16
   store i32 0, ptr %propStorage_.i.i.i.i.i.i.i.i, align 4
-  %ref_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i.i, i64 24
+  %ref_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i.i, i64 24
   store ptr null, ptr %ref_.i.i.i.i.i.i, align 8
   store i32 889192488, ptr %cond.i.i.i.i.i, align 4
   br label %for.body5.i.i.i
 
 for.body5.i.i.i:                                  ; preds = %for.body5.i.i.i, %_ZN6hermes2vm7Runtime10makeAFixedINS0_9JSWeakRefELNS0_12HasFinalizerE0ELNS0_9LongLivedE0EJRS1_RNS0_6HandleINS0_8JSObjectEEENS7_INS0_11HiddenClassEEEEEEPT_DpOT2_.exit
   %cur2.012.i.idx.i.i = phi i64 [ %cur2.012.i.add.i.i, %for.body5.i.i.i ], [ 32, %_ZN6hermes2vm7Runtime10makeAFixedINS0_9JSWeakRefELNS0_12HasFinalizerE0ELNS0_9LongLivedE0EJRS1_RNS0_6HandleINS0_8JSObjectEEENS7_INS0_11HiddenClassEEEEEEPT_DpOT2_.exit ]
-  %cur2.012.i.ptr.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i.i, i64 %cur2.012.i.idx.i.i
+  %cur2.012.i.ptr.i.i = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i.i, i64 %cur2.012.i.idx.i.i
   store i32 14, ptr %cur2.012.i.ptr.i.i, align 4
   %cur2.012.i.add.i.i = add nuw nsw i64 %cur2.012.i.idx.i.i, 4
   %cmp4.not.i.i.i = icmp eq i64 %cur2.012.i.add.i.i, 40
@@ -125,7 +125,7 @@ _ZN6hermes2vm12JSObjectInitL18initToPseudoHandleINS0_9JSWeakRefEEENS0_12PseudoHa
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN6hermes2vm9JSWeakRef9setTargetERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nocapture readonly %target.coerce) local_unnamed_addr #0 align 2 {
 entry:
-  %weakRefMutex_.i = getelementptr inbounds i8, ptr %runtime, i64 1288
+  %weakRefMutex_.i = getelementptr inbounds nuw i8, ptr %runtime, i64 1288
   %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %weakRefMutex_.i) #4
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i.i, 0
   br i1 %tobool.not.i.i, label %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit, label %if.then.i.i
@@ -135,7 +135,7 @@ if.then.i.i:                                      ; preds = %entry
   unreachable
 
 _ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit: ; preds = %entry
-  %heapStorage_.i = getelementptr inbounds i8, ptr %runtime, i64 840
+  %heapStorage_.i = getelementptr inbounds nuw i8, ptr %runtime, i64 840
   %retval.sroa.0.0.copyload.i.i.i.i = load i64, ptr %target.coerce, align 8
   %and.i.i.i.i.i.i = and i64 %retval.sroa.0.0.copyload.i.i.i.i, 281474976710655
   %tobool.not.i.i.i.i.i = icmp eq i64 %and.i.i.i.i.i.i, 0
@@ -144,7 +144,7 @@ _ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit: ; preds = %entry
   %conv.i.i.i.i.i.i = trunc i64 %sub.i.i.i.i.i.i to i32
   %retval.sroa.0.0.i.i.i.i.i = select i1 %tobool.not.i.i.i.i.i, i32 0, i32 %conv.i.i.i.i.i.i
   %call5.i.i = tail call noundef ptr @_ZN6hermes2vm6GCBase13allocWeakSlotENS0_17CompressedPointerE(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i, i32 %retval.sroa.0.0.i.i.i.i.i) #4
-  %ref_ = getelementptr inbounds i8, ptr %this, i64 24
+  %ref_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = ptrtoint ptr %call5.i.i to i64
   store i64 %1, ptr %ref_, align 8
   %call1.i.i.i.i2 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %weakRefMutex_.i) #4
@@ -154,14 +154,14 @@ _ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit: ; preds = %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden range(i64 -1688849860263936, 0) i64 @_ZNK6hermes2vm9JSWeakRef5derefERNS0_7RuntimeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(9832) %runtime) local_unnamed_addr #0 align 2 {
 entry:
-  %ref_ = getelementptr inbounds i8, ptr %this, i64 24
+  %ref_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %ref_, align 8
   %1 = load i32, ptr %0, align 4
   %cmp.i.i.i.i.i.i.not = icmp eq i32 %1, 0
   br i1 %cmp.i.i.i.i.i.i.not, label %cond.end, label %_ZNK6hermes2vm7WeakRefINS0_8JSObjectEE3getERNS0_7RuntimeE.exit
 
 _ZNK6hermes2vm7WeakRefINS0_8JSObjectEE3getERNS0_7RuntimeE.exit: ; preds = %entry
-  %heapStorage_.i.i = getelementptr inbounds i8, ptr %runtime, i64 840
+  %heapStorage_.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 840
   %2 = ptrtoint ptr %runtime to i64
   %conv.i.i.i.i.i.i = zext i32 %1 to i64
   %add.i.i.i.i.i.i = add i64 %conv.i.i.i.i.i.i, %2

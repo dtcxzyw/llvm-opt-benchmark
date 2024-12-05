@@ -102,7 +102,7 @@ cond.end:                                         ; preds = %cond.false, %cond.t
 
 if.then:                                          ; preds = %cond.end
   %call6 = call ptr @gmtime(ptr noundef nonnull %t) #12
-  %incdec.ptr = getelementptr inbounds i8, ptr %call, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %call, i64 1
   br label %if.end
 
 if.else:                                          ; preds = %cond.end
@@ -125,13 +125,13 @@ sub_0:                                            ; preds = %if.end
   br i1 %.not, label %sub_1, label %if.else18
 
 sub_1:                                            ; preds = %sub_0
-  %3 = getelementptr inbounds i8, ptr %s.0, i64 1
+  %3 = getelementptr inbounds nuw i8, ptr %s.0, i64 1
   %4 = load i8, ptr %3, align 1
   %.not23 = icmp eq i8 %4, 116
   br i1 %.not23, label %if.end13.tail, label %if.else18
 
 if.end13.tail:                                    ; preds = %sub_1
-  %5 = getelementptr inbounds i8, ptr %s.0, i64 2
+  %5 = getelementptr inbounds nuw i8, ptr %s.0, i64 2
   %6 = load i8, ptr %5, align 1
   %7 = icmp eq i8 %6, 0
   br i1 %7, label %if.then17, label %if.else18
@@ -148,10 +148,10 @@ if.else18:                                        ; preds = %sub_1, %sub_0, %if.
   br i1 %cmp1921, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %if.else18
-  %n = getelementptr inbounds i8, ptr %b, i64 16
-  %size = getelementptr inbounds i8, ptr %b, i64 8
+  %n = getelementptr inbounds nuw i8, ptr %b, i64 16
+  %size = getelementptr inbounds nuw i8, ptr %b, i64 8
   %sub.ptr.lhs.cast = ptrtoint ptr %add.ptr to i64
-  %add.ptr35 = getelementptr inbounds i8, ptr %cc, i64 1
+  %add.ptr35 = getelementptr inbounds nuw i8, ptr %cc, i64 1
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end40
@@ -175,7 +175,7 @@ lor.rhs:                                          ; preds = %if.then24
 lor.end:                                          ; preds = %lor.rhs, %if.then24
   %11 = phi i64 [ %.pre25, %lor.rhs ], [ %9, %if.then24 ]
   %12 = phi i8 [ %.pre, %lor.rhs ], [ %8, %if.then24 ]
-  %incdec.ptr28 = getelementptr inbounds i8, ptr %s.122, i64 1
+  %incdec.ptr28 = getelementptr inbounds nuw i8, ptr %s.122, i64 1
   %13 = load ptr, ptr %b, align 8
   %inc = add i64 %11, 1
   store i64 %inc, ptr %n, align 8
@@ -185,7 +185,7 @@ lor.end:                                          ; preds = %lor.rhs, %if.then24
 
 if.else32:                                        ; preds = %while.body
   %call33 = call ptr @luaL_prepbuffsize(ptr noundef nonnull %b, i64 noundef 250) #12
-  %incdec.ptr34 = getelementptr inbounds i8, ptr %s.122, i64 1
+  %incdec.ptr34 = getelementptr inbounds nuw i8, ptr %s.122, i64 1
   %sub.ptr.rhs.cast = ptrtoint ptr %incdec.ptr34 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %cmp417.i = icmp sgt i64 %sub.ptr.sub, 0
@@ -389,13 +389,13 @@ if.else:                                          ; preds = %entry
   tail call void @luaL_checktype(ptr noundef %L, i32 noundef 1, i32 noundef 5) #12
   tail call void @lua_settop(ptr noundef %L, i32 noundef 1) #12
   %call2 = tail call fastcc i32 @getfield(ptr noundef %L, ptr noundef nonnull @.str.15, i32 noundef -1, i32 noundef 1900)
-  %tm_year = getelementptr inbounds i8, ptr %ts, i64 20
+  %tm_year = getelementptr inbounds nuw i8, ptr %ts, i64 20
   store i32 %call2, ptr %tm_year, align 4
   %call3 = tail call fastcc i32 @getfield(ptr noundef %L, ptr noundef nonnull @.str.16, i32 noundef -1, i32 noundef 1)
-  %tm_mon = getelementptr inbounds i8, ptr %ts, i64 16
+  %tm_mon = getelementptr inbounds nuw i8, ptr %ts, i64 16
   store i32 %call3, ptr %tm_mon, align 8
   %call4 = tail call fastcc i32 @getfield(ptr noundef %L, ptr noundef nonnull @.str.17, i32 noundef -1, i32 noundef 0)
-  %tm_mday = getelementptr inbounds i8, ptr %ts, i64 12
+  %tm_mday = getelementptr inbounds nuw i8, ptr %ts, i64 12
   store i32 %call4, ptr %tm_mday, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %isnum.i)
   %call.i = tail call i32 @lua_getfield(ptr noundef %L, i32 noundef -1, ptr noundef nonnull @.str.18) #12
@@ -440,7 +440,7 @@ if.end32.i:                                       ; preds = %if.then.i, %if.end2
 getfield.exit:                                    ; preds = %if.then6.i, %if.then27.i, %if.end32.i
   %retval.0.i = phi i32 [ %res.0.i, %if.end32.i ], [ %call28.i, %if.then27.i ], [ %call7.i, %if.then6.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %isnum.i)
-  %tm_hour = getelementptr inbounds i8, ptr %ts, i64 8
+  %tm_hour = getelementptr inbounds nuw i8, ptr %ts, i64 8
   store i32 %retval.0.i, ptr %tm_hour, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %isnum.i16)
   %call.i17 = call i32 @lua_getfield(ptr noundef %L, i32 noundef -1, ptr noundef nonnull @.str.19) #12
@@ -485,7 +485,7 @@ if.end32.i25:                                     ; preds = %if.then.i32, %if.en
 getfield.exit37:                                  ; preds = %if.then6.i34, %if.then27.i28, %if.end32.i25
   %retval.0.i27 = phi i32 [ %res.0.i26, %if.end32.i25 ], [ %call28.i29, %if.then27.i28 ], [ %call7.i35, %if.then6.i34 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %isnum.i16)
-  %tm_min = getelementptr inbounds i8, ptr %ts, i64 4
+  %tm_min = getelementptr inbounds nuw i8, ptr %ts, i64 4
   store i32 %retval.0.i27, ptr %tm_min, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %isnum.i38)
   %call.i39 = call i32 @lua_getfield(ptr noundef %L, i32 noundef -1, ptr noundef nonnull @.str.20) #12
@@ -542,7 +542,7 @@ cond.false.i61:                                   ; preds = %getfield.exit59
 getboolfield.exit:                                ; preds = %getfield.exit59, %cond.false.i61
   %cond.i = phi i32 [ %call1.i62, %cond.false.i61 ], [ -1, %getfield.exit59 ]
   call void @lua_settop(ptr noundef %L, i32 noundef -2) #12
-  %tm_isdst = getelementptr inbounds i8, ptr %ts, i64 32
+  %tm_isdst = getelementptr inbounds nuw i8, ptr %ts, i64 32
   store i32 %cond.i, ptr %tm_isdst, align 8
   %call9 = call i64 @mktime(ptr noundef nonnull %ts) #12
   call fastcc void @setallfields(ptr noundef %L, ptr noundef %ts)
@@ -610,29 +610,29 @@ declare i32 @luaL_error(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @setallfields(ptr noundef %L, ptr nocapture noundef nonnull readonly %stm) unnamed_addr #0 {
 entry:
-  %tm_year = getelementptr inbounds i8, ptr %stm, i64 20
+  %tm_year = getelementptr inbounds nuw i8, ptr %stm, i64 20
   %0 = load i32, ptr %tm_year, align 4
   %conv.i = sext i32 %0 to i64
   %add.i = add nsw i64 %conv.i, 1900
   tail call void @lua_pushinteger(ptr noundef %L, i64 noundef %add.i) #12
   tail call void @lua_setfield(ptr noundef %L, i32 noundef -2, ptr noundef nonnull @.str.15) #12
-  %tm_mon = getelementptr inbounds i8, ptr %stm, i64 16
+  %tm_mon = getelementptr inbounds nuw i8, ptr %stm, i64 16
   %1 = load i32, ptr %tm_mon, align 8
   %conv.i17 = sext i32 %1 to i64
   %add.i18 = add nsw i64 %conv.i17, 1
   tail call void @lua_pushinteger(ptr noundef %L, i64 noundef %add.i18) #12
   tail call void @lua_setfield(ptr noundef %L, i32 noundef -2, ptr noundef nonnull @.str.16) #12
-  %tm_mday = getelementptr inbounds i8, ptr %stm, i64 12
+  %tm_mday = getelementptr inbounds nuw i8, ptr %stm, i64 12
   %2 = load i32, ptr %tm_mday, align 4
   %conv.i19 = sext i32 %2 to i64
   tail call void @lua_pushinteger(ptr noundef %L, i64 noundef %conv.i19) #12
   tail call void @lua_setfield(ptr noundef %L, i32 noundef -2, ptr noundef nonnull @.str.17) #12
-  %tm_hour = getelementptr inbounds i8, ptr %stm, i64 8
+  %tm_hour = getelementptr inbounds nuw i8, ptr %stm, i64 8
   %3 = load i32, ptr %tm_hour, align 8
   %conv.i21 = sext i32 %3 to i64
   tail call void @lua_pushinteger(ptr noundef %L, i64 noundef %conv.i21) #12
   tail call void @lua_setfield(ptr noundef %L, i32 noundef -2, ptr noundef nonnull @.str.18) #12
-  %tm_min = getelementptr inbounds i8, ptr %stm, i64 4
+  %tm_min = getelementptr inbounds nuw i8, ptr %stm, i64 4
   %4 = load i32, ptr %tm_min, align 4
   %conv.i23 = sext i32 %4 to i64
   tail call void @lua_pushinteger(ptr noundef %L, i64 noundef %conv.i23) #12
@@ -641,19 +641,19 @@ entry:
   %conv.i25 = sext i32 %5 to i64
   tail call void @lua_pushinteger(ptr noundef %L, i64 noundef %conv.i25) #12
   tail call void @lua_setfield(ptr noundef %L, i32 noundef -2, ptr noundef nonnull @.str.20) #12
-  %tm_yday = getelementptr inbounds i8, ptr %stm, i64 28
+  %tm_yday = getelementptr inbounds nuw i8, ptr %stm, i64 28
   %6 = load i32, ptr %tm_yday, align 4
   %conv.i27 = sext i32 %6 to i64
   %add.i28 = add nsw i64 %conv.i27, 1
   tail call void @lua_pushinteger(ptr noundef %L, i64 noundef %add.i28) #12
   tail call void @lua_setfield(ptr noundef %L, i32 noundef -2, ptr noundef nonnull @.str.21) #12
-  %tm_wday = getelementptr inbounds i8, ptr %stm, i64 24
+  %tm_wday = getelementptr inbounds nuw i8, ptr %stm, i64 24
   %7 = load i32, ptr %tm_wday, align 8
   %conv.i29 = sext i32 %7 to i64
   %add.i30 = add nsw i64 %conv.i29, 1
   tail call void @lua_pushinteger(ptr noundef %L, i64 noundef %add.i30) #12
   tail call void @lua_setfield(ptr noundef %L, i32 noundef -2, ptr noundef nonnull @.str.22) #12
-  %tm_isdst = getelementptr inbounds i8, ptr %stm, i64 32
+  %tm_isdst = getelementptr inbounds nuw i8, ptr %stm, i64 32
   %8 = load i32, ptr %tm_isdst, align 8
   %cmp.i = icmp slt i32 %8, 0
   br i1 %cmp.i, label %setboolfield.exit, label %if.end.i

@@ -57,37 +57,37 @@ $_ZTV5StackI18ShenandoahMarkTaskL8MEMFLAGS5EE = comdat any
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN24ShenandoahMarkingContextC2E9MemRegionS0_mj(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr %1, i64 %2, ptr %3, i64 %4, i64 noundef %5, i32 noundef %6) unnamed_addr #0 align 2 {
   tail call void @_ZN20ShenandoahMarkBitMapC1E9MemRegionS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr %1, i64 %2, ptr %3, i64 %4) #5
-  %8 = getelementptr inbounds i8, ptr %0, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = shl i64 %5, 3
   %10 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %9, i8 noundef zeroext 5, i32 noundef 0) #5
   store ptr %10, ptr %8, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %12 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %9, i8 noundef zeroext 5, i32 noundef 0) #5
   store ptr %12, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %14 = ptrtoint ptr %1 to i64
   %15 = load i64, ptr @_ZN20ShenandoahHeapRegion20RegionSizeBytesShiftE, align 8
   %16 = lshr i64 %14, %15
   %17 = sub i64 0, %16
   %18 = getelementptr inbounds ptr, ptr %12, i64 %17
   store ptr %18, ptr %13, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 128
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %20 = tail call i8 asm sideeffect "xchgb ($2),$0", "=q,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 0, ptr nonnull %19) #5, !srcloc !6
-  %21 = getelementptr inbounds i8, ptr %0, i64 200
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %22 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 160, i8 noundef zeroext 5, i32 noundef 0) #5
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV19GenericTaskQueueSetI6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EELS3_5EE, i64 16), ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store i32 %6, ptr %23, align 8
   %24 = zext i32 %6 to i64
   %25 = shl nuw nsw i64 %24, 3
   %26 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %25, i8 noundef zeroext 5, i32 noundef 0) #5
-  %27 = getelementptr inbounds i8, ptr %22, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %22, i64 16
   store ptr %26, ptr %27, align 8
   %.not.i.i.i = icmp eq i32 %6, 0
   br i1 %.not.i.i.i, label %_ZN27ShenandoahObjToScanQueueSetC2Ei.exit.thread, label %.lr.ph.i.i.i
 
 _ZN27ShenandoahObjToScanQueueSetC2Ei.exit.thread: ; preds = %7
-  %28 = getelementptr inbounds i8, ptr %22, i64 88
+  %28 = getelementptr inbounds nuw i8, ptr %22, i64 88
   store volatile i32 0, ptr %28, align 8
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV27ShenandoahObjToScanQueueSet, i64 16), ptr %22, align 8
   store ptr %22, ptr %21, align 8
@@ -96,14 +96,14 @@ _ZN27ShenandoahObjToScanQueueSetC2Ei.exit.thread: ; preds = %7
 .lr.ph.i.i.i:                                     ; preds = %7, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %.lr.ph.i.i.i ], [ 0, %7 ]
   %29 = load ptr, ptr %27, align 8
-  %30 = getelementptr inbounds ptr, ptr %29, i64 %indvars.iv.i.i.i
+  %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv.i.i.i
   store ptr null, ptr %30, align 8
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %24
   br i1 %exitcond.not.i.i.i, label %_ZN27ShenandoahObjToScanQueueSetC2Ei.exit, label %.lr.ph.i.i.i, !llvm.loop !7
 
 _ZN27ShenandoahObjToScanQueueSetC2Ei.exit:        ; preds = %.lr.ph.i.i.i
-  %31 = getelementptr inbounds i8, ptr %22, i64 88
+  %31 = getelementptr inbounds nuw i8, ptr %22, i64 88
   store volatile i32 0, ptr %31, align 8
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV27ShenandoahObjToScanQueueSet, i64 16), ptr %22, align 8
   store ptr %22, ptr %21, align 8
@@ -113,37 +113,37 @@ _ZN27ShenandoahObjToScanQueueSetC2Ei.exit:        ; preds = %.lr.ph.i.i.i
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %_ZN27ShenandoahObjToScanQueueSetC2Ei.exit ]
   %32 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 1624, i8 noundef zeroext 5, i32 noundef 0) #5
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1624) %32, i8 0, i64 1624, i1 false)
-  %33 = getelementptr inbounds i8, ptr %32, i64 128
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 128
   store volatile i32 0, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %32, i64 256
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 256
   store i64 0, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %32, i64 384
+  %35 = getelementptr inbounds nuw i8, ptr %32, i64 384
   %36 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 1048576, i8 noundef zeroext 5, i32 noundef 0) #5
   store ptr %36, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %32, i64 512
+  %37 = getelementptr inbounds nuw i8, ptr %32, i64 512
   store i32 -1, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %32, i64 516
+  %38 = getelementptr inbounds nuw i8, ptr %32, i64 516
   store i32 17, ptr %38, align 4
-  %39 = getelementptr inbounds i8, ptr %32, i64 640
-  %40 = getelementptr inbounds i8, ptr %32, i64 648
+  %39 = getelementptr inbounds nuw i8, ptr %32, i64 640
+  %40 = getelementptr inbounds nuw i8, ptr %32, i64 648
   store i64 510, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %32, i64 656
+  %41 = getelementptr inbounds nuw i8, ptr %32, i64 656
   store i64 -256, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %32, i64 664
+  %42 = getelementptr inbounds nuw i8, ptr %32, i64 664
   store i64 4, ptr %42, align 8
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV5StackI18ShenandoahMarkTaskL8MEMFLAGS5EE, i64 16), ptr %39, align 8
-  %43 = getelementptr inbounds i8, ptr %32, i64 672
+  %43 = getelementptr inbounds nuw i8, ptr %32, i64 672
   store i64 510, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %32, i64 680
+  %44 = getelementptr inbounds nuw i8, ptr %32, i64 680
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %44, i8 0, i64 32, i1 false)
-  %45 = getelementptr inbounds i8, ptr %32, i64 712
+  %45 = getelementptr inbounds nuw i8, ptr %32, i64 712
   store i8 1, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %32, i64 720
+  %46 = getelementptr inbounds nuw i8, ptr %32, i64 720
   store i64 0, ptr %46, align 8
   %47 = load ptr, ptr %21, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds ptr, ptr %49, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw ptr, ptr %49, i64 %indvars.iv
   store ptr %32, ptr %50, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %24
@@ -162,9 +162,9 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN24ShenandoahMarkingContextD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(208) %0) unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 200
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load i32, ptr %4, align 8
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -172,19 +172,19 @@ define hidden void @_ZN24ShenandoahMarkingContextD2Ev(ptr nocapture noundef nonn
 .lr.ph:                                           ; preds = %1, %42
   %6 = phi ptr [ %43, %42 ], [ %3, %1 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %42 ], [ 0, %1 ]
-  %7 = getelementptr inbounds i8, ptr %6, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %42, label %12
 
 12:                                               ; preds = %.lr.ph
-  %13 = getelementptr inbounds i8, ptr %10, i64 640
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 640
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV5StackI18ShenandoahMarkTaskL8MEMFLAGS5EE, i64 16), ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %10, i64 696
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 696
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %10, i64 648
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 648
   %17 = load i64, ptr %16, align 8
   %18 = shl i64 %17, 3
   %19 = add i64 %18, 8
@@ -198,7 +198,7 @@ define hidden void @_ZN24ShenandoahMarkingContextD2Ev(ptr nocapture noundef nonn
   %22 = getelementptr inbounds i8, ptr %.06.i.i.i.i.i.i, i64 %21
   %23 = load ptr, ptr %22, align 8
   %24 = load ptr, ptr %13, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load ptr, ptr %25, align 8
   tail call void %26(ptr noundef nonnull align 8 dereferenceable(72) %13, ptr noundef nonnull %.06.i.i.i.i.i.i, i64 noundef %19) #5
   %.not.i.i.i.i.i.i = icmp eq ptr %23, null
@@ -213,7 +213,7 @@ _ZN5StackI18ShenandoahMarkTaskL8MEMFLAGS5EE13free_segmentsEPS0_.exit.i.loopexit.
 _ZN5StackI18ShenandoahMarkTaskL8MEMFLAGS5EE13free_segmentsEPS0_.exit.i.i.i.i.i: ; preds = %_ZN5StackI18ShenandoahMarkTaskL8MEMFLAGS5EE13free_segmentsEPS0_.exit.i.loopexit.i.i.i.i, %12
   %.pre-phi3.i.i.i.i = phi i64 [ %.pre2.i.i.i.i, %_ZN5StackI18ShenandoahMarkTaskL8MEMFLAGS5EE13free_segmentsEPS0_.exit.i.loopexit.i.i.i.i ], [ %19, %12 ]
   %27 = phi i64 [ %.pre.i.i.i.i, %_ZN5StackI18ShenandoahMarkTaskL8MEMFLAGS5EE13free_segmentsEPS0_.exit.i.loopexit.i.i.i.i ], [ %17, %12 ]
-  %28 = getelementptr inbounds i8, ptr %10, i64 704
+  %28 = getelementptr inbounds nuw i8, ptr %10, i64 704
   %29 = load ptr, ptr %28, align 8
   %.not5.i2.i.i.i.i.i = icmp eq ptr %29, null
   br i1 %.not5.i2.i.i.i.i.i, label %_ZN6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EED2Ev.exit, label %.lr.ph.i3.i.i.i.i.i
@@ -225,7 +225,7 @@ _ZN5StackI18ShenandoahMarkTaskL8MEMFLAGS5EE13free_segmentsEPS0_.exit.i.i.i.i.i: 
   %32 = getelementptr inbounds i8, ptr %.06.i4.i.i.i.i.i, i64 %31
   %33 = load ptr, ptr %32, align 8
   %34 = load ptr, ptr %13, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load ptr, ptr %35, align 8
   tail call void %36(ptr noundef nonnull align 8 dereferenceable(72) %13, ptr noundef nonnull %.06.i4.i.i.i.i.i, i64 noundef %.pre-phi3.i.i.i.i) #5
   %.not.i5.i.i.i.i.i = icmp eq ptr %33, null
@@ -237,11 +237,11 @@ _ZN5StackI18ShenandoahMarkTaskL8MEMFLAGS5EE13free_segmentsEPS0_.exit6.i.i.i.i.i:
 
 _ZN6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EED2Ev.exit: ; preds = %_ZN5StackI18ShenandoahMarkTaskL8MEMFLAGS5EE13free_segmentsEPS0_.exit.i.i.i.i.i, %_ZN5StackI18ShenandoahMarkTaskL8MEMFLAGS5EE13free_segmentsEPS0_.exit6.i.i.i.i.i
   %.sink.i.i.i.i.i = phi i64 [ %37, %_ZN5StackI18ShenandoahMarkTaskL8MEMFLAGS5EE13free_segmentsEPS0_.exit6.i.i.i.i.i ], [ %27, %_ZN5StackI18ShenandoahMarkTaskL8MEMFLAGS5EE13free_segmentsEPS0_.exit.i.i.i.i.i ]
-  %38 = getelementptr inbounds i8, ptr %10, i64 672
+  %38 = getelementptr inbounds nuw i8, ptr %10, i64 672
   store i64 %.sink.i.i.i.i.i, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %10, i64 680
+  %39 = getelementptr inbounds nuw i8, ptr %10, i64 680
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %39, i8 0, i64 32, i1 false)
-  %40 = getelementptr inbounds i8, ptr %10, i64 384
+  %40 = getelementptr inbounds nuw i8, ptr %10, i64 384
   %41 = load ptr, ptr %40, align 8
   tail call void @_Z8FreeHeapPv(ptr noundef %41) #5
   tail call void @_Z8FreeHeapPv(ptr noundef nonnull %10) #5
@@ -251,7 +251,7 @@ _ZN6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072E
 42:                                               ; preds = %.lr.ph, %_ZN6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EED2Ev.exit
   %43 = phi ptr [ %6, %.lr.ph ], [ %.pre, %_ZN6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EED2Ev.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %44 = getelementptr inbounds i8, ptr %43, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %45 = load i32, ptr %44, align 8
   %46 = zext i32 %45 to i64
   %47 = icmp samesign ult i64 %indvars.iv.next, %46
@@ -260,7 +260,7 @@ _ZN6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072E
 ._crit_edge:                                      ; preds = %42, %1
   %.lcssa = phi ptr [ %3, %1 ], [ %43, %42 ]
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV19GenericTaskQueueSetI6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EELS3_5EE, i64 16), ptr %.lcssa, align 8
-  %48 = getelementptr inbounds i8, ptr %.lcssa, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 16
   %49 = load ptr, ptr %48, align 8
   tail call void @_Z8FreeHeapPv(ptr noundef %49) #5
   tail call void @_Z8FreeHeapPv(ptr noundef nonnull %.lcssa) #5
@@ -270,13 +270,13 @@ _ZN6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072E
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZNK24ShenandoahMarkingContext15is_bitmap_clearEv(ptr noundef nonnull align 8 dereferenceable(208) %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 544
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 544
   %4 = load i64, ptr %3, align 8
   %5 = icmp eq i64 %4, 0
   br i1 %5, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %2, i64 552
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 552
   br label %7
 
 7:                                                ; preds = %.lr.ph, %22
@@ -297,9 +297,9 @@ _ZNK14ShenandoahHeap10get_regionEm.exit:          ; preds = %7, %10
   br i1 %14, label %15, label %22
 
 15:                                               ; preds = %_ZNK14ShenandoahHeap10get_regionEm.exit
-  %16 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %.0.i, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   %19 = load ptr, ptr %18, align 8
   %20 = tail call noundef ptr @_ZNK20ShenandoahMarkBitMap20get_next_marked_addrEPKP12HeapWordImplS3_(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef %17, ptr noundef %19) #5
   %21 = icmp eq ptr %20, %19
@@ -329,13 +329,13 @@ declare noundef ptr @_ZNK20ShenandoahMarkBitMap20get_next_marked_addrEPKP12HeapW
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN24ShenandoahMarkingContext28initialize_top_at_mark_startEP20ShenandoahHeapRegion(ptr nocapture noundef nonnull readonly align 8 dereferenceable(208) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 align 2 {
   %3 = load i64, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds ptr, ptr %7, i64 %3
   store ptr %5, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds ptr, ptr %10, i64 %3
   store ptr %5, ptr %11, align 8
@@ -344,9 +344,9 @@ define hidden void @_ZN24ShenandoahMarkingContext28initialize_top_at_mark_startE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN24ShenandoahMarkingContext12clear_bitmapEP20ShenandoahHeapRegion(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8
   %7 = load i64, ptr %1, align 8
   %8 = getelementptr inbounds ptr, ptr %6, i64 %7
@@ -374,7 +374,7 @@ declare void @_ZN20ShenandoahMarkBitMap17clear_range_largeE9MemRegion(ptr nounde
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN24ShenandoahMarkingContext11is_completeEv(ptr noundef nonnull align 8 dereferenceable(208) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 128
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load volatile i8, ptr %2, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !13
   %4 = icmp eq i8 %3, 1
@@ -383,14 +383,14 @@ define hidden noundef zeroext i1 @_ZN24ShenandoahMarkingContext11is_completeEv(p
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN24ShenandoahMarkingContext13mark_completeEv(ptr noundef nonnull align 8 dereferenceable(208) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 128
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = tail call i8 asm sideeffect "xchgb ($2),$0", "=q,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 1, ptr nonnull %2) #5, !srcloc !6
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN24ShenandoahMarkingContext15mark_incompleteEv(ptr noundef nonnull align 8 dereferenceable(208) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 128
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = tail call i8 asm sideeffect "xchgb ($2),$0", "=q,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 0, ptr nonnull %2) #5, !srcloc !6
   ret void
 }
@@ -483,13 +483,13 @@ define linkonce_odr hidden noundef i64 @_ZN9LogPrefixILN6LogTag4typeE49ELS1_80EL
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i32 @_ZNK19GenericTaskQueueSetI6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EELS3_5EE5tasksEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %wide.trip.count = zext i32 %3 to i64
   br label %6
@@ -497,11 +497,11 @@ define linkonce_odr hidden noundef i32 @_ZNK19GenericTaskQueueSetI6PaddedI25Buff
 6:                                                ; preds = %.lr.ph, %6
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %6 ]
   %.056 = phi i32 [ 0, %.lr.ph ], [ %17, %6 ]
-  %7 = getelementptr inbounds ptr, ptr %5, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 128
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 128
   %10 = load volatile i32, ptr %9, align 4
-  %11 = getelementptr inbounds i8, ptr %8, i64 256
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 256
   %12 = load volatile i32, ptr %11, align 4
   %13 = sub i32 %10, %12
   %14 = and i32 %13, 131071

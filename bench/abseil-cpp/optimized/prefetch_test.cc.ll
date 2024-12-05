@@ -329,15 +329,15 @@ _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit:
   tail call void @llvm.prefetch.p0(ptr nonnull %call.i, i32 0, i32 3, i32 1)
   tail call void @llvm.prefetch.p0(ptr nonnull %call.i, i32 0, i32 0, i32 1)
   tail call void asm sideeffect "prefetchw $0", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %call.i) #14, !srcloc !5
-  %add.ptr = getelementptr inbounds i8, ptr %call.i, i64 51200
+  %add.ptr = getelementptr inbounds nuw i8, ptr %call.i, i64 51200
   tail call void @llvm.prefetch.p0(ptr nonnull %add.ptr, i32 0, i32 3, i32 1)
   tail call void @llvm.prefetch.p0(ptr nonnull %add.ptr, i32 0, i32 0, i32 1)
   tail call void asm sideeffect "prefetchw $0", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %add.ptr) #14, !srcloc !5
-  %add.ptr11 = getelementptr inbounds i8, ptr %call.i, i64 102400
+  %add.ptr11 = getelementptr inbounds nuw i8, ptr %call.i, i64 102400
   tail call void @llvm.prefetch.p0(ptr nonnull %add.ptr11, i32 0, i32 3, i32 1)
   tail call void @llvm.prefetch.p0(ptr nonnull %add.ptr11, i32 0, i32 0, i32 1)
   tail call void asm sideeffect "prefetchw $0", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %add.ptr11) #14, !srcloc !5
-  %add.ptr17 = getelementptr inbounds i8, ptr %call.i, i64 153600
+  %add.ptr17 = getelementptr inbounds nuw i8, ptr %call.i, i64 153600
   tail call void @llvm.prefetch.p0(ptr nonnull %add.ptr17, i32 0, i32 3, i32 1)
   tail call void @llvm.prefetch.p0(ptr nonnull %add.ptr17, i32 0, i32 0, i32 1)
   tail call void asm sideeffect "prefetchw $0", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %add.ptr17) #14, !srcloc !5
@@ -623,7 +623,7 @@ invoke.cont.i:                                    ; preds = %.noexc.i
           to label %invoke.cont3.i unwind label %lpad2.i
 
 invoke.cont3.i:                                   ; preds = %invoke.cont.i
-  %line.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 32
+  %line.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.i, i64 32
   store i32 28, ptr %line.i.i, align 8
   %call.i = invoke noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
           to label %invoke.cont5.i unwind label %lpad4.i
@@ -706,7 +706,7 @@ invoke.cont.i10:                                  ; preds = %.noexc.i8
           to label %invoke.cont3.i13 unwind label %lpad2.i11
 
 invoke.cont3.i13:                                 ; preds = %invoke.cont.i10
-  %line.i.i14 = getelementptr inbounds i8, ptr %agg.tmp.i1, i64 32
+  %line.i.i14 = getelementptr inbounds nuw i8, ptr %agg.tmp.i1, i64 32
   store i32 35, ptr %line.i.i14, align 8
   %call.i15 = invoke noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
           to label %invoke.cont5.i17 unwind label %lpad4.i16
@@ -783,7 +783,7 @@ invoke.cont.i34:                                  ; preds = %.noexc.i32
           to label %invoke.cont3.i38 unwind label %lpad2.i35
 
 invoke.cont3.i38:                                 ; preds = %invoke.cont.i34
-  %line.i.i39 = getelementptr inbounds i8, ptr %agg.tmp.i24, i64 32
+  %line.i.i39 = getelementptr inbounds nuw i8, ptr %agg.tmp.i24, i64 32
   store i32 52, ptr %line.i.i39, align 8
   %call.i40 = invoke noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
           to label %invoke.cont5.i42 unwind label %lpad4.i41
@@ -860,7 +860,7 @@ invoke.cont.i60:                                  ; preds = %.noexc.i58
           to label %invoke.cont3.i64 unwind label %lpad2.i61
 
 invoke.cont3.i64:                                 ; preds = %invoke.cont.i60
-  %line.i.i65 = getelementptr inbounds i8, ptr %agg.tmp.i50, i64 32
+  %line.i.i65 = getelementptr inbounds nuw i8, ptr %agg.tmp.i50, i64 32
   store i32 58, ptr %line.i.i65, align 8
   %call.i66 = invoke noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
           to label %invoke.cont5.i68 unwind label %lpad4.i67

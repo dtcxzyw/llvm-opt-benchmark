@@ -68,13 +68,13 @@ define void @_ZNK13RichDirection10stringTypeEv(ptr dead_on_unwind noalias nocapt
 define noundef zeroext i1 @_ZN13RichDirectioneqERK13RichParameter(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) unnamed_addr #3 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK13RichParameter5valueEv(ptr noundef nonnull align 8 dereferenceable(56) %1)
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 120
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 120
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(8) %3)
   br i1 %7, label %8, label %_ZNK3vcg6Point3IfEeqERKS1_.exit
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK13RichParameter4nameEv(ptr noundef nonnull align 8 dereferenceable(56) %1)
   %11 = tail call noundef zeroext i1 @_ZeqRK7QStringS1_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %10) #9
   br i1 %11, label %12, label %_ZNK3vcg6Point3IfEeqERKS1_.exit
@@ -82,13 +82,13 @@ define noundef zeroext i1 @_ZN13RichDirectioneqERK13RichParameter(ptr noundef no
 12:                                               ; preds = %8
   %13 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK13RichParameter5valueEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 56
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 56
   %16 = load ptr, ptr %15, align 8
   %17 = tail call { <2 x float>, float } %16(ptr noundef nonnull align 8 dereferenceable(8) %13)
   %.fca.0.extract1 = extractvalue { <2 x float>, float } %17, 0
   %18 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK13RichParameter5valueEv(ptr noundef nonnull align 8 dereferenceable(56) %1)
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 56
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 56
   %21 = load ptr, ptr %20, align 8
   %22 = tail call { <2 x float>, float } %21(ptr noundef nonnull align 8 dereferenceable(8) %18)
   %.fca.0.extract = extractvalue { <2 x float>, float } %22, 0

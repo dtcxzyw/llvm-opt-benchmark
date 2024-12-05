@@ -16,11 +16,11 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @getPortMixerDescription(i32 noundef %0, ptr noundef initializes((0, 13), (200, 215), (400, 411), (600, 616)) %1) local_unnamed_addr #0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %1, ptr noundef nonnull align 1 dereferenceable(13) @.str, i64 13, i1 false) #3
-  %3 = getelementptr inbounds i8, ptr %1, i64 200
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 200
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %3, ptr noundef nonnull align 1 dereferenceable(15) @.str.1, i64 15, i1 false) #3
-  %4 = getelementptr inbounds i8, ptr %1, i64 400
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 400
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %4, ptr noundef nonnull align 1 dereferenceable(11) @.str.2, i64 11, i1 false) #3
-  %5 = getelementptr inbounds i8, ptr %1, i64 600
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 600
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %5, ptr noundef nonnull align 1 dereferenceable(16) @.str.3, i64 16, i1 false) #3
   %6 = tail call i32 @PORT_GetPortMixerDescription(i32 noundef %0, ptr noundef %1) #3
   ret i32 1
@@ -40,7 +40,7 @@ declare i32 @PORT_GetPortMixerCount(...) local_unnamed_addr #1
 define ptr @Java_com_sun_media_sound_PortMixerProvider_nNewPortMixerInfo(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.tag_PortMixerDescription, align 1
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %7 = load ptr, ptr %6, align 8
   %8 = tail call ptr %7(ptr noundef nonnull %0, ptr noundef nonnull @.str.4) #3
   %9 = icmp eq ptr %8, null
@@ -48,7 +48,7 @@ define ptr @Java_com_sun_media_sound_PortMixerProvider_nNewPortMixerInfo(ptr nou
 
 10:                                               ; preds = %3
   %11 = load ptr, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 264
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 264
   %13 = load ptr, ptr %12, align 8
   %14 = tail call ptr %13(ptr noundef nonnull %0, ptr noundef nonnull %8, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6) #3
   %15 = icmp eq ptr %14, null
@@ -56,15 +56,15 @@ define ptr @Java_com_sun_media_sound_PortMixerProvider_nNewPortMixerInfo(ptr nou
 
 16:                                               ; preds = %10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %4, ptr noundef nonnull align 1 dereferenceable(13) @.str, i64 13, i1 false) #3
-  %17 = getelementptr inbounds i8, ptr %4, i64 200
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 200
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %17, ptr noundef nonnull align 1 dereferenceable(15) @.str.1, i64 15, i1 false) #3
-  %18 = getelementptr inbounds i8, ptr %4, i64 400
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 400
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %18, ptr noundef nonnull align 1 dereferenceable(11) @.str.2, i64 11, i1 false) #3
-  %19 = getelementptr inbounds i8, ptr %4, i64 600
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 600
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %19, ptr noundef nonnull align 1 dereferenceable(16) @.str.3, i64 16, i1 false) #3
   %20 = call i32 @PORT_GetPortMixerDescription(i32 noundef %2, ptr noundef nonnull %4) #3
   %21 = load ptr, ptr %0, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 1336
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 1336
   %23 = load ptr, ptr %22, align 8
   %24 = call ptr %23(ptr noundef nonnull %0, ptr noundef nonnull %4) #3
   %25 = icmp eq ptr %24, null
@@ -72,7 +72,7 @@ define ptr @Java_com_sun_media_sound_PortMixerProvider_nNewPortMixerInfo(ptr nou
 
 26:                                               ; preds = %16
   %27 = load ptr, ptr %0, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 1336
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 1336
   %29 = load ptr, ptr %28, align 8
   %30 = call ptr %29(ptr noundef nonnull %0, ptr noundef nonnull %17) #3
   %31 = icmp eq ptr %30, null
@@ -80,7 +80,7 @@ define ptr @Java_com_sun_media_sound_PortMixerProvider_nNewPortMixerInfo(ptr nou
 
 32:                                               ; preds = %26
   %33 = load ptr, ptr %0, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 1336
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 1336
   %35 = load ptr, ptr %34, align 8
   %36 = call ptr %35(ptr noundef nonnull %0, ptr noundef nonnull %18) #3
   %37 = icmp eq ptr %36, null
@@ -88,7 +88,7 @@ define ptr @Java_com_sun_media_sound_PortMixerProvider_nNewPortMixerInfo(ptr nou
 
 38:                                               ; preds = %32
   %39 = load ptr, ptr %0, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 1336
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 1336
   %41 = load ptr, ptr %40, align 8
   %42 = call ptr %41(ptr noundef nonnull %0, ptr noundef nonnull %19) #3
   %43 = icmp eq ptr %42, null
@@ -96,7 +96,7 @@ define ptr @Java_com_sun_media_sound_PortMixerProvider_nNewPortMixerInfo(ptr nou
 
 44:                                               ; preds = %38
   %45 = load ptr, ptr %0, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 224
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 224
   %47 = load ptr, ptr %46, align 8
   %48 = call ptr (ptr, ptr, ptr, ...) %47(ptr noundef nonnull %0, ptr noundef nonnull %8, ptr noundef nonnull %14, i32 noundef %2, ptr noundef nonnull %24, ptr noundef nonnull %30, ptr noundef nonnull %36, ptr noundef nonnull %42) #3
   br label %49

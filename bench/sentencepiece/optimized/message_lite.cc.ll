@@ -147,41 +147,41 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define weak_odr noundef zeroext i1 @_ZN6google8protobuf8internal13MergeFromImplILb0EEEbNS0_11StringPieceEPNS0_11MessageLiteENS4_10ParseFlagsE(ptr %0, i64 %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #3 comdat {
   %5 = alloca %"class.google::protobuf::internal::ParseContext", align 8
   %6 = load i32, ptr @_ZN6google8protobuf2io16CodedInputStream24default_recursion_limit_E, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 32
-  %8 = getelementptr inbounds i8, ptr %5, i64 72
-  %9 = getelementptr inbounds i8, ptr %5, i64 80
-  %10 = getelementptr inbounds i8, ptr %5, i64 84
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 84
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %7, i8 0, i64 52, i1 false)
-  %11 = getelementptr inbounds i8, ptr %5, i64 88
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 88
   store i32 %6, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %5, i64 92
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 92
   store i32 -2147483648, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 96
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 96
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
   store i32 0, ptr %10, align 4
   %14 = icmp sgt i64 %1, 16
-  %15 = getelementptr inbounds i8, ptr %5, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 16
   br i1 %14, label %16, label %22
 
 16:                                               ; preds = %4
-  %17 = getelementptr inbounds i8, ptr %5, i64 28
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 28
   store i32 16, ptr %17, align 4
-  %18 = getelementptr inbounds i8, ptr %0, i64 %1
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %1
   %19 = getelementptr inbounds i8, ptr %18, i64 -16
-  %20 = getelementptr inbounds i8, ptr %5, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %19, ptr %20, align 8
   store ptr %19, ptr %5, align 8
-  %21 = getelementptr inbounds i8, ptr %5, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store ptr %21, ptr %15, align 8
   br label %_ZN6google8protobuf8internal12ParseContextC2IJRNS0_11StringPieceEEEEibPPKcDpOT_.exit
 
 22:                                               ; preds = %4
-  %23 = getelementptr inbounds i8, ptr %5, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %23, ptr align 1 %0, i64 %1, i1 false)
-  %24 = getelementptr inbounds i8, ptr %5, i64 28
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 28
   store i32 0, ptr %24, align 4
   %25 = getelementptr inbounds i8, ptr %23, i64 %1
-  %26 = getelementptr inbounds i8, ptr %5, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %25, ptr %26, align 8
   store ptr %25, ptr %5, align 8
   store ptr null, ptr %15, align 8
@@ -199,7 +199,7 @@ define weak_odr noundef zeroext i1 @_ZN6google8protobuf8internal13MergeFromImplI
 _ZN6google8protobuf8internal12ParseContextC2IJRNS0_11StringPieceEEEEibPPKcDpOT_.exit: ; preds = %16, %22, %29
   %.0.i.i = phi ptr [ %23, %22 ], [ %0, %16 ], [ %23, %29 ]
   %33 = load ptr, ptr %2, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 88
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 88
   %35 = load ptr, ptr %34, align 8
   %36 = call noundef ptr %35(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef %.0.i.i, ptr noundef nonnull %5)
   %.not = icmp ne ptr %36, null
@@ -215,7 +215,7 @@ _ZN6google8protobuf8internal12ParseContextC2IJRNS0_11StringPieceEEEEibPPKcDpOT_.
 
 41:                                               ; preds = %39
   %42 = load ptr, ptr %2, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 48
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 48
   %44 = load ptr, ptr %43, align 8
   %45 = call noundef zeroext i1 %44(ptr noundef nonnull align 8 dereferenceable(16) %2)
   br i1 %45, label %.critedge, label %46
@@ -233,43 +233,43 @@ _ZN6google8protobuf8internal12ParseContextC2IJRNS0_11StringPieceEEEEibPPKcDpOT_.
 define weak_odr noundef zeroext i1 @_ZN6google8protobuf8internal13MergeFromImplILb1EEEbNS0_11StringPieceEPNS0_11MessageLiteENS4_10ParseFlagsE(ptr %0, i64 %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #3 comdat {
   %5 = alloca %"class.google::protobuf::internal::ParseContext", align 8
   %6 = load i32, ptr @_ZN6google8protobuf2io16CodedInputStream24default_recursion_limit_E, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 32
-  %8 = getelementptr inbounds i8, ptr %5, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, i8 0, i64 40, i1 false)
   store i64 1, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %5, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 80
   store i32 0, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 84
-  %11 = getelementptr inbounds i8, ptr %5, i64 88
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 84
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 88
   store i32 %6, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %5, i64 92
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 92
   store i32 -2147483648, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 96
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 96
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
   store i32 0, ptr %10, align 4
   %14 = icmp sgt i64 %1, 16
-  %15 = getelementptr inbounds i8, ptr %5, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 16
   br i1 %14, label %16, label %22
 
 16:                                               ; preds = %4
-  %17 = getelementptr inbounds i8, ptr %5, i64 28
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 28
   store i32 16, ptr %17, align 4
-  %18 = getelementptr inbounds i8, ptr %0, i64 %1
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %1
   %19 = getelementptr inbounds i8, ptr %18, i64 -16
-  %20 = getelementptr inbounds i8, ptr %5, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %19, ptr %20, align 8
   store ptr %19, ptr %5, align 8
-  %21 = getelementptr inbounds i8, ptr %5, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store ptr %21, ptr %15, align 8
   br label %.sink.split.i.i
 
 22:                                               ; preds = %4
-  %23 = getelementptr inbounds i8, ptr %5, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %23, ptr align 1 %0, i64 %1, i1 false)
-  %24 = getelementptr inbounds i8, ptr %5, i64 28
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 28
   store i32 0, ptr %24, align 4
   %25 = getelementptr inbounds i8, ptr %23, i64 %1
-  %26 = getelementptr inbounds i8, ptr %5, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %25, ptr %26, align 8
   store ptr %25, ptr %5, align 8
   store ptr null, ptr %15, align 8
@@ -292,7 +292,7 @@ define weak_odr noundef zeroext i1 @_ZN6google8protobuf8internal13MergeFromImplI
 _ZN6google8protobuf8internal12ParseContextC2IJRNS0_11StringPieceEEEEibPPKcDpOT_.exit: ; preds = %22, %.sink.split.i.i
   %.0.i.i = phi ptr [ %23, %22 ], [ %.0.ph.i.i, %.sink.split.i.i ]
   %33 = load ptr, ptr %2, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 88
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 88
   %35 = load ptr, ptr %34, align 8
   %36 = call noundef ptr %35(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef %.0.i.i, ptr noundef nonnull %5)
   %.not = icmp ne ptr %36, null
@@ -308,7 +308,7 @@ _ZN6google8protobuf8internal12ParseContextC2IJRNS0_11StringPieceEEEEibPPKcDpOT_.
 
 41:                                               ; preds = %39
   %42 = load ptr, ptr %2, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 48
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 48
   %44 = load ptr, ptr %43, align 8
   %45 = call noundef zeroext i1 %44(ptr noundef nonnull align 8 dereferenceable(16) %2)
   br i1 %45, label %.critedge, label %46
@@ -326,20 +326,20 @@ _ZN6google8protobuf8internal12ParseContextC2IJRNS0_11StringPieceEEEEibPPKcDpOT_.
 define weak_odr noundef zeroext i1 @_ZN6google8protobuf8internal13MergeFromImplILb0EEEbPNS0_2io19ZeroCopyInputStreamEPNS0_11MessageLiteENS6_10ParseFlagsE(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #3 comdat {
   %4 = alloca %"class.google::protobuf::internal::ParseContext", align 8
   %5 = load i32, ptr @_ZN6google8protobuf2io16CodedInputStream24default_recursion_limit_E, align 4
-  %6 = getelementptr inbounds i8, ptr %4, i64 32
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
-  %8 = getelementptr inbounds i8, ptr %4, i64 84
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 84
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %6, i8 0, i64 52, i1 false)
   store i32 2147483647, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %4, i64 88
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 88
   store i32 %5, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 92
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 92
   store i32 -2147483648, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %4, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 96
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   %12 = call noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream8InitFromEPNS0_2io19ZeroCopyInputStreamE(ptr noundef nonnull align 8 dereferenceable(112) %4, ptr noundef %0)
   %13 = load ptr, ptr %1, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 88
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 88
   %15 = load ptr, ptr %14, align 8
   %16 = call noundef ptr %15(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %12, ptr noundef nonnull %4)
   %.not = icmp ne ptr %16, null
@@ -355,7 +355,7 @@ define weak_odr noundef zeroext i1 @_ZN6google8protobuf8internal13MergeFromImplI
 
 21:                                               ; preds = %19
   %22 = load ptr, ptr %1, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 48
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 48
   %24 = load ptr, ptr %23, align 8
   %25 = call noundef zeroext i1 %24(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br i1 %25, label %.critedge, label %26
@@ -373,23 +373,23 @@ define weak_odr noundef zeroext i1 @_ZN6google8protobuf8internal13MergeFromImplI
 define weak_odr noundef zeroext i1 @_ZN6google8protobuf8internal13MergeFromImplILb1EEEbPNS0_2io19ZeroCopyInputStreamEPNS0_11MessageLiteENS6_10ParseFlagsE(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #3 comdat {
   %4 = alloca %"class.google::protobuf::internal::ParseContext", align 8
   %5 = load i32, ptr @_ZN6google8protobuf2io16CodedInputStream24default_recursion_limit_E, align 4
-  %6 = getelementptr inbounds i8, ptr %4, i64 32
-  %7 = getelementptr inbounds i8, ptr %4, i64 72
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, i8 0, i64 40, i1 false)
   store i64 1, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store i32 0, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 84
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 84
   store i32 2147483647, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %4, i64 88
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 88
   store i32 %5, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 92
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 92
   store i32 -2147483648, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %4, i64 96
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 96
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
   %13 = call noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream8InitFromEPNS0_2io19ZeroCopyInputStreamE(ptr noundef nonnull align 8 dereferenceable(112) %4, ptr noundef %0)
   %14 = load ptr, ptr %1, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 88
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 88
   %16 = load ptr, ptr %15, align 8
   %17 = call noundef ptr %16(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %13, ptr noundef nonnull %4)
   %.not = icmp ne ptr %17, null
@@ -405,7 +405,7 @@ define weak_odr noundef zeroext i1 @_ZN6google8protobuf8internal13MergeFromImplI
 
 22:                                               ; preds = %20
   %23 = load ptr, ptr %1, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 48
   %25 = load ptr, ptr %24, align 8
   %26 = call noundef zeroext i1 %25(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br i1 %26, label %.critedge, label %27
@@ -423,16 +423,16 @@ define weak_odr noundef zeroext i1 @_ZN6google8protobuf8internal13MergeFromImplI
 define weak_odr noundef zeroext i1 @_ZN6google8protobuf8internal13MergeFromImplILb0EEEbNS1_11BoundedZCISEPNS0_11MessageLiteENS4_10ParseFlagsE(ptr %0, i32 %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.google::protobuf::internal::ParseContext", align 8
   %6 = load i32, ptr @_ZN6google8protobuf2io16CodedInputStream24default_recursion_limit_E, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 32
-  %8 = getelementptr inbounds i8, ptr %5, i64 80
-  %9 = getelementptr inbounds i8, ptr %5, i64 84
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 84
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %7, i8 0, i64 52, i1 false)
   store i32 2147483647, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %5, i64 88
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 88
   store i32 %6, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 92
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 92
   store i32 -2147483648, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %5, i64 96
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 96
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
   %13 = icmp eq i32 %1, -1
   br i1 %13, label %14, label %16
@@ -444,14 +444,14 @@ define weak_odr noundef zeroext i1 @_ZN6google8protobuf8internal13MergeFromImplI
 16:                                               ; preds = %4
   store i32 %1, ptr %9, align 4
   %17 = call noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream8InitFromEPNS0_2io19ZeroCopyInputStreamE(ptr noundef nonnull align 8 dereferenceable(112) %5, ptr noundef %0)
-  %18 = getelementptr inbounds i8, ptr %5, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = ptrtoint ptr %19 to i64
   %21 = ptrtoint ptr %17 to i64
   %.neg.i.i = sub i64 %21, %20
   %.neg9.i.i = trunc i64 %.neg.i.i to i32
   %22 = add i32 %1, %.neg9.i.i
-  %23 = getelementptr inbounds i8, ptr %5, i64 28
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 28
   store i32 %22, ptr %23, align 4
   %.sroa.speculated.i.i = call i32 @llvm.smin.i32(i32 %22, i32 0)
   %24 = sext i32 %.sroa.speculated.i.i to i64
@@ -462,23 +462,23 @@ define weak_odr noundef zeroext i1 @_ZN6google8protobuf8internal13MergeFromImplI
 _ZN6google8protobuf8internal12ParseContextC2IJRPNS0_2io19ZeroCopyInputStreamERiEEEibPPKcDpOT_.exit: ; preds = %14, %16
   %.0.i.i = phi ptr [ %15, %14 ], [ %17, %16 ]
   %26 = load ptr, ptr %2, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 88
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 88
   %28 = load ptr, ptr %27, align 8
   %29 = call noundef ptr %28(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef %.0.i.i, ptr noundef nonnull %5)
   %.not = icmp eq ptr %29, null
   br i1 %.not, label %_ZN6google8protobuf12_GLOBAL__N_118CheckFieldPresenceERKNS0_8internal12ParseContextERKNS0_11MessageLiteENS6_10ParseFlagsE.exit, label %30
 
 30:                                               ; preds = %_ZN6google8protobuf8internal12ParseContextC2IJRPNS0_2io19ZeroCopyInputStreamERiEEEibPPKcDpOT_.exit
-  %31 = getelementptr inbounds i8, ptr %5, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %5, i64 40
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %34 = icmp eq ptr %32, %33
   br i1 %34, label %35, label %43
 
 35:                                               ; preds = %30
-  %36 = getelementptr inbounds i8, ptr %5, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %39 = ptrtoint ptr %38 to i64
   %40 = ptrtoint ptr %29 to i64
   %41 = sub i64 %39, %40
@@ -486,9 +486,9 @@ _ZN6google8protobuf8internal12ParseContextC2IJRPNS0_2io19ZeroCopyInputStreamERiE
   br label %53
 
 43:                                               ; preds = %30
-  %44 = getelementptr inbounds i8, ptr %5, i64 24
+  %44 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %45 = load i32, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %5, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %47 = load ptr, ptr %46, align 8
   %48 = ptrtoint ptr %47 to i64
   %49 = ptrtoint ptr %29 to i64
@@ -505,7 +505,7 @@ _ZN6google8protobuf8internal12ParseContextC2IJRPNS0_2io19ZeroCopyInputStreamERiE
 55:                                               ; preds = %53
   %56 = load ptr, ptr %7, align 8
   %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 24
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 24
   %59 = load ptr, ptr %58, align 8
   call void %59(ptr noundef nonnull align 8 dereferenceable(8) %56, i32 noundef %.0.i)
   %60 = load i32, ptr %9, align 4
@@ -525,7 +525,7 @@ _ZN6google8protobuf8internal18EpsCopyInputStream6BackUpEPKc.exit: ; preds = %53,
 
 66:                                               ; preds = %64
   %67 = load ptr, ptr %2, align 8
-  %68 = getelementptr inbounds i8, ptr %67, i64 48
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 48
   %69 = load ptr, ptr %68, align 8
   %70 = call noundef zeroext i1 %69(ptr noundef nonnull align 8 dereferenceable(16) %2)
   br i1 %70, label %_ZN6google8protobuf12_GLOBAL__N_118CheckFieldPresenceERKNS0_8internal12ParseContextERKNS0_11MessageLiteENS6_10ParseFlagsE.exit, label %71
@@ -543,19 +543,19 @@ _ZN6google8protobuf12_GLOBAL__N_118CheckFieldPresenceERKNS0_8internal12ParseCont
 define weak_odr noundef zeroext i1 @_ZN6google8protobuf8internal13MergeFromImplILb1EEEbNS1_11BoundedZCISEPNS0_11MessageLiteENS4_10ParseFlagsE(ptr %0, i32 %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.google::protobuf::internal::ParseContext", align 8
   %6 = load i32, ptr @_ZN6google8protobuf2io16CodedInputStream24default_recursion_limit_E, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 32
-  %8 = getelementptr inbounds i8, ptr %5, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, i8 0, i64 40, i1 false)
   store i64 1, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %5, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 80
   store i32 0, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 84
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 84
   store i32 2147483647, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %5, i64 88
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 88
   store i32 %6, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %5, i64 92
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 92
   store i32 -2147483648, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 96
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 96
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
   %14 = icmp eq i32 %1, -1
   br i1 %14, label %15, label %17
@@ -567,14 +567,14 @@ define weak_odr noundef zeroext i1 @_ZN6google8protobuf8internal13MergeFromImplI
 17:                                               ; preds = %4
   store i32 %1, ptr %10, align 4
   %18 = call noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream8InitFromEPNS0_2io19ZeroCopyInputStreamE(ptr noundef nonnull align 8 dereferenceable(112) %5, ptr noundef %0)
-  %19 = getelementptr inbounds i8, ptr %5, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = ptrtoint ptr %20 to i64
   %22 = ptrtoint ptr %18 to i64
   %.neg.i.i = sub i64 %22, %21
   %.neg9.i.i = trunc i64 %.neg.i.i to i32
   %23 = add i32 %1, %.neg9.i.i
-  %24 = getelementptr inbounds i8, ptr %5, i64 28
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 28
   store i32 %23, ptr %24, align 4
   %.sroa.speculated.i.i = call i32 @llvm.smin.i32(i32 %23, i32 0)
   %25 = sext i32 %.sroa.speculated.i.i to i64
@@ -585,23 +585,23 @@ define weak_odr noundef zeroext i1 @_ZN6google8protobuf8internal13MergeFromImplI
 _ZN6google8protobuf8internal12ParseContextC2IJRPNS0_2io19ZeroCopyInputStreamERiEEEibPPKcDpOT_.exit: ; preds = %15, %17
   %.0.i.i = phi ptr [ %16, %15 ], [ %18, %17 ]
   %27 = load ptr, ptr %2, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 88
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 88
   %29 = load ptr, ptr %28, align 8
   %30 = call noundef ptr %29(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef %.0.i.i, ptr noundef nonnull %5)
   %.not = icmp eq ptr %30, null
   br i1 %.not, label %_ZN6google8protobuf12_GLOBAL__N_118CheckFieldPresenceERKNS0_8internal12ParseContextERKNS0_11MessageLiteENS6_10ParseFlagsE.exit, label %31
 
 31:                                               ; preds = %_ZN6google8protobuf8internal12ParseContextC2IJRPNS0_2io19ZeroCopyInputStreamERiEEEibPPKcDpOT_.exit
-  %32 = getelementptr inbounds i8, ptr %5, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %5, i64 40
+  %34 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %35 = icmp eq ptr %33, %34
   br i1 %35, label %36, label %44
 
 36:                                               ; preds = %31
-  %37 = getelementptr inbounds i8, ptr %5, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %40 = ptrtoint ptr %39 to i64
   %41 = ptrtoint ptr %30 to i64
   %42 = sub i64 %40, %41
@@ -609,9 +609,9 @@ _ZN6google8protobuf8internal12ParseContextC2IJRPNS0_2io19ZeroCopyInputStreamERiE
   br label %54
 
 44:                                               ; preds = %31
-  %45 = getelementptr inbounds i8, ptr %5, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %46 = load i32, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %5, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %48 = load ptr, ptr %47, align 8
   %49 = ptrtoint ptr %48 to i64
   %50 = ptrtoint ptr %30 to i64
@@ -628,7 +628,7 @@ _ZN6google8protobuf8internal12ParseContextC2IJRPNS0_2io19ZeroCopyInputStreamERiE
 56:                                               ; preds = %54
   %57 = load ptr, ptr %7, align 8
   %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 24
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 24
   %60 = load ptr, ptr %59, align 8
   call void %60(ptr noundef nonnull align 8 dereferenceable(8) %57, i32 noundef %.0.i)
   %61 = load i32, ptr %10, align 4
@@ -648,7 +648,7 @@ _ZN6google8protobuf8internal18EpsCopyInputStream6BackUpEPKc.exit: ; preds = %54,
 
 67:                                               ; preds = %65
   %68 = load ptr, ptr %2, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 48
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 48
   %70 = load ptr, ptr %69, align 8
   %71 = call noundef zeroext i1 %70(ptr noundef nonnull align 8 dereferenceable(16) %2)
   br i1 %71, label %_ZN6google8protobuf12_GLOBAL__N_118CheckFieldPresenceERKNS0_8internal12ParseContextERKNS0_11MessageLiteENS6_10ParseFlagsE.exit, label %72
@@ -665,7 +665,7 @@ _ZN6google8protobuf12_GLOBAL__N_118CheckFieldPresenceERKNS0_8internal12ParseCont
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK6google8protobuf11MessageLite25InitializationErrorStringB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::allocator", align 1
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #16
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #17
   %4 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
           to label %.noexc unwind label %7
 
@@ -680,11 +680,11 @@ define void @_ZNK6google8protobuf11MessageLite25InitializationErrorStringB5cxx11
 5:                                                ; preds = %.noexc1
   %6 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #16
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #17
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc1
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #16
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #17
   ret void
 
 7:                                                ; preds = %.noexc, %2
@@ -694,7 +694,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 .body:                                            ; preds = %5, %7
   %eh.lpad-body = phi { ptr, i32 } [ %8, %7 ], [ %6, %5 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #16
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #17
   resume { ptr, i32 } %eh.lpad-body
 }
 
@@ -712,7 +712,7 @@ define void @_ZNK6google8protobuf11MessageLite11DebugStringB5cxx11Ev(ptr dead_on
   %4 = alloca %"struct.google::protobuf::strings::AlphaNum", align 8
   %5 = ptrtoint ptr %1 to i64
   store ptr @.str.1, ptr %3, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 17, ptr %6, align 8
   call void @_ZN6google8protobuf7strings8AlphaNumC1ENS1_3HexE(ptr noundef nonnull align 8 dereferenceable(48) %4, i64 %5, i32 1)
   call void @_ZN6google8protobuf6StrCatB5cxx11ERKNS0_7strings8AlphaNumES4_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(48) %4)
@@ -733,7 +733,7 @@ define void @_ZNK6google8protobuf11MessageLite29LogInitializationErrorMessageEv(
   call void @_ZN6google8protobuf8internal10LogMessageC1ENS0_8LogLevelEPKci(ptr noundef nonnull align 8 dereferenceable(56) %4, i32 noundef 2, ptr noundef nonnull @.str.2, i32 noundef 133)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #16
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
   %7 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str.10)
           to label %8 unwind label %26
 
@@ -747,7 +747,7 @@ define void @_ZNK6google8protobuf11MessageLite29LogInitializationErrorMessageEv(
 
 12:                                               ; preds = %10
   %13 = load ptr, ptr %0, align 8, !noalias !4
-  %14 = getelementptr inbounds i8, ptr %13, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
   invoke void %15(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %2, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %16 unwind label %26
@@ -757,13 +757,13 @@ define void @_ZNK6google8protobuf11MessageLite29LogInitializationErrorMessageEv(
           to label %18 unwind label %28
 
 18:                                               ; preds = %16
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #16
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #17
   %19 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str.12)
           to label %20 unwind label %26
 
 20:                                               ; preds = %18
   %21 = load ptr, ptr %0, align 8, !noalias !4
-  %22 = getelementptr inbounds i8, ptr %21, i64 56
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 56
   %23 = load ptr, ptr %22, align 8
   invoke void %23(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %24 unwind label %26
@@ -780,17 +780,17 @@ define void @_ZNK6google8protobuf11MessageLite29LogInitializationErrorMessageEv(
 28:                                               ; preds = %16
   %29 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #16
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #17
   br label %.body
 
 30:                                               ; preds = %24
   %31 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #16
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #17
   br label %.body
 
 32:                                               ; preds = %24
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #16
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #17
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   %33 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(32) %5)
@@ -801,8 +801,8 @@ define void @_ZNK6google8protobuf11MessageLite29LogInitializationErrorMessageEv(
           to label %35 unwind label %36
 
 35:                                               ; preds = %34
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #16
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #16
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #17
   ret void
 
 36:                                               ; preds = %34, %32
@@ -812,8 +812,8 @@ define void @_ZNK6google8protobuf11MessageLite29LogInitializationErrorMessageEv(
 
 .body:                                            ; preds = %26, %28, %30, %36
   %.pn = phi { ptr, i32 } [ %37, %36 ], [ %31, %30 ], [ %27, %26 ], [ %29, %28 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #16
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #16
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #17
   resume { ptr, i32 } %.pn
 }
 
@@ -832,7 +832,7 @@ declare void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull a
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_ZNK6google8protobuf11MessageLite3NewEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #3 align 2 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noundef ptr %5(ptr noundef nonnull align 8 dereferenceable(16) %0)
   %.not = icmp eq ptr %1, null
@@ -854,55 +854,55 @@ _ZN6google8protobuf8internal12ParseContextC2IJPNS0_24ZeroCopyCodedInputStreamEEE
   %3 = alloca %"class.google::protobuf::ZeroCopyCodedInputStream", align 8
   %4 = alloca %"class.google::protobuf::internal::ParseContext", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf24ZeroCopyCodedInputStreamE, i64 16), ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %1, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 52
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %7 = load i32, ptr %6, align 4
-  %8 = getelementptr inbounds i8, ptr %1, i64 37
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 37
   %9 = load i8, ptr %8, align 1
-  %10 = getelementptr inbounds i8, ptr %4, i64 32
-  %11 = getelementptr inbounds i8, ptr %4, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %12 = and i8 %9, 1
   %13 = zext nneg i8 %12 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, i8 0, i64 40, i1 false)
   store i64 %13, ptr %11, align 8
-  %14 = getelementptr inbounds i8, ptr %4, i64 80
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store i32 0, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %4, i64 84
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 84
   store i32 2147483647, ptr %15, align 4
-  %16 = getelementptr inbounds i8, ptr %4, i64 88
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 88
   store i32 %7, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %4, i64 92
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 92
   store i32 -2147483648, ptr %17, align 4
-  %18 = getelementptr inbounds i8, ptr %4, i64 96
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 96
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, i8 0, i64 16, i1 false)
   %19 = call noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream8InitFromEPNS0_2io19ZeroCopyInputStreamE(ptr noundef nonnull align 8 dereferenceable(112) %4, ptr noundef nonnull %3)
   store i32 0, ptr %17, align 4
-  %20 = getelementptr inbounds i8, ptr %1, i64 64
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %21 = load ptr, ptr %20, align 8
   store ptr %21, ptr %18, align 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 72
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %4, i64 104
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 104
   store ptr %23, ptr %24, align 8
   %25 = load ptr, ptr %0, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 88
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 88
   %27 = load ptr, ptr %26, align 8
   %28 = call noundef ptr %27(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %19, ptr noundef nonnull %4)
   %.not = icmp eq ptr %28, null
   br i1 %.not, label %_ZN6google8protobuf12_GLOBAL__N_118CheckFieldPresenceERKNS0_8internal12ParseContextERKNS0_11MessageLiteENS6_10ParseFlagsE.exit, label %29
 
 29:                                               ; preds = %_ZN6google8protobuf8internal12ParseContextC2IJPNS0_24ZeroCopyCodedInputStreamEEEEibPPKcDpOT_.exit
-  %30 = getelementptr inbounds i8, ptr %4, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %4, i64 40
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %33 = icmp eq ptr %31, %32
   br i1 %33, label %34, label %42
 
 34:                                               ; preds = %29
-  %35 = getelementptr inbounds i8, ptr %4, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = ptrtoint ptr %37 to i64
   %39 = ptrtoint ptr %28 to i64
   %40 = sub i64 %38, %39
@@ -910,9 +910,9 @@ _ZN6google8protobuf8internal12ParseContextC2IJPNS0_24ZeroCopyCodedInputStreamEEE
   br label %52
 
 42:                                               ; preds = %29
-  %43 = getelementptr inbounds i8, ptr %4, i64 24
+  %43 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %44 = load i32, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %4, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %46 = load ptr, ptr %45, align 8
   %47 = ptrtoint ptr %46 to i64
   %48 = ptrtoint ptr %28 to i64
@@ -929,7 +929,7 @@ _ZN6google8protobuf8internal12ParseContextC2IJPNS0_24ZeroCopyCodedInputStreamEEE
 .noexc:                                           ; preds = %52
   %54 = load ptr, ptr %10, align 8
   %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 24
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 24
   %57 = load ptr, ptr %56, align 8
   call void %57(ptr noundef nonnull align 8 dereferenceable(8) %54, i32 noundef %.0.i)
   %58 = load i32, ptr %15, align 4
@@ -953,12 +953,12 @@ _ZN6google8protobuf8internal18EpsCopyInputStream6BackUpEPKc.exit: ; preds = %.no
   br i1 %67, label %_ZN6google8protobuf12_GLOBAL__N_118CheckFieldPresenceERKNS0_8internal12ParseContextERKNS0_11MessageLiteENS6_10ParseFlagsE.exit, label %_ZN6google8protobuf8internal18EpsCopyInputStream16IsExceedingLimitEPKc.exit
 
 _ZN6google8protobuf8internal18EpsCopyInputStream16IsExceedingLimitEPKc.exit: ; preds = %65
-  %68 = getelementptr inbounds i8, ptr %4, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %69 = load ptr, ptr %68, align 8
   %70 = ptrtoint ptr %28 to i64
   %71 = ptrtoint ptr %69 to i64
   %72 = sub i64 %70, %71
-  %73 = getelementptr inbounds i8, ptr %4, i64 28
+  %73 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %74 = load i32, ptr %73, align 4
   %75 = sext i32 %74 to i64
   %76 = icmp sgt i64 %72, %75
@@ -966,12 +966,12 @@ _ZN6google8protobuf8internal18EpsCopyInputStream16IsExceedingLimitEPKc.exit: ; p
 
 _ZN6google8protobuf8internal18EpsCopyInputStream16IsExceedingLimitEPKc.exit.thread15: ; preds = %62, %_ZN6google8protobuf8internal18EpsCopyInputStream16IsExceedingLimitEPKc.exit
   %77 = add i32 %60, 1
-  %78 = getelementptr inbounds i8, ptr %1, i64 32
+  %78 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i32 %77, ptr %78, align 8
   br label %81
 
 79:                                               ; preds = %_ZN6google8protobuf8internal18EpsCopyInputStream6BackUpEPKc.exit
-  %80 = getelementptr inbounds i8, ptr %1, i64 36
+  %80 = getelementptr inbounds nuw i8, ptr %1, i64 36
   store i8 1, ptr %80, align 4
   br label %81
 
@@ -982,7 +982,7 @@ _ZN6google8protobuf8internal18EpsCopyInputStream16IsExceedingLimitEPKc.exit.thre
 
 .noexc11:                                         ; preds = %81
   %83 = load ptr, ptr %0, align 8
-  %84 = getelementptr inbounds i8, ptr %83, i64 48
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 48
   %85 = load ptr, ptr %84, align 8
   %86 = call noundef zeroext i1 %85(ptr noundef nonnull align 8 dereferenceable(16) %0)
   br i1 %86, label %_ZN6google8protobuf12_GLOBAL__N_118CheckFieldPresenceERKNS0_8internal12ParseContextERKNS0_11MessageLiteENS6_10ParseFlagsE.exit, label %87
@@ -1018,7 +1018,7 @@ define noundef zeroext i1 @_ZN6google8protobuf11MessageLite20MergeFromCodedStrea
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN6google8protobuf11MessageLite20ParseFromCodedStreamEPNS0_2io16CodedInputStreamE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %5 = load ptr, ptr %4, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(16) %0)
   %6 = tail call noundef zeroext i1 @_ZN6google8protobuf11MessageLite13MergeFromImplEPNS0_2io16CodedInputStreamENS1_10ParseFlagsE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1, i32 noundef 1)
@@ -1028,7 +1028,7 @@ define noundef zeroext i1 @_ZN6google8protobuf11MessageLite20ParseFromCodedStrea
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN6google8protobuf11MessageLite27ParsePartialFromCodedStreamEPNS0_2io16CodedInputStreamE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %5 = load ptr, ptr %4, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(16) %0)
   %6 = tail call noundef zeroext i1 @_ZN6google8protobuf11MessageLite13MergeFromImplEPNS0_2io16CodedInputStreamENS1_10ParseFlagsE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1, i32 noundef 3)
@@ -1039,25 +1039,25 @@ define noundef zeroext i1 @_ZN6google8protobuf11MessageLite27ParsePartialFromCod
 define noundef zeroext i1 @_ZN6google8protobuf11MessageLite23ParseFromZeroCopyStreamEPNS0_2io19ZeroCopyInputStreamE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
   %3 = alloca %"class.google::protobuf::internal::ParseContext", align 8
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %6 = load ptr, ptr %5, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0)
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %3)
   %7 = load i32, ptr @_ZN6google8protobuf2io16CodedInputStream24default_recursion_limit_E, align 4
-  %8 = getelementptr inbounds i8, ptr %3, i64 32
-  %9 = getelementptr inbounds i8, ptr %3, i64 80
-  %10 = getelementptr inbounds i8, ptr %3, i64 84
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 84
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %8, i8 0, i64 52, i1 false)
   store i32 2147483647, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %3, i64 88
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 88
   store i32 %7, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %3, i64 92
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 92
   store i32 -2147483648, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %3, i64 96
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 96
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
   %14 = call noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream8InitFromEPNS0_2io19ZeroCopyInputStreamE(ptr noundef nonnull align 8 dereferenceable(112) %3, ptr noundef %1)
   %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 88
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 88
   %17 = load ptr, ptr %16, align 8
   %18 = call noundef ptr %17(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %14, ptr noundef nonnull %3)
   %.not.i.i = icmp ne ptr %18, null
@@ -1068,7 +1068,7 @@ define noundef zeroext i1 @_ZN6google8protobuf11MessageLite23ParseFromZeroCopySt
 
 21:                                               ; preds = %2
   %22 = load ptr, ptr %0, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 48
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 48
   %24 = load ptr, ptr %23, align 8
   %25 = call noundef zeroext i1 %24(ptr noundef nonnull align 8 dereferenceable(16) %0)
   br i1 %25, label %_ZN6google8protobuf11MessageLite9ParseFromILNS1_10ParseFlagsE1EPNS0_2io19ZeroCopyInputStreamEEEbRKT0_.exit, label %26
@@ -1087,25 +1087,25 @@ _ZN6google8protobuf11MessageLite9ParseFromILNS1_10ParseFlagsE1EPNS0_2io19ZeroCop
 define noundef zeroext i1 @_ZN6google8protobuf11MessageLite30ParsePartialFromZeroCopyStreamEPNS0_2io19ZeroCopyInputStreamE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
   %3 = alloca %"class.google::protobuf::internal::ParseContext", align 8
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %6 = load ptr, ptr %5, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0)
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %3)
   %7 = load i32, ptr @_ZN6google8protobuf2io16CodedInputStream24default_recursion_limit_E, align 4
-  %8 = getelementptr inbounds i8, ptr %3, i64 32
-  %9 = getelementptr inbounds i8, ptr %3, i64 80
-  %10 = getelementptr inbounds i8, ptr %3, i64 84
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 84
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %8, i8 0, i64 52, i1 false)
   store i32 2147483647, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %3, i64 88
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 88
   store i32 %7, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %3, i64 92
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 92
   store i32 -2147483648, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %3, i64 96
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 96
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
   %14 = call noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream8InitFromEPNS0_2io19ZeroCopyInputStreamE(ptr noundef nonnull align 8 dereferenceable(112) %3, ptr noundef %1)
   %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 88
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 88
   %17 = load ptr, ptr %16, align 8
   %18 = call noundef ptr %17(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %14, ptr noundef nonnull %3)
   %.not.i.i = icmp ne ptr %18, null
@@ -1122,7 +1122,7 @@ define noundef zeroext i1 @_ZN6google8protobuf11MessageLite23ParseFromFileDescri
   %4 = alloca %"class.google::protobuf::io::FileInputStream", align 8
   call void @_ZN6google8protobuf2io15FileInputStreamC1Eii(ptr noundef nonnull align 8 dereferenceable(88) %4, i32 noundef %1, i32 noundef -1)
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %7 = load ptr, ptr %6, align 8
   invoke void %7(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %.noexc unwind label %36
@@ -1130,23 +1130,23 @@ define noundef zeroext i1 @_ZN6google8protobuf11MessageLite23ParseFromFileDescri
 .noexc:                                           ; preds = %2
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %3)
   %8 = load i32, ptr @_ZN6google8protobuf2io16CodedInputStream24default_recursion_limit_E, align 4
-  %9 = getelementptr inbounds i8, ptr %3, i64 32
-  %10 = getelementptr inbounds i8, ptr %3, i64 80
-  %11 = getelementptr inbounds i8, ptr %3, i64 84
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 80
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 84
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %9, i8 0, i64 52, i1 false)
   store i32 2147483647, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %3, i64 88
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 88
   store i32 %8, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %3, i64 92
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 92
   store i32 -2147483648, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %3, i64 96
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 96
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
   %15 = invoke noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream8InitFromEPNS0_2io19ZeroCopyInputStreamE(ptr noundef nonnull align 8 dereferenceable(112) %3, ptr noundef nonnull %4)
           to label %.noexc3 unwind label %36
 
 .noexc3:                                          ; preds = %.noexc
   %16 = load ptr, ptr %0, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 88
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 88
   %18 = load ptr, ptr %17, align 8
   %19 = invoke noundef ptr %18(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %15, ptr noundef nonnull %3)
           to label %.noexc4 unwind label %36
@@ -1160,7 +1160,7 @@ define noundef zeroext i1 @_ZN6google8protobuf11MessageLite23ParseFromFileDescri
 
 22:                                               ; preds = %.noexc4
   %23 = load ptr, ptr %0, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 48
   %25 = load ptr, ptr %24, align 8
   %26 = invoke noundef zeroext i1 %25(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %.noexc5 unwind label %36
@@ -1178,7 +1178,7 @@ define noundef zeroext i1 @_ZN6google8protobuf11MessageLite23ParseFromFileDescri
 
 28:                                               ; preds = %.noexc5
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %3)
-  %29 = getelementptr inbounds i8, ptr %4, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %30 = load i32, ptr %29, align 8
   %31 = icmp eq i32 %30, 0
   br label %32
@@ -1186,20 +1186,20 @@ define noundef zeroext i1 @_ZN6google8protobuf11MessageLite23ParseFromFileDescri
 32:                                               ; preds = %.thread, %28
   %33 = phi i1 [ %31, %28 ], [ false, %.thread ]
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf2io15FileInputStreamE, i64 16), ptr %4, align 8
-  %34 = getelementptr inbounds i8, ptr %4, i64 32
-  call void @_ZN6google8protobuf2io25CopyingInputStreamAdaptorD1Ev(ptr noundef nonnull align 8 dereferenceable(52) %34) #16
-  %35 = getelementptr inbounds i8, ptr %4, i64 8
-  call void @_ZN6google8protobuf2io15FileInputStream22CopyingFileInputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(21) %35) #16
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  call void @_ZN6google8protobuf2io25CopyingInputStreamAdaptorD1Ev(ptr noundef nonnull align 8 dereferenceable(52) %34) #17
+  %35 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  call void @_ZN6google8protobuf2io15FileInputStream22CopyingFileInputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(21) %35) #17
   ret i1 %33
 
 36:                                               ; preds = %27, %22, %.noexc3, %.noexc, %2
   %37 = landingpad { ptr, i32 }
           cleanup
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf2io15FileInputStreamE, i64 16), ptr %4, align 8
-  %38 = getelementptr inbounds i8, ptr %4, i64 32
-  call void @_ZN6google8protobuf2io25CopyingInputStreamAdaptorD1Ev(ptr noundef nonnull align 8 dereferenceable(52) %38) #16
-  %39 = getelementptr inbounds i8, ptr %4, i64 8
-  call void @_ZN6google8protobuf2io15FileInputStream22CopyingFileInputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(21) %39) #16
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  call void @_ZN6google8protobuf2io25CopyingInputStreamAdaptorD1Ev(ptr noundef nonnull align 8 dereferenceable(52) %38) #17
+  %39 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  call void @_ZN6google8protobuf2io15FileInputStream22CopyingFileInputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(21) %39) #17
   resume { ptr, i32 } %37
 }
 
@@ -1211,7 +1211,7 @@ define noundef zeroext i1 @_ZN6google8protobuf11MessageLite30ParsePartialFromFil
   %4 = alloca %"class.google::protobuf::io::FileInputStream", align 8
   call void @_ZN6google8protobuf2io15FileInputStreamC1Eii(ptr noundef nonnull align 8 dereferenceable(88) %4, i32 noundef %1, i32 noundef -1)
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %7 = load ptr, ptr %6, align 8
   invoke void %7(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %.noexc unwind label %31
@@ -1219,23 +1219,23 @@ define noundef zeroext i1 @_ZN6google8protobuf11MessageLite30ParsePartialFromFil
 .noexc:                                           ; preds = %2
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %3)
   %8 = load i32, ptr @_ZN6google8protobuf2io16CodedInputStream24default_recursion_limit_E, align 4
-  %9 = getelementptr inbounds i8, ptr %3, i64 32
-  %10 = getelementptr inbounds i8, ptr %3, i64 80
-  %11 = getelementptr inbounds i8, ptr %3, i64 84
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 80
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 84
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %9, i8 0, i64 52, i1 false)
   store i32 2147483647, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %3, i64 88
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 88
   store i32 %8, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %3, i64 92
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 92
   store i32 -2147483648, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %3, i64 96
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 96
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
   %15 = invoke noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream8InitFromEPNS0_2io19ZeroCopyInputStreamE(ptr noundef nonnull align 8 dereferenceable(112) %3, ptr noundef nonnull %4)
           to label %.noexc3 unwind label %31
 
 .noexc3:                                          ; preds = %.noexc
   %16 = load ptr, ptr %0, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 88
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 88
   %18 = load ptr, ptr %17, align 8
   %19 = invoke noundef ptr %18(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %15, ptr noundef nonnull %3)
           to label %20 unwind label %31
@@ -1249,7 +1249,7 @@ define noundef zeroext i1 @_ZN6google8protobuf11MessageLite30ParsePartialFromFil
   br i1 %or.cond.i.i.i, label %23, label %27
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds i8, ptr %4, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %25 = load i32, ptr %24, align 8
   %26 = icmp eq i32 %25, 0
   br label %27
@@ -1257,20 +1257,20 @@ define noundef zeroext i1 @_ZN6google8protobuf11MessageLite30ParsePartialFromFil
 27:                                               ; preds = %23, %20
   %28 = phi i1 [ false, %20 ], [ %26, %23 ]
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf2io15FileInputStreamE, i64 16), ptr %4, align 8
-  %29 = getelementptr inbounds i8, ptr %4, i64 32
-  call void @_ZN6google8protobuf2io25CopyingInputStreamAdaptorD1Ev(ptr noundef nonnull align 8 dereferenceable(52) %29) #16
-  %30 = getelementptr inbounds i8, ptr %4, i64 8
-  call void @_ZN6google8protobuf2io15FileInputStream22CopyingFileInputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(21) %30) #16
+  %29 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  call void @_ZN6google8protobuf2io25CopyingInputStreamAdaptorD1Ev(ptr noundef nonnull align 8 dereferenceable(52) %29) #17
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  call void @_ZN6google8protobuf2io15FileInputStream22CopyingFileInputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(21) %30) #17
   ret i1 %28
 
 31:                                               ; preds = %.noexc3, %.noexc, %2
   %32 = landingpad { ptr, i32 }
           cleanup
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf2io15FileInputStreamE, i64 16), ptr %4, align 8
-  %33 = getelementptr inbounds i8, ptr %4, i64 32
-  call void @_ZN6google8protobuf2io25CopyingInputStreamAdaptorD1Ev(ptr noundef nonnull align 8 dereferenceable(52) %33) #16
-  %34 = getelementptr inbounds i8, ptr %4, i64 8
-  call void @_ZN6google8protobuf2io15FileInputStream22CopyingFileInputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(21) %34) #16
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  call void @_ZN6google8protobuf2io25CopyingInputStreamAdaptorD1Ev(ptr noundef nonnull align 8 dereferenceable(52) %33) #17
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  call void @_ZN6google8protobuf2io15FileInputStream22CopyingFileInputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(21) %34) #17
   resume { ptr, i32 } %32
 }
 
@@ -1280,7 +1280,7 @@ define noundef zeroext i1 @_ZN6google8protobuf11MessageLite16ParseFromIstreamEPS
   %4 = alloca %"class.google::protobuf::io::IstreamInputStream", align 8
   call void @_ZN6google8protobuf2io18IstreamInputStreamC1EPSii(ptr noundef nonnull align 8 dereferenceable(80) %4, ptr noundef %1, i32 noundef -1)
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %7 = load ptr, ptr %6, align 8
   invoke void %7(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %.noexc unwind label %38
@@ -1288,23 +1288,23 @@ define noundef zeroext i1 @_ZN6google8protobuf11MessageLite16ParseFromIstreamEPS
 .noexc:                                           ; preds = %2
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %3)
   %8 = load i32, ptr @_ZN6google8protobuf2io16CodedInputStream24default_recursion_limit_E, align 4
-  %9 = getelementptr inbounds i8, ptr %3, i64 32
-  %10 = getelementptr inbounds i8, ptr %3, i64 80
-  %11 = getelementptr inbounds i8, ptr %3, i64 84
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 80
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 84
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %9, i8 0, i64 52, i1 false)
   store i32 2147483647, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %3, i64 88
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 88
   store i32 %8, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %3, i64 92
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 92
   store i32 -2147483648, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %3, i64 96
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 96
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
   %15 = invoke noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream8InitFromEPNS0_2io19ZeroCopyInputStreamE(ptr noundef nonnull align 8 dereferenceable(112) %3, ptr noundef nonnull %4)
           to label %.noexc4 unwind label %38
 
 .noexc4:                                          ; preds = %.noexc
   %16 = load ptr, ptr %0, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 88
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 88
   %18 = load ptr, ptr %17, align 8
   %19 = invoke noundef ptr %18(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %15, ptr noundef nonnull %3)
           to label %.noexc5 unwind label %38
@@ -1318,7 +1318,7 @@ define noundef zeroext i1 @_ZN6google8protobuf11MessageLite16ParseFromIstreamEPS
 
 22:                                               ; preds = %.noexc5
   %23 = load ptr, ptr %0, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 48
   %25 = load ptr, ptr %24, align 8
   %26 = invoke noundef zeroext i1 %25(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %.noexc6 unwind label %38
@@ -1346,20 +1346,20 @@ define noundef zeroext i1 @_ZN6google8protobuf11MessageLite16ParseFromIstreamEPS
 34:                                               ; preds = %.thread, %28
   %35 = phi i1 [ %33, %28 ], [ false, %.thread ]
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf2io18IstreamInputStreamE, i64 16), ptr %4, align 8
-  %36 = getelementptr inbounds i8, ptr %4, i64 24
-  call void @_ZN6google8protobuf2io25CopyingInputStreamAdaptorD1Ev(ptr noundef nonnull align 8 dereferenceable(52) %36) #16
-  %37 = getelementptr inbounds i8, ptr %4, i64 8
-  call void @_ZN6google8protobuf2io18IstreamInputStream25CopyingIstreamInputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %37) #16
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  call void @_ZN6google8protobuf2io25CopyingInputStreamAdaptorD1Ev(ptr noundef nonnull align 8 dereferenceable(52) %36) #17
+  %37 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  call void @_ZN6google8protobuf2io18IstreamInputStream25CopyingIstreamInputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %37) #17
   ret i1 %35
 
 38:                                               ; preds = %27, %22, %.noexc4, %.noexc, %2, %28
   %39 = landingpad { ptr, i32 }
           cleanup
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf2io18IstreamInputStreamE, i64 16), ptr %4, align 8
-  %40 = getelementptr inbounds i8, ptr %4, i64 24
-  call void @_ZN6google8protobuf2io25CopyingInputStreamAdaptorD1Ev(ptr noundef nonnull align 8 dereferenceable(52) %40) #16
-  %41 = getelementptr inbounds i8, ptr %4, i64 8
-  call void @_ZN6google8protobuf2io18IstreamInputStream25CopyingIstreamInputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %41) #16
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  call void @_ZN6google8protobuf2io25CopyingInputStreamAdaptorD1Ev(ptr noundef nonnull align 8 dereferenceable(52) %40) #17
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  call void @_ZN6google8protobuf2io18IstreamInputStream25CopyingIstreamInputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %41) #17
   resume { ptr, i32 } %39
 }
 
@@ -1373,7 +1373,7 @@ define noundef zeroext i1 @_ZN6google8protobuf11MessageLite23ParsePartialFromIst
   %4 = alloca %"class.google::protobuf::io::IstreamInputStream", align 8
   call void @_ZN6google8protobuf2io18IstreamInputStreamC1EPSii(ptr noundef nonnull align 8 dereferenceable(80) %4, ptr noundef %1, i32 noundef -1)
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %7 = load ptr, ptr %6, align 8
   invoke void %7(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %.noexc unwind label %33
@@ -1381,23 +1381,23 @@ define noundef zeroext i1 @_ZN6google8protobuf11MessageLite23ParsePartialFromIst
 .noexc:                                           ; preds = %2
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %3)
   %8 = load i32, ptr @_ZN6google8protobuf2io16CodedInputStream24default_recursion_limit_E, align 4
-  %9 = getelementptr inbounds i8, ptr %3, i64 32
-  %10 = getelementptr inbounds i8, ptr %3, i64 80
-  %11 = getelementptr inbounds i8, ptr %3, i64 84
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 80
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 84
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %9, i8 0, i64 52, i1 false)
   store i32 2147483647, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %3, i64 88
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 88
   store i32 %8, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %3, i64 92
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 92
   store i32 -2147483648, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %3, i64 96
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 96
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
   %15 = invoke noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream8InitFromEPNS0_2io19ZeroCopyInputStreamE(ptr noundef nonnull align 8 dereferenceable(112) %3, ptr noundef nonnull %4)
           to label %.noexc4 unwind label %33
 
 .noexc4:                                          ; preds = %.noexc
   %16 = load ptr, ptr %0, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 88
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 88
   %18 = load ptr, ptr %17, align 8
   %19 = invoke noundef ptr %18(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %15, ptr noundef nonnull %3)
           to label %20 unwind label %33
@@ -1421,20 +1421,20 @@ define noundef zeroext i1 @_ZN6google8protobuf11MessageLite23ParsePartialFromIst
 29:                                               ; preds = %23, %20
   %30 = phi i1 [ false, %20 ], [ %28, %23 ]
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf2io18IstreamInputStreamE, i64 16), ptr %4, align 8
-  %31 = getelementptr inbounds i8, ptr %4, i64 24
-  call void @_ZN6google8protobuf2io25CopyingInputStreamAdaptorD1Ev(ptr noundef nonnull align 8 dereferenceable(52) %31) #16
-  %32 = getelementptr inbounds i8, ptr %4, i64 8
-  call void @_ZN6google8protobuf2io18IstreamInputStream25CopyingIstreamInputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %32) #16
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  call void @_ZN6google8protobuf2io25CopyingInputStreamAdaptorD1Ev(ptr noundef nonnull align 8 dereferenceable(52) %31) #17
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  call void @_ZN6google8protobuf2io18IstreamInputStream25CopyingIstreamInputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %32) #17
   ret i1 %30
 
 33:                                               ; preds = %.noexc4, %.noexc, %2, %23
   %34 = landingpad { ptr, i32 }
           cleanup
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf2io18IstreamInputStreamE, i64 16), ptr %4, align 8
-  %35 = getelementptr inbounds i8, ptr %4, i64 24
-  call void @_ZN6google8protobuf2io25CopyingInputStreamAdaptorD1Ev(ptr noundef nonnull align 8 dereferenceable(52) %35) #16
-  %36 = getelementptr inbounds i8, ptr %4, i64 8
-  call void @_ZN6google8protobuf2io18IstreamInputStream25CopyingIstreamInputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %36) #16
+  %35 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  call void @_ZN6google8protobuf2io25CopyingInputStreamAdaptorD1Ev(ptr noundef nonnull align 8 dereferenceable(52) %35) #17
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  call void @_ZN6google8protobuf2io18IstreamInputStream25CopyingIstreamInputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %36) #17
   resume { ptr, i32 } %34
 }
 
@@ -1453,7 +1453,7 @@ define noundef zeroext i1 @_ZN6google8protobuf11MessageLite30MergeFromBoundedZer
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN6google8protobuf11MessageLite30ParseFromBoundedZeroCopyStreamEPNS0_2io19ZeroCopyInputStreamEi(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #3 align 2 {
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %6 = load ptr, ptr %5, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0)
   %7 = tail call noundef zeroext i1 @_ZN6google8protobuf8internal13MergeFromImplILb0EEEbNS1_11BoundedZCISEPNS0_11MessageLiteENS4_10ParseFlagsE(ptr %1, i32 %2, ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 1)
@@ -1463,7 +1463,7 @@ define noundef zeroext i1 @_ZN6google8protobuf11MessageLite30ParseFromBoundedZer
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN6google8protobuf11MessageLite37ParsePartialFromBoundedZeroCopyStreamEPNS0_2io19ZeroCopyInputStreamEi(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #3 align 2 {
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %6 = load ptr, ptr %5, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0)
   %7 = tail call noundef zeroext i1 @_ZN6google8protobuf8internal13MergeFromImplILb0EEEbNS1_11BoundedZCISEPNS0_11MessageLiteENS4_10ParseFlagsE(ptr %1, i32 %2, ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 3)
@@ -1480,48 +1480,48 @@ define noundef zeroext i1 @_ZN6google8protobuf11MessageLite15ParseFromStringERKN
 define linkonce_odr noundef zeroext i1 @_ZN6google8protobuf11MessageLite9ParseFromILNS1_10ParseFlagsE1ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKT0_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #3 comdat align 2 {
   %3 = alloca %"class.google::protobuf::internal::ParseContext", align 8
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %6 = load ptr, ptr %5, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0)
-  %7 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #16
-  %8 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #16
+  %7 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #17
+  %8 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #17
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %3)
   %9 = load i32, ptr @_ZN6google8protobuf2io16CodedInputStream24default_recursion_limit_E, align 4
-  %10 = getelementptr inbounds i8, ptr %3, i64 32
-  %11 = getelementptr inbounds i8, ptr %3, i64 72
-  %12 = getelementptr inbounds i8, ptr %3, i64 80
-  %13 = getelementptr inbounds i8, ptr %3, i64 84
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 72
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 80
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 84
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %10, i8 0, i64 52, i1 false)
-  %14 = getelementptr inbounds i8, ptr %3, i64 88
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 88
   store i32 %9, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %3, i64 92
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 92
   store i32 -2147483648, ptr %15, align 4
-  %16 = getelementptr inbounds i8, ptr %3, i64 96
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 96
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false)
   store i32 0, ptr %13, align 4
   %17 = icmp sgt i64 %8, 16
-  %18 = getelementptr inbounds i8, ptr %3, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 16
   br i1 %17, label %19, label %25
 
 19:                                               ; preds = %2
-  %20 = getelementptr inbounds i8, ptr %3, i64 28
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 28
   store i32 16, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %7, i64 %8
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 %8
   %22 = getelementptr inbounds i8, ptr %21, i64 -16
-  %23 = getelementptr inbounds i8, ptr %3, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %22, ptr %23, align 8
   store ptr %22, ptr %3, align 8
-  %24 = getelementptr inbounds i8, ptr %3, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store ptr %24, ptr %18, align 8
   br label %_ZN6google8protobuf8internal12ParseContextC2IJRNS0_11StringPieceEEEEibPPKcDpOT_.exit.i
 
 25:                                               ; preds = %2
-  %26 = getelementptr inbounds i8, ptr %3, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %26, ptr align 1 %7, i64 %8, i1 false)
-  %27 = getelementptr inbounds i8, ptr %3, i64 28
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 28
   store i32 0, ptr %27, align 4
   %28 = getelementptr inbounds i8, ptr %26, i64 %8
-  %29 = getelementptr inbounds i8, ptr %3, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %28, ptr %29, align 8
   store ptr %28, ptr %3, align 8
   store ptr null, ptr %18, align 8
@@ -1539,7 +1539,7 @@ define linkonce_odr noundef zeroext i1 @_ZN6google8protobuf11MessageLite9ParseFr
 _ZN6google8protobuf8internal12ParseContextC2IJRNS0_11StringPieceEEEEibPPKcDpOT_.exit.i: ; preds = %32, %25, %19
   %.0.i.i.i = phi ptr [ %26, %25 ], [ %7, %19 ], [ %26, %32 ]
   %36 = load ptr, ptr %0, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 88
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 88
   %38 = load ptr, ptr %37, align 8
   %39 = call noundef ptr %38(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %.0.i.i.i, ptr noundef nonnull %3)
   %.not.i = icmp ne ptr %39, null
@@ -1550,7 +1550,7 @@ _ZN6google8protobuf8internal12ParseContextC2IJRNS0_11StringPieceEEEEibPPKcDpOT_.
 
 42:                                               ; preds = %_ZN6google8protobuf8internal12ParseContextC2IJRNS0_11StringPieceEEEEibPPKcDpOT_.exit.i
   %43 = load ptr, ptr %0, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 48
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 48
   %45 = load ptr, ptr %44, align 8
   %46 = call noundef zeroext i1 %45(ptr noundef nonnull align 8 dereferenceable(16) %0)
   br i1 %46, label %_ZN6google8protobuf8internal13MergeFromImplILb0EEEbNS0_11StringPieceEPNS0_11MessageLiteENS4_10ParseFlagsE.exit, label %47
@@ -1569,47 +1569,47 @@ _ZN6google8protobuf8internal13MergeFromImplILb0EEEbNS0_11StringPieceEPNS0_11Mess
 define noundef zeroext i1 @_ZN6google8protobuf11MessageLite22ParsePartialFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #3 align 2 {
   %3 = alloca %"class.google::protobuf::internal::ParseContext", align 8
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %6 = load ptr, ptr %5, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0)
-  %7 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #16
-  %8 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #16
+  %7 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #17
+  %8 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #17
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %3)
   %9 = load i32, ptr @_ZN6google8protobuf2io16CodedInputStream24default_recursion_limit_E, align 4
-  %10 = getelementptr inbounds i8, ptr %3, i64 32
-  %11 = getelementptr inbounds i8, ptr %3, i64 72
-  %12 = getelementptr inbounds i8, ptr %3, i64 84
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 72
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 84
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %10, i8 0, i64 52, i1 false)
-  %13 = getelementptr inbounds i8, ptr %3, i64 88
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 88
   store i32 %9, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %3, i64 92
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 92
   store i32 -2147483648, ptr %14, align 4
-  %15 = getelementptr inbounds i8, ptr %3, i64 96
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 96
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
   store i32 0, ptr %12, align 4
   %16 = icmp sgt i64 %8, 16
-  %17 = getelementptr inbounds i8, ptr %3, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   br i1 %16, label %18, label %24
 
 18:                                               ; preds = %2
-  %19 = getelementptr inbounds i8, ptr %3, i64 28
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 28
   store i32 16, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %7, i64 %8
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 %8
   %21 = getelementptr inbounds i8, ptr %20, i64 -16
-  %22 = getelementptr inbounds i8, ptr %3, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %21, ptr %22, align 8
   store ptr %21, ptr %3, align 8
-  %23 = getelementptr inbounds i8, ptr %3, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store ptr %23, ptr %17, align 8
   br label %_ZN6google8protobuf11MessageLite9ParseFromILNS1_10ParseFlagsE3ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKT0_.exit
 
 24:                                               ; preds = %2
-  %25 = getelementptr inbounds i8, ptr %3, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %25, ptr align 1 %7, i64 %8, i1 false)
-  %26 = getelementptr inbounds i8, ptr %3, i64 28
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 28
   store i32 0, ptr %26, align 4
   %27 = getelementptr inbounds i8, ptr %25, i64 %8
-  %28 = getelementptr inbounds i8, ptr %3, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %27, ptr %28, align 8
   store ptr %27, ptr %3, align 8
   store ptr null, ptr %17, align 8
@@ -1626,9 +1626,9 @@ define noundef zeroext i1 @_ZN6google8protobuf11MessageLite22ParsePartialFromStr
 
 _ZN6google8protobuf11MessageLite9ParseFromILNS1_10ParseFlagsE3ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKT0_.exit: ; preds = %18, %24, %31
   %.0.i.i.i.i = phi ptr [ %25, %24 ], [ %7, %18 ], [ %25, %31 ]
-  %35 = getelementptr inbounds i8, ptr %3, i64 80
+  %35 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %36 = load ptr, ptr %0, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 88
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 88
   %38 = load ptr, ptr %37, align 8
   %39 = call noundef ptr %38(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %.0.i.i.i.i, ptr noundef nonnull %3)
   %.not.i.i = icmp ne ptr %39, null
@@ -1644,46 +1644,46 @@ define noundef zeroext i1 @_ZN6google8protobuf11MessageLite14ParseFromArrayEPKvi
   %4 = alloca %"class.google::protobuf::internal::ParseContext", align 8
   %5 = sext i32 %2 to i64
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %8 = load ptr, ptr %7, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(16) %0)
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %4)
   %9 = load i32, ptr @_ZN6google8protobuf2io16CodedInputStream24default_recursion_limit_E, align 4
-  %10 = getelementptr inbounds i8, ptr %4, i64 32
-  %11 = getelementptr inbounds i8, ptr %4, i64 72
-  %12 = getelementptr inbounds i8, ptr %4, i64 80
-  %13 = getelementptr inbounds i8, ptr %4, i64 84
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 72
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 80
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 84
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %10, i8 0, i64 52, i1 false)
-  %14 = getelementptr inbounds i8, ptr %4, i64 88
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 88
   store i32 %9, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %4, i64 92
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 92
   store i32 -2147483648, ptr %15, align 4
-  %16 = getelementptr inbounds i8, ptr %4, i64 96
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 96
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false)
   store i32 0, ptr %13, align 4
   %17 = icmp sgt i32 %2, 16
-  %18 = getelementptr inbounds i8, ptr %4, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 16
   br i1 %17, label %19, label %25
 
 19:                                               ; preds = %3
-  %20 = getelementptr inbounds i8, ptr %4, i64 28
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 28
   store i32 16, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %1, i64 %5
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 %5
   %22 = getelementptr inbounds i8, ptr %21, i64 -16
-  %23 = getelementptr inbounds i8, ptr %4, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %22, ptr %23, align 8
   store ptr %22, ptr %4, align 8
-  %24 = getelementptr inbounds i8, ptr %4, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store ptr %24, ptr %18, align 8
   br label %_ZN6google8protobuf8internal12ParseContextC2IJRNS0_11StringPieceEEEEibPPKcDpOT_.exit.i.i
 
 25:                                               ; preds = %3
-  %26 = getelementptr inbounds i8, ptr %4, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %26, ptr align 1 %1, i64 %5, i1 false)
-  %27 = getelementptr inbounds i8, ptr %4, i64 28
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 28
   store i32 0, ptr %27, align 4
   %28 = getelementptr inbounds i8, ptr %26, i64 %5
-  %29 = getelementptr inbounds i8, ptr %4, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %28, ptr %29, align 8
   store ptr %28, ptr %4, align 8
   store ptr null, ptr %18, align 8
@@ -1701,7 +1701,7 @@ define noundef zeroext i1 @_ZN6google8protobuf11MessageLite14ParseFromArrayEPKvi
 _ZN6google8protobuf8internal12ParseContextC2IJRNS0_11StringPieceEEEEibPPKcDpOT_.exit.i.i: ; preds = %32, %25, %19
   %.0.i.i.i.i = phi ptr [ %26, %25 ], [ %1, %19 ], [ %26, %32 ]
   %36 = load ptr, ptr %0, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 88
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 88
   %38 = load ptr, ptr %37, align 8
   %39 = call noundef ptr %38(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %.0.i.i.i.i, ptr noundef nonnull %4)
   %.not.i.i = icmp ne ptr %39, null
@@ -1712,7 +1712,7 @@ _ZN6google8protobuf8internal12ParseContextC2IJRNS0_11StringPieceEEEEibPPKcDpOT_.
 
 42:                                               ; preds = %_ZN6google8protobuf8internal12ParseContextC2IJRNS0_11StringPieceEEEEibPPKcDpOT_.exit.i.i
   %43 = load ptr, ptr %0, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 48
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 48
   %45 = load ptr, ptr %44, align 8
   %46 = call noundef zeroext i1 %45(ptr noundef nonnull align 8 dereferenceable(16) %0)
   br i1 %46, label %_ZN6google8protobuf11MessageLite9ParseFromILNS1_10ParseFlagsE1ENS0_11StringPieceEEEbRKT0_.exit, label %47
@@ -1732,45 +1732,45 @@ define noundef zeroext i1 @_ZN6google8protobuf11MessageLite21ParsePartialFromArr
   %4 = alloca %"class.google::protobuf::internal::ParseContext", align 8
   %5 = sext i32 %2 to i64
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %8 = load ptr, ptr %7, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(16) %0)
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %4)
   %9 = load i32, ptr @_ZN6google8protobuf2io16CodedInputStream24default_recursion_limit_E, align 4
-  %10 = getelementptr inbounds i8, ptr %4, i64 32
-  %11 = getelementptr inbounds i8, ptr %4, i64 72
-  %12 = getelementptr inbounds i8, ptr %4, i64 84
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 72
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 84
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %10, i8 0, i64 52, i1 false)
-  %13 = getelementptr inbounds i8, ptr %4, i64 88
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 88
   store i32 %9, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %4, i64 92
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 92
   store i32 -2147483648, ptr %14, align 4
-  %15 = getelementptr inbounds i8, ptr %4, i64 96
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 96
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
   store i32 0, ptr %12, align 4
   %16 = icmp sgt i32 %2, 16
-  %17 = getelementptr inbounds i8, ptr %4, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 16
   br i1 %16, label %18, label %24
 
 18:                                               ; preds = %3
-  %19 = getelementptr inbounds i8, ptr %4, i64 28
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 28
   store i32 16, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %1, i64 %5
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 %5
   %21 = getelementptr inbounds i8, ptr %20, i64 -16
-  %22 = getelementptr inbounds i8, ptr %4, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %21, ptr %22, align 8
   store ptr %21, ptr %4, align 8
-  %23 = getelementptr inbounds i8, ptr %4, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store ptr %23, ptr %17, align 8
   br label %_ZN6google8protobuf11MessageLite9ParseFromILNS1_10ParseFlagsE3ENS0_11StringPieceEEEbRKT0_.exit
 
 24:                                               ; preds = %3
-  %25 = getelementptr inbounds i8, ptr %4, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %25, ptr align 1 %1, i64 %5, i1 false)
-  %26 = getelementptr inbounds i8, ptr %4, i64 28
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 28
   store i32 0, ptr %26, align 4
   %27 = getelementptr inbounds i8, ptr %25, i64 %5
-  %28 = getelementptr inbounds i8, ptr %4, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %27, ptr %28, align 8
   store ptr %27, ptr %4, align 8
   store ptr null, ptr %17, align 8
@@ -1787,9 +1787,9 @@ define noundef zeroext i1 @_ZN6google8protobuf11MessageLite21ParsePartialFromArr
 
 _ZN6google8protobuf11MessageLite9ParseFromILNS1_10ParseFlagsE3ENS0_11StringPieceEEEbRKT0_.exit: ; preds = %18, %24, %31
   %.0.i.i.i.i = phi ptr [ %25, %24 ], [ %1, %18 ], [ %25, %31 ]
-  %35 = getelementptr inbounds i8, ptr %4, i64 80
+  %35 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %36 = load ptr, ptr %0, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 88
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 88
   %38 = load ptr, ptr %37, align 8
   %39 = call noundef ptr %38(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %.0.i.i.i.i, ptr noundef nonnull %4)
   %.not.i.i = icmp ne ptr %39, null
@@ -1809,45 +1809,45 @@ define noundef zeroext i1 @_ZN6google8protobuf11MessageLite15MergeFromStringERKN
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN6google8protobuf11MessageLite9ParseFromILNS1_10ParseFlagsE0ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKT0_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #3 comdat align 2 {
   %3 = alloca %"class.google::protobuf::internal::ParseContext", align 8
-  %4 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #16
-  %5 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #16
+  %4 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #17
+  %5 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #17
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %3)
   %6 = load i32, ptr @_ZN6google8protobuf2io16CodedInputStream24default_recursion_limit_E, align 4
-  %7 = getelementptr inbounds i8, ptr %3, i64 32
-  %8 = getelementptr inbounds i8, ptr %3, i64 72
-  %9 = getelementptr inbounds i8, ptr %3, i64 80
-  %10 = getelementptr inbounds i8, ptr %3, i64 84
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 84
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %7, i8 0, i64 52, i1 false)
-  %11 = getelementptr inbounds i8, ptr %3, i64 88
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 88
   store i32 %6, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %3, i64 92
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 92
   store i32 -2147483648, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %3, i64 96
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 96
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
   store i32 0, ptr %10, align 4
   %14 = icmp sgt i64 %5, 16
-  %15 = getelementptr inbounds i8, ptr %3, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 16
   br i1 %14, label %16, label %22
 
 16:                                               ; preds = %2
-  %17 = getelementptr inbounds i8, ptr %3, i64 28
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 28
   store i32 16, ptr %17, align 4
-  %18 = getelementptr inbounds i8, ptr %4, i64 %5
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 %5
   %19 = getelementptr inbounds i8, ptr %18, i64 -16
-  %20 = getelementptr inbounds i8, ptr %3, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %19, ptr %20, align 8
   store ptr %19, ptr %3, align 8
-  %21 = getelementptr inbounds i8, ptr %3, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store ptr %21, ptr %15, align 8
   br label %_ZN6google8protobuf8internal12ParseContextC2IJRNS0_11StringPieceEEEEibPPKcDpOT_.exit.i
 
 22:                                               ; preds = %2
-  %23 = getelementptr inbounds i8, ptr %3, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %23, ptr align 1 %4, i64 %5, i1 false)
-  %24 = getelementptr inbounds i8, ptr %3, i64 28
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 28
   store i32 0, ptr %24, align 4
   %25 = getelementptr inbounds i8, ptr %23, i64 %5
-  %26 = getelementptr inbounds i8, ptr %3, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %25, ptr %26, align 8
   store ptr %25, ptr %3, align 8
   store ptr null, ptr %15, align 8
@@ -1865,7 +1865,7 @@ define linkonce_odr noundef zeroext i1 @_ZN6google8protobuf11MessageLite9ParseFr
 _ZN6google8protobuf8internal12ParseContextC2IJRNS0_11StringPieceEEEEibPPKcDpOT_.exit.i: ; preds = %29, %22, %16
   %.0.i.i.i = phi ptr [ %23, %22 ], [ %4, %16 ], [ %23, %29 ]
   %33 = load ptr, ptr %0, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 88
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 88
   %35 = load ptr, ptr %34, align 8
   %36 = call noundef ptr %35(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %.0.i.i.i, ptr noundef nonnull %3)
   %.not.i = icmp ne ptr %36, null
@@ -1876,7 +1876,7 @@ _ZN6google8protobuf8internal12ParseContextC2IJRNS0_11StringPieceEEEEibPPKcDpOT_.
 
 39:                                               ; preds = %_ZN6google8protobuf8internal12ParseContextC2IJRNS0_11StringPieceEEEEibPPKcDpOT_.exit.i
   %40 = load ptr, ptr %0, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 48
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 48
   %42 = load ptr, ptr %41, align 8
   %43 = call noundef zeroext i1 %42(ptr noundef nonnull align 8 dereferenceable(16) %0)
   br i1 %43, label %_ZN6google8protobuf8internal13MergeFromImplILb0EEEbNS0_11StringPieceEPNS0_11MessageLiteENS4_10ParseFlagsE.exit, label %44
@@ -1895,7 +1895,7 @@ _ZN6google8protobuf8internal13MergeFromImplILb0EEEbNS0_11StringPieceEPNS0_11Mess
 define noundef ptr @_ZNK6google8protobuf11MessageLite31SerializeWithCachedSizesToArrayEPh(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.google::protobuf::io::EpsCopyOutputStream", align 8
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 80
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef i32 %6(ptr noundef nonnull align 8 dereferenceable(16) %0)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3)
@@ -1904,18 +1904,18 @@ define noundef ptr @_ZNK6google8protobuf11MessageLite31SerializeWithCachedSizesT
   %10 = sext i32 %7 to i64
   %11 = getelementptr inbounds i8, ptr %1, i64 %10
   store ptr %11, ptr %3, align 8
-  %12 = getelementptr inbounds i8, ptr %3, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr null, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %3, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store ptr null, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %3, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store i8 0, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %3, i64 57
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 57
   store i8 0, ptr %15, align 1
-  %16 = getelementptr inbounds i8, ptr %3, i64 58
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 58
   store i8 %9, ptr %16, align 2
   %17 = load ptr, ptr %0, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 96
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 96
   %19 = load ptr, ptr %18, align 8
   %20 = call noundef ptr %19(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1, ptr noundef nonnull %3)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
@@ -1942,7 +1942,7 @@ define noundef zeroext i1 @_ZNK6google8protobuf11MessageLite29SerializePartialTo
   %12 = alloca %"class.std::__cxx11::basic_string", align 8
   %13 = alloca %"class.google::protobuf::internal::LogFinisher", align 1
   %14 = load ptr, ptr %0, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 72
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 72
   %16 = load ptr, ptr %15, align 8
   %17 = tail call noundef i64 %16(ptr noundef nonnull align 8 dereferenceable(16) %0)
   %18 = icmp ugt i64 %17, 2147483647
@@ -1951,7 +1951,7 @@ define noundef zeroext i1 @_ZNK6google8protobuf11MessageLite29SerializePartialTo
 19:                                               ; preds = %2
   call void @_ZN6google8protobuf8internal10LogMessageC1ENS0_8LogLevelEPKci(ptr noundef nonnull align 8 dereferenceable(56) %11, i32 noundef 2, ptr noundef nonnull @.str.2, i32 noundef 380)
   %20 = load ptr, ptr %0, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = load ptr, ptr %21, align 8
   invoke void %22(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %12, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %23 unwind label %31
@@ -1973,8 +1973,8 @@ define noundef zeroext i1 @_ZNK6google8protobuf11MessageLite29SerializePartialTo
           to label %30 unwind label %33
 
 30:                                               ; preds = %29
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #16
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %11) #16
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #17
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %11) #17
   br label %97
 
 31:                                               ; preds = %19
@@ -1985,30 +1985,30 @@ define noundef zeroext i1 @_ZNK6google8protobuf11MessageLite29SerializePartialTo
 33:                                               ; preds = %29, %27, %25, %23
   %34 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #16
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #17
   br label %common.resume
 
 common.resume:                                    ; preds = %87, %89, %91, %93, %95, %31, %33
   %.sink.i.sink = phi ptr [ %11, %33 ], [ %11, %31 ], [ %9, %95 ], [ %3, %87 ], [ %3, %89 ], [ %6, %91 ], [ %6, %93 ]
   %common.resume.op = phi { ptr, i32 } [ %34, %33 ], [ %32, %31 ], [ %96, %95 ], [ %88, %87 ], [ %90, %89 ], [ %92, %91 ], [ %94, %93 ]
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.sink.i.sink) #16
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.sink.i.sink) #17
   resume { ptr, i32 } %common.resume.op
 
 35:                                               ; preds = %2
-  %36 = getelementptr inbounds i8, ptr %1, i64 64
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %37 = load ptr, ptr %36, align 8
   %38 = tail call noundef i64 @_ZNK6google8protobuf2io19EpsCopyOutputStream9ByteCountEPh(ptr noundef nonnull align 8 dereferenceable(80) %1, ptr noundef %37)
-  %39 = getelementptr inbounds i8, ptr %1, i64 72
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %40 = load i64, ptr %39, align 8
   %41 = load ptr, ptr %36, align 8
   %42 = load ptr, ptr %0, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 96
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 96
   %44 = load ptr, ptr %43, align 8
   %45 = tail call noundef ptr %44(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %41, ptr noundef nonnull %1)
   store ptr %45, ptr %36, align 8
   %46 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19FlushAndResetBufferEPh(ptr noundef nonnull align 8 dereferenceable(80) %1, ptr noundef %45)
   store ptr %46, ptr %36, align 8
-  %47 = getelementptr inbounds i8, ptr %1, i64 56
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %48 = load i8, ptr %47, align 8
   %49 = trunc i8 %48 to i1
   br i1 %49, label %97, label %50
@@ -2026,7 +2026,7 @@ common.resume:                                    ; preds = %87, %89, %91, %93, 
 
 57:                                               ; preds = %50
   %58 = load ptr, ptr %0, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 72
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 72
   %60 = load ptr, ptr %59, align 8
   %61 = tail call noundef i64 %60(ptr noundef nonnull align 8 dereferenceable(16) %0)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
@@ -2047,7 +2047,7 @@ common.resume:                                    ; preds = %87, %89, %91, %93, 
 
 64:                                               ; preds = %62
   %65 = load ptr, ptr %0, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 16
   %67 = load ptr, ptr %66, align 8
   invoke void %67(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %68 unwind label %87
@@ -2065,8 +2065,8 @@ common.resume:                                    ; preds = %87, %89, %91, %93, 
           to label %.critedge.i unwind label %89
 
 .critedge.i:                                      ; preds = %72
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #16
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #16
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #17
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #17
   br label %.critedge28.i
 
 .critedge28.i:                                    ; preds = %57, %.critedge.i
@@ -2080,7 +2080,7 @@ common.resume:                                    ; preds = %87, %89, %91, %93, 
 
 76:                                               ; preds = %74
   %77 = load ptr, ptr %0, align 8
-  %78 = getelementptr inbounds i8, ptr %77, i64 16
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 16
   %79 = load ptr, ptr %78, align 8
   invoke void %79(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %7, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %80 unwind label %91
@@ -2098,8 +2098,8 @@ common.resume:                                    ; preds = %87, %89, %91, %93, 
           to label %.critedge31.i unwind label %93
 
 .critedge31.i:                                    ; preds = %84
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #16
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #16
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #17
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #17
   call void @_ZN6google8protobuf8internal10LogMessageC1ENS0_8LogLevelEPKci(ptr noundef nonnull align 8 dereferenceable(56) %9, i32 noundef 3, ptr noundef nonnull @.str.2, i32 noundef 92)
   %85 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEPKc(ptr noundef nonnull align 8 dereferenceable(56) %9, ptr noundef nonnull @.str.21)
           to label %86 unwind label %95
@@ -2116,7 +2116,7 @@ common.resume:                                    ; preds = %87, %89, %91, %93, 
 89:                                               ; preds = %72, %70, %68
   %90 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #16
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #17
   br label %common.resume
 
 91:                                               ; preds = %76, %74, %.critedge28.i
@@ -2127,7 +2127,7 @@ common.resume:                                    ; preds = %87, %89, %91, %93, 
 93:                                               ; preds = %84, %82, %80
   %94 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #16
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #17
   br label %common.resume
 
 95:                                               ; preds = %86, %.critedge31.i
@@ -2136,7 +2136,7 @@ common.resume:                                    ; preds = %87, %89, %91, %93, 
   br label %common.resume
 
 _ZN6google8protobuf12_GLOBAL__N_124ByteSizeConsistencyErrorEmmmRKNS0_11MessageLiteE.exit: ; preds = %86
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %9) #16
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %9) #17
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
@@ -2167,7 +2167,7 @@ define noundef zeroext i1 @_ZNK6google8protobuf11MessageLite32SerializePartialTo
   %5 = alloca %"class.google::protobuf::internal::LogFinisher", align 1
   %6 = alloca %"class.google::protobuf::io::EpsCopyOutputStream", align 8
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 72
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %9 = load ptr, ptr %8, align 8
   %10 = tail call noundef i64 %9(ptr noundef nonnull align 8 dereferenceable(16) %0)
   %11 = icmp ugt i64 %10, 2147483647
@@ -2176,7 +2176,7 @@ define noundef zeroext i1 @_ZNK6google8protobuf11MessageLite32SerializePartialTo
 12:                                               ; preds = %2
   call void @_ZN6google8protobuf8internal10LogMessageC1ENS0_8LogLevelEPKci(ptr noundef nonnull align 8 dereferenceable(56) %3, i32 noundef 2, ptr noundef nonnull @.str.2, i32 noundef 410)
   %13 = load ptr, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
   invoke void %15(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %16 unwind label %24
@@ -2198,8 +2198,8 @@ define noundef zeroext i1 @_ZNK6google8protobuf11MessageLite32SerializePartialTo
           to label %23 unwind label %26
 
 23:                                               ; preds = %22
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #16
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #16
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #17
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #17
   br label %45
 
 24:                                               ; preds = %12
@@ -2210,31 +2210,31 @@ define noundef zeroext i1 @_ZNK6google8protobuf11MessageLite32SerializePartialTo
 26:                                               ; preds = %22, %20, %18, %16
   %27 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #16
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #17
   br label %28
 
 28:                                               ; preds = %26, %24
   %.pn = phi { ptr, i32 } [ %27, %26 ], [ %25, %24 ]
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #16
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #17
   resume { ptr, i32 } %.pn
 
 29:                                               ; preds = %2
   %30 = load atomic i8, ptr @_ZN6google8protobuf2io17CodedOutputStream36default_serialization_deterministic_E monotonic, align 1
   %31 = and i8 %30, 1
-  %32 = getelementptr inbounds i8, ptr %6, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %32, ptr %6, align 8
-  %33 = getelementptr inbounds i8, ptr %6, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %32, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %6, i64 48
+  %34 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store ptr %1, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %6, i64 56
+  %35 = getelementptr inbounds nuw i8, ptr %6, i64 56
   store i8 0, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %6, i64 57
+  %36 = getelementptr inbounds nuw i8, ptr %6, i64 57
   store i8 0, ptr %36, align 1
-  %37 = getelementptr inbounds i8, ptr %6, i64 58
+  %37 = getelementptr inbounds nuw i8, ptr %6, i64 58
   store i8 %31, ptr %37, align 2
   %38 = load ptr, ptr %0, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 96
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 96
   %40 = load ptr, ptr %39, align 8
   %41 = call noundef ptr %40(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %32, ptr noundef nonnull %6)
   %42 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream4TrimEPh(ptr noundef nonnull align 8 dereferenceable(59) %6, ptr noundef %41)
@@ -2266,13 +2266,13 @@ _ZNK6google8protobuf11MessageLite25SerializeToZeroCopyStreamEPNS0_2io20ZeroCopyO
 
 7:                                                ; preds = %5, %_ZNK6google8protobuf11MessageLite25SerializeToZeroCopyStreamEPNS0_2io20ZeroCopyOutputStreamE.exit
   %8 = phi i1 [ false, %_ZNK6google8protobuf11MessageLite25SerializeToZeroCopyStreamEPNS0_2io20ZeroCopyOutputStreamE.exit ], [ %6, %5 ]
-  call void @_ZN6google8protobuf2io16FileOutputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #16
+  call void @_ZN6google8protobuf2io16FileOutputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #17
   ret i1 %8
 
 9:                                                ; preds = %2, %5
   %10 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google8protobuf2io16FileOutputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #16
+  call void @_ZN6google8protobuf2io16FileOutputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #17
   resume { ptr, i32 } %10
 }
 
@@ -2299,13 +2299,13 @@ define noundef zeroext i1 @_ZNK6google8protobuf11MessageLite32SerializePartialTo
 
 8:                                                ; preds = %6, %5
   %9 = phi i1 [ false, %5 ], [ %7, %6 ]
-  call void @_ZN6google8protobuf2io16FileOutputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #16
+  call void @_ZN6google8protobuf2io16FileOutputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #17
   ret i1 %9
 
 10:                                               ; preds = %6, %2
   %11 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google8protobuf2io16FileOutputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #16
+  call void @_ZN6google8protobuf2io16FileOutputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #17
   resume { ptr, i32 } %11
 }
 
@@ -2319,11 +2319,11 @@ define noundef zeroext i1 @_ZNK6google8protobuf11MessageLite18SerializeToOstream
 5:                                                ; preds = %2
   %6 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google8protobuf2io19OstreamOutputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #16
+  call void @_ZN6google8protobuf2io19OstreamOutputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #17
   resume { ptr, i32 } %6
 
 _ZNK6google8protobuf11MessageLite25SerializeToZeroCopyStreamEPNS0_2io20ZeroCopyOutputStreamE.exit: ; preds = %2
-  call void @_ZN6google8protobuf2io19OstreamOutputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #16
+  call void @_ZN6google8protobuf2io19OstreamOutputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #17
   br i1 %4, label %7, label %13
 
 7:                                                ; preds = %_ZNK6google8protobuf11MessageLite25SerializeToZeroCopyStreamEPNS0_2io20ZeroCopyOutputStreamE.exit
@@ -2354,13 +2354,13 @@ define noundef zeroext i1 @_ZNK6google8protobuf11MessageLite25SerializePartialTo
           to label %5 unwind label %6
 
 5:                                                ; preds = %2
-  call void @_ZN6google8protobuf2io19OstreamOutputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #16
+  call void @_ZN6google8protobuf2io19OstreamOutputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #17
   ret i1 %4
 
 6:                                                ; preds = %2
   %7 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google8protobuf2io19OstreamOutputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #16
+  call void @_ZN6google8protobuf2io19OstreamOutputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #17
   resume { ptr, i32 } %7
 }
 
@@ -2376,9 +2376,9 @@ define noundef zeroext i1 @_ZNK6google8protobuf11MessageLite21AppendPartialToStr
   %4 = alloca %"class.google::protobuf::internal::LogMessage", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.google::protobuf::internal::LogFinisher", align 1
-  %7 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #16
+  %7 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #17
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 72
   %10 = load ptr, ptr %9, align 8
   %11 = tail call noundef i64 %10(ptr noundef nonnull align 8 dereferenceable(16) %0)
   %12 = icmp ult i64 %11, 2147483648
@@ -2387,7 +2387,7 @@ define noundef zeroext i1 @_ZNK6google8protobuf11MessageLite21AppendPartialToStr
 13:                                               ; preds = %2
   call void @_ZN6google8protobuf8internal10LogMessageC1ENS0_8LogLevelEPKci(ptr noundef nonnull align 8 dereferenceable(56) %4, i32 noundef 2, ptr noundef nonnull @.str.2, i32 noundef 457)
   %14 = load ptr, ptr %0, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8
   invoke void %16(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %17 unwind label %25
@@ -2409,8 +2409,8 @@ define noundef zeroext i1 @_ZNK6google8protobuf11MessageLite21AppendPartialToStr
           to label %24 unwind label %27
 
 24:                                               ; preds = %23
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #16
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #16
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #17
   br label %46
 
 25:                                               ; preds = %13
@@ -2421,12 +2421,12 @@ define noundef zeroext i1 @_ZNK6google8protobuf11MessageLite21AppendPartialToStr
 27:                                               ; preds = %23, %21, %19, %17
   %28 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #16
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
   br label %29
 
 29:                                               ; preds = %27, %25
   %.pn = phi { ptr, i32 } [ %28, %27 ], [ %26, %25 ]
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #16
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #17
   resume { ptr, i32 } %.pn
 
 30:                                               ; preds = %2
@@ -2437,20 +2437,20 @@ define noundef zeroext i1 @_ZNK6google8protobuf11MessageLite21AppendPartialToStr
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3)
   %34 = load atomic i8, ptr @_ZN6google8protobuf2io17CodedOutputStream36default_serialization_deterministic_E monotonic, align 1
   %35 = and i8 %34, 1
-  %36 = getelementptr inbounds i8, ptr %33, i64 %11
+  %36 = getelementptr inbounds nuw i8, ptr %33, i64 %11
   store ptr %36, ptr %3, align 8
-  %37 = getelementptr inbounds i8, ptr %3, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr null, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %3, i64 48
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store ptr null, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %3, i64 56
+  %39 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store i8 0, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %3, i64 57
+  %40 = getelementptr inbounds nuw i8, ptr %3, i64 57
   store i8 0, ptr %40, align 1
-  %41 = getelementptr inbounds i8, ptr %3, i64 58
+  %41 = getelementptr inbounds nuw i8, ptr %3, i64 58
   store i8 %35, ptr %41, align 2
   %42 = load ptr, ptr %0, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 96
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 96
   %44 = load ptr, ptr %43, align 8
   %45 = call noundef ptr %44(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %33, ptr noundef nonnull %3)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
@@ -2465,7 +2465,7 @@ declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4size
 
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZNK6google8protobuf11MessageLite17SerializeToStringEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #16
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #17
   %3 = tail call noundef zeroext i1 @_ZNK6google8protobuf11MessageLite21AppendPartialToStringEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %1)
   ret i1 %3
 }
@@ -2475,7 +2475,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr 
 
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZNK6google8protobuf11MessageLite24SerializePartialToStringEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %1) local_unnamed_addr #3 align 2 {
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #16
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #17
   %3 = tail call noundef zeroext i1 @_ZNK6google8protobuf11MessageLite21AppendPartialToStringEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %1)
   ret i1 %3
 }
@@ -2493,7 +2493,7 @@ define noundef zeroext i1 @_ZNK6google8protobuf11MessageLite23SerializePartialTo
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.google::protobuf::internal::LogFinisher", align 1
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 72
   %10 = load ptr, ptr %9, align 8
   %11 = tail call noundef i64 %10(ptr noundef nonnull align 8 dereferenceable(16) %0)
   %12 = icmp ugt i64 %11, 2147483647
@@ -2502,7 +2502,7 @@ define noundef zeroext i1 @_ZNK6google8protobuf11MessageLite23SerializePartialTo
 13:                                               ; preds = %3
   call void @_ZN6google8protobuf8internal10LogMessageC1ENS0_8LogLevelEPKci(ptr noundef nonnull align 8 dereferenceable(56) %5, i32 noundef 2, ptr noundef nonnull @.str.2, i32 noundef 487)
   %14 = load ptr, ptr %0, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8
   invoke void %16(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %17 unwind label %25
@@ -2524,8 +2524,8 @@ define noundef zeroext i1 @_ZNK6google8protobuf11MessageLite23SerializePartialTo
           to label %24 unwind label %27
 
 24:                                               ; preds = %23
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #16
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #16
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #17
   br label %46
 
 25:                                               ; preds = %13
@@ -2536,12 +2536,12 @@ define noundef zeroext i1 @_ZNK6google8protobuf11MessageLite23SerializePartialTo
 27:                                               ; preds = %23, %21, %19, %17
   %28 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #16
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
   br label %29
 
 29:                                               ; preds = %27, %25
   %.pn = phi { ptr, i32 } [ %28, %27 ], [ %26, %25 ]
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #16
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #17
   resume { ptr, i32 } %.pn
 
 30:                                               ; preds = %3
@@ -2553,20 +2553,20 @@ define noundef zeroext i1 @_ZNK6google8protobuf11MessageLite23SerializePartialTo
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
   %34 = load atomic i8, ptr @_ZN6google8protobuf2io17CodedOutputStream36default_serialization_deterministic_E monotonic, align 1
   %35 = and i8 %34, 1
-  %36 = getelementptr inbounds i8, ptr %1, i64 %11
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 %11
   store ptr %36, ptr %4, align 8
-  %37 = getelementptr inbounds i8, ptr %4, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr null, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %4, i64 48
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store ptr null, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %4, i64 56
+  %39 = getelementptr inbounds nuw i8, ptr %4, i64 56
   store i8 0, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %4, i64 57
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 57
   store i8 0, ptr %40, align 1
-  %41 = getelementptr inbounds i8, ptr %4, i64 58
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 58
   store i8 %35, ptr %41, align 2
   %42 = load ptr, ptr %0, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 96
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 96
   %44 = load ptr, ptr %43, align 8
   %45 = call noundef ptr %44(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1, ptr noundef nonnull %4)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
@@ -2579,7 +2579,7 @@ define noundef zeroext i1 @_ZNK6google8protobuf11MessageLite23SerializePartialTo
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK6google8protobuf11MessageLite17SerializeAsStringB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #16
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #17
   %3 = invoke noundef zeroext i1 @_ZNK6google8protobuf11MessageLite21AppendPartialToStringEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %0)
           to label %_ZNK6google8protobuf11MessageLite14AppendToStringEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit unwind label %5
 
@@ -2587,13 +2587,13 @@ _ZNK6google8protobuf11MessageLite14AppendToStringEPNSt7__cxx1112basic_stringIcSt
   br i1 %3, label %7, label %4
 
 4:                                                ; preds = %_ZNK6google8protobuf11MessageLite14AppendToStringEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #16
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #17
   br label %7
 
 5:                                                ; preds = %2
   %6 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #16
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #17
   resume { ptr, i32 } %6
 
 7:                                                ; preds = %_ZNK6google8protobuf11MessageLite14AppendToStringEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %4
@@ -2605,7 +2605,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noun
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK6google8protobuf11MessageLite24SerializePartialAsStringB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #16
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #17
   %3 = invoke noundef zeroext i1 @_ZNK6google8protobuf11MessageLite21AppendPartialToStringEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %0)
           to label %4 unwind label %6
 
@@ -2613,13 +2613,13 @@ define void @_ZNK6google8protobuf11MessageLite24SerializePartialAsStringB5cxx11E
   br i1 %3, label %8, label %5
 
 5:                                                ; preds = %4
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #16
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #17
   br label %8
 
 6:                                                ; preds = %2
   %7 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #16
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #17
   resume { ptr, i32 } %7
 
 8:                                                ; preds = %4, %5
@@ -2629,7 +2629,7 @@ define void @_ZNK6google8protobuf11MessageLite24SerializePartialAsStringB5cxx11E
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_ZN6google8protobuf8internal18GenericTypeHandlerINS0_11MessageLiteEE16NewFromPrototypeEPKS3_PNS0_5ArenaE(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noundef ptr %5(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1)
   ret ptr %6
@@ -2638,7 +2638,7 @@ define noundef ptr @_ZN6google8protobuf8internal18GenericTypeHandlerINS0_11Messa
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6google8protobuf8internal18GenericTypeHandlerINS0_11MessageLiteEE5MergeERKS3_PS3_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
   %3 = load ptr, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %5 = load ptr, ptr %4, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %0)
   ret void
@@ -2665,55 +2665,55 @@ define void @_ZN6google8protobuf8internal13OnShutdownRunEPFvPKvES3_(ptr noundef 
   br i1 %4, label %5, label %_ZN6google8protobuf8internal12ShutdownData3getEv.exit, !prof !7
 
 5:                                                ; preds = %2
-  %6 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN6google8protobuf8internal12ShutdownData3getEvE4data) #16
+  %6 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN6google8protobuf8internal12ShutdownData3getEvE4data) #17
   %.not.i = icmp eq i32 %6, 0
   br i1 %.not.i, label %_ZN6google8protobuf8internal12ShutdownData3getEv.exit, label %7
 
 7:                                                ; preds = %5
-  %8 = invoke noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #17
+  %8 = invoke noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #18
           to label %9 unwind label %10
 
 9:                                                ; preds = %7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %8, i8 0, i64 64, i1 false)
   store ptr %8, ptr @_ZZN6google8protobuf8internal12ShutdownData3getEvE4data, align 8
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN6google8protobuf8internal12ShutdownData3getEvE4data) #16
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN6google8protobuf8internal12ShutdownData3getEvE4data) #17
   br label %_ZN6google8protobuf8internal12ShutdownData3getEv.exit
 
-common.resume:                                    ; preds = %47, %10
-  %common.resume.op = phi { ptr, i32 } [ %11, %10 ], [ %48, %47 ]
+common.resume:                                    ; preds = %45, %10
+  %common.resume.op = phi { ptr, i32 } [ %11, %10 ], [ %46, %45 ]
   resume { ptr, i32 } %common.resume.op
 
 10:                                               ; preds = %7
   %11 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN6google8protobuf8internal12ShutdownData3getEvE4data) #16
+  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN6google8protobuf8internal12ShutdownData3getEvE4data) #17
   br label %common.resume
 
 _ZN6google8protobuf8internal12ShutdownData3getEv.exit: ; preds = %2, %5, %9
   %12 = load ptr, ptr @_ZZN6google8protobuf8internal12ShutdownData3getEvE4data, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 24
-  %14 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %13) #16
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  %14 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %13) #17
   %.not.i.i.i = icmp eq i32 %14, 0
   br i1 %.not.i.i.i, label %16, label %15
 
 15:                                               ; preds = %_ZN6google8protobuf8internal12ShutdownData3getEv.exit
-  tail call void @_ZSt20__throw_system_errori(i32 noundef %14) #18
+  tail call void @_ZSt20__throw_system_errori(i32 noundef %14) #19
   unreachable
 
 16:                                               ; preds = %_ZN6google8protobuf8internal12ShutdownData3getEv.exit
-  %17 = getelementptr inbounds i8, ptr %12, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %12, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %20 = load ptr, ptr %19, align 8
   %.not.i.i = icmp eq ptr %18, %20
   br i1 %.not.i.i, label %24, label %21
 
 21:                                               ; preds = %16
   store ptr %0, ptr %18, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %18, i64 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr %1, ptr %.sroa.3.0..sroa_idx, align 8
   %22 = load ptr, ptr %17, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   store ptr %23, ptr %17, align 8
   br label %_ZNSt6vectorISt4pairIPFvPKvES2_ESaIS5_EE9push_backEOS5_.exit
 
@@ -2726,8 +2726,8 @@ _ZN6google8protobuf8internal12ShutdownData3getEv.exit: ; preds = %2, %5, %9
   br i1 %29, label %30, label %_ZNKSt6vectorISt4pairIPFvPKvES2_ESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i
 
 30:                                               ; preds = %24
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.23) #18
-          to label %.noexc unwind label %47
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.23) #19
+          to label %.noexc unwind label %45
 
 .noexc:                                           ; preds = %30
   unreachable
@@ -2739,57 +2739,54 @@ _ZNKSt6vectorISt4pairIPFvPKvES2_ESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds
   %33 = icmp ult i64 %32, %31
   %34 = tail call i64 @llvm.umin.i64(i64 %32, i64 576460752303423487)
   %35 = select i1 %33, i64 576460752303423487, i64 %34
-  %.not.i.i.i.i = icmp eq i64 %35, 0
-  br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseISt4pairIPFvPKvES2_ESaIS5_EE11_M_allocateEm.exit.i.i.i, label %36
+  %.not.i.i.i.i = icmp ne i64 %35, 0
+  tail call void @llvm.assume(i1 %.not.i.i.i.i)
+  %36 = shl nuw nsw i64 %35, 4
+  %37 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %36) #18
+          to label %.noexc3 unwind label %45
 
-36:                                               ; preds = %_ZNKSt6vectorISt4pairIPFvPKvES2_ESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i
-  %37 = shl nuw nsw i64 %35, 4
-  %38 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %37) #17
-          to label %_ZNSt12_Vector_baseISt4pairIPFvPKvES2_ESaIS5_EE11_M_allocateEm.exit.i.i.i unwind label %47
-
-_ZNSt12_Vector_baseISt4pairIPFvPKvES2_ESaIS5_EE11_M_allocateEm.exit.i.i.i: ; preds = %36, %_ZNKSt6vectorISt4pairIPFvPKvES2_ESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i
-  %39 = phi ptr [ null, %_ZNKSt6vectorISt4pairIPFvPKvES2_ESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i ], [ %38, %36 ]
-  %40 = getelementptr inbounds %"struct.std::pair", ptr %39, i64 %31
-  store ptr %0, ptr %40, align 8
-  %.sroa.3.0..sroa_idx5 = getelementptr inbounds i8, ptr %40, i64 8
+.noexc3:                                          ; preds = %_ZNKSt6vectorISt4pairIPFvPKvES2_ESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i
+  %38 = getelementptr inbounds i8, ptr %37, i64 %28
+  store ptr %0, ptr %38, align 8
+  %.sroa.3.0..sroa_idx5 = getelementptr inbounds nuw i8, ptr %38, i64 8
   store ptr %1, ptr %.sroa.3.0..sroa_idx5, align 8
   %.not10.i.i.i.i.i.i = icmp eq ptr %25, %18
   br i1 %.not10.i.i.i.i.i.i, label %_ZNSt6vectorISt4pairIPFvPKvES2_ESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i:                               ; preds = %_ZNSt12_Vector_baseISt4pairIPFvPKvES2_ESaIS5_EE11_M_allocateEm.exit.i.i.i, %.lr.ph.i.i.i.i.i.i
-  %.012.i.i.i.i.i.i = phi ptr [ %42, %.lr.ph.i.i.i.i.i.i ], [ %39, %_ZNSt12_Vector_baseISt4pairIPFvPKvES2_ESaIS5_EE11_M_allocateEm.exit.i.i.i ]
-  %.0911.i.i.i.i.i.i = phi ptr [ %41, %.lr.ph.i.i.i.i.i.i ], [ %25, %_ZNSt12_Vector_baseISt4pairIPFvPKvES2_ESaIS5_EE11_M_allocateEm.exit.i.i.i ]
+.lr.ph.i.i.i.i.i.i:                               ; preds = %.noexc3, %.lr.ph.i.i.i.i.i.i
+  %.012.i.i.i.i.i.i = phi ptr [ %40, %.lr.ph.i.i.i.i.i.i ], [ %37, %.noexc3 ]
+  %.0911.i.i.i.i.i.i = phi ptr [ %39, %.lr.ph.i.i.i.i.i.i ], [ %25, %.noexc3 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.012.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.0911.i.i.i.i.i.i, i64 16, i1 false), !alias.scope !8
-  %41 = getelementptr inbounds i8, ptr %.0911.i.i.i.i.i.i, i64 16
-  %42 = getelementptr inbounds i8, ptr %.012.i.i.i.i.i.i, i64 16
-  %.not.i.i.i.i.i.i = icmp eq ptr %41, %18
+  %39 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i.i, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i, i64 16
+  %.not.i.i.i.i.i.i = icmp eq ptr %39, %18
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt6vectorISt4pairIPFvPKvES2_ESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !12
 
-_ZNSt6vectorISt4pairIPFvPKvES2_ESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNSt12_Vector_baseISt4pairIPFvPKvES2_ESaIS5_EE11_M_allocateEm.exit.i.i.i
-  %.0.lcssa.i.i.i.i.i.i = phi ptr [ %39, %_ZNSt12_Vector_baseISt4pairIPFvPKvES2_ESaIS5_EE11_M_allocateEm.exit.i.i.i ], [ %42, %.lr.ph.i.i.i.i.i.i ]
-  %43 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 16
+_ZNSt6vectorISt4pairIPFvPKvES2_ESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %.noexc3
+  %.0.lcssa.i.i.i.i.i.i = phi ptr [ %37, %.noexc3 ], [ %40, %.lr.ph.i.i.i.i.i.i ]
+  %41 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 16
   %.not.i23.i.i.i = icmp eq ptr %25, null
-  br i1 %.not.i23.i.i.i, label %_ZNSt6vectorISt4pairIPFvPKvES2_ESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i, label %44
+  br i1 %.not.i23.i.i.i, label %_ZNSt6vectorISt4pairIPFvPKvES2_ESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i, label %42
 
-44:                                               ; preds = %_ZNSt6vectorISt4pairIPFvPKvES2_ESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %25, i64 noundef %28) #19
+42:                                               ; preds = %_ZNSt6vectorISt4pairIPFvPKvES2_ESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i
+  tail call void @_ZdlPvm(ptr noundef nonnull %25, i64 noundef %28) #20
   br label %_ZNSt6vectorISt4pairIPFvPKvES2_ESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i
 
-_ZNSt6vectorISt4pairIPFvPKvES2_ESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i: ; preds = %44, %_ZNSt6vectorISt4pairIPFvPKvES2_ESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i
-  store ptr %39, ptr %12, align 8
-  store ptr %43, ptr %17, align 8
-  %45 = getelementptr inbounds %"struct.std::pair", ptr %39, i64 %35
-  store ptr %45, ptr %19, align 8
+_ZNSt6vectorISt4pairIPFvPKvES2_ESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i: ; preds = %42, %_ZNSt6vectorISt4pairIPFvPKvES2_ESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i
+  store ptr %37, ptr %12, align 8
+  store ptr %41, ptr %17, align 8
+  %43 = getelementptr inbounds nuw %"struct.std::pair", ptr %37, i64 %35
+  store ptr %43, ptr %19, align 8
   br label %_ZNSt6vectorISt4pairIPFvPKvES2_ESaIS5_EE9push_backEOS5_.exit
 
 _ZNSt6vectorISt4pairIPFvPKvES2_ESaIS5_EE9push_backEOS5_.exit: ; preds = %_ZNSt6vectorISt4pairIPFvPKvES2_ESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i, %21
-  %46 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %13) #16
+  %44 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %13) #17
   ret void
 
-47:                                               ; preds = %36, %30
-  %48 = landingpad { ptr, i32 }
+45:                                               ; preds = %_ZNKSt6vectorISt4pairIPFvPKvES2_ESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i, %30
+  %46 = landingpad { ptr, i32 }
           cleanup
-  %49 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %13) #16
+  %47 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %13) #17
   br label %common.resume
 }
 
@@ -2810,24 +2807,24 @@ define void @_ZN6google8protobuf23ShutdownProtobufLibraryEv() local_unnamed_addr
   br i1 %3, label %4, label %_ZN6google8protobuf8internal12ShutdownData3getEv.exit, !prof !7
 
 4:                                                ; preds = %1
-  %5 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN6google8protobuf8internal12ShutdownData3getEvE4data) #16
+  %5 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN6google8protobuf8internal12ShutdownData3getEvE4data) #17
   %.not.i = icmp eq i32 %5, 0
   br i1 %.not.i, label %_ZN6google8protobuf8internal12ShutdownData3getEv.exit, label %6
 
 6:                                                ; preds = %4
-  %7 = invoke noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #17
+  %7 = invoke noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #18
           to label %8 unwind label %9
 
 8:                                                ; preds = %6
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %7, i8 0, i64 64, i1 false)
   store ptr %7, ptr @_ZZN6google8protobuf8internal12ShutdownData3getEvE4data, align 8
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN6google8protobuf8internal12ShutdownData3getEvE4data) #16
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN6google8protobuf8internal12ShutdownData3getEvE4data) #17
   br label %_ZN6google8protobuf8internal12ShutdownData3getEv.exit
 
 9:                                                ; preds = %6
   %10 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN6google8protobuf8internal12ShutdownData3getEvE4data) #16
+  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN6google8protobuf8internal12ShutdownData3getEvE4data) #17
   resume { ptr, i32 } %10
 
 _ZN6google8protobuf8internal12ShutdownData3getEv.exit: ; preds = %1, %4, %8
@@ -2837,7 +2834,7 @@ _ZN6google8protobuf8internal12ShutdownData3getEv.exit: ; preds = %1, %4, %8
 
 13:                                               ; preds = %_ZN6google8protobuf8internal12ShutdownData3getEv.exit
   %14 = load ptr, ptr %11, align 8
-  %15 = getelementptr inbounds i8, ptr %11, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = icmp ne ptr %14, %16
   %.sroa.0.08.i.i.i = getelementptr inbounds i8, ptr %16, i64 -16
@@ -2853,13 +2850,13 @@ _ZN6google8protobuf8internal12ShutdownData3getEv.exit: ; preds = %1, %4, %8
   %20 = load ptr, ptr %.sroa.0.011.i.i.i, align 8
   store ptr %20, ptr %.sroa.05.09.i.i.i, align 8
   store ptr %19, ptr %.sroa.0.011.i.i.i, align 8
-  %21 = getelementptr inbounds i8, ptr %.sroa.05.09.i.i.i, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %.sroa.05.09.i.i.i, i64 8
   %22 = getelementptr inbounds i8, ptr %.pn10.i.i.i, i64 -8
   %23 = load ptr, ptr %21, align 8
   %24 = load ptr, ptr %22, align 8
   store ptr %24, ptr %21, align 8
   store ptr %23, ptr %22, align 8
-  %25 = getelementptr inbounds i8, ptr %.sroa.05.09.i.i.i, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %.sroa.05.09.i.i.i, i64 16
   %.sroa.0.0.i.i.i = getelementptr inbounds i8, ptr %.sroa.0.011.i.i.i, i64 -16
   %26 = icmp ult ptr %25, %.sroa.0.0.i.i.i
   br i1 %26, label %.lr.ph.i.i.i, label %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPSt4pairIPFvPKvES4_ESt6vectorIS7_SaIS7_EEEEEvT_SD_.exit.loopexit.i, !llvm.loop !14
@@ -2878,13 +2875,13 @@ _ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPSt4pairIPFvPKvES4_ESt6vectorIS7_SaI
 .lr.ph.i:                                         ; preds = %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPSt4pairIPFvPKvES4_ESt6vectorIS7_SaIS7_EEEEEvT_SD_.exit.i, %29
   %.sroa.05.09.i = phi ptr [ %30, %29 ], [ %28, %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPSt4pairIPFvPKvES4_ESt6vectorIS7_SaIS7_EEEEEvT_SD_.exit.i ]
   %.sroa.0.0.copyload.i = load ptr, ptr %.sroa.05.09.i, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %.sroa.05.09.i, i64 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.05.09.i, i64 8
   %.sroa.2.0.copyload.i = load ptr, ptr %.sroa.2.0..sroa_idx.i, align 8
   invoke void %.sroa.0.0.copyload.i(ptr noundef %.sroa.2.0.copyload.i)
           to label %29 unwind label %38
 
 29:                                               ; preds = %.lr.ph.i
-  %30 = getelementptr inbounds i8, ptr %.sroa.05.09.i, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %.sroa.05.09.i, i64 16
   %.not.i2 = icmp eq ptr %30, %27
   br i1 %.not.i2, label %._crit_edge.loopexit.i, label %.lr.ph.i
 
@@ -2898,23 +2895,23 @@ _ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPSt4pairIPFvPKvES4_ESt6vectorIS7_SaI
   br i1 %.not.i.i.i.i, label %_ZN6google8protobuf8internal12ShutdownDataD2Ev.exit, label %32
 
 32:                                               ; preds = %._crit_edge.i
-  %33 = getelementptr inbounds i8, ptr %11, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %34 = load ptr, ptr %33, align 8
   %35 = ptrtoint ptr %34 to i64
   %36 = ptrtoint ptr %31 to i64
   %37 = sub i64 %35, %36
-  tail call void @_ZdlPvm(ptr noundef nonnull %31, i64 noundef %37) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %31, i64 noundef %37) #20
   br label %_ZN6google8protobuf8internal12ShutdownDataD2Ev.exit
 
 38:                                               ; preds = %.lr.ph.i
   %39 = landingpad { ptr, i32 }
           catch ptr null
   %40 = extractvalue { ptr, i32 } %39, 0
-  tail call void @__clang_call_terminate(ptr %40) #20
+  tail call void @__clang_call_terminate(ptr %40) #21
   unreachable
 
 _ZN6google8protobuf8internal12ShutdownDataD2Ev.exit: ; preds = %._crit_edge.i, %32
-  tail call void @_ZdlPvm(ptr noundef nonnull %11, i64 noundef 64) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %11, i64 noundef 64) #20
   br label %41
 
 41:                                               ; preds = %_ZN6google8protobuf8internal12ShutdownDataD2Ev.exit, %_ZN6google8protobuf8internal12ShutdownData3getEv.exit
@@ -2935,7 +2932,7 @@ define linkonce_odr void @_ZN6google8protobuf11MessageLiteD2Ev(ptr noundef nonnu
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6google8protobuf11MessageLiteD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @llvm.trap() #20
+  tail call void @llvm.trap() #21
   unreachable
 }
 
@@ -2957,13 +2954,13 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6google8protobuf24ZeroCopyCodedInputStreamD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 16) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 16) #20
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN6google8protobuf24ZeroCopyCodedInputStream4NextEPPKvPi(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 comdat align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream22GetDirectBufferPointerEPPKvPi(ptr noundef nonnull align 8 dereferenceable(80) %5, ptr noundef %1, ptr noundef %2)
   br i1 %6, label %7, label %_ZN6google8protobuf2io16CodedInputStream4SkipEi.exit
@@ -2975,7 +2972,7 @@ define linkonce_odr noundef zeroext i1 @_ZN6google8protobuf24ZeroCopyCodedInputS
   br i1 %10, label %_ZN6google8protobuf2io16CodedInputStream4SkipEi.exit, label %11
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %8, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %8, align 8
   %15 = ptrtoint ptr %13 to i64
@@ -2987,7 +2984,7 @@ define linkonce_odr noundef zeroext i1 @_ZN6google8protobuf24ZeroCopyCodedInputS
 
 19:                                               ; preds = %11
   %20 = zext nneg i32 %9 to i64
-  %21 = getelementptr inbounds i8, ptr %14, i64 %20
+  %21 = getelementptr inbounds nuw i8, ptr %14, i64 %20
   store ptr %21, ptr %8, align 8
   br label %_ZN6google8protobuf2io16CodedInputStream4SkipEi.exit
 
@@ -3001,7 +2998,7 @@ _ZN6google8protobuf2io16CodedInputStream4SkipEi.exit: ; preds = %22, %19, %7, %3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6google8protobuf24ZeroCopyCodedInputStream6BackUpEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1) unnamed_addr #4 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = sub nsw i32 0, %1
   %6 = load ptr, ptr %4, align 8
@@ -3013,13 +3010,13 @@ define linkonce_odr void @_ZN6google8protobuf24ZeroCopyCodedInputStream6BackUpEi
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN6google8protobuf24ZeroCopyCodedInputStream4SkipEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1) unnamed_addr #3 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = icmp slt i32 %1, 0
   br i1 %5, label %_ZN6google8protobuf2io16CodedInputStream4SkipEi.exit, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %4, align 8
   %10 = ptrtoint ptr %8 to i64
@@ -3031,7 +3028,7 @@ define linkonce_odr noundef zeroext i1 @_ZN6google8protobuf24ZeroCopyCodedInputS
 
 14:                                               ; preds = %6
   %15 = zext nneg i32 %1 to i64
-  %16 = getelementptr inbounds i8, ptr %9, i64 %15
+  %16 = getelementptr inbounds nuw i8, ptr %9, i64 %15
   store ptr %16, ptr %4, align 8
   br label %_ZN6google8protobuf2io16CodedInputStream4SkipEi.exit
 
@@ -3071,8 +3068,8 @@ declare noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19FlushAndResetB
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #7 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #16
-  tail call void @_ZSt9terminatev() #20
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #17
+  tail call void @_ZSt9terminatev() #21
   unreachable
 }
 
@@ -3142,7 +3139,7 @@ define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE1
   %16 = landingpad { ptr, i32 }
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
-  tail call void @__clang_call_terminate(ptr %17) #20
+  tail call void @__clang_call_terminate(ptr %17) #21
   unreachable
 
 18:                                               ; preds = %13, %10
@@ -3151,7 +3148,7 @@ define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE1
           to label %20 unwind label %22
 
 20:                                               ; preds = %18
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %19, ptr noundef %1, ptr noundef %2) #16
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %19, ptr noundef %1, ptr noundef %2) #17
   store ptr null, ptr %5, align 8
   %21 = load i64, ptr %4, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %21)
@@ -3163,7 +3160,7 @@ _ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_
 22:                                               ; preds = %20, %18
   %23 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #16
+  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #17
   resume { ptr, i32 } %23
 }
 
@@ -3197,7 +3194,7 @@ define linkonce_odr void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  tail call void @__clang_call_terminate(ptr %7) #20
+  tail call void @__clang_call_terminate(ptr %7) #21
   unreachable
 }
 
@@ -3217,9 +3214,9 @@ define linkonce_odr void @_ZN6google8protobuf8internal19arena_delete_objectINS0_
 
 3:                                                ; preds = %1
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
-  tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #16
+  tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #17
   br label %7
 
 7:                                                ; preds = %3, %1
@@ -3235,7 +3232,7 @@ declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #11
 ; Function Attrs: uwtable
 define internal void @_GLOBAL__sub_I_message_lite.cc() #13 section ".text.startup" {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #16
+  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #17
   ret void
 }
 
@@ -3254,6 +3251,9 @@ declare i64 @llvm.umax.i64(i64, i64) #15
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #15
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #16
+
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind }
@@ -3270,11 +3270,12 @@ attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(arg
 attributes #13 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #16 = { nounwind }
-attributes #17 = { builtin allocsize(0) }
-attributes #18 = { noreturn }
-attributes #19 = { builtin nounwind }
-attributes #20 = { noreturn nounwind }
+attributes #16 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #17 = { nounwind }
+attributes #18 = { builtin allocsize(0) }
+attributes #19 = { noreturn }
+attributes #20 = { builtin nounwind }
+attributes #21 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

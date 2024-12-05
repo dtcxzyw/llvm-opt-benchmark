@@ -53,42 +53,40 @@ declare dso_local i64 @seq_read_iter(ptr noundef, ptr noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef range(i32 65, 76) i32 @mounts_poll(ptr noundef %0, ptr noundef %1) #1 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 200
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 112
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 112
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %9 = icmp eq ptr %1, null
-  br i1 %9, label %16, label %10
+  br i1 %9, label %13, label %10
 
 10:                                               ; preds = %2
   %11 = load ptr, ptr %1, align 8
-  %12 = icmp ne ptr %11, null
-  %13 = icmp ne ptr %8, null
-  %14 = and i1 %13, %12
-  br i1 %14, label %15, label %16
+  %.not = icmp eq ptr %11, null
+  br i1 %.not, label %13, label %12
 
-15:                                               ; preds = %10
+12:                                               ; preds = %10
   tail call void %11(ptr noundef %0, ptr noundef nonnull %8, ptr noundef nonnull %1) #6
-  br label %16
+  br label %13
 
-16:                                               ; preds = %15, %10, %2
-  %17 = getelementptr inbounds i8, ptr %7, i64 88
-  %18 = load volatile i64, ptr %17, align 8
-  %19 = trunc i64 %18 to i32
-  %20 = getelementptr inbounds i8, ptr %4, i64 96
-  %21 = load i32, ptr %20, align 8
-  %22 = icmp eq i32 %21, %19
-  br i1 %22, label %24, label %23
+13:                                               ; preds = %12, %10, %2
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 88
+  %15 = load volatile i64, ptr %14, align 8
+  %16 = trunc i64 %15 to i32
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 96
+  %18 = load i32, ptr %17, align 8
+  %19 = icmp eq i32 %18, %16
+  br i1 %19, label %21, label %20
 
-23:                                               ; preds = %16
-  store i32 %19, ptr %20, align 8
-  br label %24
+20:                                               ; preds = %13
+  store i32 %16, ptr %17, align 8
+  br label %21
 
-24:                                               ; preds = %23, %16
-  %25 = phi i32 [ 75, %23 ], [ 65, %16 ]
-  ret i32 %25
+21:                                               ; preds = %20, %13
+  %22 = phi i32 [ 75, %20 ], [ 65, %13 ]
+  ret i32 %22
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -101,12 +99,12 @@ define internal i32 @mounts_open(ptr nocapture noundef readonly %0, ptr noundef 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @mounts_release(ptr noundef %0, ptr noundef %1) #1 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 200
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 200
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 112
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 112
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
-  tail call void @path_put(ptr noundef %7) #6
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  tail call void @path_put(ptr noundef nonnull %7) #6
   %8 = load ptr, ptr %6, align 8
   tail call void @put_mnt_ns(ptr noundef %8) #6
   %9 = tail call i32 @seq_release_private(ptr noundef %0, ptr noundef %1) #6
@@ -147,23 +145,23 @@ define internal fastcc i32 @mounts_open_common(ptr %.-72.val, ptr noundef %0, pt
   br i1 %5, label %.thread, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %4, i64 2056
-  tail call void @_raw_spin_lock(ptr noundef %7) #6
-  %8 = getelementptr inbounds i8, ptr %4, i64 1872
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 2056
+  tail call void @_raw_spin_lock(ptr noundef nonnull %7) #6
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 1872
   %9 = load ptr, ptr %8, align 16
   %10 = icmp eq ptr %9, null
   br i1 %10, label %15, label %11
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %9, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %15, label %23
 
 15:                                               ; preds = %11, %6
-  tail call void @_raw_spin_unlock(ptr noundef %7) #6
-  %16 = getelementptr inbounds i8, ptr %4, i64 40
-  %17 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %16, i32 -1, ptr elementtype(i32) %16) #6, !srcloc !5
+  tail call void @_raw_spin_unlock(ptr noundef nonnull %7) #6
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  %17 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %16, i32 -1, ptr nonnull elementtype(i32) %16) #6, !srcloc !5
   %18 = icmp eq i32 %17, 1
   br i1 %18, label %22, label %19
 
@@ -172,7 +170,7 @@ define internal fastcc i32 @mounts_open_common(ptr %.-72.val, ptr noundef %0, pt
   br i1 %20, label %.thread, label %21, !prof !6
 
 21:                                               ; preds = %19
-  tail call void @refcount_warn_saturate(ptr noundef %16, i32 noundef 3) #6
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %16, i32 noundef 3) #6
   br label %.thread
 
 22:                                               ; preds = %15
@@ -181,8 +179,8 @@ define internal fastcc i32 @mounts_open_common(ptr %.-72.val, ptr noundef %0, pt
   br label %.thread
 
 23:                                               ; preds = %11
-  %24 = getelementptr inbounds i8, ptr %13, i64 20
-  %25 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %24, i32 1, ptr elementtype(i32) %24) #6, !srcloc !8
+  %24 = getelementptr inbounds nuw i8, ptr %13, i64 20
+  %25 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %24, i32 1, ptr nonnull elementtype(i32) %24) #6, !srcloc !8
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %31, label %27, !prof !9
 
@@ -194,20 +192,20 @@ define internal fastcc i32 @mounts_open_common(ptr %.-72.val, ptr noundef %0, pt
 
 31:                                               ; preds = %27, %23
   %32 = phi i32 [ 2, %23 ], [ 1, %27 ]
-  tail call void @refcount_warn_saturate(ptr noundef %24, i32 noundef %32) #6
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %24, i32 noundef %32) #6
   br label %33
 
 33:                                               ; preds = %31, %27
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !10
-  %34 = getelementptr inbounds i8, ptr %4, i64 1848
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 1848
   %35 = load ptr, ptr %34, align 8
   %36 = icmp eq ptr %35, null
   br i1 %36, label %37, label %45
 
 37:                                               ; preds = %33
-  tail call void @_raw_spin_unlock(ptr noundef %7) #6
-  %38 = getelementptr inbounds i8, ptr %4, i64 40
-  %39 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %38, i32 -1, ptr elementtype(i32) %38) #6, !srcloc !5
+  tail call void @_raw_spin_unlock(ptr noundef nonnull %7) #6
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  %39 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %38, i32 -1, ptr nonnull elementtype(i32) %38) #6, !srcloc !5
   %40 = icmp eq i32 %39, 1
   br i1 %40, label %44, label %41
 
@@ -216,7 +214,7 @@ define internal fastcc i32 @mounts_open_common(ptr %.-72.val, ptr noundef %0, pt
   br i1 %42, label %.thread2, label %43, !prof !6
 
 43:                                               ; preds = %41
-  tail call void @refcount_warn_saturate(ptr noundef %38, i32 noundef 3) #6
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %38, i32 noundef 3) #6
   br label %.thread2
 
 44:                                               ; preds = %37
@@ -225,15 +223,15 @@ define internal fastcc i32 @mounts_open_common(ptr %.-72.val, ptr noundef %0, pt
   br label %.thread2
 
 45:                                               ; preds = %33
-  %46 = getelementptr inbounds i8, ptr %35, i64 4
-  tail call void @_raw_spin_lock(ptr noundef %46) #6
-  %47 = getelementptr inbounds i8, ptr %35, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef align 8 dereferenceable(16) %47, i64 16, i1 false)
+  %46 = getelementptr inbounds nuw i8, ptr %35, i64 4
+  tail call void @_raw_spin_lock(ptr noundef nonnull %46) #6
+  %47 = getelementptr inbounds nuw i8, ptr %35, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %47, i64 16, i1 false)
   call void @path_get(ptr noundef nonnull %3) #6
-  call void @_raw_spin_unlock(ptr noundef %46) #6
-  call void @_raw_spin_unlock(ptr noundef %7) #6
-  %48 = getelementptr inbounds i8, ptr %4, i64 40
-  %49 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %48, i32 -1, ptr elementtype(i32) %48) #6, !srcloc !5
+  call void @_raw_spin_unlock(ptr noundef nonnull %46) #6
+  call void @_raw_spin_unlock(ptr noundef nonnull %7) #6
+  %48 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  %49 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %48, i32 -1, ptr nonnull elementtype(i32) %48) #6, !srcloc !5
   %50 = icmp eq i32 %49, 1
   br i1 %50, label %54, label %51
 
@@ -242,7 +240,7 @@ define internal fastcc i32 @mounts_open_common(ptr %.-72.val, ptr noundef %0, pt
   br i1 %52, label %.thread4, label %53, !prof !6
 
 53:                                               ; preds = %51
-  call void @refcount_warn_saturate(ptr noundef %48, i32 noundef 3) #6
+  call void @refcount_warn_saturate(ptr noundef nonnull %48, i32 noundef 3) #6
   br label %.thread4
 
 54:                                               ; preds = %45
@@ -256,19 +254,19 @@ define internal fastcc i32 @mounts_open_common(ptr %.-72.val, ptr noundef %0, pt
   br i1 %56, label %57, label %68
 
 57:                                               ; preds = %.thread4
-  %58 = getelementptr inbounds i8, ptr %0, i64 200
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %13, i64 88
+  %60 = getelementptr inbounds nuw i8, ptr %13, i64 88
   %61 = load i64, ptr %60, align 8
   %62 = trunc i64 %61 to i32
-  %63 = getelementptr inbounds i8, ptr %59, i64 96
+  %63 = getelementptr inbounds nuw i8, ptr %59, i64 96
   store i32 %62, ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %59, i64 112
+  %64 = getelementptr inbounds nuw i8, ptr %59, i64 112
   %65 = load ptr, ptr %64, align 8
   store ptr %13, ptr %65, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(16) %66, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
-  %67 = getelementptr inbounds i8, ptr %65, i64 24
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %66, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
+  %67 = getelementptr inbounds nuw i8, ptr %65, i64 24
   store ptr %1, ptr %67, align 8
   br label %.thread
 
@@ -290,18 +288,18 @@ define internal fastcc i32 @mounts_open_common(ptr %.-72.val, ptr noundef %0, pt
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @show_vfsmnt(ptr noundef %0, ptr noundef %1) #1 align 16 {
   %3 = alloca %struct.path, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 112
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %5 = load ptr, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #6
   store ptr %1, ptr %3, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load ptr, ptr %1, align 8
   store ptr %7, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 112
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 112
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %11 = load ptr, ptr %10, align 16
-  %12 = getelementptr inbounds i8, ptr %11, i64 136
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 136
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %18, label %15
@@ -322,19 +320,19 @@ define internal i32 @show_vfsmnt(ptr noundef %0, ptr noundef %1) #1 align 16 {
 
 24:                                               ; preds = %18, %15
   tail call void @seq_putc(ptr noundef %0, i8 noundef zeroext 32) #6
-  %25 = getelementptr inbounds i8, ptr %5, i64 8
-  %26 = call i32 @seq_path_root(ptr noundef %0, ptr noundef nonnull %3, ptr noundef %25, ptr noundef nonnull @.str.1) #6
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %26 = call i32 @seq_path_root(ptr noundef %0, ptr noundef nonnull %3, ptr noundef nonnull %25, ptr noundef nonnull @.str.1) #6
   %27 = icmp eq i32 %26, 0
   br i1 %27, label %28, label %90
 
 28:                                               ; preds = %24
   call void @seq_putc(ptr noundef %0, i8 noundef zeroext 32) #6
-  %29 = getelementptr inbounds i8, ptr %9, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %30 = load ptr, ptr %29, align 8
   %31 = load ptr, ptr %30, align 8
   %32 = call i64 @strlen(ptr noundef %31) #6
   call void @seq_escape_mem(ptr noundef %0, ptr noundef %31, i64 noundef %32, i32 noundef 8, ptr noundef nonnull @.str.5) #6
-  %33 = getelementptr inbounds i8, ptr %9, i64 1008
+  %33 = getelementptr inbounds nuw i8, ptr %9, i64 1008
   %34 = load ptr, ptr %33, align 16
   %35 = icmp eq ptr %34, null
   br i1 %35, label %39, label %36
@@ -350,7 +348,7 @@ define internal i32 @show_vfsmnt(ptr noundef %0, ptr noundef %1) #1 align 16 {
   %40 = call zeroext i1 @__mnt_is_readonly(ptr noundef %1) #6
   %41 = select i1 %40, ptr @.str.2, ptr @.str.3
   call void @seq_puts(ptr noundef %0, ptr noundef nonnull %41) #6
-  %42 = getelementptr inbounds i8, ptr %9, i64 80
+  %42 = getelementptr inbounds nuw i8, ptr %9, i64 80
   br label %43
 
 43:                                               ; preds = %53, %39
@@ -363,7 +361,7 @@ define internal i32 @show_vfsmnt(ptr noundef %0, ptr noundef %1) #1 align 16 {
   br i1 %49, label %53, label %50
 
 50:                                               ; preds = %43
-  %51 = getelementptr inbounds i8, ptr %45, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %52 = load ptr, ptr %51, align 8
   call void @seq_puts(ptr noundef %0, ptr noundef %52) #6
   br label %53
@@ -380,7 +378,7 @@ define internal i32 @show_vfsmnt(ptr noundef %0, ptr noundef %1) #1 align 16 {
   br i1 %59, label %60, label %90
 
 60:                                               ; preds = %57
-  %61 = getelementptr inbounds i8, ptr %1, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br label %62
 
 62:                                               ; preds = %71, %60
@@ -392,7 +390,7 @@ define internal i32 @show_vfsmnt(ptr noundef %0, ptr noundef %1) #1 align 16 {
   br i1 %67, label %71, label %68
 
 68:                                               ; preds = %62
-  %69 = getelementptr inbounds i8, ptr %64, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %70 = load ptr, ptr %69, align 8
   call void @seq_puts(ptr noundef %0, ptr noundef %70) #6
   br label %71
@@ -404,7 +402,7 @@ define internal i32 @show_vfsmnt(ptr noundef %0, ptr noundef %1) #1 align 16 {
   br i1 %74, label %75, label %62, !llvm.loop !14
 
 75:                                               ; preds = %71
-  %76 = getelementptr inbounds i8, ptr %1, i64 24
+  %76 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %77 = load volatile ptr, ptr %76, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !15
   %78 = icmp eq ptr %77, @nop_mnt_idmap
@@ -416,7 +414,7 @@ define internal i32 @show_vfsmnt(ptr noundef %0, ptr noundef %1) #1 align 16 {
 
 80:                                               ; preds = %79, %75
   %81 = load ptr, ptr %10, align 16
-  %82 = getelementptr inbounds i8, ptr %81, i64 128
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 128
   %83 = load ptr, ptr %82, align 8
   %84 = icmp eq ptr %83, null
   br i1 %84, label %88, label %85
@@ -497,23 +495,23 @@ declare dso_local i32 @seq_release_private(ptr noundef, ptr noundef) local_unnam
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @show_mountinfo(ptr noundef %0, ptr noundef %1) #1 align 16 {
   %3 = alloca %struct.path, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 112
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %1, i64 -32
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #6
   store ptr %1, ptr %3, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %10 = load ptr, ptr %1, align 8
   store ptr %10, ptr %9, align 8
   %11 = getelementptr i8, ptr %1, i64 268
   %12 = load i32, ptr %11, align 4
   %13 = getelementptr i8, ptr %1, i64 -16
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 300
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 300
   %16 = load i32, ptr %15, align 4
-  %17 = getelementptr inbounds i8, ptr %8, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %18 = load i32, ptr %17, align 16
   %19 = lshr i32 %18, 20
   %20 = and i32 %18, 1048575
@@ -525,13 +523,13 @@ define internal i32 @show_mountinfo(ptr noundef %0, ptr noundef %1) #1 align 16 
 
 24:                                               ; preds = %2
   tail call void @seq_putc(ptr noundef %0, i8 noundef zeroext 32) #6
-  %25 = getelementptr inbounds i8, ptr %5, i64 8
-  %26 = call i32 @seq_path_root(ptr noundef %0, ptr noundef nonnull %3, ptr noundef %25, ptr noundef nonnull @.str.1) #6
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %26 = call i32 @seq_path_root(ptr noundef %0, ptr noundef nonnull %3, ptr noundef nonnull %25, ptr noundef nonnull @.str.1) #6
   %27 = icmp eq i32 %26, 0
   br i1 %27, label %28, label %136
 
 28:                                               ; preds = %24
-  %29 = getelementptr inbounds i8, ptr %1, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %30 = load i32, ptr %29, align 8
   %31 = and i32 %30, 64
   %32 = icmp eq i32 %31, 0
@@ -548,7 +546,7 @@ define internal i32 @show_mountinfo(ptr noundef %0, ptr noundef %1) #1 align 16 
   br i1 %39, label %43, label %40
 
 40:                                               ; preds = %34
-  %41 = getelementptr inbounds i8, ptr %36, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %42 = load ptr, ptr %41, align 8
   call void @seq_puts(ptr noundef %0, ptr noundef %42) #6
   br label %43
@@ -560,7 +558,7 @@ define internal i32 @show_mountinfo(ptr noundef %0, ptr noundef %1) #1 align 16 
   br i1 %46, label %47, label %34, !llvm.loop !14
 
 47:                                               ; preds = %43
-  %48 = getelementptr inbounds i8, ptr %1, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %49 = load volatile ptr, ptr %48, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !15
   %50 = icmp eq ptr %49, @nop_mnt_idmap
@@ -589,9 +587,9 @@ define internal i32 @show_mountinfo(ptr noundef %0, ptr noundef %1) #1 align 16 
   br i1 %62, label %71, label %63
 
 63:                                               ; preds = %59
-  %64 = getelementptr inbounds i8, ptr %61, i64 312
+  %64 = getelementptr inbounds nuw i8, ptr %61, i64 312
   %65 = load i32, ptr %64, align 8
-  %66 = call i32 @get_dominating_id(ptr noundef %6, ptr noundef %25) #6
+  %66 = call i32 @get_dominating_id(ptr noundef %6, ptr noundef nonnull %25) #6
   call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.20, i32 noundef %65) #6
   %67 = icmp eq i32 %66, 0
   %68 = icmp eq i32 %66, %65
@@ -614,12 +612,12 @@ define internal i32 @show_mountinfo(ptr noundef %0, ptr noundef %1) #1 align 16 
 
 76:                                               ; preds = %75, %71
   call void @seq_puts(ptr noundef %0, ptr noundef nonnull @.str.23) #6
-  %77 = getelementptr inbounds i8, ptr %8, i64 40
+  %77 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %78 = load ptr, ptr %77, align 8
   %79 = load ptr, ptr %78, align 8
   %80 = call i64 @strlen(ptr noundef %79) #6
   call void @seq_escape_mem(ptr noundef %0, ptr noundef %79, i64 noundef %80, i32 noundef 8, ptr noundef nonnull @.str.5) #6
-  %81 = getelementptr inbounds i8, ptr %8, i64 1008
+  %81 = getelementptr inbounds nuw i8, ptr %8, i64 1008
   %82 = load ptr, ptr %81, align 16
   %83 = icmp eq ptr %82, null
   br i1 %83, label %87, label %84
@@ -633,9 +631,9 @@ define internal i32 @show_mountinfo(ptr noundef %0, ptr noundef %1) #1 align 16 
 
 87:                                               ; preds = %84, %76
   call void @seq_putc(ptr noundef %0, i8 noundef zeroext 32) #6
-  %88 = getelementptr inbounds i8, ptr %8, i64 48
+  %88 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %89 = load ptr, ptr %88, align 16
-  %90 = getelementptr inbounds i8, ptr %89, i64 136
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 136
   %91 = load ptr, ptr %90, align 8
   %92 = icmp eq ptr %91, null
   br i1 %92, label %97, label %93
@@ -656,7 +654,7 @@ define internal i32 @show_mountinfo(ptr noundef %0, ptr noundef %1) #1 align 16 
   br label %103
 
 103:                                              ; preds = %97, %93
-  %104 = getelementptr inbounds i8, ptr %8, i64 80
+  %104 = getelementptr inbounds nuw i8, ptr %8, i64 80
   %105 = load i64, ptr %104, align 16
   %106 = and i64 %105, 1
   %107 = icmp eq i64 %106, 0
@@ -674,7 +672,7 @@ define internal i32 @show_mountinfo(ptr noundef %0, ptr noundef %1) #1 align 16 
   br i1 %115, label %119, label %116
 
 116:                                              ; preds = %109
-  %117 = getelementptr inbounds i8, ptr %111, i64 8
+  %117 = getelementptr inbounds nuw i8, ptr %111, i64 8
   %118 = load ptr, ptr %117, align 8
   call void @seq_puts(ptr noundef %0, ptr noundef %118) #6
   br label %119
@@ -692,7 +690,7 @@ define internal i32 @show_mountinfo(ptr noundef %0, ptr noundef %1) #1 align 16 
 
 126:                                              ; preds = %123
   %127 = load ptr, ptr %88, align 16
-  %128 = getelementptr inbounds i8, ptr %127, i64 128
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 128
   %129 = load ptr, ptr %128, align 8
   %130 = icmp eq ptr %129, null
   br i1 %130, label %134, label %131
@@ -725,18 +723,18 @@ declare dso_local i32 @get_dominating_id(ptr noundef, ptr noundef) local_unnamed
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @show_vfsstat(ptr noundef %0, ptr noundef %1) #1 align 16 {
   %3 = alloca %struct.path, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 112
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %5 = load ptr, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #6
   store ptr %1, ptr %3, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load ptr, ptr %1, align 8
   store ptr %7, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 112
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 112
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %11 = load ptr, ptr %10, align 16
-  %12 = getelementptr inbounds i8, ptr %11, i64 136
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 136
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %21, label %15
@@ -744,7 +742,7 @@ define internal i32 @show_vfsstat(ptr noundef %0, ptr noundef %1) #1 align 16 {
 15:                                               ; preds = %2
   tail call void @seq_puts(ptr noundef %0, ptr noundef nonnull @.str.24) #6
   %16 = load ptr, ptr %10, align 16
-  %17 = getelementptr inbounds i8, ptr %16, i64 136
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 136
   %18 = load ptr, ptr %17, align 8
   %19 = tail call i32 %18(ptr noundef %0, ptr noundef %7) #6
   %20 = icmp eq i32 %19, 0
@@ -769,20 +767,20 @@ define internal i32 @show_vfsstat(ptr noundef %0, ptr noundef %1) #1 align 16 {
 
 29:                                               ; preds = %28, %25, %15
   tail call void @seq_puts(ptr noundef %0, ptr noundef nonnull @.str.26) #6
-  %30 = getelementptr inbounds i8, ptr %5, i64 8
-  %31 = call i32 @seq_path_root(ptr noundef %0, ptr noundef nonnull %3, ptr noundef %30, ptr noundef nonnull @.str.1) #6
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %31 = call i32 @seq_path_root(ptr noundef %0, ptr noundef nonnull %3, ptr noundef nonnull %30, ptr noundef nonnull @.str.1) #6
   %32 = icmp eq i32 %31, 0
   br i1 %32, label %33, label %57
 
 33:                                               ; preds = %29
   call void @seq_putc(ptr noundef %0, i8 noundef zeroext 32) #6
   call void @seq_puts(ptr noundef %0, ptr noundef nonnull @.str.27) #6
-  %34 = getelementptr inbounds i8, ptr %9, i64 40
+  %34 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %35 = load ptr, ptr %34, align 8
   %36 = load ptr, ptr %35, align 8
   %37 = call i64 @strlen(ptr noundef %36) #6
   call void @seq_escape_mem(ptr noundef %0, ptr noundef %36, i64 noundef %37, i32 noundef 8, ptr noundef nonnull @.str.5) #6
-  %38 = getelementptr inbounds i8, ptr %9, i64 1008
+  %38 = getelementptr inbounds nuw i8, ptr %9, i64 1008
   %39 = load ptr, ptr %38, align 16
   %40 = icmp eq ptr %39, null
   br i1 %40, label %44, label %41
@@ -796,7 +794,7 @@ define internal i32 @show_vfsstat(ptr noundef %0, ptr noundef %1) #1 align 16 {
 
 44:                                               ; preds = %41, %33
   %45 = load ptr, ptr %10, align 16
-  %46 = getelementptr inbounds i8, ptr %45, i64 152
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 152
   %47 = load ptr, ptr %46, align 8
   %48 = icmp eq ptr %47, null
   br i1 %48, label %55, label %49
@@ -804,7 +802,7 @@ define internal i32 @show_vfsstat(ptr noundef %0, ptr noundef %1) #1 align 16 {
 49:                                               ; preds = %44
   call void @seq_putc(ptr noundef %0, i8 noundef zeroext 32) #6
   %50 = load ptr, ptr %10, align 16
-  %51 = getelementptr inbounds i8, ptr %50, i64 152
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 152
   %52 = load ptr, ptr %51, align 8
   %53 = load ptr, ptr %6, align 8
   %54 = call i32 %52(ptr noundef %0, ptr noundef %53) #6

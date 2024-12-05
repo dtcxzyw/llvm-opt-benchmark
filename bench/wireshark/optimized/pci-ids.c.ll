@@ -35452,14 +35452,14 @@ define hidden ptr @pci_id_str(i16 noundef zeroext %0, i16 noundef zeroext %1, i1
   br i1 %7, label %.loopexit, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %6, i64 2
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 2
   %10 = load i16, ptr %9, align 2
   %11 = zext i16 %10 to i32
   %.not = icmp eq i16 %10, 0
   br i1 %.not, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %6, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = load i16, ptr %5, align 2
   br label %15
@@ -35472,25 +35472,25 @@ define hidden ptr @pci_id_str(i16 noundef zeroext %0, i16 noundef zeroext %1, i1
   br i1 %17, label %18, label %33
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %.019, i64 2
+  %19 = getelementptr inbounds nuw i8, ptr %.019, i64 2
   %20 = load i16, ptr %19, align 2
   %21 = icmp eq i16 %1, %20
   br i1 %21, label %22, label %33
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %.019, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %.019, i64 4
   %24 = load i16, ptr %23, align 4
   %25 = icmp eq i16 %2, %24
   br i1 %25, label %26, label %33
 
 26:                                               ; preds = %22
-  %27 = getelementptr inbounds i8, ptr %.019, i64 6
+  %27 = getelementptr inbounds nuw i8, ptr %.019, i64 6
   %28 = load i16, ptr %27, align 2
   %29 = icmp eq i16 %3, %28
   br i1 %29, label %30, label %33
 
 30:                                               ; preds = %26
-  %31 = getelementptr inbounds i8, ptr %.019, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %.019, i64 8
   %32 = load ptr, ptr %31, align 8
   br label %.loopexit
 

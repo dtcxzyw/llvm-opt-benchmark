@@ -82,7 +82,7 @@ define dso_local i32 @MainLoop(ptr noundef %0) local_unnamed_addr #1 {
 
 26:                                               ; preds = %1
   %.0..0..0..0.108 = load volatile ptr, ptr %2, align 8
-  %27 = getelementptr inbounds i8, ptr %.0..0..0..0.108, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.108, i64 16
   %28 = load i64, ptr %27, align 8
   %29 = icmp eq i64 %28, 0
   br i1 %29, label %42, label %30
@@ -94,7 +94,7 @@ define dso_local i32 @MainLoop(ptr noundef %0) local_unnamed_addr #1 {
 
 32:                                               ; preds = %30
   %.0..0..0..0.102 = load volatile ptr, ptr %3, align 8
-  %33 = getelementptr inbounds i8, ptr %.0..0..0..0.102, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.102, i64 16
   %34 = load i64, ptr %33, align 8
   %35 = icmp eq i64 %34, 0
   %36 = icmp eq ptr %24, null
@@ -102,7 +102,7 @@ define dso_local i32 @MainLoop(ptr noundef %0) local_unnamed_addr #1 {
   br i1 %or.cond, label %42, label %37
 
 37:                                               ; preds = %32
-  %38 = getelementptr inbounds i8, ptr %24, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %39 = load i64, ptr %38, align 8
   %40 = icmp eq i64 %39, 0
   br i1 %40, label %42, label %.preheader264
@@ -180,7 +180,7 @@ define dso_local i32 @MainLoop(ptr noundef %0) local_unnamed_addr #1 {
 
 66:                                               ; preds = %61
   %.0..0..0..0.110 = load volatile ptr, ptr %2, align 8
-  %67 = getelementptr inbounds i8, ptr %.0..0..0..0.110, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.110, i64 8
   %68 = load i64, ptr %67, align 8
   %69 = icmp eq i64 %68, 0
   br i1 %69, label %70, label %71
@@ -196,7 +196,7 @@ define dso_local i32 @MainLoop(ptr noundef %0) local_unnamed_addr #1 {
 
 73:                                               ; preds = %71
   %.0..0..0..0.111 = load volatile ptr, ptr %2, align 8
-  %74 = getelementptr inbounds i8, ptr %.0..0..0..0.111, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.111, i64 8
   %75 = load i64, ptr %74, align 8
   %.not201 = icmp eq i64 %75, 0
   br i1 %.not201, label %85, label %76
@@ -291,13 +291,13 @@ sub_0:                                            ; preds = %.thread229
   br i1 %.not274, label %sub_1, label %thread-pre-split.thread
 
 sub_1:                                            ; preds = %sub_0
-  %117 = getelementptr inbounds i8, ptr %.0231, i64 1
+  %117 = getelementptr inbounds nuw i8, ptr %.0231, i64 1
   %118 = load i8, ptr %117, align 1
   %.not275 = icmp eq i8 %118, -69
   br i1 %.not275, label %.tail, label %thread-pre-split.thread
 
 .tail:                                            ; preds = %sub_1
-  %119 = getelementptr inbounds i8, ptr %.0231, i64 2
+  %119 = getelementptr inbounds nuw i8, ptr %.0231, i64 2
   %120 = load i8, ptr %119, align 1
   %121 = icmp eq i8 %120, -65
   br i1 %121, label %122, label %thread-pre-split.thread
@@ -380,7 +380,7 @@ sub_0261:                                         ; preds = %154
   br i1 %.not276, label %.tail260, label %.thread249
 
 .tail260:                                         ; preds = %sub_0261
-  %160 = getelementptr inbounds i8, ptr %.0231, i64 1
+  %160 = getelementptr inbounds nuw i8, ptr %.0231, i64 1
   %161 = load i8, ptr %160, align 1
   %162 = icmp eq i8 %161, 113
   %163 = getelementptr i8, ptr %.0231, i64 2
@@ -438,7 +438,7 @@ select.unfold:                                    ; preds = %.tail260, %157, %14
 184:                                              ; preds = %182, %183
   %.1186283 = phi i1 [ %spec.select225, %182 ], [ %.0185, %183 ]
   %.0..0..0..0.114 = load volatile ptr, ptr %2, align 8
-  %185 = getelementptr inbounds i8, ptr %.0..0..0..0.114, i64 8
+  %185 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.114, i64 8
   %186 = load i64, ptr %185, align 8
   %.not206 = icmp eq i64 %186, 0
   br i1 %.not206, label %189, label %187
@@ -461,7 +461,7 @@ select.unfold:                                    ; preds = %.tail260, %157, %14
 
 195:                                              ; preds = %187, %194
   %.0..0..0..0.115 = load volatile ptr, ptr %2, align 8
-  %196 = getelementptr inbounds i8, ptr %.0..0..0..0.115, i64 8
+  %196 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.115, i64 8
   %197 = load i64, ptr %196, align 8
   %.not207 = icmp eq i64 %197, 0
   br i1 %.not207, label %208, label %198
@@ -501,7 +501,7 @@ select.unfold:                                    ; preds = %.tail260, %157, %14
 
 212:                                              ; preds = %204, %206, %211
   %.0..0..0..0.116 = load volatile ptr, ptr %2, align 8
-  %213 = getelementptr inbounds i8, ptr %.0..0..0..0.116, i64 8
+  %213 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.116, i64 8
   %214 = load i64, ptr %213, align 8
   %.not208 = icmp eq i64 %214, 0
   br i1 %.not208, label %.thread249, label %215
@@ -543,7 +543,7 @@ select.unfold:                                    ; preds = %.tail260, %157, %14
 
 229:                                              ; preds = %225, %222, %.thread249
   %.0..0..0..0.117 = load volatile ptr, ptr %2, align 8
-  %230 = getelementptr inbounds i8, ptr %.0..0..0..0.117, i64 8
+  %230 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.117, i64 8
   %231 = load i64, ptr %230, align 8
   %.not212 = icmp eq i64 %231, 0
   br i1 %.not212, label %236, label %232
@@ -552,7 +552,7 @@ select.unfold:                                    ; preds = %.tail260, %157, %14
   %.0..0..0..0.118 = load volatile ptr, ptr %2, align 8
   call void @appendPQExpBufferChar(ptr noundef %.0..0..0..0.118, i8 noundef signext 10) #10
   %.0..0..0..0.119 = load volatile ptr, ptr %2, align 8
-  %233 = getelementptr inbounds i8, ptr %.0..0..0..0.119, i64 8
+  %233 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.119, i64 8
   %234 = load i64, ptr %233, align 8
   %235 = trunc i64 %234 to i32
   br label %236
@@ -586,7 +586,7 @@ select.unfold:                                    ; preds = %.tail260, %157, %14
   %.0..0..0..0.48 = load volatile i32, ptr %6, align 4
   store i32 %.0..0..0..0.48, ptr %10, align 4
   %.0..0..0..0.120 = load volatile ptr, ptr %2, align 8
-  %247 = getelementptr inbounds i8, ptr %.0..0..0..0.120, i64 8
+  %247 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.120, i64 8
   %248 = load i64, ptr %247, align 8
   %.0..0..0..0.121 = load volatile ptr, ptr %2, align 8
   %249 = call i32 @psql_scan(ptr noundef %20, ptr noundef %.0..0..0..0.121, ptr noundef nonnull %10) #10
@@ -598,7 +598,7 @@ select.unfold:                                    ; preds = %.tail260, %157, %14
 
 252:                                              ; preds = %.critedge
   %.0..0..0..0.123 = load volatile ptr, ptr %2, align 8
-  %253 = getelementptr inbounds i8, ptr %.0..0..0..0.123, i64 16
+  %253 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.123, i64 16
   %254 = load i64, ptr %253, align 8
   %255 = icmp eq i64 %254, 0
   br i1 %255, label %256, label %257
@@ -702,7 +702,7 @@ select.unfold:                                    ; preds = %.tail260, %157, %14
 
 293:                                              ; preds = %._crit_edge
   %.0..0..0..0.128 = load volatile ptr, ptr %2, align 8
-  %294 = getelementptr inbounds i8, ptr %.0..0..0..0.128, i64 8
+  %294 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.128, i64 8
   %295 = load i64, ptr %294, align 8
   %296 = sext i32 %.1173 to i64
   %297 = icmp eq i64 %295, %296
@@ -712,7 +712,7 @@ select.unfold:                                    ; preds = %.tail260, %157, %14
   %.0..0..0..0.129 = load volatile ptr, ptr %2, align 8
   %299 = load ptr, ptr %.0..0..0..0.129, align 8
   %.0..0..0..0.130 = load volatile ptr, ptr %2, align 8
-  %300 = getelementptr inbounds i8, ptr %.0..0..0..0.130, i64 8
+  %300 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.130, i64 8
   %301 = load i64, ptr %300, align 8
   %302 = add i64 %301, -1
   store i64 %302, ptr %300, align 8
@@ -770,7 +770,7 @@ select.unfold:                                    ; preds = %.tail260, %157, %14
 
 321:                                              ; preds = %319
   %.0..0..0..0.135 = load volatile ptr, ptr %2, align 8
-  %322 = getelementptr inbounds i8, ptr %.0..0..0..0.135, i64 8
+  %322 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.135, i64 8
   %323 = load i64, ptr %322, align 8
   %.not214 = icmp eq i64 %323, 0
   br i1 %.not214, label %332, label %324
@@ -779,7 +779,7 @@ select.unfold:                                    ; preds = %.tail260, %157, %14
   %.0..0..0..0.136 = load volatile ptr, ptr %2, align 8
   %325 = load ptr, ptr %.0..0..0..0.136, align 8
   %.0..0..0..0.137 = load volatile ptr, ptr %2, align 8
-  %326 = getelementptr inbounds i8, ptr %.0..0..0..0.137, i64 8
+  %326 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.137, i64 8
   %327 = load i64, ptr %326, align 8
   %328 = getelementptr i8, ptr %325, i64 %327
   %329 = getelementptr i8, ptr %328, i64 -1
@@ -842,7 +842,7 @@ select.unfold:                                    ; preds = %.tail260, %157, %14
 
 348:                                              ; preds = %347, %345
   %.0..0..0..0.141 = load volatile ptr, ptr %2, align 8
-  %349 = getelementptr inbounds i8, ptr %.0..0..0..0.141, i64 8
+  %349 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.141, i64 8
   %350 = load i64, ptr %349, align 8
   %351 = icmp eq i64 %350, 0
   br i1 %351, label %352, label %353
@@ -891,7 +891,7 @@ select.unfold:                                    ; preds = %.tail260, %157, %14
 
 .loopexit:                                        ; preds = %.backedge, %.thread, %.preheader264, %108, %355, %208, %133, %60, %47
   %.0..0..0..0.142 = load volatile ptr, ptr %2, align 8
-  %367 = getelementptr inbounds i8, ptr %.0..0..0..0.142, i64 8
+  %367 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.142, i64 8
   %368 = load i64, ptr %367, align 8
   %.not217 = icmp eq i64 %368, 0
   br i1 %.not217, label %387, label %369

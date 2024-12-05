@@ -115,7 +115,7 @@ if.then25:                                        ; preds = %if.end23
 
 if.end29:                                         ; preds = %if.then25
   %call30 = tail call ptr @OPENSSL_sk_new_null() #2
-  %certs = getelementptr inbounds i8, ptr %call26, i64 8
+  %certs = getelementptr inbounds nuw i8, ptr %call26, i64 8
   store ptr %call30, ptr %certs, align 8
   %cmp32 = icmp eq ptr %call30, null
   br i1 %cmp32, label %end, label %while.cond35
@@ -153,7 +153,7 @@ if.end55:                                         ; preds = %if.end23
   br i1 %cmp57, label %if.then58, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.end55
-  %certs61 = getelementptr inbounds i8, ptr %call56, i64 8
+  %certs61 = getelementptr inbounds nuw i8, ptr %call56, i64 8
   %4 = load ptr, ptr %certs61, align 8
   %call6337 = tail call i32 @OPENSSL_sk_num(ptr noundef %4) #2
   %cmp6438 = icmp sgt i32 %call6337, 0

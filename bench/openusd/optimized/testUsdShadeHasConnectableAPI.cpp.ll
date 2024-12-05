@@ -106,13 +106,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__6TfType4FindINS_17UsdShadeNodeGraphEEERKS0_
 
 32:                                               ; preds = %29
   store ptr @.str, ptr %8, align 8
-  %.sroa.250.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 8
+  %.sroa.250.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr @__func__._Z21TestHasConnectableAPIv, ptr %.sroa.250.0..sroa_idx, align 8
-  %.sroa.351.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 16
+  %.sroa.351.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i64 23, ptr %.sroa.351.0..sroa_idx, align 8
-  %.sroa.452.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 24
+  %.sroa.452.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr @__PRETTY_FUNCTION__._Z21TestHasConnectableAPIv, ptr %.sroa.452.0..sroa_idx, align 8
-  %.sroa.553.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 32
+  %.sroa.553.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 32
   store i8 0, ptr %.sroa.553.0..sroa_idx, align 8
   %33 = getelementptr inbounds nuw i8, ptr %8, i64 40
   store i32 4, ptr %33, align 8
@@ -128,13 +128,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
 
 36:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit
   store ptr @.str, ptr %7, align 8
-  %.sroa.244.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 8
+  %.sroa.244.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr @__func__._Z21TestHasConnectableAPIv, ptr %.sroa.244.0..sroa_idx, align 8
-  %.sroa.345.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 16
+  %.sroa.345.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 24, ptr %.sroa.345.0..sroa_idx, align 8
-  %.sroa.446.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 24
+  %.sroa.446.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr @__PRETTY_FUNCTION__._Z21TestHasConnectableAPIv, ptr %.sroa.446.0..sroa_idx, align 8
-  %.sroa.547.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 32
+  %.sroa.547.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 32
   store i8 0, ptr %.sroa.547.0..sroa_idx, align 8
   %37 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store i32 4, ptr %37, align 8
@@ -150,13 +150,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
 
 40:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit6
   store ptr @.str, ptr %6, align 8
-  %.sroa.238.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 8
+  %.sroa.238.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr @__func__._Z21TestHasConnectableAPIv, ptr %.sroa.238.0..sroa_idx, align 8
-  %.sroa.339.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 16
+  %.sroa.339.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 25, ptr %.sroa.339.0..sroa_idx, align 8
-  %.sroa.440.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 24
+  %.sroa.440.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr @__PRETTY_FUNCTION__._Z21TestHasConnectableAPIv, ptr %.sroa.440.0..sroa_idx, align 8
-  %.sroa.541.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 32
+  %.sroa.541.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i8 0, ptr %.sroa.541.0..sroa_idx, align 8
   %41 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store i32 4, ptr %41, align 8
@@ -172,13 +172,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
 
 44:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit7
   store ptr @.str, ptr %5, align 8
-  %.sroa.232.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
+  %.sroa.232.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @__func__._Z21TestHasConnectableAPIv, ptr %.sroa.232.0..sroa_idx, align 8
-  %.sroa.333.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 16
+  %.sroa.333.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 26, ptr %.sroa.333.0..sroa_idx, align 8
-  %.sroa.434.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 24
+  %.sroa.434.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr @__PRETTY_FUNCTION__._Z21TestHasConnectableAPIv, ptr %.sroa.434.0..sroa_idx, align 8
-  %.sroa.535.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 32
+  %.sroa.535.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i8 0, ptr %.sroa.535.0..sroa_idx, align 8
   %45 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store i32 4, ptr %45, align 8
@@ -194,13 +194,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
 
 48:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit8
   store ptr @.str, ptr %4, align 8
-  %.sroa.226.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.226.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @__func__._Z21TestHasConnectableAPIv, ptr %.sroa.226.0..sroa_idx, align 8
-  %.sroa.327.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
+  %.sroa.327.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 27, ptr %.sroa.327.0..sroa_idx, align 8
-  %.sroa.428.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 24
+  %.sroa.428.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr @__PRETTY_FUNCTION__._Z21TestHasConnectableAPIv, ptr %.sroa.428.0..sroa_idx, align 8
-  %.sroa.529.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 32
+  %.sroa.529.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i8 0, ptr %.sroa.529.0..sroa_idx, align 8
   %49 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i32 4, ptr %49, align 8
@@ -216,13 +216,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
 
 52:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit9
   store ptr @.str, ptr %3, align 8
-  %.sroa.220.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.220.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @__func__._Z21TestHasConnectableAPIv, ptr %.sroa.220.0..sroa_idx, align 8
-  %.sroa.321.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 16
+  %.sroa.321.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 28, ptr %.sroa.321.0..sroa_idx, align 8
-  %.sroa.422.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 24
+  %.sroa.422.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr @__PRETTY_FUNCTION__._Z21TestHasConnectableAPIv, ptr %.sroa.422.0..sroa_idx, align 8
-  %.sroa.523.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 32
+  %.sroa.523.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i8 0, ptr %.sroa.523.0..sroa_idx, align 8
   %53 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i32 4, ptr %53, align 8
@@ -257,13 +257,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__6TfType4FindINS_13UsdGeomSphereEEERKS0_v.ex
 
 63:                                               ; preds = %60
   store ptr @.str, ptr %2, align 8
-  %.sroa.214.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.214.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @__func__._Z21TestHasConnectableAPIv, ptr %.sroa.214.0..sroa_idx, align 8
-  %.sroa.315.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 16
+  %.sroa.315.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 32, ptr %.sroa.315.0..sroa_idx, align 8
-  %.sroa.416.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 24
+  %.sroa.416.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr @__PRETTY_FUNCTION__._Z21TestHasConnectableAPIv, ptr %.sroa.416.0..sroa_idx, align 8
-  %.sroa.517.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 32
+  %.sroa.517.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i8 0, ptr %.sroa.517.0..sroa_idx, align 8
   %64 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i32 4, ptr %64, align 8
@@ -279,13 +279,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
 
 67:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit11
   store ptr @.str, ptr %1, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr @__func__._Z21TestHasConnectableAPIv, ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 16
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i64 33, ptr %.sroa.3.0..sroa_idx, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 24
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 24
   store ptr @__PRETTY_FUNCTION__._Z21TestHasConnectableAPIv, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 32
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i8 0, ptr %.sroa.5.0..sroa_idx, align 8
   %68 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store i32 4, ptr %68, align 8

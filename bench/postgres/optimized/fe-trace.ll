@@ -67,7 +67,7 @@ define void @PQtrace(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   br i1 %3, label %12, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 312
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %PQuntrace.exit, label %7
@@ -78,7 +78,7 @@ define void @PQtrace(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   br label %PQuntrace.exit
 
 PQuntrace.exit:                                   ; preds = %4, %7
-  %9 = getelementptr inbounds i8, ptr %0, i64 320
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 320
   store i32 0, ptr %9, align 8
   %10 = icmp eq ptr %1, null
   br i1 %10, label %12, label %11
@@ -97,7 +97,7 @@ define void @PQuntrace(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %2, label %10, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 312
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %8, label %6
@@ -108,7 +108,7 @@ define void @PQuntrace(ptr noundef %0) local_unnamed_addr #0 {
   br label %8
 
 8:                                                ; preds = %6, %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 320
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 320
   store i32 0, ptr %9, align 8
   br label %10
 
@@ -125,13 +125,13 @@ define void @PQsetTraceFlags(ptr noundef %0, i32 noundef %1) local_unnamed_addr 
   br i1 %3, label %10, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 312
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %10, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 320
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 320
   store i32 %1, ptr %9, align 8
   br label %10
 
@@ -147,7 +147,7 @@ define void @pqTraceOutputMessage(ptr nocapture noundef readonly %0, ptr noundef
   %7 = alloca [128 x i8], align 16
   %8 = select i1 %2, ptr @.str, ptr @.str.1
   store i32 0, ptr %6, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 320
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %10 = load i32, ptr %9, align 8
   %11 = and i32 %10, 1
   %12 = icmp eq i32 %11, 0
@@ -164,13 +164,13 @@ define void @pqTraceOutputMessage(ptr nocapture noundef readonly %0, ptr noundef
   %18 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #12
   %19 = getelementptr i8, ptr %7, i64 %18
   %20 = sub i64 128, %18
-  %21 = getelementptr inbounds i8, ptr %4, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %22 = load i64, ptr %21, align 8
   %23 = trunc i64 %22 to i32
   %24 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %19, i64 noundef %20, ptr noundef nonnull @.str.22, i32 noundef %23) #11
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  %25 = getelementptr inbounds i8, ptr %0, i64 312
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %26 = load ptr, ptr %25, align 8
   %27 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %26, ptr noundef nonnull @.str.2, ptr noundef nonnull %7) #11
   %.pre = load i32, ptr %9, align 8
@@ -203,13 +203,13 @@ define void @pqTraceOutputMessage(ptr nocapture noundef readonly %0, ptr noundef
   ]
 
 42:                                               ; preds = %41, %41
-  %43 = getelementptr inbounds i8, ptr %0, i64 312
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %44 = load ptr, ptr %43, align 8
   %45 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %44, ptr noundef nonnull @.str.3, ptr noundef nonnull %8) #11
   br label %50
 
 46:                                               ; preds = %41, %28
-  %47 = getelementptr inbounds i8, ptr %0, i64 312
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %48 = load ptr, ptr %47, align 8
   %49 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %48, ptr noundef nonnull @.str.4, ptr noundef nonnull %8, i32 noundef %39) #11
   br label %50
@@ -249,25 +249,25 @@ define void @pqTraceOutputMessage(ptr nocapture noundef readonly %0, ptr noundef
   ]
 
 51:                                               ; preds = %50
-  %52 = getelementptr inbounds i8, ptr %0, i64 312
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %53 = load ptr, ptr %52, align 8
   %54 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %53, ptr noundef nonnull @.str.5) #11
   br label %pqTraceOutputB.exit
 
 55:                                               ; preds = %50
-  %56 = getelementptr inbounds i8, ptr %0, i64 312
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %57 = load ptr, ptr %56, align 8
   %58 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %57, ptr noundef nonnull @.str.6) #11
   br label %pqTraceOutputB.exit
 
 59:                                               ; preds = %50
-  %60 = getelementptr inbounds i8, ptr %0, i64 312
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %61 = load ptr, ptr %60, align 8
   %62 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %61, ptr noundef nonnull @.str.7) #11
   br label %pqTraceOutputB.exit
 
 63:                                               ; preds = %50
-  %64 = getelementptr inbounds i8, ptr %0, i64 312
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %65 = load ptr, ptr %64, align 8
   %66 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %65, ptr noundef nonnull @.str.23) #11
   %67 = load i32, ptr %6, align 4
@@ -306,7 +306,7 @@ pqTraceOutputA.exit:                              ; preds = %71, %73
   br label %pqTraceOutputB.exit
 
 89:                                               ; preds = %50
-  %90 = getelementptr inbounds i8, ptr %0, i64 312
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %91 = load ptr, ptr %90, align 8
   %92 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %91, ptr noundef nonnull @.str.26) #11
   %93 = load i32, ptr %6, align 4
@@ -424,13 +424,13 @@ pqTraceOutputA.exit:                              ; preds = %71, %73
   br i1 %exitcond60.not.i, label %pqTraceOutputB.exit, label %.lr.ph53.i, !llvm.loop !7
 
 151:                                              ; preds = %50
-  %152 = getelementptr inbounds i8, ptr %0, i64 312
+  %152 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %153 = load ptr, ptr %152, align 8
   %154 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %153, ptr noundef nonnull @.str.8) #11
   br label %pqTraceOutputB.exit
 
 155:                                              ; preds = %50
-  %156 = getelementptr inbounds i8, ptr %0, i64 312
+  %156 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %157 = load ptr, ptr %156, align 8
   br i1 %2, label %158, label %174
 
@@ -472,7 +472,7 @@ pqTraceOutputC.exit:                              ; preds = %158, %174
   br label %pqTraceOutputB.exit
 
 183:                                              ; preds = %50
-  %184 = getelementptr inbounds i8, ptr %0, i64 312
+  %184 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %185 = load ptr, ptr %184, align 8
   br i1 %2, label %186, label %208
 
@@ -545,7 +545,7 @@ pqTraceOutputC.exit:                              ; preds = %158, %174
   br i1 %exitcond.not.i98, label %pqTraceOutputB.exit, label %.lr.ph.i97, !llvm.loop !8
 
 227:                                              ; preds = %50
-  %228 = getelementptr inbounds i8, ptr %0, i64 312
+  %228 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %229 = load ptr, ptr %228, align 8
   br i1 %2, label %230, label %244
 
@@ -572,7 +572,7 @@ pqTraceOutputC.exit:                              ; preds = %158, %174
   br label %pqTraceOutputB.exit
 
 245:                                              ; preds = %50
-  %246 = getelementptr inbounds i8, ptr %0, i64 312
+  %246 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %247 = load ptr, ptr %246, align 8
   %248 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %247, ptr noundef nonnull @.str.39) #11
   %249 = load i32, ptr %6, align 4
@@ -586,7 +586,7 @@ pqTraceOutputC.exit:                              ; preds = %158, %174
   br label %pqTraceOutputB.exit
 
 256:                                              ; preds = %50
-  %257 = getelementptr inbounds i8, ptr %0, i64 312
+  %257 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %258 = load ptr, ptr %257, align 8
   %259 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %258, ptr noundef nonnull @.str.40) #11
   %260 = load i32, ptr %6, align 4
@@ -690,7 +690,7 @@ pqTraceOutputF.exit:                              ; preds = %299, %._crit_edge.i
   br label %pqTraceOutputB.exit
 
 308:                                              ; preds = %50
-  %309 = getelementptr inbounds i8, ptr %0, i64 312
+  %309 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %310 = load ptr, ptr %309, align 8
   %311 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %310, ptr noundef nonnull @.str.41) #11
   %312 = load i32, ptr %6, align 4
@@ -740,7 +740,7 @@ pqTraceOutputF.exit:                              ; preds = %299, %._crit_edge.i
   br i1 %exitcond.not.i116, label %pqTraceOutputB.exit, label %.lr.ph.i115, !llvm.loop !11
 
 340:                                              ; preds = %50
-  %341 = getelementptr inbounds i8, ptr %0, i64 312
+  %341 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %342 = load ptr, ptr %341, align 8
   br i1 %2, label %344, label %343
 
@@ -753,13 +753,13 @@ pqTraceOutputF.exit:                              ; preds = %299, %._crit_edge.i
   br label %pqTraceOutputB.exit
 
 346:                                              ; preds = %50
-  %347 = getelementptr inbounds i8, ptr %0, i64 312
+  %347 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %348 = load ptr, ptr %347, align 8
   %349 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %348, ptr noundef nonnull @.str.10) #11
   br label %pqTraceOutputB.exit
 
 350:                                              ; preds = %50
-  %351 = getelementptr inbounds i8, ptr %0, i64 312
+  %351 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %352 = load ptr, ptr %351, align 8
   %353 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %352, ptr noundef nonnull @.str.43) #11
   %354 = load i32, ptr %6, align 4
@@ -792,19 +792,19 @@ pqTraceOutputF.exit:                              ; preds = %299, %._crit_edge.i
   br label %pqTraceOutputB.exit
 
 372:                                              ; preds = %50
-  %373 = getelementptr inbounds i8, ptr %0, i64 312
+  %373 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %374 = load ptr, ptr %373, align 8
   %375 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %374, ptr noundef nonnull @.str.11) #11
   br label %pqTraceOutputB.exit
 
 376:                                              ; preds = %50
-  %377 = getelementptr inbounds i8, ptr %0, i64 312
+  %377 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %378 = load ptr, ptr %377, align 8
   call fastcc void @pqTraceOutputNR(ptr noundef %378, ptr noundef nonnull @.str.12, ptr noundef nonnull %1, ptr noundef %6, i1 noundef zeroext %32)
   br label %pqTraceOutputB.exit
 
 379:                                              ; preds = %50
-  %380 = getelementptr inbounds i8, ptr %0, i64 312
+  %380 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %381 = load ptr, ptr %380, align 8
   %382 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %381, ptr noundef nonnull @.str.44) #11
   %383 = load i32, ptr %6, align 4
@@ -860,7 +860,7 @@ pqTraceOutputInt32.exit.i122:                     ; preds = %.lr.ph.i121, %pqTra
   br i1 %exitcond.not.i123, label %pqTraceOutputB.exit, label %pqTraceOutputInt32.exit.i122, !llvm.loop !12
 
 412:                                              ; preds = %50
-  %413 = getelementptr inbounds i8, ptr %0, i64 312
+  %413 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %414 = load ptr, ptr %413, align 8
   %415 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %414, ptr noundef nonnull @.str.45) #11
   %416 = load i32, ptr %6, align 4
@@ -874,7 +874,7 @@ pqTraceOutputInt32.exit.i122:                     ; preds = %.lr.ph.i121, %pqTra
   br label %pqTraceOutputB.exit
 
 423:                                              ; preds = %50
-  %424 = getelementptr inbounds i8, ptr %0, i64 312
+  %424 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %425 = load ptr, ptr %424, align 8
   %426 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %425, ptr noundef nonnull @.str.46) #11
   %427 = load i32, ptr %6, align 4
@@ -888,13 +888,13 @@ pqTraceOutputInt32.exit.i122:                     ; preds = %.lr.ph.i121, %pqTra
   br label %pqTraceOutputB.exit
 
 433:                                              ; preds = %50
-  %434 = getelementptr inbounds i8, ptr %0, i64 312
+  %434 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %435 = load ptr, ptr %434, align 8
   %436 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %435, ptr noundef nonnull @.str.13) #11
   br label %pqTraceOutputB.exit
 
 437:                                              ; preds = %50
-  %438 = getelementptr inbounds i8, ptr %0, i64 312
+  %438 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %439 = load ptr, ptr %438, align 8
   br i1 %2, label %441, label %440
 
@@ -907,7 +907,7 @@ pqTraceOutputInt32.exit.i122:                     ; preds = %.lr.ph.i121, %pqTra
   br label %pqTraceOutputB.exit
 
 443:                                              ; preds = %50
-  %444 = getelementptr inbounds i8, ptr %0, i64 312
+  %444 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %445 = load ptr, ptr %444, align 8
   %446 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %445, ptr noundef nonnull @.str.48) #11
   %447 = load i32, ptr %6, align 4
@@ -951,7 +951,7 @@ pqTraceOutputInt32.exit.i129:                     ; preds = %.lr.ph.i128, %pqTra
   br i1 %exitcond.not.i130, label %pqTraceOutputB.exit, label %pqTraceOutputInt32.exit.i129, !llvm.loop !13
 
 465:                                              ; preds = %50
-  %466 = getelementptr inbounds i8, ptr %0, i64 312
+  %466 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %467 = load ptr, ptr %466, align 8
   %468 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %467, ptr noundef nonnull @.str.49) #11
   %469 = load i32, ptr %6, align 4
@@ -1054,7 +1054,7 @@ pqTraceOutputInt32.exit32.i:                      ; preds = %504, %502
   br i1 %exitcond.not.i142, label %pqTraceOutputB.exit, label %.lr.ph.i137, !llvm.loop !14
 
 528:                                              ; preds = %50
-  %529 = getelementptr inbounds i8, ptr %0, i64 312
+  %529 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %530 = load ptr, ptr %529, align 8
   %531 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %530, ptr noundef nonnull @.str.50) #11
   %532 = load i32, ptr %6, align 4
@@ -1076,7 +1076,7 @@ pqTraceOutputInt32.exit32.i:                      ; preds = %504, %502
   br label %pqTraceOutputB.exit
 
 544:                                              ; preds = %50
-  %545 = getelementptr inbounds i8, ptr %0, i64 312
+  %545 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %546 = load ptr, ptr %545, align 8
   %547 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %546, ptr noundef nonnull @.str.51) #11
   %548 = load i32, ptr %6, align 4
@@ -1095,7 +1095,7 @@ pqTraceOutputInt32.exit32.i:                      ; preds = %504, %502
   br label %pqTraceOutputB.exit
 
 555:                                              ; preds = %50
-  %556 = getelementptr inbounds i8, ptr %0, i64 312
+  %556 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %557 = load ptr, ptr %556, align 8
   %558 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %557, ptr noundef nonnull @.str.52) #11
   %559 = load i32, ptr %6, align 4
@@ -1133,13 +1133,13 @@ pqTraceOutputInt32.exit32.i:                      ; preds = %504, %502
   br i1 %582, label %.lr.ph.i150, label %pqTraceOutputB.exit, !llvm.loop !15
 
 583:                                              ; preds = %50
-  %584 = getelementptr inbounds i8, ptr %0, i64 312
+  %584 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %585 = load ptr, ptr %584, align 8
   %586 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %585, ptr noundef nonnull @.str.15) #11
   br label %pqTraceOutputB.exit
 
 587:                                              ; preds = %50
-  %588 = getelementptr inbounds i8, ptr %0, i64 312
+  %588 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %589 = load ptr, ptr %588, align 8
   %590 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %589, ptr noundef nonnull @.str.53) #11
   %591 = load i32, ptr %6, align 4
@@ -1163,13 +1163,13 @@ pqTraceOutputInt32.exit32.i:                      ; preds = %504, %502
 
 605:                                              ; preds = %50
   %606 = sext i8 %36 to i32
-  %607 = getelementptr inbounds i8, ptr %0, i64 312
+  %607 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %608 = load ptr, ptr %607, align 8
   %609 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %608, ptr noundef nonnull @.str.16, i32 noundef %606) #11
   br label %pqTraceOutputB.exit
 
 pqTraceOutputB.exit:                              ; preds = %.lr.ph.i150, %pqTraceOutputInt32.exit32.i, %pqTraceOutputInt32.exit.i129, %pqTraceOutputInt32.exit.us.i132, %pqTraceOutputInt32.exit.i122, %pqTraceOutputInt32.exit.us.i, %.lr.ph.i115, %225, %.lr.ph53.i, %555, %554, %544, %465, %443, %379, %363, %358, %308, %244, %230, %208, %186, %._crit_edge50.i, %440, %441, %343, %344, %50, %605, %587, %583, %528, %433, %423, %412, %376, %372, %346, %pqTraceOutputF.exit, %245, %pqTraceOutputC.exit, %151, %pqTraceOutputA.exit, %59, %55, %51
-  %610 = getelementptr inbounds i8, ptr %0, i64 312
+  %610 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %611 = load ptr, ptr %610, align 8
   %612 = call i32 @fputc(i32 noundef 10, ptr noundef %611)
   %613 = load i32, ptr %6, align 4
@@ -1390,7 +1390,7 @@ define void @pqTraceOutputNoTypeByteMessage(ptr nocapture noundef readonly %0, p
   %3 = alloca %struct.timeval, align 8
   %4 = alloca i64, align 8
   %5 = alloca [128 x i8], align 16
-  %6 = getelementptr inbounds i8, ptr %0, i64 320
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %7 = load i32, ptr %6, align 8
   %8 = and i32 %7, 1
   %9 = icmp eq i32 %8, 0
@@ -1407,13 +1407,13 @@ define void @pqTraceOutputNoTypeByteMessage(ptr nocapture noundef readonly %0, p
   %15 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #12
   %16 = getelementptr i8, ptr %5, i64 %15
   %17 = sub i64 128, %15
-  %18 = getelementptr inbounds i8, ptr %3, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %19 = load i64, ptr %18, align 8
   %20 = trunc i64 %19 to i32
   %21 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %16, i64 noundef %17, ptr noundef nonnull @.str.22, i32 noundef %20) #11
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  %22 = getelementptr inbounds i8, ptr %0, i64 312
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %23 = load ptr, ptr %22, align 8
   %24 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %23, ptr noundef nonnull @.str.2, ptr noundef nonnull %5) #11
   br label %25
@@ -1421,7 +1421,7 @@ define void @pqTraceOutputNoTypeByteMessage(ptr nocapture noundef readonly %0, p
 25:                                               ; preds = %10, %2
   %.0.copyload = load i32, ptr %1, align 1
   %26 = call i32 @llvm.bswap.i32(i32 %.0.copyload)
-  %27 = getelementptr inbounds i8, ptr %0, i64 312
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %28 = load ptr, ptr %27, align 8
   %29 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %28, ptr noundef nonnull @.str.18, i32 noundef %26) #11
   %cond = icmp eq i32 %.0.copyload, 268435456

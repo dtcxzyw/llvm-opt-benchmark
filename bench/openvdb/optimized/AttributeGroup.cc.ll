@@ -95,19 +95,19 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define void @_ZN7openvdb5v11_06points11GroupHandleC2ERKNS1_19TypedAttributeArrayIhNS1_10GroupCodecEEERKh(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(9) initializes((0, 9)) %this, ptr noundef nonnull align 8 dereferenceable(40) %array, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %offset) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr %array, ptr %this, align 8
-  %mBitMask = getelementptr inbounds i8, ptr %this, i64 8
+  %mBitMask = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i8, ptr %offset, align 1
   %conv = zext nneg i8 %0 to i32
   %shl = shl nuw i32 1, %conv
   %conv2 = trunc i32 %shl to i8
   store i8 %conv2, ptr %mBitMask, align 8
-  %mOutOfCore.i.i.i = getelementptr inbounds i8, ptr %array, i64 12
+  %mOutOfCore.i.i.i = getelementptr inbounds nuw i8, ptr %array, i64 12
   %1 = load atomic i32, ptr %mOutOfCore.i.i.i seq_cst, align 4
   %tobool.i.not.i.i = icmp eq i32 %1, 0
   br i1 %tobool.i.not.i.i, label %_ZNK7openvdb5v11_06points19TypedAttributeArrayIhNS1_10GroupCodecEE8loadDataEv.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %entry
-  %mMutex.i.i = getelementptr inbounds i8, ptr %array, i64 9
+  %mMutex.i.i = getelementptr inbounds nuw i8, ptr %array, i64 9
   %2 = atomicrmw xchg ptr %mMutex.i.i, i8 1 seq_cst, align 1
   %tobool3.i.i2.i.i.i.i.i = trunc i8 %2 to i1
   br i1 %tobool3.i.i2.i.i.i.i.i, label %while.body.i.i.i.i.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i.i
@@ -164,16 +164,16 @@ _ZNK7openvdb5v11_06points19TypedAttributeArrayIhNS1_10GroupCodecEE8loadDataEv.ex
 define void @_ZN7openvdb5v11_06points11GroupHandleC2ERKNS1_19TypedAttributeArrayIhNS1_10GroupCodecEEERKhNS2_7BitMaskE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(9) initializes((0, 9)) %this, ptr noundef nonnull align 8 dereferenceable(40) %array, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %bitMask) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr %array, ptr %this, align 8
-  %mBitMask = getelementptr inbounds i8, ptr %this, i64 8
+  %mBitMask = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i8, ptr %bitMask, align 1
   store i8 %0, ptr %mBitMask, align 8
-  %mOutOfCore.i.i.i = getelementptr inbounds i8, ptr %array, i64 12
+  %mOutOfCore.i.i.i = getelementptr inbounds nuw i8, ptr %array, i64 12
   %1 = load atomic i32, ptr %mOutOfCore.i.i.i seq_cst, align 4
   %tobool.i.not.i.i = icmp eq i32 %1, 0
   br i1 %tobool.i.not.i.i, label %_ZNK7openvdb5v11_06points19TypedAttributeArrayIhNS1_10GroupCodecEE8loadDataEv.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %entry
-  %mMutex.i.i = getelementptr inbounds i8, ptr %array, i64 9
+  %mMutex.i.i = getelementptr inbounds nuw i8, ptr %array, i64 9
   %2 = atomicrmw xchg ptr %mMutex.i.i, i8 1 seq_cst, align 1
   %tobool3.i.i2.i.i.i.i.i = trunc i8 %2 to i1
   br i1 %tobool3.i.i2.i.i.i.i.i, label %while.body.i.i.i.i.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i.i
@@ -231,7 +231,7 @@ define noundef zeroext i1 @_ZNK7openvdb5v11_06points11GroupHandle3getEj(ptr noca
 entry:
   %0 = load ptr, ptr %this, align 8
   %call = tail call noundef zeroext i8 @_ZNK7openvdb5v11_06points19TypedAttributeArrayIhNS1_10GroupCodecEE3getEj(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %n)
-  %mBitMask = getelementptr inbounds i8, ptr %this, i64 8
+  %mBitMask = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i8, ptr %mBitMask, align 8
   %and1 = and i8 %1, %call
   %cmp = icmp eq i8 %and1, %1
@@ -244,13 +244,13 @@ entry:
   %_openvdb_throw_msg = alloca %"class.std::__cxx11::basic_string", align 8
   %_openvdb_throw_os = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  %mFlags.i.i = getelementptr inbounds i8, ptr %this, i64 10
+  %mFlags.i.i = getelementptr inbounds nuw i8, ptr %this, i64 10
   %0 = load i8, ptr %mFlags.i.i, align 2
   %1 = and i8 %0, 8
   %tobool.i.not.i = icmp eq i8 %1, 0
-  %mSize.i = getelementptr inbounds i8, ptr %this, i64 32
+  %mSize.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %2 = load i32, ptr %mSize.i, align 8
-  %mStrideOrTotalSize.i = getelementptr inbounds i8, ptr %this, i64 36
+  %mStrideOrTotalSize.i = getelementptr inbounds nuw i8, ptr %this, i64 36
   %3 = load i32, ptr %mStrideOrTotalSize.i, align 4
   %mul.i = select i1 %tobool.i.not.i, i32 1, i32 %2
   %cond.i = mul i32 %mul.i, %3
@@ -312,7 +312,7 @@ lpad7:                                            ; preds = %try.cont, %catch
   br label %common.resume
 
 if.end:                                           ; preds = %entry
-  %mOutOfCore.i = getelementptr inbounds i8, ptr %this, i64 12
+  %mOutOfCore.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %8 = load atomic i32, ptr %mOutOfCore.i seq_cst, align 4
   %tobool.i.not = icmp eq i32 %8, 0
   br i1 %tobool.i.not, label %if.end11, label %if.then10
@@ -323,7 +323,7 @@ if.then10:                                        ; preds = %if.end
   br i1 %tobool.i.not.i2, label %if.end11, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then10
-  %mMutex.i = getelementptr inbounds i8, ptr %this, i64 9
+  %mMutex.i = getelementptr inbounds nuw i8, ptr %this, i64 9
   %10 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
   %tobool3.i.i2.i.i.i.i = trunc i8 %10 to i1
   br i1 %tobool3.i.i2.i.i.i.i, label %while.body.i.i.i.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i
@@ -373,14 +373,14 @@ _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3.i: ; preds = 
   br label %common.resume
 
 if.end11:                                         ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i, %if.then10, %if.end
-  %mData.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %mData.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %13 = load ptr, ptr %mData.i.i, align 8
-  %mIsUniform.i = getelementptr inbounds i8, ptr %this, i64 8
+  %mIsUniform.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %14 = load i8, ptr %mIsUniform.i, align 8
   %tobool.i3 = trunc i8 %14 to i1
   %15 = zext i32 %n to i64
   %idxprom.i = select i1 %tobool.i3, i64 0, i64 %15
-  %arrayidx.i = getelementptr inbounds i8, ptr %13, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %13, i64 %idxprom.i
   %16 = load i8, ptr %arrayidx.i, align 1
   ret i8 %16
 
@@ -392,16 +392,16 @@ unreachable:                                      ; preds = %try.cont
 define noundef zeroext i1 @_ZNK7openvdb5v11_06points11GroupHandle9getUnsafeEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %this, i32 noundef %n) local_unnamed_addr #4 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %mData.i.i = getelementptr inbounds i8, ptr %0, i64 24
+  %mData.i.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   %1 = load ptr, ptr %mData.i.i, align 8
-  %mIsUniform.i = getelementptr inbounds i8, ptr %0, i64 8
+  %mIsUniform.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = load i8, ptr %mIsUniform.i, align 8
   %tobool.i = trunc i8 %2 to i1
   %3 = zext i32 %n to i64
   %idxprom.i = select i1 %tobool.i, i64 0, i64 %3
-  %arrayidx.i = getelementptr inbounds i8, ptr %1, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %1, i64 %idxprom.i
   %4 = load i8, ptr %arrayidx.i, align 1
-  %mBitMask = getelementptr inbounds i8, ptr %this, i64 8
+  %mBitMask = getelementptr inbounds nuw i8, ptr %this, i64 8
   %5 = load i8, ptr %mBitMask, align 8
   %and1 = and i8 %5, %4
   %cmp = icmp eq i8 %and1, %5
@@ -412,19 +412,19 @@ entry:
 define void @_ZN7openvdb5v11_06points16GroupWriteHandleC2ERNS1_19TypedAttributeArrayIhNS1_10GroupCodecEEERKh(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(9) initializes((0, 9)) %this, ptr noundef nonnull align 8 dereferenceable(40) %array, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %offset) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr %array, ptr %this, align 8
-  %mBitMask.i = getelementptr inbounds i8, ptr %this, i64 8
+  %mBitMask.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i8, ptr %offset, align 1
   %conv.i = zext nneg i8 %0 to i32
   %shl.i = shl nuw i32 1, %conv.i
   %conv2.i = trunc i32 %shl.i to i8
   store i8 %conv2.i, ptr %mBitMask.i, align 8
-  %mOutOfCore.i.i.i.i = getelementptr inbounds i8, ptr %array, i64 12
+  %mOutOfCore.i.i.i.i = getelementptr inbounds nuw i8, ptr %array, i64 12
   %1 = load atomic i32, ptr %mOutOfCore.i.i.i.i seq_cst, align 4
   %tobool.i.not.i.i.i = icmp eq i32 %1, 0
   br i1 %tobool.i.not.i.i.i, label %_ZN7openvdb5v11_06points11GroupHandleC2ERKNS1_19TypedAttributeArrayIhNS1_10GroupCodecEEERKh.exit, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %entry
-  %mMutex.i.i.i = getelementptr inbounds i8, ptr %array, i64 9
+  %mMutex.i.i.i = getelementptr inbounds nuw i8, ptr %array, i64 9
   %2 = atomicrmw xchg ptr %mMutex.i.i.i, i8 1 seq_cst, align 1
   %tobool3.i.i2.i.i.i.i.i.i = trunc i8 %2 to i1
   br i1 %tobool3.i.i2.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i.i.i
@@ -485,7 +485,7 @@ entry:
   %0 = load ptr, ptr %this, align 8
   %call = tail call noundef zeroext i8 @_ZNK7openvdb5v11_06points19TypedAttributeArrayIhNS1_10GroupCodecEE3getEj(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %n)
   %1 = load ptr, ptr %this, align 8
-  %mBitMask = getelementptr inbounds i8, ptr %this, i64 8
+  %mBitMask = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load i8, ptr %mBitMask, align 8
   br i1 %on, label %if.then, label %if.else
 
@@ -514,16 +514,16 @@ if.end:                                           ; preds = %if.else, %if.then
 define void @_ZN7openvdb5v11_06points16GroupWriteHandle9setUnsafeEjb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %this, i32 noundef %n, i1 noundef zeroext %on) local_unnamed_addr #5 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %mData.i.i = getelementptr inbounds i8, ptr %0, i64 24
+  %mData.i.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   %1 = load ptr, ptr %mData.i.i, align 8
-  %mIsUniform.i = getelementptr inbounds i8, ptr %0, i64 8
+  %mIsUniform.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = load i8, ptr %mIsUniform.i, align 8
   %tobool.i = trunc i8 %2 to i1
   %3 = zext i32 %n to i64
   %idxprom.i = select i1 %tobool.i, i64 0, i64 %3
-  %arrayidx.i = getelementptr inbounds i8, ptr %1, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %1, i64 %idxprom.i
   %4 = load i8, ptr %arrayidx.i, align 1
-  %mBitMask = getelementptr inbounds i8, ptr %this, i64 8
+  %mBitMask = getelementptr inbounds nuw i8, ptr %this, i64 8
   %5 = load i8, ptr %mBitMask, align 8
   %not = xor i8 %5, -1
   %and = and i8 %4, %not
@@ -541,19 +541,19 @@ entry:
   %0 = load ptr, ptr %this, align 8
   %call = tail call noundef zeroext i1 @_ZN7openvdb5v11_06points19TypedAttributeArrayIhNS1_10GroupCodecEE7compactEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
   %1 = load ptr, ptr %this, align 8
-  %mIsUniform.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %mIsUniform.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %2 = load i8, ptr %mIsUniform.i.i, align 8
   %tobool.i.i = trunc i8 %2 to i1
   br i1 %tobool.i.i, label %if.then, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %entry
-  %mSize.i = getelementptr inbounds i8, ptr %0, i64 32
+  %mSize.i = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i32, ptr %mSize.i, align 8
   %cmp50.not = icmp eq i32 %3, 0
   br i1 %cmp50.not, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %mBitMask28 = getelementptr inbounds i8, ptr %this, i64 8
+  %mBitMask28 = getelementptr inbounds nuw i8, ptr %this, i64 8
   br i1 %on, label %for.body.us, label %for.body
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.body.us
@@ -570,19 +570,19 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
 
 if.then:                                          ; preds = %entry
   %call4 = tail call noundef zeroext i8 @_ZNK7openvdb5v11_06points19TypedAttributeArrayIhNS1_10GroupCodecEE3getEj(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef 0)
-  %mBitMask = getelementptr inbounds i8, ptr %this, i64 8
+  %mBitMask = getelementptr inbounds nuw i8, ptr %this, i64 8
   %6 = load i8, ptr %mBitMask, align 8
   br i1 %on, label %if.then3, label %if.else
 
 if.then3:                                         ; preds = %if.then
   %or17 = or i8 %6, %call4
-  %mIsUniform.i = getelementptr inbounds i8, ptr %0, i64 8
+  %mIsUniform.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i8, ptr %mIsUniform.i, align 8
   %tobool.i = trunc i8 %7 to i1
   br i1 %tobool.i, label %return.sink.split, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then3
-  %mMutex.i = getelementptr inbounds i8, ptr %0, i64 9
+  %mMutex.i = getelementptr inbounds nuw i8, ptr %0, i64 9
   %8 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
   %tobool3.i.i2.i.i.i.i = trunc i8 %8 to i1
   br i1 %tobool3.i.i2.i.i.i.i, label %while.body.i.i.i.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i
@@ -627,7 +627,7 @@ if.then.i.i:                                      ; preds = %_ZN3tbb6detail2d118
           to label %call.i.noexc.i unwind label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit6.i
 
 call.i.noexc.i:                                   ; preds = %if.then.i.i
-  %mData.i.i = getelementptr inbounds i8, ptr %0, i64 24
+  %mData.i.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %mData.i.i, align 8
   store ptr %call.i1.i, ptr %mData.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %10, null
@@ -654,13 +654,13 @@ _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit6.i: ; preds = 
 if.else:                                          ; preds = %if.then
   %not = xor i8 %6, -1
   %and = and i8 %call4, %not
-  %mIsUniform.i18 = getelementptr inbounds i8, ptr %0, i64 8
+  %mIsUniform.i18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load i8, ptr %mIsUniform.i18, align 8
   %tobool.i19 = trunc i8 %12 to i1
   br i1 %tobool.i19, label %return.sink.split, label %if.then.i20
 
 if.then.i20:                                      ; preds = %if.else
-  %mMutex.i21 = getelementptr inbounds i8, ptr %0, i64 9
+  %mMutex.i21 = getelementptr inbounds nuw i8, ptr %0, i64 9
   %13 = atomicrmw xchg ptr %mMutex.i21, i8 1 seq_cst, align 1
   %tobool3.i.i2.i.i.i.i22 = trunc i8 %13 to i1
   br i1 %tobool3.i.i2.i.i.i.i22, label %while.body.i.i.i.i33, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i23
@@ -705,7 +705,7 @@ if.then.i.i25:                                    ; preds = %_ZN3tbb6detail2d118
           to label %call.i.noexc.i27 unwind label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit6.i24
 
 call.i.noexc.i27:                                 ; preds = %if.then.i.i25
-  %mData.i.i28 = getelementptr inbounds i8, ptr %0, i64 24
+  %mData.i.i28 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %15 = load ptr, ptr %mData.i.i28, align 8
   store ptr %call.i1.i26, ptr %mData.i.i28, align 8
   %tobool.not.i.i.i.i29 = icmp eq ptr %15, null
@@ -740,7 +740,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 return.sink.split:                                ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i31, %if.else, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i, %if.then3
   %or17.sink = phi i8 [ %or17, %if.then3 ], [ %or17, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i ], [ %and, %if.else ], [ %and, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i31 ]
-  %mData.i7.i = getelementptr inbounds i8, ptr %0, i64 24
+  %mData.i7.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = load ptr, ptr %mData.i7.i, align 8
   store i8 %or17.sink, ptr %19, align 1
   br label %return
@@ -752,16 +752,16 @@ return:                                           ; preds = %for.body, %for.body
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN7openvdb5v11_06points19TypedAttributeArrayIhNS1_10GroupCodecEE7compactEv(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %mIsUniform = getelementptr inbounds i8, ptr %this, i64 8
+  %mIsUniform = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i8, ptr %mIsUniform, align 8
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   %call = tail call noundef zeroext i8 @_ZNK7openvdb5v11_06points19TypedAttributeArrayIhNS1_10GroupCodecEE3getEj(ptr noundef nonnull align 8 dereferenceable(40) %this, i32 noundef 0)
-  %mFlags.i.i = getelementptr inbounds i8, ptr %this, i64 10
-  %mSize.i = getelementptr inbounds i8, ptr %this, i64 32
-  %mStrideOrTotalSize.i = getelementptr inbounds i8, ptr %this, i64 36
+  %mFlags.i.i = getelementptr inbounds nuw i8, ptr %this, i64 10
+  %mSize.i = getelementptr inbounds nuw i8, ptr %this, i64 32
+  %mStrideOrTotalSize.i = getelementptr inbounds nuw i8, ptr %this, i64 36
   %1 = load i8, ptr %mFlags.i.i, align 2
   %2 = and i8 %1, 8
   %tobool.i.not.i3 = icmp eq i8 %2, 0
@@ -797,7 +797,7 @@ for.end:                                          ; preds = %for.cond, %if.end
   br i1 %tobool.i, label %_ZN7openvdb5v11_06points19TypedAttributeArrayIhNS1_10GroupCodecEE8collapseERKh.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %for.end
-  %mMutex.i = getelementptr inbounds i8, ptr %this, i64 9
+  %mMutex.i = getelementptr inbounds nuw i8, ptr %this, i64 9
   %10 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
   %tobool3.i.i2.i.i.i.i = trunc i8 %10 to i1
   br i1 %tobool3.i.i2.i.i.i.i, label %while.body.i.i.i.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i
@@ -842,7 +842,7 @@ if.then.i.i:                                      ; preds = %_ZN3tbb6detail2d118
           to label %call.i.noexc.i unwind label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit6.i
 
 call.i.noexc.i:                                   ; preds = %if.then.i.i
-  %mData.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %mData.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %12 = load ptr, ptr %mData.i.i, align 8
   store ptr %call.i1.i, ptr %mData.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %12, null
@@ -863,7 +863,7 @@ _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit6.i: ; preds = 
   resume { ptr, i32 } %13
 
 _ZN7openvdb5v11_06points19TypedAttributeArrayIhNS1_10GroupCodecEE8collapseERKh.exit: ; preds = %for.end, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i
-  %mData.i7.i = getelementptr inbounds i8, ptr %this, i64 24
+  %mData.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %14 = load ptr, ptr %mData.i7.i, align 8
   store i8 %call8, ptr %14, align 1
   br label %return
@@ -879,13 +879,13 @@ entry:
   %_openvdb_throw_msg = alloca %"class.std::__cxx11::basic_string", align 8
   %_openvdb_throw_os = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  %mFlags.i.i = getelementptr inbounds i8, ptr %this, i64 10
+  %mFlags.i.i = getelementptr inbounds nuw i8, ptr %this, i64 10
   %0 = load i8, ptr %mFlags.i.i, align 2
   %1 = and i8 %0, 8
   %tobool.i.not.i = icmp eq i8 %1, 0
-  %mSize.i = getelementptr inbounds i8, ptr %this, i64 32
+  %mSize.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %2 = load i32, ptr %mSize.i, align 8
-  %mStrideOrTotalSize.i = getelementptr inbounds i8, ptr %this, i64 36
+  %mStrideOrTotalSize.i = getelementptr inbounds nuw i8, ptr %this, i64 36
   %3 = load i32, ptr %mStrideOrTotalSize.i, align 4
   %mul.i = select i1 %tobool.i.not.i, i32 1, i32 %2
   %cond.i = mul i32 %mul.i, %3
@@ -947,7 +947,7 @@ lpad7:                                            ; preds = %try.cont, %catch
   br label %common.resume
 
 if.end:                                           ; preds = %entry
-  %mOutOfCore.i = getelementptr inbounds i8, ptr %this, i64 12
+  %mOutOfCore.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %8 = load atomic i32, ptr %mOutOfCore.i seq_cst, align 4
   %tobool.i.not = icmp eq i32 %8, 0
   br i1 %tobool.i.not, label %if.end11, label %if.then10
@@ -958,7 +958,7 @@ if.then10:                                        ; preds = %if.end
   br i1 %tobool.i.not.i2, label %if.end11, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then10
-  %mMutex.i = getelementptr inbounds i8, ptr %this, i64 9
+  %mMutex.i = getelementptr inbounds nuw i8, ptr %this, i64 9
   %10 = atomicrmw xchg ptr %mMutex.i, i8 1 seq_cst, align 1
   %tobool3.i.i2.i.i.i.i = trunc i8 %10 to i1
   br i1 %tobool3.i.i2.i.i.i.i, label %while.body.i.i.i.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i
@@ -1008,7 +1008,7 @@ _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit3.i: ; preds = 
   br label %common.resume
 
 if.end11:                                         ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.i, %if.then10, %if.end
-  %mIsUniform.i = getelementptr inbounds i8, ptr %this, i64 8
+  %mIsUniform.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %13 = load i8, ptr %mIsUniform.i, align 8
   %tobool.i3 = trunc i8 %13 to i1
   br i1 %tobool.i3, label %if.end14, label %if.end14.thread
@@ -1028,9 +1028,9 @@ if.end14:                                         ; preds = %if.end11
 
 16:                                               ; preds = %if.end14, %if.end14.thread
   %17 = phi i64 [ %14, %if.end14.thread ], [ %spec.select, %if.end14 ]
-  %.in = getelementptr inbounds i8, ptr %this, i64 24
+  %.in = getelementptr inbounds nuw i8, ptr %this, i64 24
   %18 = load ptr, ptr %.in, align 8
-  %arrayidx.i = getelementptr inbounds i8, ptr %18, i64 %17
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %18, i64 %17
   %19 = load i8, ptr %val, align 1
   store i8 %19, ptr %arrayidx.i, align 1
   ret void
@@ -1051,16 +1051,16 @@ entry:
 define linkonce_odr void @_ZNK7openvdb5v11_06points19TypedAttributeArrayIhNS1_10GroupCodecEE12doLoadUnsafeEv(ptr noundef nonnull align 8 dereferenceable(40) %this) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %buffer = alloca %"class.std::unique_ptr.12", align 8
-  %mOutOfCore.i = getelementptr inbounds i8, ptr %this, i64 12
+  %mOutOfCore.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %0 = load atomic i32, ptr %mOutOfCore.i seq_cst, align 4
   %tobool.i.not = icmp eq i32 %0, 0
   br i1 %tobool.i.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %1 = getelementptr inbounds i8, ptr %this, i64 16
+  %1 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load ptr, ptr %1, align 8
   call void @_ZN7openvdb5v11_011compression10PageHandle4readEv(ptr nonnull sret(%"class.std::unique_ptr.12") align 8 %buffer, ptr noundef nonnull align 8 dereferenceable(24) %2)
-  %mData = getelementptr inbounds i8, ptr %this, i64 24
+  %mData = getelementptr inbounds nuw i8, ptr %this, i64 24
   %3 = load ptr, ptr %buffer, align 8
   store ptr null, ptr %buffer, align 8
   %4 = load ptr, ptr %mData, align 8
@@ -1079,13 +1079,13 @@ _ZNSt10unique_ptrIA_hSt14default_deleteIS0_EE5resetIPhvEEvT_.exit: ; preds = %if
   br i1 %tobool.not.i.i4, label %_ZNSt10unique_ptrIN7openvdb5v11_011compression10PageHandleESt14default_deleteIS3_EE5resetEPS3_.exit, label %delete.notnull.i.i.i
 
 delete.notnull.i.i.i:                             ; preds = %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EE5resetIPhvEEvT_.exit
-  %_M_refcount.i.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
+  %_M_refcount.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   %6 = load ptr, ptr %_M_refcount.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN7openvdb5v11_011compression10PageHandleEEclEPS3_.exit.i.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %delete.notnull.i.i.i
-  %_M_use_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
+  %_M_use_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   %7 = load atomic i64, ptr %_M_use_count.i.i.i.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i.i.i.i = icmp eq i64 %7, 4294967297
   %8 = trunc i64 %7 to i32
@@ -1093,10 +1093,10 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %delete.notnull.i.i.
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %if.then.i.i.i.i.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 12
+  %_M_weak_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i.i.i.i, align 4
   %vtable.i.i.i.i.i.i.i.i = load ptr, ptr %6, align 8
-  %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i, i64 16
+  %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i.i.i.i, i64 16
   %9 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i, align 8
   call void %9(ptr noundef nonnull align 8 dereferenceable(16) %6) #8
   br label %if.end8.sink.split.i.i.i.i.i.i.i.i
@@ -1122,10 +1122,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i: ; preds = %
 
 if.then7.i.i.i.i.i.i.i.i:                         ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %6, align 8
-  %vfn.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i.i, i64 16
+  %vfn.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i.i.i.i.i.i, i64 16
   %12 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i.i, align 8
   call void %12(ptr noundef nonnull align 8 dereferenceable(16) %6) #8
-  %_M_weak_count.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 12
+  %_M_weak_count.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 12
   %13 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %13, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i
@@ -1147,7 +1147,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i: ; preds
 
 if.end8.sink.split.i.i.i.i.i.i.i.i:               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %6, align 8
-  %vfn3.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i.i.i.i, i64 24
+  %vfn3.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable2.i.i.i.i.i.i.i.i.i.i, i64 24
   %16 = load ptr, ptr %vfn3.i.i.i.i.i.i.i.i.i.i, align 8
   call void %16(ptr noundef nonnull align 8 dereferenceable(16) %6) #8
   br label %_ZNKSt14default_deleteIN7openvdb5v11_011compression10PageHandleEEclEPS3_.exit.i.i
@@ -1224,7 +1224,7 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 define linkonce_odr void @_ZN7openvdb5v11_010IndexErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #10 comdat align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_09ExceptionE, i64 16), ptr %this, align 8
-  %mMessage.i = getelementptr inbounds i8, ptr %this, i64 8
+  %mMessage.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %mMessage.i) #8
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) #8
   ret void
@@ -1238,7 +1238,7 @@ define linkonce_odr void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_09ExceptionE, i64 16), ptr %this, align 8
-  %mMessage = getelementptr inbounds i8, ptr %this, i64 8
+  %mMessage = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %mMessage) #8
   %tobool.not = icmp eq ptr %eType, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -1296,7 +1296,7 @@ terminate.lpad:                                   ; preds = %catch
 define linkonce_odr void @_ZN7openvdb5v11_010IndexErrorD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #10 comdat align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_09ExceptionE, i64 16), ptr %this, align 8
-  %mMessage.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %mMessage.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %mMessage.i.i) #8
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) #8
   tail call void @_ZdlPv(ptr noundef nonnull %this) #18
@@ -1306,7 +1306,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef ptr @_ZNK7openvdb5v11_09Exception4whatEv(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #10 comdat align 2 {
 entry:
-  %mMessage = getelementptr inbounds i8, ptr %this, i64 8
+  %mMessage = getelementptr inbounds nuw i8, ptr %this, i64 8
   %call = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %mMessage) #8
   ret ptr %call
 }
@@ -1353,7 +1353,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 define linkonce_odr void @_ZN7openvdb5v11_09ExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #10 comdat align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_09ExceptionE, i64 16), ptr %this, align 8
-  %mMessage = getelementptr inbounds i8, ptr %this, i64 8
+  %mMessage = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %mMessage) #8
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #8
   ret void
@@ -1363,7 +1363,7 @@ entry:
 define linkonce_odr void @_ZN7openvdb5v11_09ExceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #10 comdat align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_09ExceptionE, i64 16), ptr %this, align 8
-  %mMessage.i = getelementptr inbounds i8, ptr %this, i64 8
+  %mMessage.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %mMessage.i) #8
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) #8
   tail call void @_ZdlPv(ptr noundef nonnull %this) #18
@@ -1403,27 +1403,27 @@ declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_st
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7openvdb5v11_06points19TypedAttributeArrayIhNS1_10GroupCodecEE10deallocateEv(ptr noundef nonnull align 8 dereferenceable(40) %this) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %mOutOfCore.i = getelementptr inbounds i8, ptr %this, i64 12
+  %mOutOfCore.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %0 = load atomic i32, ptr %mOutOfCore.i seq_cst, align 4
   %tobool.i.not = icmp eq i32 %0, 0
   br i1 %tobool.i.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   store atomic i32 0, ptr %mOutOfCore.i seq_cst, align 4
-  %1 = getelementptr inbounds i8, ptr %this, i64 16
+  %1 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load ptr, ptr %1, align 8
   store ptr null, ptr %1, align 8
   %tobool.not.i.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i, label %if.end, label %delete.notnull.i.i.i
 
 delete.notnull.i.i.i:                             ; preds = %if.then
-  %_M_refcount.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %_M_refcount.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %3 = load ptr, ptr %_M_refcount.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %3, null
   br i1 %cmp.not.i.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN7openvdb5v11_011compression10PageHandleEEclEPS3_.exit.i.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %delete.notnull.i.i.i
-  %_M_use_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
+  %_M_use_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %4 = load atomic i64, ptr %_M_use_count.i.i.i.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i.i.i.i = icmp eq i64 %4, 4294967297
   %5 = trunc i64 %4 to i32
@@ -1431,10 +1431,10 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %delete.notnull.i.i.
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %if.then.i.i.i.i.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 12
+  %_M_weak_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i.i.i.i, align 4
   %vtable.i.i.i.i.i.i.i.i = load ptr, ptr %3, align 8
-  %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i, i64 16
+  %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i.i.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %3) #8
   br label %if.end8.sink.split.i.i.i.i.i.i.i.i
@@ -1460,10 +1460,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i: ; preds = %
 
 if.then7.i.i.i.i.i.i.i.i:                         ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %3, align 8
-  %vfn.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i.i, i64 16
+  %vfn.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i.i.i.i.i.i, i64 16
   %9 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i.i, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(16) %3) #8
-  %_M_weak_count.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 12
+  %_M_weak_count.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 12
   %10 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %10, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i
@@ -1485,7 +1485,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i: ; preds
 
 if.end8.sink.split.i.i.i.i.i.i.i.i:               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %3, align 8
-  %vfn3.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i.i.i.i, i64 24
+  %vfn3.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable2.i.i.i.i.i.i.i.i.i.i, i64 24
   %13 = load ptr, ptr %vfn3.i.i.i.i.i.i.i.i.i.i, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #8
   br label %_ZNKSt14default_deleteIN7openvdb5v11_011compression10PageHandleEEclEPS3_.exit.i.i
@@ -1495,7 +1495,7 @@ _ZNKSt14default_deleteIN7openvdb5v11_011compression10PageHandleEEclEPS3_.exit.i.
   br label %if.end
 
 if.end:                                           ; preds = %_ZNKSt14default_deleteIN7openvdb5v11_011compression10PageHandleEEclEPS3_.exit.i.i, %if.then, %entry
-  %mData = getelementptr inbounds i8, ptr %this, i64 24
+  %mData = getelementptr inbounds nuw i8, ptr %this, i64 24
   %14 = load ptr, ptr %mData, align 8
   %cmp.i.not = icmp eq ptr %14, null
   br i1 %cmp.i.not, label %if.end5, label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EE5resetEDn.exit
@@ -1515,16 +1515,16 @@ declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #13
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7openvdb5v11_06points19TypedAttributeArrayIhNS1_10GroupCodecEE6expandEb(ptr noundef nonnull align 8 dereferenceable(40) %this, i1 noundef zeroext %fill) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %mIsUniform = getelementptr inbounds i8, ptr %this, i64 8
+  %mIsUniform = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i8, ptr %mIsUniform, align 8
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %if.end, label %if.end9
 
 if.end:                                           ; preds = %entry
-  %mData.i = getelementptr inbounds i8, ptr %this, i64 24
+  %mData.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load ptr, ptr %mData.i, align 8
   %2 = load i8, ptr %1, align 1
-  %mMutex = getelementptr inbounds i8, ptr %this, i64 9
+  %mMutex = getelementptr inbounds nuw i8, ptr %this, i64 9
   %3 = atomicrmw xchg ptr %mMutex, i8 1 seq_cst, align 1
   %tobool3.i.i2.i.i.i = trunc i8 %3 to i1
   br i1 %tobool3.i.i2.i.i.i, label %while.body.i.i.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit
@@ -1565,13 +1565,13 @@ _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit: ; preds = 
 
 if.else.i:                                        ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit
   store i8 0, ptr %mIsUniform, align 8
-  %mFlags.i.i.i = getelementptr inbounds i8, ptr %this, i64 10
+  %mFlags.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 10
   %5 = load i8, ptr %mFlags.i.i.i, align 2
   %6 = and i8 %5, 8
   %tobool.i.not.i.i = icmp eq i8 %6, 0
-  %mSize.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %mSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %7 = load i32, ptr %mSize.i.i, align 8
-  %mStrideOrTotalSize.i.i = getelementptr inbounds i8, ptr %this, i64 36
+  %mStrideOrTotalSize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 36
   %8 = load i32, ptr %mStrideOrTotalSize.i.i, align 4
   %mul.i.i = select i1 %tobool.i.not.i.i, i32 1, i32 %7
   %cond.i.i = mul i32 %mul.i.i, %8
@@ -1607,7 +1607,7 @@ for.cond.preheader:                               ; preds = %_ZN3tbb6detail2d118
 for.body:                                         ; preds = %for.cond.preheader, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %for.cond.preheader ]
   %14 = load ptr, ptr %mData.i, align 8
-  %arrayidx8 = getelementptr inbounds i8, ptr %14, i64 %indvars.iv
+  %arrayidx8 = getelementptr inbounds nuw i8, ptr %14, i64 %indvars.iv
   store i8 %2, ptr %arrayidx8, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %15 = load i8, ptr %mFlags.i.i.i, align 2

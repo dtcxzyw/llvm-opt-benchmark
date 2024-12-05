@@ -55,9 +55,9 @@ define dso_local void @EnablePortalManager() local_unnamed_addr #0 {
   %2 = load ptr, ptr @TopMemoryContext, align 8
   %3 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %2, ptr noundef nonnull @.str, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #7
   store ptr %3, ptr @TopPortalContext, align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i64 64, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store i64 72, ptr %5, align 8
   %6 = call ptr @hash_create(ptr noundef nonnull @.str.1, i64 noundef 16, ptr noundef nonnull %1, i32 noundef 24) #7
   store ptr %6, ptr @PortalHashTable, align 8
@@ -80,7 +80,7 @@ define dso_local ptr @GetPortalByName(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not7, label %8, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %4, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %7 = load ptr, ptr %6, align 8
   br label %8
 
@@ -93,19 +93,19 @@ declare ptr @hash_search(ptr noundef, ptr noundef, i32 noundef, ptr noundef) loc
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define dso_local ptr @PortalGetPrimaryStmt(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 88
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %3, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph22, label %.thread
 
 .lr.ph22:                                         ; preds = %.lr.ph
-  %7 = getelementptr inbounds i8, ptr %3, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %8 = load ptr, ptr %7, align 8
   %wide.trip.count = zext nneg i32 %5 to i64
   br label %10
@@ -119,7 +119,7 @@ define dso_local ptr @PortalGetPrimaryStmt(ptr nocapture noundef readonly %0) lo
   %indvars.iv = phi i64 [ 0, %.lr.ph22 ], [ %indvars.iv.next, %9 ]
   %11 = getelementptr %union.ListCell, ptr %8, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 18
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 18
   %14 = load i8, ptr %13, align 2
   %15 = trunc i8 %14 to i1
   br i1 %15, label %.thread, label %9
@@ -142,7 +142,7 @@ define dso_local ptr @CreatePortal(ptr noundef %0, i1 noundef zeroext %1, i1 nou
   br i1 %.not7.i, label %GetPortalByName.exit.thread, label %GetPortalByName.exit
 
 GetPortalByName.exit:                             ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %7, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %9 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %GetPortalByName.exit.thread, label %10
@@ -180,36 +180,36 @@ GetPortalByName.exit.thread:                      ; preds = %3, %5, %21, %GetPor
   %23 = tail call ptr @MemoryContextAllocZero(ptr noundef %22, i64 noundef 232) #7
   %24 = load ptr, ptr @TopPortalContext, align 8
   %25 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %24, ptr noundef nonnull @.str.5, i64 noundef 0, i64 noundef 1024, i64 noundef 8192) #7
-  %26 = getelementptr inbounds i8, ptr %23, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 16
   store ptr %25, ptr %26, align 8
   %27 = load ptr, ptr @CurTransactionResourceOwner, align 8
   %28 = tail call ptr @ResourceOwnerCreate(ptr noundef %27, ptr noundef nonnull @.str.6) #7
-  %29 = getelementptr inbounds i8, ptr %23, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %23, i64 24
   store ptr %28, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %23, i64 132
+  %30 = getelementptr inbounds nuw i8, ptr %23, i64 132
   store i32 0, ptr %30, align 4
-  %31 = getelementptr inbounds i8, ptr %23, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %23, i64 32
   store ptr @PortalCleanup, ptr %31, align 8
   %32 = tail call i32 @GetCurrentSubTransactionId() #7
-  %33 = getelementptr inbounds i8, ptr %23, i64 40
+  %33 = getelementptr inbounds nuw i8, ptr %23, i64 40
   store i32 %32, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %23, i64 44
+  %34 = getelementptr inbounds nuw i8, ptr %23, i64 44
   store i32 %32, ptr %34, align 4
   %35 = tail call i32 @GetCurrentTransactionNestLevel() #7
-  %36 = getelementptr inbounds i8, ptr %23, i64 48
+  %36 = getelementptr inbounds nuw i8, ptr %23, i64 48
   store i32 %35, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %23, i64 120
+  %37 = getelementptr inbounds nuw i8, ptr %23, i64 120
   store i32 4, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %23, i64 124
+  %38 = getelementptr inbounds nuw i8, ptr %23, i64 124
   store i32 4, ptr %38, align 4
-  %39 = getelementptr inbounds i8, ptr %23, i64 200
+  %39 = getelementptr inbounds nuw i8, ptr %23, i64 200
   store i8 1, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %23, i64 201
+  %40 = getelementptr inbounds nuw i8, ptr %23, i64 201
   store i8 1, ptr %40, align 1
-  %41 = getelementptr inbounds i8, ptr %23, i64 224
+  %41 = getelementptr inbounds nuw i8, ptr %23, i64 224
   store i8 1, ptr %41, align 8
   %42 = tail call i64 @GetCurrentStatementStartTimestamp() #7
-  %43 = getelementptr inbounds i8, ptr %23, i64 216
+  %43 = getelementptr inbounds nuw i8, ptr %23, i64 216
   store i64 %42, ptr %43, align 8
   %44 = load ptr, ptr @PortalHashTable, align 8
   %45 = call ptr @hash_search(ptr noundef %44, ptr noundef %0, i32 noundef 1, ptr noundef nonnull %4) #7
@@ -225,7 +225,7 @@ GetPortalByName.exit.thread:                      ; preds = %3, %5, %21, %GetPor
   unreachable
 
 51:                                               ; preds = %GetPortalByName.exit.thread
-  %52 = getelementptr inbounds i8, ptr %45, i64 64
+  %52 = getelementptr inbounds nuw i8, ptr %45, i64 64
   store ptr %23, ptr %52, align 8
   store ptr %45, ptr %23, align 8
   %53 = load ptr, ptr %26, align 8
@@ -249,7 +249,7 @@ declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_add
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @PortalDrop(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 136
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
   br i1 %5, label %6, label %11
@@ -264,7 +264,7 @@ define dso_local void @PortalDrop(ptr noundef %0, i1 noundef zeroext %1) local_u
   unreachable
 
 11:                                               ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %0, i64 132
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %13 = load i32, ptr %12, align 4
   %14 = icmp eq i32 %13, 3
   br i1 %14, label %15, label %20
@@ -279,7 +279,7 @@ define dso_local void @PortalDrop(ptr noundef %0, i1 noundef zeroext %1) local_u
   unreachable
 
 20:                                               ; preds = %11
-  %21 = getelementptr inbounds i8, ptr %0, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %22 = load ptr, ptr %21, align 8
   %.not = icmp eq ptr %22, null
   br i1 %.not, label %24, label %23
@@ -306,25 +306,25 @@ define dso_local void @PortalDrop(ptr noundef %0, i1 noundef zeroext %1) local_u
   br label %33
 
 33:                                               ; preds = %24, %29, %31
-  %34 = getelementptr inbounds i8, ptr %0, i64 96
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %35 = load ptr, ptr %34, align 8
   %.not.i = icmp eq ptr %35, null
   br i1 %.not.i, label %PortalReleaseCachedPlan.exit, label %36
 
 36:                                               ; preds = %33
   tail call void @ReleaseCachedPlan(ptr noundef nonnull %35, ptr noundef null) #7
-  %37 = getelementptr inbounds i8, ptr %0, i64 88
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 88
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %37, i8 0, i64 16, i1 false)
   br label %PortalReleaseCachedPlan.exit
 
 PortalReleaseCachedPlan.exit:                     ; preds = %33, %36
-  %38 = getelementptr inbounds i8, ptr %0, i64 192
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %39 = load ptr, ptr %38, align 8
   %.not39 = icmp eq ptr %39, null
   br i1 %.not39, label %45, label %40
 
 40:                                               ; preds = %PortalReleaseCachedPlan.exit
-  %41 = getelementptr inbounds i8, ptr %0, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %42 = load ptr, ptr %41, align 8
   %.not40 = icmp eq ptr %42, null
   br i1 %.not40, label %44, label %43
@@ -338,7 +338,7 @@ PortalReleaseCachedPlan.exit:                     ; preds = %33, %36
   br label %45
 
 45:                                               ; preds = %44, %PortalReleaseCachedPlan.exit
-  %46 = getelementptr inbounds i8, ptr %0, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %47 = load ptr, ptr %46, align 8
   %.not41 = icmp eq ptr %47, null
   br i1 %.not41, label %55, label %48
@@ -362,13 +362,13 @@ PortalReleaseCachedPlan.exit:                     ; preds = %33, %36
 
 55:                                               ; preds = %48, %50, %45
   store ptr null, ptr %46, align 8
-  %56 = getelementptr inbounds i8, ptr %0, i64 176
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %57 = load ptr, ptr %56, align 8
   %.not42 = icmp eq ptr %57, null
   br i1 %.not42, label %62, label %58
 
 58:                                               ; preds = %55
-  %59 = getelementptr inbounds i8, ptr %0, i64 184
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %60 = load ptr, ptr %59, align 8
   %61 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %60, ptr @CurrentMemoryContext, align 8
@@ -378,7 +378,7 @@ PortalReleaseCachedPlan.exit:                     ; preds = %33, %36
   br label %62
 
 62:                                               ; preds = %58, %55
-  %63 = getelementptr inbounds i8, ptr %0, i64 184
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %64 = load ptr, ptr %63, align 8
   %.not43 = icmp eq ptr %64, null
   br i1 %.not43, label %66, label %65
@@ -388,7 +388,7 @@ PortalReleaseCachedPlan.exit:                     ; preds = %33, %36
   br label %66
 
 66:                                               ; preds = %65, %62
-  %67 = getelementptr inbounds i8, ptr %0, i64 16
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %68 = load ptr, ptr %67, align 8
   tail call void @MemoryContextDelete(ptr noundef %68) #7
   tail call void @pfree(ptr noundef nonnull %0) #7
@@ -427,7 +427,7 @@ define dso_local ptr @CreateNewPortal() local_unnamed_addr #0 {
   br i1 %.not7.i, label %GetPortalByName.exit.thread, label %GetPortalByName.exit
 
 GetPortalByName.exit:                             ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %7, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %GetPortalByName.exit.thread, label %2
@@ -441,21 +441,21 @@ declare i32 @pg_sprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @PortalDefineQuery(ptr nocapture noundef writeonly initializes((8, 16), (56, 68), (72, 76), (80, 104), (132, 136)) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #4 {
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %2, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 %3, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i64 0, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 %3, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 88
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr %4, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 96
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %5, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 132
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 132
   store i32 1, ptr %14, align 4
   ret void
 }
@@ -464,17 +464,17 @@ define dso_local void @PortalDefineQuery(ptr nocapture noundef writeonly initial
 define dso_local void @PortalCreateHoldStore(ptr nocapture noundef initializes((176, 192)) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @TopPortalContext, align 8
   %3 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %2, ptr noundef nonnull @.str.10, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #7
-  %4 = getelementptr inbounds i8, ptr %0, i64 184
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 184
   store ptr %3, ptr %4, align 8
   %5 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %3, ptr @CurrentMemoryContext, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 124
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 124
   %7 = load i32, ptr %6, align 4
   %8 = and i32 %7, 2
   %9 = icmp ne i32 %8, 0
   %10 = load i32, ptr @work_mem, align 4
   %11 = tail call ptr @tuplestore_begin_heap(i1 noundef zeroext %9, i1 noundef zeroext true, i32 noundef %10) #7
-  %12 = getelementptr inbounds i8, ptr %0, i64 176
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store ptr %11, ptr %12, align 8
   store ptr %5, ptr @CurrentMemoryContext, align 8
   ret void
@@ -484,7 +484,7 @@ declare ptr @tuplestore_begin_heap(i1 noundef zeroext, i1 noundef zeroext, i32 n
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @PinPortal(ptr nocapture noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 136
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
   br i1 %4, label %5, label %8
@@ -503,7 +503,7 @@ define dso_local void @PinPortal(ptr nocapture noundef %0) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @UnpinPortal(ptr nocapture noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 136
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
   br i1 %4, label %8, label %5
@@ -522,7 +522,7 @@ define dso_local void @UnpinPortal(ptr nocapture noundef %0) local_unnamed_addr 
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @MarkPortalActive(ptr nocapture noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 132
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %3 = load i32, ptr %2, align 4
   %.not = icmp eq i32 %3, 2
   br i1 %.not, label %9, label %4
@@ -539,16 +539,16 @@ define dso_local void @MarkPortalActive(ptr nocapture noundef %0) local_unnamed_
 9:                                                ; preds = %1
   store i32 3, ptr %2, align 4
   %10 = tail call i32 @GetCurrentSubTransactionId() #7
-  %11 = getelementptr inbounds i8, ptr %0, i64 44
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i32 %10, ptr %11, align 4
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @MarkPortalDone(ptr noundef initializes((132, 136)) %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 132
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 132
   store i32 4, ptr %2, align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %6, label %5
@@ -564,9 +564,9 @@ define dso_local void @MarkPortalDone(ptr noundef initializes((132, 136)) %0) lo
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @MarkPortalFailed(ptr noundef initializes((132, 136)) %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 132
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 132
   store i32 5, ptr %2, align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %6, label %5
@@ -607,9 +607,9 @@ define dso_local void @PortalHashTableDeleteAll() local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %4, %.backedge
   %6 = phi ptr [ %14, %.backedge ], [ %5, %4 ]
-  %7 = getelementptr inbounds i8, ptr %6, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 132
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 132
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %10, 3
   br i1 %11, label %.backedge, label %12
@@ -652,15 +652,15 @@ define dso_local noundef zeroext i1 @PreCommit_Portals(i1 noundef zeroext %0) lo
 
 6:                                                ; preds = %.lr.ph, %.backedge
   %7 = phi ptr [ %5, %.lr.ph ], [ %35, %.backedge ]
-  %8 = getelementptr inbounds i8, ptr %7, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 136
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 136
   %11 = load i8, ptr %10, align 8
   %12 = trunc i8 %11 to i1
   br i1 %12, label %13, label %20
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %9, i64 137
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 137
   %15 = load i8, ptr %14, align 1
   %16 = trunc i8 %15 to i1
   br i1 %16, label %20, label %17
@@ -673,19 +673,19 @@ define dso_local noundef zeroext i1 @PreCommit_Portals(i1 noundef zeroext %0) lo
   unreachable
 
 20:                                               ; preds = %13, %6
-  %21 = getelementptr inbounds i8, ptr %9, i64 132
+  %21 = getelementptr inbounds nuw i8, ptr %9, i64 132
   %22 = load i32, ptr %21, align 4
   %23 = icmp eq i32 %22, 3
   br i1 %23, label %24, label %36
 
 24:                                               ; preds = %20
-  %25 = getelementptr inbounds i8, ptr %9, i64 192
+  %25 = getelementptr inbounds nuw i8, ptr %9, i64 192
   %26 = load ptr, ptr %25, align 8
   %.not24 = icmp eq ptr %26, null
   br i1 %.not24, label %32, label %27
 
 27:                                               ; preds = %24
-  %28 = getelementptr inbounds i8, ptr %9, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %29 = load ptr, ptr %28, align 8
   %.not25 = icmp eq ptr %29, null
   br i1 %.not25, label %31, label %30
@@ -699,9 +699,9 @@ define dso_local noundef zeroext i1 @PreCommit_Portals(i1 noundef zeroext %0) lo
   br label %32
 
 32:                                               ; preds = %31, %24
-  %33 = getelementptr inbounds i8, ptr %9, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store ptr null, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %9, i64 168
+  %34 = getelementptr inbounds nuw i8, ptr %9, i64 168
   store ptr null, ptr %34, align 8
   br label %.backedge
 
@@ -711,11 +711,11 @@ define dso_local noundef zeroext i1 @PreCommit_Portals(i1 noundef zeroext %0) lo
   br i1 %.not, label %.outer._crit_edge, label %6, !llvm.loop !7
 
 36:                                               ; preds = %20
-  %37 = getelementptr inbounds i8, ptr %9, i64 124
+  %37 = getelementptr inbounds nuw i8, ptr %9, i64 124
   %38 = load i32, ptr %37, align 4
   %39 = and i32 %38, 32
   %.not22 = icmp eq i32 %39, 0
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %9, i64 40
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %9, i64 40
   %.pre = load i32, ptr %.phi.trans.insert, align 8
   br i1 %.not22, label %._crit_edge, label %40
 
@@ -726,7 +726,7 @@ define dso_local noundef zeroext i1 @PreCommit_Portals(i1 noundef zeroext %0) lo
   br i1 %or.cond, label %42, label %._crit_edge
 
 42:                                               ; preds = %40
-  %43 = getelementptr inbounds i8, ptr %9, i64 40
+  %43 = getelementptr inbounds nuw i8, ptr %9, i64 40
   br i1 %0, label %44, label %48
 
 44:                                               ; preds = %42
@@ -738,10 +738,10 @@ define dso_local noundef zeroext i1 @PreCommit_Portals(i1 noundef zeroext %0) lo
   unreachable
 
 48:                                               ; preds = %42
-  %49 = getelementptr inbounds i8, ptr %9, i64 124
+  %49 = getelementptr inbounds nuw i8, ptr %9, i64 124
   %50 = load ptr, ptr @TopPortalContext, align 8
   %51 = call ptr @AllocSetContextCreateInternal(ptr noundef %50, ptr noundef nonnull @.str.10, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #7
-  %52 = getelementptr inbounds i8, ptr %9, i64 184
+  %52 = getelementptr inbounds nuw i8, ptr %9, i64 184
   store ptr %51, ptr %52, align 8
   %53 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %51, ptr @CurrentMemoryContext, align 8
@@ -750,28 +750,28 @@ define dso_local noundef zeroext i1 @PreCommit_Portals(i1 noundef zeroext %0) lo
   %56 = icmp ne i32 %55, 0
   %57 = load i32, ptr @work_mem, align 4
   %58 = call ptr @tuplestore_begin_heap(i1 noundef zeroext %56, i1 noundef zeroext true, i32 noundef %57) #7
-  %59 = getelementptr inbounds i8, ptr %9, i64 176
+  %59 = getelementptr inbounds nuw i8, ptr %9, i64 176
   store ptr %58, ptr %59, align 8
   store ptr %53, ptr @CurrentMemoryContext, align 8
   call void @PersistHoldablePortal(ptr noundef nonnull %9) #7
-  %60 = getelementptr inbounds i8, ptr %9, i64 96
+  %60 = getelementptr inbounds nuw i8, ptr %9, i64 96
   %61 = load ptr, ptr %60, align 8
   %.not.i.i = icmp eq ptr %61, null
   br i1 %.not.i.i, label %HoldPortal.exit, label %62
 
 62:                                               ; preds = %48
   call void @ReleaseCachedPlan(ptr noundef nonnull %61, ptr noundef null) #7
-  %63 = getelementptr inbounds i8, ptr %9, i64 88
+  %63 = getelementptr inbounds nuw i8, ptr %9, i64 88
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %63, i8 0, i64 16, i1 false)
   br label %HoldPortal.exit
 
 HoldPortal.exit:                                  ; preds = %48, %62
-  %64 = getelementptr inbounds i8, ptr %9, i64 24
+  %64 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store ptr null, ptr %64, align 8
   store i32 0, ptr %43, align 8
-  %65 = getelementptr inbounds i8, ptr %9, i64 44
+  %65 = getelementptr inbounds nuw i8, ptr %9, i64 44
   store i32 0, ptr %65, align 4
-  %66 = getelementptr inbounds i8, ptr %9, i64 48
+  %66 = getelementptr inbounds nuw i8, ptr %9, i64 48
   store i32 0, ptr %66, align 8
   br label %.outer
 
@@ -807,9 +807,9 @@ define dso_local void @AtAbort_Portals() local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %0, %.backedge
   %4 = phi ptr [ %42, %.backedge ], [ %3, %0 ]
-  %5 = getelementptr inbounds i8, ptr %4, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 132
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 132
   %8 = load i32, ptr %7, align 4
   %9 = icmp eq i32 %8, 3
   br i1 %9, label %10, label %MarkPortalFailed.exit
@@ -821,7 +821,7 @@ define dso_local void @AtAbort_Portals() local_unnamed_addr #0 {
 
 13:                                               ; preds = %10
   store i32 5, ptr %7, align 4
-  %14 = getelementptr inbounds i8, ptr %6, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %15 = load ptr, ptr %14, align 8
   %.not.i = icmp eq ptr %15, null
   br i1 %.not.i, label %MarkPortalFailed.exit, label %16
@@ -832,13 +832,13 @@ define dso_local void @AtAbort_Portals() local_unnamed_addr #0 {
   br label %MarkPortalFailed.exit
 
 MarkPortalFailed.exit:                            ; preds = %16, %13, %10, %.lr.ph
-  %17 = getelementptr inbounds i8, ptr %6, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %18 = load i32, ptr %17, align 8
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %.backedge, label %20
 
 20:                                               ; preds = %MarkPortalFailed.exit
-  %21 = getelementptr inbounds i8, ptr %6, i64 137
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 137
   %22 = load i8, ptr %21, align 1
   %23 = trunc i8 %22 to i1
   br i1 %23, label %.backedge, label %24
@@ -850,7 +850,7 @@ MarkPortalFailed.exit:                            ; preds = %16, %13, %10, %.lr.
 
 27:                                               ; preds = %24
   store i32 5, ptr %7, align 4
-  %28 = getelementptr inbounds i8, ptr %6, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %29 = load ptr, ptr %28, align 8
   %.not.i18 = icmp eq ptr %29, null
   br i1 %.not.i18, label %MarkPortalFailed.exit19.thread, label %30
@@ -861,38 +861,38 @@ MarkPortalFailed.exit:                            ; preds = %16, %13, %10, %.lr.
   br label %MarkPortalFailed.exit19.thread
 
 MarkPortalFailed.exit19:                          ; preds = %24
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %6, i64 32
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %6, i64 32
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   %.not16 = icmp eq ptr %.pre, null
   br i1 %.not16, label %MarkPortalFailed.exit19.thread, label %31
 
 31:                                               ; preds = %MarkPortalFailed.exit19
-  %32 = getelementptr inbounds i8, ptr %6, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %6, i64 32
   call void %.pre(ptr noundef nonnull %6) #7
   store ptr null, ptr %32, align 8
   br label %MarkPortalFailed.exit19.thread
 
 MarkPortalFailed.exit19.thread:                   ; preds = %27, %30, %31, %MarkPortalFailed.exit19
-  %33 = getelementptr inbounds i8, ptr %6, i64 96
+  %33 = getelementptr inbounds nuw i8, ptr %6, i64 96
   %34 = load ptr, ptr %33, align 8
   %.not.i20 = icmp eq ptr %34, null
   br i1 %.not.i20, label %PortalReleaseCachedPlan.exit, label %35
 
 35:                                               ; preds = %MarkPortalFailed.exit19.thread
   call void @ReleaseCachedPlan(ptr noundef nonnull %34, ptr noundef null) #7
-  %36 = getelementptr inbounds i8, ptr %6, i64 88
+  %36 = getelementptr inbounds nuw i8, ptr %6, i64 88
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %36, i8 0, i64 16, i1 false)
   br label %PortalReleaseCachedPlan.exit
 
 PortalReleaseCachedPlan.exit:                     ; preds = %MarkPortalFailed.exit19.thread, %35
-  %37 = getelementptr inbounds i8, ptr %6, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr null, ptr %37, align 8
   %38 = load i32, ptr %7, align 4
   %.not17 = icmp eq i32 %38, 3
   br i1 %.not17, label %.backedge, label %39
 
 39:                                               ; preds = %PortalReleaseCachedPlan.exit
-  %40 = getelementptr inbounds i8, ptr %6, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %41 = load ptr, ptr %40, align 8
   call void @MemoryContextDeleteChildren(ptr noundef %41) #7
   br label %.backedge
@@ -919,21 +919,21 @@ define dso_local void @AtCleanup_Portals() local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %0, %.backedge
   %4 = phi ptr [ %18, %.backedge ], [ %3, %0 ]
-  %5 = getelementptr inbounds i8, ptr %4, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 132
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 132
   %8 = load i32, ptr %7, align 4
   %9 = icmp eq i32 %8, 3
   br i1 %9, label %.backedge, label %10
 
 10:                                               ; preds = %.lr.ph
-  %11 = getelementptr inbounds i8, ptr %6, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %12 = load i32, ptr %11, align 8
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %.backedge, label %14
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %6, i64 137
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 137
   %16 = load i8, ptr %15, align 1
   %17 = trunc i8 %16 to i1
   br i1 %17, label %.backedge, label %19
@@ -944,7 +944,7 @@ define dso_local void @AtCleanup_Portals() local_unnamed_addr #0 {
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 19:                                               ; preds = %14
-  %20 = getelementptr inbounds i8, ptr %6, i64 136
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 136
   %21 = load i8, ptr %20, align 8
   %22 = trunc i8 %21 to i1
   br i1 %22, label %23, label %24
@@ -954,7 +954,7 @@ define dso_local void @AtCleanup_Portals() local_unnamed_addr #0 {
   br label %24
 
 24:                                               ; preds = %23, %19
-  %25 = getelementptr inbounds i8, ptr %6, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %26 = load ptr, ptr %25, align 8
   %.not10 = icmp eq ptr %26, null
   br i1 %.not10, label %33, label %27
@@ -992,15 +992,15 @@ define dso_local void @PortalErrorCleanup() local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %0, %12
   %4 = phi ptr [ %13, %12 ], [ %3, %0 ]
-  %5 = getelementptr inbounds i8, ptr %4, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 137
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 137
   %8 = load i8, ptr %7, align 1
   %9 = trunc i8 %8 to i1
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %.lr.ph
-  %11 = getelementptr inbounds i8, ptr %6, i64 136
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 136
   store i8 0, ptr %11, align 8
   call void @PortalDrop(ptr noundef nonnull %6, i1 noundef zeroext false)
   br label %12
@@ -1025,18 +1025,18 @@ define dso_local void @AtSubCommit_Portals(i32 noundef %0, i32 noundef %1, i32 n
 
 .lr.ph:                                           ; preds = %4, %24
   %8 = phi ptr [ %25, %24 ], [ %7, %4 ]
-  %9 = getelementptr inbounds i8, ptr %8, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 64
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %12 = load i32, ptr %11, align 8
   %13 = icmp eq i32 %12, %0
   br i1 %13, label %14, label %19
 
 14:                                               ; preds = %.lr.ph
   store i32 %1, ptr %11, align 8
-  %15 = getelementptr inbounds i8, ptr %10, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 48
   store i32 %2, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %10, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %17 = load ptr, ptr %16, align 8
   %.not14 = icmp eq ptr %17, null
   br i1 %.not14, label %19, label %18
@@ -1046,7 +1046,7 @@ define dso_local void @AtSubCommit_Portals(i32 noundef %0, i32 noundef %1, i32 n
   br label %19
 
 19:                                               ; preds = %14, %18, %.lr.ph
-  %20 = getelementptr inbounds i8, ptr %10, i64 44
+  %20 = getelementptr inbounds nuw i8, ptr %10, i64 44
   %21 = load i32, ptr %20, align 4
   %22 = icmp eq i32 %21, %0
   br i1 %22, label %23, label %24
@@ -1077,29 +1077,29 @@ define dso_local void @AtSubAbort_Portals(i32 noundef %0, i32 noundef %1, ptr no
 
 .lr.ph:                                           ; preds = %4, %.backedge
   %8 = phi ptr [ %30, %.backedge ], [ %7, %4 ]
-  %9 = getelementptr inbounds i8, ptr %8, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 64
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %12 = load i32, ptr %11, align 8
   %.not27 = icmp eq i32 %12, %0
   br i1 %.not27, label %31, label %13
 
 13:                                               ; preds = %.lr.ph
-  %14 = getelementptr inbounds i8, ptr %10, i64 44
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 44
   %15 = load i32, ptr %14, align 4
   %16 = icmp eq i32 %15, %0
   br i1 %16, label %17, label %.backedge
 
 17:                                               ; preds = %13
   store i32 %1, ptr %14, align 4
-  %18 = getelementptr inbounds i8, ptr %10, i64 132
+  %18 = getelementptr inbounds nuw i8, ptr %10, i64 132
   %19 = load i32, ptr %18, align 4
   %20 = icmp eq i32 %19, 3
   br i1 %20, label %21, label %MarkPortalFailed.exit
 
 21:                                               ; preds = %17
   store i32 5, ptr %18, align 4
-  %22 = getelementptr inbounds i8, ptr %10, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %23 = load ptr, ptr %22, align 8
   %.not.i = icmp eq ptr %23, null
   br i1 %.not.i, label %MarkPortalFailed.exit.thread, label %24
@@ -1116,7 +1116,7 @@ MarkPortalFailed.exit:                            ; preds = %24, %17
   br i1 %26, label %MarkPortalFailed.exit.thread, label %.backedge
 
 MarkPortalFailed.exit.thread:                     ; preds = %21, %MarkPortalFailed.exit
-  %27 = getelementptr inbounds i8, ptr %10, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %28 = load ptr, ptr %27, align 8
   %.not29 = icmp eq ptr %28, null
   br i1 %.not29, label %.backedge, label %29
@@ -1132,7 +1132,7 @@ MarkPortalFailed.exit.thread:                     ; preds = %21, %MarkPortalFail
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 31:                                               ; preds = %.lr.ph
-  %32 = getelementptr inbounds i8, ptr %10, i64 132
+  %32 = getelementptr inbounds nuw i8, ptr %10, i64 132
   %33 = load i32, ptr %32, align 4
   %34 = and i32 %33, -2
   %switch = icmp eq i32 %34, 2
@@ -1140,7 +1140,7 @@ MarkPortalFailed.exit.thread:                     ; preds = %21, %MarkPortalFail
 
 35:                                               ; preds = %31
   store i32 5, ptr %32, align 4
-  %36 = getelementptr inbounds i8, ptr %10, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %37 = load ptr, ptr %36, align 8
   %.not.i30 = icmp eq ptr %37, null
   br i1 %.not.i30, label %MarkPortalFailed.exit31.thread, label %38
@@ -1151,33 +1151,33 @@ MarkPortalFailed.exit.thread:                     ; preds = %21, %MarkPortalFail
   br label %MarkPortalFailed.exit31.thread
 
 MarkPortalFailed.exit31:                          ; preds = %31
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %10, i64 32
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %10, i64 32
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   %.not28 = icmp eq ptr %.pre, null
   br i1 %.not28, label %MarkPortalFailed.exit31.thread, label %39
 
 39:                                               ; preds = %MarkPortalFailed.exit31
-  %40 = getelementptr inbounds i8, ptr %10, i64 32
+  %40 = getelementptr inbounds nuw i8, ptr %10, i64 32
   call void %.pre(ptr noundef nonnull %10) #7
   store ptr null, ptr %40, align 8
   br label %MarkPortalFailed.exit31.thread
 
 MarkPortalFailed.exit31.thread:                   ; preds = %35, %38, %39, %MarkPortalFailed.exit31
-  %41 = getelementptr inbounds i8, ptr %10, i64 96
+  %41 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %42 = load ptr, ptr %41, align 8
   %.not.i32 = icmp eq ptr %42, null
   br i1 %.not.i32, label %PortalReleaseCachedPlan.exit, label %43
 
 43:                                               ; preds = %MarkPortalFailed.exit31.thread
   call void @ReleaseCachedPlan(ptr noundef nonnull %42, ptr noundef null) #7
-  %44 = getelementptr inbounds i8, ptr %10, i64 88
+  %44 = getelementptr inbounds nuw i8, ptr %10, i64 88
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %44, i8 0, i64 16, i1 false)
   br label %PortalReleaseCachedPlan.exit
 
 PortalReleaseCachedPlan.exit:                     ; preds = %MarkPortalFailed.exit31.thread, %43
-  %45 = getelementptr inbounds i8, ptr %10, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store ptr null, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %10, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %47 = load ptr, ptr %46, align 8
   call void @MemoryContextDeleteChildren(ptr noundef %47) #7
   br label %.backedge
@@ -1197,15 +1197,15 @@ define dso_local void @AtSubCleanup_Portals(i32 noundef %0) local_unnamed_addr #
 
 .lr.ph:                                           ; preds = %1, %.backedge
   %5 = phi ptr [ %25, %.backedge ], [ %4, %1 ]
-  %6 = getelementptr inbounds i8, ptr %5, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %9 = load i32, ptr %8, align 8
   %.not8 = icmp eq i32 %9, %0
   br i1 %.not8, label %10, label %.backedge
 
 10:                                               ; preds = %.lr.ph
-  %11 = getelementptr inbounds i8, ptr %7, i64 136
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 136
   %12 = load i8, ptr %11, align 8
   %13 = trunc i8 %12 to i1
   br i1 %13, label %14, label %15
@@ -1215,7 +1215,7 @@ define dso_local void @AtSubCleanup_Portals(i32 noundef %0) local_unnamed_addr #
   br label %15
 
 15:                                               ; preds = %14, %10
-  %16 = getelementptr inbounds i8, ptr %7, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %17 = load ptr, ptr %16, align 8
   %.not9 = icmp eq ptr %17, null
   br i1 %.not9, label %24, label %18
@@ -1252,7 +1252,7 @@ define dso_local noundef i64 @pg_cursor(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.HASH_SEQ_STATUS, align 8
   %3 = alloca [6 x i64], align 16
   %4 = alloca [6 x i8], align 1
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call void @InitMaterializedSRF(ptr noundef %0, i32 noundef 0) #7
   %7 = load ptr, ptr @PortalHashTable, align 8
@@ -1262,21 +1262,21 @@ define dso_local noundef i64 @pg_cursor(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not13, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %3, i64 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 16
-  %11 = getelementptr inbounds i8, ptr %3, i64 24
-  %12 = getelementptr inbounds i8, ptr %3, i64 32
-  %13 = getelementptr inbounds i8, ptr %3, i64 40
-  %14 = getelementptr inbounds i8, ptr %6, i64 40
-  %15 = getelementptr inbounds i8, ptr %6, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 48
   br label %16
 
 16:                                               ; preds = %.lr.ph, %.backedge
   %17 = phi ptr [ %8, %.lr.ph ], [ %43, %.backedge ]
-  %18 = getelementptr inbounds i8, ptr %17, i64 64
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 64
   %19 = load ptr, ptr %18, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %4, i8 0, i64 6, i1 false)
-  %20 = getelementptr inbounds i8, ptr %19, i64 224
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 224
   %21 = load i8, ptr %20, align 8
   %22 = trunc i8 %21 to i1
   br i1 %22, label %23, label %.backedge
@@ -1286,12 +1286,12 @@ define dso_local noundef i64 @pg_cursor(ptr noundef %0) local_unnamed_addr #0 {
   %25 = call ptr @cstring_to_text(ptr noundef %24) #7
   %26 = ptrtoint ptr %25 to i64
   store i64 %26, ptr %3, align 16
-  %27 = getelementptr inbounds i8, ptr %19, i64 56
+  %27 = getelementptr inbounds nuw i8, ptr %19, i64 56
   %28 = load ptr, ptr %27, align 8
   %29 = call ptr @cstring_to_text(ptr noundef %28) #7
   %30 = ptrtoint ptr %29 to i64
   store i64 %30, ptr %9, align 8
-  %31 = getelementptr inbounds i8, ptr %19, i64 124
+  %31 = getelementptr inbounds nuw i8, ptr %19, i64 124
   %32 = load i32, ptr %31, align 4
   %33 = lshr i32 %32, 5
   %.lobit = and i32 %33, 1
@@ -1304,7 +1304,7 @@ define dso_local noundef i64 @pg_cursor(ptr noundef %0) local_unnamed_addr #0 {
   %.lobit12 = and i32 %37, 1
   %38 = zext nneg i32 %.lobit12 to i64
   store i64 %38, ptr %12, align 16
-  %39 = getelementptr inbounds i8, ptr %19, i64 216
+  %39 = getelementptr inbounds nuw i8, ptr %19, i64 216
   %40 = load i64, ptr %39, align 8
   store i64 %40, ptr %13, align 8
   %41 = load ptr, ptr %14, align 8
@@ -1343,9 +1343,9 @@ define dso_local noundef zeroext i1 @ThereAreNoReadyPortals() local_unnamed_addr
   br i1 %.not, label %11, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %4, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 132
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 132
   %9 = load i32, ptr %8, align 4
   %10 = icmp eq i32 %9, 2
   br i1 %10, label %11, label %3, !llvm.loop !15
@@ -1365,21 +1365,21 @@ define dso_local void @HoldPinnedPortals() local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %0, %47
   %4 = phi ptr [ %48, %47 ], [ %3, %0 ]
-  %5 = getelementptr inbounds i8, ptr %4, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 136
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 136
   %8 = load i8, ptr %7, align 8
   %9 = trunc i8 %8 to i1
   br i1 %9, label %10, label %47
 
 10:                                               ; preds = %.lr.ph
-  %11 = getelementptr inbounds i8, ptr %6, i64 137
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 137
   %12 = load i8, ptr %11, align 1
   %13 = trunc i8 %12 to i1
   br i1 %13, label %47, label %14
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %6, i64 120
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 120
   %16 = load i32, ptr %15, align 8
   %.not7 = icmp eq i32 %16, 0
   br i1 %.not7, label %21, label %17
@@ -1393,7 +1393,7 @@ define dso_local void @HoldPinnedPortals() local_unnamed_addr #0 {
   unreachable
 
 21:                                               ; preds = %14
-  %22 = getelementptr inbounds i8, ptr %6, i64 132
+  %22 = getelementptr inbounds nuw i8, ptr %6, i64 132
   %23 = load i32, ptr %22, align 4
   %.not8 = icmp eq i32 %23, 2
   br i1 %.not8, label %27, label %24
@@ -1408,39 +1408,39 @@ define dso_local void @HoldPinnedPortals() local_unnamed_addr #0 {
 27:                                               ; preds = %21
   %28 = load ptr, ptr @TopPortalContext, align 8
   %29 = call ptr @AllocSetContextCreateInternal(ptr noundef %28, ptr noundef nonnull @.str.10, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #7
-  %30 = getelementptr inbounds i8, ptr %6, i64 184
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 184
   store ptr %29, ptr %30, align 8
   %31 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %29, ptr @CurrentMemoryContext, align 8
-  %32 = getelementptr inbounds i8, ptr %6, i64 124
+  %32 = getelementptr inbounds nuw i8, ptr %6, i64 124
   %33 = load i32, ptr %32, align 4
   %34 = and i32 %33, 2
   %35 = icmp ne i32 %34, 0
   %36 = load i32, ptr @work_mem, align 4
   %37 = call ptr @tuplestore_begin_heap(i1 noundef zeroext %35, i1 noundef zeroext true, i32 noundef %36) #7
-  %38 = getelementptr inbounds i8, ptr %6, i64 176
+  %38 = getelementptr inbounds nuw i8, ptr %6, i64 176
   store ptr %37, ptr %38, align 8
   store ptr %31, ptr @CurrentMemoryContext, align 8
   call void @PersistHoldablePortal(ptr noundef nonnull %6) #7
-  %39 = getelementptr inbounds i8, ptr %6, i64 96
+  %39 = getelementptr inbounds nuw i8, ptr %6, i64 96
   %40 = load ptr, ptr %39, align 8
   %.not.i.i = icmp eq ptr %40, null
   br i1 %.not.i.i, label %HoldPortal.exit, label %41
 
 41:                                               ; preds = %27
   call void @ReleaseCachedPlan(ptr noundef nonnull %40, ptr noundef null) #7
-  %42 = getelementptr inbounds i8, ptr %6, i64 88
+  %42 = getelementptr inbounds nuw i8, ptr %6, i64 88
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %42, i8 0, i64 16, i1 false)
   br label %HoldPortal.exit
 
 HoldPortal.exit:                                  ; preds = %27, %41
-  %43 = getelementptr inbounds i8, ptr %6, i64 24
+  %43 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr null, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %6, i64 40
+  %44 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store i32 0, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %6, i64 44
+  %45 = getelementptr inbounds nuw i8, ptr %6, i64 44
   store i32 0, ptr %45, align 4
-  %46 = getelementptr inbounds i8, ptr %6, i64 48
+  %46 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store i32 0, ptr %46, align 8
   store i8 1, ptr %11, align 1
   br label %47
@@ -1471,9 +1471,9 @@ define dso_local void @ForgetPortalSnapshots() local_unnamed_addr #0 {
 .lr.ph:                                           ; preds = %0, %12
   %5 = phi ptr [ %13, %12 ], [ %3, %0 ]
   %.013 = phi i32 [ %.1, %12 ], [ 0, %0 ]
-  %6 = getelementptr inbounds i8, ptr %5, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 168
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 168
   %9 = load ptr, ptr %8, align 8
   %.not11 = icmp eq ptr %9, null
   br i1 %.not11, label %12, label %10

@@ -77,7 +77,7 @@ define internal noundef ptr @mca_pml_cm_component_init(ptr noundef initializes((
 
 9:                                                ; preds = %7
   %10 = load ptr, ptr @ompi_mtl, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not6 = icmp eq i32 %13, 0
@@ -105,7 +105,7 @@ define internal noundef ptr @mca_pml_cm_component_init(ptr noundef initializes((
 23:                                               ; preds = %20, %17
   %24 = load i32, ptr %10, align 8
   store i32 %24, ptr getelementptr inbounds (i8, ptr @ompi_pml_cm, i64 168), align 8
-  %25 = getelementptr inbounds i8, ptr %10, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %26 = load i32, ptr %25, align 4
   store i32 %26, ptr getelementptr inbounds (i8, ptr @ompi_pml_cm, i64 172), align 4
   br label %27
@@ -122,7 +122,7 @@ define internal i32 @mca_pml_cm_component_fini() #0 {
   br i1 %.not, label %6, label %2
 
 2:                                                ; preds = %0
-  %3 = getelementptr inbounds i8, ptr %1, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 %4(ptr noundef nonnull %1) #2
   br label %6

@@ -47,14 +47,14 @@ get_executable_path_raw.exit.thread33:            ; preds = %0
 get_executable_path_raw.exit31:                   ; preds = %get_executable_path_raw.exit.thread33, %10, %13
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %1)
   %15 = zext nneg i32 %spec.select to i64
-  %16 = getelementptr inbounds i8, ptr %8, i64 %15
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 %15
   store i8 0, ptr %16, align 1
   %.not = icmp slt i32 %5, 1
   br i1 %.not, label %.preheader.preheader, label %.lr.ph
 
 .lr.ph:                                           ; preds = %get_executable_path_raw.exit31, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %get_executable_path_raw.exit31 ]
-  %17 = getelementptr inbounds i8, ptr %8, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv
   %18 = load i8, ptr %17, align 1
   %19 = icmp eq i8 %18, 92
   %spec.store.select = select i1 %19, i8 47, i8 %18
@@ -73,7 +73,7 @@ get_executable_path_raw.exit31:                   ; preds = %get_executable_path
 
 21:                                               ; preds = %.preheader
   %indvars.iv.next41 = add nsw i64 %indvars.iv40, -1
-  %22 = getelementptr inbounds i8, ptr %8, i64 %indvars.iv.next41
+  %22 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv.next41
   %23 = load i8, ptr %22, align 1
   switch i8 %23, label %.preheader [
     i8 47, label %24
@@ -82,7 +82,7 @@ get_executable_path_raw.exit31:                   ; preds = %get_executable_path
 
 24:                                               ; preds = %21, %21
   %25 = and i64 %indvars.iv40, 4294967295
-  %26 = getelementptr inbounds i8, ptr %8, i64 %25
+  %26 = getelementptr inbounds nuw i8, ptr %8, i64 %25
   store i8 0, ptr %26, align 1
   br label %28
 

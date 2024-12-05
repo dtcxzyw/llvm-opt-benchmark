@@ -11,7 +11,7 @@ define noalias noundef ptr @mm_malloc(ptr noundef %0, i64 noundef %1) local_unna
   %4 = load i64, ptr %3, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !7
-  %5 = getelementptr inbounds i8, ptr %0, i64 656
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 656
   %6 = load ptr, ptr %5, align 8
   store ptr null, ptr %5, align 8
   %7 = and i64 %4, 512
@@ -53,32 +53,32 @@ free_delaylist.exit:                              ; preds = %.lr.ph.i, %up_irq_r
 
 .lr.ph:                                           ; preds = %13, %22
   %.04863 = phi ptr [ %.048, %22 ], [ %.04861, %13 ]
-  %19 = getelementptr inbounds i8, ptr %.04863, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %.04863, i64 8
   %20 = load i64, ptr %19, align 8
   %21 = and i64 %20, -4
   %.not57 = icmp ult i64 %21, %11
   br i1 %.not57, label %22, label %24
 
 22:                                               ; preds = %.lr.ph
-  %23 = getelementptr inbounds i8, ptr %.04863, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %.04863, i64 16
   %.048 = load ptr, ptr %23, align 8
   %.not = icmp eq ptr %.048, null
   br i1 %.not, label %.thread, label %.lr.ph, !llvm.loop !11
 
 24:                                               ; preds = %.lr.ph
-  %25 = getelementptr inbounds i8, ptr %.04863, i64 8
-  %26 = getelementptr inbounds i8, ptr %.04863, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %.04863, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %.04863, i64 16
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %.04863, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %.04863, i64 24
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
   store ptr %27, ptr %30, align 8
   %.not58 = icmp eq ptr %27, null
   br i1 %.not58, label %34, label %31
 
 31:                                               ; preds = %24
   %32 = load ptr, ptr %28, align 8
-  %33 = getelementptr inbounds i8, ptr %27, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %27, i64 24
   store ptr %32, ptr %33, align 8
   br label %34
 
@@ -90,7 +90,7 @@ free_delaylist.exit:                              ; preds = %.lr.ph.i, %up_irq_r
 
 38:                                               ; preds = %34
   %39 = getelementptr inbounds i8, ptr %.04863, i64 %11
-  %40 = getelementptr inbounds i8, ptr %39, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   store i64 %36, ptr %40, align 8
   %41 = load i64, ptr %25, align 8
   %42 = and i64 %41, 3
@@ -101,7 +101,7 @@ free_delaylist.exit:                              ; preds = %.lr.ph.i, %up_irq_r
   br label %48
 
 44:                                               ; preds = %34
-  %45 = getelementptr inbounds i8, ptr %35, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %46 = load i64, ptr %45, align 8
   %47 = and i64 %46, -3
   store i64 %47, ptr %45, align 8
@@ -110,11 +110,11 @@ free_delaylist.exit:                              ; preds = %.lr.ph.i, %up_irq_r
 48:                                               ; preds = %44, %38
   %49 = load i64, ptr %25, align 8
   %50 = and i64 %49, -4
-  %51 = getelementptr inbounds i8, ptr %0, i64 56
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %52 = load i64, ptr %51, align 8
   %53 = add i64 %52, %50
   store i64 %53, ptr %51, align 8
-  %54 = getelementptr inbounds i8, ptr %0, i64 48
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %55 = load i64, ptr %54, align 8
   %56 = icmp ugt i64 %53, %55
   br i1 %56, label %57, label %58

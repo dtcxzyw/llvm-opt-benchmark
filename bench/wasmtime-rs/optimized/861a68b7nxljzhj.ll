@@ -50,14 +50,14 @@ define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..Fn
   %4 = alloca { { { { i64, ptr, {} }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, { { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } } }, { i64, i64, i64, i64 }, i64, i16, [3 x i16] }, { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, i32, [1 x i32] }, align 8
   %.sroa.2 = alloca { { { { i64, ptr, {} }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, { { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } } }, { i64, i64, i64, i64 }, i64, i16, [3 x i16] }, { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, i32, [1 x i32] }, align 8
   %.sroa.0.0.copyload = load i64, ptr %2, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(344) %.sroa.2, ptr noundef nonnull align 8 dereferenceable(344) %.sroa.2.0..sroa_idx, i64 344, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7)
   call void @llvm.lifetime.start.p0(i64 344, ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(344) %4, ptr noundef nonnull align 8 dereferenceable(344) %.sroa.2.0..sroa_idx, i64 344, i1 false)
   store i64 %.sroa.0.0.copyload, ptr %0, align 8, !alias.scope !7
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
-  %.sroa.2.248..sroa_idx = getelementptr inbounds i8, ptr %.sroa.2, i64 240
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.sroa.2.248..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.2, i64 240
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %5, ptr noundef nonnull align 8 dereferenceable(96) %.sroa.2.248..sroa_idx, i64 96, i1 false)
   invoke void @"_ZN4core3ptr53drop_in_place$LT$cranelift_isle..trie_again..Rule$GT$17hedc76a28840a8d2aE"(ptr nonnull align 8 %4)
           to label %"_ZN14cranelift_isle10trie_again5build28_$u7b$$u7b$closure$u7d$$u7d$17hf7f757d284cabc68E.exit" unwind label %6, !noalias !7
@@ -65,7 +65,7 @@ define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..Fn
 6:                                                ; preds = %3
   %7 = landingpad { ptr, i32 }
           cleanup
-  %8 = getelementptr inbounds i8, ptr %4, i64 216
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 216
   invoke void @"_ZN4core3ptr88drop_in_place$LT$alloc..vec..Vec$LT$cranelift_isle..trie_again..UnreachableError$GT$$GT$17h7ee8afb1a2703abfE"(ptr nonnull align 8 %8) #13
           to label %11 unwind label %9, !noalias !7
 
@@ -79,7 +79,7 @@ define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..Fn
   resume { ptr, i32 } %7
 
 "_ZN14cranelift_isle10trie_again5build28_$u7b$$u7b$closure$u7d$$u7d$17hf7f757d284cabc68E.exit": ; preds = %3
-  %12 = getelementptr inbounds i8, ptr %4, i64 216
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 216
   call void @"_ZN4core3ptr88drop_in_place$LT$alloc..vec..Vec$LT$cranelift_isle..trie_again..UnreachableError$GT$$GT$17h7ee8afb1a2703abfE"(ptr nonnull align 8 %12), !noalias !7
   call void @llvm.lifetime.end.p0(i64 344, ptr nonnull %4)
   ret void
@@ -92,7 +92,7 @@ define void @_ZN4core4hash4Hash10hash_slice17hcbcbda513606a9a0E(ptr align 2 %0, 
   %6 = icmp ne ptr %0, null
   tail call void @llvm.assume(i1 %6)
   store ptr %0, ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %5, ptr %7, align 8
   %8 = call align 2 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbef9659f8d3ed28aE"(ptr nonnull align 8 %4)
   %9 = icmp eq ptr %8, null
@@ -137,23 +137,23 @@ define void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$12split_at_mut17h32cf
   %9 = sub nuw i64 %2, %3
   %10 = getelementptr inbounds i16, ptr %1, i64 %3
   store ptr %1, ptr %0, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %3, ptr %.sroa.3.0..sroa_idx, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %10, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %9, ptr %.sroa.5.0..sroa_idx, align 8
   ret void
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20split_at_mut_checked17hb8834445ab47b30aE.exit.thread": ; preds = %5
   store ptr @anon.35054f6b97abee072acc6a9e99a49935.1, ptr %6, align 8
-  %11 = getelementptr inbounds i8, ptr %6, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 1, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %6, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr null, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %6, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr @anon.35054f6b97abee072acc6a9e99a49935.2, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %6, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 0, ptr %14, align 8
   call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr nonnull align 8 %6, ptr align 8 %4) #15
   unreachable
@@ -167,11 +167,11 @@ define void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20split_at_mut_checke
 5:                                                ; preds = %4
   %6 = getelementptr inbounds i16, ptr %1, i64 %3
   %7 = sub nuw i64 %2, %3
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %3, ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %6, ptr %.sroa.3.0..sroa_idx, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %7, ptr %.sroa.4.0..sroa_idx, align 8
   br label %8
 
@@ -258,9 +258,9 @@ define void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17
   %8 = shl i64 %2, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %6, ptr align 2 %1, i64 %8, i1 false)
   store i64 %5, ptr %0, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %6, ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %2, ptr %.sroa.4.0..sroa_idx, align 8
   ret void
 }
@@ -297,14 +297,14 @@ define hidden noundef i64 @"_ZN14cranelift_isle10trie_again5build28_$u7b$$u7b$cl
 define hidden void @"_ZN14cranelift_isle10trie_again10Constraint12bindings_for28_$u7b$$u7b$closure$u7d$$u7d$17h6c132adcecefe883E"(ptr nocapture writeonly sret({ i8, [47 x i8] }) align 16 initializes((0, 4), (8, 16)) %0, ptr nocapture readonly align 8 %1, i8 %2) unnamed_addr #5 {
   %4 = load ptr, ptr %1, align 8, !nonnull !3, !align !4, !noundef !3
   %5 = load i16, ptr %4, align 2, !noundef !3
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8, !nonnull !3, !align !12, !noundef !3
   %8 = load i64, ptr %7, align 8, !noundef !3
-  %9 = getelementptr inbounds i8, ptr %0, i64 2
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 2
   store i16 %5, ptr %9, align 2
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %8, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %2, ptr %11, align 1
   store i8 7, ptr %0, align 16
   ret void
@@ -318,20 +318,20 @@ define hidden void @"_ZN14cranelift_isle10trie_again14RuleSetBuilder8add_rule28_
   %7 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %8 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %9 = alloca { { { i64, ptr, {} }, i64 } }, align 8
-  %10 = getelementptr inbounds i8, ptr %2, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %11 = icmp ne ptr %2, null
   tail call void @llvm.assume(i1 %11)
   store ptr %2, ptr %6, align 8
-  %12 = getelementptr inbounds i8, ptr %6, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr @"_ZN75_$LT$cranelift_isle..trie_again..Constraint$u20$as$u20$core..fmt..Debug$GT$3fmt17h3279b2f643ba28a1E", ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %6, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %10, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %6, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr @"_ZN75_$LT$cranelift_isle..trie_again..Constraint$u20$as$u20$core..fmt..Debug$GT$3fmt17h3279b2f643ba28a1E", ptr %14, align 8
   call void @_ZN4core3fmt9Arguments6new_v117h9a2aa4c1d3010b7eE(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %7, ptr nonnull align 8 @anon.35054f6b97abee072acc6a9e99a49935.13, i64 2, ptr nonnull align 8 %6, i64 2)
   call void @_ZN5alloc3fmt6format17h32536d6b64aad42fE(ptr nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 %8, ptr nonnull align 8 %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
-  %15 = getelementptr inbounds i8, ptr %2, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 16 dereferenceable(32) %15, i64 32, i1 false)
   invoke void @_ZN14cranelift_isle5error4Span10new_single17h2a3162c379302a8aE(ptr nonnull sret({ { i64, i64, i64, i64 }, { i64, i64, i64, i64 } }) align 8 %5, ptr nonnull align 8 %4)
           to label %18 unwind label %16
@@ -343,9 +343,9 @@ define hidden void @"_ZN14cranelift_isle10trie_again14RuleSetBuilder8add_rule28_
           to label %23 unwind label %21
 
 18:                                               ; preds = %3
-  %19 = getelementptr inbounds i8, ptr %0, i64 72
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 72
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %20, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 64, i1 false)
   store i64 3, ptr %0, align 8
   ret void
@@ -366,7 +366,7 @@ define hidden void @"_ZN14cranelift_isle10trie_again14RuleSetBuilder29normalize_
   %4 = alloca { i8, [31 x i8] }, align 16
   %5 = load i16, ptr %1, align 2, !noundef !3
   %6 = load ptr, ptr %0, align 8, !nonnull !3, !align !12, !noundef !3
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8, !nonnull !3, !align !12, !noundef !3
   call void @_ZN14cranelift_isle10trie_again4Rule14get_constraint17h863d3d5b43627294E(ptr nonnull sret({ i8, [31 x i8] }) align 16 %4, ptr nonnull align 8 %8, i16 %5)
   %9 = load i8, ptr %4, align 16, !range !13, !noundef !3
@@ -374,7 +374,7 @@ define hidden void @"_ZN14cranelift_isle10trie_again14RuleSetBuilder29normalize_
   br i1 %.not, label %13, label %10
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %3, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %11, ptr noundef nonnull align 16 dereferenceable(32) %4, i64 32, i1 false)
   %12 = load ptr, ptr %6, align 8, !nonnull !3, !align !12, !noundef !3
   store i16 %5, ptr %3, align 16
@@ -396,12 +396,12 @@ define hidden i16 @"_ZN14cranelift_isle10trie_again14RuleSetBuilder14set_constra
 define hidden i16 @"_ZN99_$LT$cranelift_isle..trie_again..RuleSetBuilder$u20$as$u20$cranelift_isle..sema..PatternVisitor$GT$11add_extract28_$u7b$$u7b$closure$u7d$$u7d$17haba088fa8d628e36E"(ptr nocapture readonly align 8 %0, i8 %1) unnamed_addr #1 {
   %3 = alloca { i8, [47 x i8] }, align 16
   %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !12, !noundef !3
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !nonnull !3, !align !4, !noundef !3
   %7 = load i16, ptr %6, align 2, !noundef !3
-  %8 = getelementptr inbounds i8, ptr %3, i64 2
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 2
   store i16 %7, ptr %8, align 2
-  %9 = getelementptr inbounds i8, ptr %3, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 %1, ptr %9, align 1
   store i8 9, ptr %3, align 16
   %10 = call i16 @_ZN14cranelift_isle10trie_again14RuleSetBuilder13dedup_binding17hb9851a908e01dc3fE(ptr nonnull align 8 %4, ptr nonnull align 16 %3)
@@ -475,48 +475,48 @@ default.unreachable3:                             ; preds = %2
   unreachable
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i128, ptr %9, align 16, !noundef !3
   tail call void @_ZN4core4hash6Hasher10write_i12817hd4b84b03de82027dE(ptr align 8 %1, i128 %10)
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load i64, ptr %11, align 8, !noundef !3
   tail call void @_ZN4core4hash6Hasher11write_usize17h0dd37f635143bb49E(ptr align 8 %1, i64 %12)
   br label %76
 
 13:                                               ; preds = %2
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load i64, ptr %14, align 8, !noundef !3
   tail call void @_ZN4core4hash6Hasher11write_usize17h0dd37f635143bb49E(ptr align 8 %1, i64 %15)
   br label %76
 
 16:                                               ; preds = %2
-  %17 = getelementptr inbounds i8, ptr %0, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %18 = load i8, ptr %17, align 1, !noundef !3
   tail call void @_ZN4core4hash6Hasher8write_u817h4615cba3f9436a54E(ptr align 8 %1, i8 %18)
   br label %76
 
 19:                                               ; preds = %2
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = load i64, ptr %20, align 8, !noundef !3
   tail call void @_ZN4core4hash6Hasher11write_usize17h0dd37f635143bb49E(ptr align 8 %1, i64 %21)
-  %22 = getelementptr inbounds i8, ptr %0, i64 2
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %23 = load i16, ptr %22, align 2, !noundef !3
   tail call void @_ZN4core4hash6Hasher9write_u1617hf48a3e55b2539554E(ptr align 8 %1, i16 %23)
   br label %76
 
 24:                                               ; preds = %2
-  %25 = getelementptr inbounds i8, ptr %0, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %26 = load i64, ptr %25, align 8, !noundef !3
   tail call void @_ZN4core4hash6Hasher11write_usize17h0dd37f635143bb49E(ptr align 8 %1, i64 %26)
-  %27 = getelementptr inbounds i8, ptr %0, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %28 = load ptr, ptr %27, align 16, !nonnull !3, !noundef !3
-  %29 = getelementptr inbounds i8, ptr %0, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %30 = load i64, ptr %29, align 8, !noundef !3
   tail call void @_ZN4core4hash6Hasher19write_length_prefix17hc379e64a37b3fcd3E(ptr align 8 %1, i64 %30)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   %31 = getelementptr inbounds i16, ptr %28, i64 %30
   store ptr %28, ptr %4, align 8
-  %32 = getelementptr inbounds i8, ptr %4, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %31, ptr %32, align 8
   %33 = call align 2 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbef9659f8d3ed28aE"(ptr nonnull align 8 %4)
   %34 = icmp eq ptr %33, null
@@ -532,33 +532,33 @@ default.unreachable3:                             ; preds = %2
 
 _ZN4core4hash4Hash10hash_slice17hcbcbda513606a9a0E.exit: ; preds = %.lr.ph.i, %24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  %39 = getelementptr inbounds i8, ptr %0, i64 4
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %40 = load i32, ptr %39, align 4, !noundef !3
   call void @_ZN4core4hash6Hasher9write_u3217h1d373960503e710aE(ptr align 8 %1, i32 %40)
   br label %76
 
 41:                                               ; preds = %2
-  %42 = getelementptr inbounds i8, ptr %0, i64 2
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %43 = load i16, ptr %42, align 2, !noundef !3
   tail call void @_ZN4core4hash6Hasher9write_u1617hf48a3e55b2539554E(ptr align 8 %1, i16 %43)
   br label %76
 
 44:                                               ; preds = %2
-  %45 = getelementptr inbounds i8, ptr %0, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %46 = load i64, ptr %45, align 8, !noundef !3
   tail call void @_ZN4core4hash6Hasher11write_usize17h0dd37f635143bb49E(ptr align 8 %1, i64 %46)
-  %47 = getelementptr inbounds i8, ptr %0, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %48 = load i64, ptr %47, align 16, !noundef !3
   tail call void @_ZN4core4hash6Hasher11write_usize17h0dd37f635143bb49E(ptr align 8 %1, i64 %48)
-  %49 = getelementptr inbounds i8, ptr %0, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %50 = load ptr, ptr %49, align 8, !nonnull !3, !noundef !3
-  %51 = getelementptr inbounds i8, ptr %0, i64 32
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %52 = load i64, ptr %51, align 16, !noundef !3
   tail call void @_ZN4core4hash6Hasher19write_length_prefix17hc379e64a37b3fcd3E(ptr align 8 %1, i64 %52)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   %53 = getelementptr inbounds i16, ptr %50, i64 %52
   store ptr %50, ptr %3, align 8
-  %54 = getelementptr inbounds i8, ptr %3, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %53, ptr %54, align 8
   %55 = call align 2 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbef9659f8d3ed28aE"(ptr nonnull align 8 %3)
   %56 = icmp eq ptr %55, null
@@ -577,28 +577,28 @@ _ZN4core4hash4Hash10hash_slice17hcbcbda513606a9a0E.exit2: ; preds = %.lr.ph.i1, 
   br label %76
 
 61:                                               ; preds = %2
-  %62 = getelementptr inbounds i8, ptr %0, i64 2
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %63 = load i16, ptr %62, align 2, !noundef !3
   tail call void @_ZN4core4hash6Hasher9write_u1617hf48a3e55b2539554E(ptr align 8 %1, i16 %63)
-  %64 = getelementptr inbounds i8, ptr %0, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %65 = load i64, ptr %64, align 8, !noundef !3
   tail call void @_ZN4core4hash6Hasher11write_usize17h0dd37f635143bb49E(ptr align 8 %1, i64 %65)
-  %66 = getelementptr inbounds i8, ptr %0, i64 1
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %67 = load i8, ptr %66, align 1, !noundef !3
   tail call void @_ZN4core4hash6Hasher8write_u817h4615cba3f9436a54E(ptr align 8 %1, i8 %67)
   br label %76
 
 68:                                               ; preds = %2
-  %69 = getelementptr inbounds i8, ptr %0, i64 2
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %70 = load i16, ptr %69, align 2, !noundef !3
   tail call void @_ZN4core4hash6Hasher9write_u1617hf48a3e55b2539554E(ptr align 8 %1, i16 %70)
   br label %76
 
 71:                                               ; preds = %2
-  %72 = getelementptr inbounds i8, ptr %0, i64 2
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %73 = load i16, ptr %72, align 2, !noundef !3
   tail call void @_ZN4core4hash6Hasher9write_u1617hf48a3e55b2539554E(ptr align 8 %1, i16 %73)
-  %74 = getelementptr inbounds i8, ptr %0, i64 1
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %75 = load i8, ptr %74, align 1, !noundef !3
   tail call void @_ZN4core4hash6Hasher8write_u817h4615cba3f9436a54E(ptr align 8 %1, i8 %75)
   br label %76

@@ -99,14 +99,14 @@ define zeroext range(i8 0, 2) i8 @Java_sun_java2d_opengl_OGLSurfaceData_initText
   br label %48
 
 25:                                               ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %9, i64 104
+  %26 = getelementptr inbounds nuw i8, ptr %9, i64 104
   %27 = load i32, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %9, i64 108
+  %28 = getelementptr inbounds nuw i8, ptr %9, i64 108
   %29 = load i32, ptr %28, align 4
   %30 = load ptr, ptr %0, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 200
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 200
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %9, i64 48
+  %33 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %34 = load ptr, ptr %33, align 8
   %35 = tail call ptr %32(ptr noundef nonnull %0, ptr noundef %34) #3
   %36 = icmp eq ptr %35, null
@@ -115,7 +115,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_java2d_opengl_OGLSurfaceData_initText
 37:                                               ; preds = %25
   tail call void (ptr, ptr, ptr, ptr, ptr, ...) @JNU_SetFieldByName(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull %35, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, i32 noundef %27) #3
   %38 = load ptr, ptr %0, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 120
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 120
   %40 = load ptr, ptr %39, align 8
   %41 = tail call ptr %40(ptr noundef nonnull %0) #3
   %.not.i = icmp eq ptr %41, null
@@ -127,13 +127,13 @@ define zeroext range(i8 0, 2) i8 @Java_sun_java2d_opengl_OGLSurfaceData_initText
 
 43:                                               ; preds = %42, %37
   %44 = load ptr, ptr %0, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 184
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 184
   %46 = load ptr, ptr %45, align 8
   tail call void %46(ptr noundef nonnull %0, ptr noundef nonnull %35) #3
   br label %OGLSD_SetNativeDimensions.exit
 
 OGLSD_SetNativeDimensions.exit:                   ; preds = %25, %43
-  %47 = getelementptr inbounds i8, ptr %9, i64 72
+  %47 = getelementptr inbounds nuw i8, ptr %9, i64 72
   store i32 3, ptr %47, align 8
   br label %48
 
@@ -240,31 +240,31 @@ OGLSD_NextPowerOfTwo.exit69.thread:               ; preds = %OGLSD_NextPowerOfTw
   call void %41(i32 noundef %.055, i32 noundef %42) #3
   %43 = load ptr, ptr @j2d_glTexImage2D, align 8
   call void %43(i32 noundef %.055, i32 noundef 0, i32 noundef 6408, i32 noundef %.053, i32 noundef %.0, i32 noundef 0, i32 noundef 6408, i32 noundef 32821, ptr noundef null) #3
-  %44 = getelementptr inbounds i8, ptr %0, i64 80
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i8 %1, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %0, i64 84
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 84
   store i32 0, ptr %45, align 4
-  %46 = getelementptr inbounds i8, ptr %0, i64 88
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i32 0, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %0, i64 92
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 92
   store i32 %4, ptr %47, align 4
-  %48 = getelementptr inbounds i8, ptr %0, i64 96
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i32 %5, ptr %48, align 8
   %49 = load i32, ptr %7, align 4
-  %50 = getelementptr inbounds i8, ptr %0, i64 100
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 100
   store i32 %49, ptr %50, align 4
-  %51 = getelementptr inbounds i8, ptr %0, i64 104
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i32 %.053, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %0, i64 108
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 108
   store i32 %.0, ptr %52, align 4
-  %53 = getelementptr inbounds i8, ptr %0, i64 112
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i32 %.055, ptr %53, align 8
   %54 = load ptr, ptr @j2d_glTexParameteri, align 8
   call void %54(i32 noundef %.055, i32 noundef 10240, i32 noundef 9728) #3
   %55 = load ptr, ptr @j2d_glTexParameteri, align 8
   %56 = load i32, ptr %53, align 8
   call void %55(i32 noundef %56, i32 noundef 10241, i32 noundef 9728) #3
-  %57 = getelementptr inbounds i8, ptr %0, i64 116
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 116
   store i32 9728, ptr %57, align 4
   %58 = load ptr, ptr @j2d_glTexParameteri, align 8
   call void %58(i32 noundef %.055, i32 noundef 10242, i32 noundef 33071) #3
@@ -280,9 +280,9 @@ OGLSD_NextPowerOfTwo.exit69.thread:               ; preds = %OGLSD_NextPowerOfTw
 ; Function Attrs: nounwind uwtable
 define hidden void @OGLSD_SetNativeDimensions(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 200
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 200
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %9 = load ptr, ptr %8, align 8
   %10 = tail call ptr %7(ptr noundef nonnull %0, ptr noundef %9) #3
   %11 = icmp eq ptr %10, null
@@ -291,7 +291,7 @@ define hidden void @OGLSD_SetNativeDimensions(ptr noundef %0, ptr nocapture noun
 12:                                               ; preds = %4
   tail call void (ptr, ptr, ptr, ptr, ptr, ...) @JNU_SetFieldByName(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull %10, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, i32 noundef %2) #3
   %13 = load ptr, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 120
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 120
   %15 = load ptr, ptr %14, align 8
   %16 = tail call ptr %15(ptr noundef nonnull %0) #3
   %.not = icmp eq ptr %16, null
@@ -303,7 +303,7 @@ define hidden void @OGLSD_SetNativeDimensions(ptr noundef %0, ptr nocapture noun
 
 18:                                               ; preds = %17, %12
   %19 = load ptr, ptr %0, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 184
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 184
   %21 = load ptr, ptr %20, align 8
   tail call void %21(ptr noundef nonnull %0, ptr noundef nonnull %10) #3
   br label %22
@@ -327,7 +327,7 @@ define hidden zeroext range(i8 0, 2) i8 @OGLSD_InitFBObject(ptr nocapture nounde
 
 13:                                               ; preds = %6, %28
   %indvars.iv = phi i64 [ 0, %6 ], [ %indvars.iv.next, %28 ]
-  %14 = getelementptr inbounds [3 x i32], ptr @__const.OGLSD_InitFBObject.depthFormats, i64 0, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [3 x i32], ptr @__const.OGLSD_InitFBObject.depthFormats, i64 0, i64 %indvars.iv
   %15 = load i32, ptr %14, align 4
   %16 = load ptr, ptr @j2d_glGenRenderbuffersEXT, align 8
   call void %16(i32 noundef 1, ptr noundef nonnull %8) #3
@@ -409,13 +409,13 @@ define zeroext range(i8 0, 2) i8 @Java_sun_java2d_opengl_OGLSurfaceData_initFBOb
   br label %55
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %11, i64 100
+  %18 = getelementptr inbounds nuw i8, ptr %11, i64 100
   %19 = load i32, ptr %18, align 4
-  %20 = getelementptr inbounds i8, ptr %11, i64 112
+  %20 = getelementptr inbounds nuw i8, ptr %11, i64 112
   %21 = load i32, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %11, i64 104
+  %22 = getelementptr inbounds nuw i8, ptr %11, i64 104
   %23 = load i32, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %11, i64 108
+  %24 = getelementptr inbounds nuw i8, ptr %11, i64 108
   %25 = load i32, ptr %24, align 4
   %26 = call zeroext i8 @OGLSD_InitFBObject(ptr noundef nonnull %9, ptr noundef nonnull %10, i32 noundef %19, i32 noundef %21, i32 noundef %23, i32 noundef %25)
   %.not22 = icmp eq i8 %26, 0
@@ -428,20 +428,20 @@ define zeroext range(i8 0, 2) i8 @Java_sun_java2d_opengl_OGLSurfaceData_initFBOb
   br label %55
 
 29:                                               ; preds = %17
-  %30 = getelementptr inbounds i8, ptr %11, i64 72
+  %30 = getelementptr inbounds nuw i8, ptr %11, i64 72
   store i32 5, ptr %30, align 8
   %31 = load i32, ptr %9, align 4
-  %32 = getelementptr inbounds i8, ptr %11, i64 120
+  %32 = getelementptr inbounds nuw i8, ptr %11, i64 120
   store i32 %31, ptr %32, align 8
   %33 = load i32, ptr %10, align 4
-  %34 = getelementptr inbounds i8, ptr %11, i64 124
+  %34 = getelementptr inbounds nuw i8, ptr %11, i64 124
   store i32 %33, ptr %34, align 4
   %35 = load i32, ptr %22, align 8
   %36 = load i32, ptr %24, align 4
   %37 = load ptr, ptr %0, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 200
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 200
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %11, i64 48
+  %40 = getelementptr inbounds nuw i8, ptr %11, i64 48
   %41 = load ptr, ptr %40, align 8
   %42 = tail call ptr %39(ptr noundef nonnull %0, ptr noundef %41) #3
   %43 = icmp eq ptr %42, null
@@ -450,7 +450,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_java2d_opengl_OGLSurfaceData_initFBOb
 44:                                               ; preds = %29
   tail call void (ptr, ptr, ptr, ptr, ptr, ...) @JNU_SetFieldByName(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull %42, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, i32 noundef %35) #3
   %45 = load ptr, ptr %0, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 120
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 120
   %47 = load ptr, ptr %46, align 8
   %48 = tail call ptr %47(ptr noundef nonnull %0) #3
   %.not.i = icmp eq ptr %48, null
@@ -462,13 +462,13 @@ define zeroext range(i8 0, 2) i8 @Java_sun_java2d_opengl_OGLSurfaceData_initFBOb
 
 50:                                               ; preds = %49, %44
   %51 = load ptr, ptr %0, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 184
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 184
   %53 = load ptr, ptr %52, align 8
   tail call void %53(ptr noundef nonnull %0, ptr noundef nonnull %42) #3
   br label %OGLSD_SetNativeDimensions.exit
 
 OGLSD_SetNativeDimensions.exit:                   ; preds = %29, %50
-  %54 = getelementptr inbounds i8, ptr %11, i64 76
+  %54 = getelementptr inbounds nuw i8, ptr %11, i64 76
   store i32 36064, ptr %54, align 4
   br label %55
 
@@ -488,7 +488,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_java2d_opengl_OGLSurfaceData_initFlip
   br label %OGLSD_SetNativeDimensions.exit
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %4, i64 72
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %9 = load i32, ptr %8, align 8
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %11, label %14
@@ -517,16 +517,16 @@ thread-pre-split:                                 ; preds = %11
 
 17:                                               ; preds = %14
   store i32 4, ptr %8, align 8
-  %18 = getelementptr inbounds i8, ptr %4, i64 76
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 76
   store i32 1026, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %4, i64 92
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 92
   %20 = load i32, ptr %19, align 4
-  %21 = getelementptr inbounds i8, ptr %4, i64 96
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 96
   %22 = load i32, ptr %21, align 8
   %23 = load ptr, ptr %0, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 200
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 200
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %4, i64 48
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %27 = load ptr, ptr %26, align 8
   %28 = tail call ptr %25(ptr noundef nonnull %0, ptr noundef %27) #3
   %29 = icmp eq ptr %28, null
@@ -535,7 +535,7 @@ thread-pre-split:                                 ; preds = %11
 30:                                               ; preds = %17
   tail call void (ptr, ptr, ptr, ptr, ptr, ...) @JNU_SetFieldByName(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull %28, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, i32 noundef %20) #3
   %31 = load ptr, ptr %0, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 120
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 120
   %33 = load ptr, ptr %32, align 8
   %34 = tail call ptr %33(ptr noundef nonnull %0) #3
   %.not.i = icmp eq ptr %34, null
@@ -547,7 +547,7 @@ thread-pre-split:                                 ; preds = %11
 
 36:                                               ; preds = %35, %30
   %37 = load ptr, ptr %0, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 184
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 184
   %39 = load ptr, ptr %38, align 8
   tail call void %39(ptr noundef nonnull %0, ptr noundef nonnull %28) #3
   br label %OGLSD_SetNativeDimensions.exit
@@ -570,7 +570,7 @@ define i32 @Java_sun_java2d_opengl_OGLSurfaceData_getTextureTarget(ptr nocapture
 
 6:                                                ; preds = %3
   %7 = inttoptr i64 %2 to ptr
-  %8 = getelementptr inbounds i8, ptr %7, i64 112
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 112
   %9 = load i32, ptr %8, align 8
   br label %10
 
@@ -590,7 +590,7 @@ define i32 @Java_sun_java2d_opengl_OGLSurfaceData_getTextureID(ptr nocapture nou
 
 6:                                                ; preds = %3
   %7 = inttoptr i64 %2 to ptr
-  %8 = getelementptr inbounds i8, ptr %7, i64 100
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 100
   %9 = load i32, ptr %8, align 4
   br label %10
 
@@ -603,7 +603,7 @@ declare void @JNU_SetFieldByName(ptr noundef, ptr noundef, ptr noundef, ptr noun
 
 ; Function Attrs: nounwind uwtable
 define hidden void @OGLSD_Delete(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 72
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load i32, ptr %3, align 8
   switch i32 %4, label %25 [
     i32 3, label %5
@@ -611,7 +611,7 @@ define hidden void @OGLSD_Delete(ptr noundef %0, ptr noundef %1) local_unnamed_a
   ]
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 100
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 100
   %7 = load i32, ptr %6, align 4
   %.not18 = icmp eq i32 %7, 0
   br i1 %.not18, label %26, label %8
@@ -623,7 +623,7 @@ define hidden void @OGLSD_Delete(ptr noundef %0, ptr noundef %1) local_unnamed_a
   br label %26
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %1, i64 100
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 100
   %12 = load i32, ptr %11, align 4
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %15, label %13
@@ -635,7 +635,7 @@ define hidden void @OGLSD_Delete(ptr noundef %0, ptr noundef %1) local_unnamed_a
   br label %15
 
 15:                                               ; preds = %13, %10
-  %16 = getelementptr inbounds i8, ptr %1, i64 124
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 124
   %17 = load i32, ptr %16, align 4
   %.not16 = icmp eq i32 %17, 0
   br i1 %.not16, label %20, label %18
@@ -647,7 +647,7 @@ define hidden void @OGLSD_Delete(ptr noundef %0, ptr noundef %1) local_unnamed_a
   br label %20
 
 20:                                               ; preds = %18, %15
-  %21 = getelementptr inbounds i8, ptr %1, i64 120
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %22 = load i32, ptr %21, align 8
   %.not17 = icmp eq i32 %22, 0
   br i1 %.not17, label %26, label %23
@@ -670,12 +670,12 @@ declare void @OGLSD_DestroyOGLSurface(ptr noundef, ptr noundef) local_unnamed_ad
 
 ; Function Attrs: nounwind uwtable
 define hidden void @OGLSD_Dispose(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 64
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %4 = load ptr, ptr %3, align 8
   %5 = ptrtoint ptr %1 to i64
   %6 = tail call i64 (ptr, ptr, ptr, ptr, ptr, ...) @JNU_CallStaticMethodByName(ptr noundef %0, ptr noundef null, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16, i64 noundef %5, ptr noundef %4) #3
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 176
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 176
   %9 = load ptr, ptr %8, align 8
   tail call void %9(ptr noundef nonnull %0, ptr noundef %4) #3
   store ptr null, ptr %3, align 8

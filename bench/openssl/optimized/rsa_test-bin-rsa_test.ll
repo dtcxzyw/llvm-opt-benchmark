@@ -150,7 +150,7 @@ for.cond26.preheader:                             ; preds = %if.end20, %for.cond
 for.body:                                         ; preds = %for.cond.preheader, %if.end20
   %indvars.iv = phi i64 [ %indvars.iv.next, %if.end20 ], [ 0, %for.cond.preheader ]
   %4 = phi i32 [ %10, %if.end20 ], [ %2, %for.cond.preheader ]
-  %arrayidx = getelementptr inbounds [256 x i8], ptr %ctext_ex, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [256 x i8], ptr %ctext_ex, i64 0, i64 %indvars.iv
   %5 = load i8, ptr %arrayidx, align 1
   %6 = xor i8 %5, 1
   store i8 %6, ptr %arrayidx, align 1
@@ -199,7 +199,7 @@ entry:
   %idxprom = sext i32 %n to i64
   %arrayidx = getelementptr inbounds [17 x %struct.anon], ptr @rsa_security_bits_cases, i64 0, i64 %idxprom
   %0 = load i32, ptr %arrayidx, align 8
-  %r = getelementptr inbounds i8, ptr %arrayidx, i64 4
+  %r = getelementptr inbounds nuw i8, ptr %arrayidx, i64 4
   %1 = load i32, ptr %r, align 4
   %add = add nsw i32 %0, 7
   %div = sdiv i32 %add, 8

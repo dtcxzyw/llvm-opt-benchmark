@@ -50,7 +50,7 @@ define dso_local i32 @main(i32 noundef %0, ptr nocapture noundef readonly %1) lo
 .lr.ph67:                                         ; preds = %14, %36
   %.05765 = phi i32 [ %37, %36 ], [ 1, %14 ]
   %16 = zext nneg i32 %.05765 to i64
-  %17 = getelementptr inbounds ptr, ptr %1, i64 %16
+  %17 = getelementptr inbounds nuw ptr, ptr %1, i64 %16
   %18 = load ptr, ptr %17, align 8
   %19 = tail call ptr @JLI_PreprocessArg(ptr noundef %18, i8 noundef zeroext 1) #3
   %20 = icmp eq ptr %19, null
@@ -63,7 +63,7 @@ define dso_local i32 @main(i32 noundef %0, ptr nocapture noundef readonly %1) lo
   br label %36
 
 24:                                               ; preds = %.lr.ph67
-  %25 = getelementptr inbounds i8, ptr %19, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %26 = load i64, ptr %25, align 8
   %27 = trunc i64 %26 to i32
   %28 = icmp sgt i32 %27, 0
@@ -73,7 +73,7 @@ define dso_local i32 @main(i32 noundef %0, ptr nocapture noundef readonly %1) lo
   %.064 = phi i32 [ %33, %.lr.ph ], [ 0, %24 ]
   %29 = load ptr, ptr %19, align 8
   %30 = zext nneg i32 %.064 to i64
-  %31 = getelementptr inbounds ptr, ptr %29, i64 %30
+  %31 = getelementptr inbounds nuw ptr, ptr %29, i64 %30
   %32 = load ptr, ptr %31, align 8
   tail call void @JLI_List_add(ptr noundef %5, ptr noundef %32) #3
   %33 = add nuw nsw i32 %.064, 1
@@ -92,7 +92,7 @@ define dso_local i32 @main(i32 noundef %0, ptr nocapture noundef readonly %1) lo
   br i1 %38, label %.lr.ph67, label %._crit_edge68, !llvm.loop !9
 
 ._crit_edge68:                                    ; preds = %36, %14
-  %39 = getelementptr inbounds i8, ptr %5, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %40 = load i64, ptr %39, align 8
   tail call void @JLI_List_add(ptr noundef %5, ptr noundef null) #3
   %41 = load ptr, ptr %5, align 8

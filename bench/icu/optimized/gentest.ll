@@ -69,7 +69,7 @@ if.end.thread:                                    ; preds = %entry
   %0 = load ptr, ptr @stderr, align 8
   %sub = sub nsw i32 0, %call1
   %idxprom = zext nneg i32 %sub to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %argv, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %argv, i64 %idxprom
   %1 = load ptr, ptr %arrayidx, align 8
   %call2 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef %1) #10
   br label %if.then7

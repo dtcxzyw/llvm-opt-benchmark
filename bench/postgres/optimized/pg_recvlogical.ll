@@ -195,13 +195,13 @@ sub_0:                                            ; preds = %18
   br i1 %.not137, label %sub_1, label %.tail90.thread
 
 sub_1:                                            ; preds = %sub_0
-  %24 = getelementptr inbounds i8, ptr %20, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %20, i64 1
   %25 = load i8, ptr %24, align 1
   %.not138 = icmp eq i8 %25, 63
   br i1 %.not138, label %.tail, label %sub_192
 
 .tail:                                            ; preds = %sub_1
-  %26 = getelementptr inbounds i8, ptr %20, i64 2
+  %26 = getelementptr inbounds nuw i8, ptr %20, i64 2
   %27 = load i8, ptr %26, align 1
   %28 = icmp eq i8 %27, 0
   br i1 %28, label %29, label %sub_192
@@ -212,13 +212,13 @@ sub_1:                                            ; preds = %sub_0
   unreachable
 
 sub_192:                                          ; preds = %.tail, %sub_1
-  %30 = getelementptr inbounds i8, ptr %20, i64 1
+  %30 = getelementptr inbounds nuw i8, ptr %20, i64 1
   %31 = load i8, ptr %30, align 1
   %.not140 = icmp eq i8 %31, 86
   br i1 %.not140, label %.tail90, label %.tail90.thread
 
 .tail90:                                          ; preds = %sub_192
-  %32 = getelementptr inbounds i8, ptr %20, i64 2
+  %32 = getelementptr inbounds nuw i8, ptr %20, i64 2
   %33 = load i8, ptr %32, align 1
   %34 = icmp eq i8 %33, 0
   br i1 %34, label %37, label %.tail90.thread
@@ -682,8 +682,8 @@ sub_192:                                          ; preds = %.tail, %sub_1
   br i1 %.b3161, label %.preheader, label %211
 
 .preheader:                                       ; preds = %208
-  %209 = getelementptr inbounds i8, ptr %4, i64 24
-  %210 = getelementptr inbounds i8, ptr %6, i64 8
+  %209 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %210 = getelementptr inbounds nuw i8, ptr %6, i64 8
   br label %212
 
 211:                                              ; preds = %208
@@ -905,7 +905,7 @@ sub_0.i:                                          ; preds = %297
   br i1 %.not233.i, label %.tail.i, label %.tail.thread.i
 
 .tail.i:                                          ; preds = %sub_0.i
-  %301 = getelementptr inbounds i8, ptr %299, i64 1
+  %301 = getelementptr inbounds nuw i8, ptr %299, i64 1
   %302 = load i8, ptr %301, align 1
   %303 = icmp eq i8 %302, 0
   br i1 %303, label %319, label %.tail.thread.i
@@ -960,7 +960,7 @@ sub_0163.i:                                       ; preds = %OutputFsync.exit157
   br i1 %.not234.i, label %.tail162.i, label %.tail162.thread.i
 
 .tail162.i:                                       ; preds = %sub_0163.i
-  %321 = getelementptr inbounds i8, ptr %.pre302.i, i64 1
+  %321 = getelementptr inbounds nuw i8, ptr %.pre302.i, i64 1
   %322 = load i8, ptr %321, align 1
   %323 = icmp eq i8 %322, 0
   br i1 %323, label %324, label %.tail162.thread.i
@@ -1479,7 +1479,7 @@ sub_0167.i:                                       ; preds = %557
   br i1 %.not235.i, label %.tail166.i, label %.tail166.thread.i
 
 .tail166.i:                                       ; preds = %sub_0167.i
-  %561 = getelementptr inbounds i8, ptr %559, i64 1
+  %561 = getelementptr inbounds nuw i8, ptr %559, i64 1
   %562 = load i8, ptr %561, align 1
   %563 = icmp eq i8 %562, 0
   br i1 %563, label %581, label %.tail166.thread.i
@@ -1748,16 +1748,16 @@ define internal fastcc noundef zeroext i1 @sendFeedback(ptr noundef %0, i64 noun
 15:                                               ; preds = %5, %2
   store i8 114, ptr %3, align 16
   %16 = load i64, ptr @output_written_lsn, align 8
-  %17 = getelementptr inbounds i8, ptr %3, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 1
   call void @fe_sendint64(i64 noundef %16, ptr noundef nonnull %17) #13
   %18 = load i64, ptr @output_fsync_lsn, align 8
-  %19 = getelementptr inbounds i8, ptr %3, i64 9
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 9
   call void @fe_sendint64(i64 noundef %18, ptr noundef nonnull %19) #13
-  %20 = getelementptr inbounds i8, ptr %3, i64 17
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 17
   call void @fe_sendint64(i64 noundef 0, ptr noundef nonnull %20) #13
-  %21 = getelementptr inbounds i8, ptr %3, i64 25
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 25
   call void @fe_sendint64(i64 noundef %1, ptr noundef nonnull %21) #13
-  %22 = getelementptr inbounds i8, ptr %3, i64 33
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 33
   store i8 0, ptr %22, align 1
   %23 = load i64, ptr @output_written_lsn, align 8
   store i64 %23, ptr @startpos, align 8

@@ -12,41 +12,41 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @opal_datatype_construct(ptr nocapture noundef writeonly initializes((16, 200)) %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i16 16, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 18
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 18
   store i16 0, ptr %4, align 2
-  %5 = getelementptr inbounds i8, ptr %0, i64 20
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 0, ptr %5, align 4
   store i64 0, ptr %2, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 9223372036854775807, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 -9223372036854775808, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 9223372036854775807, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 -9223372036854775808, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 1, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i64 0, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 76
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 76
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(124) %12, i8 0, i64 124, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define internal void @opal_datatype_destruct(ptr nocapture noundef initializes((80, 81)) %0) #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 168
-  %3 = getelementptr inbounds i8, ptr %0, i64 184
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %10, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 160
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %7 = load ptr, ptr %6, align 8
   %.not19 = icmp eq ptr %4, %7
   br i1 %.not19, label %9, label %8
@@ -67,19 +67,19 @@ define internal void @opal_datatype_destruct(ptr nocapture noundef initializes((
   br i1 %.not20, label %13, label %18
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %0, i64 160
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %15 = load ptr, ptr %14, align 8
   %.not21 = icmp eq ptr %15, null
   br i1 %.not21, label %18, label %16
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %0, i64 144
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 144
   tail call void @free(ptr noundef nonnull %15) #9
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, i8 0, i64 24, i1 false)
   br label %18
 
 18:                                               ; preds = %13, %16, %10
-  %19 = getelementptr inbounds i8, ptr %0, i64 192
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %20 = load ptr, ptr %19, align 8
   %.not22 = icmp eq ptr %20, null
   br i1 %.not22, label %24, label %21
@@ -96,7 +96,7 @@ define internal void @opal_datatype_destruct(ptr nocapture noundef initializes((
   br label %24
 
 24:                                               ; preds = %23, %21, %18
-  %25 = getelementptr inbounds i8, ptr %0, i64 80
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i8 0, ptr %25, align 8
   ret void
 }
@@ -120,9 +120,9 @@ define noundef ptr @opal_datatype_create(i32 noundef %0) local_unnamed_addr #2 {
 
 8:                                                ; preds = %7
   store ptr @opal_datatype_t_class, ptr %3, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store volatile i32 1, ptr %9, align 8
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_datatype_t_class, i64 40), align 8
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_datatype_t_class, i64 40), align 8
   %11 = load ptr, ptr %10, align 8
   %.not6.i.i = icmp eq ptr %11, null
   br i1 %.not6.i.i, label %opal_obj_new.exit, label %.lr.ph.i.i
@@ -131,7 +131,7 @@ define noundef ptr @opal_datatype_create(i32 noundef %0) local_unnamed_addr #2 {
   %12 = phi ptr [ %14, %.lr.ph.i.i ], [ %11, %8 ]
   %.07.i.i = phi ptr [ %13, %.lr.ph.i.i ], [ %10, %8 ]
   tail call void %12(ptr noundef nonnull %3) #9
-  %13 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %.07.i.i, i64 8
   %14 = load ptr, ptr %13, align 8
   %.not.i.i = icmp eq ptr %14, null
   br i1 %.not.i.i, label %opal_obj_new.exit, label %.lr.ph.i.i, !llvm.loop !4
@@ -141,14 +141,14 @@ opal_obj_new.exit:                                ; preds = %.lr.ph.i.i, %7, %8
   %16 = add nuw nsw i32 %0, 1
   %17 = select i1 %15, i32 9, i32 %16
   %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds i8, ptr %3, i64 144
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 144
   store i64 %18, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %3, i64 152
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 152
   store i64 0, ptr %20, align 8
   %21 = tail call noalias ptr @calloc(i64 noundef %18, i64 noundef 32) #11
-  %22 = getelementptr inbounds i8, ptr %3, i64 160
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 160
   store ptr %21, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %3, i64 80
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %23, i8 0, i64 64, i1 false)
   ret ptr %3
 }
@@ -165,12 +165,12 @@ define noundef range(i32 -2, 1) i32 @opal_datatype_create_desc(ptr nocapture nou
   %4 = add nuw nsw i32 %1, 1
   %5 = select i1 %3, i32 9, i32 %4
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds i8, ptr %0, i64 144
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i64 %6, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 152
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store i64 0, ptr %8, align 8
   %9 = tail call noalias ptr @calloc(i64 noundef %6, i64 noundef 32) #11
-  %10 = getelementptr inbounds i8, ptr %0, i64 160
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store ptr %9, ptr %10, align 8
   %11 = icmp eq ptr %9, null
   %. = select i1 %11, i32 -2, i32 0

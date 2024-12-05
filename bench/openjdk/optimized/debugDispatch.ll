@@ -52,39 +52,39 @@ define hidden void @debugDispatch_initialize() local_unnamed_addr #0 {
 6:                                                ; preds = %3, %0
   %7 = phi ptr [ %.pre, %3 ], [ %1, %0 ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %7, i8 0, i64 64, i1 false)
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr @VirtualMachine_CmdSet, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %7, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr @ReferenceType_CmdSet, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %7, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr @ClassType_CmdSet, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %7, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store ptr @InterfaceType_CmdSet, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %7, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr @ArrayType_CmdSet, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %7, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 64
   store ptr @Field_CmdSet, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %7, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 48
   store ptr @Method_CmdSet, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %7, i64 72
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 72
   store ptr @ObjectReference_CmdSet, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %7, i64 80
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 80
   store ptr @StringReference_CmdSet, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %7, i64 88
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 88
   store ptr @ThreadReference_CmdSet, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %7, i64 96
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 96
   store ptr @ThreadGroupReference_CmdSet, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %7, i64 112
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 112
   store ptr @ClassLoaderReference_CmdSet, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %7, i64 104
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 104
   store ptr @ArrayReference_CmdSet, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %7, i64 120
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 120
   store ptr @EventRequest_CmdSet, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %7, i64 128
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 128
   store ptr @StackFrame_CmdSet, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %7, i64 136
+  %23 = getelementptr inbounds nuw i8, ptr %7, i64 136
   store ptr @ClassObjectReference_CmdSet, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %7, i64 144
+  %24 = getelementptr inbounds nuw i8, ptr %7, i64 144
   store ptr @ModuleReference_CmdSet, ptr %24, align 8
   ret void
 }
@@ -121,7 +121,7 @@ define hidden ptr @debugDispatch_getHandler(i32 noundef %0, i32 noundef %1, ptr 
   br i1 %11, label %28, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %10, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %14 = load ptr, ptr %13, align 8
   store ptr %14, ptr %2, align 8
   %15 = load i32, ptr %10, align 8
@@ -133,7 +133,7 @@ define hidden ptr @debugDispatch_getHandler(i32 noundef %0, i32 noundef %1, ptr 
   br label %28
 
 18:                                               ; preds = %12
-  %19 = getelementptr inbounds i8, ptr %10, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %20 = load ptr, ptr %19, align 8
   %21 = add nsw i32 %1, -1
   %22 = sext i32 %21 to i64

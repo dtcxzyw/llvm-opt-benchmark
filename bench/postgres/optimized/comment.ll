@@ -22,15 +22,15 @@ define dso_local { i64, i32 } @CommentObject(ptr nocapture noundef readonly %0) 
   %.sroa.020.0.copyload = load i64, ptr @InvalidObjectAddress, align 4
   %.sroa.020.sroa.6.0.extract.shift34 = lshr i64 %.sroa.020.0.copyload, 32
   %.sroa.8.0.copyload = load i32, ptr getelementptr inbounds (i8, ptr @InvalidObjectAddress, i64 8), align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, 9
   br i1 %5, label %6, label %17
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 @get_database_oid(ptr noundef %10, i1 noundef zeroext true) #5
   %.not = icmp eq i32 %11, 0
@@ -52,7 +52,7 @@ define dso_local { i64, i32 } @CommentObject(ptr nocapture noundef readonly %0) 
 
 17:                                               ; preds = %._crit_edge, %1
   %18 = phi i32 [ %.pre, %._crit_edge ], [ %4, %1 ]
-  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = call { i64, i32 } @get_object_address(i32 noundef %18, ptr noundef %20, ptr noundef nonnull %2, i32 noundef 4, i1 noundef zeroext false) #5
   %.fca.0.extract = extractvalue { i64, i32 } %21, 0
@@ -75,9 +75,9 @@ define dso_local { i64, i32 } @CommentObject(ptr nocapture noundef readonly %0) 
 
 27:                                               ; preds = %17
   %28 = load ptr, ptr %2, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 56
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 56
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 115
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 115
   %32 = load i8, ptr %31, align 1
   switch i8 %32, label %33 [
     i8 114, label %.thread
@@ -93,27 +93,27 @@ define dso_local { i64, i32 } @CommentObject(ptr nocapture noundef readonly %0) 
   call void @llvm.assume(i1 %34)
   %35 = call i32 @errcode(i32 noundef 151027844) #5
   %36 = load ptr, ptr %2, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 56
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 56
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 4
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 4
   %40 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, ptr noundef nonnull %39) #5
   %41 = load ptr, ptr %2, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 56
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 56
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 115
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 115
   %45 = load i8, ptr %44, align 1
   %46 = call i32 @errdetail_relkind_not_supported(i8 noundef signext %45) #5
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 103, ptr noundef nonnull @__func__.CommentObject) #5
   unreachable
 
 47:                                               ; preds = %17, %17, %17
-  %48 = getelementptr inbounds i8, ptr %0, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %49 = load ptr, ptr %48, align 8
   call void @CreateSharedComments(i32 noundef %.sroa.020.sroa.6.0.extract.trunc, i32 noundef %.sroa.020.sroa.0.0.extract.trunc, ptr noundef %49)
   br label %52
 
 .thread:                                          ; preds = %17, %27, %27, %27, %27, %27, %27
-  %50 = getelementptr inbounds i8, ptr %0, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %51 = load ptr, ptr %50, align 8
   call void @CreateComments(i32 noundef %.sroa.020.sroa.6.0.extract.trunc, i32 noundef %.sroa.020.sroa.0.0.extract.trunc, i32 noundef %.fca.1.extract, ptr noundef %51)
   br label %52
@@ -180,11 +180,11 @@ define dso_local void @CreateSharedComments(i32 noundef %0, i32 noundef %1, ptr 
   %10 = zext i32 %0 to i64
   store i64 %10, ptr %5, align 16
   %11 = zext i32 %1 to i64
-  %12 = getelementptr inbounds i8, ptr %5, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %11, ptr %12, align 8
   %13 = tail call ptr @cstring_to_text(ptr noundef nonnull %2) #5
   %14 = ptrtoint ptr %13 to i64
-  %15 = getelementptr inbounds i8, ptr %5, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 %14, ptr %15, align 16
   br label %.thread
 
@@ -193,7 +193,7 @@ define dso_local void @CreateSharedComments(i32 noundef %0, i32 noundef %1, ptr 
   %.03239 = phi i1 [ false, %.preheader.preheader ], [ true, %3 ], [ true, %8 ]
   %17 = zext i32 %0 to i64
   call void @ScanKeyInit(ptr noundef nonnull %4, i16 noundef signext 1, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %17) #5
-  %18 = getelementptr inbounds i8, ptr %4, i64 72
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %19 = zext i32 %1 to i64
   call void @ScanKeyInit(ptr noundef nonnull %18, i16 noundef signext 2, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %19) #5
   %20 = call ptr @table_open(i32 noundef 2396, i32 noundef 3) #5
@@ -206,15 +206,15 @@ define dso_local void @CreateSharedComments(i32 noundef %0, i32 noundef %1, ptr 
   br i1 %.03239, label %24, label %26
 
 24:                                               ; preds = %23
-  %25 = getelementptr inbounds i8, ptr %22, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %22, i64 4
   call void @CatalogTupleDelete(ptr noundef %20, ptr noundef nonnull %25) #5
   br label %31
 
 26:                                               ; preds = %23
-  %27 = getelementptr inbounds i8, ptr %20, i64 64
+  %27 = getelementptr inbounds nuw i8, ptr %20, i64 64
   %28 = load ptr, ptr %27, align 8
   %29 = call ptr @heap_modify_tuple(ptr noundef nonnull %22, ptr noundef %28, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #5
-  %30 = getelementptr inbounds i8, ptr %22, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %22, i64 4
   call void @CatalogTupleUpdate(ptr noundef %20, ptr noundef nonnull %30, ptr noundef %29) #5
   br label %31
 
@@ -226,7 +226,7 @@ define dso_local void @CreateSharedComments(i32 noundef %0, i32 noundef %1, ptr 
   br i1 %or.cond, label %33, label %37
 
 33:                                               ; preds = %31
-  %34 = getelementptr inbounds i8, ptr %20, i64 64
+  %34 = getelementptr inbounds nuw i8, ptr %20, i64 64
   %35 = load ptr, ptr %34, align 8
   %36 = call ptr @heap_form_tuple(ptr noundef %35, ptr noundef nonnull %5, ptr noundef nonnull %6) #5
   call void @CatalogTupleInsert(ptr noundef %20, ptr noundef %36) #5
@@ -266,14 +266,14 @@ define dso_local void @CreateComments(i32 noundef %0, i32 noundef %1, i32 nounde
   %11 = zext i32 %0 to i64
   store i64 %11, ptr %6, align 16
   %12 = zext i32 %1 to i64
-  %13 = getelementptr inbounds i8, ptr %6, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %12, ptr %13, align 8
   %14 = sext i32 %2 to i64
-  %15 = getelementptr inbounds i8, ptr %6, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 %14, ptr %15, align 16
   %16 = tail call ptr @cstring_to_text(ptr noundef nonnull %3) #5
   %17 = ptrtoint ptr %16 to i64
-  %18 = getelementptr inbounds i8, ptr %6, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 %17, ptr %18, align 8
   br label %.thread
 
@@ -282,10 +282,10 @@ define dso_local void @CreateComments(i32 noundef %0, i32 noundef %1, i32 nounde
   %.03441 = phi i1 [ false, %.preheader.preheader ], [ true, %4 ], [ true, %9 ]
   %20 = zext i32 %0 to i64
   call void @ScanKeyInit(ptr noundef nonnull %5, i16 noundef signext 1, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %20) #5
-  %21 = getelementptr inbounds i8, ptr %5, i64 72
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %22 = zext i32 %1 to i64
   call void @ScanKeyInit(ptr noundef nonnull %21, i16 noundef signext 2, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %22) #5
-  %23 = getelementptr inbounds i8, ptr %5, i64 144
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 144
   %24 = sext i32 %2 to i64
   call void @ScanKeyInit(ptr noundef nonnull %23, i16 noundef signext 3, i16 noundef zeroext 3, i32 noundef 65, i64 noundef %24) #5
   %25 = call ptr @table_open(i32 noundef 2609, i32 noundef 3) #5
@@ -298,15 +298,15 @@ define dso_local void @CreateComments(i32 noundef %0, i32 noundef %1, i32 nounde
   br i1 %.03441, label %29, label %31
 
 29:                                               ; preds = %28
-  %30 = getelementptr inbounds i8, ptr %27, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 4
   call void @CatalogTupleDelete(ptr noundef %25, ptr noundef nonnull %30) #5
   br label %36
 
 31:                                               ; preds = %28
-  %32 = getelementptr inbounds i8, ptr %25, i64 64
+  %32 = getelementptr inbounds nuw i8, ptr %25, i64 64
   %33 = load ptr, ptr %32, align 8
   %34 = call ptr @heap_modify_tuple(ptr noundef nonnull %27, ptr noundef %33, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8) #5
-  %35 = getelementptr inbounds i8, ptr %27, i64 4
+  %35 = getelementptr inbounds nuw i8, ptr %27, i64 4
   call void @CatalogTupleUpdate(ptr noundef %25, ptr noundef nonnull %35, ptr noundef %34) #5
   br label %36
 
@@ -318,7 +318,7 @@ define dso_local void @CreateComments(i32 noundef %0, i32 noundef %1, i32 nounde
   br i1 %or.cond, label %38, label %42
 
 38:                                               ; preds = %36
-  %39 = getelementptr inbounds i8, ptr %25, i64 64
+  %39 = getelementptr inbounds nuw i8, ptr %25, i64 64
   %40 = load ptr, ptr %39, align 8
   %41 = call ptr @heap_form_tuple(ptr noundef %40, ptr noundef nonnull %6, ptr noundef nonnull %7) #5
   call void @CatalogTupleInsert(ptr noundef %25, ptr noundef %41) #5
@@ -371,14 +371,14 @@ define dso_local void @DeleteComments(i32 noundef %0, i32 noundef %1, i32 nounde
   %4 = alloca [3 x %struct.ScanKeyData], align 16
   %5 = zext i32 %0 to i64
   call void @ScanKeyInit(ptr noundef nonnull %4, i16 noundef signext 1, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %5) #5
-  %6 = getelementptr inbounds i8, ptr %4, i64 72
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %7 = zext i32 %1 to i64
   call void @ScanKeyInit(ptr noundef nonnull %6, i16 noundef signext 2, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %7) #5
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %11, label %8
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %4, i64 144
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 144
   %10 = sext i32 %2 to i64
   call void @ScanKeyInit(ptr noundef nonnull %9, i16 noundef signext 3, i16 noundef zeroext 3, i32 noundef 65, i64 noundef %10) #5
   br label %11
@@ -393,7 +393,7 @@ define dso_local void @DeleteComments(i32 noundef %0, i32 noundef %1, i32 nounde
 
 .lr.ph:                                           ; preds = %11, %.lr.ph
   %15 = phi ptr [ %17, %.lr.ph ], [ %14, %11 ]
-  %16 = getelementptr inbounds i8, ptr %15, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
   call void @CatalogTupleDelete(ptr noundef %12, ptr noundef nonnull %16) #5
   %17 = call ptr @systable_getnext(ptr noundef %13) #5
   %.not12 = icmp eq ptr %17, null
@@ -410,7 +410,7 @@ define dso_local void @DeleteSharedComments(i32 noundef %0, i32 noundef %1) loca
   %3 = alloca [2 x %struct.ScanKeyData], align 16
   %4 = zext i32 %0 to i64
   call void @ScanKeyInit(ptr noundef nonnull %3, i16 noundef signext 1, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %4) #5
-  %5 = getelementptr inbounds i8, ptr %3, i64 72
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %6 = zext i32 %1 to i64
   call void @ScanKeyInit(ptr noundef nonnull %5, i16 noundef signext 2, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %6) #5
   %7 = call ptr @table_open(i32 noundef 2396, i32 noundef 3) #5
@@ -421,7 +421,7 @@ define dso_local void @DeleteSharedComments(i32 noundef %0, i32 noundef %1) loca
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %10 = phi ptr [ %12, %.lr.ph ], [ %9, %2 ]
-  %11 = getelementptr inbounds i8, ptr %10, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
   call void @CatalogTupleDelete(ptr noundef %7, ptr noundef nonnull %11) #5
   %12 = call ptr @systable_getnext(ptr noundef %8) #5
   %.not = icmp eq ptr %12, null
@@ -439,14 +439,14 @@ define dso_local ptr @GetComment(i32 noundef %0, i32 noundef %1, i32 noundef %2)
   %5 = alloca i8, align 1
   %6 = zext i32 %0 to i64
   call void @ScanKeyInit(ptr noundef nonnull %4, i16 noundef signext 1, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %6) #5
-  %7 = getelementptr inbounds i8, ptr %4, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %8 = zext i32 %1 to i64
   call void @ScanKeyInit(ptr noundef nonnull %7, i16 noundef signext 2, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %8) #5
-  %9 = getelementptr inbounds i8, ptr %4, i64 144
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 144
   %10 = sext i32 %2 to i64
   call void @ScanKeyInit(ptr noundef nonnull %9, i16 noundef signext 3, i16 noundef zeroext 3, i32 noundef 65, i64 noundef %10) #5
   %11 = call ptr @table_open(i32 noundef 2609, i32 noundef 1) #5
-  %12 = getelementptr inbounds i8, ptr %11, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 64
   %13 = load ptr, ptr %12, align 8
   %14 = call ptr @systable_beginscan(ptr noundef %11, i32 noundef 2675, i1 noundef zeroext true, ptr noundef null, i32 noundef 3, ptr noundef nonnull %4) #5
   %15 = call ptr @systable_getnext(ptr noundef %14) #5
@@ -454,9 +454,9 @@ define dso_local ptr @GetComment(i32 noundef %0, i32 noundef %1, i32 noundef %2)
   br i1 %.not, label %72, label %16
 
 16:                                               ; preds = %3
-  %17 = getelementptr inbounds i8, ptr %15, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 18
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 18
   %20 = load i16, ptr %19, align 2
   %21 = and i16 %20, 2044
   %22 = icmp eq i16 %21, 0
@@ -464,7 +464,7 @@ define dso_local ptr @GetComment(i32 noundef %0, i32 noundef %1, i32 noundef %2)
 
 23:                                               ; preds = %16
   store i8 0, ptr %5, align 1
-  %24 = getelementptr inbounds i8, ptr %18, i64 20
+  %24 = getelementptr inbounds nuw i8, ptr %18, i64 20
   %25 = load i16, ptr %24, align 4
   %26 = and i16 %25, 1
   %.not.i.i = icmp eq i16 %26, 0
@@ -477,7 +477,7 @@ define dso_local ptr @GetComment(i32 noundef %0, i32 noundef %1, i32 noundef %2)
   br i1 %30, label %31, label %61
 
 31:                                               ; preds = %27
-  %32 = getelementptr inbounds i8, ptr %18, i64 22
+  %32 = getelementptr inbounds nuw i8, ptr %18, i64 22
   %33 = load i8, ptr %32, align 2
   %34 = zext i8 %33 to i64
   %35 = getelementptr i8, ptr %18, i64 %34
@@ -534,7 +534,7 @@ define dso_local ptr @GetComment(i32 noundef %0, i32 noundef %1, i32 noundef %2)
   br label %heap_getattr.exit.thread
 
 63:                                               ; preds = %23
-  %64 = getelementptr inbounds i8, ptr %18, i64 23
+  %64 = getelementptr inbounds nuw i8, ptr %18, i64 23
   %.val.i.i = load i8, ptr %64, align 1
   %65 = and i8 %.val.i.i, 8
   %.not.i.i.i = icmp eq i8 %65, 0

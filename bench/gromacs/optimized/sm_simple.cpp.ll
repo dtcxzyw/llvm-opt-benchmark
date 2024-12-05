@@ -173,7 +173,7 @@ $_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE = co
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZL12evaluate_allRKN3gmx20SelMethodEvalContextEP15gmx_ana_index_tP18gmx_ana_selvalue_tPv(ptr nocapture nonnull readnone align 8 %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @_Z18gmx_ana_index_copyP15gmx_ana_index_tS0_b(ptr noundef %6, ptr noundef %1, i1 noundef zeroext false)
   ret void
@@ -183,7 +183,7 @@ declare void @_Z18gmx_ana_index_copyP15gmx_ana_index_tS0_b(ptr noundef, ptr noun
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal void @_ZL13evaluate_noneRKN3gmx20SelMethodEvalContextEP15gmx_ana_index_tP18gmx_ana_selvalue_tPv(ptr nocapture nonnull readnone align 8 %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3) #2 {
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   store i32 0, ptr %6, align 8
   ret void
@@ -192,24 +192,24 @@ define internal void @_ZL13evaluate_noneRKN3gmx20SelMethodEvalContextEP15gmx_ana
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @_ZL15evaluate_atomnrRKN3gmx20SelMethodEvalContextEP15gmx_ana_index_tP18gmx_ana_selvalue_tPv(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef readonly %1, ptr nocapture noundef initializes((4, 8)) %2, ptr nocapture readnone %3) #3 {
   %5 = load i32, ptr %1, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %5, ptr %6, align 4
   %7 = icmp sgt i32 %5, 0
   br i1 %7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %10
 
 10:                                               ; preds = %.lr.ph, %10
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %10 ]
   %11 = load ptr, ptr %8, align 8
-  %12 = getelementptr inbounds i32, ptr %11, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
   %13 = load i32, ptr %12, align 4
   %14 = add nsw i32 %13, 1
   %15 = load ptr, ptr %9, align 8
-  %16 = getelementptr inbounds i32, ptr %15, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv
   store i32 %14, ptr %16, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %17 = load i32, ptr %1, align 8
@@ -224,14 +224,14 @@ define internal void @_ZL15evaluate_atomnrRKN3gmx20SelMethodEvalContextEP15gmx_a
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @_ZL14evaluate_resnrRKN3gmx20SelMethodEvalContextEP15gmx_ana_index_tP18gmx_ana_selvalue_tPv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef initializes((4, 8)) %2, ptr nocapture readnone %3) #3 {
   %5 = load i32, ptr %1, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %5, ptr %6, align 4
   %7 = icmp sgt i32 %5, 0
   br i1 %7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %10
 
 10:                                               ; preds = %.lr.ph, %_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.exit
@@ -240,11 +240,11 @@ define internal void @_ZL14evaluate_resnrRKN3gmx20SelMethodEvalContextEP15gmx_an
   %.0912 = phi i32 [ 0, %.lr.ph ], [ %.1, %_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.exit ]
   %12 = load ptr, ptr %0, align 8
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i32, ptr %13, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv
   %15 = load i32, ptr %14, align 4
   %16 = load ptr, ptr %9, align 8
-  %17 = getelementptr inbounds i8, ptr %12, i64 136
-  %18 = getelementptr inbounds i8, ptr %12, i64 144
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 136
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 144
   %19 = load ptr, ptr %18, align 8
   %20 = load ptr, ptr %17, align 8
   %21 = ptrtoint ptr %19 to i64
@@ -252,7 +252,7 @@ define internal void @_ZL14evaluate_resnrRKN3gmx20SelMethodEvalContextEP15gmx_an
   %23 = sub i64 %21, %22
   %24 = sdiv exact i64 %23, 56
   %25 = trunc i64 %24 to i32
-  %26 = getelementptr inbounds i8, ptr %12, i64 736
+  %26 = getelementptr inbounds nuw i8, ptr %12, i64 736
   %27 = load ptr, ptr %26, align 8
   br label %28
 
@@ -262,13 +262,13 @@ define internal void @_ZL14evaluate_resnrRKN3gmx20SelMethodEvalContextEP15gmx_an
   %.0.i.i = phi i32 [ -1, %10 ], [ %.1.i.i, %37 ]
   %29 = sext i32 %.1 to i64
   %30 = getelementptr inbounds %struct.MoleculeBlockIndices, ptr %27, i64 %29
-  %31 = getelementptr inbounds i8, ptr %30, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 4
   %32 = load i32, ptr %31, align 4
   %33 = icmp slt i32 %15, %32
   br i1 %33, label %37, label %34
 
 34:                                               ; preds = %28
-  %35 = getelementptr inbounds i8, ptr %30, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %36 = load i32, ptr %35, align 4
   %.not.i.i = icmp slt i32 %15, %36
   br i1 %.not.i.i, label %_ZL20mtopGetMolblockIndexRK10gmx_mtop_tiPiS2_S2_.exit.i, label %37
@@ -282,14 +282,14 @@ define internal void @_ZL14evaluate_resnrRKN3gmx20SelMethodEvalContextEP15gmx_an
   br label %28, !llvm.loop !7
 
 _ZL20mtopGetMolblockIndexRK10gmx_mtop_tiPiS2_S2_.exit.i: ; preds = %34
-  %41 = getelementptr inbounds i32, ptr %16, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv
   %42 = sub nsw i32 %15, %32
   %43 = load i32, ptr %30, align 4
   %44 = sdiv i32 %42, %43
   %45 = mul nsw i32 %44, %43
   %.recomposed = srem i32 %42, %43
   %46 = getelementptr inbounds %struct.gmx_molblock_t, ptr %20, i64 %29
-  %47 = getelementptr inbounds i8, ptr %12, i64 112
+  %47 = getelementptr inbounds nuw i8, ptr %12, i64 112
   %48 = load i32, ptr %46, align 8
   %49 = sext i32 %48 to i64
   %50 = load ptr, ptr %47, align 8
@@ -298,17 +298,17 @@ _ZL20mtopGetMolblockIndexRK10gmx_mtop_tiPiS2_S2_.exit.i: ; preds = %34
   br i1 %.not33.i, label %_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.exit, label %52
 
 52:                                               ; preds = %_ZL20mtopGetMolblockIndexRK10gmx_mtop_tiPiS2_S2_.exit.i
-  %53 = getelementptr inbounds i8, ptr %51, i64 48
+  %53 = getelementptr inbounds nuw i8, ptr %51, i64 48
   %54 = load i32, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %12, i64 760
+  %55 = getelementptr inbounds nuw i8, ptr %12, i64 760
   %56 = load i32, ptr %55, align 8
   %57 = icmp sgt i32 %54, %56
   br i1 %57, label %58, label %69
 
 58:                                               ; preds = %52
-  %59 = getelementptr inbounds i8, ptr %51, i64 56
+  %59 = getelementptr inbounds nuw i8, ptr %51, i64 56
   %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %51, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %62 = load ptr, ptr %61, align 8
   %63 = sext i32 %.recomposed to i64
   %64 = getelementptr inbounds %struct.t_atom, ptr %62, i64 %63, i32 7
@@ -319,11 +319,11 @@ _ZL20mtopGetMolblockIndexRK10gmx_mtop_tiPiS2_S2_.exit.i: ; preds = %34
   br label %.sink.split.i
 
 69:                                               ; preds = %52
-  %70 = getelementptr inbounds i8, ptr %30, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %71 = load i32, ptr %70, align 4
   %72 = mul nsw i32 %54, %44
   %73 = add nsw i32 %71, %72
-  %74 = getelementptr inbounds i8, ptr %51, i64 16
+  %74 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %75 = load ptr, ptr %74, align 8
   %76 = sext i32 %.recomposed to i64
   %77 = getelementptr inbounds %struct.t_atom, ptr %75, i64 %76, i32 7
@@ -351,14 +351,14 @@ _ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.exit: ; preds = %_Z
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @_ZL17evaluate_resindexRKN3gmx20SelMethodEvalContextEP15gmx_ana_index_tP18gmx_ana_selvalue_tPv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef initializes((4, 8)) %2, ptr nocapture readnone %3) #3 {
   %5 = load i32, ptr %1, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %5, ptr %6, align 4
   %7 = icmp sgt i32 %5, 0
   br i1 %7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %10
 
 10:                                               ; preds = %.lr.ph, %_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.exit
@@ -366,10 +366,10 @@ define internal void @_ZL17evaluate_resindexRKN3gmx20SelMethodEvalContextEP15gmx
   %.01013 = phi i32 [ 0, %.lr.ph ], [ %.1, %_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.exit ]
   %11 = load ptr, ptr %0, align 8
   %12 = load ptr, ptr %8, align 8
-  %13 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv
   %14 = load i32, ptr %13, align 4
-  %15 = getelementptr inbounds i8, ptr %11, i64 136
-  %16 = getelementptr inbounds i8, ptr %11, i64 144
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 136
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 144
   %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr %15, align 8
   %19 = ptrtoint ptr %17 to i64
@@ -377,7 +377,7 @@ define internal void @_ZL17evaluate_resindexRKN3gmx20SelMethodEvalContextEP15gmx
   %21 = sub i64 %19, %20
   %22 = sdiv exact i64 %21, 56
   %23 = trunc i64 %22 to i32
-  %24 = getelementptr inbounds i8, ptr %11, i64 736
+  %24 = getelementptr inbounds nuw i8, ptr %11, i64 736
   %25 = load ptr, ptr %24, align 8
   br label %26
 
@@ -387,13 +387,13 @@ define internal void @_ZL17evaluate_resindexRKN3gmx20SelMethodEvalContextEP15gmx
   %.0.i.i = phi i32 [ -1, %10 ], [ %.1.i.i, %35 ]
   %27 = sext i32 %.1 to i64
   %28 = getelementptr inbounds %struct.MoleculeBlockIndices, ptr %25, i64 %27
-  %29 = getelementptr inbounds i8, ptr %28, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 4
   %30 = load i32, ptr %29, align 4
   %31 = icmp slt i32 %14, %30
   br i1 %31, label %35, label %32
 
 32:                                               ; preds = %26
-  %33 = getelementptr inbounds i8, ptr %28, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %34 = load i32, ptr %33, align 4
   %.not.i.i = icmp slt i32 %14, %34
   br i1 %.not.i.i, label %_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.exit, label %35
@@ -413,17 +413,17 @@ _ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.exit: ; preds = %32
   %42 = mul nsw i32 %41, %40
   %.recomposed = srem i32 %39, %40
   %43 = getelementptr inbounds %struct.gmx_molblock_t, ptr %18, i64 %27
-  %44 = getelementptr inbounds i8, ptr %11, i64 112
+  %44 = getelementptr inbounds nuw i8, ptr %11, i64 112
   %45 = load i32, ptr %43, align 8
   %46 = sext i32 %45 to i64
   %47 = load ptr, ptr %44, align 8
   %48 = getelementptr inbounds %struct.gmx_moltype_t, ptr %47, i64 %46
-  %49 = getelementptr inbounds i8, ptr %28, i64 12
+  %49 = getelementptr inbounds nuw i8, ptr %28, i64 12
   %50 = load i32, ptr %49, align 4
-  %51 = getelementptr inbounds i8, ptr %48, i64 48
+  %51 = getelementptr inbounds nuw i8, ptr %48, i64 48
   %52 = load i32, ptr %51, align 8
   %53 = mul nsw i32 %52, %41
-  %54 = getelementptr inbounds i8, ptr %48, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %55 = load ptr, ptr %54, align 8
   %56 = sext i32 %.recomposed to i64
   %57 = getelementptr inbounds %struct.t_atom, ptr %55, i64 %56, i32 7
@@ -432,7 +432,7 @@ _ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.exit: ; preds = %32
   %60 = add i32 %59, %53
   %61 = add i32 %60, %58
   %62 = load ptr, ptr %9, align 8
-  %63 = getelementptr inbounds i32, ptr %62, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw i32, ptr %62, i64 %indvars.iv
   store i32 %61, ptr %63, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %64 = load i32, ptr %1, align 8
@@ -453,7 +453,7 @@ define internal void @_ZL15check_moleculesPK10gmx_mtop_tiP18gmx_ana_selparam_tPv
   br i1 %.not, label %.critedge, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 704
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 704
   %10 = load i8, ptr %9, align 8
   %11 = trunc i8 %10 to i1
   br i1 %11, label %22, label %.critedge
@@ -470,11 +470,11 @@ define internal void @_ZL15check_moleculesPK10gmx_mtop_tiP18gmx_ana_selparam_tPv
 14:                                               ; preds = %13
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx22InconsistentInputErrorE, i64 16), ptr %5, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %7, align 8
-  %15 = getelementptr inbounds i8, ptr %7, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr @__PRETTY_FUNCTION__._ZL15check_moleculesPK10gmx_mtop_tiP18gmx_ana_selparam_tPv, ptr %15, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 16
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr @.str.21, ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 24
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i32 502, ptr %.sroa.3.0..sroa_idx, align 8
   invoke void @_ZN3gmxlsINS_22InconsistentInputErrorENS_22ExceptionInfoLocation_ENS_13ThrowLocationEEENSt9enable_ifIXsr3std10is_base_ofINS_16GromacsExceptionET_EE5valueES6_E4typeES6_RKNS_13ExceptionInfoIT0_T1_EE(ptr dead_on_unwind writable sret(%"class.gmx::InconsistentInputError") align 8 %12, ptr noundef nonnull %5, ptr noundef nonnull align 8 dereferenceable(32) %7)
           to label %16 unwind label %19
@@ -522,14 +522,14 @@ define internal void @_ZL15check_moleculesPK10gmx_mtop_tiP18gmx_ana_selparam_tPv
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @_ZL17evaluate_molindexRKN3gmx20SelMethodEvalContextEP15gmx_ana_index_tP18gmx_ana_selvalue_tPv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef initializes((4, 8)) %2, ptr nocapture readnone %3) #3 {
   %5 = load i32, ptr %1, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %5, ptr %6, align 4
   %7 = icmp sgt i32 %5, 0
   br i1 %7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %10
 
 10:                                               ; preds = %.lr.ph, %_ZL20mtopGetMoleculeIndexRK10gmx_mtop_tiPi.exit
@@ -537,10 +537,10 @@ define internal void @_ZL17evaluate_molindexRKN3gmx20SelMethodEvalContextEP15gmx
   %.0913 = phi i32 [ 0, %.lr.ph ], [ %.1, %_ZL20mtopGetMoleculeIndexRK10gmx_mtop_tiPi.exit ]
   %11 = load ptr, ptr %0, align 8
   %12 = load ptr, ptr %8, align 8
-  %13 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv
   %14 = load i32, ptr %13, align 4
-  %15 = getelementptr inbounds i8, ptr %11, i64 136
-  %16 = getelementptr inbounds i8, ptr %11, i64 144
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 136
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 144
   %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr %15, align 8
   %19 = ptrtoint ptr %17 to i64
@@ -548,7 +548,7 @@ define internal void @_ZL17evaluate_molindexRKN3gmx20SelMethodEvalContextEP15gmx
   %21 = sub i64 %19, %20
   %22 = sdiv exact i64 %21, 56
   %23 = trunc i64 %22 to i32
-  %24 = getelementptr inbounds i8, ptr %11, i64 736
+  %24 = getelementptr inbounds nuw i8, ptr %11, i64 736
   %25 = load ptr, ptr %24, align 8
   br label %26
 
@@ -558,13 +558,13 @@ define internal void @_ZL17evaluate_molindexRKN3gmx20SelMethodEvalContextEP15gmx
   %.0.i.i = phi i32 [ -1, %10 ], [ %.1.i.i, %35 ]
   %27 = sext i32 %.1 to i64
   %28 = getelementptr inbounds %struct.MoleculeBlockIndices, ptr %25, i64 %27
-  %29 = getelementptr inbounds i8, ptr %28, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 4
   %30 = load i32, ptr %29, align 4
   %31 = icmp slt i32 %14, %30
   br i1 %31, label %35, label %32
 
 32:                                               ; preds = %26
-  %33 = getelementptr inbounds i8, ptr %28, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %34 = load i32, ptr %33, align 4
   %.not.i.i = icmp slt i32 %14, %34
   br i1 %.not.i.i, label %_ZL20mtopGetMoleculeIndexRK10gmx_mtop_tiPi.exit, label %35
@@ -586,7 +586,7 @@ _ZL20mtopGetMoleculeIndexRK10gmx_mtop_tiPi.exit:  ; preds = %32
   %44 = add i32 %41, 1
   %45 = add i32 %44, %43
   %46 = load ptr, ptr %9, align 8
-  %47 = getelementptr inbounds i32, ptr %46, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw i32, ptr %46, i64 %indvars.iv
   store i32 %45, ptr %47, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %48 = load i32, ptr %1, align 8
@@ -608,8 +608,8 @@ define linkonce_odr void @_ZN3gmxlsINS_22InconsistentInputErrorENS_22ExceptionIn
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %6 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #20
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
   store ptr %6, ptr %4, align 8
   store ptr @_ZTIN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, ptr %5, align 8
@@ -623,7 +623,7 @@ define linkonce_odr void @_ZN3gmxlsINS_22InconsistentInputErrorENS_22ExceptionIn
 
 _ZNKSt14default_deleteIN3gmx8internal14IExceptionInfoEEclEPS2_.exit.i.i: ; preds = %9
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
   call void %13(ptr noundef nonnull align 8 dereferenceable(8) %10) #18
   br label %_ZN3gmx16GromacsException7setInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEEvRKNS_13ExceptionInfoIT_T0_EE.exit
@@ -637,7 +637,7 @@ _ZNKSt14default_deleteIN3gmx8internal14IExceptionInfoEEclEPS2_.exit.i.i: ; preds
 
 _ZNKSt14default_deleteIN3gmx8internal14IExceptionInfoEEclEPS2_.exit.i4.i: ; preds = %14
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8
   call void %19(ptr noundef nonnull align 8 dereferenceable(8) %16) #18
   br label %_ZNSt10unique_ptrIN3gmx8internal14IExceptionInfoESt14default_deleteIS2_EED2Ev.exit5.i
@@ -648,12 +648,12 @@ _ZNSt10unique_ptrIN3gmx8internal14IExceptionInfoESt14default_deleteIS2_EED2Ev.ex
 _ZN3gmx16GromacsException7setInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEEvRKNS_13ExceptionInfoIT_T0_EE.exit: ; preds = %9, %_ZNKSt14default_deleteIN3gmx8internal14IExceptionInfoEEclEPS2_.exit.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %22 = load ptr, ptr %21, align 8
   store ptr %22, ptr %20, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 16
-  %24 = getelementptr inbounds i8, ptr %1, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %25 = load ptr, ptr %24, align 8
   store ptr null, ptr %24, align 8
   store ptr %25, ptr %23, align 8
@@ -698,7 +698,7 @@ define linkonce_odr void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnul
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %10
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #18
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, i8 0, i64 24, i1 false)
   ret void
 
@@ -718,13 +718,13 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3gmx22InconsistentInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx16GromacsExceptionE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i.i, label %_ZN3gmx14UserInputErrorD2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load atomic i64, ptr %5 acquire, align 8
   %7 = icmp eq i64 %6, 4294967297
   %8 = trunc i64 %6 to i32
@@ -732,10 +732,10 @@ define linkonce_odr void @_ZN3gmx22InconsistentInputErrorD2Ev(ptr noundef nonnul
 
 9:                                                ; preds = %4
   store i32 0, ptr %5, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 0, ptr %10, align 4
   %11 = load ptr, ptr %3, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #18
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i
@@ -761,10 +761,10 @@ define linkonce_odr void @_ZN3gmx22InconsistentInputErrorD2Ev(ptr noundef nonnul
 
 22:                                               ; preds = %20
   %23 = load ptr, ptr %3, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load ptr, ptr %24, align 8
   tail call void %25(ptr noundef nonnull align 8 dereferenceable(16) %3) #18
-  %26 = getelementptr inbounds i8, ptr %3, i64 12
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %27 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i.i = icmp eq i8 %27, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %31, label %28
@@ -786,7 +786,7 @@ define linkonce_odr void @_ZN3gmx22InconsistentInputErrorD2Ev(ptr noundef nonnul
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i: ; preds = %33, %9
   %35 = load ptr, ptr %3, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %37 = load ptr, ptr %36, align 8
   tail call void %37(ptr noundef nonnull align 8 dereferenceable(16) %3) #18
   br label %_ZN3gmx14UserInputErrorD2Ev.exit
@@ -807,9 +807,9 @@ define linkonce_odr void @_ZN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
   %.not4.i.i.i.i = icmp eq ptr %3, %5
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
@@ -825,7 +825,7 @@ define linkonce_odr void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull 
   br label %_ZSt8_DestroyINSt15__exception_ptr13exception_ptrEEvPT_.exit.i.i.i.i
 
 _ZSt8_DestroyINSt15__exception_ptr13exception_ptrEEvPT_.exit.i.i.i.i: ; preds = %7, %.lr.ph.i.i.i.i
-  %8 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 8
   %.not.i.i.i.i = icmp eq ptr %8, %5
   br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !11
 
@@ -1002,14 +1002,14 @@ declare void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef no
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @_ZL17evaluate_atomnameRKN3gmx20SelMethodEvalContextEP15gmx_ana_index_tP18gmx_ana_selvalue_tPv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef initializes((4, 8)) %2, ptr nocapture readnone %3) #3 {
   %5 = load i32, ptr %1, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %5, ptr %6, align 4
   %7 = icmp sgt i32 %5, 0
   br i1 %7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %10
 
 10:                                               ; preds = %.lr.ph, %_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.exit
@@ -1017,10 +1017,10 @@ define internal void @_ZL17evaluate_atomnameRKN3gmx20SelMethodEvalContextEP15gmx
   %.0912 = phi i32 [ 0, %.lr.ph ], [ %.1, %_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.exit ]
   %11 = load ptr, ptr %0, align 8
   %12 = load ptr, ptr %8, align 8
-  %13 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv
   %14 = load i32, ptr %13, align 4
-  %15 = getelementptr inbounds i8, ptr %11, i64 136
-  %16 = getelementptr inbounds i8, ptr %11, i64 144
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 136
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 144
   %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr %15, align 8
   %19 = ptrtoint ptr %17 to i64
@@ -1028,7 +1028,7 @@ define internal void @_ZL17evaluate_atomnameRKN3gmx20SelMethodEvalContextEP15gmx
   %21 = sub i64 %19, %20
   %22 = sdiv exact i64 %21, 56
   %23 = trunc i64 %22 to i32
-  %24 = getelementptr inbounds i8, ptr %11, i64 736
+  %24 = getelementptr inbounds nuw i8, ptr %11, i64 736
   %25 = load ptr, ptr %24, align 8
   br label %26
 
@@ -1038,13 +1038,13 @@ define internal void @_ZL17evaluate_atomnameRKN3gmx20SelMethodEvalContextEP15gmx
   %.0.i.i = phi i32 [ -1, %10 ], [ %.1.i.i, %35 ]
   %27 = sext i32 %.1 to i64
   %28 = getelementptr inbounds %struct.MoleculeBlockIndices, ptr %25, i64 %27
-  %29 = getelementptr inbounds i8, ptr %28, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 4
   %30 = load i32, ptr %29, align 4
   %31 = icmp slt i32 %14, %30
   br i1 %31, label %35, label %32
 
 32:                                               ; preds = %26
-  %33 = getelementptr inbounds i8, ptr %28, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %34 = load i32, ptr %33, align 4
   %.not.i.i = icmp slt i32 %14, %34
   br i1 %.not.i.i, label %_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.exit, label %35
@@ -1063,7 +1063,7 @@ _ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.exit: ; preds = %32
   %40 = load i32, ptr %28, align 4
   %41 = srem i32 %.fr, %40
   %42 = getelementptr inbounds %struct.gmx_molblock_t, ptr %18, i64 %27
-  %43 = getelementptr inbounds i8, ptr %11, i64 112
+  %43 = getelementptr inbounds nuw i8, ptr %11, i64 112
   %44 = load i32, ptr %42, align 8
   %45 = sext i32 %44 to i64
   %46 = load ptr, ptr %43, align 8
@@ -1074,7 +1074,7 @@ _ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.exit: ; preds = %32
   %51 = load ptr, ptr %50, align 8
   %52 = load ptr, ptr %51, align 8
   %53 = load ptr, ptr %9, align 8
-  %54 = getelementptr inbounds ptr, ptr %53, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw ptr, ptr %53, i64 %indvars.iv
   store ptr %52, ptr %54, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %55 = load i32, ptr %1, align 8
@@ -1106,11 +1106,11 @@ define internal void @_ZL13check_pdbinfoPK10gmx_mtop_tiP18gmx_ana_selparam_tPv(p
 12:                                               ; preds = %11
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx22InconsistentInputErrorE, i64 16), ptr %5, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %7, align 8
-  %13 = getelementptr inbounds i8, ptr %7, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr @__PRETTY_FUNCTION__._ZL13check_pdbinfoPK10gmx_mtop_tiP18gmx_ana_selparam_tPv, ptr %13, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 16
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr @.str.21, ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 24
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i32 710, ptr %.sroa.3.0..sroa_idx, align 8
   invoke void @_ZN3gmxlsINS_22InconsistentInputErrorENS_22ExceptionInfoLocation_ENS_13ThrowLocationEEENSt9enable_ifIXsr3std10is_base_ofINS_16GromacsExceptionET_EE5valueES6_E4typeES6_RKNS_13ExceptionInfoIT0_T1_EE(ptr dead_on_unwind writable sret(%"class.gmx::InconsistentInputError") align 8 %10, ptr noundef nonnull %5, ptr noundef nonnull align 8 dereferenceable(32) %7)
           to label %14 unwind label %17
@@ -1158,14 +1158,14 @@ define internal void @_ZL13check_pdbinfoPK10gmx_mtop_tiP18gmx_ana_selparam_tPv(p
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: read) uwtable
 define internal void @_ZL20evaluate_pdbatomnameRKN3gmx20SelMethodEvalContextEP15gmx_ana_index_tP18gmx_ana_selvalue_tPv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef initializes((4, 8)) %2, ptr nocapture readnone %3) #14 {
   %5 = load i32, ptr %1, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %5, ptr %6, align 4
   %7 = icmp sgt i32 %5, 0
   br i1 %7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %10
 
 10:                                               ; preds = %.lr.ph, %56
@@ -1173,10 +1173,10 @@ define internal void @_ZL20evaluate_pdbatomnameRKN3gmx20SelMethodEvalContextEP15
   %.01315 = phi i32 [ 0, %.lr.ph ], [ %.1, %56 ]
   %11 = load ptr, ptr %0, align 8
   %12 = load ptr, ptr %8, align 8
-  %13 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv
   %14 = load i32, ptr %13, align 4
-  %15 = getelementptr inbounds i8, ptr %11, i64 136
-  %16 = getelementptr inbounds i8, ptr %11, i64 144
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 136
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 144
   %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr %15, align 8
   %19 = ptrtoint ptr %17 to i64
@@ -1184,7 +1184,7 @@ define internal void @_ZL20evaluate_pdbatomnameRKN3gmx20SelMethodEvalContextEP15
   %21 = sub i64 %19, %20
   %22 = sdiv exact i64 %21, 56
   %23 = trunc i64 %22 to i32
-  %24 = getelementptr inbounds i8, ptr %11, i64 736
+  %24 = getelementptr inbounds nuw i8, ptr %11, i64 736
   %25 = load ptr, ptr %24, align 8
   br label %26
 
@@ -1194,14 +1194,14 @@ define internal void @_ZL20evaluate_pdbatomnameRKN3gmx20SelMethodEvalContextEP15
   %.0.i.i = phi i32 [ -1, %10 ], [ %.1.i.i, %35 ]
   %27 = sext i32 %.1 to i64
   %28 = getelementptr inbounds %struct.MoleculeBlockIndices, ptr %25, i64 %27
-  %29 = getelementptr inbounds i8, ptr %28, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 4
   %30 = load i32, ptr %29, align 4
   %.fr10.i = freeze i32 %30
   %31 = icmp slt i32 %14, %.fr10.i
   br i1 %31, label %35, label %32
 
 32:                                               ; preds = %26
-  %33 = getelementptr inbounds i8, ptr %28, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %34 = load i32, ptr %33, align 4
   %.not.i.i = icmp slt i32 %14, %34
   br i1 %.not.i.i, label %_ZL18mtopGetAtomPdbInfoRK10gmx_mtop_tiPi.exit, label %35
@@ -1218,7 +1218,7 @@ _ZL18mtopGetAtomPdbInfoRK10gmx_mtop_tiPi.exit:    ; preds = %32
   %39 = sub i32 %14, %.fr10.i
   %40 = load i32, ptr %28, align 4
   %41 = srem i32 %39, %40
-  %42 = getelementptr inbounds i8, ptr %11, i64 112
+  %42 = getelementptr inbounds nuw i8, ptr %11, i64 112
   %43 = getelementptr inbounds %struct.gmx_molblock_t, ptr %18, i64 %27
   %44 = load i32, ptr %43, align 8
   %45 = sext i32 %44 to i64
@@ -1235,12 +1235,12 @@ _ZL18mtopGetAtomPdbInfoRK10gmx_mtop_tiPi.exit:    ; preds = %32
   %53 = sext i8 %52 to i32
   %54 = tail call i32 @isspace(i32 noundef %53) #23
   %.not = icmp eq i32 %54, 0
-  %55 = getelementptr inbounds i8, ptr %.0, i64 1
+  %55 = getelementptr inbounds nuw i8, ptr %.0, i64 1
   br i1 %.not, label %56, label %51, !llvm.loop !13
 
 56:                                               ; preds = %51
   %57 = load ptr, ptr %9, align 8
-  %58 = getelementptr inbounds ptr, ptr %57, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw ptr, ptr %57, i64 %indvars.iv
   store ptr %.0, ptr %58, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %59 = load i32, ptr %1, align 8
@@ -1277,11 +1277,11 @@ define internal void @_ZL14check_atomtypePK10gmx_mtop_tiP18gmx_ana_selparam_tPv(
 12:                                               ; preds = %11
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx22InconsistentInputErrorE, i64 16), ptr %5, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %7, align 8
-  %13 = getelementptr inbounds i8, ptr %7, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr @__PRETTY_FUNCTION__._ZL14check_atomtypePK10gmx_mtop_tiP18gmx_ana_selparam_tPv, ptr %13, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 16
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr @.str.21, ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 24
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i32 574, ptr %.sroa.3.0..sroa_idx, align 8
   invoke void @_ZN3gmxlsINS_22InconsistentInputErrorENS_22ExceptionInfoLocation_ENS_13ThrowLocationEEENSt9enable_ifIXsr3std10is_base_ofINS_16GromacsExceptionET_EE5valueES6_E4typeES6_RKNS_13ExceptionInfoIT0_T1_EE(ptr dead_on_unwind writable sret(%"class.gmx::InconsistentInputError") align 8 %10, ptr noundef nonnull %5, ptr noundef nonnull align 8 dereferenceable(32) %7)
           to label %14 unwind label %17
@@ -1329,14 +1329,14 @@ define internal void @_ZL14check_atomtypePK10gmx_mtop_tiP18gmx_ana_selparam_tPv(
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @_ZL17evaluate_atomtypeRKN3gmx20SelMethodEvalContextEP15gmx_ana_index_tP18gmx_ana_selvalue_tPv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef initializes((4, 8)) %2, ptr nocapture readnone %3) #3 {
   %5 = load i32, ptr %1, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %5, ptr %6, align 4
   %7 = icmp sgt i32 %5, 0
   br i1 %7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %10
 
 10:                                               ; preds = %.lr.ph, %_ZL20mtopGetMolblockIndexRK10gmx_mtop_tiPiS2_S2_.exit
@@ -1344,10 +1344,10 @@ define internal void @_ZL17evaluate_atomtypeRKN3gmx20SelMethodEvalContextEP15gmx
   %.01518 = phi i32 [ 0, %.lr.ph ], [ %.1, %_ZL20mtopGetMolblockIndexRK10gmx_mtop_tiPiS2_S2_.exit ]
   %11 = load ptr, ptr %0, align 8
   %12 = load ptr, ptr %8, align 8
-  %13 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv
   %14 = load i32, ptr %13, align 4
-  %15 = getelementptr inbounds i8, ptr %11, i64 136
-  %16 = getelementptr inbounds i8, ptr %11, i64 144
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 136
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 144
   %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr %15, align 8
   %19 = ptrtoint ptr %17 to i64
@@ -1355,7 +1355,7 @@ define internal void @_ZL17evaluate_atomtypeRKN3gmx20SelMethodEvalContextEP15gmx
   %21 = sub i64 %19, %20
   %22 = sdiv exact i64 %21, 56
   %23 = trunc i64 %22 to i32
-  %24 = getelementptr inbounds i8, ptr %11, i64 736
+  %24 = getelementptr inbounds nuw i8, ptr %11, i64 736
   %25 = load ptr, ptr %24, align 8
   br label %26
 
@@ -1365,13 +1365,13 @@ define internal void @_ZL17evaluate_atomtypeRKN3gmx20SelMethodEvalContextEP15gmx
   %.0.i = phi i32 [ -1, %10 ], [ %.1.i, %35 ]
   %27 = sext i32 %.1 to i64
   %28 = getelementptr inbounds %struct.MoleculeBlockIndices, ptr %25, i64 %27
-  %29 = getelementptr inbounds i8, ptr %28, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 4
   %30 = load i32, ptr %29, align 4
   %31 = icmp slt i32 %14, %30
   br i1 %31, label %35, label %32
 
 32:                                               ; preds = %26
-  %33 = getelementptr inbounds i8, ptr %28, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %34 = load i32, ptr %33, align 4
   %.not.i = icmp slt i32 %14, %34
   br i1 %.not.i, label %_ZL20mtopGetMolblockIndexRK10gmx_mtop_tiPiS2_S2_.exit, label %35
@@ -1389,7 +1389,7 @@ _ZL20mtopGetMolblockIndexRK10gmx_mtop_tiPiS2_S2_.exit: ; preds = %32
   %.fr = freeze i32 %39
   %40 = load i32, ptr %28, align 4
   %41 = srem i32 %.fr, %40
-  %42 = getelementptr inbounds i8, ptr %11, i64 112
+  %42 = getelementptr inbounds nuw i8, ptr %11, i64 112
   %43 = getelementptr inbounds %struct.gmx_molblock_t, ptr %18, i64 %27
   %44 = load i32, ptr %43, align 8
   %45 = sext i32 %44 to i64
@@ -1401,7 +1401,7 @@ _ZL20mtopGetMolblockIndexRK10gmx_mtop_tiPiS2_S2_.exit: ; preds = %32
   %51 = load ptr, ptr %50, align 8
   %52 = load ptr, ptr %51, align 8
   %53 = load ptr, ptr %9, align 8
-  %54 = getelementptr inbounds ptr, ptr %53, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw ptr, ptr %53, i64 %indvars.iv
   store ptr %52, ptr %54, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %55 = load i32, ptr %1, align 8
@@ -1418,14 +1418,14 @@ declare noundef zeroext i1 @_Z22gmx_mtop_has_atomtypesPK10gmx_mtop_t(ptr noundef
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @_ZL16evaluate_resnameRKN3gmx20SelMethodEvalContextEP15gmx_ana_index_tP18gmx_ana_selvalue_tPv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef initializes((4, 8)) %2, ptr nocapture readnone %3) #3 {
   %5 = load i32, ptr %1, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %5, ptr %6, align 4
   %7 = icmp sgt i32 %5, 0
   br i1 %7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %10
 
 10:                                               ; preds = %.lr.ph, %_ZL18mtopGetResidueInfoRK10gmx_mtop_tiPi.exit
@@ -1433,10 +1433,10 @@ define internal void @_ZL16evaluate_resnameRKN3gmx20SelMethodEvalContextEP15gmx_
   %.0911 = phi i32 [ 0, %.lr.ph ], [ %.1, %_ZL18mtopGetResidueInfoRK10gmx_mtop_tiPi.exit ]
   %11 = load ptr, ptr %0, align 8
   %12 = load ptr, ptr %8, align 8
-  %13 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv
   %14 = load i32, ptr %13, align 4
-  %15 = getelementptr inbounds i8, ptr %11, i64 136
-  %16 = getelementptr inbounds i8, ptr %11, i64 144
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 136
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 144
   %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr %15, align 8
   %19 = ptrtoint ptr %17 to i64
@@ -1444,7 +1444,7 @@ define internal void @_ZL16evaluate_resnameRKN3gmx20SelMethodEvalContextEP15gmx_
   %21 = sub i64 %19, %20
   %22 = sdiv exact i64 %21, 56
   %23 = trunc i64 %22 to i32
-  %24 = getelementptr inbounds i8, ptr %11, i64 736
+  %24 = getelementptr inbounds nuw i8, ptr %11, i64 736
   %25 = load ptr, ptr %24, align 8
   br label %26
 
@@ -1454,14 +1454,14 @@ define internal void @_ZL16evaluate_resnameRKN3gmx20SelMethodEvalContextEP15gmx_
   %.0.i.i = phi i32 [ -1, %10 ], [ %.1.i.i, %35 ]
   %27 = sext i32 %.1 to i64
   %28 = getelementptr inbounds %struct.MoleculeBlockIndices, ptr %25, i64 %27
-  %29 = getelementptr inbounds i8, ptr %28, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 4
   %30 = load i32, ptr %29, align 4
   %.fr12.i = freeze i32 %30
   %31 = icmp slt i32 %14, %.fr12.i
   br i1 %31, label %35, label %32
 
 32:                                               ; preds = %26
-  %33 = getelementptr inbounds i8, ptr %28, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %34 = load i32, ptr %33, align 4
   %.not.i.i = icmp slt i32 %14, %34
   br i1 %.not.i.i, label %_ZL18mtopGetResidueInfoRK10gmx_mtop_tiPi.exit, label %35
@@ -1478,25 +1478,25 @@ _ZL18mtopGetResidueInfoRK10gmx_mtop_tiPi.exit:    ; preds = %32
   %39 = sub i32 %14, %.fr12.i
   %40 = load i32, ptr %28, align 4
   %41 = srem i32 %39, %40
-  %42 = getelementptr inbounds i8, ptr %11, i64 112
+  %42 = getelementptr inbounds nuw i8, ptr %11, i64 112
   %43 = getelementptr inbounds %struct.gmx_molblock_t, ptr %18, i64 %27
   %44 = load i32, ptr %43, align 8
   %45 = sext i32 %44 to i64
   %46 = load ptr, ptr %42, align 8
   %47 = getelementptr inbounds %struct.gmx_moltype_t, ptr %46, i64 %45
-  %48 = getelementptr inbounds i8, ptr %47, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %49 = load ptr, ptr %48, align 8
   %50 = sext i32 %41 to i64
   %51 = getelementptr inbounds %struct.t_atom, ptr %49, i64 %50, i32 7
   %52 = load i32, ptr %51, align 4
-  %53 = getelementptr inbounds i8, ptr %47, i64 56
+  %53 = getelementptr inbounds nuw i8, ptr %47, i64 56
   %54 = load ptr, ptr %53, align 8
   %55 = sext i32 %52 to i64
   %56 = getelementptr inbounds %struct.t_resinfo, ptr %54, i64 %55
   %57 = load ptr, ptr %56, align 8
   %58 = load ptr, ptr %57, align 8
   %59 = load ptr, ptr %9, align 8
-  %60 = getelementptr inbounds ptr, ptr %59, i64 %indvars.iv
+  %60 = getelementptr inbounds nuw ptr, ptr %59, i64 %indvars.iv
   store ptr %58, ptr %60, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %61 = load i32, ptr %1, align 8
@@ -1511,14 +1511,14 @@ _ZL18mtopGetResidueInfoRK10gmx_mtop_tiPi.exit:    ; preds = %32
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @_ZL19evaluate_insertcodeRKN3gmx20SelMethodEvalContextEP15gmx_ana_index_tP18gmx_ana_selvalue_tPv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef initializes((4, 8)) %2, ptr nocapture readnone %3) #3 {
   %5 = load i32, ptr %1, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %5, ptr %6, align 4
   %7 = icmp sgt i32 %5, 0
   br i1 %7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %10
 
 10:                                               ; preds = %.lr.ph, %_ZL18mtopGetResidueInfoRK10gmx_mtop_tiPi.exit
@@ -1526,10 +1526,10 @@ define internal void @_ZL19evaluate_insertcodeRKN3gmx20SelMethodEvalContextEP15g
   %.0911 = phi i32 [ 0, %.lr.ph ], [ %.1, %_ZL18mtopGetResidueInfoRK10gmx_mtop_tiPi.exit ]
   %11 = load ptr, ptr %0, align 8
   %12 = load ptr, ptr %8, align 8
-  %13 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv
   %14 = load i32, ptr %13, align 4
-  %15 = getelementptr inbounds i8, ptr %11, i64 136
-  %16 = getelementptr inbounds i8, ptr %11, i64 144
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 136
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 144
   %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr %15, align 8
   %19 = ptrtoint ptr %17 to i64
@@ -1537,7 +1537,7 @@ define internal void @_ZL19evaluate_insertcodeRKN3gmx20SelMethodEvalContextEP15g
   %21 = sub i64 %19, %20
   %22 = sdiv exact i64 %21, 56
   %23 = trunc i64 %22 to i32
-  %24 = getelementptr inbounds i8, ptr %11, i64 736
+  %24 = getelementptr inbounds nuw i8, ptr %11, i64 736
   %25 = load ptr, ptr %24, align 8
   br label %26
 
@@ -1547,14 +1547,14 @@ define internal void @_ZL19evaluate_insertcodeRKN3gmx20SelMethodEvalContextEP15g
   %.0.i.i = phi i32 [ -1, %10 ], [ %.1.i.i, %35 ]
   %27 = sext i32 %.1 to i64
   %28 = getelementptr inbounds %struct.MoleculeBlockIndices, ptr %25, i64 %27
-  %29 = getelementptr inbounds i8, ptr %28, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 4
   %30 = load i32, ptr %29, align 4
   %.fr12.i = freeze i32 %30
   %31 = icmp slt i32 %14, %.fr12.i
   br i1 %31, label %35, label %32
 
 32:                                               ; preds = %26
-  %33 = getelementptr inbounds i8, ptr %28, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %34 = load i32, ptr %33, align 4
   %.not.i.i = icmp slt i32 %14, %34
   br i1 %.not.i.i, label %_ZL18mtopGetResidueInfoRK10gmx_mtop_tiPi.exit, label %35
@@ -1571,24 +1571,24 @@ _ZL18mtopGetResidueInfoRK10gmx_mtop_tiPi.exit:    ; preds = %32
   %39 = sub i32 %14, %.fr12.i
   %40 = load i32, ptr %28, align 4
   %41 = srem i32 %39, %40
-  %42 = getelementptr inbounds i8, ptr %11, i64 112
+  %42 = getelementptr inbounds nuw i8, ptr %11, i64 112
   %43 = getelementptr inbounds %struct.gmx_molblock_t, ptr %18, i64 %27
   %44 = load i32, ptr %43, align 8
   %45 = sext i32 %44 to i64
   %46 = load ptr, ptr %42, align 8
   %47 = getelementptr inbounds %struct.gmx_moltype_t, ptr %46, i64 %45
-  %48 = getelementptr inbounds i8, ptr %47, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %49 = load ptr, ptr %48, align 8
   %50 = sext i32 %41 to i64
   %51 = getelementptr inbounds %struct.t_atom, ptr %49, i64 %50, i32 7
   %52 = load i32, ptr %51, align 4
-  %53 = getelementptr inbounds i8, ptr %47, i64 56
+  %53 = getelementptr inbounds nuw i8, ptr %47, i64 56
   %54 = load ptr, ptr %53, align 8
   %55 = sext i32 %52 to i64
   %56 = getelementptr inbounds %struct.t_resinfo, ptr %54, i64 %55, i32 2
   %57 = load i8, ptr %56, align 4
   %58 = load ptr, ptr %9, align 8
-  %59 = getelementptr inbounds ptr, ptr %58, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw ptr, ptr %58, i64 %indvars.iv
   %60 = load ptr, ptr %59, align 8
   store i8 %57, ptr %60, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1604,14 +1604,14 @@ _ZL18mtopGetResidueInfoRK10gmx_mtop_tiPi.exit:    ; preds = %32
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @_ZL14evaluate_chainRKN3gmx20SelMethodEvalContextEP15gmx_ana_index_tP18gmx_ana_selvalue_tPv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef initializes((4, 8)) %2, ptr nocapture readnone %3) #3 {
   %5 = load i32, ptr %1, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %5, ptr %6, align 4
   %7 = icmp sgt i32 %5, 0
   br i1 %7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %10
 
 10:                                               ; preds = %.lr.ph, %_ZL18mtopGetResidueInfoRK10gmx_mtop_tiPi.exit
@@ -1619,10 +1619,10 @@ define internal void @_ZL14evaluate_chainRKN3gmx20SelMethodEvalContextEP15gmx_an
   %.0911 = phi i32 [ 0, %.lr.ph ], [ %.1, %_ZL18mtopGetResidueInfoRK10gmx_mtop_tiPi.exit ]
   %11 = load ptr, ptr %0, align 8
   %12 = load ptr, ptr %8, align 8
-  %13 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv
   %14 = load i32, ptr %13, align 4
-  %15 = getelementptr inbounds i8, ptr %11, i64 136
-  %16 = getelementptr inbounds i8, ptr %11, i64 144
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 136
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 144
   %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr %15, align 8
   %19 = ptrtoint ptr %17 to i64
@@ -1630,7 +1630,7 @@ define internal void @_ZL14evaluate_chainRKN3gmx20SelMethodEvalContextEP15gmx_an
   %21 = sub i64 %19, %20
   %22 = sdiv exact i64 %21, 56
   %23 = trunc i64 %22 to i32
-  %24 = getelementptr inbounds i8, ptr %11, i64 736
+  %24 = getelementptr inbounds nuw i8, ptr %11, i64 736
   %25 = load ptr, ptr %24, align 8
   br label %26
 
@@ -1640,14 +1640,14 @@ define internal void @_ZL14evaluate_chainRKN3gmx20SelMethodEvalContextEP15gmx_an
   %.0.i.i = phi i32 [ -1, %10 ], [ %.1.i.i, %35 ]
   %27 = sext i32 %.1 to i64
   %28 = getelementptr inbounds %struct.MoleculeBlockIndices, ptr %25, i64 %27
-  %29 = getelementptr inbounds i8, ptr %28, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 4
   %30 = load i32, ptr %29, align 4
   %.fr12.i = freeze i32 %30
   %31 = icmp slt i32 %14, %.fr12.i
   br i1 %31, label %35, label %32
 
 32:                                               ; preds = %26
-  %33 = getelementptr inbounds i8, ptr %28, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %34 = load i32, ptr %33, align 4
   %.not.i.i = icmp slt i32 %14, %34
   br i1 %.not.i.i, label %_ZL18mtopGetResidueInfoRK10gmx_mtop_tiPi.exit, label %35
@@ -1664,24 +1664,24 @@ _ZL18mtopGetResidueInfoRK10gmx_mtop_tiPi.exit:    ; preds = %32
   %39 = sub i32 %14, %.fr12.i
   %40 = load i32, ptr %28, align 4
   %41 = srem i32 %39, %40
-  %42 = getelementptr inbounds i8, ptr %11, i64 112
+  %42 = getelementptr inbounds nuw i8, ptr %11, i64 112
   %43 = getelementptr inbounds %struct.gmx_molblock_t, ptr %18, i64 %27
   %44 = load i32, ptr %43, align 8
   %45 = sext i32 %44 to i64
   %46 = load ptr, ptr %42, align 8
   %47 = getelementptr inbounds %struct.gmx_moltype_t, ptr %46, i64 %45
-  %48 = getelementptr inbounds i8, ptr %47, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %49 = load ptr, ptr %48, align 8
   %50 = sext i32 %41 to i64
   %51 = getelementptr inbounds %struct.t_atom, ptr %49, i64 %50, i32 7
   %52 = load i32, ptr %51, align 4
-  %53 = getelementptr inbounds i8, ptr %47, i64 56
+  %53 = getelementptr inbounds nuw i8, ptr %47, i64 56
   %54 = load ptr, ptr %53, align 8
   %55 = sext i32 %52 to i64
   %56 = getelementptr inbounds %struct.t_resinfo, ptr %54, i64 %55, i32 4
   %57 = load i8, ptr %56, align 4
   %58 = load ptr, ptr %9, align 8
-  %59 = getelementptr inbounds ptr, ptr %58, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw ptr, ptr %58, i64 %indvars.iv
   %60 = load ptr, ptr %59, align 8
   store i8 %57, ptr %60, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1706,14 +1706,14 @@ define internal void @_ZL13evaluate_massRKN3gmx20SelMethodEvalContextEP15gmx_ana
 
 8:                                                ; preds = %4
   %9 = load i32, ptr %1, align 8
-  %10 = getelementptr inbounds i8, ptr %2, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %9, ptr %10, align 4
   %11 = icmp sgt i32 %9, 0
   br i1 %11, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %14
 
 14:                                               ; preds = %.lr.ph, %_ZL15mtopGetAtomMassRK10gmx_mtop_tiPi.exit
@@ -1721,10 +1721,10 @@ define internal void @_ZL13evaluate_massRKN3gmx20SelMethodEvalContextEP15gmx_ana
   %.01012 = phi i32 [ 0, %.lr.ph ], [ %.1, %_ZL15mtopGetAtomMassRK10gmx_mtop_tiPi.exit ]
   %15 = load ptr, ptr %0, align 8
   %16 = load ptr, ptr %12, align 8
-  %17 = getelementptr inbounds i32, ptr %16, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv
   %18 = load i32, ptr %17, align 4
-  %19 = getelementptr inbounds i8, ptr %15, i64 136
-  %20 = getelementptr inbounds i8, ptr %15, i64 144
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 136
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 144
   %21 = load ptr, ptr %20, align 8
   %22 = load ptr, ptr %19, align 8
   %23 = ptrtoint ptr %21 to i64
@@ -1732,7 +1732,7 @@ define internal void @_ZL13evaluate_massRKN3gmx20SelMethodEvalContextEP15gmx_ana
   %25 = sub i64 %23, %24
   %26 = sdiv exact i64 %25, 56
   %27 = trunc i64 %26 to i32
-  %28 = getelementptr inbounds i8, ptr %15, i64 736
+  %28 = getelementptr inbounds nuw i8, ptr %15, i64 736
   %29 = load ptr, ptr %28, align 8
   br label %30
 
@@ -1742,14 +1742,14 @@ define internal void @_ZL13evaluate_massRKN3gmx20SelMethodEvalContextEP15gmx_ana
   %.0.i.i.i = phi i32 [ -1, %14 ], [ %.1.i.i.i, %39 ]
   %31 = sext i32 %.1 to i64
   %32 = getelementptr inbounds %struct.MoleculeBlockIndices, ptr %29, i64 %31
-  %33 = getelementptr inbounds i8, ptr %32, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 4
   %34 = load i32, ptr %33, align 4
   %.fr10.i.i = freeze i32 %34
   %35 = icmp slt i32 %18, %.fr10.i.i
   br i1 %35, label %39, label %36
 
 36:                                               ; preds = %30
-  %37 = getelementptr inbounds i8, ptr %32, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %38 = load i32, ptr %37, align 4
   %.not.i.i.i = icmp slt i32 %18, %38
   br i1 %.not.i.i.i, label %_ZL15mtopGetAtomMassRK10gmx_mtop_tiPi.exit, label %39
@@ -1766,7 +1766,7 @@ _ZL15mtopGetAtomMassRK10gmx_mtop_tiPi.exit:       ; preds = %36
   %43 = sub i32 %18, %.fr10.i.i
   %44 = load i32, ptr %32, align 4
   %45 = srem i32 %43, %44
-  %46 = getelementptr inbounds i8, ptr %15, i64 112
+  %46 = getelementptr inbounds nuw i8, ptr %15, i64 112
   %47 = getelementptr inbounds %struct.gmx_molblock_t, ptr %22, i64 %31
   %48 = load i32, ptr %47, align 8
   %49 = sext i32 %48 to i64
@@ -1777,7 +1777,7 @@ _ZL15mtopGetAtomMassRK10gmx_mtop_tiPi.exit:       ; preds = %36
   %54 = getelementptr inbounds %struct.t_atom, ptr %52, i64 %53
   %55 = load float, ptr %54, align 4
   %56 = load ptr, ptr %13, align 8
-  %57 = getelementptr inbounds float, ptr %56, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw float, ptr %56, i64 %indvars.iv
   store float %55, ptr %57, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %58 = load i32, ptr %1, align 8
@@ -1814,11 +1814,11 @@ define internal void @_ZL12check_chargePK10gmx_mtop_tiP18gmx_ana_selparam_tPv(pt
 12:                                               ; preds = %11
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx22InconsistentInputErrorE, i64 16), ptr %5, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %7, align 8
-  %13 = getelementptr inbounds i8, ptr %7, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr @__PRETTY_FUNCTION__._ZL12check_chargePK10gmx_mtop_tiP18gmx_ana_selparam_tPv, ptr %13, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 16
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr @.str.21, ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 24
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i32 683, ptr %.sroa.3.0..sroa_idx, align 8
   invoke void @_ZN3gmxlsINS_22InconsistentInputErrorENS_22ExceptionInfoLocation_ENS_13ThrowLocationEEENSt9enable_ifIXsr3std10is_base_ofINS_16GromacsExceptionET_EE5valueES6_E4typeES6_RKNS_13ExceptionInfoIT0_T1_EE(ptr dead_on_unwind writable sret(%"class.gmx::InconsistentInputError") align 8 %10, ptr noundef nonnull %5, ptr noundef nonnull align 8 dereferenceable(32) %7)
           to label %14 unwind label %17
@@ -1866,14 +1866,14 @@ define internal void @_ZL12check_chargePK10gmx_mtop_tiP18gmx_ana_selparam_tPv(pt
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @_ZL15evaluate_chargeRKN3gmx20SelMethodEvalContextEP15gmx_ana_index_tP18gmx_ana_selvalue_tPv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef initializes((4, 8)) %2, ptr nocapture readnone %3) #3 {
   %5 = load i32, ptr %1, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %5, ptr %6, align 4
   %7 = icmp sgt i32 %5, 0
   br i1 %7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %10
 
 10:                                               ; preds = %.lr.ph, %_ZL21mtopGetAtomParametersRK10gmx_mtop_tiPi.exit
@@ -1881,10 +1881,10 @@ define internal void @_ZL15evaluate_chargeRKN3gmx20SelMethodEvalContextEP15gmx_a
   %.0911 = phi i32 [ 0, %.lr.ph ], [ %.1, %_ZL21mtopGetAtomParametersRK10gmx_mtop_tiPi.exit ]
   %11 = load ptr, ptr %0, align 8
   %12 = load ptr, ptr %8, align 8
-  %13 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv
   %14 = load i32, ptr %13, align 4
-  %15 = getelementptr inbounds i8, ptr %11, i64 136
-  %16 = getelementptr inbounds i8, ptr %11, i64 144
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 136
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 144
   %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr %15, align 8
   %19 = ptrtoint ptr %17 to i64
@@ -1892,7 +1892,7 @@ define internal void @_ZL15evaluate_chargeRKN3gmx20SelMethodEvalContextEP15gmx_a
   %21 = sub i64 %19, %20
   %22 = sdiv exact i64 %21, 56
   %23 = trunc i64 %22 to i32
-  %24 = getelementptr inbounds i8, ptr %11, i64 736
+  %24 = getelementptr inbounds nuw i8, ptr %11, i64 736
   %25 = load ptr, ptr %24, align 8
   br label %26
 
@@ -1902,14 +1902,14 @@ define internal void @_ZL15evaluate_chargeRKN3gmx20SelMethodEvalContextEP15gmx_a
   %.0.i.i = phi i32 [ -1, %10 ], [ %.1.i.i, %35 ]
   %27 = sext i32 %.1 to i64
   %28 = getelementptr inbounds %struct.MoleculeBlockIndices, ptr %25, i64 %27
-  %29 = getelementptr inbounds i8, ptr %28, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 4
   %30 = load i32, ptr %29, align 4
   %.fr10.i = freeze i32 %30
   %31 = icmp slt i32 %14, %.fr10.i
   br i1 %31, label %35, label %32
 
 32:                                               ; preds = %26
-  %33 = getelementptr inbounds i8, ptr %28, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %34 = load i32, ptr %33, align 4
   %.not.i.i = icmp slt i32 %14, %34
   br i1 %.not.i.i, label %_ZL21mtopGetAtomParametersRK10gmx_mtop_tiPi.exit, label %35
@@ -1926,7 +1926,7 @@ _ZL21mtopGetAtomParametersRK10gmx_mtop_tiPi.exit: ; preds = %32
   %39 = sub i32 %14, %.fr10.i
   %40 = load i32, ptr %28, align 4
   %41 = srem i32 %39, %40
-  %42 = getelementptr inbounds i8, ptr %11, i64 112
+  %42 = getelementptr inbounds nuw i8, ptr %11, i64 112
   %43 = getelementptr inbounds %struct.gmx_molblock_t, ptr %18, i64 %27
   %44 = load i32, ptr %43, align 8
   %45 = sext i32 %44 to i64
@@ -1937,7 +1937,7 @@ _ZL21mtopGetAtomParametersRK10gmx_mtop_tiPi.exit: ; preds = %32
   %50 = getelementptr inbounds %struct.t_atom, ptr %48, i64 %49, i32 1
   %51 = load float, ptr %50, align 4
   %52 = load ptr, ptr %9, align 8
-  %53 = getelementptr inbounds float, ptr %52, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw float, ptr %52, i64 %indvars.iv
   store float %51, ptr %53, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %54 = load i32, ptr %1, align 8
@@ -1954,14 +1954,14 @@ declare noundef zeroext i1 @_Z20gmx_mtop_has_chargesPK10gmx_mtop_t(ptr noundef) 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @_ZL15evaluate_altlocRKN3gmx20SelMethodEvalContextEP15gmx_ana_index_tP18gmx_ana_selvalue_tPv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef initializes((4, 8)) %2, ptr nocapture readnone %3) #3 {
   %5 = load i32, ptr %1, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %5, ptr %6, align 4
   %7 = icmp sgt i32 %5, 0
   br i1 %7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %10
 
 10:                                               ; preds = %.lr.ph, %_ZL18mtopGetAtomPdbInfoRK10gmx_mtop_tiPi.exit
@@ -1969,10 +1969,10 @@ define internal void @_ZL15evaluate_altlocRKN3gmx20SelMethodEvalContextEP15gmx_a
   %.0911 = phi i32 [ 0, %.lr.ph ], [ %.1, %_ZL18mtopGetAtomPdbInfoRK10gmx_mtop_tiPi.exit ]
   %11 = load ptr, ptr %0, align 8
   %12 = load ptr, ptr %8, align 8
-  %13 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv
   %14 = load i32, ptr %13, align 4
-  %15 = getelementptr inbounds i8, ptr %11, i64 136
-  %16 = getelementptr inbounds i8, ptr %11, i64 144
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 136
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 144
   %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr %15, align 8
   %19 = ptrtoint ptr %17 to i64
@@ -1980,7 +1980,7 @@ define internal void @_ZL15evaluate_altlocRKN3gmx20SelMethodEvalContextEP15gmx_a
   %21 = sub i64 %19, %20
   %22 = sdiv exact i64 %21, 56
   %23 = trunc i64 %22 to i32
-  %24 = getelementptr inbounds i8, ptr %11, i64 736
+  %24 = getelementptr inbounds nuw i8, ptr %11, i64 736
   %25 = load ptr, ptr %24, align 8
   br label %26
 
@@ -1990,14 +1990,14 @@ define internal void @_ZL15evaluate_altlocRKN3gmx20SelMethodEvalContextEP15gmx_a
   %.0.i.i = phi i32 [ -1, %10 ], [ %.1.i.i, %35 ]
   %27 = sext i32 %.1 to i64
   %28 = getelementptr inbounds %struct.MoleculeBlockIndices, ptr %25, i64 %27
-  %29 = getelementptr inbounds i8, ptr %28, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 4
   %30 = load i32, ptr %29, align 4
   %.fr10.i = freeze i32 %30
   %31 = icmp slt i32 %14, %.fr10.i
   br i1 %31, label %35, label %32
 
 32:                                               ; preds = %26
-  %33 = getelementptr inbounds i8, ptr %28, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %34 = load i32, ptr %33, align 4
   %.not.i.i = icmp slt i32 %14, %34
   br i1 %.not.i.i, label %_ZL18mtopGetAtomPdbInfoRK10gmx_mtop_tiPi.exit, label %35
@@ -2014,7 +2014,7 @@ _ZL18mtopGetAtomPdbInfoRK10gmx_mtop_tiPi.exit:    ; preds = %32
   %39 = sub i32 %14, %.fr10.i
   %40 = load i32, ptr %28, align 4
   %41 = srem i32 %39, %40
-  %42 = getelementptr inbounds i8, ptr %11, i64 112
+  %42 = getelementptr inbounds nuw i8, ptr %11, i64 112
   %43 = getelementptr inbounds %struct.gmx_molblock_t, ptr %18, i64 %27
   %44 = load i32, ptr %43, align 8
   %45 = sext i32 %44 to i64
@@ -2025,7 +2025,7 @@ _ZL18mtopGetAtomPdbInfoRK10gmx_mtop_tiPi.exit:    ; preds = %32
   %50 = getelementptr inbounds %struct.t_pdbinfo, ptr %48, i64 %49, i32 2
   %51 = load i8, ptr %50, align 4
   %52 = load ptr, ptr %9, align 8
-  %53 = getelementptr inbounds ptr, ptr %52, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw ptr, ptr %52, i64 %indvars.iv
   %54 = load ptr, ptr %53, align 8
   store i8 %51, ptr %54, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2041,14 +2041,14 @@ _ZL18mtopGetAtomPdbInfoRK10gmx_mtop_tiPi.exit:    ; preds = %32
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @_ZL18evaluate_occupancyRKN3gmx20SelMethodEvalContextEP15gmx_ana_index_tP18gmx_ana_selvalue_tPv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef initializes((4, 8)) %2, ptr nocapture readnone %3) #3 {
   %5 = load i32, ptr %1, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %5, ptr %6, align 4
   %7 = icmp sgt i32 %5, 0
   br i1 %7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %10
 
 10:                                               ; preds = %.lr.ph, %_ZL18mtopGetAtomPdbInfoRK10gmx_mtop_tiPi.exit
@@ -2056,10 +2056,10 @@ define internal void @_ZL18evaluate_occupancyRKN3gmx20SelMethodEvalContextEP15gm
   %.0911 = phi i32 [ 0, %.lr.ph ], [ %.1, %_ZL18mtopGetAtomPdbInfoRK10gmx_mtop_tiPi.exit ]
   %11 = load ptr, ptr %0, align 8
   %12 = load ptr, ptr %8, align 8
-  %13 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv
   %14 = load i32, ptr %13, align 4
-  %15 = getelementptr inbounds i8, ptr %11, i64 136
-  %16 = getelementptr inbounds i8, ptr %11, i64 144
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 136
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 144
   %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr %15, align 8
   %19 = ptrtoint ptr %17 to i64
@@ -2067,7 +2067,7 @@ define internal void @_ZL18evaluate_occupancyRKN3gmx20SelMethodEvalContextEP15gm
   %21 = sub i64 %19, %20
   %22 = sdiv exact i64 %21, 56
   %23 = trunc i64 %22 to i32
-  %24 = getelementptr inbounds i8, ptr %11, i64 736
+  %24 = getelementptr inbounds nuw i8, ptr %11, i64 736
   %25 = load ptr, ptr %24, align 8
   br label %26
 
@@ -2077,14 +2077,14 @@ define internal void @_ZL18evaluate_occupancyRKN3gmx20SelMethodEvalContextEP15gm
   %.0.i.i = phi i32 [ -1, %10 ], [ %.1.i.i, %35 ]
   %27 = sext i32 %.1 to i64
   %28 = getelementptr inbounds %struct.MoleculeBlockIndices, ptr %25, i64 %27
-  %29 = getelementptr inbounds i8, ptr %28, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 4
   %30 = load i32, ptr %29, align 4
   %.fr10.i = freeze i32 %30
   %31 = icmp slt i32 %14, %.fr10.i
   br i1 %31, label %35, label %32
 
 32:                                               ; preds = %26
-  %33 = getelementptr inbounds i8, ptr %28, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %34 = load i32, ptr %33, align 4
   %.not.i.i = icmp slt i32 %14, %34
   br i1 %.not.i.i, label %_ZL18mtopGetAtomPdbInfoRK10gmx_mtop_tiPi.exit, label %35
@@ -2101,7 +2101,7 @@ _ZL18mtopGetAtomPdbInfoRK10gmx_mtop_tiPi.exit:    ; preds = %32
   %39 = sub i32 %14, %.fr10.i
   %40 = load i32, ptr %28, align 4
   %41 = srem i32 %39, %40
-  %42 = getelementptr inbounds i8, ptr %11, i64 112
+  %42 = getelementptr inbounds nuw i8, ptr %11, i64 112
   %43 = getelementptr inbounds %struct.gmx_molblock_t, ptr %18, i64 %27
   %44 = load i32, ptr %43, align 8
   %45 = sext i32 %44 to i64
@@ -2112,7 +2112,7 @@ _ZL18mtopGetAtomPdbInfoRK10gmx_mtop_tiPi.exit:    ; preds = %32
   %50 = getelementptr inbounds %struct.t_pdbinfo, ptr %48, i64 %49, i32 4
   %51 = load float, ptr %50, align 4
   %52 = load ptr, ptr %9, align 8
-  %53 = getelementptr inbounds float, ptr %52, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw float, ptr %52, i64 %indvars.iv
   store float %51, ptr %53, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %54 = load i32, ptr %1, align 8
@@ -2127,14 +2127,14 @@ _ZL18mtopGetAtomPdbInfoRK10gmx_mtop_tiPi.exit:    ; preds = %32
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @_ZL19evaluate_betafactorRKN3gmx20SelMethodEvalContextEP15gmx_ana_index_tP18gmx_ana_selvalue_tPv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef initializes((4, 8)) %2, ptr nocapture readnone %3) #3 {
   %5 = load i32, ptr %1, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %5, ptr %6, align 4
   %7 = icmp sgt i32 %5, 0
   br i1 %7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %10
 
 10:                                               ; preds = %.lr.ph, %_ZL18mtopGetAtomPdbInfoRK10gmx_mtop_tiPi.exit
@@ -2142,10 +2142,10 @@ define internal void @_ZL19evaluate_betafactorRKN3gmx20SelMethodEvalContextEP15g
   %.0911 = phi i32 [ 0, %.lr.ph ], [ %.1, %_ZL18mtopGetAtomPdbInfoRK10gmx_mtop_tiPi.exit ]
   %11 = load ptr, ptr %0, align 8
   %12 = load ptr, ptr %8, align 8
-  %13 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv
   %14 = load i32, ptr %13, align 4
-  %15 = getelementptr inbounds i8, ptr %11, i64 136
-  %16 = getelementptr inbounds i8, ptr %11, i64 144
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 136
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 144
   %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr %15, align 8
   %19 = ptrtoint ptr %17 to i64
@@ -2153,7 +2153,7 @@ define internal void @_ZL19evaluate_betafactorRKN3gmx20SelMethodEvalContextEP15g
   %21 = sub i64 %19, %20
   %22 = sdiv exact i64 %21, 56
   %23 = trunc i64 %22 to i32
-  %24 = getelementptr inbounds i8, ptr %11, i64 736
+  %24 = getelementptr inbounds nuw i8, ptr %11, i64 736
   %25 = load ptr, ptr %24, align 8
   br label %26
 
@@ -2163,14 +2163,14 @@ define internal void @_ZL19evaluate_betafactorRKN3gmx20SelMethodEvalContextEP15g
   %.0.i.i = phi i32 [ -1, %10 ], [ %.1.i.i, %35 ]
   %27 = sext i32 %.1 to i64
   %28 = getelementptr inbounds %struct.MoleculeBlockIndices, ptr %25, i64 %27
-  %29 = getelementptr inbounds i8, ptr %28, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 4
   %30 = load i32, ptr %29, align 4
   %.fr10.i = freeze i32 %30
   %31 = icmp slt i32 %14, %.fr10.i
   br i1 %31, label %35, label %32
 
 32:                                               ; preds = %26
-  %33 = getelementptr inbounds i8, ptr %28, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %34 = load i32, ptr %33, align 4
   %.not.i.i = icmp slt i32 %14, %34
   br i1 %.not.i.i, label %_ZL18mtopGetAtomPdbInfoRK10gmx_mtop_tiPi.exit, label %35
@@ -2187,7 +2187,7 @@ _ZL18mtopGetAtomPdbInfoRK10gmx_mtop_tiPi.exit:    ; preds = %32
   %39 = sub i32 %14, %.fr10.i
   %40 = load i32, ptr %28, align 4
   %41 = srem i32 %39, %40
-  %42 = getelementptr inbounds i8, ptr %11, i64 112
+  %42 = getelementptr inbounds nuw i8, ptr %11, i64 112
   %43 = getelementptr inbounds %struct.gmx_molblock_t, ptr %18, i64 %27
   %44 = load i32, ptr %43, align 8
   %45 = sext i32 %44 to i64
@@ -2198,7 +2198,7 @@ _ZL18mtopGetAtomPdbInfoRK10gmx_mtop_tiPi.exit:    ; preds = %32
   %50 = getelementptr inbounds %struct.t_pdbinfo, ptr %48, i64 %49, i32 5
   %51 = load float, ptr %50, align 4
   %52 = load ptr, ptr %9, align 8
-  %53 = getelementptr inbounds float, ptr %52, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw float, ptr %52, i64 %indvars.iv
   store float %51, ptr %53, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %54 = load i32, ptr %1, align 8
@@ -2212,11 +2212,11 @@ _ZL18mtopGetAtomPdbInfoRK10gmx_mtop_tiPi.exit:    ; preds = %32
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @_ZL10evaluate_xRKN3gmx20SelMethodEvalContextEP13gmx_ana_pos_tP18gmx_ana_selvalue_tPv(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef readonly %1, ptr nocapture noundef initializes((4, 8)) %2, ptr nocapture readnone %3) #3 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %6 = load i32, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %6, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %2, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = icmp sgt i32 %6, 0
   br i1 %10, label %.lr.ph.i, label %_ZL14evaluate_coordPfP13gmx_ana_pos_ti.exit
@@ -2224,9 +2224,9 @@ define internal void @_ZL10evaluate_xRKN3gmx20SelMethodEvalContextEP13gmx_ana_po
 .lr.ph.i:                                         ; preds = %4, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %4 ]
   %11 = load ptr, ptr %1, align 8
-  %12 = getelementptr inbounds [3 x float], ptr %11, i64 %indvars.iv.i, i64 0
+  %12 = getelementptr inbounds nuw [3 x float], ptr %11, i64 %indvars.iv.i, i64 0
   %13 = load float, ptr %12, align 4
-  %14 = getelementptr inbounds float, ptr %9, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv.i
   store float %13, ptr %14, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %15 = load i32, ptr %5, align 8
@@ -2240,11 +2240,11 @@ _ZL14evaluate_coordPfP13gmx_ana_pos_ti.exit:      ; preds = %.lr.ph.i, %4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @_ZL10evaluate_yRKN3gmx20SelMethodEvalContextEP13gmx_ana_pos_tP18gmx_ana_selvalue_tPv(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef readonly %1, ptr nocapture noundef initializes((4, 8)) %2, ptr nocapture readnone %3) #3 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %6 = load i32, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %6, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %2, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = icmp sgt i32 %6, 0
   br i1 %10, label %.lr.ph.i, label %_ZL14evaluate_coordPfP13gmx_ana_pos_ti.exit
@@ -2252,9 +2252,9 @@ define internal void @_ZL10evaluate_yRKN3gmx20SelMethodEvalContextEP13gmx_ana_po
 .lr.ph.i:                                         ; preds = %4, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %4 ]
   %11 = load ptr, ptr %1, align 8
-  %12 = getelementptr inbounds [3 x float], ptr %11, i64 %indvars.iv.i, i64 1
+  %12 = getelementptr inbounds nuw [3 x float], ptr %11, i64 %indvars.iv.i, i64 1
   %13 = load float, ptr %12, align 4
-  %14 = getelementptr inbounds float, ptr %9, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv.i
   store float %13, ptr %14, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %15 = load i32, ptr %5, align 8
@@ -2268,11 +2268,11 @@ _ZL14evaluate_coordPfP13gmx_ana_pos_ti.exit:      ; preds = %.lr.ph.i, %4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @_ZL10evaluate_zRKN3gmx20SelMethodEvalContextEP13gmx_ana_pos_tP18gmx_ana_selvalue_tPv(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef readonly %1, ptr nocapture noundef initializes((4, 8)) %2, ptr nocapture readnone %3) #3 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %6 = load i32, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %6, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %2, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = icmp sgt i32 %6, 0
   br i1 %10, label %.lr.ph.i, label %_ZL14evaluate_coordPfP13gmx_ana_pos_ti.exit
@@ -2280,9 +2280,9 @@ define internal void @_ZL10evaluate_zRKN3gmx20SelMethodEvalContextEP13gmx_ana_po
 .lr.ph.i:                                         ; preds = %4, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %4 ]
   %11 = load ptr, ptr %1, align 8
-  %12 = getelementptr inbounds [3 x float], ptr %11, i64 %indvars.iv.i, i64 2
+  %12 = getelementptr inbounds nuw [3 x float], ptr %11, i64 %indvars.iv.i, i64 2
   %13 = load float, ptr %12, align 4
-  %14 = getelementptr inbounds float, ptr %9, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv.i
   store float %13, ptr %14, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %15 = load i32, ptr %5, align 8

@@ -5,12 +5,12 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define i32 @PQ_init(ptr noundef initializes((56, 68)) %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 64
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 %1, ptr %3, align 8
   %4 = sext i32 %1 to i64
   %5 = shl nsw i64 %4, 3
   %6 = tail call noalias ptr @malloc(i64 noundef %5) #8
-  %7 = getelementptr inbounds i8, ptr %0, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %6, ptr %7, align 8
   %8 = icmp sgt i32 %1, 0
   br i1 %8, label %.lr.ph.preheader, label %._crit_edge
@@ -22,7 +22,7 @@ define i32 @PQ_init(ptr noundef initializes((56, 68)) %0, i32 noundef %1) local_
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %9 = load ptr, ptr %7, align 8
-  %10 = getelementptr inbounds ptr, ptr %9, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
   store ptr null, ptr %10, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -40,9 +40,9 @@ declare hidden i32 @tm_fiboTreeInit(ptr noundef, ptr noundef) local_unnamed_addr
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal range(i32 -1, 2) i32 @compFunc(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load double, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %6 = load double, ptr %5, align 8
   %7 = fcmp ogt double %4, %6
   %8 = select i1 %7, i32 -1, i32 1
@@ -51,20 +51,20 @@ define internal range(i32 -1, 2) i32 @compFunc(ptr nocapture noundef readonly %0
 
 ; Function Attrs: nounwind uwtable
 define void @PQ_exit(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 64
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 56
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   br label %6
 
 6:                                                ; preds = %.lr.ph, %12
   %7 = phi i32 [ %3, %.lr.ph ], [ %13, %12 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %12 ]
   %8 = load ptr, ptr %5, align 8
-  %9 = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %.not11 = icmp eq ptr %10, null
   br i1 %.not11, label %12, label %11
@@ -82,7 +82,7 @@ define void @PQ_exit(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %15, label %6, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %12, %1
-  %16 = getelementptr inbounds i8, ptr %0, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %17 = load ptr, ptr %16, align 8
   %.not = icmp eq ptr %17, null
   br i1 %.not, label %19, label %18
@@ -103,20 +103,20 @@ declare hidden void @tm_fiboTreeExit(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define void @PQ_free(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 64
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 56
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   br label %6
 
 6:                                                ; preds = %.lr.ph, %12
   %7 = phi i32 [ %3, %.lr.ph ], [ %13, %12 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %12 ]
   %8 = load ptr, ptr %5, align 8
-  %9 = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %12, label %11
@@ -142,7 +142,7 @@ declare hidden void @tm_fiboTreeFree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define range(i32 0, 2) i32 @PQ_isEmpty(ptr noundef readonly %0) local_unnamed_addr #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %0, %3
   %. = zext i1 %4 to i32
@@ -151,37 +151,37 @@ define range(i32 0, 2) i32 @PQ_isEmpty(ptr noundef readonly %0) local_unnamed_ad
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @PQ_insertElement(ptr noundef %0, ptr noundef %1) local_unnamed_addr #5 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, -1
   br i1 %5, label %6, label %23
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %8 = load i32, ptr %7, align 8
   %9 = icmp slt i32 %4, %8
   br i1 %9, label %10, label %23
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %1, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i32 0, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false)
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 16
-  %15 = getelementptr inbounds i8, ptr %1, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store ptr %13, ptr %15, align 8
   store ptr %0, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %13, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr %1, ptr %16, align 8
   store ptr %1, ptr %12, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 56
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %18 = load ptr, ptr %17, align 8
   %19 = load i32, ptr %3, align 8
   %20 = sext i32 %19 to i64
   %21 = getelementptr inbounds ptr, ptr %18, i64 %20
   store ptr %1, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 52
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 52
   store i32 1, ptr %22, align 4
   br label %23
 
@@ -192,14 +192,14 @@ define void @PQ_insertElement(ptr noundef %0, ptr noundef %1) local_unnamed_addr
 ; Function Attrs: nounwind uwtable
 define void @PQ_deleteElement(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   tail call void @tm_fiboTreeDel(ptr noundef %0, ptr noundef %1) #9
-  %3 = getelementptr inbounds i8, ptr %0, i64 56
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %6 = load i32, ptr %5, align 8
   %7 = sext i32 %6 to i64
   %8 = getelementptr inbounds ptr, ptr %4, i64 %7
   store ptr null, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 52
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 52
   store i32 0, ptr %9, align 4
   ret void
 }
@@ -212,35 +212,35 @@ define void @PQ_insert(ptr noundef %0, i32 noundef %1, double noundef %2) local_
   br i1 %4, label %5, label %23
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %7 = load i32, ptr %6, align 8
   %8 = icmp slt i32 %1, %7
   br i1 %8, label %PQ_insertElement.exit, label %23
 
 PQ_insertElement.exit:                            ; preds = %5
   %9 = tail call noalias dereferenceable_or_null(56) ptr @malloc(i64 noundef 56) #8
-  %10 = getelementptr inbounds i8, ptr %9, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 48
   store i32 %1, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %9, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 40
   store double %2, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %9, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store i32 0, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %9, i64 16
-  %16 = getelementptr inbounds i8, ptr %9, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store ptr %14, ptr %16, align 8
   store ptr %0, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %14, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store ptr %9, ptr %17, align 8
   store ptr %9, ptr %13, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %19 = load ptr, ptr %18, align 8
   %20 = zext nneg i32 %1 to i64
-  %21 = getelementptr inbounds ptr, ptr %19, i64 %20
+  %21 = getelementptr inbounds nuw ptr, ptr %19, i64 %20
   store ptr %9, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %9, i64 52
+  %22 = getelementptr inbounds nuw i8, ptr %9, i64 52
   store i32 1, ptr %22, align 4
   br label %23
 
@@ -250,14 +250,14 @@ PQ_insertElement.exit:                            ; preds = %5
 
 ; Function Attrs: nounwind uwtable
 define void @PQ_delete(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 56
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
   %5 = sext i32 %1 to i64
   %6 = getelementptr inbounds ptr, ptr %4, i64 %5
   %7 = load ptr, ptr %6, align 8
   tail call void @tm_fiboTreeDel(ptr noundef %0, ptr noundef %7) #9
   %8 = load ptr, ptr %3, align 8
-  %9 = getelementptr inbounds i8, ptr %7, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %10 = load i32, ptr %9, align 8
   %11 = sext i32 %10 to i64
   %12 = getelementptr inbounds ptr, ptr %8, i64 %11
@@ -282,14 +282,14 @@ define ptr @PQ_deleteMaxElement(ptr noundef %0) local_unnamed_addr #0 {
 
 3:                                                ; preds = %1
   tail call void @tm_fiboTreeDel(ptr noundef %0, ptr noundef nonnull %2) #9
-  %4 = getelementptr inbounds i8, ptr %0, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %7 = load i32, ptr %6, align 8
   %8 = sext i32 %7 to i64
   %9 = getelementptr inbounds ptr, ptr %5, i64 %8
   store ptr null, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %2, i64 52
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 52
   store i32 0, ptr %10, align 4
   br label %11
 
@@ -304,7 +304,7 @@ define double @PQ_findMaxKey(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %6, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %2, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %5 = load double, ptr %4, align 8
   br label %6
 
@@ -321,9 +321,9 @@ define i32 @PQ_deleteMax(ptr noundef %0) local_unnamed_addr #0 {
 
 3:                                                ; preds = %1
   tail call void @tm_fiboTreeDel(ptr noundef %0, ptr noundef nonnull %2) #9
-  %4 = getelementptr inbounds i8, ptr %0, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %7 = load i32, ptr %6, align 8
   %8 = sext i32 %7 to i64
   %9 = getelementptr inbounds ptr, ptr %5, i64 %8
@@ -339,22 +339,22 @@ PQ_deleteMaxElement.exit.thread:                  ; preds = %1, %3
 
 ; Function Attrs: nounwind uwtable
 define void @PQ_increaseElementKey(ptr noundef %0, ptr noundef %1, double noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 52
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %5 = load i32, ptr %4, align 4
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %PQ_insertElement.exit, label %6
 
 6:                                                ; preds = %3
   tail call void @tm_fiboTreeDel(ptr noundef %0, ptr noundef nonnull %1) #9
-  %7 = getelementptr inbounds i8, ptr %0, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %10 = load i32, ptr %9, align 8
   %11 = sext i32 %10 to i64
   %12 = getelementptr inbounds ptr, ptr %8, i64 %11
   store ptr null, ptr %12, align 8
   store i32 0, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %1, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %14 = load double, ptr %13, align 8
   %15 = fadd double %2, %14
   store double %15, ptr %13, align 8
@@ -363,22 +363,22 @@ define void @PQ_increaseElementKey(ptr noundef %0, ptr noundef %1, double nounde
   br i1 %17, label %18, label %PQ_insertElement.exit
 
 18:                                               ; preds = %6
-  %19 = getelementptr inbounds i8, ptr %0, i64 64
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %20 = load i32, ptr %19, align 8
   %21 = icmp slt i32 %16, %20
   br i1 %21, label %22, label %PQ_insertElement.exit
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %1, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i32 0, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false)
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %1, i64 16
-  %27 = getelementptr inbounds i8, ptr %1, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store ptr %25, ptr %27, align 8
   store ptr %0, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %25, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %25, i64 16
   store ptr %1, ptr %28, align 8
   store ptr %1, ptr %24, align 8
   %29 = load ptr, ptr %7, align 8
@@ -395,22 +395,22 @@ PQ_insertElement.exit:                            ; preds = %22, %18, %6, %3
 
 ; Function Attrs: nounwind uwtable
 define void @PQ_decreaseElementKey(ptr noundef %0, ptr noundef %1, double noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 52
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %5 = load i32, ptr %4, align 4
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %PQ_insertElement.exit, label %6
 
 6:                                                ; preds = %3
   tail call void @tm_fiboTreeDel(ptr noundef %0, ptr noundef nonnull %1) #9
-  %7 = getelementptr inbounds i8, ptr %0, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %10 = load i32, ptr %9, align 8
   %11 = sext i32 %10 to i64
   %12 = getelementptr inbounds ptr, ptr %8, i64 %11
   store ptr null, ptr %12, align 8
   store i32 0, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %1, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %14 = load double, ptr %13, align 8
   %15 = fsub double %14, %2
   store double %15, ptr %13, align 8
@@ -419,22 +419,22 @@ define void @PQ_decreaseElementKey(ptr noundef %0, ptr noundef %1, double nounde
   br i1 %17, label %18, label %PQ_insertElement.exit
 
 18:                                               ; preds = %6
-  %19 = getelementptr inbounds i8, ptr %0, i64 64
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %20 = load i32, ptr %19, align 8
   %21 = icmp slt i32 %16, %20
   br i1 %21, label %22, label %PQ_insertElement.exit
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %1, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i32 0, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false)
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %1, i64 16
-  %27 = getelementptr inbounds i8, ptr %1, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store ptr %25, ptr %27, align 8
   store ptr %0, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %25, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %25, i64 16
   store ptr %1, ptr %28, align 8
   store ptr %1, ptr %24, align 8
   %29 = load ptr, ptr %7, align 8
@@ -451,44 +451,44 @@ PQ_insertElement.exit:                            ; preds = %22, %18, %6, %3
 
 ; Function Attrs: nounwind uwtable
 define void @PQ_adjustElementKey(ptr noundef %0, ptr noundef %1, double noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 52
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %5 = load i32, ptr %4, align 4
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %PQ_insertElement.exit, label %6
 
 6:                                                ; preds = %3
   tail call void @tm_fiboTreeDel(ptr noundef %0, ptr noundef nonnull %1) #9
-  %7 = getelementptr inbounds i8, ptr %0, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %10 = load i32, ptr %9, align 8
   %11 = sext i32 %10 to i64
   %12 = getelementptr inbounds ptr, ptr %8, i64 %11
   store ptr null, ptr %12, align 8
   store i32 0, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %1, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store double %2, ptr %13, align 8
   %14 = load i32, ptr %9, align 8
   %15 = icmp sgt i32 %14, -1
   br i1 %15, label %16, label %PQ_insertElement.exit
 
 16:                                               ; preds = %6
-  %17 = getelementptr inbounds i8, ptr %0, i64 64
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %18 = load i32, ptr %17, align 8
   %19 = icmp slt i32 %14, %18
   br i1 %19, label %20, label %PQ_insertElement.exit
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %1, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i32 0, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false)
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %1, i64 16
-  %25 = getelementptr inbounds i8, ptr %1, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store ptr %23, ptr %25, align 8
   store ptr %0, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %23, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 16
   store ptr %1, ptr %26, align 8
   store ptr %1, ptr %22, align 8
   %27 = load ptr, ptr %7, align 8
@@ -505,7 +505,7 @@ PQ_insertElement.exit:                            ; preds = %20, %16, %6, %3
 
 ; Function Attrs: nounwind uwtable
 define void @PQ_increaseKey(ptr noundef %0, i32 noundef %1, double noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load ptr, ptr %4, align 8
   %6 = sext i32 %1 to i64
   %7 = getelementptr inbounds ptr, ptr %5, i64 %6
@@ -514,7 +514,7 @@ define void @PQ_increaseKey(ptr noundef %0, i32 noundef %1, double noundef %2) l
   br i1 %.not, label %PQ_increaseElementKey.exit, label %9
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %8, i64 52
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 52
   %11 = load i32, ptr %10, align 4
   %.not.i = icmp eq i32 %11, 0
   br i1 %.not.i, label %PQ_increaseElementKey.exit, label %12
@@ -522,13 +522,13 @@ define void @PQ_increaseKey(ptr noundef %0, i32 noundef %1, double noundef %2) l
 12:                                               ; preds = %9
   tail call void @tm_fiboTreeDel(ptr noundef nonnull %0, ptr noundef nonnull %8) #9
   %13 = load ptr, ptr %4, align 8
-  %14 = getelementptr inbounds i8, ptr %8, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %15 = load i32, ptr %14, align 8
   %16 = sext i32 %15 to i64
   %17 = getelementptr inbounds ptr, ptr %13, i64 %16
   store ptr null, ptr %17, align 8
   store i32 0, ptr %10, align 4
-  %18 = getelementptr inbounds i8, ptr %8, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %19 = load double, ptr %18, align 8
   %20 = fadd double %2, %19
   store double %20, ptr %18, align 8
@@ -537,22 +537,22 @@ define void @PQ_increaseKey(ptr noundef %0, i32 noundef %1, double noundef %2) l
   br i1 %22, label %23, label %PQ_increaseElementKey.exit
 
 23:                                               ; preds = %12
-  %24 = getelementptr inbounds i8, ptr %0, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %25 = load i32, ptr %24, align 8
   %26 = icmp slt i32 %21, %25
   br i1 %26, label %27, label %PQ_increaseElementKey.exit
 
 27:                                               ; preds = %23
-  %28 = getelementptr inbounds i8, ptr %8, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store i32 0, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %8, i64 16
-  %32 = getelementptr inbounds i8, ptr %8, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr %30, ptr %32, align 8
   store ptr %0, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %30, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %30, i64 16
   store ptr %8, ptr %33, align 8
   store ptr %8, ptr %29, align 8
   %34 = load ptr, ptr %4, align 8
@@ -569,7 +569,7 @@ PQ_increaseElementKey.exit:                       ; preds = %27, %23, %12, %9, %
 
 ; Function Attrs: nounwind uwtable
 define void @PQ_decreaseKey(ptr noundef %0, i32 noundef %1, double noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load ptr, ptr %4, align 8
   %6 = sext i32 %1 to i64
   %7 = getelementptr inbounds ptr, ptr %5, i64 %6
@@ -578,7 +578,7 @@ define void @PQ_decreaseKey(ptr noundef %0, i32 noundef %1, double noundef %2) l
   br i1 %.not, label %PQ_decreaseElementKey.exit, label %9
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %8, i64 52
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 52
   %11 = load i32, ptr %10, align 4
   %.not.i = icmp eq i32 %11, 0
   br i1 %.not.i, label %PQ_decreaseElementKey.exit, label %12
@@ -586,13 +586,13 @@ define void @PQ_decreaseKey(ptr noundef %0, i32 noundef %1, double noundef %2) l
 12:                                               ; preds = %9
   tail call void @tm_fiboTreeDel(ptr noundef nonnull %0, ptr noundef nonnull %8) #9
   %13 = load ptr, ptr %4, align 8
-  %14 = getelementptr inbounds i8, ptr %8, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %15 = load i32, ptr %14, align 8
   %16 = sext i32 %15 to i64
   %17 = getelementptr inbounds ptr, ptr %13, i64 %16
   store ptr null, ptr %17, align 8
   store i32 0, ptr %10, align 4
-  %18 = getelementptr inbounds i8, ptr %8, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %19 = load double, ptr %18, align 8
   %20 = fsub double %19, %2
   store double %20, ptr %18, align 8
@@ -601,22 +601,22 @@ define void @PQ_decreaseKey(ptr noundef %0, i32 noundef %1, double noundef %2) l
   br i1 %22, label %23, label %PQ_decreaseElementKey.exit
 
 23:                                               ; preds = %12
-  %24 = getelementptr inbounds i8, ptr %0, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %25 = load i32, ptr %24, align 8
   %26 = icmp slt i32 %21, %25
   br i1 %26, label %27, label %PQ_decreaseElementKey.exit
 
 27:                                               ; preds = %23
-  %28 = getelementptr inbounds i8, ptr %8, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store i32 0, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %8, i64 16
-  %32 = getelementptr inbounds i8, ptr %8, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr %30, ptr %32, align 8
   store ptr %0, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %30, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %30, i64 16
   store ptr %8, ptr %33, align 8
   store ptr %8, ptr %29, align 8
   %34 = load ptr, ptr %4, align 8
@@ -633,7 +633,7 @@ PQ_decreaseElementKey.exit:                       ; preds = %27, %23, %12, %9, %
 
 ; Function Attrs: nounwind uwtable
 define void @PQ_adjustKey(ptr noundef %0, i32 noundef %1, double noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load ptr, ptr %4, align 8
   %6 = sext i32 %1 to i64
   %7 = getelementptr inbounds ptr, ptr %5, i64 %6
@@ -642,7 +642,7 @@ define void @PQ_adjustKey(ptr noundef %0, i32 noundef %1, double noundef %2) loc
   br i1 %.not, label %PQ_adjustElementKey.exit, label %9
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %8, i64 52
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 52
   %11 = load i32, ptr %10, align 4
   %.not.i = icmp eq i32 %11, 0
   br i1 %.not.i, label %PQ_adjustElementKey.exit, label %12
@@ -650,35 +650,35 @@ define void @PQ_adjustKey(ptr noundef %0, i32 noundef %1, double noundef %2) loc
 12:                                               ; preds = %9
   tail call void @tm_fiboTreeDel(ptr noundef nonnull %0, ptr noundef nonnull %8) #9
   %13 = load ptr, ptr %4, align 8
-  %14 = getelementptr inbounds i8, ptr %8, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %15 = load i32, ptr %14, align 8
   %16 = sext i32 %15 to i64
   %17 = getelementptr inbounds ptr, ptr %13, i64 %16
   store ptr null, ptr %17, align 8
   store i32 0, ptr %10, align 4
-  %18 = getelementptr inbounds i8, ptr %8, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %8, i64 40
   store double %2, ptr %18, align 8
   %19 = load i32, ptr %14, align 8
   %20 = icmp sgt i32 %19, -1
   br i1 %20, label %21, label %PQ_adjustElementKey.exit
 
 21:                                               ; preds = %12
-  %22 = getelementptr inbounds i8, ptr %0, i64 64
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %23 = load i32, ptr %22, align 8
   %24 = icmp slt i32 %19, %23
   br i1 %24, label %25, label %PQ_adjustElementKey.exit
 
 25:                                               ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %8, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store i32 0, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %8, i64 16
-  %30 = getelementptr inbounds i8, ptr %8, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr %28, ptr %30, align 8
   store ptr %0, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %28, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 16
   store ptr %8, ptr %31, align 8
   store ptr %8, ptr %27, align 8
   %32 = load ptr, ptr %4, align 8

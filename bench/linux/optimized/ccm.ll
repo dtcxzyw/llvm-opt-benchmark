@@ -73,52 +73,52 @@ define internal i32 @cbcmac_create(ptr noundef %0, ptr noundef %1) #2 align 16 {
   br i1 %9, label %47, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %8, i64 552
-  %12 = getelementptr inbounds i8, ptr %8, i64 112
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 552
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 112
   %13 = getelementptr i8, ptr %1, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @crypto_attr_alg_name(ptr noundef %14) #12
   %16 = load i32, ptr %3, align 4
   %17 = or i32 %16, 15
-  %18 = call i32 @crypto_grab_spawn(ptr noundef %11, ptr noundef %12, ptr noundef %15, i32 noundef 1, i32 noundef %17) #12
+  %18 = call i32 @crypto_grab_spawn(ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef %15, i32 noundef 1, i32 noundef %17) #12
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %20, label %45
 
 20:                                               ; preds = %10
-  %21 = getelementptr inbounds i8, ptr %8, i64 568
+  %21 = getelementptr inbounds nuw i8, ptr %8, i64 568
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 40
-  %24 = call i32 @crypto_inst_setname(ptr noundef %12, ptr noundef %23, ptr noundef %22) #12
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %24 = call i32 @crypto_inst_setname(ptr noundef nonnull %12, ptr noundef nonnull %23, ptr noundef %22) #12
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %26, label %45
 
 26:                                               ; preds = %20
-  %27 = getelementptr inbounds i8, ptr %22, i64 48
+  %27 = getelementptr inbounds nuw i8, ptr %22, i64 48
   %28 = load i32, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %8, i64 8
-  %30 = getelementptr inbounds i8, ptr %8, i64 104
-  %31 = getelementptr inbounds i8, ptr %8, i64 160
+  %29 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %8, i64 104
+  %31 = getelementptr inbounds nuw i8, ptr %8, i64 160
   store i32 %28, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %8, i64 148
+  %32 = getelementptr inbounds nuw i8, ptr %8, i64 148
   store i32 1, ptr %32, align 4
-  %33 = getelementptr inbounds i8, ptr %22, i64 36
+  %33 = getelementptr inbounds nuw i8, ptr %22, i64 36
   %34 = load i32, ptr %33, align 4
   store i32 %34, ptr %30, align 8
   %35 = add i32 %34, 4
-  %36 = getelementptr inbounds i8, ptr %8, i64 96
+  %36 = getelementptr inbounds nuw i8, ptr %8, i64 96
   store i32 %35, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %8, i64 152
+  %37 = getelementptr inbounds nuw i8, ptr %8, i64 152
   store i32 8, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %8, i64 464
+  %38 = getelementptr inbounds nuw i8, ptr %8, i64 464
   store ptr @cbcmac_init_tfm, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %8, i64 472
+  %39 = getelementptr inbounds nuw i8, ptr %8, i64 472
   store ptr @cbcmac_exit_tfm, ptr %39, align 8
   store ptr @crypto_cbcmac_digest_init, ptr %29, align 8
-  %40 = getelementptr inbounds i8, ptr %8, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr @crypto_cbcmac_digest_update, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %8, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr @crypto_cbcmac_digest_final, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %8, i64 64
+  %42 = getelementptr inbounds nuw i8, ptr %8, i64 64
   store ptr @crypto_cbcmac_digest_setkey, ptr %42, align 8
   store ptr @shash_free_singlespawn_instance, ptr %8, align 8
   %43 = call i32 @shash_register_instance(ptr noundef %0, ptr noundef nonnull %8) #12
@@ -226,18 +226,18 @@ define internal i32 @crypto_rfc4309_create(ptr noundef %0, ptr noundef %1) #2 al
   br i1 %9, label %63, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %8, i64 512
-  %12 = getelementptr inbounds i8, ptr %8, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 512
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 72
   %13 = getelementptr i8, ptr %1, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @crypto_attr_alg_name(ptr noundef %14) #12
   %16 = load i32, ptr %3, align 4
-  %17 = call i32 @crypto_grab_aead(ptr noundef %11, ptr noundef %12, ptr noundef %15, i32 noundef 0, i32 noundef %16) #12
+  %17 = call i32 @crypto_grab_aead(ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef %15, i32 noundef 0, i32 noundef %16) #12
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %19, label %61
 
 19:                                               ; preds = %10
-  %20 = getelementptr inbounds i8, ptr %8, i64 528
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 528
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr i8, ptr %21, i64 -16
   %23 = load i32, ptr %22, align 8
@@ -251,51 +251,51 @@ define internal i32 @crypto_rfc4309_create(ptr noundef %0, ptr noundef %1) #2 al
   br i1 %28, label %29, label %61
 
 29:                                               ; preds = %25
-  %30 = getelementptr inbounds i8, ptr %8, i64 8
-  %31 = getelementptr inbounds i8, ptr %8, i64 128
+  %30 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %8, i64 128
   %32 = getelementptr i8, ptr %21, i64 56
-  %33 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %31, i64 noundef 128, ptr noundef nonnull @.str.8, ptr noundef %32) #12
+  %33 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %31, i64 noundef 128, ptr noundef nonnull @.str.8, ptr noundef %32) #12
   %34 = icmp sgt i32 %33, 127
   br i1 %34, label %61, label %35
 
 35:                                               ; preds = %29
-  %36 = getelementptr inbounds i8, ptr %8, i64 256
+  %36 = getelementptr inbounds nuw i8, ptr %8, i64 256
   %37 = getelementptr i8, ptr %21, i64 184
-  %38 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %36, i64 noundef 128, ptr noundef nonnull @.str.8, ptr noundef %37) #12
+  %38 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %36, i64 noundef 128, ptr noundef nonnull @.str.8, ptr noundef %37) #12
   %39 = icmp sgt i32 %38, 127
   br i1 %39, label %61, label %40
 
 40:                                               ; preds = %35
   %41 = getelementptr i8, ptr %21, i64 48
   %42 = load i32, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %8, i64 120
+  %43 = getelementptr inbounds nuw i8, ptr %8, i64 120
   store i32 %42, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %8, i64 108
+  %44 = getelementptr inbounds nuw i8, ptr %8, i64 108
   store i32 1, ptr %44, align 4
   %45 = getelementptr i8, ptr %21, i64 44
   %46 = load i32, ptr %45, align 4
-  %47 = getelementptr inbounds i8, ptr %8, i64 116
+  %47 = getelementptr inbounds nuw i8, ptr %8, i64 116
   store i32 %46, ptr %47, align 4
-  %48 = getelementptr inbounds i8, ptr %8, i64 56
+  %48 = getelementptr inbounds nuw i8, ptr %8, i64 56
   store i32 8, ptr %48, align 8
   %49 = getelementptr i8, ptr %21, i64 -8
   %50 = load i32, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %8, i64 64
+  %51 = getelementptr inbounds nuw i8, ptr %8, i64 64
   store i32 %50, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %8, i64 60
+  %52 = getelementptr inbounds nuw i8, ptr %8, i64 60
   store i32 16, ptr %52, align 4
-  %53 = getelementptr inbounds i8, ptr %8, i64 112
+  %53 = getelementptr inbounds nuw i8, ptr %8, i64 112
   store i32 16, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %8, i64 40
+  %54 = getelementptr inbounds nuw i8, ptr %8, i64 40
   store ptr @crypto_rfc4309_init_tfm, ptr %54, align 8
-  %55 = getelementptr inbounds i8, ptr %8, i64 48
+  %55 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store ptr @crypto_rfc4309_exit_tfm, ptr %55, align 8
   store ptr @crypto_rfc4309_setkey, ptr %30, align 8
-  %56 = getelementptr inbounds i8, ptr %8, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr @crypto_rfc4309_setauthsize, ptr %56, align 8
-  %57 = getelementptr inbounds i8, ptr %8, i64 24
+  %57 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr @crypto_rfc4309_encrypt, ptr %57, align 8
-  %58 = getelementptr inbounds i8, ptr %8, i64 32
+  %58 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store ptr @crypto_rfc4309_decrypt, ptr %58, align 8
   store ptr @crypto_rfc4309_free, ptr %8, align 8
   %59 = call i32 @aead_register_instance(ptr noundef %0, ptr noundef nonnull %8) #12
@@ -304,7 +304,7 @@ define internal i32 @crypto_rfc4309_create(ptr noundef %0, ptr noundef %1) #2 al
 
 61:                                               ; preds = %40, %35, %29, %25, %19, %10
   %62 = phi i32 [ %17, %10 ], [ -22, %19 ], [ -22, %25 ], [ -36, %29 ], [ -36, %35 ], [ %59, %40 ]
-  call void @crypto_drop_spawn(ptr noundef %11) #12
+  call void @crypto_drop_spawn(ptr noundef nonnull %11) #12
   call void @kfree(ptr noundef nonnull %8) #12
   br label %63
 
@@ -328,10 +328,10 @@ declare dso_local i32 @crypto_inst_setname(ptr noundef, ptr noundef, ptr noundef
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @cbcmac_init_tfm(ptr nocapture noundef %0) #2 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 440
-  %5 = tail call ptr @crypto_spawn_tfm(ptr noundef %4, i32 noundef 1, i32 noundef 15) #12
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 440
+  %5 = tail call ptr @crypto_spawn_tfm(ptr noundef nonnull %4, i32 noundef 1, i32 noundef 15) #12
   %6 = icmp ugt ptr %5, inttoptr (i64 -4096 to ptr)
   br i1 %6, label %7, label %10
 
@@ -341,7 +341,7 @@ define internal i32 @cbcmac_init_tfm(ptr nocapture noundef %0) #2 align 16 {
   br label %12
 
 10:                                               ; preds = %1
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %5, ptr %11, align 8
   br label %12
 
@@ -352,7 +352,7 @@ define internal i32 @cbcmac_init_tfm(ptr nocapture noundef %0) #2 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @cbcmac_exit_tfm(ptr nocapture noundef readonly %0) #2 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   tail call void @crypto_destroy_tfm(ptr noundef %3, ptr noundef %3) #12
   ret void
@@ -360,26 +360,26 @@ define internal void @cbcmac_exit_tfm(ptr nocapture noundef readonly %0) #2 alig
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
 define internal noundef i32 @crypto_cbcmac_digest_init(ptr nocapture noundef initializes((8, 12)) %0) #4 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %5, i64 -8
   %7 = load i32, ptr %6, align 8
   store i32 0, ptr %2, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 12
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %9 = sext i32 %7 to i64
-  tail call void @llvm.memset.p0.i64(ptr align 4 %8, i8 0, i64 %9, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %8, i8 0, i64 %9, i1 false)
   ret i32 0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @crypto_cbcmac_digest_update(ptr noundef %0, ptr noundef %1, i32 noundef %2) #2 align 16 {
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 40
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr i8, ptr %9, i64 -8
   %11 = load i32, ptr %10, align 8
@@ -387,7 +387,7 @@ define internal noundef i32 @crypto_cbcmac_digest_update(ptr noundef %0, ptr nou
   br i1 %12, label %.loopexit, label %13
 
 13:                                               ; preds = %3
-  %14 = getelementptr inbounds i8, ptr %0, i64 12
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %.pre = load i32, ptr %6, align 4
   br label %15
 
@@ -410,7 +410,7 @@ define internal noundef i32 @crypto_cbcmac_digest_update(ptr noundef %0, ptr nou
   br i1 %28, label %29, label %30
 
 29:                                               ; preds = %15
-  tail call void @crypto_cipher_encrypt_one(ptr noundef %7, ptr noundef %14, ptr noundef %14) #12
+  tail call void @crypto_cipher_encrypt_one(ptr noundef %7, ptr noundef nonnull %14, ptr noundef nonnull %14) #12
   store i32 0, ptr %6, align 4
   br label %30
 
@@ -426,8 +426,8 @@ define internal noundef i32 @crypto_cbcmac_digest_update(ptr noundef %0, ptr nou
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @crypto_cbcmac_digest_final(ptr noundef %0, ptr nocapture noundef writeonly %1) #2 align 16 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr i8, ptr %6, i64 -8
   %8 = load i32, ptr %7, align 8
@@ -436,22 +436,22 @@ define internal noundef i32 @crypto_cbcmac_digest_final(ptr noundef %0, ptr noca
   br i1 %10, label %15, label %11
 
 11:                                               ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %3, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 12
-  tail call void @crypto_cipher_encrypt_one(ptr noundef %13, ptr noundef %14, ptr noundef %14) #12
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  tail call void @crypto_cipher_encrypt_one(ptr noundef %13, ptr noundef nonnull %14, ptr noundef nonnull %14) #12
   br label %15
 
 15:                                               ; preds = %11, %2
-  %16 = getelementptr inbounds i8, ptr %0, i64 12
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %17 = sext i32 %8 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr align 4 %16, i64 %17, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr nonnull align 4 %16, i64 %17, i1 false)
   ret i32 0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @crypto_cbcmac_digest_setkey(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) #2 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 @crypto_cipher_setkey(ptr noundef %5, ptr noundef %1, i32 noundef %2) #12
   ret i32 %6
@@ -509,17 +509,17 @@ define internal fastcc i32 @crypto_ccm_create_common(ptr noundef %0, ptr noundef
   br i1 %11, label %91, label %12
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %10, i64 512
-  %14 = getelementptr inbounds i8, ptr %10, i64 560
-  %15 = getelementptr inbounds i8, ptr %10, i64 72
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 512
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 560
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 72
   %16 = load i32, ptr %5, align 4
   %17 = or i32 %16, 128
-  %18 = call i32 @crypto_grab_ahash(ptr noundef %14, ptr noundef %15, ptr noundef %3, i32 noundef 0, i32 noundef %17) #12
+  %18 = call i32 @crypto_grab_ahash(ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef %3, i32 noundef 0, i32 noundef %17) #12
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %20, label %89
 
 20:                                               ; preds = %12
-  %21 = getelementptr inbounds i8, ptr %10, i64 576
+  %21 = getelementptr inbounds nuw i8, ptr %10, i64 576
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr i8, ptr %22, i64 56
   %24 = call i32 @strncmp(ptr noundef %23, ptr noundef nonnull dereferenceable(8) @.str.1, i64 noundef 7) #12
@@ -534,12 +534,12 @@ define internal fastcc i32 @crypto_ccm_create_common(ptr noundef %0, ptr noundef
 
 30:                                               ; preds = %26
   %31 = load i32, ptr %5, align 4
-  %32 = call i32 @crypto_grab_skcipher(ptr noundef %13, ptr noundef %15, ptr noundef %2, i32 noundef 0, i32 noundef %31) #12
+  %32 = call i32 @crypto_grab_skcipher(ptr noundef nonnull %13, ptr noundef nonnull %15, ptr noundef %2, i32 noundef 0, i32 noundef %31) #12
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %34, label %89
 
 34:                                               ; preds = %30
-  %35 = getelementptr inbounds i8, ptr %10, i64 528
+  %35 = getelementptr inbounds nuw i8, ptr %10, i64 528
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr i8, ptr %36, i64 56
   %38 = call i32 @strncmp(ptr noundef %37, ptr noundef nonnull dereferenceable(5) @.str.2, i64 noundef 4) #12
@@ -566,17 +566,17 @@ define internal fastcc i32 @crypto_ccm_create_common(ptr noundef %0, ptr noundef
   br i1 %52, label %53, label %89
 
 53:                                               ; preds = %48
-  %54 = getelementptr inbounds i8, ptr %10, i64 8
-  %55 = getelementptr inbounds i8, ptr %10, i64 128
-  %56 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %55, i64 noundef 128, ptr noundef nonnull @.str.3, ptr noundef %49) #12
+  %54 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %10, i64 128
+  %56 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %55, i64 noundef 128, ptr noundef nonnull @.str.3, ptr noundef %49) #12
   %57 = icmp sgt i32 %56, 127
   br i1 %57, label %89, label %58
 
 58:                                               ; preds = %53
-  %59 = getelementptr inbounds i8, ptr %10, i64 256
+  %59 = getelementptr inbounds nuw i8, ptr %10, i64 256
   %60 = getelementptr i8, ptr %36, i64 184
   %61 = getelementptr i8, ptr %22, i64 184
-  %62 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %59, i64 noundef 128, ptr noundef nonnull @.str.4, ptr noundef %60, ptr noundef %61) #12
+  %62 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %59, i64 noundef 128, ptr noundef nonnull @.str.4, ptr noundef %60, ptr noundef %61) #12
   %63 = icmp sgt i32 %62, 127
   br i1 %63, label %89, label %64
 
@@ -587,34 +587,34 @@ define internal fastcc i32 @crypto_ccm_create_common(ptr noundef %0, ptr noundef
   %68 = load i32, ptr %67, align 8
   %69 = add i32 %68, %66
   %70 = sdiv i32 %69, 2
-  %71 = getelementptr inbounds i8, ptr %10, i64 120
+  %71 = getelementptr inbounds nuw i8, ptr %10, i64 120
   store i32 %70, ptr %71, align 8
-  %72 = getelementptr inbounds i8, ptr %10, i64 108
+  %72 = getelementptr inbounds nuw i8, ptr %10, i64 108
   store i32 1, ptr %72, align 4
   %73 = getelementptr i8, ptr %36, i64 44
   %74 = load i32, ptr %73, align 4
-  %75 = getelementptr inbounds i8, ptr %10, i64 116
+  %75 = getelementptr inbounds nuw i8, ptr %10, i64 116
   store i32 %74, ptr %75, align 4
-  %76 = getelementptr inbounds i8, ptr %10, i64 56
+  %76 = getelementptr inbounds nuw i8, ptr %10, i64 56
   store i32 16, ptr %76, align 8
   %77 = getelementptr i8, ptr %36, i64 -12
   %78 = load i32, ptr %77, align 4
-  %79 = getelementptr inbounds i8, ptr %10, i64 64
+  %79 = getelementptr inbounds nuw i8, ptr %10, i64 64
   store i32 %78, ptr %79, align 8
-  %80 = getelementptr inbounds i8, ptr %10, i64 60
+  %80 = getelementptr inbounds nuw i8, ptr %10, i64 60
   store i32 16, ptr %80, align 4
-  %81 = getelementptr inbounds i8, ptr %10, i64 112
+  %81 = getelementptr inbounds nuw i8, ptr %10, i64 112
   store i32 16, ptr %81, align 8
-  %82 = getelementptr inbounds i8, ptr %10, i64 40
+  %82 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store ptr @crypto_ccm_init_tfm, ptr %82, align 8
-  %83 = getelementptr inbounds i8, ptr %10, i64 48
+  %83 = getelementptr inbounds nuw i8, ptr %10, i64 48
   store ptr @crypto_ccm_exit_tfm, ptr %83, align 8
   store ptr @crypto_ccm_setkey, ptr %54, align 8
-  %84 = getelementptr inbounds i8, ptr %10, i64 16
+  %84 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr @crypto_ccm_setauthsize, ptr %84, align 8
-  %85 = getelementptr inbounds i8, ptr %10, i64 24
+  %85 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store ptr @crypto_ccm_encrypt, ptr %85, align 8
-  %86 = getelementptr inbounds i8, ptr %10, i64 32
+  %86 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store ptr @crypto_ccm_decrypt, ptr %86, align 8
   store ptr @crypto_ccm_free, ptr %10, align 8
   %87 = call i32 @aead_register_instance(ptr noundef %0, ptr noundef nonnull %10) #12
@@ -623,8 +623,8 @@ define internal fastcc i32 @crypto_ccm_create_common(ptr noundef %0, ptr noundef
 
 89:                                               ; preds = %64, %58, %53, %48, %44, %40, %34, %30, %26, %20, %12
   %90 = phi i32 [ %18, %12 ], [ -22, %20 ], [ -22, %26 ], [ %32, %30 ], [ -22, %34 ], [ -22, %40 ], [ -22, %44 ], [ -22, %48 ], [ -36, %53 ], [ -36, %58 ], [ %87, %64 ]
-  call void @crypto_drop_spawn(ptr noundef %14) #12
-  call void @crypto_drop_spawn(ptr noundef %13) #12
+  call void @crypto_drop_spawn(ptr noundef nonnull %14) #12
+  call void @crypto_drop_spawn(ptr noundef nonnull %13) #12
   call void @kfree(ptr noundef nonnull %10) #12
   br label %91
 
@@ -651,9 +651,9 @@ declare dso_local noundef i32 @snprintf(ptr noalias nocapture noundef writeonly,
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @crypto_ccm_init_tfm(ptr nocapture noundef %0) #2 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = getelementptr i8, ptr %3, i64 488
   %6 = tail call ptr @crypto_spawn_tfm2(ptr noundef %5) #12
   %7 = icmp ugt ptr %6, inttoptr (i64 -4096 to ptr)
@@ -672,27 +672,27 @@ define internal i32 @crypto_ccm_init_tfm(ptr nocapture noundef %0) #2 align 16 {
 
 15:                                               ; preds = %11
   store ptr %6, ptr %4, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %13, ptr %16, align 8
   %17 = load ptr, ptr %2, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 44
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 44
   %19 = load i32, ptr %18, align 4
   %20 = and i32 %19, -8
   %21 = add i32 %20, 328
-  %22 = getelementptr inbounds i8, ptr %6, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %23 = load i32, ptr %22, align 8
   %24 = load i32, ptr %13, align 8
   %25 = tail call i32 @llvm.umax.i32(i32 %23, i32 %24)
   %26 = add i32 %21, %25
-  %27 = getelementptr inbounds i8, ptr %0, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %26, ptr %27, align 4
   br label %32
 
 28:                                               ; preds = %11
   %29 = ptrtoint ptr %13 to i64
   %30 = trunc i64 %29 to i32
-  %31 = getelementptr inbounds i8, ptr %6, i64 16
-  tail call void @crypto_destroy_tfm(ptr noundef %6, ptr noundef %31) #12
+  %31 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  tail call void @crypto_destroy_tfm(ptr noundef %6, ptr noundef nonnull %31) #12
   br label %32
 
 32:                                               ; preds = %28, %15, %8
@@ -702,28 +702,28 @@ define internal i32 @crypto_ccm_init_tfm(ptr nocapture noundef %0) #2 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @crypto_ccm_exit_tfm(ptr nocapture noundef readonly %0) #2 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
-  tail call void @crypto_destroy_tfm(ptr noundef %3, ptr noundef %4) #12
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  tail call void @crypto_destroy_tfm(ptr noundef %3, ptr noundef nonnull %4) #12
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
-  tail call void @crypto_destroy_tfm(ptr noundef %6, ptr noundef %7) #12
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  tail call void @crypto_destroy_tfm(ptr noundef %6, ptr noundef nonnull %7) #12
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @crypto_ccm_setkey(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) #2 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %6, i64 12
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %9 = load i32, ptr %8, align 4
   %10 = and i32 %9, -1048321
   store i32 %10, ptr %8, align 4
-  %11 = getelementptr inbounds i8, ptr %0, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %12 = load i32, ptr %11, align 4
   %13 = and i32 %12, 1048320
   %14 = or disjoint i32 %13, %10
@@ -733,7 +733,7 @@ define internal i32 @crypto_ccm_setkey(ptr nocapture noundef readonly %0, ptr no
   br i1 %16, label %17, label %25
 
 17:                                               ; preds = %3
-  %18 = getelementptr inbounds i8, ptr %7, i64 20
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %19 = load i32, ptr %18, align 4
   %20 = and i32 %19, -1048321
   store i32 %20, ptr %18, align 4
@@ -771,71 +771,71 @@ define internal noundef range(i32 -22, 1) i32 @crypto_ccm_setauthsize(ptr nocapt
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @crypto_ccm_encrypt(ptr noundef %0) #2 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 -8
   %5 = getelementptr i8, ptr %3, i64 24
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 44
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 44
   %8 = load i32, ptr %7, align 4
   %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds i8, ptr %0, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %11 = ptrtoint ptr %10 to i64
   %12 = add i64 %9, %11
   %13 = xor i64 %9, -1
   %14 = and i64 %12, %13
   %15 = inttoptr i64 %14 to ptr
-  %16 = getelementptr inbounds i8, ptr %15, i64 248
-  %17 = getelementptr inbounds i8, ptr %0, i64 52
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 248
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %18 = load i32, ptr %17, align 4
-  %19 = getelementptr inbounds i8, ptr %0, i64 56
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %20 = load ptr, ptr %19, align 8
   %21 = tail call fastcc i32 @crypto_ccm_init_crypt(ptr noundef %0, ptr noundef %15), !range !9
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %23, label %54
 
 23:                                               ; preds = %1
-  %24 = getelementptr inbounds i8, ptr %15, i64 56
-  %25 = tail call ptr @sg_next(ptr noundef %24) #12
+  %24 = getelementptr inbounds nuw i8, ptr %15, i64 56
+  %25 = tail call ptr @sg_next(ptr noundef nonnull %24) #12
   %26 = tail call fastcc i32 @crypto_ccm_auth(ptr noundef %0, ptr noundef %25, i32 noundef %18)
   %27 = icmp eq i32 %26, 0
   br i1 %27, label %28, label %54
 
 28:                                               ; preds = %23
-  %29 = getelementptr inbounds i8, ptr %0, i64 64
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 72
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %32 = load ptr, ptr %31, align 8
   %33 = icmp eq ptr %30, %32
-  %34 = getelementptr inbounds i8, ptr %15, i64 152
+  %34 = getelementptr inbounds nuw i8, ptr %15, i64 152
   %35 = select i1 %33, ptr %24, ptr %34
   %36 = getelementptr i8, ptr %3, i64 40
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 8
-  %39 = getelementptr inbounds i8, ptr %15, i64 312
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %15, i64 312
   store ptr %38, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %15, i64 48
+  %40 = getelementptr inbounds nuw i8, ptr %15, i64 48
   %41 = load i32, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %15, i64 296
+  %42 = getelementptr inbounds nuw i8, ptr %15, i64 296
   store ptr @crypto_ccm_encrypt_done, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %15, i64 304
+  %43 = getelementptr inbounds nuw i8, ptr %15, i64 304
   store ptr %0, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %15, i64 320
+  %44 = getelementptr inbounds nuw i8, ptr %15, i64 320
   store i32 %41, ptr %44, align 8
   %45 = add i32 %18, 16
-  %46 = getelementptr inbounds i8, ptr %15, i64 264
+  %46 = getelementptr inbounds nuw i8, ptr %15, i64 264
   store ptr %24, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %15, i64 272
+  %47 = getelementptr inbounds nuw i8, ptr %15, i64 272
   store ptr %35, ptr %47, align 8
   store i32 %45, ptr %16, align 8
-  %48 = getelementptr inbounds i8, ptr %15, i64 256
+  %48 = getelementptr inbounds nuw i8, ptr %15, i64 256
   store ptr %20, ptr %48, align 8
-  %49 = tail call i32 @crypto_skcipher_encrypt(ptr noundef %16) #12
+  %49 = tail call i32 @crypto_skcipher_encrypt(ptr noundef nonnull %16) #12
   %50 = icmp eq i32 %49, 0
   br i1 %50, label %51, label %54
 
 51:                                               ; preds = %28
-  %52 = tail call ptr @sg_next(ptr noundef %35) #12
+  %52 = tail call ptr @sg_next(ptr noundef nonnull %35) #12
   %53 = load i32, ptr %4, align 8
   tail call void @scatterwalk_map_and_copy(ptr noundef %15, ptr noundef %52, i32 noundef %18, i32 noundef %53, i32 noundef 1) #12
   br label %54
@@ -847,79 +847,79 @@ define internal i32 @crypto_ccm_encrypt(ptr noundef %0) #2 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @crypto_ccm_decrypt(ptr noundef %0) #2 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 -8
   %5 = getelementptr i8, ptr %3, i64 24
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 44
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 44
   %8 = load i32, ptr %7, align 4
   %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds i8, ptr %0, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %11 = ptrtoint ptr %10 to i64
   %12 = add i64 %9, %11
   %13 = xor i64 %9, -1
   %14 = and i64 %12, %13
   %15 = inttoptr i64 %14 to ptr
   %16 = load i32, ptr %4, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 52
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %18 = load i32, ptr %17, align 4
-  %19 = getelementptr inbounds i8, ptr %15, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %20 = sub i32 %18, %16
-  %21 = tail call fastcc i32 @crypto_ccm_init_crypt(ptr noundef %0, ptr noundef %19), !range !9
+  %21 = tail call fastcc i32 @crypto_ccm_init_crypt(ptr noundef %0, ptr noundef nonnull %19), !range !9
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %23, label %61
 
 23:                                               ; preds = %1
-  %24 = getelementptr inbounds i8, ptr %15, i64 16
-  %25 = getelementptr inbounds i8, ptr %15, i64 248
-  %26 = getelementptr inbounds i8, ptr %15, i64 56
-  %27 = tail call ptr @sg_next(ptr noundef %26) #12
-  tail call void @scatterwalk_map_and_copy(ptr noundef %19, ptr noundef %27, i32 noundef %20, i32 noundef %16, i32 noundef 0) #12
-  %28 = getelementptr inbounds i8, ptr %0, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %15, i64 248
+  %26 = getelementptr inbounds nuw i8, ptr %15, i64 56
+  %27 = tail call ptr @sg_next(ptr noundef nonnull %26) #12
+  tail call void @scatterwalk_map_and_copy(ptr noundef nonnull %19, ptr noundef %27, i32 noundef %20, i32 noundef %16, i32 noundef 0) #12
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 72
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %31 = load ptr, ptr %30, align 8
   %32 = icmp eq ptr %29, %31
-  %33 = getelementptr inbounds i8, ptr %15, i64 152
+  %33 = getelementptr inbounds nuw i8, ptr %15, i64 152
   %34 = select i1 %32, ptr %26, ptr %33
-  %35 = getelementptr inbounds i8, ptr %0, i64 56
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %36 = load ptr, ptr %35, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %24, ptr noundef align 1 dereferenceable(16) %36, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %24, ptr noundef align 1 dereferenceable(16) %36, i64 16, i1 false)
   %37 = getelementptr i8, ptr %3, i64 40
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 8
-  %40 = getelementptr inbounds i8, ptr %15, i64 312
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %15, i64 312
   store ptr %39, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %15, i64 48
+  %41 = getelementptr inbounds nuw i8, ptr %15, i64 48
   %42 = load i32, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %15, i64 296
+  %43 = getelementptr inbounds nuw i8, ptr %15, i64 296
   store ptr @crypto_ccm_decrypt_done, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %15, i64 304
+  %44 = getelementptr inbounds nuw i8, ptr %15, i64 304
   store ptr %0, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %15, i64 320
+  %45 = getelementptr inbounds nuw i8, ptr %15, i64 320
   store i32 %42, ptr %45, align 8
   %46 = add i32 %20, 16
-  %47 = getelementptr inbounds i8, ptr %15, i64 264
+  %47 = getelementptr inbounds nuw i8, ptr %15, i64 264
   store ptr %26, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %15, i64 272
+  %48 = getelementptr inbounds nuw i8, ptr %15, i64 272
   store ptr %34, ptr %48, align 8
   store i32 %46, ptr %25, align 8
-  %49 = getelementptr inbounds i8, ptr %15, i64 256
+  %49 = getelementptr inbounds nuw i8, ptr %15, i64 256
   store ptr %24, ptr %49, align 8
-  %50 = tail call i32 @crypto_skcipher_decrypt(ptr noundef %25) #12
+  %50 = tail call i32 @crypto_skcipher_decrypt(ptr noundef nonnull %25) #12
   %51 = icmp eq i32 %50, 0
   br i1 %51, label %52, label %61
 
 52:                                               ; preds = %23
-  %53 = tail call ptr @sg_next(ptr noundef %34) #12
+  %53 = tail call ptr @sg_next(ptr noundef nonnull %34) #12
   %54 = tail call fastcc i32 @crypto_ccm_auth(ptr noundef %0, ptr noundef %53, i32 noundef %20)
   %55 = icmp eq i32 %54, 0
   br i1 %55, label %56, label %61
 
 56:                                               ; preds = %52
   %57 = zext i32 %16 to i64
-  %58 = tail call i64 @__crypto_memneq(ptr noundef %19, ptr noundef %15, i64 noundef %57) #12
+  %58 = tail call i64 @__crypto_memneq(ptr noundef nonnull %19, ptr noundef %15, i64 noundef %57) #12
   %59 = icmp eq i64 %58, 0
   %60 = select i1 %59, i32 0, i32 -74
   br label %61
@@ -931,10 +931,10 @@ define internal i32 @crypto_ccm_decrypt(ptr noundef %0) #2 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @crypto_ccm_free(ptr noundef %0) #2 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 512
-  %3 = getelementptr inbounds i8, ptr %0, i64 560
-  tail call void @crypto_drop_spawn(ptr noundef %3) #12
-  tail call void @crypto_drop_spawn(ptr noundef %2) #12
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 512
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 560
+  tail call void @crypto_drop_spawn(ptr noundef nonnull %3) #12
+  tail call void @crypto_drop_spawn(ptr noundef nonnull %2) #12
   tail call void @kfree(ptr noundef %0) #12
   ret void
 }
@@ -953,20 +953,20 @@ declare dso_local i32 @crypto_ahash_setkey(ptr noundef, ptr noundef, i32 noundef
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc noundef range(i32 -22, 1) i32 @crypto_ccm_init_crypt(ptr noundef %0, ptr noundef %1) unnamed_addr #2 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 24
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 44
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 44
   %8 = load i32, ptr %7, align 4
   %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds i8, ptr %0, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %11 = ptrtoint ptr %10 to i64
   %12 = add i64 %9, %11
   %13 = xor i64 %9, -1
   %14 = and i64 %12, %13
   %15 = inttoptr i64 %14 to ptr
-  %16 = getelementptr inbounds i8, ptr %0, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %17 = load ptr, ptr %16, align 8
   %18 = load i8, ptr %17, align 1
   %19 = add i8 %18, -1
@@ -974,9 +974,9 @@ define internal fastcc noundef range(i32 -22, 1) i32 @crypto_ccm_init_crypt(ptr 
   br i1 %20, label %21, label %102
 
 21:                                               ; preds = %2
-  %22 = getelementptr inbounds i8, ptr %0, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %23 = load i32, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %15, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %15, i64 48
   store i32 %23, ptr %24, align 8
   %25 = getelementptr i8, ptr %17, i64 15
   %26 = load i8, ptr %17, align 1
@@ -985,8 +985,8 @@ define internal fastcc noundef range(i32 -22, 1) i32 @crypto_ccm_init_crypt(ptr 
   %29 = getelementptr i8, ptr %25, i64 %28
   %30 = add nuw nsw i64 %27, 1
   tail call void @llvm.memset.p0.i64(ptr noundef align 1 %29, i8 0, i64 %30, i1 false)
-  %31 = getelementptr inbounds i8, ptr %15, i64 56
-  tail call void @sg_init_table(ptr noundef %31, i32 noundef 3) #12
+  %31 = getelementptr inbounds nuw i8, ptr %15, i64 56
+  tail call void @sg_init_table(ptr noundef nonnull %31, i32 noundef 3) #12
   %32 = load i64, ptr @vmemmap_base, align 8
   %33 = ptrtoint ptr %1 to i64
   %34 = add i64 %33, 2147483648
@@ -1015,14 +1015,14 @@ define internal fastcc noundef range(i32 -22, 1) i32 @crypto_ccm_init_crypt(ptr 
   %50 = and i64 %49, 3
   %51 = or disjoint i64 %46, %50
   store i64 %51, ptr %31, align 8
-  %52 = getelementptr inbounds i8, ptr %15, i64 64
+  %52 = getelementptr inbounds nuw i8, ptr %15, i64 64
   store i32 %48, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %15, i64 68
+  %53 = getelementptr inbounds nuw i8, ptr %15, i64 68
   store i32 16, ptr %53, align 4
   %54 = getelementptr i8, ptr %15, i64 88
-  %55 = getelementptr inbounds i8, ptr %0, i64 64
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %0, i64 48
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %58 = load i32, ptr %57, align 8
   %59 = tail call ptr @scatterwalk_ffwd(ptr noundef %54, ptr noundef %56, i32 noundef %58) #12
   %60 = icmp eq ptr %59, %54
@@ -1041,14 +1041,14 @@ define internal fastcc noundef range(i32 -22, 1) i32 @crypto_ccm_init_crypt(ptr 
 
 67:                                               ; preds = %61, %39
   %68 = load ptr, ptr %55, align 8
-  %69 = getelementptr inbounds i8, ptr %0, i64 72
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %70 = load ptr, ptr %69, align 8
   %71 = icmp eq ptr %68, %70
   br i1 %71, label %102, label %72
 
 72:                                               ; preds = %67
-  %73 = getelementptr inbounds i8, ptr %15, i64 152
-  tail call void @sg_init_table(ptr noundef %73, i32 noundef 3) #12
+  %73 = getelementptr inbounds nuw i8, ptr %15, i64 152
+  tail call void @sg_init_table(ptr noundef nonnull %73, i32 noundef 3) #12
   %74 = load i64, ptr @vmemmap_base, align 8
   %75 = and i64 %74, 3
   %76 = icmp eq i64 %75, 0
@@ -1072,9 +1072,9 @@ define internal fastcc noundef range(i32 -22, 1) i32 @crypto_ccm_init_crypt(ptr 
   %87 = and i64 %86, 3
   %88 = or disjoint i64 %85, %87
   store i64 %88, ptr %73, align 8
-  %89 = getelementptr inbounds i8, ptr %15, i64 160
+  %89 = getelementptr inbounds nuw i8, ptr %15, i64 160
   store i32 %48, ptr %89, align 8
-  %90 = getelementptr inbounds i8, ptr %15, i64 164
+  %90 = getelementptr inbounds nuw i8, ptr %15, i64 164
   store i32 16, ptr %90, align 4
   %91 = getelementptr i8, ptr %15, i64 184
   %92 = load ptr, ptr %69, align 8
@@ -1103,14 +1103,14 @@ define internal fastcc noundef range(i32 -22, 1) i32 @crypto_ccm_init_crypt(ptr 
 define internal fastcc i32 @crypto_ccm_auth(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #2 align 16 {
   %4 = alloca i32, align 4
   %5 = alloca [3 x %struct.scatterlist], align 16
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr i8, ptr %7, i64 24
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 44
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 44
   %11 = load i32, ptr %10, align 4
   %12 = zext i32 %11 to i64
-  %13 = getelementptr inbounds i8, ptr %0, i64 80
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %14 = ptrtoint ptr %13 to i64
   %15 = add i64 %12, %14
   %16 = xor i64 %12, -1
@@ -1118,13 +1118,13 @@ define internal fastcc i32 @crypto_ccm_auth(ptr noundef %0, ptr noundef %1, i32 
   %18 = inttoptr i64 %17 to ptr
   %19 = getelementptr i8, ptr %7, i64 -8
   %20 = getelementptr i8, ptr %7, i64 32
-  %21 = getelementptr inbounds i8, ptr %18, i64 248
-  %22 = getelementptr inbounds i8, ptr %0, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 248
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %23 = load i32, ptr %22, align 8
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %5) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(96) %5, i8 0, i64 96, i1 false), !annotation !5
   %24 = getelementptr i8, ptr %18, i64 16
-  %25 = getelementptr inbounds i8, ptr %0, i64 56
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %26 = load ptr, ptr %25, align 8
   %27 = load i8, ptr %26, align 1
   %28 = load i32, ptr %19, align 8
@@ -1138,12 +1138,12 @@ define internal fastcc i32 @crypto_ccm_auth(ptr noundef %0, ptr noundef %1, i32 
   store i8 %34, ptr %18, align 1
   %35 = load i32, ptr %22, align 8
   %36 = icmp eq i32 %35, 0
-  %.sroa.gep = getelementptr inbounds i8, ptr %5, i64 64
-  %.sroa.gep1 = getelementptr inbounds i8, ptr %5, i64 32
-  %.sroa.gep3 = getelementptr inbounds i8, ptr %5, i64 72
-  %.sroa.gep4 = getelementptr inbounds i8, ptr %5, i64 40
-  %.sroa.gep6 = getelementptr inbounds i8, ptr %5, i64 76
-  %.sroa.gep7 = getelementptr inbounds i8, ptr %5, i64 44
+  %.sroa.gep = getelementptr inbounds nuw i8, ptr %5, i64 64
+  %.sroa.gep1 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %.sroa.gep3 = getelementptr inbounds nuw i8, ptr %5, i64 72
+  %.sroa.gep4 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  %.sroa.gep6 = getelementptr inbounds nuw i8, ptr %5, i64 76
+  %.sroa.gep7 = getelementptr inbounds nuw i8, ptr %5, i64 44
   br i1 %36, label %39, label %37
 
 37:                                               ; preds = %3
@@ -1179,7 +1179,7 @@ define internal fastcc i32 @crypto_ccm_auth(ptr noundef %0, ptr noundef %1, i32 
   %53 = zext nneg i32 %51 to i64
   %54 = sub nsw i64 0, %53
   %55 = getelementptr i8, ptr %24, i64 %54
-  %56 = getelementptr inbounds i8, ptr %4, i64 4
+  %56 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %57 = getelementptr i8, ptr %56, i64 %54
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 %55, ptr noundef align 1 %57, i64 %53, i1 false)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #12
@@ -1211,9 +1211,9 @@ define internal fastcc i32 @crypto_ccm_auth(ptr noundef %0, ptr noundef %1, i32 
   %75 = and i64 %74, 3
   %76 = or disjoint i64 %71, %75
   store i64 %76, ptr %5, align 16
-  %77 = getelementptr inbounds i8, ptr %5, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %73, ptr %77, align 8
-  %78 = getelementptr inbounds i8, ptr %5, i64 12
+  %78 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 16, ptr %78, align 4
   %79 = icmp eq i32 %23, 0
   br i1 %79, label %110, label %80
@@ -1274,7 +1274,7 @@ define internal fastcc i32 @crypto_ccm_auth(ptr noundef %0, ptr noundef %1, i32 
   %.sroa.phi2 = phi ptr [ %.sroa.gep3, %94 ], [ %.sroa.gep4, %62 ]
   %.sroa.phi5 = phi ptr [ %.sroa.gep6, %94 ], [ %.sroa.gep7, %62 ]
   %111 = phi i32 [ %89, %94 ], [ 0, %62 ]
-  %112 = getelementptr inbounds i8, ptr %0, i64 64
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %113 = load ptr, ptr %112, align 8
   store i32 0, ptr %.sroa.phi2, align 8
   store i32 0, ptr %.sroa.phi5, align 4
@@ -1283,29 +1283,29 @@ define internal fastcc i32 @crypto_ccm_auth(ptr noundef %0, ptr noundef %1, i32 
   %116 = or disjoint i64 %115, 1
   store i64 %116, ptr %.sroa.phi, align 16
   %117 = load ptr, ptr %20, align 8
-  %118 = getelementptr inbounds i8, ptr %117, i64 16
-  %119 = getelementptr inbounds i8, ptr %18, i64 280
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 16
+  %119 = getelementptr inbounds nuw i8, ptr %18, i64 280
   store ptr %118, ptr %119, align 8
-  %120 = getelementptr inbounds i8, ptr %18, i64 48
+  %120 = getelementptr inbounds nuw i8, ptr %18, i64 48
   %121 = load i32, ptr %120, align 8
-  %122 = getelementptr inbounds i8, ptr %18, i64 264
-  %123 = getelementptr inbounds i8, ptr %18, i64 288
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %122, i8 0, i64 16, i1 false)
+  %122 = getelementptr inbounds nuw i8, ptr %18, i64 264
+  %123 = getelementptr inbounds nuw i8, ptr %18, i64 288
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %122, i8 0, i64 16, i1 false)
   store i32 %121, ptr %123, align 8
   %124 = add i32 %111, %23
   %125 = add i32 %124, 16
-  %126 = getelementptr inbounds i8, ptr %18, i64 304
+  %126 = getelementptr inbounds nuw i8, ptr %18, i64 304
   store ptr %5, ptr %126, align 8
-  %127 = getelementptr inbounds i8, ptr %18, i64 296
+  %127 = getelementptr inbounds nuw i8, ptr %18, i64 296
   store i32 %125, ptr %127, align 8
-  %128 = getelementptr inbounds i8, ptr %18, i64 312
+  %128 = getelementptr inbounds nuw i8, ptr %18, i64 312
   store ptr null, ptr %128, align 8
-  %129 = call i32 @crypto_ahash_init(ptr noundef %21) #12
+  %129 = call i32 @crypto_ahash_init(ptr noundef nonnull %21) #12
   %130 = icmp eq i32 %129, 0
   br i1 %130, label %131, label %171
 
 131:                                              ; preds = %110
-  %132 = call i32 @crypto_ahash_update(ptr noundef %21) #12
+  %132 = call i32 @crypto_ahash_update(ptr noundef nonnull %21) #12
   %133 = icmp eq i32 %132, 0
   br i1 %133, label %134, label %171
 
@@ -1371,7 +1371,7 @@ define internal fastcc i32 @crypto_ccm_auth(ptr noundef %0, ptr noundef %1, i32 
   store ptr %169, ptr %126, align 8
   store i32 %168, ptr %127, align 8
   store ptr %18, ptr %128, align 8
-  %170 = call i32 @crypto_ahash_finup(ptr noundef %21) #12
+  %170 = call i32 @crypto_ahash_finup(ptr noundef nonnull %21) #12
   br label %171
 
 171:                                              ; preds = %50, %167, %131, %110
@@ -1389,25 +1389,25 @@ define internal void @crypto_ccm_encrypt_done(ptr noundef %0, i32 noundef %1) #2
   br i1 %3, label %4, label %27
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr i8, ptr %6, i64 24
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 44
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 44
   %10 = load i32, ptr %9, align 4
   %11 = zext i32 %10 to i64
-  %12 = getelementptr inbounds i8, ptr %0, i64 80
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %13 = ptrtoint ptr %12 to i64
   %14 = add i64 %11, %13
   %15 = xor i64 %11, -1
   %16 = and i64 %14, %15
   %17 = inttoptr i64 %16 to ptr
   %18 = getelementptr i8, ptr %6, i64 -8
-  %19 = getelementptr inbounds i8, ptr %0, i64 72
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %22 = load i32, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 52
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %24 = load i32, ptr %23, align 4
   %25 = add i32 %24, %22
   %26 = load i32, ptr %18, align 8
@@ -1415,9 +1415,9 @@ define internal void @crypto_ccm_encrypt_done(ptr noundef %0, i32 noundef %1) #2
   br label %27
 
 27:                                               ; preds = %4, %2
-  %28 = getelementptr inbounds i8, ptr %0, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %31 = load ptr, ptr %30, align 8
   tail call void %29(ptr noundef %31, i32 noundef %1) #12
   ret void
@@ -1452,14 +1452,14 @@ declare i16 @llvm.bswap.i16(i16) #11
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @crypto_ccm_decrypt_done(ptr noundef %0, i32 noundef %1) #2 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 24
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 44
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 44
   %8 = load i32, ptr %7, align 4
   %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds i8, ptr %0, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %11 = ptrtoint ptr %10 to i64
   %12 = add i64 %9, %11
   %13 = xor i64 %9, -1
@@ -1467,18 +1467,18 @@ define internal void @crypto_ccm_decrypt_done(ptr noundef %0, i32 noundef %1) #2
   %15 = inttoptr i64 %14 to ptr
   %16 = getelementptr i8, ptr %4, i64 -8
   %17 = load i32, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 52
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %19 = load i32, ptr %18, align 4
-  %20 = getelementptr inbounds i8, ptr %15, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 48
   store i32 0, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 64
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 72
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %24 = load ptr, ptr %23, align 8
   %25 = icmp eq ptr %22, %24
   %26 = select i1 %25, i64 56, i64 152
-  %27 = getelementptr inbounds i8, ptr %15, i64 %26
-  %28 = tail call ptr @sg_next(ptr noundef %27) #12
+  %27 = getelementptr inbounds nuw i8, ptr %15, i64 %26
+  %28 = tail call ptr @sg_next(ptr noundef nonnull %27) #12
   %29 = icmp eq i32 %1, 0
   br i1 %29, label %30, label %40
 
@@ -1489,18 +1489,18 @@ define internal void @crypto_ccm_decrypt_done(ptr noundef %0, i32 noundef %1) #2
   br i1 %33, label %34, label %40
 
 34:                                               ; preds = %30
-  %35 = getelementptr inbounds i8, ptr %15, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %36 = zext i32 %17 to i64
-  %37 = tail call i64 @__crypto_memneq(ptr noundef %35, ptr noundef %15, i64 noundef %36) #12
+  %37 = tail call i64 @__crypto_memneq(ptr noundef nonnull %35, ptr noundef %15, i64 noundef %36) #12
   %38 = icmp eq i64 %37, 0
   %39 = select i1 %38, i32 0, i32 -74
   br label %40
 
 40:                                               ; preds = %34, %30, %2
   %41 = phi i32 [ %1, %2 ], [ %32, %30 ], [ %39, %34 ]
-  %42 = getelementptr inbounds i8, ptr %0, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %0, i64 24
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %45 = load ptr, ptr %44, align 8
   tail call void %43(ptr noundef %45, i32 noundef %41) #12
   ret void
@@ -1523,7 +1523,7 @@ declare dso_local i32 @crypto_grab_aead(ptr noundef, ptr noundef, ptr noundef, i
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @crypto_rfc4309_init_tfm(ptr nocapture noundef %0) #2 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 440
   %5 = tail call ptr @crypto_spawn_tfm2(ptr noundef %4) #12
@@ -1536,20 +1536,20 @@ define internal i32 @crypto_rfc4309_init_tfm(ptr nocapture noundef %0) #2 align 
   br label %24
 
 10:                                               ; preds = %1
-  %11 = getelementptr inbounds i8, ptr %0, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %5, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %5, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 44
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 44
   %15 = load i32, ptr %14, align 4
   %16 = and i32 %15, -8
-  %17 = getelementptr inbounds i8, ptr %5, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %18 = load i32, ptr %17, align 4
   %19 = add i32 %18, 7
   %20 = and i32 %19, -8
   %21 = add i32 %16, 304
   %22 = add i32 %21, %20
-  %23 = getelementptr inbounds i8, ptr %0, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %22, ptr %23, align 4
   br label %24
 
@@ -1560,10 +1560,10 @@ define internal i32 @crypto_rfc4309_init_tfm(ptr nocapture noundef %0) #2 align 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @crypto_rfc4309_exit_tfm(ptr nocapture noundef readonly %0) #2 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
-  tail call void @crypto_destroy_tfm(ptr noundef %3, ptr noundef %4) #12
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  tail call void @crypto_destroy_tfm(ptr noundef %3, ptr noundef nonnull %4) #12
   ret void
 }
 
@@ -1573,18 +1573,18 @@ define internal i32 @crypto_rfc4309_setkey(ptr nocapture noundef %0, ptr noundef
   br i1 %4, label %20, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8
   %8 = add i32 %2, -3
-  %9 = getelementptr inbounds i8, ptr %0, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %10 = zext i32 %8 to i64
   %11 = getelementptr i8, ptr %1, i64 %10
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(3) %9, ptr noundef align 1 dereferenceable(3) %11, i64 3, i1 false)
-  %12 = getelementptr inbounds i8, ptr %7, i64 12
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %9, ptr noundef align 1 dereferenceable(3) %11, i64 3, i1 false)
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %13 = load i32, ptr %12, align 4
   %14 = and i32 %13, -1048321
   store i32 %14, ptr %12, align 4
-  %15 = getelementptr inbounds i8, ptr %0, i64 12
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %16 = load i32, ptr %15, align 4
   %17 = and i32 %16, 1048320
   %18 = or disjoint i32 %17, %14
@@ -1606,7 +1606,7 @@ define internal i32 @crypto_rfc4309_setauthsize(ptr nocapture noundef readonly %
   ]
 
 3:                                                ; preds = %2, %2, %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 @crypto_aead_setauthsize(ptr noundef %5, i32 noundef %1) #12
   br label %7
@@ -1618,7 +1618,7 @@ define internal i32 @crypto_rfc4309_setauthsize(ptr nocapture noundef readonly %
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @crypto_rfc4309_encrypt(ptr noundef %0) #2 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i32, ptr %2, align 8
   switch i32 %3, label %7 [
     i32 16, label %4
@@ -1637,7 +1637,7 @@ define internal i32 @crypto_rfc4309_encrypt(ptr noundef %0) #2 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @crypto_rfc4309_decrypt(ptr noundef %0) #2 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i32, ptr %2, align 8
   switch i32 %3, label %7 [
     i32 16, label %4
@@ -1656,8 +1656,8 @@ define internal i32 @crypto_rfc4309_decrypt(ptr noundef %0) #2 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @crypto_rfc4309_free(ptr noundef %0) #2 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 512
-  tail call void @crypto_drop_spawn(ptr noundef %2) #12
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 512
+  tail call void @crypto_drop_spawn(ptr noundef nonnull %2) #12
   tail call void @kfree(ptr noundef %0) #12
   ret void
 }
@@ -1670,20 +1670,20 @@ declare dso_local i32 @crypto_aead_setauthsize(ptr noundef, i32 noundef) local_u
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc ptr @crypto_rfc4309_crypt(ptr noundef %0) unnamed_addr #2 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 80
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr i8, ptr %0, i64 352
-  %8 = getelementptr inbounds i8, ptr %6, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %9 = load i32, ptr %8, align 4
   %10 = zext i32 %9 to i64
   %11 = getelementptr i8, ptr %7, i64 %10
   %12 = ptrtoint ptr %11 to i64
-  %13 = getelementptr inbounds i8, ptr %6, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 44
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 44
   %16 = load i32, ptr %15, align 4
   %17 = add i32 %16, 1
   %18 = zext i32 %17 to i64
@@ -1697,18 +1697,18 @@ define internal fastcc ptr @crypto_rfc4309_crypt(ptr noundef %0) unnamed_addr #2
   %25 = getelementptr i8, ptr %4, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(3) %24, ptr noundef align 8 dereferenceable(3) %25, i64 3, i1 false)
   %26 = getelementptr i8, ptr %23, i64 4
-  %27 = getelementptr inbounds i8, ptr %0, i64 56
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %28 = load ptr, ptr %27, align 8
   %29 = load i64, ptr %28, align 1
   store i64 %29, ptr %26, align 1
   %30 = getelementptr i8, ptr %23, i64 16
-  %31 = getelementptr inbounds i8, ptr %0, i64 64
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 48
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %34 = load i32, ptr %33, align 8
   %35 = add i32 %34, -8
   tail call void @scatterwalk_map_and_copy(ptr noundef %30, ptr noundef %32, i32 noundef 0, i32 noundef %35, i32 noundef 0) #12
-  tail call void @sg_init_table(ptr noundef %2, i32 noundef 3) #12
+  tail call void @sg_init_table(ptr noundef nonnull %2, i32 noundef 3) #12
   %36 = load i64, ptr @vmemmap_base, align 8
   %37 = ptrtoint ptr %30 to i64
   %38 = add i64 %37, 2147483648
@@ -1739,9 +1739,9 @@ define internal fastcc ptr @crypto_rfc4309_crypt(ptr noundef %0) unnamed_addr #2
   %56 = and i64 %55, 3
   %57 = or disjoint i64 %50, %56
   store i64 %57, ptr %2, align 8
-  %58 = getelementptr inbounds i8, ptr %0, i64 88
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i32 %54, ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %0, i64 92
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 92
   store i32 %52, ptr %59, align 4
   %60 = getelementptr i8, ptr %0, i64 112
   %61 = load ptr, ptr %31, align 8
@@ -1762,14 +1762,14 @@ define internal fastcc ptr @crypto_rfc4309_crypt(ptr noundef %0) unnamed_addr #2
 
 70:                                               ; preds = %64, %43
   %71 = load ptr, ptr %31, align 8
-  %72 = getelementptr inbounds i8, ptr %0, i64 72
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %73 = load ptr, ptr %72, align 8
   %74 = icmp eq ptr %71, %73
   br i1 %74, label %106, label %75
 
 75:                                               ; preds = %70
-  %76 = getelementptr inbounds i8, ptr %0, i64 176
-  tail call void @sg_init_table(ptr noundef %76, i32 noundef 3) #12
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  tail call void @sg_init_table(ptr noundef nonnull %76, i32 noundef 3) #12
   %77 = load i64, ptr @vmemmap_base, align 8
   %78 = and i64 %77, 3
   %79 = icmp eq i64 %78, 0
@@ -1795,9 +1795,9 @@ define internal fastcc ptr @crypto_rfc4309_crypt(ptr noundef %0) unnamed_addr #2
   %92 = and i64 %91, 3
   %93 = or disjoint i64 %88, %92
   store i64 %93, ptr %76, align 8
-  %94 = getelementptr inbounds i8, ptr %0, i64 184
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 184
   store i32 %54, ptr %94, align 8
-  %95 = getelementptr inbounds i8, ptr %0, i64 188
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 188
   store i32 %90, ptr %95, align 4
   %96 = getelementptr i8, ptr %0, i64 208
   %97 = load ptr, ptr %72, align 8
@@ -1817,40 +1817,40 @@ define internal fastcc ptr @crypto_rfc4309_crypt(ptr noundef %0) unnamed_addr #2
   br label %106
 
 106:                                              ; preds = %100, %81, %70
-  %107 = getelementptr inbounds i8, ptr %0, i64 272
-  %108 = getelementptr inbounds i8, ptr %6, i64 8
-  %109 = getelementptr inbounds i8, ptr %0, i64 304
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 272
+  %108 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 304
   store ptr %108, ptr %109, align 8
-  %110 = getelementptr inbounds i8, ptr %0, i64 40
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %111 = load i32, ptr %110, align 8
-  %112 = getelementptr inbounds i8, ptr %0, i64 16
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %113 = load ptr, ptr %112, align 8
-  %114 = getelementptr inbounds i8, ptr %0, i64 24
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %115 = load ptr, ptr %114, align 8
-  %116 = getelementptr inbounds i8, ptr %0, i64 288
+  %116 = getelementptr inbounds nuw i8, ptr %0, i64 288
   store ptr %113, ptr %116, align 8
-  %117 = getelementptr inbounds i8, ptr %0, i64 296
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 296
   store ptr %115, ptr %117, align 8
-  %118 = getelementptr inbounds i8, ptr %0, i64 312
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 312
   store i32 %111, ptr %118, align 8
   %119 = load ptr, ptr %31, align 8
   %120 = load ptr, ptr %72, align 8
   %121 = icmp eq ptr %119, %120
   %122 = select i1 %121, i64 0, i64 96
-  %123 = getelementptr inbounds i8, ptr %2, i64 %122
-  %124 = getelementptr inbounds i8, ptr %0, i64 52
+  %123 = getelementptr inbounds nuw i8, ptr %2, i64 %122
+  %124 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %125 = load i32, ptr %124, align 4
-  %126 = getelementptr inbounds i8, ptr %0, i64 336
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 336
   store ptr %2, ptr %126, align 8
-  %127 = getelementptr inbounds i8, ptr %0, i64 344
+  %127 = getelementptr inbounds nuw i8, ptr %0, i64 344
   store ptr %123, ptr %127, align 8
-  %128 = getelementptr inbounds i8, ptr %0, i64 324
+  %128 = getelementptr inbounds nuw i8, ptr %0, i64 324
   store i32 %125, ptr %128, align 4
-  %129 = getelementptr inbounds i8, ptr %0, i64 328
+  %129 = getelementptr inbounds nuw i8, ptr %0, i64 328
   store ptr %23, ptr %129, align 8
   %130 = load i32, ptr %33, align 8
   %131 = add i32 %130, -8
-  %132 = getelementptr inbounds i8, ptr %0, i64 320
+  %132 = getelementptr inbounds nuw i8, ptr %0, i64 320
   store i32 %131, ptr %132, align 8
   ret ptr %107
 }

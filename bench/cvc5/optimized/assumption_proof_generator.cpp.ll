@@ -53,7 +53,7 @@ define hidden void @_ZN4cvc58internal24AssumptionProofGeneratorC2EPNS0_16ProofNo
 entry:
   tail call void @_ZN4cvc58internal14ProofGeneratorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal24AssumptionProofGeneratorE, i64 16), ptr %this, align 8
-  %d_pnm = getelementptr inbounds i8, ptr %this, i64 8
+  %d_pnm = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %pnm, ptr %d_pnm, align 8
   ret void
 }
@@ -64,7 +64,7 @@ declare void @_ZN4cvc58internal14ProofGeneratorC2Ev(ptr noundef nonnull align 8 
 define hidden void @_ZN4cvc58internal24AssumptionProofGenerator11getProofForENS0_12NodeTemplateILb1EEE(ptr noalias sret(%"class.std::shared_ptr") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr nocapture noundef readonly %f) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate", align 8
-  %d_pnm = getelementptr inbounds i8, ptr %this, i64 8
+  %d_pnm = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %d_pnm, align 8
   %1 = load ptr, ptr %f, align 8
   store ptr %1, ptr %agg.tmp, align 8

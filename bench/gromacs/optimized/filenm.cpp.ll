@@ -75,8 +75,8 @@ define noundef ptr @_Z6opt2fnPKciPK8t_filenm(ptr nocapture noundef readonly %0, 
 
 .lr.ph.i:                                         ; preds = %19, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %19 ]
-  %8 = getelementptr inbounds %struct.t_filenm, ptr %2, i64 %indvars.iv.i
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %8 = getelementptr inbounds nuw %struct.t_filenm, ptr %2, i64 %indvars.iv.i
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   %.not.i = icmp eq ptr %10, null
   br i1 %.not.i, label %14, label %11
@@ -99,7 +99,7 @@ define noundef ptr @_Z6opt2fnPKciPK8t_filenm(ptr nocapture noundef readonly %0, 
   br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !5
 
 _ZL13getFileOptionPKciPK8t_filenm.exit:           ; preds = %14, %11
-  %20 = getelementptr inbounds i8, ptr %8, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %21 = load ptr, ptr %20, align 8
   %22 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %21) #14
   ret ptr %22
@@ -141,8 +141,8 @@ define { ptr, ptr } @_Z7opt2fnsB5cxx11PKciPK8t_filenm(ptr nocapture noundef read
 
 .lr.ph.i:                                         ; preds = %19, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %19 ]
-  %8 = getelementptr inbounds %struct.t_filenm, ptr %2, i64 %indvars.iv.i
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %8 = getelementptr inbounds nuw %struct.t_filenm, ptr %2, i64 %indvars.iv.i
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   %.not.i = icmp eq ptr %10, null
   br i1 %.not.i, label %14, label %11
@@ -165,9 +165,9 @@ define { ptr, ptr } @_Z7opt2fnsB5cxx11PKciPK8t_filenm(ptr nocapture noundef read
   br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !5
 
 _ZL13getFileOptionPKciPK8t_filenm.exit:           ; preds = %14, %11
-  %20 = getelementptr inbounds i8, ptr %8, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %8, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %23 = load ptr, ptr %22, align 8
   %24 = ptrtoint ptr %23 to i64
   %25 = ptrtoint ptr %21 to i64
@@ -222,8 +222,8 @@ define noundef zeroext i1 @_Z8opt2bSetPKciPK8t_filenm(ptr nocapture noundef read
 
 .lr.ph.i:                                         ; preds = %19, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %19 ]
-  %8 = getelementptr inbounds %struct.t_filenm, ptr %2, i64 %indvars.iv.i
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %8 = getelementptr inbounds nuw %struct.t_filenm, ptr %2, i64 %indvars.iv.i
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   %.not.i = icmp eq ptr %10, null
   br i1 %.not.i, label %14, label %11
@@ -273,13 +273,13 @@ define noundef ptr @_Z6ftp2fniiPK8t_filenm(i32 noundef %0, i32 noundef %1, ptr n
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %5
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %5 ]
-  %6 = getelementptr inbounds %struct.t_filenm, ptr %2, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw %struct.t_filenm, ptr %2, i64 %indvars.iv
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %0, %7
   br i1 %8, label %9, label %5
 
 9:                                                ; preds = %.lr.ph
-  %10 = getelementptr inbounds i8, ptr %6, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %11 = load ptr, ptr %10, align 8
   %12 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %11) #14
   ret ptr %12
@@ -305,15 +305,15 @@ define { ptr, ptr } @_Z7ftp2fnsB5cxx11iiPK8t_filenm(i32 noundef %0, i32 noundef 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %5
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %5 ]
-  %6 = getelementptr inbounds %struct.t_filenm, ptr %2, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw %struct.t_filenm, ptr %2, i64 %indvars.iv
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %0, %7
   br i1 %8, label %9, label %5
 
 9:                                                ; preds = %.lr.ph
-  %10 = getelementptr inbounds i8, ptr %6, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %6, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %13 = load ptr, ptr %12, align 8
   %14 = ptrtoint ptr %13 to i64
   %15 = ptrtoint ptr %11 to i64
@@ -344,7 +344,7 @@ define noundef zeroext i1 @_Z8ftp2bSetiiPK8t_filenm(i32 noundef %0, i32 noundef 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %5
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %5 ]
-  %6 = getelementptr inbounds %struct.t_filenm, ptr %2, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw %struct.t_filenm, ptr %2, i64 %indvars.iv
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %0, %7
   br i1 %8, label %9, label %5
@@ -382,8 +382,8 @@ define noundef ptr @_Z11opt2fn_nullPKciPK8t_filenm(ptr nocapture noundef readonl
 
 .lr.ph.i:                                         ; preds = %19, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %19 ]
-  %8 = getelementptr inbounds %struct.t_filenm, ptr %2, i64 %indvars.iv.i
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %8 = getelementptr inbounds nuw %struct.t_filenm, ptr %2, i64 %indvars.iv.i
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   %.not.i = icmp eq ptr %10, null
   br i1 %.not.i, label %14, label %11
@@ -413,7 +413,7 @@ _ZL13getFileOptionPKciPK8t_filenm.exit:           ; preds = %14, %11
   br i1 %or.cond.not, label %26, label %22
 
 22:                                               ; preds = %_ZL13getFileOptionPKciPK8t_filenm.exit
-  %23 = getelementptr inbounds i8, ptr %8, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %24 = load ptr, ptr %23, align 8
   %25 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %24) #14
   br label %26
@@ -443,7 +443,7 @@ define noundef ptr @_Z11ftp2fn_nulliiPK8t_filenm(i32 noundef %0, i32 noundef %1,
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %5
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %5 ]
-  %6 = getelementptr inbounds %struct.t_filenm, ptr %2, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw %struct.t_filenm, ptr %2, i64 %indvars.iv
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %0, %7
   br i1 %8, label %9, label %5
@@ -456,7 +456,7 @@ define noundef ptr @_Z11ftp2fn_nulliiPK8t_filenm(i32 noundef %0, i32 noundef %1,
   br i1 %or.cond.not, label %16, label %12
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %6, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %14 = load ptr, ptr %13, align 8
   %15 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %14) #14
   br label %16
@@ -472,7 +472,7 @@ define noundef ptr @_Z11ftp2fn_nulliiPK8t_filenm(i32 noundef %0, i32 noundef %1,
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_Z11is_optionalPK8t_filenm(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 8
   %5 = icmp ne i64 %4, 0
@@ -481,7 +481,7 @@ define noundef zeroext i1 @_Z11is_optionalPK8t_filenm(ptr nocapture noundef read
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_Z9is_outputPK8t_filenm(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 4
   %5 = icmp ne i64 %4, 0
@@ -490,7 +490,7 @@ define noundef zeroext i1 @_Z9is_outputPK8t_filenm(ptr nocapture noundef readonl
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_Z6is_setPK8t_filenm(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 1
   %5 = icmp ne i64 %4, 0
@@ -521,7 +521,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i: ; preds = %_ZNSt11char_traitsI
   br i1 %7, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit.i, label %8
 
 8:                                                ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
-  %9 = getelementptr inbounds i8, ptr %6, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 1
   %10 = ptrtoint ptr %9 to i64
   %11 = sub i64 %4, %10
   %.not25.i.i.i = icmp ult i64 %11, 5
@@ -623,17 +623,17 @@ define noundef i32 @_Z26add_suffix_to_output_namesP8t_filenmiPKc(ptr nocapture n
   br i1 %16, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3
-  %17 = getelementptr inbounds i8, ptr %7, i64 8
-  %18 = getelementptr inbounds i8, ptr %13, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %19 = icmp eq ptr %2, null
-  %20 = getelementptr inbounds i8, ptr %12, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %wide.trip.count = zext nneg i32 %1 to i64
   br label %21
 
 21:                                               ; preds = %.lr.ph, %.loopexit54
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.loopexit54 ]
-  %22 = getelementptr inbounds %struct.t_filenm, ptr %0, i64 %indvars.iv
-  %23 = getelementptr inbounds i8, ptr %22, i64 24
+  %22 = getelementptr inbounds nuw %struct.t_filenm, ptr %0, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %24 = load i64, ptr %23, align 8
   %25 = and i64 %24, 4
   %.not51 = icmp eq i64 %25, 0
@@ -645,9 +645,9 @@ define noundef i32 @_Z26add_suffix_to_output_namesP8t_filenmiPKc(ptr nocapture n
   br i1 %.not, label %.loopexit54, label %28
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds i8, ptr %22, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %22, i64 40
+  %31 = getelementptr inbounds nuw i8, ptr %22, i64 40
   %32 = load ptr, ptr %31, align 8
   %.not5271 = icmp eq ptr %30, %32
   br i1 %.not5271, label %.loopexit54, label %.preheader
@@ -681,7 +681,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i: ; preds = %_ZNSt11char_traitsI
   br i1 %41, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit.i, label %42
 
 42:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
-  %43 = getelementptr inbounds i8, ptr %40, i64 1
+  %43 = getelementptr inbounds nuw i8, ptr %40, i64 1
   %44 = ptrtoint ptr %43 to i64
   %45 = sub i64 %38, %44
   %.not25.i.i.i = icmp ult i64 %45, 5
@@ -968,7 +968,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %127, %130
 _ZNSt10filesystem7__cxx114pathD2Ev.exit40:        ; preds = %_ZNSt10filesystem7__cxx114pathD2Ev.exit, %132
   store ptr null, ptr %18, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %13) #14
-  %133 = getelementptr inbounds i8, ptr %.sroa.046.072, i64 32
+  %133 = getelementptr inbounds nuw i8, ptr %.sroa.046.072, i64 32
   %.not52 = icmp eq ptr %133, %32
   br i1 %.not52, label %.loopexit54, label %.preheader
 
@@ -1025,7 +1025,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #9 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i, label %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit, label %4

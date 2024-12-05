@@ -44,7 +44,7 @@ declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapt
 
 ; Function Attrs: nounwind uwtable
 define ptr @Abc_UtilsGetUsersInput(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 80
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load i32, ptr %2, align 8
   %4 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @Abc_UtilsGetUsersInput.Prompt, ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %3) #10
   %5 = load ptr, ptr @Abc_UtilsGetUsersInput.line, align 8
@@ -85,7 +85,7 @@ declare void @add_history(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind uwtable
 define void @Abc_UtilsPrintHello(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 128
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %0, align 8
   %5 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.4, ptr noundef %4) #10
@@ -97,7 +97,7 @@ declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readon
 
 ; Function Attrs: nofree nounwind uwtable
 define void @Abc_UtilsPrintUsage(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 136
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %4 = load ptr, ptr %3, align 8
   %fputc = tail call i32 @fputc(i32 10, ptr %4)
   %5 = load ptr, ptr %3, align 8

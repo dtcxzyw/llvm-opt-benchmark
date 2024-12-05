@@ -9,16 +9,16 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i32 @_ZN17RawBytecodeStream16raw_next_specialEN9Bytecodes4CodeE(ptr nocapture noundef nonnull align 8 dereferenceable(42) initializes((36, 40)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 56
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load i32, ptr %8, align 8
   %10 = sext i32 %9 to i64
   %11 = getelementptr inbounds i8, ptr %7, i64 %10
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %13 = load i32, ptr %12, align 8
   %14 = sext i32 %13 to i64
   %15 = getelementptr inbounds i8, ptr %7, i64 %14
@@ -35,7 +35,7 @@ define hidden noundef i32 @_ZN17RawBytecodeStream16raw_next_specialEN9Bytecodes4
 
 23:                                               ; preds = %18
   %24 = sub nsw i32 %19, %16
-  %25 = getelementptr inbounds i8, ptr %0, i64 28
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %26 = load i32, ptr %25, align 4
   %.not = icmp slt i32 %24, %26
   br i1 %.not, label %27, label %36
@@ -43,13 +43,13 @@ define hidden noundef i32 @_ZN17RawBytecodeStream16raw_next_specialEN9Bytecodes4
 27:                                               ; preds = %23
   %28 = add nsw i32 %26, %16
   store i32 %28, ptr %25, align 4
-  %29 = getelementptr inbounds i8, ptr %0, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i8 0, ptr %29, align 8
   %30 = icmp eq i32 %1, 196
   br i1 %30, label %31, label %36
 
 31:                                               ; preds = %27
-  %32 = getelementptr inbounds i8, ptr %11, i64 1
+  %32 = getelementptr inbounds nuw i8, ptr %11, i64 1
   %.not17 = icmp ult ptr %32, %15
   br i1 %.not17, label %33, label %36
 
@@ -61,7 +61,7 @@ define hidden noundef i32 @_ZN17RawBytecodeStream16raw_next_specialEN9Bytecodes4
 
 36:                                               ; preds = %31, %2, %18, %23, %27, %33
   %.0 = phi i32 [ %35, %33 ], [ %1, %27 ], [ -1, %23 ], [ -1, %18 ], [ -1, %2 ], [ -1, %31 ]
-  %37 = getelementptr inbounds i8, ptr %0, i64 36
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 %.0, ptr %37, align 4
   ret i32 %.0
 }
@@ -70,21 +70,21 @@ declare noundef i32 @_ZN9Bytecodes21raw_special_length_atEPhS0_(ptr noundef, ptr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN18BaseBytecodeStreamC2ERK12methodHandle(ptr noundef nonnull align 8 dereferenceable(42) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZN12methodHandleC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %1) #2
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 34
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 34
   %8 = load i16, ptr %7, align 2
   %9 = zext i16 %8 to i32
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 28
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 0, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 %9, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 41
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 41
   store i8 0, ptr %13, align 1
   ret void
 }

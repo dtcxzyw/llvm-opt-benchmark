@@ -25,14 +25,14 @@ define void @PrepareBitSetModule() local_unnamed_addr #0 {
 1:                                                ; preds = %0, %1
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %1 ]
   %2 = and i64 %indvars.iv, 255
-  %3 = getelementptr inbounds [256 x i8], ptr @BitCount8, i64 0, i64 %2
+  %3 = getelementptr inbounds nuw [256 x i8], ptr @BitCount8, i64 0, i64 %2
   %4 = load i8, ptr %3, align 1
   %5 = lshr i64 %indvars.iv, 8
   %6 = and i64 %5, 16777215
-  %7 = getelementptr inbounds [256 x i8], ptr @BitCount8, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw [256 x i8], ptr @BitCount8, i64 0, i64 %6
   %8 = load i8, ptr %7, align 1
   %9 = add i8 %8, %4
-  %10 = getelementptr inbounds [65536 x i8], ptr @BitCount, i64 0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [65536 x i8], ptr @BitCount, i64 0, i64 %indvars.iv
   store i8 %9, ptr %10, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 65536
@@ -41,7 +41,7 @@ define void @PrepareBitSetModule() local_unnamed_addr #0 {
 .preheader:                                       ; preds = %1, %.preheader
   %indvars.iv15 = phi i64 [ %indvars.iv.next16, %.preheader ], [ 0, %1 ]
   %11 = trunc i64 %indvars.iv15 to i8
-  %12 = getelementptr inbounds [163 x i32], ptr @SparseNumbers, i64 0, i64 %indvars.iv15
+  %12 = getelementptr inbounds nuw [163 x i32], ptr @SparseNumbers, i64 0, i64 %indvars.iv15
   %13 = load i32, ptr %12, align 4
   %14 = sext i32 %13 to i64
   %15 = getelementptr inbounds [65536 x i8], ptr @BitGroupNumbers, i64 0, i64 %14
@@ -57,7 +57,7 @@ define void @PrepareBitSetModule() local_unnamed_addr #0 {
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define range(i32 0, 4) i32 @GetVar(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = shl i32 %1, 1
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = ashr i32 %3, 5
   %7 = sext i32 %6 to i64
@@ -74,7 +74,7 @@ define void @ExorVar(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noun
   %4 = shl i32 %1, 1
   %5 = and i32 %4, 30
   %6 = shl i32 %2, %5
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = ashr i32 %4, 5
   %10 = sext i32 %9 to i64
@@ -92,9 +92,9 @@ define i32 @GetDistance(ptr nocapture noundef readonly %0, ptr nocapture noundef
   br i1 %4, label %.lr.ph, label %.preheader
 
 .lr.ph:                                           ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   %wide.trip.count = zext nneg i32 %3 to i64
   br label %17
@@ -111,9 +111,9 @@ define i32 @GetDistance(ptr nocapture noundef readonly %0, ptr nocapture noundef
   br i1 %12, label %.lr.ph19, label %.loopexit
 
 .lr.ph19:                                         ; preds = %.preheader
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %16 = load ptr, ptr %15, align 8
   %wide.trip.count27 = zext nneg i32 %11 to i64
   br label %41
@@ -121,22 +121,22 @@ define i32 @GetDistance(ptr nocapture noundef readonly %0, ptr nocapture noundef
 17:                                               ; preds = %.lr.ph, %9
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %9 ]
   %18 = phi i32 [ 0, %.lr.ph ], [ %38, %9 ]
-  %19 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
   %20 = load i32, ptr %19, align 4
-  %21 = getelementptr inbounds i32, ptr %8, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
   %22 = load i32, ptr %21, align 4
   %23 = xor i32 %22, %20
   %24 = lshr i32 %23, 1
   %25 = or i32 %24, %23
   %26 = and i32 %25, 21845
   %27 = zext nneg i32 %26 to i64
-  %28 = getelementptr inbounds [65536 x i8], ptr @BitCount, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw [65536 x i8], ptr @BitCount, i64 0, i64 %27
   %29 = load i8, ptr %28, align 1
   %30 = zext i8 %29 to i32
   %31 = lshr i32 %25, 16
   %32 = and i32 %31, 21845
   %33 = zext nneg i32 %32 to i64
-  %34 = getelementptr inbounds [65536 x i8], ptr @BitCount, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw [65536 x i8], ptr @BitCount, i64 0, i64 %33
   %35 = load i8, ptr %34, align 1
   %36 = zext i8 %35 to i32
   %37 = add nuw nsw i32 %36, %30
@@ -151,9 +151,9 @@ define i32 @GetDistance(ptr nocapture noundef readonly %0, ptr nocapture noundef
 
 41:                                               ; preds = %.lr.ph19, %40
   %indvars.iv24 = phi i64 [ 0, %.lr.ph19 ], [ %indvars.iv.next25, %40 ]
-  %42 = getelementptr inbounds i32, ptr %14, i64 %indvars.iv24
+  %42 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv24
   %43 = load i32, ptr %42, align 4
-  %44 = getelementptr inbounds i32, ptr %16, i64 %indvars.iv24
+  %44 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv24
   %45 = load i32, ptr %44, align 4
   %.not = icmp eq i32 %43, %45
   br i1 %.not, label %40, label %46
@@ -174,9 +174,9 @@ define i32 @GetDistancePlus(ptr nocapture noundef readonly %0, ptr nocapture nou
   br i1 %4, label %.lr.ph, label %.preheader
 
 .lr.ph:                                           ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   %wide.trip.count = zext nneg i32 %3 to i64
   br label %17
@@ -194,9 +194,9 @@ define i32 @GetDistancePlus(ptr nocapture noundef readonly %0, ptr nocapture nou
   br i1 %12, label %.lr.ph28, label %thread-pre-split
 
 .lr.ph28:                                         ; preds = %.preheader
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %16 = load ptr, ptr %15, align 8
   %wide.trip.count42 = zext nneg i32 %11 to i64
   br label %46
@@ -205,9 +205,9 @@ define i32 @GetDistancePlus(ptr nocapture noundef readonly %0, ptr nocapture nou
   %18 = phi i32 [ -1, %.lr.ph ], [ %31, %9 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %9 ]
   %19 = phi i32 [ 0, %.lr.ph ], [ %43, %9 ]
-  %20 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
   %21 = load i32, ptr %20, align 4
-  %22 = getelementptr inbounds i32, ptr %8, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
   %23 = load i32, ptr %22, align 4
   %24 = xor i32 %23, %21
   %25 = lshr i32 %24, 1
@@ -225,12 +225,12 @@ define i32 @GetDistancePlus(ptr nocapture noundef readonly %0, ptr nocapture nou
   %31 = phi i32 [ %29, %28 ], [ %18, %17 ]
   %32 = and i32 %26, 21845
   %33 = zext nneg i32 %32 to i64
-  %34 = getelementptr inbounds [65536 x i8], ptr @BitCount, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw [65536 x i8], ptr @BitCount, i64 0, i64 %33
   %35 = load i8, ptr %34, align 1
   %36 = zext i8 %35 to i32
   %37 = lshr i32 %27, 16
   %38 = zext nneg i32 %37 to i64
-  %39 = getelementptr inbounds [65536 x i8], ptr @BitCount, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw [65536 x i8], ptr @BitCount, i64 0, i64 %38
   %40 = load i8, ptr %39, align 1
   %41 = zext i8 %40 to i32
   %42 = add nuw nsw i32 %41, %36
@@ -245,9 +245,9 @@ define i32 @GetDistancePlus(ptr nocapture noundef readonly %0, ptr nocapture nou
 
 46:                                               ; preds = %.lr.ph28, %45
   %indvars.iv39 = phi i64 [ 0, %.lr.ph28 ], [ %indvars.iv.next40, %45 ]
-  %47 = getelementptr inbounds i32, ptr %14, i64 %indvars.iv39
+  %47 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv39
   %48 = load i32, ptr %47, align 4
-  %49 = getelementptr inbounds i32, ptr %16, i64 %indvars.iv39
+  %49 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv39
   %50 = load i32, ptr %49, align 4
   %.not = icmp eq i32 %48, %50
   br i1 %.not, label %45, label %51
@@ -288,7 +288,7 @@ thread-pre-split:                                 ; preds = %45, %.preheader, %5
   %63 = add nsw i32 %.2.lcssa, %62
   store i32 %63, ptr @s_DiffVarNum, align 4
   %64 = shl i32 %63, 1
-  %65 = getelementptr inbounds i8, ptr %0, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %66 = load ptr, ptr %65, align 8
   %67 = ashr i32 %64, 5
   %68 = sext i32 %67 to i64
@@ -298,7 +298,7 @@ thread-pre-split:                                 ; preds = %45, %.preheader, %5
   %72 = lshr i32 %70, %71
   %73 = and i32 %72, 3
   store i32 %73, ptr @s_DiffVarValueP_old, align 4
-  %74 = getelementptr inbounds i8, ptr %1, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %75 = load ptr, ptr %74, align 8
   %76 = getelementptr inbounds i32, ptr %75, i64 %68
   %77 = load i32, ptr %76, align 4
@@ -334,9 +334,9 @@ define range(i32 -2147483648, 6) i32 @FindDiffVars(ptr nocapture noundef writeon
   br i1 %5, label %.lr.ph, label %.loopexit33
 
 .lr.ph:                                           ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %9 = load ptr, ptr %8, align 8
   %wide.trip.count = zext nneg i32 %4 to i64
   br label %11
@@ -348,9 +348,9 @@ define range(i32 -2147483648, 6) i32 @FindDiffVars(ptr nocapture noundef writeon
 
 11:                                               ; preds = %.lr.ph, %10
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %10 ]
-  %12 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv
   %13 = load i32, ptr %12, align 4
-  %14 = getelementptr inbounds i32, ptr %9, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv
   %15 = load i32, ptr %14, align 4
   %.not = icmp eq i32 %13, %15
   br i1 %.not, label %10, label %16
@@ -366,8 +366,8 @@ define range(i32 -2147483648, 6) i32 @FindDiffVars(ptr nocapture noundef writeon
   br i1 %18, label %.lr.ph45, label %.sink.split
 
 .lr.ph45:                                         ; preds = %.loopexit33
-  %19 = getelementptr inbounds i8, ptr %1, i64 8
-  %20 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %24
 
 .thread81:                                        ; preds = %.thread, %73
@@ -382,17 +382,17 @@ define range(i32 -2147483648, 6) i32 @FindDiffVars(ptr nocapture noundef writeon
   %indvars.iv74 = phi i64 [ 0, %.lr.ph45 ], [ %indvars.iv.next75, %.thread81 ]
   %.lcssa374043 = phi i32 [ %DiffVarCounter.promoted39, %.lr.ph45 ], [ %.lcssa374183, %.thread81 ]
   %25 = load ptr, ptr %19, align 8
-  %26 = getelementptr inbounds i32, ptr %25, i64 %indvars.iv74
+  %26 = getelementptr inbounds nuw i32, ptr %25, i64 %indvars.iv74
   %27 = load i32, ptr %26, align 4
   %28 = load ptr, ptr %20, align 8
-  %29 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv74
+  %29 = getelementptr inbounds nuw i32, ptr %28, i64 %indvars.iv74
   %30 = load i32, ptr %29, align 4
   %31 = xor i32 %30, %27
   %32 = lshr i32 %31, 1
   %33 = or i32 %32, %31
   %34 = and i32 %33, 21845
   %35 = zext nneg i32 %34 to i64
-  %36 = getelementptr inbounds [65536 x i8], ptr @BitCount, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw [65536 x i8], ptr @BitCount, i64 0, i64 %35
   %37 = load i8, ptr %36, align 1
   %.not28 = icmp eq i8 %37, 0
   br i1 %.not28, label %.thread, label %38
@@ -402,7 +402,7 @@ define range(i32 -2147483648, 6) i32 @FindDiffVars(ptr nocapture noundef writeon
   br i1 %39, label %.preheader30, label %.sink.split
 
 .preheader30:                                     ; preds = %38
-  %40 = getelementptr inbounds [65536 x i8], ptr @BitGroupNumbers, i64 0, i64 %35
+  %40 = getelementptr inbounds nuw [65536 x i8], ptr @BitGroupNumbers, i64 0, i64 %35
   %41 = load i8, ptr %40, align 1
   %42 = zext i8 %41 to i64
   %43 = sext i32 %.lcssa374043 to i64
@@ -414,7 +414,7 @@ define range(i32 -2147483648, 6) i32 @FindDiffVars(ptr nocapture noundef writeon
 45:                                               ; preds = %.preheader30, %45
   %indvars.iv58 = phi i64 [ %43, %.preheader30 ], [ %indvars.iv.next59, %45 ]
   %indvars.iv56 = phi i64 [ 0, %.preheader30 ], [ %indvars.iv.next57, %45 ]
-  %46 = getelementptr inbounds [163 x [4 x i8]], ptr @GroupLiterals, i64 0, i64 %42, i64 %indvars.iv56
+  %46 = getelementptr inbounds nuw [163 x [4 x i8]], ptr @GroupLiterals, i64 0, i64 %42, i64 %indvars.iv56
   %47 = load i8, ptr %46, align 1
   %48 = zext i8 %47 to i32
   %49 = add nuw nsw i32 %44, %48
@@ -435,7 +435,7 @@ define range(i32 -2147483648, 6) i32 @FindDiffVars(ptr nocapture noundef writeon
   %54 = lshr i32 %33, 16
   %55 = and i32 %54, 21845
   %56 = zext nneg i32 %55 to i64
-  %57 = getelementptr inbounds [65536 x i8], ptr @BitCount, i64 0, i64 %56
+  %57 = getelementptr inbounds nuw [65536 x i8], ptr @BitCount, i64 0, i64 %56
   %58 = load i8, ptr %57, align 1
   %.not29 = icmp eq i8 %58, 0
   br i1 %.not29, label %.thread81, label %59
@@ -445,7 +445,7 @@ define range(i32 -2147483648, 6) i32 @FindDiffVars(ptr nocapture noundef writeon
   br i1 %60, label %.preheader, label %.sink.split
 
 .preheader:                                       ; preds = %59
-  %61 = getelementptr inbounds [65536 x i8], ptr @BitGroupNumbers, i64 0, i64 %56
+  %61 = getelementptr inbounds nuw [65536 x i8], ptr @BitGroupNumbers, i64 0, i64 %56
   %62 = load i8, ptr %61, align 1
   %63 = zext i8 %62 to i64
   %64 = sext i32 %.lcssa374280 to i64
@@ -458,7 +458,7 @@ define range(i32 -2147483648, 6) i32 @FindDiffVars(ptr nocapture noundef writeon
 67:                                               ; preds = %.preheader, %67
   %indvars.iv67 = phi i64 [ %64, %.preheader ], [ %indvars.iv.next68, %67 ]
   %indvars.iv65 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next66, %67 ]
-  %68 = getelementptr inbounds [163 x [4 x i8]], ptr @GroupLiterals, i64 0, i64 %63, i64 %indvars.iv65
+  %68 = getelementptr inbounds nuw [163 x [4 x i8]], ptr @GroupLiterals, i64 0, i64 %63, i64 %indvars.iv65
   %69 = load i8, ptr %68, align 1
   %70 = zext i8 %69 to i32
   %71 = add nuw nsw i32 %66, %70
@@ -485,13 +485,13 @@ define void @InsertVars(ptr nocapture noundef readonly %0, ptr nocapture noundef
   br i1 %5, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %wide.trip.count = zext nneg i32 %2 to i64
   br label %7
 
 7:                                                ; preds = %.lr.ph, %7
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
-  %8 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4
   %10 = shl i32 %9, 1
   %11 = ashr i32 %10, 5
@@ -503,7 +503,7 @@ define void @InsertVars(ptr nocapture noundef readonly %0, ptr nocapture noundef
   %17 = shl nuw i32 3, %12
   %18 = xor i32 %17, -1
   %19 = and i32 %16, %18
-  %20 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
   %21 = load i32, ptr %20, align 4
   %22 = shl i32 %21, %12
   %23 = or i32 %19, %22
@@ -522,18 +522,18 @@ define void @InsertVarsWithoutClearing(ptr nocapture noundef readonly %0, ptr no
   br i1 %6, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %wide.trip.count = zext nneg i32 %2 to i64
   br label %8
 
 8:                                                ; preds = %.lr.ph, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
-  %9 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %10 = load i32, ptr %9, align 4
   %11 = shl i32 %10, 1
   %12 = ashr i32 %11, 5
   %13 = and i32 %11, 30
-  %14 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
   %15 = load i32, ptr %14, align 4
   %16 = shl i32 %15, %13
   %17 = load ptr, ptr %7, align 8
@@ -549,7 +549,7 @@ define void @InsertVarsWithoutClearing(ptr nocapture noundef readonly %0, ptr no
 ._crit_edge:                                      ; preds = %8, %5
   %22 = and i32 %4, 31
   %23 = shl nuw i32 1, %22
-  %24 = getelementptr inbounds i8, ptr %0, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %25 = load ptr, ptr %24, align 8
   %26 = ashr i32 %4, 5
   %27 = sext i32 %26 to i64

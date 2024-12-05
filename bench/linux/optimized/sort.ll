@@ -29,7 +29,7 @@ define dso_local void @sort_r(ptr noundef %0, i64 noundef %1, i64 noundef %2, pt
   ]
 
 13:                                               ; preds = %12
-  %14 = getelementptr inbounds i8, ptr %5, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %.thread, label %.thread18
@@ -49,7 +49,7 @@ define dso_local void @sort_r(ptr noundef %0, i64 noundef %1, i64 noundef %2, pt
 .thread18:                                        ; preds = %12, %13, %20, %.thread
   %24 = phi ptr [ null, %.thread ], [ %23, %20 ], [ inttoptr (i64 3 to ptr), %13 ], [ %4, %12 ]
   %25 = ptrtoint ptr %24 to i64
-  %26 = getelementptr inbounds i8, ptr %5, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %27 = trunc i64 %2 to i32
   %28 = icmp eq ptr %3, null
   %29 = and i64 %10, 4294967295
@@ -299,7 +299,7 @@ define dso_local void @sort(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr 
   %6 = alloca %struct.wrapper, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #2
   store ptr %3, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %4, ptr %7, align 8
   call void @sort_r(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef null, ptr noundef nonnull inttoptr (i64 3 to ptr), ptr noundef nonnull %6)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #2

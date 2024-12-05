@@ -140,37 +140,37 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local void @nghttp2_hd_entry_init(ptr nocapture noundef initializes((0, 57), (64, 72), (76, 80)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   %3 = load ptr, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %5, ptr %6, align 8
   %7 = load ptr, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %9 = load i64, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %9, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %14, ptr %15, align 8
   %16 = load ptr, ptr %11, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %18 = load i64, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %18, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 20
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %21 = load i8, ptr %20, align 4
-  %22 = getelementptr inbounds i8, ptr %0, i64 56
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i8 %21, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 64
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr null, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 76
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 76
   store i32 0, ptr %24, align 4
   %25 = load ptr, ptr %0, align 8
   tail call void @nghttp2_rcbuf_incref(ptr noundef %25) #13
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load ptr, ptr %26, align 8
   tail call void @nghttp2_rcbuf_incref(ptr noundef %27) #13
   ret void
@@ -183,7 +183,7 @@ declare void @nghttp2_rcbuf_incref(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @nghttp2_hd_entry_free(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   tail call void @nghttp2_rcbuf_decref(ptr noundef %3) #13
   %4 = load ptr, ptr %0, align 8
@@ -195,11 +195,11 @@ declare void @nghttp2_rcbuf_decref(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -901, 1) i32 @nghttp2_hd_deflate_init(ptr nocapture noundef writeonly initializes((0, 8), (32, 40), (48, 56), (60, 61)) %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %1, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 60
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 60
   store i8 0, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 4096, ptr %5, align 8
   %6 = tail call ptr @nghttp2_mem_malloc(ptr noundef %1, i64 noundef 1024) #13
   store ptr %6, ptr %0, align 8
@@ -207,21 +207,21 @@ define dso_local range(i32 -901, 1) i32 @nghttp2_hd_deflate_init(ptr nocapture n
   br i1 %7, label %nghttp2_hd_deflate_init2.exit, label %8
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 127, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
-  %11 = getelementptr inbounds i8, ptr %0, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 0, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %13, i8 0, i64 1024, i1 false)
-  %14 = getelementptr inbounds i8, ptr %0, i64 1104
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 1104
   store i8 0, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 1088
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 1088
   store i64 4096, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 1096
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   store i64 4294967295, ptr %16, align 8
   br label %nghttp2_hd_deflate_init2.exit
 
@@ -232,11 +232,11 @@ nghttp2_hd_deflate_init2.exit:                    ; preds = %2, %8
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -901, 1) i32 @nghttp2_hd_deflate_init2(ptr nocapture noundef writeonly initializes((0, 8), (32, 40), (48, 56), (60, 61)) %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %2, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 60
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 60
   store i8 0, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 4096, ptr %6, align 8
   %7 = tail call ptr @nghttp2_mem_malloc(ptr noundef %2, i64 noundef 1024) #13
   store ptr %7, ptr %0, align 8
@@ -244,15 +244,15 @@ define dso_local range(i32 -901, 1) i32 @nghttp2_hd_deflate_init2(ptr nocapture 
   br i1 %8, label %hd_context_init.exit, label %9
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 127, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
-  %12 = getelementptr inbounds i8, ptr %0, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 0, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %14, i8 0, i64 1024, i1 false)
   %15 = icmp ult i64 %1, 4096
   br i1 %15, label %16, label %17
@@ -263,11 +263,11 @@ define dso_local range(i32 -901, 1) i32 @nghttp2_hd_deflate_init2(ptr nocapture 
 
 17:                                               ; preds = %9, %16
   %.sink = phi i8 [ 1, %16 ], [ 0, %9 ]
-  %18 = getelementptr inbounds i8, ptr %0, i64 1104
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 1104
   store i8 %.sink, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 1088
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 1088
   store i64 %1, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 1096
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   store i64 4294967295, ptr %20, align 8
   br label %hd_context_init.exit
 
@@ -278,11 +278,11 @@ hd_context_init.exit:                             ; preds = %3, %17
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -901, 1) i32 @nghttp2_hd_inflate_init(ptr noundef initializes((0, 8), (32, 40), (48, 56), (60, 61)) %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %1, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 60
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 60
   store i8 0, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 4096, ptr %5, align 8
   %6 = tail call ptr @nghttp2_mem_malloc(ptr noundef %1, i64 noundef 1024) #13
   store ptr %6, ptr %0, align 8
@@ -290,37 +290,37 @@ define dso_local range(i32 -901, 1) i32 @nghttp2_hd_inflate_init(ptr noundef ini
   br i1 %7, label %hd_context_init.exit, label %8
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 127, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
-  %11 = getelementptr inbounds i8, ptr %0, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 0, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 200
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 200
   store i64 4096, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 208
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 208
   store i64 4294967295, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 168
-  %16 = getelementptr inbounds i8, ptr %0, i64 224
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 224
   store i32 0, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 228
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 228
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
   store i32 1, ptr %17, align 4
-  %18 = getelementptr inbounds i8, ptr %0, i64 72
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @nghttp2_buf_init(ptr noundef nonnull %18) #13
-  %19 = getelementptr inbounds i8, ptr %0, i64 112
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 112
   tail call void @nghttp2_buf_init(ptr noundef nonnull %19) #13
-  %20 = getelementptr inbounds i8, ptr %0, i64 152
-  %21 = getelementptr inbounds i8, ptr %0, i64 232
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 232
   store i8 0, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 184
-  %23 = getelementptr inbounds i8, ptr %0, i64 216
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 216
   store i64 0, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 233
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 233
   store i8 0, ptr %24, align 1
-  %25 = getelementptr inbounds i8, ptr %0, i64 234
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 234
   store i8 0, ptr %25, align 2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, i8 0, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %22, i8 0, i64 16, i1 false)
@@ -335,16 +335,16 @@ declare void @nghttp2_buf_init(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @nghttp2_hd_deflate_free(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i64, ptr %4, align 8
   %.not.i.i = icmp eq i64 %5, 0
   br i1 %.not.i.i, label %hd_context_free.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %8
 
 8:                                                ; preds = %8, %.lr.ph.i.i
@@ -356,7 +356,7 @@ define dso_local void @nghttp2_hd_deflate_free(ptr nocapture noundef readonly %0
   %13 = and i64 %11, %12
   %14 = getelementptr inbounds ptr, ptr %9, i64 %13
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8
   tail call void @nghttp2_rcbuf_decref(ptr noundef %17) #13
   %18 = load ptr, ptr %15, align 8
@@ -375,29 +375,29 @@ hd_context_free.exit:                             ; preds = %8, %1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @nghttp2_hd_inflate_free(ptr nocapture noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 176
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %3 = load ptr, ptr %2, align 8
   tail call void @nghttp2_rcbuf_decref(ptr noundef %3) #13
-  %4 = getelementptr inbounds i8, ptr %0, i64 168
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %5 = load ptr, ptr %4, align 8
   tail call void @nghttp2_rcbuf_decref(ptr noundef %5) #13
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
-  %6 = getelementptr inbounds i8, ptr %0, i64 160
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %7 = load ptr, ptr %6, align 8
   tail call void @nghttp2_rcbuf_decref(ptr noundef %7) #13
-  %8 = getelementptr inbounds i8, ptr %0, i64 152
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %9 = load ptr, ptr %8, align 8
   tail call void @nghttp2_rcbuf_decref(ptr noundef %9) #13
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load i64, ptr %12, align 8
   %.not.i.i = icmp eq i64 %13, 0
   br i1 %.not.i.i, label %hd_context_free.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %1
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %16
 
 16:                                               ; preds = %16, %.lr.ph.i.i
@@ -409,7 +409,7 @@ define dso_local void @nghttp2_hd_inflate_free(ptr nocapture noundef %0) local_u
   %21 = and i64 %19, %20
   %22 = getelementptr inbounds ptr, ptr %17, i64 %21
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load ptr, ptr %24, align 8
   tail call void @nghttp2_rcbuf_decref(ptr noundef %25) #13
   %26 = load ptr, ptr %23, align 8
@@ -428,37 +428,37 @@ hd_context_free.exit:                             ; preds = %16, %1
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i32 @nghttp2_hd_deflate_change_table_size(ptr noundef initializes((48, 56), (1104, 1105)) %0, i64 noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 1088
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1088
   %4 = load i64, ptr %3, align 8
   %. = tail call i64 @llvm.umin.i64(i64 %1, i64 %4)
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %., ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 1096
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   %7 = load i64, ptr %6, align 8
   %8 = tail call i64 @llvm.umin.i64(i64 %7, i64 %.)
   store i64 %8, ptr %6, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 1104
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1104
   store i8 1, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
   tail call fastcc void @hd_context_shrink_table_size(ptr noundef %0, ptr noundef nonnull %10)
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @hd_context_shrink_table_size(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
-  %7 = getelementptr inbounds i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load i64, ptr %6, align 8
   %9 = load i64, ptr %7, align 8
   %10 = icmp ugt i64 %8, %9
   br i1 %10, label %.lr.ph23, label %.critedge
 
 .lr.ph23:                                         ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.not17 = icmp eq ptr %1, null
   br i1 %.not17, label %.lr.ph23.split.us, label %.lr.ph23.split
 
@@ -478,11 +478,11 @@ hd_map_remove.exit.us:                            ; preds = %.lr.ph23.split.us
   %21 = getelementptr inbounds ptr, ptr %16, i64 %20
   %22 = load ptr, ptr %21, align 8
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 24
   %25 = load i64, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %22, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %29 = load i64, ptr %28, align 8
   %.neg18.us = add i64 %13, -32
   %30 = add i64 %25, %29
@@ -515,22 +515,22 @@ hd_map_remove.exit.us:                            ; preds = %.lr.ph23.split.us
   %46 = getelementptr inbounds ptr, ptr %41, i64 %45
   %47 = load ptr, ptr %46, align 8
   %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 24
   %50 = load i64, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %47, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 24
   %54 = load i64, ptr %53, align 8
   %.neg18 = add i64 %37, -32
   %55 = add i64 %50, %54
   %56 = sub i64 %.neg18, %55
   store i64 %56, ptr %6, align 8
   store i64 %40, ptr %5, align 8
-  %57 = getelementptr inbounds i8, ptr %47, i64 76
+  %57 = getelementptr inbounds nuw i8, ptr %47, i64 76
   %58 = load i32, ptr %57, align 4
   %59 = and i32 %58, 127
   %60 = zext nneg i32 %59 to i64
-  %61 = getelementptr inbounds [128 x ptr], ptr %1, i64 0, i64 %60
+  %61 = getelementptr inbounds nuw [128 x ptr], ptr %1, i64 0, i64 %60
   %62 = load ptr, ptr %61, align 8
   %.not13.i = icmp eq ptr %62, null
   br i1 %.not13.i, label %hd_map_remove.exit, label %.lr.ph.i.preheader
@@ -541,7 +541,7 @@ hd_map_remove.exit.us:                            ; preds = %.lr.ph23.split.us
 
 .lr.ph:                                           ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %63 = phi ptr [ %65, %.lr.ph.i ], [ %62, %.lr.ph.i.preheader ]
-  %64 = getelementptr inbounds i8, ptr %63, i64 64
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 64
   %65 = load ptr, ptr %64, align 8
   %.not.i = icmp eq ptr %65, null
   br i1 %.not.i, label %hd_map_remove.exit, label %.lr.ph.i, !llvm.loop !8
@@ -551,12 +551,12 @@ hd_map_remove.exit.us:                            ; preds = %.lr.ph23.split.us
   br i1 %.not11.i, label %.lr.ph.i._crit_edge.loopexit, label %.lr.ph, !llvm.loop !8
 
 .lr.ph.i._crit_edge.loopexit:                     ; preds = %.lr.ph.i
-  %66 = getelementptr inbounds i8, ptr %63, i64 64
+  %66 = getelementptr inbounds nuw i8, ptr %63, i64 64
   br label %.lr.ph.i._crit_edge
 
 .lr.ph.i._crit_edge:                              ; preds = %.lr.ph.i._crit_edge.loopexit, %.lr.ph.i.preheader
   %.014.i.lcssa = phi ptr [ %61, %.lr.ph.i.preheader ], [ %66, %.lr.ph.i._crit_edge.loopexit ]
-  %67 = getelementptr inbounds i8, ptr %47, i64 64
+  %67 = getelementptr inbounds nuw i8, ptr %47, i64 64
   %68 = load ptr, ptr %67, align 8
   store ptr %68, ptr %.014.i.lcssa, align 8
   store ptr null, ptr %67, align 8
@@ -579,35 +579,35 @@ hd_map_remove.exit:                               ; preds = %.lr.ph, %.lr.ph.i._
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -519, 1) i32 @nghttp2_hd_inflate_change_table_size(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 228
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 228
   %4 = load i32, ptr %3, align 4
   %switch = icmp ult i32 %4, 2
   br i1 %switch, label %5, label %hd_context_shrink_table_size.exit
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 200
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 200
   store i64 %1, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load i64, ptr %7, align 8
   %9 = icmp ugt i64 %8, %1
   br i1 %9, label %10, label %hd_context_shrink_table_size.exit
 
 10:                                               ; preds = %5
   store i32 0, ptr %3, align 4
-  %11 = getelementptr inbounds i8, ptr %0, i64 208
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 208
   store i64 %1, ptr %11, align 8
   store i64 %1, ptr %7, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 24
-  %15 = getelementptr inbounds i8, ptr %0, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %16 = load i64, ptr %15, align 8
   %17 = icmp ugt i64 %16, %1
   br i1 %17, label %.lr.ph23.i, label %hd_context_shrink_table_size.exit
 
 .lr.ph23.i:                                       ; preds = %10
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
-  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %.lr.ph23.split.us.i
 
 .lr.ph23.split.us.i:                              ; preds = %hd_map_remove.exit.us.i, %.lr.ph23.i
@@ -626,11 +626,11 @@ hd_map_remove.exit.us.i:                          ; preds = %.lr.ph23.split.us.i
   %28 = getelementptr inbounds ptr, ptr %23, i64 %27
   %29 = load ptr, ptr %28, align 8
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 24
   %32 = load i64, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %29, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 24
   %36 = load i64, ptr %35, align 8
   %.neg13 = add i64 %20, -32
   %37 = add i64 %32, %36
@@ -660,10 +660,10 @@ define dso_local void @nghttp2_hd_table_get(ptr dead_on_unwind noalias nocapture
 5:                                                ; preds = %3
   %6 = add i64 %2, -61
   %7 = load ptr, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i64, ptr %8, align 8
   %10 = add i64 %6, %9
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load i64, ptr %11, align 8
   %13 = and i64 %10, %12
   %14 = getelementptr inbounds ptr, ptr %7, i64 %13
@@ -672,16 +672,16 @@ define dso_local void @nghttp2_hd_table_get(ptr dead_on_unwind noalias nocapture
   br label %24
 
 16:                                               ; preds = %3
-  %17 = getelementptr inbounds [61 x %struct.nghttp2_hd_static_entry], ptr @static_table, i64 0, i64 %2
+  %17 = getelementptr inbounds nuw [61 x %struct.nghttp2_hd_static_entry], ptr @static_table, i64 0, i64 %2
   store ptr %17, ptr %0, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
-  %19 = getelementptr inbounds i8, ptr %17, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 40
   store ptr %19, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 16
-  %21 = getelementptr inbounds i8, ptr %17, i64 120
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 120
   %22 = load i32, ptr %21, align 8
   store i32 %22, ptr %20, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 20
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i8 0, ptr %23, align 4
   br label %24
 
@@ -695,23 +695,23 @@ define dso_local i32 @nghttp2_hd_deflate_hd_bufs(ptr noundef %0, ptr noundef %1,
   %6 = alloca %struct.nghttp2_hd_nv, align 8
   %7 = alloca [16 x i8], align 16
   %8 = alloca [16 x i8], align 16
-  %9 = getelementptr inbounds i8, ptr %0, i64 60
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %10 = load i8, ptr %9, align 4
   %.not = icmp eq i8 %10, 0
   br i1 %.not, label %11, label %.loopexit
 
 11:                                               ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %0, i64 1104
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 1104
   %13 = load i8, ptr %12, align 8
   %.not29 = icmp eq i8 %13, 0
   br i1 %.not29, label %57, label %14
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %0, i64 1096
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   %16 = load i64, ptr %15, align 8
   store i8 0, ptr %12, align 8
   store i64 4294967295, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %18 = load i64, ptr %17, align 8
   %19 = icmp ugt i64 %18, %16
   br i1 %19, label %20, label %38
@@ -734,7 +734,7 @@ count_encoded_length.exit.thread.thread.i:        ; preds = %20
 
 count_encoded_length.exit.thread.thread17.thread.i: ; preds = %24
   store i8 63, ptr %8, align 16
-  %.02428.i21.i = getelementptr inbounds i8, ptr %8, i64 1
+  %.02428.i21.i = getelementptr inbounds nuw i8, ptr %8, i64 1
   br label %._crit_edge.i.i
 
 .lr.ph.i.i:                                       ; preds = %24, %.lr.ph.i.i
@@ -755,7 +755,7 @@ emit_table_size.exit.thread:                      ; preds = %count_encoded_lengt
 
 count_encoded_length.exit.thread.thread17.i:      ; preds = %count_encoded_length.exit.i
   store i8 63, ptr %8, align 16
-  %.02428.i.i = getelementptr inbounds i8, ptr %8, i64 1
+  %.02428.i.i = getelementptr inbounds nuw i8, ptr %8, i64 1
   br label %.lr.ph.i11.i
 
 .lr.ph.i11.i:                                     ; preds = %.lr.ph.i11.i, %count_encoded_length.exit.thread.thread17.i
@@ -765,7 +765,7 @@ count_encoded_length.exit.thread.thread17.i:      ; preds = %count_encoded_lengt
   %32 = or i8 %31, -128
   store i8 %32, ptr %.02430.i.i, align 1
   %33 = lshr i64 %.02529.i.i, 7
-  %.024.i.i = getelementptr inbounds i8, ptr %.02430.i.i, i64 1
+  %.024.i.i = getelementptr inbounds nuw i8, ptr %.02430.i.i, i64 1
   %34 = icmp ugt i64 %.02529.i.i, 16383
   br i1 %34, label %.lr.ph.i11.i, label %._crit_edge.i.i.loopexit, !llvm.loop !10
 
@@ -811,7 +811,7 @@ count_encoded_length.exit.thread.thread.i52:      ; preds = %38
 
 count_encoded_length.exit.thread.thread17.thread.i33: ; preds = %43
   store i8 63, ptr %7, align 16
-  %.02428.i21.i34 = getelementptr inbounds i8, ptr %7, i64 1
+  %.02428.i21.i34 = getelementptr inbounds nuw i8, ptr %7, i64 1
   br label %._crit_edge.i.i35
 
 .lr.ph.i.i42:                                     ; preds = %43, %.lr.ph.i.i42
@@ -832,7 +832,7 @@ emit_table_size.exit53.thread:                    ; preds = %count_encoded_lengt
 
 count_encoded_length.exit.thread.thread17.i46:    ; preds = %count_encoded_length.exit.i45
   store i8 63, ptr %7, align 16
-  %.02428.i.i47 = getelementptr inbounds i8, ptr %7, i64 1
+  %.02428.i.i47 = getelementptr inbounds nuw i8, ptr %7, i64 1
   br label %.lr.ph.i11.i48
 
 .lr.ph.i11.i48:                                   ; preds = %.lr.ph.i11.i48, %count_encoded_length.exit.thread.thread17.i46
@@ -842,7 +842,7 @@ count_encoded_length.exit.thread.thread17.i46:    ; preds = %count_encoded_lengt
   %51 = or i8 %50, -128
   store i8 %51, ptr %.02430.i.i49, align 1
   %52 = lshr i64 %.02529.i.i50, 7
-  %.024.i.i51 = getelementptr inbounds i8, ptr %.02430.i.i49, i64 1
+  %.024.i.i51 = getelementptr inbounds nuw i8, ptr %.02430.i.i49, i64 1
   %53 = icmp ugt i64 %.02529.i.i50, 16383
   br i1 %53, label %.lr.ph.i11.i48, label %._crit_edge.i.i35.loopexit, !llvm.loop !10
 
@@ -870,16 +870,16 @@ emit_table_size.exit53:                           ; preds = %count_encoded_lengt
   br i1 %.not76, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %57
-  %58 = getelementptr inbounds i8, ptr %0, i64 32
-  %59 = getelementptr inbounds i8, ptr %0, i64 48
-  %60 = getelementptr inbounds i8, ptr %0, i64 64
-  %61 = getelementptr inbounds i8, ptr %0, i64 56
-  %62 = getelementptr inbounds i8, ptr %0, i64 16
-  %63 = getelementptr inbounds i8, ptr %0, i64 8
-  %64 = getelementptr inbounds i8, ptr %6, i64 8
-  %65 = getelementptr inbounds i8, ptr %6, i64 16
-  %66 = getelementptr inbounds i8, ptr %6, i64 20
-  %.02428.i21.i.i = getelementptr inbounds i8, ptr %5, i64 1
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %6, i64 20
+  %.02428.i21.i.i = getelementptr inbounds nuw i8, ptr %5, i64 1
   br label %69
 
 67:                                               ; preds = %deflate_nv.exit
@@ -893,7 +893,7 @@ emit_table_size.exit53:                           ; preds = %count_encoded_lengt
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   %71 = load ptr, ptr %58, align 8
   %72 = load ptr, ptr %70, align 8
-  %73 = getelementptr inbounds i8, ptr %70, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %70, i64 16
   %74 = load i64, ptr %73, align 8
   %75 = call fastcc i32 @lookup_token(ptr noundef %72, i64 noundef %74)
   %76 = icmp eq i32 %75, -1
@@ -921,7 +921,7 @@ emit_table_size.exit53:                           ; preds = %count_encoded_lengt
 
 86:                                               ; preds = %84
   %87 = zext nneg i32 %75 to i64
-  %88 = getelementptr inbounds [61 x %struct.nghttp2_hd_static_entry], ptr @static_table, i64 0, i64 %87, i32 4
+  %88 = getelementptr inbounds nuw [61 x %struct.nghttp2_hd_static_entry], ptr @static_table, i64 0, i64 %87, i32 4
   %89 = load i32, ptr %88, align 4
   br label %name_hash.exit.i
 
@@ -933,14 +933,14 @@ name_hash.exit.i:                                 ; preds = %.lr.ph.i.i55, %86, 
   ]
 
 90:                                               ; preds = %name_hash.exit.i
-  %91 = getelementptr inbounds i8, ptr %70, i64 24
+  %91 = getelementptr inbounds nuw i8, ptr %70, i64 24
   %92 = load i64, ptr %91, align 8
   %93 = icmp ult i64 %92, 20
   br i1 %93, label %hd_deflate_decide_indexing.exit.i, label %name_hash.exit.thread.i
 
 name_hash.exit.thread.i:                          ; preds = %90, %name_hash.exit.i, %77
   %.05778.i = phi i32 [ %.057.i, %name_hash.exit.i ], [ %.057.i, %90 ], [ -2128831035, %77 ]
-  %94 = getelementptr inbounds i8, ptr %70, i64 32
+  %94 = getelementptr inbounds nuw i8, ptr %70, i64 32
   %95 = load i8, ptr %94, align 8
   %96 = and i8 %95, 1
   %.not.i = icmp eq i8 %96, 0
@@ -959,7 +959,7 @@ name_hash.exit.thread.i:                          ; preds = %90, %name_hash.exit
   ]
 
 98:                                               ; preds = %97
-  %99 = getelementptr inbounds i8, ptr %70, i64 24
+  %99 = getelementptr inbounds nuw i8, ptr %70, i64 24
   %100 = load i64, ptr %99, align 8
   %101 = add i64 %74, 32
   %102 = add i64 %101, %100
@@ -976,14 +976,14 @@ hd_deflate_decide_indexing.exit.i:                ; preds = %98, %97, %97, %97, 
   %.not.i71.i = icmp eq i32 %107, 2
   %108 = and i32 %.05777.i, 127
   %109 = zext nneg i32 %108 to i64
-  %110 = getelementptr inbounds [128 x ptr], ptr %60, i64 0, i64 %109
+  %110 = getelementptr inbounds nuw [128 x ptr], ptr %60, i64 0, i64 %109
   %.01934.i.i.i = load ptr, ptr %110, align 8
   %.not35.i.i.i = icmp eq ptr %.01934.i.i.i, null
   br i1 %.not35.i.i.i, label %hd_map_find.exit.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %hd_deflate_decide_indexing.exit.i
-  %111 = getelementptr inbounds i8, ptr %70, i64 24
-  %112 = getelementptr inbounds i8, ptr %70, i64 8
+  %111 = getelementptr inbounds nuw i8, ptr %70, i64 24
+  %112 = getelementptr inbounds nuw i8, ptr %70, i64 8
   br i1 %76, label %.lr.ph.split.us.i.i.i, label %.lr.ph.split.i.i.i
 
 .lr.ph.split.us.i.i.i:                            ; preds = %.lr.ph.i.i.i
@@ -992,26 +992,26 @@ hd_deflate_decide_indexing.exit.i:                ; preds = %98, %97, %97, %97, 
 .lr.ph.split.us.split.us.i.i.i:                   ; preds = %.lr.ph.split.us.i.i.i, %name_eq.exit.thread.us.us.i.i.i
   %.01937.us.us.i.i.i = phi ptr [ %.019.us.us.i.i.i, %name_eq.exit.thread.us.us.i.i.i ], [ %.01934.i.i.i, %.lr.ph.split.us.i.i.i ]
   %.036.us.us.i.i.i = phi ptr [ %.2.us.us.i.i.i, %name_eq.exit.thread.us.us.i.i.i ], [ null, %.lr.ph.split.us.i.i.i ]
-  %113 = getelementptr inbounds i8, ptr %.01937.us.us.i.i.i, i64 16
+  %113 = getelementptr inbounds nuw i8, ptr %.01937.us.us.i.i.i, i64 16
   %114 = load i32, ptr %113, align 8
   %.not21.us.us.i.i.i = icmp eq i32 %114, -1
   br i1 %.not21.us.us.i.i.i, label %115, label %name_eq.exit.thread.us.us.i.i.i
 
 115:                                              ; preds = %.lr.ph.split.us.split.us.i.i.i
-  %116 = getelementptr inbounds i8, ptr %.01937.us.us.i.i.i, i64 76
+  %116 = getelementptr inbounds nuw i8, ptr %.01937.us.us.i.i.i, i64 76
   %117 = load i32, ptr %116, align 4
   %.not22.us.us.i.i.i = icmp eq i32 %.05777.i, %117
   br i1 %.not22.us.us.i.i.i, label %118, label %name_eq.exit.thread.us.us.i.i.i
 
 118:                                              ; preds = %115
   %.019.val.us.us.i.i.i = load ptr, ptr %.01937.us.us.i.i.i, align 8
-  %119 = getelementptr inbounds i8, ptr %.019.val.us.us.i.i.i, i64 24
+  %119 = getelementptr inbounds nuw i8, ptr %.019.val.us.us.i.i.i, i64 24
   %120 = load i64, ptr %119, align 8
   %121 = icmp eq i64 %120, %74
   br i1 %121, label %name_eq.exit.us.us.i.i.i, label %name_eq.exit.thread.us.us.i.i.i
 
 name_eq.exit.us.us.i.i.i:                         ; preds = %118
-  %122 = getelementptr inbounds i8, ptr %.019.val.us.us.i.i.i, i64 16
+  %122 = getelementptr inbounds nuw i8, ptr %.019.val.us.us.i.i.i, i64 16
   %123 = load ptr, ptr %122, align 8
   %bcmp.i.i.us.us.i.i.i = call i32 @bcmp(ptr readonly %123, ptr readonly %72, i64 %74)
   %.not31.us.us.i.i.i = icmp eq i32 %bcmp.i.i.us.us.i.i.i, 0
@@ -1022,14 +1022,14 @@ name_eq.exit.us.us.i.i.i:                         ; preds = %118
   %spec.select.i.i.i = select i1 %.not24.us.us.i.i.i, ptr %.01937.us.us.i.i.i, ptr %.036.us.us.i.i.i
   %125 = getelementptr i8, ptr %.01937.us.us.i.i.i, i64 8
   %.019.val27.us.us.i.i.i = load ptr, ptr %125, align 8
-  %126 = getelementptr inbounds i8, ptr %.019.val27.us.us.i.i.i, i64 24
+  %126 = getelementptr inbounds nuw i8, ptr %.019.val27.us.us.i.i.i, i64 24
   %127 = load i64, ptr %126, align 8
   %128 = load i64, ptr %111, align 8
   %129 = icmp eq i64 %127, %128
   br i1 %129, label %value_eq.exit.us.us.i.i.i, label %name_eq.exit.thread.us.us.i.i.i
 
 value_eq.exit.us.us.i.i.i:                        ; preds = %124
-  %130 = getelementptr inbounds i8, ptr %.019.val27.us.us.i.i.i, i64 16
+  %130 = getelementptr inbounds nuw i8, ptr %.019.val27.us.us.i.i.i, i64 16
   %131 = load ptr, ptr %130, align 8
   %132 = load ptr, ptr %112, align 8
   %bcmp.i.i28.us.us.i.i.i = call i32 @bcmp(ptr readonly %131, ptr readonly %132, i64 %127)
@@ -1038,40 +1038,40 @@ value_eq.exit.us.us.i.i.i:                        ; preds = %124
 
 name_eq.exit.thread.us.us.i.i.i:                  ; preds = %value_eq.exit.us.us.i.i.i, %124, %name_eq.exit.us.us.i.i.i, %118, %115, %.lr.ph.split.us.split.us.i.i.i
   %.2.us.us.i.i.i = phi ptr [ %.036.us.us.i.i.i, %.lr.ph.split.us.split.us.i.i.i ], [ %.036.us.us.i.i.i, %115 ], [ %spec.select.i.i.i, %value_eq.exit.us.us.i.i.i ], [ %.036.us.us.i.i.i, %name_eq.exit.us.us.i.i.i ], [ %.036.us.us.i.i.i, %118 ], [ %spec.select.i.i.i, %124 ]
-  %133 = getelementptr inbounds i8, ptr %.01937.us.us.i.i.i, i64 64
+  %133 = getelementptr inbounds nuw i8, ptr %.01937.us.us.i.i.i, i64 64
   %.019.us.us.i.i.i = load ptr, ptr %133, align 8
   %.not.us.us.i.i.i = icmp eq ptr %.019.us.us.i.i.i, null
   br i1 %.not.us.us.i.i.i, label %hd_map_find.exit.i.i, label %.lr.ph.split.us.split.us.i.i.i, !llvm.loop !13
 
 .lr.ph.split.us.split.i.i.i:                      ; preds = %.lr.ph.split.us.i.i.i, %name_eq.exit.thread.us.i.i.i
   %.01937.us.i.i.i = phi ptr [ %.019.us.i.i.i, %name_eq.exit.thread.us.i.i.i ], [ %.01934.i.i.i, %.lr.ph.split.us.i.i.i ]
-  %134 = getelementptr inbounds i8, ptr %.01937.us.i.i.i, i64 16
+  %134 = getelementptr inbounds nuw i8, ptr %.01937.us.i.i.i, i64 16
   %135 = load i32, ptr %134, align 8
   %.not21.us.i.i.i = icmp eq i32 %135, -1
   br i1 %.not21.us.i.i.i, label %136, label %name_eq.exit.thread.us.i.i.i
 
 136:                                              ; preds = %.lr.ph.split.us.split.i.i.i
-  %137 = getelementptr inbounds i8, ptr %.01937.us.i.i.i, i64 76
+  %137 = getelementptr inbounds nuw i8, ptr %.01937.us.i.i.i, i64 76
   %138 = load i32, ptr %137, align 4
   %.not22.us.i.i.i = icmp eq i32 %.05777.i, %138
   br i1 %.not22.us.i.i.i, label %139, label %name_eq.exit.thread.us.i.i.i
 
 139:                                              ; preds = %136
   %.019.val.us.i.i.i = load ptr, ptr %.01937.us.i.i.i, align 8
-  %140 = getelementptr inbounds i8, ptr %.019.val.us.i.i.i, i64 24
+  %140 = getelementptr inbounds nuw i8, ptr %.019.val.us.i.i.i, i64 24
   %141 = load i64, ptr %140, align 8
   %142 = icmp eq i64 %141, %74
   br i1 %142, label %name_eq.exit.us.i.i.i, label %name_eq.exit.thread.us.i.i.i
 
 name_eq.exit.us.i.i.i:                            ; preds = %139
-  %143 = getelementptr inbounds i8, ptr %.019.val.us.i.i.i, i64 16
+  %143 = getelementptr inbounds nuw i8, ptr %.019.val.us.i.i.i, i64 16
   %144 = load ptr, ptr %143, align 8
   %bcmp.i.i.us.i.i.i = call i32 @bcmp(ptr readonly %144, ptr readonly %72, i64 %74)
   %.not31.us.i.i.i = icmp eq i32 %bcmp.i.i.us.i.i.i, 0
   br i1 %.not31.us.i.i.i, label %hd_map_find.exit.i.i, label %name_eq.exit.thread.us.i.i.i
 
 name_eq.exit.thread.us.i.i.i:                     ; preds = %name_eq.exit.us.i.i.i, %139, %136, %.lr.ph.split.us.split.i.i.i
-  %145 = getelementptr inbounds i8, ptr %.01937.us.i.i.i, i64 64
+  %145 = getelementptr inbounds nuw i8, ptr %.01937.us.i.i.i, i64 64
   %.019.us.i.i.i = load ptr, ptr %145, align 8
   %.not.us.i.i.i = icmp eq ptr %.019.us.i.i.i, null
   br i1 %.not.us.i.i.i, label %hd_map_find.exit.i.i, label %.lr.ph.split.us.split.i.i.i, !llvm.loop !13
@@ -1082,7 +1082,7 @@ name_eq.exit.thread.us.i.i.i:                     ; preds = %name_eq.exit.us.i.i
 .lr.ph.split.split.us.i.i.i:                      ; preds = %.lr.ph.split.i.i.i, %name_eq.exit.thread.us51.i.i.i
   %.01937.us42.i.i.i = phi ptr [ %.019.us53.i.i.i, %name_eq.exit.thread.us51.i.i.i ], [ %.01934.i.i.i, %.lr.ph.split.i.i.i ]
   %.036.us43.i.i.i = phi ptr [ %.2.us52.i.i.i, %name_eq.exit.thread.us51.i.i.i ], [ null, %.lr.ph.split.i.i.i ]
-  %146 = getelementptr inbounds i8, ptr %.01937.us42.i.i.i, i64 16
+  %146 = getelementptr inbounds nuw i8, ptr %.01937.us42.i.i.i, i64 16
   %147 = load i32, ptr %146, align 8
   %.not21.us44.i.i.i = icmp eq i32 %75, %147
   br i1 %.not21.us44.i.i.i, label %148, label %name_eq.exit.thread.us51.i.i.i
@@ -1092,14 +1092,14 @@ name_eq.exit.thread.us.i.i.i:                     ; preds = %name_eq.exit.us.i.i
   %spec.select65.i.i.i = select i1 %.not24.us45.i.i.i, ptr %.01937.us42.i.i.i, ptr %.036.us43.i.i.i
   %149 = getelementptr i8, ptr %.01937.us42.i.i.i, i64 8
   %.019.val27.us47.i.i.i = load ptr, ptr %149, align 8
-  %150 = getelementptr inbounds i8, ptr %.019.val27.us47.i.i.i, i64 24
+  %150 = getelementptr inbounds nuw i8, ptr %.019.val27.us47.i.i.i, i64 24
   %151 = load i64, ptr %150, align 8
   %152 = load i64, ptr %111, align 8
   %153 = icmp eq i64 %151, %152
   br i1 %153, label %value_eq.exit.us48.i.i.i, label %name_eq.exit.thread.us51.i.i.i
 
 value_eq.exit.us48.i.i.i:                         ; preds = %148
-  %154 = getelementptr inbounds i8, ptr %.019.val27.us47.i.i.i, i64 16
+  %154 = getelementptr inbounds nuw i8, ptr %.019.val27.us47.i.i.i, i64 16
   %155 = load ptr, ptr %154, align 8
   %156 = load ptr, ptr %112, align 8
   %bcmp.i.i28.us49.i.i.i = call i32 @bcmp(ptr readonly %155, ptr readonly %156, i64 %151)
@@ -1108,20 +1108,20 @@ value_eq.exit.us48.i.i.i:                         ; preds = %148
 
 name_eq.exit.thread.us51.i.i.i:                   ; preds = %value_eq.exit.us48.i.i.i, %148, %.lr.ph.split.split.us.i.i.i
   %.2.us52.i.i.i = phi ptr [ %.036.us43.i.i.i, %.lr.ph.split.split.us.i.i.i ], [ %spec.select65.i.i.i, %value_eq.exit.us48.i.i.i ], [ %spec.select65.i.i.i, %148 ]
-  %157 = getelementptr inbounds i8, ptr %.01937.us42.i.i.i, i64 64
+  %157 = getelementptr inbounds nuw i8, ptr %.01937.us42.i.i.i, i64 64
   %.019.us53.i.i.i = load ptr, ptr %157, align 8
   %.not.us54.i.i.i = icmp eq ptr %.019.us53.i.i.i, null
   br i1 %.not.us54.i.i.i, label %hd_map_find.exit.i.i, label %.lr.ph.split.split.us.i.i.i, !llvm.loop !13
 
 .lr.ph.split.split.i.i.i:                         ; preds = %.lr.ph.split.i.i.i, %name_eq.exit.thread.i.i.i
   %.01937.i.i.i = phi ptr [ %.019.i.i.i, %name_eq.exit.thread.i.i.i ], [ %.01934.i.i.i, %.lr.ph.split.i.i.i ]
-  %158 = getelementptr inbounds i8, ptr %.01937.i.i.i, i64 16
+  %158 = getelementptr inbounds nuw i8, ptr %.01937.i.i.i, i64 16
   %159 = load i32, ptr %158, align 8
   %.not21.i.i.i = icmp eq i32 %75, %159
   br i1 %.not21.i.i.i, label %hd_map_find.exit.i.i, label %name_eq.exit.thread.i.i.i
 
 name_eq.exit.thread.i.i.i:                        ; preds = %.lr.ph.split.split.i.i.i
-  %160 = getelementptr inbounds i8, ptr %.01937.i.i.i, i64 64
+  %160 = getelementptr inbounds nuw i8, ptr %.01937.i.i.i, i64 64
   %.019.i.i.i = load ptr, ptr %160, align 8
   %.not.i.i.i = icmp eq ptr %.019.i.i.i, null
   br i1 %.not.i.i.i, label %hd_map_find.exit.i.i, label %.lr.ph.split.split.i.i.i, !llvm.loop !13
@@ -1136,27 +1136,27 @@ hd_map_find.exit.i.i:                             ; preds = %name_eq.exit.thread
   br i1 %.not.i71.i, label %.thread101.i, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %162
-  %164 = getelementptr inbounds i8, ptr %70, i64 24
-  %165 = getelementptr inbounds i8, ptr %70, i64 8
+  %164 = getelementptr inbounds nuw i8, ptr %70, i64 24
+  %165 = getelementptr inbounds nuw i8, ptr %70, i64 8
   br label %166
 
 166:                                              ; preds = %181, %.preheader.i.i.i
   %indvars.iv.i.i.i = phi i64 [ %163, %.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %181 ]
-  %167 = getelementptr inbounds [61 x %struct.nghttp2_hd_static_entry], ptr @static_table, i64 0, i64 %indvars.iv.i.i.i
-  %168 = getelementptr inbounds i8, ptr %167, i64 120
+  %167 = getelementptr inbounds nuw [61 x %struct.nghttp2_hd_static_entry], ptr @static_table, i64 0, i64 %indvars.iv.i.i.i
+  %168 = getelementptr inbounds nuw i8, ptr %167, i64 120
   %169 = load i32, ptr %168, align 8
   %170 = icmp eq i32 %169, %75
   br i1 %170, label %171, label %search_hd_table.exit.thread.i
 
 171:                                              ; preds = %166
-  %172 = getelementptr inbounds i8, ptr %167, i64 64
+  %172 = getelementptr inbounds nuw i8, ptr %167, i64 64
   %173 = load i64, ptr %172, align 16
   %174 = load i64, ptr %164, align 8
   %175 = icmp eq i64 %173, %174
   br i1 %175, label %176, label %181
 
 176:                                              ; preds = %171
-  %177 = getelementptr inbounds i8, ptr %167, i64 56
+  %177 = getelementptr inbounds nuw i8, ptr %167, i64 56
   %178 = load ptr, ptr %177, align 8
   %179 = load ptr, ptr %165, align 8
   %bcmp.i.i.i = call i32 @bcmp(ptr %178, ptr %179, i64 %173)
@@ -1175,7 +1175,7 @@ hd_map_find.exit.i.i:                             ; preds = %name_eq.exit.thread
 search_hd_table.exit.thread124.i:                 ; preds = %value_eq.exit.us48.i.i.i, %value_eq.exit.us.us.i.i.i
   %.1.i3235.i.ph.i = phi ptr [ %.01937.us.us.i.i.i, %value_eq.exit.us.us.i.i.i ], [ %.01937.us42.i.i.i, %value_eq.exit.us48.i.i.i ]
   %184 = load i32, ptr %61, align 8
-  %185 = getelementptr inbounds i8, ptr %.1.i3235.i.ph.i, i64 72
+  %185 = getelementptr inbounds nuw i8, ptr %.1.i3235.i.ph.i, i64 72
   %186 = load i32, ptr %185, align 8
   %187 = xor i32 %186, -1
   %188 = add i32 %184, 61
@@ -1185,7 +1185,7 @@ search_hd_table.exit.thread124.i:                 ; preds = %value_eq.exit.us48.
 
 search_hd_table.exit.i:                           ; preds = %182
   %191 = load i32, ptr %61, align 8
-  %192 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 72
+  %192 = getelementptr inbounds nuw i8, ptr %.1.i.i.i, i64 72
   %193 = load i32, ptr %192, align 8
   %194 = xor i32 %193, -1
   %195 = add i32 %191, 61
@@ -1238,7 +1238,7 @@ count_encoded_length.exit.thread.thread17.i.i:    ; preds = %count_encoded_lengt
   %210 = or i8 %209, -128
   store i8 %210, ptr %.02430.i.i.i, align 1
   %211 = lshr i64 %.02529.i.i.i, 7
-  %.024.i.i.i = getelementptr inbounds i8, ptr %.02430.i.i.i, i64 1
+  %.024.i.i.i = getelementptr inbounds nuw i8, ptr %.02430.i.i.i, i64 1
   %212 = icmp ugt i64 %.02529.i.i.i, 16383
   br i1 %212, label %.lr.ph.i11.i.i, label %._crit_edge.i.i.loopexit.i, !llvm.loop !10
 
@@ -1290,7 +1290,7 @@ search_hd_table.exit.thread.thread95.i:           ; preds = %182
   br label %nghttp2_hd_table_get.exit.i
 
 229:                                              ; preds = %218
-  %230 = getelementptr inbounds [61 x %struct.nghttp2_hd_static_entry], ptr @static_table, i64 0, i64 %.sroa.024.0.i84.i
+  %230 = getelementptr inbounds nuw [61 x %struct.nghttp2_hd_static_entry], ptr @static_table, i64 0, i64 %.sroa.024.0.i84.i
   br label %nghttp2_hd_table_get.exit.i
 
 nghttp2_hd_table_get.exit.i:                      ; preds = %229, %220
@@ -1306,9 +1306,9 @@ nghttp2_hd_table_get.exit.i:                      ; preds = %229, %220
 
 233:                                              ; preds = %231, %nghttp2_hd_table_get.exit.i
   %.sroa.024.0.i86.i = phi i64 [ -1, %231 ], [ %.sroa.024.0.i84.i, %nghttp2_hd_table_get.exit.i ]
-  %234 = getelementptr inbounds i8, ptr %70, i64 8
+  %234 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %235 = load ptr, ptr %234, align 8
-  %236 = getelementptr inbounds i8, ptr %70, i64 24
+  %236 = getelementptr inbounds nuw i8, ptr %70, i64 24
   %237 = load i64, ptr %236, align 8
   %238 = call i32 @nghttp2_rcbuf_new2(ptr noundef nonnull %64, ptr noundef %235, i64 noundef %237, ptr noundef %71) #13
   %.not67.i = icmp eq i32 %238, 0
@@ -1352,9 +1352,9 @@ nghttp2_hd_table_get.exit.i:                      ; preds = %229, %220
   br i1 %.not17.i.i, label %254, label %deflate_nv.exit.thread
 
 254:                                              ; preds = %250
-  %255 = getelementptr inbounds i8, ptr %70, i64 8
+  %255 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %256 = load ptr, ptr %255, align 8
-  %257 = getelementptr inbounds i8, ptr %70, i64 24
+  %257 = getelementptr inbounds nuw i8, ptr %70, i64 24
   %258 = load i64, ptr %257, align 8
   %259 = call fastcc i32 @emit_string(ptr noundef %1, ptr noundef %256, i64 noundef %258)
   br label %deflate_nv.exit
@@ -1388,7 +1388,7 @@ deflate_nv.exit:                                  ; preds = %emit_indexed_block.
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @nghttp2_hd_deflate_hd(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef readonly %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.nghttp2_bufs, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load ptr, ptr %7, align 8
   %9 = call i32 @nghttp2_bufs_wrap_init(ptr noundef nonnull %6, ptr noundef %1, i64 noundef %2, ptr noundef %8) #13
   %.not = icmp eq i32 %9, 0
@@ -1428,7 +1428,7 @@ declare void @nghttp2_bufs_wrap_free(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @nghttp2_hd_deflate_hd_vec(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef readonly %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.nghttp2_bufs, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load ptr, ptr %7, align 8
   %9 = call i32 @nghttp2_bufs_wrap_init2(ptr noundef nonnull %6, ptr noundef %1, i64 noundef %2, ptr noundef %8) #13
   %.not = icmp eq i32 %9, 0
@@ -1472,9 +1472,9 @@ define dso_local i64 @nghttp2_hd_deflate_bound(ptr nocapture noundef readnone %0
   %.013 = phi i64 [ %13, %.lr.ph ], [ 0, %3 ]
   %.01112 = phi i64 [ %12, %.lr.ph ], [ %5, %3 ]
   %6 = getelementptr inbounds %struct.nghttp2_nv, ptr %1, i64 %.013
-  %7 = getelementptr inbounds i8, ptr %6, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %10 = load i64, ptr %9, align 8
   %11 = add i64 %8, %.01112
   %12 = add i64 %11, %10
@@ -1495,11 +1495,11 @@ define dso_local range(i32 -901, 1) i32 @nghttp2_hd_deflate_new(ptr nocapture no
   br i1 %5, label %nghttp2_hd_deflate_new2.exit, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %4, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr %3, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 60
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 60
   store i8 0, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %4, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store i64 4096, ptr %9, align 8
   %10 = tail call ptr @nghttp2_mem_malloc(ptr noundef %3, i64 noundef 1024) #13
   store ptr %10, ptr %4, align 8
@@ -1507,15 +1507,15 @@ define dso_local range(i32 -901, 1) i32 @nghttp2_hd_deflate_new(ptr nocapture no
   br i1 %11, label %nghttp2_hd_deflate_init2.exit.i, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %4, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 127, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %4, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
-  %15 = getelementptr inbounds i8, ptr %4, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i64 0, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %4, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 56
   store i32 0, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %4, i64 64
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %17, i8 0, i64 1024, i1 false)
   %18 = icmp ult i64 %1, 4096
   br i1 %18, label %19, label %20
@@ -1530,11 +1530,11 @@ nghttp2_hd_deflate_init2.exit.i:                  ; preds = %6
 
 20:                                               ; preds = %19, %12
   %.sink.i.i = phi i8 [ 1, %19 ], [ 0, %12 ]
-  %21 = getelementptr inbounds i8, ptr %4, i64 1104
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 1104
   store i8 %.sink.i.i, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %4, i64 1088
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 1088
   store i64 %1, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %4, i64 1096
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 1096
   store i64 4294967295, ptr %23, align 8
   store ptr %4, ptr %0, align 8
   br label %nghttp2_hd_deflate_new2.exit
@@ -1560,11 +1560,11 @@ define dso_local range(i32 -901, 1) i32 @nghttp2_hd_deflate_new2(ptr nocapture n
   br i1 %9, label %28, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %8, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store ptr %.012, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %8, i64 60
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 60
   store i8 0, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %8, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store i64 4096, ptr %13, align 8
   %14 = tail call ptr @nghttp2_mem_malloc(ptr noundef %.012, i64 noundef 1024) #13
   store ptr %14, ptr %8, align 8
@@ -1572,15 +1572,15 @@ define dso_local range(i32 -901, 1) i32 @nghttp2_hd_deflate_new2(ptr nocapture n
   br i1 %15, label %nghttp2_hd_deflate_init2.exit, label %16
 
 16:                                               ; preds = %10
-  %17 = getelementptr inbounds i8, ptr %8, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 127, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %8, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %8, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, i8 0, i64 16, i1 false)
-  %19 = getelementptr inbounds i8, ptr %8, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %8, i64 40
   store i64 0, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %8, i64 56
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 56
   store i32 0, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %8, i64 64
+  %21 = getelementptr inbounds nuw i8, ptr %8, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %21, i8 0, i64 1024, i1 false)
   %22 = icmp ult i64 %1, 4096
   br i1 %22, label %23, label %24
@@ -1595,11 +1595,11 @@ nghttp2_hd_deflate_init2.exit:                    ; preds = %10
 
 24:                                               ; preds = %16, %23
   %.sink.i = phi i8 [ 1, %23 ], [ 0, %16 ]
-  %25 = getelementptr inbounds i8, ptr %8, i64 1104
+  %25 = getelementptr inbounds nuw i8, ptr %8, i64 1104
   store i8 %.sink.i, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %8, i64 1088
+  %26 = getelementptr inbounds nuw i8, ptr %8, i64 1088
   store i64 %1, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %8, i64 1096
+  %27 = getelementptr inbounds nuw i8, ptr %8, i64 1096
   store i64 4294967295, ptr %27, align 8
   store ptr %8, ptr %0, align 8
   br label %28
@@ -1617,16 +1617,16 @@ declare void @nghttp2_mem_free(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @nghttp2_hd_deflate_del(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i64, ptr %4, align 8
   %.not.i.i.i = icmp eq i64 %5, 0
   br i1 %.not.i.i.i, label %nghttp2_hd_deflate_free.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %8
 
 8:                                                ; preds = %8, %.lr.ph.i.i.i
@@ -1638,7 +1638,7 @@ define dso_local void @nghttp2_hd_deflate_del(ptr noundef %0) local_unnamed_addr
   %13 = and i64 %11, %12
   %14 = getelementptr inbounds ptr, ptr %9, i64 %13
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8
   tail call void @nghttp2_rcbuf_decref(ptr noundef %17) #13
   %18 = load ptr, ptr %15, align 8
@@ -1672,26 +1672,26 @@ define dso_local i64 @nghttp2_hd_inflate_hd(ptr noundef %0, ptr nocapture nounde
 
 13:                                               ; preds = %10
   %14 = load ptr, ptr %7, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8
   store ptr %16, ptr %1, align 8
-  %17 = getelementptr inbounds i8, ptr %14, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %18 = load i64, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i64 %18, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %7, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %1, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %23, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %21, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %26 = load i64, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %1, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i64 %26, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %7, i64 20
+  %28 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %29 = load i8, ptr %28, align 4
-  %30 = getelementptr inbounds i8, ptr %1, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i8 %29, ptr %30, align 8
   br label %nghttp2_hd_inflate_hd2.exit
 
@@ -1715,26 +1715,26 @@ define dso_local i64 @nghttp2_hd_inflate_hd2(ptr noundef %0, ptr nocapture nound
 
 13:                                               ; preds = %10
   %14 = load ptr, ptr %7, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8
   store ptr %16, ptr %1, align 8
-  %17 = getelementptr inbounds i8, ptr %14, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %18 = load i64, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i64 %18, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %7, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %1, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %23, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %21, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %26 = load i64, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %1, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i64 %26, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %7, i64 20
+  %28 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %29 = load i8, ptr %28, align 4
-  %30 = getelementptr inbounds i8, ptr %1, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i8 %29, ptr %30, align 8
   br label %31
 
@@ -1745,18 +1745,18 @@ define dso_local i64 @nghttp2_hd_inflate_hd2(ptr noundef %0, ptr nocapture nound
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @nghttp2_hd_inflate_hd_nv(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef %2, ptr noundef %3, i64 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = getelementptr inbounds i8, ptr %3, i64 %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 60
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %11 = load i8, ptr %10, align 4
   %.not = icmp eq i8 %11, 0
   br i1 %.not, label %12, label %436
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %0, i64 176
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %14 = load ptr, ptr %13, align 8
   tail call void @nghttp2_rcbuf_decref(ptr noundef %14) #13
-  %15 = getelementptr inbounds i8, ptr %0, i64 168
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %16 = load ptr, ptr %15, align 8
   tail call void @nghttp2_rcbuf_decref(ptr noundef %16) #13
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
@@ -1765,29 +1765,29 @@ define dso_local i64 @nghttp2_hd_inflate_hd_nv(ptr noundef %0, ptr nocapture nou
   br i1 %.not432, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %0, i64 228
-  %18 = getelementptr inbounds i8, ptr %0, i64 232
-  %19 = getelementptr inbounds i8, ptr %0, i64 184
-  %20 = getelementptr inbounds i8, ptr %0, i64 216
-  %21 = getelementptr inbounds i8, ptr %0, i64 64
-  %22 = getelementptr inbounds i8, ptr %0, i64 160
-  %23 = getelementptr inbounds i8, ptr %0, i64 112
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 228
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 232
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 216
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %24 = ptrtoint ptr %7 to i64
-  %25 = getelementptr inbounds i8, ptr %0, i64 96
-  %26 = getelementptr inbounds i8, ptr %0, i64 88
-  %27 = getelementptr inbounds i8, ptr %0, i64 152
-  %28 = getelementptr inbounds i8, ptr %0, i64 72
-  %29 = getelementptr inbounds i8, ptr %0, i64 224
-  %30 = getelementptr inbounds i8, ptr %0, i64 233
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 224
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 233
   %31 = getelementptr i8, ptr %0, i64 24
-  %32 = getelementptr inbounds i8, ptr %0, i64 192
-  %33 = getelementptr inbounds i8, ptr %0, i64 208
-  %34 = getelementptr inbounds i8, ptr %0, i64 200
-  %35 = getelementptr inbounds i8, ptr %0, i64 48
-  %36 = getelementptr inbounds i8, ptr %0, i64 40
-  %37 = getelementptr inbounds i8, ptr %0, i64 16
-  %38 = getelementptr inbounds i8, ptr %0, i64 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 234
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 208
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 234
   br label %40
 
 40:                                               ; preds = %.lr.ph, %418
@@ -1864,7 +1864,7 @@ define dso_local i64 @nghttp2_hd_inflate_hd_nv(ptr noundef %0, ptr nocapture nou
   %60 = icmp eq i8 %59, 16
   %61 = zext i1 %60 to i8
   store i8 %61, ptr %39, align 2
-  %spec.select = getelementptr inbounds i8, ptr %.0207431, i64 %spec.select.idx
+  %spec.select = getelementptr inbounds nuw i8, ptr %.0207431, i64 %spec.select.idx
   br label %62
 
 62:                                               ; preds = %55, %52, %.thread330
@@ -1892,7 +1892,7 @@ define dso_local i64 @nghttp2_hd_inflate_hd_nv(ptr noundef %0, ptr nocapture nou
   br i1 %.not.i.i, label %74, label %decode_length.exit.thread18.i
 
 74:                                               ; preds = %70
-  %75 = getelementptr inbounds i8, ptr %.0207431, i64 1
+  %75 = getelementptr inbounds nuw i8, ptr %.0207431, i64 1
   %76 = icmp eq ptr %75, %7
   br i1 %76, label %decode_length.exit.thread18.i, label %77
 
@@ -1930,7 +1930,7 @@ define dso_local i64 @nghttp2_hd_inflate_hd_nv(ptr noundef %0, ptr nocapture nou
   br i1 %92, label %96, label %93
 
 93:                                               ; preds = %90
-  %94 = getelementptr inbounds i8, ptr %.15168.i.i, i64 1
+  %94 = getelementptr inbounds nuw i8, ptr %.15168.i.i, i64 1
   %95 = add nuw nsw i64 %.04969.i.i, 7
   %.not58.i.i = icmp eq ptr %94, %7
   br i1 %.not58.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !19
@@ -1943,16 +1943,16 @@ define dso_local i64 @nghttp2_hd_inflate_hd_nv(ptr noundef %0, ptr nocapture nou
 
 96:                                               ; preds = %90
   store i64 %.04969.i.i, ptr %20, align 8
-  %97 = getelementptr inbounds i8, ptr %.15168.i.i, i64 1
+  %97 = getelementptr inbounds nuw i8, ptr %.15168.i.i, i64 1
   %.pre482 = ptrtoint ptr %97 to i64
   br label %decode_length.exit.i
 
 decode_length.exit.i:                             ; preds = %96, %._crit_edge.i.i
-  %.sink.i.pre-phi = phi i64 [ %.pre482, %96 ], [ %24, %._crit_edge.i.i ]
+  %.pre-phi.i.sink.i.pre-phi = phi i64 [ %.pre482, %96 ], [ %24, %._crit_edge.i.i ]
   %.0325 = phi i32 [ 1, %96 ], [ 0, %._crit_edge.i.i ]
   %.014.i = phi i32 [ %91, %96 ], [ %.1.lcssa.i.i, %._crit_edge.i.i ]
   %98 = ptrtoint ptr %.0207431 to i64
-  %99 = sub i64 %.sink.i.pre-phi, %98
+  %99 = sub i64 %.pre-phi.i.sink.i.pre-phi, %98
   %100 = icmp eq i64 %99, -1
   br i1 %100, label %hd_inflate_read_len.exit.thread, label %decode_length.exit.thread18.i
 
@@ -1970,7 +1970,7 @@ hd_inflate_read_len.exit:                         ; preds = %decode_length.exit.
   br i1 %103, label %hd_inflate_read_len.exit.thread, label %104
 
 104:                                              ; preds = %hd_inflate_read_len.exit
-  %105 = getelementptr inbounds i8, ptr %.0207431, i64 %.0.i22.i
+  %105 = getelementptr inbounds nuw i8, ptr %.0207431, i64 %.0.i22.i
   %.not251 = icmp eq i32 %.1326, 0
   br i1 %.not251, label %.loopexit, label %106
 
@@ -1998,11 +1998,11 @@ hd_map_remove.exit.us.i:                          ; preds = %.lr.ph23.split.us.i
   %118 = getelementptr inbounds ptr, ptr %113, i64 %117
   %119 = load ptr, ptr %118, align 8
   %120 = load ptr, ptr %119, align 8
-  %121 = getelementptr inbounds i8, ptr %120, i64 24
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 24
   %122 = load i64, ptr %121, align 8
-  %123 = getelementptr inbounds i8, ptr %119, i64 8
+  %123 = getelementptr inbounds nuw i8, ptr %119, i64 8
   %124 = load ptr, ptr %123, align 8
-  %125 = getelementptr inbounds i8, ptr %124, i64 24
+  %125 = getelementptr inbounds nuw i8, ptr %124, i64 24
   %126 = load i64, ptr %125, align 8
   %.neg341 = add i64 %110, -32
   %127 = add i64 %122, %126
@@ -2056,7 +2056,7 @@ hd_context_shrink_table_size.exit:                ; preds = %.lr.ph23.split.us.i
   br i1 %.not.i.i276, label %152, label %decode_length.exit.thread18.i272
 
 152:                                              ; preds = %148
-  %153 = getelementptr inbounds i8, ptr %.0207431, i64 1
+  %153 = getelementptr inbounds nuw i8, ptr %.0207431, i64 1
   %154 = icmp eq ptr %153, %7
   br i1 %154, label %decode_length.exit.thread18.i272, label %155
 
@@ -2094,7 +2094,7 @@ hd_context_shrink_table_size.exit:                ; preds = %.lr.ph23.split.us.i
   br i1 %170, label %174, label %171
 
 171:                                              ; preds = %168
-  %172 = getelementptr inbounds i8, ptr %.15168.i.i263, i64 1
+  %172 = getelementptr inbounds nuw i8, ptr %.15168.i.i263, i64 1
   %173 = add nuw nsw i64 %.04969.i.i262, 7
   %.not58.i.i264 = icmp eq ptr %172, %7
   br i1 %.not58.i.i264, label %._crit_edge.i.i265, label %.lr.ph.i.i260, !llvm.loop !19
@@ -2107,16 +2107,16 @@ hd_context_shrink_table_size.exit:                ; preds = %.lr.ph23.split.us.i
 
 174:                                              ; preds = %168
   store i64 %.04969.i.i262, ptr %20, align 8
-  %175 = getelementptr inbounds i8, ptr %.15168.i.i263, i64 1
+  %175 = getelementptr inbounds nuw i8, ptr %.15168.i.i263, i64 1
   %.pre483 = ptrtoint ptr %175 to i64
   br label %decode_length.exit.i268
 
 decode_length.exit.i268:                          ; preds = %174, %._crit_edge.i.i265
-  %.sink.i271.pre-phi = phi i64 [ %.pre483, %174 ], [ %24, %._crit_edge.i.i265 ]
+  %.pre-phi.i.sink.i271.pre-phi = phi i64 [ %.pre483, %174 ], [ %24, %._crit_edge.i.i265 ]
   %.3328 = phi i32 [ 1, %174 ], [ 0, %._crit_edge.i.i265 ]
   %.014.i270 = phi i32 [ %169, %174 ], [ %.1.lcssa.i.i267, %._crit_edge.i.i265 ]
   %176 = ptrtoint ptr %.0207431 to i64
-  %177 = sub i64 %.sink.i271.pre-phi, %176
+  %177 = sub i64 %.pre-phi.i.sink.i271.pre-phi, %176
   %178 = icmp eq i64 %177, -1
   br i1 %178, label %hd_inflate_read_len.exit.thread, label %decode_length.exit.thread18.i272
 
@@ -2134,7 +2134,7 @@ hd_inflate_read_len.exit277:                      ; preds = %decode_length.exit.
   br i1 %181, label %hd_inflate_read_len.exit.thread, label %182
 
 182:                                              ; preds = %hd_inflate_read_len.exit277
-  %183 = getelementptr inbounds i8, ptr %.0207431, i64 %.0.i22.i273
+  %183 = getelementptr inbounds nuw i8, ptr %.0207431, i64 %.0.i22.i273
   %.not250 = icmp eq i32 %.4329, 0
   br i1 %.not250, label %.loopexit, label %184
 
@@ -2188,7 +2188,7 @@ hd_inflate_read_len.exit277:                      ; preds = %decode_length.exit.
   br i1 %.not.i.i297, label %203, label %hd_inflate_read_len.exit298.thread
 
 203:                                              ; preds = %198
-  %204 = getelementptr inbounds i8, ptr %.0207431, i64 1
+  %204 = getelementptr inbounds nuw i8, ptr %.0207431, i64 1
   %205 = icmp eq ptr %204, %7
   br i1 %205, label %hd_inflate_read_len.exit298.thread, label %206
 
@@ -2227,7 +2227,7 @@ hd_inflate_read_len.exit277:                      ; preds = %decode_length.exit.
   br i1 %222, label %226, label %223
 
 223:                                              ; preds = %220
-  %224 = getelementptr inbounds i8, ptr %.15168.i.i284, i64 1
+  %224 = getelementptr inbounds nuw i8, ptr %.15168.i.i284, i64 1
   %225 = add nuw nsw i64 %.04969.i.i283, 7
   %.not58.i.i285 = icmp eq ptr %224, %7
   br i1 %.not58.i.i285, label %._crit_edge.i.i286, label %.lr.ph.i.i281, !llvm.loop !19
@@ -2240,16 +2240,16 @@ hd_inflate_read_len.exit277:                      ; preds = %decode_length.exit.
 
 226:                                              ; preds = %220
   store i64 %.04969.i.i283, ptr %20, align 8
-  %227 = getelementptr inbounds i8, ptr %.15168.i.i284, i64 1
+  %227 = getelementptr inbounds nuw i8, ptr %.15168.i.i284, i64 1
   %.pre484 = ptrtoint ptr %227 to i64
   br label %decode_length.exit.i289
 
 decode_length.exit.i289:                          ; preds = %226, %._crit_edge.i.i286
-  %.sink.i292.pre-phi = phi i64 [ %.pre484, %226 ], [ %24, %._crit_edge.i.i286 ]
+  %.pre-phi.i.sink.i292.pre-phi = phi i64 [ %.pre484, %226 ], [ %24, %._crit_edge.i.i286 ]
   %.6 = phi i32 [ 1, %226 ], [ 0, %._crit_edge.i.i286 ]
   %.014.i291 = phi i32 [ %221, %226 ], [ %.1.lcssa.i.i288, %._crit_edge.i.i286 ]
   %228 = ptrtoint ptr %.0207431 to i64
-  %229 = sub i64 %.sink.i292.pre-phi, %228
+  %229 = sub i64 %.pre-phi.i.sink.i292.pre-phi, %228
   %230 = icmp eq i64 %229, -1
   %231 = icmp ugt i32 %.014.i291, 65536
   %or.cond = select i1 %230, i1 true, i1 %231
@@ -2271,7 +2271,7 @@ hd_inflate_read_len.exit298:                      ; preds = %decode_length.exit.
   %235 = phi i64 [ %.01421.i295.ph, %hd_inflate_read_len.exit298.thread ], [ %232, %hd_inflate_read_len.exit298 ]
   %.7491498 = phi i32 [ %.7.ph, %hd_inflate_read_len.exit298.thread ], [ %.6, %hd_inflate_read_len.exit298 ]
   %.0.i22.i294492497 = phi i64 [ 1, %hd_inflate_read_len.exit298.thread ], [ %229, %hd_inflate_read_len.exit298 ]
-  %236 = getelementptr inbounds i8, ptr %.0207431, i64 %.0.i22.i294492497
+  %236 = getelementptr inbounds nuw i8, ptr %.0207431, i64 %.0.i22.i294492497
   %.not246 = icmp eq i32 %.7491498, 0
   br i1 %.not246, label %.loopexit, label %237
 
@@ -2301,9 +2301,9 @@ hd_inflate_read_len.exit298:                      ; preds = %decode_length.exit.
 
 247:                                              ; preds = %245
   %248 = load ptr, ptr %27, align 8
-  %249 = getelementptr inbounds i8, ptr %248, i64 16
+  %249 = getelementptr inbounds nuw i8, ptr %248, i64 16
   %250 = load ptr, ptr %249, align 8
-  %251 = getelementptr inbounds i8, ptr %248, i64 24
+  %251 = getelementptr inbounds nuw i8, ptr %248, i64 24
   %252 = load i64, ptr %251, align 8
   tail call void @nghttp2_buf_wrap_init(ptr noundef nonnull %28, ptr noundef %250, i64 noundef %252) #13
   br label %418
@@ -2331,7 +2331,7 @@ hd_inflate_read_len.exit298:                      ; preds = %decode_length.exit.
   %265 = load i64, ptr %19, align 8
   %266 = sub i64 %265, %260
   store i64 %266, ptr %19, align 8
-  %267 = getelementptr inbounds i8, ptr %.0207431, i64 %260
+  %267 = getelementptr inbounds nuw i8, ptr %.0207431, i64 %260
   %.not245 = icmp eq i64 %265, %260
   br i1 %.not245, label %268, label %.loopexit
 
@@ -2344,7 +2344,7 @@ hd_inflate_read_len.exit298:                      ; preds = %decode_length.exit.
   %273 = ptrtoint ptr %271 to i64
   %274 = sub i64 %272, %273
   %275 = load ptr, ptr %27, align 8
-  %276 = getelementptr inbounds i8, ptr %275, i64 24
+  %276 = getelementptr inbounds nuw i8, ptr %275, i64 24
   store i64 %274, ptr %276, align 8
   store i32 9, ptr %17, align 4
   br label %418
@@ -2364,7 +2364,7 @@ hd_inflate_read_len.exit298:                      ; preds = %decode_length.exit.
   br i1 %285, label %hd_inflate_read_len.exit.thread, label %286
 
 286:                                              ; preds = %277
-  %287 = getelementptr inbounds i8, ptr %.0207431, i64 %..i
+  %287 = getelementptr inbounds nuw i8, ptr %.0207431, i64 %..i
   %.not244 = icmp eq i64 %283, %..i
   br i1 %.not244, label %288, label %.loopexit
 
@@ -2376,7 +2376,7 @@ hd_inflate_read_len.exit298:                      ; preds = %decode_length.exit.
   %292 = ptrtoint ptr %290 to i64
   %293 = sub i64 %291, %292
   %294 = load ptr, ptr %27, align 8
-  %295 = getelementptr inbounds i8, ptr %294, i64 24
+  %295 = getelementptr inbounds nuw i8, ptr %294, i64 24
   store i64 %293, ptr %295, align 8
   store i32 9, ptr %17, align 4
   br label %418
@@ -2407,7 +2407,7 @@ hd_inflate_read_len.exit298:                      ; preds = %decode_length.exit.
   br i1 %.not.i.i319, label %304, label %hd_inflate_read_len.exit320.thread
 
 304:                                              ; preds = %299
-  %305 = getelementptr inbounds i8, ptr %.0207431, i64 1
+  %305 = getelementptr inbounds nuw i8, ptr %.0207431, i64 1
   %306 = icmp eq ptr %305, %7
   br i1 %306, label %hd_inflate_read_len.exit320.thread, label %307
 
@@ -2446,7 +2446,7 @@ hd_inflate_read_len.exit298:                      ; preds = %decode_length.exit.
   br i1 %323, label %327, label %324
 
 324:                                              ; preds = %321
-  %325 = getelementptr inbounds i8, ptr %.15168.i.i306, i64 1
+  %325 = getelementptr inbounds nuw i8, ptr %.15168.i.i306, i64 1
   %326 = add nuw nsw i64 %.04969.i.i305, 7
   %.not58.i.i307 = icmp eq ptr %325, %7
   br i1 %.not58.i.i307, label %._crit_edge.i.i308, label %.lr.ph.i.i303, !llvm.loop !19
@@ -2459,16 +2459,16 @@ hd_inflate_read_len.exit298:                      ; preds = %decode_length.exit.
 
 327:                                              ; preds = %321
   store i64 %.04969.i.i305, ptr %20, align 8
-  %328 = getelementptr inbounds i8, ptr %.15168.i.i306, i64 1
+  %328 = getelementptr inbounds nuw i8, ptr %.15168.i.i306, i64 1
   %.pre485 = ptrtoint ptr %328 to i64
   br label %decode_length.exit.i311
 
 decode_length.exit.i311:                          ; preds = %327, %._crit_edge.i.i308
-  %.sink.i314.pre-phi = phi i64 [ %.pre485, %327 ], [ %24, %._crit_edge.i.i308 ]
+  %.pre-phi.i.sink.i314.pre-phi = phi i64 [ %.pre485, %327 ], [ %24, %._crit_edge.i.i308 ]
   %.9 = phi i32 [ 1, %327 ], [ 0, %._crit_edge.i.i308 ]
   %.014.i313 = phi i32 [ %322, %327 ], [ %.1.lcssa.i.i310, %._crit_edge.i.i308 ]
   %329 = ptrtoint ptr %.0207431 to i64
-  %330 = sub i64 %.sink.i314.pre-phi, %329
+  %330 = sub i64 %.pre-phi.i.sink.i314.pre-phi, %329
   %331 = icmp eq i64 %330, -1
   %332 = icmp ugt i32 %.014.i313, 65536
   %or.cond555 = select i1 %331, i1 true, i1 %332
@@ -2490,7 +2490,7 @@ hd_inflate_read_len.exit320:                      ; preds = %decode_length.exit.
   %336 = phi i64 [ %.01421.i317.ph, %hd_inflate_read_len.exit320.thread ], [ %333, %hd_inflate_read_len.exit320 ]
   %.10503510 = phi i32 [ %.10.ph, %hd_inflate_read_len.exit320.thread ], [ %.9, %hd_inflate_read_len.exit320 ]
   %.0.i22.i316504509 = phi i64 [ 1, %hd_inflate_read_len.exit320.thread ], [ %330, %hd_inflate_read_len.exit320 ]
-  %337 = getelementptr inbounds i8, ptr %.0207431, i64 %.0.i22.i316504509
+  %337 = getelementptr inbounds nuw i8, ptr %.0207431, i64 %.0.i22.i316504509
   %.not241 = icmp eq i32 %.10503510, 0
   br i1 %.not241, label %.loopexit, label %338
 
@@ -2520,9 +2520,9 @@ hd_inflate_read_len.exit320:                      ; preds = %decode_length.exit.
 
 348:                                              ; preds = %346
   %349 = load ptr, ptr %22, align 8
-  %350 = getelementptr inbounds i8, ptr %349, i64 16
+  %350 = getelementptr inbounds nuw i8, ptr %349, i64 16
   %351 = load ptr, ptr %350, align 8
-  %352 = getelementptr inbounds i8, ptr %349, i64 24
+  %352 = getelementptr inbounds nuw i8, ptr %349, i64 24
   %353 = load i64, ptr %352, align 8
   tail call void @nghttp2_buf_wrap_init(ptr noundef nonnull %23, ptr noundef %351, i64 noundef %353) #13
   br label %418
@@ -2533,23 +2533,23 @@ hd_inflate_read_len.exit320:                      ; preds = %decode_length.exit.
   br i1 %356, label %hd_inflate_read_len.exit.thread, label %357
 
 357:                                              ; preds = %354
-  %358 = getelementptr inbounds i8, ptr %.0207431, i64 %355
+  %358 = getelementptr inbounds nuw i8, ptr %.0207431, i64 %355
   %359 = load i64, ptr %19, align 8
   %.not239 = icmp eq i64 %359, 0
   br i1 %.not239, label %360, label %.loopexit
 
 360:                                              ; preds = %357
-  %361 = getelementptr inbounds i8, ptr %0, i64 136
+  %361 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %362 = load ptr, ptr %361, align 8
   store i8 0, ptr %362, align 1
   %363 = load ptr, ptr %361, align 8
-  %364 = getelementptr inbounds i8, ptr %0, i64 128
+  %364 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %365 = load ptr, ptr %364, align 8
   %366 = ptrtoint ptr %363 to i64
   %367 = ptrtoint ptr %365 to i64
   %368 = sub i64 %366, %367
   %369 = load ptr, ptr %22, align 8
-  %370 = getelementptr inbounds i8, ptr %369, i64 24
+  %370 = getelementptr inbounds nuw i8, ptr %369, i64 24
   store i64 %368, ptr %370, align 8
   %371 = load i32, ptr %29, align 8
   %372 = icmp eq i32 %371, 2
@@ -2584,7 +2584,7 @@ hd_inflate_read_len.exit320:                      ; preds = %decode_length.exit.
   %386 = sub i64 %24, %385
   %387 = load i64, ptr %19, align 8
   %..i321 = tail call i64 @llvm.umin.i64(i64 %386, i64 %387)
-  %388 = getelementptr inbounds i8, ptr %0, i64 136
+  %388 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %389 = load ptr, ptr %388, align 8
   %390 = tail call ptr @nghttp2_cpymem(ptr noundef %389, ptr noundef %.0207431, i64 noundef %..i321) #13
   store ptr %390, ptr %388, align 8
@@ -2595,20 +2595,20 @@ hd_inflate_read_len.exit320:                      ; preds = %decode_length.exit.
   br i1 %393, label %hd_inflate_read_len.exit.thread, label %394
 
 394:                                              ; preds = %384
-  %395 = getelementptr inbounds i8, ptr %.0207431, i64 %..i321
+  %395 = getelementptr inbounds nuw i8, ptr %.0207431, i64 %..i321
   %.not237 = icmp eq i64 %391, %..i321
   br i1 %.not237, label %396, label %.loopexit
 
 396:                                              ; preds = %394
   store i8 0, ptr %390, align 1
   %397 = load ptr, ptr %388, align 8
-  %398 = getelementptr inbounds i8, ptr %0, i64 128
+  %398 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %399 = load ptr, ptr %398, align 8
   %400 = ptrtoint ptr %397 to i64
   %401 = ptrtoint ptr %399 to i64
   %402 = sub i64 %400, %401
   %403 = load ptr, ptr %22, align 8
-  %404 = getelementptr inbounds i8, ptr %403, i64 24
+  %404 = getelementptr inbounds nuw i8, ptr %403, i64 24
   store i64 %402, ptr %404, align 8
   %405 = load i32, ptr %29, align 8
   %406 = icmp eq i32 %405, 2
@@ -2651,7 +2651,7 @@ hd_inflate_read_len.exit320:                      ; preds = %decode_length.exit.
   br i1 %.not234, label %428, label %422
 
 422:                                              ; preds = %._crit_edge
-  %423 = getelementptr inbounds i8, ptr %0, i64 228
+  %423 = getelementptr inbounds nuw i8, ptr %0, i64 228
   %424 = load i32, ptr %423, align 4
   %.off = add i32 %424, -1
   %switch = icmp ult i32 %.off, 2
@@ -2701,7 +2701,7 @@ hd_inflate_read_len.exit.thread:                  ; preds = %hd_inflate_read_len
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc void @hd_inflate_commit_indexed(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 24)) %1) unnamed_addr #3 {
   %.sroa.6 = alloca [3 x i8], align 1
-  %3 = getelementptr inbounds i8, ptr %0, i64 192
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %4 = load i64, ptr %3, align 8
   %5 = icmp ugt i64 %4, 60
   br i1 %5, label %6, label %17
@@ -2709,29 +2709,29 @@ define internal fastcc void @hd_inflate_commit_indexed(ptr nocapture noundef rea
 6:                                                ; preds = %2
   %7 = add i64 %4, -61
   %8 = load ptr, ptr %0, align 8, !noalias !21
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i64, ptr %9, align 8, !noalias !21
   %11 = add i64 %7, %10
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load i64, ptr %12, align 8, !noalias !21
   %14 = and i64 %11, %13
   %15 = getelementptr inbounds ptr, ptr %8, i64 %14
   %16 = load ptr, ptr %15, align 8, !noalias !21
   %.sroa.0.0.copyload = load ptr, ptr %16, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %16, i64 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 8
   %.sroa.3.0.copyload = load ptr, ptr %.sroa.3.0..sroa_idx, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %16, i64 16
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 16
   %.sroa.4.0.copyload = load i32, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %16, i64 20
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 20
   %.sroa.5.0.copyload = load i8, ptr %.sroa.5.0..sroa_idx, align 4
-  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %16, i64 21
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.6, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.6.0..sroa_idx, i64 3, i1 false)
   br label %nghttp2_hd_table_get.exit
 
 17:                                               ; preds = %2
-  %18 = getelementptr inbounds [61 x %struct.nghttp2_hd_static_entry], ptr @static_table, i64 0, i64 %4
-  %19 = getelementptr inbounds i8, ptr %18, i64 40
-  %20 = getelementptr inbounds i8, ptr %18, i64 120
+  %18 = getelementptr inbounds nuw [61 x %struct.nghttp2_hd_static_entry], ptr @static_table, i64 0, i64 %4
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 120
   %21 = load i32, ptr %20, align 8, !noalias !21
   br label %nghttp2_hd_table_get.exit
 
@@ -2741,13 +2741,13 @@ nghttp2_hd_table_get.exit:                        ; preds = %6, %17
   %.sroa.3.0 = phi ptr [ %.sroa.3.0.copyload, %6 ], [ %19, %17 ]
   %.sroa.0.0 = phi ptr [ %.sroa.0.0.copyload, %6 ], [ %18, %17 ]
   store ptr %.sroa.0.0, ptr %1, align 8
-  %.sroa.3.0..sroa_idx4 = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.3.0..sroa_idx4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %.sroa.3.0, ptr %.sroa.3.0..sroa_idx4, align 8
-  %.sroa.4.0..sroa_idx6 = getelementptr inbounds i8, ptr %1, i64 16
+  %.sroa.4.0..sroa_idx6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i32 %.sroa.4.0, ptr %.sroa.4.0..sroa_idx6, align 8
-  %.sroa.5.0..sroa_idx8 = getelementptr inbounds i8, ptr %1, i64 20
+  %.sroa.5.0..sroa_idx8 = getelementptr inbounds nuw i8, ptr %1, i64 20
   store i8 %.sroa.5.0, ptr %.sroa.5.0..sroa_idx8, align 4
-  %.sroa.6.0..sroa_idx10 = getelementptr inbounds i8, ptr %1, i64 21
+  %.sroa.6.0..sroa_idx10 = getelementptr inbounds nuw i8, ptr %1, i64 21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.6.0..sroa_idx10, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.6, i64 3, i1 false)
   ret void
 }
@@ -2763,13 +2763,13 @@ define internal fastcc i64 @hd_inflate_read_huff(ptr noundef %0, ptr noundef %1,
   %5 = ptrtoint ptr %3 to i64
   %6 = ptrtoint ptr %2 to i64
   %7 = sub i64 %5, %6
-  %8 = getelementptr inbounds i8, ptr %0, i64 184
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %9 = load i64, ptr %8, align 8
   %.not = icmp uge i64 %7, %9
   %10 = getelementptr inbounds i8, ptr %2, i64 %9
   %spec.select = select i1 %.not, ptr %10, ptr %3
   %spec.select22 = zext i1 %.not to i32
-  %11 = getelementptr inbounds i8, ptr %0, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %12 = ptrtoint ptr %spec.select to i64
   %13 = sub i64 %12, %6
   %14 = tail call i64 @nghttp2_hd_huff_decode(ptr noundef nonnull %11, ptr noundef %1, ptr noundef %2, i64 noundef %13, i32 noundef %spec.select22) #13
@@ -2795,27 +2795,27 @@ define internal fastcc i64 @hd_inflate_read_huff(ptr noundef %0, ptr noundef %1,
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -901, 1) i32 @hd_inflate_commit_newname(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
   %3 = alloca %struct.nghttp2_hd_nv, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 234
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 234
   %5 = load i8, ptr %4, align 2
   %.not = icmp ne i8 %5, 0
   %spec.select = zext i1 %.not to i8
-  %6 = getelementptr inbounds i8, ptr %3, i64 20
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 20
   store i8 %spec.select, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 152
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %8 = load ptr, ptr %7, align 8
   store ptr %8, ptr %3, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 160
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %3, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %10, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %8, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %8, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %15 = load i64, ptr %14, align 8
   %16 = tail call fastcc i32 @lookup_token(ptr noundef %13, i64 noundef %15)
-  %17 = getelementptr inbounds i8, ptr %3, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 %16, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 233
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 233
   %19 = load i8, ptr %18, align 1
   %.not15 = icmp eq i8 %19, 0
   br i1 %.not15, label %22, label %20
@@ -2827,9 +2827,9 @@ define internal fastcc range(i32 -901, 1) i32 @hd_inflate_commit_newname(ptr noc
 
 22:                                               ; preds = %20, %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull readonly align 8 dereferenceable(24) %3, i64 24, i1 false)
-  %23 = getelementptr inbounds i8, ptr %0, i64 168
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store ptr %8, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 176
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store ptr %10, ptr %24, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   br label %25
@@ -2843,7 +2843,7 @@ define internal fastcc range(i32 -901, 1) i32 @hd_inflate_commit_newname(ptr noc
 define internal fastcc range(i32 -901, 1) i32 @hd_inflate_commit_indname(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
   %3 = alloca %struct.nghttp2_hd_nv, align 8
   %.sroa.6 = alloca [3 x i8], align 1
-  %4 = getelementptr inbounds i8, ptr %0, i64 192
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %5 = load i64, ptr %4, align 8
   %6 = icmp ugt i64 %5, 60
   br i1 %6, label %7, label %18
@@ -2851,24 +2851,24 @@ define internal fastcc range(i32 -901, 1) i32 @hd_inflate_commit_indname(ptr noc
 7:                                                ; preds = %2
   %8 = add i64 %5, -61
   %9 = load ptr, ptr %0, align 8, !noalias !24
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load i64, ptr %10, align 8, !noalias !24
   %12 = add i64 %8, %11
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load i64, ptr %13, align 8, !noalias !24
   %15 = and i64 %12, %14
   %16 = getelementptr inbounds ptr, ptr %9, i64 %15
   %17 = load ptr, ptr %16, align 8, !noalias !24
   %.sroa.0.0.copyload13 = load ptr, ptr %17, align 8
-  %.sroa.4.0..sroa_idx16 = getelementptr inbounds i8, ptr %17, i64 16
+  %.sroa.4.0..sroa_idx16 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %.sroa.4.0.copyload17 = load i32, ptr %.sroa.4.0..sroa_idx16, align 8
-  %.sroa.6.0..sroa_idx20 = getelementptr inbounds i8, ptr %17, i64 21
+  %.sroa.6.0..sroa_idx20 = getelementptr inbounds nuw i8, ptr %17, i64 21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.6, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.6.0..sroa_idx20, i64 3, i1 false)
   br label %nghttp2_hd_table_get.exit
 
 18:                                               ; preds = %2
-  %19 = getelementptr inbounds [61 x %struct.nghttp2_hd_static_entry], ptr @static_table, i64 0, i64 %5
-  %20 = getelementptr inbounds i8, ptr %19, i64 120
+  %19 = getelementptr inbounds nuw [61 x %struct.nghttp2_hd_static_entry], ptr @static_table, i64 0, i64 %5
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 120
   %21 = load i32, ptr %20, align 8, !noalias !24
   br label %nghttp2_hd_table_get.exit
 
@@ -2876,22 +2876,22 @@ nghttp2_hd_table_get.exit:                        ; preds = %7, %18
   %.sroa.4.0 = phi i32 [ %.sroa.4.0.copyload17, %7 ], [ %21, %18 ]
   %.sroa.0.0 = phi ptr [ %.sroa.0.0.copyload13, %7 ], [ %19, %18 ]
   store ptr %.sroa.0.0, ptr %3, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 16
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 %.sroa.4.0, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 20
-  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 21
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 20
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.6.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.6, i64 3, i1 false)
-  %22 = getelementptr inbounds i8, ptr %0, i64 234
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 234
   %23 = load i8, ptr %22, align 2
   %.not = icmp ne i8 %23, 0
   %. = zext i1 %.not to i8
   store i8 %., ptr %.sroa.5.0..sroa_idx, align 4
   tail call void @nghttp2_rcbuf_incref(ptr noundef %.sroa.0.0) #13
-  %24 = getelementptr inbounds i8, ptr %0, i64 160
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %25 = load ptr, ptr %24, align 8
   store ptr %25, ptr %.sroa.3.0..sroa_idx, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 233
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 233
   %27 = load i8, ptr %26, align 1
   %.not11 = icmp eq i8 %27, 0
   br i1 %.not11, label %31, label %28
@@ -2907,9 +2907,9 @@ nghttp2_hd_table_get.exit:                        ; preds = %7, %18
 
 31:                                               ; preds = %28, %nghttp2_hd_table_get.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull readonly align 8 dereferenceable(24) %3, i64 24, i1 false)
-  %32 = getelementptr inbounds i8, ptr %0, i64 168
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store ptr %.sroa.0.0, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 176
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store ptr %25, ptr %33, align 8
   store ptr null, ptr %24, align 8
   br label %34
@@ -2921,14 +2921,14 @@ nghttp2_hd_table_get.exit:                        ; preds = %7, %18
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i32 @nghttp2_hd_inflate_end_headers(ptr nocapture noundef initializes((228, 232)) %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 176
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %3 = load ptr, ptr %2, align 8
   tail call void @nghttp2_rcbuf_decref(ptr noundef %3) #13
-  %4 = getelementptr inbounds i8, ptr %0, i64 168
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %5 = load ptr, ptr %4, align 8
   tail call void @nghttp2_rcbuf_decref(ptr noundef %5) #13
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
-  %6 = getelementptr inbounds i8, ptr %0, i64 228
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 228
   store i32 1, ptr %6, align 4
   ret i32 0
 }
@@ -2955,11 +2955,11 @@ define dso_local range(i32 -901, 1) i32 @nghttp2_hd_inflate_new2(ptr nocapture n
   br i1 %8, label %33, label %9
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %7, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr %.011, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %7, i64 60
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 60
   store i8 0, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %7, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 48
   store i64 4096, ptr %12, align 8
   %13 = tail call ptr @nghttp2_mem_malloc(ptr noundef %.011, i64 noundef 1024) #13
   store ptr %13, ptr %7, align 8
@@ -2971,37 +2971,37 @@ nghttp2_hd_inflate_init.exit:                     ; preds = %9
   br label %33
 
 15:                                               ; preds = %9
-  %16 = getelementptr inbounds i8, ptr %7, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 127, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %7, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false)
-  %18 = getelementptr inbounds i8, ptr %7, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store i64 0, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %7, i64 56
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 56
   store i32 0, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %7, i64 200
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 200
   store i64 4096, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %7, i64 208
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 208
   store i64 4294967295, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %7, i64 168
-  %23 = getelementptr inbounds i8, ptr %7, i64 224
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 168
+  %23 = getelementptr inbounds nuw i8, ptr %7, i64 224
   store i32 0, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %7, i64 228
+  %24 = getelementptr inbounds nuw i8, ptr %7, i64 228
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %22, i8 0, i64 16, i1 false)
   store i32 1, ptr %24, align 4
-  %25 = getelementptr inbounds i8, ptr %7, i64 72
+  %25 = getelementptr inbounds nuw i8, ptr %7, i64 72
   tail call void @nghttp2_buf_init(ptr noundef nonnull %25) #13
-  %26 = getelementptr inbounds i8, ptr %7, i64 112
+  %26 = getelementptr inbounds nuw i8, ptr %7, i64 112
   tail call void @nghttp2_buf_init(ptr noundef nonnull %26) #13
-  %27 = getelementptr inbounds i8, ptr %7, i64 152
-  %28 = getelementptr inbounds i8, ptr %7, i64 232
+  %27 = getelementptr inbounds nuw i8, ptr %7, i64 152
+  %28 = getelementptr inbounds nuw i8, ptr %7, i64 232
   store i8 0, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %7, i64 184
-  %30 = getelementptr inbounds i8, ptr %7, i64 216
+  %29 = getelementptr inbounds nuw i8, ptr %7, i64 184
+  %30 = getelementptr inbounds nuw i8, ptr %7, i64 216
   store i64 0, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %7, i64 233
+  %31 = getelementptr inbounds nuw i8, ptr %7, i64 233
   store i8 0, ptr %31, align 1
-  %32 = getelementptr inbounds i8, ptr %7, i64 234
+  %32 = getelementptr inbounds nuw i8, ptr %7, i64 234
   store i8 0, ptr %32, align 2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, i8 0, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, i8 0, i64 16, i1 false)
@@ -3015,7 +3015,7 @@ nghttp2_hd_inflate_init.exit:                     ; preds = %9
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @nghttp2_hd_inflate_del(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   tail call void @nghttp2_hd_inflate_free(ptr noundef %0)
   tail call void @nghttp2_mem_free(ptr noundef %3, ptr noundef %0) #13
@@ -3064,7 +3064,7 @@ count_encoded_length.exit.thread.thread:          ; preds = %4
   %20 = trunc nuw nsw i32 %8 to i8
   %21 = or i8 %19, %20
   store i8 %21, ptr %5, align 16
-  %.02428.i41 = getelementptr inbounds i8, ptr %5, i64 1
+  %.02428.i41 = getelementptr inbounds nuw i8, ptr %5, i64 1
   br label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %15, %.lr.ph.i
@@ -3089,7 +3089,7 @@ count_encoded_length.exit:                        ; preds = %.lr.ph.i
   %30 = trunc nuw nsw i32 %8 to i8
   %31 = or i8 %29, %30
   store i8 %31, ptr %5, align 16
-  %.02428.i = getelementptr inbounds i8, ptr %5, i64 1
+  %.02428.i = getelementptr inbounds nuw i8, ptr %5, i64 1
   br label %.lr.ph.i25
 
 .lr.ph.i25:                                       ; preds = %26, %.lr.ph.i25
@@ -3099,7 +3099,7 @@ count_encoded_length.exit:                        ; preds = %.lr.ph.i
   %33 = or i8 %32, -128
   store i8 %33, ptr %.02430.i, align 1
   %34 = lshr i64 %.02529.i, 7
-  %.024.i = getelementptr inbounds i8, ptr %.02430.i, i64 1
+  %.024.i = getelementptr inbounds nuw i8, ptr %.02430.i, i64 1
   %35 = icmp ugt i64 %.02529.i, 16383
   br i1 %35, label %.lr.ph.i25, label %._crit_edge.i, !llvm.loop !10
 
@@ -3118,9 +3118,9 @@ encode_length.exit:                               ; preds = %count_encoded_lengt
   br i1 %.not, label %38, label %44
 
 38:                                               ; preds = %encode_length.exit
-  %39 = getelementptr inbounds i8, ptr %2, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %2, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %42 = load i64, ptr %41, align 8
   %43 = call fastcc i32 @emit_string(ptr noundef %0, ptr noundef %40, i64 noundef %42)
   br label %44
@@ -3142,16 +3142,16 @@ define dso_local i32 @nghttp2_hd_emit_newname_block(ptr noundef %0, ptr nocaptur
 
 5:                                                ; preds = %3
   %6 = load ptr, ptr %1, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i64, ptr %7, align 8
   %9 = tail call fastcc i32 @emit_string(ptr noundef %0, ptr noundef %6, i64 noundef %8)
   %.not17.i = icmp eq i32 %9, 0
   br i1 %.not17.i, label %10, label %emit_newname_block.exit
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %14 = load i64, ptr %13, align 8
   %15 = tail call fastcc i32 @emit_string(ptr noundef %0, ptr noundef %12, i64 noundef %14)
   br label %emit_newname_block.exit
@@ -3181,7 +3181,7 @@ count_encoded_length.exit.thread.thread.i:        ; preds = %2
 
 count_encoded_length.exit.thread.thread17.thread.i: ; preds = %7
   store i8 63, ptr %3, align 16
-  %.02428.i21.i = getelementptr inbounds i8, ptr %3, i64 1
+  %.02428.i21.i = getelementptr inbounds nuw i8, ptr %3, i64 1
   br label %._crit_edge.i.i
 
 .lr.ph.i.i:                                       ; preds = %7, %.lr.ph.i.i
@@ -3198,7 +3198,7 @@ count_encoded_length.exit.i:                      ; preds = %.lr.ph.i.i
 
 count_encoded_length.exit.thread.thread17.i:      ; preds = %count_encoded_length.exit.i
   store i8 63, ptr %3, align 16
-  %.02428.i.i = getelementptr inbounds i8, ptr %3, i64 1
+  %.02428.i.i = getelementptr inbounds nuw i8, ptr %3, i64 1
   br label %.lr.ph.i11.i
 
 .lr.ph.i11.i:                                     ; preds = %.lr.ph.i11.i, %count_encoded_length.exit.thread.thread17.i
@@ -3208,7 +3208,7 @@ count_encoded_length.exit.thread.thread17.i:      ; preds = %count_encoded_lengt
   %15 = or i8 %14, -128
   store i8 %15, ptr %.02430.i.i, align 1
   %16 = lshr i64 %.02529.i.i, 7
-  %.024.i.i = getelementptr inbounds i8, ptr %.02430.i.i, i64 1
+  %.024.i.i = getelementptr inbounds nuw i8, ptr %.02430.i.i, i64 1
   %17 = icmp ugt i64 %.02529.i.i, 16383
   br i1 %17, label %.lr.ph.i11.i, label %._crit_edge.i.i.loopexit, !llvm.loop !10
 
@@ -3237,97 +3237,97 @@ emit_table_size.exit:                             ; preds = %count_encoded_lengt
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local i64 @nghttp2_hd_decode_length(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, i32 noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef %6, i64 noundef %7) local_unnamed_addr #5 {
-  %9 = ptrtoint ptr %6 to i64
-  %10 = trunc i64 %7 to i32
-  %notmask.i = shl nsw i32 -1, %10
-  %11 = and i32 %notmask.i, 255
-  %12 = xor i32 %11, 255
+  %9 = trunc i64 %7 to i32
+  %notmask.i = shl nsw i32 -1, %9
+  %10 = and i32 %notmask.i, 255
+  %11 = xor i32 %10, 255
   store i64 0, ptr %1, align 8
   store i32 0, ptr %2, align 4
-  %13 = icmp eq i32 %3, 0
-  br i1 %13, label %14, label %23
+  %12 = icmp eq i32 %3, 0
+  br i1 %12, label %13, label %22
 
-14:                                               ; preds = %8
-  %15 = load i8, ptr %5, align 1
-  %16 = zext i8 %15 to i32
-  %17 = and i32 %12, %16
-  %.not.i = icmp eq i32 %17, %12
-  br i1 %.not.i, label %19, label %18
+13:                                               ; preds = %8
+  %14 = load i8, ptr %5, align 1
+  %15 = zext i8 %14 to i32
+  %16 = and i32 %11, %15
+  %.not.i = icmp eq i32 %16, %11
+  br i1 %.not.i, label %18, label %17
 
-18:                                               ; preds = %14
-  store i32 %17, ptr %0, align 4
+17:                                               ; preds = %13
+  store i32 %16, ptr %0, align 4
   store i32 1, ptr %2, align 4
   br label %decode_length.exit
 
-19:                                               ; preds = %14
-  %20 = getelementptr inbounds i8, ptr %5, i64 1
-  %21 = icmp eq ptr %20, %6
-  br i1 %21, label %22, label %23
+18:                                               ; preds = %13
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 1
+  %20 = icmp eq ptr %19, %6
+  br i1 %20, label %21, label %22
 
-22:                                               ; preds = %19
-  store i32 %12, ptr %0, align 4
+21:                                               ; preds = %18
+  store i32 %11, ptr %0, align 4
   br label %decode_length.exit
 
-23:                                               ; preds = %19, %8
-  %.050.i = phi ptr [ %20, %19 ], [ %5, %8 ]
-  %.048.i = phi i32 [ %12, %19 ], [ %3, %8 ]
+22:                                               ; preds = %18, %8
+  %.050.i = phi ptr [ %19, %18 ], [ %5, %8 ]
+  %.048.i = phi i32 [ %11, %18 ], [ %3, %8 ]
   %.not5867.i = icmp eq ptr %.050.i, %6
   br i1 %.not5867.i, label %._crit_edge.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %23, %39
-  %.170.i = phi i32 [ %37, %39 ], [ %.048.i, %23 ]
-  %.04969.i = phi i64 [ %41, %39 ], [ %4, %23 ]
-  %.15168.i = phi ptr [ %40, %39 ], [ %.050.i, %23 ]
-  %24 = load i8, ptr %.15168.i, align 1
-  %25 = and i8 %24, 127
-  %26 = zext nneg i8 %25 to i32
-  %27 = icmp ugt i64 %.04969.i, 31
-  br i1 %27, label %decode_length.exit, label %28
+.lr.ph.i:                                         ; preds = %22, %38
+  %.170.i = phi i32 [ %36, %38 ], [ %.048.i, %22 ]
+  %.04969.i = phi i64 [ %40, %38 ], [ %4, %22 ]
+  %.15168.i = phi ptr [ %39, %38 ], [ %.050.i, %22 ]
+  %23 = load i8, ptr %.15168.i, align 1
+  %24 = and i8 %23, 127
+  %25 = zext nneg i8 %24 to i32
+  %26 = icmp ugt i64 %.04969.i, 31
+  br i1 %26, label %decode_length.exit, label %27
 
-28:                                               ; preds = %.lr.ph.i
-  %29 = trunc nuw nsw i64 %.04969.i to i32
-  %30 = lshr i32 -1, %29
-  %31 = icmp ult i32 %30, %26
-  br i1 %31, label %decode_length.exit, label %32
+27:                                               ; preds = %.lr.ph.i
+  %28 = trunc nuw nsw i64 %.04969.i to i32
+  %29 = lshr i32 -1, %28
+  %30 = icmp ult i32 %29, %25
+  br i1 %30, label %decode_length.exit, label %31
 
-32:                                               ; preds = %28
-  %33 = shl i32 %26, %29
-  %34 = xor i32 %33, -1
-  %35 = icmp ugt i32 %.170.i, %34
-  br i1 %35, label %decode_length.exit, label %36
+31:                                               ; preds = %27
+  %32 = shl i32 %25, %28
+  %33 = xor i32 %32, -1
+  %34 = icmp ugt i32 %.170.i, %33
+  br i1 %34, label %decode_length.exit, label %35
 
-36:                                               ; preds = %32
-  %37 = add i32 %33, %.170.i
-  %38 = icmp sgt i8 %24, -1
-  br i1 %38, label %44, label %39
+35:                                               ; preds = %31
+  %36 = add i32 %32, %.170.i
+  %37 = icmp sgt i8 %23, -1
+  br i1 %37, label %43, label %38
 
-39:                                               ; preds = %36
-  %40 = getelementptr inbounds i8, ptr %.15168.i, i64 1
-  %41 = add nuw nsw i64 %.04969.i, 7
-  %.not58.i = icmp eq ptr %40, %6
+38:                                               ; preds = %35
+  %39 = getelementptr inbounds nuw i8, ptr %.15168.i, i64 1
+  %40 = add nuw nsw i64 %.04969.i, 7
+  %.not58.i = icmp eq ptr %39, %6
   br i1 %.not58.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !19
 
-._crit_edge.i:                                    ; preds = %39, %23
-  %.049.lcssa.i = phi i64 [ %4, %23 ], [ %41, %39 ]
-  %.1.lcssa.i = phi i32 [ %.048.i, %23 ], [ %37, %39 ]
+._crit_edge.i:                                    ; preds = %38, %22
+  %.049.lcssa.i = phi i64 [ %4, %22 ], [ %40, %38 ]
+  %.1.lcssa.i = phi i32 [ %.048.i, %22 ], [ %36, %38 ]
+  %.pre-phi.i = ptrtoint ptr %6 to i64
   store i64 %.049.lcssa.i, ptr %1, align 8
   store i32 %.1.lcssa.i, ptr %0, align 4
-  %42 = ptrtoint ptr %5 to i64
-  %43 = sub i64 %9, %42
+  %41 = ptrtoint ptr %5 to i64
+  %42 = sub i64 %.pre-phi.i, %41
   br label %decode_length.exit
 
-44:                                               ; preds = %36
+43:                                               ; preds = %35
   store i64 %.04969.i, ptr %1, align 8
-  store i32 %37, ptr %0, align 4
+  store i32 %36, ptr %0, align 4
   store i32 1, ptr %2, align 4
-  %45 = getelementptr inbounds i8, ptr %.15168.i, i64 1
-  %46 = ptrtoint ptr %45 to i64
-  %47 = ptrtoint ptr %5 to i64
-  %48 = sub i64 %46, %47
+  %44 = getelementptr inbounds nuw i8, ptr %.15168.i, i64 1
+  %45 = ptrtoint ptr %44 to i64
+  %46 = ptrtoint ptr %5 to i64
+  %47 = sub i64 %45, %46
   br label %decode_length.exit
 
-decode_length.exit:                               ; preds = %.lr.ph.i, %28, %32, %18, %22, %._crit_edge.i, %44
-  %.0.i = phi i64 [ 1, %18 ], [ 1, %22 ], [ %43, %._crit_edge.i ], [ %48, %44 ], [ -1, %32 ], [ -1, %28 ], [ -1, %.lr.ph.i ]
+decode_length.exit:                               ; preds = %.lr.ph.i, %27, %31, %17, %21, %._crit_edge.i, %43
+  %.0.i = phi i64 [ 1, %17 ], [ 1, %21 ], [ %42, %._crit_edge.i ], [ %47, %43 ], [ -1, %31 ], [ -1, %27 ], [ -1, %.lr.ph.i ]
   ret i64 %.0.i
 }
 
@@ -3346,7 +3346,7 @@ define dso_local ptr @nghttp2_hd_deflate_get_table_entry(ptr nocapture noundef r
 
 4:                                                ; preds = %2
   %5 = add i64 %1, -1
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load i64, ptr %6, align 8
   %8 = add i64 %7, 61
   %9 = icmp ult i64 %5, %8
@@ -3359,19 +3359,19 @@ define dso_local ptr @nghttp2_hd_deflate_get_table_entry(ptr nocapture noundef r
 12:                                               ; preds = %10
   %13 = add i64 %1, -62
   %14 = load ptr, ptr %0, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load i64, ptr %15, align 8
   %17 = add i64 %13, %16
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load i64, ptr %18, align 8
   %20 = and i64 %17, %19
   %21 = getelementptr inbounds ptr, ptr %14, i64 %20
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
   br label %hd_get_table_entry.exit
 
 24:                                               ; preds = %10
-  %25 = getelementptr inbounds [61 x %struct.nghttp2_hd_static_entry], ptr @static_table, i64 0, i64 %5, i32 2
+  %25 = getelementptr inbounds nuw [61 x %struct.nghttp2_hd_static_entry], ptr @static_table, i64 0, i64 %5, i32 2
   br label %hd_get_table_entry.exit
 
 hd_get_table_entry.exit:                          ; preds = %2, %4, %12, %24
@@ -3381,14 +3381,14 @@ hd_get_table_entry.exit:                          ; preds = %2, %4, %12, %24
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local i64 @nghttp2_hd_deflate_get_dynamic_table_size(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local i64 @nghttp2_hd_deflate_get_max_dynamic_table_size(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i64, ptr %2, align 8
   ret i64 %3
 }
@@ -3408,7 +3408,7 @@ define dso_local ptr @nghttp2_hd_inflate_get_table_entry(ptr nocapture noundef r
 
 4:                                                ; preds = %2
   %5 = add i64 %1, -1
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load i64, ptr %6, align 8
   %8 = add i64 %7, 61
   %9 = icmp ult i64 %5, %8
@@ -3421,19 +3421,19 @@ define dso_local ptr @nghttp2_hd_inflate_get_table_entry(ptr nocapture noundef r
 12:                                               ; preds = %10
   %13 = add i64 %1, -62
   %14 = load ptr, ptr %0, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load i64, ptr %15, align 8
   %17 = add i64 %13, %16
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load i64, ptr %18, align 8
   %20 = and i64 %17, %19
   %21 = getelementptr inbounds ptr, ptr %14, i64 %20
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
   br label %hd_get_table_entry.exit
 
 24:                                               ; preds = %10
-  %25 = getelementptr inbounds [61 x %struct.nghttp2_hd_static_entry], ptr @static_table, i64 0, i64 %5, i32 2
+  %25 = getelementptr inbounds nuw [61 x %struct.nghttp2_hd_static_entry], ptr @static_table, i64 0, i64 %5, i32 2
   br label %hd_get_table_entry.exit
 
 hd_get_table_entry.exit:                          ; preds = %2, %4, %12, %24
@@ -3443,14 +3443,14 @@ hd_get_table_entry.exit:                          ; preds = %2, %4, %12, %24
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local i64 @nghttp2_hd_inflate_get_dynamic_table_size(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local i64 @nghttp2_hd_inflate_get_max_dynamic_table_size(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i64, ptr %2, align 8
   ret i64 %3
 }
@@ -3486,7 +3486,7 @@ define internal fastcc range(i32 -1, 68) i32 @lookup_token(ptr nocapture noundef
   ]
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 1
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %5 = load i8, ptr %4, align 1
   %cond5 = icmp eq i8 %5, 101
   br i1 %cond5, label %6, label %122
@@ -3497,7 +3497,7 @@ define internal fastcc range(i32 -1, 68) i32 @lookup_token(ptr nocapture noundef
   br i1 %.not258, label %123, label %122
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 2
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %122 [
     i8 97, label %10
@@ -3515,7 +3515,7 @@ define internal fastcc range(i32 -1, 68) i32 @lookup_token(ptr nocapture noundef
   br i1 %.not256, label %123, label %122
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %0, i64 3
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %14 = load i8, ptr %13, align 1
   switch i8 %14, label %122 [
     i8 101, label %15
@@ -3557,7 +3557,7 @@ define internal fastcc range(i32 -1, 68) i32 @lookup_token(ptr nocapture noundef
   br i1 %.not250, label %123, label %122
 
 21:                                               ; preds = %2
-  %22 = getelementptr inbounds i8, ptr %0, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %23 = load i8, ptr %22, align 1
   switch i8 %23, label %122 [
     i8 101, label %24
@@ -3581,7 +3581,7 @@ define internal fastcc range(i32 -1, 68) i32 @lookup_token(ptr nocapture noundef
   br i1 %.not247, label %123, label %122
 
 27:                                               ; preds = %2
-  %28 = getelementptr inbounds i8, ptr %0, i64 5
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 5
   %29 = load i8, ptr %28, align 1
   switch i8 %29, label %122 [
     i8 101, label %30
@@ -3610,7 +3610,7 @@ define internal fastcc range(i32 -1, 68) i32 @lookup_token(ptr nocapture noundef
   br i1 %.not244, label %123, label %122
 
 34:                                               ; preds = %2
-  %35 = getelementptr inbounds i8, ptr %0, i64 6
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %36 = load i8, ptr %35, align 1
   switch i8 %36, label %122 [
     i8 100, label %37
@@ -3656,7 +3656,7 @@ define internal fastcc range(i32 -1, 68) i32 @lookup_token(ptr nocapture noundef
   br i1 %.not237, label %123, label %122
 
 44:                                               ; preds = %2
-  %45 = getelementptr inbounds i8, ptr %0, i64 7
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 7
   %46 = load i8, ptr %45, align 1
   switch i8 %46, label %122 [
     i8 101, label %47
@@ -3686,7 +3686,7 @@ define internal fastcc range(i32 -1, 68) i32 @lookup_token(ptr nocapture noundef
   br i1 %.not232, label %123, label %122
 
 51:                                               ; preds = %2
-  %52 = getelementptr inbounds i8, ptr %0, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %53 = load i8, ptr %52, align 1
   %cond4 = icmp eq i8 %53, 108
   br i1 %cond4, label %54, label %122
@@ -3697,7 +3697,7 @@ define internal fastcc range(i32 -1, 68) i32 @lookup_token(ptr nocapture noundef
   br i1 %.not231, label %123, label %122
 
 55:                                               ; preds = %2
-  %56 = getelementptr inbounds i8, ptr %0, i64 9
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 9
   %57 = load i8, ptr %56, align 1
   switch i8 %57, label %122 [
     i8 101, label %58
@@ -3732,7 +3732,7 @@ define internal fastcc range(i32 -1, 68) i32 @lookup_token(ptr nocapture noundef
   br i1 %.not226, label %123, label %122
 
 63:                                               ; preds = %2
-  %64 = getelementptr inbounds i8, ptr %0, i64 10
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 10
   %65 = load i8, ptr %64, align 1
   %cond3 = icmp eq i8 %65, 114
   br i1 %cond3, label %66, label %122
@@ -3743,7 +3743,7 @@ define internal fastcc range(i32 -1, 68) i32 @lookup_token(ptr nocapture noundef
   br i1 %.not225, label %123, label %122
 
 67:                                               ; preds = %2
-  %68 = getelementptr inbounds i8, ptr %0, i64 11
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 11
   %69 = load i8, ptr %68, align 1
   switch i8 %69, label %122 [
     i8 101, label %70
@@ -3761,7 +3761,7 @@ define internal fastcc range(i32 -1, 68) i32 @lookup_token(ptr nocapture noundef
   br i1 %.not223, label %123, label %122
 
 72:                                               ; preds = %2
-  %73 = getelementptr inbounds i8, ptr %0, i64 12
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %74 = load i8, ptr %73, align 1
   switch i8 %74, label %122 [
     i8 100, label %75
@@ -3803,7 +3803,7 @@ define internal fastcc range(i32 -1, 68) i32 @lookup_token(ptr nocapture noundef
   br i1 %.not217, label %123, label %122
 
 81:                                               ; preds = %2
-  %82 = getelementptr inbounds i8, ptr %0, i64 13
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 13
   %83 = load i8, ptr %82, align 1
   switch i8 %83, label %122 [
     i8 104, label %84
@@ -3821,7 +3821,7 @@ define internal fastcc range(i32 -1, 68) i32 @lookup_token(ptr nocapture noundef
   br i1 %.not215, label %123, label %122
 
 86:                                               ; preds = %2
-  %87 = getelementptr inbounds i8, ptr %0, i64 14
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 14
   %88 = load i8, ptr %87, align 1
   switch i8 %88, label %122 [
     i8 101, label %89
@@ -3839,7 +3839,7 @@ define internal fastcc range(i32 -1, 68) i32 @lookup_token(ptr nocapture noundef
   br i1 %.not213, label %123, label %122
 
 91:                                               ; preds = %2
-  %92 = getelementptr inbounds i8, ptr %0, i64 15
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 15
   %93 = load i8, ptr %92, align 1
   switch i8 %93, label %122 [
     i8 101, label %94
@@ -3873,7 +3873,7 @@ define internal fastcc range(i32 -1, 68) i32 @lookup_token(ptr nocapture noundef
   br i1 %.not209, label %123, label %122
 
 99:                                               ; preds = %2
-  %100 = getelementptr inbounds i8, ptr %0, i64 16
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %101 = load i8, ptr %100, align 1
   switch i8 %101, label %122 [
     i8 101, label %102
@@ -3891,7 +3891,7 @@ define internal fastcc range(i32 -1, 68) i32 @lookup_token(ptr nocapture noundef
   br i1 %.not206, label %123, label %122
 
 104:                                              ; preds = %2
-  %105 = getelementptr inbounds i8, ptr %0, i64 17
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 17
   %106 = load i8, ptr %105, align 1
   %cond2 = icmp eq i8 %106, 101
   br i1 %cond2, label %107, label %122
@@ -3902,7 +3902,7 @@ define internal fastcc range(i32 -1, 68) i32 @lookup_token(ptr nocapture noundef
   br i1 %.not205, label %123, label %122
 
 108:                                              ; preds = %2
-  %109 = getelementptr inbounds i8, ptr %0, i64 18
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 18
   %110 = load i8, ptr %109, align 1
   switch i8 %110, label %122 [
     i8 101, label %111
@@ -3925,7 +3925,7 @@ define internal fastcc range(i32 -1, 68) i32 @lookup_token(ptr nocapture noundef
   br i1 %.not203, label %123, label %122
 
 114:                                              ; preds = %2
-  %115 = getelementptr inbounds i8, ptr %0, i64 24
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %116 = load i8, ptr %115, align 1
   %cond1 = icmp eq i8 %116, 121
   br i1 %cond1, label %117, label %122
@@ -3936,7 +3936,7 @@ define internal fastcc range(i32 -1, 68) i32 @lookup_token(ptr nocapture noundef
   br i1 %.not201, label %123, label %122
 
 118:                                              ; preds = %2
-  %119 = getelementptr inbounds i8, ptr %0, i64 26
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 26
   %120 = load i8, ptr %119, align 1
   %cond = icmp eq i8 %120, 110
   br i1 %cond, label %121, label %122
@@ -3958,20 +3958,20 @@ declare i32 @nghttp2_rcbuf_new2(ptr noundef, ptr noundef, i64 noundef, ptr nound
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -901, 1) i32 @add_hd_table_incremental(ptr nocapture noundef %0, ptr nocapture noundef nonnull readonly %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %9 = load i64, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %13 = load i64, ptr %12, align 8
   %14 = add i64 %9, 32
   %15 = add i64 %14, %13
-  %16 = getelementptr inbounds i8, ptr %0, i64 24
-  %17 = getelementptr inbounds i8, ptr %0, i64 40
-  %18 = getelementptr inbounds i8, ptr %0, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %19 = load i64, ptr %17, align 8
   %20 = add i64 %19, %15
   %21 = load i64, ptr %18, align 8
@@ -3979,8 +3979,8 @@ define internal fastcc range(i32 -901, 1) i32 @add_hd_table_incremental(ptr noca
   br i1 %22, label %.lr.ph59, label %.critedge
 
 .lr.ph59:                                         ; preds = %4
-  %23 = getelementptr inbounds i8, ptr %0, i64 16
-  %24 = getelementptr inbounds i8, ptr %0, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.not50 = icmp eq ptr %2, null
   %25 = load i64, ptr %16, align 8
   %.not.us72 = icmp eq i64 %25, 0
@@ -4006,11 +4006,11 @@ hd_map_remove.exit.us:                            ; preds = %.lr.ph59.split.us, 
   %36 = getelementptr inbounds ptr, ptr %31, i64 %35
   %37 = load ptr, ptr %36, align 8
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 24
   %40 = load i64, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %37, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 24
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 24
   %44 = load i64, ptr %43, align 8
   %.neg53.us = add i64 %29, -32
   %45 = add i64 %40, %44
@@ -4048,22 +4048,22 @@ hd_map_remove.exit.us:                            ; preds = %.lr.ph59.split.us, 
   %63 = getelementptr inbounds ptr, ptr %58, i64 %62
   %64 = load ptr, ptr %63, align 8
   %65 = load ptr, ptr %64, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 24
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 24
   %67 = load i64, ptr %66, align 8
-  %68 = getelementptr inbounds i8, ptr %64, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %69, i64 24
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 24
   %71 = load i64, ptr %70, align 8
   %.neg53 = add i64 %56, -32
   %72 = add i64 %67, %71
   %73 = sub i64 %.neg53, %72
   store i64 %73, ptr %17, align 8
   store i64 %57, ptr %16, align 8
-  %74 = getelementptr inbounds i8, ptr %64, i64 76
+  %74 = getelementptr inbounds nuw i8, ptr %64, i64 76
   %75 = load i32, ptr %74, align 4
   %76 = and i32 %75, 127
   %77 = zext nneg i32 %76 to i64
-  %78 = getelementptr inbounds [128 x ptr], ptr %2, i64 0, i64 %77
+  %78 = getelementptr inbounds nuw [128 x ptr], ptr %2, i64 0, i64 %77
   %79 = load ptr, ptr %78, align 8
   %.not13.i = icmp eq ptr %79, null
   br i1 %.not13.i, label %hd_map_remove.exit, label %.lr.ph.i.preheader
@@ -4074,7 +4074,7 @@ hd_map_remove.exit.us:                            ; preds = %.lr.ph59.split.us, 
 
 .lr.ph:                                           ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %80 = phi ptr [ %82, %.lr.ph.i ], [ %79, %.lr.ph.i.preheader ]
-  %81 = getelementptr inbounds i8, ptr %80, i64 64
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 64
   %82 = load ptr, ptr %81, align 8
   %.not.i = icmp eq ptr %82, null
   br i1 %.not.i, label %hd_map_remove.exit, label %.lr.ph.i, !llvm.loop !8
@@ -4084,12 +4084,12 @@ hd_map_remove.exit.us:                            ; preds = %.lr.ph59.split.us, 
   br i1 %.not11.i, label %.lr.ph.i._crit_edge.loopexit, label %.lr.ph, !llvm.loop !8
 
 .lr.ph.i._crit_edge.loopexit:                     ; preds = %.lr.ph.i
-  %83 = getelementptr inbounds i8, ptr %80, i64 64
+  %83 = getelementptr inbounds nuw i8, ptr %80, i64 64
   br label %.lr.ph.i._crit_edge
 
 .lr.ph.i._crit_edge:                              ; preds = %.lr.ph.i._crit_edge.loopexit, %.lr.ph.i.preheader
   %.014.i.lcssa = phi ptr [ %78, %.lr.ph.i.preheader ], [ %83, %.lr.ph.i._crit_edge.loopexit ]
-  %84 = getelementptr inbounds i8, ptr %64, i64 64
+  %84 = getelementptr inbounds nuw i8, ptr %64, i64 64
   %85 = load ptr, ptr %84, align 8
   store ptr %85, ptr %.014.i.lcssa, align 8
   store ptr null, ptr %84, align 8
@@ -4120,41 +4120,41 @@ hd_map_remove.exit:                               ; preds = %.lr.ph, %.lr.ph.i._
 96:                                               ; preds = %93
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %94, ptr noundef nonnull readonly align 8 dereferenceable(24) %1, i64 24, i1 false)
   %97 = load ptr, ptr %1, align 8
-  %98 = getelementptr inbounds i8, ptr %97, i64 16
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 16
   %99 = load ptr, ptr %98, align 8
-  %100 = getelementptr inbounds i8, ptr %94, i64 24
+  %100 = getelementptr inbounds nuw i8, ptr %94, i64 24
   store ptr %99, ptr %100, align 8
   %101 = load ptr, ptr %1, align 8
-  %102 = getelementptr inbounds i8, ptr %101, i64 24
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 24
   %103 = load i64, ptr %102, align 8
-  %104 = getelementptr inbounds i8, ptr %94, i64 40
+  %104 = getelementptr inbounds nuw i8, ptr %94, i64 40
   store i64 %103, ptr %104, align 8
   %105 = load ptr, ptr %10, align 8
-  %106 = getelementptr inbounds i8, ptr %105, i64 16
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 16
   %107 = load ptr, ptr %106, align 8
-  %108 = getelementptr inbounds i8, ptr %94, i64 32
+  %108 = getelementptr inbounds nuw i8, ptr %94, i64 32
   store ptr %107, ptr %108, align 8
   %109 = load ptr, ptr %10, align 8
-  %110 = getelementptr inbounds i8, ptr %109, i64 24
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 24
   %111 = load i64, ptr %110, align 8
-  %112 = getelementptr inbounds i8, ptr %94, i64 48
+  %112 = getelementptr inbounds nuw i8, ptr %94, i64 48
   store i64 %111, ptr %112, align 8
-  %113 = getelementptr inbounds i8, ptr %1, i64 20
+  %113 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %114 = load i8, ptr %113, align 4
-  %115 = getelementptr inbounds i8, ptr %94, i64 56
+  %115 = getelementptr inbounds nuw i8, ptr %94, i64 56
   store i8 %114, ptr %115, align 8
-  %116 = getelementptr inbounds i8, ptr %94, i64 64
+  %116 = getelementptr inbounds nuw i8, ptr %94, i64 64
   store ptr null, ptr %116, align 8
-  %117 = getelementptr inbounds i8, ptr %94, i64 76
+  %117 = getelementptr inbounds nuw i8, ptr %94, i64 76
   store i32 0, ptr %117, align 4
   %118 = load ptr, ptr %94, align 8
   tail call void @nghttp2_rcbuf_incref(ptr noundef %118) #13
-  %119 = getelementptr inbounds i8, ptr %94, i64 8
+  %119 = getelementptr inbounds nuw i8, ptr %94, i64 8
   %120 = load ptr, ptr %119, align 8
   tail call void @nghttp2_rcbuf_incref(ptr noundef %120) #13
   %121 = load i64, ptr %16, align 8
   %122 = add i64 %121, 1
-  %123 = getelementptr inbounds i8, ptr %0, i64 8
+  %123 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %124 = load i64, ptr %123, align 8
   %125 = add i64 %124, 1
   %.not.i.i = icmp ult i64 %125, %122
@@ -4162,7 +4162,7 @@ hd_map_remove.exit:                               ; preds = %.lr.ph, %.lr.ph.i._
 
 ._crit_edge.i:                                    ; preds = %96
   %.pre.i = load ptr, ptr %0, align 8
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %0, i64 16
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.pre13.i = load i64, ptr %.phi.trans.insert.i, align 8
   %126 = add i64 %.pre13.i, -1
   br label %151
@@ -4185,7 +4185,7 @@ hd_map_remove.exit:                               ; preds = %.lr.ph, %.lr.ph.i._
   br i1 %.not28.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i
-  %134 = getelementptr inbounds i8, ptr %0, i64 16
+  %134 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %135
 
 135:                                              ; preds = %135, %.lr.ph.i.i
@@ -4224,7 +4224,7 @@ hd_ringbuf_push_front.exit:                       ; preds = %129
   %152 = phi i64 [ %124, %._crit_edge.i ], [ %148, %._crit_edge.i.i ]
   %153 = phi i64 [ %126, %._crit_edge.i ], [ -1, %._crit_edge.i.i ]
   %154 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %131, %._crit_edge.i.i ]
-  %155 = getelementptr inbounds i8, ptr %0, i64 16
+  %155 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %153, ptr %155, align 8
   %156 = and i64 %153, %152
   %157 = getelementptr inbounds ptr, ptr %154, i64 %156
@@ -4232,11 +4232,11 @@ hd_ringbuf_push_front.exit:                       ; preds = %129
   %158 = load i64, ptr %16, align 8
   %159 = add i64 %158, 1
   store i64 %159, ptr %16, align 8
-  %160 = getelementptr inbounds i8, ptr %0, i64 56
+  %160 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %161 = load i32, ptr %160, align 8
   %162 = add i32 %161, 1
   store i32 %162, ptr %160, align 8
-  %163 = getelementptr inbounds i8, ptr %94, i64 72
+  %163 = getelementptr inbounds nuw i8, ptr %94, i64 72
   store i32 %161, ptr %163, align 8
   store i32 %3, ptr %117, align 4
   %.not49 = icmp eq ptr %2, null
@@ -4245,7 +4245,7 @@ hd_ringbuf_push_front.exit:                       ; preds = %129
 164:                                              ; preds = %151
   %165 = and i32 %3, 127
   %166 = zext nneg i32 %165 to i64
-  %167 = getelementptr inbounds [128 x ptr], ptr %2, i64 0, i64 %166
+  %167 = getelementptr inbounds nuw [128 x ptr], ptr %2, i64 0, i64 %166
   %168 = load ptr, ptr %167, align 8
   %169 = icmp eq ptr %168, null
   br i1 %169, label %hd_map_insert.exit, label %170
@@ -4299,7 +4299,7 @@ count_encoded_length.exit.thread.thread:          ; preds = %3
 .thread:                                          ; preds = %10
   %13 = select i1 %.not, i8 -1, i8 127
   store i8 %13, ptr %4, align 16
-  %.02428.i41 = getelementptr inbounds i8, ptr %4, i64 1
+  %.02428.i41 = getelementptr inbounds nuw i8, ptr %4, i64 1
   br label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %10, %.lr.ph.i
@@ -4318,7 +4318,7 @@ count_encoded_length.exit:                        ; preds = %.lr.ph.i
   %19 = add nuw nsw i64 %.016.i, 2
   %20 = select i1 %.not, i8 -1, i8 127
   store i8 %20, ptr %4, align 16
-  %.02428.i = getelementptr inbounds i8, ptr %4, i64 1
+  %.02428.i = getelementptr inbounds nuw i8, ptr %4, i64 1
   br label %.lr.ph.i31
 
 .lr.ph.i31:                                       ; preds = %18, %.lr.ph.i31
@@ -4328,7 +4328,7 @@ count_encoded_length.exit:                        ; preds = %.lr.ph.i
   %22 = or i8 %21, -128
   store i8 %22, ptr %.02430.i, align 1
   %23 = lshr i64 %.02529.i, 7
-  %.024.i = getelementptr inbounds i8, ptr %.02430.i, i64 1
+  %.024.i = getelementptr inbounds nuw i8, ptr %.02430.i, i64 1
   %24 = icmp ugt i64 %.02529.i, 16383
   br i1 %24, label %.lr.ph.i31, label %._crit_edge.i, !llvm.loop !10
 

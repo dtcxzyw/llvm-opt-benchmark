@@ -135,7 +135,7 @@ define void @_ZN2mu9ParserInt7InitFunEv(ptr noundef nonnull align 8 dereferencea
           to label %22 unwind label %24
 
 22:                                               ; preds = %.noexc
-  %23 = getelementptr inbounds i8, ptr %0, i64 128
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 128
   invoke void @_ZN2mu10ParserBase11AddCallbackERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_14ParserCallbackERSt3mapIS6_S9_St4lessIS6_ESaISt4pairIS7_S9_EEEPKc(ptr noundef nonnull align 8 dereferenceable(596) %0, ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(48) %23, ptr noundef %21)
           to label %26 unwind label %24
 
@@ -1304,7 +1304,7 @@ define noundef double @_ZN2mu9ParserInt3SumEPKdi(ptr nocapture noundef readonly 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.01014 = phi double [ 0.000000e+00, %.lr.ph.preheader ], [ %14, %.lr.ph ]
-  %12 = getelementptr inbounds double, ptr %0, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv
   %13 = load double, ptr %12, align 8
   %14 = fadd double %.01014, %13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1379,7 +1379,7 @@ define noundef double @_ZN2mu9ParserInt3MinEPKdi(ptr nocapture noundef readonly 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.01214 = phi double [ %12, %.lr.ph.preheader ], [ %.sroa.speculated, %.lr.ph ]
-  %14 = getelementptr inbounds double, ptr %0, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv
   %15 = load double, ptr %14, align 8
   %16 = fcmp olt double %15, %.01214
   %.sroa.speculated = select i1 %16, double %15, double %.01214
@@ -1440,7 +1440,7 @@ define noundef double @_ZN2mu9ParserInt3MaxEPKdi(ptr nocapture noundef readonly 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.01214 = phi double [ %12, %.lr.ph.preheader ], [ %.sroa.speculated, %.lr.ph ]
-  %14 = getelementptr inbounds double, ptr %0, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv
   %15 = load double, ptr %14, align 8
   %16 = fcmp olt double %.01214, %15
   %.sroa.speculated = select i1 %16, double %15, double %.01214
@@ -1613,7 +1613,7 @@ define noundef range(i32 0, 2) i32 @_ZN2mu9ParserInt8IsHexValEPKcPiPd(ptr nounde
   %5 = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::allocator", align 1
-  %8 = getelementptr inbounds i8, ptr %0, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %9 = load i8, ptr %8, align 1
   %10 = icmp eq i8 %9, 0
   br i1 %10, label %40, label %11
@@ -1627,7 +1627,7 @@ define noundef range(i32 0, 2) i32 @_ZN2mu9ParserInt8IsHexValEPKcPiPd(ptr nounde
 
 13:                                               ; preds = %11
   store i32 0, ptr %4, align 4
-  %14 = getelementptr inbounds i8, ptr %0, i64 2
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 2
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #13
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull %14, ptr noundef nonnull align 1 dereferenceable(1) %7)
           to label %15 unwind label %25
@@ -1705,7 +1705,7 @@ declare noundef nonnull align 8 dereferenceable(16) ptr @_ZNSirsEPFRSt8ios_baseS
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(216) ptr @_ZSt3hexRSt8ios_base(ptr noundef nonnull align 8 dereferenceable(216) %0) #1 comdat {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, -75
   %5 = or disjoint i32 %4, 8
@@ -1723,7 +1723,7 @@ define noundef range(i32 0, 2) i32 @_ZN2mu9ParserInt8IsBinValEPKcPiPd(ptr nocapt
   br i1 %.not, label %.preheader, label %.critedge.thread
 
 .preheader:                                       ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 1
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %7 = load i8, ptr %6, align 1
   %8 = and i8 %7, -2
   %switch30 = icmp eq i8 %8, 48
@@ -1740,7 +1740,7 @@ define noundef range(i32 0, 2) i32 @_ZN2mu9ParserInt8IsBinValEPKcPiPd(ptr nocapt
   %13 = shl nuw i32 %11, %12
   %14 = or i32 %13, %.02632
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %15 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.next
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.next
   %16 = load i8, ptr %15, align 1
   %17 = and i8 %16, -2
   %switch = icmp eq i8 %17, 48
@@ -1816,21 +1816,21 @@ define void @_ZN2mu9ParserIntC2Ev(ptr noundef nonnull align 8 dereferenceable(59
 
 4:                                                ; preds = %3
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load ptr, ptr %6, align 8
   invoke void %7(ptr noundef nonnull align 8 dereferenceable(596) %0)
           to label %8 unwind label %17
 
 8:                                                ; preds = %4
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %11 = load ptr, ptr %10, align 8
   invoke void %11(ptr noundef nonnull align 8 dereferenceable(596) %0)
           to label %12 unwind label %17
 
 12:                                               ; preds = %8
   %13 = load ptr, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 40
   %15 = load ptr, ptr %14, align 8
   invoke void %15(ptr noundef nonnull align 8 dereferenceable(596) %0)
           to label %16 unwind label %17

@@ -124,9 +124,9 @@ $_ZN7LogImplILN6LogTag4typeE49ELS1_37ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLeve
 define hidden void @_ZN9XDirectorC2EP7XDriver(ptr noundef nonnull align 8 dereferenceable(1064) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   tail call void @_ZN18ConcurrentGCThreadC2Ev(ptr noundef nonnull align 8 dereferenceable(918) %0) #8
   store ptr getelementptr inbounds inrange(-16, 240) (i8, ptr @_ZTV9XDirector, i64 16), ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 920
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store ptr %1, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 928
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 928
   tail call void @_ZN10XMetronomeC1Em(ptr noundef nonnull align 8 dereferenceable(129) %4, i64 noundef 10) #8
   tail call void (ptr, ptr, ...) @_ZN11NamedThread8set_nameEPKcz(ptr noundef nonnull align 8 dereferenceable(916) %0, ptr noundef nonnull @.str) #8
   tail call void @_ZN18ConcurrentGCThread16create_and_startE14ThreadPriority(ptr noundef nonnull align 8 dereferenceable(918) %0, i32 noundef 9) #8
@@ -145,17 +145,17 @@ declare void @_ZN18ConcurrentGCThread16create_and_startE14ThreadPriority(ptr nou
 define hidden void @_ZN9XDirector11run_serviceEv(ptr noundef nonnull align 8 dereferenceable(1064) %0) unnamed_addr #0 align 2 {
   %2 = alloca %class.XDriverRequest, align 8
   %3 = alloca %class.XDriverRequest, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 928
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %5 = tail call noundef zeroext i1 @_ZN10XMetronome13wait_for_tickEv(ptr noundef nonnull align 8 dereferenceable(129) %4) #8
   br i1 %5, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 920
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 920
   br label %7
 
 7:                                                ; preds = %.lr.ph, %34
   %8 = call noundef i64 @_ZN14XStatAllocRate16sample_and_resetEv() #8
-  %9 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_3ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %9 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_3ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not.i = icmp eq ptr %9, null
   br i1 %.not.i, label %_ZL22sample_allocation_ratev.exit, label %10
 
@@ -187,7 +187,7 @@ _ZL22sample_allocation_ratev.exit:                ; preds = %7, %10
 
 24:                                               ; preds = %22, %21
   %.03.i = phi i64 [ 0, %21 ], [ %23, %22 ]
-  %25 = getelementptr inbounds [6 x ptr], ptr @__const._ZL16make_gc_decisionv.rules, i64 0, i64 %.03.i
+  %25 = getelementptr inbounds nuw [6 x ptr], ptr @__const._ZL16make_gc_decisionv.rules, i64 0, i64 %.03.i
   %26 = load ptr, ptr %25, align 8
   %27 = call i64 %26() #8
   store i64 %27, ptr %2, align 8
@@ -230,7 +230,7 @@ declare void @_ZN7XDriver7collectERK14XDriverRequest(ptr noundef nonnull align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN9XDirector12stop_serviceEv(ptr noundef nonnull align 8 dereferenceable(1064) %0) unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 928
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 928
   tail call void @_ZN10XMetronome4stopEv(ptr noundef nonnull align 8 dereferenceable(129) %2) #8
   ret void
 }
@@ -245,7 +245,7 @@ define linkonce_odr hidden void @_ZN12ThreadShadow22unused_initial_virtualEv(ptr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN9XDirectorD2Ev(ptr noundef nonnull align 8 dereferenceable(1064) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 240) (i8, ptr @_ZTV9XDirector, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 928
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 928
   tail call void @_ZN5MutexD2Ev(ptr noundef nonnull align 8 dereferenceable(129) %2) #8
   tail call void @_ZN11NamedThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(918) %0) #8
   ret void
@@ -254,7 +254,7 @@ define linkonce_odr hidden void @_ZN9XDirectorD2Ev(ptr noundef nonnull align 8 d
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN9XDirectorD0Ev(ptr noundef nonnull align 8 dereferenceable(1064) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 240) (i8, ptr @_ZTV9XDirector, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 928
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 928
   tail call void @_ZN5MutexD2Ev(ptr noundef nonnull align 8 dereferenceable(129) %2) #8
   tail call void @_ZN11NamedThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(1064) %0) #8
   tail call void @_Z8FreeHeapPv(ptr noundef nonnull %0) #8
@@ -344,7 +344,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK6Thread21is_active_Java_threa
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNK11NamedThread4nameEv(ptr noundef nonnull align 8 dereferenceable(916) %0) unnamed_addr #0 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 896
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 896
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   %spec.select = select i1 %4, ptr @.str.23, ptr %3
@@ -525,12 +525,12 @@ declare void @_ZN9LogTagSet6vwriteEN8LogLevel4typeEPKcP13__va_list_tag(ptr nound
 define internal i64 @_ZL21rule_allocation_stallv() #0 {
   %1 = alloca %class.XDriverRequest, align 8
   %2 = load ptr, ptr @_ZN5XHeap5_heapE, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 176
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 176
   %4 = tail call noundef zeroext i1 @_ZNK14XPageAllocator17has_alloc_stalledEv(ptr noundef nonnull align 8 dereferenceable(609) %3) #8
   br i1 %4, label %5, label %8
 
 5:                                                ; preds = %0
-  %6 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_37ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %6 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_37ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %8, label %7
 
@@ -563,7 +563,7 @@ define internal i64 @_ZL11rule_warmupv() #0 {
   %12 = uitofp i64 %5 to double
   %13 = fmul double %11, %12
   %14 = fptoui double %13 to i64
-  %15 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_37ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %15 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_37ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not = icmp eq ptr %15, null
   br i1 %.not, label %20, label %16
 
@@ -597,7 +597,7 @@ define internal i64 @_ZL10rule_timerv() #0 {
   %5 = tail call noundef double @_ZN10XStatCycle15time_since_lastEv() #8
   %6 = load double, ptr @ZCollectionInterval, align 8
   %7 = fsub double %6, %5
-  %8 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_37ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %8 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_37ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %10, label %9
 
@@ -673,7 +673,7 @@ define internal i64 @_ZL20rule_allocation_ratev() #0 {
 42:                                               ; preds = %8
   %43 = load i32, ptr @ConcGCThreads, align 4
   %44 = uitofp i32 %43 to double
-  %45 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_37ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %45 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_37ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not.i.i = icmp eq ptr %45, null
   br i1 %.not.i.i, label %_ZL17select_gc_workersdddd.exit.i, label %46
 
@@ -710,7 +710,7 @@ define internal i64 @_ZL20rule_allocation_ratev() #0 {
   %71 = select i1 %70, double %57, double %69
   %72 = fcmp ogt double %71, %68
   %73 = select i1 %72, double %71, double %68
-  %74 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_37ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %74 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_37ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not49.i.i = icmp eq ptr %74, null
   br i1 %.not49.i.i, label %_ZL17select_gc_workersdddd.exit.i, label %75
 
@@ -741,7 +741,7 @@ define internal i64 @_ZL20rule_allocation_ratev() #0 {
   %94 = select i1 %93, double %92, double %79
   %95 = fcmp olt double %94, %81
   %96 = select i1 %95, double %94, double %81
-  %97 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_37ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %97 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_37ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not51.i.i = icmp eq ptr %97, null
   br i1 %.not51.i.i, label %_ZL17select_gc_workersdddd.exit.i, label %98
 
@@ -750,7 +750,7 @@ define internal i64 @_ZL20rule_allocation_ratev() #0 {
   br label %_ZL17select_gc_workersdddd.exit.i
 
 99:                                               ; preds = %76
-  %100 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_37ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %100 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_37ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not50.i.i = icmp eq ptr %100, null
   br i1 %.not50.i.i, label %_ZL17select_gc_workersdddd.exit.i, label %101
 
@@ -772,7 +772,7 @@ _ZL17select_gc_workersdddd.exit.i:                ; preds = %101, %99, %98, %78,
   %111 = tail call noundef i32 @_ZN10XStatCycle19last_active_workersEv() #8
   %112 = fsub double %30, %110
   %113 = fadd double %112, -1.000000e-01
-  %114 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_37ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %114 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_37ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not.i = icmp eq ptr %114, null
   br i1 %.not.i, label %120, label %115
 
@@ -840,7 +840,7 @@ _ZL28rule_allocation_rate_dynamicv.exit:          ; preds = %7, %123, %124
   %157 = fadd double %148, %156
   %158 = fsub double %143, %157
   %159 = fadd double %158, -1.000000e-01
-  %160 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_37ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %160 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_37ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not.i1 = icmp eq ptr %160, null
   br i1 %.not.i1, label %164, label %161
 
@@ -883,7 +883,7 @@ define internal i64 @_ZL15rule_high_usagev() #0 {
   %11 = fdiv double %9, %10
   %12 = fmul double %11, 1.000000e+02
   %13 = select i1 %.not.i, double 0.000000e+00, double %12
-  %14 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_37ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %14 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_37ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %17, label %15
 
@@ -928,7 +928,7 @@ define internal i64 @_ZL14rule_proactivev() #0 {
   br i1 %or.cond, label %19, label %25
 
 19:                                               ; preds = %6
-  %20 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_37ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %20 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_37ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not19 = icmp eq ptr %20, null
   br i1 %.not19, label %46, label %21
 
@@ -956,7 +956,7 @@ define internal i64 @_ZL14rule_proactivev() #0 {
   %39 = fadd double %30, %38
   %40 = fmul double %39, 4.900000e+01
   %41 = fsub double %40, %16
-  %42 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_37ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %42 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_37ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not = icmp eq ptr %42, null
   br i1 %.not, label %44, label %43
 

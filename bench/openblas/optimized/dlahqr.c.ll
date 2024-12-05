@@ -143,8 +143,8 @@ define void @dlahqr_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 
 100:                                              ; preds = %92
   %101 = add i32 %24, 1
-  %102 = getelementptr inbounds i8, ptr %16, i64 8
-  %103 = getelementptr inbounds i8, ptr %16, i64 16
+  %102 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %103 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %104 = sext i32 %24 to i64
   %105 = sext i32 %30 to i64
   %106 = icmp slt i32 %96, 0

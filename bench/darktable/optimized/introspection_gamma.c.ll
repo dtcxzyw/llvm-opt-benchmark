@@ -56,32 +56,32 @@ define noundef i32 @default_colorspace(ptr nocapture noundef readnone %0, ptr no
 
 ; Function Attrs: nounwind uwtable
 define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #3 {
-  %7 = getelementptr inbounds i8, ptr %1, i64 132
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 132
   %8 = load i32, ptr %7, align 4, !tbaa !6
   %9 = tail call i32 @dt_iop_have_required_input_format(i32 noundef 4, ptr noundef %0, i32 noundef %8, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #13
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %.loopexit, label %11
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %4, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %13 = load i32, ptr %12, align 4, !tbaa !21
-  %14 = getelementptr inbounds i8, ptr %5, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %15 = load i32, ptr %14, align 4, !tbaa !21
   %16 = icmp eq i32 %13, %15
   br i1 %16, label %17, label %.loopexit
 
 17:                                               ; preds = %11
-  %18 = getelementptr inbounds i8, ptr %4, i64 12
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %19 = load i32, ptr %18, align 4, !tbaa !22
-  %20 = getelementptr inbounds i8, ptr %5, i64 12
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %21 = load i32, ptr %20, align 4, !tbaa !22
   %22 = icmp eq i32 %19, %21
   br i1 %22, label %23, label %.loopexit
 
 23:                                               ; preds = %17
-  %24 = getelementptr inbounds i8, ptr %1, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %25 = load ptr, ptr %24, align 8, !tbaa !23
-  %26 = getelementptr inbounds i8, ptr %25, i64 604
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 604
   %27 = load i32, ptr %26, align 4, !tbaa !24
   %28 = tail call i32 @dt_conf_is_equal(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #13
   %29 = load i32, ptr %14, align 4, !tbaa !21
@@ -244,14 +244,14 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %152 = tail call reassoc nsz arcp contract afn <8 x float> @llvm.maxnum.v8f32(<8 x float> %151, <8 x float> zeroinitializer)
   %153 = tail call reassoc nsz arcp contract afn <8 x float> @llvm.minnum.v8f32(<8 x float> %152, <8 x float> splat (float 2.550000e+02))
   %154 = fptoui <8 x float> %153 to <8 x i8>
-  %155 = getelementptr inbounds i8, ptr %117, i64 2
-  %156 = getelementptr inbounds i8, ptr %118, i64 2
-  %157 = getelementptr inbounds i8, ptr %119, i64 2
-  %158 = getelementptr inbounds i8, ptr %120, i64 2
-  %159 = getelementptr inbounds i8, ptr %121, i64 2
-  %160 = getelementptr inbounds i8, ptr %122, i64 2
-  %161 = getelementptr inbounds i8, ptr %123, i64 2
-  %162 = getelementptr inbounds i8, ptr %124, i64 2
+  %155 = getelementptr inbounds nuw i8, ptr %117, i64 2
+  %156 = getelementptr inbounds nuw i8, ptr %118, i64 2
+  %157 = getelementptr inbounds nuw i8, ptr %119, i64 2
+  %158 = getelementptr inbounds nuw i8, ptr %120, i64 2
+  %159 = getelementptr inbounds nuw i8, ptr %121, i64 2
+  %160 = getelementptr inbounds nuw i8, ptr %122, i64 2
+  %161 = getelementptr inbounds nuw i8, ptr %123, i64 2
+  %162 = getelementptr inbounds nuw i8, ptr %124, i64 2
   %163 = extractelement <8 x i8> %154, i64 0
   store i8 %163, ptr %155, align 1, !tbaa !40, !alias.scope !41, !noalias !44
   %164 = extractelement <8 x i8> %154, i64 1
@@ -276,14 +276,14 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %176 = tail call reassoc nsz arcp contract afn <8 x float> @llvm.maxnum.v8f32(<8 x float> %175, <8 x float> zeroinitializer)
   %177 = tail call reassoc nsz arcp contract afn <8 x float> @llvm.minnum.v8f32(<8 x float> %176, <8 x float> splat (float 2.550000e+02))
   %178 = fptoui <8 x float> %177 to <8 x i8>
-  %179 = getelementptr inbounds i8, ptr %117, i64 1
-  %180 = getelementptr inbounds i8, ptr %118, i64 1
-  %181 = getelementptr inbounds i8, ptr %119, i64 1
-  %182 = getelementptr inbounds i8, ptr %120, i64 1
-  %183 = getelementptr inbounds i8, ptr %121, i64 1
-  %184 = getelementptr inbounds i8, ptr %122, i64 1
-  %185 = getelementptr inbounds i8, ptr %123, i64 1
-  %186 = getelementptr inbounds i8, ptr %124, i64 1
+  %179 = getelementptr inbounds nuw i8, ptr %117, i64 1
+  %180 = getelementptr inbounds nuw i8, ptr %118, i64 1
+  %181 = getelementptr inbounds nuw i8, ptr %119, i64 1
+  %182 = getelementptr inbounds nuw i8, ptr %120, i64 1
+  %183 = getelementptr inbounds nuw i8, ptr %121, i64 1
+  %184 = getelementptr inbounds nuw i8, ptr %122, i64 1
+  %185 = getelementptr inbounds nuw i8, ptr %123, i64 1
+  %186 = getelementptr inbounds nuw i8, ptr %124, i64 1
   %187 = extractelement <8 x i8> %178, i64 0
   store i8 %187, ptr %179, align 1, !tbaa !40, !alias.scope !41, !noalias !44
   %188 = extractelement <8 x i8> %178, i64 1
@@ -388,14 +388,14 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %260 = tail call reassoc nsz arcp contract afn <8 x float> @llvm.maxnum.v8f32(<8 x float> %259, <8 x float> zeroinitializer)
   %261 = tail call reassoc nsz arcp contract afn <8 x float> @llvm.minnum.v8f32(<8 x float> %260, <8 x float> splat (float 2.550000e+02))
   %262 = fptoui <8 x float> %261 to <8 x i8>
-  %263 = getelementptr inbounds i8, ptr %241, i64 2
-  %264 = getelementptr inbounds i8, ptr %242, i64 2
-  %265 = getelementptr inbounds i8, ptr %243, i64 2
-  %266 = getelementptr inbounds i8, ptr %244, i64 2
-  %267 = getelementptr inbounds i8, ptr %245, i64 2
-  %268 = getelementptr inbounds i8, ptr %246, i64 2
-  %269 = getelementptr inbounds i8, ptr %247, i64 2
-  %270 = getelementptr inbounds i8, ptr %248, i64 2
+  %263 = getelementptr inbounds nuw i8, ptr %241, i64 2
+  %264 = getelementptr inbounds nuw i8, ptr %242, i64 2
+  %265 = getelementptr inbounds nuw i8, ptr %243, i64 2
+  %266 = getelementptr inbounds nuw i8, ptr %244, i64 2
+  %267 = getelementptr inbounds nuw i8, ptr %245, i64 2
+  %268 = getelementptr inbounds nuw i8, ptr %246, i64 2
+  %269 = getelementptr inbounds nuw i8, ptr %247, i64 2
+  %270 = getelementptr inbounds nuw i8, ptr %248, i64 2
   %271 = extractelement <8 x i8> %262, i64 0
   store i8 %271, ptr %263, align 1, !tbaa !40, !alias.scope !50, !noalias !53
   %272 = extractelement <8 x i8> %262, i64 1
@@ -412,14 +412,14 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   store i8 %277, ptr %269, align 1, !tbaa !40, !alias.scope !50, !noalias !53
   %278 = extractelement <8 x i8> %262, i64 7
   store i8 %278, ptr %270, align 1, !tbaa !40, !alias.scope !50, !noalias !53
-  %279 = getelementptr inbounds i8, ptr %241, i64 1
-  %280 = getelementptr inbounds i8, ptr %242, i64 1
-  %281 = getelementptr inbounds i8, ptr %243, i64 1
-  %282 = getelementptr inbounds i8, ptr %244, i64 1
-  %283 = getelementptr inbounds i8, ptr %245, i64 1
-  %284 = getelementptr inbounds i8, ptr %246, i64 1
-  %285 = getelementptr inbounds i8, ptr %247, i64 1
-  %286 = getelementptr inbounds i8, ptr %248, i64 1
+  %279 = getelementptr inbounds nuw i8, ptr %241, i64 1
+  %280 = getelementptr inbounds nuw i8, ptr %242, i64 1
+  %281 = getelementptr inbounds nuw i8, ptr %243, i64 1
+  %282 = getelementptr inbounds nuw i8, ptr %244, i64 1
+  %283 = getelementptr inbounds nuw i8, ptr %245, i64 1
+  %284 = getelementptr inbounds nuw i8, ptr %246, i64 1
+  %285 = getelementptr inbounds nuw i8, ptr %247, i64 1
+  %286 = getelementptr inbounds nuw i8, ptr %248, i64 1
   store i8 %271, ptr %279, align 1, !tbaa !40, !alias.scope !50, !noalias !53
   store i8 %272, ptr %280, align 1, !tbaa !40, !alias.scope !50, !noalias !53
   store i8 %273, ptr %281, align 1, !tbaa !40, !alias.scope !50, !noalias !53
@@ -521,14 +521,14 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %354 = tail call reassoc nsz arcp contract afn <8 x float> @llvm.maxnum.v8f32(<8 x float> %353, <8 x float> zeroinitializer)
   %355 = tail call reassoc nsz arcp contract afn <8 x float> @llvm.minnum.v8f32(<8 x float> %354, <8 x float> splat (float 2.550000e+02))
   %356 = fptoui <8 x float> %355 to <8 x i8>
-  %357 = getelementptr inbounds i8, ptr %335, i64 2
-  %358 = getelementptr inbounds i8, ptr %336, i64 2
-  %359 = getelementptr inbounds i8, ptr %337, i64 2
-  %360 = getelementptr inbounds i8, ptr %338, i64 2
-  %361 = getelementptr inbounds i8, ptr %339, i64 2
-  %362 = getelementptr inbounds i8, ptr %340, i64 2
-  %363 = getelementptr inbounds i8, ptr %341, i64 2
-  %364 = getelementptr inbounds i8, ptr %342, i64 2
+  %357 = getelementptr inbounds nuw i8, ptr %335, i64 2
+  %358 = getelementptr inbounds nuw i8, ptr %336, i64 2
+  %359 = getelementptr inbounds nuw i8, ptr %337, i64 2
+  %360 = getelementptr inbounds nuw i8, ptr %338, i64 2
+  %361 = getelementptr inbounds nuw i8, ptr %339, i64 2
+  %362 = getelementptr inbounds nuw i8, ptr %340, i64 2
+  %363 = getelementptr inbounds nuw i8, ptr %341, i64 2
+  %364 = getelementptr inbounds nuw i8, ptr %342, i64 2
   %365 = extractelement <8 x i8> %356, i64 0
   store i8 %365, ptr %357, align 1, !tbaa !40, !alias.scope !57, !noalias !60
   %366 = extractelement <8 x i8> %356, i64 1
@@ -553,14 +553,14 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %378 = tail call reassoc nsz arcp contract afn <8 x float> @llvm.maxnum.v8f32(<8 x float> %377, <8 x float> zeroinitializer)
   %379 = tail call reassoc nsz arcp contract afn <8 x float> @llvm.minnum.v8f32(<8 x float> %378, <8 x float> splat (float 2.550000e+02))
   %380 = fptoui <8 x float> %379 to <8 x i8>
-  %381 = getelementptr inbounds i8, ptr %335, i64 1
-  %382 = getelementptr inbounds i8, ptr %336, i64 1
-  %383 = getelementptr inbounds i8, ptr %337, i64 1
-  %384 = getelementptr inbounds i8, ptr %338, i64 1
-  %385 = getelementptr inbounds i8, ptr %339, i64 1
-  %386 = getelementptr inbounds i8, ptr %340, i64 1
-  %387 = getelementptr inbounds i8, ptr %341, i64 1
-  %388 = getelementptr inbounds i8, ptr %342, i64 1
+  %381 = getelementptr inbounds nuw i8, ptr %335, i64 1
+  %382 = getelementptr inbounds nuw i8, ptr %336, i64 1
+  %383 = getelementptr inbounds nuw i8, ptr %337, i64 1
+  %384 = getelementptr inbounds nuw i8, ptr %338, i64 1
+  %385 = getelementptr inbounds nuw i8, ptr %339, i64 1
+  %386 = getelementptr inbounds nuw i8, ptr %340, i64 1
+  %387 = getelementptr inbounds nuw i8, ptr %341, i64 1
+  %388 = getelementptr inbounds nuw i8, ptr %342, i64 1
   %389 = extractelement <8 x i8> %380, i64 0
   store i8 %389, ptr %381, align 1, !tbaa !40, !alias.scope !57, !noalias !60
   %390 = extractelement <8 x i8> %380, i64 1
@@ -671,14 +671,14 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %466 = tail call reassoc nsz arcp contract afn <8 x float> @llvm.maxnum.v8f32(<8 x float> %465, <8 x float> zeroinitializer)
   %467 = tail call reassoc nsz arcp contract afn <8 x float> @llvm.minnum.v8f32(<8 x float> %466, <8 x float> splat (float 2.550000e+02))
   %468 = fptoui <8 x float> %467 to <8 x i8>
-  %469 = getelementptr inbounds i8, ptr %443, i64 2
-  %470 = getelementptr inbounds i8, ptr %444, i64 2
-  %471 = getelementptr inbounds i8, ptr %445, i64 2
-  %472 = getelementptr inbounds i8, ptr %446, i64 2
-  %473 = getelementptr inbounds i8, ptr %447, i64 2
-  %474 = getelementptr inbounds i8, ptr %448, i64 2
-  %475 = getelementptr inbounds i8, ptr %449, i64 2
-  %476 = getelementptr inbounds i8, ptr %450, i64 2
+  %469 = getelementptr inbounds nuw i8, ptr %443, i64 2
+  %470 = getelementptr inbounds nuw i8, ptr %444, i64 2
+  %471 = getelementptr inbounds nuw i8, ptr %445, i64 2
+  %472 = getelementptr inbounds nuw i8, ptr %446, i64 2
+  %473 = getelementptr inbounds nuw i8, ptr %447, i64 2
+  %474 = getelementptr inbounds nuw i8, ptr %448, i64 2
+  %475 = getelementptr inbounds nuw i8, ptr %449, i64 2
+  %476 = getelementptr inbounds nuw i8, ptr %450, i64 2
   %477 = extractelement <8 x i8> %468, i64 0
   store i8 %477, ptr %469, align 1, !tbaa !40, !alias.scope !64, !noalias !67
   %478 = extractelement <8 x i8> %468, i64 1
@@ -700,14 +700,14 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %486 = tail call reassoc nsz arcp contract afn <8 x float> @llvm.maxnum.v8f32(<8 x float> %485, <8 x float> zeroinitializer)
   %487 = tail call reassoc nsz arcp contract afn <8 x float> @llvm.minnum.v8f32(<8 x float> %486, <8 x float> splat (float 2.550000e+02))
   %488 = fptoui <8 x float> %487 to <8 x i8>
-  %489 = getelementptr inbounds i8, ptr %443, i64 1
-  %490 = getelementptr inbounds i8, ptr %444, i64 1
-  %491 = getelementptr inbounds i8, ptr %445, i64 1
-  %492 = getelementptr inbounds i8, ptr %446, i64 1
-  %493 = getelementptr inbounds i8, ptr %447, i64 1
-  %494 = getelementptr inbounds i8, ptr %448, i64 1
-  %495 = getelementptr inbounds i8, ptr %449, i64 1
-  %496 = getelementptr inbounds i8, ptr %450, i64 1
+  %489 = getelementptr inbounds nuw i8, ptr %443, i64 1
+  %490 = getelementptr inbounds nuw i8, ptr %444, i64 1
+  %491 = getelementptr inbounds nuw i8, ptr %445, i64 1
+  %492 = getelementptr inbounds nuw i8, ptr %446, i64 1
+  %493 = getelementptr inbounds nuw i8, ptr %447, i64 1
+  %494 = getelementptr inbounds nuw i8, ptr %448, i64 1
+  %495 = getelementptr inbounds nuw i8, ptr %449, i64 1
+  %496 = getelementptr inbounds nuw i8, ptr %450, i64 1
   %497 = extractelement <8 x i8> %488, i64 0
   store i8 %497, ptr %489, align 1, !tbaa !40, !alias.scope !64, !noalias !67
   %498 = extractelement <8 x i8> %488, i64 1
@@ -870,14 +870,14 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %623 = tail call reassoc nsz arcp contract afn <8 x float> @llvm.maxnum.v8f32(<8 x float> %622, <8 x float> zeroinitializer)
   %624 = tail call reassoc nsz arcp contract afn <8 x float> @llvm.minnum.v8f32(<8 x float> %623, <8 x float> splat (float 2.550000e+02))
   %625 = fptoui <8 x float> %624 to <8 x i8>
-  %626 = getelementptr inbounds i8, ptr %588, i64 2
-  %627 = getelementptr inbounds i8, ptr %589, i64 2
-  %628 = getelementptr inbounds i8, ptr %590, i64 2
-  %629 = getelementptr inbounds i8, ptr %591, i64 2
-  %630 = getelementptr inbounds i8, ptr %592, i64 2
-  %631 = getelementptr inbounds i8, ptr %593, i64 2
-  %632 = getelementptr inbounds i8, ptr %594, i64 2
-  %633 = getelementptr inbounds i8, ptr %595, i64 2
+  %626 = getelementptr inbounds nuw i8, ptr %588, i64 2
+  %627 = getelementptr inbounds nuw i8, ptr %589, i64 2
+  %628 = getelementptr inbounds nuw i8, ptr %590, i64 2
+  %629 = getelementptr inbounds nuw i8, ptr %591, i64 2
+  %630 = getelementptr inbounds nuw i8, ptr %592, i64 2
+  %631 = getelementptr inbounds nuw i8, ptr %593, i64 2
+  %632 = getelementptr inbounds nuw i8, ptr %594, i64 2
+  %633 = getelementptr inbounds nuw i8, ptr %595, i64 2
   %634 = extractelement <8 x i8> %625, i64 0
   store i8 %634, ptr %626, align 1, !tbaa !40, !alias.scope !71, !noalias !74
   %635 = extractelement <8 x i8> %625, i64 1
@@ -902,14 +902,14 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %647 = tail call reassoc nsz arcp contract afn <8 x float> @llvm.maxnum.v8f32(<8 x float> %646, <8 x float> zeroinitializer)
   %648 = tail call reassoc nsz arcp contract afn <8 x float> @llvm.minnum.v8f32(<8 x float> %647, <8 x float> splat (float 2.550000e+02))
   %649 = fptoui <8 x float> %648 to <8 x i8>
-  %650 = getelementptr inbounds i8, ptr %588, i64 1
-  %651 = getelementptr inbounds i8, ptr %589, i64 1
-  %652 = getelementptr inbounds i8, ptr %590, i64 1
-  %653 = getelementptr inbounds i8, ptr %591, i64 1
-  %654 = getelementptr inbounds i8, ptr %592, i64 1
-  %655 = getelementptr inbounds i8, ptr %593, i64 1
-  %656 = getelementptr inbounds i8, ptr %594, i64 1
-  %657 = getelementptr inbounds i8, ptr %595, i64 1
+  %650 = getelementptr inbounds nuw i8, ptr %588, i64 1
+  %651 = getelementptr inbounds nuw i8, ptr %589, i64 1
+  %652 = getelementptr inbounds nuw i8, ptr %590, i64 1
+  %653 = getelementptr inbounds nuw i8, ptr %591, i64 1
+  %654 = getelementptr inbounds nuw i8, ptr %592, i64 1
+  %655 = getelementptr inbounds nuw i8, ptr %593, i64 1
+  %656 = getelementptr inbounds nuw i8, ptr %594, i64 1
+  %657 = getelementptr inbounds nuw i8, ptr %595, i64 1
   %658 = extractelement <8 x i8> %649, i64 0
   store i8 %658, ptr %650, align 1, !tbaa !40, !alias.scope !71, !noalias !74
   %659 = extractelement <8 x i8> %649, i64 1
@@ -1071,14 +1071,14 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %790 = tail call reassoc nsz arcp contract afn <8 x float> @llvm.maxnum.v8f32(<8 x float> %789, <8 x float> zeroinitializer)
   %791 = tail call reassoc nsz arcp contract afn <8 x float> @llvm.minnum.v8f32(<8 x float> %790, <8 x float> splat (float 2.550000e+02))
   %792 = fptoui <8 x float> %791 to <8 x i8>
-  %793 = getelementptr inbounds i8, ptr %755, i64 2
-  %794 = getelementptr inbounds i8, ptr %756, i64 2
-  %795 = getelementptr inbounds i8, ptr %757, i64 2
-  %796 = getelementptr inbounds i8, ptr %758, i64 2
-  %797 = getelementptr inbounds i8, ptr %759, i64 2
-  %798 = getelementptr inbounds i8, ptr %760, i64 2
-  %799 = getelementptr inbounds i8, ptr %761, i64 2
-  %800 = getelementptr inbounds i8, ptr %762, i64 2
+  %793 = getelementptr inbounds nuw i8, ptr %755, i64 2
+  %794 = getelementptr inbounds nuw i8, ptr %756, i64 2
+  %795 = getelementptr inbounds nuw i8, ptr %757, i64 2
+  %796 = getelementptr inbounds nuw i8, ptr %758, i64 2
+  %797 = getelementptr inbounds nuw i8, ptr %759, i64 2
+  %798 = getelementptr inbounds nuw i8, ptr %760, i64 2
+  %799 = getelementptr inbounds nuw i8, ptr %761, i64 2
+  %800 = getelementptr inbounds nuw i8, ptr %762, i64 2
   %801 = extractelement <8 x i8> %792, i64 0
   store i8 %801, ptr %793, align 1, !tbaa !40, !alias.scope !78, !noalias !81
   %802 = extractelement <8 x i8> %792, i64 1
@@ -1103,14 +1103,14 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %814 = tail call reassoc nsz arcp contract afn <8 x float> @llvm.maxnum.v8f32(<8 x float> %813, <8 x float> zeroinitializer)
   %815 = tail call reassoc nsz arcp contract afn <8 x float> @llvm.minnum.v8f32(<8 x float> %814, <8 x float> splat (float 2.550000e+02))
   %816 = fptoui <8 x float> %815 to <8 x i8>
-  %817 = getelementptr inbounds i8, ptr %755, i64 1
-  %818 = getelementptr inbounds i8, ptr %756, i64 1
-  %819 = getelementptr inbounds i8, ptr %757, i64 1
-  %820 = getelementptr inbounds i8, ptr %758, i64 1
-  %821 = getelementptr inbounds i8, ptr %759, i64 1
-  %822 = getelementptr inbounds i8, ptr %760, i64 1
-  %823 = getelementptr inbounds i8, ptr %761, i64 1
-  %824 = getelementptr inbounds i8, ptr %762, i64 1
+  %817 = getelementptr inbounds nuw i8, ptr %755, i64 1
+  %818 = getelementptr inbounds nuw i8, ptr %756, i64 1
+  %819 = getelementptr inbounds nuw i8, ptr %757, i64 1
+  %820 = getelementptr inbounds nuw i8, ptr %758, i64 1
+  %821 = getelementptr inbounds nuw i8, ptr %759, i64 1
+  %822 = getelementptr inbounds nuw i8, ptr %760, i64 1
+  %823 = getelementptr inbounds nuw i8, ptr %761, i64 1
+  %824 = getelementptr inbounds nuw i8, ptr %762, i64 1
   %825 = extractelement <8 x i8> %816, i64 0
   store i8 %825, ptr %817, align 1, !tbaa !40, !alias.scope !78, !noalias !81
   %826 = extractelement <8 x i8> %816, i64 1
@@ -1269,7 +1269,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %938 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %937, float 0.000000e+00)
   %939 = tail call reassoc nsz arcp contract afn float @llvm.minnum.f32(float %938, float 2.550000e+02)
   %940 = fptoui float %939 to i8
-  %941 = getelementptr inbounds i8, ptr %901, i64 2
+  %941 = getelementptr inbounds nuw i8, ptr %901, i64 2
   store i8 %940, ptr %941, align 1, !tbaa !40, !alias.scope !78, !noalias !81
   %942 = fsub reassoc nsz arcp contract afn float 1.000000e+00, %923
   %943 = fmul reassoc nsz arcp contract afn float %942, %905
@@ -1279,7 +1279,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %947 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %946, float 0.000000e+00)
   %948 = tail call reassoc nsz arcp contract afn float @llvm.minnum.f32(float %947, float 2.550000e+02)
   %949 = fptoui float %948 to i8
-  %950 = getelementptr inbounds i8, ptr %901, i64 1
+  %950 = getelementptr inbounds nuw i8, ptr %901, i64 1
   store i8 %949, ptr %950, align 1, !tbaa !40, !alias.scope !78, !noalias !81
   %951 = fmul reassoc nsz arcp contract afn float %932, %905
   %952 = fsub reassoc nsz arcp contract afn float %932, %951
@@ -1392,7 +1392,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %1038 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %1037, float 0.000000e+00)
   %1039 = tail call reassoc nsz arcp contract afn float @llvm.minnum.f32(float %1038, float 2.550000e+02)
   %1040 = fptoui float %1039 to i8
-  %1041 = getelementptr inbounds i8, ptr %1001, i64 2
+  %1041 = getelementptr inbounds nuw i8, ptr %1001, i64 2
   store i8 %1040, ptr %1041, align 1, !tbaa !40, !alias.scope !71, !noalias !74
   %1042 = fsub reassoc nsz arcp contract afn float 1.000000e+00, %1023
   %1043 = fmul reassoc nsz arcp contract afn float %1042, %1005
@@ -1402,7 +1402,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %1047 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %1046, float 0.000000e+00)
   %1048 = tail call reassoc nsz arcp contract afn float @llvm.minnum.f32(float %1047, float 2.550000e+02)
   %1049 = fptoui float %1048 to i8
-  %1050 = getelementptr inbounds i8, ptr %1001, i64 1
+  %1050 = getelementptr inbounds nuw i8, ptr %1001, i64 1
   store i8 %1049, ptr %1050, align 1, !tbaa !40, !alias.scope !71, !noalias !74
   %1051 = fmul reassoc nsz arcp contract afn float %1032, %1005
   %1052 = fsub reassoc nsz arcp contract afn float %1032, %1051
@@ -1449,14 +1449,14 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %1084 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %1083, float 0.000000e+00)
   %1085 = tail call reassoc nsz arcp contract afn float @llvm.minnum.f32(float %1084, float 2.550000e+02)
   %1086 = fptoui float %1085 to i8
-  %1087 = getelementptr inbounds i8, ptr %1065, i64 2
+  %1087 = getelementptr inbounds nuw i8, ptr %1065, i64 2
   store i8 %1086, ptr %1087, align 1, !tbaa !40, !alias.scope !64, !noalias !67
   %.reass90 = fmul reassoc nsz arcp contract afn float %1068, %invariant.op89
   %1088 = tail call reassoc nsz arcp contract afn float @llvm.round.f32(float %.reass90)
   %1089 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %1088, float 0.000000e+00)
   %1090 = tail call reassoc nsz arcp contract afn float @llvm.minnum.f32(float %1089, float 2.550000e+02)
   %1091 = fptoui float %1090 to i8
-  %1092 = getelementptr inbounds i8, ptr %1065, i64 1
+  %1092 = getelementptr inbounds nuw i8, ptr %1065, i64 1
   store i8 %1091, ptr %1092, align 1, !tbaa !40, !alias.scope !64, !noalias !67
   %1093 = fmul reassoc nsz arcp contract afn float %1068, 0.000000e+00
   %1094 = tail call reassoc nsz arcp contract afn float @llvm.round.f32(float %1093)
@@ -1498,7 +1498,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %1120 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %1119, float 0.000000e+00)
   %1121 = tail call reassoc nsz arcp contract afn float @llvm.minnum.f32(float %1120, float 2.550000e+02)
   %1122 = fptoui float %1121 to i8
-  %1123 = getelementptr inbounds i8, ptr %1105, i64 2
+  %1123 = getelementptr inbounds nuw i8, ptr %1105, i64 2
   store i8 %1122, ptr %1123, align 1, !tbaa !40, !alias.scope !57, !noalias !60
   %1124 = fsub reassoc nsz arcp contract afn float 1.000000e+00, %1118
   %1125 = fmul reassoc nsz arcp contract afn float %1124, %1109
@@ -1508,7 +1508,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %1129 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %1128, float 0.000000e+00)
   %1130 = tail call reassoc nsz arcp contract afn float @llvm.minnum.f32(float %1129, float 2.550000e+02)
   %1131 = fptoui float %1130 to i8
-  %1132 = getelementptr inbounds i8, ptr %1105, i64 1
+  %1132 = getelementptr inbounds nuw i8, ptr %1105, i64 1
   store i8 %1131, ptr %1132, align 1, !tbaa !40, !alias.scope !57, !noalias !60
   %1133 = fmul reassoc nsz arcp contract afn float %1108, 0.000000e+00
   %1134 = tail call reassoc nsz arcp contract afn float @llvm.round.f32(float %1133)
@@ -1550,9 +1550,9 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %1160 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %1159, float 0.000000e+00)
   %1161 = tail call reassoc nsz arcp contract afn float @llvm.minnum.f32(float %1160, float 2.550000e+02)
   %1162 = fptoui float %1161 to i8
-  %1163 = getelementptr inbounds i8, ptr %1145, i64 2
+  %1163 = getelementptr inbounds nuw i8, ptr %1145, i64 2
   store i8 %1162, ptr %1163, align 1, !tbaa !40, !alias.scope !50, !noalias !53
-  %1164 = getelementptr inbounds i8, ptr %1145, i64 1
+  %1164 = getelementptr inbounds nuw i8, ptr %1145, i64 1
   store i8 %1162, ptr %1164, align 1, !tbaa !40, !alias.scope !50, !noalias !53
   %1165 = fmul reassoc nsz arcp contract afn float %1158, %1149
   %1166 = fsub reassoc nsz arcp contract afn float %1158, %1165
@@ -1623,14 +1623,14 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %1222 = tail call reassoc nsz arcp contract afn <8 x float> @llvm.maxnum.v8f32(<8 x float> %1221, <8 x float> zeroinitializer)
   %1223 = tail call reassoc nsz arcp contract afn <8 x float> @llvm.minnum.v8f32(<8 x float> %1222, <8 x float> splat (float 2.550000e+02))
   %1224 = fptoui <8 x float> %1223 to <8 x i8>
-  %1225 = getelementptr inbounds i8, ptr %1201, i64 2
-  %1226 = getelementptr inbounds i8, ptr %1202, i64 2
-  %1227 = getelementptr inbounds i8, ptr %1203, i64 2
-  %1228 = getelementptr inbounds i8, ptr %1204, i64 2
-  %1229 = getelementptr inbounds i8, ptr %1205, i64 2
-  %1230 = getelementptr inbounds i8, ptr %1206, i64 2
-  %1231 = getelementptr inbounds i8, ptr %1207, i64 2
-  %1232 = getelementptr inbounds i8, ptr %1208, i64 2
+  %1225 = getelementptr inbounds nuw i8, ptr %1201, i64 2
+  %1226 = getelementptr inbounds nuw i8, ptr %1202, i64 2
+  %1227 = getelementptr inbounds nuw i8, ptr %1203, i64 2
+  %1228 = getelementptr inbounds nuw i8, ptr %1204, i64 2
+  %1229 = getelementptr inbounds nuw i8, ptr %1205, i64 2
+  %1230 = getelementptr inbounds nuw i8, ptr %1206, i64 2
+  %1231 = getelementptr inbounds nuw i8, ptr %1207, i64 2
+  %1232 = getelementptr inbounds nuw i8, ptr %1208, i64 2
   %1233 = extractelement <8 x i8> %1224, i64 0
   store i8 %1233, ptr %1225, align 1, !tbaa !40, !alias.scope !90, !noalias !93
   %1234 = extractelement <8 x i8> %1224, i64 1
@@ -1655,14 +1655,14 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %1246 = tail call reassoc nsz arcp contract afn <8 x float> @llvm.maxnum.v8f32(<8 x float> %1245, <8 x float> zeroinitializer)
   %1247 = tail call reassoc nsz arcp contract afn <8 x float> @llvm.minnum.v8f32(<8 x float> %1246, <8 x float> splat (float 2.550000e+02))
   %1248 = fptoui <8 x float> %1247 to <8 x i8>
-  %1249 = getelementptr inbounds i8, ptr %1201, i64 1
-  %1250 = getelementptr inbounds i8, ptr %1202, i64 1
-  %1251 = getelementptr inbounds i8, ptr %1203, i64 1
-  %1252 = getelementptr inbounds i8, ptr %1204, i64 1
-  %1253 = getelementptr inbounds i8, ptr %1205, i64 1
-  %1254 = getelementptr inbounds i8, ptr %1206, i64 1
-  %1255 = getelementptr inbounds i8, ptr %1207, i64 1
-  %1256 = getelementptr inbounds i8, ptr %1208, i64 1
+  %1249 = getelementptr inbounds nuw i8, ptr %1201, i64 1
+  %1250 = getelementptr inbounds nuw i8, ptr %1202, i64 1
+  %1251 = getelementptr inbounds nuw i8, ptr %1203, i64 1
+  %1252 = getelementptr inbounds nuw i8, ptr %1204, i64 1
+  %1253 = getelementptr inbounds nuw i8, ptr %1205, i64 1
+  %1254 = getelementptr inbounds nuw i8, ptr %1206, i64 1
+  %1255 = getelementptr inbounds nuw i8, ptr %1207, i64 1
+  %1256 = getelementptr inbounds nuw i8, ptr %1208, i64 1
   %1257 = extractelement <8 x i8> %1248, i64 0
   store i8 %1257, ptr %1249, align 1, !tbaa !40, !alias.scope !90, !noalias !93
   %1258 = extractelement <8 x i8> %1248, i64 1
@@ -1748,7 +1748,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %1309 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %1308, float 0.000000e+00)
   %1310 = tail call reassoc nsz arcp contract afn float @llvm.minnum.f32(float %1309, float 2.550000e+02)
   %1311 = fptoui float %1310 to i8
-  %1312 = getelementptr inbounds i8, ptr %1292, i64 2
+  %1312 = getelementptr inbounds nuw i8, ptr %1292, i64 2
   store i8 %1311, ptr %1312, align 1, !tbaa !40, !alias.scope !90, !noalias !93
   %1313 = fsub reassoc nsz arcp contract afn float 1.000000e+00, %1305
   %1314 = fmul reassoc nsz arcp contract afn float %1313, %1296
@@ -1758,7 +1758,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %1318 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %1317, float 0.000000e+00)
   %1319 = tail call reassoc nsz arcp contract afn float @llvm.minnum.f32(float %1318, float 2.550000e+02)
   %1320 = fptoui float %1319 to i8
-  %1321 = getelementptr inbounds i8, ptr %1292, i64 1
+  %1321 = getelementptr inbounds nuw i8, ptr %1292, i64 1
   store i8 %1320, ptr %1321, align 1, !tbaa !40, !alias.scope !90, !noalias !93
   %1322 = fmul reassoc nsz arcp contract afn float %1296, 0x4067708340000000
   %1323 = fsub reassoc nsz arcp contract afn float 0x4067708340000000, %1322
@@ -1872,7 +1872,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %1410 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %1409, float 0.000000e+00)
   %1411 = tail call reassoc nsz arcp contract afn float @llvm.minnum.f32(float %1410, float 2.550000e+02)
   %1412 = fptoui float %1411 to i8
-  %1413 = getelementptr inbounds i8, ptr %1373, i64 2
+  %1413 = getelementptr inbounds nuw i8, ptr %1373, i64 2
   store i8 %1412, ptr %1413, align 1, !tbaa !40, !alias.scope !41, !noalias !44
   %1414 = fsub reassoc nsz arcp contract afn float 1.000000e+00, %1395
   %1415 = fmul reassoc nsz arcp contract afn float %1414, %1377
@@ -1882,7 +1882,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %1419 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %1418, float 0.000000e+00)
   %1420 = tail call reassoc nsz arcp contract afn float @llvm.minnum.f32(float %1419, float 2.550000e+02)
   %1421 = fptoui float %1420 to i8
-  %1422 = getelementptr inbounds i8, ptr %1373, i64 1
+  %1422 = getelementptr inbounds nuw i8, ptr %1373, i64 1
   store i8 %1421, ptr %1422, align 1, !tbaa !40, !alias.scope !41, !noalias !44
   %1423 = fmul reassoc nsz arcp contract afn float %1404, %1377
   %1424 = fsub reassoc nsz arcp contract afn float %1404, %1423
@@ -2001,7 +2001,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %1497 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %1496, float 0.000000e+00)
   %1498 = tail call reassoc nsz arcp contract afn float @llvm.minnum.f32(float %1497, float 2.550000e+02)
   %1499 = fptoui float %1498 to i8
-  %1500 = getelementptr inbounds i8, ptr %1460, i64 2
+  %1500 = getelementptr inbounds nuw i8, ptr %1460, i64 2
   store i8 %1499, ptr %1500, align 1, !tbaa !40, !alias.scope !99, !noalias !102
   %1501 = fsub reassoc nsz arcp contract afn float 1.000000e+00, %1482
   %1502 = fmul reassoc nsz arcp contract afn float %1501, %1464
@@ -2011,7 +2011,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %1506 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %1505, float 0.000000e+00)
   %1507 = tail call reassoc nsz arcp contract afn float @llvm.minnum.f32(float %1506, float 2.550000e+02)
   %1508 = fptoui float %1507 to i8
-  %1509 = getelementptr inbounds i8, ptr %1460, i64 1
+  %1509 = getelementptr inbounds nuw i8, ptr %1460, i64 1
   store i8 %1508, ptr %1509, align 1, !tbaa !40, !alias.scope !99, !noalias !102
   %1510 = fmul reassoc nsz arcp contract afn float %1491, %1464
   %1511 = fsub reassoc nsz arcp contract afn float %1491, %1510
@@ -2175,7 +2175,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %1647 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %1646, float 0.000000e+00)
   %1648 = tail call reassoc nsz arcp contract afn float @llvm.minnum.f32(float %1647, float 2.550000e+02)
   %1649 = fptoui float %1648 to i8
-  %1650 = getelementptr inbounds i8, ptr %1610, i64 2
+  %1650 = getelementptr inbounds nuw i8, ptr %1610, i64 2
   store i8 %1649, ptr %1650, align 1, !tbaa !40, !alias.scope !105, !noalias !108
   %1651 = fsub reassoc nsz arcp contract afn float 1.000000e+00, %1632
   %1652 = fmul reassoc nsz arcp contract afn float %1651, %1614
@@ -2185,7 +2185,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %1656 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %1655, float 0.000000e+00)
   %1657 = tail call reassoc nsz arcp contract afn float @llvm.minnum.f32(float %1656, float 2.550000e+02)
   %1658 = fptoui float %1657 to i8
-  %1659 = getelementptr inbounds i8, ptr %1610, i64 1
+  %1659 = getelementptr inbounds nuw i8, ptr %1610, i64 1
   store i8 %1658, ptr %1659, align 1, !tbaa !40, !alias.scope !105, !noalias !108
   %1660 = fmul reassoc nsz arcp contract afn float %1641, %1614
   %1661 = fsub reassoc nsz arcp contract afn float %1641, %1660
@@ -2258,14 +2258,14 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %1717 = tail call reassoc nsz arcp contract afn <8 x float> @llvm.maxnum.v8f32(<8 x float> %1716, <8 x float> zeroinitializer)
   %1718 = tail call reassoc nsz arcp contract afn <8 x float> @llvm.minnum.v8f32(<8 x float> %1717, <8 x float> splat (float 2.550000e+02))
   %1719 = fptoui <8 x float> %1718 to <8 x i8>
-  %1720 = getelementptr inbounds i8, ptr %1694, i64 2
-  %1721 = getelementptr inbounds i8, ptr %1695, i64 2
-  %1722 = getelementptr inbounds i8, ptr %1696, i64 2
-  %1723 = getelementptr inbounds i8, ptr %1697, i64 2
-  %1724 = getelementptr inbounds i8, ptr %1698, i64 2
-  %1725 = getelementptr inbounds i8, ptr %1699, i64 2
-  %1726 = getelementptr inbounds i8, ptr %1700, i64 2
-  %1727 = getelementptr inbounds i8, ptr %1701, i64 2
+  %1720 = getelementptr inbounds nuw i8, ptr %1694, i64 2
+  %1721 = getelementptr inbounds nuw i8, ptr %1695, i64 2
+  %1722 = getelementptr inbounds nuw i8, ptr %1696, i64 2
+  %1723 = getelementptr inbounds nuw i8, ptr %1697, i64 2
+  %1724 = getelementptr inbounds nuw i8, ptr %1698, i64 2
+  %1725 = getelementptr inbounds nuw i8, ptr %1699, i64 2
+  %1726 = getelementptr inbounds nuw i8, ptr %1700, i64 2
+  %1727 = getelementptr inbounds nuw i8, ptr %1701, i64 2
   %1728 = extractelement <8 x i8> %1719, i64 0
   store i8 %1728, ptr %1720, align 1, !tbaa !40, !alias.scope !118, !noalias !121
   %1729 = extractelement <8 x i8> %1719, i64 1
@@ -2282,14 +2282,14 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   store i8 %1734, ptr %1726, align 1, !tbaa !40, !alias.scope !118, !noalias !121
   %1735 = extractelement <8 x i8> %1719, i64 7
   store i8 %1735, ptr %1727, align 1, !tbaa !40, !alias.scope !118, !noalias !121
-  %1736 = getelementptr inbounds i8, ptr %1694, i64 1
-  %1737 = getelementptr inbounds i8, ptr %1695, i64 1
-  %1738 = getelementptr inbounds i8, ptr %1696, i64 1
-  %1739 = getelementptr inbounds i8, ptr %1697, i64 1
-  %1740 = getelementptr inbounds i8, ptr %1698, i64 1
-  %1741 = getelementptr inbounds i8, ptr %1699, i64 1
-  %1742 = getelementptr inbounds i8, ptr %1700, i64 1
-  %1743 = getelementptr inbounds i8, ptr %1701, i64 1
+  %1736 = getelementptr inbounds nuw i8, ptr %1694, i64 1
+  %1737 = getelementptr inbounds nuw i8, ptr %1695, i64 1
+  %1738 = getelementptr inbounds nuw i8, ptr %1696, i64 1
+  %1739 = getelementptr inbounds nuw i8, ptr %1697, i64 1
+  %1740 = getelementptr inbounds nuw i8, ptr %1698, i64 1
+  %1741 = getelementptr inbounds nuw i8, ptr %1699, i64 1
+  %1742 = getelementptr inbounds nuw i8, ptr %1700, i64 1
+  %1743 = getelementptr inbounds nuw i8, ptr %1701, i64 1
   store i8 %1728, ptr %1736, align 1, !tbaa !40, !alias.scope !118, !noalias !121
   store i8 %1729, ptr %1737, align 1, !tbaa !40, !alias.scope !118, !noalias !121
   store i8 %1730, ptr %1738, align 1, !tbaa !40, !alias.scope !118, !noalias !121
@@ -2368,9 +2368,9 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %1789 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %1788, float 0.000000e+00)
   %1790 = tail call reassoc nsz arcp contract afn float @llvm.minnum.f32(float %1789, float 2.550000e+02)
   %1791 = fptoui float %1790 to i8
-  %1792 = getelementptr inbounds i8, ptr %1770, i64 2
+  %1792 = getelementptr inbounds nuw i8, ptr %1770, i64 2
   store i8 %1791, ptr %1792, align 1, !tbaa !40, !alias.scope !118, !noalias !121
-  %1793 = getelementptr inbounds i8, ptr %1770, i64 1
+  %1793 = getelementptr inbounds nuw i8, ptr %1770, i64 1
   store i8 %1791, ptr %1793, align 1, !tbaa !40, !alias.scope !118, !noalias !121
   %1794 = fmul reassoc nsz arcp contract afn float %1783, %1774
   %1795 = fsub reassoc nsz arcp contract afn float %1783, %1794
@@ -2443,14 +2443,14 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %1851 = tail call reassoc nsz arcp contract afn <8 x float> @llvm.maxnum.v8f32(<8 x float> %1850, <8 x float> zeroinitializer)
   %1852 = tail call reassoc nsz arcp contract afn <8 x float> @llvm.minnum.v8f32(<8 x float> %1851, <8 x float> splat (float 2.550000e+02))
   %1853 = fptoui <8 x float> %1852 to <8 x i8>
-  %1854 = getelementptr inbounds i8, ptr %1828, i64 2
-  %1855 = getelementptr inbounds i8, ptr %1829, i64 2
-  %1856 = getelementptr inbounds i8, ptr %1830, i64 2
-  %1857 = getelementptr inbounds i8, ptr %1831, i64 2
-  %1858 = getelementptr inbounds i8, ptr %1832, i64 2
-  %1859 = getelementptr inbounds i8, ptr %1833, i64 2
-  %1860 = getelementptr inbounds i8, ptr %1834, i64 2
-  %1861 = getelementptr inbounds i8, ptr %1835, i64 2
+  %1854 = getelementptr inbounds nuw i8, ptr %1828, i64 2
+  %1855 = getelementptr inbounds nuw i8, ptr %1829, i64 2
+  %1856 = getelementptr inbounds nuw i8, ptr %1830, i64 2
+  %1857 = getelementptr inbounds nuw i8, ptr %1831, i64 2
+  %1858 = getelementptr inbounds nuw i8, ptr %1832, i64 2
+  %1859 = getelementptr inbounds nuw i8, ptr %1833, i64 2
+  %1860 = getelementptr inbounds nuw i8, ptr %1834, i64 2
+  %1861 = getelementptr inbounds nuw i8, ptr %1835, i64 2
   %1862 = extractelement <8 x i8> %1853, i64 0
   store i8 %1862, ptr %1854, align 1, !tbaa !40, !alias.scope !131, !noalias !134
   %1863 = extractelement <8 x i8> %1853, i64 1
@@ -2467,14 +2467,14 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   store i8 %1868, ptr %1860, align 1, !tbaa !40, !alias.scope !131, !noalias !134
   %1869 = extractelement <8 x i8> %1853, i64 7
   store i8 %1869, ptr %1861, align 1, !tbaa !40, !alias.scope !131, !noalias !134
-  %1870 = getelementptr inbounds i8, ptr %1828, i64 1
-  %1871 = getelementptr inbounds i8, ptr %1829, i64 1
-  %1872 = getelementptr inbounds i8, ptr %1830, i64 1
-  %1873 = getelementptr inbounds i8, ptr %1831, i64 1
-  %1874 = getelementptr inbounds i8, ptr %1832, i64 1
-  %1875 = getelementptr inbounds i8, ptr %1833, i64 1
-  %1876 = getelementptr inbounds i8, ptr %1834, i64 1
-  %1877 = getelementptr inbounds i8, ptr %1835, i64 1
+  %1870 = getelementptr inbounds nuw i8, ptr %1828, i64 1
+  %1871 = getelementptr inbounds nuw i8, ptr %1829, i64 1
+  %1872 = getelementptr inbounds nuw i8, ptr %1830, i64 1
+  %1873 = getelementptr inbounds nuw i8, ptr %1831, i64 1
+  %1874 = getelementptr inbounds nuw i8, ptr %1832, i64 1
+  %1875 = getelementptr inbounds nuw i8, ptr %1833, i64 1
+  %1876 = getelementptr inbounds nuw i8, ptr %1834, i64 1
+  %1877 = getelementptr inbounds nuw i8, ptr %1835, i64 1
   store i8 %1862, ptr %1870, align 1, !tbaa !40, !alias.scope !131, !noalias !134
   store i8 %1863, ptr %1871, align 1, !tbaa !40, !alias.scope !131, !noalias !134
   store i8 %1864, ptr %1872, align 1, !tbaa !40, !alias.scope !131, !noalias !134
@@ -2553,9 +2553,9 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %1923 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %1922, float 0.000000e+00)
   %1924 = tail call reassoc nsz arcp contract afn float @llvm.minnum.f32(float %1923, float 2.550000e+02)
   %1925 = fptoui float %1924 to i8
-  %1926 = getelementptr inbounds i8, ptr %1904, i64 2
+  %1926 = getelementptr inbounds nuw i8, ptr %1904, i64 2
   store i8 %1925, ptr %1926, align 1, !tbaa !40, !alias.scope !131, !noalias !134
-  %1927 = getelementptr inbounds i8, ptr %1904, i64 1
+  %1927 = getelementptr inbounds nuw i8, ptr %1904, i64 1
   store i8 %1925, ptr %1927, align 1, !tbaa !40, !alias.scope !131, !noalias !134
   %1928 = fmul reassoc nsz arcp contract afn float %1917, %1908
   %1929 = fsub reassoc nsz arcp contract afn float %1917, %1928
@@ -2646,14 +2646,14 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %2001 = tail call reassoc nsz arcp contract afn <8 x float> @llvm.maxnum.v8f32(<8 x float> %2000, <8 x float> zeroinitializer)
   %2002 = tail call reassoc nsz arcp contract afn <8 x float> @llvm.minnum.v8f32(<8 x float> %2001, <8 x float> splat (float 2.550000e+02))
   %2003 = fptoui <8 x float> %2002 to <8 x i8>
-  %2004 = getelementptr inbounds i8, ptr %1982, i64 2
-  %2005 = getelementptr inbounds i8, ptr %1983, i64 2
-  %2006 = getelementptr inbounds i8, ptr %1984, i64 2
-  %2007 = getelementptr inbounds i8, ptr %1985, i64 2
-  %2008 = getelementptr inbounds i8, ptr %1986, i64 2
-  %2009 = getelementptr inbounds i8, ptr %1987, i64 2
-  %2010 = getelementptr inbounds i8, ptr %1988, i64 2
-  %2011 = getelementptr inbounds i8, ptr %1989, i64 2
+  %2004 = getelementptr inbounds nuw i8, ptr %1982, i64 2
+  %2005 = getelementptr inbounds nuw i8, ptr %1983, i64 2
+  %2006 = getelementptr inbounds nuw i8, ptr %1984, i64 2
+  %2007 = getelementptr inbounds nuw i8, ptr %1985, i64 2
+  %2008 = getelementptr inbounds nuw i8, ptr %1986, i64 2
+  %2009 = getelementptr inbounds nuw i8, ptr %1987, i64 2
+  %2010 = getelementptr inbounds nuw i8, ptr %1988, i64 2
+  %2011 = getelementptr inbounds nuw i8, ptr %1989, i64 2
   %2012 = extractelement <8 x i8> %2003, i64 0
   store i8 %2012, ptr %2004, align 1, !tbaa !40, !alias.scope !145, !noalias !148
   %2013 = extractelement <8 x i8> %2003, i64 1
@@ -2670,14 +2670,14 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   store i8 %2018, ptr %2010, align 1, !tbaa !40, !alias.scope !145, !noalias !148
   %2019 = extractelement <8 x i8> %2003, i64 7
   store i8 %2019, ptr %2011, align 1, !tbaa !40, !alias.scope !145, !noalias !148
-  %2020 = getelementptr inbounds i8, ptr %1982, i64 1
-  %2021 = getelementptr inbounds i8, ptr %1983, i64 1
-  %2022 = getelementptr inbounds i8, ptr %1984, i64 1
-  %2023 = getelementptr inbounds i8, ptr %1985, i64 1
-  %2024 = getelementptr inbounds i8, ptr %1986, i64 1
-  %2025 = getelementptr inbounds i8, ptr %1987, i64 1
-  %2026 = getelementptr inbounds i8, ptr %1988, i64 1
-  %2027 = getelementptr inbounds i8, ptr %1989, i64 1
+  %2020 = getelementptr inbounds nuw i8, ptr %1982, i64 1
+  %2021 = getelementptr inbounds nuw i8, ptr %1983, i64 1
+  %2022 = getelementptr inbounds nuw i8, ptr %1984, i64 1
+  %2023 = getelementptr inbounds nuw i8, ptr %1985, i64 1
+  %2024 = getelementptr inbounds nuw i8, ptr %1986, i64 1
+  %2025 = getelementptr inbounds nuw i8, ptr %1987, i64 1
+  %2026 = getelementptr inbounds nuw i8, ptr %1988, i64 1
+  %2027 = getelementptr inbounds nuw i8, ptr %1989, i64 1
   store i8 %2012, ptr %2020, align 1, !tbaa !40, !alias.scope !145, !noalias !148
   store i8 %2013, ptr %2021, align 1, !tbaa !40, !alias.scope !145, !noalias !148
   store i8 %2014, ptr %2022, align 1, !tbaa !40, !alias.scope !145, !noalias !148
@@ -2777,9 +2777,9 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %2088 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %2087, float 0.000000e+00)
   %2089 = tail call reassoc nsz arcp contract afn float @llvm.minnum.f32(float %2088, float 2.550000e+02)
   %2090 = fptoui float %2089 to i8
-  %2091 = getelementptr inbounds i8, ptr %2073, i64 2
+  %2091 = getelementptr inbounds nuw i8, ptr %2073, i64 2
   store i8 %2090, ptr %2091, align 1, !tbaa !40, !alias.scope !145, !noalias !148
-  %2092 = getelementptr inbounds i8, ptr %2073, i64 1
+  %2092 = getelementptr inbounds nuw i8, ptr %2073, i64 1
   store i8 %2090, ptr %2092, align 1, !tbaa !40, !alias.scope !145, !noalias !148
   %2093 = fmul reassoc nsz arcp contract afn float %2082, %2071
   %2094 = fsub reassoc nsz arcp contract afn float %2082, %2093
@@ -2992,18 +2992,18 @@ declare i32 @dt_conf_is_equal(ptr noundef, ptr noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write, inaccessiblemem: readwrite) uwtable
 define void @init(ptr nocapture noundef writeonly initializes((492, 496), (676, 700), (704, 712)) %0) local_unnamed_addr #4 {
   %2 = tail call noalias dereferenceable_or_null(8) ptr @calloc(i64 noundef 1, i64 noundef 8) #14
-  %3 = getelementptr inbounds i8, ptr %0, i64 680
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 680
   store ptr %2, ptr %3, align 8, !tbaa !160
   %4 = tail call noalias dereferenceable_or_null(8) ptr @calloc(i64 noundef 1, i64 noundef 8) #14
-  %5 = getelementptr inbounds i8, ptr %0, i64 688
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 688
   store ptr %4, ptr %5, align 16, !tbaa !165
-  %6 = getelementptr inbounds i8, ptr %0, i64 696
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 696
   store i32 8, ptr %6, align 8, !tbaa !166
-  %7 = getelementptr inbounds i8, ptr %0, i64 704
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 704
   store ptr null, ptr %7, align 16, !tbaa !167
-  %8 = getelementptr inbounds i8, ptr %0, i64 492
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 492
   store i32 1, ptr %8, align 4, !tbaa !168
-  %9 = getelementptr inbounds i8, ptr %0, i64 676
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 676
   store i32 1, ptr %9, align 4, !tbaa !169
   ret void
 }
@@ -3051,7 +3051,7 @@ define ptr @get_p(ptr noundef readnone %0, ptr nocapture noundef readonly %1) lo
 5:                                                ; preds = %2
   %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(7) @.str.4) #15
   %7 = icmp eq i32 %6, 0
-  %8 = getelementptr inbounds i8, ptr %0, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %9 = select i1 %7, ptr %8, ptr null
   br label %10
 

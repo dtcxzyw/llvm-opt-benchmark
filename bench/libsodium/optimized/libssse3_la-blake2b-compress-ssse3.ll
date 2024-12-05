@@ -44,9 +44,9 @@ entry:
   %18 = load <2 x i64>, ptr %arrayidx23, align 1
   %arrayidx26 = getelementptr i8, ptr %S, i64 48
   %19 = load <2 x i64>, ptr %arrayidx26, align 1
-  %t = getelementptr inbounds i8, ptr %S, i64 64
+  %t = getelementptr inbounds nuw i8, ptr %S, i64 64
   %20 = load <2 x i64>, ptr %t, align 1
-  %f = getelementptr inbounds i8, ptr %S, i64 80
+  %f = getelementptr inbounds nuw i8, ptr %S, i64 80
   %21 = load <2 x i64>, ptr %f, align 1
   %vecinit.i2274 = insertelement <2 x i64> <i64 poison, i64 undef>, i64 %0, i64 0
   %vecinit1.i2275 = insertelement <2 x i64> %vecinit.i2274, i64 %2, i64 1

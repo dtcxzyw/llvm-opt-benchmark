@@ -28,9 +28,9 @@ entry:
   %10 = load <2 x i64>, ptr %arrayidx22, align 1
   %arrayidx25 = getelementptr i8, ptr %S, i64 48
   %11 = load <2 x i64>, ptr %arrayidx25, align 1
-  %t = getelementptr inbounds i8, ptr %S, i64 64
+  %t = getelementptr inbounds nuw i8, ptr %S, i64 64
   %12 = load <2 x i64>, ptr %t, align 1
-  %f = getelementptr inbounds i8, ptr %S, i64 80
+  %f = getelementptr inbounds nuw i8, ptr %S, i64 80
   %13 = load <2 x i64>, ptr %f, align 1
   %shuffle.i1993 = shufflevector <2 x i64> %0, <2 x i64> %1, <2 x i32> <i32 0, i32 2>
   %shuffle.i1990 = shufflevector <2 x i64> %2, <2 x i64> %3, <2 x i32> <i32 0, i32 2>

@@ -28,7 +28,7 @@ $__clang_call_terminate = comdat any
 define void @_ZN6icu_758EraRulesC2ERNS_11LocalMemoryIiEEi(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 12)) %this, ptr nocapture noundef nonnull align 8 dereferenceable(8) %eraStartDates, i32 noundef %numEras) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr null, ptr %this, align 8
-  %numEras2 = getelementptr inbounds i8, ptr %this, i64 8
+  %numEras2 = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %numEras, ptr %numEras2, align 8
   invoke void @uprv_free_75(ptr noundef null)
           to label %_ZN6icu_7511LocalMemoryIiEaSEOS1_.exit unwind label %terminate.lpad.i
@@ -77,11 +77,11 @@ entry:
 
 if.then:                                          ; preds = %entry
   %vtable = load ptr, ptr %call2, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 48
   %0 = load ptr, ptr %vfn, align 8
   call void %0(ptr noundef nonnull align 8 dereferenceable(72) %call2, double noundef %call, i8 noundef signext 0, ptr noundef nonnull align 4 dereferenceable(4) %rawOffset, ptr noundef nonnull align 4 dereferenceable(4) %dstOffset, ptr noundef nonnull align 4 dereferenceable(4) %ec)
   %vtable3 = load ptr, ptr %call2, align 8
-  %vfn4 = getelementptr inbounds i8, ptr %vtable3, i64 8
+  %vfn4 = getelementptr inbounds nuw i8, ptr %vtable3, i64 8
   %1 = load ptr, ptr %vfn4, align 8
   call void %1(ptr noundef nonnull align 8 dereferenceable(72) %call2) #14
   %2 = load i32, ptr %rawOffset, align 4
@@ -102,7 +102,7 @@ if.end:                                           ; preds = %if.then, %entry
   %shl1.i = add i32 %add6, 256
   %or.i = or i32 %6, %shl.i
   %or2.i = or i32 %or.i, %shl1.i
-  %numEras = getelementptr inbounds i8, ptr %this, i64 8
+  %numEras = getelementptr inbounds nuw i8, ptr %this, i64 8
   %7 = load i32, ptr %numEras, align 8
   %8 = load ptr, ptr %this, align 8
   %9 = zext i32 %7 to i64
@@ -119,7 +119,7 @@ while.cond:                                       ; preds = %while.body, %if.end
 while.body:                                       ; preds = %while.cond
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %conv9 = and i64 %indvars.iv.next, 4294967295
-  %arrayidx.i = getelementptr inbounds i32, ptr %8, i64 %conv9
+  %arrayidx.i = getelementptr inbounds nuw i32, ptr %8, i64 %conv9
   %12 = load i32, ptr %arrayidx.i, align 4
   %cmp11.not = icmp slt i32 %or2.i, %12
   br i1 %cmp11.not, label %while.cond, label %while.end.split.loop.exit, !llvm.loop !4
@@ -130,7 +130,7 @@ while.end.split.loop.exit:                        ; preds = %while.body
 
 while.end:                                        ; preds = %while.cond, %while.end.split.loop.exit
   %eraIdx.0.lcssa = phi i32 [ %indvars.le, %while.end.split.loop.exit ], [ %10, %while.cond ]
-  %currentEra = getelementptr inbounds i8, ptr %this, i64 12
+  %currentEra = getelementptr inbounds nuw i8, ptr %this, i64 12
   store i32 %eraIdx.0.lcssa, ptr %currentEra, align 4
   ret void
 }
@@ -294,13 +294,13 @@ if.then68:                                        ; preds = %if.end65
 
 if.end69:                                         ; preds = %if.end65
   %conv70 = and i64 %call61, 2147483647
-  %arrayidx.i = getelementptr inbounds i32, ptr %call29, i64 %conv70
+  %arrayidx.i = getelementptr inbounds nuw i32, ptr %call29, i64 %conv70
   %6 = load i32, ptr %arrayidx.i, align 4
   %cmp.i61.not = icmp eq i32 %6, 0
   br i1 %cmp.i61.not, label %while.cond78.preheader, label %if.then76
 
 while.cond78.preheader:                           ; preds = %if.end69
-  %arrayidx.i68 = getelementptr inbounds i32, ptr %call29, i64 %conv70
+  %arrayidx.i68 = getelementptr inbounds nuw i32, ptr %call29, i64 %conv70
   br label %while.cond78
 
 if.then76:                                        ; preds = %if.end69
@@ -357,9 +357,9 @@ if.end111:                                        ; preds = %invoke.cont105
 
 lor.lhs.false113:                                 ; preds = %if.end111
   %11 = load i32, ptr %call106, align 4
-  %arrayidx114 = getelementptr inbounds i8, ptr %call106, i64 4
+  %arrayidx114 = getelementptr inbounds nuw i8, ptr %call106, i64 4
   %12 = load i32, ptr %arrayidx114, align 4
-  %arrayidx115 = getelementptr inbounds i8, ptr %call106, i64 8
+  %arrayidx115 = getelementptr inbounds nuw i8, ptr %call106, i64 8
   %13 = load i32, ptr %arrayidx115, align 4
   %14 = add i32 %11, -32768
   %or.cond.i = icmp ult i32 %14, -65536
@@ -424,7 +424,7 @@ _ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit: ; preds = %cleanup, %if.then.i
   br i1 %cond1, label %while.cond78, label %cleanup180, !llvm.loop !6
 
 while.end:                                        ; preds = %invoke.cont81
-  %arrayidx.i69 = getelementptr inbounds i32, ptr %call29, i64 %conv70
+  %arrayidx.i69 = getelementptr inbounds nuw i32, ptr %call29, i64 %conv70
   %22 = load i32, ptr %arrayidx.i69, align 4
   %cmp.i70.not = icmp eq i32 %22, 0
   br i1 %cmp.i70.not, label %if.then160, label %if.end169
@@ -642,7 +642,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %cmp = icmp sgt i32 %eraIdx, -1
-  %numEras = getelementptr inbounds i8, ptr %this, i64 8
+  %numEras = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i32, ptr %numEras, align 8
   %cmp2.not = icmp slt i32 %eraIdx, %1
   %or.cond = select i1 %cmp, i1 %cmp2.not, i1 false
@@ -655,7 +655,7 @@ if.then3:                                         ; preds = %if.end
 if.end4:                                          ; preds = %if.end
   %conv = zext nneg i32 %eraIdx to i64
   %2 = load ptr, ptr %this, align 8
-  %arrayidx.i = getelementptr inbounds i32, ptr %2, i64 %conv
+  %arrayidx.i = getelementptr inbounds nuw i32, ptr %2, i64 %conv
   %3 = load i32, ptr %arrayidx.i, align 4
   %cmp.i4 = icmp eq i32 %3, -2147483391
   %shr.i = ashr i32 %3, 16
@@ -664,9 +664,9 @@ if.end4:                                          ; preds = %if.end
   %and7.i = and i32 %3, 255
   %shr.sink.i = select i1 %cmp.i4, i32 -1, i32 %shr.i
   store i32 %shr.sink.i, ptr %fields, align 4
-  %4 = getelementptr inbounds i8, ptr %fields, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %fields, i64 4
   store i32 %shr5.i, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %fields, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %fields, i64 8
   store i32 %and7.i, ptr %5, align 4
   br label %return
 
@@ -683,7 +683,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %cmp = icmp sgt i32 %eraIdx, -1
-  %numEras = getelementptr inbounds i8, ptr %this, i64 8
+  %numEras = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i32, ptr %numEras, align 8
   %cmp2.not = icmp slt i32 %eraIdx, %1
   %or.cond = select i1 %cmp, i1 %cmp2.not, i1 false
@@ -696,7 +696,7 @@ if.then3:                                         ; preds = %if.end
 if.end4:                                          ; preds = %if.end
   %conv = zext nneg i32 %eraIdx to i64
   %2 = load ptr, ptr %this, align 8
-  %arrayidx.i = getelementptr inbounds i32, ptr %2, i64 %conv
+  %arrayidx.i = getelementptr inbounds nuw i32, ptr %2, i64 %conv
   %3 = load i32, ptr %arrayidx.i, align 4
   %cmp.i6 = icmp eq i32 %3, -2147483391
   %shr.i = ashr i32 %3, 16
@@ -728,9 +728,9 @@ if.then7:                                         ; preds = %if.end
   br label %return
 
 if.end8:                                          ; preds = %if.end
-  %numEras = getelementptr inbounds i8, ptr %this, i64 8
+  %numEras = getelementptr inbounds nuw i8, ptr %this, i64 8
   %4 = load i32, ptr %numEras, align 8
-  %currentEra.i = getelementptr inbounds i8, ptr %this, i64 12
+  %currentEra.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %5 = load i32, ptr %currentEra.i, align 4
   %conv = sext i32 %5 to i64
   %6 = load ptr, ptr %this, align 8

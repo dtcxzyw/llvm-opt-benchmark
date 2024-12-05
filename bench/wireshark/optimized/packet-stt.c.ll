@@ -307,7 +307,7 @@ define internal range(i32 0, 2) i32 @dissect_stt_heur(ptr noundef %0, ptr nounde
 
 ws_ip_protocol.exit:                              ; preds = %11, %13
   %.sink = phi i64 [ 12, %13 ], [ 13, %11 ]
-  %14 = getelementptr inbounds i8, ptr %3, i64 %.sink
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink
   %.0.i.in = load i8, ptr %14, align 1
   %.not = icmp eq i8 %.0.i.in, 6
   br i1 %.not, label %15, label %ws_ip_protocol.exit.thread
@@ -323,7 +323,7 @@ ws_ip_protocol.exit:                              ; preds = %11, %13
   br i1 %.not6, label %20, label %ws_ip_protocol.exit.thread
 
 20:                                               ; preds = %18
-  %21 = getelementptr inbounds i8, ptr %1, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %22 = load ptr, ptr %21, align 8
   tail call void @col_set_str(ptr noundef %22, i32 noundef 34, ptr noundef nonnull @.str.113) #4
   %23 = load ptr, ptr %21, align 8
@@ -368,7 +368,7 @@ ws_ip_protocol.exit:                              ; preds = %11, %13
   %55 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %54, ptr noundef %0, i32 noundef 14, i32 noundef 2, i32 noundef 0) #4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
-  %56 = getelementptr inbounds i8, ptr %1, i64 272
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %57 = load i32, ptr %56, align 8
   %.not.i.i.i = icmp eq i32 %57, 0
   br i1 %.not.i.i.i, label %58, label %.thread.i.i.i
@@ -383,21 +383,21 @@ ws_ip_protocol.exit:                              ; preds = %11, %13
   br i1 %or.cond.i.i.i, label %64, label %.thread.i.i.i
 
 64:                                               ; preds = %58
-  %65 = getelementptr inbounds i8, ptr %1, i64 208
-  %66 = getelementptr inbounds i8, ptr %1, i64 216
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 208
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 216
   %67 = load ptr, ptr %66, align 8
   store ptr %67, ptr %9, align 16
-  %68 = getelementptr inbounds i8, ptr %1, i64 212
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 212
   %69 = load i32, ptr %68, align 4
-  %70 = getelementptr inbounds i8, ptr %9, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 %69, ptr %70, align 8
-  %71 = getelementptr inbounds i8, ptr %1, i64 240
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 240
   %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds i8, ptr %9, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %72, ptr %73, align 16
-  %74 = getelementptr inbounds i8, ptr %1, i64 236
+  %74 = getelementptr inbounds nuw i8, ptr %1, i64 236
   %75 = load i32, ptr %74, align 4
-  %76 = getelementptr inbounds i8, ptr %9, i64 24
+  %76 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i32 %75, ptr %76, align 8
   %77 = load i32, ptr %65, align 8
   switch i32 %77, label %109 [
@@ -439,7 +439,7 @@ ws_ip_protocol.exit:                              ; preds = %11, %13
   %106 = lshr i32 %105, 24
   %107 = or disjoint i32 %104, %106
   store i32 %107, ptr %10, align 4
-  %108 = getelementptr inbounds i8, ptr %10, i64 4
+  %108 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store i32 100663296, ptr %108, align 4
   br label %110
 
@@ -449,13 +449,13 @@ ws_ip_protocol.exit:                              ; preds = %11, %13
 
 110:                                              ; preds = %94, %78
   %.sink.i.i.i = phi i32 [ 4, %78 ], [ 8, %94 ]
-  %111 = getelementptr inbounds i8, ptr %9, i64 32
+  %111 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store ptr %10, ptr %111, align 16
-  %112 = getelementptr inbounds i8, ptr %9, i64 40
+  %112 = getelementptr inbounds nuw i8, ptr %9, i64 40
   store i32 %.sink.i.i.i, ptr %112, align 8
   %113 = call i32 @tvb_reported_length(ptr noundef %0) #4
-  %114 = getelementptr inbounds i8, ptr %9, i64 48
-  %115 = getelementptr inbounds i8, ptr %9, i64 56
+  %114 = getelementptr inbounds nuw i8, ptr %9, i64 48
+  %115 = getelementptr inbounds nuw i8, ptr %9, i64 56
   store i32 %113, ptr %115, align 8
   %116 = call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef 0, i32 noundef %113) #4
   store ptr %116, ptr %114, align 16
@@ -620,13 +620,13 @@ handle_segment.exit.i:                            ; preds = %140
   br i1 %or.cond67.i.i, label %.thread.i.thread, label %205
 
 205:                                              ; preds = %202
-  %206 = getelementptr inbounds i8, ptr %185, i64 32
+  %206 = getelementptr inbounds nuw i8, ptr %185, i64 32
   %207 = load ptr, ptr %206, align 8
   %.not5.i.i.i = icmp eq ptr %207, null
   br i1 %.not5.i.i.i, label %.thread.i.thread, label %208
 
 208:                                              ; preds = %205
-  %209 = getelementptr inbounds i8, ptr %207, i64 28
+  %209 = getelementptr inbounds nuw i8, ptr %207, i64 28
   %210 = load i32, ptr %209, align 4
   %211 = or i32 %210, 1
   store i32 %211, ptr %209, align 4

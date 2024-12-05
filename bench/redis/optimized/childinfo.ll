@@ -94,7 +94,7 @@ entry:
   br i1 %cmp, label %if.end41, label %if.end
 
 if.end:                                           ; preds = %entry
-  %1 = getelementptr inbounds i8, ptr %data, i64 32
+  %1 = getelementptr inbounds nuw i8, ptr %data, i64 32
   store i64 0, ptr %1, align 8
   %2 = load ptr, ptr @getMonotonicUs, align 8
   %call = tail call i64 %2() #7
@@ -158,15 +158,15 @@ if.end20:                                         ; preds = %do.body
 
 if.end26:                                         ; preds = %if.end10, %do.body, %if.end20, %lor.lhs.false2
   %12 = phi i64 [ %call6, %if.end10 ], [ %call6, %do.body ], [ %.pre, %if.end20 ], [ %3, %lor.lhs.false2 ]
-  %information_type = getelementptr inbounds i8, ptr %data, i64 32
+  %information_type = getelementptr inbounds nuw i8, ptr %data, i64 32
   store i32 %info_type, ptr %information_type, align 8
   store i64 %keys, ptr %data, align 8
   %13 = load i64, ptr @sendChildInfoGeneric.cow, align 8
-  %cow = getelementptr inbounds i8, ptr %data, i64 8
+  %cow = getelementptr inbounds nuw i8, ptr %data, i64 8
   store i64 %13, ptr %cow, align 8
-  %cow_updated = getelementptr inbounds i8, ptr %data, i64 16
+  %cow_updated = getelementptr inbounds nuw i8, ptr %data, i64 16
   store i64 %12, ptr %cow_updated, align 8
-  %progress28 = getelementptr inbounds i8, ptr %data, i64 24
+  %progress28 = getelementptr inbounds nuw i8, ptr %data, i64 24
   store double %progress, ptr %progress28, align 8
   %14 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 4272), align 8
   %call29 = call i64 @write(i32 noundef %14, ptr noundef nonnull %data, i64 noundef 40) #7

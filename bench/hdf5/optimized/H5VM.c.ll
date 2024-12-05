@@ -13,13 +13,13 @@ target triple = "x86_64-pc-linux-gnu"
 define i64 @H5VM_hyper_stride(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef readonly %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #0 {
   %6 = add i32 %0, -1
   %7 = zext i32 %6 to i64
-  %8 = getelementptr inbounds i64, ptr %4, i64 %7
+  %8 = getelementptr inbounds nuw i64, ptr %4, i64 %7
   store i64 1, ptr %8, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %12, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i64, ptr %3, i64 %7
+  %10 = getelementptr inbounds nuw i64, ptr %3, i64 %7
   %11 = load i64, ptr %10, align 8
   br label %12
 
@@ -32,9 +32,9 @@ define i64 @H5VM_hyper_stride(i32 noundef %0, ptr nocapture noundef readonly %1,
   ]
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %2, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %16 = load i64, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load i64, ptr %17, align 8
   %19 = sub i64 %16, %18
   store i64 %19, ptr %4, align 8
@@ -52,20 +52,20 @@ define i64 @H5VM_hyper_stride(i32 noundef %0, ptr nocapture noundef readonly %1,
   br label %.loopexit
 
 27:                                               ; preds = %12
-  %28 = getelementptr inbounds i8, ptr %2, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %29 = load i64, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %1, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %31 = load i64, ptr %30, align 8
   %32 = sub i64 %29, %31
-  %33 = getelementptr inbounds i8, ptr %4, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %32, ptr %33, align 8
   %34 = load i64, ptr %28, align 8
   br i1 %.not, label %.thread, label %41
 
 .thread:                                          ; preds = %27
-  %35 = getelementptr inbounds i8, ptr %2, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %36 = load i64, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %1, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %38 = load i64, ptr %37, align 8
   %39 = sub i64 %36, %38
   %40 = mul i64 %39, %34
@@ -73,11 +73,11 @@ define i64 @H5VM_hyper_stride(i32 noundef %0, ptr nocapture noundef readonly %1,
   br label %51
 
 41:                                               ; preds = %27
-  %42 = getelementptr inbounds i8, ptr %3, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %43 = load i64, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %2, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %45 = load i64, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %1, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %47 = load i64, ptr %46, align 8
   %48 = sub i64 %45, %47
   %49 = mul i64 %48, %34
@@ -97,40 +97,40 @@ define i64 @H5VM_hyper_stride(i32 noundef %0, ptr nocapture noundef readonly %1,
   br label %.loopexit
 
 57:                                               ; preds = %12
-  %58 = getelementptr inbounds i8, ptr %2, i64 24
+  %58 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %59 = load i64, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %1, i64 24
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %61 = load i64, ptr %60, align 8
   %62 = sub i64 %59, %61
-  %63 = getelementptr inbounds i8, ptr %4, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 %62, ptr %63, align 8
   %64 = load i64, ptr %58, align 8
   br i1 %.not, label %68, label %65
 
 65:                                               ; preds = %57
-  %66 = getelementptr inbounds i8, ptr %3, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %67 = load i64, ptr %66, align 8
   br label %68
 
 68:                                               ; preds = %57, %65
   %69 = phi i64 [ %67, %65 ], [ 0, %57 ]
   %70 = mul i64 %69, %64
-  %71 = getelementptr inbounds i8, ptr %2, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %72 = load i64, ptr %71, align 8
-  %73 = getelementptr inbounds i8, ptr %1, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %74 = load i64, ptr %73, align 8
   %75 = sub i64 %72, %74
   %76 = mul i64 %75, %64
-  %77 = getelementptr inbounds i8, ptr %4, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %76, ptr %77, align 8
   %78 = load i64, ptr %71, align 8
   %79 = mul i64 %78, %64
   br i1 %.not, label %.thread93, label %86
 
 .thread93:                                        ; preds = %68
-  %80 = getelementptr inbounds i8, ptr %2, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %81 = load i64, ptr %80, align 8
-  %82 = getelementptr inbounds i8, ptr %1, i64 8
+  %82 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %83 = load i64, ptr %82, align 8
   %84 = sub i64 %81, %83
   %85 = mul i64 %84, %79
@@ -138,11 +138,11 @@ define i64 @H5VM_hyper_stride(i32 noundef %0, ptr nocapture noundef readonly %1,
   br label %96
 
 86:                                               ; preds = %68
-  %87 = getelementptr inbounds i8, ptr %3, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %88 = load i64, ptr %87, align 8
-  %89 = getelementptr inbounds i8, ptr %2, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %90 = load i64, ptr %89, align 8
-  %91 = getelementptr inbounds i8, ptr %1, i64 8
+  %91 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %92 = load i64, ptr %91, align 8
   %93 = sub i64 %90, %92
   %94 = mul i64 %93, %79
@@ -175,13 +175,13 @@ define i64 @H5VM_hyper_stride(i32 noundef %0, ptr nocapture noundef readonly %1,
   %indvars.iv90 = phi i64 [ %indvars.iv.next91, %.lr.ph.split.us ], [ %106, %.lr.ph ]
   %.08085.us = phi i64 [ %116, %.lr.ph.split.us ], [ 1, %.lr.ph ]
   %107 = add nuw nsw i64 %indvars.iv90, 1
-  %108 = getelementptr inbounds i64, ptr %2, i64 %107
+  %108 = getelementptr inbounds nuw i64, ptr %2, i64 %107
   %109 = load i64, ptr %108, align 8
-  %110 = getelementptr inbounds i64, ptr %1, i64 %107
+  %110 = getelementptr inbounds nuw i64, ptr %1, i64 %107
   %111 = load i64, ptr %110, align 8
   %112 = sub i64 %109, %111
   %113 = mul i64 %112, %.08085.us
-  %114 = getelementptr inbounds i64, ptr %4, i64 %indvars.iv90
+  %114 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv90
   store i64 %113, ptr %114, align 8
   %115 = load i64, ptr %108, align 8
   %116 = mul i64 %115, %.08085.us
@@ -194,17 +194,17 @@ define i64 @H5VM_hyper_stride(i32 noundef %0, ptr nocapture noundef readonly %1,
   %.187 = phi i64 [ %130, %.lr.ph.split ], [ %13, %.lr.ph ]
   %.08085 = phi i64 [ %126, %.lr.ph.split ], [ 1, %.lr.ph ]
   %117 = add nuw nsw i64 %indvars.iv, 1
-  %118 = getelementptr inbounds i64, ptr %2, i64 %117
+  %118 = getelementptr inbounds nuw i64, ptr %2, i64 %117
   %119 = load i64, ptr %118, align 8
-  %120 = getelementptr inbounds i64, ptr %1, i64 %117
+  %120 = getelementptr inbounds nuw i64, ptr %1, i64 %117
   %121 = load i64, ptr %120, align 8
   %122 = sub i64 %119, %121
   %123 = mul i64 %122, %.08085
-  %124 = getelementptr inbounds i64, ptr %4, i64 %indvars.iv
+  %124 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv
   store i64 %123, ptr %124, align 8
   %125 = load i64, ptr %118, align 8
   %126 = mul i64 %125, %.08085
-  %127 = getelementptr inbounds i64, ptr %3, i64 %indvars.iv
+  %127 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv
   %128 = load i64, ptr %127, align 8
   %129 = mul i64 %128, %126
   %130 = add i64 %129, %.187
@@ -245,7 +245,7 @@ define range(i32 0, 2) i32 @H5VM_hyper_eq(i32 noundef %0, ptr noundef readonly %
   br i1 %exitcond81.not, label %.loopexit, label %.preheader.split.us
 
 8:                                                ; preds = %.preheader.split.us
-  %9 = getelementptr inbounds i64, ptr %3, i64 %indvars.iv77
+  %9 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv77
   %10 = load i64, ptr %9, align 8
   %11 = icmp eq i64 %10, 0
   br i1 %11, label %.thread, label %.loopexit
@@ -254,7 +254,7 @@ define range(i32 0, 2) i32 @H5VM_hyper_eq(i32 noundef %0, ptr noundef readonly %
   br i1 %.not37, label %15, label %12
 
 12:                                               ; preds = %.thread
-  %13 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv77
+  %13 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv77
   %14 = load i64, ptr %13, align 8
   br label %15
 
@@ -263,7 +263,7 @@ define range(i32 0, 2) i32 @H5VM_hyper_eq(i32 noundef %0, ptr noundef readonly %
   br i1 %.not38, label %20, label %17
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds i64, ptr %4, i64 %indvars.iv77
+  %18 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv77
   %19 = load i64, ptr %18, align 8
   br label %20
 
@@ -276,7 +276,7 @@ define range(i32 0, 2) i32 @H5VM_hyper_eq(i32 noundef %0, ptr noundef readonly %
   br i1 %.not37, label %26, label %23
 
 23:                                               ; preds = %22
-  %24 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv77
+  %24 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv77
   %25 = load i64, ptr %24, align 8
   br label %26
 
@@ -290,7 +290,7 @@ define range(i32 0, 2) i32 @H5VM_hyper_eq(i32 noundef %0, ptr noundef readonly %
   br i1 %.not38, label %34, label %31
 
 31:                                               ; preds = %30
-  %32 = getelementptr inbounds i64, ptr %4, i64 %indvars.iv77
+  %32 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv77
   %33 = load i64, ptr %32, align 8
   br label %34
 
@@ -311,7 +311,7 @@ define range(i32 0, 2) i32 @H5VM_hyper_eq(i32 noundef %0, ptr noundef readonly %
   %indvars.iv72 = phi i64 [ 0, %.preheader.split.split.us.preheader ], [ %indvars.iv.next73, %40 ]
   %.02541.us44 = phi i64 [ 1, %.preheader.split.split.us.preheader ], [ %66, %40 ]
   %.02640.us45 = phi i64 [ 1, %.preheader.split.split.us.preheader ], [ %58, %40 ]
-  %38 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv72
+  %38 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv72
   %39 = load i64, ptr %38, align 8
   %.not36.us46 = icmp eq i64 %39, 0
   br i1 %.not36.us46, label %41, label %.loopexit
@@ -325,7 +325,7 @@ define range(i32 0, 2) i32 @H5VM_hyper_eq(i32 noundef %0, ptr noundef readonly %
   br i1 %.not37, label %45, label %42
 
 42:                                               ; preds = %41
-  %43 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv72
+  %43 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv72
   %44 = load i64, ptr %43, align 8
   br label %45
 
@@ -334,7 +334,7 @@ define range(i32 0, 2) i32 @H5VM_hyper_eq(i32 noundef %0, ptr noundef readonly %
   br i1 %.not38, label %50, label %47
 
 47:                                               ; preds = %45
-  %48 = getelementptr inbounds i64, ptr %4, i64 %indvars.iv72
+  %48 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv72
   %49 = load i64, ptr %48, align 8
   br label %50
 
@@ -347,7 +347,7 @@ define range(i32 0, 2) i32 @H5VM_hyper_eq(i32 noundef %0, ptr noundef readonly %
   br i1 %.not37, label %56, label %53
 
 53:                                               ; preds = %52
-  %54 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv72
+  %54 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv72
   %55 = load i64, ptr %54, align 8
   br label %56
 
@@ -361,7 +361,7 @@ define range(i32 0, 2) i32 @H5VM_hyper_eq(i32 noundef %0, ptr noundef readonly %
   br i1 %.not38, label %64, label %61
 
 61:                                               ; preds = %60
-  %62 = getelementptr inbounds i64, ptr %4, i64 %indvars.iv72
+  %62 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv72
   %63 = load i64, ptr %62, align 8
   br label %64
 
@@ -388,17 +388,17 @@ define range(i32 0, 2) i32 @H5VM_hyper_eq(i32 noundef %0, ptr noundef readonly %
   %indvars.iv = phi i64 [ 0, %.preheader.split.split.split.split.preheader ], [ %indvars.iv.next, %68 ]
   %.02541 = phi i64 [ 1, %.preheader.split.split.split.split.preheader ], [ %82, %68 ]
   %.02640 = phi i64 [ 1, %.preheader.split.split.split.split.preheader ], [ %79, %68 ]
-  %69 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
   %70 = load i64, ptr %69, align 8
-  %71 = getelementptr inbounds i64, ptr %3, i64 %indvars.iv
+  %71 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv
   %72 = load i64, ptr %71, align 8
   %.not36 = icmp eq i64 %70, %72
   br i1 %.not36, label %73, label %.loopexit
 
 73:                                               ; preds = %.preheader.split.split.split.split
-  %74 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv
+  %74 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv
   %75 = load i64, ptr %74, align 8
-  %76 = getelementptr inbounds i64, ptr %4, i64 %indvars.iv
+  %76 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv
   %77 = load i64, ptr %76, align 8
   %.not39 = icmp eq i64 %75, %77
   br i1 %.not39, label %78, label %.loopexit
@@ -444,7 +444,7 @@ define noundef i32 @H5VM_hyper_fill(i32 noundef %0, ptr noundef readonly %1, ptr
 .lr.ph.i.preheader:                               ; preds = %14
   %16 = add i32 %0, -1
   %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds i64, ptr %9, i64 %17
+  %18 = getelementptr inbounds nuw i64, ptr %9, i64 %17
   %19 = load i64, ptr %18, align 8
   %20 = icmp eq i64 %19, 1
   br i1 %20, label %.lr.ph.preheader, label %H5VM__stride_optimize1.exit
@@ -457,7 +457,7 @@ define noundef i32 @H5VM_hyper_fill(i32 noundef %0, ptr noundef readonly %1, ptr
   %indvars.iv = phi i64 [ %21, %.lr.ph.preheader ], [ %27, %.lr.ph.i ]
   %22 = phi i64 [ 1, %.lr.ph.preheader ], [ %26, %.lr.ph.i ]
   %23 = phi i64 [ %17, %.lr.ph.preheader ], [ %34, %.lr.ph.i ]
-  %24 = getelementptr inbounds i64, ptr %8, i64 %23
+  %24 = getelementptr inbounds nuw i64, ptr %8, i64 %23
   %25 = load i64, ptr %24, align 8
   %26 = mul i64 %25, %22
   %27 = add nsw i64 %indvars.iv, -1
@@ -465,14 +465,14 @@ define noundef i32 @H5VM_hyper_fill(i32 noundef %0, ptr noundef readonly %1, ptr
   br i1 %.not20.i.wide, label %.lr.ph46.thread.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph
-  %28 = getelementptr inbounds i64, ptr %8, i64 %27
+  %28 = getelementptr inbounds nuw i64, ptr %8, i64 %27
   %29 = load i64, ptr %28, align 8
-  %30 = getelementptr inbounds i64, ptr %9, i64 %27
+  %30 = getelementptr inbounds nuw i64, ptr %9, i64 %27
   %31 = load i64, ptr %30, align 8
   %32 = mul i64 %31, %29
   %33 = add i64 %indvars.iv, 4294967294
   %34 = and i64 %33, 4294967295
-  %35 = getelementptr inbounds i64, ptr %9, i64 %34
+  %35 = getelementptr inbounds nuw i64, ptr %9, i64 %34
   %36 = load i64, ptr %35, align 8
   %37 = add i64 %36, %32
   store i64 %37, ptr %35, align 8
@@ -506,7 +506,7 @@ H5VM__stride_optimize1.exit:                      ; preds = %H5VM__stride_optimi
   %.0610.i.i = phi ptr [ %45, %.lr.ph.i.i ], [ %8, %H5VM__stride_optimize1.exit ]
   %.079.i.i = phi i32 [ %44, %.lr.ph.i.i ], [ %.017.lcssa, %H5VM__stride_optimize1.exit ]
   %44 = add i32 %.079.i.i, -1
-  %45 = getelementptr inbounds i8, ptr %.0610.i.i, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %.0610.i.i, i64 8
   %46 = load i64, ptr %.0610.i.i, align 8
   %47 = mul i64 %46, %.111.i.i
   %.not.i.i = icmp eq i32 %44, 0
@@ -543,10 +543,10 @@ H5VM_vector_reduce_product.exit.i:                ; preds = %.lr.ph.i.i
 54:                                               ; preds = %61, %.lr.ph.us.i
   %indvars.iv.i = phi i64 [ %53, %.lr.ph.us.i ], [ %indvars.iv.next.i, %61 ]
   %.12641.us.i = phi ptr [ %.02544.us.i, %.lr.ph.us.i ], [ %57, %61 ]
-  %55 = getelementptr inbounds i64, ptr %9, i64 %indvars.iv.i
+  %55 = getelementptr inbounds nuw i64, ptr %9, i64 %indvars.iv.i
   %56 = load i64, ptr %55, align 8
   %57 = getelementptr inbounds i8, ptr %.12641.us.i, i64 %56
-  %58 = getelementptr inbounds [33 x i64], ptr %7, i64 0, i64 %indvars.iv.i
+  %58 = getelementptr inbounds nuw [33 x i64], ptr %7, i64 0, i64 %indvars.iv.i
   %59 = load i64, ptr %58, align 8
   %60 = add i64 %59, -1
   store i64 %60, ptr %58, align 8
@@ -554,7 +554,7 @@ H5VM_vector_reduce_product.exit.i:                ; preds = %.lr.ph.i.i
   br i1 %.not30.us.i, label %61, label %._crit_edge.us.i
 
 61:                                               ; preds = %54
-  %62 = getelementptr inbounds i64, ptr %8, i64 %indvars.iv.i
+  %62 = getelementptr inbounds nuw i64, ptr %8, i64 %indvars.iv.i
   %63 = load i64, ptr %62, align 8
   store i64 %63, ptr %58, align 8
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
@@ -606,7 +606,7 @@ define noundef i32 @H5VM_stride_fill(i32 noundef %0, i64 noundef %1, ptr noundef
   %.0610.i = phi ptr [ %13, %.lr.ph.i ], [ %2, %.split28 ]
   %.079.i = phi i32 [ %12, %.lr.ph.i ], [ %0, %.split28 ]
   %12 = add i32 %.079.i, -1
-  %13 = getelementptr inbounds i8, ptr %.0610.i, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %.0610.i, i64 8
   %14 = load i64, ptr %.0610.i, align 8
   %15 = mul i64 %14, %.111.i
   %.not.i = icmp eq i32 %12, 0
@@ -646,10 +646,10 @@ H5VM_vector_reduce_product.exit:                  ; preds = %.lr.ph.i, %.split
 20:                                               ; preds = %.lr.ph.us, %27
   %indvars.iv = phi i64 [ %19, %.lr.ph.us ], [ %indvars.iv.next, %27 ]
   %.12641.us = phi ptr [ %.02544.us, %.lr.ph.us ], [ %23, %27 ]
-  %21 = getelementptr inbounds i64, ptr %3, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv
   %22 = load i64, ptr %21, align 8
   %23 = getelementptr inbounds i8, ptr %.12641.us, i64 %22
-  %24 = getelementptr inbounds [33 x i64], ptr %7, i64 0, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [33 x i64], ptr %7, i64 0, i64 %indvars.iv
   %25 = load i64, ptr %24, align 8
   %26 = add i64 %25, -1
   store i64 %26, ptr %24, align 8
@@ -657,7 +657,7 @@ H5VM_vector_reduce_product.exit:                  ; preds = %.lr.ph.i, %.split
   br i1 %.not30.us, label %27, label %._crit_edge.us
 
 27:                                               ; preds = %20
-  %28 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv
   %29 = load i64, ptr %28, align 8
   store i64 %29, ptr %24, align 8
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
@@ -702,15 +702,15 @@ define noundef i32 @H5VM_hyper_copy(i32 noundef %0, ptr noundef readonly %1, ptr
 17:                                               ; preds = %15, %16
   %18 = add i32 %0, -1
   %19 = zext i32 %18 to i64
-  %20 = getelementptr inbounds [33 x i64], ptr %12, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw [33 x i64], ptr %12, i64 0, i64 %19
   store i64 1, ptr %20, align 8
-  %21 = getelementptr inbounds [33 x i64], ptr %11, i64 0, i64 %19
+  %21 = getelementptr inbounds nuw [33 x i64], ptr %11, i64 0, i64 %19
   store i64 1, ptr %21, align 8
   %.not140 = icmp eq ptr %3, null
   br i1 %.not140, label %25, label %22
 
 22:                                               ; preds = %17
-  %23 = getelementptr inbounds i64, ptr %3, i64 %19
+  %23 = getelementptr inbounds nuw i64, ptr %3, i64 %19
   %24 = load i64, ptr %23, align 8
   br label %25
 
@@ -720,7 +720,7 @@ define noundef i32 @H5VM_hyper_copy(i32 noundef %0, ptr noundef readonly %1, ptr
   br i1 %.not141, label %30, label %27
 
 27:                                               ; preds = %25
-  %28 = getelementptr inbounds i64, ptr %6, i64 %19
+  %28 = getelementptr inbounds nuw i64, ptr %6, i64 %19
   %29 = load i64, ptr %28, align 8
   br label %30
 
@@ -733,13 +733,13 @@ define noundef i32 @H5VM_hyper_copy(i32 noundef %0, ptr noundef readonly %1, ptr
   ]
 
 32:                                               ; preds = %30
-  %33 = getelementptr inbounds i8, ptr %2, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %34 = load i64, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %10, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %36 = load i64, ptr %35, align 8
   %37 = sub i64 %34, %36
   store i64 %37, ptr %12, align 16
-  %38 = getelementptr inbounds i8, ptr %5, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %39 = load i64, ptr %38, align 8
   %40 = sub i64 %39, %36
   store i64 %40, ptr %11, align 16
@@ -766,22 +766,22 @@ define noundef i32 @H5VM_hyper_copy(i32 noundef %0, ptr noundef readonly %1, ptr
   br label %205
 
 52:                                               ; preds = %30
-  %53 = getelementptr inbounds i8, ptr %2, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %54 = load i64, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %10, i64 16
+  %55 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %56 = load i64, ptr %55, align 16
   %57 = sub i64 %54, %56
-  %58 = getelementptr inbounds i8, ptr %12, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i64 %57, ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %5, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %60 = load i64, ptr %59, align 8
   %61 = sub i64 %60, %56
-  %62 = getelementptr inbounds i8, ptr %11, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 %61, ptr %62, align 8
   br i1 %.not140, label %66, label %63
 
 63:                                               ; preds = %52
-  %64 = getelementptr inbounds i8, ptr %3, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %65 = load i64, ptr %64, align 8
   br label %66
 
@@ -790,20 +790,20 @@ define noundef i32 @H5VM_hyper_copy(i32 noundef %0, ptr noundef readonly %1, ptr
   br i1 %.not141, label %71, label %68
 
 68:                                               ; preds = %66
-  %69 = getelementptr inbounds i8, ptr %6, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %70 = load i64, ptr %69, align 8
   br label %71
 
 71:                                               ; preds = %66, %68
   %72 = phi i64 [ %70, %68 ], [ 0, %66 ]
-  %73 = getelementptr inbounds i8, ptr %2, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %74 = load i64, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %10, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %76 = load i64, ptr %75, align 8
   %77 = sub i64 %74, %76
   %78 = mul i64 %77, %54
   store i64 %78, ptr %12, align 16
-  %79 = getelementptr inbounds i8, ptr %5, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %80 = load i64, ptr %79, align 8
   %81 = sub i64 %80, %76
   %82 = mul i64 %81, %60
@@ -835,22 +835,22 @@ define noundef i32 @H5VM_hyper_copy(i32 noundef %0, ptr noundef readonly %1, ptr
   br label %221
 
 94:                                               ; preds = %30
-  %95 = getelementptr inbounds i8, ptr %2, i64 24
+  %95 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %96 = load i64, ptr %95, align 8
-  %97 = getelementptr inbounds i8, ptr %10, i64 24
+  %97 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %98 = load i64, ptr %97, align 8
   %99 = sub i64 %96, %98
-  %100 = getelementptr inbounds i8, ptr %12, i64 16
+  %100 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i64 %99, ptr %100, align 16
-  %101 = getelementptr inbounds i8, ptr %5, i64 24
+  %101 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %102 = load i64, ptr %101, align 8
   %103 = sub i64 %102, %98
-  %104 = getelementptr inbounds i8, ptr %11, i64 16
+  %104 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i64 %103, ptr %104, align 16
   br i1 %.not140, label %108, label %105
 
 105:                                              ; preds = %94
-  %106 = getelementptr inbounds i8, ptr %3, i64 16
+  %106 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %107 = load i64, ptr %106, align 8
   br label %108
 
@@ -860,33 +860,33 @@ define noundef i32 @H5VM_hyper_copy(i32 noundef %0, ptr noundef readonly %1, ptr
   br i1 %.not141, label %114, label %111
 
 111:                                              ; preds = %108
-  %112 = getelementptr inbounds i8, ptr %6, i64 16
+  %112 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %113 = load i64, ptr %112, align 8
   br label %114
 
 114:                                              ; preds = %108, %111
   %115 = phi i64 [ %113, %111 ], [ 0, %108 ]
   %116 = mul i64 %115, %102
-  %117 = getelementptr inbounds i8, ptr %2, i64 16
+  %117 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %118 = load i64, ptr %117, align 8
-  %119 = getelementptr inbounds i8, ptr %10, i64 16
+  %119 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %120 = load i64, ptr %119, align 16
   %121 = sub i64 %118, %120
   %122 = mul i64 %121, %96
-  %123 = getelementptr inbounds i8, ptr %12, i64 8
+  %123 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i64 %122, ptr %123, align 8
-  %124 = getelementptr inbounds i8, ptr %5, i64 16
+  %124 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %125 = load i64, ptr %124, align 8
   %126 = sub i64 %125, %120
   %127 = mul i64 %126, %102
-  %128 = getelementptr inbounds i8, ptr %11, i64 8
+  %128 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 %127, ptr %128, align 8
   %129 = mul i64 %118, %96
   %130 = mul i64 %125, %102
   br i1 %.not140, label %134, label %131
 
 131:                                              ; preds = %114
-  %132 = getelementptr inbounds i8, ptr %3, i64 8
+  %132 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %133 = load i64, ptr %132, align 8
   br label %134
 
@@ -895,20 +895,20 @@ define noundef i32 @H5VM_hyper_copy(i32 noundef %0, ptr noundef readonly %1, ptr
   br i1 %.not141, label %139, label %136
 
 136:                                              ; preds = %134
-  %137 = getelementptr inbounds i8, ptr %6, i64 8
+  %137 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %138 = load i64, ptr %137, align 8
   br label %139
 
 139:                                              ; preds = %134, %136
   %140 = phi i64 [ %138, %136 ], [ 0, %134 ]
-  %141 = getelementptr inbounds i8, ptr %2, i64 8
+  %141 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %142 = load i64, ptr %141, align 8
-  %143 = getelementptr inbounds i8, ptr %10, i64 8
+  %143 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %144 = load i64, ptr %143, align 8
   %145 = sub i64 %142, %144
   %146 = mul i64 %145, %129
   store i64 %146, ptr %12, align 16
-  %147 = getelementptr inbounds i8, ptr %5, i64 8
+  %147 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %148 = load i64, ptr %147, align 8
   %149 = sub i64 %148, %144
   %150 = mul i64 %149, %130
@@ -957,26 +957,26 @@ define noundef i32 @H5VM_hyper_copy(i32 noundef %0, ptr noundef readonly %1, ptr
   %.1216 = phi i64 [ %26, %.lr.ph.preheader ], [ %189, %193 ]
   %.1128215 = phi i64 [ %31, %.lr.ph.preheader ], [ %196, %193 ]
   %168 = add nuw nsw i64 %indvars.iv, 1
-  %169 = getelementptr inbounds i64, ptr %2, i64 %168
+  %169 = getelementptr inbounds nuw i64, ptr %2, i64 %168
   %170 = load i64, ptr %169, align 8
-  %171 = getelementptr inbounds [33 x i64], ptr %10, i64 0, i64 %168
+  %171 = getelementptr inbounds nuw [33 x i64], ptr %10, i64 0, i64 %168
   %172 = load i64, ptr %171, align 8
   %173 = sub i64 %170, %172
   %174 = mul i64 %173, %.0125217
-  %175 = getelementptr inbounds [33 x i64], ptr %12, i64 0, i64 %indvars.iv
+  %175 = getelementptr inbounds nuw [33 x i64], ptr %12, i64 0, i64 %indvars.iv
   store i64 %174, ptr %175, align 8
-  %176 = getelementptr inbounds i64, ptr %5, i64 %168
+  %176 = getelementptr inbounds nuw i64, ptr %5, i64 %168
   %177 = load i64, ptr %176, align 8
   %178 = sub i64 %177, %172
   %179 = mul i64 %178, %.0124218
-  %180 = getelementptr inbounds [33 x i64], ptr %11, i64 0, i64 %indvars.iv
+  %180 = getelementptr inbounds nuw [33 x i64], ptr %11, i64 0, i64 %indvars.iv
   store i64 %179, ptr %180, align 8
   %181 = mul i64 %170, %.0125217
   %182 = mul i64 %177, %.0124218
   br i1 %.not140, label %186, label %183
 
 183:                                              ; preds = %.lr.ph
-  %184 = getelementptr inbounds i64, ptr %3, i64 %indvars.iv
+  %184 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv
   %185 = load i64, ptr %184, align 8
   br label %186
 
@@ -987,7 +987,7 @@ define noundef i32 @H5VM_hyper_copy(i32 noundef %0, ptr noundef readonly %1, ptr
   br i1 %.not141, label %193, label %190
 
 190:                                              ; preds = %186
-  %191 = getelementptr inbounds i64, ptr %6, i64 %indvars.iv
+  %191 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv
   %192 = load i64, ptr %191, align 8
   br label %193
 
@@ -1030,17 +1030,17 @@ define noundef i32 @H5VM_hyper_copy(i32 noundef %0, ptr noundef readonly %1, ptr
 205:                                              ; preds = %.thread, %._crit_edge
   %.0126183 = phi i64 [ %46, %.thread ], [ %.1.lcssa, %._crit_edge ]
   %.0127180 = phi i64 [ %51, %.thread ], [ %.1128.lcssa, %._crit_edge ]
-  %206 = getelementptr inbounds i8, ptr %12, i64 8
+  %206 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %207 = load i64, ptr %206, align 8
   %208 = icmp eq i64 %207, 1
-  %209 = getelementptr inbounds i8, ptr %11, i64 8
+  %209 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %210 = load i64, ptr %209, align 8
   %211 = icmp eq i64 %210, 1
   %or.cond243 = select i1 %208, i1 %211, i1 false
   br i1 %or.cond243, label %212, label %.loopexit
 
 212:                                              ; preds = %205
-  %213 = getelementptr inbounds i8, ptr %10, i64 8
+  %213 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %214 = load i64, ptr %213, align 8
   %215 = load i64, ptr %12, align 16
   %216 = add i64 %215, %214
@@ -1056,23 +1056,23 @@ define noundef i32 @H5VM_hyper_copy(i32 noundef %0, ptr noundef readonly %1, ptr
 221:                                              ; preds = %.thread184, %._crit_edge
   %.0126188 = phi i64 [ %88, %.thread184 ], [ %.1.lcssa, %._crit_edge ]
   %.0127187 = phi i64 [ %93, %.thread184 ], [ %.1128.lcssa, %._crit_edge ]
-  %222 = getelementptr inbounds i8, ptr %12, i64 16
+  %222 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %223 = load i64, ptr %222, align 16
   %224 = icmp eq i64 %223, 1
-  %225 = getelementptr inbounds i8, ptr %11, i64 16
+  %225 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %226 = load i64, ptr %225, align 16
   %227 = icmp eq i64 %226, 1
   %or.cond246 = select i1 %224, i1 %227, i1 false
   br i1 %or.cond246, label %228, label %.loopexit
 
 228:                                              ; preds = %221
-  %229 = getelementptr inbounds i8, ptr %10, i64 16
+  %229 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %230 = load i64, ptr %229, align 16
-  %231 = getelementptr inbounds i8, ptr %12, i64 8
+  %231 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %232 = load i64, ptr %231, align 8
   %233 = add i64 %232, %230
   store i64 %233, ptr %231, align 8
-  %234 = getelementptr inbounds i8, ptr %11, i64 8
+  %234 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %235 = load i64, ptr %234, align 8
   %236 = add i64 %235, %230
   store i64 %236, ptr %234, align 8
@@ -1082,7 +1082,7 @@ define noundef i32 @H5VM_hyper_copy(i32 noundef %0, ptr noundef readonly %1, ptr
   br i1 %or.cond143.i, label %239, label %.loopexit
 
 239:                                              ; preds = %228
-  %240 = getelementptr inbounds i8, ptr %10, i64 8
+  %240 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %241 = load i64, ptr %240, align 8
   %242 = mul i64 %241, %230
   %243 = mul i64 %241, %233
@@ -1100,23 +1100,23 @@ define noundef i32 @H5VM_hyper_copy(i32 noundef %0, ptr noundef readonly %1, ptr
 250:                                              ; preds = %.thread189, %._crit_edge
   %.0126193 = phi i64 [ %157, %.thread189 ], [ %.1.lcssa, %._crit_edge ]
   %.0127192 = phi i64 [ %163, %.thread189 ], [ %.1128.lcssa, %._crit_edge ]
-  %251 = getelementptr inbounds i8, ptr %12, i64 24
+  %251 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %252 = load i64, ptr %251, align 8
   %253 = icmp eq i64 %252, 1
-  %254 = getelementptr inbounds i8, ptr %11, i64 24
+  %254 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %255 = load i64, ptr %254, align 8
   %256 = icmp eq i64 %255, 1
   %or.cond249 = select i1 %253, i1 %256, i1 false
   br i1 %or.cond249, label %257, label %.loopexit
 
 257:                                              ; preds = %250
-  %258 = getelementptr inbounds i8, ptr %10, i64 24
+  %258 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %259 = load i64, ptr %258, align 8
-  %260 = getelementptr inbounds i8, ptr %12, i64 16
+  %260 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %261 = load i64, ptr %260, align 16
   %262 = add i64 %261, %259
   store i64 %262, ptr %260, align 16
-  %263 = getelementptr inbounds i8, ptr %11, i64 16
+  %263 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %264 = load i64, ptr %263, align 16
   %265 = add i64 %264, %259
   store i64 %265, ptr %263, align 16
@@ -1126,15 +1126,15 @@ define noundef i32 @H5VM_hyper_copy(i32 noundef %0, ptr noundef readonly %1, ptr
   br i1 %or.cond145.i, label %268, label %.loopexit
 
 268:                                              ; preds = %257
-  %269 = getelementptr inbounds i8, ptr %10, i64 16
+  %269 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %270 = load i64, ptr %269, align 16
   %271 = mul i64 %270, %259
   %272 = mul i64 %270, %262
-  %273 = getelementptr inbounds i8, ptr %12, i64 8
+  %273 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %274 = load i64, ptr %273, align 8
   %275 = add i64 %274, %272
   store i64 %275, ptr %273, align 8
-  %276 = getelementptr inbounds i8, ptr %11, i64 8
+  %276 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %277 = load i64, ptr %276, align 8
   %278 = add i64 %277, %271
   store i64 %278, ptr %276, align 8
@@ -1144,7 +1144,7 @@ define noundef i32 @H5VM_hyper_copy(i32 noundef %0, ptr noundef readonly %1, ptr
   br i1 %or.cond146.i, label %281, label %.loopexit
 
 281:                                              ; preds = %268
-  %282 = getelementptr inbounds i8, ptr %10, i64 8
+  %282 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %283 = load i64, ptr %282, align 8
   %284 = mul i64 %283, %278
   %285 = mul i64 %283, %271
@@ -1168,7 +1168,7 @@ define noundef i32 @H5VM_hyper_copy(i32 noundef %0, ptr noundef readonly %1, ptr
   br i1 %295, label %296, label %.loopexit
 
 296:                                              ; preds = %.lr.ph223
-  %297 = getelementptr inbounds i64, ptr %10, i64 %294
+  %297 = getelementptr inbounds nuw i64, ptr %10, i64 %294
   %298 = load i64, ptr %297, align 8
   %299 = mul i64 %298, %292
   %300 = add i32 %.1175221, -1
@@ -1177,19 +1177,19 @@ define noundef i32 @H5VM_hyper_copy(i32 noundef %0, ptr noundef readonly %1, ptr
 
 .lr.ph.i:                                         ; preds = %296
   %301 = zext i32 %300 to i64
-  %302 = getelementptr inbounds i64, ptr %10, i64 %301
+  %302 = getelementptr inbounds nuw i64, ptr %10, i64 %301
   %303 = load i64, ptr %302, align 8
-  %304 = getelementptr inbounds i64, ptr %12, i64 %301
+  %304 = getelementptr inbounds nuw i64, ptr %12, i64 %301
   %305 = load i64, ptr %304, align 8
   %306 = mul i64 %305, %303
   %307 = add i32 %.1175221, -2
   %308 = zext i32 %307 to i64
-  %309 = getelementptr inbounds i64, ptr %12, i64 %308
+  %309 = getelementptr inbounds nuw i64, ptr %12, i64 %308
   %310 = load i64, ptr %309, align 8
   %311 = add i64 %310, %306
   store i64 %311, ptr %309, align 8
   %312 = mul i64 %292, %303
-  %313 = getelementptr inbounds i64, ptr %11, i64 %308
+  %313 = getelementptr inbounds nuw i64, ptr %11, i64 %308
   %314 = load i64, ptr %313, align 8
   %315 = add i64 %314, %312
   store i64 %315, ptr %313, align 8
@@ -1221,7 +1221,7 @@ define noundef i32 @H5VM_hyper_copy(i32 noundef %0, ptr noundef readonly %1, ptr
   %.0610.i.i = phi ptr [ %323, %.lr.ph.i.i ], [ %10, %.loopexit ]
   %.079.i.i = phi i32 [ %322, %.lr.ph.i.i ], [ %.2.ph, %.loopexit ]
   %322 = add i32 %.079.i.i, -1
-  %323 = getelementptr inbounds i8, ptr %.0610.i.i, i64 8
+  %323 = getelementptr inbounds nuw i8, ptr %.0610.i.i, i64 8
   %324 = load i64, ptr %.0610.i.i, align 8
   %325 = mul i64 %324, %.111.i.i
   %.not.i.i = icmp eq i32 %322, 0
@@ -1252,13 +1252,13 @@ H5VM_vector_reduce_product.exit.i:                ; preds = %.lr.ph.i.i
   %indvars.iv.i = phi i64 [ %328, %.lr.ph.us.i ], [ %indvars.iv.next.i, %339 ]
   %.13454.us.i = phi ptr [ %.03359.us.i, %.lr.ph.us.i ], [ %335, %339 ]
   %.13653.us.i = phi ptr [ %.03558.us.i, %.lr.ph.us.i ], [ %332, %339 ]
-  %330 = getelementptr inbounds i64, ptr %11, i64 %indvars.iv.i
+  %330 = getelementptr inbounds nuw i64, ptr %11, i64 %indvars.iv.i
   %331 = load i64, ptr %330, align 8
   %332 = getelementptr inbounds i8, ptr %.13653.us.i, i64 %331
-  %333 = getelementptr inbounds i64, ptr %12, i64 %indvars.iv.i
+  %333 = getelementptr inbounds nuw i64, ptr %12, i64 %indvars.iv.i
   %334 = load i64, ptr %333, align 8
   %335 = getelementptr inbounds i8, ptr %.13454.us.i, i64 %334
-  %336 = getelementptr inbounds [33 x i64], ptr %9, i64 0, i64 %indvars.iv.i
+  %336 = getelementptr inbounds nuw [33 x i64], ptr %9, i64 0, i64 %indvars.iv.i
   %337 = load i64, ptr %336, align 8
   %338 = add i64 %337, -1
   store i64 %338, ptr %336, align 8
@@ -1266,7 +1266,7 @@ H5VM_vector_reduce_product.exit.i:                ; preds = %.lr.ph.i.i
   br i1 %.not42.us.i, label %339, label %._crit_edge.us.i
 
 339:                                              ; preds = %329
-  %340 = getelementptr inbounds i64, ptr %10, i64 %indvars.iv.i
+  %340 = getelementptr inbounds nuw i64, ptr %10, i64 %indvars.iv.i
   %341 = load i64, ptr %340, align 8
   store i64 %341, ptr %336, align 8
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
@@ -1321,7 +1321,7 @@ define noundef i32 @H5VM_stride_copy(i32 noundef %0, i64 noundef %1, ptr noundef
   %.0610.i = phi ptr [ %13, %.lr.ph.i ], [ %2, %.split38 ]
   %.079.i = phi i32 [ %12, %.lr.ph.i ], [ %0, %.split38 ]
   %12 = add i32 %.079.i, -1
-  %13 = getelementptr inbounds i8, ptr %.0610.i, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %.0610.i, i64 8
   %14 = load i64, ptr %.0610.i, align 8
   %15 = mul i64 %14, %.111.i
   %.not.i = icmp eq i32 %12, 0
@@ -1351,13 +1351,13 @@ H5VM_vector_reduce_product.exit:                  ; preds = %.lr.ph.i
   %indvars.iv = phi i64 [ %17, %.lr.ph.us ], [ %indvars.iv.next, %28 ]
   %.13454.us = phi ptr [ %.03359.us, %.lr.ph.us ], [ %24, %28 ]
   %.13653.us = phi ptr [ %.03558.us, %.lr.ph.us ], [ %21, %28 ]
-  %19 = getelementptr inbounds i64, ptr %5, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv
   %20 = load i64, ptr %19, align 8
   %21 = getelementptr inbounds i8, ptr %.13653.us, i64 %20
-  %22 = getelementptr inbounds i64, ptr %3, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv
   %23 = load i64, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %.13454.us, i64 %23
-  %25 = getelementptr inbounds [33 x i64], ptr %8, i64 0, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [33 x i64], ptr %8, i64 0, i64 %indvars.iv
   %26 = load i64, ptr %25, align 8
   %27 = add i64 %26, -1
   store i64 %27, ptr %25, align 8
@@ -1365,7 +1365,7 @@ H5VM_vector_reduce_product.exit:                  ; preds = %.lr.ph.i
   br i1 %.not42.us, label %28, label %._crit_edge.us
 
 28:                                               ; preds = %18
-  %29 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv
   %30 = load i64, ptr %29, align 8
   store i64 %30, ptr %25, align 8
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
@@ -1413,7 +1413,7 @@ define noundef i32 @H5VM_stride_copy_s(i32 noundef %0, i64 noundef %1, ptr nound
   %.0610.i = phi ptr [ %13, %.lr.ph.i ], [ %2, %.split38 ]
   %.079.i = phi i32 [ %12, %.lr.ph.i ], [ %0, %.split38 ]
   %12 = add i32 %.079.i, -1
-  %13 = getelementptr inbounds i8, ptr %.0610.i, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %.0610.i, i64 8
   %14 = load i64, ptr %.0610.i, align 8
   %15 = mul i64 %14, %.111.i
   %.not.i = icmp eq i32 %12, 0
@@ -1443,13 +1443,13 @@ H5VM_vector_reduce_product.exit:                  ; preds = %.lr.ph.i
   %indvars.iv = phi i64 [ %17, %.lr.ph.us ], [ %indvars.iv.next, %28 ]
   %.13454.us = phi ptr [ %.03359.us, %.lr.ph.us ], [ %24, %28 ]
   %.13653.us = phi ptr [ %.03558.us, %.lr.ph.us ], [ %21, %28 ]
-  %19 = getelementptr inbounds i64, ptr %5, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv
   %20 = load i64, ptr %19, align 8
   %21 = getelementptr inbounds i8, ptr %.13653.us, i64 %20
-  %22 = getelementptr inbounds i64, ptr %3, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv
   %23 = load i64, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %.13454.us, i64 %23
-  %25 = getelementptr inbounds [33 x i64], ptr %8, i64 0, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [33 x i64], ptr %8, i64 0, i64 %indvars.iv
   %26 = load i64, ptr %25, align 8
   %27 = add i64 %26, -1
   store i64 %27, ptr %25, align 8
@@ -1457,7 +1457,7 @@ H5VM_vector_reduce_product.exit:                  ; preds = %.lr.ph.i
   br i1 %.not42.us, label %28, label %._crit_edge.us
 
 28:                                               ; preds = %18
-  %29 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv
   %30 = load i64, ptr %29, align 8
   store i64 %30, ptr %25, align 8
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
@@ -1534,9 +1534,9 @@ define void @H5VM_array_down(i32 noundef %0, ptr nocapture noundef readonly %1, 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %5, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.0810 = phi i64 [ 1, %.lr.ph.preheader ], [ %9, %.lr.ph ]
-  %6 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv
   store i64 %.0810, ptr %6, align 8
-  %7 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
   %8 = load i64, ptr %7, align 8
   %9 = mul i64 %8, %.0810
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
@@ -1559,9 +1559,9 @@ define i64 @H5VM_array_offset_pre(i32 noundef %0, ptr nocapture noundef readonly
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.010 = phi i64 [ 0, %.lr.ph.preheader ], [ %9, %.lr.ph ]
-  %4 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
   %5 = load i64, ptr %4, align 8
-  %6 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv
   %7 = load i64, ptr %6, align 8
   %8 = mul i64 %7, %5
   %9 = add i64 %8, %.010
@@ -1588,9 +1588,9 @@ define i64 @H5VM_array_offset(i32 noundef %0, ptr nocapture noundef readonly %1,
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ %6, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.0810.i = phi i64 [ 1, %.lr.ph.preheader.i ], [ %10, %.lr.ph.i ]
-  %7 = getelementptr inbounds i64, ptr %4, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv.i
   store i64 %.0810.i, ptr %7, align 8
-  %8 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv.i
   %9 = load i64, ptr %8, align 8
   %10 = mul i64 %9, %.0810.i
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
@@ -1608,9 +1608,9 @@ H5VM_array_down.exit:                             ; preds = %.lr.ph.i, %3
 .lr.ph.i6:                                        ; preds = %.lr.ph.i6, %.lr.ph.preheader.i5
   %indvars.iv.i7 = phi i64 [ 0, %.lr.ph.preheader.i5 ], [ %indvars.iv.next.i8, %.lr.ph.i6 ]
   %.010.i = phi i64 [ 0, %.lr.ph.preheader.i5 ], [ %16, %.lr.ph.i6 ]
-  %11 = getelementptr inbounds i64, ptr %4, i64 %indvars.iv.i7
+  %11 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv.i7
   %12 = load i64, ptr %11, align 8
-  %13 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv.i7
+  %13 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv.i7
   %14 = load i64, ptr %13, align 8
   %15 = mul i64 %14, %12
   %16 = add i64 %15, %.010.i
@@ -1635,10 +1635,10 @@ define noundef i32 @H5VM_array_calc_pre(i64 noundef %0, i32 noundef %1, ptr noca
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.01011 = phi i64 [ %0, %.lr.ph.preheader ], [ %10, %.lr.ph ]
-  %5 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv
   %6 = load i64, ptr %5, align 8
   %7 = udiv i64 %.01011, %6
-  %8 = getelementptr inbounds i64, ptr %3, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv
   store i64 %7, ptr %8, align 8
   %9 = load i64, ptr %5, align 8
   %10 = urem i64 %.01011, %9
@@ -1664,9 +1664,9 @@ define noundef i32 @H5VM_array_calc(i64 noundef %0, i32 noundef %1, ptr nocaptur
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ %7, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.0810.i = phi i64 [ 1, %.lr.ph.preheader.i ], [ %11, %.lr.ph.i ]
-  %8 = getelementptr inbounds i64, ptr %5, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv.i
   store i64 %.0810.i, ptr %8, align 8
-  %9 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv.i
+  %9 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv.i
   %10 = load i64, ptr %9, align 8
   %11 = mul i64 %10, %.0810.i
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
@@ -1684,10 +1684,10 @@ H5VM_array_down.exit:                             ; preds = %.lr.ph.i, %4
 .lr.ph.i8:                                        ; preds = %.lr.ph.i8, %.lr.ph.preheader.i7
   %indvars.iv.i9 = phi i64 [ 0, %.lr.ph.preheader.i7 ], [ %indvars.iv.next.i10, %.lr.ph.i8 ]
   %.01011.i = phi i64 [ %0, %.lr.ph.preheader.i7 ], [ %16, %.lr.ph.i8 ]
-  %12 = getelementptr inbounds i64, ptr %5, i64 %indvars.iv.i9
+  %12 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv.i9
   %13 = load i64, ptr %12, align 8
   %14 = udiv i64 %.01011.i, %13
-  %15 = getelementptr inbounds i64, ptr %3, i64 %indvars.iv.i9
+  %15 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv.i9
   store i64 %14, ptr %15, align 8
   %16 = urem i64 %.01011.i, %13
   %indvars.iv.next.i10 = add nuw nsw i64 %indvars.iv.i9, 1
@@ -1712,13 +1712,13 @@ define i64 @H5VM_chunk_index(i32 noundef %0, ptr nocapture noundef readonly %1, 
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %6 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv.i
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.i
   %9 = load i32, ptr %8, align 4
   %10 = zext i32 %9 to i64
   %11 = udiv i64 %7, %10
-  %12 = getelementptr inbounds i64, ptr %5, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv.i
   store i64 %11, ptr %12, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -1727,9 +1727,9 @@ define i64 @H5VM_chunk_index(i32 noundef %0, ptr nocapture noundef readonly %1, 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 0, %.lr.ph.i ]
   %.010.i.i = phi i64 [ %18, %.lr.ph.i.i ], [ 0, %.lr.ph.i ]
-  %13 = getelementptr inbounds i64, ptr %3, i64 %indvars.iv.i.i
+  %13 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv.i.i
   %14 = load i64, ptr %13, align 8
-  %15 = getelementptr inbounds i64, ptr %5, i64 %indvars.iv.i.i
+  %15 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv.i.i
   %16 = load i64, ptr %15, align 8
   %17 = mul i64 %16, %14
   %18 = add i64 %17, %.010.i.i
@@ -1753,13 +1753,13 @@ define i64 @H5VM_chunk_index_scaled(i32 noundef %0, ptr nocapture noundef readon
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4
   %10 = zext i32 %9 to i64
   %11 = udiv i64 %7, %10
-  %12 = getelementptr inbounds i64, ptr %4, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv
   store i64 %11, ptr %12, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1772,9 +1772,9 @@ define i64 @H5VM_chunk_index_scaled(i32 noundef %0, ptr nocapture noundef readon
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.010.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %18, %.lr.ph.i ]
-  %13 = getelementptr inbounds i64, ptr %3, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv.i
   %14 = load i64, ptr %13, align 8
-  %15 = getelementptr inbounds i64, ptr %4, i64 %indvars.iv.i
+  %15 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv.i
   %16 = load i64, ptr %15, align 8
   %17 = mul i64 %16, %14
   %18 = add i64 %17, %.010.i
@@ -1798,13 +1798,13 @@ define void @H5VM_chunk_scaled(i32 noundef %0, ptr nocapture noundef readonly %1
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %5 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
   %8 = load i32, ptr %7, align 4
   %9 = zext i32 %8 to i64
   %10 = udiv i64 %6, %9
-  %11 = getelementptr inbounds i64, ptr %3, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv
   store i64 %10, ptr %11, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1865,7 +1865,7 @@ define i64 @H5VM_opvv(i64 noundef %0, ptr nocapture noundef %1, ptr nocapture no
   %33 = add i64 %.0110, %.1115
   %34 = add i64 %.1115, %.1130
   %35 = sub i64 %.1119, %.1115
-  %36 = getelementptr inbounds i8, ptr %.1146, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %.1146, i64 8
   %.not = icmp ult ptr %36, %22
   br i1 %.not, label %38, label %37
 
@@ -1876,7 +1876,7 @@ define i64 @H5VM_opvv(i64 noundef %0, ptr nocapture noundef %1, ptr nocapture no
 
 38:                                               ; preds = %32
   %39 = load i64, ptr %36, align 8
-  %40 = getelementptr inbounds i8, ptr %.1136, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %.1136, i64 8
   %41 = load i64, ptr %40, align 8
   %42 = icmp ult i64 %41, %35
   br i1 %42, label %25, label %43
@@ -1924,7 +1924,7 @@ define i64 @H5VM_opvv(i64 noundef %0, ptr nocapture noundef %1, ptr nocapture no
   %57 = add i64 %.2112, %.4122
   %58 = add i64 %.4122, %.4127
   %59 = sub i64 %.3117, %.4122
-  %60 = getelementptr inbounds i8, ptr %.4155, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %.4155, i64 8
   %.not180 = icmp ult ptr %60, %21
   br i1 %.not180, label %62, label %61
 
@@ -1935,7 +1935,7 @@ define i64 @H5VM_opvv(i64 noundef %0, ptr nocapture noundef %1, ptr nocapture no
 
 62:                                               ; preds = %56
   %63 = load i64, ptr %60, align 8
-  %64 = getelementptr inbounds i8, ptr %.3143, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %.3143, i64 8
   %65 = load i64, ptr %64, align 8
   %66 = icmp ult i64 %65, %59
   br i1 %66, label %49, label %67
@@ -1977,8 +1977,8 @@ define i64 @H5VM_opvv(i64 noundef %0, ptr nocapture noundef %1, ptr nocapture no
 
 78:                                               ; preds = %71
   %79 = add i64 %.3113, %.5
-  %80 = getelementptr inbounds i8, ptr %.5150, i64 8
-  %81 = getelementptr inbounds i8, ptr %.5156, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %.5150, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %.5156, i64 8
   %.not181 = icmp ult ptr %80, %22
   %.not182 = icmp ult ptr %81, %21
   %or.cond = select i1 %.not181, i1 %.not182, i1 false
@@ -1987,9 +1987,9 @@ define i64 @H5VM_opvv(i64 noundef %0, ptr nocapture noundef %1, ptr nocapture no
 82:                                               ; preds = %78
   %83 = load i64, ptr %80, align 8
   %84 = load i64, ptr %81, align 8
-  %85 = getelementptr inbounds i8, ptr %.4139, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %.4139, i64 8
   %86 = load i64, ptr %85, align 8
-  %87 = getelementptr inbounds i8, ptr %.4144, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %.4144, i64 8
   %88 = load i64, ptr %87, align 8
   %89 = icmp eq i64 %88, %86
   br i1 %89, label %71, label %90
@@ -2064,7 +2064,7 @@ define i64 @H5VM_memcpyvv(ptr nocapture noundef writeonly %0, i64 noundef %1, pt
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.1142, ptr align 1 %.1148, i64 %.1112, i1 false)
   %28 = add i64 %.0107, %.1112
   %29 = sub i64 %.1116, %.1112
-  %30 = getelementptr inbounds i8, ptr %.1130, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %.1130, i64 8
   %.not = icmp ult ptr %30, %20
   br i1 %.not, label %34, label %31
 
@@ -2077,7 +2077,7 @@ define i64 @H5VM_memcpyvv(ptr nocapture noundef writeonly %0, i64 noundef %1, pt
 
 34:                                               ; preds = %27
   %35 = getelementptr inbounds i8, ptr %.1142, i64 %.1112
-  %36 = getelementptr inbounds i8, ptr %.1120, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %.1120, i64 8
   %37 = load i64, ptr %36, align 8
   %38 = load i64, ptr %30, align 8
   %39 = getelementptr inbounds i8, ptr %5, i64 %38
@@ -2116,7 +2116,7 @@ define i64 @H5VM_memcpyvv(ptr nocapture noundef writeonly %0, i64 noundef %1, pt
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.4145, ptr align 1 %.4151, i64 %.4, i1 false)
   %48 = add i64 %.2109, %.4
   %49 = sub i64 %.3114, %.4
-  %50 = getelementptr inbounds i8, ptr %.4139, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %.4139, i64 8
   %.not176 = icmp ult ptr %50, %19
   br i1 %.not176, label %54, label %51
 
@@ -2129,7 +2129,7 @@ define i64 @H5VM_memcpyvv(ptr nocapture noundef writeonly %0, i64 noundef %1, pt
 
 54:                                               ; preds = %47
   %55 = getelementptr inbounds i8, ptr %.4151, i64 %.4
-  %56 = getelementptr inbounds i8, ptr %.3127, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %.3127, i64 8
   %57 = load i64, ptr %56, align 8
   %58 = load i64, ptr %50, align 8
   %59 = getelementptr inbounds i8, ptr %0, i64 %58
@@ -2163,19 +2163,19 @@ define i64 @H5VM_memcpyvv(ptr nocapture noundef writeonly %0, i64 noundef %1, pt
   %.3110 = phi i64 [ 0, %64 ], [ %66, %69 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.5146, ptr align 1 %.5152, i64 %.5, i1 false)
   %66 = add i64 %.3110, %.5
-  %67 = getelementptr inbounds i8, ptr %.5134, i64 8
-  %68 = getelementptr inbounds i8, ptr %.5140, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %.5134, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %.5140, i64 8
   %.not177 = icmp ult ptr %67, %20
   %.not178 = icmp ult ptr %68, %19
   %or.cond = select i1 %.not177, i1 %.not178, i1 false
   br i1 %or.cond, label %69, label %.loopexit
 
 69:                                               ; preds = %65
-  %70 = getelementptr inbounds i8, ptr %.4123, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %.4123, i64 8
   %71 = load i64, ptr %70, align 8
   %72 = load i64, ptr %67, align 8
   %73 = getelementptr inbounds i8, ptr %5, i64 %72
-  %74 = getelementptr inbounds i8, ptr %.4128, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %.4128, i64 8
   %75 = load i64, ptr %74, align 8
   %76 = load i64, ptr %68, align 8
   %77 = getelementptr inbounds i8, ptr %0, i64 %76

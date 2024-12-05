@@ -206,7 +206,7 @@ entry:
   %agg.tmp39 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp40 = alloca %"class.std::allocator.61", align 1
   %0 = load ptr, ptr %n, align 8
-  %d_kind.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %d_kind.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %bf.load.i.i.i.i = load i16, ptr %d_kind.i.i.i.i, align 8
   %bf.clear.i.i.i.i = and i16 %bf.load.i.i.i.i, 1023
   %bf.cast.i.i.i.i = zext nneg i16 %bf.clear.i.i.i.i to i32
@@ -215,7 +215,7 @@ entry:
   %call2.i.i.i = tail call noundef i32 @_ZN4cvc58internal4kind10metaKindOfENS1_6Kind_tE(i32 noundef %cond.i.i.i.i.i)
   %cmp.i.i = icmp eq i32 %call2.i.i.i, 2
   %spec.select.v.i.i = select i1 %cmp.i.i, i64 24, i64 16
-  %spec.select.i.i = getelementptr inbounds i8, ptr %0, i64 %spec.select.v.i.i
+  %spec.select.i.i = getelementptr inbounds nuw i8, ptr %0, i64 %spec.select.v.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10)
   %1 = load ptr, ptr %spec.select.i.i, align 8, !noalias !10
   store ptr %1, ptr %ref.tmp, align 8, !alias.scope !10
@@ -224,7 +224,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %2 = load ptr, ptr %agg.result, align 8
-  %d_kind.i = getelementptr inbounds i8, ptr %2, i64 8
+  %d_kind.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %bf.load.i = load i16, ptr %d_kind.i, align 8
   %bf.clear.i = and i16 %bf.load.i, 1023
   %cmp.not = icmp eq i16 %bf.clear.i, 144
@@ -267,17 +267,17 @@ cleanup.action:                                   ; preds = %ehcleanup.thread, %
 
 invoke.cont16:                                    ; preds = %if.then
   %6 = load ptr, ptr %n, align 8
-  %d_children.i.i = getelementptr inbounds i8, ptr %6, i64 16
-  %d_nchildren.i.i = getelementptr inbounds i8, ptr %6, i64 12
+  %d_children.i.i = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %d_nchildren.i.i = getelementptr inbounds nuw i8, ptr %6, i64 12
   %bf.load.i.i = load i32, ptr %d_nchildren.i.i, align 4
   %bf.clear.i.i = and i32 %bf.load.i.i, 67108863
   %idx.ext.i.i = zext nneg i32 %bf.clear.i.i to i64
-  %add.ptr.i.i = getelementptr inbounds ptr, ptr %d_children.i.i, i64 %idx.ext.i.i
+  %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %d_children.i.i, i64 %idx.ext.i.i
   br label %for.cond
 
 for.cond:                                         ; preds = %_ZN4cvc58internal8TypeNodeD2Ev.exit, %invoke.cont16
   %spec.select.i.i.pn = phi ptr [ %spec.select.i.i, %invoke.cont16 ], [ %it.sroa.0.0, %_ZN4cvc58internal8TypeNodeD2Ev.exit ]
-  %it.sroa.0.0 = getelementptr inbounds i8, ptr %spec.select.i.i.pn, i64 8
+  %it.sroa.0.0 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.pn, i64 8
   %cmp.i.not = icmp eq ptr %it.sroa.0.0, %add.ptr.i.i
   br i1 %cmp.i.not, label %nrvo.skipdtor, label %invoke.cont25
 
@@ -401,9 +401,9 @@ init.i.i:                                         ; preds = %init.check.i.i
 
 invoke.cont.i.i:                                  ; preds = %init.i.i
   store i64 1152920405095219200, ptr %call.i.i, align 8
-  %d_kind.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
+  %d_kind.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 8
   store i16 0, ptr %d_kind.i.i.i, align 8
-  %d_nchildren.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
+  %d_nchildren.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 12
   store i32 0, ptr %d_nchildren.i.i.i, align 4
   store ptr %call.i.i, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #14
@@ -431,7 +431,7 @@ invoke.cont5:                                     ; preds = %if.then
 invoke.cont7:                                     ; preds = %invoke.cont5
   %6 = load ptr, ptr %this, align 8
   store ptr %6, ptr %agg.tmp9, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %errOutTmp, i64 16
+  %add.ptr = getelementptr inbounds nuw i8, ptr %errOutTmp, i64 16
   invoke void @_ZN4cvc58internal11NodeManager7getTypeENS0_12NodeTemplateILb0EEEbPSo(ptr nonnull sret(%"class.cvc5::internal::TypeNode") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(3360) %call8, ptr noundef nonnull %agg.tmp9, i1 noundef zeroext %check, ptr noundef nonnull %add.ptr)
           to label %invoke.cont13 unwind label %lpad12
 

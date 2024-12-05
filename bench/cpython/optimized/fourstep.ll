@@ -21,9 +21,9 @@ entry:
 for.body.lr.ph:                                   ; preds = %entry
   %add.ptr1.idx = shl i64 %div, 4
   %add.ptr1 = getelementptr i8, ptr %a, i64 %add.ptr1.idx
-  %1 = getelementptr inbounds i8, ptr %w3table, i64 8
+  %1 = getelementptr inbounds nuw i8, ptr %w3table, i64 8
   %w3table.val = load i64, ptr %1, align 8
-  %2 = getelementptr inbounds i8, ptr %w3table, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %w3table, i64 16
   %w3table.val41 = load i64, ptr %2, align 16
   br label %for.body
 
@@ -1354,9 +1354,9 @@ for.end26:                                        ; preds = %for.inc25
 for.body33.lr.ph:                                 ; preds = %for.end26
   %add.ptr29.idx = shl i64 %div, 4
   %add.ptr29 = getelementptr i8, ptr %a, i64 %add.ptr29.idx
-  %4 = getelementptr inbounds i8, ptr %w3table, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %w3table, i64 8
   %w3table.val = load i64, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %w3table, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %w3table, i64 16
   %w3table.val41 = load i64, ptr %5, align 16
   br label %for.body33
 

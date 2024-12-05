@@ -144,9 +144,9 @@ define hidden ptr @_cmsReadInputLUT(ptr noundef %0, i32 noundef %1) local_unname
 
 26:                                               ; preds = %24
   %27 = zext nneg i32 %1 to i64
-  %28 = getelementptr inbounds [4 x i32], ptr @Device2PCS16, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw [4 x i32], ptr @Device2PCS16, i64 0, i64 %27
   %29 = load i32, ptr %28, align 4
-  %30 = getelementptr inbounds [4 x i32], ptr @Device2PCSFloat, i64 0, i64 %27
+  %30 = getelementptr inbounds nuw [4 x i32], ptr @Device2PCSFloat, i64 0, i64 %27
   %31 = load i32, ptr %30, align 4
   %32 = tail call i32 @cmsIsTag(ptr noundef %0, i32 noundef %31) #4
   %.not = icmp eq i32 %32, 0
@@ -279,9 +279,9 @@ define hidden ptr @_cmsReadInputLUT(ptr noundef %0, i32 noundef %1) local_unname
 
 92:                                               ; preds = %89
   store ptr %81, ptr %7, align 16
-  %93 = getelementptr inbounds i8, ptr %7, i64 8
+  %93 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %90, ptr %93, align 8
-  %94 = getelementptr inbounds i8, ptr %7, i64 16
+  %94 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %90, ptr %94, align 16
   %95 = call ptr @cmsStageAllocMatrix(ptr noundef %80, i32 noundef 3, i32 noundef 1, ptr noundef nonnull @OneToThreeInputMatrix, ptr noundef null) #4
   %96 = call i32 @cmsPipelineInsertStage(ptr noundef nonnull %84, i32 noundef 1, ptr noundef %95) #4
@@ -335,12 +335,12 @@ BuildGrayInputMatrixPipeline.exit:                ; preds = %79, %101, %105, %10
 
 .preheader.i:                                     ; preds = %109, %117
   %indvars.iv38.i = phi i64 [ %indvars.iv.next39.i, %117 ], [ 0, %109 ]
-  %112 = getelementptr inbounds [3 x %struct.cmsVEC3], ptr %3, i64 0, i64 %indvars.iv38.i
+  %112 = getelementptr inbounds nuw [3 x %struct.cmsVEC3], ptr %3, i64 0, i64 %indvars.iv38.i
   br label %113
 
 113:                                              ; preds = %113, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %113 ]
-  %114 = getelementptr inbounds [3 x double], ptr %112, i64 0, i64 %indvars.iv.i
+  %114 = getelementptr inbounds nuw [3 x double], ptr %112, i64 0, i64 %indvars.iv.i
   %115 = load double, ptr %114, align 8
   %116 = fmul double %115, 0x3FE0001000100010
   store double %116, ptr %114, align 8
@@ -357,10 +357,10 @@ BuildGrayInputMatrixPipeline.exit:                ; preds = %79, %101, %105, %10
   %119 = call ptr @cmsReadTag(ptr noundef %0, i32 noundef 1918128707) #4
   store ptr %119, ptr %4, align 16
   %120 = call ptr @cmsReadTag(ptr noundef %0, i32 noundef 1733579331) #4
-  %121 = getelementptr inbounds i8, ptr %4, i64 8
+  %121 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %120, ptr %121, align 8
   %122 = call ptr @cmsReadTag(ptr noundef %0, i32 noundef 1649693251) #4
-  %123 = getelementptr inbounds i8, ptr %4, i64 16
+  %123 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %122, ptr %123, align 16
   %124 = icmp ne ptr %119, null
   %125 = icmp ne ptr %120, null
@@ -448,9 +448,9 @@ define hidden ptr @_cmsReadOutputLUT(ptr noundef %0, i32 noundef %1) local_unnam
 
 9:                                                ; preds = %2
   %10 = zext nneg i32 %1 to i64
-  %11 = getelementptr inbounds [4 x i32], ptr @PCS2Device16, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw [4 x i32], ptr @PCS2Device16, i64 0, i64 %10
   %12 = load i32, ptr %11, align 4
-  %13 = getelementptr inbounds [4 x i32], ptr @PCS2DeviceFloat, i64 0, i64 %10
+  %13 = getelementptr inbounds nuw [4 x i32], ptr @PCS2DeviceFloat, i64 0, i64 %10
   %14 = load i32, ptr %13, align 4
   %15 = tail call i32 @cmsIsTag(ptr noundef %0, i32 noundef %14) #4
   %.not = icmp eq i32 %15, 0
@@ -535,7 +535,7 @@ define hidden ptr @_cmsReadOutputLUT(ptr noundef %0, i32 noundef %1) local_unnam
   br i1 %.not8.i, label %ChangeInterpolationToTrilinear.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %51
-  %53 = getelementptr inbounds i8, ptr %46, i64 56
+  %53 = getelementptr inbounds nuw i8, ptr %46, i64 56
   br label %54
 
 54:                                               ; preds = %68, %.lr.ph.i
@@ -545,11 +545,11 @@ define hidden ptr @_cmsReadOutputLUT(ptr noundef %0, i32 noundef %1) local_unnam
   br i1 %56, label %57, label %68
 
 57:                                               ; preds = %54
-  %58 = getelementptr inbounds i8, ptr %.09.i, i64 48
+  %58 = getelementptr inbounds nuw i8, ptr %.09.i, i64 48
   %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %63 = load i32, ptr %62, align 8
   %64 = or i32 %63, 256
   store i32 %64, ptr %62, align 8
@@ -675,12 +675,12 @@ BuildGrayOutputPipeline.exit:                     ; preds = %85, %89, %95, %108,
 
 .preheader.i:                                     ; preds = %114, %121
   %indvars.iv51.i = phi i64 [ %indvars.iv.next52.i, %121 ], [ 0, %114 ]
-  %116 = getelementptr inbounds [3 x %struct.cmsVEC3], ptr %5, i64 0, i64 %indvars.iv51.i
+  %116 = getelementptr inbounds nuw [3 x %struct.cmsVEC3], ptr %5, i64 0, i64 %indvars.iv51.i
   br label %117
 
 117:                                              ; preds = %117, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %117 ]
-  %118 = getelementptr inbounds [3 x double], ptr %116, i64 0, i64 %indvars.iv.i
+  %118 = getelementptr inbounds nuw [3 x double], ptr %116, i64 0, i64 %indvars.iv.i
   %119 = load double, ptr %118, align 8
   %120 = fmul double %119, 0x3FFFFFE000000000
   store double %120, ptr %118, align 8
@@ -708,10 +708,10 @@ BuildGrayOutputPipeline.exit:                     ; preds = %85, %89, %95, %108,
   %130 = call ptr @cmsReverseToneCurve(ptr noundef nonnull %123) #4
   store ptr %130, ptr %3, align 16
   %131 = call ptr @cmsReverseToneCurve(ptr noundef nonnull %124) #4
-  %132 = getelementptr inbounds i8, ptr %3, i64 8
+  %132 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %131, ptr %132, align 8
   %133 = call ptr @cmsReverseToneCurve(ptr noundef nonnull %125) #4
-  %134 = getelementptr inbounds i8, ptr %3, i64 16
+  %134 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %133, ptr %134, align 16
   %135 = icmp ne ptr %130, null
   %136 = icmp ne ptr %131, null
@@ -776,7 +776,7 @@ define internal fastcc void @ChangeInterpolationToTrilinear(ptr noundef nonnull 
   br i1 %.not8, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 56
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   br label %4
 
 4:                                                ; preds = %.lr.ph, %18
@@ -786,11 +786,11 @@ define internal fastcc void @ChangeInterpolationToTrilinear(ptr noundef nonnull 
   br i1 %6, label %7, label %18
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %.09, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %.09, i64 48
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load i32, ptr %12, align 8
   %14 = or i32 %13, 256
   store i32 %14, ptr %12, align 8
@@ -816,9 +816,9 @@ define hidden ptr @_cmsReadDevicelinkLUT(ptr noundef %0, i32 noundef %1) local_u
 
 5:                                                ; preds = %2
   %6 = zext nneg i32 %1 to i64
-  %7 = getelementptr inbounds [4 x i32], ptr @Device2PCS16, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw [4 x i32], ptr @Device2PCS16, i64 0, i64 %6
   %8 = load i32, ptr %7, align 4
-  %9 = getelementptr inbounds [4 x i32], ptr @Device2PCSFloat, i64 0, i64 %6
+  %9 = getelementptr inbounds nuw [4 x i32], ptr @Device2PCSFloat, i64 0, i64 %6
   %10 = load i32, ptr %9, align 4
   %11 = tail call i32 @cmsGetDeviceClass(ptr noundef %0) #4
   %12 = icmp eq i32 %11, 1852662636
@@ -1072,7 +1072,7 @@ define hidden i32 @cmsIsCLUT(ptr noundef %0, i32 noundef %1, i32 noundef %2) loc
 
 21:                                               ; preds = %19
   %22 = zext nneg i32 %1 to i64
-  %23 = getelementptr inbounds i32, ptr @Device2PCS16, i64 %22
+  %23 = getelementptr inbounds nuw i32, ptr @Device2PCS16, i64 %22
   %24 = load i32, ptr %23, align 4
   %25 = tail call i32 @cmsIsTag(ptr noundef %0, i32 noundef %24) #4
   br label %cmsIsCLUT.exit
@@ -1125,7 +1125,7 @@ cmsIsCLUT.exit21:                                 ; preds = %29, %33
 
 43:                                               ; preds = %41
   %44 = zext nneg i32 %1 to i64
-  %45 = getelementptr inbounds i32, ptr %.0, i64 %44
+  %45 = getelementptr inbounds nuw i32, ptr %.0, i64 %44
   %46 = load i32, ptr %45, align 4
   %47 = tail call i32 @cmsIsTag(ptr noundef %0, i32 noundef %46) #4
   br label %cmsIsIntentSupported.exit17
@@ -1184,23 +1184,23 @@ define hidden ptr @_cmsReadProfileSequence(ptr noundef %0) local_unnamed_addr #0
   br i1 %.not32, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %13 = getelementptr inbounds i8, ptr %10, i64 16
-  %14 = getelementptr inbounds i8, ptr %3, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
   br label %15
 
 15:                                               ; preds = %.lr.ph, %15
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %15 ]
   %16 = load ptr, ptr %13, align 8
-  %17 = getelementptr inbounds %struct.cmsPSEQDESC, ptr %16, i64 %indvars.iv, i32 4
+  %17 = getelementptr inbounds nuw %struct.cmsPSEQDESC, ptr %16, i64 %indvars.iv, i32 4
   %18 = load ptr, ptr %14, align 8
-  %19 = getelementptr inbounds %struct.cmsPSEQDESC, ptr %18, i64 %indvars.iv, i32 4
+  %19 = getelementptr inbounds nuw %struct.cmsPSEQDESC, ptr %18, i64 %indvars.iv, i32 4
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %17, ptr noundef nonnull align 4 dereferenceable(16) %19, i64 16, i1 false)
   %20 = load ptr, ptr %14, align 8
-  %21 = getelementptr inbounds %struct.cmsPSEQDESC, ptr %20, i64 %indvars.iv, i32 7
+  %21 = getelementptr inbounds nuw %struct.cmsPSEQDESC, ptr %20, i64 %indvars.iv, i32 7
   %22 = load ptr, ptr %21, align 8
   %23 = tail call ptr @cmsMLUdup(ptr noundef %22) #4
   %24 = load ptr, ptr %13, align 8
-  %25 = getelementptr inbounds %struct.cmsPSEQDESC, ptr %24, i64 %indvars.iv, i32 7
+  %25 = getelementptr inbounds nuw %struct.cmsPSEQDESC, ptr %24, i64 %indvars.iv, i32 7
   store ptr %23, ptr %25, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %26 = load i32, ptr %2, align 8
@@ -1260,24 +1260,24 @@ define hidden ptr @_cmsCompileProfileSequence(ptr noundef %0, i32 noundef %1, pt
   br i1 %or.cond, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %4, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %wide.trip.count = zext i32 %1 to i64
   br label %8
 
 8:                                                ; preds = %.lr.ph, %GetMLUFromProfile.exit36
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %GetMLUFromProfile.exit36 ]
   %9 = load ptr, ptr %7, align 8
-  %10 = getelementptr inbounds %struct.cmsPSEQDESC, ptr %9, i64 %indvars.iv
-  %11 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw %struct.cmsPSEQDESC, ptr %9, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %10, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 8
   tail call void @cmsGetHeaderAttributes(ptr noundef %12, ptr noundef nonnull %13) #4
-  %14 = getelementptr inbounds i8, ptr %10, i64 20
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 20
   tail call void @cmsGetHeaderProfileID(ptr noundef %12, ptr noundef nonnull %14) #4
   %15 = tail call i32 @cmsGetHeaderManufacturer(ptr noundef %12) #4
   store i32 %15, ptr %10, align 8
   %16 = tail call i32 @cmsGetHeaderModel(ptr noundef %12) #4
-  %17 = getelementptr inbounds i8, ptr %10, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store i32 %16, ptr %17, align 4
   %18 = tail call ptr @cmsReadTag(ptr noundef %12, i32 noundef 1952801640) #4
   %19 = icmp eq ptr %18, null
@@ -1289,7 +1289,7 @@ define hidden ptr @_cmsCompileProfileSequence(ptr noundef %0, i32 noundef %1, pt
 
 22:                                               ; preds = %8, %20
   %.sink = phi i32 [ %21, %20 ], [ 0, %8 ]
-  %23 = getelementptr inbounds i8, ptr %10, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i32 %.sink, ptr %23, align 8
   %24 = tail call ptr @cmsReadTag(ptr noundef %12, i32 noundef 1684893284) #4
   %25 = icmp eq ptr %24, null
@@ -1301,7 +1301,7 @@ define hidden ptr @_cmsCompileProfileSequence(ptr noundef %0, i32 noundef %1, pt
 
 GetMLUFromProfile.exit:                           ; preds = %22, %26
   %.0.i = phi ptr [ %27, %26 ], [ null, %22 ]
-  %28 = getelementptr inbounds i8, ptr %10, i64 40
+  %28 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store ptr %.0.i, ptr %28, align 8
   %29 = tail call ptr @cmsReadTag(ptr noundef %12, i32 noundef 1684890724) #4
   %30 = icmp eq ptr %29, null
@@ -1313,7 +1313,7 @@ GetMLUFromProfile.exit:                           ; preds = %22, %26
 
 GetMLUFromProfile.exit34:                         ; preds = %GetMLUFromProfile.exit, %31
   %.0.i33 = phi ptr [ %32, %31 ], [ null, %GetMLUFromProfile.exit ]
-  %33 = getelementptr inbounds i8, ptr %10, i64 48
+  %33 = getelementptr inbounds nuw i8, ptr %10, i64 48
   store ptr %.0.i33, ptr %33, align 8
   %34 = tail call ptr @cmsReadTag(ptr noundef %12, i32 noundef 1684370275) #4
   %35 = icmp eq ptr %34, null
@@ -1325,7 +1325,7 @@ GetMLUFromProfile.exit34:                         ; preds = %GetMLUFromProfile.e
 
 GetMLUFromProfile.exit36:                         ; preds = %GetMLUFromProfile.exit34, %36
   %.0.i35 = phi ptr [ %37, %36 ], [ null, %GetMLUFromProfile.exit34 ]
-  %38 = getelementptr inbounds i8, ptr %10, i64 56
+  %38 = getelementptr inbounds nuw i8, ptr %10, i64 56
   store ptr %.0.i35, ptr %38, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1352,7 +1352,7 @@ define hidden i32 @cmsGetProfileInfo(ptr noundef %0, i32 noundef %1, ptr noundef
 
 switch.lookup:                                    ; preds = %6
   %8 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table.cmsGetProfileInfoUTF8, i64 0, i64 %8
+  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table.cmsGetProfileInfoUTF8, i64 0, i64 %8
   %switch.load = load i32, ptr %switch.gep, align 4
   %9 = tail call ptr @cmsReadTag(ptr noundef %0, i32 noundef %switch.load) #4
   %10 = icmp eq ptr %9, null
@@ -1376,7 +1376,7 @@ define hidden i32 @cmsGetProfileInfoASCII(ptr noundef %0, i32 noundef %1, ptr no
 
 switch.lookup:                                    ; preds = %6
   %8 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table.cmsGetProfileInfoUTF8, i64 0, i64 %8
+  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table.cmsGetProfileInfoUTF8, i64 0, i64 %8
   %switch.load = load i32, ptr %switch.gep, align 4
   %9 = tail call ptr @cmsReadTag(ptr noundef %0, i32 noundef %switch.load) #4
   %10 = icmp eq ptr %9, null
@@ -1400,7 +1400,7 @@ define hidden i32 @cmsGetProfileInfoUTF8(ptr noundef %0, i32 noundef %1, ptr nou
 
 switch.lookup:                                    ; preds = %6
   %8 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table.cmsGetProfileInfoUTF8, i64 0, i64 %8
+  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table.cmsGetProfileInfoUTF8, i64 0, i64 %8
   %switch.load = load i32, ptr %switch.gep, align 4
   %9 = tail call ptr @cmsReadTag(ptr noundef %0, i32 noundef %switch.load) #4
   %10 = icmp eq ptr %9, null
@@ -1450,20 +1450,20 @@ define internal fastcc range(i32 0, 2) i32 @ReadICCMatrixRGB2XYZ(ptr noundef non
   %11 = load double, ptr %4, align 8
   %12 = load double, ptr %5, align 8
   tail call void @_cmsVEC3init(ptr noundef nonnull %0, double noundef %10, double noundef %11, double noundef %12) #4
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
-  %14 = getelementptr inbounds i8, ptr %3, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %15 = load double, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %4, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %17 = load double, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %5, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %19 = load double, ptr %18, align 8
   tail call void @_cmsVEC3init(ptr noundef nonnull %13, double noundef %15, double noundef %17, double noundef %19) #4
-  %20 = getelementptr inbounds i8, ptr %0, i64 48
-  %21 = getelementptr inbounds i8, ptr %3, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %22 = load double, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %4, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %24 = load double, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %5, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %26 = load double, ptr %25, align 8
   tail call void @_cmsVEC3init(ptr noundef nonnull %20, double noundef %22, double noundef %24, double noundef %26) #4
   br label %27

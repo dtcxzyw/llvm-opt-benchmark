@@ -37,7 +37,7 @@ define range(i32 0, 65536) i32 @in_cksum_ret_partial(ptr nocapture noundef reado
 
 13:                                               ; preds = %7, %5
   %.1144 = phi i32 [ %spec.select, %7 ], [ %.0143201, %5 ]
-  %14 = getelementptr inbounds i8, ptr %.0155200, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %.0155200, i64 8
   %15 = load i32, ptr %14, align 8
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %162, label %17
@@ -307,7 +307,7 @@ define range(i32 0, 65536) i32 @in_cksum(ptr nocapture noundef readonly %0, i32 
 define zeroext i16 @ip_checksum(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = alloca [1 x %struct.vec_t], align 16
   store ptr %0, ptr %3, align 16
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %1, ptr %4, align 8
   %5 = call i32 @in_cksum_ret_partial(ptr noundef nonnull %3, i32 noundef 1, ptr noundef null)
   %6 = trunc nuw i32 %5 to i16
@@ -317,7 +317,7 @@ define zeroext i16 @ip_checksum(ptr noundef %0, i32 noundef %1) local_unnamed_ad
 ; Function Attrs: nounwind uwtable
 define zeroext i16 @ip_checksum_tvb(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = alloca [1 x %struct.vec_t], align 16
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %2, ptr %5, align 8
   %6 = tail call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef %1, i32 noundef %2) #6
   store ptr %6, ptr %4, align 16

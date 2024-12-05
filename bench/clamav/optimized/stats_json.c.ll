@@ -125,13 +125,13 @@ define ptr @export_stats_to_json(ptr nocapture noundef readonly %0, ptr nocaptur
   br i1 %.not, label %5, label %12
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 1144
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1144
   %7 = load ptr, ptr %6, align 8
   %.not201 = icmp eq ptr %7, null
   br i1 %.not201, label %12, label %8
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 1080
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1080
   %10 = load ptr, ptr %9, align 8
   %11 = tail call ptr %7(ptr noundef %10) #13
   store ptr %11, ptr %1, align 8
@@ -147,7 +147,7 @@ define ptr @export_stats_to_json(ptr nocapture noundef readonly %0, ptr nocaptur
   %.not202 = icmp eq ptr %13, null
   %spec.select = select i1 %.not202, ptr @.str.2, ptr %13
   %16 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(1) @.str.3, ptr noundef nonnull %spec.select) #13
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8
   %.not204 = icmp eq ptr %18, null
   br i1 %.not204, label %23, label %19
@@ -163,7 +163,7 @@ define ptr @export_stats_to_json(ptr nocapture noundef readonly %0, ptr nocaptur
   %25 = getelementptr inbounds i8, ptr %14, i64 %24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %25, ptr noundef nonnull align 1 dereferenceable(15) @.str.5, i64 15, i1 false)
   %26 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %14) #16
-  %27 = getelementptr inbounds i8, ptr %1, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.0174530 = load ptr, ptr %27, align 8
   %.not205531 = icmp eq ptr %.0174530, null
   br i1 %.not205531, label %._crit_edge538, label %.lr.ph537
@@ -173,19 +173,19 @@ define ptr @export_stats_to_json(ptr nocapture noundef readonly %0, ptr nocaptur
   %.0172534 = phi i64 [ %.1173, %283 ], [ %26, %23 ]
   %.0176533 = phi ptr [ %.1177, %283 ], [ %14, %23 ]
   %.0306532 = phi i64 [ %.1307, %283 ], [ 512, %23 ]
-  %28 = getelementptr inbounds i8, ptr %.0174535, i64 28
+  %28 = getelementptr inbounds nuw i8, ptr %.0174535, i64 28
   %29 = load i32, ptr %28, align 4
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %283, label %31
 
 31:                                               ; preds = %.lr.ph537
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(33) %3, i8 0, i64 33, i1 false)
-  %32 = getelementptr inbounds i8, ptr %.0174535, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %.0174535, i64 8
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %31, %.lr.ph.i
   %.01317.i = phi i64 [ %39, %.lr.ph.i ], [ 0, %31 ]
-  %33 = getelementptr inbounds i8, ptr %32, i64 %.01317.i
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 %.01317.i
   %34 = load i8, ptr %33, align 1
   %35 = zext i8 %34 to i32
   %36 = shl nuw i64 %.01317.i, 1
@@ -301,7 +301,7 @@ ensure_bufsize.exit231:                           ; preds = %77
   %86 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %85, i64 noundef %.pre-phi641, ptr noundef nonnull @.str.9, ptr noundef nonnull %3) #13
   %87 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %85) #16
   %88 = add i64 %87, %70
-  %89 = getelementptr inbounds i8, ptr %.0174535, i64 24
+  %89 = getelementptr inbounds nuw i8, ptr %.0174535, i64 24
   %90 = load i32, ptr %89, align 8
   %91 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 33, ptr noundef nonnull @.str.8, i32 noundef %90) #13
   %92 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #16
@@ -359,7 +359,7 @@ ensure_bufsize.exit237:                           ; preds = %110
 117:                                              ; preds = %103, %110
   %.9.ph = phi i64 [ %111, %110 ], [ %.8.ph, %103 ]
   %.010.i235.ph = phi ptr [ %112, %110 ], [ %.010.i232.ph, %103 ]
-  %118 = getelementptr inbounds i8, ptr %.0174535, i64 32
+  %118 = getelementptr inbounds nuw i8, ptr %.0174535, i64 32
   %119 = load ptr, ptr %118, align 8
   %.not212 = icmp eq ptr %119, null
   br i1 %.not212, label %232, label %120
@@ -472,12 +472,12 @@ ensure_bufsize.exit246:                           ; preds = %156
 164:                                              ; preds = %163, %164
   %.0512 = phi i64 [ 0, %163 ], [ %175, %164 ]
   %165 = shl nuw nsw i64 %.0512, 1
-  %166 = getelementptr inbounds i8, ptr %3, i64 %165
+  %166 = getelementptr inbounds nuw i8, ptr %3, i64 %165
   %167 = load ptr, ptr %118, align 8
-  %168 = getelementptr inbounds i8, ptr %167, i64 8
+  %168 = getelementptr inbounds nuw i8, ptr %167, i64 8
   %169 = load ptr, ptr %168, align 8
   %170 = getelementptr inbounds %struct.cli_section_hash, ptr %169, i64 %.0171516
-  %171 = getelementptr inbounds [16 x i8], ptr %170, i64 0, i64 %.0512
+  %171 = getelementptr inbounds nuw [16 x i8], ptr %170, i64 0, i64 %.0512
   %172 = load i8, ptr %171, align 1
   %173 = zext i8 %172 to i32
   %174 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %166, ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %173) #13
@@ -524,7 +524,7 @@ ensure_bufsize.exit249.thread358:                 ; preds = %.ensure_bufsize.exi
   %.13362 = phi i64 [ %185, %.ensure_bufsize.exit249.thread358_crit_edge ], [ %.12.ph, %ensure_bufsize.exit249 ]
   %191 = getelementptr inbounds i8, ptr %.010.i247363, i64 %181
   %192 = load ptr, ptr %118, align 8
-  %193 = getelementptr inbounds i8, ptr %192, i64 8
+  %193 = getelementptr inbounds nuw i8, ptr %192, i64 8
   %194 = load ptr, ptr %193, align 8
   %195 = getelementptr inbounds %struct.cli_section_hash, ptr %194, i64 %.0171516, i32 1
   %196 = load i64, ptr %195, align 8
@@ -704,7 +704,7 @@ ensure_bufsize.exit261:                           ; preds = %268
   %.17.ph = phi i64 [ %269, %._crit_edge630 ], [ %.4310.lcssa, %._crit_edge526 ]
   %.010.i259.ph = phi ptr [ %270, %._crit_edge630 ], [ %.4180.lcssa, %._crit_edge526 ]
   %276 = getelementptr inbounds i8, ptr %.010.i259.ph, i64 %.4.lcssa
-  %277 = getelementptr inbounds i8, ptr %.0174535, i64 48
+  %277 = getelementptr inbounds nuw i8, ptr %.0174535, i64 48
   %278 = load ptr, ptr %277, align 8
   %.not218 = icmp eq ptr %278, null
   %279 = select i1 %.not218, ptr @.str.14, ptr @.str.13
@@ -717,7 +717,7 @@ ensure_bufsize.exit261:                           ; preds = %268
   %.1307 = phi i64 [ %.0306532, %.lr.ph537 ], [ %.17.ph, %275 ]
   %.1177 = phi ptr [ %.0176533, %.lr.ph537 ], [ %.010.i259.ph, %275 ]
   %.1173 = phi i64 [ %.0172534, %.lr.ph537 ], [ %282, %275 ]
-  %284 = getelementptr inbounds i8, ptr %.0174535, i64 48
+  %284 = getelementptr inbounds nuw i8, ptr %.0174535, i64 48
   %.0174 = load ptr, ptr %284, align 8
   %.not205 = icmp eq ptr %.0174, null
   br i1 %.not205, label %._crit_edge538, label %.lr.ph537

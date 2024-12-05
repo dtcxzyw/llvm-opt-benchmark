@@ -16,24 +16,24 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define hidden void @outStream_initCommand(ptr noundef %0, i32 noundef %1, i8 noundef signext %2, i8 noundef signext %3, i8 noundef signext %4) local_unnamed_addr #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 80
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %6, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 300, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %8, ptr %9, align 8
   store i32 0, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %6, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr null, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 0, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 52
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i8 0, ptr %13, align 4
   %14 = tail call ptr @bagCreateBag(i32 noundef 8, i32 noundef 50) #7
-  %15 = getelementptr inbounds i8, ptr %0, i64 384
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 384
   store ptr %14, ptr %15, align 8
   %16 = icmp eq ptr %14, null
   br i1 %16, label %17, label %commonInit.exit
@@ -43,37 +43,37 @@ define hidden void @outStream_initCommand(ptr noundef %0, i32 noundef %1, i8 nou
   br label %commonInit.exit
 
 commonInit.exit:                                  ; preds = %5, %17
-  %18 = getelementptr inbounds i8, ptr %0, i64 60
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 60
   store i32 %1, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %0, i64 65
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 65
   store i8 %3, ptr %19, align 1
-  %20 = getelementptr inbounds i8, ptr %0, i64 66
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 66
   store i8 %4, ptr %20, align 2
-  %21 = getelementptr inbounds i8, ptr %0, i64 64
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i8 %2, ptr %21, align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden void @outStream_initReply(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 80
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %3, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 300, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %5, ptr %6, align 8
   store i32 0, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %3, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr null, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 0, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 52
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i8 0, ptr %10, align 4
   %11 = tail call ptr @bagCreateBag(i32 noundef 8, i32 noundef 50) #7
-  %12 = getelementptr inbounds i8, ptr %0, i64 384
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 384
   store ptr %11, ptr %12, align 8
   %13 = icmp eq ptr %11, null
   br i1 %13, label %14, label %commonInit.exit
@@ -83,18 +83,18 @@ define hidden void @outStream_initReply(ptr noundef %0, i32 noundef %1) local_un
   br label %commonInit.exit
 
 commonInit.exit:                                  ; preds = %2, %14
-  %15 = getelementptr inbounds i8, ptr %0, i64 60
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 60
   store i32 %1, ptr %15, align 4
-  %16 = getelementptr inbounds i8, ptr %0, i64 66
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 66
   store i16 0, ptr %16, align 2
-  %17 = getelementptr inbounds i8, ptr %0, i64 64
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i8 -128, ptr %17, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden i32 @outStream_id(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 60
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %3 = load i32, ptr %2, align 4
   ret i32 %3
 }
@@ -106,13 +106,13 @@ define hidden signext i8 @outStream_command(ptr nocapture noundef readonly %0) l
   br i1 %.not, label %10, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %2, i64 17
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 17
   %5 = load i8, ptr %4, align 1
   %.not2 = icmp eq i8 %5, 0
   br i1 %.not2, label %10, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %8 = load i8, ptr %7, align 8
   %.not3 = icmp sgt i8 %8, -1
   br i1 %.not3, label %10, label %9
@@ -122,7 +122,7 @@ define hidden signext i8 @outStream_command(ptr nocapture noundef readonly %0) l
   br label %10
 
 10:                                               ; preds = %1, %3, %6, %9
-  %11 = getelementptr inbounds i8, ptr %0, i64 66
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 66
   %12 = load i8, ptr %11, align 2
   ret i8 %12
 }
@@ -141,7 +141,7 @@ define hidden zeroext i16 @outStream_writeBoolean(ptr nocapture noundef %0, i8 n
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i16 @writeBytes(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load i32, ptr %4, align 8
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %.preheader, label %9
@@ -151,8 +151,8 @@ define internal fastcc zeroext i16 @writeBytes(ptr nocapture noundef %0, ptr noc
   br i1 %6, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %11
 
 9:                                                ; preds = %3
@@ -190,12 +190,12 @@ define internal fastcc zeroext i16 @writeBytes(ptr nocapture noundef %0, ptr noc
 
 23:                                               ; preds = %14
   store i32 0, ptr %19, align 8
-  %24 = getelementptr inbounds i8, ptr %19, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr %18, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %19, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store ptr null, ptr %25, align 8
   %26 = load ptr, ptr %8, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   store ptr %19, ptr %27, align 8
   store ptr %19, ptr %8, align 8
   %28 = load ptr, ptr %24, align 8
@@ -312,7 +312,7 @@ declare signext i8 @specificTypeKey(ptr noundef, ptr noundef) local_unnamed_addr
 define hidden zeroext i16 @outStream_writeModuleRef(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  %5 = getelementptr inbounds i8, ptr %1, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %6 = load i32, ptr %5, align 8
   %.not.i = icmp eq i32 %6, 0
   br i1 %.not.i, label %9, label %7
@@ -335,7 +335,7 @@ define hidden zeroext i16 @outStream_writeModuleRef(ptr noundef %0, ptr nocaptur
   br label %outStream_writeObjectRef.exit
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %1, i64 384
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 384
   %17 = load ptr, ptr %16, align 8
   %18 = tail call ptr @bagAdd(ptr noundef %17) #7
   %19 = icmp eq ptr %18, null
@@ -366,7 +366,7 @@ outStream_writeObjectRef.exit:                    ; preds = %7, %14, %20, %23
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i16 @outStream_writeObjectRef(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i64, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %6 = load i32, ptr %5, align 8
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %9, label %7
@@ -389,7 +389,7 @@ define hidden zeroext i16 @outStream_writeObjectRef(ptr noundef %0, ptr nocaptur
   br label %25
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %1, i64 384
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 384
   %17 = load ptr, ptr %16, align 8
   %18 = tail call ptr @bagAdd(ptr noundef %17) #7
   %19 = icmp eq ptr %18, null
@@ -496,7 +496,7 @@ define hidden zeroext i16 @outStream_writeString(ptr nocapture noundef %0, ptr n
 9:                                                ; preds = %2, %6
   %10 = phi i32 [ %8, %6 ], [ 0, %2 ]
   %11 = load ptr, ptr @gdata, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 23
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 23
   %13 = load i8, ptr %12, align 1
   %.not30 = icmp eq i8 %13, 0
   br i1 %.not30, label %18, label %14
@@ -596,7 +596,7 @@ define hidden zeroext i16 @outStream_writeValue(ptr noundef %0, ptr nocapture no
 25:                                               ; preds = %23
   %26 = inttoptr i64 %3 to ptr
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
-  %27 = getelementptr inbounds i8, ptr %1, i64 48
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %28 = load i32, ptr %27, align 8
   %.not.i = icmp eq i32 %28, 0
   br i1 %.not.i, label %29, label %outStream_writeObjectRef.exit
@@ -615,7 +615,7 @@ define hidden zeroext i16 @outStream_writeValue(ptr noundef %0, ptr nocapture no
   br label %outStream_writeObjectRef.exit
 
 35:                                               ; preds = %31
-  %36 = getelementptr inbounds i8, ptr %1, i64 384
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 384
   %37 = load ptr, ptr %36, align 8
   %38 = tail call ptr @bagAdd(ptr noundef %37) #7
   %39 = icmp eq ptr %38, null
@@ -785,7 +785,7 @@ define hidden zeroext i16 @outStream_skipBytes(ptr nocapture noundef %0, i32 nou
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load i32, ptr %7, align 8
   %9 = trunc i32 %8 to i16
   ret i16 %9
@@ -793,7 +793,7 @@ define hidden zeroext i16 @outStream_skipBytes(ptr nocapture noundef %0, i32 nou
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden zeroext i16 @outStream_error(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i32, ptr %2, align 8
   %4 = trunc i32 %3 to i16
   ret i16 %4
@@ -801,7 +801,7 @@ define hidden zeroext i16 @outStream_error(ptr nocapture noundef readonly %0) lo
 
 ; Function Attrs: nounwind uwtable
 define hidden void @outStream_setError(ptr nocapture noundef %0, i16 noundef zeroext %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %6, label %14
@@ -810,7 +810,7 @@ define hidden void @outStream_setError(ptr nocapture noundef %0, i16 noundef zer
   %7 = zext i16 %1 to i32
   store i32 %7, ptr %3, align 8
   %8 = load ptr, ptr @gdata, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 528
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 528
   %10 = load i32, ptr %9, align 8
   %11 = and i32 %10, 8
   %.not = icmp eq i32 %11, 0
@@ -834,22 +834,22 @@ declare ptr @jdwpErrorText(i16 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden void @outStream_sendReply(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i32, ptr %2, align 8
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %8, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 56
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 0, ptr %5, align 8
   %6 = trunc i32 %3 to i16
-  %7 = getelementptr inbounds i8, ptr %0, i64 66
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 66
   store i16 %6, ptr %7, align 2
   br label %8
 
 8:                                                ; preds = %4, %1
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
-  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %13, label %.preheader36.i
@@ -857,11 +857,11 @@ define hidden void @outStream_sendReply(ptr noundef %0) local_unnamed_addr #0 {
 13:                                               ; preds = %8
   %14 = load i32, ptr %9, align 8
   %15 = add nsw i32 %14, 11
-  %16 = getelementptr inbounds i8, ptr %0, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 %15, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 72
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %18, ptr %19, align 8
   %20 = tail call i32 @transport_sendPacket(ptr noundef nonnull %16) #7
   br label %outStream_send.exit
@@ -871,7 +871,7 @@ define hidden void @outStream_sendReply(ptr noundef %0) local_unnamed_addr #0 {
   %.032.i = phi ptr [ %24, %.preheader36.i ], [ %9, %8 ]
   %21 = load i32, ptr %.032.i, align 8
   %22 = add nsw i32 %21, %.033.i
-  %23 = getelementptr inbounds i8, ptr %.032.i, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %.032.i, i64 16
   %24 = load ptr, ptr %23, align 8
   %.not.i = icmp eq ptr %24, null
   br i1 %.not.i, label %25, label %.preheader36.i, !llvm.loop !9
@@ -884,7 +884,7 @@ define hidden void @outStream_sendReply(ptr noundef %0) local_unnamed_addr #0 {
 .preheader.i:                                     ; preds = %25, %.preheader.i
   %.038.i = phi ptr [ %34, %.preheader.i ], [ %26, %25 ]
   %.137.i = phi ptr [ %36, %.preheader.i ], [ %9, %25 ]
-  %28 = getelementptr inbounds i8, ptr %.137.i, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %.137.i, i64 8
   %29 = load ptr, ptr %28, align 8
   %30 = load i32, ptr %.137.i, align 8
   %31 = sext i32 %30 to i64
@@ -892,16 +892,16 @@ define hidden void @outStream_sendReply(ptr noundef %0) local_unnamed_addr #0 {
   %32 = load i32, ptr %.137.i, align 8
   %33 = sext i32 %32 to i64
   %34 = getelementptr inbounds i8, ptr %.038.i, i64 %33
-  %35 = getelementptr inbounds i8, ptr %.137.i, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %.137.i, i64 16
   %36 = load ptr, ptr %35, align 8
   %.not35.i = icmp eq ptr %36, null
   br i1 %.not35.i, label %37, label %.preheader.i, !llvm.loop !10
 
 37:                                               ; preds = %.preheader.i
   %38 = add nsw i32 %22, 11
-  %39 = getelementptr inbounds i8, ptr %0, i64 56
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 %38, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 72
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %26, ptr %40, align 8
   %41 = tail call i32 @transport_sendPacket(ptr noundef nonnull %39) #7
   store ptr null, ptr %40, align 8
@@ -914,7 +914,7 @@ outStream_send.exit:                              ; preds = %13, %37
   br i1 %42, label %43, label %outStream_send.exit.thread
 
 43:                                               ; preds = %outStream_send.exit
-  %44 = getelementptr inbounds i8, ptr %0, i64 52
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i8 1, ptr %44, align 4
   br label %outStream_send.exit.thread
 
@@ -924,14 +924,14 @@ outStream_send.exit.thread:                       ; preds = %25, %43, %outStream
 
 ; Function Attrs: nounwind uwtable
 define hidden void @outStream_sendCommand(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i32, ptr %2, align 8
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %outStream_send.exit.thread
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %.preheader36.i
@@ -939,11 +939,11 @@ define hidden void @outStream_sendCommand(ptr noundef %0) local_unnamed_addr #0 
 9:                                                ; preds = %4
   %10 = load i32, ptr %5, align 8
   %11 = add nsw i32 %10, 11
-  %12 = getelementptr inbounds i8, ptr %0, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 %11, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 72
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %14, ptr %15, align 8
   %16 = tail call i32 @transport_sendPacket(ptr noundef nonnull %12) #7
   br label %outStream_send.exit
@@ -953,7 +953,7 @@ define hidden void @outStream_sendCommand(ptr noundef %0) local_unnamed_addr #0 
   %.032.i = phi ptr [ %20, %.preheader36.i ], [ %5, %4 ]
   %17 = load i32, ptr %.032.i, align 8
   %18 = add nsw i32 %17, %.033.i
-  %19 = getelementptr inbounds i8, ptr %.032.i, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %.032.i, i64 16
   %20 = load ptr, ptr %19, align 8
   %.not.i = icmp eq ptr %20, null
   br i1 %.not.i, label %21, label %.preheader36.i, !llvm.loop !9
@@ -966,7 +966,7 @@ define hidden void @outStream_sendCommand(ptr noundef %0) local_unnamed_addr #0 
 .preheader.i:                                     ; preds = %21, %.preheader.i
   %.038.i = phi ptr [ %30, %.preheader.i ], [ %22, %21 ]
   %.137.i = phi ptr [ %32, %.preheader.i ], [ %5, %21 ]
-  %24 = getelementptr inbounds i8, ptr %.137.i, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %.137.i, i64 8
   %25 = load ptr, ptr %24, align 8
   %26 = load i32, ptr %.137.i, align 8
   %27 = sext i32 %26 to i64
@@ -974,16 +974,16 @@ define hidden void @outStream_sendCommand(ptr noundef %0) local_unnamed_addr #0 
   %28 = load i32, ptr %.137.i, align 8
   %29 = sext i32 %28 to i64
   %30 = getelementptr inbounds i8, ptr %.038.i, i64 %29
-  %31 = getelementptr inbounds i8, ptr %.137.i, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %.137.i, i64 16
   %32 = load ptr, ptr %31, align 8
   %.not35.i = icmp eq ptr %32, null
   br i1 %.not35.i, label %33, label %.preheader.i, !llvm.loop !10
 
 33:                                               ; preds = %.preheader.i
   %34 = add nsw i32 %18, 11
-  %35 = getelementptr inbounds i8, ptr %0, i64 56
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 %34, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 72
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %22, ptr %36, align 8
   %37 = tail call i32 @transport_sendPacket(ptr noundef nonnull %35) #7
   store ptr null, ptr %36, align 8
@@ -996,7 +996,7 @@ outStream_send.exit:                              ; preds = %9, %33
   br i1 %38, label %39, label %outStream_send.exit.thread
 
 39:                                               ; preds = %outStream_send.exit
-  %40 = getelementptr inbounds i8, ptr %0, i64 52
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i8 1, ptr %40, align 4
   br label %outStream_send.exit.thread
 
@@ -1006,34 +1006,34 @@ outStream_send.exit.thread:                       ; preds = %21, %outStream_send
 
 ; Function Attrs: nounwind uwtable
 define hidden void @outStream_destroy(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i32, ptr %2, align 8
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %7
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 52
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %6 = load i8, ptr %5, align 4
   %.not10 = icmp eq i8 %6, 0
   br i1 %.not10, label %7, label %11
 
 7:                                                ; preds = %4, %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 384
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %9 = load ptr, ptr %8, align 8
   %10 = tail call zeroext i8 @bagEnumerateOver(ptr noundef %9, ptr noundef nonnull @releaseID, ptr noundef null) #7
   br label %11
 
 11:                                               ; preds = %7, %4
-  %12 = getelementptr inbounds i8, ptr %0, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %13 = load ptr, ptr %12, align 8
   %.not1112 = icmp eq ptr %13, null
   br i1 %.not1112, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %11, %.lr.ph
   %.013 = phi ptr [ %15, %.lr.ph ], [ %13, %11 ]
-  %14 = getelementptr inbounds i8, ptr %.013, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %.013, i64 16
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %.013, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %.013, i64 8
   %17 = load ptr, ptr %16, align 8
   tail call void @jvmtiDeallocate(ptr noundef %17) #7
   tail call void @jvmtiDeallocate(ptr noundef nonnull %.013) #7
@@ -1041,7 +1041,7 @@ define hidden void @outStream_destroy(ptr nocapture noundef readonly %0) local_u
   br i1 %.not11, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %11
-  %18 = getelementptr inbounds i8, ptr %0, i64 384
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %19 = load ptr, ptr %18, align 8
   tail call void @bagDestroyBag(ptr noundef %19) #7
   ret void

@@ -1949,7 +1949,7 @@ define internal i32 @dissect_docsis_tlv(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %68, label %.lr.ph524, label %._crit_edge
 
 .lr.ph524:                                        ; preds = %4
-  %69 = getelementptr inbounds i8, ptr %1, i64 272
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 272
   br label %70
 
 70:                                               ; preds = %.lr.ph524, %dissect_snmpv3_kickstart.exit

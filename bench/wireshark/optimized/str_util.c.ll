@@ -56,8 +56,8 @@ define noalias noundef ptr @wmem_strconcat(ptr noundef %0, ptr noundef %1, ...) 
   %6 = add i64 %5, 1
   call void @llvm.va_start.p0(ptr nonnull %3)
   %.promoted = load i32, ptr %3, align 16
-  %7 = getelementptr inbounds i8, ptr %3, i64 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %9 = load ptr, ptr %8, align 16
   %.promoted20 = load ptr, ptr %7, align 8
   br label %10
@@ -161,8 +161,8 @@ define noalias noundef ptr @wmem_strjoin(ptr noundef %0, ptr noundef %1, ptr nou
   %9 = add i64 %8, 1
   call void @llvm.va_start.p0(ptr nonnull %4)
   %.promoted = load i32, ptr %4, align 16
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %12 = load ptr, ptr %11, align 16
   %.promoted25 = load ptr, ptr %10, align 8
   br label %13
@@ -496,7 +496,7 @@ define range(i32 -1, 16) i32 @ws_xton(i8 noundef signext %0) local_unnamed_addr 
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [55 x i32], ptr @switch.table.ws_xton, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw [55 x i32], ptr @switch.table.ws_xton, i64 0, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %4
 

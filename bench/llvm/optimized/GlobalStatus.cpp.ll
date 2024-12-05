@@ -29,7 +29,7 @@ $_ZN4llvm8dyn_castINS_10MemSetInstEKNS_11InstructionEEEDcPT0_ = comdat any
 define dso_local noundef zeroext i1 @_ZN4llvm23isSafeToDestroyConstantEPKNS_8ConstantE(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %"class.llvm::SmallVector", align 8
   %3 = alloca %"class.llvm::SmallPtrSet", align 8
-  %4 = getelementptr inbounds i8, ptr %2, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef nonnull %4, i64 noundef 8) #7
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr %5, ptr %3, align 8
@@ -80,7 +80,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKNS_8ConstantELb1EE9push_backES3_.exit: ; pre
 31:                                               ; preds = %.lr.ph29
   %32 = load i32, ptr %8, align 4, !noalias !4
   %33 = zext i32 %32 to i64
-  %34 = getelementptr inbounds ptr, ptr %29, i64 %33
+  %34 = getelementptr inbounds nuw ptr, ptr %29, i64 %33
   %.not24.i.i = icmp eq i32 %32, 0
   br i1 %.not24.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
@@ -91,7 +91,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKNS_8ConstantELb1EE9push_backES3_.exit: ; pre
   br i1 %36, label %.backedge, label %37
 
 37:                                               ; preds = %.lr.ph.i.i
-  %38 = getelementptr inbounds i8, ptr %.025.i.i, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %.025.i.i, i64 8
   %.not.i.i = icmp eq ptr %38, %34
   br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !7
 
@@ -309,7 +309,7 @@ define internal fastcc noundef zeroext i1 @_ZL16analyzeGlobalAuxPKN4llvm5ValueER
   br i1 %43, label %53, label %44
 
 44:                                               ; preds = %41
-  %45 = getelementptr inbounds i8, ptr %25, i64 40
+  %45 = getelementptr inbounds nuw i8, ptr %25, i64 40
   %46 = load ptr, ptr %45, align 8
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 72
   %48 = load ptr, ptr %47, align 8
@@ -524,7 +524,7 @@ _ZNK4llvm12GlobalStatus18getStoredOnceValueEv.exit: ; preds = %131, %133
 146:                                              ; preds = %142
   %147 = load i32, ptr %17, align 4, !noalias !10
   %148 = zext i32 %147 to i64
-  %149 = getelementptr inbounds ptr, ptr %144, i64 %148
+  %149 = getelementptr inbounds nuw ptr, ptr %144, i64 %148
   %.not24.i.i = icmp eq i32 %147, 0
   br i1 %.not24.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
@@ -535,7 +535,7 @@ _ZNK4llvm12GlobalStatus18getStoredOnceValueEv.exit: ; preds = %131, %133
   br i1 %151, label %.critedge208, label %152
 
 152:                                              ; preds = %.lr.ph.i.i
-  %153 = getelementptr inbounds i8, ptr %.025.i.i, i64 8
+  %153 = getelementptr inbounds nuw i8, ptr %.025.i.i, i64 8
   %.not.i.i = icmp eq ptr %153, %149
   br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !7
 
@@ -634,7 +634,7 @@ _ZN4llvm8dyn_castINS_15MemTransferInstEKNS_11InstructionEEEDcPT0_.exit: ; preds 
 195:                                              ; preds = %194, %185
   %.pre-phi205 = phi i64 [ %.pre204, %194 ], [ %190, %185 ]
   %196 = getelementptr inbounds %"class.llvm::Use", ptr %25, i64 %.pre-phi205
-  %197 = getelementptr inbounds i8, ptr %196, i64 32
+  %197 = getelementptr inbounds nuw i8, ptr %196, i64 32
   %198 = load ptr, ptr %197, align 8
   %199 = icmp eq ptr %198, %0
   br i1 %199, label %200, label %.critedge208
@@ -711,7 +711,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm12MemIntrinsic10isVolati
   %5 = zext nneg i32 %4 to i64
   %6 = sub nsw i64 0, %5
   %7 = getelementptr inbounds %"class.llvm::Use", ptr %0, i64 %6
-  %8 = getelementptr inbounds i8, ptr %7, i64 96
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 32

@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN15ClasspathStream8get_nextEv(ptr nocapture noundef nonnull align 8 dereferenceable(20) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %0, align 8
   %4 = load i32, ptr %2, align 8
   %5 = sext i32 %4 to i64
@@ -36,7 +36,7 @@ define hidden noundef ptr @_ZN15ClasspathStream8get_nextEv(ptr nocapture noundef
 
 .critedge:                                        ; preds = %.lr.ph, %11, %1
   %17 = phi i32 [ %4, %1 ], [ %.pre.pre, %.lr.ph ], [ %12, %11 ]
-  %18 = getelementptr inbounds i8, ptr %0, i64 12
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %19 = load i32, ptr %18, align 4
   %20 = sub nsw i32 %17, %19
   %21 = add nsw i32 %20, 1

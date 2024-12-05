@@ -69,11 +69,11 @@ define hidden void @_ZN9vmSymbols10initializeEv() local_unnamed_addr #0 align 2 
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 1, %0 ]
   %.025 = phi ptr [ %6, %.preheader ], [ @.str, %0 ]
   %2 = tail call noundef ptr @_ZN11SymbolTable20new_permanent_symbolEPKc(ptr noundef nonnull %.025) #10
-  %3 = getelementptr inbounds [0 x ptr], ptr @_ZN6Symbol11_vm_symbolsE, i64 0, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw [0 x ptr], ptr @_ZN6Symbol11_vm_symbolsE, i64 0, i64 %indvars.iv
   store ptr %2, ptr %3, align 8
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.025) #11
   %5 = getelementptr inbounds i8, ptr %.025, i64 %4
-  %6 = getelementptr inbounds i8, ptr %5, i64 1
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not = icmp eq i64 %indvars.iv.next, 1170
   br i1 %.not, label %7, label %.preheader
@@ -104,7 +104,7 @@ define hidden void @_ZN9vmSymbols10initializeEv() local_unnamed_addr #0 align 2 
 
 17:                                               ; preds = %.preheader31, %17
   %indvars.iv28 = phi i64 [ %indvars.iv.next29, %17 ], [ 1, %.preheader31 ]
-  %18 = getelementptr inbounds [1170 x i32], ptr @_ZL15vm_symbol_index, i64 0, i64 %indvars.iv28
+  %18 = getelementptr inbounds nuw [1170 x i32], ptr @_ZL15vm_symbol_index, i64 0, i64 %indvars.iv28
   %19 = trunc nuw nsw i64 %indvars.iv28 to i32
   store i32 %19, ptr %18, align 4
   %indvars.iv.next29 = add nuw nsw i64 %indvars.iv28, 1
@@ -149,7 +149,7 @@ define hidden void @_ZN9vmSymbols10symbols_doEP13SymbolClosure(ptr noundef %0) l
 
 2:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 1, %1 ], [ %indvars.iv.next, %2 ]
-  %3 = getelementptr inbounds [0 x ptr], ptr @_ZN6Symbol11_vm_symbolsE, i64 0, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw [0 x ptr], ptr @_ZN6Symbol11_vm_symbolsE, i64 0, i64 %indvars.iv
   %4 = load ptr, ptr %0, align 8
   %5 = load ptr, ptr %4, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %3) #10
@@ -159,7 +159,7 @@ define hidden void @_ZN9vmSymbols10symbols_doEP13SymbolClosure(ptr noundef %0) l
 
 .preheader:                                       ; preds = %2, %.preheader
   %indvars.iv14 = phi i64 [ %indvars.iv.next15, %.preheader ], [ 0, %2 ]
-  %6 = getelementptr inbounds [15 x ptr], ptr @_ZN9vmSymbols16_type_signaturesE, i64 0, i64 %indvars.iv14
+  %6 = getelementptr inbounds nuw [15 x ptr], ptr @_ZN9vmSymbols16_type_signaturesE, i64 0, i64 %indvars.iv14
   %7 = load ptr, ptr %0, align 8
   %8 = load ptr, ptr %7, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %6) #10
@@ -177,14 +177,14 @@ define hidden void @_ZN9vmSymbols21metaspace_pointers_doEP16MetaspaceClosure(ptr
 
 2:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 1, %1 ], [ %indvars.iv.next, %2 ]
-  %3 = getelementptr inbounds [0 x ptr], ptr @_ZN6Symbol11_vm_symbolsE, i64 0, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw [0 x ptr], ptr @_ZN6Symbol11_vm_symbolsE, i64 0, i64 %indvars.iv
   %4 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 40, i8 noundef zeroext 24, i32 noundef 0) #10
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 2, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN16MetaspaceClosure6MSORefI6SymbolEE, i64 16), ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr %3, ptr %7, align 8
   tail call void @_ZN16MetaspaceClosure9push_implEPNS_3RefE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %4) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -193,14 +193,14 @@ define hidden void @_ZN9vmSymbols21metaspace_pointers_doEP16MetaspaceClosure(ptr
 
 .preheader:                                       ; preds = %2, %.preheader
   %indvars.iv14 = phi i64 [ %indvars.iv.next15, %.preheader ], [ 0, %2 ]
-  %8 = getelementptr inbounds [15 x ptr], ptr @_ZN9vmSymbols16_type_signaturesE, i64 0, i64 %indvars.iv14
+  %8 = getelementptr inbounds nuw [15 x ptr], ptr @_ZN9vmSymbols16_type_signaturesE, i64 0, i64 %indvars.iv14
   %9 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 40, i8 noundef zeroext 24, i32 noundef 0) #10
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 2, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %9, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN16MetaspaceClosure6MSORefI6SymbolEE, i64 16), ptr %9, align 8
-  %12 = getelementptr inbounds i8, ptr %9, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store ptr %8, ptr %12, align 8
   tail call void @_ZN16MetaspaceClosure9push_implEPNS_3RefE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %9) #10
   %indvars.iv.next15 = add nuw nsw i64 %indvars.iv14, 1
@@ -214,7 +214,7 @@ define hidden void @_ZN9vmSymbols21metaspace_pointers_doEP16MetaspaceClosure(ptr
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN9vmSymbols9serializeEP16SerializeClosure(ptr noundef %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %4 = load ptr, ptr %3, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 9352) #10
   br label %.lr.ph.i
@@ -223,17 +223,17 @@ define hidden void @_ZN9vmSymbols9serializeEP16SerializeClosure(ptr noundef %0) 
   %.08.i = phi i64 [ %9, %.lr.ph.i ], [ 9352, %1 ]
   %.057.i = phi ptr [ %8, %.lr.ph.i ], [ getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 8), %1 ]
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %.057.i) #10
-  %8 = getelementptr inbounds i8, ptr %.057.i, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %.057.i, i64 8
   %9 = add nsw i64 %.08.i, -8
   %.not.i = icmp eq i64 %9, 0
   br i1 %.not.i, label %_ZN16SerializeClosure7do_ptrsEPPvm.exit, label %.lr.ph.i, !llvm.loop !9
 
 _ZN16SerializeClosure7do_ptrsEPPvm.exit:          ; preds = %.lr.ph.i
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %12 = load ptr, ptr %11, align 8
   tail call void %12(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 120) #10
   br label %.lr.ph.i2
@@ -242,10 +242,10 @@ _ZN16SerializeClosure7do_ptrsEPPvm.exit:          ; preds = %.lr.ph.i
   %.08.i3 = phi i64 [ %17, %.lr.ph.i2 ], [ 120, %_ZN16SerializeClosure7do_ptrsEPPvm.exit ]
   %.057.i4 = phi ptr [ %16, %.lr.ph.i2 ], [ @_ZN9vmSymbols16_type_signaturesE, %_ZN16SerializeClosure7do_ptrsEPPvm.exit ]
   %13 = load ptr, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8
   tail call void %15(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %.057.i4) #10
-  %16 = getelementptr inbounds i8, ptr %.057.i4, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %.057.i4, i64 8
   %17 = add nsw i64 %.08.i3, -8
   %.not.i5 = icmp eq i64 %17, 0
   br i1 %.not.i5, label %_ZN16SerializeClosure7do_ptrsEPPvm.exit6, label %.lr.ph.i2, !llvm.loop !9
@@ -488,14 +488,14 @@ declare noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEn
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNK16MetaspaceClosure6MSORefI6SymbolE3mppEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK16MetaspaceClosure6MSORefI6SymbolE8not_nullEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
   %5 = icmp ne ptr %4, null
@@ -504,10 +504,10 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK16MetaspaceClosure6MSORefI6Sy
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i32 @_ZNK16MetaspaceClosure6MSORefI6SymbolE4sizeEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %6 = load i16, ptr %5, align 4
   %7 = tail call i16 @llvm.umax.i16(i16 %6, i16 2)
   %8 = zext i16 %7 to i32
@@ -518,7 +518,7 @@ define linkonce_odr hidden noundef i32 @_ZNK16MetaspaceClosure6MSORefI6SymbolE4s
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK16MetaspaceClosure6MSORefI6SymbolE21metaspace_pointers_doEPS_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
   tail call void @_ZN6Symbol21metaspace_pointers_doEP16MetaspaceClosure(ptr noundef nonnull align 4 dereferenceable(8) %5, ptr noundef %1) #10

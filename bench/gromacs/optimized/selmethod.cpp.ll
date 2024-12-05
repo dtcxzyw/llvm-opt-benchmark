@@ -116,12 +116,12 @@ $_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8
 
 ; Function Attrs: mustprogress uwtable
 define noundef range(i32 -1, 1) i32 @_Z26gmx_ana_selmethod_registerPN3gmx26SelectionParserSymbolTableEPKcP19gmx_ana_selmethod_t(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 12
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %5 = load i32, ptr %4, align 4
   %6 = and i32 %5, 256
   %.not = icmp eq i32 %6, 0
   %7 = load ptr, ptr @stderr, align 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %9 = load i32, ptr %8, align 8
   br i1 %.not, label %40, label %10
 
@@ -152,17 +152,17 @@ define noundef range(i32 -1, 1) i32 @_Z26gmx_ana_selmethod_registerPN3gmx26Selec
 18:                                               ; preds = %16, %13
   %.1.i = phi i1 [ false, %16 ], [ %.0.i, %13 ]
   %19 = load ptr, ptr %2, align 8
-  %20 = getelementptr inbounds i8, ptr %2, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %21 = load i32, ptr %20, align 8
   %22 = add nsw i32 %21, -1
-  %23 = getelementptr inbounds i8, ptr %2, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 48
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 48
   %26 = tail call fastcc noundef zeroext i1 @_ZL12check_paramsP8_IO_FILEPKciP18gmx_ana_selparam_tRKN3gmx26SelectionParserSymbolTableE(ptr noundef %7, ptr noundef %19, i32 noundef %22, ptr noundef nonnull %25, ptr noundef nonnull align 8 dereferenceable(8) %0)
   %27 = tail call fastcc noundef zeroext i1 @_ZL15check_callbacksP8_IO_FILEP19gmx_ana_selmethod_t(ptr noundef %7, ptr noundef nonnull %2)
   %28 = and i1 %26, %27
   %.3.i = and i1 %.1.i, %28
-  %29 = getelementptr inbounds i8, ptr %2, i64 80
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %30 = load ptr, ptr %29, align 8
   %.not24.i = icmp eq ptr %30, null
   br i1 %.not24.i, label %33, label %31
@@ -179,7 +179,7 @@ define noundef range(i32 -1, 1) i32 @_Z26gmx_ana_selmethod_registerPN3gmx26Selec
   br i1 %35, label %36, label %_ZL14check_modifierP8_IO_FILEP19gmx_ana_selmethod_tRKN3gmx26SelectionParserSymbolTableE.exit
 
 36:                                               ; preds = %33
-  %37 = getelementptr inbounds i8, ptr %2, i64 88
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %38 = load ptr, ptr %37, align 8
   %.not25.i = icmp eq ptr %38, null
   br i1 %.not25.i, label %_ZL14check_modifierP8_IO_FILEP19gmx_ana_selmethod_tRKN3gmx26SelectionParserSymbolTableE.exit.thread, label %_ZL14check_modifierP8_IO_FILEP19gmx_ana_selmethod_tRKN3gmx26SelectionParserSymbolTableE.exit
@@ -205,7 +205,7 @@ _ZL14check_modifierP8_IO_FILEP19gmx_ana_selmethod_tRKN3gmx26SelectionParserSymbo
   br i1 %46, label %47, label %53
 
 47:                                               ; preds = %44
-  %48 = getelementptr inbounds i8, ptr %2, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %49 = load i32, ptr %48, align 8
   %50 = icmp sgt i32 %49, 0
   br i1 %50, label %51, label %..thread.i_crit_edge
@@ -268,9 +268,9 @@ _ZL14check_modifierP8_IO_FILEP19gmx_ana_selmethod_tRKN3gmx26SelectionParserSymbo
 _ZL12check_methodP8_IO_FILEP19gmx_ana_selmethod_tRKN3gmx26SelectionParserSymbolTableE.exit: ; preds = %62, %65, %67
   %.3.i21 = phi i1 [ false, %67 ], [ %.2.i, %65 ], [ %.2.i, %62 ]
   %69 = load ptr, ptr %2, align 8
-  %70 = getelementptr inbounds i8, ptr %2, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %71 = load i32, ptr %70, align 8
-  %72 = getelementptr inbounds i8, ptr %2, i64 24
+  %72 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %73 = load ptr, ptr %72, align 8
   %74 = tail call fastcc noundef zeroext i1 @_ZL12check_paramsP8_IO_FILEPKciP18gmx_ana_selparam_tRKN3gmx26SelectionParserSymbolTableE(ptr noundef %7, ptr noundef %69, i32 noundef %71, ptr noundef %73, ptr noundef nonnull align 8 dereferenceable(8) %0)
   %75 = tail call fastcc noundef zeroext i1 @_ZL15check_callbacksP8_IO_FILEP19gmx_ana_selmethod_t(ptr noundef %7, ptr noundef nonnull %2)
@@ -298,7 +298,7 @@ _ZL14check_modifierP8_IO_FILEP19gmx_ana_selmethod_tRKN3gmx26SelectionParserSymbo
   %85 = tail call ptr @__cxa_begin_catch(ptr %84) #13
   %86 = load ptr, ptr @stderr, align 8
   %87 = load ptr, ptr %85, align 8
-  %88 = getelementptr inbounds i8, ptr %87, i64 16
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 16
   %89 = load ptr, ptr %88, align 8
   %90 = tail call noundef ptr %89(ptr noundef nonnull align 8 dereferenceable(24) %85) #13
   tail call void (ptr, ptr, ptr, ...) @_ZL12report_errorP8_IO_FILEPKcS2_z(ptr noundef %86, ptr noundef %1, ptr noundef nonnull @.str, ptr noundef %90)
@@ -390,7 +390,7 @@ define internal fastcc noundef zeroext i1 @_ZL12check_paramsP8_IO_FILEPKciP18gmx
 .lr.ph262:                                        ; preds = %.lr.ph262.preheader, %164
   %indvars.iv272 = phi i64 [ 0, %.lr.ph262.preheader ], [ %indvars.iv.next273, %164 ]
   %.0193261 = phi i1 [ true, %.lr.ph262.preheader ], [ %.1, %164 ]
-  %18 = getelementptr inbounds %struct.gmx_ana_selparam_t, ptr %3, i64 %indvars.iv272
+  %18 = getelementptr inbounds nuw %struct.gmx_ana_selparam_t, ptr %3, i64 %indvars.iv272
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
   %21 = icmp ne i64 %indvars.iv272, 0
@@ -407,7 +407,7 @@ define internal fastcc noundef zeroext i1 @_ZL12check_paramsP8_IO_FILEPKciP18gmx
 
 .lr.ph:                                           ; preds = %.preheader250, %31
   %indvars.iv = phi i64 [ %indvars.iv.next, %31 ], [ 0, %.preheader250 ]
-  %23 = getelementptr inbounds %struct.gmx_ana_selparam_t, ptr %3, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw %struct.gmx_ana_selparam_t, ptr %3, i64 %indvars.iv
   %24 = load ptr, ptr %23, align 8
   %25 = icmp eq ptr %24, null
   br i1 %25, label %31, label %26
@@ -430,7 +430,7 @@ define internal fastcc noundef zeroext i1 @_ZL12check_paramsP8_IO_FILEPKciP18gmx
 
 .loopexit251:                                     ; preds = %31, %.preheader250, %29
   %.2 = phi i1 [ false, %29 ], [ %.0193261, %.preheader250 ], [ %.0193261, %31 ]
-  %32 = getelementptr inbounds i8, ptr %18, i64 40
+  %32 = getelementptr inbounds nuw i8, ptr %18, i64 40
   %33 = load i32, ptr %32, align 8
   %34 = and i32 %33, 1
   %.not214 = icmp eq i32 %34, 0
@@ -451,7 +451,7 @@ define internal fastcc noundef zeroext i1 @_ZL12check_paramsP8_IO_FILEPKciP18gmx
   br i1 %.not215, label %67, label %42
 
 42:                                               ; preds = %39
-  %43 = getelementptr inbounds i8, ptr %18, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %44 = load i32, ptr %43, align 8
   %.off = add i32 %44, -1
   %switch = icmp ult i32 %.off, 2
@@ -485,7 +485,7 @@ define internal fastcc noundef zeroext i1 @_ZL12check_paramsP8_IO_FILEPKciP18gmx
   br i1 %.not219, label %57, label %62
 
 57:                                               ; preds = %54
-  %58 = getelementptr inbounds i8, ptr %18, i64 12
+  %58 = getelementptr inbounds nuw i8, ptr %18, i64 12
   %59 = load i32, ptr %58, align 4
   %.not220 = icmp eq i32 %59, 1
   br i1 %.not220, label %62, label %60
@@ -530,7 +530,7 @@ define internal fastcc noundef zeroext i1 @_ZL12check_paramsP8_IO_FILEPKciP18gmx
   br i1 %.not224, label %90, label %75
 
 75:                                               ; preds = %72
-  %76 = getelementptr inbounds i8, ptr %18, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %77 = load i32, ptr %76, align 8
   %.not225 = icmp eq i32 %77, 3
   br i1 %.not225, label %80, label %78
@@ -542,7 +542,7 @@ define internal fastcc noundef zeroext i1 @_ZL12check_paramsP8_IO_FILEPKciP18gmx
 
 80:                                               ; preds = %78, %75
   %.8 = phi i1 [ false, %78 ], [ %.6, %75 ]
-  %81 = getelementptr inbounds i8, ptr %18, i64 12
+  %81 = getelementptr inbounds nuw i8, ptr %18, i64 12
   %82 = load i32, ptr %81, align 4
   %.not226 = icmp eq i32 %82, 1
   br i1 %.not226, label %85, label %83
@@ -566,13 +566,13 @@ define internal fastcc noundef zeroext i1 @_ZL12check_paramsP8_IO_FILEPKciP18gmx
 
 90:                                               ; preds = %85, %88, %72
   %.7 = phi i1 [ false, %88 ], [ %.9, %85 ], [ %.6, %72 ]
-  %91 = getelementptr inbounds i8, ptr %18, i64 8
+  %91 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %92 = load i32, ptr %91, align 8
   %93 = icmp eq i32 %92, 0
   br i1 %93, label %94, label %105
 
 94:                                               ; preds = %90
-  %95 = getelementptr inbounds i8, ptr %18, i64 12
+  %95 = getelementptr inbounds nuw i8, ptr %18, i64 12
   %96 = load i32, ptr %95, align 4
   %.not228 = icmp eq i32 %96, 0
   br i1 %.not228, label %99, label %97
@@ -604,7 +604,7 @@ define internal fastcc noundef zeroext i1 @_ZL12check_paramsP8_IO_FILEPKciP18gmx
   br i1 %.not230, label %114, label %108
 
 108:                                              ; preds = %105
-  %109 = getelementptr inbounds i8, ptr %18, i64 12
+  %109 = getelementptr inbounds nuw i8, ptr %18, i64 12
   %110 = load i32, ptr %109, align 4
   %.not232 = icmp eq i32 %110, -1
   br i1 %.not232, label %113, label %111
@@ -624,7 +624,7 @@ define internal fastcc noundef zeroext i1 @_ZL12check_paramsP8_IO_FILEPKciP18gmx
   br i1 %.not231, label %122, label %116
 
 116:                                              ; preds = %114
-  %117 = getelementptr inbounds i8, ptr %18, i64 12
+  %117 = getelementptr inbounds nuw i8, ptr %18, i64 12
   %118 = load i32, ptr %117, align 4
   %119 = icmp slt i32 %118, 1
   br i1 %119, label %120, label %122
@@ -636,7 +636,7 @@ define internal fastcc noundef zeroext i1 @_ZL12check_paramsP8_IO_FILEPKciP18gmx
 
 122:                                              ; preds = %114, %120, %116, %113
   %.12 = phi i1 [ %.10, %113 ], [ false, %120 ], [ %.10, %116 ], [ %.10, %114 ]
-  %123 = getelementptr inbounds i8, ptr %18, i64 32
+  %123 = getelementptr inbounds nuw i8, ptr %18, i64 32
   %124 = load ptr, ptr %123, align 8
   %.not233 = icmp eq ptr %124, null
   br i1 %.not233, label %127, label %125
@@ -647,7 +647,7 @@ define internal fastcc noundef zeroext i1 @_ZL12check_paramsP8_IO_FILEPKciP18gmx
   br label %127
 
 127:                                              ; preds = %125, %122
-  %128 = getelementptr inbounds i8, ptr %18, i64 16
+  %128 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %129 = load ptr, ptr %128, align 8
   %.not234 = icmp eq ptr %129, null
   br i1 %.not234, label %135, label %130
@@ -681,7 +681,7 @@ define internal fastcc noundef zeroext i1 @_ZL12check_paramsP8_IO_FILEPKciP18gmx
 
 .preheader:                                       ; preds = %138, %148
   %indvars.iv269 = phi i64 [ %indvars.iv.next270, %148 ], [ 1, %138 ]
-  %143 = getelementptr inbounds i8, ptr %136, i64 %indvars.iv269
+  %143 = getelementptr inbounds nuw i8, ptr %136, i64 %indvars.iv269
   %144 = load i8, ptr %143, align 1
   switch i8 %144, label %145 [
     i8 0, label %.loopexit.thread
@@ -701,7 +701,7 @@ define internal fastcc noundef zeroext i1 @_ZL12check_paramsP8_IO_FILEPKciP18gmx
 .loopexit:                                        ; preds = %145
   call void (ptr, ptr, ptr, ptr, ...) @_ZL18report_param_errorP8_IO_FILEPKcS2_S2_z(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %136, ptr noundef nonnull @.str.26)
   %.pre279 = load ptr, ptr %18, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre279, i64 %indvars.iv269
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre279, i64 %indvars.iv269
   %.pre280 = load i8, ptr %.phi.trans.insert, align 1
   %149 = icmp eq i8 %.pre280, 0
   br i1 %149, label %.loopexit.thread, label %164
@@ -798,9 +798,9 @@ _ZNK3gmx5boost14stl_interfaces2v118iterator_interfaceINS_29SelectionParserSymbol
           to label %173 unwind label %182
 
 173:                                              ; preds = %_ZNK3gmx5boost14stl_interfaces2v118iterator_interfaceINS_29SelectionParserSymbolIteratorESt20forward_iterator_tagKNS_21SelectionParserSymbolERS7_PS7_lvEptIS4_EEDTclsr6detailE12make_pointerIS9_Edeclsr3stdE7declvalIRKT_EEEEv.exit
-  %174 = getelementptr inbounds i8, ptr %172, i64 16
+  %174 = getelementptr inbounds nuw i8, ptr %172, i64 16
   %175 = load i32, ptr %174, align 8
-  %176 = getelementptr inbounds i8, ptr %172, i64 24
+  %176 = getelementptr inbounds nuw i8, ptr %172, i64 24
   %177 = load ptr, ptr %176, align 8
   %178 = invoke noundef ptr @_Z21gmx_ana_selparam_findPKciP18gmx_ana_selparam_t(ptr noundef %1, i32 noundef %175, ptr noundef %177)
           to label %_Z28gmx_ana_selmethod_find_paramPKcP19gmx_ana_selmethod_t.exit unwind label %182
@@ -861,13 +861,13 @@ _Z28gmx_ana_selmethod_find_paramPKcP19gmx_ana_selmethod_t.exit: ; preds = %173
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define internal fastcc noundef zeroext i1 @_ZL15check_callbacksP8_IO_FILEP19gmx_ana_selmethod_t(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %6, label %11
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %1, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %9, label %11
@@ -879,13 +879,13 @@ define internal fastcc noundef zeroext i1 @_ZL15check_callbacksP8_IO_FILEP19gmx_
 
 11:                                               ; preds = %9, %6, %2
   %.039 = phi i1 [ true, %6 ], [ false, %9 ], [ true, %2 ]
-  %12 = getelementptr inbounds i8, ptr %1, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %13 = load ptr, ptr %12, align 8
   %.not41 = icmp eq ptr %13, null
   br i1 %.not41, label %19, label %14
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %1, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %16 = load ptr, ptr %15, align 8
   %.not42 = icmp eq ptr %16, null
   br i1 %.not42, label %17, label %19
@@ -896,13 +896,13 @@ define internal fastcc noundef zeroext i1 @_ZL15check_callbacksP8_IO_FILEP19gmx_
   br label %19
 
 19:                                               ; preds = %17, %14, %11
-  %20 = getelementptr inbounds i8, ptr %1, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %21 = load i32, ptr %20, align 8
   %22 = icmp eq i32 %21, 4
   br i1 %22, label %23, label %28
 
 23:                                               ; preds = %19
-  %24 = getelementptr inbounds i8, ptr %1, i64 56
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %25 = load ptr, ptr %24, align 8
   %.not43 = icmp eq ptr %25, null
   br i1 %.not43, label %26, label %28
@@ -914,14 +914,14 @@ define internal fastcc noundef zeroext i1 @_ZL15check_callbacksP8_IO_FILEP19gmx_
 
 28:                                               ; preds = %26, %23, %19
   %.140 = phi i1 [ %.039, %23 ], [ false, %26 ], [ %.039, %19 ]
-  %29 = getelementptr inbounds i8, ptr %1, i64 12
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %30 = load i32, ptr %29, align 4
   %31 = and i32 %30, 16
   %.not44 = icmp eq i32 %31, 0
   br i1 %.not44, label %37, label %32
 
 32:                                               ; preds = %28
-  %33 = getelementptr inbounds i8, ptr %1, i64 56
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %34 = load ptr, ptr %33, align 8
   %.not45 = icmp eq ptr %34, null
   br i1 %.not45, label %35, label %37
@@ -940,7 +940,7 @@ define internal fastcc noundef zeroext i1 @_ZL15check_callbacksP8_IO_FILEP19gmx_
   br i1 %.not46, label %40, label %46
 
 40:                                               ; preds = %37
-  %41 = getelementptr inbounds i8, ptr %1, i64 88
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %42 = load ptr, ptr %41, align 8
   %.not47 = icmp ne ptr %42, null
   %43 = and i32 %38, 4
@@ -960,13 +960,13 @@ define internal fastcc noundef zeroext i1 @_ZL15check_callbacksP8_IO_FILEP19gmx_
   br i1 %.not49, label %56, label %48
 
 48:                                               ; preds = %46
-  %49 = getelementptr inbounds i8, ptr %1, i64 80
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %50 = load ptr, ptr %49, align 8
   %.not50 = icmp eq ptr %50, null
   br i1 %.not50, label %51, label %56
 
 51:                                               ; preds = %48
-  %52 = getelementptr inbounds i8, ptr %1, i64 88
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %53 = load ptr, ptr %52, align 8
   %.not51 = icmp eq ptr %53, null
   br i1 %.not51, label %54, label %56
@@ -983,7 +983,7 @@ define internal fastcc noundef zeroext i1 @_ZL15check_callbacksP8_IO_FILEP19gmx_
   br i1 %58, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %56
-  %59 = getelementptr inbounds i8, ptr %1, i64 24
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %60 = load ptr, ptr %59, align 8
   %wide.trip.count = zext nneg i32 %57 to i64
   br label %61
@@ -991,14 +991,14 @@ define internal fastcc noundef zeroext i1 @_ZL15check_callbacksP8_IO_FILEP19gmx_
 61:                                               ; preds = %.lr.ph, %69
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %69 ]
   %.03855 = phi i1 [ false, %.lr.ph ], [ %.1, %69 ]
-  %62 = getelementptr inbounds %struct.gmx_ana_selparam_t, ptr %60, i64 %indvars.iv
-  %63 = getelementptr inbounds i8, ptr %62, i64 8
+  %62 = getelementptr inbounds nuw %struct.gmx_ana_selparam_t, ptr %60, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %64 = load i32, ptr %63, align 8
   %.not53 = icmp eq i32 %64, 4
   br i1 %.not53, label %69, label %65
 
 65:                                               ; preds = %61
-  %66 = getelementptr inbounds i8, ptr %62, i64 40
+  %66 = getelementptr inbounds nuw i8, ptr %62, i64 40
   %67 = load i32, ptr %66, align 8
   %68 = and i32 %67, 48
   %.not54 = icmp ne i32 %68, 0
@@ -1015,7 +1015,7 @@ define internal fastcc noundef zeroext i1 @_ZL15check_callbacksP8_IO_FILEP19gmx_
   br i1 %.1, label %70, label %.critedge
 
 70:                                               ; preds = %._crit_edge
-  %71 = getelementptr inbounds i8, ptr %1, i64 48
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %72 = load ptr, ptr %71, align 8
   %.not52 = icmp eq ptr %72, null
   br i1 %.not52, label %73, label %.critedge
@@ -1080,9 +1080,9 @@ declare noundef ptr @_ZNK3gmx21SelectionParserSymbol11methodValueEv(ptr noundef 
 
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_Z28gmx_ana_selmethod_find_paramPKcP19gmx_ana_selmethod_t(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef ptr @_Z21gmx_ana_selparam_findPKciP18gmx_ana_selparam_t(ptr noundef %0, i32 noundef %4, ptr noundef %6)
   ret ptr %7
@@ -1210,8 +1210,8 @@ define noundef range(i32 -1, 1) i32 @_Z35gmx_ana_selmethod_register_defaultsPN3g
 2:                                                ; preds = %1, %10
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %10 ]
   %.01214 = phi i8 [ 1, %1 ], [ %spec.select, %10 ]
-  %3 = getelementptr inbounds [40 x %struct.t_register_method], ptr @__const._Z35gmx_ana_selmethod_register_defaultsPN3gmx26SelectionParserSymbolTableE.smtable_def, i64 0, i64 %indvars.iv
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %3 = getelementptr inbounds nuw [40 x %struct.t_register_method], ptr @__const._Z35gmx_ana_selmethod_register_defaultsPN3gmx26SelectionParserSymbolTableE.smtable_def, i64 0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %3, align 16
   %7 = icmp eq ptr %6, null

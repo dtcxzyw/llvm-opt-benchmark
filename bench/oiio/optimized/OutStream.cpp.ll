@@ -33,7 +33,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #3
 define hidden void @_ZN6cineon9OutStreamC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this) unnamed_addr #4 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6cineon9OutStreamE, i64 16), ptr %this, align 8
-  %fp = getelementptr inbounds i8, ptr %this, i64 8
+  %fp = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr null, ptr %fp, align 8
   ret void
 }
@@ -56,14 +56,14 @@ define hidden noundef zeroext i1 @_ZN6cineon9OutStream4OpenEPKc(ptr noundef nonn
 entry:
   %agg.tmp = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
   %agg.tmp2 = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
-  %fp = getelementptr inbounds i8, ptr %this, i64 8
+  %fp = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %fp, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 24
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(16) %this)
   br label %if.end
@@ -79,10 +79,10 @@ cond.true.i:                                      ; preds = %if.end
 
 _ZN18OpenImageIO_v2_6_017basic_string_viewIcSt11char_traitsIcEEC2EPKc.exit: ; preds = %if.end, %cond.true.i
   %cond.i = phi i64 [ %call.i.i.i, %cond.true.i ], [ 0, %if.end ]
-  %m_len.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
+  %m_len.i = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 8
   store i64 %cond.i, ptr %m_len.i, align 8
   store ptr @.str, ptr %agg.tmp2, align 8
-  %m_len.i4 = getelementptr inbounds i8, ptr %agg.tmp2, i64 8
+  %m_len.i4 = getelementptr inbounds nuw i8, ptr %agg.tmp2, i64 8
   store i64 2, ptr %m_len.i4, align 8
   %call = call noundef ptr @_ZN18OpenImageIO_v2_6_010Filesystem5fopenENS_17basic_string_viewIcSt11char_traitsIcEEES4_(ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp2)
   store ptr %call, ptr %fp, align 8
@@ -95,7 +95,7 @@ declare noundef ptr @_ZN18OpenImageIO_v2_6_010Filesystem5fopenENS_17basic_string
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define hidden void @_ZN6cineon9OutStream5CloseEv(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #8 align 2 {
 entry:
-  %fp = getelementptr inbounds i8, ptr %this, i64 8
+  %fp = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %fp, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -115,7 +115,7 @@ declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #9
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define hidden noundef i64 @_ZN6cineon9OutStream5WriteEPvm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr nocapture noundef %buf, i64 noundef %size) unnamed_addr #8 align 2 {
 entry:
-  %fp = getelementptr inbounds i8, ptr %this, i64 8
+  %fp = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %fp, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %return, label %if.end
@@ -135,7 +135,7 @@ declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define hidden noundef zeroext i1 @_ZN6cineon9OutStream4SeekElNS0_6OriginE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i64 noundef %offset, i32 noundef %origin) unnamed_addr #8 align 2 {
 entry:
-  %fp = getelementptr inbounds i8, ptr %this, i64 8
+  %fp = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %fp, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %return, label %if.end
@@ -160,7 +160,7 @@ declare noundef i32 @fseek(ptr nocapture noundef, i64 noundef, i32 noundef) loca
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define hidden void @_ZN6cineon9OutStream5FlushEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) unnamed_addr #8 align 2 {
 entry:
-  %fp = getelementptr inbounds i8, ptr %this, i64 8
+  %fp = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %fp, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then

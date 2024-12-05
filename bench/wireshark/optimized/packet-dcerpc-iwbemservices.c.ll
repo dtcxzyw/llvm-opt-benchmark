@@ -173,7 +173,7 @@ define hidden noundef i32 @IWbemServices_dissect_struct_IWbemCallResult(ptr noun
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @IWbemServices_dissect_struct_IWbemClassObject(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 3
@@ -199,9 +199,9 @@ define hidden i32 @IWbemServices_dissect_struct_IWbemClassObject(ptr noundef %0,
   %21 = tail call i32 @dissect_ndr_ucarray_block(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.029, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @IWbemServices_dissect_element_IWbemClassObject_objects_) #3
   %22 = sub i32 %21, %.0
   tail call void @proto_item_set_len(ptr noundef %.030, i32 noundef %22) #3
-  %23 = getelementptr inbounds i8, ptr %4, i64 72
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 96
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 96
   %26 = load i32, ptr %25, align 8
   %27 = and i32 %26, 1
   %.not34 = icmp eq i32 %27, 0
@@ -229,7 +229,7 @@ declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @IWbemServices_dissect_struct_MInterfacePointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 3
@@ -255,9 +255,9 @@ define hidden i32 @IWbemServices_dissect_struct_MInterfacePointer(ptr noundef %0
   %21 = tail call i32 @dissect_ndr_ucarray(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.029, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @IWbemServices_dissect_element_MInterfacePointer_abData_) #3
   %22 = sub i32 %21, %.0
   tail call void @proto_item_set_len(ptr noundef %.030, i32 noundef %22) #3
-  %23 = getelementptr inbounds i8, ptr %4, i64 72
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 96
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 96
   %26 = load i32, ptr %25, align 8
   %27 = and i32 %26, 1
   %.not34 = icmp eq i32 %27, 0
@@ -283,13 +283,13 @@ define hidden i32 @IWbemServices_dissect_struct_MInterfacePointer(ptr noundef %0
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @IWbemServices_dissect_struct_IWbemContext(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not40 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -337,14 +337,14 @@ define hidden i32 @IWbemServices_dissect_struct_IWbemContext(ptr noundef %0, i32
   %36 = sub i32 %35, %.0
   tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #3
   %37 = load ptr, ptr %9, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 96
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
   %40 = and i32 %39, 1
   %.not45 = icmp eq i32 %40, 0
   br i1 %.not45, label %48, label %41
 
 41:                                               ; preds = %31
-  %42 = getelementptr inbounds i8, ptr %4, i64 28
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %43 = load i32, ptr %42, align 4
   %.not46 = icmp ne i32 %43, 0
   %44 = and i32 %35, 7
@@ -424,7 +424,7 @@ define internal i32 @IWbemServices_dissect_element_IWbemContext_intPtr_(ptr noun
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @IWbemServices_dissect_iwbemservices_opnum0_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.40, ptr %7, align 8
   ret i32 %1
 }
@@ -432,7 +432,7 @@ define internal noundef i32 @IWbemServices_dissect_iwbemservices_opnum0_request(
 ; Function Attrs: nounwind uwtable
 define internal i32 @IWbemServices_dissect_iwbemservices_opnum0_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.40, ptr %8, align 8
   %9 = load i32, ptr @hf_IWbemServices_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #3
@@ -441,7 +441,7 @@ define internal i32 @IWbemServices_dissect_iwbemservices_opnum0_response(ptr nou
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.66) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.65, ptr noundef %15) #3
@@ -453,7 +453,7 @@ define internal i32 @IWbemServices_dissect_iwbemservices_opnum0_response(ptr nou
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @IWbemServices_dissect_iwbemservices_opnum1_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.41, ptr %7, align 8
   ret i32 %1
 }
@@ -461,7 +461,7 @@ define internal noundef i32 @IWbemServices_dissect_iwbemservices_opnum1_request(
 ; Function Attrs: nounwind uwtable
 define internal i32 @IWbemServices_dissect_iwbemservices_opnum1_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.41, ptr %8, align 8
   %9 = load i32, ptr @hf_IWbemServices_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #3
@@ -470,7 +470,7 @@ define internal i32 @IWbemServices_dissect_iwbemservices_opnum1_response(ptr nou
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.66) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.65, ptr noundef %15) #3
@@ -482,7 +482,7 @@ define internal i32 @IWbemServices_dissect_iwbemservices_opnum1_response(ptr nou
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @IWbemServices_dissect_iwbemservices_opnum2_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.42, ptr %7, align 8
   ret i32 %1
 }
@@ -490,7 +490,7 @@ define internal noundef i32 @IWbemServices_dissect_iwbemservices_opnum2_request(
 ; Function Attrs: nounwind uwtable
 define internal i32 @IWbemServices_dissect_iwbemservices_opnum2_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.42, ptr %8, align 8
   %9 = load i32, ptr @hf_IWbemServices_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #3
@@ -499,7 +499,7 @@ define internal i32 @IWbemServices_dissect_iwbemservices_opnum2_response(ptr nou
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.66) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.65, ptr noundef %15) #3
@@ -511,7 +511,7 @@ define internal i32 @IWbemServices_dissect_iwbemservices_opnum2_response(ptr nou
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @IWbemServices_dissect_iwbemservices_OpenNamespace_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.43, ptr %7, align 8
   ret i32 %1
 }
@@ -519,7 +519,7 @@ define internal noundef i32 @IWbemServices_dissect_iwbemservices_OpenNamespace_r
 ; Function Attrs: nounwind uwtable
 define internal i32 @IWbemServices_dissect_iwbemservices_OpenNamespace_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.43, ptr %8, align 8
   %9 = load i32, ptr @hf_IWbemServices_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #3
@@ -528,7 +528,7 @@ define internal i32 @IWbemServices_dissect_iwbemservices_OpenNamespace_response(
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.66) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.65, ptr noundef %15) #3
@@ -540,7 +540,7 @@ define internal i32 @IWbemServices_dissect_iwbemservices_OpenNamespace_response(
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @IWbemServices_dissect_iwbemservices_CancelAsyncCall_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.44, ptr %7, align 8
   ret i32 %1
 }
@@ -548,7 +548,7 @@ define internal noundef i32 @IWbemServices_dissect_iwbemservices_CancelAsyncCall
 ; Function Attrs: nounwind uwtable
 define internal i32 @IWbemServices_dissect_iwbemservices_CancelAsyncCall_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.44, ptr %8, align 8
   %9 = load i32, ptr @hf_IWbemServices_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #3
@@ -557,7 +557,7 @@ define internal i32 @IWbemServices_dissect_iwbemservices_CancelAsyncCall_respons
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.66) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.65, ptr noundef %15) #3
@@ -569,7 +569,7 @@ define internal i32 @IWbemServices_dissect_iwbemservices_CancelAsyncCall_respons
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @IWbemServices_dissect_iwbemservices_QueryObjectSink_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.45, ptr %7, align 8
   ret i32 %1
 }
@@ -577,7 +577,7 @@ define internal noundef i32 @IWbemServices_dissect_iwbemservices_QueryObjectSink
 ; Function Attrs: nounwind uwtable
 define internal i32 @IWbemServices_dissect_iwbemservices_QueryObjectSink_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.45, ptr %8, align 8
   %9 = load i32, ptr @hf_IWbemServices_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #3
@@ -586,7 +586,7 @@ define internal i32 @IWbemServices_dissect_iwbemservices_QueryObjectSink_respons
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.66) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.65, ptr noundef %15) #3
@@ -598,7 +598,7 @@ define internal i32 @IWbemServices_dissect_iwbemservices_QueryObjectSink_respons
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @IWbemServices_dissect_GetObject_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.46, ptr %7, align 8
   %8 = load i32, ptr @hf_IWbemServices_GetObject_orpcthis, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %8, ptr noundef %0, i32 noundef %1, i32 noundef 0, i32 noundef 0) #3
@@ -627,7 +627,7 @@ define internal i32 @IWbemServices_dissect_GetObject_request(ptr noundef %0, i32
 ; Function Attrs: nounwind uwtable
 define internal i32 @IWbemServices_dissect_GetObject_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.46, ptr %8, align 8
   %9 = load i32, ptr @hf_IWbemServices_GetObject_orpcthat, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @IWbemServices_dissect_element_GetObject_orpcthat_, i32 noundef 1, ptr noundef nonnull @.str.73, i32 noundef %9) #3
@@ -645,7 +645,7 @@ define internal i32 @IWbemServices_dissect_GetObject_response(ptr noundef %0, i3
   br i1 %.not, label %25, label %21
 
 21:                                               ; preds = %6
-  %22 = getelementptr inbounds i8, ptr %2, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = call ptr @val_to_str(i32 noundef %20, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.66) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %23, i32 noundef 25, ptr noundef nonnull @.str.65, ptr noundef %24) #3
@@ -657,7 +657,7 @@ define internal i32 @IWbemServices_dissect_GetObject_response(ptr noundef %0, i3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @IWbemServices_dissect_iwbemservices_opnum7_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.47, ptr %7, align 8
   ret i32 %1
 }
@@ -665,7 +665,7 @@ define internal noundef i32 @IWbemServices_dissect_iwbemservices_opnum7_request(
 ; Function Attrs: nounwind uwtable
 define internal i32 @IWbemServices_dissect_iwbemservices_opnum7_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.47, ptr %8, align 8
   %9 = load i32, ptr @hf_IWbemServices_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #3
@@ -674,7 +674,7 @@ define internal i32 @IWbemServices_dissect_iwbemservices_opnum7_response(ptr nou
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.66) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.65, ptr noundef %15) #3
@@ -686,7 +686,7 @@ define internal i32 @IWbemServices_dissect_iwbemservices_opnum7_response(ptr nou
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @IWbemServices_dissect_iwbemservices_opnum8_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.48, ptr %7, align 8
   ret i32 %1
 }
@@ -694,7 +694,7 @@ define internal noundef i32 @IWbemServices_dissect_iwbemservices_opnum8_request(
 ; Function Attrs: nounwind uwtable
 define internal i32 @IWbemServices_dissect_iwbemservices_opnum8_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.48, ptr %8, align 8
   %9 = load i32, ptr @hf_IWbemServices_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #3
@@ -703,7 +703,7 @@ define internal i32 @IWbemServices_dissect_iwbemservices_opnum8_response(ptr nou
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.66) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.65, ptr noundef %15) #3
@@ -715,7 +715,7 @@ define internal i32 @IWbemServices_dissect_iwbemservices_opnum8_response(ptr nou
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @IWbemServices_dissect_iwbemservices_opnum9_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.49, ptr %7, align 8
   ret i32 %1
 }
@@ -723,7 +723,7 @@ define internal noundef i32 @IWbemServices_dissect_iwbemservices_opnum9_request(
 ; Function Attrs: nounwind uwtable
 define internal i32 @IWbemServices_dissect_iwbemservices_opnum9_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.49, ptr %8, align 8
   %9 = load i32, ptr @hf_IWbemServices_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #3
@@ -732,7 +732,7 @@ define internal i32 @IWbemServices_dissect_iwbemservices_opnum9_response(ptr nou
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.66) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.65, ptr noundef %15) #3
@@ -744,7 +744,7 @@ define internal i32 @IWbemServices_dissect_iwbemservices_opnum9_response(ptr nou
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @IWbemServices_dissect_iwbemservices_opnum10_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.50, ptr %7, align 8
   ret i32 %1
 }
@@ -752,7 +752,7 @@ define internal noundef i32 @IWbemServices_dissect_iwbemservices_opnum10_request
 ; Function Attrs: nounwind uwtable
 define internal i32 @IWbemServices_dissect_iwbemservices_opnum10_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.50, ptr %8, align 8
   %9 = load i32, ptr @hf_IWbemServices_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #3
@@ -761,7 +761,7 @@ define internal i32 @IWbemServices_dissect_iwbemservices_opnum10_response(ptr no
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.66) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.65, ptr noundef %15) #3
@@ -773,7 +773,7 @@ define internal i32 @IWbemServices_dissect_iwbemservices_opnum10_response(ptr no
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @IWbemServices_dissect_iwbemservices_opnum11_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.51, ptr %7, align 8
   ret i32 %1
 }
@@ -781,7 +781,7 @@ define internal noundef i32 @IWbemServices_dissect_iwbemservices_opnum11_request
 ; Function Attrs: nounwind uwtable
 define internal i32 @IWbemServices_dissect_iwbemservices_opnum11_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.51, ptr %8, align 8
   %9 = load i32, ptr @hf_IWbemServices_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #3
@@ -790,7 +790,7 @@ define internal i32 @IWbemServices_dissect_iwbemservices_opnum11_response(ptr no
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.66) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.65, ptr noundef %15) #3
@@ -802,7 +802,7 @@ define internal i32 @IWbemServices_dissect_iwbemservices_opnum11_response(ptr no
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @IWbemServices_dissect_iwbemservices_opnum12_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.52, ptr %7, align 8
   ret i32 %1
 }
@@ -810,7 +810,7 @@ define internal noundef i32 @IWbemServices_dissect_iwbemservices_opnum12_request
 ; Function Attrs: nounwind uwtable
 define internal i32 @IWbemServices_dissect_iwbemservices_opnum12_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.52, ptr %8, align 8
   %9 = load i32, ptr @hf_IWbemServices_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #3
@@ -819,7 +819,7 @@ define internal i32 @IWbemServices_dissect_iwbemservices_opnum12_response(ptr no
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.66) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.65, ptr noundef %15) #3
@@ -831,7 +831,7 @@ define internal i32 @IWbemServices_dissect_iwbemservices_opnum12_response(ptr no
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @IWbemServices_dissect_iwbemservices_opnum13_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.53, ptr %7, align 8
   ret i32 %1
 }
@@ -839,7 +839,7 @@ define internal noundef i32 @IWbemServices_dissect_iwbemservices_opnum13_request
 ; Function Attrs: nounwind uwtable
 define internal i32 @IWbemServices_dissect_iwbemservices_opnum13_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.53, ptr %8, align 8
   %9 = load i32, ptr @hf_IWbemServices_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #3
@@ -848,7 +848,7 @@ define internal i32 @IWbemServices_dissect_iwbemservices_opnum13_response(ptr no
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.66) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.65, ptr noundef %15) #3
@@ -860,7 +860,7 @@ define internal i32 @IWbemServices_dissect_iwbemservices_opnum13_response(ptr no
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @IWbemServices_dissect_iwbemservices_opnum14_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.54, ptr %7, align 8
   ret i32 %1
 }
@@ -868,7 +868,7 @@ define internal noundef i32 @IWbemServices_dissect_iwbemservices_opnum14_request
 ; Function Attrs: nounwind uwtable
 define internal i32 @IWbemServices_dissect_iwbemservices_opnum14_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.54, ptr %8, align 8
   %9 = load i32, ptr @hf_IWbemServices_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #3
@@ -877,7 +877,7 @@ define internal i32 @IWbemServices_dissect_iwbemservices_opnum14_response(ptr no
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.66) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.65, ptr noundef %15) #3
@@ -889,7 +889,7 @@ define internal i32 @IWbemServices_dissect_iwbemservices_opnum14_response(ptr no
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @IWbemServices_dissect_iwbemservices_opnum15_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.55, ptr %7, align 8
   ret i32 %1
 }
@@ -897,7 +897,7 @@ define internal noundef i32 @IWbemServices_dissect_iwbemservices_opnum15_request
 ; Function Attrs: nounwind uwtable
 define internal i32 @IWbemServices_dissect_iwbemservices_opnum15_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.55, ptr %8, align 8
   %9 = load i32, ptr @hf_IWbemServices_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #3
@@ -906,7 +906,7 @@ define internal i32 @IWbemServices_dissect_iwbemservices_opnum15_response(ptr no
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.66) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.65, ptr noundef %15) #3
@@ -918,7 +918,7 @@ define internal i32 @IWbemServices_dissect_iwbemservices_opnum15_response(ptr no
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @IWbemServices_dissect_iwbemservices_opnum16_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.56, ptr %7, align 8
   ret i32 %1
 }
@@ -926,7 +926,7 @@ define internal noundef i32 @IWbemServices_dissect_iwbemservices_opnum16_request
 ; Function Attrs: nounwind uwtable
 define internal i32 @IWbemServices_dissect_iwbemservices_opnum16_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.56, ptr %8, align 8
   %9 = load i32, ptr @hf_IWbemServices_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #3
@@ -935,7 +935,7 @@ define internal i32 @IWbemServices_dissect_iwbemservices_opnum16_response(ptr no
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.66) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.65, ptr noundef %15) #3
@@ -947,7 +947,7 @@ define internal i32 @IWbemServices_dissect_iwbemservices_opnum16_response(ptr no
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @IWbemServices_dissect_iwbemservices_opnum17_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.57, ptr %7, align 8
   ret i32 %1
 }
@@ -955,7 +955,7 @@ define internal noundef i32 @IWbemServices_dissect_iwbemservices_opnum17_request
 ; Function Attrs: nounwind uwtable
 define internal i32 @IWbemServices_dissect_iwbemservices_opnum17_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.57, ptr %8, align 8
   %9 = load i32, ptr @hf_IWbemServices_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #3
@@ -964,7 +964,7 @@ define internal i32 @IWbemServices_dissect_iwbemservices_opnum17_response(ptr no
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.66) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.65, ptr noundef %15) #3
@@ -976,7 +976,7 @@ define internal i32 @IWbemServices_dissect_iwbemservices_opnum17_response(ptr no
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @IWbemServices_dissect_iwbemservices_opnum18_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.58, ptr %7, align 8
   ret i32 %1
 }
@@ -984,7 +984,7 @@ define internal noundef i32 @IWbemServices_dissect_iwbemservices_opnum18_request
 ; Function Attrs: nounwind uwtable
 define internal i32 @IWbemServices_dissect_iwbemservices_opnum18_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.58, ptr %8, align 8
   %9 = load i32, ptr @hf_IWbemServices_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #3
@@ -993,7 +993,7 @@ define internal i32 @IWbemServices_dissect_iwbemservices_opnum18_response(ptr no
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.66) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.65, ptr noundef %15) #3
@@ -1005,7 +1005,7 @@ define internal i32 @IWbemServices_dissect_iwbemservices_opnum18_response(ptr no
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @IWbemServices_dissect_iwbemservices_opnum19_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.59, ptr %7, align 8
   ret i32 %1
 }
@@ -1013,7 +1013,7 @@ define internal noundef i32 @IWbemServices_dissect_iwbemservices_opnum19_request
 ; Function Attrs: nounwind uwtable
 define internal i32 @IWbemServices_dissect_iwbemservices_opnum19_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.59, ptr %8, align 8
   %9 = load i32, ptr @hf_IWbemServices_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #3
@@ -1022,7 +1022,7 @@ define internal i32 @IWbemServices_dissect_iwbemservices_opnum19_response(ptr no
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.66) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.65, ptr noundef %15) #3
@@ -1034,7 +1034,7 @@ define internal i32 @IWbemServices_dissect_iwbemservices_opnum19_response(ptr no
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @IWbemServices_dissect_iwbemservices_opnum20_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.60, ptr %7, align 8
   ret i32 %1
 }
@@ -1042,7 +1042,7 @@ define internal noundef i32 @IWbemServices_dissect_iwbemservices_opnum20_request
 ; Function Attrs: nounwind uwtable
 define internal i32 @IWbemServices_dissect_iwbemservices_opnum20_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.60, ptr %8, align 8
   %9 = load i32, ptr @hf_IWbemServices_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #3
@@ -1051,7 +1051,7 @@ define internal i32 @IWbemServices_dissect_iwbemservices_opnum20_response(ptr no
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.66) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.65, ptr noundef %15) #3
@@ -1063,7 +1063,7 @@ define internal i32 @IWbemServices_dissect_iwbemservices_opnum20_response(ptr no
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @IWbemServices_dissect_iwbemservices_opnum21_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.61, ptr %7, align 8
   ret i32 %1
 }
@@ -1071,7 +1071,7 @@ define internal noundef i32 @IWbemServices_dissect_iwbemservices_opnum21_request
 ; Function Attrs: nounwind uwtable
 define internal i32 @IWbemServices_dissect_iwbemservices_opnum21_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.61, ptr %8, align 8
   %9 = load i32, ptr @hf_IWbemServices_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #3
@@ -1080,7 +1080,7 @@ define internal i32 @IWbemServices_dissect_iwbemservices_opnum21_response(ptr no
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.66) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.65, ptr noundef %15) #3
@@ -1092,7 +1092,7 @@ define internal i32 @IWbemServices_dissect_iwbemservices_opnum21_response(ptr no
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @IWbemServices_dissect_iwbemservices_opnum22_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.62, ptr %7, align 8
   ret i32 %1
 }
@@ -1100,7 +1100,7 @@ define internal noundef i32 @IWbemServices_dissect_iwbemservices_opnum22_request
 ; Function Attrs: nounwind uwtable
 define internal i32 @IWbemServices_dissect_iwbemservices_opnum22_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.62, ptr %8, align 8
   %9 = load i32, ptr @hf_IWbemServices_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #3
@@ -1109,7 +1109,7 @@ define internal i32 @IWbemServices_dissect_iwbemservices_opnum22_response(ptr no
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.66) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.65, ptr noundef %15) #3
@@ -1121,7 +1121,7 @@ define internal i32 @IWbemServices_dissect_iwbemservices_opnum22_response(ptr no
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @IWbemServices_dissect_iwbemservices_opnum23_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.63, ptr %7, align 8
   ret i32 %1
 }
@@ -1129,7 +1129,7 @@ define internal noundef i32 @IWbemServices_dissect_iwbemservices_opnum23_request
 ; Function Attrs: nounwind uwtable
 define internal i32 @IWbemServices_dissect_iwbemservices_opnum23_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.63, ptr %8, align 8
   %9 = load i32, ptr @hf_IWbemServices_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #3
@@ -1138,7 +1138,7 @@ define internal i32 @IWbemServices_dissect_iwbemservices_opnum23_response(ptr no
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.66) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.65, ptr noundef %15) #3
@@ -1150,7 +1150,7 @@ define internal i32 @IWbemServices_dissect_iwbemservices_opnum23_response(ptr no
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @IWbemServices_dissect_ExecMethod_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.64, ptr %7, align 8
   %8 = load i32, ptr @hf_IWbemServices_ExecMethod_orpcthis, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %8, ptr noundef %0, i32 noundef %1, i32 noundef 0, i32 noundef 0) #3
@@ -1173,7 +1173,7 @@ define internal i32 @IWbemServices_dissect_ExecMethod_request(ptr noundef %0, i3
 ; Function Attrs: nounwind uwtable
 define internal i32 @IWbemServices_dissect_ExecMethod_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.64, ptr %8, align 8
   %9 = load i32, ptr @hf_IWbemServices_ExecMethod_orpcthat, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @IWbemServices_dissect_element_ExecMethod_orpcthat_, i32 noundef 1, ptr noundef nonnull @.str.73, i32 noundef %9) #3
@@ -1185,7 +1185,7 @@ define internal i32 @IWbemServices_dissect_ExecMethod_response(ptr noundef %0, i
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.66) #3
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.65, ptr noundef %18) #3
@@ -1219,7 +1219,7 @@ define internal i32 @IWbemServices_dissect_element_GetObject_strObjectPath_(ptr 
 
 11:                                               ; preds = %6
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.68, ptr noundef nonnull %10) #3
-  %12 = getelementptr inbounds i8, ptr %2, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %7, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %13, i32 noundef 25, ptr noundef nonnull @.str.69, ptr noundef %14) #3

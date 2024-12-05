@@ -6717,7 +6717,7 @@ define internal range(i32 0, 2) i32 @dissect_fix_heur_ssl(ptr noundef %0, ptr no
   tail call void @tcp_dissect_pdus(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef 24, ptr noundef nonnull @get_fix_pdu_len, ptr noundef nonnull @dissect_fix_packet, ptr noundef %3) #5
   %8 = tail call i32 @tvb_captured_length(ptr noundef %0) #5
   %9 = load ptr, ptr @fix_handle, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %11 = load ptr, ptr %10, align 8
   store ptr %9, ptr %11, align 8
   br label %12
@@ -6849,7 +6849,7 @@ fix_header_len.exit:                              ; preds = %7, %12, %fix_param.
 define internal i32 @dissect_fix_packet(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void @col_set_str(ptr noundef %8, i32 noundef 34, ptr noundef nonnull @.str.22) #5
   %9 = load ptr, ptr %7, align 8
@@ -6927,7 +6927,7 @@ define internal i32 @dissect_fix_packet(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %53, label %.lr.ph207, label %.critedge
 
 .lr.ph207:                                        ; preds = %.preheader
-  %54 = getelementptr inbounds i8, ptr %1, i64 408
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %.not190 = icmp eq ptr %2, null
   br label %57
 
@@ -7040,7 +7040,7 @@ tag_search.exit:                                  ; preds = %102, %106
 112:                                              ; preds = %tag_search.exit
   %113 = zext nneg i32 %.0.i193 to i64
   %114 = getelementptr [1610 x %struct._fix_field], ptr @fix_fields, i64 0, i64 %113
-  %115 = getelementptr inbounds i8, ptr %114, i64 16
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 16
   %116 = load ptr, ptr %115, align 8
   %.not189 = icmp eq ptr %116, null
   br i1 %.not189, label %146, label %117
@@ -7049,9 +7049,9 @@ tag_search.exit:                                  ; preds = %102, %106
   br i1 %.not190, label %.backedge, label %118
 
 118:                                              ; preds = %117
-  %119 = getelementptr inbounds i8, ptr %114, i64 8
+  %119 = getelementptr inbounds nuw i8, ptr %114, i64 8
   %120 = load i32, ptr %119, align 8
-  %121 = getelementptr inbounds i8, ptr %114, i64 4
+  %121 = getelementptr inbounds nuw i8, ptr %114, i64 4
   %122 = load i32, ptr %121, align 4
   %123 = load i32, ptr @fix_param.ret.0, align 4
   switch i32 %120, label %138 [
@@ -7124,7 +7124,7 @@ tag_search.exit:                                  ; preds = %102, %106
   %.0174.lcssa = phi i32 [ 0, %148 ], [ %155, %._crit_edge.loopexit ]
   %156 = load i32, ptr %6, align 4
   %157 = icmp eq i32 %156, %.0174.lcssa
-  %158 = getelementptr inbounds i8, ptr %114, i64 4
+  %158 = getelementptr inbounds nuw i8, ptr %114, i64 4
   %159 = load i32, ptr %158, align 4
   %160 = load i32, ptr @fix_param.ret.0, align 4
   br i1 %157, label %161, label %163
@@ -7149,13 +7149,13 @@ tag_search.exit:                                  ; preds = %102, %106
   br i1 %.not.i194, label %proto_item_set_generated.exit, label %172
 
 172:                                              ; preds = %165
-  %173 = getelementptr inbounds i8, ptr %171, i64 32
+  %173 = getelementptr inbounds nuw i8, ptr %171, i64 32
   %174 = load ptr, ptr %173, align 8
   %.not5.i = icmp eq ptr %174, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %175
 
 175:                                              ; preds = %172
-  %176 = getelementptr inbounds i8, ptr %174, i64 28
+  %176 = getelementptr inbounds nuw i8, ptr %174, i64 28
   %177 = load i32, ptr %176, align 4
   %178 = or i32 %177, 2
   store i32 %178, ptr %176, align 4
@@ -7171,13 +7171,13 @@ proto_item_set_generated.exit:                    ; preds = %165, %172, %175
   br i1 %.not.i195, label %proto_item_set_generated.exit197, label %184
 
 184:                                              ; preds = %proto_item_set_generated.exit
-  %185 = getelementptr inbounds i8, ptr %183, i64 32
+  %185 = getelementptr inbounds nuw i8, ptr %183, i64 32
   %186 = load ptr, ptr %185, align 8
   %.not5.i196 = icmp eq ptr %186, null
   br i1 %.not5.i196, label %proto_item_set_generated.exit197, label %187
 
 187:                                              ; preds = %184
-  %188 = getelementptr inbounds i8, ptr %186, i64 28
+  %188 = getelementptr inbounds nuw i8, ptr %186, i64 28
   %189 = load i32, ptr %188, align 4
   %190 = or i32 %189, 2
   store i32 %190, ptr %188, align 4
@@ -7191,7 +7191,7 @@ proto_item_set_generated.exit197:                 ; preds = %proto_item_set_gene
   br label %.backedge
 
 193:                                              ; preds = %146
-  %194 = getelementptr inbounds i8, ptr %114, i64 4
+  %194 = getelementptr inbounds nuw i8, ptr %114, i64 4
   %195 = load i32, ptr %194, align 4
   %196 = load i32, ptr @fix_param.ret.0, align 4
   %197 = call ptr @proto_tree_add_string(ptr noundef %25, i32 noundef %195, ptr noundef %0, i32 noundef %.0177206, i32 noundef %196, ptr noundef %110) #5

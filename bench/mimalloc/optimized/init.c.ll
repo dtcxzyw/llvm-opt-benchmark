@@ -81,7 +81,7 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds [16 x ptr], ptr @td_cache, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [16 x ptr], ptr @td_cache, i64 0, i64 %indvars.iv
   %0 = load atomic i64, ptr %arrayidx monotonic, align 8
   %cmp1.not = icmp eq i64 %0, 0
   br i1 %cmp1.not, label %for.inc, label %if.then
@@ -93,7 +93,7 @@ if.then:                                          ; preds = %for.body
 
 if.then6:                                         ; preds = %if.then
   %2 = inttoptr i64 %1 to ptr
-  %memid = getelementptr inbounds i8, ptr %2, i64 4664
+  %memid = getelementptr inbounds nuw i8, ptr %2, i64 4664
   tail call void @_mi_os_free(ptr noundef nonnull %2, i64 noundef 4688, ptr noundef nonnull byval(%struct.mi_memid_s) align 8 %memid, ptr noundef nonnull @_mi_stats_main) #13
   br label %for.inc
 
@@ -184,7 +184,7 @@ if.else.i:                                        ; preds = %_mi_is_main_thread.
 
 for.body.i.i:                                     ; preds = %for.inc.i.i, %if.else.i
   %indvars.iv.i.i = phi i64 [ 0, %if.else.i ], [ %indvars.iv.next.i.i, %for.inc.i.i ]
-  %arrayidx.i.i = getelementptr inbounds [16 x ptr], ptr @td_cache, i64 0, i64 %indvars.iv.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [16 x ptr], ptr @td_cache, i64 0, i64 %indvars.iv.i.i
   %8 = load atomic i64, ptr %arrayidx.i.i monotonic, align 8
   %cmp1.not.i.i = icmp eq i64 %8, 0
   br i1 %cmp1.not.i.i, label %for.inc.i.i, label %if.then.i26.i
@@ -215,9 +215,9 @@ if.then11.i.i:                                    ; preds = %if.then9.i.i
 
 if.end21.i.i:                                     ; preds = %if.then11.i.i, %if.then9.i.i
   %td.4.ph.i.i = phi ptr [ %call.i.i, %if.then9.i.i ], [ %call12.i.i, %if.then11.i.i ]
-  %memid19.i.i = getelementptr inbounds i8, ptr %td.4.ph.i.i, i64 4664
+  %memid19.i.i = getelementptr inbounds nuw i8, ptr %td.4.ph.i.i, i64 4664
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %memid19.i.i, ptr noundef nonnull align 8 dereferenceable(24) %memid.i.i, i64 24, i1 false)
-  %initially_zero.i.i = getelementptr inbounds i8, ptr %memid.i.i, i64 18
+  %initially_zero.i.i = getelementptr inbounds nuw i8, ptr %memid.i.i, i64 18
   %11 = load i8, ptr %initially_zero.i.i, align 2
   %12 = trunc i8 %11 to i1
   br i1 %12, label %if.end6.i, label %if.then24.i.i
@@ -236,7 +236,7 @@ mi_thread_data_zalloc.exit.i:                     ; preds = %if.then11.i.i
 if.end6.i:                                        ; preds = %if.then24.i.i, %if.end21.i.i
   %td.323.i.ph.i = phi ptr [ %td.329.i.i, %if.then24.i.i ], [ %td.4.ph.i.i, %if.end21.i.i ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %memid.i.i)
-  %tld7.i = getelementptr inbounds i8, ptr %td.323.i.ph.i, i64 3064
+  %tld7.i = getelementptr inbounds nuw i8, ptr %td.323.i.ph.i, i64 3064
   call void @llvm.assume(i1 true) [ "align"(ptr %tld7.i, i64 8) ]
   call void @llvm.assume(i1 true) [ "align"(ptr @tld_empty, i64 8) ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1600) %tld7.i, ptr noundef nonnull readonly align 64 dereferenceable(1600) @tld_empty, i64 range(i64 1600, 3065) 1600, i1 false)
@@ -245,32 +245,32 @@ if.end6.i:                                        ; preds = %if.then24.i.i, %if.
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3064) %td.323.i.ph.i, ptr noundef nonnull readonly align 64 dereferenceable(3064) @_mi_heap_empty, i64 range(i64 1600, 3065) 3064, i1 false)
   %13 = call ptr asm "movq %fs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(ptr) null) #12, !srcloc !4
   %14 = ptrtoint ptr %13 to i64
-  %thread_id.i = getelementptr inbounds i8, ptr %td.323.i.ph.i, i64 2848
+  %thread_id.i = getelementptr inbounds nuw i8, ptr %td.323.i.ph.i, i64 2848
   store i64 %14, ptr %thread_id.i, align 8
-  %random.i = getelementptr inbounds i8, ptr %td.323.i.ph.i, i64 2888
+  %random.i = getelementptr inbounds nuw i8, ptr %td.323.i.ph.i, i64 2888
   call void @_mi_random_init(ptr noundef nonnull %random.i) #13
   %call10.i = call i64 @_mi_heap_random_next(ptr noundef nonnull %td.323.i.ph.i) #13
   %or.i = or i64 %call10.i, 1
-  %cookie.i = getelementptr inbounds i8, ptr %td.323.i.ph.i, i64 2864
+  %cookie.i = getelementptr inbounds nuw i8, ptr %td.323.i.ph.i, i64 2864
   store i64 %or.i, ptr %cookie.i, align 8
   %call11.i = call i64 @_mi_heap_random_next(ptr noundef nonnull %td.323.i.ph.i) #13
-  %keys.i = getelementptr inbounds i8, ptr %td.323.i.ph.i, i64 2872
+  %keys.i = getelementptr inbounds nuw i8, ptr %td.323.i.ph.i, i64 2872
   store i64 %call11.i, ptr %keys.i, align 8
   %call12.i = call i64 @_mi_heap_random_next(ptr noundef nonnull %td.323.i.ph.i) #13
-  %arrayidx14.i = getelementptr inbounds i8, ptr %td.323.i.ph.i, i64 2880
+  %arrayidx14.i = getelementptr inbounds nuw i8, ptr %td.323.i.ph.i, i64 2880
   store i64 %call12.i, ptr %arrayidx14.i, align 8
   store ptr %tld7.i, ptr %td.323.i.ph.i, align 8
-  %heap_backing.i = getelementptr inbounds i8, ptr %td.323.i.ph.i, i64 3080
+  %heap_backing.i = getelementptr inbounds nuw i8, ptr %td.323.i.ph.i, i64 3080
   store ptr %td.323.i.ph.i, ptr %heap_backing.i, align 8
-  %heaps.i = getelementptr inbounds i8, ptr %td.323.i.ph.i, i64 3088
+  %heaps.i = getelementptr inbounds nuw i8, ptr %td.323.i.ph.i, i64 3088
   store ptr %td.323.i.ph.i, ptr %heaps.i, align 8
-  %stats.i = getelementptr inbounds i8, ptr %td.323.i.ph.i, i64 4024
-  %stats16.i = getelementptr inbounds i8, ptr %td.323.i.ph.i, i64 3992
+  %stats.i = getelementptr inbounds nuw i8, ptr %td.323.i.ph.i, i64 4024
+  %stats16.i = getelementptr inbounds nuw i8, ptr %td.323.i.ph.i, i64 3992
   store ptr %stats.i, ptr %stats16.i, align 8
-  %os.i = getelementptr inbounds i8, ptr %td.323.i.ph.i, i64 4008
-  %os18.i = getelementptr inbounds i8, ptr %td.323.i.ph.i, i64 4000
+  %os.i = getelementptr inbounds nuw i8, ptr %td.323.i.ph.i, i64 4008
+  %os18.i = getelementptr inbounds nuw i8, ptr %td.323.i.ph.i, i64 4000
   store ptr %os.i, ptr %os18.i, align 8
-  %stats21.i = getelementptr inbounds i8, ptr %td.323.i.ph.i, i64 4016
+  %stats21.i = getelementptr inbounds nuw i8, ptr %td.323.i.ph.i, i64 4016
   store ptr %stats.i, ptr %stats21.i, align 8
   store ptr %td.323.i.ph.i, ptr %0, align 8
   call void @_mi_prim_thread_associate_default_heap(ptr noundef nonnull %td.323.i.ph.i) #13
@@ -424,7 +424,7 @@ if.end3:                                          ; preds = %if.then, %entry
 if.end6:                                          ; preds = %if.end3
   %2 = atomicrmw sub ptr @thread_count, i64 1 monotonic, align 8
   tail call void @_mi_stat_decrease(ptr noundef nonnull getelementptr inbounds (i8, ptr @_mi_stats_main, i64 288), i64 noundef 1) #13
-  %thread_id = getelementptr inbounds i8, ptr %heap.addr.0, i64 2848
+  %thread_id = getelementptr inbounds nuw i8, ptr %heap.addr.0, i64 2848
   %3 = load i64, ptr %thread_id, align 8
   %4 = tail call ptr asm "movq %fs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(ptr) null) #12, !srcloc !4
   %5 = ptrtoint ptr %4 to i64
@@ -450,21 +450,21 @@ _mi_is_main_thread.exit.thread.i:                 ; preds = %_mi_is_main_thread.
   store ptr %8, ptr %9, align 8
   tail call void @_mi_prim_thread_associate_default_heap(ptr noundef nonnull %8) #13
   %10 = load ptr, ptr %heap.addr.0, align 8
-  %heap_backing.i = getelementptr inbounds i8, ptr %10, i64 16
+  %heap_backing.i = getelementptr inbounds nuw i8, ptr %10, i64 16
   %11 = load ptr, ptr %heap_backing.i, align 8
   %cmp.i14.not.i = icmp eq ptr %11, @_mi_heap_empty
   br i1 %cmp.i14.not.i, label %if.end13, label %if.end4.i
 
 if.end4.i:                                        ; preds = %7
   %12 = load ptr, ptr %11, align 8
-  %heaps.i = getelementptr inbounds i8, ptr %12, i64 24
+  %heaps.i = getelementptr inbounds nuw i8, ptr %12, i64 24
   %13 = load ptr, ptr %heaps.i, align 8
   %cmp.not17.i = icmp eq ptr %13, null
   br i1 %cmp.not17.i, label %while.end.i, label %while.body.i
 
 while.body.i:                                     ; preds = %if.end4.i, %if.end9.i
   %curr.018.i = phi ptr [ %14, %if.end9.i ], [ %13, %if.end4.i ]
-  %next6.i = getelementptr inbounds i8, ptr %curr.018.i, i64 3048
+  %next6.i = getelementptr inbounds nuw i8, ptr %curr.018.i, i64 3048
   %14 = load ptr, ptr %next6.i, align 8
   %cmp7.not.i = icmp eq ptr %curr.018.i, %11
   br i1 %cmp7.not.i, label %if.end9.i, label %if.then8.i
@@ -484,14 +484,14 @@ while.end.i:                                      ; preds = %if.end9.i, %if.end4
 if.then11.i:                                      ; preds = %while.end.i
   tail call void @_mi_heap_collect_abandon(ptr noundef nonnull %11) #13
   %15 = load ptr, ptr %11, align 8
-  %stats.i = getelementptr inbounds i8, ptr %15, i64 960
+  %stats.i = getelementptr inbounds nuw i8, ptr %15, i64 960
   tail call void @_mi_stats_done(ptr noundef nonnull %stats.i) #13
   %16 = ptrtoint ptr %11 to i64
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.inc.i.i, %if.then11.i
   %indvars.iv.i.i = phi i64 [ 0, %if.then11.i ], [ %indvars.iv.next.i.i, %for.inc.i.i ]
-  %arrayidx.i.i = getelementptr inbounds [16 x ptr], ptr @td_cache, i64 0, i64 %indvars.iv.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [16 x ptr], ptr @td_cache, i64 0, i64 %indvars.iv.i.i
   %17 = load atomic i64, ptr %arrayidx.i.i monotonic, align 8
   %cmp1.i15.i = icmp eq i64 %17, 0
   br i1 %cmp1.i15.i, label %if.then.i.i, label %for.inc.i.i
@@ -507,13 +507,13 @@ for.inc.i.i:                                      ; preds = %if.then.i.i, %for.b
   br i1 %exitcond.not.i.i, label %for.end.i.i, label %for.body.i.i, !llvm.loop !9
 
 for.end.i.i:                                      ; preds = %for.inc.i.i
-  %memid.i.i = getelementptr inbounds i8, ptr %11, i64 4664
+  %memid.i.i = getelementptr inbounds nuw i8, ptr %11, i64 4664
   tail call void @_mi_os_free(ptr noundef nonnull %11, i64 noundef 4688, ptr noundef nonnull byval(%struct.mi_memid_s) align 8 %memid.i.i, ptr noundef nonnull @_mi_stats_main) #13
   br label %if.end13
 
 if.end16.critedge.i:                              ; preds = %while.end.i
   %20 = load ptr, ptr @_mi_heap_main, align 8
-  %stats.c.i = getelementptr inbounds i8, ptr %20, i64 960
+  %stats.c.i = getelementptr inbounds nuw i8, ptr %20, i64 960
   tail call void @_mi_stats_done(ptr noundef nonnull %stats.c.i) #13
   br label %if.end13
 
@@ -679,7 +679,7 @@ if.then.i.i:                                      ; preds = %if.then4
 
 _mi_heap_main_get.exit:                           ; preds = %if.then4, %if.then.i.i
   %4 = load ptr, ptr @_mi_heap_main, align 8
-  %stats = getelementptr inbounds i8, ptr %4, i64 960
+  %stats = getelementptr inbounds nuw i8, ptr %4, i64 960
   tail call void @_mi_arena_unsafe_destroy_all(ptr noundef nonnull %stats) #13
   br label %if.end6
 

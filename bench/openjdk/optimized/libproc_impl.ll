@@ -64,7 +64,7 @@ thread-pre-split:                                 ; preds = %1
 
 15:                                               ; preds = %10
   %16 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %6, i64 noundef 4096) #22
-  %17 = getelementptr inbounds i8, ptr %2, i64 4096
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 4096
   store i8 0, ptr %17, align 16
   %18 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #23
   %19 = getelementptr inbounds i8, ptr %2, i64 %18
@@ -83,7 +83,7 @@ thread-pre-split:                                 ; preds = %1
 
 .lr.ph:                                           ; preds = %15, %28
   %.01217 = phi ptr [ %26, %28 ], [ %0, %15 ]
-  %25 = getelementptr inbounds i8, ptr %.01217, i64 1
+  %25 = getelementptr inbounds nuw i8, ptr %.01217, i64 1
   %26 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %25, i32 noundef 47) #23
   %27 = icmp eq ptr %26, null
   br i1 %27, label %.loopexit, label %28
@@ -183,9 +183,9 @@ define void @Prelease(ptr noundef %0) local_unnamed_addr #10 {
 
 .lr.ph.i:                                         ; preds = %1, %10
   %.02.i = phi ptr [ %6, %10 ], [ %.val, %1 ]
-  %5 = getelementptr inbounds i8, ptr %.02.i, i64 4432
+  %5 = getelementptr inbounds nuw i8, ptr %.02.i, i64 4432
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %.02.i, i64 4416
+  %7 = getelementptr inbounds nuw i8, ptr %.02.i, i64 4416
   %8 = load ptr, ptr %7, align 8
   %.not9.i = icmp eq ptr %8, null
   br i1 %.not9.i, label %10, label %9
@@ -195,7 +195,7 @@ define void @Prelease(ptr noundef %0) local_unnamed_addr #10 {
   br label %10
 
 10:                                               ; preds = %9, %.lr.ph.i
-  %11 = getelementptr inbounds i8, ptr %.02.i, i64 4400
+  %11 = getelementptr inbounds nuw i8, ptr %.02.i, i64 4400
   %12 = load ptr, ptr %11, align 8
   tail call void @free(ptr noundef %12) #22
   tail call void @free(ptr noundef nonnull %.02.i) #22
@@ -210,7 +210,7 @@ destroy_lib_info.exit:                            ; preds = %10, %1
 
 .lr.ph.i7:                                        ; preds = %destroy_lib_info.exit, %.lr.ph.i7
   %.02.i8 = phi ptr [ %15, %.lr.ph.i7 ], [ %.val5, %destroy_lib_info.exit ]
-  %14 = getelementptr inbounds i8, ptr %.02.i8, i64 224
+  %14 = getelementptr inbounds nuw i8, ptr %.02.i8, i64 224
   %15 = load ptr, ptr %14, align 8
   tail call void @free(ptr noundef nonnull %.02.i8) #22
   %.not.i9 = icmp eq ptr %15, null
@@ -253,14 +253,14 @@ define hidden noundef ptr @add_lib_info_fd(ptr nocapture noundef %0, ptr noundef
 
 13:                                               ; preds = %9
   %14 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) %1) #22
-  %15 = getelementptr inbounds i8, ptr %6, i64 4352
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 4352
   store i64 %3, ptr %15, align 8
   %16 = icmp eq i32 %2, -1
   br i1 %16, label %17, label %22
 
 17:                                               ; preds = %13
   %18 = tail call i32 @pathmap_open(ptr noundef nonnull %6)
-  %19 = getelementptr inbounds i8, ptr %6, i64 4424
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 4424
   store i32 %18, ptr %19, align 8
   %20 = icmp slt i32 %18, 0
   br i1 %20, label %21, label %24
@@ -271,13 +271,13 @@ define hidden noundef ptr @add_lib_info_fd(ptr nocapture noundef %0, ptr noundef
   br label %121
 
 22:                                               ; preds = %13
-  %23 = getelementptr inbounds i8, ptr %6, i64 4424
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 4424
   store i32 %2, ptr %23, align 8
   br label %24
 
 24:                                               ; preds = %17, %22
   %25 = phi i32 [ %18, %17 ], [ %2, %22 ]
-  %26 = getelementptr inbounds i8, ptr %6, i64 4424
+  %26 = getelementptr inbounds nuw i8, ptr %6, i64 4424
   %27 = tail call i32 @is_elf_file(i32 noundef %25) #22
   %28 = icmp eq i32 %27, 0
   %29 = load i32, ptr %26, align 8
@@ -290,7 +290,7 @@ define hidden noundef ptr @add_lib_info_fd(ptr nocapture noundef %0, ptr noundef
 
 32:                                               ; preds = %24
   %33 = tail call ptr @build_symtab(i32 noundef %29, ptr noundef %1) #22
-  %34 = getelementptr inbounds i8, ptr %6, i64 4416
+  %34 = getelementptr inbounds nuw i8, ptr %6, i64 4416
   store ptr %33, ptr %34, align 8
   %35 = icmp eq ptr %33, null
   br i1 %35, label %36, label %37
@@ -318,10 +318,10 @@ define hidden noundef ptr @add_lib_info_fd(ptr nocapture noundef %0, ptr noundef
   br label %fill_addr_info.exit.thread
 
 50:                                               ; preds = %37
-  %51 = getelementptr inbounds i8, ptr %6, i64 4360
-  %52 = getelementptr inbounds i8, ptr %6, i64 4368
-  %53 = getelementptr inbounds i8, ptr %6, i64 4376
-  %54 = getelementptr inbounds i8, ptr %5, i64 56
+  %51 = getelementptr inbounds nuw i8, ptr %6, i64 4360
+  %52 = getelementptr inbounds nuw i8, ptr %6, i64 4368
+  %53 = getelementptr inbounds nuw i8, ptr %6, i64 4376
+  %54 = getelementptr inbounds nuw i8, ptr %5, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %51, i8 -1, i64 24, i1 false)
   %55 = load i16, ptr %54, align 8
   %.not63.i = icmp eq i16 %55, 0
@@ -336,14 +336,14 @@ define hidden noundef ptr @add_lib_info_fd(ptr nocapture noundef %0, ptr noundef
 
 58:                                               ; preds = %.lr.ph.i
   %59 = load i64, ptr %15, align 8
-  %60 = getelementptr inbounds i8, ptr %.05162.i, i64 16
+  %60 = getelementptr inbounds nuw i8, ptr %.05162.i, i64 16
   %61 = load i64, ptr %60, align 8
   %62 = add i64 %61, %59
-  %63 = getelementptr inbounds i8, ptr %.05162.i, i64 48
+  %63 = getelementptr inbounds nuw i8, ptr %.05162.i, i64 48
   %64 = load i64, ptr %63, align 8
   %65 = sub i64 0, %64
   %66 = and i64 %62, %65
-  %67 = getelementptr inbounds i8, ptr %.05162.i, i64 40
+  %67 = getelementptr inbounds nuw i8, ptr %.05162.i, i64 40
   %68 = load i64, ptr %67, align 8
   %69 = add i64 %62, -1
   %70 = add i64 %69, %64
@@ -364,10 +364,10 @@ define hidden noundef ptr @add_lib_info_fd(ptr nocapture noundef %0, ptr noundef
 77:                                               ; preds = %76, %58
   %78 = phi i64 [ %68, %58 ], [ %.pre64.i, %76 ]
   %79 = phi i64 [ %61, %58 ], [ %.pre.i, %76 ]
-  %80 = getelementptr inbounds i8, ptr %.05162.i, i64 32
+  %80 = getelementptr inbounds nuw i8, ptr %.05162.i, i64 32
   %81 = load i64, ptr %80, align 8
   call void (ptr, ...) @print_debug(ptr noundef nonnull @.str.17, ptr noundef nonnull %6, i32 noundef %.05261.i, i64 noundef %66, i64 noundef %72, i64 noundef %59, i64 noundef %79, i64 noundef %78, i64 noundef %81)
-  %82 = getelementptr inbounds i8, ptr %.05162.i, i64 4
+  %82 = getelementptr inbounds nuw i8, ptr %.05162.i, i64 4
   %83 = load i32, ptr %82, align 4
   %84 = and i32 %83, 1
   %.not58.i = icmp eq i32 %84, 0
@@ -397,7 +397,7 @@ define hidden noundef ptr @add_lib_info_fd(ptr nocapture noundef %0, ptr noundef
 
 95:                                               ; preds = %94, %90, %77, %.lr.ph.i
   %96 = add nuw nsw i32 %.05261.i, 1
-  %97 = getelementptr inbounds i8, ptr %.05162.i, i64 56
+  %97 = getelementptr inbounds nuw i8, ptr %.05162.i, i64 56
   %98 = load i16, ptr %54, align 8
   %99 = zext i16 %98 to i32
   %100 = icmp samesign ult i32 %96, %99
@@ -437,15 +437,15 @@ fill_addr_info.exit:                              ; preds = %104
   br label %109
 
 109:                                              ; preds = %.sink.split, %107
-  %110 = getelementptr inbounds i8, ptr %0, i64 16
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %111 = load ptr, ptr %110, align 8
   %.not40 = icmp eq ptr %111, null
-  %112 = getelementptr inbounds i8, ptr %0, i64 24
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br i1 %.not40, label %116, label %113
 
 113:                                              ; preds = %109
   %114 = load ptr, ptr %112, align 8
-  %115 = getelementptr inbounds i8, ptr %114, i64 4432
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 4432
   store ptr %6, ptr %115, align 8
   store ptr %6, ptr %112, align 8
   br label %117
@@ -456,7 +456,7 @@ fill_addr_info.exit:                              ; preds = %104
   br label %117
 
 117:                                              ; preds = %116, %113
-  %118 = getelementptr inbounds i8, ptr %0, i64 12
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %119 = load i32, ptr %118, align 4
   %120 = add nsw i32 %119, 1
   store i32 %120, ptr %118, align 4
@@ -470,7 +470,7 @@ fill_addr_info.exit:                              ; preds = %104
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @read_eh_frame(ptr nocapture readnone %0, ptr nocapture noundef %1) local_unnamed_addr #10 {
   %3 = alloca %struct.Elf64_Ehdr, align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 4424
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 4424
   %5 = load i32, ptr %4, align 8
   %6 = tail call i64 @lseek64(i32 noundef %5, i64 noundef 0, i32 noundef 1) #22
   %7 = load i32, ptr %4, align 8
@@ -480,12 +480,12 @@ define hidden range(i32 0, 2) i32 @read_eh_frame(ptr nocapture readnone %0, ptr 
   %11 = load i32, ptr %4, align 8
   %12 = call ptr @read_section_header_table(i32 noundef %11, ptr noundef nonnull %3) #22
   %13 = load i32, ptr %4, align 8
-  %14 = getelementptr inbounds i8, ptr %3, i64 62
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 62
   %15 = load i16, ptr %14, align 2
   %16 = zext i16 %15 to i64
-  %17 = getelementptr inbounds %struct.Elf64_Shdr, ptr %12, i64 %16
+  %17 = getelementptr inbounds nuw %struct.Elf64_Shdr, ptr %12, i64 %16
   %18 = call ptr @read_section_data(i32 noundef %13, ptr noundef nonnull %3, ptr noundef %17) #22
-  %19 = getelementptr inbounds i8, ptr %3, i64 60
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 60
   %20 = load i16, ptr %19, align 4
   %21 = zext i16 %20 to i32
   %.not = icmp eq i16 %20, 0
@@ -496,34 +496,34 @@ define hidden range(i32 0, 2) i32 @read_eh_frame(ptr nocapture readnone %0, ptr 
   %.02527 = phi ptr [ %43, %41 ], [ %12, %2 ]
   %22 = load i32, ptr %.02527, align 8
   %23 = zext i32 %22 to i64
-  %24 = getelementptr inbounds i8, ptr %18, i64 %23
+  %24 = getelementptr inbounds nuw i8, ptr %18, i64 %23
   %25 = call i32 @strcmp(ptr noundef nonnull dereferenceable(10) @.str.4, ptr noundef nonnull dereferenceable(1) %24) #23
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %27, label %41
 
 27:                                               ; preds = %.lr.ph
-  %28 = getelementptr inbounds i8, ptr %1, i64 4352
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 4352
   %29 = load i64, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %1, i64 4384
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 4384
   store i64 %29, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %.02527, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %.02527, i64 16
   %32 = load i64, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %1, i64 4392
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 4392
   store i64 %32, ptr %33, align 8
   %34 = load i32, ptr %4, align 8
   %35 = call ptr @read_section_data(i32 noundef %34, ptr noundef nonnull %3, ptr noundef nonnull %.02527) #22
-  %36 = getelementptr inbounds i8, ptr %1, i64 4400
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 4400
   store ptr %35, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %.02527, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %.02527, i64 32
   %38 = load i64, ptr %37, align 8
   %39 = trunc i64 %38 to i32
-  %40 = getelementptr inbounds i8, ptr %1, i64 4408
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 4408
   store i32 %39, ptr %40, align 8
   br label %.loopexit
 
 41:                                               ; preds = %.lr.ph
   %42 = add nuw nsw i32 %.028, 1
-  %43 = getelementptr inbounds i8, ptr %.02527, i64 64
+  %43 = getelementptr inbounds nuw i8, ptr %.02527, i64 64
   %exitcond.not = icmp eq i32 %42, %21
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !10
 
@@ -532,7 +532,7 @@ define hidden range(i32 0, 2) i32 @read_eh_frame(ptr nocapture readnone %0, ptr 
   call void @free(ptr noundef %12) #22
   %44 = load i32, ptr %4, align 8
   %45 = call i64 @lseek64(i32 noundef %44, i64 noundef %6, i32 noundef 0) #22
-  %46 = getelementptr inbounds i8, ptr %1, i64 4400
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 4400
   %47 = load ptr, ptr %46, align 8
   %48 = icmp ne ptr %47, null
   %49 = zext i1 %48 to i32
@@ -565,27 +565,27 @@ declare ptr @build_symtab(i32 noundef, ptr noundef) local_unnamed_addr #13
 
 ; Function Attrs: nounwind uwtable
 define hidden i64 @lookup_symbol(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #10 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.01116 = load ptr, ptr %4, align 8
   %.not17 = icmp eq ptr %.01116, null
   br i1 %.not17, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %11
   %.01118 = phi ptr [ %.011, %11 ], [ %.01116, %3 ]
-  %5 = getelementptr inbounds i8, ptr %.01118, i64 4416
+  %5 = getelementptr inbounds nuw i8, ptr %.01118, i64 4416
   %6 = load ptr, ptr %5, align 8
   %.not14 = icmp eq ptr %6, null
   br i1 %.not14, label %11, label %7
 
 7:                                                ; preds = %.lr.ph
-  %8 = getelementptr inbounds i8, ptr %.01118, i64 4352
+  %8 = getelementptr inbounds nuw i8, ptr %.01118, i64 4352
   %9 = load i64, ptr %8, align 8
   %10 = tail call i64 @search_symbol(ptr noundef nonnull %6, i64 noundef %9, ptr noundef %2, ptr noundef null) #22
   %.not15 = icmp eq i64 %10, 0
   br i1 %.not15, label %11, label %.loopexit
 
 11:                                               ; preds = %7, %.lr.ph
-  %12 = getelementptr inbounds i8, ptr %.01118, i64 4432
+  %12 = getelementptr inbounds nuw i8, ptr %.01118, i64 4432
   %.011 = load ptr, ptr %12, align 8
   %.not = icmp eq ptr %.011, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
@@ -603,20 +603,20 @@ declare i64 @search_symbol(ptr noundef, i64 noundef, ptr noundef, ptr noundef) l
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @symbol_for_pc(ptr nocapture noundef readonly %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #10 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.020 = load ptr, ptr %4, align 8
   %.not21 = icmp eq ptr %.020, null
   br i1 %.not21, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %13
   %.022 = phi ptr [ %.0, %13 ], [ %.020, %3 ]
-  %5 = getelementptr inbounds i8, ptr %.022, i64 4416
+  %5 = getelementptr inbounds nuw i8, ptr %.022, i64 4416
   %6 = load ptr, ptr %5, align 8
   %.not17 = icmp eq ptr %6, null
   br i1 %.not17, label %13, label %7
 
 7:                                                ; preds = %.lr.ph
-  %8 = getelementptr inbounds i8, ptr %.022, i64 4352
+  %8 = getelementptr inbounds nuw i8, ptr %.022, i64 4352
   %9 = load i64, ptr %8, align 8
   %.not18 = icmp ult i64 %1, %9
   br i1 %.not18, label %13, label %10
@@ -628,7 +628,7 @@ define hidden ptr @symbol_for_pc(ptr nocapture noundef readonly %0, i64 noundef 
   br i1 %.not19, label %13, label %._crit_edge
 
 13:                                               ; preds = %10, %7, %.lr.ph
-  %14 = getelementptr inbounds i8, ptr %.022, i64 4432
+  %14 = getelementptr inbounds nuw i8, ptr %.022, i64 4432
   %.0 = load ptr, ptr %14, align 8
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
@@ -652,12 +652,12 @@ define hidden noundef ptr @add_thread_info(ptr nocapture noundef %0, i32 noundef
 
 6:                                                ; preds = %2
   store i32 %1, ptr %3, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 224
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 224
   store ptr %8, ptr %9, align 8
   store ptr %3, ptr %7, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load i32, ptr %10, align 8
   %12 = add nsw i32 %11, 1
   store i32 %12, ptr %10, align 8
@@ -669,7 +669,7 @@ define hidden noundef ptr @add_thread_info(ptr nocapture noundef %0, i32 noundef
 
 ; Function Attrs: nounwind uwtable
 define hidden void @delete_thread_info(ptr nocapture noundef %0, ptr noundef readnone %1) local_unnamed_addr #10 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %.preheader
@@ -679,14 +679,14 @@ define hidden void @delete_thread_info(ptr nocapture noundef %0, ptr noundef rea
   br i1 %.not, label %._crit_edge.thread, label %.lr.ph
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %4, i64 224
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 224
   %8 = load ptr, ptr %7, align 8
   store ptr %8, ptr %3, align 8
   br label %19
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %.119 = phi ptr [ %10, %.lr.ph ], [ %4, %.preheader ]
-  %9 = getelementptr inbounds i8, ptr %.119, i64 224
+  %9 = getelementptr inbounds nuw i8, ptr %.119, i64 224
   %10 = load ptr, ptr %9, align 8
   %11 = icmp ne ptr %10, null
   %12 = icmp ne ptr %10, %1
@@ -702,15 +702,15 @@ define hidden void @delete_thread_info(ptr nocapture noundef %0, ptr noundef rea
   br label %23
 
 15:                                               ; preds = %._crit_edge
-  %16 = getelementptr inbounds i8, ptr %10, i64 224
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 224
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %.119, i64 224
+  %18 = getelementptr inbounds nuw i8, ptr %.119, i64 224
   store ptr %17, ptr %18, align 8
   br label %19
 
 19:                                               ; preds = %15, %6
   %.015 = phi ptr [ %4, %6 ], [ %10, %15 ]
-  %20 = getelementptr inbounds i8, ptr %0, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %21 = load i32, ptr %20, align 8
   %22 = add nsw i32 %21, -1
   store i32 %22, ptr %20, align 8
@@ -723,14 +723,14 @@ define hidden void @delete_thread_info(ptr nocapture noundef %0, ptr noundef rea
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden i32 @get_num_threads(ptr nocapture noundef readonly %0) local_unnamed_addr #15 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define hidden i32 @get_lwp_id(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.010 = load ptr, ptr %3, align 8
   %.not11 = icmp eq ptr %.010, null
   br i1 %.not11, label %.loopexit, label %.lr.ph
@@ -747,7 +747,7 @@ define hidden i32 @get_lwp_id(ptr nocapture noundef readonly %0, i32 noundef %1)
 
 7:                                                ; preds = %.lr.ph
   %8 = add nuw nsw i32 %.0712, 1
-  %9 = getelementptr inbounds i8, ptr %.013, i64 224
+  %9 = getelementptr inbounds nuw i8, ptr %.013, i64 224
   %.0 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !14
@@ -760,7 +760,7 @@ define hidden i32 @get_lwp_id(ptr nocapture noundef readonly %0, i32 noundef %1)
 ; Function Attrs: nounwind uwtable
 define hidden i32 @get_lwp_regs(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #10 {
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 %6(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2) #22
   ret i32 %7
@@ -768,14 +768,14 @@ define hidden i32 @get_lwp_regs(ptr noundef %0, i32 noundef %1, ptr noundef %2) 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden i32 @get_num_libs(ptr nocapture noundef readonly %0) local_unnamed_addr #15 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 12
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4
   ret i32 %3
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define hidden ptr @get_lib_name(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.09 = load ptr, ptr %3, align 8
   %.not10 = icmp eq ptr %.09, null
   %4 = icmp eq i32 %1, 0
@@ -786,7 +786,7 @@ define hidden ptr @get_lib_name(ptr nocapture noundef readonly %0, i32 noundef %
   %.013 = phi ptr [ %.0, %.lr.ph ], [ %.09, %2 ]
   %.0712 = phi i32 [ %5, %.lr.ph ], [ 0, %2 ]
   %5 = add nuw nsw i32 %.0712, 1
-  %6 = getelementptr inbounds i8, ptr %.013, i64 4432
+  %6 = getelementptr inbounds nuw i8, ptr %.013, i64 4432
   %.0 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %.0, null
   %7 = icmp eq i32 %5, %1
@@ -800,7 +800,7 @@ define hidden ptr @get_lib_name(ptr nocapture noundef readonly %0, i32 noundef %
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define hidden i64 @get_lib_base(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.010 = load ptr, ptr %3, align 8
   %.not11 = icmp eq ptr %.010, null
   br i1 %.not11, label %.loopexit, label %.lr.ph
@@ -812,13 +812,13 @@ define hidden i64 @get_lib_base(ptr nocapture noundef readonly %0, i32 noundef %
   br i1 %4, label %5, label %8
 
 5:                                                ; preds = %.lr.ph
-  %6 = getelementptr inbounds i8, ptr %.013, i64 4352
+  %6 = getelementptr inbounds nuw i8, ptr %.013, i64 4352
   %7 = load i64, ptr %6, align 8
   br label %.loopexit
 
 8:                                                ; preds = %.lr.ph
   %9 = add nuw nsw i32 %.0712, 1
-  %10 = getelementptr inbounds i8, ptr %.013, i64 4432
+  %10 = getelementptr inbounds nuw i8, ptr %.013, i64 4432
   %.0 = load ptr, ptr %10, align 8
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !16
@@ -830,7 +830,7 @@ define hidden i64 @get_lib_base(ptr nocapture noundef readonly %0, i32 noundef %
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden void @get_lib_addr_range(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #17 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.012 = load ptr, ptr %5, align 8
   %.not13 = icmp eq ptr %.012, null
   br i1 %.not13, label %.loopexit, label %.lr.ph
@@ -842,10 +842,10 @@ define hidden void @get_lib_addr_range(ptr nocapture noundef readonly %0, i32 no
   br i1 %6, label %7, label %13
 
 7:                                                ; preds = %.lr.ph
-  %8 = getelementptr inbounds i8, ptr %.015, i64 4352
+  %8 = getelementptr inbounds nuw i8, ptr %.015, i64 4352
   %9 = load i64, ptr %8, align 8
   store i64 %9, ptr %2, align 8
-  %10 = getelementptr inbounds i8, ptr %.015, i64 4360
+  %10 = getelementptr inbounds nuw i8, ptr %.015, i64 4360
   %11 = load i64, ptr %10, align 8
   %12 = sub i64 %11, %9
   store i64 %12, ptr %3, align 8
@@ -853,7 +853,7 @@ define hidden void @get_lib_addr_range(ptr nocapture noundef readonly %0, i32 no
 
 13:                                               ; preds = %.lr.ph
   %14 = add nuw nsw i32 %.01014, 1
-  %15 = getelementptr inbounds i8, ptr %.015, i64 4432
+  %15 = getelementptr inbounds nuw i8, ptr %.015, i64 4432
   %.0 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !17
@@ -864,13 +864,13 @@ define hidden void @get_lib_addr_range(ptr nocapture noundef readonly %0, i32 no
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
 define hidden range(i32 0, 2) i32 @find_lib(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #18 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.06 = load ptr, ptr %3, align 8
   %.not7 = icmp eq ptr %.06, null
   br i1 %.not7, label %._crit_edge, label %.lr.ph
 
 4:                                                ; preds = %.lr.ph
-  %5 = getelementptr inbounds i8, ptr %.08, i64 4432
+  %5 = getelementptr inbounds nuw i8, ptr %.08, i64 4432
   %.0 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
@@ -888,26 +888,26 @@ define hidden range(i32 0, 2) i32 @find_lib(ptr nocapture noundef readonly %0, p
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define hidden ptr @find_lib_by_address(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.011 = load ptr, ptr %3, align 8
   %.not12 = icmp eq ptr %.011, null
   br i1 %.not12, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %10
   %.013 = phi ptr [ %.0, %10 ], [ %.011, %2 ]
-  %4 = getelementptr inbounds i8, ptr %.013, i64 4368
+  %4 = getelementptr inbounds nuw i8, ptr %.013, i64 4368
   %5 = load i64, ptr %4, align 8
   %.not10 = icmp ugt i64 %5, %1
   br i1 %.not10, label %10, label %6
 
 6:                                                ; preds = %.lr.ph
-  %7 = getelementptr inbounds i8, ptr %.013, i64 4376
+  %7 = getelementptr inbounds nuw i8, ptr %.013, i64 4376
   %8 = load i64, ptr %7, align 8
   %9 = icmp ult i64 %1, %8
   br i1 %9, label %._crit_edge, label %10
 
 10:                                               ; preds = %6, %.lr.ph
-  %11 = getelementptr inbounds i8, ptr %.013, i64 4432
+  %11 = getelementptr inbounds nuw i8, ptr %.013, i64 4432
   %.0 = load ptr, ptr %11, align 8
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
@@ -919,34 +919,34 @@ define hidden ptr @find_lib_by_address(ptr nocapture noundef readonly %0, i64 no
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @ps_getpid(ptr nocapture noundef readonly %0) local_unnamed_addr #15 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 6) i32 @ps_pglobal_lookup(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #10 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.01116.i = load ptr, ptr %5, align 8
   %.not17.i = icmp eq ptr %.01116.i, null
   br i1 %.not17.i, label %.loopexit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %4, %12
   %.01118.i = phi ptr [ %.011.i, %12 ], [ %.01116.i, %4 ]
-  %6 = getelementptr inbounds i8, ptr %.01118.i, i64 4416
+  %6 = getelementptr inbounds nuw i8, ptr %.01118.i, i64 4416
   %7 = load ptr, ptr %6, align 8
   %.not14.i = icmp eq ptr %7, null
   br i1 %.not14.i, label %12, label %8
 
 8:                                                ; preds = %.lr.ph.i
-  %9 = getelementptr inbounds i8, ptr %.01118.i, i64 4352
+  %9 = getelementptr inbounds nuw i8, ptr %.01118.i, i64 4352
   %10 = load i64, ptr %9, align 8
   %11 = tail call i64 @search_symbol(ptr noundef nonnull %7, i64 noundef %10, ptr noundef %2, ptr noundef null) #22
   %.not15.i = icmp eq i64 %11, 0
   br i1 %.not15.i, label %12, label %lookup_symbol.exit
 
 12:                                               ; preds = %8, %.lr.ph.i
-  %13 = getelementptr inbounds i8, ptr %.01118.i, i64 4432
+  %13 = getelementptr inbounds nuw i8, ptr %.01118.i, i64 4432
   %.011.i = load ptr, ptr %13, align 8
   %.not.i = icmp eq ptr %.011.i, null
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !11
@@ -969,7 +969,7 @@ lookup_symbol.exit:                               ; preds = %8
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ps_pdread(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #10 {
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = ptrtoint ptr %1 to i64
   %9 = tail call i32 %7(ptr noundef nonnull %0, i64 noundef %8, ptr noundef %2, i64 noundef %3) #22
@@ -981,7 +981,7 @@ define range(i32 0, 2) i32 @ps_pdread(ptr noundef %0, ptr noundef %1, ptr nounde
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ps_pdwrite(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #10 {
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = ptrtoint ptr %1 to i64
   %9 = tail call i32 %7(ptr noundef nonnull %0, i64 noundef %8, ptr noundef %2, i64 noundef %3) #22

@@ -46,13 +46,13 @@ define range(i32 0, 575) i32 @cli_mbr_check(ptr nocapture noundef readonly %0, i
   br i1 %5, label %mbr_check_mbr.exit, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 446
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 446
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(66) %4, ptr noundef nonnull align 1 dereferenceable(66) %7, i64 66, i1 false)
-  %8 = getelementptr inbounds i8, ptr %4, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %9 = load i16, ptr %8, align 1
   %rev.i = tail call i16 @llvm.bswap.i16(i16 %9)
   store i16 %rev.i, ptr %8, align 1
-  %10 = getelementptr inbounds i8, ptr %4, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %11 = load i8, ptr %10, align 1
   %12 = add i8 %11, 19
   %or.cond = icmp ult i8 %12, 2
@@ -65,7 +65,7 @@ define range(i32 0, 575) i32 @cli_mbr_check(ptr nocapture noundef readonly %0, i
 
 .preheader:                                       ; preds = %6, %13
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %13 ], [ 0, %6 ]
-  %14 = getelementptr inbounds [4 x %struct.mbr_partition_entry], ptr %4, i64 0, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw [4 x %struct.mbr_partition_entry], ptr %4, i64 0, i64 %indvars.iv.i
   %15 = load i8, ptr %14, align 1
   switch i8 %15, label %.sink.split.i [
     i8 0, label %16
@@ -73,10 +73,10 @@ define range(i32 0, 575) i32 @cli_mbr_check(ptr nocapture noundef readonly %0, i
   ]
 
 16:                                               ; preds = %.preheader, %.preheader
-  %17 = getelementptr inbounds i8, ptr %14, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %18 = load i32, ptr %17, align 1
   %19 = zext i32 %18 to i64
-  %20 = getelementptr inbounds i8, ptr %14, i64 12
+  %20 = getelementptr inbounds nuw i8, ptr %14, i64 12
   %21 = load i32, ptr %20, align 1
   %22 = zext i32 %21 to i64
   %23 = add nuw nsw i64 %22, %19
@@ -107,7 +107,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @mbr_convert_to_host(ptr nocapture noundef %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 64
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load i16, ptr %2, align 1
   %rev = tail call i16 @llvm.bswap.i16(i16 %3)
   store i16 %rev, ptr %2, align 1
@@ -121,7 +121,7 @@ define range(i32 0, 575) i32 @cli_mbr_check2(ptr noundef readonly %0, i64 nounde
   br i1 %.not, label %7, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 96
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %6 = load ptr, ptr %5, align 8
   %.not22 = icmp eq ptr %6, null
   br i1 %.not22, label %7, label %8
@@ -133,7 +133,7 @@ define range(i32 0, 575) i32 @cli_mbr_check2(ptr noundef readonly %0, i64 nounde
 8:                                                ; preds = %4
   %9 = icmp eq i64 %1, 0
   %spec.store.select = select i1 %9, i64 512, i64 %1
-  %10 = getelementptr inbounds i8, ptr %6, i64 88
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 88
   %11 = load i64, ptr %10, align 8
   %12 = urem i64 %11, %spec.store.select
   %13 = udiv i64 %11, %spec.store.select
@@ -152,7 +152,7 @@ define range(i32 0, 575) i32 @cli_mbr_check2(ptr noundef readonly %0, i64 nounde
 17:                                               ; preds = %15
   %18 = sub nuw i64 %11, %16
   %spec.select.i = tail call i64 @llvm.umin.i64(i64 %18, i64 66)
-  %19 = getelementptr inbounds i8, ptr %6, i64 104
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 104
   %20 = load ptr, ptr %19, align 8
   %21 = tail call ptr %20(ptr noundef nonnull %6, i64 noundef %16, i64 noundef range(i64 0, 67) %spec.select.i, i32 noundef 0) #6
   %.not26.i = icmp eq ptr %21, null
@@ -168,11 +168,11 @@ fmap_readn.exit.thread:                           ; preds = %17, %15, %fmap_read
   br label %mbr_check_mbr.exit
 
 22:                                               ; preds = %fmap_readn.exit
-  %23 = getelementptr inbounds i8, ptr %3, i64 64
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %24 = load i16, ptr %23, align 1
   %rev.i = tail call i16 @llvm.bswap.i16(i16 %24)
   store i16 %rev.i, ptr %23, align 1
-  %25 = getelementptr inbounds i8, ptr %3, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %26 = load i8, ptr %25, align 1
   %27 = add i8 %26, 19
   %or.cond = icmp ult i8 %27, 2
@@ -185,7 +185,7 @@ fmap_readn.exit.thread:                           ; preds = %17, %15, %fmap_read
 
 .preheader:                                       ; preds = %22, %28
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %28 ], [ 0, %22 ]
-  %29 = getelementptr inbounds [4 x %struct.mbr_partition_entry], ptr %3, i64 0, i64 %indvars.iv.i
+  %29 = getelementptr inbounds nuw [4 x %struct.mbr_partition_entry], ptr %3, i64 0, i64 %indvars.iv.i
   %30 = load i8, ptr %29, align 1
   switch i8 %30, label %.sink.split.i [
     i8 0, label %31
@@ -193,10 +193,10 @@ fmap_readn.exit.thread:                           ; preds = %17, %15, %fmap_read
   ]
 
 31:                                               ; preds = %.preheader, %.preheader
-  %32 = getelementptr inbounds i8, ptr %29, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %33 = load i32, ptr %32, align 1
   %34 = zext i32 %33 to i64
-  %35 = getelementptr inbounds i8, ptr %29, i64 12
+  %35 = getelementptr inbounds nuw i8, ptr %29, i64 12
   %36 = load i32, ptr %35, align 1
   %37 = zext i32 %36 to i64
   %38 = add nuw nsw i64 %37, %34
@@ -234,7 +234,7 @@ define i32 @cli_scanmbr(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   br i1 %.not, label %8, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 96
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %7 = load ptr, ptr %6, align 8
   %.not70 = icmp eq ptr %7, null
   br i1 %.not70, label %8, label %9
@@ -246,7 +246,7 @@ define i32 @cli_scanmbr(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
 9:                                                ; preds = %5
   %10 = icmp eq i64 %1, 0
   %spec.store.select = select i1 %10, i64 512, i64 %1
-  %11 = getelementptr inbounds i8, ptr %7, i64 88
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 88
   %12 = load i64, ptr %11, align 8
   %13 = urem i64 %12, %spec.store.select
   %14 = udiv i64 %12, %spec.store.select
@@ -265,7 +265,7 @@ define i32 @cli_scanmbr(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
 18:                                               ; preds = %16
   %19 = sub nuw i64 %12, %17
   %spec.select.i = tail call i64 @llvm.umin.i64(i64 %19, i64 66)
-  %20 = getelementptr inbounds i8, ptr %7, i64 104
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 104
   %21 = load ptr, ptr %20, align 8
   %22 = tail call ptr %21(ptr noundef nonnull %7, i64 noundef %17, i64 noundef range(i64 0, 67) %spec.select.i, i32 noundef 0) #6
   %.not26.i = icmp eq ptr %22, null
@@ -281,7 +281,7 @@ fmap_readn.exit.thread:                           ; preds = %18, %16, %fmap_read
   br label %.loopexit
 
 23:                                               ; preds = %fmap_readn.exit
-  %24 = getelementptr inbounds i8, ptr %4, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %25 = load i16, ptr %24, align 8
   %rev.i = tail call i16 @llvm.bswap.i16(i16 %25)
   store i16 %rev.i, ptr %24, align 8
@@ -294,7 +294,7 @@ fmap_readn.exit.thread:                           ; preds = %18, %16, %fmap_read
 
 27:                                               ; preds = %26, %23
   %indvars.iv.i = phi i64 [ 0, %23 ], [ %indvars.iv.next.i, %26 ]
-  %28 = getelementptr inbounds [4 x %struct.mbr_partition_entry], ptr %4, i64 0, i64 %indvars.iv.i
+  %28 = getelementptr inbounds nuw [4 x %struct.mbr_partition_entry], ptr %4, i64 0, i64 %indvars.iv.i
   %29 = load i8, ptr %28, align 8
   switch i8 %29, label %mbr_check_mbr.exit [
     i8 0, label %30
@@ -302,10 +302,10 @@ fmap_readn.exit.thread:                           ; preds = %18, %16, %fmap_read
   ]
 
 30:                                               ; preds = %27, %27
-  %31 = getelementptr inbounds i8, ptr %28, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %32 = load i32, ptr %31, align 8
   %33 = zext i32 %32 to i64
-  %34 = getelementptr inbounds i8, ptr %28, i64 12
+  %34 = getelementptr inbounds nuw i8, ptr %28, i64 12
   %35 = load i32, ptr %34, align 4
   %36 = zext i32 %35 to i64
   %37 = add nuw nsw i64 %36, %33
@@ -333,18 +333,18 @@ mbr_check_mbr.exit:                               ; preds = %27, %30, %40, %41
   br i1 %.not74, label %46, label %.loopexit
 
 46:                                               ; preds = %43
-  %47 = getelementptr inbounds i8, ptr %0, i64 64
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %50 = load i32, ptr %49, align 4
   %51 = and i32 %50, 256
   %.not75 = icmp eq i32 %51, 0
   br i1 %.not75, label %60, label %52
 
 52:                                               ; preds = %46
-  %53 = getelementptr inbounds i8, ptr %0, i64 120
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 24
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 24
   %56 = load i32, ptr %55, align 4
   %57 = and i32 %56, 512
   %.not76 = icmp eq i32 %57, 0
@@ -358,9 +358,9 @@ mbr_check_mbr.exit:                               ; preds = %27, %30, %40, %41
 60:                                               ; preds = %58, %52, %46
   %61 = zext nneg i16 %rev.i to i32
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.3, i32 noundef %61) #6
-  %62 = getelementptr inbounds i8, ptr %0, i64 48
-  %indvars.iv.i.sroa.gep76.i = getelementptr inbounds i8, ptr %3, i64 16
-  %63 = getelementptr inbounds i8, ptr %3, i64 64
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %indvars.iv.i.sroa.gep76.i = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %3, i64 64
   br label %64
 
 64:                                               ; preds = %60, %167
@@ -368,7 +368,7 @@ mbr_check_mbr.exit:                               ; preds = %27, %30, %40, %41
   %.056138 = phi i32 [ 0, %60 ], [ %.157, %167 ]
   %.092137 = phi i32 [ 0, %60 ], [ %.1, %167 ]
   %65 = load ptr, ptr %62, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 1152
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 1152
   %67 = load i32, ptr %66, align 8
   %68 = icmp ult i32 %.092137, %67
   br i1 %68, label %69, label %.critedge
@@ -376,17 +376,17 @@ mbr_check_mbr.exit:                               ; preds = %27, %30, %40, %41
 69:                                               ; preds = %64
   %70 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.4, i32 noundef %70) #6
-  %71 = getelementptr inbounds [4 x %struct.mbr_partition_entry], ptr %4, i64 0, i64 %indvars.iv
+  %71 = getelementptr inbounds nuw [4 x %struct.mbr_partition_entry], ptr %4, i64 0, i64 %indvars.iv
   %72 = load i8, ptr %71, align 8
   %73 = zext i8 %72 to i32
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.5, i32 noundef %73) #6
-  %74 = getelementptr inbounds i8, ptr %71, i64 4
+  %74 = getelementptr inbounds nuw i8, ptr %71, i64 4
   %75 = load i8, ptr %74, align 4
   %76 = zext i8 %75 to i32
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.6, i32 noundef %76) #6
-  %77 = getelementptr inbounds i8, ptr %71, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %78 = load i32, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %71, i64 12
+  %79 = getelementptr inbounds nuw i8, ptr %71, i64 12
   %80 = load i32, ptr %79, align 4
   %81 = zext i32 %78 to i64
   %82 = mul i64 %spec.store.select, %81
@@ -424,7 +424,7 @@ mbr_check_mbr.exit:                               ; preds = %27, %30, %40, %41
   %reass.mul.i = mul i64 %reass.add.i, %spec.store.select
   %94 = add i64 %reass.mul.i, %17
   %95 = load ptr, ptr %6, align 8
-  %96 = getelementptr inbounds i8, ptr %95, i64 88
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 88
   %97 = load i64, ptr %96, align 8
   %or.cond.not.i = icmp ult i64 %94, %97
   br i1 %or.cond.not.i, label %98, label %fmap_readn.exit.thread.i
@@ -432,7 +432,7 @@ mbr_check_mbr.exit:                               ; preds = %27, %30, %40, %41
 98:                                               ; preds = %93
   %99 = sub nuw i64 %97, %94
   %spec.select.i.i = tail call i64 @llvm.umin.i64(i64 %99, i64 66)
-  %100 = getelementptr inbounds i8, ptr %95, i64 104
+  %100 = getelementptr inbounds nuw i8, ptr %95, i64 104
   %101 = load ptr, ptr %100, align 8
   %102 = tail call ptr %101(ptr noundef nonnull %95, i64 noundef %94, i64 noundef range(i64 0, 67) %spec.select.i.i, i32 noundef 0) #6
   %.not26.i.i = icmp eq ptr %102, null
@@ -496,17 +496,17 @@ mbr_check_ebr.exit.i:                             ; preds = %109, %105
 115:                                              ; preds = %.backedge.i
   %116 = trunc nuw nsw i64 %indvars.iv.i83 to i32
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.13, i32 noundef %116) #6
-  %117 = getelementptr inbounds [4 x %struct.mbr_partition_entry], ptr %3, i64 0, i64 %indvars.iv.i83
+  %117 = getelementptr inbounds nuw [4 x %struct.mbr_partition_entry], ptr %3, i64 0, i64 %indvars.iv.i83
   %118 = load i8, ptr %117, align 1
   %119 = zext i8 %118 to i32
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.5, i32 noundef %119) #6
-  %120 = getelementptr inbounds i8, ptr %117, i64 4
+  %120 = getelementptr inbounds nuw i8, ptr %117, i64 4
   %121 = load i8, ptr %120, align 1
   %122 = zext i8 %121 to i32
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.6, i32 noundef %122) #6
-  %123 = getelementptr inbounds i8, ptr %117, i64 8
+  %123 = getelementptr inbounds nuw i8, ptr %117, i64 8
   %124 = load i32, ptr %123, align 1
-  %125 = getelementptr inbounds i8, ptr %117, i64 12
+  %125 = getelementptr inbounds nuw i8, ptr %117, i64 12
   %126 = load i32, ptr %125, align 1
   %127 = zext i32 %124 to i64
   %128 = mul i64 %spec.store.select, %127
@@ -597,7 +597,7 @@ default.unreachable:                              ; preds = %138, %134, %131
   br i1 %.not74.i, label %.backedge.i.outer.backedge, label %mbr_scanextprtn.exit.thread
 
 151:                                              ; preds = %.backedge.i
-  %152 = getelementptr inbounds [4 x %struct.mbr_partition_entry], ptr %3, i64 0, i64 %indvars.iv.i83, i32 2
+  %152 = getelementptr inbounds nuw [4 x %struct.mbr_partition_entry], ptr %3, i64 0, i64 %indvars.iv.i83, i32 2
   %153 = load i8, ptr %152, align 1
   %.not73.i = icmp eq i8 %153, 0
   br i1 %.not73.i, label %156, label %154
@@ -627,7 +627,7 @@ default.unreachable:                              ; preds = %138, %134, %131
 
 158:                                              ; preds = %157
   %159 = load ptr, ptr %62, align 8
-  %160 = getelementptr inbounds i8, ptr %159, i64 1152
+  %160 = getelementptr inbounds nuw i8, ptr %159, i64 1152
   %161 = load i32, ptr %160, align 8
   %162 = icmp ult i32 %111, %161
   br i1 %162, label %93, label %mbr_scanextprtn.exit
@@ -658,7 +658,7 @@ mbr_scanextprtn.exit:                             ; preds = %157, %158
 
 ..critedge_crit_edge:                             ; preds = %167
   %.pre = load ptr, ptr %62, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 1152
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 1152
   %.pre165 = load i32, ptr %.phi.trans.insert, align 8
   br label %.critedge
 
@@ -688,30 +688,30 @@ define internal fastcc i32 @mbr_primary_partition_intersection(ptr noundef nonnu
   %8 = alloca i32, align 4
   store i32 0, ptr %8, align 4
   %9 = call i32 @partition_intersection_list_init(ptr noundef nonnull %7) #6
-  %10 = getelementptr inbounds i8, ptr %0, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %11 = shl i64 %2, 32
   %sext.i = add i64 %11, -283467841536
   %12 = ashr exact i64 %sext.i, 32
-  %13 = getelementptr inbounds i8, ptr %0, i64 96
-  %.64..64..64..64..64..sroa_idx = getelementptr inbounds i8, ptr %4, i64 64
-  %.64..64..64..64..64..sroa_idx59 = getelementptr inbounds i8, ptr %4, i64 64
-  %.12..12..12..12..12..sroa_idx = getelementptr inbounds i8, ptr %4, i64 12
-  %.20..20..20..20..20..sroa_idx = getelementptr inbounds i8, ptr %4, i64 20
-  %.24..24..24..24..24..sroa_idx = getelementptr inbounds i8, ptr %4, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %.64..64..64..64..64..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 64
+  %.64..64..64..64..64..sroa_idx59 = getelementptr inbounds nuw i8, ptr %4, i64 64
+  %.12..12..12..12..12..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 12
+  %.20..20..20..20..20..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 20
+  %.24..24..24..24..24..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 24
   br label %14
 
 14:                                               ; preds = %3, %75
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %75 ]
   %.03039 = phi i32 [ 0, %3 ], [ %.1, %75 ]
   %15 = load ptr, ptr %10, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 1152
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 1152
   %17 = load i32, ptr %16, align 8
   %18 = icmp ult i32 %.03039, %17
   br i1 %18, label %19, label %.critedge
 
 19:                                               ; preds = %14
-  %20 = getelementptr inbounds [4 x %struct.mbr_partition_entry], ptr %1, i64 0, i64 %indvars.iv
-  %21 = getelementptr inbounds i8, ptr %20, i64 4
+  %20 = getelementptr inbounds nuw [4 x %struct.mbr_partition_entry], ptr %1, i64 0, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
   %22 = load i8, ptr %21, align 4
   %23 = icmp eq i8 %22, 0
   br i1 %23, label %24, label %26
@@ -721,10 +721,10 @@ define internal fastcc i32 @mbr_primary_partition_intersection(ptr noundef nonnu
   br label %75
 
 26:                                               ; preds = %19
-  %27 = getelementptr inbounds i8, ptr %20, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %28 = load i32, ptr %27, align 8
   %29 = zext i32 %28 to i64
-  %30 = getelementptr inbounds i8, ptr %20, i64 12
+  %30 = getelementptr inbounds nuw i8, ptr %20, i64 12
   %31 = load i32, ptr %30, align 4
   %32 = zext i32 %31 to i64
   %33 = call i32 @partition_intersection_list_check(ptr noundef nonnull %7, ptr noundef nonnull %8, i64 noundef %29, i64 noundef %32) #6
@@ -761,7 +761,7 @@ define internal fastcc i32 @mbr_primary_partition_intersection(ptr noundef nonnu
   %reass.mul.i = mul i64 %reass.add.i, %2
   %43 = add i64 %reass.mul.i, %12
   %44 = load ptr, ptr %13, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 88
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 88
   %46 = load i64, ptr %45, align 8
   %or.cond.not.i = icmp ult i64 %43, %46
   br i1 %or.cond.not.i, label %47, label %fmap_readn.exit.thread.i
@@ -769,7 +769,7 @@ define internal fastcc i32 @mbr_primary_partition_intersection(ptr noundef nonnu
 47:                                               ; preds = %42
   %48 = sub nuw i64 %46, %43
   %spec.select.i.i = call i64 @llvm.umin.i64(i64 %48, i64 66)
-  %49 = getelementptr inbounds i8, ptr %44, i64 104
+  %49 = getelementptr inbounds nuw i8, ptr %44, i64 104
   %50 = load ptr, ptr %49, align 8
   %51 = call ptr %50(ptr noundef nonnull %44, i64 noundef %43, i64 noundef range(i64 0, 67) %spec.select.i.i, i32 noundef 0) #6
   %.not26.i.i = icmp eq ptr %51, null
@@ -824,7 +824,7 @@ fmap_readn.exit.thread.i:                         ; preds = %fmap_readn.exit.i, 
   %65 = zext i32 %.24..24..24..24..24..i to i64
   %66 = add i32 %.021.i, 1
   %67 = load ptr, ptr %10, align 8
-  %68 = getelementptr inbounds i8, ptr %67, i64 1152
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 1152
   %69 = load i32, ptr %68, align 8
   %70 = icmp ult i32 %54, %69
   br i1 %70, label %42, label %mbr_extended_partition_intersection.exit

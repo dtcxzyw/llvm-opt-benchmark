@@ -139,14 +139,14 @@ define internal i64 @objspace_dump(i64 %0, i64 noundef %1, i64 noundef %2) #0 {
 
 9:                                                ; preds = %3
   %10 = tail call i64 @rb_gc_obj_slot_size(i64 noundef %1) #10
-  %11 = getelementptr inbounds i8, ptr %4, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store i64 %10, ptr %11, align 8
   br label %12
 
 12:                                               ; preds = %9, %3
-  %13 = getelementptr inbounds i8, ptr %4, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 64
   store i8 0, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %4, i64 88
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 88
   store i64 0, ptr %14, align 8
   %15 = and i64 %2, 7
   %16 = icmp ne i64 %15, 0
@@ -167,13 +167,13 @@ rb_type.exit.thread.i:                            ; preds = %rb_type.exit.i, %12
 dump_output.exit:                                 ; preds = %rb_type.exit.i, %rb_type.exit.thread.i
   %.sink26.i = phi i64 [ %2, %rb_type.exit.thread.i ], [ 0, %rb_type.exit.i ]
   %.sink.i = phi i64 [ 0, %rb_type.exit.thread.i ], [ %2, %rb_type.exit.i ]
-  %23 = getelementptr inbounds i8, ptr %4, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %.sink26.i, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %4, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 %.sink.i, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %4, i64 68
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 68
   store i32 0, ptr %25, align 4
-  %26 = getelementptr inbounds i8, ptr %4, i64 80
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store i64 0, ptr %26, align 8
   call fastcc void @dump_object(i64 noundef %1, ptr noundef nonnull %4)
   %27 = load i64, ptr %14, align 8
@@ -186,7 +186,7 @@ dump_output.exit:                                 ; preds = %rb_type.exit.i, %rb
   br i1 %.not22.i.i, label %38, label %30
 
 30:                                               ; preds = %28
-  %31 = getelementptr inbounds i8, ptr %4, i64 96
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 96
   %32 = call i64 @rb_io_bufwrite(i64 noundef %29, ptr noundef nonnull %31, i64 noundef %27) #10
   %33 = load i64, ptr %14, align 8
   %34 = icmp ult i64 %32, %33
@@ -204,7 +204,7 @@ dump_output.exit:                                 ; preds = %rb_type.exit.i, %rb
   br i1 %.not23.i.i, label %.sink.split.i.i, label %40
 
 40:                                               ; preds = %38
-  %41 = getelementptr inbounds i8, ptr %4, i64 96
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 96
   %42 = call i64 @rb_str_cat(i64 noundef %39, ptr noundef nonnull %41, i64 noundef %27) #10
   br label %.sink.split.i.i
 
@@ -232,8 +232,8 @@ dump_result.exit:                                 ; preds = %dump_flush.exit.i, 
 ; Function Attrs: nounwind uwtable
 define internal i64 @objspace_dump_all(i64 %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) #0 {
   %6 = alloca %struct.dump_config, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 64
-  %8 = getelementptr inbounds i8, ptr %6, i64 88
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 88
   %9 = and i64 %1, 7
   %10 = icmp ne i64 %9, 0
   %11 = icmp eq i64 %1, 0
@@ -254,9 +254,9 @@ rb_type.exit.thread.i:                            ; preds = %rb_type.exit.i, %5
 17:                                               ; preds = %rb_type.exit.thread.i, %rb_type.exit.i
   %.sink26.i = phi i64 [ %1, %rb_type.exit.thread.i ], [ 0, %rb_type.exit.i ]
   %.sink.i = phi i64 [ 0, %rb_type.exit.thread.i ], [ %1, %rb_type.exit.i ]
-  %18 = getelementptr inbounds i8, ptr %6, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %.sink26.i, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %6, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 %.sink.i, ptr %19, align 8
   %20 = icmp eq i64 %2, 20
   br i1 %20, label %21, label %22
@@ -268,7 +268,7 @@ rb_type.exit.thread.i:                            ; preds = %rb_type.exit.i, %5
 22:                                               ; preds = %21, %17
   %23 = and i64 %3, -5
   %.not.i = icmp eq i64 %23, 0
-  %24 = getelementptr inbounds i8, ptr %6, i64 68
+  %24 = getelementptr inbounds nuw i8, ptr %6, i64 68
   br i1 %.not.i, label %33, label %25
 
 25:                                               ; preds = %22
@@ -287,7 +287,7 @@ rb_type.exit.thread.i:                            ; preds = %rb_type.exit.i, %5
 
 rb_num2ull_inline.exit.i:                         ; preds = %29, %27
   %.0.i19.i = phi i64 [ %28, %27 ], [ %30, %29 ]
-  %31 = getelementptr inbounds i8, ptr %6, i64 72
+  %31 = getelementptr inbounds nuw i8, ptr %6, i64 72
   store i64 %.0.i19.i, ptr %31, align 8
   %32 = icmp eq i64 %.0.i19.i, 0
   br label %34
@@ -317,7 +317,7 @@ rb_num2ull_inline.exit.i:                         ; preds = %29, %27
 
 dump_output.exit:                                 ; preds = %34, %38, %40
   %42 = phi i64 [ 0, %34 ], [ %39, %38 ], [ %41, %40 ]
-  %43 = getelementptr inbounds i8, ptr %6, i64 80
+  %43 = getelementptr inbounds nuw i8, ptr %6, i64 80
   store i64 %42, ptr %43, align 8
   br i1 %or.cond, label %44, label %74
 
@@ -340,7 +340,7 @@ dump_output.exit:                                 ; preds = %34, %38, %40
   br i1 %.not22.i.i.i, label %58, label %53
 
 53:                                               ; preds = %51
-  %54 = getelementptr inbounds i8, ptr %6, i64 96
+  %54 = getelementptr inbounds nuw i8, ptr %6, i64 96
   %55 = call i64 @rb_io_bufwrite(i64 noundef %52, ptr noundef nonnull %54, i64 noundef %48) #10
   %56 = load i64, ptr %8, align 8
   %57 = icmp ult i64 %55, %56
@@ -352,7 +352,7 @@ dump_output.exit:                                 ; preds = %34, %38, %40
   br i1 %.not23.i.i.i, label %dump_flush.exit.i.i.thread, label %60
 
 60:                                               ; preds = %58
-  %61 = getelementptr inbounds i8, ptr %6, i64 96
+  %61 = getelementptr inbounds nuw i8, ptr %6, i64 96
   %62 = call i64 @rb_str_cat(i64 noundef %59, ptr noundef nonnull %61, i64 noundef %48) #10
   br label %dump_flush.exit.i.i.thread
 
@@ -376,7 +376,7 @@ dump_flush.exit.i.i:                              ; preds = %53
 
 buffer_append.exit:                               ; preds = %dump_flush.exit.i.i.thread, %47, %dump_flush.exit.i.i
   %69 = phi i64 [ %48, %47 ], [ %64, %dump_flush.exit.i.i ], [ 0, %dump_flush.exit.i.i.thread ]
-  %70 = getelementptr inbounds i8, ptr %6, i64 96
+  %70 = getelementptr inbounds nuw i8, ptr %6, i64 96
   %71 = getelementptr inbounds i8, ptr %70, i64 %69
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %71, ptr noundef nonnull readonly align 1 dereferenceable(3) @.str.102, i64 3, i1 false)
   %72 = load i64, ptr %8, align 8
@@ -403,7 +403,7 @@ buffer_append.exit:                               ; preds = %dump_flush.exit.i.i
   br i1 %.not22.i.i, label %88, label %80
 
 80:                                               ; preds = %78
-  %81 = getelementptr inbounds i8, ptr %6, i64 96
+  %81 = getelementptr inbounds nuw i8, ptr %6, i64 96
   %82 = call i64 @rb_io_bufwrite(i64 noundef %79, ptr noundef nonnull %81, i64 noundef %77) #10
   %83 = load i64, ptr %8, align 8
   %84 = icmp ult i64 %82, %83
@@ -421,7 +421,7 @@ buffer_append.exit:                               ; preds = %dump_flush.exit.i.i
   br i1 %.not23.i.i, label %.sink.split.i.i, label %90
 
 90:                                               ; preds = %88
-  %91 = getelementptr inbounds i8, ptr %6, i64 96
+  %91 = getelementptr inbounds nuw i8, ptr %6, i64 96
   %92 = call i64 @rb_str_cat(i64 noundef %89, ptr noundef nonnull %91, i64 noundef %77) #10
   br label %.sink.split.i.i
 
@@ -449,7 +449,7 @@ dump_result.exit:                                 ; preds = %dump_flush.exit.i, 
 ; Function Attrs: nounwind uwtable
 define internal i64 @objspace_dump_shapes(i64 %0, i64 noundef %1, i64 noundef %2) #0 {
   %4 = alloca %struct.dump_config, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 88
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 88
   %6 = and i64 %1, 7
   %7 = icmp ne i64 %6, 0
   %8 = icmp eq i64 %1, 0
@@ -470,9 +470,9 @@ rb_type.exit.thread.i:                            ; preds = %rb_type.exit.i, %3
 14:                                               ; preds = %rb_type.exit.thread.i, %rb_type.exit.i
   %.sink26.i = phi i64 [ %1, %rb_type.exit.thread.i ], [ 0, %rb_type.exit.i ]
   %.sink.i = phi i64 [ 0, %rb_type.exit.thread.i ], [ %1, %rb_type.exit.i ]
-  %15 = getelementptr inbounds i8, ptr %4, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %.sink26.i, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %4, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 %.sink.i, ptr %16, align 8
   %17 = and i64 %2, -5
   %.not24.i = icmp eq i64 %17, 0
@@ -493,7 +493,7 @@ rb_type.exit.thread.i:                            ; preds = %rb_type.exit.i, %3
 
 24:                                               ; preds = %22, %20
   %.ph = phi i64 [ %23, %22 ], [ %21, %20 ]
-  %25 = getelementptr inbounds i8, ptr %4, i64 80
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store i64 %.ph, ptr %25, align 8
   call void @rb_shape_each_shape(ptr noundef nonnull @shape_i, ptr noundef nonnull %4) #10
   %.pre = load i64, ptr %5, align 8
@@ -506,7 +506,7 @@ rb_type.exit.thread.i:                            ; preds = %rb_type.exit.i, %3
   br i1 %.not22.i.i, label %36, label %28
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds i8, ptr %4, i64 96
+  %29 = getelementptr inbounds nuw i8, ptr %4, i64 96
   %30 = call i64 @rb_io_bufwrite(i64 noundef %27, ptr noundef nonnull %29, i64 noundef %.pre) #10
   %31 = load i64, ptr %5, align 8
   %32 = icmp ult i64 %30, %31
@@ -524,7 +524,7 @@ rb_type.exit.thread.i:                            ; preds = %rb_type.exit.i, %3
   br i1 %.not23.i.i, label %.sink.split.i.i, label %38
 
 38:                                               ; preds = %36
-  %39 = getelementptr inbounds i8, ptr %4, i64 96
+  %39 = getelementptr inbounds nuw i8, ptr %4, i64 96
   %40 = call i64 @rb_str_cat(i64 noundef %37, ptr noundef nonnull %39, i64 noundef %.pre) #10
   br label %.sink.split.i.i
 
@@ -574,33 +574,33 @@ define internal fastcc void @dump_object(i64 noundef %0, ptr noundef %1) unnamed
   ]
 
 10:                                               ; preds = %9
-  %11 = getelementptr inbounds i8, ptr %1, i64 88
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %12 = load i64, ptr %11, align 8
   %13 = add i64 %12, -4092
   %14 = icmp ult i64 %13, -4096
   br i1 %14, label %15, label %buffer_append.exit.i
 
 15:                                               ; preds = %10
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load i64, ptr %16, align 8
   %.not22.i.i.i.i = icmp eq i64 %17, 0
   br i1 %.not22.i.i.i.i, label %23, label %18
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %1, i64 96
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %20 = tail call i64 @rb_io_bufwrite(i64 noundef %17, ptr noundef nonnull %19, i64 noundef %12) #10
   %21 = load i64, ptr %11, align 8
   %22 = icmp ult i64 %20, %21
   br i1 %22, label %dump_flush.exit.i.i.i, label %dump_flush.exit.i.i.thread.i
 
 23:                                               ; preds = %15
-  %24 = getelementptr inbounds i8, ptr %1, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %25 = load i64, ptr %24, align 8
   %.not23.i.i.i.i = icmp eq i64 %25, 0
   br i1 %.not23.i.i.i.i, label %dump_flush.exit.i.i.thread.i, label %26
 
 26:                                               ; preds = %23
-  %27 = getelementptr inbounds i8, ptr %1, i64 96
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %28 = tail call i64 @rb_str_cat(i64 noundef %25, ptr noundef nonnull %27, i64 noundef %12) #10
   br label %dump_flush.exit.i.i.thread.i
 
@@ -624,7 +624,7 @@ dump_flush.exit.i.i.i:                            ; preds = %18
 
 buffer_append.exit.i:                             ; preds = %dump_flush.exit.i.i.i, %dump_flush.exit.i.i.thread.i, %10
   %35 = phi i64 [ %12, %10 ], [ %30, %dump_flush.exit.i.i.i ], [ 0, %dump_flush.exit.i.i.thread.i ]
-  %36 = getelementptr inbounds i8, ptr %1, i64 96
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %37 = getelementptr inbounds i8, ptr %36, i64 %35
   store i32 1702195828, ptr %37, align 1
   %38 = load i64, ptr %11, align 8
@@ -633,33 +633,33 @@ buffer_append.exit.i:                             ; preds = %dump_flush.exit.i.i
   br label %dump_append_special_const.exit
 
 40:                                               ; preds = %9
-  %41 = getelementptr inbounds i8, ptr %1, i64 88
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %42 = load i64, ptr %41, align 8
   %43 = add i64 %42, -4091
   %44 = icmp ult i64 %43, -4096
   br i1 %44, label %45, label %buffer_append.exit21.i
 
 45:                                               ; preds = %40
-  %46 = getelementptr inbounds i8, ptr %1, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %47 = load i64, ptr %46, align 8
   %.not22.i.i.i16.i = icmp eq i64 %47, 0
   br i1 %.not22.i.i.i16.i, label %53, label %48
 
 48:                                               ; preds = %45
-  %49 = getelementptr inbounds i8, ptr %1, i64 96
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %50 = tail call i64 @rb_io_bufwrite(i64 noundef %47, ptr noundef nonnull %49, i64 noundef %42) #10
   %51 = load i64, ptr %41, align 8
   %52 = icmp ult i64 %50, %51
   br i1 %52, label %dump_flush.exit.i.i19.i, label %dump_flush.exit.i.i19.thread.i
 
 53:                                               ; preds = %45
-  %54 = getelementptr inbounds i8, ptr %1, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %55 = load i64, ptr %54, align 8
   %.not23.i.i.i20.i = icmp eq i64 %55, 0
   br i1 %.not23.i.i.i20.i, label %dump_flush.exit.i.i19.thread.i, label %56
 
 56:                                               ; preds = %53
-  %57 = getelementptr inbounds i8, ptr %1, i64 96
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %58 = tail call i64 @rb_str_cat(i64 noundef %55, ptr noundef nonnull %57, i64 noundef %42) #10
   br label %dump_flush.exit.i.i19.thread.i
 
@@ -683,7 +683,7 @@ dump_flush.exit.i.i19.i:                          ; preds = %48
 
 buffer_append.exit21.i:                           ; preds = %dump_flush.exit.i.i19.i, %dump_flush.exit.i.i19.thread.i, %40
   %65 = phi i64 [ %42, %40 ], [ %60, %dump_flush.exit.i.i19.i ], [ 0, %dump_flush.exit.i.i19.thread.i ]
-  %66 = getelementptr inbounds i8, ptr %1, i64 96
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %67 = getelementptr inbounds i8, ptr %66, i64 %65
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %67, ptr noundef nonnull readonly align 1 dereferenceable(5) @.str.49, i64 5, i1 false)
   %68 = load i64, ptr %41, align 8
@@ -692,33 +692,33 @@ buffer_append.exit21.i:                           ; preds = %dump_flush.exit.i.i
   br label %dump_append_special_const.exit
 
 70:                                               ; preds = %9
-  %71 = getelementptr inbounds i8, ptr %1, i64 88
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %72 = load i64, ptr %71, align 8
   %73 = add i64 %72, -4092
   %74 = icmp ult i64 %73, -4096
   br i1 %74, label %75, label %buffer_append.exit28.i
 
 75:                                               ; preds = %70
-  %76 = getelementptr inbounds i8, ptr %1, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %77 = load i64, ptr %76, align 8
   %.not22.i.i.i23.i = icmp eq i64 %77, 0
   br i1 %.not22.i.i.i23.i, label %83, label %78
 
 78:                                               ; preds = %75
-  %79 = getelementptr inbounds i8, ptr %1, i64 96
+  %79 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %80 = tail call i64 @rb_io_bufwrite(i64 noundef %77, ptr noundef nonnull %79, i64 noundef %72) #10
   %81 = load i64, ptr %71, align 8
   %82 = icmp ult i64 %80, %81
   br i1 %82, label %dump_flush.exit.i.i26.i, label %dump_flush.exit.i.i26.thread.i
 
 83:                                               ; preds = %75
-  %84 = getelementptr inbounds i8, ptr %1, i64 16
+  %84 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %85 = load i64, ptr %84, align 8
   %.not23.i.i.i27.i = icmp eq i64 %85, 0
   br i1 %.not23.i.i.i27.i, label %dump_flush.exit.i.i26.thread.i, label %86
 
 86:                                               ; preds = %83
-  %87 = getelementptr inbounds i8, ptr %1, i64 96
+  %87 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %88 = tail call i64 @rb_str_cat(i64 noundef %85, ptr noundef nonnull %87, i64 noundef %72) #10
   br label %dump_flush.exit.i.i26.thread.i
 
@@ -742,7 +742,7 @@ dump_flush.exit.i.i26.i:                          ; preds = %78
 
 buffer_append.exit28.i:                           ; preds = %dump_flush.exit.i.i26.i, %dump_flush.exit.i.i26.thread.i, %70
   %95 = phi i64 [ %72, %70 ], [ %90, %dump_flush.exit.i.i26.i ], [ 0, %dump_flush.exit.i.i26.thread.i ]
-  %96 = getelementptr inbounds i8, ptr %1, i64 96
+  %96 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %97 = getelementptr inbounds i8, ptr %96, i64 %95
   store i32 1819047278, ptr %97, align 1
   %98 = load i64, ptr %71, align 8
@@ -789,33 +789,33 @@ RB_SYMBOL_P.exit.i:                               ; preds = %111
   br i1 %118, label %RB_SYMBOL_P.exit.thread.i, label %RB_SYMBOL_P.exit.thread39.i
 
 RB_SYMBOL_P.exit.thread.i:                        ; preds = %RB_SYMBOL_P.exit.i, %108
-  %119 = getelementptr inbounds i8, ptr %1, i64 88
+  %119 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %120 = load i64, ptr %119, align 8
   %121 = add i64 %120, -4070
   %122 = icmp ult i64 %121, -4096
   br i1 %122, label %123, label %buffer_append.exit.i.i
 
 123:                                              ; preds = %RB_SYMBOL_P.exit.thread.i
-  %124 = getelementptr inbounds i8, ptr %1, i64 8
+  %124 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %125 = load i64, ptr %124, align 8
   %.not22.i.i.i.i.i = icmp eq i64 %125, 0
   br i1 %.not22.i.i.i.i.i, label %131, label %126
 
 126:                                              ; preds = %123
-  %127 = getelementptr inbounds i8, ptr %1, i64 96
+  %127 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %128 = tail call i64 @rb_io_bufwrite(i64 noundef %125, ptr noundef nonnull %127, i64 noundef %120) #10
   %129 = load i64, ptr %119, align 8
   %130 = icmp ult i64 %128, %129
   br i1 %130, label %dump_flush.exit.i.i.i.i, label %dump_flush.exit.i.i.thread.i.i
 
 131:                                              ; preds = %123
-  %132 = getelementptr inbounds i8, ptr %1, i64 16
+  %132 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %133 = load i64, ptr %132, align 8
   %.not23.i.i.i.i.i = icmp eq i64 %133, 0
   br i1 %.not23.i.i.i.i.i, label %dump_flush.exit.i.i.thread.i.i, label %134
 
 134:                                              ; preds = %131
-  %135 = getelementptr inbounds i8, ptr %1, i64 96
+  %135 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %136 = tail call i64 @rb_str_cat(i64 noundef %133, ptr noundef nonnull %135, i64 noundef %120) #10
   br label %dump_flush.exit.i.i.thread.i.i
 
@@ -839,7 +839,7 @@ dump_flush.exit.i.i.i.i:                          ; preds = %126
 
 buffer_append.exit.i.i:                           ; preds = %dump_flush.exit.i.i.i.i, %dump_flush.exit.i.i.thread.i.i, %RB_SYMBOL_P.exit.thread.i
   %143 = phi i64 [ %120, %RB_SYMBOL_P.exit.thread.i ], [ %138, %dump_flush.exit.i.i.i.i ], [ 0, %dump_flush.exit.i.i.thread.i.i ]
-  %144 = getelementptr inbounds i8, ptr %1, i64 96
+  %144 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %145 = getelementptr inbounds i8, ptr %144, i64 %143
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(26) %145, ptr noundef nonnull readonly align 1 dereferenceable(26) @.str.52, i64 26, i1 false)
   %146 = load i64, ptr %119, align 8
@@ -853,7 +853,7 @@ buffer_append.exit.i.i:                           ; preds = %dump_flush.exit.i.i
   br i1 %151, label %152, label %dump_append_symbol_value.exit.i
 
 152:                                              ; preds = %buffer_append.exit.i.i
-  %153 = getelementptr inbounds i8, ptr %1, i64 8
+  %153 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %154 = load i64, ptr %153, align 8
   %.not22.i.i.i4.i.i = icmp eq i64 %154, 0
   br i1 %.not22.i.i.i4.i.i, label %159, label %155
@@ -865,7 +865,7 @@ buffer_append.exit.i.i:                           ; preds = %dump_flush.exit.i.i
   br i1 %158, label %dump_flush.exit.i.i7.i.i, label %dump_flush.exit.i.i7.thread.i.i
 
 159:                                              ; preds = %152
-  %160 = getelementptr inbounds i8, ptr %1, i64 16
+  %160 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %161 = load i64, ptr %160, align 8
   %.not23.i.i.i8.i.i = icmp eq i64 %161, 0
   br i1 %.not23.i.i.i8.i.i, label %dump_flush.exit.i.i7.thread.i.i, label %162
@@ -902,33 +902,33 @@ dump_append_symbol_value.exit.i:                  ; preds = %dump_flush.exit.i.i
   br label %dump_append_special_const.exit
 
 RB_SYMBOL_P.exit.thread39.i:                      ; preds = %RB_SYMBOL_P.exit.i, %111
-  %174 = getelementptr inbounds i8, ptr %1, i64 88
+  %174 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %175 = load i64, ptr %174, align 8
   %176 = add i64 %175, -4094
   %177 = icmp ult i64 %176, -4096
   br i1 %177, label %178, label %buffer_append.exit35.i
 
 178:                                              ; preds = %RB_SYMBOL_P.exit.thread39.i
-  %179 = getelementptr inbounds i8, ptr %1, i64 8
+  %179 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %180 = load i64, ptr %179, align 8
   %.not22.i.i.i30.i = icmp eq i64 %180, 0
   br i1 %.not22.i.i.i30.i, label %186, label %181
 
 181:                                              ; preds = %178
-  %182 = getelementptr inbounds i8, ptr %1, i64 96
+  %182 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %183 = tail call i64 @rb_io_bufwrite(i64 noundef %180, ptr noundef nonnull %182, i64 noundef %175) #10
   %184 = load i64, ptr %174, align 8
   %185 = icmp ult i64 %183, %184
   br i1 %185, label %dump_flush.exit.i.i33.i, label %dump_flush.exit.i.i33.thread.i
 
 186:                                              ; preds = %178
-  %187 = getelementptr inbounds i8, ptr %1, i64 16
+  %187 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %188 = load i64, ptr %187, align 8
   %.not23.i.i.i34.i = icmp eq i64 %188, 0
   br i1 %.not23.i.i.i34.i, label %dump_flush.exit.i.i33.thread.i, label %189
 
 189:                                              ; preds = %186
-  %190 = getelementptr inbounds i8, ptr %1, i64 96
+  %190 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %191 = tail call i64 @rb_str_cat(i64 noundef %188, ptr noundef nonnull %190, i64 noundef %175) #10
   br label %dump_flush.exit.i.i33.thread.i
 
@@ -952,7 +952,7 @@ dump_flush.exit.i.i33.i:                          ; preds = %181
 
 buffer_append.exit35.i:                           ; preds = %dump_flush.exit.i.i33.i, %dump_flush.exit.i.i33.thread.i, %RB_SYMBOL_P.exit.thread39.i
   %198 = phi i64 [ %175, %RB_SYMBOL_P.exit.thread39.i ], [ %193, %dump_flush.exit.i.i33.i ], [ 0, %dump_flush.exit.i.i33.thread.i ]
-  %199 = getelementptr inbounds i8, ptr %1, i64 96
+  %199 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %200 = getelementptr inbounds i8, ptr %199, i64 %198
   store i16 32123, ptr %200, align 1
   %201 = load i64, ptr %174, align 8
@@ -961,9 +961,9 @@ buffer_append.exit35.i:                           ; preds = %dump_flush.exit.i.i
   br label %dump_append_special_const.exit
 
 203:                                              ; preds = %2
-  %204 = getelementptr inbounds i8, ptr %1, i64 32
+  %204 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i64 %0, ptr %204, align 8
-  %205 = getelementptr inbounds i8, ptr %1, i64 56
+  %205 = getelementptr inbounds nuw i8, ptr %1, i64 56
   store i64 0, ptr %205, align 8
   %206 = inttoptr i64 %0 to ptr
   %207 = load i64, ptr %206, align 8
@@ -972,15 +972,15 @@ buffer_append.exit35.i:                           ; preds = %dump_flush.exit.i.i
   br i1 %switch, label %212, label %209
 
 209:                                              ; preds = %203
-  %210 = getelementptr inbounds i8, ptr %206, i64 8
+  %210 = getelementptr inbounds nuw i8, ptr %206, i64 8
   %211 = load i64, ptr %210, align 8
   br label %212
 
 212:                                              ; preds = %203, %209
   %.sink = phi i64 [ %211, %209 ], [ 0, %203 ]
-  %213 = getelementptr inbounds i8, ptr %1, i64 40
+  %213 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store i64 %.sink, ptr %213, align 8
-  %214 = getelementptr inbounds i8, ptr %1, i64 68
+  %214 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %215 = load i32, ptr %214, align 4
   %.not = icmp eq i32 %215, 0
   br i1 %.not, label %223, label %216
@@ -990,34 +990,34 @@ buffer_append.exit35.i:                           ; preds = %dump_flush.exit.i.i
   br i1 %.not202, label %dump_append_special_const.exit, label %217
 
 217:                                              ; preds = %216
-  %218 = getelementptr inbounds i8, ptr %4, i64 56
+  %218 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %219 = load i64, ptr %218, align 8
-  %220 = getelementptr inbounds i8, ptr %1, i64 72
+  %220 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %221 = load i64, ptr %220, align 8
   %222 = icmp ult i64 %219, %221
   br i1 %222, label %dump_append_special_const.exit, label %223
 
 223:                                              ; preds = %217, %212
-  %224 = getelementptr inbounds i8, ptr %1, i64 16
+  %224 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %225 = load i64, ptr %224, align 8
   %226 = icmp eq i64 %0, %225
   br i1 %226, label %dump_append_special_const.exit, label %227
 
 227:                                              ; preds = %223
-  %228 = getelementptr inbounds i8, ptr %1, i64 88
+  %228 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %229 = load i64, ptr %228, align 8
   %230 = add i64 %229, -4085
   %231 = icmp ult i64 %230, -4096
   br i1 %231, label %232, label %buffer_append.exit
 
 232:                                              ; preds = %227
-  %233 = getelementptr inbounds i8, ptr %1, i64 8
+  %233 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %234 = load i64, ptr %233, align 8
   %.not22.i.i.i = icmp eq i64 %234, 0
   br i1 %.not22.i.i.i, label %240, label %235
 
 235:                                              ; preds = %232
-  %236 = getelementptr inbounds i8, ptr %1, i64 96
+  %236 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %237 = tail call i64 @rb_io_bufwrite(i64 noundef %234, ptr noundef nonnull %236, i64 noundef %229) #10
   %238 = load i64, ptr %228, align 8
   %239 = icmp ult i64 %237, %238
@@ -1028,7 +1028,7 @@ buffer_append.exit35.i:                           ; preds = %dump_flush.exit.i.i
   br i1 %.not23.i.i.i, label %dump_flush.exit.i.i.thread, label %241
 
 241:                                              ; preds = %240
-  %242 = getelementptr inbounds i8, ptr %1, i64 96
+  %242 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %243 = tail call i64 @rb_str_cat(i64 noundef %225, ptr noundef nonnull %242, i64 noundef %229) #10
   br label %dump_flush.exit.i.i.thread
 
@@ -1052,7 +1052,7 @@ dump_flush.exit.i.i:                              ; preds = %235
 
 buffer_append.exit:                               ; preds = %dump_flush.exit.i.i.thread, %227, %dump_flush.exit.i.i
   %250 = phi i64 [ %229, %227 ], [ %245, %dump_flush.exit.i.i ], [ 0, %dump_flush.exit.i.i.thread ]
-  %251 = getelementptr inbounds i8, ptr %1, i64 96
+  %251 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %252 = getelementptr inbounds i8, ptr %251, i64 %250
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %252, ptr noundef nonnull readonly align 1 dereferenceable(11) @.str.3, i64 11, i1 false)
   %253 = load i64, ptr %228, align 8
@@ -1065,7 +1065,7 @@ buffer_append.exit:                               ; preds = %dump_flush.exit.i.i
   br i1 %257, label %258, label %buffer_append.exit233
 
 258:                                              ; preds = %buffer_append.exit
-  %259 = getelementptr inbounds i8, ptr %1, i64 8
+  %259 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %260 = load i64, ptr %259, align 8
   %.not22.i.i.i228 = icmp eq i64 %260, 0
   br i1 %.not22.i.i.i228, label %265, label %261
@@ -1117,7 +1117,7 @@ buffer_append.exit233:                            ; preds = %dump_flush.exit.i.i
 
 switch.lookup:                                    ; preds = %buffer_append.exit233
   %281 = and i64 %279, 31
-  %switch.gep = getelementptr inbounds [30 x ptr], ptr @switch.table.dump_object, i64 0, i64 %281
+  %switch.gep = getelementptr inbounds nuw [30 x ptr], ptr @switch.table.dump_object, i64 0, i64 %281
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %obj_type.exit235
 
@@ -1137,7 +1137,7 @@ obj_type.exit235:                                 ; preds = %buffer_append.exit2
   br i1 %.not.i.i.i237, label %dump_flush.exit.i.i241, label %287
 
 287:                                              ; preds = %286
-  %288 = getelementptr inbounds i8, ptr %1, i64 8
+  %288 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %289 = load i64, ptr %288, align 8
   %.not22.i.i.i238 = icmp eq i64 %289, 0
   br i1 %.not22.i.i.i238, label %297, label %290
@@ -1195,7 +1195,7 @@ buffer_append.exit243:                            ; preds = %obj_type.exit235, %
   br i1 %312, label %313, label %buffer_append.exit251
 
 313:                                              ; preds = %buffer_append.exit243
-  %314 = getelementptr inbounds i8, ptr %1, i64 8
+  %314 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %315 = load i64, ptr %314, align 8
   %.not22.i.i.i246 = icmp eq i64 %315, 0
   br i1 %.not22.i.i.i246, label %320, label %316
@@ -1248,7 +1248,7 @@ buffer_append.exit251:                            ; preds = %dump_flush.exit.i.i
   br i1 %338, label %339, label %buffer_append.exit259
 
 339:                                              ; preds = %buffer_append.exit251
-  %340 = getelementptr inbounds i8, ptr %1, i64 8
+  %340 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %341 = load i64, ptr %340, align 8
   %.not22.i.i.i254 = icmp eq i64 %341, 0
   br i1 %.not22.i.i.i254, label %346, label %342
@@ -1300,7 +1300,7 @@ buffer_append.exit259:                            ; preds = %dump_flush.exit.i.i
   br i1 %362, label %363, label %buffer_append.exit267
 
 363:                                              ; preds = %buffer_append.exit259
-  %364 = getelementptr inbounds i8, ptr %1, i64 8
+  %364 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %365 = load i64, ptr %364, align 8
   %.not22.i.i.i262 = icmp eq i64 %365, 0
   br i1 %.not22.i.i.i262, label %370, label %366
@@ -1345,7 +1345,7 @@ buffer_append.exit267:                            ; preds = %dump_flush.exit.i.i
   %382 = load i64, ptr %228, align 8
   %383 = add i64 %382, 14
   store i64 %383, ptr %228, align 8
-  %384 = getelementptr inbounds i8, ptr %1, i64 48
+  %384 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %385 = load i64, ptr %384, align 8
   tail call fastcc void @dump_append_sizet(ptr noundef nonnull %1, i64 noundef %385)
   %386 = load i64, ptr %213, align 8
@@ -1359,7 +1359,7 @@ buffer_append.exit267:                            ; preds = %dump_flush.exit.i.i
   br i1 %390, label %391, label %buffer_append.exit275
 
 391:                                              ; preds = %387
-  %392 = getelementptr inbounds i8, ptr %1, i64 8
+  %392 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %393 = load i64, ptr %392, align 8
   %.not22.i.i.i270 = icmp eq i64 %393, 0
   br i1 %.not22.i.i.i270, label %398, label %394
@@ -1420,7 +1420,7 @@ buffer_append.exit275:                            ; preds = %dump_flush.exit.i.i
   br i1 %418, label %419, label %buffer_append.exit283
 
 419:                                              ; preds = %415
-  %420 = getelementptr inbounds i8, ptr %1, i64 8
+  %420 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %421 = load i64, ptr %420, align 8
   %.not22.i.i.i278 = icmp eq i64 %421, 0
   br i1 %.not22.i.i.i278, label %426, label %422
@@ -1517,7 +1517,7 @@ buffer_append.exit283:                            ; preds = %dump_flush.exit.i.i
   ]
 
 vm_ci_mid.exit:                                   ; preds = %445
-  %461 = getelementptr inbounds i8, ptr %206, i64 16
+  %461 = getelementptr inbounds nuw i8, ptr %206, i64 16
   %462 = load i64, ptr %461, align 8
   %.not217 = icmp eq i64 %462, 0
   br i1 %.not217, label %640, label %463
@@ -1530,7 +1530,7 @@ vm_ci_mid.exit:                                   ; preds = %445
 464:                                              ; preds = %445
   %465 = getelementptr i8, ptr %206, i64 16
   %.val = load ptr, ptr %465, align 8
-  %466 = getelementptr inbounds i8, ptr %.val, i64 24
+  %466 = getelementptr inbounds nuw i8, ptr %.val, i64 24
   %467 = load i64, ptr %466, align 8
   %.not215 = icmp eq i64 %467, 0
   br i1 %.not215, label %640, label %468
@@ -1538,7 +1538,7 @@ vm_ci_mid.exit:                                   ; preds = %445
 468:                                              ; preds = %464
   tail call fastcc void @buffer_append(ptr noundef nonnull %1, ptr noundef nonnull @.str.13, i64 noundef 14)
   tail call fastcc void @dump_append_id(ptr noundef nonnull %1, i64 noundef %467)
-  %469 = getelementptr inbounds i8, ptr %206, i64 8
+  %469 = getelementptr inbounds nuw i8, ptr %206, i64 8
   %470 = load i64, ptr %469, align 8
   %.not216 = icmp eq i64 %470, 0
   br i1 %.not216, label %640, label %471
@@ -1697,7 +1697,7 @@ default.unreachable:                              ; preds = %515
 535:                                              ; preds = %529
   %536 = add i64 %0, 24
   %537 = inttoptr i64 %536 to ptr
-  %538 = getelementptr inbounds i8, ptr %537, i64 16
+  %538 = getelementptr inbounds nuw i8, ptr %537, i64 16
   %539 = load i64, ptr %538, align 8
   br label %RB_FL_TEST.exit292
 
@@ -1714,7 +1714,7 @@ RB_FL_TEST.exit292:                               ; preds = %532, %535
 
 544:                                              ; preds = %RB_FL_TEST.exit292
   tail call fastcc void @buffer_append(ptr noundef nonnull %1, ptr noundef nonnull @.str.26, i64 noundef 12)
-  %545 = getelementptr inbounds i8, ptr %206, i64 16
+  %545 = getelementptr inbounds nuw i8, ptr %206, i64 16
   %546 = load i64, ptr %545, align 8
   tail call fastcc void @dump_append_ref(ptr noundef nonnull %1, i64 noundef %546)
   br label %640
@@ -1732,7 +1732,7 @@ RB_FL_TEST.exit292:                               ; preds = %532, %535
   br label %rb_array_len.exit
 
 553:                                              ; preds = %547
-  %554 = getelementptr inbounds i8, ptr %206, i64 16
+  %554 = getelementptr inbounds nuw i8, ptr %206, i64 16
   %555 = load i64, ptr %554, align 8
   br label %rb_array_len.exit
 
@@ -1750,7 +1750,7 @@ rb_array_len.exit:                                ; preds = %550, %553
   br label %rb_array_len.exit297
 
 561:                                              ; preds = %rb_array_len.exit
-  %562 = getelementptr inbounds i8, ptr %206, i64 16
+  %562 = getelementptr inbounds nuw i8, ptr %206, i64 16
   %563 = load i64, ptr %562, align 8
   br label %rb_array_len.exit297
 
@@ -1799,7 +1799,7 @@ RB_FL_TEST.exit303:                               ; preds = %568, %RB_FL_TEST.ex
 
 577:                                              ; preds = %440
   tail call fastcc void @buffer_append(ptr noundef nonnull %1, ptr noundef nonnull @.str.29, i64 noundef 20)
-  %578 = getelementptr inbounds i8, ptr %206, i64 148
+  %578 = getelementptr inbounds nuw i8, ptr %206, i64 148
   %579 = load i8, ptr %578, align 4
   %580 = zext i8 %579 to i32
   tail call fastcc void @dump_append_d(ptr noundef nonnull %1, i32 noundef %580)
@@ -1832,7 +1832,7 @@ RB_FL_TEST.exit303:                               ; preds = %568, %RB_FL_TEST.ex
   %592 = load i64, ptr %591, align 8, !noalias !6
   %593 = and i64 %592, 8192
   %.not.i.i304 = icmp eq i64 %593, 0
-  %594 = getelementptr inbounds i8, ptr %591, i64 24
+  %594 = getelementptr inbounds nuw i8, ptr %591, i64 24
   br i1 %.not.i.i304, label %RB_FL_TEST.exit319.sink.split, label %595
 
 595:                                              ; preds = %590
@@ -1852,7 +1852,7 @@ RB_FL_TEST.exit303:                               ; preds = %568, %RB_FL_TEST.ex
   %602 = load i64, ptr %601, align 8, !noalias !9
   %603 = and i64 %602, 8192
   %.not.i.i309 = icmp eq i64 %603, 0
-  %604 = getelementptr inbounds i8, ptr %601, i64 24
+  %604 = getelementptr inbounds nuw i8, ptr %601, i64 24
   br i1 %.not.i.i309, label %RB_FL_TEST.exit319.sink.split, label %605
 
 605:                                              ; preds = %600
@@ -1880,7 +1880,7 @@ RB_FL_TEST.exit319:                               ; preds = %RB_FL_TEST.exit319.
   br label %640
 
 612:                                              ; preds = %440
-  %613 = getelementptr inbounds i8, ptr %206, i64 24
+  %613 = getelementptr inbounds nuw i8, ptr %206, i64 24
   %614 = load i64, ptr %613, align 8
   %615 = add i64 %614, -1
   %616 = icmp ult i64 %615, 3
@@ -1888,7 +1888,7 @@ RB_FL_TEST.exit319:                               ; preds = %RB_FL_TEST.exit319.
 
 617:                                              ; preds = %612
   tail call fastcc void @buffer_append(ptr noundef nonnull %1, ptr noundef nonnull @.str.33, i64 noundef 12)
-  %618 = getelementptr inbounds i8, ptr %206, i64 16
+  %618 = getelementptr inbounds nuw i8, ptr %206, i64 16
   %619 = load ptr, ptr %618, align 8
   %620 = load ptr, ptr %619, align 8
   %621 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %620) #12
@@ -1928,14 +1928,14 @@ RB_FL_TEST.exit322:                               ; preds = %440
   br label %640
 
 633:                                              ; preds = %440
-  %634 = getelementptr inbounds i8, ptr %206, i64 16
+  %634 = getelementptr inbounds nuw i8, ptr %206, i64 16
   %635 = load ptr, ptr %634, align 8
   %.not205 = icmp eq ptr %635, null
   br i1 %.not205, label %640, label %636
 
 636:                                              ; preds = %633
   tail call fastcc void @buffer_append(ptr noundef nonnull %1, ptr noundef nonnull @.str.37, i64 noundef 7)
-  %637 = getelementptr inbounds i8, ptr %635, i64 16
+  %637 = getelementptr inbounds nuw i8, ptr %635, i64 16
   %638 = load i32, ptr %637, align 8
   tail call fastcc void @dump_append_d(ptr noundef nonnull %1, i32 noundef %638)
   br label %640
@@ -1957,7 +1957,7 @@ RB_FL_TEST.exit322:                               ; preds = %440
   br i1 %645, label %646, label %buffer_append.exit330
 
 646:                                              ; preds = %642
-  %647 = getelementptr inbounds i8, ptr %1, i64 8
+  %647 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %648 = load i64, ptr %647, align 8
   %.not22.i.i.i325 = icmp eq i64 %648, 0
   br i1 %.not22.i.i.i325, label %653, label %649
@@ -2009,7 +2009,7 @@ buffer_append.exit330:                            ; preds = %dump_flush.exit.i.i
   br i1 %.not219, label %835, label %668
 
 668:                                              ; preds = %667
-  %669 = getelementptr inbounds i8, ptr %4, i64 24
+  %669 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %670 = load ptr, ptr %669, align 8
   %.not220 = icmp eq ptr %670, null
   br i1 %.not220, label %749, label %671
@@ -2021,7 +2021,7 @@ buffer_append.exit330:                            ; preds = %dump_flush.exit.i.i
   br i1 %674, label %675, label %buffer_append.exit338
 
 675:                                              ; preds = %671
-  %676 = getelementptr inbounds i8, ptr %1, i64 8
+  %676 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %677 = load i64, ptr %676, align 8
   %.not22.i.i.i333 = icmp eq i64 %677, 0
   br i1 %.not22.i.i.i333, label %682, label %678
@@ -2081,7 +2081,7 @@ buffer_append.exit338:                            ; preds = %dump_flush.exit.i.i
   br i1 %.not.i.i.i341, label %dump_flush.exit.i.i345, label %702
 
 702:                                              ; preds = %701
-  %703 = getelementptr inbounds i8, ptr %1, i64 8
+  %703 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %704 = load i64, ptr %703, align 8
   %.not22.i.i.i342 = icmp eq i64 %704, 0
   br i1 %.not22.i.i.i342, label %712, label %705
@@ -2139,7 +2139,7 @@ buffer_append.exit347:                            ; preds = %buffer_append.exit3
   br i1 %727, label %728, label %buffer_append.exit355
 
 728:                                              ; preds = %buffer_append.exit347
-  %729 = getelementptr inbounds i8, ptr %1, i64 8
+  %729 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %730 = load i64, ptr %729, align 8
   %.not22.i.i.i350 = icmp eq i64 %730, 0
   br i1 %.not22.i.i.i350, label %735, label %731
@@ -2187,7 +2187,7 @@ buffer_append.exit355:                            ; preds = %dump_flush.exit.i.i
   br label %749
 
 749:                                              ; preds = %buffer_append.exit355, %668
-  %750 = getelementptr inbounds i8, ptr %4, i64 32
+  %750 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %751 = load i64, ptr %750, align 8
   %.not221 = icmp eq i64 %751, 0
   br i1 %.not221, label %778, label %752
@@ -2199,7 +2199,7 @@ buffer_append.exit355:                            ; preds = %dump_flush.exit.i.i
   br i1 %755, label %756, label %buffer_append.exit363
 
 756:                                              ; preds = %752
-  %757 = getelementptr inbounds i8, ptr %1, i64 8
+  %757 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %758 = load i64, ptr %757, align 8
   %.not22.i.i.i358 = icmp eq i64 %758, 0
   br i1 %.not22.i.i.i358, label %763, label %759
@@ -2249,7 +2249,7 @@ buffer_append.exit363:                            ; preds = %dump_flush.exit.i.i
   br label %778
 
 778:                                              ; preds = %buffer_append.exit363, %749
-  %779 = getelementptr inbounds i8, ptr %4, i64 48
+  %779 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %780 = load i64, ptr %779, align 8
   %781 = and i64 %780, -5
   %.not553 = icmp eq i64 %781, 0
@@ -2263,7 +2263,7 @@ buffer_append.exit363:                            ; preds = %dump_flush.exit.i.i
   br i1 %786, label %787, label %buffer_append.exit371
 
 787:                                              ; preds = %782
-  %788 = getelementptr inbounds i8, ptr %1, i64 8
+  %788 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %789 = load i64, ptr %788, align 8
   %.not22.i.i.i366 = icmp eq i64 %789, 0
   br i1 %.not22.i.i.i366, label %794, label %790
@@ -2318,7 +2318,7 @@ buffer_append.exit371:                            ; preds = %dump_flush.exit.i.i
   br i1 %811, label %812, label %buffer_append.exit379
 
 812:                                              ; preds = %808
-  %813 = getelementptr inbounds i8, ptr %1, i64 8
+  %813 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %814 = load i64, ptr %813, align 8
   %.not22.i.i.i374 = icmp eq i64 %814, 0
   br i1 %.not22.i.i.i374, label %819, label %815
@@ -2363,7 +2363,7 @@ buffer_append.exit379:                            ; preds = %dump_flush.exit.i.i
   %831 = load i64, ptr %228, align 8
   %832 = add i64 %831, 15
   store i64 %832, ptr %228, align 8
-  %833 = getelementptr inbounds i8, ptr %4, i64 56
+  %833 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %834 = load i64, ptr %833, align 8
   tail call fastcc void @dump_append_sizet(ptr noundef nonnull %1, i64 noundef %834)
   br label %835
@@ -2380,7 +2380,7 @@ buffer_append.exit379:                            ; preds = %dump_flush.exit.i.i
   br i1 %840, label %841, label %buffer_append.exit387
 
 841:                                              ; preds = %837
-  %842 = getelementptr inbounds i8, ptr %1, i64 8
+  %842 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %843 = load i64, ptr %842, align 8
   %.not22.i.i.i382 = icmp eq i64 %843, 0
   br i1 %.not22.i.i.i382, label %848, label %844
@@ -2440,7 +2440,7 @@ buffer_append.exit387:                            ; preds = %dump_flush.exit.i.i
   br i1 %866, label %867, label %buffer_append.exit395
 
 867:                                              ; preds = %864
-  %868 = getelementptr inbounds i8, ptr %1, i64 8
+  %868 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %869 = load i64, ptr %868, align 8
   %.not22.i.i.i390 = icmp eq i64 %869, 0
   br i1 %.not22.i.i.i390, label %874, label %870
@@ -2485,7 +2485,7 @@ buffer_append.exit395:                            ; preds = %dump_flush.exit.i.i
   %886 = load i64, ptr %228, align 8
   %887 = add i64 %886, 11
   store i64 %887, ptr %228, align 8
-  %888 = getelementptr inbounds i8, ptr %1, i64 8
+  %888 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %889 = add i64 %863, -1
   br label %890
 
@@ -2782,7 +2782,7 @@ buffer_append.exit436:                            ; preds = %dump_flush.exit.i.i
   br i1 %1021, label %1022, label %buffer_append.exit444
 
 1022:                                             ; preds = %1018
-  %1023 = getelementptr inbounds i8, ptr %1, i64 8
+  %1023 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %1024 = load i64, ptr %1023, align 8
   %.not22.i.i.i439 = icmp eq i64 %1024, 0
   br i1 %.not22.i.i.i439, label %1029, label %1025
@@ -2843,7 +2843,7 @@ define internal fastcc void @buffer_append(ptr noundef %0, ptr nocapture noundef
   br i1 %.not, label %37, label %4
 
 4:                                                ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %0, i64 88
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %6 = load i64, ptr %5, align 8
   %7 = add i64 %6, %2
   %8 = icmp ugt i64 %7, 4095
@@ -2854,13 +2854,13 @@ define internal fastcc void @buffer_append(ptr noundef %0, ptr nocapture noundef
   br i1 %.not.i.i, label %dump_flush.exit.i, label %10
 
 10:                                               ; preds = %9
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load i64, ptr %11, align 8
   %.not22.i.i = icmp eq i64 %12, 0
   br i1 %.not22.i.i, label %21, label %13
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %0, i64 96
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %15 = tail call i64 @rb_io_bufwrite(i64 noundef %12, ptr noundef nonnull %14, i64 noundef %6) #10
   %16 = load i64, ptr %5, align 8
   %17 = icmp ult i64 %15, %16
@@ -2873,13 +2873,13 @@ define internal fastcc void @buffer_append(ptr noundef %0, ptr nocapture noundef
   br label %.sink.split.i.i
 
 21:                                               ; preds = %10
-  %22 = getelementptr inbounds i8, ptr %0, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %23 = load i64, ptr %22, align 8
   %.not23.i.i = icmp eq i64 %23, 0
   br i1 %.not23.i.i, label %.sink.split.i.i, label %24
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds i8, ptr %0, i64 96
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %26 = tail call i64 @rb_str_cat(i64 noundef %23, ptr noundef nonnull %25, i64 noundef %6) #10
   br label %.sink.split.i.i
 
@@ -2901,7 +2901,7 @@ dump_flush.exit.i:                                ; preds = %.sink.split.i.i, %9
 
 ruby_nonempty_memcpy.exit:                        ; preds = %4, %dump_flush.exit.i
   %32 = phi i64 [ %6, %4 ], [ %27, %dump_flush.exit.i ]
-  %33 = getelementptr inbounds i8, ptr %0, i64 96
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %34 = getelementptr inbounds i8, ptr %33, i64 %32
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %34, ptr readonly align 1 %1, i64 %2, i1 false)
   %35 = load i64, ptr %5, align 8
@@ -2917,17 +2917,17 @@ ruby_nonempty_memcpy.exit:                        ; preds = %4, %dump_flush.exit
 define internal fastcc void @dump_append_ref(ptr noundef %0, i64 noundef %1) unnamed_addr #0 {
   %3 = alloca [20 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3)
-  %.ptr14.i = getelementptr inbounds i8, ptr %3, i64 19
+  %.ptr14.i = getelementptr inbounds nuw i8, ptr %3, i64 19
   store i8 34, ptr %.ptr14.i, align 1
   %.not15.i = icmp eq i64 %1, 0
   br i1 %.not15.i, label %._crit_edge.thread.i, label %.lr.ph.i
 
 ._crit_edge.thread.i:                             ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %3, i64 18
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 18
   store i8 120, ptr %4, align 2
-  %5 = getelementptr inbounds i8, ptr %3, i64 17
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 17
   store i8 48, ptr %5, align 1
-  %.ptr21.i = getelementptr inbounds i8, ptr %3, i64 16
+  %.ptr21.i = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i8 34, ptr %.ptr21.i, align 16
   br label %12
 
@@ -2935,7 +2935,7 @@ define internal fastcc void @dump_append_ref(ptr noundef %0, i64 noundef %1) unn
   %.017.i = phi i64 [ %9, %.lr.ph.i ], [ %1, %2 ]
   %.011.idx16.i = phi i64 [ %.011.add12.i, %.lr.ph.i ], [ 19, %2 ]
   %6 = and i64 %.017.i, 15
-  %7 = getelementptr inbounds [0 x i8], ptr @ruby_hexdigits, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw [0 x i8], ptr @ruby_hexdigits, i64 0, i64 %6
   %8 = load i8, ptr %7, align 1
   %.011.add12.i = add nsw i64 %.011.idx16.i, -1
   %.ptr13.i = getelementptr inbounds i8, ptr %3, i64 %.011.add12.i
@@ -2960,7 +2960,7 @@ define internal fastcc void @dump_append_ref(ptr noundef %0, i64 noundef %1) unn
 12:                                               ; preds = %._crit_edge.i, %._crit_edge.thread.i
   %gepdiff25.i = phi i64 [ 4, %._crit_edge.thread.i ], [ %gepdiff.i, %._crit_edge.i ]
   %.ptr24.i = phi ptr [ %.ptr21.i, %._crit_edge.thread.i ], [ %.ptr.i, %._crit_edge.i ]
-  %13 = getelementptr inbounds i8, ptr %0, i64 88
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %14 = load i64, ptr %13, align 8
   %15 = add i64 %14, %gepdiff25.i
   %16 = icmp ugt i64 %15, 4095
@@ -2971,13 +2971,13 @@ define internal fastcc void @dump_append_ref(ptr noundef %0, i64 noundef %1) unn
   br i1 %.not.i.i.i.i, label %dump_flush.exit.i.i.i, label %18
 
 18:                                               ; preds = %17
-  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = load i64, ptr %19, align 8
   %.not22.i.i.i.i = icmp eq i64 %20, 0
   br i1 %.not22.i.i.i.i, label %29, label %21
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %0, i64 96
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %23 = tail call i64 @rb_io_bufwrite(i64 noundef %20, ptr noundef nonnull %22, i64 noundef %14) #10
   %24 = load i64, ptr %13, align 8
   %25 = icmp ult i64 %23, %24
@@ -2990,13 +2990,13 @@ define internal fastcc void @dump_append_ref(ptr noundef %0, i64 noundef %1) unn
   br label %.sink.split.i.i.i.i
 
 29:                                               ; preds = %18
-  %30 = getelementptr inbounds i8, ptr %0, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %31 = load i64, ptr %30, align 8
   %.not23.i.i.i.i = icmp eq i64 %31, 0
   br i1 %.not23.i.i.i.i, label %.sink.split.i.i.i.i, label %32
 
 32:                                               ; preds = %29
-  %33 = getelementptr inbounds i8, ptr %0, i64 96
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %34 = tail call i64 @rb_str_cat(i64 noundef %31, ptr noundef nonnull %33, i64 noundef %14) #10
   br label %.sink.split.i.i.i.i
 
@@ -3018,7 +3018,7 @@ dump_flush.exit.i.i.i:                            ; preds = %.sink.split.i.i.i.i
 
 ruby_nonempty_memcpy.exit.i.i:                    ; preds = %dump_flush.exit.i.i.i, %12
   %40 = phi i64 [ %14, %12 ], [ %35, %dump_flush.exit.i.i.i ]
-  %41 = getelementptr inbounds i8, ptr %0, i64 96
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %42 = getelementptr inbounds i8, ptr %41, i64 %40
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %42, ptr nonnull readonly align 1 %.ptr24.i, i64 %gepdiff25.i, i1 false)
   %43 = load i64, ptr %13, align 8
@@ -3038,33 +3038,33 @@ declare i32 @rb_shape_get_shape_id(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @dump_append_sizet(ptr noundef %0, i64 noundef %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 88
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %4 = load i64, ptr %3, align 8
   %5 = add i64 %4, -4075
   %6 = icmp ult i64 %5, -4096
   br i1 %6, label %7, label %buffer_ensure_capa.exit
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i64, ptr %8, align 8
   %.not22.i.i = icmp eq i64 %9, 0
   br i1 %.not22.i.i, label %15, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %0, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %12 = tail call i64 @rb_io_bufwrite(i64 noundef %9, ptr noundef nonnull %11, i64 noundef %4) #10
   %13 = load i64, ptr %3, align 8
   %14 = icmp ult i64 %12, %13
   br i1 %14, label %dump_flush.exit.i, label %dump_flush.exit.i.thread
 
 15:                                               ; preds = %7
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = load i64, ptr %16, align 8
   %.not23.i.i = icmp eq i64 %17, 0
   br i1 %.not23.i.i, label %dump_flush.exit.i.thread, label %18
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %0, i64 96
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %20 = tail call i64 @rb_str_cat(i64 noundef %17, ptr noundef nonnull %19, i64 noundef %4) #10
   br label %dump_flush.exit.i.thread
 
@@ -3088,7 +3088,7 @@ dump_flush.exit.i:                                ; preds = %10
 
 buffer_ensure_capa.exit:                          ; preds = %dump_flush.exit.i.thread, %2, %dump_flush.exit.i
   %27 = phi i64 [ 0, %dump_flush.exit.i.thread ], [ %4, %2 ], [ %22, %dump_flush.exit.i ]
-  %28 = getelementptr inbounds i8, ptr %0, i64 96
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %29 = getelementptr inbounds i8, ptr %28, i64 %27
   %30 = tail call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef nonnull %29, i64 noundef 21, ptr noundef nonnull @.str.81, i64 noundef %1) #10
   %31 = sext i32 %30 to i64
@@ -3116,33 +3116,33 @@ define internal fastcc void @dump_append_id(ptr noundef %0, i64 noundef %1) unna
   br label %65
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 88
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %9 = load i64, ptr %8, align 8
   %10 = add i64 %9, -4083
   %11 = icmp ult i64 %10, -4096
   br i1 %11, label %12, label %buffer_append.exit
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load i64, ptr %13, align 8
   %.not22.i.i.i = icmp eq i64 %14, 0
   br i1 %.not22.i.i.i, label %20, label %15
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %0, i64 96
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %17 = tail call i64 @rb_io_bufwrite(i64 noundef %14, ptr noundef nonnull %16, i64 noundef %9) #10
   %18 = load i64, ptr %8, align 8
   %19 = icmp ult i64 %17, %18
   br i1 %19, label %dump_flush.exit.i.i, label %dump_flush.exit.i.i.thread
 
 20:                                               ; preds = %12
-  %21 = getelementptr inbounds i8, ptr %0, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load i64, ptr %21, align 8
   %.not23.i.i.i = icmp eq i64 %22, 0
   br i1 %.not23.i.i.i, label %dump_flush.exit.i.i.thread, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds i8, ptr %0, i64 96
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %25 = tail call i64 @rb_str_cat(i64 noundef %22, ptr noundef nonnull %24, i64 noundef %9) #10
   br label %dump_flush.exit.i.i.thread
 
@@ -3166,7 +3166,7 @@ dump_flush.exit.i.i:                              ; preds = %15
 
 buffer_append.exit:                               ; preds = %dump_flush.exit.i.i.thread, %7, %dump_flush.exit.i.i
   %32 = phi i64 [ %9, %7 ], [ %27, %dump_flush.exit.i.i ], [ 0, %dump_flush.exit.i.i.thread ]
-  %33 = getelementptr inbounds i8, ptr %0, i64 96
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %34 = getelementptr inbounds i8, ptr %33, i64 %32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %34, ptr noundef nonnull readonly align 1 dereferenceable(13) @.str.82, i64 13, i1 false)
   %35 = load i64, ptr %8, align 8
@@ -3183,7 +3183,7 @@ buffer_append.exit:                               ; preds = %dump_flush.exit.i.i
   br i1 %42, label %43, label %buffer_append.exit19
 
 43:                                               ; preds = %buffer_append.exit
-  %44 = getelementptr inbounds i8, ptr %0, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %45 = load i64, ptr %44, align 8
   %.not22.i.i.i14 = icmp eq i64 %45, 0
   br i1 %.not22.i.i.i14, label %50, label %46
@@ -3195,7 +3195,7 @@ buffer_append.exit:                               ; preds = %dump_flush.exit.i.i
   br i1 %49, label %dump_flush.exit.i.i17, label %dump_flush.exit.i.i17.thread
 
 50:                                               ; preds = %43
-  %51 = getelementptr inbounds i8, ptr %0, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %52 = load i64, ptr %51, align 8
   %.not23.i.i.i18 = icmp eq i64 %52, 0
   br i1 %.not23.i.i.i18, label %dump_flush.exit.i.i17.thread, label %53
@@ -3237,33 +3237,33 @@ buffer_append.exit19:                             ; preds = %dump_flush.exit.i.i
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @dump_append_string_content(ptr noundef %0, i64 noundef %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 88
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %4 = load i64, ptr %3, align 8
   %5 = add i64 %4, -4083
   %6 = icmp ult i64 %5, -4096
   br i1 %6, label %7, label %buffer_append.exit
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i64, ptr %8, align 8
   %.not22.i.i.i = icmp eq i64 %9, 0
   br i1 %.not22.i.i.i, label %15, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %0, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %12 = tail call i64 @rb_io_bufwrite(i64 noundef %9, ptr noundef nonnull %11, i64 noundef %4) #10
   %13 = load i64, ptr %3, align 8
   %14 = icmp ult i64 %12, %13
   br i1 %14, label %dump_flush.exit.i.i, label %dump_flush.exit.i.i.thread
 
 15:                                               ; preds = %7
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = load i64, ptr %16, align 8
   %.not23.i.i.i = icmp eq i64 %17, 0
   br i1 %.not23.i.i.i, label %dump_flush.exit.i.i.thread, label %18
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %0, i64 96
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %20 = tail call i64 @rb_str_cat(i64 noundef %17, ptr noundef nonnull %19, i64 noundef %4) #10
   br label %dump_flush.exit.i.i.thread
 
@@ -3287,14 +3287,14 @@ dump_flush.exit.i.i:                              ; preds = %10
 
 buffer_append.exit:                               ; preds = %dump_flush.exit.i.i.thread, %2, %dump_flush.exit.i.i
   %27 = phi i64 [ %4, %2 ], [ %22, %dump_flush.exit.i.i ], [ 0, %dump_flush.exit.i.i.thread ]
-  %28 = getelementptr inbounds i8, ptr %0, i64 96
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %29 = getelementptr inbounds i8, ptr %28, i64 %27
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %29, ptr noundef nonnull readonly align 1 dereferenceable(13) @.str.84, i64 13, i1 false)
   %30 = load i64, ptr %3, align 8
   %31 = add i64 %30, 13
   store i64 %31, ptr %3, align 8
   %32 = inttoptr i64 %1 to ptr
-  %33 = getelementptr inbounds i8, ptr %32, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %34 = load i64, ptr %33, align 8
   tail call fastcc void @dump_append_ld(ptr noundef nonnull %0, i64 noundef %34)
   %35 = load i64, ptr %32, align 8
@@ -3318,7 +3318,7 @@ buffer_append.exit:                               ; preds = %dump_flush.exit.i.i
   br i1 %45, label %46, label %buffer_append.exit27
 
 46:                                               ; preds = %42
-  %47 = getelementptr inbounds i8, ptr %0, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %48 = load i64, ptr %47, align 8
   %.not22.i.i.i22 = icmp eq i64 %48, 0
   br i1 %.not22.i.i.i22, label %53, label %49
@@ -3330,7 +3330,7 @@ buffer_append.exit:                               ; preds = %dump_flush.exit.i.i
   br i1 %52, label %dump_flush.exit.i.i25, label %dump_flush.exit.i.i25.thread
 
 53:                                               ; preds = %46
-  %54 = getelementptr inbounds i8, ptr %0, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %55 = load i64, ptr %54, align 8
   %.not23.i.i.i26 = icmp eq i64 %55, 0
   br i1 %.not23.i.i.i26, label %dump_flush.exit.i.i25.thread, label %56
@@ -3414,7 +3414,7 @@ rb_enc_asciicompat.exit:                          ; preds = %RB_ENCODING_GET.exi
 86:                                               ; preds = %82
   %87 = and i64 %83, 8192
   %.not.i.i = icmp eq i64 %87, 0
-  %88 = getelementptr inbounds i8, ptr %32, i64 24
+  %88 = getelementptr inbounds nuw i8, ptr %32, i64 24
   br i1 %.not.i.i, label %RSTRING_PTR.exit, label %89
 
 89:                                               ; preds = %86
@@ -3434,7 +3434,7 @@ RSTRING_PTR.exit:                                 ; preds = %86, %89
 
 .lr.ph.i:                                         ; preds = %RSTRING_PTR.exit, %92
   %.06.i = phi i64 [ %93, %92 ], [ 0, %RSTRING_PTR.exit ]
-  %94 = getelementptr inbounds i8, ptr %.sroa.2.0.i, i64 %.06.i
+  %94 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.i, i64 %.06.i
   %95 = load i8, ptr %94, align 1
   %.not.i30 = icmp sgt i8 %95, -1
   br i1 %.not.i30, label %92, label %rb_enc_asciicompat.exit.thread
@@ -3446,7 +3446,7 @@ dump_string_ascii_only.exit.thread43:             ; preds = %92, %82, %RSTRING_P
   br i1 %98, label %99, label %buffer_append.exit37
 
 99:                                               ; preds = %dump_string_ascii_only.exit.thread43
-  %100 = getelementptr inbounds i8, ptr %0, i64 8
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %101 = load i64, ptr %100, align 8
   %.not22.i.i.i32 = icmp eq i64 %101, 0
   br i1 %.not22.i.i.i32, label %106, label %102
@@ -3458,7 +3458,7 @@ dump_string_ascii_only.exit.thread43:             ; preds = %92, %82, %RSTRING_P
   br i1 %105, label %dump_flush.exit.i.i35, label %dump_flush.exit.i.i35.thread
 
 106:                                              ; preds = %99
-  %107 = getelementptr inbounds i8, ptr %0, i64 16
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %108 = load i64, ptr %107, align 8
   %.not23.i.i.i36 = icmp eq i64 %108, 0
   br i1 %.not23.i.i.i36, label %dump_flush.exit.i.i35.thread, label %109
@@ -3505,33 +3505,33 @@ declare ptr @rb_enc_from_index(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @dump_append_ld(ptr noundef %0, i64 noundef %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 88
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %4 = load i64, ptr %3, align 8
   %5 = add i64 %4, -4075
   %6 = icmp ult i64 %5, -4096
   br i1 %6, label %7, label %buffer_ensure_capa.exit
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i64, ptr %8, align 8
   %.not22.i.i = icmp eq i64 %9, 0
   br i1 %.not22.i.i, label %15, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %0, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %12 = tail call i64 @rb_io_bufwrite(i64 noundef %9, ptr noundef nonnull %11, i64 noundef %4) #10
   %13 = load i64, ptr %3, align 8
   %14 = icmp ult i64 %12, %13
   br i1 %14, label %dump_flush.exit.i, label %dump_flush.exit.i.thread
 
 15:                                               ; preds = %7
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = load i64, ptr %16, align 8
   %.not23.i.i = icmp eq i64 %17, 0
   br i1 %.not23.i.i, label %dump_flush.exit.i.thread, label %18
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %0, i64 96
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %20 = tail call i64 @rb_str_cat(i64 noundef %17, ptr noundef nonnull %19, i64 noundef %4) #10
   br label %dump_flush.exit.i.thread
 
@@ -3555,7 +3555,7 @@ dump_flush.exit.i:                                ; preds = %10
 
 buffer_ensure_capa.exit:                          ; preds = %dump_flush.exit.i.thread, %2, %dump_flush.exit.i
   %27 = phi i64 [ 0, %dump_flush.exit.i.thread ], [ %4, %2 ], [ %22, %dump_flush.exit.i ]
-  %28 = getelementptr inbounds i8, ptr %0, i64 96
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %29 = getelementptr inbounds i8, ptr %28, i64 %27
   %30 = tail call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef nonnull %29, i64 noundef 21, ptr noundef nonnull @.str.87, i64 noundef %1) #10
   %31 = sext i32 %30 to i64
@@ -3569,33 +3569,33 @@ declare i64 @rb_class_get_superclass(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @dump_append_d(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 88
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %4 = load i64, ptr %3, align 8
   %5 = add i64 %4, -4084
   %6 = icmp ult i64 %5, -4096
   br i1 %6, label %7, label %buffer_ensure_capa.exit
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i64, ptr %8, align 8
   %.not22.i.i = icmp eq i64 %9, 0
   br i1 %.not22.i.i, label %15, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %0, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %12 = tail call i64 @rb_io_bufwrite(i64 noundef %9, ptr noundef nonnull %11, i64 noundef %4) #10
   %13 = load i64, ptr %3, align 8
   %14 = icmp ult i64 %12, %13
   br i1 %14, label %dump_flush.exit.i, label %dump_flush.exit.i.thread
 
 15:                                               ; preds = %7
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = load i64, ptr %16, align 8
   %.not23.i.i = icmp eq i64 %17, 0
   br i1 %.not23.i.i, label %dump_flush.exit.i.thread, label %18
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %0, i64 96
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %20 = tail call i64 @rb_str_cat(i64 noundef %17, ptr noundef nonnull %19, i64 noundef %4) #10
   br label %dump_flush.exit.i.thread
 
@@ -3619,7 +3619,7 @@ dump_flush.exit.i:                                ; preds = %10
 
 buffer_ensure_capa.exit:                          ; preds = %dump_flush.exit.i.thread, %2, %dump_flush.exit.i
   %27 = phi i64 [ 0, %dump_flush.exit.i.thread ], [ %4, %2 ], [ %22, %dump_flush.exit.i ]
-  %28 = getelementptr inbounds i8, ptr %0, i64 96
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %29 = getelementptr inbounds i8, ptr %28, i64 %27
   %30 = tail call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef nonnull %29, i64 noundef 12, ptr noundef nonnull @.str.88, i32 noundef %1) #10
   %31 = sext i32 %30 to i64
@@ -3636,10 +3636,10 @@ declare i64 @rb_class_real(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @dump_append_g(ptr noundef %0, double noundef %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 88
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %4 = load i64, ptr %3, align 8
   %5 = sub i64 4096, %4
-  %6 = getelementptr inbounds i8, ptr %0, i64 96
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %7 = getelementptr inbounds i8, ptr %6, i64 %4
   %8 = tail call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef nonnull %7, i64 noundef %5, ptr noundef nonnull @.str.89, double noundef %1) #10
   %9 = sext i32 %8 to i64
@@ -3657,7 +3657,7 @@ define internal fastcc void @dump_append_g(ptr noundef %0, double noundef %1) un
   br i1 %.not.i.i, label %dump_flush.exit.i, label %15
 
 15:                                               ; preds = %14
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load i64, ptr %16, align 8
   %.not22.i.i = icmp eq i64 %17, 0
   br i1 %.not22.i.i, label %25, label %18
@@ -3675,7 +3675,7 @@ define internal fastcc void @dump_append_g(ptr noundef %0, double noundef %1) un
   br label %.sink.split.i.i
 
 25:                                               ; preds = %15
-  %26 = getelementptr inbounds i8, ptr %0, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %27 = load i64, ptr %26, align 8
   %.not23.i.i = icmp eq i64 %27, 0
   br i1 %.not23.i.i, label %.sink.split.i.i, label %28
@@ -3719,33 +3719,33 @@ declare double @rb_float_value(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @dump_append_lu(ptr noundef %0, i64 noundef %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 88
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %4 = load i64, ptr %3, align 8
   %5 = add i64 %4, -4075
   %6 = icmp ult i64 %5, -4096
   br i1 %6, label %7, label %buffer_ensure_capa.exit
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i64, ptr %8, align 8
   %.not22.i.i = icmp eq i64 %9, 0
   br i1 %.not22.i.i, label %15, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %0, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %12 = tail call i64 @rb_io_bufwrite(i64 noundef %9, ptr noundef nonnull %11, i64 noundef %4) #10
   %13 = load i64, ptr %3, align 8
   %14 = icmp ult i64 %12, %13
   br i1 %14, label %dump_flush.exit.i, label %dump_flush.exit.i.thread
 
 15:                                               ; preds = %7
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = load i64, ptr %16, align 8
   %.not23.i.i = icmp eq i64 %17, 0
   br i1 %.not23.i.i, label %dump_flush.exit.i.thread, label %18
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %0, i64 96
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %20 = tail call i64 @rb_str_cat(i64 noundef %17, ptr noundef nonnull %19, i64 noundef %4) #10
   br label %dump_flush.exit.i.thread
 
@@ -3769,7 +3769,7 @@ dump_flush.exit.i:                                ; preds = %10
 
 buffer_ensure_capa.exit:                          ; preds = %dump_flush.exit.i.thread, %2, %dump_flush.exit.i
   %27 = phi i64 [ 0, %dump_flush.exit.i.thread ], [ %4, %2 ], [ %22, %dump_flush.exit.i ]
-  %28 = getelementptr inbounds i8, ptr %0, i64 96
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %29 = getelementptr inbounds i8, ptr %28, i64 %27
   %30 = tail call i32 (ptr, i64, ptr, ...) @ruby_snprintf(ptr noundef nonnull %29, i64 noundef 21, ptr noundef nonnull @.str.90, i64 noundef %1) #10
   %31 = sext i32 %30 to i64
@@ -3786,7 +3786,7 @@ define internal fastcc i32 @ROBJECT_IV_COUNT(i64 noundef %0) unnamed_addr #0 {
   br i1 %2, label %4, label %9
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %3, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i64 @rb_st_table_size(ptr noundef %6) #10
   %8 = trunc i64 %7 to i32
@@ -3797,7 +3797,7 @@ define internal fastcc i32 @ROBJECT_IV_COUNT(i64 noundef %0) unnamed_addr #0 {
   %11 = lshr i64 %10, 32
   %12 = trunc nuw i64 %11 to i32
   %13 = tail call ptr @rb_shape_get_shape_by_id(i32 noundef %12) #10
-  %14 = getelementptr inbounds i8, ptr %13, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load i32, ptr %14, align 8
   br label %16
 
@@ -3812,16 +3812,16 @@ declare void @rb_objspace_reachable_objects_from(i64 noundef, ptr noundef, ptr n
 
 ; Function Attrs: nounwind uwtable
 define internal void @reachable_object_i(i64 noundef %0, ptr noundef %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load i64, ptr %3, align 8
   %5 = icmp eq i64 %4, %0
   br i1 %5, label %69, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %1, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %8 = load i64, ptr %7, align 8
   %9 = icmp eq i64 %8, 0
-  %10 = getelementptr inbounds i8, ptr %1, i64 88
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %11 = load i64, ptr %10, align 8
   br i1 %9, label %12, label %38
 
@@ -3831,26 +3831,26 @@ define internal void @reachable_object_i(i64 noundef %0, ptr noundef %1) #0 {
   br i1 %14, label %15, label %buffer_append.exit
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load i64, ptr %16, align 8
   %.not22.i.i.i = icmp eq i64 %17, 0
   br i1 %.not22.i.i.i, label %23, label %18
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %1, i64 96
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %20 = tail call i64 @rb_io_bufwrite(i64 noundef %17, ptr noundef nonnull %19, i64 noundef %11) #10
   %21 = load i64, ptr %10, align 8
   %22 = icmp ult i64 %20, %21
   br i1 %22, label %dump_flush.exit.i.i, label %dump_flush.exit.i.i.thread
 
 23:                                               ; preds = %15
-  %24 = getelementptr inbounds i8, ptr %1, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %25 = load i64, ptr %24, align 8
   %.not23.i.i.i = icmp eq i64 %25, 0
   br i1 %.not23.i.i.i, label %dump_flush.exit.i.i.thread, label %26
 
 26:                                               ; preds = %23
-  %27 = getelementptr inbounds i8, ptr %1, i64 96
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %28 = tail call i64 @rb_str_cat(i64 noundef %25, ptr noundef nonnull %27, i64 noundef %11) #10
   br label %dump_flush.exit.i.i.thread
 
@@ -3874,7 +3874,7 @@ dump_flush.exit.i.i:                              ; preds = %18
 
 buffer_append.exit:                               ; preds = %dump_flush.exit.i.i.thread, %12, %dump_flush.exit.i.i
   %35 = phi i64 [ %11, %12 ], [ %30, %dump_flush.exit.i.i ], [ 0, %dump_flush.exit.i.i.thread ]
-  %36 = getelementptr inbounds i8, ptr %1, i64 96
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %37 = getelementptr inbounds i8, ptr %36, i64 %35
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %37, ptr noundef nonnull readonly align 1 dereferenceable(16) @.str.91, i64 16, i1 false)
   br label %64
@@ -3885,26 +3885,26 @@ buffer_append.exit:                               ; preds = %dump_flush.exit.i.i
   br i1 %40, label %41, label %buffer_append.exit16
 
 41:                                               ; preds = %38
-  %42 = getelementptr inbounds i8, ptr %1, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %43 = load i64, ptr %42, align 8
   %.not22.i.i.i11 = icmp eq i64 %43, 0
   br i1 %.not22.i.i.i11, label %49, label %44
 
 44:                                               ; preds = %41
-  %45 = getelementptr inbounds i8, ptr %1, i64 96
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %46 = tail call i64 @rb_io_bufwrite(i64 noundef %43, ptr noundef nonnull %45, i64 noundef %11) #10
   %47 = load i64, ptr %10, align 8
   %48 = icmp ult i64 %46, %47
   br i1 %48, label %dump_flush.exit.i.i14, label %dump_flush.exit.i.i14.thread
 
 49:                                               ; preds = %41
-  %50 = getelementptr inbounds i8, ptr %1, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %51 = load i64, ptr %50, align 8
   %.not23.i.i.i15 = icmp eq i64 %51, 0
   br i1 %.not23.i.i.i15, label %dump_flush.exit.i.i14.thread, label %52
 
 52:                                               ; preds = %49
-  %53 = getelementptr inbounds i8, ptr %1, i64 96
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %54 = tail call i64 @rb_str_cat(i64 noundef %51, ptr noundef nonnull %53, i64 noundef %11) #10
   br label %dump_flush.exit.i.i14.thread
 
@@ -3928,7 +3928,7 @@ dump_flush.exit.i.i14:                            ; preds = %44
 
 buffer_append.exit16:                             ; preds = %dump_flush.exit.i.i14.thread, %38, %dump_flush.exit.i.i14
   %61 = phi i64 [ %11, %38 ], [ %56, %dump_flush.exit.i.i14 ], [ 0, %dump_flush.exit.i.i14.thread ]
-  %62 = getelementptr inbounds i8, ptr %1, i64 96
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %63 = getelementptr inbounds i8, ptr %62, i64 %61
   store i16 8236, ptr %63, align 1
   br label %64
@@ -3950,33 +3950,33 @@ buffer_append.exit16:                             ; preds = %dump_flush.exit.i.i
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @dump_append_string_value(ptr noundef %0, i64 noundef %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 88
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %4 = load i64, ptr %3, align 8
   %5 = add i64 %4, -4095
   %6 = icmp ult i64 %5, -4096
   br i1 %6, label %7, label %buffer_append.exit
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i64, ptr %8, align 8
   %.not22.i.i.i = icmp eq i64 %9, 0
   br i1 %.not22.i.i.i, label %15, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %0, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %12 = tail call i64 @rb_io_bufwrite(i64 noundef %9, ptr noundef nonnull %11, i64 noundef %4) #10
   %13 = load i64, ptr %3, align 8
   %14 = icmp ult i64 %12, %13
   br i1 %14, label %dump_flush.exit.i.i, label %dump_flush.exit.i.i.thread
 
 15:                                               ; preds = %7
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = load i64, ptr %16, align 8
   %.not23.i.i.i = icmp eq i64 %17, 0
   br i1 %.not23.i.i.i, label %dump_flush.exit.i.i.thread, label %18
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %0, i64 96
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %20 = tail call i64 @rb_str_cat(i64 noundef %17, ptr noundef nonnull %19, i64 noundef %4) #10
   br label %dump_flush.exit.i.i.thread
 
@@ -4000,7 +4000,7 @@ dump_flush.exit.i.i:                              ; preds = %10
 
 buffer_append.exit:                               ; preds = %dump_flush.exit.i.i.thread, %2, %dump_flush.exit.i.i
   %27 = phi i64 [ %4, %2 ], [ %22, %dump_flush.exit.i.i ], [ 0, %dump_flush.exit.i.i.thread ]
-  %28 = getelementptr inbounds i8, ptr %0, i64 96
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %29 = getelementptr inbounds i8, ptr %28, i64 %27
   store i8 34, ptr %29, align 1
   %30 = load i64, ptr %3, align 8
@@ -4010,7 +4010,7 @@ buffer_append.exit:                               ; preds = %dump_flush.exit.i.i
   %33 = load i64, ptr %32, align 8, !noalias !16
   %34 = and i64 %33, 8192
   %.not.i.i = icmp eq i64 %34, 0
-  %35 = getelementptr inbounds i8, ptr %32, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %32, i64 24
   br i1 %.not.i.i, label %RSTRING_PTR.exit, label %36
 
 36:                                               ; preds = %buffer_append.exit
@@ -4019,20 +4019,20 @@ buffer_append.exit:                               ; preds = %dump_flush.exit.i.i
 
 RSTRING_PTR.exit:                                 ; preds = %buffer_append.exit, %36
   %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %36 ], [ %35, %buffer_append.exit ]
-  %37 = getelementptr inbounds i8, ptr %32, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %38 = load i64, ptr %37, align 8
   %39 = icmp sgt i64 %38, 0
   br i1 %39, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %RSTRING_PTR.exit
-  %40 = getelementptr inbounds i8, ptr %0, i64 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %42
 
 42:                                               ; preds = %.lr.ph, %dump_append_c.exit
   %43 = phi i64 [ %31, %.lr.ph ], [ %283, %dump_append_c.exit ]
   %.0102 = phi i64 [ 0, %.lr.ph ], [ %284, %dump_append_c.exit ]
-  %44 = getelementptr inbounds i8, ptr %.sroa.2.0.i, i64 %.0102
+  %44 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.i, i64 %.0102
   %45 = load i8, ptr %44, align 1
   switch i8 %45, label %235 [
     i8 92, label %46
@@ -4608,7 +4608,7 @@ dump_append_c.exit:                               ; preds = %buffer_ensure_capa.
   br i1 %289, label %290, label %buffer_append.exit90
 
 290:                                              ; preds = %._crit_edge
-  %291 = getelementptr inbounds i8, ptr %0, i64 8
+  %291 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %292 = load i64, ptr %291, align 8
   %.not22.i.i.i85 = icmp eq i64 %292, 0
   br i1 %.not22.i.i.i85, label %297, label %293
@@ -4620,7 +4620,7 @@ dump_append_c.exit:                               ; preds = %buffer_ensure_capa.
   br i1 %296, label %dump_flush.exit.i.i88, label %dump_flush.exit.i.i88.thread
 
 297:                                              ; preds = %290
-  %298 = getelementptr inbounds i8, ptr %0, i64 16
+  %298 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %299 = load i64, ptr %298, align 8
   %.not23.i.i.i89 = icmp eq i64 %299, 0
   br i1 %.not23.i.i.i89, label %dump_flush.exit.i.i88.thread, label %300
@@ -4699,7 +4699,7 @@ declare void @rb_objspace_reachable_objects_from_root(ptr noundef, ptr noundef) 
 
 ; Function Attrs: nounwind uwtable
 define internal void @root_obj_i(ptr noundef %0, i64 noundef %1, ptr noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   %.not21 = icmp eq ptr %0, %5
@@ -4707,33 +4707,33 @@ define internal void @root_obj_i(ptr noundef %0, i64 noundef %1, ptr noundef %2)
   br i1 %or.cond, label %36, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %2, i64 88
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %8 = load i64, ptr %7, align 8
   %9 = add i64 %8, -4093
   %10 = icmp ult i64 %9, -4096
   br i1 %10, label %11, label %buffer_append.exit
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %2, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %13 = load i64, ptr %12, align 8
   %.not22.i.i.i = icmp eq i64 %13, 0
   br i1 %.not22.i.i.i, label %19, label %14
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %2, i64 96
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %16 = tail call i64 @rb_io_bufwrite(i64 noundef %13, ptr noundef nonnull %15, i64 noundef %8) #10
   %17 = load i64, ptr %7, align 8
   %18 = icmp ult i64 %16, %17
   br i1 %18, label %dump_flush.exit.i.i, label %dump_flush.exit.i.i.thread
 
 19:                                               ; preds = %11
-  %20 = getelementptr inbounds i8, ptr %2, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %21 = load i64, ptr %20, align 8
   %.not23.i.i.i = icmp eq i64 %21, 0
   br i1 %.not23.i.i.i, label %dump_flush.exit.i.i.thread, label %22
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %2, i64 96
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %24 = tail call i64 @rb_str_cat(i64 noundef %21, ptr noundef nonnull %23, i64 noundef %8) #10
   br label %dump_flush.exit.i.i.thread
 
@@ -4757,7 +4757,7 @@ dump_flush.exit.i.i:                              ; preds = %14
 
 buffer_append.exit:                               ; preds = %dump_flush.exit.i.i.thread, %6, %dump_flush.exit.i.i
   %31 = phi i64 [ %8, %6 ], [ %26, %dump_flush.exit.i.i ], [ 0, %dump_flush.exit.i.i.thread ]
-  %32 = getelementptr inbounds i8, ptr %2, i64 96
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %33 = getelementptr inbounds i8, ptr %32, i64 %31
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %33, ptr noundef nonnull readonly align 1 dereferenceable(3) @.str.102, i64 3, i1 false)
   %34 = load i64, ptr %7, align 8
@@ -4771,7 +4771,7 @@ buffer_append.exit:                               ; preds = %dump_flush.exit.i.i
   %38 = icmp ne ptr %37, null
   %.not22 = icmp eq ptr %0, %37
   %or.cond23 = and i1 %38, %.not22
-  %39 = getelementptr inbounds i8, ptr %2, i64 88
+  %39 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %40 = load i64, ptr %39, align 8
   br i1 %or.cond23, label %121, label %41
 
@@ -4781,26 +4781,26 @@ buffer_append.exit:                               ; preds = %dump_flush.exit.i.i
   br i1 %43, label %44, label %buffer_append.exit30
 
 44:                                               ; preds = %41
-  %45 = getelementptr inbounds i8, ptr %2, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %46 = load i64, ptr %45, align 8
   %.not22.i.i.i25 = icmp eq i64 %46, 0
   br i1 %.not22.i.i.i25, label %52, label %47
 
 47:                                               ; preds = %44
-  %48 = getelementptr inbounds i8, ptr %2, i64 96
+  %48 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %49 = tail call i64 @rb_io_bufwrite(i64 noundef %46, ptr noundef nonnull %48, i64 noundef %40) #10
   %50 = load i64, ptr %39, align 8
   %51 = icmp ult i64 %49, %50
   br i1 %51, label %dump_flush.exit.i.i28, label %dump_flush.exit.i.i28.thread
 
 52:                                               ; preds = %44
-  %53 = getelementptr inbounds i8, ptr %2, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %54 = load i64, ptr %53, align 8
   %.not23.i.i.i29 = icmp eq i64 %54, 0
   br i1 %.not23.i.i.i29, label %dump_flush.exit.i.i28.thread, label %55
 
 55:                                               ; preds = %52
-  %56 = getelementptr inbounds i8, ptr %2, i64 96
+  %56 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %57 = tail call i64 @rb_str_cat(i64 noundef %54, ptr noundef nonnull %56, i64 noundef %40) #10
   br label %dump_flush.exit.i.i28.thread
 
@@ -4824,7 +4824,7 @@ dump_flush.exit.i.i28:                            ; preds = %47
 
 buffer_append.exit30:                             ; preds = %dump_flush.exit.i.i28.thread, %41, %dump_flush.exit.i.i28
   %64 = phi i64 [ %40, %41 ], [ %59, %dump_flush.exit.i.i28 ], [ 0, %dump_flush.exit.i.i28.thread ]
-  %65 = getelementptr inbounds i8, ptr %2, i64 96
+  %65 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %66 = getelementptr inbounds i8, ptr %65, i64 %64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %66, ptr noundef nonnull readonly align 1 dereferenceable(24) @.str.103, i64 24, i1 false)
   %67 = load i64, ptr %39, align 8
@@ -4844,7 +4844,7 @@ buffer_append.exit30:                             ; preds = %dump_flush.exit.i.i
   br i1 %.not.i.i.i31, label %dump_flush.exit.i.i35, label %74
 
 74:                                               ; preds = %73
-  %75 = getelementptr inbounds i8, ptr %2, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %76 = load i64, ptr %75, align 8
   %.not22.i.i.i32 = icmp eq i64 %76, 0
   br i1 %.not22.i.i.i32, label %84, label %77
@@ -4862,7 +4862,7 @@ buffer_append.exit30:                             ; preds = %dump_flush.exit.i.i
   br label %.sink.split.i.i.i33
 
 84:                                               ; preds = %74
-  %85 = getelementptr inbounds i8, ptr %2, i64 16
+  %85 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %86 = load i64, ptr %85, align 8
   %.not23.i.i.i36 = icmp eq i64 %86, 0
   br i1 %.not23.i.i.i36, label %.sink.split.i.i.i33, label %87
@@ -4903,7 +4903,7 @@ buffer_append.exit37:                             ; preds = %buffer_append.exit3
   br i1 %100, label %101, label %buffer_append.exit45
 
 101:                                              ; preds = %buffer_append.exit37
-  %102 = getelementptr inbounds i8, ptr %2, i64 8
+  %102 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %103 = load i64, ptr %102, align 8
   %.not22.i.i.i40 = icmp eq i64 %103, 0
   br i1 %.not22.i.i.i40, label %108, label %104
@@ -4915,7 +4915,7 @@ buffer_append.exit37:                             ; preds = %buffer_append.exit3
   br i1 %107, label %dump_flush.exit.i.i43, label %dump_flush.exit.i.i43.thread
 
 108:                                              ; preds = %101
-  %109 = getelementptr inbounds i8, ptr %2, i64 16
+  %109 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %110 = load i64, ptr %109, align 8
   %.not23.i.i.i44 = icmp eq i64 %110, 0
   br i1 %.not23.i.i.i44, label %dump_flush.exit.i.i43.thread, label %111
@@ -4954,26 +4954,26 @@ buffer_append.exit45:                             ; preds = %dump_flush.exit.i.i
   br i1 %123, label %124, label %buffer_append.exit53
 
 124:                                              ; preds = %121
-  %125 = getelementptr inbounds i8, ptr %2, i64 8
+  %125 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %126 = load i64, ptr %125, align 8
   %.not22.i.i.i48 = icmp eq i64 %126, 0
   br i1 %.not22.i.i.i48, label %132, label %127
 
 127:                                              ; preds = %124
-  %128 = getelementptr inbounds i8, ptr %2, i64 96
+  %128 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %129 = tail call i64 @rb_io_bufwrite(i64 noundef %126, ptr noundef nonnull %128, i64 noundef %40) #10
   %130 = load i64, ptr %39, align 8
   %131 = icmp ult i64 %129, %130
   br i1 %131, label %dump_flush.exit.i.i51, label %dump_flush.exit.i.i51.thread
 
 132:                                              ; preds = %124
-  %133 = getelementptr inbounds i8, ptr %2, i64 16
+  %133 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %134 = load i64, ptr %133, align 8
   %.not23.i.i.i52 = icmp eq i64 %134, 0
   br i1 %.not23.i.i.i52, label %dump_flush.exit.i.i51.thread, label %135
 
 135:                                              ; preds = %132
-  %136 = getelementptr inbounds i8, ptr %2, i64 96
+  %136 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %137 = tail call i64 @rb_str_cat(i64 noundef %134, ptr noundef nonnull %136, i64 noundef %40) #10
   br label %dump_flush.exit.i.i51.thread
 
@@ -4997,7 +4997,7 @@ dump_flush.exit.i.i51:                            ; preds = %127
 
 buffer_append.exit53:                             ; preds = %dump_flush.exit.i.i51.thread, %121, %dump_flush.exit.i.i51
   %144 = phi i64 [ %40, %121 ], [ %139, %dump_flush.exit.i.i51 ], [ 0, %dump_flush.exit.i.i51.thread ]
-  %145 = getelementptr inbounds i8, ptr %2, i64 96
+  %145 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %146 = getelementptr inbounds i8, ptr %145, i64 %144
   store i16 8236, ptr %146, align 1
   br label %147
@@ -5009,7 +5009,7 @@ buffer_append.exit53:                             ; preds = %dump_flush.exit.i.i
   store i64 %149, ptr %39, align 8
   tail call fastcc void @dump_append_ref(ptr noundef nonnull %2, i64 noundef %1)
   store ptr %0, ptr %4, align 8
-  %150 = getelementptr inbounds i8, ptr %2, i64 64
+  %150 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %151 = load i8, ptr %150, align 8
   %152 = or i8 %151, 1
   store i8 %152, ptr %150, align 8
@@ -5022,39 +5022,39 @@ declare void @rb_shape_each_shape(ptr noundef, ptr noundef) local_unnamed_addr #
 define internal void @shape_i(ptr noundef %0, ptr noundef %1) #0 {
   %3 = tail call i32 @rb_shape_id(ptr noundef %0) #10
   %4 = zext i32 %3 to i64
-  %5 = getelementptr inbounds i8, ptr %1, i64 80
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %6 = load i64, ptr %5, align 8
   %7 = icmp ugt i64 %6, %4
   br i1 %7, label %378, label %8
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %1, i64 88
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %10 = load i64, ptr %9, align 8
   %11 = add i64 %10, -4085
   %12 = icmp ult i64 %11, -4096
   br i1 %12, label %13, label %buffer_append.exit
 
 13:                                               ; preds = %8
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load i64, ptr %14, align 8
   %.not22.i.i.i = icmp eq i64 %15, 0
   br i1 %.not22.i.i.i, label %21, label %16
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %1, i64 96
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %18 = tail call i64 @rb_io_bufwrite(i64 noundef %15, ptr noundef nonnull %17, i64 noundef %10) #10
   %19 = load i64, ptr %9, align 8
   %20 = icmp ult i64 %18, %19
   br i1 %20, label %dump_flush.exit.i.i, label %dump_flush.exit.i.i.thread
 
 21:                                               ; preds = %13
-  %22 = getelementptr inbounds i8, ptr %1, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %23 = load i64, ptr %22, align 8
   %.not23.i.i.i = icmp eq i64 %23, 0
   br i1 %.not23.i.i.i, label %dump_flush.exit.i.i.thread, label %24
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds i8, ptr %1, i64 96
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %26 = tail call i64 @rb_str_cat(i64 noundef %23, ptr noundef nonnull %25, i64 noundef %10) #10
   br label %dump_flush.exit.i.i.thread
 
@@ -5078,7 +5078,7 @@ dump_flush.exit.i.i:                              ; preds = %16
 
 buffer_append.exit:                               ; preds = %dump_flush.exit.i.i.thread, %8, %dump_flush.exit.i.i
   %33 = phi i64 [ %10, %8 ], [ %28, %dump_flush.exit.i.i ], [ 0, %dump_flush.exit.i.i.thread ]
-  %34 = getelementptr inbounds i8, ptr %1, i64 96
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %35 = getelementptr inbounds i8, ptr %34, i64 %33
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %35, ptr noundef nonnull readonly align 1 dereferenceable(11) @.str.3, i64 11, i1 false)
   %36 = load i64, ptr %9, align 8
@@ -5092,7 +5092,7 @@ buffer_append.exit:                               ; preds = %dump_flush.exit.i.i
   br i1 %41, label %42, label %buffer_append.exit39
 
 42:                                               ; preds = %buffer_append.exit
-  %43 = getelementptr inbounds i8, ptr %1, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %44 = load i64, ptr %43, align 8
   %.not22.i.i.i34 = icmp eq i64 %44, 0
   br i1 %.not22.i.i.i34, label %49, label %45
@@ -5104,7 +5104,7 @@ buffer_append.exit:                               ; preds = %dump_flush.exit.i.i
   br i1 %48, label %dump_flush.exit.i.i37, label %dump_flush.exit.i.i37.thread
 
 49:                                               ; preds = %42
-  %50 = getelementptr inbounds i8, ptr %1, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %51 = load i64, ptr %50, align 8
   %.not23.i.i.i38 = icmp eq i64 %51, 0
   br i1 %.not23.i.i.i38, label %dump_flush.exit.i.i37.thread, label %52
@@ -5139,7 +5139,7 @@ buffer_append.exit39:                             ; preds = %dump_flush.exit.i.i
   %63 = add i64 %62, 23
   store i64 %63, ptr %9, align 8
   tail call fastcc void @dump_append_sizet(ptr noundef nonnull %1, i64 noundef %4)
-  %64 = getelementptr inbounds i8, ptr %0, i64 24
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %65 = load i8, ptr %64, align 8
   %.not = icmp eq i8 %65, 0
   br i1 %.not, label %95, label %66
@@ -5151,7 +5151,7 @@ buffer_append.exit39:                             ; preds = %dump_flush.exit.i.i
   br i1 %69, label %70, label %buffer_append.exit46
 
 70:                                               ; preds = %66
-  %71 = getelementptr inbounds i8, ptr %1, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %72 = load i64, ptr %71, align 8
   %.not22.i.i.i41 = icmp eq i64 %72, 0
   br i1 %.not22.i.i.i41, label %77, label %73
@@ -5163,7 +5163,7 @@ buffer_append.exit39:                             ; preds = %dump_flush.exit.i.i
   br i1 %76, label %dump_flush.exit.i.i44, label %dump_flush.exit.i.i44.thread
 
 77:                                               ; preds = %70
-  %78 = getelementptr inbounds i8, ptr %1, i64 16
+  %78 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %79 = load i64, ptr %78, align 8
   %.not23.i.i.i45 = icmp eq i64 %79, 0
   br i1 %.not23.i.i.i45, label %dump_flush.exit.i.i44.thread, label %80
@@ -5197,7 +5197,7 @@ buffer_append.exit46:                             ; preds = %dump_flush.exit.i.i
   %90 = load i64, ptr %9, align 8
   %91 = add i64 %90, 14
   store i64 %91, ptr %9, align 8
-  %92 = getelementptr inbounds i8, ptr %0, i64 28
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %93 = load i32, ptr %92, align 4
   %94 = zext i32 %93 to i64
   tail call fastcc void @dump_append_lu(ptr noundef nonnull %1, i64 noundef %94)
@@ -5210,7 +5210,7 @@ buffer_append.exit46:                             ; preds = %dump_flush.exit.i.i
   br i1 %98, label %99, label %buffer_append.exit53
 
 99:                                               ; preds = %95
-  %100 = getelementptr inbounds i8, ptr %1, i64 8
+  %100 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %101 = load i64, ptr %100, align 8
   %.not22.i.i.i48 = icmp eq i64 %101, 0
   br i1 %.not22.i.i.i48, label %106, label %102
@@ -5222,7 +5222,7 @@ buffer_append.exit46:                             ; preds = %dump_flush.exit.i.i
   br i1 %105, label %dump_flush.exit.i.i51, label %dump_flush.exit.i.i51.thread
 
 106:                                              ; preds = %99
-  %107 = getelementptr inbounds i8, ptr %1, i64 16
+  %107 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %108 = load i64, ptr %107, align 8
   %.not23.i.i.i52 = icmp eq i64 %108, 0
   br i1 %.not23.i.i.i52, label %dump_flush.exit.i.i51.thread, label %109
@@ -5264,7 +5264,7 @@ buffer_append.exit53:                             ; preds = %dump_flush.exit.i.i
   br i1 %124, label %125, label %buffer_append.exit60
 
 125:                                              ; preds = %buffer_append.exit53
-  %126 = getelementptr inbounds i8, ptr %1, i64 8
+  %126 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %127 = load i64, ptr %126, align 8
   %.not22.i.i.i55 = icmp eq i64 %127, 0
   br i1 %.not22.i.i.i55, label %132, label %128
@@ -5276,7 +5276,7 @@ buffer_append.exit53:                             ; preds = %dump_flush.exit.i.i
   br i1 %131, label %dump_flush.exit.i.i58, label %dump_flush.exit.i.i58.thread
 
 132:                                              ; preds = %125
-  %133 = getelementptr inbounds i8, ptr %1, i64 16
+  %133 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %134 = load i64, ptr %133, align 8
   %.not23.i.i.i59 = icmp eq i64 %134, 0
   br i1 %.not23.i.i.i59, label %dump_flush.exit.i.i58.thread, label %135
@@ -5325,7 +5325,7 @@ buffer_append.exit60:                             ; preds = %dump_flush.exit.i.i
   br i1 %150, label %151, label %buffer_append.exit67
 
 151:                                              ; preds = %148
-  %152 = getelementptr inbounds i8, ptr %1, i64 8
+  %152 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %153 = load i64, ptr %152, align 8
   %.not22.i.i.i62 = icmp eq i64 %153, 0
   br i1 %.not22.i.i.i62, label %158, label %154
@@ -5337,7 +5337,7 @@ buffer_append.exit60:                             ; preds = %dump_flush.exit.i.i
   br i1 %157, label %dump_flush.exit.i.i65, label %dump_flush.exit.i.i65.thread
 
 158:                                              ; preds = %151
-  %159 = getelementptr inbounds i8, ptr %1, i64 16
+  %159 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %160 = load i64, ptr %159, align 8
   %.not23.i.i.i66 = icmp eq i64 %160, 0
   br i1 %.not23.i.i.i66, label %dump_flush.exit.i.i65.thread, label %161
@@ -5379,7 +5379,7 @@ buffer_append.exit67:                             ; preds = %dump_flush.exit.i.i
   br i1 %175, label %176, label %buffer_append.exit74
 
 176:                                              ; preds = %173
-  %177 = getelementptr inbounds i8, ptr %1, i64 8
+  %177 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %178 = load i64, ptr %177, align 8
   %.not22.i.i.i69 = icmp eq i64 %178, 0
   br i1 %.not22.i.i.i69, label %183, label %179
@@ -5391,7 +5391,7 @@ buffer_append.exit67:                             ; preds = %dump_flush.exit.i.i
   br i1 %182, label %dump_flush.exit.i.i72, label %dump_flush.exit.i.i72.thread
 
 183:                                              ; preds = %176
-  %184 = getelementptr inbounds i8, ptr %1, i64 16
+  %184 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %185 = load i64, ptr %184, align 8
   %.not23.i.i.i73 = icmp eq i64 %185, 0
   br i1 %.not23.i.i.i73, label %dump_flush.exit.i.i72.thread, label %186
@@ -5430,7 +5430,7 @@ buffer_append.exit74:                             ; preds = %dump_flush.exit.i.i
   br i1 %199, label %200, label %buffer_append.exit81
 
 200:                                              ; preds = %buffer_append.exit74
-  %201 = getelementptr inbounds i8, ptr %1, i64 8
+  %201 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %202 = load i64, ptr %201, align 8
   %.not22.i.i.i76 = icmp eq i64 %202, 0
   br i1 %.not22.i.i.i76, label %207, label %203
@@ -5442,7 +5442,7 @@ buffer_append.exit74:                             ; preds = %dump_flush.exit.i.i
   br i1 %206, label %dump_flush.exit.i.i79, label %dump_flush.exit.i.i79.thread
 
 207:                                              ; preds = %200
-  %208 = getelementptr inbounds i8, ptr %1, i64 16
+  %208 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %209 = load i64, ptr %208, align 8
   %.not23.i.i.i80 = icmp eq i64 %209, 0
   br i1 %.not23.i.i.i80, label %dump_flush.exit.i.i79.thread, label %210
@@ -5476,7 +5476,7 @@ buffer_append.exit81:                             ; preds = %dump_flush.exit.i.i
   %220 = load i64, ptr %9, align 8
   %221 = add i64 %220, 13
   store i64 %221, ptr %9, align 8
-  %222 = getelementptr inbounds i8, ptr %0, i64 8
+  %222 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %223 = load i64, ptr %222, align 8
   tail call fastcc void @dump_append_id(ptr noundef nonnull %1, i64 noundef %223)
   %.pre = load i64, ptr %9, align 8
@@ -5488,7 +5488,7 @@ buffer_append.exit81:                             ; preds = %dump_flush.exit.i.i
   br i1 %226, label %227, label %buffer_append.exit88
 
 227:                                              ; preds = %224
-  %228 = getelementptr inbounds i8, ptr %1, i64 8
+  %228 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %229 = load i64, ptr %228, align 8
   %.not22.i.i.i83 = icmp eq i64 %229, 0
   br i1 %.not22.i.i.i83, label %234, label %230
@@ -5500,7 +5500,7 @@ buffer_append.exit81:                             ; preds = %dump_flush.exit.i.i
   br i1 %233, label %dump_flush.exit.i.i86, label %dump_flush.exit.i.i86.thread
 
 234:                                              ; preds = %227
-  %235 = getelementptr inbounds i8, ptr %1, i64 16
+  %235 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %236 = load i64, ptr %235, align 8
   %.not23.i.i.i87 = icmp eq i64 %236, 0
   br i1 %.not23.i.i.i87, label %dump_flush.exit.i.i86.thread, label %237
@@ -5542,7 +5542,7 @@ buffer_append.exit88:                             ; preds = %dump_flush.exit.i.i
   br i1 %251, label %252, label %buffer_append.exit95
 
 252:                                              ; preds = %249
-  %253 = getelementptr inbounds i8, ptr %1, i64 8
+  %253 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %254 = load i64, ptr %253, align 8
   %.not22.i.i.i90 = icmp eq i64 %254, 0
   br i1 %.not22.i.i.i90, label %259, label %255
@@ -5554,7 +5554,7 @@ buffer_append.exit88:                             ; preds = %dump_flush.exit.i.i
   br i1 %258, label %dump_flush.exit.i.i93, label %dump_flush.exit.i.i93.thread
 
 259:                                              ; preds = %252
-  %260 = getelementptr inbounds i8, ptr %1, i64 16
+  %260 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %261 = load i64, ptr %260, align 8
   %.not23.i.i.i94 = icmp eq i64 %261, 0
   br i1 %.not23.i.i.i94, label %dump_flush.exit.i.i93.thread, label %262
@@ -5596,7 +5596,7 @@ buffer_append.exit95:                             ; preds = %dump_flush.exit.i.i
   br i1 %276, label %277, label %buffer_append.exit102
 
 277:                                              ; preds = %274
-  %278 = getelementptr inbounds i8, ptr %1, i64 8
+  %278 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %279 = load i64, ptr %278, align 8
   %.not22.i.i.i97 = icmp eq i64 %279, 0
   br i1 %.not22.i.i.i97, label %284, label %280
@@ -5608,7 +5608,7 @@ buffer_append.exit95:                             ; preds = %dump_flush.exit.i.i
   br i1 %283, label %dump_flush.exit.i.i100, label %dump_flush.exit.i.i100.thread
 
 284:                                              ; preds = %277
-  %285 = getelementptr inbounds i8, ptr %1, i64 16
+  %285 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %286 = load i64, ptr %285, align 8
   %.not23.i.i.i101 = icmp eq i64 %286, 0
   br i1 %.not23.i.i.i101, label %dump_flush.exit.i.i100.thread, label %287
@@ -5655,7 +5655,7 @@ buffer_append.exit102:                            ; preds = %dump_flush.exit.i.i
   br i1 %303, label %304, label %buffer_append.exit109
 
 304:                                              ; preds = %300
-  %305 = getelementptr inbounds i8, ptr %1, i64 8
+  %305 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %306 = load i64, ptr %305, align 8
   %.not22.i.i.i104 = icmp eq i64 %306, 0
   br i1 %.not22.i.i.i104, label %311, label %307
@@ -5667,7 +5667,7 @@ buffer_append.exit102:                            ; preds = %dump_flush.exit.i.i
   br i1 %310, label %dump_flush.exit.i.i107, label %dump_flush.exit.i.i107.thread
 
 311:                                              ; preds = %304
-  %312 = getelementptr inbounds i8, ptr %1, i64 16
+  %312 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %313 = load i64, ptr %312, align 8
   %.not23.i.i.i108 = icmp eq i64 %313, 0
   br i1 %.not23.i.i.i108, label %dump_flush.exit.i.i107.thread, label %314
@@ -5709,7 +5709,7 @@ buffer_append.exit109:                            ; preds = %dump_flush.exit.i.i
   br i1 %329, label %330, label %buffer_append.exit116
 
 330:                                              ; preds = %buffer_append.exit109
-  %331 = getelementptr inbounds i8, ptr %1, i64 8
+  %331 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %332 = load i64, ptr %331, align 8
   %.not22.i.i.i111 = icmp eq i64 %332, 0
   br i1 %.not22.i.i.i111, label %337, label %333
@@ -5721,7 +5721,7 @@ buffer_append.exit109:                            ; preds = %dump_flush.exit.i.i
   br i1 %336, label %dump_flush.exit.i.i114, label %dump_flush.exit.i.i114.thread
 
 337:                                              ; preds = %330
-  %338 = getelementptr inbounds i8, ptr %1, i64 16
+  %338 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %339 = load i64, ptr %338, align 8
   %.not23.i.i.i115 = icmp eq i64 %339, 0
   br i1 %.not23.i.i.i115, label %dump_flush.exit.i.i114.thread, label %340
@@ -5763,7 +5763,7 @@ buffer_append.exit116:                            ; preds = %dump_flush.exit.i.i
   br i1 %355, label %356, label %buffer_append.exit123
 
 356:                                              ; preds = %buffer_append.exit116
-  %357 = getelementptr inbounds i8, ptr %1, i64 8
+  %357 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %358 = load i64, ptr %357, align 8
   %.not22.i.i.i118 = icmp eq i64 %358, 0
   br i1 %.not22.i.i.i118, label %363, label %359
@@ -5775,7 +5775,7 @@ buffer_append.exit116:                            ; preds = %dump_flush.exit.i.i
   br i1 %362, label %dump_flush.exit.i.i121, label %dump_flush.exit.i.i121.thread
 
 363:                                              ; preds = %356
-  %364 = getelementptr inbounds i8, ptr %1, i64 16
+  %364 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %365 = load i64, ptr %364, align 8
   %.not23.i.i.i122 = icmp eq i64 %365, 0
   br i1 %.not23.i.i.i122, label %dump_flush.exit.i.i121.thread, label %366
@@ -5825,8 +5825,8 @@ define internal noundef i32 @heap_i(ptr noundef %0, ptr noundef %1, i64 noundef 
 
 .lr.ph:                                           ; preds = %4
   %6 = ptrtoint ptr %0 to i64
-  %7 = getelementptr inbounds i8, ptr %3, i64 48
-  %8 = getelementptr inbounds i8, ptr %3, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 64
   br label %9
 
 9:                                                ; preds = %.lr.ph, %16

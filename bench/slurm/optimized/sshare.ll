@@ -99,7 +99,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 9:                                                ; preds = %2
   %10 = tail call i32 @log_init(ptr noundef nonnull @.str.21, ptr noundef nonnull byval(%struct.log_options_t) align 8 @__const.main.opts, i32 noundef 24, ptr noundef null) #14
-  %11 = getelementptr inbounds i8, ptr %5, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %12
 
 12:                                               ; preds = %.backedge, %9
@@ -333,7 +333,7 @@ _addto_name_char_list.exit:                       ; preds = %56, %58
   %89 = load i32, ptr %4, align 8
   %90 = add i32 %89, %87
   store i32 %90, ptr %4, align 8
-  %91 = getelementptr inbounds i8, ptr %4, i64 12
+  %91 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i8 1, ptr %91, align 4
   %92 = call i32 @log_alter(ptr noundef nonnull byval(%struct.log_options_t) align 8 %4, i32 noundef 0, ptr noundef null) #14
   br label %93
@@ -509,7 +509,7 @@ thread-pre-split63:                               ; preds = %140
 
 163:                                              ; preds = %162, %.lr.ph.i
   %164 = phi ptr [ %161, %.lr.ph.i ], [ %.pre.i, %162 ]
-  %165 = getelementptr inbounds i8, ptr %164, i64 272
+  %165 = getelementptr inbounds nuw i8, ptr %164, i64 272
   %166 = load ptr, ptr %165, align 8
   %167 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.41, ptr noundef %166)
   %168 = call fastcc i32 @_single_cluster(i32 noundef %0, ptr noundef %1, ptr noundef nonnull %5)
@@ -589,13 +589,13 @@ declare i32 @slurm_addto_char_list(ptr noundef, ptr noundef) local_unnamed_addr 
 
 ; Function Attrs: nofree nounwind uwtable
 define internal fastcc void @_help_format_msg() unnamed_addr #8 {
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @fields, i64 8), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @fields, i64 8), align 8
   %.not9 = icmp eq ptr %1, null
   br i1 %.not9, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %0, %5
   %indvars.iv = phi i64 [ %indvars.iv.next, %5 ], [ 0, %0 ]
-  %2 = phi ptr [ %8, %5 ], [ getelementptr inbounds (i8, ptr @fields, i64 8), %0 ]
+  %2 = phi ptr [ %8, %5 ], [ getelementptr inbounds nuw (i8, ptr @fields, i64 8), %0 ]
   %3 = and i64 %indvars.iv, 3
   %.not5 = icmp eq i64 %3, 0
   br i1 %.not5, label %4, label %.sink.split
@@ -613,7 +613,7 @@ define internal fastcc void @_help_format_msg() unnamed_addr #8 {
   %6 = load ptr, ptr %2, align 8
   %7 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.48, ptr noundef %6)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %8 = getelementptr inbounds [0 x %struct.print_field], ptr @fields, i64 0, i64 %indvars.iv.next, i32 1
+  %8 = getelementptr inbounds nuw [0 x %struct.print_field], ptr @fields, i64 0, i64 %indvars.iv.next, i32 1
   %9 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
@@ -703,24 +703,24 @@ define internal fastcc i32 @_single_cluster(i32 noundef %0, ptr noundef %1, ptr 
   br i1 %.not22, label %34, label %11
 
 11:                                               ; preds = %9
-  %12 = getelementptr inbounds i8, ptr %5, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %13 = load ptr, ptr %4, align 8
   store ptr %13, ptr %12, align 8
   store i32 463606195, ptr %6, align 8
-  %14 = getelementptr inbounds i8, ptr %6, i64 4
-  %15 = getelementptr inbounds i8, ptr %6, i64 8
-  %16 = getelementptr inbounds i8, ptr %6, i64 16
-  %17 = getelementptr inbounds i8, ptr %6, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i32 0, ptr %14, align 4
   %18 = load ptr, ptr @data_parser, align 8
   store ptr %18, ptr %17, align 8
   %19 = call ptr @data_parser_cli_meta(i32 noundef %0, ptr noundef %1, ptr noundef nonnull %10, ptr noundef %18) #14
   store ptr %19, ptr %5, align 8
-  %20 = getelementptr inbounds i8, ptr %5, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %21 = call ptr @list_create(ptr noundef nonnull @free_openapi_resp_error) #14
   store ptr %21, ptr %20, align 8
   store ptr %21, ptr %15, align 8
-  %22 = getelementptr inbounds i8, ptr %5, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %23 = call ptr @list_create(ptr noundef nonnull @free_openapi_resp_warning) #14
   store ptr %23, ptr %22, align 8
   store ptr %23, ptr %16, align 8

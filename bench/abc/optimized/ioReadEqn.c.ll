@@ -24,18 +24,18 @@ define ptr @Io_ReadEqn(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %6 = tail call ptr @Abc_NtkAlloc(i32 noundef 1, i32 noundef 3, i32 noundef 1) #9
   %7 = tail call ptr @Extra_FileReaderGetFileName(ptr noundef nonnull %3) #9
   %8 = tail call ptr @Extra_FileNameGeneric(ptr noundef %7) #9
-  %9 = getelementptr inbounds i8, ptr %6, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %8, ptr %9, align 8
   %10 = tail call ptr @Extra_FileReaderGetFileName(ptr noundef nonnull %3) #9
   %11 = tail call ptr @Extra_UtilStrsav(ptr noundef %10) #9
-  %12 = getelementptr inbounds i8, ptr %6, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %11, ptr %12, align 8
   %13 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #10
-  %14 = getelementptr inbounds i8, ptr %13, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
   store i32 0, ptr %14, align 4
   store i32 100, ptr %13, align 8
   %15 = tail call noalias dereferenceable_or_null(800) ptr @malloc(i64 noundef 800) #10
-  %16 = getelementptr inbounds i8, ptr %13, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %15, ptr %16, align 8
   %17 = load ptr, ptr @stdout, align 8
   %18 = tail call i32 @Extra_FileReaderGetFileSize(ptr noundef nonnull %3) #9
@@ -46,7 +46,7 @@ define ptr @Io_ReadEqn(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
 
 .lr.ph84.i:                                       ; preds = %5
   %.not.i.i = icmp eq ptr %19, null
-  %21 = getelementptr inbounds i8, ptr %6, i64 256
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 256
   br label %22
 
 22:                                               ; preds = %.critedge.i, %.lr.ph84.i
@@ -64,7 +64,7 @@ define ptr @Io_ReadEqn(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   br label %Extra_ProgressBarUpdate.exit.i
 
 Extra_ProgressBarUpdate.exit.i:                   ; preds = %28, %25
-  %29 = getelementptr inbounds i8, ptr %23, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %30 = load ptr, ptr %29, align 8
   %31 = load ptr, ptr %30, align 8
   br label %32
@@ -82,13 +82,13 @@ Extra_ProgressBarUpdate.exit.i:                   ; preds = %28, %25
   ]
 
 34:                                               ; preds = %32
-  %35 = getelementptr inbounds i8, ptr %.0.i.i, i64 1
+  %35 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 1
   store i8 %33, ptr %.0.i.i, align 1
   br label %36
 
 36:                                               ; preds = %34, %32, %32, %32, %32
   %.1.i.i = phi ptr [ %35, %34 ], [ %.0.i.i, %32 ], [ %.0.i.i, %32 ], [ %.0.i.i, %32 ], [ %.0.i.i, %32 ]
-  %37 = getelementptr inbounds i8, ptr %.010.i.i, i64 1
+  %37 = getelementptr inbounds nuw i8, ptr %.010.i.i, i64 1
   br label %32, !llvm.loop !4
 
 Io_ReadEqnStrCompact.exit.i:                      ; preds = %32
@@ -100,7 +100,7 @@ Io_ReadEqnStrCompact.exit.i:                      ; preds = %32
   br i1 %40, label %Io_ReadEqnStrCompact.exit._crit_edge.i, label %41
 
 41:                                               ; preds = %Io_ReadEqnStrCompact.exit.i
-  %42 = getelementptr inbounds i8, ptr %23, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %43 = load i32, ptr %42, align 4
   %.not65.i = icmp eq i32 %43, 2
   br i1 %.not65.i, label %46, label %Io_ReadEqnNetwork.exit.thread
@@ -118,7 +118,7 @@ Io_ReadEqnNetwork.exit.thread:                    ; preds = %41
   br i1 %48, label %49, label %58
 
 49:                                               ; preds = %46
-  %50 = getelementptr inbounds i8, ptr %38, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %51 = load ptr, ptr %50, align 8
   tail call fastcc void @Io_ReadEqnStrCutAt(ptr noundef %51, ptr noundef nonnull @.str.6, i32 noundef 0, ptr noundef nonnull %13)
   %.val80.i = load i32, ptr %14, align 4
@@ -128,7 +128,7 @@ Io_ReadEqnNetwork.exit.thread:                    ; preds = %41
 .lr.ph82.i:                                       ; preds = %49, %.lr.ph82.i
   %indvars.iv87.i = phi i64 [ %indvars.iv.next88.i, %.lr.ph82.i ], [ 0, %49 ]
   %.val69.i = load ptr, ptr %16, align 8
-  %53 = getelementptr inbounds ptr, ptr %.val69.i, i64 %indvars.iv87.i
+  %53 = getelementptr inbounds nuw ptr, ptr %.val69.i, i64 %indvars.iv87.i
   %54 = load ptr, ptr %53, align 8
   %55 = tail call ptr @Io_ReadCreatePi(ptr noundef %6, ptr noundef %54) #9
   %indvars.iv.next88.i = add nuw nsw i64 %indvars.iv87.i, 1
@@ -140,7 +140,7 @@ Io_ReadEqnNetwork.exit.thread:                    ; preds = %41
 58:                                               ; preds = %46
   %59 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %39, ptr noundef nonnull dereferenceable(9) @.str.7, i64 noundef 8) #11
   %60 = icmp eq i32 %59, 0
-  %61 = getelementptr inbounds i8, ptr %38, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %62 = load ptr, ptr %61, align 8
   br i1 %60, label %63, label %.preheader
 
@@ -153,7 +153,7 @@ Io_ReadEqnNetwork.exit.thread:                    ; preds = %41
 .lr.ph.i:                                         ; preds = %63, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %63 ]
   %.val70.i = load ptr, ptr %16, align 8
-  %65 = getelementptr inbounds ptr, ptr %.val70.i, i64 %indvars.iv.i
+  %65 = getelementptr inbounds nuw ptr, ptr %.val70.i, i64 %indvars.iv.i
   %66 = load ptr, ptr %65, align 8
   %67 = tail call ptr @Io_ReadCreatePo(ptr noundef %6, ptr noundef %66) #9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -175,18 +175,18 @@ Io_ReadEqnNetwork.exit.thread:                    ; preds = %41
   ]
 
 71:                                               ; preds = %.preheader
-  %72 = getelementptr inbounds i8, ptr %.0.i73.i, i64 1
+  %72 = getelementptr inbounds nuw i8, ptr %.0.i73.i, i64 1
   store i8 %70, ptr %.0.i73.i, align 1
   br label %73
 
 73:                                               ; preds = %71, %.preheader, %.preheader, %.preheader, %.preheader
   %.1.i74.i = phi ptr [ %72, %71 ], [ %.0.i73.i, %.preheader ], [ %.0.i73.i, %.preheader ], [ %.0.i73.i, %.preheader ], [ %.0.i73.i, %.preheader ]
-  %74 = getelementptr inbounds i8, ptr %.010.i72.i, i64 1
+  %74 = getelementptr inbounds nuw i8, ptr %.010.i72.i, i64 1
   br label %.preheader, !llvm.loop !4
 
 Io_ReadEqnStrCompact.exit75.i:                    ; preds = %.preheader
   store i8 0, ptr %.0.i73.i, align 1
-  %75 = getelementptr inbounds i8, ptr %62, i64 1
+  %75 = getelementptr inbounds nuw i8, ptr %62, i64 1
   %76 = load i8, ptr %75, align 1
   %77 = icmp eq i8 %76, 0
   br i1 %77, label %78, label %82
@@ -215,7 +215,7 @@ Io_ReadEqnStrCompact.exit75.i:                    ; preds = %.preheader
   %86 = load ptr, ptr @stdout, align 8
   %87 = load ptr, ptr %21, align 8
   %88 = tail call ptr @Parse_FormulaParserEqn(ptr noundef %86, ptr noundef nonnull %62, ptr noundef nonnull %13, ptr noundef %87) #9
-  %89 = getelementptr inbounds i8, ptr %85, i64 56
+  %89 = getelementptr inbounds nuw i8, ptr %85, i64 56
   store ptr %88, ptr %89, align 8
   %.not66.i = icmp eq ptr %.061.i, null
   br i1 %.not66.i, label %.critedge.i, label %90
@@ -297,7 +297,7 @@ declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) 
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @Io_ReadEqnStrCutAt(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 0, 2) %2, ptr nocapture noundef initializes((4, 8)) %3) unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %3, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 0, ptr %5, align 4
   %6 = tail call ptr @strtok(ptr noundef %0, ptr noundef %1) #9
   %.not11 = icmp eq ptr %6, null
@@ -389,7 +389,7 @@ Vec_PtrPush.exit.us:                              ; preds = %Vec_PtrGrow.exit.i.
 
 37:                                               ; preds = %42, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %42 ]
-  %38 = getelementptr inbounds ptr, ptr %.val9.i, i64 %indvars.iv.i
+  %38 = getelementptr inbounds nuw ptr, ptr %.val9.i, i64 %indvars.iv.i
   %39 = load ptr, ptr %38, align 8
   %40 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %39, ptr noundef nonnull readonly dereferenceable(1) %.012) #11
   %41 = icmp eq i32 %40, 0

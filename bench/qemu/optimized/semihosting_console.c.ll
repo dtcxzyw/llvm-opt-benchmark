@@ -58,9 +58,9 @@ if.then2:                                         ; preds = %do.end
   %0 = load ptr, ptr getelementptr inbounds (i8, ptr @console, i64 64), align 8
   %call3 = tail call ptr @g_slist_prepend(ptr noundef %0, ptr noundef %cs) #5
   store ptr %call3, ptr getelementptr inbounds (i8, ptr @console, i64 64), align 8
-  %halted = getelementptr inbounds i8, ptr %cs, i64 724
+  %halted = getelementptr inbounds nuw i8, ptr %cs, i64 724
   store i32 1, ptr %halted, align 4
-  %exception_index = getelementptr inbounds i8, ptr %cs, i64 728
+  %exception_index = getelementptr inbounds nuw i8, ptr %cs, i64 728
   store i32 65539, ptr %exception_index, align 8
   tail call void @cpu_loop_exit(ptr noundef %cs) #6
   unreachable
@@ -98,9 +98,9 @@ if.then2.i:                                       ; preds = %do.end.i
   %1 = load ptr, ptr getelementptr inbounds (i8, ptr @console, i64 64), align 8
   %call3.i = tail call ptr @g_slist_prepend(ptr noundef %1, ptr noundef %cs) #5
   store ptr %call3.i, ptr getelementptr inbounds (i8, ptr @console, i64 64), align 8
-  %halted.i = getelementptr inbounds i8, ptr %cs, i64 724
+  %halted.i = getelementptr inbounds nuw i8, ptr %cs, i64 724
   store i32 1, ptr %halted.i, align 4
-  %exception_index.i = getelementptr inbounds i8, ptr %cs, i64 728
+  %exception_index.i = getelementptr inbounds nuw i8, ptr %cs, i64 728
   store i32 65539, ptr %exception_index.i, align 8
   tail call void @cpu_loop_exit(ptr noundef %cs) #6
   unreachable
@@ -193,7 +193,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 do.end:                                           ; preds = %entry
-  %fifo = getelementptr inbounds i8, ptr %opaque, i64 80
+  %fifo = getelementptr inbounds nuw i8, ptr %opaque, i64 80
   %call1 = tail call i32 @fifo8_num_free(ptr noundef nonnull %fifo) #5
   ret i32 %call1
 }
@@ -209,7 +209,7 @@ while.cond.preheader:                             ; preds = %entry
   br i1 %tobool.not5, label %while.end, label %land.rhs.lr.ph
 
 land.rhs.lr.ph:                                   ; preds = %while.cond.preheader
-  %fifo = getelementptr inbounds i8, ptr %opaque, i64 80
+  %fifo = getelementptr inbounds nuw i8, ptr %opaque, i64 80
   br label %land.rhs
 
 if.else:                                          ; preds = %entry
@@ -231,7 +231,7 @@ while.body:                                       ; preds = %land.rhs
   br i1 %tobool.not, label %while.end, label %land.rhs, !llvm.loop !7
 
 while.end:                                        ; preds = %land.rhs, %while.body, %while.cond.preheader
-  %sleeping_cpus = getelementptr inbounds i8, ptr %opaque, i64 64
+  %sleeping_cpus = getelementptr inbounds nuw i8, ptr %opaque, i64 64
   %1 = load ptr, ptr %sleeping_cpus, align 8
   tail call void @g_slist_foreach(ptr noundef %1, ptr noundef nonnull @console_wake_up, ptr noundef null) #5
   store ptr null, ptr %sleeping_cpus, align 8
@@ -251,7 +251,7 @@ declare void @g_slist_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnam
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @console_wake_up(ptr noundef initializes((724, 728)) %data, ptr nocapture readnone %user_data) #0 {
 entry:
-  %halted = getelementptr inbounds i8, ptr %data, i64 724
+  %halted = getelementptr inbounds nuw i8, ptr %data, i64 724
   store i32 0, ptr %halted, align 4
   tail call void @qemu_cpu_kick(ptr noundef %data) #5
   ret void

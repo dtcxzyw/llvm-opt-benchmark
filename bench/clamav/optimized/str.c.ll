@@ -25,7 +25,7 @@ define range(i32 0, 2) i32 @cli_realhex2ui(ptr nocapture noundef readonly %0, pt
   %.041 = phi i32 [ %50, %48 ], [ 0, %3 ]
   %.03440 = phi ptr [ %49, %48 ], [ %1, %3 ]
   %4 = zext i32 %.041 to i64
-  %5 = getelementptr inbounds i8, ptr %0, i64 %4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 %4
   %6 = load i8, ptr %5, align 1
   %7 = icmp eq i8 %6, 63
   %8 = or disjoint i32 %.041, 1
@@ -33,20 +33,20 @@ define range(i32 0, 2) i32 @cli_realhex2ui(ptr nocapture noundef readonly %0, pt
   br i1 %7, label %10, label %.lr.ph._crit_edge
 
 10:                                               ; preds = %.lr.ph
-  %11 = getelementptr inbounds i8, ptr %0, i64 %9
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 %9
   %12 = load i8, ptr %11, align 1
   %13 = icmp eq i8 %12, 63
   br i1 %13, label %48, label %.lr.ph._crit_edge
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %10
-  %14 = getelementptr inbounds i8, ptr %0, i64 %9
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 %9
   %15 = load i8, ptr %14, align 1
   %16 = icmp eq i8 %15, 63
   br i1 %16, label %17, label %25
 
 17:                                               ; preds = %.lr.ph._crit_edge
   %18 = zext i8 %6 to i64
-  %19 = getelementptr inbounds [256 x i32], ptr @hex_chars, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw [256 x i32], ptr @hex_chars, i64 0, i64 %18
   %20 = load i32, ptr %19, align 4
   %21 = icmp sgt i32 %20, -1
   br i1 %21, label %22, label %._crit_edge
@@ -65,7 +65,7 @@ define range(i32 0, 2) i32 @cli_realhex2ui(ptr nocapture noundef readonly %0, pt
 
 26:                                               ; preds = %25
   %27 = zext i8 %15 to i64
-  %28 = getelementptr inbounds [256 x i32], ptr @hex_chars, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw [256 x i32], ptr @hex_chars, i64 0, i64 %27
   %29 = load i32, ptr %28, align 4
   %30 = icmp sgt i32 %29, -1
   br i1 %30, label %31, label %._crit_edge
@@ -77,14 +77,14 @@ define range(i32 0, 2) i32 @cli_realhex2ui(ptr nocapture noundef readonly %0, pt
 
 34:                                               ; preds = %25
   %35 = zext i8 %6 to i64
-  %36 = getelementptr inbounds [256 x i32], ptr @hex_chars, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw [256 x i32], ptr @hex_chars, i64 0, i64 %35
   %37 = load i32, ptr %36, align 4
   %38 = icmp sgt i32 %37, -1
   br i1 %38, label %39, label %._crit_edge
 
 39:                                               ; preds = %34
   %40 = zext i8 %15 to i64
-  %41 = getelementptr inbounds [256 x i32], ptr @hex_chars, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw [256 x i32], ptr @hex_chars, i64 0, i64 %40
   %42 = load i32, ptr %41, align 4
   %43 = icmp sgt i32 %42, -1
   br i1 %43, label %44, label %._crit_edge
@@ -97,7 +97,7 @@ define range(i32 0, 2) i32 @cli_realhex2ui(ptr nocapture noundef readonly %0, pt
 
 48:                                               ; preds = %25, %10, %22, %44, %31
   %.032 = phi i16 [ %24, %22 ], [ %33, %31 ], [ %47, %44 ], [ 256, %10 ], [ 512, %25 ]
-  %49 = getelementptr inbounds i8, ptr %.03440, i64 2
+  %49 = getelementptr inbounds nuw i8, ptr %.03440, i64 2
   store i16 %.032, ptr %.03440, align 2
   %50 = add i32 %.041, 2
   %51 = icmp ult i32 %50, %2
@@ -136,12 +136,12 @@ define ptr @cli_hex2ui(ptr noundef %0) local_unnamed_addr #1 {
   %.041.i = phi i32 [ %54, %52 ], [ 0, %11 ]
   %.03440.i = phi ptr [ %53, %52 ], [ %10, %11 ]
   %12 = zext i32 %.041.i to i64
-  %13 = getelementptr inbounds i8, ptr %0, i64 %12
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 %12
   %14 = load i8, ptr %13, align 1
   %15 = icmp eq i8 %14, 63
   %16 = or disjoint i32 %.041.i, 1
   %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds i8, ptr %0, i64 %17
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %17
   %19 = load i8, ptr %18, align 1
   %20 = icmp eq i8 %19, 63
   br i1 %15, label %21, label %.lr.ph._crit_edge.i
@@ -154,7 +154,7 @@ define ptr @cli_hex2ui(ptr noundef %0) local_unnamed_addr #1 {
 
 22:                                               ; preds = %.lr.ph._crit_edge.i
   %23 = zext i8 %14 to i64
-  %24 = getelementptr inbounds [256 x i32], ptr @hex_chars, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw [256 x i32], ptr @hex_chars, i64 0, i64 %23
   %25 = load i32, ptr %24, align 4
   %26 = icmp sgt i32 %25, -1
   br i1 %26, label %27, label %56
@@ -171,7 +171,7 @@ define ptr @cli_hex2ui(ptr noundef %0) local_unnamed_addr #1 {
 
 .thread:                                          ; preds = %21
   %31 = zext i8 %19 to i64
-  %32 = getelementptr inbounds [256 x i32], ptr @hex_chars, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw [256 x i32], ptr @hex_chars, i64 0, i64 %31
   %33 = load i32, ptr %32, align 4
   %34 = icmp sgt i32 %33, -1
   br i1 %34, label %35, label %56
@@ -183,14 +183,14 @@ define ptr @cli_hex2ui(ptr noundef %0) local_unnamed_addr #1 {
 
 38:                                               ; preds = %30
   %39 = zext i8 %14 to i64
-  %40 = getelementptr inbounds [256 x i32], ptr @hex_chars, i64 0, i64 %39
+  %40 = getelementptr inbounds nuw [256 x i32], ptr @hex_chars, i64 0, i64 %39
   %41 = load i32, ptr %40, align 4
   %42 = icmp sgt i32 %41, -1
   br i1 %42, label %43, label %56
 
 43:                                               ; preds = %38
   %44 = zext i8 %19 to i64
-  %45 = getelementptr inbounds [256 x i32], ptr @hex_chars, i64 0, i64 %44
+  %45 = getelementptr inbounds nuw [256 x i32], ptr @hex_chars, i64 0, i64 %44
   %46 = load i32, ptr %45, align 4
   %47 = icmp sgt i32 %46, -1
   br i1 %47, label %48, label %56
@@ -203,7 +203,7 @@ define ptr @cli_hex2ui(ptr noundef %0) local_unnamed_addr #1 {
 
 52:                                               ; preds = %30, %48, %35, %27, %21
   %.032.i = phi i16 [ %29, %27 ], [ %37, %35 ], [ %51, %48 ], [ 256, %21 ], [ 512, %30 ]
-  %53 = getelementptr inbounds i8, ptr %.03440.i, i64 2
+  %53 = getelementptr inbounds nuw i8, ptr %.03440.i, i64 2
   store i16 %.032.i, ptr %.03440.i, align 2
   %54 = add i32 %.041.i, 2
   %55 = icmp ult i32 %54, %3
@@ -257,7 +257,7 @@ define ptr @cli_hex2str(ptr noundef %0) local_unnamed_addr #1 {
   %11 = getelementptr inbounds i8, ptr %0, i64 %.017.i
   %12 = load i8, ptr %11, align 1
   %13 = zext i8 %12 to i64
-  %14 = getelementptr inbounds [256 x i32], ptr @hex_chars, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw [256 x i32], ptr @hex_chars, i64 0, i64 %13
   %15 = load i32, ptr %14, align 4
   %16 = icmp sgt i32 %15, -1
   br i1 %16, label %17, label %32
@@ -267,7 +267,7 @@ define ptr @cli_hex2str(ptr noundef %0) local_unnamed_addr #1 {
   %19 = getelementptr inbounds i8, ptr %0, i64 %18
   %20 = load i8, ptr %19, align 1
   %21 = zext i8 %20 to i64
-  %22 = getelementptr inbounds [256 x i32], ptr @hex_chars, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw [256 x i32], ptr @hex_chars, i64 0, i64 %21
   %23 = load i32, ptr %22, align 4
   %24 = icmp sgt i32 %23, -1
   br i1 %24, label %25, label %32
@@ -276,7 +276,7 @@ define ptr @cli_hex2str(ptr noundef %0) local_unnamed_addr #1 {
   %26 = shl i32 %15, 4
   %27 = add i32 %23, %26
   %28 = trunc i32 %27 to i8
-  %29 = getelementptr inbounds i8, ptr %.01316.i, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %.01316.i, i64 1
   store i8 %28, ptr %.01316.i, align 1
   %30 = add i64 %.017.i, 2
   %31 = icmp ult i64 %30, %2
@@ -302,7 +302,7 @@ define range(i32 -1, 1) i32 @cli_hex2str_to(ptr nocapture noundef readonly %0, p
   %4 = getelementptr inbounds i8, ptr %0, i64 %.017
   %5 = load i8, ptr %4, align 1
   %6 = zext i8 %5 to i64
-  %7 = getelementptr inbounds [256 x i32], ptr @hex_chars, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw [256 x i32], ptr @hex_chars, i64 0, i64 %6
   %8 = load i32, ptr %7, align 4
   %9 = icmp sgt i32 %8, -1
   br i1 %9, label %10, label %._crit_edge
@@ -312,7 +312,7 @@ define range(i32 -1, 1) i32 @cli_hex2str_to(ptr nocapture noundef readonly %0, p
   %12 = getelementptr inbounds i8, ptr %0, i64 %11
   %13 = load i8, ptr %12, align 1
   %14 = zext i8 %13 to i64
-  %15 = getelementptr inbounds [256 x i32], ptr @hex_chars, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw [256 x i32], ptr @hex_chars, i64 0, i64 %14
   %16 = load i32, ptr %15, align 4
   %17 = icmp sgt i32 %16, -1
   br i1 %17, label %18, label %._crit_edge
@@ -321,7 +321,7 @@ define range(i32 -1, 1) i32 @cli_hex2str_to(ptr nocapture noundef readonly %0, p
   %19 = shl i32 %8, 4
   %20 = add i32 %16, %19
   %21 = trunc i32 %20 to i8
-  %22 = getelementptr inbounds i8, ptr %.01316, i64 1
+  %22 = getelementptr inbounds nuw i8, ptr %.01316, i64 1
   store i8 %21, ptr %.01316, align 1
   %23 = add i64 %.017, 2
   %24 = icmp ult i64 %23, %2
@@ -355,10 +355,10 @@ define i32 @cli_hex2num(ptr noundef %0) local_unnamed_addr #1 {
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %13
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %13 ]
   %.01315 = phi i32 [ 0, %.lr.ph.preheader ], [ %15, %13 ]
-  %7 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %8 = load i8, ptr %7, align 1
   %9 = zext i8 %8 to i64
-  %10 = getelementptr inbounds [256 x i32], ptr @hex_chars, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw [256 x i32], ptr @hex_chars, i64 0, i64 %9
   %11 = load i32, ptr %10, align 4
   %12 = icmp slt i32 %11, 0
   br i1 %12, label %.loopexit, label %13
@@ -394,10 +394,10 @@ define i32 @cli_xtoi(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
 .lr.ph.i:                                         ; preds = %13, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %13 ]
   %.01315.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %15, %13 ]
-  %7 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.i
   %8 = load i8, ptr %7, align 1
   %9 = zext i8 %8 to i64
-  %10 = getelementptr inbounds [256 x i32], ptr @hex_chars, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw [256 x i32], ptr @hex_chars, i64 0, i64 %9
   %11 = load i32, ptr %10, align 4
   %12 = icmp slt i32 %11, 0
   br i1 %12, label %cli_hex2num.exit, label %13
@@ -431,10 +431,10 @@ define i32 @cli_xtoi(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %23 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %24 = load i8, ptr %23, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %25 = getelementptr inbounds i8, ptr %19, i64 %indvars.iv.next
+  %25 = getelementptr inbounds nuw i8, ptr %19, i64 %indvars.iv.next
   store i8 %24, ptr %25, align 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
@@ -461,10 +461,10 @@ define i32 @cli_xtoi(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
 .lr.ph.i22:                                       ; preds = %37, %.lr.ph.preheader.i20
   %indvars.iv.i23 = phi i64 [ 0, %.lr.ph.preheader.i20 ], [ %indvars.iv.next.i25, %37 ]
   %.01315.i24 = phi i32 [ 0, %.lr.ph.preheader.i20 ], [ %39, %37 ]
-  %31 = getelementptr inbounds i8, ptr %19, i64 %indvars.iv.i23
+  %31 = getelementptr inbounds nuw i8, ptr %19, i64 %indvars.iv.i23
   %32 = load i8, ptr %31, align 1
   %33 = zext i8 %32 to i64
-  %34 = getelementptr inbounds [256 x i32], ptr @hex_chars, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw [256 x i32], ptr @hex_chars, i64 0, i64 %33
   %35 = load i32, ptr %34, align 4
   %36 = icmp slt i32 %35, 0
   br i1 %36, label %cli_hex2num.exit27, label %37
@@ -504,23 +504,23 @@ define ptr @cli_str2hex(ptr nocapture noundef readonly %0, i32 noundef %1) local
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.018 = phi i32 [ 0, %.lr.ph.preheader ], [ %25, %.lr.ph ]
-  %9 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %10 = load i8, ptr %9, align 1
   %11 = lshr i8 %10, 4
   %12 = zext nneg i8 %11 to i64
-  %13 = getelementptr inbounds [16 x i8], ptr @__const.cli_str2hex.HEX, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw [16 x i8], ptr @__const.cli_str2hex.HEX, i64 0, i64 %12
   %14 = load i8, ptr %13, align 1
   %15 = zext i32 %.018 to i64
-  %16 = getelementptr inbounds i8, ptr %6, i64 %15
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 %15
   store i8 %14, ptr %16, align 1
   %17 = load i8, ptr %9, align 1
   %18 = and i8 %17, 15
   %19 = zext nneg i8 %18 to i64
-  %20 = getelementptr inbounds [16 x i8], ptr @__const.cli_str2hex.HEX, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw [16 x i8], ptr @__const.cli_str2hex.HEX, i64 0, i64 %19
   %21 = load i8, ptr %20, align 1
   %22 = or disjoint i32 %.018, 1
   %23 = zext i32 %22 to i64
-  %24 = getelementptr inbounds i8, ptr %6, i64 %23
+  %24 = getelementptr inbounds nuw i8, ptr %6, i64 %23
   store i8 %21, ptr %24, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %25 = add i32 %.018, 2
@@ -583,7 +583,7 @@ define range(i32 -2147483647, -2147483648) i32 @cli_chomp(ptr noundef %0) local_
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.critedge2
   %indvars.iv = phi i64 [ %8, %.lr.ph.preheader ], [ %indvars.iv.next, %.critedge2 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %9 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.next
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.next
   %10 = load i8, ptr %9, align 1
   switch i8 %10, label %.critedge.loopexit.split.loop.exit24 [
     i8 10, label %.critedge2
@@ -850,12 +850,12 @@ define ptr @cli_memstr(ptr noundef readonly %0, i64 noundef %1, ptr noundef read
   br label %.loopexit
 
 14:                                               ; preds = %8
-  %15 = getelementptr inbounds i8, ptr %2, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %16 = load i8, ptr %15, align 1
   %17 = icmp eq i8 %10, %16
   %. = select i1 %17, i64 2, i64 1
   %.44 = select i1 %17, i64 1, i64 2
-  %18 = getelementptr inbounds i8, ptr %2, i64 2
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %19 = sub i64 %1, %3
   %20 = add i64 %3, -2
   br label %21
@@ -874,7 +874,7 @@ define ptr @cli_memstr(ptr noundef readonly %0, i64 noundef %1, ptr noundef read
   br i1 %27, label %28, label %30
 
 28:                                               ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %22, i64 2
+  %29 = getelementptr inbounds nuw i8, ptr %22, i64 2
   %bcmp = tail call i32 @bcmp(ptr nonnull %18, ptr nonnull %29, i64 %20)
   %.not42 = icmp eq i32 %bcmp, 0
   br i1 %.not42, label %.loopexit, label %30
@@ -907,9 +907,9 @@ define noundef ptr @cli_strrcpy(ptr noundef writeonly %0, ptr noundef readonly %
 .preheader:                                       ; preds = %2, %.preheader
   %.07 = phi ptr [ %8, %.preheader ], [ %0, %2 ]
   %.0 = phi ptr [ %6, %.preheader ], [ %1, %2 ]
-  %6 = getelementptr inbounds i8, ptr %.0, i64 1
+  %6 = getelementptr inbounds nuw i8, ptr %.0, i64 1
   %7 = load i8, ptr %.0, align 1
-  %8 = getelementptr inbounds i8, ptr %.07, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %.07, i64 1
   store i8 %7, ptr %.07, align 1
   %.not = icmp eq i8 %7, 0
   br i1 %.not, label %.loopexit, label %.preheader
@@ -931,9 +931,9 @@ define noundef ptr @__cli_strcasestr(ptr noundef readonly %0, ptr nocapture noun
   store i8 %9, ptr %3, align 1
   %10 = tail call i32 @toupper(i32 noundef %7) #22
   %11 = trunc i32 %10 to i8
-  %12 = getelementptr inbounds i8, ptr %3, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 %11, ptr %12, align 1
-  %13 = getelementptr inbounds i8, ptr %3, i64 2
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 2
   store i8 0, ptr %13, align 1
   %14 = call i64 @strcspn(ptr noundef %0, ptr noundef nonnull %3) #22
   %.not17 = icmp eq i64 %14, %4
@@ -947,7 +947,7 @@ define noundef ptr @__cli_strcasestr(ptr noundef readonly %0, ptr nocapture noun
   br i1 %17, label %._crit_edge, label %18
 
 18:                                               ; preds = %.lr.ph
-  %19 = getelementptr inbounds i8, ptr %15, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 1
   %20 = call i64 @strcspn(ptr noundef nonnull %19, ptr noundef nonnull %3) #22
   %21 = add i64 %.01618, 1
   %22 = add i64 %21, %20
@@ -1024,7 +1024,7 @@ define i64 @__cli_strnlen(ptr nocapture noundef readonly %0, i64 noundef %1) loc
 
 ; Function Attrs: nofree nounwind memory(argmem: read) uwtable
 define ptr @__cli_strnstr(ptr noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #10 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 1
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %5 = load i8, ptr %1, align 1
   %.not = icmp eq i8 %5, 0
   br i1 %.not, label %.loopexit, label %6
@@ -1046,7 +1046,7 @@ define ptr @__cli_strnstr(ptr noundef readonly %0, ptr nocapture noundef readonl
   br i1 %13, label %.loopexit, label %14
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %.2, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %.2, i64 1
   %.not20 = icmp eq i8 %12, %5
   br i1 %.not20, label %16, label %.backedge
 
@@ -1105,7 +1105,7 @@ define i64 @cli_strtokenize(ptr noundef %0, i8 noundef signext %1, i64 noundef %
   br label %.loopexit
 
 17:                                               ; preds = %6
-  %18 = getelementptr inbounds i8, ptr %9, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %9, i64 1
   store i8 0, ptr %9, align 1
   %exitcond.not = icmp eq i64 %7, %2
   br i1 %exitcond.not, label %.loopexit, label %6
@@ -1137,7 +1137,7 @@ define i64 @cli_strntol(ptr noundef %0, i64 noundef %1, ptr noundef writeonly %2
   br i1 %.not, label %.critedge, label %15
 
 15:                                               ; preds = %9
-  %16 = getelementptr inbounds i8, ptr %.185, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %.185, i64 1
   %17 = icmp ult ptr %16, %8
   br i1 %17, label %9, label %.critedge
 
@@ -1151,7 +1151,7 @@ define i64 @cli_strntol(ptr noundef %0, i64 noundef %1, ptr noundef writeonly %2
   br i1 %.not105, label %19, label %22
 
 19:                                               ; preds = %18
-  %20 = getelementptr inbounds i8, ptr %.286, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %.286, i64 1
   %21 = load i8, ptr %.286, align 1
   %.not102 = icmp ult ptr %20, %8
   br i1 %.not102, label %27, label %.thread152
@@ -1161,7 +1161,7 @@ define i64 @cli_strntol(ptr noundef %0, i64 noundef %1, ptr noundef writeonly %2
   br i1 %23, label %24, label %27
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds i8, ptr %.286, i64 1
+  %25 = getelementptr inbounds nuw i8, ptr %.286, i64 1
   %26 = load i8, ptr %.286, align 1
   %.not101 = icmp ult ptr %25, %8
   br i1 %.not101, label %27, label %.thread152
@@ -1177,7 +1177,7 @@ define i64 @cli_strntol(ptr noundef %0, i64 noundef %1, ptr noundef writeonly %2
   br i1 %or.cond3, label %30, label %38
 
 30:                                               ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %.3, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %.3, i64 1
   %32 = icmp ult ptr %31, %8
   br i1 %32, label %33, label %.thread
 
@@ -1189,7 +1189,7 @@ define i64 @cli_strntol(ptr noundef %0, i64 noundef %1, ptr noundef writeonly %2
   ]
 
 35:                                               ; preds = %33, %33
-  %36 = getelementptr inbounds i8, ptr %.3, i64 2
+  %36 = getelementptr inbounds nuw i8, ptr %.3, i64 2
   %.not103 = icmp ult ptr %36, %8
   br i1 %.not103, label %.thread127, label %.thread152
 
@@ -1273,7 +1273,7 @@ define i64 @cli_strntol(ptr noundef %0, i64 noundef %1, ptr noundef writeonly %2
 74:                                               ; preds = %64, %67, %70
   %.283 = phi i64 [ %73, %70 ], [ %47, %67 ], [ %.182134, %64 ]
   %.2 = phi i32 [ 1, %70 ], [ -1, %67 ], [ -1, %64 ]
-  %75 = getelementptr inbounds i8, ptr %.5133, i64 1
+  %75 = getelementptr inbounds nuw i8, ptr %.5133, i64 1
   %76 = icmp ult ptr %75, %8
   br i1 %76, label %.lr.ph, label %._crit_edge
 
@@ -1334,7 +1334,7 @@ define i64 @cli_strntoul(ptr noundef %0, i64 noundef %1, ptr noundef writeonly %
   br i1 %.not, label %.critedge, label %14
 
 14:                                               ; preds = %8
-  %15 = getelementptr inbounds i8, ptr %.073, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %.073, i64 1
   %16 = icmp ult ptr %15, %7
   br i1 %16, label %8, label %.critedge
 
@@ -1348,7 +1348,7 @@ define i64 @cli_strntoul(ptr noundef %0, i64 noundef %1, ptr noundef writeonly %
   br i1 %.not104, label %18, label %21
 
 18:                                               ; preds = %17
-  %19 = getelementptr inbounds i8, ptr %.174, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %.174, i64 1
   %20 = load i8, ptr %.174, align 1
   %.not97 = icmp ult ptr %19, %7
   br i1 %.not97, label %26, label %.thread147
@@ -1358,7 +1358,7 @@ define i64 @cli_strntoul(ptr noundef %0, i64 noundef %1, ptr noundef writeonly %
   br i1 %22, label %23, label %26
 
 23:                                               ; preds = %21
-  %24 = getelementptr inbounds i8, ptr %.174, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %.174, i64 1
   %25 = load i8, ptr %.174, align 1
   %.not96 = icmp ult ptr %24, %7
   br i1 %.not96, label %26, label %.thread147
@@ -1374,7 +1374,7 @@ define i64 @cli_strntoul(ptr noundef %0, i64 noundef %1, ptr noundef writeonly %
   br i1 %or.cond3, label %29, label %37
 
 29:                                               ; preds = %26
-  %30 = getelementptr inbounds i8, ptr %.3, i64 1
+  %30 = getelementptr inbounds nuw i8, ptr %.3, i64 1
   %31 = icmp ult ptr %30, %7
   br i1 %31, label %32, label %.thread
 
@@ -1386,7 +1386,7 @@ define i64 @cli_strntoul(ptr noundef %0, i64 noundef %1, ptr noundef writeonly %
   ]
 
 34:                                               ; preds = %32, %32
-  %35 = getelementptr inbounds i8, ptr %.3, i64 2
+  %35 = getelementptr inbounds nuw i8, ptr %.3, i64 2
   %.not98 = icmp ult ptr %35, %7
   br i1 %.not98, label %.thread122, label %.thread147
 
@@ -1469,7 +1469,7 @@ define i64 @cli_strntoul(ptr noundef %0, i64 noundef %1, ptr noundef writeonly %
 72:                                               ; preds = %62, %65, %68
   %.281 = phi i64 [ %71, %68 ], [ %43, %65 ], [ %.180128, %62 ]
   %.2 = phi i32 [ 1, %68 ], [ -1, %65 ], [ -1, %62 ]
-  %73 = getelementptr inbounds i8, ptr %.5129, i64 1
+  %73 = getelementptr inbounds nuw i8, ptr %.5129, i64 1
   %74 = icmp ult ptr %73, %7
   br i1 %74, label %.lr.ph, label %._crit_edge
 
@@ -1712,7 +1712,7 @@ define range(i32 0, 2) i32 @cli_isnumber(ptr noundef readonly %0) local_unnamed_
   br i1 %.not, label %.loopexit, label %4
 
 4:                                                ; preds = %.preheader
-  %5 = getelementptr inbounds i8, ptr %.0, i64 1
+  %5 = getelementptr inbounds nuw i8, ptr %.0, i64 1
   %6 = zext nneg i8 %3 to i64
   %memchr.bounds = icmp ugt i8 %3, 63
   %7 = shl nuw i64 1, %6
@@ -1832,12 +1832,12 @@ define ptr @cli_unescape(ptr nocapture noundef readonly %0) local_unnamed_addr #
 
 63:                                               ; preds = %56
   %64 = zext i8 %51 to i64
-  %65 = getelementptr inbounds [256 x i32], ptr @hex_chars, i64 0, i64 %64
+  %65 = getelementptr inbounds nuw [256 x i32], ptr @hex_chars, i64 0, i64 %64
   %66 = load i32, ptr %65, align 4
   %67 = tail call i32 @llvm.smax.i32(i32 %66, i32 0)
   %spec.select = shl i32 %67, 4
   %68 = zext i8 %58 to i64
-  %69 = getelementptr inbounds [256 x i32], ptr @hex_chars, i64 0, i64 %68
+  %69 = getelementptr inbounds nuw [256 x i32], ptr @hex_chars, i64 0, i64 %68
   %70 = load i32, ptr %69, align 4
   %71 = or i32 %spec.select, %70
   %72 = trunc i32 %71 to i8
@@ -1845,23 +1845,23 @@ define ptr @cli_unescape(ptr nocapture noundef readonly %0) local_unnamed_addr #
 
 73:                                               ; preds = %37
   %74 = zext i8 %18 to i64
-  %75 = getelementptr inbounds [256 x i32], ptr @hex_chars, i64 0, i64 %74
+  %75 = getelementptr inbounds nuw [256 x i32], ptr @hex_chars, i64 0, i64 %74
   %76 = load i32, ptr %75, align 4
   %77 = tail call i32 @llvm.smax.i32(i32 %76, i32 0)
   %spec.select80 = shl i32 %77, 12
   %78 = zext i8 %25 to i64
-  %79 = getelementptr inbounds [256 x i32], ptr @hex_chars, i64 0, i64 %78
+  %79 = getelementptr inbounds nuw [256 x i32], ptr @hex_chars, i64 0, i64 %78
   %80 = load i32, ptr %79, align 4
   %81 = tail call i32 @llvm.smax.i32(i32 %80, i32 0)
   %82 = shl i32 %81, 8
   %83 = or i32 %82, %spec.select80
   %84 = zext i8 %32 to i64
-  %85 = getelementptr inbounds [256 x i32], ptr @hex_chars, i64 0, i64 %84
+  %85 = getelementptr inbounds nuw [256 x i32], ptr @hex_chars, i64 0, i64 %84
   %86 = load i32, ptr %85, align 4
   %87 = tail call i32 @llvm.smax.i32(i32 %86, i32 0)
   %88 = shl i32 %87, 4
   %89 = zext i8 %39 to i64
-  %90 = getelementptr inbounds [256 x i32], ptr @hex_chars, i64 0, i64 %89
+  %90 = getelementptr inbounds nuw [256 x i32], ptr @hex_chars, i64 0, i64 %89
   %91 = load i32, ptr %90, align 4
   %92 = or i32 %83, %91
   %93 = or i32 %92, %88
@@ -1885,7 +1885,7 @@ define ptr @cli_unescape(ptr nocapture noundef readonly %0) local_unnamed_addr #
 
 101:                                              ; preds = %97
   %102 = icmp ult i16 %94, 2048
-  %103 = getelementptr inbounds i8, ptr %95, i64 1
+  %103 = getelementptr inbounds nuw i8, ptr %95, i64 1
   br i1 %102, label %104, label %111
 
 104:                                              ; preds = %101
@@ -1908,7 +1908,7 @@ define ptr @cli_unescape(ptr nocapture noundef readonly %0) local_unnamed_addr #
   %116 = trunc i32 %115 to i8
   %117 = and i8 %116, 63
   %118 = or disjoint i8 %117, -128
-  %119 = getelementptr inbounds i8, ptr %95, i64 2
+  %119 = getelementptr inbounds nuw i8, ptr %95, i64 2
   store i8 %118, ptr %103, align 1
   %120 = trunc i32 %93 to i8
   %121 = and i8 %120, 63
@@ -1958,8 +1958,8 @@ define range(i32 -1, 1) i32 @cli_textbuffer_append_normalize(ptr nocapture nound
   br i1 %.not, label %textbuffer_ensure_capacity.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %6
 
 6:                                                ; preds = %.lr.ph, %128
@@ -2016,14 +2016,14 @@ define range(i32 -1, 1) i32 @cli_textbuffer_append_normalize(ptr nocapture nound
   %26 = getelementptr i8, ptr %7, i64 2
   %27 = load i8, ptr %26, align 1
   %28 = zext i8 %27 to i64
-  %29 = getelementptr inbounds [256 x i32], ptr @hex_chars, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw [256 x i32], ptr @hex_chars, i64 0, i64 %28
   %30 = load i32, ptr %29, align 4
   %31 = tail call i32 @llvm.smax.i32(i32 %30, i32 0)
   %spec.select = shl i32 %31, 4
   %32 = getelementptr inbounds i8, ptr %1, i64 %23
   %33 = load i8, ptr %32, align 1
   %34 = zext i8 %33 to i64
-  %35 = getelementptr inbounds [256 x i32], ptr @hex_chars, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw [256 x i32], ptr @hex_chars, i64 0, i64 %34
   %36 = load i32, ptr %35, align 4
   %37 = or i32 %spec.select, %36
   %38 = trunc i32 %37 to i8
@@ -2038,14 +2038,14 @@ define range(i32 -1, 1) i32 @cli_textbuffer_append_normalize(ptr nocapture nound
   %43 = getelementptr i8, ptr %7, i64 2
   %44 = load i8, ptr %43, align 1
   %45 = zext i8 %44 to i64
-  %46 = getelementptr inbounds [256 x i32], ptr @hex_chars, i64 0, i64 %45
+  %46 = getelementptr inbounds nuw [256 x i32], ptr @hex_chars, i64 0, i64 %45
   %47 = load i32, ptr %46, align 4
   %48 = tail call i32 @llvm.smax.i32(i32 %47, i32 0)
   %spec.select59 = shl i32 %48, 12
   %49 = getelementptr i8, ptr %7, i64 3
   %50 = load i8, ptr %49, align 1
   %51 = zext i8 %50 to i64
-  %52 = getelementptr inbounds [256 x i32], ptr @hex_chars, i64 0, i64 %51
+  %52 = getelementptr inbounds nuw [256 x i32], ptr @hex_chars, i64 0, i64 %51
   %53 = load i32, ptr %52, align 4
   %54 = tail call i32 @llvm.smax.i32(i32 %53, i32 0)
   %55 = shl i32 %54, 8
@@ -2053,14 +2053,14 @@ define range(i32 -1, 1) i32 @cli_textbuffer_append_normalize(ptr nocapture nound
   %57 = getelementptr i8, ptr %7, i64 4
   %58 = load i8, ptr %57, align 1
   %59 = zext i8 %58 to i64
-  %60 = getelementptr inbounds [256 x i32], ptr @hex_chars, i64 0, i64 %59
+  %60 = getelementptr inbounds nuw [256 x i32], ptr @hex_chars, i64 0, i64 %59
   %61 = load i32, ptr %60, align 4
   %62 = tail call i32 @llvm.smax.i32(i32 %61, i32 0)
   %63 = shl i32 %62, 4
   %64 = getelementptr inbounds i8, ptr %1, i64 %40
   %65 = load i8, ptr %64, align 1
   %66 = zext i8 %65 to i64
-  %67 = getelementptr inbounds [256 x i32], ptr @hex_chars, i64 0, i64 %66
+  %67 = getelementptr inbounds nuw [256 x i32], ptr @hex_chars, i64 0, i64 %66
   %68 = load i32, ptr %67, align 4
   %69 = load i64, ptr %4, align 8
   %70 = add i64 %69, 4
@@ -2108,7 +2108,7 @@ define range(i32 -1, 1) i32 @cli_textbuffer_append_normalize(ptr nocapture nound
 
 90:                                               ; preds = %86
   %91 = icmp ult i16 %83, 2048
-  %92 = getelementptr inbounds i8, ptr %84, i64 1
+  %92 = getelementptr inbounds nuw i8, ptr %84, i64 1
   br i1 %91, label %93, label %100
 
 93:                                               ; preds = %90
@@ -2131,7 +2131,7 @@ define range(i32 -1, 1) i32 @cli_textbuffer_append_normalize(ptr nocapture nound
   %105 = trunc i32 %104 to i8
   %106 = and i8 %105, 63
   %107 = or disjoint i8 %106, -128
-  %108 = getelementptr inbounds i8, ptr %84, i64 2
+  %108 = getelementptr inbounds nuw i8, ptr %84, i64 2
   store i8 %107, ptr %92, align 1
   %109 = trunc i32 %82 to i8
   %110 = and i8 %109, 63
@@ -2206,10 +2206,10 @@ define range(i32 0, 2) i32 @cli_hexnibbles(ptr nocapture noundef %0, i32 noundef
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %10
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %10 ]
-  %4 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %5 = load i8, ptr %4, align 1
   %6 = zext i8 %5 to i64
-  %7 = getelementptr inbounds [256 x i32], ptr @hex_chars, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw [256 x i32], ptr @hex_chars, i64 0, i64 %6
   %8 = load i32, ptr %7, align 4
   %9 = icmp slt i32 %8, 0
   br i1 %9, label %._crit_edge, label %10

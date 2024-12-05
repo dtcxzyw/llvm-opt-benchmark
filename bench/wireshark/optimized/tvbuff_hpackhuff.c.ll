@@ -33,7 +33,7 @@ define ptr @tvb_get_hpack_huffman_strbuf(ptr noundef %0, ptr noundef %1, i32 nou
   br i1 %.not22.i, label %22, label %19
 
 19:                                               ; preds = %.lr.ph.i
-  %20 = getelementptr inbounds i8, ptr %17, i64 2
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 2
   %21 = load i8, ptr %20, align 2
   tail call void @wmem_strbuf_append_c(ptr noundef %8, i8 noundef signext %21) #2
   br label %22
@@ -49,7 +49,7 @@ define ptr @tvb_get_hpack_huffman_strbuf(ptr noundef %0, ptr noundef %1, i32 nou
   br i1 %.not23.i, label %32, label %29
 
 29:                                               ; preds = %22
-  %30 = getelementptr inbounds i8, ptr %27, i64 2
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 2
   %31 = load i8, ptr %30, align 2
   tail call void @wmem_strbuf_append_c(ptr noundef %8, i8 noundef signext %31) #2
   br label %32

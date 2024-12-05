@@ -40,15 +40,15 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local noundef ptr @RelationGetIndexScan(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call ptr @palloc(i64 noundef 152) #6
   store ptr null, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 104
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 104
   store ptr null, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %0, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr null, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i32 %1, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   store i32 %2, ptr %9, align 4
   %10 = icmp sgt i32 %1, 0
   br i1 %10, label %11, label %15
@@ -61,7 +61,7 @@ define dso_local noundef ptr @RelationGetIndexScan(ptr noundef %0, i32 noundef %
 
 15:                                               ; preds = %3, %11
   %.sink = phi ptr [ %14, %11 ], [ null, %3 ]
-  %16 = getelementptr inbounds i8, ptr %4, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr %.sink, ptr %16, align 8
   %17 = icmp sgt i32 %2, 0
   br i1 %17, label %18, label %22
@@ -74,21 +74,21 @@ define dso_local noundef ptr @RelationGetIndexScan(ptr noundef %0, i32 noundef %
 
 22:                                               ; preds = %15, %18
   %.sink28 = phi ptr [ %21, %18 ], [ null, %15 ]
-  %23 = getelementptr inbounds i8, ptr %4, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store ptr %.sink28, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %4, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store i8 0, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %4, i64 50
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 50
   store i8 0, ptr %25, align 2
   %26 = tail call zeroext i1 @TransactionStartedDuringRecovery() #6
-  %27 = getelementptr inbounds i8, ptr %4, i64 52
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 52
   %28 = zext i1 %26 to i8
   store i8 %28, ptr %27, align 4
   %29 = xor i1 %26, true
-  %30 = getelementptr inbounds i8, ptr %4, i64 51
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 51
   %31 = zext i1 %29 to i8
   store i8 %31, ptr %30, align 1
-  %32 = getelementptr inbounds i8, ptr %4, i64 56
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %32, i8 0, i64 40, i1 false)
   ret ptr %4
 }
@@ -99,7 +99,7 @@ declare zeroext i1 @TransactionStartedDuringRecovery() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @IndexScanEnd(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %4
@@ -109,7 +109,7 @@ define dso_local void @IndexScanEnd(ptr noundef %0) local_unnamed_addr #0 {
   br label %5
 
 5:                                                ; preds = %4, %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8
   %.not6 = icmp eq ptr %7, null
   br i1 %.not6, label %9, label %8
@@ -130,14 +130,14 @@ define dso_local ptr @BuildIndexValueDescription(ptr nocapture noundef readonly 
   %4 = alloca %struct.StringInfoData, align 8
   %5 = alloca i32, align 4
   %6 = alloca i8, align 1
-  %7 = getelementptr inbounds i8, ptr %0, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %8 = load i32, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 320
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 10
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 10
   %12 = load i16, ptr %11, align 2
   %13 = sext i16 %12 to i32
-  %14 = getelementptr inbounds i8, ptr %10, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %15 = load i32, ptr %14, align 4
   %16 = tail call i32 @check_enable_rls(i32 noundef %15, i32 noundef 0, i1 noundef zeroext true) #6
   %17 = icmp eq i32 %16, 2
@@ -152,7 +152,7 @@ define dso_local ptr @BuildIndexValueDescription(ptr nocapture noundef readonly 
   br i1 %or.cond, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %10, i64 48
+  %22 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %wide.trip.count = zext nneg i32 %13 to i64
   br label %24
 
@@ -181,7 +181,7 @@ define dso_local ptr @BuildIndexValueDescription(ptr nocapture noundef readonly 
   br i1 %21, label %.lr.ph35, label %._crit_edge
 
 .lr.ph35:                                         ; preds = %.loopexit
-  %32 = getelementptr inbounds i8, ptr %0, i64 360
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %wide.trip.count40 = zext nneg i32 %13 to i64
   br label %33
 
@@ -276,28 +276,28 @@ BufferGetPage.exit:                               ; preds = %8, %14
   %.0.i.i = phi ptr [ %13, %8 ], [ %19, %14 ]
   store ptr %0, ptr %6, align 8
   %20 = tail call i32 @BufferGetBlockNumber(i32 noundef %2) #6
-  %21 = getelementptr inbounds i8, ptr %6, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %20, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %6, i64 12
+  %22 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i8 0, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %6, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 0, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %6, i64 20
+  %24 = getelementptr inbounds nuw i8, ptr %6, i64 20
   store i32 0, ptr %24, align 4
   %25 = sext i32 %4 to i64
   %26 = shl nsw i64 %25, 3
   %27 = tail call ptr @palloc(i64 noundef %26) #6
-  %28 = getelementptr inbounds i8, ptr %6, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %27, ptr %28, align 8
   %29 = mul nsw i64 %25, 6
   %30 = tail call ptr @palloc(i64 noundef %29) #6
-  %31 = getelementptr inbounds i8, ptr %6, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr %30, ptr %31, align 8
   %32 = icmp sgt i32 %4, 0
   br i1 %32, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %BufferGetPage.exit
-  %33 = getelementptr inbounds i8, ptr %.0.i.i, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
   %wide.trip.count = zext nneg i32 %4 to i64
   br label %34
 
@@ -333,9 +333,9 @@ BufferGetPage.exit:                               ; preds = %8, %14
   br i1 %exitcond.not, label %._crit_edge, label %34, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %34, %BufferGetPage.exit
-  %52 = getelementptr inbounds i8, ptr %1, i64 312
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 312
   %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 152
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 152
   %55 = load ptr, ptr %54, align 8
   %56 = call i32 %55(ptr noundef %1, ptr noundef nonnull %6) #6
   %57 = load ptr, ptr %28, align 8
@@ -368,16 +368,16 @@ define dso_local noundef ptr @systable_beginscan(ptr noundef %0, i32 noundef %1,
   %.048 = phi ptr [ %13, %12 ], [ null, %10 ], [ null, %7 ], [ null, %6 ]
   %15 = tail call ptr @palloc(i64 noundef 48) #6
   store ptr %0, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %.048, ptr %16, align 8
   %17 = tail call ptr @table_slot_create(ptr noundef %0, ptr noundef null) #6
-  %18 = getelementptr inbounds i8, ptr %15, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 40
   store ptr %17, ptr %18, align 8
   %19 = icmp eq ptr %3, null
   br i1 %19, label %20, label %25
 
 20:                                               ; preds = %14
-  %21 = getelementptr inbounds i8, ptr %0, i64 72
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %22 = load i32, ptr %21, align 8
   %23 = tail call ptr @GetCatalogSnapshot(i32 noundef %22) #6
   %24 = tail call ptr @RegisterSnapshot(ptr noundef %23) #6
@@ -386,7 +386,7 @@ define dso_local noundef ptr @systable_beginscan(ptr noundef %0, i32 noundef %1,
 25:                                               ; preds = %14, %20
   %.sink = phi ptr [ %24, %20 ], [ null, %14 ]
   %.047 = phi ptr [ %24, %20 ], [ %3, %14 ]
-  %26 = getelementptr inbounds i8, ptr %15, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %15, i64 32
   store ptr %.sink, ptr %26, align 8
   %.not = icmp eq ptr %.048, null
   br i1 %.not, label %53, label %.preheader52
@@ -396,10 +396,10 @@ define dso_local noundef ptr @systable_beginscan(ptr noundef %0, i32 noundef %1,
   br i1 %27, label %.preheader.lr.ph, label %._crit_edge
 
 .preheader.lr.ph:                                 ; preds = %.preheader52
-  %28 = getelementptr inbounds i8, ptr %.048, i64 320
+  %28 = getelementptr inbounds nuw i8, ptr %.048, i64 320
   %wide.trip.count65 = zext nneg i32 %4 to i64
   %.pre = load ptr, ptr %28, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 8
   %.pre67 = load i16, ptr %.phi.trans.insert, align 4
   br label %.preheader
 
@@ -419,7 +419,7 @@ define dso_local noundef ptr @systable_beginscan(ptr noundef %0, i32 noundef %1,
 .lr.ph:                                           ; preds = %.preheader
   %34 = getelementptr %struct.ScanKeyData, ptr %5, i64 %indvars.iv62, i32 1
   %35 = load i16, ptr %34, align 4
-  %36 = getelementptr inbounds i8, ptr %31, i64 48
+  %36 = getelementptr inbounds nuw i8, ptr %31, i64 48
   %wide.trip.count = zext nneg i32 %32 to i64
   br label %37
 
@@ -436,7 +436,7 @@ define dso_local noundef ptr @systable_beginscan(ptr noundef %0, i32 noundef %1,
   %44 = add i16 %43, 1
   store i16 %44, ptr %34, align 4
   %.pre68 = load ptr, ptr %28, align 8
-  %.phi.trans.insert69 = getelementptr inbounds i8, ptr %.pre68, i64 8
+  %.phi.trans.insert69 = getelementptr inbounds nuw i8, ptr %.pre68, i64 8
   %.pre70 = load i16, ptr %.phi.trans.insert69, align 4
   %.pre71 = sext i16 %.pre70 to i32
   br label %.loopexit
@@ -463,24 +463,24 @@ define dso_local noundef ptr @systable_beginscan(ptr noundef %0, i32 noundef %1,
 
 ._crit_edge:                                      ; preds = %29, %.preheader52
   %51 = tail call ptr @index_beginscan(ptr noundef %0, ptr noundef nonnull %.048, ptr noundef %.047, i32 noundef %4, i32 noundef 0) #6
-  %52 = getelementptr inbounds i8, ptr %15, i64 24
+  %52 = getelementptr inbounds nuw i8, ptr %15, i64 24
   store ptr %51, ptr %52, align 8
   tail call void @index_rescan(ptr noundef %51, ptr noundef %5, i32 noundef %4, ptr noundef null, i32 noundef 0) #6
   br label %60
 
 53:                                               ; preds = %25
-  %54 = getelementptr inbounds i8, ptr %0, i64 312
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 16
   %57 = load ptr, ptr %56, align 8
   %58 = tail call ptr %57(ptr noundef %0, ptr noundef %.047, i32 noundef %4, ptr noundef %5, ptr noundef null, i32 noundef 321) #6
-  %59 = getelementptr inbounds i8, ptr %15, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store ptr %58, ptr %59, align 8
   br label %60
 
 60:                                               ; preds = %53, %._crit_edge
   %.sink77 = phi i64 [ 24, %53 ], [ 16, %._crit_edge ]
-  %61 = getelementptr inbounds i8, ptr %15, i64 %.sink77
+  %61 = getelementptr inbounds nuw i8, ptr %15, i64 %.sink77
   store ptr null, ptr %61, align 8
   %62 = load i32, ptr @CheckXidAlive, align 4
   %.not51 = icmp eq i32 %62, 0
@@ -521,15 +521,15 @@ declare void @index_rescan(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i
 define dso_local ptr @systable_getnext(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca i8, align 1
   %3 = alloca i8, align 1
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8
   br i1 %.not, label %22, label %8
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
   %11 = tail call zeroext i1 @index_getnext_slot(ptr noundef %10, i32 noundef 1, ptr noundef %7) #6
   br i1 %11, label %12, label %45
@@ -538,7 +538,7 @@ define dso_local ptr @systable_getnext(ptr nocapture noundef readonly %0) local_
   %13 = load ptr, ptr %6, align 8
   %14 = call ptr @ExecFetchSlotHeapTuple(ptr noundef %13, i1 noundef zeroext false, ptr noundef nonnull %2) #6
   %15 = load ptr, ptr %9, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 112
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 112
   %17 = load i8, ptr %16, align 8
   %18 = trunc i8 %17 to i1
   br i1 %18, label %19, label %45
@@ -551,12 +551,12 @@ define dso_local ptr @systable_getnext(ptr nocapture noundef readonly %0) local_
   unreachable
 
 22:                                               ; preds = %1
-  %23 = getelementptr inbounds i8, ptr %0, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %24 = load ptr, ptr %23, align 8
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 72
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 72
   %27 = load i32, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %7, i64 56
+  %28 = getelementptr inbounds nuw i8, ptr %7, i64 56
   store i32 %27, ptr %28, align 8
   %29 = load i32, ptr @CheckXidAlive, align 4
   %30 = icmp eq i32 %29, 0
@@ -574,9 +574,9 @@ define dso_local ptr @systable_getnext(ptr nocapture noundef readonly %0) local_
 
 table_scan_getnextslot.exit:                      ; preds = %22
   %36 = load ptr, ptr %24, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 312
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 312
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 40
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 40
   %40 = load ptr, ptr %39, align 8
   %41 = tail call zeroext i1 %40(ptr noundef nonnull %24, i32 noundef 1, ptr noundef nonnull %7) #6
   br i1 %41, label %42, label %45
@@ -620,15 +620,15 @@ declare ptr @ExecFetchSlotHeapTuple(ptr noundef, i1 noundef zeroext, ptr noundef
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i1 @systable_recheck_tuple(ptr nocapture noundef readonly %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 72
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %5 = load i32, ptr %4, align 8
   %6 = tail call ptr @GetCatalogSnapshot(i32 noundef %5) #6
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %7, i64 312
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 312
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 144
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 144
   %13 = load ptr, ptr %12, align 8
   %14 = tail call zeroext i1 %13(ptr noundef %7, ptr noundef %9, ptr noundef %6) #6
   %15 = load i32, ptr @CheckXidAlive, align 4
@@ -658,7 +658,7 @@ HandleConcurrentAbort.exit:                       ; preds = %2, %16, %18
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @systable_endscan(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %4
@@ -669,13 +669,13 @@ define dso_local void @systable_endscan(ptr noundef %0) local_unnamed_addr #0 {
   br label %5
 
 5:                                                ; preds = %4, %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not11 = icmp eq ptr %7, null
   br i1 %.not11, label %12, label %8
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
   tail call void @index_endscan(ptr noundef %10) #6
   %11 = load ptr, ptr %6, align 8
@@ -683,18 +683,18 @@ define dso_local void @systable_endscan(ptr noundef %0) local_unnamed_addr #0 {
   br label %20
 
 12:                                               ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 312
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 312
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %19 = load ptr, ptr %18, align 8
   tail call void %19(ptr noundef nonnull %14) #6
   br label %20
 
 20:                                               ; preds = %12, %8
-  %21 = getelementptr inbounds i8, ptr %0, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %22 = load ptr, ptr %21, align 8
   %.not12 = icmp eq ptr %22, null
   br i1 %.not12, label %24, label %23
@@ -727,7 +727,7 @@ declare void @UnregisterSnapshot(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @systable_beginscan_ordered(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 72
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %7 = load i32, ptr %6, align 8
   %8 = tail call zeroext i1 @ReindexIsProcessingIndex(i32 noundef %7) #6
   br i1 %8, label %9, label %16
@@ -736,9 +736,9 @@ define dso_local noundef ptr @systable_beginscan_ordered(ptr noundef %0, ptr nou
   %10 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
   tail call void @llvm.assume(i1 %10)
   %11 = tail call i32 @errcode(i32 noundef 1088) #6
-  %12 = getelementptr inbounds i8, ptr %1, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %15 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, ptr noundef nonnull %14) #6
   tail call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 659, ptr noundef nonnull @__func__.systable_beginscan_ordered) #6
   unreachable
@@ -753,9 +753,9 @@ define dso_local noundef ptr @systable_beginscan_ordered(ptr noundef %0, ptr nou
   br i1 %20, label %21, label %26
 
 21:                                               ; preds = %19
-  %22 = getelementptr inbounds i8, ptr %1, i64 56
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %25 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7, ptr noundef nonnull %24) #6
   tail call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 663, ptr noundef nonnull @__func__.systable_beginscan_ordered) #6
   br label %26
@@ -763,16 +763,16 @@ define dso_local noundef ptr @systable_beginscan_ordered(ptr noundef %0, ptr nou
 26:                                               ; preds = %21, %19, %16
   %27 = tail call ptr @palloc(i64 noundef 48) #6
   store ptr %0, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store ptr %1, ptr %28, align 8
   %29 = tail call ptr @table_slot_create(ptr noundef %0, ptr noundef null) #6
-  %30 = getelementptr inbounds i8, ptr %27, i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 40
   store ptr %29, ptr %30, align 8
   %31 = icmp eq ptr %2, null
   br i1 %31, label %32, label %37
 
 32:                                               ; preds = %26
-  %33 = getelementptr inbounds i8, ptr %0, i64 72
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %34 = load i32, ptr %33, align 8
   %35 = tail call ptr @GetCatalogSnapshot(i32 noundef %34) #6
   %36 = tail call ptr @RegisterSnapshot(ptr noundef %35) #6
@@ -781,16 +781,16 @@ define dso_local noundef ptr @systable_beginscan_ordered(ptr noundef %0, ptr nou
 37:                                               ; preds = %26, %32
   %.sink = phi ptr [ %36, %32 ], [ null, %26 ]
   %.039 = phi ptr [ %36, %32 ], [ %2, %26 ]
-  %38 = getelementptr inbounds i8, ptr %27, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %27, i64 32
   store ptr %.sink, ptr %38, align 8
   %39 = icmp sgt i32 %3, 0
   br i1 %39, label %.preheader.lr.ph, label %._crit_edge
 
 .preheader.lr.ph:                                 ; preds = %37
-  %40 = getelementptr inbounds i8, ptr %1, i64 320
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 320
   %wide.trip.count55 = zext nneg i32 %3 to i64
   %.pre = load ptr, ptr %40, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 8
   %.pre57 = load i16, ptr %.phi.trans.insert, align 4
   br label %.preheader
 
@@ -810,7 +810,7 @@ define dso_local noundef ptr @systable_beginscan_ordered(ptr noundef %0, ptr nou
 .lr.ph:                                           ; preds = %.preheader
   %46 = getelementptr %struct.ScanKeyData, ptr %4, i64 %indvars.iv52, i32 1
   %47 = load i16, ptr %46, align 4
-  %48 = getelementptr inbounds i8, ptr %43, i64 48
+  %48 = getelementptr inbounds nuw i8, ptr %43, i64 48
   %wide.trip.count = zext nneg i32 %44 to i64
   br label %49
 
@@ -827,7 +827,7 @@ define dso_local noundef ptr @systable_beginscan_ordered(ptr noundef %0, ptr nou
   %56 = add i16 %55, 1
   store i16 %56, ptr %46, align 4
   %.pre58 = load ptr, ptr %40, align 8
-  %.phi.trans.insert59 = getelementptr inbounds i8, ptr %.pre58, i64 8
+  %.phi.trans.insert59 = getelementptr inbounds nuw i8, ptr %.pre58, i64 8
   %.pre60 = load i16, ptr %.phi.trans.insert59, align 4
   %.pre61 = sext i16 %.pre60 to i32
   br label %.loopexit
@@ -854,10 +854,10 @@ define dso_local noundef ptr @systable_beginscan_ordered(ptr noundef %0, ptr nou
 
 ._crit_edge:                                      ; preds = %41, %37
   %63 = tail call ptr @index_beginscan(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.039, i32 noundef %3, i32 noundef 0) #6
-  %64 = getelementptr inbounds i8, ptr %27, i64 24
+  %64 = getelementptr inbounds nuw i8, ptr %27, i64 24
   store ptr %63, ptr %64, align 8
   tail call void @index_rescan(ptr noundef %63, ptr noundef %4, i32 noundef %3, ptr noundef null, i32 noundef 0) #6
-  %65 = getelementptr inbounds i8, ptr %27, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %27, i64 16
   store ptr null, ptr %65, align 8
   ret ptr %27
 }
@@ -868,9 +868,9 @@ declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @systable_getnext_ordered(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i1 @index_getnext_slot(ptr noundef %4, i32 noundef %1, ptr noundef %6) #6
   br i1 %7, label %8, label %.thread
@@ -883,7 +883,7 @@ define dso_local ptr @systable_getnext_ordered(ptr nocapture noundef readonly %0
 
 11:                                               ; preds = %8
   %12 = load ptr, ptr %3, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 112
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 112
   %14 = load i8, ptr %13, align 8
   %15 = trunc i8 %14 to i1
   br i1 %15, label %16, label %.thread
@@ -924,7 +924,7 @@ HandleConcurrentAbort.exit:                       ; preds = %.thread, %20, %22
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @systable_endscan_ordered(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %4
@@ -935,10 +935,10 @@ define dso_local void @systable_endscan_ordered(ptr noundef %0) local_unnamed_ad
   br label %5
 
 5:                                                ; preds = %4, %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   tail call void @index_endscan(ptr noundef %7) #6
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
   %.not8 = icmp eq ptr %9, null
   br i1 %.not8, label %11, label %10

@@ -35,11 +35,11 @@ define i64 @prte_bcopy_csum_partial(ptr noundef %0, ptr noundef %1, i64 noundef 
 20:                                               ; preds = %17
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %19, ptr align 8 %0, i64 %18, i1 false)
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %1, ptr align 8 %0, i64 %18, i1 false)
-  %21 = getelementptr inbounds i8, ptr %0, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = load i64, ptr %5, align 8
   %23 = sub i64 0, %22
   %24 = getelementptr inbounds i8, ptr %21, i64 %23
-  %25 = getelementptr inbounds i8, ptr %1, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = getelementptr inbounds i8, ptr %25, i64 %23
   %27 = load i64, ptr %7, align 8
   %28 = load i64, ptr %4, align 8
@@ -55,10 +55,10 @@ define i64 @prte_bcopy_csum_partial(ptr noundef %0, ptr noundef %1, i64 noundef 
   %.0371603 = phi i64 [ %34, %.lr.ph607 ], [ %29, %20 ]
   %.0389602 = phi ptr [ %35, %.lr.ph607 ], [ %26, %20 ]
   %32 = load i64, ptr %.0353604, align 8
-  %33 = getelementptr inbounds i8, ptr %.0353604, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %.0353604, i64 8
   %34 = add i64 %32, %.0371603
   store i64 %32, ptr %.0389602, align 8
-  %35 = getelementptr inbounds i8, ptr %.0389602, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %.0389602, i64 8
   %36 = add i64 %.0352605, -8
   %37 = icmp ugt i64 %36, 7
   br i1 %37, label %.lr.ph607, label %._crit_edge608, !llvm.loop !4
@@ -84,8 +84,8 @@ define i64 @prte_bcopy_csum_partial(ptr noundef %0, ptr noundef %1, i64 noundef 
   %.1390614 = phi ptr [ %43, %.lr.ph619 ], [ %1, %38 ]
   %40 = load i64, ptr %.1354617, align 8
   %41 = add i64 %40, %.1372615
-  %42 = getelementptr inbounds i8, ptr %.1354617, i64 8
-  %43 = getelementptr inbounds i8, ptr %.1390614, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %.1354617, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %.1390614, i64 8
   store i64 %40, ptr %.1390614, align 8
   %44 = add nuw nsw i64 %.0364616, 1
   %exitcond706.not = icmp eq i64 %44, %39
@@ -135,11 +135,11 @@ define i64 @prte_bcopy_csum_partial(ptr noundef %0, ptr noundef %1, i64 noundef 
 59:                                               ; preds = %56
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %58, ptr align 8 %0, i64 %57, i1 false)
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %1, ptr align 8 %0, i64 %57, i1 false)
-  %60 = getelementptr inbounds i8, ptr %0, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %61 = load i64, ptr %5, align 8
   %62 = sub i64 0, %61
   %63 = getelementptr inbounds i8, ptr %60, i64 %62
-  %64 = getelementptr inbounds i8, ptr %1, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %65 = getelementptr inbounds i8, ptr %64, i64 %62
   %66 = load i64, ptr %7, align 8
   %67 = load i64, ptr %4, align 8
@@ -169,9 +169,9 @@ define i64 @prte_bcopy_csum_partial(ptr noundef %0, ptr noundef %1, i64 noundef 
   %.3374576 = phi i64 [ %77, %.lr.ph580 ], [ %68, %.lr.ph580.preheader ]
   %.3392575 = phi ptr [ %78, %.lr.ph580 ], [ %65, %.lr.ph580.preheader ]
   %75 = load i64, ptr %.3356578, align 8
-  %76 = getelementptr inbounds i8, ptr %.3356578, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %.3356578, i64 8
   %77 = add i64 %75, %.3374576
-  %78 = getelementptr inbounds i8, ptr %.3392575, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %.3392575, i64 8
   store i64 %75, ptr %.3392575, align 8
   %79 = add nuw nsw i64 %.1365577, 1
   %exitcond705.not = icmp eq i64 %79, %74
@@ -197,10 +197,10 @@ define i64 @prte_bcopy_csum_partial(ptr noundef %0, ptr noundef %1, i64 noundef 
   %.5376564 = phi i64 [ %84, %.lr.ph567 ], [ %68, %.preheader484 ]
   %.5394563 = phi ptr [ %85, %.lr.ph567 ], [ %65, %.preheader484 ]
   %82 = load i64, ptr %.5358565, align 8
-  %83 = getelementptr inbounds i8, ptr %.5358565, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %.5358565, i64 8
   %84 = add i64 %82, %.5376564
   store i64 %82, ptr %.5394563, align 8
-  %85 = getelementptr inbounds i8, ptr %.5394563, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %.5394563, i64 8
   %86 = add i64 %.3566, -8
   %87 = icmp ugt i64 %86, 7
   br i1 %87, label %.lr.ph567, label %.loopexit485, !llvm.loop !8
@@ -228,11 +228,11 @@ define i64 @prte_bcopy_csum_partial(ptr noundef %0, ptr noundef %1, i64 noundef 
   %.6359591 = phi ptr [ %89, %.lr.ph593 ], [ %0, %.preheader483 ]
   %.6377590 = phi i64 [ %91, %.lr.ph593 ], [ 0, %.preheader483 ]
   %.6395589 = phi ptr [ %92, %.lr.ph593 ], [ %1, %.preheader483 ]
-  %89 = getelementptr inbounds i8, ptr %.6359591, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %.6359591, i64 8
   %90 = load i64, ptr %.6359591, align 8
   %91 = add i64 %90, %.6377590
   store i64 %90, ptr %.6395589, align 8
-  %92 = getelementptr inbounds i8, ptr %.6395589, i64 8
+  %92 = getelementptr inbounds nuw i8, ptr %.6395589, i64 8
   %93 = add i64 %.4592, -8
   %94 = icmp ugt i64 %93, 7
   br i1 %94, label %.lr.ph593, label %._crit_edge594, !llvm.loop !9
@@ -265,11 +265,11 @@ define i64 @prte_bcopy_csum_partial(ptr noundef %0, ptr noundef %1, i64 noundef 
 101:                                              ; preds = %98
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %100, ptr align 8 %0, i64 %99, i1 false)
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %1, ptr align 8 %0, i64 %99, i1 false)
-  %102 = getelementptr inbounds i8, ptr %0, i64 8
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %103 = load i64, ptr %5, align 8
   %104 = sub i64 0, %103
   %105 = getelementptr inbounds i8, ptr %102, i64 %104
-  %106 = getelementptr inbounds i8, ptr %1, i64 8
+  %106 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %107 = getelementptr inbounds i8, ptr %106, i64 %104
   %108 = load i64, ptr %7, align 8
   %109 = load i64, ptr %4, align 8
@@ -293,11 +293,11 @@ define i64 @prte_bcopy_csum_partial(ptr noundef %0, ptr noundef %1, i64 noundef 
   %.7360539 = phi ptr [ %115, %.lr.ph541 ], [ %105, %.preheader487 ]
   %.7378538 = phi i64 [ %117, %.lr.ph541 ], [ %110, %.preheader487 ]
   %.7396537 = phi ptr [ %118, %.lr.ph541 ], [ %107, %.preheader487 ]
-  %115 = getelementptr inbounds i8, ptr %.7360539, i64 8
+  %115 = getelementptr inbounds nuw i8, ptr %.7360539, i64 8
   %116 = load i64, ptr %.7360539, align 8
   %117 = add i64 %116, %.7378538
   store i64 %116, ptr %.7396537, align 8
-  %118 = getelementptr inbounds i8, ptr %.7396537, i64 8
+  %118 = getelementptr inbounds nuw i8, ptr %.7396537, i64 8
   %119 = add i64 %.5540, -8
   %120 = icmp ugt i64 %119, 7
   br i1 %120, label %.lr.ph541, label %._crit_edge542, !llvm.loop !10
@@ -319,10 +319,10 @@ define i64 @prte_bcopy_csum_partial(ptr noundef %0, ptr noundef %1, i64 noundef 
   %.8379525 = phi i64 [ %123, %.lr.ph528 ], [ %110, %.preheader488 ]
   %.8397524 = phi ptr [ %124, %.lr.ph528 ], [ %107, %.preheader488 ]
   %121 = load i64, ptr %.8361526, align 8
-  %122 = getelementptr inbounds i8, ptr %.8361526, i64 8
+  %122 = getelementptr inbounds nuw i8, ptr %.8361526, i64 8
   %123 = add i64 %121, %.8379525
   store i64 %121, ptr %.8397524, align 8
-  %124 = getelementptr inbounds i8, ptr %.8397524, i64 8
+  %124 = getelementptr inbounds nuw i8, ptr %.8397524, i64 8
   %125 = add i64 %.6527, -8
   %126 = icmp ugt i64 %125, 7
   br i1 %126, label %.lr.ph528, label %._crit_edge529, !llvm.loop !11
@@ -344,9 +344,9 @@ define i64 @prte_bcopy_csum_partial(ptr noundef %0, ptr noundef %1, i64 noundef 
   %.9380551 = phi i64 [ %129, %.lr.ph554 ], [ 0, %.preheader486 ]
   %.9398550 = phi ptr [ %130, %.lr.ph554 ], [ %1, %.preheader486 ]
   %127 = load i64, ptr %.9362552, align 8
-  %128 = getelementptr inbounds i8, ptr %.9362552, i64 8
+  %128 = getelementptr inbounds nuw i8, ptr %.9362552, i64 8
   %129 = add i64 %127, %.9380551
-  %130 = getelementptr inbounds i8, ptr %.9398550, i64 8
+  %130 = getelementptr inbounds nuw i8, ptr %.9398550, i64 8
   store i64 %127, ptr %.9398550, align 8
   %131 = add i64 %.7553, -8
   %132 = icmp ugt i64 %131, 7
@@ -377,11 +377,11 @@ define i64 @prte_bcopy_csum_partial(ptr noundef %0, ptr noundef %1, i64 noundef 
 138:                                              ; preds = %135
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %137, ptr align 8 %0, i64 %136, i1 false)
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %1, ptr align 8 %0, i64 %136, i1 false)
-  %139 = getelementptr inbounds i8, ptr %0, i64 8
+  %139 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %140 = load i64, ptr %5, align 8
   %141 = sub i64 0, %140
   %142 = getelementptr inbounds i8, ptr %139, i64 %141
-  %143 = getelementptr inbounds i8, ptr %1, i64 8
+  %143 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %144 = getelementptr inbounds i8, ptr %143, i64 %141
   %145 = load i64, ptr %7, align 8
   %146 = load i64, ptr %4, align 8
@@ -416,8 +416,8 @@ define i64 @prte_bcopy_csum_partial(ptr noundef %0, ptr noundef %1, i64 noundef 
   %.10399500 = phi ptr [ %159, %.lr.ph504 ], [ %144, %.lr.ph504.preheader ]
   %156 = load i64, ptr %.10363503, align 8
   %157 = add i64 %156, %.10381501
-  %158 = getelementptr inbounds i8, ptr %.10363503, i64 8
-  %159 = getelementptr inbounds i8, ptr %.10399500, i64 8
+  %158 = getelementptr inbounds nuw i8, ptr %.10363503, i64 8
+  %159 = getelementptr inbounds nuw i8, ptr %.10399500, i64 8
   store i64 %156, ptr %.10399500, align 8
   %160 = add nuw nsw i64 %.2366502, 1
   %exitcond.not = icmp eq i64 %160, %155
@@ -441,10 +441,10 @@ define i64 @prte_bcopy_csum_partial(ptr noundef %0, ptr noundef %1, i64 noundef 
   %.12383493 = phi i64 [ %165, %.lr.ph ], [ %147, %.preheader490 ]
   %.12401492 = phi ptr [ %166, %.lr.ph ], [ %144, %.preheader490 ]
   %163 = load i64, ptr %.12494, align 8
-  %164 = getelementptr inbounds i8, ptr %.12494, i64 8
+  %164 = getelementptr inbounds nuw i8, ptr %.12494, i64 8
   %165 = add i64 %163, %.12383493
   store i64 %163, ptr %.12401492, align 8
-  %166 = getelementptr inbounds i8, ptr %.12401492, i64 8
+  %166 = getelementptr inbounds nuw i8, ptr %.12401492, i64 8
   %167 = add i64 %.9495, -8
   %168 = icmp ugt i64 %167, 7
   br i1 %168, label %.lr.ph, label %.loopexit491, !llvm.loop !14
@@ -473,10 +473,10 @@ define i64 @prte_bcopy_csum_partial(ptr noundef %0, ptr noundef %1, i64 noundef 
   %.13384512 = phi i64 [ %172, %.lr.ph515 ], [ 0, %.preheader489 ]
   %.13402511 = phi ptr [ %173, %.lr.ph515 ], [ %1, %.preheader489 ]
   %170 = load i64, ptr %.13513, align 8
-  %171 = getelementptr inbounds i8, ptr %.13513, i64 8
+  %171 = getelementptr inbounds nuw i8, ptr %.13513, i64 8
   %172 = add i64 %170, %.13384512
   store i64 %170, ptr %.13402511, align 8
-  %173 = getelementptr inbounds i8, ptr %.13402511, i64 8
+  %173 = getelementptr inbounds nuw i8, ptr %.13402511, i64 8
   %174 = add i64 %.10514, -8
   %175 = icmp ugt i64 %174, 7
   br i1 %175, label %.lr.ph515, label %._crit_edge516, !llvm.loop !15
@@ -530,7 +530,7 @@ define i64 @prte_bcopy_csum_partial(ptr noundef %0, ptr noundef %1, i64 noundef 
   br i1 %.not447, label %195, label %191
 
 191:                                              ; preds = %186
-  %192 = getelementptr inbounds i8, ptr %.2355, i64 8
+  %192 = getelementptr inbounds nuw i8, ptr %.2355, i64 8
   %193 = sub i64 0, %184
   %194 = getelementptr inbounds i8, ptr %192, i64 %193
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %7, ptr nonnull align 8 %194, i64 %190, i1 false)
@@ -606,7 +606,7 @@ define i64 @prte_bcopy_csum_partial(ptr noundef %0, ptr noundef %1, i64 noundef 
   %223 = load i64, ptr %4, align 8
   store i64 %223, ptr %7, align 8
   %224 = getelementptr inbounds i8, ptr %7, i64 %219
-  %225 = getelementptr inbounds i8, ptr %.2355459468477, i64 8
+  %225 = getelementptr inbounds nuw i8, ptr %.2355459468477, i64 8
   br i1 %222, label %.thread, label %226
 
 226:                                              ; preds = %.thread471
@@ -657,7 +657,7 @@ define i64 @prte_bcopy_csum_partial(ptr noundef %0, ptr noundef %1, i64 noundef 
   %.15634 = phi ptr [ %242, %.lr.ph635 ], [ %231, %.lr.ph635.preheader ]
   %.3367633 = phi i64 [ %245, %.lr.ph635 ], [ 0, %.lr.ph635.preheader ]
   %.16387632 = phi i64 [ %244, %.lr.ph635 ], [ %.15386, %.lr.ph635.preheader ]
-  %242 = getelementptr inbounds i8, ptr %.15634, i64 8
+  %242 = getelementptr inbounds nuw i8, ptr %.15634, i64 8
   %243 = load i64, ptr %.15634, align 8
   %244 = add i64 %243, %.16387632
   %245 = add nuw nsw i64 %.3367633, 1
@@ -671,7 +671,7 @@ define i64 @prte_bcopy_csum_partial(ptr noundef %0, ptr noundef %1, i64 noundef 
   %246 = load i64, ptr %.17627, align 8
   store i64 %246, ptr %7, align 8
   %247 = add i64 %246, %.18625
-  %248 = getelementptr inbounds i8, ptr %.17627, i64 8
+  %248 = getelementptr inbounds nuw i8, ptr %.17627, i64 8
   %249 = add nuw nsw i64 %.5369626, 1
   %exitcond708.not = icmp eq i64 %249, %240
   br i1 %exitcond708.not, label %.loopexit, label %.lr.ph628, !llvm.loop !17
@@ -732,11 +732,11 @@ define i32 @prte_bcopy_uicsum_partial(ptr noundef %0, ptr noundef %1, i64 nounde
 20:                                               ; preds = %17
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %19, ptr align 4 %0, i64 %18, i1 false)
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %1, ptr align 4 %0, i64 %18, i1 false)
-  %21 = getelementptr inbounds i8, ptr %0, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %22 = load i64, ptr %5, align 8
   %23 = sub i64 0, %22
   %24 = getelementptr inbounds i8, ptr %21, i64 %23
-  %25 = getelementptr inbounds i8, ptr %1, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %26 = getelementptr inbounds i8, ptr %25, i64 %23
   %27 = load i32, ptr %7, align 4
   %28 = load i32, ptr %4, align 4
@@ -752,10 +752,10 @@ define i32 @prte_bcopy_uicsum_partial(ptr noundef %0, ptr noundef %1, i64 nounde
   %.0371603 = phi i32 [ %34, %.lr.ph607 ], [ %29, %20 ]
   %.0389602 = phi ptr [ %35, %.lr.ph607 ], [ %26, %20 ]
   %32 = load i32, ptr %.0353604, align 4
-  %33 = getelementptr inbounds i8, ptr %.0353604, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %.0353604, i64 4
   %34 = add i32 %32, %.0371603
   store i32 %32, ptr %.0389602, align 4
-  %35 = getelementptr inbounds i8, ptr %.0389602, i64 4
+  %35 = getelementptr inbounds nuw i8, ptr %.0389602, i64 4
   %36 = add i64 %.0352605, -4
   %37 = icmp ugt i64 %36, 3
   br i1 %37, label %.lr.ph607, label %._crit_edge608, !llvm.loop !18
@@ -781,8 +781,8 @@ define i32 @prte_bcopy_uicsum_partial(ptr noundef %0, ptr noundef %1, i64 nounde
   %.1390614 = phi ptr [ %43, %.lr.ph619 ], [ %1, %38 ]
   %40 = load i32, ptr %.1354617, align 4
   %41 = add i32 %40, %.1372615
-  %42 = getelementptr inbounds i8, ptr %.1354617, i64 4
-  %43 = getelementptr inbounds i8, ptr %.1390614, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %.1354617, i64 4
+  %43 = getelementptr inbounds nuw i8, ptr %.1390614, i64 4
   store i32 %40, ptr %.1390614, align 4
   %44 = add nuw nsw i64 %.0364616, 1
   %exitcond706.not = icmp eq i64 %44, %39
@@ -832,11 +832,11 @@ define i32 @prte_bcopy_uicsum_partial(ptr noundef %0, ptr noundef %1, i64 nounde
 59:                                               ; preds = %56
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %58, ptr align 4 %0, i64 %57, i1 false)
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %1, ptr align 4 %0, i64 %57, i1 false)
-  %60 = getelementptr inbounds i8, ptr %0, i64 4
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %61 = load i64, ptr %5, align 8
   %62 = sub i64 0, %61
   %63 = getelementptr inbounds i8, ptr %60, i64 %62
-  %64 = getelementptr inbounds i8, ptr %1, i64 4
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %65 = getelementptr inbounds i8, ptr %64, i64 %62
   %66 = load i32, ptr %7, align 4
   %67 = load i32, ptr %4, align 4
@@ -866,9 +866,9 @@ define i32 @prte_bcopy_uicsum_partial(ptr noundef %0, ptr noundef %1, i64 nounde
   %.3374576 = phi i32 [ %77, %.lr.ph580 ], [ %68, %.lr.ph580.preheader ]
   %.3392575 = phi ptr [ %78, %.lr.ph580 ], [ %65, %.lr.ph580.preheader ]
   %75 = load i32, ptr %.3356578, align 4
-  %76 = getelementptr inbounds i8, ptr %.3356578, i64 4
+  %76 = getelementptr inbounds nuw i8, ptr %.3356578, i64 4
   %77 = add i32 %75, %.3374576
-  %78 = getelementptr inbounds i8, ptr %.3392575, i64 4
+  %78 = getelementptr inbounds nuw i8, ptr %.3392575, i64 4
   store i32 %75, ptr %.3392575, align 4
   %79 = add nuw nsw i64 %.1365577, 1
   %exitcond705.not = icmp eq i64 %79, %74
@@ -894,10 +894,10 @@ define i32 @prte_bcopy_uicsum_partial(ptr noundef %0, ptr noundef %1, i64 nounde
   %.5376564 = phi i32 [ %84, %.lr.ph567 ], [ %68, %.preheader484 ]
   %.5394563 = phi ptr [ %85, %.lr.ph567 ], [ %65, %.preheader484 ]
   %82 = load i32, ptr %.5358565, align 4
-  %83 = getelementptr inbounds i8, ptr %.5358565, i64 4
+  %83 = getelementptr inbounds nuw i8, ptr %.5358565, i64 4
   %84 = add i32 %82, %.5376564
   store i32 %82, ptr %.5394563, align 4
-  %85 = getelementptr inbounds i8, ptr %.5394563, i64 4
+  %85 = getelementptr inbounds nuw i8, ptr %.5394563, i64 4
   %86 = add i64 %.3566, -4
   %87 = icmp ugt i64 %86, 3
   br i1 %87, label %.lr.ph567, label %.loopexit485, !llvm.loop !21
@@ -925,11 +925,11 @@ define i32 @prte_bcopy_uicsum_partial(ptr noundef %0, ptr noundef %1, i64 nounde
   %.6359591 = phi ptr [ %89, %.lr.ph593 ], [ %0, %.preheader483 ]
   %.6377590 = phi i32 [ %91, %.lr.ph593 ], [ 0, %.preheader483 ]
   %.6395589 = phi ptr [ %92, %.lr.ph593 ], [ %1, %.preheader483 ]
-  %89 = getelementptr inbounds i8, ptr %.6359591, i64 4
+  %89 = getelementptr inbounds nuw i8, ptr %.6359591, i64 4
   %90 = load i32, ptr %.6359591, align 4
   %91 = add i32 %90, %.6377590
   store i32 %90, ptr %.6395589, align 4
-  %92 = getelementptr inbounds i8, ptr %.6395589, i64 4
+  %92 = getelementptr inbounds nuw i8, ptr %.6395589, i64 4
   %93 = add i64 %.4592, -4
   %94 = icmp ugt i64 %93, 3
   br i1 %94, label %.lr.ph593, label %._crit_edge594, !llvm.loop !22
@@ -962,11 +962,11 @@ define i32 @prte_bcopy_uicsum_partial(ptr noundef %0, ptr noundef %1, i64 nounde
 101:                                              ; preds = %98
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %100, ptr align 4 %0, i64 %99, i1 false)
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %1, ptr align 4 %0, i64 %99, i1 false)
-  %102 = getelementptr inbounds i8, ptr %0, i64 4
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %103 = load i64, ptr %5, align 8
   %104 = sub i64 0, %103
   %105 = getelementptr inbounds i8, ptr %102, i64 %104
-  %106 = getelementptr inbounds i8, ptr %1, i64 4
+  %106 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %107 = getelementptr inbounds i8, ptr %106, i64 %104
   %108 = load i32, ptr %7, align 4
   %109 = load i32, ptr %4, align 4
@@ -990,11 +990,11 @@ define i32 @prte_bcopy_uicsum_partial(ptr noundef %0, ptr noundef %1, i64 nounde
   %.7360539 = phi ptr [ %115, %.lr.ph541 ], [ %105, %.preheader487 ]
   %.7378538 = phi i32 [ %117, %.lr.ph541 ], [ %110, %.preheader487 ]
   %.7396537 = phi ptr [ %118, %.lr.ph541 ], [ %107, %.preheader487 ]
-  %115 = getelementptr inbounds i8, ptr %.7360539, i64 4
+  %115 = getelementptr inbounds nuw i8, ptr %.7360539, i64 4
   %116 = load i32, ptr %.7360539, align 4
   %117 = add i32 %116, %.7378538
   store i32 %116, ptr %.7396537, align 4
-  %118 = getelementptr inbounds i8, ptr %.7396537, i64 4
+  %118 = getelementptr inbounds nuw i8, ptr %.7396537, i64 4
   %119 = add i64 %.5540, -4
   %120 = icmp ugt i64 %119, 3
   br i1 %120, label %.lr.ph541, label %._crit_edge542, !llvm.loop !23
@@ -1016,10 +1016,10 @@ define i32 @prte_bcopy_uicsum_partial(ptr noundef %0, ptr noundef %1, i64 nounde
   %.8379525 = phi i32 [ %123, %.lr.ph528 ], [ %110, %.preheader488 ]
   %.8397524 = phi ptr [ %124, %.lr.ph528 ], [ %107, %.preheader488 ]
   %121 = load i32, ptr %.8361526, align 4
-  %122 = getelementptr inbounds i8, ptr %.8361526, i64 4
+  %122 = getelementptr inbounds nuw i8, ptr %.8361526, i64 4
   %123 = add i32 %121, %.8379525
   store i32 %121, ptr %.8397524, align 4
-  %124 = getelementptr inbounds i8, ptr %.8397524, i64 4
+  %124 = getelementptr inbounds nuw i8, ptr %.8397524, i64 4
   %125 = add i64 %.6527, -4
   %126 = icmp ugt i64 %125, 3
   br i1 %126, label %.lr.ph528, label %._crit_edge529, !llvm.loop !24
@@ -1041,9 +1041,9 @@ define i32 @prte_bcopy_uicsum_partial(ptr noundef %0, ptr noundef %1, i64 nounde
   %.9380551 = phi i32 [ %129, %.lr.ph554 ], [ 0, %.preheader486 ]
   %.9398550 = phi ptr [ %130, %.lr.ph554 ], [ %1, %.preheader486 ]
   %127 = load i32, ptr %.9362552, align 4
-  %128 = getelementptr inbounds i8, ptr %.9362552, i64 4
+  %128 = getelementptr inbounds nuw i8, ptr %.9362552, i64 4
   %129 = add i32 %127, %.9380551
-  %130 = getelementptr inbounds i8, ptr %.9398550, i64 4
+  %130 = getelementptr inbounds nuw i8, ptr %.9398550, i64 4
   store i32 %127, ptr %.9398550, align 4
   %131 = add i64 %.7553, -4
   %132 = icmp ugt i64 %131, 3
@@ -1074,11 +1074,11 @@ define i32 @prte_bcopy_uicsum_partial(ptr noundef %0, ptr noundef %1, i64 nounde
 138:                                              ; preds = %135
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %137, ptr align 4 %0, i64 %136, i1 false)
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %1, ptr align 4 %0, i64 %136, i1 false)
-  %139 = getelementptr inbounds i8, ptr %0, i64 4
+  %139 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %140 = load i64, ptr %5, align 8
   %141 = sub i64 0, %140
   %142 = getelementptr inbounds i8, ptr %139, i64 %141
-  %143 = getelementptr inbounds i8, ptr %1, i64 4
+  %143 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %144 = getelementptr inbounds i8, ptr %143, i64 %141
   %145 = load i32, ptr %7, align 4
   %146 = load i32, ptr %4, align 4
@@ -1113,8 +1113,8 @@ define i32 @prte_bcopy_uicsum_partial(ptr noundef %0, ptr noundef %1, i64 nounde
   %.10399500 = phi ptr [ %159, %.lr.ph504 ], [ %144, %.lr.ph504.preheader ]
   %156 = load i32, ptr %.10363503, align 4
   %157 = add i32 %156, %.10381501
-  %158 = getelementptr inbounds i8, ptr %.10363503, i64 4
-  %159 = getelementptr inbounds i8, ptr %.10399500, i64 4
+  %158 = getelementptr inbounds nuw i8, ptr %.10363503, i64 4
+  %159 = getelementptr inbounds nuw i8, ptr %.10399500, i64 4
   store i32 %156, ptr %.10399500, align 4
   %160 = add nuw nsw i64 %.2366502, 1
   %exitcond.not = icmp eq i64 %160, %155
@@ -1138,10 +1138,10 @@ define i32 @prte_bcopy_uicsum_partial(ptr noundef %0, ptr noundef %1, i64 nounde
   %.12383493 = phi i32 [ %165, %.lr.ph ], [ %147, %.preheader490 ]
   %.12401492 = phi ptr [ %166, %.lr.ph ], [ %144, %.preheader490 ]
   %163 = load i32, ptr %.12494, align 4
-  %164 = getelementptr inbounds i8, ptr %.12494, i64 4
+  %164 = getelementptr inbounds nuw i8, ptr %.12494, i64 4
   %165 = add i32 %163, %.12383493
   store i32 %163, ptr %.12401492, align 4
-  %166 = getelementptr inbounds i8, ptr %.12401492, i64 4
+  %166 = getelementptr inbounds nuw i8, ptr %.12401492, i64 4
   %167 = add i64 %.9495, -4
   %168 = icmp ugt i64 %167, 3
   br i1 %168, label %.lr.ph, label %.loopexit491, !llvm.loop !27
@@ -1170,10 +1170,10 @@ define i32 @prte_bcopy_uicsum_partial(ptr noundef %0, ptr noundef %1, i64 nounde
   %.13384512 = phi i32 [ %172, %.lr.ph515 ], [ 0, %.preheader489 ]
   %.13402511 = phi ptr [ %173, %.lr.ph515 ], [ %1, %.preheader489 ]
   %170 = load i32, ptr %.13513, align 4
-  %171 = getelementptr inbounds i8, ptr %.13513, i64 4
+  %171 = getelementptr inbounds nuw i8, ptr %.13513, i64 4
   %172 = add i32 %170, %.13384512
   store i32 %170, ptr %.13402511, align 4
-  %173 = getelementptr inbounds i8, ptr %.13402511, i64 4
+  %173 = getelementptr inbounds nuw i8, ptr %.13402511, i64 4
   %174 = add i64 %.10514, -4
   %175 = icmp ugt i64 %174, 3
   br i1 %175, label %.lr.ph515, label %._crit_edge516, !llvm.loop !28
@@ -1227,7 +1227,7 @@ define i32 @prte_bcopy_uicsum_partial(ptr noundef %0, ptr noundef %1, i64 nounde
   br i1 %.not447, label %195, label %191
 
 191:                                              ; preds = %186
-  %192 = getelementptr inbounds i8, ptr %.2355, i64 4
+  %192 = getelementptr inbounds nuw i8, ptr %.2355, i64 4
   %193 = sub i64 0, %184
   %194 = getelementptr inbounds i8, ptr %192, i64 %193
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %7, ptr nonnull align 4 %194, i64 %190, i1 false)
@@ -1303,7 +1303,7 @@ define i32 @prte_bcopy_uicsum_partial(ptr noundef %0, ptr noundef %1, i64 nounde
   %223 = load i32, ptr %4, align 4
   store i32 %223, ptr %7, align 4
   %224 = getelementptr inbounds i8, ptr %7, i64 %219
-  %225 = getelementptr inbounds i8, ptr %.2355459468477, i64 4
+  %225 = getelementptr inbounds nuw i8, ptr %.2355459468477, i64 4
   br i1 %222, label %.thread, label %226
 
 226:                                              ; preds = %.thread471
@@ -1354,7 +1354,7 @@ define i32 @prte_bcopy_uicsum_partial(ptr noundef %0, ptr noundef %1, i64 nounde
   %.15634 = phi ptr [ %242, %.lr.ph635 ], [ %231, %.lr.ph635.preheader ]
   %.3367633 = phi i64 [ %245, %.lr.ph635 ], [ 0, %.lr.ph635.preheader ]
   %.16387632 = phi i32 [ %244, %.lr.ph635 ], [ %.15386, %.lr.ph635.preheader ]
-  %242 = getelementptr inbounds i8, ptr %.15634, i64 4
+  %242 = getelementptr inbounds nuw i8, ptr %.15634, i64 4
   %243 = load i32, ptr %.15634, align 4
   %244 = add i32 %243, %.16387632
   %245 = add nuw nsw i64 %.3367633, 1
@@ -1368,7 +1368,7 @@ define i32 @prte_bcopy_uicsum_partial(ptr noundef %0, ptr noundef %1, i64 nounde
   %246 = load i32, ptr %.17627, align 4
   store i32 %246, ptr %7, align 4
   %247 = add i32 %246, %.18625
-  %248 = getelementptr inbounds i8, ptr %.17627, i64 4
+  %248 = getelementptr inbounds nuw i8, ptr %.17627, i64 4
   %249 = add nuw nsw i64 %.5369626, 1
   %exitcond708.not = icmp eq i64 %249, %240
   br i1 %exitcond708.not, label %.loopexit, label %.lr.ph628, !llvm.loop !30
@@ -1420,7 +1420,7 @@ define i64 @prte_csum_partial(ptr noundef %0, i64 noundef %1, ptr nocapture noun
 
 14:                                               ; preds = %11
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %13, ptr align 8 %0, i64 %12, i1 false)
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = sub i64 0, %9
   %17 = getelementptr inbounds i8, ptr %15, i64 %16
   %18 = load i64, ptr %5, align 8
@@ -1440,7 +1440,7 @@ define i64 @prte_csum_partial(ptr noundef %0, i64 noundef %1, ptr nocapture noun
   %.0137202 = phi ptr [ %24, %.lr.ph206 ], [ %17, %.lr.ph206.preheader ]
   %22 = load i64, ptr %.0137202, align 8
   %23 = add i64 %22, %.0133203
-  %24 = getelementptr inbounds i8, ptr %.0137202, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %.0137202, i64 8
   %25 = add nuw nsw i64 %.0132204, 1
   %exitcond246.not = icmp eq i64 %25, %21
   br i1 %exitcond246.not, label %._crit_edge207.loopexit, label %.lr.ph206, !llvm.loop !31
@@ -1481,7 +1481,7 @@ define i64 @prte_csum_partial(ptr noundef %0, i64 noundef %1, ptr nocapture noun
   %.1214 = phi i64 [ %39, %.lr.ph216 ], [ 0, %.lr.ph216.preheader ]
   %.1134213 = phi i64 [ %38, %.lr.ph216 ], [ 0, %.lr.ph216.preheader ]
   %.1138212 = phi ptr [ %36, %.lr.ph216 ], [ %0, %.lr.ph216.preheader ]
-  %36 = getelementptr inbounds i8, ptr %.1138212, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %.1138212, i64 8
   %37 = load i64, ptr %.1138212, align 8
   %38 = add i64 %37, %.1134213
   %39 = add nuw nsw i64 %.1214, 1
@@ -1522,7 +1522,7 @@ define i64 @prte_csum_partial(ptr noundef %0, i64 noundef %1, ptr nocapture noun
 
 49:                                               ; preds = %46
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %48, ptr align 8 %0, i64 %47, i1 false)
-  %50 = getelementptr inbounds i8, ptr %0, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %51 = sub i64 0, %9
   %52 = getelementptr inbounds i8, ptr %50, i64 %51
   %53 = load i64, ptr %5, align 8
@@ -1553,7 +1553,7 @@ define i64 @prte_csum_partial(ptr noundef %0, i64 noundef %1, ptr nocapture noun
   %.2183 = phi i64 [ %63, %.lr.ph184 ], [ 0, %.lr.ph184.preheader ]
   %.3136182 = phi i64 [ %62, %.lr.ph184 ], [ %54, %.lr.ph184.preheader ]
   %.3140181 = phi ptr [ %60, %.lr.ph184 ], [ %52, %.lr.ph184.preheader ]
-  %60 = getelementptr inbounds i8, ptr %.3140181, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %.3140181, i64 8
   %61 = load i64, ptr %.3140181, align 8
   %62 = add i64 %61, %.3136182
   %63 = add nuw nsw i64 %.2183, 1
@@ -1579,7 +1579,7 @@ define i64 @prte_csum_partial(ptr noundef %0, i64 noundef %1, ptr nocapture noun
   %.4141175 = phi ptr [ %68, %.lr.ph ], [ %52, %.lr.ph.preheader ]
   %66 = load i64, ptr %.4141175, align 8
   %67 = add i64 %66, %.4176
-  %68 = getelementptr inbounds i8, ptr %.4141175, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %.4141175, i64 8
   %69 = add nuw nsw i64 %.3177, 1
   %exitcond.not = icmp eq i64 %69, %58
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !34
@@ -1612,7 +1612,7 @@ define i64 @prte_csum_partial(ptr noundef %0, i64 noundef %1, ptr nocapture noun
   %.5142192 = phi ptr [ %78, %.lr.ph194 ], [ %0, %.preheader ]
   %.1144191 = phi i64 [ %80, %.lr.ph194 ], [ %1, %.preheader ]
   %77 = load i64, ptr %.5142192, align 8
-  %78 = getelementptr inbounds i8, ptr %.5142192, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %.5142192, i64 8
   %79 = add i64 %77, %.5193
   %80 = add i64 %.1144191, -8
   %81 = icmp ugt i64 %80, 7
@@ -1657,7 +1657,7 @@ define i64 @prte_csum_partial(ptr noundef %0, i64 noundef %1, ptr nocapture noun
   br i1 %.not167, label %96, label %92
 
 92:                                               ; preds = %89
-  %93 = getelementptr inbounds i8, ptr %.2139, i64 8
+  %93 = getelementptr inbounds nuw i8, ptr %.2139, i64 8
   %94 = sub i64 0, %85
   %95 = getelementptr inbounds i8, ptr %93, i64 %94
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %5, ptr nonnull align 8 %95, i64 %91, i1 false)
@@ -1719,7 +1719,7 @@ define i32 @prte_uicsum_partial(ptr noundef %0, i64 noundef %1, ptr nocapture no
 
 14:                                               ; preds = %11
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %13, ptr align 4 %0, i64 %12, i1 false)
-  %15 = getelementptr inbounds i8, ptr %0, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %16 = sub i64 0, %9
   %17 = getelementptr inbounds i8, ptr %15, i64 %16
   %18 = load i32, ptr %5, align 4
@@ -1739,7 +1739,7 @@ define i32 @prte_uicsum_partial(ptr noundef %0, i64 noundef %1, ptr nocapture no
   %.0137202 = phi ptr [ %24, %.lr.ph206 ], [ %17, %.lr.ph206.preheader ]
   %22 = load i32, ptr %.0137202, align 4
   %23 = add i32 %22, %.0133203
-  %24 = getelementptr inbounds i8, ptr %.0137202, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %.0137202, i64 4
   %25 = add nuw nsw i64 %.0132204, 1
   %exitcond246.not = icmp eq i64 %25, %21
   br i1 %exitcond246.not, label %._crit_edge207.loopexit, label %.lr.ph206, !llvm.loop !36
@@ -1780,7 +1780,7 @@ define i32 @prte_uicsum_partial(ptr noundef %0, i64 noundef %1, ptr nocapture no
   %.1214 = phi i64 [ %39, %.lr.ph216 ], [ 0, %.lr.ph216.preheader ]
   %.1134213 = phi i32 [ %38, %.lr.ph216 ], [ 0, %.lr.ph216.preheader ]
   %.1138212 = phi ptr [ %36, %.lr.ph216 ], [ %0, %.lr.ph216.preheader ]
-  %36 = getelementptr inbounds i8, ptr %.1138212, i64 4
+  %36 = getelementptr inbounds nuw i8, ptr %.1138212, i64 4
   %37 = load i32, ptr %.1138212, align 4
   %38 = add i32 %37, %.1134213
   %39 = add nuw nsw i64 %.1214, 1
@@ -1821,7 +1821,7 @@ define i32 @prte_uicsum_partial(ptr noundef %0, i64 noundef %1, ptr nocapture no
 
 49:                                               ; preds = %46
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %48, ptr align 4 %0, i64 %47, i1 false)
-  %50 = getelementptr inbounds i8, ptr %0, i64 4
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %51 = sub i64 0, %9
   %52 = getelementptr inbounds i8, ptr %50, i64 %51
   %53 = load i32, ptr %5, align 4
@@ -1852,7 +1852,7 @@ define i32 @prte_uicsum_partial(ptr noundef %0, i64 noundef %1, ptr nocapture no
   %.2183 = phi i64 [ %63, %.lr.ph184 ], [ 0, %.lr.ph184.preheader ]
   %.3136182 = phi i32 [ %62, %.lr.ph184 ], [ %54, %.lr.ph184.preheader ]
   %.3140181 = phi ptr [ %60, %.lr.ph184 ], [ %52, %.lr.ph184.preheader ]
-  %60 = getelementptr inbounds i8, ptr %.3140181, i64 4
+  %60 = getelementptr inbounds nuw i8, ptr %.3140181, i64 4
   %61 = load i32, ptr %.3140181, align 4
   %62 = add i32 %61, %.3136182
   %63 = add nuw nsw i64 %.2183, 1
@@ -1878,7 +1878,7 @@ define i32 @prte_uicsum_partial(ptr noundef %0, i64 noundef %1, ptr nocapture no
   %.4141175 = phi ptr [ %68, %.lr.ph ], [ %52, %.lr.ph.preheader ]
   %66 = load i32, ptr %.4141175, align 4
   %67 = add i32 %66, %.4176
-  %68 = getelementptr inbounds i8, ptr %.4141175, i64 4
+  %68 = getelementptr inbounds nuw i8, ptr %.4141175, i64 4
   %69 = add nuw nsw i64 %.3177, 1
   %exitcond.not = icmp eq i64 %69, %58
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !39
@@ -1911,7 +1911,7 @@ define i32 @prte_uicsum_partial(ptr noundef %0, i64 noundef %1, ptr nocapture no
   %.5142192 = phi ptr [ %78, %.lr.ph194 ], [ %0, %.preheader ]
   %.1144191 = phi i64 [ %80, %.lr.ph194 ], [ %1, %.preheader ]
   %77 = load i32, ptr %.5142192, align 4
-  %78 = getelementptr inbounds i8, ptr %.5142192, i64 4
+  %78 = getelementptr inbounds nuw i8, ptr %.5142192, i64 4
   %79 = add i32 %77, %.5193
   %80 = add i64 %.1144191, -4
   %81 = icmp ugt i64 %80, 3
@@ -1956,7 +1956,7 @@ define i32 @prte_uicsum_partial(ptr noundef %0, i64 noundef %1, ptr nocapture no
   br i1 %.not167, label %96, label %92
 
 92:                                               ; preds = %89
-  %93 = getelementptr inbounds i8, ptr %.2139, i64 4
+  %93 = getelementptr inbounds nuw i8, ptr %.2139, i64 4
   %94 = sub i64 0, %85
   %95 = getelementptr inbounds i8, ptr %93, i64 %94
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %5, ptr nonnull align 4 %95, i64 %91, i1 false)
@@ -2017,7 +2017,7 @@ define void @prte_initialize_crc_table() local_unnamed_addr #2 {
   br i1 %exitcond.not, label %7, label %3, !llvm.loop !41
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds [256 x i32], ptr @_prte_crc_table, i64 0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [256 x i32], ptr @_prte_crc_table, i64 0, i64 %indvars.iv
   store i32 %.1, ptr %8, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond17.not = icmp eq i64 %indvars.iv.next, 256
@@ -2053,7 +2053,7 @@ define i32 @prte_bcopy_uicrc_partial(ptr noundef %0, ptr noundef %1, i64 noundef
   br i1 %exitcond.not.i, label %13, label %9, !llvm.loop !41
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds [256 x i32], ptr @_prte_crc_table, i64 0, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw [256 x i32], ptr @_prte_crc_table, i64 0, i64 %indvars.iv.i
   store i32 %.1.i, ptr %14, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond17.not.i = icmp eq i64 %indvars.iv.next.i, 256
@@ -2100,7 +2100,7 @@ prte_initialize_crc_table.exit:                   ; preds = %13
 22:                                               ; preds = %.lr.ph95, %22
   %.05090.idx = phi i64 [ 0, %.lr.ph95 ], [ %.05090.add, %22 ]
   %.15888 = phi i32 [ %.05792, %.lr.ph95 ], [ %31, %22 ]
-  %.05090.ptr = getelementptr inbounds i8, ptr %6, i64 %.05090.idx
+  %.05090.ptr = getelementptr inbounds nuw i8, ptr %6, i64 %.05090.idx
   %23 = lshr i32 %.15888, 24
   %.05090.add = add nuw nsw i64 %.05090.idx, 1
   %24 = load i8, ptr %.05090.ptr, align 1
@@ -2108,15 +2108,15 @@ prte_initialize_crc_table.exit:                   ; preds = %13
   %26 = xor i32 %23, %25
   %27 = shl i32 %.15888, 8
   %28 = zext nneg i32 %26 to i64
-  %29 = getelementptr inbounds [256 x i32], ptr @_prte_crc_table, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw [256 x i32], ptr @_prte_crc_table, i64 0, i64 %28
   %30 = load i32, ptr %29, align 4
   %31 = xor i32 %30, %27
   %exitcond.not = icmp eq i64 %.05090.idx, 3
   br i1 %exitcond.not, label %32, label %22, !llvm.loop !43
 
 32:                                               ; preds = %22
-  %33 = getelementptr inbounds i8, ptr %.05393, i64 4
-  %34 = getelementptr inbounds i8, ptr %.05294, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %.05393, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %.05294, i64 4
   %35 = add i64 %.06091, -4
   %36 = icmp ugt i64 %35, 3
   br i1 %36, label %.lr.ph95, label %.preheader70, !llvm.loop !44
@@ -2133,16 +2133,16 @@ prte_initialize_crc_table.exit:                   ; preds = %13
   %.259102 = phi i32 [ %48, %.lr.ph105 ], [ %.057.lcssa, %.preheader70 ]
   %.161101 = phi i64 [ %37, %.lr.ph105 ], [ %.060.lcssa, %.preheader70 ]
   %37 = add i64 %.161101, -1
-  %38 = getelementptr inbounds i8, ptr %.151103, i64 1
+  %38 = getelementptr inbounds nuw i8, ptr %.151103, i64 1
   %39 = load i8, ptr %.151103, align 1
-  %40 = getelementptr inbounds i8, ptr %.049104, i64 1
+  %40 = getelementptr inbounds nuw i8, ptr %.049104, i64 1
   store i8 %39, ptr %.049104, align 1
   %41 = lshr i32 %.259102, 24
   %42 = zext i8 %39 to i32
   %43 = xor i32 %41, %42
   %44 = shl i32 %.259102, 8
   %45 = zext nneg i32 %43 to i64
-  %46 = getelementptr inbounds [256 x i32], ptr @_prte_crc_table, i64 0, i64 %45
+  %46 = getelementptr inbounds nuw [256 x i32], ptr @_prte_crc_table, i64 0, i64 %45
   %47 = load i32, ptr %46, align 4
   %48 = xor i32 %47, %44
   %.not65 = icmp eq i64 %37, 0
@@ -2154,13 +2154,13 @@ prte_initialize_crc_table.exit:                   ; preds = %13
   %.3109 = phi i32 [ %59, %.lr.ph112 ], [ %.259.lcssa, %.preheader ]
   %49 = add i64 %.055110, -1
   %50 = lshr i32 %.3109, 24
-  %51 = getelementptr inbounds i8, ptr %.2111, i64 1
+  %51 = getelementptr inbounds nuw i8, ptr %.2111, i64 1
   %52 = load i8, ptr %.2111, align 1
   %53 = zext i8 %52 to i32
   %54 = xor i32 %50, %53
   %55 = shl i32 %.3109, 8
   %56 = zext nneg i32 %54 to i64
-  %57 = getelementptr inbounds [256 x i32], ptr @_prte_crc_table, i64 0, i64 %56
+  %57 = getelementptr inbounds nuw [256 x i32], ptr @_prte_crc_table, i64 0, i64 %56
   %58 = load i32, ptr %57, align 4
   %59 = xor i32 %58, %55
   %.not66 = icmp eq i64 %49, 0
@@ -2178,16 +2178,16 @@ prte_initialize_crc_table.exit:                   ; preds = %13
   %.578 = phi i32 [ %71, %.lr.ph ], [ %4, %.preheader74 ]
   %.26277 = phi i64 [ %60, %.lr.ph ], [ %2, %.preheader74 ]
   %60 = add i64 %.26277, -1
-  %61 = getelementptr inbounds i8, ptr %.04879, i64 1
+  %61 = getelementptr inbounds nuw i8, ptr %.04879, i64 1
   %62 = load i8, ptr %.04879, align 1
-  %63 = getelementptr inbounds i8, ptr %.080, i64 1
+  %63 = getelementptr inbounds nuw i8, ptr %.080, i64 1
   store i8 %62, ptr %.080, align 1
   %64 = lshr i32 %.578, 24
   %65 = zext i8 %62 to i32
   %66 = xor i32 %64, %65
   %67 = shl i32 %.578, 8
   %68 = zext nneg i32 %66 to i64
-  %69 = getelementptr inbounds [256 x i32], ptr @_prte_crc_table, i64 0, i64 %68
+  %69 = getelementptr inbounds nuw [256 x i32], ptr @_prte_crc_table, i64 0, i64 %68
   %70 = load i32, ptr %69, align 4
   %71 = xor i32 %70, %67
   %.not67 = icmp eq i64 %60, 0
@@ -2199,13 +2199,13 @@ prte_initialize_crc_table.exit:                   ; preds = %13
   %.683 = phi i32 [ %82, %.lr.ph86 ], [ %.5.lcssa, %.preheader72 ]
   %72 = add i64 %.15684, -1
   %73 = lshr i32 %.683, 24
-  %74 = getelementptr inbounds i8, ptr %.185, i64 1
+  %74 = getelementptr inbounds nuw i8, ptr %.185, i64 1
   %75 = load i8, ptr %.185, align 1
   %76 = zext i8 %75 to i32
   %77 = xor i32 %73, %76
   %78 = shl i32 %.683, 8
   %79 = zext nneg i32 %77 to i64
-  %80 = getelementptr inbounds [256 x i32], ptr @_prte_crc_table, i64 0, i64 %79
+  %80 = getelementptr inbounds nuw [256 x i32], ptr @_prte_crc_table, i64 0, i64 %79
   %81 = load i32, ptr %80, align 4
   %82 = xor i32 %81, %78
   %.not68 = icmp eq i64 %72, 0
@@ -2240,7 +2240,7 @@ define i32 @prte_uicrc_partial(ptr noundef %0, i64 noundef %1, i32 noundef %2) l
   br i1 %exitcond.not.i, label %10, label %6, !llvm.loop !41
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds [256 x i32], ptr @_prte_crc_table, i64 0, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw [256 x i32], ptr @_prte_crc_table, i64 0, i64 %indvars.iv.i
   store i32 %.1.i, ptr %11, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond17.not.i = icmp eq i64 %indvars.iv.next.i, 256
@@ -2282,7 +2282,7 @@ prte_initialize_crc_table.exit:                   ; preds = %10
 17:                                               ; preds = %.lr.ph48, %17
   %.02444.idx = phi i64 [ 0, %.lr.ph48 ], [ %.02444.add, %17 ]
   %.12742 = phi i32 [ %.02646, %.lr.ph48 ], [ %26, %17 ]
-  %.02444.ptr = getelementptr inbounds i8, ptr %4, i64 %.02444.idx
+  %.02444.ptr = getelementptr inbounds nuw i8, ptr %4, i64 %.02444.idx
   %18 = lshr i32 %.12742, 24
   %.02444.add = add nuw nsw i64 %.02444.idx, 1
   %19 = load i8, ptr %.02444.ptr, align 1
@@ -2290,14 +2290,14 @@ prte_initialize_crc_table.exit:                   ; preds = %10
   %21 = xor i32 %18, %20
   %22 = shl i32 %.12742, 8
   %23 = zext nneg i32 %21 to i64
-  %24 = getelementptr inbounds [256 x i32], ptr @_prte_crc_table, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw [256 x i32], ptr @_prte_crc_table, i64 0, i64 %23
   %25 = load i32, ptr %24, align 4
   %26 = xor i32 %25, %22
   %exitcond.not = icmp eq i64 %.02444.idx, 3
   br i1 %exitcond.not, label %27, label %17, !llvm.loop !49
 
 27:                                               ; preds = %17
-  %28 = getelementptr inbounds i8, ptr %.02347, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %.02347, i64 4
   %29 = add i64 %.02845, -4
   %30 = icmp ugt i64 %29, 3
   br i1 %30, label %.lr.ph48, label %.preheader, !llvm.loop !50
@@ -2308,13 +2308,13 @@ prte_initialize_crc_table.exit:                   ; preds = %10
   %.12953 = phi i64 [ %31, %.lr.ph56 ], [ %.028.lcssa, %.preheader ]
   %31 = add i64 %.12953, -1
   %32 = lshr i32 %.254, 24
-  %33 = getelementptr inbounds i8, ptr %.155, i64 1
+  %33 = getelementptr inbounds nuw i8, ptr %.155, i64 1
   %34 = load i8, ptr %.155, align 1
   %35 = zext i8 %34 to i32
   %36 = xor i32 %32, %35
   %37 = shl i32 %.254, 8
   %38 = zext nneg i32 %36 to i64
-  %39 = getelementptr inbounds [256 x i32], ptr @_prte_crc_table, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw [256 x i32], ptr @_prte_crc_table, i64 0, i64 %38
   %40 = load i32, ptr %39, align 4
   %41 = xor i32 %40, %37
   %.not32 = icmp eq i64 %31, 0
@@ -2326,13 +2326,13 @@ prte_initialize_crc_table.exit:                   ; preds = %10
   %.23039 = phi i64 [ %42, %.lr.ph ], [ %1, %.preheader35 ]
   %42 = add i64 %.23039, -1
   %43 = lshr i32 %.440, 24
-  %44 = getelementptr inbounds i8, ptr %.041, i64 1
+  %44 = getelementptr inbounds nuw i8, ptr %.041, i64 1
   %45 = load i8, ptr %.041, align 1
   %46 = zext i8 %45 to i32
   %47 = xor i32 %43, %46
   %48 = shl i32 %.440, 8
   %49 = zext nneg i32 %47 to i64
-  %50 = getelementptr inbounds [256 x i32], ptr @_prte_crc_table, i64 0, i64 %49
+  %50 = getelementptr inbounds nuw [256 x i32], ptr @_prte_crc_table, i64 0, i64 %49
   %51 = load i32, ptr %50, align 4
   %52 = xor i32 %51, %48
   %.not33 = icmp eq i64 %42, 0

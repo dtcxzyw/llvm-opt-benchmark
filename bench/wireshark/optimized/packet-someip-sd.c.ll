@@ -368,7 +368,7 @@ define internal i32 @dissect_someip_sd_pdu(ptr noundef %0, ptr noundef %1, ptr n
   %24 = alloca i32, align 4
   store i32 0, ptr %23, align 4
   store i32 0, ptr %24, align 4
-  %25 = getelementptr inbounds i8, ptr %1, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8
   tail call void @col_set_str(ptr noundef %26, i32 noundef 34, ptr noundef nonnull @.str.117) #7
   %27 = load ptr, ptr %25, align 8
@@ -488,7 +488,7 @@ define internal i32 @dissect_someip_sd_pdu(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %.not673.i, label %dissect_someip_sd_pdu_options.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
-  %91 = getelementptr inbounds i8, ptr %1, i64 408
+  %91 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %92
 
 92:                                               ; preds = %264, %.lr.ph.i
@@ -806,8 +806,8 @@ thread-pre-split:                                 ; preds = %65, %271, %dissect_
   br i1 %275, label %276, label %580
 
 276:                                              ; preds = %273
-  %277 = getelementptr inbounds i8, ptr %1, i64 80
-  %278 = getelementptr inbounds i8, ptr %1, i64 408
+  %277 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %278 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %279
 
 279:                                              ; preds = %.thread55.i, %276
@@ -940,13 +940,13 @@ dissect_someip_sd_pdu_entry.exit.thread.i:        ; preds = %279
   br i1 %.not.i.i.i, label %proto_item_set_generated.exit.i.i, label %346
 
 346:                                              ; preds = %343
-  %347 = getelementptr inbounds i8, ptr %345, i64 32
+  %347 = getelementptr inbounds nuw i8, ptr %345, i64 32
   %348 = load ptr, ptr %347, align 8
   %.not5.i.i.i = icmp eq ptr %348, null
   br i1 %.not5.i.i.i, label %proto_item_set_generated.exit.i.i, label %349
 
 349:                                              ; preds = %346
-  %350 = getelementptr inbounds i8, ptr %348, i64 28
+  %350 = getelementptr inbounds nuw i8, ptr %348, i64 28
   %351 = load i32, ptr %350, align 4
   %352 = or i32 %351, 2
   store i32 %352, ptr %350, align 4
@@ -969,13 +969,13 @@ proto_item_set_generated.exit.i.i:                ; preds = %349, %346, %343
   br i1 %.not.i201.i.i, label %proto_item_set_hidden.exit.i.i, label %361
 
 361:                                              ; preds = %358
-  %362 = getelementptr inbounds i8, ptr %360, i64 32
+  %362 = getelementptr inbounds nuw i8, ptr %360, i64 32
   %363 = load ptr, ptr %362, align 8
   %.not5.i202.i.i = icmp eq ptr %363, null
   br i1 %.not5.i202.i.i, label %proto_item_set_hidden.exit.i.i, label %364
 
 364:                                              ; preds = %361
-  %365 = getelementptr inbounds i8, ptr %363, i64 28
+  %365 = getelementptr inbounds nuw i8, ptr %363, i64 28
   %366 = load i32, ptr %365, align 4
   %367 = or i32 %366, 2
   store i32 %367, ptr %365, align 4
@@ -984,7 +984,7 @@ proto_item_set_generated.exit.i.i:                ; preds = %349, %346, %343
   br i1 %.not5.i205.i.i, label %proto_item_set_hidden.exit.i.i, label %368
 
 368:                                              ; preds = %364
-  %369 = getelementptr inbounds i8, ptr %.pre.i.i, i64 28
+  %369 = getelementptr inbounds nuw i8, ptr %.pre.i.i, i64 28
   %370 = load i32, ptr %369, align 4
   %371 = or i32 %370, 1
   store i32 %371, ptr %369, align 4
@@ -1044,13 +1044,13 @@ proto_item_set_hidden.exit.i.i:                   ; preds = %368, %364, %361, %3
   br i1 %.not.i206.i.i, label %proto_item_set_hidden.exit211.i.i, label %412
 
 412:                                              ; preds = %409
-  %413 = getelementptr inbounds i8, ptr %411, i64 32
+  %413 = getelementptr inbounds nuw i8, ptr %411, i64 32
   %414 = load ptr, ptr %413, align 8
   %.not5.i207.i.i = icmp eq ptr %414, null
   br i1 %.not5.i207.i.i, label %proto_item_set_hidden.exit211.i.i, label %415
 
 415:                                              ; preds = %412
-  %416 = getelementptr inbounds i8, ptr %414, i64 28
+  %416 = getelementptr inbounds nuw i8, ptr %414, i64 28
   %417 = load i32, ptr %416, align 4
   %418 = or i32 %417, 2
   store i32 %418, ptr %416, align 4
@@ -1059,7 +1059,7 @@ proto_item_set_hidden.exit.i.i:                   ; preds = %368, %364, %361, %3
   br i1 %.not5.i210.i.i, label %proto_item_set_hidden.exit211.i.i, label %419
 
 419:                                              ; preds = %415
-  %420 = getelementptr inbounds i8, ptr %.pre3.i.i, i64 28
+  %420 = getelementptr inbounds nuw i8, ptr %.pre3.i.i, i64 28
   %421 = load i32, ptr %420, align 4
   %422 = or i32 %421, 1
   store i32 %422, ptr %420, align 4
@@ -1114,7 +1114,7 @@ switch.hole_check:                                ; preds = %442
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %447 = zext nneg i8 %282 to i64
-  %switch.gep = getelementptr inbounds [8 x ptr], ptr @switch.table.dissect_someip_sd_pdu, i64 0, i64 %447
+  %switch.gep = getelementptr inbounds nuw [8 x ptr], ptr @switch.table.dissect_someip_sd_pdu, i64 0, i64 %447
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %448
 
@@ -1126,13 +1126,13 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br i1 %.not.i212.i.i, label %proto_item_set_hidden.exit214.i.i, label %451
 
 451:                                              ; preds = %448
-  %452 = getelementptr inbounds i8, ptr %450, i64 32
+  %452 = getelementptr inbounds nuw i8, ptr %450, i64 32
   %453 = load ptr, ptr %452, align 8
   %.not5.i213.i.i = icmp eq ptr %453, null
   br i1 %.not5.i213.i.i, label %proto_item_set_hidden.exit214.i.i, label %454
 
 454:                                              ; preds = %451
-  %455 = getelementptr inbounds i8, ptr %453, i64 28
+  %455 = getelementptr inbounds nuw i8, ptr %453, i64 28
   %456 = load i32, ptr %455, align 4
   %457 = or i32 %456, 1
   store i32 %457, ptr %455, align 4
@@ -1160,7 +1160,7 @@ proto_item_set_hidden.exit214.i.i:                ; preds = %switch.hole_check, 
 
 467:                                              ; preds = %465
   %468 = load ptr, ptr %277, align 8
-  %469 = getelementptr inbounds i8, ptr %468, i64 50
+  %469 = getelementptr inbounds nuw i8, ptr %468, i64 50
   %470 = load i16, ptr %469, align 2
   %471 = and i16 %470, 8
   %.not199.i.i = icmp eq i16 %471, 0
@@ -1280,24 +1280,24 @@ someip_sd_register_ports.exit226.i.i:             ; preds = %508, %someip_sd_reg
   store i8 %282, ptr %513, align 4
   %514 = load i32, ptr %5, align 4
   %515 = trunc i32 %514 to i16
-  %516 = getelementptr inbounds i8, ptr %513, i64 2
+  %516 = getelementptr inbounds nuw i8, ptr %513, i64 2
   store i16 %515, ptr %516, align 2
   %517 = load i32, ptr %8, align 4
   %518 = trunc i32 %517 to i8
-  %519 = getelementptr inbounds i8, ptr %513, i64 4
+  %519 = getelementptr inbounds nuw i8, ptr %513, i64 4
   store i8 %518, ptr %519, align 4
   %520 = load i32, ptr %9, align 4
-  %521 = getelementptr inbounds i8, ptr %513, i64 8
+  %521 = getelementptr inbounds nuw i8, ptr %513, i64 8
   store i32 %520, ptr %521, align 4
   %522 = load i32, ptr %6, align 4
   %523 = trunc i32 %522 to i16
-  %524 = getelementptr inbounds i8, ptr %513, i64 12
+  %524 = getelementptr inbounds nuw i8, ptr %513, i64 12
   store i16 %523, ptr %524, align 4
   %525 = load i32, ptr %7, align 4
   %526 = trunc i32 %525 to i16
-  %527 = getelementptr inbounds i8, ptr %513, i64 14
+  %527 = getelementptr inbounds nuw i8, ptr %513, i64 14
   store i16 %526, ptr %527, align 2
-  %528 = getelementptr inbounds i8, ptr %513, i64 16
+  %528 = getelementptr inbounds nuw i8, ptr %513, i64 16
   store i32 %284, ptr %528, align 4
   %529 = load i32, ptr @tap_someip_sd_entries, align 4
   call void @tap_queue_packet(i32 noundef %529, ptr noundef %1, ptr noundef nonnull %513) #7
@@ -1478,9 +1478,9 @@ define internal noundef i32 @someipsd_entries_stats_tree_packet(ptr noundef %0, 
   unreachable
 
 7:                                                ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %1, i64 408
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 160
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %11 = tail call ptr @address_to_str(ptr noundef %9, ptr noundef nonnull %10) #7
   %12 = tail call ptr @address_to_name(ptr noundef nonnull %10) #7
   %13 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) @someipsd_entries_stats_tree_packet.tmp_addr_str, i64 noundef 255, ptr noundef nonnull @.str.187, ptr noundef %11, ptr noundef %12) #7
@@ -1488,14 +1488,14 @@ define internal noundef i32 @someipsd_entries_stats_tree_packet(ptr noundef %0, 
   %15 = load i32, ptr @st_node_ip_src, align 4
   %16 = tail call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef nonnull @someipsd_entries_stats_tree_packet.tmp_addr_str, i32 noundef %15, i32 noundef 1, i32 noundef 1) #7
   %17 = load ptr, ptr %8, align 8
-  %18 = getelementptr inbounds i8, ptr %1, i64 184
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 184
   %19 = tail call ptr @address_to_str(ptr noundef %17, ptr noundef nonnull %18) #7
   %20 = tail call ptr @address_to_name(ptr noundef nonnull %18) #7
   %21 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) @someipsd_entries_stats_tree_packet.tmp_addr_str, i64 noundef 255, ptr noundef nonnull @.str.187, ptr noundef %19, ptr noundef %20) #7
   %22 = tail call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef nonnull @.str.190, i32 noundef 0, i32 noundef 0, i32 noundef 1) #7
   %23 = load i32, ptr @st_node_ip_dst, align 4
   %24 = tail call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef nonnull @someipsd_entries_stats_tree_packet.tmp_addr_str, i32 noundef %23, i32 noundef 1, i32 noundef 1) #7
-  %25 = getelementptr inbounds i8, ptr %3, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %26 = load i32, ptr %25, align 4
   %27 = icmp eq i32 %26, 0
   %28 = load i8, ptr %3, align 4
@@ -1525,7 +1525,7 @@ switch.hole_check:                                ; preds = %32
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %34 = zext nneg i8 %28 to i64
-  %switch.gep = getelementptr inbounds [8 x ptr], ptr @switch.table.someipsd_entries_stats_tree_packet, i64 0, i64 %34
+  %switch.gep = getelementptr inbounds nuw [8 x ptr], ptr @switch.table.someipsd_entries_stats_tree_packet, i64 0, i64 %34
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %.sink.split
 
@@ -1712,21 +1712,21 @@ define internal fastcc void @stat_create_entry_summary_string(ptr nocapture noun
   %5 = alloca [128 x i8], align 16
   %6 = alloca [128 x i8], align 16
   %7 = alloca [128 x i8], align 16
-  %8 = getelementptr inbounds i8, ptr %0, i64 2
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %9 = load i16, ptr %8, align 2
   %10 = tail call ptr @someip_lookup_service_name(i16 noundef zeroext %9) #7
   %11 = load i16, ptr %8, align 2
-  %12 = getelementptr inbounds i8, ptr %0, i64 14
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 14
   %13 = load i16, ptr %12, align 2
   %14 = tail call ptr @someip_lookup_eventgroup_name(i16 noundef zeroext %11, i16 noundef zeroext %13) #7
   %15 = load i16, ptr %8, align 2
   %16 = zext i16 %15 to i32
   %17 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 127, ptr noundef nonnull @.str.191, i32 noundef %16) #7
-  %18 = getelementptr inbounds i8, ptr %0, i64 12
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %19 = load i16, ptr %18, align 4
   %20 = zext i16 %19 to i32
   %21 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 127, ptr noundef nonnull @.str.191, i32 noundef %20) #7
-  %22 = getelementptr inbounds i8, ptr %0, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %23 = load i8, ptr %22, align 4
   %24 = icmp eq i8 %23, -1
   br i1 %24, label %25, label %26
@@ -1750,7 +1750,7 @@ stat_number_to_string_with_any.exit:              ; preds = %25, %26
   ]
 
 30:                                               ; preds = %stat_number_to_string_with_any.exit, %stat_number_to_string_with_any.exit
-  %31 = getelementptr inbounds i8, ptr %0, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %32 = load i32, ptr %31, align 4
   %33 = icmp eq i32 %32, -1
   br i1 %33, label %34, label %35

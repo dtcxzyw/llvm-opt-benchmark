@@ -65,11 +65,11 @@ declare void @_ZN32pxrInternal_v0_24__pxrReserved__7GfQuatfC1ERKNS_7GfQuathE(ptr
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define <2 x float> @_ZNK32pxrInternal_v0_24__pxrReserved__11GfDualQuatf9GetLengthEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(32) %0) local_unnamed_addr #2 align 2 {
   %2 = load float, ptr %0, align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load float, ptr %3, align 4
   %5 = fmul float %4, %4
   %6 = tail call float @llvm.fmuladd.f32(float %2, float %2, float %5)
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load float, ptr %7, align 4
   %9 = tail call noundef float @llvm.fmuladd.f32(float %8, float %8, float %6)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -82,11 +82,11 @@ define <2 x float> @_ZNK32pxrInternal_v0_24__pxrReserved__11GfDualQuatf9GetLengt
   %sqrt.i = tail call noundef float @llvm.sqrt.f32(float %12)
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load float, ptr %15, align 4
-  %17 = getelementptr inbounds i8, ptr %0, i64 20
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %18 = load float, ptr %17, align 4
   %19 = fmul float %4, %18
   %20 = tail call float @llvm.fmuladd.f32(float %2, float %16, float %19)
-  %21 = getelementptr inbounds i8, ptr %0, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %22 = load float, ptr %21, align 4
   %23 = tail call noundef float @llvm.fmuladd.f32(float %8, float %22, float %20)
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -106,11 +106,11 @@ define <2 x float> @_ZNK32pxrInternal_v0_24__pxrReserved__11GfDualQuatf9GetLengt
 define void @_ZNK32pxrInternal_v0_24__pxrReserved__11GfDualQuatf13GetNormalizedEf(ptr dead_on_unwind noalias nocapture writable sret(%"class.pxrInternal_v0_24__pxrReserved__::GfDualQuatf") align 4 initializes((0, 32)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(32) %1, float noundef %2) local_unnamed_addr #3 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %0, ptr noundef nonnull align 4 dereferenceable(32) %1, i64 32, i1 false)
   %4 = load float, ptr %0, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load float, ptr %5, align 4
   %7 = fmul float %6, %6
   %8 = tail call float @llvm.fmuladd.f32(float %4, float %4, float %7)
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load float, ptr %9, align 4
   %11 = tail call noundef float @llvm.fmuladd.f32(float %10, float %10, float %8)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -123,11 +123,11 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__11GfDualQuatf13GetNormalizedE
   %sqrt.i.i.i = tail call noundef float @llvm.sqrt.f32(float %14)
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load float, ptr %17, align 4
-  %19 = getelementptr inbounds i8, ptr %0, i64 20
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %20 = load float, ptr %19, align 4
   %21 = fmul float %6, %20
   %22 = tail call float @llvm.fmuladd.f32(float %4, float %18, float %21)
-  %23 = getelementptr inbounds i8, ptr %0, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %24 = load float, ptr %23, align 4
   %25 = tail call noundef float @llvm.fmuladd.f32(float %10, float %24, float %22)
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -147,7 +147,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__11GfDualQuatf9GetLengthEv.exit.i: ; preds 
 31:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__11GfDualQuatf9GetLengthEv.exit.i
   store <2 x float> zeroinitializer, ptr %0, align 4
   store <2 x float> <float 0.000000e+00, float 1.000000e+00>, ptr %9, align 4
-  %.sroa.39.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.39.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.39.0..sroa_idx.i, i8 0, i64 16, i1 false)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__11GfDualQuatf9NormalizeEf.exit
 
@@ -167,10 +167,10 @@ _ZNK32pxrInternal_v0_24__pxrReserved__11GfDualQuatf9GetLengthEv.exit.i: ; preds 
   %41 = fmul float %33, %40
   %42 = load float, ptr %38, align 4
   %43 = fmul float %33, %42
-  %44 = getelementptr inbounds i8, ptr %0, i64 20
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %45 = load float, ptr %44, align 4
   %46 = fmul float %33, %45
-  %47 = getelementptr inbounds i8, ptr %0, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %48 = load float, ptr %47, align 4
   %49 = fmul float %33, %48
   %50 = fmul float %36, %46
@@ -207,11 +207,11 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define <2 x float> @_ZN32pxrInternal_v0_24__pxrReserved__11GfDualQuatf9NormalizeEf(ptr nocapture noundef nonnull align 4 dereferenceable(32) %0, float noundef %1) local_unnamed_addr #3 align 2 {
   %3 = load float, ptr %0, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load float, ptr %4, align 4
   %6 = fmul float %5, %5
   %7 = tail call float @llvm.fmuladd.f32(float %3, float %3, float %6)
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load float, ptr %8, align 4
   %10 = tail call noundef float @llvm.fmuladd.f32(float %9, float %9, float %7)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -224,11 +224,11 @@ define <2 x float> @_ZN32pxrInternal_v0_24__pxrReserved__11GfDualQuatf9Normalize
   %sqrt.i.i = tail call noundef float @llvm.sqrt.f32(float %13)
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = load float, ptr %16, align 4
-  %18 = getelementptr inbounds i8, ptr %0, i64 20
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %19 = load float, ptr %18, align 4
   %20 = fmul float %5, %19
   %21 = tail call float @llvm.fmuladd.f32(float %3, float %17, float %20)
-  %22 = getelementptr inbounds i8, ptr %0, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %23 = load float, ptr %22, align 4
   %24 = tail call noundef float @llvm.fmuladd.f32(float %9, float %23, float %21)
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -248,7 +248,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__11GfDualQuatf9GetLengthEv.exit: ; preds = 
 30:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__11GfDualQuatf9GetLengthEv.exit
   store <2 x float> zeroinitializer, ptr %0, align 4
   store <2 x float> <float 0.000000e+00, float 1.000000e+00>, ptr %8, align 4
-  %.sroa.39.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.39.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.39.0..sroa_idx, i8 0, i64 16, i1 false)
   br label %61
 
@@ -268,10 +268,10 @@ _ZNK32pxrInternal_v0_24__pxrReserved__11GfDualQuatf9GetLengthEv.exit: ; preds = 
   %40 = fmul float %32, %39
   %41 = load float, ptr %37, align 4
   %42 = fmul float %32, %41
-  %43 = getelementptr inbounds i8, ptr %0, i64 20
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %44 = load float, ptr %43, align 4
   %45 = fmul float %32, %44
-  %46 = getelementptr inbounds i8, ptr %0, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %47 = load float, ptr %46, align 4
   %48 = fmul float %32, %47
   %49 = fmul float %35, %45
@@ -308,10 +308,10 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__11GfDualQuatf12GetConjugateEv
   %4 = load float, ptr %3, align 4
   %5 = load float, ptr %1, align 4
   %6 = fneg float %5
-  %7 = getelementptr inbounds i8, ptr %1, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %8 = load float, ptr %7, align 4
   %9 = fneg float %8
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load float, ptr %10, align 4
   %12 = fneg float %11
   %.sroa.0.0.vec.insert.i.i = insertelement <2 x float> poison, float %6, i64 0
@@ -323,10 +323,10 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__11GfDualQuatf12GetConjugateEv
   %15 = load float, ptr %14, align 4
   %16 = load float, ptr %13, align 4
   %17 = fneg float %16
-  %18 = getelementptr inbounds i8, ptr %1, i64 20
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %19 = load float, ptr %18, align 4
   %20 = fneg float %19
-  %21 = getelementptr inbounds i8, ptr %1, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %22 = load float, ptr %21, align 4
   %23 = fneg float %22
   %.sroa.0.0.vec.insert.i.i1 = insertelement <2 x float> poison, float %17, i64 0
@@ -334,11 +334,11 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__11GfDualQuatf12GetConjugateEv
   %.sroa.23.8.vec.insert.i3 = insertelement <2 x float> poison, float %23, i64 0
   %.sroa.23.12.vec.insert.i4 = insertelement <2 x float> %.sroa.23.8.vec.insert.i3, float %15, i64 1
   store <2 x float> %.sroa.0.4.vec.insert.i.i, ptr %0, align 4
-  %.sroa.28.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.28.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store <2 x float> %.sroa.23.12.vec.insert.i, ptr %.sroa.28.0..sroa_idx, align 4
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store <2 x float> %.sroa.0.4.vec.insert.i.i2, ptr %24, align 4
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store <2 x float> %.sroa.23.12.vec.insert.i4, ptr %.sroa.2.0..sroa_idx, align 4
   ret void
 }
@@ -346,11 +346,11 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__11GfDualQuatf12GetConjugateEv
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZNK32pxrInternal_v0_24__pxrReserved__11GfDualQuatf10GetInverseEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.pxrInternal_v0_24__pxrReserved__::GfDualQuatf") align 4 initializes((0, 32)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(32) %1) local_unnamed_addr #3 align 2 {
   %3 = load float, ptr %1, align 4
-  %4 = getelementptr inbounds i8, ptr %1, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = load float, ptr %4, align 4
   %6 = fmul float %5, %5
   %7 = tail call float @llvm.fmuladd.f32(float %3, float %3, float %6)
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load float, ptr %8, align 4
   %10 = tail call noundef float @llvm.fmuladd.f32(float %9, float %9, float %7)
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 12
@@ -374,10 +374,10 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__11GfDualQuatf10GetInverseEv(p
   %24 = load float, ptr %23, align 4, !noalias !7
   %25 = load float, ptr %22, align 4, !noalias !7
   %26 = fneg float %25
-  %27 = getelementptr inbounds i8, ptr %1, i64 20
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %28 = load float, ptr %27, align 4, !noalias !7
   %29 = fneg float %28
-  %30 = getelementptr inbounds i8, ptr %1, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %31 = load float, ptr %30, align 4, !noalias !7
   %32 = fneg float %31
   %33 = fmul float %12, %18
@@ -415,7 +415,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__11GfDualQuatf10GetInverseEv(p
   %.sroa.6.8.vec.insert.i16 = insertelement <2 x float> %58, float %54, i64 1
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store <2 x float> %.sroa.0.4.vec.insert.i14, ptr %59, align 4
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store <2 x float> %.sroa.6.8.vec.insert.i16, ptr %.sroa.2.0..sroa_idx, align 4
   br label %60
 
@@ -423,7 +423,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__11GfDualQuatf10GetInverseEv(p
   %.sink29 = phi <2 x float> [ %.sroa.022.4.vec.insert, %17 ], [ zeroinitializer, %15 ]
   %.sink = phi <2 x float> [ %.sroa.4.12.vec.insert, %17 ], [ <float 0.000000e+00, float 1.000000e+00>, %15 ]
   store <2 x float> %.sink29, ptr %0, align 4
-  %61 = getelementptr inbounds i8, ptr %0, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store <2 x float> %.sink, ptr %61, align 4
   ret void
 }
@@ -432,7 +432,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__11GfDualQuatf10GetInverseEv(p
 define void @_ZN32pxrInternal_v0_24__pxrReserved__11GfDualQuatf14SetTranslationERKNS_7GfVec3fE(ptr noundef nonnull align 4 dereferenceable(32) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %1) local_unnamed_addr #5 align 2 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfQuatf", align 8
   %.sroa.0.0.copyload.i.i = load <2 x float>, ptr %1, align 4
-  %.sroa.6.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.6.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.6.0.copyload.i.i7 = load float, ptr %.sroa.6.0..sroa_idx.i.i, align 4
   %.sroa.0.0.vec.extract.i.i = extractelement <2 x float> %.sroa.0.0.copyload.i.i, i64 0
   %4 = fmul float %.sroa.0.0.vec.extract.i.i, 5.000000e-01
@@ -443,18 +443,18 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__11GfDualQuatf14SetTranslationE
   %6 = fmul float %.sroa.6.0.copyload.i.i7, 5.000000e-01
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   store <2 x float> %.sroa.0.4.vec.insert.i.i, ptr %3, align 8
-  %.sroa.26.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.26.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store float %6, ptr %.sroa.26.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 12
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 12
   store float 0.000000e+00, ptr %.sroa.3.0..sroa_idx, align 4
   %7 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7GfQuatfmLERKS0_(ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(16) %0)
   %.sroa.0.0.copyload.i = load <2 x float>, ptr %7, align 4
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %7, i64 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 8
   %.sroa.2.0.copyload.i = load <2 x float>, ptr %.sroa.2.0..sroa_idx.i, align 4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store <2 x float> %.sroa.0.0.copyload.i, ptr %8, align 4
-  %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store <2 x float> %.sroa.2.0.copyload.i, ptr %.sroa.22.0..sroa_idx, align 4
   ret void
 }
@@ -471,13 +471,13 @@ define { <2 x float>, float } @_ZNK32pxrInternal_v0_24__pxrReserved__11GfDualQua
   %9 = fneg float %8
   %10 = fmul float %6, %9
   %11 = tail call float @llvm.fmuladd.f32(float %4, float %7, float %10)
-  %12 = getelementptr inbounds i8, ptr %0, i64 20
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %13 = load float, ptr %12, align 4
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load float, ptr %14, align 4
-  %16 = getelementptr inbounds i8, ptr %0, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %17 = load float, ptr %16, align 4
-  %18 = getelementptr inbounds i8, ptr %0, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %19 = load float, ptr %18, align 4
   %20 = fneg float %19
   %21 = fmul float %17, %20
@@ -519,7 +519,7 @@ define noundef nonnull align 4 dereferenceable(32) ptr @_ZN32pxrInternal_v0_24__
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(16) %0, i64 16, i1 false)
   %6 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7GfQuatfmLERKS0_(ptr noundef nonnull align 4 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(16) %1)
   %.sroa.0.0.copyload.i = load <2 x float>, ptr %6, align 4
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %6, i64 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.2.0.copyload.i = load <2 x float>, ptr %.sroa.2.0..sroa_idx.i, align 4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -527,7 +527,7 @@ define noundef nonnull align 4 dereferenceable(32) ptr @_ZN32pxrInternal_v0_24__
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(16) %0, i64 16, i1 false)
   %8 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7GfQuatfmLERKS0_(ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(16) %7)
   %.sroa.0.0.copyload.i4 = load <2 x float>, ptr %8, align 4
-  %.sroa.2.0..sroa_idx.i5 = getelementptr inbounds i8, ptr %8, i64 8
+  %.sroa.2.0..sroa_idx.i5 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %.sroa.2.0.copyload.i6 = load <2 x float>, ptr %.sroa.2.0..sroa_idx.i5, align 4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -535,7 +535,7 @@ define noundef nonnull align 4 dereferenceable(32) ptr @_ZN32pxrInternal_v0_24__
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(16) %9, i64 16, i1 false)
   %10 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7GfQuatfmLERKS0_(ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(16) %1)
   %.sroa.0.0.copyload.i9 = load <2 x float>, ptr %10, align 4
-  %.sroa.2.0..sroa_idx.i10 = getelementptr inbounds i8, ptr %10, i64 8
+  %.sroa.2.0..sroa_idx.i10 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %.sroa.2.0.copyload.i11 = load <2 x float>, ptr %.sroa.2.0..sroa_idx.i10, align 4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   %11 = fadd <2 x float> %.sroa.2.0.copyload.i6, %.sroa.2.0.copyload.i11
@@ -545,10 +545,10 @@ define noundef nonnull align 4 dereferenceable(32) ptr @_ZN32pxrInternal_v0_24__
   %14 = fadd <2 x float> %.sroa.2.0.copyload.i6, %.sroa.2.0.copyload.i11
   %.sroa.6.8.vec.insert.i = shufflevector <2 x float> %14, <2 x float> %11, <2 x i32> <i32 0, i32 3>
   store <2 x float> %.sroa.0.0.copyload.i, ptr %0, align 4
-  %.sroa.220.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.220.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store <2 x float> %.sroa.2.0.copyload.i, ptr %.sroa.220.0..sroa_idx, align 4
   store <2 x float> %.sroa.0.4.vec.insert.i, ptr %9, align 4
-  %.sroa.218.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.218.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store <2 x float> %.sroa.6.8.vec.insert.i, ptr %.sroa.218.0..sroa_idx, align 4
   ret ptr %0
 }
@@ -568,13 +568,13 @@ define { <2 x float>, float } @_ZNK32pxrInternal_v0_24__pxrReserved__11GfDualQua
   %11 = fneg float %10
   %12 = fmul float %8, %11
   %13 = tail call float @llvm.fmuladd.f32(float %6, float %9, float %12)
-  %14 = getelementptr inbounds i8, ptr %0, i64 20
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %15 = load float, ptr %14, align 4
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load float, ptr %16, align 4
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = load float, ptr %18, align 4
-  %20 = getelementptr inbounds i8, ptr %0, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %21 = load float, ptr %20, align 4
   %22 = fneg float %21
   %23 = fmul float %19, %22
@@ -617,7 +617,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__p
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfQuatf", align 8
   %5 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %0, i8 noundef signext 40)
   %.sroa.01.0.copyload = load <2 x float>, ptr %1, align 4
-  %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.22.0.copyload = load <2 x float>, ptr %.sroa.22.0..sroa_idx, align 4
   store <2 x float> %.sroa.01.0.copyload, ptr %3, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -626,7 +626,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__p
   %8 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull @.str.4)
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.0.0.copyload = load <2 x float>, ptr %9, align 4
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 24
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.2.0.copyload = load <2 x float>, ptr %.sroa.2.0..sroa_idx, align 4
   store <2 x float> %.sroa.0.0.copyload, ptr %4, align 8
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 8

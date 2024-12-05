@@ -54,9 +54,9 @@ target triple = "x86_64-pc-linux-gnu"
 define void @gvconfig_plugin_install_from_library(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %2, align 8
   %5 = tail call fastcc ptr @gvplugin_package_record(ptr noundef %0, ptr noundef %1, ptr noundef %4)
-  %6 = getelementptr inbounds i8, ptr %2, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8
   %.not23 = icmp eq ptr %9, null
   br i1 %.not23, label %._crit_edge25, label %.preheader
@@ -64,7 +64,7 @@ define void @gvconfig_plugin_install_from_library(ptr noundef %0, ptr noundef %1
 .preheader:                                       ; preds = %3, %._crit_edge
   %10 = phi ptr [ %23, %._crit_edge ], [ %9, %3 ]
   %.01724 = phi ptr [ %21, %._crit_edge ], [ %7, %3 ]
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
   %.not2021 = icmp eq ptr %12, null
   br i1 %.not2021, label %._crit_edge, label %.lr.ph
@@ -72,20 +72,20 @@ define void @gvconfig_plugin_install_from_library(ptr noundef %0, ptr noundef %1
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %13 = phi ptr [ %20, %.lr.ph ], [ %12, %.preheader ]
-  %14 = getelementptr inbounds %struct.gvplugin_installed_t, ptr %10, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw %struct.gvplugin_installed_t, ptr %10, i64 %indvars.iv
   %15 = load i32, ptr %.01724, align 8
-  %16 = getelementptr inbounds i8, ptr %14, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %17 = load i32, ptr %16, align 8
   %18 = tail call zeroext i1 @gvplugin_install(ptr noundef %0, i32 noundef %15, ptr noundef nonnull %13, i32 noundef %17, ptr noundef %5, ptr noundef nonnull %14) #20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %19 = getelementptr inbounds %struct.gvplugin_installed_t, ptr %10, i64 %indvars.iv.next, i32 1
+  %19 = getelementptr inbounds nuw %struct.gvplugin_installed_t, ptr %10, i64 %indvars.iv.next, i32 1
   %20 = load ptr, ptr %19, align 8
   %.not20 = icmp eq ptr %20, null
   br i1 %.not20, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  %21 = getelementptr inbounds i8, ptr %.01724, i64 16
-  %22 = getelementptr inbounds i8, ptr %.01724, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %.01724, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %.01724, i64 24
   %23 = load ptr, ptr %22, align 8
   %.not = icmp eq ptr %23, null
   br i1 %.not, label %._crit_edge25, label %.preheader
@@ -115,7 +115,7 @@ define internal fastcc ptr @gvplugin_package_record(ptr nocapture noundef %0, pt
 
 gv_strdup.exit:                                   ; preds = %5, %3
   %13 = phi ptr [ null, %3 ], [ %6, %5 ]
-  %14 = getelementptr inbounds i8, ptr %4, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %13, ptr %14, align 8
   %15 = tail call noalias ptr @strdup(ptr noundef readonly %2) #20
   %16 = icmp eq ptr %15, null
@@ -130,9 +130,9 @@ gv_strdup.exit:                                   ; preds = %5, %3
   unreachable
 
 gv_strdup.exit10:                                 ; preds = %gv_strdup.exit
-  %22 = getelementptr inbounds i8, ptr %4, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %15, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 200
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %24 = load ptr, ptr %23, align 8
   store ptr %24, ptr %4, align 8
   store ptr %4, ptr %23, align 8
@@ -161,7 +161,7 @@ define ptr @gvconfig_libdir(ptr nocapture noundef readonly %0) local_unnamed_add
 
 7:                                                ; preds = %3, %5, %1
   %8 = phi ptr [ %4, %3 ], [ @gvconfig_libdir.line, %5 ], [ %2, %1 ]
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i32, ptr %9, align 8
   %.not2 = icmp eq i32 %10, 0
   br i1 %.not2, label %15, label %11
@@ -189,7 +189,7 @@ declare i32 @dl_iterate_phdr(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define internal range(i32 0, 2) i32 @line_callback(ptr nocapture noundef readonly %0, i64 %1, ptr nocapture noundef %2) #3 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) @.str.12) #21
   %.not = icmp eq ptr %6, null
@@ -225,7 +225,7 @@ define void @gvconfig(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr 
   %4 = alloca %struct.agxbuf, align 8
   %5 = alloca %struct.stat, align 8
   %6 = alloca %struct.agxbuf, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %gvconfig_plugin_install_builtins.exit, label %.preheader.i
@@ -236,7 +236,7 @@ define void @gvconfig(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr 
   br i1 %.not11.i, label %gvconfig_plugin_install_builtins.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
-  %11 = getelementptr inbounds i8, ptr %0, i64 200
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 200
   br label %12
 
 12:                                               ; preds = %gvconfig_plugin_install_from_library.exit.i, %.lr.ph.i
@@ -252,11 +252,11 @@ define void @gvconfig(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr 
   br i1 %.not10.i, label %gvconfig_plugin_install_from_library.exit.i, label %18
 
 18:                                               ; preds = %16
-  %19 = getelementptr inbounds i8, ptr %.012.i, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %.012.i, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = load ptr, ptr %20, align 8
   %22 = tail call ptr @gmalloc(i64 noundef 24) #20
-  %23 = getelementptr inbounds i8, ptr %22, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr null, ptr %23, align 8
   %24 = tail call noalias ptr @strdup(ptr noundef readonly %21) #20
   %25 = icmp eq ptr %24, null
@@ -271,14 +271,14 @@ define void @gvconfig(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr 
   unreachable
 
 gvplugin_package_record.exit.i:                   ; preds = %18
-  %31 = getelementptr inbounds i8, ptr %22, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %22, i64 16
   store ptr %24, ptr %31, align 8
   %32 = load ptr, ptr %11, align 8
   store ptr %32, ptr %22, align 8
   store ptr %22, ptr %11, align 8
-  %33 = getelementptr inbounds i8, ptr %20, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load ptr, ptr %35, align 8
   %.not23.i.i = icmp eq ptr %36, null
   br i1 %.not23.i.i, label %gvconfig_plugin_install_from_library.exit.i, label %.preheader.i.i
@@ -286,7 +286,7 @@ gvplugin_package_record.exit.i:                   ; preds = %18
 .preheader.i.i:                                   ; preds = %gvplugin_package_record.exit.i, %._crit_edge.i.i
   %37 = phi ptr [ %50, %._crit_edge.i.i ], [ %36, %gvplugin_package_record.exit.i ]
   %.01724.i.i = phi ptr [ %48, %._crit_edge.i.i ], [ %34, %gvplugin_package_record.exit.i ]
-  %38 = getelementptr inbounds i8, ptr %37, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %39 = load ptr, ptr %38, align 8
   %.not2021.i.i = icmp eq ptr %39, null
   br i1 %.not2021.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
@@ -294,34 +294,34 @@ gvplugin_package_record.exit.i:                   ; preds = %18
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 0, %.preheader.i.i ]
   %40 = phi ptr [ %47, %.lr.ph.i.i ], [ %39, %.preheader.i.i ]
-  %41 = getelementptr inbounds %struct.gvplugin_installed_t, ptr %37, i64 %indvars.iv.i.i
+  %41 = getelementptr inbounds nuw %struct.gvplugin_installed_t, ptr %37, i64 %indvars.iv.i.i
   %42 = load i32, ptr %.01724.i.i, align 8
-  %43 = getelementptr inbounds i8, ptr %41, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %44 = load i32, ptr %43, align 8
   %45 = tail call zeroext i1 @gvplugin_install(ptr noundef %0, i32 noundef %42, ptr noundef nonnull %40, i32 noundef %44, ptr noundef nonnull %22, ptr noundef nonnull %41) #20
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %46 = getelementptr inbounds %struct.gvplugin_installed_t, ptr %37, i64 %indvars.iv.next.i.i, i32 1
+  %46 = getelementptr inbounds nuw %struct.gvplugin_installed_t, ptr %37, i64 %indvars.iv.next.i.i, i32 1
   %47 = load ptr, ptr %46, align 8
   %.not20.i.i = icmp eq ptr %47, null
   br i1 %.not20.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %.preheader.i.i
-  %48 = getelementptr inbounds i8, ptr %.01724.i.i, i64 16
-  %49 = getelementptr inbounds i8, ptr %.01724.i.i, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %.01724.i.i, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %.01724.i.i, i64 24
   %50 = load ptr, ptr %49, align 8
   %.not.i.i = icmp eq ptr %50, null
   br i1 %.not.i.i, label %gvconfig_plugin_install_from_library.exit.i, label %.preheader.i.i
 
 gvconfig_plugin_install_from_library.exit.i:      ; preds = %._crit_edge.i.i, %gvplugin_package_record.exit.i, %16, %12
-  %51 = getelementptr inbounds i8, ptr %.012.i, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %.012.i, i64 16
   %52 = load ptr, ptr %51, align 8
   %.not.i = icmp eq ptr %52, null
   br i1 %.not.i, label %gvconfig_plugin_install_builtins.exit, label %12
 
 gvconfig_plugin_install_builtins.exit:            ; preds = %gvconfig_plugin_install_from_library.exit.i, %2, %.preheader.i
-  %53 = getelementptr inbounds i8, ptr %0, i64 80
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i8 0, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %0, i64 64
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %55 = load i32, ptr %54, align 8
   %.not = icmp eq i32 %55, 0
   br i1 %.not, label %477, label %56
@@ -345,7 +345,7 @@ gvconfig_plugin_install_builtins.exit:            ; preds = %gvconfig_plugin_ins
 
 62:                                               ; preds = %60, %58, %56
   %63 = phi ptr [ %59, %58 ], [ @gvconfig_libdir.line, %60 ], [ %57, %56 ]
-  %64 = getelementptr inbounds i8, ptr %0, i64 16
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %65 = load i32, ptr %64, align 8
   %.not2.i = icmp eq i32 %65, 0
   br i1 %.not2.i, label %gvconfig_libdir.exit, label %66
@@ -368,7 +368,7 @@ gvconfig_libdir.exit:                             ; preds = %62, %66, %67
   br i1 %72, label %477, label %73
 
 73:                                               ; preds = %gvconfig_libdir.exit
-  %74 = getelementptr inbounds i8, ptr %0, i64 72
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %75 = load ptr, ptr %74, align 8
   %.not35 = icmp eq ptr %75, null
   br i1 %.not35, label %76, label %96
@@ -376,7 +376,7 @@ gvconfig_libdir.exit:                             ; preds = %62, %66, %67
 76:                                               ; preds = %73
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 32, i1 false)
   call void (ptr, ptr, ...) @agxbprint(ptr noundef %6, ptr nonnull poison, ptr noundef %70, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.4)
-  %77 = getelementptr inbounds i8, ptr %6, i64 31
+  %77 = getelementptr inbounds nuw i8, ptr %6, i64 31
   %.val.i = load i8, ptr %77, align 1
   %.not.i38 = icmp eq i8 %.val.i, -1
   br i1 %.not.i38, label %agxbsizeof.exit.i.i, label %agxblen.exit.i
@@ -395,9 +395,9 @@ agxblen.exit.i:                                   ; preds = %76
   unreachable
 
 agxbsizeof.exit.i.i:                              ; preds = %76
-  %85 = getelementptr inbounds i8, ptr %6, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %86 = load i64, ptr %85, align 8
-  %87 = getelementptr inbounds i8, ptr %6, i64 16
+  %87 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %88 = load i64, ptr %87, align 8
   %.not.i7.i = icmp ult i64 %86, %88
   br i1 %.not.i7.i, label %.thread.i, label %89
@@ -414,7 +414,7 @@ agxbsizeof.exit.i.i:                              ; preds = %76
 
 90:                                               ; preds = %89
   %91 = zext i8 %.val.i15.pre.i.i to i64
-  %92 = getelementptr inbounds [31 x i8], ptr %6, i64 0, i64 %91
+  %92 = getelementptr inbounds nuw [31 x i8], ptr %6, i64 0, i64 %91
   store i8 0, ptr %92, align 1
   %.pre = load ptr, ptr %6, align 8
   br label %agxbdisown.exit
@@ -499,12 +499,12 @@ gvconfig_libdir.exit.i:                           ; preds = %119, %118, %115
   %122 = phi ptr [ %.pre.i.i, %119 ], [ %116, %118 ], [ %116, %115 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
   call void (ptr, ptr, ...) @agxbprint(ptr noundef %4, ptr nonnull poison, ptr noundef %122, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.17)
-  %123 = getelementptr inbounds i8, ptr %4, i64 31
+  %123 = getelementptr inbounds nuw i8, ptr %4, i64 31
   %.val.i.i.i.i = load i8, ptr %123, align 1
   %.not.i.i.i.i = icmp eq i8 %.val.i.i.i.i, -1
-  %124 = getelementptr inbounds i8, ptr %4, i64 8
+  %124 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %125 = load i64, ptr %124, align 8
-  %126 = getelementptr inbounds i8, ptr %4, i64 16
+  %126 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %127 = load i64, ptr %126, align 8
   %128 = zext i8 %.val.i.i.i.i to i64
   %.0.i20.i.i.i = select i1 %.not.i.i.i.i, i64 %125, i64 %128
@@ -524,7 +524,7 @@ gvconfig_libdir.exit.i:                           ; preds = %119, %118, %115
 
 131:                                              ; preds = %130
   %132 = zext i8 %.val.i15.i.i.i to i64
-  %133 = getelementptr inbounds [31 x i8], ptr %4, i64 0, i64 %132
+  %133 = getelementptr inbounds nuw [31 x i8], ptr %4, i64 0, i64 %132
   store i8 0, ptr %133, align 1
   %134 = load i8, ptr %123, align 1
   %135 = add i8 %134, 1
@@ -566,7 +566,7 @@ agxbuse.exit.i:                                   ; preds = %142, %agxbclear.exi
   br i1 %or.cond.i, label %.loopexit.i, label %.lr.ph.i42
 
 .lr.ph.i42:                                       ; preds = %agxbuse.exit.i
-  %148 = getelementptr inbounds i8, ptr %3, i64 8
+  %148 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %180
 
 .preheader.i44:                                   ; preds = %gvconfig_plugin_install_from_library.exit.i43
@@ -708,9 +708,9 @@ is_plugin.exit.i:                                 ; preds = %.critedge.i.i
   %211 = load ptr, ptr %210, align 8
   %212 = load ptr, ptr %207, align 8
   %213 = call fastcc ptr @gvplugin_package_record(ptr noundef %0, ptr noundef %211, ptr noundef %212)
-  %214 = getelementptr inbounds i8, ptr %207, i64 8
+  %214 = getelementptr inbounds nuw i8, ptr %207, i64 8
   %215 = load ptr, ptr %214, align 8
-  %216 = getelementptr inbounds i8, ptr %215, i64 8
+  %216 = getelementptr inbounds nuw i8, ptr %215, i64 8
   %217 = load ptr, ptr %216, align 8
   %.not23.i.i48 = icmp eq ptr %217, null
   br i1 %.not23.i.i48, label %gvconfig_plugin_install_from_library.exit.i43, label %.preheader.i.i49
@@ -718,7 +718,7 @@ is_plugin.exit.i:                                 ; preds = %.critedge.i.i
 .preheader.i.i49:                                 ; preds = %208, %._crit_edge.i.i55
   %218 = phi ptr [ %231, %._crit_edge.i.i55 ], [ %217, %208 ]
   %.01724.i.i50 = phi ptr [ %229, %._crit_edge.i.i55 ], [ %215, %208 ]
-  %219 = getelementptr inbounds i8, ptr %218, i64 8
+  %219 = getelementptr inbounds nuw i8, ptr %218, i64 8
   %220 = load ptr, ptr %219, align 8
   %.not2021.i.i51 = icmp eq ptr %220, null
   br i1 %.not2021.i.i51, label %._crit_edge.i.i55, label %.lr.ph.i54.i
@@ -726,20 +726,20 @@ is_plugin.exit.i:                                 ; preds = %.critedge.i.i
 .lr.ph.i54.i:                                     ; preds = %.preheader.i.i49, %.lr.ph.i54.i
   %indvars.iv.i.i52 = phi i64 [ %indvars.iv.next.i.i53, %.lr.ph.i54.i ], [ 0, %.preheader.i.i49 ]
   %221 = phi ptr [ %228, %.lr.ph.i54.i ], [ %220, %.preheader.i.i49 ]
-  %222 = getelementptr inbounds %struct.gvplugin_installed_t, ptr %218, i64 %indvars.iv.i.i52
+  %222 = getelementptr inbounds nuw %struct.gvplugin_installed_t, ptr %218, i64 %indvars.iv.i.i52
   %223 = load i32, ptr %.01724.i.i50, align 8
-  %224 = getelementptr inbounds i8, ptr %222, i64 16
+  %224 = getelementptr inbounds nuw i8, ptr %222, i64 16
   %225 = load i32, ptr %224, align 8
   %226 = call zeroext i1 @gvplugin_install(ptr noundef %0, i32 noundef %223, ptr noundef nonnull %221, i32 noundef %225, ptr noundef %213, ptr noundef nonnull %222) #20
   %indvars.iv.next.i.i53 = add nuw nsw i64 %indvars.iv.i.i52, 1
-  %227 = getelementptr inbounds %struct.gvplugin_installed_t, ptr %218, i64 %indvars.iv.next.i.i53, i32 1
+  %227 = getelementptr inbounds nuw %struct.gvplugin_installed_t, ptr %218, i64 %indvars.iv.next.i.i53, i32 1
   %228 = load ptr, ptr %227, align 8
   %.not20.i.i54 = icmp eq ptr %228, null
   br i1 %.not20.i.i54, label %._crit_edge.i.i55, label %.lr.ph.i54.i
 
 ._crit_edge.i.i55:                                ; preds = %.lr.ph.i54.i, %.preheader.i.i49
-  %229 = getelementptr inbounds i8, ptr %.01724.i.i50, i64 16
-  %230 = getelementptr inbounds i8, ptr %.01724.i.i50, i64 24
+  %229 = getelementptr inbounds nuw i8, ptr %.01724.i.i50, i64 16
+  %230 = getelementptr inbounds nuw i8, ptr %.01724.i.i50, i64 24
   %231 = load ptr, ptr %230, align 8
   %.not.i55.i = icmp eq ptr %231, null
   br i1 %.not.i55.i, label %gvconfig_plugin_install_from_library.exit.i43, label %.preheader.i.i49
@@ -818,12 +818,12 @@ is_plugin.exit67.i:                               ; preds = %.critedge.i65.i
   br i1 %.not50.not.i, label %is_plugin.exit67.thread.i, label %267
 
 267:                                              ; preds = %262
-  %268 = getelementptr inbounds i8, ptr %266, i64 1
+  %268 = getelementptr inbounds nuw i8, ptr %266, i64 1
   %269 = load ptr, ptr %261, align 8
   %270 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %.041.i, ptr noundef nonnull @.str.25, ptr noundef nonnull %268, ptr noundef %269) #20
-  %271 = getelementptr inbounds i8, ptr %261, i64 8
+  %271 = getelementptr inbounds nuw i8, ptr %261, i64 8
   %272 = load ptr, ptr %271, align 8
-  %273 = getelementptr inbounds i8, ptr %272, i64 8
+  %273 = getelementptr inbounds nuw i8, ptr %272, i64 8
   %274 = load ptr, ptr %273, align 8
   %.not31.i.i = icmp eq ptr %274, null
   br i1 %.not31.i.i, label %gvconfig_write_library_config.exit.i, label %.lr.ph34.i.i
@@ -834,7 +834,7 @@ is_plugin.exit67.i:                               ; preds = %.critedge.i65.i
   %276 = load i32, ptr %.02432.i.i, align 8
   %277 = call ptr @gvplugin_api_name(i32 noundef %276) #20
   %278 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %.041.i, ptr noundef nonnull @.str.26, ptr noundef %277) #20
-  %279 = getelementptr inbounds i8, ptr %275, i64 8
+  %279 = getelementptr inbounds nuw i8, ptr %275, i64 8
   %280 = load ptr, ptr %279, align 8
   %.not2729.i.i = icmp eq ptr %280, null
   br i1 %.not2729.i.i, label %._crit_edge.i69.i, label %.lr.ph.i68.i
@@ -868,8 +868,8 @@ is_plugin.exit67.i:                               ; preds = %.critedge.i65.i
 
 ._crit_edge.i69.i:                                ; preds = %290, %.lr.ph34.i.i
   %298 = call i64 @fwrite(ptr nonnull @.str.29, i64 3, i64 1, ptr nonnull %.041.i)
-  %299 = getelementptr inbounds i8, ptr %.02432.i.i, i64 16
-  %300 = getelementptr inbounds i8, ptr %.02432.i.i, i64 24
+  %299 = getelementptr inbounds nuw i8, ptr %.02432.i.i, i64 16
+  %300 = getelementptr inbounds nuw i8, ptr %.02432.i.i, i64 24
   %301 = load ptr, ptr %300, align 8
   %.not.i70.i = icmp eq ptr %301, null
   br i1 %.not.i70.i, label %gvconfig_write_library_config.exit.i, label %.lr.ph34.i.i
@@ -927,7 +927,7 @@ config_rescan.exit:                               ; preds = %agxbfree.exit.i, %3
   br label %479
 
 320:                                              ; preds = %314
-  %321 = getelementptr inbounds i8, ptr %5, i64 48
+  %321 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %322 = load i64, ptr %321, align 8
   %323 = icmp eq i64 %322, 0
   br i1 %323, label %324, label %327
@@ -986,7 +986,7 @@ gv_alloc.exit:                                    ; preds = %327
   ]
 
 344:                                              ; preds = %.backedge.i.i
-  %345 = getelementptr inbounds i8, ptr %.0.i.i, i64 1
+  %345 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 1
   br label %346
 
 346:                                              ; preds = %348, %344
@@ -996,7 +996,7 @@ gv_alloc.exit:                                    ; preds = %327
   br i1 %.not26.i.i, label %.backedge.i.i.backedge, label %348
 
 348:                                              ; preds = %346
-  %349 = getelementptr inbounds i8, ptr %.1.i.i, i64 1
+  %349 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 1
   %350 = icmp eq i8 %347, 10
   br i1 %350, label %.backedge.i.i.backedge, label %346
 
@@ -1010,11 +1010,11 @@ gv_alloc.exit:                                    ; preds = %327
 
 .backedge.i.i.outer.backedge:                     ; preds = %353, %351
   %.6.i.ph.be = phi i32 [ %352, %351 ], [ %354, %353 ]
-  %.0.i.i.ph180.be = getelementptr inbounds i8, ptr %.0.i.i, i64 1
+  %.0.i.i.ph180.be = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 1
   br label %.backedge.i.i.outer
 
 355:                                              ; preds = %.backedge.i.i, %.backedge.i.i, %.backedge.i.i
-  %356 = getelementptr inbounds i8, ptr %.0.i.i, i64 1
+  %356 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 1
   br label %.backedge.i.i.backedge
 
 .backedge.i.i.backedge:                           ; preds = %346, %348, %355
@@ -1049,7 +1049,7 @@ thread-pre-split.i:                               ; preds = %474
   br label %362
 
 360:                                              ; preds = %358
-  %361 = getelementptr inbounds i8, ptr %.0.i19.i, i64 1
+  %361 = getelementptr inbounds nuw i8, ptr %.0.i19.i, i64 1
   %.pre.i60 = load i8, ptr %361, align 1
   br label %358
 
@@ -1067,7 +1067,7 @@ thread-pre-split.i:                               ; preds = %474
   ]
 
 364:                                              ; preds = %362
-  %365 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 1
+  %365 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 1
   br label %366
 
 366:                                              ; preds = %368, %364
@@ -1077,7 +1077,7 @@ thread-pre-split.i:                               ; preds = %474
   br i1 %.not26.i.i.i, label %.backedge.i.i.i, label %368
 
 368:                                              ; preds = %366
-  %369 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 1
+  %369 = getelementptr inbounds nuw i8, ptr %.1.i.i.i, i64 1
   %370 = icmp eq i8 %367, 10
   br i1 %370, label %.backedge.i.i.i, label %366
 
@@ -1089,16 +1089,16 @@ thread-pre-split.i:                               ; preds = %474
 
 371:                                              ; preds = %362
   %372 = add nsw i32 %.8.i, 1
-  %373 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 1
+  %373 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 1
   br label %.backedge.i.i.i
 
 374:                                              ; preds = %362
   %375 = add nsw i32 %.8.i, -1
-  %376 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 1
+  %376 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 1
   br label %.backedge.i.i.i
 
 377:                                              ; preds = %362, %362, %362
-  %378 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 1
+  %378 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 1
   br label %.backedge.i.i.i
 
 token.exit.i:                                     ; preds = %362
@@ -1123,7 +1123,7 @@ token.exit.i:                                     ; preds = %362
   br label %383
 
 381:                                              ; preds = %.preheader78.i
-  %382 = getelementptr inbounds i8, ptr %.0.i20.i, i64 1
+  %382 = getelementptr inbounds nuw i8, ptr %.0.i20.i, i64 1
   br label %.preheader78.i
 
 383:                                              ; preds = %.preheader164, %.backedge.i.i22.i
@@ -1140,7 +1140,7 @@ token.exit.i:                                     ; preds = %362
   ]
 
 385:                                              ; preds = %383
-  %386 = getelementptr inbounds i8, ptr %.0.i.i21.i, i64 1
+  %386 = getelementptr inbounds nuw i8, ptr %.0.i.i21.i, i64 1
   br label %387
 
 387:                                              ; preds = %389, %385
@@ -1150,7 +1150,7 @@ token.exit.i:                                     ; preds = %362
   br i1 %.not26.i.i25.i, label %.backedge.i.i22.i, label %389
 
 389:                                              ; preds = %387
-  %390 = getelementptr inbounds i8, ptr %.1.i.i24.i, i64 1
+  %390 = getelementptr inbounds nuw i8, ptr %.1.i.i24.i, i64 1
   %391 = icmp eq i8 %388, 10
   br i1 %391, label %.backedge.i.i22.i, label %387
 
@@ -1162,16 +1162,16 @@ token.exit.i:                                     ; preds = %362
 
 392:                                              ; preds = %383
   %393 = add nsw i32 %.10.i, 1
-  %394 = getelementptr inbounds i8, ptr %.0.i.i21.i, i64 1
+  %394 = getelementptr inbounds nuw i8, ptr %.0.i.i21.i, i64 1
   br label %.backedge.i.i22.i
 
 395:                                              ; preds = %383
   %396 = add nsw i32 %.10.i, -1
-  %397 = getelementptr inbounds i8, ptr %.0.i.i21.i, i64 1
+  %397 = getelementptr inbounds nuw i8, ptr %.0.i.i21.i, i64 1
   br label %.backedge.i.i22.i
 
 398:                                              ; preds = %383, %383, %383
-  %399 = getelementptr inbounds i8, ptr %.0.i.i21.i, i64 1
+  %399 = getelementptr inbounds nuw i8, ptr %.0.i.i21.i, i64 1
   br label %.backedge.i.i22.i
 
 token.exit26.i:                                   ; preds = %383
@@ -1207,7 +1207,7 @@ token.exit26.i:                                   ; preds = %383
   br label %406
 
 404:                                              ; preds = %402
-  %405 = getelementptr inbounds i8, ptr %.0.i27.i, i64 1
+  %405 = getelementptr inbounds nuw i8, ptr %.0.i27.i, i64 1
   br label %402
 
 406:                                              ; preds = %.preheader163, %.backedge.i.i29.i
@@ -1224,7 +1224,7 @@ token.exit26.i:                                   ; preds = %383
   ]
 
 408:                                              ; preds = %406
-  %409 = getelementptr inbounds i8, ptr %.0.i.i28.i, i64 1
+  %409 = getelementptr inbounds nuw i8, ptr %.0.i.i28.i, i64 1
   br label %410
 
 410:                                              ; preds = %412, %408
@@ -1234,7 +1234,7 @@ token.exit26.i:                                   ; preds = %383
   br i1 %.not26.i.i32.i, label %.backedge.i.i29.i, label %412
 
 412:                                              ; preds = %410
-  %413 = getelementptr inbounds i8, ptr %.1.i.i31.i, i64 1
+  %413 = getelementptr inbounds nuw i8, ptr %.1.i.i31.i, i64 1
   %414 = icmp eq i8 %411, 10
   br i1 %414, label %.backedge.i.i29.i, label %410
 
@@ -1246,16 +1246,16 @@ token.exit26.i:                                   ; preds = %383
 
 415:                                              ; preds = %406
   %416 = add nsw i32 %.12.i, 1
-  %417 = getelementptr inbounds i8, ptr %.0.i.i28.i, i64 1
+  %417 = getelementptr inbounds nuw i8, ptr %.0.i.i28.i, i64 1
   br label %.backedge.i.i29.i
 
 418:                                              ; preds = %406
   %419 = add nsw i32 %.12.i, -1
-  %420 = getelementptr inbounds i8, ptr %.0.i.i28.i, i64 1
+  %420 = getelementptr inbounds nuw i8, ptr %.0.i.i28.i, i64 1
   br label %.backedge.i.i29.i
 
 421:                                              ; preds = %406, %406, %406
-  %422 = getelementptr inbounds i8, ptr %.0.i.i28.i, i64 1
+  %422 = getelementptr inbounds nuw i8, ptr %.0.i.i28.i, i64 1
   br label %.backedge.i.i29.i
 
 token.exit33.i:                                   ; preds = %406
@@ -1291,7 +1291,7 @@ token.exit33.i:                                   ; preds = %406
   br label %431
 
 429:                                              ; preds = %.preheader76.i
-  %430 = getelementptr inbounds i8, ptr %.0.i34.i, i64 1
+  %430 = getelementptr inbounds nuw i8, ptr %.0.i34.i, i64 1
   br label %.preheader76.i
 
 431:                                              ; preds = %.preheader162, %.backedge.i.i36.i
@@ -1308,7 +1308,7 @@ token.exit33.i:                                   ; preds = %406
   ]
 
 433:                                              ; preds = %431
-  %434 = getelementptr inbounds i8, ptr %.0.i.i35.i, i64 1
+  %434 = getelementptr inbounds nuw i8, ptr %.0.i.i35.i, i64 1
   br label %435
 
 435:                                              ; preds = %437, %433
@@ -1318,7 +1318,7 @@ token.exit33.i:                                   ; preds = %406
   br i1 %.not26.i.i39.i, label %.backedge.i.i36.i, label %437
 
 437:                                              ; preds = %435
-  %438 = getelementptr inbounds i8, ptr %.1.i.i38.i, i64 1
+  %438 = getelementptr inbounds nuw i8, ptr %.1.i.i38.i, i64 1
   %439 = icmp eq i8 %436, 10
   br i1 %439, label %.backedge.i.i36.i, label %435
 
@@ -1330,16 +1330,16 @@ token.exit33.i:                                   ; preds = %406
 
 440:                                              ; preds = %431
   %441 = add nsw i32 %.14.i, 1
-  %442 = getelementptr inbounds i8, ptr %.0.i.i35.i, i64 1
+  %442 = getelementptr inbounds nuw i8, ptr %.0.i.i35.i, i64 1
   br label %.backedge.i.i36.i
 
 443:                                              ; preds = %431
   %444 = add nsw i32 %.14.i, -1
-  %445 = getelementptr inbounds i8, ptr %.0.i.i35.i, i64 1
+  %445 = getelementptr inbounds nuw i8, ptr %.0.i.i35.i, i64 1
   br label %.backedge.i.i36.i
 
 446:                                              ; preds = %431, %431, %431
-  %447 = getelementptr inbounds i8, ptr %.0.i.i35.i, i64 1
+  %447 = getelementptr inbounds nuw i8, ptr %.0.i.i35.i, i64 1
   br label %.backedge.i.i36.i
 
 token.exit40.i:                                   ; preds = %431
@@ -1364,7 +1364,7 @@ token.exit40.i:                                   ; preds = %431
   br label %452
 
 450:                                              ; preds = %.preheader.i59
-  %451 = getelementptr inbounds i8, ptr %.0.i41.i, i64 1
+  %451 = getelementptr inbounds nuw i8, ptr %.0.i41.i, i64 1
   br label %.preheader.i59
 
 452:                                              ; preds = %.preheader, %.backedge.i.i43.i
@@ -1381,7 +1381,7 @@ token.exit40.i:                                   ; preds = %431
   ]
 
 454:                                              ; preds = %452
-  %455 = getelementptr inbounds i8, ptr %.0.i.i42.i, i64 1
+  %455 = getelementptr inbounds nuw i8, ptr %.0.i.i42.i, i64 1
   br label %456
 
 456:                                              ; preds = %458, %454
@@ -1391,7 +1391,7 @@ token.exit40.i:                                   ; preds = %431
   br i1 %.not26.i.i46.i, label %.backedge.i.i43.i, label %458
 
 458:                                              ; preds = %456
-  %459 = getelementptr inbounds i8, ptr %.1.i.i45.i, i64 1
+  %459 = getelementptr inbounds nuw i8, ptr %.1.i.i45.i, i64 1
   %460 = icmp eq i8 %457, 10
   br i1 %460, label %.backedge.i.i43.i, label %456
 
@@ -1403,16 +1403,16 @@ token.exit40.i:                                   ; preds = %431
 
 461:                                              ; preds = %452
   %462 = add nsw i32 %.16.i, 1
-  %463 = getelementptr inbounds i8, ptr %.0.i.i42.i, i64 1
+  %463 = getelementptr inbounds nuw i8, ptr %.0.i.i42.i, i64 1
   br label %.backedge.i.i43.i
 
 464:                                              ; preds = %452
   %465 = add nsw i32 %.16.i, -1
-  %466 = getelementptr inbounds i8, ptr %.0.i.i42.i, i64 1
+  %466 = getelementptr inbounds nuw i8, ptr %.0.i.i42.i, i64 1
   br label %.backedge.i.i43.i
 
 467:                                              ; preds = %452, %452, %452
-  %468 = getelementptr inbounds i8, ptr %.0.i.i42.i, i64 1
+  %468 = getelementptr inbounds nuw i8, ptr %.0.i.i42.i, i64 1
   br label %.backedge.i.i43.i
 
 token.exit47.i:                                   ; preds = %452
@@ -1491,9 +1491,9 @@ agxbsizeof.exit.i:                                ; preds = %8
   br label %agxblen.exit.i
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load i64, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load i64, ptr %15, align 8
   br label %agxblen.exit.i
 
@@ -1517,11 +1517,11 @@ agxblen.exit.i:                                   ; preds = %12, %agxbsizeof.exi
 
 22:                                               ; preds = %21
   %23 = zext i8 %.val.i.i.i to i64
-  %24 = getelementptr inbounds [31 x i8], ptr %0, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw [31 x i8], ptr %0, i64 0, i64 %23
   br label %agxbnext.exit.i
 
 25:                                               ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load i64, ptr %26, align 8
   %28 = load ptr, ptr %0, align 8
   %29 = getelementptr inbounds i8, ptr %28, i64 %27
@@ -1546,7 +1546,7 @@ agxbnext.exit.i:                                  ; preds = %25, %22
 
 37:                                               ; preds = %33
   %38 = zext nneg i32 %31 to i64
-  %39 = getelementptr inbounds i8, ptr %0, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %40 = load i64, ptr %39, align 8
   %41 = add i64 %40, %38
   store i64 %41, ptr %39, align 8
@@ -1619,7 +1619,7 @@ define internal fastcc void @agxbmore(ptr nocapture noundef nonnull %0, i64 noun
   br i1 %.not.i, label %agxbsizeof.exit, label %23
 
 agxbsizeof.exit:                                  ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8
   %.fr = freeze i64 %5
   %6 = icmp eq i64 %.fr, 0
@@ -1672,7 +1672,7 @@ agxbsizeof.exit:                                  ; preds = %2
 gv_calloc.exit:                                   ; preds = %23
   %30 = zext i8 %.val.i to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %25, ptr nonnull align 8 %0, i64 %30, i1 false)
-  %31 = getelementptr inbounds i8, ptr %0, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %30, ptr %31, align 8
   br label %gv_recalloc.exit
 
@@ -1680,7 +1680,7 @@ gv_recalloc.exit:                                 ; preds = %20, %18, %11, %gv_c
   %spec.select3641 = phi i64 [ %spec.select, %gv_calloc.exit ], [ 0, %11 ], [ %spec.select33, %18 ], [ %spec.select33, %20 ]
   %.0 = phi ptr [ %25, %gv_calloc.exit ], [ null, %11 ], [ %13, %18 ], [ %13, %20 ]
   store ptr %.0, ptr %0, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %spec.select3641, ptr %32, align 8
   store i8 -1, ptr %3, align 1
   ret void

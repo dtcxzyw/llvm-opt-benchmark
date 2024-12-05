@@ -28,7 +28,7 @@ define i64 @cons_helpers_get_def_cpu_per_gpu(ptr noundef %0) local_unnamed_addr 
   br i1 %8, label %9, label %4, !llvm.loop !6
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %5, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %11 = load i64, ptr %10, align 8
   br label %.loopexit
 
@@ -68,7 +68,7 @@ define i64 @cons_helpers_get_def_mem_per_gpu(ptr noundef %0) local_unnamed_addr 
   br i1 %8, label %9, label %4, !llvm.loop !8
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %5, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %11 = load i64, ptr %10, align 8
   br label %.loopexit
 
@@ -110,7 +110,7 @@ define ptr @cons_helpers_mark_avail_cores(ptr noundef %0, i16 noundef zeroext %1
 
 .lr.ph116.split.us.split.us:                      ; preds = %.lr.ph116.split.us, %.thread.us.us
   %12 = phi ptr [ %27, %.thread.us.us ], [ %7, %.lr.ph116.split.us ]
-  %13 = getelementptr inbounds i8, ptr %12, i64 496
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 496
   %14 = load i16, ptr %13, align 8
   %15 = zext i16 %14 to i64
   %16 = call ptr @slurm_bit_alloc(i64 noundef %15) #2
@@ -142,7 +142,7 @@ define ptr @cons_helpers_mark_avail_cores(ptr noundef %0, i16 noundef zeroext %1
 
 .thread.us:                                       ; preds = %.lr.ph116.split.us, %.thread.us
   %28 = phi ptr [ %40, %.thread.us ], [ %7, %.lr.ph116.split.us ]
-  %29 = getelementptr inbounds i8, ptr %28, i64 496
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 496
   %30 = load i16, ptr %29, align 8
   %31 = zext i16 %30 to i64
   %32 = call ptr @slurm_bit_alloc(i64 noundef %31) #2
@@ -162,7 +162,7 @@ define ptr @cons_helpers_mark_avail_cores(ptr noundef %0, i16 noundef zeroext %1
 
 .lr.ph116.split:                                  ; preds = %.lr.ph116, %.thread
   %41 = phi ptr [ %125, %.thread ], [ %7, %.lr.ph116 ]
-  %42 = getelementptr inbounds i8, ptr %41, i64 496
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 496
   %43 = load i16, ptr %42, align 8
   %44 = zext i16 %43 to i64
   %45 = call ptr @slurm_bit_alloc(i64 noundef %44) #2
@@ -197,7 +197,7 @@ switch.early.test:                                ; preds = %.lr.ph116.split
   ]
 
 57:                                               ; preds = %switch.early.test
-  %58 = getelementptr inbounds i8, ptr %41, i64 104
+  %58 = getelementptr inbounds nuw i8, ptr %41, i64 104
   %59 = load i16, ptr %58, align 8
   %60 = load i16, ptr %42, align 8
   %61 = icmp eq i16 %59, %60
@@ -209,7 +209,7 @@ switch.early.test:                                ; preds = %.lr.ph116.split
 63:                                               ; preds = %57, %62
   %.073.in = phi i16 [ %.069, %62 ], [ %6, %57 ]
   %.073 = zext i16 %.073.in to i32
-  %64 = getelementptr inbounds i8, ptr %41, i64 296
+  %64 = getelementptr inbounds nuw i8, ptr %41, i64 296
   %65 = load ptr, ptr %64, align 8
   %.not91 = icmp eq ptr %65, null
   br i1 %.not91, label %.loopexit, label %.preheader104
@@ -273,20 +273,20 @@ switch.early.test:                                ; preds = %.lr.ph116.split
 84:                                               ; preds = %.loopexit
   %85 = load i8, ptr @spec_cores_first, align 1
   %86 = trunc i8 %85 to i1
-  %87 = getelementptr inbounds i8, ptr %41, i64 74
+  %87 = getelementptr inbounds nuw i8, ptr %41, i64 74
   %88 = load i16, ptr %87, align 2
   %89 = zext i16 %88 to i32
   br i1 %86, label %90, label %94
 
 90:                                               ; preds = %84
-  %91 = getelementptr inbounds i8, ptr %41, i64 498
+  %91 = getelementptr inbounds nuw i8, ptr %41, i64 498
   %92 = load i16, ptr %91, align 2
   %93 = zext i16 %92 to i32
   br label %100
 
 94:                                               ; preds = %84
   %95 = add nsw i32 %89, -1
-  %96 = getelementptr inbounds i8, ptr %41, i64 498
+  %96 = getelementptr inbounds nuw i8, ptr %41, i64 498
   %97 = load i16, ptr %96, align 2
   %98 = zext i16 %97 to i32
   %99 = add nsw i32 %98, -1
@@ -305,7 +305,7 @@ switch.early.test:                                ; preds = %.lr.ph116.split
 
 .preheader.lr.ph:                                 ; preds = %100
   %.not120 = icmp eq i32 %.076, %.080
-  %104 = getelementptr inbounds i8, ptr %41, i64 74
+  %104 = getelementptr inbounds nuw i8, ptr %41, i64 74
   br i1 %.not120, label %.thread, label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.lr.ph, %._crit_edge.us

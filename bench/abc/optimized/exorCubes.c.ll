@@ -30,12 +30,12 @@ define i32 @AllocateCover(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_
   br i1 %15, label %40, label %16
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %calloc, i64 40
-  %18 = getelementptr inbounds i8, ptr %calloc, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %calloc, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %calloc, i64 8
   store ptr %17, ptr %18, align 8
   %19 = sext i32 %7 to i64
   %20 = getelementptr inbounds i8, ptr %17, i64 %19
-  %21 = getelementptr inbounds i8, ptr %calloc, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %calloc, i64 16
   store ptr %20, ptr %21, align 8
   %22 = icmp sgt i32 %0, 1
   br i1 %22, label %.lr.ph, label %._crit_edge
@@ -58,11 +58,11 @@ define i32 @AllocateCover(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds i8, ptr %28, i64 %23
   store ptr %29, ptr %26, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 40
-  %31 = getelementptr inbounds i8, ptr %29, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 40
+  %31 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store ptr %30, ptr %31, align 8
   %32 = getelementptr inbounds i8, ptr %30, i64 %19
-  %33 = getelementptr inbounds i8, ptr %29, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %29, i64 16
   store ptr %32, ptr %33, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -72,9 +72,9 @@ define i32 @AllocateCover(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_
   %34 = phi ptr [ %.pre60.pre, %.preheader ], [ %36, %.lr.ph53 ]
   %indvars.iv55 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next56, %.lr.ph53 ]
   %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
-  %35 = getelementptr inbounds ptr, ptr %10, i64 %indvars.iv.next56
+  %35 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv.next56
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %34, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %34, i64 32
   store ptr %36, ptr %37, align 8
   %exitcond59.not = icmp eq i64 %indvars.iv.next56, %wide.trip.count58
   br i1 %exitcond59.not, label %._crit_edge, label %.lr.ph53, !llvm.loop !6
@@ -128,10 +128,10 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
 define void @AddToFreeCubes(ptr noundef initializes((32, 40)) %0) local_unnamed_addr #4 {
   %2 = load ptr, ptr @s_CubesFree, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %2, ptr %3, align 8
   store ptr %0, ptr @s_CubesFree, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 1
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 0, ptr %4, align 1
   %5 = load i32, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 28), align 4
   %6 = add nsw i32 %5, 1
@@ -142,7 +142,7 @@ define void @AddToFreeCubes(ptr noundef initializes((32, 40)) %0) local_unnamed_
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define ptr @GetFreeCube() local_unnamed_addr #5 {
   %1 = load ptr, ptr @s_CubesFree, align 8
-  %2 = getelementptr inbounds i8, ptr %1, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %3 = load ptr, ptr %2, align 8
   store ptr %3, ptr @s_CubesFree, align 8
   store ptr null, ptr %2, align 8

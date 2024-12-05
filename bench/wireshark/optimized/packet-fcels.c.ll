@@ -970,7 +970,7 @@ define internal i32 @dissect_fcels(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %8, label %197, label %9
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
   tail call void @col_set_str(ptr noundef %11, i32 noundef 34, ptr noundef nonnull @.str.354) #3
   %12 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #3
@@ -994,7 +994,7 @@ define internal i32 @dissect_fcels(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %21, label %22, label %32
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds i8, ptr %1, i64 208
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 208
   %24 = load i32, ptr %23, align 8
   %.not309 = icmp eq i32 %24, 5
   br i1 %.not309, label %27, label %25
@@ -1004,7 +1004,7 @@ define internal i32 @dissect_fcels(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %197
 
 27:                                               ; preds = %22
-  %28 = getelementptr inbounds i8, ptr %1, i64 216
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 216
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr i8, ptr %29, i64 2
   %31 = load i8, ptr %30, align 1
@@ -1016,17 +1016,17 @@ define internal i32 @dissect_fcels(ptr noundef %0, ptr noundef %1, ptr noundef %
 32:                                               ; preds = %20, %27
   %.0280 = phi i32 [ %., %27 ], [ 131072, %20 ]
   %.0279 = phi i32 [ %.314, %27 ], [ 2, %20 ]
-  %33 = getelementptr inbounds i8, ptr %1, i64 20
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %34 = load i32, ptr %33, align 4
-  %35 = getelementptr inbounds i8, ptr %1, i64 232
-  %36 = getelementptr inbounds i8, ptr %1, i64 208
-  %37 = getelementptr inbounds i8, ptr %1, i64 280
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 232
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 208
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %38 = load i32, ptr %37, align 8
   %39 = tail call i32 @conversation_pt_to_conversation_type(i32 noundef %38) #3
-  %40 = getelementptr inbounds i8, ptr %3, i64 56
+  %40 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %41 = load i16, ptr %40, align 8
   %42 = zext i16 %41 to i32
-  %43 = getelementptr inbounds i8, ptr %3, i64 58
+  %43 = getelementptr inbounds nuw i8, ptr %3, i64 58
   %44 = load i16, ptr %43, align 2
   %45 = zext i16 %44 to i32
   %46 = tail call ptr @find_conversation(i32 noundef %34, ptr noundef nonnull %35, ptr noundef nonnull %36, i32 noundef %39, i32 noundef %42, i32 noundef %45, i32 noundef %.0280) #3
@@ -1046,7 +1046,7 @@ define internal i32 @dissect_fcels(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 56:                                               ; preds = %47, %32
   %.0282 = phi ptr [ %46, %32 ], [ %55, %47 ]
-  %57 = getelementptr inbounds i8, ptr %.0282, i64 24
+  %57 = getelementptr inbounds nuw i8, ptr %.0282, i64 24
   %58 = load i32, ptr %57, align 8
   store i32 %58, ptr %5, align 4
   %59 = load ptr, ptr @fcels_req_hash, align 8
@@ -1071,17 +1071,17 @@ define internal i32 @dissect_fcels(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %146
 
 70:                                               ; preds = %17
-  %71 = getelementptr inbounds i8, ptr %1, i64 20
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %72 = load i32, ptr %71, align 4
-  %73 = getelementptr inbounds i8, ptr %1, i64 232
-  %74 = getelementptr inbounds i8, ptr %1, i64 208
-  %75 = getelementptr inbounds i8, ptr %1, i64 280
+  %73 = getelementptr inbounds nuw i8, ptr %1, i64 232
+  %74 = getelementptr inbounds nuw i8, ptr %1, i64 208
+  %75 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %76 = load i32, ptr %75, align 8
   %77 = tail call i32 @conversation_pt_to_conversation_type(i32 noundef %76) #3
-  %78 = getelementptr inbounds i8, ptr %3, i64 56
+  %78 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %79 = load i16, ptr %78, align 8
   %80 = zext i16 %79 to i32
-  %81 = getelementptr inbounds i8, ptr %3, i64 58
+  %81 = getelementptr inbounds nuw i8, ptr %3, i64 58
   %82 = load i16, ptr %81, align 2
   %83 = zext i16 %82 to i32
   %84 = tail call ptr @find_conversation(i32 noundef %72, ptr noundef nonnull %73, ptr noundef nonnull %74, i32 noundef %77, i32 noundef %80, i32 noundef %83, i32 noundef 131072) #3
@@ -1098,21 +1098,21 @@ define internal i32 @dissect_fcels(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %197
 
 89:                                               ; preds = %85
-  %90 = getelementptr inbounds i8, ptr %1, i64 240
+  %90 = getelementptr inbounds nuw i8, ptr %1, i64 240
   %91 = load ptr, ptr %90, align 8
-  %92 = getelementptr inbounds i8, ptr %7, i64 1
+  %92 = getelementptr inbounds nuw i8, ptr %7, i64 1
   store i8 0, ptr %92, align 1
   store i8 0, ptr %7, align 1
   %93 = getelementptr i8, ptr %91, i64 2
   %94 = load i8, ptr %93, align 1
-  %95 = getelementptr inbounds i8, ptr %7, i64 2
+  %95 = getelementptr inbounds nuw i8, ptr %7, i64 2
   store i8 %94, ptr %95, align 1
   store i32 5, ptr %6, align 8
-  %96 = getelementptr inbounds i8, ptr %6, i64 4
+  %96 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 3, ptr %96, align 4
-  %97 = getelementptr inbounds i8, ptr %6, i64 8
+  %97 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %7, ptr %97, align 8
-  %98 = getelementptr inbounds i8, ptr %6, i64 16
+  %98 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr null, ptr %98, align 8
   %99 = load i32, ptr %71, align 4
   %100 = load i32, ptr %75, align 8
@@ -1151,7 +1151,7 @@ define internal i32 @dissect_fcels(ptr noundef %0, ptr noundef %1, ptr noundef %
 .thread:                                          ; preds = %70, %89, %107
   %.not303.not320.ph = phi i1 [ true, %107 ], [ false, %89 ], [ false, %70 ]
   %.2.ph = phi ptr [ %115, %107 ], [ %106, %89 ], [ %84, %70 ]
-  %122 = getelementptr inbounds i8, ptr %.2.ph, i64 24
+  %122 = getelementptr inbounds nuw i8, ptr %.2.ph, i64 24
   %123 = load i32, ptr %122, align 8
   store i32 %123, ptr %5, align 4
   %124 = load ptr, ptr @fcels_req_hash, align 8
@@ -2135,7 +2135,7 @@ define internal fastcc void @dissect_fcels_cbind(ptr noundef %0, ptr nocapture n
 
 10:                                               ; preds = %5, %4
   %.0 = phi ptr [ %7, %5 ], [ null, %4 ]
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8
   tail call void @col_set_str(ptr noundef %12, i32 noundef 25, ptr noundef nonnull @.str.592) #3
   %13 = load i32, ptr @hf_fcels_cbind_liveness, align 4
@@ -2188,7 +2188,7 @@ define internal fastcc void @dissect_fcels_unbind(ptr noundef %0, ptr nocapture 
 
 10:                                               ; preds = %5, %4
   %.0 = phi ptr [ %7, %5 ], [ null, %4 ]
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8
   tail call void @col_set_str(ptr noundef %12, i32 noundef 25, ptr noundef nonnull @.str.595) #3
   %13 = load i32, ptr @hf_fcels_cbind_userinfo, align 4

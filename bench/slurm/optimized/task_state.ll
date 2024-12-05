@@ -28,22 +28,22 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local noundef ptr @task_state_create(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 72, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 75, ptr noundef nonnull @__func__.task_state_create) #6
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull align 4 dereferenceable(12) %0, i64 12, i1 false)
-  %5 = getelementptr inbounds i8, ptr %4, i64 12
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 %2, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %4, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 %1, ptr %6, align 8
   %7 = sext i32 %1 to i64
   %8 = tail call ptr @bit_alloc(i64 noundef %7) #6
-  %9 = getelementptr inbounds i8, ptr %4, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store ptr %8, ptr %9, align 8
   %10 = tail call ptr @bit_alloc(i64 noundef %7) #6
-  %11 = getelementptr inbounds i8, ptr %4, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store ptr %10, ptr %11, align 8
   %12 = tail call ptr @bit_alloc(i64 noundef %7) #6
-  %13 = getelementptr inbounds i8, ptr %4, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 56
   store ptr %12, ptr %13, align 8
   %14 = tail call ptr @bit_alloc(i64 noundef %7) #6
-  %15 = getelementptr inbounds i8, ptr %4, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 64
   store ptr %14, ptr %15, align 8
   ret ptr %4
 }
@@ -80,16 +80,16 @@ define internal range(i32 0, 2) i32 @_find_task_state(ptr noundef %0, ptr nounde
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @task_state_alter(ptr noundef initializes((16, 20)) %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %1, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = sext i32 %1 to i64
   %6 = tail call ptr @slurm_bit_realloc(ptr noundef nonnull %4, i64 noundef %5) #6
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = tail call ptr @slurm_bit_realloc(ptr noundef nonnull %7, i64 noundef %5) #6
-  %9 = getelementptr inbounds i8, ptr %0, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %10 = tail call ptr @slurm_bit_realloc(ptr noundef nonnull %9, i64 noundef %5) #6
-  %11 = getelementptr inbounds i8, ptr %0, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %12 = tail call ptr @slurm_bit_realloc(ptr noundef nonnull %11, i64 noundef %5) #6
   ret void
 }
@@ -104,7 +104,7 @@ define dso_local void @task_state_destroy(ptr noundef %0) local_unnamed_addr #0 
   br i1 %3, label %21, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %8, label %7
@@ -115,7 +115,7 @@ define dso_local void @task_state_destroy(ptr noundef %0) local_unnamed_addr #0 
 
 8:                                                ; preds = %7, %4
   store ptr null, ptr %5, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %10 = load ptr, ptr %9, align 8
   %.not1 = icmp eq ptr %10, null
   br i1 %.not1, label %12, label %11
@@ -126,7 +126,7 @@ define dso_local void @task_state_destroy(ptr noundef %0) local_unnamed_addr #0 
 
 12:                                               ; preds = %11, %8
   store ptr null, ptr %9, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %14 = load ptr, ptr %13, align 8
   %.not2 = icmp eq ptr %14, null
   br i1 %.not2, label %16, label %15
@@ -137,7 +137,7 @@ define dso_local void @task_state_destroy(ptr noundef %0) local_unnamed_addr #0 
 
 16:                                               ; preds = %15, %12
   store ptr null, ptr %13, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 64
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %18 = load ptr, ptr %17, align 8
   %.not3 = icmp eq ptr %18, null
   br i1 %.not3, label %20, label %19
@@ -175,7 +175,7 @@ define dso_local void @task_state_update(ptr noundef %0, i32 noundef %1, i32 nou
 
 switch.lookup:                                    ; preds = %6
   %10 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.task_state_update, i64 0, i64 %10
+  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.task_state_update, i64 0, i64 %10
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_task_state_type_str.exit
 
@@ -193,36 +193,36 @@ _task_state_type_str.exit:                        ; preds = %switch.lookup, %8
   ]
 
 12:                                               ; preds = %11
-  %13 = getelementptr inbounds i8, ptr %0, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %14 = load ptr, ptr %13, align 8
   %15 = sext i32 %1 to i64
   tail call void @bit_set(ptr noundef %14, i64 noundef %15) #6
-  %16 = getelementptr inbounds i8, ptr %0, i64 20
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %17 = load i32, ptr %16, align 4
   %18 = add nsw i32 %17, 1
   store i32 %18, ptr %16, align 4
   br label %62
 
 19:                                               ; preds = %11
-  %20 = getelementptr inbounds i8, ptr %0, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %21 = load ptr, ptr %20, align 8
   %22 = sext i32 %1 to i64
   tail call void @bit_set(ptr noundef %21, i64 noundef %22) #6
   br label %62
 
 23:                                               ; preds = %11
-  %24 = getelementptr inbounds i8, ptr %0, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %25 = load ptr, ptr %24, align 8
   %26 = sext i32 %1 to i64
   tail call void @bit_clear(ptr noundef %25, i64 noundef %26) #6
-  %27 = getelementptr inbounds i8, ptr %0, i64 56
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %28 = load ptr, ptr %27, align 8
   %29 = tail call i32 @bit_test(ptr noundef %28, i64 noundef %26) #6
   %.not30 = icmp eq i32 %29, 0
   br i1 %.not30, label %30, label %34
 
 30:                                               ; preds = %23
-  %31 = getelementptr inbounds i8, ptr %0, i64 64
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %32 = load ptr, ptr %31, align 8
   %33 = tail call i32 @bit_test(ptr noundef %32, i64 noundef %26) #6
   %.not31 = icmp eq i32 %33, 0
@@ -235,25 +235,25 @@ _task_state_type_str.exit:                        ; preds = %switch.lookup, %8
 36:                                               ; preds = %30
   %37 = load ptr, ptr %27, align 8
   tail call void @bit_set(ptr noundef %37, i64 noundef %26) #6
-  %38 = getelementptr inbounds i8, ptr %0, i64 28
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %39 = load i32, ptr %38, align 4
   %40 = add nsw i32 %39, 1
   store i32 %40, ptr %38, align 4
   br label %62
 
 41:                                               ; preds = %11
-  %42 = getelementptr inbounds i8, ptr %0, i64 48
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %43 = load ptr, ptr %42, align 8
   %44 = sext i32 %1 to i64
   tail call void @bit_clear(ptr noundef %43, i64 noundef %44) #6
-  %45 = getelementptr inbounds i8, ptr %0, i64 56
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %46 = load ptr, ptr %45, align 8
   %47 = tail call i32 @bit_test(ptr noundef %46, i64 noundef %44) #6
   %.not = icmp eq i32 %47, 0
   br i1 %.not, label %48, label %52
 
 48:                                               ; preds = %41
-  %49 = getelementptr inbounds i8, ptr %0, i64 64
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %50 = load ptr, ptr %49, align 8
   %51 = tail call i32 @bit_test(ptr noundef %50, i64 noundef %44) #6
   %.not29 = icmp eq i32 %51, 0
@@ -266,11 +266,11 @@ _task_state_type_str.exit:                        ; preds = %switch.lookup, %8
 54:                                               ; preds = %48
   %55 = load ptr, ptr %49, align 8
   tail call void @bit_set(ptr noundef %55, i64 noundef %44) #6
-  %56 = getelementptr inbounds i8, ptr %0, i64 28
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %57 = load i32, ptr %56, align 4
   %58 = add nsw i32 %57, 1
   store i32 %58, ptr %56, align 4
-  %59 = getelementptr inbounds i8, ptr %0, i64 24
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %60 = load i32, ptr %59, align 8
   %61 = add nsw i32 %60, 1
   store i32 %61, ptr %59, align 8
@@ -306,13 +306,13 @@ define dso_local noundef zeroext i1 @task_state_first_exit(ptr noundef %0) local
 .lr.ph:                                           ; preds = %2, %9
   %5 = phi ptr [ %13, %9 ], [ %4, %2 ]
   %.022 = phi i32 [ %12, %9 ], [ 0, %2 ]
-  %6 = getelementptr inbounds i8, ptr %5, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %7 = load i8, ptr %6, align 8
   %8 = trunc i8 %7 to i1
   br i1 %8, label %._crit_edge, label %9
 
 9:                                                ; preds = %.lr.ph
-  %10 = getelementptr inbounds i8, ptr %5, i64 28
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 28
   %11 = load i32, ptr %10, align 4
   %12 = add nsw i32 %11, %.022
   %13 = tail call ptr @list_next(ptr noundef %3) #6
@@ -334,7 +334,7 @@ define dso_local noundef zeroext i1 @task_state_first_exit(ptr noundef %0) local
 
 .lr.ph30:                                         ; preds = %15, %.lr.ph30
   %18 = phi ptr [ %20, %.lr.ph30 ], [ %17, %15 ]
-  %19 = getelementptr inbounds i8, ptr %18, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 32
   store i8 1, ptr %19, align 8
   %20 = tail call ptr @list_next(ptr noundef %16) #6
   %.not20 = icmp eq ptr %20, null
@@ -370,13 +370,13 @@ define dso_local noundef zeroext i1 @task_state_first_abnormal_exit(ptr noundef 
 .lr.ph:                                           ; preds = %2, %9
   %5 = phi ptr [ %13, %9 ], [ %4, %2 ]
   %.022 = phi i32 [ %12, %9 ], [ 0, %2 ]
-  %6 = getelementptr inbounds i8, ptr %5, i64 33
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 33
   %7 = load i8, ptr %6, align 1
   %8 = trunc i8 %7 to i1
   br i1 %8, label %._crit_edge, label %9
 
 9:                                                ; preds = %.lr.ph
-  %10 = getelementptr inbounds i8, ptr %5, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %11 = load i32, ptr %10, align 8
   %12 = add nsw i32 %11, %.022
   %13 = tail call ptr @list_next(ptr noundef %3) #6
@@ -398,7 +398,7 @@ define dso_local noundef zeroext i1 @task_state_first_abnormal_exit(ptr noundef 
 
 .lr.ph30:                                         ; preds = %15, %.lr.ph30
   %18 = phi ptr [ %20, %.lr.ph30 ], [ %17, %15 ]
-  %19 = getelementptr inbounds i8, ptr %18, i64 33
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 33
   store i8 1, ptr %19, align 1
   %20 = tail call ptr @list_next(ptr noundef %16) #6
   %.not20 = icmp eq ptr %20, null
@@ -434,12 +434,12 @@ define dso_local void @task_state_print(ptr noundef %0, ptr nocapture noundef re
 .lr.ph:                                           ; preds = %9, %_task_state_print.exit
   %12 = phi ptr [ %69, %_task_state_print.exit ], [ %11, %9 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
-  %13 = getelementptr inbounds i8, ptr %12, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load i32, ptr %13, align 8
   %15 = sext i32 %14 to i64
   %16 = call ptr @bit_alloc(i64 noundef %15) #6
   store ptr %16, ptr %8, align 8
-  %17 = getelementptr inbounds i8, ptr %12, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %18 = load ptr, ptr %17, align 8
   %19 = call i32 @bit_set_count(ptr noundef %18) #6
   %.not.i = icmp eq i32 %19, 0
@@ -459,7 +459,7 @@ define dso_local void @task_state_print(ptr noundef %0, ptr nocapture noundef re
   br label %27
 
 27:                                               ; preds = %20, %.lr.ph
-  %28 = getelementptr inbounds i8, ptr %12, i64 48
+  %28 = getelementptr inbounds nuw i8, ptr %12, i64 48
   %29 = load ptr, ptr %28, align 8
   %30 = call i32 @bit_set_count(ptr noundef %29) #6
   %.not24.i = icmp eq i32 %30, 0
@@ -479,7 +479,7 @@ define dso_local void @task_state_print(ptr noundef %0, ptr nocapture noundef re
   br label %38
 
 38:                                               ; preds = %31, %27
-  %39 = getelementptr inbounds i8, ptr %12, i64 64
+  %39 = getelementptr inbounds nuw i8, ptr %12, i64 64
   %40 = load ptr, ptr %39, align 8
   %41 = call i32 @bit_set_count(ptr noundef %40) #6
   %.not25.i = icmp eq i32 %41, 0
@@ -499,7 +499,7 @@ define dso_local void @task_state_print(ptr noundef %0, ptr nocapture noundef re
   br label %49
 
 49:                                               ; preds = %42, %38
-  %50 = getelementptr inbounds i8, ptr %12, i64 56
+  %50 = getelementptr inbounds nuw i8, ptr %12, i64 56
   %51 = load ptr, ptr %50, align 8
   %52 = call i32 @bit_set_count(ptr noundef %51) #6
   %.not26.i = icmp eq i32 %52, 0
@@ -562,7 +562,7 @@ define dso_local i32 @task_state_global_id(ptr noundef readonly %0, i32 noundef 
   br i1 %.not, label %7, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 12
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %5 = load i32, ptr %4, align 4
   %.not7 = icmp eq i32 %5, -2
   %6 = select i1 %.not7, i32 0, i32 %5

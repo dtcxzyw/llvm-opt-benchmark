@@ -105,7 +105,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %1 = load double, ptr %add.ptr.i, align 8, !tbaa !8
   %add = add nuw i64 %i.08, 1
   %vtable = load ptr, ptr %cs, align 8, !tbaa !10
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %2 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef double %2(ptr noundef nonnull align 8 dereferenceable(64) %cs, i64 noundef %add, i64 noundef %numeraireIndex)
   %3 = tail call double @llvm.fmuladd.f64(double %1, double %call2, double %annuity.07)
@@ -126,7 +126,7 @@ entry:
 
 if.end3:                                          ; preds = %entry
   %vtable = load ptr, ptr %cs, align 8, !tbaa !10
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef double %0(ptr noundef nonnull align 8 dereferenceable(64) %cs, i64 noundef %startIndex, i64 noundef %endIndex)
   %rateTaus_.i.i = getelementptr inbounds nuw i8, ptr %cs, i64 40
@@ -140,7 +140,7 @@ for.body.i:                                       ; preds = %for.body.i, %if.end
   %2 = load double, ptr %add.ptr.i.i, align 8, !tbaa !8
   %add.i = add nuw i64 %i.08.i, 1
   %vtable.i = load ptr, ptr %cs, align 8, !tbaa !10
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 16
   %3 = load ptr, ptr %vfn.i, align 8
   %call2.i = tail call noundef double %3(ptr noundef nonnull align 8 dereferenceable(64) %cs, i64 noundef %add.i, i64 noundef %endIndex)
   %4 = tail call double @llvm.fmuladd.f64(double %2, double %call2.i, double %annuity.07.i)
@@ -153,7 +153,7 @@ _ZN8QuantLib19SwapForwardMappings7annuityERKNS_10CurveStateEmmm.exit: ; preds = 
   %add.ptr.i = getelementptr inbounds nuw double, ptr %5, i64 %forwardIndex
   %6 = load double, ptr %add.ptr.i, align 8, !tbaa !8
   %vtable9 = load ptr, ptr %cs, align 8, !tbaa !10
-  %vfn10 = getelementptr inbounds i8, ptr %vtable9, i64 24
+  %vfn10 = getelementptr inbounds nuw i8, ptr %vtable9, i64 24
   %7 = load ptr, ptr %vfn10, align 8
   %call11 = tail call noundef double %7(ptr noundef nonnull align 8 dereferenceable(64) %cs, i64 noundef %forwardIndex)
   %8 = tail call double @llvm.fmuladd.f64(double %6, double %call11, double 1.000000e+00)
@@ -178,7 +178,7 @@ for.body.i30:                                     ; preds = %if.then16, %for.bod
   %10 = load double, ptr %add.ptr.i.i33, align 8, !tbaa !8
   %add.i34 = add nuw i64 %i.08.i31, 1
   %vtable.i35 = load ptr, ptr %cs, align 8, !tbaa !10
-  %vfn.i36 = getelementptr inbounds i8, ptr %vtable.i35, i64 16
+  %vfn.i36 = getelementptr inbounds nuw i8, ptr %vtable.i35, i64 16
   %11 = load ptr, ptr %vfn.i36, align 8
   %call2.i37 = tail call noundef double %11(ptr noundef nonnull align 8 dereferenceable(64) %cs, i64 noundef %add.i34, i64 noundef %endIndex)
   %12 = tail call double @llvm.fmuladd.f64(double %10, double %call2.i37, double %annuity.07.i32)
@@ -207,7 +207,7 @@ entry:
   %numberOfRates_.i = getelementptr inbounds nuw i8, ptr %cs, i64 8
   %0 = load i64, ptr %numberOfRates_.i, align 8, !tbaa !14
   %vtable = load ptr, ptr %cs, align 8, !tbaa !10
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 64
   %1 = load ptr, ptr %vfn, align 8
   %call1 = tail call noundef nonnull align 8 dereferenceable(24) ptr %1(ptr noundef nonnull align 8 dereferenceable(64) %cs)
   %rateTaus_.i = getelementptr inbounds nuw i8, ptr %cs, i64 40
@@ -277,7 +277,7 @@ _ZN8QuantLib6MatrixC2Emmd.exit:                   ; preds = %call.i.noexc, %cond
 for.body:                                         ; preds = %for.body.preheader, %invoke.cont6
   %k.067 = phi i64 [ %inc, %invoke.cont6 ], [ 0, %for.body.preheader ]
   %vtable3 = load ptr, ptr %cs, align 8, !tbaa !10
-  %vfn4 = getelementptr inbounds i8, ptr %vtable3, i64 16
+  %vfn4 = getelementptr inbounds nuw i8, ptr %vtable3, i64 16
   %7 = load ptr, ptr %vfn4, align 8
   %call7 = invoke noundef double %7(ptr noundef nonnull align 8 dereferenceable(64) %cs, i64 noundef %k.067, i64 noundef %0)
           to label %invoke.cont6 unwind label %ehcleanup55.thread
@@ -315,14 +315,14 @@ for.cond.cleanup17:                               ; preds = %invoke.cont44
 for.body18:                                       ; preds = %for.cond15.preheader, %invoke.cont44
   %j.068 = phi i64 [ %i.070, %for.cond15.preheader ], [ %add, %invoke.cont44 ]
   %vtable19 = load ptr, ptr %cs, align 8, !tbaa !10
-  %vfn20 = getelementptr inbounds i8, ptr %vtable19, i64 32
+  %vfn20 = getelementptr inbounds nuw i8, ptr %vtable19, i64 32
   %10 = load ptr, ptr %vfn20, align 8
   %call23 = invoke noundef double %10(ptr noundef nonnull align 8 dereferenceable(64) %cs, i64 noundef %0, i64 noundef %i.070)
           to label %invoke.cont22 unwind label %lpad21
 
 invoke.cont22:                                    ; preds = %for.body18
   %vtable24 = load ptr, ptr %cs, align 8, !tbaa !10
-  %vfn25 = getelementptr inbounds i8, ptr %vtable24, i64 32
+  %vfn25 = getelementptr inbounds nuw i8, ptr %vtable24, i64 32
   %11 = load ptr, ptr %vfn25, align 8
   %call28 = invoke noundef double %11(ptr noundef nonnull align 8 dereferenceable(64) %cs, i64 noundef %0, i64 noundef %j.068)
           to label %invoke.cont27 unwind label %lpad26
@@ -333,7 +333,7 @@ invoke.cont27:                                    ; preds = %invoke.cont22
   %13 = load double, ptr %add.ptr.i44, align 8, !tbaa !8
   %add = add i64 %j.068, 1
   %vtable30 = load ptr, ptr %cs, align 8, !tbaa !10
-  %vfn31 = getelementptr inbounds i8, ptr %vtable30, i64 32
+  %vfn31 = getelementptr inbounds nuw i8, ptr %vtable30, i64 32
   %14 = load ptr, ptr %vfn31, align 8
   %call33 = invoke noundef double %14(ptr noundef nonnull align 8 dereferenceable(64) %cs, i64 noundef %add, i64 noundef %i.070)
           to label %invoke.cont44 unwind label %lpad26
@@ -427,14 +427,14 @@ entry:
   %0 = load i64, ptr %numberOfRates_.i, align 8, !tbaa !14
   tail call void @_ZN8QuantLib19SwapForwardMappings29coterminalSwapForwardJacobianERKNS_10CurveStateE(ptr dead_on_unwind writable sret(%"class.QuantLib::Matrix") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %cs)
   %vtable = load ptr, ptr %cs, align 8, !tbaa !10
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 64
   %1 = load ptr, ptr %vfn, align 8
   %call1 = invoke noundef nonnull align 8 dereferenceable(24) ptr %1(ptr noundef nonnull align 8 dereferenceable(64) %cs)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %vtable2 = load ptr, ptr %cs, align 8, !tbaa !10
-  %vfn3 = getelementptr inbounds i8, ptr %vtable2, i64 72
+  %vfn3 = getelementptr inbounds nuw i8, ptr %vtable2, i64 72
   %2 = load ptr, ptr %vfn3, align 8
   %call6 = invoke noundef nonnull align 8 dereferenceable(24) ptr %2(ptr noundef nonnull align 8 dereferenceable(64) %cs)
           to label %for.cond.preheader unwind label %lpad4
@@ -564,7 +564,7 @@ for.body4:                                        ; preds = %for.cond1.preheader
 
 if.end3.i:                                        ; preds = %for.body4
   %vtable.i = load ptr, ptr %cs, align 8, !tbaa !10
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 16
   %5 = load ptr, ptr %vfn.i, align 8
   %call.i1114 = invoke noundef double %5(ptr noundef nonnull align 8 dereferenceable(64) %cs, i64 noundef 0, i64 noundef %add)
           to label %for.body.i.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp
@@ -577,7 +577,7 @@ for.body.i.i:                                     ; preds = %if.end3.i, %call2.i
   %7 = load double, ptr %add.ptr.i.i.i, align 8, !tbaa !8
   %add.i.i = add nuw i64 %i.08.i.i, 1
   %vtable.i.i = load ptr, ptr %cs, align 8, !tbaa !10
-  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 16
+  %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 16
   %8 = load ptr, ptr %vfn.i.i, align 8
   %call2.i.i15 = invoke noundef double %8(ptr noundef nonnull align 8 dereferenceable(64) %cs, i64 noundef %add.i.i, i64 noundef %add)
           to label %call2.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit
@@ -593,7 +593,7 @@ _ZN8QuantLib19SwapForwardMappings7annuityERKNS_10CurveStateEmmm.exit.i: ; preds 
   %add.ptr.i.i12 = getelementptr inbounds nuw double, ptr %10, i64 %j.025
   %11 = load double, ptr %add.ptr.i.i12, align 8, !tbaa !8
   %vtable9.i = load ptr, ptr %cs, align 8, !tbaa !10
-  %vfn10.i = getelementptr inbounds i8, ptr %vtable9.i, i64 24
+  %vfn10.i = getelementptr inbounds nuw i8, ptr %vtable9.i, i64 24
   %12 = load ptr, ptr %vfn10.i, align 8
   %call11.i16 = invoke noundef double %12(ptr noundef nonnull align 8 dereferenceable(64) %cs, i64 noundef %j.025)
           to label %call11.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp
@@ -620,7 +620,7 @@ for.body.i30.i:                                   ; preds = %if.then16.i, %call2
   %15 = load double, ptr %add.ptr.i.i33.i, align 8, !tbaa !8
   %add.i34.i = add nuw i64 %i.08.i31.i, 1
   %vtable.i35.i = load ptr, ptr %cs, align 8, !tbaa !10
-  %vfn.i36.i = getelementptr inbounds i8, ptr %vtable.i35.i, i64 16
+  %vfn.i36.i = getelementptr inbounds nuw i8, ptr %vtable.i35.i, i64 16
   %16 = load ptr, ptr %vfn.i36.i, align 8
   %call2.i37.i17 = invoke noundef double %16(ptr noundef nonnull align 8 dereferenceable(64) %cs, i64 noundef %add.i34.i, i64 noundef %add)
           to label %call2.i37.i.noexc unwind label %lpad.loopexit
@@ -741,7 +741,7 @@ for.body4:                                        ; preds = %for.cond1.preheader
 
 if.end3.i:                                        ; preds = %for.body4
   %vtable.i = load ptr, ptr %cs, align 8, !tbaa !10
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 16
   %5 = load ptr, ptr %vfn.i, align 8
   %call.i1013 = invoke noundef double %5(ptr noundef nonnull align 8 dereferenceable(64) %cs, i64 noundef %i.032, i64 noundef %.sroa.speculated)
           to label %for.body.i.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp
@@ -754,7 +754,7 @@ for.body.i.i:                                     ; preds = %if.end3.i, %call2.i
   %7 = load double, ptr %add.ptr.i.i.i, align 8, !tbaa !8
   %add.i.i = add nuw i64 %i.08.i.i, 1
   %vtable.i.i = load ptr, ptr %cs, align 8, !tbaa !10
-  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 16
+  %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 16
   %8 = load ptr, ptr %vfn.i.i, align 8
   %call2.i.i14 = invoke noundef double %8(ptr noundef nonnull align 8 dereferenceable(64) %cs, i64 noundef %add.i.i, i64 noundef %.sroa.speculated)
           to label %call2.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit
@@ -770,7 +770,7 @@ _ZN8QuantLib19SwapForwardMappings7annuityERKNS_10CurveStateEmmm.exit.i: ; preds 
   %add.ptr.i.i11 = getelementptr inbounds nuw double, ptr %10, i64 %j.028
   %11 = load double, ptr %add.ptr.i.i11, align 8, !tbaa !8
   %vtable9.i = load ptr, ptr %cs, align 8, !tbaa !10
-  %vfn10.i = getelementptr inbounds i8, ptr %vtable9.i, i64 24
+  %vfn10.i = getelementptr inbounds nuw i8, ptr %vtable9.i, i64 24
   %12 = load ptr, ptr %vfn10.i, align 8
   %call11.i15 = invoke noundef double %12(ptr noundef nonnull align 8 dereferenceable(64) %cs, i64 noundef %j.028)
           to label %call11.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp
@@ -798,7 +798,7 @@ for.body.i30.i:                                   ; preds = %if.then16.i, %call2
   %15 = load double, ptr %add.ptr.i.i33.i, align 8, !tbaa !8
   %add.i34.i = add nuw i64 %i.08.i31.i, 1
   %vtable.i35.i = load ptr, ptr %cs, align 8, !tbaa !10
-  %vfn.i36.i = getelementptr inbounds i8, ptr %vtable.i35.i, i64 16
+  %vfn.i36.i = getelementptr inbounds nuw i8, ptr %vtable.i35.i, i64 16
   %16 = load ptr, ptr %vfn.i36.i, align 8
   %call2.i37.i16 = invoke noundef double %16(ptr noundef nonnull align 8 dereferenceable(64) %cs, i64 noundef %add.i34.i, i64 noundef %.sroa.speculated)
           to label %call2.i37.i.noexc unwind label %lpad.loopexit
@@ -866,7 +866,7 @@ entry:
   %0 = load i64, ptr %numberOfRates_.i, align 8, !tbaa !14
   tail call void @_ZN8QuantLib19SwapForwardMappings28coinitialSwapForwardJacobianERKNS_10CurveStateE(ptr dead_on_unwind writable sret(%"class.QuantLib::Matrix") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %cs)
   %vtable = load ptr, ptr %cs, align 8, !tbaa !10
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 64
   %1 = load ptr, ptr %vfn, align 8
   %call1 = invoke noundef nonnull align 8 dereferenceable(24) ptr %1(ptr noundef nonnull align 8 dereferenceable(64) %cs)
           to label %invoke.cont unwind label %lpad
@@ -926,7 +926,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %i.039 = phi i64 [ %add, %invoke.cont7 ], [ 0, %for.body.preheader ]
   %add = add nuw i64 %i.039, 1
   %vtable4 = load ptr, ptr %cs, align 8, !tbaa !10
-  %vfn5 = getelementptr inbounds i8, ptr %vtable4, i64 56
+  %vfn5 = getelementptr inbounds nuw i8, ptr %vtable4, i64 56
   %8 = load ptr, ptr %vfn5, align 8
   %call8 = invoke noundef double %8(ptr noundef nonnull align 8 dereferenceable(64) %cs, i64 noundef 0, i64 noundef %add)
           to label %invoke.cont7 unwind label %if.then.i.i.i25
@@ -1002,7 +1002,7 @@ entry:
   %0 = load i64, ptr %numberOfRates_.i, align 8, !tbaa !14
   tail call void @_ZN8QuantLib19SwapForwardMappings21cmSwapForwardJacobianERKNS_10CurveStateEm(ptr dead_on_unwind writable sret(%"class.QuantLib::Matrix") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %cs, i64 noundef %spanningForwards)
   %vtable = load ptr, ptr %cs, align 8, !tbaa !10
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 64
   %1 = load ptr, ptr %vfn, align 8
   %call1 = invoke noundef nonnull align 8 dereferenceable(24) ptr %1(ptr noundef nonnull align 8 dereferenceable(64) %cs)
           to label %invoke.cont unwind label %lpad
@@ -1061,7 +1061,7 @@ lpad2:                                            ; preds = %if.then.i.i.i.i.i, 
 for.body:                                         ; preds = %for.body.preheader, %invoke.cont7
   %i.040 = phi i64 [ %inc, %invoke.cont7 ], [ 0, %for.body.preheader ]
   %vtable4 = load ptr, ptr %cs, align 8, !tbaa !10
-  %vfn5 = getelementptr inbounds i8, ptr %vtable4, i64 56
+  %vfn5 = getelementptr inbounds nuw i8, ptr %vtable4, i64 56
   %8 = load ptr, ptr %vfn5, align 8
   %call8 = invoke noundef double %8(ptr noundef nonnull align 8 dereferenceable(64) %cs, i64 noundef %i.040, i64 noundef %spanningForwards)
           to label %invoke.cont7 unwind label %if.then.i.i.i26
@@ -1304,13 +1304,13 @@ ehcleanup22:                                      ; preds = %_ZNKSt7__cxx1112bas
 do.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %cs) #20
   %vtable = load ptr, ptr %volStructure, align 8, !tbaa !10
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 32
   %21 = load ptr, ptr %vfn, align 8
   %call24 = tail call noundef nonnull align 8 dereferenceable(128) ptr %21(ptr noundef nonnull align 8 dereferenceable(56) %volStructure)
   %call25 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK8QuantLib20EvolutionDescription9rateTimesEv(ptr noundef nonnull align 8 dereferenceable(128) %call24)
   call void @_ZN8QuantLib13LMMCurveStateC1ERKSt6vectorIdSaIdEE(ptr noundef nonnull align 8 dereferenceable(224) %cs, ptr noundef nonnull align 8 dereferenceable(24) %call25)
   %vtable26 = load ptr, ptr %volStructure, align 8, !tbaa !10
-  %vfn27 = getelementptr inbounds i8, ptr %vtable26, i64 16
+  %vfn27 = getelementptr inbounds nuw i8, ptr %vtable26, i64 16
   %22 = load ptr, ptr %vfn27, align 8
   %call30 = invoke noundef nonnull align 8 dereferenceable(24) ptr %22(ptr noundef nonnull align 8 dereferenceable(56) %volStructure)
           to label %invoke.cont29 unwind label %lpad28
@@ -1321,7 +1321,7 @@ invoke.cont29:                                    ; preds = %do.end
 
 invoke.cont31:                                    ; preds = %invoke.cont29
   %vtable32 = load ptr, ptr %volStructure, align 8, !tbaa !10
-  %vfn33 = getelementptr inbounds i8, ptr %vtable32, i64 24
+  %vfn33 = getelementptr inbounds nuw i8, ptr %vtable32, i64 24
   %23 = load ptr, ptr %vfn33, align 8
   %call36 = invoke noundef nonnull align 8 dereferenceable(24) ptr %23(ptr noundef nonnull align 8 dereferenceable(56) %volStructure)
           to label %invoke.cont35 unwind label %lpad34
@@ -1336,14 +1336,14 @@ invoke.cont35:                                    ; preds = %invoke.cont31
 
 invoke.cont39:                                    ; preds = %invoke.cont35
   %vtable40 = load ptr, ptr %volStructure, align 8, !tbaa !10
-  %vfn41 = getelementptr inbounds i8, ptr %vtable40, i64 32
+  %vfn41 = getelementptr inbounds nuw i8, ptr %vtable40, i64 32
   %26 = load ptr, ptr %vfn41, align 8
   %call44 = invoke noundef nonnull align 8 dereferenceable(128) ptr %26(ptr noundef nonnull align 8 dereferenceable(56) %volStructure)
           to label %invoke.cont43 unwind label %lpad42
 
 invoke.cont43:                                    ; preds = %invoke.cont39
   %vtable45 = load ptr, ptr %volStructure, align 8, !tbaa !10
-  %vfn46 = getelementptr inbounds i8, ptr %vtable45, i64 48
+  %vfn46 = getelementptr inbounds nuw i8, ptr %vtable45, i64 48
   %27 = load ptr, ptr %vfn46, align 8
   %call49 = invoke noundef i64 %27(ptr noundef nonnull align 8 dereferenceable(56) %volStructure)
           to label %while.cond.preheader unwind label %lpad47.loopexit.split-lp
@@ -1380,7 +1380,7 @@ invoke.cont53.us.us:                              ; preds = %land.rhs.us.us
 
 while.body.us.us:                                 ; preds = %invoke.cont53.us.us
   %vtable57.us.us = load ptr, ptr %volStructure, align 8, !tbaa !10
-  %vfn58.us.us = getelementptr inbounds i8, ptr %vtable57.us.us, i64 64
+  %vfn58.us.us = getelementptr inbounds nuw i8, ptr %vtable57.us.us, i64 64
   %32 = load ptr, ptr %vfn58.us.us, align 8
   %call61.us.us = invoke noundef nonnull align 8 dereferenceable(24) ptr %32(ptr noundef nonnull align 8 dereferenceable(56) %volStructure, i64 noundef %index.0.us.us)
           to label %for.cond.preheader.us.us unwind label %lpad59.split.us.split.us
@@ -1453,7 +1453,7 @@ invoke.cont53:                                    ; preds = %land.rhs
 
 while.body:                                       ; preds = %invoke.cont53
   %vtable57 = load ptr, ptr %volStructure, align 8, !tbaa !10
-  %vfn58 = getelementptr inbounds i8, ptr %vtable57, i64 64
+  %vfn58 = getelementptr inbounds nuw i8, ptr %vtable57, i64 64
   %42 = load ptr, ptr %vfn58, align 8
   %call61 = invoke noundef nonnull align 8 dereferenceable(24) ptr %42(ptr noundef nonnull align 8 dereferenceable(56) %volStructure, i64 noundef %index.0)
           to label %for.cond.preheader unwind label %lpad59.split
@@ -1636,7 +1636,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %vtable.i.i.i = load ptr, ptr %0, align 8, !tbaa !10
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
+  %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 16
   %2 = load ptr, ptr %vfn.i.i.i, align 8
   invoke void %2(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %.noexc.i.i unwind label %terminate.lpad.i.i
@@ -1649,7 +1649,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
 
 if.then.i.i.i.i:                                  ; preds = %.noexc.i.i
   %vtable.i.i.i.i = load ptr, ptr %0, align 8, !tbaa !10
-  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 24
+  %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 24
   %4 = load ptr, ptr %vfn.i.i.i.i, align 8
   invoke void %4(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN5boost10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit unwind label %terminate.lpad.i.i

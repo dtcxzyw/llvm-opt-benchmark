@@ -11,10 +11,10 @@ target triple = "x86_64-unknown-linux-gnu"
 define noundef i32 @uv_pipe_init(ptr noundef %loop, ptr noundef %handle, i32 noundef %ipc) local_unnamed_addr #0 {
 entry:
   tail call void @uv__stream_init(ptr noundef %loop, ptr noundef %handle, i32 noundef 7) #12
-  %connect_req = getelementptr inbounds i8, ptr %handle, i64 120
-  %pipe_fname = getelementptr inbounds i8, ptr %handle, i64 256
+  %connect_req = getelementptr inbounds nuw i8, ptr %handle, i64 120
+  %pipe_fname = getelementptr inbounds nuw i8, ptr %handle, i64 256
   store ptr null, ptr %pipe_fname, align 8
-  %ipc1 = getelementptr inbounds i8, ptr %handle, i64 248
+  %ipc1 = getelementptr inbounds nuw i8, ptr %handle, i64 248
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %connect_req, i8 0, i64 16, i1 false)
   store i32 %ipc, ptr %ipc1, align 8
   ret i32 0
@@ -42,7 +42,7 @@ entry:
   br i1 %or.cond28, label %return, label %if.end5
 
 if.end5:                                          ; preds = %entry
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %name, i64 1
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %name, i64 1
   %dec.i = add i64 %namelen, -1
   %call.i = tail call ptr @memchr(ptr noundef nonnull readonly %incdec.ptr.i, i32 noundef 0, i64 noundef %dec.i) #13
   %cmp1.i.not = icmp eq ptr %call.i, null
@@ -56,13 +56,13 @@ if.end8:                                          ; preds = %if.end5
 
 if.end15:                                         ; preds = %if.end8
   %spec.store.select = tail call i64 @llvm.umin.i64(i64 %namelen, i64 108)
-  %fd = getelementptr inbounds i8, ptr %handle, i64 184
+  %fd = getelementptr inbounds nuw i8, ptr %handle, i64 184
   %0 = load i32, ptr %fd, align 8
   %cmp19 = icmp sgt i32 %0, -1
   br i1 %cmp19, label %return, label %if.end21
 
 if.end21:                                         ; preds = %if.end15
-  %flags22 = getelementptr inbounds i8, ptr %handle, i64 88
+  %flags22 = getelementptr inbounds nuw i8, ptr %handle, i64 88
   %1 = load i32, ptr %flags22, align 8
   %and23 = and i32 %1, 3
   %cmp24.not = icmp eq i32 %and23, 0
@@ -81,7 +81,7 @@ if.then29:                                        ; preds = %if.end26
 
 if.end34:                                         ; preds = %if.then29
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call30, ptr nonnull align 1 %name, i64 %spec.store.select, i1 false)
-  %arrayidx = getelementptr inbounds i8, ptr %call30, i64 %spec.store.select
+  %arrayidx = getelementptr inbounds nuw i8, ptr %call30, i64 %spec.store.select
   store i8 0, ptr %arrayidx, align 1
   br label %if.end35
 
@@ -92,9 +92,9 @@ if.end35:                                         ; preds = %if.end34, %if.end26
   br i1 %cmp37, label %err_socket, label %if.end40
 
 if.end40:                                         ; preds = %if.end35
-  %3 = getelementptr inbounds i8, ptr %saddr, i64 2
+  %3 = getelementptr inbounds nuw i8, ptr %saddr, i64 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(110) %3, i8 0, i64 108, i1 false)
-  %sun_path = getelementptr inbounds i8, ptr %saddr, i64 2
+  %sun_path = getelementptr inbounds nuw i8, ptr %saddr, i64 2
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %sun_path, ptr nonnull align 1 %name, i64 %spec.store.select, i1 false)
   store i16 1, ptr %saddr, align 2
   %call41 = call i32 @bind(i32 noundef %call36, ptr nonnull %saddr, i32 noundef 110) #12
@@ -114,7 +114,7 @@ if.end50:                                         ; preds = %if.end40
   %5 = load i32, ptr %flags22, align 8
   %or = or i32 %5, 8192
   store i32 %or, ptr %flags22, align 8
-  %pipe_fname52 = getelementptr inbounds i8, ptr %handle, i64 256
+  %pipe_fname52 = getelementptr inbounds nuw i8, ptr %handle, i64 256
   store ptr %pipe_fname.0, ptr %pipe_fname52, align 8
   store i32 %call36, ptr %fd, align 8
   br label %return
@@ -155,14 +155,14 @@ declare void @uv__free(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -2147483647, -2147483648) i32 @uv__pipe_listen(ptr noundef %handle, i32 noundef %backlog, ptr noundef %cb) local_unnamed_addr #0 {
 entry:
-  %io_watcher = getelementptr inbounds i8, ptr %handle, i64 136
-  %fd = getelementptr inbounds i8, ptr %handle, i64 184
+  %io_watcher = getelementptr inbounds nuw i8, ptr %handle, i64 136
+  %fd = getelementptr inbounds nuw i8, ptr %handle, i64 184
   %0 = load i32, ptr %fd, align 8
   %cmp = icmp eq i32 %0, -1
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %ipc = getelementptr inbounds i8, ptr %handle, i64 248
+  %ipc = getelementptr inbounds nuw i8, ptr %handle, i64 248
   %1 = load i32, ptr %ipc, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end2, label %return
@@ -179,10 +179,10 @@ if.then6:                                         ; preds = %if.end2
   br label %return
 
 if.end8:                                          ; preds = %if.end2
-  %connection_cb = getelementptr inbounds i8, ptr %handle, i64 224
+  %connection_cb = getelementptr inbounds nuw i8, ptr %handle, i64 224
   store ptr %cb, ptr %connection_cb, align 8
   store ptr @uv__server_io, ptr %io_watcher, align 8
-  %loop = getelementptr inbounds i8, ptr %handle, i64 8
+  %loop = getelementptr inbounds nuw i8, ptr %handle, i64 8
   %3 = load ptr, ptr %loop, align 8
   tail call void @uv__io_start(ptr noundef %3, ptr noundef nonnull %io_watcher, i32 noundef 1) #12
   br label %return
@@ -202,7 +202,7 @@ declare void @uv__io_start(ptr noundef, ptr noundef, i32 noundef) local_unnamed_
 ; Function Attrs: nounwind uwtable
 define hidden void @uv__pipe_close(ptr noundef %handle) local_unnamed_addr #0 {
 entry:
-  %pipe_fname = getelementptr inbounds i8, ptr %handle, i64 256
+  %pipe_fname = getelementptr inbounds nuw i8, ptr %handle, i64 256
   %0 = load ptr, ptr %pipe_fname, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -227,7 +227,7 @@ declare void @uv__stream_close(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define i32 @uv_pipe_open(ptr noundef %handle, i32 noundef %fd) local_unnamed_addr #0 {
 entry:
-  %loop = getelementptr inbounds i8, ptr %handle, i64 8
+  %loop = getelementptr inbounds nuw i8, ptr %handle, i64 8
   %0 = load ptr, ptr %loop, align 8
   %call = tail call i32 @uv__fd_exists(ptr noundef %0, i32 noundef %fd) #12
   %tobool.not = icmp eq i32 %call, 0
@@ -284,28 +284,28 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %delayed_error = getelementptr inbounds i8, ptr %handle, i64 232
+  %delayed_error = getelementptr inbounds nuw i8, ptr %handle, i64 232
   store i32 %call1, ptr %delayed_error, align 8
-  %connect_req = getelementptr inbounds i8, ptr %handle, i64 120
+  %connect_req = getelementptr inbounds nuw i8, ptr %handle, i64 120
   store ptr %req, ptr %connect_req, align 8
-  %type = getelementptr inbounds i8, ptr %req, i64 8
+  %type = getelementptr inbounds nuw i8, ptr %req, i64 8
   store i32 2, ptr %type, align 8
-  %loop = getelementptr inbounds i8, ptr %handle, i64 8
+  %loop = getelementptr inbounds nuw i8, ptr %handle, i64 8
   %0 = load ptr, ptr %loop, align 8
-  %active_reqs = getelementptr inbounds i8, ptr %0, i64 32
+  %active_reqs = getelementptr inbounds nuw i8, ptr %0, i64 32
   %1 = load i32, ptr %active_reqs, align 8
   %inc = add i32 %1, 1
   store i32 %inc, ptr %active_reqs, align 8
-  %handle6 = getelementptr inbounds i8, ptr %req, i64 72
+  %handle6 = getelementptr inbounds nuw i8, ptr %req, i64 72
   store ptr %handle, ptr %handle6, align 8
-  %cb7 = getelementptr inbounds i8, ptr %req, i64 64
+  %cb7 = getelementptr inbounds nuw i8, ptr %req, i64 64
   store ptr %cb, ptr %cb7, align 8
-  %queue = getelementptr inbounds i8, ptr %req, i64 80
+  %queue = getelementptr inbounds nuw i8, ptr %req, i64 80
   store ptr %queue, ptr %queue, align 8
-  %prev.i = getelementptr inbounds i8, ptr %req, i64 88
+  %prev.i = getelementptr inbounds nuw i8, ptr %req, i64 88
   store ptr %queue, ptr %prev.i, align 8
   %2 = load ptr, ptr %loop, align 8
-  %io_watcher = getelementptr inbounds i8, ptr %handle, i64 136
+  %io_watcher = getelementptr inbounds nuw i8, ptr %handle, i64 136
   tail call void @uv__io_feed(ptr noundef %2, ptr noundef nonnull %io_watcher) #12
   br label %if.end
 
@@ -325,7 +325,7 @@ entry:
   br i1 %or.cond31, label %return, label %if.end5
 
 if.end5:                                          ; preds = %entry
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %name, i64 1
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %name, i64 1
   %dec.i = add i64 %namelen, -1
   %call.i = tail call ptr @memchr(ptr noundef nonnull readonly %incdec.ptr.i, i32 noundef 0, i64 noundef %dec.i) #13
   %cmp1.i.not = icmp eq ptr %call.i, null
@@ -339,8 +339,8 @@ if.end8:                                          ; preds = %if.end5
 
 if.end15:                                         ; preds = %if.end8
   %spec.store.select = tail call i64 @llvm.umin.i64(i64 %namelen, i64 108)
-  %io_watcher = getelementptr inbounds i8, ptr %handle, i64 136
-  %fd = getelementptr inbounds i8, ptr %handle, i64 184
+  %io_watcher = getelementptr inbounds nuw i8, ptr %handle, i64 136
+  %fd = getelementptr inbounds nuw i8, ptr %handle, i64 184
   %0 = load i32, ptr %fd, align 8
   %cmp19 = icmp eq i32 %0, -1
   br i1 %cmp19, label %if.then21, label %if.end29
@@ -355,9 +355,9 @@ if.end26:                                         ; preds = %if.then21
   br label %if.end29
 
 if.end29:                                         ; preds = %if.end26, %if.end15
-  %1 = getelementptr inbounds i8, ptr %saddr, i64 2
+  %1 = getelementptr inbounds nuw i8, ptr %saddr, i64 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(110) %1, i8 0, i64 108, i1 false)
-  %sun_path = getelementptr inbounds i8, ptr %saddr, i64 2
+  %sun_path = getelementptr inbounds nuw i8, ptr %saddr, i64 2
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %sun_path, ptr nonnull align 1 %name, i64 %spec.store.select, i1 false)
   store i16 1, ptr %saddr, align 2
   br label %do.body
@@ -390,32 +390,32 @@ if.end51:                                         ; preds = %if.end45
   br i1 %cmp52, label %if.then54, label %out
 
 if.then54:                                        ; preds = %if.end45, %if.end51
-  %loop = getelementptr inbounds i8, ptr %handle, i64 8
+  %loop = getelementptr inbounds nuw i8, ptr %handle, i64 8
   %5 = load ptr, ptr %loop, align 8
   call void @uv__io_start(ptr noundef %5, ptr noundef nonnull %io_watcher, i32 noundef 4) #12
   br label %out
 
 out:                                              ; preds = %if.end51, %if.then54, %if.then21, %if.then43
   %err.0 = phi i32 [ %call22, %if.then21 ], [ %sub, %if.then43 ], [ 0, %if.then54 ], [ %call50, %if.end51 ]
-  %delayed_error = getelementptr inbounds i8, ptr %handle, i64 232
+  %delayed_error = getelementptr inbounds nuw i8, ptr %handle, i64 232
   store i32 %err.0, ptr %delayed_error, align 8
-  %connect_req = getelementptr inbounds i8, ptr %handle, i64 120
+  %connect_req = getelementptr inbounds nuw i8, ptr %handle, i64 120
   store ptr %req, ptr %connect_req, align 8
-  %type = getelementptr inbounds i8, ptr %req, i64 8
+  %type = getelementptr inbounds nuw i8, ptr %req, i64 8
   store i32 2, ptr %type, align 8
-  %loop62 = getelementptr inbounds i8, ptr %handle, i64 8
+  %loop62 = getelementptr inbounds nuw i8, ptr %handle, i64 8
   %6 = load ptr, ptr %loop62, align 8
-  %active_reqs = getelementptr inbounds i8, ptr %6, i64 32
+  %active_reqs = getelementptr inbounds nuw i8, ptr %6, i64 32
   %7 = load i32, ptr %active_reqs, align 8
   %inc = add i32 %7, 1
   store i32 %inc, ptr %active_reqs, align 8
-  %handle67 = getelementptr inbounds i8, ptr %req, i64 72
+  %handle67 = getelementptr inbounds nuw i8, ptr %req, i64 72
   store ptr %handle, ptr %handle67, align 8
-  %cb68 = getelementptr inbounds i8, ptr %req, i64 64
+  %cb68 = getelementptr inbounds nuw i8, ptr %req, i64 64
   store ptr %cb, ptr %cb68, align 8
-  %queue = getelementptr inbounds i8, ptr %req, i64 80
+  %queue = getelementptr inbounds nuw i8, ptr %req, i64 80
   store ptr %queue, ptr %queue, align 8
-  %prev.i = getelementptr inbounds i8, ptr %req, i64 88
+  %prev.i = getelementptr inbounds nuw i8, ptr %req, i64 88
   store ptr %queue, ptr %prev.i, align 8
   %tobool69.not = icmp eq i32 %err.0, 0
   br i1 %tobool69.not, label %return, label %if.then70
@@ -452,7 +452,7 @@ if.then.i:                                        ; preds = %entry
   br label %uv__pipe_getsockpeername.exit
 
 if.end.i:                                         ; preds = %entry
-  %sun_path.i = getelementptr inbounds i8, ptr %sa.i, i64 2
+  %sun_path.i = getelementptr inbounds nuw i8, ptr %sa.i, i64 2
   %0 = load i8, ptr %sun_path.i, align 2
   %cmp3.i = icmp eq i8 %0, 0
   br i1 %cmp3.i, label %if.then5.i, label %if.else.i
@@ -488,7 +488,7 @@ if.end17.i:                                       ; preds = %if.end11.i
   br i1 %cmp24.not.i, label %uv__pipe_getsockpeername.exit, label %if.then26.i
 
 if.then26.i:                                      ; preds = %if.end17.i
-  %arrayidx27.i = getelementptr inbounds i8, ptr %buffer, i64 %conv12.i
+  %arrayidx27.i = getelementptr inbounds nuw i8, ptr %buffer, i64 %conv12.i
   store i8 0, ptr %arrayidx27.i, align 1
   br label %uv__pipe_getsockpeername.exit
 
@@ -520,7 +520,7 @@ if.then.i:                                        ; preds = %entry
   br label %uv__pipe_getsockpeername.exit
 
 if.end.i:                                         ; preds = %entry
-  %sun_path.i = getelementptr inbounds i8, ptr %sa.i, i64 2
+  %sun_path.i = getelementptr inbounds nuw i8, ptr %sa.i, i64 2
   %0 = load i8, ptr %sun_path.i, align 2
   %cmp3.i = icmp eq i8 %0, 0
   br i1 %cmp3.i, label %if.then5.i, label %if.else.i
@@ -556,7 +556,7 @@ if.end17.i:                                       ; preds = %if.end11.i
   br i1 %cmp24.not.i, label %uv__pipe_getsockpeername.exit, label %if.then26.i
 
 if.then26.i:                                      ; preds = %if.end17.i
-  %arrayidx27.i = getelementptr inbounds i8, ptr %buffer, i64 %conv12.i
+  %arrayidx27.i = getelementptr inbounds nuw i8, ptr %buffer, i64 %conv12.i
   store i8 0, ptr %arrayidx27.i, align 1
   br label %uv__pipe_getsockpeername.exit
 
@@ -579,25 +579,25 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define i32 @uv_pipe_pending_count(ptr nocapture noundef readonly %handle) local_unnamed_addr #9 {
 entry:
-  %ipc = getelementptr inbounds i8, ptr %handle, i64 248
+  %ipc = getelementptr inbounds nuw i8, ptr %handle, i64 248
   %0 = load i32, ptr %ipc, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %accepted_fd = getelementptr inbounds i8, ptr %handle, i64 236
+  %accepted_fd = getelementptr inbounds nuw i8, ptr %handle, i64 236
   %1 = load i32, ptr %accepted_fd, align 4
   %cmp = icmp eq i32 %1, -1
   br i1 %cmp, label %return, label %if.end2
 
 if.end2:                                          ; preds = %if.end
-  %queued_fds3 = getelementptr inbounds i8, ptr %handle, i64 240
+  %queued_fds3 = getelementptr inbounds nuw i8, ptr %handle, i64 240
   %2 = load ptr, ptr %queued_fds3, align 8
   %cmp4 = icmp eq ptr %2, null
   br i1 %cmp4, label %return, label %if.end6
 
 if.end6:                                          ; preds = %if.end2
-  %offset = getelementptr inbounds i8, ptr %2, i64 4
+  %offset = getelementptr inbounds nuw i8, ptr %2, i64 4
   %3 = load i32, ptr %offset, align 4
   %add = add i32 %3, 1
   br label %return
@@ -610,13 +610,13 @@ return:                                           ; preds = %if.end2, %if.end, %
 ; Function Attrs: nounwind uwtable
 define i32 @uv_pipe_pending_type(ptr nocapture noundef readonly %handle) local_unnamed_addr #0 {
 entry:
-  %ipc = getelementptr inbounds i8, ptr %handle, i64 248
+  %ipc = getelementptr inbounds nuw i8, ptr %handle, i64 248
   %0 = load i32, ptr %ipc, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %accepted_fd = getelementptr inbounds i8, ptr %handle, i64 236
+  %accepted_fd = getelementptr inbounds nuw i8, ptr %handle, i64 236
   %1 = load i32, ptr %accepted_fd, align 4
   %cmp = icmp eq i32 %1, -1
   br i1 %cmp, label %return, label %if.else
@@ -644,7 +644,7 @@ entry:
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %fd = getelementptr inbounds i8, ptr %handle, i64 184
+  %fd = getelementptr inbounds nuw i8, ptr %handle, i64 184
   %0 = load i32, ptr %fd, align 8
   %cmp1 = icmp eq i32 %0, -1
   br i1 %cmp1, label %return, label %if.end
@@ -664,7 +664,7 @@ if.end7:                                          ; preds = %if.end
   br i1 %cmp.i.i, label %uv_pipe_getsockname.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.end7
-  %sun_path.i.i = getelementptr inbounds i8, ptr %sa.i.i, i64 2
+  %sun_path.i.i = getelementptr inbounds nuw i8, ptr %sa.i.i, i64 2
   %2 = load i8, ptr %sun_path.i.i, align 2
   %cmp3.i.i = icmp eq i8 %2, 0
   br i1 %cmp3.i.i, label %if.then5.i.i, label %if.else.i.i
@@ -709,7 +709,7 @@ if.end14:                                         ; preds = %if.end10
   br i1 %cmp.i.i27, label %if.then17, label %if.end.i.i28
 
 if.end.i.i28:                                     ; preds = %if.end14
-  %sun_path.i.i29 = getelementptr inbounds i8, ptr %sa.i.i24, i64 2
+  %sun_path.i.i29 = getelementptr inbounds nuw i8, ptr %sa.i.i24, i64 2
   %4 = load i8, ptr %sun_path.i.i29, align 2
   %cmp3.i.i30 = icmp eq i8 %4, 0
   br i1 %cmp3.i.i30, label %if.then5.i.i45, label %if.else.i.i31
@@ -737,7 +737,7 @@ if.end17.i.i41:                                   ; preds = %if.end11.i.i33
   br i1 %cmp24.not.i.i42, label %if.end18, label %if.then26.i.i43
 
 if.then26.i.i43:                                  ; preds = %if.end17.i.i41
-  %arrayidx27.i.i44 = getelementptr inbounds i8, ptr %call11, i64 %conv12.i.i35
+  %arrayidx27.i.i44 = getelementptr inbounds nuw i8, ptr %call11, i64 %conv12.i.i35
   store i8 0, ptr %arrayidx27.i.i44, align 1
   br label %if.end18
 
@@ -769,7 +769,7 @@ if.end23:                                         ; preds = %if.end18
   %tobool27.not = icmp samesign ult i32 %mode, 2
   %or29 = or disjoint i32 %spec.select, 146
   %desired_mode.1 = select i1 %tobool27.not, i32 %spec.select, i32 %or29
-  %st_mode = getelementptr inbounds i8, ptr %pipe_stat, i64 24
+  %st_mode = getelementptr inbounds nuw i8, ptr %pipe_stat, i64 24
   %8 = load i32, ptr %st_mode, align 8
   %and31 = and i32 %8, %desired_mode.1
   %cmp32 = icmp eq i32 %and31, %desired_mode.1
@@ -829,9 +829,9 @@ if.end6:                                          ; preds = %entry
 if.then9:                                         ; preds = %if.end6
   %2 = load i32, ptr %temp, align 4
   store i32 %2, ptr %fds, align 4
-  %arrayidx11 = getelementptr inbounds i8, ptr %temp, i64 4
+  %arrayidx11 = getelementptr inbounds nuw i8, ptr %temp, i64 4
   %3 = load i32, ptr %arrayidx11, align 4
-  %arrayidx12 = getelementptr inbounds i8, ptr %fds, i64 4
+  %arrayidx12 = getelementptr inbounds nuw i8, ptr %fds, i64 4
   store i32 %3, ptr %arrayidx12, align 4
   br label %return
 
@@ -848,7 +848,7 @@ if.end22:                                         ; preds = %if.then16, %if.end1
   br i1 %tobool2.not, label %if.end31, label %if.then25
 
 if.then25:                                        ; preds = %if.end22
-  %arrayidx26 = getelementptr inbounds i8, ptr %temp, i64 4
+  %arrayidx26 = getelementptr inbounds nuw i8, ptr %temp, i64 4
   %5 = load i32, ptr %arrayidx26, align 4
   %call27 = call i32 @uv__nonblock_ioctl(i32 noundef %5, i32 noundef 1) #12
   %tobool28.not = icmp eq i32 %call27, 0
@@ -857,9 +857,9 @@ if.then25:                                        ; preds = %if.end22
 if.end31:                                         ; preds = %if.then25, %if.end22
   %6 = load i32, ptr %temp, align 4
   store i32 %6, ptr %fds, align 4
-  %arrayidx34 = getelementptr inbounds i8, ptr %temp, i64 4
+  %arrayidx34 = getelementptr inbounds nuw i8, ptr %temp, i64 4
   %7 = load i32, ptr %arrayidx34, align 4
-  %arrayidx35 = getelementptr inbounds i8, ptr %fds, i64 4
+  %arrayidx35 = getelementptr inbounds nuw i8, ptr %fds, i64 4
   store i32 %7, ptr %arrayidx35, align 4
   br label %return
 
@@ -867,7 +867,7 @@ fail:                                             ; preds = %if.then25, %if.then
   %err.0 = phi i32 [ %call18, %if.then16 ], [ %call27, %if.then25 ]
   %8 = load i32, ptr %temp, align 4
   %call37 = call i32 @uv__close(i32 noundef %8) #12
-  %arrayidx38 = getelementptr inbounds i8, ptr %temp, i64 4
+  %arrayidx38 = getelementptr inbounds nuw i8, ptr %temp, i64 4
   %9 = load i32, ptr %arrayidx38, align 4
   %call39 = call i32 @uv__close(i32 noundef %9) #12
   br label %return

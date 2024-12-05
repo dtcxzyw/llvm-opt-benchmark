@@ -73,7 +73,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__p
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfColorSpace", align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.01.0.copyload.i = load <2 x float>, ptr %7, align 8
-  %.sroa.22.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 24
+  %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.22.0.copyload.i = load float, ptr %.sroa.22.0..sroa_idx.i, align 8
   %8 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %0, i8 noundef signext 40)
   %.sroa.0.0.vec.extract = extractelement <2 x float> %.sroa.01.0.copyload.i, i64 0
@@ -176,7 +176,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %41, %45
   %56 = getelementptr inbounds nuw i8, ptr %49, i64 12
   store i32 0, ptr %56, align 4
   %57 = load ptr, ptr %49, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 16
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 16
   %59 = load ptr, ptr %58, align 8
   call void %59(ptr noundef nonnull align 8 dereferenceable(16) %49) #14
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
@@ -202,7 +202,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %41, %45
 
 68:                                               ; preds = %66
   %69 = load ptr, ptr %49, align 8
-  %70 = getelementptr inbounds i8, ptr %69, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 16
   %71 = load ptr, ptr %70, align 8
   call void %71(ptr noundef nonnull align 8 dereferenceable(16) %49) #14
   %72 = getelementptr inbounds nuw i8, ptr %49, i64 12
@@ -227,7 +227,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %41, %45
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i: ; preds = %79, %55
   %81 = load ptr, ptr %49, align 8
-  %82 = getelementptr inbounds i8, ptr %81, i64 24
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 24
   %83 = load ptr, ptr %82, align 8
   call void %83(ptr noundef nonnull align 8 dereferenceable(16) %49) #14
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12GfColorSpaceD2Ev.exit
@@ -311,7 +311,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__12GfColorSpaceD2E
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 0, ptr %10, align 4
   %11 = load ptr, ptr %3, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #14
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
@@ -337,7 +337,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__12GfColorSpaceD2E
 
 22:                                               ; preds = %20
   %23 = load ptr, ptr %3, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load ptr, ptr %24, align 8
   tail call void %25(ptr noundef nonnull align 8 dereferenceable(16) %3) #14
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 12
@@ -362,7 +362,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__12GfColorSpaceD2E
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i: ; preds = %33, %9
   %35 = load ptr, ptr %3, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %37 = load ptr, ptr %36, align 8
   tail call void %37(ptr noundef nonnull align 8 dereferenceable(16) %3) #14
   br label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12GfColorSpace5_DataEED2Ev.exit
@@ -419,9 +419,9 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_33GfColorSpaceNames_Stat
 .thread:                                          ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_33GfColorSpaceNames_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store float 0.000000e+00, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 20
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store float 0.000000e+00, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %0, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store float 0.000000e+00, ptr %23, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12GfColorSpaceD2Ev.exit
 
@@ -445,9 +445,9 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_33GfColorSpaceNames_Stat
   %.pr = load ptr, ptr %19, align 8
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store float 0.000000e+00, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 20
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store float 0.000000e+00, ptr %34, align 4
-  %35 = getelementptr inbounds i8, ptr %0, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store float 0.000000e+00, ptr %35, align 8
   %.not.i.i.i.i = icmp eq ptr %.pr, null
   br i1 %.not.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__12GfColorSpaceD2Ev.exit, label %36
@@ -464,7 +464,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_33GfColorSpaceNames_Stat
   %42 = getelementptr inbounds nuw i8, ptr %.pr, i64 12
   store i32 0, ptr %42, align 4
   %43 = load ptr, ptr %.pr, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %45 = load ptr, ptr %44, align 8
   call void %45(ptr noundef nonnull align 8 dereferenceable(16) %.pr) #14
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
@@ -490,7 +490,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_33GfColorSpaceNames_Stat
 
 54:                                               ; preds = %52
   %55 = load ptr, ptr %.pr, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 16
   %57 = load ptr, ptr %56, align 8
   call void %57(ptr noundef nonnull align 8 dereferenceable(16) %.pr) #14
   %58 = getelementptr inbounds nuw i8, ptr %.pr, i64 12
@@ -515,7 +515,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_33GfColorSpaceNames_Stat
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i: ; preds = %65, %41
   %67 = load ptr, ptr %.pr, align 8
-  %68 = getelementptr inbounds i8, ptr %67, i64 24
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 24
   %69 = load ptr, ptr %68, align 8
   call void %69(ptr noundef nonnull align 8 dereferenceable(16) %.pr) #14
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12GfColorSpaceD2Ev.exit
@@ -556,9 +556,9 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__7GfColorC2ERKNS_12GfColorSpace
 _ZN32pxrInternal_v0_24__pxrReserved__12GfColorSpaceC2ERKS0_.exit: ; preds = %2, %10, %13
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store float 0.000000e+00, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 20
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store float 0.000000e+00, ptr %16, align 4
-  %17 = getelementptr inbounds i8, ptr %0, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store float 0.000000e+00, ptr %17, align 8
   ret void
 }
@@ -631,10 +631,10 @@ _ZN32pxrInternal_v0_24__pxrReserved__12GfColorSpaceC2ERKS0_.exit: ; preds = %3, 
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %21 = load float, ptr %20, align 8
   %.sroa.06.0.vec.insert = insertelement <2 x float> poison, float %21, i64 0
-  %22 = getelementptr inbounds i8, ptr %1, i64 20
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %23 = load float, ptr %22, align 4
   %.sroa.06.4.vec.insert = insertelement <2 x float> %.sroa.06.0.vec.insert, float %23, i64 1
-  %24 = getelementptr inbounds i8, ptr %1, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %25 = load float, ptr %24, align 8
   %26 = invoke { <2 x float>, float } @pxr_nc_1_0_TransformColor(ptr noundef %19, ptr noundef %17, <2 x float> %.sroa.06.4.vec.insert, float %25)
           to label %27 unwind label %29
@@ -646,9 +646,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__12GfColorSpaceC2ERKS0_.exit: ; preds = %3, 
   %.sroa.05.4.vec.extract = extractelement <2 x float> %.fca.0.extract, i64 1
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store float %.sroa.05.0.vec.extract, ptr %28, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 20
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 20
   store float %.sroa.05.4.vec.extract, ptr %.sroa.2.0..sroa_idx, align 4
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store float %.fca.1.extract, ptr %.sroa.3.0..sroa_idx, align 8
   ret void
 
@@ -675,9 +675,9 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__7GfColor21SetFromPlanckianLocu
   %.sroa.05.4.vec.extract = extractelement <2 x float> %.fca.0.extract, i64 1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store float %.sroa.05.0.vec.extract, ptr %8, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 20
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 20
   store float %.sroa.05.4.vec.extract, ptr %.sroa.2.0..sroa_idx, align 4
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store float %.fca.1.extract, ptr %.sroa.3.0..sroa_idx, align 8
   ret void
 }
@@ -691,10 +691,10 @@ define <2 x float> @_ZNK32pxrInternal_v0_24__pxrReserved__7GfColor16_GetChromati
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load float, ptr %2, align 8
   %.sroa.017.0.vec.insert = insertelement <2 x float> poison, float %3, i64 0
-  %4 = getelementptr inbounds i8, ptr %0, i64 20
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %5 = load float, ptr %4, align 4
   %.sroa.017.4.vec.insert = insertelement <2 x float> %.sroa.017.0.vec.insert, float %5, i64 1
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load float, ptr %6, align 8
   %8 = load ptr, ptr %0, align 8
   %9 = load ptr, ptr %8, align 8
@@ -718,7 +718,7 @@ declare { <2 x float>, float } @pxr_nc_1_0_XYZToYxy(<2 x float>, float) local_un
 define void @_ZN32pxrInternal_v0_24__pxrReserved__7GfColor20_SetFromChromaticityERKNS_7GfVec2fE(ptr nocapture noundef nonnull align 8 dereferenceable(28) initializes((16, 28)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1) local_unnamed_addr #4 align 2 {
   %3 = load float, ptr %1, align 4
   %.sroa.06.4.vec.insert = insertelement <2 x float> <float 1.000000e+00, float poison>, float %3, i64 1
-  %4 = getelementptr inbounds i8, ptr %1, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = load float, ptr %4, align 4
   %6 = load ptr, ptr %0, align 8
   %7 = load ptr, ptr %6, align 8
@@ -729,9 +729,9 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__7GfColor20_SetFromChromaticity
   %.sroa.05.4.vec.extract = extractelement <2 x float> %.fca.0.extract, i64 1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store float %.sroa.05.0.vec.extract, ptr %9, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 20
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 20
   store float %.sroa.05.4.vec.extract, ptr %.sroa.2.0..sroa_idx, align 4
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store float %.fca.1.extract, ptr %.sroa.3.0..sroa_idx, align 8
   ret void
 }

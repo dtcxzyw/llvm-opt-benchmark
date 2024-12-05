@@ -27,23 +27,23 @@ define dso_local void @SyncScanShmemInit() local_unnamed_addr #1 {
   br i1 %4, label %.loopexit, label %5
 
 5:                                                ; preds = %0
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %6, ptr %2, align 8
   %7 = getelementptr i8, ptr %2, i64 624
-  %8 = getelementptr inbounds i8, ptr %2, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %7, ptr %8, align 8
   br label %9
 
 9:                                                ; preds = %5, %9
   %indvars.iv = phi i64 [ 0, %5 ], [ %indvars.iv.next, %9 ]
   %10 = getelementptr [0 x %struct.ss_lru_item_t], ptr %6, i64 0, i64 %indvars.iv
-  %11 = getelementptr inbounds i8, ptr %10, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i32 0, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %10, i64 20
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 20
   store i32 0, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %10, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store i32 0, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %10, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 28
   store i32 -1, ptr %14, align 4
   %.not = icmp eq i64 %indvars.iv, 0
   %15 = add nsw i64 %indvars.iv, -1
@@ -54,7 +54,7 @@ define dso_local void @SyncScanShmemInit() local_unnamed_addr #1 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %18 = getelementptr [0 x %struct.ss_lru_item_t], ptr %6, i64 0, i64 %indvars.iv.next
   %19 = select i1 %.not12, ptr null, ptr %18
-  %20 = getelementptr inbounds i8, ptr %10, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %19, ptr %20, align 8
   %exitcond.not = icmp eq i64 %indvars.iv.next, 20
   br i1 %exitcond.not, label %.loopexit, label %9, !llvm.loop !5
@@ -71,7 +71,7 @@ define dso_local i32 @ss_get_location(ptr nocapture noundef readonly %0, i32 nou
   %4 = getelementptr i8, ptr %3, i64 3072
   %5 = tail call zeroext i1 @LWLockAcquire(ptr noundef %4, i32 noundef 0) #3
   %.sroa.0.0.copyload = load i64, ptr %0, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.2.0.copyload = load i32, ptr %.sroa.2.0..sroa_idx, align 8
   %.sroa.025.sroa.0.0.extract.trunc.i = trunc i64 %.sroa.0.0.copyload to i32
   %.sroa.025.sroa.3.0.extract.shift.i = lshr i64 %.sroa.0.0.copyload, 32
@@ -82,14 +82,14 @@ define dso_local i32 @ss_get_location(ptr nocapture noundef readonly %0, i32 nou
 
 8:                                                ; preds = %.thread.i, %2
   %.0.i = phi ptr [ %7, %2 ], [ %21, %.thread.i ]
-  %9 = getelementptr inbounds i8, ptr %.0.i, i64 16
-  %10 = getelementptr inbounds i8, ptr %.0.i, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
   %11 = load i32, ptr %10, align 8
   %12 = icmp eq i32 %11, %.sroa.2.0.copyload
   br i1 %12, label %13, label %.thread.i
 
 13:                                               ; preds = %8
-  %14 = getelementptr inbounds i8, ptr %.0.i, i64 20
+  %14 = getelementptr inbounds nuw i8, ptr %.0.i, i64 20
   %15 = load i32, ptr %14, align 4
   %16 = icmp eq i32 %15, %.sroa.025.sroa.3.0.extract.trunc.i
   br i1 %16, label %17, label %.thread.i
@@ -100,16 +100,16 @@ define dso_local i32 @ss_get_location(ptr nocapture noundef readonly %0, i32 nou
   br i1 %19, label %.critedge.i, label %.thread.i
 
 .thread.i:                                        ; preds = %17, %13, %8
-  %20 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, null
   br i1 %22, label %23, label %8
 
 23:                                               ; preds = %.thread.i
-  %24 = getelementptr inbounds i8, ptr %.0.i, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
   store i64 %.sroa.0.0.copyload, ptr %9, align 8
   store i32 %.sroa.2.0.copyload, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %.0.i, i64 28
+  %25 = getelementptr inbounds nuw i8, ptr %.0.i, i64 28
   store i32 0, ptr %25, align 4
   %.pre = load ptr, ptr %6, align 8
   br label %.critedge.i
@@ -120,7 +120,7 @@ define dso_local i32 @ss_get_location(ptr nocapture noundef readonly %0, i32 nou
   br i1 %.not.i, label %ss_search.exit, label %27
 
 27:                                               ; preds = %.critedge.i
-  %28 = getelementptr inbounds i8, ptr %6, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq ptr %.0.i, %29
   %.pre.i = load ptr, ptr %.0.i, align 8
@@ -131,9 +131,9 @@ define dso_local i32 @ss_get_location(ptr nocapture noundef readonly %0, i32 nou
   br label %32
 
 32:                                               ; preds = %31, %27
-  %33 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %.pre.i, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 8
   store ptr %34, ptr %35, align 8
   %.not28.i = icmp eq ptr %34, null
   br i1 %.not28.i, label %38, label %36
@@ -153,7 +153,7 @@ define dso_local i32 @ss_get_location(ptr nocapture noundef readonly %0, i32 nou
   br label %ss_search.exit
 
 ss_search.exit:                                   ; preds = %.critedge.i, %38
-  %41 = getelementptr inbounds i8, ptr %.0.i, i64 28
+  %41 = getelementptr inbounds nuw i8, ptr %.0.i, i64 28
   %42 = load i32, ptr %41, align 4
   %43 = load ptr, ptr @MainLWLockArray, align 8
   %44 = getelementptr i8, ptr %43, i64 3072
@@ -181,7 +181,7 @@ define dso_local void @ss_report_location(ptr nocapture noundef readonly %0, i32
 
 9:                                                ; preds = %5
   %.sroa.0.0.copyload = load i64, ptr %0, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.2.0.copyload = load i32, ptr %.sroa.2.0..sroa_idx, align 8
   %.sroa.025.sroa.0.0.extract.trunc.i = trunc i64 %.sroa.0.0.copyload to i32
   %.sroa.025.sroa.3.0.extract.shift.i = lshr i64 %.sroa.0.0.copyload, 32
@@ -192,14 +192,14 @@ define dso_local void @ss_report_location(ptr nocapture noundef readonly %0, i32
 
 12:                                               ; preds = %.thread.i, %9
   %.0.i = phi ptr [ %11, %9 ], [ %25, %.thread.i ]
-  %13 = getelementptr inbounds i8, ptr %.0.i, i64 16
-  %14 = getelementptr inbounds i8, ptr %.0.i, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
   %15 = load i32, ptr %14, align 8
   %16 = icmp eq i32 %15, %.sroa.2.0.copyload
   br i1 %16, label %17, label %.thread.i
 
 17:                                               ; preds = %12
-  %18 = getelementptr inbounds i8, ptr %.0.i, i64 20
+  %18 = getelementptr inbounds nuw i8, ptr %.0.i, i64 20
   %19 = load i32, ptr %18, align 4
   %20 = icmp eq i32 %19, %.sroa.025.sroa.3.0.extract.trunc.i
   br i1 %20, label %21, label %.thread.i
@@ -210,26 +210,26 @@ define dso_local void @ss_report_location(ptr nocapture noundef readonly %0, i32
   br i1 %23, label %.sink.split.i, label %.thread.i
 
 .thread.i:                                        ; preds = %21, %17, %12
-  %24 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, null
   br i1 %26, label %27, label %12
 
 27:                                               ; preds = %.thread.i
-  %28 = getelementptr inbounds i8, ptr %.0.i, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
   store i64 %.sroa.0.0.copyload, ptr %13, align 8
   store i32 %.sroa.2.0.copyload, ptr %28, align 8
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %21, %27
-  %29 = getelementptr inbounds i8, ptr %.0.i, i64 28
+  %29 = getelementptr inbounds nuw i8, ptr %.0.i, i64 28
   store i32 %1, ptr %29, align 4
   %30 = load ptr, ptr %10, align 8
   %.not.i = icmp eq ptr %.0.i, %30
   br i1 %.not.i, label %ss_search.exit, label %31
 
 31:                                               ; preds = %.sink.split.i
-  %32 = getelementptr inbounds i8, ptr %10, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %33 = load ptr, ptr %32, align 8
   %34 = icmp eq ptr %.0.i, %33
   %.pre.i = load ptr, ptr %.0.i, align 8
@@ -240,9 +240,9 @@ define dso_local void @ss_report_location(ptr nocapture noundef readonly %0, i32
   br label %36
 
 36:                                               ; preds = %35, %31
-  %37 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %.pre.i, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 8
   store ptr %38, ptr %39, align 8
   %.not28.i = icmp eq ptr %38, null
   br i1 %.not28.i, label %42, label %40

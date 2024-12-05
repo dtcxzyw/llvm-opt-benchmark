@@ -237,13 +237,13 @@ define void @lv_style_set_prop(ptr nocapture noundef %0, i8 noundef zeroext %1, 
 
 14:                                               ; preds = %12
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %15 = getelementptr inbounds i8, ptr %11, i64 %indvars.iv.next
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 %indvars.iv.next
   %16 = load i8, ptr %15, align 1, !tbaa !23
   %17 = icmp eq i8 %16, %1
   br i1 %17, label %18, label %12, !llvm.loop !27
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds %union.lv_style_value_t, ptr %8, i64 %indvars.iv.next
+  %19 = getelementptr inbounds nuw %union.lv_style_value_t, ptr %8, i64 %indvars.iv.next
   store ptr %2, ptr %19, align 8, !tbaa !23
   br label %49
 
@@ -266,9 +266,9 @@ define void @lv_style_set_prop(ptr nocapture noundef %0, i8 noundef zeroext %1, 
 .lr.ph:                                           ; preds = %24, %.lr.ph
   %indvars.iv48 = phi i64 [ %indvars.iv.next49, %.lr.ph ], [ %26, %24 ]
   %indvars.iv.next49 = add nsw i64 %indvars.iv48, -1
-  %29 = getelementptr inbounds i8, ptr %28, i64 %indvars.iv.next49
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 %indvars.iv.next49
   %30 = load i8, ptr %29, align 1, !tbaa !23
-  %31 = getelementptr inbounds i8, ptr %29, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store i8 %30, ptr %31, align 1, !tbaa !23
   %32 = icmp samesign ugt i64 %indvars.iv48, 1
   br i1 %32, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !28

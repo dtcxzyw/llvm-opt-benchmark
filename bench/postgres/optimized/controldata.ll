@@ -217,9 +217,9 @@ define dso_local void @get_control_data(ptr noundef %0, i1 noundef zeroext %1) l
   br i1 %or.cond.not, label %104, label %51
 
 51:                                               ; preds = %40
-  %52 = getelementptr inbounds i8, ptr %0, i64 152
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %0, i64 136
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %55 = load ptr, ptr %54, align 8
   %56 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 1024, ptr noundef nonnull @.str.10, ptr noundef %53, ptr noundef %55) #9
   %57 = call i32 @fflush(ptr noundef null)
@@ -343,14 +343,14 @@ define dso_local void @get_control_data(ptr noundef %0, i1 noundef zeroext %1) l
   unreachable
 
 104:                                              ; preds = %100, %40
-  %105 = getelementptr inbounds i8, ptr %0, i64 248
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %106 = load i32, ptr %105, align 8
   %107 = icmp ult i32 %106, 90700
   %.str.23..str.24 = select i1 %107, ptr @.str.23, ptr @.str.24
-  %108 = getelementptr inbounds i8, ptr %0, i64 152
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %109 = load ptr, ptr %108, align 8
   %110 = select i1 %1, ptr @.str.26, ptr %.str.23..str.24
-  %111 = getelementptr inbounds i8, ptr %0, i64 136
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %112 = load ptr, ptr %111, align 8
   %113 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 1024, ptr noundef nonnull @.str.25, ptr noundef %109, ptr noundef nonnull %110, ptr noundef %112) #9
   %114 = call i32 @fflush(ptr noundef null)
@@ -366,13 +366,13 @@ define dso_local void @get_control_data(ptr noundef %0, i1 noundef zeroext %1) l
   unreachable
 
 121:                                              ; preds = %104
-  %122 = getelementptr inbounds i8, ptr %0, i64 180
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 180
   %123 = load i32, ptr %122, align 4
   %124 = icmp ult i32 %123, 90300
   br i1 %124, label %125, label %127
 
 125:                                              ; preds = %121
-  %126 = getelementptr inbounds i8, ptr %0, i64 104
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i32 0, ptr %126, align 8
   br label %127
 
@@ -383,27 +383,27 @@ define dso_local void @get_control_data(ptr noundef %0, i1 noundef zeroext %1) l
   br i1 %.not4051132, label %._crit_edge1160, label %.lr.ph1159
 
 .lr.ph1159:                                       ; preds = %127
-  %129 = getelementptr inbounds i8, ptr %0, i64 4
-  %130 = getelementptr inbounds i8, ptr %0, i64 40
-  %131 = getelementptr inbounds i8, ptr %0, i64 36
-  %132 = getelementptr inbounds i8, ptr %0, i64 44
-  %133 = getelementptr inbounds i8, ptr %0, i64 48
-  %134 = getelementptr inbounds i8, ptr %0, i64 60
-  %135 = getelementptr inbounds i8, ptr %0, i64 56
-  %136 = getelementptr inbounds i8, ptr %0, i64 52
-  %137 = getelementptr inbounds i8, ptr %0, i64 8
-  %138 = getelementptr inbounds i8, ptr %0, i64 101
-  %139 = getelementptr inbounds i8, ptr %0, i64 64
-  %140 = getelementptr inbounds i8, ptr %0, i64 68
-  %141 = getelementptr inbounds i8, ptr %0, i64 72
-  %142 = getelementptr inbounds i8, ptr %0, i64 76
-  %143 = getelementptr inbounds i8, ptr %0, i64 80
-  %144 = getelementptr inbounds i8, ptr %0, i64 84
-  %145 = getelementptr inbounds i8, ptr %0, i64 88
-  %146 = getelementptr inbounds i8, ptr %0, i64 92
-  %147 = getelementptr inbounds i8, ptr %0, i64 96
-  %148 = getelementptr inbounds i8, ptr %0, i64 100
-  %149 = getelementptr inbounds i8, ptr %0, i64 104
+  %129 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %130 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %131 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %132 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  %133 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %134 = getelementptr inbounds nuw i8, ptr %0, i64 60
+  %135 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %136 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %137 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %138 = getelementptr inbounds nuw i8, ptr %0, i64 101
+  %139 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %140 = getelementptr inbounds nuw i8, ptr %0, i64 68
+  %141 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %142 = getelementptr inbounds nuw i8, ptr %0, i64 76
+  %143 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %144 = getelementptr inbounds nuw i8, ptr %0, i64 84
+  %145 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %146 = getelementptr inbounds nuw i8, ptr %0, i64 92
+  %147 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %148 = getelementptr inbounds nuw i8, ptr %0, i64 100
+  %149 = getelementptr inbounds nuw i8, ptr %0, i64 104
   br label %150
 
 150:                                              ; preds = %.lr.ph1159, %464
@@ -1265,7 +1265,7 @@ define dso_local void @get_control_data(ptr noundef %0, i1 noundef zeroext %1) l
   br i1 %brmerge450.not, label %519, label %522
 
 519:                                              ; preds = %516
-  %520 = getelementptr inbounds i8, ptr %0, i64 8
+  %520 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %521 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %520, i64 noundef 25, ptr noundef nonnull @.str.58, i32 noundef %.0270.lcssa, i32 noundef %.0268.lcssa, i32 noundef %.0267.lcssa) #9
   br label %522
 
@@ -1280,7 +1280,7 @@ define dso_local void @get_control_data(ptr noundef %0, i1 noundef zeroext %1) l
   br i1 %.0314.lcssa, label %531, label %527
 
 527:                                              ; preds = %526
-  %528 = getelementptr inbounds i8, ptr %0, i64 4
+  %528 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %529 = load i32, ptr %528, align 4
   %530 = icmp ult i32 %529, 201301231
   %brmerge1195.not = select i1 %530, i1 %.0310.lcssa, i1 false
@@ -1360,7 +1360,7 @@ define dso_local void @get_control_data(ptr noundef %0, i1 noundef zeroext %1) l
   br i1 %.0314.lcssa, label %573, label %568
 
 568:                                              ; preds = %567
-  %569 = getelementptr inbounds i8, ptr %0, i64 4
+  %569 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %570 = load i32, ptr %569, align 4
   %571 = icmp ugt i32 %570, 201301230
   br i1 %571, label %572, label %573
@@ -1558,13 +1558,13 @@ declare void @pg_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @check_control_data(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 64
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %9, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %1, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %8 = load i32, ptr %7, align 4
   %.not = icmp eq i32 %4, %8
   br i1 %.not, label %10, label %9
@@ -1574,13 +1574,13 @@ define dso_local void @check_control_data(ptr nocapture noundef readonly %0, ptr
   unreachable
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %0, i64 68
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %12 = load i32, ptr %11, align 4
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %17, label %14
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %1, i64 68
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %16 = load i32, ptr %15, align 4
   %.not43 = icmp eq i32 %12, %16
   br i1 %.not43, label %18, label %17
@@ -1590,13 +1590,13 @@ define dso_local void @check_control_data(ptr nocapture noundef readonly %0, ptr
   unreachable
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds i8, ptr %0, i64 72
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %20 = load i32, ptr %19, align 4
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %25, label %22
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %1, i64 72
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %24 = load i32, ptr %23, align 4
   %.not44 = icmp eq i32 %20, %24
   br i1 %.not44, label %26, label %25
@@ -1606,13 +1606,13 @@ define dso_local void @check_control_data(ptr nocapture noundef readonly %0, ptr
   unreachable
 
 26:                                               ; preds = %22
-  %27 = getelementptr inbounds i8, ptr %0, i64 76
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %28 = load i32, ptr %27, align 4
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %33, label %30
 
 30:                                               ; preds = %26
-  %31 = getelementptr inbounds i8, ptr %1, i64 76
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 76
   %32 = load i32, ptr %31, align 4
   %.not45 = icmp eq i32 %28, %32
   br i1 %.not45, label %34, label %33
@@ -1622,13 +1622,13 @@ define dso_local void @check_control_data(ptr nocapture noundef readonly %0, ptr
   unreachable
 
 34:                                               ; preds = %30
-  %35 = getelementptr inbounds i8, ptr %0, i64 80
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %36 = load i32, ptr %35, align 4
   %37 = icmp eq i32 %36, 0
   br i1 %37, label %41, label %38
 
 38:                                               ; preds = %34
-  %39 = getelementptr inbounds i8, ptr %1, i64 80
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %40 = load i32, ptr %39, align 4
   %.not46 = icmp eq i32 %36, %40
   br i1 %.not46, label %42, label %41
@@ -1638,13 +1638,13 @@ define dso_local void @check_control_data(ptr nocapture noundef readonly %0, ptr
   unreachable
 
 42:                                               ; preds = %38
-  %43 = getelementptr inbounds i8, ptr %0, i64 84
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %44 = load i32, ptr %43, align 4
   %45 = icmp eq i32 %44, 0
   br i1 %45, label %49, label %46
 
 46:                                               ; preds = %42
-  %47 = getelementptr inbounds i8, ptr %1, i64 84
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 84
   %48 = load i32, ptr %47, align 4
   %.not47 = icmp eq i32 %44, %48
   br i1 %.not47, label %50, label %49
@@ -1654,13 +1654,13 @@ define dso_local void @check_control_data(ptr nocapture noundef readonly %0, ptr
   unreachable
 
 50:                                               ; preds = %46
-  %51 = getelementptr inbounds i8, ptr %0, i64 88
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %52 = load i32, ptr %51, align 4
   %53 = icmp eq i32 %52, 0
   br i1 %53, label %57, label %54
 
 54:                                               ; preds = %50
-  %55 = getelementptr inbounds i8, ptr %1, i64 88
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %56 = load i32, ptr %55, align 4
   %.not48 = icmp eq i32 %52, %56
   br i1 %.not48, label %58, label %57
@@ -1670,13 +1670,13 @@ define dso_local void @check_control_data(ptr nocapture noundef readonly %0, ptr
   unreachable
 
 58:                                               ; preds = %54
-  %59 = getelementptr inbounds i8, ptr %0, i64 92
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %60 = load i32, ptr %59, align 4
   %61 = icmp eq i32 %60, 0
   br i1 %61, label %65, label %62
 
 62:                                               ; preds = %58
-  %63 = getelementptr inbounds i8, ptr %1, i64 92
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 92
   %64 = load i32, ptr %63, align 4
   %.not49 = icmp eq i32 %60, %64
   br i1 %.not49, label %66, label %65
@@ -1686,13 +1686,13 @@ define dso_local void @check_control_data(ptr nocapture noundef readonly %0, ptr
   unreachable
 
 66:                                               ; preds = %62
-  %67 = getelementptr inbounds i8, ptr %0, i64 96
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %68 = load i32, ptr %67, align 4
   %.not50 = icmp eq i32 %68, 0
   br i1 %.not50, label %73, label %69
 
 69:                                               ; preds = %66
-  %70 = getelementptr inbounds i8, ptr %1, i64 96
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %71 = load i32, ptr %70, align 4
   %.not51 = icmp eq i32 %68, %71
   br i1 %.not51, label %73, label %72
@@ -1702,9 +1702,9 @@ define dso_local void @check_control_data(ptr nocapture noundef readonly %0, ptr
   unreachable
 
 73:                                               ; preds = %69, %66
-  %74 = getelementptr inbounds i8, ptr %0, i64 100
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %75 = load i8, ptr %74, align 4
-  %76 = getelementptr inbounds i8, ptr %1, i64 100
+  %76 = getelementptr inbounds nuw i8, ptr %1, i64 100
   %77 = load i8, ptr %76, align 4
   %78 = xor i8 %77, %75
   %79 = and i8 %78, 1
@@ -1716,10 +1716,10 @@ define dso_local void @check_control_data(ptr nocapture noundef readonly %0, ptr
   unreachable
 
 81:                                               ; preds = %73
-  %82 = getelementptr inbounds i8, ptr %0, i64 104
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %83 = load i32, ptr %82, align 4
   %84 = icmp eq i32 %83, 0
-  %85 = getelementptr inbounds i8, ptr %1, i64 104
+  %85 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %86 = load i32, ptr %85, align 4
   %.not53 = icmp eq i32 %86, 0
   br i1 %84, label %87, label %89

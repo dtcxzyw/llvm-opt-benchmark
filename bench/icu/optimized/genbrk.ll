@@ -83,7 +83,7 @@ if.then:                                          ; preds = %entry
   %1 = load ptr, ptr @stderr, align 8
   %sub = sub nsw i32 0, %call
   %idxprom = zext nneg i32 %sub to i64
-  %arrayidx1 = getelementptr inbounds ptr, ptr %argv, i64 %idxprom
+  %arrayidx1 = getelementptr inbounds nuw ptr, ptr %argv, i64 %idxprom
   %2 = load ptr, ptr %arrayidx1, align 8
   %call2 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.2, ptr noundef %2) #10
   %3 = load ptr, ptr @_ZL8progName, align 8
@@ -268,7 +268,7 @@ invoke.cont:                                      ; preds = %if.end79
   %36 = load ptr, ptr %agg.tmp, align 8
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %36) #13, !srcloc !5
   store i32 0, ptr %parseError, align 4
-  %offset = getelementptr inbounds i8, ptr %parseError, i64 4
+  %offset = getelementptr inbounds nuw i8, ptr %parseError, i64 4
   store i32 0, ptr %offset, align 4
   %call80 = call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 752) #13
   %new.isnull = icmp eq ptr %call80, null
@@ -316,13 +316,13 @@ lpad83:                                           ; preds = %delete.notnull, %in
 
 if.end94:                                         ; preds = %new.cont
   %vtable = load ptr, ptr %call80, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 200
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 200
   %46 = load ptr, ptr %vfn, align 8
   %call96 = invoke noundef ptr %46(ptr noundef nonnull align 8 dereferenceable(745) %call80, ptr noundef nonnull align 4 dereferenceable(4) %outDataSize)
           to label %invoke.cont95 unwind label %lpad83
 
 invoke.cont95:                                    ; preds = %if.end94
-  %fFormatVersion = getelementptr inbounds i8, ptr %call96, i64 4
+  %fFormatVersion = getelementptr inbounds nuw i8, ptr %call96, i64 4
   %47 = load i32, ptr %fFormatVersion, align 4
   store i32 %47, ptr getelementptr inbounds (i8, ptr @dh, i64 16), align 2
   %call98 = invoke ptr @udata_create(ptr noundef %spec.select, ptr noundef null, ptr noundef %13, ptr noundef nonnull getelementptr inbounds (i8, ptr @dh, i64 4), ptr noundef %copyright.0, ptr noundef nonnull %status)
@@ -378,7 +378,7 @@ if.then121:                                       ; preds = %if.end118
 
 delete.notnull:                                   ; preds = %if.end118
   %vtable125 = load ptr, ptr %call80, align 8
-  %vfn126 = getelementptr inbounds i8, ptr %vtable125, i64 8
+  %vfn126 = getelementptr inbounds nuw i8, ptr %vtable125, i64 8
   %57 = load ptr, ptr %vfn126, align 8
   call void %57(ptr noundef nonnull align 8 dereferenceable(745) %call80) #13
   call void @_ZdaPv(ptr noundef nonnull %call70) #14

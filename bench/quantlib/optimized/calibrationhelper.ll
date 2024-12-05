@@ -286,7 +286,7 @@ cond.false.i:                                     ; preds = %entry
 _ZNK5boost10shared_ptrIN8QuantLib5QuoteEEptEv.exit: ; preds = %entry, %cond.false.i
   %1 = phi ptr [ %0, %entry ], [ %.pre.i, %cond.false.i ]
   %vtable = load ptr, ptr %1, align 8, !tbaa !13
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %2 = load ptr, ptr %vfn, align 8
   %call3 = tail call noundef double %2(ptr noundef nonnull align 8 dereferenceable(8) %1)
   %call4 = call noundef double @_ZNK8QuantLib8Solver1DINS_5BrentEE5solveINS_22BlackCalibrationHelper23ImpliedVolatilityHelperEEEdRKT_dddd(ptr noundef nonnull align 8 dereferenceable(74) %solver, ptr noundef nonnull align 8 dereferenceable(16) %f, double noundef %accuracy, double noundef %call3, double noundef %minVol, double noundef %maxVol)
@@ -1068,7 +1068,7 @@ do.end187:                                        ; preds = %do.body135, %lor.lh
   %94 = load double, ptr %value_.i, align 8, !tbaa !17
   %95 = load ptr, ptr %f, align 8, !tbaa !38
   %vtable.i = load ptr, ptr %95, align 8, !tbaa !13
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 64
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 64
   %96 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef double %96(ptr noundef nonnull align 8 dereferenceable(84) %95, double noundef %xMin)
   %sub.i = fsub double %94, %call.i
@@ -1089,7 +1089,7 @@ if.end194:                                        ; preds = %do.end187
   %100 = load double, ptr %value_.i, align 8, !tbaa !17
   %101 = load ptr, ptr %f, align 8, !tbaa !38
   %vtable.i166 = load ptr, ptr %101, align 8, !tbaa !13
-  %vfn.i167 = getelementptr inbounds i8, ptr %vtable.i166, i64 64
+  %vfn.i167 = getelementptr inbounds nuw i8, ptr %vtable.i166, i64 64
   %102 = load ptr, ptr %vfn.i167, align 8
   %call.i168 = tail call noundef double %102(ptr noundef nonnull align 8 dereferenceable(84) %101, double noundef %99)
   %sub.i169 = fsub double %100, %call.i168
@@ -1897,19 +1897,19 @@ entry:
 
 sw.bb:                                            ; preds = %entry
   %vtable.i = load ptr, ptr %this, align 8, !tbaa !13
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 24
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 24
   %1 = load ptr, ptr %vfn.i, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(84) %this)
   %marketValue_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %2 = load double, ptr %marketValue_.i, align 8, !tbaa !60
   %vtable = load ptr, ptr %this, align 8, !tbaa !13
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 40
   %3 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef double %3(ptr noundef nonnull align 8 dereferenceable(84) %this)
   %sub = fsub double %2, %call2
   %4 = tail call double @llvm.fabs.f64(double %sub)
   %vtable.i11 = load ptr, ptr %this, align 8, !tbaa !13
-  %vfn.i12 = getelementptr inbounds i8, ptr %vtable.i11, i64 24
+  %vfn.i12 = getelementptr inbounds nuw i8, ptr %vtable.i11, i64 24
   %5 = load ptr, ptr %vfn.i12, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(84) %this)
   %6 = load double, ptr %marketValue_.i, align 8, !tbaa !60
@@ -1918,13 +1918,13 @@ sw.bb:                                            ; preds = %entry
 
 sw.bb4:                                           ; preds = %entry
   %vtable.i14 = load ptr, ptr %this, align 8, !tbaa !13
-  %vfn.i15 = getelementptr inbounds i8, ptr %vtable.i14, i64 24
+  %vfn.i15 = getelementptr inbounds nuw i8, ptr %vtable.i14, i64 24
   %7 = load ptr, ptr %vfn.i15, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(84) %this)
   %marketValue_.i16 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %8 = load double, ptr %marketValue_.i16, align 8, !tbaa !60
   %vtable6 = load ptr, ptr %this, align 8, !tbaa !13
-  %vfn7 = getelementptr inbounds i8, ptr %vtable6, i64 40
+  %vfn7 = getelementptr inbounds nuw i8, ptr %vtable6, i64 40
   %9 = load ptr, ptr %vfn7, align 8
   %call8 = tail call noundef double %9(ptr noundef nonnull align 8 dereferenceable(84) %this)
   %sub9 = fsub double %8, %call8
@@ -1937,15 +1937,15 @@ sw.bb10:                                          ; preds = %entry
   %cond = select i1 %cmp, double 1.000000e-03, double 5.000000e-05
   %cond13 = select i1 %cmp, double 1.000000e+01, double 5.000000e-01
   %vtable14 = load ptr, ptr %this, align 8, !tbaa !13
-  %vfn15 = getelementptr inbounds i8, ptr %vtable14, i64 64
+  %vfn15 = getelementptr inbounds nuw i8, ptr %vtable14, i64 64
   %11 = load ptr, ptr %vfn15, align 8
   %call16 = tail call noundef double %11(ptr noundef nonnull align 8 dereferenceable(84) %this, double noundef %cond)
   %vtable17 = load ptr, ptr %this, align 8, !tbaa !13
-  %vfn18 = getelementptr inbounds i8, ptr %vtable17, i64 64
+  %vfn18 = getelementptr inbounds nuw i8, ptr %vtable17, i64 64
   %12 = load ptr, ptr %vfn18, align 8
   %call19 = tail call noundef double %12(ptr noundef nonnull align 8 dereferenceable(84) %this, double noundef %cond13)
   %vtable20 = load ptr, ptr %this, align 8, !tbaa !13
-  %vfn21 = getelementptr inbounds i8, ptr %vtable20, i64 40
+  %vfn21 = getelementptr inbounds nuw i8, ptr %vtable20, i64 40
   %13 = load ptr, ptr %vfn21, align 8
   %call22 = tail call noundef double %13(ptr noundef nonnull align 8 dereferenceable(84) %this)
   %cmp23 = fcmp ugt double %call22, %call16
@@ -1979,7 +1979,7 @@ cond.false.i.i:                                   ; preds = %if.else26
 _ZNK8QuantLib22BlackCalibrationHelper17impliedVolatilityEddmdd.exit: ; preds = %if.else26, %cond.false.i.i
   %15 = phi ptr [ %14, %if.else26 ], [ %.pre.i.i, %cond.false.i.i ]
   %vtable.i17 = load ptr, ptr %15, align 8, !tbaa !13
-  %vfn.i18 = getelementptr inbounds i8, ptr %vtable.i17, i64 16
+  %vfn.i18 = getelementptr inbounds nuw i8, ptr %vtable.i17, i64 16
   %16 = load ptr, ptr %vfn.i18, align 8
   %call3.i = tail call noundef double %16(ptr noundef nonnull align 8 dereferenceable(8) %15)
   %call4.i = call noundef double @_ZNK8QuantLib8Solver1DINS_5BrentEE5solveINS_22BlackCalibrationHelper23ImpliedVolatilityHelperEEEdRKT_dddd(ptr noundef nonnull align 8 dereferenceable(74) %solver.i, ptr noundef nonnull align 8 dereferenceable(16) %f.i, double noundef 0x3D719799812DEA11, double noundef %call3.i, double noundef %cond, double noundef %cond13)
@@ -2003,7 +2003,7 @@ cond.false.i:                                     ; preds = %if.end28
 _ZNK5boost10shared_ptrIN8QuantLib5QuoteEEptEv.exit: ; preds = %if.end28, %cond.false.i
   %18 = phi ptr [ %17, %if.end28 ], [ %.pre.i, %cond.false.i ]
   %vtable31 = load ptr, ptr %18, align 8, !tbaa !13
-  %vfn32 = getelementptr inbounds i8, ptr %vtable31, i64 16
+  %vfn32 = getelementptr inbounds nuw i8, ptr %vtable31, i64 16
   %19 = load ptr, ptr %vfn32, align 8
   %call33 = call noundef double %19(ptr noundef nonnull align 8 dereferenceable(8) %18)
   %sub34 = fsub double %implied.0, %call33
@@ -2257,7 +2257,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %vtable.i.i.i = load ptr, ptr %0, align 8, !tbaa !13
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
+  %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 16
   %2 = load ptr, ptr %vfn.i.i.i, align 8
   invoke void %2(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %.noexc.i.i unwind label %terminate.lpad.i.i
@@ -2270,7 +2270,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
 
 if.then.i.i.i.i:                                  ; preds = %.noexc.i.i
   %vtable.i.i.i.i = load ptr, ptr %0, align 8, !tbaa !13
-  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 24
+  %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 24
   %4 = load ptr, ptr %vfn.i.i.i.i, align 8
   invoke void %4(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN5boost10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit unwind label %terminate.lpad.i.i
@@ -2309,7 +2309,7 @@ declare void @__cxa_pure_virtual() unnamed_addr
 define linkonce_odr void @_ZN8QuantLib8Observer10deepUpdateEv(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #4 comdat align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8, !tbaa !13
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(56) %this)
   ret void
@@ -2346,7 +2346,7 @@ land.lhs.true:                                    ; preds = %entry
 if.then:                                          ; preds = %land.lhs.true
   store i8 1, ptr %calculated_, align 8, !tbaa !10
   %vtable = load ptr, ptr %this, align 8, !tbaa !13
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 32
   %2 = load ptr, ptr %vfn, align 8
   invoke void %2(ptr noundef nonnull align 8 dereferenceable(12) %this)
           to label %if.end unwind label %lpad
@@ -2428,11 +2428,11 @@ cond.false.i:                                     ; preds = %entry
 _ZNK5boost10shared_ptrIN8QuantLib5QuoteEEptEv.exit: ; preds = %entry, %cond.false.i
   %1 = phi ptr [ %0, %entry ], [ %.pre.i, %cond.false.i ]
   %vtable = load ptr, ptr %1, align 8, !tbaa !13
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %2 = load ptr, ptr %vfn, align 8
   %call3 = tail call noundef double %2(ptr noundef nonnull align 8 dereferenceable(8) %1)
   %vtable4 = load ptr, ptr %this, align 8, !tbaa !13
-  %vfn5 = getelementptr inbounds i8, ptr %vtable4, i64 64
+  %vfn5 = getelementptr inbounds nuw i8, ptr %vtable4, i64 64
   %3 = load ptr, ptr %vfn5, align 8
   %call6 = tail call noundef double %3(ptr noundef nonnull align 8 dereferenceable(84) %this, double noundef %call3)
   %marketValue_ = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -2507,7 +2507,7 @@ entry:
   %1 = load double, ptr %value_.i, align 8, !tbaa !17
   %2 = load ptr, ptr %f, align 8, !tbaa !38
   %vtable.i = load ptr, ptr %2, align 8, !tbaa !13
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 64
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 64
   %3 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef double %3(ptr noundef nonnull align 8 dereferenceable(84) %2, double noundef %0)
   %sub.i = fsub double %1, %call.i
@@ -2629,7 +2629,7 @@ if.end40:                                         ; preds = %if.then29, %if.end2
 if.then52:                                        ; preds = %if.end40
   %26 = load ptr, ptr %f, align 8, !tbaa !38
   %vtable.i52 = load ptr, ptr %26, align 8, !tbaa !13
-  %vfn.i53 = getelementptr inbounds i8, ptr %vtable.i52, i64 64
+  %vfn.i53 = getelementptr inbounds nuw i8, ptr %vtable.i52, i64 64
   %27 = load ptr, ptr %vfn.i53, align 8
   %call.i54 = tail call noundef double %27(ptr noundef nonnull align 8 dereferenceable(84) %26, double noundef %21)
   %28 = load i64, ptr %evaluationNumber_, align 8, !tbaa !41
@@ -2749,7 +2749,7 @@ if.end122:                                        ; preds = %if.end111, %if.else
   %45 = load double, ptr %value_.i, align 8, !tbaa !17
   %46 = load ptr, ptr %f, align 8, !tbaa !38
   %vtable.i65 = load ptr, ptr %46, align 8, !tbaa !13
-  %vfn.i66 = getelementptr inbounds i8, ptr %vtable.i65, i64 64
+  %vfn.i66 = getelementptr inbounds nuw i8, ptr %vtable.i65, i64 64
   %47 = load ptr, ptr %vfn.i66, align 8
   %call.i67 = tail call noundef double %47(ptr noundef nonnull align 8 dereferenceable(84) %46, double noundef %storemerge)
   %sub.i68 = fsub double %45, %call.i67

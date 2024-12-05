@@ -206,7 +206,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 define internal i32 @dissect_meta(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca %struct.atm_phdr, align 4
   %6 = load ptr, ptr @data_handle, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void @col_set_str(ptr noundef %8, i32 noundef 34, ptr noundef nonnull @.str.65) #3
   %9 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 0) #3
@@ -248,9 +248,9 @@ define internal i32 @dissect_meta(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %.not.i, label %evaluate_meta_items.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %31
-  %32 = getelementptr inbounds i8, ptr %1, i64 348
-  %33 = getelementptr inbounds i8, ptr %5, i64 5
-  %34 = getelementptr inbounds i8, ptr %1, i64 378
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 348
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 5
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 378
   switch i16 %9, label %.lr.ph.split.i [
     i16 2, label %.lr.ph.split.us.i
     i16 1, label %.lr.ph.split.us32.i
@@ -695,7 +695,7 @@ evaluate_meta_items.exit:                         ; preds = %evaluate_meta_item_
 
 306:                                              ; preds = %299
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %5, i8 0, i64 28, i1 false)
-  %307 = getelementptr inbounds i8, ptr %5, i64 4
+  %307 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i8 7, ptr %307, align 4
   %308 = load ptr, ptr @atm_untrunc_handle, align 8
   br label %.thread
@@ -706,21 +706,21 @@ evaluate_meta_items.exit:                         ; preds = %evaluate_meta_item_
   %312 = add nuw nsw i32 %.pre-phi, 12
   %313 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %312) #3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %5, i8 0, i64 28, i1 false)
-  %314 = getelementptr inbounds i8, ptr %5, i64 4
+  %314 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i8 2, ptr %314, align 4
   %315 = lshr i32 %313, 20
   %316 = trunc nuw nsw i32 %315 to i16
   %317 = and i16 %316, 255
-  %318 = getelementptr inbounds i8, ptr %5, i64 8
+  %318 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i16 %317, ptr %318, align 4
   %319 = lshr i32 %313, 4
   %320 = trunc i32 %319 to i16
-  %321 = getelementptr inbounds i8, ptr %5, i64 10
+  %321 = getelementptr inbounds nuw i8, ptr %5, i64 10
   store i16 %320, ptr %321, align 2
   %322 = trunc i32 %311 to i8
-  %323 = getelementptr inbounds i8, ptr %5, i64 12
+  %323 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i8 %322, ptr %323, align 4
-  %324 = getelementptr inbounds i8, ptr %5, i64 5
+  %324 = getelementptr inbounds nuw i8, ptr %5, i64 5
   store i8 8, ptr %324, align 1
   %325 = load ptr, ptr @atm_untrunc_handle, align 8
   br label %.thread
@@ -732,13 +732,13 @@ evaluate_meta_items.exit:                         ; preds = %evaluate_meta_item_
   %330 = lshr i32 %328, 20
   %331 = trunc nuw nsw i32 %330 to i16
   %332 = and i16 %331, 255
-  %333 = getelementptr inbounds i8, ptr %5, i64 8
+  %333 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i16 %332, ptr %333, align 4
   %334 = lshr i32 %328, 4
   %335 = trunc i32 %334 to i16
-  %336 = getelementptr inbounds i8, ptr %5, i64 10
+  %336 = getelementptr inbounds nuw i8, ptr %5, i64 10
   store i16 %335, ptr %336, align 2
-  %337 = getelementptr inbounds i8, ptr %5, i64 4
+  %337 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i8 4, ptr %337, align 4
   %338 = load ptr, ptr @atm_untrunc_handle, align 8
   br label %.thread

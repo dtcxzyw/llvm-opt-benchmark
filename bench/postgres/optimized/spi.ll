@@ -204,30 +204,30 @@ define dso_local noundef i32 @SPI_connect_ext(i32 noundef %0) local_unnamed_addr
   %35 = sext i32 %34 to i64
   %36 = getelementptr %struct._SPI_connection, ptr %32, i64 %35
   store ptr %36, ptr @_SPI_current, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %36, i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %37, i8 0, i64 24, i1 false)
   %38 = tail call i32 @GetCurrentSubTransactionId() #15
   %39 = load ptr, ptr @_SPI_current, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 56
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 56
   store i32 %38, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %39, i64 64
+  %41 = getelementptr inbounds nuw i8, ptr %39, i64 64
   store ptr null, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %39, i64 72
+  %42 = getelementptr inbounds nuw i8, ptr %39, i64 72
   %43 = trunc i32 %0 to i8
   %44 = and i8 %43, 1
   %45 = xor i8 %44, 1
   store i8 %45, ptr %42, align 8
-  %46 = getelementptr inbounds i8, ptr %39, i64 73
+  %46 = getelementptr inbounds nuw i8, ptr %39, i64 73
   store i8 0, ptr %46, align 1
   %47 = load i64, ptr @SPI_processed, align 8
-  %48 = getelementptr inbounds i8, ptr %39, i64 80
+  %48 = getelementptr inbounds nuw i8, ptr %39, i64 80
   store i64 %47, ptr %48, align 8
   %49 = load ptr, ptr @SPI_tuptable, align 8
-  %50 = getelementptr inbounds i8, ptr %39, i64 88
+  %50 = getelementptr inbounds nuw i8, ptr %39, i64 88
   store ptr %49, ptr %50, align 8
   %51 = load i32, ptr @SPI_result, align 4
-  %52 = getelementptr inbounds i8, ptr %39, i64 96
+  %52 = getelementptr inbounds nuw i8, ptr %39, i64 96
   store i32 %51, ptr %52, align 8
   %.not9.not = icmp eq i8 %44, 0
   %53 = load ptr, ptr @TopTransactionContext, align 8
@@ -235,22 +235,22 @@ define dso_local noundef i32 @SPI_connect_ext(i32 noundef %0) local_unnamed_addr
   %55 = select i1 %.not9.not, ptr %53, ptr %54
   %56 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %55, ptr noundef nonnull @.str.2, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #15
   %57 = load ptr, ptr @_SPI_current, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 32
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 32
   store ptr %56, ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %57, i64 72
+  %59 = getelementptr inbounds nuw i8, ptr %57, i64 72
   %60 = load i8, ptr %59, align 8
   %61 = trunc i8 %60 to i1
   %TopTransactionContext.val = load ptr, ptr @TopTransactionContext, align 8
   %62 = select i1 %61, ptr %TopTransactionContext.val, ptr %56
   %63 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %62, ptr noundef nonnull @.str.3, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #15
   %64 = load ptr, ptr @_SPI_current, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 40
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 40
   store ptr %63, ptr %65, align 8
-  %66 = getelementptr inbounds i8, ptr %64, i64 32
+  %66 = getelementptr inbounds nuw i8, ptr %64, i64 32
   %67 = load ptr, ptr %66, align 8
   %68 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %67, ptr @CurrentMemoryContext, align 8
-  %69 = getelementptr inbounds i8, ptr %64, i64 48
+  %69 = getelementptr inbounds nuw i8, ptr %64, i64 48
   store ptr %68, ptr %69, align 8
   store i64 0, ptr @SPI_processed, align 8
   store ptr null, ptr @SPI_tuptable, align 8
@@ -282,28 +282,28 @@ define dso_local range(i32 -4, 3) i32 @SPI_finish() local_unnamed_addr #0 {
   br i1 %.not, label %25, label %2
 
 2:                                                ; preds = %0
-  %3 = getelementptr inbounds i8, ptr %1, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %4 = load ptr, ptr %3, align 8
   store ptr %4, ptr @CurrentMemoryContext, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %6 = load ptr, ptr %5, align 8
   tail call void @MemoryContextDelete(ptr noundef %6) #15
   %7 = load ptr, ptr @_SPI_current, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store ptr null, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %7, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %10 = load ptr, ptr %9, align 8
   tail call void @MemoryContextDelete(ptr noundef %10) #15
   %11 = load ptr, ptr @_SPI_current, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 32
   store ptr null, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %11, i64 80
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 80
   %14 = load i64, ptr %13, align 8
   store i64 %14, ptr @SPI_processed, align 8
-  %15 = getelementptr inbounds i8, ptr %11, i64 88
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 88
   %16 = load ptr, ptr %15, align 8
   store ptr %16, ptr @SPI_tuptable, align 8
-  %17 = getelementptr inbounds i8, ptr %11, i64 96
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 96
   %18 = load i32, ptr %17, align 8
   store i32 %18, ptr @SPI_result, align 4
   %19 = load i32, ptr @_SPI_connected, align 4
@@ -341,7 +341,7 @@ define internal fastcc void @_SPI_commit(i1 noundef zeroext %0) unnamed_addr #0 
   %3 = alloca [1 x %struct.__jmp_buf_tag], align 16
   %4 = load ptr, ptr @CurrentMemoryContext, align 8
   %5 = load ptr, ptr @_SPI_current, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 72
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %7 = load i8, ptr %6, align 8
   %8 = trunc i8 %7 to i1
   br i1 %8, label %9, label %13
@@ -383,7 +383,7 @@ define internal fastcc void @_SPI_commit(i1 noundef zeroext %0) unnamed_addr #0 
 26:                                               ; preds = %21
   store ptr %3, ptr @PG_exception_stack, align 8
   %27 = load ptr, ptr @_SPI_current, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 73
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 73
   store i8 1, ptr %28, align 1
   call void @HoldPinnedPortals() #15
   call void @ForgetPortalSnapshots() #15
@@ -398,7 +398,7 @@ define internal fastcc void @_SPI_commit(i1 noundef zeroext %0) unnamed_addr #0 
 30:                                               ; preds = %29, %26
   store ptr %4, ptr @CurrentMemoryContext, align 8
   %31 = load ptr, ptr @_SPI_current, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 73
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 73
   store i8 0, ptr %32, align 1
   store ptr %22, ptr @PG_exception_stack, align 8
   store ptr %23, ptr @error_context_stack, align 8
@@ -421,7 +421,7 @@ define internal fastcc void @_SPI_commit(i1 noundef zeroext %0) unnamed_addr #0 
 36:                                               ; preds = %35, %33
   store ptr %4, ptr @CurrentMemoryContext, align 8
   %37 = load ptr, ptr @_SPI_current, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 73
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 73
   store i8 0, ptr %38, align 1
   call void @ReThrowError(ptr noundef %34) #17
   unreachable
@@ -445,7 +445,7 @@ define internal fastcc void @_SPI_rollback(i1 noundef zeroext %0) unnamed_addr #
   %3 = alloca [1 x %struct.__jmp_buf_tag], align 16
   %4 = load ptr, ptr @CurrentMemoryContext, align 8
   %5 = load ptr, ptr @_SPI_current, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 72
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %7 = load i8, ptr %6, align 8
   %8 = trunc i8 %7 to i1
   br i1 %8, label %9, label %13
@@ -487,7 +487,7 @@ define internal fastcc void @_SPI_rollback(i1 noundef zeroext %0) unnamed_addr #
 26:                                               ; preds = %21
   store ptr %3, ptr @PG_exception_stack, align 8
   %27 = load ptr, ptr @_SPI_current, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 73
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 73
   store i8 1, ptr %28, align 1
   call void @HoldPinnedPortals() #15
   call void @ForgetPortalSnapshots() #15
@@ -502,7 +502,7 @@ define internal fastcc void @_SPI_rollback(i1 noundef zeroext %0) unnamed_addr #
 30:                                               ; preds = %29, %26
   store ptr %4, ptr @CurrentMemoryContext, align 8
   %31 = load ptr, ptr @_SPI_current, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 73
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 73
   store i8 0, ptr %32, align 1
   store ptr %22, ptr @PG_exception_stack, align 8
   store ptr %23, ptr @error_context_stack, align 8
@@ -525,7 +525,7 @@ define internal fastcc void @_SPI_rollback(i1 noundef zeroext %0) unnamed_addr #
 36:                                               ; preds = %35, %33
   store ptr %4, ptr @CurrentMemoryContext, align 8
   %37 = load ptr, ptr @_SPI_current, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 73
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 73
   store i8 0, ptr %38, align 1
   call void @ReThrowError(ptr noundef %34) #17
   unreachable
@@ -547,14 +547,14 @@ define dso_local void @AtEOXact_SPI(i1 noundef zeroext %0) local_unnamed_addr #0
   %3 = load ptr, ptr @_SPI_stack, align 8
   %4 = zext nneg i32 %_SPI_connected.promoted to i64
   %5 = getelementptr %struct._SPI_connection, ptr %3, i64 %4
-  %6 = getelementptr inbounds i8, ptr %5, i64 73
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 73
   %7 = load i8, ptr %6, align 1
   %8 = trunc i8 %7 to i1
   br i1 %8, label %._crit_edge, label %.lr.ph13
 
 9:                                                ; preds = %.lr.ph13
   %10 = getelementptr %struct._SPI_connection, ptr %3, i64 %indvars.iv.next
-  %11 = getelementptr inbounds i8, ptr %10, i64 73
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 73
   %12 = load i8, ptr %11, align 1
   %13 = trunc i8 %12 to i1
   br i1 %13, label %._crit_edge.loopexit, label %.lr.ph13, !llvm.loop !5
@@ -562,13 +562,13 @@ define dso_local void @AtEOXact_SPI(i1 noundef zeroext %0) local_unnamed_addr #0
 .lr.ph13:                                         ; preds = %.lr.ph, %9
   %14 = phi ptr [ %10, %9 ], [ %5, %.lr.ph ]
   %indvars.iv12 = phi i64 [ %indvars.iv.next, %9 ], [ %4, %.lr.ph ]
-  %15 = getelementptr inbounds i8, ptr %14, i64 80
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 80
   %16 = load i64, ptr %15, align 8
   store i64 %16, ptr @SPI_processed, align 8
-  %17 = getelementptr inbounds i8, ptr %14, i64 88
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 88
   %18 = load ptr, ptr %17, align 8
   store ptr %18, ptr @SPI_tuptable, align 8
-  %19 = getelementptr inbounds i8, ptr %14, i64 96
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 96
   %20 = load i32, ptr %19, align 8
   store i32 %20, ptr @SPI_result, align 4
   %indvars.iv.next = add nsw i64 %indvars.iv12, -1
@@ -620,7 +620,7 @@ define dso_local void @AtEOSubXact_SPI(i1 noundef zeroext %0, i32 noundef %1) lo
   %.pre = load ptr, ptr @_SPI_stack, align 8
   %5 = zext nneg i32 %3 to i64
   %6 = getelementptr %struct._SPI_connection, ptr %.pre, i64 %5
-  %7 = getelementptr inbounds i8, ptr %6, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %8 = load i32, ptr %7, align 8
   %.not57 = icmp eq i32 %8, %1
   br i1 %.not57, label %.lr.ph59, label %._crit_edge
@@ -628,7 +628,7 @@ define dso_local void @AtEOSubXact_SPI(i1 noundef zeroext %0, i32 noundef %1) lo
 .lr.ph:                                           ; preds = %25
   %9 = zext nneg i32 %33 to i64
   %10 = getelementptr %struct._SPI_connection, ptr %35, i64 %9
-  %11 = getelementptr inbounds i8, ptr %10, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 56
   %12 = load i32, ptr %11, align 8
   %.not = icmp eq i32 %12, %1
   br i1 %.not, label %.lr.ph59, label %._crit_edge, !llvm.loop !7
@@ -636,13 +636,13 @@ define dso_local void @AtEOSubXact_SPI(i1 noundef zeroext %0, i32 noundef %1) lo
 .lr.ph59:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %13 = phi ptr [ %10, %.lr.ph ], [ %6, %.lr.ph.preheader ]
   %.0.not.not4258 = phi i1 [ true, %.lr.ph ], [ false, %.lr.ph.preheader ]
-  %14 = getelementptr inbounds i8, ptr %13, i64 73
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 73
   %15 = load i8, ptr %14, align 1
   %16 = trunc i8 %15 to i1
   br i1 %16, label %._crit_edge, label %17
 
 17:                                               ; preds = %.lr.ph59
-  %18 = getelementptr inbounds i8, ptr %13, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %13, i64 40
   %19 = load ptr, ptr %18, align 8
   %.not28 = icmp eq ptr %19, null
   br i1 %.not28, label %21, label %20
@@ -653,7 +653,7 @@ define dso_local void @AtEOSubXact_SPI(i1 noundef zeroext %0, i32 noundef %1) lo
   br label %21
 
 21:                                               ; preds = %20, %17
-  %22 = getelementptr inbounds i8, ptr %13, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %23 = load ptr, ptr %22, align 8
   %.not29 = icmp eq ptr %23, null
   br i1 %.not29, label %25, label %24
@@ -664,13 +664,13 @@ define dso_local void @AtEOSubXact_SPI(i1 noundef zeroext %0, i32 noundef %1) lo
   br label %25
 
 25:                                               ; preds = %24, %21
-  %26 = getelementptr inbounds i8, ptr %13, i64 80
+  %26 = getelementptr inbounds nuw i8, ptr %13, i64 80
   %27 = load i64, ptr %26, align 8
   store i64 %27, ptr @SPI_processed, align 8
-  %28 = getelementptr inbounds i8, ptr %13, i64 88
+  %28 = getelementptr inbounds nuw i8, ptr %13, i64 88
   %29 = load ptr, ptr %28, align 8
   store ptr %29, ptr @SPI_tuptable, align 8
-  %30 = getelementptr inbounds i8, ptr %13, i64 96
+  %30 = getelementptr inbounds nuw i8, ptr %13, i64 96
   %31 = load i32, ptr %30, align 8
   store i32 %31, ptr @SPI_result, align 4
   %32 = load i32, ptr @_SPI_connected, align 4
@@ -708,14 +708,14 @@ define dso_local void @AtEOSubXact_SPI(i1 noundef zeroext %0, i32 noundef %1) lo
   br i1 %brmerge38, label %.loopexit, label %46
 
 46:                                               ; preds = %._crit_edge.thread
-  %47 = getelementptr inbounds i8, ptr %45, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %48 = load i32, ptr %47, align 8
   %.not31 = icmp ult i32 %48, %1
   br i1 %.not31, label %52, label %49
 
 49:                                               ; preds = %46
   store i32 0, ptr %47, align 8
-  %50 = getelementptr inbounds i8, ptr %45, i64 40
+  %50 = getelementptr inbounds nuw i8, ptr %45, i64 40
   %51 = load ptr, ptr %50, align 8
   tail call void @MemoryContextReset(ptr noundef %51) #15
   %.pre53 = load ptr, ptr @_SPI_current, align 8
@@ -723,7 +723,7 @@ define dso_local void @AtEOSubXact_SPI(i1 noundef zeroext %0, i32 noundef %1) lo
 
 52:                                               ; preds = %49, %46
   %53 = phi ptr [ %.pre53, %49 ], [ %45, %46 ]
-  %54 = getelementptr inbounds i8, ptr %53, i64 24
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 24
   %55 = load ptr, ptr %54, align 8
   %.not32 = icmp eq ptr %55, null
   br i1 %.not32, label %.loopexit, label %.lr.ph52
@@ -741,7 +741,7 @@ define dso_local void @AtEOSubXact_SPI(i1 noundef zeroext %0, i32 noundef %1) lo
 60:                                               ; preds = %.lr.ph52
   store ptr %56, ptr %.sroa.8.048, align 8
   %61 = load ptr, ptr @_SPI_current, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %63 = load ptr, ptr %62, align 8
   %64 = icmp eq ptr %57, %63
   br i1 %64, label %65, label %66
@@ -783,7 +783,7 @@ define dso_local zeroext i1 @SPI_inside_nonatomic_context() local_unnamed_addr #
   br i1 %2, label %7, label %3
 
 3:                                                ; preds = %0
-  %4 = getelementptr inbounds i8, ptr %1, i64 72
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %5 = load i8, ptr %4, align 8
   %6 = trunc i8 %5 to i1
   %not. = xor i1 %6, true
@@ -814,34 +814,34 @@ define dso_local range(i32 -8, 19) i32 @SPI_execute(ptr noundef %0, i1 noundef z
 _SPI_begin_call.exit.thread:                      ; preds = %11
   %13 = tail call i32 @GetCurrentSubTransactionId() #15
   %14 = load ptr, ptr @_SPI_current, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store i32 %13, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %14, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 40
   %17 = load ptr, ptr %16, align 8
   store ptr %17, ptr @CurrentMemoryContext, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %6, i8 0, i64 64, i1 false)
   store i32 569278163, ptr %6, align 8
-  %18 = getelementptr inbounds i8, ptr %6, i64 28
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 28
   store i32 2048, ptr %18, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   store ptr %0, ptr %4, align 8
-  %19 = getelementptr inbounds i8, ptr %4, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 0, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %5, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @_SPI_error_callback, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %5, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %4, ptr %21, align 8
   %22 = load ptr, ptr @error_context_stack, align 8
   store ptr %22, ptr %5, align 8
   store ptr %5, ptr @error_context_stack, align 8
   %23 = call ptr @raw_parser(ptr noundef nonnull %0, i32 noundef 0) #15
-  %24 = getelementptr inbounds i8, ptr %23, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %.not.i = icmp eq ptr %23, null
   br i1 %.not.i, label %_SPI_prepare_oneshot_plan.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_SPI_begin_call.exit.thread
-  %25 = getelementptr inbounds i8, ptr %23, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %26 = load i32, ptr %24, align 4
   %27 = icmp sgt i32 %26, 0
   br i1 %27, label %.lr.ph30.i, label %_SPI_prepare_oneshot_plan.exit
@@ -852,7 +852,7 @@ _SPI_begin_call.exit.thread:                      ; preds = %11
   %28 = load ptr, ptr %25, align 8
   %29 = getelementptr %union.ListCell, ptr %28, i64 %indvars.iv.i
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load ptr, ptr %31, align 8
   %33 = call i32 @CreateCommandTag(ptr noundef %32) #15
   %34 = call ptr @CreateOneShotCachedPlan(ptr noundef %30, ptr noundef nonnull %0, i32 noundef %33) #15
@@ -865,27 +865,27 @@ _SPI_begin_call.exit.thread:                      ; preds = %11
 
 _SPI_prepare_oneshot_plan.exit:                   ; preds = %.lr.ph30.i, %_SPI_begin_call.exit.thread, %.lr.ph.i
   %.0.lcssa.i = phi ptr [ null, %_SPI_begin_call.exit.thread ], [ null, %.lr.ph.i ], [ %35, %.lr.ph30.i ]
-  %39 = getelementptr inbounds i8, ptr %6, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %.0.lcssa.i, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %6, i64 5
+  %40 = getelementptr inbounds nuw i8, ptr %6, i64 5
   store i8 1, ptr %40, align 1
   %41 = load ptr, ptr %5, align 8
   store ptr %41, ptr @error_context_stack, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, i8 0, i64 40, i1 false)
-  %42 = getelementptr inbounds i8, ptr %7, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i8 %8, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %7, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 %2, ptr %43, align 8
   %44 = call fastcc i32 @_SPI_execute_plan(ptr noundef %6, ptr noundef %7, ptr noundef null, ptr noundef null, i1 noundef zeroext true)
   %45 = load ptr, ptr @_SPI_current, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 32
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 32
   %47 = load ptr, ptr %46, align 8
   store ptr %47, ptr @CurrentMemoryContext, align 8
-  %48 = getelementptr inbounds i8, ptr %45, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %45, i64 16
   store i32 0, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %45, i64 40
+  %49 = getelementptr inbounds nuw i8, ptr %45, i64 40
   %50 = load ptr, ptr %49, align 8
   call void @MemoryContextReset(ptr noundef %50) #15
   br label %_SPI_begin_call.exit
@@ -903,16 +903,16 @@ define internal fastcc range(i32 -8, 19) i32 @_SPI_execute_plan(ptr nocapture no
   %6 = alloca %struct.SPICallbackArg, align 8
   %7 = alloca %struct.ErrorContextCallback, align 8
   %8 = alloca %struct.QueryCompletion, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %10 = load ptr, ptr %9, align 8
   store ptr null, ptr %6, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load i32, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %6, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %12, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %7, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr @_SPI_error_callback, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %7, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %6, ptr %15, align 8
   %16 = load ptr, ptr @error_context_stack, align 8
   store ptr %16, ptr %7, align 8
@@ -921,7 +921,7 @@ define internal fastcc range(i32 -8, 19) i32 @_SPI_execute_plan(ptr nocapture no
   br i1 %.not, label %17, label %23
 
 17:                                               ; preds = %5
-  %18 = getelementptr inbounds i8, ptr %1, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %19 = load i8, ptr %18, align 8
   %20 = trunc i8 %19 to i1
   br i1 %20, label %21, label %22
@@ -936,17 +936,17 @@ define internal fastcc range(i32 -8, 19) i32 @_SPI_execute_plan(ptr nocapture no
 
 23:                                               ; preds = %21, %22, %5
   %.0124 = phi i8 [ 1, %21 ], [ 1, %22 ], [ 0, %5 ]
-  %24 = getelementptr inbounds i8, ptr %0, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %25 = load i8, ptr %24, align 4
   %26 = trunc i8 %25 to i1
   %27 = icmp eq ptr %10, null
   %28 = load ptr, ptr @CurrentResourceOwner, align 8
   %spec.select = select i1 %27, ptr %28, ptr %10
   %.0128 = select i1 %26, ptr %spec.select, ptr null
-  %29 = getelementptr inbounds i8, ptr %1, i64 10
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 10
   %30 = load i8, ptr %29, align 2
   %31 = trunc i8 %30 to i1
-  %32 = getelementptr inbounds i8, ptr %0, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %33 = load ptr, ptr %32, align 8
   %34 = icmp eq ptr %33, null
   br i1 %31, label %35, label %40
@@ -966,19 +966,19 @@ define internal fastcc range(i32 -8, 19) i32 @_SPI_execute_plan(ptr nocapture no
   br i1 %34, label %.thread, label %.lr.ph220
 
 .lr.ph220:                                        ; preds = %35, %40
-  %41 = getelementptr inbounds i8, ptr %33, i64 4
-  %42 = getelementptr inbounds i8, ptr %33, i64 16
-  %43 = getelementptr inbounds i8, ptr %0, i64 5
-  %44 = getelementptr inbounds i8, ptr %0, i64 48
-  %45 = getelementptr inbounds i8, ptr %0, i64 56
-  %46 = getelementptr inbounds i8, ptr %0, i64 40
-  %47 = getelementptr inbounds i8, ptr %0, i64 32
-  %48 = getelementptr inbounds i8, ptr %0, i64 28
-  %49 = getelementptr inbounds i8, ptr %1, i64 8
-  %50 = getelementptr inbounds i8, ptr %1, i64 9
-  %51 = getelementptr inbounds i8, ptr %1, i64 24
-  %52 = getelementptr inbounds i8, ptr %8, i64 8
-  %53 = getelementptr inbounds i8, ptr %1, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %33, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %33, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 5
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 9
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %52 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.24.i = select i1 %4, i32 0, i32 32
   %54 = load i32, ptr %41, align 4
   %55 = icmp sgt i32 %54, 0
@@ -993,7 +993,7 @@ define internal fastcc range(i32 -8, 19) i32 @_SPI_execute_plan(ptr nocapture no
   %56 = load ptr, ptr %42, align 8
   %57 = getelementptr %union.ListCell, ptr %56, i64 %indvars.iv246335
   %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 16
   %60 = load ptr, ptr %59, align 8
   store ptr %60, ptr %6, align 8
   %61 = load i8, ptr %43, align 1
@@ -1001,7 +1001,7 @@ define internal fastcc range(i32 -8, 19) i32 @_SPI_execute_plan(ptr nocapture no
   br i1 %62, label %63, label %88
 
 63:                                               ; preds = %.lr.ph340
-  %64 = getelementptr inbounds i8, ptr %58, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %65 = load ptr, ptr %64, align 8
   %66 = icmp eq ptr %65, null
   br i1 %66, label %82, label %67
@@ -1014,7 +1014,7 @@ define internal fastcc range(i32 -8, 19) i32 @_SPI_execute_plan(ptr nocapture no
 69:                                               ; preds = %67
   %70 = load ptr, ptr %45, align 8
   %71 = load ptr, ptr @_SPI_current, align 8
-  %72 = getelementptr inbounds i8, ptr %71, i64 64
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 64
   %73 = load ptr, ptr %72, align 8
   %74 = call ptr @pg_analyze_and_rewrite_withcb(ptr noundef nonnull %65, ptr noundef %60, ptr noundef nonnull %68, ptr noundef %70, ptr noundef %73) #15
   br label %82
@@ -1023,7 +1023,7 @@ define internal fastcc range(i32 -8, 19) i32 @_SPI_execute_plan(ptr nocapture no
   %76 = load ptr, ptr %46, align 8
   %77 = load i32, ptr %47, align 8
   %78 = load ptr, ptr @_SPI_current, align 8
-  %79 = getelementptr inbounds i8, ptr %78, i64 64
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 64
   %80 = load ptr, ptr %79, align 8
   %81 = call ptr @pg_analyze_and_rewrite_fixedparams(ptr noundef nonnull %65, ptr noundef %60, ptr noundef %76, i32 noundef %77, ptr noundef %80) #15
   br label %82
@@ -1044,13 +1044,13 @@ define internal fastcc range(i32 -8, 19) i32 @_SPI_execute_plan(ptr nocapture no
   br i1 %90, label %91, label %104
 
 91:                                               ; preds = %88
-  %92 = getelementptr inbounds i8, ptr %58, i64 72
+  %92 = getelementptr inbounds nuw i8, ptr %58, i64 72
   %93 = load ptr, ptr %92, align 8
   %.not150 = icmp eq ptr %93, null
   br i1 %.not150, label %94, label %104
 
 94:                                               ; preds = %91
-  %95 = getelementptr inbounds i8, ptr %58, i64 24
+  %95 = getelementptr inbounds nuw i8, ptr %58, i64 24
   %96 = load i32, ptr %95, align 8
   %97 = icmp eq i32 %96, 179
   br i1 %97, label %100, label %98
@@ -1071,17 +1071,17 @@ define internal fastcc range(i32 -8, 19) i32 @_SPI_execute_plan(ptr nocapture no
 104:                                              ; preds = %91, %88
   %105 = load ptr, ptr %1, align 8
   %106 = load ptr, ptr @_SPI_current, align 8
-  %107 = getelementptr inbounds i8, ptr %106, i64 64
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 64
   %108 = load ptr, ptr %107, align 8
   %109 = call ptr @GetCachedPlan(ptr noundef nonnull %58, ptr noundef %105, ptr noundef %.0128, ptr noundef %108) #15
-  %110 = getelementptr inbounds i8, ptr %109, i64 8
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 8
   %111 = load ptr, ptr %110, align 8
   %.not.i = icmp eq ptr %111, null
   %or.cond = select i1 %.not, i1 true, i1 %.not.i
   br i1 %or.cond, label %list_length.exit160.thread, label %list_length.exit
 
 list_length.exit:                                 ; preds = %104
-  %112 = getelementptr inbounds i8, ptr %111, i64 4
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 4
   %113 = load i32, ptr %112, align 4
   %114 = icmp sgt i32 %113, 1
   br i1 %114, label %120, label %list_length.exit160
@@ -1126,8 +1126,8 @@ list_length.exit160.thread:                       ; preds = %104
 
 .lr.ph:                                           ; preds = %list_length.exit160, %116, %129, %123, %120, %list_length.exit160.thread
   %.2126254 = phi i8 [ %.1125215339, %list_length.exit160.thread ], [ %.1125215339, %list_length.exit160 ], [ %.1125215339, %116 ], [ 1, %129 ], [ %.1125215339, %123 ], [ %.1125215339, %120 ]
-  %131 = getelementptr inbounds i8, ptr %111, i64 4
-  %132 = getelementptr inbounds i8, ptr %111, i64 16
+  %131 = getelementptr inbounds nuw i8, ptr %111, i64 4
+  %132 = getelementptr inbounds nuw i8, ptr %111, i64 16
   %133 = trunc nuw i8 %.2126254 to i1
   %.not230 = xor i1 %133, true
   %134 = load i32, ptr %131, align 4
@@ -1149,11 +1149,11 @@ list_length.exit160.thread:                       ; preds = %104
   %140 = load ptr, ptr %132, align 8
   %141 = getelementptr %union.ListCell, ptr %140, i64 %indvars.iv328
   %142 = load ptr, ptr %141, align 8
-  %143 = getelementptr inbounds i8, ptr %142, i64 18
+  %143 = getelementptr inbounds nuw i8, ptr %142, i64 18
   %144 = load i8, ptr %143, align 2
   %145 = trunc i8 %144 to i1
   %146 = load ptr, ptr @_SPI_current, align 8
-  %147 = getelementptr inbounds i8, ptr %142, i64 120
+  %147 = getelementptr inbounds nuw i8, ptr %142, i64 120
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %146, i8 0, i64 16, i1 false)
   %148 = load ptr, ptr %147, align 8
   %.not153 = icmp eq ptr %148, null
@@ -1167,7 +1167,7 @@ list_length.exit160.thread:                       ; preds = %104
   ]
 
 151:                                              ; preds = %149
-  %152 = getelementptr inbounds i8, ptr %148, i64 40
+  %152 = getelementptr inbounds nuw i8, ptr %148, i64 40
   %153 = load ptr, ptr %152, align 8
   %154 = icmp eq ptr %153, null
   br i1 %154, label %.thread, label %155
@@ -1237,7 +1237,7 @@ list_length.exit160.thread:                       ; preds = %104
   %181 = load ptr, ptr %59, align 8
   %182 = load ptr, ptr %1, align 8
   %183 = load ptr, ptr @_SPI_current, align 8
-  %184 = getelementptr inbounds i8, ptr %183, i64 64
+  %184 = getelementptr inbounds nuw i8, ptr %183, i64 64
   %185 = load ptr, ptr %184, align 8
   %186 = call ptr @CreateQueryDesc(ptr noundef nonnull %142, ptr noundef %181, ptr noundef %.0113, ptr noundef %3, ptr noundef %.0122, ptr noundef %182, ptr noundef %185, i32 noundef 0) #15
   br i1 %145, label %187, label %189
@@ -1258,36 +1258,36 @@ list_length.exit160.thread:                       ; preds = %104
   ]
 
 192:                                              ; preds = %189
-  %193 = getelementptr inbounds i8, ptr %186, i64 40
+  %193 = getelementptr inbounds nuw i8, ptr %186, i64 40
   %194 = load ptr, ptr %193, align 8
-  %195 = getelementptr inbounds i8, ptr %194, i64 32
+  %195 = getelementptr inbounds nuw i8, ptr %194, i64 32
   %196 = load i32, ptr %195, align 8
   %197 = icmp ne i32 %196, 0
   %.20.i = select i1 %197, i32 5, i32 4
   br label %216
 
 198:                                              ; preds = %189
-  %199 = getelementptr inbounds i8, ptr %186, i64 8
+  %199 = getelementptr inbounds nuw i8, ptr %186, i64 8
   %200 = load ptr, ptr %199, align 8
-  %201 = getelementptr inbounds i8, ptr %200, i64 16
+  %201 = getelementptr inbounds nuw i8, ptr %200, i64 16
   %202 = load i8, ptr %201, align 8
   %203 = trunc i8 %202 to i1
   %.21.i = select i1 %203, i32 11, i32 7
   br label %216
 
 204:                                              ; preds = %189
-  %205 = getelementptr inbounds i8, ptr %186, i64 8
+  %205 = getelementptr inbounds nuw i8, ptr %186, i64 8
   %206 = load ptr, ptr %205, align 8
-  %207 = getelementptr inbounds i8, ptr %206, i64 16
+  %207 = getelementptr inbounds nuw i8, ptr %206, i64 16
   %208 = load i8, ptr %207, align 8
   %209 = trunc i8 %208 to i1
   %.22.i = select i1 %209, i32 12, i32 8
   br label %216
 
 210:                                              ; preds = %189
-  %211 = getelementptr inbounds i8, ptr %186, i64 8
+  %211 = getelementptr inbounds nuw i8, ptr %186, i64 8
   %212 = load ptr, ptr %211, align 8
-  %213 = getelementptr inbounds i8, ptr %212, i64 16
+  %213 = getelementptr inbounds nuw i8, ptr %212, i64 16
   %214 = load i8, ptr %213, align 8
   %215 = trunc i8 %214 to i1
   %.23.i = select i1 %215, i32 13, i32 9
@@ -1298,38 +1298,38 @@ list_length.exit160.thread:                       ; preds = %104
   %.0.i = phi i32 [ %.20.i, %192 ], [ %.21.i, %198 ], [ %.22.i, %204 ], [ %.23.i, %210 ], [ 18, %189 ]
   call void @ExecutorStart(ptr noundef nonnull %186, i32 noundef %.24.i) #15
   call void @ExecutorRun(ptr noundef nonnull %186, i32 noundef 1, i64 noundef %190, i1 noundef zeroext true) #15
-  %218 = getelementptr inbounds i8, ptr %186, i64 80
+  %218 = getelementptr inbounds nuw i8, ptr %186, i64 80
   %219 = load ptr, ptr %218, align 8
-  %220 = getelementptr inbounds i8, ptr %219, i64 176
+  %220 = getelementptr inbounds nuw i8, ptr %219, i64 176
   %221 = load i64, ptr %220, align 8
   %222 = load ptr, ptr @_SPI_current, align 8
   store i64 %221, ptr %222, align 8
   br i1 %217, label %229, label %223
 
 223:                                              ; preds = %216
-  %224 = getelementptr inbounds i8, ptr %186, i64 8
+  %224 = getelementptr inbounds nuw i8, ptr %186, i64 8
   %225 = load ptr, ptr %224, align 8
-  %226 = getelementptr inbounds i8, ptr %225, i64 16
+  %226 = getelementptr inbounds nuw i8, ptr %225, i64 16
   %227 = load i8, ptr %226, align 8
   %228 = trunc i8 %227 to i1
   br i1 %228, label %229, label %243
 
 229:                                              ; preds = %223, %216
-  %230 = getelementptr inbounds i8, ptr %186, i64 40
+  %230 = getelementptr inbounds nuw i8, ptr %186, i64 40
   %231 = load ptr, ptr %230, align 8
-  %232 = getelementptr inbounds i8, ptr %231, i64 32
+  %232 = getelementptr inbounds nuw i8, ptr %231, i64 32
   %233 = load i32, ptr %232, align 8
   %234 = icmp eq i32 %233, 5
   br i1 %234, label %235, label %243
 
 235:                                              ; preds = %229
-  %236 = getelementptr inbounds i8, ptr %222, i64 8
+  %236 = getelementptr inbounds nuw i8, ptr %222, i64 8
   %237 = load ptr, ptr %236, align 8
   %238 = icmp eq ptr %237, null
   br i1 %238, label %_SPI_checktuples.exit.thread.i, label %_SPI_checktuples.exit.i
 
 _SPI_checktuples.exit.i:                          ; preds = %235
-  %239 = getelementptr inbounds i8, ptr %237, i64 16
+  %239 = getelementptr inbounds nuw i8, ptr %237, i64 16
   %240 = load i64, ptr %239, align 8
   %.not.i.not.i = icmp eq i64 %221, %240
   br i1 %.not.i.not.i, label %243, label %_SPI_checktuples.exit.thread.i
@@ -1353,7 +1353,7 @@ _SPI_pquery.exit:                                 ; preds = %189, %243
 
 244:                                              ; preds = %173
   %245 = load ptr, ptr @_SPI_current, align 8
-  %246 = getelementptr inbounds i8, ptr %245, i64 72
+  %246 = getelementptr inbounds nuw i8, ptr %245, i64 72
   %247 = load i8, ptr %246, align 8
   %248 = trunc i8 %247 to i1
   br i1 %248, label %252, label %249
@@ -1370,17 +1370,17 @@ _SPI_pquery.exit:                                 ; preds = %189, %243
   %253 = load ptr, ptr %59, align 8
   %254 = load ptr, ptr %1, align 8
   %255 = load ptr, ptr @_SPI_current, align 8
-  %256 = getelementptr inbounds i8, ptr %255, i64 64
+  %256 = getelementptr inbounds nuw i8, ptr %255, i64 64
   %257 = load ptr, ptr %256, align 8
   call void @ProcessUtility(ptr noundef nonnull %142, ptr noundef %253, i1 noundef zeroext true, i32 noundef %.0112, ptr noundef %254, ptr noundef %257, ptr noundef %.0122, ptr noundef nonnull %8) #15
   %258 = load ptr, ptr @_SPI_current, align 8
-  %259 = getelementptr inbounds i8, ptr %258, i64 8
+  %259 = getelementptr inbounds nuw i8, ptr %258, i64 8
   %260 = load ptr, ptr %259, align 8
   %.not155 = icmp eq ptr %260, null
   br i1 %.not155, label %264, label %261
 
 261:                                              ; preds = %252
-  %262 = getelementptr inbounds i8, ptr %260, i64 16
+  %262 = getelementptr inbounds nuw i8, ptr %260, i64 16
   %263 = load i64, ptr %262, align 8
   store i64 %263, ptr %258, align 8
   br label %264
@@ -1399,7 +1399,7 @@ _SPI_pquery.exit:                                 ; preds = %189, %243
   %270 = load i64, ptr %52, align 8
   %storemerge = select i1 %269, i64 %270, i64 0
   store i64 %storemerge, ptr %258, align 8
-  %271 = getelementptr inbounds i8, ptr %265, i64 28
+  %271 = getelementptr inbounds nuw i8, ptr %265, i64 28
   %272 = load i8, ptr %271, align 4
   %273 = trunc i8 %272 to i1
   %spec.select157 = select i1 %273, i32 6, i32 4
@@ -1419,16 +1419,16 @@ _SPI_pquery.exit:                                 ; preds = %189, %243
   %279 = load i64, ptr %277, align 8
   call void @SPI_freetuptable(ptr noundef %.1119205331)
   %280 = load ptr, ptr @_SPI_current, align 8
-  %281 = getelementptr inbounds i8, ptr %280, i64 8
+  %281 = getelementptr inbounds nuw i8, ptr %280, i64 8
   %282 = load ptr, ptr %281, align 8
   br label %288
 
 283:                                              ; preds = %276
-  %284 = getelementptr inbounds i8, ptr %277, i64 8
+  %284 = getelementptr inbounds nuw i8, ptr %277, i64 8
   %285 = load ptr, ptr %284, align 8
   call void @SPI_freetuptable(ptr noundef %285)
   %286 = load ptr, ptr @_SPI_current, align 8
-  %287 = getelementptr inbounds i8, ptr %286, i64 8
+  %287 = getelementptr inbounds nuw i8, ptr %286, i64 8
   store ptr null, ptr %287, align 8
   br label %288
 
@@ -1487,7 +1487,7 @@ _SPI_pquery.exit:                                 ; preds = %189, %243
   store i64 %.2116, ptr @SPI_processed, align 8
   store ptr %.2120, ptr @SPI_tuptable, align 8
   %303 = load ptr, ptr @_SPI_current, align 8
-  %304 = getelementptr inbounds i8, ptr %303, i64 8
+  %304 = getelementptr inbounds nuw i8, ptr %303, i64 8
   store ptr null, ptr %304, align 8
   %305 = icmp eq i32 %.2, 0
   %spec.store.select = select i1 %305, i32 14, i32 %.2
@@ -1518,27 +1518,27 @@ define dso_local range(i32 -8, 19) i32 @SPI_execute_extended(ptr noundef %0, ptr
 _SPI_begin_call.exit.thread:                      ; preds = %8
   %10 = tail call i32 @GetCurrentSubTransactionId() #15
   %11 = load ptr, ptr @_SPI_current, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i32 %10, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %11, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %14 = load ptr, ptr %13, align 8
   store ptr %14, ptr @CurrentMemoryContext, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, i8 0, i64 64, i1 false)
   store i32 569278163, ptr %5, align 8
-  %15 = getelementptr inbounds i8, ptr %5, i64 28
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 28
   store i32 2048, ptr %15, align 4
   %16 = load ptr, ptr %1, align 8
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %24, label %17
 
 17:                                               ; preds = %_SPI_begin_call.exit.thread
-  %18 = getelementptr inbounds i8, ptr %16, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %5, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store ptr %19, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %16, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 40
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %5, i64 56
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store ptr %22, ptr %23, align 8
   br label %24
 
@@ -1546,22 +1546,22 @@ _SPI_begin_call.exit.thread:                      ; preds = %8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   store ptr %0, ptr %3, align 8
-  %25 = getelementptr inbounds i8, ptr %3, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 0, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %4, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @_SPI_error_callback, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %4, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %3, ptr %27, align 8
   %28 = load ptr, ptr @error_context_stack, align 8
   store ptr %28, ptr %4, align 8
   store ptr %4, ptr @error_context_stack, align 8
   %29 = call ptr @raw_parser(ptr noundef nonnull %0, i32 noundef 0) #15
-  %30 = getelementptr inbounds i8, ptr %29, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 4
   %.not.i = icmp eq ptr %29, null
   br i1 %.not.i, label %_SPI_prepare_oneshot_plan.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %24
-  %31 = getelementptr inbounds i8, ptr %29, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %32 = load i32, ptr %30, align 4
   %33 = icmp sgt i32 %32, 0
   br i1 %33, label %.lr.ph30.i, label %_SPI_prepare_oneshot_plan.exit
@@ -1572,7 +1572,7 @@ _SPI_begin_call.exit.thread:                      ; preds = %8
   %34 = load ptr, ptr %31, align 8
   %35 = getelementptr %union.ListCell, ptr %34, i64 %indvars.iv.i
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %38 = load ptr, ptr %37, align 8
   %39 = call i32 @CreateCommandTag(ptr noundef %38) #15
   %40 = call ptr @CreateOneShotCachedPlan(ptr noundef %36, ptr noundef nonnull %0, i32 noundef %39) #15
@@ -1585,9 +1585,9 @@ _SPI_begin_call.exit.thread:                      ; preds = %8
 
 _SPI_prepare_oneshot_plan.exit:                   ; preds = %.lr.ph30.i, %24, %.lr.ph.i
   %.0.lcssa.i = phi ptr [ null, %24 ], [ null, %.lr.ph.i ], [ %41, %.lr.ph30.i ]
-  %45 = getelementptr inbounds i8, ptr %5, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %.0.lcssa.i, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %5, i64 5
+  %46 = getelementptr inbounds nuw i8, ptr %5, i64 5
   store i8 1, ptr %46, align 1
   %47 = load ptr, ptr %4, align 8
   store ptr %47, ptr @error_context_stack, align 8
@@ -1595,12 +1595,12 @@ _SPI_prepare_oneshot_plan.exit:                   ; preds = %.lr.ph30.i, %24, %.
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   %48 = call fastcc i32 @_SPI_execute_plan(ptr noundef %5, ptr noundef %1, ptr noundef null, ptr noundef null, i1 noundef zeroext true)
   %49 = load ptr, ptr @_SPI_current, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 32
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 32
   %51 = load ptr, ptr %50, align 8
   store ptr %51, ptr @CurrentMemoryContext, align 8
-  %52 = getelementptr inbounds i8, ptr %49, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %49, i64 16
   store i32 0, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %49, i64 40
+  %53 = getelementptr inbounds nuw i8, ptr %49, i64 40
   %54 = load ptr, ptr %53, align 8
   call void @MemoryContextReset(ptr noundef %54) #15
   br label %_SPI_begin_call.exit
@@ -1625,7 +1625,7 @@ define dso_local range(i32 -8, 19) i32 @SPI_execute_plan(ptr noundef readonly %0
   br i1 %or.cond, label %_SPI_begin_call.exit, label %13
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %15 = load i32, ptr %14, align 8
   %16 = icmp sgt i32 %15, 0
   %17 = icmp eq ptr %1, null
@@ -1640,22 +1640,22 @@ define dso_local range(i32 -8, 19) i32 @SPI_execute_plan(ptr noundef readonly %0
 _SPI_begin_call.exit.thread:                      ; preds = %18
   %20 = tail call i32 @GetCurrentSubTransactionId() #15
   %21 = load ptr, ptr @_SPI_current, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store i32 %20, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %21, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 40
   %24 = load ptr, ptr %23, align 8
   store ptr %24, ptr @CurrentMemoryContext, align 8
-  %25 = getelementptr inbounds i8, ptr %6, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %6, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %25, i8 0, i64 32, i1 false)
   %26 = load i32, ptr %14, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 40
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %28 = load ptr, ptr %27, align 8
   %29 = icmp sgt i32 %26, 0
   br i1 %29, label %30, label %_SPI_convert_params.exit
 
 30:                                               ; preds = %_SPI_begin_call.exit.thread
   %31 = tail call ptr @makeParamList(i32 noundef %26) #15
-  %32 = getelementptr inbounds i8, ptr %31, i64 64
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 64
   %.not.i = icmp eq ptr %2, null
   %wide.trip.count27.i = zext nneg i32 %26 to i64
   br i1 %.not.i, label %.split.us.i, label %.split.i
@@ -1666,13 +1666,13 @@ _SPI_begin_call.exit.thread:                      ; preds = %18
   %34 = getelementptr i64, ptr %1, i64 %indvars.iv24.i
   %35 = load i64, ptr %34, align 8
   store i64 %35, ptr %33, align 8
-  %36 = getelementptr inbounds i8, ptr %33, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %33, i64 8
   store i8 0, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %33, i64 10
+  %37 = getelementptr inbounds nuw i8, ptr %33, i64 10
   store i16 1, ptr %37, align 2
   %38 = getelementptr i32, ptr %28, i64 %indvars.iv24.i
   %39 = load i32, ptr %38, align 4
-  %40 = getelementptr inbounds i8, ptr %33, i64 12
+  %40 = getelementptr inbounds nuw i8, ptr %33, i64 12
   store i32 %39, ptr %40, align 4
   %indvars.iv.next25.i = add nuw nsw i64 %indvars.iv24.i, 1
   %exitcond28.not.i = icmp eq i64 %indvars.iv.next25.i, %wide.trip.count27.i
@@ -1688,13 +1688,13 @@ _SPI_begin_call.exit.thread:                      ; preds = %18
   %45 = load i8, ptr %44, align 1
   %46 = icmp eq i8 %45, 110
   %47 = zext i1 %46 to i8
-  %48 = getelementptr inbounds i8, ptr %41, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %41, i64 8
   store i8 %47, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %41, i64 10
+  %49 = getelementptr inbounds nuw i8, ptr %41, i64 10
   store i16 1, ptr %49, align 2
   %50 = getelementptr i32, ptr %28, i64 %indvars.iv.i
   %51 = load i32, ptr %50, align 4
-  %52 = getelementptr inbounds i8, ptr %41, i64 12
+  %52 = getelementptr inbounds nuw i8, ptr %41, i64 12
   store i32 %51, ptr %52, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count27.i
@@ -1703,18 +1703,18 @@ _SPI_begin_call.exit.thread:                      ; preds = %18
 _SPI_convert_params.exit:                         ; preds = %.split.i, %.split.us.i, %_SPI_begin_call.exit.thread
   %.0.i21 = phi ptr [ null, %_SPI_begin_call.exit.thread ], [ %31, %.split.us.i ], [ %31, %.split.i ]
   store ptr %.0.i21, ptr %6, align 8
-  %53 = getelementptr inbounds i8, ptr %6, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i8 %7, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %6, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 %4, ptr %54, align 8
   %55 = call fastcc i32 @_SPI_execute_plan(ptr noundef %0, ptr noundef %6, ptr noundef null, ptr noundef null, i1 noundef zeroext true)
   %56 = load ptr, ptr @_SPI_current, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 32
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 32
   %58 = load ptr, ptr %57, align 8
   store ptr %58, ptr @CurrentMemoryContext, align 8
-  %59 = getelementptr inbounds i8, ptr %56, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %56, i64 16
   store i32 0, ptr %59, align 8
-  %60 = getelementptr inbounds i8, ptr %56, i64 40
+  %60 = getelementptr inbounds nuw i8, ptr %56, i64 40
   %61 = load ptr, ptr %60, align 8
   tail call void @MemoryContextReset(ptr noundef %61) #15
   br label %_SPI_begin_call.exit
@@ -1750,19 +1750,19 @@ define dso_local range(i32 -8, 19) i32 @SPI_execute_plan_extended(ptr noundef re
 _SPI_begin_call.exit.thread:                      ; preds = %8
   %10 = tail call i32 @GetCurrentSubTransactionId() #15
   %11 = load ptr, ptr @_SPI_current, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i32 %10, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %11, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %14 = load ptr, ptr %13, align 8
   store ptr %14, ptr @CurrentMemoryContext, align 8
   %15 = tail call fastcc i32 @_SPI_execute_plan(ptr noundef %0, ptr noundef %1, ptr noundef null, ptr noundef null, i1 noundef zeroext true)
   %16 = load ptr, ptr @_SPI_current, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %18 = load ptr, ptr %17, align 8
   store ptr %18, ptr @CurrentMemoryContext, align 8
-  %19 = getelementptr inbounds i8, ptr %16, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store i32 0, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %16, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 40
   %21 = load ptr, ptr %20, align 8
   tail call void @MemoryContextReset(ptr noundef %21) #15
   br label %_SPI_begin_call.exit
@@ -1794,26 +1794,26 @@ define dso_local range(i32 -8, 19) i32 @SPI_execute_plan_with_paramlist(ptr noun
 _SPI_begin_call.exit.thread:                      ; preds = %12
   %14 = tail call i32 @GetCurrentSubTransactionId() #15
   %15 = load ptr, ptr @_SPI_current, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store i32 %14, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %15, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 40
   %18 = load ptr, ptr %17, align 8
   store ptr %18, ptr @CurrentMemoryContext, align 8
-  %19 = getelementptr inbounds i8, ptr %5, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %19, i8 0, i64 32, i1 false)
   store ptr %1, ptr %5, align 8
-  %20 = getelementptr inbounds i8, ptr %5, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i8 %6, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %5, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 %3, ptr %21, align 8
   %22 = call fastcc i32 @_SPI_execute_plan(ptr noundef %0, ptr noundef %5, ptr noundef null, ptr noundef null, i1 noundef zeroext true)
   %23 = load ptr, ptr @_SPI_current, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 32
   %25 = load ptr, ptr %24, align 8
   store ptr %25, ptr @CurrentMemoryContext, align 8
-  %26 = getelementptr inbounds i8, ptr %23, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 16
   store i32 0, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %23, i64 40
+  %27 = getelementptr inbounds nuw i8, ptr %23, i64 40
   %28 = load ptr, ptr %27, align 8
   tail call void @MemoryContextReset(ptr noundef %28) #15
   br label %_SPI_begin_call.exit
@@ -1838,7 +1838,7 @@ define dso_local range(i32 -8, 19) i32 @SPI_execute_snapshot(ptr noundef readonl
   br i1 %or.cond, label %_SPI_begin_call.exit, label %16
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %0, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %18 = load i32, ptr %17, align 8
   %19 = icmp sgt i32 %18, 0
   %20 = icmp eq ptr %1, null
@@ -1853,22 +1853,22 @@ define dso_local range(i32 -8, 19) i32 @SPI_execute_snapshot(ptr noundef readonl
 _SPI_begin_call.exit.thread:                      ; preds = %21
   %23 = tail call i32 @GetCurrentSubTransactionId() #15
   %24 = load ptr, ptr @_SPI_current, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   store i32 %23, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %24, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 40
   %27 = load ptr, ptr %26, align 8
   store ptr %27, ptr @CurrentMemoryContext, align 8
-  %28 = getelementptr inbounds i8, ptr %9, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %9, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %28, i8 0, i64 32, i1 false)
   %29 = load i32, ptr %17, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %31 = load ptr, ptr %30, align 8
   %32 = icmp sgt i32 %29, 0
   br i1 %32, label %33, label %_SPI_convert_params.exit
 
 33:                                               ; preds = %_SPI_begin_call.exit.thread
   %34 = tail call ptr @makeParamList(i32 noundef %29) #15
-  %35 = getelementptr inbounds i8, ptr %34, i64 64
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 64
   %.not.i = icmp eq ptr %2, null
   %wide.trip.count27.i = zext nneg i32 %29 to i64
   br i1 %.not.i, label %.split.us.i, label %.split.i
@@ -1879,13 +1879,13 @@ _SPI_begin_call.exit.thread:                      ; preds = %21
   %37 = getelementptr i64, ptr %1, i64 %indvars.iv24.i
   %38 = load i64, ptr %37, align 8
   store i64 %38, ptr %36, align 8
-  %39 = getelementptr inbounds i8, ptr %36, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %36, i64 8
   store i8 0, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %36, i64 10
+  %40 = getelementptr inbounds nuw i8, ptr %36, i64 10
   store i16 1, ptr %40, align 2
   %41 = getelementptr i32, ptr %31, i64 %indvars.iv24.i
   %42 = load i32, ptr %41, align 4
-  %43 = getelementptr inbounds i8, ptr %36, i64 12
+  %43 = getelementptr inbounds nuw i8, ptr %36, i64 12
   store i32 %42, ptr %43, align 4
   %indvars.iv.next25.i = add nuw nsw i64 %indvars.iv24.i, 1
   %exitcond28.not.i = icmp eq i64 %indvars.iv.next25.i, %wide.trip.count27.i
@@ -1901,13 +1901,13 @@ _SPI_begin_call.exit.thread:                      ; preds = %21
   %48 = load i8, ptr %47, align 1
   %49 = icmp eq i8 %48, 110
   %50 = zext i1 %49 to i8
-  %51 = getelementptr inbounds i8, ptr %44, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %44, i64 8
   store i8 %50, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %44, i64 10
+  %52 = getelementptr inbounds nuw i8, ptr %44, i64 10
   store i16 1, ptr %52, align 2
   %53 = getelementptr i32, ptr %31, i64 %indvars.iv.i
   %54 = load i32, ptr %53, align 4
-  %55 = getelementptr inbounds i8, ptr %44, i64 12
+  %55 = getelementptr inbounds nuw i8, ptr %44, i64 12
   store i32 %54, ptr %55, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count27.i
@@ -1916,18 +1916,18 @@ _SPI_begin_call.exit.thread:                      ; preds = %21
 _SPI_convert_params.exit:                         ; preds = %.split.i, %.split.us.i, %_SPI_begin_call.exit.thread
   %.0.i24 = phi ptr [ null, %_SPI_begin_call.exit.thread ], [ %34, %.split.us.i ], [ %34, %.split.i ]
   store ptr %.0.i24, ptr %9, align 8
-  %56 = getelementptr inbounds i8, ptr %9, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i8 %10, ptr %56, align 8
-  %57 = getelementptr inbounds i8, ptr %9, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i64 %7, ptr %57, align 8
   %58 = call fastcc i32 @_SPI_execute_plan(ptr noundef %0, ptr noundef %9, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %6)
   %59 = load ptr, ptr @_SPI_current, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 32
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 32
   %61 = load ptr, ptr %60, align 8
   store ptr %61, ptr @CurrentMemoryContext, align 8
-  %62 = getelementptr inbounds i8, ptr %59, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %59, i64 16
   store i32 0, ptr %62, align 8
-  %63 = getelementptr inbounds i8, ptr %59, i64 40
+  %63 = getelementptr inbounds nuw i8, ptr %59, i64 40
   %64 = load ptr, ptr %63, align 8
   tail call void @MemoryContextReset(ptr noundef %64) #15
   br label %_SPI_begin_call.exit
@@ -1969,26 +1969,26 @@ define dso_local range(i32 -8, 19) i32 @SPI_execute_with_args(ptr noundef %0, i3
 _SPI_begin_call.exit.thread:                      ; preds = %20
   %22 = tail call i32 @GetCurrentSubTransactionId() #15
   %23 = load ptr, ptr @_SPI_current, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   store i32 %22, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %23, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %23, i64 40
   %26 = load ptr, ptr %25, align 8
   store ptr %26, ptr @CurrentMemoryContext, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %10, i8 0, i64 40, i1 false)
   store i32 569278163, ptr %10, align 8
-  %27 = getelementptr inbounds i8, ptr %10, i64 28
+  %27 = getelementptr inbounds nuw i8, ptr %10, i64 28
   store i32 2048, ptr %27, align 4
-  %28 = getelementptr inbounds i8, ptr %10, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store i32 %1, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %10, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store ptr %2, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %10, i64 48
+  %30 = getelementptr inbounds nuw i8, ptr %10, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %30, i8 0, i64 16, i1 false)
   br i1 %.not, label %_SPI_convert_params.exit, label %31
 
 31:                                               ; preds = %_SPI_begin_call.exit.thread
   %32 = tail call ptr @makeParamList(i32 noundef %1) #15
-  %33 = getelementptr inbounds i8, ptr %32, i64 64
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 64
   %.not.i = icmp eq ptr %4, null
   %wide.trip.count27.i = zext nneg i32 %1 to i64
   br i1 %.not.i, label %.split.us.i, label %.split.i
@@ -1999,13 +1999,13 @@ _SPI_begin_call.exit.thread:                      ; preds = %20
   %35 = getelementptr i64, ptr %3, i64 %indvars.iv24.i
   %36 = load i64, ptr %35, align 8
   store i64 %36, ptr %34, align 8
-  %37 = getelementptr inbounds i8, ptr %34, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store i8 0, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %34, i64 10
+  %38 = getelementptr inbounds nuw i8, ptr %34, i64 10
   store i16 1, ptr %38, align 2
   %39 = getelementptr i32, ptr %2, i64 %indvars.iv24.i
   %40 = load i32, ptr %39, align 4
-  %41 = getelementptr inbounds i8, ptr %34, i64 12
+  %41 = getelementptr inbounds nuw i8, ptr %34, i64 12
   store i32 %40, ptr %41, align 4
   %indvars.iv.next25.i = add nuw nsw i64 %indvars.iv24.i, 1
   %exitcond28.not.i = icmp eq i64 %indvars.iv.next25.i, %wide.trip.count27.i
@@ -2021,13 +2021,13 @@ _SPI_begin_call.exit.thread:                      ; preds = %20
   %46 = load i8, ptr %45, align 1
   %47 = icmp eq i8 %46, 110
   %48 = zext i1 %47 to i8
-  %49 = getelementptr inbounds i8, ptr %42, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %42, i64 8
   store i8 %48, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %42, i64 10
+  %50 = getelementptr inbounds nuw i8, ptr %42, i64 10
   store i16 1, ptr %50, align 2
   %51 = getelementptr i32, ptr %2, i64 %indvars.iv.i
   %52 = load i32, ptr %51, align 4
-  %53 = getelementptr inbounds i8, ptr %42, i64 12
+  %53 = getelementptr inbounds nuw i8, ptr %42, i64 12
   store i32 %52, ptr %53, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count27.i
@@ -2038,22 +2038,22 @@ _SPI_convert_params.exit:                         ; preds = %.split.i, %.split.u
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
   store ptr %0, ptr %8, align 8
-  %54 = getelementptr inbounds i8, ptr %8, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 0, ptr %54, align 8
-  %55 = getelementptr inbounds i8, ptr %9, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr @_SPI_error_callback, ptr %55, align 8
-  %56 = getelementptr inbounds i8, ptr %9, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %8, ptr %56, align 8
   %57 = load ptr, ptr @error_context_stack, align 8
   store ptr %57, ptr %9, align 8
   store ptr %9, ptr @error_context_stack, align 8
   %58 = call ptr @raw_parser(ptr noundef nonnull %0, i32 noundef 0) #15
-  %59 = getelementptr inbounds i8, ptr %58, i64 4
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 4
   %.not.i29 = icmp eq ptr %58, null
   br i1 %.not.i29, label %_SPI_prepare_oneshot_plan.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_SPI_convert_params.exit
-  %60 = getelementptr inbounds i8, ptr %58, i64 16
+  %60 = getelementptr inbounds nuw i8, ptr %58, i64 16
   %61 = load i32, ptr %59, align 4
   %62 = icmp sgt i32 %61, 0
   br i1 %62, label %.lr.ph30.i, label %_SPI_prepare_oneshot_plan.exit
@@ -2064,7 +2064,7 @@ _SPI_convert_params.exit:                         ; preds = %.split.i, %.split.u
   %63 = load ptr, ptr %60, align 8
   %64 = getelementptr %union.ListCell, ptr %63, i64 %indvars.iv.i30
   %65 = load ptr, ptr %64, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %67 = load ptr, ptr %66, align 8
   %68 = call i32 @CreateCommandTag(ptr noundef %67) #15
   %69 = call ptr @CreateOneShotCachedPlan(ptr noundef %65, ptr noundef nonnull %0, i32 noundef %68) #15
@@ -2077,29 +2077,29 @@ _SPI_convert_params.exit:                         ; preds = %.split.i, %.split.u
 
 _SPI_prepare_oneshot_plan.exit:                   ; preds = %.lr.ph30.i, %_SPI_convert_params.exit, %.lr.ph.i
   %.0.lcssa.i = phi ptr [ null, %_SPI_convert_params.exit ], [ null, %.lr.ph.i ], [ %70, %.lr.ph30.i ]
-  %74 = getelementptr inbounds i8, ptr %10, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %.0.lcssa.i, ptr %74, align 8
-  %75 = getelementptr inbounds i8, ptr %10, i64 5
+  %75 = getelementptr inbounds nuw i8, ptr %10, i64 5
   store i8 1, ptr %75, align 1
   %76 = load ptr, ptr %9, align 8
   store ptr %76, ptr @error_context_stack, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
-  %77 = getelementptr inbounds i8, ptr %11, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %11, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %77, i8 0, i64 32, i1 false)
   store ptr %.0.i28, ptr %11, align 8
-  %78 = getelementptr inbounds i8, ptr %11, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i8 %12, ptr %78, align 8
-  %79 = getelementptr inbounds i8, ptr %11, i64 16
+  %79 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i64 %6, ptr %79, align 8
   %80 = call fastcc i32 @_SPI_execute_plan(ptr noundef %10, ptr noundef %11, ptr noundef null, ptr noundef null, i1 noundef zeroext true)
   %81 = load ptr, ptr @_SPI_current, align 8
-  %82 = getelementptr inbounds i8, ptr %81, i64 32
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 32
   %83 = load ptr, ptr %82, align 8
   store ptr %83, ptr @CurrentMemoryContext, align 8
-  %84 = getelementptr inbounds i8, ptr %81, i64 16
+  %84 = getelementptr inbounds nuw i8, ptr %81, i64 16
   store i32 0, ptr %84, align 8
-  %85 = getelementptr inbounds i8, ptr %81, i64 40
+  %85 = getelementptr inbounds nuw i8, ptr %81, i64 40
   %86 = load ptr, ptr %85, align 8
   call void @MemoryContextReset(ptr noundef %86) #15
   br label %_SPI_begin_call.exit
@@ -2136,29 +2136,29 @@ define dso_local noundef ptr @SPI_prepare(ptr noundef %0, i32 noundef %1, ptr no
 _SPI_begin_call.exit.thread.i:                    ; preds = %11
   %13 = tail call i32 @GetCurrentSubTransactionId() #15
   %14 = load ptr, ptr @_SPI_current, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store i32 %13, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %14, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 40
   %17 = load ptr, ptr %16, align 8
   store ptr %17, ptr @CurrentMemoryContext, align 8
   store i32 0, ptr @SPI_result, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, i8 0, i64 40, i1 false)
   store i32 569278163, ptr %4, align 8
-  %18 = getelementptr inbounds i8, ptr %4, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i32 %1, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %4, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store ptr %2, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %4, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, i8 0, i64 16, i1 false)
   call fastcc void @_SPI_prepare_plan(ptr noundef %0, ptr noundef %4)
   %21 = call fastcc ptr @_SPI_make_plan_non_temp(ptr noundef %4)
   %22 = load ptr, ptr @_SPI_current, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %24 = load ptr, ptr %23, align 8
   store ptr %24, ptr @CurrentMemoryContext, align 8
-  %25 = getelementptr inbounds i8, ptr %22, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %22, i64 16
   store i32 0, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %22, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %22, i64 40
   %27 = load ptr, ptr %26, align 8
   tail call void @MemoryContextReset(ptr noundef %27) #15
   br label %SPI_prepare_cursor.exit
@@ -2199,31 +2199,31 @@ define dso_local noundef ptr @SPI_prepare_cursor(ptr noundef %0, i32 noundef %1,
 _SPI_begin_call.exit.thread:                      ; preds = %12
   %14 = tail call i32 @GetCurrentSubTransactionId() #15
   %15 = load ptr, ptr @_SPI_current, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store i32 %14, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %15, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 40
   %18 = load ptr, ptr %17, align 8
   store ptr %18, ptr @CurrentMemoryContext, align 8
   store i32 0, ptr @SPI_result, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, i8 0, i64 40, i1 false)
   store i32 569278163, ptr %5, align 8
-  %19 = getelementptr inbounds i8, ptr %5, i64 28
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 28
   store i32 %3, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %5, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i32 %1, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %5, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store ptr %2, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %5, i64 48
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %22, i8 0, i64 16, i1 false)
   call fastcc void @_SPI_prepare_plan(ptr noundef %0, ptr noundef %5)
   %23 = call fastcc ptr @_SPI_make_plan_non_temp(ptr noundef %5)
   %24 = load ptr, ptr @_SPI_current, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %26 = load ptr, ptr %25, align 8
   store ptr %26, ptr @CurrentMemoryContext, align 8
-  %27 = getelementptr inbounds i8, ptr %24, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 16
   store i32 0, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %24, i64 40
+  %28 = getelementptr inbounds nuw i8, ptr %24, i64 40
   %29 = load ptr, ptr %28, align 8
   tail call void @MemoryContextReset(ptr noundef %29) #15
   br label %30
@@ -2242,29 +2242,29 @@ define internal fastcc void @_SPI_prepare_plan(ptr noundef nonnull %0, ptr nocap
   %3 = alloca %struct.SPICallbackArg, align 8
   %4 = alloca %struct.ErrorContextCallback, align 8
   store ptr %0, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load i32, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %6, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @_SPI_error_callback, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %3, ptr %9, align 8
   %10 = load ptr, ptr @error_context_stack, align 8
   store ptr %10, ptr %4, align 8
   store ptr %4, ptr @error_context_stack, align 8
   %11 = call ptr @raw_parser(ptr noundef nonnull %0, i32 noundef %6) #15
-  %12 = getelementptr inbounds i8, ptr %11, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %11, i64 16
-  %14 = getelementptr inbounds i8, ptr %1, i64 48
-  %15 = getelementptr inbounds i8, ptr %1, i64 56
-  %16 = getelementptr inbounds i8, ptr %1, i64 40
-  %17 = getelementptr inbounds i8, ptr %1, i64 32
-  %18 = getelementptr inbounds i8, ptr %1, i64 28
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %19 = load i32, ptr %12, align 4
   %20 = icmp sgt i32 %19, 0
   br i1 %20, label %.lr.ph49, label %._crit_edge
@@ -2275,7 +2275,7 @@ define internal fastcc void @_SPI_prepare_plan(ptr noundef nonnull %0, ptr nocap
   %21 = load ptr, ptr %13, align 8
   %22 = getelementptr %union.ListCell, ptr %21, i64 %indvars.iv47
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load ptr, ptr %24, align 8
   %26 = call i32 @CreateCommandTag(ptr noundef %25) #15
   %27 = call ptr @CreateCachedPlan(ptr noundef %23, ptr noundef nonnull %0, i32 noundef %26) #15
@@ -2286,7 +2286,7 @@ define internal fastcc void @_SPI_prepare_plan(ptr noundef nonnull %0, ptr nocap
 29:                                               ; preds = %.lr.ph49
   %30 = load ptr, ptr %15, align 8
   %31 = load ptr, ptr @_SPI_current, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 64
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 64
   %33 = load ptr, ptr %32, align 8
   %34 = call ptr @pg_analyze_and_rewrite_withcb(ptr noundef nonnull %23, ptr noundef nonnull %0, ptr noundef nonnull %28, ptr noundef %30, ptr noundef %33) #15
   br label %42
@@ -2295,7 +2295,7 @@ define internal fastcc void @_SPI_prepare_plan(ptr noundef nonnull %0, ptr nocap
   %36 = load ptr, ptr %16, align 8
   %37 = load i32, ptr %17, align 8
   %38 = load ptr, ptr @_SPI_current, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 64
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 64
   %40 = load ptr, ptr %39, align 8
   %41 = call ptr @pg_analyze_and_rewrite_fixedparams(ptr noundef nonnull %23, ptr noundef nonnull %0, ptr noundef %36, i32 noundef %37, ptr noundef %40) #15
   br label %42
@@ -2317,9 +2317,9 @@ define internal fastcc void @_SPI_prepare_plan(ptr noundef nonnull %0, ptr nocap
 
 ._crit_edge:                                      ; preds = %42, %.lr.ph, %2
   %.0.lcssa = phi ptr [ null, %2 ], [ null, %.lr.ph ], [ %48, %42 ]
-  %52 = getelementptr inbounds i8, ptr %1, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %.0.lcssa, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %1, i64 5
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 5
   store i8 0, ptr %53, align 1
   %54 = load ptr, ptr %4, align 8
   store ptr %54, ptr @error_context_stack, align 8
@@ -2329,26 +2329,26 @@ define internal fastcc void @_SPI_prepare_plan(ptr noundef nonnull %0, ptr nocap
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef ptr @_SPI_make_plan_non_temp(ptr nocapture noundef nonnull %0) unnamed_addr #0 {
   %2 = load ptr, ptr @_SPI_current, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %4, ptr noundef nonnull @.str.71, i64 noundef 0, i64 noundef 1024, i64 noundef 8192) #15
   %6 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %5, ptr @CurrentMemoryContext, align 8
   %7 = tail call ptr @palloc0(i64 noundef 64) #15
   store i32 569278163, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %5, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load i32, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %7, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i32 %10, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 28
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %13 = load i32, ptr %12, align 4
-  %14 = getelementptr inbounds i8, ptr %7, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 28
   store i32 %13, ptr %14, align 4
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %16 = load i32, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %7, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store i32 %16, ptr %17, align 8
   %18 = icmp sgt i32 %16, 0
   br i1 %18, label %19, label %29
@@ -2357,9 +2357,9 @@ define internal fastcc noundef ptr @_SPI_make_plan_non_temp(ptr nocapture nounde
   %20 = zext nneg i32 %16 to i64
   %21 = shl nuw nsw i64 %20, 2
   %22 = tail call ptr @palloc(i64 noundef %21) #15
-  %23 = getelementptr inbounds i8, ptr %7, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store ptr %22, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %25 = load ptr, ptr %24, align 8
   %26 = load i32, ptr %15, align 8
   %27 = sext i32 %26 to i64
@@ -2368,28 +2368,28 @@ define internal fastcc noundef ptr @_SPI_make_plan_non_temp(ptr nocapture nounde
   br label %31
 
 29:                                               ; preds = %1
-  %30 = getelementptr inbounds i8, ptr %7, i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store ptr null, ptr %30, align 8
   br label %31
 
 31:                                               ; preds = %29, %19
-  %32 = getelementptr inbounds i8, ptr %0, i64 48
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %7, i64 48
+  %34 = getelementptr inbounds nuw i8, ptr %7, i64 48
   store ptr %33, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 56
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %7, i64 56
+  %37 = getelementptr inbounds nuw i8, ptr %7, i64 56
   store ptr %36, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 4
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 4
   %.not = icmp eq ptr %39, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %31
-  %41 = getelementptr inbounds i8, ptr %39, i64 16
-  %42 = getelementptr inbounds i8, ptr %7, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %39, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %43 = load i32, ptr %40, align 4
   %44 = icmp sgt i32 %43, 0
   br i1 %44, label %.lr.ph44, label %._crit_edge
@@ -2435,40 +2435,40 @@ define dso_local noundef ptr @SPI_prepare_extended(ptr noundef %0, ptr noundef r
 _SPI_begin_call.exit.thread:                      ; preds = %7
   %9 = tail call i32 @GetCurrentSubTransactionId() #15
   %10 = load ptr, ptr @_SPI_current, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i32 %9, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %10, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %13 = load ptr, ptr %12, align 8
   store ptr %13, ptr @CurrentMemoryContext, align 8
   store i32 0, ptr @SPI_result, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, i8 0, i64 40, i1 false)
   store i32 569278163, ptr %3, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %15 = load i32, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %3, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i32 %15, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 20
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %18 = load i32, ptr %17, align 4
-  %19 = getelementptr inbounds i8, ptr %3, i64 28
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 28
   store i32 %18, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %3, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store ptr null, ptr %20, align 8
   %21 = load ptr, ptr %1, align 8
-  %22 = getelementptr inbounds i8, ptr %3, i64 48
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store ptr %21, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %3, i64 56
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store ptr %24, ptr %25, align 8
   call fastcc void @_SPI_prepare_plan(ptr noundef %0, ptr noundef %3)
   %26 = call fastcc ptr @_SPI_make_plan_non_temp(ptr noundef %3)
   %27 = load ptr, ptr @_SPI_current, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 32
   %29 = load ptr, ptr %28, align 8
   store ptr %29, ptr @CurrentMemoryContext, align 8
-  %30 = getelementptr inbounds i8, ptr %27, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 16
   store i32 0, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %27, i64 40
+  %31 = getelementptr inbounds nuw i8, ptr %27, i64 40
   %32 = load ptr, ptr %31, align 8
   tail call void @MemoryContextReset(ptr noundef %32) #15
   br label %33
@@ -2500,31 +2500,31 @@ define dso_local noundef ptr @SPI_prepare_params(ptr noundef %0, ptr noundef %1,
 _SPI_begin_call.exit.thread:                      ; preds = %8
   %10 = tail call i32 @GetCurrentSubTransactionId() #15
   %11 = load ptr, ptr @_SPI_current, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i32 %10, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %11, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %14 = load ptr, ptr %13, align 8
   store ptr %14, ptr @CurrentMemoryContext, align 8
   store i32 0, ptr @SPI_result, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, i8 0, i64 40, i1 false)
   store i32 569278163, ptr %5, align 8
-  %15 = getelementptr inbounds i8, ptr %5, i64 28
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 28
   store i32 %3, ptr %15, align 4
-  %16 = getelementptr inbounds i8, ptr %5, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store ptr null, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %5, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store ptr %1, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %5, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store ptr %2, ptr %18, align 8
   call fastcc void @_SPI_prepare_plan(ptr noundef %0, ptr noundef %5)
   %19 = call fastcc ptr @_SPI_make_plan_non_temp(ptr noundef %5)
   %20 = load ptr, ptr @_SPI_current, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 32
   %22 = load ptr, ptr %21, align 8
   store ptr %22, ptr @CurrentMemoryContext, align 8
-  %23 = getelementptr inbounds i8, ptr %20, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 16
   store i32 0, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %20, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %20, i64 40
   %25 = load ptr, ptr %24, align 8
   tail call void @MemoryContextReset(ptr noundef %25) #15
   br label %26
@@ -2549,31 +2549,31 @@ define dso_local range(i32 -6, 1) i32 @SPI_keepplan(ptr noundef %0) local_unname
   br i1 %.not, label %5, label %.thread
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = load i8, ptr %6, align 4
   %8 = trunc i8 %7 to i1
   br i1 %8, label %.thread, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %0, i64 5
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 5
   %11 = load i8, ptr %10, align 1
   %12 = trunc i8 %11 to i1
   br i1 %12, label %.thread, label %13
 
 13:                                               ; preds = %9
   store i8 1, ptr %6, align 4
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = load ptr, ptr @CacheMemoryContext, align 8
   tail call void @MemoryContextSetParent(ptr noundef %15, ptr noundef %16) #15
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %.not16 = icmp eq ptr %18, null
   br i1 %.not16, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %13
-  %20 = getelementptr inbounds i8, ptr %18, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %21 = load i32, ptr %19, align 4
   %22 = icmp sgt i32 %21, 0
   br i1 %22, label %.lr.ph23, label %.thread
@@ -2623,19 +2623,19 @@ define dso_local noundef ptr @SPI_saveplan(ptr noundef readonly %0) local_unname
   store ptr %9, ptr @CurrentMemoryContext, align 8
   %11 = tail call ptr @palloc0(i64 noundef 64) #15
   store i32 569278163, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr %9, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load i32, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %11, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store i32 %14, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 28
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %17 = load i32, ptr %16, align 4
-  %18 = getelementptr inbounds i8, ptr %11, i64 28
+  %18 = getelementptr inbounds nuw i8, ptr %11, i64 28
   store i32 %17, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %0, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %20 = load i32, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %11, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %11, i64 32
   store i32 %20, ptr %21, align 8
   %22 = icmp sgt i32 %20, 0
   br i1 %22, label %23, label %33
@@ -2644,9 +2644,9 @@ define dso_local noundef ptr @SPI_saveplan(ptr noundef readonly %0) local_unname
   %24 = zext nneg i32 %20 to i64
   %25 = shl nuw nsw i64 %24, 2
   %26 = tail call ptr @palloc(i64 noundef %25) #15
-  %27 = getelementptr inbounds i8, ptr %11, i64 40
+  %27 = getelementptr inbounds nuw i8, ptr %11, i64 40
   store ptr %26, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 40
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %29 = load ptr, ptr %28, align 8
   %30 = load i32, ptr %19, align 8
   %31 = sext i32 %30 to i64
@@ -2655,28 +2655,28 @@ define dso_local noundef ptr @SPI_saveplan(ptr noundef readonly %0) local_unname
   br label %35
 
 33:                                               ; preds = %7
-  %34 = getelementptr inbounds i8, ptr %11, i64 40
+  %34 = getelementptr inbounds nuw i8, ptr %11, i64 40
   store ptr null, ptr %34, align 8
   br label %35
 
 35:                                               ; preds = %33, %23
-  %36 = getelementptr inbounds i8, ptr %0, i64 48
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %11, i64 48
+  %38 = getelementptr inbounds nuw i8, ptr %11, i64 48
   store ptr %37, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 56
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %11, i64 56
+  %41 = getelementptr inbounds nuw i8, ptr %11, i64 56
   store ptr %40, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %0, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 4
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 4
   %.not.i = icmp eq ptr %43, null
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %35
-  %45 = getelementptr inbounds i8, ptr %43, i64 16
-  %46 = getelementptr inbounds i8, ptr %11, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %43, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %47 = load i32, ptr %44, align 4
   %48 = icmp sgt i32 %47, 0
   br i1 %48, label %.lr.ph59.i, label %._crit_edge.i
@@ -2698,19 +2698,19 @@ define dso_local noundef ptr @SPI_saveplan(ptr noundef readonly %0) local_unname
 
 ._crit_edge.i:                                    ; preds = %.lr.ph59.i, %.lr.ph.i, %35
   store ptr %10, ptr @CurrentMemoryContext, align 8
-  %58 = getelementptr inbounds i8, ptr %11, i64 4
+  %58 = getelementptr inbounds nuw i8, ptr %11, i64 4
   store i8 1, ptr %58, align 4
   %59 = load ptr, ptr %12, align 8
   %60 = load ptr, ptr @CacheMemoryContext, align 8
   tail call void @MemoryContextSetParent(ptr noundef %59, ptr noundef %60) #15
-  %61 = getelementptr inbounds i8, ptr %11, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 4
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 4
   %.not48.i = icmp eq ptr %62, null
   br i1 %.not48.i, label %.sink.split, label %.lr.ph62.i
 
 .lr.ph62.i:                                       ; preds = %._crit_edge.i
-  %64 = getelementptr inbounds i8, ptr %62, i64 16
+  %64 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %65 = load i32, ptr %63, align 4
   %66 = icmp sgt i32 %65, 0
   br i1 %66, label %.lr.ph66.i, label %.sink.split
@@ -2749,14 +2749,14 @@ define dso_local range(i32 -6, 1) i32 @SPI_freeplan(ptr noundef readonly %0) loc
   br i1 %.not, label %5, label %20
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %.not13 = icmp eq ptr %7, null
   br i1 %.not13, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %7, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %10 = load i32, ptr %8, align 4
   %11 = icmp sgt i32 %10, 0
   br i1 %11, label %.lr.ph20, label %._crit_edge
@@ -2774,7 +2774,7 @@ define dso_local range(i32 -6, 1) i32 @SPI_freeplan(ptr noundef readonly %0) loc
   br i1 %17, label %.lr.ph20, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph20, %.lr.ph, %5
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load ptr, ptr %18, align 8
   tail call void @MemoryContextDelete(ptr noundef %19) #15
   br label %20
@@ -2805,7 +2805,7 @@ define dso_local ptr @SPI_copytuple(ptr noundef %0) local_unnamed_addr #0 {
   br label %13
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %5, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %10, ptr @CurrentMemoryContext, align 8
@@ -2841,13 +2841,13 @@ define dso_local ptr @SPI_returntuple(ptr noundef %0, ptr noundef %1) local_unna
   br label %27
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %1, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %12 = load i32, ptr %11, align 4
   %13 = icmp eq i32 %12, 2249
   br i1 %13, label %14, label %19
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load i32, ptr %15, align 8
   %17 = icmp slt i32 %16, 0
   br i1 %17, label %18, label %19
@@ -2859,7 +2859,7 @@ define dso_local ptr @SPI_returntuple(ptr noundef %0, ptr noundef %1) local_unna
 
 19:                                               ; preds = %18, %14, %10
   %20 = phi ptr [ %.pre, %18 ], [ %7, %14 ], [ %7, %10 ]
-  %21 = getelementptr inbounds i8, ptr %20, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 48
   %22 = load ptr, ptr %21, align 8
   %23 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %22, ptr @CurrentMemoryContext, align 8
@@ -2907,12 +2907,12 @@ define dso_local ptr @SPI_modifytuple(ptr noundef readonly %0, ptr noundef %1, i
   br label %75
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %14, i64 48
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 48
   %19 = load ptr, ptr %18, align 8
   %20 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %19, ptr @CurrentMemoryContext, align 8
   store i32 0, ptr @SPI_result, align 4
-  %21 = getelementptr inbounds i8, ptr %0, i64 64
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %22 = load ptr, ptr %21, align 8
   %23 = load i32, ptr %22, align 8
   %24 = sext i32 %23 to i64
@@ -2998,19 +2998,19 @@ define dso_local ptr @SPI_modifytuple(ptr noundef readonly %0, ptr noundef %1, i
 ._crit_edge.thread:                               ; preds = %45, %33, %._crit_edge
   %60 = load ptr, ptr %21, align 8
   %61 = tail call ptr @heap_form_tuple(ptr noundef %60, ptr noundef %26, ptr noundef %27) #15
-  %62 = getelementptr inbounds i8, ptr %61, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 16
   %63 = load ptr, ptr %62, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 12
-  %65 = getelementptr inbounds i8, ptr %1, i64 16
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 12
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 12
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 12
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %64, ptr noundef nonnull align 4 dereferenceable(6) %67, i64 6, i1 false)
-  %68 = getelementptr inbounds i8, ptr %61, i64 4
-  %69 = getelementptr inbounds i8, ptr %1, i64 4
+  %68 = getelementptr inbounds nuw i8, ptr %61, i64 4
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %68, ptr noundef nonnull align 4 dereferenceable(6) %69, i64 6, i1 false)
-  %70 = getelementptr inbounds i8, ptr %1, i64 12
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %71 = load i32, ptr %70, align 4
-  %72 = getelementptr inbounds i8, ptr %61, i64 12
+  %72 = getelementptr inbounds nuw i8, ptr %61, i64 12
   store i32 %71, ptr %72, align 4
   br label %74
 
@@ -3048,19 +3048,19 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @SPI_fnumber(ptr nounde
   br i1 %4, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %6
 
 6:                                                ; preds = %.lr.ph, %18
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %18 ]
   %7 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %5, i64 0, i64 %indvars.iv
-  %8 = getelementptr inbounds i8, ptr %7, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %9 = tail call i32 @namestrcmp(ptr noundef nonnull %8, ptr noundef %1) #15
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %11, label %18
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %7, i64 95
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 95
   %13 = load i8, ptr %12, align 1
   %14 = trunc i8 %13 to i1
   br i1 %14, label %18, label %15
@@ -3083,7 +3083,7 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @SPI_fnumber(ptr nounde
   br i1 %.not, label %27, label %23
 
 23:                                               ; preds = %._crit_edge
-  %24 = getelementptr inbounds i8, ptr %22, i64 74
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 74
   %25 = load i16, ptr %24, align 2
   %26 = sext i16 %25 to i32
   br label %27
@@ -3117,7 +3117,7 @@ define dso_local ptr @SPI_fname(ptr noundef %0, i32 noundef %1) local_unnamed_ad
   br i1 %9, label %10, label %15
 
 10:                                               ; preds = %8
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = add nsw i32 %1, -1
   %13 = zext nneg i32 %12 to i64
   %14 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %11, i64 0, i64 %13
@@ -3130,7 +3130,7 @@ define dso_local ptr @SPI_fname(ptr noundef %0, i32 noundef %1) local_unnamed_ad
 
 18:                                               ; preds = %15, %10
   %.0 = phi ptr [ %14, %10 ], [ %17, %15 ]
-  %19 = getelementptr inbounds i8, ptr %.0, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %.0, i64 4
   %20 = tail call ptr @pstrdup(ptr noundef nonnull %19) #15
   br label %21
 
@@ -3182,7 +3182,7 @@ define dso_local ptr @SPI_getvalue(ptr noundef %0, ptr noundef %1, i32 noundef %
 23:                                               ; preds = %16
   %24 = trunc i32 %2 to i16
   %25 = call ptr @SystemAttributeDefinition(i16 noundef signext %24) #15
-  %26 = getelementptr inbounds i8, ptr %25, i64 68
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 68
   br label %27
 
 27:                                               ; preds = %23, %18
@@ -3204,9 +3204,9 @@ define internal fastcc i64 @heap_getattr(ptr noundef %0, i32 noundef range(i32 1
   br i1 %5, label %6, label %75
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 18
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 18
   %10 = load i16, ptr %9, align 2
   %11 = and i16 %10, 2047
   %12 = zext nneg i16 %11 to i32
@@ -3220,33 +3220,33 @@ define internal fastcc i64 @heap_getattr(ptr noundef %0, i32 noundef range(i32 1
 16:                                               ; preds = %6
   store i8 0, ptr %3, align 1
   %17 = load ptr, ptr %7, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 20
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 20
   %19 = load i16, ptr %18, align 4
   %20 = and i16 %19, 1
   %.not.i = icmp eq i16 %20, 0
   br i1 %.not.i, label %21, label %61
 
 21:                                               ; preds = %16
-  %22 = getelementptr inbounds i8, ptr %2, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %23 = add nsw i32 %1, -1
   %24 = zext nneg i32 %23 to i64
   %25 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %22, i64 0, i64 %24
-  %26 = getelementptr inbounds i8, ptr %25, i64 76
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 76
   %27 = load i32, ptr %26, align 4
   %28 = icmp sgt i32 %27, -1
   br i1 %28, label %29, label %59
 
 29:                                               ; preds = %21
-  %30 = getelementptr inbounds i8, ptr %17, i64 22
+  %30 = getelementptr inbounds nuw i8, ptr %17, i64 22
   %31 = load i8, ptr %30, align 2
   %32 = zext i8 %31 to i64
   %33 = getelementptr i8, ptr %17, i64 %32
   %34 = zext nneg i32 %27 to i64
   %35 = getelementptr i8, ptr %33, i64 %34
-  %36 = getelementptr inbounds i8, ptr %25, i64 86
+  %36 = getelementptr inbounds nuw i8, ptr %25, i64 86
   %37 = load i8, ptr %36, align 2
   %38 = trunc i8 %37 to i1
-  %39 = getelementptr inbounds i8, ptr %25, i64 72
+  %39 = getelementptr inbounds nuw i8, ptr %25, i64 72
   %40 = load i16, ptr %39, align 4
   br i1 %38, label %41, label %57
 
@@ -3295,7 +3295,7 @@ define internal fastcc i64 @heap_getattr(ptr noundef %0, i32 noundef range(i32 1
 
 61:                                               ; preds = %16
   %62 = add nsw i32 %1, -1
-  %63 = getelementptr inbounds i8, ptr %17, i64 23
+  %63 = getelementptr inbounds nuw i8, ptr %17, i64 23
   %64 = lshr i32 %62, 3
   %65 = zext nneg i32 %64 to i64
   %66 = getelementptr i8, ptr %63, i64 %65
@@ -3383,7 +3383,7 @@ define dso_local ptr @SPI_gettype(ptr nocapture noundef readonly %0, i32 noundef
 15:                                               ; preds = %8
   %16 = trunc i32 %1 to i16
   %17 = tail call ptr @SystemAttributeDefinition(i16 noundef signext %16) #15
-  %18 = getelementptr inbounds i8, ptr %17, i64 68
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 68
   br label %19
 
 19:                                               ; preds = %15, %10
@@ -3399,13 +3399,13 @@ define dso_local ptr @SPI_gettype(ptr nocapture noundef readonly %0, i32 noundef
   br label %32
 
 23:                                               ; preds = %19
-  %24 = getelementptr inbounds i8, ptr %21, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 22
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 22
   %27 = load i8, ptr %26, align 2
   %28 = zext i8 %27 to i64
   %29 = getelementptr i8, ptr %25, i64 %28
-  %30 = getelementptr inbounds i8, ptr %29, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 4
   %31 = tail call ptr @pstrdup(ptr noundef nonnull %30) #15
   tail call void @ReleaseSysCache(ptr noundef nonnull %21) #15
   br label %32
@@ -3450,7 +3450,7 @@ define dso_local i32 @SPI_gettypeid(ptr nocapture noundef readonly %0, i32 nound
 16:                                               ; preds = %8
   %17 = trunc i32 %1 to i16
   %18 = tail call ptr @SystemAttributeDefinition(i16 noundef signext %17) #15
-  %19 = getelementptr inbounds i8, ptr %18, i64 68
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 68
   %20 = load i32, ptr %19, align 4
   br label %21
 
@@ -3461,18 +3461,18 @@ define dso_local i32 @SPI_gettypeid(ptr nocapture noundef readonly %0, i32 nound
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @SPI_getrelname(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %5 = tail call ptr @pstrdup(ptr noundef nonnull %4) #15
   ret ptr %5
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @SPI_getnspname(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 68
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 68
   %5 = load i32, ptr %4, align 4
   %6 = tail call ptr @get_namespace_name(i32 noundef %5) #15
   ret ptr %6
@@ -3494,7 +3494,7 @@ define dso_local ptr @SPI_palloc(i64 noundef %0) local_unnamed_addr #0 {
   unreachable
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %2, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %9 = load ptr, ptr %8, align 8
   %10 = tail call ptr @MemoryContextAlloc(ptr noundef %9, i64 noundef %0) #15
   ret ptr %10
@@ -3526,7 +3526,7 @@ define dso_local i64 @SPI_datumTransfer(i64 noundef %0, i1 noundef zeroext %1, i
   unreachable
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %4, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %11, ptr @CurrentMemoryContext, align 8
@@ -3556,7 +3556,7 @@ define dso_local void @SPI_freetuptable(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %.loopexit, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %4, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %7 = load ptr, ptr %6, align 8
   %.not12 = icmp eq ptr %7, null
   br i1 %.not12, label %.loopexit, label %.lr.ph.preheader
@@ -3578,7 +3578,7 @@ define dso_local void @SPI_freetuptable(ptr noundef %0) local_unnamed_addr #0 {
   %.lcssa = phi ptr [ %8, %.lr.ph.preheader ], [ %11, %.lr.ph ]
   store ptr %.lcssa, ptr %.sroa.7.020.lcssa, align 8
   %14 = load ptr, ptr @_SPI_current, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %0, %16
   br i1 %17, label %22, label %23
@@ -3612,7 +3612,7 @@ define dso_local void @SPI_freetuptable(ptr noundef %0) local_unnamed_addr #0 {
   br label %27
 
 27:                                               ; preds = %26, %23
-  %28 = getelementptr inbounds i8, ptr %0, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %29 = load ptr, ptr %28, align 8
   tail call void @MemoryContextDelete(ptr noundef %29) #15
   br label %30
@@ -3623,16 +3623,16 @@ define dso_local void @SPI_freetuptable(ptr noundef %0) local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @SPI_cursor_open(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef readonly %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %7 = load i32, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %9 = load ptr, ptr %8, align 8
   %10 = icmp sgt i32 %7, 0
   br i1 %10, label %11, label %_SPI_convert_params.exit
 
 11:                                               ; preds = %5
   %12 = tail call ptr @makeParamList(i32 noundef %7) #15
-  %13 = getelementptr inbounds i8, ptr %12, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 64
   %.not.i = icmp eq ptr %3, null
   %wide.trip.count27.i = zext nneg i32 %7 to i64
   br i1 %.not.i, label %.split.us.i, label %.split.i
@@ -3643,13 +3643,13 @@ define dso_local ptr @SPI_cursor_open(ptr noundef %0, ptr noundef %1, ptr nocapt
   %15 = getelementptr i64, ptr %2, i64 %indvars.iv24.i
   %16 = load i64, ptr %15, align 8
   store i64 %16, ptr %14, align 8
-  %17 = getelementptr inbounds i8, ptr %14, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i8 0, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %14, i64 10
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 10
   store i16 1, ptr %18, align 2
   %19 = getelementptr i32, ptr %9, i64 %indvars.iv24.i
   %20 = load i32, ptr %19, align 4
-  %21 = getelementptr inbounds i8, ptr %14, i64 12
+  %21 = getelementptr inbounds nuw i8, ptr %14, i64 12
   store i32 %20, ptr %21, align 4
   %indvars.iv.next25.i = add nuw nsw i64 %indvars.iv24.i, 1
   %exitcond28.not.i = icmp eq i64 %indvars.iv.next25.i, %wide.trip.count27.i
@@ -3665,13 +3665,13 @@ define dso_local ptr @SPI_cursor_open(ptr noundef %0, ptr noundef %1, ptr nocapt
   %26 = load i8, ptr %25, align 1
   %27 = icmp eq i8 %26, 110
   %28 = zext i1 %27 to i8
-  %29 = getelementptr inbounds i8, ptr %22, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store i8 %28, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %22, i64 10
+  %30 = getelementptr inbounds nuw i8, ptr %22, i64 10
   store i16 1, ptr %30, align 2
   %31 = getelementptr i32, ptr %9, i64 %indvars.iv.i
   %32 = load i32, ptr %31, align 4
-  %33 = getelementptr inbounds i8, ptr %22, i64 12
+  %33 = getelementptr inbounds nuw i8, ptr %22, i64 12
   store i32 %32, ptr %33, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count27.i
@@ -3705,18 +3705,18 @@ define internal fastcc ptr @SPI_cursor_open_internal(ptr noundef %0, ptr noundef
 
 10:                                               ; preds = %8, %4
   store i32 -6, ptr @SPI_result, align 4
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre98 = load ptr, ptr %.phi.trans.insert, align 8
   br label %SPI_is_cursor_plan.exit.thread
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8
   %.not.i.i = icmp eq ptr %13, null
   br i1 %.not.i.i, label %list_length.exit.thread.i, label %list_length.exit.i
 
 list_length.exit.i:                               ; preds = %11
-  %14 = getelementptr inbounds i8, ptr %13, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %15 = load i32, ptr %14, align 4
   %.not7.i = icmp eq i32 %15, 1
   br i1 %.not7.i, label %SPI_is_cursor_plan.exit, label %list_length.exit.thread.i
@@ -3730,7 +3730,7 @@ SPI_is_cursor_plan.exit:                          ; preds = %list_length.exit.i
   %.val.i = load ptr, ptr %16, align 8
   %17 = load ptr, ptr %.val.i, align 8
   store i32 0, ptr @SPI_result, align 4
-  %18 = getelementptr inbounds i8, ptr %17, i64 72
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 72
   %19 = load ptr, ptr %18, align 8
   %.not8.i.not = icmp eq ptr %19, null
   br i1 %.not8.i.not, label %list_length.exit, label %39
@@ -3742,7 +3742,7 @@ SPI_is_cursor_plan.exit.thread:                   ; preds = %list_length.exit.th
 
 list_length.exit:                                 ; preds = %SPI_is_cursor_plan.exit, %SPI_is_cursor_plan.exit.thread
   %21 = phi ptr [ %20, %SPI_is_cursor_plan.exit.thread ], [ %13, %SPI_is_cursor_plan.exit ]
-  %22 = getelementptr inbounds i8, ptr %21, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
   %23 = load i32, ptr %22, align 4
   %.not = icmp eq i32 %23, 1
   br i1 %.not, label %27, label %list_length.exit.thread
@@ -3759,7 +3759,7 @@ list_length.exit.thread:                          ; preds = %SPI_is_cursor_plan.
   %28 = getelementptr i8, ptr %21, i64 16
   %.val = load ptr, ptr %28, align 8
   %29 = load ptr, ptr %.val, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 24
   %31 = load i32, ptr %30, align 8
   %32 = icmp eq i32 %31, 179
   br i1 %32, label %35, label %33
@@ -3785,9 +3785,9 @@ list_length.exit.thread:                          ; preds = %SPI_is_cursor_plan.
 _SPI_begin_call.exit.thread:                      ; preds = %39
   %41 = tail call i32 @GetCurrentSubTransactionId() #15
   %42 = load ptr, ptr @_SPI_current, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
   store i32 %41, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %42, i64 40
+  %44 = getelementptr inbounds nuw i8, ptr %42, i64 40
   %45 = load ptr, ptr %44, align 8
   store ptr %45, ptr @CurrentMemoryContext, align 8
   store i64 0, ptr @SPI_processed, align 8
@@ -3818,31 +3818,31 @@ _SPI_begin_call.exit:                             ; preds = %39
 
 56:                                               ; preds = %54, %52
   %.060 = phi ptr [ %53, %52 ], [ %55, %54 ]
-  %57 = getelementptr inbounds i8, ptr %.060, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %.060, i64 16
   %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %17, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %60 = load ptr, ptr %59, align 8
   %61 = tail call ptr @MemoryContextStrdup(ptr noundef %58, ptr noundef %60) #15
   %62 = load ptr, ptr %59, align 8
   store ptr %62, ptr %5, align 8
-  %63 = getelementptr inbounds i8, ptr %1, i64 24
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %64 = load i32, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %5, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %64, ptr %65, align 8
-  %66 = getelementptr inbounds i8, ptr %6, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr @_SPI_error_callback, ptr %66, align 8
-  %67 = getelementptr inbounds i8, ptr %6, i64 16
+  %67 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %5, ptr %67, align 8
   %68 = load ptr, ptr @error_context_stack, align 8
   store ptr %68, ptr %6, align 8
   store ptr %6, ptr @error_context_stack, align 8
   %69 = load ptr, ptr @_SPI_current, align 8
-  %70 = getelementptr inbounds i8, ptr %69, i64 64
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 64
   %71 = load ptr, ptr %70, align 8
   %72 = call ptr @GetCachedPlan(ptr noundef nonnull %17, ptr noundef %2, ptr noundef null, ptr noundef %71) #15
-  %73 = getelementptr inbounds i8, ptr %72, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 8
   %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %1, i64 4
+  %75 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %76 = load i8, ptr %75, align 4
   %77 = trunc i8 %76 to i1
   br i1 %77, label %82, label %78
@@ -3859,12 +3859,12 @@ _SPI_begin_call.exit:                             ; preds = %39
 82:                                               ; preds = %78, %56
   %.063 = phi ptr [ %74, %56 ], [ %81, %78 ]
   %.062 = phi ptr [ %72, %56 ], [ null, %78 ]
-  %83 = getelementptr inbounds i8, ptr %17, i64 24
+  %83 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %84 = load i32, ptr %83, align 8
   call void @PortalDefineQuery(ptr noundef nonnull %.060, ptr noundef null, ptr noundef %61, i32 noundef %84, ptr noundef %.063, ptr noundef %.062) #15
-  %85 = getelementptr inbounds i8, ptr %1, i64 28
+  %85 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %86 = load i32, ptr %85, align 4
-  %87 = getelementptr inbounds i8, ptr %.060, i64 124
+  %87 = getelementptr inbounds nuw i8, ptr %.060, i64 124
   store i32 %86, ptr %87, align 4
   %88 = and i32 %86, 6
   %.not67 = icmp eq i32 %88, 0
@@ -3875,7 +3875,7 @@ _SPI_begin_call.exit:                             ; preds = %39
   br i1 %.not.i82, label %list_length.exit83.thread, label %list_length.exit83
 
 list_length.exit83:                               ; preds = %89
-  %90 = getelementptr inbounds i8, ptr %.063, i64 4
+  %90 = getelementptr inbounds nuw i8, ptr %.063, i64 4
   %91 = load i32, ptr %90, align 4
   %92 = icmp eq i32 %91, 1
   br i1 %92, label %93, label %list_length.exit83.thread
@@ -3884,19 +3884,19 @@ list_length.exit83:                               ; preds = %89
   %94 = getelementptr i8, ptr %.063, i64 16
   %.063.val = load ptr, ptr %94, align 8
   %95 = load ptr, ptr %.063.val, align 8
-  %96 = getelementptr inbounds i8, ptr %95, i64 4
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 4
   %97 = load i32, ptr %96, align 4
   %.not68 = icmp eq i32 %97, 6
   br i1 %.not68, label %list_length.exit83.thread, label %98
 
 98:                                               ; preds = %93
-  %99 = getelementptr inbounds i8, ptr %95, i64 88
+  %99 = getelementptr inbounds nuw i8, ptr %95, i64 88
   %100 = load ptr, ptr %99, align 8
   %101 = icmp eq ptr %100, null
   br i1 %101, label %102, label %list_length.exit83.thread
 
 102:                                              ; preds = %98
-  %103 = getelementptr inbounds i8, ptr %95, i64 32
+  %103 = getelementptr inbounds nuw i8, ptr %95, i64 32
   %104 = load ptr, ptr %103, align 8
   %105 = call zeroext i1 @ExecSupportsBackwardScan(ptr noundef %104) #15
   %.pre = load i32, ptr %87, align 4
@@ -3925,7 +3925,7 @@ list_length.exit83.thread:                        ; preds = %89, %102, %98, %93,
   br i1 %or.cond, label %list_length.exit85.thread, label %list_length.exit85
 
 list_length.exit85:                               ; preds = %110
-  %113 = getelementptr inbounds i8, ptr %.063, i64 4
+  %113 = getelementptr inbounds nuw i8, ptr %.063, i64 4
   %114 = load i32, ptr %113, align 4
   %115 = icmp eq i32 %114, 1
   br i1 %115, label %116, label %list_length.exit85.thread
@@ -3934,13 +3934,13 @@ list_length.exit85:                               ; preds = %110
   %117 = getelementptr i8, ptr %.063, i64 16
   %.063.val78 = load ptr, ptr %117, align 8
   %118 = load ptr, ptr %.063.val78, align 8
-  %119 = getelementptr inbounds i8, ptr %118, i64 4
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 4
   %120 = load i32, ptr %119, align 4
   %.not70 = icmp eq i32 %120, 6
   br i1 %.not70, label %list_length.exit85.thread, label %121
 
 121:                                              ; preds = %116
-  %122 = getelementptr inbounds i8, ptr %118, i64 88
+  %122 = getelementptr inbounds nuw i8, ptr %118, i64 88
   %123 = load ptr, ptr %122, align 8
   %.not71 = icmp eq ptr %123, null
   br i1 %.not71, label %list_length.exit85.thread, label %124
@@ -3956,9 +3956,9 @@ list_length.exit85:                               ; preds = %110
 
 list_length.exit85.thread:                        ; preds = %list_length.exit85, %116, %121, %110
   %129 = load ptr, ptr @_SPI_current, align 8
-  %130 = getelementptr inbounds i8, ptr %129, i64 64
+  %130 = getelementptr inbounds nuw i8, ptr %129, i64 64
   %131 = load ptr, ptr %130, align 8
-  %132 = getelementptr inbounds i8, ptr %.060, i64 112
+  %132 = getelementptr inbounds nuw i8, ptr %.060, i64 112
   store ptr %131, ptr %132, align 8
   br i1 %3, label %.preheader, label %.critedge
 
@@ -3966,8 +3966,8 @@ list_length.exit85.thread:                        ; preds = %list_length.exit85,
   br i1 %.not.i84, label %._crit_edge93, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %133 = getelementptr inbounds i8, ptr %.063, i64 4
-  %134 = getelementptr inbounds i8, ptr %.063, i64 16
+  %133 = getelementptr inbounds nuw i8, ptr %.063, i64 4
+  %134 = getelementptr inbounds nuw i8, ptr %.063, i64 16
   %135 = load i32, ptr %133, align 4
   %136 = icmp sgt i32 %135, 0
   br i1 %136, label %.lr.ph95, label %._crit_edge93
@@ -4024,12 +4024,12 @@ list_length.exit85.thread:                        ; preds = %list_length.exit85,
   %157 = load ptr, ptr %6, align 8
   store ptr %157, ptr @error_context_stack, align 8
   %158 = load ptr, ptr @_SPI_current, align 8
-  %159 = getelementptr inbounds i8, ptr %158, i64 32
+  %159 = getelementptr inbounds nuw i8, ptr %158, i64 32
   %160 = load ptr, ptr %159, align 8
   store ptr %160, ptr @CurrentMemoryContext, align 8
-  %161 = getelementptr inbounds i8, ptr %158, i64 16
+  %161 = getelementptr inbounds nuw i8, ptr %158, i64 16
   store i32 0, ptr %161, align 8
-  %162 = getelementptr inbounds i8, ptr %158, i64 40
+  %162 = getelementptr inbounds nuw i8, ptr %158, i64 40
   %163 = load ptr, ptr %162, align 8
   call void @MemoryContextReset(ptr noundef %163) #15
   ret ptr %.060
@@ -4075,21 +4075,21 @@ define dso_local ptr @SPI_cursor_open_with_args(ptr noundef %0, ptr noundef %1, 
 _SPI_begin_call.exit.thread:                      ; preds = %22
   %24 = tail call i32 @GetCurrentSubTransactionId() #15
   %25 = load ptr, ptr @_SPI_current, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   store i32 %24, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %25, i64 40
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 40
   %28 = load ptr, ptr %27, align 8
   store ptr %28, ptr @CurrentMemoryContext, align 8
   store i32 0, ptr @SPI_result, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %9, i8 0, i64 40, i1 false)
   store i32 569278163, ptr %9, align 8
-  %29 = getelementptr inbounds i8, ptr %9, i64 28
+  %29 = getelementptr inbounds nuw i8, ptr %9, i64 28
   store i32 %7, ptr %29, align 4
-  %30 = getelementptr inbounds i8, ptr %9, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store i32 %2, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %9, i64 40
+  %31 = getelementptr inbounds nuw i8, ptr %9, i64 40
   store ptr %3, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %9, i64 48
+  %32 = getelementptr inbounds nuw i8, ptr %9, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %32, i8 0, i64 16, i1 false)
   br i1 %.not, label %_SPI_convert_params.exit, label %35
 
@@ -4103,7 +4103,7 @@ _SPI_begin_call.exit:                             ; preds = %22
 
 35:                                               ; preds = %_SPI_begin_call.exit.thread
   %36 = tail call ptr @makeParamList(i32 noundef %2) #15
-  %37 = getelementptr inbounds i8, ptr %36, i64 64
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 64
   %.not.i = icmp eq ptr %5, null
   %wide.trip.count27.i = zext nneg i32 %2 to i64
   br i1 %.not.i, label %.split.us.i, label %.split.i
@@ -4114,13 +4114,13 @@ _SPI_begin_call.exit:                             ; preds = %22
   %39 = getelementptr i64, ptr %4, i64 %indvars.iv24.i
   %40 = load i64, ptr %39, align 8
   store i64 %40, ptr %38, align 8
-  %41 = getelementptr inbounds i8, ptr %38, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %38, i64 8
   store i8 0, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %38, i64 10
+  %42 = getelementptr inbounds nuw i8, ptr %38, i64 10
   store i16 1, ptr %42, align 2
   %43 = getelementptr i32, ptr %3, i64 %indvars.iv24.i
   %44 = load i32, ptr %43, align 4
-  %45 = getelementptr inbounds i8, ptr %38, i64 12
+  %45 = getelementptr inbounds nuw i8, ptr %38, i64 12
   store i32 %44, ptr %45, align 4
   %indvars.iv.next25.i = add nuw nsw i64 %indvars.iv24.i, 1
   %exitcond28.not.i = icmp eq i64 %indvars.iv.next25.i, %wide.trip.count27.i
@@ -4136,13 +4136,13 @@ _SPI_begin_call.exit:                             ; preds = %22
   %50 = load i8, ptr %49, align 1
   %51 = icmp eq i8 %50, 110
   %52 = zext i1 %51 to i8
-  %53 = getelementptr inbounds i8, ptr %46, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %46, i64 8
   store i8 %52, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %46, i64 10
+  %54 = getelementptr inbounds nuw i8, ptr %46, i64 10
   store i16 1, ptr %54, align 2
   %55 = getelementptr i32, ptr %3, i64 %indvars.iv.i
   %56 = load i32, ptr %55, align 4
-  %57 = getelementptr inbounds i8, ptr %46, i64 12
+  %57 = getelementptr inbounds nuw i8, ptr %46, i64 12
   store i32 %56, ptr %57, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count27.i
@@ -4153,12 +4153,12 @@ _SPI_convert_params.exit:                         ; preds = %.split.i, %.split.u
   call fastcc void @_SPI_prepare_plan(ptr noundef %1, ptr noundef %9)
   %58 = call fastcc ptr @SPI_cursor_open_internal(ptr noundef %0, ptr noundef nonnull %9, ptr noundef %.0.i20, i1 noundef zeroext %6)
   %59 = load ptr, ptr @_SPI_current, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 32
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 32
   %61 = load ptr, ptr %60, align 8
   store ptr %61, ptr @CurrentMemoryContext, align 8
-  %62 = getelementptr inbounds i8, ptr %59, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %59, i64 16
   store i32 0, ptr %62, align 8
-  %63 = getelementptr inbounds i8, ptr %59, i64 40
+  %63 = getelementptr inbounds nuw i8, ptr %59, i64 40
   %64 = load ptr, ptr %63, align 8
   call void @MemoryContextReset(ptr noundef %64) #15
   ret ptr %58
@@ -4193,17 +4193,17 @@ define dso_local ptr @SPI_cursor_parse_open(ptr noundef %0, ptr noundef %1, ptr 
 _SPI_begin_call.exit.thread:                      ; preds = %10
   %12 = tail call i32 @GetCurrentSubTransactionId() #15
   %13 = load ptr, ptr @_SPI_current, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i32 %12, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %13, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 40
   %16 = load ptr, ptr %15, align 8
   store ptr %16, ptr @CurrentMemoryContext, align 8
   store i32 0, ptr @SPI_result, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, i8 0, i64 64, i1 false)
   store i32 569278163, ptr %4, align 8
-  %17 = getelementptr inbounds i8, ptr %2, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %18 = load i32, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %4, i64 28
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 28
   store i32 %18, ptr %19, align 4
   %20 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %20, null
@@ -4218,30 +4218,30 @@ _SPI_begin_call.exit:                             ; preds = %10
   unreachable
 
 23:                                               ; preds = %_SPI_begin_call.exit.thread
-  %24 = getelementptr inbounds i8, ptr %20, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %20, i64 32
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %4, i64 48
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store ptr %25, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %20, i64 40
+  %27 = getelementptr inbounds nuw i8, ptr %20, i64 40
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %4, i64 56
+  %29 = getelementptr inbounds nuw i8, ptr %4, i64 56
   store ptr %28, ptr %29, align 8
   br label %30
 
 30:                                               ; preds = %23, %_SPI_begin_call.exit.thread
   call fastcc void @_SPI_prepare_plan(ptr noundef %1, ptr noundef %4)
   %31 = load ptr, ptr %2, align 8
-  %32 = getelementptr inbounds i8, ptr %2, i64 12
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %33 = load i8, ptr %32, align 4
   %34 = trunc i8 %33 to i1
   %35 = call fastcc ptr @SPI_cursor_open_internal(ptr noundef %0, ptr noundef nonnull %4, ptr noundef %31, i1 noundef zeroext %34)
   %36 = load ptr, ptr @_SPI_current, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 32
   %38 = load ptr, ptr %37, align 8
   store ptr %38, ptr @CurrentMemoryContext, align 8
-  %39 = getelementptr inbounds i8, ptr %36, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %36, i64 16
   store i32 0, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %36, i64 40
+  %40 = getelementptr inbounds nuw i8, ptr %36, i64 40
   %41 = load ptr, ptr %40, align 8
   call void @MemoryContextReset(ptr noundef %41) #15
   ret ptr %35
@@ -4284,9 +4284,9 @@ define internal fastcc void @_SPI_cursor_operation(ptr noundef %0, i32 noundef %
 _SPI_begin_call.exit.thread:                      ; preds = %8
   %10 = tail call i32 @GetCurrentSubTransactionId() #15
   %11 = load ptr, ptr @_SPI_current, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i32 %10, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %11, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %14 = load ptr, ptr %13, align 8
   store ptr %14, ptr @CurrentMemoryContext, align 8
   store i64 0, ptr @SPI_processed, align 8
@@ -4295,10 +4295,10 @@ _SPI_begin_call.exit.thread:                      ; preds = %8
   %15 = tail call i64 @PortalRunFetch(ptr noundef nonnull %0, i32 noundef %1, i64 noundef %2, ptr noundef %3) #15
   %16 = load ptr, ptr @_SPI_current, align 8
   store i64 %15, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %3, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %18 = load i32, ptr %17, align 8
   %19 = icmp eq i32 %18, 5
-  %20 = getelementptr inbounds i8, ptr %16, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %21 = load ptr, ptr %20, align 8
   br i1 %19, label %24, label %_SPI_begin_call.exit.thread._crit_edge
 
@@ -4314,7 +4314,7 @@ _SPI_begin_call.exit:                             ; preds = %8
   br i1 %25, label %_SPI_checktuples.exit.thread, label %_SPI_checktuples.exit
 
 _SPI_checktuples.exit:                            ; preds = %24
-  %26 = getelementptr inbounds i8, ptr %21, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %27 = load i64, ptr %26, align 8
   %.not.i.not = icmp eq i64 %15, %27
   br i1 %.not.i.not, label %_SPI_begin_call.exit.thread._crit_edge, label %_SPI_checktuples.exit.thread
@@ -4328,15 +4328,15 @@ _SPI_checktuples.exit.thread:                     ; preds = %24, %_SPI_checktupl
 
 _SPI_begin_call.exit.thread._crit_edge:           ; preds = %_SPI_begin_call.exit.thread, %_SPI_checktuples.exit
   store i64 %15, ptr @SPI_processed, align 8
-  %30 = getelementptr inbounds i8, ptr %16, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %21, ptr @SPI_tuptable, align 8
   store ptr null, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %16, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %32 = load ptr, ptr %31, align 8
   store ptr %32, ptr @CurrentMemoryContext, align 8
-  %33 = getelementptr inbounds i8, ptr %16, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store i32 0, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %16, i64 40
+  %34 = getelementptr inbounds nuw i8, ptr %16, i64 40
   %35 = load ptr, ptr %34, align 8
   tail call void @MemoryContextReset(ptr noundef %35) #15
   ret void
@@ -4399,7 +4399,7 @@ define dso_local i32 @SPI_getargtypeid(ptr noundef readonly %0, i32 noundef %1) 
   br i1 %or.cond, label %11, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load i32, ptr %9, align 8
   %.not = icmp slt i32 %1, %10
   br i1 %.not, label %12, label %11
@@ -4409,7 +4409,7 @@ define dso_local i32 @SPI_getargtypeid(ptr noundef readonly %0, i32 noundef %1) 
   br label %18
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %0, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %14 = load ptr, ptr %13, align 8
   %15 = zext nneg i32 %1 to i64
   %16 = getelementptr i32, ptr %14, i64 %15
@@ -4436,7 +4436,7 @@ define dso_local i32 @SPI_getargcount(ptr noundef readonly %0) local_unnamed_add
   br label %9
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load i32, ptr %7, align 8
   br label %9
 
@@ -4460,13 +4460,13 @@ define dso_local zeroext i1 @SPI_is_cursor_plan(ptr noundef readonly %0) local_u
   br label %16
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %list_length.exit.thread, label %list_length.exit
 
 list_length.exit:                                 ; preds = %6
-  %9 = getelementptr inbounds i8, ptr %8, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %10 = load i32, ptr %9, align 4
   %.not7 = icmp eq i32 %10, 1
   br i1 %.not7, label %11, label %list_length.exit.thread
@@ -4480,7 +4480,7 @@ list_length.exit.thread:                          ; preds = %6, %list_length.exi
   %.val = load ptr, ptr %12, align 8
   %13 = load ptr, ptr %.val, align 8
   store i32 0, ptr @SPI_result, align 4
-  %14 = getelementptr inbounds i8, ptr %13, i64 72
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 72
   %15 = load ptr, ptr %14, align 8
   %.not8 = icmp ne ptr %15, null
   br label %16
@@ -4492,14 +4492,14 @@ list_length.exit.thread:                          ; preds = %6, %list_length.exi
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef zeroext i1 @SPI_plan_is_valid(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %3, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %6 = load i32, ptr %4, align 4
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %.lr.ph22, label %.thread
@@ -4543,7 +4543,7 @@ switch.hole_check:                                ; preds = %1
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %5 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [32 x ptr], ptr @switch.table.SPI_result_code_string, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw [32 x ptr], ptr @switch.table.SPI_result_code_string, i64 0, i64 %5
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %6
 
@@ -4556,7 +4556,7 @@ declare i32 @pg_sprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local ptr @SPI_plan_get_plan_sources(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
@@ -4565,19 +4565,19 @@ define dso_local ptr @SPI_plan_get_plan_sources(ptr nocapture noundef readonly %
 define dso_local ptr @SPI_plan_get_cached_plan(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca %struct.SPICallbackArg, align 8
   %3 = alloca %struct.ErrorContextCallback, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 5
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 5
   %5 = load i8, ptr %4, align 1
   %6 = trunc i8 %5 to i1
   br i1 %6, label %list_length.exit.thread, label %7
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   %.not.i = icmp eq ptr %9, null
   br i1 %.not.i, label %list_length.exit.thread, label %list_length.exit
 
 list_length.exit:                                 ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %9, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %11 = load i32, ptr %10, align 4
   %.not = icmp eq i32 %11, 1
   br i1 %.not, label %12, label %list_length.exit.thread
@@ -4586,27 +4586,27 @@ list_length.exit:                                 ; preds = %7
   %13 = getelementptr i8, ptr %9, i64 16
   %.val = load ptr, ptr %13, align 8
   %14 = load ptr, ptr %.val, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8
   store ptr %16, ptr %2, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %18 = load i32, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %18, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %3, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @_SPI_error_callback, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %3, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %2, ptr %21, align 8
   %22 = load ptr, ptr @error_context_stack, align 8
   store ptr %22, ptr %3, align 8
   store ptr %3, ptr @error_context_stack, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %24 = load i8, ptr %23, align 4
   %25 = trunc i8 %24 to i1
   %26 = load ptr, ptr @CurrentResourceOwner, align 8
   %27 = select i1 %25, ptr %26, ptr null
   %28 = load ptr, ptr @_SPI_current, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 64
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 64
   %30 = load ptr, ptr %29, align 8
   %31 = call ptr @GetCachedPlan(ptr noundef %14, ptr noundef null, ptr noundef %27, ptr noundef %30) #15
   %32 = load ptr, ptr %3, align 8
@@ -4636,7 +4636,7 @@ define internal void @_SPI_error_callback(ptr nocapture noundef readonly %0) #0 
   br label %23
 
 11:                                               ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load i32, ptr %12, align 8
   switch i32 %13, label %20 [
     i32 2, label %14
@@ -4680,7 +4680,7 @@ define dso_local void @spi_dest_startup(ptr nocapture noundef readnone %0, i32 n
   unreachable
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %11 = load ptr, ptr %10, align 8
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %15, label %12
@@ -4693,7 +4693,7 @@ define dso_local void @spi_dest_startup(ptr nocapture noundef readnone %0, i32 n
   unreachable
 
 15:                                               ; preds = %9
-  %16 = getelementptr inbounds i8, ptr %4, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %17, ptr @CurrentMemoryContext, align 8
@@ -4701,25 +4701,25 @@ define dso_local void @spi_dest_startup(ptr nocapture noundef readnone %0, i32 n
   store ptr %19, ptr @CurrentMemoryContext, align 8
   %20 = tail call ptr @palloc0(i64 noundef 56) #15
   %21 = load ptr, ptr @_SPI_current, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store ptr %20, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %20, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 32
   store ptr %19, ptr %23, align 8
   %24 = tail call i32 @GetCurrentSubTransactionId() #15
-  %25 = getelementptr inbounds i8, ptr %20, i64 48
+  %25 = getelementptr inbounds nuw i8, ptr %20, i64 48
   store i32 %24, ptr %25, align 8
   %26 = load ptr, ptr @_SPI_current, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 24
-  %28 = getelementptr inbounds i8, ptr %20, i64 40
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %20, i64 40
   %29 = load ptr, ptr %27, align 8
   store ptr %29, ptr %28, align 8
   store ptr %28, ptr %27, align 8
-  %30 = getelementptr inbounds i8, ptr %20, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i64 128, ptr %30, align 8
   %31 = tail call ptr @palloc(i64 noundef 1024) #15
-  %32 = getelementptr inbounds i8, ptr %20, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store ptr %31, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %20, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %20, i64 16
   store i64 0, ptr %33, align 8
   %34 = tail call ptr @CreateTupleDescCopy(ptr noundef %2) #15
   store ptr %34, ptr %20, align 8
@@ -4745,7 +4745,7 @@ define dso_local noundef zeroext i1 @spi_printtup(ptr noundef %0, ptr nocapture 
   unreachable
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %3, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %15
@@ -4758,20 +4758,20 @@ define dso_local noundef zeroext i1 @spi_printtup(ptr noundef %0, ptr nocapture 
   unreachable
 
 15:                                               ; preds = %8
-  %16 = getelementptr inbounds i8, ptr %10, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %17, ptr @CurrentMemoryContext, align 8
-  %19 = getelementptr inbounds i8, ptr %10, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %20 = load i64, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %10, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %22 = load i64, ptr %21, align 8
   %.not = icmp ult i64 %20, %22
   br i1 %.not, label %29, label %23
 
 23:                                               ; preds = %15
   %24 = shl i64 %22, 1
-  %25 = getelementptr inbounds i8, ptr %10, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = shl i64 %22, 4
   %28 = tail call ptr @repalloc_huge(ptr noundef %26, i64 noundef %27) #15
@@ -4780,12 +4780,12 @@ define dso_local noundef zeroext i1 @spi_printtup(ptr noundef %0, ptr nocapture 
   br label %29
 
 29:                                               ; preds = %23, %15
-  %30 = getelementptr inbounds i8, ptr %0, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 80
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 80
   %33 = load ptr, ptr %32, align 8
   %34 = tail call ptr %33(ptr noundef %0) #15
-  %35 = getelementptr inbounds i8, ptr %10, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %36 = load ptr, ptr %35, align 8
   %37 = load i64, ptr %19, align 8
   %38 = getelementptr ptr, ptr %36, i64 %37
@@ -4815,7 +4815,7 @@ define dso_local range(i32 -12, 16) i32 @SPI_register_relation(ptr noundef %0) l
   br i1 %.not13, label %19, label %8
 
 8:                                                ; preds = %6
-  %9 = getelementptr inbounds i8, ptr %7, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %_SPI_find_ENR_by_name.exit.thread.thread, label %_SPI_find_ENR_by_name.exit
@@ -4827,7 +4827,7 @@ _SPI_find_ENR_by_name.exit:                       ; preds = %8
 
 _SPI_find_ENR_by_name.exit.thread:                ; preds = %_SPI_find_ENR_by_name.exit
   %.pre = load ptr, ptr @_SPI_current, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 64
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 64
   %.pre14 = load ptr, ptr %.phi.trans.insert, align 8
   %13 = icmp eq ptr %.pre14, null
   br i1 %13, label %_SPI_find_ENR_by_name.exit.thread.thread, label %17
@@ -4835,7 +4835,7 @@ _SPI_find_ENR_by_name.exit.thread:                ; preds = %_SPI_find_ENR_by_na
 _SPI_find_ENR_by_name.exit.thread.thread:         ; preds = %8, %_SPI_find_ENR_by_name.exit.thread
   %14 = tail call ptr @create_queryEnv() #15
   %15 = load ptr, ptr @_SPI_current, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 64
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 64
   store ptr %14, ptr %16, align 8
   br label %17
 
@@ -4864,7 +4864,7 @@ define dso_local range(i32 -13, 17) i32 @SPI_unregister_relation(ptr noundef %0)
   br i1 %.not13, label %_SPI_find_ENR_by_name.exit.thread, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %4, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %_SPI_find_ENR_by_name.exit.thread, label %_SPI_find_ENR_by_name.exit
@@ -4876,7 +4876,7 @@ _SPI_find_ENR_by_name.exit:                       ; preds = %5
 
 10:                                               ; preds = %_SPI_find_ENR_by_name.exit
   %11 = load ptr, ptr @_SPI_current, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 64
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %9, align 8
   tail call void @unregister_ENR(ptr noundef %13, ptr noundef %14) #15
@@ -4895,35 +4895,35 @@ define dso_local range(i32 -12, 18) i32 @SPI_register_trigger_data(ptr noundef r
   br i1 %2, label %SPI_register_relation.exit.thread, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %39, label %6
 
 6:                                                ; preds = %3
   %7 = tail call ptr @palloc(i64 noundef 48) #15
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 80
   %11 = load ptr, ptr %10, align 8
   store ptr %11, ptr %7, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 72
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 72
   %15 = load i32, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %7, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 %15, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %7, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr null, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %7, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i32 0, ptr %18, align 8
   %19 = load ptr, ptr %4, align 8
   %20 = tail call i64 @tuplestore_tuple_count(ptr noundef %19) #15
   %21 = sitofp i64 %20 to double
-  %22 = getelementptr inbounds i8, ptr %7, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store double %21, ptr %22, align 8
   %23 = load ptr, ptr %4, align 8
-  %24 = getelementptr inbounds i8, ptr %7, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store ptr %23, ptr %24, align 8
   %25 = load ptr, ptr %7, align 8
   %26 = icmp eq ptr %25, null
@@ -4935,7 +4935,7 @@ define dso_local range(i32 -12, 18) i32 @SPI_register_trigger_data(ptr noundef r
   br i1 %.not13.i, label %SPI_register_relation.exit.thread, label %29
 
 29:                                               ; preds = %27
-  %30 = getelementptr inbounds i8, ptr %28, i64 64
+  %30 = getelementptr inbounds nuw i8, ptr %28, i64 64
   %31 = load ptr, ptr %30, align 8
   %32 = icmp eq ptr %31, null
   br i1 %32, label %_SPI_find_ENR_by_name.exit.thread.thread.i, label %_SPI_find_ENR_by_name.exit.i
@@ -4947,7 +4947,7 @@ _SPI_find_ENR_by_name.exit.i:                     ; preds = %29
 
 _SPI_find_ENR_by_name.exit.thread.i:              ; preds = %_SPI_find_ENR_by_name.exit.i
   %.pre.i = load ptr, ptr @_SPI_current, align 8
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.pre.i, i64 64
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.pre.i, i64 64
   %.pre14.i = load ptr, ptr %.phi.trans.insert.i, align 8
   %34 = icmp eq ptr %.pre14.i, null
   br i1 %34, label %_SPI_find_ENR_by_name.exit.thread.thread.i, label %SPI_register_relation.exit
@@ -4955,7 +4955,7 @@ _SPI_find_ENR_by_name.exit.thread.i:              ; preds = %_SPI_find_ENR_by_na
 _SPI_find_ENR_by_name.exit.thread.thread.i:       ; preds = %_SPI_find_ENR_by_name.exit.thread.i, %29
   %35 = tail call ptr @create_queryEnv() #15
   %36 = load ptr, ptr @_SPI_current, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 64
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 64
   store ptr %35, ptr %37, align 8
   br label %SPI_register_relation.exit
 
@@ -4965,35 +4965,35 @@ SPI_register_relation.exit:                       ; preds = %_SPI_find_ENR_by_na
   br label %39
 
 39:                                               ; preds = %SPI_register_relation.exit, %3
-  %40 = getelementptr inbounds i8, ptr %0, i64 56
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %41 = load ptr, ptr %40, align 8
   %.not33 = icmp eq ptr %41, null
   br i1 %.not33, label %SPI_register_relation.exit.thread, label %42
 
 42:                                               ; preds = %39
   %43 = tail call ptr @palloc(i64 noundef 48) #15
-  %44 = getelementptr inbounds i8, ptr %0, i64 32
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 72
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 72
   %47 = load ptr, ptr %46, align 8
   store ptr %47, ptr %43, align 8
-  %48 = getelementptr inbounds i8, ptr %0, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 72
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 72
   %51 = load i32, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %43, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %43, i64 8
   store i32 %51, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %43, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %43, i64 16
   store ptr null, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %43, i64 24
+  %54 = getelementptr inbounds nuw i8, ptr %43, i64 24
   store i32 0, ptr %54, align 8
   %55 = load ptr, ptr %40, align 8
   %56 = tail call i64 @tuplestore_tuple_count(ptr noundef %55) #15
   %57 = sitofp i64 %56 to double
-  %58 = getelementptr inbounds i8, ptr %43, i64 32
+  %58 = getelementptr inbounds nuw i8, ptr %43, i64 32
   store double %57, ptr %58, align 8
   %59 = load ptr, ptr %40, align 8
-  %60 = getelementptr inbounds i8, ptr %43, i64 40
+  %60 = getelementptr inbounds nuw i8, ptr %43, i64 40
   store ptr %59, ptr %60, align 8
   %61 = load ptr, ptr %43, align 8
   %62 = icmp eq ptr %61, null
@@ -5005,7 +5005,7 @@ SPI_register_relation.exit:                       ; preds = %_SPI_find_ENR_by_na
   br i1 %.not13.i35, label %SPI_register_relation.exit.thread, label %65
 
 65:                                               ; preds = %63
-  %66 = getelementptr inbounds i8, ptr %64, i64 64
+  %66 = getelementptr inbounds nuw i8, ptr %64, i64 64
   %67 = load ptr, ptr %66, align 8
   %68 = icmp eq ptr %67, null
   br i1 %68, label %_SPI_find_ENR_by_name.exit.thread.thread.i43, label %_SPI_find_ENR_by_name.exit.i36
@@ -5017,7 +5017,7 @@ _SPI_find_ENR_by_name.exit.i36:                   ; preds = %65
 
 _SPI_find_ENR_by_name.exit.thread.i39:            ; preds = %_SPI_find_ENR_by_name.exit.i36
   %.pre.i40 = load ptr, ptr @_SPI_current, align 8
-  %.phi.trans.insert.i41 = getelementptr inbounds i8, ptr %.pre.i40, i64 64
+  %.phi.trans.insert.i41 = getelementptr inbounds nuw i8, ptr %.pre.i40, i64 64
   %.pre14.i42 = load ptr, ptr %.phi.trans.insert.i41, align 8
   %70 = icmp eq ptr %.pre14.i42, null
   br i1 %70, label %_SPI_find_ENR_by_name.exit.thread.thread.i43, label %SPI_register_relation.exit44
@@ -5025,7 +5025,7 @@ _SPI_find_ENR_by_name.exit.thread.i39:            ; preds = %_SPI_find_ENR_by_na
 _SPI_find_ENR_by_name.exit.thread.thread.i43:     ; preds = %_SPI_find_ENR_by_name.exit.thread.i39, %65
   %71 = tail call ptr @create_queryEnv() #15
   %72 = load ptr, ptr @_SPI_current, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 64
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 64
   store ptr %71, ptr %73, align 8
   br label %SPI_register_relation.exit44
 

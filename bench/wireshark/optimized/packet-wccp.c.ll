@@ -784,7 +784,7 @@ define internal i32 @dissect_wccp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %9, label %289, label %10
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8
   tail call void @col_set_str(ptr noundef %12, i32 noundef 34, ptr noundef nonnull @.str.339) #7
   %13 = load ptr, ptr %11, align 8
@@ -846,7 +846,7 @@ define internal i32 @dissect_wccp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %.not, label %.preheader.preheader, label %.lr.ph
 
 .lr.ph:                                           ; preds = %44
-  %50 = getelementptr inbounds i8, ptr %1, i64 408
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %51
 
 51:                                               ; preds = %.lr.ph, %51
@@ -2698,9 +2698,9 @@ define internal i32 @dissect_wccp2r1_address_table_info(ptr noundef %0, i32 noun
 
 28:                                               ; preds = %10
   %29 = trunc i32 %19 to i16
-  %30 = getelementptr inbounds i8, ptr %5, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i16 %11, ptr %30, align 4
-  %31 = getelementptr inbounds i8, ptr %5, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i16 %29, ptr %31, align 8
   switch i16 %11, label %61 [
     i16 1, label %32
@@ -2708,13 +2708,13 @@ define internal i32 @dissect_wccp2r1_address_table_info(ptr noundef %0, i32 noun
   ]
 
 32:                                               ; preds = %28
-  %33 = getelementptr inbounds i8, ptr %5, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %34 = load ptr, ptr %33, align 8
   %35 = icmp eq ptr %34, null
   br i1 %35, label %36, label %43
 
 36:                                               ; preds = %32
-  %37 = getelementptr inbounds i8, ptr %3, i64 408
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 408
   %38 = load ptr, ptr %37, align 8
   %39 = shl i32 %19, 2
   %40 = and i32 %39, 262140
@@ -2733,13 +2733,13 @@ define internal i32 @dissect_wccp2r1_address_table_info(ptr noundef %0, i32 noun
   br label %64
 
 47:                                               ; preds = %28
-  %48 = getelementptr inbounds i8, ptr %5, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %49 = load ptr, ptr %48, align 8
   %50 = icmp eq ptr %49, null
   br i1 %50, label %51, label %57
 
 51:                                               ; preds = %47
-  %52 = getelementptr inbounds i8, ptr %3, i64 408
+  %52 = getelementptr inbounds nuw i8, ptr %3, i64 408
   %53 = load ptr, ptr %52, align 8
   %.mask = shl i32 %19, 4
   %54 = and i32 %.mask, 1048560
@@ -2769,11 +2769,11 @@ define internal i32 @dissect_wccp2r1_address_table_info(ptr noundef %0, i32 noun
   br i1 %.not119, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %64
-  %66 = getelementptr inbounds i8, ptr %3, i64 408
-  %67 = getelementptr inbounds i8, ptr %5, i64 24
-  %68 = getelementptr inbounds i8, ptr %5, i64 8
-  %69 = getelementptr inbounds i8, ptr %5, i64 16
-  %70 = getelementptr inbounds i8, ptr %5, i64 4
+  %66 = getelementptr inbounds nuw i8, ptr %3, i64 408
+  %67 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %68 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.not115 = icmp eq ptr %23, null
   %71 = zext i16 %.0101 to i32
   %72 = mul nuw i32 %65, %71
@@ -3006,7 +3006,7 @@ define internal fastcc ptr @wccp_add_ipaddress_item(ptr noundef %0, i32 noundef 
   br label %64
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %6, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %18 = load i16, ptr %17, align 4
   switch i16 %18, label %62 [
     i16 1, label %19
@@ -3022,7 +3022,7 @@ define internal fastcc ptr @wccp_add_ipaddress_item(ptr noundef %0, i32 noundef 
   br label %64
 
 23:                                               ; preds = %19
-  %24 = getelementptr inbounds i8, ptr %6, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %25 = load i16, ptr %24, align 8
   %26 = zext i16 %25 to i32
   %27 = icmp samesign ugt i32 %13, %26
@@ -3033,7 +3033,7 @@ define internal fastcc ptr @wccp_add_ipaddress_item(ptr noundef %0, i32 noundef 
   br label %64
 
 30:                                               ; preds = %23
-  %31 = getelementptr inbounds i8, ptr %6, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %32 = load ptr, ptr %31, align 8
   %.not92 = icmp eq ptr %32, null
   br i1 %.not92, label %39, label %33
@@ -3059,7 +3059,7 @@ define internal fastcc ptr @wccp_add_ipaddress_item(ptr noundef %0, i32 noundef 
   br label %64
 
 45:                                               ; preds = %41
-  %46 = getelementptr inbounds i8, ptr %6, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %47 = load i16, ptr %46, align 8
   %48 = zext i16 %47 to i32
   %49 = icmp samesign ugt i32 %13, %48
@@ -3070,7 +3070,7 @@ define internal fastcc ptr @wccp_add_ipaddress_item(ptr noundef %0, i32 noundef 
   br label %64
 
 52:                                               ; preds = %45
-  %53 = getelementptr inbounds i8, ptr %6, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %54 = load ptr, ptr %53, align 8
   %.not91 = icmp eq ptr %54, null
   br i1 %.not91, label %60, label %55
@@ -3693,7 +3693,7 @@ define internal fastcc ptr @decode_wccp_encoded_address(ptr noundef %0, i32 noun
   br label %75
 
 15:                                               ; preds = %10
-  %16 = getelementptr inbounds i8, ptr %2, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %17 = load i16, ptr %16, align 4
   switch i16 %17, label %72 [
     i16 1, label %18
@@ -3710,7 +3710,7 @@ define internal fastcc ptr @decode_wccp_encoded_address(ptr noundef %0, i32 noun
   br label %75
 
 23:                                               ; preds = %18
-  %24 = getelementptr inbounds i8, ptr %2, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %25 = load i16, ptr %24, align 8
   %26 = zext i16 %25 to i32
   %27 = icmp samesign ugt i32 %11, %26
@@ -3724,7 +3724,7 @@ define internal fastcc ptr @decode_wccp_encoded_address(ptr noundef %0, i32 noun
   br label %75
 
 33:                                               ; preds = %23
-  %34 = getelementptr inbounds i8, ptr %2, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %35 = load ptr, ptr %34, align 8
   %.not30 = icmp eq ptr %35, null
   %36 = tail call ptr @wmem_packet_scope() #7
@@ -3753,7 +3753,7 @@ define internal fastcc ptr @decode_wccp_encoded_address(ptr noundef %0, i32 noun
   br label %75
 
 50:                                               ; preds = %45
-  %51 = getelementptr inbounds i8, ptr %2, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %52 = load i16, ptr %51, align 8
   %53 = zext i16 %52 to i32
   %54 = icmp samesign ugt i32 %11, %53
@@ -3767,7 +3767,7 @@ define internal fastcc ptr @decode_wccp_encoded_address(ptr noundef %0, i32 noun
   br label %75
 
 60:                                               ; preds = %50
-  %61 = getelementptr inbounds i8, ptr %2, i64 24
+  %61 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %62 = load ptr, ptr %61, align 8
   %.not29 = icmp eq ptr %62, null
   %63 = tail call ptr @wmem_packet_scope() #7
@@ -4029,7 +4029,7 @@ define internal fastcc void @dissect_32_bit_capability_flags(ptr noundef %0, i32
   %15 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %14) #7
   %16 = load i32, ptr @hf_capability_info_value, align 4
   %17 = tail call ptr @proto_tree_add_uint(ptr noundef %5, i32 noundef %16, ptr noundef %0, i32 noundef %14, i32 noundef 4, i32 noundef %15) #7
-  %18 = getelementptr inbounds i8, ptr %4, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %19 = load ptr, ptr %18, align 8
   %.not4650 = icmp eq ptr %19, null
   br i1 %.not4650, label %._crit_edge.thread, label %.lr.ph
@@ -4058,7 +4058,7 @@ define internal fastcc void @dissect_32_bit_capability_flags(ptr noundef %0, i32
   %27 = add i32 %.04151, 1
   %28 = sext i32 %27 to i64
   %29 = getelementptr %struct.capability_flag, ptr %4, i64 %28
-  %30 = getelementptr inbounds i8, ptr %29, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load ptr, ptr %30, align 8
   %.not46 = icmp eq ptr %31, null
   br i1 %.not46, label %._crit_edge, label %.lr.ph, !llvm.loop !29

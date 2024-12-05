@@ -26,63 +26,63 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local noundef i64 @hashhandler(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
   %2 = tail call noundef ptr @palloc0(i64 noundef 216) #7
   store i32 422, ptr %2, align 4
-  %3 = getelementptr inbounds i8, ptr %2, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i16 1, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %2, i64 6
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 6
   store i16 3, ptr %4, align 2
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i16 3, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 10
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 10
   store i8 0, ptr %6, align 2
-  %7 = getelementptr inbounds i8, ptr %2, i64 11
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 11
   store i8 0, ptr %7, align 1
-  %8 = getelementptr inbounds i8, ptr %2, i64 12
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i8 1, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %2, i64 13
-  %10 = getelementptr inbounds i8, ptr %2, i64 20
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 13
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %9, i8 0, i64 7, i1 false)
   store i8 1, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %2, i64 21
-  %12 = getelementptr inbounds i8, ptr %2, i64 26
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 21
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 26
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %11, i8 0, i64 5, i1 false)
   store i8 1, ptr %12, align 2
-  %13 = getelementptr inbounds i8, ptr %2, i64 28
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 28
   store i32 23, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %2, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store ptr @hashbuild, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %2, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store ptr @hashbuildempty, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %2, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store ptr @hashinsert, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %2, i64 56
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store ptr null, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %2, i64 64
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store ptr @hashbulkdelete, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %2, i64 72
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 72
   store ptr @hashvacuumcleanup, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %2, i64 80
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 80
   store ptr null, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %2, i64 88
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 88
   store ptr @hashcostestimate, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %2, i64 96
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 96
   store ptr @hashoptions, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %2, i64 104
-  %24 = getelementptr inbounds i8, ptr %2, i64 120
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 104
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 120
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, i8 0, i64 16, i1 false)
   store ptr @hashvalidate, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %2, i64 128
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 128
   store ptr @hashadjustmembers, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %2, i64 136
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 136
   store ptr @hashbeginscan, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %2, i64 144
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 144
   store ptr @hashrescan, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %2, i64 152
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 152
   store ptr @hashgettuple, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %2, i64 160
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 160
   store ptr @hashgetbitmap, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %2, i64 168
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 168
   store ptr @hashendscan, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %2, i64 176
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 176
   %32 = ptrtoint ptr %2 to i64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %31, i8 0, i64 40, i1 false)
   ret i64 %32
@@ -101,9 +101,9 @@ define dso_local noundef ptr @hashbuild(ptr noundef %0, ptr noundef %1, ptr noun
 9:                                                ; preds = %3
   %10 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   tail call void @llvm.assume(i1 %10)
-  %11 = getelementptr inbounds i8, ptr %1, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %14 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, ptr noundef nonnull %13) #7
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 131, ptr noundef nonnull @__func__.hashbuild) #7
   unreachable
@@ -114,9 +114,9 @@ define dso_local noundef ptr @hashbuild(ptr noundef %0, ptr noundef %1, ptr noun
   %17 = call i32 @_hash_init(ptr noundef %1, double noundef %16, i32 noundef 0) #7
   %18 = load i32, ptr @maintenance_work_mem, align 4
   %19 = sdiv i32 %18, 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 56
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 114
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 114
   %23 = load i8, ptr %22, align 2
   %.not22 = icmp eq i8 %23, 116
   %NLocBuffer.val = load i32, ptr @NLocBuffer, align 4
@@ -133,13 +133,13 @@ define dso_local noundef ptr @hashbuild(ptr noundef %0, ptr noundef %1, ptr noun
 28:                                               ; preds = %15, %26
   %storemerge = phi ptr [ %27, %26 ], [ null, %15 ]
   store ptr %storemerge, ptr %7, align 8
-  %29 = getelementptr inbounds i8, ptr %7, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store double 0.000000e+00, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %7, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %0, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 312
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 280
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 280
   %34 = load ptr, ptr %33, align 8
   %35 = call double %34(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext true, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @hashbuildCallback, ptr noundef nonnull %7, ptr noundef null) #7
   store double %35, ptr %5, align 8
@@ -162,7 +162,7 @@ define dso_local noundef ptr @hashbuild(ptr noundef %0, ptr noundef %1, ptr noun
   %44 = load double, ptr %5, align 8
   store double %44, ptr %43, align 8
   %45 = load double, ptr %29, align 8
-  %46 = getelementptr inbounds i8, ptr %43, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %43, i64 8
   store double %45, ptr %46, align 8
   ret ptr %43
 }
@@ -181,7 +181,7 @@ define dso_local noundef zeroext i1 @hashinsert(ptr noundef %0, ptr noundef %1, 
   br i1 %11, label %12, label %16
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %0, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @index_form_tuple(ptr noundef %14, ptr noundef nonnull %9, ptr noundef nonnull %10) #7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %15, ptr noundef nonnull align 2 dereferenceable(6) %3, i64 6, i1 false)
@@ -204,11 +204,11 @@ define dso_local ptr @hashbulkdelete(ptr nocapture noundef readonly %0, ptr noun
   store double 0.000000e+00, ptr %5, align 8
   store double 0.000000e+00, ptr %6, align 8
   %10 = call ptr @_hash_getcachedmetap(ptr noundef %9, ptr noundef nonnull %7, i1 noundef zeroext false) #7
-  %11 = getelementptr inbounds i8, ptr %10, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %12 = load i32, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %10, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %14 = load double, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %16
 
 16:                                               ; preds = %86, %4
@@ -225,7 +225,7 @@ define dso_local ptr @hashbulkdelete(ptr nocapture noundef readonly %0, ptr noun
   br i1 %.not73, label %.lr.ph._crit_edge, label %17
 
 17:                                               ; preds = %.lr.ph
-  %18 = getelementptr inbounds i8, ptr %.16882, i64 52
+  %18 = getelementptr inbounds nuw i8, ptr %.16882, i64 52
   %19 = add i32 %.183, 1
   %20 = call i32 @_hash_spareindex(i32 noundef %19) #7
   %21 = add i32 %20, -1
@@ -263,11 +263,11 @@ define dso_local ptr @hashbulkdelete(ptr nocapture noundef readonly %0, ptr noun
 
 BufferGetPage.exit:                               ; preds = %30, %36
   %.0.i.i = phi ptr [ %35, %30 ], [ %41, %36 ]
-  %42 = getelementptr inbounds i8, ptr %.0.i.i, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
   %43 = load i16, ptr %42, align 4
   %44 = zext i16 %43 to i64
   %45 = getelementptr i8, ptr %.0.i.i, i64 %44
-  %46 = getelementptr inbounds i8, ptr %45, i64 12
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 12
   %47 = load i16, ptr %46, align 4
   %48 = and i16 %47, 96
   %or.cond.not = icmp eq i16 %48, 64
@@ -275,7 +275,7 @@ BufferGetPage.exit:                               ; preds = %30, %36
 
 49:                                               ; preds = %BufferGetPage.exit
   %50 = load i32, ptr %45, align 4
-  %51 = getelementptr inbounds i8, ptr %.16882, i64 24
+  %51 = getelementptr inbounds nuw i8, ptr %.16882, i64 24
   %52 = load i32, ptr %51, align 8
   %53 = icmp ugt i32 %50, %52
   br i1 %53, label %54, label %56
@@ -287,11 +287,11 @@ BufferGetPage.exit:                               ; preds = %30, %36
 56:                                               ; preds = %49, %54, %BufferGetPage.exit
   %.2 = phi ptr [ %.16882, %BufferGetPage.exit ], [ %55, %54 ], [ %.16882, %49 ]
   %57 = load ptr, ptr %15, align 8
-  %58 = getelementptr inbounds i8, ptr %.2, i64 24
+  %58 = getelementptr inbounds nuw i8, ptr %.2, i64 24
   %59 = load i32, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %.2, i64 28
+  %60 = getelementptr inbounds nuw i8, ptr %.2, i64 28
   %61 = load i32, ptr %60, align 4
-  %62 = getelementptr inbounds i8, ptr %.2, i64 32
+  %62 = getelementptr inbounds nuw i8, ptr %.2, i64 32
   %63 = load i32, ptr %62, align 8
   call void @hashbucketcleanup(ptr noundef %9, i32 noundef %.183, i32 noundef %28, i32 noundef %26, ptr noundef %57, i32 noundef %59, i32 noundef %61, i32 noundef %63, ptr noundef nonnull %5, ptr noundef nonnull %6, i1 noundef zeroext %or.cond.not, ptr noundef %2, ptr noundef %3)
   call void @_hash_dropbuf(ptr noundef %9, i32 noundef %28) #7
@@ -342,7 +342,7 @@ BufferGetPage.exit77:                             ; preds = %72, %78
 86:                                               ; preds = %BufferGetPage.exit77
   call void @LockBuffer(i32 noundef %70, i32 noundef 0) #7
   %87 = call ptr @_hash_getcachedmetap(ptr noundef %9, ptr noundef nonnull %7, i1 noundef zeroext true) #7
-  %88 = getelementptr inbounds i8, ptr %87, i64 24
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 24
   %89 = load i32, ptr %88, align 8
   br label %16
 
@@ -376,9 +376,9 @@ BufferGetPage.exit77:                             ; preds = %72, %78
 
 105:                                              ; preds = %._crit_edge86, %99
   call void @MarkBufferDirty(i32 noundef %70) #7
-  %106 = getelementptr inbounds i8, ptr %9, i64 56
+  %106 = getelementptr inbounds nuw i8, ptr %9, i64 56
   %107 = load ptr, ptr %106, align 8
-  %108 = getelementptr inbounds i8, ptr %107, i64 114
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 114
   %109 = load i8, ptr %108, align 2
   %110 = icmp eq i8 %109, 112
   br i1 %110, label %111, label %145
@@ -389,13 +389,13 @@ BufferGetPage.exit77:                             ; preds = %72, %78
   br i1 %113, label %122, label %114
 
 114:                                              ; preds = %111
-  %115 = getelementptr inbounds i8, ptr %9, i64 40
+  %115 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %116 = load i32, ptr %115, align 8
   %117 = icmp eq i32 %116, 0
   br i1 %117, label %118, label %145
 
 118:                                              ; preds = %114
-  %119 = getelementptr inbounds i8, ptr %9, i64 48
+  %119 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %120 = load i32, ptr %119, align 8
   %121 = icmp eq i32 %120, 0
   br i1 %121, label %122, label %145
@@ -435,7 +435,7 @@ BufferGetPage.exit79:                             ; preds = %129, %135
   %142 = trunc nuw i64 %141 to i32
   store i32 %142, ptr %.0.i.i78, align 4
   %143 = trunc i64 %126 to i32
-  %144 = getelementptr inbounds i8, ptr %.0.i.i78, i64 4
+  %144 = getelementptr inbounds nuw i8, ptr %.0.i.i78, i64 4
   store i32 %143, ptr %144, align 4
   br label %145
 
@@ -454,13 +454,13 @@ BufferGetPage.exit79:                             ; preds = %129, %135
 
 152:                                              ; preds = %150, %145
   %.0 = phi ptr [ %151, %150 ], [ %1, %145 ]
-  %153 = getelementptr inbounds i8, ptr %.0, i64 4
+  %153 = getelementptr inbounds nuw i8, ptr %.0, i64 4
   store i8 0, ptr %153, align 4
   %154 = load double, ptr %6, align 8
-  %155 = getelementptr inbounds i8, ptr %.0, i64 8
+  %155 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   store double %154, ptr %155, align 8
   %156 = load double, ptr %5, align 8
-  %157 = getelementptr inbounds i8, ptr %.0, i64 16
+  %157 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   %158 = load double, ptr %157, align 8
   %159 = fadd double %156, %158
   store double %159, ptr %157, align 8
@@ -494,26 +494,26 @@ declare void @hashadjustmembers(i32 noundef, i32 noundef, ptr noundef, ptr nound
 define dso_local ptr @hashbeginscan(ptr noundef %0, i32 noundef %1, i32 noundef %2) #0 {
   %4 = tail call ptr @RelationGetIndexScan(ptr noundef %0, i32 noundef %1, i32 noundef %2) #7
   %5 = tail call ptr @palloc(i64 noundef 3320) #7
-  %6 = getelementptr inbounds i8, ptr %5, i64 28
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 28
   store i32 0, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i32 -1, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %5, i64 36
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 36
   store i32 -1, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %5, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store i32 -1, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %5, i64 44
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 44
   store i32 0, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %5, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store i32 0, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %5, i64 52
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 52
   store i32 0, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 4
-  %14 = getelementptr inbounds i8, ptr %5, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr null, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %5, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i32 0, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %4, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(10) %13, i8 0, i64 10, i1 false)
   store ptr %5, ptr %16, align 8
   ret ptr %4
@@ -521,18 +521,18 @@ define dso_local ptr @hashbeginscan(ptr noundef %0, i32 noundef %1, i32 noundef 
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @hashrescan(ptr noundef %0, ptr noundef readonly %1, i32 %2, ptr nocapture readnone %3, i32 %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %7, i64 28
-  %11 = getelementptr inbounds i8, ptr %7, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 28
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %12 = load i32, ptr %11, align 4
   %.not22 = icmp eq i32 %12, -1
   br i1 %.not22, label %18, label %13
 
 13:                                               ; preds = %5
-  %14 = getelementptr inbounds i8, ptr %7, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %15 = load i32, ptr %14, align 8
   %16 = icmp sgt i32 %15, 0
   br i1 %16, label %17, label %18
@@ -545,27 +545,27 @@ define dso_local void @hashrescan(ptr noundef %0, ptr noundef readonly %1, i32 %
   tail call void @_hash_dropscanbuf(ptr noundef %9, ptr noundef nonnull %7) #7
   store i32 0, ptr %10, align 4
   store i32 -1, ptr %11, align 4
-  %19 = getelementptr inbounds i8, ptr %7, i64 36
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 36
   store i32 -1, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %7, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store i32 -1, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %7, i64 44
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 44
   store i32 0, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %7, i64 48
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 48
   store i32 0, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %7, i64 52
+  %23 = getelementptr inbounds nuw i8, ptr %7, i64 52
   store i32 0, ptr %23, align 4
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %33, label %24
 
 24:                                               ; preds = %18
-  %25 = getelementptr inbounds i8, ptr %0, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %26 = load i32, ptr %25, align 8
   %27 = icmp sgt i32 %26, 0
   br i1 %27, label %28, label %33
 
 28:                                               ; preds = %24
-  %29 = getelementptr inbounds i8, ptr %0, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %30 = load ptr, ptr %29, align 8
   %31 = zext nneg i32 %26 to i64
   %32 = mul nuw nsw i64 %31, 72
@@ -573,20 +573,20 @@ define dso_local void @hashrescan(ptr noundef %0, ptr noundef readonly %1, i32 %
   br label %33
 
 33:                                               ; preds = %28, %24, %18
-  %34 = getelementptr inbounds i8, ptr %7, i64 12
+  %34 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i8 0, ptr %34, align 4
-  %35 = getelementptr inbounds i8, ptr %7, i64 13
+  %35 = getelementptr inbounds nuw i8, ptr %7, i64 13
   store i8 0, ptr %35, align 1
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i1 @hashgettuple(ptr noundef initializes((112, 113)) %0, i32 noundef %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 56
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 112
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i8 1, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %7 = load i32, ptr %6, align 4
   %.not = icmp eq i32 %7, -1
   br i1 %.not, label %8, label %10
@@ -596,13 +596,13 @@ define dso_local zeroext i1 @hashgettuple(ptr noundef initializes((112, 113)) %0
   br label %33
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %0, i64 50
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 50
   %12 = load i8, ptr %11, align 2
   %13 = trunc i8 %12 to i1
   br i1 %13, label %14, label %31
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %4, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
   br i1 %17, label %18, label %20
@@ -614,13 +614,13 @@ define dso_local zeroext i1 @hashgettuple(ptr noundef initializes((112, 113)) %0
 
 20:                                               ; preds = %18, %14
   %21 = phi ptr [ %19, %18 ], [ %16, %14 ]
-  %22 = getelementptr inbounds i8, ptr %4, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %23 = load i32, ptr %22, align 8
   %24 = icmp slt i32 %23, 408
   br i1 %24, label %25, label %31
 
 25:                                               ; preds = %20
-  %26 = getelementptr inbounds i8, ptr %4, i64 52
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 52
   %27 = load i32, ptr %26, align 4
   %28 = add nsw i32 %23, 1
   store i32 %28, ptr %22, align 8
@@ -640,14 +640,14 @@ define dso_local zeroext i1 @hashgettuple(ptr noundef initializes((112, 113)) %0
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @hashgetbitmap(ptr noundef %0, ptr noundef %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 56
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
   %5 = tail call zeroext i1 @_hash_first(ptr noundef %0, i32 noundef 1) #7
   br i1 %5, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %4, i64 56
-  %7 = getelementptr inbounds i8, ptr %4, i64 52
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 52
   br label %8
 
 8:                                                ; preds = %.lr.ph, %8
@@ -667,17 +667,17 @@ define dso_local i64 @hashgetbitmap(ptr noundef %0, ptr noundef %1) #0 {
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @hashendscan(ptr noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %7 = load i32, ptr %6, align 4
   %.not11 = icmp eq i32 %7, -1
   br i1 %.not11, label %13, label %8
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %3, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %10 = load i32, ptr %9, align 8
   %11 = icmp sgt i32 %10, 0
   br i1 %11, label %12, label %13
@@ -688,7 +688,7 @@ define dso_local void @hashendscan(ptr noundef %0) #0 {
 
 13:                                               ; preds = %8, %12, %1
   tail call void @_hash_dropscanbuf(ptr noundef %5, ptr noundef nonnull %3) #7
-  %14 = getelementptr inbounds i8, ptr %3, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %15 = load ptr, ptr %14, align 8
   %.not = icmp eq ptr %15, null
   br i1 %.not, label %17, label %16
@@ -735,18 +735,18 @@ define internal void @hashbuildCallback(ptr noundef %0, ptr noundef %1, ptr noun
   br label %19
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %0, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %15 = load ptr, ptr %14, align 8
   %16 = call ptr @index_form_tuple(ptr noundef %15, ptr noundef nonnull %7, ptr noundef nonnull %8) #7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %16, ptr noundef nonnull align 2 dereferenceable(6) %1, i64 6, i1 false)
-  %17 = getelementptr inbounds i8, ptr %5, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %18 = load ptr, ptr %17, align 8
   call void @_hash_doinsert(ptr noundef %0, ptr noundef %16, ptr noundef %18, i1 noundef zeroext false) #7
   call void @pfree(ptr noundef %16) #7
   br label %19
 
 19:                                               ; preds = %13, %12
-  %20 = getelementptr inbounds i8, ptr %5, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %21 = load double, ptr %20, align 8
   %22 = fadd double %21, 1.000000e+00
   store double %22, ptr %20, align 8
@@ -814,10 +814,10 @@ define dso_local void @hashbucketcleanup(ptr noundef %0, i32 noundef %1, i32 nou
   %.not107 = icmp eq ptr %11, null
   %.not109 = icmp eq ptr %8, null
   %.not110 = icmp eq ptr %9, null
-  %19 = getelementptr inbounds i8, ptr %0, i64 56
-  %20 = getelementptr inbounds i8, ptr %0, i64 40
-  %21 = getelementptr inbounds i8, ptr %0, i64 48
-  %22 = getelementptr inbounds i8, ptr %15, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %22 = getelementptr inbounds nuw i8, ptr %15, i64 1
   br label %23
 
 23:                                               ; preds = %.backedge, %18
@@ -846,7 +846,7 @@ define dso_local void @hashbucketcleanup(ptr noundef %0, i32 noundef %1, i32 nou
 
 BufferGetPage.exit:                               ; preds = %25, %31
   %.0.i.i = phi ptr [ %30, %25 ], [ %36, %31 ]
-  %37 = getelementptr inbounds i8, ptr %.0.i.i, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
   %38 = load i16, ptr %37, align 4
   %39 = zext i16 %38 to i64
   %40 = getelementptr i8, ptr %.0.i.i, i64 %39
@@ -862,7 +862,7 @@ BufferGetPage.exit:                               ; preds = %25, %31
   br i1 %.not119, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %BufferGetPage.exit
-  %47 = getelementptr inbounds i8, ptr %.0.i.i, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
   br i1 %.not107, label %.lr.ph.split.us, label %.lr.ph.split.preheader
 
 .lr.ph.split.preheader:                           ; preds = %.lr.ph
@@ -992,13 +992,13 @@ BufferGetPage.exit:                               ; preds = %25, %31
   br i1 %exitcond, label %._crit_edge, label %.lr.ph.split, !llvm.loop !8
 
 ._crit_edge.thread:                               ; preds = %BufferGetPage.exit, %._crit_edge.split.us.split.split, %.lr.ph.split.us.split
-  %93 = getelementptr inbounds i8, ptr %40, i64 4
+  %93 = getelementptr inbounds nuw i8, ptr %40, i64 4
   %94 = load i32, ptr %93, align 4
   br label %152
 
 ._crit_edge:                                      ; preds = %92, %66
   %.094.lcssa = phi i32 [ %.195.us.us, %66 ], [ %.195, %92 ]
-  %95 = getelementptr inbounds i8, ptr %40, i64 4
+  %95 = getelementptr inbounds nuw i8, ptr %40, i64 4
   %96 = load i32, ptr %95, align 4
   %97 = icmp sgt i32 %.094.lcssa, 0
   br i1 %97, label %98, label %152
@@ -1016,7 +1016,7 @@ BufferGetPage.exit:                               ; preds = %25, %31
   br i1 %103, label %104, label %110
 
 104:                                              ; preds = %101
-  %105 = getelementptr inbounds i8, ptr %40, i64 12
+  %105 = getelementptr inbounds nuw i8, ptr %40, i64 12
   %106 = load i16, ptr %105, align 4
   %107 = and i16 %106, 128
   %.not105 = icmp eq i16 %107, 0
@@ -1031,7 +1031,7 @@ BufferGetPage.exit:                               ; preds = %25, %31
   %.097 = phi i8 [ 1, %108 ], [ 0, %104 ], [ 0, %101 ], [ 0, %98 ]
   call void @MarkBufferDirty(i32 noundef %.090) #7
   %111 = load ptr, ptr %19, align 8
-  %112 = getelementptr inbounds i8, ptr %111, i64 114
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 114
   %113 = load i8, ptr %112, align 2
   %114 = icmp eq i8 %113, 112
   br i1 %114, label %115, label %149
@@ -1095,7 +1095,7 @@ BufferGetPage.exit115:                            ; preds = %133, %139
   %146 = trunc nuw i64 %145 to i32
   store i32 %146, ptr %.0.i.i114, align 4
   %147 = trunc i64 %132 to i32
-  %148 = getelementptr inbounds i8, ptr %.0.i.i114, i64 4
+  %148 = getelementptr inbounds nuw i8, ptr %.0.i.i114, i64 4
   store i32 %147, ptr %148, align 4
   br label %149
 
@@ -1161,20 +1161,20 @@ BufferGetPage.exit115:                            ; preds = %133, %139
 
 BufferGetPage.exit117:                            ; preds = %164, %170
   %.0.i.i116 = phi ptr [ %169, %164 ], [ %175, %170 ]
-  %176 = getelementptr inbounds i8, ptr %.0.i.i116, i64 16
+  %176 = getelementptr inbounds nuw i8, ptr %.0.i.i116, i64 16
   %177 = load i16, ptr %176, align 4
   %178 = zext i16 %177 to i64
   %179 = getelementptr i8, ptr %.0.i.i116, i64 %178
   %180 = load volatile i32, ptr @CritSectionCount, align 4
   %181 = add i32 %180, 1
   store volatile i32 %181, ptr @CritSectionCount, align 4
-  %182 = getelementptr inbounds i8, ptr %179, i64 12
+  %182 = getelementptr inbounds nuw i8, ptr %179, i64 12
   %183 = load i16, ptr %182, align 4
   %184 = and i16 %183, -65
   store i16 %184, ptr %182, align 4
   call void @MarkBufferDirty(i32 noundef %2) #7
   %185 = load ptr, ptr %19, align 8
-  %186 = getelementptr inbounds i8, ptr %185, i64 114
+  %186 = getelementptr inbounds nuw i8, ptr %185, i64 114
   %187 = load i8, ptr %186, align 2
   %188 = icmp eq i8 %187, 112
   br i1 %188, label %189, label %204
@@ -1202,7 +1202,7 @@ BufferGetPage.exit117:                            ; preds = %164, %170
   %201 = trunc nuw i64 %200 to i32
   store i32 %201, ptr %.0.i.i116, align 4
   %202 = trunc i64 %199 to i32
-  %203 = getelementptr inbounds i8, ptr %.0.i.i116, i64 4
+  %203 = getelementptr inbounds nuw i8, ptr %.0.i.i116, i64 4
   store i32 %202, ptr %203, align 4
   br label %204
 

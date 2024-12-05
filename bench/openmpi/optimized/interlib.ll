@@ -56,9 +56,9 @@ define i32 @ompi_interlib_declare(i32 noundef %0, ptr noundef %1) local_unnamed_
 
 11:                                               ; preds = %10, %2
   store ptr @opal_mutex_t_class, ptr %6, align 8
-  %12 = getelementptr inbounds i8, ptr %6, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store volatile i32 1, ptr %12, align 8
-  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_mutex_t_class, i64 40), align 8
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_mutex_t_class, i64 40), align 8
   %14 = load ptr, ptr %13, align 8
   %.not6.i = icmp eq ptr %14, null
   br i1 %.not6.i, label %opal_obj_run_constructors.exit, label %.lr.ph.i
@@ -67,23 +67,23 @@ define i32 @ompi_interlib_declare(i32 noundef %0, ptr noundef %1) local_unnamed_
   %15 = phi ptr [ %17, %.lr.ph.i ], [ %14, %11 ]
   %.07.i = phi ptr [ %16, %.lr.ph.i ], [ %13, %11 ]
   call void %15(ptr noundef nonnull %6) #6
-  %16 = getelementptr inbounds i8, ptr %.07.i, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
   %17 = load ptr, ptr %16, align 8
   %.not.i = icmp eq ptr %17, null
   br i1 %.not.i, label %opal_obj_run_constructors.exit, label %.lr.ph.i, !llvm.loop !4
 
 opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %11
-  %18 = getelementptr inbounds i8, ptr %6, i64 64
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %19 = call i32 @opal_cond_init(ptr noundef nonnull %18) #6
-  %20 = getelementptr inbounds i8, ptr %6, i64 112
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 112
   store volatile i8 1, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %6, i64 116
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 116
   store i32 0, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %6, i64 128
+  %22 = getelementptr inbounds nuw i8, ptr %6, i64 128
   store ptr null, ptr %22, align 8
   fence release
   %23 = call i32 @PMIx_Register_event_handler(ptr noundef nonnull %5, i64 noundef 1, ptr noundef nonnull %4, i64 noundef 1, ptr noundef nonnull @model_callback, ptr noundef nonnull @evhandler_reg_callbk, ptr noundef nonnull %6) #6
-  %24 = getelementptr inbounds i8, ptr %6, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %25 = call i32 @pthread_mutex_lock(ptr noundef nonnull %24) #6
   %26 = load volatile i8, ptr %20, align 8
   %27 = trunc i8 %26 to i1
@@ -102,7 +102,7 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %11
   %32 = load i32, ptr %21, align 4
   fence acquire
   %33 = load ptr, ptr %6, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 48
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 48
   %35 = load ptr, ptr %34, align 8
   %36 = load ptr, ptr %35, align 8
   %.not6.i11 = icmp eq ptr %36, null
@@ -112,7 +112,7 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %11
   %37 = phi ptr [ %39, %.lr.ph.i12 ], [ %36, %._crit_edge ]
   %.07.i13 = phi ptr [ %38, %.lr.ph.i12 ], [ %35, %._crit_edge ]
   call void %37(ptr noundef nonnull %6) #6
-  %38 = getelementptr inbounds i8, ptr %.07.i13, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %.07.i13, i64 8
   %39 = load ptr, ptr %38, align 8
   %.not.i14 = icmp eq ptr %39, null
   br i1 %.not.i14, label %opal_obj_run_destructors.exit, label %.lr.ph.i12, !llvm.loop !7
@@ -133,19 +133,19 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i12, %._crit
 
 44:                                               ; preds = %43
   %45 = call i32 @PMIx_Info_load(ptr noundef nonnull %3, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i16 noundef zeroext 3) #6
-  %46 = getelementptr inbounds i8, ptr %3, i64 552
+  %46 = getelementptr inbounds nuw i8, ptr %3, i64 552
   %47 = call i32 @PMIx_Info_load(ptr noundef nonnull %46, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i16 noundef zeroext 3) #6
-  %48 = getelementptr inbounds i8, ptr %3, i64 1104
+  %48 = getelementptr inbounds nuw i8, ptr %3, i64 1104
   %49 = call i32 @PMIx_Info_load(ptr noundef nonnull %48, ptr noundef nonnull @.str.6, ptr noundef %1, i16 noundef zeroext 3) #6
   %50 = icmp eq i32 %0, 0
-  %51 = getelementptr inbounds i8, ptr %3, i64 1656
+  %51 = getelementptr inbounds nuw i8, ptr %3, i64 1656
   %.str.8..str.9 = select i1 %50, ptr @.str.8, ptr @.str.9
   %52 = call i32 @PMIx_Info_load(ptr noundef nonnull %51, ptr noundef nonnull @.str.7, ptr noundef nonnull %.str.8..str.9, i16 noundef zeroext 3) #6
   %53 = call i32 @PMIx_Init(ptr noundef null, ptr noundef nonnull %3, i64 noundef 4) #6
   call void @PMIx_Info_destruct(ptr noundef nonnull %3) #6
   call void @PMIx_Info_destruct(ptr noundef nonnull %46) #6
   call void @PMIx_Info_destruct(ptr noundef nonnull %48) #6
-  %54 = getelementptr inbounds i8, ptr %3, i64 1656
+  %54 = getelementptr inbounds nuw i8, ptr %3, i64 1656
   call void @PMIx_Info_destruct(ptr noundef nonnull %54) #6
   %55 = call i32 @PMIx_Finalize(ptr noundef null, i64 noundef 0) #6
   %56 = load i8, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 408), align 8
@@ -188,20 +188,20 @@ define internal void @model_callback(i64 %0, i32 %1, ptr nocapture readnone %2, 
   br i1 %15, label %16, label %21
 
 16:                                               ; preds = %.lr.ph
-  %17 = getelementptr inbounds i8, ptr %14, i64 528
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 528
   %18 = load ptr, ptr %17, align 8
   %19 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull dereferenceable(4) @.str.3) #7
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %.loopexit, label %21
 
 21:                                               ; preds = %16, %.lr.ph
-  %22 = getelementptr inbounds i8, ptr %14, i64 520
+  %22 = getelementptr inbounds nuw i8, ptr %14, i64 520
   %23 = load i16, ptr %22, align 8
   %24 = icmp eq i16 %23, 3
   br i1 %24, label %25, label %28
 
 25:                                               ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %14, i64 528
+  %26 = getelementptr inbounds nuw i8, ptr %14, i64 528
   %27 = load ptr, ptr %26, align 8
   tail call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef nonnull @.str.11, ptr noundef nonnull %14, ptr noundef %27) #6
   br label %28
@@ -225,14 +225,14 @@ define internal void @model_callback(i64 %0, i32 %1, ptr nocapture readnone %2, 
 
 ; Function Attrs: nounwind uwtable
 define internal void @evhandler_reg_callbk(i32 noundef %0, i64 %1, ptr noundef initializes((116, 120)) %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 116
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 116
   store i32 %0, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %2, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %6 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %5) #6
-  %7 = getelementptr inbounds i8, ptr %2, i64 112
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 112
   store volatile i8 0, ptr %7, align 8
   fence release
-  %8 = getelementptr inbounds i8, ptr %2, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %9 = tail call i32 @opal_cond_broadcast(ptr noundef nonnull %8) #6
   %10 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %5) #6
   ret void

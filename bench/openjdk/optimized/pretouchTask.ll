@@ -33,19 +33,19 @@ $_ZTV10WorkerTask = comdat any
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN12PretouchTaskC2EPKcPcS2_mm(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 20)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, i64 noundef %5) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV10WorkerTask, i64 16), ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = tail call noundef i32 @_ZN4GCId20current_or_undefinedEv() #6
   store i32 %9, ptr %8, align 8
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV12PretouchTask, i64 16), ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store volatile ptr %2, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %3, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %4, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %5, ptr %13, align 8
   ret void
 }
@@ -58,9 +58,9 @@ define hidden noundef i64 @_ZN12PretouchTask10chunk_sizeEv() local_unnamed_addr 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN12PretouchTask4workEj(ptr noundef nonnull align 8 dereferenceable(56) %0, i32 %1) unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load volatile ptr, ptr %3, align 8
   %7 = load i64, ptr %4, align 8
   %8 = load ptr, ptr %5, align 8
@@ -72,8 +72,8 @@ define hidden void @_ZN12PretouchTask4workEj(ptr noundef nonnull align 8 derefer
   br i1 %.not11, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %6, i64 %12
-  %14 = getelementptr inbounds i8, ptr %0, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 %12
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %15
 
 15:                                               ; preds = %.lr.ph, %22
@@ -114,19 +114,19 @@ define hidden void @_ZN12PretouchTask8pretouchEPKcPcS2_mP13WorkerThreads(ptr nou
   %9 = and i64 %7, %8
   %.not.i = icmp eq i64 %9, 0
   %10 = select i1 %.not.i, i64 %3, i64 %9
-  %11 = getelementptr inbounds i8, ptr %6, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %0, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %6, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %13 = tail call noundef i32 @_ZN4GCId20current_or_undefinedEv() #6
   store i32 %13, ptr %12, align 8
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV12PretouchTask, i64 16), ptr %6, align 8
-  %14 = getelementptr inbounds i8, ptr %6, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store volatile ptr %1, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %6, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr %2, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %6, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store i64 %3, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %6, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store i64 %10, ptr %17, align 8
   %18 = ptrtoint ptr %2 to i64
   %19 = ptrtoint ptr %1 to i64
@@ -142,12 +142,12 @@ define hidden void @_ZN12PretouchTask8pretouchEPKcPcS2_mP13WorkerThreads(ptr nou
   %24 = add i64 %20, -1
   %25 = udiv i64 %24, %10
   %26 = add nuw i64 %25, 1
-  %27 = getelementptr inbounds i8, ptr %4, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %28 = load i32, ptr %27, align 8
   %29 = zext i32 %28 to i64
   %30 = tail call noundef i64 @llvm.umin.i64(i64 %26, i64 %29)
   %31 = trunc nuw i64 %30 to i32
-  %32 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_52ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %32 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_52ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not21 = icmp eq ptr %32, null
   br i1 %.not21, label %34, label %33
 
@@ -160,7 +160,7 @@ define hidden void @_ZN12PretouchTask8pretouchEPKcPcS2_mP13WorkerThreads(ptr nou
   br label %_ZN12PretouchTask4workEj.exit
 
 35:                                               ; preds = %22
-  %36 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_52ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %36 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_52ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not22 = icmp eq ptr %36, null
   br i1 %.not22, label %38, label %37
 
@@ -177,7 +177,7 @@ define hidden void @_ZN12PretouchTask8pretouchEPKcPcS2_mP13WorkerThreads(ptr nou
   br i1 %.not11.i, label %.lr.ph.i, label %_ZN12PretouchTask4workEj.exit
 
 .lr.ph.i:                                         ; preds = %38
-  %43 = getelementptr inbounds i8, ptr %39, i64 %42
+  %43 = getelementptr inbounds nuw i8, ptr %39, i64 %42
   br label %44
 
 44:                                               ; preds = %51, %.lr.ph.i

@@ -60,16 +60,16 @@ define hidden void @file_mdump(ptr noundef %0) local_unnamed_addr #0 {
   %14 = alloca %struct.tm, align 8
   %15 = alloca [256 x i8], align 16
   %16 = load ptr, ptr @stderr, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 20
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %18 = load i32, ptr %17, align 4
   %19 = load i16, ptr %0, align 8
   %20 = and i16 %19, 7
   %narrow = add nuw nsw i16 %20, 1
   %21 = zext nneg i16 %narrow to i32
-  %22 = getelementptr inbounds i8, ptr %0, i64 12
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %23 = load i32, ptr %22, align 4
   %24 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str, i32 noundef %18, i32 noundef %21, ptr noundef nonnull @.str.1, i32 noundef %23) #13
-  %25 = getelementptr inbounds i8, ptr %0, i64 2
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %26 = load i8, ptr %25, align 2
   %27 = and i8 %26, 1
   %.not = icmp eq i8 %27, 0
@@ -78,21 +78,21 @@ define hidden void @file_mdump(ptr noundef %0) local_unnamed_addr #0 {
 
 28:                                               ; preds = %1
   %29 = load ptr, ptr @stderr, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 7
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 7
   %31 = load i8, ptr %30, align 1
   %32 = zext i8 %31 to i64
   %33 = icmp ugt i64 %.pre102, %32
   br i1 %33, label %34, label %37
 
 34:                                               ; preds = %28
-  %35 = getelementptr inbounds [0 x ptr], ptr @file_names, i64 0, i64 %32
+  %35 = getelementptr inbounds nuw [0 x ptr], ptr @file_names, i64 0, i64 %32
   %36 = load ptr, ptr %35, align 8
   br label %37
 
 37:                                               ; preds = %28, %34
   %38 = phi ptr [ %36, %34 ], [ @.str.3, %28 ]
   %39 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %29, ptr noundef nonnull @.str.2, ptr noundef %38) #13
-  %40 = getelementptr inbounds i8, ptr %0, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %41 = load i8, ptr %40, align 8
   %42 = and i8 %41, 64
   %.not71 = icmp eq i8 %42, 0
@@ -109,10 +109,10 @@ define hidden void @file_mdump(ptr noundef %0) local_unnamed_addr #0 {
   %48 = load ptr, ptr @stderr, align 8
   %49 = and i8 %47, 7
   %50 = zext nneg i8 %49 to i64
-  %51 = getelementptr inbounds [9 x i8], ptr @file_mdump.optyp, i64 0, i64 %50
+  %51 = getelementptr inbounds nuw [9 x i8], ptr @file_mdump.optyp, i64 0, i64 %50
   %52 = load i8, ptr %51, align 1
   %53 = sext i8 %52 to i32
-  %54 = getelementptr inbounds i8, ptr %0, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %55 = load i32, ptr %54, align 8
   %56 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %48, ptr noundef nonnull @.str.4, i32 noundef %53, i32 noundef %55) #13
   %.pre101 = load i8, ptr %25, align 2
@@ -124,21 +124,21 @@ define hidden void @file_mdump(ptr noundef %0) local_unnamed_addr #0 {
   %60 = and i8 %58, 8
   %.not72 = icmp eq i8 %60, 0
   %61 = select i1 %.not72, ptr @.str.7, ptr @.str.6
-  %62 = getelementptr inbounds i8, ptr %0, i64 6
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %63 = load i8, ptr %62, align 2
   %64 = zext i8 %63 to i64
   %65 = icmp ugt i64 %.pre102, %64
   br i1 %65, label %66, label %69
 
 66:                                               ; preds = %57
-  %67 = getelementptr inbounds [0 x ptr], ptr @file_names, i64 0, i64 %64
+  %67 = getelementptr inbounds nuw [0 x ptr], ptr @file_names, i64 0, i64 %64
   %68 = load ptr, ptr %67, align 8
   br label %69
 
 69:                                               ; preds = %57, %66
   %70 = phi ptr [ %68, %66 ], [ @.str.8, %57 ]
   %71 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %59, ptr noundef nonnull @.str.5, ptr noundef nonnull %61, ptr noundef %70) #13
-  %72 = getelementptr inbounds i8, ptr %0, i64 9
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 9
   %73 = load i8, ptr %72, align 1
   %74 = and i8 %73, 64
   %.not73 = icmp eq i8 %74, 0
@@ -165,8 +165,8 @@ define hidden void @file_mdump(ptr noundef %0) local_unnamed_addr #0 {
   ]
 
 80:                                               ; preds = %78, %78, %78, %78, %78, %78, %78, %78, %78, %78
-  %81 = getelementptr inbounds i8, ptr %0, i64 24
-  %82 = getelementptr inbounds i8, ptr %0, i64 28
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %83 = load i32, ptr %82, align 4
   %.not75 = icmp eq i32 %83, 0
   br i1 %.not75, label %164, label %84
@@ -342,12 +342,12 @@ define hidden void @file_mdump(ptr noundef %0) local_unnamed_addr #0 {
   %170 = load i8, ptr %72, align 1
   %171 = and i8 %170, 7
   %172 = zext nneg i8 %171 to i64
-  %173 = getelementptr inbounds [9 x i8], ptr @file_mdump.optyp, i64 0, i64 %172
+  %173 = getelementptr inbounds nuw [9 x i8], ptr @file_mdump.optyp, i64 0, i64 %172
   %174 = load i8, ptr %173, align 1
   %175 = sext i8 %174 to i32
   %176 = load ptr, ptr @stderr, align 8
   %177 = tail call i32 @fputc(i32 noundef %175, ptr noundef %176)
-  %178 = getelementptr inbounds i8, ptr %0, i64 24
+  %178 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %179 = load i64, ptr %178, align 8
   %.not74 = icmp eq i64 %179, 0
   br i1 %.not74, label %183, label %180
@@ -359,7 +359,7 @@ define hidden void @file_mdump(ptr noundef %0) local_unnamed_addr #0 {
 
 183:                                              ; preds = %169, %180, %164, %166
   %184 = load ptr, ptr @stderr, align 8
-  %185 = getelementptr inbounds i8, ptr %0, i64 4
+  %185 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %186 = load i8, ptr %185, align 4
   %187 = zext i8 %186 to i32
   %188 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %184, ptr noundef nonnull @.str.11, i32 noundef %187) #13
@@ -430,22 +430,22 @@ define hidden void @file_mdump(ptr noundef %0) local_unnamed_addr #0 {
 
 192:                                              ; preds = %190, %190, %190, %190, %190, %190, %190, %190, %190
   %193 = load ptr, ptr @stderr, align 8
-  %194 = getelementptr inbounds i8, ptr %0, i64 32
+  %194 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %195 = load i32, ptr %194, align 8
   %196 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %193, ptr noundef nonnull @.str.12, i32 noundef %195) #13
   br label %361
 
 197:                                              ; preds = %190, %190, %190, %190
   %198 = load ptr, ptr @stderr, align 8
-  %199 = getelementptr inbounds i8, ptr %0, i64 32
+  %199 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %200 = load i64, ptr %199, align 8
   %201 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %198, ptr noundef nonnull @.str.13, i64 noundef %200) #13
   br label %361
 
 202:                                              ; preds = %190, %190, %190, %190, %190, %190
   %203 = load ptr, ptr @stderr, align 8
-  %204 = getelementptr inbounds i8, ptr %0, i64 32
-  %205 = getelementptr inbounds i8, ptr %0, i64 5
+  %204 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %205 = getelementptr inbounds nuw i8, ptr %0, i64 5
   %206 = load i8, ptr %205, align 1
   %207 = zext i8 %206 to i64
   tail call void @file_showstr(ptr noundef %203, ptr noundef nonnull %204, i64 noundef %207) #14
@@ -453,7 +453,7 @@ define hidden void @file_mdump(ptr noundef %0) local_unnamed_addr #0 {
 
 208:                                              ; preds = %190, %190, %190, %190
   %209 = load ptr, ptr @stderr, align 8
-  %210 = getelementptr inbounds i8, ptr %0, i64 32
+  %210 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %211 = load i32, ptr %210, align 8
   %212 = zext i32 %211 to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
@@ -487,7 +487,7 @@ file_fmtdatetime.exit:                            ; preds = %218, %221
 
 224:                                              ; preds = %190, %190, %190, %190
   %225 = load ptr, ptr @stderr, align 8
-  %226 = getelementptr inbounds i8, ptr %0, i64 32
+  %226 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %227 = load i32, ptr %226, align 8
   %228 = zext i32 %227 to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
@@ -521,7 +521,7 @@ file_fmtdatetime.exit94:                          ; preds = %234, %237
 
 240:                                              ; preds = %190, %190, %190
   %241 = load ptr, ptr @stderr, align 8
-  %242 = getelementptr inbounds i8, ptr %0, i64 32
+  %242 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %243 = load i64, ptr %242, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %10)
@@ -558,7 +558,7 @@ file_fmtdatetime.exit96:                          ; preds = %251, %254
 
 257:                                              ; preds = %190, %190, %190
   %258 = load ptr, ptr @stderr, align 8
-  %259 = getelementptr inbounds i8, ptr %0, i64 32
+  %259 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %260 = load i64, ptr %259, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %8)
@@ -595,7 +595,7 @@ file_fmtdatetime.exit98:                          ; preds = %268, %271
 
 274:                                              ; preds = %190, %190, %190
   %275 = load ptr, ptr @stderr, align 8
-  %276 = getelementptr inbounds i8, ptr %0, i64 32
+  %276 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %277 = load i64, ptr %276, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5)
@@ -636,7 +636,7 @@ file_fmtdatetime.exit100:                         ; preds = %287, %290
 
 293:                                              ; preds = %190, %190, %190
   %294 = load ptr, ptr @stderr, align 8
-  %295 = getelementptr inbounds i8, ptr %0, i64 32
+  %295 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %296 = load float, ptr %295, align 8
   %297 = fpext float %296 to double
   %298 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %294, ptr noundef nonnull @.str.15, double noundef %297) #13
@@ -644,14 +644,14 @@ file_fmtdatetime.exit100:                         ; preds = %287, %290
 
 299:                                              ; preds = %190, %190, %190
   %300 = load ptr, ptr @stderr, align 8
-  %301 = getelementptr inbounds i8, ptr %0, i64 32
+  %301 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %302 = load double, ptr %301, align 8
   %303 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %300, ptr noundef nonnull @.str.15, double noundef %302) #13
   br label %361
 
 304:                                              ; preds = %190, %190
   %305 = load ptr, ptr @stderr, align 8
-  %306 = getelementptr inbounds i8, ptr %0, i64 32
+  %306 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %307 = zext nneg i8 %191 to i32
   %308 = call ptr @file_fmtvarint(ptr noundef nonnull %15, i64 noundef 256, ptr noundef nonnull %306, i32 noundef %307)
   %fputs92 = call i32 @fputs(ptr nonnull %15, ptr %305) #16
@@ -659,22 +659,22 @@ file_fmtdatetime.exit100:                         ; preds = %287, %290
 
 309:                                              ; preds = %190, %190, %190
   %310 = load ptr, ptr @stderr, align 8
-  %311 = getelementptr inbounds i8, ptr %0, i64 32
+  %311 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %312 = load i16, ptr %311, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 56, i1 false)
   %313 = zext i16 %312 to i32
   %314 = and i32 %313, 31
-  %315 = getelementptr inbounds i8, ptr %3, i64 12
+  %315 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 %314, ptr %315, align 4
   %316 = lshr i32 %313, 5
   %317 = and i32 %316, 15
   %318 = add nsw i32 %317, -1
-  %319 = getelementptr inbounds i8, ptr %3, i64 16
+  %319 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 %318, ptr %319, align 8
   %320 = lshr i32 %313, 9
   %321 = add nuw nsw i32 %320, 80
-  %322 = getelementptr inbounds i8, ptr %3, i64 20
+  %322 = getelementptr inbounds nuw i8, ptr %3, i64 20
   store i32 %321, ptr %322, align 4
   %323 = call i64 @strftime(ptr noundef nonnull %15, i64 noundef 256, ptr noundef nonnull @.str.23, ptr noundef nonnull %3) #14
   %324 = icmp eq i64 %323, 0
@@ -691,10 +691,10 @@ file_fmtdate.exit:                                ; preds = %309, %325
 
 328:                                              ; preds = %190, %190, %190
   %329 = load ptr, ptr @stderr, align 8
-  %330 = getelementptr inbounds i8, ptr %0, i64 32
+  %330 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %331 = load i16, ptr %330, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2)
-  %332 = getelementptr inbounds i8, ptr %2, i64 8
+  %332 = getelementptr inbounds nuw i8, ptr %2, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %332, i8 0, i64 48, i1 false)
   %333 = zext i16 %331 to i32
   %334 = shl nuw nsw i32 %333, 1
@@ -702,7 +702,7 @@ file_fmtdate.exit:                                ; preds = %309, %325
   store i32 %335, ptr %2, align 8
   %336 = lshr i32 %333, 5
   %337 = and i32 %336, 63
-  %338 = getelementptr inbounds i8, ptr %2, i64 4
+  %338 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %337, ptr %338, align 4
   %339 = lshr i32 %333, 11
   store i32 %339, ptr %332, align 8
@@ -721,19 +721,19 @@ file_fmttime.exit:                                ; preds = %328, %342
 
 345:                                              ; preds = %190
   %346 = load ptr, ptr @stderr, align 8
-  %347 = getelementptr inbounds i8, ptr %0, i64 32
+  %347 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %348 = call ptr @file_fmtnum(ptr noundef nonnull %15, i64 noundef 256, ptr noundef nonnull %347, i32 noundef 8)
   %fputs91 = call i32 @fputs(ptr nonnull %15, ptr %346) #16
   br label %361
 
 349:                                              ; preds = %190, %190, %190
   %350 = load ptr, ptr @stderr, align 8
-  %351 = getelementptr inbounds i8, ptr %0, i64 32
+  %351 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %352 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %350, ptr noundef nonnull @.str.17, ptr noundef nonnull %351) #13
   br label %361
 
 353:                                              ; preds = %190
-  %354 = getelementptr inbounds i8, ptr %0, i64 32
+  %354 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %355 = call i32 @file_print_guid(ptr noundef nonnull %15, i64 noundef 256, ptr noundef nonnull %354) #14
   %356 = load ptr, ptr @stderr, align 8
   %fputs = call i32 @fputs(ptr nonnull %15, ptr %356) #16
@@ -747,7 +747,7 @@ file_fmttime.exit:                                ; preds = %328, %342
 
 361:                                              ; preds = %192, %197, %202, %file_fmtdatetime.exit, %file_fmtdatetime.exit94, %file_fmtdatetime.exit96, %file_fmtdatetime.exit98, %file_fmtdatetime.exit100, %293, %299, %304, %file_fmtdate.exit, %file_fmttime.exit, %345, %349, %353, %357, %190, %183
   %362 = load ptr, ptr @stderr, align 8
-  %363 = getelementptr inbounds i8, ptr %0, i64 160
+  %363 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %364 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %362, ptr noundef nonnull @.str.19, ptr noundef nonnull %363) #13
   ret void
 }
@@ -831,16 +831,16 @@ define hidden noundef ptr @file_fmtdate(ptr noundef returned %0, i64 noundef %1,
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, i8 0, i64 56, i1 false)
   %5 = zext i16 %2 to i32
   %6 = and i32 %5, 31
-  %7 = getelementptr inbounds i8, ptr %4, i64 12
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 %6, ptr %7, align 4
   %8 = lshr i32 %5, 5
   %9 = and i32 %8, 15
   %10 = add nsw i32 %9, -1
-  %11 = getelementptr inbounds i8, ptr %4, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 %10, ptr %11, align 8
   %12 = lshr i32 %5, 9
   %13 = add nuw nsw i32 %12, 80
-  %14 = getelementptr inbounds i8, ptr %4, i64 20
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i32 %13, ptr %14, align 4
   %15 = call i64 @strftime(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.23, ptr noundef nonnull %4) #14
   %16 = icmp eq i64 %15, 0
@@ -857,7 +857,7 @@ define hidden noundef ptr @file_fmtdate(ptr noundef returned %0, i64 noundef %1,
 ; Function Attrs: nounwind uwtable
 define hidden noundef ptr @file_fmttime(ptr noundef returned %0, i64 noundef %1, i16 noundef zeroext %2) local_unnamed_addr #3 {
   %4 = alloca %struct.tm, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 48, i1 false)
   %6 = zext i16 %2 to i32
   %7 = shl nuw nsw i32 %6, 1
@@ -865,10 +865,10 @@ define hidden noundef ptr @file_fmttime(ptr noundef returned %0, i64 noundef %1,
   store i32 %8, ptr %4, align 8
   %9 = lshr i32 %6, 5
   %10 = and i32 %9, 63
-  %11 = getelementptr inbounds i8, ptr %4, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %10, ptr %11, align 4
   %12 = lshr i32 %6, 11
-  %13 = getelementptr inbounds i8, ptr %4, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %12, ptr %13, align 8
   %14 = call i64 @strftime(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.25, ptr noundef nonnull %4) #14
   %15 = icmp eq i64 %14, 0

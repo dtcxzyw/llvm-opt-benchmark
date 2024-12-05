@@ -67,7 +67,7 @@ _ZN4llvm5APIntC2Ejmbb.exit.i._crit_edge:          ; preds = %_ZN4llvm5APIntC2Ejm
   %35 = load ptr, ptr %4, align 8, !alias.scope !4
   %36 = lshr i32 %26, 6
   %37 = zext nneg i32 %36 to i64
-  %38 = getelementptr inbounds i64, ptr %35, i64 %37
+  %38 = getelementptr inbounds nuw i64, ptr %35, i64 %37
   %39 = load i64, ptr %38, align 8
   %40 = or i64 %39, %29
   store i64 %40, ptr %38, align 8
@@ -434,7 +434,7 @@ _ZN4llvm5APIntaSEOS0_.exit:                       ; preds = %.critedge2, %196, %
   %209 = load ptr, ptr %1, align 8
   %210 = lshr i32 %204, 6
   %211 = zext nneg i32 %210 to i64
-  %212 = getelementptr inbounds i64, ptr %209, i64 %211
+  %212 = getelementptr inbounds nuw i64, ptr %209, i64 %211
   %.in.i.i.i = select i1 %208, ptr %1, ptr %212
   %213 = load i64, ptr %.in.i.i.i, align 8
   %214 = and i64 %207, %213
@@ -616,7 +616,7 @@ define linkonce_odr hidden void @_ZNK4llvm5APInt3absEv(ptr dead_on_unwind noalia
   %11 = load ptr, ptr %1, align 8
   %12 = lshr i32 %6, 6
   %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr inbounds i64, ptr %11, i64 %13
+  %14 = getelementptr inbounds nuw i64, ptr %11, i64 %13
   %.in.i.i.i = select i1 %10, ptr %1, ptr %14
   %15 = load i64, ptr %.in.i.i.i, align 8
   %16 = and i64 %9, %15
@@ -812,7 +812,7 @@ _ZN4llvm5APIntC2Ejmbb.exit.i28._crit_edge:        ; preds = %_ZN4llvm5APIntC2Ejm
   %70 = load ptr, ptr %7, align 8, !alias.scope !27
   %71 = lshr i32 %61, 6
   %72 = zext nneg i32 %71 to i64
-  %73 = getelementptr inbounds i64, ptr %70, i64 %72
+  %73 = getelementptr inbounds nuw i64, ptr %70, i64 %72
   %74 = load i64, ptr %73, align 8
   %75 = or i64 %74, %64
   store i64 %75, ptr %73, align 8
@@ -864,7 +864,7 @@ _ZN4llvm5APInt10getAllOnesEj.exit.i._crit_edge:   ; preds = %_ZN4llvm5APInt10get
   %99 = load ptr, ptr %8, align 8, !alias.scope !35
   %100 = lshr i32 %89, 6
   %101 = zext nneg i32 %100 to i64
-  %102 = getelementptr inbounds i64, ptr %99, i64 %101
+  %102 = getelementptr inbounds nuw i64, ptr %99, i64 %101
   %103 = load i64, ptr %102, align 8
   %104 = and i64 %103, %93
   store i64 %104, ptr %102, align 8

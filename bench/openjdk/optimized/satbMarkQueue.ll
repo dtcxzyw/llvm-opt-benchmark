@@ -50,7 +50,7 @@ $_ZN9LogPrefixILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = c
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN13SATBMarkQueueC2EP16SATBMarkQueueSet(ptr noundef nonnull align 8 dereferenceable(17) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   tail call void @_ZN8PtrQueueC2EP11PtrQueueSet(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) #10
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 0, ptr %3, align 8
   ret void
 }
@@ -61,17 +61,17 @@ declare void @_ZN8PtrQueueC2EP11PtrQueueSet(ptr noundef nonnull align 8 derefere
 define hidden void @_ZN16SATBMarkQueueSetC2EPN10BufferNode9AllocatorE(ptr noundef nonnull align 8 dereferenceable(393) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   tail call void @_ZN11PtrQueueSetC2EPN10BufferNode9AllocatorE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) #10
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV16SATBMarkQueueSet, i64 16), ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 144
-  %4 = getelementptr inbounds i8, ptr %0, i64 152
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 152
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %4, i8 0, i64 120, i1 false)
   store volatile ptr null, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 272
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 272
   store volatile i64 0, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 280
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 280
   store i64 -1, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 288
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 288
   store i64 0, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 296
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 296
   store i8 0, ptr %8, align 8
   ret void
 }
@@ -84,16 +84,16 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN16SATBMarkQueueSetD2Ev(ptr noundef nonnull align 8 dereferenceable(393) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV16SATBMarkQueueSet, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 272
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 272
   store volatile i64 0, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 144
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %4 = tail call noundef ptr asm sideeffect "xchgq ($2),$0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr null, ptr nonnull align 8 dereferenceable(8) %3) #10, !srcloc !6
   %.not6.i = icmp eq ptr %4, null
   br i1 %.not6.i, label %_ZN16SATBMarkQueueSet25abandon_completed_buffersEv.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %1, %.lr.ph.i
   %.07.i = phi ptr [ %6, %.lr.ph.i ], [ %4, %1 ]
-  %5 = getelementptr inbounds i8, ptr %.07.i, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
   %6 = load volatile ptr, ptr %5, align 8
   store volatile ptr null, ptr %5, align 8
   tail call void @_ZN11PtrQueueSet17deallocate_bufferEP10BufferNode(ptr noundef nonnull align 8 dereferenceable(393) %0, ptr noundef nonnull %.07.i) #10
@@ -107,16 +107,16 @@ _ZN16SATBMarkQueueSet25abandon_completed_buffersEv.exit: ; preds = %.lr.ph.i, %1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN16SATBMarkQueueSet25abandon_completed_buffersEv(ptr noundef nonnull align 8 dereferenceable(393) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 272
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 272
   store volatile i64 0, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 144
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %4 = tail call noundef ptr asm sideeffect "xchgq ($2),$0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr null, ptr nonnull align 8 dereferenceable(8) %3) #10, !srcloc !6
   %.not6 = icmp eq ptr %4, null
   br i1 %.not6, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %.07 = phi ptr [ %6, %.lr.ph ], [ %4, %1 ]
-  %5 = getelementptr inbounds i8, ptr %.07, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %.07, i64 8
   %6 = load volatile ptr, ptr %5, align 8
   store volatile ptr null, ptr %5, align 8
   tail call void @_ZN11PtrQueueSet17deallocate_bufferEP10BufferNode(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %.07) #10
@@ -136,23 +136,23 @@ define hidden void @_ZN16SATBMarkQueueSet39set_process_completed_buffers_thresho
   %.not = icmp sgt i64 %1, -1
   %4 = or disjoint i64 %3, 1
   %5 = select i1 %.not, i64 %4, i64 -1
-  %6 = getelementptr inbounds i8, ptr %0, i64 280
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 280
   store i64 %5, ptr %6, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN16SATBMarkQueueSet39set_buffer_enqueue_threshold_percentageEj(ptr nocapture noundef nonnull align 8 dereferenceable(393) initializes((288, 296)) %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load i64, ptr %5, align 8
   %7 = zext i32 %1 to i64
   %8 = mul i64 %6, %7
   %9 = udiv i64 %8, 100
   %10 = sub i64 %6, %9
   %11 = tail call noundef i64 @llvm.umax.i64(i64 %10, i64 1)
-  %12 = getelementptr inbounds i8, ptr %0, i64 288
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 288
   store i64 %11, ptr %12, align 8
   ret void
 }
@@ -166,22 +166,22 @@ define hidden void @_ZN16SATBMarkQueueSet22set_active_all_threadsEbb(ptr noundef
   br i1 %.not.i.i, label %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.thread, label %8
 
 _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.thread: ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 296
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 296
   store i8 %5, ptr %7, align 8
   br label %_ZN11MutexLockerD2Ev.exit
 
 8:                                                ; preds = %3
   tail call void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull align 8 dereferenceable(104) %6) #10
-  %9 = getelementptr inbounds i8, ptr %0, i64 296
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 296
   store i8 %5, ptr %9, align 8
   tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %6) #10
   br label %_ZN11MutexLockerD2Ev.exit
 
 _ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.thread, %8
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTVZN16SATBMarkQueueSet22set_active_all_threadsEbbE22SetThreadActiveClosure, i64 16), ptr %4, align 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %0, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i8 %5, ptr %11, align 8
   call void @_ZN7Threads10threads_doEP13ThreadClosure(ptr noundef nonnull %4) #10
   ret void
@@ -193,7 +193,7 @@ declare void @_ZN7Threads10threads_doEP13ThreadClosure(ptr noundef) local_unname
 define hidden noundef zeroext i1 @_ZN16SATBMarkQueueSet33apply_closure_to_completed_bufferEP17SATBBufferClosure(ptr noundef nonnull align 8 dereferenceable(393) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 424
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 424
   %6 = load volatile i64, ptr %5, align 8
   %7 = and i64 %6, 1
   %8 = icmp eq i64 %7, 0
@@ -207,7 +207,7 @@ define hidden noundef zeroext i1 @_ZN16SATBMarkQueueSet33apply_closure_to_comple
 _ZN13GlobalCounter15CriticalSectionC2EP6Thread.exit.i: ; preds = %9, %2
   %.0.i.i.i = phi i64 [ %11, %9 ], [ %6, %2 ]
   %12 = tail call i64 asm sideeffect "xchgq ($2), $0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i.i, ptr nonnull %5) #10, !srcloc !9
-  %13 = getelementptr inbounds i8, ptr %0, i64 144
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %14 = load volatile ptr, ptr %13, align 8
   br label %.backedge.i.i
 
@@ -222,7 +222,7 @@ _ZN13GlobalCounter15CriticalSectionC2EP6Thread.exit.i: ; preds = %9, %2
   br i1 %.not14.i.i, label %_ZN16SATBMarkQueueSet20get_completed_bufferEv.exit.thread, label %.backedge.i.i.backedge
 
 .thread.i.i:                                      ; preds = %.backedge.i.i
-  %17 = getelementptr inbounds i8, ptr %.011.i.i, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %.011.i.i, i64 8
   %18 = load volatile ptr, ptr %17, align 8
   %19 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %18, ptr nonnull %.011.i.i, ptr nonnull align 8 dereferenceable(8) %13) #10, !srcloc !10
   %.not1417.i.i = icmp eq ptr %19, %.011.i.i
@@ -233,11 +233,11 @@ _ZN13GlobalCounter15CriticalSectionC2EP6Thread.exit.i: ; preds = %9, %2
   br label %.backedge.i.i, !llvm.loop !11
 
 _ZN13LockFreeStackI10BufferNodeXadL_ZNS0_8next_ptrERS0_EEE3popEv.exit.thread.i: ; preds = %.thread.i.i
-  %20 = getelementptr inbounds i8, ptr %19, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store volatile ptr null, ptr %20, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !12
   store volatile i64 %6, ptr %5, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 272
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %22 = load volatile i64, ptr %21, align 8
   br label %23
 
@@ -256,11 +256,11 @@ _ZN16SATBMarkQueueSet20get_completed_bufferEv.exit.thread: ; preds = %15
   br i1 %.not.i3.i, label %_ZN16SATBMarkQueueSet20get_completed_bufferEv.exit, label %23, !llvm.loop !13
 
 _ZN16SATBMarkQueueSet20get_completed_bufferEv.exit: ; preds = %23
-  %27 = getelementptr inbounds i8, ptr %19, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %28 = load i32, ptr %19, align 8
   %29 = zext i32 %28 to i64
-  %30 = getelementptr inbounds ptr, ptr %27, i64 %29
-  %31 = getelementptr inbounds i8, ptr %19, i64 4
+  %30 = getelementptr inbounds nuw ptr, ptr %27, i64 %29
+  %31 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %32 = load i32, ptr %31, align 4
   %33 = zext i32 %32 to i64
   %34 = sub nsw i64 %33, %29
@@ -278,7 +278,7 @@ _ZN16SATBMarkQueueSet20get_completed_bufferEv.exit: ; preds = %23
 define hidden noundef ptr @_ZN16SATBMarkQueueSet20get_completed_bufferEv(ptr noundef nonnull align 8 dereferenceable(393) %0) local_unnamed_addr #0 align 2 {
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 424
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 424
   %5 = load volatile i64, ptr %4, align 8
   %6 = and i64 %5, 1
   %7 = icmp eq i64 %6, 0
@@ -292,7 +292,7 @@ define hidden noundef ptr @_ZN16SATBMarkQueueSet20get_completed_bufferEv(ptr nou
 _ZN13GlobalCounter15CriticalSectionC2EP6Thread.exit: ; preds = %1, %8
   %.0.i.i = phi i64 [ %10, %8 ], [ %5, %1 ]
   %11 = tail call i64 asm sideeffect "xchgq ($2), $0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i, ptr nonnull %4) #10, !srcloc !9
-  %12 = getelementptr inbounds i8, ptr %0, i64 144
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %13 = load volatile ptr, ptr %12, align 8
   br label %.backedge.i
 
@@ -307,7 +307,7 @@ _ZN13GlobalCounter15CriticalSectionC2EP6Thread.exit: ; preds = %1, %8
   br i1 %.not14.i, label %_ZN13LockFreeStackI10BufferNodeXadL_ZNS0_8next_ptrERS0_EEE3popEv.exit, label %.backedge.i.backedge
 
 .thread.i:                                        ; preds = %.backedge.i
-  %16 = getelementptr inbounds i8, ptr %.011.i, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %.011.i, i64 8
   %17 = load volatile ptr, ptr %16, align 8
   %18 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %17, ptr nonnull %.011.i, ptr nonnull align 8 dereferenceable(8) %12) #10, !srcloc !10
   %.not1417.i = icmp eq ptr %18, %.011.i
@@ -318,11 +318,11 @@ _ZN13GlobalCounter15CriticalSectionC2EP6Thread.exit: ; preds = %1, %8
   br label %.backedge.i, !llvm.loop !11
 
 _ZN13LockFreeStackI10BufferNodeXadL_ZNS0_8next_ptrERS0_EEE3popEv.exit.thread: ; preds = %.thread.i
-  %19 = getelementptr inbounds i8, ptr %18, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store volatile ptr null, ptr %19, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !12
   store volatile i64 %5, ptr %4, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 272
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %21 = load volatile i64, ptr %20, align 8
   br label %22
 
@@ -350,7 +350,7 @@ declare void @_ZN11PtrQueueSet17deallocate_bufferEP10BufferNode(ptr noundef nonn
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN16SATBMarkQueueSet11flush_queueER13SATBMarkQueue(ptr noundef nonnull align 8 dereferenceable(393) %0, ptr noundef nonnull align 8 dereferenceable(17) %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load ptr, ptr %4, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(393) %0, ptr noundef nonnull align 8 dereferenceable(17) %1) #10
   tail call void @_ZN11PtrQueueSet11flush_queueER8PtrQueue(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #10
@@ -365,7 +365,7 @@ define hidden void @_ZN16SATBMarkQueueSet20enqueue_known_activeER13SATBMarkQueue
   br i1 %4, label %23, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %10
@@ -376,10 +376,10 @@ define hidden void @_ZN16SATBMarkQueueSet20enqueue_known_activeER13SATBMarkQueue
 
 10:                                               ; preds = %5
   %11 = load ptr, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(393) %0, ptr noundef nonnull align 8 dereferenceable(17) %1) #10
-  %14 = getelementptr inbounds i8, ptr %0, i64 288
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %15 = load i64, ptr %14, align 8
   %16 = load i64, ptr %1, align 8
   %17 = lshr i64 %16, 3
@@ -405,7 +405,7 @@ declare noundef zeroext i1 @_ZN11PtrQueueSet11try_enqueueER8PtrQueuePv(ptr nound
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN16SATBMarkQueueSet17handle_zero_indexER13SATBMarkQueue(ptr noundef nonnull align 8 dereferenceable(393) %0, ptr noundef nonnull align 8 dereferenceable(17) %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %7
@@ -416,10 +416,10 @@ define hidden void @_ZN16SATBMarkQueueSet17handle_zero_indexER13SATBMarkQueue(pt
 
 7:                                                ; preds = %2
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load ptr, ptr %9, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(393) %0, ptr noundef nonnull align 8 dereferenceable(17) %1) #10
-  %11 = getelementptr inbounds i8, ptr %0, i64 288
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %12 = load i64, ptr %11, align 8
   %13 = load i64, ptr %1, align 8
   %14 = lshr i64 %13, 3
@@ -443,7 +443,7 @@ declare void @_ZN11PtrQueueSet18install_new_bufferER8PtrQueue(ptr noundef nonnul
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZN16SATBMarkQueueSet21should_enqueue_bufferER13SATBMarkQueue(ptr nocapture noundef nonnull readonly align 8 dereferenceable(393) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %1) local_unnamed_addr #6 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 288
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %4 = load i64, ptr %3, align 8
   %5 = load i64, ptr %1, align 8
   %6 = lshr i64 %5, 3
@@ -455,8 +455,8 @@ declare noundef ptr @_ZN11PtrQueueSet24exchange_buffer_with_newER8PtrQueue(ptr n
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN16SATBMarkQueueSet24enqueue_completed_bufferEP10BufferNode(ptr noundef nonnull align 8 dereferenceable(393) %0, ptr noundef %1) unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 272
-  %4 = getelementptr inbounds i8, ptr %0, i64 280
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 272
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %5 = load i64, ptr %4, align 8
   %6 = load volatile i64, ptr %3, align 8
   br label %7
@@ -472,9 +472,9 @@ define hidden void @_ZN16SATBMarkQueueSet24enqueue_completed_bufferEP10BufferNod
   br i1 %.not.i, label %_ZL15increment_countPVmm.exit, label %7, !llvm.loop !14
 
 _ZL15increment_countPVmm.exit:                    ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %0, i64 144
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %13 = load volatile ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %15
 
 15:                                               ; preds = %15, %_ZL15increment_countPVmm.exit
@@ -491,16 +491,16 @@ _ZN13LockFreeStackI10BufferNodeXadL_ZNS0_8next_ptrERS0_EEE4pushES1_.exit: ; pred
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN16SATBMarkQueueSet23abandon_partial_markingEv(ptr noundef nonnull align 8 dereferenceable(393) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %class.AbandonThreadQueueClosure, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 272
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 272
   store volatile i64 0, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 144
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %5 = tail call noundef ptr asm sideeffect "xchgq ($2),$0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr null, ptr nonnull align 8 dereferenceable(8) %4) #10, !srcloc !6
   %.not6.i = icmp eq ptr %5, null
   br i1 %.not6.i, label %_ZN16SATBMarkQueueSet25abandon_completed_buffersEv.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %1, %.lr.ph.i
   %.07.i = phi ptr [ %7, %.lr.ph.i ], [ %5, %1 ]
-  %6 = getelementptr inbounds i8, ptr %.07.i, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
   %7 = load volatile ptr, ptr %6, align 8
   store volatile ptr null, ptr %6, align 8
   tail call void @_ZN11PtrQueueSet17deallocate_bufferEP10BufferNode(ptr noundef nonnull align 8 dereferenceable(393) %0, ptr noundef nonnull %.07.i) #10
@@ -509,7 +509,7 @@ define hidden void @_ZN16SATBMarkQueueSet23abandon_partial_markingEv(ptr noundef
 
 _ZN16SATBMarkQueueSet25abandon_completed_buffersEv.exit: ; preds = %.lr.ph.i, %1
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTVZN16SATBMarkQueueSet23abandon_partial_markingEvE25AbandonThreadQueueClosure, i64 16), ptr %2, align 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %0, ptr %8, align 8
   call void @_ZN7Threads10threads_doEP13ThreadClosure(ptr noundef nonnull %2) #10
   ret void
@@ -609,13 +609,13 @@ declare void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZZN16SATBMarkQueueSet22set_active_all_threadsEbbEN22SetThreadActiveClosure9do_threadEP6Thread(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %0, ptr noundef %1) unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef nonnull align 8 dereferenceable(17) ptr %7(ptr noundef nonnull align 8 dereferenceable(393) %4, ptr noundef %1) #10
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i8, ptr %9, align 8
   %11 = trunc i8 %10 to i1
   br i1 %11, label %15, label %12
@@ -630,7 +630,7 @@ define internal void @_ZZN16SATBMarkQueueSet22set_active_all_threadsEbbEN22SetTh
 15:                                               ; preds = %2, %12
   %16 = phi i8 [ %10, %2 ], [ %.pre, %12 ]
   %17 = and i8 %16, 1
-  %18 = getelementptr inbounds i8, ptr %8, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i8 %17, ptr %18, align 8
   ret void
 }
@@ -642,10 +642,10 @@ declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZZN16SATBMarkQueueSet23abandon_partial_markingEvEN25AbandonThreadQueueClosure9do_threadEP6Thread(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef nonnull align 8 dereferenceable(17) ptr %7(ptr noundef nonnull align 8 dereferenceable(393) %4, ptr noundef %1) #10
   tail call void @_ZN11PtrQueueSet11reset_queueER8PtrQueue(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %8) #10

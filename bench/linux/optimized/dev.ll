@@ -27,7 +27,7 @@ define dso_local void @rtc_dev_prepare(ptr noundef %0) local_unnamed_addr #0 ali
   br i1 %3, label %16, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 736
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 736
   %6 = load i32, ptr %5, align 8
   %7 = icmp sgt i32 %6, 15
   br i1 %7, label %16, label %8
@@ -35,13 +35,13 @@ define dso_local void @rtc_dev_prepare(ptr noundef %0) local_unnamed_addr #0 ali
 8:                                                ; preds = %4
   %9 = and i32 %2, -1048576
   %10 = or i32 %6, %9
-  %11 = getelementptr inbounds i8, ptr %0, i64 644
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 644
   store i32 %10, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %0, i64 784
-  tail call void @cdev_init(ptr noundef %12, ptr noundef nonnull @rtc_dev_fops) #9
-  %13 = getelementptr inbounds i8, ptr %0, i64 728
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 784
+  tail call void @cdev_init(ptr noundef nonnull %12, ptr noundef nonnull @rtc_dev_fops) #9
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 728
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 848
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 848
   store ptr %14, ptr %15, align 8
   br label %16
 
@@ -81,35 +81,35 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i64 -2147483648, 2147483648) i64 @rtc_dev_read(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr nocapture readnone %3) #0 align 16 {
   %5 = alloca %struct.wait_queue_entry, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 200
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %7 = load ptr, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #9
-  %8 = getelementptr inbounds i8, ptr %5, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %9 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !6
   %10 = inttoptr i64 %9 to ptr
   store i64 0, ptr %5, align 8
   store ptr %10, ptr %8, align 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr @default_wake_function, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %5, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %13 = icmp ne i64 %2, 4
   %14 = icmp ult i64 %2, 8
   %15 = and i1 %13, %14
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
   br i1 %15, label %62, label %16
 
 16:                                               ; preds = %4
-  %17 = getelementptr inbounds i8, ptr %7, i64 912
-  call void @add_wait_queue(ptr noundef %17, ptr noundef nonnull %5) #9
-  %18 = getelementptr inbounds i8, ptr %0, i64 72
-  %19 = getelementptr inbounds i8, ptr %10, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 912
+  call void @add_wait_queue(ptr noundef nonnull %17, ptr noundef nonnull %5) #9
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %19 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store volatile i32 1, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %7, i64 904
-  call void @_raw_spin_lock_irq(ptr noundef %20) #9
-  %21 = getelementptr inbounds i8, ptr %7, i64 896
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 904
+  call void @_raw_spin_lock_irq(ptr noundef nonnull %20) #9
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 896
   %22 = load i64, ptr %21, align 8
   store i64 0, ptr %21, align 8
-  call void @_raw_spin_unlock_irq(ptr noundef %20) #9
+  call void @_raw_spin_unlock_irq(ptr noundef nonnull %20) #9
   %23 = icmp eq i64 %22, 0
   br i1 %23, label %24, label %.critedge
 
@@ -140,10 +140,10 @@ define internal range(i64 -2147483648, 2147483648) i64 @rtc_dev_read(ptr nocaptu
 39:                                               ; preds = %35
   call void @schedule() #9
   store volatile i32 1, ptr %19, align 8
-  call void @_raw_spin_lock_irq(ptr noundef %20) #9
+  call void @_raw_spin_lock_irq(ptr noundef nonnull %20) #9
   %40 = load i64, ptr %21, align 8
   store i64 0, ptr %21, align 8
-  call void @_raw_spin_unlock_irq(ptr noundef %20) #9
+  call void @_raw_spin_unlock_irq(ptr noundef nonnull %20) #9
   %41 = icmp eq i64 %40, 0
   br i1 %41, label %28, label %.critedge, !llvm.loop !7
 
@@ -151,8 +151,8 @@ define internal range(i64 -2147483648, 2147483648) i64 @rtc_dev_read(ptr nocaptu
   %42 = phi i64 [ %22, %16 ], [ 0, %24 ], [ 0, %.preheader ], [ 0, %35 ], [ 0, %28 ], [ %40, %39 ]
   %43 = phi i1 [ false, %16 ], [ true, %24 ], [ true, %.preheader ], [ true, %35 ], [ true, %28 ], [ false, %39 ]
   %44 = phi i64 [ 0, %16 ], [ -11, %24 ], [ -512, %.preheader ], [ -512, %35 ], [ -11, %28 ], [ 0, %39 ]
-  %45 = call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %19, i32 0, ptr elementtype(i32) %19) #9, !srcloc !10
-  call void @remove_wait_queue(ptr noundef %17, ptr noundef nonnull %5) #9
+  %45 = call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %19, i32 0, ptr nonnull elementtype(i32) %19) #9, !srcloc !10
+  call void @remove_wait_queue(ptr noundef nonnull %17, ptr noundef nonnull %5) #9
   br i1 %43, label %62, label %46
 
 46:                                               ; preds = %.critedge
@@ -191,29 +191,27 @@ define internal range(i64 -2147483648, 2147483648) i64 @rtc_dev_read(ptr nocaptu
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i32 0, 66) i32 @rtc_dev_poll(ptr noundef %0, ptr noundef %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 200
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 912
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 912
   %6 = icmp eq ptr %1, null
-  br i1 %6, label %13, label %7
+  br i1 %6, label %10, label %7
 
 7:                                                ; preds = %2
   %8 = load ptr, ptr %1, align 8
-  %9 = icmp ne ptr %8, null
-  %10 = icmp ne ptr %5, null
-  %11 = and i1 %10, %9
-  br i1 %11, label %12, label %13
+  %.not = icmp eq ptr %8, null
+  br i1 %.not, label %10, label %9
 
-12:                                               ; preds = %7
+9:                                                ; preds = %7
   tail call void %8(ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %1) #9
-  br label %13
+  br label %10
 
-13:                                               ; preds = %12, %7, %2
-  %14 = getelementptr inbounds i8, ptr %4, i64 896
-  %15 = load i64, ptr %14, align 8
-  %16 = icmp eq i64 %15, 0
-  %17 = select i1 %16, i32 0, i32 65
-  ret i32 %17
+10:                                               ; preds = %9, %7, %2
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 896
+  %12 = load i64, ptr %11, align 8
+  %13 = icmp eq i64 %12, 0
+  %14 = select i1 %13, i32 0, i32 65
+  ret i32 %14
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -222,16 +220,16 @@ define internal range(i64 -2147483648, 2147483648) i64 @rtc_dev_ioctl(ptr nocapt
   %5 = alloca %struct.rtc_wkalrm, align 4
   %6 = alloca %struct.rtc_param, align 8
   %7 = alloca i64, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 200
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 744
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 744
   %11 = load ptr, ptr %10, align 8
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %4) #9
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #9
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #9
   %12 = inttoptr i64 %2 to ptr
-  %13 = getelementptr inbounds i8, ptr %9, i64 752
-  %14 = tail call i32 @mutex_lock_interruptible(ptr noundef %13) #9
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 752
+  %14 = tail call i32 @mutex_lock_interruptible(ptr noundef nonnull %13) #9
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %18, label %16
 
@@ -268,7 +266,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @rtc_dev_ioctl(ptr nocapt
   br i1 %20, label %.thread, label %.thread22
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %9, i64 948
+  %22 = getelementptr inbounds nuw i8, ptr %9, i64 948
   %23 = load i32, ptr %22, align 4
   %24 = sext i32 %23 to i64
   %25 = icmp ugt i64 %2, %24
@@ -279,9 +277,9 @@ define internal range(i64 -2147483648, 2147483648) i64 @rtc_dev_ioctl(ptr nocapt
   br i1 %27, label %.thread16, label %.thread22
 
 28:                                               ; preds = %18
-  %29 = getelementptr inbounds i8, ptr %9, i64 944
+  %29 = getelementptr inbounds nuw i8, ptr %9, i64 944
   %30 = load i32, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %9, i64 948
+  %31 = getelementptr inbounds nuw i8, ptr %9, i64 948
   %32 = load i32, ptr %31, align 4
   %33 = icmp sgt i32 %30, %32
   br i1 %33, label %34, label %.thread15
@@ -299,7 +297,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @rtc_dev_ioctl(ptr nocapt
   ]
 
 36:                                               ; preds = %18
-  tail call void @mutex_unlock(ptr noundef %13) #9
+  tail call void @mutex_unlock(ptr noundef nonnull %13) #9
   %37 = call i32 @rtc_read_alarm(ptr noundef %9, ptr noundef nonnull %5) #9
   %38 = icmp slt i32 %37, 0
   br i1 %38, label %39, label %41
@@ -309,29 +307,29 @@ define internal range(i64 -2147483648, 2147483648) i64 @rtc_dev_ioctl(ptr nocapt
   br label %219
 
 41:                                               ; preds = %36
-  %42 = getelementptr inbounds i8, ptr %5, i64 4
-  %43 = call i64 @_copy_to_user(ptr noundef %12, ptr noundef %42, i64 noundef 36) #9
+  %42 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %43 = call i64 @_copy_to_user(ptr noundef %12, ptr noundef nonnull %42, i64 noundef 36) #9
   %44 = icmp eq i64 %43, 0
   %45 = zext nneg i32 %37 to i64
   %46 = select i1 %44, i64 %45, i64 -14
   br label %219
 
 47:                                               ; preds = %18, %.thread
-  tail call void @mutex_unlock(ptr noundef %13) #9
-  %48 = getelementptr inbounds i8, ptr %5, i64 4
-  %49 = call i64 @_copy_from_user(ptr noundef %48, ptr noundef %12, i64 noundef 36) #9
+  tail call void @mutex_unlock(ptr noundef nonnull %13) #9
+  %48 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %49 = call i64 @_copy_from_user(ptr noundef nonnull %48, ptr noundef %12, i64 noundef 36) #9
   %50 = icmp eq i64 %49, 0
   br i1 %50, label %51, label %219
 
 51:                                               ; preds = %47
   store i8 0, ptr %5, align 4
-  %52 = getelementptr inbounds i8, ptr %5, i64 1
+  %52 = getelementptr inbounds nuw i8, ptr %5, i64 1
   store i8 0, ptr %52, align 1
-  %53 = getelementptr inbounds i8, ptr %5, i64 28
+  %53 = getelementptr inbounds nuw i8, ptr %5, i64 28
   store i32 -1, ptr %53, align 4
-  %54 = getelementptr inbounds i8, ptr %5, i64 32
+  %54 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i32 -1, ptr %54, align 4
-  %55 = getelementptr inbounds i8, ptr %5, i64 36
+  %55 = getelementptr inbounds nuw i8, ptr %5, i64 36
   store i32 -1, ptr %55, align 4
   %56 = call i32 @rtc_read_time(ptr noundef %9, ptr noundef nonnull %4) #9
   %57 = icmp slt i32 %56, 0
@@ -343,19 +341,19 @@ define internal range(i64 -2147483648, 2147483648) i64 @rtc_dev_ioctl(ptr nocapt
 
 60:                                               ; preds = %51
   %61 = call i64 @rtc_tm_to_time64(ptr noundef nonnull %4) #9
-  %62 = getelementptr inbounds i8, ptr %4, i64 12
+  %62 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %63 = load i32, ptr %62, align 4
-  %64 = getelementptr inbounds i8, ptr %5, i64 16
+  %64 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 %63, ptr %64, align 4
-  %65 = getelementptr inbounds i8, ptr %4, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %66 = load i32, ptr %65, align 4
-  %67 = getelementptr inbounds i8, ptr %5, i64 20
+  %67 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i32 %66, ptr %67, align 4
-  %68 = getelementptr inbounds i8, ptr %4, i64 20
+  %68 = getelementptr inbounds nuw i8, ptr %4, i64 20
   %69 = load i32, ptr %68, align 4
-  %70 = getelementptr inbounds i8, ptr %5, i64 24
+  %70 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i32 %69, ptr %70, align 4
-  %71 = call i32 @rtc_valid_tm(ptr noundef %48) #9
+  %71 = call i32 @rtc_valid_tm(ptr noundef nonnull %48) #9
   %72 = icmp slt i32 %71, 0
   br i1 %72, label %73, label %75
 
@@ -364,7 +362,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @rtc_dev_ioctl(ptr nocapt
   br label %219
 
 75:                                               ; preds = %60
-  %76 = call i64 @rtc_tm_to_time64(ptr noundef %48) #9
+  %76 = call i64 @rtc_tm_to_time64(ptr noundef nonnull %48) #9
   %77 = icmp slt i64 %76, %61
   br i1 %77, label %78, label %83
 
@@ -385,7 +383,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @rtc_dev_ioctl(ptr nocapt
   br label %219
 
 86:                                               ; preds = %18
-  tail call void @mutex_unlock(ptr noundef %13) #9
+  tail call void @mutex_unlock(ptr noundef nonnull %13) #9
   %87 = call i32 @rtc_read_time(ptr noundef %9, ptr noundef nonnull %4) #9
   %88 = icmp slt i32 %87, 0
   br i1 %88, label %89, label %91
@@ -402,7 +400,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @rtc_dev_ioctl(ptr nocapt
   br label %219
 
 96:                                               ; preds = %.thread
-  tail call void @mutex_unlock(ptr noundef %13) #9
+  tail call void @mutex_unlock(ptr noundef nonnull %13) #9
   %97 = call i64 @_copy_from_user(ptr noundef nonnull %4, ptr noundef %12, i64 noundef 36) #9
   %98 = icmp eq i64 %97, 0
   br i1 %98, label %99, label %219
@@ -421,25 +419,25 @@ define internal range(i64 -2147483648, 2147483648) i64 @rtc_dev_ioctl(ptr nocapt
   br label %.thread22
 
 105:                                              ; preds = %18
-  tail call void @mutex_unlock(ptr noundef %13) #9
+  tail call void @mutex_unlock(ptr noundef nonnull %13) #9
   %106 = tail call i32 @rtc_alarm_irq_enable(ptr noundef %9, i32 noundef 1) #9
   %107 = sext i32 %106 to i64
   br label %219
 
 108:                                              ; preds = %18
-  tail call void @mutex_unlock(ptr noundef %13) #9
+  tail call void @mutex_unlock(ptr noundef nonnull %13) #9
   %109 = tail call i32 @rtc_alarm_irq_enable(ptr noundef %9, i32 noundef 0) #9
   %110 = sext i32 %109 to i64
   br label %219
 
 111:                                              ; preds = %18
-  tail call void @mutex_unlock(ptr noundef %13) #9
+  tail call void @mutex_unlock(ptr noundef nonnull %13) #9
   %112 = tail call i32 @rtc_update_irq_enable(ptr noundef %9, i32 noundef 1) #9
   %113 = sext i32 %112 to i64
   br label %219
 
 114:                                              ; preds = %18
-  tail call void @mutex_unlock(ptr noundef %13) #9
+  tail call void @mutex_unlock(ptr noundef nonnull %13) #9
   %115 = tail call i32 @rtc_update_irq_enable(ptr noundef %9, i32 noundef 0) #9
   %116 = sext i32 %115 to i64
   br label %219
@@ -450,7 +448,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @rtc_dev_ioctl(ptr nocapt
   br label %.thread22
 
 119:                                              ; preds = %18
-  %120 = getelementptr inbounds i8, ptr %9, i64 944
+  %120 = getelementptr inbounds nuw i8, ptr %9, i64 944
   %121 = load i32, ptr %120, align 8
   %122 = sext i32 %121 to i64
   %123 = tail call i64 @llvm.read_register.i64(metadata !0)
@@ -463,7 +461,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @rtc_dev_ioctl(ptr nocapt
   br label %.thread22
 
 129:                                              ; preds = %18
-  tail call void @mutex_unlock(ptr noundef %13) #9
+  tail call void @mutex_unlock(ptr noundef nonnull %13) #9
   %130 = call i64 @_copy_from_user(ptr noundef nonnull %5, ptr noundef %12, i64 noundef 40) #9
   %131 = icmp eq i64 %130, 0
   br i1 %131, label %132, label %219
@@ -474,7 +472,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @rtc_dev_ioctl(ptr nocapt
   br label %219
 
 135:                                              ; preds = %18
-  tail call void @mutex_unlock(ptr noundef %13) #9
+  tail call void @mutex_unlock(ptr noundef nonnull %13) #9
   %136 = call i32 @rtc_read_alarm(ptr noundef %9, ptr noundef nonnull %5) #9
   %137 = icmp slt i32 %136, 0
   br i1 %137, label %138, label %140
@@ -496,7 +494,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @rtc_dev_ioctl(ptr nocapt
   br i1 %147, label %149, label %148
 
 148:                                              ; preds = %145
-  call void @mutex_unlock(ptr noundef %13) #9
+  call void @mutex_unlock(ptr noundef nonnull %13) #9
   br label %219
 
 149:                                              ; preds = %145
@@ -507,33 +505,33 @@ define internal range(i64 -2147483648, 2147483648) i64 @rtc_dev_ioctl(ptr nocapt
   ]
 
 151:                                              ; preds = %149
-  %152 = getelementptr inbounds i8, ptr %6, i64 16
+  %152 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %153 = load i32, ptr %152, align 8
   %154 = icmp eq i32 %153, 0
-  %155 = getelementptr inbounds i8, ptr %9, i64 1208
+  %155 = getelementptr inbounds nuw i8, ptr %9, i64 1208
   %156 = load i64, ptr %155, align 8
-  %157 = getelementptr inbounds i8, ptr %6, i64 8
+  %157 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %156, ptr %157, align 8
   br i1 %154, label %.thread23, label %.thread22
 
 158:                                              ; preds = %149
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #9
   store i64 0, ptr %7, align 8, !annotation !13
-  call void @mutex_unlock(ptr noundef %13) #9
-  %159 = getelementptr inbounds i8, ptr %6, i64 16
+  call void @mutex_unlock(ptr noundef nonnull %13) #9
+  %159 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %160 = load i32, ptr %159, align 8
   %161 = icmp eq i32 %160, 0
   br i1 %161, label %162, label %168
 
 162:                                              ; preds = %158
   %163 = call i32 @rtc_read_offset(ptr noundef %9, ptr noundef nonnull %7) #9
-  call void @mutex_lock(ptr noundef %13) #9
+  call void @mutex_lock(ptr noundef nonnull %13) #9
   %164 = icmp eq i32 %163, 0
   br i1 %164, label %165, label %.thread20
 
 165:                                              ; preds = %162
   %166 = load i64, ptr %7, align 8
-  %167 = getelementptr inbounds i8, ptr %6, i64 8
+  %167 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %166, ptr %167, align 8
   br label %.thread20
 
@@ -547,13 +545,13 @@ define internal range(i64 -2147483648, 2147483648) i64 @rtc_dev_ioctl(ptr nocapt
 
 169:                                              ; preds = %149
   %170 = load ptr, ptr %10, align 8
-  %171 = getelementptr inbounds i8, ptr %170, i64 72
+  %171 = getelementptr inbounds nuw i8, ptr %170, i64 72
   %172 = load ptr, ptr %171, align 8
   %173 = icmp eq ptr %172, null
   br i1 %173, label %.thread22, label %174
 
 174:                                              ; preds = %169
-  %175 = getelementptr inbounds i8, ptr %9, i64 64
+  %175 = getelementptr inbounds nuw i8, ptr %9, i64 64
   %176 = load ptr, ptr %175, align 8
   %177 = call i32 %172(ptr noundef %176, ptr noundef nonnull %6) #9
   br label %178
@@ -575,7 +573,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @rtc_dev_ioctl(ptr nocapt
   br i1 %186, label %188, label %187
 
 187:                                              ; preds = %184
-  call void @mutex_unlock(ptr noundef %13) #9
+  call void @mutex_unlock(ptr noundef nonnull %13) #9
   br label %219
 
 188:                                              ; preds = %184
@@ -586,14 +584,14 @@ define internal range(i64 -2147483648, 2147483648) i64 @rtc_dev_ioctl(ptr nocapt
   ]
 
 190:                                              ; preds = %188
-  call void @mutex_unlock(ptr noundef %13) #9
-  %191 = getelementptr inbounds i8, ptr %6, i64 16
+  call void @mutex_unlock(ptr noundef nonnull %13) #9
+  %191 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %192 = load i32, ptr %191, align 8
   %193 = icmp eq i32 %192, 0
   br i1 %193, label %194, label %219
 
 194:                                              ; preds = %190
-  %195 = getelementptr inbounds i8, ptr %6, i64 8
+  %195 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %196 = load i64, ptr %195, align 8
   %197 = call i32 @rtc_set_offset(ptr noundef %9, i64 noundef %196) #9
   %198 = sext i32 %197 to i64
@@ -601,13 +599,13 @@ define internal range(i64 -2147483648, 2147483648) i64 @rtc_dev_ioctl(ptr nocapt
 
 199:                                              ; preds = %188
   %200 = load ptr, ptr %10, align 8
-  %201 = getelementptr inbounds i8, ptr %200, i64 80
+  %201 = getelementptr inbounds nuw i8, ptr %200, i64 80
   %202 = load ptr, ptr %201, align 8
   %203 = icmp eq ptr %202, null
   br i1 %203, label %.thread22, label %204
 
 204:                                              ; preds = %199
-  %205 = getelementptr inbounds i8, ptr %9, i64 64
+  %205 = getelementptr inbounds nuw i8, ptr %9, i64 64
   %206 = load ptr, ptr %205, align 8
   %207 = call i32 %202(ptr noundef %206, ptr noundef nonnull %6) #9
   br label %.thread22
@@ -618,7 +616,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @rtc_dev_ioctl(ptr nocapt
   br i1 %210, label %.thread22, label %211
 
 211:                                              ; preds = %208
-  %212 = getelementptr inbounds i8, ptr %9, i64 64
+  %212 = getelementptr inbounds nuw i8, ptr %9, i64 64
   %213 = load ptr, ptr %212, align 8
   %214 = tail call i32 %209(ptr noundef %213, i32 noundef %1, i64 noundef %2) #9
   %215 = icmp eq i32 %214, -515
@@ -627,7 +625,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @rtc_dev_ioctl(ptr nocapt
 
 .thread22:                                        ; preds = %169, %151, %26, %19, %211, %208, %204, %199, %188, %.thread23, %178, %119, %.thread16, %103, %.thread15, %34
   %217 = phi i32 [ -13, %34 ], [ %216, %211 ], [ %207, %204 ], [ %179, %178 ], [ %128, %119 ], [ %118, %.thread16 ], [ %104, %103 ], [ %102, %.thread15 ], [ %183, %.thread23 ], [ -22, %188 ], [ -22, %199 ], [ -25, %208 ], [ -13, %19 ], [ -13, %26 ], [ -22, %151 ], [ -22, %169 ]
-  call void @mutex_unlock(ptr noundef %13) #9
+  call void @mutex_unlock(ptr noundef nonnull %13) #9
   %218 = sext i32 %217 to i64
   br label %219
 
@@ -641,7 +639,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @rtc_dev_ioctl(ptr nocapt
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i64 -2147483648, 2147483648) i64 @rtc_dev_compat_ioctl(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 200
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %5 = load ptr, ptr %4, align 8
   %6 = trunc i64 %2 to i32
   %7 = and i64 %2, 4294967295
@@ -653,7 +651,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @rtc_dev_compat_ioctl(ptr
 
 8:                                                ; preds = %3
   %9 = inttoptr i64 %7 to ptr
-  %10 = getelementptr inbounds i8, ptr %5, i64 944
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 944
   %11 = load i32, ptr %10, align 8
   %12 = tail call i64 @llvm.read_register.i64(metadata !0)
   %13 = tail call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %9, i32 %11, i64 4, i64 %12) #9, !srcloc !15
@@ -666,13 +664,13 @@ define internal range(i64 -2147483648, 2147483648) i64 @rtc_dev_compat_ioctl(ptr
   br label %60
 
 19:                                               ; preds = %3
-  %20 = getelementptr inbounds i8, ptr %5, i64 752
-  %21 = tail call i32 @mutex_lock_interruptible(ptr noundef %20) #9
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 752
+  %21 = tail call i32 @mutex_lock_interruptible(ptr noundef nonnull %20) #9
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %23, label %33
 
 23:                                               ; preds = %19
-  %24 = getelementptr inbounds i8, ptr %5, i64 948
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 948
   %25 = load i32, ptr %24, align 4
   %26 = sext i32 %25 to i64
   %27 = icmp ugt i64 %2, %26
@@ -688,7 +686,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @rtc_dev_compat_ioctl(ptr
 
 31:                                               ; preds = %.thread, %28
   %32 = phi i32 [ -13, %28 ], [ %30, %.thread ]
-  tail call void @mutex_unlock(ptr noundef %20) #9
+  tail call void @mutex_unlock(ptr noundef nonnull %20) #9
   br label %33
 
 33:                                               ; preds = %31, %19
@@ -697,10 +695,10 @@ define internal range(i64 -2147483648, 2147483648) i64 @rtc_dev_compat_ioctl(ptr
   br label %60
 
 36:                                               ; preds = %3
-  %37 = getelementptr inbounds i8, ptr %5, i64 744
+  %37 = getelementptr inbounds nuw i8, ptr %5, i64 744
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %5, i64 752
-  %40 = tail call i32 @mutex_lock_interruptible(ptr noundef %39) #9
+  %39 = getelementptr inbounds nuw i8, ptr %5, i64 752
+  %40 = tail call i32 @mutex_lock_interruptible(ptr noundef nonnull %39) #9
   %41 = icmp eq i32 %40, 0
   br i1 %41, label %42, label %55
 
@@ -714,7 +712,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @rtc_dev_compat_ioctl(ptr
   br i1 %46, label %53, label %47
 
 47:                                               ; preds = %44
-  %48 = getelementptr inbounds i8, ptr %5, i64 64
+  %48 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %49 = load ptr, ptr %48, align 8
   %50 = tail call i32 %45(ptr noundef %49, i32 noundef 1074294798, i64 noundef %2) #9
   %51 = icmp eq i32 %50, -515
@@ -723,7 +721,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @rtc_dev_compat_ioctl(ptr
 
 53:                                               ; preds = %47, %44, %42
   %54 = phi i32 [ -13, %42 ], [ %52, %47 ], [ -25, %44 ]
-  tail call void @mutex_unlock(ptr noundef %39) #9
+  tail call void @mutex_unlock(ptr noundef nonnull %39) #9
   br label %55
 
 55:                                               ; preds = %53, %36
@@ -742,7 +740,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @rtc_dev_compat_ioctl(ptr
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef range(i32 -16, 1) i32 @rtc_dev_open(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 568
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 568
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 104
   %6 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %5, i64 0, ptr elementtype(i64) %5) #9, !srcloc !16
@@ -753,7 +751,7 @@ define internal noundef range(i32 -16, 1) i32 @rtc_dev_open(ptr nocapture nounde
 
 9:                                                ; preds = %2
   %10 = getelementptr i8, ptr %4, i64 -784
-  %11 = getelementptr inbounds i8, ptr %1, i64 200
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 200
   store ptr %10, ptr %11, align 8
   %12 = getelementptr i8, ptr %4, i64 120
   tail call void @_raw_spin_lock_irq(ptr noundef %12) #9
@@ -769,33 +767,33 @@ define internal noundef range(i32 -16, 1) i32 @rtc_dev_open(ptr nocapture nounde
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @rtc_dev_release(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 200
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 200
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 752
-  %6 = tail call i32 @mutex_lock_interruptible(ptr noundef %5) #9
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 752
+  %6 = tail call i32 @mutex_lock_interruptible(ptr noundef nonnull %5) #9
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %2
-  tail call void @mutex_unlock(ptr noundef %5) #9
+  tail call void @mutex_unlock(ptr noundef nonnull %5) #9
   %9 = tail call i32 @rtc_update_irq_enable(ptr noundef %4, i32 noundef 0) #9
   br label %10
 
 10:                                               ; preds = %8, %2
   %11 = tail call i32 @rtc_update_irq_enable(ptr noundef %4, i32 noundef 0) #9
   %12 = tail call i32 @rtc_irq_set_state(ptr noundef %4, i32 noundef 0) #9
-  %13 = getelementptr inbounds i8, ptr %4, i64 888
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 888
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !17
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %13, i32 -2, ptr elementtype(i8) %13) #9, !srcloc !18
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %13, i32 -2, ptr nonnull elementtype(i8) %13) #9, !srcloc !18
   ret i32 0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @rtc_dev_fasync(i32 noundef %0, ptr noundef %1, i32 noundef %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 200
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 200
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 936
-  %7 = tail call i32 @fasync_helper(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %6) #9
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 936
+  %7 = tail call i32 @fasync_helper(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %6) #9
   ret i32 %7
 }
 

@@ -180,7 +180,7 @@ define internal i32 @get_yami_message_len(ptr nocapture readnone %0, ptr noundef
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_yami_pdu(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.38) #2
   %7 = load ptr, ptr %5, align 8
@@ -293,7 +293,7 @@ define internal fastcc i32 @dissect_yami_parameter(ptr noundef %0, ptr nocapture
   %9 = tail call ptr @proto_item_add_subtree(ptr noundef %7, i32 noundef %8) #2
   %10 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %3) #2
   %11 = add i32 %3, 4
-  %12 = getelementptr inbounds i8, ptr %1, i64 408
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %13 = load ptr, ptr %12, align 8
   %14 = tail call ptr @tvb_get_string_enc(ptr noundef %13, ptr noundef %0, i32 noundef %11, i32 noundef %10, i32 noundef 0) #2
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %7, ptr noundef nonnull @.str.62, ptr noundef %14) #2

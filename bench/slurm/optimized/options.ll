@@ -61,13 +61,13 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nofree nounwind uwtable
 define dso_local void @_help_fields_msg() local_unnamed_addr #0 {
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @fields, i64 8), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @fields, i64 8), align 8
   %.not9 = icmp eq ptr %1, null
   br i1 %.not9, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %0, %5
   %indvars.iv = phi i64 [ %indvars.iv.next, %5 ], [ 0, %0 ]
-  %2 = phi ptr [ %8, %5 ], [ getelementptr inbounds (i8, ptr @fields, i64 8), %0 ]
+  %2 = phi ptr [ %8, %5 ], [ getelementptr inbounds nuw (i8, ptr @fields, i64 8), %0 ]
   %3 = and i64 %indvars.iv, 3
   %.not5 = icmp eq i64 %3, 0
   br i1 %.not5, label %4, label %.sink.split
@@ -85,7 +85,7 @@ define dso_local void @_help_fields_msg() local_unnamed_addr #0 {
   %6 = load ptr, ptr %2, align 8
   %7 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, ptr noundef %6)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %8 = getelementptr inbounds [0 x %struct.print_field], ptr @fields, i64 0, i64 %indvars.iv.next, i32 1
+  %8 = getelementptr inbounds nuw [0 x %struct.print_field], ptr @fields, i64 0, i64 %indvars.iv.next, i32 1
   %9 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
@@ -124,14 +124,14 @@ define dso_local void @_do_help() local_unnamed_addr #0 {
   br label %18
 
 3:                                                ; preds = %0
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @fields, i64 8), align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @fields, i64 8), align 8
   %.not9.i = icmp eq ptr %4, null
   br i1 %.not9.i, label %_help_fields_msg.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3, %9
   %5 = phi ptr [ %13, %9 ], [ %4, %3 ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %9 ], [ 0, %3 ]
-  %6 = phi ptr [ %12, %9 ], [ getelementptr inbounds (i8, ptr @fields, i64 8), %3 ]
+  %6 = phi ptr [ %12, %9 ], [ getelementptr inbounds nuw (i8, ptr @fields, i64 8), %3 ]
   %7 = and i64 %indvars.iv.i, 3
   %.not5.i = icmp eq i64 %7, 0
   br i1 %.not5.i, label %8, label %.sink.split.i
@@ -150,7 +150,7 @@ define dso_local void @_do_help() local_unnamed_addr #0 {
   %10 = phi ptr [ %.pre, %.sink.split.i ], [ %5, %8 ]
   %11 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, ptr noundef %10)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %12 = getelementptr inbounds [0 x %struct.print_field], ptr @fields, i64 0, i64 %indvars.iv.next.i, i32 1
+  %12 = getelementptr inbounds nuw [0 x %struct.print_field], ptr @fields, i64 0, i64 %indvars.iv.next.i, i32 1
   %13 = load ptr, ptr %12, align 8
   %.not.i = icmp eq ptr %13, null
   br i1 %.not.i, label %_help_fields_msg.exit, label %.lr.ph.i, !llvm.loop !7
@@ -418,7 +418,7 @@ _addto_job_list.exit57:                           ; preds = %42, %47
   %57 = load i32, ptr %4, align 8
   %58 = add i32 %57, %55
   store i32 %58, ptr %4, align 8
-  %59 = getelementptr inbounds i8, ptr %4, i64 12
+  %59 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i8 1, ptr %59, align 4
   %60 = call i32 @log_alter(ptr noundef nonnull byval(%struct.log_options_t) align 8 %4, i32 noundef 0, ptr noundef null) #15
   %.pr = load i32, ptr getelementptr inbounds (i8, ptr @params, i64 36), align 4
@@ -453,8 +453,8 @@ _addto_job_list.exit57:                           ; preds = %42, %47
 
 .lr.ph:                                           ; preds = %69, %84
   %73 = phi ptr [ %85, %84 ], [ %72, %69 ]
-  %74 = getelementptr inbounds i8, ptr %73, i64 8
-  %75 = getelementptr inbounds i8, ptr %73, i64 16
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %73, i64 16
   %76 = load i32, ptr %75, align 4
   %.not55 = icmp eq i32 %76, -2
   %77 = call i32 @get_log_level() #15
@@ -510,7 +510,7 @@ _addto_job_list.exit57:                           ; preds = %42, %47
   %94 = load i16, ptr %93, align 2
   %95 = and i16 %94, 8192
   %.not48 = icmp eq i16 %95, 0
-  %96 = getelementptr inbounds i8, ptr %.1, i64 1
+  %96 = getelementptr inbounds nuw i8, ptr %.1, i64 1
   br i1 %.not48, label %97, label %90, !llvm.loop !10
 
 97:                                               ; preds = %90
@@ -523,14 +523,14 @@ _addto_job_list.exit57:                           ; preds = %42, %47
   br i1 %.not51, label %102, label %99
 
 99:                                               ; preds = %98
-  %100 = getelementptr inbounds i8, ptr %strchr50, i64 1
+  %100 = getelementptr inbounds nuw i8, ptr %strchr50, i64 1
   %101 = call i32 @atoi(ptr nocapture noundef nonnull %100) #19
   store i8 0, ptr %strchr50, align 1
   br label %102
 
 102:                                              ; preds = %99, %98
   %.0 = phi i32 [ %101, %99 ], [ 0, %98 ]
-  %103 = load ptr, ptr getelementptr inbounds (i8, ptr @fields, i64 8), align 8
+  %103 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @fields, i64 8), align 8
   %.not5262 = icmp eq ptr %103, null
   br i1 %.not5262, label %._crit_edge66, label %.lr.ph65
 
@@ -545,8 +545,8 @@ _addto_job_list.exit57:                           ; preds = %42, %47
 .lr.ph96:                                         ; preds = %.lr.ph65, %110
   %indvars.iv95 = phi i64 [ %indvars.iv.next, %110 ], [ 0, %.lr.ph65 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv95, 1
-  %107 = getelementptr inbounds [0 x %struct.print_field], ptr @fields, i64 0, i64 %indvars.iv.next
-  %108 = getelementptr inbounds i8, ptr %107, i64 8
+  %107 = getelementptr inbounds nuw [0 x %struct.print_field], ptr @fields, i64 0, i64 %indvars.iv.next
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 8
   %109 = load ptr, ptr %108, align 8
   %.not52 = icmp eq ptr %109, null
   br i1 %.not52, label %._crit_edge66, label %110, !llvm.loop !11
@@ -573,7 +573,7 @@ _addto_job_list.exit57:                           ; preds = %42, %47
 114:                                              ; preds = %113, %._crit_edge97
   %115 = load ptr, ptr @print_fields_list, align 8
   call void @list_append(ptr noundef %115, ptr noundef nonnull %.lcssa92) #15
-  %116 = getelementptr inbounds i8, ptr %strchr72, i64 1
+  %116 = getelementptr inbounds nuw i8, ptr %strchr72, i64 1
   br label %.backedge
 
 .backedge:                                        ; preds = %114, %97

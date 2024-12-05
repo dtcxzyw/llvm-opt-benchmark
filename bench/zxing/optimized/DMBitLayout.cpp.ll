@@ -57,10 +57,10 @@ define void @_ZN5ZXing10DataMatrix22BitMatrixFromCodewordsERKNS_9ByteArrayEii(pt
   %21 = add nsw i32 %3, 4
   %22 = and i32 %2, 7
   %23 = icmp eq i32 %22, 0
-  %24 = getelementptr inbounds i8, ptr %18, i64 8
-  %25 = getelementptr inbounds i8, ptr %18, i64 16
-  %26 = getelementptr inbounds i8, ptr %17, i64 8
-  %27 = getelementptr inbounds i8, ptr %17, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %28 = and i32 %2, 3
   %.not.i = icmp eq i32 %28, 0
   %29 = and i32 %2, -2147483644
@@ -85,19 +85,19 @@ define void @_ZN5ZXing10DataMatrix22BitMatrixFromCodewordsERKNS_9ByteArrayEii(pt
 
 38:                                               ; preds = %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22BitMatrixFromCodewordsERKNS_9ByteArrayEiiE3$_0EENS_9BitMatrixEiiT_ENKUlNS0_6BitPosEE_clES8_.exit.i.i", %37
   %.010.i.i = phi i64 [ 0, %37 ], [ %60, %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22BitMatrixFromCodewordsERKNS_9ByteArrayEiiE3$_0EENS_9BitMatrixEiiT_ENKUlNS0_6BitPosEE_clES8_.exit.i.i" ]
-  %39 = getelementptr inbounds [8 x %"struct.ZXing::DataMatrix::BitPos"], ptr @"__const._ZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_.CORNER1", i64 0, i64 %.010.i.i
+  %39 = getelementptr inbounds nuw [8 x %"struct.ZXing::DataMatrix::BitPos"], ptr @"__const._ZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_.CORNER1", i64 0, i64 %.010.i.i
   %40 = load i32, ptr %39, align 4, !noalias !7
   %41 = icmp slt i32 %40, 0
   %42 = select i1 %41, i32 %3, i32 0
   %43 = add nsw i32 %42, %40
-  %44 = getelementptr inbounds i8, ptr %39, i64 4
+  %44 = getelementptr inbounds nuw i8, ptr %39, i64 4
   %45 = load i32, ptr %44, align 4, !noalias !7
   %46 = icmp slt i32 %45, 0
   %47 = select i1 %46, i32 %2, i32 0
   %48 = add nsw i32 %47, %45
-  %49 = getelementptr inbounds [8 x %"struct.ZXing::DataMatrix::BitPos"], ptr %10, i64 0, i64 %.010.i.i
+  %49 = getelementptr inbounds nuw [8 x %"struct.ZXing::DataMatrix::BitPos"], ptr %10, i64 0, i64 %.010.i.i
   store i32 %43, ptr %49, align 4, !noalias !7
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %49, i64 4
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %49, i64 4
   store i32 %48, ptr %.sroa.2.0..sroa_idx.i.i, align 4, !noalias !7
   %.sroa.0.0.copyload.i.i = load i64, ptr %49, align 4, !noalias !7
   %.sroa.0.0.extract.trunc.i.i.i = trunc i64 %.sroa.0.0.copyload.i.i to i32
@@ -137,8 +137,8 @@ define void @_ZN5ZXing10DataMatrix22BitMatrixFromCodewordsERKNS_9ByteArrayEii(pt
   br i1 %.not12.i.i, label %80, label %66
 
 66:                                               ; preds = %62
-  %.011.ptr4.i.i = getelementptr inbounds i8, ptr %11, i64 %.011.idx2.i.i
-  %67 = getelementptr inbounds i8, ptr %.011.ptr4.i.i, i64 4
+  %.011.ptr4.i.i = getelementptr inbounds nuw i8, ptr %11, i64 %.011.idx2.i.i
+  %67 = getelementptr inbounds nuw i8, ptr %.011.ptr4.i.i, i64 4
   %68 = load i32, ptr %67, align 4, !noalias !4
   %69 = load i32, ptr %.011.ptr4.i.i, align 4, !noalias !4
   %70 = load i32, ptr %17, align 8, !noalias !4
@@ -189,19 +189,19 @@ _ZN5ZXing9BitMatrix3setEiib.exit.i.i:             ; preds = %66
 
 90:                                               ; preds = %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22BitMatrixFromCodewordsERKNS_9ByteArrayEiiE3$_0EENS_9BitMatrixEiiT_ENKUlNS0_6BitPosEE_clES8_.exit.i75.i", %89
   %.010.i67.i = phi i64 [ 0, %89 ], [ %112, %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22BitMatrixFromCodewordsERKNS_9ByteArrayEiiE3$_0EENS_9BitMatrixEiiT_ENKUlNS0_6BitPosEE_clES8_.exit.i75.i" ]
-  %91 = getelementptr inbounds [8 x %"struct.ZXing::DataMatrix::BitPos"], ptr @"__const._ZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_.CORNER2", i64 0, i64 %.010.i67.i
+  %91 = getelementptr inbounds nuw [8 x %"struct.ZXing::DataMatrix::BitPos"], ptr @"__const._ZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_.CORNER2", i64 0, i64 %.010.i67.i
   %92 = load i32, ptr %91, align 4, !noalias !13
   %93 = icmp slt i32 %92, 0
   %94 = select i1 %93, i32 %3, i32 0
   %95 = add nsw i32 %94, %92
-  %96 = getelementptr inbounds i8, ptr %91, i64 4
+  %96 = getelementptr inbounds nuw i8, ptr %91, i64 4
   %97 = load i32, ptr %96, align 4, !noalias !13
   %98 = icmp slt i32 %97, 0
   %99 = select i1 %98, i32 %2, i32 0
   %100 = add nsw i32 %99, %97
-  %101 = getelementptr inbounds [8 x %"struct.ZXing::DataMatrix::BitPos"], ptr %9, i64 0, i64 %.010.i67.i
+  %101 = getelementptr inbounds nuw [8 x %"struct.ZXing::DataMatrix::BitPos"], ptr %9, i64 0, i64 %.010.i67.i
   store i32 %95, ptr %101, align 4, !noalias !13
-  %.sroa.2.0..sroa_idx.i68.i = getelementptr inbounds i8, ptr %101, i64 4
+  %.sroa.2.0..sroa_idx.i68.i = getelementptr inbounds nuw i8, ptr %101, i64 4
   store i32 %100, ptr %.sroa.2.0..sroa_idx.i68.i, align 4, !noalias !13
   %.sroa.0.0.copyload.i69.i = load i64, ptr %101, align 4, !noalias !13
   %.sroa.0.0.extract.trunc.i.i71.i = trunc i64 %.sroa.0.0.copyload.i69.i to i32
@@ -241,8 +241,8 @@ _ZN5ZXing9BitMatrix3setEiib.exit.i.i:             ; preds = %66
   br i1 %.not12.i81.i, label %132, label %118
 
 118:                                              ; preds = %114
-  %.011.ptr4.i82.i = getelementptr inbounds i8, ptr %12, i64 %.011.idx2.i80.i
-  %119 = getelementptr inbounds i8, ptr %.011.ptr4.i82.i, i64 4
+  %.011.ptr4.i82.i = getelementptr inbounds nuw i8, ptr %12, i64 %.011.idx2.i80.i
+  %119 = getelementptr inbounds nuw i8, ptr %.011.ptr4.i82.i, i64 4
   %120 = load i32, ptr %119, align 4, !noalias !4
   %121 = load i32, ptr %.011.ptr4.i82.i, align 4, !noalias !4
   %122 = load i32, ptr %17, align 8, !noalias !4
@@ -281,19 +281,19 @@ _ZN5ZXing9BitMatrix3setEiib.exit.i84.i:           ; preds = %118
 
 138:                                              ; preds = %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22BitMatrixFromCodewordsERKNS_9ByteArrayEiiE3$_0EENS_9BitMatrixEiiT_ENKUlNS0_6BitPosEE_clES8_.exit.i97.i", %137
   %.010.i89.i = phi i64 [ 0, %137 ], [ %160, %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22BitMatrixFromCodewordsERKNS_9ByteArrayEiiE3$_0EENS_9BitMatrixEiiT_ENKUlNS0_6BitPosEE_clES8_.exit.i97.i" ]
-  %139 = getelementptr inbounds [8 x %"struct.ZXing::DataMatrix::BitPos"], ptr @"__const._ZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_.CORNER3", i64 0, i64 %.010.i89.i
+  %139 = getelementptr inbounds nuw [8 x %"struct.ZXing::DataMatrix::BitPos"], ptr @"__const._ZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_.CORNER3", i64 0, i64 %.010.i89.i
   %140 = load i32, ptr %139, align 4, !noalias !17
   %141 = icmp slt i32 %140, 0
   %142 = select i1 %141, i32 %3, i32 0
   %143 = add nsw i32 %142, %140
-  %144 = getelementptr inbounds i8, ptr %139, i64 4
+  %144 = getelementptr inbounds nuw i8, ptr %139, i64 4
   %145 = load i32, ptr %144, align 4, !noalias !17
   %146 = icmp slt i32 %145, 0
   %147 = select i1 %146, i32 %2, i32 0
   %148 = add nsw i32 %147, %145
-  %149 = getelementptr inbounds [8 x %"struct.ZXing::DataMatrix::BitPos"], ptr %8, i64 0, i64 %.010.i89.i
+  %149 = getelementptr inbounds nuw [8 x %"struct.ZXing::DataMatrix::BitPos"], ptr %8, i64 0, i64 %.010.i89.i
   store i32 %143, ptr %149, align 4, !noalias !17
-  %.sroa.2.0..sroa_idx.i90.i = getelementptr inbounds i8, ptr %149, i64 4
+  %.sroa.2.0..sroa_idx.i90.i = getelementptr inbounds nuw i8, ptr %149, i64 4
   store i32 %148, ptr %.sroa.2.0..sroa_idx.i90.i, align 4, !noalias !17
   %.sroa.0.0.copyload.i91.i = load i64, ptr %149, align 4, !noalias !17
   %.sroa.0.0.extract.trunc.i.i93.i = trunc i64 %.sroa.0.0.copyload.i91.i to i32
@@ -333,8 +333,8 @@ _ZN5ZXing9BitMatrix3setEiib.exit.i84.i:           ; preds = %118
   br i1 %.not12.i103.i, label %180, label %166
 
 166:                                              ; preds = %162
-  %.011.ptr4.i104.i = getelementptr inbounds i8, ptr %13, i64 %.011.idx2.i102.i
-  %167 = getelementptr inbounds i8, ptr %.011.ptr4.i104.i, i64 4
+  %.011.ptr4.i104.i = getelementptr inbounds nuw i8, ptr %13, i64 %.011.idx2.i102.i
+  %167 = getelementptr inbounds nuw i8, ptr %.011.ptr4.i104.i, i64 4
   %168 = load i32, ptr %167, align 4, !noalias !4
   %169 = load i32, ptr %.011.ptr4.i104.i, align 4, !noalias !4
   %170 = load i32, ptr %17, align 8, !noalias !4
@@ -369,19 +369,19 @@ _ZN5ZXing9BitMatrix3setEiib.exit.i106.i:          ; preds = %166
 
 184:                                              ; preds = %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22BitMatrixFromCodewordsERKNS_9ByteArrayEiiE3$_0EENS_9BitMatrixEiiT_ENKUlNS0_6BitPosEE_clES8_.exit.i119.i", %183
   %.010.i111.i = phi i64 [ 0, %183 ], [ %206, %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22BitMatrixFromCodewordsERKNS_9ByteArrayEiiE3$_0EENS_9BitMatrixEiiT_ENKUlNS0_6BitPosEE_clES8_.exit.i119.i" ]
-  %185 = getelementptr inbounds [8 x %"struct.ZXing::DataMatrix::BitPos"], ptr @"__const._ZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_.CORNER4", i64 0, i64 %.010.i111.i
+  %185 = getelementptr inbounds nuw [8 x %"struct.ZXing::DataMatrix::BitPos"], ptr @"__const._ZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_.CORNER4", i64 0, i64 %.010.i111.i
   %186 = load i32, ptr %185, align 4, !noalias !21
   %187 = icmp slt i32 %186, 0
   %188 = select i1 %187, i32 %3, i32 0
   %189 = add nsw i32 %188, %186
-  %190 = getelementptr inbounds i8, ptr %185, i64 4
+  %190 = getelementptr inbounds nuw i8, ptr %185, i64 4
   %191 = load i32, ptr %190, align 4, !noalias !21
   %192 = icmp slt i32 %191, 0
   %193 = select i1 %192, i32 %2, i32 0
   %194 = add nsw i32 %193, %191
-  %195 = getelementptr inbounds [8 x %"struct.ZXing::DataMatrix::BitPos"], ptr %7, i64 0, i64 %.010.i111.i
+  %195 = getelementptr inbounds nuw [8 x %"struct.ZXing::DataMatrix::BitPos"], ptr %7, i64 0, i64 %.010.i111.i
   store i32 %189, ptr %195, align 4, !noalias !21
-  %.sroa.2.0..sroa_idx.i112.i = getelementptr inbounds i8, ptr %195, i64 4
+  %.sroa.2.0..sroa_idx.i112.i = getelementptr inbounds nuw i8, ptr %195, i64 4
   store i32 %194, ptr %.sroa.2.0..sroa_idx.i112.i, align 4, !noalias !21
   %.sroa.0.0.copyload.i113.i = load i64, ptr %195, align 4, !noalias !21
   %.sroa.0.0.extract.trunc.i.i115.i = trunc i64 %.sroa.0.0.copyload.i113.i to i32
@@ -421,8 +421,8 @@ _ZN5ZXing9BitMatrix3setEiib.exit.i106.i:          ; preds = %166
   br i1 %.not12.i125.i, label %226, label %212
 
 212:                                              ; preds = %208
-  %.011.ptr4.i126.i = getelementptr inbounds i8, ptr %14, i64 %.011.idx2.i124.i
-  %213 = getelementptr inbounds i8, ptr %.011.ptr4.i126.i, i64 4
+  %.011.ptr4.i126.i = getelementptr inbounds nuw i8, ptr %14, i64 %.011.idx2.i124.i
+  %213 = getelementptr inbounds nuw i8, ptr %.011.ptr4.i126.i, i64 4
   %214 = load i32, ptr %213, align 4, !noalias !4
   %215 = load i32, ptr %.011.ptr4.i126.i, align 4, !noalias !4
   %216 = load i32, ptr %17, align 8, !noalias !4
@@ -449,7 +449,7 @@ _ZN5ZXing9BitMatrix3setEiib.exit.i128.i:          ; preds = %212
   br i1 %.not.i130.i, label %.thread228.sink.split.i, label %208
 
 .thread228.sink.split.i:                          ; preds = %180, %132, %226, %80
-  %228 = getelementptr inbounds i8, ptr %.sroa.028.0, i64 1
+  %228 = getelementptr inbounds nuw i8, ptr %.sroa.028.0, i64 1
   br label %.thread228.i.preheader
 
 .thread228.i.preheader:                           ; preds = %.thread228.sink.split.i, %182, %134
@@ -492,10 +492,10 @@ _ZN5ZXing9BitMatrix3setEiib.exit.i128.i:          ; preds = %212
 
 245:                                              ; preds = %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22BitMatrixFromCodewordsERKNS_9ByteArrayEiiE3$_0EENS_9BitMatrixEiiT_ENKUlNS0_6BitPosEE_clES8_.exit.i143.i", %244
   %.028.i.i = phi i64 [ 0, %244 ], [ %268, %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22BitMatrixFromCodewordsERKNS_9ByteArrayEiiE3$_0EENS_9BitMatrixEiiT_ENKUlNS0_6BitPosEE_clES8_.exit.i143.i" ]
-  %246 = getelementptr inbounds [8 x %"struct.ZXing::DataMatrix::BitPos"], ptr @"__const._ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_ENKUliiE_clEii.delta", i64 0, i64 %.028.i.i
+  %246 = getelementptr inbounds nuw [8 x %"struct.ZXing::DataMatrix::BitPos"], ptr @"__const._ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_ENKUliiE_clEii.delta", i64 0, i64 %.028.i.i
   %247 = load i32, ptr %246, align 4, !noalias !25
   %248 = add nsw i32 %247, %.1.i
-  %249 = getelementptr inbounds i8, ptr %246, i64 4
+  %249 = getelementptr inbounds nuw i8, ptr %246, i64 4
   %250 = load i32, ptr %249, align 4, !noalias !25
   %251 = icmp slt i32 %248, 0
   %.020.i.v.i = select i1 %251, i32 %reass.sub.reass.i.reass.reass.i, i32 %.147.i
@@ -511,9 +511,9 @@ _ZN5ZXing9BitMatrix3setEiib.exit.i128.i:          ; preds = %212
   %.not.i135.i = icmp slt i32 %.1.i.i, %3
   %256 = select i1 %.not.i135.i, i32 0, i32 %3
   %spec.select.i.i = sub nsw i32 %.1.i.i, %256
-  %257 = getelementptr inbounds [8 x %"struct.ZXing::DataMatrix::BitPos"], ptr %6, i64 0, i64 %.028.i.i
+  %257 = getelementptr inbounds nuw [8 x %"struct.ZXing::DataMatrix::BitPos"], ptr %6, i64 0, i64 %.028.i.i
   store i32 %spec.select.i.i, ptr %257, align 4, !noalias !25
-  %.sroa.2.0..sroa_idx.i136.i = getelementptr inbounds i8, ptr %257, i64 4
+  %.sroa.2.0..sroa_idx.i136.i = getelementptr inbounds nuw i8, ptr %257, i64 4
   store i32 %.121.i.i, ptr %.sroa.2.0..sroa_idx.i136.i, align 4, !noalias !25
   %.sroa.0.0.copyload.i137.i = load i64, ptr %257, align 4, !noalias !25
   %.sroa.0.0.extract.trunc.i.i139.i = trunc i64 %.sroa.0.0.copyload.i137.i to i32
@@ -553,8 +553,8 @@ _ZN5ZXing9BitMatrix3setEiib.exit.i128.i:          ; preds = %212
   br i1 %.not12.i148.i, label %288, label %274
 
 274:                                              ; preds = %270
-  %.011.ptr4.i149.i = getelementptr inbounds i8, ptr %15, i64 %.011.idx2.i147.i
-  %275 = getelementptr inbounds i8, ptr %.011.ptr4.i149.i, i64 4
+  %.011.ptr4.i149.i = getelementptr inbounds nuw i8, ptr %15, i64 %.011.idx2.i147.i
+  %275 = getelementptr inbounds nuw i8, ptr %.011.ptr4.i149.i, i64 4
   %276 = load i32, ptr %275, align 4, !noalias !4
   %277 = load i32, ptr %.011.ptr4.i149.i, align 4, !noalias !4
   %278 = load i32, ptr %17, align 8, !noalias !4
@@ -581,7 +581,7 @@ _ZN5ZXing9BitMatrix3setEiib.exit.i151.i:          ; preds = %274
   br i1 %.not.i153.i, label %"_ZZN5ZXing10DataMatrix22BitMatrixFromCodewordsERKNS_9ByteArrayEiiENK3$_0clERKSt5arrayINS0_6BitPosELm8EE.exit155.i", label %270
 
 "_ZZN5ZXing10DataMatrix22BitMatrixFromCodewordsERKNS_9ByteArrayEiiENK3$_0clERKSt5arrayINS0_6BitPosELm8EE.exit155.i": ; preds = %288
-  %290 = getelementptr inbounds i8, ptr %.sroa.028.2, i64 1
+  %290 = getelementptr inbounds nuw i8, ptr %.sroa.028.2, i64 1
   br label %291
 
 291:                                              ; preds = %"_ZZN5ZXing10DataMatrix22BitMatrixFromCodewordsERKNS_9ByteArrayEiiENK3$_0clERKSt5arrayINS0_6BitPosELm8EE.exit155.i", %241, %.thread228.i
@@ -634,10 +634,10 @@ _ZN5ZXing9BitMatrix3setEiib.exit.i151.i:          ; preds = %274
 
 317:                                              ; preds = %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22BitMatrixFromCodewordsERKNS_9ByteArrayEiiE3$_0EENS_9BitMatrixEiiT_ENKUlNS0_6BitPosEE_clES8_.exit.i174.i", %316
   %.028.i160.i = phi i64 [ 0, %316 ], [ %340, %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22BitMatrixFromCodewordsERKNS_9ByteArrayEiiE3$_0EENS_9BitMatrixEiiT_ENKUlNS0_6BitPosEE_clES8_.exit.i174.i" ]
-  %318 = getelementptr inbounds [8 x %"struct.ZXing::DataMatrix::BitPos"], ptr @"__const._ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_ENKUliiE_clEii.delta", i64 0, i64 %.028.i160.i
+  %318 = getelementptr inbounds nuw [8 x %"struct.ZXing::DataMatrix::BitPos"], ptr @"__const._ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_ENKUliiE_clEii.delta", i64 0, i64 %.028.i160.i
   %319 = load i32, ptr %318, align 4, !noalias !31
   %320 = add nsw i32 %319, %.2.i
-  %321 = getelementptr inbounds i8, ptr %318, i64 4
+  %321 = getelementptr inbounds nuw i8, ptr %318, i64 4
   %322 = load i32, ptr %321, align 4, !noalias !31
   %323 = icmp slt i32 %320, 0
   %.020.i161.v.i = select i1 %323, i32 %reass.sub.reass.i177.reass.reass.i, i32 %.248.i
@@ -653,9 +653,9 @@ _ZN5ZXing9BitMatrix3setEiib.exit.i151.i:          ; preds = %274
   %.not.i165.i = icmp slt i32 %.1.i164.i, %3
   %328 = select i1 %.not.i165.i, i32 0, i32 %3
   %spec.select.i166.i = sub nsw i32 %.1.i164.i, %328
-  %329 = getelementptr inbounds [8 x %"struct.ZXing::DataMatrix::BitPos"], ptr %5, i64 0, i64 %.028.i160.i
+  %329 = getelementptr inbounds nuw [8 x %"struct.ZXing::DataMatrix::BitPos"], ptr %5, i64 0, i64 %.028.i160.i
   store i32 %spec.select.i166.i, ptr %329, align 4, !noalias !31
-  %.sroa.2.0..sroa_idx.i167.i = getelementptr inbounds i8, ptr %329, i64 4
+  %.sroa.2.0..sroa_idx.i167.i = getelementptr inbounds nuw i8, ptr %329, i64 4
   store i32 %.121.i163.i, ptr %.sroa.2.0..sroa_idx.i167.i, align 4, !noalias !31
   %.sroa.0.0.copyload.i168.i = load i64, ptr %329, align 4, !noalias !31
   %.sroa.0.0.extract.trunc.i.i170.i = trunc i64 %.sroa.0.0.copyload.i168.i to i32
@@ -695,8 +695,8 @@ _ZN5ZXing9BitMatrix3setEiib.exit.i151.i:          ; preds = %274
   br i1 %.not12.i182.i, label %362, label %346
 
 346:                                              ; preds = %342
-  %.011.ptr4.i183.i = getelementptr inbounds i8, ptr %16, i64 %.011.idx2.i181.i
-  %347 = getelementptr inbounds i8, ptr %.011.ptr4.i183.i, i64 4
+  %.011.ptr4.i183.i = getelementptr inbounds nuw i8, ptr %16, i64 %.011.idx2.i181.i
+  %347 = getelementptr inbounds nuw i8, ptr %.011.ptr4.i183.i, i64 4
   %348 = load i32, ptr %347, align 4, !noalias !4
   %349 = load i32, ptr %.011.ptr4.i183.i, align 4, !noalias !4
   %350 = load i32, ptr %17, align 8, !noalias !4
@@ -732,7 +732,7 @@ _ZN5ZXing9BitMatrix3setEiib.exit.i185.i:          ; preds = %346
   br i1 %.not.i187.i, label %"_ZZN5ZXing10DataMatrix22BitMatrixFromCodewordsERKNS_9ByteArrayEiiENK3$_0clERKSt5arrayINS0_6BitPosELm8EE.exit189.i", label %342
 
 "_ZZN5ZXing10DataMatrix22BitMatrixFromCodewordsERKNS_9ByteArrayEiiENK3$_0clERKSt5arrayINS0_6BitPosELm8EE.exit189.i": ; preds = %362
-  %364 = getelementptr inbounds i8, ptr %.sroa.028.4, i64 1
+  %364 = getelementptr inbounds nuw i8, ptr %.sroa.028.4, i64 1
   br label %365
 
 365:                                              ; preds = %"_ZZN5ZXing10DataMatrix22BitMatrixFromCodewordsERKNS_9ByteArrayEiiENK3$_0clERKSt5arrayINS0_6BitPosELm8EE.exit189.i", %313, %300
@@ -759,7 +759,7 @@ _ZN5ZXing9BitMatrix3setEiib.exit.i185.i:          ; preds = %346
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %16)
-  %378 = getelementptr inbounds i8, ptr %1, i64 8
+  %378 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %379 = load ptr, ptr %378, align 8
   %.not = icmp eq ptr %.sroa.028.5, %379
   br i1 %.not, label %383, label %380
@@ -851,14 +851,14 @@ _ZN5ZXing9BitMatrix3setEiib.exit20:               ; preds = %408
 427:                                              ; preds = %_ZN5ZXing9BitMatrix3setEiib.exit20, %395
   %428 = load i64, ptr %17, align 8
   store i64 %428, ptr %0, align 8
-  %429 = getelementptr inbounds i8, ptr %0, i64 8
+  %429 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %430 = load ptr, ptr %26, align 8
   store ptr %430, ptr %429, align 8
-  %431 = getelementptr inbounds i8, ptr %0, i64 16
+  %431 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %432 = load ptr, ptr %27, align 8
   store ptr %432, ptr %431, align 8
-  %433 = getelementptr inbounds i8, ptr %0, i64 24
-  %434 = getelementptr inbounds i8, ptr %17, i64 24
+  %433 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %434 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %435 = load ptr, ptr %434, align 8
   store ptr %435, ptr %433, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %26, i8 0, i64 24, i1 false)
@@ -887,7 +887,7 @@ _ZN5ZXing9BitMatrixD2Ev.exit25:                   ; preds = %_ZN5ZXing9BitMatrix
 
 .body:                                            ; preds = %426, %423, %381, %85, %82
   %.pn = phi { ptr, i32 } [ %382, %381 ], [ %83, %85 ], [ %83, %82 ], [ %424, %423 ], [ %424, %426 ]
-  %441 = getelementptr inbounds i8, ptr %17, i64 8
+  %441 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %442 = load ptr, ptr %441, align 8
   %.not.i.i.i.i26 = icmp eq ptr %442, null
   br i1 %.not.i.i.i.i26, label %_ZN5ZXing9BitMatrixD2Ev.exit27, label %443
@@ -903,9 +903,9 @@ _ZN5ZXing9BitMatrixD2Ev.exit27:                   ; preds = %.body, %443
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5ZXing9BitMatrixC2Eii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   store i32 %1, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %2, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = mul nsw i32 %2, %1
   %7 = sext i32 %6 to i64
   %8 = icmp slt i32 %6, 0
@@ -921,16 +921,16 @@ _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %3
   br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i, label %.noexc15
 
 _ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %15
 
 .noexc15:                                         ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i
   %10 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %7) #13
   store ptr %10, ptr %5, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %10, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %10, i64 %7
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 %7
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %12, ptr %13, align 8
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %10, i8 0, i64 %7, i1 false)
   %14 = ptrtoint ptr %10 to i64
@@ -1014,31 +1014,31 @@ define void @_ZN5ZXing10DataMatrix22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0
   %16 = alloca %"class.ZXing::BitMatrix", align 8
   %17 = alloca %"class.ZXing::BitMatrix", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !37)
-  %18 = getelementptr inbounds i8, ptr %2, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %19 = load i32, ptr %18, align 4, !noalias !37
-  %20 = getelementptr inbounds i8, ptr %2, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %21 = load i32, ptr %20, align 4, !noalias !37
   %.fr.i.i = freeze i32 %19
   %22 = srem i32 %.fr.i.i, %21
   %23 = sub nsw i32 %.fr.i.i, %22
-  %24 = getelementptr inbounds i8, ptr %2, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %25 = load i32, ptr %24, align 4, !noalias !37
-  %26 = getelementptr inbounds i8, ptr %2, i64 12
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %27 = load i32, ptr %26, align 4, !noalias !37
   %.fr.i20.i = freeze i32 %25
   %28 = srem i32 %.fr.i20.i, %27
   %29 = sub nsw i32 %.fr.i20.i, %28
   call void @_ZN5ZXing9BitMatrixC2Eii(ptr noundef nonnull align 8 dereferenceable(32) %16, i32 noundef %23, i32 noundef %29)
-  %30 = getelementptr inbounds i8, ptr %16, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %31 = load i32, ptr %30, align 4, !alias.scope !37
   %32 = icmp sgt i32 %31, 0
   br i1 %32, label %.preheader.lr.ph.i, label %.loopexit
 
 .preheader.lr.ph.i:                               ; preds = %3
-  %33 = getelementptr inbounds i8, ptr %1, i64 8
-  %34 = getelementptr inbounds i8, ptr %1, i64 16
-  %35 = getelementptr inbounds i8, ptr %16, i64 8
-  %36 = getelementptr inbounds i8, ptr %16, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %37 = load i32, ptr %16, align 8, !alias.scope !37
   %38 = icmp sgt i32 %37, 0
   br i1 %38, label %.preheader.i, label %.loopexit
@@ -1136,17 +1136,17 @@ common.resume:                                    ; preds = %common.resume.sink.
 
 .loopexit:                                        ; preds = %._crit_edge.i, %.preheader.lr.ph.i, %3
   %86 = phi i32 [ %31, %.preheader.lr.ph.i ], [ %31, %3 ], [ %83, %._crit_edge.i ]
-  %87 = getelementptr inbounds i8, ptr %2, i64 20
-  %88 = getelementptr inbounds i8, ptr %2, i64 24
+  %87 = getelementptr inbounds nuw i8, ptr %2, i64 20
+  %88 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %89 = load i32, ptr %88, align 4
-  %90 = getelementptr inbounds i8, ptr %2, i64 28
+  %90 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %91 = load i32, ptr %90, align 4
   %92 = load i32, ptr %87, align 4
   %93 = add nsw i32 %92, %91
   %94 = mul nsw i32 %93, %89
-  %95 = getelementptr inbounds i8, ptr %2, i64 32
+  %95 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %96 = load i32, ptr %95, align 4
-  %97 = getelementptr inbounds i8, ptr %2, i64 36
+  %97 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %98 = load i32, ptr %97, align 4
   %99 = add nsw i32 %98, %92
   %100 = mul nsw i32 %99, %96
@@ -1171,7 +1171,7 @@ _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %.loopexit
           to label %.noexc7 unwind label %467
 
 .noexc7:                                          ; preds = %.noexc3.i
-  %105 = getelementptr inbounds i8, ptr %104, i64 %102
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 %102
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %104, i8 0, i64 %102, i1 false)
   br label %_ZN5ZXing9ByteArrayC2Ei.exit
 
@@ -1194,10 +1194,10 @@ _ZN5ZXing9ByteArrayC2Ei.exit:                     ; preds = %.noexc7, %_ZNSt6vec
   %108 = add nsw i32 %86, 4
   %109 = and i32 %106, 7
   %110 = icmp eq i32 %109, 0
-  %111 = getelementptr inbounds i8, ptr %17, i64 8
-  %112 = getelementptr inbounds i8, ptr %17, i64 16
-  %113 = getelementptr inbounds i8, ptr %16, i64 8
-  %114 = getelementptr inbounds i8, ptr %16, i64 16
+  %111 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %112 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %113 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %114 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %115 = and i32 %106, 3
   %.not.i = icmp eq i32 %115, 0
   %116 = and i32 %106, -2147483644
@@ -1222,19 +1222,19 @@ _ZN5ZXing9ByteArrayC2Ei.exit:                     ; preds = %.noexc7, %_ZNSt6vec
 
 125:                                              ; preds = %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_ENKUlNS0_6BitPosEE_clESA_.exit.i.i", %124
   %.010.i.i = phi i64 [ 0, %124 ], [ %147, %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_ENKUlNS0_6BitPosEE_clESA_.exit.i.i" ]
-  %126 = getelementptr inbounds [8 x %"struct.ZXing::DataMatrix::BitPos"], ptr @"__const._ZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_.CORNER1", i64 0, i64 %.010.i.i
+  %126 = getelementptr inbounds nuw [8 x %"struct.ZXing::DataMatrix::BitPos"], ptr @"__const._ZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_.CORNER1", i64 0, i64 %.010.i.i
   %127 = load i32, ptr %126, align 4, !noalias !45
   %128 = icmp slt i32 %127, 0
   %129 = select i1 %128, i32 %86, i32 0
   %130 = add nsw i32 %129, %127
-  %131 = getelementptr inbounds i8, ptr %126, i64 4
+  %131 = getelementptr inbounds nuw i8, ptr %126, i64 4
   %132 = load i32, ptr %131, align 4, !noalias !45
   %133 = icmp slt i32 %132, 0
   %134 = select i1 %133, i32 %106, i32 0
   %135 = add nsw i32 %134, %132
-  %136 = getelementptr inbounds [8 x %"struct.ZXing::DataMatrix::BitPos"], ptr %9, i64 0, i64 %.010.i.i
+  %136 = getelementptr inbounds nuw [8 x %"struct.ZXing::DataMatrix::BitPos"], ptr %9, i64 0, i64 %.010.i.i
   store i32 %130, ptr %136, align 4, !noalias !45
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %136, i64 4
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %136, i64 4
   store i32 %135, ptr %.sroa.2.0..sroa_idx.i.i, align 4, !noalias !45
   %.sroa.0.0.copyload.i.i = load i64, ptr %136, align 4, !noalias !45
   %.sroa.0.0.extract.trunc.i.i.i = trunc i64 %.sroa.0.0.copyload.i.i to i32
@@ -1268,8 +1268,8 @@ _ZN5ZXing9ByteArrayC2Ei.exit:                     ; preds = %.noexc7, %_ZNSt6vec
 149:                                              ; preds = %_ZNK5ZXing9BitMatrix3getEii.exit.i.i, %148
   %150 = phi i8 [ 0, %148 ], [ %168, %_ZNK5ZXing9BitMatrix3getEii.exit.i.i ]
   %.0.idx2.i.i = phi i64 [ 0, %148 ], [ %.0.add.i.i, %_ZNK5ZXing9BitMatrix3getEii.exit.i.i ]
-  %.0.ptr.i.i = getelementptr inbounds i8, ptr %10, i64 %.0.idx2.i.i
-  %151 = getelementptr inbounds i8, ptr %.0.ptr.i.i, i64 4
+  %.0.ptr.i.i = getelementptr inbounds nuw i8, ptr %10, i64 %.0.idx2.i.i
+  %151 = getelementptr inbounds nuw i8, ptr %.0.ptr.i.i, i64 4
   %152 = load i32, ptr %151, align 4, !noalias !42
   %153 = load i32, ptr %.0.ptr.i.i, align 4, !noalias !42
   %154 = load i32, ptr %16, align 8, !noalias !42
@@ -1321,19 +1321,19 @@ _ZNK5ZXing9BitMatrix3getEii.exit.i.i:             ; preds = %149
 
 177:                                              ; preds = %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_ENKUlNS0_6BitPosEE_clESA_.exit.i75.i", %176
   %.010.i67.i = phi i64 [ 0, %176 ], [ %199, %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_ENKUlNS0_6BitPosEE_clESA_.exit.i75.i" ]
-  %178 = getelementptr inbounds [8 x %"struct.ZXing::DataMatrix::BitPos"], ptr @"__const._ZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_.CORNER2", i64 0, i64 %.010.i67.i
+  %178 = getelementptr inbounds nuw [8 x %"struct.ZXing::DataMatrix::BitPos"], ptr @"__const._ZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_.CORNER2", i64 0, i64 %.010.i67.i
   %179 = load i32, ptr %178, align 4, !noalias !50
   %180 = icmp slt i32 %179, 0
   %181 = select i1 %180, i32 %86, i32 0
   %182 = add nsw i32 %181, %179
-  %183 = getelementptr inbounds i8, ptr %178, i64 4
+  %183 = getelementptr inbounds nuw i8, ptr %178, i64 4
   %184 = load i32, ptr %183, align 4, !noalias !50
   %185 = icmp slt i32 %184, 0
   %186 = select i1 %185, i32 %106, i32 0
   %187 = add nsw i32 %186, %184
-  %188 = getelementptr inbounds [8 x %"struct.ZXing::DataMatrix::BitPos"], ptr %8, i64 0, i64 %.010.i67.i
+  %188 = getelementptr inbounds nuw [8 x %"struct.ZXing::DataMatrix::BitPos"], ptr %8, i64 0, i64 %.010.i67.i
   store i32 %182, ptr %188, align 4, !noalias !50
-  %.sroa.2.0..sroa_idx.i68.i = getelementptr inbounds i8, ptr %188, i64 4
+  %.sroa.2.0..sroa_idx.i68.i = getelementptr inbounds nuw i8, ptr %188, i64 4
   store i32 %187, ptr %.sroa.2.0..sroa_idx.i68.i, align 4, !noalias !50
   %.sroa.0.0.copyload.i69.i = load i64, ptr %188, align 4, !noalias !50
   %.sroa.0.0.extract.trunc.i.i71.i = trunc i64 %.sroa.0.0.copyload.i69.i to i32
@@ -1367,8 +1367,8 @@ _ZNK5ZXing9BitMatrix3getEii.exit.i.i:             ; preds = %149
 201:                                              ; preds = %_ZNK5ZXing9BitMatrix3getEii.exit.i82.i, %200
   %202 = phi i8 [ 0, %200 ], [ %220, %_ZNK5ZXing9BitMatrix3getEii.exit.i82.i ]
   %.0.idx2.i79.i = phi i64 [ 0, %200 ], [ %.0.add.i83.i, %_ZNK5ZXing9BitMatrix3getEii.exit.i82.i ]
-  %.0.ptr.i80.i = getelementptr inbounds i8, ptr %11, i64 %.0.idx2.i79.i
-  %203 = getelementptr inbounds i8, ptr %.0.ptr.i80.i, i64 4
+  %.0.ptr.i80.i = getelementptr inbounds nuw i8, ptr %11, i64 %.0.idx2.i79.i
+  %203 = getelementptr inbounds nuw i8, ptr %.0.ptr.i80.i, i64 4
   %204 = load i32, ptr %203, align 4, !noalias !42
   %205 = load i32, ptr %.0.ptr.i80.i, align 4, !noalias !42
   %206 = load i32, ptr %16, align 8, !noalias !42
@@ -1408,19 +1408,19 @@ _ZNK5ZXing9BitMatrix3getEii.exit.i82.i:           ; preds = %201
 
 225:                                              ; preds = %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_ENKUlNS0_6BitPosEE_clESA_.exit.i95.i", %224
   %.010.i87.i = phi i64 [ 0, %224 ], [ %247, %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_ENKUlNS0_6BitPosEE_clESA_.exit.i95.i" ]
-  %226 = getelementptr inbounds [8 x %"struct.ZXing::DataMatrix::BitPos"], ptr @"__const._ZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_.CORNER3", i64 0, i64 %.010.i87.i
+  %226 = getelementptr inbounds nuw [8 x %"struct.ZXing::DataMatrix::BitPos"], ptr @"__const._ZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_.CORNER3", i64 0, i64 %.010.i87.i
   %227 = load i32, ptr %226, align 4, !noalias !54
   %228 = icmp slt i32 %227, 0
   %229 = select i1 %228, i32 %86, i32 0
   %230 = add nsw i32 %229, %227
-  %231 = getelementptr inbounds i8, ptr %226, i64 4
+  %231 = getelementptr inbounds nuw i8, ptr %226, i64 4
   %232 = load i32, ptr %231, align 4, !noalias !54
   %233 = icmp slt i32 %232, 0
   %234 = select i1 %233, i32 %106, i32 0
   %235 = add nsw i32 %234, %232
-  %236 = getelementptr inbounds [8 x %"struct.ZXing::DataMatrix::BitPos"], ptr %7, i64 0, i64 %.010.i87.i
+  %236 = getelementptr inbounds nuw [8 x %"struct.ZXing::DataMatrix::BitPos"], ptr %7, i64 0, i64 %.010.i87.i
   store i32 %230, ptr %236, align 4, !noalias !54
-  %.sroa.2.0..sroa_idx.i88.i = getelementptr inbounds i8, ptr %236, i64 4
+  %.sroa.2.0..sroa_idx.i88.i = getelementptr inbounds nuw i8, ptr %236, i64 4
   store i32 %235, ptr %.sroa.2.0..sroa_idx.i88.i, align 4, !noalias !54
   %.sroa.0.0.copyload.i89.i = load i64, ptr %236, align 4, !noalias !54
   %.sroa.0.0.extract.trunc.i.i91.i = trunc i64 %.sroa.0.0.copyload.i89.i to i32
@@ -1454,8 +1454,8 @@ _ZNK5ZXing9BitMatrix3getEii.exit.i82.i:           ; preds = %201
 249:                                              ; preds = %_ZNK5ZXing9BitMatrix3getEii.exit.i102.i, %248
   %250 = phi i8 [ 0, %248 ], [ %268, %_ZNK5ZXing9BitMatrix3getEii.exit.i102.i ]
   %.0.idx2.i99.i = phi i64 [ 0, %248 ], [ %.0.add.i103.i, %_ZNK5ZXing9BitMatrix3getEii.exit.i102.i ]
-  %.0.ptr.i100.i = getelementptr inbounds i8, ptr %12, i64 %.0.idx2.i99.i
-  %251 = getelementptr inbounds i8, ptr %.0.ptr.i100.i, i64 4
+  %.0.ptr.i100.i = getelementptr inbounds nuw i8, ptr %12, i64 %.0.idx2.i99.i
+  %251 = getelementptr inbounds nuw i8, ptr %.0.ptr.i100.i, i64 4
   %252 = load i32, ptr %251, align 4, !noalias !42
   %253 = load i32, ptr %.0.ptr.i100.i, align 4, !noalias !42
   %254 = load i32, ptr %16, align 8, !noalias !42
@@ -1491,19 +1491,19 @@ _ZNK5ZXing9BitMatrix3getEii.exit.i102.i:          ; preds = %249
 
 271:                                              ; preds = %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_ENKUlNS0_6BitPosEE_clESA_.exit.i115.i", %270
   %.010.i107.i = phi i64 [ 0, %270 ], [ %293, %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_ENKUlNS0_6BitPosEE_clESA_.exit.i115.i" ]
-  %272 = getelementptr inbounds [8 x %"struct.ZXing::DataMatrix::BitPos"], ptr @"__const._ZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_.CORNER4", i64 0, i64 %.010.i107.i
+  %272 = getelementptr inbounds nuw [8 x %"struct.ZXing::DataMatrix::BitPos"], ptr @"__const._ZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_.CORNER4", i64 0, i64 %.010.i107.i
   %273 = load i32, ptr %272, align 4, !noalias !58
   %274 = icmp slt i32 %273, 0
   %275 = select i1 %274, i32 %86, i32 0
   %276 = add nsw i32 %275, %273
-  %277 = getelementptr inbounds i8, ptr %272, i64 4
+  %277 = getelementptr inbounds nuw i8, ptr %272, i64 4
   %278 = load i32, ptr %277, align 4, !noalias !58
   %279 = icmp slt i32 %278, 0
   %280 = select i1 %279, i32 %106, i32 0
   %281 = add nsw i32 %280, %278
-  %282 = getelementptr inbounds [8 x %"struct.ZXing::DataMatrix::BitPos"], ptr %6, i64 0, i64 %.010.i107.i
+  %282 = getelementptr inbounds nuw [8 x %"struct.ZXing::DataMatrix::BitPos"], ptr %6, i64 0, i64 %.010.i107.i
   store i32 %276, ptr %282, align 4, !noalias !58
-  %.sroa.2.0..sroa_idx.i108.i = getelementptr inbounds i8, ptr %282, i64 4
+  %.sroa.2.0..sroa_idx.i108.i = getelementptr inbounds nuw i8, ptr %282, i64 4
   store i32 %281, ptr %.sroa.2.0..sroa_idx.i108.i, align 4, !noalias !58
   %.sroa.0.0.copyload.i109.i = load i64, ptr %282, align 4, !noalias !58
   %.sroa.0.0.extract.trunc.i.i111.i = trunc i64 %.sroa.0.0.copyload.i109.i to i32
@@ -1537,8 +1537,8 @@ _ZNK5ZXing9BitMatrix3getEii.exit.i102.i:          ; preds = %249
 295:                                              ; preds = %_ZNK5ZXing9BitMatrix3getEii.exit.i122.i, %294
   %296 = phi i8 [ 0, %294 ], [ %314, %_ZNK5ZXing9BitMatrix3getEii.exit.i122.i ]
   %.0.idx2.i119.i = phi i64 [ 0, %294 ], [ %.0.add.i123.i, %_ZNK5ZXing9BitMatrix3getEii.exit.i122.i ]
-  %.0.ptr.i120.i = getelementptr inbounds i8, ptr %13, i64 %.0.idx2.i119.i
-  %297 = getelementptr inbounds i8, ptr %.0.ptr.i120.i, i64 4
+  %.0.ptr.i120.i = getelementptr inbounds nuw i8, ptr %13, i64 %.0.idx2.i119.i
+  %297 = getelementptr inbounds nuw i8, ptr %.0.ptr.i120.i, i64 4
   %298 = load i32, ptr %297, align 4, !noalias !42
   %299 = load i32, ptr %.0.ptr.i120.i, align 4, !noalias !42
   %300 = load i32, ptr %16, align 8, !noalias !42
@@ -1566,7 +1566,7 @@ _ZNK5ZXing9BitMatrix3getEii.exit.i122.i:          ; preds = %295
   br i1 %.not.i124.i, label %.thread218.sink.split.i, label %295
 
 .thread218.sink.split.i:                          ; preds = %_ZNK5ZXing9BitMatrix3getEii.exit.i102.i, %_ZNK5ZXing9BitMatrix3getEii.exit.i82.i, %_ZNK5ZXing9BitMatrix3getEii.exit.i122.i, %_ZNK5ZXing9BitMatrix3getEii.exit.i.i
-  %315 = getelementptr inbounds i8, ptr %.sroa.021.0, i64 1
+  %315 = getelementptr inbounds nuw i8, ptr %.sroa.021.0, i64 1
   br label %.thread218.i.preheader
 
 .thread218.i.preheader:                           ; preds = %.thread218.sink.split.i, %269, %221
@@ -1609,10 +1609,10 @@ _ZNK5ZXing9BitMatrix3getEii.exit.i122.i:          ; preds = %295
 
 332:                                              ; preds = %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_ENKUlNS0_6BitPosEE_clESA_.exit.i137.i", %331
   %.028.i.i = phi i64 [ 0, %331 ], [ %355, %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_ENKUlNS0_6BitPosEE_clESA_.exit.i137.i" ]
-  %333 = getelementptr inbounds [8 x %"struct.ZXing::DataMatrix::BitPos"], ptr @"__const._ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_ENKUliiE_clEii.delta", i64 0, i64 %.028.i.i
+  %333 = getelementptr inbounds nuw [8 x %"struct.ZXing::DataMatrix::BitPos"], ptr @"__const._ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_ENKUliiE_clEii.delta", i64 0, i64 %.028.i.i
   %334 = load i32, ptr %333, align 4, !noalias !62
   %335 = add nsw i32 %334, %.1.i
-  %336 = getelementptr inbounds i8, ptr %333, i64 4
+  %336 = getelementptr inbounds nuw i8, ptr %333, i64 4
   %337 = load i32, ptr %336, align 4, !noalias !62
   %338 = icmp slt i32 %335, 0
   %.020.i.v.i = select i1 %338, i32 %reass.sub.reass.i.reass.reass.i, i32 %.147.i
@@ -1628,9 +1628,9 @@ _ZNK5ZXing9BitMatrix3getEii.exit.i122.i:          ; preds = %295
   %.not.i129.i = icmp slt i32 %.1.i.i, %86
   %343 = select i1 %.not.i129.i, i32 0, i32 %86
   %spec.select.i.i = sub nsw i32 %.1.i.i, %343
-  %344 = getelementptr inbounds [8 x %"struct.ZXing::DataMatrix::BitPos"], ptr %5, i64 0, i64 %.028.i.i
+  %344 = getelementptr inbounds nuw [8 x %"struct.ZXing::DataMatrix::BitPos"], ptr %5, i64 0, i64 %.028.i.i
   store i32 %spec.select.i.i, ptr %344, align 4, !noalias !62
-  %.sroa.2.0..sroa_idx.i130.i = getelementptr inbounds i8, ptr %344, i64 4
+  %.sroa.2.0..sroa_idx.i130.i = getelementptr inbounds nuw i8, ptr %344, i64 4
   store i32 %.121.i.i, ptr %.sroa.2.0..sroa_idx.i130.i, align 4, !noalias !62
   %.sroa.0.0.copyload.i131.i = load i64, ptr %344, align 4, !noalias !62
   %.sroa.0.0.extract.trunc.i.i133.i = trunc i64 %.sroa.0.0.copyload.i131.i to i32
@@ -1664,8 +1664,8 @@ _ZNK5ZXing9BitMatrix3getEii.exit.i122.i:          ; preds = %295
 357:                                              ; preds = %_ZNK5ZXing9BitMatrix3getEii.exit.i143.i, %356
   %358 = phi i8 [ 0, %356 ], [ %376, %_ZNK5ZXing9BitMatrix3getEii.exit.i143.i ]
   %.0.idx2.i140.i = phi i64 [ 0, %356 ], [ %.0.add.i144.i, %_ZNK5ZXing9BitMatrix3getEii.exit.i143.i ]
-  %.0.ptr.i141.i = getelementptr inbounds i8, ptr %14, i64 %.0.idx2.i140.i
-  %359 = getelementptr inbounds i8, ptr %.0.ptr.i141.i, i64 4
+  %.0.ptr.i141.i = getelementptr inbounds nuw i8, ptr %14, i64 %.0.idx2.i140.i
+  %359 = getelementptr inbounds nuw i8, ptr %.0.ptr.i141.i, i64 4
   %360 = load i32, ptr %359, align 4, !noalias !42
   %361 = load i32, ptr %.0.ptr.i141.i, align 4, !noalias !42
   %362 = load i32, ptr %16, align 8, !noalias !42
@@ -1693,7 +1693,7 @@ _ZNK5ZXing9BitMatrix3getEii.exit.i143.i:          ; preds = %357
   br i1 %.not.i145.i, label %"_ZZN5ZXing10DataMatrix22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEENK3$_0clERKSt5arrayINS0_6BitPosELm8EE.exit147.i", label %357
 
 "_ZZN5ZXing10DataMatrix22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEENK3$_0clERKSt5arrayINS0_6BitPosELm8EE.exit147.i": ; preds = %_ZNK5ZXing9BitMatrix3getEii.exit.i143.i
-  %377 = getelementptr inbounds i8, ptr %.sroa.021.2, i64 1
+  %377 = getelementptr inbounds nuw i8, ptr %.sroa.021.2, i64 1
   br label %378
 
 378:                                              ; preds = %"_ZZN5ZXing10DataMatrix22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEENK3$_0clERKSt5arrayINS0_6BitPosELm8EE.exit147.i", %328, %.thread218.i
@@ -1746,10 +1746,10 @@ _ZNK5ZXing9BitMatrix3getEii.exit.i143.i:          ; preds = %357
 
 404:                                              ; preds = %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_ENKUlNS0_6BitPosEE_clESA_.exit.i166.i", %403
   %.028.i152.i = phi i64 [ 0, %403 ], [ %427, %"_ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_ENKUlNS0_6BitPosEE_clESA_.exit.i166.i" ]
-  %405 = getelementptr inbounds [8 x %"struct.ZXing::DataMatrix::BitPos"], ptr @"__const._ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_ENKUliiE_clEii.delta", i64 0, i64 %.028.i152.i
+  %405 = getelementptr inbounds nuw [8 x %"struct.ZXing::DataMatrix::BitPos"], ptr @"__const._ZZN5ZXing10DataMatrix11VisitMatrixIZNS0_22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEE3$_0EES2_iiT_ENKUliiE_clEii.delta", i64 0, i64 %.028.i152.i
   %406 = load i32, ptr %405, align 4, !noalias !68
   %407 = add nsw i32 %406, %.2.i
-  %408 = getelementptr inbounds i8, ptr %405, i64 4
+  %408 = getelementptr inbounds nuw i8, ptr %405, i64 4
   %409 = load i32, ptr %408, align 4, !noalias !68
   %410 = icmp slt i32 %407, 0
   %.020.i153.v.i = select i1 %410, i32 %reass.sub.reass.i169.reass.reass.i, i32 %.248.i
@@ -1765,9 +1765,9 @@ _ZNK5ZXing9BitMatrix3getEii.exit.i143.i:          ; preds = %357
   %.not.i157.i = icmp slt i32 %.1.i156.i, %86
   %415 = select i1 %.not.i157.i, i32 0, i32 %86
   %spec.select.i158.i = sub nsw i32 %.1.i156.i, %415
-  %416 = getelementptr inbounds [8 x %"struct.ZXing::DataMatrix::BitPos"], ptr %4, i64 0, i64 %.028.i152.i
+  %416 = getelementptr inbounds nuw [8 x %"struct.ZXing::DataMatrix::BitPos"], ptr %4, i64 0, i64 %.028.i152.i
   store i32 %spec.select.i158.i, ptr %416, align 4, !noalias !68
-  %.sroa.2.0..sroa_idx.i159.i = getelementptr inbounds i8, ptr %416, i64 4
+  %.sroa.2.0..sroa_idx.i159.i = getelementptr inbounds nuw i8, ptr %416, i64 4
   store i32 %.121.i155.i, ptr %.sroa.2.0..sroa_idx.i159.i, align 4, !noalias !68
   %.sroa.0.0.copyload.i160.i = load i64, ptr %416, align 4, !noalias !68
   %.sroa.0.0.extract.trunc.i.i162.i = trunc i64 %.sroa.0.0.copyload.i160.i to i32
@@ -1801,8 +1801,8 @@ _ZNK5ZXing9BitMatrix3getEii.exit.i143.i:          ; preds = %357
 429:                                              ; preds = %_ZNK5ZXing9BitMatrix3getEii.exit.i175.i, %428
   %430 = phi i8 [ 0, %428 ], [ %450, %_ZNK5ZXing9BitMatrix3getEii.exit.i175.i ]
   %.0.idx2.i172.i = phi i64 [ 0, %428 ], [ %.0.add.i176.i, %_ZNK5ZXing9BitMatrix3getEii.exit.i175.i ]
-  %.0.ptr.i173.i = getelementptr inbounds i8, ptr %15, i64 %.0.idx2.i172.i
-  %431 = getelementptr inbounds i8, ptr %.0.ptr.i173.i, i64 4
+  %.0.ptr.i173.i = getelementptr inbounds nuw i8, ptr %15, i64 %.0.idx2.i172.i
+  %431 = getelementptr inbounds nuw i8, ptr %.0.ptr.i173.i, i64 4
   %432 = load i32, ptr %431, align 4, !noalias !42
   %433 = load i32, ptr %.0.ptr.i173.i, align 4, !noalias !42
   %434 = load i32, ptr %16, align 8, !noalias !42
@@ -1839,7 +1839,7 @@ _ZNK5ZXing9BitMatrix3getEii.exit.i175.i:          ; preds = %429
   br i1 %.not.i177.i, label %"_ZZN5ZXing10DataMatrix22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEENK3$_0clERKSt5arrayINS0_6BitPosELm8EE.exit179.i", label %429
 
 "_ZZN5ZXing10DataMatrix22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEENK3$_0clERKSt5arrayINS0_6BitPosELm8EE.exit179.i": ; preds = %_ZNK5ZXing9BitMatrix3getEii.exit.i175.i
-  %451 = getelementptr inbounds i8, ptr %.sroa.021.4, i64 1
+  %451 = getelementptr inbounds nuw i8, ptr %.sroa.021.4, i64 1
   br label %452
 
 452:                                              ; preds = %"_ZZN5ZXing10DataMatrix22CodewordsFromBitMatrixERKNS_9BitMatrixERKNS0_7VersionEENK3$_0clERKSt5arrayINS0_6BitPosELm8EE.exit179.i", %400, %387
@@ -1899,9 +1899,9 @@ _ZN5ZXing9BitMatrixD2Ev.exit:                     ; preds = %464, %466
 
 .thread:                                          ; preds = %_ZN5ZXing9BitMatrixD2Ev.exit
   store ptr %.sroa.037.1, ptr %0, align 8
-  %472 = getelementptr inbounds i8, ptr %0, i64 8
+  %472 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.10.0, ptr %472, align 8
-  %473 = getelementptr inbounds i8, ptr %0, i64 16
+  %473 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %.sroa.10.0, ptr %473, align 8
   br label %_ZN5ZXing9ByteArrayD2Ev.exit16
 
@@ -1928,7 +1928,7 @@ _ZN5ZXing9BitMatrixD2Ev.exit18:                   ; preds = %_ZN5ZXing9ByteArray
 
 _ZN5ZXing9ByteArrayD2Ev.exit:                     ; preds = %471, %.body, %467
   %.pn = phi { ptr, i32 } [ %468, %467 ], [ %eh.lpad-body, %.body ], [ %eh.lpad-body, %471 ]
-  %478 = getelementptr inbounds i8, ptr %16, i64 8
+  %478 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %479 = load ptr, ptr %478, align 8
   %.not.i.i.i.i19 = icmp eq ptr %479, null
   br i1 %.not.i.i.i.i19, label %common.resume, label %common.resume.sink.split

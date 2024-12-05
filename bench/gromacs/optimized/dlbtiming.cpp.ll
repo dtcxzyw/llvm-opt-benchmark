@@ -17,11 +17,11 @@ define void @_ZN13BalanceRegionC2Ev(ptr nocapture noundef nonnull writeonly alig
 
 _ZNSt10unique_ptrIN13BalanceRegion4ImplESt14default_deleteIS1_EED2Ev.exit: ; preds = %1
   store i8 0, ptr %2, align 8, !noalias !5
-  %3 = getelementptr inbounds i8, ptr %2, i64 1
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 1
   store i8 0, ptr %3, align 1, !noalias !5
-  %4 = getelementptr inbounds i8, ptr %2, i64 2
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 2
   store i8 0, ptr %4, align 2, !noalias !5
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false), !noalias !5
   store ptr %2, ptr %0, align 8
   ret void
@@ -61,11 +61,11 @@ _ZNSt10unique_ptrIN13BalanceRegion4ImplESt14default_deleteIS1_EED2Ev.exit: ; pre
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK22DDBalanceRegionHandler17openRegionCpuImplE26DdAllowBalanceRegionReopen(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 320
   %.val = load ptr, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %.val, i64 14
+  %6 = getelementptr inbounds nuw i8, ptr %.val, i64 14
   %7 = load i8, ptr %6, align 2
   %8 = trunc i8 %7 to i1
   br i1 %8, label %9, label %21
@@ -80,12 +80,12 @@ define void @_ZNK22DDBalanceRegionHandler17openRegionCpuImplE26DdAllowBalanceReg
   %15 = zext i32 %13 to i64
   %16 = shl nuw i64 %15, 32
   %17 = or disjoint i64 %16, %14
-  %18 = getelementptr inbounds i8, ptr %.val.val, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %.val.val, i64 8
   store i64 %17, ptr %18, align 8
   store i8 1, ptr %.val.val, align 8
-  %19 = getelementptr inbounds i8, ptr %.val.val, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %.val.val, i64 1
   store i8 1, ptr %19, align 1
-  %20 = getelementptr inbounds i8, ptr %.val.val, i64 2
+  %20 = getelementptr inbounds nuw i8, ptr %.val.val, i64 2
   store i8 0, ptr %20, align 2
   br label %21
 
@@ -95,13 +95,13 @@ define void @_ZNK22DDBalanceRegionHandler17openRegionCpuImplE26DdAllowBalanceReg
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZNK22DDBalanceRegionHandler17openRegionGpuImplEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) local_unnamed_addr #5 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 320
   %.val = load ptr, ptr %4, align 8
   %5 = getelementptr i8, ptr %.val, i64 2120
   %.val.val = load ptr, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %.val.val, i64 2
+  %6 = getelementptr inbounds nuw i8, ptr %.val.val, i64 2
   store i8 1, ptr %6, align 2
   ret void
 }
@@ -117,7 +117,7 @@ define void @_Z24ddReopenBalanceRegionCpuPK12gmx_domdec_t(ptr nocapture noundef 
   br i1 %5, label %6, label %19
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %.val.val, i64 2
+  %7 = getelementptr inbounds nuw i8, ptr %.val.val, i64 2
   %8 = load i8, ptr %7, align 2
   %9 = trunc i8 %8 to i1
   br i1 %9, label %19, label %10
@@ -130,7 +130,7 @@ define void @_Z24ddReopenBalanceRegionCpuPK12gmx_domdec_t(ptr nocapture noundef 
   %15 = zext i32 %13 to i64
   %16 = shl nuw i64 %15, 32
   %17 = or disjoint i64 %16, %14
-  %18 = getelementptr inbounds i8, ptr %.val.val, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %.val.val, i64 8
   store i64 %17, ptr %18, align 8
   br label %19
 
@@ -140,7 +140,7 @@ define void @_Z24ddReopenBalanceRegionCpuPK12gmx_domdec_t(ptr nocapture noundef 
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK22DDBalanceRegionHandler18closeRegionCpuImplEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 320
   %.val = load ptr, ptr %4, align 8
@@ -151,7 +151,7 @@ define void @_ZNK22DDBalanceRegionHandler18closeRegionCpuImplEv(ptr nocapture no
   br i1 %7, label %8, label %31
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %.val.val, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %.val.val, i64 1
   %10 = load i8, ptr %9, align 1
   %11 = trunc i8 %10 to i1
   br i1 %11, label %12, label %31
@@ -165,18 +165,18 @@ define void @_ZNK22DDBalanceRegionHandler18closeRegionCpuImplEv(ptr nocapture no
   %18 = shl nuw i64 %17, 32
   %19 = or disjoint i64 %18, %16
   store i8 0, ptr %9, align 1
-  %20 = getelementptr inbounds i8, ptr %.val.val, i64 2
+  %20 = getelementptr inbounds nuw i8, ptr %.val.val, i64 2
   %21 = load i8, ptr %20, align 2
   %22 = trunc i8 %21 to i1
   br i1 %22, label %23, label %25
 
 23:                                               ; preds = %12
-  %24 = getelementptr inbounds i8, ptr %.val.val, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %.val.val, i64 16
   store i64 %19, ptr %24, align 8
   br label %31
 
 25:                                               ; preds = %12
-  %26 = getelementptr inbounds i8, ptr %.val.val, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %.val.val, i64 8
   %27 = load i64, ptr %26, align 8
   %28 = sub i64 %19, %27
   %29 = uitofp i64 %28 to float
@@ -193,7 +193,7 @@ declare void @_Z13dd_cycles_addPK12gmx_domdec_tfi(ptr noundef, float noundef, i3
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK22DDBalanceRegionHandler18closeRegionGpuImplEf27DdBalanceRegionWaitedForGpu(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, float noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %5, i64 320
   %.val = load ptr, ptr %6, align 8
@@ -210,7 +210,7 @@ define void @_ZNK22DDBalanceRegionHandler18closeRegionGpuImplEf27DdBalanceRegion
   %14 = zext i32 %12 to i64
   %15 = zext i32 %13 to i64
   %16 = shl nuw i64 %15, 32
-  %17 = getelementptr inbounds i8, ptr %.val.val, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %.val.val, i64 16
   %18 = load i64, ptr %17, align 8
   %19 = sub i64 %14, %18
   %20 = add i64 %19, %16
@@ -218,7 +218,7 @@ define void @_ZNK22DDBalanceRegionHandler18closeRegionGpuImplEf27DdBalanceRegion
   %22 = icmp eq i32 %2, 0
   %23 = fmul float %21, 5.000000e-01
   %spec.select = select i1 %22, float %23, float %21
-  %24 = getelementptr inbounds i8, ptr %.val.val, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %.val.val, i64 8
   %25 = load i64, ptr %24, align 8
   %26 = sub i64 %18, %25
   %27 = uitofp i64 %26 to float
@@ -228,7 +228,7 @@ define void @_ZNK22DDBalanceRegionHandler18closeRegionGpuImplEf27DdBalanceRegion
   %30 = load ptr, ptr %4, align 8
   %31 = fadd float %1, %spec.select
   tail call void @_Z13dd_cycles_addPK12gmx_domdec_tfi(ptr noundef %30, float noundef %31, i32 noundef 3)
-  %32 = getelementptr inbounds i8, ptr %.val.val, i64 2
+  %32 = getelementptr inbounds nuw i8, ptr %.val.val, i64 2
   store i8 0, ptr %32, align 2
   store i8 0, ptr %.val.val, align 8
   br label %33
@@ -239,9 +239,9 @@ define void @_ZNK22DDBalanceRegionHandler18closeRegionGpuImplEf27DdBalanceRegion
 
 ; Function Attrs: mustprogress uwtable
 define void @_Z19dd_force_flop_startP12gmx_domdec_tP6t_nrnb(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 320
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i32, ptr %5, align 8
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %13, label %7
@@ -249,7 +249,7 @@ define void @_Z19dd_force_flop_startP12gmx_domdec_tP6t_nrnb(ptr nocapture nounde
 7:                                                ; preds = %2
   %8 = tail call fastcc noundef double @_ZL16force_flop_countPK6t_nrnb(ptr noundef %1)
   %9 = load ptr, ptr %3, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 2200
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 2200
   %11 = load double, ptr %10, align 8
   %12 = fsub double %11, %8
   store double %12, ptr %10, align 8
@@ -280,7 +280,7 @@ define internal fastcc noundef double @_ZL16force_flop_countPK6t_nrnb(ptr nocapt
 
 8:                                                ; preds = %6, %2
   %.sink53 = phi double [ 2.500000e-01, %2 ], [ %spec.select, %6 ]
-  %9 = getelementptr inbounds [116 x double], ptr %0, i64 0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [116 x double], ptr %0, i64 0, i64 %indvars.iv
   %10 = load double, ptr %9, align 8
   %11 = fmul double %10, %.sink53
   %12 = tail call noundef i32 @_Z9cost_nrnbi(i32 noundef %3)
@@ -305,7 +305,7 @@ define internal fastcc noundef double @_ZL16force_flop_countPK6t_nrnb(ptr nocapt
   br i1 %.not31, label %26, label %20
 
 20:                                               ; preds = %18, %.preheader34
-  %21 = getelementptr inbounds [116 x double], ptr %0, i64 0, i64 %indvars.iv42
+  %21 = getelementptr inbounds nuw [116 x double], ptr %0, i64 0, i64 %indvars.iv42
   %22 = load double, ptr %21, align 8
   %23 = tail call noundef i32 @_Z9cost_nrnbi(i32 noundef %15)
   %24 = sitofp i32 %23 to double
@@ -321,7 +321,7 @@ define internal fastcc noundef double @_ZL16force_flop_countPK6t_nrnb(ptr nocapt
 .preheader:                                       ; preds = %26, %.preheader
   %indvars.iv46 = phi i64 [ %indvars.iv.next47, %.preheader ], [ 60, %26 ]
   %.439 = phi double [ %32, %.preheader ], [ %.3, %26 ]
-  %27 = getelementptr inbounds [116 x double], ptr %0, i64 0, i64 %indvars.iv46
+  %27 = getelementptr inbounds nuw [116 x double], ptr %0, i64 0, i64 %indvars.iv46
   %28 = load double, ptr %27, align 8
   %29 = trunc nuw nsw i64 %indvars.iv46 to i32
   %30 = tail call noundef i32 @_Z9cost_nrnbi(i32 noundef %29)
@@ -347,9 +347,9 @@ declare double @llvm.fmuladd.f64(double, double, double) #8
 
 ; Function Attrs: mustprogress uwtable
 define void @_Z18dd_force_flop_stopP12gmx_domdec_tP6t_nrnb(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 320
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i32, ptr %5, align 8
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %17, label %7
@@ -357,12 +357,12 @@ define void @_Z18dd_force_flop_stopP12gmx_domdec_tP6t_nrnb(ptr nocapture noundef
 7:                                                ; preds = %2
   %8 = tail call fastcc noundef double @_ZL16force_flop_countPK6t_nrnb(ptr noundef %1)
   %9 = load ptr, ptr %3, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 2200
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 2200
   %11 = load double, ptr %10, align 8
   %12 = fadd double %8, %11
   store double %12, ptr %10, align 8
   %13 = load ptr, ptr %3, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 2208
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 2208
   %15 = load i32, ptr %14, align 8
   %16 = add nsw i32 %15, 1
   store i32 %16, ptr %14, align 8
@@ -374,22 +374,22 @@ define void @_Z18dd_force_flop_stopP12gmx_domdec_tP6t_nrnb(ptr nocapture noundef
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @_Z21clear_dd_cycle_countsP12gmx_domdec_t(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 320
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 320
   br label %3
 
 3:                                                ; preds = %1, %3
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %3 ]
   %4 = load ptr, ptr %2, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 2136
-  %6 = getelementptr inbounds [5 x float], ptr %5, i64 0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 2136
+  %6 = getelementptr inbounds nuw [5 x float], ptr %5, i64 0, i64 %indvars.iv
   store float 0.000000e+00, ptr %6, align 4
   %7 = load ptr, ptr %2, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 2156
-  %9 = getelementptr inbounds [5 x i32], ptr %8, i64 0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 2156
+  %9 = getelementptr inbounds nuw [5 x i32], ptr %8, i64 0, i64 %indvars.iv
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %2, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 2176
-  %12 = getelementptr inbounds [5 x float], ptr %11, i64 0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 2176
+  %12 = getelementptr inbounds nuw [5 x float], ptr %11, i64 0, i64 %indvars.iv
   store float 0.000000e+00, ptr %12, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
@@ -397,10 +397,10 @@ define void @_Z21clear_dd_cycle_countsP12gmx_domdec_t(ptr nocapture noundef read
 
 13:                                               ; preds = %3
   %14 = load ptr, ptr %2, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 2200
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 2200
   store double 0.000000e+00, ptr %15, align 8
   %16 = load ptr, ptr %2, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 2208
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 2208
   store i32 0, ptr %17, align 8
   ret void
 }

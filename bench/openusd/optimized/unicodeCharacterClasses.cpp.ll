@@ -28,7 +28,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__25TfUnicodeXidStartFlagDataC2E
 
 2:                                                ; preds = %1, %._crit_edge
   %.09.idx13 = phi i64 [ 0, %1 ], [ %.09.add, %._crit_edge ]
-  %.09.ptr14 = getelementptr inbounds i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__L15_xidStartRangesE, i64 %.09.idx13
+  %.09.ptr14 = getelementptr inbounds nuw i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__L15_xidStartRangesE, i64 %.09.idx13
   %3 = load i32, ptr %.09.ptr14, align 4
   %4 = getelementptr inbounds nuw i8, ptr %.09.ptr14, i64 4
   %5 = load i32, ptr %4, align 4
@@ -39,7 +39,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__25TfUnicodeXidStartFlagDataC2E
   %.012 = phi i32 [ %13, %.lr.ph ], [ %3, %2 ]
   %6 = zext i32 %.012 to i64
   %7 = lshr i64 %6, 6
-  %8 = getelementptr inbounds [17408 x i64], ptr %0, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw [17408 x i64], ptr %0, i64 0, i64 %7
   %9 = and i64 %6, 63
   %10 = shl nuw i64 1, %9
   %11 = load i64, ptr %8, align 8
@@ -65,7 +65,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__28TfUnicodeXidContinueFlagData
 
 2:                                                ; preds = %1, %._crit_edge
   %.09.idx13 = phi i64 [ 0, %1 ], [ %.09.add, %._crit_edge ]
-  %.09.ptr14 = getelementptr inbounds i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__L18_xidContinueRangesE, i64 %.09.idx13
+  %.09.ptr14 = getelementptr inbounds nuw i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__L18_xidContinueRangesE, i64 %.09.idx13
   %3 = load i32, ptr %.09.ptr14, align 4
   %4 = getelementptr inbounds nuw i8, ptr %.09.ptr14, i64 4
   %5 = load i32, ptr %4, align 4
@@ -76,7 +76,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__28TfUnicodeXidContinueFlagData
   %.012 = phi i32 [ %13, %.lr.ph ], [ %3, %2 ]
   %6 = zext i32 %.012 to i64
   %7 = lshr i64 %6, 6
-  %8 = getelementptr inbounds [17408 x i64], ptr %0, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw [17408 x i64], ptr %0, i64 0, i64 %7
   %9 = and i64 %6, 63
   %10 = shl nuw i64 1, %9
   %11 = load i64, ptr %8, align 8

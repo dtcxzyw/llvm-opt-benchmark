@@ -14,7 +14,7 @@ define ptr @Java_java_lang_Object_getClass(ptr noundef %0, ptr noundef %1) local
 
 5:                                                ; preds = %2
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 248
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 248
   %8 = load ptr, ptr %7, align 8
   %9 = tail call ptr %8(ptr noundef nonnull %0, ptr noundef nonnull %1) #2
   br label %10

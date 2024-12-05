@@ -240,7 +240,7 @@ define hidden void @_ZN19ShenandoahArguments10initializeEv(ptr nocapture nonnull
   br i1 %73, label %74, label %78
 
 74:                                               ; preds = %71
-  %75 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %75 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not18 = icmp eq ptr %75, null
   br i1 %.not18, label %77, label %76
 

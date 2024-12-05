@@ -172,16 +172,16 @@ if.then:                                          ; preds = %entry
 
 for.body:                                         ; preds = %entry, %for.body
   %mouse.09 = phi ptr [ %5, %for.body ], [ %call, %entry ]
-  %value = getelementptr inbounds i8, ptr %mouse.09, i64 8
+  %value = getelementptr inbounds nuw i8, ptr %mouse.09, i64 8
   %0 = load ptr, ptr %value, align 8
-  %current = getelementptr inbounds i8, ptr %0, i64 16
+  %current = getelementptr inbounds nuw i8, ptr %0, i64 16
   %1 = load i8, ptr %current, align 8
   %tobool3 = trunc i8 %1 to i1
   %cond = select i1 %tobool3, i32 42, i32 32
-  %index = getelementptr inbounds i8, ptr %0, i64 8
+  %index = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = load i64, ptr %index, align 8
   %3 = load ptr, ptr %0, align 8
-  %absolute = getelementptr inbounds i8, ptr %0, i64 17
+  %absolute = getelementptr inbounds nuw i8, ptr %0, i64 17
   %4 = load i8, ptr %absolute, align 1
   %tobool7 = trunc i8 %4 to i1
   %cond8 = select i1 %tobool7, ptr @.str.7, ptr @.str.8
@@ -224,40 +224,40 @@ if.then2:                                         ; preds = %if.end
 
 while.body:                                       ; preds = %if.end, %if.end16
   %info2l.031 = phi ptr [ %27, %if.end16 ], [ %call, %if.end ]
-  %value = getelementptr inbounds i8, ptr %info2l.031, i64 8
+  %value = getelementptr inbounds nuw i8, ptr %info2l.031, i64 8
   %1 = load ptr, ptr %value, align 8
   %2 = load ptr, ptr %1, align 8
   %call6 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.10, ptr noundef %2) #7
-  %server = getelementptr inbounds i8, ptr %1, i64 8
+  %server = getelementptr inbounds nuw i8, ptr %1, i64 8
   %3 = load ptr, ptr %server, align 8
   %tobool.not10.i = icmp eq ptr %3, null
   br i1 %tobool.not10.i, label %hmp_info_vnc_servers.exit, label %while.body.i
 
 while.body.i:                                     ; preds = %while.body, %hmp_info_vnc_authcrypt.exit.i
   %server.addr.011.i = phi ptr [ %12, %hmp_info_vnc_authcrypt.exit.i ], [ %3, %while.body ]
-  %value.i = getelementptr inbounds i8, ptr %server.addr.011.i, i64 8
+  %value.i = getelementptr inbounds nuw i8, ptr %server.addr.011.i, i64 8
   %4 = load ptr, ptr %value.i, align 8
   %5 = load ptr, ptr %4, align 8
-  %service.i.i = getelementptr inbounds i8, ptr %4, i64 8
+  %service.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %service.i.i, align 8
-  %family.i.i = getelementptr inbounds i8, ptr %4, i64 16
+  %family.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   %7 = load i32, ptr %family.i.i, align 8
   %call.i.i = call ptr @qapi_enum_lookup(ptr noundef nonnull @NetworkAddressFamily_lookup, i32 noundef %7) #7
-  %websocket.i.i = getelementptr inbounds i8, ptr %4, i64 20
+  %websocket.i.i = getelementptr inbounds nuw i8, ptr %4, i64 20
   %8 = load i8, ptr %websocket.i.i, align 4
   %tobool.i.i = trunc i8 %8 to i1
   %cond.i.i = select i1 %tobool.i.i, ptr @.str.39, ptr @.str.8
   %call1.i.i = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.36, ptr noundef %5, ptr noundef %6, ptr noundef %call.i.i, ptr noundef nonnull %cond.i.i) #7
-  %auth.i = getelementptr inbounds i8, ptr %4, i64 24
+  %auth.i = getelementptr inbounds nuw i8, ptr %4, i64 24
   %9 = load i32, ptr %auth.i, align 8
-  %has_vencrypt.i = getelementptr inbounds i8, ptr %4, i64 28
+  %has_vencrypt.i = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i8, ptr %has_vencrypt.i, align 4
   %tobool1.i = trunc i8 %10 to i1
   %call.i7.i = call ptr @qapi_enum_lookup(ptr noundef nonnull @VncPrimaryAuth_lookup, i32 noundef %9) #7
   br i1 %tobool1.i, label %cond.true.i.i, label %hmp_info_vnc_authcrypt.exit.i
 
 cond.true.i.i:                                    ; preds = %while.body.i
-  %vencrypt.i = getelementptr inbounds i8, ptr %4, i64 32
+  %vencrypt.i = getelementptr inbounds nuw i8, ptr %4, i64 32
   %11 = load i32, ptr %vencrypt.i, align 4
   %call1.i8.i = call ptr @qapi_enum_lookup(ptr noundef nonnull @VncVencryptSubAuth_lookup, i32 noundef %11) #7
   br label %hmp_info_vnc_authcrypt.exit.i
@@ -270,32 +270,32 @@ hmp_info_vnc_authcrypt.exit.i:                    ; preds = %cond.true.i.i, %whi
   br i1 %tobool.not.i, label %hmp_info_vnc_servers.exit, label %while.body.i, !llvm.loop !7
 
 hmp_info_vnc_servers.exit:                        ; preds = %hmp_info_vnc_authcrypt.exit.i, %while.body
-  %clients = getelementptr inbounds i8, ptr %1, i64 16
+  %clients = getelementptr inbounds nuw i8, ptr %1, i64 16
   %13 = load ptr, ptr %clients, align 8
   %tobool.not7.i = icmp eq ptr %13, null
   br i1 %tobool.not7.i, label %hmp_info_vnc_clients.exit, label %while.body.i19
 
 while.body.i19:                                   ; preds = %hmp_info_vnc_servers.exit, %while.body.i19
   %client.addr.08.i = phi ptr [ %21, %while.body.i19 ], [ %13, %hmp_info_vnc_servers.exit ]
-  %value.i20 = getelementptr inbounds i8, ptr %client.addr.08.i, i64 8
+  %value.i20 = getelementptr inbounds nuw i8, ptr %client.addr.08.i, i64 8
   %14 = load ptr, ptr %value.i20, align 8
   %15 = load ptr, ptr %14, align 8
-  %service.i.i21 = getelementptr inbounds i8, ptr %14, i64 8
+  %service.i.i21 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %service.i.i21, align 8
-  %family.i.i22 = getelementptr inbounds i8, ptr %14, i64 16
+  %family.i.i22 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %17 = load i32, ptr %family.i.i22, align 8
   %call.i.i23 = call ptr @qapi_enum_lookup(ptr noundef nonnull @NetworkAddressFamily_lookup, i32 noundef %17) #7
-  %websocket.i.i24 = getelementptr inbounds i8, ptr %14, i64 20
+  %websocket.i.i24 = getelementptr inbounds nuw i8, ptr %14, i64 20
   %18 = load i8, ptr %websocket.i.i24, align 4
   %tobool.i.i25 = trunc i8 %18 to i1
   %cond.i.i26 = select i1 %tobool.i.i25, ptr @.str.39, ptr @.str.8
   %call1.i.i27 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.40, ptr noundef %15, ptr noundef %16, ptr noundef %call.i.i23, ptr noundef nonnull %cond.i.i26) #7
-  %x509_dname.i = getelementptr inbounds i8, ptr %14, i64 24
+  %x509_dname.i = getelementptr inbounds nuw i8, ptr %14, i64 24
   %19 = load ptr, ptr %x509_dname.i, align 8
   %tobool1.not.i = icmp eq ptr %19, null
   %..str.42.i = select i1 %tobool1.not.i, ptr @.str.42, ptr %19
   %call2.i = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.41, ptr noundef nonnull %..str.42.i) #7
-  %sasl_username.i = getelementptr inbounds i8, ptr %14, i64 32
+  %sasl_username.i = getelementptr inbounds nuw i8, ptr %14, i64 32
   %20 = load ptr, ptr %sasl_username.i, align 8
   %tobool3.not.i = icmp eq ptr %20, null
   %cond7.i = select i1 %tobool3.not.i, ptr @.str.42, ptr %20
@@ -310,16 +310,16 @@ hmp_info_vnc_clients.exit:                        ; preds = %while.body.i19, %hm
   br i1 %tobool8.not, label %if.then9, label %if.end11
 
 if.then9:                                         ; preds = %hmp_info_vnc_clients.exit
-  %auth = getelementptr inbounds i8, ptr %1, i64 24
+  %auth = getelementptr inbounds nuw i8, ptr %1, i64 24
   %23 = load i32, ptr %auth, align 8
-  %has_vencrypt = getelementptr inbounds i8, ptr %1, i64 28
+  %has_vencrypt = getelementptr inbounds nuw i8, ptr %1, i64 28
   %24 = load i8, ptr %has_vencrypt, align 4
   %tobool10 = trunc i8 %24 to i1
   %call.i = call ptr @qapi_enum_lookup(ptr noundef nonnull @VncPrimaryAuth_lookup, i32 noundef %23) #7
   br i1 %tobool10, label %cond.true.i, label %hmp_info_vnc_authcrypt.exit
 
 cond.true.i:                                      ; preds = %if.then9
-  %vencrypt = getelementptr inbounds i8, ptr %1, i64 32
+  %vencrypt = getelementptr inbounds nuw i8, ptr %1, i64 32
   %25 = load i32, ptr %vencrypt, align 4
   %call1.i = call ptr @qapi_enum_lookup(ptr noundef nonnull @VncVencryptSubAuth_lookup, i32 noundef %25) #7
   br label %hmp_info_vnc_authcrypt.exit
@@ -330,7 +330,7 @@ hmp_info_vnc_authcrypt.exit:                      ; preds = %if.then9, %cond.tru
   br label %if.end11
 
 if.end11:                                         ; preds = %hmp_info_vnc_authcrypt.exit, %hmp_info_vnc_clients.exit
-  %display = getelementptr inbounds i8, ptr %1, i64 40
+  %display = getelementptr inbounds nuw i8, ptr %1, i64 40
   %26 = load ptr, ptr %display, align 8
   %tobool12.not = icmp eq ptr %26, null
   br i1 %tobool12.not, label %if.end16, label %if.then13
@@ -367,14 +367,14 @@ entry:
   %call3 = tail call ptr @qdict_get_try_str(ptr noundef %qdict, ptr noundef nonnull @.str.16) #7
   store ptr null, ptr %err, align 8
   store i32 0, ptr %opts, align 8
-  %password5 = getelementptr inbounds i8, ptr %opts, i64 8
+  %password5 = getelementptr inbounds nuw i8, ptr %opts, i64 8
   store ptr %call1, ptr %password5, align 8
-  %has_connected = getelementptr inbounds i8, ptr %opts, i64 16
+  %has_connected = getelementptr inbounds nuw i8, ptr %opts, i64 16
   %tobool = icmp ne ptr %call3, null
   %frombool = zext i1 %tobool to i8
   store i8 %frombool, ptr %has_connected, align 8
-  %connected7 = getelementptr inbounds i8, ptr %opts, i64 20
-  %u = getelementptr inbounds i8, ptr %opts, i64 24
+  %connected7 = getelementptr inbounds nuw i8, ptr %opts, i64 20
+  %u = getelementptr inbounds nuw i8, ptr %opts, i64 24
   store i64 0, ptr %u, align 8
   %call8 = call i32 @qapi_enum_parse(ptr noundef nonnull @SetPasswordAction_lookup, ptr noundef %call3, i32 noundef 0, ptr noundef nonnull %err) #7
   store i32 %call8, ptr %connected7, align 4
@@ -421,9 +421,9 @@ entry:
   %call1 = tail call ptr @qdict_get_str(ptr noundef %qdict, ptr noundef nonnull @.str.17) #7
   %call2 = tail call ptr @qdict_get_try_str(ptr noundef %qdict, ptr noundef nonnull @.str.15) #7
   store ptr null, ptr %err, align 8
-  %time = getelementptr inbounds i8, ptr %opts, i64 8
+  %time = getelementptr inbounds nuw i8, ptr %opts, i64 8
   store ptr %call1, ptr %time, align 8
-  %u = getelementptr inbounds i8, ptr %opts, i64 16
+  %u = getelementptr inbounds nuw i8, ptr %opts, i64 16
   store i64 0, ptr %u, align 8
   %call4 = call i32 @qapi_enum_parse(ptr noundef nonnull @DisplayProtocol_lookup, ptr noundef %call, i32 noundef 0, ptr noundef nonnull %err) #7
   store i32 %call4, ptr %opts, align 8
@@ -566,7 +566,7 @@ if.end26:                                         ; preds = %if.end20
   store i32 0, ptr %call9, align 8
   %2 = load i32, ptr %value, align 4
   %conv27 = sext i32 %2 to i64
-  %u = getelementptr inbounds i8, ptr %call9, i64 8
+  %u = getelementptr inbounds nuw i8, ptr %call9, i64 8
   store i64 %conv27, ptr %u, align 8
   br label %do.body
 
@@ -578,14 +578,14 @@ if.else28:                                        ; preds = %while.body
 
 if.end34:                                         ; preds = %if.else28
   store i32 1, ptr %call9, align 8
-  %u36 = getelementptr inbounds i8, ptr %call9, i64 8
+  %u36 = getelementptr inbounds nuw i8, ptr %call9, i64 8
   store i32 %call30, ptr %u36, align 8
   br label %do.body
 
 do.body:                                          ; preds = %if.end26, %if.end34
   %call39 = call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #9
   store ptr %call39, ptr %tail.0, align 8
-  %value40 = getelementptr inbounds i8, ptr %call39, i64 8
+  %value40 = getelementptr inbounds nuw i8, ptr %call39, i64 8
   store ptr %call9, ptr %value40, align 8
   %3 = load i8, ptr %call.i, align 1
   %tobool41.not = icmp eq i8 %3, 0

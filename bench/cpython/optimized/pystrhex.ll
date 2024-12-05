@@ -111,7 +111,7 @@ if.end4:                                          ; preds = %if.end
   br i1 %tobool7.not, label %if.else, label %if.then8
 
 if.then8:                                         ; preds = %if.end4
-  %state = getelementptr inbounds i8, ptr %sep, i64 32
+  %state = getelementptr inbounds nuw i8, ptr %sep, i64 32
   %bf.load = load i32, ptr %state, align 8
   %4 = and i32 %bf.load, 28
   %cmp9.not = icmp eq i32 %4, 4
@@ -145,7 +145,7 @@ if.else:                                          ; preds = %if.end4
   br i1 %tobool15.not, label %if.else18, label %if.then16
 
 if.then16:                                        ; preds = %if.else
-  %ob_sval.i = getelementptr inbounds i8, ptr %sep, i64 32
+  %ob_sval.i = getelementptr inbounds nuw i8, ptr %sep, i64 32
   br label %if.end20
 
 if.else18:                                        ; preds = %if.else
@@ -208,7 +208,7 @@ if.then52:                                        ; preds = %if.end44
   br i1 %tobool54.not, label %return, label %if.end56
 
 if.end56:                                         ; preds = %if.then52
-  %ob_sval.i93 = getelementptr inbounds i8, ptr %call53, i64 32
+  %ob_sval.i93 = getelementptr inbounds nuw i8, ptr %call53, i64 32
   br label %if.end64
 
 if.else58:                                        ; preds = %if.end44
@@ -313,7 +313,6 @@ for.body143.us:                                   ; preds = %for.cond140.prehead
   %idxprom147.us = zext nneg i32 %and146.us to i64
   %arrayidx148.us = getelementptr i8, ptr %24, i64 %idxprom147.us
   %25 = load i8, ptr %arrayidx148.us, align 1
-  %dec149.us = add i64 %j.5110.us, -1
   %arrayidx150.us = getelementptr i8, ptr %retbuf.0, i64 %j.5110.us
   store i8 %25, ptr %arrayidx150.us, align 1
   %26 = load ptr, ptr @Py_hexdigits, align 8
@@ -322,7 +321,7 @@ for.body143.us:                                   ; preds = %for.cond140.prehead
   %arrayidx154.us = getelementptr i8, ptr %26, i64 %idxprom153.us
   %27 = load i8, ptr %arrayidx154.us, align 1
   %dec155.us = add i64 %j.5110.us, -2
-  %arrayidx156.us = getelementptr i8, ptr %retbuf.0, i64 %dec149.us
+  %arrayidx156.us = getelementptr i8, ptr %arrayidx150.us, i64 -1
   store i8 %27, ptr %arrayidx156.us, align 1
   %inc158.us = add nuw i32 %k.1111.us, 1
   %exitcond.not = icmp eq i32 %inc158.us, %spec.select87
@@ -368,7 +367,6 @@ for.body94.us:                                    ; preds = %for.cond91.preheade
   %idxprom99.us = zext nneg i32 %shr98.us to i64
   %arrayidx100.us = getelementptr i8, ptr %31, i64 %idxprom99.us
   %32 = load i8, ptr %arrayidx100.us, align 1
-  %inc101.us = add i64 %j.2126.us, 1
   %arrayidx102.us = getelementptr i8, ptr %retbuf.0, i64 %j.2126.us
   store i8 %32, ptr %arrayidx102.us, align 1
   %33 = load ptr, ptr @Py_hexdigits, align 8
@@ -377,7 +375,7 @@ for.body94.us:                                    ; preds = %for.cond91.preheade
   %arrayidx106.us = getelementptr i8, ptr %33, i64 %idxprom105.us
   %34 = load i8, ptr %arrayidx106.us, align 1
   %inc107.us = add i64 %j.2126.us, 2
-  %arrayidx108.us = getelementptr i8, ptr %retbuf.0, i64 %inc101.us
+  %arrayidx108.us = getelementptr i8, ptr %arrayidx102.us, i64 1
   store i8 %34, ptr %arrayidx108.us, align 1
   %lftr.wideiv = trunc i64 %inc95.us to i32
   %exitcond150.not = icmp eq i32 %29, %lftr.wideiv
@@ -409,7 +407,6 @@ while.body:                                       ; preds = %while.cond.preheade
   %idxprom123 = zext nneg i32 %shr122 to i64
   %arrayidx124 = getelementptr i8, ptr %36, i64 %idxprom123
   %37 = load i8, ptr %arrayidx124, align 1
-  %inc125 = add i64 %j.3140, 1
   %arrayidx126 = getelementptr i8, ptr %retbuf.0, i64 %j.3140
   store i8 %37, ptr %arrayidx126, align 1
   %38 = load ptr, ptr @Py_hexdigits, align 8
@@ -418,7 +415,7 @@ while.body:                                       ; preds = %while.cond.preheade
   %arrayidx130 = getelementptr i8, ptr %38, i64 %idxprom129
   %39 = load i8, ptr %arrayidx130, align 1
   %inc131 = add i64 %j.3140, 2
-  %arrayidx132 = getelementptr i8, ptr %retbuf.0, i64 %inc125
+  %arrayidx132 = getelementptr i8, ptr %arrayidx126, i64 1
   store i8 %39, ptr %arrayidx132, align 1
   %exitcond152.not = icmp eq i64 %inc119, %arglen
   br i1 %exitcond152.not, label %return, label %while.body, !llvm.loop !11
@@ -441,7 +438,6 @@ while.body168:                                    ; preds = %while.cond165.prehe
   %idxprom173 = zext nneg i32 %and172 to i64
   %arrayidx174 = getelementptr i8, ptr %41, i64 %idxprom173
   %42 = load i8, ptr %arrayidx174, align 1
-  %dec175 = add i64 %j.6123, -1
   %arrayidx176 = getelementptr i8, ptr %retbuf.0, i64 %j.6123
   store i8 %42, ptr %arrayidx176, align 1
   %43 = load ptr, ptr @Py_hexdigits, align 8
@@ -450,7 +446,7 @@ while.body168:                                    ; preds = %while.cond165.prehe
   %arrayidx180 = getelementptr i8, ptr %43, i64 %idxprom179
   %44 = load i8, ptr %arrayidx180, align 1
   %dec181 = add i64 %j.6123, -2
-  %arrayidx182 = getelementptr i8, ptr %retbuf.0, i64 %dec175
+  %arrayidx182 = getelementptr i8, ptr %arrayidx176, i64 -1
   store i8 %44, ptr %arrayidx182, align 1
   %cmp166.not = icmp eq i64 %i.6122, 0
   br i1 %cmp166.not, label %return, label %while.body168, !llvm.loop !12
@@ -477,7 +473,7 @@ if.end44.i:                                       ; preds = %entry
   br i1 %tobool54.not.i, label %_Py_strhex_impl.exit, label %if.end56.i
 
 if.end56.i:                                       ; preds = %if.end44.i
-  %ob_sval.i93.i = getelementptr inbounds i8, ptr %call53.i, i64 32
+  %ob_sval.i93.i = getelementptr inbounds nuw i8, ptr %call53.i, i64 32
   %cmp68141.i = icmp sgt i64 %arglen, 0
   br i1 %cmp68141.i, label %for.body.i, label %_Py_strhex_impl.exit
 

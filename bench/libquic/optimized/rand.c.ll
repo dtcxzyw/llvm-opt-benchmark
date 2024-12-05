@@ -71,22 +71,22 @@ if.then10:                                        ; preds = %lor.lhs.false, %if.
   br label %return
 
 if.end12.thread:                                  ; preds = %lor.lhs.false
-  %partial_block = getelementptr inbounds i8, ptr %call6, i64 48
+  %partial_block = getelementptr inbounds nuw i8, ptr %call6, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %partial_block, i8 0, i64 64, i1 false)
-  %calls_used = getelementptr inbounds i8, ptr %call6, i64 32
+  %calls_used = getelementptr inbounds nuw i8, ptr %call6, i64 32
   store i64 1024, ptr %calls_used, align 8
-  %calls_used1353 = getelementptr inbounds i8, ptr %call6, i64 32
+  %calls_used1353 = getelementptr inbounds nuw i8, ptr %call6, i64 32
   br label %if.then17
 
 if.end12:                                         ; preds = %if.end2
-  %calls_used13.phi.trans.insert = getelementptr inbounds i8, ptr %call3, i64 32
+  %calls_used13.phi.trans.insert = getelementptr inbounds nuw i8, ptr %call3, i64 32
   %.pre = load i64, ptr %calls_used13.phi.trans.insert, align 8
-  %calls_used13 = getelementptr inbounds i8, ptr %call3, i64 32
+  %calls_used13 = getelementptr inbounds nuw i8, ptr %call3, i64 32
   %cmp14 = icmp ugt i64 %.pre, 1023
   br i1 %cmp14, label %if.then17, label %lor.lhs.false15
 
 lor.lhs.false15:                                  ; preds = %if.end12
-  %bytes_used = getelementptr inbounds i8, ptr %call3, i64 40
+  %bytes_used = getelementptr inbounds nuw i8, ptr %call3, i64 40
   %2 = load i64, ptr %bytes_used, align 8
   %cmp16 = icmp ugt i64 %2, 1048575
   br i1 %cmp16, label %if.then17, label %if.end21
@@ -96,9 +96,9 @@ if.then17:                                        ; preds = %if.end12.thread, %l
   %state.055 = phi ptr [ %call6, %if.end12.thread ], [ %call3, %lor.lhs.false15 ], [ %call3, %if.end12 ]
   call void @CRYPTO_sysrand(ptr noundef nonnull %state.055, i64 noundef 32) #9
   store i64 0, ptr %calls_used1358, align 8
-  %bytes_used20 = getelementptr inbounds i8, ptr %state.055, i64 40
+  %bytes_used20 = getelementptr inbounds nuw i8, ptr %state.055, i64 40
   store i64 0, ptr %bytes_used20, align 8
-  %partial_block_used = getelementptr inbounds i8, ptr %state.055, i64 112
+  %partial_block_used = getelementptr inbounds nuw i8, ptr %state.055, i64 112
   store i32 64, ptr %partial_block_used, align 8
   br label %if.end21
 
@@ -110,7 +110,7 @@ if.end21:                                         ; preds = %if.then17, %lor.lhs
   br i1 %cmp22, label %while.cond.preheader, label %if.else
 
 while.cond.preheader:                             ; preds = %if.end21
-  %add.ptr = getelementptr inbounds i8, ptr %nonce, i64 4
+  %add.ptr = getelementptr inbounds nuw i8, ptr %nonce, i64 4
   br label %while.body
 
 while.body:                                       ; preds = %while.cond.preheader, %while.body
@@ -121,7 +121,7 @@ while.body:                                       ; preds = %while.cond.preheade
   store i32 0, ptr %nonce, align 4
   store i64 %4, ptr %add.ptr, align 4
   call void @CRYPTO_chacha_20(ptr noundef %buf.addr.050, ptr noundef %buf.addr.050, i64 noundef %spec.store.select, ptr noundef nonnull %state.056, ptr noundef nonnull %nonce, i32 noundef 0) #9
-  %add.ptr34 = getelementptr inbounds i8, ptr %buf.addr.050, i64 %spec.store.select
+  %add.ptr34 = getelementptr inbounds nuw i8, ptr %buf.addr.050, i64 %spec.store.select
   %sub = sub i64 %remaining.051, %spec.store.select
   %5 = load i64, ptr %calls_used1357, align 8
   %inc = add i64 %5, 1
@@ -130,7 +130,7 @@ while.body:                                       ; preds = %while.cond.preheade
   br i1 %cmp24.not, label %if.end69, label %while.body, !llvm.loop !7
 
 if.else:                                          ; preds = %if.end21
-  %partial_block_used36 = getelementptr inbounds i8, ptr %state.056, i64 112
+  %partial_block_used36 = getelementptr inbounds nuw i8, ptr %state.056, i64 112
   %6 = load i32, ptr %partial_block_used36, align 8
   %conv = zext i32 %6 to i64
   %sub37 = sub nsw i64 64, %conv
@@ -139,15 +139,15 @@ if.else:                                          ; preds = %if.end21
 
 if.then40:                                        ; preds = %if.else
   store i32 0, ptr %nonce41, align 4
-  %add.ptr44 = getelementptr inbounds i8, ptr %nonce41, i64 4
+  %add.ptr44 = getelementptr inbounds nuw i8, ptr %nonce41, i64 4
   store i64 %3, ptr %add.ptr44, align 4
-  %partial_block46 = getelementptr inbounds i8, ptr %state.056, i64 48
+  %partial_block46 = getelementptr inbounds nuw i8, ptr %state.056, i64 48
   call void @CRYPTO_chacha_20(ptr noundef nonnull %partial_block46, ptr noundef nonnull %partial_block46, i64 noundef 64, ptr noundef nonnull %state.056, ptr noundef nonnull %nonce41, i32 noundef 0) #9
   store i32 0, ptr %partial_block_used36, align 8
   br label %if.end54
 
 if.end54:                                         ; preds = %if.then40, %if.else
-  %partial_block58 = getelementptr inbounds i8, ptr %state.056, i64 48
+  %partial_block58 = getelementptr inbounds nuw i8, ptr %state.056, i64 48
   br label %for.body
 
 for.body:                                         ; preds = %if.end54, %for.body
@@ -157,9 +157,9 @@ for.body:                                         ; preds = %if.end54, %for.body
   %inc60 = add i32 %7, 1
   store i32 %inc60, ptr %partial_block_used36, align 8
   %idxprom = zext i32 %7 to i64
-  %arrayidx = getelementptr inbounds [64 x i8], ptr %partial_block58, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [64 x i8], ptr %partial_block58, i64 0, i64 %idxprom
   %8 = load i8, ptr %arrayidx, align 1
-  %arrayidx63 = getelementptr inbounds i8, ptr %buf, i64 %conv5549
+  %arrayidx63 = getelementptr inbounds nuw i8, ptr %buf, i64 %conv5549
   %9 = load i8, ptr %arrayidx63, align 1
   %xor45 = xor i8 %9, %8
   store i8 %xor45, ptr %arrayidx63, align 1
@@ -175,7 +175,7 @@ for.end:                                          ; preds = %for.body
   br label %if.end69
 
 if.end69:                                         ; preds = %while.body, %for.end
-  %bytes_used70 = getelementptr inbounds i8, ptr %state.056, i64 40
+  %bytes_used70 = getelementptr inbounds nuw i8, ptr %state.056, i64 40
   %11 = load i64, ptr %bytes_used70, align 8
   %add = add i64 %11, %len
   store i64 %add, ptr %bytes_used70, align 8

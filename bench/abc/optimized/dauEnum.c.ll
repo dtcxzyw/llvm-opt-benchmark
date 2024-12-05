@@ -38,8 +38,8 @@ define noundef nonnull ptr @Dau_EnumLift(ptr nocapture noundef readonly %0, i32 
   %8 = select i1 %or.cond, i8 %4, i8 0
   %9 = add i8 %8, %6
   store i8 %9, ptr %.014, align 1
-  %10 = getelementptr inbounds i8, ptr %.014, i64 1
-  %11 = getelementptr inbounds i8, ptr %.0913, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %.014, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %.0913, i64 1
   %12 = load i8, ptr %11, align 1
   %.not = icmp eq i8 %12, 0
   br i1 %.not, label %._crit_edge, label %5, !llvm.loop !4
@@ -69,8 +69,8 @@ define noundef nonnull ptr @Dau_EnumLift2(ptr nocapture noundef readonly %0, i32
   %8 = select i1 %or.cond, i8 %4, i8 0
   %9 = add i8 %8, %6
   store i8 %9, ptr %.014, align 1
-  %10 = getelementptr inbounds i8, ptr %.014, i64 1
-  %11 = getelementptr inbounds i8, ptr %.0913, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %.014, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %.0913, i64 1
   %12 = load i8, ptr %11, align 1
   %.not = icmp eq i8 %12, 0
   br i1 %.not, label %._crit_edge, label %5, !llvm.loop !6
@@ -100,8 +100,8 @@ define void @Dau_EnumCombineTwo(ptr nocapture noundef %0, i32 noundef %1, i32 no
   %14 = select i1 %or.cond.i, i8 %10, i8 0
   %15 = add i8 %14, %12
   store i8 %15, ptr %.014.i, align 1
-  %16 = getelementptr inbounds i8, ptr %.014.i, i64 1
-  %17 = getelementptr inbounds i8, ptr %.0913.i, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %.014.i, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %.0913.i, i64 1
   %18 = load i8, ptr %17, align 1
   %.not.i = icmp eq i8 %18, 0
   br i1 %.not.i, label %Dau_EnumLift.exit, label %11, !llvm.loop !4
@@ -118,7 +118,7 @@ Dau_EnumLift.exit:                                ; preds = %11, %8
   %22 = load i8, ptr %3, align 1
   %23 = icmp eq i8 %22, 42
   %.idx = zext i1 %23 to i64
-  %24 = getelementptr inbounds i8, ptr %3, i64 %.idx
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
   %.not15 = icmp eq i32 %7, 0
   %25 = select i1 %.not15, ptr @.str.2, ptr @.str.3
   %26 = load i8, ptr @Dau_EnumLift.pBuffer, align 16
@@ -130,14 +130,14 @@ Dau_EnumLift.exit:                                ; preds = %11, %8
   %32 = add i64 %31, 1
   %33 = tail call noalias ptr @malloc(i64 noundef %32) #14
   %34 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %33, ptr noundef nonnull dereferenceable(1) @Dau_EnumCombineTwo.pBuffer) #12
-  %35 = getelementptr inbounds i8, ptr %0, i64 4
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %36 = load i32, ptr %35, align 4
   %37 = load i32, ptr %0, align 8
   %38 = icmp eq i32 %36, %37
   br i1 %38, label %39, label %.Vec_PtrGrow.exit11_crit_edge.i
 
 .Vec_PtrGrow.exit11_crit_edge.i:                  ; preds = %Dau_EnumLift.exit
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %0, i64 8
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
   br label %Vec_PtrPush.exit
 
@@ -146,7 +146,7 @@ Dau_EnumLift.exit:                                ; preds = %11, %8
   br i1 %40, label %41, label %49
 
 41:                                               ; preds = %39
-  %42 = getelementptr inbounds i8, ptr %0, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %43 = load ptr, ptr %42, align 8
   %.not9.i.i = icmp eq ptr %43, null
   br i1 %.not9.i.i, label %46, label %44
@@ -167,7 +167,7 @@ Vec_PtrGrow.exit.i:                               ; preds = %46, %44
 
 49:                                               ; preds = %39
   %50 = shl nuw nsw i32 %36, 1
-  %51 = getelementptr inbounds i8, ptr %0, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %52 = load ptr, ptr %51, align 8
   %.not9.i10.i = icmp eq ptr %52, null
   %53 = zext nneg i32 %50 to i64
@@ -221,8 +221,8 @@ define void @Dau_EnumCombineThree(ptr nocapture noundef %0, i32 noundef %1, ptr 
   %16 = select i1 %or.cond.i, i8 %12, i8 0
   %17 = add i8 %16, %14
   store i8 %17, ptr %.014.i, align 1
-  %18 = getelementptr inbounds i8, ptr %.014.i, i64 1
-  %19 = getelementptr inbounds i8, ptr %.0913.i, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %.014.i, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %.0913.i, i64 1
   %20 = load i8, ptr %19, align 1
   %.not.i = icmp eq i8 %20, 0
   br i1 %.not.i, label %Dau_EnumLift.exit, label %13, !llvm.loop !4
@@ -247,8 +247,8 @@ Dau_EnumLift.exit:                                ; preds = %13, %10
   %26 = select i1 %or.cond.i24, i8 %22, i8 0
   %27 = add i8 %26, %24
   store i8 %27, ptr %.014.i22, align 1
-  %28 = getelementptr inbounds i8, ptr %.014.i22, i64 1
-  %29 = getelementptr inbounds i8, ptr %.0913.i23, i64 1
+  %28 = getelementptr inbounds nuw i8, ptr %.014.i22, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %.0913.i23, i64 1
   %30 = load i8, ptr %29, align 1
   %.not.i25 = icmp eq i8 %30, 0
   br i1 %.not.i25, label %Dau_EnumLift2.exit, label %23, !llvm.loop !6
@@ -263,7 +263,7 @@ Dau_EnumLift2.exit:                               ; preds = %23, %Dau_EnumLift.e
   %33 = load i8, ptr %2, align 1
   %34 = icmp eq i8 %33, 42
   %.idx = zext i1 %34 to i64
-  %35 = getelementptr inbounds i8, ptr %2, i64 %.idx
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx
   %.not18 = icmp eq i32 %8, 0
   %36 = select i1 %.not18, ptr @.str.2, ptr @.str.3
   %37 = load i8, ptr @Dau_EnumLift.pBuffer, align 16
@@ -279,14 +279,14 @@ Dau_EnumLift2.exit:                               ; preds = %23, %Dau_EnumLift.e
   %46 = add i64 %45, 1
   %47 = tail call noalias ptr @malloc(i64 noundef %46) #14
   %48 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %47, ptr noundef nonnull dereferenceable(1) @Dau_EnumCombineThree.pBuffer) #12
-  %49 = getelementptr inbounds i8, ptr %0, i64 4
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %50 = load i32, ptr %49, align 4
   %51 = load i32, ptr %0, align 8
   %52 = icmp eq i32 %50, %51
   br i1 %52, label %53, label %.Vec_PtrGrow.exit11_crit_edge.i
 
 .Vec_PtrGrow.exit11_crit_edge.i:                  ; preds = %Dau_EnumLift2.exit
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %0, i64 8
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
   br label %Vec_PtrPush.exit
 
@@ -295,7 +295,7 @@ Dau_EnumLift2.exit:                               ; preds = %23, %Dau_EnumLift.e
   br i1 %54, label %55, label %63
 
 55:                                               ; preds = %53
-  %56 = getelementptr inbounds i8, ptr %0, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %57 = load ptr, ptr %56, align 8
   %.not9.i.i = icmp eq ptr %57, null
   br i1 %.not9.i.i, label %60, label %58
@@ -316,7 +316,7 @@ Vec_PtrGrow.exit.i:                               ; preds = %60, %58
 
 63:                                               ; preds = %53
   %64 = shl nuw nsw i32 %50, 1
-  %65 = getelementptr inbounds i8, ptr %0, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %66 = load ptr, ptr %65, align 8
   %.not9.i10.i = icmp eq ptr %66, null
   %67 = zext nneg i32 %64 to i64
@@ -367,7 +367,7 @@ define void @Dau_EnumTestDump(ptr nocapture noundef readonly %0, ptr nocapture n
 8:                                                ; preds = %.lr.ph27, %.critedge2
   %indvars.iv29 = phi i64 [ 0, %.lr.ph27 ], [ %indvars.iv.next30, %.critedge2 ]
   %.val21 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds ptr, ptr %.val21, i64 %indvars.iv29
+  %9 = getelementptr inbounds nuw ptr, ptr %.val21, i64 %indvars.iv29
   %10 = load ptr, ptr %9, align 8
   %11 = trunc nuw nsw i64 %indvars.iv29 to i32
   %12 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.6, i32 noundef %11) #12
@@ -383,7 +383,7 @@ define void @Dau_EnumTestDump(ptr nocapture noundef readonly %0, ptr nocapture n
 16:                                               ; preds = %.lr.ph, %16
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %16 ]
   %.val22 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds ptr, ptr %.val22, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw ptr, ptr %.val22, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8
   %19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.7, ptr noundef %18) #12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -420,36 +420,36 @@ declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #2
 define void @Dau_EnumTest() local_unnamed_addr #1 {
 Vec_PtrPush.exit254:
   %0 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #14
-  %1 = getelementptr inbounds i8, ptr %0, i64 4
+  %1 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 16, ptr %0, align 8
   %2 = tail call noalias dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #14
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %3, align 8
   %calloc = tail call dereferenceable_or_null(16) ptr @calloc(i64 1, i64 16)
   store ptr %calloc, ptr %2, align 8
   %4 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #14
-  %5 = getelementptr inbounds i8, ptr %4, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 8, ptr %4, align 8
   %6 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #14
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %6, ptr %7, align 8
   %8 = tail call noalias dereferenceable_or_null(3) ptr @malloc(i64 noundef 3) #14
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %8, ptr noundef nonnull align 1 dereferenceable(3) @.str.8, i64 3, i1 false) #12
   store i32 1, ptr %5, align 4
   store ptr %8, ptr %6, align 8
   store i32 2, ptr %1, align 4
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %4, ptr %9, align 8
   br label %10
 
 10:                                               ; preds = %Vec_PtrPush.exit254, %Vec_PtrPush.exit325
   %indvars.iv413 = phi i64 [ 2, %Vec_PtrPush.exit254 ], [ %indvars.iv.next414, %Vec_PtrPush.exit325 ]
   %11 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #14
-  %12 = getelementptr inbounds i8, ptr %11, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
   store i32 0, ptr %12, align 4
   store i32 100, ptr %11, align 8
   %13 = tail call noalias dereferenceable_or_null(800) ptr @malloc(i64 noundef 800) #14
-  %14 = getelementptr inbounds i8, ptr %11, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %13, ptr %14, align 8
   br label %.preheader333
 
@@ -466,7 +466,7 @@ Vec_PtrPush.exit254:
 
 18:                                               ; preds = %16
   %.val240 = load ptr, ptr %3, align 8
-  %19 = getelementptr inbounds ptr, ptr %.val240, i64 %indvars.iv381
+  %19 = getelementptr inbounds nuw ptr, ptr %.val240, i64 %indvars.iv381
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr i8, ptr %20, i64 4
   %.val227341 = load i32, ptr %21, align 4
@@ -474,7 +474,7 @@ Vec_PtrPush.exit254:
   br i1 %22, label %.lr.ph343, label %.critedge
 
 .lr.ph343:                                        ; preds = %18
-  %23 = getelementptr inbounds ptr, ptr %.val240, i64 %indvars.iv383
+  %23 = getelementptr inbounds nuw ptr, ptr %.val240, i64 %indvars.iv383
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr i8, ptr %20, i64 8
   %26 = getelementptr i8, ptr %24, i64 4
@@ -489,7 +489,7 @@ Vec_PtrPush.exit254:
   %.val226339 = phi i32 [ %.val226339431, %.critedge2 ], [ %29, %.lr.ph343 ]
   %indvars.iv378 = phi i64 [ %indvars.iv.next379, %.critedge2 ], [ 0, %.lr.ph343 ]
   %.val238 = load ptr, ptr %25, align 8
-  %31 = getelementptr inbounds ptr, ptr %.val238, i64 %indvars.iv378
+  %31 = getelementptr inbounds nuw ptr, ptr %.val238, i64 %indvars.iv378
   %32 = load ptr, ptr %31, align 8
   %33 = icmp sgt i32 %.val226339, 0
   br i1 %33, label %.lr.ph, label %.critedge2
@@ -497,7 +497,7 @@ Vec_PtrPush.exit254:
 .lr.ph:                                           ; preds = %.lr.ph343.split, %Dau_EnumCombineTwo.exit318
   %indvars.iv = phi i64 [ %indvars.iv.next, %Dau_EnumCombineTwo.exit318 ], [ 0, %.lr.ph343.split ]
   %.val237 = load ptr, ptr %27, align 8
-  %34 = getelementptr inbounds ptr, ptr %.val237, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw ptr, ptr %.val237, i64 %indvars.iv
   %35 = load ptr, ptr %34, align 8
   %36 = load i8, ptr %35, align 1
   %.not12.i.i = icmp eq i8 %36, 0
@@ -512,8 +512,8 @@ Vec_PtrPush.exit254:
   %39 = select i1 %or.cond.i.i, i8 %15, i8 0
   %40 = add i8 %39, %37
   store i8 %40, ptr %.014.i.i, align 1
-  %41 = getelementptr inbounds i8, ptr %.014.i.i, i64 1
-  %42 = getelementptr inbounds i8, ptr %.0913.i.i, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %.014.i.i, i64 1
+  %42 = getelementptr inbounds nuw i8, ptr %.0913.i.i, i64 1
   %43 = load i8, ptr %42, align 1
   %.not.i.i = icmp eq i8 %43, 0
   br i1 %.not.i.i, label %Dau_EnumLift.exit.i, label %.lr.ph.i.i, !llvm.loop !4
@@ -524,7 +524,7 @@ Dau_EnumLift.exit.i:                              ; preds = %.lr.ph.i.i, %.lr.ph
   %44 = load i8, ptr %32, align 1
   %45 = icmp eq i8 %44, 42
   %.idx.i = zext i1 %45 to i64
-  %46 = getelementptr inbounds i8, ptr %32, i64 %.idx.i
+  %46 = getelementptr inbounds nuw i8, ptr %32, i64 %.idx.i
   %47 = load i8, ptr @Dau_EnumLift.pBuffer, align 16
   %48 = icmp eq i8 %47, 42
   %49 = select i1 %48, ptr getelementptr inbounds (i8, ptr @Dau_EnumLift.pBuffer, i64 1), ptr @Dau_EnumLift.pBuffer
@@ -613,8 +613,8 @@ Dau_EnumCombineTwo.exit:                          ; preds = %.Vec_PtrGrow.exit11
   %88 = select i1 %or.cond.i.i259, i8 %15, i8 0
   %89 = add i8 %88, %86
   store i8 %89, ptr %.014.i.i257, align 1
-  %90 = getelementptr inbounds i8, ptr %.014.i.i257, i64 1
-  %91 = getelementptr inbounds i8, ptr %.0913.i.i258, i64 1
+  %90 = getelementptr inbounds nuw i8, ptr %.014.i.i257, i64 1
+  %91 = getelementptr inbounds nuw i8, ptr %.0913.i.i258, i64 1
   %92 = load i8, ptr %91, align 1
   %.not.i.i260 = icmp eq i8 %92, 0
   br i1 %.not.i.i260, label %Dau_EnumLift.exit.i261, label %.lr.ph.i.i256, !llvm.loop !4
@@ -625,7 +625,7 @@ Dau_EnumLift.exit.i261:                           ; preds = %.lr.ph.i.i256, %84
   %93 = load i8, ptr %32, align 1
   %94 = icmp eq i8 %93, 42
   %.idx.i263 = zext i1 %94 to i64
-  %95 = getelementptr inbounds i8, ptr %32, i64 %.idx.i263
+  %95 = getelementptr inbounds nuw i8, ptr %32, i64 %.idx.i263
   %96 = load i8, ptr @Dau_EnumLift.pBuffer, align 16
   %97 = icmp eq i8 %96, 42
   %98 = select i1 %97, ptr getelementptr inbounds (i8, ptr @Dau_EnumLift.pBuffer, i64 1), ptr @Dau_EnumLift.pBuffer
@@ -719,8 +719,8 @@ Dau_EnumCombineTwo.exit270:                       ; preds = %.Vec_PtrGrow.exit11
   %138 = select i1 %or.cond.i.i275, i8 %15, i8 0
   %139 = add i8 %138, %136
   store i8 %139, ptr %.014.i.i273, align 1
-  %140 = getelementptr inbounds i8, ptr %.014.i.i273, i64 1
-  %141 = getelementptr inbounds i8, ptr %.0913.i.i274, i64 1
+  %140 = getelementptr inbounds nuw i8, ptr %.014.i.i273, i64 1
+  %141 = getelementptr inbounds nuw i8, ptr %.0913.i.i274, i64 1
   %142 = load i8, ptr %141, align 1
   %.not.i.i276 = icmp eq i8 %142, 0
   br i1 %.not.i.i276, label %Dau_EnumLift.exit.i277, label %.lr.ph.i.i272, !llvm.loop !4
@@ -731,7 +731,7 @@ Dau_EnumLift.exit.i277:                           ; preds = %.lr.ph.i.i272, %135
   %143 = load i8, ptr %32, align 1
   %144 = icmp eq i8 %143, 42
   %.idx.i279 = zext i1 %144 to i64
-  %145 = getelementptr inbounds i8, ptr %32, i64 %.idx.i279
+  %145 = getelementptr inbounds nuw i8, ptr %32, i64 %.idx.i279
   %146 = load i8, ptr @Dau_EnumLift.pBuffer, align 16
   %147 = icmp eq i8 %146, 42
   %148 = select i1 %147, ptr getelementptr inbounds (i8, ptr @Dau_EnumLift.pBuffer, i64 1), ptr @Dau_EnumLift.pBuffer
@@ -826,8 +826,8 @@ Dau_EnumCombineTwo.exit286:                       ; preds = %.Vec_PtrGrow.exit11
   %187 = select i1 %or.cond.i.i291, i8 %15, i8 0
   %188 = add i8 %187, %185
   store i8 %188, ptr %.014.i.i289, align 1
-  %189 = getelementptr inbounds i8, ptr %.014.i.i289, i64 1
-  %190 = getelementptr inbounds i8, ptr %.0913.i.i290, i64 1
+  %189 = getelementptr inbounds nuw i8, ptr %.014.i.i289, i64 1
+  %190 = getelementptr inbounds nuw i8, ptr %.0913.i.i290, i64 1
   %191 = load i8, ptr %190, align 1
   %.not.i.i292 = icmp eq i8 %191, 0
   br i1 %.not.i.i292, label %Dau_EnumLift.exit.i293, label %.lr.ph.i.i288, !llvm.loop !4
@@ -838,7 +838,7 @@ Dau_EnumLift.exit.i293:                           ; preds = %.lr.ph.i.i288, %184
   %192 = load i8, ptr %32, align 1
   %193 = icmp eq i8 %192, 42
   %.idx.i295 = zext i1 %193 to i64
-  %194 = getelementptr inbounds i8, ptr %32, i64 %.idx.i295
+  %194 = getelementptr inbounds nuw i8, ptr %32, i64 %.idx.i295
   %195 = load i8, ptr @Dau_EnumLift.pBuffer, align 16
   %196 = icmp eq i8 %195, 42
   %197 = select i1 %196, ptr getelementptr inbounds (i8, ptr @Dau_EnumLift.pBuffer, i64 1), ptr @Dau_EnumLift.pBuffer
@@ -940,8 +940,8 @@ thread-pre-split:                                 ; preds = %.thread329, %226, %
   %237 = select i1 %or.cond.i.i307, i8 %15, i8 0
   %238 = add i8 %237, %235
   store i8 %238, ptr %.014.i.i305, align 1
-  %239 = getelementptr inbounds i8, ptr %.014.i.i305, i64 1
-  %240 = getelementptr inbounds i8, ptr %.0913.i.i306, i64 1
+  %239 = getelementptr inbounds nuw i8, ptr %.014.i.i305, i64 1
+  %240 = getelementptr inbounds nuw i8, ptr %.0913.i.i306, i64 1
   %241 = load i8, ptr %240, align 1
   %.not.i.i308 = icmp eq i8 %241, 0
   br i1 %.not.i.i308, label %Dau_EnumLift.exit.i309, label %.lr.ph.i.i304, !llvm.loop !4
@@ -953,7 +953,7 @@ Dau_EnumLift.exit.i309:                           ; preds = %.lr.ph.i.i304, %thr
   %242 = load i8, ptr %32, align 1
   %243 = icmp eq i8 %242, 42
   %.idx.i311 = zext i1 %243 to i64
-  %244 = getelementptr inbounds i8, ptr %32, i64 %.idx.i311
+  %244 = getelementptr inbounds nuw i8, ptr %32, i64 %.idx.i311
   %245 = load i8, ptr @Dau_EnumLift.pBuffer, align 16
   %246 = icmp eq i8 %245, 42
   %247 = select i1 %246, ptr getelementptr inbounds (i8, ptr @Dau_EnumLift.pBuffer, i64 1), ptr @Dau_EnumLift.pBuffer
@@ -1071,7 +1071,7 @@ Dau_EnumCombineTwo.exit318:                       ; preds = %.Vec_PtrGrow.exit11
 
 291:                                              ; preds = %289
   %.val236 = load ptr, ptr %3, align 8
-  %292 = getelementptr inbounds ptr, ptr %.val236, i64 %indvars.iv408
+  %292 = getelementptr inbounds nuw ptr, ptr %.val236, i64 %indvars.iv408
   %293 = load ptr, ptr %292, align 8
   %294 = getelementptr i8, ptr %293, i64 4
   %.val225352 = load i32, ptr %294, align 4
@@ -1079,9 +1079,9 @@ Dau_EnumCombineTwo.exit318:                       ; preds = %.Vec_PtrGrow.exit11
   br i1 %295, label %.lr.ph354, label %.critedge4
 
 .lr.ph354:                                        ; preds = %291
-  %296 = getelementptr inbounds ptr, ptr %.val236, i64 %indvars.iv400
+  %296 = getelementptr inbounds nuw ptr, ptr %.val236, i64 %indvars.iv400
   %297 = load ptr, ptr %296, align 8
-  %298 = getelementptr inbounds ptr, ptr %.val236, i64 %indvars.iv398
+  %298 = getelementptr inbounds nuw ptr, ptr %.val236, i64 %indvars.iv398
   %299 = load ptr, ptr %298, align 8
   %300 = getelementptr i8, ptr %293, i64 8
   %301 = getelementptr i8, ptr %299, i64 4
@@ -1099,7 +1099,7 @@ Dau_EnumCombineTwo.exit318:                       ; preds = %.Vec_PtrGrow.exit11
   %.val224349 = phi i32 [ %.val224349437, %.critedge6 ], [ %306, %.lr.ph354 ]
   %indvars.iv395 = phi i64 [ %indvars.iv.next396, %.critedge6 ], [ 0, %.lr.ph354 ]
   %.val233 = load ptr, ptr %300, align 8
-  %308 = getelementptr inbounds ptr, ptr %.val233, i64 %indvars.iv395
+  %308 = getelementptr inbounds nuw ptr, ptr %.val233, i64 %indvars.iv395
   %309 = load ptr, ptr %308, align 8
   %310 = icmp sgt i32 %.val224349, 0
   br i1 %310, label %.lr.ph351, label %.critedge6
@@ -1114,7 +1114,7 @@ Dau_EnumCombineTwo.exit318:                       ; preds = %.Vec_PtrGrow.exit11
   %.val223346 = phi i32 [ %.val223346439, %.critedge8 ], [ %311, %.lr.ph351 ]
   %indvars.iv392 = phi i64 [ %indvars.iv.next393, %.critedge8 ], [ 0, %.lr.ph351 ]
   %.val232 = load ptr, ptr %302, align 8
-  %313 = getelementptr inbounds ptr, ptr %.val232, i64 %indvars.iv392
+  %313 = getelementptr inbounds nuw ptr, ptr %.val232, i64 %indvars.iv392
   %314 = load ptr, ptr %313, align 8
   %315 = icmp sgt i32 %.val223346, 0
   br i1 %315, label %.lr.ph348, label %.critedge8
@@ -1122,7 +1122,7 @@ Dau_EnumCombineTwo.exit318:                       ; preds = %.Vec_PtrGrow.exit11
 .lr.ph348:                                        ; preds = %.lr.ph351.split, %340
   %indvars.iv389 = phi i64 [ %indvars.iv.next390, %340 ], [ 0, %.lr.ph351.split ]
   %.val231 = load ptr, ptr %304, align 8
-  %316 = getelementptr inbounds ptr, ptr %.val231, i64 %indvars.iv389
+  %316 = getelementptr inbounds nuw ptr, ptr %.val231, i64 %indvars.iv389
   %317 = load ptr, ptr %316, align 8
   %318 = load i8, ptr %314, align 1
   %319 = icmp eq i8 %318, 42
@@ -1312,7 +1312,7 @@ Vec_PtrPush.exit325:                              ; preds = %.Vec_PtrGrow.exit11
 
 .lr.ph27.i:                                       ; preds = %.lr.ph27.i.preheader, %.critedge2.i
   %indvars.iv29.i = phi i64 [ %indvars.iv.next30.i, %.critedge2.i ], [ 0, %.lr.ph27.i.preheader ]
-  %382 = getelementptr inbounds ptr, ptr %.val21.i, i64 %indvars.iv29.i
+  %382 = getelementptr inbounds nuw ptr, ptr %.val21.i, i64 %indvars.iv29.i
   %383 = load ptr, ptr %382, align 8
   %384 = trunc nuw nsw i64 %indvars.iv29.i to i32
   %385 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %378, ptr noundef nonnull @.str.6, i32 noundef %384) #12
@@ -1328,7 +1328,7 @@ Vec_PtrPush.exit325:                              ; preds = %.Vec_PtrGrow.exit11
 389:                                              ; preds = %389, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %389 ]
   %.val22.i = load ptr, ptr %388, align 8
-  %390 = getelementptr inbounds ptr, ptr %.val22.i, i64 %indvars.iv.i
+  %390 = getelementptr inbounds nuw ptr, ptr %.val22.i, i64 %indvars.iv.i
   %391 = load ptr, ptr %390, align 8
   %392 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %378, ptr noundef nonnull @.str.7, ptr noundef %391) #12
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1357,7 +1357,7 @@ Dau_EnumTestDump.exit:                            ; preds = %377, %.critedge.i
 
 397:                                              ; preds = %.critedge12, %.lr.ph363
   %indvars.iv421 = phi i64 [ 0, %.lr.ph363 ], [ %indvars.iv.next422, %.critedge12 ]
-  %398 = getelementptr inbounds ptr, ptr %.pre.pre, i64 %indvars.iv421
+  %398 = getelementptr inbounds nuw ptr, ptr %.pre.pre, i64 %indvars.iv421
   %399 = load ptr, ptr %398, align 8
   %400 = trunc nuw nsw i64 %indvars.iv421 to i32
   %401 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, i32 noundef %400)
@@ -1373,7 +1373,7 @@ Dau_EnumTestDump.exit:                            ; preds = %377, %.critedge.i
 405:                                              ; preds = %.lr.ph361, %405
   %indvars.iv418 = phi i64 [ 0, %.lr.ph361 ], [ %indvars.iv.next419, %405 ]
   %.val229 = load ptr, ptr %404, align 8
-  %406 = getelementptr inbounds ptr, ptr %.val229, i64 %indvars.iv418
+  %406 = getelementptr inbounds nuw ptr, ptr %.val229, i64 %indvars.iv418
   %407 = load ptr, ptr %406, align 8
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) %407)
   %indvars.iv.next419 = add nuw nsw i64 %indvars.iv418, 1
@@ -1395,7 +1395,7 @@ Dau_EnumTestDump.exit:                            ; preds = %377, %.critedge.i
 
 411:                                              ; preds = %.lr.ph366, %Vec_PtrFreeFree.exit
   %indvars.iv425 = phi i64 [ 0, %.lr.ph366 ], [ %indvars.iv.next426, %Vec_PtrFreeFree.exit ]
-  %412 = getelementptr inbounds ptr, ptr %.pre.pre, i64 %indvars.iv425
+  %412 = getelementptr inbounds nuw ptr, ptr %.pre.pre, i64 %indvars.iv425
   %413 = load ptr, ptr %412, align 8
   %414 = getelementptr i8, ptr %413, i64 4
   %.val = load i32, ptr %414, align 4
@@ -1413,7 +1413,7 @@ Dau_EnumTestDump.exit:                            ; preds = %377, %.critedge.i
   %.val19.i.i = phi i32 [ %.val16.i.i, %.lr.ph.i.i327 ], [ %.val.i.i, %423 ]
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i327 ], [ %indvars.iv.next.i.i, %423 ]
   %.val15.i.i = load ptr, ptr %418, align 8
-  %420 = getelementptr inbounds ptr, ptr %.val15.i.i, i64 %indvars.iv.i.i
+  %420 = getelementptr inbounds nuw ptr, ptr %.val15.i.i, i64 %indvars.iv.i.i
   %421 = load ptr, ptr %420, align 8
   %switch.i.i = icmp ult ptr %421, inttoptr (i64 3 to ptr)
   br i1 %switch.i.i, label %423, label %422
@@ -1431,7 +1431,7 @@ Dau_EnumTestDump.exit:                            ; preds = %377, %.critedge.i
   br i1 %425, label %419, label %Vec_PtrFreeData.exit.i, !llvm.loop !23
 
 Vec_PtrFreeData.exit.i:                           ; preds = %423, %411
-  %426 = getelementptr inbounds i8, ptr %413, i64 8
+  %426 = getelementptr inbounds nuw i8, ptr %413, i64 8
   %427 = load ptr, ptr %426, align 8
   %.not.i.i326 = icmp eq ptr %427, null
   br i1 %.not.i.i326, label %Vec_PtrFreeFree.exit, label %428

@@ -172,7 +172,7 @@ define internal i32 @dissect_mqttsn(ptr noundef %0, ptr noundef %1, ptr noundef 
   %.not = icmp eq i8 %5, 1
   %. = select i1 %.not, i32 3, i32 1
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.) #2
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void @col_set_str(ptr noundef %8, i32 noundef 34, ptr noundef nonnull @.str.54) #2
   %9 = load ptr, ptr %7, align 8

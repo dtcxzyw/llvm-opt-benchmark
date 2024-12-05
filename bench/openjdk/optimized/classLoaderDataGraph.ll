@@ -118,9 +118,9 @@ define hidden void @_ZN20ClassLoaderDataGraph19clear_claimed_marksEv() local_unn
 
 .lr.ph:                                           ; preds = %0, %.lr.ph
   %.04 = phi ptr [ %4, %.lr.ph ], [ %1, %0 ]
-  %2 = getelementptr inbounds i8, ptr %.04, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %.04, i64 40
   store volatile i32 0, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %.04, i64 112
+  %3 = getelementptr inbounds nuw i8, ptr %.04, i64 112
   %4 = load volatile ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
@@ -139,7 +139,7 @@ define hidden void @_ZN20ClassLoaderDataGraph19clear_claimed_marksEi(i32 noundef
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %.04 = phi ptr [ %4, %.lr.ph ], [ %2, %1 ]
   tail call void @_ZN15ClassLoaderData11clear_claimEi(ptr noundef nonnull align 8 dereferenceable(160) %.04, i32 noundef %0) #10
-  %3 = getelementptr inbounds i8, ptr %.04, i64 112
+  %3 = getelementptr inbounds nuw i8, ptr %.04, i64 112
   %4 = load volatile ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
@@ -178,7 +178,7 @@ define hidden void @_ZN20ClassLoaderDataGraph22clean_deallocate_listsEb(i1 nound
 
 5:                                                ; preds = %3, %.lr.ph.split.us
   %.1.us = phi i32 [ %4, %3 ], [ %.0812.us, %.lr.ph.split.us ]
-  %6 = getelementptr inbounds i8, ptr %.013.us, i64 112
+  %6 = getelementptr inbounds nuw i8, ptr %.013.us, i64 112
   %.0.us = load volatile ptr, ptr %6, align 8
   %.not.us = icmp eq ptr %.0.us, null
   br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !10
@@ -196,14 +196,14 @@ define hidden void @_ZN20ClassLoaderDataGraph22clean_deallocate_listsEb(i1 nound
 
 10:                                               ; preds = %.lr.ph.split, %8
   %.1 = phi i32 [ %9, %8 ], [ %.0812, %.lr.ph.split ]
-  %11 = getelementptr inbounds i8, ptr %.013, i64 112
+  %11 = getelementptr inbounds nuw i8, ptr %.013, i64 112
   %.0 = load volatile ptr, ptr %11, align 8
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %10, %5, %1
   %.08.lcssa = phi i32 [ 0, %1 ], [ %.1.us, %5 ], [ %.1, %10 ]
-  %12 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE16ELS1_75ELS1_30ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %12 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE16ELS1_75ELS1_30ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not9 = icmp eq ptr %12, null
   br i1 %.not9, label %15, label %13
 
@@ -222,7 +222,7 @@ declare void @_ZN15ClassLoaderData10classes_doEPFvP13InstanceKlassE(ptr noundef 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN13InstanceKlass23purge_previous_versionsEPS_(ptr noundef %0) #0 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 310
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 310
   %3 = load i8, ptr %2, align 2
   %4 = and i8 %3, 4
   %.not = icmp eq i8 %4, 0
@@ -250,7 +250,7 @@ define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE16ELS1_75ELS1_30ELS1
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN20ClassLoaderDataGraph30safepoint_and_clean_metaspacesEv() local_unnamed_addr #0 align 2 {
   %1 = alloca %class.VM_CleanClassLoaderDataMetaspaces, align 8
-  %2 = getelementptr inbounds i8, ptr %1, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr null, ptr %2, align 8
   store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTV33VM_CleanClassLoaderDataMetaspaces, i64 16), ptr %1, align 8
   call void @_ZN8VMThread7executeEP12VM_Operation(ptr noundef nonnull %1) #10
@@ -294,7 +294,7 @@ _ZNK6HandleclEv.exit:                             ; preds = %2
   %8 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 160, i8 noundef zeroext 1, i32 noundef 0) #10
   tail call void @_ZN15ClassLoaderDataC1E6Handleb(ptr noundef nonnull align 8 dereferenceable(160) %8, ptr %0, i1 noundef zeroext %1) #10
   %9 = load volatile ptr, ptr @_ZN20ClassLoaderDataGraph5_headE, align 8
-  %10 = getelementptr inbounds i8, ptr %8, i64 112
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 112
   store volatile ptr %9, ptr %10, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !6
   store volatile ptr %8, ptr @_ZN20ClassLoaderDataGraph5_headE, align 8
@@ -313,30 +313,30 @@ _ZNK6HandleclEv.exit14:                           ; preds = %11, %12
   br label %15
 
 15:                                               ; preds = %_ZNK6HandleclEv.exit14, %7
-  %16 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE16ELS1_75ELS1_30ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %16 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE16ELS1_75ELS1_30ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not23 = icmp eq ptr %16, null
   br i1 %.not23, label %_ZN12ResourceMarkD2Ev.exit, label %17
 
 17:                                               ; preds = %15
   %18 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 800
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 800
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %21, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %21, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %21, i64 40
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %21, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %29 = load i64, ptr %28, align 8
   call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %3, i1 noundef zeroext false) #10
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %3, align 8
-  %30 = getelementptr inbounds i8, ptr %3, i64 56
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 56
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %30) #10
-  %31 = getelementptr inbounds i8, ptr %3, i64 144
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 144
   store i32 1, ptr %31, align 8
-  %.sroa.21.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %3, i64 152
+  %.sroa.21.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 152
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE16ELS1_75ELS1_30ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i.i, align 8
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV9LogStream, i64 16), ptr %3, align 8
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull @.str.6) #10
@@ -419,7 +419,7 @@ define hidden void @_ZN20ClassLoaderDataGraph6cld_doEP10CLDClosure(ptr noundef %
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %3, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %.05) #10
-  %5 = getelementptr inbounds i8, ptr %.05, i64 112
+  %5 = getelementptr inbounds nuw i8, ptr %.05, i64 112
   %6 = load volatile ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
@@ -437,7 +437,7 @@ define hidden void @_ZN20ClassLoaderDataGraph12roots_cld_doEP10CLDClosureS1_(ptr
 
 .lr.ph:                                           ; preds = %2, %11
   %.011 = phi ptr [ %13, %11 ], [ %3, %2 ]
-  %4 = getelementptr inbounds i8, ptr %.011, i64 36
+  %4 = getelementptr inbounds nuw i8, ptr %.011, i64 36
   %5 = load i32, ptr %4, align 4
   %6 = icmp sgt i32 %5, 0
   %7 = select i1 %6, ptr %0, ptr %1
@@ -451,7 +451,7 @@ define hidden void @_ZN20ClassLoaderDataGraph12roots_cld_doEP10CLDClosureS1_(ptr
   br label %11
 
 11:                                               ; preds = %.lr.ph, %8
-  %12 = getelementptr inbounds i8, ptr %.011, i64 112
+  %12 = getelementptr inbounds nuw i8, ptr %.011, i64 112
   %13 = load volatile ptr, ptr %12, align 8
   %.not = icmp eq ptr %13, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
@@ -478,14 +478,14 @@ define hidden void @_ZN20ClassLoaderDataGraph20always_strong_cld_doEP10CLDClosur
 
 .lr.ph.i.us:                                      ; preds = %.lr.ph.i.preheader, %.lr.ph.i.us
   %.011.i.us = phi ptr [ %7, %.lr.ph.i.us ], [ %4, %.lr.ph.i.preheader ]
-  %6 = getelementptr inbounds i8, ptr %.011.i.us, i64 112
+  %6 = getelementptr inbounds nuw i8, ptr %.011.i.us, i64 112
   %7 = load volatile ptr, ptr %6, align 8
   %.not.i.us = icmp eq ptr %7, null
   br i1 %.not.i.us, label %_ZN20ClassLoaderDataGraph12roots_cld_doEP10CLDClosureS1_.exit, label %.lr.ph.i.us, !llvm.loop !12
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %14
   %.011.i = phi ptr [ %16, %14 ], [ %4, %.lr.ph.i.preheader ]
-  %8 = getelementptr inbounds i8, ptr %.011.i, i64 36
+  %8 = getelementptr inbounds nuw i8, ptr %.011.i, i64 36
   %9 = load i32, ptr %8, align 4
   %10 = icmp slt i32 %9, 1
   br i1 %10, label %14, label %11
@@ -497,7 +497,7 @@ define hidden void @_ZN20ClassLoaderDataGraph20always_strong_cld_doEP10CLDClosur
   br label %14
 
 14:                                               ; preds = %11, %.lr.ph.i
-  %15 = getelementptr inbounds i8, ptr %.011.i, i64 112
+  %15 = getelementptr inbounds nuw i8, ptr %.011.i, i64 112
   %16 = load volatile ptr, ptr %15, align 8
   %.not.i = icmp eq ptr %16, null
   br i1 %.not.i, label %_ZN20ClassLoaderDataGraph12roots_cld_doEP10CLDClosureS1_.exit, label %.lr.ph.i, !llvm.loop !12
@@ -510,7 +510,7 @@ define hidden void @_ZN20ClassLoaderDataGraph20always_strong_cld_doEP10CLDClosur
   %18 = load ptr, ptr %0, align 8
   %19 = load ptr, ptr %18, align 8
   tail call void %19(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %.05.i) #10
-  %20 = getelementptr inbounds i8, ptr %.05.i, i64 112
+  %20 = getelementptr inbounds nuw i8, ptr %.05.i, i64 112
   %21 = load volatile ptr, ptr %20, align 8
   %.not.i3 = icmp eq ptr %21, null
   br i1 %.not.i3, label %_ZN20ClassLoaderDataGraph12roots_cld_doEP10CLDClosureS1_.exit, label %.lr.ph.i2, !llvm.loop !11
@@ -522,9 +522,9 @@ _ZN20ClassLoaderDataGraph12roots_cld_doEP10CLDClosureS1_.exit: ; preds = %.lr.ph
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN15LockedClassesDoC2EPFvP5KlassE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) initializes((0, 17)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV15LockedClassesDo, i64 16), ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load volatile i32, ptr @_ZN20SafepointSynchronize6_stateE, align 4
   %6 = icmp ne i32 %5, 2
   %7 = zext i1 %6 to i8
@@ -545,9 +545,9 @@ declare void @_ZN5Mutex4lockEv(ptr noundef nonnull align 8 dereferenceable(104))
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN15LockedClassesDoC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) initializes((0, 17)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV15LockedClassesDo, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load volatile i32, ptr @_ZN20SafepointSynchronize6_stateE, align 4
   %5 = icmp ne i32 %4, 2
   %6 = zext i1 %5 to i8
@@ -566,7 +566,7 @@ define hidden void @_ZN15LockedClassesDoC2Ev(ptr nocapture noundef nonnull write
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN15LockedClassesDoD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(17) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV15LockedClassesDo, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
   br i1 %4, label %5, label %7
@@ -587,11 +587,11 @@ define hidden void @_ZN20ClassLoaderDataGraph13loaded_cld_doEP10CLDClosure(ptr n
   %2 = alloca %"class.ClassLoaderDataGraph::ClassLoaderDataGraphIterator", align 8
   %3 = load volatile ptr, ptr @_ZN20ClassLoaderDataGraph5_headE, align 8
   store ptr %3, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   call void @_ZN10HandleMark10initializeEP6Thread(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef %6) #10
   %8 = load ptr, ptr %2, align 8
   %.not10.i8 = icmp eq ptr %8, null
@@ -600,7 +600,7 @@ define hidden void @_ZN20ClassLoaderDataGraph13loaded_cld_doEP10CLDClosure(ptr n
 .lr.ph.i:                                         ; preds = %1, %.lr.ph.i.backedge
   %.011.i = phi ptr [ %.011.i.be, %.lr.ph.i.backedge ], [ %8, %1 ]
   %9 = call noundef zeroext i1 @_ZNK15ClassLoaderData8is_aliveEv(ptr noundef nonnull align 8 dereferenceable(160) %.011.i) #10
-  %10 = getelementptr inbounds i8, ptr %.011.i, i64 112
+  %10 = getelementptr inbounds nuw i8, ptr %.011.i, i64 112
   %11 = load volatile ptr, ptr %10, align 8
   br i1 %9, label %13, label %12
 
@@ -632,11 +632,11 @@ define hidden void @_ZN20ClassLoaderDataGraph10classes_doEP12KlassClosure(ptr no
   %2 = alloca %"class.ClassLoaderDataGraph::ClassLoaderDataGraphIterator", align 8
   %3 = load volatile ptr, ptr @_ZN20ClassLoaderDataGraph5_headE, align 8
   store ptr %3, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   call void @_ZN10HandleMark10initializeEP6Thread(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef %6) #10
   %8 = load ptr, ptr %2, align 8
   %.not10.i8 = icmp eq ptr %8, null
@@ -645,7 +645,7 @@ define hidden void @_ZN20ClassLoaderDataGraph10classes_doEP12KlassClosure(ptr no
 .lr.ph.i:                                         ; preds = %1, %.lr.ph.i.backedge
   %.011.i = phi ptr [ %.011.i.be, %.lr.ph.i.backedge ], [ %8, %1 ]
   %9 = call noundef zeroext i1 @_ZNK15ClassLoaderData8is_aliveEv(ptr noundef nonnull align 8 dereferenceable(160) %.011.i) #10
-  %10 = getelementptr inbounds i8, ptr %.011.i, i64 112
+  %10 = getelementptr inbounds nuw i8, ptr %.011.i, i64 112
   %11 = load volatile ptr, ptr %10, align 8
   br i1 %9, label %13, label %12
 
@@ -677,11 +677,11 @@ define hidden void @_ZN20ClassLoaderDataGraph10classes_doEPFvP5KlassE(ptr nounde
   %2 = alloca %"class.ClassLoaderDataGraph::ClassLoaderDataGraphIterator", align 8
   %3 = load volatile ptr, ptr @_ZN20ClassLoaderDataGraph5_headE, align 8
   store ptr %3, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   call void @_ZN10HandleMark10initializeEP6Thread(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef %6) #10
   %8 = load ptr, ptr %2, align 8
   %.not10.i8 = icmp eq ptr %8, null
@@ -690,7 +690,7 @@ define hidden void @_ZN20ClassLoaderDataGraph10classes_doEPFvP5KlassE(ptr nounde
 .lr.ph.i:                                         ; preds = %1, %.lr.ph.i.backedge
   %.011.i = phi ptr [ %.011.i.be, %.lr.ph.i.backedge ], [ %8, %1 ]
   %9 = call noundef zeroext i1 @_ZNK15ClassLoaderData8is_aliveEv(ptr noundef nonnull align 8 dereferenceable(160) %.011.i) #10
-  %10 = getelementptr inbounds i8, ptr %.011.i, i64 112
+  %10 = getelementptr inbounds nuw i8, ptr %.011.i, i64 112
   %11 = load volatile ptr, ptr %10, align 8
   br i1 %9, label %13, label %12
 
@@ -722,11 +722,11 @@ define hidden void @_ZN20ClassLoaderDataGraph10methods_doEPFvP6MethodE(ptr nound
   %2 = alloca %"class.ClassLoaderDataGraph::ClassLoaderDataGraphIterator", align 8
   %3 = load volatile ptr, ptr @_ZN20ClassLoaderDataGraph5_headE, align 8
   store ptr %3, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   call void @_ZN10HandleMark10initializeEP6Thread(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef %6) #10
   %8 = load ptr, ptr %2, align 8
   %.not10.i8 = icmp eq ptr %8, null
@@ -735,7 +735,7 @@ define hidden void @_ZN20ClassLoaderDataGraph10methods_doEPFvP6MethodE(ptr nound
 .lr.ph.i:                                         ; preds = %1, %.lr.ph.i.backedge
   %.011.i = phi ptr [ %.011.i.be, %.lr.ph.i.backedge ], [ %8, %1 ]
   %9 = call noundef zeroext i1 @_ZNK15ClassLoaderData8is_aliveEv(ptr noundef nonnull align 8 dereferenceable(160) %.011.i) #10
-  %10 = getelementptr inbounds i8, ptr %.011.i, i64 112
+  %10 = getelementptr inbounds nuw i8, ptr %.011.i, i64 112
   %11 = load volatile ptr, ptr %10, align 8
   br i1 %9, label %13, label %12
 
@@ -767,11 +767,11 @@ define hidden void @_ZN20ClassLoaderDataGraph20modules_do_keepaliveEPFvP11Module
   %2 = alloca %"class.ClassLoaderDataGraph::ClassLoaderDataGraphIterator", align 8
   %3 = load volatile ptr, ptr @_ZN20ClassLoaderDataGraph5_headE, align 8
   store ptr %3, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   call void @_ZN10HandleMark10initializeEP6Thread(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef %6) #10
   %8 = load ptr, ptr %2, align 8
   %.not10.i9 = icmp eq ptr %8, null
@@ -780,7 +780,7 @@ define hidden void @_ZN20ClassLoaderDataGraph20modules_do_keepaliveEPFvP11Module
 .lr.ph.i:                                         ; preds = %1, %.lr.ph.i.backedge
   %.011.i = phi ptr [ %.011.i.be, %.lr.ph.i.backedge ], [ %8, %1 ]
   %9 = call noundef zeroext i1 @_ZNK15ClassLoaderData8is_aliveEv(ptr noundef nonnull align 8 dereferenceable(160) %.011.i) #10
-  %10 = getelementptr inbounds i8, ptr %.011.i, i64 112
+  %10 = getelementptr inbounds nuw i8, ptr %.011.i, i64 112
   %11 = load volatile ptr, ptr %10, align 8
   br i1 %9, label %13, label %12
 
@@ -815,11 +815,11 @@ define hidden void @_ZN20ClassLoaderDataGraph10modules_doEPFvP11ModuleEntryE(ptr
   %2 = alloca %"class.ClassLoaderDataGraph::ClassLoaderDataGraphIterator", align 8
   %3 = load volatile ptr, ptr @_ZN20ClassLoaderDataGraph5_headE, align 8
   store ptr %3, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   call void @_ZN10HandleMark10initializeEP6Thread(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef %6) #10
   %8 = load ptr, ptr %2, align 8
   %.not10.i8 = icmp eq ptr %8, null
@@ -828,7 +828,7 @@ define hidden void @_ZN20ClassLoaderDataGraph10modules_doEPFvP11ModuleEntryE(ptr
 .lr.ph.i:                                         ; preds = %1, %.lr.ph.i.backedge
   %.011.i = phi ptr [ %.011.i.be, %.lr.ph.i.backedge ], [ %8, %1 ]
   %9 = call noundef zeroext i1 @_ZNK15ClassLoaderData8is_aliveEv(ptr noundef nonnull align 8 dereferenceable(160) %.011.i) #10
-  %10 = getelementptr inbounds i8, ptr %.011.i, i64 112
+  %10 = getelementptr inbounds nuw i8, ptr %.011.i, i64 112
   %11 = load volatile ptr, ptr %10, align 8
   br i1 %9, label %13, label %12
 
@@ -858,11 +858,11 @@ define hidden void @_ZN20ClassLoaderDataGraph11packages_doEPFvP12PackageEntryE(p
   %2 = alloca %"class.ClassLoaderDataGraph::ClassLoaderDataGraphIterator", align 8
   %3 = load volatile ptr, ptr @_ZN20ClassLoaderDataGraph5_headE, align 8
   store ptr %3, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   call void @_ZN10HandleMark10initializeEP6Thread(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef %6) #10
   %8 = load ptr, ptr %2, align 8
   %.not10.i8 = icmp eq ptr %8, null
@@ -871,7 +871,7 @@ define hidden void @_ZN20ClassLoaderDataGraph11packages_doEPFvP12PackageEntryE(p
 .lr.ph.i:                                         ; preds = %1, %.lr.ph.i.backedge
   %.011.i = phi ptr [ %.011.i.be, %.lr.ph.i.backedge ], [ %8, %1 ]
   %9 = call noundef zeroext i1 @_ZNK15ClassLoaderData8is_aliveEv(ptr noundef nonnull align 8 dereferenceable(160) %.011.i) #10
-  %10 = getelementptr inbounds i8, ptr %.011.i, i64 112
+  %10 = getelementptr inbounds nuw i8, ptr %.011.i, i64 112
   %11 = load volatile ptr, ptr %10, align 8
   br i1 %9, label %13, label %12
 
@@ -903,11 +903,11 @@ define hidden void @_ZN20ClassLoaderDataGraph27loaded_classes_do_keepaliveEP12Kl
   %2 = alloca %"class.ClassLoaderDataGraph::ClassLoaderDataGraphIterator", align 8
   %3 = load volatile ptr, ptr @_ZN20ClassLoaderDataGraph5_headE, align 8
   store ptr %3, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   call void @_ZN10HandleMark10initializeEP6Thread(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef %6) #10
   %8 = load ptr, ptr %2, align 8
   %.not10.i9 = icmp eq ptr %8, null
@@ -916,7 +916,7 @@ define hidden void @_ZN20ClassLoaderDataGraph27loaded_classes_do_keepaliveEP12Kl
 .lr.ph.i:                                         ; preds = %1, %.lr.ph.i.backedge
   %.011.i = phi ptr [ %.011.i.be, %.lr.ph.i.backedge ], [ %8, %1 ]
   %9 = call noundef zeroext i1 @_ZNK15ClassLoaderData8is_aliveEv(ptr noundef nonnull align 8 dereferenceable(160) %.011.i) #10
-  %10 = getelementptr inbounds i8, ptr %.011.i, i64 112
+  %10 = getelementptr inbounds nuw i8, ptr %.011.i, i64 112
   %11 = load volatile ptr, ptr %10, align 8
   br i1 %9, label %13, label %12
 
@@ -958,11 +958,11 @@ define hidden void @_ZN20ClassLoaderDataGraph17verify_dictionaryEv() local_unnam
   %1 = alloca %"class.ClassLoaderDataGraph::ClassLoaderDataGraphIterator", align 8
   %2 = load volatile ptr, ptr @_ZN20ClassLoaderDataGraph5_headE, align 8
   store ptr %2, ptr %1, align 8
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %5 = load ptr, ptr %4, align 8
   store ptr %5, ptr %3, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   call void @_ZN10HandleMark10initializeEP6Thread(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef %5) #10
   %7 = load ptr, ptr %1, align 8
   %.not10.i9 = icmp eq ptr %7, null
@@ -971,7 +971,7 @@ define hidden void @_ZN20ClassLoaderDataGraph17verify_dictionaryEv() local_unnam
 .lr.ph.i:                                         ; preds = %0, %.lr.ph.i.backedge
   %.011.i = phi ptr [ %.011.i.be, %.lr.ph.i.backedge ], [ %7, %0 ]
   %8 = call noundef zeroext i1 @_ZNK15ClassLoaderData8is_aliveEv(ptr noundef nonnull align 8 dereferenceable(160) %.011.i) #10
-  %9 = getelementptr inbounds i8, ptr %.011.i, i64 112
+  %9 = getelementptr inbounds nuw i8, ptr %.011.i, i64 112
   %10 = load volatile ptr, ptr %9, align 8
   br i1 %8, label %12, label %11
 
@@ -985,7 +985,7 @@ define hidden void @_ZN20ClassLoaderDataGraph17verify_dictionaryEv() local_unnam
 
 12:                                               ; preds = %.lr.ph.i
   store ptr %10, ptr %1, align 8
-  %13 = getelementptr inbounds i8, ptr %.011.i, i64 88
+  %13 = getelementptr inbounds nuw i8, ptr %.011.i, i64 88
   %14 = load ptr, ptr %13, align 8
   %.not3 = icmp eq ptr %14, null
   br i1 %.not3, label %16, label %15
@@ -1013,11 +1013,11 @@ define hidden void @_ZN20ClassLoaderDataGraph16print_dictionaryEP12outputStream(
   %2 = alloca %"class.ClassLoaderDataGraph::ClassLoaderDataGraphIterator", align 8
   %3 = load volatile ptr, ptr @_ZN20ClassLoaderDataGraph5_headE, align 8
   store ptr %3, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   call void @_ZN10HandleMark10initializeEP6Thread(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef %6) #10
   %8 = load ptr, ptr %2, align 8
   %.not10.i15 = icmp eq ptr %8, null
@@ -1026,7 +1026,7 @@ define hidden void @_ZN20ClassLoaderDataGraph16print_dictionaryEP12outputStream(
 .lr.ph.i:                                         ; preds = %1, %.lr.ph.i.backedge
   %.011.i = phi ptr [ %.011.i.be, %.lr.ph.i.backedge ], [ %8, %1 ]
   %9 = call noundef zeroext i1 @_ZNK15ClassLoaderData8is_aliveEv(ptr noundef nonnull align 8 dereferenceable(160) %.011.i) #10
-  %10 = getelementptr inbounds i8, ptr %.011.i, i64 112
+  %10 = getelementptr inbounds nuw i8, ptr %.011.i, i64 112
   %11 = load volatile ptr, ptr %10, align 8
   br i1 %9, label %13, label %12
 
@@ -1040,7 +1040,7 @@ define hidden void @_ZN20ClassLoaderDataGraph16print_dictionaryEP12outputStream(
 
 13:                                               ; preds = %.lr.ph.i
   store ptr %11, ptr %2, align 8
-  %14 = getelementptr inbounds i8, ptr %.011.i, i64 88
+  %14 = getelementptr inbounds nuw i8, ptr %.011.i, i64 88
   %15 = load ptr, ptr %14, align 8
   %.not9 = icmp eq ptr %15, null
   br i1 %.not9, label %18, label %16
@@ -1074,24 +1074,24 @@ define hidden void @_ZN20ClassLoaderDataGraph22print_table_statisticsEP12outputS
   %3 = alloca %class.stringStream, align 8
   %4 = load volatile ptr, ptr @_ZN20ClassLoaderDataGraph5_headE, align 8
   store ptr %4, ptr %2, align 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %7 = load ptr, ptr %6, align 8
   store ptr %7, ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   call void @_ZN10HandleMark10initializeEP6Thread(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef %7) #10
   %9 = load ptr, ptr %2, align 8
   %.not10.i14 = icmp eq ptr %9, null
   br i1 %.not10.i14, label %.loopexit, label %.lr.ph.i.preheader.lr.ph
 
 .lr.ph.i.preheader.lr.ph:                         ; preds = %1
-  %10 = getelementptr inbounds i8, ptr %3, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 56
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.backedge, %.lr.ph.i.preheader.lr.ph
   %.011.i = phi ptr [ %9, %.lr.ph.i.preheader.lr.ph ], [ %.011.i.be, %.lr.ph.i.backedge ]
   %11 = call noundef zeroext i1 @_ZNK15ClassLoaderData8is_aliveEv(ptr noundef nonnull align 8 dereferenceable(160) %.011.i) #10
-  %12 = getelementptr inbounds i8, ptr %.011.i, i64 112
+  %12 = getelementptr inbounds nuw i8, ptr %.011.i, i64 112
   %13 = load volatile ptr, ptr %12, align 8
   br i1 %11, label %15, label %14
 
@@ -1105,22 +1105,22 @@ define hidden void @_ZN20ClassLoaderDataGraph22print_table_statisticsEP12outputS
 
 15:                                               ; preds = %.lr.ph.i
   store ptr %13, ptr %2, align 8
-  %16 = getelementptr inbounds i8, ptr %.011.i, i64 88
+  %16 = getelementptr inbounds nuw i8, ptr %.011.i, i64 88
   %17 = load ptr, ptr %16, align 8
   %.not5 = icmp eq ptr %17, null
   br i1 %.not5, label %_ZN12ResourceMarkD2Ev.exit, label %18
 
 18:                                               ; preds = %15
   %19 = load ptr, ptr %6, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 800
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 800
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %21, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %21, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %21, i64 40
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %21, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %29 = load i64, ptr %28, align 8
   call void @_ZN12stringStreamC1Em(ptr noundef nonnull align 8 dereferenceable(129) %3, i64 noundef 0) #10
   %30 = call noundef ptr @_ZNK15ClassLoaderData18loader_name_and_idEv(ptr noundef nonnull align 8 dereferenceable(160) %.011.i) #10
@@ -1189,7 +1189,7 @@ define hidden noundef zeroext i1 @_ZN20ClassLoaderDataGraph8is_validEP15ClassLoa
   br i1 %.not911, label %.loopexit, label %.lr.ph
 
 5:                                                ; preds = %.lr.ph
-  %6 = getelementptr inbounds i8, ptr %.012, i64 112
+  %6 = getelementptr inbounds nuw i8, ptr %.012, i64 112
   %.0 = load volatile ptr, ptr %6, align 8
   %.not9 = icmp eq ptr %.0, null
   br i1 %.not9, label %.loopexit, label %.lr.ph, !llvm.loop !24
@@ -1230,15 +1230,15 @@ define hidden noundef zeroext i1 @_ZN20ClassLoaderDataGraph12do_unloadingEv() lo
   br i1 %.not17, label %12, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %.01521, i64 112
+  %8 = getelementptr inbounds nuw i8, ptr %.01521, i64 112
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 112
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 112
   %11 = load ptr, ptr %10, align 8
   store volatile ptr %11, ptr %8, align 8
   br label %15
 
 12:                                               ; preds = %4
-  %13 = getelementptr inbounds i8, ptr %.024, i64 112
+  %13 = getelementptr inbounds nuw i8, ptr %.024, i64 112
   %14 = load volatile ptr, ptr %13, align 8
   store volatile ptr %14, ptr @_ZN20ClassLoaderDataGraph5_headE, align 8
   br label %15
@@ -1247,7 +1247,7 @@ define hidden noundef zeroext i1 @_ZN20ClassLoaderDataGraph12do_unloadingEv() lo
   %.116 = phi ptr [ %.024, %2 ], [ %.01521, %7 ], [ null, %12 ]
   %.114 = phi i32 [ %3, %2 ], [ %.01322, %7 ], [ %.01322, %12 ]
   %.1 = phi i32 [ %.01223, %2 ], [ %5, %7 ], [ %5, %12 ]
-  %16 = getelementptr inbounds i8, ptr %.024, i64 112
+  %16 = getelementptr inbounds nuw i8, ptr %.024, i64 112
   %.0 = load volatile ptr, ptr %16, align 8
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !25
@@ -1255,7 +1255,7 @@ define hidden noundef zeroext i1 @_ZN20ClassLoaderDataGraph12do_unloadingEv() lo
 ._crit_edge:                                      ; preds = %15, %0
   %.013.lcssa = phi i32 [ 0, %0 ], [ %.114, %15 ]
   %.012.lcssa = phi i32 [ 0, %0 ], [ %.1, %15 ]
-  %17 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE16ELS1_75ELS1_30ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %17 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE16ELS1_75ELS1_30ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not18 = icmp eq ptr %17, null
   br i1 %.not18, label %19, label %18
 
@@ -1278,7 +1278,7 @@ define hidden void @_ZN20ClassLoaderDataGraph29clean_module_and_package_infoEv()
 
 .lr.ph:                                           ; preds = %0, %10
   %.010 = phi ptr [ %.0, %10 ], [ %.08, %0 ]
-  %1 = getelementptr inbounds i8, ptr %.010, i64 64
+  %1 = getelementptr inbounds nuw i8, ptr %.010, i64 64
   %2 = load volatile ptr, ptr %1, align 8
   %.not6 = icmp eq ptr %2, null
   br i1 %.not6, label %5, label %3
@@ -1289,7 +1289,7 @@ define hidden void @_ZN20ClassLoaderDataGraph29clean_module_and_package_infoEv()
   br label %5
 
 5:                                                ; preds = %3, %.lr.ph
-  %6 = getelementptr inbounds i8, ptr %.010, i64 72
+  %6 = getelementptr inbounds nuw i8, ptr %.010, i64 72
   %7 = load volatile ptr, ptr %6, align 8
   %.not7 = icmp eq ptr %7, null
   br i1 %.not7, label %10, label %8
@@ -1300,7 +1300,7 @@ define hidden void @_ZN20ClassLoaderDataGraph29clean_module_and_package_infoEv()
   br label %10
 
 10:                                               ; preds = %8, %5
-  %11 = getelementptr inbounds i8, ptr %.010, i64 112
+  %11 = getelementptr inbounds nuw i8, ptr %.010, i64 112
   %.0 = load volatile ptr, ptr %11, align 8
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
@@ -1398,14 +1398,14 @@ define hidden void @_ZN39ClassLoaderDataGraphKlassIteratorAtomicC2Ev(ptr noundef
   br i1 %.not9, label %.loopexit, label %.lr.ph
 
 2:                                                ; preds = %.lr.ph
-  %3 = getelementptr inbounds i8, ptr %.010, i64 112
+  %3 = getelementptr inbounds nuw i8, ptr %.010, i64 112
   %.0 = load volatile ptr, ptr %3, align 8
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !27
 
 .lr.ph:                                           ; preds = %1, %2
   %.010 = phi ptr [ %.0, %2 ], [ %.08, %1 ]
-  %4 = getelementptr inbounds i8, ptr %.010, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %.010, i64 56
   %5 = load volatile ptr, ptr %4, align 8
   %.not7 = icmp eq ptr %5, null
   br i1 %.not7, label %2, label %6
@@ -1420,25 +1420,25 @@ define hidden void @_ZN39ClassLoaderDataGraphKlassIteratorAtomicC2Ev(ptr noundef
 
 ; Function Attrs: mustprogress nofree norecurse nounwind uwtable
 define hidden noundef ptr @_ZN39ClassLoaderDataGraphKlassIteratorAtomic18next_klass_in_cldgEP5Klass(ptr nocapture noundef readonly %0) local_unnamed_addr #4 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 144
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %.loopexit
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 152
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %6 = load ptr, ptr %5, align 8
   br label %7
 
 7:                                                ; preds = %4, %11
   %.014 = phi ptr [ %6, %4 ], [ %9, %11 ]
-  %8 = getelementptr inbounds i8, ptr %.014, i64 112
+  %8 = getelementptr inbounds nuw i8, ptr %.014, i64 112
   %9 = load volatile ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %.loopexit, label %11
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %9, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 56
   %13 = load volatile ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %7, label %.loopexit, !llvm.loop !28
@@ -1459,25 +1459,25 @@ define hidden noundef ptr @_ZN39ClassLoaderDataGraphKlassIteratorAtomic10next_kl
   br i1 %.not, label %20, label %4
 
 4:                                                ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %.010, i64 144
+  %5 = getelementptr inbounds nuw i8, ptr %.010, i64 144
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %7, label %_ZN39ClassLoaderDataGraphKlassIteratorAtomic18next_klass_in_cldgEP5Klass.exit
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %.010, i64 152
+  %8 = getelementptr inbounds nuw i8, ptr %.010, i64 152
   %9 = load ptr, ptr %8, align 8
   br label %10
 
 10:                                               ; preds = %14, %7
   %.014.i = phi ptr [ %9, %7 ], [ %12, %14 ]
-  %11 = getelementptr inbounds i8, ptr %.014.i, i64 112
+  %11 = getelementptr inbounds nuw i8, ptr %.014.i, i64 112
   %12 = load volatile ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
   br i1 %13, label %_ZN39ClassLoaderDataGraphKlassIteratorAtomic18next_klass_in_cldgEP5Klass.exit, label %14
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %12, i64 56
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 56
   %16 = load volatile ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
   br i1 %17, label %10, label %_ZN39ClassLoaderDataGraphKlassIteratorAtomic18next_klass_in_cldgEP5Klass.exit, !llvm.loop !28
@@ -1497,11 +1497,11 @@ define hidden void @_ZN20ClassLoaderDataGraph6verifyEv() local_unnamed_addr #0 a
   %1 = alloca %"class.ClassLoaderDataGraph::ClassLoaderDataGraphIterator", align 8
   %2 = load volatile ptr, ptr @_ZN20ClassLoaderDataGraph5_headE, align 8
   store ptr %2, ptr %1, align 8
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %5 = load ptr, ptr %4, align 8
   store ptr %5, ptr %3, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   call void @_ZN10HandleMark10initializeEP6Thread(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef %5) #10
   %7 = load ptr, ptr %1, align 8
   %.not10.i7 = icmp eq ptr %7, null
@@ -1510,7 +1510,7 @@ define hidden void @_ZN20ClassLoaderDataGraph6verifyEv() local_unnamed_addr #0 a
 .lr.ph.i:                                         ; preds = %0, %.lr.ph.i.backedge
   %.011.i = phi ptr [ %.011.i.be, %.lr.ph.i.backedge ], [ %7, %0 ]
   %8 = call noundef zeroext i1 @_ZNK15ClassLoaderData8is_aliveEv(ptr noundef nonnull align 8 dereferenceable(160) %.011.i) #10
-  %9 = getelementptr inbounds i8, ptr %.011.i, i64 112
+  %9 = getelementptr inbounds nuw i8, ptr %.011.i, i64 112
   %10 = load volatile ptr, ptr %9, align 8
   br i1 %8, label %12, label %11
 
@@ -1652,7 +1652,7 @@ define linkonce_odr hidden noundef i64 @_ZN9LogPrefixILN6LogTag4typeE16ELS1_75EL
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN15LockedClassesDo8do_klassEP5Klass(ptr noundef nonnull align 8 dereferenceable(17) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call void %4(ptr noundef %1) #10
   ret void
@@ -1715,7 +1715,7 @@ declare void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN17LogStreamImplBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @_ZN17LogStreamImplBase10LineBufferD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %2) #10
   ret void
 }

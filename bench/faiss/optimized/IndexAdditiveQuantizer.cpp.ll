@@ -290,7 +290,7 @@ $_ZTIN5faiss26LocalSearchCoarseQuantizerE = comdat any
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5faiss22IndexAdditiveQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss14IndexFlatCodesE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i, label %_ZN5faiss14IndexFlatCodesD2Ev.exit, label %4
@@ -307,7 +307,7 @@ _ZN5faiss14IndexFlatCodesD2Ev.exit:               ; preds = %1, %4
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5faiss22IndexAdditiveQuantizerD0Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss14IndexFlatCodesE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i.i, label %_ZN5faiss22IndexAdditiveQuantizerD2Ev.exit, label %4
@@ -449,13 +449,13 @@ define void @_ZNK5faiss22IndexAdditiveQuantizer6searchElPKflPfPlPKNS_16SearchPar
   br label %.body
 
 100:                                              ; preds = %7
-  %101 = getelementptr inbounds i8, ptr %0, i64 72
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %102 = load ptr, ptr %101, align 8
-  %103 = getelementptr inbounds i8, ptr %102, i64 296
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 296
   %104 = load i32, ptr %103, align 8
   %105 = icmp eq i32 %104, 0
   %106 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @2)
-  %107 = getelementptr inbounds i8, ptr %0, i64 28
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %108 = load i32, ptr %107, align 4
   br i1 %105, label %109, label %154
 
@@ -466,24 +466,24 @@ define void @_ZNK5faiss22IndexAdditiveQuantizer6searchElPKflPfPlPKNS_16SearchPar
   ]
 
 110:                                              ; preds = %109
-  %111 = getelementptr inbounds i8, ptr %0, i64 8
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %112 = load i32, ptr %111, align 8
   %113 = sext i32 %112 to i64
   store i64 %113, ptr %77, align 8
-  %114 = getelementptr inbounds i8, ptr %77, i64 8
-  %115 = getelementptr inbounds i8, ptr %0, i64 32
+  %114 = getelementptr inbounds nuw i8, ptr %77, i64 8
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %116 = load float, ptr %115, align 8
   store float %116, ptr %114, align 8
-  %117 = getelementptr inbounds i8, ptr %78, i64 8
+  %117 = getelementptr inbounds nuw i8, ptr %78, i64 8
   store i64 %1, ptr %117, align 8
-  %118 = getelementptr inbounds i8, ptr %78, i64 16
+  %118 = getelementptr inbounds nuw i8, ptr %78, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %118, i8 0, i64 16, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss22HeapBlockResultHandlerINS_4CMaxIflEEEE, i64 16), ptr %78, align 8
-  %119 = getelementptr inbounds i8, ptr %78, i64 32
+  %119 = getelementptr inbounds nuw i8, ptr %78, i64 32
   store ptr %4, ptr %119, align 8
-  %120 = getelementptr inbounds i8, ptr %78, i64 40
+  %120 = getelementptr inbounds nuw i8, ptr %78, i64 40
   store ptr %5, ptr %120, align 8
-  %121 = getelementptr inbounds i8, ptr %78, i64 48
+  %121 = getelementptr inbounds nuw i8, ptr %78, i64 48
   store i64 %3, ptr %121, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %70)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %71)
@@ -492,13 +492,13 @@ define void @_ZNK5faiss22IndexAdditiveQuantizer6searchElPKflPfPlPKNS_16SearchPar
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %74)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %75)
   store ptr %2, ptr %70, align 8
-  %122 = getelementptr inbounds i8, ptr %0, i64 48
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %123 = load ptr, ptr %122, align 8
   store ptr %123, ptr %71, align 8
-  %124 = getelementptr inbounds i8, ptr %0, i64 16
+  %124 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %125 = load i64, ptr %124, align 8
   store i64 %125, ptr %72, align 8
-  %126 = getelementptr inbounds i8, ptr %0, i64 40
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %127 = load i64, ptr %126, align 8
   store i64 %127, ptr %73, align 8
   %128 = load ptr, ptr %101, align 8
@@ -527,24 +527,24 @@ _ZN5faiss12_GLOBAL__N_122search_with_decompressINS_14VectorDistanceILNS_10Metric
   br label %362
 
 132:                                              ; preds = %109
-  %133 = getelementptr inbounds i8, ptr %0, i64 8
+  %133 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %134 = load i32, ptr %133, align 8
   %135 = sext i32 %134 to i64
   store i64 %135, ptr %79, align 8
-  %136 = getelementptr inbounds i8, ptr %79, i64 8
-  %137 = getelementptr inbounds i8, ptr %0, i64 32
+  %136 = getelementptr inbounds nuw i8, ptr %79, i64 8
+  %137 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %138 = load float, ptr %137, align 8
   store float %138, ptr %136, align 8
-  %139 = getelementptr inbounds i8, ptr %80, i64 8
+  %139 = getelementptr inbounds nuw i8, ptr %80, i64 8
   store i64 %1, ptr %139, align 8
-  %140 = getelementptr inbounds i8, ptr %80, i64 16
+  %140 = getelementptr inbounds nuw i8, ptr %80, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %140, i8 0, i64 16, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss22HeapBlockResultHandlerINS_4CMinIflEEEE, i64 16), ptr %80, align 8
-  %141 = getelementptr inbounds i8, ptr %80, i64 32
+  %141 = getelementptr inbounds nuw i8, ptr %80, i64 32
   store ptr %4, ptr %141, align 8
-  %142 = getelementptr inbounds i8, ptr %80, i64 40
+  %142 = getelementptr inbounds nuw i8, ptr %80, i64 40
   store ptr %5, ptr %142, align 8
-  %143 = getelementptr inbounds i8, ptr %80, i64 48
+  %143 = getelementptr inbounds nuw i8, ptr %80, i64 48
   store i64 %3, ptr %143, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %64)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %65)
@@ -553,13 +553,13 @@ _ZN5faiss12_GLOBAL__N_122search_with_decompressINS_14VectorDistanceILNS_10Metric
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %68)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %69)
   store ptr %2, ptr %64, align 8
-  %144 = getelementptr inbounds i8, ptr %0, i64 48
+  %144 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %145 = load ptr, ptr %144, align 8
   store ptr %145, ptr %65, align 8
-  %146 = getelementptr inbounds i8, ptr %0, i64 16
+  %146 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %147 = load i64, ptr %146, align 8
   store i64 %147, ptr %66, align 8
-  %148 = getelementptr inbounds i8, ptr %0, i64 40
+  %148 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %149 = load i64, ptr %148, align 8
   store i64 %149, ptr %67, align 8
   %150 = load ptr, ptr %101, align 8
@@ -592,16 +592,16 @@ _ZN5faiss12_GLOBAL__N_122search_with_decompressINS_14VectorDistanceILNS_10Metric
   br i1 %155, label %.noexc, label %187
 
 .noexc:                                           ; preds = %154
-  %156 = getelementptr inbounds i8, ptr %81, i64 8
+  %156 = getelementptr inbounds nuw i8, ptr %81, i64 8
   store i64 %1, ptr %156, align 8
-  %157 = getelementptr inbounds i8, ptr %81, i64 16
+  %157 = getelementptr inbounds nuw i8, ptr %81, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %157, i8 0, i64 16, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss22HeapBlockResultHandlerINS_4CMinIflEEEE, i64 16), ptr %81, align 8
-  %158 = getelementptr inbounds i8, ptr %81, i64 32
+  %158 = getelementptr inbounds nuw i8, ptr %81, i64 32
   store ptr %4, ptr %158, align 8
-  %159 = getelementptr inbounds i8, ptr %81, i64 40
+  %159 = getelementptr inbounds nuw i8, ptr %81, i64 40
   store ptr %5, ptr %159, align 8
-  %160 = getelementptr inbounds i8, ptr %81, i64 48
+  %160 = getelementptr inbounds nuw i8, ptr %81, i64 48
   store i64 %3, ptr %160, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %56)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %57)
@@ -613,21 +613,21 @@ _ZN5faiss12_GLOBAL__N_122search_with_decompressINS_14VectorDistanceILNS_10Metric
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %63)
   store ptr %2, ptr %56, align 8
   %161 = load ptr, ptr %101, align 8
-  %162 = getelementptr inbounds i8, ptr %0, i64 48
+  %162 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %163 = load ptr, ptr %162, align 8
   store ptr %163, ptr %57, align 8
-  %164 = getelementptr inbounds i8, ptr %0, i64 16
+  %164 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %165 = load i64, ptr %164, align 8
   store i64 %165, ptr %58, align 8
-  %166 = getelementptr inbounds i8, ptr %161, i64 16
+  %166 = getelementptr inbounds nuw i8, ptr %161, i64 16
   %167 = load i64, ptr %166, align 8
   store i64 %167, ptr %59, align 8
   store i64 %1, ptr %60, align 8
-  %168 = getelementptr inbounds i8, ptr %0, i64 8
+  %168 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %169 = load i32, ptr %168, align 8
   %170 = sext i32 %169 to i64
   store i64 %170, ptr %61, align 8
-  %171 = getelementptr inbounds i8, ptr %161, i64 120
+  %171 = getelementptr inbounds nuw i8, ptr %161, i64 120
   %172 = load i64, ptr %171, align 8
   %173 = mul i64 %172, %1
   %174 = icmp ugt i64 %173, 4611686018427387903
@@ -636,7 +636,7 @@ _ZN5faiss12_GLOBAL__N_122search_with_decompressINS_14VectorDistanceILNS_10Metric
   %177 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %176) #24
   store ptr %177, ptr %62, align 8
   %178 = load ptr, ptr %161, align 8
-  %179 = getelementptr inbounds i8, ptr %178, i64 56
+  %179 = getelementptr inbounds nuw i8, ptr %178, i64 56
   %180 = load ptr, ptr %179, align 8
   invoke void %180(ptr noundef nonnull align 8 dereferenceable(308) %161, i64 noundef %1, ptr noundef %2, ptr noundef nonnull %177, float noundef 1.000000e+00, i64 noundef -1)
           to label %181 unwind label %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit.i
@@ -681,19 +681,19 @@ _ZNKSt14default_deleteIA_fEclIfEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
   br label %362
 
 187:                                              ; preds = %154
-  %188 = getelementptr inbounds i8, ptr %82, i64 8
+  %188 = getelementptr inbounds nuw i8, ptr %82, i64 8
   store i64 %1, ptr %188, align 8
-  %189 = getelementptr inbounds i8, ptr %82, i64 16
+  %189 = getelementptr inbounds nuw i8, ptr %82, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %189, i8 0, i64 16, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss22HeapBlockResultHandlerINS_4CMaxIflEEEE, i64 16), ptr %82, align 8
-  %190 = getelementptr inbounds i8, ptr %82, i64 32
+  %190 = getelementptr inbounds nuw i8, ptr %82, i64 32
   store ptr %4, ptr %190, align 8
-  %191 = getelementptr inbounds i8, ptr %82, i64 40
+  %191 = getelementptr inbounds nuw i8, ptr %82, i64 40
   store ptr %5, ptr %191, align 8
-  %192 = getelementptr inbounds i8, ptr %82, i64 48
+  %192 = getelementptr inbounds nuw i8, ptr %82, i64 48
   store i64 %3, ptr %192, align 8
   %193 = load ptr, ptr %101, align 8
-  %194 = getelementptr inbounds i8, ptr %193, i64 296
+  %194 = getelementptr inbounds nuw i8, ptr %193, i64 296
   %195 = load i32, ptr %194, align 8
   switch i32 %195, label %340 [
     i32 3, label %.noexc45
@@ -716,21 +716,21 @@ _ZNKSt14default_deleteIA_fEclIfEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %54)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %55)
   store ptr %2, ptr %48, align 8
-  %196 = getelementptr inbounds i8, ptr %0, i64 48
+  %196 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %197 = load ptr, ptr %196, align 8
   store ptr %197, ptr %49, align 8
-  %198 = getelementptr inbounds i8, ptr %0, i64 16
+  %198 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %199 = load i64, ptr %198, align 8
   store i64 %199, ptr %50, align 8
-  %200 = getelementptr inbounds i8, ptr %193, i64 16
+  %200 = getelementptr inbounds nuw i8, ptr %193, i64 16
   %201 = load i64, ptr %200, align 8
   store i64 %201, ptr %51, align 8
   store i64 %1, ptr %52, align 8
-  %202 = getelementptr inbounds i8, ptr %0, i64 8
+  %202 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %203 = load i32, ptr %202, align 8
   %204 = sext i32 %203 to i64
   store i64 %204, ptr %53, align 8
-  %205 = getelementptr inbounds i8, ptr %193, i64 120
+  %205 = getelementptr inbounds nuw i8, ptr %193, i64 120
   %206 = load i64, ptr %205, align 8
   %207 = mul i64 %206, %1
   %208 = icmp ugt i64 %207, 4611686018427387903
@@ -739,7 +739,7 @@ _ZNKSt14default_deleteIA_fEclIfEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
   %211 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %210) #24
   store ptr %211, ptr %54, align 8
   %212 = load ptr, ptr %193, align 8
-  %213 = getelementptr inbounds i8, ptr %212, i64 56
+  %213 = getelementptr inbounds nuw i8, ptr %212, i64 56
   %214 = load ptr, ptr %213, align 8
   invoke void %214(ptr noundef nonnull align 8 dereferenceable(308) %193, i64 noundef %1, ptr noundef %2, ptr noundef nonnull %211, float noundef 1.000000e+00, i64 noundef -1)
           to label %215 unwind label %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit.i40
@@ -793,21 +793,21 @@ _ZN5faiss12_GLOBAL__N_115search_with_LUTILb0ELNS_17AdditiveQuantizer13Search_typ
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %46)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %47)
   store ptr %2, ptr %40, align 8
-  %220 = getelementptr inbounds i8, ptr %0, i64 48
+  %220 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %221 = load ptr, ptr %220, align 8
   store ptr %221, ptr %41, align 8
-  %222 = getelementptr inbounds i8, ptr %0, i64 16
+  %222 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %223 = load i64, ptr %222, align 8
   store i64 %223, ptr %42, align 8
-  %224 = getelementptr inbounds i8, ptr %193, i64 16
+  %224 = getelementptr inbounds nuw i8, ptr %193, i64 16
   %225 = load i64, ptr %224, align 8
   store i64 %225, ptr %43, align 8
   store i64 %1, ptr %44, align 8
-  %226 = getelementptr inbounds i8, ptr %0, i64 8
+  %226 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %227 = load i32, ptr %226, align 8
   %228 = sext i32 %227 to i64
   store i64 %228, ptr %45, align 8
-  %229 = getelementptr inbounds i8, ptr %193, i64 120
+  %229 = getelementptr inbounds nuw i8, ptr %193, i64 120
   %230 = load i64, ptr %229, align 8
   %231 = mul i64 %230, %1
   %232 = icmp ugt i64 %231, 4611686018427387903
@@ -816,7 +816,7 @@ _ZN5faiss12_GLOBAL__N_115search_with_LUTILb0ELNS_17AdditiveQuantizer13Search_typ
   %235 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %234) #24
   store ptr %235, ptr %46, align 8
   %236 = load ptr, ptr %193, align 8
-  %237 = getelementptr inbounds i8, ptr %236, i64 56
+  %237 = getelementptr inbounds nuw i8, ptr %236, i64 56
   %238 = load ptr, ptr %237, align 8
   invoke void %238(ptr noundef nonnull align 8 dereferenceable(308) %193, i64 noundef %1, ptr noundef %2, ptr noundef nonnull %235, float noundef 1.000000e+00, i64 noundef -1)
           to label %239 unwind label %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit.i48
@@ -870,21 +870,21 @@ _ZN5faiss12_GLOBAL__N_115search_with_LUTILb0ELNS_17AdditiveQuantizer13Search_typ
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %38)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %39)
   store ptr %2, ptr %32, align 8
-  %244 = getelementptr inbounds i8, ptr %0, i64 48
+  %244 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %245 = load ptr, ptr %244, align 8
   store ptr %245, ptr %33, align 8
-  %246 = getelementptr inbounds i8, ptr %0, i64 16
+  %246 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %247 = load i64, ptr %246, align 8
   store i64 %247, ptr %34, align 8
-  %248 = getelementptr inbounds i8, ptr %193, i64 16
+  %248 = getelementptr inbounds nuw i8, ptr %193, i64 16
   %249 = load i64, ptr %248, align 8
   store i64 %249, ptr %35, align 8
   store i64 %1, ptr %36, align 8
-  %250 = getelementptr inbounds i8, ptr %0, i64 8
+  %250 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %251 = load i32, ptr %250, align 8
   %252 = sext i32 %251 to i64
   store i64 %252, ptr %37, align 8
-  %253 = getelementptr inbounds i8, ptr %193, i64 120
+  %253 = getelementptr inbounds nuw i8, ptr %193, i64 120
   %254 = load i64, ptr %253, align 8
   %255 = mul i64 %254, %1
   %256 = icmp ugt i64 %255, 4611686018427387903
@@ -893,7 +893,7 @@ _ZN5faiss12_GLOBAL__N_115search_with_LUTILb0ELNS_17AdditiveQuantizer13Search_typ
   %259 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %258) #24
   store ptr %259, ptr %38, align 8
   %260 = load ptr, ptr %193, align 8
-  %261 = getelementptr inbounds i8, ptr %260, i64 56
+  %261 = getelementptr inbounds nuw i8, ptr %260, i64 56
   %262 = load ptr, ptr %261, align 8
   invoke void %262(ptr noundef nonnull align 8 dereferenceable(308) %193, i64 noundef %1, ptr noundef %2, ptr noundef nonnull %259, float noundef 1.000000e+00, i64 noundef -1)
           to label %263 unwind label %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit.i56
@@ -947,21 +947,21 @@ _ZN5faiss12_GLOBAL__N_115search_with_LUTILb0ELNS_17AdditiveQuantizer13Search_typ
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %30)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %31)
   store ptr %2, ptr %24, align 8
-  %268 = getelementptr inbounds i8, ptr %0, i64 48
+  %268 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %269 = load ptr, ptr %268, align 8
   store ptr %269, ptr %25, align 8
-  %270 = getelementptr inbounds i8, ptr %0, i64 16
+  %270 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %271 = load i64, ptr %270, align 8
   store i64 %271, ptr %26, align 8
-  %272 = getelementptr inbounds i8, ptr %193, i64 16
+  %272 = getelementptr inbounds nuw i8, ptr %193, i64 16
   %273 = load i64, ptr %272, align 8
   store i64 %273, ptr %27, align 8
   store i64 %1, ptr %28, align 8
-  %274 = getelementptr inbounds i8, ptr %0, i64 8
+  %274 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %275 = load i32, ptr %274, align 8
   %276 = sext i32 %275 to i64
   store i64 %276, ptr %29, align 8
-  %277 = getelementptr inbounds i8, ptr %193, i64 120
+  %277 = getelementptr inbounds nuw i8, ptr %193, i64 120
   %278 = load i64, ptr %277, align 8
   %279 = mul i64 %278, %1
   %280 = icmp ugt i64 %279, 4611686018427387903
@@ -970,7 +970,7 @@ _ZN5faiss12_GLOBAL__N_115search_with_LUTILb0ELNS_17AdditiveQuantizer13Search_typ
   %283 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %282) #24
   store ptr %283, ptr %30, align 8
   %284 = load ptr, ptr %193, align 8
-  %285 = getelementptr inbounds i8, ptr %284, i64 56
+  %285 = getelementptr inbounds nuw i8, ptr %284, i64 56
   %286 = load ptr, ptr %285, align 8
   invoke void %286(ptr noundef nonnull align 8 dereferenceable(308) %193, i64 noundef %1, ptr noundef %2, ptr noundef nonnull %283, float noundef 1.000000e+00, i64 noundef -1)
           to label %287 unwind label %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit.i64
@@ -1024,21 +1024,21 @@ _ZN5faiss12_GLOBAL__N_115search_with_LUTILb0ELNS_17AdditiveQuantizer13Search_typ
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %23)
   store ptr %2, ptr %16, align 8
-  %292 = getelementptr inbounds i8, ptr %0, i64 48
+  %292 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %293 = load ptr, ptr %292, align 8
   store ptr %293, ptr %17, align 8
-  %294 = getelementptr inbounds i8, ptr %0, i64 16
+  %294 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %295 = load i64, ptr %294, align 8
   store i64 %295, ptr %18, align 8
-  %296 = getelementptr inbounds i8, ptr %193, i64 16
+  %296 = getelementptr inbounds nuw i8, ptr %193, i64 16
   %297 = load i64, ptr %296, align 8
   store i64 %297, ptr %19, align 8
   store i64 %1, ptr %20, align 8
-  %298 = getelementptr inbounds i8, ptr %0, i64 8
+  %298 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %299 = load i32, ptr %298, align 8
   %300 = sext i32 %299 to i64
   store i64 %300, ptr %21, align 8
-  %301 = getelementptr inbounds i8, ptr %193, i64 120
+  %301 = getelementptr inbounds nuw i8, ptr %193, i64 120
   %302 = load i64, ptr %301, align 8
   %303 = mul i64 %302, %1
   %304 = icmp ugt i64 %303, 4611686018427387903
@@ -1047,7 +1047,7 @@ _ZN5faiss12_GLOBAL__N_115search_with_LUTILb0ELNS_17AdditiveQuantizer13Search_typ
   %307 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %306) #24
   store ptr %307, ptr %22, align 8
   %308 = load ptr, ptr %193, align 8
-  %309 = getelementptr inbounds i8, ptr %308, i64 56
+  %309 = getelementptr inbounds nuw i8, ptr %308, i64 56
   %310 = load ptr, ptr %309, align 8
   invoke void %310(ptr noundef nonnull align 8 dereferenceable(308) %193, i64 noundef %1, ptr noundef %2, ptr noundef nonnull %307, float noundef 1.000000e+00, i64 noundef -1)
           to label %311 unwind label %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit.i72
@@ -1101,21 +1101,21 @@ _ZN5faiss12_GLOBAL__N_115search_with_LUTILb0ELNS_17AdditiveQuantizer13Search_typ
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15)
   store ptr %2, ptr %8, align 8
-  %316 = getelementptr inbounds i8, ptr %0, i64 48
+  %316 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %317 = load ptr, ptr %316, align 8
   store ptr %317, ptr %9, align 8
-  %318 = getelementptr inbounds i8, ptr %0, i64 16
+  %318 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %319 = load i64, ptr %318, align 8
   store i64 %319, ptr %10, align 8
-  %320 = getelementptr inbounds i8, ptr %193, i64 16
+  %320 = getelementptr inbounds nuw i8, ptr %193, i64 16
   %321 = load i64, ptr %320, align 8
   store i64 %321, ptr %11, align 8
   store i64 %1, ptr %12, align 8
-  %322 = getelementptr inbounds i8, ptr %0, i64 8
+  %322 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %323 = load i32, ptr %322, align 8
   %324 = sext i32 %323 to i64
   store i64 %324, ptr %13, align 8
-  %325 = getelementptr inbounds i8, ptr %193, i64 120
+  %325 = getelementptr inbounds nuw i8, ptr %193, i64 120
   %326 = load i64, ptr %325, align 8
   %327 = mul i64 %326, %1
   %328 = icmp ugt i64 %327, 4611686018427387903
@@ -1124,7 +1124,7 @@ _ZN5faiss12_GLOBAL__N_115search_with_LUTILb0ELNS_17AdditiveQuantizer13Search_typ
   %331 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %330) #24
   store ptr %331, ptr %14, align 8
   %332 = load ptr, ptr %193, align 8
-  %333 = getelementptr inbounds i8, ptr %332, i64 56
+  %333 = getelementptr inbounds nuw i8, ptr %332, i64 56
   %334 = load ptr, ptr %333, align 8
   invoke void %334(ptr noundef nonnull align 8 dereferenceable(308) %193, i64 noundef %1, ptr noundef %2, ptr noundef nonnull %331, float noundef 1.000000e+00, i64 noundef -1)
           to label %335 unwind label %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit.i80
@@ -1171,7 +1171,7 @@ _ZN5faiss12_GLOBAL__N_115search_with_LUTILb0ELNS_17AdditiveQuantizer13Search_typ
 340:                                              ; preds = %187
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %83) #16
   %341 = load ptr, ptr %101, align 8
-  %342 = getelementptr inbounds i8, ptr %341, i64 296
+  %342 = getelementptr inbounds nuw i8, ptr %341, i64 296
   %343 = load i32, ptr %342, align 8
   %344 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.4, i32 noundef %343) #16
   %345 = add nsw i32 %344, 1
@@ -1186,7 +1186,7 @@ _ZN5faiss12_GLOBAL__N_115search_with_LUTILb0ELNS_17AdditiveQuantizer13Search_typ
 349:                                              ; preds = %347
   %350 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %83) #16
   %351 = load ptr, ptr %101, align 8
-  %352 = getelementptr inbounds i8, ptr %351, i64 296
+  %352 = getelementptr inbounds nuw i8, ptr %351, i64 296
   %353 = load i32, ptr %352, align 8
   %354 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %348, i64 noundef %350, ptr noundef nonnull @.str.4, i32 noundef %353) #16
   %355 = call ptr @__cxa_allocate_exception(i64 40) #16
@@ -1247,7 +1247,7 @@ declare void @_ZNK5faiss5Index18compute_residual_nElPKfPfPKl(ptr noundef nonnull
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZNK5faiss14IndexFlatCodes21get_distance_computerEv(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #2 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 176
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 176
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef ptr %4(ptr noundef nonnull align 8 dereferenceable(72) %0)
   ret ptr %5
@@ -1257,10 +1257,10 @@ declare noundef i64 @_ZNK5faiss14IndexFlatCodes12sa_code_sizeEv(ptr noundef nonn
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK5faiss22IndexAdditiveQuantizer9sa_encodeElPKfPh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0, i64 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #2 align 2 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 72
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(308) %6, ptr noundef %2, ptr noundef %3, i64 noundef %1)
   ret void
@@ -1268,10 +1268,10 @@ define void @_ZNK5faiss22IndexAdditiveQuantizer9sa_encodeElPKfPh(ptr nocapture n
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK5faiss22IndexAdditiveQuantizer9sa_decodeElPKhPf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0, i64 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #2 align 2 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 72
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load ptr, ptr %8, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(308) %6, ptr noundef %2, ptr noundef %3, i64 noundef %1)
   ret void
@@ -1286,12 +1286,12 @@ define noundef nonnull ptr @_ZNK5faiss22IndexAdditiveQuantizer29get_FlatCodesDis
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator.15", align 1
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 72
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 296
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 296
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %8, 0
-  %10 = getelementptr inbounds i8, ptr %0, i64 28
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %11 = load i32, ptr %10, align 4
   br i1 %9, label %12, label %79
 
@@ -1302,22 +1302,22 @@ define noundef nonnull ptr @_ZNK5faiss22IndexAdditiveQuantizer29get_FlatCodesDis
   ]
 
 13:                                               ; preds = %12
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load i32, ptr %14, align 8
   %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds i8, ptr %0, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %18 = load float, ptr %17, align 8
   %19 = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #24
-  %20 = getelementptr inbounds i8, ptr %0, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %23 = load i64, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %19, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr %21, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %19, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store i64 %23, ptr %25, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_128AQDistanceComputerDecompressINS_14VectorDistanceILNS_10MetricTypeE1EEEEE, i64 16), ptr %19, align 8
-  %26 = getelementptr inbounds i8, ptr %19, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %27 = shl nsw i32 %15, 1
   %28 = sext i32 %27 to i64
   %29 = icmp slt i32 %15, 0
@@ -1343,7 +1343,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %13
 .noexc26:                                         ; preds = %.noexc7.i
   store ptr %31, ptr %26, align 8
   %32 = getelementptr float, ptr %31, i64 %28
-  %33 = getelementptr inbounds i8, ptr %19, i64 40
+  %33 = getelementptr inbounds nuw i8, ptr %19, i64 40
   store ptr %32, ptr %33, align 8
   store float 0.000000e+00, ptr %31, align 4
   %34 = getelementptr i8, ptr %31, i64 4
@@ -1353,15 +1353,15 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %13
 
 _ZN5faiss12_GLOBAL__N_128AQDistanceComputerDecompressINS_14VectorDistanceILNS_10MetricTypeE1EEEEC2ERKNS_22IndexAdditiveQuantizerES4_.exit: ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i, %.noexc26
   %.0.i.i.i.i.i.i = phi ptr [ %32, %.noexc26 ], [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i ]
-  %36 = getelementptr inbounds i8, ptr %19, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %19, i64 32
   store ptr %.0.i.i.i.i.i.i, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %19, i64 48
+  %37 = getelementptr inbounds nuw i8, ptr %19, i64 48
   store ptr %6, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %19, i64 56
+  %38 = getelementptr inbounds nuw i8, ptr %19, i64 56
   store i64 %16, ptr %38, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %19, i64 64
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %19, i64 64
   store float %18, ptr %.sroa.2.0..sroa_idx.i, align 8
-  %39 = getelementptr inbounds i8, ptr %19, i64 72
+  %39 = getelementptr inbounds nuw i8, ptr %19, i64 72
   store i64 %16, ptr %39, align 8
   br label %314
 
@@ -1372,22 +1372,22 @@ _ZN5faiss12_GLOBAL__N_128AQDistanceComputerDecompressINS_14VectorDistanceILNS_10
   br label %315
 
 42:                                               ; preds = %12
-  %43 = getelementptr inbounds i8, ptr %0, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %44 = load i32, ptr %43, align 8
   %45 = sext i32 %44 to i64
-  %46 = getelementptr inbounds i8, ptr %0, i64 32
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %47 = load float, ptr %46, align 8
   %48 = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #24
-  %49 = getelementptr inbounds i8, ptr %0, i64 48
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %0, i64 40
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %52 = load i64, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %48, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %48, i64 8
   store ptr %50, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %48, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %48, i64 16
   store i64 %52, ptr %54, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_128AQDistanceComputerDecompressINS_14VectorDistanceILNS_10MetricTypeE0EEEEE, i64 16), ptr %48, align 8
-  %55 = getelementptr inbounds i8, ptr %48, i64 24
+  %55 = getelementptr inbounds nuw i8, ptr %48, i64 24
   %56 = shl nsw i32 %44, 1
   %57 = sext i32 %56 to i64
   %58 = icmp slt i32 %44, 0
@@ -1413,7 +1413,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i27: ; preds = %42
 .noexc34:                                         ; preds = %.noexc7.i29
   store ptr %60, ptr %55, align 8
   %61 = getelementptr float, ptr %60, i64 %57
-  %62 = getelementptr inbounds i8, ptr %48, i64 40
+  %62 = getelementptr inbounds nuw i8, ptr %48, i64 40
   store ptr %61, ptr %62, align 8
   store float 0.000000e+00, ptr %60, align 4
   %63 = getelementptr i8, ptr %60, i64 4
@@ -1423,15 +1423,15 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i27: ; preds = %42
 
 _ZN5faiss12_GLOBAL__N_128AQDistanceComputerDecompressINS_14VectorDistanceILNS_10MetricTypeE0EEEEC2ERKNS_22IndexAdditiveQuantizerES4_.exit: ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i27, %.noexc34
   %.0.i.i.i.i.i.i30 = phi ptr [ %61, %.noexc34 ], [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i27 ]
-  %65 = getelementptr inbounds i8, ptr %48, i64 32
+  %65 = getelementptr inbounds nuw i8, ptr %48, i64 32
   store ptr %.0.i.i.i.i.i.i30, ptr %65, align 8
-  %66 = getelementptr inbounds i8, ptr %48, i64 48
+  %66 = getelementptr inbounds nuw i8, ptr %48, i64 48
   store ptr %6, ptr %66, align 8
-  %67 = getelementptr inbounds i8, ptr %48, i64 56
+  %67 = getelementptr inbounds nuw i8, ptr %48, i64 56
   store i64 %45, ptr %67, align 8
-  %.sroa.2.0..sroa_idx.i31 = getelementptr inbounds i8, ptr %48, i64 64
+  %.sroa.2.0..sroa_idx.i31 = getelementptr inbounds nuw i8, ptr %48, i64 64
   store float %47, ptr %.sroa.2.0..sroa_idx.i31, align 8
-  %68 = getelementptr inbounds i8, ptr %48, i64 72
+  %68 = getelementptr inbounds nuw i8, ptr %48, i64 72
   store i64 %45, ptr %68, align 8
   br label %314
 
@@ -1480,19 +1480,19 @@ _ZN5faiss12_GLOBAL__N_128AQDistanceComputerDecompressINS_14VectorDistanceILNS_10
 
 81:                                               ; preds = %79
   %82 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #24
-  %83 = getelementptr inbounds i8, ptr %0, i64 48
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %84 = load ptr, ptr %83, align 8
-  %85 = getelementptr inbounds i8, ptr %0, i64 40
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %86 = load i64, ptr %85, align 8
-  %87 = getelementptr inbounds i8, ptr %82, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %82, i64 8
   store ptr %84, ptr %87, align 8
-  %88 = getelementptr inbounds i8, ptr %82, i64 16
+  %88 = getelementptr inbounds nuw i8, ptr %82, i64 16
   store i64 %86, ptr %88, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_121AQDistanceComputerLUTILb1ELNS_17AdditiveQuantizer13Search_type_tE1EEE, i64 16), ptr %82, align 8
-  %89 = getelementptr inbounds i8, ptr %82, i64 24
-  %90 = getelementptr inbounds i8, ptr %6, i64 120
+  %89 = getelementptr inbounds nuw i8, ptr %82, i64 24
+  %90 = getelementptr inbounds nuw i8, ptr %6, i64 120
   %91 = load i64, ptr %90, align 8
-  %92 = getelementptr inbounds i8, ptr %0, i64 8
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %93 = load i32, ptr %92, align 8
   %94 = shl nsw i32 %93, 1
   %95 = sext i32 %94 to i64
@@ -1520,7 +1520,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i35: ; preds = %81
 .noexc40:                                         ; preds = %.noexc8.i
   store ptr %99, ptr %89, align 8
   %100 = getelementptr float, ptr %99, i64 %96
-  %101 = getelementptr inbounds i8, ptr %82, i64 40
+  %101 = getelementptr inbounds nuw i8, ptr %82, i64 40
   store ptr %100, ptr %101, align 8
   store float 0.000000e+00, ptr %99, align 4
   %102 = getelementptr i8, ptr %99, i64 4
@@ -1534,11 +1534,11 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i: ; preds = %.noexc40
 
 _ZN5faiss12_GLOBAL__N_121AQDistanceComputerLUTILb1ELNS_17AdditiveQuantizer13Search_type_tE1EEC2ERKNS_22IndexAdditiveQuantizerE.exit: ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i35, %.noexc40, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i
   %.0.i.i.i.i.i.i37 = phi ptr [ %102, %.noexc40 ], [ %100, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i ], [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i35 ]
-  %105 = getelementptr inbounds i8, ptr %82, i64 32
+  %105 = getelementptr inbounds nuw i8, ptr %82, i64 32
   store ptr %.0.i.i.i.i.i.i37, ptr %105, align 8
-  %106 = getelementptr inbounds i8, ptr %82, i64 48
+  %106 = getelementptr inbounds nuw i8, ptr %82, i64 48
   store ptr %6, ptr %106, align 8
-  %107 = getelementptr inbounds i8, ptr %82, i64 56
+  %107 = getelementptr inbounds nuw i8, ptr %82, i64 56
   %108 = sext i32 %93 to i64
   store i64 %108, ptr %107, align 8
   br label %314
@@ -1563,19 +1563,19 @@ _ZN5faiss12_GLOBAL__N_121AQDistanceComputerLUTILb1ELNS_17AdditiveQuantizer13Sear
 
 112:                                              ; preds = %111
   %113 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #24
-  %114 = getelementptr inbounds i8, ptr %0, i64 48
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %115 = load ptr, ptr %114, align 8
-  %116 = getelementptr inbounds i8, ptr %0, i64 40
+  %116 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %117 = load i64, ptr %116, align 8
-  %118 = getelementptr inbounds i8, ptr %113, i64 8
+  %118 = getelementptr inbounds nuw i8, ptr %113, i64 8
   store ptr %115, ptr %118, align 8
-  %119 = getelementptr inbounds i8, ptr %113, i64 16
+  %119 = getelementptr inbounds nuw i8, ptr %113, i64 16
   store i64 %117, ptr %119, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_121AQDistanceComputerLUTILb0ELNS_17AdditiveQuantizer13Search_type_tE3EEE, i64 16), ptr %113, align 8
-  %120 = getelementptr inbounds i8, ptr %113, i64 24
-  %121 = getelementptr inbounds i8, ptr %6, i64 120
+  %120 = getelementptr inbounds nuw i8, ptr %113, i64 24
+  %121 = getelementptr inbounds nuw i8, ptr %6, i64 120
   %122 = load i64, ptr %121, align 8
-  %123 = getelementptr inbounds i8, ptr %0, i64 8
+  %123 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %124 = load i32, ptr %123, align 8
   %125 = shl nsw i32 %124, 1
   %126 = sext i32 %125 to i64
@@ -1603,7 +1603,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i41: ; preds = %112
 .noexc48:                                         ; preds = %.noexc8.i43
   store ptr %130, ptr %120, align 8
   %131 = getelementptr float, ptr %130, i64 %127
-  %132 = getelementptr inbounds i8, ptr %113, i64 40
+  %132 = getelementptr inbounds nuw i8, ptr %113, i64 40
   store ptr %131, ptr %132, align 8
   store float 0.000000e+00, ptr %130, align 4
   %133 = getelementptr i8, ptr %130, i64 4
@@ -1617,11 +1617,11 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i44: ; preds = %.noexc48
 
 _ZN5faiss12_GLOBAL__N_121AQDistanceComputerLUTILb0ELNS_17AdditiveQuantizer13Search_type_tE3EEC2ERKNS_22IndexAdditiveQuantizerE.exit: ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i41, %.noexc48, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i44
   %.0.i.i.i.i.i.i45 = phi ptr [ %133, %.noexc48 ], [ %131, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i44 ], [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i41 ]
-  %136 = getelementptr inbounds i8, ptr %113, i64 32
+  %136 = getelementptr inbounds nuw i8, ptr %113, i64 32
   store ptr %.0.i.i.i.i.i.i45, ptr %136, align 8
-  %137 = getelementptr inbounds i8, ptr %113, i64 48
+  %137 = getelementptr inbounds nuw i8, ptr %113, i64 48
   store ptr %6, ptr %137, align 8
-  %138 = getelementptr inbounds i8, ptr %113, i64 56
+  %138 = getelementptr inbounds nuw i8, ptr %113, i64 56
   %139 = sext i32 %124 to i64
   store i64 %139, ptr %138, align 8
   br label %314
@@ -1634,19 +1634,19 @@ _ZN5faiss12_GLOBAL__N_121AQDistanceComputerLUTILb0ELNS_17AdditiveQuantizer13Sear
 
 142:                                              ; preds = %111
   %143 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #24
-  %144 = getelementptr inbounds i8, ptr %0, i64 48
+  %144 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %145 = load ptr, ptr %144, align 8
-  %146 = getelementptr inbounds i8, ptr %0, i64 40
+  %146 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %147 = load i64, ptr %146, align 8
-  %148 = getelementptr inbounds i8, ptr %143, i64 8
+  %148 = getelementptr inbounds nuw i8, ptr %143, i64 8
   store ptr %145, ptr %148, align 8
-  %149 = getelementptr inbounds i8, ptr %143, i64 16
+  %149 = getelementptr inbounds nuw i8, ptr %143, i64 16
   store i64 %147, ptr %149, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_121AQDistanceComputerLUTILb0ELNS_17AdditiveQuantizer13Search_type_tE1EEE, i64 16), ptr %143, align 8
-  %150 = getelementptr inbounds i8, ptr %143, i64 24
-  %151 = getelementptr inbounds i8, ptr %6, i64 120
+  %150 = getelementptr inbounds nuw i8, ptr %143, i64 24
+  %151 = getelementptr inbounds nuw i8, ptr %6, i64 120
   %152 = load i64, ptr %151, align 8
-  %153 = getelementptr inbounds i8, ptr %0, i64 8
+  %153 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %154 = load i32, ptr %153, align 8
   %155 = shl nsw i32 %154, 1
   %156 = sext i32 %155 to i64
@@ -1674,7 +1674,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i49: ; preds = %142
 .noexc56:                                         ; preds = %.noexc8.i51
   store ptr %160, ptr %150, align 8
   %161 = getelementptr float, ptr %160, i64 %157
-  %162 = getelementptr inbounds i8, ptr %143, i64 40
+  %162 = getelementptr inbounds nuw i8, ptr %143, i64 40
   store ptr %161, ptr %162, align 8
   store float 0.000000e+00, ptr %160, align 4
   %163 = getelementptr i8, ptr %160, i64 4
@@ -1688,11 +1688,11 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i52: ; preds = %.noexc56
 
 _ZN5faiss12_GLOBAL__N_121AQDistanceComputerLUTILb0ELNS_17AdditiveQuantizer13Search_type_tE1EEC2ERKNS_22IndexAdditiveQuantizerE.exit: ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i49, %.noexc56, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i52
   %.0.i.i.i.i.i.i53 = phi ptr [ %163, %.noexc56 ], [ %161, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i52 ], [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i49 ]
-  %166 = getelementptr inbounds i8, ptr %143, i64 32
+  %166 = getelementptr inbounds nuw i8, ptr %143, i64 32
   store ptr %.0.i.i.i.i.i.i53, ptr %166, align 8
-  %167 = getelementptr inbounds i8, ptr %143, i64 48
+  %167 = getelementptr inbounds nuw i8, ptr %143, i64 48
   store ptr %6, ptr %167, align 8
-  %168 = getelementptr inbounds i8, ptr %143, i64 56
+  %168 = getelementptr inbounds nuw i8, ptr %143, i64 56
   %169 = sext i32 %154 to i64
   store i64 %169, ptr %168, align 8
   br label %314
@@ -1705,19 +1705,19 @@ _ZN5faiss12_GLOBAL__N_121AQDistanceComputerLUTILb0ELNS_17AdditiveQuantizer13Sear
 
 172:                                              ; preds = %111
   %173 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #24
-  %174 = getelementptr inbounds i8, ptr %0, i64 48
+  %174 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %175 = load ptr, ptr %174, align 8
-  %176 = getelementptr inbounds i8, ptr %0, i64 40
+  %176 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %177 = load i64, ptr %176, align 8
-  %178 = getelementptr inbounds i8, ptr %173, i64 8
+  %178 = getelementptr inbounds nuw i8, ptr %173, i64 8
   store ptr %175, ptr %178, align 8
-  %179 = getelementptr inbounds i8, ptr %173, i64 16
+  %179 = getelementptr inbounds nuw i8, ptr %173, i64 16
   store i64 %177, ptr %179, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_121AQDistanceComputerLUTILb0ELNS_17AdditiveQuantizer13Search_type_tE4EEE, i64 16), ptr %173, align 8
-  %180 = getelementptr inbounds i8, ptr %173, i64 24
-  %181 = getelementptr inbounds i8, ptr %6, i64 120
+  %180 = getelementptr inbounds nuw i8, ptr %173, i64 24
+  %181 = getelementptr inbounds nuw i8, ptr %6, i64 120
   %182 = load i64, ptr %181, align 8
-  %183 = getelementptr inbounds i8, ptr %0, i64 8
+  %183 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %184 = load i32, ptr %183, align 8
   %185 = shl nsw i32 %184, 1
   %186 = sext i32 %185 to i64
@@ -1745,7 +1745,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i57: ; preds = %172
 .noexc64:                                         ; preds = %.noexc8.i59
   store ptr %190, ptr %180, align 8
   %191 = getelementptr float, ptr %190, i64 %187
-  %192 = getelementptr inbounds i8, ptr %173, i64 40
+  %192 = getelementptr inbounds nuw i8, ptr %173, i64 40
   store ptr %191, ptr %192, align 8
   store float 0.000000e+00, ptr %190, align 4
   %193 = getelementptr i8, ptr %190, i64 4
@@ -1759,11 +1759,11 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i60: ; preds = %.noexc64
 
 _ZN5faiss12_GLOBAL__N_121AQDistanceComputerLUTILb0ELNS_17AdditiveQuantizer13Search_type_tE4EEC2ERKNS_22IndexAdditiveQuantizerE.exit: ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i57, %.noexc64, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i60
   %.0.i.i.i.i.i.i61 = phi ptr [ %193, %.noexc64 ], [ %191, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i60 ], [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i57 ]
-  %196 = getelementptr inbounds i8, ptr %173, i64 32
+  %196 = getelementptr inbounds nuw i8, ptr %173, i64 32
   store ptr %.0.i.i.i.i.i.i61, ptr %196, align 8
-  %197 = getelementptr inbounds i8, ptr %173, i64 48
+  %197 = getelementptr inbounds nuw i8, ptr %173, i64 48
   store ptr %6, ptr %197, align 8
-  %198 = getelementptr inbounds i8, ptr %173, i64 56
+  %198 = getelementptr inbounds nuw i8, ptr %173, i64 56
   %199 = sext i32 %184 to i64
   store i64 %199, ptr %198, align 8
   br label %314
@@ -1776,19 +1776,19 @@ _ZN5faiss12_GLOBAL__N_121AQDistanceComputerLUTILb0ELNS_17AdditiveQuantizer13Sear
 
 202:                                              ; preds = %111
   %203 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #24
-  %204 = getelementptr inbounds i8, ptr %0, i64 48
+  %204 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %205 = load ptr, ptr %204, align 8
-  %206 = getelementptr inbounds i8, ptr %0, i64 40
+  %206 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %207 = load i64, ptr %206, align 8
-  %208 = getelementptr inbounds i8, ptr %203, i64 8
+  %208 = getelementptr inbounds nuw i8, ptr %203, i64 8
   store ptr %205, ptr %208, align 8
-  %209 = getelementptr inbounds i8, ptr %203, i64 16
+  %209 = getelementptr inbounds nuw i8, ptr %203, i64 16
   store i64 %207, ptr %209, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_121AQDistanceComputerLUTILb0ELNS_17AdditiveQuantizer13Search_type_tE5EEE, i64 16), ptr %203, align 8
-  %210 = getelementptr inbounds i8, ptr %203, i64 24
-  %211 = getelementptr inbounds i8, ptr %6, i64 120
+  %210 = getelementptr inbounds nuw i8, ptr %203, i64 24
+  %211 = getelementptr inbounds nuw i8, ptr %6, i64 120
   %212 = load i64, ptr %211, align 8
-  %213 = getelementptr inbounds i8, ptr %0, i64 8
+  %213 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %214 = load i32, ptr %213, align 8
   %215 = shl nsw i32 %214, 1
   %216 = sext i32 %215 to i64
@@ -1816,7 +1816,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i65: ; preds = %202
 .noexc72:                                         ; preds = %.noexc8.i67
   store ptr %220, ptr %210, align 8
   %221 = getelementptr float, ptr %220, i64 %217
-  %222 = getelementptr inbounds i8, ptr %203, i64 40
+  %222 = getelementptr inbounds nuw i8, ptr %203, i64 40
   store ptr %221, ptr %222, align 8
   store float 0.000000e+00, ptr %220, align 4
   %223 = getelementptr i8, ptr %220, i64 4
@@ -1830,11 +1830,11 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i68: ; preds = %.noexc72
 
 _ZN5faiss12_GLOBAL__N_121AQDistanceComputerLUTILb0ELNS_17AdditiveQuantizer13Search_type_tE5EEC2ERKNS_22IndexAdditiveQuantizerE.exit: ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i65, %.noexc72, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i68
   %.0.i.i.i.i.i.i69 = phi ptr [ %223, %.noexc72 ], [ %221, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i68 ], [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i65 ]
-  %226 = getelementptr inbounds i8, ptr %203, i64 32
+  %226 = getelementptr inbounds nuw i8, ptr %203, i64 32
   store ptr %.0.i.i.i.i.i.i69, ptr %226, align 8
-  %227 = getelementptr inbounds i8, ptr %203, i64 48
+  %227 = getelementptr inbounds nuw i8, ptr %203, i64 48
   store ptr %6, ptr %227, align 8
-  %228 = getelementptr inbounds i8, ptr %203, i64 56
+  %228 = getelementptr inbounds nuw i8, ptr %203, i64 56
   %229 = sext i32 %214 to i64
   store i64 %229, ptr %228, align 8
   br label %314
@@ -1847,19 +1847,19 @@ _ZN5faiss12_GLOBAL__N_121AQDistanceComputerLUTILb0ELNS_17AdditiveQuantizer13Sear
 
 232:                                              ; preds = %111
   %233 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #24
-  %234 = getelementptr inbounds i8, ptr %0, i64 48
+  %234 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %235 = load ptr, ptr %234, align 8
-  %236 = getelementptr inbounds i8, ptr %0, i64 40
+  %236 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %237 = load i64, ptr %236, align 8
-  %238 = getelementptr inbounds i8, ptr %233, i64 8
+  %238 = getelementptr inbounds nuw i8, ptr %233, i64 8
   store ptr %235, ptr %238, align 8
-  %239 = getelementptr inbounds i8, ptr %233, i64 16
+  %239 = getelementptr inbounds nuw i8, ptr %233, i64 16
   store i64 %237, ptr %239, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_121AQDistanceComputerLUTILb0ELNS_17AdditiveQuantizer13Search_type_tE7EEE, i64 16), ptr %233, align 8
-  %240 = getelementptr inbounds i8, ptr %233, i64 24
-  %241 = getelementptr inbounds i8, ptr %6, i64 120
+  %240 = getelementptr inbounds nuw i8, ptr %233, i64 24
+  %241 = getelementptr inbounds nuw i8, ptr %6, i64 120
   %242 = load i64, ptr %241, align 8
-  %243 = getelementptr inbounds i8, ptr %0, i64 8
+  %243 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %244 = load i32, ptr %243, align 8
   %245 = shl nsw i32 %244, 1
   %246 = sext i32 %245 to i64
@@ -1887,7 +1887,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i73: ; preds = %232
 .noexc80:                                         ; preds = %.noexc8.i75
   store ptr %250, ptr %240, align 8
   %251 = getelementptr float, ptr %250, i64 %247
-  %252 = getelementptr inbounds i8, ptr %233, i64 40
+  %252 = getelementptr inbounds nuw i8, ptr %233, i64 40
   store ptr %251, ptr %252, align 8
   store float 0.000000e+00, ptr %250, align 4
   %253 = getelementptr i8, ptr %250, i64 4
@@ -1901,11 +1901,11 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i76: ; preds = %.noexc80
 
 _ZN5faiss12_GLOBAL__N_121AQDistanceComputerLUTILb0ELNS_17AdditiveQuantizer13Search_type_tE7EEC2ERKNS_22IndexAdditiveQuantizerE.exit: ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i73, %.noexc80, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i76
   %.0.i.i.i.i.i.i77 = phi ptr [ %253, %.noexc80 ], [ %251, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i76 ], [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i73 ]
-  %256 = getelementptr inbounds i8, ptr %233, i64 32
+  %256 = getelementptr inbounds nuw i8, ptr %233, i64 32
   store ptr %.0.i.i.i.i.i.i77, ptr %256, align 8
-  %257 = getelementptr inbounds i8, ptr %233, i64 48
+  %257 = getelementptr inbounds nuw i8, ptr %233, i64 48
   store ptr %6, ptr %257, align 8
-  %258 = getelementptr inbounds i8, ptr %233, i64 56
+  %258 = getelementptr inbounds nuw i8, ptr %233, i64 56
   %259 = sext i32 %244 to i64
   store i64 %259, ptr %258, align 8
   br label %314
@@ -1918,19 +1918,19 @@ _ZN5faiss12_GLOBAL__N_121AQDistanceComputerLUTILb0ELNS_17AdditiveQuantizer13Sear
 
 262:                                              ; preds = %111, %111, %111
   %263 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #24
-  %264 = getelementptr inbounds i8, ptr %0, i64 48
+  %264 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %265 = load ptr, ptr %264, align 8
-  %266 = getelementptr inbounds i8, ptr %0, i64 40
+  %266 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %267 = load i64, ptr %266, align 8
-  %268 = getelementptr inbounds i8, ptr %263, i64 8
+  %268 = getelementptr inbounds nuw i8, ptr %263, i64 8
   store ptr %265, ptr %268, align 8
-  %269 = getelementptr inbounds i8, ptr %263, i64 16
+  %269 = getelementptr inbounds nuw i8, ptr %263, i64 16
   store i64 %267, ptr %269, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_121AQDistanceComputerLUTILb0ELNS_17AdditiveQuantizer13Search_type_tE6EEE, i64 16), ptr %263, align 8
-  %270 = getelementptr inbounds i8, ptr %263, i64 24
-  %271 = getelementptr inbounds i8, ptr %6, i64 120
+  %270 = getelementptr inbounds nuw i8, ptr %263, i64 24
+  %271 = getelementptr inbounds nuw i8, ptr %6, i64 120
   %272 = load i64, ptr %271, align 8
-  %273 = getelementptr inbounds i8, ptr %0, i64 8
+  %273 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %274 = load i32, ptr %273, align 8
   %275 = shl nsw i32 %274, 1
   %276 = sext i32 %275 to i64
@@ -1958,7 +1958,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i81: ; preds = %262
 .noexc88:                                         ; preds = %.noexc8.i83
   store ptr %280, ptr %270, align 8
   %281 = getelementptr float, ptr %280, i64 %277
-  %282 = getelementptr inbounds i8, ptr %263, i64 40
+  %282 = getelementptr inbounds nuw i8, ptr %263, i64 40
   store ptr %281, ptr %282, align 8
   store float 0.000000e+00, ptr %280, align 4
   %283 = getelementptr i8, ptr %280, i64 4
@@ -1972,11 +1972,11 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i84: ; preds = %.noexc88
 
 _ZN5faiss12_GLOBAL__N_121AQDistanceComputerLUTILb0ELNS_17AdditiveQuantizer13Search_type_tE6EEC2ERKNS_22IndexAdditiveQuantizerE.exit: ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i81, %.noexc88, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i84
   %.0.i.i.i.i.i.i85 = phi ptr [ %283, %.noexc88 ], [ %281, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i84 ], [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i81 ]
-  %286 = getelementptr inbounds i8, ptr %263, i64 32
+  %286 = getelementptr inbounds nuw i8, ptr %263, i64 32
   store ptr %.0.i.i.i.i.i.i85, ptr %286, align 8
-  %287 = getelementptr inbounds i8, ptr %263, i64 48
+  %287 = getelementptr inbounds nuw i8, ptr %263, i64 48
   store ptr %6, ptr %287, align 8
-  %288 = getelementptr inbounds i8, ptr %263, i64 56
+  %288 = getelementptr inbounds nuw i8, ptr %263, i64 56
   %289 = sext i32 %274 to i64
   store i64 %289, ptr %288, align 8
   br label %314
@@ -1990,7 +1990,7 @@ _ZN5faiss12_GLOBAL__N_121AQDistanceComputerLUTILb0ELNS_17AdditiveQuantizer13Sear
 292:                                              ; preds = %111
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #16
   %293 = load ptr, ptr %5, align 8
-  %294 = getelementptr inbounds i8, ptr %293, i64 296
+  %294 = getelementptr inbounds nuw i8, ptr %293, i64 296
   %295 = load i32, ptr %294, align 8
   %296 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.4, i32 noundef %295) #16
   %297 = add nsw i32 %296, 1
@@ -2005,7 +2005,7 @@ _ZN5faiss12_GLOBAL__N_121AQDistanceComputerLUTILb0ELNS_17AdditiveQuantizer13Sear
 301:                                              ; preds = %299
   %302 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #16
   %303 = load ptr, ptr %5, align 8
-  %304 = getelementptr inbounds i8, ptr %303, i64 296
+  %304 = getelementptr inbounds nuw i8, ptr %303, i64 296
   %305 = load i32, ptr %304, align 8
   %306 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %300, i64 noundef %302, ptr noundef nonnull @.str.4, i32 noundef %305) #16
   %307 = call ptr @__cxa_allocate_exception(i64 40) #16
@@ -2047,9 +2047,9 @@ _ZN5faiss12_GLOBAL__N_121AQDistanceComputerLUTILb0ELNS_17AdditiveQuantizer13Sear
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5faiss22IndexResidualQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(512) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss22IndexResidualQuantizerE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 80
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss17ResidualQuantizerE, i64 16), ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 488
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i.i = icmp eq ptr %4, null
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorIfSaIfEED2Ev.exit.i, label %5
@@ -2059,7 +2059,7 @@ define linkonce_odr void @_ZN5faiss22IndexResidualQuantizerD2Ev(ptr noundef nonn
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit.i
 
 _ZNSt6vectorIfSaIfEED2Ev.exit.i:                  ; preds = %5, %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 464
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %7 = load ptr, ptr %6, align 8
   %.not.i.i.i1.i = icmp eq ptr %7, null
   br i1 %.not.i.i.i1.i, label %_ZN5faiss17ResidualQuantizerD2Ev.exit, label %8
@@ -2071,7 +2071,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit.i:                  ; preds = %5, %1
 _ZN5faiss17ResidualQuantizerD2Ev.exit:            ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit.i, %8
   tail call void @_ZN5faiss17AdditiveQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(432) %2) #16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss14IndexFlatCodesE, i64 16), ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %10 = load ptr, ptr %9, align 8
   %.not.i.i.i.i.i = icmp eq ptr %10, null
   br i1 %.not.i.i.i.i.i, label %_ZN5faiss22IndexAdditiveQuantizerD2Ev.exit, label %11
@@ -2088,9 +2088,9 @@ _ZN5faiss22IndexAdditiveQuantizerD2Ev.exit:       ; preds = %_ZN5faiss17Residual
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5faiss22IndexResidualQuantizerD0Ev(ptr noundef nonnull align 8 dereferenceable(512) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss22IndexResidualQuantizerE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 80
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss17ResidualQuantizerE, i64 16), ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 488
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i.i.i = icmp eq ptr %4, null
   br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIfSaIfEED2Ev.exit.i.i, label %5
@@ -2100,7 +2100,7 @@ define linkonce_odr void @_ZN5faiss22IndexResidualQuantizerD0Ev(ptr noundef nonn
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit.i.i
 
 _ZNSt6vectorIfSaIfEED2Ev.exit.i.i:                ; preds = %5, %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 464
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %7 = load ptr, ptr %6, align 8
   %.not.i.i.i1.i.i = icmp eq ptr %7, null
   br i1 %.not.i.i.i1.i.i, label %_ZN5faiss17ResidualQuantizerD2Ev.exit.i, label %8
@@ -2112,7 +2112,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit.i.i:                ; preds = %5, %1
 _ZN5faiss17ResidualQuantizerD2Ev.exit.i:          ; preds = %8, %_ZNSt6vectorIfSaIfEED2Ev.exit.i.i
   tail call void @_ZN5faiss17AdditiveQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(432) %2) #16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss14IndexFlatCodesE, i64 16), ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %10 = load ptr, ptr %9, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %10, null
   br i1 %.not.i.i.i.i.i.i, label %_ZN5faiss22IndexResidualQuantizerD2Ev.exit, label %11
@@ -2129,9 +2129,9 @@ _ZN5faiss22IndexResidualQuantizerD2Ev.exit:       ; preds = %_ZN5faiss17Residual
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5faiss22IndexResidualQuantizer5trainElPKf(ptr noundef nonnull align 8 dereferenceable(512) %0, i64 noundef %1, ptr noundef %2) unnamed_addr #2 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 80
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @_ZN5faiss17ResidualQuantizer5trainEmPKf(ptr noundef nonnull align 8 dereferenceable(432) %4, i64 noundef %1, ptr noundef %2)
-  %5 = getelementptr inbounds i8, ptr %0, i64 25
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 25
   store i8 1, ptr %5, align 1
   ret void
 }
@@ -2139,10 +2139,10 @@ define void @_ZN5faiss22IndexResidualQuantizer5trainElPKf(ptr noundef nonnull al
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5faiss25IndexLocalSearchQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(480) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss25IndexLocalSearchQuantizerE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 80
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @_ZN5faiss20LocalSearchQuantizerD1Ev(ptr noundef nonnull align 8 dereferenceable(393) %2) #16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss14IndexFlatCodesE, i64 16), ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i.i.i = icmp eq ptr %4, null
   br i1 %.not.i.i.i.i.i, label %_ZN5faiss22IndexAdditiveQuantizerD2Ev.exit, label %5
@@ -2159,10 +2159,10 @@ _ZN5faiss22IndexAdditiveQuantizerD2Ev.exit:       ; preds = %1, %5
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5faiss25IndexLocalSearchQuantizerD0Ev(ptr noundef nonnull align 8 dereferenceable(480) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss25IndexLocalSearchQuantizerE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 80
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @_ZN5faiss20LocalSearchQuantizerD1Ev(ptr noundef nonnull align 8 dereferenceable(393) %2) #16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss14IndexFlatCodesE, i64 16), ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %4, null
   br i1 %.not.i.i.i.i.i.i, label %_ZN5faiss25IndexLocalSearchQuantizerD2Ev.exit, label %5
@@ -2179,9 +2179,9 @@ _ZN5faiss25IndexLocalSearchQuantizerD2Ev.exit:    ; preds = %1, %5
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5faiss25IndexLocalSearchQuantizer5trainElPKf(ptr noundef nonnull align 8 dereferenceable(480) %0, i64 noundef %1, ptr noundef %2) unnamed_addr #2 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 80
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @_ZN5faiss20LocalSearchQuantizer5trainEmPKf(ptr noundef nonnull align 8 dereferenceable(393) %4, i64 noundef %1, ptr noundef %2)
-  %5 = getelementptr inbounds i8, ptr %0, i64 25
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 25
   store i8 1, ptr %5, align 1
   ret void
 }
@@ -2189,10 +2189,10 @@ define void @_ZN5faiss25IndexLocalSearchQuantizer5trainElPKf(ptr noundef nonnull
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5faiss29IndexProductResidualQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(424) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss29IndexProductResidualQuantizerE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 80
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @_ZN5faiss24ProductAdditiveQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(344) %2) #16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss14IndexFlatCodesE, i64 16), ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i.i.i = icmp eq ptr %4, null
   br i1 %.not.i.i.i.i.i, label %_ZN5faiss22IndexAdditiveQuantizerD2Ev.exit, label %5
@@ -2209,10 +2209,10 @@ _ZN5faiss22IndexAdditiveQuantizerD2Ev.exit:       ; preds = %1, %5
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5faiss29IndexProductResidualQuantizerD0Ev(ptr noundef nonnull align 8 dereferenceable(424) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss29IndexProductResidualQuantizerE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 80
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @_ZN5faiss24ProductAdditiveQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(344) %2) #16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss14IndexFlatCodesE, i64 16), ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %4, null
   br i1 %.not.i.i.i.i.i.i, label %_ZN5faiss29IndexProductResidualQuantizerD2Ev.exit, label %5
@@ -2229,9 +2229,9 @@ _ZN5faiss29IndexProductResidualQuantizerD2Ev.exit: ; preds = %1, %5
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5faiss29IndexProductResidualQuantizer5trainElPKf(ptr noundef nonnull align 8 dereferenceable(424) %0, i64 noundef %1, ptr noundef %2) unnamed_addr #2 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 80
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @_ZN5faiss24ProductAdditiveQuantizer5trainEmPKf(ptr noundef nonnull align 8 dereferenceable(344) %4, i64 noundef %1, ptr noundef %2)
-  %5 = getelementptr inbounds i8, ptr %0, i64 25
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 25
   store i8 1, ptr %5, align 1
   ret void
 }
@@ -2239,10 +2239,10 @@ define void @_ZN5faiss29IndexProductResidualQuantizer5trainElPKf(ptr noundef non
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5faiss32IndexProductLocalSearchQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(424) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss32IndexProductLocalSearchQuantizerE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 80
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @_ZN5faiss24ProductAdditiveQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(344) %2) #16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss14IndexFlatCodesE, i64 16), ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i.i.i = icmp eq ptr %4, null
   br i1 %.not.i.i.i.i.i, label %_ZN5faiss22IndexAdditiveQuantizerD2Ev.exit, label %5
@@ -2259,10 +2259,10 @@ _ZN5faiss22IndexAdditiveQuantizerD2Ev.exit:       ; preds = %1, %5
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5faiss32IndexProductLocalSearchQuantizerD0Ev(ptr noundef nonnull align 8 dereferenceable(424) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss32IndexProductLocalSearchQuantizerE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 80
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @_ZN5faiss24ProductAdditiveQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(344) %2) #16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss14IndexFlatCodesE, i64 16), ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %4, null
   br i1 %.not.i.i.i.i.i.i, label %_ZN5faiss32IndexProductLocalSearchQuantizerD2Ev.exit, label %5
@@ -2279,9 +2279,9 @@ _ZN5faiss32IndexProductLocalSearchQuantizerD2Ev.exit: ; preds = %1, %5
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5faiss32IndexProductLocalSearchQuantizer5trainElPKf(ptr noundef nonnull align 8 dereferenceable(424) %0, i64 noundef %1, ptr noundef %2) unnamed_addr #2 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 80
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @_ZN5faiss24ProductAdditiveQuantizer5trainEmPKf(ptr noundef nonnull align 8 dereferenceable(344) %4, i64 noundef %1, ptr noundef %2)
-  %5 = getelementptr inbounds i8, ptr %0, i64 25
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 25
   store i8 1, ptr %5, align 1
   ret void
 }
@@ -2289,7 +2289,7 @@ define void @_ZN5faiss32IndexProductLocalSearchQuantizer5trainElPKf(ptr noundef 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5faiss23AdditiveCoarseQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss23AdditiveCoarseQuantizerE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %4
@@ -2306,7 +2306,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %1, %4
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5faiss23AdditiveCoarseQuantizerD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss23AdditiveCoarseQuantizerE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i, label %_ZN5faiss23AdditiveCoarseQuantizerD2Ev.exit, label %4
@@ -2324,7 +2324,7 @@ _ZN5faiss23AdditiveCoarseQuantizerD2Ev.exit:      ; preds = %1, %4
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5faiss23AdditiveCoarseQuantizer5trainElPKf(ptr noundef nonnull align 8 dereferenceable(72) %0, i64 noundef %1, ptr noundef %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i8, ptr %5, align 8
   %7 = trunc i8 %6 to i1
   br i1 %7, label %8, label %10
@@ -2334,12 +2334,12 @@ define void @_ZN5faiss23AdditiveCoarseQuantizer5trainElPKf(ptr noundef nonnull a
   br label %10
 
 10:                                               ; preds = %8, %3
-  %11 = getelementptr inbounds i8, ptr %0, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 104
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 104
   %14 = load i64, ptr %13, align 8
   %15 = shl i64 4, %14
-  %16 = getelementptr inbounds i8, ptr %12, i64 288
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 288
   %17 = load i64, ptr %16, align 8
   %.not = icmp ugt i64 %15, %17
   br i1 %.not, label %18, label %34
@@ -2387,15 +2387,15 @@ define void @_ZN5faiss23AdditiveCoarseQuantizer5trainElPKf(ptr noundef nonnull a
   %35 = load ptr, ptr %12, align 8
   %36 = load ptr, ptr %35, align 8
   tail call void %36(ptr noundef nonnull align 8 dereferenceable(24) %12, i64 noundef %1, ptr noundef %2)
-  %37 = getelementptr inbounds i8, ptr %0, i64 25
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 25
   store i8 1, ptr %37, align 1
   %38 = load ptr, ptr %11, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 104
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 104
   %40 = load i64, ptr %39, align 8
   %41 = shl nuw i64 1, %40
-  %42 = getelementptr inbounds i8, ptr %0, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %41, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %0, i64 28
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %44 = load i32, ptr %43, align 4
   %45 = icmp eq i32 %44, 1
   br i1 %45, label %46, label %71
@@ -2412,8 +2412,8 @@ define void @_ZN5faiss23AdditiveCoarseQuantizer5trainElPKf(ptr noundef nonnull a
 
 51:                                               ; preds = %49, %46
   %52 = phi i64 [ %.pre, %49 ], [ %41, %46 ]
-  %53 = getelementptr inbounds i8, ptr %0, i64 48
-  %54 = getelementptr inbounds i8, ptr %0, i64 56
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %55 = load ptr, ptr %54, align 8
   %56 = load ptr, ptr %53, align 8
   %57 = ptrtoint ptr %55 to i64
@@ -2559,7 +2559,7 @@ define void @_ZNK5faiss23AdditiveCoarseQuantizer6searchElPKflPfPlPKNS_16SearchPa
   br label %62
 
 25:                                               ; preds = %7
-  %26 = getelementptr inbounds i8, ptr %0, i64 28
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %27 = load i32, ptr %26, align 4
   switch i32 %27, label %61 [
     i32 0, label %28
@@ -2567,21 +2567,21 @@ define void @_ZNK5faiss23AdditiveCoarseQuantizer6searchElPKflPfPlPKNS_16SearchPa
   ]
 
 28:                                               ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %0, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %30 = load ptr, ptr %29, align 8
   tail call void @_ZNK5faiss17AdditiveQuantizer27knn_centroids_inner_productElPKflPfPl(ptr noundef nonnull align 8 dereferenceable(308) %30, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %5)
   br label %61
 
 31:                                               ; preds = %25
-  %32 = getelementptr inbounds i8, ptr %0, i64 48
-  %33 = getelementptr inbounds i8, ptr %0, i64 56
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %34 = load ptr, ptr %33, align 8
   %35 = load ptr, ptr %32, align 8
   %36 = ptrtoint ptr %34 to i64
   %37 = ptrtoint ptr %35 to i64
   %38 = sub i64 %36, %37
   %39 = ashr exact i64 %38, 2
-  %40 = getelementptr inbounds i8, ptr %0, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %41 = load i64, ptr %40, align 8
   %42 = icmp eq i64 %39, %41
   br i1 %42, label %58, label %43
@@ -2621,7 +2621,7 @@ define void @_ZNK5faiss23AdditiveCoarseQuantizer6searchElPKflPfPlPKNS_16SearchPa
   br label %62
 
 58:                                               ; preds = %31
-  %59 = getelementptr inbounds i8, ptr %0, i64 40
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %60 = load ptr, ptr %59, align 8
   tail call void @_ZNK5faiss17AdditiveQuantizer16knn_centroids_L2ElPKflPfPlS2_(ptr noundef nonnull align 8 dereferenceable(308) %60, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %35)
   br label %61
@@ -2705,7 +2705,7 @@ declare noundef i64 @_ZN5faiss5Index10remove_idsERKNS_10IDSelectorE(ptr noundef 
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK5faiss23AdditiveCoarseQuantizer11reconstructElPf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, i64 noundef %1, ptr noundef %2) unnamed_addr #2 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
   tail call void @_ZNK5faiss17AdditiveQuantizer12decode_64bitElPf(ptr noundef nonnull align 8 dereferenceable(308) %5, i64 noundef %1, ptr noundef %2)
   ret void
@@ -2728,9 +2728,9 @@ declare void @_ZNK5faiss5Index26check_compatible_for_mergeERKS0_(ptr noundef non
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5faiss23ResidualCoarseQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(508) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss23ResidualCoarseQuantizerE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 72
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss17ResidualQuantizerE, i64 16), ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 480
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i.i = icmp eq ptr %4, null
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorIfSaIfEED2Ev.exit.i, label %5
@@ -2740,7 +2740,7 @@ define linkonce_odr void @_ZN5faiss23ResidualCoarseQuantizerD2Ev(ptr noundef non
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit.i
 
 _ZNSt6vectorIfSaIfEED2Ev.exit.i:                  ; preds = %5, %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 456
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 456
   %7 = load ptr, ptr %6, align 8
   %.not.i.i.i1.i = icmp eq ptr %7, null
   br i1 %.not.i.i.i1.i, label %_ZN5faiss17ResidualQuantizerD2Ev.exit, label %8
@@ -2752,7 +2752,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit.i:                  ; preds = %5, %1
 _ZN5faiss17ResidualQuantizerD2Ev.exit:            ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit.i, %8
   tail call void @_ZN5faiss17AdditiveQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(432) %2) #16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss23AdditiveCoarseQuantizerE, i64 16), ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %10 = load ptr, ptr %9, align 8
   %.not.i.i.i.i1 = icmp eq ptr %10, null
   br i1 %.not.i.i.i.i1, label %_ZN5faiss23AdditiveCoarseQuantizerD2Ev.exit, label %11
@@ -2769,9 +2769,9 @@ _ZN5faiss23AdditiveCoarseQuantizerD2Ev.exit:      ; preds = %_ZN5faiss17Residual
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5faiss23ResidualCoarseQuantizerD0Ev(ptr noundef nonnull align 8 dereferenceable(508) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss23ResidualCoarseQuantizerE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 72
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss17ResidualQuantizerE, i64 16), ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 480
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i.i.i = icmp eq ptr %4, null
   br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIfSaIfEED2Ev.exit.i.i, label %5
@@ -2781,7 +2781,7 @@ define linkonce_odr void @_ZN5faiss23ResidualCoarseQuantizerD0Ev(ptr noundef non
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit.i.i
 
 _ZNSt6vectorIfSaIfEED2Ev.exit.i.i:                ; preds = %5, %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 456
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 456
   %7 = load ptr, ptr %6, align 8
   %.not.i.i.i1.i.i = icmp eq ptr %7, null
   br i1 %.not.i.i.i1.i.i, label %_ZN5faiss17ResidualQuantizerD2Ev.exit.i, label %8
@@ -2793,7 +2793,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit.i.i:                ; preds = %5, %1
 _ZN5faiss17ResidualQuantizerD2Ev.exit.i:          ; preds = %8, %_ZNSt6vectorIfSaIfEED2Ev.exit.i.i
   tail call void @_ZN5faiss17AdditiveQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(432) %2) #16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss23AdditiveCoarseQuantizerE, i64 16), ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %10 = load ptr, ptr %9, align 8
   %.not.i.i.i.i1.i = icmp eq ptr %10, null
   br i1 %.not.i.i.i.i1.i, label %_ZN5faiss23ResidualCoarseQuantizerD2Ev.exit, label %11
@@ -2824,7 +2824,7 @@ define void @_ZNK5faiss23ResidualCoarseQuantizer6searchElPKflPfPlPKNS_16SearchPa
   store i64 %3, ptr %9, align 8
   store ptr %4, ptr %10, align 8
   store ptr %5, ptr %11, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 504
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 504
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %39, label %19
 
@@ -2873,7 +2873,7 @@ define void @_ZNK5faiss23ResidualCoarseQuantizer6searchElPKflPfPlPKNS_16SearchPa
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit51
 
 37:                                               ; preds = %19
-  %38 = getelementptr inbounds i8, ptr %20, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %20, i64 16
   br label %39
 
 39:                                               ; preds = %37, %7
@@ -2892,7 +2892,7 @@ define void @_ZNK5faiss23ResidualCoarseQuantizer6searchElPKflPfPlPKNS_16SearchPa
   %45 = fptosi float %44 to i32
   store i32 %45, ptr %13, align 4
   %46 = sext i32 %45 to i64
-  %47 = getelementptr inbounds i8, ptr %0, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %48 = load i64, ptr %47, align 8
   %49 = icmp slt i64 %48, %46
   br i1 %49, label %50, label %52
@@ -2904,14 +2904,14 @@ define void @_ZNK5faiss23ResidualCoarseQuantizer6searchElPKflPfPlPKNS_16SearchPa
 
 52:                                               ; preds = %50, %42
   %53 = phi i32 [ %51, %50 ], [ %45, %42 ]
-  %54 = getelementptr inbounds i8, ptr %0, i64 72
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %55 = tail call noundef i64 @_ZNK5faiss17ResidualQuantizer16memory_per_pointEi(ptr noundef nonnull align 8 dereferenceable(432) %54, i32 noundef %53)
   %56 = icmp sgt i64 %1, 1
   br i1 %56, label %57, label %87
 
 57:                                               ; preds = %52
   %58 = mul i64 %1, %55
-  %59 = getelementptr inbounds i8, ptr %0, i64 360
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %60 = load i64, ptr %59, align 8
   %61 = icmp ugt i64 %58, %60
   br i1 %61, label %62, label %87
@@ -2920,7 +2920,7 @@ define void @_ZNK5faiss23ResidualCoarseQuantizer6searchElPKflPfPlPKNS_16SearchPa
   %63 = udiv i64 %60, %55
   %64 = icmp ugt i64 %55, %60
   %spec.store.select = select i1 %64, i64 1, i64 %63
-  %65 = getelementptr inbounds i8, ptr %0, i64 24
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %66 = load i8, ptr %65, align 8
   %67 = trunc i8 %66 to i1
   br i1 %67, label %68, label %.lr.ph
@@ -2932,7 +2932,7 @@ define void @_ZNK5faiss23ResidualCoarseQuantizer6searchElPKflPfPlPKNS_16SearchPa
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %62, %68
-  %72 = getelementptr inbounds i8, ptr %0, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %73
 
 73:                                               ; preds = %.lr.ph, %73
@@ -2948,7 +2948,7 @@ define void @_ZNK5faiss23ResidualCoarseQuantizer6searchElPKflPfPlPKNS_16SearchPa
   %81 = getelementptr inbounds float, ptr %4, i64 %80
   %82 = getelementptr inbounds i64, ptr %5, i64 %80
   %83 = load ptr, ptr %0, align 8
-  %84 = getelementptr inbounds i8, ptr %83, i64 40
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 40
   %85 = load ptr, ptr %84, align 8
   tail call void %85(ptr noundef nonnull align 8 dereferenceable(508) %0, i64 noundef %75, ptr noundef %79, i64 noundef %3, ptr noundef %81, ptr noundef %82, ptr noundef %6)
   tail call void @_ZN5faiss17InterruptCallback5checkEv()
@@ -2957,7 +2957,7 @@ define void @_ZNK5faiss23ResidualCoarseQuantizer6searchElPKflPfPlPKNS_16SearchPa
 
 87:                                               ; preds = %57, %52
   %88 = sext i32 %53 to i64
-  %89 = getelementptr inbounds i8, ptr %0, i64 96
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %90 = load i64, ptr %89, align 8
   %91 = mul i64 %1, %88
   %92 = mul i64 %91, %90
@@ -2981,7 +2981,7 @@ _ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIiSaI
   %95 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %94) #24
   store ptr %95, ptr %14, align 8
   %96 = getelementptr i32, ptr %95, i64 %92
-  %97 = getelementptr inbounds i8, ptr %14, i64 16
+  %97 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store ptr %96, ptr %97, align 8
   store i32 0, ptr %95, align 4
   %98 = getelementptr i8, ptr %95, i64 4
@@ -2996,7 +2996,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc42
 101:                                              ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc42, %_ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i
   %102 = phi ptr [ %95, %.noexc42 ], [ %95, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i ]
   %.0.i.i.i.i.i = phi ptr [ %98, %.noexc42 ], [ %96, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i ]
-  %103 = getelementptr inbounds i8, ptr %14, i64 8
+  %103 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %.0.i.i.i.i.i, ptr %103, align 8
   %104 = icmp ugt i64 %91, 2305843009213693951
   br i1 %104, label %105, label %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i
@@ -3024,7 +3024,7 @@ _ZNSt12_Vector_baseIfSaIfEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIfSaI
 .noexc46:                                         ; preds = %106
   store ptr %108, ptr %15, align 8
   %109 = getelementptr float, ptr %108, i64 %91
-  %110 = getelementptr inbounds i8, ptr %15, i64 16
+  %110 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store ptr %109, ptr %110, align 8
   store float 0.000000e+00, ptr %108, align 4
   %111 = getelementptr i8, ptr %108, i64 4
@@ -3039,7 +3039,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc46
 114:                                              ; preds = %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc46, %_ZNSt12_Vector_baseIfSaIfEEC2EmRKS0_.exit.thread.i
   %115 = phi ptr [ %108, %.noexc46 ], [ %108, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt12_Vector_baseIfSaIfEEC2EmRKS0_.exit.thread.i ]
   %.0.i.i.i.i.i44 = phi ptr [ %111, %.noexc46 ], [ %109, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ null, %_ZNSt12_Vector_baseIfSaIfEEC2EmRKS0_.exit.thread.i ]
-  %116 = getelementptr inbounds i8, ptr %15, i64 8
+  %116 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %.0.i.i.i.i.i44, ptr %116, align 8
   invoke void @_ZNK5faiss17ResidualQuantizer11refine_beamEmmPKfiPiPfS4_(ptr noundef nonnull align 8 dereferenceable(432) %54, i64 noundef %1, i64 noundef 1, ptr noundef %2, i32 noundef %53, ptr noundef %102, ptr noundef null, ptr noundef %115)
           to label %117 unwind label %122
@@ -3116,11 +3116,11 @@ _ZNSt6vectorIiSaIiEED2Ev.exit51:                  ; preds = %131, %_ZNSt6vectorI
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5faiss22IndexAdditiveQuantizerC2ElPNS_17AdditiveQuantizerENS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(80) %0, i64 noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = load i64, ptr %6, align 8
   tail call void @_ZN5faiss14IndexFlatCodesC2EmlNS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(72) %0, i64 noundef %7, i64 noundef %1, i32 noundef %3)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss22IndexAdditiveQuantizerE, i64 16), ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 72
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %2, ptr %8, align 8
   %or.cond = icmp ult i32 %3, 2
   br i1 %or.cond, label %25, label %9
@@ -3198,7 +3198,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5faiss14FaissExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss14FaissExceptionE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #16
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #16
   ret void
@@ -3213,7 +3213,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5faiss14IndexFlatCodesD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss14IndexFlatCodesE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit, label %4
@@ -3292,21 +3292,21 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_128AQDistanceComputerDecompressINS_14VectorDistanceILNS_10MetricTypeE1EEEE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) initializes((80, 88)) %0, ptr noundef %1) unnamed_addr #12 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 80
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef float @_ZN5faiss25FlatCodesDistanceComputerclEl(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) unnamed_addr #2 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8
   %7 = mul i64 %6, %1
   %8 = getelementptr inbounds i8, ptr %4, i64 %7
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %11 = load ptr, ptr %10, align 8
   %12 = tail call noundef float %11(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %8)
   ret float %12
@@ -3315,19 +3315,19 @@ define linkonce_odr noundef float @_ZN5faiss25FlatCodesDistanceComputerclEl(ptr 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5faiss16DistanceComputer17distances_batch_4EllllRfS1_S1_S1_(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 4 dereferenceable(4) %8) unnamed_addr #2 comdat align 2 {
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = tail call noundef float %12(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %1)
   %14 = load ptr, ptr %0, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = tail call noundef float %16(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %2)
   %18 = load ptr, ptr %0, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = tail call noundef float %20(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %3)
   %22 = load ptr, ptr %0, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load ptr, ptr %23, align 8
   %25 = tail call noundef float %24(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %4)
   store float %13, ptr %5, align 4
@@ -3339,18 +3339,18 @@ define linkonce_odr void @_ZN5faiss16DistanceComputer17distances_batch_4EllllRfS
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef float @_ZN5faiss12_GLOBAL__N_128AQDistanceComputerDecompressINS_14VectorDistanceILNS_10MetricTypeE1EEEE13symmetric_disEll(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #2 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 72
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %9 = load i64, ptr %8, align 8
   %10 = mul i64 %9, %1
   %11 = getelementptr inbounds i8, ptr %7, i64 %10
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %5, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8
   tail call void %16(ptr noundef nonnull align 8 dereferenceable(308) %5, ptr noundef %11, ptr noundef %13, i64 noundef 1)
   %17 = load ptr, ptr %4, align 8
@@ -3361,10 +3361,10 @@ define internal noundef float @_ZN5faiss12_GLOBAL__N_128AQDistanceComputerDecomp
   %22 = load ptr, ptr %12, align 8
   %23 = getelementptr inbounds float, ptr %22, i64 %19
   %24 = load ptr, ptr %17, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load ptr, ptr %25, align 8
   tail call void %26(ptr noundef nonnull align 8 dereferenceable(308) %17, ptr noundef %21, ptr noundef %23, i64 noundef 1)
-  %27 = getelementptr inbounds i8, ptr %0, i64 56
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %28 = load ptr, ptr %12, align 8
   %29 = load i64, ptr %8, align 8
   %30 = getelementptr inbounds float, ptr %28, i64 %29
@@ -3376,7 +3376,7 @@ define internal noundef float @_ZN5faiss12_GLOBAL__N_128AQDistanceComputerDecomp
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_128AQDistanceComputerDecompressINS_14VectorDistanceILNS_10MetricTypeE1EEEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_128AQDistanceComputerDecompressINS_14VectorDistanceILNS_10MetricTypeE1EEEEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %4
@@ -3392,7 +3392,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %1, %4
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_128AQDistanceComputerDecompressINS_14VectorDistanceILNS_10MetricTypeE1EEEED0Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_128AQDistanceComputerDecompressINS_14VectorDistanceILNS_10MetricTypeE1EEEEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_128AQDistanceComputerDecompressINS_14VectorDistanceILNS_10MetricTypeE1EEEED2Ev.exit, label %4
@@ -3408,16 +3408,16 @@ _ZN5faiss12_GLOBAL__N_128AQDistanceComputerDecompressINS_14VectorDistanceILNS_10
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef float @_ZN5faiss12_GLOBAL__N_128AQDistanceComputerDecompressINS_14VectorDistanceILNS_10MetricTypeE1EEEE16distance_to_codeEPKh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0, ptr noundef %1) unnamed_addr #2 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load ptr, ptr %8, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(308) %4, ptr noundef %1, ptr noundef %6, i64 noundef 1)
-  %10 = getelementptr inbounds i8, ptr %0, i64 56
-  %11 = getelementptr inbounds i8, ptr %0, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr %5, align 8
   %14 = load i64, ptr %10, align 8
@@ -3432,25 +3432,25 @@ declare noundef float @_ZN5faiss10fvec_L2sqrEPKfS1_m(ptr noundef, ptr noundef, i
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_128AQDistanceComputerDecompressINS_14VectorDistanceILNS_10MetricTypeE0EEEE9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) initializes((80, 88)) %0, ptr noundef %1) unnamed_addr #12 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 80
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef float @_ZN5faiss12_GLOBAL__N_128AQDistanceComputerDecompressINS_14VectorDistanceILNS_10MetricTypeE0EEEE13symmetric_disEll(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #2 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 72
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %9 = load i64, ptr %8, align 8
   %10 = mul i64 %9, %1
   %11 = getelementptr inbounds i8, ptr %7, i64 %10
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %5, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8
   tail call void %16(ptr noundef nonnull align 8 dereferenceable(308) %5, ptr noundef %11, ptr noundef %13, i64 noundef 1)
   %17 = load ptr, ptr %4, align 8
@@ -3461,10 +3461,10 @@ define internal noundef float @_ZN5faiss12_GLOBAL__N_128AQDistanceComputerDecomp
   %22 = load ptr, ptr %12, align 8
   %23 = getelementptr inbounds float, ptr %22, i64 %19
   %24 = load ptr, ptr %17, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load ptr, ptr %25, align 8
   tail call void %26(ptr noundef nonnull align 8 dereferenceable(308) %17, ptr noundef %21, ptr noundef %23, i64 noundef 1)
-  %27 = getelementptr inbounds i8, ptr %0, i64 56
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %28 = load ptr, ptr %12, align 8
   %29 = load i64, ptr %8, align 8
   %30 = getelementptr inbounds float, ptr %28, i64 %29
@@ -3476,7 +3476,7 @@ define internal noundef float @_ZN5faiss12_GLOBAL__N_128AQDistanceComputerDecomp
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_128AQDistanceComputerDecompressINS_14VectorDistanceILNS_10MetricTypeE0EEEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_128AQDistanceComputerDecompressINS_14VectorDistanceILNS_10MetricTypeE0EEEEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %4
@@ -3492,7 +3492,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %1, %4
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_128AQDistanceComputerDecompressINS_14VectorDistanceILNS_10MetricTypeE0EEEED0Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_128AQDistanceComputerDecompressINS_14VectorDistanceILNS_10MetricTypeE0EEEEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_128AQDistanceComputerDecompressINS_14VectorDistanceILNS_10MetricTypeE0EEEED2Ev.exit, label %4
@@ -3508,16 +3508,16 @@ _ZN5faiss12_GLOBAL__N_128AQDistanceComputerDecompressINS_14VectorDistanceILNS_10
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef float @_ZN5faiss12_GLOBAL__N_128AQDistanceComputerDecompressINS_14VectorDistanceILNS_10MetricTypeE0EEEE16distance_to_codeEPKh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0, ptr noundef %1) unnamed_addr #2 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load ptr, ptr %8, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(308) %4, ptr noundef %1, ptr noundef %6, i64 noundef 1)
-  %10 = getelementptr inbounds i8, ptr %0, i64 56
-  %11 = getelementptr inbounds i8, ptr %0, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr %5, align 8
   %14 = load i64, ptr %10, align 8
@@ -3629,33 +3629,33 @@ declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_121AQDistanceComputerLUTILb1ELNS_17AdditiveQuantizer13Search_type_tE1EE9set_queryEPKf(ptr nocapture noundef nonnull align 8 dereferenceable(68) initializes((64, 68)) %0, ptr noundef %1) unnamed_addr #2 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %9 = load ptr, ptr %8, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(308) %4, i64 noundef 1, ptr noundef %1, ptr noundef %6, float noundef 1.000000e+00, i64 noundef -1)
-  %10 = getelementptr inbounds i8, ptr %0, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store float 0.000000e+00, ptr %10, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef float @_ZN5faiss12_GLOBAL__N_121AQDistanceComputerLUTILb1ELNS_17AdditiveQuantizer13Search_type_tE1EE13symmetric_disEll(ptr nocapture noundef nonnull readonly align 8 dereferenceable(68) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #2 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %11 = load i64, ptr %10, align 8
   %12 = mul i64 %11, %1
   %13 = getelementptr inbounds i8, ptr %9, i64 %12
   %14 = load ptr, ptr %7, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8
   tail call void %16(ptr noundef nonnull align 8 dereferenceable(308) %7, ptr noundef %13, ptr noundef %5, i64 noundef 1)
   %17 = load ptr, ptr %6, align 8
@@ -3665,7 +3665,7 @@ define internal noundef float @_ZN5faiss12_GLOBAL__N_121AQDistanceComputerLUTILb
   %21 = getelementptr inbounds i8, ptr %18, i64 %20
   %22 = getelementptr inbounds float, ptr %5, i64 %19
   %23 = load ptr, ptr %17, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load ptr, ptr %24, align 8
   tail call void %25(ptr noundef nonnull align 8 dereferenceable(308) %17, ptr noundef %21, ptr noundef %22, i64 noundef 1)
   %26 = load i64, ptr %10, align 8
@@ -3677,7 +3677,7 @@ define internal noundef float @_ZN5faiss12_GLOBAL__N_121AQDistanceComputerLUTILb
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_121AQDistanceComputerLUTILb1ELNS_17AdditiveQuantizer13Search_type_tE1EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(68) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_121AQDistanceComputerLUTILb1ELNS_17AdditiveQuantizer13Search_type_tE1EEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %4
@@ -3693,7 +3693,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %1, %4
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_121AQDistanceComputerLUTILb1ELNS_17AdditiveQuantizer13Search_type_tE1EED0Ev(ptr noundef nonnull align 8 dereferenceable(68) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_121AQDistanceComputerLUTILb1ELNS_17AdditiveQuantizer13Search_type_tE1EEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_121AQDistanceComputerLUTILb1ELNS_17AdditiveQuantizer13Search_type_tE1EED2Ev.exit, label %4
@@ -3709,11 +3709,11 @@ _ZN5faiss12_GLOBAL__N_121AQDistanceComputerLUTILb1ELNS_17AdditiveQuantizer13Sear
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef float @_ZN5faiss12_GLOBAL__N_121AQDistanceComputerLUTILb1ELNS_17AdditiveQuantizer13Search_type_tE1EE16distance_to_codeEPKh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(68) %0, ptr noundef %1) unnamed_addr #2 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 64
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load float, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noundef float @_ZNK5faiss17AdditiveQuantizer22compute_1_distance_LUTILb1ELNS0_13Search_type_tE1EEEfPKhPKf(ptr noundef nonnull align 8 dereferenceable(308) %6, ptr noundef %1, ptr noundef %8)
   %10 = fadd float %4, %9
@@ -3724,36 +3724,36 @@ declare noundef float @_ZNK5faiss17AdditiveQuantizer22compute_1_distance_LUTILb1
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_121AQDistanceComputerLUTILb0ELNS_17AdditiveQuantizer13Search_type_tE3EE9set_queryEPKf(ptr nocapture noundef nonnull align 8 dereferenceable(68) initializes((64, 68)) %0, ptr noundef %1) unnamed_addr #2 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %9 = load ptr, ptr %8, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(308) %4, i64 noundef 1, ptr noundef %1, ptr noundef %6, float noundef 1.000000e+00, i64 noundef -1)
-  %10 = getelementptr inbounds i8, ptr %0, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %11 = load i64, ptr %10, align 8
   %12 = tail call noundef float @_ZN5faiss15fvec_norm_L2sqrEPKfm(ptr noundef %1, i64 noundef %11)
-  %13 = getelementptr inbounds i8, ptr %0, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store float %12, ptr %13, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef float @_ZN5faiss12_GLOBAL__N_121AQDistanceComputerLUTILb0ELNS_17AdditiveQuantizer13Search_type_tE3EE13symmetric_disEll(ptr nocapture noundef nonnull readonly align 8 dereferenceable(68) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #2 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %11 = load i64, ptr %10, align 8
   %12 = mul i64 %11, %1
   %13 = getelementptr inbounds i8, ptr %9, i64 %12
   %14 = load ptr, ptr %7, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8
   tail call void %16(ptr noundef nonnull align 8 dereferenceable(308) %7, ptr noundef %13, ptr noundef %5, i64 noundef 1)
   %17 = load ptr, ptr %6, align 8
@@ -3763,7 +3763,7 @@ define internal noundef float @_ZN5faiss12_GLOBAL__N_121AQDistanceComputerLUTILb
   %21 = getelementptr inbounds i8, ptr %18, i64 %20
   %22 = getelementptr inbounds float, ptr %5, i64 %19
   %23 = load ptr, ptr %17, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load ptr, ptr %24, align 8
   tail call void %25(ptr noundef nonnull align 8 dereferenceable(308) %17, ptr noundef %21, ptr noundef %22, i64 noundef 1)
   %26 = load i64, ptr %10, align 8
@@ -3775,7 +3775,7 @@ define internal noundef float @_ZN5faiss12_GLOBAL__N_121AQDistanceComputerLUTILb
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_121AQDistanceComputerLUTILb0ELNS_17AdditiveQuantizer13Search_type_tE3EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(68) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_121AQDistanceComputerLUTILb0ELNS_17AdditiveQuantizer13Search_type_tE3EEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %4
@@ -3791,7 +3791,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %1, %4
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_121AQDistanceComputerLUTILb0ELNS_17AdditiveQuantizer13Search_type_tE3EED0Ev(ptr noundef nonnull align 8 dereferenceable(68) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_121AQDistanceComputerLUTILb0ELNS_17AdditiveQuantizer13Search_type_tE3EEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_121AQDistanceComputerLUTILb0ELNS_17AdditiveQuantizer13Search_type_tE3EED2Ev.exit, label %4
@@ -3807,11 +3807,11 @@ _ZN5faiss12_GLOBAL__N_121AQDistanceComputerLUTILb0ELNS_17AdditiveQuantizer13Sear
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef float @_ZN5faiss12_GLOBAL__N_121AQDistanceComputerLUTILb0ELNS_17AdditiveQuantizer13Search_type_tE3EE16distance_to_codeEPKh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(68) %0, ptr noundef %1) unnamed_addr #2 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 64
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load float, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noundef float @_ZNK5faiss17AdditiveQuantizer22compute_1_distance_LUTILb0ELNS0_13Search_type_tE3EEEfPKhPKf(ptr noundef nonnull align 8 dereferenceable(308) %6, ptr noundef %1, ptr noundef %8)
   %10 = fadd float %4, %9
@@ -3824,36 +3824,36 @@ declare noundef float @_ZNK5faiss17AdditiveQuantizer22compute_1_distance_LUTILb0
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_121AQDistanceComputerLUTILb0ELNS_17AdditiveQuantizer13Search_type_tE1EE9set_queryEPKf(ptr nocapture noundef nonnull align 8 dereferenceable(68) initializes((64, 68)) %0, ptr noundef %1) unnamed_addr #2 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %9 = load ptr, ptr %8, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(308) %4, i64 noundef 1, ptr noundef %1, ptr noundef %6, float noundef 1.000000e+00, i64 noundef -1)
-  %10 = getelementptr inbounds i8, ptr %0, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %11 = load i64, ptr %10, align 8
   %12 = tail call noundef float @_ZN5faiss15fvec_norm_L2sqrEPKfm(ptr noundef %1, i64 noundef %11)
-  %13 = getelementptr inbounds i8, ptr %0, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store float %12, ptr %13, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef float @_ZN5faiss12_GLOBAL__N_121AQDistanceComputerLUTILb0ELNS_17AdditiveQuantizer13Search_type_tE1EE13symmetric_disEll(ptr nocapture noundef nonnull readonly align 8 dereferenceable(68) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #2 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %11 = load i64, ptr %10, align 8
   %12 = mul i64 %11, %1
   %13 = getelementptr inbounds i8, ptr %9, i64 %12
   %14 = load ptr, ptr %7, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8
   tail call void %16(ptr noundef nonnull align 8 dereferenceable(308) %7, ptr noundef %13, ptr noundef %5, i64 noundef 1)
   %17 = load ptr, ptr %6, align 8
@@ -3863,7 +3863,7 @@ define internal noundef float @_ZN5faiss12_GLOBAL__N_121AQDistanceComputerLUTILb
   %21 = getelementptr inbounds i8, ptr %18, i64 %20
   %22 = getelementptr inbounds float, ptr %5, i64 %19
   %23 = load ptr, ptr %17, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load ptr, ptr %24, align 8
   tail call void %25(ptr noundef nonnull align 8 dereferenceable(308) %17, ptr noundef %21, ptr noundef %22, i64 noundef 1)
   %26 = load i64, ptr %10, align 8
@@ -3875,7 +3875,7 @@ define internal noundef float @_ZN5faiss12_GLOBAL__N_121AQDistanceComputerLUTILb
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_121AQDistanceComputerLUTILb0ELNS_17AdditiveQuantizer13Search_type_tE1EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(68) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_121AQDistanceComputerLUTILb0ELNS_17AdditiveQuantizer13Search_type_tE1EEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %4
@@ -3891,7 +3891,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %1, %4
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_121AQDistanceComputerLUTILb0ELNS_17AdditiveQuantizer13Search_type_tE1EED0Ev(ptr noundef nonnull align 8 dereferenceable(68) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_121AQDistanceComputerLUTILb0ELNS_17AdditiveQuantizer13Search_type_tE1EEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_121AQDistanceComputerLUTILb0ELNS_17AdditiveQuantizer13Search_type_tE1EED2Ev.exit, label %4
@@ -3907,11 +3907,11 @@ _ZN5faiss12_GLOBAL__N_121AQDistanceComputerLUTILb0ELNS_17AdditiveQuantizer13Sear
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef float @_ZN5faiss12_GLOBAL__N_121AQDistanceComputerLUTILb0ELNS_17AdditiveQuantizer13Search_type_tE1EE16distance_to_codeEPKh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(68) %0, ptr noundef %1) unnamed_addr #2 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 64
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load float, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noundef float @_ZNK5faiss17AdditiveQuantizer22compute_1_distance_LUTILb0ELNS0_13Search_type_tE1EEEfPKhPKf(ptr noundef nonnull align 8 dereferenceable(308) %6, ptr noundef %1, ptr noundef %8)
   %10 = fadd float %4, %9
@@ -3922,36 +3922,36 @@ declare noundef float @_ZNK5faiss17AdditiveQuantizer22compute_1_distance_LUTILb0
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_121AQDistanceComputerLUTILb0ELNS_17AdditiveQuantizer13Search_type_tE4EE9set_queryEPKf(ptr nocapture noundef nonnull align 8 dereferenceable(68) initializes((64, 68)) %0, ptr noundef %1) unnamed_addr #2 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %9 = load ptr, ptr %8, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(308) %4, i64 noundef 1, ptr noundef %1, ptr noundef %6, float noundef 1.000000e+00, i64 noundef -1)
-  %10 = getelementptr inbounds i8, ptr %0, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %11 = load i64, ptr %10, align 8
   %12 = tail call noundef float @_ZN5faiss15fvec_norm_L2sqrEPKfm(ptr noundef %1, i64 noundef %11)
-  %13 = getelementptr inbounds i8, ptr %0, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store float %12, ptr %13, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef float @_ZN5faiss12_GLOBAL__N_121AQDistanceComputerLUTILb0ELNS_17AdditiveQuantizer13Search_type_tE4EE13symmetric_disEll(ptr nocapture noundef nonnull readonly align 8 dereferenceable(68) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #2 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %11 = load i64, ptr %10, align 8
   %12 = mul i64 %11, %1
   %13 = getelementptr inbounds i8, ptr %9, i64 %12
   %14 = load ptr, ptr %7, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8
   tail call void %16(ptr noundef nonnull align 8 dereferenceable(308) %7, ptr noundef %13, ptr noundef %5, i64 noundef 1)
   %17 = load ptr, ptr %6, align 8
@@ -3961,7 +3961,7 @@ define internal noundef float @_ZN5faiss12_GLOBAL__N_121AQDistanceComputerLUTILb
   %21 = getelementptr inbounds i8, ptr %18, i64 %20
   %22 = getelementptr inbounds float, ptr %5, i64 %19
   %23 = load ptr, ptr %17, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load ptr, ptr %24, align 8
   tail call void %25(ptr noundef nonnull align 8 dereferenceable(308) %17, ptr noundef %21, ptr noundef %22, i64 noundef 1)
   %26 = load i64, ptr %10, align 8
@@ -3973,7 +3973,7 @@ define internal noundef float @_ZN5faiss12_GLOBAL__N_121AQDistanceComputerLUTILb
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_121AQDistanceComputerLUTILb0ELNS_17AdditiveQuantizer13Search_type_tE4EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(68) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_121AQDistanceComputerLUTILb0ELNS_17AdditiveQuantizer13Search_type_tE4EEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %4
@@ -3989,7 +3989,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %1, %4
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_121AQDistanceComputerLUTILb0ELNS_17AdditiveQuantizer13Search_type_tE4EED0Ev(ptr noundef nonnull align 8 dereferenceable(68) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_121AQDistanceComputerLUTILb0ELNS_17AdditiveQuantizer13Search_type_tE4EEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_121AQDistanceComputerLUTILb0ELNS_17AdditiveQuantizer13Search_type_tE4EED2Ev.exit, label %4
@@ -4005,11 +4005,11 @@ _ZN5faiss12_GLOBAL__N_121AQDistanceComputerLUTILb0ELNS_17AdditiveQuantizer13Sear
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef float @_ZN5faiss12_GLOBAL__N_121AQDistanceComputerLUTILb0ELNS_17AdditiveQuantizer13Search_type_tE4EE16distance_to_codeEPKh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(68) %0, ptr noundef %1) unnamed_addr #2 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 64
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load float, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noundef float @_ZNK5faiss17AdditiveQuantizer22compute_1_distance_LUTILb0ELNS0_13Search_type_tE4EEEfPKhPKf(ptr noundef nonnull align 8 dereferenceable(308) %6, ptr noundef %1, ptr noundef %8)
   %10 = fadd float %4, %9
@@ -4020,36 +4020,36 @@ declare noundef float @_ZNK5faiss17AdditiveQuantizer22compute_1_distance_LUTILb0
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_121AQDistanceComputerLUTILb0ELNS_17AdditiveQuantizer13Search_type_tE5EE9set_queryEPKf(ptr nocapture noundef nonnull align 8 dereferenceable(68) initializes((64, 68)) %0, ptr noundef %1) unnamed_addr #2 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %9 = load ptr, ptr %8, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(308) %4, i64 noundef 1, ptr noundef %1, ptr noundef %6, float noundef 1.000000e+00, i64 noundef -1)
-  %10 = getelementptr inbounds i8, ptr %0, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %11 = load i64, ptr %10, align 8
   %12 = tail call noundef float @_ZN5faiss15fvec_norm_L2sqrEPKfm(ptr noundef %1, i64 noundef %11)
-  %13 = getelementptr inbounds i8, ptr %0, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store float %12, ptr %13, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef float @_ZN5faiss12_GLOBAL__N_121AQDistanceComputerLUTILb0ELNS_17AdditiveQuantizer13Search_type_tE5EE13symmetric_disEll(ptr nocapture noundef nonnull readonly align 8 dereferenceable(68) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #2 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %11 = load i64, ptr %10, align 8
   %12 = mul i64 %11, %1
   %13 = getelementptr inbounds i8, ptr %9, i64 %12
   %14 = load ptr, ptr %7, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8
   tail call void %16(ptr noundef nonnull align 8 dereferenceable(308) %7, ptr noundef %13, ptr noundef %5, i64 noundef 1)
   %17 = load ptr, ptr %6, align 8
@@ -4059,7 +4059,7 @@ define internal noundef float @_ZN5faiss12_GLOBAL__N_121AQDistanceComputerLUTILb
   %21 = getelementptr inbounds i8, ptr %18, i64 %20
   %22 = getelementptr inbounds float, ptr %5, i64 %19
   %23 = load ptr, ptr %17, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load ptr, ptr %24, align 8
   tail call void %25(ptr noundef nonnull align 8 dereferenceable(308) %17, ptr noundef %21, ptr noundef %22, i64 noundef 1)
   %26 = load i64, ptr %10, align 8
@@ -4071,7 +4071,7 @@ define internal noundef float @_ZN5faiss12_GLOBAL__N_121AQDistanceComputerLUTILb
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_121AQDistanceComputerLUTILb0ELNS_17AdditiveQuantizer13Search_type_tE5EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(68) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_121AQDistanceComputerLUTILb0ELNS_17AdditiveQuantizer13Search_type_tE5EEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %4
@@ -4087,7 +4087,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %1, %4
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_121AQDistanceComputerLUTILb0ELNS_17AdditiveQuantizer13Search_type_tE5EED0Ev(ptr noundef nonnull align 8 dereferenceable(68) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_121AQDistanceComputerLUTILb0ELNS_17AdditiveQuantizer13Search_type_tE5EEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_121AQDistanceComputerLUTILb0ELNS_17AdditiveQuantizer13Search_type_tE5EED2Ev.exit, label %4
@@ -4103,11 +4103,11 @@ _ZN5faiss12_GLOBAL__N_121AQDistanceComputerLUTILb0ELNS_17AdditiveQuantizer13Sear
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef float @_ZN5faiss12_GLOBAL__N_121AQDistanceComputerLUTILb0ELNS_17AdditiveQuantizer13Search_type_tE5EE16distance_to_codeEPKh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(68) %0, ptr noundef %1) unnamed_addr #2 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 64
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load float, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noundef float @_ZNK5faiss17AdditiveQuantizer22compute_1_distance_LUTILb0ELNS0_13Search_type_tE5EEEfPKhPKf(ptr noundef nonnull align 8 dereferenceable(308) %6, ptr noundef %1, ptr noundef %8)
   %10 = fadd float %4, %9
@@ -4118,36 +4118,36 @@ declare noundef float @_ZNK5faiss17AdditiveQuantizer22compute_1_distance_LUTILb0
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_121AQDistanceComputerLUTILb0ELNS_17AdditiveQuantizer13Search_type_tE7EE9set_queryEPKf(ptr nocapture noundef nonnull align 8 dereferenceable(68) initializes((64, 68)) %0, ptr noundef %1) unnamed_addr #2 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %9 = load ptr, ptr %8, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(308) %4, i64 noundef 1, ptr noundef %1, ptr noundef %6, float noundef 1.000000e+00, i64 noundef -1)
-  %10 = getelementptr inbounds i8, ptr %0, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %11 = load i64, ptr %10, align 8
   %12 = tail call noundef float @_ZN5faiss15fvec_norm_L2sqrEPKfm(ptr noundef %1, i64 noundef %11)
-  %13 = getelementptr inbounds i8, ptr %0, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store float %12, ptr %13, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef float @_ZN5faiss12_GLOBAL__N_121AQDistanceComputerLUTILb0ELNS_17AdditiveQuantizer13Search_type_tE7EE13symmetric_disEll(ptr nocapture noundef nonnull readonly align 8 dereferenceable(68) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #2 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %11 = load i64, ptr %10, align 8
   %12 = mul i64 %11, %1
   %13 = getelementptr inbounds i8, ptr %9, i64 %12
   %14 = load ptr, ptr %7, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8
   tail call void %16(ptr noundef nonnull align 8 dereferenceable(308) %7, ptr noundef %13, ptr noundef %5, i64 noundef 1)
   %17 = load ptr, ptr %6, align 8
@@ -4157,7 +4157,7 @@ define internal noundef float @_ZN5faiss12_GLOBAL__N_121AQDistanceComputerLUTILb
   %21 = getelementptr inbounds i8, ptr %18, i64 %20
   %22 = getelementptr inbounds float, ptr %5, i64 %19
   %23 = load ptr, ptr %17, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load ptr, ptr %24, align 8
   tail call void %25(ptr noundef nonnull align 8 dereferenceable(308) %17, ptr noundef %21, ptr noundef %22, i64 noundef 1)
   %26 = load i64, ptr %10, align 8
@@ -4169,7 +4169,7 @@ define internal noundef float @_ZN5faiss12_GLOBAL__N_121AQDistanceComputerLUTILb
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_121AQDistanceComputerLUTILb0ELNS_17AdditiveQuantizer13Search_type_tE7EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(68) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_121AQDistanceComputerLUTILb0ELNS_17AdditiveQuantizer13Search_type_tE7EEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %4
@@ -4185,7 +4185,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %1, %4
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_121AQDistanceComputerLUTILb0ELNS_17AdditiveQuantizer13Search_type_tE7EED0Ev(ptr noundef nonnull align 8 dereferenceable(68) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_121AQDistanceComputerLUTILb0ELNS_17AdditiveQuantizer13Search_type_tE7EEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_121AQDistanceComputerLUTILb0ELNS_17AdditiveQuantizer13Search_type_tE7EED2Ev.exit, label %4
@@ -4201,11 +4201,11 @@ _ZN5faiss12_GLOBAL__N_121AQDistanceComputerLUTILb0ELNS_17AdditiveQuantizer13Sear
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef float @_ZN5faiss12_GLOBAL__N_121AQDistanceComputerLUTILb0ELNS_17AdditiveQuantizer13Search_type_tE7EE16distance_to_codeEPKh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(68) %0, ptr noundef %1) unnamed_addr #2 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 64
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load float, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noundef float @_ZNK5faiss17AdditiveQuantizer22compute_1_distance_LUTILb0ELNS0_13Search_type_tE7EEEfPKhPKf(ptr noundef nonnull align 8 dereferenceable(308) %6, ptr noundef %1, ptr noundef %8)
   %10 = fadd float %4, %9
@@ -4216,36 +4216,36 @@ declare noundef float @_ZNK5faiss17AdditiveQuantizer22compute_1_distance_LUTILb0
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_121AQDistanceComputerLUTILb0ELNS_17AdditiveQuantizer13Search_type_tE6EE9set_queryEPKf(ptr nocapture noundef nonnull align 8 dereferenceable(68) initializes((64, 68)) %0, ptr noundef %1) unnamed_addr #2 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %9 = load ptr, ptr %8, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(308) %4, i64 noundef 1, ptr noundef %1, ptr noundef %6, float noundef 1.000000e+00, i64 noundef -1)
-  %10 = getelementptr inbounds i8, ptr %0, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %11 = load i64, ptr %10, align 8
   %12 = tail call noundef float @_ZN5faiss15fvec_norm_L2sqrEPKfm(ptr noundef %1, i64 noundef %11)
-  %13 = getelementptr inbounds i8, ptr %0, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store float %12, ptr %13, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef float @_ZN5faiss12_GLOBAL__N_121AQDistanceComputerLUTILb0ELNS_17AdditiveQuantizer13Search_type_tE6EE13symmetric_disEll(ptr nocapture noundef nonnull readonly align 8 dereferenceable(68) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #2 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %11 = load i64, ptr %10, align 8
   %12 = mul i64 %11, %1
   %13 = getelementptr inbounds i8, ptr %9, i64 %12
   %14 = load ptr, ptr %7, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8
   tail call void %16(ptr noundef nonnull align 8 dereferenceable(308) %7, ptr noundef %13, ptr noundef %5, i64 noundef 1)
   %17 = load ptr, ptr %6, align 8
@@ -4255,7 +4255,7 @@ define internal noundef float @_ZN5faiss12_GLOBAL__N_121AQDistanceComputerLUTILb
   %21 = getelementptr inbounds i8, ptr %18, i64 %20
   %22 = getelementptr inbounds float, ptr %5, i64 %19
   %23 = load ptr, ptr %17, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load ptr, ptr %24, align 8
   tail call void %25(ptr noundef nonnull align 8 dereferenceable(308) %17, ptr noundef %21, ptr noundef %22, i64 noundef 1)
   %26 = load i64, ptr %10, align 8
@@ -4267,7 +4267,7 @@ define internal noundef float @_ZN5faiss12_GLOBAL__N_121AQDistanceComputerLUTILb
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_121AQDistanceComputerLUTILb0ELNS_17AdditiveQuantizer13Search_type_tE6EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(68) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_121AQDistanceComputerLUTILb0ELNS_17AdditiveQuantizer13Search_type_tE6EEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %4
@@ -4283,7 +4283,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %1, %4
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN5faiss12_GLOBAL__N_121AQDistanceComputerLUTILb0ELNS_17AdditiveQuantizer13Search_type_tE6EED0Ev(ptr noundef nonnull align 8 dereferenceable(68) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_121AQDistanceComputerLUTILb0ELNS_17AdditiveQuantizer13Search_type_tE6EEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i, label %_ZN5faiss12_GLOBAL__N_121AQDistanceComputerLUTILb0ELNS_17AdditiveQuantizer13Search_type_tE6EED2Ev.exit, label %4
@@ -4299,11 +4299,11 @@ _ZN5faiss12_GLOBAL__N_121AQDistanceComputerLUTILb0ELNS_17AdditiveQuantizer13Sear
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef float @_ZN5faiss12_GLOBAL__N_121AQDistanceComputerLUTILb0ELNS_17AdditiveQuantizer13Search_type_tE6EE16distance_to_codeEPKh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(68) %0, ptr noundef %1) unnamed_addr #2 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 64
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load float, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noundef float @_ZNK5faiss17AdditiveQuantizer22compute_1_distance_LUTILb0ELNS0_13Search_type_tE6EEEfPKhPKf(ptr noundef nonnull align 8 dereferenceable(308) %6, ptr noundef %1, ptr noundef %8)
   %10 = fadd float %4, %9
@@ -4324,17 +4324,17 @@ define linkonce_odr void @_ZN5faiss22HeapBlockResultHandlerINS_4CMinIflEEED2Ev(p
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5faiss22HeapBlockResultHandlerINS_4CMaxIflEEE14begin_multipleEmm(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #2 comdat align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %2, ptr %5, align 8
   %6 = icmp ult i64 %1, %2
   br i1 %6, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 48
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
-  %9 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load i64, ptr %7, align 8
   %11 = icmp eq i64 %10, 0
   br i1 %11, label %._crit_edge, label %.lr.ph.split
@@ -4393,17 +4393,17 @@ define linkonce_odr void @_ZN5faiss22HeapBlockResultHandlerINS_4CMaxIflEEE11add_
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5faiss22HeapBlockResultHandlerINS_4CMaxIflEEE12end_multipleEv(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #2 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i64, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i64, ptr %4, align 8
   %6 = icmp ult i64 %3, %5
   br i1 %6, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 48
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
-  %9 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %10
 
 10:                                               ; preds = %.lr.ph, %10
@@ -4436,9 +4436,9 @@ define internal void @_ZN5faiss22HeapBlockResultHandlerINS_4CMaxIflEEE11add_resu
   %8 = alloca i64, align 8
   %9 = alloca i64, align 8
   %10 = alloca i32, align 4
-  %11 = getelementptr inbounds i8, ptr %2, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %12 = load i64, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %2, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %14 = load i64, ptr %13, align 8
   %15 = icmp ult i64 %12, %14
   br i1 %15, label %16, label %109
@@ -4461,9 +4461,9 @@ define internal void @_ZN5faiss22HeapBlockResultHandlerINS_4CMaxIflEEE11add_resu
   br i1 %24, label %.lr.ph41, label %._crit_edge42
 
 .lr.ph41:                                         ; preds = %16
-  %25 = getelementptr inbounds i8, ptr %2, i64 32
-  %26 = getelementptr inbounds i8, ptr %2, i64 48
-  %27 = getelementptr inbounds i8, ptr %2, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 48
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %28 = load i64, ptr %5, align 8
   %29 = load i64, ptr %4, align 8
   %30 = icmp ult i64 %28, %29
@@ -4782,7 +4782,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_122search_with_decompressINS_14Vecto
   %12 = alloca i64, align 8
   %13 = alloca i64, align 8
   %14 = alloca i32, align 4
-  %15 = getelementptr inbounds i8, ptr %2, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %16 = load i64, ptr %15, align 8
   %.not = icmp eq i64 %16, 0
   br i1 %.not, label %115, label %17
@@ -4803,10 +4803,10 @@ define internal void @_ZN5faiss12_GLOBAL__N_122search_with_decompressINS_14Vecto
   br i1 %.not59, label %._crit_edge57, label %.lr.ph56
 
 .lr.ph56:                                         ; preds = %17
-  %23 = getelementptr inbounds i8, ptr %2, i64 48
-  %24 = getelementptr inbounds i8, ptr %2, i64 32
-  %25 = getelementptr inbounds i8, ptr %2, i64 40
-  %26 = getelementptr inbounds i8, ptr %3, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %27
 
 27:                                               ; preds = %.lr.ph56, %_ZNSt6vectorIfSaIfEED2Ev.exit
@@ -4889,7 +4889,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPfmfET_
   %59 = mul i64 %58, %.03051
   %60 = getelementptr inbounds i8, ptr %57, i64 %59
   %61 = load ptr, ptr %56, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 16
   %63 = load ptr, ptr %62, align 8
   invoke void %63(ptr noundef nonnull align 8 dereferenceable(308) %56, ptr noundef %60, ptr noundef %.sroa.0.1, i64 noundef 1)
           to label %64 unwind label %.loopexit
@@ -5047,17 +5047,17 @@ declare void @__kmpc_end_serialized_parallel(ptr, i32) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5faiss22HeapBlockResultHandlerINS_4CMinIflEEE14begin_multipleEmm(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #2 comdat align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %2, ptr %5, align 8
   %6 = icmp ult i64 %1, %2
   br i1 %6, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 48
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
-  %9 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load i64, ptr %7, align 8
   %11 = icmp eq i64 %10, 0
   br i1 %11, label %._crit_edge, label %.lr.ph.split
@@ -5116,17 +5116,17 @@ define linkonce_odr void @_ZN5faiss22HeapBlockResultHandlerINS_4CMinIflEEE11add_
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5faiss22HeapBlockResultHandlerINS_4CMinIflEEE12end_multipleEv(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #2 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i64, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i64, ptr %4, align 8
   %6 = icmp ult i64 %3, %5
   br i1 %6, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 48
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
-  %9 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %10
 
 10:                                               ; preds = %.lr.ph, %10
@@ -5159,9 +5159,9 @@ define internal void @_ZN5faiss22HeapBlockResultHandlerINS_4CMinIflEEE11add_resu
   %8 = alloca i64, align 8
   %9 = alloca i64, align 8
   %10 = alloca i32, align 4
-  %11 = getelementptr inbounds i8, ptr %2, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %12 = load i64, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %2, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %14 = load i64, ptr %13, align 8
   %15 = icmp ult i64 %12, %14
   br i1 %15, label %16, label %109
@@ -5184,9 +5184,9 @@ define internal void @_ZN5faiss22HeapBlockResultHandlerINS_4CMinIflEEE11add_resu
   br i1 %24, label %.lr.ph41, label %._crit_edge42
 
 .lr.ph41:                                         ; preds = %16
-  %25 = getelementptr inbounds i8, ptr %2, i64 32
-  %26 = getelementptr inbounds i8, ptr %2, i64 48
-  %27 = getelementptr inbounds i8, ptr %2, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 48
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %28 = load i64, ptr %5, align 8
   %29 = load i64, ptr %4, align 8
   %30 = icmp ult i64 %28, %29
@@ -5493,7 +5493,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_122search_with_decompressINS_14Vecto
   %12 = alloca i64, align 8
   %13 = alloca i64, align 8
   %14 = alloca i32, align 4
-  %15 = getelementptr inbounds i8, ptr %2, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %16 = load i64, ptr %15, align 8
   %.not = icmp eq i64 %16, 0
   br i1 %.not, label %115, label %17
@@ -5514,10 +5514,10 @@ define internal void @_ZN5faiss12_GLOBAL__N_122search_with_decompressINS_14Vecto
   br i1 %.not59, label %._crit_edge57, label %.lr.ph56
 
 .lr.ph56:                                         ; preds = %17
-  %23 = getelementptr inbounds i8, ptr %2, i64 48
-  %24 = getelementptr inbounds i8, ptr %2, i64 32
-  %25 = getelementptr inbounds i8, ptr %2, i64 40
-  %26 = getelementptr inbounds i8, ptr %3, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %27
 
 27:                                               ; preds = %.lr.ph56, %_ZNSt6vectorIfSaIfEED2Ev.exit
@@ -5600,7 +5600,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPfmfET_
   %59 = mul i64 %58, %.03051
   %60 = getelementptr inbounds i8, ptr %57, i64 %59
   %61 = load ptr, ptr %56, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 16
   %63 = load ptr, ptr %62, align 8
   invoke void %63(ptr noundef nonnull align 8 dereferenceable(308) %56, ptr noundef %60, ptr noundef %.sroa.0.1, i64 noundef 1)
           to label %64 unwind label %.loopexit
@@ -5776,11 +5776,11 @@ define internal void @_ZN5faiss12_GLOBAL__N_115search_with_LUTILb1ELNS_17Additiv
   br i1 %.not58, label %._crit_edge53, label %.lr.ph52
 
 .lr.ph52:                                         ; preds = %17
-  %23 = getelementptr inbounds i8, ptr %3, i64 48
-  %24 = getelementptr inbounds i8, ptr %3, i64 32
-  %25 = getelementptr inbounds i8, ptr %3, i64 40
-  %26 = getelementptr inbounds i8, ptr %4, i64 8
-  %27 = getelementptr inbounds i8, ptr %4, i64 120
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 120
   br label %28
 
 28:                                               ; preds = %.lr.ph52, %_ZNSt6vectorIfSaIfEED2Ev.exit
@@ -6062,11 +6062,11 @@ define internal void @_ZN5faiss12_GLOBAL__N_115search_with_LUTILb0ELNS_17Additiv
   br i1 %.not61, label %._crit_edge56, label %.lr.ph55
 
 .lr.ph55:                                         ; preds = %17
-  %23 = getelementptr inbounds i8, ptr %3, i64 48
-  %24 = getelementptr inbounds i8, ptr %3, i64 32
-  %25 = getelementptr inbounds i8, ptr %3, i64 40
-  %26 = getelementptr inbounds i8, ptr %4, i64 8
-  %27 = getelementptr inbounds i8, ptr %4, i64 120
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 120
   br label %28
 
 28:                                               ; preds = %.lr.ph55, %_ZNSt6vectorIfSaIfEED2Ev.exit
@@ -6353,11 +6353,11 @@ define internal void @_ZN5faiss12_GLOBAL__N_115search_with_LUTILb0ELNS_17Additiv
   br i1 %.not61, label %._crit_edge56, label %.lr.ph55
 
 .lr.ph55:                                         ; preds = %17
-  %23 = getelementptr inbounds i8, ptr %3, i64 48
-  %24 = getelementptr inbounds i8, ptr %3, i64 32
-  %25 = getelementptr inbounds i8, ptr %3, i64 40
-  %26 = getelementptr inbounds i8, ptr %4, i64 8
-  %27 = getelementptr inbounds i8, ptr %4, i64 120
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 120
   br label %28
 
 28:                                               ; preds = %.lr.ph55, %_ZNSt6vectorIfSaIfEED2Ev.exit
@@ -6644,11 +6644,11 @@ define internal void @_ZN5faiss12_GLOBAL__N_115search_with_LUTILb0ELNS_17Additiv
   br i1 %.not61, label %._crit_edge56, label %.lr.ph55
 
 .lr.ph55:                                         ; preds = %17
-  %23 = getelementptr inbounds i8, ptr %3, i64 48
-  %24 = getelementptr inbounds i8, ptr %3, i64 32
-  %25 = getelementptr inbounds i8, ptr %3, i64 40
-  %26 = getelementptr inbounds i8, ptr %4, i64 8
-  %27 = getelementptr inbounds i8, ptr %4, i64 120
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 120
   br label %28
 
 28:                                               ; preds = %.lr.ph55, %_ZNSt6vectorIfSaIfEED2Ev.exit
@@ -6935,11 +6935,11 @@ define internal void @_ZN5faiss12_GLOBAL__N_115search_with_LUTILb0ELNS_17Additiv
   br i1 %.not61, label %._crit_edge56, label %.lr.ph55
 
 .lr.ph55:                                         ; preds = %17
-  %23 = getelementptr inbounds i8, ptr %3, i64 48
-  %24 = getelementptr inbounds i8, ptr %3, i64 32
-  %25 = getelementptr inbounds i8, ptr %3, i64 40
-  %26 = getelementptr inbounds i8, ptr %4, i64 8
-  %27 = getelementptr inbounds i8, ptr %4, i64 120
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 120
   br label %28
 
 28:                                               ; preds = %.lr.ph55, %_ZNSt6vectorIfSaIfEED2Ev.exit
@@ -7226,11 +7226,11 @@ define internal void @_ZN5faiss12_GLOBAL__N_115search_with_LUTILb0ELNS_17Additiv
   br i1 %.not61, label %._crit_edge56, label %.lr.ph55
 
 .lr.ph55:                                         ; preds = %17
-  %23 = getelementptr inbounds i8, ptr %3, i64 48
-  %24 = getelementptr inbounds i8, ptr %3, i64 32
-  %25 = getelementptr inbounds i8, ptr %3, i64 40
-  %26 = getelementptr inbounds i8, ptr %4, i64 8
-  %27 = getelementptr inbounds i8, ptr %4, i64 120
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 120
   br label %28
 
 28:                                               ; preds = %.lr.ph55, %_ZNSt6vectorIfSaIfEED2Ev.exit
@@ -7517,11 +7517,11 @@ define internal void @_ZN5faiss12_GLOBAL__N_115search_with_LUTILb0ELNS_17Additiv
   br i1 %.not61, label %._crit_edge56, label %.lr.ph55
 
 .lr.ph55:                                         ; preds = %17
-  %23 = getelementptr inbounds i8, ptr %3, i64 48
-  %24 = getelementptr inbounds i8, ptr %3, i64 32
-  %25 = getelementptr inbounds i8, ptr %3, i64 40
-  %26 = getelementptr inbounds i8, ptr %4, i64 8
-  %27 = getelementptr inbounds i8, ptr %4, i64 120
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 120
   br label %28
 
 28:                                               ; preds = %.lr.ph55, %_ZNSt6vectorIfSaIfEED2Ev.exit
@@ -7797,7 +7797,7 @@ _ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %6
   br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseImSaImEEC2EmRKS0_.exit.thread.i, label %.noexc8
 
 _ZNSt12_Vector_baseImSaImEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i
-  %9 = getelementptr inbounds i8, ptr %7, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   br label %.loopexit
 
@@ -7805,17 +7805,17 @@ _ZNSt12_Vector_baseImSaImEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorImSaI
   %10 = shl nuw nsw i64 %2, 3
   %11 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %10) #24
   store ptr %11, ptr %7, align 8
-  %12 = getelementptr inbounds i8, ptr %7, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %11, ptr %12, align 8
-  %13 = getelementptr inbounds i64, ptr %11, i64 %2
-  %14 = getelementptr inbounds i8, ptr %7, i64 16
+  %13 = getelementptr inbounds nuw i64, ptr %11, i64 %2
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %13, ptr %14, align 8
   br label %.lr.ph.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i, %.noexc8
   %.06.i.i.i.i.i.i.i.i.i = phi ptr [ %15, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %11, %.noexc8 ]
   store i64 %3, ptr %.06.i.i.i.i.i.i.i.i.i, align 8
-  %15 = getelementptr inbounds i8, ptr %.06.i.i.i.i.i.i.i.i.i, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %15, %13
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i.i.i.i.i.i, !llvm.loop !37
 
@@ -7826,7 +7826,7 @@ _ZNSt12_Vector_baseImSaImEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorImSaI
   store ptr %.0.i.i.i.i.i.i.i, ptr %17, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss22IndexResidualQuantizerE, i64 16), ptr %0, align 8
   %18 = sext i32 %1 to i64
-  %19 = getelementptr inbounds i8, ptr %0, i64 80
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 80
   invoke void @_ZN5faiss22IndexAdditiveQuantizerC2ElPNS_17AdditiveQuantizerENS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(512) %0, i64 noundef %18, ptr noundef nonnull %19, i32 noundef %4)
           to label %.noexc9 unwind label %29
 
@@ -7843,11 +7843,11 @@ _ZNSt12_Vector_baseImSaImEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorImSaI
   br label %.body
 
 22:                                               ; preds = %.noexc9
-  %23 = getelementptr inbounds i8, ptr %0, i64 96
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %24 = load i64, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %24, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 25
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 25
   store i8 0, ptr %26, align 1
   %27 = load ptr, ptr %7, align 8
   %.not.i.i.i = icmp eq ptr %27, null
@@ -7883,18 +7883,18 @@ _ZNSt6vectorImSaImEED2Ev.exit11:                  ; preds = %32, %.body
 define void @_ZN5faiss22IndexResidualQuantizerC2EiRKSt6vectorImSaImEENS_10MetricTypeENS_17AdditiveQuantizer13Search_type_tE(ptr noundef nonnull align 8 dereferenceable(512) initializes((0, 8)) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss22IndexResidualQuantizerE, i64 16), ptr %0, align 8
   %6 = sext i32 %1 to i64
-  %7 = getelementptr inbounds i8, ptr %0, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @_ZN5faiss22IndexAdditiveQuantizerC2ElPNS_17AdditiveQuantizerENS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(80) %0, i64 noundef %6, ptr noundef nonnull %7, i32 noundef %3)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss22IndexResidualQuantizerE, i64 16), ptr %0, align 8
   invoke void @_ZN5faiss17ResidualQuantizerC1EmRKSt6vectorImSaImEENS_17AdditiveQuantizer13Search_type_tE(ptr noundef nonnull align 8 dereferenceable(432) %7, i64 noundef %6, ptr noundef nonnull align 8 dereferenceable(24) %2, i32 noundef %4)
           to label %8 unwind label %13
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 96
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %10 = load i64, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %10, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 25
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 25
   store i8 0, ptr %12, align 1
   ret void
 
@@ -7914,11 +7914,11 @@ define void @_ZN5faiss22IndexResidualQuantizerC2Ev(ptr noundef nonnull align 8 d
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss22IndexResidualQuantizerE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 80
-  %3 = getelementptr inbounds i8, ptr %0, i64 96
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %4 = load i64, ptr %3, align 8
   tail call void @_ZN5faiss14IndexFlatCodesC2EmlNS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(512) %0, i64 noundef %4, i64 noundef 0, i32 noundef 1)
-  %5 = getelementptr inbounds i8, ptr %0, i64 72
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %2, ptr %5, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss22IndexResidualQuantizerE, i64 16), ptr %0, align 8
   invoke void @_ZN5faiss17ResidualQuantizerC1EmRKSt6vectorImSaImEENS_17AdditiveQuantizer13Search_type_tE(ptr noundef nonnull align 8 dereferenceable(432) %2, i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef 0)
@@ -7926,9 +7926,9 @@ define void @_ZN5faiss22IndexResidualQuantizerC2Ev(ptr noundef nonnull align 8 d
 
 6:                                                ; preds = %.noexc9.i
   %7 = load i64, ptr %3, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %7, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 25
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 25
   store i8 0, ptr %9, align 1
   %10 = load ptr, ptr %1, align 8
   %.not.i.i.i.i = icmp eq ptr %10, null
@@ -7964,18 +7964,18 @@ declare void @_ZN5faiss17ResidualQuantizer5trainEmPKf(ptr noundef nonnull align 
 define void @_ZN5faiss25IndexLocalSearchQuantizerC2EimmNS_10MetricTypeENS_17AdditiveQuantizer13Search_type_tE(ptr noundef nonnull align 8 dereferenceable(480) initializes((0, 8)) %0, i32 noundef %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss25IndexLocalSearchQuantizerE, i64 16), ptr %0, align 8
   %7 = sext i32 %1 to i64
-  %8 = getelementptr inbounds i8, ptr %0, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @_ZN5faiss22IndexAdditiveQuantizerC2ElPNS_17AdditiveQuantizerENS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(80) %0, i64 noundef %7, ptr noundef nonnull %8, i32 noundef %4)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss25IndexLocalSearchQuantizerE, i64 16), ptr %0, align 8
   invoke void @_ZN5faiss20LocalSearchQuantizerC1EmmmNS_17AdditiveQuantizer13Search_type_tE(ptr noundef nonnull align 8 dereferenceable(393) %8, i64 noundef %7, i64 noundef %2, i64 noundef %3, i32 noundef %5)
           to label %9 unwind label %14
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %0, i64 96
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %11 = load i64, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %11, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 25
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 25
   store i8 0, ptr %13, align 1
   ret void
 
@@ -7991,11 +7991,11 @@ declare void @_ZN5faiss20LocalSearchQuantizerC1EmmmNS_17AdditiveQuantizer13Searc
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5faiss25IndexLocalSearchQuantizerC2Ev(ptr noundef nonnull align 8 dereferenceable(480) initializes((0, 8)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss25IndexLocalSearchQuantizerE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 80
-  %3 = getelementptr inbounds i8, ptr %0, i64 96
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %4 = load i64, ptr %3, align 8
   tail call void @_ZN5faiss14IndexFlatCodesC2EmlNS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(480) %0, i64 noundef %4, i64 noundef 0, i32 noundef 1)
-  %5 = getelementptr inbounds i8, ptr %0, i64 72
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %2, ptr %5, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss25IndexLocalSearchQuantizerE, i64 16), ptr %0, align 8
   invoke void @_ZN5faiss20LocalSearchQuantizerC1EmmmNS_17AdditiveQuantizer13Search_type_tE(ptr noundef nonnull align 8 dereferenceable(393) %2, i64 noundef 0, i64 noundef 0, i64 noundef 0, i32 noundef 0)
@@ -8009,9 +8009,9 @@ define void @_ZN5faiss25IndexLocalSearchQuantizerC2Ev(ptr noundef nonnull align 
 
 _ZN5faiss25IndexLocalSearchQuantizerC2EimmNS_10MetricTypeENS_17AdditiveQuantizer13Search_type_tE.exit: ; preds = %1
   %8 = load i64, ptr %3, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %8, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 25
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 25
   store i8 0, ptr %10, align 1
   ret void
 }
@@ -8022,18 +8022,18 @@ declare void @_ZN5faiss20LocalSearchQuantizer5trainEmPKf(ptr noundef nonnull ali
 define void @_ZN5faiss29IndexProductResidualQuantizerC2EimmmNS_10MetricTypeENS_17AdditiveQuantizer13Search_type_tE(ptr noundef nonnull align 8 dereferenceable(424) initializes((0, 8)) %0, i32 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i32 noundef %5, i32 noundef %6) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss29IndexProductResidualQuantizerE, i64 16), ptr %0, align 8
   %8 = sext i32 %1 to i64
-  %9 = getelementptr inbounds i8, ptr %0, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @_ZN5faiss22IndexAdditiveQuantizerC2ElPNS_17AdditiveQuantizerENS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(80) %0, i64 noundef %8, ptr noundef nonnull %9, i32 noundef %5)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss29IndexProductResidualQuantizerE, i64 16), ptr %0, align 8
   invoke void @_ZN5faiss24ProductResidualQuantizerC1EmmmmNS_17AdditiveQuantizer13Search_type_tE(ptr noundef nonnull align 8 dereferenceable(344) %9, i64 noundef %8, i64 noundef %2, i64 noundef %3, i64 noundef %4, i32 noundef %6)
           to label %10 unwind label %15
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %0, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %12 = load i64, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %12, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 25
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 25
   store i8 0, ptr %14, align 1
   ret void
 
@@ -8049,11 +8049,11 @@ declare void @_ZN5faiss24ProductResidualQuantizerC1EmmmmNS_17AdditiveQuantizer13
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5faiss29IndexProductResidualQuantizerC2Ev(ptr noundef nonnull align 8 dereferenceable(424) initializes((0, 8)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss29IndexProductResidualQuantizerE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 80
-  %3 = getelementptr inbounds i8, ptr %0, i64 96
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %4 = load i64, ptr %3, align 8
   tail call void @_ZN5faiss14IndexFlatCodesC2EmlNS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(424) %0, i64 noundef %4, i64 noundef 0, i32 noundef 1)
-  %5 = getelementptr inbounds i8, ptr %0, i64 72
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %2, ptr %5, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss29IndexProductResidualQuantizerE, i64 16), ptr %0, align 8
   invoke void @_ZN5faiss24ProductResidualQuantizerC1EmmmmNS_17AdditiveQuantizer13Search_type_tE(ptr noundef nonnull align 8 dereferenceable(344) %2, i64 noundef 0, i64 noundef 0, i64 noundef 0, i64 noundef 0, i32 noundef 0)
@@ -8067,9 +8067,9 @@ define void @_ZN5faiss29IndexProductResidualQuantizerC2Ev(ptr noundef nonnull al
 
 _ZN5faiss29IndexProductResidualQuantizerC2EimmmNS_10MetricTypeENS_17AdditiveQuantizer13Search_type_tE.exit: ; preds = %1
   %8 = load i64, ptr %3, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %8, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 25
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 25
   store i8 0, ptr %10, align 1
   ret void
 }
@@ -8080,18 +8080,18 @@ declare void @_ZN5faiss24ProductAdditiveQuantizer5trainEmPKf(ptr noundef nonnull
 define void @_ZN5faiss32IndexProductLocalSearchQuantizerC2EimmmNS_10MetricTypeENS_17AdditiveQuantizer13Search_type_tE(ptr noundef nonnull align 8 dereferenceable(424) initializes((0, 8)) %0, i32 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i32 noundef %5, i32 noundef %6) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss32IndexProductLocalSearchQuantizerE, i64 16), ptr %0, align 8
   %8 = sext i32 %1 to i64
-  %9 = getelementptr inbounds i8, ptr %0, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @_ZN5faiss22IndexAdditiveQuantizerC2ElPNS_17AdditiveQuantizerENS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(80) %0, i64 noundef %8, ptr noundef nonnull %9, i32 noundef %5)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss32IndexProductLocalSearchQuantizerE, i64 16), ptr %0, align 8
   invoke void @_ZN5faiss27ProductLocalSearchQuantizerC1EmmmmNS_17AdditiveQuantizer13Search_type_tE(ptr noundef nonnull align 8 dereferenceable(344) %9, i64 noundef %8, i64 noundef %2, i64 noundef %3, i64 noundef %4, i32 noundef %6)
           to label %10 unwind label %15
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %0, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %12 = load i64, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %12, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 25
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 25
   store i8 0, ptr %14, align 1
   ret void
 
@@ -8107,11 +8107,11 @@ declare void @_ZN5faiss27ProductLocalSearchQuantizerC1EmmmmNS_17AdditiveQuantize
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5faiss32IndexProductLocalSearchQuantizerC2Ev(ptr noundef nonnull align 8 dereferenceable(424) initializes((0, 8)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss32IndexProductLocalSearchQuantizerE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 80
-  %3 = getelementptr inbounds i8, ptr %0, i64 96
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %4 = load i64, ptr %3, align 8
   tail call void @_ZN5faiss14IndexFlatCodesC2EmlNS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(424) %0, i64 noundef %4, i64 noundef 0, i32 noundef 1)
-  %5 = getelementptr inbounds i8, ptr %0, i64 72
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %2, ptr %5, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss32IndexProductLocalSearchQuantizerE, i64 16), ptr %0, align 8
   invoke void @_ZN5faiss27ProductLocalSearchQuantizerC1EmmmmNS_17AdditiveQuantizer13Search_type_tE(ptr noundef nonnull align 8 dereferenceable(344) %2, i64 noundef 0, i64 noundef 0, i64 noundef 0, i64 noundef 0, i32 noundef 0)
@@ -8125,32 +8125,32 @@ define void @_ZN5faiss32IndexProductLocalSearchQuantizerC2Ev(ptr noundef nonnull
 
 _ZN5faiss32IndexProductLocalSearchQuantizerC2EimmmNS_10MetricTypeENS_17AdditiveQuantizer13Search_type_tE.exit: ; preds = %1
   %8 = load i64, ptr %3, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %8, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 25
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 25
   store i8 0, ptr %10, align 1
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN5faiss23AdditiveCoarseQuantizerC2ElPNS_17AdditiveQuantizerENS_10MetricTypeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((0, 12), (16, 26), (28, 36), (40, 72)) %0, i64 noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #12 align 2 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = trunc i64 %1 to i32
   store i32 %6, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i8 0, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 25
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 25
   store i8 1, ptr %9, align 1
-  %10 = getelementptr inbounds i8, ptr %0, i64 28
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %3, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store float 0.000000e+00, ptr %11, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss23AdditiveCoarseQuantizerE, i64 16), ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %2, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, i8 0, i64 24, i1 false)
   ret void
 }
@@ -8168,14 +8168,14 @@ define linkonce_odr void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef 
   br i1 %.not, label %42, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %0, align 8
   %7 = ptrtoint ptr %5 to i64
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 2
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = ptrtoint ptr %12 to i64
   %14 = sub i64 %13, %7
@@ -8252,7 +8252,7 @@ _ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit35: ; preds = %_ZNSt6vectorIf
   store ptr %31, ptr %0, align 8
   %40 = getelementptr inbounds float, ptr %32, i64 %1
   store ptr %40, ptr %4, align 8
-  %41 = getelementptr inbounds float, ptr %31, i64 %29
+  %41 = getelementptr inbounds nuw float, ptr %31, i64 %29
   store ptr %41, ptr %11, align 8
   br label %42
 
@@ -8268,31 +8268,31 @@ declare void @_ZNK5faiss17AdditiveQuantizer16knn_centroids_L2ElPKflPfPlS2_(ptr n
 define void @_ZN5faiss23ResidualCoarseQuantizerC2EiRKSt6vectorImSaImEENS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(508) initializes((8, 12), (16, 26), (28, 36)) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %2, i32 noundef %3) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = sext i32 %1 to i64
-  %7 = getelementptr inbounds i8, ptr %0, i64 72
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %1, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i8 0, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 25
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 25
   store i8 1, ptr %11, align 1
-  %12 = getelementptr inbounds i8, ptr %0, i64 28
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %3, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store float 0.000000e+00, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %7, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss23ResidualCoarseQuantizerE, i64 16), ptr %0, align 8
   invoke void @_ZN5faiss17ResidualQuantizerC1EmRKSt6vectorImSaImEENS_17AdditiveQuantizer13Search_type_tE(ptr noundef nonnull align 8 dereferenceable(432) %7, i64 noundef %6, ptr noundef nonnull align 8 dereferenceable(24) %2, i32 noundef 0)
           to label %16 unwind label %32
 
 16:                                               ; preds = %4
-  %17 = getelementptr inbounds i8, ptr %0, i64 504
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 504
   store float 4.000000e+00, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 176
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %19 = load i64, ptr %18, align 8
   %20 = icmp ult i64 %19, 64
   br i1 %20, label %39, label %21
@@ -8358,7 +8358,7 @@ define void @_ZN5faiss23ResidualCoarseQuantizerC2EiRKSt6vectorImSaImEENS_10Metri
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5faiss17ResidualQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(432) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss17ResidualQuantizerE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 408
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %4
@@ -8368,7 +8368,7 @@ define linkonce_odr void @_ZN5faiss17ResidualQuantizerD2Ev(ptr noundef nonnull a
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %1, %4
-  %5 = getelementptr inbounds i8, ptr %0, i64 384
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %6 = load ptr, ptr %5, align 8
   %.not.i.i.i1 = icmp eq ptr %6, null
   br i1 %.not.i.i.i1, label %_ZNSt6vectorIfSaIfEED2Ev.exit2, label %7
@@ -8400,7 +8400,7 @@ _ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %5
   br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseImSaImEEC2EmRKS0_.exit.thread.i, label %.noexc7
 
 _ZNSt12_Vector_baseImSaImEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i
-  %8 = getelementptr inbounds i8, ptr %6, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   br label %.loopexit
 
@@ -8408,17 +8408,17 @@ _ZNSt12_Vector_baseImSaImEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorImSaI
   %9 = shl nuw nsw i64 %2, 3
   %10 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %9) #24
   store ptr %10, ptr %6, align 8
-  %11 = getelementptr inbounds i8, ptr %6, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %10, ptr %11, align 8
-  %12 = getelementptr inbounds i64, ptr %10, i64 %2
-  %13 = getelementptr inbounds i8, ptr %6, i64 16
+  %12 = getelementptr inbounds nuw i64, ptr %10, i64 %2
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %12, ptr %13, align 8
   br label %.lr.ph.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i, %.noexc7
   %.06.i.i.i.i.i.i.i.i.i = phi ptr [ %14, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %10, %.noexc7 ]
   store i64 %3, ptr %.06.i.i.i.i.i.i.i.i.i, align 8
-  %14 = getelementptr inbounds i8, ptr %.06.i.i.i.i.i.i.i.i.i, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %14, %12
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i.i.i.i.i.i, !llvm.loop !37
 
@@ -8495,7 +8495,7 @@ _ZN5faiss23ResidualCoarseQuantizerC2EimmNS_10MetricTypeE.exit: ; preds = %3, %5
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5faiss23ResidualCoarseQuantizer15set_beam_factorEf(ptr noundef nonnull align 8 dereferenceable(508) initializes((504, 508)) %0, float noundef %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 504
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 504
   store float %1, ptr %4, align 8
   %5 = fcmp ogt float %1, 0.000000e+00
   br i1 %5, label %6, label %32
@@ -8544,21 +8544,21 @@ define void @_ZN5faiss23ResidualCoarseQuantizer15set_beam_factorEf(ptr noundef n
   resume { ptr, i32 } %.pn
 
 24:                                               ; preds = %6
-  %25 = getelementptr inbounds i8, ptr %0, i64 456
-  %26 = getelementptr inbounds i8, ptr %0, i64 464
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 456
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %27 = load ptr, ptr %26, align 8
   %28 = load ptr, ptr %25, align 8
   %29 = icmp eq ptr %27, %28
   br i1 %29, label %30, label %73
 
 30:                                               ; preds = %24
-  %31 = getelementptr inbounds i8, ptr %0, i64 72
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @_ZN5faiss17ResidualQuantizer23compute_codebook_tablesEv(ptr noundef nonnull align 8 dereferenceable(432) %31)
   br label %73
 
 32:                                               ; preds = %2
-  %33 = getelementptr inbounds i8, ptr %0, i64 456
-  %34 = getelementptr inbounds i8, ptr %0, i64 464
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 456
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %35 = load ptr, ptr %34, align 8
   %36 = load ptr, ptr %33, align 8
   %.not.i.i = icmp eq ptr %35, %36
@@ -8569,16 +8569,16 @@ define void @_ZN5faiss23ResidualCoarseQuantizer15set_beam_factorEf(ptr noundef n
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %32, %37
-  %38 = getelementptr inbounds i8, ptr %0, i64 28
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %39 = load i32, ptr %38, align 4
   %40 = icmp eq i32 %39, 1
   br i1 %40, label %41, label %73
 
 41:                                               ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
-  %42 = getelementptr inbounds i8, ptr %0, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %43 = load i64, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %0, i64 48
-  %45 = getelementptr inbounds i8, ptr %0, i64 56
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %46 = load ptr, ptr %45, align 8
   %47 = load ptr, ptr %44, align 8
   %48 = ptrtoint ptr %46 to i64
@@ -8589,7 +8589,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %32, %37
   br i1 %.not, label %73, label %52
 
 52:                                               ; preds = %41
-  %53 = getelementptr inbounds i8, ptr %0, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %54 = load i8, ptr %53, align 8
   %55 = trunc i8 %54 to i1
   br i1 %55, label %56, label %58
@@ -8634,7 +8634,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %32, %37
 
 _ZNSt6vectorIfSaIfEE6resizeEm.exit10:             ; preds = %63, %65, %67, %69
   %70 = phi ptr [ %.pre13, %63 ], [ %59, %65 ], [ %59, %67 ], [ %59, %69 ]
-  %71 = getelementptr inbounds i8, ptr %0, i64 40
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %72 = load ptr, ptr %71, align 8
   tail call void @_ZNK5faiss17AdditiveQuantizer22compute_centroid_normsEPf(ptr noundef nonnull align 8 dereferenceable(308) %72, ptr noundef %70)
   br label %73
@@ -8683,8 +8683,8 @@ define internal void @_ZNK5faiss23ResidualCoarseQuantizer6searchElPKflPfPlPKNS_1
   br i1 %.not46, label %._crit_edge50, label %.lr.ph49
 
 .lr.ph49:                                         ; preds = %17
-  %23 = getelementptr inbounds i8, ptr %8, i64 96
-  %24 = getelementptr inbounds i8, ptr %8, i64 104
+  %23 = getelementptr inbounds nuw i8, ptr %8, i64 96
+  %24 = getelementptr inbounds nuw i8, ptr %8, i64 104
   %.pre = load i64, ptr %4, align 8
   br label %25
 
@@ -8737,12 +8737,12 @@ define internal void @_ZNK5faiss23ResidualCoarseQuantizer6searchElPKflPfPlPKNS_1
   %.03240 = phi i32 [ 0, %.lr.ph ], [ %58, %49 ]
   %.03339 = phi i64 [ 0, %.lr.ph ], [ %54, %49 ]
   %.138 = phi ptr [ %.03543, %.lr.ph ], [ %50, %49 ]
-  %50 = getelementptr inbounds i8, ptr %.138, i64 4
+  %50 = getelementptr inbounds nuw i8, ptr %.138, i64 4
   %51 = load i32, ptr %.138, align 4
   %52 = shl i32 %51, %.03240
   %53 = sext i32 %52 to i64
   %54 = or i64 %.03339, %53
-  %55 = getelementptr inbounds i64, ptr %47, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw i64, ptr %47, i64 %indvars.iv
   %56 = load i64, ptr %55, align 8
   %57 = trunc i64 %56 to i32
   %58 = add i32 %.03240, %57
@@ -8788,9 +8788,9 @@ declare void @__kmpc_for_static_init_8(ptr, i32, i32, ptr, ptr, ptr, ptr, i64, i
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5faiss23ResidualCoarseQuantizer15initialize_fromERKS0_(ptr noundef nonnull align 8 dereferenceable(508) %0, ptr noundef nonnull align 8 dereferenceable(508) %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 96
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %5 = load i64, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 96
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %7 = load i64, ptr %6, align 8
   %.not = icmp ugt i64 %5, %7
   br i1 %.not, label %8, label %24
@@ -8835,23 +8835,23 @@ define void @_ZN5faiss23ResidualCoarseQuantizer15initialize_fromERKS0_(ptr nound
   resume { ptr, i32 } %.pn
 
 24:                                               ; preds = %2
-  %25 = getelementptr inbounds i8, ptr %1, i64 72
-  %26 = getelementptr inbounds i8, ptr %0, i64 72
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @_ZN5faiss17ResidualQuantizer15initialize_fromERKS0_i(ptr noundef nonnull align 8 dereferenceable(432) %26, ptr noundef nonnull align 8 dereferenceable(432) %25, i32 noundef 0)
-  %27 = getelementptr inbounds i8, ptr %1, i64 504
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 504
   %28 = load float, ptr %27, align 8
   tail call void @_ZN5faiss23ResidualCoarseQuantizer15set_beam_factorEf(ptr noundef nonnull align 8 dereferenceable(508) %0, float noundef %28)
-  %29 = getelementptr inbounds i8, ptr %1, i64 25
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 25
   %30 = load i8, ptr %29, align 1
-  %31 = getelementptr inbounds i8, ptr %0, i64 25
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 25
   %32 = and i8 %30, 1
   store i8 %32, ptr %31, align 1
-  %33 = getelementptr inbounds i8, ptr %0, i64 40
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 104
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 104
   %36 = load i64, ptr %35, align 8
   %37 = shl nuw i64 1, %36
-  %38 = getelementptr inbounds i8, ptr %0, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %37, ptr %38, align 8
   ret void
 
@@ -8865,29 +8865,29 @@ declare void @_ZN5faiss17ResidualQuantizer15initialize_fromERKS0_i(ptr noundef n
 define void @_ZN5faiss26LocalSearchCoarseQuantizerC2EimmNS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(472) initializes((8, 12), (16, 26), (28, 36)) %0, i32 noundef %1, i64 noundef %2, i64 noundef %3, i32 noundef %4) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = sext i32 %1 to i64
-  %8 = getelementptr inbounds i8, ptr %0, i64 72
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %1, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i8 0, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 25
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 25
   store i8 1, ptr %12, align 1
-  %13 = getelementptr inbounds i8, ptr %0, i64 28
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %4, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store float 0.000000e+00, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %8, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss26LocalSearchCoarseQuantizerE, i64 16), ptr %0, align 8
   invoke void @_ZN5faiss20LocalSearchQuantizerC1EmmmNS_17AdditiveQuantizer13Search_type_tE(ptr noundef nonnull align 8 dereferenceable(393) %8, i64 noundef %7, i64 noundef %2, i64 noundef %3, i32 noundef 0)
           to label %17 unwind label %32
 
 17:                                               ; preds = %5
-  %18 = getelementptr inbounds i8, ptr %0, i64 176
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %19 = load i64, ptr %18, align 8
   %20 = icmp ult i64 %19, 64
   br i1 %20, label %39, label %21
@@ -8956,10 +8956,10 @@ declare void @_ZN5faiss20LocalSearchQuantizerD1Ev(ptr noundef nonnull align 8 de
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5faiss26LocalSearchCoarseQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(472) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss26LocalSearchCoarseQuantizerE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 72
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @_ZN5faiss20LocalSearchQuantizerD1Ev(ptr noundef nonnull align 8 dereferenceable(393) %2) #16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss23AdditiveCoarseQuantizerE, i64 16), ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i.i = icmp eq ptr %4, null
   br i1 %.not.i.i.i.i, label %_ZN5faiss23AdditiveCoarseQuantizerD2Ev.exit, label %5
@@ -8976,10 +8976,10 @@ _ZN5faiss23AdditiveCoarseQuantizerD2Ev.exit:      ; preds = %1, %5
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5faiss26LocalSearchCoarseQuantizerD0Ev(ptr noundef nonnull align 8 dereferenceable(472) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss26LocalSearchCoarseQuantizerE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 72
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @_ZN5faiss20LocalSearchQuantizerD1Ev(ptr noundef nonnull align 8 dereferenceable(393) %2) #16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss23AdditiveCoarseQuantizerE, i64 16), ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i.i.i = icmp eq ptr %4, null
   br i1 %.not.i.i.i.i.i, label %_ZN5faiss26LocalSearchCoarseQuantizerD2Ev.exit, label %5
@@ -8996,22 +8996,22 @@ _ZN5faiss26LocalSearchCoarseQuantizerD2Ev.exit:   ; preds = %1, %5
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5faiss26LocalSearchCoarseQuantizerC2Ev(ptr noundef nonnull align 8 dereferenceable(472) initializes((0, 12), (16, 26), (28, 36), (40, 72)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i8 0, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 25
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 25
   store i8 1, ptr %5, align 1
-  %6 = getelementptr inbounds i8, ptr %0, i64 28
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 1, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store float 0.000000e+00, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, i8 0, i64 32, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss26LocalSearchCoarseQuantizerE, i64 16), ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
   invoke void @_ZN5faiss20LocalSearchQuantizerC1Ev(ptr noundef nonnull align 8 dereferenceable(393) %9)
           to label %10 unwind label %11
 

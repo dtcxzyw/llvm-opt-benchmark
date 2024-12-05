@@ -9,21 +9,21 @@ define i32 @cs_dupl(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %56, label %2
 
 2:                                                ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, -1
   br i1 %5, label %6, label %56
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %8 = load i32, ptr %7, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i32, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %16 = load ptr, ptr %15, align 8
   %17 = tail call ptr @cs_malloc(i32 noundef %8, i64 noundef 4) #3
   %.not60 = icmp eq ptr %17, null
@@ -52,9 +52,9 @@ define i32 @cs_dupl(ptr noundef %0) local_unnamed_addr #0 {
   %22 = phi i32 [ %.pre, %.lr.ph70.preheader ], [ %51, %._crit_edge ]
   %indvars.iv75 = phi i64 [ 0, %.lr.ph70.preheader ], [ %indvars.iv.next76, %._crit_edge ]
   %.05568 = phi i32 [ 0, %.lr.ph70.preheader ], [ %.1.lcssa, %._crit_edge ]
-  %23 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv75
+  %23 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv75
   %indvars.iv.next76 = add nuw nsw i64 %indvars.iv75, 1
-  %24 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv.next76
+  %24 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv.next76
   %25 = load i32, ptr %24, align 4
   %26 = icmp slt i32 %22, %25
   br i1 %26, label %.lr.ph66.preheader, label %._crit_edge

@@ -56,19 +56,19 @@ entry:
   br i1 %cmp.not.i, label %if.then.i, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %entry
-  %length.i = getelementptr inbounds i8, ptr %protected_slices, i64 32
+  %length.i = getelementptr inbounds nuw i8, ptr %protected_slices, i64 32
   %0 = load i64, ptr %length.i, align 8
   %cmp1.i = icmp ult i64 %0, 4
   br i1 %cmp1.i, label %if.then.i, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %land.rhs.i
-  %count.i = getelementptr inbounds i8, ptr %protected_slices, i64 16
+  %count.i = getelementptr inbounds nuw i8, ptr %protected_slices, i64 16
   %1 = load i64, ptr %count.i, align 8
   %cmp245.not.i = icmp eq i64 %1, 0
   br i1 %cmp245.not.i, label %if.then50.i, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
-  %slices.i = getelementptr inbounds i8, ptr %protected_slices, i64 8
+  %slices.i = getelementptr inbounds nuw i8, ptr %protected_slices, i64 8
   %2 = load ptr, ptr %slices.i, align 8
   br label %for.body.i
 
@@ -83,20 +83,20 @@ for.body.i:                                       ; preds = %cond.end43.i, %for.
   %arrayidx.i = getelementptr inbounds %struct.grpc_slice, ptr %2, i64 %i.047.i
   %3 = load ptr, ptr %arrayidx.i, align 8
   %tobool.not.i = icmp eq ptr %3, null
-  %data8.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  %data8.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   br i1 %tobool.not.i, label %cond.end.i, label %cond.end.thread.i
 
 cond.end.i:                                       ; preds = %for.body.i
   %4 = load i8, ptr %data8.i, align 8
   %conv.i = zext i8 %4 to i64
   %cmp10.not.i = icmp ugt i64 %remaining.046.i, %conv.i
-  %bytes41.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 9
+  %bytes41.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 9
   br i1 %cmp10.not.i, label %cond.end43.i, label %do.body46.thread.i
 
 cond.end.thread.i:                                ; preds = %for.body.i
   %5 = load i64, ptr %data8.i, align 8
   %cmp10.not31.i = icmp ugt i64 %remaining.046.i, %5
-  %bytes36.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
+  %bytes36.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 16
   %6 = load ptr, ptr %bytes36.i, align 8
   br i1 %cmp10.not31.i, label %cond.end43.i, label %do.body46.thread.i
 
@@ -134,20 +134,20 @@ define noundef ptr @_Z26tsi_create_fake_handshakeri(i32 noundef %is_client) loca
 entry:
   %call.i = tail call noundef ptr @gpr_zalloc(i64 noundef 136)
   store ptr @_ZL17handshaker_vtable, ptr %call.i, align 8
-  %is_client1 = getelementptr inbounds i8, ptr %call.i, i64 16
+  %is_client1 = getelementptr inbounds nuw i8, ptr %call.i, i64 16
   store i32 %is_client, ptr %is_client1, align 8
-  %result = getelementptr inbounds i8, ptr %call.i, i64 128
+  %result = getelementptr inbounds nuw i8, ptr %call.i, i64 128
   store i32 11, ptr %result, align 8
-  %outgoing_bytes_buffer_size = getelementptr inbounds i8, ptr %call.i, i64 120
+  %outgoing_bytes_buffer_size = getelementptr inbounds nuw i8, ptr %call.i, i64 120
   store i64 256, ptr %outgoing_bytes_buffer_size, align 8
   %call3 = tail call ptr @gpr_malloc(i64 noundef 256)
-  %outgoing_bytes_buffer = getelementptr inbounds i8, ptr %call.i, i64 112
+  %outgoing_bytes_buffer = getelementptr inbounds nuw i8, ptr %call.i, i64 112
   store ptr %call3, ptr %outgoing_bytes_buffer, align 8
   %tobool.not = icmp eq i32 %is_client, 0
   %spec.select = zext i1 %tobool.not to i32
-  %0 = getelementptr inbounds i8, ptr %call.i, i64 24
+  %0 = getelementptr inbounds nuw i8, ptr %call.i, i64 24
   store i32 %spec.select, ptr %0, align 8
-  %1 = getelementptr inbounds i8, ptr %call.i, i64 20
+  %1 = getelementptr inbounds nuw i8, ptr %call.i, i64 20
   store i32 %spec.select, ptr %1, align 4
   ret ptr %call.i
 }
@@ -167,7 +167,7 @@ cond.false:                                       ; preds = %entry
 
 cond.end:                                         ; preds = %entry, %cond.false
   %cond = phi i64 [ %0, %cond.false ], [ 16384, %entry ]
-  %max_frame_size = getelementptr inbounds i8, ptr %call.i, i64 88
+  %max_frame_size = getelementptr inbounds nuw i8, ptr %call.i, i64 88
   store i64 %cond, ptr %max_frame_size, align 8
   store ptr @_ZL22frame_protector_vtable, ptr %call.i, align 8
   ret ptr %call.i
@@ -177,9 +177,9 @@ cond.end:                                         ; preds = %entry, %cond.false
 define noundef ptr @_Z40tsi_create_fake_zero_copy_grpc_protectorPm(ptr noundef readonly %max_protected_frame_size) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @gpr_zalloc(i64 noundef 552)
-  %header_sb = getelementptr inbounds i8, ptr %call, i64 8
+  %header_sb = getelementptr inbounds nuw i8, ptr %call, i64 8
   tail call void @grpc_slice_buffer_init(ptr noundef nonnull %header_sb)
-  %protected_sb = getelementptr inbounds i8, ptr %call, i64 272
+  %protected_sb = getelementptr inbounds nuw i8, ptr %call, i64 272
   tail call void @grpc_slice_buffer_init(ptr noundef nonnull %protected_sb)
   %cmp = icmp eq ptr %max_protected_frame_size, null
   br i1 %cmp, label %cond.end, label %cond.false
@@ -190,9 +190,9 @@ cond.false:                                       ; preds = %entry
 
 cond.end:                                         ; preds = %entry, %cond.false
   %cond = phi i64 [ %0, %cond.false ], [ 16384, %entry ]
-  %max_frame_size = getelementptr inbounds i8, ptr %call, i64 536
+  %max_frame_size = getelementptr inbounds nuw i8, ptr %call, i64 536
   store i64 %cond, ptr %max_frame_size, align 8
-  %parsed_frame_size = getelementptr inbounds i8, ptr %call, i64 544
+  %parsed_frame_size = getelementptr inbounds nuw i8, ptr %call, i64 544
   store i64 0, ptr %parsed_frame_size, align 8
   store ptr @_ZL31zero_copy_grpc_protector_vtable, ptr %call, align 8
   ret ptr %call
@@ -211,7 +211,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZL23fake_handshaker_destroyP14tsi_handshaker(ptr noundef %self) #0 {
 entry:
-  %incoming_frame = getelementptr inbounds i8, ptr %self, i64 32
+  %incoming_frame = getelementptr inbounds nuw i8, ptr %self, i64 32
   %incoming_frame.val = load ptr, ptr %incoming_frame, align 8
   %cmp.not.i = icmp eq ptr %incoming_frame.val, null
   br i1 %cmp.not.i, label %_ZL23tsi_fake_frame_destructP14tsi_fake_frame.exit, label %if.then.i
@@ -221,7 +221,7 @@ if.then.i:                                        ; preds = %entry
   br label %_ZL23tsi_fake_frame_destructP14tsi_fake_frame.exit
 
 _ZL23tsi_fake_frame_destructP14tsi_fake_frame.exit: ; preds = %entry, %if.then.i
-  %outgoing_frame = getelementptr inbounds i8, ptr %self, i64 72
+  %outgoing_frame = getelementptr inbounds nuw i8, ptr %self, i64 72
   %outgoing_frame.val = load ptr, ptr %outgoing_frame, align 8
   %cmp.not.i4 = icmp eq ptr %outgoing_frame.val, null
   br i1 %cmp.not.i4, label %_ZL23tsi_fake_frame_destructP14tsi_fake_frame.exit6, label %if.then.i5
@@ -231,7 +231,7 @@ if.then.i5:                                       ; preds = %_ZL23tsi_fake_frame
   br label %_ZL23tsi_fake_frame_destructP14tsi_fake_frame.exit6
 
 _ZL23tsi_fake_frame_destructP14tsi_fake_frame.exit6: ; preds = %_ZL23tsi_fake_frame_destructP14tsi_fake_frame.exit, %if.then.i5
-  %outgoing_bytes_buffer = getelementptr inbounds i8, ptr %self, i64 112
+  %outgoing_bytes_buffer = getelementptr inbounds nuw i8, ptr %self, i64 112
   %0 = load ptr, ptr %outgoing_bytes_buffer, align 8
   tail call void @gpr_free(ptr noundef %0)
   tail call void @gpr_free(ptr noundef nonnull %self)
@@ -266,16 +266,16 @@ if.end10:                                         ; preds = %entry
   br i1 %cmp, label %if.then12, label %if.end17
 
 if.then12:                                        ; preds = %if.end10
-  %next_message_to_send.i = getelementptr inbounds i8, ptr %self, i64 20
+  %next_message_to_send.i = getelementptr inbounds nuw i8, ptr %self, i64 20
   %2 = load i32, ptr %next_message_to_send.i, align 4
   %sub.i = add nsw i32 %2, -1
-  %needs_incoming_message.i = getelementptr inbounds i8, ptr %self, i64 24
+  %needs_incoming_message.i = getelementptr inbounds nuw i8, ptr %self, i64 24
   %3 = load i32, ptr %needs_incoming_message.i, align 8
   %tobool.not.i = icmp eq i32 %3, 0
   br i1 %tobool.not.i, label %if.then.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.then12
-  %result1.i = getelementptr inbounds i8, ptr %self, i64 128
+  %result1.i = getelementptr inbounds nuw i8, ptr %self, i64 128
   %4 = load i32, ptr %result1.i, align 8
   %cmp.i = icmp eq i32 %4, 0
   br i1 %cmp.i, label %if.then.i, label %if.end.i
@@ -285,19 +285,19 @@ if.then.i:                                        ; preds = %lor.lhs.false.i, %i
   br label %if.end17
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
-  %incoming_frame.i = getelementptr inbounds i8, ptr %self, i64 32
+  %incoming_frame.i = getelementptr inbounds nuw i8, ptr %self, i64 32
   %call.i = call fastcc noundef i32 @_ZL21tsi_fake_frame_decodePKhPmP14tsi_fake_framePNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %received_bytes, ptr noundef nonnull %consumed_bytes_size, ptr noundef nonnull %incoming_frame.i, ptr noundef %error)
   %cmp2.not.i = icmp eq i32 %call.i, 0
   br i1 %cmp2.not.i, label %if.end4.i, label %return
 
 if.end4.i:                                        ; preds = %if.end.i
   %5 = load ptr, ptr %incoming_frame.i, align 8
-  %add.ptr.i = getelementptr inbounds i8, ptr %5, i64 4
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %5, i64 4
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.inc.i.i, %if.end4.i
   %indvars.iv.i.i = phi i64 [ 0, %if.end4.i ], [ %indvars.iv.next.i.i, %for.inc.i.i ]
-  %arrayidx.i.i = getelementptr inbounds [4 x ptr], ptr @_ZL34tsi_fake_handshake_message_strings, i64 0, i64 %indvars.iv.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [4 x ptr], ptr @_ZL34tsi_fake_handshake_message_strings, i64 0, i64 %indvars.iv.i.i
   %6 = load ptr, ptr %arrayidx.i.i, align 8
   %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #11
   %call3.i.i = tail call i32 @strncmp(ptr noundef nonnull readonly %add.ptr.i, ptr noundef %6, i64 noundef %call.i.i) #11
@@ -346,7 +346,7 @@ if.then.i28.i:                                    ; preds = %_ZL36tsi_fake_hands
 
 if.end.i24.i:                                     ; preds = %_ZL36tsi_fake_handshake_message_to_stringi.exit.i
   %idxprom.i25.i = zext nneg i32 %sub.i to i64
-  %arrayidx.i26.i = getelementptr inbounds [4 x ptr], ptr @_ZL34tsi_fake_handshake_message_strings, i64 0, i64 %idxprom.i25.i
+  %arrayidx.i26.i = getelementptr inbounds nuw [4 x ptr], ptr @_ZL34tsi_fake_handshake_message_strings, i64 0, i64 %idxprom.i25.i
   %8 = load ptr, ptr %arrayidx.i26.i, align 8
   br label %_ZL36tsi_fake_handshake_message_to_stringi.exit29.i
 
@@ -356,12 +356,12 @@ _ZL36tsi_fake_handshake_message_to_stringi.exit29.i: ; preds = %if.end.i24.i, %i
   br label %if.end15.i
 
 if.end15.i:                                       ; preds = %_ZL36tsi_fake_handshake_message_to_stringi.exit29.i, %if.end10.i
-  %9 = load atomic i8, ptr getelementptr inbounds (i8, ptr @tsi_tracing_enabled, i64 16) monotonic, align 8
+  %9 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @tsi_tracing_enabled, i64 16) monotonic, align 8
   %tobool.i.i.i.i = trunc i8 %9 to i1
   br i1 %tobool.i.i.i.i, label %if.then17.i, label %if.end20.i
 
 if.then17.i:                                      ; preds = %if.end15.i
-  %is_client.i = getelementptr inbounds i8, ptr %self, i64 16
+  %is_client.i = getelementptr inbounds nuw i8, ptr %self, i64 16
   %10 = load i32, ptr %is_client.i, align 8
   %tobool18.not.i = icmp eq i32 %10, 0
   %.str.6..str.7.i = select i1 %tobool18.not.i, ptr @.str.7, ptr @.str.6
@@ -378,11 +378,11 @@ _ZL36tsi_fake_handshake_message_to_stringi.exit36.i: ; preds = %if.then.i35.i, %
   br label %if.end20.i
 
 if.end20.i:                                       ; preds = %_ZL36tsi_fake_handshake_message_to_stringi.exit36.i, %if.end15.i
-  %offset.i.i = getelementptr inbounds i8, ptr %self, i64 56
+  %offset.i.i = getelementptr inbounds nuw i8, ptr %self, i64 56
   store i64 0, ptr %offset.i.i, align 8
-  %needs_draining1.i.i = getelementptr inbounds i8, ptr %self, i64 64
+  %needs_draining1.i.i = getelementptr inbounds nuw i8, ptr %self, i64 64
   store i32 0, ptr %needs_draining1.i.i, align 8
-  %size.i.i = getelementptr inbounds i8, ptr %self, i64 40
+  %size.i.i = getelementptr inbounds nuw i8, ptr %self, i64 40
   store i64 0, ptr %size.i.i, align 8
   store i32 0, ptr %needs_incoming_message.i, align 8
   %11 = load i32, ptr %next_message_to_send.i, align 4
@@ -390,12 +390,12 @@ if.end20.i:                                       ; preds = %_ZL36tsi_fake_hands
   br i1 %cmp24.i, label %if.then25.i, label %if.end17
 
 if.then25.i:                                      ; preds = %if.end20.i
-  %12 = load atomic i8, ptr getelementptr inbounds (i8, ptr @tsi_tracing_enabled, i64 16) monotonic, align 8
+  %12 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @tsi_tracing_enabled, i64 16) monotonic, align 8
   %tobool.i.i.i39.i = trunc i8 %12 to i1
   br i1 %tobool.i.i.i39.i, label %if.then27.i, label %if.end35.i
 
 if.then27.i:                                      ; preds = %if.then25.i
-  %is_client28.i = getelementptr inbounds i8, ptr %self, i64 16
+  %is_client28.i = getelementptr inbounds nuw i8, ptr %self, i64 16
   %13 = load i32, ptr %is_client28.i, align 8
   %tobool29.not.i = icmp eq i32 %13, 0
   %.str.6..str.71.i = select i1 %tobool29.not.i, ptr @.str.7, ptr @.str.6
@@ -407,9 +407,9 @@ if.end35.i:                                       ; preds = %if.then27.i, %if.th
   br label %if.end17
 
 if.end17:                                         ; preds = %if.end20.i, %if.end35.i, %if.then.i, %if.end10
-  %outgoing_bytes_buffer_size = getelementptr inbounds i8, ptr %self, i64 120
-  %outgoing_bytes_buffer = getelementptr inbounds i8, ptr %self, i64 112
-  %needs_incoming_message.i38 = getelementptr inbounds i8, ptr %self, i64 24
+  %outgoing_bytes_buffer_size = getelementptr inbounds nuw i8, ptr %self, i64 120
+  %outgoing_bytes_buffer = getelementptr inbounds nuw i8, ptr %self, i64 112
+  %needs_incoming_message.i38 = getelementptr inbounds nuw i8, ptr %self, i64 24
   %14 = load i32, ptr %needs_incoming_message.i38, align 8
   %tobool.not.i3991 = icmp eq i32 %14, 0
   br i1 %tobool.not.i3991, label %lor.lhs.false.i42.lr.ph, label %if.end30
@@ -417,14 +417,14 @@ if.end17:                                         ; preds = %if.end20.i, %if.end
 lor.lhs.false.i42.lr.ph:                          ; preds = %if.end17
   %15 = load ptr, ptr %outgoing_bytes_buffer, align 8
   %16 = load i64, ptr %outgoing_bytes_buffer_size, align 8
-  %result1.i43 = getelementptr inbounds i8, ptr %self, i64 128
-  %outgoing_frame.i = getelementptr inbounds i8, ptr %self, i64 72
-  %needs_draining.i = getelementptr inbounds i8, ptr %self, i64 104
-  %next_message_to_send4.i = getelementptr inbounds i8, ptr %self, i64 20
-  %offset.i.i49 = getelementptr inbounds i8, ptr %self, i64 96
-  %size.i.i50 = getelementptr inbounds i8, ptr %self, i64 80
-  %allocated_size.i.i.i = getelementptr inbounds i8, ptr %self, i64 88
-  %is_client.i53 = getelementptr inbounds i8, ptr %self, i64 16
+  %result1.i43 = getelementptr inbounds nuw i8, ptr %self, i64 128
+  %outgoing_frame.i = getelementptr inbounds nuw i8, ptr %self, i64 72
+  %needs_draining.i = getelementptr inbounds nuw i8, ptr %self, i64 104
+  %next_message_to_send4.i = getelementptr inbounds nuw i8, ptr %self, i64 20
+  %offset.i.i49 = getelementptr inbounds nuw i8, ptr %self, i64 96
+  %size.i.i50 = getelementptr inbounds nuw i8, ptr %self, i64 80
+  %allocated_size.i.i.i = getelementptr inbounds nuw i8, ptr %self, i64 88
+  %is_client.i53 = getelementptr inbounds nuw i8, ptr %self, i64 16
   br label %lor.lhs.false.i42
 
 lor.lhs.false.i42:                                ; preds = %lor.lhs.false.i42.lr.ph, %if.then20
@@ -456,7 +456,7 @@ if.then.i.i:                                      ; preds = %if.then3.i
 
 if.end.i.i:                                       ; preds = %if.then3.i
   %idxprom.i.i = zext nneg i32 %20 to i64
-  %arrayidx.i.i47 = getelementptr inbounds [4 x ptr], ptr @_ZL34tsi_fake_handshake_message_strings, i64 0, i64 %idxprom.i.i
+  %arrayidx.i.i47 = getelementptr inbounds nuw [4 x ptr], ptr @_ZL34tsi_fake_handshake_message_strings, i64 0, i64 %idxprom.i.i
   %21 = load ptr, ptr %arrayidx.i.i47, align 8
   br label %_ZL36tsi_fake_handshake_message_to_stringi.exit.i48
 
@@ -494,26 +494,26 @@ _ZL23tsi_fake_frame_set_dataPhmP14tsi_fake_frame.exit.i: ; preds = %if.then6.i.i
   %26 = phi i64 [ %.pre.i.i, %if.then.i.i.i ], [ %add.i.i, %if.else.i.i.i ], [ %24, %if.then6.i.i.i ]
   %shr.i8.i.i = lshr i64 %26, 24
   %conv.i.i.i = trunc i64 %shr.i8.i.i to i8
-  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %25, i64 3
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr %25, i64 3
   store i8 %conv.i.i.i, ptr %arrayidx.i.i.i, align 1
   %shr1.i9.i.i = lshr i64 %26, 16
   %conv3.i.i.i = trunc i64 %shr1.i9.i.i to i8
-  %arrayidx4.i.i.i = getelementptr inbounds i8, ptr %25, i64 2
+  %arrayidx4.i.i.i = getelementptr inbounds nuw i8, ptr %25, i64 2
   store i8 %conv3.i.i.i, ptr %arrayidx4.i.i.i, align 1
   %shr5.i10.i.i = lshr i64 %26, 8
   %conv7.i.i.i = trunc i64 %shr5.i10.i.i to i8
-  %arrayidx8.i.i.i = getelementptr inbounds i8, ptr %25, i64 1
+  %arrayidx8.i.i.i = getelementptr inbounds nuw i8, ptr %25, i64 1
   store i8 %conv7.i.i.i, ptr %arrayidx8.i.i.i, align 1
   %conv10.i.i.i = trunc i64 %26 to i8
   store i8 %conv10.i.i.i, ptr %25, align 1
   %27 = load ptr, ptr %outgoing_frame.i, align 8
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %27, i64 4
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %27, i64 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i, ptr readonly align 1 %retval.0.i.i, i64 %call6.i, i1 false)
   store i64 0, ptr %offset.i.i49, align 8
   store i32 1, ptr %needs_draining.i, align 8
   %28 = tail call i32 @llvm.smin.i32(i32 %20, i32 2)
   %spec.store.select.i = add nsw i32 %28, 2
-  %29 = load atomic i8, ptr getelementptr inbounds (i8, ptr @tsi_tracing_enabled, i64 16) monotonic, align 8
+  %29 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @tsi_tracing_enabled, i64 16) monotonic, align 8
   %tobool.i.i.i.i51 = trunc i8 %29 to i1
   br i1 %tobool.i.i.i.i51, label %if.then12.i52, label %if.end18.thread42.i
 
@@ -535,7 +535,7 @@ if.then.i23.i:                                    ; preds = %if.then12.i52
 
 if.end.i19.i:                                     ; preds = %if.then12.i52
   %idxprom.i20.i = zext nneg i32 %31 to i64
-  %arrayidx.i21.i = getelementptr inbounds [4 x ptr], ptr @_ZL34tsi_fake_handshake_message_strings, i64 0, i64 %idxprom.i20.i
+  %arrayidx.i21.i = getelementptr inbounds nuw [4 x ptr], ptr @_ZL34tsi_fake_handshake_message_strings, i64 0, i64 %idxprom.i20.i
   %32 = load ptr, ptr %arrayidx.i21.i, align 8
   br label %if.end18.i
 
@@ -587,7 +587,7 @@ land.lhs.true.i:                                  ; preds = %if.end23.i
   br i1 %cmp27.i, label %if.then28.i, label %if.else.i
 
 if.then28.i:                                      ; preds = %land.lhs.true.i
-  %42 = load atomic i8, ptr getelementptr inbounds (i8, ptr @tsi_tracing_enabled, i64 16) monotonic, align 8
+  %42 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @tsi_tracing_enabled, i64 16) monotonic, align 8
   %tobool.i.i.i31.i = trunc i8 %42 to i1
   br i1 %tobool.i.i.i31.i, label %if.then30.i, label %if.end31.i
 
@@ -663,16 +663,16 @@ if.end5.i:                                        ; preds = %if.else
 
 if.then8.i59:                                     ; preds = %if.end5.i
   %call9.i = tail call ptr @gpr_malloc(i64 noundef %sub35)
-  %unused_bytes10.i = getelementptr inbounds i8, ptr %call.i.i57, i64 8
+  %unused_bytes10.i = getelementptr inbounds nuw i8, ptr %call.i.i57, i64 8
   store ptr %call9.i, ptr %unused_bytes10.i, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call9.i, ptr readonly align 1 %spec.select, i64 %sub35, i1 false)
   br label %if.then42
 
 if.then42:                                        ; preds = %if.then8.i59, %if.end5.i
-  %unused_bytes_size13.i = getelementptr inbounds i8, ptr %call.i.i57, i64 16
+  %unused_bytes_size13.i = getelementptr inbounds nuw i8, ptr %call.i.i57, i64 16
   store i64 %sub35, ptr %unused_bytes_size13.i, align 8
   store ptr %call.i.i57, ptr %handshaker_result, align 8
-  %handshaker_result_created = getelementptr inbounds i8, ptr %self, i64 9
+  %handshaker_result_created = getelementptr inbounds nuw i8, ptr %self, i64 9
   store i8 1, ptr %handshaker_result_created, align 1
   br label %return
 
@@ -691,7 +691,7 @@ declare ptr @gpr_realloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 define internal fastcc noundef range(i32 0, 8) i32 @_ZL21tsi_fake_frame_decodePKhPmP14tsi_fake_framePNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %incoming_bytes, ptr nocapture noundef %incoming_bytes_size, ptr nocapture noundef %frame, ptr noundef %error) unnamed_addr #0 {
 entry:
   %0 = load i64, ptr %incoming_bytes_size, align 8
-  %needs_draining = getelementptr inbounds i8, ptr %frame, i64 32
+  %needs_draining = getelementptr inbounds nuw i8, ptr %frame, i64 32
   %1 = load i32, ptr %needs_draining, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end2, label %if.then
@@ -710,7 +710,7 @@ if.end2:                                          ; preds = %entry
   br i1 %cmp3, label %if.then4, label %if.end8
 
 if.then4:                                         ; preds = %if.end2
-  %allocated_size = getelementptr inbounds i8, ptr %frame, i64 16
+  %allocated_size = getelementptr inbounds nuw i8, ptr %frame, i64 16
   store i64 64, ptr %allocated_size, align 8
   %call6 = tail call ptr @gpr_malloc(i64 noundef 64)
   store ptr %call6, ptr %frame, align 8
@@ -718,20 +718,20 @@ if.then4:                                         ; preds = %if.end2
 
 if.end8:                                          ; preds = %if.then4, %if.end2
   %3 = phi ptr [ %call6, %if.then4 ], [ %2, %if.end2 ]
-  %offset = getelementptr inbounds i8, ptr %frame, i64 24
+  %offset = getelementptr inbounds nuw i8, ptr %frame, i64 24
   %4 = load i64, ptr %offset, align 8
   %cmp9 = icmp ult i64 %4, 4
   br i1 %cmp9, label %if.then10, label %if.end8.if.end28_crit_edge
 
 if.end8.if.end28_crit_edge:                       ; preds = %if.end8
-  %size29.phi.trans.insert = getelementptr inbounds i8, ptr %frame, i64 8
+  %size29.phi.trans.insert = getelementptr inbounds nuw i8, ptr %frame, i64 8
   %.pre = load i64, ptr %size29.phi.trans.insert, align 8
   br label %if.end28
 
 if.then10:                                        ; preds = %if.end8
   %sub = sub nuw nsw i64 4, %4
   %cmp12 = icmp ugt i64 %sub, %0
-  %add.ptr = getelementptr inbounds i8, ptr %3, i64 %4
+  %add.ptr = getelementptr inbounds nuw i8, ptr %3, i64 %4
   br i1 %cmp12, label %if.then13, label %if.else.i
 
 if.then13:                                        ; preds = %if.then10
@@ -744,7 +744,7 @@ if.then13:                                        ; preds = %if.then10
 
 if.else.i:                                        ; preds = %if.then10
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr, ptr align 1 %incoming_bytes, i64 %sub, i1 false)
-  %add.ptr22 = getelementptr inbounds i8, ptr %incoming_bytes, i64 %sub
+  %add.ptr22 = getelementptr inbounds nuw i8, ptr %incoming_bytes, i64 %sub
   %6 = load i64, ptr %offset, align 8
   %add24 = add i64 %6, %sub
   store i64 %add24, ptr %offset, align 8
@@ -752,9 +752,9 @@ if.else.i:                                        ; preds = %if.then10
   %7 = load ptr, ptr %frame, align 8
   %8 = load i32, ptr %7, align 1
   %conv = zext i32 %8 to i64
-  %size = getelementptr inbounds i8, ptr %frame, i64 8
+  %size = getelementptr inbounds nuw i8, ptr %frame, i64 8
   store i64 %conv, ptr %size, align 8
-  %allocated_size.i = getelementptr inbounds i8, ptr %frame, i64 16
+  %allocated_size.i = getelementptr inbounds nuw i8, ptr %frame, i64 16
   %9 = load i64, ptr %allocated_size.i, align 8
   %cmp5.i = icmp ult i64 %9, %conv
   br i1 %cmp5.i, label %if.then6.i, label %if.end28
@@ -836,7 +836,7 @@ if.then3:                                         ; preds = %if.end
 if.end4:                                          ; preds = %if.then3, %if.end
   %call5 = tail call noundef ptr @_Z28tsi_security_level_to_string18tsi_security_level(i32 noundef 0)
   %2 = load ptr, ptr %peer, align 8
-  %arrayidx7 = getelementptr inbounds i8, ptr %2, i64 24
+  %arrayidx7 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %call8 = tail call noundef i32 @_Z47tsi_construct_string_peer_property_from_cstringPKcS0_P17tsi_peer_property(ptr noundef nonnull @.str.23, ptr noundef %call5, ptr noundef nonnull %arrayidx7)
   %cmp9.not = icmp eq i32 %call8, 0
   br i1 %cmp9.not, label %return, label %if.then10
@@ -861,9 +861,9 @@ entry:
 define internal noundef i32 @_ZL54fake_handshaker_result_create_zero_copy_grpc_protectorPK21tsi_handshaker_resultPmPP28tsi_zero_copy_grpc_protector(ptr nocapture readnone %0, ptr noundef readonly %max_output_protected_frame_size, ptr nocapture noundef writeonly initializes((0, 8)) %protector) #0 {
 entry:
   %call.i = tail call ptr @gpr_zalloc(i64 noundef 552)
-  %header_sb.i = getelementptr inbounds i8, ptr %call.i, i64 8
+  %header_sb.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   tail call void @grpc_slice_buffer_init(ptr noundef nonnull %header_sb.i)
-  %protected_sb.i = getelementptr inbounds i8, ptr %call.i, i64 272
+  %protected_sb.i = getelementptr inbounds nuw i8, ptr %call.i, i64 272
   tail call void @grpc_slice_buffer_init(ptr noundef nonnull %protected_sb.i)
   %cmp.i = icmp eq ptr %max_output_protected_frame_size, null
   br i1 %cmp.i, label %_Z40tsi_create_fake_zero_copy_grpc_protectorPm.exit, label %cond.false.i
@@ -874,9 +874,9 @@ cond.false.i:                                     ; preds = %entry
 
 _Z40tsi_create_fake_zero_copy_grpc_protectorPm.exit: ; preds = %entry, %cond.false.i
   %cond.i = phi i64 [ %1, %cond.false.i ], [ 16384, %entry ]
-  %max_frame_size.i = getelementptr inbounds i8, ptr %call.i, i64 536
+  %max_frame_size.i = getelementptr inbounds nuw i8, ptr %call.i, i64 536
   store i64 %cond.i, ptr %max_frame_size.i, align 8
-  %parsed_frame_size.i = getelementptr inbounds i8, ptr %call.i, i64 544
+  %parsed_frame_size.i = getelementptr inbounds nuw i8, ptr %call.i, i64 544
   store i64 0, ptr %parsed_frame_size.i, align 8
   store ptr @_ZL31zero_copy_grpc_protector_vtable, ptr %call.i, align 8
   store ptr %call.i, ptr %protector, align 8
@@ -896,7 +896,7 @@ cond.false.i:                                     ; preds = %entry
 
 _Z31tsi_create_fake_frame_protectorPm.exit:       ; preds = %entry, %cond.false.i
   %cond.i = phi i64 [ %1, %cond.false.i ], [ 16384, %entry ]
-  %max_frame_size.i = getelementptr inbounds i8, ptr %call.i.i, i64 88
+  %max_frame_size.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 88
   store i64 %cond.i, ptr %max_frame_size.i, align 8
   store ptr @_ZL22frame_protector_vtable, ptr %call.i.i, align 8
   store ptr %call.i.i, ptr %protector, align 8
@@ -906,10 +906,10 @@ _Z31tsi_create_fake_frame_protectorPm.exit:       ; preds = %entry, %cond.false.
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef i32 @_ZL39fake_handshaker_result_get_unused_bytesPK21tsi_handshaker_resultPPKhPm(ptr nocapture noundef readonly %self, ptr nocapture noundef writeonly initializes((0, 8)) %bytes, ptr nocapture noundef writeonly initializes((0, 8)) %bytes_size) #6 {
 entry:
-  %unused_bytes_size = getelementptr inbounds i8, ptr %self, i64 16
+  %unused_bytes_size = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load i64, ptr %unused_bytes_size, align 8
   store i64 %0, ptr %bytes_size, align 8
-  %unused_bytes = getelementptr inbounds i8, ptr %self, i64 8
+  %unused_bytes = getelementptr inbounds nuw i8, ptr %self, i64 8
   %1 = load ptr, ptr %unused_bytes, align 8
   store ptr %1, ptr %bytes, align 8
   ret i32 0
@@ -918,7 +918,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZL30fake_handshaker_result_destroyP21tsi_handshaker_result(ptr noundef %self) #0 {
 entry:
-  %unused_bytes = getelementptr inbounds i8, ptr %self, i64 8
+  %unused_bytes = getelementptr inbounds nuw i8, ptr %self, i64 8
   %0 = load ptr, ptr %unused_bytes, align 8
   tail call void @gpr_free(ptr noundef %0)
   tail call void @gpr_free(ptr noundef %self)
@@ -938,18 +938,18 @@ define internal noundef range(i32 0, 8) i32 @_ZL22fake_protector_protectP19tsi_f
 entry:
   %frame_header = alloca [4 x i8], align 1
   %written_in_frame_size = alloca i64, align 8
-  %protect_frame = getelementptr inbounds i8, ptr %self, i64 8
+  %protect_frame = getelementptr inbounds nuw i8, ptr %self, i64 8
   %0 = load i64, ptr %protected_output_frames_size, align 8
   store i64 0, ptr %protected_output_frames_size, align 8
-  %needs_draining = getelementptr inbounds i8, ptr %self, i64 40
+  %needs_draining = getelementptr inbounds nuw i8, ptr %self, i64 40
   %1 = load i32, ptr %needs_draining, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end9, label %if.end2.i
 
 if.end2.i:                                        ; preds = %entry
-  %size.i = getelementptr inbounds i8, ptr %self, i64 16
+  %size.i = getelementptr inbounds nuw i8, ptr %self, i64 16
   %2 = load i64, ptr %size.i, align 8
-  %offset.i = getelementptr inbounds i8, ptr %self, i64 32
+  %offset.i = getelementptr inbounds nuw i8, ptr %self, i64 32
   %3 = load i64, ptr %offset.i, align 8
   %sub.i = sub i64 %2, %3
   %cmp3.i = icmp ult i64 %0, %sub.i
@@ -983,25 +983,25 @@ if.end5:                                          ; preds = %if.end2.i
 
 if.end9:                                          ; preds = %entry, %if.end5
   %protected_output_frames.addr.060 = phi ptr [ %add.ptr57, %if.end5 ], [ %protected_output_frames, %entry ]
-  %size = getelementptr inbounds i8, ptr %self, i64 16
+  %size = getelementptr inbounds nuw i8, ptr %self, i64 16
   %8 = load i64, ptr %size, align 8
   %cmp10 = icmp eq i64 %8, 0
   br i1 %cmp10, label %if.then11, label %if.end18
 
 if.then11:                                        ; preds = %if.end9
-  %max_frame_size = getelementptr inbounds i8, ptr %self, i64 88
+  %max_frame_size = getelementptr inbounds nuw i8, ptr %self, i64 88
   %9 = load i64, ptr %max_frame_size, align 8
   %shr.i65 = lshr i64 %9, 24
   %conv.i = trunc i64 %shr.i65 to i8
-  %arrayidx.i = getelementptr inbounds i8, ptr %frame_header, i64 3
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %frame_header, i64 3
   store i8 %conv.i, ptr %arrayidx.i, align 1
   %shr1.i66 = lshr i64 %9, 16
   %conv3.i = trunc i64 %shr1.i66 to i8
-  %arrayidx4.i = getelementptr inbounds i8, ptr %frame_header, i64 2
+  %arrayidx4.i = getelementptr inbounds nuw i8, ptr %frame_header, i64 2
   store i8 %conv3.i, ptr %arrayidx4.i, align 1
   %shr5.i67 = lshr i64 %9, 8
   %conv7.i = trunc i64 %shr5.i67 to i8
-  %arrayidx8.i = getelementptr inbounds i8, ptr %frame_header, i64 1
+  %arrayidx8.i = getelementptr inbounds nuw i8, ptr %frame_header, i64 1
   store i8 %conv7.i, ptr %arrayidx8.i, align 1
   %conv10.i = trunc i64 %9 to i8
   store i8 %conv10.i, ptr %frame_header, align 1
@@ -1031,7 +1031,7 @@ if.end25:                                         ; preds = %if.end18
   br i1 %tobool27.not, label %return, label %if.end29
 
 if.end29:                                         ; preds = %if.end25
-  %offset = getelementptr inbounds i8, ptr %self, i64 32
+  %offset = getelementptr inbounds nuw i8, ptr %self, i64 32
   %11 = load i64, ptr %offset, align 8
   %cmp30.not = icmp eq i64 %11, 0
   br i1 %cmp30.not, label %if.end2.i35, label %return
@@ -1072,47 +1072,47 @@ return:                                           ; preds = %15, %_ZL21tsi_fake_
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define internal noundef range(i32 0, 8) i32 @_ZL28fake_protector_protect_flushP19tsi_frame_protectorPhPmS2_(ptr nocapture noundef %self, ptr nocapture noundef writeonly %protected_output_frames, ptr nocapture noundef %protected_output_frames_size, ptr nocapture noundef writeonly initializes((0, 8)) %still_pending_size) #7 {
 entry:
-  %protect_frame = getelementptr inbounds i8, ptr %self, i64 8
-  %needs_draining = getelementptr inbounds i8, ptr %self, i64 40
+  %protect_frame = getelementptr inbounds nuw i8, ptr %self, i64 8
+  %needs_draining = getelementptr inbounds nuw i8, ptr %self, i64 40
   %0 = load i32, ptr %needs_draining, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end, label %if.end.thread
 
 if.end.thread:                                    ; preds = %entry
-  %size.i18 = getelementptr inbounds i8, ptr %self, i64 16
+  %size.i18 = getelementptr inbounds nuw i8, ptr %self, i64 16
   %1 = load i64, ptr %size.i18, align 8
-  %offset.i19 = getelementptr inbounds i8, ptr %self, i64 32
+  %offset.i19 = getelementptr inbounds nuw i8, ptr %self, i64 32
   %2 = load i64, ptr %offset.i19, align 8
   %sub.i20 = sub i64 %1, %2
   br label %if.end2.i
 
 if.end:                                           ; preds = %entry
-  %offset = getelementptr inbounds i8, ptr %self, i64 32
+  %offset = getelementptr inbounds nuw i8, ptr %self, i64 32
   %3 = load i64, ptr %offset, align 8
-  %size = getelementptr inbounds i8, ptr %self, i64 16
+  %size = getelementptr inbounds nuw i8, ptr %self, i64 16
   store i64 %3, ptr %size, align 8
   store i64 0, ptr %offset, align 8
   store i32 1, ptr %needs_draining, align 8
   %4 = load ptr, ptr %protect_frame, align 8
   %shr.i13 = lshr i64 %3, 24
   %conv.i = trunc i64 %shr.i13 to i8
-  %arrayidx.i = getelementptr inbounds i8, ptr %4, i64 3
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %4, i64 3
   store i8 %conv.i, ptr %arrayidx.i, align 1
   %shr1.i14 = lshr i64 %3, 16
   %conv3.i = trunc i64 %shr1.i14 to i8
-  %arrayidx4.i = getelementptr inbounds i8, ptr %4, i64 2
+  %arrayidx4.i = getelementptr inbounds nuw i8, ptr %4, i64 2
   store i8 %conv3.i, ptr %arrayidx4.i, align 1
   %shr5.i15 = lshr i64 %3, 8
   %conv7.i = trunc i64 %shr5.i15 to i8
-  %arrayidx8.i = getelementptr inbounds i8, ptr %4, i64 1
+  %arrayidx8.i = getelementptr inbounds nuw i8, ptr %4, i64 1
   store i8 %conv7.i, ptr %arrayidx8.i, align 1
   %conv10.i = trunc i64 %3 to i8
   store i8 %conv10.i, ptr %4, align 1
   %.pre = load i32, ptr %needs_draining, align 8
   %5 = icmp eq i32 %.pre, 0
-  %size.i = getelementptr inbounds i8, ptr %self, i64 16
+  %size.i = getelementptr inbounds nuw i8, ptr %self, i64 16
   %6 = load i64, ptr %size.i, align 8
-  %offset.i = getelementptr inbounds i8, ptr %self, i64 32
+  %offset.i = getelementptr inbounds nuw i8, ptr %self, i64 32
   %7 = load i64, ptr %offset.i, align 8
   %sub.i = sub i64 %6, %7
   br i1 %5, label %_ZL21tsi_fake_frame_encodePhPmP14tsi_fake_framePNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread, label %if.end2.i
@@ -1157,16 +1157,16 @@ _ZL21tsi_fake_frame_encodePhPmP14tsi_fake_framePNSt7__cxx1112basic_stringIcSt11c
 ; Function Attrs: mustprogress uwtable
 define internal noundef range(i32 0, 8) i32 @_ZL24fake_protector_unprotectP19tsi_frame_protectorPKhPmPhS3_(ptr nocapture noundef %self, ptr noundef %protected_frames_bytes, ptr nocapture noundef %protected_frames_bytes_size, ptr nocapture noundef writeonly %unprotected_bytes, ptr nocapture noundef %unprotected_bytes_size) #0 {
 entry:
-  %unprotect_frame = getelementptr inbounds i8, ptr %self, i64 48
+  %unprotect_frame = getelementptr inbounds nuw i8, ptr %self, i64 48
   %0 = load i64, ptr %unprotected_bytes_size, align 8
   store i64 0, ptr %unprotected_bytes_size, align 8
-  %needs_draining = getelementptr inbounds i8, ptr %self, i64 80
+  %needs_draining = getelementptr inbounds nuw i8, ptr %self, i64 80
   %1 = load i32, ptr %needs_draining, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end13, label %if.then
 
 if.then:                                          ; preds = %entry
-  %offset = getelementptr inbounds i8, ptr %self, i64 72
+  %offset = getelementptr inbounds nuw i8, ptr %self, i64 72
   %2 = load i64, ptr %offset, align 8
   %cmp = icmp eq i64 %2, 0
   br i1 %cmp, label %if.then1, label %if.end2.i
@@ -1180,7 +1180,7 @@ if.end2.i:                                        ; preds = %if.then, %if.then1
   %3 = phi i64 [ 4, %if.then1 ], [ %2, %if.then ]
   %4 = phi i64 [ %.pre, %if.then1 ], [ 0, %if.then ]
   %sub = sub i64 %0, %4
-  %size.i = getelementptr inbounds i8, ptr %self, i64 56
+  %size.i = getelementptr inbounds nuw i8, ptr %self, i64 56
   %5 = load i64, ptr %size.i, align 8
   %sub.i = sub i64 %5, %3
   %cmp3.i = icmp ult i64 %sub, %sub.i
@@ -1229,7 +1229,7 @@ if.end20:                                         ; preds = %if.end13
   br i1 %tobool22.not, label %return, label %if.end24
 
 if.end24:                                         ; preds = %if.end20
-  %offset25 = getelementptr inbounds i8, ptr %self, i64 72
+  %offset25 = getelementptr inbounds nuw i8, ptr %self, i64 72
   %11 = load i64, ptr %offset25, align 8
   %cmp26.not = icmp eq i64 %11, 0
   br i1 %cmp26.not, label %if.end2.i32, label %return
@@ -1238,12 +1238,12 @@ if.end2.i32:                                      ; preds = %if.end24
   store i64 4, ptr %offset25, align 8
   %12 = load i64, ptr %unprotected_bytes_size, align 8
   %sub30 = sub i64 %0, %12
-  %size.i27 = getelementptr inbounds i8, ptr %self, i64 56
+  %size.i27 = getelementptr inbounds nuw i8, ptr %self, i64 56
   %13 = load i64, ptr %size.i27, align 8
   %sub.i29 = add i64 %13, -4
   %cmp3.i33 = icmp ult i64 %sub30, %sub.i29
   %14 = load ptr, ptr %unprotect_frame, align 8
-  %add.ptr.i34 = getelementptr inbounds i8, ptr %14, i64 4
+  %add.ptr.i34 = getelementptr inbounds nuw i8, ptr %14, i64 4
   br i1 %cmp3.i33, label %15, label %_ZL21tsi_fake_frame_encodePhPmP14tsi_fake_framePNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit40.thread
 
 _ZL21tsi_fake_frame_encodePhPmP14tsi_fake_framePNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit40.thread: ; preds = %if.end2.i32
@@ -1274,7 +1274,7 @@ return:                                           ; preds = %15, %_ZL21tsi_fake_
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZL22fake_protector_destroyP19tsi_frame_protector(ptr noundef %self) #0 {
 entry:
-  %protect_frame = getelementptr inbounds i8, ptr %self, i64 8
+  %protect_frame = getelementptr inbounds nuw i8, ptr %self, i64 8
   %protect_frame.val = load ptr, ptr %protect_frame, align 8
   %cmp.not.i = icmp eq ptr %protect_frame.val, null
   br i1 %cmp.not.i, label %_ZL23tsi_fake_frame_destructP14tsi_fake_frame.exit, label %if.then.i
@@ -1284,7 +1284,7 @@ if.then.i:                                        ; preds = %entry
   br label %_ZL23tsi_fake_frame_destructP14tsi_fake_frame.exit
 
 _ZL23tsi_fake_frame_destructP14tsi_fake_frame.exit: ; preds = %entry, %if.then.i
-  %unprotect_frame = getelementptr inbounds i8, ptr %self, i64 48
+  %unprotect_frame = getelementptr inbounds nuw i8, ptr %self, i64 48
   %unprotect_frame.val = load ptr, ptr %unprotect_frame, align 8
   %cmp.not.i3 = icmp eq ptr %unprotect_frame.val, null
   br i1 %cmp.not.i3, label %_ZL23tsi_fake_frame_destructP14tsi_fake_frame.exit5, label %if.then.i4
@@ -1312,18 +1312,18 @@ entry:
   br i1 %or.cond1, label %return, label %while.cond.preheader
 
 while.cond.preheader:                             ; preds = %entry
-  %length = getelementptr inbounds i8, ptr %unprotected_slices, i64 32
+  %length = getelementptr inbounds nuw i8, ptr %unprotected_slices, i64 32
   %0 = load i64, ptr %length, align 8
   %cmp4.not19 = icmp eq i64 %0, 0
   br i1 %cmp4.not19, label %return, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %while.cond.preheader
-  %max_frame_size = getelementptr inbounds i8, ptr %self, i64 536
-  %bytes = getelementptr inbounds i8, ptr %slice, i64 16
-  %bytes7 = getelementptr inbounds i8, ptr %slice, i64 9
-  %bytes7.sroa.gep = getelementptr inbounds i8, ptr %slice, i64 12
-  %bytes7.sroa.gep9 = getelementptr inbounds i8, ptr %slice, i64 11
-  %bytes7.sroa.gep12 = getelementptr inbounds i8, ptr %slice, i64 10
+  %max_frame_size = getelementptr inbounds nuw i8, ptr %self, i64 536
+  %bytes = getelementptr inbounds nuw i8, ptr %slice, i64 16
+  %bytes7 = getelementptr inbounds nuw i8, ptr %slice, i64 9
+  %bytes7.sroa.gep = getelementptr inbounds nuw i8, ptr %slice, i64 12
+  %bytes7.sroa.gep9 = getelementptr inbounds nuw i8, ptr %slice, i64 11
+  %bytes7.sroa.gep12 = getelementptr inbounds nuw i8, ptr %slice, i64 10
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
@@ -1338,17 +1338,17 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %cond = select i1 %tobool.not, ptr %bytes7, ptr %4
   %shr.i16 = lshr i64 %.sroa.speculated, 24
   %conv.i = trunc i64 %shr.i16 to i8
-  %.sroa.gep = getelementptr inbounds i8, ptr %4, i64 3
+  %.sroa.gep = getelementptr inbounds nuw i8, ptr %4, i64 3
   %cond.sroa.sel = select i1 %tobool.not, ptr %bytes7.sroa.gep, ptr %.sroa.gep
   store i8 %conv.i, ptr %cond.sroa.sel, align 1
   %shr1.i17 = lshr i64 %.sroa.speculated, 16
   %conv3.i = trunc i64 %shr1.i17 to i8
-  %.sroa.gep10 = getelementptr inbounds i8, ptr %4, i64 2
+  %.sroa.gep10 = getelementptr inbounds nuw i8, ptr %4, i64 2
   %cond.sroa.sel11 = select i1 %tobool.not, ptr %bytes7.sroa.gep9, ptr %.sroa.gep10
   store i8 %conv3.i, ptr %cond.sroa.sel11, align 1
   %shr5.i18 = lshr i64 %.sroa.speculated, 8
   %conv7.i = trunc i64 %shr5.i18 to i8
-  %.sroa.gep13 = getelementptr inbounds i8, ptr %4, i64 1
+  %.sroa.gep13 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %cond.sroa.sel14 = select i1 %tobool.not, ptr %bytes7.sroa.gep12, ptr %.sroa.gep13
   store i8 %conv7.i, ptr %cond.sroa.sel14, align 1
   %conv10.i = trunc i64 %.sroa.speculated to i8
@@ -1377,18 +1377,18 @@ entry:
   br i1 %or.cond1, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %protected_sb = getelementptr inbounds i8, ptr %self, i64 272
+  %protected_sb = getelementptr inbounds nuw i8, ptr %self, i64 272
   tail call void @grpc_slice_buffer_move_into(ptr noundef nonnull %protected_slices, ptr noundef nonnull %protected_sb)
-  %length = getelementptr inbounds i8, ptr %self, i64 304
+  %length = getelementptr inbounds nuw i8, ptr %self, i64 304
   %0 = load i64, ptr %length, align 8
   %cmp534 = icmp ugt i64 %0, 3
   br i1 %cmp534, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %if.end
-  %parsed_frame_size = getelementptr inbounds i8, ptr %self, i64 544
-  %count.i = getelementptr inbounds i8, ptr %self, i64 288
-  %slices.i = getelementptr inbounds i8, ptr %self, i64 280
-  %header_sb = getelementptr inbounds i8, ptr %self, i64 8
+  %parsed_frame_size = getelementptr inbounds nuw i8, ptr %self, i64 544
+  %count.i = getelementptr inbounds nuw i8, ptr %self, i64 288
+  %slices.i = getelementptr inbounds nuw i8, ptr %self, i64 280
+  %header_sb = getelementptr inbounds nuw i8, ptr %self, i64 8
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end20
@@ -1414,20 +1414,20 @@ for.body.i:                                       ; preds = %cond.end43.i, %for.
   %arrayidx.i = getelementptr inbounds %struct.grpc_slice, ptr %4, i64 %i.047.i
   %5 = load ptr, ptr %arrayidx.i, align 8
   %tobool.not.i = icmp eq ptr %5, null
-  %data8.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  %data8.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   br i1 %tobool.not.i, label %cond.end.i, label %cond.end.thread.i
 
 cond.end.i:                                       ; preds = %for.body.i
   %6 = load i8, ptr %data8.i, align 8
   %conv.i = zext i8 %6 to i64
   %cmp10.not.i = icmp ugt i64 %remaining.046.i, %conv.i
-  %bytes41.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 9
+  %bytes41.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 9
   br i1 %cmp10.not.i, label %cond.end43.i, label %do.body46.thread.i
 
 cond.end.thread.i:                                ; preds = %for.body.i
   %7 = load i64, ptr %data8.i, align 8
   %cmp10.not31.i = icmp ugt i64 %remaining.046.i, %7
-  %bytes36.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
+  %bytes36.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 16
   %8 = load ptr, ptr %bytes36.i, align 8
   br i1 %cmp10.not31.i, label %cond.end43.i, label %do.body46.thread.i
 
@@ -1488,7 +1488,7 @@ while.end:                                        ; preds = %if.end20, %if.end14
   br i1 %cmp26.not, label %return, label %if.then27
 
 if.then27:                                        ; preds = %while.end
-  %parsed_frame_size28 = getelementptr inbounds i8, ptr %self, i64 544
+  %parsed_frame_size28 = getelementptr inbounds nuw i8, ptr %self, i64 544
   %14 = load i64, ptr %parsed_frame_size28, align 8
   %cmp29 = icmp ugt i64 %14, 4
   br i1 %cmp29, label %if.then30, label %if.else
@@ -1515,9 +1515,9 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %header_sb = getelementptr inbounds i8, ptr %self, i64 8
+  %header_sb = getelementptr inbounds nuw i8, ptr %self, i64 8
   tail call void @grpc_slice_buffer_destroy(ptr noundef nonnull %header_sb)
-  %protected_sb = getelementptr inbounds i8, ptr %self, i64 272
+  %protected_sb = getelementptr inbounds nuw i8, ptr %self, i64 272
   tail call void @grpc_slice_buffer_destroy(ptr noundef nonnull %protected_sb)
   tail call void @gpr_free(ptr noundef nonnull %self)
   br label %return
@@ -1535,7 +1535,7 @@ entry:
   br i1 %or.cond, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %max_frame_size2 = getelementptr inbounds i8, ptr %self, i64 536
+  %max_frame_size2 = getelementptr inbounds nuw i8, ptr %self, i64 536
   %0 = load i64, ptr %max_frame_size2, align 8
   store i64 %0, ptr %max_frame_size, align 8
   br label %return

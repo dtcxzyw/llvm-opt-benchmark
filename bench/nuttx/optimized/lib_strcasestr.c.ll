@@ -28,7 +28,7 @@ define noundef ptr @strcasestr(ptr noundef readonly %0, ptr nocapture noundef re
   br i1 %13, label %strcasechr.exit, label %14
 
 14:                                               ; preds = %.lr.ph.i
-  %15 = getelementptr inbounds i8, ptr %.069.i, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %.069.i, i64 1
   %16 = load i8, ptr %15, align 1
   %.not.i = icmp eq i8 %16, 0
   br i1 %.not.i, label %strcasechr.exit.thread, label %.lr.ph.i.backedge
@@ -49,7 +49,7 @@ strcasechr.exit:                                  ; preds = %.lr.ph.i
   br i1 %21, label %strcasechr.exit.thread, label %22
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %.069.i, i64 1
+  %23 = getelementptr inbounds nuw i8, ptr %.069.i, i64 1
   %24 = load i8, ptr %23, align 1
   %.not8.i = icmp eq i8 %24, 0
   br i1 %.not8.i, label %strcasechr.exit.thread, label %.lr.ph.i.backedge

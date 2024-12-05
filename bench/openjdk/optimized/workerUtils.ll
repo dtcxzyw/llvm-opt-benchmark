@@ -13,20 +13,20 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN24WorkerThreadsBarrierSyncC2Ev(ptr noundef nonnull align 8 dereferenceable(114) %0) unnamed_addr #0 align 2 {
   tail call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104) %0, i32 noundef 21, ptr noundef nonnull @.str, i1 noundef zeroext true) #4
-  %2 = getelementptr inbounds i8, ptr %0, i64 104
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %2, i8 0, i64 10, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN24WorkerThreadsBarrierSync13set_n_workersEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(114) initializes((104, 114)) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 104
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i32 %1, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 108
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 108
   store i32 0, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 112
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i8 0, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 113
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 113
   store i8 0, ptr %6, align 1
   ret void
 }
@@ -34,13 +34,13 @@ define hidden void @_ZN24WorkerThreadsBarrierSync13set_n_workersEj(ptr nocapture
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN24WorkerThreadsBarrierSync5enterEv(ptr noundef nonnull align 8 dereferenceable(114) %0) local_unnamed_addr #0 align 2 {
   tail call void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull align 8 dereferenceable(104) %0) #4
-  %2 = getelementptr inbounds i8, ptr %0, i64 112
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
   br i1 %4, label %6, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %1
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 108
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 108
   %.pre = load i32, ptr %.phi.trans.insert, align 4
   %5 = add i32 %.pre, 1
   br label %7
@@ -51,15 +51,15 @@ define hidden noundef zeroext i1 @_ZN24WorkerThreadsBarrierSync5enterEv(ptr noun
 
 7:                                                ; preds = %._crit_edge, %6
   %8 = phi i32 [ %5, %._crit_edge ], [ 1, %6 ]
-  %9 = getelementptr inbounds i8, ptr %0, i64 108
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 108
   store i32 %8, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 104
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %11 = load i32, ptr %10, align 8
   %12 = icmp eq i32 %8, %11
   br i1 %12, label %14, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %0, i64 113
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 113
   br label %15
 
 14:                                               ; preds = %7
@@ -80,7 +80,7 @@ _ZN13MonitorLocker4waitEl.exit:                   ; preds = %15
   br i1 %.not, label %_ZN13MonitorLockerD2Ev.exit, label %15, !llvm.loop !6
 
 _ZN13MonitorLockerD2Ev.exit:                      ; preds = %_ZN13MonitorLocker4waitEl.exit, %15, %14
-  %21 = getelementptr inbounds i8, ptr %0, i64 113
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 113
   %22 = load i8, ptr %21, align 1
   %23 = trunc i8 %22 to i1
   %24 = xor i1 %23, true
@@ -92,7 +92,7 @@ _ZN13MonitorLockerD2Ev.exit:                      ; preds = %_ZN13MonitorLocker4
 define hidden void @_ZN24WorkerThreadsBarrierSync5abortEv(ptr noundef nonnull align 8 dereferenceable(114) %0) local_unnamed_addr #0 align 2 {
 _ZN11MutexLockerD2Ev.exit:
   tail call void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull align 8 dereferenceable(104) %0) #4
-  %1 = getelementptr inbounds i8, ptr %0, i64 113
+  %1 = getelementptr inbounds nuw i8, ptr %0, i64 113
   store i8 1, ptr %1, align 1
   tail call void @_ZN7Monitor10notify_allEv(ptr noundef nonnull align 8 dereferenceable(104) %0) #4
   tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %0) #4
@@ -104,7 +104,7 @@ declare void @_ZN7Monitor10notify_allEv(ptr noundef nonnull align 8 dereferencea
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN12SubTasksDoneC2Ej(ptr nocapture noundef nonnull align 8 dereferenceable(12) initializes((0, 12)) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   store ptr null, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %1, ptr %3, align 8
   %4 = zext i32 %1 to i64
   %5 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %4, i8 noundef zeroext 9, i32 noundef 0) #4
@@ -116,7 +116,7 @@ define hidden void @_ZN12SubTasksDoneC2Ej(ptr nocapture noundef nonnull align 8 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %2 ]
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv
   store volatile i8 0, ptr %8, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %9 = load i32, ptr %3, align 8
@@ -134,7 +134,7 @@ declare noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEn
 define hidden noundef zeroext i1 @_ZN12SubTasksDone14try_claim_taskEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = zext i32 %1 to i64
-  %5 = getelementptr inbounds i8, ptr %3, i64 %4
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 %4
   %6 = load volatile i8, ptr %5, align 1
   %7 = trunc i8 %6 to i1
   br i1 %7, label %12, label %8
@@ -161,7 +161,7 @@ declare void @_Z8FreeHeapPv(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN22SequentialSubTasksDone14try_claim_taskERj(ptr noundef nonnull align 4 dereferenceable(8) %0, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load volatile i32, ptr %3, align 4
   store i32 %4, ptr %1, align 4
   %5 = load i32, ptr %0, align 4

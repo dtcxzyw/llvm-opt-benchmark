@@ -20,15 +20,15 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define ptr @Sto_ManMemoryFetch(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 40
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.pre = load i32, ptr %.phi.trans.insert, align 8
   br i1 %5, label %._crit_edge, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 44
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %8 = load i32, ptr %7, align 4
   %9 = sub nsw i32 %.pre, %8
   %10 = icmp sgt i32 %1, %9
@@ -44,7 +44,7 @@ define ptr @Sto_ManMemoryFetch(ptr nocapture noundef %0, i32 noundef %1) local_u
 13:                                               ; preds = %._crit_edge, %6
   %14 = phi i32 [ 8, %._crit_edge ], [ %8, %6 ]
   %15 = phi ptr [ %12, %._crit_edge ], [ %4, %6 ]
-  %16 = getelementptr inbounds i8, ptr %0, i64 44
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %17 = sext i32 %14 to i64
   %18 = getelementptr inbounds i8, ptr %15, i64 %17
   %19 = add nsw i32 %14, %1
@@ -57,7 +57,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @Sto_ManMemoryStop(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %8, label %.preheader
@@ -89,20 +89,20 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define i32 @Sto_ManMemoryReport(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.loopexit, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 44
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %7 = load i32, ptr %6, align 4
   %8 = load ptr, ptr %3, align 8
   %.not12 = icmp eq ptr %8, null
   br i1 %.not12, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load i32, ptr %9, align 8
   br label %11
 
@@ -122,7 +122,7 @@ define i32 @Sto_ManMemoryReport(ptr nocapture noundef readonly %0) local_unnamed
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite) uwtable
 define noalias noundef ptr @Sto_ManAlloc() local_unnamed_addr #5 {
   %calloc = tail call dereferenceable_or_null(56) ptr @calloc(i64 1, i64 56)
-  %1 = getelementptr inbounds i8, ptr %calloc, i64 40
+  %1 = getelementptr inbounds nuw i8, ptr %calloc, i64 40
   store i32 65536, ptr %1, align 8
   ret ptr %calloc
 }
@@ -132,7 +132,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
 define void @Sto_ManFree(ptr noundef %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %Sto_ManMemoryStop.exit.thread, label %.preheader.i
@@ -173,7 +173,7 @@ define range(i32 0, 2) i32 @Sto_ManAddClause(ptr nocapture noundef %0, ptr nound
   br i1 %4, label %5, label %31
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %7 = icmp ult ptr %6, %2
   br i1 %7, label %.lr.ph72, label %._crit_edge
 
@@ -198,12 +198,12 @@ define range(i32 0, 2) i32 @Sto_ManAddClause(ptr nocapture noundef %0, ptr nound
 .critedge:                                        ; preds = %.lr.ph, %13, %.lr.ph72
   %.060.lcssa = phi ptr [ %.06171, %.lr.ph72 ], [ %10, %13 ], [ %.06068, %.lr.ph ]
   store i32 %8, ptr %.060.lcssa, align 4
-  %15 = getelementptr inbounds i8, ptr %.06171, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %.06171, i64 4
   %16 = icmp ult ptr %15, %2
   br i1 %16, label %.lr.ph72, label %.lr.ph74, !llvm.loop !8
 
 17:                                               ; preds = %.lr.ph74
-  %18 = getelementptr inbounds i8, ptr %.173, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %.173, i64 4
   %19 = icmp ult ptr %18, %2
   br i1 %19, label %.lr.ph74, label %._crit_edge, !llvm.loop !9
 
@@ -241,15 +241,15 @@ define range(i32 0, 2) i32 @Sto_ManAddClause(ptr nocapture noundef %0, ptr nound
   %38 = select i1 %.not, i64 0, i64 8
   %39 = add nuw nsw i64 %38, %36
   %40 = trunc i64 %39 to i32
-  %41 = getelementptr inbounds i8, ptr %0, i64 48
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %42 = load ptr, ptr %41, align 8
   %43 = icmp eq ptr %42, null
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %0, i64 40
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.pre.i = load i32, ptr %.phi.trans.insert.i, align 8
   br i1 %43, label %._crit_edge.i, label %44
 
 44:                                               ; preds = %31
-  %45 = getelementptr inbounds i8, ptr %0, i64 44
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %46 = load i32, ptr %45, align 4
   %47 = sub nsw i32 %.pre.i, %46
   %48 = icmp slt i32 %47, %40
@@ -265,29 +265,29 @@ define range(i32 0, 2) i32 @Sto_ManAddClause(ptr nocapture noundef %0, ptr nound
 Sto_ManMemoryFetch.exit:                          ; preds = %44, %._crit_edge.i
   %51 = phi i32 [ 8, %._crit_edge.i ], [ %46, %44 ]
   %52 = phi ptr [ %50, %._crit_edge.i ], [ %42, %44 ]
-  %53 = getelementptr inbounds i8, ptr %0, i64 44
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %54 = sext i32 %51 to i64
   %55 = getelementptr inbounds i8, ptr %52, i64 %54
   %56 = add nsw i32 %51, %40
   store i32 %56, ptr %53, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %55, i8 0, i64 32, i1 false)
-  %57 = getelementptr inbounds i8, ptr %0, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %58 = load i32, ptr %57, align 8
   %59 = add nsw i32 %58, 1
   store i32 %59, ptr %57, align 8
-  %60 = getelementptr inbounds i8, ptr %55, i64 24
+  %60 = getelementptr inbounds nuw i8, ptr %55, i64 24
   store i32 %58, ptr %60, align 8
   %61 = trunc i64 %34 to i32
-  %62 = getelementptr inbounds i8, ptr %55, i64 28
+  %62 = getelementptr inbounds nuw i8, ptr %55, i64 28
   %63 = load i32, ptr %62, align 4
   %64 = shl i32 %61, 1
   %65 = and i32 %64, 134217720
   %66 = and i32 %63, -134217721
   %67 = or disjoint i32 %66, %65
   store i32 %67, ptr %62, align 4
-  %68 = getelementptr inbounds i8, ptr %55, i64 32
+  %68 = getelementptr inbounds nuw i8, ptr %55, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %68, ptr align 4 %1, i64 %34, i1 false)
-  %69 = getelementptr inbounds i8, ptr %0, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %70 = load ptr, ptr %69, align 8
   %71 = icmp eq ptr %70, null
   br i1 %71, label %72, label %73
@@ -297,7 +297,7 @@ Sto_ManMemoryFetch.exit:                          ; preds = %44, %._crit_edge.i
   br label %73
 
 73:                                               ; preds = %72, %Sto_ManMemoryFetch.exit
-  %74 = getelementptr inbounds i8, ptr %0, i64 24
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %75 = load ptr, ptr %74, align 8
   %76 = icmp eq ptr %75, null
   br i1 %76, label %78, label %77
@@ -314,7 +314,7 @@ Sto_ManMemoryFetch.exit:                          ; preds = %44, %._crit_edge.i
   br i1 %81, label %82, label %87
 
 82:                                               ; preds = %78
-  %83 = getelementptr inbounds i8, ptr %0, i64 32
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %84 = load ptr, ptr %83, align 8
   %.not66 = icmp eq ptr %84, null
   br i1 %.not66, label %86, label %85
@@ -340,16 +340,16 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @Sto_ManMarkRoots(ptr nocapture noundef initializes((4, 8)) %0) local_unnamed_addr #10 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 4
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %2, align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.06 = load ptr, ptr %3, align 8
   %.not7 = icmp eq ptr %.06, null
   br i1 %.not7, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %.08 = phi ptr [ %.0, %.lr.ph ], [ %.06, %1 ]
-  %4 = getelementptr inbounds i8, ptr %.08, i64 28
+  %4 = getelementptr inbounds nuw i8, ptr %.08, i64 28
   %5 = load i32, ptr %4, align 4
   %6 = or i32 %5, 2
   store i32 %6, ptr %4, align 4
@@ -366,16 +366,16 @@ define void @Sto_ManMarkRoots(ptr nocapture noundef initializes((4, 8)) %0) loca
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @Sto_ManMarkClausesA(ptr nocapture noundef initializes((12, 16)) %0) local_unnamed_addr #10 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 12
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 0, ptr %2, align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.06 = load ptr, ptr %3, align 8
   %.not7 = icmp eq ptr %.06, null
   br i1 %.not7, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %.08 = phi ptr [ %.0, %.lr.ph ], [ %.06, %1 ]
-  %4 = getelementptr inbounds i8, ptr %.08, i64 28
+  %4 = getelementptr inbounds nuw i8, ptr %.08, i64 28
   %5 = load i32, ptr %4, align 4
   %6 = or i32 %5, 1
   store i32 %6, ptr %4, align 4
@@ -392,7 +392,7 @@ define void @Sto_ManMarkClausesA(ptr nocapture noundef initializes((12, 16)) %0)
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define range(i32 -1073741824, 1073741824) i32 @Sto_ManChangeLastClause(ptr nocapture noundef %0) local_unnamed_addr #10 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %3
 
 3:                                                ; preds = %3, %1
@@ -403,15 +403,15 @@ define range(i32 -1073741824, 1073741824) i32 @Sto_ManChangeLastClause(ptr nocap
   br i1 %.not, label %4, label %3, !llvm.loop !12
 
 4:                                                ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %0, i64 12
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %6 = load i32, ptr %5, align 4
   %7 = add nsw i32 %6, -1
   store i32 %7, ptr %5, align 4
-  %8 = getelementptr inbounds i8, ptr %.0, i64 28
+  %8 = getelementptr inbounds nuw i8, ptr %.0, i64 28
   %9 = load i32, ptr %8, align 4
   %10 = and i32 %9, -2
   store i32 %10, ptr %8, align 4
-  %11 = getelementptr inbounds i8, ptr %.0, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %.0, i64 32
   %12 = load i32, ptr %11, align 8
   %13 = ashr i32 %12, 1
   ret i32 %13
@@ -429,33 +429,33 @@ define void @Sto_ManDumpClauses(ptr nocapture noundef readonly %0, ptr noundef %
 
 7:                                                ; preds = %2
   %8 = load i32, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i32, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %12 = load i32, ptr %11, align 4
-  %13 = getelementptr inbounds i8, ptr %0, i64 12
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %14 = load i32, ptr %13, align 4
   %15 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.4, i32 noundef %8, i32 noundef %10, i32 noundef %12, i32 noundef %14) #16
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.01821 = load ptr, ptr %16, align 8
   %.not22 = icmp eq ptr %.01821, null
   br i1 %.not22, label %._crit_edge24, label %.preheader
 
 .preheader:                                       ; preds = %7, %._crit_edge
   %.01823 = phi ptr [ %.018, %._crit_edge ], [ %.01821, %7 ]
-  %17 = getelementptr inbounds i8, ptr %.01823, i64 28
+  %17 = getelementptr inbounds nuw i8, ptr %.01823, i64 28
   %18 = load i32, ptr %17, align 4
   %19 = and i32 %18, 134217720
   %.not25 = icmp eq i32 %19, 0
   br i1 %.not25, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %20 = getelementptr inbounds i8, ptr %.01823, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %.01823, i64 32
   br label %21
 
 21:                                               ; preds = %.lr.ph, %21
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %21 ]
-  %22 = getelementptr inbounds [0 x i32], ptr %20, i64 0, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [0 x i32], ptr %20, i64 0, i64 %indvars.iv
   %23 = load i32, ptr %22, align 4
   %24 = and i32 %23, 1
   %.not.i = icmp eq i32 %24, 0
@@ -570,12 +570,12 @@ define noundef ptr @Sto_ManLoadClauses(ptr noundef %0) local_unnamed_addr #2 {
 
 7:                                                ; preds = %1
   %calloc.i = tail call noalias noundef dereferenceable_or_null(56) ptr @calloc(i64 1, i64 56)
-  %8 = getelementptr inbounds i8, ptr %calloc.i, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 40
   store i32 65536, ptr %8, align 8
   %9 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #15
-  %10 = getelementptr inbounds i8, ptr %calloc.i, i64 12
-  %11 = getelementptr inbounds i8, ptr %calloc.i, i64 4
-  %12 = getelementptr inbounds i8, ptr %calloc.i, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 8
   %13 = call ptr @fgets(ptr noundef nonnull %2, i32 noundef 1024, ptr noundef nonnull %3)
   %.not73 = icmp eq ptr %13, null
   br i1 %.not73, label %.outer.preheader, label %.lr.ph
@@ -588,7 +588,7 @@ define noundef ptr @Sto_ManLoadClauses(ptr noundef %0) local_unnamed_addr #2 {
   ]
 
 15:                                               ; preds = %.lr.ph
-  %16 = getelementptr inbounds i8, ptr %2, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %17 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %16, ptr noundef nonnull @.str.10, ptr noundef nonnull %calloc.i, ptr noundef nonnull %12, ptr noundef nonnull %11, ptr noundef nonnull %10) #16
   br label %.outer.preheader
 
@@ -723,7 +723,7 @@ lit_read.exit:                                    ; preds = %53, %56
   br label %66
 
 66:                                               ; preds = %65, %.loopexit
-  %67 = getelementptr inbounds i8, ptr %calloc.i, i64 16
+  %67 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 16
   br label %68
 
 68:                                               ; preds = %68, %66
@@ -741,7 +741,7 @@ lit_read.exit:                                    ; preds = %53, %56
 
 72:                                               ; preds = %70
   %73 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, i32 noundef %.042, i32 noundef %71)
-  %74 = getelementptr inbounds i8, ptr %calloc.i, i64 48
+  %74 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 48
   %75 = load ptr, ptr %74, align 8
   %76 = icmp eq ptr %75, null
   br i1 %76, label %Sto_ManFree.exit, label %.preheader.i.i

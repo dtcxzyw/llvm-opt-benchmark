@@ -42,11 +42,11 @@ define hidden range(i32 0, 2) i32 @awt_getImagingLib(ptr nocapture noundef readn
 
 .lr.ph.preheader:                                 ; preds = %13
   store ptr %10, ptr %2, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %12, ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 16
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %14, ptr %.sroa.3.0..sroa_idx, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load ptr, ptr %16, align 8
   %.not3350 = icmp eq ptr %17, null
   br i1 %.not3350, label %.critedge, label %.lr.ph52
@@ -59,10 +59,10 @@ define hidden range(i32 0, 2) i32 @awt_getImagingLib(ptr nocapture noundef readn
   br i1 %.not35.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph52
-  %20 = getelementptr inbounds %struct.mlibFnS_t, ptr %1, i64 %indvars.iv51
+  %20 = getelementptr inbounds nuw %struct.mlibFnS_t, ptr %1, i64 %indvars.iv51
   store ptr %19, ptr %20, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv51, 1
-  %21 = getelementptr inbounds %struct.mlibFnS_t, ptr %1, i64 %indvars.iv.next, i32 1
+  %21 = getelementptr inbounds nuw %struct.mlibFnS_t, ptr %1, i64 %indvars.iv.next, i32 1
   %22 = load ptr, ptr %21, align 8
   %.not33 = icmp eq ptr %22, null
   br i1 %.not33, label %.critedge, label %.lr.ph52, !llvm.loop !6
@@ -101,11 +101,11 @@ define internal void @start_timer(i32 noundef %0) #4 {
   %2 = alloca %struct.itimerval, align 8
   %3 = sext i32 %0 to i64
   store i64 %3, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 0, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 %3, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 0, ptr %6, align 8
   %7 = call i32 @setitimer(i32 noundef 0, ptr noundef nonnull %2, ptr noundef null) #8
   ret void
@@ -122,11 +122,11 @@ define internal void @stop_timer(i32 noundef %0, i32 noundef %1) #5 {
   %4 = call i32 @getitimer(i32 noundef 0, ptr noundef nonnull %3) #8
   %5 = add nsw i32 %0, -1
   %6 = sitofp i32 %5 to double
-  %7 = getelementptr inbounds i8, ptr %3, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %8 = load i64, ptr %7, align 8
   %9 = sitofp i64 %8 to double
   %10 = fsub double %6, %9
-  %11 = getelementptr inbounds i8, ptr %3, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %12 = load i64, ptr %11, align 8
   %13 = sitofp i64 %12 to double
   %14 = fsub double 1.000000e+06, %13

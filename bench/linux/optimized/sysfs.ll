@@ -152,8 +152,8 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @ext4_notify_error_sysfs(ptr noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 440
-  tail call void @sysfs_notify(ptr noundef %2, ptr noundef null, ptr noundef nonnull @.str) #6
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 440
+  tail call void @sysfs_notify(ptr noundef nonnull %2, ptr noundef null, ptr noundef nonnull @.str) #6
   ret void
 }
 
@@ -162,22 +162,22 @@ declare dso_local void @sysfs_notify(ptr noundef, ptr noundef, ptr noundef) loca
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @ext4_register_sysfs(ptr noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 872
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 872
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 504
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 504
   store i32 0, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 512
-  tail call void @__init_swait_queue_head(ptr noundef %5, ptr noundef nonnull @.str.10, ptr noundef nonnull @init_completion.__key) #6
-  %6 = getelementptr inbounds i8, ptr %3, i64 440
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 512
+  tail call void @__init_swait_queue_head(ptr noundef nonnull %5, ptr noundef nonnull @.str.10, ptr noundef nonnull @init_completion.__key) #6
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 440
   %7 = load ptr, ptr @ext4_root, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 920
-  %9 = tail call i32 (ptr, ptr, ptr, ptr, ...) @kobject_init_and_add(ptr noundef %6, ptr noundef nonnull @ext4_sb_ktype, ptr noundef %7, ptr noundef nonnull @.str.1, ptr noundef %8) #6
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 920
+  %9 = tail call i32 (ptr, ptr, ptr, ptr, ...) @kobject_init_and_add(ptr noundef nonnull %6, ptr noundef nonnull @ext4_sb_ktype, ptr noundef %7, ptr noundef nonnull @.str.1, ptr noundef nonnull %8) #6
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %12, label %11
 
 11:                                               ; preds = %1
-  tail call void @kobject_put(ptr noundef %6) #6
-  tail call void @wait_for_completion(ptr noundef %4) #6
+  tail call void @kobject_put(ptr noundef nonnull %6) #6
+  tail call void @wait_for_completion(ptr noundef nonnull %4) #6
   br label %34
 
 12:                                               ; preds = %1
@@ -186,13 +186,13 @@ define dso_local i32 @ext4_register_sysfs(ptr noundef %0) local_unnamed_addr #0 
   br i1 %14, label %._crit_edge, label %15
 
 ._crit_edge:                                      ; preds = %12
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %3, i64 432
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 432
   %.pre = load ptr, ptr %.phi.trans.insert, align 16
   br label %18
 
 15:                                               ; preds = %12
-  %16 = tail call ptr @proc_mkdir(ptr noundef %8, ptr noundef nonnull %13) #6
-  %17 = getelementptr inbounds i8, ptr %3, i64 432
+  %16 = tail call ptr @proc_mkdir(ptr noundef nonnull %8, ptr noundef nonnull %13) #6
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 432
   store ptr %16, ptr %17, align 16
   br label %18
 
@@ -202,7 +202,7 @@ define dso_local i32 @ext4_register_sysfs(ptr noundef %0) local_unnamed_addr #0 
   br i1 %20, label %34, label %21
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %3, i64 432
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 432
   %23 = tail call ptr @proc_create_single_data(ptr noundef nonnull @.str.2, i16 noundef zeroext 292, ptr noundef nonnull %19, ptr noundef nonnull @ext4_seq_options_show, ptr noundef %0) #6
   %24 = load ptr, ptr %22, align 16
   %25 = tail call ptr @proc_create_single_data(ptr noundef nonnull @.str.3, i16 noundef zeroext 292, ptr noundef %24, ptr noundef nonnull @ext4_seq_es_shrinker_info_show, ptr noundef %0) #6
@@ -258,22 +258,22 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @ext4_unregister_sysfs(ptr noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 872
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 872
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 432
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 432
   %5 = load ptr, ptr %4, align 16
   %6 = icmp eq ptr %5, null
   br i1 %6, label %11, label %7
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 920
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 920
   %9 = load ptr, ptr @ext4_proc_root, align 8
-  %10 = tail call i32 @remove_proc_subtree(ptr noundef %8, ptr noundef %9) #6
+  %10 = tail call i32 @remove_proc_subtree(ptr noundef nonnull %8, ptr noundef %9) #6
   br label %11
 
 11:                                               ; preds = %7, %1
-  %12 = getelementptr inbounds i8, ptr %3, i64 440
-  tail call void @kobject_del(ptr noundef %12) #6
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 440
+  tail call void @kobject_del(ptr noundef nonnull %12) #6
   ret void
 }
 
@@ -361,7 +361,7 @@ declare dso_local void @complete(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i64 -2147483648, 2147483648) i64 @ext4_attr_show(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 18
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 18
   %5 = load i16, ptr %4, align 2
   switch i16 %5, label %22 [
     i16 0, label %6
@@ -370,13 +370,13 @@ define internal range(i64 -2147483648, 2147483648) i64 @ext4_attr_show(ptr nound
   ]
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %1, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load ptr, ptr %7, align 8
   br label %22
 
 9:                                                ; preds = %3
   %10 = getelementptr i8, ptr %0, i64 -440
-  %11 = getelementptr inbounds i8, ptr %1, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %12 = load i32, ptr %11, align 8
   %13 = sext i32 %12 to i64
   %14 = getelementptr i8, ptr %10, i64 %13
@@ -385,7 +385,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @ext4_attr_show(ptr nound
 15:                                               ; preds = %3
   %16 = getelementptr i8, ptr %0, i64 -336
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %1, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %19 = load i32, ptr %18, align 8
   %20 = sext i32 %19 to i64
   %21 = getelementptr i8, ptr %17, i64 %20
@@ -393,7 +393,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @ext4_attr_show(ptr nound
 
 22:                                               ; preds = %15, %9, %6, %3
   %23 = phi ptr [ %21, %15 ], [ %14, %9 ], [ %8, %6 ], [ null, %3 ]
-  %24 = getelementptr inbounds i8, ptr %1, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %25 = load i16, ptr %24, align 8
   switch i16 %25, label %210 [
     i16 1, label %26
@@ -428,10 +428,10 @@ define internal range(i64 -2147483648, 2147483648) i64 @ext4_attr_show(ptr nound
 35:                                               ; preds = %22
   %36 = getelementptr i8, ptr %0, i64 264
   %37 = load ptr, ptr %36, align 64
-  %38 = getelementptr inbounds i8, ptr %37, i64 40
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 40
   %39 = load ptr, ptr %38, align 8
   %40 = load i64, ptr @__cpu_possible_mask, align 8
-  %41 = getelementptr inbounds i8, ptr %39, i64 200
+  %41 = getelementptr inbounds nuw i8, ptr %39, i64 200
   br label %42
 
 42:                                               ; preds = %35, %52
@@ -450,7 +450,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @ext4_attr_show(ptr nound
 
 52:                                               ; preds = %48
   %53 = load ptr, ptr %41, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 32
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 32
   %55 = load ptr, ptr %54, align 8
   %56 = ptrtoint ptr %55 to i64
   %57 = and i64 %49, 63
@@ -479,12 +479,12 @@ define internal range(i64 -2147483648, 2147483648) i64 @ext4_attr_show(ptr nound
 74:                                               ; preds = %22
   %75 = getelementptr i8, ptr %0, i64 264
   %76 = load ptr, ptr %75, align 64
-  %77 = getelementptr inbounds i8, ptr %76, i64 40
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 40
   %78 = load ptr, ptr %77, align 8
   %79 = getelementptr i8, ptr %0, i64 728
   %80 = load i64, ptr %79, align 16
   %81 = load i64, ptr @__cpu_possible_mask, align 8
-  %82 = getelementptr inbounds i8, ptr %78, i64 200
+  %82 = getelementptr inbounds nuw i8, ptr %78, i64 200
   br label %83
 
 83:                                               ; preds = %74, %93
@@ -503,7 +503,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @ext4_attr_show(ptr nound
 
 93:                                               ; preds = %89
   %94 = load ptr, ptr %82, align 8
-  %95 = getelementptr inbounds i8, ptr %94, i64 32
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 32
   %96 = load ptr, ptr %95, align 8
   %97 = ptrtoint ptr %96 to i64
   %98 = and i64 %90, 63
@@ -521,9 +521,9 @@ define internal range(i64 -2147483648, 2147483648) i64 @ext4_attr_show(ptr nound
 
 .thread7:                                         ; preds = %83, %93, %89
   %.lcssa8 = phi i64 [ %85, %83 ], [ %105, %93 ], [ %85, %89 ]
-  %109 = getelementptr inbounds i8, ptr %78, i64 872
+  %109 = getelementptr inbounds nuw i8, ptr %78, i64 872
   %110 = load ptr, ptr %109, align 8
-  %111 = getelementptr inbounds i8, ptr %110, i64 1160
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 1160
   %112 = load i64, ptr %111, align 8
   %113 = sub i64 %.lcssa8, %112
   %114 = lshr i64 %113, 1
@@ -592,7 +592,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @ext4_attr_show(ptr nound
   br i1 %154, label %210, label %155
 
 155:                                              ; preds = %153
-  %156 = getelementptr inbounds i8, ptr %1, i64 20
+  %156 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %157 = load i16, ptr %156, align 4
   %158 = zext i16 %157 to i32
   %159 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.14, i32 noundef %158, ptr noundef nonnull %23) #6
@@ -617,9 +617,9 @@ define internal range(i64 -2147483648, 2147483648) i64 @ext4_attr_show(ptr nound
 170:                                              ; preds = %22
   %171 = getelementptr i8, ptr %0, i64 -336
   %172 = load ptr, ptr %171, align 8
-  %173 = getelementptr inbounds i8, ptr %172, i64 408
+  %173 = getelementptr inbounds nuw i8, ptr %172, i64 408
   %174 = load i32, ptr %173, align 8
-  %175 = getelementptr inbounds i8, ptr %172, i64 632
+  %175 = getelementptr inbounds nuw i8, ptr %172, i64 632
   %176 = load i8, ptr %175, align 8
   %177 = zext i8 %176 to i64
   %178 = shl nuw nsw i64 %177, 32
@@ -632,9 +632,9 @@ define internal range(i64 -2147483648, 2147483648) i64 @ext4_attr_show(ptr nound
 183:                                              ; preds = %22
   %184 = getelementptr i8, ptr %0, i64 -336
   %185 = load ptr, ptr %184, align 8
-  %186 = getelementptr inbounds i8, ptr %185, i64 460
+  %186 = getelementptr inbounds nuw i8, ptr %185, i64 460
   %187 = load i32, ptr %186, align 4
-  %188 = getelementptr inbounds i8, ptr %185, i64 633
+  %188 = getelementptr inbounds nuw i8, ptr %185, i64 633
   %189 = load i8, ptr %188, align 1
   %190 = zext i8 %189 to i64
   %191 = shl nuw nsw i64 %190, 32
@@ -655,7 +655,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @ext4_attr_show(ptr nound
   br label %207
 
 202:                                              ; preds = %196
-  %203 = getelementptr inbounds i8, ptr %198, i64 1088
+  %203 = getelementptr inbounds nuw i8, ptr %198, i64 1088
   %204 = load ptr, ptr %203, align 8
   %205 = tail call i32 @__task_pid_nr_ns(ptr noundef %204, i32 noundef 0, ptr noundef null) #6
   %206 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.15, i32 noundef %205) #6
@@ -676,7 +676,7 @@ define internal i64 @ext4_attr_store(ptr noundef %0, ptr nocapture noundef reado
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 18
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 18
   %9 = load i16, ptr %8, align 2
   switch i16 %9, label %26 [
     i16 0, label %10
@@ -685,13 +685,13 @@ define internal i64 @ext4_attr_store(ptr noundef %0, ptr nocapture noundef reado
   ]
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %1, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %12 = load ptr, ptr %11, align 8
   br label %26
 
 13:                                               ; preds = %4
   %14 = getelementptr i8, ptr %0, i64 -440
-  %15 = getelementptr inbounds i8, ptr %1, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %16 = load i32, ptr %15, align 8
   %17 = sext i32 %16 to i64
   %18 = getelementptr i8, ptr %14, i64 %17
@@ -700,7 +700,7 @@ define internal i64 @ext4_attr_store(ptr noundef %0, ptr nocapture noundef reado
 19:                                               ; preds = %4
   %20 = getelementptr i8, ptr %0, i64 -336
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %23 = load i32, ptr %22, align 8
   %24 = sext i32 %23 to i64
   %25 = getelementptr i8, ptr %21, i64 %24
@@ -710,7 +710,7 @@ define internal i64 @ext4_attr_store(ptr noundef %0, ptr nocapture noundef reado
   %27 = phi ptr [ %25, %19 ], [ %18, %13 ], [ %12, %10 ], [ null, %4 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
   store i64 0, ptr %7, align 8, !annotation !11
-  %28 = getelementptr inbounds i8, ptr %1, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %29 = load i16, ptr %28, align 8
   switch i16 %29, label %.thread [
     i16 4, label %30
@@ -725,14 +725,14 @@ define internal i64 @ext4_attr_store(ptr noundef %0, ptr nocapture noundef reado
   store i64 0, ptr %6, align 8, !annotation !11
   %31 = getelementptr i8, ptr %0, i64 -336
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 96
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 96
   %34 = load i32, ptr %33, align 8
   %35 = and i32 %34, 128
   %36 = icmp eq i32 %35, 0
   br i1 %36, label %42, label %37
 
 37:                                               ; preds = %30
-  %38 = getelementptr inbounds i8, ptr %32, i64 336
+  %38 = getelementptr inbounds nuw i8, ptr %32, i64 336
   %39 = load i32, ptr %38, align 8
   %40 = zext i32 %39 to i64
   %41 = shl nuw i64 %40, 32
@@ -740,7 +740,7 @@ define internal i64 @ext4_attr_store(ptr noundef %0, ptr nocapture noundef reado
 
 42:                                               ; preds = %37, %30
   %43 = phi i64 [ %41, %37 ], [ 0, %30 ]
-  %44 = getelementptr inbounds i8, ptr %32, i64 4
+  %44 = getelementptr inbounds nuw i8, ptr %32, i64 4
   %45 = load i32, ptr %44, align 4
   %46 = getelementptr i8, ptr %0, i64 -356
   %47 = load i32, ptr %46, align 4

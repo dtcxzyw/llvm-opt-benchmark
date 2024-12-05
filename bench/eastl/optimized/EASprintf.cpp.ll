@@ -46,11 +46,11 @@ entry:
   %tobool.i = icmp ne ptr %pDestination, null
   %cond.i = sext i1 %tobool.i to i64
   store ptr %pDestination, ptr %sc.i, align 8, !noalias !8
-  %mnCount.i.i = getelementptr inbounds i8, ptr %sc.i, i64 8
+  %mnCount.i.i = getelementptr inbounds nuw i8, ptr %sc.i, i64 8
   store i64 0, ptr %mnCount.i.i, align 8, !noalias !8
-  %mnMaxCount.i.i = getelementptr inbounds i8, ptr %sc.i, i64 16
+  %mnMaxCount.i.i = getelementptr inbounds nuw i8, ptr %sc.i, i64 16
   store i64 %cond.i, ptr %mnMaxCount.i.i, align 8, !noalias !8
-  %mbMaxCountReached.i.i = getelementptr inbounds i8, ptr %sc.i, i64 24
+  %mbMaxCountReached.i.i = getelementptr inbounds nuw i8, ptr %sc.i, i64 24
   store i8 0, ptr %mbMaxCountReached.i.i, align 8, !noalias !8
   %call.i = call noundef i32 @_ZN2EA4StdC12SprintfLocal11VprintfCoreEPFiPKcmPvNS0_18WriteFunctionStateEES4_S3_P13__va_list_tag(ptr noundef nonnull @_ZN2EA4StdC12SprintfLocal13StringWriter8EPKcmPvNS0_18WriteFunctionStateE, ptr noundef nonnull %sc.i, ptr noundef %pFormat, ptr noundef %arguments)
   %cmp.i = icmp sgt i32 %call.i, -1
@@ -59,7 +59,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %conv.i = zext nneg i32 %call.i to i64
-  %arrayidx.i = getelementptr inbounds i8, ptr %pDestination, i64 %conv.i
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %pDestination, i64 %conv.i
   store i8 0, ptr %arrayidx.i, align 1, !alias.scope !5, !noalias !10
   br label %_ZN2EA4StdC9VsnprintfEPcmPKcP13__va_list_tag.exit
 
@@ -75,11 +75,11 @@ entry:
   %tobool = icmp ne ptr %pDestination, null
   %cond = select i1 %tobool, i64 %n, i64 0
   store ptr %pDestination, ptr %sc, align 8
-  %mnCount.i = getelementptr inbounds i8, ptr %sc, i64 8
+  %mnCount.i = getelementptr inbounds nuw i8, ptr %sc, i64 8
   store i64 0, ptr %mnCount.i, align 8
-  %mnMaxCount.i = getelementptr inbounds i8, ptr %sc, i64 16
+  %mnMaxCount.i = getelementptr inbounds nuw i8, ptr %sc, i64 16
   store i64 %cond, ptr %mnMaxCount.i, align 8
-  %mbMaxCountReached.i = getelementptr inbounds i8, ptr %sc, i64 24
+  %mbMaxCountReached.i = getelementptr inbounds nuw i8, ptr %sc, i64 24
   store i8 0, ptr %mbMaxCountReached.i, align 8
   %call = call noundef i32 @_ZN2EA4StdC12SprintfLocal11VprintfCoreEPFiPKcmPvNS0_18WriteFunctionStateEES4_S3_P13__va_list_tag(ptr noundef nonnull @_ZN2EA4StdC12SprintfLocal13StringWriter8EPKcmPvNS0_18WriteFunctionStateE, ptr noundef nonnull %sc, ptr noundef %pFormat, ptr noundef %arguments)
   %cmp = icmp sgt i32 %call, -1
@@ -92,7 +92,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.else
 
 if.then3:                                         ; preds = %if.then
-  %arrayidx = getelementptr inbounds i8, ptr %pDestination, i64 %conv
+  %arrayidx = getelementptr inbounds nuw i8, ptr %pDestination, i64 %conv
   store i8 0, ptr %arrayidx, align 1
   br label %if.end8
 
@@ -175,11 +175,11 @@ entry:
   %tobool.i = icmp ne ptr %pDestination, null
   %cond.i = select i1 %tobool.i, i64 2147483647, i64 0
   store ptr %pDestination, ptr %sc.i, align 8, !noalias !14
-  %mnCount.i.i = getelementptr inbounds i8, ptr %sc.i, i64 8
+  %mnCount.i.i = getelementptr inbounds nuw i8, ptr %sc.i, i64 8
   store i64 0, ptr %mnCount.i.i, align 8, !noalias !14
-  %mnMaxCount.i.i = getelementptr inbounds i8, ptr %sc.i, i64 16
+  %mnMaxCount.i.i = getelementptr inbounds nuw i8, ptr %sc.i, i64 16
   store i64 %cond.i, ptr %mnMaxCount.i.i, align 8, !noalias !14
-  %mbMaxCountReached.i.i = getelementptr inbounds i8, ptr %sc.i, i64 24
+  %mbMaxCountReached.i.i = getelementptr inbounds nuw i8, ptr %sc.i, i64 24
   store i8 0, ptr %mbMaxCountReached.i.i, align 8, !noalias !14
   %call.i = call noundef i32 @_ZN2EA4StdC12SprintfLocal11VprintfCoreEPFiPKcmPvNS0_18WriteFunctionStateEES4_S3_P13__va_list_tag(ptr noundef nonnull @_ZN2EA4StdC12SprintfLocal13StringWriter8EPKcmPvNS0_18WriteFunctionStateE, ptr noundef nonnull %sc.i, ptr noundef %pFormat, ptr noundef nonnull %arguments)
   %cmp.i = icmp sgt i32 %call.i, -1
@@ -210,11 +210,11 @@ entry:
   %tobool.i = icmp ne ptr %pDestination, null
   %cond.i = select i1 %tobool.i, i64 %n, i64 0
   store ptr %pDestination, ptr %sc.i, align 8, !noalias !20
-  %mnCount.i.i = getelementptr inbounds i8, ptr %sc.i, i64 8
+  %mnCount.i.i = getelementptr inbounds nuw i8, ptr %sc.i, i64 8
   store i64 0, ptr %mnCount.i.i, align 8, !noalias !20
-  %mnMaxCount.i.i = getelementptr inbounds i8, ptr %sc.i, i64 16
+  %mnMaxCount.i.i = getelementptr inbounds nuw i8, ptr %sc.i, i64 16
   store i64 %cond.i, ptr %mnMaxCount.i.i, align 8, !noalias !20
-  %mbMaxCountReached.i.i = getelementptr inbounds i8, ptr %sc.i, i64 24
+  %mbMaxCountReached.i.i = getelementptr inbounds nuw i8, ptr %sc.i, i64 24
   store i8 0, ptr %mbMaxCountReached.i.i, align 8, !noalias !20
   %call.i = call noundef i32 @_ZN2EA4StdC12SprintfLocal11VprintfCoreEPFiPKcmPvNS0_18WriteFunctionStateEES4_S3_P13__va_list_tag(ptr noundef nonnull @_ZN2EA4StdC12SprintfLocal13StringWriter8EPKcmPvNS0_18WriteFunctionStateE, ptr noundef nonnull %sc.i, ptr noundef %pFormat, ptr noundef nonnull %arguments)
   %cmp.i = icmp sgt i32 %call.i, -1
@@ -227,7 +227,7 @@ if.then.i:                                        ; preds = %entry
   br i1 %cmp2.i, label %if.then3.i, label %if.else.i
 
 if.then3.i:                                       ; preds = %if.then.i
-  %arrayidx.i = getelementptr inbounds i8, ptr %pDestination, i64 %conv.i
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %pDestination, i64 %conv.i
   store i8 0, ptr %arrayidx.i, align 1, !alias.scope !17, !noalias !22
   br label %_ZN2EA4StdC9VsnprintfEPcmPKcP13__va_list_tag.exit
 
@@ -293,9 +293,9 @@ entry:
   %tobool.i = icmp ne ptr %pDestination, null
   %cond.i = sext i1 %tobool.i to i64
   store ptr %pDestination, ptr %sc.i, align 8, !noalias !26
-  %mnCount.i.i = getelementptr inbounds i8, ptr %sc.i, i64 8
+  %mnCount.i.i = getelementptr inbounds nuw i8, ptr %sc.i, i64 8
   store i64 0, ptr %mnCount.i.i, align 8, !noalias !26
-  %mnMaxCount.i.i = getelementptr inbounds i8, ptr %sc.i, i64 16
+  %mnMaxCount.i.i = getelementptr inbounds nuw i8, ptr %sc.i, i64 16
   store i64 %cond.i, ptr %mnMaxCount.i.i, align 8, !noalias !26
   %call.i = call noundef i32 @_ZN2EA4StdC12SprintfLocal11VprintfCoreEPFiPKDsmPvNS0_18WriteFunctionStateEES4_S3_P13__va_list_tag(ptr noundef nonnull @_ZN2EA4StdC12SprintfLocal14StringWriter16EPKDsmPvNS0_18WriteFunctionStateE, ptr noundef nonnull %sc.i, ptr noundef %pFormat, ptr noundef %arguments)
   %cmp.i = icmp sgt i32 %call.i, -1
@@ -304,7 +304,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %conv.i = zext nneg i32 %call.i to i64
-  %arrayidx.i = getelementptr inbounds i16, ptr %pDestination, i64 %conv.i
+  %arrayidx.i = getelementptr inbounds nuw i16, ptr %pDestination, i64 %conv.i
   store i16 0, ptr %arrayidx.i, align 2, !alias.scope !23, !noalias !28
   br label %_ZN2EA4StdC9VsnprintfEPDsmPKDsP13__va_list_tag.exit
 
@@ -320,9 +320,9 @@ entry:
   %tobool = icmp ne ptr %pDestination, null
   %cond = select i1 %tobool, i64 %n, i64 0
   store ptr %pDestination, ptr %sc, align 8
-  %mnCount.i = getelementptr inbounds i8, ptr %sc, i64 8
+  %mnCount.i = getelementptr inbounds nuw i8, ptr %sc, i64 8
   store i64 0, ptr %mnCount.i, align 8
-  %mnMaxCount.i = getelementptr inbounds i8, ptr %sc, i64 16
+  %mnMaxCount.i = getelementptr inbounds nuw i8, ptr %sc, i64 16
   store i64 %cond, ptr %mnMaxCount.i, align 8
   %call = call noundef i32 @_ZN2EA4StdC12SprintfLocal11VprintfCoreEPFiPKDsmPvNS0_18WriteFunctionStateEES4_S3_P13__va_list_tag(ptr noundef nonnull @_ZN2EA4StdC12SprintfLocal14StringWriter16EPKDsmPvNS0_18WriteFunctionStateE, ptr noundef nonnull %sc, ptr noundef %pFormat, ptr noundef %arguments)
   %cmp = icmp sgt i32 %call, -1
@@ -335,7 +335,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.else
 
 if.then3:                                         ; preds = %if.then
-  %arrayidx = getelementptr inbounds i16, ptr %pDestination, i64 %conv
+  %arrayidx = getelementptr inbounds nuw i16, ptr %pDestination, i64 %conv
   store i16 0, ptr %arrayidx, align 2
   br label %if.end8
 
@@ -408,9 +408,9 @@ entry:
   %tobool.i = icmp ne ptr %pDestination, null
   %cond.i = select i1 %tobool.i, i64 2147483647, i64 0
   store ptr %pDestination, ptr %sc.i, align 8, !noalias !32
-  %mnCount.i.i = getelementptr inbounds i8, ptr %sc.i, i64 8
+  %mnCount.i.i = getelementptr inbounds nuw i8, ptr %sc.i, i64 8
   store i64 0, ptr %mnCount.i.i, align 8, !noalias !32
-  %mnMaxCount.i.i = getelementptr inbounds i8, ptr %sc.i, i64 16
+  %mnMaxCount.i.i = getelementptr inbounds nuw i8, ptr %sc.i, i64 16
   store i64 %cond.i, ptr %mnMaxCount.i.i, align 8, !noalias !32
   %call.i = call noundef i32 @_ZN2EA4StdC12SprintfLocal11VprintfCoreEPFiPKDsmPvNS0_18WriteFunctionStateEES4_S3_P13__va_list_tag(ptr noundef nonnull @_ZN2EA4StdC12SprintfLocal14StringWriter16EPKDsmPvNS0_18WriteFunctionStateE, ptr noundef nonnull %sc.i, ptr noundef %pFormat, ptr noundef nonnull %arguments)
   %cmp.i = icmp sgt i32 %call.i, -1
@@ -423,7 +423,7 @@ if.then.i:                                        ; preds = %entry
 
 if.then3.i:                                       ; preds = %if.then.i
   %conv.i = zext nneg i32 %call.i to i64
-  %arrayidx.i = getelementptr inbounds i16, ptr %pDestination, i64 %conv.i
+  %arrayidx.i = getelementptr inbounds nuw i16, ptr %pDestination, i64 %conv.i
   store i16 0, ptr %arrayidx.i, align 2, !alias.scope !29, !noalias !34
   br label %_ZN2EA4StdC9VsnprintfEPDsmPKDsP13__va_list_tag.exit
 
@@ -449,9 +449,9 @@ entry:
   %tobool.i = icmp ne ptr %pDestination, null
   %cond.i = select i1 %tobool.i, i64 %n, i64 0
   store ptr %pDestination, ptr %sc.i, align 8, !noalias !38
-  %mnCount.i.i = getelementptr inbounds i8, ptr %sc.i, i64 8
+  %mnCount.i.i = getelementptr inbounds nuw i8, ptr %sc.i, i64 8
   store i64 0, ptr %mnCount.i.i, align 8, !noalias !38
-  %mnMaxCount.i.i = getelementptr inbounds i8, ptr %sc.i, i64 16
+  %mnMaxCount.i.i = getelementptr inbounds nuw i8, ptr %sc.i, i64 16
   store i64 %cond.i, ptr %mnMaxCount.i.i, align 8, !noalias !38
   %call.i = call noundef i32 @_ZN2EA4StdC12SprintfLocal11VprintfCoreEPFiPKDsmPvNS0_18WriteFunctionStateEES4_S3_P13__va_list_tag(ptr noundef nonnull @_ZN2EA4StdC12SprintfLocal14StringWriter16EPKDsmPvNS0_18WriteFunctionStateE, ptr noundef nonnull %sc.i, ptr noundef %pFormat, ptr noundef nonnull %arguments)
   %cmp.i = icmp sgt i32 %call.i, -1
@@ -464,7 +464,7 @@ if.then.i:                                        ; preds = %entry
   br i1 %cmp2.i, label %if.then3.i, label %if.else.i
 
 if.then3.i:                                       ; preds = %if.then.i
-  %arrayidx.i = getelementptr inbounds i16, ptr %pDestination, i64 %conv.i
+  %arrayidx.i = getelementptr inbounds nuw i16, ptr %pDestination, i64 %conv.i
   store i16 0, ptr %arrayidx.i, align 2, !alias.scope !35, !noalias !40
   br label %_ZN2EA4StdC9VsnprintfEPDsmPKDsP13__va_list_tag.exit
 
@@ -519,9 +519,9 @@ entry:
   %tobool.i = icmp ne ptr %pDestination, null
   %cond.i = sext i1 %tobool.i to i64
   store ptr %pDestination, ptr %sc.i, align 8, !noalias !44
-  %mnCount.i.i = getelementptr inbounds i8, ptr %sc.i, i64 8
+  %mnCount.i.i = getelementptr inbounds nuw i8, ptr %sc.i, i64 8
   store i64 0, ptr %mnCount.i.i, align 8, !noalias !44
-  %mnMaxCount.i.i = getelementptr inbounds i8, ptr %sc.i, i64 16
+  %mnMaxCount.i.i = getelementptr inbounds nuw i8, ptr %sc.i, i64 16
   store i64 %cond.i, ptr %mnMaxCount.i.i, align 8, !noalias !44
   %call.i = call noundef i32 @_ZN2EA4StdC12SprintfLocal11VprintfCoreEPFiPKDimPvNS0_18WriteFunctionStateEES4_S3_P13__va_list_tag(ptr noundef nonnull @_ZN2EA4StdC12SprintfLocal14StringWriter32EPKDimPvNS0_18WriteFunctionStateE, ptr noundef nonnull %sc.i, ptr noundef %pFormat, ptr noundef %arguments)
   %cmp.i = icmp sgt i32 %call.i, -1
@@ -530,7 +530,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %conv.i = zext nneg i32 %call.i to i64
-  %arrayidx.i = getelementptr inbounds i32, ptr %pDestination, i64 %conv.i
+  %arrayidx.i = getelementptr inbounds nuw i32, ptr %pDestination, i64 %conv.i
   store i32 0, ptr %arrayidx.i, align 4, !alias.scope !41, !noalias !46
   br label %_ZN2EA4StdC9VsnprintfEPDimPKDiP13__va_list_tag.exit
 
@@ -546,9 +546,9 @@ entry:
   %tobool = icmp ne ptr %pDestination, null
   %cond = select i1 %tobool, i64 %n, i64 0
   store ptr %pDestination, ptr %sc, align 8
-  %mnCount.i = getelementptr inbounds i8, ptr %sc, i64 8
+  %mnCount.i = getelementptr inbounds nuw i8, ptr %sc, i64 8
   store i64 0, ptr %mnCount.i, align 8
-  %mnMaxCount.i = getelementptr inbounds i8, ptr %sc, i64 16
+  %mnMaxCount.i = getelementptr inbounds nuw i8, ptr %sc, i64 16
   store i64 %cond, ptr %mnMaxCount.i, align 8
   %call = call noundef i32 @_ZN2EA4StdC12SprintfLocal11VprintfCoreEPFiPKDimPvNS0_18WriteFunctionStateEES4_S3_P13__va_list_tag(ptr noundef nonnull @_ZN2EA4StdC12SprintfLocal14StringWriter32EPKDimPvNS0_18WriteFunctionStateE, ptr noundef nonnull %sc, ptr noundef %pFormat, ptr noundef %arguments)
   %cmp = icmp sgt i32 %call, -1
@@ -561,7 +561,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.else
 
 if.then3:                                         ; preds = %if.then
-  %arrayidx = getelementptr inbounds i32, ptr %pDestination, i64 %conv
+  %arrayidx = getelementptr inbounds nuw i32, ptr %pDestination, i64 %conv
   store i32 0, ptr %arrayidx, align 4
   br label %if.end8
 
@@ -634,9 +634,9 @@ entry:
   %tobool.i = icmp ne ptr %pDestination, null
   %cond.i = select i1 %tobool.i, i64 2147483647, i64 0
   store ptr %pDestination, ptr %sc.i, align 8, !noalias !50
-  %mnCount.i.i = getelementptr inbounds i8, ptr %sc.i, i64 8
+  %mnCount.i.i = getelementptr inbounds nuw i8, ptr %sc.i, i64 8
   store i64 0, ptr %mnCount.i.i, align 8, !noalias !50
-  %mnMaxCount.i.i = getelementptr inbounds i8, ptr %sc.i, i64 16
+  %mnMaxCount.i.i = getelementptr inbounds nuw i8, ptr %sc.i, i64 16
   store i64 %cond.i, ptr %mnMaxCount.i.i, align 8, !noalias !50
   %call.i = call noundef i32 @_ZN2EA4StdC12SprintfLocal11VprintfCoreEPFiPKDimPvNS0_18WriteFunctionStateEES4_S3_P13__va_list_tag(ptr noundef nonnull @_ZN2EA4StdC12SprintfLocal14StringWriter32EPKDimPvNS0_18WriteFunctionStateE, ptr noundef nonnull %sc.i, ptr noundef %pFormat, ptr noundef nonnull %arguments)
   %cmp.i = icmp sgt i32 %call.i, -1
@@ -649,7 +649,7 @@ if.then.i:                                        ; preds = %entry
 
 if.then3.i:                                       ; preds = %if.then.i
   %conv.i = zext nneg i32 %call.i to i64
-  %arrayidx.i = getelementptr inbounds i32, ptr %pDestination, i64 %conv.i
+  %arrayidx.i = getelementptr inbounds nuw i32, ptr %pDestination, i64 %conv.i
   store i32 0, ptr %arrayidx.i, align 4, !alias.scope !47, !noalias !52
   br label %_ZN2EA4StdC9VsnprintfEPDimPKDiP13__va_list_tag.exit
 
@@ -675,9 +675,9 @@ entry:
   %tobool.i = icmp ne ptr %pDestination, null
   %cond.i = select i1 %tobool.i, i64 %n, i64 0
   store ptr %pDestination, ptr %sc.i, align 8, !noalias !56
-  %mnCount.i.i = getelementptr inbounds i8, ptr %sc.i, i64 8
+  %mnCount.i.i = getelementptr inbounds nuw i8, ptr %sc.i, i64 8
   store i64 0, ptr %mnCount.i.i, align 8, !noalias !56
-  %mnMaxCount.i.i = getelementptr inbounds i8, ptr %sc.i, i64 16
+  %mnMaxCount.i.i = getelementptr inbounds nuw i8, ptr %sc.i, i64 16
   store i64 %cond.i, ptr %mnMaxCount.i.i, align 8, !noalias !56
   %call.i = call noundef i32 @_ZN2EA4StdC12SprintfLocal11VprintfCoreEPFiPKDimPvNS0_18WriteFunctionStateEES4_S3_P13__va_list_tag(ptr noundef nonnull @_ZN2EA4StdC12SprintfLocal14StringWriter32EPKDimPvNS0_18WriteFunctionStateE, ptr noundef nonnull %sc.i, ptr noundef %pFormat, ptr noundef nonnull %arguments)
   %cmp.i = icmp sgt i32 %call.i, -1
@@ -690,7 +690,7 @@ if.then.i:                                        ; preds = %entry
   br i1 %cmp2.i, label %if.then3.i, label %if.else.i
 
 if.then3.i:                                       ; preds = %if.then.i
-  %arrayidx.i = getelementptr inbounds i32, ptr %pDestination, i64 %conv.i
+  %arrayidx.i = getelementptr inbounds nuw i32, ptr %pDestination, i64 %conv.i
   store i32 0, ptr %arrayidx.i, align 4, !alias.scope !53, !noalias !58
   br label %_ZN2EA4StdC9VsnprintfEPDimPKDiP13__va_list_tag.exit
 
@@ -742,9 +742,9 @@ entry:
   %tobool.i.i = icmp ne ptr %pDestination, null
   %cond.i.i = sext i1 %tobool.i.i to i64
   store ptr %pDestination, ptr %sc.i.i, align 8, !noalias !70
-  %mnCount.i.i.i = getelementptr inbounds i8, ptr %sc.i.i, i64 8
+  %mnCount.i.i.i = getelementptr inbounds nuw i8, ptr %sc.i.i, i64 8
   store i64 0, ptr %mnCount.i.i.i, align 8, !noalias !70
-  %mnMaxCount.i.i.i = getelementptr inbounds i8, ptr %sc.i.i, i64 16
+  %mnMaxCount.i.i.i = getelementptr inbounds nuw i8, ptr %sc.i.i, i64 16
   store i64 %cond.i.i, ptr %mnMaxCount.i.i.i, align 8, !noalias !70
   %call.i.i = call noundef i32 @_ZN2EA4StdC12SprintfLocal11VprintfCoreEPFiPKDimPvNS0_18WriteFunctionStateEES4_S3_P13__va_list_tag(ptr noundef nonnull @_ZN2EA4StdC12SprintfLocal14StringWriter32EPKDimPvNS0_18WriteFunctionStateE, ptr noundef nonnull %sc.i.i, ptr noundef %pFormat, ptr noundef %arguments)
   %cmp.i.i = icmp sgt i32 %call.i.i, -1
@@ -753,7 +753,7 @@ entry:
 
 if.then.i.i:                                      ; preds = %entry
   %conv.i.i = zext nneg i32 %call.i.i to i64
-  %arrayidx.i.i = getelementptr inbounds i32, ptr %pDestination, i64 %conv.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw i32, ptr %pDestination, i64 %conv.i.i
   store i32 0, ptr %arrayidx.i.i, align 4, !alias.scope !72, !noalias !73
   br label %_ZN2EA4StdC8VsprintfEPDiPKDiP13__va_list_tag.exit
 
@@ -771,9 +771,9 @@ entry:
   %tobool.i = icmp ne ptr %pDestination, null
   %cond.i = select i1 %tobool.i, i64 %n, i64 0
   store ptr %pDestination, ptr %sc.i, align 8, !noalias !77
-  %mnCount.i.i = getelementptr inbounds i8, ptr %sc.i, i64 8
+  %mnCount.i.i = getelementptr inbounds nuw i8, ptr %sc.i, i64 8
   store i64 0, ptr %mnCount.i.i, align 8, !noalias !77
-  %mnMaxCount.i.i = getelementptr inbounds i8, ptr %sc.i, i64 16
+  %mnMaxCount.i.i = getelementptr inbounds nuw i8, ptr %sc.i, i64 16
   store i64 %cond.i, ptr %mnMaxCount.i.i, align 8, !noalias !77
   %call.i = call noundef i32 @_ZN2EA4StdC12SprintfLocal11VprintfCoreEPFiPKDimPvNS0_18WriteFunctionStateEES4_S3_P13__va_list_tag(ptr noundef nonnull @_ZN2EA4StdC12SprintfLocal14StringWriter32EPKDimPvNS0_18WriteFunctionStateE, ptr noundef nonnull %sc.i, ptr noundef %pFormat, ptr noundef %arguments)
   %cmp.i = icmp sgt i32 %call.i, -1
@@ -786,7 +786,7 @@ if.then.i:                                        ; preds = %entry
   br i1 %cmp2.i, label %if.then3.i, label %if.else.i
 
 if.then3.i:                                       ; preds = %if.then.i
-  %arrayidx.i = getelementptr inbounds i32, ptr %pDestination, i64 %conv.i
+  %arrayidx.i = getelementptr inbounds nuw i32, ptr %pDestination, i64 %conv.i
   store i32 0, ptr %arrayidx.i, align 4, !alias.scope !74, !noalias !79
   br label %_ZN2EA4StdC9VsnprintfEPDimPKDiP13__va_list_tag.exit
 
@@ -860,9 +860,9 @@ entry:
   %tobool.i.i.i = icmp ne ptr %pDestination, null
   %cond.i.i.i = sext i1 %tobool.i.i.i to i64
   store ptr %pDestination, ptr %sc.i.i.i, align 8, !noalias !100
-  %mnCount.i.i.i.i = getelementptr inbounds i8, ptr %sc.i.i.i, i64 8
+  %mnCount.i.i.i.i = getelementptr inbounds nuw i8, ptr %sc.i.i.i, i64 8
   store i64 0, ptr %mnCount.i.i.i.i, align 8, !noalias !100
-  %mnMaxCount.i.i.i.i = getelementptr inbounds i8, ptr %sc.i.i.i, i64 16
+  %mnMaxCount.i.i.i.i = getelementptr inbounds nuw i8, ptr %sc.i.i.i, i64 16
   store i64 %cond.i.i.i, ptr %mnMaxCount.i.i.i.i, align 8, !noalias !100
   %call.i.i.i = call noundef i32 @_ZN2EA4StdC12SprintfLocal11VprintfCoreEPFiPKDimPvNS0_18WriteFunctionStateEES4_S3_P13__va_list_tag(ptr noundef nonnull @_ZN2EA4StdC12SprintfLocal14StringWriter32EPKDimPvNS0_18WriteFunctionStateE, ptr noundef nonnull %sc.i.i.i, ptr noundef %pFormat, ptr noundef nonnull %arguments)
   %cmp.i.i.i = icmp sgt i32 %call.i.i.i, -1
@@ -871,7 +871,7 @@ entry:
 
 if.then.i.i.i:                                    ; preds = %entry
   %conv.i.i.i = zext nneg i32 %call.i.i.i to i64
-  %arrayidx.i.i.i = getelementptr inbounds i32, ptr %pDestination, i64 %conv.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i32, ptr %pDestination, i64 %conv.i.i.i
   store i32 0, ptr %arrayidx.i.i.i, align 4, !alias.scope !102, !noalias !103
   br label %_ZN2EA4StdC8VsprintfEPwPKwP13__va_list_tag.exit
 
@@ -893,9 +893,9 @@ entry:
   %tobool.i.i = icmp ne ptr %pDestination, null
   %cond.i.i = select i1 %tobool.i.i, i64 %n, i64 0
   store ptr %pDestination, ptr %sc.i.i, align 8, !noalias !112
-  %mnCount.i.i.i = getelementptr inbounds i8, ptr %sc.i.i, i64 8
+  %mnCount.i.i.i = getelementptr inbounds nuw i8, ptr %sc.i.i, i64 8
   store i64 0, ptr %mnCount.i.i.i, align 8, !noalias !112
-  %mnMaxCount.i.i.i = getelementptr inbounds i8, ptr %sc.i.i, i64 16
+  %mnMaxCount.i.i.i = getelementptr inbounds nuw i8, ptr %sc.i.i, i64 16
   store i64 %cond.i.i, ptr %mnMaxCount.i.i.i, align 8, !noalias !112
   %call.i.i = call noundef i32 @_ZN2EA4StdC12SprintfLocal11VprintfCoreEPFiPKDimPvNS0_18WriteFunctionStateEES4_S3_P13__va_list_tag(ptr noundef nonnull @_ZN2EA4StdC12SprintfLocal14StringWriter32EPKDimPvNS0_18WriteFunctionStateE, ptr noundef nonnull %sc.i.i, ptr noundef %pFormat, ptr noundef nonnull %arguments)
   %cmp.i.i = icmp sgt i32 %call.i.i, -1
@@ -908,7 +908,7 @@ if.then.i.i:                                      ; preds = %entry
   br i1 %cmp2.i.i, label %if.then3.i.i, label %if.else.i.i
 
 if.then3.i.i:                                     ; preds = %if.then.i.i
-  %arrayidx.i.i = getelementptr inbounds i32, ptr %pDestination, i64 %conv.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw i32, ptr %pDestination, i64 %conv.i.i
   store i32 0, ptr %arrayidx.i.i, align 4, !alias.scope !114, !noalias !115
   br label %_ZN2EA4StdC9VsnprintfEPwmPKwP13__va_list_tag.exit
 

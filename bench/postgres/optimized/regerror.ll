@@ -102,7 +102,7 @@ define dso_local i64 @pg_regerror(i32 noundef %0, ptr nocapture noundef readnone
   br i1 %24, label %25, label %28
 
 25:                                               ; preds = %23
-  %26 = getelementptr inbounds i8, ptr %.1, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %.1, i64 8
   %27 = load ptr, ptr %26, align 8
   br label %41
 
@@ -124,7 +124,7 @@ define dso_local i64 @pg_regerror(i32 noundef %0, ptr nocapture noundef readnone
   br i1 %35, label %36, label %39
 
 36:                                               ; preds = %34
-  %37 = getelementptr inbounds i8, ptr %.2, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %.2, i64 16
   %38 = load ptr, ptr %37, align 8
   br label %41
 

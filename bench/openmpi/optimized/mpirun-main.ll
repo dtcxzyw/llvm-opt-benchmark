@@ -126,7 +126,7 @@ find_prterun.exit:                                ; preds = %24
   %.0.i20..str.12 = select i1 %45, ptr %.0.i20, ptr @.str.12
   %46 = call i32 @opal_argv_append_nosize(ptr noundef nonnull %8, ptr noundef nonnull %.0.i20..str.12) #11
   %47 = load ptr, ptr %7, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %49 = load ptr, ptr %48, align 8
   %.not1821 = icmp eq ptr %49, null
   br i1 %.not1821, label %._crit_edge, label %.lr.ph
@@ -227,7 +227,7 @@ define internal fastcc void @append_prefixes(ptr noundef nonnull %0, ptr noundef
 
 20:                                               ; preds = %.lr.ph, %15, %18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %21 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv.next
+  %21 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv.next
   %22 = load ptr, ptr %21, align 8
   %.not = icmp eq ptr %22, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7

@@ -43,10 +43,10 @@ declare i32 @rb_enc_register(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal range(i32 -2147483647, -2147483648) i32 @mbc_enc_len(ptr noundef readonly %0, ptr noundef readnone %1, ptr nocapture readnone %2) #2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 1
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %5 = load i8, ptr %0, align 1
   %6 = zext i8 %5 to i64
-  %7 = getelementptr inbounds [256 x i8], ptr @trans, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw [256 x i8], ptr @trans, i64 0, i64 %6
   %8 = load i8, ptr %7, align 1
   %9 = sext i8 %8 to i64
   %10 = icmp slt i8 %8, 0
@@ -62,7 +62,7 @@ define internal range(i32 -2147483647, -2147483648) i32 @mbc_enc_len(ptr noundef
   br i1 %15, label %16, label %20
 
 16:                                               ; preds = %14
-  %17 = getelementptr inbounds [256 x i32], ptr @EncLen_SJIS, i64 0, i64 %6
+  %17 = getelementptr inbounds nuw [256 x i32], ptr @EncLen_SJIS, i64 0, i64 %6
   %18 = load i32, ptr %17, align 4
   %19 = sub nsw i32 0, %18
   br label %27
@@ -70,7 +70,7 @@ define internal range(i32 -2147483647, -2147483648) i32 @mbc_enc_len(ptr noundef
 20:                                               ; preds = %14
   %21 = load i8, ptr %4, align 1
   %22 = zext i8 %21 to i64
-  %23 = getelementptr inbounds [2 x [256 x i8]], ptr @trans, i64 0, i64 %9, i64 %22
+  %23 = getelementptr inbounds nuw [2 x [256 x i8]], ptr @trans, i64 0, i64 %9, i64 %22
   %24 = load i8, ptr %23, align 1
   %25 = icmp eq i8 %24, -1
   %26 = select i1 %25, i32 2, i32 -1
@@ -85,10 +85,10 @@ declare i32 @onigenc_is_mbc_newline_0x0a(ptr noundef, ptr noundef, ptr noundef) 
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define internal i32 @mbc_to_code(ptr noundef readonly %0, ptr noundef readnone %1, ptr nocapture readnone %2) #3 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 1
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %5 = load i8, ptr %0, align 1
   %6 = zext i8 %5 to i64
-  %7 = getelementptr inbounds [256 x i8], ptr @trans, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw [256 x i8], ptr @trans, i64 0, i64 %6
   %8 = load i8, ptr %7, align 1
   %9 = sext i8 %8 to i64
   %10 = icmp slt i8 %8, 0
@@ -105,7 +105,7 @@ define internal i32 @mbc_to_code(ptr noundef readonly %0, ptr noundef readnone %
 15:                                               ; preds = %13
   %16 = load i8, ptr %4, align 1
   %17 = zext i8 %16 to i64
-  %18 = getelementptr inbounds [2 x [256 x i8]], ptr @trans, i64 0, i64 %9, i64 %17
+  %18 = getelementptr inbounds nuw [2 x [256 x i8]], ptr @trans, i64 0, i64 %9, i64 %17
   %19 = load i8, ptr %18, align 1
   %20 = icmp eq i8 %19, -1
   %21 = select i1 %20, i32 2, i32 -1
@@ -116,7 +116,7 @@ mbc_enc_len.exit.thread:                          ; preds = %11
   br label %.loopexit
 
 mbc_enc_len.exit:                                 ; preds = %13
-  %23 = getelementptr inbounds [256 x i32], ptr @EncLen_SJIS, i64 0, i64 %6
+  %23 = getelementptr inbounds nuw [256 x i32], ptr @EncLen_SJIS, i64 0, i64 %6
   %24 = load i32, ptr %23, align 4
   %25 = sub nsw i32 0, %24
   br label %.preheader
@@ -138,7 +138,7 @@ mbc_enc_len.exit:                                 ; preds = %13
   %30 = shl i32 %.026, 8
   %31 = or disjoint i32 %30, %29
   %32 = add nuw nsw i32 %.01825, 1
-  %.019 = getelementptr inbounds i8, ptr %.01927, i64 1
+  %.019 = getelementptr inbounds nuw i8, ptr %.01927, i64 1
   %33 = icmp slt i32 %32, %.0.i30
   %.not = icmp ult ptr %.019, %1
   %or.cond = select i1 %33, i1 %.not, i1 false
@@ -156,7 +156,7 @@ define internal range(i32 -401, 3) i32 @code_to_mbclen(i32 noundef %0, ptr nocap
 
 4:                                                ; preds = %2
   %5 = zext nneg i32 %0 to i64
-  %6 = getelementptr inbounds [256 x i32], ptr @EncLen_SJIS, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw [256 x i32], ptr @EncLen_SJIS, i64 0, i64 %5
   %7 = load i32, ptr %6, align 4
   %8 = icmp eq i32 %7, 1
   %. = select i1 %8, i32 1, i32 -400
@@ -169,7 +169,7 @@ define internal range(i32 -401, 3) i32 @code_to_mbclen(i32 noundef %0, ptr nocap
 11:                                               ; preds = %9
   %12 = and i32 %0, 255
   %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr inbounds [256 x i8], ptr @SJIS_CAN_BE_TRAIL_TABLE, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw [256 x i8], ptr @SJIS_CAN_BE_TRAIL_TABLE, i64 0, i64 %13
   %15 = load i8, ptr %14, align 1
   %.not = icmp eq i8 %15, 0
   %.7 = select i1 %.not, i32 -400, i32 2
@@ -189,14 +189,14 @@ define internal i32 @code_to_mbc(i32 noundef %0, ptr noundef %1, ptr nocapture r
 5:                                                ; preds = %3
   %6 = lshr i32 %0, 8
   %7 = trunc i32 %6 to i8
-  %8 = getelementptr inbounds i8, ptr %1, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 1
   store i8 %7, ptr %1, align 1
   br label %9
 
 9:                                                ; preds = %5, %3
   %.0 = phi ptr [ %8, %5 ], [ %1, %3 ]
   %10 = trunc i32 %0 to i8
-  %11 = getelementptr inbounds i8, ptr %.0, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %.0, i64 1
   store i8 %10, ptr %.0, align 1
   %12 = ptrtoint ptr %11 to i64
   %13 = ptrtoint ptr %1 to i64
@@ -214,17 +214,17 @@ define internal i32 @mbc_case_fold(i32 %0, ptr nocapture noundef %1, ptr noundef
 
 9:                                                ; preds = %5
   %10 = zext nneg i8 %7 to i64
-  %11 = getelementptr inbounds [0 x i8], ptr @OnigEncAsciiToLowerCaseTable, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw [0 x i8], ptr @OnigEncAsciiToLowerCaseTable, i64 0, i64 %10
   %12 = load i8, ptr %11, align 1
   store i8 %12, ptr %3, align 1
   %13 = load ptr, ptr %1, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 1
   br label %74
 
 15:                                               ; preds = %5
-  %16 = getelementptr inbounds i8, ptr %6, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 1
   %17 = zext i8 %7 to i64
-  %18 = getelementptr inbounds [256 x i8], ptr @trans, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw [256 x i8], ptr @trans, i64 0, i64 %17
   %19 = load i8, ptr %18, align 1
   %20 = sext i8 %19 to i64
   %21 = icmp slt i8 %19, 0
@@ -241,14 +241,14 @@ define internal i32 @mbc_case_fold(i32 %0, ptr nocapture noundef %1, ptr noundef
 26:                                               ; preds = %24
   %27 = load i8, ptr %16, align 1
   %28 = zext i8 %27 to i64
-  %29 = getelementptr inbounds [2 x [256 x i8]], ptr @trans, i64 0, i64 %20, i64 %28
+  %29 = getelementptr inbounds nuw [2 x [256 x i8]], ptr @trans, i64 0, i64 %20, i64 %28
   %30 = load i8, ptr %29, align 1
   %31 = icmp eq i8 %30, -1
   %32 = select i1 %31, i32 2, i32 -1
   br label %.preheader.i
 
 mbc_enc_len.exit.i:                               ; preds = %24
-  %33 = getelementptr inbounds [256 x i32], ptr @EncLen_SJIS, i64 0, i64 %17
+  %33 = getelementptr inbounds nuw [256 x i32], ptr @EncLen_SJIS, i64 0, i64 %17
   %34 = load i32, ptr %33, align 4
   %35 = sub nsw i32 0, %34
   br label %.preheader.i
@@ -270,7 +270,7 @@ mbc_enc_len.exit.i:                               ; preds = %24
   %40 = shl i32 %.026.i, 8
   %41 = or disjoint i32 %40, %39
   %42 = add nuw nsw i32 %.01825.i, 1
-  %.019.i = getelementptr inbounds i8, ptr %.01927.i, i64 1
+  %.019.i = getelementptr inbounds nuw i8, ptr %.01927.i, i64 1
   %43 = icmp slt i32 %42, %.0.i30.i
   %.not.i = icmp ult ptr %.019.i, %2
   %or.cond.i = select i1 %43, i1 %.not.i, i1 false
@@ -315,14 +315,14 @@ get_lower_case.exit:                              ; preds = %46, %51, %53, %56
 61:                                               ; preds = %get_lower_case.exit
   %62 = lshr i32 %.0.i, 8
   %63 = trunc i32 %62 to i8
-  %64 = getelementptr inbounds i8, ptr %3, i64 1
+  %64 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 %63, ptr %3, align 1
   br label %code_to_mbc.exit
 
 code_to_mbc.exit:                                 ; preds = %get_lower_case.exit, %61
   %.0.i15 = phi ptr [ %64, %61 ], [ %3, %get_lower_case.exit ]
   %65 = trunc i32 %.0.i to i8
-  %66 = getelementptr inbounds i8, ptr %.0.i15, i64 1
+  %66 = getelementptr inbounds nuw i8, ptr %.0.i15, i64 1
   store i8 %65, ptr %.0.i15, align 1
   %67 = ptrtoint ptr %66 to i64
   %68 = ptrtoint ptr %3 to i64
@@ -349,10 +349,10 @@ define internal i32 @apply_all_case_fold(i32 noundef %0, ptr noundef %1, ptr nou
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @get_case_fold_codes_by_str(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 1
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %7 = load i8, ptr %1, align 1
   %8 = zext i8 %7 to i64
-  %9 = getelementptr inbounds [256 x i8], ptr @trans, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw [256 x i8], ptr @trans, i64 0, i64 %8
   %10 = load i8, ptr %9, align 1
   %11 = sext i8 %10 to i64
   %12 = icmp slt i8 %10, 0
@@ -369,14 +369,14 @@ define internal i32 @get_case_fold_codes_by_str(i32 noundef %0, ptr noundef %1, 
 17:                                               ; preds = %15
   %18 = load i8, ptr %6, align 1
   %19 = zext i8 %18 to i64
-  %20 = getelementptr inbounds [2 x [256 x i8]], ptr @trans, i64 0, i64 %11, i64 %19
+  %20 = getelementptr inbounds nuw [2 x [256 x i8]], ptr @trans, i64 0, i64 %11, i64 %19
   %21 = load i8, ptr %20, align 1
   %22 = icmp eq i8 %21, -1
   %23 = select i1 %22, i32 2, i32 -1
   br label %.preheader.i
 
 mbc_enc_len.exit.i:                               ; preds = %15
-  %24 = getelementptr inbounds [256 x i32], ptr @EncLen_SJIS, i64 0, i64 %8
+  %24 = getelementptr inbounds nuw [256 x i32], ptr @EncLen_SJIS, i64 0, i64 %8
   %25 = load i32, ptr %24, align 4
   %26 = sub nsw i32 0, %25
   br label %.preheader.i
@@ -398,7 +398,7 @@ mbc_enc_len.exit.i:                               ; preds = %15
   %31 = shl i32 %.026.i, 8
   %32 = or disjoint i32 %31, %30
   %33 = add nuw nsw i32 %.01825.i, 1
-  %.019.i = getelementptr inbounds i8, ptr %.01927.i, i64 1
+  %.019.i = getelementptr inbounds nuw i8, ptr %.01927.i, i64 1
   %34 = icmp slt i32 %33, %.0.i30.i
   %.not.i = icmp ult ptr %.019.i, %2
   %or.cond.i = select i1 %34, i1 %.not.i, i1 false
@@ -431,7 +431,7 @@ mbc_to_code.exit.thread:                          ; preds = %.preheader.i
   br i1 %43, label %44, label %48
 
 44:                                               ; preds = %.thread
-  %45 = getelementptr inbounds [256 x i32], ptr @EncLen_SJIS, i64 0, i64 %8
+  %45 = getelementptr inbounds nuw [256 x i32], ptr @EncLen_SJIS, i64 0, i64 %8
   %46 = load i32, ptr %45, align 4
   %47 = sub nsw i32 0, %46
   br label %mbc_enc_len.exit
@@ -439,7 +439,7 @@ mbc_to_code.exit.thread:                          ; preds = %.preheader.i
 48:                                               ; preds = %.thread
   %49 = load i8, ptr %6, align 1
   %50 = zext i8 %49 to i64
-  %51 = getelementptr inbounds [2 x [256 x i8]], ptr @trans, i64 0, i64 %11, i64 %50
+  %51 = getelementptr inbounds nuw [2 x [256 x i8]], ptr @trans, i64 0, i64 %11, i64 %50
   %52 = load i8, ptr %51, align 1
   %53 = icmp eq i8 %52, -1
   %54 = select i1 %53, i32 2, i32 -1
@@ -517,9 +517,9 @@ get_upper_case.exit:                              ; preds = %73, %77, %get_lower
 
 86:                                               ; preds = %get_upper_case.exit
   store i32 %.0.i, ptr %3, align 4
-  %87 = getelementptr inbounds i8, ptr %3, i64 4
+  %87 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 1, ptr %87, align 4
-  %88 = getelementptr inbounds i8, ptr %3, i64 8
+  %88 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %.0.i3244, ptr %88, align 4
   br label %93
 
@@ -529,9 +529,9 @@ get_upper_case.exit:                              ; preds = %73, %77, %get_lower
 
 90:                                               ; preds = %89
   store i32 %.0.i, ptr %3, align 4
-  %91 = getelementptr inbounds i8, ptr %3, i64 4
+  %91 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 1, ptr %91, align 4
-  %92 = getelementptr inbounds i8, ptr %3, i64 8
+  %92 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %.0.i34, ptr %92, align 4
   br label %93
 
@@ -556,12 +556,12 @@ define internal i32 @property_name_to_ctype(ptr noundef %0, ptr noundef %1, ptr 
   %.val20.i = load i8, ptr %10, align 1
   %11 = trunc i64 %6 to i32
   %12 = zext i8 %.val20.i to i64
-  %13 = getelementptr inbounds [128 x i8], ptr @onig_jis_property_hash.asso_values, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw [128 x i8], ptr @onig_jis_property_hash.asso_values, i64 0, i64 %12
   %14 = load i8, ptr %13, align 1
   %15 = zext i8 %14 to i32
   %16 = add nuw nsw i32 %15, %11
   %17 = zext i8 %.val.i to i64
-  %18 = getelementptr inbounds [128 x i8], ptr @onig_jis_property_hash.asso_values, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw [128 x i8], ptr @onig_jis_property_hash.asso_values, i64 0, i64 %17
   %19 = load i8, ptr %18, align 1
   %20 = zext i8 %19 to i32
   %21 = add nuw nsw i32 %16, %20
@@ -570,14 +570,14 @@ define internal i32 @property_name_to_ctype(ptr noundef %0, ptr noundef %1, ptr 
 
 23:                                               ; preds = %9
   %24 = zext nneg i32 %21 to i64
-  %25 = getelementptr inbounds [13 x %struct.enc_property], ptr @onig_jis_property.wordlist, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw [13 x %struct.enc_property], ptr @onig_jis_property.wordlist, i64 0, i64 %24
   %26 = load i8, ptr %25, align 2
   %27 = icmp sgt i8 %26, -1
   br i1 %27, label %28, label %42
 
 28:                                               ; preds = %23
   %29 = zext nneg i8 %26 to i64
-  %30 = getelementptr inbounds i8, ptr @onig_jis_property_pool_contents, i64 %29
+  %30 = getelementptr inbounds nuw i8, ptr @onig_jis_property_pool_contents, i64 %29
   %31 = load i8, ptr %30, align 1
   %32 = xor i8 %31, %.val.i
   %33 = and i8 %32, -33
@@ -585,13 +585,13 @@ define internal i32 @property_name_to_ctype(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %34, label %35, label %42
 
 35:                                               ; preds = %28
-  %36 = getelementptr inbounds i8, ptr %1, i64 %7
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 %7
   %37 = tail call i32 @onigenc_with_ascii_strnicmp(ptr noundef nonnull @OnigEncodingASCII, ptr noundef nonnull %1, ptr noundef nonnull %36, ptr noundef nonnull %30, i32 noundef %11) #7
   %.not.i = icmp eq i32 %37, 0
   br i1 %.not.i, label %38, label %42
 
 38:                                               ; preds = %35
-  %39 = getelementptr inbounds i8, ptr %30, i64 %7
+  %39 = getelementptr inbounds nuw i8, ptr %30, i64 %7
   %40 = load i8, ptr %39, align 1
   %41 = icmp eq i8 %40, 0
   br i1 %41, label %onig_jis_property.exit, label %42
@@ -601,7 +601,7 @@ define internal i32 @property_name_to_ctype(ptr noundef %0, ptr noundef %1, ptr 
   br label %47
 
 onig_jis_property.exit:                           ; preds = %38
-  %44 = getelementptr inbounds i8, ptr %25, i64 1
+  %44 = getelementptr inbounds nuw i8, ptr %25, i64 1
   %45 = load i8, ptr %44, align 1
   %46 = zext i8 %45 to i32
   br label %47
@@ -622,7 +622,7 @@ define internal i32 @is_code_ctype(i32 noundef %0, i32 noundef %1, ptr nocapture
 
 7:                                                ; preds = %5
   %8 = zext nneg i32 %0 to i64
-  %9 = getelementptr inbounds [0 x i16], ptr @OnigEncAsciiCtypeTable, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw [0 x i16], ptr @OnigEncAsciiCtypeTable, i64 0, i64 %8
   %10 = load i16, ptr %9, align 2
   %11 = zext i16 %10 to i32
   %12 = lshr i32 %11, %1
@@ -644,7 +644,7 @@ define internal i32 @is_code_ctype(i32 noundef %0, i32 noundef %1, ptr nocapture
 
 21:                                               ; preds = %18
   %22 = zext nneg i32 %19 to i64
-  %23 = getelementptr inbounds [6 x ptr], ptr @PropertyList, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw [6 x ptr], ptr @PropertyList, i64 0, i64 %22
   %24 = load ptr, ptr %23, align 8
   %25 = tail call i32 @onig_is_in_code_range(ptr noundef %24, i32 noundef %0) #7
   br label %26
@@ -667,7 +667,7 @@ define internal range(i32 -6, 1) i32 @get_ctype_code_range(i32 noundef %0, ptr n
 
 9:                                                ; preds = %6
   %10 = zext nneg i32 %7 to i64
-  %11 = getelementptr inbounds [6 x ptr], ptr @PropertyList, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw [6 x ptr], ptr @PropertyList, i64 0, i64 %10
   %12 = load ptr, ptr %11, align 8
   store ptr %12, ptr %2, align 8
   br label %13
@@ -685,7 +685,7 @@ define internal ptr @left_adjust_char_head(ptr noundef readnone %0, ptr noundef 
 5:                                                ; preds = %4
   %6 = load i8, ptr %1, align 1
   %7 = zext i8 %6 to i64
-  %8 = getelementptr inbounds [256 x i8], ptr @SJIS_CAN_BE_TRAIL_TABLE, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw [256 x i8], ptr @SJIS_CAN_BE_TRAIL_TABLE, i64 0, i64 %7
   %9 = load i8, ptr %8, align 1
   %.not26 = icmp eq i8 %9, 0
   br i1 %.not26, label %.loopexit, label %.preheader
@@ -699,7 +699,7 @@ define internal ptr @left_adjust_char_head(ptr noundef readnone %0, ptr noundef 
   %12 = getelementptr inbounds i8, ptr %.1, i64 -1
   %13 = load i8, ptr %12, align 1
   %14 = zext i8 %13 to i64
-  %15 = getelementptr inbounds [256 x i32], ptr @EncLen_SJIS, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw [256 x i32], ptr @EncLen_SJIS, i64 0, i64 %14
   %16 = load i32, ptr %15, align 4
   %17 = icmp sgt i32 %16, 1
   br i1 %17, label %.preheader, label %.loopexit.loopexit, !llvm.loop !8
@@ -712,8 +712,8 @@ define internal ptr @left_adjust_char_head(ptr noundef readnone %0, ptr noundef 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %5
   %.pre-phi = phi i64 [ %.pre27, %.loopexit.loopexit ], [ %7, %5 ]
   %.021 = phi ptr [ %.1, %.loopexit.loopexit ], [ %1, %5 ]
-  %18 = getelementptr inbounds i8, ptr %.021, i64 1
-  %19 = getelementptr inbounds [256 x i8], ptr @trans, i64 0, i64 %.pre-phi
+  %18 = getelementptr inbounds nuw i8, ptr %.021, i64 1
+  %19 = getelementptr inbounds nuw [256 x i8], ptr @trans, i64 0, i64 %.pre-phi
   %20 = load i8, ptr %19, align 1
   %21 = sext i8 %20 to i64
   %22 = icmp slt i8 %20, 0
@@ -729,7 +729,7 @@ define internal ptr @left_adjust_char_head(ptr noundef readnone %0, ptr noundef 
   br i1 %27, label %28, label %32
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds [256 x i32], ptr @EncLen_SJIS, i64 0, i64 %.pre-phi
+  %29 = getelementptr inbounds nuw [256 x i32], ptr @EncLen_SJIS, i64 0, i64 %.pre-phi
   %30 = load i32, ptr %29, align 4
   %31 = sub nsw i32 0, %30
   br label %mbc_enc_len.exit
@@ -737,7 +737,7 @@ define internal ptr @left_adjust_char_head(ptr noundef readnone %0, ptr noundef 
 32:                                               ; preds = %26
   %33 = load i8, ptr %18, align 1
   %34 = zext i8 %33 to i64
-  %35 = getelementptr inbounds [2 x [256 x i8]], ptr @trans, i64 0, i64 %21, i64 %34
+  %35 = getelementptr inbounds nuw [2 x [256 x i8]], ptr @trans, i64 0, i64 %21, i64 %34
   %36 = load i8, ptr %35, align 1
   %37 = icmp eq i8 %36, -1
   %38 = select i1 %37, i32 2, i32 -1
@@ -767,7 +767,7 @@ mbc_enc_len.exit:                                 ; preds = %23, %28, %32
 define internal range(i32 0, 2) i32 @is_allowed_reverse_match(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #2 {
   %4 = load i8, ptr %0, align 1
   %5 = zext i8 %4 to i64
-  %6 = getelementptr inbounds [256 x i8], ptr @SJIS_CAN_BE_TRAIL_TABLE, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw [256 x i8], ptr @SJIS_CAN_BE_TRAIL_TABLE, i64 0, i64 %5
   %7 = load i8, ptr %6, align 1
   %.not = icmp eq i8 %7, 0
   %8 = zext i1 %.not to i32

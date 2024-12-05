@@ -88,24 +88,24 @@ define hidden void @proto_reg_handoff_mate() #0 {
 
 11:                                               ; preds = %8
   %12 = load i32, ptr @proto_mate, align 4
-  %13 = getelementptr inbounds i8, ptr %10, i64 104
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 104
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %14, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %17 = load i32, ptr %16, align 8
   tail call void @proto_register_field_array(i32 noundef %12, ptr noundef %15, i32 noundef %17) #4
   %18 = load ptr, ptr @mc, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 120
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 120
   %20 = load ptr, ptr %19, align 8
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %20, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %23 = load i32, ptr %22, align 8
   tail call void @proto_register_subtree_array(ptr noundef %21, i32 noundef %23) #4
   tail call void @register_init_routine(ptr noundef nonnull @initialize_mate) #4
   tail call void @register_postseq_cleanup_routine(ptr noundef nonnull @flush_mate_debug) #4
   %24 = load ptr, ptr @mate_handle, align 8
   %25 = load ptr, ptr @mc, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load ptr, ptr %26, align 8
   tail call void @set_postdissector_wanted_hfids(ptr noundef %24, ptr noundef %27) #4
   tail call void @epan_set_always_visible(i32 noundef 1) #4
@@ -144,7 +144,7 @@ declare void @register_postseq_cleanup_routine(ptr noundef) local_unnamed_addr #
 ; Function Attrs: nofree nounwind uwtable
 define internal void @flush_mate_debug() #2 {
   %1 = load ptr, ptr @mc, align 8
-  %2 = getelementptr inbounds i8, ptr %1, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %6, label %4
@@ -202,7 +202,7 @@ define internal i32 @mate_tree(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
 
 9:                                                ; preds = %7
   tail call void @mate_analyze_frame(ptr noundef nonnull %5, ptr noundef %1, ptr noundef nonnull %2) #4
-  %10 = getelementptr inbounds i8, ptr %1, i64 20
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %11 = load i32, ptr %10, align 4
   %12 = tail call ptr @mate_get_pdus(i32 noundef %11) #4
   %.not = icmp eq ptr %12, null
@@ -211,34 +211,34 @@ define internal i32 @mate_tree(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
 .preheader:                                       ; preds = %9, %mate_pdu_tree.exit
   %.017 = phi ptr [ %270, %mate_pdu_tree.exit ], [ %12, %9 ]
   %13 = load ptr, ptr @mc, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load i32, ptr %14, align 8
   %16 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef nonnull %2, i32 noundef %15, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.14) #4
   %17 = load ptr, ptr @mc, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 112
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 112
   %19 = load i32, ptr %18, align 8
   %20 = tail call ptr @proto_item_add_subtree(ptr noundef %16, i32 noundef %19) #4
-  %21 = getelementptr inbounds i8, ptr %.017, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %.017, i64 48
   %22 = load ptr, ptr %21, align 8
   %.not53.i = icmp eq ptr %22, null
   br i1 %.not53.i, label %40, label %23
 
 23:                                               ; preds = %.preheader
-  %24 = getelementptr inbounds i8, ptr %22, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 40
   %25 = load ptr, ptr %24, align 8
   %.not54.i = icmp eq ptr %25, null
-  %26 = getelementptr inbounds i8, ptr %.017, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %.017, i64 8
   %27 = load ptr, ptr %26, align 8
   %28 = load ptr, ptr %27, align 8
   %29 = load i32, ptr %.017, align 8
-  %30 = getelementptr inbounds i8, ptr %22, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %31 = load ptr, ptr %30, align 8
   %32 = load ptr, ptr %31, align 8
   %33 = load i32, ptr %22, align 8
   br i1 %.not54.i, label %39, label %34
 
 34:                                               ; preds = %23
-  %35 = getelementptr inbounds i8, ptr %25, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %36 = load ptr, ptr %35, align 8
   %37 = load ptr, ptr %36, align 8
   %38 = load i32, ptr %25, align 8
@@ -250,7 +250,7 @@ define internal i32 @mate_tree(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   br label %45
 
 40:                                               ; preds = %.preheader
-  %41 = getelementptr inbounds i8, ptr %.017, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %.017, i64 8
   %42 = load ptr, ptr %41, align 8
   %43 = load ptr, ptr %42, align 8
   %44 = load i32, ptr %.017, align 8
@@ -258,20 +258,20 @@ define internal i32 @mate_tree(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   br label %45
 
 45:                                               ; preds = %40, %39, %34
-  %46 = getelementptr inbounds i8, ptr %.017, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %.017, i64 8
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 32
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 32
   %49 = load i32, ptr %48, align 8
   %50 = load i32, ptr %.017, align 8
   %51 = tail call ptr @proto_tree_add_uint(ptr noundef %20, i32 noundef %49, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %50) #4
   %52 = load ptr, ptr %46, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 56
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 56
   %54 = load i32, ptr %53, align 8
   %55 = tail call ptr @proto_item_add_subtree(ptr noundef %51, i32 noundef %54) #4
   %56 = load ptr, ptr %46, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 40
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 40
   %58 = load i32, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %.017, i64 40
+  %59 = getelementptr inbounds nuw i8, ptr %.017, i64 40
   %60 = load float, ptr %59, align 8
   %61 = tail call ptr @proto_tree_add_float(ptr noundef %55, i32 noundef %58, ptr noundef %0, i32 noundef 0, i32 noundef 0, float noundef %60) #4
   %62 = load ptr, ptr %21, align 8
@@ -280,38 +280,38 @@ define internal i32 @mate_tree(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
 
 63:                                               ; preds = %45
   %64 = load ptr, ptr %46, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 44
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 44
   %66 = load i32, ptr %65, align 4
-  %67 = getelementptr inbounds i8, ptr %.017, i64 64
+  %67 = getelementptr inbounds nuw i8, ptr %.017, i64 64
   %68 = load float, ptr %67, align 8
   %69 = tail call ptr @proto_tree_add_float(ptr noundef %55, i32 noundef %66, ptr noundef %0, i32 noundef 0, i32 noundef 0, float noundef %68) #4
   %70 = load ptr, ptr %21, align 8
   tail call fastcc void @mate_gop_tree(ptr noundef %20, ptr noundef %1, ptr noundef %0, ptr noundef %70)
   %71 = load ptr, ptr %21, align 8
-  %72 = getelementptr inbounds i8, ptr %71, i64 40
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 40
   %73 = load ptr, ptr %72, align 8
   %.not57.i = icmp eq ptr %73, null
   br i1 %.not57.i, label %mate_gog_tree.exit.i, label %74
 
 74:                                               ; preds = %63
-  %75 = getelementptr inbounds i8, ptr %73, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %73, i64 8
   %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 72
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 72
   %78 = load i32, ptr %77, align 8
   %79 = load i32, ptr %73, align 8
   %80 = tail call ptr @proto_tree_add_uint(ptr noundef %20, i32 noundef %78, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %79) #4
   %81 = load ptr, ptr %75, align 8
-  %82 = getelementptr inbounds i8, ptr %81, i64 104
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 104
   %83 = load i32, ptr %82, align 8
   %84 = tail call ptr @proto_item_add_subtree(ptr noundef %80, i32 noundef %83) #4
   %85 = load ptr, ptr %75, align 8
-  %86 = getelementptr inbounds i8, ptr %85, i64 108
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 108
   %87 = load i32, ptr %86, align 4
   %88 = load ptr, ptr %85, align 8
   %89 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %84, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %87, ptr noundef null, ptr noundef nonnull @.str.30, ptr noundef %88) #4
-  %90 = getelementptr inbounds i8, ptr %73, i64 16
+  %90 = getelementptr inbounds nuw i8, ptr %73, i64 16
   %91 = load ptr, ptr %90, align 8
-  %92 = getelementptr inbounds i8, ptr %91, i64 24
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 24
   %.022.i.i.i = load ptr, ptr %92, align 8
   %93 = load ptr, ptr %.022.i.i.i, align 8
   %.not23.i.i.i = icmp eq ptr %93, null
@@ -321,7 +321,7 @@ define internal i32 @mate_tree(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   %94 = phi ptr [ %114, %112 ], [ %93, %74 ]
   %.024.i.i.i = phi ptr [ %.0.i.i.i, %112 ], [ %.022.i.i.i, %74 ]
   %95 = load ptr, ptr %75, align 8
-  %96 = getelementptr inbounds i8, ptr %95, i64 64
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 64
   %97 = load ptr, ptr %96, align 8
   %98 = load ptr, ptr %94, align 8
   %99 = tail call ptr @g_hash_table_lookup(ptr noundef %97, ptr noundef %98) #4
@@ -331,7 +331,7 @@ define internal i32 @mate_tree(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
 100:                                              ; preds = %.lr.ph.i.i.i
   %101 = load i32, ptr %99, align 4
   %102 = load ptr, ptr %.024.i.i.i, align 8
-  %103 = getelementptr inbounds i8, ptr %102, i64 8
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 8
   %104 = load ptr, ptr %103, align 8
   %105 = tail call ptr @proto_tree_add_string(ptr noundef %89, i32 noundef %101, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef %104) #4
   br label %112
@@ -339,13 +339,13 @@ define internal i32 @mate_tree(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
 106:                                              ; preds = %.lr.ph.i.i.i
   %107 = load ptr, ptr %.024.i.i.i, align 8
   %108 = load ptr, ptr %107, align 8
-  %109 = getelementptr inbounds i8, ptr %107, i64 8
+  %109 = getelementptr inbounds nuw i8, ptr %107, i64 8
   %110 = load ptr, ptr %109, align 8
   %111 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %89, ptr noundef %1, ptr noundef nonnull @ei_mate_undefined_attribute, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.31, ptr noundef %108, ptr noundef %110) #4
   br label %112
 
 112:                                              ; preds = %106, %100
-  %113 = getelementptr inbounds i8, ptr %.024.i.i.i, i64 8
+  %113 = getelementptr inbounds nuw i8, ptr %.024.i.i.i, i64 8
   %.0.i.i.i = load ptr, ptr %113, align 8
   %114 = load ptr, ptr %.0.i.i.i, align 8
   %.not.i.i.i = icmp eq ptr %114, null
@@ -353,26 +353,26 @@ define internal i32 @mate_tree(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
 
 gog_attrs_tree.exit.i.i:                          ; preds = %112, %74
   %115 = load ptr, ptr %75, align 8
-  %116 = getelementptr inbounds i8, ptr %115, i64 56
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 56
   %117 = load i32, ptr %116, align 8
   %.not.i.i = icmp eq i32 %117, 0
   br i1 %.not.i.i, label %137, label %118
 
 118:                                              ; preds = %gog_attrs_tree.exit.i.i
-  %119 = getelementptr inbounds i8, ptr %115, i64 112
+  %119 = getelementptr inbounds nuw i8, ptr %115, i64 112
   %120 = load i32, ptr %119, align 8
   %121 = load ptr, ptr %115, align 8
   %122 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %84, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %120, ptr noundef null, ptr noundef nonnull @.str.23, ptr noundef %121) #4
   %123 = load ptr, ptr %75, align 8
-  %124 = getelementptr inbounds i8, ptr %123, i64 92
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 92
   %125 = load i32, ptr %124, align 4
-  %126 = getelementptr inbounds i8, ptr %73, i64 40
+  %126 = getelementptr inbounds nuw i8, ptr %73, i64 40
   %127 = load float, ptr %126, align 8
   %128 = tail call ptr @proto_tree_add_float(ptr noundef %122, i32 noundef %125, ptr noundef %0, i32 noundef 0, i32 noundef 0, float noundef %127) #4
   %129 = load ptr, ptr %75, align 8
-  %130 = getelementptr inbounds i8, ptr %129, i64 100
+  %130 = getelementptr inbounds nuw i8, ptr %129, i64 100
   %131 = load i32, ptr %130, align 4
-  %132 = getelementptr inbounds i8, ptr %73, i64 48
+  %132 = getelementptr inbounds nuw i8, ptr %73, i64 48
   %133 = load float, ptr %132, align 8
   %134 = load float, ptr %126, align 8
   %135 = fsub float %133, %134
@@ -382,23 +382,23 @@ gog_attrs_tree.exit.i.i:                          ; preds = %112, %74
 
 137:                                              ; preds = %118, %gog_attrs_tree.exit.i.i
   %138 = phi ptr [ %.pre.i.i, %118 ], [ %115, %gog_attrs_tree.exit.i.i ]
-  %139 = getelementptr inbounds i8, ptr %138, i64 76
+  %139 = getelementptr inbounds nuw i8, ptr %138, i64 76
   %140 = load i32, ptr %139, align 4
-  %141 = getelementptr inbounds i8, ptr %73, i64 72
+  %141 = getelementptr inbounds nuw i8, ptr %73, i64 72
   %142 = load i32, ptr %141, align 8
   %143 = tail call ptr @proto_tree_add_uint(ptr noundef %84, i32 noundef %140, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %142) #4
   %144 = load ptr, ptr %75, align 8
-  %145 = getelementptr inbounds i8, ptr %144, i64 116
+  %145 = getelementptr inbounds nuw i8, ptr %144, i64 116
   %146 = load i32, ptr %145, align 4
   %147 = tail call ptr @proto_item_add_subtree(ptr noundef %143, i32 noundef %146) #4
-  %148 = getelementptr inbounds i8, ptr %73, i64 56
+  %148 = getelementptr inbounds nuw i8, ptr %73, i64 56
   %.08898.i.i = load ptr, ptr %148, align 8
   %.not9099.i.i = icmp eq ptr %.08898.i.i, null
   br i1 %.not9099.i.i, label %mate_gog_tree.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %137
-  %149 = getelementptr inbounds i8, ptr %71, i64 96
-  %150 = getelementptr inbounds i8, ptr %71, i64 8
+  %149 = getelementptr inbounds nuw i8, ptr %71, i64 96
+  %150 = getelementptr inbounds nuw i8, ptr %71, i64 8
   br label %151
 
 151:                                              ; preds = %.loopexit.i.i, %.lr.ph.i.i
@@ -408,7 +408,7 @@ gog_attrs_tree.exit.i.i:                          ; preds = %112, %74
 
 152:                                              ; preds = %151
   %153 = load ptr, ptr %75, align 8
-  %154 = getelementptr inbounds i8, ptr %153, i64 52
+  %154 = getelementptr inbounds nuw i8, ptr %153, i64 52
   %155 = load i32, ptr %154, align 4
   %156 = icmp eq i32 %155, 2
   br i1 %156, label %157, label %158
@@ -418,28 +418,28 @@ gog_attrs_tree.exit.i.i:                          ; preds = %112, %74
   br label %.loopexit.i.i
 
 158:                                              ; preds = %152
-  %159 = getelementptr inbounds i8, ptr %.088100.i.i, i64 8
+  %159 = getelementptr inbounds nuw i8, ptr %.088100.i.i, i64 8
   %160 = load ptr, ptr %159, align 8
-  %161 = getelementptr inbounds i8, ptr %160, i64 104
+  %161 = getelementptr inbounds nuw i8, ptr %160, i64 104
   %162 = load i32, ptr %161, align 8
   %163 = load i32, ptr %.088100.i.i, align 8
   %164 = tail call ptr @proto_tree_add_uint(ptr noundef %147, i32 noundef %162, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %163) #4
   %165 = load ptr, ptr %75, align 8
-  %166 = getelementptr inbounds i8, ptr %165, i64 52
+  %166 = getelementptr inbounds nuw i8, ptr %165, i64 52
   %167 = load i32, ptr %166, align 4
   %168 = icmp eq i32 %167, 1
   br i1 %168, label %169, label %.loopexit.i.i
 
 169:                                              ; preds = %158
-  %170 = getelementptr inbounds i8, ptr %165, i64 120
+  %170 = getelementptr inbounds nuw i8, ptr %165, i64 120
   %171 = load i32, ptr %170, align 8
   %172 = tail call ptr @proto_item_add_subtree(ptr noundef %164, i32 noundef %171) #4
   %173 = load i32, ptr @hf_mate_started_at, align 4
-  %174 = getelementptr inbounds i8, ptr %.088100.i.i, i64 72
+  %174 = getelementptr inbounds nuw i8, ptr %.088100.i.i, i64 72
   %175 = load float, ptr %174, align 8
   %176 = tail call ptr @proto_tree_add_float(ptr noundef %172, i32 noundef %173, ptr noundef %0, i32 noundef 0, i32 noundef 0, float noundef %175) #4
   %177 = load i32, ptr @hf_mate_duration, align 4
-  %178 = getelementptr inbounds i8, ptr %.088100.i.i, i64 80
+  %178 = getelementptr inbounds nuw i8, ptr %.088100.i.i, i64 80
   %179 = load float, ptr %178, align 8
   %180 = load float, ptr %174, align 8
   %181 = fsub float %179, %180
@@ -447,14 +447,14 @@ gog_attrs_tree.exit.i.i:                          ; preds = %112, %74
   %183 = load ptr, ptr %182, align 8
   %184 = fpext float %181 to double
   %185 = tail call ptr (ptr, i32, ptr, i32, i32, float, ptr, ...) @proto_tree_add_float_format(ptr noundef %172, i32 noundef %177, ptr noundef %0, i32 noundef 0, i32 noundef 0, float noundef %181, ptr noundef nonnull @.str.32, ptr noundef %183, double noundef %184) #4
-  %186 = getelementptr inbounds i8, ptr %.088100.i.i, i64 112
+  %186 = getelementptr inbounds nuw i8, ptr %.088100.i.i, i64 112
   %187 = load i32, ptr %186, align 8
   %.not92.i.i = icmp eq i32 %187, 0
   br i1 %.not92.i.i, label %198, label %188
 
 188:                                              ; preds = %169
   %189 = load i32, ptr @hf_mate_released_time, align 4
-  %190 = getelementptr inbounds i8, ptr %.088100.i.i, i64 76
+  %190 = getelementptr inbounds nuw i8, ptr %.088100.i.i, i64 76
   %191 = load float, ptr %190, align 4
   %192 = load float, ptr %174, align 8
   %193 = fsub float %191, %192
@@ -466,7 +466,7 @@ gog_attrs_tree.exit.i.i:                          ; preds = %112, %74
 
 198:                                              ; preds = %188, %169
   %199 = load i32, ptr @hf_mate_number_of_pdus, align 4
-  %200 = getelementptr inbounds i8, ptr %.088100.i.i, i64 84
+  %200 = getelementptr inbounds nuw i8, ptr %.088100.i.i, i64 84
   %201 = load i32, ptr %200, align 4
   %202 = tail call ptr @proto_tree_add_uint(ptr noundef %172, i32 noundef %199, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %201) #4
   %203 = load ptr, ptr %149, align 8
@@ -475,18 +475,18 @@ gog_attrs_tree.exit.i.i:                          ; preds = %112, %74
 
 204:                                              ; preds = %198
   %205 = load ptr, ptr %150, align 8
-  %206 = getelementptr inbounds i8, ptr %205, i64 88
+  %206 = getelementptr inbounds nuw i8, ptr %205, i64 88
   %207 = load i32, ptr %206, align 8
   %.not94.i.i = icmp eq i32 %207, 0
   br i1 %.not94.i.i, label %.loopexit.i.i, label %208
 
 208:                                              ; preds = %204
   %209 = load ptr, ptr %75, align 8
-  %210 = getelementptr inbounds i8, ptr %209, i64 84
+  %210 = getelementptr inbounds nuw i8, ptr %209, i64 84
   %211 = load i32, ptr %210, align 4
-  %212 = getelementptr inbounds i8, ptr %.088100.i.i, i64 96
+  %212 = getelementptr inbounds nuw i8, ptr %.088100.i.i, i64 96
   %213 = load ptr, ptr %212, align 8
-  %214 = getelementptr inbounds i8, ptr %213, i64 24
+  %214 = getelementptr inbounds nuw i8, ptr %213, i64 24
   %215 = load i32, ptr %214, align 8
   %216 = tail call ptr @proto_tree_add_uint(ptr noundef %172, i32 noundef %211, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %215) #4
   %217 = load ptr, ptr %212, align 8
@@ -494,29 +494,29 @@ gog_attrs_tree.exit.i.i:                          ; preds = %112, %74
 
 218:                                              ; preds = %219, %208
   %.pn.i.i = phi ptr [ %217, %208 ], [ %.0.i.i, %219 ]
-  %.0.in.i.i = getelementptr inbounds i8, ptr %.pn.i.i, i64 56
+  %.0.in.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 56
   %.0.i.i = load ptr, ptr %.0.in.i.i, align 8
   %.not95.i.i = icmp eq ptr %.0.i.i, null
   br i1 %.not95.i.i, label %.loopexit.i.i, label %219
 
 219:                                              ; preds = %218
-  %220 = getelementptr inbounds i8, ptr %.0.i.i, i64 76
+  %220 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 76
   %221 = load i32, ptr %220, align 4
   %.not96.i.i = icmp eq i32 %221, 0
   br i1 %.not96.i.i, label %218, label %222, !llvm.loop !6
 
 222:                                              ; preds = %219
   %223 = load ptr, ptr %75, align 8
-  %224 = getelementptr inbounds i8, ptr %223, i64 88
+  %224 = getelementptr inbounds nuw i8, ptr %223, i64 88
   %225 = load i32, ptr %224, align 8
-  %226 = getelementptr inbounds i8, ptr %.0.i.i, i64 24
+  %226 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
   %227 = load i32, ptr %226, align 8
   %228 = tail call ptr @proto_tree_add_uint(ptr noundef %172, i32 noundef %225, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %227) #4
   br label %.loopexit.i.i
 
 229:                                              ; preds = %151
   %230 = load ptr, ptr %150, align 8
-  %231 = getelementptr inbounds i8, ptr %230, i64 104
+  %231 = getelementptr inbounds nuw i8, ptr %230, i64 104
   %232 = load i32, ptr %231, align 8
   %233 = load i32, ptr %71, align 8
   %234 = load ptr, ptr %230, align 8
@@ -524,25 +524,25 @@ gog_attrs_tree.exit.i.i:                          ; preds = %112, %74
   br label %.loopexit.i.i
 
 .loopexit.i.i:                                    ; preds = %218, %229, %222, %204, %198, %158, %157
-  %236 = getelementptr inbounds i8, ptr %.088100.i.i, i64 48
+  %236 = getelementptr inbounds nuw i8, ptr %.088100.i.i, i64 48
   %.088.i.i = load ptr, ptr %236, align 8
   %.not90.i.i = icmp eq ptr %.088.i.i, null
   br i1 %.not90.i.i, label %mate_gog_tree.exit.i, label %151, !llvm.loop !7
 
 mate_gog_tree.exit.i:                             ; preds = %.loopexit.i.i, %137, %63, %45
-  %237 = getelementptr inbounds i8, ptr %.017, i64 16
+  %237 = getelementptr inbounds nuw i8, ptr %.017, i64 16
   %238 = load ptr, ptr %237, align 8
   %.not58.i = icmp eq ptr %238, null
   br i1 %.not58.i, label %mate_pdu_tree.exit, label %239
 
 239:                                              ; preds = %mate_gog_tree.exit.i
   %240 = load ptr, ptr %46, align 8
-  %241 = getelementptr inbounds i8, ptr %240, i64 60
+  %241 = getelementptr inbounds nuw i8, ptr %240, i64 60
   %242 = load i32, ptr %241, align 4
   %243 = load ptr, ptr %240, align 8
   %244 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %55, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %242, ptr noundef null, ptr noundef nonnull @.str.30, ptr noundef %243) #4
   %245 = load ptr, ptr %237, align 8
-  %246 = getelementptr inbounds i8, ptr %245, i64 24
+  %246 = getelementptr inbounds nuw i8, ptr %245, i64 24
   %.022.i.i = load ptr, ptr %246, align 8
   %247 = load ptr, ptr %.022.i.i, align 8
   %.not23.i.i = icmp eq ptr %247, null
@@ -552,7 +552,7 @@ mate_gog_tree.exit.i:                             ; preds = %.loopexit.i.i, %137
   %248 = phi ptr [ %268, %266 ], [ %247, %239 ]
   %.024.i.i = phi ptr [ %.0.i60.i, %266 ], [ %.022.i.i, %239 ]
   %249 = load ptr, ptr %46, align 8
-  %250 = getelementptr inbounds i8, ptr %249, i64 48
+  %250 = getelementptr inbounds nuw i8, ptr %249, i64 48
   %251 = load ptr, ptr %250, align 8
   %252 = load ptr, ptr %248, align 8
   %253 = tail call ptr @g_hash_table_lookup(ptr noundef %251, ptr noundef %252) #4
@@ -562,7 +562,7 @@ mate_gog_tree.exit.i:                             ; preds = %.loopexit.i.i, %137
 254:                                              ; preds = %.lr.ph.i59.i
   %255 = load i32, ptr %253, align 4
   %256 = load ptr, ptr %.024.i.i, align 8
-  %257 = getelementptr inbounds i8, ptr %256, i64 8
+  %257 = getelementptr inbounds nuw i8, ptr %256, i64 8
   %258 = load ptr, ptr %257, align 8
   %259 = tail call ptr @proto_tree_add_string(ptr noundef %244, i32 noundef %255, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef %258) #4
   br label %266
@@ -570,20 +570,20 @@ mate_gog_tree.exit.i:                             ; preds = %.loopexit.i.i, %137
 260:                                              ; preds = %.lr.ph.i59.i
   %261 = load ptr, ptr %.024.i.i, align 8
   %262 = load ptr, ptr %261, align 8
-  %263 = getelementptr inbounds i8, ptr %261, i64 8
+  %263 = getelementptr inbounds nuw i8, ptr %261, i64 8
   %264 = load ptr, ptr %263, align 8
   %265 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %244, ptr noundef %1, ptr noundef nonnull @ei_mate_undefined_attribute, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.31, ptr noundef %262, ptr noundef %264) #4
   br label %266
 
 266:                                              ; preds = %260, %254
-  %267 = getelementptr inbounds i8, ptr %.024.i.i, i64 8
+  %267 = getelementptr inbounds nuw i8, ptr %.024.i.i, i64 8
   %.0.i60.i = load ptr, ptr %267, align 8
   %268 = load ptr, ptr %.0.i60.i, align 8
   %.not.i61.i = icmp eq ptr %268, null
   br i1 %.not.i61.i, label %mate_pdu_tree.exit, label %.lr.ph.i59.i, !llvm.loop !8
 
 mate_pdu_tree.exit:                               ; preds = %266, %mate_gog_tree.exit.i, %239
-  %269 = getelementptr inbounds i8, ptr %.017, i64 32
+  %269 = getelementptr inbounds nuw i8, ptr %.017, i64 32
   %270 = load ptr, ptr %269, align 8
   %.old1.not = icmp eq ptr %270, null
   br i1 %.old1.not, label %.sink.split, label %.preheader
@@ -624,17 +624,17 @@ declare ptr @proto_tree_add_float(ptr noundef, i32 noundef, ptr noundef, i32 nou
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @mate_gop_tree(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 104
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 104
   %8 = load i32, ptr %7, align 8
   %9 = load i32, ptr %3, align 8
   %10 = tail call ptr @proto_tree_add_uint(ptr noundef %0, i32 noundef %8, ptr noundef %2, i32 noundef 0, i32 noundef 0, i32 noundef %9) #4
   %11 = load ptr, ptr %5, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 128
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 128
   %13 = load i32, ptr %12, align 8
   %14 = tail call ptr @proto_item_add_subtree(ptr noundef %10, i32 noundef %13) #4
-  %15 = getelementptr inbounds i8, ptr %3, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %20, label %17
@@ -646,13 +646,13 @@ define internal fastcc void @mate_gop_tree(ptr noundef %0, ptr noundef %1, ptr n
 
 20:                                               ; preds = %17, %4
   %21 = load ptr, ptr %5, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 132
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 132
   %23 = load i32, ptr %22, align 4
   %24 = load ptr, ptr %21, align 8
   %25 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %14, ptr noundef %2, i32 noundef 0, i32 noundef 0, i32 noundef %23, ptr noundef null, ptr noundef nonnull @.str.30, ptr noundef %24) #4
-  %26 = getelementptr inbounds i8, ptr %3, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %.022.i = load ptr, ptr %28, align 8
   %29 = load ptr, ptr %.022.i, align 8
   %.not23.i = icmp eq ptr %29, null
@@ -662,7 +662,7 @@ define internal fastcc void @mate_gop_tree(ptr noundef %0, ptr noundef %1, ptr n
   %30 = phi ptr [ %50, %48 ], [ %29, %20 ]
   %.024.i = phi ptr [ %.0.i, %48 ], [ %.022.i, %20 ]
   %31 = load ptr, ptr %5, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 96
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 96
   %33 = load ptr, ptr %32, align 8
   %34 = load ptr, ptr %30, align 8
   %35 = tail call ptr @g_hash_table_lookup(ptr noundef %33, ptr noundef %34) #4
@@ -672,7 +672,7 @@ define internal fastcc void @mate_gop_tree(ptr noundef %0, ptr noundef %1, ptr n
 36:                                               ; preds = %.lr.ph.i
   %37 = load i32, ptr %35, align 4
   %38 = load ptr, ptr %.024.i, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %40 = load ptr, ptr %39, align 8
   %41 = tail call ptr @proto_tree_add_string(ptr noundef %25, i32 noundef %37, ptr noundef %2, i32 noundef 0, i32 noundef 0, ptr noundef %40) #4
   br label %48
@@ -680,13 +680,13 @@ define internal fastcc void @mate_gop_tree(ptr noundef %0, ptr noundef %1, ptr n
 42:                                               ; preds = %.lr.ph.i
   %43 = load ptr, ptr %.024.i, align 8
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %43, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %46 = load ptr, ptr %45, align 8
   %47 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %25, ptr noundef %1, ptr noundef nonnull @ei_mate_undefined_attribute, ptr noundef %2, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.31, ptr noundef %44, ptr noundef %46) #4
   br label %48
 
 48:                                               ; preds = %42, %36
-  %49 = getelementptr inbounds i8, ptr %.024.i, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %.024.i, i64 8
   %.0.i = load ptr, ptr %49, align 8
   %50 = load ptr, ptr %.0.i, align 8
   %.not.i = icmp eq ptr %50, null
@@ -694,23 +694,23 @@ define internal fastcc void @mate_gop_tree(ptr noundef %0, ptr noundef %1, ptr n
 
 gop_attrs_tree.exit:                              ; preds = %48, %20
   %51 = load ptr, ptr %5, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 92
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 92
   %53 = load i32, ptr %52, align 4
   %.not72 = icmp eq i32 %53, 0
   br i1 %.not72, label %91, label %54
 
 54:                                               ; preds = %gop_attrs_tree.exit
-  %55 = getelementptr inbounds i8, ptr %51, i64 136
+  %55 = getelementptr inbounds nuw i8, ptr %51, i64 136
   %56 = load i32, ptr %55, align 8
   %57 = load ptr, ptr %51, align 8
   %58 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %14, ptr noundef %2, i32 noundef 0, i32 noundef 0, i32 noundef %56, ptr noundef null, ptr noundef nonnull @.str.23, ptr noundef %57) #4
   %59 = load ptr, ptr %5, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 108
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 108
   %61 = load i32, ptr %60, align 4
-  %62 = getelementptr inbounds i8, ptr %3, i64 72
+  %62 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %63 = load float, ptr %62, align 8
   %64 = tail call ptr @proto_tree_add_float(ptr noundef %58, i32 noundef %61, ptr noundef %2, i32 noundef 0, i32 noundef 0, float noundef %63) #4
-  %65 = getelementptr inbounds i8, ptr %3, i64 112
+  %65 = getelementptr inbounds nuw i8, ptr %3, i64 112
   %66 = load i32, ptr %65, align 8
   %.not73 = icmp eq i32 %66, 0
   %67 = load ptr, ptr %5, align 8
@@ -718,16 +718,16 @@ gop_attrs_tree.exit:                              ; preds = %48, %20
   br i1 %.not73, label %84, label %69
 
 69:                                               ; preds = %54
-  %70 = getelementptr inbounds i8, ptr %67, i64 112
+  %70 = getelementptr inbounds nuw i8, ptr %67, i64 112
   %71 = load i32, ptr %70, align 8
-  %72 = getelementptr inbounds i8, ptr %3, i64 76
+  %72 = getelementptr inbounds nuw i8, ptr %3, i64 76
   %73 = load float, ptr %72, align 4
   %74 = fsub float %73, %68
   %75 = tail call ptr @proto_tree_add_float(ptr noundef %58, i32 noundef %71, ptr noundef %2, i32 noundef 0, i32 noundef 0, float noundef %74) #4
   %76 = load ptr, ptr %5, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 116
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 116
   %78 = load i32, ptr %77, align 4
-  %79 = getelementptr inbounds i8, ptr %3, i64 80
+  %79 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %80 = load float, ptr %79, align 8
   %81 = load float, ptr %62, align 8
   %82 = fsub float %80, %81
@@ -735,9 +735,9 @@ gop_attrs_tree.exit:                              ; preds = %48, %20
   br label %91
 
 84:                                               ; preds = %54
-  %85 = getelementptr inbounds i8, ptr %67, i64 116
+  %85 = getelementptr inbounds nuw i8, ptr %67, i64 116
   %86 = load i32, ptr %85, align 4
-  %87 = getelementptr inbounds i8, ptr %3, i64 80
+  %87 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %88 = load float, ptr %87, align 8
   %89 = fsub float %88, %68
   %90 = tail call ptr @proto_tree_add_float(ptr noundef %58, i32 noundef %86, ptr noundef %2, i32 noundef 0, i32 noundef 0, float noundef %89) #4
@@ -745,33 +745,33 @@ gop_attrs_tree.exit:                              ; preds = %48, %20
 
 91:                                               ; preds = %69, %84, %gop_attrs_tree.exit
   %92 = load ptr, ptr %5, align 8
-  %93 = getelementptr inbounds i8, ptr %92, i64 124
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 124
   %94 = load i32, ptr %93, align 4
-  %95 = getelementptr inbounds i8, ptr %3, i64 84
+  %95 = getelementptr inbounds nuw i8, ptr %3, i64 84
   %96 = load i32, ptr %95, align 4
   %97 = tail call ptr @proto_tree_add_uint(ptr noundef %14, i32 noundef %94, ptr noundef %2, i32 noundef 0, i32 noundef 0, i32 noundef %96) #4
   %98 = load ptr, ptr %5, align 8
-  %99 = getelementptr inbounds i8, ptr %98, i64 88
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 88
   %100 = load i32, ptr %99, align 8
   %.not74 = icmp eq i32 %100, 0
   br i1 %.not74, label %.loopexit, label %101
 
 101:                                              ; preds = %91
-  %102 = getelementptr inbounds i8, ptr %98, i64 140
+  %102 = getelementptr inbounds nuw i8, ptr %98, i64 140
   %103 = load i32, ptr %102, align 4
   %104 = tail call ptr @proto_item_add_subtree(ptr noundef %97, i32 noundef %103) #4
   %105 = load ptr, ptr %5, align 8
-  %106 = getelementptr inbounds i8, ptr %105, i64 88
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 88
   %107 = load i32, ptr %106, align 8
   %108 = icmp eq i32 %107, 2
   %109 = select i1 %108, ptr @.str.24, ptr @.str.25
-  %110 = getelementptr inbounds i8, ptr %3, i64 96
+  %110 = getelementptr inbounds nuw i8, ptr %3, i64 96
   %.079 = load ptr, ptr %110, align 8
   %.not7581 = icmp eq ptr %.079, null
   br i1 %.not7581, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %101
-  %111 = getelementptr inbounds i8, ptr %3, i64 72
+  %111 = getelementptr inbounds nuw i8, ptr %3, i64 72
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %125
@@ -779,25 +779,25 @@ gop_attrs_tree.exit:                              ; preds = %48, %20
   %.082 = phi ptr [ %.0, %125 ], [ %.079, %.lr.ph.preheader ]
   %.06983 = load float, ptr %.06983.in, align 8
   %112 = load ptr, ptr %5, align 8
-  %113 = getelementptr inbounds i8, ptr %112, i64 88
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 88
   %114 = load i32, ptr %113, align 8
   %115 = icmp eq i32 %114, 2
   %.in.idx = select i1 %115, i64 24, i64 0
-  %.in = getelementptr inbounds i8, ptr %.082, i64 %.in.idx
+  %.in = getelementptr inbounds nuw i8, ptr %.082, i64 %.in.idx
   %116 = load i32, ptr %.in, align 8
-  %117 = getelementptr inbounds i8, ptr %.082, i64 72
+  %117 = getelementptr inbounds nuw i8, ptr %.082, i64 72
   %118 = load i32, ptr %117, align 8
   %.not76 = icmp eq i32 %118, 0
   br i1 %.not76, label %119, label %125
 
 119:                                              ; preds = %.lr.ph
-  %120 = getelementptr inbounds i8, ptr %.082, i64 76
+  %120 = getelementptr inbounds nuw i8, ptr %.082, i64 76
   %121 = load i32, ptr %120, align 4
   %.not77 = icmp eq i32 %121, 0
   br i1 %.not77, label %122, label %125
 
 122:                                              ; preds = %119
-  %123 = getelementptr inbounds i8, ptr %.082, i64 80
+  %123 = getelementptr inbounds nuw i8, ptr %.082, i64 80
   %124 = load i32, ptr %123, align 8
   %.not78 = icmp eq i32 %124, 0
   %.str.19..str.28 = select i1 %.not78, ptr @.str.19, ptr @.str.28
@@ -805,17 +805,17 @@ gop_attrs_tree.exit:                              ; preds = %48, %20
 
 125:                                              ; preds = %122, %119, %.lr.ph
   %.070 = phi ptr [ @.str.26, %.lr.ph ], [ @.str.27, %119 ], [ %.str.19..str.28, %122 ]
-  %126 = getelementptr inbounds i8, ptr %.082, i64 64
+  %126 = getelementptr inbounds nuw i8, ptr %.082, i64 64
   %127 = load float, ptr %126, align 8
   %128 = fcmp une float %127, 0.000000e+00
   %129 = fsub float %127, %.06983
   %130 = fpext float %129 to double
   %131 = select i1 %128, double %130, double 0.000000e+00
-  %132 = getelementptr inbounds i8, ptr %112, i64 120
+  %132 = getelementptr inbounds nuw i8, ptr %112, i64 120
   %133 = load i32, ptr %132, align 8
   %134 = fpext float %127 to double
   %135 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %104, i32 noundef %133, ptr noundef %2, i32 noundef 0, i32 noundef 0, i32 noundef %116, ptr noundef nonnull @.str.29, ptr noundef nonnull %.070, ptr noundef nonnull %109, i32 noundef %116, double noundef %134, double noundef %131) #4
-  %136 = getelementptr inbounds i8, ptr %.082, i64 56
+  %136 = getelementptr inbounds nuw i8, ptr %.082, i64 56
   %.0 = load ptr, ptr %136, align 8
   %.not75 = icmp eq ptr %.0, null
   br i1 %.not75, label %.loopexit, label %.lr.ph, !llvm.loop !10

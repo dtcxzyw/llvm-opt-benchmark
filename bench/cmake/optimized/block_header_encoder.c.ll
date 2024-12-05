@@ -13,7 +13,7 @@ define dso_local i32 @lzma_block_header_size(ptr nocapture noundef %0) local_unn
   br i1 %4, label %.loopexit, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8
   %.not = icmp eq i64 %7, -1
   br i1 %.not, label %14, label %8
@@ -31,7 +31,7 @@ define dso_local i32 @lzma_block_header_size(ptr nocapture noundef %0) local_unn
 
 14:                                               ; preds = %12, %5
   %.026 = phi i32 [ %13, %12 ], [ 6, %5 ]
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load i64, ptr %15, align 8
   %.not33 = icmp eq i64 %16, -1
   br i1 %.not33, label %22, label %17
@@ -47,7 +47,7 @@ define dso_local i32 @lzma_block_header_size(ptr nocapture noundef %0) local_unn
 
 22:                                               ; preds = %20, %14
   %.1 = phi i32 [ %21, %20 ], [ %.026, %14 ]
-  %23 = getelementptr inbounds i8, ptr %0, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %24 = load ptr, ptr %23, align 8
   %25 = icmp eq ptr %24, null
   br i1 %25, label %.loopexit, label %26
@@ -74,7 +74,7 @@ define dso_local i32 @lzma_block_header_size(ptr nocapture noundef %0) local_unn
   %35 = add i32 %34, %.238
   %36 = add nuw nsw i64 %.02539, 1
   %37 = load ptr, ptr %23, align 8
-  %38 = getelementptr inbounds %struct.lzma_filter, ptr %37, i64 %36
+  %38 = getelementptr inbounds nuw %struct.lzma_filter, ptr %37, i64 %36
   %39 = load i64, ptr %38, align 8
   %.not34 = icmp eq i64 %39, -1
   br i1 %.not34, label %._crit_edge, label %.lr.ph, !llvm.loop !5
@@ -82,7 +82,7 @@ define dso_local i32 @lzma_block_header_size(ptr nocapture noundef %0) local_unn
 ._crit_edge:                                      ; preds = %33
   %40 = add i32 %35, 3
   %41 = and i32 %40, -4
-  %42 = getelementptr inbounds i8, ptr %0, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %41, ptr %42, align 4
   br label %.loopexit
 
@@ -105,23 +105,23 @@ define dso_local i32 @lzma_block_header_encode(ptr noundef readonly %0, ptr noun
   br i1 %5, label %.loopexit, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load i64, ptr %7, align 8
   %or.cond = icmp sgt i64 %8, -2
   br i1 %or.cond, label %9, label %.loopexit
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %0, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %11 = load i32, ptr %10, align 4
   %12 = add i32 %11, -4
   %13 = zext i32 %12 to i64
   %14 = lshr i32 %12, 2
   %15 = trunc i32 %14 to i8
   store i8 %15, ptr %1, align 1
-  %16 = getelementptr inbounds i8, ptr %1, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 1
   store i8 0, ptr %16, align 1
   store i64 2, ptr %3, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load i64, ptr %17, align 8
   %.not = icmp eq i64 %18, -1
   br i1 %.not, label %24, label %19
@@ -154,7 +154,7 @@ define dso_local i32 @lzma_block_header_encode(ptr noundef readonly %0, ptr noun
   br label %31
 
 31:                                               ; preds = %28, %24
-  %32 = getelementptr inbounds i8, ptr %0, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %33 = load ptr, ptr %32, align 8
   %34 = icmp eq ptr %33, null
   br i1 %34, label %.loopexit, label %35
@@ -171,7 +171,7 @@ define dso_local i32 @lzma_block_header_encode(ptr noundef readonly %0, ptr noun
   br i1 %39, label %.loopexit, label %40
 
 40:                                               ; preds = %.preheader
-  %41 = getelementptr inbounds %struct.lzma_filter, ptr %38, i64 %.040
+  %41 = getelementptr inbounds nuw %struct.lzma_filter, ptr %38, i64 %.040
   %42 = call i32 @lzma_filter_flags_encode(ptr noundef %41, ptr noundef nonnull %1, ptr noundef nonnull %3, i64 noundef %13) #5
   %.not51 = icmp eq i32 %42, 0
   br i1 %.not51, label %43, label %.loopexit
@@ -179,7 +179,7 @@ define dso_local i32 @lzma_block_header_encode(ptr noundef readonly %0, ptr noun
 43:                                               ; preds = %40
   %44 = load ptr, ptr %32, align 8
   %45 = add nuw nsw i64 %.040, 1
-  %46 = getelementptr inbounds %struct.lzma_filter, ptr %44, i64 %45
+  %46 = getelementptr inbounds nuw %struct.lzma_filter, ptr %44, i64 %45
   %47 = load i64, ptr %46, align 8
   %.not52 = icmp eq i64 %47, -1
   br i1 %.not52, label %48, label %.preheader, !llvm.loop !7
@@ -193,7 +193,7 @@ define dso_local i32 @lzma_block_header_encode(ptr noundef readonly %0, ptr noun
   %53 = getelementptr inbounds i8, ptr %1, i64 %52
   %54 = sub i64 %13, %52
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %53, i8 0, i64 %54, i1 false)
-  %55 = getelementptr inbounds i8, ptr %1, i64 %13
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 %13
   %56 = call i32 @lzma_crc32(ptr noundef nonnull %1, i64 noundef %13, i32 noundef 0) #4
   store i32 %56, ptr %55, align 1
   br label %.loopexit

@@ -49,7 +49,7 @@ init.end:                                         ; preds = %invoke.cont, %init.
 if.then:                                          ; preds = %init.end
   %conv = zext nneg i32 %errnum to i64
   %3 = load ptr, ptr @_ZZN4absl13base_internal8StrErrorB5cxx11EiE5tableB5cxx11, align 8
-  %arrayidx.i.i = getelementptr inbounds [135 x %"class.std::__cxx11::basic_string"], ptr %3, i64 0, i64 %conv
+  %arrayidx.i.i = getelementptr inbounds nuw [135 x %"class.std::__cxx11::basic_string"], ptr %3, i64 0, i64 %conv
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i.i)
           to label %cleanup unwind label %lpad5
 
@@ -90,7 +90,7 @@ entry:
 
 arrayctor.loop.i:                                 ; preds = %arrayctor.loop.i, %entry
   %arrayctor.cur.idx.i = phi i64 [ 0, %entry ], [ %arrayctor.cur.add.i, %arrayctor.loop.i ]
-  %arrayctor.cur.ptr.i = getelementptr inbounds i8, ptr %call, i64 %arrayctor.cur.idx.i
+  %arrayctor.cur.ptr.i = getelementptr inbounds nuw i8, ptr %call, i64 %arrayctor.cur.idx.i
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %arrayctor.cur.ptr.i) #12
   %arrayctor.cur.add.i = add nuw nsw i64 %arrayctor.cur.idx.i, 32
   %arrayctor.done.i = icmp eq i64 %arrayctor.cur.add.i, 4320
@@ -100,7 +100,7 @@ for.body:                                         ; preds = %arrayctor.loop.i, %
   %i.06 = phi i64 [ %inc, %for.body ], [ 0, %arrayctor.loop.i ]
   %conv = trunc nuw i64 %i.06 to i32
   call fastcc void @_ZN4absl13base_internal12_GLOBAL__N_116StrErrorInternalB5cxx11Ei(ptr noalias nonnull align 8 %ref.tmp, i32 noundef %conv)
-  %arrayidx.i.i = getelementptr inbounds [135 x %"class.std::__cxx11::basic_string"], ptr %call, i64 0, i64 %i.06
+  %arrayidx.i.i = getelementptr inbounds nuw [135 x %"class.std::__cxx11::basic_string"], ptr %call, i64 0, i64 %i.06
   %call3 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #12
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #12
   %inc = add nuw nsw i64 %i.06, 1

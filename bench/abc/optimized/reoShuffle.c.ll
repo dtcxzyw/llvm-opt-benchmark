@@ -21,41 +21,41 @@ define noundef ptr @reoShuffle(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   br i1 %10, label %.thread, label %11
 
 11:                                               ; preds = %5
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1, ptr %12, align 8
   %13 = tail call i32 @Cudd_SupportSize(ptr noundef %1, ptr noundef %2) #7
-  %14 = getelementptr inbounds i8, ptr %0, i64 60
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 60
   store i32 %13, ptr %14, align 4
-  %15 = getelementptr inbounds i8, ptr %0, i64 192
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store i32 1, ptr %15, align 8
   %16 = icmp sgt i32 %13, 0
   br i1 %16, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %11
-  %17 = getelementptr inbounds i8, ptr %0, i64 64
-  %18 = getelementptr inbounds i8, ptr %0, i64 144
-  %19 = getelementptr inbounds i8, ptr %1, i64 328
-  %20 = getelementptr inbounds i8, ptr %0, i64 160
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 328
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 160
   br label %21
 
 21:                                               ; preds = %.lr.ph, %21
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %21 ]
   %22 = load ptr, ptr %17, align 8
-  %23 = getelementptr inbounds i32, ptr %22, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv
   %24 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %24, ptr %23, align 4
   %25 = load ptr, ptr %18, align 8
   %26 = load ptr, ptr %19, align 8
-  %27 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv
   %28 = load i32, ptr %27, align 4
   %29 = sext i32 %28 to i64
   %30 = getelementptr inbounds i32, ptr %25, i64 %29
   store i32 %24, ptr %30, align 4
   %31 = load ptr, ptr %19, align 8
-  %32 = getelementptr inbounds i32, ptr %31, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv
   %33 = load i32, ptr %32, align 4
   %34 = load ptr, ptr %20, align 8
-  %35 = getelementptr inbounds i32, ptr %34, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw i32, ptr %34, i64 %indvars.iv
   store i32 %33, ptr %35, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %36 = load i32, ptr %14, align 4
@@ -64,18 +64,18 @@ define noundef ptr @reoShuffle(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   br i1 %38, label %21, label %._crit_edge, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %21, %11
-  %39 = getelementptr inbounds i8, ptr %0, i64 264
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 264
   store i32 0, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 100
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 100
   store i32 0, ptr %40, align 4
-  %41 = getelementptr inbounds i8, ptr %0, i64 40
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 0, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %0, i64 212
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 212
   %43 = load i32, ptr %42, align 4
   %44 = add nsw i32 %43, 1
   store i32 %44, ptr %42, align 4
   %45 = tail call ptr @reoTransferNodesToUnits_rec(ptr noundef nonnull %0, ptr noundef %2) #7
-  %46 = getelementptr inbounds i8, ptr %0, i64 184
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %47 = load ptr, ptr %46, align 8
   store ptr %45, ptr %47, align 8
   %48 = load i32, ptr %14, align 4
@@ -83,7 +83,7 @@ define noundef ptr @reoShuffle(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   br i1 %49, label %.lr.ph102, label %._crit_edge103
 
 .lr.ph102:                                        ; preds = %._crit_edge
-  %50 = getelementptr inbounds i8, ptr %0, i64 64
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 64
   br label %51
 
 51:                                               ; preds = %.lr.ph102, %.loopexit
@@ -91,9 +91,9 @@ define noundef ptr @reoShuffle(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   %indvars.iv118 = phi i32 [ 1, %.lr.ph102 ], [ %indvars.iv.next119, %.loopexit ]
   %indvars.iv114 = phi i64 [ 0, %.lr.ph102 ], [ %indvars.iv.next115, %.loopexit ]
   %53 = load ptr, ptr %50, align 8
-  %54 = getelementptr inbounds i32, ptr %53, i64 %indvars.iv114
+  %54 = getelementptr inbounds nuw i32, ptr %53, i64 %indvars.iv114
   %55 = load i32, ptr %54, align 4
-  %56 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv114
+  %56 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv114
   %57 = load i32, ptr %56, align 4
   %58 = icmp eq i32 %55, %57
   br i1 %58, label %.loopexit, label %.preheader95.preheader
@@ -111,7 +111,7 @@ define noundef ptr @reoShuffle(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   br i1 %61, label %62, label %.split.loop.exit128
 
 62:                                               ; preds = %.preheader95
-  %63 = getelementptr inbounds i32, ptr %53, i64 %indvars.iv.next117
+  %63 = getelementptr inbounds nuw i32, ptr %53, i64 %indvars.iv.next117
   %64 = load i32, ptr %63, align 4
   %65 = icmp eq i32 %57, %64
   br i1 %65, label %.split.loop.exit, label %.preheader95, !llvm.loop !6
@@ -166,7 +166,7 @@ define noundef ptr @reoShuffle(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   br i1 %80, label %51, label %._crit_edge103, !llvm.loop !8
 
 ._crit_edge103:                                   ; preds = %.loopexit, %._crit_edge
-  %81 = getelementptr inbounds i8, ptr %0, i64 232
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 232
   store i32 0, ptr %81, align 8
   store i32 0, ptr %40, align 4
   %82 = load i32, ptr %42, align 4
@@ -181,13 +181,13 @@ define noundef ptr @reoShuffle(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   br i1 %88, label %.lr.ph106, label %._crit_edge107
 
 .lr.ph106:                                        ; preds = %._crit_edge103
-  %89 = getelementptr inbounds i8, ptr %0, i64 224
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 224
   br label %90
 
 90:                                               ; preds = %.lr.ph106, %90
   %indvars.iv122 = phi i64 [ 0, %.lr.ph106 ], [ %indvars.iv.next123, %90 ]
   %91 = load ptr, ptr %89, align 8
-  %92 = getelementptr inbounds ptr, ptr %91, i64 %indvars.iv122
+  %92 = getelementptr inbounds nuw ptr, ptr %91, i64 %indvars.iv122
   %93 = load ptr, ptr %92, align 8
   tail call void @Cudd_RecursiveDeref(ptr noundef %1, ptr noundef %93) #7
   %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 1
@@ -197,7 +197,7 @@ define noundef ptr @reoShuffle(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   br i1 %96, label %90, label %._crit_edge107, !llvm.loop !9
 
 ._crit_edge107:                                   ; preds = %90, %._crit_edge103
-  %97 = getelementptr inbounds i8, ptr %0, i64 12
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %98 = load i32, ptr %97, align 4
   %.not = icmp eq i32 %98, 0
   br i1 %.not, label %105, label %99
@@ -224,13 +224,13 @@ define noundef ptr @reoShuffle(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   br i1 %.not88108, label %._crit_edge112, label %.lr.ph111
 
 .lr.ph111:                                        ; preds = %105
-  %107 = getelementptr inbounds i8, ptr %0, i64 168
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 168
   br label %108
 
 108:                                              ; preds = %.lr.ph111, %108
   %indvars.iv125 = phi i64 [ 0, %.lr.ph111 ], [ %indvars.iv.next126, %108 ]
   %109 = load ptr, ptr %107, align 8
-  %110 = getelementptr inbounds %struct._reo_plane, ptr %109, i64 %indvars.iv125
+  %110 = getelementptr inbounds nuw %struct._reo_plane, ptr %109, i64 %indvars.iv125
   tail call void @reoUnitsRecycleUnitList(ptr noundef nonnull %0, ptr noundef %110) #7
   %indvars.iv.next126 = add nuw nsw i64 %indvars.iv125, 1
   %111 = load i32, ptr %14, align 4
@@ -293,7 +293,7 @@ define void @Extra_ShuffleTest(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
 
 .preheader42:                                     ; preds = %.preheader42.preheader, %.preheader42
   %indvars.iv = phi i64 [ 0, %.preheader42.preheader ], [ %indvars.iv.next, %.preheader42 ]
-  %11 = getelementptr inbounds [1000 x i32], ptr %6, i64 0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [1000 x i32], ptr %6, i64 0, i64 %indvars.iv
   %12 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %12, ptr %11, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -319,7 +319,7 @@ define void @Extra_ShuffleTest(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
 
 .lr.ph:                                           ; preds = %13, %.lr.ph
   %indvars.iv48 = phi i64 [ %indvars.iv.next49, %.lr.ph ], [ 0, %13 ]
-  %24 = getelementptr inbounds [1000 x i32], ptr %6, i64 0, i64 %indvars.iv48
+  %24 = getelementptr inbounds nuw [1000 x i32], ptr %6, i64 0, i64 %indvars.iv48
   %25 = load i32, ptr %24, align 4
   %26 = sext i32 %25 to i64
   %27 = getelementptr inbounds [1000 x i32], ptr %7, i64 0, i64 %26

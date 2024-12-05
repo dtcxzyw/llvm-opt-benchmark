@@ -167,8 +167,8 @@ entry:
   br i1 %tobool.not5, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
-  %arrayidx = getelementptr inbounds i8, ptr %str, i64 2
-  %arrayidx76 = getelementptr inbounds i8, ptr %str, i64 1
+  %arrayidx = getelementptr inbounds nuw i8, ptr %str, i64 2
+  %arrayidx76 = getelementptr inbounds nuw i8, ptr %str, i64 1
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end
@@ -225,7 +225,7 @@ if.else:                                          ; preds = %switch.early.test
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
-  %incdec.ptr = getelementptr inbounds i8, ptr %s.06, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %s.06, i64 1
   %8 = load i8, ptr %incdec.ptr, align 1
   %.fr1 = freeze i8 %8
   %tobool.not = icmp eq i8 %.fr1, 0

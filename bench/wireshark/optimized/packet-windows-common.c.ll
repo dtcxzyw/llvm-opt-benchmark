@@ -7536,7 +7536,7 @@ define noundef i32 @dissect_nt_64bit_time_ex(ptr noundef %0, ptr noundef %1, i32
 
 14:                                               ; preds = %8
   store i64 0, ptr %7, align 8
-  %15 = getelementptr inbounds i8, ptr %7, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 0, ptr %15, align 8
   %16 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_time_format_value(ptr noundef nonnull %1, i32 noundef %3, ptr noundef %0, i32 noundef %2, i32 noundef 8, ptr noundef nonnull %7, ptr noundef nonnull @.str.6426) #7
   br label %38
@@ -7548,7 +7548,7 @@ define noundef i32 @dissect_nt_64bit_time_ex(ptr noundef %0, ptr noundef %1, i32
 
 19:                                               ; preds = %17
   store i64 0, ptr %7, align 8
-  %20 = getelementptr inbounds i8, ptr %7, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 -2147483648, ptr %20, align 8
   %21 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_time_format_value(ptr noundef nonnull %1, i32 noundef %3, ptr noundef %0, i32 noundef %2, i32 noundef 8, ptr noundef nonnull %7, ptr noundef nonnull @.str.6427) #7
   br label %38
@@ -7561,7 +7561,7 @@ define noundef i32 @dissect_nt_64bit_time_ex(ptr noundef %0, ptr noundef %1, i32
 
 25:                                               ; preds = %22
   store i64 4294967295, ptr %7, align 8
-  %26 = getelementptr inbounds i8, ptr %7, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 2147483647, ptr %26, align 8
   %27 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_time_format_value(ptr noundef nonnull %1, i32 noundef %3, ptr noundef %0, i32 noundef %2, i32 noundef 8, ptr noundef nonnull %7, ptr noundef nonnull @.str.6428) #7
   br label %38
@@ -7717,7 +7717,7 @@ define i32 @dissect_nt_sid(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr n
   br i1 %58, label %match_wkwn_sids.exit, label %.lr.ph, !llvm.loop !6
 
 match_wkwn_sids.exit:                             ; preds = %.lr.ph, %55
-  %59 = getelementptr inbounds i8, ptr %54, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %60 = load ptr, ptr %59, align 8
   %.not243 = icmp eq ptr %60, null
   br i1 %.not243, label %63, label %match_wkwn_sids.exit.thread
@@ -7803,7 +7803,7 @@ match_wkwn_sids.exit.thread:                      ; preds = %50, %49, %match_wkw
   br i1 %90, label %match_wkwn_sids.exit285, label %.lr.ph319, !llvm.loop !6
 
 match_wkwn_sids.exit285:                          ; preds = %87, %.lr.ph319
-  %91 = getelementptr inbounds i8, ptr %86, i64 8
+  %91 = getelementptr inbounds nuw i8, ptr %86, i64 8
   %92 = load ptr, ptr %91, align 8
   %.not275 = icmp eq ptr %92, null
   br i1 %.not275, label %152, label %match_wkwn_sids.exit285.thread
@@ -7835,7 +7835,7 @@ match_wkwn_sids.exit285.thread:                   ; preds = %85, %match_wkwn_sid
   br i1 %100, label %match_wkwn_sids.exit290, label %.lr.ph314, !llvm.loop !6
 
 match_wkwn_sids.exit290:                          ; preds = %97, %.lr.ph314
-  %101 = getelementptr inbounds i8, ptr %96, i64 8
+  %101 = getelementptr inbounds nuw i8, ptr %96, i64 8
   %102 = load ptr, ptr %101, align 8
   %.not273 = icmp eq ptr %102, null
   br i1 %.not273, label %105, label %match_wkwn_sids.exit290.thread
@@ -7903,7 +7903,7 @@ match_wkwn_sids.exit290.thread:                   ; preds = %95, %match_wkwn_sid
   br i1 %131, label %match_wkwn_sids.exit295, label %.lr.ph309, !llvm.loop !6
 
 match_wkwn_sids.exit295:                          ; preds = %128, %.lr.ph309
-  %132 = getelementptr inbounds i8, ptr %127, i64 8
+  %132 = getelementptr inbounds nuw i8, ptr %127, i64 8
   %133 = load ptr, ptr %132, align 8
   %.not268 = icmp eq ptr %133, null
   br i1 %.not268, label %152, label %match_wkwn_sids.exit295.thread
@@ -8093,13 +8093,13 @@ match_wkwn_sids.exit295.thread:                   ; preds = %123, %match_wkwn_si
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %211
 
 211:                                              ; preds = %210
-  %212 = getelementptr inbounds i8, ptr %208, i64 32
+  %212 = getelementptr inbounds nuw i8, ptr %208, i64 32
   %213 = load ptr, ptr %212, align 8
   %.not5.i = icmp eq ptr %213, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %214
 
 214:                                              ; preds = %211
-  %215 = getelementptr inbounds i8, ptr %213, i64 28
+  %215 = getelementptr inbounds nuw i8, ptr %213, i64 28
   %216 = load i32, ptr %215, align 4
   %217 = or i32 %216, 1
   store i32 %217, ptr %215, align 4
@@ -8129,13 +8129,13 @@ proto_item_set_hidden.exit:                       ; preds = %214, %211, %210, %2
   br i1 %.not.i296, label %proto_item_set_hidden.exit298, label %228
 
 228:                                              ; preds = %227
-  %229 = getelementptr inbounds i8, ptr %223, i64 32
+  %229 = getelementptr inbounds nuw i8, ptr %223, i64 32
   %230 = load ptr, ptr %229, align 8
   %.not5.i297 = icmp eq ptr %230, null
   br i1 %.not5.i297, label %proto_item_set_hidden.exit298, label %231
 
 231:                                              ; preds = %228
-  %232 = getelementptr inbounds i8, ptr %230, i64 28
+  %232 = getelementptr inbounds nuw i8, ptr %230, i64 28
   %233 = load i32, ptr %232, align 4
   %234 = or i32 %233, 1
   store i32 %234, ptr %232, align 4
@@ -8159,13 +8159,13 @@ proto_item_set_hidden.exit298:                    ; preds = %231, %228, %227, %p
   br i1 %.not.i299, label %proto_item_set_hidden.exit301, label %243
 
 243:                                              ; preds = %237
-  %244 = getelementptr inbounds i8, ptr %242, i64 32
+  %244 = getelementptr inbounds nuw i8, ptr %242, i64 32
   %245 = load ptr, ptr %244, align 8
   %.not5.i300 = icmp eq ptr %245, null
   br i1 %.not5.i300, label %proto_item_set_hidden.exit301, label %246
 
 246:                                              ; preds = %243
-  %247 = getelementptr inbounds i8, ptr %245, i64 28
+  %247 = getelementptr inbounds nuw i8, ptr %245, i64 28
   %248 = load i32, ptr %247, align 4
   %249 = or i32 %248, 1
   store i32 %249, ptr %247, align 4
@@ -8319,7 +8319,7 @@ define hidden i32 @dissect_nt_access_mask(ptr noundef %0, i32 noundef %1, ptr no
 
 47:                                               ; preds = %.thread, %42
   %.05975 = phi ptr [ %41, %.thread ], [ %46, %42 ]
-  %48 = getelementptr inbounds i8, ptr %7, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %49 = load ptr, ptr %48, align 8
   %.not69 = icmp eq ptr %49, null
   br i1 %.not69, label %107, label %50
@@ -8332,7 +8332,7 @@ define hidden i32 @dissect_nt_access_mask(ptr noundef %0, i32 noundef %1, ptr no
   %55 = load ptr, ptr %48, align 8
   %56 = load i32, ptr %11, align 4
   call void %55(ptr noundef %0, i32 noundef %20, ptr noundef %.05975, i32 noundef %56) #7
-  %57 = getelementptr inbounds i8, ptr %7, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %58 = load ptr, ptr %57, align 8
   %.not70 = icmp eq ptr %58, null
   %.pre77.pre = load i32, ptr %11, align 4
@@ -8358,7 +8358,7 @@ define hidden i32 @dissect_nt_access_mask(ptr noundef %0, i32 noundef %1, ptr no
 
 67:                                               ; preds = %64
   %68 = and i32 %65, -1073741825
-  %69 = getelementptr inbounds i8, ptr %58, i64 4
+  %69 = getelementptr inbounds nuw i8, ptr %58, i64 4
   %70 = load i32, ptr %69, align 4
   %71 = or i32 %70, %68
   store i32 %71, ptr %11, align 4
@@ -8372,7 +8372,7 @@ define hidden i32 @dissect_nt_access_mask(ptr noundef %0, i32 noundef %1, ptr no
 
 75:                                               ; preds = %72
   %76 = and i32 %73, -536870913
-  %77 = getelementptr inbounds i8, ptr %58, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %78 = load i32, ptr %77, align 4
   %79 = or i32 %78, %76
   store i32 %79, ptr %11, align 4
@@ -8386,7 +8386,7 @@ define hidden i32 @dissect_nt_access_mask(ptr noundef %0, i32 noundef %1, ptr no
 
 83:                                               ; preds = %80
   %84 = and i32 %81, -268435457
-  %85 = getelementptr inbounds i8, ptr %58, i64 12
+  %85 = getelementptr inbounds nuw i8, ptr %58, i64 12
   %86 = load i32, ptr %85, align 4
   %87 = or i32 %86, %84
   store i32 %87, ptr %11, align 4
@@ -8394,7 +8394,7 @@ define hidden i32 @dissect_nt_access_mask(ptr noundef %0, i32 noundef %1, ptr no
 
 map_generic_access.exit:                          ; preds = %83, %80, %50
   %.pre77 = phi i32 [ %87, %83 ], [ %81, %80 ], [ %.pre77.pre, %50 ]
-  %88 = getelementptr inbounds i8, ptr %7, i64 24
+  %88 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %89 = load ptr, ptr %88, align 8
   %.not71 = icmp eq ptr %89, null
   br i1 %.not71, label %map_standard_access.exit, label %90
@@ -8420,7 +8420,7 @@ map_generic_access.exit:                          ; preds = %83, %80, %50
 
 99:                                               ; preds = %96
   %100 = and i32 %97, -1900545
-  %101 = getelementptr inbounds i8, ptr %89, i64 12
+  %101 = getelementptr inbounds nuw i8, ptr %89, i64 12
   %102 = load i32, ptr %101, align 4
   %103 = or i32 %102, %100
   store i32 %103, ptr %11, align 4
@@ -8699,10 +8699,10 @@ define hidden i32 @dissect_nt_sec_desc(ptr noundef %0, i32 noundef %1, ptr nound
 87:                                               ; preds = %82
   store volatile i32 0, ptr %21, align 4
   call void @except_setup_try(ptr noundef nonnull %22, ptr noundef nonnull %23, ptr noundef nonnull @dissect_nt_sec_desc.catch_spec, i64 noundef 1) #7
-  %88 = getelementptr inbounds i8, ptr %23, i64 48
+  %88 = getelementptr inbounds nuw i8, ptr %23, i64 48
   %89 = call i32 @_setjmp(ptr noundef nonnull %88) #9
   %.not185 = icmp eq i32 %89, 0
-  %90 = getelementptr inbounds i8, ptr %23, i64 16
+  %90 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %.sink = select i1 %.not185, ptr null, ptr %90
   store volatile ptr %.sink, ptr %20, align 8
   %.0..0..0..0.17 = load volatile i32, ptr %21, align 4
@@ -8756,7 +8756,7 @@ define hidden i32 @dissect_nt_sec_desc(ptr noundef %0, i32 noundef %1, ptr nound
 
 106:                                              ; preds = %105
   %.0..0..0..0.28 = load volatile ptr, ptr %20, align 8
-  %107 = getelementptr inbounds i8, ptr %.0..0..0..0.28, i64 8
+  %107 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.28, i64 8
   %108 = load volatile i64, ptr %107, align 8
   %109 = icmp eq i64 %108, 2
   br i1 %109, label %110, label %113
@@ -8782,7 +8782,7 @@ define hidden i32 @dissect_nt_sec_desc(ptr noundef %0, i32 noundef %1, ptr nound
 
 116:                                              ; preds = %115
   %.0..0..0..0.30 = load volatile ptr, ptr %20, align 8
-  %117 = getelementptr inbounds i8, ptr %.0..0..0..0.30, i64 8
+  %117 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.30, i64 8
   %118 = load volatile i64, ptr %117, align 8
   %119 = icmp eq i64 %118, 3
   br i1 %119, label %120, label %123
@@ -8813,7 +8813,7 @@ define hidden i32 @dissect_nt_sec_desc(ptr noundef %0, i32 noundef %1, ptr nound
   unreachable
 
 127:                                              ; preds = %125, %123
-  %128 = getelementptr inbounds i8, ptr %23, i64 40
+  %128 = getelementptr inbounds nuw i8, ptr %23, i64 40
   %129 = load volatile ptr, ptr %128, align 8
   call void @except_free(ptr noundef %129) #7
   %130 = call ptr @except_pop() #7
@@ -8840,10 +8840,10 @@ define hidden i32 @dissect_nt_sec_desc(ptr noundef %0, i32 noundef %1, ptr nound
 137:                                              ; preds = %132
   store volatile i32 0, ptr %25, align 4
   call void @except_setup_try(ptr noundef nonnull %26, ptr noundef nonnull %27, ptr noundef nonnull @dissect_nt_sec_desc.catch_spec.6464, i64 noundef 1) #7
-  %138 = getelementptr inbounds i8, ptr %27, i64 48
+  %138 = getelementptr inbounds nuw i8, ptr %27, i64 48
   %139 = call i32 @_setjmp(ptr noundef nonnull %138) #9
   %.not192 = icmp eq i32 %139, 0
-  %140 = getelementptr inbounds i8, ptr %27, i64 16
+  %140 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %.sink200 = select i1 %.not192, ptr null, ptr %140
   store volatile ptr %.sink200, ptr %24, align 8
   %.0..0..0..0. = load volatile i32, ptr %25, align 4
@@ -8897,7 +8897,7 @@ define hidden i32 @dissect_nt_sec_desc(ptr noundef %0, i32 noundef %1, ptr nound
 
 156:                                              ; preds = %155
   %.0..0..0..0.12 = load volatile ptr, ptr %24, align 8
-  %157 = getelementptr inbounds i8, ptr %.0..0..0..0.12, i64 8
+  %157 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.12, i64 8
   %158 = load volatile i64, ptr %157, align 8
   %159 = icmp eq i64 %158, 2
   br i1 %159, label %160, label %163
@@ -8923,7 +8923,7 @@ define hidden i32 @dissect_nt_sec_desc(ptr noundef %0, i32 noundef %1, ptr nound
 
 166:                                              ; preds = %165
   %.0..0..0..0.14 = load volatile ptr, ptr %24, align 8
-  %167 = getelementptr inbounds i8, ptr %.0..0..0..0.14, i64 8
+  %167 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.14, i64 8
   %168 = load volatile i64, ptr %167, align 8
   %169 = icmp eq i64 %168, 3
   br i1 %169, label %170, label %173
@@ -8954,7 +8954,7 @@ define hidden i32 @dissect_nt_sec_desc(ptr noundef %0, i32 noundef %1, ptr nound
   unreachable
 
 177:                                              ; preds = %175, %173
-  %178 = getelementptr inbounds i8, ptr %27, i64 40
+  %178 = getelementptr inbounds nuw i8, ptr %27, i64 40
   %179 = load volatile ptr, ptr %178, align 8
   call void @except_free(ptr noundef %179) #7
   %180 = call ptr @except_pop() #7
@@ -9114,9 +9114,9 @@ define internal fastcc i32 @dissect_nt_acl(ptr noundef %0, i32 noundef %1, ptr n
   br i1 %.not71, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %28
-  %36 = getelementptr inbounds i8, ptr %20, i64 48
-  %37 = getelementptr inbounds i8, ptr %20, i64 16
-  %38 = getelementptr inbounds i8, ptr %20, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %20, i64 48
+  %37 = getelementptr inbounds nuw i8, ptr %20, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %20, i64 40
   br label %39
 
 39:                                               ; preds = %.lr.ph, %274
@@ -9633,7 +9633,7 @@ dissect_nt_v2_ace.exit:                           ; preds = %93, %dissect_nt_con
 
 253:                                              ; preds = %252
   %.0..0..0..0.11 = load volatile ptr, ptr %17, align 8
-  %254 = getelementptr inbounds i8, ptr %.0..0..0..0.11, i64 8
+  %254 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.11, i64 8
   %255 = load volatile i64, ptr %254, align 8
   %256 = icmp eq i64 %255, 2
   br i1 %256, label %257, label %260
@@ -9659,7 +9659,7 @@ dissect_nt_v2_ace.exit:                           ; preds = %93, %dissect_nt_con
 
 263:                                              ; preds = %262
   %.0..0..0..0.13 = load volatile ptr, ptr %17, align 8
-  %264 = getelementptr inbounds i8, ptr %.0..0..0..0.13, i64 8
+  %264 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.13, i64 8
   %265 = load volatile i64, ptr %264, align 8
   %266 = icmp eq i64 %265, 3
   br i1 %266, label %267, label %270

@@ -11,13 +11,13 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @VP8DefaultProbas(ptr nocapture noundef writeonly initializes((3616, 3619), (3620, 4676), (23496, 23504)) %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 3616
-  %3 = getelementptr inbounds i8, ptr %0, i64 23500
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 3616
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 23500
   store i32 0, ptr %3, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %2, i8 -1, i64 3, i1 false)
-  %4 = getelementptr inbounds i8, ptr %0, i64 3620
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 3620
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1056) %4, ptr noundef nonnull align 16 dereferenceable(1056) @VP8CoeffsProba0, i64 1056, i1 false)
-  %5 = getelementptr inbounds i8, ptr %0, i64 23496
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 23496
   store i32 1, ptr %5, align 8
   ret void
 }
@@ -31,16 +31,16 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: nounwind uwtable
 define hidden void @VP8CodeIntraModes(ptr noundef %0) local_unnamed_addr #3 {
   %2 = alloca %struct.VP8EncIterator, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 64
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   call void @VP8IteratorInit(ptr noundef %0, ptr noundef nonnull %2) #5
-  %4 = getelementptr inbounds i8, ptr %2, i64 48
-  %5 = getelementptr inbounds i8, ptr %2, i64 64
-  %6 = getelementptr inbounds i8, ptr %0, i64 36
-  %7 = getelementptr inbounds i8, ptr %0, i64 3616
-  %invariant.gep = getelementptr inbounds i8, ptr %0, i64 3617
-  %8 = getelementptr inbounds i8, ptr %0, i64 23500
-  %9 = getelementptr inbounds i8, ptr %0, i64 3619
-  %10 = getelementptr inbounds i8, ptr %0, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 3616
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %0, i64 3617
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 23500
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 3619
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
   br label %11
 
 11:                                               ; preds = %PutUVMode.exit, %1
@@ -63,7 +63,7 @@ define hidden void @VP8CodeIntraModes(ptr noundef %0) local_unnamed_addr #3 {
   %spec.select.idx.i = zext i1 %.not.i to i64
   %23 = and i8 %17, 1
   %24 = zext nneg i8 %23 to i32
-  %gep = getelementptr inbounds i8, ptr %invariant.gep, i64 %spec.select.idx.i
+  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %spec.select.idx.i
   %25 = load i8, ptr %gep, align 1
   %26 = zext i8 %25 to i32
   %27 = call i32 @VP8PutBit(ptr noundef nonnull %3, i32 noundef %24, i32 noundef %26) #5
@@ -127,12 +127,12 @@ define hidden void @VP8CodeIntraModes(ptr noundef %0) local_unnamed_addr #3 {
 62:                                               ; preds = %58, %PutI4Mode.exit
   %indvars.iv = phi i64 [ 0, %58 ], [ %indvars.iv.next, %PutI4Mode.exit ]
   %.03344 = phi i32 [ %61, %58 ], [ %70, %PutI4Mode.exit ]
-  %63 = getelementptr inbounds i8, ptr %.03645, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw i8, ptr %.03645, i64 %indvars.iv
   %64 = load i8, ptr %63, align 1
   %65 = zext i8 %64 to i64
   %66 = zext nneg i32 %.03344 to i64
-  %67 = getelementptr inbounds [10 x [10 x [9 x i8]]], ptr @kBModesProba, i64 0, i64 %65, i64 %66
-  %68 = getelementptr inbounds i8, ptr %.047, i64 %indvars.iv
+  %67 = getelementptr inbounds nuw [10 x [10 x [9 x i8]]], ptr @kBModesProba, i64 0, i64 %65, i64 %66
+  %68 = getelementptr inbounds nuw i8, ptr %.047, i64 %indvars.iv
   %69 = load i8, ptr %68, align 1
   %70 = zext i8 %69 to i32
   %71 = icmp ne i8 %69, 0
@@ -146,7 +146,7 @@ define hidden void @VP8CodeIntraModes(ptr noundef %0) local_unnamed_addr #3 {
 76:                                               ; preds = %62
   %77 = icmp ne i8 %69, 1
   %78 = zext i1 %77 to i32
-  %79 = getelementptr inbounds i8, ptr %67, i64 1
+  %79 = getelementptr inbounds nuw i8, ptr %67, i64 1
   %80 = load i8, ptr %79, align 1
   %81 = zext i8 %80 to i32
   %82 = call i32 @VP8PutBit(ptr noundef nonnull %3, i32 noundef %78, i32 noundef %81) #5
@@ -156,7 +156,7 @@ define hidden void @VP8CodeIntraModes(ptr noundef %0) local_unnamed_addr #3 {
 83:                                               ; preds = %76
   %84 = icmp ne i8 %69, 2
   %85 = zext i1 %84 to i32
-  %86 = getelementptr inbounds i8, ptr %67, i64 2
+  %86 = getelementptr inbounds nuw i8, ptr %67, i64 2
   %87 = load i8, ptr %86, align 1
   %88 = zext i8 %87 to i32
   %89 = call i32 @VP8PutBit(ptr noundef nonnull %3, i32 noundef %85, i32 noundef %88) #5
@@ -166,7 +166,7 @@ define hidden void @VP8CodeIntraModes(ptr noundef %0) local_unnamed_addr #3 {
 90:                                               ; preds = %83
   %91 = icmp ugt i8 %69, 5
   %92 = zext i1 %91 to i32
-  %93 = getelementptr inbounds i8, ptr %67, i64 3
+  %93 = getelementptr inbounds nuw i8, ptr %67, i64 3
   %94 = load i8, ptr %93, align 1
   %95 = zext i8 %94 to i32
   %96 = call i32 @VP8PutBit(ptr noundef nonnull %3, i32 noundef %92, i32 noundef %95) #5
@@ -176,7 +176,7 @@ define hidden void @VP8CodeIntraModes(ptr noundef %0) local_unnamed_addr #3 {
 97:                                               ; preds = %90
   %98 = icmp ne i8 %69, 3
   %99 = zext i1 %98 to i32
-  %100 = getelementptr inbounds i8, ptr %67, i64 4
+  %100 = getelementptr inbounds nuw i8, ptr %67, i64 4
   %101 = load i8, ptr %100, align 1
   %102 = zext i8 %101 to i32
   %103 = call i32 @VP8PutBit(ptr noundef nonnull %3, i32 noundef %99, i32 noundef %102) #5
@@ -186,7 +186,7 @@ define hidden void @VP8CodeIntraModes(ptr noundef %0) local_unnamed_addr #3 {
 104:                                              ; preds = %90
   %105 = icmp ne i8 %69, 6
   %106 = zext i1 %105 to i32
-  %107 = getelementptr inbounds i8, ptr %67, i64 6
+  %107 = getelementptr inbounds nuw i8, ptr %67, i64 6
   %108 = load i8, ptr %107, align 1
   %109 = zext i8 %108 to i32
   %110 = call i32 @VP8PutBit(ptr noundef nonnull %3, i32 noundef %106, i32 noundef %109) #5
@@ -196,7 +196,7 @@ define hidden void @VP8CodeIntraModes(ptr noundef %0) local_unnamed_addr #3 {
 111:                                              ; preds = %104
   %112 = icmp ne i8 %69, 7
   %113 = zext i1 %112 to i32
-  %114 = getelementptr inbounds i8, ptr %67, i64 7
+  %114 = getelementptr inbounds nuw i8, ptr %67, i64 7
   %115 = load i8, ptr %114, align 1
   %116 = zext i8 %115 to i32
   %117 = call i32 @VP8PutBit(ptr noundef nonnull %3, i32 noundef %113, i32 noundef %116) #5
@@ -208,7 +208,7 @@ define hidden void @VP8CodeIntraModes(ptr noundef %0) local_unnamed_addr #3 {
   %.sink36.i = phi i64 [ 5, %97 ], [ 8, %111 ]
   %118 = icmp ne i32 %.sink.i, %70
   %119 = zext i1 %118 to i32
-  %120 = getelementptr inbounds i8, ptr %67, i64 %.sink36.i
+  %120 = getelementptr inbounds nuw i8, ptr %67, i64 %.sink36.i
   %121 = load i8, ptr %120, align 1
   %122 = zext i8 %121 to i32
   %123 = call i32 @VP8PutBit(ptr noundef nonnull %3, i32 noundef %119, i32 noundef %122) #5
@@ -265,7 +265,7 @@ declare i32 @VP8IteratorNext(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define hidden void @VP8WriteProbas(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   br label %.preheader34
 
 .preheader34:                                     ; preds = %2, %20
@@ -282,13 +282,13 @@ define hidden void @VP8WriteProbas(ptr noundef %0, ptr nocapture noundef readonl
 
 4:                                                ; preds = %.preheader, %17
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %17 ]
-  %5 = getelementptr inbounds [4 x [8 x [3 x [11 x i8]]]], ptr %3, i64 0, i64 %indvars.iv48, i64 %indvars.iv44, i64 %indvars.iv40, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [4 x [8 x [3 x [11 x i8]]]], ptr %3, i64 0, i64 %indvars.iv48, i64 %indvars.iv44, i64 %indvars.iv40, i64 %indvars.iv
   %6 = load i8, ptr %5, align 1
-  %7 = getelementptr inbounds [4 x [8 x [3 x [11 x i8]]]], ptr @VP8CoeffsProba0, i64 0, i64 %indvars.iv48, i64 %indvars.iv44, i64 %indvars.iv40, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [4 x [8 x [3 x [11 x i8]]]], ptr @VP8CoeffsProba0, i64 0, i64 %indvars.iv48, i64 %indvars.iv44, i64 %indvars.iv40, i64 %indvars.iv
   %8 = load i8, ptr %7, align 1
   %9 = icmp ne i8 %6, %8
   %10 = zext i1 %9 to i32
-  %11 = getelementptr inbounds [4 x [8 x [3 x [11 x i8]]]], ptr @VP8CoeffsUpdateProba, i64 0, i64 %indvars.iv48, i64 %indvars.iv44, i64 %indvars.iv40, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [4 x [8 x [3 x [11 x i8]]]], ptr @VP8CoeffsUpdateProba, i64 0, i64 %indvars.iv48, i64 %indvars.iv44, i64 %indvars.iv40, i64 %indvars.iv
   %12 = load i8, ptr %11, align 1
   %13 = zext i8 %12 to i32
   %14 = tail call i32 @VP8PutBit(ptr noundef %0, i32 noundef %10, i32 noundef %13) #5
@@ -321,14 +321,14 @@ define hidden void @VP8WriteProbas(ptr noundef %0, ptr nocapture noundef readonl
   br i1 %exitcond51.not, label %21, label %.preheader34, !llvm.loop !11
 
 21:                                               ; preds = %20
-  %22 = getelementptr inbounds i8, ptr %1, i64 19884
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 19884
   %23 = load i32, ptr %22, align 4
   %24 = tail call i32 @VP8PutBitUniform(ptr noundef %0, i32 noundef %23) #5
   %.not = icmp eq i32 %24, 0
   br i1 %.not, label %29, label %25
 
 25:                                               ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %1, i64 3
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %27 = load i8, ptr %26, align 1
   %28 = zext i8 %27 to i32
   tail call void @VP8PutBits(ptr noundef %0, i32 noundef %28, i32 noundef 8) #5

@@ -5,7 +5,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
 define void @dlasd5_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly initializes((0, 16)) %3, ptr nocapture noundef readonly %4, ptr nocapture noundef writeonly initializes((0, 8)) %5, ptr nocapture noundef writeonly initializes((0, 16)) %6) local_unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load double, ptr %8, align 8
   %10 = load double, ptr %1, align 8
   %11 = fsub double %9, %10
@@ -18,7 +18,7 @@ define void @dlasd5_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 16:                                               ; preds = %7
   %17 = load double, ptr %4, align 8
   %18 = fmul double %17, 4.000000e+00
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load double, ptr %19, align 8
   %21 = fmul double %20, %20
   %22 = tail call double @llvm.fmuladd.f64(double %9, double 3.000000e+00, double %10)
@@ -57,7 +57,7 @@ define void @dlasd5_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %51 = fneg double %48
   store double %51, ptr %3, align 8
   %52 = fsub double %11, %48
-  %53 = getelementptr inbounds i8, ptr %3, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store double %52, ptr %53, align 8
   %54 = load double, ptr %1, align 8
   %55 = tail call double @llvm.fmuladd.f64(double %54, double 2.000000e+00, double %48)
@@ -109,7 +109,7 @@ define void @dlasd5_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %89 = fneg double %88
   store double %89, ptr %3, align 8
   %90 = fneg double %86
-  %91 = getelementptr inbounds i8, ptr %3, i64 8
+  %91 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store double %90, ptr %91, align 8
   %92 = load double, ptr %1, align 8
   %93 = fadd double %92, %86
@@ -124,7 +124,7 @@ define void @dlasd5_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %99 = fneg double %13
   %100 = load double, ptr %4, align 8
   %101 = load double, ptr %2, align 8
-  %102 = getelementptr inbounds i8, ptr %2, i64 8
+  %102 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %103 = load double, ptr %102, align 8
   %104 = fmul double %103, %103
   %105 = tail call double @llvm.fmuladd.f64(double %101, double %101, double %104)
@@ -166,7 +166,7 @@ define void @dlasd5_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %133 = fneg double %132
   store double %133, ptr %3, align 8
   %134 = fneg double %129
-  %135 = getelementptr inbounds i8, ptr %3, i64 8
+  %135 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store double %134, ptr %135, align 8
   %136 = load double, ptr %1, align 8
   %137 = fadd double %129, %136
@@ -179,7 +179,7 @@ define void @dlasd5_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 
 142:                                              ; preds = %33, %81, %124
   %.sink = phi double [ %59, %33 ], [ %97, %81 ], [ %141, %124 ]
-  %143 = getelementptr inbounds i8, ptr %6, i64 8
+  %143 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store double %.sink, ptr %143, align 8
   ret void
 }

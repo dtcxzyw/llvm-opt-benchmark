@@ -58,15 +58,15 @@ define void @_ZN3gmx14reportGpuUsageERKNS_8MDLoggerENS_8ArrayRefIKSt6vectorINS_1
   %21 = alloca %"class.std::__cxx11::basic_string", align 8
   %22 = alloca %"class.gmx::LogEntryWriter", align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9)
-  %23 = getelementptr inbounds i8, ptr %9, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 0, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %9, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr null, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %9, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store ptr %23, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %9, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store ptr %23, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %9, i64 40
+  %27 = getelementptr inbounds nuw i8, ptr %9, i64 40
   store i64 0, ptr %27, align 8
   %.not21.i = icmp eq ptr %1, %2
   br i1 %.not21.i, label %._crit_edge25.i, label %.lr.ph24.i
@@ -75,7 +75,7 @@ define void @_ZN3gmx14reportGpuUsageERKNS_8MDLoggerENS_8ArrayRefIKSt6vectorINS_1
   %28 = phi i64 [ %59, %._crit_edge.i ], [ 0, %8 ]
   %.sroa.014.022.i = phi ptr [ %60, %._crit_edge.i ], [ %1, %8 ]
   %29 = load ptr, ptr %.sroa.014.022.i, align 8
-  %30 = getelementptr inbounds i8, ptr %.sroa.014.022.i, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %.sroa.014.022.i, i64 8
   %31 = load ptr, ptr %30, align 8
   %.not1719.i = icmp eq ptr %29, %31
   br i1 %.not1719.i, label %._crit_edge.i, label %.lr.ph.i
@@ -83,7 +83,7 @@ define void @_ZN3gmx14reportGpuUsageERKNS_8MDLoggerENS_8ArrayRefIKSt6vectorINS_1
 .lr.ph.i:                                         ; preds = %.lr.ph24.i, %54
   %32 = phi i64 [ %55, %54 ], [ %28, %.lr.ph24.i ]
   %.sroa.011.020.i = phi ptr [ %56, %54 ], [ %29, %.lr.ph24.i ]
-  %33 = getelementptr inbounds i8, ptr %.sroa.011.020.i, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %.sroa.011.020.i, i64 4
   %.02022.i.i.i.i = load ptr, ptr %24, align 8
   %.not23.i.i.i.i = icmp eq ptr %.02022.i.i.i.i, null
   %.pre.i.pre.pre.i.i.i = load i32, ptr %33, align 4
@@ -91,11 +91,11 @@ define void @_ZN3gmx14reportGpuUsageERKNS_8MDLoggerENS_8ArrayRefIKSt6vectorINS_1
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i, %.lr.ph.i.i.i.i
   %.02024.i.i.i.i = phi ptr [ %.020.i.i.i.i, %.lr.ph.i.i.i.i ], [ %.02022.i.i.i.i, %.lr.ph.i ]
-  %34 = getelementptr inbounds i8, ptr %.02024.i.i.i.i, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %.02024.i.i.i.i, i64 32
   %35 = load i32, ptr %34, align 4
   %36 = icmp slt i32 %.pre.i.pre.pre.i.i.i, %35
   %.in.v.i.i.i.i = select i1 %36, i64 16, i64 24
-  %.in.i.i.i.i = getelementptr inbounds i8, ptr %.02024.i.i.i.i, i64 %.in.v.i.i.i.i
+  %.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.02024.i.i.i.i, i64 %.in.v.i.i.i.i
   %.020.i.i.i.i = load ptr, ptr %.in.i.i.i.i, align 8
   %.not.i.i.i.i = icmp eq ptr %.020.i.i.i.i, null
   br i1 %.not.i.i.i.i, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !4
@@ -111,7 +111,7 @@ define void @_ZN3gmx14reportGpuUsageERKNS_8MDLoggerENS_8ArrayRefIKSt6vectorINS_1
 
 39:                                               ; preds = %._crit_edge.thread.i.i.i.i
   %40 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i.i.i.i) #11
-  %.phi.trans.insert.i.i.i = getelementptr inbounds i8, ptr %40, i64 32
+  %.phi.trans.insert.i.i.i = getelementptr inbounds nuw i8, ptr %40, i64 32
   %.pre.i.i.i = load i32, ptr %.phi.trans.insert.i.i.i, align 4
   br label %41
 
@@ -127,7 +127,7 @@ select.unfold.i.i.i:                              ; preds = %41, %._crit_edge.th
   br i1 %44, label %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE10_M_insert_IRKiNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorIiEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i.i, label %45
 
 45:                                               ; preds = %select.unfold.i.i.i
-  %46 = getelementptr inbounds i8, ptr %.sroa.4.0.i.ph.i.i.i, i64 32
+  %46 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.i.ph.i.i.i, i64 32
   %47 = load i32, ptr %46, align 4
   %48 = icmp slt i32 %.pre.i.pre.pre.i.i.i, %47
   br label %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE10_M_insert_IRKiNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorIiEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i.i
@@ -138,7 +138,7 @@ _ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE10_M_insert_IRKiNS5_11_Alloc_nod
           to label %.noexc.i unwind label %57
 
 .noexc.i:                                         ; preds = %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE10_M_insert_IRKiNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorIiEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i.i
-  %51 = getelementptr inbounds i8, ptr %50, i64 32
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 32
   store i32 %.pre.i.pre.pre.i.i.i, ptr %51, align 4
   call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %49, ptr noundef nonnull %50, ptr noundef nonnull %.sroa.4.0.i.ph.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %23) #13
   %52 = load i64, ptr %27, align 8
@@ -148,7 +148,7 @@ _ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE10_M_insert_IRKiNS5_11_Alloc_nod
 
 54:                                               ; preds = %.noexc.i, %41
   %55 = phi i64 [ %53, %.noexc.i ], [ %32, %41 ]
-  %56 = getelementptr inbounds i8, ptr %.sroa.011.020.i, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %.sroa.011.020.i, i64 8
   %.not17.i = icmp eq ptr %56, %31
   br i1 %.not17.i, label %._crit_edge.i, label %.lr.ph.i
 
@@ -164,7 +164,7 @@ common.resume:                                    ; preds = %.loopexit.split-lp,
 
 ._crit_edge.i:                                    ; preds = %54, %.lr.ph24.i
   %59 = phi i64 [ %28, %.lr.ph24.i ], [ %55, %54 ]
-  %60 = getelementptr inbounds i8, ptr %.sroa.014.022.i, i64 24
+  %60 = getelementptr inbounds nuw i8, ptr %.sroa.014.022.i, i64 24
   %.not.i = icmp eq ptr %60, %2
   br i1 %.not.i, label %._crit_edge25.loopexit.i, label %.lr.ph24.i
 
@@ -199,7 +199,7 @@ _ZN3gmx12_GLOBAL__N_121countUniqueGpuIdsUsedENS_8ArrayRefIKSt6vectorINS_14GpuTas
   %.065 = phi ptr [ @.str.1, %.loopexit ], [ @.str, %67 ]
   %.sroa.046.064 = phi ptr [ %89, %.loopexit ], [ %1, %67 ]
   %68 = load ptr, ptr %.sroa.046.064, align 8
-  %69 = getelementptr inbounds i8, ptr %.sroa.046.064, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %.sroa.046.064, i64 8
   %70 = load ptr, ptr %69, align 8
   %71 = icmp eq ptr %68, %70
   br i1 %71, label %72, label %.preheader
@@ -237,7 +237,7 @@ _ZN3gmx12_GLOBAL__N_121countUniqueGpuIdsUsedENS_8ArrayRefIKSt6vectorINS_14GpuTas
 78:                                               ; preds = %.preheader
   %79 = icmp eq i32 %76, 0
   %80 = select i1 %79, ptr @.str.3, ptr @.str.4
-  %81 = getelementptr inbounds i8, ptr %.sroa.043.061, i64 4
+  %81 = getelementptr inbounds nuw i8, ptr %.sroa.043.061, i64 4
   %82 = load i32, ptr %81, align 4
   invoke void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %12, ptr noundef nonnull @.str.5, ptr noundef nonnull %80, i32 noundef %82)
           to label %83 unwind label %.loopexit52
@@ -248,7 +248,7 @@ _ZN3gmx12_GLOBAL__N_121countUniqueGpuIdsUsedENS_8ArrayRefIKSt6vectorINS_14GpuTas
 
 85:                                               ; preds = %83
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #13
-  %86 = getelementptr inbounds i8, ptr %.sroa.043.061, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %.sroa.043.061, i64 8
   %.not51 = icmp eq ptr %86, %70
   br i1 %.not51, label %.loopexit, label %.preheader
 
@@ -259,7 +259,7 @@ _ZN3gmx12_GLOBAL__N_121countUniqueGpuIdsUsedENS_8ArrayRefIKSt6vectorINS_14GpuTas
   br label %.loopexit.split-lp
 
 .loopexit:                                        ; preds = %85, %74
-  %89 = getelementptr inbounds i8, ptr %.sroa.046.064, i64 24
+  %89 = getelementptr inbounds nuw i8, ptr %.sroa.046.064, i64 24
   %.not50 = icmp eq ptr %89, %2
   br i1 %.not50, label %._crit_edge, label %.lr.ph
 
@@ -305,7 +305,7 @@ _ZN3gmx12_GLOBAL__N_121countUniqueGpuIdsUsedENS_8ArrayRefIKSt6vectorINS_14GpuTas
 
 107:                                              ; preds = %105
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #13
-  %108 = getelementptr inbounds i8, ptr %7, i64 8
+  %108 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %109 = load i8, ptr %108, align 1
   %110 = trunc i8 %109 to i1
   %111 = select i1 %110, ptr @.str.10, ptr @.str
@@ -318,7 +318,7 @@ _ZN3gmx12_GLOBAL__N_121countUniqueGpuIdsUsedENS_8ArrayRefIKSt6vectorINS_14GpuTas
 
 114:                                              ; preds = %112
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #13
-  %115 = getelementptr inbounds i8, ptr %7, i64 9
+  %115 = getelementptr inbounds nuw i8, ptr %7, i64 9
   %116 = load i8, ptr %115, align 1
   %117 = trunc i8 %116 to i1
   %.str.12..str.13 = select i1 %117, ptr @.str.12, ptr @.str.13
@@ -388,7 +388,7 @@ _ZN3gmx12_GLOBAL__N_121countUniqueGpuIdsUsedENS_8ArrayRefIKSt6vectorINS_14GpuTas
   br label %137
 
 137:                                              ; preds = %.sink.split, %120
-  %138 = getelementptr inbounds i8, ptr %7, i64 18
+  %138 = getelementptr inbounds nuw i8, ptr %7, i64 18
   %139 = load i8, ptr %138, align 1
   %140 = trunc i8 %139 to i1
   br i1 %140, label %141, label %147
@@ -412,7 +412,7 @@ _ZN3gmx12_GLOBAL__N_121countUniqueGpuIdsUsedENS_8ArrayRefIKSt6vectorINS_14GpuTas
   br label %.loopexit.split-lp
 
 147:                                              ; preds = %144, %137
-  %148 = getelementptr inbounds i8, ptr %7, i64 22
+  %148 = getelementptr inbounds nuw i8, ptr %7, i64 22
   %149 = load i8, ptr %148, align 1
   %150 = trunc i8 %149 to i1
   br i1 %150, label %151, label %157
@@ -444,14 +444,14 @@ _ZN3gmx12_GLOBAL__N_121countUniqueGpuIdsUsedENS_8ArrayRefIKSt6vectorINS_14GpuTas
 160:                                              ; preds = %157
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %22, i8 0, i64 40, i1 false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %22) #13
-  %161 = getelementptr inbounds i8, ptr %22, i64 32
+  %161 = getelementptr inbounds nuw i8, ptr %22, i64 32
   store i8 0, ptr %161, align 8
   %162 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(40) %22, ptr noundef nonnull align 8 dereferenceable(32) %10)
           to label %_ZN3gmx14LogEntryWriter10appendTextERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit unwind label %166
 
 _ZN3gmx14LogEntryWriter10appendTextERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %160
   %163 = load ptr, ptr %158, align 8
-  %164 = getelementptr inbounds i8, ptr %163, i64 16
+  %164 = getelementptr inbounds nuw i8, ptr %163, i64 16
   %165 = load ptr, ptr %164, align 8
   invoke void %165(ptr noundef nonnull align 8 dereferenceable(8) %158, ptr noundef nonnull align 8 dereferenceable(40) %22)
           to label %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit unwind label %166
@@ -504,7 +504,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt3setIiSt4lessIiESaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   invoke void @_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE8_M_eraseEPSt13_Rb_tree_nodeIiE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %3)
           to label %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEED2Ev.exit unwind label %4
@@ -551,10 +551,10 @@ define linkonce_odr void @_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE8_M_er
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.07 = phi ptr [ %6, %.lr.ph ], [ %1, %2 ]
-  %3 = getelementptr inbounds i8, ptr %.07, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %.07, i64 24
   %4 = load ptr, ptr %3, align 8
   tail call void @_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE8_M_eraseEPSt13_Rb_tree_nodeIiE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %4)
-  %5 = getelementptr inbounds i8, ptr %.07, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %.07, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %.07) #15
   %.not = icmp eq ptr %6, null

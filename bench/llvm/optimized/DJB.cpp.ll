@@ -36,7 +36,7 @@ define dso_local noundef i32 @_ZN4llvm18caseFoldingDjbHashENS_9StringRefEj(ptr %
   %18 = add i32 %17, %13
   %19 = icmp sgt i8 %.fr30.i, -1
   %20 = and i1 %.023.i, %19
-  %21 = getelementptr inbounds i8, ptr %.01422.i, i64 1
+  %21 = getelementptr inbounds nuw i8, ptr %.01422.i, i64 1
   %.not.i = icmp eq ptr %21, %11
   br i1 %.not.i, label %_ZL22fastCaseFoldingDjbHashN4llvm9StringRefEj.exit, label %.lr.ph.i
 
@@ -45,9 +45,9 @@ _ZL22fastCaseFoldingDjbHashN4llvm9StringRefEj.exit: ; preds = %.lr.ph.i
   br i1 %20, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZL22fastCaseFoldingDjbHashN4llvm9StringRefEj.exit
-  %22 = getelementptr inbounds i8, ptr %7, i64 4
-  %23 = getelementptr inbounds i8, ptr %4, i64 4
-  %24 = getelementptr inbounds i8, ptr %10, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %10, i64 4
   br label %25
 
 25:                                               ; preds = %.lr.ph, %_ZN4llvm7djbHashENS_9StringRefEj.exit
@@ -103,7 +103,7 @@ _ZL13foldCharDwarfj.exit:                         ; preds = %25, %36
   %41 = mul i32 %.014.i, 33
   %42 = zext i8 %40 to i32
   %43 = add i32 %41, %42
-  %44 = getelementptr inbounds i8, ptr %.0913.i, i64 1
+  %44 = getelementptr inbounds nuw i8, ptr %.0913.i, i64 1
   %.not.i12 = icmp eq ptr %44, %39
   br i1 %.not.i12, label %_ZN4llvm7djbHashENS_9StringRefEj.exit, label %.lr.ph.i11
 

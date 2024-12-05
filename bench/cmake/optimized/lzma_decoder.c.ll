@@ -18,11 +18,11 @@ define dso_local range(i32 0, 6) i32 @lzma_lzma_decoder_create(ptr nocapture nou
   br i1 %9, label %24, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @lzma_decode, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr @lzma_decoder_reset, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr @lzma_decoder_uncompressed, ptr %13, align 8
   br label %14
 
@@ -30,14 +30,14 @@ define dso_local range(i32 0, 6) i32 @lzma_lzma_decoder_create(ptr nocapture nou
   %15 = load i32, ptr %2, align 8
   %16 = zext i32 %15 to i64
   store i64 %16, ptr %3, align 8
-  %17 = getelementptr inbounds i8, ptr %2, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %3, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %18, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %2, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %21 = load i32, ptr %20, align 8
   %22 = zext i32 %21 to i64
-  %23 = getelementptr inbounds i8, ptr %3, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 %22, ptr %23, align 8
   br label %24
 
@@ -50,13 +50,13 @@ declare noalias ptr @lzma_alloc(i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind uwtable
 define internal range(i32 0, 10) i32 @lzma_decode(ptr noundef %0, ptr noalias nocapture noundef %1, ptr noalias noundef readonly %2, ptr noalias nocapture noundef %3, i64 noundef %4) #2 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 28268
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 28268
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8)
-  %7 = getelementptr inbounds i8, ptr %0, i64 28276
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 28276
   %.promoted.i = load i32, ptr %7, align 4, !noalias !10
   %.not15.i = icmp eq i32 %.promoted.i, 0
-  %.sroa.498.0..sroa_idx.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 28272
+  %.sroa.498.0..sroa_idx.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 28272
   br i1 %.not15.i, label %..loopexit_crit_edge, label %.lr.ph.i
 
 ..loopexit_crit_edge:                             ; preds = %5
@@ -105,45 +105,45 @@ define internal range(i32 0, 10) i32 @lzma_decode(ptr noundef %0, ptr noalias no
   %25 = phi i64 [ %.pre, %..loopexit_crit_edge ], [ %23, %18 ]
   %.sroa.498.0.copyload = phi i32 [ %.sroa.498.0.copyload.pre, %..loopexit_crit_edge ], [ %22, %18 ]
   %.sroa.0.0.copyload3154 = load ptr, ptr %1, align 8
-  %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.10.0.copyload = load i64, ptr %.sroa.10.0..sroa_idx, align 8
-  %.sroa.35.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 16
+  %.sroa.35.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.35.0.copyload = load i64, ptr %.sroa.35.0..sroa_idx, align 8
-  %.sroa.44.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 24
+  %.sroa.44.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.44.0.copyload = load i64, ptr %.sroa.44.0..sroa_idx, align 8
-  %.sroa.50.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 32
+  %.sroa.50.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.sroa.50.0.copyload = load i64, ptr %.sroa.50.0..sroa_idx, align 8
   %.sroa.0.0.copyload = load i32, ptr %6, align 4
-  %.sroa.498.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 28272
-  %26 = getelementptr inbounds i8, ptr %0, i64 28280
+  %.sroa.498.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 28272
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 28280
   %27 = load i32, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 28284
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 28284
   %29 = load i32, ptr %28, align 4
-  %30 = getelementptr inbounds i8, ptr %0, i64 28288
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 28288
   %31 = load i32, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 28292
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 28292
   %33 = load i32, ptr %32, align 4
-  %34 = getelementptr inbounds i8, ptr %0, i64 28296
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 28296
   %35 = load i32, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 28300
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 28300
   %37 = load i32, ptr %36, align 4
-  %38 = getelementptr inbounds i8, ptr %0, i64 28328
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 28328
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 28336
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 28336
   %41 = load i32, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %0, i64 28340
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 28340
   %43 = load i32, ptr %42, align 4
-  %44 = getelementptr inbounds i8, ptr %0, i64 28344
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 28344
   %45 = load i32, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %0, i64 28348
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 28348
   %47 = load i32, ptr %46, align 4
-  %48 = getelementptr inbounds i8, ptr %0, i64 28308
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 28308
   %49 = load i32, ptr %48, align 4
-  %50 = getelementptr inbounds i8, ptr %0, i64 28304
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 28304
   %51 = load i32, ptr %50, align 8
   %52 = trunc i64 %.sroa.10.0.copyload to i32
   %53 = and i32 %37, %52
-  %54 = getelementptr inbounds i8, ptr %0, i64 28312
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 28312
   %55 = load i64, ptr %54, align 8
   %56 = icmp ne i64 %55, -1
   %57 = sub i64 %.sroa.44.0.copyload, %.sroa.10.0.copyload
@@ -151,7 +151,7 @@ define internal range(i32 0, 10) i32 @lzma_decode(ptr noundef %0, ptr noalias no
   %or.cond3271 = select i1 %56, i1 %58, i1 false
   %59 = add i64 %55, %.sroa.10.0.copyload
   %.sroa.44.0 = select i1 %or.cond3271, i64 %59, i64 %.sroa.44.0.copyload
-  %60 = getelementptr inbounds i8, ptr %0, i64 28320
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 28320
   %61 = load i32, ptr %60, align 8
   switch i32 %61, label %2613 [
     i32 0, label %64
@@ -295,10 +295,10 @@ dict_put.exit.thread:                             ; preds = %1934, %697, %.loope
   %.sroa.0.16 = phi i32 [ %73, %72 ], [ %.sroa.0.0, %67 ]
   %.sroa.498.16 = phi i32 [ %79, %72 ], [ %.sroa.498.0, %67 ]
   %81 = lshr i32 %.sroa.0.16, 11
-  %82 = getelementptr inbounds i8, ptr %0, i64 24576
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 24576
   %83 = zext i32 %.02233 to i64
   %84 = zext i32 %.02210 to i64
-  %85 = getelementptr inbounds [12 x [16 x i16]], ptr %82, i64 0, i64 %83, i64 %84
+  %85 = getelementptr inbounds nuw [12 x [16 x i16]], ptr %82, i64 0, i64 %83, i64 %84
   %86 = load i16, ptr %85, align 2
   %87 = zext i16 %86 to i32
   %88 = mul i32 %81, %87
@@ -373,7 +373,7 @@ dict_get.exit:                                    ; preds = %80
   %.sroa.498.18 = phi i32 [ %121, %114 ], [ %.sroa.498.17, %109 ]
   %123 = lshr i32 %.sroa.0.18, 11
   %124 = zext i32 %.162496 to i64
-  %125 = getelementptr inbounds i16, ptr %.162593, i64 %124
+  %125 = getelementptr inbounds nuw i16, ptr %.162593, i64 %124
   %126 = load i16, ptr %125, align 2
   %127 = zext i16 %126 to i32
   %128 = mul i32 %123, %127
@@ -441,7 +441,7 @@ dict_get.exit:                                    ; preds = %80
   %.sroa.498.20 = phi i32 [ %154, %147 ], [ %.sroa.498.19, %142 ]
   %156 = lshr i32 %.sroa.0.20, 11
   %157 = zext i32 %.172497 to i64
-  %158 = getelementptr inbounds i16, ptr %.172594, i64 %157
+  %158 = getelementptr inbounds nuw i16, ptr %.172594, i64 %157
   %159 = load i16, ptr %158, align 2
   %160 = zext i16 %159 to i32
   %161 = mul i32 %156, %160
@@ -509,7 +509,7 @@ dict_get.exit:                                    ; preds = %80
   %.sroa.498.22 = phi i32 [ %187, %180 ], [ %.sroa.498.21, %175 ]
   %189 = lshr i32 %.sroa.0.22, 11
   %190 = zext i32 %.182498 to i64
-  %191 = getelementptr inbounds i16, ptr %.182595, i64 %190
+  %191 = getelementptr inbounds nuw i16, ptr %.182595, i64 %190
   %192 = load i16, ptr %191, align 2
   %193 = zext i16 %192 to i32
   %194 = mul i32 %189, %193
@@ -577,7 +577,7 @@ dict_get.exit:                                    ; preds = %80
   %.sroa.498.24 = phi i32 [ %220, %213 ], [ %.sroa.498.23, %208 ]
   %222 = lshr i32 %.sroa.0.24, 11
   %223 = zext i32 %.192499 to i64
-  %224 = getelementptr inbounds i16, ptr %.192596, i64 %223
+  %224 = getelementptr inbounds nuw i16, ptr %.192596, i64 %223
   %225 = load i16, ptr %224, align 2
   %226 = zext i16 %225 to i32
   %227 = mul i32 %222, %226
@@ -645,7 +645,7 @@ dict_get.exit:                                    ; preds = %80
   %.sroa.498.26 = phi i32 [ %253, %246 ], [ %.sroa.498.25, %241 ]
   %255 = lshr i32 %.sroa.0.26, 11
   %256 = zext i32 %.202500 to i64
-  %257 = getelementptr inbounds i16, ptr %.202597, i64 %256
+  %257 = getelementptr inbounds nuw i16, ptr %.202597, i64 %256
   %258 = load i16, ptr %257, align 2
   %259 = zext i16 %258 to i32
   %260 = mul i32 %255, %259
@@ -713,7 +713,7 @@ dict_get.exit:                                    ; preds = %80
   %.sroa.498.28 = phi i32 [ %286, %279 ], [ %.sroa.498.27, %274 ]
   %288 = lshr i32 %.sroa.0.28, 11
   %289 = zext i32 %.212501 to i64
-  %290 = getelementptr inbounds i16, ptr %.212598, i64 %289
+  %290 = getelementptr inbounds nuw i16, ptr %.212598, i64 %289
   %291 = load i16, ptr %290, align 2
   %292 = zext i16 %291 to i32
   %293 = mul i32 %288, %292
@@ -781,7 +781,7 @@ dict_get.exit:                                    ; preds = %80
   %.sroa.498.30 = phi i32 [ %319, %312 ], [ %.sroa.498.29, %307 ]
   %321 = lshr i32 %.sroa.0.30, 11
   %322 = zext i32 %.222502 to i64
-  %323 = getelementptr inbounds i16, ptr %.222599, i64 %322
+  %323 = getelementptr inbounds nuw i16, ptr %.222599, i64 %322
   %324 = load i16, ptr %323, align 2
   %325 = zext i16 %324 to i32
   %326 = mul i32 %321, %325
@@ -849,7 +849,7 @@ dict_get.exit:                                    ; preds = %80
   %.sroa.498.32 = phi i32 [ %352, %345 ], [ %.sroa.498.31, %340 ]
   %354 = lshr i32 %.sroa.0.32, 11
   %355 = zext i32 %.232503 to i64
-  %356 = getelementptr inbounds i16, ptr %.232600, i64 %355
+  %356 = getelementptr inbounds nuw i16, ptr %.232600, i64 %355
   %357 = load i16, ptr %356, align 2
   %358 = zext i16 %357 to i32
   %359 = mul i32 %354, %358
@@ -932,7 +932,7 @@ dict_get.exit3123:                                ; preds = %dict_get.exit
   %.sroa.498.34 = phi i32 [ %396, %389 ], [ %.sroa.498.1, %381 ]
   %398 = lshr i32 %.sroa.0.34, 11
   %399 = zext i32 %384 to i64
-  %400 = getelementptr inbounds i16, ptr %.12578, i64 %399
+  %400 = getelementptr inbounds nuw i16, ptr %.12578, i64 %399
   %401 = load i16, ptr %400, align 2
   %402 = zext i16 %401 to i32
   %403 = mul i32 %398, %402
@@ -1012,7 +1012,7 @@ dict_get.exit3123:                                ; preds = %dict_get.exit
   %.sroa.498.36 = phi i32 [ %435, %428 ], [ %.sroa.498.2, %420 ]
   %437 = lshr i32 %.sroa.0.36, 11
   %438 = zext i32 %423 to i64
-  %439 = getelementptr inbounds i16, ptr %.22579, i64 %438
+  %439 = getelementptr inbounds nuw i16, ptr %.22579, i64 %438
   %440 = load i16, ptr %439, align 2
   %441 = zext i16 %440 to i32
   %442 = mul i32 %437, %441
@@ -1092,7 +1092,7 @@ dict_get.exit3123:                                ; preds = %dict_get.exit
   %.sroa.498.38 = phi i32 [ %474, %467 ], [ %.sroa.498.3, %459 ]
   %476 = lshr i32 %.sroa.0.38, 11
   %477 = zext i32 %462 to i64
-  %478 = getelementptr inbounds i16, ptr %.32580, i64 %477
+  %478 = getelementptr inbounds nuw i16, ptr %.32580, i64 %477
   %479 = load i16, ptr %478, align 2
   %480 = zext i16 %479 to i32
   %481 = mul i32 %476, %480
@@ -1172,7 +1172,7 @@ dict_get.exit3123:                                ; preds = %dict_get.exit
   %.sroa.498.40 = phi i32 [ %513, %506 ], [ %.sroa.498.4, %498 ]
   %515 = lshr i32 %.sroa.0.40, 11
   %516 = zext i32 %501 to i64
-  %517 = getelementptr inbounds i16, ptr %.42581, i64 %516
+  %517 = getelementptr inbounds nuw i16, ptr %.42581, i64 %516
   %518 = load i16, ptr %517, align 2
   %519 = zext i16 %518 to i32
   %520 = mul i32 %515, %519
@@ -1252,7 +1252,7 @@ dict_get.exit3123:                                ; preds = %dict_get.exit
   %.sroa.498.42 = phi i32 [ %552, %545 ], [ %.sroa.498.5, %537 ]
   %554 = lshr i32 %.sroa.0.42, 11
   %555 = zext i32 %540 to i64
-  %556 = getelementptr inbounds i16, ptr %.52582, i64 %555
+  %556 = getelementptr inbounds nuw i16, ptr %.52582, i64 %555
   %557 = load i16, ptr %556, align 2
   %558 = zext i16 %557 to i32
   %559 = mul i32 %554, %558
@@ -1332,7 +1332,7 @@ dict_get.exit3123:                                ; preds = %dict_get.exit
   %.sroa.498.44 = phi i32 [ %591, %584 ], [ %.sroa.498.6, %576 ]
   %593 = lshr i32 %.sroa.0.44, 11
   %594 = zext i32 %579 to i64
-  %595 = getelementptr inbounds i16, ptr %.62583, i64 %594
+  %595 = getelementptr inbounds nuw i16, ptr %.62583, i64 %594
   %596 = load i16, ptr %595, align 2
   %597 = zext i16 %596 to i32
   %598 = mul i32 %593, %597
@@ -1412,7 +1412,7 @@ dict_get.exit3123:                                ; preds = %dict_get.exit
   %.sroa.498.46 = phi i32 [ %630, %623 ], [ %.sroa.498.7, %615 ]
   %632 = lshr i32 %.sroa.0.46, 11
   %633 = zext i32 %618 to i64
-  %634 = getelementptr inbounds i16, ptr %.72584, i64 %633
+  %634 = getelementptr inbounds nuw i16, ptr %.72584, i64 %633
   %635 = load i16, ptr %634, align 2
   %636 = zext i16 %635 to i32
   %637 = mul i32 %632, %636
@@ -1492,7 +1492,7 @@ dict_get.exit3123:                                ; preds = %dict_get.exit
   %.sroa.498.48 = phi i32 [ %669, %662 ], [ %.sroa.498.8, %654 ]
   %671 = lshr i32 %.sroa.0.48, 11
   %672 = zext i32 %657 to i64
-  %673 = getelementptr inbounds i16, ptr %.82585, i64 %672
+  %673 = getelementptr inbounds nuw i16, ptr %.82585, i64 %672
   %674 = load i16, ptr %673, align 2
   %675 = zext i16 %674 to i32
   %676 = mul i32 %671, %675
@@ -1535,7 +1535,7 @@ dict_get.exit3123:                                ; preds = %dict_get.exit
   %.sroa.0.33 = phi i32 [ %359, %362 ], [ %368, %367 ], [ %676, %679 ], [ %686, %685 ]
   %.sroa.498.33 = phi i32 [ %.sroa.498.32, %362 ], [ %369, %367 ], [ %.sroa.498.48, %679 ], [ %687, %685 ]
   %692 = zext i32 %.242257 to i64
-  %693 = getelementptr inbounds [12 x i32], ptr @lzma_decode.next_state, i64 0, i64 %692
+  %693 = getelementptr inbounds nuw [12 x i32], ptr @lzma_decode.next_state, i64 0, i64 %692
   %694 = load i32, ptr %693, align 4
   br label %695
 
@@ -1621,9 +1621,9 @@ dict_put.exit:                                    ; preds = %695
   %.sroa.0.50 = phi i32 [ %712, %711 ], [ %.sroa.0.49, %706 ]
   %.sroa.498.50 = phi i32 [ %718, %711 ], [ %.sroa.498.49, %706 ]
   %720 = lshr i32 %.sroa.0.50, 11
-  %721 = getelementptr inbounds i8, ptr %0, i64 24960
+  %721 = getelementptr inbounds nuw i8, ptr %0, i64 24960
   %722 = zext i32 %.252258 to i64
-  %723 = getelementptr inbounds [12 x i16], ptr %721, i64 0, i64 %722
+  %723 = getelementptr inbounds nuw [12 x i16], ptr %721, i64 0, i64 %722
   %724 = load i16, ptr %723, align 2
   %725 = zext i16 %724 to i32
   %726 = mul i32 %720, %725
@@ -1683,7 +1683,7 @@ dict_put.exit:                                    ; preds = %695
   %.sroa.0.52 = phi i32 [ %741, %740 ], [ %.sroa.0.51, %735 ]
   %.sroa.498.52 = phi i32 [ %747, %740 ], [ %.sroa.498.51, %735 ]
   %749 = lshr i32 %.sroa.0.52, 11
-  %750 = getelementptr inbounds i8, ptr %0, i64 26212
+  %750 = getelementptr inbounds nuw i8, ptr %0, i64 26212
   %751 = load i16, ptr %750, align 4
   %752 = zext i16 %751 to i32
   %753 = mul i32 %749, %752
@@ -1741,10 +1741,10 @@ dict_put.exit:                                    ; preds = %695
   %.sroa.0.54 = phi i32 [ %766, %765 ], [ %.sroa.0.53, %760 ]
   %.sroa.498.54 = phi i32 [ %772, %765 ], [ %.sroa.498.53, %760 ]
   %774 = lshr i32 %.sroa.0.54, 11
-  %775 = getelementptr inbounds i8, ptr %0, i64 26216
+  %775 = getelementptr inbounds nuw i8, ptr %0, i64 26216
   %776 = zext i32 %.32213 to i64
   %777 = zext i32 %.342514 to i64
-  %778 = getelementptr inbounds [16 x [8 x i16]], ptr %775, i64 0, i64 %776, i64 %777
+  %778 = getelementptr inbounds nuw [16 x [8 x i16]], ptr %775, i64 0, i64 %776, i64 %777
   %779 = load i16, ptr %778, align 2
   %780 = zext i16 %779 to i32
   %781 = mul i32 %774, %780
@@ -1812,10 +1812,10 @@ dict_put.exit:                                    ; preds = %695
   %.sroa.0.56 = phi i32 [ %801, %800 ], [ %.sroa.0.55, %795 ]
   %.sroa.498.56 = phi i32 [ %807, %800 ], [ %.sroa.498.55, %795 ]
   %809 = lshr i32 %.sroa.0.56, 11
-  %810 = getelementptr inbounds i8, ptr %0, i64 26216
+  %810 = getelementptr inbounds nuw i8, ptr %0, i64 26216
   %811 = zext i32 %.42214 to i64
   %812 = zext i32 %.352515 to i64
-  %813 = getelementptr inbounds [16 x [8 x i16]], ptr %810, i64 0, i64 %811, i64 %812
+  %813 = getelementptr inbounds nuw [16 x [8 x i16]], ptr %810, i64 0, i64 %811, i64 %812
   %814 = load i16, ptr %813, align 2
   %815 = zext i16 %814 to i32
   %816 = mul i32 %809, %815
@@ -1883,10 +1883,10 @@ dict_put.exit:                                    ; preds = %695
   %.sroa.0.58 = phi i32 [ %836, %835 ], [ %.sroa.0.57, %830 ]
   %.sroa.498.58 = phi i32 [ %842, %835 ], [ %.sroa.498.57, %830 ]
   %844 = lshr i32 %.sroa.0.58, 11
-  %845 = getelementptr inbounds i8, ptr %0, i64 26216
+  %845 = getelementptr inbounds nuw i8, ptr %0, i64 26216
   %846 = zext i32 %.52215 to i64
   %847 = zext i32 %.362516 to i64
-  %848 = getelementptr inbounds [16 x [8 x i16]], ptr %845, i64 0, i64 %846, i64 %847
+  %848 = getelementptr inbounds nuw [16 x [8 x i16]], ptr %845, i64 0, i64 %846, i64 %847
   %849 = load i16, ptr %848, align 2
   %850 = zext i16 %849 to i32
   %851 = mul i32 %844, %850
@@ -1969,7 +1969,7 @@ dict_put.exit:                                    ; preds = %695
   %.sroa.0.61 = phi i32 [ %878, %877 ], [ %.sroa.0.60, %872 ]
   %.sroa.498.61 = phi i32 [ %884, %877 ], [ %.sroa.498.60, %872 ]
   %886 = lshr i32 %.sroa.0.61, 11
-  %887 = getelementptr inbounds i8, ptr %0, i64 26214
+  %887 = getelementptr inbounds nuw i8, ptr %0, i64 26214
   %888 = load i16, ptr %887, align 2
   %889 = zext i16 %888 to i32
   %890 = mul i32 %886, %889
@@ -2027,10 +2027,10 @@ dict_put.exit:                                    ; preds = %695
   %.sroa.0.63 = phi i32 [ %903, %902 ], [ %.sroa.0.62, %897 ]
   %.sroa.498.63 = phi i32 [ %909, %902 ], [ %.sroa.498.62, %897 ]
   %911 = lshr i32 %.sroa.0.63, 11
-  %912 = getelementptr inbounds i8, ptr %0, i64 26472
+  %912 = getelementptr inbounds nuw i8, ptr %0, i64 26472
   %913 = zext i32 %.72217 to i64
   %914 = zext i32 %.392519 to i64
-  %915 = getelementptr inbounds [16 x [8 x i16]], ptr %912, i64 0, i64 %913, i64 %914
+  %915 = getelementptr inbounds nuw [16 x [8 x i16]], ptr %912, i64 0, i64 %913, i64 %914
   %916 = load i16, ptr %915, align 2
   %917 = zext i16 %916 to i32
   %918 = mul i32 %911, %917
@@ -2098,10 +2098,10 @@ dict_put.exit:                                    ; preds = %695
   %.sroa.0.65 = phi i32 [ %938, %937 ], [ %.sroa.0.64, %932 ]
   %.sroa.498.65 = phi i32 [ %944, %937 ], [ %.sroa.498.64, %932 ]
   %946 = lshr i32 %.sroa.0.65, 11
-  %947 = getelementptr inbounds i8, ptr %0, i64 26472
+  %947 = getelementptr inbounds nuw i8, ptr %0, i64 26472
   %948 = zext i32 %.82218 to i64
   %949 = zext i32 %.402520 to i64
-  %950 = getelementptr inbounds [16 x [8 x i16]], ptr %947, i64 0, i64 %948, i64 %949
+  %950 = getelementptr inbounds nuw [16 x [8 x i16]], ptr %947, i64 0, i64 %948, i64 %949
   %951 = load i16, ptr %950, align 2
   %952 = zext i16 %951 to i32
   %953 = mul i32 %946, %952
@@ -2169,10 +2169,10 @@ dict_put.exit:                                    ; preds = %695
   %.sroa.0.67 = phi i32 [ %973, %972 ], [ %.sroa.0.66, %967 ]
   %.sroa.498.67 = phi i32 [ %979, %972 ], [ %.sroa.498.66, %967 ]
   %981 = lshr i32 %.sroa.0.67, 11
-  %982 = getelementptr inbounds i8, ptr %0, i64 26472
+  %982 = getelementptr inbounds nuw i8, ptr %0, i64 26472
   %983 = zext i32 %.92219 to i64
   %984 = zext i32 %.412521 to i64
-  %985 = getelementptr inbounds [16 x [8 x i16]], ptr %982, i64 0, i64 %983, i64 %984
+  %985 = getelementptr inbounds nuw [16 x [8 x i16]], ptr %982, i64 0, i64 %983, i64 %984
   %986 = load i16, ptr %985, align 2
   %987 = zext i16 %986 to i32
   %988 = mul i32 %981, %987
@@ -2254,9 +2254,9 @@ dict_put.exit:                                    ; preds = %695
   %.sroa.0.70 = phi i32 [ %1015, %1014 ], [ %.sroa.0.69, %1009 ]
   %.sroa.498.70 = phi i32 [ %1021, %1014 ], [ %.sroa.498.69, %1009 ]
   %1023 = lshr i32 %.sroa.0.70, 11
-  %1024 = getelementptr inbounds i8, ptr %0, i64 26728
+  %1024 = getelementptr inbounds nuw i8, ptr %0, i64 26728
   %1025 = zext i32 %.432523 to i64
-  %1026 = getelementptr inbounds [256 x i16], ptr %1024, i64 0, i64 %1025
+  %1026 = getelementptr inbounds nuw [256 x i16], ptr %1024, i64 0, i64 %1025
   %1027 = load i16, ptr %1026, align 2
   %1028 = zext i16 %1027 to i32
   %1029 = mul i32 %1023, %1028
@@ -2323,9 +2323,9 @@ dict_put.exit:                                    ; preds = %695
   %.sroa.0.72 = phi i32 [ %1049, %1048 ], [ %.sroa.0.71, %1043 ]
   %.sroa.498.72 = phi i32 [ %1055, %1048 ], [ %.sroa.498.71, %1043 ]
   %1057 = lshr i32 %.sroa.0.72, 11
-  %1058 = getelementptr inbounds i8, ptr %0, i64 26728
+  %1058 = getelementptr inbounds nuw i8, ptr %0, i64 26728
   %1059 = zext i32 %.442524 to i64
-  %1060 = getelementptr inbounds [256 x i16], ptr %1058, i64 0, i64 %1059
+  %1060 = getelementptr inbounds nuw [256 x i16], ptr %1058, i64 0, i64 %1059
   %1061 = load i16, ptr %1060, align 2
   %1062 = zext i16 %1061 to i32
   %1063 = mul i32 %1057, %1062
@@ -2392,9 +2392,9 @@ dict_put.exit:                                    ; preds = %695
   %.sroa.0.74 = phi i32 [ %1083, %1082 ], [ %.sroa.0.73, %1077 ]
   %.sroa.498.74 = phi i32 [ %1089, %1082 ], [ %.sroa.498.73, %1077 ]
   %1091 = lshr i32 %.sroa.0.74, 11
-  %1092 = getelementptr inbounds i8, ptr %0, i64 26728
+  %1092 = getelementptr inbounds nuw i8, ptr %0, i64 26728
   %1093 = zext i32 %.452525 to i64
-  %1094 = getelementptr inbounds [256 x i16], ptr %1092, i64 0, i64 %1093
+  %1094 = getelementptr inbounds nuw [256 x i16], ptr %1092, i64 0, i64 %1093
   %1095 = load i16, ptr %1094, align 2
   %1096 = zext i16 %1095 to i32
   %1097 = mul i32 %1091, %1096
@@ -2461,9 +2461,9 @@ dict_put.exit:                                    ; preds = %695
   %.sroa.0.76 = phi i32 [ %1117, %1116 ], [ %.sroa.0.75, %1111 ]
   %.sroa.498.76 = phi i32 [ %1123, %1116 ], [ %.sroa.498.75, %1111 ]
   %1125 = lshr i32 %.sroa.0.76, 11
-  %1126 = getelementptr inbounds i8, ptr %0, i64 26728
+  %1126 = getelementptr inbounds nuw i8, ptr %0, i64 26728
   %1127 = zext i32 %.462526 to i64
-  %1128 = getelementptr inbounds [256 x i16], ptr %1126, i64 0, i64 %1127
+  %1128 = getelementptr inbounds nuw [256 x i16], ptr %1126, i64 0, i64 %1127
   %1129 = load i16, ptr %1128, align 2
   %1130 = zext i16 %1129 to i32
   %1131 = mul i32 %1125, %1130
@@ -2530,9 +2530,9 @@ dict_put.exit:                                    ; preds = %695
   %.sroa.0.78 = phi i32 [ %1151, %1150 ], [ %.sroa.0.77, %1145 ]
   %.sroa.498.78 = phi i32 [ %1157, %1150 ], [ %.sroa.498.77, %1145 ]
   %1159 = lshr i32 %.sroa.0.78, 11
-  %1160 = getelementptr inbounds i8, ptr %0, i64 26728
+  %1160 = getelementptr inbounds nuw i8, ptr %0, i64 26728
   %1161 = zext i32 %.472527 to i64
-  %1162 = getelementptr inbounds [256 x i16], ptr %1160, i64 0, i64 %1161
+  %1162 = getelementptr inbounds nuw [256 x i16], ptr %1160, i64 0, i64 %1161
   %1163 = load i16, ptr %1162, align 2
   %1164 = zext i16 %1163 to i32
   %1165 = mul i32 %1159, %1164
@@ -2599,9 +2599,9 @@ dict_put.exit:                                    ; preds = %695
   %.sroa.0.80 = phi i32 [ %1185, %1184 ], [ %.sroa.0.79, %1179 ]
   %.sroa.498.80 = phi i32 [ %1191, %1184 ], [ %.sroa.498.79, %1179 ]
   %1193 = lshr i32 %.sroa.0.80, 11
-  %1194 = getelementptr inbounds i8, ptr %0, i64 26728
+  %1194 = getelementptr inbounds nuw i8, ptr %0, i64 26728
   %1195 = zext i32 %.482528 to i64
-  %1196 = getelementptr inbounds [256 x i16], ptr %1194, i64 0, i64 %1195
+  %1196 = getelementptr inbounds nuw [256 x i16], ptr %1194, i64 0, i64 %1195
   %1197 = load i16, ptr %1196, align 2
   %1198 = zext i16 %1197 to i32
   %1199 = mul i32 %1193, %1198
@@ -2668,9 +2668,9 @@ dict_put.exit:                                    ; preds = %695
   %.sroa.0.82 = phi i32 [ %1219, %1218 ], [ %.sroa.0.81, %1213 ]
   %.sroa.498.82 = phi i32 [ %1225, %1218 ], [ %.sroa.498.81, %1213 ]
   %1227 = lshr i32 %.sroa.0.82, 11
-  %1228 = getelementptr inbounds i8, ptr %0, i64 26728
+  %1228 = getelementptr inbounds nuw i8, ptr %0, i64 26728
   %1229 = zext i32 %.492529 to i64
-  %1230 = getelementptr inbounds [256 x i16], ptr %1228, i64 0, i64 %1229
+  %1230 = getelementptr inbounds nuw [256 x i16], ptr %1228, i64 0, i64 %1229
   %1231 = load i16, ptr %1230, align 2
   %1232 = zext i16 %1231 to i32
   %1233 = mul i32 %1227, %1232
@@ -2737,9 +2737,9 @@ dict_put.exit:                                    ; preds = %695
   %.sroa.0.84 = phi i32 [ %1253, %1252 ], [ %.sroa.0.83, %1247 ]
   %.sroa.498.84 = phi i32 [ %1259, %1252 ], [ %.sroa.498.83, %1247 ]
   %1261 = lshr i32 %.sroa.0.84, 11
-  %1262 = getelementptr inbounds i8, ptr %0, i64 26728
+  %1262 = getelementptr inbounds nuw i8, ptr %0, i64 26728
   %1263 = zext i32 %.502530 to i64
-  %1264 = getelementptr inbounds [256 x i16], ptr %1262, i64 0, i64 %1263
+  %1264 = getelementptr inbounds nuw [256 x i16], ptr %1262, i64 0, i64 %1263
   %1265 = load i16, ptr %1264, align 2
   %1266 = zext i16 %1265 to i32
   %1267 = mul i32 %1261, %1266
@@ -2785,11 +2785,11 @@ dict_put.exit:                                    ; preds = %695
   %.76 = phi i64 [ %.51, %865 ], [ %.59, %1002 ], [ %.75, %1281 ]
   %.sroa.0.86 = phi i32 [ %.sroa.0.59, %865 ], [ %.sroa.0.68, %1002 ], [ %.sroa.0.85, %1281 ]
   %.sroa.498.86 = phi i32 [ %.sroa.498.59, %865 ], [ %.sroa.498.68, %1002 ], [ %.sroa.498.85, %1281 ]
-  %1284 = getelementptr inbounds i8, ptr %0, i64 25440
+  %1284 = getelementptr inbounds nuw i8, ptr %0, i64 25440
   %1285 = tail call i32 @llvm.umin.i32(i32 %.423226, i32 5)
   %1286 = add nsw i32 %1285, -2
   %1287 = zext i32 %1286 to i64
-  %1288 = getelementptr inbounds [4 x [64 x i16]], ptr %1284, i64 0, i64 %1287
+  %1288 = getelementptr inbounds nuw [4 x [64 x i16]], ptr %1284, i64 0, i64 %1287
   br label %1289
 
 1289:                                             ; preds = %1283, %.loopexit
@@ -2835,7 +2835,7 @@ dict_put.exit:                                    ; preds = %695
   %.sroa.498.88 = phi i32 [ %1301, %1294 ], [ %.sroa.498.87, %1289 ]
   %1303 = lshr i32 %.sroa.0.88, 11
   %1304 = zext i32 %.522532 to i64
-  %1305 = getelementptr inbounds i16, ptr %.422619, i64 %1304
+  %1305 = getelementptr inbounds nuw i16, ptr %.422619, i64 %1304
   %1306 = load i16, ptr %1305, align 2
   %1307 = zext i16 %1306 to i32
   %1308 = mul i32 %1303, %1307
@@ -2903,7 +2903,7 @@ dict_put.exit:                                    ; preds = %695
   %.sroa.498.90 = phi i32 [ %1334, %1327 ], [ %.sroa.498.89, %1322 ]
   %1336 = lshr i32 %.sroa.0.90, 11
   %1337 = zext i32 %.532533 to i64
-  %1338 = getelementptr inbounds i16, ptr %.432620, i64 %1337
+  %1338 = getelementptr inbounds nuw i16, ptr %.432620, i64 %1337
   %1339 = load i16, ptr %1338, align 2
   %1340 = zext i16 %1339 to i32
   %1341 = mul i32 %1336, %1340
@@ -2971,7 +2971,7 @@ dict_put.exit:                                    ; preds = %695
   %.sroa.498.92 = phi i32 [ %1367, %1360 ], [ %.sroa.498.91, %1355 ]
   %1369 = lshr i32 %.sroa.0.92, 11
   %1370 = zext i32 %.542534 to i64
-  %1371 = getelementptr inbounds i16, ptr %.442621, i64 %1370
+  %1371 = getelementptr inbounds nuw i16, ptr %.442621, i64 %1370
   %1372 = load i16, ptr %1371, align 2
   %1373 = zext i16 %1372 to i32
   %1374 = mul i32 %1369, %1373
@@ -3039,7 +3039,7 @@ dict_put.exit:                                    ; preds = %695
   %.sroa.498.94 = phi i32 [ %1400, %1393 ], [ %.sroa.498.93, %1388 ]
   %1402 = lshr i32 %.sroa.0.94, 11
   %1403 = zext i32 %.552535 to i64
-  %1404 = getelementptr inbounds i16, ptr %.452622, i64 %1403
+  %1404 = getelementptr inbounds nuw i16, ptr %.452622, i64 %1403
   %1405 = load i16, ptr %1404, align 2
   %1406 = zext i16 %1405 to i32
   %1407 = mul i32 %1402, %1406
@@ -3107,7 +3107,7 @@ dict_put.exit:                                    ; preds = %695
   %.sroa.498.96 = phi i32 [ %1433, %1426 ], [ %.sroa.498.95, %1421 ]
   %1435 = lshr i32 %.sroa.0.96, 11
   %1436 = zext i32 %.562536 to i64
-  %1437 = getelementptr inbounds i16, ptr %.462623, i64 %1436
+  %1437 = getelementptr inbounds nuw i16, ptr %.462623, i64 %1436
   %1438 = load i16, ptr %1437, align 2
   %1439 = zext i16 %1438 to i32
   %1440 = mul i32 %1435, %1439
@@ -3175,7 +3175,7 @@ dict_put.exit:                                    ; preds = %695
   %.sroa.498.98 = phi i32 [ %1466, %1459 ], [ %.sroa.498.97, %1454 ]
   %1468 = lshr i32 %.sroa.0.98, 11
   %1469 = zext i32 %.572537 to i64
-  %1470 = getelementptr inbounds i16, ptr %.472624, i64 %1469
+  %1470 = getelementptr inbounds nuw i16, ptr %.472624, i64 %1469
   %1471 = load i16, ptr %1470, align 2
   %1472 = zext i16 %1471 to i32
   %1473 = mul i32 %1468, %1472
@@ -3218,9 +3218,9 @@ dict_put.exit:                                    ; preds = %695
 1495:                                             ; preds = %1490
   %1496 = add nsw i32 %1491, -1
   %1497 = shl i32 %1493, %1496
-  %1498 = getelementptr inbounds i8, ptr %0, i64 25952
+  %1498 = getelementptr inbounds nuw i8, ptr %0, i64 25952
   %1499 = zext i32 %1497 to i64
-  %1500 = getelementptr inbounds i16, ptr %1498, i64 %1499
+  %1500 = getelementptr inbounds nuw i16, ptr %1498, i64 %1499
   %1501 = zext nneg i32 %1488 to i64
   %1502 = sub nsw i64 0, %1501
   %1503 = getelementptr inbounds i16, ptr %1500, i64 %1502
@@ -3279,7 +3279,7 @@ dict_put.exit:                                    ; preds = %695
   %.sroa.498.101 = phi i32 [ %1518, %1511 ], [ %.sroa.498.10, %1506 ]
   %1520 = lshr i32 %.sroa.0.101, 11
   %1521 = zext i32 %.102490 to i64
-  %1522 = getelementptr inbounds i16, ptr %.102587, i64 %1521
+  %1522 = getelementptr inbounds nuw i16, ptr %.102587, i64 %1521
   %1523 = load i16, ptr %1522, align 2
   %1524 = zext i16 %1523 to i32
   %1525 = mul i32 %1520, %1524
@@ -3347,7 +3347,7 @@ dict_put.exit:                                    ; preds = %695
   %.sroa.498.104 = phi i32 [ %1554, %1547 ], [ %.sroa.498.103, %1542 ]
   %1556 = lshr i32 %.sroa.0.104, 11
   %1557 = zext i32 %.612541 to i64
-  %1558 = getelementptr inbounds i16, ptr %.102587, i64 %1557
+  %1558 = getelementptr inbounds nuw i16, ptr %.102587, i64 %1557
   %1559 = load i16, ptr %1558, align 2
   %1560 = zext i16 %1559 to i32
   %1561 = mul i32 %1556, %1560
@@ -3416,7 +3416,7 @@ dict_put.exit:                                    ; preds = %695
   %.sroa.498.107 = phi i32 [ %1591, %1584 ], [ %.sroa.498.106, %1579 ]
   %1593 = lshr i32 %.sroa.0.107, 11
   %1594 = zext i32 %.632543 to i64
-  %1595 = getelementptr inbounds i16, ptr %.102587, i64 %1594
+  %1595 = getelementptr inbounds nuw i16, ptr %.102587, i64 %1594
   %1596 = load i16, ptr %1595, align 2
   %1597 = zext i16 %1596 to i32
   %1598 = mul i32 %1593, %1597
@@ -3485,7 +3485,7 @@ dict_put.exit:                                    ; preds = %695
   %.sroa.498.110 = phi i32 [ %1628, %1621 ], [ %.sroa.498.109, %1616 ]
   %1630 = lshr i32 %.sroa.0.110, 11
   %1631 = zext i32 %.652545 to i64
-  %1632 = getelementptr inbounds i16, ptr %.102587, i64 %1631
+  %1632 = getelementptr inbounds nuw i16, ptr %.102587, i64 %1631
   %1633 = load i16, ptr %1632, align 2
   %1634 = zext i16 %1633 to i32
   %1635 = mul i32 %1630, %1634
@@ -3554,7 +3554,7 @@ dict_put.exit:                                    ; preds = %695
   %.sroa.498.113 = phi i32 [ %1665, %1658 ], [ %.sroa.498.112, %1653 ]
   %1667 = lshr i32 %.sroa.0.113, 11
   %1668 = zext i32 %.672547 to i64
-  %1669 = getelementptr inbounds i16, ptr %.102587, i64 %1668
+  %1669 = getelementptr inbounds nuw i16, ptr %.102587, i64 %1668
   %1670 = load i16, ptr %1669, align 2
   %1671 = zext i16 %1670 to i32
   %1672 = mul i32 %1667, %1671
@@ -3690,9 +3690,9 @@ dict_put.exit:                                    ; preds = %695
   %.sroa.0.117 = phi i32 [ %1719, %1718 ], [ %.sroa.0.116, %1713 ]
   %.sroa.498.117 = phi i32 [ %1725, %1718 ], [ %.sroa.498.116, %1713 ]
   %1727 = lshr i32 %.sroa.0.117, 11
-  %1728 = getelementptr inbounds i8, ptr %0, i64 26180
+  %1728 = getelementptr inbounds nuw i8, ptr %0, i64 26180
   %1729 = zext i32 %.682548 to i64
-  %1730 = getelementptr inbounds [16 x i16], ptr %1728, i64 0, i64 %1729
+  %1730 = getelementptr inbounds nuw [16 x i16], ptr %1728, i64 0, i64 %1729
   %1731 = load i16, ptr %1730, align 2
   %1732 = zext i16 %1731 to i32
   %1733 = mul i32 %1727, %1732
@@ -3760,9 +3760,9 @@ dict_put.exit:                                    ; preds = %695
   %.sroa.0.119 = phi i32 [ %1754, %1753 ], [ %.sroa.0.118, %1748 ]
   %.sroa.498.119 = phi i32 [ %1760, %1753 ], [ %.sroa.498.118, %1748 ]
   %1762 = lshr i32 %.sroa.0.119, 11
-  %1763 = getelementptr inbounds i8, ptr %0, i64 26180
+  %1763 = getelementptr inbounds nuw i8, ptr %0, i64 26180
   %1764 = zext i32 %.692549 to i64
-  %1765 = getelementptr inbounds [16 x i16], ptr %1763, i64 0, i64 %1764
+  %1765 = getelementptr inbounds nuw [16 x i16], ptr %1763, i64 0, i64 %1764
   %1766 = load i16, ptr %1765, align 2
   %1767 = zext i16 %1766 to i32
   %1768 = mul i32 %1762, %1767
@@ -3830,9 +3830,9 @@ dict_put.exit:                                    ; preds = %695
   %.sroa.0.121 = phi i32 [ %1789, %1788 ], [ %.sroa.0.120, %1783 ]
   %.sroa.498.121 = phi i32 [ %1795, %1788 ], [ %.sroa.498.120, %1783 ]
   %1797 = lshr i32 %.sroa.0.121, 11
-  %1798 = getelementptr inbounds i8, ptr %0, i64 26180
+  %1798 = getelementptr inbounds nuw i8, ptr %0, i64 26180
   %1799 = zext i32 %.702550 to i64
-  %1800 = getelementptr inbounds [16 x i16], ptr %1798, i64 0, i64 %1799
+  %1800 = getelementptr inbounds nuw [16 x i16], ptr %1798, i64 0, i64 %1799
   %1801 = load i16, ptr %1800, align 2
   %1802 = zext i16 %1801 to i32
   %1803 = mul i32 %1797, %1802
@@ -3900,9 +3900,9 @@ dict_put.exit:                                    ; preds = %695
   %.sroa.0.123 = phi i32 [ %1824, %1823 ], [ %.sroa.0.122, %1818 ]
   %.sroa.498.123 = phi i32 [ %1830, %1823 ], [ %.sroa.498.122, %1818 ]
   %1832 = lshr i32 %.sroa.0.123, 11
-  %1833 = getelementptr inbounds i8, ptr %0, i64 26180
+  %1833 = getelementptr inbounds nuw i8, ptr %0, i64 26180
   %1834 = zext i32 %.712551 to i64
-  %1835 = getelementptr inbounds [16 x i16], ptr %1833, i64 0, i64 %1834
+  %1835 = getelementptr inbounds nuw [16 x i16], ptr %1833, i64 0, i64 %1834
   %1836 = load i16, ptr %1835, align 2
   %1837 = zext i16 %1836 to i32
   %1838 = mul i32 %1832, %1837
@@ -4047,9 +4047,9 @@ dict_put.exit:                                    ; preds = %695
   %.sroa.0.128 = phi i32 [ %1882, %1881 ], [ %.sroa.0.127, %1876 ]
   %.sroa.498.128 = phi i32 [ %1888, %1881 ], [ %.sroa.498.127, %1876 ]
   %1890 = lshr i32 %.sroa.0.128, 11
-  %1891 = getelementptr inbounds i8, ptr %0, i64 24984
+  %1891 = getelementptr inbounds nuw i8, ptr %0, i64 24984
   %1892 = zext i32 %.552288 to i64
-  %1893 = getelementptr inbounds [12 x i16], ptr %1891, i64 0, i64 %1892
+  %1893 = getelementptr inbounds nuw [12 x i16], ptr %1891, i64 0, i64 %1892
   %1894 = load i16, ptr %1893, align 2
   %1895 = zext i16 %1894 to i32
   %1896 = mul i32 %1890, %1895
@@ -4107,10 +4107,10 @@ dict_put.exit:                                    ; preds = %695
   %.sroa.0.130 = phi i32 [ %1909, %1908 ], [ %.sroa.0.129, %1903 ]
   %.sroa.498.130 = phi i32 [ %1915, %1908 ], [ %.sroa.498.129, %1903 ]
   %1917 = lshr i32 %.sroa.0.130, 11
-  %1918 = getelementptr inbounds i8, ptr %0, i64 25056
+  %1918 = getelementptr inbounds nuw i8, ptr %0, i64 25056
   %1919 = zext i32 %.562289 to i64
   %1920 = zext i32 %.112221 to i64
-  %1921 = getelementptr inbounds [12 x [16 x i16]], ptr %1918, i64 0, i64 %1919, i64 %1920
+  %1921 = getelementptr inbounds nuw [12 x [16 x i16]], ptr %1918, i64 0, i64 %1919, i64 %1920
   %1922 = load i16, ptr %1921, align 2
   %1923 = zext i16 %1922 to i32
   %1924 = mul i32 %1917, %1923
@@ -4223,9 +4223,9 @@ dict_put.exit3125:                                ; preds = %dict_get.exit3124
   %.sroa.0.133 = phi i32 [ %1959, %1958 ], [ %.sroa.0.132, %1953 ]
   %.sroa.498.133 = phi i32 [ %1965, %1958 ], [ %.sroa.498.132, %1953 ]
   %1967 = lshr i32 %.sroa.0.133, 11
-  %1968 = getelementptr inbounds i8, ptr %0, i64 25008
+  %1968 = getelementptr inbounds nuw i8, ptr %0, i64 25008
   %1969 = zext i32 %.582291 to i64
-  %1970 = getelementptr inbounds [12 x i16], ptr %1968, i64 0, i64 %1969
+  %1970 = getelementptr inbounds nuw [12 x i16], ptr %1968, i64 0, i64 %1969
   %1971 = load i16, ptr %1970, align 2
   %1972 = zext i16 %1971 to i32
   %1973 = mul i32 %1967, %1972
@@ -4291,9 +4291,9 @@ dict_put.exit3125:                                ; preds = %dict_get.exit3124
   %.sroa.0.135 = phi i32 [ %1991, %1990 ], [ %.sroa.0.134, %1985 ]
   %.sroa.498.135 = phi i32 [ %1997, %1990 ], [ %.sroa.498.134, %1985 ]
   %1999 = lshr i32 %.sroa.0.135, 11
-  %2000 = getelementptr inbounds i8, ptr %0, i64 25032
+  %2000 = getelementptr inbounds nuw i8, ptr %0, i64 25032
   %2001 = zext i32 %.592292 to i64
-  %2002 = getelementptr inbounds [12 x i16], ptr %2000, i64 0, i64 %2001
+  %2002 = getelementptr inbounds nuw [12 x i16], ptr %2000, i64 0, i64 %2001
   %2003 = load i16, ptr %2002, align 2
   %2004 = zext i16 %2003 to i32
   %2005 = mul i32 %1999, %2004
@@ -4379,7 +4379,7 @@ dict_put.exit3125:                                ; preds = %dict_get.exit3124
   %.sroa.0.137 = phi i32 [ %2026, %2025 ], [ %.sroa.0.136, %2020 ]
   %.sroa.498.137 = phi i32 [ %2032, %2025 ], [ %.sroa.498.136, %2020 ]
   %2034 = lshr i32 %.sroa.0.137, 11
-  %2035 = getelementptr inbounds i8, ptr %0, i64 27240
+  %2035 = getelementptr inbounds nuw i8, ptr %0, i64 27240
   %2036 = load i16, ptr %2035, align 8
   %2037 = zext i16 %2036 to i32
   %2038 = mul i32 %2034, %2037
@@ -4437,10 +4437,10 @@ dict_put.exit3125:                                ; preds = %dict_get.exit3124
   %.sroa.0.139 = phi i32 [ %2051, %2050 ], [ %.sroa.0.138, %2045 ]
   %.sroa.498.139 = phi i32 [ %2057, %2050 ], [ %.sroa.498.138, %2045 ]
   %2059 = lshr i32 %.sroa.0.139, 11
-  %2060 = getelementptr inbounds i8, ptr %0, i64 27244
+  %2060 = getelementptr inbounds nuw i8, ptr %0, i64 27244
   %2061 = zext i32 %.162226 to i64
   %2062 = zext i32 %.782558 to i64
-  %2063 = getelementptr inbounds [16 x [8 x i16]], ptr %2060, i64 0, i64 %2061, i64 %2062
+  %2063 = getelementptr inbounds nuw [16 x [8 x i16]], ptr %2060, i64 0, i64 %2061, i64 %2062
   %2064 = load i16, ptr %2063, align 2
   %2065 = zext i16 %2064 to i32
   %2066 = mul i32 %2059, %2065
@@ -4508,10 +4508,10 @@ dict_put.exit3125:                                ; preds = %dict_get.exit3124
   %.sroa.0.141 = phi i32 [ %2086, %2085 ], [ %.sroa.0.140, %2080 ]
   %.sroa.498.141 = phi i32 [ %2092, %2085 ], [ %.sroa.498.140, %2080 ]
   %2094 = lshr i32 %.sroa.0.141, 11
-  %2095 = getelementptr inbounds i8, ptr %0, i64 27244
+  %2095 = getelementptr inbounds nuw i8, ptr %0, i64 27244
   %2096 = zext i32 %.172227 to i64
   %2097 = zext i32 %.792559 to i64
-  %2098 = getelementptr inbounds [16 x [8 x i16]], ptr %2095, i64 0, i64 %2096, i64 %2097
+  %2098 = getelementptr inbounds nuw [16 x [8 x i16]], ptr %2095, i64 0, i64 %2096, i64 %2097
   %2099 = load i16, ptr %2098, align 2
   %2100 = zext i16 %2099 to i32
   %2101 = mul i32 %2094, %2100
@@ -4579,10 +4579,10 @@ dict_put.exit3125:                                ; preds = %dict_get.exit3124
   %.sroa.0.143 = phi i32 [ %2121, %2120 ], [ %.sroa.0.142, %2115 ]
   %.sroa.498.143 = phi i32 [ %2127, %2120 ], [ %.sroa.498.142, %2115 ]
   %2129 = lshr i32 %.sroa.0.143, 11
-  %2130 = getelementptr inbounds i8, ptr %0, i64 27244
+  %2130 = getelementptr inbounds nuw i8, ptr %0, i64 27244
   %2131 = zext i32 %.182228 to i64
   %2132 = zext i32 %.802560 to i64
-  %2133 = getelementptr inbounds [16 x [8 x i16]], ptr %2130, i64 0, i64 %2131, i64 %2132
+  %2133 = getelementptr inbounds nuw [16 x [8 x i16]], ptr %2130, i64 0, i64 %2131, i64 %2132
   %2134 = load i16, ptr %2133, align 2
   %2135 = zext i16 %2134 to i32
   %2136 = mul i32 %2129, %2135
@@ -4665,7 +4665,7 @@ dict_put.exit3125:                                ; preds = %dict_get.exit3124
   %.sroa.0.146 = phi i32 [ %2163, %2162 ], [ %.sroa.0.145, %2157 ]
   %.sroa.498.146 = phi i32 [ %2169, %2162 ], [ %.sroa.498.145, %2157 ]
   %2171 = lshr i32 %.sroa.0.146, 11
-  %2172 = getelementptr inbounds i8, ptr %0, i64 27242
+  %2172 = getelementptr inbounds nuw i8, ptr %0, i64 27242
   %2173 = load i16, ptr %2172, align 2
   %2174 = zext i16 %2173 to i32
   %2175 = mul i32 %2171, %2174
@@ -4723,10 +4723,10 @@ dict_put.exit3125:                                ; preds = %dict_get.exit3124
   %.sroa.0.148 = phi i32 [ %2188, %2187 ], [ %.sroa.0.147, %2182 ]
   %.sroa.498.148 = phi i32 [ %2194, %2187 ], [ %.sroa.498.147, %2182 ]
   %2196 = lshr i32 %.sroa.0.148, 11
-  %2197 = getelementptr inbounds i8, ptr %0, i64 27500
+  %2197 = getelementptr inbounds nuw i8, ptr %0, i64 27500
   %2198 = zext i32 %.202230 to i64
   %2199 = zext i32 %.832563 to i64
-  %2200 = getelementptr inbounds [16 x [8 x i16]], ptr %2197, i64 0, i64 %2198, i64 %2199
+  %2200 = getelementptr inbounds nuw [16 x [8 x i16]], ptr %2197, i64 0, i64 %2198, i64 %2199
   %2201 = load i16, ptr %2200, align 2
   %2202 = zext i16 %2201 to i32
   %2203 = mul i32 %2196, %2202
@@ -4794,10 +4794,10 @@ dict_put.exit3125:                                ; preds = %dict_get.exit3124
   %.sroa.0.150 = phi i32 [ %2223, %2222 ], [ %.sroa.0.149, %2217 ]
   %.sroa.498.150 = phi i32 [ %2229, %2222 ], [ %.sroa.498.149, %2217 ]
   %2231 = lshr i32 %.sroa.0.150, 11
-  %2232 = getelementptr inbounds i8, ptr %0, i64 27500
+  %2232 = getelementptr inbounds nuw i8, ptr %0, i64 27500
   %2233 = zext i32 %.212231 to i64
   %2234 = zext i32 %.842564 to i64
-  %2235 = getelementptr inbounds [16 x [8 x i16]], ptr %2232, i64 0, i64 %2233, i64 %2234
+  %2235 = getelementptr inbounds nuw [16 x [8 x i16]], ptr %2232, i64 0, i64 %2233, i64 %2234
   %2236 = load i16, ptr %2235, align 2
   %2237 = zext i16 %2236 to i32
   %2238 = mul i32 %2231, %2237
@@ -4865,10 +4865,10 @@ dict_put.exit3125:                                ; preds = %dict_get.exit3124
   %.sroa.0.152 = phi i32 [ %2258, %2257 ], [ %.sroa.0.151, %2252 ]
   %.sroa.498.152 = phi i32 [ %2264, %2257 ], [ %.sroa.498.151, %2252 ]
   %2266 = lshr i32 %.sroa.0.152, 11
-  %2267 = getelementptr inbounds i8, ptr %0, i64 27500
+  %2267 = getelementptr inbounds nuw i8, ptr %0, i64 27500
   %2268 = zext i32 %.222232 to i64
   %2269 = zext i32 %.852565 to i64
-  %2270 = getelementptr inbounds [16 x [8 x i16]], ptr %2267, i64 0, i64 %2268, i64 %2269
+  %2270 = getelementptr inbounds nuw [16 x [8 x i16]], ptr %2267, i64 0, i64 %2268, i64 %2269
   %2271 = load i16, ptr %2270, align 2
   %2272 = zext i16 %2271 to i32
   %2273 = mul i32 %2266, %2272
@@ -4950,9 +4950,9 @@ dict_put.exit3125:                                ; preds = %dict_get.exit3124
   %.sroa.0.155 = phi i32 [ %2300, %2299 ], [ %.sroa.0.154, %2294 ]
   %.sroa.498.155 = phi i32 [ %2306, %2299 ], [ %.sroa.498.154, %2294 ]
   %2308 = lshr i32 %.sroa.0.155, 11
-  %2309 = getelementptr inbounds i8, ptr %0, i64 27756
+  %2309 = getelementptr inbounds nuw i8, ptr %0, i64 27756
   %2310 = zext i32 %.872567 to i64
-  %2311 = getelementptr inbounds [256 x i16], ptr %2309, i64 0, i64 %2310
+  %2311 = getelementptr inbounds nuw [256 x i16], ptr %2309, i64 0, i64 %2310
   %2312 = load i16, ptr %2311, align 2
   %2313 = zext i16 %2312 to i32
   %2314 = mul i32 %2308, %2313
@@ -5019,9 +5019,9 @@ dict_put.exit3125:                                ; preds = %dict_get.exit3124
   %.sroa.0.157 = phi i32 [ %2334, %2333 ], [ %.sroa.0.156, %2328 ]
   %.sroa.498.157 = phi i32 [ %2340, %2333 ], [ %.sroa.498.156, %2328 ]
   %2342 = lshr i32 %.sroa.0.157, 11
-  %2343 = getelementptr inbounds i8, ptr %0, i64 27756
+  %2343 = getelementptr inbounds nuw i8, ptr %0, i64 27756
   %2344 = zext i32 %.882568 to i64
-  %2345 = getelementptr inbounds [256 x i16], ptr %2343, i64 0, i64 %2344
+  %2345 = getelementptr inbounds nuw [256 x i16], ptr %2343, i64 0, i64 %2344
   %2346 = load i16, ptr %2345, align 2
   %2347 = zext i16 %2346 to i32
   %2348 = mul i32 %2342, %2347
@@ -5088,9 +5088,9 @@ dict_put.exit3125:                                ; preds = %dict_get.exit3124
   %.sroa.0.159 = phi i32 [ %2368, %2367 ], [ %.sroa.0.158, %2362 ]
   %.sroa.498.159 = phi i32 [ %2374, %2367 ], [ %.sroa.498.158, %2362 ]
   %2376 = lshr i32 %.sroa.0.159, 11
-  %2377 = getelementptr inbounds i8, ptr %0, i64 27756
+  %2377 = getelementptr inbounds nuw i8, ptr %0, i64 27756
   %2378 = zext i32 %.892569 to i64
-  %2379 = getelementptr inbounds [256 x i16], ptr %2377, i64 0, i64 %2378
+  %2379 = getelementptr inbounds nuw [256 x i16], ptr %2377, i64 0, i64 %2378
   %2380 = load i16, ptr %2379, align 2
   %2381 = zext i16 %2380 to i32
   %2382 = mul i32 %2376, %2381
@@ -5157,9 +5157,9 @@ dict_put.exit3125:                                ; preds = %dict_get.exit3124
   %.sroa.0.161 = phi i32 [ %2402, %2401 ], [ %.sroa.0.160, %2396 ]
   %.sroa.498.161 = phi i32 [ %2408, %2401 ], [ %.sroa.498.160, %2396 ]
   %2410 = lshr i32 %.sroa.0.161, 11
-  %2411 = getelementptr inbounds i8, ptr %0, i64 27756
+  %2411 = getelementptr inbounds nuw i8, ptr %0, i64 27756
   %2412 = zext i32 %.902570 to i64
-  %2413 = getelementptr inbounds [256 x i16], ptr %2411, i64 0, i64 %2412
+  %2413 = getelementptr inbounds nuw [256 x i16], ptr %2411, i64 0, i64 %2412
   %2414 = load i16, ptr %2413, align 2
   %2415 = zext i16 %2414 to i32
   %2416 = mul i32 %2410, %2415
@@ -5226,9 +5226,9 @@ dict_put.exit3125:                                ; preds = %dict_get.exit3124
   %.sroa.0.163 = phi i32 [ %2436, %2435 ], [ %.sroa.0.162, %2430 ]
   %.sroa.498.163 = phi i32 [ %2442, %2435 ], [ %.sroa.498.162, %2430 ]
   %2444 = lshr i32 %.sroa.0.163, 11
-  %2445 = getelementptr inbounds i8, ptr %0, i64 27756
+  %2445 = getelementptr inbounds nuw i8, ptr %0, i64 27756
   %2446 = zext i32 %.912571 to i64
-  %2447 = getelementptr inbounds [256 x i16], ptr %2445, i64 0, i64 %2446
+  %2447 = getelementptr inbounds nuw [256 x i16], ptr %2445, i64 0, i64 %2446
   %2448 = load i16, ptr %2447, align 2
   %2449 = zext i16 %2448 to i32
   %2450 = mul i32 %2444, %2449
@@ -5295,9 +5295,9 @@ dict_put.exit3125:                                ; preds = %dict_get.exit3124
   %.sroa.0.165 = phi i32 [ %2470, %2469 ], [ %.sroa.0.164, %2464 ]
   %.sroa.498.165 = phi i32 [ %2476, %2469 ], [ %.sroa.498.164, %2464 ]
   %2478 = lshr i32 %.sroa.0.165, 11
-  %2479 = getelementptr inbounds i8, ptr %0, i64 27756
+  %2479 = getelementptr inbounds nuw i8, ptr %0, i64 27756
   %2480 = zext i32 %.922572 to i64
-  %2481 = getelementptr inbounds [256 x i16], ptr %2479, i64 0, i64 %2480
+  %2481 = getelementptr inbounds nuw [256 x i16], ptr %2479, i64 0, i64 %2480
   %2482 = load i16, ptr %2481, align 2
   %2483 = zext i16 %2482 to i32
   %2484 = mul i32 %2478, %2483
@@ -5364,9 +5364,9 @@ dict_put.exit3125:                                ; preds = %dict_get.exit3124
   %.sroa.0.167 = phi i32 [ %2504, %2503 ], [ %.sroa.0.166, %2498 ]
   %.sroa.498.167 = phi i32 [ %2510, %2503 ], [ %.sroa.498.166, %2498 ]
   %2512 = lshr i32 %.sroa.0.167, 11
-  %2513 = getelementptr inbounds i8, ptr %0, i64 27756
+  %2513 = getelementptr inbounds nuw i8, ptr %0, i64 27756
   %2514 = zext i32 %.932573 to i64
-  %2515 = getelementptr inbounds [256 x i16], ptr %2513, i64 0, i64 %2514
+  %2515 = getelementptr inbounds nuw [256 x i16], ptr %2513, i64 0, i64 %2514
   %2516 = load i16, ptr %2515, align 2
   %2517 = zext i16 %2516 to i32
   %2518 = mul i32 %2512, %2517
@@ -5433,9 +5433,9 @@ dict_put.exit3125:                                ; preds = %dict_get.exit3124
   %.sroa.0.169 = phi i32 [ %2538, %2537 ], [ %.sroa.0.168, %2532 ]
   %.sroa.498.169 = phi i32 [ %2544, %2537 ], [ %.sroa.498.168, %2532 ]
   %2546 = lshr i32 %.sroa.0.169, 11
-  %2547 = getelementptr inbounds i8, ptr %0, i64 27756
+  %2547 = getelementptr inbounds nuw i8, ptr %0, i64 27756
   %2548 = zext i32 %.942574 to i64
-  %2549 = getelementptr inbounds [256 x i16], ptr %2547, i64 0, i64 %2548
+  %2549 = getelementptr inbounds nuw [256 x i16], ptr %2547, i64 0, i64 %2548
   %2550 = load i16, ptr %2549, align 2
   %2551 = zext i16 %2550 to i32
   %2552 = mul i32 %2546, %2551
@@ -5534,7 +5534,7 @@ dict_get.exit.i:                                  ; preds = %dict_get.exit.i, %.
   %2599 = sub i32 0, %2598
   %2600 = icmp ugt i32 %2573, %2599
   %2601 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload3154, i64 %.sroa.10.13
-  %2602 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload3154, i64 %2597
+  %2602 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload3154, i64 %2597
   br i1 %2600, label %2603, label %2609
 
 2603:                                             ; preds = %2593
@@ -5687,15 +5687,15 @@ rc_read_init.exit:                                ; preds = %17, %8, %2634, %rc_
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @lzma_decoder_reset(ptr nocapture noundef initializes((28300, 28304)) %0, ptr nocapture noundef readonly %1) #3 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 28
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %4 = load i32, ptr %3, align 4
   %notmask = shl nsw i32 -1, %4
   %5 = xor i32 %notmask, -1
-  %6 = getelementptr inbounds i8, ptr %0, i64 28300
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 28300
   store i32 %5, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %1, i64 20
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %8 = load i32, ptr %7, align 4
-  %9 = getelementptr inbounds i8, ptr %1, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load i32, ptr %9, align 8
   %11 = add i32 %10, %8
   br label %.preheader.i
@@ -5707,7 +5707,7 @@ define internal void @lzma_decoder_reset(ptr nocapture noundef initializes((2830
 
 13:                                               ; preds = %13, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %13 ]
-  %14 = getelementptr inbounds [768 x i16], ptr %0, i64 %12, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw [768 x i16], ptr %0, i64 %12, i64 %indvars.iv.i
   store i16 1024, ptr %14, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 768
@@ -5721,31 +5721,31 @@ define internal void @lzma_decoder_reset(ptr nocapture noundef initializes((2830
 
 literal_init.exit:                                ; preds = %15
   %18 = load i32, ptr %7, align 4
-  %19 = getelementptr inbounds i8, ptr %0, i64 28304
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 28304
   store i32 %18, ptr %19, align 8
   %20 = load i32, ptr %9, align 8
   %notmask108 = shl nsw i32 -1, %20
   %21 = xor i32 %notmask108, -1
-  %22 = getelementptr inbounds i8, ptr %0, i64 28308
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 28308
   store i32 %21, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %0, i64 28280
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 28280
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %23, i8 0, i64 20, i1 false)
   %24 = load i32, ptr %3, align 4
   %notmask109 = shl nsw i32 -1, %24
   %25 = xor i32 %notmask109, -1
   store i32 %25, ptr %6, align 4
-  %26 = getelementptr inbounds i8, ptr %0, i64 28268
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 28268
   store i32 -1, ptr %26, align 4
-  %27 = getelementptr inbounds i8, ptr %0, i64 28272
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 28272
   store i32 0, ptr %27, align 4
-  %28 = getelementptr inbounds i8, ptr %0, i64 28276
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 28276
   store i32 5, ptr %28, align 4
-  %29 = getelementptr inbounds i8, ptr %0, i64 24576
-  %30 = getelementptr inbounds i8, ptr %0, i64 25056
-  %31 = getelementptr inbounds i8, ptr %0, i64 24960
-  %32 = getelementptr inbounds i8, ptr %0, i64 24984
-  %33 = getelementptr inbounds i8, ptr %0, i64 25008
-  %34 = getelementptr inbounds i8, ptr %0, i64 25032
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 24576
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 25056
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24960
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 24984
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 25008
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 25032
   br label %.preheader119
 
 .preheader119:                                    ; preds = %literal_init.exit, %42
@@ -5753,15 +5753,15 @@ literal_init.exit:                                ; preds = %15
   br label %36
 
 .preheader118:                                    ; preds = %42
-  %35 = getelementptr inbounds i8, ptr %0, i64 25440
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 25440
   br label %.preheader117
 
 36:                                               ; preds = %.preheader119, %36
   %.0107120 = phi i32 [ 0, %.preheader119 ], [ %40, %36 ]
   %37 = zext i32 %.0107120 to i64
-  %38 = getelementptr inbounds [12 x [16 x i16]], ptr %29, i64 0, i64 %indvars.iv, i64 %37
+  %38 = getelementptr inbounds nuw [12 x [16 x i16]], ptr %29, i64 0, i64 %indvars.iv, i64 %37
   store i16 1024, ptr %38, align 2
-  %39 = getelementptr inbounds [12 x [16 x i16]], ptr %30, i64 0, i64 %indvars.iv, i64 %37
+  %39 = getelementptr inbounds nuw [12 x [16 x i16]], ptr %30, i64 0, i64 %indvars.iv, i64 %37
   store i16 1024, ptr %39, align 2
   %40 = add i32 %.0107120, 1
   %41 = load i32, ptr %6, align 4
@@ -5769,13 +5769,13 @@ literal_init.exit:                                ; preds = %15
   br i1 %.not, label %42, label %36, !llvm.loop !17
 
 42:                                               ; preds = %36
-  %43 = getelementptr inbounds [12 x i16], ptr %31, i64 0, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [12 x i16], ptr %31, i64 0, i64 %indvars.iv
   store i16 1024, ptr %43, align 2
-  %44 = getelementptr inbounds [12 x i16], ptr %32, i64 0, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw [12 x i16], ptr %32, i64 0, i64 %indvars.iv
   store i16 1024, ptr %44, align 2
-  %45 = getelementptr inbounds [12 x i16], ptr %33, i64 0, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [12 x i16], ptr %33, i64 0, i64 %indvars.iv
   store i16 1024, ptr %45, align 2
-  %46 = getelementptr inbounds [12 x i16], ptr %34, i64 0, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw [12 x i16], ptr %34, i64 0, i64 %indvars.iv
   store i16 1024, ptr %46, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 12
@@ -5786,12 +5786,12 @@ literal_init.exit:                                ; preds = %15
   br label %48
 
 .preheader116:                                    ; preds = %50
-  %47 = getelementptr inbounds i8, ptr %0, i64 25952
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 25952
   br label %52
 
 48:                                               ; preds = %.preheader117, %48
   %indvars.iv134 = phi i64 [ 0, %.preheader117 ], [ %indvars.iv.next135, %48 ]
-  %49 = getelementptr inbounds [4 x [64 x i16]], ptr %35, i64 0, i64 %indvars.iv138, i64 %indvars.iv134
+  %49 = getelementptr inbounds nuw [4 x [64 x i16]], ptr %35, i64 0, i64 %indvars.iv138, i64 %indvars.iv134
   store i16 1024, ptr %49, align 2
   %indvars.iv.next135 = add nuw nsw i64 %indvars.iv134, 1
   %exitcond137.not = icmp eq i64 %indvars.iv.next135, 64
@@ -5803,12 +5803,12 @@ literal_init.exit:                                ; preds = %15
   br i1 %exitcond141.not, label %.preheader116, label %.preheader117, !llvm.loop !20
 
 .preheader115:                                    ; preds = %52
-  %51 = getelementptr inbounds i8, ptr %0, i64 26180
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 26180
   br label %54
 
 52:                                               ; preds = %.preheader116, %52
   %indvars.iv142 = phi i64 [ 0, %.preheader116 ], [ %indvars.iv.next143, %52 ]
-  %53 = getelementptr inbounds [114 x i16], ptr %47, i64 0, i64 %indvars.iv142
+  %53 = getelementptr inbounds nuw [114 x i16], ptr %47, i64 0, i64 %indvars.iv142
   store i16 1024, ptr %53, align 2
   %indvars.iv.next143 = add nuw nsw i64 %indvars.iv142, 1
   %exitcond145.not = icmp eq i64 %indvars.iv.next143, 114
@@ -5816,7 +5816,7 @@ literal_init.exit:                                ; preds = %15
 
 54:                                               ; preds = %.preheader115, %54
   %indvars.iv146 = phi i64 [ 0, %.preheader115 ], [ %indvars.iv.next147, %54 ]
-  %55 = getelementptr inbounds [16 x i16], ptr %51, i64 0, i64 %indvars.iv146
+  %55 = getelementptr inbounds nuw [16 x i16], ptr %51, i64 0, i64 %indvars.iv146
   store i16 1024, ptr %55, align 2
   %indvars.iv.next147 = add nuw nsw i64 %indvars.iv146, 1
   %exitcond149.not = icmp eq i64 %indvars.iv.next147, 16
@@ -5824,18 +5824,18 @@ literal_init.exit:                                ; preds = %15
 
 56:                                               ; preds = %54
   %57 = load i32, ptr %3, align 4
-  %58 = getelementptr inbounds i8, ptr %0, i64 26212
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 26212
   store i16 1024, ptr %58, align 4
-  %59 = getelementptr inbounds i8, ptr %0, i64 26214
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 26214
   store i16 1024, ptr %59, align 2
-  %60 = getelementptr inbounds i8, ptr %0, i64 27240
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 27240
   store i16 1024, ptr %60, align 8
-  %61 = getelementptr inbounds i8, ptr %0, i64 27242
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 27242
   store i16 1024, ptr %61, align 2
-  %62 = getelementptr inbounds i8, ptr %0, i64 26216
-  %63 = getelementptr inbounds i8, ptr %0, i64 26472
-  %64 = getelementptr inbounds i8, ptr %0, i64 27244
-  %65 = getelementptr inbounds i8, ptr %0, i64 27500
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 26216
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 26472
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 27244
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 27500
   br label %.preheader114
 
 .preheader114:                                    ; preds = %56, %73
@@ -5844,12 +5844,12 @@ literal_init.exit:                                ; preds = %15
   br label %68
 
 .preheader110:                                    ; preds = %73
-  %67 = getelementptr inbounds i8, ptr %0, i64 26728
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 26728
   br label %77
 
 68:                                               ; preds = %.preheader114, %68
   %indvars.iv150 = phi i64 [ 0, %.preheader114 ], [ %indvars.iv.next151, %68 ]
-  %69 = getelementptr inbounds [16 x [8 x i16]], ptr %62, i64 0, i64 %66, i64 %indvars.iv150
+  %69 = getelementptr inbounds nuw [16 x [8 x i16]], ptr %62, i64 0, i64 %66, i64 %indvars.iv150
   store i16 1024, ptr %69, align 2
   %indvars.iv.next151 = add nuw nsw i64 %indvars.iv150, 1
   %exitcond153.not = icmp eq i64 %indvars.iv.next151, 8
@@ -5857,7 +5857,7 @@ literal_init.exit:                                ; preds = %15
 
 .preheader113:                                    ; preds = %68, %.preheader113
   %indvars.iv154 = phi i64 [ %indvars.iv.next155, %.preheader113 ], [ 0, %68 ]
-  %70 = getelementptr inbounds [16 x [8 x i16]], ptr %63, i64 0, i64 %66, i64 %indvars.iv154
+  %70 = getelementptr inbounds nuw [16 x [8 x i16]], ptr %63, i64 0, i64 %66, i64 %indvars.iv154
   store i16 1024, ptr %70, align 2
   %indvars.iv.next155 = add nuw nsw i64 %indvars.iv154, 1
   %exitcond157.not = icmp eq i64 %indvars.iv.next155, 8
@@ -5865,7 +5865,7 @@ literal_init.exit:                                ; preds = %15
 
 .preheader112:                                    ; preds = %.preheader113, %.preheader112
   %indvars.iv158 = phi i64 [ %indvars.iv.next159, %.preheader112 ], [ 0, %.preheader113 ]
-  %71 = getelementptr inbounds [16 x [8 x i16]], ptr %64, i64 0, i64 %66, i64 %indvars.iv158
+  %71 = getelementptr inbounds nuw [16 x [8 x i16]], ptr %64, i64 0, i64 %66, i64 %indvars.iv158
   store i16 1024, ptr %71, align 2
   %indvars.iv.next159 = add nuw nsw i64 %indvars.iv158, 1
   %exitcond161.not = icmp eq i64 %indvars.iv.next159, 8
@@ -5873,7 +5873,7 @@ literal_init.exit:                                ; preds = %15
 
 .preheader111:                                    ; preds = %.preheader112, %.preheader111
   %indvars.iv162 = phi i64 [ %indvars.iv.next163, %.preheader111 ], [ 0, %.preheader112 ]
-  %72 = getelementptr inbounds [16 x [8 x i16]], ptr %65, i64 0, i64 %66, i64 %indvars.iv162
+  %72 = getelementptr inbounds nuw [16 x [8 x i16]], ptr %65, i64 0, i64 %66, i64 %indvars.iv162
   store i16 1024, ptr %72, align 2
   %indvars.iv.next163 = add nuw nsw i64 %indvars.iv162, 1
   %exitcond165.not = icmp eq i64 %indvars.iv.next163, 8
@@ -5886,12 +5886,12 @@ literal_init.exit:                                ; preds = %15
   br i1 %75, label %.preheader114, label %.preheader110, !llvm.loop !27
 
 .preheader:                                       ; preds = %77
-  %76 = getelementptr inbounds i8, ptr %0, i64 27756
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 27756
   br label %79
 
 77:                                               ; preds = %.preheader110, %77
   %indvars.iv166 = phi i64 [ 0, %.preheader110 ], [ %indvars.iv.next167, %77 ]
-  %78 = getelementptr inbounds [256 x i16], ptr %67, i64 0, i64 %indvars.iv166
+  %78 = getelementptr inbounds nuw [256 x i16], ptr %67, i64 0, i64 %indvars.iv166
   store i16 1024, ptr %78, align 2
   %indvars.iv.next167 = add nuw nsw i64 %indvars.iv166, 1
   %exitcond169.not = icmp eq i64 %indvars.iv.next167, 256
@@ -5899,23 +5899,23 @@ literal_init.exit:                                ; preds = %15
 
 79:                                               ; preds = %.preheader, %79
   %indvars.iv170 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next171, %79 ]
-  %80 = getelementptr inbounds [256 x i16], ptr %76, i64 0, i64 %indvars.iv170
+  %80 = getelementptr inbounds nuw [256 x i16], ptr %76, i64 0, i64 %indvars.iv170
   store i16 1024, ptr %80, align 2
   %indvars.iv.next171 = add nuw nsw i64 %indvars.iv170, 1
   %exitcond173.not = icmp eq i64 %indvars.iv.next171, 256
   br i1 %exitcond173.not, label %81, label %79, !llvm.loop !29
 
 81:                                               ; preds = %79
-  %82 = getelementptr inbounds i8, ptr %0, i64 28320
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 28320
   store i32 1, ptr %82, align 8
-  %83 = getelementptr inbounds i8, ptr %0, i64 28328
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 28328
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %83, i8 0, i64 24, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @lzma_decoder_uncompressed(ptr nocapture noundef writeonly initializes((28312, 28320)) %0, i64 noundef %1) #4 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 28312
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 28312
   store i64 %1, ptr %3, align 8
   ret void
 }
@@ -5930,13 +5930,13 @@ declare i32 @lzma_lz_decoder_init(ptr noundef, ptr noundef, ptr noundef, ptr nou
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 12) i32 @lzma_decoder_init(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %2, i64 20
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %6 = load i32, ptr %5, align 4
   %7 = icmp ult i32 %6, 5
   br i1 %7, label %8, label %lzma_lzma_decoder_create.exit
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %2, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %10 = load i32, ptr %9, align 8
   %11 = icmp ult i32 %10, 5
   %12 = add nuw nsw i32 %10, %6
@@ -5945,7 +5945,7 @@ define internal range(i32 0, 12) i32 @lzma_decoder_init(ptr nocapture noundef %0
   br i1 %or.cond.i, label %is_lclppb_valid.exit, label %lzma_lzma_decoder_create.exit
 
 is_lclppb_valid.exit:                             ; preds = %8
-  %14 = getelementptr inbounds i8, ptr %2, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %15 = load i32, ptr %14, align 4
   %16 = icmp ult i32 %15, 5
   br i1 %16, label %17, label %lzma_lzma_decoder_create.exit
@@ -5962,11 +5962,11 @@ is_lclppb_valid.exit:                             ; preds = %8
   br i1 %22, label %lzma_lzma_decoder_create.exit, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds i8, ptr %0, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @lzma_decode, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr @lzma_decoder_reset, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr @lzma_decoder_uncompressed, ptr %26, align 8
   br label %27
 
@@ -5974,19 +5974,19 @@ is_lclppb_valid.exit:                             ; preds = %8
   %28 = load i32, ptr %2, align 8
   %29 = zext i32 %28 to i64
   store i64 %29, ptr %3, align 8
-  %30 = getelementptr inbounds i8, ptr %2, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %3, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %31, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %2, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %34 = load i32, ptr %33, align 8
   %35 = zext i32 %34 to i64
-  %36 = getelementptr inbounds i8, ptr %3, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 %35, ptr %36, align 8
   %37 = load ptr, ptr %0, align 8
   tail call void @lzma_decoder_reset(ptr noundef %37, ptr noundef nonnull %2)
   %38 = load ptr, ptr %0, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 28312
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 28312
   store i64 -1, ptr %39, align 8
   br label %lzma_lzma_decoder_create.exit
 
@@ -6003,18 +6003,18 @@ define dso_local zeroext i1 @lzma_lzma_lclppb_decode(ptr nocapture noundef write
 4:                                                ; preds = %2
   %5 = udiv i8 %1, 45
   %6 = zext nneg i8 %5 to i32
-  %7 = getelementptr inbounds i8, ptr %0, i64 28
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %6, ptr %7, align 4
   %8 = mul i8 %5, -45
   %9 = add i8 %8, %1
   %10 = zext i8 %9 to i32
   %11 = udiv i8 %9, 9
   %.zext = zext nneg i8 %11 to i32
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %.zext, ptr %12, align 8
   %.neg = mul nsw i32 %.zext, -9
   %13 = add nsw i32 %.neg, %10
-  %14 = getelementptr inbounds i8, ptr %0, i64 20
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %13, ptr %14, align 4
   %15 = add nsw i32 %13, %.zext
   %16 = icmp ugt i32 %15, 4
@@ -6038,13 +6038,13 @@ declare i64 @lzma_lz_decoder_memusage(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @lzma_lzma_decoder_memusage(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 20
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %3 = load i32, ptr %2, align 4
   %4 = icmp ult i32 %3, 5
   br i1 %4, label %5, label %is_lclppb_valid.exit.thread
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load i32, ptr %6, align 8
   %8 = icmp ult i32 %7, 5
   %9 = add nuw nsw i32 %7, %3
@@ -6053,7 +6053,7 @@ define dso_local i64 @lzma_lzma_decoder_memusage(ptr nocapture noundef readonly 
   br i1 %or.cond.i, label %is_lclppb_valid.exit, label %is_lclppb_valid.exit.thread
 
 is_lclppb_valid.exit:                             ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %0, i64 28
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %12 = load i32, ptr %11, align 4
   %13 = icmp ult i32 %12, 5
   br i1 %13, label %14, label %is_lclppb_valid.exit.thread
@@ -6088,30 +6088,30 @@ define dso_local range(i32 0, 9) i32 @lzma_lzma_props_decode(ptr nocapture nound
 lzma_lzma_lclppb_decode.exit:                     ; preds = %8
   %11 = udiv i8 %9, 45
   %12 = zext nneg i8 %11 to i32
-  %13 = getelementptr inbounds i8, ptr %6, i64 28
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 28
   store i32 %12, ptr %13, align 4
   %14 = mul i8 %11, -45
   %15 = add i8 %14, %9
   %16 = zext i8 %15 to i32
   %17 = udiv i8 %15, 9
   %.zext.i = zext nneg i8 %17 to i32
-  %18 = getelementptr inbounds i8, ptr %6, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i32 %.zext.i, ptr %18, align 8
   %.neg.i = mul nsw i32 %.zext.i, -9
   %19 = add nsw i32 %.neg.i, %16
-  %20 = getelementptr inbounds i8, ptr %6, i64 20
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 20
   store i32 %19, ptr %20, align 4
   %21 = add nsw i32 %19, %.zext.i
   %22 = icmp ugt i32 %21, 4
   br i1 %22, label %lzma_lzma_lclppb_decode.exit.thread, label %23
 
 23:                                               ; preds = %lzma_lzma_lclppb_decode.exit
-  %24 = getelementptr inbounds i8, ptr %2, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %.val = load i32, ptr %24, align 1
   store i32 %.val, ptr %6, align 8
-  %25 = getelementptr inbounds i8, ptr %6, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr null, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %6, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 0, ptr %26, align 8
   store ptr %6, ptr %0, align 8
   br label %27

@@ -597,7 +597,7 @@ sub_0:
   br i1 %.not46, label %sub_1, label %.tail
 
 sub_1:                                            ; preds = %sub_0
-  %20 = getelementptr inbounds i8, ptr %3, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %21 = load i8, ptr %20, align 1
   %22 = zext i8 %21 to i32
   %23 = sub nsw i32 68, %22
@@ -605,7 +605,7 @@ sub_1:                                            ; preds = %sub_0
   br i1 %.not47, label %sub_2, label %.tail
 
 sub_2:                                            ; preds = %sub_1
-  %24 = getelementptr inbounds i8, ptr %3, i64 2
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 2
   %25 = load i8, ptr %24, align 1
   %26 = zext i8 %25 to i32
   %27 = sub nsw i32 80, %26
@@ -619,7 +619,7 @@ sub_2:                                            ; preds = %sub_1
   %30 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(8) @.str.339, ptr noundef nonnull dereferenceable(1) %3, i64 noundef 7) #8
   %.not44 = icmp eq i32 %30, 0
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(14) %9, i8 0, i64 14, i1 false)
-  %31 = getelementptr inbounds i8, ptr %1, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %32 = load ptr, ptr %31, align 8
   tail call void @col_clear(ptr noundef %32, i32 noundef 25) #7
   %brmerge = select i1 %.not, i1 true, i1 %.not43

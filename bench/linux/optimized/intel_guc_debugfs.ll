@@ -23,15 +23,15 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @intel_guc_debugfs_register(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, -1
   br i1 %5, label %8, label %6
 
 6:                                                ; preds = %2
   tail call void @intel_gt_debugfs_register_files(ptr noundef %1, ptr noundef nonnull @intel_guc_debugfs_register.files, i64 noundef 5, ptr noundef %0) #6
-  %7 = getelementptr inbounds i8, ptr %0, i64 416
-  tail call void @intel_guc_log_debugfs_register(ptr noundef %7, ptr noundef %1) #6
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 416
+  tail call void @intel_guc_log_debugfs_register(ptr noundef nonnull %7, ptr noundef %1) #6
   br label %8
 
 8:                                                ; preds = %6, %2
@@ -40,19 +40,19 @@ define dso_local void @intel_guc_debugfs_register(ptr noundef %0, ptr noundef %1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
 define internal noundef zeroext i1 @intel_eval_slpc_support(ptr nocapture noundef readonly %0) #1 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 4
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   %4 = icmp sgt i32 %3, 4
   br i1 %4, label %5, label %13
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 1265
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1265
   %7 = load i8, ptr %6, align 1, !range !5, !noundef !6
   %8 = icmp eq i8 %7, 0
   br i1 %8, label %13, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %0, i64 889
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 889
   %11 = load i8, ptr %10, align 1, !range !5, !noundef !6
   %12 = icmp ne i8 %11, 0
   br label %13
@@ -76,7 +76,7 @@ declare dso_local i64 @seq_read(ptr noundef, ptr noundef, i64 noundef, ptr nound
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @guc_info_open(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 592
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 @single_open(ptr noundef %1, ptr noundef nonnull @guc_info_show, ptr noundef %4) #6
   ret i32 %5
@@ -91,17 +91,17 @@ declare dso_local i32 @single_open(ptr noundef, ptr noundef, ptr noundef) local_
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef range(i32 -19, 1) i32 @guc_info_show(ptr noundef %0, ptr nocapture readnone %1) #0 align 16 {
   %3 = alloca %struct.drm_printer, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 112
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %5 = load ptr, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #6
   store ptr @__drm_printfn_seq_file, ptr %3, align 8, !alias.scope !7
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @__drm_puts_seq_file, ptr %6, align 8, !alias.scope !7
-  %7 = getelementptr inbounds i8, ptr %3, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %0, ptr %7, align 8, !alias.scope !7
-  %8 = getelementptr inbounds i8, ptr %3, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr null, ptr %8, align 8, !alias.scope !7
-  %9 = getelementptr inbounds i8, ptr %5, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %10, -1
   br i1 %11, label %22, label %12
@@ -109,21 +109,21 @@ define internal noundef range(i32 -19, 1) i32 @guc_info_show(ptr noundef %0, ptr
 12:                                               ; preds = %2
   call void @intel_guc_load_status(ptr noundef %5, ptr noundef nonnull %3) #6
   call void @drm_puts(ptr noundef nonnull %3, ptr noundef nonnull @.str.5) #6
-  %13 = getelementptr inbounds i8, ptr %5, i64 416
-  call void @intel_guc_log_info(ptr noundef %13, ptr noundef nonnull %3) #6
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 416
+  call void @intel_guc_log_info(ptr noundef nonnull %13, ptr noundef nonnull %3) #6
   %14 = load i32, ptr %9, align 4
   %15 = icmp sgt i32 %14, 4
   br i1 %15, label %16, label %22
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %5, i64 1265
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 1265
   %18 = load i8, ptr %17, align 1, !range !5, !noundef !6
   %19 = icmp eq i8 %18, 0
   br i1 %19, label %22, label %20
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %5, i64 616
-  call void @intel_guc_ct_print_info(ptr noundef %21, ptr noundef nonnull %3) #6
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 616
+  call void @intel_guc_ct_print_info(ptr noundef nonnull %21, ptr noundef nonnull %3) #6
   call void @intel_guc_submission_print_info(ptr noundef %5, ptr noundef nonnull %3) #6
   call void @intel_guc_ads_print_policy_info(ptr noundef %5, ptr noundef nonnull %3) #6
   br label %22
@@ -166,7 +166,7 @@ declare dso_local void @__drm_puts_seq_file(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @guc_registered_contexts_open(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 592
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 @single_open(ptr noundef %1, ptr noundef nonnull @guc_registered_contexts_show, ptr noundef %4) #6
   ret i32 %5
@@ -175,23 +175,23 @@ define internal i32 @guc_registered_contexts_open(ptr nocapture noundef readonly
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef range(i32 -19, 1) i32 @guc_registered_contexts_show(ptr noundef %0, ptr nocapture readnone %1) #0 align 16 {
   %3 = alloca %struct.drm_printer, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 112
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %5 = load ptr, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #6
   store ptr @__drm_printfn_seq_file, ptr %3, align 8, !alias.scope !10
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @__drm_puts_seq_file, ptr %6, align 8, !alias.scope !10
-  %7 = getelementptr inbounds i8, ptr %3, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %0, ptr %7, align 8, !alias.scope !10
-  %8 = getelementptr inbounds i8, ptr %3, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr null, ptr %8, align 8, !alias.scope !10
-  %9 = getelementptr inbounds i8, ptr %5, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = icmp sgt i32 %10, 4
   br i1 %11, label %12, label %17
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %5, i64 1265
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 1265
   %14 = load i8, ptr %13, align 1, !range !5, !noundef !6
   %15 = icmp eq i8 %14, 0
   br i1 %15, label %17, label %16
@@ -211,7 +211,7 @@ declare dso_local void @intel_guc_submission_print_context_info(ptr noundef, ptr
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @guc_slpc_info_open(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 592
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 @single_open(ptr noundef %1, ptr noundef nonnull @guc_slpc_info_show, ptr noundef %4) #6
   ret i32 %5
@@ -220,36 +220,36 @@ define internal i32 @guc_slpc_info_open(ptr nocapture noundef readonly %0, ptr n
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @guc_slpc_info_show(ptr noundef %0, ptr nocapture readnone %1) #0 align 16 {
   %3 = alloca %struct.drm_printer, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 112
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %5 = load ptr, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #6
   store ptr @__drm_printfn_seq_file, ptr %3, align 8, !alias.scope !13
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @__drm_puts_seq_file, ptr %6, align 8, !alias.scope !13
-  %7 = getelementptr inbounds i8, ptr %3, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %0, ptr %7, align 8, !alias.scope !13
-  %8 = getelementptr inbounds i8, ptr %3, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr null, ptr %8, align 8, !alias.scope !13
-  %9 = getelementptr inbounds i8, ptr %5, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = icmp sgt i32 %10, 4
   br i1 %11, label %12, label %23
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %5, i64 1265
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 1265
   %14 = load i8, ptr %13, align 1, !range !5, !noundef !6
   %15 = icmp eq i8 %14, 0
   br i1 %15, label %23, label %16
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %5, i64 889
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 889
   %18 = load i8, ptr %17, align 1, !range !5, !noundef !6
   %19 = icmp eq i8 %18, 0
   br i1 %19, label %23, label %20
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %5, i64 872
-  %22 = call i32 @intel_guc_slpc_print_info(ptr noundef %21, ptr noundef nonnull %3) #6
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 872
+  %22 = call i32 @intel_guc_slpc_print_info(ptr noundef nonnull %21, ptr noundef nonnull %3) #6
   br label %23
 
 23:                                               ; preds = %20, %16, %12, %2
@@ -284,19 +284,19 @@ declare dso_local i32 @simple_attr_open(ptr noundef, ptr noundef, ptr noundef, p
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
 define internal noundef range(i32 -19, 1) i32 @guc_sched_disable_delay_ms_get(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #4 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = icmp sgt i32 %4, 4
   br i1 %5, label %6, label %14
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 1265
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1265
   %8 = load i8, ptr %7, align 1, !range !5, !noundef !6
   %9 = icmp eq i8 %8, 0
   br i1 %9, label %14, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %0, i64 1252
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 1252
   %12 = load i32, ptr %11, align 4
   %13 = zext i32 %12 to i64
   store i64 %13, ptr %1, align 8
@@ -309,13 +309,13 @@ define internal noundef range(i32 -19, 1) i32 @guc_sched_disable_delay_ms_get(pt
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
 define internal noundef range(i32 -19, 1) i32 @guc_sched_disable_delay_ms_set(ptr nocapture noundef %0, i64 noundef %1) #4 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = icmp sgt i32 %4, 4
   br i1 %5, label %6, label %14
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 1265
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1265
   %8 = load i8, ptr %7, align 1, !range !5, !noundef !6
   %9 = icmp eq i8 %8, 0
   br i1 %9, label %14, label %10
@@ -323,7 +323,7 @@ define internal noundef range(i32 -19, 1) i32 @guc_sched_disable_delay_ms_set(pt
 10:                                               ; preds = %6
   %11 = tail call i64 @llvm.umin.i64(i64 %1, i64 60000)
   %12 = trunc nuw nsw i64 %11 to i32
-  %13 = getelementptr inbounds i8, ptr %0, i64 1252
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 1252
   store i32 %12, ptr %13, align 4
   br label %14
 
@@ -340,19 +340,19 @@ define internal i32 @guc_sched_disable_gucid_threshold_fops_open(ptr noundef %0,
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
 define internal noundef range(i32 -19, 1) i32 @guc_sched_disable_gucid_threshold_get(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #4 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = icmp sgt i32 %4, 4
   br i1 %5, label %6, label %14
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 1265
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1265
   %8 = load i8, ptr %7, align 1, !range !5, !noundef !6
   %9 = icmp eq i8 %8, 0
   br i1 %9, label %14, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %0, i64 1256
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 1256
   %12 = load i32, ptr %11, align 8
   %13 = zext i32 %12 to i64
   store i64 %13, ptr %1, align 8
@@ -365,13 +365,13 @@ define internal noundef range(i32 -19, 1) i32 @guc_sched_disable_gucid_threshold
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef range(i32 -19, 1) i32 @guc_sched_disable_gucid_threshold_set(ptr noundef %0, i64 noundef %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = icmp sgt i32 %4, 4
   br i1 %5, label %6, label %21
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 1265
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1265
   %8 = load i8, ptr %7, align 1, !range !5, !noundef !6
   %9 = icmp eq i8 %8, 0
   br i1 %9, label %21, label %10
@@ -380,7 +380,7 @@ define internal noundef range(i32 -19, 1) i32 @guc_sched_disable_gucid_threshold
   %11 = tail call i32 @intel_guc_sched_disable_gucid_threshold_max(ptr noundef %0) #6
   %12 = sext i32 %11 to i64
   %13 = icmp ugt i64 %1, %12
-  %14 = getelementptr inbounds i8, ptr %0, i64 1256
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 1256
   br i1 %13, label %15, label %17
 
 15:                                               ; preds = %10

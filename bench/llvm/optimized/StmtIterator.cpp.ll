@@ -88,7 +88,7 @@ _ZL6FindVAPKN5clang4TypeE.exit:                   ; preds = %14
 
 40:                                               ; preds = %._crit_edge, %30
   %.pre.i = phi ptr [ %.pre.i.pre, %._crit_edge ], [ %31, %30 ]
-  %41 = getelementptr inbounds i8, ptr %.pre.i, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 8
   store ptr %41, ptr %0, align 8
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %43 = load ptr, ptr %42, align 8
@@ -103,7 +103,7 @@ _ZL6FindVAPKN5clang4TypeE.exit:                   ; preds = %14
 
 47:                                               ; preds = %.lr.ph.i7
   %48 = load ptr, ptr %0, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   store ptr %49, ptr %0, align 8
   %50 = load ptr, ptr %42, align 8
   %.not.i8 = icmp eq ptr %49, %50
@@ -126,7 +126,7 @@ define dso_local void @_ZN5clang16StmtIteratorBase8NextDeclEb(ptr nocapture noun
   br i1 %1, label %3, label %5
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %.pre, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
   store ptr %4, ptr %0, align 8
   br label %5
 
@@ -145,7 +145,7 @@ define dso_local void @_ZN5clang16StmtIteratorBase8NextDeclEb(ptr nocapture noun
 
 12:                                               ; preds = %.lr.ph
   %13 = load ptr, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %14, ptr %0, align 8
   %15 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %14, %15
@@ -325,7 +325,7 @@ define dso_local void @_ZN5clang16StmtIteratorBaseC2EPPNS_4DeclES3_(ptr nocaptur
 
 9:                                                ; preds = %.lr.ph.i
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %11, ptr %0, align 8
   %12 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %11, %12

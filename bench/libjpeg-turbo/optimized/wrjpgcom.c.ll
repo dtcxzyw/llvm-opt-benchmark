@@ -81,7 +81,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr nocapture noundef readonl
   br i1 %.not.not.not.not, label %._crit_edge, label %17
 
 17:                                               ; preds = %.lr.ph
-  %18 = getelementptr inbounds i8, ptr %15, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 1
   %19 = load i8, ptr %18, align 1
   %.not18.i = icmp eq i8 %19, 0
   br i1 %.not18.i, label %keymatch.exit140.thread, label %.lr.ph.i
@@ -90,8 +90,8 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr nocapture noundef readonl
   %20 = phi i8 [ %36, %35 ], [ %19, %17 ]
   %.pn.i = phi ptr [ %21, %35 ], [ %18, %17 ]
   %.01219.i.idx = phi i64 [ %.01219.i.add, %35 ], [ 0, %17 ]
-  %.01219.i.ptr = getelementptr inbounds i8, ptr @.str.1, i64 %.01219.i.idx
-  %21 = getelementptr inbounds i8, ptr %.pn.i, i64 1
+  %.01219.i.ptr = getelementptr inbounds nuw i8, ptr @.str.1, i64 %.01219.i.idx
+  %21 = getelementptr inbounds nuw i8, ptr %.pn.i, i64 1
   %22 = sext i8 %20 to i32
   %.01219.i.add = add nuw nsw i64 %.01219.i.idx, 1
   %23 = load i8, ptr %.01219.i.ptr, align 1
@@ -131,9 +131,9 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr nocapture noundef readonl
   %.pn.i115 = phi ptr [ %38, %53 ], [ %18, %.lr.ph.i114.preheader ]
   %.020.i116 = phi i32 [ %54, %53 ], [ 0, %.lr.ph.i114.preheader ]
   %.01219.i117 = phi ptr [ %40, %53 ], [ @.str.2, %.lr.ph.i114.preheader ]
-  %38 = getelementptr inbounds i8, ptr %.pn.i115, i64 1
+  %38 = getelementptr inbounds nuw i8, ptr %.pn.i115, i64 1
   %39 = sext i8 %37 to i32
-  %40 = getelementptr inbounds i8, ptr %.01219.i117, i64 1
+  %40 = getelementptr inbounds nuw i8, ptr %.01219.i117, i64 1
   %41 = load i8, ptr %.01219.i117, align 1
   %42 = sext i8 %41 to i32
   %exitcond307 = icmp eq i32 %.020.i116, 5
@@ -201,8 +201,8 @@ keymatch.exit126:                                 ; preds = %53
   %71 = phi i8 [ %87, %86 ], [ %19, %.lr.ph.i128.preheader ]
   %.pn.i129 = phi ptr [ %72, %86 ], [ %18, %.lr.ph.i128.preheader ]
   %.01219.i131.idx = phi i64 [ %.01219.i131.add, %86 ], [ 0, %.lr.ph.i128.preheader ]
-  %.01219.i131.ptr = getelementptr inbounds i8, ptr @.str.5, i64 %.01219.i131.idx
-  %72 = getelementptr inbounds i8, ptr %.pn.i129, i64 1
+  %.01219.i131.ptr = getelementptr inbounds nuw i8, ptr @.str.5, i64 %.01219.i131.idx
+  %72 = getelementptr inbounds nuw i8, ptr %.pn.i129, i64 1
   %73 = sext i8 %71 to i32
   %.01219.i131.add = add nuw nsw i64 %.01219.i131.idx, 1
   %74 = load i8, ptr %.01219.i131.ptr, align 1
@@ -275,7 +275,7 @@ keymatch.exit126:                                 ; preds = %53
   unreachable
 
 110:                                              ; preds = %103
-  %111 = getelementptr inbounds i8, ptr %94, i64 1
+  %111 = getelementptr inbounds nuw i8, ptr %94, i64 1
   %112 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %98, ptr noundef nonnull dereferenceable(1) %111) #16
   br label %113
 
@@ -289,13 +289,13 @@ keymatch.exit126:                                 ; preds = %53
 116:                                              ; preds = %113
   %117 = add i64 %114, 4294967295
   %118 = and i64 %117, 4294967295
-  %119 = getelementptr inbounds i8, ptr %98, i64 %118
+  %119 = getelementptr inbounds nuw i8, ptr %98, i64 %118
   %120 = load i8, ptr %119, align 1
   %121 = icmp eq i8 %120, 34
   br i1 %121, label %122, label %125
 
 122:                                              ; preds = %116
-  %123 = getelementptr inbounds i8, ptr %98, i64 %118
+  %123 = getelementptr inbounds nuw i8, ptr %98, i64 %118
   %124 = trunc nsw i64 %indvars.iv to i32
   store i8 0, ptr %123, align 1
   br label %147
@@ -464,7 +464,7 @@ keymatch.exit:                                    ; preds = %35, %147, %59
 193:                                              ; preds = %.lr.ph279
   %194 = trunc i32 %189 to i8
   %indvars.iv.next312 = add nuw nsw i64 %indvars.iv311, 1
-  %195 = getelementptr inbounds i8, ptr %180, i64 %indvars.iv311
+  %195 = getelementptr inbounds nuw i8, ptr %180, i64 %indvars.iv311
   store i8 %194, ptr %195, align 1
   %196 = tail call i32 @getc(ptr noundef %187)
   %.not109 = icmp eq i32 %196, -1
@@ -728,7 +728,7 @@ scan_JPEG_header.exit:                            ; preds = %next_marker.exit.i,
 289:                                              ; preds = %276, %289
   %.4283 = phi i32 [ %.284, %276 ], [ %295, %289 ]
   %.492282 = phi ptr [ %.391, %276 ], [ %290, %289 ]
-  %290 = getelementptr inbounds i8, ptr %.492282, i64 1
+  %290 = getelementptr inbounds nuw i8, ptr %.492282, i64 1
   %291 = load i8, ptr %.492282, align 1
   %292 = sext i8 %291 to i32
   %293 = load ptr, ptr @outfile, align 8

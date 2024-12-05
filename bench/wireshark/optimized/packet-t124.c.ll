@@ -1091,9 +1091,9 @@ define hidden range(i32 -268435456, 268435456) i32 @dissect_DomainMCSPDU_PDU(ptr
   br i1 %switch.i, label %dissect_t124_DomainMCSPDU.exit, label %10
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %5, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str_const(i32 noundef %9, ptr noundef nonnull @t124_DomainMCSPDU_vals, ptr noundef nonnull @.str.467) #8
   call void (ptr, i32, ptr, ...) @col_prepend_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.466, ptr noundef %15) #8
@@ -1139,7 +1139,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 define internal i32 @dissect_t124(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   store ptr %2, ptr @top_tree, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void @col_set_str(ptr noundef %7, i32 noundef 34, ptr noundef nonnull @.str.456) #8
   %8 = load ptr, ptr %6, align 8
@@ -1183,10 +1183,10 @@ define internal range(i32 0, 2) i32 @dissect_t124_heur(ptr noundef %0, ptr nound
   call void @asn1_ctx_init(ptr noundef nonnull %6, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #8
   store volatile i32 0, ptr %9, align 4
   call void @except_setup_try(ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull @dissect_t124_heur.catch_spec, i64 noundef 1) #8
-  %12 = getelementptr inbounds i8, ptr %11, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 48
   %13 = call i32 @_setjmp(ptr noundef nonnull %12) #9
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %11, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %.sink = select i1 %.not, ptr null, ptr %14
   store volatile ptr %.sink, ptr %8, align 8
   %.0..0..0..0. = load volatile i32, ptr %9, align 4
@@ -1230,35 +1230,35 @@ define internal range(i32 0, 2) i32 @dissect_t124_heur(ptr noundef %0, ptr nound
 
 29:                                               ; preds = %28
   %.0..0..0..0.12 = load volatile ptr, ptr %8, align 8
-  %30 = getelementptr inbounds i8, ptr %.0..0..0..0.12, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.12, i64 8
   %31 = load volatile i64, ptr %30, align 8
   %32 = icmp eq i64 %31, 1
   br i1 %32, label %49, label %33
 
 33:                                               ; preds = %29
   %.0..0..0..0.13 = load volatile ptr, ptr %8, align 8
-  %34 = getelementptr inbounds i8, ptr %.0..0..0..0.13, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.13, i64 8
   %35 = load volatile i64, ptr %34, align 8
   %36 = icmp eq i64 %35, 4
   br i1 %36, label %49, label %37
 
 37:                                               ; preds = %33
   %.0..0..0..0.14 = load volatile ptr, ptr %8, align 8
-  %38 = getelementptr inbounds i8, ptr %.0..0..0..0.14, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.14, i64 8
   %39 = load volatile i64, ptr %38, align 8
   %40 = icmp eq i64 %39, 3
   br i1 %40, label %49, label %41
 
 41:                                               ; preds = %37
   %.0..0..0..0.15 = load volatile ptr, ptr %8, align 8
-  %42 = getelementptr inbounds i8, ptr %.0..0..0..0.15, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.15, i64 8
   %43 = load volatile i64, ptr %42, align 8
   %44 = icmp eq i64 %43, 2
   br i1 %44, label %49, label %45
 
 45:                                               ; preds = %41
   %.0..0..0..0.16 = load volatile ptr, ptr %8, align 8
-  %46 = getelementptr inbounds i8, ptr %.0..0..0..0.16, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.16, i64 8
   %47 = load volatile i64, ptr %46, align 8
   %48 = icmp eq i64 %47, 7
   br i1 %48, label %49, label %51
@@ -1287,13 +1287,13 @@ define internal range(i32 0, 2) i32 @dissect_t124_heur(ptr noundef %0, ptr nound
   unreachable
 
 55:                                               ; preds = %53, %51
-  %56 = getelementptr inbounds i8, ptr %11, i64 40
+  %56 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %57 = load volatile ptr, ptr %56, align 8
   call void @except_free(ptr noundef %57) #8
   %58 = call ptr @except_pop() #8
   %.0..0..0..0.19 = load volatile i32, ptr %7, align 4
   %59 = icmp eq i32 %.0..0..0..0.19, 0
-  %60 = getelementptr inbounds i8, ptr %6, i64 72
+  %60 = getelementptr inbounds nuw i8, ptr %6, i64 72
   %61 = load ptr, ptr %60, align 8
   %62 = icmp ne ptr %61, null
   %or.cond = select i1 %59, i1 %62, i1 false
@@ -1307,7 +1307,7 @@ define internal range(i32 0, 2) i32 @dissect_t124_heur(ptr noundef %0, ptr nound
 66:                                               ; preds = %63
   call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5)
   store ptr %2, ptr @top_tree, align 8
-  %67 = getelementptr inbounds i8, ptr %1, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %68 = load ptr, ptr %67, align 8
   call void @col_set_str(ptr noundef %68, i32 noundef 34, ptr noundef nonnull @.str.456) #8
   %69 = load ptr, ptr %67, align 8
@@ -1359,7 +1359,7 @@ define internal i32 @dissect_t124_T_connectPDU(ptr noundef %0, i32 noundef %1, p
   br label %16
 
 16:                                               ; preds = %12, %9
-  %17 = getelementptr inbounds i8, ptr %2, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %18 = load ptr, ptr %17, align 8
   %19 = load i32, ptr @ett_t124_connectGCCPDU, align 4
   %20 = call ptr @proto_item_add_subtree(ptr noundef %18, i32 noundef %19) #8
@@ -1375,14 +1375,14 @@ define internal i32 @dissect_t124_T_connectPDU(ptr noundef %0, i32 noundef %1, p
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_t124_T_object(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 72
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %7 = tail call i32 @dissect_per_object_identifier_str(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef nonnull %6) #8
   ret i32 %7
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_t124_H221NonStandardIdentifier(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %7 = tail call i32 @dissect_per_octet_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 4, i32 noundef 255, i32 noundef 0, ptr noundef nonnull %6) #8
   ret i32 %7
 }
@@ -1552,7 +1552,7 @@ define internal i32 @dissect_t124_UserData_item(ptr noundef %0, i32 noundef %1, 
 define internal i32 @dissect_t124_T_value(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
   store ptr null, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %8 = load ptr, ptr %7, align 8
   %9 = call i32 @dissect_per_octet_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef -1, i32 noundef -1, i32 noundef 0, ptr noundef nonnull %6) #8
   %10 = load ptr, ptr %6, align 8
@@ -1562,9 +1562,9 @@ define internal i32 @dissect_t124_T_value(ptr noundef %0, i32 noundef %1, ptr no
   br i1 %or.cond, label %13, label %26
 
 13:                                               ; preds = %5
-  %14 = getelementptr inbounds i8, ptr %2, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 408
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 408
   %17 = load ptr, ptr %16, align 8
   %18 = call i32 @tvb_reported_length(ptr noundef nonnull %8) #8
   %19 = call ptr @tvb_get_string_enc(ptr noundef %17, ptr noundef nonnull %8, i32 noundef 0, i32 noundef %18, i32 noundef 0) #8
@@ -2217,9 +2217,9 @@ define internal i32 @dissect_t124_StaticChannelId(ptr noundef %0, i32 noundef %1
   br i1 %8, label %9, label %dissect_t124_ChannelId.exit
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %2, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = load i32, ptr @channelId, align 4
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %13, i32 noundef 25, ptr noundef nonnull @.str.468, i32 noundef %14) #8
@@ -2237,9 +2237,9 @@ define internal i32 @dissect_t124_ChannelId(ptr noundef %0, i32 noundef %1, ptr 
   br i1 %8, label %9, label %15
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %2, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = load i32, ptr @channelId, align 4
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %13, i32 noundef 25, ptr noundef nonnull @.str.468, i32 noundef %14) #8
@@ -2259,9 +2259,9 @@ define internal i32 @dissect_t124_UserId(ptr noundef %0, i32 noundef %1, ptr nou
   br i1 %8, label %9, label %dissect_t124_DynamicChannelId.exit
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %2, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = load i32, ptr @channelId, align 4
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %13, i32 noundef 25, ptr noundef nonnull @.str.468, i32 noundef %14) #8
@@ -2279,9 +2279,9 @@ define internal i32 @dissect_t124_PrivateChannelId(ptr noundef %0, i32 noundef %
   br i1 %8, label %9, label %dissect_t124_DynamicChannelId.exit
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %2, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = load i32, ptr @channelId, align 4
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %13, i32 noundef 25, ptr noundef nonnull @.str.468, i32 noundef %14) #8
@@ -2306,9 +2306,9 @@ define internal i32 @dissect_t124_AssignedChannelId(ptr noundef %0, i32 noundef 
   br i1 %8, label %9, label %dissect_t124_DynamicChannelId.exit
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %2, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = load i32, ptr @channelId, align 4
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %13, i32 noundef 25, ptr noundef nonnull @.str.468, i32 noundef %14) #8
@@ -2422,7 +2422,7 @@ define internal i32 @dissect_t124_T_userData(ptr noundef %0, i32 noundef %1, ptr
 9:                                                ; preds = %5
   %10 = load ptr, ptr @t124_sd_dissector_table, align 8
   %11 = load i32, ptr @channelId, align 4
-  %12 = getelementptr inbounds i8, ptr %2, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr @top_tree, align 8
   %15 = call i32 @dissector_try_uint_new(ptr noundef %10, i32 noundef %11, ptr noundef nonnull %8, ptr noundef %13, ptr noundef %14, i32 noundef 0, ptr noundef null) #8
@@ -2448,7 +2448,7 @@ define internal i32 @dissect_t124_T_userData_01(ptr noundef %0, i32 noundef %1, 
 9:                                                ; preds = %5
   %10 = load ptr, ptr @t124_sd_dissector_table, align 8
   %11 = load i32, ptr @channelId, align 4
-  %12 = getelementptr inbounds i8, ptr %2, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr @top_tree, align 8
   %15 = call i32 @dissector_try_uint(ptr noundef %10, i32 noundef %11, ptr noundef nonnull %8, ptr noundef %13, ptr noundef %14) #8

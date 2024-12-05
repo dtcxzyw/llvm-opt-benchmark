@@ -63,7 +63,7 @@ sw.epilog:                                        ; preds = %entry
 
 switch.lookup:                                    ; preds = %entry
   %1 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [6 x ptr], ptr @switch.table.list_object_filter_config_name, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table.list_object_filter_config_name, i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -78,7 +78,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %choice = getelementptr inbounds i8, ptr %filter_options, i64 24
+  %choice = getelementptr inbounds nuw i8, ptr %filter_options, i64 24
   %0 = load i32, ptr %choice, align 8
   %tobool1.not = icmp eq i32 %0, 0
   br i1 %tobool1.not, label %if.end3, label %if.then2
@@ -107,9 +107,9 @@ do.body.i:                                        ; preds = %do.body.i.preheader
   br i1 %exitcond, label %if.then8, label %do.cond.i
 
 do.cond.i:                                        ; preds = %do.body.i
-  %prefix.addr.0.i.ptr = getelementptr inbounds i8, ptr @.str.9, i64 %prefix.addr.0.i.idx
+  %prefix.addr.0.i.ptr = getelementptr inbounds nuw i8, ptr @.str.9, i64 %prefix.addr.0.i.idx
   %1 = load i8, ptr %prefix.addr.0.i.ptr, align 1
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %str.addr.0.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %str.addr.0.i, i64 1
   %2 = load i8, ptr %str.addr.0.i, align 1
   %prefix.addr.0.i.add = add nuw nsw i64 %prefix.addr.0.i.idx, 1
   %cmp.i = icmp eq i8 %2, %1
@@ -120,7 +120,7 @@ do.body.i26.preheader:                            ; preds = %do.cond.i
   br label %do.body.i26
 
 if.then8:                                         ; preds = %do.body.i
-  %blob_limit_value = getelementptr inbounds i8, ptr %filter_options, i64 40
+  %blob_limit_value = getelementptr inbounds nuw i8, ptr %filter_options, i64 40
   %call9 = tail call i32 @git_parse_ulong(ptr noundef nonnull %scevgep, ptr noundef nonnull %blob_limit_value) #14
   %tobool10.not = icmp eq i32 %call9, 0
   br i1 %tobool10.not, label %if.end54, label %if.then11
@@ -136,16 +136,16 @@ do.body.i26:                                      ; preds = %do.body.i26.prehead
   br i1 %exitcond120, label %if.then16, label %do.cond.i30
 
 do.cond.i30:                                      ; preds = %do.body.i26
-  %prefix.addr.0.i28.ptr = getelementptr inbounds i8, ptr @.str.10, i64 %prefix.addr.0.i28.idx
+  %prefix.addr.0.i28.ptr = getelementptr inbounds nuw i8, ptr @.str.10, i64 %prefix.addr.0.i28.idx
   %3 = load i8, ptr %prefix.addr.0.i28.ptr, align 1
-  %incdec.ptr.i31 = getelementptr inbounds i8, ptr %str.addr.0.i27, i64 1
+  %incdec.ptr.i31 = getelementptr inbounds nuw i8, ptr %str.addr.0.i27, i64 1
   %4 = load i8, ptr %str.addr.0.i27, align 1
   %prefix.addr.0.i28.add = add nuw nsw i64 %prefix.addr.0.i28.idx, 1
   %cmp.i33 = icmp eq i8 %4, %3
   br i1 %cmp.i33, label %do.body.i26, label %do.body.i37, !llvm.loop !5
 
 if.then16:                                        ; preds = %do.body.i26
-  %tree_exclude_depth = getelementptr inbounds i8, ptr %filter_options, i64 48
+  %tree_exclude_depth = getelementptr inbounds nuw i8, ptr %filter_options, i64 48
   %call17 = tail call i32 @git_parse_ulong(ptr noundef nonnull %scevgep119, ptr noundef nonnull %tree_exclude_depth) #14
   %tobool18.not = icmp eq i32 %call17, 0
   br i1 %tobool18.not, label %if.then19, label %if.end21
@@ -176,9 +176,9 @@ do.body.i37:                                      ; preds = %do.cond.i30, %do.co
   br i1 %exitcond122, label %if.then25, label %do.cond.i41
 
 do.cond.i41:                                      ; preds = %do.body.i37
-  %prefix.addr.0.i39.ptr = getelementptr inbounds i8, ptr @.str.12, i64 %prefix.addr.0.i39.idx
+  %prefix.addr.0.i39.ptr = getelementptr inbounds nuw i8, ptr @.str.12, i64 %prefix.addr.0.i39.idx
   %6 = load i8, ptr %prefix.addr.0.i39.ptr, align 1
-  %incdec.ptr.i42 = getelementptr inbounds i8, ptr %str.addr.0.i38, i64 1
+  %incdec.ptr.i42 = getelementptr inbounds nuw i8, ptr %str.addr.0.i38, i64 1
   %7 = load i8, ptr %str.addr.0.i38, align 1
   %prefix.addr.0.i39.add = add nuw nsw i64 %prefix.addr.0.i39.idx, 1
   %cmp.i44 = icmp eq i8 %7, %6
@@ -186,7 +186,7 @@ do.cond.i41:                                      ; preds = %do.body.i37
 
 if.then25:                                        ; preds = %do.body.i37
   %call26 = tail call ptr @xstrdup(ptr noundef nonnull %scevgep) #14
-  %sparse_oid_name = getelementptr inbounds i8, ptr %filter_options, i64 32
+  %sparse_oid_name = getelementptr inbounds nuw i8, ptr %filter_options, i64 32
   store ptr %call26, ptr %sparse_oid_name, align 8
   store i32 4, ptr %choice, align 8
   br label %return
@@ -198,9 +198,9 @@ do.body.i47:                                      ; preds = %do.cond.i41, %do.co
   br i1 %exitcond123, label %if.then30, label %do.cond.i51
 
 do.cond.i51:                                      ; preds = %do.body.i47
-  %prefix.addr.0.i49.ptr = getelementptr inbounds i8, ptr @.str.13, i64 %prefix.addr.0.i49.idx
+  %prefix.addr.0.i49.ptr = getelementptr inbounds nuw i8, ptr @.str.13, i64 %prefix.addr.0.i49.idx
   %8 = load i8, ptr %prefix.addr.0.i49.ptr, align 1
-  %incdec.ptr.i52 = getelementptr inbounds i8, ptr %str.addr.0.i48, i64 1
+  %incdec.ptr.i52 = getelementptr inbounds nuw i8, ptr %str.addr.0.i48, i64 1
   %9 = load i8, ptr %str.addr.0.i48, align 1
   %prefix.addr.0.i49.add = add nuw nsw i64 %prefix.addr.0.i49.idx, 1
   %cmp.i54 = icmp eq i8 %9, %8
@@ -236,9 +236,9 @@ do.body.i63:                                      ; preds = %do.body.i63.prehead
   br i1 %exitcond125, label %if.then37, label %do.cond.i67
 
 do.cond.i67:                                      ; preds = %do.body.i63
-  %prefix.addr.0.i65.ptr = getelementptr inbounds i8, ptr @.str.15, i64 %prefix.addr.0.i65.idx
+  %prefix.addr.0.i65.ptr = getelementptr inbounds nuw i8, ptr @.str.15, i64 %prefix.addr.0.i65.idx
   %11 = load i8, ptr %prefix.addr.0.i65.ptr, align 1
-  %incdec.ptr.i68 = getelementptr inbounds i8, ptr %str.addr.0.i64, i64 1
+  %incdec.ptr.i68 = getelementptr inbounds nuw i8, ptr %str.addr.0.i64, i64 1
   %12 = load i8, ptr %str.addr.0.i64, align 1
   %prefix.addr.0.i65.add = add nuw nsw i64 %prefix.addr.0.i65.idx, 1
   %cmp.i70 = icmp eq i8 %12, %11
@@ -269,7 +269,7 @@ _.exit77:                                         ; preds = %if.then40, %if.end3
   br label %return
 
 if.end42:                                         ; preds = %if.then37
-  %object_type = getelementptr inbounds i8, ptr %filter_options, i64 56
+  %object_type = getelementptr inbounds nuw i8, ptr %filter_options, i64 56
   store i32 %call39, ptr %object_type, align 8
   store i32 5, ptr %choice, align 8
   br label %return
@@ -281,9 +281,9 @@ do.body.i78:                                      ; preds = %do.body.i78.prehead
   br i1 %exitcond127, label %if.then46, label %do.cond.i82
 
 do.cond.i82:                                      ; preds = %do.body.i78
-  %prefix.addr.0.i80.ptr = getelementptr inbounds i8, ptr @.str.17, i64 %prefix.addr.0.i80.idx
+  %prefix.addr.0.i80.ptr = getelementptr inbounds nuw i8, ptr @.str.17, i64 %prefix.addr.0.i80.idx
   %14 = load i8, ptr %prefix.addr.0.i80.ptr, align 1
-  %incdec.ptr.i83 = getelementptr inbounds i8, ptr %str.addr.0.i79, i64 1
+  %incdec.ptr.i83 = getelementptr inbounds nuw i8, ptr %str.addr.0.i79, i64 1
   %15 = load i8, ptr %str.addr.0.i79, align 1
   %prefix.addr.0.i80.add = add nuw nsw i64 %prefix.addr.0.i80.idx, 1
   %cmp.i85 = icmp eq i8 %15, %14
@@ -358,9 +358,9 @@ entry:
   br i1 %tobool.not, label %if.then, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %sub_nr.i = getelementptr inbounds i8, ptr %filter_options, i64 64
-  %sub_alloc.i = getelementptr inbounds i8, ptr %filter_options, i64 72
-  %sub.i = getelementptr inbounds i8, ptr %filter_options, i64 80
+  %sub_nr.i = getelementptr inbounds nuw i8, ptr %filter_options, i64 64
+  %sub_alloc.i = getelementptr inbounds nuw i8, ptr %filter_options, i64 72
+  %sub.i = getelementptr inbounds nuw i8, ptr %filter_options, i64 80
   br label %for.body
 
 if.then:                                          ; preds = %entry
@@ -390,7 +390,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %pa
 
 if.then7:                                         ; preds = %for.body
   %arrayidx240 = getelementptr inbounds ptr, ptr %call1.i, i64 %sub.039
-  %len = getelementptr inbounds i8, ptr %2, i64 8
+  %len = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load i64, ptr %len, align 8
   %sub9 = add i64 %4, -1
   tail call void @strbuf_remove(ptr noundef nonnull %2, i64 noundef %sub9, i64 noundef 1) #14
@@ -447,7 +447,7 @@ do.end.i:                                         ; preds = %do.body3.i.do.end.i
   %12 = load ptr, ptr %sub.i, align 8
   %arrayidx.i = getelementptr inbounds %struct.list_objects_filter_options, ptr %12, i64 %6
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %arrayidx.i, ptr noundef nonnull align 8 dereferenceable(88) @__const.list_objects_filter_init.blank, i64 88, i1 false)
-  %buf.i = getelementptr inbounds i8, ptr %5, i64 16
+  %buf.i = getelementptr inbounds nuw i8, ptr %5, i64 16
   %13 = load ptr, ptr %buf.i, align 8
   %call26.i = tail call ptr @url_percent_decode(ptr noundef %13) #14
   %subspec.val.i = load ptr, ptr %buf.i, align 8
@@ -478,7 +478,7 @@ if.end3.i.i:                                      ; preds = %if.then.i21
   br label %has_reserved_character.exit
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %c.03.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %c.03.i, i64 1
   %17 = load i8, ptr %incdec.ptr.i, align 1
   %tobool.not.i23 = icmp eq i8 %17, 0
   br i1 %tobool.not.i23, label %lor.rhs.i, label %while.body.i, !llvm.loop !7
@@ -506,7 +506,7 @@ parse_combine_subfilter.exit:                     ; preds = %has_reserved_charac
   br i1 %22, label %for.body, label %cleanup, !llvm.loop !8
 
 cleanup:                                          ; preds = %parse_combine_subfilter.exit
-  %choice = getelementptr inbounds i8, ptr %filter_options, i64 24
+  %choice = getelementptr inbounds nuw i8, ptr %filter_options, i64 24
   store i32 6, ptr %choice, align 8
   tail call void @strbuf_list_free(ptr noundef nonnull %call1.i) #14
   br i1 %lor.ext.i, label %if.end16, label %if.then15
@@ -530,7 +530,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define dso_local void @list_objects_filter_die_if_populated(ptr nocapture noundef readonly %filter_options) local_unnamed_addr #0 {
 entry:
-  %choice = getelementptr inbounds i8, ptr %filter_options, i64 24
+  %choice = getelementptr inbounds nuw i8, ptr %filter_options, i64 24
   %0 = load i32, ptr %choice, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end, label %if.then
@@ -552,7 +552,7 @@ define dso_local void @parse_list_objects_filter(ptr noundef %filter_options, pt
 entry:
   %errbuf = alloca %struct.strbuf, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %errbuf, ptr noundef nonnull align 8 dereferenceable(24) @__const.partial_clone_get_default_filter_spec.errbuf, i64 24, i1 false)
-  %buf = getelementptr inbounds i8, ptr %filter_options, i64 16
+  %buf = getelementptr inbounds nuw i8, ptr %filter_options, i64 16
   %0 = load ptr, ptr %buf, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.then, label %if.end
@@ -562,7 +562,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %choice = getelementptr inbounds i8, ptr %filter_options, i64 24
+  %choice = getelementptr inbounds nuw i8, ptr %filter_options, i64 24
   %1 = load i32, ptr %choice, align 8
   switch i32 %1, label %if.end.i [
     i32 0, label %if.then2
@@ -578,16 +578,16 @@ if.end.i:                                         ; preds = %if.end
   %call.i32 = tail call ptr @xcalloc(i64 noundef 2, i64 noundef 88) #14
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %call.i32, ptr noundef nonnull align 8 dereferenceable(88) %filter_options, i64 88, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %filter_options, ptr noundef nonnull align 8 dereferenceable(88) @__const.list_objects_filter_init.blank, i64 64, i1 false)
-  %sub.i = getelementptr inbounds i8, ptr %filter_options, i64 80
+  %sub.i = getelementptr inbounds nuw i8, ptr %filter_options, i64 80
   store ptr %call.i32, ptr %sub.i, align 8
-  %sub_alloc.i = getelementptr inbounds i8, ptr %filter_options, i64 72
+  %sub_alloc.i = getelementptr inbounds nuw i8, ptr %filter_options, i64 72
   store i64 2, ptr %sub_alloc.i, align 8
-  %sub_nr.i = getelementptr inbounds i8, ptr %filter_options, i64 64
+  %sub_nr.i = getelementptr inbounds nuw i8, ptr %filter_options, i64 64
   store i64 1, ptr %sub_nr.i, align 8
   store i32 6, ptr %choice, align 8
   tail call void @strbuf_add(ptr noundef nonnull %filter_options, ptr noundef nonnull @.str.17, i64 noundef 8) #14
   %2 = load ptr, ptr %sub.i, align 8
-  %len.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %len.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %3 = load i64, ptr %len.i.i, align 8
   %tobool.not.i.i = icmp eq i64 %3, 0
   br i1 %tobool.not.i.i, label %if.then.i.i, label %list_objects_filter_spec.exit.i
@@ -597,9 +597,9 @@ if.then.i.i:                                      ; preds = %if.end.i
   unreachable
 
 list_objects_filter_spec.exit.i:                  ; preds = %if.end.i
-  %buf.i.i = getelementptr inbounds i8, ptr %2, i64 16
+  %buf.i.i = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load ptr, ptr %buf.i.i, align 8
-  %len.i12.i = getelementptr inbounds i8, ptr %filter_options, i64 8
+  %len.i12.i = getelementptr inbounds nuw i8, ptr %filter_options, i64 8
   %5 = load i64, ptr %len.i12.i, align 8
   tail call void @strbuf_addstr_urlencode(ptr noundef nonnull %filter_options, ptr noundef %4, ptr noundef nonnull @allow_unencoded) #14
   %6 = load i32, ptr getelementptr inbounds (i8, ptr @trace_default_key, i64 8), align 8
@@ -627,7 +627,7 @@ transform_to_combine_type.exit:                   ; preds = %if.end, %filter_spe
   br i1 %tobool.not.i.i33, label %if.then.i, label %strbuf_avail.exit.i
 
 strbuf_avail.exit.i:                              ; preds = %transform_to_combine_type.exit
-  %len.i.i34 = getelementptr inbounds i8, ptr %filter_options, i64 8
+  %len.i.i34 = getelementptr inbounds nuw i8, ptr %filter_options, i64 8
   %10 = load i64, ptr %len.i.i34, align 8
   %.neg.i = add i64 %10, 1
   %tobool.not.i = icmp eq i64 %9, %.neg.i
@@ -635,7 +635,7 @@ strbuf_avail.exit.i:                              ; preds = %transform_to_combin
 
 if.then.i:                                        ; preds = %strbuf_avail.exit.i, %transform_to_combine_type.exit
   tail call void @strbuf_grow(ptr noundef nonnull %filter_options, i64 noundef 1) #14
-  %len.phi.trans.insert.i = getelementptr inbounds i8, ptr %filter_options, i64 8
+  %len.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %filter_options, i64 8
   %.pre.i = load i64, ptr %len.phi.trans.insert.i, align 8
   %.pre8.i = add i64 %.pre.i, 1
   br label %strbuf_addch.exit
@@ -644,7 +644,7 @@ strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i
   %inc.pre-phi.i = phi i64 [ %.pre8.i, %if.then.i ], [ %.neg.i, %strbuf_avail.exit.i ]
   %11 = phi i64 [ %.pre.i, %if.then.i ], [ %10, %strbuf_avail.exit.i ]
   %12 = load ptr, ptr %buf, align 8
-  %len.i = getelementptr inbounds i8, ptr %filter_options, i64 8
+  %len.i = getelementptr inbounds nuw i8, ptr %filter_options, i64 8
   store i64 %inc.pre-phi.i, ptr %len.i, align 8
   %arrayidx.i = getelementptr inbounds i8, ptr %12, i64 %11
   store i8 43, ptr %arrayidx.i, align 1
@@ -669,7 +669,7 @@ if.then.i39:                                      ; preds = %strbuf_addch.exit
   br label %filter_spec_append_urlencode.exit
 
 filter_spec_append_urlencode.exit:                ; preds = %strbuf_addch.exit, %if.then.i39
-  %sub_nr = getelementptr inbounds i8, ptr %filter_options, i64 64
+  %sub_nr = getelementptr inbounds nuw i8, ptr %filter_options, i64 64
   %18 = load i64, ptr %sub_nr, align 8
   %add = add i64 %18, 1
   %cmp = icmp eq i64 %18, -1
@@ -680,13 +680,13 @@ if.then6:                                         ; preds = %filter_spec_append_
   unreachable
 
 do.body8:                                         ; preds = %filter_spec_append_urlencode.exit
-  %sub_alloc = getelementptr inbounds i8, ptr %filter_options, i64 72
+  %sub_alloc = getelementptr inbounds nuw i8, ptr %filter_options, i64 72
   %19 = load i64, ptr %sub_alloc, align 8
   %cmp9 = icmp ugt i64 %add, %19
   br i1 %cmp9, label %if.then10, label %do.body8.do.end_crit_edge
 
 do.body8.do.end_crit_edge:                        ; preds = %do.body8
-  %sub29.phi.trans.insert = getelementptr inbounds i8, ptr %filter_options, i64 80
+  %sub29.phi.trans.insert = getelementptr inbounds nuw i8, ptr %filter_options, i64 80
   %.pre = load ptr, ptr %sub29.phi.trans.insert, align 8
   br label %do.end
 
@@ -704,7 +704,7 @@ if.then.i43:                                      ; preds = %if.then10
   unreachable
 
 st_mult.exit:                                     ; preds = %if.then10
-  %sub23 = getelementptr inbounds i8, ptr %filter_options, i64 80
+  %sub23 = getelementptr inbounds nuw i8, ptr %filter_options, i64 80
   %21 = load ptr, ptr %sub23, align 8
   %mul.i = mul nuw i64 %add.div31, 88
   %call26 = tail call ptr @xrealloc(ptr noundef %21, i64 noundef %mul.i) #14
@@ -715,7 +715,7 @@ st_mult.exit:                                     ; preds = %if.then10
 do.end:                                           ; preds = %do.body8.do.end_crit_edge, %st_mult.exit
   %22 = phi i64 [ %18, %do.body8.do.end_crit_edge ], [ %.pre44, %st_mult.exit ]
   %23 = phi ptr [ %.pre, %do.body8.do.end_crit_edge ], [ %call26, %st_mult.exit ]
-  %sub29 = getelementptr inbounds i8, ptr %filter_options, i64 80
+  %sub29 = getelementptr inbounds nuw i8, ptr %filter_options, i64 80
   %add.ptr = getelementptr inbounds %struct.list_objects_filter_options, ptr %23, i64 %22
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %add.ptr, i8 0, i64 88, i1 false)
   store i64 %add, ptr %sub_nr, align 8
@@ -731,7 +731,7 @@ if.end37:                                         ; preds = %do.end, %if.then2
   br i1 %tobool38.not, label %if.end41, label %if.then39
 
 if.then39:                                        ; preds = %if.end37
-  %buf40 = getelementptr inbounds i8, ptr %errbuf, i64 16
+  %buf40 = getelementptr inbounds nuw i8, ptr %errbuf, i64 16
   %25 = load ptr, ptr %buf40, align 8
   call void (ptr, ...) @die(ptr noundef nonnull @.str.22, ptr noundef %25) #12
   unreachable
@@ -751,7 +751,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i32 @opt_parse_list_objects_filter(ptr nocapture noundef readonly %opt, ptr noundef %arg, i32 noundef %unset) local_unnamed_addr #0 {
 entry:
-  %value = getelementptr inbounds i8, ptr %opt, i64 16
+  %value = getelementptr inbounds nuw i8, ptr %opt, i64 16
   %0 = load ptr, ptr %value, align 8
   %tobool = icmp eq i32 %unset, 0
   %tobool1 = icmp ne ptr %arg, null
@@ -760,7 +760,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   tail call void @list_objects_filter_release(ptr noundef %0)
-  %no_filter.i = getelementptr inbounds i8, ptr %0, i64 28
+  %no_filter.i = getelementptr inbounds nuw i8, ptr %0, i64 28
   %bf.load.i = load i8, ptr %no_filter.i, align 4
   %bf.set.i = or i8 %bf.load.i, 1
   store i8 %bf.set.i, ptr %no_filter.i, align 4
@@ -777,7 +777,7 @@ if.end:                                           ; preds = %if.else, %if.then
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @list_objects_filter_spec(ptr nocapture noundef readonly %filter) local_unnamed_addr #0 {
 entry:
-  %len = getelementptr inbounds i8, ptr %filter, i64 8
+  %len = getelementptr inbounds nuw i8, ptr %filter, i64 8
   %0 = load i64, ptr %len, align 8
   %tobool.not = icmp eq i64 %0, 0
   br i1 %tobool.not, label %if.then, label %if.end
@@ -787,7 +787,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %buf = getelementptr inbounds i8, ptr %filter, i64 16
+  %buf = getelementptr inbounds nuw i8, ptr %filter, i64 16
   %1 = load ptr, ptr %buf, align 8
   ret ptr %1
 }
@@ -795,20 +795,20 @@ if.end:                                           ; preds = %entry
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @expand_list_objects_filter_spec(ptr noundef %filter) local_unnamed_addr #0 {
 entry:
-  %choice = getelementptr inbounds i8, ptr %filter, i64 24
+  %choice = getelementptr inbounds nuw i8, ptr %filter, i64 24
   %0 = load i32, ptr %choice, align 8
   %cmp = icmp eq i32 %0, 2
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   tail call void @strbuf_release(ptr noundef nonnull %filter) #14
-  %blob_limit_value = getelementptr inbounds i8, ptr %filter, i64 40
+  %blob_limit_value = getelementptr inbounds nuw i8, ptr %filter, i64 40
   %1 = load i64, ptr %blob_limit_value, align 8
   tail call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %filter, ptr noundef nonnull @.str.24, i64 noundef %1) #14
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %len.i = getelementptr inbounds i8, ptr %filter, i64 8
+  %len.i = getelementptr inbounds nuw i8, ptr %filter, i64 8
   %2 = load i64, ptr %len.i, align 8
   %tobool.not.i = icmp eq i64 %2, 0
   br i1 %tobool.not.i, label %if.then.i, label %list_objects_filter_spec.exit
@@ -818,7 +818,7 @@ if.then.i:                                        ; preds = %if.end
   unreachable
 
 list_objects_filter_spec.exit:                    ; preds = %if.end
-  %buf.i = getelementptr inbounds i8, ptr %filter, i64 16
+  %buf.i = getelementptr inbounds nuw i8, ptr %filter, i64 16
   %3 = load ptr, ptr %buf.i, align 8
   ret ptr %3
 }
@@ -833,16 +833,16 @@ entry:
 
 if.end:                                           ; preds = %entry
   tail call void @strbuf_release(ptr noundef nonnull %filter_options) #14
-  %sparse_oid_name = getelementptr inbounds i8, ptr %filter_options, i64 32
+  %sparse_oid_name = getelementptr inbounds nuw i8, ptr %filter_options, i64 32
   %0 = load ptr, ptr %sparse_oid_name, align 8
   tail call void @free(ptr noundef %0) #14
-  %sub_nr = getelementptr inbounds i8, ptr %filter_options, i64 64
+  %sub_nr = getelementptr inbounds nuw i8, ptr %filter_options, i64 64
   %1 = load i64, ptr %sub_nr, align 8
   %cmp9.not = icmp eq i64 %1, 0
   br i1 %cmp9.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end
-  %sub1 = getelementptr inbounds i8, ptr %filter_options, i64 80
+  %sub1 = getelementptr inbounds nuw i8, ptr %filter_options, i64 80
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -856,7 +856,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !9
 
 for.end:                                          ; preds = %for.body, %if.end
-  %sub2 = getelementptr inbounds i8, ptr %filter_options, i64 80
+  %sub2 = getelementptr inbounds nuw i8, ptr %filter_options, i64 80
   %4 = load ptr, ptr %sub2, align 8
   tail call void @free(ptr noundef %4) #14
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %filter_options, ptr noundef nonnull align 8 dereferenceable(88) @__const.list_objects_filter_init.blank, i64 88, i1 false)
@@ -878,7 +878,7 @@ entry:
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %partial_clone_filter = getelementptr inbounds i8, ptr %call, i64 8
+  %partial_clone_filter = getelementptr inbounds nuw i8, ptr %call, i64 8
   %1 = load ptr, ptr %partial_clone_filter, align 8
   %tobool1.not = icmp eq ptr %1, null
   br i1 %tobool1.not, label %if.end8, label %return
@@ -901,20 +901,20 @@ if.end6:                                          ; preds = %if.else
 
 if.end8:                                          ; preds = %if.then, %if.end6
   %call9 = tail call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.28, ptr noundef %remote) #14
-  %choice.i = getelementptr inbounds i8, ptr %filter_options, i64 24
+  %choice.i = getelementptr inbounds nuw i8, ptr %filter_options, i64 24
   %2 = load i32, ptr %choice.i, align 8
   %cmp.i = icmp eq i32 %2, 2
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.end8
   tail call void @strbuf_release(ptr noundef nonnull %filter_options) #14
-  %blob_limit_value.i = getelementptr inbounds i8, ptr %filter_options, i64 40
+  %blob_limit_value.i = getelementptr inbounds nuw i8, ptr %filter_options, i64 40
   %3 = load i64, ptr %blob_limit_value.i, align 8
   tail call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %filter_options, ptr noundef nonnull @.str.24, i64 noundef %3) #14
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %if.end8
-  %len.i.i = getelementptr inbounds i8, ptr %filter_options, i64 8
+  %len.i.i = getelementptr inbounds nuw i8, ptr %filter_options, i64 8
   %4 = load i64, ptr %len.i.i, align 8
   %tobool.not.i.i = icmp eq i64 %4, 0
   br i1 %tobool.not.i.i, label %if.then.i.i, label %expand_list_objects_filter_spec.exit
@@ -924,7 +924,7 @@ if.then.i.i:                                      ; preds = %if.end.i
   unreachable
 
 expand_list_objects_filter_spec.exit:             ; preds = %if.end.i
-  %buf.i.i = getelementptr inbounds i8, ptr %filter_options, i64 16
+  %buf.i.i = getelementptr inbounds nuw i8, ptr %filter_options, i64 16
   %5 = load ptr, ptr %buf.i.i, align 8
   tail call void @git_config_set(ptr noundef %call9, ptr noundef %5) #14
   tail call void @free(ptr noundef %call9) #14
@@ -957,7 +957,7 @@ entry:
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %partial_clone_filter = getelementptr inbounds i8, ptr %call, i64 8
+  %partial_clone_filter = getelementptr inbounds nuw i8, ptr %call, i64 8
   %1 = load ptr, ptr %partial_clone_filter, align 8
   %tobool1.not = icmp eq ptr %1, null
   br i1 %tobool1.not, label %return, label %if.end
@@ -980,7 +980,7 @@ entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %dest, ptr noundef nonnull align 8 dereferenceable(88) %src, i64 88, i1 false)
   tail call void @strbuf_init(ptr noundef %dest, i64 noundef 0) #14
   tail call void @strbuf_addbuf(ptr noundef %dest, ptr noundef %src) #14
-  %sparse_oid_name = getelementptr inbounds i8, ptr %src, i64 32
+  %sparse_oid_name = getelementptr inbounds nuw i8, ptr %src, i64 32
   %0 = load ptr, ptr %sparse_oid_name, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %xstrdup_or_null.exit, label %cond.true.i
@@ -991,9 +991,9 @@ cond.true.i:                                      ; preds = %entry
 
 xstrdup_or_null.exit:                             ; preds = %entry, %cond.true.i
   %cond.i = phi ptr [ %call.i, %cond.true.i ], [ null, %entry ]
-  %sparse_oid_name3 = getelementptr inbounds i8, ptr %dest, i64 32
+  %sparse_oid_name3 = getelementptr inbounds nuw i8, ptr %dest, i64 32
   store ptr %cond.i, ptr %sparse_oid_name3, align 8
-  %sub_alloc = getelementptr inbounds i8, ptr %dest, i64 72
+  %sub_alloc = getelementptr inbounds nuw i8, ptr %dest, i64 72
   %1 = load i64, ptr %sub_alloc, align 8
   %cmp.i = icmp ugt i64 %1, 209622091746699450
   br i1 %cmp.i, label %if.then.i, label %st_mult.exit
@@ -1005,23 +1005,23 @@ if.then.i:                                        ; preds = %xstrdup_or_null.exi
 st_mult.exit:                                     ; preds = %xstrdup_or_null.exit
   %mul.i = mul nuw i64 %1, 88
   %call5 = tail call ptr @xmalloc(i64 noundef %mul.i) #14
-  %sub = getelementptr inbounds i8, ptr %dest, i64 80
+  %sub = getelementptr inbounds nuw i8, ptr %dest, i64 80
   store ptr %call5, ptr %sub, align 8
-  %sub_nr = getelementptr inbounds i8, ptr %src, i64 64
+  %sub_nr = getelementptr inbounds nuw i8, ptr %src, i64 64
   %2 = load i64, ptr %sub_nr, align 8
   %cmp14.not = icmp eq i64 %2, 0
   br i1 %cmp14.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %st_mult.exit
-  %sub8 = getelementptr inbounds i8, ptr %src, i64 80
+  %sub8 = getelementptr inbounds nuw i8, ptr %src, i64 80
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
   %3 = load ptr, ptr %sub, align 8
-  %arrayidx = getelementptr inbounds %struct.list_objects_filter_options, ptr %3, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw %struct.list_objects_filter_options, ptr %3, i64 %indvars.iv
   %4 = load ptr, ptr %sub8, align 8
-  %arrayidx10 = getelementptr inbounds %struct.list_objects_filter_options, ptr %4, i64 %indvars.iv
+  %arrayidx10 = getelementptr inbounds nuw %struct.list_objects_filter_options, ptr %4, i64 %indvars.iv
   tail call void @list_objects_filter_copy(ptr noundef %arrayidx, ptr noundef %arrayidx10)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %5 = load i64, ptr %sub_nr, align 8

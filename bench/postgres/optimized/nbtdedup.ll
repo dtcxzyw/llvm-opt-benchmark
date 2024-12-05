@@ -48,18 +48,18 @@ define dso_local void @_bt_dedup_pass(ptr noundef %0, i32 noundef %1, ptr nounde
 
 BufferGetPage.exit:                               ; preds = %8, %14
   %.0.i.i = phi ptr [ %13, %8 ], [ %19, %14 ]
-  %20 = getelementptr inbounds i8, ptr %.0.i.i, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
   %21 = load i16, ptr %20, align 4
   %22 = zext i16 %21 to i64
   %23 = getelementptr i8, ptr %.0.i.i, i64 %22
-  %24 = getelementptr inbounds i8, ptr %0, i64 320
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 10
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 10
   %27 = load i16, ptr %26, align 2
   %28 = sext i16 %27 to i32
   %29 = tail call ptr @palloc(i64 noundef 1704) #9
   store i8 1, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 4
   store i32 0, ptr %30, align 4
   %31 = getelementptr i8, ptr %.0.i.i, i64 18
   %.val = load i16, ptr %31, align 2
@@ -71,22 +71,22 @@ BufferGetPage.exit:                               ; preds = %8, %14
   %37 = add nsw i64 %36, -8
   %38 = tail call i64 @llvm.umin.i64(i64 %37, i64 16382)
   %spec.select = lshr exact i64 %38, 1
-  %39 = getelementptr inbounds i8, ptr %29, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store i64 %spec.select, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %29, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %29, i64 16
   store ptr null, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %29, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %29, i64 24
   store i16 0, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %29, i64 32
+  %42 = getelementptr inbounds nuw i8, ptr %29, i64 32
   store i64 0, ptr %42, align 8
   %43 = tail call ptr @palloc(i64 noundef %spec.select) #9
-  %44 = getelementptr inbounds i8, ptr %29, i64 40
+  %44 = getelementptr inbounds nuw i8, ptr %29, i64 40
   store ptr %43, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %29, i64 48
-  %46 = getelementptr inbounds i8, ptr %29, i64 52
-  %47 = getelementptr inbounds i8, ptr %29, i64 56
-  %48 = getelementptr inbounds i8, ptr %29, i64 64
-  %49 = getelementptr inbounds i8, ptr %23, i64 4
+  %45 = getelementptr inbounds nuw i8, ptr %29, i64 48
+  %46 = getelementptr inbounds nuw i8, ptr %29, i64 52
+  %47 = getelementptr inbounds nuw i8, ptr %29, i64 56
+  %48 = getelementptr inbounds nuw i8, ptr %29, i64 64
+  %49 = getelementptr inbounds nuw i8, ptr %23, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %45, i8 0, i64 20, i1 false)
   %50 = load i32, ptr %49, align 4
   %51 = icmp eq i32 %50, 0
@@ -103,10 +103,10 @@ BufferGetPage.exit:                               ; preds = %8, %14
 
 59:                                               ; preds = %BufferGetPage.exit
   %60 = load ptr, ptr %24, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 10
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 10
   %62 = load i16, ptr %61, align 2
   %63 = sext i16 %62 to i32
-  %64 = getelementptr inbounds i8, ptr %.0.i.i, i64 24
+  %64 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
   %65 = zext nneg i16 %52 to i64
   %66 = add nsw i64 %65, -1
   %67 = getelementptr [0 x %struct.ItemIdData], ptr %64, i64 0, i64 %66
@@ -148,14 +148,14 @@ _bt_do_singleval.exit:                            ; preds = %87, %73, %BufferGet
   %91 = trunc nuw i64 %90 to i32
   store i32 %91, ptr %88, align 4
   %92 = trunc i64 %89 to i32
-  %93 = getelementptr inbounds i8, ptr %88, i64 4
+  %93 = getelementptr inbounds nuw i8, ptr %88, i64 4
   store i32 %92, ptr %93, align 4
   %94 = load i32, ptr %49, align 4
   %95 = icmp eq i32 %94, 0
   br i1 %95, label %109, label %96
 
 96:                                               ; preds = %_bt_do_singleval.exit
-  %97 = getelementptr inbounds i8, ptr %.0.i.i, i64 24
+  %97 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
   %98 = load i32, ptr %97, align 4
   %99 = lshr i32 %98, 17
   %100 = zext nneg i32 %99 to i64
@@ -178,8 +178,8 @@ _bt_do_singleval.exit:                            ; preds = %87, %73, %BufferGet
   br i1 %.not126, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %109
-  %110 = getelementptr inbounds i8, ptr %.0.i.i, i64 24
-  %111 = getelementptr inbounds i8, ptr %29, i64 68
+  %110 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
+  %111 = getelementptr inbounds nuw i8, ptr %29, i64 68
   br label %112
 
 112:                                              ; preds = %.lr.ph, %253
@@ -196,7 +196,7 @@ _bt_do_singleval.exit:                            ; preds = %87, %73, %BufferGet
   br i1 %119, label %120, label %154
 
 120:                                              ; preds = %112
-  %121 = getelementptr inbounds i8, ptr %118, i64 6
+  %121 = getelementptr inbounds nuw i8, ptr %118, i64 6
   %122 = load i16, ptr %121, align 2
   %123 = and i16 %122, 8192
   %124 = icmp eq i16 %123, 0
@@ -273,7 +273,7 @@ _bt_dedup_start_pending.exit:                     ; preds = %BTreeTupleIsPosting
   br i1 %160, label %161, label %_bt_dedup_save_htid.exit.thread
 
 161:                                              ; preds = %157
-  %162 = getelementptr inbounds i8, ptr %118, i64 6
+  %162 = getelementptr inbounds nuw i8, ptr %118, i64 6
   %163 = load i16, ptr %162, align 2
   %164 = and i16 %163, 8192
   %165 = icmp eq i16 %164, 0
@@ -380,7 +380,7 @@ _bt_dedup_save_htid.exit.thread:                  ; preds = %188, %186, %157, %1
 
 219:                                              ; preds = %207, %209, %218, %_bt_dedup_save_htid.exit.thread
   %.2 = phi i1 [ true, %209 ], [ false, %218 ], [ false, %_bt_dedup_save_htid.exit.thread ], [ true, %207 ]
-  %220 = getelementptr inbounds i8, ptr %118, i64 6
+  %220 = getelementptr inbounds nuw i8, ptr %118, i64 6
   %221 = load i16, ptr %220, align 2
   %222 = and i16 %221, 8192
   %223 = icmp eq i16 %222, 0
@@ -465,18 +465,18 @@ _bt_dedup_start_pending.exit123:                  ; preds = %BTreeTupleIsPosting
   br label %306
 
 260:                                              ; preds = %._crit_edge
-  %261 = getelementptr inbounds i8, ptr %23, i64 12
+  %261 = getelementptr inbounds nuw i8, ptr %23, i64 12
   %262 = load i16, ptr %261, align 4
   %263 = and i16 %262, 64
   %.not98 = icmp eq i16 %263, 0
   br i1 %.not98, label %272, label %264
 
 264:                                              ; preds = %260
-  %265 = getelementptr inbounds i8, ptr %88, i64 16
+  %265 = getelementptr inbounds nuw i8, ptr %88, i64 16
   %266 = load i16, ptr %265, align 4
   %267 = zext i16 %266 to i64
   %268 = getelementptr i8, ptr %88, i64 %267
-  %269 = getelementptr inbounds i8, ptr %268, i64 12
+  %269 = getelementptr inbounds nuw i8, ptr %268, i64 12
   %270 = load i16, ptr %269, align 4
   %271 = and i16 %270, -65
   store i16 %271, ptr %269, align 4
@@ -488,9 +488,9 @@ _bt_dedup_start_pending.exit123:                  ; preds = %BTreeTupleIsPosting
   store volatile i32 %274, ptr @CritSectionCount, align 4
   tail call void @PageRestoreTempPage(ptr noundef nonnull %88, ptr noundef nonnull %.0.i.i) #9
   tail call void @MarkBufferDirty(i32 noundef %1) #9
-  %275 = getelementptr inbounds i8, ptr %0, i64 56
+  %275 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %276 = load ptr, ptr %275, align 8
-  %277 = getelementptr inbounds i8, ptr %276, i64 114
+  %277 = getelementptr inbounds nuw i8, ptr %276, i64 114
   %278 = load i8, ptr %277, align 2
   %279 = icmp eq i8 %278, 112
   br i1 %279, label %280, label %302
@@ -501,13 +501,13 @@ _bt_dedup_start_pending.exit123:                  ; preds = %BTreeTupleIsPosting
   br i1 %282, label %291, label %283
 
 283:                                              ; preds = %280
-  %284 = getelementptr inbounds i8, ptr %0, i64 40
+  %284 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %285 = load i32, ptr %284, align 8
   %286 = icmp eq i32 %285, 0
   br i1 %286, label %287, label %302
 
 287:                                              ; preds = %283
-  %288 = getelementptr inbounds i8, ptr %0, i64 48
+  %288 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %289 = load i32, ptr %288, align 8
   %290 = icmp eq i32 %289, 0
   br i1 %290, label %291, label %302
@@ -519,7 +519,7 @@ _bt_dedup_start_pending.exit123:                  ; preds = %BTreeTupleIsPosting
   tail call void @XLogBeginInsert() #9
   tail call void @XLogRegisterBuffer(i8 noundef zeroext 0, i32 noundef %1, i8 noundef zeroext 8) #9
   call void @XLogRegisterData(ptr noundef nonnull %6, i32 noundef 2) #9
-  %294 = getelementptr inbounds i8, ptr %29, i64 68
+  %294 = getelementptr inbounds nuw i8, ptr %29, i64 68
   %295 = load i32, ptr %48, align 8
   %296 = shl i32 %295, 2
   call void @XLogRegisterBufData(i8 noundef zeroext 0, ptr noundef nonnull %294, i32 noundef %296) #9
@@ -528,7 +528,7 @@ _bt_dedup_start_pending.exit123:                  ; preds = %BTreeTupleIsPosting
   %299 = trunc nuw i64 %298 to i32
   store i32 %299, ptr %.0.i.i, align 4
   %300 = trunc i64 %297 to i32
-  %301 = getelementptr inbounds i8, ptr %.0.i.i, i64 4
+  %301 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 4
   store i32 %300, ptr %301, align 4
   br label %302
 
@@ -560,7 +560,7 @@ declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_add
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @_bt_dedup_start_pending(ptr nocapture noundef initializes((16, 26), (32, 40), (48, 64)) %0, ptr noundef %1, i16 noundef zeroext %2) local_unnamed_addr #3 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 6
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 6
   %5 = load i16, ptr %4, align 2
   %6 = and i16 %5, 8192
   %7 = icmp eq i16 %6, 0
@@ -574,10 +574,10 @@ BTreeTupleIsPosting.exit:                         ; preds = %3
   br i1 %.not, label %BTreeTupleIsPosting.exit.thread, label %16
 
 BTreeTupleIsPosting.exit.thread:                  ; preds = %3, %BTreeTupleIsPosting.exit
-  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = load ptr, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %11, ptr noundef nonnull align 2 dereferenceable(6) %1, i64 6, i1 false)
-  %12 = getelementptr inbounds i8, ptr %0, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 1, ptr %12, align 8
   %13 = load i16, ptr %4, align 2
   %14 = and i16 %13, 8191
@@ -587,7 +587,7 @@ BTreeTupleIsPosting.exit.thread:                  ; preds = %3, %BTreeTupleIsPos
 16:                                               ; preds = %BTreeTupleIsPosting.exit
   %17 = and i16 %.val.i, 4095
   %18 = zext nneg i16 %17 to i32
-  %19 = getelementptr inbounds i8, ptr %0, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %20 = load ptr, ptr %19, align 8
   %.val.i26 = load i16, ptr %1, align 2
   %21 = getelementptr i8, ptr %1, i64 2
@@ -600,7 +600,7 @@ BTreeTupleIsPosting.exit.thread:                  ; preds = %3, %BTreeTupleIsPos
   %narrow = mul nuw nsw i16 %17, 6
   %27 = zext nneg i16 %narrow to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %20, ptr align 2 %26, i64 %27, i1 false)
-  %28 = getelementptr inbounds i8, ptr %0, i64 48
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 %18, ptr %28, align 8
   %.val24 = load i16, ptr %1, align 2
   %.val25 = load i16, ptr %21, align 2
@@ -612,13 +612,13 @@ BTreeTupleIsPosting.exit.thread:                  ; preds = %3, %BTreeTupleIsPos
 
 33:                                               ; preds = %16, %BTreeTupleIsPosting.exit.thread
   %.sink = phi i64 [ %32, %16 ], [ %15, %BTreeTupleIsPosting.exit.thread ]
-  %34 = getelementptr inbounds i8, ptr %0, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %.sink, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 52
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i32 1, ptr %35, align 4
-  %36 = getelementptr inbounds i8, ptr %0, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %1, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %0, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i16 %2, ptr %37, align 8
   %38 = load i16, ptr %4, align 2
   %39 = and i16 %38, 8191
@@ -626,10 +626,10 @@ BTreeTupleIsPosting.exit.thread:                  ; preds = %3, %BTreeTupleIsPos
   %40 = and i16 %narrow23, 16376
   %41 = or disjoint i16 %40, 4
   %42 = zext nneg i16 %41 to i64
-  %43 = getelementptr inbounds i8, ptr %0, i64 56
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 %42, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %0, i64 68
-  %45 = getelementptr inbounds i8, ptr %0, i64 64
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 68
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %46 = load i32, ptr %45, align 8
   %47 = sext i32 %46 to i64
   %48 = getelementptr [408 x %struct.BTDedupInterval], ptr %44, i64 0, i64 %47
@@ -641,7 +641,7 @@ declare i32 @_bt_keep_natts_fast(ptr noundef, ptr noundef, ptr noundef) local_un
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_bt_dedup_save_htid(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 6
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 6
   %4 = load i16, ptr %3, align 2
   %5 = and i16 %4, 8192
   %6 = icmp eq i16 %5, 0
@@ -670,9 +670,9 @@ BTreeTupleIsPosting.exit:                         ; preds = %2
 BTreeTupleIsPosting.exit.thread:                  ; preds = %2, %BTreeTupleIsPosting.exit, %9
   %.021 = phi i32 [ %11, %9 ], [ 1, %BTreeTupleIsPosting.exit ], [ 1, %2 ]
   %.020 = phi ptr [ %17, %9 ], [ %1, %BTreeTupleIsPosting.exit ], [ %1, %2 ]
-  %18 = getelementptr inbounds i8, ptr %0, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %19 = load i64, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %21 = load i32, ptr %20, align 8
   %22 = add i32 %21, %.021
   %23 = sext i32 %22 to i64
@@ -680,7 +680,7 @@ BTreeTupleIsPosting.exit.thread:                  ; preds = %2, %BTreeTupleIsPos
   %25 = add i64 %19, 7
   %26 = add i64 %25, %24
   %27 = and i64 %26, -8
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %29 = load i64, ptr %28, align 8
   %30 = icmp ule i64 %27, %29
   br i1 %30, label %37, label %31
@@ -690,18 +690,18 @@ BTreeTupleIsPosting.exit.thread:                  ; preds = %2, %BTreeTupleIsPos
   br i1 %32, label %33, label %56
 
 33:                                               ; preds = %31
-  %34 = getelementptr inbounds i8, ptr %0, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %35 = load i32, ptr %34, align 4
   %36 = add i32 %35, 1
   store i32 %36, ptr %34, align 4
   br label %56
 
 37:                                               ; preds = %BTreeTupleIsPosting.exit.thread
-  %38 = getelementptr inbounds i8, ptr %0, i64 52
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %39 = load i32, ptr %38, align 4
   %40 = add i32 %39, 1
   store i32 %40, ptr %38, align 4
-  %41 = getelementptr inbounds i8, ptr %0, i64 40
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %42 = load ptr, ptr %41, align 8
   %43 = sext i32 %21 to i64
   %44 = getelementptr %struct.ItemPointerData, ptr %42, i64 %43
@@ -717,7 +717,7 @@ BTreeTupleIsPosting.exit.thread:                  ; preds = %2, %BTreeTupleIsPos
   %50 = and i16 %narrow22, 16376
   %51 = or disjoint i16 %50, 4
   %52 = zext nneg i16 %51 to i64
-  %53 = getelementptr inbounds i8, ptr %0, i64 56
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %54 = load i64, ptr %53, align 8
   %55 = add i64 %54, %52
   store i64 %55, ptr %53, align 8
@@ -738,15 +738,15 @@ define dso_local i64 @_bt_dedup_finish_pending(ptr noundef %0, ptr nocapture nou
   %8 = trunc i32 %7 to i16
   %9 = add nuw nsw i16 %8, 1
   %narrow = select i1 %4, i16 1, i16 %9
-  %10 = getelementptr inbounds i8, ptr %1, i64 52
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 1
-  %13 = getelementptr inbounds i8, ptr %1, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %14 = load ptr, ptr %13, align 8
   br i1 %12, label %15, label %25
 
 15:                                               ; preds = %2
-  %16 = getelementptr inbounds i8, ptr %14, i64 6
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 6
   %17 = load i16, ptr %16, align 2
   %18 = and i16 %17, 8191
   %19 = zext nneg i16 %18 to i64
@@ -762,11 +762,11 @@ define dso_local i64 @_bt_dedup_finish_pending(ptr noundef %0, ptr nocapture nou
   unreachable
 
 25:                                               ; preds = %2
-  %26 = getelementptr inbounds i8, ptr %1, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %1, i64 48
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %29 = load i32, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %14, i64 6
+  %30 = getelementptr inbounds nuw i8, ptr %14, i64 6
   %31 = load i16, ptr %30, align 2
   %32 = and i16 %31, 8192
   %33 = icmp eq i16 %32, 0
@@ -806,7 +806,7 @@ BTreeTupleIsPosting.exit.thread.i:                ; preds = %BTreeTupleIsPosting
   %51 = tail call ptr @palloc0(i64 noundef %50) #9
   %52 = zext i32 %.0.i25 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %51, ptr nonnull readonly align 2 %14, i64 %52, i1 false)
-  %53 = getelementptr inbounds i8, ptr %51, i64 6
+  %53 = getelementptr inbounds nuw i8, ptr %51, i64 6
   %54 = load i16, ptr %53, align 2
   %55 = and i16 %54, -8192
   %56 = trunc i32 %.024.i to i16
@@ -818,13 +818,13 @@ BTreeTupleIsPosting.exit.thread.i:                ; preds = %BTreeTupleIsPosting
   %60 = or i16 %57, 8192
   store i16 %60, ptr %53, align 2
   %61 = or i16 %59, 8192
-  %62 = getelementptr inbounds i8, ptr %51, i64 4
+  %62 = getelementptr inbounds nuw i8, ptr %51, i64 4
   store i16 %61, ptr %62, align 2
   %63 = lshr i32 %.0.i25, 16
   %64 = trunc nuw i32 %63 to i16
   store i16 %64, ptr %51, align 2
   %65 = trunc i32 %.0.i25 to i16
-  %66 = getelementptr inbounds i8, ptr %51, i64 2
+  %66 = getelementptr inbounds nuw i8, ptr %51, i64 2
   store i16 %65, ptr %66, align 2
   %67 = getelementptr i8, ptr %51, i64 %52
   %68 = zext nneg i32 %29 to i64
@@ -845,7 +845,7 @@ _bt_form_posting.exit:                            ; preds = %58, %70
   %74 = zext nneg i16 %73 to i64
   %75 = load i32, ptr %10, align 4
   %76 = trunc i32 %75 to i16
-  %77 = getelementptr inbounds i8, ptr %1, i64 64
+  %77 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %78 = load i32, ptr %77, align 8
   %79 = sext i32 %78 to i64
   %.idx = shl nsw i64 %79, 2
@@ -865,7 +865,7 @@ _bt_form_posting.exit:                            ; preds = %58, %70
 
 87:                                               ; preds = %_bt_form_posting.exit
   tail call void @pfree(ptr noundef nonnull %51) #9
-  %88 = getelementptr inbounds i8, ptr %1, i64 56
+  %88 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %89 = load i64, ptr %88, align 8
   %reass.sub = sub i64 %89, %74
   %90 = add i64 %reass.sub, -4
@@ -876,7 +876,7 @@ _bt_form_posting.exit:                            ; preds = %58, %70
 
 93:                                               ; preds = %15, %87
   %.0 = phi i64 [ %90, %87 ], [ 0, %15 ]
-  %94 = getelementptr inbounds i8, ptr %1, i64 48
+  %94 = getelementptr inbounds nuw i8, ptr %1, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %94, i8 0, i64 16, i1 false)
   ret i64 %.0
 }
@@ -921,55 +921,55 @@ define dso_local zeroext i1 @_bt_bottomupdel_pass(ptr noundef %0, i32 noundef %1
 
 BufferGetPage.exit:                               ; preds = %7, %13
   %.0.i.i = phi ptr [ %12, %7 ], [ %18, %13 ]
-  %19 = getelementptr inbounds i8, ptr %.0.i.i, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
   %20 = load i16, ptr %19, align 4
   %21 = zext i16 %20 to i64
   %22 = getelementptr i8, ptr %.0.i.i, i64 %21
-  %23 = getelementptr inbounds i8, ptr %0, i64 320
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 10
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 10
   %26 = load i16, ptr %25, align 2
   %27 = sext i16 %26 to i32
   %28 = add i64 %3, 4
   %29 = tail call ptr @palloc(i64 noundef 1704) #9
   store i8 1, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 4
   store i32 0, ptr %30, align 4
-  %31 = getelementptr inbounds i8, ptr %29, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store i64 8192, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %29, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 16
   store ptr null, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %29, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %29, i64 24
   store i16 0, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %29, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %29, i64 32
   store i64 0, ptr %34, align 8
   %35 = tail call ptr @palloc(i64 noundef 8192) #9
-  %36 = getelementptr inbounds i8, ptr %29, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %29, i64 40
   store ptr %35, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %29, i64 48
-  %38 = getelementptr inbounds i8, ptr %29, i64 52
-  %39 = getelementptr inbounds i8, ptr %29, i64 56
-  %40 = getelementptr inbounds i8, ptr %29, i64 64
+  %37 = getelementptr inbounds nuw i8, ptr %29, i64 48
+  %38 = getelementptr inbounds nuw i8, ptr %29, i64 52
+  %39 = getelementptr inbounds nuw i8, ptr %29, i64 56
+  %40 = getelementptr inbounds nuw i8, ptr %29, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %37, i8 0, i64 20, i1 false)
   store ptr %0, ptr %5, align 8
   %41 = tail call i32 @BufferGetBlockNumber(i32 noundef %1) #9
-  %42 = getelementptr inbounds i8, ptr %5, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %41, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %5, i64 12
+  %43 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i8 1, ptr %43, align 4
   %44 = tail call i64 @llvm.umax.i64(i64 %28, i64 512)
   %45 = trunc i64 %44 to i32
-  %46 = getelementptr inbounds i8, ptr %5, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 %45, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %5, i64 20
+  %47 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i32 0, ptr %47, align 4
   %48 = tail call ptr @palloc(i64 noundef 10864) #9
-  %49 = getelementptr inbounds i8, ptr %5, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %48, ptr %49, align 8
   %50 = tail call ptr @palloc(i64 noundef 8148) #9
-  %51 = getelementptr inbounds i8, ptr %5, i64 32
+  %51 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr %50, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %22, i64 4
+  %52 = getelementptr inbounds nuw i8, ptr %22, i64 4
   %53 = load i32, ptr %52, align 4
   %54 = icmp eq i32 %53, 0
   %55 = select i1 %54, i16 1, i16 2
@@ -985,8 +985,8 @@ BufferGetPage.exit:                               ; preds = %7, %13
   br i1 %.not80, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %BufferGetPage.exit
-  %62 = getelementptr inbounds i8, ptr %.0.i.i, i64 24
-  %63 = getelementptr inbounds i8, ptr %29, i64 68
+  %62 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
+  %63 = getelementptr inbounds nuw i8, ptr %29, i64 68
   br label %64
 
 64:                                               ; preds = %.lr.ph, %188
@@ -1002,7 +1002,7 @@ BufferGetPage.exit:                               ; preds = %7, %13
   br i1 %71, label %72, label %106
 
 72:                                               ; preds = %64
-  %73 = getelementptr inbounds i8, ptr %70, i64 6
+  %73 = getelementptr inbounds nuw i8, ptr %70, i64 6
   %74 = load i16, ptr %73, align 2
   %75 = and i16 %74, 8192
   %76 = icmp eq i16 %75, 0
@@ -1074,7 +1074,7 @@ _bt_dedup_start_pending.exit:                     ; preds = %BTreeTupleIsPosting
   br i1 %109, label %110, label %_bt_dedup_save_htid.exit.thread
 
 110:                                              ; preds = %106
-  %111 = getelementptr inbounds i8, ptr %70, i64 6
+  %111 = getelementptr inbounds nuw i8, ptr %70, i64 6
   %112 = load i16, ptr %111, align 2
   %113 = and i16 %112, 8192
   %114 = icmp eq i16 %113, 0
@@ -1151,7 +1151,7 @@ _bt_dedup_save_htid.exit:                         ; preds = %BTreeTupleIsPosting
 
 _bt_dedup_save_htid.exit.thread:                  ; preds = %137, %135, %106
   call fastcc void @_bt_bottomupdel_finish_pending(ptr noundef nonnull %.0.i.i, ptr noundef nonnull %29, ptr noundef %5)
-  %155 = getelementptr inbounds i8, ptr %70, i64 6
+  %155 = getelementptr inbounds nuw i8, ptr %70, i64 6
   %156 = load i16, ptr %155, align 2
   %157 = and i16 %156, 8192
   %158 = icmp eq i16 %157, 0
@@ -1250,7 +1250,7 @@ declare i32 @BufferGetBlockNumber(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc void @_bt_bottomupdel_finish_pending(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #4 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 52
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %5 = load i32, ptr %4, align 4
   %6 = icmp sgt i32 %5, 1
   %7 = zext i1 %6 to i8
@@ -1258,11 +1258,11 @@ define internal fastcc void @_bt_bottomupdel_finish_pending(ptr nocapture nounde
   br i1 %8, label %.lr.ph103, label %._crit_edge.thread
 
 .lr.ph103:                                        ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %1, i64 24
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
-  %11 = getelementptr inbounds i8, ptr %2, i64 24
-  %12 = getelementptr inbounds i8, ptr %2, i64 20
-  %13 = getelementptr inbounds i8, ptr %2, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 20
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %.pre = load i32, ptr %12, align 4
   br label %.outer
 
@@ -1279,7 +1279,7 @@ define internal fastcc void @_bt_bottomupdel_finish_pending(ptr nocapture nounde
   %20 = and i32 %.val288, 32767
   %21 = zext nneg i32 %20 to i64
   %22 = getelementptr i8, ptr %0, i64 %21
-  %23 = getelementptr inbounds i8, ptr %22, i64 6
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 6
   %24 = load i16, ptr %23, align 2
   %25 = and i16 %24, 8192
   %26 = icmp eq i16 %25, 0
@@ -1310,18 +1310,18 @@ BTreeTupleIsPosting.exit.thread:                  ; preds = %BTreeTupleIsPosting
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %35, ptr noundef nonnull align 2 dereferenceable(6) %.lcssa, i64 6, i1 false)
   %38 = load i32, ptr %12, align 4
   %39 = trunc i32 %38 to i16
-  %40 = getelementptr inbounds i8, ptr %35, i64 6
+  %40 = getelementptr inbounds nuw i8, ptr %35, i64 6
   store i16 %39, ptr %40, align 2
   store i16 %.lcssa268, ptr %37, align 2
-  %41 = getelementptr inbounds i8, ptr %37, i64 2
+  %41 = getelementptr inbounds nuw i8, ptr %37, i64 2
   store i8 0, ptr %41, align 2
-  %42 = getelementptr inbounds i8, ptr %37, i64 3
+  %42 = getelementptr inbounds nuw i8, ptr %37, i64 3
   store i8 %7, ptr %42, align 1
   %43 = load i32, ptr %32, align 4
   %44 = lshr i32 %43, 17
   %45 = trunc nuw nsw i32 %44 to i16
   %46 = add nuw i16 %45, 4
-  %47 = getelementptr inbounds i8, ptr %37, i64 4
+  %47 = getelementptr inbounds nuw i8, ptr %37, i64 4
   store i16 %46, ptr %47, align 2
   %48 = load i32, ptr %12, align 4
   %49 = add i32 %48, 1
@@ -1436,14 +1436,14 @@ BTreeTupleIsPosting.exit.thread:                  ; preds = %BTreeTupleIsPosting
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.07399.us.us, ptr noundef nonnull align 2 dereferenceable(6) %108, i64 6, i1 false)
   %109 = load i32, ptr %12, align 4
   %110 = trunc i32 %109 to i16
-  %111 = getelementptr inbounds i8, ptr %.07399.us.us, i64 6
+  %111 = getelementptr inbounds nuw i8, ptr %.07399.us.us, i64 6
   store i16 %110, ptr %111, align 2
   store i16 %29, ptr %.07498.us.us, align 2
-  %112 = getelementptr inbounds i8, ptr %.07498.us.us, i64 2
+  %112 = getelementptr inbounds nuw i8, ptr %.07498.us.us, i64 2
   store i8 0, ptr %112, align 2
-  %113 = getelementptr inbounds i8, ptr %.07498.us.us, i64 3
+  %113 = getelementptr inbounds nuw i8, ptr %.07498.us.us, i64 3
   store i8 0, ptr %113, align 1
-  %114 = getelementptr inbounds i8, ptr %.07498.us.us, i64 4
+  %114 = getelementptr inbounds nuw i8, ptr %.07498.us.us, i64 4
   store i16 6, ptr %114, align 2
   %115 = getelementptr i8, ptr %.07399.us.us, i64 8
   %116 = getelementptr i8, ptr %.07498.us.us, i64 6
@@ -1469,16 +1469,16 @@ BTreeTupleIsPosting.exit.thread:                  ; preds = %BTreeTupleIsPosting
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.07399.us, ptr noundef nonnull align 2 dereferenceable(6) %124, i64 6, i1 false)
   %125 = load i32, ptr %12, align 4
   %126 = trunc i32 %125 to i16
-  %127 = getelementptr inbounds i8, ptr %.07399.us, i64 6
+  %127 = getelementptr inbounds nuw i8, ptr %.07399.us, i64 6
   store i16 %126, ptr %127, align 2
   store i16 %29, ptr %.07498.us, align 2
-  %128 = getelementptr inbounds i8, ptr %.07498.us, i64 2
+  %128 = getelementptr inbounds nuw i8, ptr %.07498.us, i64 2
   store i8 0, ptr %128, align 2
-  %129 = getelementptr inbounds i8, ptr %.07498.us, i64 3
+  %129 = getelementptr inbounds nuw i8, ptr %.07498.us, i64 3
   %130 = icmp eq i64 %indvars.iv110, %102
   %spec.store.select = zext i1 %130 to i8
   store i8 %spec.store.select, ptr %129, align 1
-  %131 = getelementptr inbounds i8, ptr %.07498.us, i64 4
+  %131 = getelementptr inbounds nuw i8, ptr %.07498.us, i64 4
   store i16 6, ptr %131, align 2
   %132 = getelementptr i8, ptr %.07399.us, i64 8
   %133 = getelementptr i8, ptr %.07498.us, i64 6
@@ -1504,19 +1504,19 @@ BTreeTupleIsPosting.exit.thread:                  ; preds = %BTreeTupleIsPosting
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.07399, ptr noundef nonnull align 2 dereferenceable(6) %141, i64 6, i1 false)
   %142 = load i32, ptr %12, align 4
   %143 = trunc i32 %142 to i16
-  %144 = getelementptr inbounds i8, ptr %.07399, i64 6
+  %144 = getelementptr inbounds nuw i8, ptr %.07399, i64 6
   store i16 %143, ptr %144, align 2
   store i16 %29, ptr %.07498, align 2
-  %145 = getelementptr inbounds i8, ptr %.07498, i64 2
+  %145 = getelementptr inbounds nuw i8, ptr %.07498, i64 2
   store i8 0, ptr %145, align 2
-  %146 = getelementptr inbounds i8, ptr %.07498, i64 3
+  %146 = getelementptr inbounds nuw i8, ptr %.07498, i64 3
   %147 = icmp eq i64 %indvars.iv115, 0
   %148 = icmp eq i64 %indvars.iv115, %98
   %or.cond80 = select i1 %95, i1 %148, i1 false
   %or.cond = select i1 %147, i1 true, i1 %or.cond80
   %spec.store.select104 = zext i1 %or.cond to i8
   store i8 %spec.store.select104, ptr %146, align 1
-  %149 = getelementptr inbounds i8, ptr %.07498, i64 4
+  %149 = getelementptr inbounds nuw i8, ptr %.07498, i64 4
   store i16 6, ptr %149, align 2
   %150 = getelementptr i8, ptr %.07399, i64 8
   %151 = getelementptr i8, ptr %.07498, i64 6
@@ -1558,7 +1558,7 @@ BTreeTupleIsPosting.exit.thread:                  ; preds = %BTreeTupleIsPosting
   %169 = and i32 %.val, 32767
   %170 = zext nneg i32 %169 to i64
   %171 = getelementptr i8, ptr %0, i64 %170
-  %172 = getelementptr inbounds i8, ptr %171, i64 6
+  %172 = getelementptr inbounds nuw i8, ptr %171, i64 6
   %173 = load i16, ptr %172, align 2
   %174 = and i16 %173, 8192
   %175 = icmp eq i16 %174, 0
@@ -1570,7 +1570,7 @@ BTreeTupleIsPosting.exit.thread:                  ; preds = %BTreeTupleIsPosting
 ._crit_edge.thread151:                            ; preds = %.loopexit.thread150, %._crit_edge
   %.lcssa153 = phi i32 [ %156, %._crit_edge ], [ %159, %.loopexit.thread150 ]
   %176 = trunc i32 %.lcssa153 to i16
-  %177 = getelementptr inbounds i8, ptr %1, i64 64
+  %177 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %178 = load i32, ptr %177, align 8
   %179 = sext i32 %178 to i64
   %.idx = shl nsw i64 %179, 2
@@ -1583,7 +1583,7 @@ BTreeTupleIsPosting.exit.thread:                  ; preds = %BTreeTupleIsPosting
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.loopexit.thread, %3, %._crit_edge.thread151, %._crit_edge
-  %184 = getelementptr inbounds i8, ptr %1, i64 48
+  %184 = getelementptr inbounds nuw i8, ptr %1, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %184, i8 0, i64 16, i1 false)
   ret void
 }
@@ -1597,7 +1597,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @_bt_form_posting(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 6
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %5 = load i16, ptr %4, align 2
   %6 = and i16 %5, 8192
   %7 = icmp eq i16 %6, 0
@@ -1637,7 +1637,7 @@ BTreeTupleIsPosting.exit.thread:                  ; preds = %3, %BTreeTupleIsPos
   %25 = tail call ptr @palloc0(i64 noundef %24) #9
   %26 = zext i32 %.0 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %25, ptr nonnull align 2 %0, i64 %26, i1 false)
-  %27 = getelementptr inbounds i8, ptr %25, i64 6
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 6
   %28 = load i16, ptr %27, align 2
   %29 = and i16 %28, -8192
   %30 = trunc i32 %.024 to i16
@@ -1649,13 +1649,13 @@ BTreeTupleIsPosting.exit.thread:                  ; preds = %3, %BTreeTupleIsPos
   %34 = or i16 %31, 8192
   store i16 %34, ptr %27, align 2
   %35 = or i16 %33, 8192
-  %36 = getelementptr inbounds i8, ptr %25, i64 4
+  %36 = getelementptr inbounds nuw i8, ptr %25, i64 4
   store i16 %35, ptr %36, align 2
   %37 = lshr i32 %.0, 16
   %38 = trunc nuw i32 %37 to i16
   store i16 %38, ptr %25, align 2
   %39 = trunc i32 %.0 to i16
-  %40 = getelementptr inbounds i8, ptr %25, i64 2
+  %40 = getelementptr inbounds nuw i8, ptr %25, i64 2
   store i16 %39, ptr %40, align 2
   %41 = getelementptr i8, ptr %25, i64 %26
   %42 = zext nneg i32 %2 to i64
@@ -1682,7 +1682,7 @@ define dso_local void @_bt_update_posting(ptr nocapture noundef %0) local_unname
   %.val43 = load i16, ptr %3, align 2
   %4 = and i16 %.val43, 4095
   %5 = zext nneg i16 %4 to i32
-  %6 = getelementptr inbounds i8, ptr %0, i64 10
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 10
   %7 = load i16, ptr %6, align 2
   %8 = zext i16 %7 to i32
   %9 = sub nsw i32 %5, %8
@@ -1703,7 +1703,7 @@ define dso_local void @_bt_update_posting(ptr nocapture noundef %0) local_unname
   %21 = tail call ptr @palloc0(i64 noundef %20) #9
   %22 = zext i32 %14 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %21, ptr nonnull align 2 %2, i64 %22, i1 false)
-  %23 = getelementptr inbounds i8, ptr %21, i64 6
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 6
   %24 = load i16, ptr %23, align 2
   %25 = and i16 %24, -8192
   %26 = trunc i32 %.040 to i16
@@ -1714,10 +1714,10 @@ define dso_local void @_bt_update_posting(ptr nocapture noundef %0) local_unname
   %29 = trunc nuw nsw i32 %9 to i16
   %30 = or i16 %27, 8192
   %31 = or i16 %29, 8192
-  %32 = getelementptr inbounds i8, ptr %21, i64 4
+  %32 = getelementptr inbounds nuw i8, ptr %21, i64 4
   store i16 %31, ptr %32, align 2
   store i16 %.val44, ptr %21, align 2
-  %33 = getelementptr inbounds i8, ptr %21, i64 2
+  %33 = getelementptr inbounds nuw i8, ptr %21, i64 2
   store i16 %.val45, ptr %33, align 2
   %34 = zext i16 %.val44 to i64
   %35 = shl nuw nsw i64 %34, 16
@@ -1740,7 +1740,7 @@ define dso_local void @_bt_update_posting(ptr nocapture noundef %0) local_unname
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %41
-  %43 = getelementptr inbounds i8, ptr %0, i64 12
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 12
   br label %44
 
 44:                                               ; preds = %.lr.ph, %66
@@ -1833,7 +1833,7 @@ define dso_local noundef ptr @_bt_swap_posting(ptr nocapture noundef %0, ptr nou
   %26 = mul nsw i64 %25, 6
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %22, ptr align 1 %21, i64 %26, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %21, ptr noundef nonnull readonly align 2 dereferenceable(6) %0, i64 6, i1 false)
-  %27 = getelementptr inbounds i8, ptr %1, i64 6
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 6
   %28 = load i16, ptr %27, align 2
   %29 = and i16 %28, 8192
   %30 = icmp eq i16 %29, 0

@@ -62,10 +62,10 @@ $_ZTV9DwarfFile = comdat any
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN10ElfSectionC2EP8_IO_FILERK10Elf64_Shdr(ptr nocapture noundef nonnull align 8 dereferenceable(76) initializes((0, 72)) %0, ptr nocapture noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %2) unnamed_addr #0 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr null, ptr %4, align 8
   %5 = tail call noundef i32 @_ZN10ElfSection12load_sectionEP8_IO_FILERK10Elf64_Shdr(ptr noundef nonnull align 8 dereferenceable(76) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(64) %2)
-  %6 = getelementptr inbounds i8, ptr %0, i64 72
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 %5, ptr %6, align 8
   ret void
 }
@@ -78,10 +78,10 @@ define hidden noundef range(i32 0, 3) i32 @_ZN10ElfSection12load_sectionEP8_IO_F
   br i1 %5, label %_ZN16MarkedFileReaderD2Ev.exit, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %2, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %8 = load i64, ptr %7, align 8
   %9 = tail call noundef ptr @_ZN2os6mallocEm8MEMFLAGS(i64 noundef %8, i8 noundef zeroext 9) #15
-  %10 = getelementptr inbounds i8, ptr %0, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %9, ptr %10, align 8
   %11 = icmp eq ptr %9, null
   br i1 %11, label %_ZN16MarkedFileReaderD2Ev.exit, label %12
@@ -92,7 +92,7 @@ define hidden noundef range(i32 0, 3) i32 @_ZN10ElfSection12load_sectionEP8_IO_F
   br i1 %14, label %15, label %25
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %2, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %17 = load i64, ptr %16, align 8
   %18 = tail call i32 @fseek(ptr noundef %1, i64 noundef %17, i32 noundef 0)
   %19 = icmp eq i32 %18, 0
@@ -124,7 +124,7 @@ _ZN16MarkedFileReaderD2Ev.exit:                   ; preds = %.thread, %25, %6, %
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN10ElfSectionD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(76) %0) unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 64
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %4
@@ -146,7 +146,7 @@ declare noundef ptr @_ZN2os6mallocEm8MEMFLAGS(i64 noundef, i8 noundef zeroext) l
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define hidden noundef zeroext i1 @_ZN10FileReader12set_positionEl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, i64 noundef %1) unnamed_addr #3 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 @fseek(ptr noundef %4, i64 noundef %1, i32 noundef 0)
   %6 = icmp eq i32 %5, 0
@@ -155,7 +155,7 @@ define hidden noundef zeroext i1 @_ZN10FileReader12set_positionEl(ptr nocapture 
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define hidden noundef zeroext i1 @_ZN10FileReader4readEPvm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef %1, i64 noundef %2) local_unnamed_addr #3 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i64 @fread(ptr noundef %1, i64 noundef %2, i64 noundef 1, ptr noundef %5)
   %7 = icmp eq i64 %6, 1
@@ -167,7 +167,7 @@ declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr 
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define hidden noundef i64 @_ZN10FileReader11read_bufferEPvm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef %1, i64 noundef %2) local_unnamed_addr #3 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i64 @fread(ptr noundef %1, i64 noundef 1, i64 noundef %2, ptr noundef %5)
   ret i64 %6
@@ -178,10 +178,10 @@ declare noundef i32 @fseek(ptr nocapture noundef, i64 noundef, i32 noundef) loca
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define hidden void @_ZN16MarkedFileReaderC2EP8_IO_FILE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef %1) unnamed_addr #3 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV16MarkedFileReader, i64 16), ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = tail call i64 @ftell(ptr noundef %1)
   store i64 %5, ptr %4, align 8
   ret void
@@ -193,13 +193,13 @@ declare noundef i64 @ftell(ptr nocapture noundef) local_unnamed_addr #4
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define hidden void @_ZN16MarkedFileReaderD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV16MarkedFileReader, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i64, ptr %2, align 8
   %.not = icmp eq i64 %3, -1
   br i1 %.not, label %8, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 @fseek(ptr noundef %6, i64 noundef %3, i32 noundef 0)
   br label %8
@@ -211,13 +211,13 @@ define hidden void @_ZN16MarkedFileReaderD2Ev(ptr nocapture noundef nonnull alig
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN7ElfFileC2EPKc(ptr nocapture noundef nonnull align 8 dereferenceable(144) initializes((0, 68), (72, 144)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV7ElfFile, i64 16), ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = tail call noundef ptr @_ZN2os6strdupEPKc8MEMFLAGS(ptr noundef %1, i8 noundef zeroext 9) #15
   store ptr %5, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
-  %7 = getelementptr inbounds i8, ptr %0, i64 72
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %8 = icmp eq ptr %5, null
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %6, i8 0, i64 44, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %7, i8 0, i64 72, i1 false)
@@ -235,7 +235,7 @@ define hidden void @_ZN7ElfFileC2EPKc(ptr nocapture noundef nonnull align 8 dere
 
 _ZN7ElfFile9parse_elfEPKc.exit:                   ; preds = %11, %9, %2
   %storemerge = phi i32 [ 1, %2 ], [ %12, %11 ], [ 3, %9 ]
-  %13 = getelementptr inbounds i8, ptr %0, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 %storemerge, ptr %13, align 8
   ret void
 }
@@ -248,7 +248,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef range(i32 0, 4) i32 @_ZN7ElfFile9parse_elfEPKc(ptr nocapture noundef nonnull align 8 dereferenceable(144) initializes((24, 32)) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = tail call noundef ptr @_ZN2os5fopenEPKcS1_(ptr noundef %1, ptr noundef nonnull @.str.4) #15
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %3, ptr %4, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %7, label %5
@@ -265,7 +265,7 @@ define hidden noundef range(i32 0, 4) i32 @_ZN7ElfFile9parse_elfEPKc(ptr nocaptu
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN7ElfFileD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(144) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV7ElfFile, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %5, label %4
@@ -277,7 +277,7 @@ define hidden void @_ZN7ElfFileD2Ev(ptr nocapture noundef nonnull align 8 derefe
   br label %5
 
 5:                                                ; preds = %4, %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8
   %.not3.i = icmp eq ptr %7, null
   br i1 %.not3.i, label %9, label %8
@@ -289,7 +289,7 @@ define hidden void @_ZN7ElfFileD2Ev(ptr nocapture noundef nonnull align 8 derefe
   br label %9
 
 9:                                                ; preds = %8, %5
-  %10 = getelementptr inbounds i8, ptr %0, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %11 = load ptr, ptr %10, align 8
   %.not4.i = icmp eq ptr %11, null
   br i1 %.not4.i, label %_ZN7ElfFile14cleanup_tablesEv.exit, label %12
@@ -301,7 +301,7 @@ define hidden void @_ZN7ElfFileD2Ev(ptr nocapture noundef nonnull align 8 derefe
   br label %_ZN7ElfFile14cleanup_tablesEv.exit
 
 _ZN7ElfFile14cleanup_tablesEv.exit:               ; preds = %9, %12
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load ptr, ptr %13, align 8
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %17, label %15
@@ -311,7 +311,7 @@ _ZN7ElfFile14cleanup_tablesEv.exit:               ; preds = %9, %12
   br label %17
 
 17:                                               ; preds = %15, %_ZN7ElfFile14cleanup_tablesEv.exit
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load ptr, ptr %18, align 8
   %.not5 = icmp eq ptr %19, null
   br i1 %.not5, label %21, label %20
@@ -322,7 +322,7 @@ _ZN7ElfFile14cleanup_tablesEv.exit:               ; preds = %9, %12
   br label %21
 
 21:                                               ; preds = %20, %17
-  %22 = getelementptr inbounds i8, ptr %0, i64 48
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %23 = load ptr, ptr %22, align 8
   %.not6 = icmp eq ptr %23, null
   br i1 %.not6, label %25, label %24
@@ -334,28 +334,28 @@ _ZN7ElfFile14cleanup_tablesEv.exit:               ; preds = %9, %12
   br label %25
 
 25:                                               ; preds = %24, %21
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load ptr, ptr %26, align 8
   %.not7 = icmp eq ptr %27, null
   br i1 %.not7, label %32, label %28
 
 28:                                               ; preds = %25
   %29 = load ptr, ptr %27, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load ptr, ptr %30, align 8
   tail call void %31(ptr noundef nonnull align 8 dereferenceable(144) %27) #15
   store ptr null, ptr %26, align 8
   br label %32
 
 32:                                               ; preds = %28, %25
-  %33 = getelementptr inbounds i8, ptr %0, i64 72
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %34 = load ptr, ptr %33, align 8
   %.not8 = icmp eq ptr %34, null
   br i1 %.not8, label %39, label %35
 
 35:                                               ; preds = %32
   %36 = load ptr, ptr %34, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %38 = load ptr, ptr %37, align 8
   tail call void %38(ptr noundef nonnull align 8 dereferenceable(144) %34) #15
   store ptr null, ptr %33, align 8
@@ -367,7 +367,7 @@ _ZN7ElfFile14cleanup_tablesEv.exit:               ; preds = %9, %12
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN7ElfFile14cleanup_tablesEv(ptr nocapture noundef nonnull align 8 dereferenceable(144) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %4
@@ -379,7 +379,7 @@ define hidden void @_ZN7ElfFile14cleanup_tablesEv(ptr nocapture noundef nonnull 
   br label %5
 
 5:                                                ; preds = %4, %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8
   %.not3 = icmp eq ptr %7, null
   br i1 %.not3, label %9, label %8
@@ -391,7 +391,7 @@ define hidden void @_ZN7ElfFile14cleanup_tablesEv(ptr nocapture noundef nonnull 
   br label %9
 
 9:                                                ; preds = %8, %5
-  %10 = getelementptr inbounds i8, ptr %0, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %11 = load ptr, ptr %10, align 8
   %.not4 = icmp eq ptr %11, null
   br i1 %.not4, label %13, label %12
@@ -430,9 +430,9 @@ declare noundef ptr @_ZN2os5fopenEPKcS1_(ptr noundef, ptr noundef) local_unnamed
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef range(i32 0, 3) i32 @_ZN7ElfFile11load_tablesEv(ptr nocapture noundef nonnull align 8 dereferenceable(144) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %struct.Elf64_Shdr, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 80
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %6 = tail call i64 @fread(ptr noundef nonnull %5, i64 noundef 64, i64 noundef 1, ptr noundef %4)
   %7 = icmp eq i64 %6, 1
   br i1 %7, label %8, label %_ZN7ElfFile11is_elf_fileER10Elf64_Ehdr.exit.thread
@@ -440,47 +440,47 @@ define hidden noundef range(i32 0, 3) i32 @_ZN7ElfFile11load_tablesEv(ptr nocapt
 8:                                                ; preds = %1
   %9 = load i8, ptr %5, align 8
   %10 = icmp eq i8 %9, 127
-  %11 = getelementptr inbounds i8, ptr %0, i64 81
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 81
   %12 = load i8, ptr %11, align 1
   %13 = icmp eq i8 %12, 69
   %or.cond.not22.i.not37 = select i1 %10, i1 %13, i1 false
-  %14 = getelementptr inbounds i8, ptr %0, i64 82
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 82
   %15 = load i8, ptr %14, align 2
   %16 = icmp eq i8 %15, 76
   %or.cond10.not19.i.not34 = select i1 %or.cond.not22.i.not37, i1 %16, i1 false
-  %17 = getelementptr inbounds i8, ptr %0, i64 83
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 83
   %18 = load i8, ptr %17, align 1
   %19 = icmp eq i8 %18, 70
   %or.cond13.not17.i.not32 = select i1 %or.cond10.not19.i.not34, i1 %19, i1 false
-  %20 = getelementptr inbounds i8, ptr %0, i64 84
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %21 = load i8, ptr %20, align 4
   %.not.i = icmp ne i8 %21, 0
   %or.cond15.i.not31 = select i1 %or.cond13.not17.i.not32, i1 %.not.i, i1 false
-  %22 = getelementptr inbounds i8, ptr %0, i64 85
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 85
   %23 = load i8, ptr %22, align 1
   %24 = icmp ne i8 %23, 0
   %or.cond = select i1 %or.cond15.i.not31, i1 %24, i1 false
   br i1 %or.cond, label %25, label %_ZN7ElfFile11is_elf_fileER10Elf64_Ehdr.exit.thread
 
 25:                                               ; preds = %8
-  %26 = getelementptr inbounds i8, ptr %0, i64 120
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %27 = load i64, ptr %26, align 8
   %28 = tail call i32 @fseek(ptr noundef %4, i64 noundef %27, i32 noundef 0)
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %.preheader, label %_ZN7ElfFile11is_elf_fileER10Elf64_Ehdr.exit.thread
 
 .preheader:                                       ; preds = %25
-  %30 = getelementptr inbounds i8, ptr %0, i64 140
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %31 = load i16, ptr %30, align 4
   %.not = icmp eq i16 %31, 0
   br i1 %.not, label %_ZN7ElfFile11is_elf_fileER10Elf64_Ehdr.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %32 = getelementptr inbounds i8, ptr %2, i64 4
-  %33 = getelementptr inbounds i8, ptr %0, i64 32
-  %34 = getelementptr inbounds i8, ptr %0, i64 142
-  %35 = getelementptr inbounds i8, ptr %0, i64 40
-  %36 = getelementptr inbounds i8, ptr %0, i64 48
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 142
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 48
   br label %37
 
 37:                                               ; preds = %.lr.ph, %63
@@ -563,26 +563,26 @@ _ZN7ElfFile11is_elf_fileER10Elf64_Ehdr.exit.thread: ; preds = %37, %63, %42, %55
 define hidden noundef zeroext i1 @_ZN7ElfFile11is_elf_fileER10Elf64_Ehdr(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0) local_unnamed_addr #7 align 2 {
   %2 = load i8, ptr %0, align 8
   %3 = icmp ne i8 %2, 127
-  %4 = getelementptr inbounds i8, ptr %0, i64 1
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %5 = load i8, ptr %4, align 1
   %6 = icmp ne i8 %5, 69
   %or.cond.not22 = select i1 %3, i1 true, i1 %6
-  %7 = getelementptr inbounds i8, ptr %0, i64 2
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %8 = load i8, ptr %7, align 2
   %9 = icmp ne i8 %8, 76
   %or.cond10.not19 = select i1 %or.cond.not22, i1 true, i1 %9
-  %10 = getelementptr inbounds i8, ptr %0, i64 3
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %11 = load i8, ptr %10, align 1
   %12 = icmp ne i8 %11, 70
   %or.cond13.not17 = select i1 %or.cond10.not19, i1 true, i1 %12
-  %13 = getelementptr inbounds i8, ptr %0, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %14 = load i8, ptr %13, align 4
   %.not = icmp eq i8 %14, 0
   %or.cond15 = select i1 %or.cond13.not17, i1 true, i1 %.not
   br i1 %or.cond15, label %19, label %15
 
 15:                                               ; preds = %1
-  %16 = getelementptr inbounds i8, ptr %0, i64 5
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 5
   %17 = load i8, ptr %16, align 1
   %18 = icmp ne i8 %17, 0
   br label %19
@@ -596,7 +596,7 @@ declare void @_ZN14ElfStringTableC1EP8_IO_FILER10Elf64_Shdri(ptr noundef nonnull
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZN7ElfFile16add_string_tableEP14ElfStringTable(ptr nocapture noundef nonnull align 8 dereferenceable(144) %0, ptr noundef %1) local_unnamed_addr #8 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %7, label %6
@@ -614,7 +614,7 @@ declare void @_ZN14ElfSymbolTableC1EP8_IO_FILER10Elf64_Shdr(ptr noundef nonnull 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZN7ElfFile16add_symbol_tableEP14ElfSymbolTable(ptr nocapture noundef nonnull align 8 dereferenceable(144) %0, ptr noundef %1) local_unnamed_addr #8 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %7, label %6
@@ -633,15 +633,15 @@ define hidden noundef zeroext i1 @_ZN7ElfFile6decodeEPhPciPi(ptr nocapture nound
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %10 = load i32, ptr %9, align 8
   %11 = icmp sgt i32 %10, 0
   br i1 %11, label %.critedge, label %12
 
 12:                                               ; preds = %5
   store i32 2147483647, ptr %8, align 4
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
-  %14 = getelementptr inbounds i8, ptr %0, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 56
   br label %15
 
 15:                                               ; preds = %16, %12
@@ -657,7 +657,7 @@ define hidden noundef zeroext i1 @_ZN7ElfFile6decodeEPhPciPi(ptr nocapture nound
 
 19:                                               ; preds = %16
   %20 = load i32, ptr %6, align 4
-  %21 = getelementptr inbounds i8, ptr %0, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %22
 
 22:                                               ; preds = %23, %19
@@ -667,7 +667,7 @@ define hidden noundef zeroext i1 @_ZN7ElfFile6decodeEPhPciPi(ptr nocapture nound
   br i1 %.not.i, label %27, label %23
 
 23:                                               ; preds = %22
-  %24 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %25 = load i32, ptr %24, align 8
   %26 = icmp eq i32 %25, %20
   br i1 %26, label %_ZN7ElfFile16get_string_tableEi.exit, label %22, !llvm.loop !9
@@ -700,7 +700,7 @@ declare noundef zeroext i1 @_ZN14ElfSymbolTable6lookupEPhPiS1_S1_P16ElfFuncDescT
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef ptr @_ZN7ElfFile16get_string_tableEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %0, i32 noundef %1) local_unnamed_addr #9 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %4
 
 4:                                                ; preds = %5, %2
@@ -710,7 +710,7 @@ define hidden noundef ptr @_ZN7ElfFile16get_string_tableEi(ptr nocapture noundef
   br i1 %.not, label %9, label %5
 
 5:                                                ; preds = %4
-  %6 = getelementptr inbounds i8, ptr %.0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, %1
   br i1 %8, label %9, label %4, !llvm.loop !9
@@ -750,13 +750,13 @@ _ZNK7ElfFile19is_valid_dwarf_fileEv.exit:         ; preds = %13
   br i1 %15, label %16, label %24
 
 16:                                               ; preds = %_ZNK7ElfFile19is_valid_dwarf_fileEv.exit
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load ptr, ptr %17, align 8
   %19 = tail call noundef zeroext i1 @_ZN7ElfFile21create_new_dwarf_fileEPKc(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef %18)
   br i1 %19, label %20, label %24
 
 20:                                               ; preds = %16, %6
-  %21 = getelementptr inbounds i8, ptr %0, i64 72
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %22 = load ptr, ptr %21, align 8
   %23 = tail call noundef zeroext i1 @_ZN9DwarfFile28get_filename_and_line_numberEjPcmPib(ptr noundef nonnull align 8 dereferenceable(144) %22, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i1 noundef zeroext %5)
   br label %24
@@ -770,7 +770,7 @@ _ZNK7ElfFile19is_valid_dwarf_fileEv.exit:         ; preds = %13
 define hidden noundef zeroext i1 @_ZN7ElfFile15load_dwarf_fileEv(ptr nocapture noundef nonnull align 8 dereferenceable(144) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %"struct.ElfFile::DebugInfo", align 4
   %3 = alloca %"class.ElfFile::DwarfFilePath", align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 72
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %_ZN7ElfFile33load_dwarf_file_from_env_var_pathERNS_13DwarfFilePathE.exit.thread
@@ -781,13 +781,13 @@ define hidden noundef zeroext i1 @_ZN7ElfFile15load_dwarf_fileEv(ptr nocapture n
 
 8:                                                ; preds = %6
   store ptr %2, ptr %3, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 4108
-  %10 = getelementptr inbounds i8, ptr %2, i64 4100
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 4108
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 4100
   %11 = load i32, ptr %10, align 4
   store i32 %11, ptr %9, align 4
-  %12 = getelementptr inbounds i8, ptr %3, i64 4112
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 4112
   store i16 0, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %3, i64 4104
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 4104
   store i8 0, ptr %13, align 8
   %14 = call noundef zeroext i1 @_ZN7ElfFile35load_dwarf_file_from_same_directoryERNS_13DwarfFilePathE(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(4114) %3)
   br i1 %14, label %_ZN7ElfFile33load_dwarf_file_from_env_var_pathERNS_13DwarfFilePathE.exit.thread, label %15
@@ -857,19 +857,19 @@ define hidden noundef zeroext i1 @_ZN7ElfFile21create_new_dwarf_fileEPKc(ptr noc
   br i1 %5, label %.thread, label %7
 
 .thread:                                          ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 72
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr null, ptr %6, align 8
   br label %29
 
 7:                                                ; preds = %2
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV7ElfFile, i64 16), ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr null, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %10 = tail call noundef ptr @_ZN2os6strdupEPKc8MEMFLAGS(ptr noundef %1, i8 noundef zeroext 9) #15
   store ptr %10, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 24
-  %12 = getelementptr inbounds i8, ptr %4, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %13 = icmp eq ptr %10, null
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %11, i8 0, i64 44, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %12, i8 0, i64 72, i1 false)
@@ -887,10 +887,10 @@ define hidden noundef zeroext i1 @_ZN7ElfFile21create_new_dwarf_fileEPKc(ptr noc
 
 18:                                               ; preds = %7, %14, %16
   %storemerge.i.i = phi i32 [ 1, %7 ], [ %17, %16 ], [ 3, %14 ]
-  %19 = getelementptr inbounds i8, ptr %4, i64 64
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 64
   store i32 %storemerge.i.i, ptr %19, align 8
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV9DwarfFile, i64 16), ptr %4, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 72
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %4, ptr %20, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3)
   %21 = call noundef zeroext i1 @_ZNK7ElfFile19read_section_headerEPKcR10Elf64_Shdr(ptr noundef nonnull readonly align 8 dereferenceable(144) %4, ptr noundef nonnull @.str.5, ptr noundef nonnull align 8 dereferenceable(64) %3)
@@ -926,18 +926,18 @@ define hidden noundef zeroext i1 @_ZN9DwarfFile28get_filename_and_line_numberEjP
   %10 = alloca i32, align 4
   %11 = alloca %"class.DwarfFile::LineNumberProgram", align 8
   store ptr %0, ptr %7, align 8
-  %12 = getelementptr inbounds i8, ptr %7, i64 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %7, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %14, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %7, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %17 = tail call i64 @ftell(ptr noundef %14)
   store i64 %17, ptr %16, align 8
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTVN9DwarfFile21MarkedDwarfFileReaderE, i64 16), ptr %12, align 8
-  %18 = getelementptr inbounds i8, ptr %7, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, i8 -1, i64 16, i1 false)
-  %19 = getelementptr inbounds i8, ptr %7, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, i8 0, i64 16, i1 false)
   store i32 0, ptr %8, align 4
   %20 = call noundef zeroext i1 @_ZN9DwarfFile12DebugAranges28find_compilation_unit_offsetEjPj(ptr noundef nonnull align 8 dereferenceable(64) %7, i32 noundef %1, ptr noundef nonnull %8)
@@ -946,19 +946,19 @@ define hidden noundef zeroext i1 @_ZN9DwarfFile28get_filename_and_line_numberEjP
 21:                                               ; preds = %6
   %22 = load i32, ptr %8, align 4
   store ptr %0, ptr %9, align 8
-  %23 = getelementptr inbounds i8, ptr %9, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %24 = load ptr, ptr %13, align 8
-  %25 = getelementptr inbounds i8, ptr %9, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %24, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %9, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %27 = call i64 @ftell(ptr noundef %24)
   store i64 %27, ptr %26, align 8
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTVN9DwarfFile21MarkedDwarfFileReaderE, i64 16), ptr %23, align 8
-  %28 = getelementptr inbounds i8, ptr %9, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %9, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %28, i8 -1, i64 16, i1 false)
-  %29 = getelementptr inbounds i8, ptr %9, i64 64
+  %29 = getelementptr inbounds nuw i8, ptr %9, i64 64
   store i32 %22, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %9, i64 68
+  %30 = getelementptr inbounds nuw i8, ptr %9, i64 68
   store i32 0, ptr %30, align 4
   store i32 0, ptr %10, align 4
   %31 = call noundef zeroext i1 @_ZN9DwarfFile15CompilationUnit22find_debug_line_offsetEPj(ptr noundef nonnull align 8 dereferenceable(72) %9, ptr noundef nonnull %10)
@@ -969,21 +969,21 @@ define hidden noundef zeroext i1 @_ZN9DwarfFile28get_filename_and_line_numberEjP
   %34 = zext i32 %33 to i64
   %35 = zext i1 %5 to i8
   store ptr %0, ptr %11, align 8
-  %36 = getelementptr inbounds i8, ptr %11, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %37 = load ptr, ptr %13, align 8
-  %38 = getelementptr inbounds i8, ptr %11, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr %37, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %11, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %40 = call i64 @ftell(ptr noundef %37)
   store i64 %40, ptr %39, align 8
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTVN9DwarfFile21MarkedDwarfFileReaderE, i64 16), ptr %36, align 8
-  %41 = getelementptr inbounds i8, ptr %11, i64 32
+  %41 = getelementptr inbounds nuw i8, ptr %11, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %41, i8 -1, i64 16, i1 false)
-  %42 = getelementptr inbounds i8, ptr %11, i64 96
+  %42 = getelementptr inbounds nuw i8, ptr %11, i64 96
   store i32 %1, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %11, i64 104
+  %43 = getelementptr inbounds nuw i8, ptr %11, i64 104
   store i64 %34, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %11, i64 112
+  %44 = getelementptr inbounds nuw i8, ptr %11, i64 112
   store i8 %35, ptr %44, align 8
   %45 = call noundef zeroext i1 @_ZN9DwarfFile17LineNumberProgram11read_headerEv(ptr noundef nonnull align 8 dereferenceable(113) %11)
   br i1 %45, label %46, label %_ZN9DwarfFile17LineNumberProgram29find_filename_and_line_numberEPcmPi.exit
@@ -994,7 +994,7 @@ define hidden noundef zeroext i1 @_ZN9DwarfFile28get_filename_and_line_numberEjP
 
 _ZN9DwarfFile17LineNumberProgram29find_filename_and_line_numberEPcmPi.exit: ; preds = %32, %46
   %.0.i = phi i1 [ %47, %46 ], [ false, %32 ]
-  %48 = getelementptr inbounds i8, ptr %11, i64 88
+  %48 = getelementptr inbounds nuw i8, ptr %11, i64 88
   %49 = load ptr, ptr %48, align 8
   %50 = icmp eq ptr %49, null
   br i1 %50, label %52, label %51
@@ -1044,7 +1044,7 @@ _ZN9DwarfFile12DebugArangesD2Ev.exit:             ; preds = %_ZN9DwarfFile15Comp
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZNK7ElfFile19read_section_headerEPKcR10Elf64_Shdr(ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull align 8 dereferenceable(64) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca [24 x i8], align 16
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %_ZN16MarkedFileReaderD2Ev.exit, label %8
@@ -1056,21 +1056,21 @@ define hidden noundef zeroext i1 @_ZNK7ElfFile19read_section_headerEPKcR10Elf64_
   br i1 %11, label %_ZN16MarkedFileReaderD2Ev.exit, label %12
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load ptr, ptr %13, align 8
   %15 = tail call i64 @ftell(ptr noundef %14)
   %16 = icmp sgt i64 %15, -1
   br i1 %16, label %17, label %.loopexit
 
 17:                                               ; preds = %12
-  %18 = getelementptr inbounds i8, ptr %0, i64 120
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %19 = load i64, ptr %18, align 8
   %20 = tail call i32 @fseek(ptr noundef %14, i64 noundef %19, i32 noundef 0)
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %.preheader, label %.thread
 
 .preheader:                                       ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %0, i64 140
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %23 = load i16, ptr %22, align 4
   %.not = icmp eq i16 %23, 0
   br i1 %.not, label %.thread, label %.lr.ph
@@ -1122,21 +1122,21 @@ define hidden noundef zeroext i1 @_ZNK7ElfFile15read_debug_infoEPNS_9DebugInfoE(
   br i1 %4, label %5, label %_ZN16MarkedFileReaderD2Ev.exit
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %3, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %7 = load i64, ptr %6, align 8
   %8 = and i64 %7, 3
   %.not = icmp eq i64 %8, 0
   br i1 %.not, label %9, label %_ZN16MarkedFileReaderD2Ev.exit
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i64 @ftell(ptr noundef %11)
   %13 = icmp sgt i64 %12, -1
   br i1 %13, label %14, label %34
 
 14:                                               ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %0, i64 120
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %16 = load i64, ptr %15, align 8
   %17 = tail call i32 @fseek(ptr noundef %11, i64 noundef %16, i32 noundef 0)
   %18 = icmp eq i32 %17, 0
@@ -1144,7 +1144,7 @@ define hidden noundef zeroext i1 @_ZNK7ElfFile15read_debug_infoEPNS_9DebugInfoE(
 
 19:                                               ; preds = %14
   %20 = add i64 %7, -4
-  %21 = getelementptr inbounds i8, ptr %3, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %22 = load i64, ptr %21, align 8
   %23 = tail call i32 @fseek(ptr noundef %11, i64 noundef %22, i32 noundef 0)
   %24 = tail call i64 @fread(ptr noundef %1, i64 noundef %20, i64 noundef 1, ptr noundef %11)
@@ -1159,7 +1159,7 @@ define hidden noundef zeroext i1 @_ZNK7ElfFile15read_debug_infoEPNS_9DebugInfoE(
   br i1 %.not6, label %30, label %.thread
 
 30:                                               ; preds = %26
-  %31 = getelementptr inbounds i8, ptr %1, i64 4100
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 4100
   %32 = tail call i64 @fread(ptr noundef nonnull %31, i64 noundef 4, i64 noundef 1, ptr noundef %11)
   %33 = icmp eq i64 %32, 1
   br label %.thread
@@ -1180,9 +1180,9 @@ _ZN16MarkedFileReaderD2Ev.exit:                   ; preds = %.thread, %34, %5, %
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN7ElfFile35load_dwarf_file_from_same_directoryERNS_13DwarfFilePathE(ptr nocapture noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(4114) %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = tail call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %5, i64 noundef 4097, ptr noundef nonnull @.str.10, ptr noundef %4) #15
   %or.cond.i = icmp ugt i32 %6, 4096
   br i1 %or.cond.i, label %_ZN7ElfFile13DwarfFilePath3setEPKc.exit.thread, label %_ZN7ElfFile13DwarfFilePath3setEPKc.exit
@@ -1190,9 +1190,9 @@ define hidden noundef zeroext i1 @_ZN7ElfFile35load_dwarf_file_from_same_directo
 _ZN7ElfFile13DwarfFilePath3setEPKc.exit:          ; preds = %2
   %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #16
   %8 = trunc i64 %7 to i16
-  %9 = getelementptr inbounds i8, ptr %1, i64 4112
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 4112
   store i16 %8, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 4104
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 4104
   %11 = load i8, ptr %10, align 8
   %12 = icmp eq i8 %11, 0
   br i1 %12, label %13, label %_ZN7ElfFile13DwarfFilePath3setEPKc.exit.thread
@@ -1207,7 +1207,7 @@ _ZN7ElfFile13DwarfFilePath3setEPKc.exit:          ; preds = %2
   br i1 %19, label %_ZN7ElfFile13DwarfFilePath3setEPKc.exit.thread, label %20
 
 20:                                               ; preds = %13
-  %21 = getelementptr inbounds i8, ptr %18, i64 1
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 1
   %22 = ptrtoint ptr %21 to i64
   %23 = ptrtoint ptr %5 to i64
   %24 = sub i64 %22, %23
@@ -1218,7 +1218,7 @@ _ZN7ElfFile13DwarfFilePath3setEPKc.exit:          ; preds = %2
 27:                                               ; preds = %20
   %28 = sub nuw nsw i16 4097, %25
   %29 = and i64 %24, 4095
-  %30 = getelementptr inbounds i8, ptr %5, i64 %29
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 %29
   %31 = zext nneg i16 %28 to i64
   %32 = tail call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %30, i64 noundef %31, ptr noundef nonnull @.str.10, ptr noundef %14) #15
   %33 = icmp sgt i32 %32, -1
@@ -1273,9 +1273,9 @@ define hidden noundef zeroext i1 @_ZN7ElfFile33load_dwarf_file_from_env_var_path
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN7ElfFile40load_dwarf_file_from_debug_sub_directoryERNS_13DwarfFilePathE(ptr nocapture noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(4114) %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = tail call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %5, i64 noundef 4097, ptr noundef nonnull @.str.10, ptr noundef %4) #15
   %or.cond.i = icmp ugt i32 %6, 4096
   br i1 %or.cond.i, label %_ZN7ElfFile13DwarfFilePath3setEPKc.exit.thread, label %_ZN7ElfFile13DwarfFilePath3setEPKc.exit
@@ -1283,9 +1283,9 @@ define hidden noundef zeroext i1 @_ZN7ElfFile40load_dwarf_file_from_debug_sub_di
 _ZN7ElfFile13DwarfFilePath3setEPKc.exit:          ; preds = %2
   %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #16
   %8 = trunc i64 %7 to i16
-  %9 = getelementptr inbounds i8, ptr %1, i64 4112
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 4112
   store i16 %8, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 4104
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 4104
   %11 = load i8, ptr %10, align 8
   %12 = icmp eq i8 %11, 0
   br i1 %12, label %13, label %_ZN7ElfFile13DwarfFilePath3setEPKc.exit.thread
@@ -1299,7 +1299,7 @@ _ZN7ElfFile13DwarfFilePath3setEPKc.exit:          ; preds = %2
   br i1 %18, label %_ZN7ElfFile13DwarfFilePath3setEPKc.exit.thread, label %19
 
 19:                                               ; preds = %13
-  %20 = getelementptr inbounds i8, ptr %17, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 1
   %21 = ptrtoint ptr %20 to i64
   %22 = ptrtoint ptr %5 to i64
   %23 = sub i64 %21, %22
@@ -1310,7 +1310,7 @@ _ZN7ElfFile13DwarfFilePath3setEPKc.exit:          ; preds = %2
 26:                                               ; preds = %19
   %27 = sub nuw nsw i16 4097, %24
   %28 = and i64 %23, 4095
-  %29 = getelementptr inbounds i8, ptr %5, i64 %28
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 %28
   %30 = zext nneg i16 %27 to i64
   %31 = tail call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %29, i64 noundef %30, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.16) #15
   %32 = icmp sgt i32 %31, -1
@@ -1333,7 +1333,7 @@ _ZN7ElfFile13DwarfFilePath20set_after_last_slashEPKc.exit: ; preds = %26
   %40 = load ptr, ptr %1, align 8
   %41 = sub nuw nsw i16 4097, %35
   %42 = and i64 %34, 4095
-  %43 = getelementptr inbounds i8, ptr %5, i64 %42
+  %43 = getelementptr inbounds nuw i8, ptr %5, i64 %42
   %44 = zext nneg i16 %41 to i64
   %45 = tail call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %43, i64 noundef %44, ptr noundef nonnull @.str.10, ptr noundef %40) #15
   %46 = icmp sgt i32 %45, -1
@@ -1362,7 +1362,7 @@ _ZN7ElfFile13DwarfFilePath3setEPKc.exit.thread:   ; preds = %39, %26, %19, %13, 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN7ElfFile34load_dwarf_file_from_usr_lib_debugERNS_13DwarfFilePathE(ptr nocapture noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(4114) %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr @_ZN7ElfFile23USR_LIB_DEBUG_DIRECTORYE, align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = tail call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %4, i64 noundef 4097, ptr noundef nonnull @.str.10, ptr noundef %3) #15
   %or.cond.i = icmp ugt i32 %5, 4096
   br i1 %or.cond.i, label %_ZN7ElfFile13DwarfFilePath3setEPKc.exit.thread, label %_ZN7ElfFile13DwarfFilePath3setEPKc.exit
@@ -1370,9 +1370,9 @@ define hidden noundef zeroext i1 @_ZN7ElfFile34load_dwarf_file_from_usr_lib_debu
 _ZN7ElfFile13DwarfFilePath3setEPKc.exit:          ; preds = %2
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #16
   %7 = trunc i64 %6 to i16
-  %8 = getelementptr inbounds i8, ptr %1, i64 4112
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 4112
   store i16 %7, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 4104
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 4104
   %10 = load i8, ptr %9, align 8
   %11 = icmp ne i8 %10, 0
   %12 = icmp ugt i16 %7, 4095
@@ -1380,11 +1380,11 @@ _ZN7ElfFile13DwarfFilePath3setEPKc.exit:          ; preds = %2
   br i1 %or.cond, label %_ZN7ElfFile13DwarfFilePath3setEPKc.exit.thread, label %13
 
 13:                                               ; preds = %_ZN7ElfFile13DwarfFilePath3setEPKc.exit
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = sub nuw nsw i16 4097, %7
   %17 = and i64 %6, 4095
-  %18 = getelementptr inbounds i8, ptr %4, i64 %17
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 %17
   %19 = zext nneg i16 %16 to i64
   %20 = tail call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %18, i64 noundef %19, ptr noundef nonnull @.str.10, ptr noundef %15) #15
   %21 = icmp sgt i32 %20, -1
@@ -1411,7 +1411,7 @@ _ZN7ElfFile13DwarfFilePath6appendEPKc.exit:       ; preds = %13
   br i1 %33, label %_ZN7ElfFile13DwarfFilePath3setEPKc.exit.thread, label %34
 
 34:                                               ; preds = %27
-  %35 = getelementptr inbounds i8, ptr %32, i64 1
+  %35 = getelementptr inbounds nuw i8, ptr %32, i64 1
   %36 = ptrtoint ptr %35 to i64
   %37 = ptrtoint ptr %4 to i64
   %38 = sub i64 %36, %37
@@ -1422,7 +1422,7 @@ _ZN7ElfFile13DwarfFilePath6appendEPKc.exit:       ; preds = %13
 41:                                               ; preds = %34
   %42 = sub nuw nsw i16 4097, %39
   %43 = and i64 %38, 4095
-  %44 = getelementptr inbounds i8, ptr %4, i64 %43
+  %44 = getelementptr inbounds nuw i8, ptr %4, i64 %43
   %45 = zext nneg i16 %42 to i64
   %46 = tail call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %44, i64 noundef %45, ptr noundef nonnull @.str.10, ptr noundef %28) #15
   %47 = icmp sgt i32 %46, -1
@@ -1450,7 +1450,7 @@ _ZN7ElfFile13DwarfFilePath3setEPKc.exit.thread:   ; preds = %41, %34, %27, %13, 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN7ElfFile13DwarfFilePath3setEPKc(ptr noundef nonnull align 8 dereferenceable(4114) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = tail call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %3, i64 noundef 4097, ptr noundef nonnull @.str.10, ptr noundef %1) #15
   %or.cond = icmp ugt i32 %4, 4096
   br i1 %or.cond, label %12, label %5
@@ -1458,9 +1458,9 @@ define hidden noundef zeroext i1 @_ZN7ElfFile13DwarfFilePath3setEPKc(ptr noundef
 5:                                                ; preds = %2
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #16
   %7 = trunc i64 %6 to i16
-  %8 = getelementptr inbounds i8, ptr %0, i64 4112
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 4112
   store i16 %7, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 4104
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 4104
   %10 = load i8, ptr %9, align 8
   %11 = icmp eq i8 %10, 0
   br label %12
@@ -1474,7 +1474,7 @@ declare i32 @jio_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unna
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN7ElfFile13DwarfFilePath20set_after_last_slashEPKc(ptr noundef nonnull align 8 dereferenceable(4114) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = tail call noundef ptr @_ZN2os14file_separatorEv() #15
   %5 = load i8, ptr %4, align 1
   %6 = sext i8 %5 to i32
@@ -1483,7 +1483,7 @@ define hidden noundef zeroext i1 @_ZN7ElfFile13DwarfFilePath20set_after_last_sla
   br i1 %8, label %_ZN7ElfFile13DwarfFilePath18copy_to_path_indexEtPKc.exit, label %9
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %7, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 1
   %11 = ptrtoint ptr %10 to i64
   %12 = ptrtoint ptr %3 to i64
   %13 = sub i64 %11, %12
@@ -1494,7 +1494,7 @@ define hidden noundef zeroext i1 @_ZN7ElfFile13DwarfFilePath20set_after_last_sla
 16:                                               ; preds = %9
   %17 = sub nuw nsw i16 4097, %14
   %18 = and i64 %13, 4095
-  %19 = getelementptr inbounds i8, ptr %3, i64 %18
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 %18
   %20 = zext nneg i16 %17 to i64
   %21 = tail call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %19, i64 noundef %20, ptr noundef nonnull @.str.10, ptr noundef %1) #15
   %22 = icmp sgt i32 %21, -1
@@ -1506,9 +1506,9 @@ define hidden noundef zeroext i1 @_ZN7ElfFile13DwarfFilePath20set_after_last_sla
 24:                                               ; preds = %16
   %25 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #16
   %26 = trunc i64 %25 to i16
-  %27 = getelementptr inbounds i8, ptr %0, i64 4112
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 4112
   store i16 %26, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 4104
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 4104
   %29 = load i8, ptr %28, align 8
   %30 = icmp eq i8 %29, 0
   br label %_ZN7ElfFile13DwarfFilePath18copy_to_path_indexEtPKc.exit
@@ -1530,9 +1530,9 @@ define hidden noundef zeroext i1 @_ZN7ElfFile13DwarfFilePath18copy_to_path_index
 
 5:                                                ; preds = %3
   %6 = sub nuw nsw i16 4097, %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = zext nneg i16 %1 to i64
-  %9 = getelementptr inbounds i8, ptr %7, i64 %8
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 %8
   %10 = zext nneg i16 %6 to i64
   %11 = tail call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %9, i64 noundef %10, ptr noundef nonnull @.str.10, ptr noundef %2) #15
   %12 = icmp sgt i32 %11, -1
@@ -1544,9 +1544,9 @@ define hidden noundef zeroext i1 @_ZN7ElfFile13DwarfFilePath18copy_to_path_index
 14:                                               ; preds = %5
   %15 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #16
   %16 = trunc i64 %15 to i16
-  %17 = getelementptr inbounds i8, ptr %0, i64 4112
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 4112
   store i16 %16, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 4104
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 4104
   %19 = load i8, ptr %18, align 8
   %20 = icmp eq i8 %19, 0
   br label %21
@@ -1558,16 +1558,16 @@ define hidden noundef zeroext i1 @_ZN7ElfFile13DwarfFilePath18copy_to_path_index
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN7ElfFile13DwarfFilePath6appendEPKc(ptr noundef nonnull align 8 dereferenceable(4114) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4112
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4112
   %4 = load i16, ptr %3, align 8
   %5 = icmp ugt i16 %4, 4095
   br i1 %5, label %_ZN7ElfFile13DwarfFilePath18copy_to_path_indexEtPKc.exit, label %6
 
 6:                                                ; preds = %2
   %7 = sub nuw nsw i16 4097, %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = zext nneg i16 %4 to i64
-  %10 = getelementptr inbounds i8, ptr %8, i64 %9
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 %9
   %11 = zext nneg i16 %7 to i64
   %12 = tail call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %10, i64 noundef %11, ptr noundef nonnull @.str.10, ptr noundef %1) #15
   %13 = icmp sgt i32 %12, -1
@@ -1580,7 +1580,7 @@ define hidden noundef zeroext i1 @_ZN7ElfFile13DwarfFilePath6appendEPKc(ptr noun
   %16 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #16
   %17 = trunc i64 %16 to i16
   store i16 %17, ptr %3, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 4104
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 4104
   %19 = load i8, ptr %18, align 8
   %20 = icmp eq i8 %19, 0
   br label %_ZN7ElfFile13DwarfFilePath18copy_to_path_indexEtPKc.exit
@@ -1593,13 +1593,13 @@ _ZN7ElfFile13DwarfFilePath18copy_to_path_indexEtPKc.exit: ; preds = %2, %6, %15
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN7ElfFile25open_valid_debuginfo_fileERKNS_13DwarfFilePathE(ptr nocapture noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(4114) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca [8192 x i8], align 16
-  %4 = getelementptr inbounds i8, ptr %0, i64 72
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %36
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = tail call noalias ptr @fopen64(ptr noundef nonnull %7, ptr noundef nonnull @.str.4)
   %9 = icmp eq ptr %8, null
   br i1 %9, label %36, label %10
@@ -1629,11 +1629,11 @@ define hidden noundef zeroext i1 @_ZN7ElfFile25open_valid_debuginfo_fileERKNS_13
   %.0.tr.i.i = trunc i32 %.011.i.i to i8
   %.narrow.i.i = xor i8 %18, %.0.tr.i.i
   %19 = zext i8 %.narrow.i.i to i64
-  %20 = getelementptr inbounds [256 x i32], ptr @_ZL11crc32_table, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw [256 x i32], ptr @_ZL11crc32_table, i64 0, i64 %19
   %21 = load i32, ptr %20, align 4
   %22 = lshr i32 %.011.i.i, 8
   %23 = xor i32 %21, %22
-  %24 = getelementptr inbounds i8, ptr %.0910.i.i, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %.0910.i.i, i64 1
   %25 = icmp ult ptr %24, %15
   br i1 %25, label %.lr.ph.i.i, label %._crit_edge.loopexit.i.i, !llvm.loop !11
 
@@ -1659,7 +1659,7 @@ _ZN7ElfFile19gnu_debuglink_crc32EjPhm.exit.i:     ; preds = %._crit_edge.loopexi
 _ZN7ElfFile12get_file_crcEP8_IO_FILE.exit:        ; preds = %._crit_edge.i, %29
   call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %3)
   %31 = call i32 @fclose(ptr noundef nonnull %8)
-  %32 = getelementptr inbounds i8, ptr %1, i64 4108
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 4108
   %33 = load i32, ptr %32, align 4
   %.not10 = icmp eq i32 %33, %.0.lcssa.i
   br i1 %.not10, label %34, label %36
@@ -1678,7 +1678,7 @@ declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN7ElfFile36load_dwarf_file_from_env_path_folderERNS_13DwarfFilePathEPKcS3_(ptr nocapture noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(4114) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = tail call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %5, i64 noundef 4097, ptr noundef nonnull @.str.10, ptr noundef %2) #15
   %or.cond.i = icmp ugt i32 %6, 4096
   br i1 %or.cond.i, label %_ZN7ElfFile13DwarfFilePath3setEPKc.exit.thread, label %_ZN7ElfFile13DwarfFilePath3setEPKc.exit
@@ -1686,9 +1686,9 @@ define hidden noundef zeroext i1 @_ZN7ElfFile36load_dwarf_file_from_env_path_fol
 _ZN7ElfFile13DwarfFilePath3setEPKc.exit:          ; preds = %4
   %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #16
   %8 = trunc i64 %7 to i16
-  %9 = getelementptr inbounds i8, ptr %1, i64 4112
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 4112
   store i16 %8, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 4104
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 4104
   %11 = load i8, ptr %10, align 8
   %12 = icmp ne i8 %11, 0
   %13 = icmp ugt i16 %8, 4095
@@ -1698,7 +1698,7 @@ _ZN7ElfFile13DwarfFilePath3setEPKc.exit:          ; preds = %4
 14:                                               ; preds = %_ZN7ElfFile13DwarfFilePath3setEPKc.exit
   %15 = sub nuw nsw i16 4097, %8
   %16 = and i64 %7, 4095
-  %17 = getelementptr inbounds i8, ptr %5, i64 %16
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 %16
   %18 = zext nneg i16 %15 to i64
   %19 = tail call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %17, i64 noundef %18, ptr noundef nonnull @.str.10, ptr noundef %3) #15
   %20 = icmp sgt i32 %19, -1
@@ -1721,7 +1721,7 @@ _ZN7ElfFile13DwarfFilePath6appendEPKc.exit:       ; preds = %14
   %28 = load ptr, ptr %1, align 8
   %29 = sub nuw nsw i16 4097, %23
   %30 = and i64 %22, 4095
-  %31 = getelementptr inbounds i8, ptr %5, i64 %30
+  %31 = getelementptr inbounds nuw i8, ptr %5, i64 %30
   %32 = zext nneg i16 %29 to i64
   %33 = tail call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %31, i64 noundef %32, ptr noundef nonnull @.str.10, ptr noundef %28) #15
   %34 = icmp sgt i32 %33, -1
@@ -1782,11 +1782,11 @@ define hidden noundef i32 @_ZN7ElfFile12get_file_crcEP8_IO_FILE(ptr nocapture no
   %.0.tr.i = trunc i32 %.011.i to i8
   %.narrow.i = xor i8 %10, %.0.tr.i
   %11 = zext i8 %.narrow.i to i64
-  %12 = getelementptr inbounds [256 x i32], ptr @_ZL11crc32_table, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw [256 x i32], ptr @_ZL11crc32_table, i64 0, i64 %11
   %13 = load i32, ptr %12, align 4
   %14 = lshr i32 %.011.i, 8
   %15 = xor i32 %13, %14
-  %16 = getelementptr inbounds i8, ptr %.0910.i, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %.0910.i, i64 1
   %17 = icmp ult ptr %16, %7
   br i1 %17, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !11
 
@@ -1830,11 +1830,11 @@ define hidden noundef i32 @_ZN7ElfFile19gnu_debuglink_crc32EjPhm(i32 noundef %0,
   %.0.tr = trunc i32 %.011 to i8
   %.narrow = xor i8 %7, %.0.tr
   %8 = zext i8 %.narrow to i64
-  %9 = getelementptr inbounds [256 x i32], ptr @_ZL11crc32_table, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw [256 x i32], ptr @_ZL11crc32_table, i64 0, i64 %8
   %10 = load i32, ptr %9, align 4
   %11 = lshr i32 %.011, 8
   %12 = xor i32 %10, %11
-  %13 = getelementptr inbounds i8, ptr %.0910, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %.0910, i64 1
   %14 = icmp ult ptr %13, %4
   br i1 %14, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !11
 
@@ -1858,14 +1858,14 @@ define hidden noundef zeroext i1 @_ZN9DwarfFile12DebugAranges28find_compilation_
   br i1 %8, label %9, label %_ZN9DwarfFile12DebugAranges19read_section_headerEv.exit.thread
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %5, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %11 = load i64, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %11, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %5, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %14 = load i64, ptr %13, align 8
   %15 = add i64 %14, %11
-  %16 = getelementptr inbounds i8, ptr %0, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %15, ptr %16, align 8
   %17 = icmp slt i64 %11, 0
   br i1 %17, label %_ZN9DwarfFile12DebugAranges19read_section_headerEv.exit.thread, label %_ZN9DwarfFile12DebugAranges19read_section_headerEv.exit
@@ -1875,9 +1875,9 @@ _ZN9DwarfFile12DebugAranges19read_section_headerEv.exit.thread: ; preds = %3, %9
   br label %.loopexit
 
 _ZN9DwarfFile12DebugAranges19read_section_headerEv.exit: ; preds = %9
-  %18 = getelementptr inbounds i8, ptr %0, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %11, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = load ptr, ptr %19, align 8
   %21 = tail call i32 @fseek(ptr noundef %20, i64 noundef %11, i32 noundef 0)
   %22 = icmp eq i32 %21, 0
@@ -1893,9 +1893,9 @@ _ZN9DwarfFile12DebugAranges19read_section_headerEv.exit: ; preds = %9
   br i1 %.0.i39, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader
-  %27 = getelementptr inbounds i8, ptr %4, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %28 = zext i32 %1 to i64
-  %29 = getelementptr inbounds i8, ptr %0, i64 56
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 56
   br label %30
 
 30:                                               ; preds = %.lr.ph, %58
@@ -1937,7 +1937,7 @@ _ZN9DwarfFile12DebugAranges23read_address_descriptorERNS0_17AddressDescriptorE.e
 
 .thread:                                          ; preds = %44
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  %50 = getelementptr inbounds i8, ptr %6, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %51 = load i32, ptr %50, align 4
   store i32 %51, ptr %2, align 4
   br label %.loopexit
@@ -1981,8 +1981,8 @@ define hidden noundef zeroext i1 @_ZN9DwarfFile15CompilationUnit22find_debug_lin
 
 7:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %10
 
 10:                                               ; preds = %16, %7
@@ -2024,33 +2024,33 @@ _ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit.thread: ; preds = %1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
   %31 = load ptr, ptr %0, align 8
   store ptr %31, ptr %5, align 8
-  %32 = getelementptr inbounds i8, ptr %5, i64 8
-  %33 = getelementptr inbounds i8, ptr %31, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %31, i64 24
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %5, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %34, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %5, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %37 = tail call i64 @ftell(ptr noundef %34)
   store i64 %37, ptr %36, align 8
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTVN9DwarfFile21MarkedDwarfFileReaderE, i64 16), ptr %32, align 8
-  %38 = getelementptr inbounds i8, ptr %5, i64 32
-  %39 = getelementptr inbounds i8, ptr %5, i64 48
+  %38 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store ptr %0, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %5, i64 56
+  %40 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store ptr null, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 56
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %42 = load i32, ptr %41, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3)
   %43 = call noundef zeroext i1 @_ZNK7ElfFile19read_section_headerEPKcR10Elf64_Shdr(ptr noundef nonnull align 8 dereferenceable(144) %31, ptr noundef nonnull @.str.5, ptr noundef nonnull align 8 dereferenceable(64) %3)
   br i1 %43, label %44, label %_ZN9DwarfFile11DebugAbbrev19read_section_headerEj.exit.thread
 
 44:                                               ; preds = %30
-  %45 = getelementptr inbounds i8, ptr %3, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %46 = load i64, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %3, i64 32
+  %47 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %48 = load i64, ptr %47, align 8
   %49 = add i64 %48, %46
-  %50 = getelementptr inbounds i8, ptr %5, i64 40
+  %50 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store i64 %49, ptr %50, align 8
   %51 = zext i32 %42 to i64
   %52 = add i64 %46, %51
@@ -2073,7 +2073,7 @@ _ZN9DwarfFile11DebugAbbrev19read_section_headerEj.exit: ; preds = %44
   br i1 %57, label %58, label %61
 
 58:                                               ; preds = %56
-  %59 = getelementptr inbounds i8, ptr %0, i64 68
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %60 = load i32, ptr %59, align 4
   store i32 %60, ptr %1, align 4
   br label %61
@@ -2116,22 +2116,22 @@ define hidden noundef zeroext i1 @_ZN9DwarfFile12DebugAranges19read_section_head
   br i1 %4, label %5, label %_ZN9DwarfFile21MarkedDwarfFileReader12set_positionEl.exit
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %2, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %7, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %10 = load i64, ptr %9, align 8
   %11 = add i64 %10, %7
-  %12 = getelementptr inbounds i8, ptr %0, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %11, ptr %12, align 8
   %13 = icmp slt i64 %7, 0
   br i1 %13, label %_ZN9DwarfFile21MarkedDwarfFileReader12set_positionEl.exit, label %14
 
 14:                                               ; preds = %5
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %7, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = tail call i32 @fseek(ptr noundef %17, i64 noundef %7, i32 noundef 0)
   %19 = icmp eq i32 %18, 0
@@ -2144,10 +2144,10 @@ _ZN9DwarfFile21MarkedDwarfFileReader12set_positionEl.exit: ; preds = %14, %5, %1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZNK9DwarfFile21MarkedDwarfFileReader14has_bytes_leftEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #7 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = icmp ne i64 %3, -1
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i64, ptr %5, align 8
   %7 = icmp slt i64 %6, %3
   %.0 = select i1 %4, i1 %7, i1 false
@@ -2156,12 +2156,12 @@ define hidden noundef zeroext i1 @_ZNK9DwarfFile21MarkedDwarfFileReader14has_byt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN9DwarfFile12DebugAranges15read_set_headerERNS0_21DebugArangesSetHeaderE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr nocapture noundef nonnull align 4 dereferenceable(16) %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i64, ptr %4, align 8
   %6 = add nsw i64 %5, 4
   store i64 %6, ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i64 @fread(ptr noundef nonnull %1, i64 noundef 4, i64 noundef 1, ptr noundef %8)
   %10 = icmp ne i64 %9, 1
@@ -2174,9 +2174,9 @@ define hidden noundef zeroext i1 @_ZN9DwarfFile12DebugAranges15read_set_headerER
   %14 = load i64, ptr %4, align 8
   %15 = zext i32 %11 to i64
   %16 = add nsw i64 %14, %15
-  %17 = getelementptr inbounds i8, ptr %0, i64 56
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 %16, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %1, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %19 = add nsw i64 %14, 2
   store i64 %19, ptr %4, align 8
   %20 = load ptr, ptr %7, align 8
@@ -2188,7 +2188,7 @@ define hidden noundef zeroext i1 @_ZN9DwarfFile12DebugAranges15read_set_headerER
   br i1 %or.cond18, label %24, label %57
 
 24:                                               ; preds = %13
-  %25 = getelementptr inbounds i8, ptr %1, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load i64, ptr %4, align 8
   %27 = add nsw i64 %26, 4
   store i64 %27, ptr %4, align 8
@@ -2198,7 +2198,7 @@ define hidden noundef zeroext i1 @_ZN9DwarfFile12DebugAranges15read_set_headerER
   br i1 %30, label %31, label %57
 
 31:                                               ; preds = %24
-  %32 = getelementptr inbounds i8, ptr %1, i64 12
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %33 = load i64, ptr %4, align 8
   %34 = add nsw i64 %33, 1
   store i64 %34, ptr %4, align 8
@@ -2211,7 +2211,7 @@ define hidden noundef zeroext i1 @_ZN9DwarfFile12DebugAranges15read_set_headerER
   br i1 %or.cond19, label %39, label %57
 
 39:                                               ; preds = %31
-  %40 = getelementptr inbounds i8, ptr %1, i64 13
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 13
   %41 = load i64, ptr %4, align 8
   %42 = add nsw i64 %41, 1
   store i64 %42, ptr %4, align 8
@@ -2225,7 +2225,7 @@ define hidden noundef zeroext i1 @_ZN9DwarfFile12DebugAranges15read_set_headerER
 
 47:                                               ; preds = %39
   %48 = load i64, ptr %4, align 8
-  %49 = getelementptr inbounds i8, ptr %0, i64 48
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %50 = load i64, ptr %49, align 8
   %51 = sub i64 %48, %50
   %52 = and i64 %51, 15
@@ -2245,12 +2245,12 @@ define hidden noundef zeroext i1 @_ZN9DwarfFile12DebugAranges15read_set_headerER
 define hidden noundef zeroext i1 @_ZN9DwarfFile12DebugAranges24read_address_descriptorsERKNS0_21DebugArangesSetHeaderEjRb(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0, ptr nocapture noundef nonnull readnone align 4 dereferenceable(16) %1, i32 noundef %2, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %3) local_unnamed_addr #3 align 2 {
   %5 = alloca %"struct.DwarfFile::DebugAranges::AddressDescriptor", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
-  %8 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %9 = zext i32 %2 to i64
-  %10 = getelementptr inbounds i8, ptr %0, i64 56
-  %11 = getelementptr inbounds i8, ptr %0, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.pre = load i64, ptr %6, align 8
   br label %12
 
@@ -2309,9 +2309,9 @@ define hidden noundef zeroext i1 @_ZN9DwarfFile21MarkedDwarfFileReader12set_posi
   br i1 %3, label %10, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %1, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 @fseek(ptr noundef %7, i64 noundef %1, i32 noundef 0)
   %9 = icmp eq i32 %8, 0
@@ -2324,11 +2324,11 @@ define hidden noundef zeroext i1 @_ZN9DwarfFile21MarkedDwarfFileReader12set_posi
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define hidden noundef zeroext i1 @_ZN9DwarfFile21MarkedDwarfFileReader10read_dwordEPj(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture noundef %1) local_unnamed_addr #3 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i64, ptr %3, align 8
   %5 = add nsw i64 %4, 4
   store i64 %5, ptr %3, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i64 @fread(ptr noundef %1, i64 noundef 4, i64 noundef 1, ptr noundef %7)
   %9 = icmp eq i64 %8, 1
@@ -2337,11 +2337,11 @@ define hidden noundef zeroext i1 @_ZN9DwarfFile21MarkedDwarfFileReader10read_dwo
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define hidden noundef zeroext i1 @_ZN9DwarfFile21MarkedDwarfFileReader9read_wordEPt(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture noundef %1) local_unnamed_addr #3 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i64, ptr %3, align 8
   %5 = add nsw i64 %4, 2
   store i64 %5, ptr %3, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i64 @fread(ptr noundef %1, i64 noundef 2, i64 noundef 1, ptr noundef %7)
   %9 = icmp eq i64 %8, 1
@@ -2350,11 +2350,11 @@ define hidden noundef zeroext i1 @_ZN9DwarfFile21MarkedDwarfFileReader9read_word
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define hidden noundef zeroext i1 @_ZN9DwarfFile21MarkedDwarfFileReader9read_byteEPv(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture noundef %1) local_unnamed_addr #3 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i64, ptr %3, align 8
   %5 = add nsw i64 %4, 1
   store i64 %5, ptr %3, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i64 @fread(ptr noundef %1, i64 noundef 1, i64 noundef 1, ptr noundef %7)
   %9 = icmp eq i64 %8, 1
@@ -2367,7 +2367,7 @@ define hidden noundef zeroext i1 @_ZN9DwarfFile21MarkedDwarfFileReader13move_pos
   br i1 %3, label %11, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i64, ptr %5, align 8
   %7 = add nsw i64 %6, %1
   %8 = load ptr, ptr %0, align 8
@@ -2382,18 +2382,18 @@ define hidden noundef zeroext i1 @_ZN9DwarfFile21MarkedDwarfFileReader13move_pos
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define hidden noundef zeroext i1 @_ZN9DwarfFile12DebugAranges23read_address_descriptorERNS0_17AddressDescriptorE(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0, ptr nocapture noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #3 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
   %5 = add nsw i64 %4, 8
   store i64 %5, ptr %3, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i64 @fread(ptr noundef nonnull %1, i64 noundef 8, i64 noundef 1, ptr noundef %7)
   %9 = icmp eq i64 %8, 1
   br i1 %9, label %10, label %17
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load i64, ptr %3, align 8
   %13 = add nsw i64 %12, 8
   store i64 %13, ptr %3, align 8
@@ -2412,7 +2412,7 @@ define hidden noundef zeroext i1 @_ZN9DwarfFile12DebugAranges17does_match_offset
   %3 = load i64, ptr %1, align 8
   %4 = zext i32 %0 to i64
   %.not = icmp ule i64 %3, %4
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = add i64 %6, %3
   %8 = icmp ugt i64 %7, %4
@@ -2422,9 +2422,9 @@ define hidden noundef zeroext i1 @_ZN9DwarfFile12DebugAranges17does_match_offset
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZN9DwarfFile12DebugAranges20is_terminating_entryERKNS0_21DebugArangesSetHeaderERKNS0_17AddressDescriptorE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr nocapture noundef nonnull readnone align 4 dereferenceable(16) %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %2) local_unnamed_addr #7 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i64, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %7 = load i64, ptr %6, align 8
   %8 = icmp sge i64 %5, %7
   ret i1 %8
@@ -2432,11 +2432,11 @@ define hidden noundef zeroext i1 @_ZN9DwarfFile12DebugAranges20is_terminating_en
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define hidden noundef zeroext i1 @_ZN9DwarfFile21MarkedDwarfFileReader18read_address_sizedEPm(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture noundef %1) local_unnamed_addr #3 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i64, ptr %3, align 8
   %5 = add nsw i64 %4, 8
   store i64 %5, ptr %3, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i64 @fread(ptr noundef %1, i64 noundef 8, i64 noundef 1, ptr noundef %7)
   %9 = icmp eq i64 %8, 1
@@ -2451,9 +2451,9 @@ define hidden noundef zeroext i1 @_ZN9DwarfFile15CompilationUnit11read_headerEv(
   br i1 %4, label %5, label %_ZN9DwarfFile21MarkedDwarfFileReader12set_positionEl.exit.thread
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %2, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %9 = load i32, ptr %8, align 8
   %10 = zext i32 %9 to i64
   %11 = add i64 %7, %10
@@ -2461,16 +2461,16 @@ define hidden noundef zeroext i1 @_ZN9DwarfFile15CompilationUnit11read_headerEv(
   br i1 %12, label %_ZN9DwarfFile21MarkedDwarfFileReader12set_positionEl.exit.thread, label %_ZN9DwarfFile21MarkedDwarfFileReader12set_positionEl.exit
 
 _ZN9DwarfFile21MarkedDwarfFileReader12set_positionEl.exit: ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %11, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i32 @fseek(ptr noundef %15, i64 noundef %11, i32 noundef 0)
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %18, label %_ZN9DwarfFile21MarkedDwarfFileReader12set_positionEl.exit.thread
 
 18:                                               ; preds = %_ZN9DwarfFile21MarkedDwarfFileReader12set_positionEl.exit
-  %19 = getelementptr inbounds i8, ptr %0, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %20 = load i64, ptr %13, align 8
   %21 = add nsw i64 %20, 4
   store i64 %21, ptr %13, align 8
@@ -2483,7 +2483,7 @@ _ZN9DwarfFile21MarkedDwarfFileReader12set_positionEl.exit: ; preds = %5
   br i1 %or.cond, label %_ZN9DwarfFile21MarkedDwarfFileReader12set_positionEl.exit.thread, label %27
 
 27:                                               ; preds = %18
-  %28 = getelementptr inbounds i8, ptr %0, i64 52
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %29 = load i64, ptr %13, align 8
   %30 = add nsw i64 %29, 2
   store i64 %30, ptr %13, align 8
@@ -2496,7 +2496,7 @@ _ZN9DwarfFile21MarkedDwarfFileReader12set_positionEl.exit: ; preds = %5
   br i1 %or.cond5, label %35, label %_ZN9DwarfFile21MarkedDwarfFileReader12set_positionEl.exit.thread
 
 35:                                               ; preds = %27
-  %36 = getelementptr inbounds i8, ptr %0, i64 56
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %37 = load i64, ptr %13, align 8
   %38 = add nsw i64 %37, 4
   store i64 %38, ptr %13, align 8
@@ -2506,7 +2506,7 @@ _ZN9DwarfFile21MarkedDwarfFileReader12set_positionEl.exit: ; preds = %5
   br i1 %41, label %42, label %_ZN9DwarfFile21MarkedDwarfFileReader12set_positionEl.exit.thread
 
 42:                                               ; preds = %35
-  %43 = getelementptr inbounds i8, ptr %0, i64 60
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %44 = load i64, ptr %13, align 8
   %45 = add nsw i64 %44, 1
   store i64 %45, ptr %13, align 8
@@ -2524,7 +2524,7 @@ _ZN9DwarfFile21MarkedDwarfFileReader12set_positionEl.exit: ; preds = %5
   %53 = zext i32 %52 to i64
   %54 = add i64 %51, 4
   %55 = add i64 %54, %53
-  %56 = getelementptr inbounds i8, ptr %0, i64 40
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %55, ptr %56, align 8
   br label %_ZN9DwarfFile21MarkedDwarfFileReader12set_positionEl.exit.thread
 
@@ -2538,8 +2538,8 @@ define hidden noundef zeroext i1 @_ZN9DwarfFile21MarkedDwarfFileReader12read_ule
   %4 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
   store i64 0, ptr %1, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %7
 
 7:                                                ; preds = %13, %3
@@ -2594,12 +2594,12 @@ define hidden noundef zeroext i1 @_ZN9DwarfFile11DebugAbbrev19read_section_heade
   br i1 %5, label %6, label %_ZN9DwarfFile21MarkedDwarfFileReader12set_positionEl.exit
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %3, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %10 = load i64, ptr %9, align 8
   %11 = add i64 %10, %8
-  %12 = getelementptr inbounds i8, ptr %0, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %11, ptr %12, align 8
   %13 = zext i32 %1 to i64
   %14 = add i64 %8, %13
@@ -2607,9 +2607,9 @@ define hidden noundef zeroext i1 @_ZN9DwarfFile11DebugAbbrev19read_section_heade
   br i1 %15, label %_ZN9DwarfFile21MarkedDwarfFileReader12set_positionEl.exit, label %16
 
 16:                                               ; preds = %6
-  %17 = getelementptr inbounds i8, ptr %0, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %14, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load ptr, ptr %18, align 8
   %20 = tail call i32 @fseek(ptr noundef %19, i64 noundef %14, i32 noundef 0)
   %21 = icmp eq i32 %20, 0
@@ -2625,8 +2625,8 @@ define hidden noundef zeroext i1 @_ZN9DwarfFile11DebugAbbrev22find_debug_line_of
   %3 = alloca %"struct.DwarfFile::DebugAbbrev::AttributeSpecification", align 8
   %4 = alloca %"struct.DwarfFile::DebugAbbrev::AttributeSpecification", align 8
   %5 = alloca %"struct.DwarfFile::DebugAbbrev::AbbreviationDeclaration", align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load i64, ptr %6, align 8
   %9 = icmp ne i64 %8, -1
   %10 = load i64, ptr %7, align 8
@@ -2635,7 +2635,7 @@ define hidden noundef zeroext i1 @_ZN9DwarfFile11DebugAbbrev22find_debug_line_of
   br i1 %.0.i11, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %3, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %13
 
 13:                                               ; preds = %.lr.ph, %_ZN9DwarfFile11DebugAbbrev29read_attribute_specificationsEb.exit8
@@ -2648,10 +2648,10 @@ define hidden noundef zeroext i1 @_ZN9DwarfFile11DebugAbbrev22find_debug_line_of
   br i1 %17, label %18, label %48
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %5, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %20 = load i64, ptr %19, align 8
   %.not.i = icmp ne i64 %20, 17
-  %21 = getelementptr inbounds i8, ptr %5, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %22 = load i8, ptr %21, align 8
   %.not3.i = icmp ne i8 %22, 1
   %.0.i2 = select i1 %.not.i, i1 true, i1 %.not3.i
@@ -2667,8 +2667,8 @@ define hidden noundef zeroext i1 @_ZN9DwarfFile11DebugAbbrev22find_debug_line_of
   br i1 %.0.i4.i, label %.lr.ph.i, label %_ZN9DwarfFile11DebugAbbrev29read_attribute_specificationsEb.exit
 
 .lr.ph.i:                                         ; preds = %23
-  %28 = getelementptr inbounds i8, ptr %4, i64 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 48
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 48
   br label %.lr.ph.split.us.i
 
 .lr.ph.split.us.i:                                ; preds = %42, %.lr.ph.i
@@ -2762,8 +2762,8 @@ define hidden noundef zeroext i1 @_ZN9DwarfFile11DebugAbbrev16read_declarationER
   %4 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
   store i64 0, ptr %1, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %7
 
 7:                                                ; preds = %13, %2
@@ -2808,7 +2808,7 @@ _ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit: ; preds = %26
   br i1 %28, label %59, label %29
 
 29:                                               ; preds = %_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit
-  %30 = getelementptr inbounds i8, ptr %1, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
   store i64 0, ptr %30, align 8
   br label %31
@@ -2851,7 +2851,7 @@ _ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit11.thread: ; preds = 
 
 52:                                               ; preds = %50
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
-  %53 = getelementptr inbounds i8, ptr %1, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %54 = load i64, ptr %5, align 8
   %55 = add nsw i64 %54, 1
   store i64 %55, ptr %5, align 8
@@ -2867,10 +2867,10 @@ _ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit11.thread: ; preds = 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZN9DwarfFile11DebugAbbrev30is_wrong_or_unsupported_formatERKNS0_23AbbreviationDeclarationE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) local_unnamed_addr #7 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %.not = icmp ne i64 %3, 17
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i8, ptr %4, align 8
   %.not3 = icmp ne i8 %5, 1
   %.0 = select i1 %.not, i1 true, i1 %.not3
@@ -2880,8 +2880,8 @@ define hidden noundef zeroext i1 @_ZN9DwarfFile11DebugAbbrev30is_wrong_or_unsupp
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN9DwarfFile11DebugAbbrev29read_attribute_specificationsEb(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"struct.DwarfFile::DebugAbbrev::AttributeSpecification", align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load i64, ptr %4, align 8
   %7 = icmp ne i64 %6, -1
   %8 = load i64, ptr %5, align 8
@@ -2890,8 +2890,8 @@ define hidden noundef zeroext i1 @_ZN9DwarfFile11DebugAbbrev29read_attribute_spe
   br i1 %.0.i4, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %3, i64 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   br i1 %1, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %24
@@ -2962,8 +2962,8 @@ define hidden noundef zeroext i1 @_ZN9DwarfFile11DebugAbbrev28read_attribute_spe
   %4 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
   store i64 0, ptr %1, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %7
 
 7:                                                ; preds = %13, %2
@@ -3004,7 +3004,7 @@ _ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit.thread: ; preds = %7
 
 28:                                               ; preds = %26
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  %29 = getelementptr inbounds i8, ptr %1, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
   store i64 0, ptr %29, align 8
   br label %30
@@ -3055,7 +3055,7 @@ _ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit7: ; preds = %30, %49
 define hidden noundef zeroext i1 @_ZN9DwarfFile11DebugAbbrev28is_terminating_specificationERKNS0_22AttributeSpecificationE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) local_unnamed_addr #7 align 2 {
   %2 = load i64, ptr %0, align 8
   %3 = icmp eq i64 %2, 0
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = icmp eq i64 %5, 0
   %7 = select i1 %3, i1 %6, i1 false
@@ -3071,17 +3071,17 @@ define hidden noundef zeroext i1 @_ZN9DwarfFile15CompilationUnit20read_attribute
   %8 = alloca i8, align 1
   %9 = alloca i16, align 2
   %10 = alloca i32, align 4
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = tail call i64 @ftell(ptr noundef %13)
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %14, ptr %15, align 8
   %16 = icmp slt i64 %14, 0
   br i1 %16, label %_ZN9DwarfFile21MarkedDwarfFileReader25update_to_stored_positionEv.exit, label %17
 
 17:                                               ; preds = %3
-  %18 = getelementptr inbounds i8, ptr %0, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %19 = load i64, ptr %18, align 8
   %20 = load ptr, ptr %12, align 8
   %21 = tail call i32 @fseek(ptr noundef %20, i64 noundef %19, i32 noundef 0)
@@ -3119,7 +3119,7 @@ _ZN9DwarfFile21MarkedDwarfFileReader25update_to_stored_positionEv.exit: ; preds 
   ]
 
 22:                                               ; preds = %_ZN9DwarfFile21MarkedDwarfFileReader25update_to_stored_positionEv.exit
-  %23 = getelementptr inbounds i8, ptr %0, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %24 = load i64, ptr %23, align 8
   %25 = add nsw i64 %24, 8
   %26 = load ptr, ptr %11, align 8
@@ -3128,7 +3128,7 @@ _ZN9DwarfFile21MarkedDwarfFileReader25update_to_stored_positionEv.exit: ; preds 
   br label %_ZN9DwarfFile21MarkedDwarfFileReader13move_positionEl.exit.thread
 
 29:                                               ; preds = %_ZN9DwarfFile21MarkedDwarfFileReader25update_to_stored_positionEv.exit
-  %30 = getelementptr inbounds i8, ptr %0, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %31 = load i64, ptr %30, align 8
   %32 = add nsw i64 %31, 2
   store i64 %32, ptr %30, align 8
@@ -3152,7 +3152,7 @@ _ZN9DwarfFile21MarkedDwarfFileReader13move_positionEl.exit: ; preds = %36
   br i1 %44, label %_ZN9DwarfFile21MarkedDwarfFileReader13move_positionEl.exit.thread, label %191
 
 45:                                               ; preds = %_ZN9DwarfFile21MarkedDwarfFileReader25update_to_stored_positionEv.exit
-  %46 = getelementptr inbounds i8, ptr %0, i64 32
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %47 = load i64, ptr %46, align 8
   %48 = add nsw i64 %47, 4
   store i64 %48, ptr %46, align 8
@@ -3176,7 +3176,7 @@ _ZN9DwarfFile21MarkedDwarfFileReader13move_positionEl.exit6: ; preds = %52
   br i1 %60, label %_ZN9DwarfFile21MarkedDwarfFileReader13move_positionEl.exit.thread, label %191
 
 61:                                               ; preds = %_ZN9DwarfFile21MarkedDwarfFileReader25update_to_stored_positionEv.exit, %_ZN9DwarfFile21MarkedDwarfFileReader25update_to_stored_positionEv.exit
-  %62 = getelementptr inbounds i8, ptr %0, i64 32
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %63 = load i64, ptr %62, align 8
   %64 = add nsw i64 %63, 2
   %65 = load ptr, ptr %11, align 8
@@ -3185,7 +3185,7 @@ _ZN9DwarfFile21MarkedDwarfFileReader13move_positionEl.exit6: ; preds = %52
   br i1 %67, label %_ZN9DwarfFile21MarkedDwarfFileReader13move_positionEl.exit.thread, label %191
 
 68:                                               ; preds = %_ZN9DwarfFile21MarkedDwarfFileReader25update_to_stored_positionEv.exit, %_ZN9DwarfFile21MarkedDwarfFileReader25update_to_stored_positionEv.exit, %_ZN9DwarfFile21MarkedDwarfFileReader25update_to_stored_positionEv.exit, %_ZN9DwarfFile21MarkedDwarfFileReader25update_to_stored_positionEv.exit
-  %69 = getelementptr inbounds i8, ptr %0, i64 32
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %70 = load i64, ptr %69, align 8
   %71 = add nsw i64 %70, 4
   %72 = load ptr, ptr %11, align 8
@@ -3194,7 +3194,7 @@ _ZN9DwarfFile21MarkedDwarfFileReader13move_positionEl.exit6: ; preds = %52
   br i1 %74, label %_ZN9DwarfFile21MarkedDwarfFileReader13move_positionEl.exit.thread, label %191
 
 75:                                               ; preds = %_ZN9DwarfFile21MarkedDwarfFileReader25update_to_stored_positionEv.exit, %_ZN9DwarfFile21MarkedDwarfFileReader25update_to_stored_positionEv.exit, %_ZN9DwarfFile21MarkedDwarfFileReader25update_to_stored_positionEv.exit
-  %76 = getelementptr inbounds i8, ptr %0, i64 32
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %77 = load i64, ptr %76, align 8
   %78 = add nsw i64 %77, 8
   %79 = load ptr, ptr %11, align 8
@@ -3205,7 +3205,7 @@ _ZN9DwarfFile21MarkedDwarfFileReader13move_positionEl.exit6: ; preds = %52
 82:                                               ; preds = %_ZN9DwarfFile21MarkedDwarfFileReader25update_to_stored_positionEv.exit
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7)
-  %83 = getelementptr inbounds i8, ptr %0, i64 32
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %84 = load i64, ptr %83, align 8
   %85 = add nsw i64 %84, 1
   store i64 %85, ptr %83, align 8
@@ -3218,7 +3218,7 @@ _ZN9DwarfFile21MarkedDwarfFileReader13move_positionEl.exit6: ; preds = %52
   br i1 %or.cond.i, label %91, label %_ZN9DwarfFile21MarkedDwarfFileReader11read_stringEPcm.exit.thread
 
 91:                                               ; preds = %82
-  %92 = getelementptr inbounds i8, ptr %0, i64 40
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %.split.us.i
 
 .split.us.i:                                      ; preds = %102, %91
@@ -3254,7 +3254,7 @@ _ZN9DwarfFile21MarkedDwarfFileReader11read_stringEPcm.exit: ; preds = %102
 
 105:                                              ; preds = %_ZN9DwarfFile21MarkedDwarfFileReader25update_to_stored_positionEv.exit, %_ZN9DwarfFile21MarkedDwarfFileReader25update_to_stored_positionEv.exit
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
-  %106 = getelementptr inbounds i8, ptr %0, i64 32
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %107
 
 107:                                              ; preds = %113, %105
@@ -3306,7 +3306,7 @@ _ZN9DwarfFile21MarkedDwarfFileReader13move_positionEl.exit11: ; preds = %127
   br i1 %133, label %_ZN9DwarfFile21MarkedDwarfFileReader13move_positionEl.exit.thread, label %191
 
 134:                                              ; preds = %_ZN9DwarfFile21MarkedDwarfFileReader25update_to_stored_positionEv.exit
-  %135 = getelementptr inbounds i8, ptr %0, i64 32
+  %135 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %136 = load i64, ptr %135, align 8
   %137 = add nsw i64 %136, 1
   store i64 %137, ptr %135, align 8
@@ -3330,7 +3330,7 @@ _ZN9DwarfFile21MarkedDwarfFileReader13move_positionEl.exit13: ; preds = %141
   br i1 %149, label %_ZN9DwarfFile21MarkedDwarfFileReader13move_positionEl.exit.thread, label %191
 
 150:                                              ; preds = %_ZN9DwarfFile21MarkedDwarfFileReader25update_to_stored_positionEv.exit, %_ZN9DwarfFile21MarkedDwarfFileReader25update_to_stored_positionEv.exit, %_ZN9DwarfFile21MarkedDwarfFileReader25update_to_stored_positionEv.exit, %_ZN9DwarfFile21MarkedDwarfFileReader25update_to_stored_positionEv.exit
-  %151 = getelementptr inbounds i8, ptr %0, i64 32
+  %151 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %152 = load i64, ptr %151, align 8
   %153 = add nsw i64 %152, 1
   %154 = load ptr, ptr %11, align 8
@@ -3340,7 +3340,7 @@ _ZN9DwarfFile21MarkedDwarfFileReader13move_positionEl.exit13: ; preds = %141
 
 157:                                              ; preds = %_ZN9DwarfFile21MarkedDwarfFileReader25update_to_stored_positionEv.exit, %_ZN9DwarfFile21MarkedDwarfFileReader25update_to_stored_positionEv.exit, %_ZN9DwarfFile21MarkedDwarfFileReader25update_to_stored_positionEv.exit
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
-  %158 = getelementptr inbounds i8, ptr %0, i64 32
+  %158 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %159
 
 159:                                              ; preds = %165, %157
@@ -3377,8 +3377,8 @@ _ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit19: ; preds = %170
   br i1 %2, label %173, label %181
 
 173:                                              ; preds = %172
-  %174 = getelementptr inbounds i8, ptr %0, i64 68
-  %175 = getelementptr inbounds i8, ptr %0, i64 32
+  %174 = getelementptr inbounds nuw i8, ptr %0, i64 68
+  %175 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %176 = load i64, ptr %175, align 8
   %177 = add nsw i64 %176, 4
   store i64 %177, ptr %175, align 8
@@ -3388,7 +3388,7 @@ _ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit19: ; preds = %170
   br i1 %180, label %_ZN9DwarfFile21MarkedDwarfFileReader13move_positionEl.exit.thread, label %191
 
 181:                                              ; preds = %172
-  %182 = getelementptr inbounds i8, ptr %0, i64 32
+  %182 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %183 = load i64, ptr %182, align 8
   %184 = add nsw i64 %183, 4
   %185 = load ptr, ptr %11, align 8
@@ -3409,16 +3409,16 @@ _ZN9DwarfFile21MarkedDwarfFileReader13move_positionEl.exit.thread: ; preds = %14
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define hidden noundef zeroext i1 @_ZN9DwarfFile21MarkedDwarfFileReader25update_to_stored_positionEv(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((16, 24)) %0) local_unnamed_addr #3 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i64 @ftell(ptr noundef %3)
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %4, ptr %5, align 8
   %6 = icmp slt i64 %4, 0
   br i1 %6, label %13, label %7
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load i64, ptr %8, align 8
   %10 = load ptr, ptr %2, align 8
   %11 = tail call i32 @fseek(ptr noundef %10, i64 noundef %9, i32 noundef 0)
@@ -3434,11 +3434,11 @@ define hidden noundef zeroext i1 @_ZN9DwarfFile21MarkedDwarfFileReader25update_t
 define hidden noundef zeroext i1 @_ZN9DwarfFile21MarkedDwarfFileReader11read_stringEPcm(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr noundef writeonly %1, i64 noundef %2) local_unnamed_addr #3 align 2 {
   %4 = alloca i8, align 1
   %5 = alloca i8, align 1
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load i64, ptr %6, align 8
   %8 = add nsw i64 %7, 1
   store i64 %8, ptr %6, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %10)
   %12 = icmp eq i64 %11, 1
@@ -3457,7 +3457,7 @@ define hidden noundef zeroext i1 @_ZN9DwarfFile21MarkedDwarfFileReader11read_str
 
 .split.preheader:                                 ; preds = %16
   store i8 %13, ptr %1, align 1
-  %18 = getelementptr inbounds i8, ptr %0, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %.split.outer
 
 .split.outer:                                     ; preds = %.thread25, %.split.preheader
@@ -3466,7 +3466,7 @@ define hidden noundef zeroext i1 @_ZN9DwarfFile21MarkedDwarfFileReader11read_str
   br label %.split
 
 .split.us.preheader:                              ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %0, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %.split.us
 
 .split.us:                                        ; preds = %.split.us.preheader, %29
@@ -3540,9 +3540,9 @@ _ZN9DwarfFile21MarkedDwarfFileReader18read_non_null_charEPc.exit.thread: ; preds
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define hidden noundef zeroext i1 @_ZN9DwarfFile21MarkedDwarfFileReader26reset_to_previous_positionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #3 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i64, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 @fseek(ptr noundef %5, i64 noundef %3, i32 noundef 0)
   %7 = icmp eq i32 %6, 0
@@ -3557,26 +3557,26 @@ define hidden noundef zeroext i1 @_ZN9DwarfFile17LineNumberProgram11read_headerE
   br i1 %4, label %5, label %_ZN9DwarfFile21MarkedDwarfFileReader12set_positionEl.exit.thread
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 104
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %10 = load i64, ptr %9, align 8
   %11 = add i64 %10, %8
   %12 = icmp slt i64 %11, 0
   br i1 %12, label %_ZN9DwarfFile21MarkedDwarfFileReader12set_positionEl.exit.thread, label %_ZN9DwarfFile21MarkedDwarfFileReader12set_positionEl.exit
 
 _ZN9DwarfFile21MarkedDwarfFileReader12set_positionEl.exit: ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %11, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i32 @fseek(ptr noundef %15, i64 noundef %11, i32 noundef 0)
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %18, label %_ZN9DwarfFile21MarkedDwarfFileReader12set_positionEl.exit.thread
 
 18:                                               ; preds = %_ZN9DwarfFile21MarkedDwarfFileReader12set_positionEl.exit
-  %19 = getelementptr inbounds i8, ptr %0, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %20 = load i64, ptr %13, align 8
   %21 = add nsw i64 %20, 4
   store i64 %21, ptr %13, align 8
@@ -3589,7 +3589,7 @@ _ZN9DwarfFile21MarkedDwarfFileReader12set_positionEl.exit: ; preds = %5
   br i1 %or.cond, label %_ZN9DwarfFile21MarkedDwarfFileReader12set_positionEl.exit.thread, label %27
 
 27:                                               ; preds = %18
-  %28 = getelementptr inbounds i8, ptr %0, i64 52
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %29 = load i64, ptr %13, align 8
   %30 = add nsw i64 %29, 2
   store i64 %30, ptr %13, align 8
@@ -3605,7 +3605,7 @@ _ZN9DwarfFile21MarkedDwarfFileReader12set_positionEl.exit: ; preds = %5
   br i1 %or.cond9, label %_ZN9DwarfFile21MarkedDwarfFileReader12set_positionEl.exit.thread, label %37
 
 37:                                               ; preds = %34
-  %38 = getelementptr inbounds i8, ptr %0, i64 56
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %39 = load i64, ptr %13, align 8
   %40 = add nsw i64 %39, 4
   store i64 %40, ptr %13, align 8
@@ -3619,9 +3619,9 @@ _ZN9DwarfFile21MarkedDwarfFileReader12set_positionEl.exit: ; preds = %5
   %46 = load i32, ptr %38, align 8
   %47 = zext i32 %46 to i64
   %48 = add nsw i64 %45, %47
-  %49 = getelementptr inbounds i8, ptr %0, i64 40
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %48, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %0, i64 60
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %51 = add nsw i64 %45, 1
   store i64 %51, ptr %13, align 8
   %52 = load ptr, ptr %14, align 8
@@ -3635,7 +3635,7 @@ _ZN9DwarfFile21MarkedDwarfFileReader12set_positionEl.exit: ; preds = %5
   br i1 %57, label %58, label %65
 
 58:                                               ; preds = %55
-  %59 = getelementptr inbounds i8, ptr %0, i64 61
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 61
   %60 = load i64, ptr %13, align 8
   %61 = add nsw i64 %60, 1
   store i64 %61, ptr %13, align 8
@@ -3645,7 +3645,7 @@ _ZN9DwarfFile21MarkedDwarfFileReader12set_positionEl.exit: ; preds = %5
   br i1 %64, label %65, label %_ZN9DwarfFile21MarkedDwarfFileReader12set_positionEl.exit.thread
 
 65:                                               ; preds = %58, %55
-  %66 = getelementptr inbounds i8, ptr %0, i64 62
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 62
   %67 = load i64, ptr %13, align 8
   %68 = add nsw i64 %67, 1
   store i64 %68, ptr %13, align 8
@@ -3655,7 +3655,7 @@ _ZN9DwarfFile21MarkedDwarfFileReader12set_positionEl.exit: ; preds = %5
   br i1 %71, label %72, label %_ZN9DwarfFile21MarkedDwarfFileReader12set_positionEl.exit.thread
 
 72:                                               ; preds = %65
-  %73 = getelementptr inbounds i8, ptr %0, i64 63
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 63
   %74 = load i64, ptr %13, align 8
   %75 = add nsw i64 %74, 1
   store i64 %75, ptr %13, align 8
@@ -3665,7 +3665,7 @@ _ZN9DwarfFile21MarkedDwarfFileReader12set_positionEl.exit: ; preds = %5
   br i1 %78, label %79, label %_ZN9DwarfFile21MarkedDwarfFileReader12set_positionEl.exit.thread
 
 79:                                               ; preds = %72
-  %80 = getelementptr inbounds i8, ptr %0, i64 64
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %81 = load i64, ptr %13, align 8
   %82 = add nsw i64 %81, 1
   store i64 %82, ptr %13, align 8
@@ -3675,7 +3675,7 @@ _ZN9DwarfFile21MarkedDwarfFileReader12set_positionEl.exit: ; preds = %5
   br i1 %85, label %86, label %_ZN9DwarfFile21MarkedDwarfFileReader12set_positionEl.exit.thread
 
 86:                                               ; preds = %79
-  %87 = getelementptr inbounds i8, ptr %0, i64 65
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 65
   %88 = load i64, ptr %13, align 8
   %89 = add nsw i64 %88, 1
   store i64 %89, ptr %13, align 8
@@ -3688,7 +3688,7 @@ _ZN9DwarfFile21MarkedDwarfFileReader12set_positionEl.exit: ; preds = %5
   br i1 %or.cond10, label %.lr.ph, label %_ZN9DwarfFile21MarkedDwarfFileReader12set_positionEl.exit.thread
 
 .lr.ph:                                           ; preds = %86
-  %94 = getelementptr inbounds i8, ptr %0, i64 66
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 66
   br label %102
 
 95:                                               ; preds = %102
@@ -3703,7 +3703,7 @@ _ZN9DwarfFile21MarkedDwarfFileReader12set_positionEl.exit: ; preds = %5
 102:                                              ; preds = %.lr.ph, %95
   %.0516 = phi i8 [ 0, %.lr.ph ], [ %96, %95 ]
   %103 = zext i8 %.0516 to i64
-  %104 = getelementptr inbounds [12 x i8], ptr %94, i64 0, i64 %103
+  %104 = getelementptr inbounds nuw [12 x i8], ptr %94, i64 0, i64 %103
   %105 = load i64, ptr %13, align 8
   %106 = add nsw i64 %105, 1
   store i64 %106, ptr %13, align 8
@@ -3718,7 +3718,7 @@ _ZN9DwarfFile21MarkedDwarfFileReader12set_positionEl.exit: ; preds = %5
 
 111:                                              ; preds = %.preheader
   %112 = load i64, ptr %13, align 8
-  %113 = getelementptr inbounds i8, ptr %0, i64 80
+  %113 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i64 %112, ptr %113, align 8
   %114 = load i32, ptr %38, align 8
   %115 = add i32 %114, 10
@@ -3758,56 +3758,56 @@ define hidden noundef zeroext i1 @_ZN9DwarfFile17LineNumberProgram23run_line_num
   br i1 %6, label %.thread, label %8
 
 .thread:                                          ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %0, i64 88
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr null, ptr %7, align 8
   br label %.loopexit
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %5, i64 24
-  %10 = getelementptr inbounds i8, ptr %0, i64 62
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 62
   %11 = load i8, ptr %10, align 2
   %12 = icmp ne i8 %11, 0
   %13 = zext i1 %12 to i8
   store i8 %13, ptr %9, align 8
-  %14 = getelementptr inbounds i8, ptr %5, i64 40
-  %15 = getelementptr inbounds i8, ptr %0, i64 52
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %16 = load i16, ptr %15, align 4
   store i16 %16, ptr %14, align 8
-  %17 = getelementptr inbounds i8, ptr %5, i64 42
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 42
   %18 = load i8, ptr %10, align 2
   %19 = icmp ne i8 %18, 0
   %20 = zext i1 %19 to i8
   store i8 %20, ptr %17, align 2
-  %21 = getelementptr inbounds i8, ptr %5, i64 47
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 47
   store i8 0, ptr %21, align 1
   store i64 0, ptr %5, align 8
-  %22 = getelementptr inbounds i8, ptr %5, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 0, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %5, i64 12
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 1, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %5, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 1, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %5, i64 20
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i32 0, ptr %25, align 4
   store i8 %20, ptr %9, align 8
-  %26 = getelementptr inbounds i8, ptr %5, i64 25
-  %27 = getelementptr inbounds i8, ptr %5, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 25
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i32 0, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %5, i64 36
+  %28 = getelementptr inbounds nuw i8, ptr %5, i64 36
   store i32 0, ptr %28, align 4
-  %29 = getelementptr inbounds i8, ptr %5, i64 43
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 43
   store i8 0, ptr %29, align 1
-  %30 = getelementptr inbounds i8, ptr %5, i64 44
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 44
   store i8 0, ptr %30, align 4
-  %31 = getelementptr inbounds i8, ptr %5, i64 45
+  %31 = getelementptr inbounds nuw i8, ptr %5, i64 45
   store i32 0, ptr %26, align 1
   store i8 1, ptr %31, align 1
-  %32 = getelementptr inbounds i8, ptr %5, i64 46
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 46
   store i8 0, ptr %32, align 2
-  %33 = getelementptr inbounds i8, ptr %0, i64 88
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr %5, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 40
-  %35 = getelementptr inbounds i8, ptr %0, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %36 = load i64, ptr %34, align 8
   %37 = icmp ne i64 %36, -1
   %38 = load i64, ptr %35, align 8
@@ -3816,8 +3816,8 @@ define hidden noundef zeroext i1 @_ZN9DwarfFile17LineNumberProgram23run_line_num
   br i1 %.0.i36, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %8
-  %40 = getelementptr inbounds i8, ptr %0, i64 96
-  %41 = getelementptr inbounds i8, ptr %0, i64 112
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 112
   br label %42
 
 42:                                               ; preds = %.lr.ph, %125
@@ -3829,13 +3829,13 @@ define hidden noundef zeroext i1 @_ZN9DwarfFile17LineNumberProgram23run_line_num
 
 44:                                               ; preds = %42
   %45 = load ptr, ptr %33, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 43
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 43
   %47 = load i8, ptr %46, align 1
   %48 = trunc i8 %47 to i1
   br i1 %48, label %49, label %125
 
 49:                                               ; preds = %44
-  %50 = getelementptr inbounds i8, ptr %45, i64 45
+  %50 = getelementptr inbounds nuw i8, ptr %45, i64 45
   %51 = load i8, ptr %50, align 1
   %52 = trunc i8 %51 to i1
   br i1 %52, label %53, label %62
@@ -3845,18 +3845,18 @@ define hidden noundef zeroext i1 @_ZN9DwarfFile17LineNumberProgram23run_line_num
   %55 = zext i32 %54 to i64
   %56 = load i64, ptr %45, align 8
   %57 = icmp ule i64 %56, %55
-  %58 = getelementptr inbounds i8, ptr %45, i64 46
+  %58 = getelementptr inbounds nuw i8, ptr %45, i64 46
   %59 = zext i1 %57 to i8
   store i8 %59, ptr %58, align 2
   %60 = load ptr, ptr %33, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 45
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 45
   store i8 0, ptr %61, align 1
   %.pre = load ptr, ptr %33, align 8
   br label %62
 
 62:                                               ; preds = %53, %49
   %63 = phi ptr [ %.pre, %53 ], [ %45, %49 ]
-  %64 = getelementptr inbounds i8, ptr %63, i64 46
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 46
   %65 = load i8, ptr %64, align 2
   %66 = trunc i8 %65 to i1
   br i1 %66, label %67, label %_ZN9DwarfFile17LineNumberProgram23does_offset_match_entryEmjj.exit
@@ -3872,7 +3872,7 @@ define hidden noundef zeroext i1 @_ZN9DwarfFile17LineNumberProgram23run_line_num
   %73 = icmp ult i64 %.01139, %69
   %74 = icmp ugt i64 %70, %69
   %or.cond.i = and i1 %73, %74
-  %75 = getelementptr inbounds i8, ptr %63, i64 47
+  %75 = getelementptr inbounds nuw i8, ptr %63, i64 47
   br i1 %or.cond.i, label %76, label %86
 
 76:                                               ; preds = %72
@@ -3880,7 +3880,7 @@ define hidden noundef zeroext i1 @_ZN9DwarfFile17LineNumberProgram23run_line_num
   br label %.loopexit19
 
 .critedge.i:                                      ; preds = %67
-  %77 = getelementptr inbounds i8, ptr %63, i64 47
+  %77 = getelementptr inbounds nuw i8, ptr %63, i64 47
   store i8 1, ptr %77, align 1
   %78 = load i8, ptr %41, align 8
   %79 = trunc i8 %78 to i1
@@ -3909,66 +3909,66 @@ define hidden noundef zeroext i1 @_ZN9DwarfFile17LineNumberProgram23run_line_num
 
 .loopexit20.sink.split:                           ; preds = %86, %.loopexit19
   %.sink73 = phi ptr [ %80, %.loopexit19 ], [ %63, %86 ]
-  %89 = getelementptr inbounds i8, ptr %.sink73, i64 12
+  %89 = getelementptr inbounds nuw i8, ptr %.sink73, i64 12
   store i32 %.01238, ptr %89, align 4
   %90 = load ptr, ptr %33, align 8
-  %91 = getelementptr inbounds i8, ptr %90, i64 16
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 16
   store i32 %.01437, ptr %91, align 8
   br label %.loopexit20
 
 .loopexit20:                                      ; preds = %81, %.loopexit20.sink.split
   %92 = load ptr, ptr %33, align 8
-  %93 = getelementptr inbounds i8, ptr %92, i64 16
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 16
   %94 = load i32, ptr %93, align 8
   store i32 %94, ptr %3, align 4
   %95 = load ptr, ptr %33, align 8
-  %96 = getelementptr inbounds i8, ptr %95, i64 12
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 12
   %97 = load i32, ptr %96, align 4
   %98 = tail call noundef zeroext i1 @_ZN9DwarfFile17LineNumberProgram24get_filename_from_headerEjPcm(ptr noundef nonnull align 8 dereferenceable(113) %0, i32 noundef %97, ptr noundef %1, i64 noundef %2)
   br label %.loopexit
 
 _ZN9DwarfFile17LineNumberProgram23does_offset_match_entryEmjj.exit: ; preds = %._ZN9DwarfFile17LineNumberProgram23does_offset_match_entryEmjj.exit_crit_edge, %86, %62
   %99 = phi ptr [ %.pre56, %._ZN9DwarfFile17LineNumberProgram23does_offset_match_entryEmjj.exit_crit_edge ], [ %63, %86 ], [ %63, %62 ]
-  %100 = getelementptr inbounds i8, ptr %99, i64 12
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 12
   %101 = load i32, ptr %100, align 4
-  %102 = getelementptr inbounds i8, ptr %99, i64 16
+  %102 = getelementptr inbounds nuw i8, ptr %99, i64 16
   %103 = load i32, ptr %102, align 8
   %104 = load i64, ptr %99, align 8
-  %105 = getelementptr inbounds i8, ptr %99, i64 43
+  %105 = getelementptr inbounds nuw i8, ptr %99, i64 43
   store i8 0, ptr %105, align 1
   %106 = load ptr, ptr %33, align 8
-  %107 = getelementptr inbounds i8, ptr %106, i64 44
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 44
   %108 = load i8, ptr %107, align 4
   %109 = trunc i8 %108 to i1
   br i1 %109, label %110, label %125
 
 110:                                              ; preds = %_ZN9DwarfFile17LineNumberProgram23does_offset_match_entryEmjj.exit
   store i64 0, ptr %106, align 8
-  %111 = getelementptr inbounds i8, ptr %106, i64 8
+  %111 = getelementptr inbounds nuw i8, ptr %106, i64 8
   store i32 0, ptr %111, align 8
-  %112 = getelementptr inbounds i8, ptr %106, i64 12
+  %112 = getelementptr inbounds nuw i8, ptr %106, i64 12
   store i32 1, ptr %112, align 4
-  %113 = getelementptr inbounds i8, ptr %106, i64 16
+  %113 = getelementptr inbounds nuw i8, ptr %106, i64 16
   store i32 1, ptr %113, align 8
-  %114 = getelementptr inbounds i8, ptr %106, i64 20
+  %114 = getelementptr inbounds nuw i8, ptr %106, i64 20
   store i32 0, ptr %114, align 4
-  %115 = getelementptr inbounds i8, ptr %106, i64 42
+  %115 = getelementptr inbounds nuw i8, ptr %106, i64 42
   %116 = load i8, ptr %115, align 2
-  %117 = getelementptr inbounds i8, ptr %106, i64 24
+  %117 = getelementptr inbounds nuw i8, ptr %106, i64 24
   %118 = and i8 %116, 1
   store i8 %118, ptr %117, align 8
-  %119 = getelementptr inbounds i8, ptr %106, i64 25
-  %120 = getelementptr inbounds i8, ptr %106, i64 32
+  %119 = getelementptr inbounds nuw i8, ptr %106, i64 25
+  %120 = getelementptr inbounds nuw i8, ptr %106, i64 32
   store i32 0, ptr %120, align 8
-  %121 = getelementptr inbounds i8, ptr %106, i64 36
+  %121 = getelementptr inbounds nuw i8, ptr %106, i64 36
   store i32 0, ptr %121, align 4
-  %122 = getelementptr inbounds i8, ptr %106, i64 43
+  %122 = getelementptr inbounds nuw i8, ptr %106, i64 43
   store i8 0, ptr %122, align 1
   store i8 0, ptr %107, align 4
-  %123 = getelementptr inbounds i8, ptr %106, i64 45
+  %123 = getelementptr inbounds nuw i8, ptr %106, i64 45
   store i32 0, ptr %119, align 1
   store i8 1, ptr %123, align 1
-  %124 = getelementptr inbounds i8, ptr %106, i64 46
+  %124 = getelementptr inbounds nuw i8, ptr %106, i64 46
   store i8 0, ptr %124, align 2
   br label %125
 
@@ -3991,11 +3991,11 @@ _ZN9DwarfFile17LineNumberProgram23does_offset_match_entryEmjj.exit: ; preds = %.
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define hidden noundef zeroext i1 @_ZN9DwarfFile17LineNumberProgram12apply_opcodeEv(ptr nocapture noundef nonnull align 8 dereferenceable(113) %0) local_unnamed_addr #3 align 2 {
   %2 = alloca i8, align 1
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
   %5 = add nsw i64 %4, 1
   store i64 %5, ptr %3, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = call i64 @fread(ptr noundef nonnull %2, i64 noundef 1, i64 noundef 1, ptr noundef %7)
   %9 = icmp eq i64 %8, 1
@@ -4019,16 +4019,16 @@ define hidden noundef zeroext i1 @_ZN9DwarfFile17LineNumberProgram12apply_opcode
   br i1 %18, label %81, label %82
 
 19:                                               ; preds = %15
-  %20 = getelementptr inbounds i8, ptr %0, i64 88
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 65
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 65
   %23 = load i8, ptr %22, align 1
   %24 = sub i8 %11, %23
-  %25 = getelementptr inbounds i8, ptr %0, i64 64
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %26 = load i8, ptr %25, align 8
   %27 = udiv i8 %24, %26
   %28 = zext i8 %27 to i32
-  %29 = getelementptr inbounds i8, ptr %21, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %21, i64 40
   %30 = load i16, ptr %29, align 8
   switch i16 %30, label %_ZN9DwarfFile17LineNumberProgram20apply_special_opcodeEh.exit [
     i16 2, label %31
@@ -4037,20 +4037,20 @@ define hidden noundef zeroext i1 @_ZN9DwarfFile17LineNumberProgram12apply_opcode
   ]
 
 31:                                               ; preds = %19, %19
-  %32 = getelementptr inbounds i8, ptr %0, i64 60
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %33 = load i8, ptr %32, align 4
   %34 = zext i8 %33 to i32
   %35 = mul nuw nsw i32 %34, %28
   br label %_ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23add_to_address_registerEjRKNS0_23LineNumberProgramHeaderE.exit.i
 
 36:                                               ; preds = %19
-  %37 = getelementptr inbounds i8, ptr %0, i64 60
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %38 = load i8, ptr %37, align 4
   %39 = zext i8 %38 to i32
-  %40 = getelementptr inbounds i8, ptr %21, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %41 = load i32, ptr %40, align 8
   %42 = add i32 %41, %28
-  %43 = getelementptr inbounds i8, ptr %0, i64 61
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 61
   %44 = load i8, ptr %43, align 1
   %45 = zext i8 %44 to i32
   %46 = udiv i32 %42, %45
@@ -4064,50 +4064,50 @@ _ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23add_to_address_registe
   %50 = add i64 %49, %48
   store i64 %50, ptr %21, align 8
   %.pre.i = load ptr, ptr %20, align 8
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.pre.i, i64 40
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.pre.i, i64 40
   %.pre5.i = load i16, ptr %.phi.trans.insert.i, align 8
   %51 = icmp eq i16 %.pre5.i, 4
   br i1 %51, label %52, label %_ZN9DwarfFile17LineNumberProgram20apply_special_opcodeEh.exit
 
 52:                                               ; preds = %_ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23add_to_address_registerEjRKNS0_23LineNumberProgramHeaderE.exit.i
-  %53 = getelementptr inbounds i8, ptr %.pre.i, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 8
   %54 = load i32, ptr %53, align 8
   %55 = add i32 %54, %28
-  %56 = getelementptr inbounds i8, ptr %0, i64 61
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 61
   %57 = load i8, ptr %56, align 1
   %58 = zext i8 %57 to i32
   %59 = urem i32 %55, %58
   store i32 %59, ptr %53, align 8
   %60 = load ptr, ptr %20, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 36
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 36
   store i32 0, ptr %61, align 4
   %.pre6.i = load ptr, ptr %20, align 8
   br label %_ZN9DwarfFile17LineNumberProgram20apply_special_opcodeEh.exit
 
 _ZN9DwarfFile17LineNumberProgram20apply_special_opcodeEh.exit: ; preds = %19, %_ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23add_to_address_registerEjRKNS0_23LineNumberProgramHeaderE.exit.i, %52
   %62 = phi ptr [ %.pre6.i, %52 ], [ %.pre.i, %_ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23add_to_address_registerEjRKNS0_23LineNumberProgramHeaderE.exit.i ], [ %21, %19 ]
-  %63 = getelementptr inbounds i8, ptr %0, i64 63
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 63
   %64 = load i8, ptr %63, align 1
   %65 = sext i8 %64 to i32
   %66 = load i8, ptr %25, align 8
   %67 = urem i8 %24, %66
   %68 = zext i8 %67 to i32
   %69 = add nsw i32 %68, %65
-  %70 = getelementptr inbounds i8, ptr %62, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %71 = load i32, ptr %70, align 8
   %72 = add i32 %69, %71
   store i32 %72, ptr %70, align 8
   %73 = load ptr, ptr %20, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i64 43
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 43
   store i8 1, ptr %74, align 1
   %75 = load ptr, ptr %20, align 8
-  %76 = getelementptr inbounds i8, ptr %75, i64 25
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 25
   store i8 0, ptr %76, align 1
   %77 = load ptr, ptr %20, align 8
-  %78 = getelementptr inbounds i8, ptr %77, i64 27
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 27
   store i8 0, ptr %78, align 1
   %79 = load ptr, ptr %20, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 28
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 28
   store i8 0, ptr %80, align 4
   br label %81
 
@@ -4121,15 +4121,15 @@ _ZN9DwarfFile17LineNumberProgram20apply_special_opcodeEh.exit: ; preds = %19, %_
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @_ZN9DwarfFile17LineNumberProgram23does_offset_match_entryEmjj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(113) %0, i64 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #12 align 2 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 88
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 46
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 46
   %8 = load i8, ptr %7, align 2
   %9 = trunc i8 %8 to i1
   br i1 %9, label %10, label %44
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %0, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = zext i32 %12 to i64
   %14 = load i64, ptr %6, align 8
@@ -4140,7 +4140,7 @@ define hidden noundef zeroext i1 @_ZN9DwarfFile17LineNumberProgram23does_offset_
   %17 = icmp ult i64 %1, %13
   %18 = icmp ugt i64 %14, %13
   %or.cond = and i1 %17, %18
-  %19 = getelementptr inbounds i8, ptr %6, i64 47
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 47
   br i1 %or.cond, label %20, label %37
 
 20:                                               ; preds = %16
@@ -4148,27 +4148,27 @@ define hidden noundef zeroext i1 @_ZN9DwarfFile17LineNumberProgram23does_offset_
   br label %25
 
 .critedge:                                        ; preds = %10
-  %21 = getelementptr inbounds i8, ptr %6, i64 47
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 47
   store i8 1, ptr %21, align 1
-  %22 = getelementptr inbounds i8, ptr %0, i64 112
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %23 = load i8, ptr %22, align 8
   %24 = trunc i8 %23 to i1
   br i1 %24, label %25, label %30
 
 25:                                               ; preds = %20, %.critedge
   %26 = load ptr, ptr %5, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 12
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 12
   store i32 %2, ptr %27, align 4
   %28 = load ptr, ptr %5, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   store i32 %3, ptr %29, align 8
   br label %45
 
 30:                                               ; preds = %.critedge
-  %31 = getelementptr inbounds i8, ptr %0, i64 40
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %32 = load i64, ptr %31, align 8
   %33 = icmp ne i64 %32, -1
-  %34 = getelementptr inbounds i8, ptr %0, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %35 = load i64, ptr %34, align 8
   %36 = icmp slt i64 %35, %32
   %.0.i = select i1 %33, i1 %36, i1 false
@@ -4180,10 +4180,10 @@ define hidden noundef zeroext i1 @_ZN9DwarfFile17LineNumberProgram23does_offset_
   br i1 %39, label %40, label %44
 
 40:                                               ; preds = %37
-  %41 = getelementptr inbounds i8, ptr %6, i64 12
+  %41 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 %2, ptr %41, align 4
   %42 = load ptr, ptr %5, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
   store i32 %3, ptr %43, align 8
   br label %45
 
@@ -4202,22 +4202,22 @@ define hidden noundef zeroext i1 @_ZN9DwarfFile17LineNumberProgram24get_filename
   %7 = alloca i8, align 1
   %8 = alloca i8, align 1
   %9 = alloca i8, align 1
-  %10 = getelementptr inbounds i8, ptr %0, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %11 = load i64, ptr %10, align 8
   %12 = icmp slt i64 %11, 0
   br i1 %12, label %_ZN9DwarfFile21MarkedDwarfFileReader12set_positionEl.exit, label %13
 
 13:                                               ; preds = %4
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %11, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = tail call i32 @fseek(ptr noundef %16, i64 noundef %11, i32 noundef 0)
   br label %_ZN9DwarfFile21MarkedDwarfFileReader12set_positionEl.exit
 
 _ZN9DwarfFile21MarkedDwarfFileReader12set_positionEl.exit: ; preds = %4, %13
-  %18 = getelementptr inbounds i8, ptr %0, i64 40
-  %19 = getelementptr inbounds i8, ptr %0, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %20 = load i64, ptr %18, align 8
   %21 = icmp ne i64 %20, -1
   %22 = load i64, ptr %19, align 8
@@ -4226,7 +4226,7 @@ _ZN9DwarfFile21MarkedDwarfFileReader12set_positionEl.exit: ; preds = %4, %13
   br i1 %.0.i727, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %_ZN9DwarfFile21MarkedDwarfFileReader12set_positionEl.exit
-  %24 = getelementptr inbounds i8, ptr %0, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %25
 
 25:                                               ; preds = %.lr.ph, %85
@@ -4378,32 +4378,32 @@ _ZN9DwarfFile21MarkedDwarfFileReader19read_uleb128_ignoreEa.exit15.thread: ; pre
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZN9DwarfFile17LineNumberProgram22LineNumberProgramState12reset_fieldsEv(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 29), (32, 40), (43, 47)) %0) local_unnamed_addr #8 align 2 {
   store i64 0, ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 12
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 1, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 20
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 0, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 42
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 42
   %7 = load i8, ptr %6, align 2
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = and i8 %7, 1
   store i8 %9, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 25
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 25
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 0, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 36
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 0, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %0, i64 43
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 43
   store i8 0, ptr %13, align 1
-  %14 = getelementptr inbounds i8, ptr %0, i64 44
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i8 0, ptr %14, align 4
-  %15 = getelementptr inbounds i8, ptr %0, i64 45
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 45
   store i32 0, ptr %10, align 1
   store i8 1, ptr %15, align 1
-  %16 = getelementptr inbounds i8, ptr %0, i64 46
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 46
   store i8 0, ptr %16, align 2
   ret void
 }
@@ -4416,10 +4416,10 @@ define hidden noundef zeroext i1 @_ZN9DwarfFile17LineNumberProgram21apply_extend
   %5 = alloca i8, align 1
   %6 = alloca i8, align 1
   %7 = alloca i8, align 1
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %11
 
 11:                                               ; preds = %17, %1
@@ -4468,20 +4468,20 @@ _ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit.thread: ; preds = %1
   ]
 
 32:                                               ; preds = %30
-  %33 = getelementptr inbounds i8, ptr %0, i64 88
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 26
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 26
   store i8 1, ptr %35, align 2
   %36 = load ptr, ptr %33, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 43
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 43
   store i8 1, ptr %37, align 1
   %38 = load ptr, ptr %33, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 44
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 44
   store i8 1, ptr %39, align 4
   br label %120
 
 40:                                               ; preds = %30
-  %41 = getelementptr inbounds i8, ptr %0, i64 88
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %42 = load ptr, ptr %41, align 8
   %43 = load i64, ptr %9, align 8
   %44 = add nsw i64 %43, 8
@@ -4493,13 +4493,13 @@ _ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit.thread: ; preds = %1
 
 48:                                               ; preds = %40
   %49 = load ptr, ptr %41, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 40
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 40
   %51 = load i16, ptr %50, align 8
   %52 = icmp eq i16 %51, 4
   br i1 %52, label %53, label %120
 
 53:                                               ; preds = %48
-  %54 = getelementptr inbounds i8, ptr %49, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %49, i64 8
   store i32 0, ptr %54, align 8
   br label %120
 
@@ -4518,7 +4518,7 @@ _ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit.thread: ; preds = %1
   br i1 %or.cond.i, label %63, label %_ZN9DwarfFile21MarkedDwarfFileReader11read_stringEPcm.exit.thread
 
 63:                                               ; preds = %55
-  %64 = getelementptr inbounds i8, ptr %0, i64 40
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %.split.us.i
 
 .split.us.i:                                      ; preds = %74, %63
@@ -4632,9 +4632,9 @@ _ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit9: ; preds = %113
   br i1 %115, label %116, label %121
 
 116:                                              ; preds = %_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit9
-  %117 = getelementptr inbounds i8, ptr %0, i64 88
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %118 = load ptr, ptr %117, align 8
-  %119 = getelementptr inbounds i8, ptr %118, i64 36
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 36
   store i32 %109, ptr %119, align 4
   br label %120
 
@@ -4670,34 +4670,34 @@ define hidden noundef zeroext i1 @_ZN9DwarfFile17LineNumberProgram21apply_standa
   ]
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %0, i64 88
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 43
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 43
   store i8 1, ptr %12, align 1
   %13 = load ptr, ptr %10, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 25
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 25
   store i8 0, ptr %14, align 1
   %15 = load ptr, ptr %10, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 27
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 27
   store i8 0, ptr %16, align 1
   %17 = load ptr, ptr %10, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 28
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 28
   store i8 0, ptr %18, align 4
   %19 = load ptr, ptr %10, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 40
   %21 = load i16, ptr %20, align 8
   %22 = icmp eq i16 %21, 4
   br i1 %22, label %23, label %_ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23add_to_address_registerEjRKNS0_23LineNumberProgramHeaderE.exit.thread
 
 23:                                               ; preds = %9
-  %24 = getelementptr inbounds i8, ptr %19, i64 36
+  %24 = getelementptr inbounds nuw i8, ptr %19, i64 36
   store i32 0, ptr %24, align 4
   br label %_ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23add_to_address_registerEjRKNS0_23LineNumberProgramHeaderE.exit.thread
 
 25:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7)
-  %26 = getelementptr inbounds i8, ptr %0, i64 32
-  %27 = getelementptr inbounds i8, ptr %0, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %28
 
 28:                                               ; preds = %34, %25
@@ -4740,9 +4740,9 @@ _ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit: ; preds = %45
   br i1 %47, label %48, label %_ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23add_to_address_registerEjRKNS0_23LineNumberProgramHeaderE.exit.thread
 
 48:                                               ; preds = %_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit
-  %49 = getelementptr inbounds i8, ptr %0, i64 88
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 40
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 40
   %52 = load i16, ptr %51, align 8
   switch i16 %52, label %_ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23add_to_address_registerEjRKNS0_23LineNumberProgramHeaderE.exit.thread [
     i16 2, label %53
@@ -4751,20 +4751,20 @@ _ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit: ; preds = %45
   ]
 
 53:                                               ; preds = %48, %48
-  %54 = getelementptr inbounds i8, ptr %0, i64 60
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %55 = load i8, ptr %54, align 4
   %56 = zext i8 %55 to i32
   %57 = mul i32 %41, %56
   br label %_ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23add_to_address_registerEjRKNS0_23LineNumberProgramHeaderE.exit
 
 58:                                               ; preds = %48
-  %59 = getelementptr inbounds i8, ptr %0, i64 60
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %60 = load i8, ptr %59, align 4
   %61 = zext i8 %60 to i32
-  %62 = getelementptr inbounds i8, ptr %50, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %63 = load i32, ptr %62, align 8
   %64 = add i32 %63, %41
-  %65 = getelementptr inbounds i8, ptr %0, i64 61
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 61
   %66 = load i8, ptr %65, align 1
   %67 = zext i8 %66 to i32
   %68 = udiv i32 %64, %67
@@ -4778,16 +4778,16 @@ _ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23add_to_address_registe
   %72 = add i64 %71, %70
   store i64 %72, ptr %50, align 8
   %.pre80 = load ptr, ptr %49, align 8
-  %.phi.trans.insert81 = getelementptr inbounds i8, ptr %.pre80, i64 40
+  %.phi.trans.insert81 = getelementptr inbounds nuw i8, ptr %.pre80, i64 40
   %.pre82 = load i16, ptr %.phi.trans.insert81, align 8
   %73 = icmp eq i16 %.pre82, 4
   br i1 %73, label %74, label %_ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23add_to_address_registerEjRKNS0_23LineNumberProgramHeaderE.exit.thread
 
 74:                                               ; preds = %_ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23add_to_address_registerEjRKNS0_23LineNumberProgramHeaderE.exit
-  %75 = getelementptr inbounds i8, ptr %.pre80, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %.pre80, i64 8
   %76 = load i32, ptr %75, align 8
   %77 = add i32 %76, %41
-  %78 = getelementptr inbounds i8, ptr %0, i64 61
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 61
   %79 = load i8, ptr %78, align 1
   %80 = zext i8 %79 to i32
   %81 = urem i32 %77, %80
@@ -4796,8 +4796,8 @@ _ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23add_to_address_registe
 
 82:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
-  %83 = getelementptr inbounds i8, ptr %0, i64 32
-  %84 = getelementptr inbounds i8, ptr %0, i64 16
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %85
 
 85:                                               ; preds = %91, %82
@@ -4843,9 +4843,9 @@ _ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23add_to_address_registe
   %.144 = or i64 %99, %110
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
   %111 = trunc i64 %.144 to i32
-  %112 = getelementptr inbounds i8, ptr %0, i64 88
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %113 = load ptr, ptr %112, align 8
-  %114 = getelementptr inbounds i8, ptr %113, i64 16
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 16
   %115 = load i32, ptr %114, align 8
   %116 = add i32 %115, %111
   store i32 %116, ptr %114, align 8
@@ -4857,8 +4857,8 @@ _ZN9DwarfFile21MarkedDwarfFileReader12read_sleb128EPla.exit.thread: ; preds = %8
 
 117:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
-  %118 = getelementptr inbounds i8, ptr %0, i64 32
-  %119 = getelementptr inbounds i8, ptr %0, i64 16
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %120
 
 120:                                              ; preds = %126, %117
@@ -4901,16 +4901,16 @@ _ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit15: ; preds = %137
   br i1 %139, label %140, label %_ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23add_to_address_registerEjRKNS0_23LineNumberProgramHeaderE.exit.thread
 
 140:                                              ; preds = %_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit15
-  %141 = getelementptr inbounds i8, ptr %0, i64 88
+  %141 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %142 = load ptr, ptr %141, align 8
-  %143 = getelementptr inbounds i8, ptr %142, i64 12
+  %143 = getelementptr inbounds nuw i8, ptr %142, i64 12
   store i32 %133, ptr %143, align 4
   br label %_ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23add_to_address_registerEjRKNS0_23LineNumberProgramHeaderE.exit.thread
 
 144:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
-  %145 = getelementptr inbounds i8, ptr %0, i64 32
-  %146 = getelementptr inbounds i8, ptr %0, i64 16
+  %145 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %146 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %147
 
 147:                                              ; preds = %153, %144
@@ -4953,16 +4953,16 @@ _ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit20: ; preds = %164
   br i1 %166, label %167, label %_ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23add_to_address_registerEjRKNS0_23LineNumberProgramHeaderE.exit.thread
 
 167:                                              ; preds = %_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit20
-  %168 = getelementptr inbounds i8, ptr %0, i64 88
+  %168 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %169 = load ptr, ptr %168, align 8
-  %170 = getelementptr inbounds i8, ptr %169, i64 20
+  %170 = getelementptr inbounds nuw i8, ptr %169, i64 20
   store i32 %160, ptr %170, align 4
   br label %_ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23add_to_address_registerEjRKNS0_23LineNumberProgramHeaderE.exit.thread
 
 171:                                              ; preds = %2
-  %172 = getelementptr inbounds i8, ptr %0, i64 88
+  %172 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %173 = load ptr, ptr %172, align 8
-  %174 = getelementptr inbounds i8, ptr %173, i64 24
+  %174 = getelementptr inbounds nuw i8, ptr %173, i64 24
   %175 = load i8, ptr %174, align 8
   %176 = and i8 %175, 1
   %177 = xor i8 %176, 1
@@ -4970,23 +4970,23 @@ _ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit20: ; preds = %164
   br label %_ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23add_to_address_registerEjRKNS0_23LineNumberProgramHeaderE.exit.thread
 
 178:                                              ; preds = %2
-  %179 = getelementptr inbounds i8, ptr %0, i64 88
+  %179 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %180 = load ptr, ptr %179, align 8
-  %181 = getelementptr inbounds i8, ptr %180, i64 25
+  %181 = getelementptr inbounds nuw i8, ptr %180, i64 25
   store i8 1, ptr %181, align 1
   br label %_ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23add_to_address_registerEjRKNS0_23LineNumberProgramHeaderE.exit.thread
 
 182:                                              ; preds = %2
-  %183 = getelementptr inbounds i8, ptr %0, i64 65
+  %183 = getelementptr inbounds nuw i8, ptr %0, i64 65
   %184 = load i8, ptr %183, align 1
   %185 = xor i8 %184, -1
-  %186 = getelementptr inbounds i8, ptr %0, i64 64
+  %186 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %187 = load i8, ptr %186, align 8
   %188 = udiv i8 %185, %187
-  %189 = getelementptr inbounds i8, ptr %0, i64 88
+  %189 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %190 = load ptr, ptr %189, align 8
   %191 = zext i8 %188 to i32
-  %192 = getelementptr inbounds i8, ptr %190, i64 40
+  %192 = getelementptr inbounds nuw i8, ptr %190, i64 40
   %193 = load i16, ptr %192, align 8
   switch i16 %193, label %_ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23add_to_address_registerEjRKNS0_23LineNumberProgramHeaderE.exit.thread [
     i16 2, label %194
@@ -4995,20 +4995,20 @@ _ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit20: ; preds = %164
   ]
 
 194:                                              ; preds = %182, %182
-  %195 = getelementptr inbounds i8, ptr %0, i64 60
+  %195 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %196 = load i8, ptr %195, align 4
   %197 = zext i8 %196 to i32
   %198 = mul nuw nsw i32 %197, %191
   br label %_ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23add_to_address_registerEjRKNS0_23LineNumberProgramHeaderE.exit23
 
 199:                                              ; preds = %182
-  %200 = getelementptr inbounds i8, ptr %0, i64 60
+  %200 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %201 = load i8, ptr %200, align 4
   %202 = zext i8 %201 to i32
-  %203 = getelementptr inbounds i8, ptr %190, i64 8
+  %203 = getelementptr inbounds nuw i8, ptr %190, i64 8
   %204 = load i32, ptr %203, align 8
   %205 = add i32 %204, %191
-  %206 = getelementptr inbounds i8, ptr %0, i64 61
+  %206 = getelementptr inbounds nuw i8, ptr %0, i64 61
   %207 = load i8, ptr %206, align 1
   %208 = zext i8 %207 to i32
   %209 = udiv i32 %205, %208
@@ -5022,16 +5022,16 @@ _ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23add_to_address_registe
   %213 = add i64 %212, %211
   store i64 %213, ptr %190, align 8
   %.pre = load ptr, ptr %189, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 40
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 40
   %.pre79 = load i16, ptr %.phi.trans.insert, align 8
   %214 = icmp eq i16 %.pre79, 4
   br i1 %214, label %215, label %_ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23add_to_address_registerEjRKNS0_23LineNumberProgramHeaderE.exit.thread
 
 215:                                              ; preds = %_ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23add_to_address_registerEjRKNS0_23LineNumberProgramHeaderE.exit23
-  %216 = getelementptr inbounds i8, ptr %.pre, i64 8
+  %216 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
   %217 = load i32, ptr %216, align 8
   %218 = add i32 %217, %191
-  %219 = getelementptr inbounds i8, ptr %0, i64 61
+  %219 = getelementptr inbounds nuw i8, ptr %0, i64 61
   %220 = load i8, ptr %219, align 1
   %221 = zext i8 %220 to i32
   %222 = urem i32 %218, %221
@@ -5039,11 +5039,11 @@ _ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23add_to_address_registe
   br label %_ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23add_to_address_registerEjRKNS0_23LineNumberProgramHeaderE.exit.thread
 
 223:                                              ; preds = %2
-  %224 = getelementptr inbounds i8, ptr %0, i64 32
+  %224 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %225 = load i64, ptr %224, align 8
   %226 = add nsw i64 %225, 2
   store i64 %226, ptr %224, align 8
-  %227 = getelementptr inbounds i8, ptr %0, i64 16
+  %227 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %228 = load ptr, ptr %227, align 8
   %229 = call i64 @fread(ptr noundef nonnull %8, i64 noundef 2, i64 noundef 1, ptr noundef %228)
   %230 = icmp eq i64 %229, 1
@@ -5052,34 +5052,34 @@ _ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23add_to_address_registe
 231:                                              ; preds = %223
   %232 = load i16, ptr %8, align 2
   %233 = zext i16 %232 to i64
-  %234 = getelementptr inbounds i8, ptr %0, i64 88
+  %234 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %235 = load ptr, ptr %234, align 8
   %236 = load i64, ptr %235, align 8
   %237 = add i64 %236, %233
   store i64 %237, ptr %235, align 8
   %238 = load ptr, ptr %234, align 8
-  %239 = getelementptr inbounds i8, ptr %238, i64 8
+  %239 = getelementptr inbounds nuw i8, ptr %238, i64 8
   store i32 0, ptr %239, align 8
   br label %_ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23add_to_address_registerEjRKNS0_23LineNumberProgramHeaderE.exit.thread
 
 240:                                              ; preds = %2
-  %241 = getelementptr inbounds i8, ptr %0, i64 88
+  %241 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %242 = load ptr, ptr %241, align 8
-  %243 = getelementptr inbounds i8, ptr %242, i64 27
+  %243 = getelementptr inbounds nuw i8, ptr %242, i64 27
   store i8 1, ptr %243, align 1
   br label %_ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23add_to_address_registerEjRKNS0_23LineNumberProgramHeaderE.exit.thread
 
 244:                                              ; preds = %2
-  %245 = getelementptr inbounds i8, ptr %0, i64 88
+  %245 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %246 = load ptr, ptr %245, align 8
-  %247 = getelementptr inbounds i8, ptr %246, i64 28
+  %247 = getelementptr inbounds nuw i8, ptr %246, i64 28
   store i8 1, ptr %247, align 4
   br label %_ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23add_to_address_registerEjRKNS0_23LineNumberProgramHeaderE.exit.thread
 
 248:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
-  %249 = getelementptr inbounds i8, ptr %0, i64 32
-  %250 = getelementptr inbounds i8, ptr %0, i64 16
+  %249 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %250 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %251
 
 251:                                              ; preds = %257, %248
@@ -5122,9 +5122,9 @@ _ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit28: ; preds = %268
   br i1 %270, label %271, label %_ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23add_to_address_registerEjRKNS0_23LineNumberProgramHeaderE.exit.thread
 
 271:                                              ; preds = %_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit28
-  %272 = getelementptr inbounds i8, ptr %0, i64 88
+  %272 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %273 = load ptr, ptr %272, align 8
-  %274 = getelementptr inbounds i8, ptr %273, i64 32
+  %274 = getelementptr inbounds nuw i8, ptr %273, i64 32
   store i32 %264, ptr %274, align 8
   br label %_ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23add_to_address_registerEjRKNS0_23LineNumberProgramHeaderE.exit.thread
 
@@ -5135,16 +5135,16 @@ _ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23add_to_address_registe
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN9DwarfFile17LineNumberProgram20apply_special_opcodeEh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(113) %0, i8 noundef zeroext %1) local_unnamed_addr #12 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 88
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 65
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 65
   %6 = load i8, ptr %5, align 1
   %7 = sub i8 %1, %6
-  %8 = getelementptr inbounds i8, ptr %0, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %9 = load i8, ptr %8, align 8
   %10 = udiv i8 %7, %9
   %11 = zext i8 %10 to i32
-  %12 = getelementptr inbounds i8, ptr %4, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %13 = load i16, ptr %12, align 8
   switch i16 %13, label %_ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23add_to_address_registerEjRKNS0_23LineNumberProgramHeaderE.exit.thread [
     i16 2, label %14
@@ -5153,20 +5153,20 @@ define hidden void @_ZN9DwarfFile17LineNumberProgram20apply_special_opcodeEh(ptr
   ]
 
 14:                                               ; preds = %2, %2
-  %15 = getelementptr inbounds i8, ptr %0, i64 60
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %16 = load i8, ptr %15, align 4
   %17 = zext i8 %16 to i32
   %18 = mul nuw nsw i32 %17, %11
   br label %_ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23add_to_address_registerEjRKNS0_23LineNumberProgramHeaderE.exit
 
 19:                                               ; preds = %2
-  %20 = getelementptr inbounds i8, ptr %0, i64 60
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %21 = load i8, ptr %20, align 4
   %22 = zext i8 %21 to i32
-  %23 = getelementptr inbounds i8, ptr %4, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %24 = load i32, ptr %23, align 8
   %25 = add i32 %24, %11
-  %26 = getelementptr inbounds i8, ptr %0, i64 61
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 61
   %27 = load i8, ptr %26, align 1
   %28 = zext i8 %27 to i32
   %29 = udiv i32 %25, %28
@@ -5180,50 +5180,50 @@ _ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23add_to_address_registe
   %33 = add i64 %32, %31
   store i64 %33, ptr %4, align 8
   %.pre = load ptr, ptr %3, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 40
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 40
   %.pre5 = load i16, ptr %.phi.trans.insert, align 8
   %34 = icmp eq i16 %.pre5, 4
   br i1 %34, label %35, label %_ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23add_to_address_registerEjRKNS0_23LineNumberProgramHeaderE.exit.thread
 
 35:                                               ; preds = %_ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23add_to_address_registerEjRKNS0_23LineNumberProgramHeaderE.exit
-  %36 = getelementptr inbounds i8, ptr %.pre, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
   %37 = load i32, ptr %36, align 8
   %38 = add i32 %37, %11
-  %39 = getelementptr inbounds i8, ptr %0, i64 61
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 61
   %40 = load i8, ptr %39, align 1
   %41 = zext i8 %40 to i32
   %42 = urem i32 %38, %41
   store i32 %42, ptr %36, align 8
   %43 = load ptr, ptr %3, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 36
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 36
   store i32 0, ptr %44, align 4
   %.pre6 = load ptr, ptr %3, align 8
   br label %_ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23add_to_address_registerEjRKNS0_23LineNumberProgramHeaderE.exit.thread
 
 _ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23add_to_address_registerEjRKNS0_23LineNumberProgramHeaderE.exit.thread: ; preds = %2, %35, %_ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23add_to_address_registerEjRKNS0_23LineNumberProgramHeaderE.exit
   %45 = phi ptr [ %.pre6, %35 ], [ %.pre, %_ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23add_to_address_registerEjRKNS0_23LineNumberProgramHeaderE.exit ], [ %4, %2 ]
-  %46 = getelementptr inbounds i8, ptr %0, i64 63
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 63
   %47 = load i8, ptr %46, align 1
   %48 = sext i8 %47 to i32
   %49 = load i8, ptr %8, align 8
   %50 = urem i8 %7, %49
   %51 = zext i8 %50 to i32
   %52 = add nsw i32 %51, %48
-  %53 = getelementptr inbounds i8, ptr %45, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %54 = load i32, ptr %53, align 8
   %55 = add i32 %52, %54
   store i32 %55, ptr %53, align 8
   %56 = load ptr, ptr %3, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 43
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 43
   store i8 1, ptr %57, align 1
   %58 = load ptr, ptr %3, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 25
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 25
   store i8 0, ptr %59, align 1
   %60 = load ptr, ptr %3, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 27
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 27
   store i8 0, ptr %61, align 1
   %62 = load ptr, ptr %3, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 28
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 28
   store i8 0, ptr %63, align 4
   ret void
 }
@@ -5232,8 +5232,8 @@ _ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23add_to_address_registe
 define hidden noundef zeroext i1 @_ZN9DwarfFile21MarkedDwarfFileReader19read_uleb128_ignoreEa(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, i8 noundef signext %1) local_unnamed_addr #3 align 2 {
   %3 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %6
 
 6:                                                ; preds = %12, %2
@@ -5272,7 +5272,7 @@ _ZN9DwarfFile21MarkedDwarfFileReader11read_leb128EPmab.exit: ; preds = %6, %19, 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23add_to_address_registerEjRKNS0_23LineNumberProgramHeaderE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, i32 noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %2) local_unnamed_addr #8 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load i16, ptr %4, align 8
   switch i16 %5, label %26 [
     i16 2, label %6
@@ -5281,20 +5281,20 @@ define hidden void @_ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23ad
   ]
 
 6:                                                ; preds = %3, %3
-  %7 = getelementptr inbounds i8, ptr %2, i64 12
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %8 = load i8, ptr %7, align 4
   %9 = zext i8 %8 to i32
   %10 = mul i32 %1, %9
   br label %.sink.split
 
 11:                                               ; preds = %3
-  %12 = getelementptr inbounds i8, ptr %2, i64 12
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %13 = load i8, ptr %12, align 4
   %14 = zext i8 %13 to i32
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load i32, ptr %15, align 8
   %17 = add i32 %16, %1
-  %18 = getelementptr inbounds i8, ptr %2, i64 13
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 13
   %19 = load i8, ptr %18, align 1
   %20 = zext i8 %19 to i32
   %21 = udiv i32 %17, %20
@@ -5315,10 +5315,10 @@ define hidden void @_ZN9DwarfFile17LineNumberProgram22LineNumberProgramState23ad
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZN9DwarfFile17LineNumberProgram22LineNumberProgramState18set_index_registerEjRKNS0_23LineNumberProgramHeaderE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, i32 noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %2) local_unnamed_addr #8 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = add i32 %5, %1
-  %7 = getelementptr inbounds i8, ptr %2, i64 13
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 13
   %8 = load i8, ptr %7, align 1
   %9 = zext i8 %8 to i32
   %10 = urem i32 %6, %9
@@ -5331,8 +5331,8 @@ define hidden noundef zeroext i1 @_ZN9DwarfFile21MarkedDwarfFileReader12read_sle
   %4 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
   store i64 0, ptr %1, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %7
 
 7:                                                ; preds = %13, %3
@@ -5396,12 +5396,12 @@ _ZN9DwarfFile21MarkedDwarfFileReader11read_leb128EPmab.exit: ; preds = %7, %26, 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN9DwarfFile17LineNumberProgram26print_and_store_prev_entryEjj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(113) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #13 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 88
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 12
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 %1, ptr %6, align 4
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i32 %2, ptr %8, align 8
   ret void
 }
@@ -5409,11 +5409,11 @@ define hidden void @_ZN9DwarfFile17LineNumberProgram26print_and_store_prev_entry
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN9DwarfFile17LineNumberProgram13read_filenameEPcm(ptr nocapture noundef nonnull align 8 dereferenceable(113) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca i8, align 1
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load i64, ptr %5, align 8
   %7 = add nsw i64 %6, 1
   store i64 %7, ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %9)
   %11 = icmp eq i64 %10, 1
@@ -5424,7 +5424,7 @@ define hidden noundef zeroext i1 @_ZN9DwarfFile17LineNumberProgram13read_filenam
 
 .lr.ph:                                           ; preds = %3
   store i8 %12, ptr %1, align 1
-  %14 = getelementptr inbounds i8, ptr %0, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %15
 
 15:                                               ; preds = %.lr.ph, %35
@@ -5482,7 +5482,7 @@ define hidden noundef zeroext i1 @_ZN9DwarfFile17LineNumberProgram13read_filenam
 
 40:                                               ; preds = %36
   store i8 76, ptr %1, align 1
-  %41 = getelementptr inbounds i8, ptr %1, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 1
   store i8 0, ptr %41, align 1
   br label %_ZN9DwarfFile17LineNumberProgram27write_filename_for_overflowEPcm.exit
 
@@ -5493,11 +5493,11 @@ _ZN9DwarfFile17LineNumberProgram27write_filename_for_overflowEPcm.exit: ; preds 
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define hidden noundef zeroext i1 @_ZN9DwarfFile21MarkedDwarfFileReader18read_non_null_charEPc(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture noundef %1) local_unnamed_addr #3 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i64, ptr %3, align 8
   %5 = add nsw i64 %4, 1
   store i64 %5, ptr %3, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i64 @fread(ptr noundef %1, i64 noundef 1, i64 noundef 1, ptr noundef %7)
   %9 = icmp eq i64 %8, 1
@@ -5524,7 +5524,7 @@ define hidden void @_ZN9DwarfFile17LineNumberProgram27write_filename_for_overflo
 
 6:                                                ; preds = %2
   store i8 76, ptr %0, align 1
-  %7 = getelementptr inbounds i8, ptr %0, i64 1
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 0, ptr %7, align 1
   br label %8
 
@@ -5534,11 +5534,11 @@ define hidden void @_ZN9DwarfFile17LineNumberProgram27write_filename_for_overflo
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define hidden noundef zeroext i1 @_ZN9DwarfFile21MarkedDwarfFileReader10read_qwordEPm(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture noundef %1) local_unnamed_addr #3 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i64, ptr %3, align 8
   %5 = add nsw i64 %4, 8
   store i64 %5, ptr %3, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i64 @fread(ptr noundef %1, i64 noundef 8, i64 noundef 1, ptr noundef %7)
   %9 = icmp eq i64 %8, 1
@@ -5549,8 +5549,8 @@ define hidden noundef zeroext i1 @_ZN9DwarfFile21MarkedDwarfFileReader10read_qwo
 define hidden noundef zeroext i1 @_ZN9DwarfFile21MarkedDwarfFileReader11read_leb128EPmab(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture noundef initializes((0, 8)) %1, i8 noundef signext %2, i1 noundef zeroext %3) local_unnamed_addr #3 align 2 {
   %5 = alloca i8, align 1
   store i64 0, ptr %1, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %8
 
 8:                                                ; preds = %4, %14

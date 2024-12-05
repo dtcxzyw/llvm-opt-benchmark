@@ -28,25 +28,25 @@ target triple = "x86_64-pc-linux-gnu"
 define noalias noundef ptr @If_BoxStart(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
   %8 = tail call noalias dereferenceable_or_null(32) ptr @calloc(i64 noundef 1, i64 noundef 32) #19
   store ptr %0, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 12
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i32 %1, ptr %9, align 4
   %10 = trunc i32 %4 to i8
-  %11 = getelementptr inbounds i8, ptr %8, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i8 %10, ptr %11, align 8
   %12 = trunc i32 %5 to i8
-  %13 = getelementptr inbounds i8, ptr %8, i64 9
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 9
   store i8 %12, ptr %13, align 1
   %14 = trunc i32 %6 to i8
-  %15 = getelementptr inbounds i8, ptr %8, i64 10
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 10
   store i8 %14, ptr %15, align 2
-  %16 = getelementptr inbounds i8, ptr %8, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 %2, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %8, i64 20
+  %17 = getelementptr inbounds nuw i8, ptr %8, i64 20
   store i32 %3, ptr %17, align 4
   %18 = mul nsw i32 %3, %2
   %19 = sext i32 %18 to i64
   %20 = tail call noalias ptr @calloc(i64 noundef %19, i64 noundef 4) #19
-  %21 = getelementptr inbounds i8, ptr %8, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr %20, ptr %21, align 8
   ret ptr %8
 }
@@ -61,7 +61,7 @@ define noalias noundef ptr @If_BoxDup(ptr nocapture noundef readnone %0) local_u
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define void @If_BoxFree(ptr nocapture noundef %0) local_unnamed_addr #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %4
@@ -92,13 +92,13 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
 define noalias noundef ptr @If_LibBoxStart() local_unnamed_addr #0 {
   %1 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #19
   %2 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #21
-  %3 = getelementptr inbounds i8, ptr %2, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 0, ptr %3, align 4
   store i32 100, ptr %2, align 8
   %4 = tail call noalias dereferenceable_or_null(800) ptr @malloc(i64 noundef 800) #21
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %4, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %2, ptr %6, align 8
   ret ptr %1
 }
@@ -114,7 +114,7 @@ define void @If_LibBoxFree(ptr noundef %0) local_unnamed_addr #5 {
   br i1 %2, label %27, label %.preheader
 
 .preheader:                                       ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 4
   %.val14 = load i32, ptr %5, align 4
@@ -126,13 +126,13 @@ define void @If_LibBoxFree(ptr noundef %0) local_unnamed_addr #5 {
   %indvars.iv = phi i64 [ %indvars.iv.next, %19 ], [ 0, %.preheader ]
   %8 = getelementptr i8, ptr %7, i64 8
   %.val12 = load ptr, ptr %8, align 8
-  %9 = getelementptr inbounds ptr, ptr %.val12, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw ptr, ptr %.val12, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %19, label %12
 
 12:                                               ; preds = %.lr.ph
-  %13 = getelementptr inbounds i8, ptr %10, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %14 = load ptr, ptr %13, align 8
   %.not.i = icmp eq ptr %14, null
   br i1 %.not.i, label %16, label %15
@@ -167,7 +167,7 @@ If_BoxFree.exit:                                  ; preds = %16, %18
 
 .critedge:                                        ; preds = %19, %.preheader
   %.lcssa = phi ptr [ %4, %.preheader ], [ %20, %19 ]
-  %24 = getelementptr inbounds i8, ptr %.lcssa, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 8
   %25 = load ptr, ptr %24, align 8
   %.not.i13 = icmp eq ptr %25, null
   br i1 %.not.i13, label %Vec_PtrFree.exit, label %26
@@ -187,7 +187,7 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge, %26
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define ptr @If_LibBoxReadBox(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #6 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 8
   %.val = load ptr, ptr %5, align 8
@@ -203,7 +203,7 @@ define ptr @If_LibBoxFindBox(ptr noundef readonly %0, ptr nocapture noundef read
   br i1 %3, label %.critedge, label %.preheader
 
 .preheader:                                       ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %5, i64 4
   %.val = load i32, ptr %6, align 4
@@ -218,7 +218,7 @@ define ptr @If_LibBoxFindBox(ptr noundef readonly %0, ptr nocapture noundef read
 
 9:                                                ; preds = %.lr.ph, %16
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %16 ]
-  %10 = getelementptr inbounds ptr, ptr %.val13, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw ptr, ptr %.val13, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %16, label %13
@@ -244,9 +244,9 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 
 ; Function Attrs: nounwind uwtable
 define void @If_LibBoxAdd(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #5 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 12
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr i8, ptr %6, i64 4
   %.val = load i32, ptr %7, align 4
@@ -270,7 +270,7 @@ define void @If_LibBoxAdd(ptr nocapture noundef %0, ptr noundef %1) local_unname
   br i1 %.not.i.i, label %16, label %Vec_PtrGrow.exit.i
 
 16:                                               ; preds = %15
-  %17 = getelementptr inbounds i8, ptr %6, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %18 = load ptr, ptr %17, align 8
   %.not9.i.i = icmp eq ptr %18, null
   %19 = sext i32 %10 to i64
@@ -294,7 +294,7 @@ define void @If_LibBoxAdd(ptr nocapture noundef %0, ptr noundef %1) local_unname
   br i1 %.not.i.i, label %28, label %Vec_PtrGrow.exit.i
 
 28:                                               ; preds = %27
-  %29 = getelementptr inbounds i8, ptr %6, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %30 = load ptr, ptr %29, align 8
   %.not9.i21.i = icmp eq ptr %30, null
   %31 = sext i32 %13 to i64
@@ -326,7 +326,7 @@ Vec_PtrGrow.exit.i:                               ; preds = %Vec_PtrGrow.exit.si
   br i1 %40, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %Vec_PtrGrow.exit.i
-  %41 = getelementptr inbounds i8, ptr %6, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %42 = sext i32 %39 to i64
   %wide.trip.count.i = sext i32 %10 to i64
   br label %43
@@ -425,7 +425,7 @@ define ptr @If_LibBoxRead2(ptr noundef %0) local_unnamed_addr #5 {
 20:                                               ; preds = %18, %._crit_edge.us
   %21 = phi i32 [ %19, %18 ], [ -1, %._crit_edge.us ]
   %22 = load ptr, ptr %34, align 8
-  %23 = getelementptr inbounds i32, ptr %22, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv
   store i32 %21, ptr %23, align 4
   %24 = tail call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.2) #20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -455,7 +455,7 @@ define ptr @If_LibBoxRead2(ptr noundef %0) local_unnamed_addr #5 {
   br i1 %33, label %.lr.ph.us, label %._crit_edge.us
 
 .preheader72.us:                                  ; preds = %13
-  %34 = getelementptr inbounds i8, ptr %.058.ph74.us, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %.058.ph74.us, i64 24
   br label %.preheader.us
 
 35:                                               ; preds = %10, %.outer73.us
@@ -551,13 +551,13 @@ Abc_UtilStrsav.exit:                              ; preds = %45, %49
 68:                                               ; preds = %._crit_edge
   %69 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #19
   %70 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #21
-  %71 = getelementptr inbounds i8, ptr %70, i64 4
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 4
   store i32 0, ptr %71, align 4
   store i32 100, ptr %70, align 8
   %72 = tail call noalias dereferenceable_or_null(800) ptr @malloc(i64 noundef 800) #21
-  %73 = getelementptr inbounds i8, ptr %70, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %70, i64 8
   store ptr %72, ptr %73, align 8
-  %74 = getelementptr inbounds i8, ptr %69, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %69, i64 8
   store ptr %70, ptr %74, align 8
   br label %75
 
@@ -565,22 +565,22 @@ Abc_UtilStrsav.exit:                              ; preds = %45, %49
   %.262 = phi ptr [ %69, %68 ], [ %.060.ph.ph, %._crit_edge ]
   %76 = tail call noalias dereferenceable_or_null(32) ptr @calloc(i64 noundef 1, i64 noundef 32) #19
   store ptr %54, ptr %76, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 12
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 12
   store i32 %47, ptr %77, align 4
-  %78 = getelementptr inbounds i8, ptr %76, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %76, i64 8
   store i8 %.054.lcssa, ptr %78, align 8
-  %79 = getelementptr inbounds i8, ptr %76, i64 9
+  %79 = getelementptr inbounds nuw i8, ptr %76, i64 9
   store i8 %.052.lcssa, ptr %79, align 1
-  %80 = getelementptr inbounds i8, ptr %76, i64 10
+  %80 = getelementptr inbounds nuw i8, ptr %76, i64 10
   store i8 %.050.lcssa, ptr %80, align 2
-  %81 = getelementptr inbounds i8, ptr %76, i64 16
+  %81 = getelementptr inbounds nuw i8, ptr %76, i64 16
   store i32 %56, ptr %81, align 8
-  %82 = getelementptr inbounds i8, ptr %76, i64 20
+  %82 = getelementptr inbounds nuw i8, ptr %76, i64 20
   store i32 %58, ptr %82, align 4
   %83 = mul nsw i32 %58, %56
   %84 = sext i32 %83 to i64
   %85 = tail call noalias ptr @calloc(i64 noundef %84, i64 noundef 4) #19
-  %86 = getelementptr inbounds i8, ptr %76, i64 24
+  %86 = getelementptr inbounds nuw i8, ptr %76, i64 24
   store ptr %85, ptr %86, align 8
   tail call void @If_LibBoxAdd(ptr noundef nonnull %.262, ptr noundef nonnull %76)
   br label %.outer.outer, !llvm.loop !8
@@ -733,13 +733,13 @@ define noalias noundef ptr @If_LibBoxRead(ptr noundef %0) local_unnamed_addr #5 
 17:                                               ; preds = %12
   %18 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #19
   %19 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #21
-  %20 = getelementptr inbounds i8, ptr %19, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
   store i32 0, ptr %20, align 4
   store i32 100, ptr %19, align 8
   %21 = tail call noalias dereferenceable_or_null(800) ptr @malloc(i64 noundef 800) #21
-  %22 = getelementptr inbounds i8, ptr %19, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr %21, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %18, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr %19, ptr %23, align 8
   br label %Abc_UtilStrsav.exit
 
@@ -760,23 +760,23 @@ Abc_UtilStrsav.exit:                              ; preds = %17, %._crit_edge
   %35 = tail call i32 @atoi(ptr nocapture noundef %34) #22
   %36 = tail call noalias dereferenceable_or_null(32) ptr @calloc(i64 noundef 1, i64 noundef 32) #19
   store ptr %26, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 12
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 12
   store i32 %29, ptr %37, align 4
-  %38 = getelementptr inbounds i8, ptr %36, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 8
   store i8 0, ptr %38, align 8
   %39 = zext i1 %.not42 to i8
-  %40 = getelementptr inbounds i8, ptr %36, i64 9
+  %40 = getelementptr inbounds nuw i8, ptr %36, i64 9
   store i8 %39, ptr %40, align 1
-  %41 = getelementptr inbounds i8, ptr %36, i64 10
+  %41 = getelementptr inbounds nuw i8, ptr %36, i64 10
   store i8 0, ptr %41, align 2
-  %42 = getelementptr inbounds i8, ptr %36, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %36, i64 16
   store i32 %33, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %36, i64 20
+  %43 = getelementptr inbounds nuw i8, ptr %36, i64 20
   store i32 %35, ptr %43, align 4
   %44 = mul nsw i32 %35, %33
   %45 = sext i32 %44 to i64
   %46 = tail call noalias ptr @calloc(i64 noundef %45, i64 noundef 4) #19
-  %47 = getelementptr inbounds i8, ptr %36, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %36, i64 24
   store ptr %46, ptr %47, align 8
   tail call void @If_LibBoxAdd(ptr noundef %18, ptr noundef nonnull %36)
   %48 = icmp sgt i32 %44, 0
@@ -865,7 +865,7 @@ If_LibBoxGetToken.exit:                           ; preds = %.outer.split.us.i, 
 61:                                               ; preds = %If_LibBoxGetToken.exit, %59
   %62 = phi i32 [ %60, %59 ], [ -1000000000, %If_LibBoxGetToken.exit ]
   %63 = load ptr, ptr %47, align 8
-  %64 = getelementptr inbounds i32, ptr %63, i64 %indvars.iv
+  %64 = getelementptr inbounds nuw i32, ptr %63, i64 %indvars.iv
   store i32 %62, ptr %64, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -890,7 +890,7 @@ define void @If_LibBoxPrint(ptr nocapture noundef %0, ptr nocapture noundef read
   %3 = tail call ptr (...) @Extra_TimeStamp() #20
   %4 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.10, ptr noundef %3) #20
   %5 = tail call i64 @fwrite(ptr nonnull @.str.11, i64 29, i64 1, ptr %0)
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr i8, ptr %7, i64 4
   %.val37 = load i32, ptr %8, align 4
@@ -902,22 +902,22 @@ define void @If_LibBoxPrint(ptr nocapture noundef %0, ptr nocapture noundef read
   %10 = phi ptr [ %51, %.loopexit ], [ %7, %2 ]
   %11 = getelementptr i8, ptr %10, i64 8
   %.val34 = load ptr, ptr %11, align 8
-  %12 = getelementptr inbounds ptr, ptr %.val34, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw ptr, ptr %.val34, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %.loopexit, label %15
 
 15:                                               ; preds = %.lr.ph40
   %16 = load ptr, ptr %13, align 8
-  %17 = getelementptr inbounds i8, ptr %13, i64 12
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 12
   %18 = load i32, ptr %17, align 4
-  %19 = getelementptr inbounds i8, ptr %13, i64 9
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 9
   %20 = load i8, ptr %19, align 1
   %.not = icmp eq i8 %20, 0
   %21 = zext i1 %.not to i32
-  %22 = getelementptr inbounds i8, ptr %13, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %23 = load i32, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %13, i64 20
+  %24 = getelementptr inbounds nuw i8, ptr %13, i64 20
   %25 = load i32, ptr %24, align 4
   %26 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.12, ptr noundef %16, i32 noundef %18, i32 noundef %21, i32 noundef %23, i32 noundef %25) #20
   %27 = load i32, ptr %24, align 4
@@ -925,7 +925,7 @@ define void @If_LibBoxPrint(ptr nocapture noundef %0, ptr nocapture noundef read
   br i1 %28, label %.preheader.lr.ph, label %.loopexit
 
 .preheader.lr.ph:                                 ; preds = %15
-  %29 = getelementptr inbounds i8, ptr %13, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %13, i64 24
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge

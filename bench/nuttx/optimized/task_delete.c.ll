@@ -14,7 +14,7 @@ define i32 @nxtask_delete(i32 noundef %0) local_unnamed_addr #0 {
   br i1 %3, label %4, label %7
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %2, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %6 = load i32, ptr %5, align 8
   br label %7
 
@@ -25,21 +25,21 @@ define i32 @nxtask_delete(i32 noundef %0) local_unnamed_addr #0 {
   br i1 %9, label %28, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %2, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %12 = load i16, ptr %11, align 16
   %13 = and i16 %12, 3
   %.not = icmp eq i16 %13, 2
   br i1 %.not, label %19, label %14
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %8, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 64
   %16 = load i16, ptr %15, align 16
   %17 = and i16 %16, 3
   %18 = icmp eq i16 %17, 2
   br i1 %18, label %28, label %19
 
 19:                                               ; preds = %14, %10
-  %20 = getelementptr inbounds i8, ptr %2, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %21 = load i32, ptr %20, align 8
   %22 = icmp eq i32 %.010, %21
   br i1 %22, label %23, label %24
@@ -77,7 +77,7 @@ define range(i32 -1, -2147483648) i32 @task_delete(i32 noundef %0) local_unnamed
   br i1 %3, label %4, label %7
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %2, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %6 = load i32, ptr %5, align 8
   br label %7
 
@@ -88,21 +88,21 @@ define range(i32 -1, -2147483648) i32 @task_delete(i32 noundef %0) local_unnamed
   br i1 %9, label %nxtask_delete.exit.thread, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %2, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %12 = load i16, ptr %11, align 16
   %13 = and i16 %12, 3
   %.not.i = icmp eq i16 %13, 2
   br i1 %.not.i, label %19, label %14
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %8, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 64
   %16 = load i16, ptr %15, align 16
   %17 = and i16 %16, 3
   %18 = icmp eq i16 %17, 2
   br i1 %18, label %nxtask_delete.exit.thread, label %19
 
 19:                                               ; preds = %14, %10
-  %20 = getelementptr inbounds i8, ptr %2, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %21 = load i32, ptr %20, align 8
   %22 = icmp eq i32 %.010.i, %21
   br i1 %22, label %23, label %24

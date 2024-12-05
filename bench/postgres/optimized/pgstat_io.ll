@@ -51,7 +51,7 @@ define dso_local noundef zeroext i1 @pgstat_bktype_io_stats_valid(ptr nocapture 
   %6 = and i32 %1, -5
   %or.cond7.i = icmp eq i32 %6, 2
   %or.cond9.i = or i1 %5, %or.cond7.i
-  %7 = getelementptr inbounds i8, ptr %0, i64 512
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 512
   br label %.preheader30
 
 .preheader30:                                     ; preds = %2, %41
@@ -353,7 +353,7 @@ define dso_local i64 @pgstat_prepare_io_time(i1 noundef zeroext %0) local_unname
   %4 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %2) #11
   %5 = load i64, ptr %2, align 8
   %6 = mul i64 %5, 1000000000
-  %7 = getelementptr inbounds i8, ptr %2, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %8 = load i64, ptr %7, align 8
   %9 = add i64 %6, %8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
@@ -385,7 +385,7 @@ define dso_local void @pgstat_count_io_op_time(i32 noundef %0, i32 noundef %1, i
   %10 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %6) #11
   %11 = load i64, ptr %6, align 8
   %12 = mul i64 %11, 1000000000
-  %13 = getelementptr inbounds i8, ptr %6, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %14 = load i64, ptr %13, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   %15 = sub i64 %14, %3
@@ -479,11 +479,11 @@ define dso_local noundef zeroext i1 @pgstat_flush_io(i1 noundef zeroext %0) loca
 
 4:                                                ; preds = %1
   %5 = load ptr, ptr @pgStatLocal, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 584
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 584
   %7 = load i32, ptr @MyBackendType, align 4
   %8 = zext i32 %7 to i64
   %9 = getelementptr [16 x %struct.LWLock], ptr %6, i64 0, i64 %8
-  %10 = getelementptr inbounds i8, ptr %5, i64 848
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 848
   %11 = getelementptr [16 x %struct.PgStat_BktypeIO], ptr %10, i64 0, i64 %8
   br i1 %0, label %14, label %12
 
@@ -496,7 +496,7 @@ define dso_local noundef zeroext i1 @pgstat_flush_io(i1 noundef zeroext %0) loca
   br i1 %15, label %16, label %33
 
 16:                                               ; preds = %14, %12
-  %17 = getelementptr inbounds i8, ptr %11, i64 512
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 512
   br label %.preheader27
 
 .preheader27:                                     ; preds = %16, %31
@@ -569,7 +569,7 @@ define dso_local noundef nonnull ptr @pgstat_get_io_context_name(i32 noundef %0)
 
 switch.lookup:                                    ; preds = %1
   %6 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.pgstat_get_io_context_name, i64 0, i64 %6
+  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.pgstat_get_io_context_name, i64 0, i64 %6
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -610,9 +610,9 @@ define dso_local void @pgstat_io_reset_all_cb(i64 noundef %0) local_unnamed_addr
 2:                                                ; preds = %1, %13
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %13 ]
   %3 = load ptr, ptr @pgStatLocal, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 584
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 584
   %5 = getelementptr [16 x %struct.LWLock], ptr %4, i64 0, i64 %indvars.iv
-  %6 = getelementptr inbounds i8, ptr %3, i64 848
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 848
   %7 = getelementptr [16 x %struct.PgStat_BktypeIO], ptr %6, i64 0, i64 %indvars.iv
   %8 = tail call zeroext i1 @LWLockAcquire(ptr noundef %5, i32 noundef 0) #11
   %9 = icmp eq i64 %indvars.iv, 0
@@ -620,7 +620,7 @@ define dso_local void @pgstat_io_reset_all_cb(i64 noundef %0) local_unnamed_addr
 
 10:                                               ; preds = %2
   %11 = load ptr, ptr @pgStatLocal, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 840
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 840
   store i64 %0, ptr %12, align 8
   br label %13
 
@@ -642,9 +642,9 @@ define dso_local void @pgstat_io_snapshot_cb() local_unnamed_addr #3 {
 1:                                                ; preds = %0, %14
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %14 ]
   %2 = load ptr, ptr @pgStatLocal, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 584
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 584
   %4 = getelementptr [16 x %struct.LWLock], ptr %3, i64 0, i64 %indvars.iv
-  %5 = getelementptr inbounds i8, ptr %2, i64 848
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 848
   %6 = getelementptr [16 x %struct.PgStat_BktypeIO], ptr %5, i64 0, i64 %indvars.iv
   %7 = getelementptr [16 x %struct.PgStat_BktypeIO], ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 304), i64 0, i64 %indvars.iv
   %8 = tail call zeroext i1 @LWLockAcquire(ptr noundef %4, i32 noundef 1) #11
@@ -653,7 +653,7 @@ define dso_local void @pgstat_io_snapshot_cb() local_unnamed_addr #3 {
 
 10:                                               ; preds = %1
   %11 = load ptr, ptr @pgStatLocal, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 840
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 840
   %13 = load i64, ptr %12, align 8
   store i64 %13, ptr getelementptr inbounds (i8, ptr @pgStatLocal, i64 296), align 8
   br label %14

@@ -72,9 +72,9 @@ define internal i32 @prte_prteinstalldirs_base_open(i32 noundef %0) #0 {
   %17 = phi ptr [ %112, %123 ], [ %.promoted121, %.lr.ph.preheader ]
   %18 = phi ptr [ %118, %123 ], [ %.promoted122, %.lr.ph.preheader ]
   %19 = phi ptr [ %124, %123 ], [ %.promoted123, %.lr.ph.preheader ]
-  %20 = getelementptr inbounds i8, ptr %.041126, i64 144
+  %20 = getelementptr inbounds nuw i8, ptr %.041126, i64 144
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 224
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 224
   %23 = load ptr, ptr %22, align 8
   %24 = icmp ne ptr %23, null
   %25 = icmp eq ptr %3, null
@@ -87,7 +87,7 @@ define internal i32 @prte_prteinstalldirs_base_open(i32 noundef %0) #0 {
 
 27:                                               ; preds = %26, %.lr.ph
   %28 = phi ptr [ %23, %26 ], [ %3, %.lr.ph ]
-  %29 = getelementptr inbounds i8, ptr %21, i64 232
+  %29 = getelementptr inbounds nuw i8, ptr %21, i64 232
   %30 = load ptr, ptr %29, align 8
   %.not61 = icmp ne ptr %30, null
   %31 = icmp eq ptr %4, null
@@ -100,7 +100,7 @@ define internal i32 @prte_prteinstalldirs_base_open(i32 noundef %0) #0 {
 
 33:                                               ; preds = %32, %27
   %34 = phi ptr [ %30, %32 ], [ %4, %27 ]
-  %35 = getelementptr inbounds i8, ptr %21, i64 240
+  %35 = getelementptr inbounds nuw i8, ptr %21, i64 240
   %36 = load ptr, ptr %35, align 8
   %.not62 = icmp ne ptr %36, null
   %37 = icmp eq ptr %5, null
@@ -113,7 +113,7 @@ define internal i32 @prte_prteinstalldirs_base_open(i32 noundef %0) #0 {
 
 39:                                               ; preds = %38, %33
   %40 = phi ptr [ %36, %38 ], [ %5, %33 ]
-  %41 = getelementptr inbounds i8, ptr %21, i64 248
+  %41 = getelementptr inbounds nuw i8, ptr %21, i64 248
   %42 = load ptr, ptr %41, align 8
   %.not63 = icmp ne ptr %42, null
   %43 = icmp eq ptr %6, null
@@ -126,7 +126,7 @@ define internal i32 @prte_prteinstalldirs_base_open(i32 noundef %0) #0 {
 
 45:                                               ; preds = %44, %39
   %46 = phi ptr [ %42, %44 ], [ %6, %39 ]
-  %47 = getelementptr inbounds i8, ptr %21, i64 256
+  %47 = getelementptr inbounds nuw i8, ptr %21, i64 256
   %48 = load ptr, ptr %47, align 8
   %.not64 = icmp ne ptr %48, null
   %49 = icmp eq ptr %7, null
@@ -139,7 +139,7 @@ define internal i32 @prte_prteinstalldirs_base_open(i32 noundef %0) #0 {
 
 51:                                               ; preds = %50, %45
   %52 = phi ptr [ %48, %50 ], [ %7, %45 ]
-  %53 = getelementptr inbounds i8, ptr %21, i64 264
+  %53 = getelementptr inbounds nuw i8, ptr %21, i64 264
   %54 = load ptr, ptr %53, align 8
   %.not65 = icmp ne ptr %54, null
   %55 = icmp eq ptr %8, null
@@ -152,7 +152,7 @@ define internal i32 @prte_prteinstalldirs_base_open(i32 noundef %0) #0 {
 
 57:                                               ; preds = %56, %51
   %58 = phi ptr [ %54, %56 ], [ %8, %51 ]
-  %59 = getelementptr inbounds i8, ptr %21, i64 272
+  %59 = getelementptr inbounds nuw i8, ptr %21, i64 272
   %60 = load ptr, ptr %59, align 8
   %.not66 = icmp ne ptr %60, null
   %61 = icmp eq ptr %9, null
@@ -165,7 +165,7 @@ define internal i32 @prte_prteinstalldirs_base_open(i32 noundef %0) #0 {
 
 63:                                               ; preds = %62, %57
   %64 = phi ptr [ %60, %62 ], [ %9, %57 ]
-  %65 = getelementptr inbounds i8, ptr %21, i64 280
+  %65 = getelementptr inbounds nuw i8, ptr %21, i64 280
   %66 = load ptr, ptr %65, align 8
   %.not67 = icmp ne ptr %66, null
   %67 = icmp eq ptr %10, null
@@ -178,7 +178,7 @@ define internal i32 @prte_prteinstalldirs_base_open(i32 noundef %0) #0 {
 
 69:                                               ; preds = %68, %63
   %70 = phi ptr [ %66, %68 ], [ %10, %63 ]
-  %71 = getelementptr inbounds i8, ptr %21, i64 288
+  %71 = getelementptr inbounds nuw i8, ptr %21, i64 288
   %72 = load ptr, ptr %71, align 8
   %.not68 = icmp ne ptr %72, null
   %73 = icmp eq ptr %11, null
@@ -191,7 +191,7 @@ define internal i32 @prte_prteinstalldirs_base_open(i32 noundef %0) #0 {
 
 75:                                               ; preds = %74, %69
   %76 = phi ptr [ %72, %74 ], [ %11, %69 ]
-  %77 = getelementptr inbounds i8, ptr %21, i64 296
+  %77 = getelementptr inbounds nuw i8, ptr %21, i64 296
   %78 = load ptr, ptr %77, align 8
   %.not69 = icmp ne ptr %78, null
   %79 = icmp eq ptr %12, null
@@ -204,7 +204,7 @@ define internal i32 @prte_prteinstalldirs_base_open(i32 noundef %0) #0 {
 
 81:                                               ; preds = %80, %75
   %82 = phi ptr [ %78, %80 ], [ %12, %75 ]
-  %83 = getelementptr inbounds i8, ptr %21, i64 304
+  %83 = getelementptr inbounds nuw i8, ptr %21, i64 304
   %84 = load ptr, ptr %83, align 8
   %.not70 = icmp ne ptr %84, null
   %85 = icmp eq ptr %13, null
@@ -217,7 +217,7 @@ define internal i32 @prte_prteinstalldirs_base_open(i32 noundef %0) #0 {
 
 87:                                               ; preds = %86, %81
   %88 = phi ptr [ %84, %86 ], [ %13, %81 ]
-  %89 = getelementptr inbounds i8, ptr %21, i64 312
+  %89 = getelementptr inbounds nuw i8, ptr %21, i64 312
   %90 = load ptr, ptr %89, align 8
   %.not71 = icmp ne ptr %90, null
   %91 = icmp eq ptr %14, null
@@ -230,7 +230,7 @@ define internal i32 @prte_prteinstalldirs_base_open(i32 noundef %0) #0 {
 
 93:                                               ; preds = %92, %87
   %94 = phi ptr [ %90, %92 ], [ %14, %87 ]
-  %95 = getelementptr inbounds i8, ptr %21, i64 320
+  %95 = getelementptr inbounds nuw i8, ptr %21, i64 320
   %96 = load ptr, ptr %95, align 8
   %.not72 = icmp ne ptr %96, null
   %97 = icmp eq ptr %15, null
@@ -243,7 +243,7 @@ define internal i32 @prte_prteinstalldirs_base_open(i32 noundef %0) #0 {
 
 99:                                               ; preds = %98, %93
   %100 = phi ptr [ %96, %98 ], [ %15, %93 ]
-  %101 = getelementptr inbounds i8, ptr %21, i64 328
+  %101 = getelementptr inbounds nuw i8, ptr %21, i64 328
   %102 = load ptr, ptr %101, align 8
   %.not73 = icmp ne ptr %102, null
   %103 = icmp eq ptr %16, null
@@ -256,7 +256,7 @@ define internal i32 @prte_prteinstalldirs_base_open(i32 noundef %0) #0 {
 
 105:                                              ; preds = %104, %99
   %106 = phi ptr [ %102, %104 ], [ %16, %99 ]
-  %107 = getelementptr inbounds i8, ptr %21, i64 336
+  %107 = getelementptr inbounds nuw i8, ptr %21, i64 336
   %108 = load ptr, ptr %107, align 8
   %.not74 = icmp ne ptr %108, null
   %109 = icmp eq ptr %17, null
@@ -269,7 +269,7 @@ define internal i32 @prte_prteinstalldirs_base_open(i32 noundef %0) #0 {
 
 111:                                              ; preds = %110, %105
   %112 = phi ptr [ %108, %110 ], [ %17, %105 ]
-  %113 = getelementptr inbounds i8, ptr %21, i64 344
+  %113 = getelementptr inbounds nuw i8, ptr %21, i64 344
   %114 = load ptr, ptr %113, align 8
   %.not75 = icmp ne ptr %114, null
   %115 = icmp eq ptr %18, null
@@ -282,7 +282,7 @@ define internal i32 @prte_prteinstalldirs_base_open(i32 noundef %0) #0 {
 
 117:                                              ; preds = %116, %111
   %118 = phi ptr [ %114, %116 ], [ %18, %111 ]
-  %119 = getelementptr inbounds i8, ptr %21, i64 352
+  %119 = getelementptr inbounds nuw i8, ptr %21, i64 352
   %120 = load ptr, ptr %119, align 8
   %.not76 = icmp ne ptr %120, null
   %121 = icmp eq ptr %19, null
@@ -295,7 +295,7 @@ define internal i32 @prte_prteinstalldirs_base_open(i32 noundef %0) #0 {
 
 123:                                              ; preds = %122, %117
   %124 = phi ptr [ %120, %122 ], [ %19, %117 ]
-  %125 = getelementptr inbounds i8, ptr %.041126, i64 120
+  %125 = getelementptr inbounds nuw i8, ptr %.041126, i64 120
   %.041 = load ptr, ptr %125, align 8
   %.not60 = icmp eq ptr %.041, getelementptr inbounds (i8, ptr @prte_prteinstalldirs_base_framework, i64 200)
   br i1 %.not60, label %._crit_edge, label %.lr.ph, !llvm.loop !4

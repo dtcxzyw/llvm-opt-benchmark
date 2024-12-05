@@ -335,7 +335,7 @@ _ZN2cvlsERNS_11FileStorageEPKc.exit63:            ; preds = %91
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %102
   %indvars.iv = phi i64 [ 2, %.lr.ph.preheader ], [ %indvars.iv.next, %102 ]
-  %98 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
+  %98 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   %99 = load ptr, ptr %98, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %21) #6
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef %99, ptr noundef nonnull align 1 dereferenceable(1) %21)

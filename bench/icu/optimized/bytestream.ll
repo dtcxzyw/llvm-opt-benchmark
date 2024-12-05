@@ -60,12 +60,12 @@ entry:
 define void @_ZN6icu_7520CheckedArrayByteSinkC2EPci(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(29) initializes((0, 29)) %this, ptr noundef %outbuf, i32 noundef %capacity) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7520CheckedArrayByteSinkE, i64 16), ptr %this, align 8
-  %outbuf_ = getelementptr inbounds i8, ptr %this, i64 8
+  %outbuf_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %outbuf, ptr %outbuf_, align 8
-  %capacity_ = getelementptr inbounds i8, ptr %this, i64 16
+  %capacity_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %cond = tail call i32 @llvm.smax.i32(i32 %capacity, i32 0)
   store i32 %cond, ptr %capacity_, align 8
-  %size_ = getelementptr inbounds i8, ptr %this, i64 20
+  %size_ = getelementptr inbounds nuw i8, ptr %this, i64 20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(9) %size_, i8 0, i64 9, i1 false)
   ret void
 }
@@ -90,7 +90,7 @@ declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #5
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define noundef nonnull align 8 dereferenceable(29) ptr @_ZN6icu_7520CheckedArrayByteSink5ResetEv(ptr noundef nonnull returned writeonly align 8 dereferenceable(29) initializes((20, 29)) %this) unnamed_addr #3 align 2 {
 entry:
-  %size_ = getelementptr inbounds i8, ptr %this, i64 20
+  %size_ = getelementptr inbounds nuw i8, ptr %this, i64 20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(9) %size_, i8 0, i64 9, i1 false)
   ret ptr %this
 }
@@ -102,7 +102,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %appended_ = getelementptr inbounds i8, ptr %this, i64 24
+  %appended_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i32, ptr %appended_, align 8
   %sub = sub nsw i32 2147483647, %0
   %cmp2 = icmp samesign ugt i32 %n, %sub
@@ -110,30 +110,30 @@ if.end:                                           ; preds = %entry
 
 if.then3:                                         ; preds = %if.end
   store i32 2147483647, ptr %appended_, align 8
-  %overflowed_ = getelementptr inbounds i8, ptr %this, i64 28
+  %overflowed_ = getelementptr inbounds nuw i8, ptr %this, i64 28
   store i8 1, ptr %overflowed_, align 4
   br label %return
 
 if.end5:                                          ; preds = %if.end
   %add = add nsw i32 %0, %n
   store i32 %add, ptr %appended_, align 8
-  %capacity_ = getelementptr inbounds i8, ptr %this, i64 16
+  %capacity_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load i32, ptr %capacity_, align 8
-  %size_ = getelementptr inbounds i8, ptr %this, i64 20
+  %size_ = getelementptr inbounds nuw i8, ptr %this, i64 20
   %2 = load i32, ptr %size_, align 4
   %sub7 = sub nsw i32 %1, %2
   %cmp8 = icmp sgt i32 %n, %sub7
   br i1 %cmp8, label %if.end11, label %land.lhs.true
 
 if.end11:                                         ; preds = %if.end5
-  %overflowed_10 = getelementptr inbounds i8, ptr %this, i64 28
+  %overflowed_10 = getelementptr inbounds nuw i8, ptr %this, i64 28
   store i8 1, ptr %overflowed_10, align 4
   %cmp12 = icmp sgt i32 %sub7, 0
   br i1 %cmp12, label %land.lhs.true, label %if.end20
 
 land.lhs.true:                                    ; preds = %if.end5, %if.end11
   %n.addr.012 = phi i32 [ %sub7, %if.end11 ], [ %n, %if.end5 ]
-  %outbuf_ = getelementptr inbounds i8, ptr %this, i64 8
+  %outbuf_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %3 = load ptr, ptr %outbuf_, align 8
   %idx.ext = sext i32 %2 to i64
   %add.ptr = getelementptr inbounds i8, ptr %3, i64 %idx.ext
@@ -173,9 +173,9 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %capacity_ = getelementptr inbounds i8, ptr %this, i64 16
+  %capacity_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load i32, ptr %capacity_, align 8
-  %size_ = getelementptr inbounds i8, ptr %this, i64 20
+  %size_ = getelementptr inbounds nuw i8, ptr %this, i64 20
   %2 = load i32, ptr %size_, align 4
   %sub = sub nsw i32 %1, %2
   %cmp3.not = icmp slt i32 %sub, %min_capacity
@@ -183,7 +183,7 @@ if.end:                                           ; preds = %entry
 
 if.then4:                                         ; preds = %if.end
   store i32 %sub, ptr %result_capacity, align 4
-  %outbuf_ = getelementptr inbounds i8, ptr %this, i64 8
+  %outbuf_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %3 = load ptr, ptr %outbuf_, align 8
   %4 = load i32, ptr %size_, align 4
   %idx.ext = sext i32 %4 to i64

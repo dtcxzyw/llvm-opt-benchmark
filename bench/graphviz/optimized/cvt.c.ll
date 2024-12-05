@@ -26,9 +26,9 @@ define noundef ptr @Pobsopen(ptr nocapture noundef readonly %0, i32 noundef %1) 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.078 = phi i64 [ 0, %.lr.ph.preheader ], [ %10, %.lr.ph ]
-  %5 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load i32, ptr %7, align 8
   %9 = sext i32 %8 to i64
   %10 = add i64 %.078, %9
@@ -47,21 +47,21 @@ define noundef ptr @Pobsopen(ptr nocapture noundef readonly %0, i32 noundef %1) 
 ._crit_edge.thread:                               ; preds = %.preheader, %._crit_edge
   %.0.lcssa108 = phi i64 [ %10, %._crit_edge ], [ 0, %.preheader ]
   %13 = tail call noalias ptr @calloc(i64 noundef %.0.lcssa108, i64 noundef 16) #12
-  %14 = getelementptr inbounds i8, ptr %3, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %13, ptr %14, align 8
   %15 = sext i32 %1 to i64
   %16 = add nsw i64 %15, 1
   %17 = tail call noalias ptr @calloc(i64 noundef %16, i64 noundef 4) #12
-  %18 = getelementptr inbounds i8, ptr %3, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %17, ptr %18, align 8
   %19 = tail call noalias ptr @calloc(i64 noundef %.0.lcssa108, i64 noundef 4) #12
-  %20 = getelementptr inbounds i8, ptr %3, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %19, ptr %20, align 8
   %21 = tail call noalias ptr @calloc(i64 noundef %.0.lcssa108, i64 noundef 4) #12
-  %22 = getelementptr inbounds i8, ptr %3, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr %21, ptr %22, align 8
   %23 = trunc nuw nsw i64 %.0.lcssa108 to i32
-  %24 = getelementptr inbounds i8, ptr %3, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 %23, ptr %24, align 4
   store i32 %1, ptr %3, align 8
   %25 = icmp eq ptr %17, null
@@ -97,11 +97,11 @@ define noundef ptr @Pobsopen(ptr nocapture noundef readonly %0, i32 noundef %1) 
 .lr.ph88:                                         ; preds = %.lr.ph88.preheader, %._crit_edge83
   %indvars.iv102 = phi i64 [ 0, %.lr.ph88.preheader ], [ %indvars.iv.next103, %._crit_edge83 ]
   %.07085 = phi i32 [ 0, %.lr.ph88.preheader ], [ %.171.lcssa, %._crit_edge83 ]
-  %33 = getelementptr inbounds i32, ptr %17, i64 %indvars.iv102
+  %33 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv102
   store i32 %.07085, ptr %33, align 4
-  %34 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv102
+  %34 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv102
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %37 = load i32, ptr %36, align 8
   %38 = add i32 %.07085, -1
   %39 = add i32 %38, %37
@@ -111,7 +111,7 @@ define noundef ptr @Pobsopen(ptr nocapture noundef readonly %0, i32 noundef %1) 
 
 .lr.ph82.preheader:                               ; preds = %.lr.ph88
   %42 = load ptr, ptr %34, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   br label %.lr.ph82
 
 .lr.ph82:                                         ; preds = %.lr.ph82.preheader, %.lr.ph82
@@ -120,7 +120,7 @@ define noundef ptr @Pobsopen(ptr nocapture noundef readonly %0, i32 noundef %1) 
   %44 = phi ptr [ %35, %.lr.ph82.preheader ], [ %42, %.lr.ph82 ]
   %45 = getelementptr inbounds %struct.Pxy_t, ptr %13, i64 %indvars.iv95
   %46 = load ptr, ptr %44, align 8
-  %47 = getelementptr inbounds %struct.Pxy_t, ptr %46, i64 %indvars.iv97
+  %47 = getelementptr inbounds nuw %struct.Pxy_t, ptr %46, i64 %indvars.iv97
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %45, ptr noundef nonnull align 8 dereferenceable(16) %47, i64 16, i1 false)
   %indvars.iv.next96 = add nsw i64 %indvars.iv95, 1
   %48 = getelementptr inbounds i32, ptr %19, i64 %indvars.iv95
@@ -154,7 +154,7 @@ define noundef ptr @Pobsopen(ptr nocapture noundef readonly %0, i32 noundef %1) 
 ._crit_edge89:                                    ; preds = %32, %._crit_edge89.loopexit
   %.070.lcssa = phi i32 [ %.171.lcssa, %._crit_edge89.loopexit ], [ 0, %32 ]
   %.1.lcssa = phi i64 [ %59, %._crit_edge89.loopexit ], [ 0, %32 ]
-  %60 = getelementptr inbounds i32, ptr %17, i64 %.1.lcssa
+  %60 = getelementptr inbounds nuw i32, ptr %17, i64 %.1.lcssa
   store i32 %.070.lcssa, ptr %60, align 4
   tail call void @visibility(ptr noundef nonnull %3) #11
   br label %61
@@ -180,19 +180,19 @@ declare void @visibility(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define void @Pobsclose(ptr nocapture noundef %0) local_unnamed_addr #6 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   tail call void @free(ptr noundef %3) #11
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   tail call void @free(ptr noundef %5) #11
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   tail call void @free(ptr noundef %7) #11
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
   tail call void @free(ptr noundef %9) #11
-  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = load ptr, ptr %10, align 8
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %15, label %12
@@ -214,7 +214,7 @@ define void @Pobspath(ptr noundef %0, double %1, double %2, i32 noundef %3, doub
   %9 = tail call ptr @ptVis(ptr noundef %0, i32 noundef %3, double %1, double %2) #11
   %10 = tail call ptr @ptVis(ptr noundef %0, i32 noundef %6, double %4, double %5) #11
   %11 = tail call ptr @makePath(double %1, double %2, i32 noundef %3, ptr noundef %9, double %4, double %5, i32 noundef %6, ptr noundef %10, ptr noundef %0) #11
-  %12 = getelementptr inbounds i8, ptr %0, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %13 = load i32, ptr %12, align 4
   %14 = add nsw i32 %13, 1
   br label %15
@@ -256,7 +256,7 @@ define void @Pobspath(ptr noundef %0, double %1, double %2, i32 noundef %3, doub
 gv_calloc.exit:                                   ; preds = %21
   %29 = getelementptr inbounds %struct.Pxy_t, ptr %23, i64 %.046
   store double %4, ptr %29, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %29, i64 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %29, i64 8
   store double %5, ptr %.sroa.4.0..sroa_idx, align 8
   %30 = sext i32 %13 to i64
   %.049 = add nsw i64 %.046, -1
@@ -266,7 +266,7 @@ gv_calloc.exit:                                   ; preds = %21
   br i1 %.not4852, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %gv_calloc.exit
-  %31 = getelementptr inbounds i8, ptr %0, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %32 = load ptr, ptr %31, align 8
   br label %33
 
@@ -287,12 +287,12 @@ gv_calloc.exit:                                   ; preds = %21
   %.0.lcssa = phi i64 [ %.049, %gv_calloc.exit ], [ %.0, %33 ]
   %37 = getelementptr inbounds %struct.Pxy_t, ptr %23, i64 %.0.lcssa
   store double %1, ptr %37, align 8
-  %.sroa.443.0..sroa_idx = getelementptr inbounds i8, ptr %37, i64 8
+  %.sroa.443.0..sroa_idx = getelementptr inbounds nuw i8, ptr %37, i64 8
   store double %2, ptr %.sroa.443.0..sroa_idx, align 8
   tail call void @free(ptr noundef %9) #11
   tail call void @free(ptr noundef %10) #11
   %38 = trunc i64 %16 to i32
-  %39 = getelementptr inbounds i8, ptr %7, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 %38, ptr %39, align 8
   store ptr %23, ptr %7, align 8
   tail call void @free(ptr noundef nonnull %11) #11

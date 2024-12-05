@@ -108,7 +108,7 @@ define internal i64 @ifaddr_inspect(i64 noundef %0) #0 {
   unreachable
 
 get_ifaddrs.exit:                                 ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i64 @rb_str_new_static(ptr noundef nonnull @.str.10, i64 noundef 2) #7
   %8 = and i64 %0, 7
@@ -119,7 +119,7 @@ get_ifaddrs.exit:                                 ; preds = %1
 
 12:                                               ; preds = %get_ifaddrs.exit
   %13 = inttoptr i64 %0 to ptr
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   br label %rb_class_of.exit
 
 15:                                               ; preds = %get_ifaddrs.exit
@@ -152,10 +152,10 @@ rb_class_of.exit:                                 ; preds = %12, %15, %16, %17, 
   %23 = tail call i64 @rb_class_name(i64 noundef %.0.i) #7
   %24 = tail call i64 @rb_str_append(i64 noundef %7, i64 noundef %23) #7
   %25 = tail call i64 @rb_str_cat(i64 noundef %7, ptr noundef nonnull @.str.11, i64 noundef 1) #7
-  %26 = getelementptr inbounds i8, ptr %6, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %27 = load ptr, ptr %26, align 8
   %28 = tail call i64 @rb_str_cat_cstr(i64 noundef %7, ptr noundef %27) #7
-  %29 = getelementptr inbounds i8, ptr %6, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %30 = load i32, ptr %29, align 8
   %.not = icmp eq i32 %30, 0
   br i1 %.not, label %ifaddr_inspect_flags.exit, label %31
@@ -362,7 +362,7 @@ rb_class_of.exit:                                 ; preds = %12, %15, %16, %17, 
   br label %ifaddr_inspect_flags.exit
 
 ifaddr_inspect_flags.exit:                        ; preds = %113, %112, %rb_class_of.exit
-  %115 = getelementptr inbounds i8, ptr %6, i64 24
+  %115 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %116 = load ptr, ptr %115, align 8
   %.not32 = icmp eq ptr %116, null
   br i1 %.not32, label %122, label %117
@@ -375,7 +375,7 @@ ifaddr_inspect_flags.exit:                        ; preds = %113, %112, %rb_clas
   br label %122
 
 122:                                              ; preds = %117, %ifaddr_inspect_flags.exit
-  %123 = getelementptr inbounds i8, ptr %6, i64 32
+  %123 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %124 = load ptr, ptr %123, align 8
   %.not33 = icmp eq ptr %124, null
   br i1 %.not33, label %130, label %125
@@ -394,7 +394,7 @@ ifaddr_inspect_flags.exit:                        ; preds = %113, %112, %rb_clas
   br i1 %.not34, label %141, label %133
 
 133:                                              ; preds = %130
-  %134 = getelementptr inbounds i8, ptr %6, i64 40
+  %134 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %135 = load ptr, ptr %134, align 8
   %.not35 = icmp eq ptr %135, null
   br i1 %.not35, label %141, label %136
@@ -414,7 +414,7 @@ ifaddr_inspect_flags.exit:                        ; preds = %113, %112, %rb_clas
   br i1 %.not36, label %152, label %144
 
 144:                                              ; preds = %141
-  %145 = getelementptr inbounds i8, ptr %6, i64 40
+  %145 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %146 = load ptr, ptr %145, align 8
   %.not37 = icmp eq ptr %146, null
   br i1 %.not37, label %152, label %147
@@ -443,9 +443,9 @@ define internal i64 @ifaddr_name(i64 noundef %0) #0 {
   unreachable
 
 get_ifaddrs.exit:                                 ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i64 @rb_str_new_cstr(ptr noundef %8) #7
   ret i64 %9
@@ -463,9 +463,9 @@ define internal range(i64 2, 8589934592) i64 @ifaddr_ifindex(i64 noundef %0) #0 
   unreachable
 
 get_ifaddrs.exit:                                 ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 @if_nametoindex(ptr noundef %8) #7
   %10 = icmp eq i32 %9, 0
@@ -496,9 +496,9 @@ define internal range(i64 1, 8589934592) i64 @ifaddr_flags(i64 noundef %0) #0 {
   unreachable
 
 get_ifaddrs.exit:                                 ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i32, ptr %7, align 8
   %9 = zext i32 %8 to i64
   %10 = shl nuw nsw i64 %9, 1
@@ -518,9 +518,9 @@ define internal i64 @ifaddr_addr(i64 noundef %0) #0 {
   unreachable
 
 get_ifaddrs.exit:                                 ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %12, label %9
@@ -547,9 +547,9 @@ define internal i64 @ifaddr_netmask(i64 noundef %0) #0 {
   unreachable
 
 get_ifaddrs.exit:                                 ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %12, label %9
@@ -576,16 +576,16 @@ define internal i64 @ifaddr_broadaddr(i64 noundef %0) #0 {
   unreachable
 
 get_ifaddrs.exit:                                 ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i32, ptr %7, align 8
   %9 = and i32 %8, 2
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %16, label %10
 
 10:                                               ; preds = %get_ifaddrs.exit
-  %11 = getelementptr inbounds i8, ptr %6, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %12 = load ptr, ptr %11, align 8
   %.not6 = icmp eq ptr %12, null
   br i1 %.not6, label %16, label %13
@@ -612,16 +612,16 @@ define internal i64 @ifaddr_dstaddr(i64 noundef %0) #0 {
   unreachable
 
 get_ifaddrs.exit:                                 ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i32, ptr %7, align 8
   %9 = and i32 %8, 16
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %16, label %10
 
 10:                                               ; preds = %get_ifaddrs.exit
-  %11 = getelementptr inbounds i8, ptr %6, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %12 = load ptr, ptr %11, align 8
   %.not6 = icmp eq ptr %12, null
   br i1 %.not6, label %16, label %13
@@ -678,9 +678,9 @@ define internal i64 @socket_s_getifaddrs(i64 %0) #0 {
   %18 = shl nuw nsw i64 %17, 4
   %19 = or disjoint i64 %18, 8
   %20 = call noalias nonnull ptr @ruby_xmalloc(i64 noundef %19) #9
-  %21 = getelementptr inbounds i8, ptr %20, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
   store i32 %12, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %20, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %wide.trip.count.i = zext i32 %indvars.iv47.i to i64
   br label %23
 
@@ -688,10 +688,10 @@ define internal i64 @socket_s_getifaddrs(i64 %0) #0 {
   %indvars.iv.i = phi i64 [ 0, %14 ], [ %indvars.iv.next.i, %23 ]
   %.137.in42.i = phi ptr [ %2, %14 ], [ %.137.i, %23 ]
   %.137.i = load ptr, ptr %.137.in42.i, align 8
-  %24 = getelementptr inbounds [1 x %struct.rb_ifaddr_tag], ptr %22, i64 0, i64 %indvars.iv.i
+  %24 = getelementptr inbounds nuw [1 x %struct.rb_ifaddr_tag], ptr %22, i64 0, i64 %indvars.iv.i
   %25 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %25, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %24, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store ptr %.137.i, ptr %26, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -699,7 +699,7 @@ define internal i64 @socket_s_getifaddrs(i64 %0) #0 {
 
 27:                                               ; preds = %23
   %28 = inttoptr i64 %16 to ptr
-  %29 = getelementptr inbounds i8, ptr %28, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 32
   store ptr %22, ptr %29, align 8
   store i32 1, ptr %20, align 8
   %30 = call i64 @rb_ary_new_capa(i64 noundef %17) #7
@@ -710,7 +710,7 @@ define internal i64 @socket_s_getifaddrs(i64 %0) #0 {
 .lr.ph.i:                                         ; preds = %27, %.lr.ph.i
   %indvars.iv49.i = phi i64 [ %indvars.iv.next50.i, %.lr.ph.i ], [ 1, %27 ]
   %32 = load i64, ptr @rb_cSockIfaddr, align 8
-  %33 = getelementptr inbounds [1 x %struct.rb_ifaddr_tag], ptr %22, i64 0, i64 %indvars.iv49.i
+  %33 = getelementptr inbounds nuw [1 x %struct.rb_ifaddr_tag], ptr %22, i64 0, i64 %indvars.iv49.i
   %34 = call i64 @rb_data_typed_object_wrap(i64 noundef %32, ptr noundef nonnull %33, ptr noundef nonnull @ifaddr_type) #7
   %35 = load i32, ptr %20, align 8
   %36 = add nsw i32 %35, 1
@@ -755,7 +755,7 @@ define internal void @ifaddr_free(ptr noundef %0) #0 {
   br i1 %9, label %10, label %13
 
 10:                                               ; preds = %1
-  %11 = getelementptr inbounds i8, ptr %5, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %12 = load ptr, ptr %11, align 8
   tail call void @freeifaddrs(ptr noundef %12) #7
   tail call void @ruby_xfree(ptr noundef nonnull %6) #7

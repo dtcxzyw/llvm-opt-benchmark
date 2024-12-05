@@ -160,7 +160,7 @@ openFile.exit.i:                                  ; preds = %openFile.exit.i.bac
   br i1 %55, label %56, label %63
 
 56:                                               ; preds = %52
-  %57 = getelementptr inbounds i8, ptr %53, i64 9
+  %57 = getelementptr inbounds nuw i8, ptr %53, i64 9
   %58 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %57, ptr noundef nonnull @.str.3, ptr noundef nonnull %24) #12
   %59 = icmp sgt i32 %58, 0
   br i1 %59, label %60, label %63
@@ -459,7 +459,7 @@ init.exit:                                        ; preds = %openFile.exit.i
 
 .lr.ph.i.i.i:                                     ; preds = %177, %.lr.ph.preheader.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %177 ]
-  %178 = getelementptr inbounds i32, ptr %169, i64 %indvars.iv.i.i.i
+  %178 = getelementptr inbounds nuw i32, ptr %169, i64 %indvars.iv.i.i.i
   %179 = load i32, ptr %178, align 4
   %180 = icmp eq i32 %179, %.sroa.70.0201
   br i1 %180, label %validateCluster.exit.i.i, label %177

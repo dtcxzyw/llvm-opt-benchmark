@@ -2402,7 +2402,7 @@ define ptr @lv_indev_search_obj(ptr noundef %0, ptr nocapture noundef readonly %
   %22 = load ptr, ptr %17, align 8, !tbaa !105
   %23 = load ptr, ptr %22, align 8, !tbaa !107
   %24 = and i64 %indvars.iv.next, 2147483647
-  %25 = getelementptr inbounds ptr, ptr %23, i64 %24
+  %25 = getelementptr inbounds nuw ptr, ptr %23, i64 %24
   %26 = load ptr, ptr %25, align 8, !tbaa !109
   %27 = call ptr @lv_indev_search_obj(ptr noundef %26, ptr noundef nonnull %3)
   %.not = icmp eq ptr %27, null

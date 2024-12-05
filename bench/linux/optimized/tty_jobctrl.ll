@@ -32,9 +32,9 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_tty_get_pgrp
 define dso_local noundef range(i32 -512, 1) i32 @__tty_check_change(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #7, !srcloc !6
   %4 = inttoptr i64 %3 to ptr
-  %5 = getelementptr inbounds i8, ptr %4, i64 1880
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 1880
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 408
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 408
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, %0
   br i1 %9, label %10, label %50
@@ -44,18 +44,18 @@ define dso_local noundef range(i32 -512, 1) i32 @__tty_check_change(ptr noundef 
   %11 = load ptr, ptr %5, align 8
   %12 = getelementptr i8, ptr %11, i64 376
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 448
-  %15 = getelementptr inbounds i8, ptr %0, i64 464
-  %16 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %15) #8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 448
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 464
+  %16 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %15) #8
   %17 = load ptr, ptr %14, align 8
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %15, i64 noundef %16) #8
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %15, i64 noundef %16) #8
   %18 = icmp eq ptr %17, null
   %19 = icmp eq ptr %13, %17
   %20 = select i1 %18, i1 true, i1 %19
   br i1 %20, label %45, label %21
 
 21:                                               ; preds = %10
-  %22 = getelementptr inbounds i8, ptr %4, i64 1896
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 1896
   %23 = add i32 %1, -1
   %24 = load i64, ptr %22, align 8
   %25 = zext nneg i32 %23 to i64
@@ -65,9 +65,9 @@ define dso_local noundef range(i32 -512, 1) i32 @__tty_check_change(ptr noundef 
   br i1 %28, label %29, label %37
 
 29:                                               ; preds = %21
-  %30 = getelementptr inbounds i8, ptr %4, i64 1888
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 1888
   %31 = load ptr, ptr %30, align 32
-  %32 = getelementptr inbounds i8, ptr %31, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 32
   %33 = sext i32 %23 to i64
   %34 = getelementptr [64 x %struct.k_sigaction], ptr %32, i64 0, i64 %33
   %35 = load ptr, ptr %34, align 8
@@ -135,12 +135,12 @@ define dso_local noundef range(i32 -512, 1) i32 @tty_check_change(ptr noundef %0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @proc_clear_tty(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1888
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1888
   %3 = load ptr, ptr %2, align 32
   %4 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %3) #8
-  %5 = getelementptr inbounds i8, ptr %0, i64 1880
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1880
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 408
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 408
   %8 = load ptr, ptr %7, align 8
   store ptr null, ptr %7, align 8
   %9 = load ptr, ptr %2, align 32
@@ -157,30 +157,30 @@ define dso_local void @tty_open_proc_set_tty(ptr nocapture noundef readonly %0, 
   tail call void @_raw_read_lock(ptr noundef nonnull @tasklist_lock) #8
   %3 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #7, !srcloc !6
   %4 = inttoptr i64 %3 to ptr
-  %5 = getelementptr inbounds i8, ptr %4, i64 1888
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 1888
   %6 = load ptr, ptr %5, align 32
   tail call void @_raw_spin_lock_irq(ptr noundef %6) #8
-  %7 = getelementptr inbounds i8, ptr %4, i64 1880
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 1880
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 400
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 400
   %10 = load i32, ptr %9, align 8
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %26, label %12
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %8, i64 408
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 408
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %26
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %1, i64 456
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 456
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
   br i1 %19, label %20, label %26
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %0, i64 20
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %22 = load i32, ptr %21, align 4
   %23 = and i32 %22, 1
   %24 = icmp eq i32 %23, 0
@@ -202,17 +202,17 @@ declare dso_local void @_raw_read_lock(ptr noundef) local_unnamed_addr #1 sectio
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @__proc_set_tty(ptr noundef %0) unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 448
-  %3 = getelementptr inbounds i8, ptr %0, i64 464
-  %4 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %3) #8
-  %5 = getelementptr inbounds i8, ptr %0, i64 456
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 448
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 464
+  %4 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %3) #8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 456
   %6 = load ptr, ptr %5, align 8
   tail call void @put_pid(ptr noundef %6) #8
   %7 = load ptr, ptr %2, align 8
   tail call void @put_pid(ptr noundef %7) #8
   %8 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #7, !srcloc !6
   %9 = inttoptr i64 %8 to ptr
-  %10 = getelementptr inbounds i8, ptr %9, i64 1880
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 1880
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr i8, ptr %11, i64 376
   %13 = load ptr, ptr %12, align 8
@@ -261,9 +261,9 @@ define internal fastcc void @__proc_set_tty(ptr noundef %0) unnamed_addr #0 alig
 
 38:                                               ; preds = %36, %32, %24
   store ptr %27, ptr %5, align 8
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %3, i64 noundef %4) #8
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %3, i64 noundef %4) #8
   %39 = load ptr, ptr %10, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 408
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 408
   %41 = load ptr, ptr %40, align 8
   %42 = icmp eq ptr %41, null
   br i1 %42, label %44, label %43
@@ -275,7 +275,7 @@ define internal fastcc void @__proc_set_tty(ptr noundef %0) unnamed_addr #0 alig
 
 44:                                               ; preds = %43, %38
   %45 = phi ptr [ %.pre, %43 ], [ %39, %38 ]
-  %46 = getelementptr inbounds i8, ptr %45, i64 392
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 392
   %47 = load ptr, ptr %46, align 8
   tail call void @put_pid(ptr noundef %47) #8
   %48 = icmp eq ptr %0, null
@@ -299,10 +299,10 @@ define internal fastcc void @__proc_set_tty(ptr noundef %0) unnamed_addr #0 alig
 
 58:                                               ; preds = %56, %52, %44
   %59 = load ptr, ptr %10, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 408
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 408
   store ptr %0, ptr %60, align 8
   %61 = load ptr, ptr %10, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 392
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 392
   store ptr null, ptr %62, align 8
   ret void
 }
@@ -314,12 +314,12 @@ declare dso_local void @_raw_read_unlock(ptr noundef) local_unnamed_addr #1 sect
 define dso_local ptr @get_current_tty() #0 align 16 {
   %1 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #7, !srcloc !6
   %2 = inttoptr i64 %1 to ptr
-  %3 = getelementptr inbounds i8, ptr %2, i64 1888
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 1888
   %4 = load ptr, ptr %3, align 32
   %5 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %4) #8
-  %6 = getelementptr inbounds i8, ptr %2, i64 1880
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 1880
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 408
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 408
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %20, label %11
@@ -362,12 +362,12 @@ define dso_local void @session_clear_tty(ptr noundef %0) local_unnamed_addr #0 a
 
 .preheader:                                       ; preds = %3, %.preheader
   %10 = phi ptr [ %22, %.preheader ], [ %7, %3 ]
-  %11 = getelementptr inbounds i8, ptr %10, i64 1888
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 1888
   %12 = load ptr, ptr %11, align 32
   %13 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %12) #8
-  %14 = getelementptr inbounds i8, ptr %10, i64 1880
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 1880
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 408
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 408
   %17 = load ptr, ptr %16, align 8
   store ptr null, ptr %16, align 8
   %18 = load ptr, ptr %11, align 32
@@ -388,8 +388,8 @@ define dso_local void @session_clear_tty(ptr noundef %0) local_unnamed_addr #0 a
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @tty_signal_session_leader(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   tail call void @_raw_read_lock(ptr noundef nonnull @tasklist_lock) #8
-  %3 = getelementptr inbounds i8, ptr %0, i64 448
-  %4 = getelementptr inbounds i8, ptr %0, i64 456
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 448
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 456
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %.thread9, label %7
@@ -404,19 +404,19 @@ define dso_local i32 @tty_signal_session_leader(ptr noundef %0, i32 noundef %1) 
   br i1 %13, label %.thread9, label %14
 
 14:                                               ; preds = %7
-  %15 = getelementptr inbounds i8, ptr %0, i64 464
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 464
   br label %16
 
 16:                                               ; preds = %66, %14
   %17 = phi ptr [ %11, %14 ], [ %72, %66 ]
   %18 = phi i32 [ 0, %14 ], [ %31, %66 ]
   %19 = phi ptr [ null, %14 ], [ %67, %66 ]
-  %20 = getelementptr inbounds i8, ptr %17, i64 1888
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 1888
   %21 = load ptr, ptr %20, align 32
   tail call void @_raw_spin_lock_irq(ptr noundef %21) #8
-  %22 = getelementptr inbounds i8, ptr %17, i64 1880
+  %22 = getelementptr inbounds nuw i8, ptr %17, i64 1880
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 408
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 408
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, %0
   br i1 %26, label %27, label %29
@@ -430,7 +430,7 @@ define dso_local i32 @tty_signal_session_leader(ptr noundef %0, i32 noundef %1) 
 29:                                               ; preds = %27, %16
   %30 = phi ptr [ %.pre, %27 ], [ %23, %16 ]
   %31 = phi i32 [ %28, %27 ], [ %18, %16 ]
-  %32 = getelementptr inbounds i8, ptr %30, i64 400
+  %32 = getelementptr inbounds nuw i8, ptr %30, i64 400
   %33 = load i32, ptr %32, align 8
   %34 = icmp eq i32 %33, 0
   br i1 %34, label %66, label %35
@@ -439,10 +439,10 @@ define dso_local i32 @tty_signal_session_leader(ptr noundef %0, i32 noundef %1) 
   %36 = tail call i32 @send_signal_locked(i32 noundef 1, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull %17, i32 noundef 1) #8
   %37 = tail call i32 @send_signal_locked(i32 noundef 18, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull %17, i32 noundef 1) #8
   %38 = load ptr, ptr %22, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 392
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 392
   %40 = load ptr, ptr %39, align 8
   tail call void @put_pid(ptr noundef %40) #8
-  tail call void @_raw_spin_lock(ptr noundef %15) #8
+  tail call void @_raw_spin_lock(ptr noundef nonnull %15) #8
   %41 = load ptr, ptr %3, align 8
   %42 = icmp eq ptr %41, null
   br i1 %42, label %.thread, label %43
@@ -486,12 +486,12 @@ define dso_local i32 @tty_signal_session_leader(ptr noundef %0, i32 noundef %1) 
 
 63:                                               ; preds = %61, %57
   %64 = load ptr, ptr %22, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 392
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 392
   store ptr %.pr, ptr %65, align 8
   br label %.thread
 
 .thread:                                          ; preds = %35, %63, %52
-  tail call void @_raw_spin_unlock(ptr noundef %15) #8
+  tail call void @_raw_spin_unlock(ptr noundef nonnull %15) #8
   br label %66
 
 66:                                               ; preds = %.thread, %29
@@ -563,19 +563,19 @@ define internal fastcc noundef nonnull ptr @get_pid(ptr noundef nonnull returned
 define dso_local void @disassociate_ctty(i32 noundef %0) local_unnamed_addr #0 align 16 {
   %2 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #7, !srcloc !6
   %3 = inttoptr i64 %2 to ptr
-  %4 = getelementptr inbounds i8, ptr %3, i64 1880
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 1880
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 400
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 400
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %131, label %9
 
 9:                                                ; preds = %1
-  %10 = getelementptr inbounds i8, ptr %3, i64 1888
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 1888
   %11 = load ptr, ptr %10, align 32
   %12 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %11) #8
   %13 = load ptr, ptr %4, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %58, label %17
@@ -603,9 +603,9 @@ define dso_local void @disassociate_ctty(i32 noundef %0) local_unnamed_addr #0 a
   br i1 %28, label %36, label %29
 
 29:                                               ; preds = %26
-  %30 = getelementptr inbounds i8, ptr %15, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 56
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 56
   %33 = load i16, ptr %32, align 8
   %34 = icmp eq i16 %33, 4
   br i1 %34, label %36, label %35
@@ -615,9 +615,9 @@ define dso_local void @disassociate_ctty(i32 noundef %0) local_unnamed_addr #0 a
   br label %57
 
 36:                                               ; preds = %29, %26
-  %37 = getelementptr inbounds i8, ptr %15, i64 448
-  %38 = getelementptr inbounds i8, ptr %15, i64 464
-  %39 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %38) #8
+  %37 = getelementptr inbounds nuw i8, ptr %15, i64 448
+  %38 = getelementptr inbounds nuw i8, ptr %15, i64 464
+  %39 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %38) #8
   %40 = load ptr, ptr %37, align 8
   %41 = icmp eq ptr %40, null
   br i1 %41, label %56, label %42
@@ -639,7 +639,7 @@ define dso_local void @disassociate_ctty(i32 noundef %0) local_unnamed_addr #0 a
   br label %51
 
 51:                                               ; preds = %49, %45
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %38, i64 noundef %39) #8
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %38, i64 noundef %39) #8
   %52 = tail call i32 @kill_pgrp(ptr noundef nonnull %40, i32 noundef 1, i32 noundef %0) #8
   br i1 %28, label %53, label %55
 
@@ -652,7 +652,7 @@ define dso_local void @disassociate_ctty(i32 noundef %0) local_unnamed_addr #0 a
   br label %57
 
 56:                                               ; preds = %36
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %38, i64 noundef %39) #8
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %38, i64 noundef %39) #8
   br label %57
 
 57:                                               ; preds = %56, %55, %35
@@ -669,7 +669,7 @@ define dso_local void @disassociate_ctty(i32 noundef %0) local_unnamed_addr #0 a
   %62 = load ptr, ptr %10, align 32
   tail call void @_raw_spin_lock_irq(ptr noundef %62) #8
   %63 = load ptr, ptr %4, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 392
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 392
   %65 = load ptr, ptr %64, align 8
   store ptr null, ptr %64, align 8
   %66 = load ptr, ptr %10, align 32
@@ -687,7 +687,7 @@ define dso_local void @disassociate_ctty(i32 noundef %0) local_unnamed_addr #0 a
   %72 = load ptr, ptr %10, align 32
   %73 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %72) #8
   %74 = load ptr, ptr %4, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 408
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 408
   %76 = load ptr, ptr %75, align 8
   %77 = icmp eq ptr %76, null
   br i1 %77, label %95, label %78
@@ -712,16 +712,16 @@ define dso_local void @disassociate_ctty(i32 noundef %0) local_unnamed_addr #0 a
   %88 = load ptr, ptr %10, align 32
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef %88, i64 noundef %73) #8
   tail call void @tty_lock(ptr noundef nonnull %76) #8
-  %89 = getelementptr inbounds i8, ptr %76, i64 448
-  %90 = getelementptr inbounds i8, ptr %76, i64 464
-  %91 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %90) #8
-  %92 = getelementptr inbounds i8, ptr %76, i64 456
+  %89 = getelementptr inbounds nuw i8, ptr %76, i64 448
+  %90 = getelementptr inbounds nuw i8, ptr %76, i64 464
+  %91 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %90) #8
+  %92 = getelementptr inbounds nuw i8, ptr %76, i64 456
   %93 = load ptr, ptr %92, align 8
   tail call void @put_pid(ptr noundef %93) #8
   %94 = load ptr, ptr %89, align 8
   tail call void @put_pid(ptr noundef %94) #8
-  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %89, i8 0, i64 16, i1 false)
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %90, i64 noundef %91) #8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %89, i8 0, i64 16, i1 false)
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %90, i64 noundef %91) #8
   tail call void @tty_unlock(ptr noundef nonnull %76) #8
   tail call void @tty_kref_put(ptr noundef nonnull %76) #8
   br label %97
@@ -735,11 +735,11 @@ define dso_local void @disassociate_ctty(i32 noundef %0) local_unnamed_addr #0 a
   %98 = load ptr, ptr %10, align 32
   tail call void @_raw_spin_lock_irq(ptr noundef %98) #8
   %99 = load ptr, ptr %4, align 8
-  %100 = getelementptr inbounds i8, ptr %99, i64 392
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 392
   %101 = load ptr, ptr %100, align 8
   tail call void @put_pid(ptr noundef %101) #8
   %102 = load ptr, ptr %4, align 8
-  %103 = getelementptr inbounds i8, ptr %102, i64 392
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 392
   store ptr null, ptr %103, align 8
   %104 = load ptr, ptr %10, align 32
   tail call void @_raw_spin_unlock_irq(ptr noundef %104) #8
@@ -761,12 +761,12 @@ define dso_local void @disassociate_ctty(i32 noundef %0) local_unnamed_addr #0 a
 
 .preheader:                                       ; preds = %109, %.preheader
   %116 = phi ptr [ %128, %.preheader ], [ %113, %109 ]
-  %117 = getelementptr inbounds i8, ptr %116, i64 1888
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 1888
   %118 = load ptr, ptr %117, align 32
   %119 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %118) #8
-  %120 = getelementptr inbounds i8, ptr %116, i64 1880
+  %120 = getelementptr inbounds nuw i8, ptr %116, i64 1880
   %121 = load ptr, ptr %120, align 8
-  %122 = getelementptr inbounds i8, ptr %121, i64 408
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 408
   %123 = load ptr, ptr %122, align 8
   store ptr null, ptr %122, align 8
   %124 = load ptr, ptr %117, align 32
@@ -793,9 +793,9 @@ declare dso_local void @tty_vhangup_session(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @tty_get_pgrp(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 448
-  %3 = getelementptr inbounds i8, ptr %0, i64 464
-  %4 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %3) #8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 448
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 464
+  %4 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %3) #8
   %5 = load ptr, ptr %2, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %16, label %7
@@ -817,7 +817,7 @@ define dso_local ptr @tty_get_pgrp(ptr noundef %0) #0 align 16 {
   br label %16
 
 16:                                               ; preds = %14, %10, %1
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %3, i64 noundef %4) #8
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %3, i64 noundef %4) #8
   ret ptr %5
 }
 
@@ -832,12 +832,12 @@ define dso_local void @no_tty() local_unnamed_addr #0 align 16 {
   %1 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #7, !srcloc !6
   %2 = inttoptr i64 %1 to ptr
   tail call void @disassociate_ctty(i32 noundef 0)
-  %3 = getelementptr inbounds i8, ptr %2, i64 1888
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 1888
   %4 = load ptr, ptr %3, align 32
   %5 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %4) #8
-  %6 = getelementptr inbounds i8, ptr %2, i64 1880
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 1880
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 408
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 408
   %9 = load ptr, ptr %8, align 8
   store ptr null, ptr %8, align 8
   %10 = load ptr, ptr %3, align 32
@@ -860,20 +860,20 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @tty_jobctrl_ioctl(ptr n
 7:                                                ; preds = %5
   %8 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #7, !srcloc !6
   %9 = inttoptr i64 %8 to ptr
-  %10 = getelementptr inbounds i8, ptr %9, i64 1880
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 1880
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 408
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 408
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, %0
   br i1 %14, label %15, label %195
 
 15:                                               ; preds = %7
   tail call void @disassociate_ctty(i32 noundef 0)
-  %16 = getelementptr inbounds i8, ptr %9, i64 1888
+  %16 = getelementptr inbounds nuw i8, ptr %9, i64 1888
   %17 = load ptr, ptr %16, align 32
   %18 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %17) #8
   %19 = load ptr, ptr %10, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 408
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 408
   %21 = load ptr, ptr %20, align 8
   store ptr null, ptr %20, align 8
   %22 = load ptr, ptr %16, align 32
@@ -886,9 +886,9 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @tty_jobctrl_ioctl(ptr n
   tail call void @_raw_read_lock(ptr noundef nonnull @tasklist_lock) #8
   %24 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #7, !srcloc !6
   %25 = inttoptr i64 %24 to ptr
-  %26 = getelementptr inbounds i8, ptr %25, i64 1880
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 1880
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 400
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 400
   %29 = load i32, ptr %28, align 8
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %82, label %31
@@ -896,13 +896,13 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @tty_jobctrl_ioctl(ptr n
 31:                                               ; preds = %23
   %32 = getelementptr i8, ptr %27, i64 384
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %1, i64 456
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 456
   %35 = load ptr, ptr %34, align 8
   %.not = icmp eq ptr %33, %35
   br i1 %.not, label %82, label %36
 
 36:                                               ; preds = %31
-  %37 = getelementptr inbounds i8, ptr %27, i64 408
+  %37 = getelementptr inbounds nuw i8, ptr %27, i64 408
   %38 = load ptr, ptr %37, align 8
   %39 = icmp eq ptr %38, null
   br i1 %39, label %40, label %82
@@ -936,12 +936,12 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @tty_jobctrl_ioctl(ptr n
 
 .preheader:                                       ; preds = %50, %.preheader
   %57 = phi ptr [ %69, %.preheader ], [ %54, %50 ]
-  %58 = getelementptr inbounds i8, ptr %57, i64 1888
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 1888
   %59 = load ptr, ptr %58, align 32
   %60 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %59) #8
-  %61 = getelementptr inbounds i8, ptr %57, i64 1880
+  %61 = getelementptr inbounds nuw i8, ptr %57, i64 1880
   %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 408
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 408
   %64 = load ptr, ptr %63, align 8
   store ptr null, ptr %63, align 8
   %65 = load ptr, ptr %58, align 32
@@ -956,7 +956,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @tty_jobctrl_ioctl(ptr n
   br i1 %71, label %.loopexit, label %.preheader, !llvm.loop !12
 
 .loopexit:                                        ; preds = %.preheader, %50, %47, %40
-  %72 = getelementptr inbounds i8, ptr %2, i64 20
+  %72 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %73 = load i32, ptr %72, align 4
   %74 = and i32 %73, 1
   %75 = icmp eq i32 %74, 0
@@ -967,7 +967,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @tty_jobctrl_ioctl(ptr n
   br i1 %77, label %78, label %82
 
 78:                                               ; preds = %76, %.loopexit
-  %79 = getelementptr inbounds i8, ptr %25, i64 1888
+  %79 = getelementptr inbounds nuw i8, ptr %25, i64 1888
   %80 = load ptr, ptr %79, align 32
   tail call void @_raw_spin_lock_irq(ptr noundef %80) #8
   tail call fastcc void @__proc_set_tty(ptr noundef %1)
@@ -988,17 +988,17 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @tty_jobctrl_ioctl(ptr n
 86:                                               ; preds = %84
   %87 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #7, !srcloc !6
   %88 = inttoptr i64 %87 to ptr
-  %89 = getelementptr inbounds i8, ptr %88, i64 1880
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 1880
   %90 = load ptr, ptr %89, align 8
-  %91 = getelementptr inbounds i8, ptr %90, i64 408
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 408
   %92 = load ptr, ptr %91, align 8
   %93 = icmp eq ptr %92, %0
   br i1 %93, label %94, label %195
 
 94:                                               ; preds = %86, %84
-  %95 = getelementptr inbounds i8, ptr %1, i64 448
-  %96 = getelementptr inbounds i8, ptr %1, i64 464
-  %97 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %96) #8
+  %95 = getelementptr inbounds nuw i8, ptr %1, i64 448
+  %96 = getelementptr inbounds nuw i8, ptr %1, i64 464
+  %97 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %96) #8
   %98 = load ptr, ptr %95, align 8
   %99 = icmp eq ptr %98, null
   br i1 %99, label %109, label %100
@@ -1020,7 +1020,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @tty_jobctrl_ioctl(ptr n
   br label %109
 
 109:                                              ; preds = %107, %103, %94
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %96, i64 noundef %97) #8
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %96, i64 noundef %97) #8
   %110 = tail call i32 @pid_vnr(ptr noundef %98) #8
   %111 = tail call i64 @llvm.read_register.i64(metadata !0)
   %112 = tail call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %6, i32 %110, i64 4, i64 %111) #8, !srcloc !16
@@ -1060,14 +1060,14 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @tty_jobctrl_ioctl(ptr n
   br i1 %131, label %166, label %132
 
 132:                                              ; preds = %130
-  %133 = getelementptr inbounds i8, ptr %1, i64 448
-  %134 = getelementptr inbounds i8, ptr %1, i64 464
-  tail call void @_raw_spin_lock_irq(ptr noundef %134) #8
+  %133 = getelementptr inbounds nuw i8, ptr %1, i64 448
+  %134 = getelementptr inbounds nuw i8, ptr %1, i64 464
+  tail call void @_raw_spin_lock_irq(ptr noundef nonnull %134) #8
   %135 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #7, !srcloc !6
   %136 = inttoptr i64 %135 to ptr
-  %137 = getelementptr inbounds i8, ptr %136, i64 1880
+  %137 = getelementptr inbounds nuw i8, ptr %136, i64 1880
   %138 = load ptr, ptr %137, align 8
-  %139 = getelementptr inbounds i8, ptr %138, i64 408
+  %139 = getelementptr inbounds nuw i8, ptr %138, i64 408
   %140 = load ptr, ptr %139, align 8
   %141 = icmp ne ptr %140, null
   %142 = icmp eq ptr %140, %1
@@ -1075,7 +1075,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @tty_jobctrl_ioctl(ptr n
   br i1 %143, label %144, label %164
 
 144:                                              ; preds = %132
-  %145 = getelementptr inbounds i8, ptr %1, i64 456
+  %145 = getelementptr inbounds nuw i8, ptr %1, i64 456
   %146 = load ptr, ptr %145, align 8
   %147 = getelementptr i8, ptr %138, i64 384
   %148 = load ptr, ptr %147, align 8
@@ -1110,7 +1110,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @tty_jobctrl_ioctl(ptr n
 
 164:                                              ; preds = %162, %144, %132
   %165 = phi i32 [ %163, %162 ], [ -25, %144 ], [ -25, %132 ]
-  tail call void @_raw_spin_unlock_irq(ptr noundef %134) #8
+  tail call void @_raw_spin_unlock_irq(ptr noundef nonnull %134) #8
   br label %166
 
 166:                                              ; preds = %164, %130, %121, %120, %118
@@ -1125,24 +1125,24 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @tty_jobctrl_ioctl(ptr n
 171:                                              ; preds = %169
   %172 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #7, !srcloc !6
   %173 = inttoptr i64 %172 to ptr
-  %174 = getelementptr inbounds i8, ptr %173, i64 1880
+  %174 = getelementptr inbounds nuw i8, ptr %173, i64 1880
   %175 = load ptr, ptr %174, align 8
-  %176 = getelementptr inbounds i8, ptr %175, i64 408
+  %176 = getelementptr inbounds nuw i8, ptr %175, i64 408
   %177 = load ptr, ptr %176, align 8
   %178 = icmp eq ptr %177, %0
   br i1 %178, label %179, label %195
 
 179:                                              ; preds = %171, %169
-  %180 = getelementptr inbounds i8, ptr %1, i64 464
-  %181 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %180) #8
-  %182 = getelementptr inbounds i8, ptr %1, i64 456
+  %180 = getelementptr inbounds nuw i8, ptr %1, i64 464
+  %181 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %180) #8
+  %182 = getelementptr inbounds nuw i8, ptr %1, i64 456
   %183 = load ptr, ptr %182, align 8
   %184 = icmp eq ptr %183, null
   br i1 %184, label %194, label %185
 
 185:                                              ; preds = %179
   %186 = tail call i32 @pid_vnr(ptr noundef nonnull %183) #8
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %180, i64 noundef %181) #8
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %180, i64 noundef %181) #8
   %187 = tail call i64 @llvm.read_register.i64(metadata !0)
   %188 = tail call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %6, i32 %186, i64 4, i64 %187) #8, !srcloc !18
   %189 = extractvalue { ptr, i64 } %188, 0
@@ -1154,7 +1154,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @tty_jobctrl_ioctl(ptr n
   br label %195
 
 194:                                              ; preds = %179
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %180, i64 noundef %181) #8
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %180, i64 noundef %181) #8
   br label %195
 
 195:                                              ; preds = %194, %185, %171, %166, %109, %86, %82, %15, %7, %5
@@ -1214,7 +1214,7 @@ define internal fastcc ptr @session_of_pgrp(ptr noundef nonnull %0) unnamed_addr
 
 .thread:                                          ; preds = %1, %4
   %7 = phi ptr [ %5, %4 ], [ %2, %1 ]
-  %8 = getelementptr inbounds i8, ptr %7, i64 1880
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 1880
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr i8, ptr %9, i64 384
   %11 = load ptr, ptr %10, align 8

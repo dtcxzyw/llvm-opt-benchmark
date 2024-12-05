@@ -107,7 +107,7 @@ define i32 @PMPI_Type_contiguous(i32 noundef %0, ptr noundef %1, ptr noundef %2)
 40:                                               ; preds = %38, %.lr.ph.i
   %41 = phi i8 [ %34, %.lr.ph.i ], [ %.pre.i.i, %38 ]
   %42 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_errcodes_intern, i64 112), align 8
-  %43 = getelementptr inbounds ptr, ptr %42, i64 %indvars.iv.i
+  %43 = getelementptr inbounds nuw ptr, ptr %42, i64 %indvars.iv.i
   %44 = load ptr, ptr %43, align 8
   %45 = trunc i8 %41 to i1
   br i1 %45, label %46, label %opal_pointer_array_get_item.exit.i
@@ -119,13 +119,13 @@ define i32 @PMPI_Type_contiguous(i32 noundef %0, ptr noundef %1, ptr noundef %2)
 
 opal_pointer_array_get_item.exit.i:               ; preds = %46, %40
   %48 = phi i8 [ %41, %40 ], [ %.pre.i, %46 ]
-  %49 = getelementptr inbounds i8, ptr %44, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %50 = load i32, ptr %49, align 8
   %51 = icmp eq i32 %50, %25
   br i1 %51, label %52, label %30
 
 52:                                               ; preds = %opal_pointer_array_get_item.exit.i
-  %53 = getelementptr inbounds i8, ptr %44, i64 20
+  %53 = getelementptr inbounds nuw i8, ptr %44, i64 20
   %54 = load i32, ptr %53, align 4
   br label %ompi_errcode_get_mpi_code.exit
 

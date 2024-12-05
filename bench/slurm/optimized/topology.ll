@@ -259,7 +259,7 @@ define i32 @topology_g_split_hostlist(ptr noundef %0, ptr noundef %1, ptr nounde
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %.033 = phi i32 [ %31, %.lr.ph ], [ 0, %.preheader ]
   %27 = load ptr, ptr %1, align 8
-  %28 = getelementptr inbounds ptr, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8
   %30 = call i32 @hostlist_count(ptr noundef %29) #9
   %31 = add nsw i32 %30, %.033
@@ -304,7 +304,7 @@ define i32 @topology_g_get(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
 define i32 @topology_g_topology_pack(ptr nocapture noundef readonly %0, ptr noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = load i32, ptr @active_topo_id, align 4
   %.not = icmp eq i32 %5, %6
@@ -328,7 +328,7 @@ declare void @pack32(i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define i32 @topology_g_topology_print(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = load i32, ptr @active_topo_id, align 4
   %.not = icmp eq i32 %5, %6
@@ -370,7 +370,7 @@ define range(i32 -1, 1) i32 @topology_g_topology_unpack(ptr nocapture noundef wr
   br label %22
 
 15:                                               ; preds = %10
-  %16 = getelementptr inbounds i8, ptr %6, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %11, ptr %16, align 8
   %17 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 80), align 8
   %18 = call i32 %17(ptr noundef %6, ptr noundef %1, i16 noundef zeroext %2) #9

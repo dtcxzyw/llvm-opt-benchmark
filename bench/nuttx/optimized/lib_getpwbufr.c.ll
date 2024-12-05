@@ -22,17 +22,17 @@ define range(i32 0, 35) i32 @getpwbuf_r(i32 noundef %0, i32 noundef %1, ptr noun
 23:                                               ; preds = %10
   store ptr %7, ptr %6, align 8
   %24 = getelementptr inbounds i8, ptr %7, i64 %12
-  %25 = getelementptr inbounds i8, ptr %6, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %24, ptr %25, align 8
   %26 = getelementptr inbounds i8, ptr %7, i64 %19
-  %27 = getelementptr inbounds i8, ptr %6, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %26, ptr %27, align 8
   %28 = getelementptr inbounds i8, ptr %7, i64 %20
-  %29 = getelementptr inbounds i8, ptr %6, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr %28, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %6, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %0, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %6, i64 12
+  %31 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 %1, ptr %31, align 4
   %32 = tail call i64 @strlcpy(ptr noundef %7, ptr noundef nonnull dereferenceable(1) %2, i64 noundef %12) #3
   %33 = load ptr, ptr %25, align 8

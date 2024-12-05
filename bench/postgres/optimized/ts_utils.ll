@@ -192,7 +192,7 @@ define dso_local void @readstoplist(ptr noundef %0, ptr nocapture noundef initia
   br label %.preheader
 
 .thread:                                          ; preds = %5, %3
-  %57 = getelementptr inbounds i8, ptr %1, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr null, ptr %57, align 8
   br label %64
 
@@ -200,7 +200,7 @@ define dso_local void @readstoplist(ptr noundef %0, ptr nocapture noundef initia
   %.142.ph.lcssa = phi ptr [ null, %.preheader57 ], [ %.142.ph67, %25 ], [ %.2, %.outer ]
   call void @tsearch_readline_end(ptr noundef nonnull %4) #7
   call void @pfree(ptr noundef %8) #7
-  %58 = getelementptr inbounds i8, ptr %1, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %.142.ph.lcssa, ptr %58, align 8
   %.not49 = icmp eq ptr %.142.ph.lcssa, null
   br i1 %.not49, label %64, label %59
@@ -241,7 +241,7 @@ declare i32 @pg_qsort_strcmp(ptr noundef, ptr noundef) #3
 define dso_local zeroext i1 @searchstoplist(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   store ptr %1, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %13, label %6

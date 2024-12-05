@@ -13,14 +13,14 @@ define hidden void @ScaleRowUp2_Linear_Any_C(ptr noundef %0, ptr noundef initial
 
 7:                                                ; preds = %3
   %8 = and i32 %4, -2
-  %9 = getelementptr inbounds i8, ptr %1, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 1
   tail call void @ScaleRowUp2_Linear_C(ptr noundef nonnull %0, ptr noundef nonnull %9, i32 noundef %8) #2
   %10 = lshr i32 %4, 1
   %11 = zext nneg i32 %10 to i64
-  %12 = getelementptr inbounds i8, ptr %0, i64 %11
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 %11
   %13 = zext nneg i32 %8 to i64
-  %14 = getelementptr inbounds i8, ptr %1, i64 %13
-  %15 = getelementptr inbounds i8, ptr %14, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 %13
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 1
   tail call void @ScaleRowUp2_Linear_C(ptr noundef nonnull %12, ptr noundef nonnull %15, i32 noundef 0) #2
   br label %16
 
@@ -47,14 +47,14 @@ define hidden void @ScaleRowUp2_Linear_16_Any_C(ptr noundef %0, ptr noundef init
 
 7:                                                ; preds = %3
   %8 = and i32 %4, -2
-  %9 = getelementptr inbounds i8, ptr %1, i64 2
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 2
   tail call void @ScaleRowUp2_Linear_16_C(ptr noundef nonnull %0, ptr noundef nonnull %9, i32 noundef %8) #2
   %10 = lshr i32 %4, 1
   %11 = zext nneg i32 %10 to i64
-  %12 = getelementptr inbounds i16, ptr %0, i64 %11
+  %12 = getelementptr inbounds nuw i16, ptr %0, i64 %11
   %13 = zext nneg i32 %8 to i64
-  %14 = getelementptr inbounds i16, ptr %1, i64 %13
-  %15 = getelementptr inbounds i8, ptr %14, i64 2
+  %14 = getelementptr inbounds nuw i16, ptr %1, i64 %13
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 2
   tail call void @ScaleRowUp2_Linear_16_C(ptr noundef nonnull %12, ptr noundef nonnull %15, i32 noundef 0) #2
   br label %16
 
@@ -101,14 +101,14 @@ define hidden void @ScaleRowUp2_Bilinear_Any_C(ptr noundef %0, i64 noundef %1, p
 
 28:                                               ; preds = %5
   %29 = and i32 %6, -2
-  %30 = getelementptr inbounds i8, ptr %2, i64 1
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 1
   tail call void @ScaleRowUp2_Bilinear_C(ptr noundef nonnull %0, i64 noundef %1, ptr noundef nonnull %30, i64 noundef %3, i32 noundef %29) #2
   %31 = lshr i32 %6, 1
   %32 = zext nneg i32 %31 to i64
-  %33 = getelementptr inbounds i8, ptr %0, i64 %32
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 %32
   %34 = zext nneg i32 %29 to i64
-  %35 = getelementptr inbounds i8, ptr %2, i64 %34
-  %36 = getelementptr inbounds i8, ptr %35, i64 1
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 %34
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 1
   tail call void @ScaleRowUp2_Bilinear_C(ptr noundef nonnull %33, i64 noundef %1, ptr noundef nonnull %36, i64 noundef %3, i32 noundef 0) #2
   br label %37
 
@@ -175,14 +175,14 @@ define hidden void @ScaleRowUp2_Bilinear_16_Any_C(ptr noundef %0, i64 noundef %1
 
 28:                                               ; preds = %5
   %29 = and i32 %6, -2
-  %30 = getelementptr inbounds i8, ptr %2, i64 2
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 2
   tail call void @ScaleRowUp2_Bilinear_16_C(ptr noundef nonnull %0, i64 noundef %1, ptr noundef nonnull %30, i64 noundef %3, i32 noundef %29) #2
   %31 = lshr i32 %6, 1
   %32 = zext nneg i32 %31 to i64
-  %33 = getelementptr inbounds i16, ptr %0, i64 %32
+  %33 = getelementptr inbounds nuw i16, ptr %0, i64 %32
   %34 = zext nneg i32 %29 to i64
-  %35 = getelementptr inbounds i16, ptr %2, i64 %34
-  %36 = getelementptr inbounds i8, ptr %35, i64 2
+  %35 = getelementptr inbounds nuw i16, ptr %2, i64 %34
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 2
   tail call void @ScaleRowUp2_Bilinear_16_C(ptr noundef nonnull %33, i64 noundef %1, ptr noundef nonnull %36, i64 noundef %3, i32 noundef 0) #2
   br label %37
 

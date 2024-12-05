@@ -400,14 +400,14 @@ for.body:                                         ; preds = %if.end152, %for.con
   %0 = trunc nuw nsw i64 %indvars.iv to i32
   %call156 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull dereferenceable(1) @.str.51, i32 noundef %0) #8
   %call158 = call noalias ptr @CRYPTO_strdup(ptr noundef nonnull %buf, ptr noundef nonnull @.str.14, i32 noundef 151) #8
-  %arrayidx = getelementptr inbounds [512 x ptr], ptr %eid, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [512 x ptr], ptr %eid, i64 0, i64 %indvars.iv
   store ptr %call158, ptr %arrayidx, align 8
   %call160 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull dereferenceable(1) @.str.52, i32 noundef %0) #8
   %call162 = call noalias ptr @CRYPTO_strdup(ptr noundef nonnull %buf, ptr noundef nonnull @.str.14, i32 noundef 153) #8
-  %arrayidx164 = getelementptr inbounds [512 x ptr], ptr %ename, i64 0, i64 %indvars.iv
+  %arrayidx164 = getelementptr inbounds nuw [512 x ptr], ptr %ename, i64 0, i64 %indvars.iv
   store ptr %call162, ptr %arrayidx164, align 8
   %call165 = call ptr @ENGINE_new() #8
-  %arrayidx167 = getelementptr inbounds [512 x ptr], ptr %block, i64 0, i64 %indvars.iv
+  %arrayidx167 = getelementptr inbounds nuw [512 x ptr], ptr %block, i64 0, i64 %indvars.iv
   store ptr %call165, ptr %arrayidx167, align 8
   %call168 = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 154, ptr noundef nonnull @.str.53, ptr noundef %call165) #8
   %tobool169.not = icmp eq i32 %call168, 0
@@ -431,7 +431,7 @@ lor.lhs.false180:                                 ; preds = %lor.lhs.false170
 
 for.body195:                                      ; preds = %for.cond, %for.inc211
   %indvars.iv63 = phi i64 [ %indvars.iv.next64, %for.inc211 ], [ 0, %for.cond ]
-  %arrayidx197 = getelementptr inbounds [512 x ptr], ptr %block, i64 0, i64 %indvars.iv63
+  %arrayidx197 = getelementptr inbounds nuw [512 x ptr], ptr %block, i64 0, i64 %indvars.iv63
   %1 = load ptr, ptr %arrayidx197, align 8
   %call198 = call i32 @ENGINE_add(ptr noundef %1) #8
   %cmp199 = icmp ne i32 %call198, 0
@@ -478,10 +478,10 @@ for.body228.preheader:                            ; preds = %if.end223, %cleanup
 
 for.body228:                                      ; preds = %for.body228.preheader, %for.body228
   %indvars.iv67 = phi i64 [ %indvars.iv.next68, %for.body228 ], [ 0, %for.body228.preheader ]
-  %arrayidx230 = getelementptr inbounds [512 x ptr], ptr %eid, i64 0, i64 %indvars.iv67
+  %arrayidx230 = getelementptr inbounds nuw [512 x ptr], ptr %eid, i64 0, i64 %indvars.iv67
   %3 = load ptr, ptr %arrayidx230, align 8
   call void @CRYPTO_free(ptr noundef %3, ptr noundef nonnull @.str.14, i32 noundef 175) #8
-  %arrayidx232 = getelementptr inbounds [512 x ptr], ptr %ename, i64 0, i64 %indvars.iv67
+  %arrayidx232 = getelementptr inbounds nuw [512 x ptr], ptr %ename, i64 0, i64 %indvars.iv67
   %4 = load ptr, ptr %arrayidx232, align 8
   call void @CRYPTO_free(ptr noundef %4, ptr noundef nonnull @.str.14, i32 noundef 176) #8
   %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
@@ -501,7 +501,7 @@ end:                                              ; preds = %for.body, %lor.lhs.
 
 for.body243:                                      ; preds = %end, %for.body243
   %indvars.iv71 = phi i64 [ 0, %end ], [ %indvars.iv.next72, %for.body243 ]
-  %arrayidx245 = getelementptr inbounds [512 x ptr], ptr %block, i64 0, i64 %indvars.iv71
+  %arrayidx245 = getelementptr inbounds nuw [512 x ptr], ptr %block, i64 0, i64 %indvars.iv71
   %5 = load ptr, ptr %arrayidx245, align 8
   %call246 = call i32 @ENGINE_free(ptr noundef %5) #8
   %indvars.iv.next72 = add nuw nsw i64 %indvars.iv71, 1

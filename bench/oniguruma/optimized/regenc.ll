@@ -61,9 +61,9 @@ define noundef i32 @onigenc_end() local_unnamed_addr #1 {
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %3 = getelementptr inbounds [20 x %struct.anon], ptr @InitedList, i64 0, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw [20 x %struct.anon], ptr @InitedList, i64 0, i64 %indvars.iv
   store ptr null, ptr %3, align 16
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 0, ptr %4, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -81,7 +81,7 @@ define i32 @onig_initialize_encoding(ptr noundef %0) local_unnamed_addr #2 {
   br i1 %.not, label %enc_inited_entry.exit, label %2
 
 2:                                                ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 144
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 1
   %.not16 = icmp eq i32 %5, 0
@@ -106,13 +106,13 @@ define i32 @onig_initialize_encoding(ptr noundef %0) local_unnamed_addr #2 {
 
 .lr.ph.i:                                         ; preds = %10, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %10 ]
-  %11 = getelementptr inbounds [20 x %struct.anon], ptr @InitedList, i64 0, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw [20 x %struct.anon], ptr @InitedList, i64 0, i64 %indvars.iv.i
   %12 = load ptr, ptr %11, align 16
   %13 = icmp eq ptr %12, @OnigEncodingASCII
   br i1 %13, label %enc_is_inited.exit, label %10
 
 enc_is_inited.exit:                               ; preds = %.lr.ph.i
-  %14 = getelementptr inbounds i8, ptr %11, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %15 = load i32, ptr %14, align 8
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %enc_is_inited.exit.thread, label %enc_inited_entry.exit
@@ -133,13 +133,13 @@ enc_is_inited.exit.thread:                        ; preds = %10, %7, %enc_is_ini
 
 .lr.ph.i22:                                       ; preds = %26, %.lr.ph.preheader.i20
   %indvars.iv.i23 = phi i64 [ 0, %.lr.ph.preheader.i20 ], [ %indvars.iv.next.i24, %26 ]
-  %21 = getelementptr inbounds [20 x %struct.anon], ptr @InitedList, i64 0, i64 %indvars.iv.i23
+  %21 = getelementptr inbounds nuw [20 x %struct.anon], ptr @InitedList, i64 0, i64 %indvars.iv.i23
   %22 = load ptr, ptr %21, align 16
   %23 = icmp eq ptr %22, @OnigEncodingASCII
   br i1 %23, label %24, label %26
 
 24:                                               ; preds = %.lr.ph.i22
-  %25 = getelementptr inbounds i8, ptr %21, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i32 1, ptr %25, align 8
   br label %enc_inited_entry.exit
 
@@ -156,14 +156,14 @@ enc_is_inited.exit.thread:                        ; preds = %10, %7, %enc_is_ini
   %28 = sext i32 %19 to i64
   %29 = getelementptr inbounds [20 x %struct.anon], ptr @InitedList, i64 0, i64 %28
   store ptr @OnigEncodingASCII, ptr %29, align 16
-  %30 = getelementptr inbounds i8, ptr %29, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store i32 1, ptr %30, align 8
   %31 = add nsw i32 %19, 1
   store i32 %31, ptr @InitedListNum, align 4
   br label %enc_inited_entry.exit
 
 enc_inited_entry.exit:                            ; preds = %._crit_edge.thread.i, %._crit_edge.i, %24, %enc_is_inited.exit, %2, %1
-  %32 = getelementptr inbounds i8, ptr %0, i64 120
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %33 = load ptr, ptr %32, align 8
   %.not19 = icmp eq ptr %33, null
   br i1 %.not19, label %enc_inited_entry.exit43, label %34
@@ -184,13 +184,13 @@ enc_inited_entry.exit:                            ; preds = %._crit_edge.thread.
 
 .lr.ph.i29:                                       ; preds = %37, %.lr.ph.preheader.i27
   %indvars.iv.i30 = phi i64 [ 0, %.lr.ph.preheader.i27 ], [ %indvars.iv.next.i31, %37 ]
-  %38 = getelementptr inbounds [20 x %struct.anon], ptr @InitedList, i64 0, i64 %indvars.iv.i30
+  %38 = getelementptr inbounds nuw [20 x %struct.anon], ptr @InitedList, i64 0, i64 %indvars.iv.i30
   %39 = load ptr, ptr %38, align 16
   %40 = icmp eq ptr %39, %0
   br i1 %40, label %enc_is_inited.exit33, label %37
 
 enc_is_inited.exit33:                             ; preds = %.lr.ph.i29
-  %41 = getelementptr inbounds i8, ptr %38, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %42 = load i32, ptr %41, align 8
   %43 = icmp eq i32 %42, 0
   br i1 %43, label %enc_is_inited.exit33.thread, label %enc_inited_entry.exit43
@@ -211,13 +211,13 @@ enc_is_inited.exit33.thread:                      ; preds = %37, %34, %enc_is_in
 
 .lr.ph.i38:                                       ; preds = %54, %.lr.ph.preheader.i36
   %indvars.iv.i39 = phi i64 [ 0, %.lr.ph.preheader.i36 ], [ %indvars.iv.next.i40, %54 ]
-  %49 = getelementptr inbounds [20 x %struct.anon], ptr @InitedList, i64 0, i64 %indvars.iv.i39
+  %49 = getelementptr inbounds nuw [20 x %struct.anon], ptr @InitedList, i64 0, i64 %indvars.iv.i39
   %50 = load ptr, ptr %49, align 16
   %51 = icmp eq ptr %50, %0
   br i1 %51, label %52, label %54
 
 52:                                               ; preds = %.lr.ph.i38
-  %53 = getelementptr inbounds i8, ptr %49, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %49, i64 8
   store i32 1, ptr %53, align 8
   br label %enc_inited_entry.exit43
 
@@ -234,7 +234,7 @@ enc_is_inited.exit33.thread:                      ; preds = %37, %34, %enc_is_in
   %56 = sext i32 %47 to i64
   %57 = getelementptr inbounds [20 x %struct.anon], ptr @InitedList, i64 0, i64 %56
   store ptr %0, ptr %57, align 16
-  %58 = getelementptr inbounds i8, ptr %57, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
   store i32 1, ptr %58, align 8
   %59 = add nsw i32 %47, 1
   store i32 %59, ptr @InitedListNum, align 4
@@ -263,7 +263,7 @@ define noalias noundef ptr @onigenc_strdup(ptr nocapture noundef readonly %0, pt
   %5 = ptrtoint ptr %1 to i64
   %6 = sub i64 %4, %5
   %7 = trunc i64 %6 to i32
-  %8 = getelementptr inbounds i8, ptr %0, i64 20
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %9 = load i32, ptr %8, align 4
   %10 = add nsw i32 %9, %7
   %11 = sext i32 %10 to i64
@@ -305,7 +305,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: nounwind uwtable
 define ptr @onigenc_get_right_adjust_char_head(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 104
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr %5(ptr noundef %1, ptr noundef %2) #16
   %7 = icmp ult ptr %6, %2
@@ -325,7 +325,7 @@ define ptr @onigenc_get_right_adjust_char_head(ptr nocapture noundef readonly %0
 
 ; Function Attrs: nounwind uwtable
 define ptr @onigenc_get_right_adjust_char_head_with_prev(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly %3) local_unnamed_addr #2 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 104
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %6 = load ptr, ptr %5, align 8
   %7 = tail call ptr %6(ptr noundef %1, ptr noundef %2) #16
   %8 = icmp ult ptr %7, %2
@@ -375,7 +375,7 @@ define ptr @onigenc_get_prev_char_head(ptr nocapture noundef readonly %0, ptr no
   br i1 %.not, label %4, label %9
 
 4:                                                ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %0, i64 104
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 -1
   %8 = tail call ptr %6(ptr noundef %1, ptr noundef nonnull %7) #16
@@ -392,7 +392,7 @@ define ptr @onigenc_step_back(ptr nocapture noundef readonly %0, ptr noundef %1,
   br i1 %.not12, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
-  %5 = getelementptr inbounds i8, ptr %0, i64 104
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 104
   br label %6
 
 6:                                                ; preds = %.lr.ph, %10
@@ -464,7 +464,7 @@ define i32 @onigenc_strlen(ptr nocapture noundef readonly %0, ptr noundef %1, pt
 
 ; Function Attrs: nounwind uwtable
 define i32 @onigenc_strlen_null(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 20
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   br label %4
 
 4:                                                ; preds = %.thread, %2
@@ -486,7 +486,7 @@ define i32 @onigenc_strlen_null(ptr nocapture noundef readonly %0, ptr noundef %
 .lr.ph:                                           ; preds = %.preheader, %12
   %.01624.pn = phi ptr [ %.01624, %12 ], [ %.017, %.preheader ]
   %.023 = phi i32 [ %13, %12 ], [ %8, %.preheader ]
-  %.01624 = getelementptr inbounds i8, ptr %.01624.pn, i64 1
+  %.01624 = getelementptr inbounds nuw i8, ptr %.01624.pn, i64 1
   %11 = load i8, ptr %.01624, align 1
   %.not = icmp eq i8 %11, 0
   br i1 %.not, label %12, label %.thread
@@ -510,7 +510,7 @@ define i32 @onigenc_strlen_null(ptr nocapture noundef readonly %0, ptr noundef %
 
 ; Function Attrs: nounwind uwtable
 define noundef i32 @onigenc_str_bytelen_null(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 20
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   br label %4
 
 4:                                                ; preds = %.thread, %2
@@ -531,7 +531,7 @@ define noundef i32 @onigenc_str_bytelen_null(ptr nocapture noundef readonly %0, 
 .lr.ph:                                           ; preds = %.preheader, %12
   %.01826.pn = phi ptr [ %.01826, %12 ], [ %.019, %.preheader ]
   %.025 = phi i32 [ %13, %12 ], [ %8, %.preheader ]
-  %.01826 = getelementptr inbounds i8, ptr %.01826.pn, i64 1
+  %.01826 = getelementptr inbounds nuw i8, ptr %.01826.pn, i64 1
   %11 = load i8, ptr %.01826, align 1
   %.not = icmp eq i8 %11, 0
   br i1 %.not, label %12, label %.thread
@@ -563,7 +563,7 @@ define void @onigenc_set_default_caseconv_table(ptr nocapture noundef readnone %
 
 ; Function Attrs: nounwind uwtable
 define ptr @onigenc_get_left_adjust_char_head(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 104
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr %5(ptr noundef %1, ptr noundef %2) #16
   ret ptr %6
@@ -581,8 +581,8 @@ define i32 @onigenc_ascii_apply_all_case_fold(i32 noundef %0, ptr nocapture noun
 
 6:                                                ; preds = %3, %5
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %5 ]
-  %7 = getelementptr inbounds [26 x %struct.OnigPairCaseFoldCodes], ptr @OnigAsciiLowerMap, i64 0, i64 %indvars.iv
-  %8 = getelementptr inbounds i8, ptr %7, i64 4
+  %7 = getelementptr inbounds nuw [26 x %struct.OnigPairCaseFoldCodes], ptr @OnigAsciiLowerMap, i64 0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %9 = load i32, ptr %8, align 4
   store i32 %9, ptr %4, align 4
   %10 = load i32, ptr %7, align 8
@@ -616,12 +616,12 @@ define range(i32 0, 2) i32 @onigenc_ascii_get_case_fold_codes_by_str(i32 noundef
 .sink.split:                                      ; preds = %7, %4
   %.sink17 = phi i32 [ 32, %4 ], [ -32, %7 ]
   store i32 1, ptr %3, align 4
-  %9 = getelementptr inbounds i8, ptr %3, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 1, ptr %9, align 4
   %10 = load i8, ptr %1, align 1
   %11 = zext i8 %10 to i32
   %12 = add nsw i32 %.sink17, %11
-  %13 = getelementptr inbounds i8, ptr %3, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %12, ptr %13, align 4
   br label %14
 
@@ -644,8 +644,8 @@ define i32 @onigenc_apply_all_case_fold_with_map(i32 noundef %0, ptr nocapture n
 
 10:                                               ; preds = %9, %6
   %indvars.iv.i = phi i64 [ 0, %6 ], [ %indvars.iv.next.i, %9 ]
-  %11 = getelementptr inbounds [26 x %struct.OnigPairCaseFoldCodes], ptr @OnigAsciiLowerMap, i64 0, i64 %indvars.iv.i
-  %12 = getelementptr inbounds i8, ptr %11, i64 4
+  %11 = getelementptr inbounds nuw [26 x %struct.OnigPairCaseFoldCodes], ptr @OnigAsciiLowerMap, i64 0, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %13 = load i32, ptr %12, align 4
   store i32 %13, ptr %7, align 4
   %14 = load i32, ptr %11, align 8
@@ -685,8 +685,8 @@ onigenc_ascii_apply_all_case_fold.exit.thread:    ; preds = %10, %16
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %21
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %21 ]
-  %22 = getelementptr inbounds %struct.OnigPairCaseFoldCodes, ptr %1, i64 %indvars.iv
-  %23 = getelementptr inbounds i8, ptr %22, i64 4
+  %22 = getelementptr inbounds nuw %struct.OnigPairCaseFoldCodes, ptr %1, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 4
   %24 = load i32, ptr %23, align 4
   store i32 %24, ptr %8, align 4
   %25 = load i32, ptr %22, align 4
@@ -729,7 +729,7 @@ define range(i32 0, 5) i32 @onigenc_get_case_fold_codes_by_str_with_map(i32 noun
   br i1 %or.cond, label %13, label %47
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %4, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %15 = icmp ugt ptr %5, %14
   br i1 %15, label %16, label %47
 
@@ -747,18 +747,18 @@ define range(i32 0, 5) i32 @onigenc_get_case_fold_codes_by_str_with_map(i32 noun
 
 21:                                               ; preds = %62, %18
   store i32 2, ptr %6, align 4
-  %22 = getelementptr inbounds i8, ptr %6, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 1, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %6, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 223, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %4, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 1
   br label %.preheader
 
 .preheader:                                       ; preds = %21, %46
   %25 = phi i1 [ true, %21 ], [ false, %46 ]
   %indvars.iv123 = phi i64 [ 0, %21 ], [ 1, %46 ]
   %.092114 = phi i32 [ 1, %21 ], [ %.2, %46 ]
-  %26 = getelementptr inbounds [2 x i8], ptr @onigenc_get_case_fold_codes_by_str_with_map.sa, i64 0, i64 %indvars.iv123
+  %26 = getelementptr inbounds nuw [2 x i8], ptr @onigenc_get_case_fold_codes_by_str_with_map.sa, i64 0, i64 %indvars.iv123
   %27 = load i8, ptr %26, align 1
   %28 = zext i8 %27 to i32
   br label %29
@@ -769,7 +769,7 @@ define range(i32 0, 5) i32 @onigenc_get_case_fold_codes_by_str_with_map(i32 noun
   %.1112 = phi i32 [ %.092114, %.preheader ], [ %.2, %45 ]
   %31 = load i8, ptr %4, align 1
   %32 = icmp eq i8 %27, %31
-  %33 = getelementptr inbounds [2 x i8], ptr @onigenc_get_case_fold_codes_by_str_with_map.sa, i64 0, i64 %indvars.iv120
+  %33 = getelementptr inbounds nuw [2 x i8], ptr @onigenc_get_case_fold_codes_by_str_with_map.sa, i64 0, i64 %indvars.iv120
   %34 = load i8, ptr %33, align 1
   br i1 %32, label %35, label %._crit_edge
 
@@ -782,12 +782,12 @@ define range(i32 0, 5) i32 @onigenc_get_case_fold_codes_by_str_with_map(i32 noun
   %38 = sext i32 %.1112 to i64
   %39 = getelementptr inbounds %struct.OnigCaseFoldCodeItem, ptr %6, i64 %38
   store i32 2, ptr %39, align 4
-  %40 = getelementptr inbounds i8, ptr %39, i64 4
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 4
   store i32 2, ptr %40, align 4
-  %41 = getelementptr inbounds i8, ptr %39, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %39, i64 8
   store i32 %28, ptr %41, align 4
   %42 = zext i8 %34 to i32
-  %43 = getelementptr inbounds i8, ptr %39, i64 12
+  %43 = getelementptr inbounds nuw i8, ptr %39, i64 12
   store i32 %42, ptr %43, align 4
   %44 = add nsw i32 %.1112, 1
   br label %45
@@ -801,7 +801,7 @@ define range(i32 0, 5) i32 @onigenc_get_case_fold_codes_by_str_with_map(i32 noun
 
 47:                                               ; preds = %16, %18, %13, %10
   store i32 1, ptr %6, align 4
-  %48 = getelementptr inbounds i8, ptr %6, i64 4
+  %48 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 1, ptr %48, align 4
   %49 = load i8, ptr %4, align 1
   %50 = zext i8 %49 to i32
@@ -820,7 +820,7 @@ define range(i32 0, 5) i32 @onigenc_get_case_fold_codes_by_str_with_map(i32 noun
   br i1 %or.cond3, label %57, label %65
 
 57:                                               ; preds = %55
-  %58 = getelementptr inbounds i8, ptr %4, i64 1
+  %58 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %59 = icmp ugt ptr %5, %58
   br i1 %59, label %60, label %65
 
@@ -838,7 +838,7 @@ define range(i32 0, 5) i32 @onigenc_get_case_fold_codes_by_str_with_map(i32 noun
 
 65:                                               ; preds = %60, %62, %57, %55
   store i32 1, ptr %6, align 4
-  %66 = getelementptr inbounds i8, ptr %6, i64 4
+  %66 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 1, ptr %66, align 4
   %67 = load i8, ptr %4, align 1
   %68 = zext i8 %67 to i32
@@ -855,33 +855,33 @@ define range(i32 0, 5) i32 @onigenc_get_case_fold_codes_by_str_with_map(i32 noun
 
 74:                                               ; preds = %70
   store i32 1, ptr %6, align 4
-  %75 = getelementptr inbounds i8, ptr %6, i64 4
+  %75 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 2, ptr %75, align 4
-  %76 = getelementptr inbounds i8, ptr %6, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 115, ptr %76, align 4
-  %77 = getelementptr inbounds i8, ptr %6, i64 12
+  %77 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 115, ptr %77, align 4
-  %78 = getelementptr inbounds i8, ptr %6, i64 20
+  %78 = getelementptr inbounds nuw i8, ptr %6, i64 20
   store i32 1, ptr %78, align 4
-  %79 = getelementptr inbounds i8, ptr %6, i64 24
+  %79 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i32 2, ptr %79, align 4
-  %80 = getelementptr inbounds i8, ptr %6, i64 28
+  %80 = getelementptr inbounds nuw i8, ptr %6, i64 28
   store i32 83, ptr %80, align 4
-  %81 = getelementptr inbounds i8, ptr %6, i64 32
+  %81 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i32 83, ptr %81, align 4
-  %82 = getelementptr inbounds i8, ptr %6, i64 40
+  %82 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store i32 1, ptr %82, align 4
-  %83 = getelementptr inbounds i8, ptr %6, i64 44
+  %83 = getelementptr inbounds nuw i8, ptr %6, i64 44
   store i32 2, ptr %83, align 4
-  %84 = getelementptr inbounds i8, ptr %6, i64 48
+  %84 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store i32 115, ptr %84, align 4
-  %85 = getelementptr inbounds i8, ptr %6, i64 52
+  %85 = getelementptr inbounds nuw i8, ptr %6, i64 52
   store i32 83, ptr %85, align 4
-  %86 = getelementptr inbounds i8, ptr %6, i64 60
+  %86 = getelementptr inbounds nuw i8, ptr %6, i64 60
   store i32 1, ptr %86, align 4
-  %87 = getelementptr inbounds i8, ptr %6, i64 64
+  %87 = getelementptr inbounds nuw i8, ptr %6, i64 64
   store i32 2, ptr %87, align 4
-  %88 = getelementptr inbounds i8, ptr %6, i64 68
+  %88 = getelementptr inbounds nuw i8, ptr %6, i64 68
   store i32 83, ptr %88, align 4
   br label %.loopexit.sink.split
 
@@ -902,28 +902,28 @@ define range(i32 0, 5) i32 @onigenc_get_case_fold_codes_by_str_with_map(i32 noun
 
 93:                                               ; preds = %.lr.ph, %92
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %92 ]
-  %94 = getelementptr inbounds %struct.OnigPairCaseFoldCodes, ptr %1, i64 %indvars.iv
+  %94 = getelementptr inbounds nuw %struct.OnigPairCaseFoldCodes, ptr %1, i64 %indvars.iv
   %95 = load i32, ptr %94, align 4
   %96 = icmp eq i32 %95, %91
   br i1 %96, label %97, label %101
 
 97:                                               ; preds = %93
   store i32 1, ptr %6, align 4
-  %98 = getelementptr inbounds i8, ptr %6, i64 4
+  %98 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 1, ptr %98, align 4
-  %99 = getelementptr inbounds i8, ptr %94, i64 4
+  %99 = getelementptr inbounds nuw i8, ptr %94, i64 4
   %100 = load i32, ptr %99, align 4
   br label %.loopexit.sink.split
 
 101:                                              ; preds = %93
-  %102 = getelementptr inbounds i8, ptr %94, i64 4
+  %102 = getelementptr inbounds nuw i8, ptr %94, i64 4
   %103 = load i32, ptr %102, align 4
   %104 = icmp eq i32 %103, %91
   br i1 %104, label %105, label %92
 
 105:                                              ; preds = %101
   store i32 1, ptr %6, align 4
-  %106 = getelementptr inbounds i8, ptr %6, i64 4
+  %106 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 1, ptr %106, align 4
   %107 = load i32, ptr %94, align 4
   br label %.loopexit.sink.split
@@ -932,7 +932,7 @@ define range(i32 0, 5) i32 @onigenc_get_case_fold_codes_by_str_with_map(i32 noun
   %.sink130 = phi i64 [ 8, %105 ], [ 8, %97 ], [ 72, %74 ], [ 8, %65 ], [ 8, %47 ]
   %.sink = phi i32 [ %107, %105 ], [ %100, %97 ], [ 115, %74 ], [ %69, %65 ], [ %51, %47 ]
   %.095.ph = phi i32 [ 1, %105 ], [ 1, %97 ], [ 4, %74 ], [ 1, %65 ], [ 1, %47 ]
-  %108 = getelementptr inbounds i8, ptr %6, i64 %.sink130
+  %108 = getelementptr inbounds nuw i8, ptr %6, i64 %.sink130
   store i32 %.sink, ptr %108, align 4
   br label %.loopexit
 
@@ -969,11 +969,11 @@ define noundef i32 @onigenc_ascii_mbc_case_fold(i32 noundef %0, ptr nocapture no
   %5 = load ptr, ptr %1, align 8
   %6 = load i8, ptr %5, align 1
   %7 = zext i8 %6 to i64
-  %8 = getelementptr inbounds [256 x i8], ptr @OnigEncAsciiToLowerCaseTable, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw [256 x i8], ptr @OnigEncAsciiToLowerCaseTable, i64 0, i64 %7
   %9 = load i8, ptr %8, align 1
   store i8 %9, ptr %3, align 1
   %10 = load ptr, ptr %1, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 1
   store ptr %11, ptr %1, align 8
   ret i32 1
 }
@@ -1047,7 +1047,7 @@ define range(i32 0, 2) i32 @onigenc_length_check_is_valid_mbc_string(ptr nocaptu
 
 ; Function Attrs: nounwind uwtable
 define i32 @onigenc_is_valid_mbc_string(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 136
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 %5(ptr noundef %1, ptr noundef %2) #16
   ret i32 %6
@@ -1063,7 +1063,7 @@ define i32 @onigenc_mbn_mbc_to_code(ptr nocapture noundef readonly %0, ptr nound
   br i1 %8, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %3
-  %.01719 = getelementptr inbounds i8, ptr %1, i64 1
+  %.01719 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %9 = icmp sgt i32 %5, 1
   %.not20 = icmp ult ptr %.01719, %2
   %or.cond21 = select i1 %9, i1 %.not20, i1 false
@@ -1078,7 +1078,7 @@ define i32 @onigenc_mbn_mbc_to_code(ptr nocapture noundef readonly %0, ptr nound
   %12 = shl i32 %.023, 8
   %13 = or disjoint i32 %12, %11
   %14 = add nuw nsw i32 %.01622, 1
-  %.017 = getelementptr inbounds i8, ptr %.01724, i64 1
+  %.017 = getelementptr inbounds nuw i8, ptr %.01724, i64 1
   %15 = icmp slt i32 %14, %5
   %.not = icmp ult ptr %.017, %2
   %or.cond = select i1 %15, i1 %.not, i1 false
@@ -1098,11 +1098,11 @@ define i32 @onigenc_mbn_mbc_case_fold(ptr nocapture noundef readonly %0, i32 nou
 
 9:                                                ; preds = %5
   %10 = zext nneg i8 %7 to i64
-  %11 = getelementptr inbounds [256 x i8], ptr @OnigEncAsciiToLowerCaseTable, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw [256 x i8], ptr @OnigEncAsciiToLowerCaseTable, i64 0, i64 %10
   %12 = load i8, ptr %11, align 1
   store i8 %12, ptr %4, align 1
   %13 = load ptr, ptr %2, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 1
   br label %26
 
 15:                                               ; preds = %5
@@ -1115,9 +1115,9 @@ define i32 @onigenc_mbn_mbc_case_fold(ptr nocapture noundef readonly %0, i32 nou
   %.021 = phi i32 [ %22, %.lr.ph ], [ 0, %15 ]
   %.01520 = phi ptr [ %19, %.lr.ph ], [ %6, %15 ]
   %.01719 = phi ptr [ %21, %.lr.ph ], [ %4, %15 ]
-  %19 = getelementptr inbounds i8, ptr %.01520, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %.01520, i64 1
   %20 = load i8, ptr %.01520, align 1
-  %21 = getelementptr inbounds i8, ptr %.01719, i64 1
+  %21 = getelementptr inbounds nuw i8, ptr %.01719, i64 1
   store i8 %20, ptr %.01719, align 1
   %22 = add nuw nsw i32 %.021, 1
   %exitcond.not = icmp eq i32 %22, %17
@@ -1145,14 +1145,14 @@ define i32 @onigenc_mb2_code_to_mbc(ptr nocapture noundef readonly %0, i32 nound
 5:                                                ; preds = %3
   %6 = lshr i32 %1, 8
   %7 = trunc i32 %6 to i8
-  %8 = getelementptr inbounds i8, ptr %2, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 1
   store i8 %7, ptr %2, align 1
   br label %9
 
 9:                                                ; preds = %5, %3
   %.0 = phi ptr [ %8, %5 ], [ %2, %3 ]
   %10 = trunc i32 %1 to i8
-  %11 = getelementptr inbounds i8, ptr %.0, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %.0, i64 1
   store i8 %10, ptr %.0, align 1
   %12 = load ptr, ptr %0, align 8
   %13 = tail call i32 %12(ptr noundef %2) #16
@@ -1174,7 +1174,7 @@ define i32 @onigenc_mb4_code_to_mbc(ptr nocapture noundef readonly %0, i32 nound
 .thread:                                          ; preds = %3
   %4 = lshr i32 %1, 24
   %5 = trunc nuw i32 %4 to i8
-  %6 = getelementptr inbounds i8, ptr %2, i64 1
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 1
   store i8 %5, ptr %2, align 1
   br label %8
 
@@ -1186,7 +1186,7 @@ define i32 @onigenc_mb4_code_to_mbc(ptr nocapture noundef readonly %0, i32 nound
   %.034 = phi ptr [ %6, %.thread ], [ %2, %7 ]
   %9 = lshr i32 %1, 16
   %10 = trunc i32 %9 to i8
-  %11 = getelementptr inbounds i8, ptr %.034, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %.034, i64 1
   store i8 %10, ptr %.034, align 1
   br label %12
 
@@ -1201,14 +1201,14 @@ define i32 @onigenc_mb4_code_to_mbc(ptr nocapture noundef readonly %0, i32 nound
 14:                                               ; preds = %12
   %15 = lshr i32 %1, 8
   %16 = trunc i32 %15 to i8
-  %17 = getelementptr inbounds i8, ptr %.1, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %.1, i64 1
   store i8 %16, ptr %.1, align 1
   br label %18
 
 18:                                               ; preds = %12, %14
   %.2 = phi ptr [ %17, %14 ], [ %2, %12 ]
   %19 = trunc i32 %1 to i8
-  %20 = getelementptr inbounds i8, ptr %.2, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %.2, i64 1
   store i8 %19, ptr %.2, align 1
   %21 = load ptr, ptr %0, align 8
   %22 = tail call i32 %21(ptr noundef %2) #16
@@ -1240,13 +1240,13 @@ define i32 @onigenc_minimum_property_name_to_ctype(ptr nocapture noundef readonl
 
 onigenc_strlen.exit:                              ; preds = %.lr.ph.i, %3
   %.07.lcssa.i = phi i32 [ 0, %3 ], [ %9, %.lr.ph.i ]
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %12
 
 12:                                               ; preds = %onigenc_strlen.exit, %.critedge
   %13 = phi ptr [ @.str, %onigenc_strlen.exit ], [ %38, %.critedge ]
   %.01324 = phi ptr [ @onigenc_minimum_property_name_to_ctype.PBS, %onigenc_strlen.exit ], [ %37, %.critedge ]
-  %14 = getelementptr inbounds i8, ptr %.01324, i64 12
+  %14 = getelementptr inbounds nuw i8, ptr %.01324, i64 12
   %15 = load i16, ptr %14, align 4
   %16 = sext i16 %15 to i32
   %17 = icmp eq i32 %.07.lcssa.i, %16
@@ -1278,7 +1278,7 @@ onigenc_with_ascii_strncmp.exit:                  ; preds = %.lr.ph.i16
   br i1 %.not20.i, label %28, label %.critedge
 
 28:                                               ; preds = %23
-  %29 = getelementptr inbounds i8, ptr %.01722.i, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %.01722.i, i64 1
   %30 = load ptr, ptr %0, align 8
   %31 = tail call i32 %30(ptr noundef %.01523.i) #16
   %32 = sext i32 %31 to i64
@@ -1287,12 +1287,12 @@ onigenc_with_ascii_strncmp.exit:                  ; preds = %.lr.ph.i16
   br i1 %34, label %.lr.ph.i16, label %onigenc_with_ascii_strncmp.exit.thread, !llvm.loop !22
 
 onigenc_with_ascii_strncmp.exit.thread:           ; preds = %18, %onigenc_with_ascii_strncmp.exit, %28
-  %35 = getelementptr inbounds i8, ptr %.01324, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %.01324, i64 8
   %36 = load i32, ptr %35, align 8
   br label %.loopexit
 
 .critedge:                                        ; preds = %23, %12, %onigenc_with_ascii_strncmp.exit
-  %37 = getelementptr inbounds i8, ptr %.01324, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %.01324, i64 16
   %38 = load ptr, ptr %37, align 8
   %.not = icmp eq ptr %38, null
   br i1 %.not, label %.loopexit, label %12, !llvm.loop !23
@@ -1308,7 +1308,7 @@ define range(i32 -2147483647, -2147483648) i32 @onigenc_with_ascii_strncmp(ptr n
   br i1 %6, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %5
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %8
 
 8:                                                ; preds = %.lr.ph, %19
@@ -1334,7 +1334,7 @@ define range(i32 -2147483647, -2147483648) i32 @onigenc_with_ascii_strncmp(ptr n
   br i1 %.not20, label %19, label %.loopexit
 
 19:                                               ; preds = %13
-  %20 = getelementptr inbounds i8, ptr %.01722, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %.01722, i64 1
   %21 = load ptr, ptr %0, align 8
   %22 = tail call i32 %21(ptr noundef %.01523) #16
   %23 = sext i32 %22 to i64
@@ -1349,7 +1349,7 @@ define range(i32 -2147483647, -2147483648) i32 @onigenc_with_ascii_strncmp(ptr n
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @onigenc_is_mbc_word_ascii(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 %5(ptr noundef %1, ptr noundef %2) #16
   %7 = icmp ugt i32 %6, 127
@@ -1357,7 +1357,7 @@ define range(i32 0, 2) i32 @onigenc_is_mbc_word_ascii(ptr nocapture noundef read
 
 8:                                                ; preds = %3
   %9 = zext nneg i32 %6 to i64
-  %10 = getelementptr inbounds [256 x i16], ptr @OnigEncAsciiCtypeTable, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw [256 x i16], ptr @OnigEncAsciiCtypeTable, i64 0, i64 %9
   %11 = load i16, ptr %10, align 2
   %12 = lshr i16 %11, 12
   %.lobit = and i16 %12, 1
@@ -1376,7 +1376,7 @@ define range(i32 0, 2) i32 @onigenc_mb2_is_code_ctype(ptr nocapture noundef read
 
 5:                                                ; preds = %3
   %6 = zext nneg i32 %1 to i64
-  %7 = getelementptr inbounds [256 x i16], ptr @OnigEncAsciiCtypeTable, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw [256 x i16], ptr @OnigEncAsciiCtypeTable, i64 0, i64 %6
   %8 = load i16, ptr %7, align 2
   %9 = zext i16 %8 to i32
   %10 = lshr i32 %9, %2
@@ -1391,7 +1391,7 @@ define range(i32 0, 2) i32 @onigenc_mb2_is_code_ctype(ptr nocapture noundef read
   ]
 
 13:                                               ; preds = %12, %12, %12
-  %14 = getelementptr inbounds i8, ptr %0, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i32 %15(i32 noundef %1) #16
   %17 = icmp sgt i32 %16, 1
@@ -1410,7 +1410,7 @@ define range(i32 0, 2) i32 @onigenc_mb4_is_code_ctype(ptr nocapture noundef read
 
 5:                                                ; preds = %3
   %6 = zext nneg i32 %1 to i64
-  %7 = getelementptr inbounds [256 x i16], ptr @OnigEncAsciiCtypeTable, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw [256 x i16], ptr @OnigEncAsciiCtypeTable, i64 0, i64 %6
   %8 = load i16, ptr %7, align 2
   %9 = zext i16 %8 to i32
   %10 = lshr i32 %9, %2
@@ -1425,7 +1425,7 @@ define range(i32 0, 2) i32 @onigenc_mb4_is_code_ctype(ptr nocapture noundef read
   ]
 
 13:                                               ; preds = %12, %12, %12
-  %14 = getelementptr inbounds i8, ptr %0, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i32 %15(i32 noundef %1) #16
   %17 = icmp sgt i32 %16, 1
@@ -1453,9 +1453,9 @@ define range(i32 -1, 1) i32 @onig_codes_cmp(ptr nocapture noundef readonly %0, p
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %5
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %5 ]
-  %6 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
   %7 = load i32, ptr %6, align 4
-  %8 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4
   %.not = icmp eq i32 %7, %9
   br i1 %.not, label %5, label %._crit_edge

@@ -268,7 +268,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK4llvh11ms_demangle17PrimitiveTypeNode9outputPreER12OutputStreamNS0_11OutputFlagsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 %Flags) unnamed_addr #1 align 2 {
 entry:
-  %PrimKind = getelementptr inbounds i8, ptr %this, i64 16
+  %PrimKind = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %PrimKind, align 8
   switch i32 %0, label %sw.epilog [
     i32 0, label %if.end.i.i
@@ -294,10 +294,10 @@ entry:
   ]
 
 if.end.i.i:                                       ; preds = %entry
-  %CurrentPosition.i.i.i = getelementptr inbounds i8, ptr %OS, i64 8
+  %CurrentPosition.i.i.i = getelementptr inbounds nuw i8, ptr %OS, i64 8
   %1 = load i64, ptr %CurrentPosition.i.i.i, align 8
   %add.i.i.i = add i64 %1, 4
-  %BufferCapacity.i.i.i = getelementptr inbounds i8, ptr %OS, i64 16
+  %BufferCapacity.i.i.i = getelementptr inbounds nuw i8, ptr %OS, i64 16
   %2 = load i64, ptr %BufferCapacity.i.i.i, align 8
   %cmp.not.i.i.i = icmp ult i64 %add.i.i.i, %2
   %.pre.i.i = load ptr, ptr %OS, align 8
@@ -331,10 +331,10 @@ _ZN12OutputStream4growEm.exit.i.i:                ; preds = %if.then.i._ZN12Outp
   br label %sw.epilog
 
 if.end.i.i28:                                     ; preds = %entry
-  %CurrentPosition.i.i.i29 = getelementptr inbounds i8, ptr %OS, i64 8
+  %CurrentPosition.i.i.i29 = getelementptr inbounds nuw i8, ptr %OS, i64 8
   %6 = load i64, ptr %CurrentPosition.i.i.i29, align 8
   %add.i.i.i30 = add i64 %6, 4
-  %BufferCapacity.i.i.i31 = getelementptr inbounds i8, ptr %OS, i64 16
+  %BufferCapacity.i.i.i31 = getelementptr inbounds nuw i8, ptr %OS, i64 16
   %7 = load i64, ptr %BufferCapacity.i.i.i31, align 8
   %cmp.not.i.i.i32 = icmp ult i64 %add.i.i.i30, %7
   %.pre.i.i33 = load ptr, ptr %OS, align 8
@@ -368,10 +368,10 @@ _ZN12OutputStream4growEm.exit.i.i41:              ; preds = %if.then.i._ZN12Outp
   br label %sw.epilog
 
 if.end.i.i53:                                     ; preds = %entry
-  %CurrentPosition.i.i.i54 = getelementptr inbounds i8, ptr %OS, i64 8
+  %CurrentPosition.i.i.i54 = getelementptr inbounds nuw i8, ptr %OS, i64 8
   %11 = load i64, ptr %CurrentPosition.i.i.i54, align 8
   %add.i.i.i55 = add i64 %11, 4
-  %BufferCapacity.i.i.i56 = getelementptr inbounds i8, ptr %OS, i64 16
+  %BufferCapacity.i.i.i56 = getelementptr inbounds nuw i8, ptr %OS, i64 16
   %12 = load i64, ptr %BufferCapacity.i.i.i56, align 8
   %cmp.not.i.i.i57 = icmp ult i64 %add.i.i.i55, %12
   %.pre.i.i58 = load ptr, ptr %OS, align 8
@@ -405,10 +405,10 @@ _ZN12OutputStream4growEm.exit.i.i66:              ; preds = %if.then.i._ZN12Outp
   br label %sw.epilog
 
 if.end.i.i78:                                     ; preds = %entry
-  %CurrentPosition.i.i.i79 = getelementptr inbounds i8, ptr %OS, i64 8
+  %CurrentPosition.i.i.i79 = getelementptr inbounds nuw i8, ptr %OS, i64 8
   %16 = load i64, ptr %CurrentPosition.i.i.i79, align 8
   %add.i.i.i80 = add i64 %16, 11
-  %BufferCapacity.i.i.i81 = getelementptr inbounds i8, ptr %OS, i64 16
+  %BufferCapacity.i.i.i81 = getelementptr inbounds nuw i8, ptr %OS, i64 16
   %17 = load i64, ptr %BufferCapacity.i.i.i81, align 8
   %cmp.not.i.i.i82 = icmp ult i64 %add.i.i.i80, %17
   %.pre.i.i83 = load ptr, ptr %OS, align 8
@@ -442,10 +442,10 @@ _ZN12OutputStream4growEm.exit.i.i91:              ; preds = %if.then.i._ZN12Outp
   br label %sw.epilog
 
 if.end.i.i103:                                    ; preds = %entry
-  %CurrentPosition.i.i.i104 = getelementptr inbounds i8, ptr %OS, i64 8
+  %CurrentPosition.i.i.i104 = getelementptr inbounds nuw i8, ptr %OS, i64 8
   %21 = load i64, ptr %CurrentPosition.i.i.i104, align 8
   %add.i.i.i105 = add i64 %21, 13
-  %BufferCapacity.i.i.i106 = getelementptr inbounds i8, ptr %OS, i64 16
+  %BufferCapacity.i.i.i106 = getelementptr inbounds nuw i8, ptr %OS, i64 16
   %22 = load i64, ptr %BufferCapacity.i.i.i106, align 8
   %cmp.not.i.i.i107 = icmp ult i64 %add.i.i.i105, %22
   %.pre.i.i108 = load ptr, ptr %OS, align 8
@@ -479,10 +479,10 @@ _ZN12OutputStream4growEm.exit.i.i116:             ; preds = %if.then.i._ZN12Outp
   br label %sw.epilog
 
 if.end.i.i128:                                    ; preds = %entry
-  %CurrentPosition.i.i.i129 = getelementptr inbounds i8, ptr %OS, i64 8
+  %CurrentPosition.i.i.i129 = getelementptr inbounds nuw i8, ptr %OS, i64 8
   %26 = load i64, ptr %CurrentPosition.i.i.i129, align 8
   %add.i.i.i130 = add i64 %26, 8
-  %BufferCapacity.i.i.i131 = getelementptr inbounds i8, ptr %OS, i64 16
+  %BufferCapacity.i.i.i131 = getelementptr inbounds nuw i8, ptr %OS, i64 16
   %27 = load i64, ptr %BufferCapacity.i.i.i131, align 8
   %cmp.not.i.i.i132 = icmp ult i64 %add.i.i.i130, %27
   %.pre.i.i133 = load ptr, ptr %OS, align 8
@@ -516,10 +516,10 @@ _ZN12OutputStream4growEm.exit.i.i141:             ; preds = %if.then.i._ZN12Outp
   br label %sw.epilog
 
 if.end.i.i153:                                    ; preds = %entry
-  %CurrentPosition.i.i.i154 = getelementptr inbounds i8, ptr %OS, i64 8
+  %CurrentPosition.i.i.i154 = getelementptr inbounds nuw i8, ptr %OS, i64 8
   %31 = load i64, ptr %CurrentPosition.i.i.i154, align 8
   %add.i.i.i155 = add i64 %31, 8
-  %BufferCapacity.i.i.i156 = getelementptr inbounds i8, ptr %OS, i64 16
+  %BufferCapacity.i.i.i156 = getelementptr inbounds nuw i8, ptr %OS, i64 16
   %32 = load i64, ptr %BufferCapacity.i.i.i156, align 8
   %cmp.not.i.i.i157 = icmp ult i64 %add.i.i.i155, %32
   %.pre.i.i158 = load ptr, ptr %OS, align 8
@@ -553,10 +553,10 @@ _ZN12OutputStream4growEm.exit.i.i166:             ; preds = %if.then.i._ZN12Outp
   br label %sw.epilog
 
 if.end.i.i178:                                    ; preds = %entry
-  %CurrentPosition.i.i.i179 = getelementptr inbounds i8, ptr %OS, i64 8
+  %CurrentPosition.i.i.i179 = getelementptr inbounds nuw i8, ptr %OS, i64 8
   %36 = load i64, ptr %CurrentPosition.i.i.i179, align 8
   %add.i.i.i180 = add i64 %36, 5
-  %BufferCapacity.i.i.i181 = getelementptr inbounds i8, ptr %OS, i64 16
+  %BufferCapacity.i.i.i181 = getelementptr inbounds nuw i8, ptr %OS, i64 16
   %37 = load i64, ptr %BufferCapacity.i.i.i181, align 8
   %cmp.not.i.i.i182 = icmp ult i64 %add.i.i.i180, %37
   %.pre.i.i183 = load ptr, ptr %OS, align 8
@@ -590,10 +590,10 @@ _ZN12OutputStream4growEm.exit.i.i191:             ; preds = %if.then.i._ZN12Outp
   br label %sw.epilog
 
 if.end.i.i203:                                    ; preds = %entry
-  %CurrentPosition.i.i.i204 = getelementptr inbounds i8, ptr %OS, i64 8
+  %CurrentPosition.i.i.i204 = getelementptr inbounds nuw i8, ptr %OS, i64 8
   %41 = load i64, ptr %CurrentPosition.i.i.i204, align 8
   %add.i.i.i205 = add i64 %41, 14
-  %BufferCapacity.i.i.i206 = getelementptr inbounds i8, ptr %OS, i64 16
+  %BufferCapacity.i.i.i206 = getelementptr inbounds nuw i8, ptr %OS, i64 16
   %42 = load i64, ptr %BufferCapacity.i.i.i206, align 8
   %cmp.not.i.i.i207 = icmp ult i64 %add.i.i.i205, %42
   %.pre.i.i208 = load ptr, ptr %OS, align 8
@@ -627,10 +627,10 @@ _ZN12OutputStream4growEm.exit.i.i216:             ; preds = %if.then.i._ZN12Outp
   br label %sw.epilog
 
 if.end.i.i228:                                    ; preds = %entry
-  %CurrentPosition.i.i.i229 = getelementptr inbounds i8, ptr %OS, i64 8
+  %CurrentPosition.i.i.i229 = getelementptr inbounds nuw i8, ptr %OS, i64 8
   %46 = load i64, ptr %CurrentPosition.i.i.i229, align 8
   %add.i.i.i230 = add i64 %46, 3
-  %BufferCapacity.i.i.i231 = getelementptr inbounds i8, ptr %OS, i64 16
+  %BufferCapacity.i.i.i231 = getelementptr inbounds nuw i8, ptr %OS, i64 16
   %47 = load i64, ptr %BufferCapacity.i.i.i231, align 8
   %cmp.not.i.i.i232 = icmp ult i64 %add.i.i.i230, %47
   %.pre.i.i233 = load ptr, ptr %OS, align 8
@@ -664,10 +664,10 @@ _ZN12OutputStream4growEm.exit.i.i241:             ; preds = %if.then.i._ZN12Outp
   br label %sw.epilog
 
 if.end.i.i253:                                    ; preds = %entry
-  %CurrentPosition.i.i.i254 = getelementptr inbounds i8, ptr %OS, i64 8
+  %CurrentPosition.i.i.i254 = getelementptr inbounds nuw i8, ptr %OS, i64 8
   %51 = load i64, ptr %CurrentPosition.i.i.i254, align 8
   %add.i.i.i255 = add i64 %51, 12
-  %BufferCapacity.i.i.i256 = getelementptr inbounds i8, ptr %OS, i64 16
+  %BufferCapacity.i.i.i256 = getelementptr inbounds nuw i8, ptr %OS, i64 16
   %52 = load i64, ptr %BufferCapacity.i.i.i256, align 8
   %cmp.not.i.i.i257 = icmp ult i64 %add.i.i.i255, %52
   %.pre.i.i258 = load ptr, ptr %OS, align 8
@@ -701,10 +701,10 @@ _ZN12OutputStream4growEm.exit.i.i266:             ; preds = %if.then.i._ZN12Outp
   br label %sw.epilog
 
 if.end.i.i278:                                    ; preds = %entry
-  %CurrentPosition.i.i.i279 = getelementptr inbounds i8, ptr %OS, i64 8
+  %CurrentPosition.i.i.i279 = getelementptr inbounds nuw i8, ptr %OS, i64 8
   %56 = load i64, ptr %CurrentPosition.i.i.i279, align 8
   %add.i.i.i280 = add i64 %56, 4
-  %BufferCapacity.i.i.i281 = getelementptr inbounds i8, ptr %OS, i64 16
+  %BufferCapacity.i.i.i281 = getelementptr inbounds nuw i8, ptr %OS, i64 16
   %57 = load i64, ptr %BufferCapacity.i.i.i281, align 8
   %cmp.not.i.i.i282 = icmp ult i64 %add.i.i.i280, %57
   %.pre.i.i283 = load ptr, ptr %OS, align 8
@@ -738,10 +738,10 @@ _ZN12OutputStream4growEm.exit.i.i291:             ; preds = %if.then.i._ZN12Outp
   br label %sw.epilog
 
 if.end.i.i303:                                    ; preds = %entry
-  %CurrentPosition.i.i.i304 = getelementptr inbounds i8, ptr %OS, i64 8
+  %CurrentPosition.i.i.i304 = getelementptr inbounds nuw i8, ptr %OS, i64 8
   %61 = load i64, ptr %CurrentPosition.i.i.i304, align 8
   %add.i.i.i305 = add i64 %61, 13
-  %BufferCapacity.i.i.i306 = getelementptr inbounds i8, ptr %OS, i64 16
+  %BufferCapacity.i.i.i306 = getelementptr inbounds nuw i8, ptr %OS, i64 16
   %62 = load i64, ptr %BufferCapacity.i.i.i306, align 8
   %cmp.not.i.i.i307 = icmp ult i64 %add.i.i.i305, %62
   %.pre.i.i308 = load ptr, ptr %OS, align 8
@@ -775,10 +775,10 @@ _ZN12OutputStream4growEm.exit.i.i316:             ; preds = %if.then.i._ZN12Outp
   br label %sw.epilog
 
 if.end.i.i328:                                    ; preds = %entry
-  %CurrentPosition.i.i.i329 = getelementptr inbounds i8, ptr %OS, i64 8
+  %CurrentPosition.i.i.i329 = getelementptr inbounds nuw i8, ptr %OS, i64 8
   %66 = load i64, ptr %CurrentPosition.i.i.i329, align 8
   %add.i.i.i330 = add i64 %66, 7
-  %BufferCapacity.i.i.i331 = getelementptr inbounds i8, ptr %OS, i64 16
+  %BufferCapacity.i.i.i331 = getelementptr inbounds nuw i8, ptr %OS, i64 16
   %67 = load i64, ptr %BufferCapacity.i.i.i331, align 8
   %cmp.not.i.i.i332 = icmp ult i64 %add.i.i.i330, %67
   %.pre.i.i333 = load ptr, ptr %OS, align 8
@@ -812,10 +812,10 @@ _ZN12OutputStream4growEm.exit.i.i341:             ; preds = %if.then.i._ZN12Outp
   br label %sw.epilog
 
 if.end.i.i353:                                    ; preds = %entry
-  %CurrentPosition.i.i.i354 = getelementptr inbounds i8, ptr %OS, i64 8
+  %CurrentPosition.i.i.i354 = getelementptr inbounds nuw i8, ptr %OS, i64 8
   %71 = load i64, ptr %CurrentPosition.i.i.i354, align 8
   %add.i.i.i355 = add i64 %71, 16
-  %BufferCapacity.i.i.i356 = getelementptr inbounds i8, ptr %OS, i64 16
+  %BufferCapacity.i.i.i356 = getelementptr inbounds nuw i8, ptr %OS, i64 16
   %72 = load i64, ptr %BufferCapacity.i.i.i356, align 8
   %cmp.not.i.i.i357 = icmp ult i64 %add.i.i.i355, %72
   %.pre.i.i358 = load ptr, ptr %OS, align 8
@@ -849,10 +849,10 @@ _ZN12OutputStream4growEm.exit.i.i366:             ; preds = %if.then.i._ZN12Outp
   br label %sw.epilog
 
 if.end.i.i378:                                    ; preds = %entry
-  %CurrentPosition.i.i.i379 = getelementptr inbounds i8, ptr %OS, i64 8
+  %CurrentPosition.i.i.i379 = getelementptr inbounds nuw i8, ptr %OS, i64 8
   %76 = load i64, ptr %CurrentPosition.i.i.i379, align 8
   %add.i.i.i380 = add i64 %76, 7
-  %BufferCapacity.i.i.i381 = getelementptr inbounds i8, ptr %OS, i64 16
+  %BufferCapacity.i.i.i381 = getelementptr inbounds nuw i8, ptr %OS, i64 16
   %77 = load i64, ptr %BufferCapacity.i.i.i381, align 8
   %cmp.not.i.i.i382 = icmp ult i64 %add.i.i.i380, %77
   %.pre.i.i383 = load ptr, ptr %OS, align 8
@@ -886,10 +886,10 @@ _ZN12OutputStream4growEm.exit.i.i391:             ; preds = %if.then.i._ZN12Outp
   br label %sw.epilog
 
 if.end.i.i403:                                    ; preds = %entry
-  %CurrentPosition.i.i.i404 = getelementptr inbounds i8, ptr %OS, i64 8
+  %CurrentPosition.i.i.i404 = getelementptr inbounds nuw i8, ptr %OS, i64 8
   %81 = load i64, ptr %CurrentPosition.i.i.i404, align 8
   %add.i.i.i405 = add i64 %81, 5
-  %BufferCapacity.i.i.i406 = getelementptr inbounds i8, ptr %OS, i64 16
+  %BufferCapacity.i.i.i406 = getelementptr inbounds nuw i8, ptr %OS, i64 16
   %82 = load i64, ptr %BufferCapacity.i.i.i406, align 8
   %cmp.not.i.i.i407 = icmp ult i64 %add.i.i.i405, %82
   %.pre.i.i408 = load ptr, ptr %OS, align 8
@@ -923,10 +923,10 @@ _ZN12OutputStream4growEm.exit.i.i416:             ; preds = %if.then.i._ZN12Outp
   br label %sw.epilog
 
 if.end.i.i428:                                    ; preds = %entry
-  %CurrentPosition.i.i.i429 = getelementptr inbounds i8, ptr %OS, i64 8
+  %CurrentPosition.i.i.i429 = getelementptr inbounds nuw i8, ptr %OS, i64 8
   %86 = load i64, ptr %CurrentPosition.i.i.i429, align 8
   %add.i.i.i430 = add i64 %86, 6
-  %BufferCapacity.i.i.i431 = getelementptr inbounds i8, ptr %OS, i64 16
+  %BufferCapacity.i.i.i431 = getelementptr inbounds nuw i8, ptr %OS, i64 16
   %87 = load i64, ptr %BufferCapacity.i.i.i431, align 8
   %cmp.not.i.i.i432 = icmp ult i64 %add.i.i.i430, %87
   %.pre.i.i433 = load ptr, ptr %OS, align 8
@@ -960,10 +960,10 @@ _ZN12OutputStream4growEm.exit.i.i441:             ; preds = %if.then.i._ZN12Outp
   br label %sw.epilog
 
 if.end.i.i453:                                    ; preds = %entry
-  %CurrentPosition.i.i.i454 = getelementptr inbounds i8, ptr %OS, i64 8
+  %CurrentPosition.i.i.i454 = getelementptr inbounds nuw i8, ptr %OS, i64 8
   %91 = load i64, ptr %CurrentPosition.i.i.i454, align 8
   %add.i.i.i455 = add i64 %91, 11
-  %BufferCapacity.i.i.i456 = getelementptr inbounds i8, ptr %OS, i64 16
+  %BufferCapacity.i.i.i456 = getelementptr inbounds nuw i8, ptr %OS, i64 16
   %92 = load i64, ptr %BufferCapacity.i.i.i456, align 8
   %cmp.not.i.i.i457 = icmp ult i64 %add.i.i.i455, %92
   %.pre.i.i458 = load ptr, ptr %OS, align 8
@@ -997,10 +997,10 @@ _ZN12OutputStream4growEm.exit.i.i466:             ; preds = %if.then.i._ZN12Outp
   br label %sw.epilog
 
 if.end.i.i478:                                    ; preds = %entry
-  %CurrentPosition.i.i.i479 = getelementptr inbounds i8, ptr %OS, i64 8
+  %CurrentPosition.i.i.i479 = getelementptr inbounds nuw i8, ptr %OS, i64 8
   %96 = load i64, ptr %CurrentPosition.i.i.i479, align 8
   %add.i.i.i480 = add i64 %96, 14
-  %BufferCapacity.i.i.i481 = getelementptr inbounds i8, ptr %OS, i64 16
+  %BufferCapacity.i.i.i481 = getelementptr inbounds nuw i8, ptr %OS, i64 16
   %97 = load i64, ptr %BufferCapacity.i.i.i481, align 8
   %cmp.not.i.i.i482 = icmp ult i64 %add.i.i.i480, %97
   %.pre.i.i483 = load ptr, ptr %OS, align 8
@@ -1034,7 +1034,7 @@ _ZN12OutputStream4growEm.exit.i.i491:             ; preds = %if.then.i._ZN12Outp
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %_ZN12OutputStream4growEm.exit.i.i491, %_ZN12OutputStream4growEm.exit.i.i466, %_ZN12OutputStream4growEm.exit.i.i441, %_ZN12OutputStream4growEm.exit.i.i416, %_ZN12OutputStream4growEm.exit.i.i391, %_ZN12OutputStream4growEm.exit.i.i366, %_ZN12OutputStream4growEm.exit.i.i341, %_ZN12OutputStream4growEm.exit.i.i316, %_ZN12OutputStream4growEm.exit.i.i291, %_ZN12OutputStream4growEm.exit.i.i266, %_ZN12OutputStream4growEm.exit.i.i241, %_ZN12OutputStream4growEm.exit.i.i216, %_ZN12OutputStream4growEm.exit.i.i191, %_ZN12OutputStream4growEm.exit.i.i166, %_ZN12OutputStream4growEm.exit.i.i141, %_ZN12OutputStream4growEm.exit.i.i116, %_ZN12OutputStream4growEm.exit.i.i91, %_ZN12OutputStream4growEm.exit.i.i66, %_ZN12OutputStream4growEm.exit.i.i41, %_ZN12OutputStream4growEm.exit.i.i, %entry
-  %Quals = getelementptr inbounds i8, ptr %this, i64 12
+  %Quals = getelementptr inbounds nuw i8, ptr %this, i64 12
   %101 = load i8, ptr %Quals, align 4
   %cmp.i = icmp eq i8 %101, 0
   br i1 %cmp.i, label %_ZL16outputQualifiersR12OutputStreamN4llvh11ms_demangle10QualifiersEbb.exit, label %if.end.i
@@ -1059,10 +1059,10 @@ entry:
   br i1 %cmp.i, label %_ZN12OutputStreampLE10StringView.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %CurrentPosition.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %CurrentPosition.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i64, ptr %CurrentPosition.i.i, align 8
   %add.i.i = add i64 %0, %sub.ptr.sub.i.i
-  %BufferCapacity.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %BufferCapacity.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load i64, ptr %BufferCapacity.i.i, align 8
   %cmp.not.i.i = icmp ult i64 %add.i.i, %1
   %.pre.i = load ptr, ptr %this, align 8
@@ -1109,13 +1109,13 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK4llvh11ms_demangle13NodeArrayNode6outputER12OutputStreamNS0_11OutputFlagsE10StringView(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags, ptr %Separator.coerce0, ptr %Separator.coerce1) local_unnamed_addr #1 align 2 {
 entry:
-  %Count = getelementptr inbounds i8, ptr %this, i64 24
+  %Count = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i64, ptr %Count, align 8
   %cmp = icmp eq i64 %0, 0
   br i1 %cmp, label %for.end, label %if.end
 
 if.end:                                           ; preds = %entry
-  %Nodes = getelementptr inbounds i8, ptr %this, i64 16
+  %Nodes = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %Nodes, align 8
   %2 = load ptr, ptr %1, align 8
   %tobool.not = icmp eq ptr %2, null
@@ -1123,7 +1123,7 @@ if.end:                                           ; preds = %entry
 
 if.then2:                                         ; preds = %if.end
   %vtable = load ptr, ptr %2, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %3 = load ptr, ptr %vfn, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(12) %2, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags) #11
   %.pre = load i64, ptr %Count, align 8
@@ -1139,8 +1139,8 @@ for.body.lr.ph:                                   ; preds = %if.end5
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %Separator.coerce0 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %cmp.i.i = icmp eq ptr %Separator.coerce1, %Separator.coerce0
-  %CurrentPosition.i.i.i = getelementptr inbounds i8, ptr %OS, i64 8
-  %BufferCapacity.i.i.i = getelementptr inbounds i8, ptr %OS, i64 16
+  %CurrentPosition.i.i.i = getelementptr inbounds nuw i8, ptr %OS, i64 8
+  %BufferCapacity.i.i.i = getelementptr inbounds nuw i8, ptr %OS, i64 16
   br i1 %cmp.i.i, label %for.body.us, label %for.body
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.body.us
@@ -1149,7 +1149,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   %arrayidx9.us = getelementptr inbounds ptr, ptr %5, i64 %I.07.us
   %6 = load ptr, ptr %arrayidx9.us, align 8
   %vtable10.us = load ptr, ptr %6, align 8
-  %vfn11.us = getelementptr inbounds i8, ptr %vtable10.us, i64 16
+  %vfn11.us = getelementptr inbounds nuw i8, ptr %vtable10.us, i64 16
   %7 = load ptr, ptr %vfn11.us, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(12) %6, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags) #11
   %inc.us = add nuw i64 %I.07.us, 1
@@ -1195,7 +1195,7 @@ _ZN12OutputStream4growEm.exit.i.i:                ; preds = %if.then.i._ZN12Outp
   %arrayidx9 = getelementptr inbounds ptr, ptr %14, i64 %I.07
   %15 = load ptr, ptr %arrayidx9, align 8
   %vtable10 = load ptr, ptr %15, align 8
-  %vfn11 = getelementptr inbounds i8, ptr %vtable10, i64 16
+  %vfn11 = getelementptr inbounds nuw i8, ptr %vtable10, i64 16
   %16 = load ptr, ptr %vfn11, align 8
   tail call void %16(ptr noundef nonnull align 8 dereferenceable(12) %15, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags) #11
   %inc = add nuw i64 %I.07, 1
@@ -1210,7 +1210,7 @@ for.end:                                          ; preds = %_ZN12OutputStream4g
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK4llvh11ms_demangle24EncodedStringLiteralNode6outputER12OutputStreamNS0_11OutputFlagsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, ptr nocapture noundef nonnull align 8 dereferenceable(32) %OS, i32 %Flags) unnamed_addr #1 align 2 {
 entry:
-  %Char = getelementptr inbounds i8, ptr %this, i64 44
+  %Char = getelementptr inbounds nuw i8, ptr %this, i64 44
   %0 = load i32, ptr %Char, align 4
   switch i32 %0, label %sw.epilog [
     i32 3, label %if.end.i.i
@@ -1220,10 +1220,10 @@ entry:
   ]
 
 if.end.i.i:                                       ; preds = %entry
-  %CurrentPosition.i.i.i = getelementptr inbounds i8, ptr %OS, i64 8
+  %CurrentPosition.i.i.i = getelementptr inbounds nuw i8, ptr %OS, i64 8
   %1 = load i64, ptr %CurrentPosition.i.i.i, align 8
   %add.i.i.i = add i64 %1, 19
-  %BufferCapacity.i.i.i = getelementptr inbounds i8, ptr %OS, i64 16
+  %BufferCapacity.i.i.i = getelementptr inbounds nuw i8, ptr %OS, i64 16
   %2 = load i64, ptr %BufferCapacity.i.i.i, align 8
   %cmp.not.i.i.i = icmp ult i64 %add.i.i.i, %2
   %.pre.i.i = load ptr, ptr %OS, align 8
@@ -1257,10 +1257,10 @@ _ZN12OutputStream4growEm.exit.i.i:                ; preds = %if.then.i._ZN12Outp
   br label %sw.epilog
 
 if.end.i.i14:                                     ; preds = %entry
-  %CurrentPosition.i.i.i15 = getelementptr inbounds i8, ptr %OS, i64 8
+  %CurrentPosition.i.i.i15 = getelementptr inbounds nuw i8, ptr %OS, i64 8
   %6 = load i64, ptr %CurrentPosition.i.i.i15, align 8
   %add.i.i.i16 = add i64 %6, 15
-  %BufferCapacity.i.i.i17 = getelementptr inbounds i8, ptr %OS, i64 16
+  %BufferCapacity.i.i.i17 = getelementptr inbounds nuw i8, ptr %OS, i64 16
   %7 = load i64, ptr %BufferCapacity.i.i.i17, align 8
   %cmp.not.i.i.i18 = icmp ult i64 %add.i.i.i16, %7
   %.pre.i.i19 = load ptr, ptr %OS, align 8
@@ -1294,10 +1294,10 @@ _ZN12OutputStream4growEm.exit.i.i27:              ; preds = %if.then.i._ZN12Outp
   br label %sw.epilog
 
 if.end.i.i39:                                     ; preds = %entry
-  %CurrentPosition.i.i.i40 = getelementptr inbounds i8, ptr %OS, i64 8
+  %CurrentPosition.i.i.i40 = getelementptr inbounds nuw i8, ptr %OS, i64 8
   %11 = load i64, ptr %CurrentPosition.i.i.i40, align 8
   %add.i.i.i41 = add i64 %11, 20
-  %BufferCapacity.i.i.i42 = getelementptr inbounds i8, ptr %OS, i64 16
+  %BufferCapacity.i.i.i42 = getelementptr inbounds nuw i8, ptr %OS, i64 16
   %12 = load i64, ptr %BufferCapacity.i.i.i42, align 8
   %cmp.not.i.i.i43 = icmp ult i64 %add.i.i.i41, %12
   %.pre.i.i44 = load ptr, ptr %OS, align 8
@@ -1331,10 +1331,10 @@ _ZN12OutputStream4growEm.exit.i.i52:              ; preds = %if.then.i._ZN12Outp
   br label %sw.epilog
 
 if.end.i.i64:                                     ; preds = %entry
-  %CurrentPosition.i.i.i65 = getelementptr inbounds i8, ptr %OS, i64 8
+  %CurrentPosition.i.i.i65 = getelementptr inbounds nuw i8, ptr %OS, i64 8
   %16 = load i64, ptr %CurrentPosition.i.i.i65, align 8
   %add.i.i.i66 = add i64 %16, 20
-  %BufferCapacity.i.i.i67 = getelementptr inbounds i8, ptr %OS, i64 16
+  %BufferCapacity.i.i.i67 = getelementptr inbounds nuw i8, ptr %OS, i64 16
   %17 = load i64, ptr %BufferCapacity.i.i.i67, align 8
   %cmp.not.i.i.i68 = icmp ult i64 %add.i.i.i66, %17
   %.pre.i.i69 = load ptr, ptr %OS, align 8
@@ -1368,21 +1368,21 @@ _ZN12OutputStream4growEm.exit.i.i77:              ; preds = %if.then.i._ZN12Outp
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %_ZN12OutputStream4growEm.exit.i.i77, %_ZN12OutputStream4growEm.exit.i.i52, %_ZN12OutputStream4growEm.exit.i.i27, %_ZN12OutputStream4growEm.exit.i.i, %entry
-  %DecodedString = getelementptr inbounds i8, ptr %this, i64 24
+  %DecodedString = getelementptr inbounds nuw i8, ptr %this, i64 24
   %agg.tmp11.sroa.0.0.copyload = load ptr, ptr %DecodedString, align 8
-  %agg.tmp11.sroa.2.0.DecodedString.sroa_idx = getelementptr inbounds i8, ptr %this, i64 32
+  %agg.tmp11.sroa.2.0.DecodedString.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 32
   %agg.tmp11.sroa.2.0.copyload = load ptr, ptr %agg.tmp11.sroa.2.0.DecodedString.sroa_idx, align 8
   %sub.ptr.lhs.cast.i.i.i82 = ptrtoint ptr %agg.tmp11.sroa.2.0.copyload to i64
   %sub.ptr.rhs.cast.i.i.i83 = ptrtoint ptr %agg.tmp11.sroa.0.0.copyload to i64
   %sub.ptr.sub.i.i.i84 = sub i64 %sub.ptr.lhs.cast.i.i.i82, %sub.ptr.rhs.cast.i.i.i83
   %cmp.i.i85 = icmp eq ptr %agg.tmp11.sroa.2.0.copyload, %agg.tmp11.sroa.0.0.copyload
-  %CurrentPosition.i.i.i112.phi.trans.insert = getelementptr inbounds i8, ptr %OS, i64 8
+  %CurrentPosition.i.i.i112.phi.trans.insert = getelementptr inbounds nuw i8, ptr %OS, i64 8
   %.pre = load i64, ptr %CurrentPosition.i.i.i112.phi.trans.insert, align 8
   br i1 %cmp.i.i85, label %if.end.i.i111, label %if.end.i.i86
 
 if.end.i.i86:                                     ; preds = %sw.epilog
   %add.i.i.i88 = add i64 %.pre, %sub.ptr.sub.i.i.i84
-  %BufferCapacity.i.i.i89 = getelementptr inbounds i8, ptr %OS, i64 16
+  %BufferCapacity.i.i.i89 = getelementptr inbounds nuw i8, ptr %OS, i64 16
   %21 = load i64, ptr %BufferCapacity.i.i.i89, align 8
   %cmp.not.i.i.i90 = icmp ult i64 %add.i.i.i88, %21
   %.pre.i.i91 = load ptr, ptr %OS, align 8
@@ -1417,9 +1417,9 @@ _ZN12OutputStream4growEm.exit.i.i99:              ; preds = %if.then.i._ZN12Outp
 
 if.end.i.i111:                                    ; preds = %sw.epilog, %_ZN12OutputStream4growEm.exit.i.i99
   %25 = phi i64 [ %add.i.i101, %_ZN12OutputStream4growEm.exit.i.i99 ], [ %.pre, %sw.epilog ]
-  %CurrentPosition.i.i.i112 = getelementptr inbounds i8, ptr %OS, i64 8
+  %CurrentPosition.i.i.i112 = getelementptr inbounds nuw i8, ptr %OS, i64 8
   %add.i.i.i113 = add i64 %25, 1
-  %BufferCapacity.i.i.i114 = getelementptr inbounds i8, ptr %OS, i64 16
+  %BufferCapacity.i.i.i114 = getelementptr inbounds nuw i8, ptr %OS, i64 16
   %26 = load i64, ptr %BufferCapacity.i.i.i114, align 8
   %cmp.not.i.i.i115 = icmp ult i64 %add.i.i.i113, %26
   %.pre.i.i116 = load ptr, ptr %OS, align 8
@@ -1450,7 +1450,7 @@ _ZN12OutputStream4growEm.exit.i.i124:             ; preds = %if.then.i._ZN12Outp
   %29 = load i64, ptr %CurrentPosition.i.i.i112, align 8
   %add.i.i126 = add i64 %29, 1
   store i64 %add.i.i126, ptr %CurrentPosition.i.i.i112, align 8
-  %IsTruncated = getelementptr inbounds i8, ptr %this, i64 40
+  %IsTruncated = getelementptr inbounds nuw i8, ptr %this, i64 40
   %30 = load i8, ptr %IsTruncated, align 8
   %tobool = trunc i8 %30 to i1
   br i1 %tobool, label %if.end.i.i136, label %if.end.i.i161
@@ -1528,16 +1528,16 @@ _ZN12OutputStream4growEm.exit.i.i174:             ; preds = %if.then.i._ZN12Outp
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK4llvh11ms_demangle18IntegerLiteralNode6outputER12OutputStreamNS0_11OutputFlagsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %this, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 %Flags) unnamed_addr #1 align 2 {
 entry:
-  %IsNegative = getelementptr inbounds i8, ptr %this, i64 24
+  %IsNegative = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i8, ptr %IsNegative, align 8
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %CurrentPosition.i.i.i = getelementptr inbounds i8, ptr %OS, i64 8
+  %CurrentPosition.i.i.i = getelementptr inbounds nuw i8, ptr %OS, i64 8
   %1 = load i64, ptr %CurrentPosition.i.i.i, align 8
   %add.i.i.i = add i64 %1, 1
-  %BufferCapacity.i.i.i = getelementptr inbounds i8, ptr %OS, i64 16
+  %BufferCapacity.i.i.i = getelementptr inbounds nuw i8, ptr %OS, i64 16
   %2 = load i64, ptr %BufferCapacity.i.i.i, align 8
   %cmp.not.i.i.i = icmp ult i64 %add.i.i.i, %2
   %.pre.i.i = load ptr, ptr %OS, align 8
@@ -1571,7 +1571,7 @@ _ZN12OutputStreamlsEc.exit:                       ; preds = %if.then, %if.then.i
   br label %if.end
 
 if.end:                                           ; preds = %_ZN12OutputStreamlsEc.exit, %entry
-  %Value = getelementptr inbounds i8, ptr %this, i64 16
+  %Value = getelementptr inbounds nuw i8, ptr %this, i64 16
   %5 = load i64, ptr %Value, align 8
   tail call void @_ZN12OutputStream13writeUnsignedEmb(ptr noundef nonnull align 8 dereferenceable(32) %OS, i64 noundef %5, i1 noundef zeroext false)
   ret void
@@ -1580,16 +1580,16 @@ if.end:                                           ; preds = %_ZN12OutputStreamls
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK4llvh11ms_demangle30TemplateParameterReferenceNode6outputER12OutputStreamNS0_11OutputFlagsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(61) %this, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags) unnamed_addr #1 align 2 {
 entry:
-  %ThunkOffsetCount = getelementptr inbounds i8, ptr %this, i64 24
+  %ThunkOffsetCount = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i32, ptr %ThunkOffsetCount, align 8
   %cmp = icmp sgt i32 %0, 0
   br i1 %cmp, label %if.end.i.i, label %if.else
 
 if.end.i.i:                                       ; preds = %entry
-  %CurrentPosition.i.i.i = getelementptr inbounds i8, ptr %OS, i64 8
+  %CurrentPosition.i.i.i = getelementptr inbounds nuw i8, ptr %OS, i64 8
   %1 = load i64, ptr %CurrentPosition.i.i.i, align 8
   %add.i.i.i = add i64 %1, 1
-  %BufferCapacity.i.i.i = getelementptr inbounds i8, ptr %OS, i64 16
+  %BufferCapacity.i.i.i = getelementptr inbounds nuw i8, ptr %OS, i64 16
   %2 = load i64, ptr %BufferCapacity.i.i.i, align 8
   %cmp.not.i.i.i = icmp ult i64 %add.i.i.i, %2
   %.pre.i.i = load ptr, ptr %OS, align 8
@@ -1623,16 +1623,16 @@ _ZN12OutputStream4growEm.exit.i.i:                ; preds = %if.then.i._ZN12Outp
   br label %if.end6
 
 if.else:                                          ; preds = %entry
-  %Affinity = getelementptr inbounds i8, ptr %this, i64 56
+  %Affinity = getelementptr inbounds nuw i8, ptr %this, i64 56
   %6 = load i32, ptr %Affinity, align 8
   %cmp2 = icmp eq i32 %6, 1
   br i1 %cmp2, label %if.end.i.i17, label %if.end6
 
 if.end.i.i17:                                     ; preds = %if.else
-  %CurrentPosition.i.i.i18 = getelementptr inbounds i8, ptr %OS, i64 8
+  %CurrentPosition.i.i.i18 = getelementptr inbounds nuw i8, ptr %OS, i64 8
   %7 = load i64, ptr %CurrentPosition.i.i.i18, align 8
   %add.i.i.i19 = add i64 %7, 1
-  %BufferCapacity.i.i.i20 = getelementptr inbounds i8, ptr %OS, i64 16
+  %BufferCapacity.i.i.i20 = getelementptr inbounds nuw i8, ptr %OS, i64 16
   %8 = load i64, ptr %BufferCapacity.i.i.i20, align 8
   %cmp.not.i.i.i21 = icmp ult i64 %add.i.i.i19, %8
   %.pre.i.i22 = load ptr, ptr %OS, align 8
@@ -1666,14 +1666,14 @@ _ZN12OutputStream4growEm.exit.i.i30:              ; preds = %if.then.i._ZN12Outp
   br label %if.end6
 
 if.end6:                                          ; preds = %_ZN12OutputStream4growEm.exit.i.i30, %_ZN12OutputStream4growEm.exit.i.i, %if.else
-  %Symbol = getelementptr inbounds i8, ptr %this, i64 16
+  %Symbol = getelementptr inbounds nuw i8, ptr %this, i64 16
   %12 = load ptr, ptr %Symbol, align 8
   %tobool.not = icmp eq ptr %12, null
   br i1 %tobool.not, label %if.end15, label %if.then7
 
 if.then7:                                         ; preds = %if.end6
   %vtable = load ptr, ptr %12, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %13 = load ptr, ptr %vfn, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags) #11
   %14 = load i32, ptr %ThunkOffsetCount, align 8
@@ -1681,10 +1681,10 @@ if.then7:                                         ; preds = %if.end6
   br i1 %cmp10, label %if.end.i.i42, label %if.end34
 
 if.end.i.i42:                                     ; preds = %if.then7
-  %CurrentPosition.i.i.i43 = getelementptr inbounds i8, ptr %OS, i64 8
+  %CurrentPosition.i.i.i43 = getelementptr inbounds nuw i8, ptr %OS, i64 8
   %15 = load i64, ptr %CurrentPosition.i.i.i43, align 8
   %add.i.i.i44 = add i64 %15, 2
-  %BufferCapacity.i.i.i45 = getelementptr inbounds i8, ptr %OS, i64 16
+  %BufferCapacity.i.i.i45 = getelementptr inbounds nuw i8, ptr %OS, i64 16
   %16 = load i64, ptr %BufferCapacity.i.i.i45, align 8
   %cmp.not.i.i.i46 = icmp ult i64 %add.i.i.i44, %16
   %.pre.i.i47 = load ptr, ptr %OS, align 8
@@ -1723,7 +1723,7 @@ if.end15:                                         ; preds = %_ZN12OutputStream4g
   br i1 %cmp17, label %if.then18, label %if.end34
 
 if.then18:                                        ; preds = %if.end15
-  %ThunkOffsets = getelementptr inbounds i8, ptr %this, i64 32
+  %ThunkOffsets = getelementptr inbounds nuw i8, ptr %this, i64 32
   %20 = load i64, ptr %ThunkOffsets, align 8
   %cmp.i.i60 = icmp slt i64 %20, 0
   br i1 %cmp.i.i60, label %if.then.i.i, label %if.else.i.i
@@ -1743,9 +1743,9 @@ if.end21:                                         ; preds = %if.else.i.i, %if.th
   br i1 %cmp23118, label %if.end.i.i68.lr.ph, label %for.end
 
 if.end.i.i68.lr.ph:                               ; preds = %if.end21
-  %CurrentPosition.i.i.i69 = getelementptr inbounds i8, ptr %OS, i64 8
-  %BufferCapacity.i.i.i71 = getelementptr inbounds i8, ptr %OS, i64 16
-  %ThunkOffsets26 = getelementptr inbounds i8, ptr %this, i64 32
+  %CurrentPosition.i.i.i69 = getelementptr inbounds nuw i8, ptr %OS, i64 8
+  %BufferCapacity.i.i.i71 = getelementptr inbounds nuw i8, ptr %OS, i64 16
+  %ThunkOffsets26 = getelementptr inbounds nuw i8, ptr %this, i64 32
   br label %if.end.i.i68
 
 if.end.i.i68:                                     ; preds = %if.end.i.i68.lr.ph, %_ZN12OutputStreamlsEl.exit90
@@ -1782,7 +1782,7 @@ _ZN12OutputStream4growEm.exit.i.i81:              ; preds = %if.then.i._ZN12Outp
   %25 = load i64, ptr %CurrentPosition.i.i.i69, align 8
   %add.i.i83 = add i64 %25, 2
   store i64 %add.i.i83, ptr %CurrentPosition.i.i.i69, align 8
-  %arrayidx.i.i = getelementptr inbounds [3 x i64], ptr %ThunkOffsets26, i64 0, i64 %indvars.iv
+  %arrayidx.i.i = getelementptr inbounds nuw [3 x i64], ptr %ThunkOffsets26, i64 0, i64 %indvars.iv
   %26 = load i64, ptr %arrayidx.i.i, align 8
   %cmp.i.i86 = icmp slt i64 %26, 0
   br i1 %cmp.i.i86, label %if.then.i.i88, label %if.else.i.i87
@@ -1809,10 +1809,10 @@ for.end:                                          ; preds = %_ZN12OutputStreamls
   br i1 %cmp30, label %if.end.i.i98, label %if.end34
 
 if.end.i.i98:                                     ; preds = %for.end
-  %CurrentPosition.i.i.i99 = getelementptr inbounds i8, ptr %OS, i64 8
+  %CurrentPosition.i.i.i99 = getelementptr inbounds nuw i8, ptr %OS, i64 8
   %29 = load i64, ptr %CurrentPosition.i.i.i99, align 8
   %add.i.i.i100 = add i64 %29, 1
-  %BufferCapacity.i.i.i101 = getelementptr inbounds i8, ptr %OS, i64 16
+  %BufferCapacity.i.i.i101 = getelementptr inbounds nuw i8, ptr %OS, i64 16
   %30 = load i64, ptr %BufferCapacity.i.i.i101, align 8
   %cmp.not.i.i.i102 = icmp ult i64 %add.i.i.i100, %30
   %.pre.i.i103 = load ptr, ptr %OS, align 8
@@ -1852,16 +1852,16 @@ if.end34:                                         ; preds = %if.then7, %if.end15
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK4llvh11ms_demangle14IdentifierNode24outputTemplateParametersER12OutputStreamNS0_11OutputFlagsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags) local_unnamed_addr #1 align 2 {
 entry:
-  %TemplateParams = getelementptr inbounds i8, ptr %this, i64 16
+  %TemplateParams = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %TemplateParams, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %entry
-  %CurrentPosition.i.i.i = getelementptr inbounds i8, ptr %OS, i64 8
+  %CurrentPosition.i.i.i = getelementptr inbounds nuw i8, ptr %OS, i64 8
   %1 = load i64, ptr %CurrentPosition.i.i.i, align 8
   %add.i.i.i = add i64 %1, 1
-  %BufferCapacity.i.i.i = getelementptr inbounds i8, ptr %OS, i64 16
+  %BufferCapacity.i.i.i = getelementptr inbounds nuw i8, ptr %OS, i64 16
   %2 = load i64, ptr %BufferCapacity.i.i.i, align 8
   %cmp.not.i.i.i = icmp ult i64 %add.i.i.i, %2
   %.pre.i.i = load ptr, ptr %OS, align 8
@@ -1894,7 +1894,7 @@ _ZN12OutputStream4growEm.exit.i.i:                ; preds = %if.then.i._ZN12Outp
   store i64 %add.i.i, ptr %CurrentPosition.i.i.i, align 8
   %6 = load ptr, ptr %TemplateParams, align 8
   %vtable = load ptr, ptr %6, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %7 = load ptr, ptr %vfn, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags) #11
   %8 = load i64, ptr %CurrentPosition.i.i.i, align 8
@@ -1938,12 +1938,12 @@ return:                                           ; preds = %_ZN12OutputStream4g
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK4llvh11ms_demangle29DynamicStructorIdentifierNode6outputER12OutputStreamNS0_11OutputFlagsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(41) %this, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags) unnamed_addr #1 align 2 {
 entry:
-  %IsDestructor = getelementptr inbounds i8, ptr %this, i64 40
+  %IsDestructor = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load i8, ptr %IsDestructor, align 8
   %tobool = trunc i8 %0 to i1
-  %CurrentPosition.i.i.i = getelementptr inbounds i8, ptr %OS, i64 8
+  %CurrentPosition.i.i.i = getelementptr inbounds nuw i8, ptr %OS, i64 8
   %1 = load i64, ptr %CurrentPosition.i.i.i, align 8
-  %BufferCapacity.i.i.i = getelementptr inbounds i8, ptr %OS, i64 16
+  %BufferCapacity.i.i.i = getelementptr inbounds nuw i8, ptr %OS, i64 16
   %2 = load i64, ptr %BufferCapacity.i.i.i, align 8
   %.pre.i.i = load ptr, ptr %OS, align 8
   br i1 %tobool, label %if.end.i.i, label %if.end.i.i16
@@ -2011,12 +2011,12 @@ if.end:                                           ; preds = %_ZN12OutputStream4g
   %7 = load i64, ptr %CurrentPosition.i.i.i, align 8
   %add.i.i31 = add i64 %7, %.sink134
   store i64 %add.i.i31, ptr %CurrentPosition.i.i.i, align 8
-  %Variable = getelementptr inbounds i8, ptr %this, i64 24
+  %Variable = getelementptr inbounds nuw i8, ptr %this, i64 24
   %8 = load ptr, ptr %Variable, align 8
   %tobool4.not = icmp eq ptr %8, null
-  %CurrentPosition.i.i.i92 = getelementptr inbounds i8, ptr %OS, i64 8
+  %CurrentPosition.i.i.i92 = getelementptr inbounds nuw i8, ptr %OS, i64 8
   %add.i.i.i93 = add i64 %add.i.i31, 1
-  %BufferCapacity.i.i.i94 = getelementptr inbounds i8, ptr %OS, i64 16
+  %BufferCapacity.i.i.i94 = getelementptr inbounds nuw i8, ptr %OS, i64 16
   %9 = load i64, ptr %BufferCapacity.i.i.i94, align 8
   %cmp.not.i.i.i95 = icmp ult i64 %add.i.i.i93, %9
   %.pre.i.i96 = load ptr, ptr %OS, align 8
@@ -2052,7 +2052,7 @@ _ZN12OutputStream4growEm.exit.i.i54:              ; preds = %if.then.i._ZN12Outp
   store i64 %add.i.i56, ptr %CurrentPosition.i.i.i92, align 8
   %13 = load ptr, ptr %Variable, align 8
   %vtable = load ptr, ptr %13, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %14 = load ptr, ptr %vfn, align 8
   tail call void %14(ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags) #11
   %15 = load i64, ptr %CurrentPosition.i.i.i92, align 8
@@ -2114,10 +2114,10 @@ _ZN12OutputStream4growEm.exit.i.i104:             ; preds = %if.then.i._ZN12Outp
   %21 = load i64, ptr %CurrentPosition.i.i.i92, align 8
   %add.i.i106 = add i64 %21, 1
   store i64 %add.i.i106, ptr %CurrentPosition.i.i.i92, align 8
-  %Name = getelementptr inbounds i8, ptr %this, i64 32
+  %Name = getelementptr inbounds nuw i8, ptr %this, i64 32
   %22 = load ptr, ptr %Name, align 8
   %vtable14 = load ptr, ptr %22, align 8
-  %vfn15 = getelementptr inbounds i8, ptr %vtable14, i64 16
+  %vfn15 = getelementptr inbounds nuw i8, ptr %vtable14, i64 16
   %23 = load ptr, ptr %vfn15, align 8
   tail call void %23(ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags) #11
   %24 = load i64, ptr %CurrentPosition.i.i.i92, align 8
@@ -2161,9 +2161,9 @@ if.end18:                                         ; preds = %_ZN12OutputStream4g
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK4llvh11ms_demangle19NamedIdentifierNode6outputER12OutputStreamNS0_11OutputFlagsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags) unnamed_addr #1 align 2 {
 entry:
-  %Name = getelementptr inbounds i8, ptr %this, i64 24
+  %Name = getelementptr inbounds nuw i8, ptr %this, i64 24
   %agg.tmp.sroa.0.0.copyload = load ptr, ptr %Name, align 8
-  %agg.tmp.sroa.2.0.Name.sroa_idx = getelementptr inbounds i8, ptr %this, i64 32
+  %agg.tmp.sroa.2.0.Name.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 32
   %agg.tmp.sroa.2.0.copyload = load ptr, ptr %agg.tmp.sroa.2.0.Name.sroa_idx, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %agg.tmp.sroa.2.0.copyload to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %agg.tmp.sroa.0.0.copyload to i64
@@ -2172,10 +2172,10 @@ entry:
   br i1 %cmp.i.i, label %_ZN12OutputStreamlsE10StringView.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %entry
-  %CurrentPosition.i.i.i = getelementptr inbounds i8, ptr %OS, i64 8
+  %CurrentPosition.i.i.i = getelementptr inbounds nuw i8, ptr %OS, i64 8
   %0 = load i64, ptr %CurrentPosition.i.i.i, align 8
   %add.i.i.i = add i64 %0, %sub.ptr.sub.i.i.i
-  %BufferCapacity.i.i.i = getelementptr inbounds i8, ptr %OS, i64 16
+  %BufferCapacity.i.i.i = getelementptr inbounds nuw i8, ptr %OS, i64 16
   %1 = load i64, ptr %BufferCapacity.i.i.i, align 8
   %cmp.not.i.i.i = icmp ult i64 %add.i.i.i, %1
   %.pre.i.i = load ptr, ptr %OS, align 8
@@ -2216,7 +2216,7 @@ _ZN12OutputStreamlsE10StringView.exit:            ; preds = %entry, %_ZN12Output
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK4llvh11ms_demangle31IntrinsicFunctionIdentifierNode6outputER12OutputStreamNS0_11OutputFlagsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %this, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags) unnamed_addr #1 align 2 {
 entry:
-  %Operator = getelementptr inbounds i8, ptr %this, i64 24
+  %Operator = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i8, ptr %Operator, align 8
   switch i8 %0, label %sw.epilog [
     i8 1, label %sw.bb
@@ -2549,10 +2549,10 @@ sw.epilog:                                        ; preds = %sw.bb188, %sw.bb185
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK4llvh11ms_demangle30LocalStaticGuardIdentifierNode6outputER12OutputStreamNS0_11OutputFlagsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %this, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 %Flags) unnamed_addr #1 align 2 {
 entry:
-  %CurrentPosition.i.i.i = getelementptr inbounds i8, ptr %OS, i64 8
+  %CurrentPosition.i.i.i = getelementptr inbounds nuw i8, ptr %OS, i64 8
   %0 = load i64, ptr %CurrentPosition.i.i.i, align 8
   %add.i.i.i = add i64 %0, 20
-  %BufferCapacity.i.i.i = getelementptr inbounds i8, ptr %OS, i64 16
+  %BufferCapacity.i.i.i = getelementptr inbounds nuw i8, ptr %OS, i64 16
   %1 = load i64, ptr %BufferCapacity.i.i.i, align 8
   %cmp.not.i.i.i = icmp ult i64 %add.i.i.i, %1
   %.pre.i.i = load ptr, ptr %OS, align 8
@@ -2583,7 +2583,7 @@ _ZN12OutputStream4growEm.exit.i.i:                ; preds = %if.then.i._ZN12Outp
   %4 = load i64, ptr %CurrentPosition.i.i.i, align 8
   %add.i.i = add i64 %4, 20
   store i64 %add.i.i, ptr %CurrentPosition.i.i.i, align 8
-  %ScopeIndex = getelementptr inbounds i8, ptr %this, i64 24
+  %ScopeIndex = getelementptr inbounds nuw i8, ptr %this, i64 24
   %5 = load i32, ptr %ScopeIndex, align 8
   %cmp.not = icmp eq i32 %5, 0
   br i1 %cmp.not, label %if.end, label %if.end.i.i9
@@ -2664,10 +2664,10 @@ if.end:                                           ; preds = %_ZN12OutputStream4g
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK4llvh11ms_demangle32ConversionOperatorIdentifierNode6outputER12OutputStreamNS0_11OutputFlagsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags) unnamed_addr #1 align 2 {
 entry:
-  %CurrentPosition.i.i.i = getelementptr inbounds i8, ptr %OS, i64 8
+  %CurrentPosition.i.i.i = getelementptr inbounds nuw i8, ptr %OS, i64 8
   %0 = load i64, ptr %CurrentPosition.i.i.i, align 8
   %add.i.i.i = add i64 %0, 8
-  %BufferCapacity.i.i.i = getelementptr inbounds i8, ptr %OS, i64 16
+  %BufferCapacity.i.i.i = getelementptr inbounds nuw i8, ptr %OS, i64 16
   %1 = load i64, ptr %BufferCapacity.i.i.i, align 8
   %cmp.not.i.i.i = icmp ult i64 %add.i.i.i, %1
   %.pre.i.i = load ptr, ptr %OS, align 8
@@ -2731,10 +2731,10 @@ _ZN12OutputStream4growEm.exit.i.i25:              ; preds = %if.then.i._ZN12Outp
   %9 = load i64, ptr %CurrentPosition.i.i.i, align 8
   %add.i.i27 = add i64 %9, 1
   store i64 %add.i.i27, ptr %CurrentPosition.i.i.i, align 8
-  %TargetType = getelementptr inbounds i8, ptr %this, i64 24
+  %TargetType = getelementptr inbounds nuw i8, ptr %this, i64 24
   %10 = load ptr, ptr %TargetType, align 8
   %vtable = load ptr, ptr %10, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %11 = load ptr, ptr %vfn, align 8
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(13) %10, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags) #11
   ret void
@@ -2743,16 +2743,16 @@ _ZN12OutputStream4growEm.exit.i.i25:              ; preds = %if.then.i._ZN12Outp
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK4llvh11ms_demangle22StructorIdentifierNode6outputER12OutputStreamNS0_11OutputFlagsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(33) %this, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags) unnamed_addr #1 align 2 {
 entry:
-  %IsDestructor = getelementptr inbounds i8, ptr %this, i64 32
+  %IsDestructor = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load i8, ptr %IsDestructor, align 8
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %if.end.i.i, label %if.end
 
 if.end.i.i:                                       ; preds = %entry
-  %CurrentPosition.i.i.i = getelementptr inbounds i8, ptr %OS, i64 8
+  %CurrentPosition.i.i.i = getelementptr inbounds nuw i8, ptr %OS, i64 8
   %1 = load i64, ptr %CurrentPosition.i.i.i, align 8
   %add.i.i.i = add i64 %1, 1
-  %BufferCapacity.i.i.i = getelementptr inbounds i8, ptr %OS, i64 16
+  %BufferCapacity.i.i.i = getelementptr inbounds nuw i8, ptr %OS, i64 16
   %2 = load i64, ptr %BufferCapacity.i.i.i, align 8
   %cmp.not.i.i.i = icmp ult i64 %add.i.i.i, %2
   %.pre.i.i = load ptr, ptr %OS, align 8
@@ -2786,10 +2786,10 @@ _ZN12OutputStream4growEm.exit.i.i:                ; preds = %if.then.i._ZN12Outp
   br label %if.end
 
 if.end:                                           ; preds = %_ZN12OutputStream4growEm.exit.i.i, %entry
-  %Class = getelementptr inbounds i8, ptr %this, i64 24
+  %Class = getelementptr inbounds nuw i8, ptr %this, i64 24
   %6 = load ptr, ptr %Class, align 8
   %vtable = load ptr, ptr %6, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %7 = load ptr, ptr %vfn, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(12) %6, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags) #11
   tail call void @_ZNK4llvh11ms_demangle14IdentifierNode24outputTemplateParametersER12OutputStreamNS0_11OutputFlagsE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags)
@@ -2799,10 +2799,10 @@ if.end:                                           ; preds = %_ZN12OutputStream4g
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK4llvh11ms_demangle29LiteralOperatorIdentifierNode6outputER12OutputStreamNS0_11OutputFlagsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags) unnamed_addr #1 align 2 {
 entry:
-  %CurrentPosition.i.i.i = getelementptr inbounds i8, ptr %OS, i64 8
+  %CurrentPosition.i.i.i = getelementptr inbounds nuw i8, ptr %OS, i64 8
   %0 = load i64, ptr %CurrentPosition.i.i.i, align 8
   %add.i.i.i = add i64 %0, 11
-  %BufferCapacity.i.i.i = getelementptr inbounds i8, ptr %OS, i64 16
+  %BufferCapacity.i.i.i = getelementptr inbounds nuw i8, ptr %OS, i64 16
   %1 = load i64, ptr %BufferCapacity.i.i.i, align 8
   %cmp.not.i.i.i = icmp ult i64 %add.i.i.i, %1
   %.pre.i.i = load ptr, ptr %OS, align 8
@@ -2833,9 +2833,9 @@ _ZN12OutputStream4growEm.exit.i.i:                ; preds = %if.then.i._ZN12Outp
   %4 = load i64, ptr %CurrentPosition.i.i.i, align 8
   %add.i.i = add i64 %4, 11
   store i64 %add.i.i, ptr %CurrentPosition.i.i.i, align 8
-  %Name = getelementptr inbounds i8, ptr %this, i64 24
+  %Name = getelementptr inbounds nuw i8, ptr %this, i64 24
   %agg.tmp2.sroa.0.0.copyload = load ptr, ptr %Name, align 8
-  %agg.tmp2.sroa.2.0.Name.sroa_idx = getelementptr inbounds i8, ptr %this, i64 32
+  %agg.tmp2.sroa.2.0.Name.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 32
   %agg.tmp2.sroa.2.0.copyload = load ptr, ptr %agg.tmp2.sroa.2.0.Name.sroa_idx, align 8
   %sub.ptr.lhs.cast.i.i.i2 = ptrtoint ptr %agg.tmp2.sroa.2.0.copyload to i64
   %sub.ptr.rhs.cast.i.i.i3 = ptrtoint ptr %agg.tmp2.sroa.0.0.copyload to i64
@@ -2885,17 +2885,17 @@ _ZN12OutputStreamlsE10StringView.exit23:          ; preds = %_ZN12OutputStream4g
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK4llvh11ms_demangle21FunctionSignatureNode9outputPreER12OutputStreamNS0_11OutputFlagsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags) unnamed_addr #1 align 2 {
 entry:
-  %FunctionClass = getelementptr inbounds i8, ptr %this, i64 22
+  %FunctionClass = getelementptr inbounds nuw i8, ptr %this, i64 22
   %0 = load i16, ptr %FunctionClass, align 2
   %1 = and i16 %0, 24
   %or.cond.not = icmp eq i16 %1, 16
   br i1 %or.cond.not, label %if.end.i.i, label %if.end7
 
 if.end.i.i:                                       ; preds = %entry
-  %CurrentPosition.i.i.i = getelementptr inbounds i8, ptr %OS, i64 8
+  %CurrentPosition.i.i.i = getelementptr inbounds nuw i8, ptr %OS, i64 8
   %2 = load i64, ptr %CurrentPosition.i.i.i, align 8
   %add.i.i.i = add i64 %2, 7
-  %BufferCapacity.i.i.i = getelementptr inbounds i8, ptr %OS, i64 16
+  %BufferCapacity.i.i.i = getelementptr inbounds nuw i8, ptr %OS, i64 16
   %3 = load i64, ptr %BufferCapacity.i.i.i, align 8
   %cmp.not.i.i.i = icmp ult i64 %add.i.i.i, %3
   %.pre.i.i = load ptr, ptr %OS, align 8
@@ -2936,10 +2936,10 @@ if.end7:                                          ; preds = %_ZN12OutputStream4g
   br i1 %tobool11.not, label %if.end15, label %if.end.i.i14
 
 if.end.i.i14:                                     ; preds = %if.end7
-  %CurrentPosition.i.i.i15 = getelementptr inbounds i8, ptr %OS, i64 8
+  %CurrentPosition.i.i.i15 = getelementptr inbounds nuw i8, ptr %OS, i64 8
   %9 = load i64, ptr %CurrentPosition.i.i.i15, align 8
   %add.i.i.i16 = add i64 %9, 11
-  %BufferCapacity.i.i.i17 = getelementptr inbounds i8, ptr %OS, i64 16
+  %BufferCapacity.i.i.i17 = getelementptr inbounds nuw i8, ptr %OS, i64 16
   %10 = load i64, ptr %BufferCapacity.i.i.i17, align 8
   %cmp.not.i.i.i18 = icmp ult i64 %add.i.i.i16, %10
   %.pre.i.i19 = load ptr, ptr %OS, align 8
@@ -2980,10 +2980,10 @@ if.end15:                                         ; preds = %_ZN12OutputStream4g
   br i1 %tobool19.not, label %if.end23, label %if.end.i.i39
 
 if.end.i.i39:                                     ; preds = %if.end15
-  %CurrentPosition.i.i.i40 = getelementptr inbounds i8, ptr %OS, i64 8
+  %CurrentPosition.i.i.i40 = getelementptr inbounds nuw i8, ptr %OS, i64 8
   %16 = load i64, ptr %CurrentPosition.i.i.i40, align 8
   %add.i.i.i41 = add i64 %16, 8
-  %BufferCapacity.i.i.i42 = getelementptr inbounds i8, ptr %OS, i64 16
+  %BufferCapacity.i.i.i42 = getelementptr inbounds nuw i8, ptr %OS, i64 16
   %17 = load i64, ptr %BufferCapacity.i.i.i42, align 8
   %cmp.not.i.i.i43 = icmp ult i64 %add.i.i.i41, %17
   %.pre.i.i44 = load ptr, ptr %OS, align 8
@@ -3017,20 +3017,20 @@ _ZN12OutputStream4growEm.exit.i.i52:              ; preds = %if.then.i._ZN12Outp
   br label %if.end23
 
 if.end23:                                         ; preds = %_ZN12OutputStream4growEm.exit.i.i52, %if.end15
-  %ReturnType = getelementptr inbounds i8, ptr %this, i64 32
+  %ReturnType = getelementptr inbounds nuw i8, ptr %this, i64 32
   %21 = load ptr, ptr %ReturnType, align 8
   %tobool24.not = icmp eq ptr %21, null
   br i1 %tobool24.not, label %if.end29, label %if.then25
 
 if.then25:                                        ; preds = %if.end23
   %vtable = load ptr, ptr %21, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 24
   %22 = load ptr, ptr %vfn, align 8
   tail call void %22(ptr noundef nonnull align 8 dereferenceable(13) %21, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags) #11
-  %CurrentPosition.i.i.i65 = getelementptr inbounds i8, ptr %OS, i64 8
+  %CurrentPosition.i.i.i65 = getelementptr inbounds nuw i8, ptr %OS, i64 8
   %23 = load i64, ptr %CurrentPosition.i.i.i65, align 8
   %add.i.i.i66 = add i64 %23, 1
-  %BufferCapacity.i.i.i67 = getelementptr inbounds i8, ptr %OS, i64 16
+  %BufferCapacity.i.i.i67 = getelementptr inbounds nuw i8, ptr %OS, i64 16
   %24 = load i64, ptr %BufferCapacity.i.i.i67, align 8
   %cmp.not.i.i.i68 = icmp ult i64 %add.i.i.i66, %24
   %.pre.i.i69 = load ptr, ptr %OS, align 8
@@ -3069,7 +3069,7 @@ if.end29:                                         ; preds = %_ZN12OutputStream4g
   br i1 %tobool31.not, label %if.then32, label %if.end33
 
 if.then32:                                        ; preds = %if.end29
-  %CallConvention = getelementptr inbounds i8, ptr %this, i64 20
+  %CallConvention = getelementptr inbounds nuw i8, ptr %this, i64 20
   %28 = load i8, ptr %CallConvention, align 4
   tail call fastcc void @_ZL23outputCallingConventionR12OutputStreamN4llvh11ms_demangle11CallingConvE(ptr noundef nonnull align 8 dereferenceable(32) %OS, i8 noundef zeroext %28)
   br label %if.end33
@@ -3081,7 +3081,7 @@ if.end33:                                         ; preds = %if.then32, %if.end2
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZL23outputCallingConventionR12OutputStreamN4llvh11ms_demangle11CallingConvE(ptr nocapture noundef nonnull align 8 dereferenceable(32) %OS, i8 noundef zeroext %CC) unnamed_addr #1 {
 entry:
-  %CurrentPosition.i.i = getelementptr inbounds i8, ptr %OS, i64 8
+  %CurrentPosition.i.i = getelementptr inbounds nuw i8, ptr %OS, i64 8
   %0 = load i64, ptr %CurrentPosition.i.i, align 8
   %cmp.i.i = icmp eq i64 %0, 0
   br i1 %cmp.i.i, label %_ZL22outputSpaceIfNecessaryR12OutputStream.exit, label %_ZNK12OutputStream4backEv.exit.i
@@ -3100,7 +3100,7 @@ _ZNK12OutputStream4backEv.exit.i:                 ; preds = %entry
 
 if.end.i.i.i:                                     ; preds = %_ZNK12OutputStream4backEv.exit.i
   %add.i.i.i.i = add i64 %0, 1
-  %BufferCapacity.i.i.i.i = getelementptr inbounds i8, ptr %OS, i64 16
+  %BufferCapacity.i.i.i.i = getelementptr inbounds nuw i8, ptr %OS, i64 16
   %4 = load i64, ptr %BufferCapacity.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp ult i64 %add.i.i.i.i, %4
   br i1 %cmp.not.i.i.i.i, label %_ZN12OutputStream4growEm.exit.i.i.i, label %if.then.i.i.i.i
@@ -3148,7 +3148,7 @@ _ZL22outputSpaceIfNecessaryR12OutputStream.exit:  ; preds = %entry, %_ZNK12Outpu
 
 if.end.i.i:                                       ; preds = %_ZL22outputSpaceIfNecessaryR12OutputStream.exit
   %add.i.i.i11 = add i64 %8, 7
-  %BufferCapacity.i.i.i = getelementptr inbounds i8, ptr %OS, i64 16
+  %BufferCapacity.i.i.i = getelementptr inbounds nuw i8, ptr %OS, i64 16
   %9 = load i64, ptr %BufferCapacity.i.i.i, align 8
   %cmp.not.i.i.i = icmp ult i64 %add.i.i.i11, %9
   %.pre.i.i = load ptr, ptr %OS, align 8
@@ -3180,7 +3180,7 @@ _ZN12OutputStream4growEm.exit.i.i:                ; preds = %if.then.i._ZN12Outp
 
 if.end.i.i19:                                     ; preds = %_ZL22outputSpaceIfNecessaryR12OutputStream.exit
   %add.i.i.i21 = add i64 %8, 10
-  %BufferCapacity.i.i.i22 = getelementptr inbounds i8, ptr %OS, i64 16
+  %BufferCapacity.i.i.i22 = getelementptr inbounds nuw i8, ptr %OS, i64 16
   %12 = load i64, ptr %BufferCapacity.i.i.i22, align 8
   %cmp.not.i.i.i23 = icmp ult i64 %add.i.i.i21, %12
   %.pre.i.i24 = load ptr, ptr %OS, align 8
@@ -3212,7 +3212,7 @@ _ZN12OutputStream4growEm.exit.i.i32:              ; preds = %if.then.i._ZN12Outp
 
 if.end.i.i44:                                     ; preds = %_ZL22outputSpaceIfNecessaryR12OutputStream.exit
   %add.i.i.i46 = add i64 %8, 8
-  %BufferCapacity.i.i.i47 = getelementptr inbounds i8, ptr %OS, i64 16
+  %BufferCapacity.i.i.i47 = getelementptr inbounds nuw i8, ptr %OS, i64 16
   %15 = load i64, ptr %BufferCapacity.i.i.i47, align 8
   %cmp.not.i.i.i48 = icmp ult i64 %add.i.i.i46, %15
   %.pre.i.i49 = load ptr, ptr %OS, align 8
@@ -3244,7 +3244,7 @@ _ZN12OutputStream4growEm.exit.i.i57:              ; preds = %if.then.i._ZN12Outp
 
 if.end.i.i69:                                     ; preds = %_ZL22outputSpaceIfNecessaryR12OutputStream.exit
   %add.i.i.i71 = add i64 %8, 9
-  %BufferCapacity.i.i.i72 = getelementptr inbounds i8, ptr %OS, i64 16
+  %BufferCapacity.i.i.i72 = getelementptr inbounds nuw i8, ptr %OS, i64 16
   %18 = load i64, ptr %BufferCapacity.i.i.i72, align 8
   %cmp.not.i.i.i73 = icmp ult i64 %add.i.i.i71, %18
   %.pre.i.i74 = load ptr, ptr %OS, align 8
@@ -3276,7 +3276,7 @@ _ZN12OutputStream4growEm.exit.i.i82:              ; preds = %if.then.i._ZN12Outp
 
 if.end.i.i94:                                     ; preds = %_ZL22outputSpaceIfNecessaryR12OutputStream.exit
   %add.i.i.i96 = add i64 %8, 9
-  %BufferCapacity.i.i.i97 = getelementptr inbounds i8, ptr %OS, i64 16
+  %BufferCapacity.i.i.i97 = getelementptr inbounds nuw i8, ptr %OS, i64 16
   %21 = load i64, ptr %BufferCapacity.i.i.i97, align 8
   %cmp.not.i.i.i98 = icmp ult i64 %add.i.i.i96, %21
   %.pre.i.i99 = load ptr, ptr %OS, align 8
@@ -3308,7 +3308,7 @@ _ZN12OutputStream4growEm.exit.i.i107:             ; preds = %if.then.i._ZN12Outp
 
 if.end.i.i119:                                    ; preds = %_ZL22outputSpaceIfNecessaryR12OutputStream.exit
   %add.i.i.i121 = add i64 %8, 10
-  %BufferCapacity.i.i.i122 = getelementptr inbounds i8, ptr %OS, i64 16
+  %BufferCapacity.i.i.i122 = getelementptr inbounds nuw i8, ptr %OS, i64 16
   %24 = load i64, ptr %BufferCapacity.i.i.i122, align 8
   %cmp.not.i.i.i123 = icmp ult i64 %add.i.i.i121, %24
   %.pre.i.i124 = load ptr, ptr %OS, align 8
@@ -3340,7 +3340,7 @@ _ZN12OutputStream4growEm.exit.i.i132:             ; preds = %if.then.i._ZN12Outp
 
 if.end.i.i144:                                    ; preds = %_ZL22outputSpaceIfNecessaryR12OutputStream.exit
   %add.i.i.i146 = add i64 %8, 6
-  %BufferCapacity.i.i.i147 = getelementptr inbounds i8, ptr %OS, i64 16
+  %BufferCapacity.i.i.i147 = getelementptr inbounds nuw i8, ptr %OS, i64 16
   %27 = load i64, ptr %BufferCapacity.i.i.i147, align 8
   %cmp.not.i.i.i148 = icmp ult i64 %add.i.i.i146, %27
   %.pre.i.i149 = load ptr, ptr %OS, align 8
@@ -3372,7 +3372,7 @@ _ZN12OutputStream4growEm.exit.i.i157:             ; preds = %if.then.i._ZN12Outp
 
 if.end.i.i169:                                    ; preds = %_ZL22outputSpaceIfNecessaryR12OutputStream.exit
   %add.i.i.i171 = add i64 %8, 12
-  %BufferCapacity.i.i.i172 = getelementptr inbounds i8, ptr %OS, i64 16
+  %BufferCapacity.i.i.i172 = getelementptr inbounds nuw i8, ptr %OS, i64 16
   %30 = load i64, ptr %BufferCapacity.i.i.i172, align 8
   %cmp.not.i.i.i173 = icmp ult i64 %add.i.i.i171, %30
   %.pre.i.i174 = load ptr, ptr %OS, align 8
@@ -3404,7 +3404,7 @@ _ZN12OutputStream4growEm.exit.i.i182:             ; preds = %if.then.i._ZN12Outp
 
 if.end.i.i194:                                    ; preds = %_ZL22outputSpaceIfNecessaryR12OutputStream.exit
   %add.i.i.i196 = add i64 %8, 9
-  %BufferCapacity.i.i.i197 = getelementptr inbounds i8, ptr %OS, i64 16
+  %BufferCapacity.i.i.i197 = getelementptr inbounds nuw i8, ptr %OS, i64 16
   %33 = load i64, ptr %BufferCapacity.i.i.i197, align 8
   %cmp.not.i.i.i198 = icmp ult i64 %add.i.i.i196, %33
   %.pre.i.i199 = load ptr, ptr %OS, align 8
@@ -3448,17 +3448,17 @@ sw.epilog:                                        ; preds = %sw.epilog.sink.spli
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK4llvh11ms_demangle21FunctionSignatureNode10outputPostER12OutputStreamNS0_11OutputFlagsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags) unnamed_addr #1 align 2 {
 entry:
-  %FunctionClass = getelementptr inbounds i8, ptr %this, i64 22
+  %FunctionClass = getelementptr inbounds nuw i8, ptr %this, i64 22
   %0 = load i16, ptr %FunctionClass, align 2
   %1 = and i16 %0, 256
   %tobool.not = icmp eq i16 %1, 0
   br i1 %tobool.not, label %if.end.i.i, label %if.end9
 
 if.end.i.i:                                       ; preds = %entry
-  %CurrentPosition.i.i.i = getelementptr inbounds i8, ptr %OS, i64 8
+  %CurrentPosition.i.i.i = getelementptr inbounds nuw i8, ptr %OS, i64 8
   %2 = load i64, ptr %CurrentPosition.i.i.i, align 8
   %add.i.i.i = add i64 %2, 1
-  %BufferCapacity.i.i.i = getelementptr inbounds i8, ptr %OS, i64 16
+  %BufferCapacity.i.i.i = getelementptr inbounds nuw i8, ptr %OS, i64 16
   %3 = load i64, ptr %BufferCapacity.i.i.i, align 8
   %cmp.not.i.i.i = icmp ult i64 %add.i.i.i, %3
   %.pre.i.i = load ptr, ptr %OS, align 8
@@ -3489,14 +3489,14 @@ _ZN12OutputStream4growEm.exit.i.i:                ; preds = %if.then.i._ZN12Outp
   %6 = load i64, ptr %CurrentPosition.i.i.i, align 8
   %add.i.i = add i64 %6, 1
   store i64 %add.i.i, ptr %CurrentPosition.i.i.i, align 8
-  %Params = getelementptr inbounds i8, ptr %this, i64 48
+  %Params = getelementptr inbounds nuw i8, ptr %this, i64 48
   %7 = load ptr, ptr %Params, align 8
   %tobool2.not = icmp eq ptr %7, null
   br i1 %tobool2.not, label %if.end.i.i21, label %if.then3
 
 if.then3:                                         ; preds = %_ZN12OutputStream4growEm.exit.i.i
   %vtable = load ptr, ptr %7, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %8 = load ptr, ptr %vfn, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags) #11
   %.pre = load i64, ptr %CurrentPosition.i.i.i, align 8
@@ -3572,17 +3572,17 @@ _ZN12OutputStream4growEm.exit.i.i59:              ; preds = %if.then.i._ZN12Outp
   br label %if.end9
 
 if.end9:                                          ; preds = %_ZN12OutputStream4growEm.exit.i.i59, %entry
-  %Quals = getelementptr inbounds i8, ptr %this, i64 12
+  %Quals = getelementptr inbounds nuw i8, ptr %this, i64 12
   %18 = load i8, ptr %Quals, align 4
   %19 = and i8 %18, 1
   %tobool12.not = icmp eq i8 %19, 0
   br i1 %tobool12.not, label %if.end16, label %if.end.i.i71
 
 if.end.i.i71:                                     ; preds = %if.end9
-  %CurrentPosition.i.i.i72 = getelementptr inbounds i8, ptr %OS, i64 8
+  %CurrentPosition.i.i.i72 = getelementptr inbounds nuw i8, ptr %OS, i64 8
   %20 = load i64, ptr %CurrentPosition.i.i.i72, align 8
   %add.i.i.i73 = add i64 %20, 6
-  %BufferCapacity.i.i.i74 = getelementptr inbounds i8, ptr %OS, i64 16
+  %BufferCapacity.i.i.i74 = getelementptr inbounds nuw i8, ptr %OS, i64 16
   %21 = load i64, ptr %BufferCapacity.i.i.i74, align 8
   %cmp.not.i.i.i75 = icmp ult i64 %add.i.i.i73, %21
   %.pre.i.i76 = load ptr, ptr %OS, align 8
@@ -3623,10 +3623,10 @@ if.end16:                                         ; preds = %_ZN12OutputStream4g
   br i1 %tobool20.not, label %if.end24, label %if.end.i.i96
 
 if.end.i.i96:                                     ; preds = %if.end16
-  %CurrentPosition.i.i.i97 = getelementptr inbounds i8, ptr %OS, i64 8
+  %CurrentPosition.i.i.i97 = getelementptr inbounds nuw i8, ptr %OS, i64 8
   %27 = load i64, ptr %CurrentPosition.i.i.i97, align 8
   %add.i.i.i98 = add i64 %27, 9
-  %BufferCapacity.i.i.i99 = getelementptr inbounds i8, ptr %OS, i64 16
+  %BufferCapacity.i.i.i99 = getelementptr inbounds nuw i8, ptr %OS, i64 16
   %28 = load i64, ptr %BufferCapacity.i.i.i99, align 8
   %cmp.not.i.i.i100 = icmp ult i64 %add.i.i.i98, %28
   %.pre.i.i101 = load ptr, ptr %OS, align 8
@@ -3667,10 +3667,10 @@ if.end24:                                         ; preds = %_ZN12OutputStream4g
   br i1 %tobool28.not, label %if.end32, label %if.end.i.i121
 
 if.end.i.i121:                                    ; preds = %if.end24
-  %CurrentPosition.i.i.i122 = getelementptr inbounds i8, ptr %OS, i64 8
+  %CurrentPosition.i.i.i122 = getelementptr inbounds nuw i8, ptr %OS, i64 8
   %34 = load i64, ptr %CurrentPosition.i.i.i122, align 8
   %add.i.i.i123 = add i64 %34, 11
-  %BufferCapacity.i.i.i124 = getelementptr inbounds i8, ptr %OS, i64 16
+  %BufferCapacity.i.i.i124 = getelementptr inbounds nuw i8, ptr %OS, i64 16
   %35 = load i64, ptr %BufferCapacity.i.i.i124, align 8
   %cmp.not.i.i.i125 = icmp ult i64 %add.i.i.i123, %35
   %.pre.i.i126 = load ptr, ptr %OS, align 8
@@ -3711,10 +3711,10 @@ if.end32:                                         ; preds = %_ZN12OutputStream4g
   br i1 %tobool36.not, label %if.end40, label %if.end.i.i146
 
 if.end.i.i146:                                    ; preds = %if.end32
-  %CurrentPosition.i.i.i147 = getelementptr inbounds i8, ptr %OS, i64 8
+  %CurrentPosition.i.i.i147 = getelementptr inbounds nuw i8, ptr %OS, i64 8
   %41 = load i64, ptr %CurrentPosition.i.i.i147, align 8
   %add.i.i.i148 = add i64 %41, 12
-  %BufferCapacity.i.i.i149 = getelementptr inbounds i8, ptr %OS, i64 16
+  %BufferCapacity.i.i.i149 = getelementptr inbounds nuw i8, ptr %OS, i64 16
   %42 = load i64, ptr %BufferCapacity.i.i.i149, align 8
   %cmp.not.i.i.i150 = icmp ult i64 %add.i.i.i148, %42
   %.pre.i.i151 = load ptr, ptr %OS, align 8
@@ -3748,7 +3748,7 @@ _ZN12OutputStream4growEm.exit.i.i159:             ; preds = %if.then.i._ZN12Outp
   br label %if.end40
 
 if.end40:                                         ; preds = %_ZN12OutputStream4growEm.exit.i.i159, %if.end32
-  %RefQualifier = getelementptr inbounds i8, ptr %this, i64 24
+  %RefQualifier = getelementptr inbounds nuw i8, ptr %this, i64 24
   %46 = load i32, ptr %RefQualifier, align 8
   switch i32 %46, label %if.end51 [
     i32 1, label %if.end.i.i171
@@ -3756,10 +3756,10 @@ if.end40:                                         ; preds = %_ZN12OutputStream4g
   ]
 
 if.end.i.i171:                                    ; preds = %if.end40
-  %CurrentPosition.i.i.i172 = getelementptr inbounds i8, ptr %OS, i64 8
+  %CurrentPosition.i.i.i172 = getelementptr inbounds nuw i8, ptr %OS, i64 8
   %47 = load i64, ptr %CurrentPosition.i.i.i172, align 8
   %add.i.i.i173 = add i64 %47, 2
-  %BufferCapacity.i.i.i174 = getelementptr inbounds i8, ptr %OS, i64 16
+  %BufferCapacity.i.i.i174 = getelementptr inbounds nuw i8, ptr %OS, i64 16
   %48 = load i64, ptr %BufferCapacity.i.i.i174, align 8
   %cmp.not.i.i.i175 = icmp ult i64 %add.i.i.i173, %48
   %.pre.i.i176 = load ptr, ptr %OS, align 8
@@ -3793,10 +3793,10 @@ _ZN12OutputStream4growEm.exit.i.i184:             ; preds = %if.then.i._ZN12Outp
   br label %if.end51
 
 if.end.i.i196:                                    ; preds = %if.end40
-  %CurrentPosition.i.i.i197 = getelementptr inbounds i8, ptr %OS, i64 8
+  %CurrentPosition.i.i.i197 = getelementptr inbounds nuw i8, ptr %OS, i64 8
   %52 = load i64, ptr %CurrentPosition.i.i.i197, align 8
   %add.i.i.i198 = add i64 %52, 3
-  %BufferCapacity.i.i.i199 = getelementptr inbounds i8, ptr %OS, i64 16
+  %BufferCapacity.i.i.i199 = getelementptr inbounds nuw i8, ptr %OS, i64 16
   %53 = load i64, ptr %BufferCapacity.i.i.i199, align 8
   %cmp.not.i.i.i200 = icmp ult i64 %add.i.i.i198, %53
   %.pre.i.i201 = load ptr, ptr %OS, align 8
@@ -3830,14 +3830,14 @@ _ZN12OutputStream4growEm.exit.i.i209:             ; preds = %if.then.i._ZN12Outp
   br label %if.end51
 
 if.end51:                                         ; preds = %_ZN12OutputStream4growEm.exit.i.i209, %_ZN12OutputStream4growEm.exit.i.i184, %if.end40
-  %ReturnType = getelementptr inbounds i8, ptr %this, i64 32
+  %ReturnType = getelementptr inbounds nuw i8, ptr %this, i64 32
   %57 = load ptr, ptr %ReturnType, align 8
   %tobool52.not = icmp eq ptr %57, null
   br i1 %tobool52.not, label %if.end57, label %if.then53
 
 if.then53:                                        ; preds = %if.end51
   %vtable55 = load ptr, ptr %57, align 8
-  %vfn56 = getelementptr inbounds i8, ptr %vtable55, i64 32
+  %vfn56 = getelementptr inbounds nuw i8, ptr %vtable55, i64 32
   %58 = load ptr, ptr %vfn56, align 8
   tail call void %58(ptr noundef nonnull align 8 dereferenceable(13) %57, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags) #11
   br label %if.end57
@@ -3849,10 +3849,10 @@ if.end57:                                         ; preds = %if.then53, %if.end5
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK4llvh11ms_demangle18ThunkSignatureNode9outputPreER12OutputStreamNS0_11OutputFlagsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags) unnamed_addr #1 align 2 {
 entry:
-  %CurrentPosition.i.i.i = getelementptr inbounds i8, ptr %OS, i64 8
+  %CurrentPosition.i.i.i = getelementptr inbounds nuw i8, ptr %OS, i64 8
   %0 = load i64, ptr %CurrentPosition.i.i.i, align 8
   %add.i.i.i = add i64 %0, 9
-  %BufferCapacity.i.i.i = getelementptr inbounds i8, ptr %OS, i64 16
+  %BufferCapacity.i.i.i = getelementptr inbounds nuw i8, ptr %OS, i64 16
   %1 = load i64, ptr %BufferCapacity.i.i.i, align 8
   %cmp.not.i.i.i = icmp ult i64 %add.i.i.i, %1
   %.pre.i.i = load ptr, ptr %OS, align 8
@@ -3890,7 +3890,7 @@ _ZN12OutputStream4growEm.exit.i.i:                ; preds = %if.then.i._ZN12Outp
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK4llvh11ms_demangle18ThunkSignatureNode10outputPostER12OutputStreamNS0_11OutputFlagsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags) unnamed_addr #1 align 2 {
 entry:
-  %FunctionClass = getelementptr inbounds i8, ptr %this, i64 22
+  %FunctionClass = getelementptr inbounds nuw i8, ptr %this, i64 22
   %0 = load i16, ptr %FunctionClass, align 2
   %conv = zext i16 %0 to i32
   %and = and i32 %conv, 2048
@@ -3898,10 +3898,10 @@ entry:
   br i1 %tobool.not, label %if.else, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %entry
-  %CurrentPosition.i.i.i = getelementptr inbounds i8, ptr %OS, i64 8
+  %CurrentPosition.i.i.i = getelementptr inbounds nuw i8, ptr %OS, i64 8
   %1 = load i64, ptr %CurrentPosition.i.i.i, align 8
   %add.i.i.i = add i64 %1, 10
-  %BufferCapacity.i.i.i = getelementptr inbounds i8, ptr %OS, i64 16
+  %BufferCapacity.i.i.i = getelementptr inbounds nuw i8, ptr %OS, i64 16
   %2 = load i64, ptr %BufferCapacity.i.i.i, align 8
   %cmp.not.i.i.i = icmp ult i64 %add.i.i.i, %2
   %.pre.i.i = load ptr, ptr %OS, align 8
@@ -3932,7 +3932,7 @@ _ZN12OutputStream4growEm.exit.i.i:                ; preds = %if.then.i._ZN12Outp
   %5 = load i64, ptr %CurrentPosition.i.i.i, align 8
   %add.i.i = add i64 %5, 10
   store i64 %add.i.i, ptr %CurrentPosition.i.i.i, align 8
-  %ThisAdjust = getelementptr inbounds i8, ptr %this, i64 56
+  %ThisAdjust = getelementptr inbounds nuw i8, ptr %this, i64 56
   %6 = load i32, ptr %ThisAdjust, align 8
   %conv.i = zext i32 %6 to i64
   tail call void @_ZN12OutputStream13writeUnsignedEmb(ptr noundef nonnull align 8 dereferenceable(32) %OS, i64 noundef %conv.i, i1 noundef zeroext false)
@@ -3978,9 +3978,9 @@ if.else:                                          ; preds = %entry
 if.then9:                                         ; preds = %if.else
   %and12 = and i32 %conv, 1024
   %tobool13.not = icmp eq i32 %and12, 0
-  %CurrentPosition.i.i.i177 = getelementptr inbounds i8, ptr %OS, i64 8
+  %CurrentPosition.i.i.i177 = getelementptr inbounds nuw i8, ptr %OS, i64 8
   %12 = load i64, ptr %CurrentPosition.i.i.i177, align 8
-  %BufferCapacity.i.i.i179 = getelementptr inbounds i8, ptr %OS, i64 16
+  %BufferCapacity.i.i.i179 = getelementptr inbounds nuw i8, ptr %OS, i64 16
   %13 = load i64, ptr %BufferCapacity.i.i.i179, align 8
   %.pre.i.i181 = load ptr, ptr %OS, align 8
   br i1 %tobool13.not, label %if.end.i.i176, label %if.end.i.i36
@@ -4015,8 +4015,8 @@ _ZN12OutputStream4growEm.exit.i.i49:              ; preds = %if.then.i._ZN12Outp
   %16 = load i64, ptr %CurrentPosition.i.i.i177, align 8
   %add.i.i51 = add i64 %16, 12
   store i64 %add.i.i51, ptr %CurrentPosition.i.i.i177, align 8
-  %ThisAdjust17 = getelementptr inbounds i8, ptr %this, i64 56
-  %VBPtrOffset = getelementptr inbounds i8, ptr %this, i64 60
+  %ThisAdjust17 = getelementptr inbounds nuw i8, ptr %this, i64 56
+  %VBPtrOffset = getelementptr inbounds nuw i8, ptr %this, i64 60
   %17 = load i32, ptr %VBPtrOffset, align 4
   %conv.i54 = sext i32 %17 to i64
   %cmp.i.i55 = icmp slt i32 %17, 0
@@ -4064,7 +4064,7 @@ _ZN12OutputStream4growEm.exit.i.i76:              ; preds = %if.then.i._ZN12Outp
   %22 = load i64, ptr %CurrentPosition.i.i.i177, align 8
   %add.i.i78 = add i64 %22, 2
   store i64 %add.i.i78, ptr %CurrentPosition.i.i.i177, align 8
-  %VBOffsetOffset = getelementptr inbounds i8, ptr %this, i64 64
+  %VBOffsetOffset = getelementptr inbounds nuw i8, ptr %this, i64 64
   %23 = load i32, ptr %VBOffsetOffset, align 8
   %conv.i81 = sext i32 %23 to i64
   %cmp.i.i82 = icmp slt i32 %23, 0
@@ -4112,7 +4112,7 @@ _ZN12OutputStream4growEm.exit.i.i107:             ; preds = %if.then.i._ZN12Outp
   %28 = load i64, ptr %CurrentPosition.i.i.i177, align 8
   %add.i.i109 = add i64 %28, 2
   store i64 %add.i.i109, ptr %CurrentPosition.i.i.i177, align 8
-  %VtordispOffset = getelementptr inbounds i8, ptr %this, i64 68
+  %VtordispOffset = getelementptr inbounds nuw i8, ptr %this, i64 68
   %29 = load i32, ptr %VtordispOffset, align 4
   %conv.i112 = sext i32 %29 to i64
   %cmp.i.i113 = icmp slt i32 %29, 0
@@ -4227,8 +4227,8 @@ _ZN12OutputStream4growEm.exit.i.i189:             ; preds = %if.then.i._ZN12Outp
   %43 = load i64, ptr %CurrentPosition.i.i.i177, align 8
   %add.i.i191 = add i64 %43, 10
   store i64 %add.i.i191, ptr %CurrentPosition.i.i.i177, align 8
-  %ThisAdjust37 = getelementptr inbounds i8, ptr %this, i64 56
-  %VtordispOffset38 = getelementptr inbounds i8, ptr %this, i64 68
+  %ThisAdjust37 = getelementptr inbounds nuw i8, ptr %this, i64 56
+  %VtordispOffset38 = getelementptr inbounds nuw i8, ptr %this, i64 68
   %44 = load i32, ptr %VtordispOffset38, align 4
   %conv.i194 = sext i32 %44 to i64
   %cmp.i.i195 = icmp slt i32 %44, 0
@@ -4321,17 +4321,17 @@ if.end48:                                         ; preds = %_ZN12OutputStream4g
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK4llvh11ms_demangle15PointerTypeNode9outputPreER12OutputStreamNS0_11OutputFlagsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags) unnamed_addr #1 align 2 {
 entry:
-  %Pointee = getelementptr inbounds i8, ptr %this, i64 32
+  %Pointee = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %Pointee, align 8
-  %Kind.i = getelementptr inbounds i8, ptr %0, i64 8
+  %Kind.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1 = load i32, ptr %Kind.i, align 8
   %cmp = icmp eq i32 %1, 3
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 24
   %2 = load ptr, ptr %vfn, align 8
   %.Flags = select i1 %cmp, i32 1, i32 %Flags
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(13) %0, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %.Flags) #11
-  %CurrentPosition.i.i = getelementptr inbounds i8, ptr %OS, i64 8
+  %CurrentPosition.i.i = getelementptr inbounds nuw i8, ptr %OS, i64 8
   %3 = load i64, ptr %CurrentPosition.i.i, align 8
   %cmp.i.i = icmp eq i64 %3, 0
   br i1 %cmp.i.i, label %_ZL22outputSpaceIfNecessaryR12OutputStream.exit, label %_ZNK12OutputStream4backEv.exit.i
@@ -4350,7 +4350,7 @@ _ZNK12OutputStream4backEv.exit.i:                 ; preds = %entry
 
 if.end.i.i.i:                                     ; preds = %_ZNK12OutputStream4backEv.exit.i
   %add.i.i.i.i = add i64 %3, 1
-  %BufferCapacity.i.i.i.i = getelementptr inbounds i8, ptr %OS, i64 16
+  %BufferCapacity.i.i.i.i = getelementptr inbounds nuw i8, ptr %OS, i64 16
   %7 = load i64, ptr %BufferCapacity.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp ult i64 %add.i.i.i.i, %7
   br i1 %cmp.not.i.i.i.i, label %_ZN12OutputStream4growEm.exit.i.i.i, label %if.then.i.i.i.i
@@ -4384,7 +4384,7 @@ _ZN12OutputStream4growEm.exit.i.i.i:              ; preds = %if.then.i._ZN12Outp
 
 _ZL22outputSpaceIfNecessaryR12OutputStream.exit:  ; preds = %entry, %_ZNK12OutputStream4backEv.exit.i, %_ZN12OutputStream4growEm.exit.i.i.i
   %11 = phi i64 [ 0, %entry ], [ %3, %_ZNK12OutputStream4backEv.exit.i ], [ %add.i.i.i, %_ZN12OutputStream4growEm.exit.i.i.i ]
-  %Quals = getelementptr inbounds i8, ptr %this, i64 12
+  %Quals = getelementptr inbounds nuw i8, ptr %this, i64 12
   %12 = load i8, ptr %Quals, align 4
   %13 = and i8 %12, 16
   %tobool.not = icmp eq i8 %13, 0
@@ -4392,7 +4392,7 @@ _ZL22outputSpaceIfNecessaryR12OutputStream.exit:  ; preds = %entry, %_ZNK12Outpu
 
 if.end.i.i:                                       ; preds = %_ZL22outputSpaceIfNecessaryR12OutputStream.exit
   %add.i.i.i16 = add i64 %11, 12
-  %BufferCapacity.i.i.i = getelementptr inbounds i8, ptr %OS, i64 16
+  %BufferCapacity.i.i.i = getelementptr inbounds nuw i8, ptr %OS, i64 16
   %14 = load i64, ptr %BufferCapacity.i.i.i, align 8
   %cmp.not.i.i.i = icmp ult i64 %add.i.i.i16, %14
   %.pre.i.i = load ptr, ptr %OS, align 8
@@ -4428,7 +4428,7 @@ _ZN12OutputStream4growEm.exit.i.i:                ; preds = %if.then.i._ZN12Outp
 if.end8:                                          ; preds = %_ZN12OutputStream4growEm.exit.i.i, %_ZL22outputSpaceIfNecessaryR12OutputStream.exit
   %18 = phi i64 [ %add.i.i, %_ZN12OutputStream4growEm.exit.i.i ], [ %11, %_ZL22outputSpaceIfNecessaryR12OutputStream.exit ]
   %19 = load ptr, ptr %Pointee, align 8
-  %Kind.i17 = getelementptr inbounds i8, ptr %19, i64 8
+  %Kind.i17 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %20 = load i32, ptr %Kind.i17, align 8
   switch i32 %20, label %if.end27 [
     i32 16, label %if.end.i.i25
@@ -4437,7 +4437,7 @@ if.end8:                                          ; preds = %_ZN12OutputStream4g
 
 if.end.i.i25:                                     ; preds = %if.end8
   %add.i.i.i27 = add i64 %18, 1
-  %BufferCapacity.i.i.i28 = getelementptr inbounds i8, ptr %OS, i64 16
+  %BufferCapacity.i.i.i28 = getelementptr inbounds nuw i8, ptr %OS, i64 16
   %21 = load i64, ptr %BufferCapacity.i.i.i28, align 8
   %cmp.not.i.i.i29 = icmp ult i64 %add.i.i.i27, %21
   %.pre.i.i30 = load ptr, ptr %OS, align 8
@@ -4469,7 +4469,7 @@ _ZN12OutputStream4growEm.exit.i.i38:              ; preds = %if.then.i._ZN12Outp
 
 if.end.i.i51:                                     ; preds = %if.end8
   %add.i.i.i53 = add i64 %18, 1
-  %BufferCapacity.i.i.i54 = getelementptr inbounds i8, ptr %OS, i64 16
+  %BufferCapacity.i.i.i54 = getelementptr inbounds nuw i8, ptr %OS, i64 16
   %24 = load i64, ptr %BufferCapacity.i.i.i54, align 8
   %cmp.not.i.i.i55 = icmp ult i64 %add.i.i.i53, %24
   %.pre.i.i56 = load ptr, ptr %OS, align 8
@@ -4501,7 +4501,7 @@ _ZN12OutputStream4growEm.exit.i.i64:              ; preds = %if.then.i._ZN12Outp
   %add.i.i66 = add i64 %27, 1
   store i64 %add.i.i66, ptr %CurrentPosition.i.i, align 8
   %28 = load ptr, ptr %Pointee, align 8
-  %CallConvention = getelementptr inbounds i8, ptr %28, i64 20
+  %CallConvention = getelementptr inbounds nuw i8, ptr %28, i64 20
   %29 = load i8, ptr %CallConvention, align 4
   tail call fastcc void @_ZL23outputCallingConventionR12OutputStreamN4llvh11ms_demangle11CallingConvE(ptr noundef nonnull align 8 dereferenceable(32) %OS, i8 noundef zeroext %29)
   %30 = load i64, ptr %CurrentPosition.i.i, align 8
@@ -4543,19 +4543,19 @@ if.end27.sink.split:                              ; preds = %_ZN12OutputStream4g
 
 if.end27:                                         ; preds = %if.end27.sink.split, %if.end8
   %35 = phi i64 [ %18, %if.end8 ], [ %add.i.i91, %if.end27.sink.split ]
-  %ClassParent = getelementptr inbounds i8, ptr %this, i64 24
+  %ClassParent = getelementptr inbounds nuw i8, ptr %this, i64 24
   %36 = load ptr, ptr %ClassParent, align 8
   %tobool28.not = icmp eq ptr %36, null
   br i1 %tobool28.not, label %if.end35, label %if.then29
 
 if.then29:                                        ; preds = %if.end27
   %vtable31 = load ptr, ptr %36, align 8
-  %vfn32 = getelementptr inbounds i8, ptr %vtable31, i64 16
+  %vfn32 = getelementptr inbounds nuw i8, ptr %vtable31, i64 16
   %37 = load ptr, ptr %vfn32, align 8
   tail call void %37(ptr noundef nonnull align 8 dereferenceable(24) %36, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags) #11
   %38 = load i64, ptr %CurrentPosition.i.i, align 8
   %add.i.i.i103 = add i64 %38, 2
-  %BufferCapacity.i.i.i104 = getelementptr inbounds i8, ptr %OS, i64 16
+  %BufferCapacity.i.i.i104 = getelementptr inbounds nuw i8, ptr %OS, i64 16
   %39 = load i64, ptr %BufferCapacity.i.i.i104, align 8
   %cmp.not.i.i.i105 = icmp ult i64 %add.i.i.i103, %39
   %.pre.i.i106 = load ptr, ptr %OS, align 8
@@ -4590,7 +4590,7 @@ _ZN12OutputStream4growEm.exit.i.i114:             ; preds = %if.then.i._ZN12Outp
 
 if.end35:                                         ; preds = %_ZN12OutputStream4growEm.exit.i.i114, %if.end27
   %43 = phi i64 [ %add.i.i116, %_ZN12OutputStream4growEm.exit.i.i114 ], [ %35, %if.end27 ]
-  %Affinity = getelementptr inbounds i8, ptr %this, i64 16
+  %Affinity = getelementptr inbounds nuw i8, ptr %this, i64 16
   %44 = load i32, ptr %Affinity, align 8
   switch i32 %44, label %sw.epilog [
     i32 1, label %if.end.i.i126
@@ -4600,7 +4600,7 @@ if.end35:                                         ; preds = %_ZN12OutputStream4g
 
 if.end.i.i126:                                    ; preds = %if.end35
   %add.i.i.i128 = add i64 %43, 1
-  %BufferCapacity.i.i.i129 = getelementptr inbounds i8, ptr %OS, i64 16
+  %BufferCapacity.i.i.i129 = getelementptr inbounds nuw i8, ptr %OS, i64 16
   %45 = load i64, ptr %BufferCapacity.i.i.i129, align 8
   %cmp.not.i.i.i130 = icmp ult i64 %add.i.i.i128, %45
   %.pre.i.i131 = load ptr, ptr %OS, align 8
@@ -4632,7 +4632,7 @@ _ZN12OutputStream4growEm.exit.i.i139:             ; preds = %if.then.i._ZN12Outp
 
 if.end.i.i151:                                    ; preds = %if.end35
   %add.i.i.i153 = add i64 %43, 1
-  %BufferCapacity.i.i.i154 = getelementptr inbounds i8, ptr %OS, i64 16
+  %BufferCapacity.i.i.i154 = getelementptr inbounds nuw i8, ptr %OS, i64 16
   %48 = load i64, ptr %BufferCapacity.i.i.i154, align 8
   %cmp.not.i.i.i155 = icmp ult i64 %add.i.i.i153, %48
   %.pre.i.i156 = load ptr, ptr %OS, align 8
@@ -4664,7 +4664,7 @@ _ZN12OutputStream4growEm.exit.i.i164:             ; preds = %if.then.i._ZN12Outp
 
 if.end.i.i176:                                    ; preds = %if.end35
   %add.i.i.i178 = add i64 %43, 2
-  %BufferCapacity.i.i.i179 = getelementptr inbounds i8, ptr %OS, i64 16
+  %BufferCapacity.i.i.i179 = getelementptr inbounds nuw i8, ptr %OS, i64 16
   %51 = load i64, ptr %BufferCapacity.i.i.i179, align 8
   %cmp.not.i.i.i180 = icmp ult i64 %add.i.i.i178, %51
   %.pre.i.i181 = load ptr, ptr %OS, align 8
@@ -4714,7 +4714,7 @@ if.end.i:                                         ; preds = %sw.epilog
 
 if.end.i213:                                      ; preds = %if.end.i
   %add.i.i.i.i.i = add i64 %55, 5
-  %BufferCapacity.i.i.i.i.i = getelementptr inbounds i8, ptr %OS, i64 16
+  %BufferCapacity.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %OS, i64 16
   %57 = load i64, ptr %BufferCapacity.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i = icmp ult i64 %add.i.i.i.i.i, %57
   %.pre.i.i.i.i = load ptr, ptr %OS, align 8
@@ -4759,9 +4759,9 @@ _ZL16outputQualifiersR12OutputStreamN4llvh11ms_demangle10QualifiersEbb.exit: ; p
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK4llvh11ms_demangle15PointerTypeNode10outputPostER12OutputStreamNS0_11OutputFlagsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags) unnamed_addr #1 align 2 {
 entry:
-  %Pointee = getelementptr inbounds i8, ptr %this, i64 32
+  %Pointee = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %Pointee, align 8
-  %Kind.i = getelementptr inbounds i8, ptr %0, i64 8
+  %Kind.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1 = load i32, ptr %Kind.i, align 8
   switch i32 %1, label %if.end [
     i32 16, label %if.end.i.i
@@ -4769,10 +4769,10 @@ entry:
   ]
 
 if.end.i.i:                                       ; preds = %entry, %entry
-  %CurrentPosition.i.i.i = getelementptr inbounds i8, ptr %OS, i64 8
+  %CurrentPosition.i.i.i = getelementptr inbounds nuw i8, ptr %OS, i64 8
   %2 = load i64, ptr %CurrentPosition.i.i.i, align 8
   %add.i.i.i = add i64 %2, 1
-  %BufferCapacity.i.i.i = getelementptr inbounds i8, ptr %OS, i64 16
+  %BufferCapacity.i.i.i = getelementptr inbounds nuw i8, ptr %OS, i64 16
   %3 = load i64, ptr %BufferCapacity.i.i.i, align 8
   %cmp.not.i.i.i = icmp ult i64 %add.i.i.i, %3
   %.pre.i.i = load ptr, ptr %OS, align 8
@@ -4809,7 +4809,7 @@ _ZN12OutputStream4growEm.exit.i.i:                ; preds = %if.then.i._ZN12Outp
 if.end:                                           ; preds = %entry, %_ZN12OutputStream4growEm.exit.i.i
   %7 = phi ptr [ %0, %entry ], [ %.pre, %_ZN12OutputStream4growEm.exit.i.i ]
   %vtable = load ptr, ptr %7, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 32
   %8 = load ptr, ptr %vfn, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(13) %7, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags) #11
   ret void
@@ -4818,9 +4818,9 @@ if.end:                                           ; preds = %entry, %_ZN12Output
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK4llvh11ms_demangle11TagTypeNode9outputPreER12OutputStreamNS0_11OutputFlagsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %this, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags) unnamed_addr #1 align 2 {
 entry:
-  %Tag = getelementptr inbounds i8, ptr %this, i64 24
+  %Tag = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i32, ptr %Tag, align 8
-  %CurrentPosition.i.i.i90.phi.trans.insert = getelementptr inbounds i8, ptr %OS, i64 8
+  %CurrentPosition.i.i.i90.phi.trans.insert = getelementptr inbounds nuw i8, ptr %OS, i64 8
   %.pre = load i64, ptr %CurrentPosition.i.i.i90.phi.trans.insert, align 8
   switch i32 %0, label %if.end.i.i89 [
     i32 0, label %if.end.i.i
@@ -4831,7 +4831,7 @@ entry:
 
 if.end.i.i:                                       ; preds = %entry
   %add.i.i.i = add i64 %.pre, 5
-  %BufferCapacity.i.i.i = getelementptr inbounds i8, ptr %OS, i64 16
+  %BufferCapacity.i.i.i = getelementptr inbounds nuw i8, ptr %OS, i64 16
   %1 = load i64, ptr %BufferCapacity.i.i.i, align 8
   %cmp.not.i.i.i = icmp ult i64 %add.i.i.i, %1
   %.pre.i.i = load ptr, ptr %OS, align 8
@@ -4863,7 +4863,7 @@ _ZN12OutputStream4growEm.exit.i.i:                ; preds = %if.then.i._ZN12Outp
 
 if.end.i.i14:                                     ; preds = %entry
   %add.i.i.i16 = add i64 %.pre, 6
-  %BufferCapacity.i.i.i17 = getelementptr inbounds i8, ptr %OS, i64 16
+  %BufferCapacity.i.i.i17 = getelementptr inbounds nuw i8, ptr %OS, i64 16
   %4 = load i64, ptr %BufferCapacity.i.i.i17, align 8
   %cmp.not.i.i.i18 = icmp ult i64 %add.i.i.i16, %4
   %.pre.i.i19 = load ptr, ptr %OS, align 8
@@ -4895,7 +4895,7 @@ _ZN12OutputStream4growEm.exit.i.i27:              ; preds = %if.then.i._ZN12Outp
 
 if.end.i.i39:                                     ; preds = %entry
   %add.i.i.i41 = add i64 %.pre, 5
-  %BufferCapacity.i.i.i42 = getelementptr inbounds i8, ptr %OS, i64 16
+  %BufferCapacity.i.i.i42 = getelementptr inbounds nuw i8, ptr %OS, i64 16
   %7 = load i64, ptr %BufferCapacity.i.i.i42, align 8
   %cmp.not.i.i.i43 = icmp ult i64 %add.i.i.i41, %7
   %.pre.i.i44 = load ptr, ptr %OS, align 8
@@ -4927,7 +4927,7 @@ _ZN12OutputStream4growEm.exit.i.i52:              ; preds = %if.then.i._ZN12Outp
 
 if.end.i.i64:                                     ; preds = %entry
   %add.i.i.i66 = add i64 %.pre, 4
-  %BufferCapacity.i.i.i67 = getelementptr inbounds i8, ptr %OS, i64 16
+  %BufferCapacity.i.i.i67 = getelementptr inbounds nuw i8, ptr %OS, i64 16
   %10 = load i64, ptr %BufferCapacity.i.i.i67, align 8
   %cmp.not.i.i.i68 = icmp ult i64 %add.i.i.i66, %10
   %.pre.i.i69 = load ptr, ptr %OS, align 8
@@ -4966,9 +4966,9 @@ if.end.i.i89.sink.split:                          ; preds = %_ZN12OutputStream4g
 
 if.end.i.i89:                                     ; preds = %if.end.i.i89.sink.split, %entry
   %14 = phi i64 [ %.pre, %entry ], [ %add.i.i, %if.end.i.i89.sink.split ]
-  %CurrentPosition.i.i.i90 = getelementptr inbounds i8, ptr %OS, i64 8
+  %CurrentPosition.i.i.i90 = getelementptr inbounds nuw i8, ptr %OS, i64 8
   %add.i.i.i91 = add i64 %14, 1
-  %BufferCapacity.i.i.i92 = getelementptr inbounds i8, ptr %OS, i64 16
+  %BufferCapacity.i.i.i92 = getelementptr inbounds nuw i8, ptr %OS, i64 16
   %15 = load i64, ptr %BufferCapacity.i.i.i92, align 8
   %cmp.not.i.i.i93 = icmp ult i64 %add.i.i.i91, %15
   %.pre.i.i94 = load ptr, ptr %OS, align 8
@@ -4999,13 +4999,13 @@ _ZN12OutputStream4growEm.exit.i.i102:             ; preds = %if.then.i._ZN12Outp
   %18 = load i64, ptr %CurrentPosition.i.i.i90, align 8
   %add.i.i104 = add i64 %18, 1
   store i64 %add.i.i104, ptr %CurrentPosition.i.i.i90, align 8
-  %QualifiedName = getelementptr inbounds i8, ptr %this, i64 16
+  %QualifiedName = getelementptr inbounds nuw i8, ptr %this, i64 16
   %19 = load ptr, ptr %QualifiedName, align 8
   %vtable = load ptr, ptr %19, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %20 = load ptr, ptr %vfn, align 8
   tail call void %20(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags) #11
-  %Quals = getelementptr inbounds i8, ptr %this, i64 12
+  %Quals = getelementptr inbounds nuw i8, ptr %this, i64 12
   %21 = load i8, ptr %Quals, align 4
   %cmp.i = icmp eq i8 %21, 0
   br i1 %cmp.i, label %_ZL16outputQualifiersR12OutputStreamN4llvh11ms_demangle10QualifiersEbb.exit, label %if.end.i
@@ -5029,13 +5029,13 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK4llvh11ms_demangle13ArrayTypeNode9outputPreER12OutputStreamNS0_11OutputFlagsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags) unnamed_addr #1 align 2 {
 entry:
-  %ElementType = getelementptr inbounds i8, ptr %this, i64 24
+  %ElementType = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %ElementType, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 24
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(13) %0, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags) #11
-  %Quals = getelementptr inbounds i8, ptr %this, i64 12
+  %Quals = getelementptr inbounds nuw i8, ptr %this, i64 12
   %2 = load i8, ptr %Quals, align 4
   %cmp.i = icmp eq i8 %2, 0
   br i1 %cmp.i, label %_ZL16outputQualifiersR12OutputStreamN4llvh11ms_demangle10QualifiersEbb.exit, label %if.end.i
@@ -5053,14 +5053,14 @@ _ZL16outputQualifiersR12OutputStreamN4llvh11ms_demangle10QualifiersEbb.exit: ; p
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK4llvh11ms_demangle13ArrayTypeNode18outputOneDimensionER12OutputStreamNS0_11OutputFlagsEPNS0_4NodeE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags, ptr noundef %N) local_unnamed_addr #1 align 2 {
 entry:
-  %Value = getelementptr inbounds i8, ptr %N, i64 16
+  %Value = getelementptr inbounds nuw i8, ptr %N, i64 16
   %0 = load i64, ptr %Value, align 8
   %cmp.not = icmp eq i64 %0, 0
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %vtable = load ptr, ptr %N, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(25) %N, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags) #11
   br label %if.end
@@ -5072,29 +5072,29 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK4llvh11ms_demangle13ArrayTypeNode20outputDimensionsImplER12OutputStreamNS0_11OutputFlagsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags) local_unnamed_addr #1 align 2 {
 entry:
-  %Dimensions = getelementptr inbounds i8, ptr %this, i64 16
+  %Dimensions = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %Dimensions, align 8
-  %Count = getelementptr inbounds i8, ptr %0, i64 24
+  %Count = getelementptr inbounds nuw i8, ptr %0, i64 24
   %1 = load i64, ptr %Count, align 8
   %cmp = icmp eq i64 %1, 0
   br i1 %cmp, label %for.end, label %if.end
 
 if.end:                                           ; preds = %entry
-  %Nodes = getelementptr inbounds i8, ptr %0, i64 16
+  %Nodes = getelementptr inbounds nuw i8, ptr %0, i64 16
   %2 = load ptr, ptr %Nodes, align 8
   %3 = load ptr, ptr %2, align 8
-  %Value.i = getelementptr inbounds i8, ptr %3, i64 16
+  %Value.i = getelementptr inbounds nuw i8, ptr %3, i64 16
   %4 = load i64, ptr %Value.i, align 8
   %cmp.not.i = icmp eq i64 %4, 0
   br i1 %cmp.not.i, label %_ZNK4llvh11ms_demangle13ArrayTypeNode18outputOneDimensionER12OutputStreamNS0_11OutputFlagsEPNS0_4NodeE.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
   %vtable.i = load ptr, ptr %3, align 8
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 16
   %5 = load ptr, ptr %vfn.i, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(25) %3, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags) #11
   %.pre = load ptr, ptr %Dimensions, align 8
-  %Count412.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 24
+  %Count412.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 24
   %.pre15 = load i64, ptr %Count412.phi.trans.insert, align 8
   br label %_ZNK4llvh11ms_demangle13ArrayTypeNode18outputOneDimensionER12OutputStreamNS0_11OutputFlagsEPNS0_4NodeE.exit
 
@@ -5104,8 +5104,8 @@ _ZNK4llvh11ms_demangle13ArrayTypeNode18outputOneDimensionER12OutputStreamNS0_11O
   br i1 %cmp513, label %if.end.i.i.lr.ph, label %for.end
 
 if.end.i.i.lr.ph:                                 ; preds = %_ZNK4llvh11ms_demangle13ArrayTypeNode18outputOneDimensionER12OutputStreamNS0_11OutputFlagsEPNS0_4NodeE.exit
-  %CurrentPosition.i.i.i = getelementptr inbounds i8, ptr %OS, i64 8
-  %BufferCapacity.i.i.i = getelementptr inbounds i8, ptr %OS, i64 16
+  %CurrentPosition.i.i.i = getelementptr inbounds nuw i8, ptr %OS, i64 8
+  %BufferCapacity.i.i.i = getelementptr inbounds nuw i8, ptr %OS, i64 16
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.end.i.i.lr.ph, %_ZNK4llvh11ms_demangle13ArrayTypeNode18outputOneDimensionER12OutputStreamNS0_11OutputFlagsEPNS0_4NodeE.exit11
@@ -5143,18 +5143,18 @@ _ZN12OutputStream4growEm.exit.i.i:                ; preds = %if.then.i._ZN12Outp
   %add.i.i = add i64 %11, 2
   store i64 %add.i.i, ptr %CurrentPosition.i.i.i, align 8
   %12 = load ptr, ptr %Dimensions, align 8
-  %Nodes7 = getelementptr inbounds i8, ptr %12, i64 16
+  %Nodes7 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %13 = load ptr, ptr %Nodes7, align 8
   %arrayidx8 = getelementptr inbounds ptr, ptr %13, i64 %I.014
   %14 = load ptr, ptr %arrayidx8, align 8
-  %Value.i6 = getelementptr inbounds i8, ptr %14, i64 16
+  %Value.i6 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %15 = load i64, ptr %Value.i6, align 8
   %cmp.not.i7 = icmp eq i64 %15, 0
   br i1 %cmp.not.i7, label %_ZNK4llvh11ms_demangle13ArrayTypeNode18outputOneDimensionER12OutputStreamNS0_11OutputFlagsEPNS0_4NodeE.exit11, label %if.then.i8
 
 if.then.i8:                                       ; preds = %_ZN12OutputStream4growEm.exit.i.i
   %vtable.i9 = load ptr, ptr %14, align 8
-  %vfn.i10 = getelementptr inbounds i8, ptr %vtable.i9, i64 16
+  %vfn.i10 = getelementptr inbounds nuw i8, ptr %vtable.i9, i64 16
   %16 = load ptr, ptr %vfn.i10, align 8
   tail call void %16(ptr noundef nonnull align 8 dereferenceable(25) %14, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags) #11
   %.pre16 = load ptr, ptr %Dimensions, align 8
@@ -5163,7 +5163,7 @@ if.then.i8:                                       ; preds = %_ZN12OutputStream4g
 _ZNK4llvh11ms_demangle13ArrayTypeNode18outputOneDimensionER12OutputStreamNS0_11OutputFlagsEPNS0_4NodeE.exit11: ; preds = %_ZN12OutputStream4growEm.exit.i.i, %if.then.i8
   %17 = phi ptr [ %12, %_ZN12OutputStream4growEm.exit.i.i ], [ %.pre16, %if.then.i8 ]
   %inc = add nuw i64 %I.014, 1
-  %Count4 = getelementptr inbounds i8, ptr %17, i64 24
+  %Count4 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %18 = load i64, ptr %Count4, align 8
   %cmp5 = icmp ult i64 %inc, %18
   br i1 %cmp5, label %if.end.i.i, label %for.end, !llvm.loop !7
@@ -5175,10 +5175,10 @@ for.end:                                          ; preds = %_ZNK4llvh11ms_deman
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK4llvh11ms_demangle13ArrayTypeNode10outputPostER12OutputStreamNS0_11OutputFlagsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags) unnamed_addr #1 align 2 {
 entry:
-  %CurrentPosition.i.i.i = getelementptr inbounds i8, ptr %OS, i64 8
+  %CurrentPosition.i.i.i = getelementptr inbounds nuw i8, ptr %OS, i64 8
   %0 = load i64, ptr %CurrentPosition.i.i.i, align 8
   %add.i.i.i = add i64 %0, 1
-  %BufferCapacity.i.i.i = getelementptr inbounds i8, ptr %OS, i64 16
+  %BufferCapacity.i.i.i = getelementptr inbounds nuw i8, ptr %OS, i64 16
   %1 = load i64, ptr %BufferCapacity.i.i.i, align 8
   %cmp.not.i.i.i = icmp ult i64 %add.i.i.i, %1
   %.pre.i.i = load ptr, ptr %OS, align 8
@@ -5242,10 +5242,10 @@ _ZN12OutputStream4growEm.exit.i.i25:              ; preds = %if.then.i._ZN12Outp
   %9 = load i64, ptr %CurrentPosition.i.i.i, align 8
   %add.i.i27 = add i64 %9, 1
   store i64 %add.i.i27, ptr %CurrentPosition.i.i.i, align 8
-  %ElementType = getelementptr inbounds i8, ptr %this, i64 24
+  %ElementType = getelementptr inbounds nuw i8, ptr %this, i64 24
   %10 = load ptr, ptr %ElementType, align 8
   %vtable = load ptr, ptr %10, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 32
   %11 = load ptr, ptr %vfn, align 8
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(13) %10, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags) #11
   ret void
@@ -5254,10 +5254,10 @@ _ZN12OutputStream4growEm.exit.i.i25:              ; preds = %if.then.i._ZN12Outp
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK4llvh11ms_demangle10SymbolNode6outputER12OutputStreamNS0_11OutputFlagsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags) unnamed_addr #1 align 2 {
 entry:
-  %Name = getelementptr inbounds i8, ptr %this, i64 16
+  %Name = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %Name, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags) #11
   ret void
@@ -5266,13 +5266,13 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK4llvh11ms_demangle18FunctionSymbolNode6outputER12OutputStreamNS0_11OutputFlagsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags) unnamed_addr #1 align 2 {
 entry:
-  %Signature = getelementptr inbounds i8, ptr %this, i64 24
+  %Signature = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %Signature, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 24
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags) #11
-  %CurrentPosition.i.i = getelementptr inbounds i8, ptr %OS, i64 8
+  %CurrentPosition.i.i = getelementptr inbounds nuw i8, ptr %OS, i64 8
   %2 = load i64, ptr %CurrentPosition.i.i, align 8
   %cmp.i.i = icmp eq i64 %2, 0
   br i1 %cmp.i.i, label %_ZL22outputSpaceIfNecessaryR12OutputStream.exit, label %_ZNK12OutputStream4backEv.exit.i
@@ -5291,7 +5291,7 @@ _ZNK12OutputStream4backEv.exit.i:                 ; preds = %entry
 
 if.end.i.i.i:                                     ; preds = %_ZNK12OutputStream4backEv.exit.i
   %add.i.i.i.i = add i64 %2, 1
-  %BufferCapacity.i.i.i.i = getelementptr inbounds i8, ptr %OS, i64 16
+  %BufferCapacity.i.i.i.i = getelementptr inbounds nuw i8, ptr %OS, i64 16
   %6 = load i64, ptr %BufferCapacity.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp ult i64 %add.i.i.i.i, %6
   br i1 %cmp.not.i.i.i.i, label %_ZN12OutputStream4growEm.exit.i.i.i, label %if.then.i.i.i.i
@@ -5324,15 +5324,15 @@ _ZN12OutputStream4growEm.exit.i.i.i:              ; preds = %if.then.i._ZN12Outp
   br label %_ZL22outputSpaceIfNecessaryR12OutputStream.exit
 
 _ZL22outputSpaceIfNecessaryR12OutputStream.exit:  ; preds = %entry, %_ZNK12OutputStream4backEv.exit.i, %_ZN12OutputStream4growEm.exit.i.i.i
-  %Name = getelementptr inbounds i8, ptr %this, i64 16
+  %Name = getelementptr inbounds nuw i8, ptr %this, i64 16
   %10 = load ptr, ptr %Name, align 8
   %vtable2 = load ptr, ptr %10, align 8
-  %vfn3 = getelementptr inbounds i8, ptr %vtable2, i64 16
+  %vfn3 = getelementptr inbounds nuw i8, ptr %vtable2, i64 16
   %11 = load ptr, ptr %vfn3, align 8
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags) #11
   %12 = load ptr, ptr %Signature, align 8
   %vtable5 = load ptr, ptr %12, align 8
-  %vfn6 = getelementptr inbounds i8, ptr %vtable5, i64 32
+  %vfn6 = getelementptr inbounds nuw i8, ptr %vtable5, i64 32
   %13 = load ptr, ptr %vfn6, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(56) %12, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags) #11
   ret void
@@ -5341,17 +5341,17 @@ _ZL22outputSpaceIfNecessaryR12OutputStream.exit:  ; preds = %entry, %_ZNK12Outpu
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK4llvh11ms_demangle18VariableSymbolNode6outputER12OutputStreamNS0_11OutputFlagsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags) unnamed_addr #1 align 2 {
 entry:
-  %SC = getelementptr inbounds i8, ptr %this, i64 24
+  %SC = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i8, ptr %SC, align 8
   %.off = add i8 %0, -1
   %switch = icmp ult i8 %.off, 3
   br i1 %switch, label %if.end.i.i, label %sw.epilog
 
 if.end.i.i:                                       ; preds = %entry
-  %CurrentPosition.i.i.i = getelementptr inbounds i8, ptr %OS, i64 8
+  %CurrentPosition.i.i.i = getelementptr inbounds nuw i8, ptr %OS, i64 8
   %1 = load i64, ptr %CurrentPosition.i.i.i, align 8
   %add.i.i.i = add i64 %1, 7
-  %BufferCapacity.i.i.i = getelementptr inbounds i8, ptr %OS, i64 16
+  %BufferCapacity.i.i.i = getelementptr inbounds nuw i8, ptr %OS, i64 16
   %2 = load i64, ptr %BufferCapacity.i.i.i, align 8
   %cmp.not.i.i.i = icmp ult i64 %add.i.i.i, %2
   %.pre.i.i = load ptr, ptr %OS, align 8
@@ -5385,17 +5385,17 @@ _ZN12OutputStream4growEm.exit.i.i:                ; preds = %if.then.i._ZN12Outp
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %_ZN12OutputStream4growEm.exit.i.i, %entry
-  %Type = getelementptr inbounds i8, ptr %this, i64 32
+  %Type = getelementptr inbounds nuw i8, ptr %this, i64 32
   %6 = load ptr, ptr %Type, align 8
   %tobool.not = icmp eq ptr %6, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %sw.epilog
   %vtable = load ptr, ptr %6, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 24
   %7 = load ptr, ptr %vfn, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(13) %6, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags) #11
-  %CurrentPosition.i.i = getelementptr inbounds i8, ptr %OS, i64 8
+  %CurrentPosition.i.i = getelementptr inbounds nuw i8, ptr %OS, i64 8
   %8 = load i64, ptr %CurrentPosition.i.i, align 8
   %cmp.i.i8 = icmp eq i64 %8, 0
   br i1 %cmp.i.i8, label %if.end, label %_ZNK12OutputStream4backEv.exit.i
@@ -5414,7 +5414,7 @@ _ZNK12OutputStream4backEv.exit.i:                 ; preds = %if.then
 
 if.end.i.i.i:                                     ; preds = %_ZNK12OutputStream4backEv.exit.i
   %add.i.i.i.i = add i64 %8, 1
-  %BufferCapacity.i.i.i.i = getelementptr inbounds i8, ptr %OS, i64 16
+  %BufferCapacity.i.i.i.i = getelementptr inbounds nuw i8, ptr %OS, i64 16
   %12 = load i64, ptr %BufferCapacity.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp ult i64 %add.i.i.i.i, %12
   br i1 %cmp.not.i.i.i.i, label %_ZN12OutputStream4growEm.exit.i.i.i, label %if.then.i.i.i.i
@@ -5447,10 +5447,10 @@ _ZN12OutputStream4growEm.exit.i.i.i:              ; preds = %if.then.i._ZN12Outp
   br label %if.end
 
 if.end:                                           ; preds = %_ZN12OutputStream4growEm.exit.i.i.i, %_ZNK12OutputStream4backEv.exit.i, %if.then, %sw.epilog
-  %Name = getelementptr inbounds i8, ptr %this, i64 16
+  %Name = getelementptr inbounds nuw i8, ptr %this, i64 16
   %16 = load ptr, ptr %Name, align 8
   %vtable3 = load ptr, ptr %16, align 8
-  %vfn4 = getelementptr inbounds i8, ptr %vtable3, i64 16
+  %vfn4 = getelementptr inbounds nuw i8, ptr %vtable3, i64 16
   %17 = load ptr, ptr %vfn4, align 8
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags) #11
   %18 = load ptr, ptr %Type, align 8
@@ -5459,7 +5459,7 @@ if.end:                                           ; preds = %_ZN12OutputStream4g
 
 if.then7:                                         ; preds = %if.end
   %vtable9 = load ptr, ptr %18, align 8
-  %vfn10 = getelementptr inbounds i8, ptr %vtable9, i64 32
+  %vfn10 = getelementptr inbounds nuw i8, ptr %vtable9, i64 32
   %19 = load ptr, ptr %vfn10, align 8
   tail call void %19(ptr noundef nonnull align 8 dereferenceable(13) %18, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags) #11
   br label %if.end11
@@ -5471,10 +5471,10 @@ if.end11:                                         ; preds = %if.then7, %if.end
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK4llvh11ms_demangle14CustomTypeNode9outputPreER12OutputStreamNS0_11OutputFlagsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags) unnamed_addr #1 align 2 {
 entry:
-  %Identifier = getelementptr inbounds i8, ptr %this, i64 16
+  %Identifier = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %Identifier, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags) #11
   ret void
@@ -5489,7 +5489,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK4llvh11ms_demangle17QualifiedNameNode6outputER12OutputStreamNS0_11OutputFlagsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags) unnamed_addr #1 align 2 {
 entry:
-  %Components = getelementptr inbounds i8, ptr %this, i64 16
+  %Components = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %Components, align 8
   tail call void @_ZNK4llvh11ms_demangle13NodeArrayNode6outputER12OutputStreamNS0_11OutputFlagsE10StringView(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags, ptr nonnull @.str.123, ptr nonnull getelementptr inbounds (i8, ptr @.str.123, i64 2))
   ret void
@@ -5498,10 +5498,10 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK4llvh11ms_demangle27RttiBaseClassDescriptorNode6outputER12OutputStreamNS0_11OutputFlagsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 %Flags) unnamed_addr #1 align 2 {
 entry:
-  %CurrentPosition.i.i.i = getelementptr inbounds i8, ptr %OS, i64 8
+  %CurrentPosition.i.i.i = getelementptr inbounds nuw i8, ptr %OS, i64 8
   %0 = load i64, ptr %CurrentPosition.i.i.i, align 8
   %add.i.i.i = add i64 %0, 32
-  %BufferCapacity.i.i.i = getelementptr inbounds i8, ptr %OS, i64 16
+  %BufferCapacity.i.i.i = getelementptr inbounds nuw i8, ptr %OS, i64 16
   %1 = load i64, ptr %BufferCapacity.i.i.i, align 8
   %cmp.not.i.i.i = icmp ult i64 %add.i.i.i, %1
   %.pre.i.i = load ptr, ptr %OS, align 8
@@ -5532,7 +5532,7 @@ _ZN12OutputStream4growEm.exit.i.i:                ; preds = %if.then.i._ZN12Outp
   %4 = load i64, ptr %CurrentPosition.i.i.i, align 8
   %add.i.i = add i64 %4, 32
   store i64 %add.i.i, ptr %CurrentPosition.i.i.i, align 8
-  %NVOffset = getelementptr inbounds i8, ptr %this, i64 24
+  %NVOffset = getelementptr inbounds nuw i8, ptr %this, i64 24
   %5 = load i32, ptr %NVOffset, align 8
   %conv.i = zext i32 %5 to i64
   tail call void @_ZN12OutputStream13writeUnsignedEmb(ptr noundef nonnull align 8 dereferenceable(32) %OS, i64 noundef %conv.i, i1 noundef zeroext false)
@@ -5568,7 +5568,7 @@ _ZN12OutputStream4growEm.exit.i.i23:              ; preds = %if.then.i._ZN12Outp
   %10 = load i64, ptr %CurrentPosition.i.i.i, align 8
   %add.i.i25 = add i64 %10, 2
   store i64 %add.i.i25, ptr %CurrentPosition.i.i.i, align 8
-  %VBPtrOffset = getelementptr inbounds i8, ptr %this, i64 28
+  %VBPtrOffset = getelementptr inbounds nuw i8, ptr %this, i64 28
   %11 = load i32, ptr %VBPtrOffset, align 4
   %conv.i28 = sext i32 %11 to i64
   %cmp.i.i29 = icmp slt i32 %11, 0
@@ -5616,7 +5616,7 @@ if.end.i.i63:                                     ; preds = %if.then.i._ZN12Outp
   %16 = load i64, ptr %CurrentPosition.i.i.i, align 8
   %add.i.i52 = add i64 %16, 2
   store i64 %add.i.i52, ptr %CurrentPosition.i.i.i, align 8
-  %VBTableOffset = getelementptr inbounds i8, ptr %this, i64 32
+  %VBTableOffset = getelementptr inbounds nuw i8, ptr %this, i64 32
   %17 = load i32, ptr %VBTableOffset, align 8
   %conv.i55 = zext i32 %17 to i64
   tail call void @_ZN12OutputStream13writeUnsignedEmb(ptr noundef nonnull align 8 dereferenceable(32) %OS, i64 noundef %conv.i55, i1 noundef zeroext false)
@@ -5652,7 +5652,7 @@ _ZN12OutputStream4growEm.exit.i.i76:              ; preds = %if.then.i._ZN12Outp
   %22 = load i64, ptr %CurrentPosition.i.i.i, align 8
   %add.i.i78 = add i64 %22, 2
   store i64 %add.i.i78, ptr %CurrentPosition.i.i.i, align 8
-  %Flags11 = getelementptr inbounds i8, ptr %this, i64 36
+  %Flags11 = getelementptr inbounds nuw i8, ptr %this, i64 36
   %23 = load i32, ptr %Flags11, align 4
   %conv.i81 = zext i32 %23 to i64
   tail call void @_ZN12OutputStream13writeUnsignedEmb(ptr noundef nonnull align 8 dereferenceable(32) %OS, i64 noundef %conv.i81, i1 noundef zeroext false)
@@ -5694,10 +5694,10 @@ _ZN12OutputStream4growEm.exit.i.i102:             ; preds = %if.then.i._ZN12Outp
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK4llvh11ms_demangle28LocalStaticGuardVariableNode6outputER12OutputStreamNS0_11OutputFlagsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %this, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags) unnamed_addr #1 align 2 {
 entry:
-  %Name = getelementptr inbounds i8, ptr %this, i64 16
+  %Name = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %Name, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags) #11
   ret void
@@ -5706,10 +5706,10 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK4llvh11ms_demangle24VcallThunkIdentifierNode6outputER12OutputStreamNS0_11OutputFlagsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 %Flags) unnamed_addr #1 align 2 {
 entry:
-  %CurrentPosition.i.i.i = getelementptr inbounds i8, ptr %OS, i64 8
+  %CurrentPosition.i.i.i = getelementptr inbounds nuw i8, ptr %OS, i64 8
   %0 = load i64, ptr %CurrentPosition.i.i.i, align 8
   %add.i.i.i = add i64 %0, 8
-  %BufferCapacity.i.i.i = getelementptr inbounds i8, ptr %OS, i64 16
+  %BufferCapacity.i.i.i = getelementptr inbounds nuw i8, ptr %OS, i64 16
   %1 = load i64, ptr %BufferCapacity.i.i.i, align 8
   %cmp.not.i.i.i = icmp ult i64 %add.i.i.i, %1
   %.pre.i.i = load ptr, ptr %OS, align 8
@@ -5740,7 +5740,7 @@ _ZN12OutputStream4growEm.exit.i.i:                ; preds = %if.then.i._ZN12Outp
   %4 = load i64, ptr %CurrentPosition.i.i.i, align 8
   %add.i.i = add i64 %4, 8
   store i64 %add.i.i, ptr %CurrentPosition.i.i.i, align 8
-  %OffsetInVTable = getelementptr inbounds i8, ptr %this, i64 24
+  %OffsetInVTable = getelementptr inbounds nuw i8, ptr %this, i64 24
   %5 = load i64, ptr %OffsetInVTable, align 8
   tail call void @_ZN12OutputStream13writeUnsignedEmb(ptr noundef nonnull align 8 dereferenceable(32) %OS, i64 noundef %5, i1 noundef zeroext false)
   %6 = load i64, ptr %CurrentPosition.i.i.i, align 8
@@ -5781,13 +5781,13 @@ _ZN12OutputStream4growEm.exit.i.i21:              ; preds = %if.then.i._ZN12Outp
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK4llvh11ms_demangle22SpecialTableSymbolNode6outputER12OutputStreamNS0_11OutputFlagsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(33) %this, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags) unnamed_addr #1 align 2 {
 entry:
-  %Quals = getelementptr inbounds i8, ptr %this, i64 32
+  %Quals = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load i8, ptr %Quals, align 8
   %cmp.i = icmp eq i8 %0, 0
   br i1 %cmp.i, label %_ZL16outputQualifiersR12OutputStreamN4llvh11ms_demangle10QualifiersEbb.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %CurrentPosition.i.i = getelementptr inbounds i8, ptr %OS, i64 8
+  %CurrentPosition.i.i = getelementptr inbounds nuw i8, ptr %OS, i64 8
   %1 = load i64, ptr %CurrentPosition.i.i, align 8
   %and4.i = and i8 %0, 1
   %tobool.not.i = icmp ne i8 %and4.i, 0
@@ -5795,7 +5795,7 @@ if.end.i:                                         ; preds = %entry
 
 if.end.i32:                                       ; preds = %if.end.i
   %add.i.i.i.i.i = add i64 %1, 5
-  %BufferCapacity.i.i.i.i.i = getelementptr inbounds i8, ptr %OS, i64 16
+  %BufferCapacity.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %OS, i64 16
   %2 = load i64, ptr %BufferCapacity.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i = icmp ult i64 %add.i.i.i.i.i, %2
   %.pre.i.i.i.i = load ptr, ptr %OS, align 8
@@ -5837,7 +5837,7 @@ _ZL24outputQualifierIfPresentR12OutputStreamN4llvh11ms_demangle10QualifiersES3_b
 
 if.end.i.i.i:                                     ; preds = %_ZL24outputQualifierIfPresentR12OutputStreamN4llvh11ms_demangle10QualifiersES3_b.exit
   %add.i.i.i.i = add i64 %6, 1
-  %BufferCapacity.i.i.i.i = getelementptr inbounds i8, ptr %OS, i64 16
+  %BufferCapacity.i.i.i.i = getelementptr inbounds nuw i8, ptr %OS, i64 16
   %7 = load i64, ptr %BufferCapacity.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp ult i64 %add.i.i.i.i, %7
   %.pre.i.i.i = load ptr, ptr %OS, align 8
@@ -5871,22 +5871,22 @@ _ZN12OutputStream4growEm.exit.i.i.i:              ; preds = %if.then.i._ZN12Outp
   br label %_ZL16outputQualifiersR12OutputStreamN4llvh11ms_demangle10QualifiersEbb.exit
 
 _ZL16outputQualifiersR12OutputStreamN4llvh11ms_demangle10QualifiersEbb.exit: ; preds = %entry, %_ZL24outputQualifierIfPresentR12OutputStreamN4llvh11ms_demangle10QualifiersES3_b.exit, %_ZN12OutputStream4growEm.exit.i.i.i
-  %Name = getelementptr inbounds i8, ptr %this, i64 16
+  %Name = getelementptr inbounds nuw i8, ptr %this, i64 16
   %11 = load ptr, ptr %Name, align 8
   %vtable = load ptr, ptr %11, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %12 = load ptr, ptr %vfn, align 8
   tail call void %12(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags) #11
-  %TargetName = getelementptr inbounds i8, ptr %this, i64 24
+  %TargetName = getelementptr inbounds nuw i8, ptr %this, i64 24
   %13 = load ptr, ptr %TargetName, align 8
   %tobool.not = icmp eq ptr %13, null
   br i1 %tobool.not, label %if.end, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %_ZL16outputQualifiersR12OutputStreamN4llvh11ms_demangle10QualifiersEbb.exit
-  %CurrentPosition.i.i.i = getelementptr inbounds i8, ptr %OS, i64 8
+  %CurrentPosition.i.i.i = getelementptr inbounds nuw i8, ptr %OS, i64 8
   %14 = load i64, ptr %CurrentPosition.i.i.i, align 8
   %add.i.i.i6 = add i64 %14, 6
-  %BufferCapacity.i.i.i = getelementptr inbounds i8, ptr %OS, i64 16
+  %BufferCapacity.i.i.i = getelementptr inbounds nuw i8, ptr %OS, i64 16
   %15 = load i64, ptr %BufferCapacity.i.i.i, align 8
   %cmp.not.i.i.i = icmp ult i64 %add.i.i.i6, %15
   %.pre.i.i = load ptr, ptr %OS, align 8
@@ -5919,7 +5919,7 @@ _ZN12OutputStream4growEm.exit.i.i:                ; preds = %if.then.i._ZN12Outp
   store i64 %add.i.i, ptr %CurrentPosition.i.i.i, align 8
   %19 = load ptr, ptr %TargetName, align 8
   %vtable3 = load ptr, ptr %19, align 8
-  %vfn4 = getelementptr inbounds i8, ptr %vtable3, i64 16
+  %vfn4 = getelementptr inbounds nuw i8, ptr %vtable3, i64 16
   %20 = load ptr, ptr %vfn4, align 8
   tail call void %20(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags) #11
   %21 = load i64, ptr %CurrentPosition.i.i.i, align 8
@@ -5977,11 +5977,11 @@ entry:
 define linkonce_odr hidden void @_ZNK4llvh11ms_demangle8TypeNode6outputER12OutputStreamNS0_11OutputFlagsE(ptr noundef nonnull align 8 dereferenceable(13) %this, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags) unnamed_addr #1 comdat align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 24
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(13) %this, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags) #11
   %vtable2 = load ptr, ptr %this, align 8
-  %vfn3 = getelementptr inbounds i8, ptr %vtable2, i64 32
+  %vfn3 = getelementptr inbounds nuw i8, ptr %vtable2, i64 32
   %1 = load ptr, ptr %vfn3, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(13) %this, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags) #11
   ret void
@@ -6338,10 +6338,10 @@ if.end:                                           ; preds = %entry
   br i1 %NeedSpace, label %if.end.i.i, label %if.end5
 
 if.end.i.i:                                       ; preds = %if.end
-  %CurrentPosition.i.i.i = getelementptr inbounds i8, ptr %OS, i64 8
+  %CurrentPosition.i.i.i = getelementptr inbounds nuw i8, ptr %OS, i64 8
   %0 = load i64, ptr %CurrentPosition.i.i.i, align 8
   %add.i.i.i = add i64 %0, 1
-  %BufferCapacity.i.i.i = getelementptr inbounds i8, ptr %OS, i64 16
+  %BufferCapacity.i.i.i = getelementptr inbounds nuw i8, ptr %OS, i64 16
   %1 = load i64, ptr %BufferCapacity.i.i.i, align 8
   %cmp.not.i.i.i = icmp ult i64 %add.i.i.i, %1
   %.pre.i.i = load ptr, ptr %OS, align 8
@@ -6382,10 +6382,10 @@ if.end5:                                          ; preds = %_ZN12OutputStream4g
   ]
 
 if.end.i.i.i:                                     ; preds = %if.end5
-  %CurrentPosition.i.i.i.i = getelementptr inbounds i8, ptr %OS, i64 8
+  %CurrentPosition.i.i.i.i = getelementptr inbounds nuw i8, ptr %OS, i64 8
   %5 = load i64, ptr %CurrentPosition.i.i.i.i, align 8
   %add.i.i.i.i = add i64 %5, 5
-  %BufferCapacity.i.i.i.i = getelementptr inbounds i8, ptr %OS, i64 16
+  %BufferCapacity.i.i.i.i = getelementptr inbounds nuw i8, ptr %OS, i64 16
   %6 = load i64, ptr %BufferCapacity.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp ult i64 %add.i.i.i.i, %6
   %.pre.i.i.i = load ptr, ptr %OS, align 8
@@ -6419,10 +6419,10 @@ _ZN12OutputStream4growEm.exit.i.i.i:              ; preds = %if.then.i._ZN12Outp
   br label %return
 
 if.end.i.i10.i:                                   ; preds = %if.end5
-  %CurrentPosition.i.i.i11.i = getelementptr inbounds i8, ptr %OS, i64 8
+  %CurrentPosition.i.i.i11.i = getelementptr inbounds nuw i8, ptr %OS, i64 8
   %10 = load i64, ptr %CurrentPosition.i.i.i11.i, align 8
   %add.i.i.i12.i = add i64 %10, 8
-  %BufferCapacity.i.i.i13.i = getelementptr inbounds i8, ptr %OS, i64 16
+  %BufferCapacity.i.i.i13.i = getelementptr inbounds nuw i8, ptr %OS, i64 16
   %11 = load i64, ptr %BufferCapacity.i.i.i13.i, align 8
   %cmp.not.i.i.i14.i = icmp ult i64 %add.i.i.i12.i, %11
   %.pre.i.i15.i = load ptr, ptr %OS, align 8
@@ -6456,10 +6456,10 @@ _ZN12OutputStream4growEm.exit.i.i23.i:            ; preds = %if.then.i._ZN12Outp
   br label %return
 
 if.end.i.i35.i:                                   ; preds = %if.end5
-  %CurrentPosition.i.i.i36.i = getelementptr inbounds i8, ptr %OS, i64 8
+  %CurrentPosition.i.i.i36.i = getelementptr inbounds nuw i8, ptr %OS, i64 8
   %15 = load i64, ptr %CurrentPosition.i.i.i36.i, align 8
   %add.i.i.i37.i = add i64 %15, 10
-  %BufferCapacity.i.i.i38.i = getelementptr inbounds i8, ptr %OS, i64 16
+  %BufferCapacity.i.i.i38.i = getelementptr inbounds nuw i8, ptr %OS, i64 16
   %16 = load i64, ptr %BufferCapacity.i.i.i38.i, align 8
   %cmp.not.i.i.i39.i = icmp ult i64 %add.i.i.i37.i, %16
   %.pre.i.i40.i = load ptr, ptr %OS, align 8
@@ -6505,10 +6505,10 @@ entry:
   br i1 %cmp, label %if.then, label %while.body
 
 if.then:                                          ; preds = %entry
-  %CurrentPosition.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %CurrentPosition.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i64, ptr %CurrentPosition.i.i.i, align 8
   %add.i.i.i = add i64 %0, 1
-  %BufferCapacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %BufferCapacity.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load i64, ptr %BufferCapacity.i.i.i, align 8
   %cmp.not.i.i.i = icmp ult i64 %add.i.i.i, %1
   %.pre.i.i = load ptr, ptr %this, align 8
@@ -6571,10 +6571,10 @@ if.end8:                                          ; preds = %if.then6, %while.en
   br i1 %cmp.i.i, label %return, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.end8
-  %CurrentPosition.i.i.i7 = getelementptr inbounds i8, ptr %this, i64 8
+  %CurrentPosition.i.i.i7 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %4 = load i64, ptr %CurrentPosition.i.i.i7, align 8
   %add.i.i.i8 = add i64 %4, %gepdiff
-  %BufferCapacity.i.i.i9 = getelementptr inbounds i8, ptr %this, i64 16
+  %BufferCapacity.i.i.i9 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %5 = load i64, ptr %BufferCapacity.i.i.i9, align 8
   %cmp.not.i.i.i10 = icmp ult i64 %add.i.i.i8, %5
   %.pre.i.i11 = load ptr, ptr %this, align 8

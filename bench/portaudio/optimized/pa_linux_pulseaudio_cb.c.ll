@@ -926,7 +926,7 @@ PaPulseAudio_UnLock.exit:                         ; preds = %PaPulseAudio_Lock.e
 
 switch.lookup:                                    ; preds = %PaPulseAudio_UnLock.exit
   %10 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table._PaPulseAudio_WaitStreamState, i64 0, i64 %10
+  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table._PaPulseAudio_WaitStreamState, i64 0, i64 %10
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %11
 

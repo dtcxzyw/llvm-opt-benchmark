@@ -47,7 +47,7 @@ define void @_ZN3g2o8internal10normalizedERKN5Eigen10QuaternionIdLi0EEE(ptr dead
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %0, ptr noundef nonnull align 16 dereferenceable(32) %1, i64 32, i1 false)
   %3 = load <2 x double>, ptr %0, align 16
   %4 = fmul <2 x double> %3, %3
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load <2 x double>, ptr %5, align 16
   %7 = fmul <2 x double> %6, %6
   %8 = fadd <2 x double> %4, %7
@@ -91,7 +91,7 @@ _ZN3g2o8internal9normalizeERN5Eigen10QuaternionIdLi0EEE.exit: ; preds = %_ZN5Eig
 define noundef nonnull align 16 dereferenceable(32) ptr @_ZN3g2o8internal9normalizeERN5Eigen10QuaternionIdLi0EEE(ptr noundef nonnull returned align 16 dereferenceable(32) %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %2 = load <2 x double>, ptr %0, align 16
   %3 = fmul <2 x double> %2, %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load <2 x double>, ptr %4, align 16
   %6 = fmul <2 x double> %5, %5
   %7 = fadd <2 x double> %3, %6
@@ -135,9 +135,9 @@ _ZN5Eigen14QuaternionBaseINS_10QuaternionIdLi0EEEE9normalizeEv.exit: ; preds = %
 define void @_ZN3g2o8internal7toEulerERKN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.Eigen::Matrix.3") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.Eigen::Quaternion", align 16
   call void @_ZN5Eigen8internal26quaternionbase_assign_implINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi3ELi3EE3runINS_10QuaternionIdLi0EEEEEvRNS_14QuaternionBaseIT_EERKS3_(ptr noundef nonnull align 16 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(72) %1)
-  %4 = getelementptr inbounds i8, ptr %3, i64 24
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %7 = load double, ptr %4, align 8
   %8 = load double, ptr %3, align 16
   %9 = load double, ptr %5, align 8
@@ -170,9 +170,9 @@ define void @_ZN3g2o8internal7toEulerERKN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEE(p
   %36 = call double @llvm.fmuladd.f64(double %35, double -2.000000e+00, double 1.000000e+00)
   %37 = call double @atan2(double noundef %33, double noundef %36) #14
   store double %17, ptr %0, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %26, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double %37, ptr %39, align 8
   ret void
 }
@@ -189,9 +189,9 @@ declare double @asin(double noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
 define void @_ZN3g2o8internal9fromEulerERKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.Eigen::Matrix.13") align 8 initializes((0, 72)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %3 = load double, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load double, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load double, ptr %6, align 8
   %8 = fmul double %7, 5.000000e-01
   %9 = tail call double @sin(double noundef %8) #14
@@ -232,30 +232,30 @@ define void @_ZN3g2o8internal9fromEulerERKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEE
   %44 = fsub double 1.000000e+00, %43
   store double %44, ptr %0, align 8, !alias.scope !4
   %45 = fsub double %38, %36
-  %46 = getelementptr inbounds i8, ptr %0, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store double %45, ptr %46, align 8, !alias.scope !4
   %47 = fadd double %39, %35
-  %48 = getelementptr inbounds i8, ptr %0, i64 48
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store double %47, ptr %48, align 8, !alias.scope !4
   %49 = fadd double %38, %36
-  %50 = getelementptr inbounds i8, ptr %0, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %49, ptr %50, align 8, !alias.scope !4
   %51 = fadd double %42, %37
   %52 = fsub double 1.000000e+00, %51
-  %53 = getelementptr inbounds i8, ptr %0, i64 32
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store double %52, ptr %53, align 8, !alias.scope !4
   %54 = fsub double %41, %34
-  %55 = getelementptr inbounds i8, ptr %0, i64 56
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store double %54, ptr %55, align 8, !alias.scope !4
   %56 = fsub double %39, %35
-  %57 = getelementptr inbounds i8, ptr %0, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double %56, ptr %57, align 8, !alias.scope !4
   %58 = fadd double %41, %34
-  %59 = getelementptr inbounds i8, ptr %0, i64 40
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store double %58, ptr %59, align 8, !alias.scope !4
   %60 = fadd double %40, %37
   %61 = fsub double 1.000000e+00, %60
-  %62 = getelementptr inbounds i8, ptr %0, i64 64
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store double %61, ptr %62, align 8, !alias.scope !4
   ret void
 }
@@ -272,7 +272,7 @@ define void @_ZN3g2o8internal19toCompactQuaternionERKN5Eigen6MatrixIdLi3ELi3ELi0
   call void @_ZN5Eigen8internal26quaternionbase_assign_implINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi3ELi3EE3runINS_10QuaternionIdLi0EEEEEvRNS_14QuaternionBaseIT_EERKS3_(ptr noundef nonnull align 16 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(72) %1)
   %4 = load <2 x double>, ptr %3, align 16
   %5 = fmul <2 x double> %4, %4
-  %6 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %7 = load <2 x double>, ptr %6, align 16
   %8 = fmul <2 x double> %7, %7
   %9 = fadd <2 x double> %5, %8
@@ -306,7 +306,7 @@ _ZN5Eigen14QuaternionBaseINS_10QuaternionIdLi0EEEE9normalizeEv.exit.i: ; preds =
   %31 = select i1 %27, double %30, double %23
   %32 = select i1 %27, <2 x double> %28, <2 x double> %25
   store <2 x double> %32, ptr %0, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double %31, ptr %33, align 8
   ret void
 }
@@ -318,7 +318,7 @@ define void @_ZN3g2o8internal21fromCompactQuaternionERKN5Eigen6MatrixIdLi3ELi1EL
   %shift = shufflevector <2 x double> %4, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %5 = fadd <2 x double> %4, %shift
   %6 = extractelement <2 x double> %5, i64 0
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load double, ptr %7, align 8
   %9 = fmul double %8, %8
   %10 = fadd double %9, %6
@@ -327,15 +327,15 @@ define void @_ZN3g2o8internal21fromCompactQuaternionERKN5Eigen6MatrixIdLi3ELi1EL
   br i1 %12, label %13, label %16
 
 13:                                               ; preds = %2
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
-  %15 = getelementptr inbounds i8, ptr %0, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, i8 0, i64 24, i1 false)
   br label %52
 
 16:                                               ; preds = %2
   %17 = tail call double @sqrt(double noundef %11) #14
-  %18 = getelementptr inbounds i8, ptr %1, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %19 = load double, ptr %1, align 8
   %20 = load double, ptr %18, align 8
   %21 = load double, ptr %7, align 8
@@ -354,24 +354,24 @@ define void @_ZN3g2o8internal21fromCompactQuaternionERKN5Eigen6MatrixIdLi3ELi1EL
   %34 = fadd double %31, %33
   %35 = fsub double 1.000000e+00, %34
   %36 = fsub double %29, %27
-  %37 = getelementptr inbounds i8, ptr %0, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store double %36, ptr %37, align 8, !alias.scope !7
   %38 = fadd double %26, %30
-  %39 = getelementptr inbounds i8, ptr %0, i64 48
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store double %38, ptr %39, align 8, !alias.scope !7
   %40 = fadd double %29, %27
-  %41 = getelementptr inbounds i8, ptr %0, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %40, ptr %41, align 8, !alias.scope !7
   %42 = fadd double %28, %33
   %43 = fsub double 1.000000e+00, %42
   %44 = fsub double %32, %25
-  %45 = getelementptr inbounds i8, ptr %0, i64 56
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store double %44, ptr %45, align 8, !alias.scope !7
   %46 = fsub double %30, %26
-  %47 = getelementptr inbounds i8, ptr %0, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double %46, ptr %47, align 8, !alias.scope !7
   %48 = fadd double %25, %32
-  %49 = getelementptr inbounds i8, ptr %0, i64 40
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store double %48, ptr %49, align 8, !alias.scope !7
   %50 = fadd double %28, %31
   %51 = fsub double 1.000000e+00, %50
@@ -382,9 +382,9 @@ define void @_ZN3g2o8internal21fromCompactQuaternionERKN5Eigen6MatrixIdLi3ELi1EL
   %.sink4 = phi double [ 1.000000e+00, %13 ], [ %43, %16 ]
   %.sink = phi double [ 1.000000e+00, %13 ], [ %51, %16 ]
   store double %.sink5, ptr %0, align 8
-  %53 = getelementptr inbounds i8, ptr %0, i64 32
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store double %.sink4, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %0, i64 64
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store double %.sink, ptr %54, align 8
   ret void
 }
@@ -396,7 +396,7 @@ declare double @sqrt(double noundef) local_unnamed_addr #2
 define void @_ZN3g2o8internal11toVectorMQTERKN5Eigen9TransformIdLi3ELi1ELi0EEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.Eigen::Matrix.35") align 16 %0, ptr nocapture noundef nonnull readonly align 16 dereferenceable(128) %1) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.Eigen::Quaternion", align 16
   %4 = alloca %"class.Eigen::Matrix.13", align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   br label %6
 
 6:                                                ; preds = %6, %2
@@ -404,7 +404,7 @@ define void @_ZN3g2o8internal11toVectorMQTERKN5Eigen9TransformIdLi3ELi1ELi0EEE(p
   %.idx.i.i.i.i.i.i.i.i.i.i.i = mul nuw nsw i64 %.08.i.i.i.i.i.i.i, 24
   %7 = getelementptr i8, ptr %4, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i
   %.idx.i4.i.i.i.i.i.i.i.i.i.i = shl nuw nsw i64 %.08.i.i.i.i.i.i.i, 5
-  %8 = getelementptr inbounds i8, ptr %1, i64 %.idx.i4.i.i.i.i.i.i.i.i.i.i
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx.i4.i.i.i.i.i.i.i.i.i.i
   %9 = load <2 x double>, ptr %8, align 16
   store <2 x double> %9, ptr %7, align 8
   %10 = getelementptr i8, ptr %5, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i
@@ -420,7 +420,7 @@ _ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEC2INS_5BlockIKNS0_IdLi4ELi4ELi0ELi4ELi4EE
   call void @_ZN5Eigen8internal26quaternionbase_assign_implINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi3ELi3EE3runINS_10QuaternionIdLi0EEEEEvRNS_14QuaternionBaseIT_EERKS3_(ptr noundef nonnull align 16 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(72) %4), !noalias !12
   %14 = load <2 x double>, ptr %3, align 16, !noalias !12
   %15 = fmul <2 x double> %14, %14
-  %16 = getelementptr inbounds i8, ptr %3, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %17 = load <2 x double>, ptr %16, align 16, !noalias !12
   %18 = fmul <2 x double> %17, %17
   %19 = fadd <2 x double> %15, %18
@@ -452,15 +452,15 @@ _ZN3g2o8internal19toCompactQuaternionERKN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEE.e
   %39 = select i1 %36, double %38, double %33
   %40 = select i1 %36, <2 x double> %37, <2 x double> %34
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  %41 = getelementptr inbounds i8, ptr %0, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store <2 x double> %40, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %0, i64 40
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store double %39, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %1, i64 96
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %44 = load <2 x double>, ptr %43, align 16
   store <2 x double> %44, ptr %0, align 16
-  %45 = getelementptr inbounds i8, ptr %0, i64 16
-  %46 = getelementptr inbounds i8, ptr %1, i64 112
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %47 = load double, ptr %46, align 16
   store double %47, ptr %45, align 16
   ret void
@@ -470,7 +470,7 @@ _ZN3g2o8internal19toCompactQuaternionERKN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEE.e
 define void @_ZN3g2o8internal10toVectorETERKN5Eigen9TransformIdLi3ELi1ELi0EEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.Eigen::Matrix.35") align 16 %0, ptr nocapture noundef nonnull readonly align 16 dereferenceable(128) %1) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.Eigen::Quaternion", align 16
   %4 = alloca %"class.Eigen::Matrix.13", align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   br label %6
 
 6:                                                ; preds = %6, %2
@@ -478,7 +478,7 @@ define void @_ZN3g2o8internal10toVectorETERKN5Eigen9TransformIdLi3ELi1ELi0EEE(pt
   %.idx.i.i.i.i.i.i.i.i.i.i.i = mul nuw nsw i64 %.08.i.i.i.i.i.i.i, 24
   %7 = getelementptr i8, ptr %4, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i
   %.idx.i4.i.i.i.i.i.i.i.i.i.i = shl nuw nsw i64 %.08.i.i.i.i.i.i.i, 5
-  %8 = getelementptr inbounds i8, ptr %1, i64 %.idx.i4.i.i.i.i.i.i.i.i.i.i
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx.i4.i.i.i.i.i.i.i.i.i.i
   %9 = load <2 x double>, ptr %8, align 16
   store <2 x double> %9, ptr %7, align 8
   %10 = getelementptr i8, ptr %5, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i
@@ -492,9 +492,9 @@ define void @_ZN3g2o8internal10toVectorETERKN5Eigen9TransformIdLi3ELi1ELi0EEE(pt
 _ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEC2INS_5BlockIKNS0_IdLi4ELi4ELi0ELi4ELi4EEELi3ELi3ELb0EEEEERKNS_9EigenBaseIT_EE.exit: ; preds = %6
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   call void @_ZN5Eigen8internal26quaternionbase_assign_implINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi3ELi3EE3runINS_10QuaternionIdLi0EEEEEvRNS_14QuaternionBaseIT_EERKS3_(ptr noundef nonnull align 16 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(72) %4), !noalias !15
-  %14 = getelementptr inbounds i8, ptr %3, i64 24
-  %15 = getelementptr inbounds i8, ptr %3, i64 8
-  %16 = getelementptr inbounds i8, ptr %3, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %17 = load double, ptr %14, align 8, !noalias !15
   %18 = load double, ptr %3, align 16, !noalias !15
   %19 = load double, ptr %15, align 8, !noalias !15
@@ -529,15 +529,15 @@ _ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEC2INS_5BlockIKNS0_IdLi4ELi4ELi0ELi4ELi4EE
   %.sroa.014.0.vec.insert = insertelement <2 x double> poison, double %27, i64 0
   %.sroa.014.8.vec.insert = insertelement <2 x double> %.sroa.014.0.vec.insert, double %36, i64 1
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  %48 = getelementptr inbounds i8, ptr %0, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store <2 x double> %.sroa.014.8.vec.insert, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %0, i64 40
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store double %47, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %1, i64 96
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %51 = load <2 x double>, ptr %50, align 16
   store <2 x double> %51, ptr %0, align 16
-  %52 = getelementptr inbounds i8, ptr %0, i64 16
-  %53 = getelementptr inbounds i8, ptr %1, i64 112
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %54 = load double, ptr %53, align 16
   store double %54, ptr %52, align 16
   ret void
@@ -557,7 +557,7 @@ define void @_ZN3g2o8internal10toVectorQTERKN5Eigen9TransformIdLi3ELi1ELi0EEE(pt
   call void @_ZN5Eigen8internal26quaternionbase_assign_implINS_5BlockIKNS_6MatrixIdLi4ELi4ELi0ELi4ELi4EEELi3ELi3ELb0EEELi3ELi3EE3runINS_10QuaternionIdLi0EEEEEvRNS_14QuaternionBaseIT_EERKS6_(ptr noundef nonnull align 16 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(48) %4)
   %8 = load <2 x double>, ptr %3, align 16
   %9 = fmul <2 x double> %8, %8
-  %10 = getelementptr inbounds i8, ptr %3, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %11 = load <2 x double>, ptr %10, align 16
   %12 = fmul <2 x double> %11, %11
   %13 = fadd <2 x double> %9, %12
@@ -588,19 +588,19 @@ _ZN5Eigen14QuaternionBaseINS_10QuaternionIdLi0EEEE9normalizeEv.exit: ; preds = %
   %32 = phi double [ %19, %2 ], [ %29, %21 ]
   %33 = phi double [ %18, %2 ], [ %28, %21 ]
   %34 = phi double [ %17, %2 ], [ %27, %21 ]
-  %35 = getelementptr inbounds i8, ptr %0, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store double %34, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store double %33, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %0, i64 40
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store double %32, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 48
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store double %31, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %1, i64 96
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %40 = load <2 x double>, ptr %39, align 16
   store <2 x double> %40, ptr %0, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 16
-  %42 = getelementptr inbounds i8, ptr %1, i64 112
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %43 = load double, ptr %42, align 16
   store double %43, ptr %41, align 8
   ret void
@@ -609,9 +609,9 @@ _ZN5Eigen14QuaternionBaseINS_10QuaternionIdLi0EEEE9normalizeEv.exit: ; preds = %
 ; Function Attrs: mustprogress nofree nounwind memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define void @_ZN3g2o8internal13fromVectorMQTERKN5Eigen6MatrixIdLi6ELi1ELi0ELi6ELi1EEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.Eigen::Transform") align 16 %0, ptr nocapture noundef nonnull readonly align 16 dereferenceable(48) %1) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.Eigen::Matrix.13", align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load <2 x double>, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %7 = load double, ptr %6, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !23)
   %8 = fmul <2 x double> %5, %5
@@ -625,9 +625,9 @@ define void @_ZN3g2o8internal13fromVectorMQTERKN5Eigen6MatrixIdLi6ELi1ELi0ELi6EL
   br i1 %14, label %15, label %18
 
 15:                                               ; preds = %2
-  %16 = getelementptr inbounds i8, ptr %3, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, i8 0, i64 24, i1 false), !alias.scope !23
-  %17 = getelementptr inbounds i8, ptr %3, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, i8 0, i64 24, i1 false), !alias.scope !23
   br label %_ZN3g2o8internal21fromCompactQuaternionERKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEE.exit
 
@@ -650,24 +650,24 @@ define void @_ZN3g2o8internal13fromVectorMQTERKN5Eigen6MatrixIdLi6ELi1ELi0ELi6EL
   %32 = fadd double %29, %31
   %33 = fsub double 1.000000e+00, %32
   %34 = fsub double %27, %25
-  %35 = getelementptr inbounds i8, ptr %3, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store double %34, ptr %35, align 8, !alias.scope !26
   %36 = fadd double %28, %24
-  %37 = getelementptr inbounds i8, ptr %3, i64 48
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store double %36, ptr %37, align 8, !alias.scope !26
   %38 = fadd double %27, %25
-  %39 = getelementptr inbounds i8, ptr %3, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store double %38, ptr %39, align 8, !alias.scope !26
   %40 = fadd double %26, %31
   %41 = fsub double 1.000000e+00, %40
   %42 = fsub double %30, %23
-  %43 = getelementptr inbounds i8, ptr %3, i64 56
+  %43 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store double %42, ptr %43, align 8, !alias.scope !26
   %44 = fsub double %28, %24
-  %45 = getelementptr inbounds i8, ptr %3, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store double %44, ptr %45, align 8, !alias.scope !26
   %46 = fadd double %30, %23
-  %47 = getelementptr inbounds i8, ptr %3, i64 40
+  %47 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store double %46, ptr %47, align 8, !alias.scope !26
   %48 = fadd double %26, %29
   %49 = fsub double 1.000000e+00, %48
@@ -678,11 +678,11 @@ _ZN3g2o8internal21fromCompactQuaternionERKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEE
   %.sink4.i = phi double [ 1.000000e+00, %15 ], [ %41, %18 ]
   %.sink.i = phi double [ 1.000000e+00, %15 ], [ %49, %18 ]
   store double %.sink5.i, ptr %3, align 8, !alias.scope !23
-  %50 = getelementptr inbounds i8, ptr %3, i64 32
+  %50 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store double %.sink4.i, ptr %50, align 8, !alias.scope !23
-  %51 = getelementptr inbounds i8, ptr %3, i64 64
+  %51 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store double %.sink.i, ptr %51, align 8, !alias.scope !23
-  %52 = getelementptr inbounds i8, ptr %3, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %3, i64 16
   br label %53
 
 53:                                               ; preds = %53, %_ZN3g2o8internal21fromCompactQuaternionERKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEE.exit
@@ -690,7 +690,7 @@ _ZN3g2o8internal21fromCompactQuaternionERKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEE
   %.idx.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = shl nuw nsw i64 %.08.i.i.i.i.i.i.i.i.i.i.i.i, 5
   %54 = getelementptr i8, ptr %0, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %.idx.i4.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = mul nuw nsw i64 %.08.i.i.i.i.i.i.i.i.i.i.i.i, 24
-  %55 = getelementptr inbounds i8, ptr %3, i64 %.idx.i4.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+  %55 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx.i4.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %56 = load <2 x double>, ptr %55, align 8
   store <2 x double> %56, ptr %54, align 16
   %57 = getelementptr i8, ptr %54, i64 16
@@ -702,19 +702,19 @@ _ZN3g2o8internal21fromCompactQuaternionERKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEE
   br i1 %exitcond.not.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN5Eigen9TransformIdLi3ELi1ELi0EEaSINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEERS1_RKNS_9EigenBaseIT_EE.exit, label %53, !llvm.loop !29
 
 _ZN5Eigen9TransformIdLi3ELi1ELi0EEaSINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEERS1_RKNS_9EigenBaseIT_EE.exit: ; preds = %53
-  %61 = getelementptr inbounds i8, ptr %0, i64 120
-  %62 = getelementptr inbounds i8, ptr %0, i64 88
-  %63 = getelementptr inbounds i8, ptr %0, i64 56
-  %64 = getelementptr inbounds i8, ptr %0, i64 24
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store double 0.000000e+00, ptr %64, align 8
   store double 0.000000e+00, ptr %63, align 8
   store i64 0, ptr %62, align 8
   store double 1.000000e+00, ptr %61, align 8
-  %65 = getelementptr inbounds i8, ptr %0, i64 96
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %66 = load <2 x double>, ptr %1, align 16
   store <2 x double> %66, ptr %65, align 16
-  %67 = getelementptr inbounds i8, ptr %0, i64 112
-  %68 = getelementptr inbounds i8, ptr %1, i64 16
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %69 = load double, ptr %68, align 16
   store double %69, ptr %67, align 16
   ret void
@@ -723,17 +723,17 @@ _ZN5Eigen9TransformIdLi3ELi1ELi0EEaSINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEERS1_RKN
 ; Function Attrs: mustprogress nofree nounwind memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define void @_ZN3g2o8internal12fromVectorETERKN5Eigen6MatrixIdLi6ELi1ELi0ELi6ELi1EEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.Eigen::Transform") align 16 initializes((24, 32), (56, 64), (88, 96), (120, 128)) %0, ptr nocapture noundef nonnull readonly align 16 dereferenceable(48) %1) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.Eigen::Matrix.13", align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store double 0.000000e+00, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 56
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store double 0.000000e+00, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 88
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store double 0.000000e+00, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 120
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store double 1.000000e+00, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %9 = load <2 x double>, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %11 = load double, ptr %10, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !30)
   %.sroa.010.0.vec.extract = extractelement <2 x double> %9, i64 0
@@ -777,30 +777,30 @@ define void @_ZN3g2o8internal12fromVectorETERKN5Eigen6MatrixIdLi6ELi1ELi0ELi6ELi
   %48 = fsub double 1.000000e+00, %47
   store double %48, ptr %3, align 8, !alias.scope !33
   %49 = fsub double %42, %40
-  %50 = getelementptr inbounds i8, ptr %3, i64 24
+  %50 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store double %49, ptr %50, align 8, !alias.scope !33
   %51 = fadd double %43, %39
-  %52 = getelementptr inbounds i8, ptr %3, i64 48
+  %52 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store double %51, ptr %52, align 8, !alias.scope !33
   %53 = fadd double %42, %40
-  %54 = getelementptr inbounds i8, ptr %3, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store double %53, ptr %54, align 8, !alias.scope !33
   %55 = fadd double %46, %41
   %56 = fsub double 1.000000e+00, %55
-  %57 = getelementptr inbounds i8, ptr %3, i64 32
+  %57 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store double %56, ptr %57, align 8, !alias.scope !33
   %58 = fsub double %45, %38
-  %59 = getelementptr inbounds i8, ptr %3, i64 56
+  %59 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store double %58, ptr %59, align 8, !alias.scope !33
   %60 = fsub double %43, %39
-  %61 = getelementptr inbounds i8, ptr %3, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store double %60, ptr %61, align 8, !alias.scope !33
   %62 = fadd double %45, %38
-  %63 = getelementptr inbounds i8, ptr %3, i64 40
+  %63 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store double %62, ptr %63, align 8, !alias.scope !33
   %64 = fadd double %44, %41
   %65 = fsub double 1.000000e+00, %64
-  %66 = getelementptr inbounds i8, ptr %3, i64 64
+  %66 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store double %65, ptr %66, align 8, !alias.scope !33
   br label %67
 
@@ -809,7 +809,7 @@ define void @_ZN3g2o8internal12fromVectorETERKN5Eigen6MatrixIdLi6ELi1ELi0ELi6ELi
   %.idx.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = shl nuw nsw i64 %.08.i.i.i.i.i.i.i.i.i.i.i.i, 5
   %68 = getelementptr i8, ptr %0, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %.idx.i4.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = mul nuw nsw i64 %.08.i.i.i.i.i.i.i.i.i.i.i.i, 24
-  %69 = getelementptr inbounds i8, ptr %3, i64 %.idx.i4.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+  %69 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx.i4.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %70 = load <2 x double>, ptr %69, align 8
   store <2 x double> %70, ptr %68, align 16
   %71 = getelementptr i8, ptr %68, i64 16
@@ -825,11 +825,11 @@ _ZN5Eigen9TransformIdLi3ELi1ELi0EEaSINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEERS1_RKN
   store double 0.000000e+00, ptr %5, align 8
   store i64 0, ptr %6, align 8
   store double 1.000000e+00, ptr %7, align 8
-  %75 = getelementptr inbounds i8, ptr %0, i64 96
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %76 = load <2 x double>, ptr %1, align 16
   store <2 x double> %76, ptr %75, align 16
-  %77 = getelementptr inbounds i8, ptr %0, i64 112
-  %78 = getelementptr inbounds i8, ptr %1, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %78 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %79 = load double, ptr %78, align 16
   store double %79, ptr %77, align 16
   ret void
@@ -838,10 +838,10 @@ _ZN5Eigen9TransformIdLi3ELi1ELi0EEaSINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEERS1_RKN
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @_ZN3g2o8internal12fromVectorQTERKN5Eigen6MatrixIdLi7ELi1ELi0ELi7ELi1EEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.Eigen::Transform") align 16 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %1) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.Eigen::Matrix.13", align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 48
-  %5 = getelementptr inbounds i8, ptr %1, i64 24
-  %6 = getelementptr inbounds i8, ptr %1, i64 32
-  %7 = getelementptr inbounds i8, ptr %1, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %8 = load double, ptr %5, align 8
   %9 = load double, ptr %6, align 8
   %10 = load double, ptr %7, align 8
@@ -862,30 +862,30 @@ define void @_ZN3g2o8internal12fromVectorQTERKN5Eigen6MatrixIdLi7ELi1ELi0ELi7ELi
   %25 = fsub double 1.000000e+00, %24
   store double %25, ptr %3, align 8, !alias.scope !36
   %26 = fsub double %19, %17
-  %27 = getelementptr inbounds i8, ptr %3, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store double %26, ptr %27, align 8, !alias.scope !36
   %28 = fadd double %20, %16
-  %29 = getelementptr inbounds i8, ptr %3, i64 48
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store double %28, ptr %29, align 8, !alias.scope !36
   %30 = fadd double %19, %17
-  %31 = getelementptr inbounds i8, ptr %3, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store double %30, ptr %31, align 8, !alias.scope !36
   %32 = fadd double %18, %23
   %33 = fsub double 1.000000e+00, %32
-  %34 = getelementptr inbounds i8, ptr %3, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store double %33, ptr %34, align 8, !alias.scope !36
   %35 = fsub double %22, %15
-  %36 = getelementptr inbounds i8, ptr %3, i64 56
+  %36 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store double %35, ptr %36, align 8, !alias.scope !36
   %37 = fsub double %20, %16
-  %38 = getelementptr inbounds i8, ptr %3, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store double %37, ptr %38, align 8, !alias.scope !36
   %39 = fadd double %22, %15
-  %40 = getelementptr inbounds i8, ptr %3, i64 40
+  %40 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store double %39, ptr %40, align 8, !alias.scope !36
   %41 = fadd double %18, %21
   %42 = fsub double 1.000000e+00, %41
-  %43 = getelementptr inbounds i8, ptr %3, i64 64
+  %43 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store double %42, ptr %43, align 8, !alias.scope !36
   br label %44
 
@@ -894,7 +894,7 @@ define void @_ZN3g2o8internal12fromVectorQTERKN5Eigen6MatrixIdLi7ELi1ELi0ELi7ELi
   %.idx.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = shl nuw nsw i64 %.08.i.i.i.i.i.i.i.i.i.i.i.i, 5
   %45 = getelementptr i8, ptr %0, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %.idx.i4.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = mul nuw nsw i64 %.08.i.i.i.i.i.i.i.i.i.i.i.i, 24
-  %46 = getelementptr inbounds i8, ptr %3, i64 %.idx.i4.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+  %46 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx.i4.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %47 = load <2 x double>, ptr %46, align 8
   store <2 x double> %47, ptr %45, align 16
   %48 = getelementptr i8, ptr %45, i64 16
@@ -906,19 +906,19 @@ define void @_ZN3g2o8internal12fromVectorQTERKN5Eigen6MatrixIdLi7ELi1ELi0ELi7ELi
   br i1 %exitcond.not.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN5Eigen9TransformIdLi3ELi1ELi0EEaSINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEERS1_RKNS_9EigenBaseIT_EE.exit, label %44, !llvm.loop !29
 
 _ZN5Eigen9TransformIdLi3ELi1ELi0EEaSINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEERS1_RKNS_9EigenBaseIT_EE.exit: ; preds = %44
-  %52 = getelementptr inbounds i8, ptr %0, i64 120
-  %53 = getelementptr inbounds i8, ptr %0, i64 88
-  %54 = getelementptr inbounds i8, ptr %0, i64 56
-  %55 = getelementptr inbounds i8, ptr %0, i64 24
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store double 0.000000e+00, ptr %55, align 8
   store double 0.000000e+00, ptr %54, align 8
   store i64 0, ptr %53, align 8
   store double 1.000000e+00, ptr %52, align 8
-  %56 = getelementptr inbounds i8, ptr %0, i64 96
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %57 = load <2 x double>, ptr %1, align 8
   store <2 x double> %57, ptr %56, align 16
-  %58 = getelementptr inbounds i8, ptr %0, i64 112
-  %59 = getelementptr inbounds i8, ptr %1, i64 16
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %60 = load double, ptr %59, align 8
   store double %60, ptr %58, align 16
   ret void
@@ -927,7 +927,7 @@ _ZN5Eigen9TransformIdLi3ELi1ELi0EEaSINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEERS1_RKN
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3g2o8internal9toSE3QuatERKN5Eigen9TransformIdLi3ELi1ELi0EEE(ptr dead_on_unwind noalias writable sret(%"class.g2o::SE3Quat") align 16 %0, ptr nocapture noundef nonnull readonly align 16 dereferenceable(128) %1) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.Eigen::Matrix.13", align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   br label %5
 
 5:                                                ; preds = %5, %2
@@ -935,7 +935,7 @@ define void @_ZN3g2o8internal9toSE3QuatERKN5Eigen9TransformIdLi3ELi1ELi0EEE(ptr 
   %.idx.i.i.i.i.i.i.i.i.i.i.i = mul nuw nsw i64 %.08.i.i.i.i.i.i.i, 24
   %6 = getelementptr i8, ptr %3, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i
   %.idx.i4.i.i.i.i.i.i.i.i.i.i = shl nuw nsw i64 %.08.i.i.i.i.i.i.i, 5
-  %7 = getelementptr inbounds i8, ptr %1, i64 %.idx.i4.i.i.i.i.i.i.i.i.i.i
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx.i4.i.i.i.i.i.i.i.i.i.i
   %8 = load <2 x double>, ptr %7, align 16
   store <2 x double> %8, ptr %6, align 8
   %9 = getelementptr i8, ptr %4, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i
@@ -947,30 +947,30 @@ define void @_ZN3g2o8internal9toSE3QuatERKN5Eigen9TransformIdLi3ELi1ELi0EEE(ptr 
   br i1 %exitcond.not.i.i.i.i.i.i.i, label %_ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEC2INS_5BlockIKNS0_IdLi4ELi4ELi0ELi4ELi4EEELi3ELi3ELb0EEEEERKNS_9EigenBaseIT_EE.exit, label %5, !llvm.loop !10
 
 _ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEC2INS_5BlockIKNS0_IdLi4ELi4ELi0ELi4ELi4EEELi3ELi3ELb0EEEEERKNS_9EigenBaseIT_EE.exit: ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %1, i64 96
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %14 = load <2 x double>, ptr %13, align 16
-  %15 = getelementptr inbounds i8, ptr %1, i64 112
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %16 = load double, ptr %15, align 16
   call void @_ZN5Eigen8internal26quaternionbase_assign_implINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi3ELi3EE3runINS_10QuaternionIdLi0EEEEEvRNS_14QuaternionBaseIT_EERKS3_(ptr noundef nonnull align 16 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(72) %3)
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store <2 x double> %14, ptr %17, align 16
-  %.sroa.23.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 48
+  %.sroa.23.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
   store double %16, ptr %.sroa.23.0..sroa_idx, align 16
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = load double, ptr %18, align 8
   %20 = fcmp olt double %19, 0.000000e+00
   %.pre.i.i = load <2 x double>, ptr %0, align 16
   br i1 %20, label %21, label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %_ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEC2INS_5BlockIKNS0_IdLi4ELi4ELi0ELi4ELi4EEELi3ELi3ELb0EEEEERKNS_9EigenBaseIT_EE.exit
-  %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %0, i64 16
+  %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.pre1.i.i = load <2 x double>, ptr %.phi.trans.insert.i.i, align 16
   br label %26
 
 21:                                               ; preds = %_ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEC2INS_5BlockIKNS0_IdLi4ELi4ELi0ELi4ELi4EEELi3ELi3ELb0EEEEERKNS_9EigenBaseIT_EE.exit
   %22 = fneg <2 x double> %.pre.i.i
   store <2 x double> %22, ptr %0, align 16
-  %23 = getelementptr inbounds i8, ptr %0, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %24 = load <2 x double>, ptr %23, align 16
   %25 = fneg <2 x double> %24
   store <2 x double> %25, ptr %23, align 16
@@ -989,7 +989,7 @@ _ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEC2INS_5BlockIKNS0_IdLi4ELi4ELi0ELi4ELi4EE
   br i1 %34, label %35, label %_ZN3g2o7SE3QuatC2ERKN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEERKNS2_IdLi3ELi1ELi0ELi3ELi1EEE.exit
 
 35:                                               ; preds = %26
-  %36 = getelementptr inbounds i8, ptr %0, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %37 = insertelement <2 x double> %32, double 0.000000e+00, i64 1
   %38 = call noundef <2 x double> @llvm.sqrt.v2f64(<2 x double> %37)
   %39 = shufflevector <2 x double> %38, <2 x double> poison, <2 x i32> zeroinitializer
@@ -1012,13 +1012,13 @@ define void @_ZN3g2o8internal11fromSE3QuatERKNS_7SE3QuatE(ptr dead_on_unwind noa
   tail call void @llvm.experimental.noalias.scope.decl(metadata !45)
   %4 = load double, ptr %1, align 16, !noalias !48
   %5 = fmul double %4, 2.000000e+00
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load double, ptr %6, align 8, !noalias !48
   %8 = fmul double %7, 2.000000e+00
-  %9 = getelementptr inbounds i8, ptr %1, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load double, ptr %9, align 16, !noalias !48
   %11 = fmul double %10, 2.000000e+00
-  %12 = getelementptr inbounds i8, ptr %1, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %13 = load double, ptr %12, align 8, !noalias !48
   %14 = fmul double %5, %13
   %15 = fmul double %8, %13
@@ -1033,30 +1033,30 @@ define void @_ZN3g2o8internal11fromSE3QuatERKNS_7SE3QuatE(ptr dead_on_unwind noa
   %24 = fsub double 1.000000e+00, %23
   store double %24, ptr %3, align 8, !alias.scope !48
   %25 = fsub double %18, %16
-  %26 = getelementptr inbounds i8, ptr %3, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store double %25, ptr %26, align 8, !alias.scope !48
   %27 = fadd double %19, %15
-  %28 = getelementptr inbounds i8, ptr %3, i64 48
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store double %27, ptr %28, align 8, !alias.scope !48
   %29 = fadd double %18, %16
-  %30 = getelementptr inbounds i8, ptr %3, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store double %29, ptr %30, align 8, !alias.scope !48
   %31 = fadd double %17, %22
   %32 = fsub double 1.000000e+00, %31
-  %33 = getelementptr inbounds i8, ptr %3, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store double %32, ptr %33, align 8, !alias.scope !48
   %34 = fsub double %21, %14
-  %35 = getelementptr inbounds i8, ptr %3, i64 56
+  %35 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store double %34, ptr %35, align 8, !alias.scope !48
   %36 = fsub double %19, %15
-  %37 = getelementptr inbounds i8, ptr %3, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store double %36, ptr %37, align 8, !alias.scope !48
   %38 = fadd double %21, %14
-  %39 = getelementptr inbounds i8, ptr %3, i64 40
+  %39 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store double %38, ptr %39, align 8, !alias.scope !48
   %40 = fadd double %17, %20
   %41 = fsub double 1.000000e+00, %40
-  %42 = getelementptr inbounds i8, ptr %3, i64 64
+  %42 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store double %41, ptr %42, align 8, !alias.scope !48
   br label %43
 
@@ -1065,7 +1065,7 @@ define void @_ZN3g2o8internal11fromSE3QuatERKNS_7SE3QuatE(ptr dead_on_unwind noa
   %.idx.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = shl nuw nsw i64 %.08.i.i.i.i.i.i.i.i.i.i.i.i, 5
   %44 = getelementptr i8, ptr %0, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %.idx.i4.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = mul nuw nsw i64 %.08.i.i.i.i.i.i.i.i.i.i.i.i, 24
-  %45 = getelementptr inbounds i8, ptr %3, i64 %.idx.i4.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+  %45 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx.i4.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %46 = load <2 x double>, ptr %45, align 8
   store <2 x double> %46, ptr %44, align 16
   %47 = getelementptr i8, ptr %44, i64 16
@@ -1077,21 +1077,21 @@ define void @_ZN3g2o8internal11fromSE3QuatERKNS_7SE3QuatE(ptr dead_on_unwind noa
   br i1 %exitcond.not.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN5Eigen9TransformIdLi3ELi1ELi0EEC2INS_10QuaternionIdLi0EEEEERKNS_12RotationBaseIT_Li3EEE.exit, label %43, !llvm.loop !29
 
 _ZN5Eigen9TransformIdLi3ELi1ELi0EEC2INS_10QuaternionIdLi0EEEEERKNS_12RotationBaseIT_Li3EEE.exit: ; preds = %43
-  %51 = getelementptr inbounds i8, ptr %0, i64 24
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store double 0.000000e+00, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %0, i64 56
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store double 0.000000e+00, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %0, i64 88
-  %54 = getelementptr inbounds i8, ptr %0, i64 120
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i64 0, ptr %53, align 8
   store double 1.000000e+00, ptr %54, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %56 = getelementptr inbounds i8, ptr %0, i64 96
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %57 = load <2 x double>, ptr %55, align 16
   store <2 x double> %57, ptr %56, align 16
-  %58 = getelementptr inbounds i8, ptr %0, i64 112
-  %59 = getelementptr inbounds i8, ptr %1, i64 48
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %60 = load double, ptr %59, align 16
   store double %60, ptr %58, align 16
   ret void
@@ -1103,9 +1103,9 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5Eigen8internal26quaternionbase_assign_implINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi3ELi3EE3runINS_10QuaternionIdLi0EEEEEvRNS_14QuaternionBaseIT_EERKS3_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = load double, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %5 = load double, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %7 = load double, ptr %6, align 8
   %8 = fadd double %5, %7
   %9 = fadd double %3, %8
@@ -1116,31 +1116,31 @@ define linkonce_odr void @_ZN5Eigen8internal26quaternionbase_assign_implINS_6Mat
   %12 = fadd double %9, 1.000000e+00
   %13 = tail call double @sqrt(double noundef %12) #14
   %14 = fmul double %13, 5.000000e-01
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store double %14, ptr %15, align 8
   %16 = fdiv double 5.000000e-01, %13
-  %17 = getelementptr inbounds i8, ptr %1, i64 16
-  %18 = getelementptr inbounds i8, ptr %1, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %19 = load double, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 56
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %22 = load double, ptr %21, align 8
   %23 = fsub double %19, %22
   %24 = fmul double %16, %23
   store double %24, ptr %0, align 8
-  %25 = getelementptr inbounds i8, ptr %1, i64 48
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %26 = load double, ptr %25, align 8
   %27 = load double, ptr %17, align 8
   %28 = fsub double %26, %27
   %29 = fmul double %16, %28
-  %30 = getelementptr inbounds i8, ptr %0, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %29, ptr %30, align 8
   %31 = load double, ptr %20, align 8
-  %32 = getelementptr inbounds i8, ptr %1, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %33 = load double, ptr %32, align 8
   %34 = fsub double %31, %33
   %35 = fmul double %16, %34
-  %36 = getelementptr inbounds i8, ptr %0, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double %35, ptr %36, align 8
   br label %85
 
@@ -1178,7 +1178,7 @@ define linkonce_odr void @_ZN5Eigen8internal26quaternionbase_assign_implINS_6Mat
   %59 = fadd double %58, 1.000000e+00
   %60 = tail call double @sqrt(double noundef %59) #14
   %61 = fmul double %60, 5.000000e-01
-  %62 = getelementptr inbounds double, ptr %0, i64 %.1
+  %62 = getelementptr inbounds nuw double, ptr %0, i64 %.1
   store double %61, ptr %62, align 8
   %63 = fdiv double 5.000000e-01, %60
   %64 = getelementptr i8, ptr %55, i64 %.idx.i67
@@ -1187,7 +1187,7 @@ define linkonce_odr void @_ZN5Eigen8internal26quaternionbase_assign_implINS_6Mat
   %67 = load double, ptr %66, align 8
   %68 = fsub double %65, %67
   %69 = fmul double %63, %68
-  %70 = getelementptr inbounds i8, ptr %0, i64 24
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store double %69, ptr %70, align 8
   %71 = getelementptr i8, ptr %51, i64 %.idx.i66
   %72 = load double, ptr %71, align 8
@@ -1233,7 +1233,7 @@ define linkonce_odr void @_ZN5Eigen8internal26quaternionbase_assign_implINS_5Blo
   %12 = fadd double %9, 1.000000e+00
   %13 = tail call double @sqrt(double noundef %12) #14
   %14 = fmul double %13, 5.000000e-01
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store double %14, ptr %15, align 8
   %16 = fdiv double 5.000000e-01, %13
   %17 = getelementptr i8, ptr %.sroa.0.0.copyload, i64 32
@@ -1250,14 +1250,14 @@ define linkonce_odr void @_ZN5Eigen8internal26quaternionbase_assign_implINS_5Blo
   %27 = load double, ptr %26, align 8
   %28 = fsub double %25, %27
   %29 = fmul double %16, %28
-  %30 = getelementptr inbounds i8, ptr %0, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %29, ptr %30, align 8
   %31 = getelementptr i8, ptr %.sroa.0.0.copyload, i64 8
   %32 = load double, ptr %31, align 8
   %33 = load double, ptr %17, align 8
   %34 = fsub double %32, %33
   %35 = fmul double %16, %34
-  %36 = getelementptr inbounds i8, ptr %0, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double %35, ptr %36, align 8
   br label %85
 
@@ -1295,7 +1295,7 @@ define linkonce_odr void @_ZN5Eigen8internal26quaternionbase_assign_implINS_5Blo
   %59 = fadd double %58, 1.000000e+00
   %60 = tail call double @sqrt(double noundef %59) #14
   %61 = fmul double %60, 5.000000e-01
-  %62 = getelementptr inbounds double, ptr %0, i64 %.1
+  %62 = getelementptr inbounds nuw double, ptr %0, i64 %.1
   store double %61, ptr %62, align 8
   %63 = fdiv double 5.000000e-01, %60
   %64 = getelementptr double, ptr %51, i64 %47
@@ -1304,7 +1304,7 @@ define linkonce_odr void @_ZN5Eigen8internal26quaternionbase_assign_implINS_5Blo
   %67 = load double, ptr %66, align 8
   %68 = fsub double %65, %67
   %69 = fmul double %63, %68
-  %70 = getelementptr inbounds i8, ptr %0, i64 24
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store double %69, ptr %70, align 8
   %71 = getelementptr double, ptr %48, i64 %.fr
   %72 = load double, ptr %71, align 8

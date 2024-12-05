@@ -14,7 +14,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress uwtable
 define hidden noundef range(i32 -1, 2) i32 @_Z12pj_datum_setP6pj_ctxP8ARG_listP8PJconsts(ptr noundef %0, ptr noundef %1, ptr nocapture noundef initializes((528, 532)) %2) local_unnamed_addr #0 {
   %4 = alloca [100 x i8], align 16
-  %5 = getelementptr inbounds i8, ptr %2, i64 528
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 528
   store i32 0, ptr %5, align 8
   %6 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str)
   %.sroa.041.0..sroa.041.0..cast = inttoptr i64 %6 to ptr
@@ -39,7 +39,7 @@ define hidden noundef range(i32 -1, 2) i32 @_Z12pj_datum_setP6pj_ctxP8ARG_listP8
 
 11:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %12 = getelementptr inbounds %struct.PJ_DATUMS, ptr %9, i64 %indvars.iv.next
+  %12 = getelementptr inbounds nuw %struct.PJ_DATUMS, ptr %9, i64 %indvars.iv.next
   %13 = load ptr, ptr %12, align 8
   %.not86 = icmp eq ptr %13, null
   br i1 %.not86, label %.critedge98, label %.lr.ph, !llvm.loop !6
@@ -57,8 +57,8 @@ define hidden noundef range(i32 -1, 2) i32 @_Z12pj_datum_setP6pj_ctxP8ARG_listP8
   br label %.critedge97
 
 .critedge2:                                       ; preds = %.lr.ph
-  %16 = getelementptr inbounds %struct.PJ_DATUMS, ptr %9, i64 %indvars.iv
-  %17 = getelementptr inbounds i8, ptr %16, i64 16
+  %16 = getelementptr inbounds nuw %struct.PJ_DATUMS, ptr %9, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = load ptr, ptr %17, align 8
   %.not88 = icmp eq ptr %18, null
   br i1 %.not88, label %30, label %19
@@ -74,7 +74,7 @@ define hidden noundef range(i32 -1, 2) i32 @_Z12pj_datum_setP6pj_ctxP8ARG_listP8
   %22 = getelementptr inbounds i8, ptr %4, i64 %21
   %23 = sub i64 99, %21
   %24 = call ptr @strncpy(ptr noundef nonnull %22, ptr noundef nonnull %18, i64 noundef %23) #7
-  %25 = getelementptr inbounds i8, ptr %4, i64 99
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 99
   store i8 0, ptr %25, align 1
   %26 = call noundef ptr @_Z10pj_mkparamPKc(ptr noundef nonnull %4)
   %27 = icmp eq ptr %26, null
@@ -90,7 +90,7 @@ define hidden noundef range(i32 -1, 2) i32 @_Z12pj_datum_setP6pj_ctxP8ARG_listP8
 
 30:                                               ; preds = %29, %19, %.critedge2
   %.175 = phi ptr [ %26, %29 ], [ %.074, %19 ], [ %.074, %.critedge2 ]
-  %31 = getelementptr inbounds i8, ptr %16, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %32 = load ptr, ptr %31, align 8
   %.not90 = icmp eq ptr %32, null
   br i1 %.not90, label %39, label %33
@@ -129,14 +129,14 @@ define hidden noundef range(i32 -1, 2) i32 @_Z12pj_datum_setP6pj_ctxP8ARG_listP8
 
 44:                                               ; preds = %42
   %.sroa.0.0..sroa.0.0..cast = inttoptr i64 %43 to ptr
-  %45 = getelementptr inbounds i8, ptr %2, i64 536
+  %45 = getelementptr inbounds nuw i8, ptr %2, i64 536
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %45, i8 0, i64 56, i1 false)
   %46 = load i8, ptr %.sroa.0.0..sroa.0.0..cast, align 1
   %.not107 = icmp eq i8 %46, 0
   br i1 %.not107, label %._crit_edge.thread, label %.lr.ph106
 
 ._crit_edge.thread:                               ; preds = %44
-  %47 = getelementptr inbounds i8, ptr %2, i64 560
+  %47 = getelementptr inbounds nuw i8, ptr %2, i64 560
   br label %61
 
 .lr.ph106:                                        ; preds = %44, %.critedge4
@@ -144,7 +144,7 @@ define hidden noundef range(i32 -1, 2) i32 @_Z12pj_datum_setP6pj_ctxP8ARG_listP8
   %.0105 = phi ptr [ %spec.select, %.critedge4 ], [ %.sroa.0.0..sroa.0.0..cast, %44 ]
   %48 = call noundef double @_Z7pj_atofPKc(ptr noundef nonnull %.0105)
   %indvars.iv.next113 = add nuw nsw i64 %indvars.iv112, 1
-  %49 = getelementptr inbounds [7 x double], ptr %45, i64 0, i64 %indvars.iv112
+  %49 = getelementptr inbounds nuw [7 x double], ptr %45, i64 0, i64 %indvars.iv112
   store double %48, ptr %49, align 8
   br label %50
 
@@ -157,13 +157,13 @@ define hidden noundef range(i32 -1, 2) i32 @_Z12pj_datum_setP6pj_ctxP8ARG_listP8
   ]
 
 52:                                               ; preds = %50
-  %53 = getelementptr inbounds i8, ptr %.1, i64 1
+  %53 = getelementptr inbounds nuw i8, ptr %.1, i64 1
   br label %50, !llvm.loop !7
 
 .critedge4:                                       ; preds = %50, %50
   %54 = icmp eq i8 %51, 44
   %spec.select.idx = zext i1 %54 to i64
-  %spec.select = getelementptr inbounds i8, ptr %.1, i64 %spec.select.idx
+  %spec.select = getelementptr inbounds nuw i8, ptr %.1, i64 %spec.select.idx
   %55 = load i8, ptr %spec.select, align 1
   %56 = icmp ne i8 %55, 0
   %57 = icmp samesign ult i64 %indvars.iv112, 6
@@ -171,33 +171,33 @@ define hidden noundef range(i32 -1, 2) i32 @_Z12pj_datum_setP6pj_ctxP8ARG_listP8
   br i1 %58, label %.lr.ph106, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.critedge4
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %2, i64 560
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %2, i64 560
   %.pre = load double, ptr %.phi.trans.insert, align 8
-  %59 = getelementptr inbounds i8, ptr %2, i64 560
+  %59 = getelementptr inbounds nuw i8, ptr %2, i64 560
   %60 = fcmp une double %.pre, 0.000000e+00
   br i1 %60, label %._crit_edge._crit_edge, label %61
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
-  %.phi.trans.insert115 = getelementptr inbounds i8, ptr %2, i64 568
+  %.phi.trans.insert115 = getelementptr inbounds nuw i8, ptr %2, i64 568
   %.pre116 = load double, ptr %.phi.trans.insert115, align 8
   br label %75
 
 61:                                               ; preds = %._crit_edge.thread, %._crit_edge
   %62 = phi ptr [ %47, %._crit_edge.thread ], [ %59, %._crit_edge ]
   %63 = phi double [ 0.000000e+00, %._crit_edge.thread ], [ %.pre, %._crit_edge ]
-  %64 = getelementptr inbounds i8, ptr %2, i64 568
+  %64 = getelementptr inbounds nuw i8, ptr %2, i64 568
   %65 = load double, ptr %64, align 8
   %66 = fcmp une double %65, 0.000000e+00
   br i1 %66, label %75, label %67
 
 67:                                               ; preds = %61
-  %68 = getelementptr inbounds i8, ptr %2, i64 576
+  %68 = getelementptr inbounds nuw i8, ptr %2, i64 576
   %69 = load double, ptr %68, align 8
   %70 = fcmp une double %69, 0.000000e+00
   br i1 %70, label %75, label %71
 
 71:                                               ; preds = %67
-  %72 = getelementptr inbounds i8, ptr %2, i64 584
+  %72 = getelementptr inbounds nuw i8, ptr %2, i64 584
   %73 = load double, ptr %72, align 8
   %74 = fcmp une double %73, 0.000000e+00
   br i1 %74, label %75, label %89
@@ -209,14 +209,14 @@ define hidden noundef range(i32 -1, 2) i32 @_Z12pj_datum_setP6pj_ctxP8ARG_listP8
   store i32 2, ptr %5, align 8
   %79 = fmul double %77, 0x3ED455A5B2FF8F9D
   store double %79, ptr %76, align 8
-  %80 = getelementptr inbounds i8, ptr %2, i64 568
+  %80 = getelementptr inbounds nuw i8, ptr %2, i64 568
   %81 = fmul double %78, 0x3ED455A5B2FF8F9D
   store double %81, ptr %80, align 8
-  %82 = getelementptr inbounds i8, ptr %2, i64 576
+  %82 = getelementptr inbounds nuw i8, ptr %2, i64 576
   %83 = load double, ptr %82, align 8
   %84 = fmul double %83, 0x3ED455A5B2FF8F9D
   store double %84, ptr %82, align 8
-  %85 = getelementptr inbounds i8, ptr %2, i64 584
+  %85 = getelementptr inbounds nuw i8, ptr %2, i64 584
   %86 = load double, ptr %85, align 8
   %87 = fdiv double %86, 1.000000e+06
   %88 = fadd double %87, 1.000000e+00

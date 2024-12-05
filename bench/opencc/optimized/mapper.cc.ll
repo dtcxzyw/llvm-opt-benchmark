@@ -43,10 +43,10 @@ $_ZTVN6marisa9ExceptionE = comdat any
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN6marisa8grimoire2io6MapperC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(36) initializes((0, 36)) %0) unnamed_addr #0 align 2 {
   store ptr null, ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr inttoptr (i64 -1 to ptr), ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   store i32 -1, ptr %4, align 8
   ret void
@@ -54,19 +54,19 @@ define void @_ZN6marisa8grimoire2io6MapperC2Ev(ptr nocapture noundef nonnull wri
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6marisa8grimoire2io6MapperD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, inttoptr (i64 -1 to ptr)
   br i1 %.not, label %8, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i64, ptr %5, align 8
   %7 = tail call i32 @munmap(ptr noundef %3, i64 noundef %6) #14
   br label %8
 
 8:                                                ; preds = %4, %1
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load i32, ptr %9, align 8
   %.not2 = icmp eq i32 %10, -1
   br i1 %.not2, label %13, label %11
@@ -114,13 +114,13 @@ define void @_ZN6marisa8grimoire2io6Mapper4openEPKc(ptr nocapture noundef nonnul
 5:                                                ; preds = %2
   %6 = tail call ptr @__cxa_allocate_exception(i64 32) #14
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr @.str, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %6, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 55, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 20
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 20
   store i32 2, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %6, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr @.str.1, ptr %10, align 8
   tail call void @__cxa_throw(ptr nonnull %6, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #16
   unreachable
@@ -135,26 +135,26 @@ define void @_ZN6marisa8grimoire2io6Mapper4openEPKc(ptr nocapture noundef nonnul
   %14 = load ptr, ptr %3, align 8
   store ptr %14, ptr %0, align 8
   store ptr %13, ptr %3, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
-  %16 = getelementptr inbounds i8, ptr %3, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %17 = load i64, ptr %15, align 8
   %18 = load i64, ptr %16, align 8
   store i64 %18, ptr %15, align 8
   store i64 %17, ptr %16, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 8
-  %20 = getelementptr inbounds i8, ptr %3, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %21 = load ptr, ptr %19, align 8
   %22 = load ptr, ptr %20, align 8
   store ptr %22, ptr %19, align 8
   store ptr %21, ptr %20, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 24
-  %24 = getelementptr inbounds i8, ptr %3, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %25 = load i64, ptr %23, align 8
   %26 = load i64, ptr %24, align 8
   store i64 %26, ptr %23, align 8
   store i64 %25, ptr %24, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 32
-  %28 = getelementptr inbounds i8, ptr %3, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %29 = load i32, ptr %27, align 8
   %30 = load i32, ptr %28, align 8
   store i32 %30, ptr %27, align 8
@@ -190,24 +190,24 @@ define void @_ZN6marisa8grimoire2io6Mapper5open_EPKc(ptr nocapture noundef nonnu
 5:                                                ; preds = %2
   %6 = tail call ptr @__cxa_allocate_exception(i64 32) #14
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr @.str, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %6, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 141, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 20
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 20
   store i32 9, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %6, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr @.str.7, ptr %10, align 8
   tail call void @__cxa_throw(ptr nonnull %6, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #16
   unreachable
 
 11:                                               ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %3, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %13 = load i64, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %13, ptr %14, align 8
   %15 = tail call i32 (ptr, i32, ...) @open(ptr noundef %1, i32 noundef 0)
-  %16 = getelementptr inbounds i8, ptr %0, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 %15, ptr %16, align 8
   %17 = icmp eq i32 %15, -1
   br i1 %17, label %18, label %24
@@ -215,13 +215,13 @@ define void @_ZN6marisa8grimoire2io6Mapper5open_EPKc(ptr nocapture noundef nonnu
 18:                                               ; preds = %11
   %19 = tail call ptr @__cxa_allocate_exception(i64 32) #14
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr @.str, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %19, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store i32 146, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %19, i64 20
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 20
   store i32 9, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %19, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %19, i64 24
   store ptr @.str.9, ptr %23, align 8
   tail call void @__cxa_throw(ptr nonnull %19, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #16
   unreachable
@@ -229,7 +229,7 @@ define void @_ZN6marisa8grimoire2io6Mapper5open_EPKc(ptr nocapture noundef nonnu
 24:                                               ; preds = %11
   %25 = load i64, ptr %14, align 8
   %26 = tail call ptr @mmap(ptr noundef null, i64 noundef %25, i32 noundef 1, i32 noundef 1, i32 noundef %15, i64 noundef 0) #14
-  %27 = getelementptr inbounds i8, ptr %0, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %26, ptr %27, align 8
   %28 = icmp eq ptr %26, inttoptr (i64 -1 to ptr)
   br i1 %28, label %29, label %35
@@ -237,13 +237,13 @@ define void @_ZN6marisa8grimoire2io6Mapper5open_EPKc(ptr nocapture noundef nonnu
 29:                                               ; preds = %24
   %30 = tail call ptr @__cxa_allocate_exception(i64 32) #14
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store ptr @.str, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %30, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %30, i64 16
   store i32 149, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %30, i64 20
+  %33 = getelementptr inbounds nuw i8, ptr %30, i64 20
   store i32 9, ptr %33, align 4
-  %34 = getelementptr inbounds i8, ptr %30, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %30, i64 24
   store ptr @.str.10, ptr %34, align 8
   tail call void @__cxa_throw(ptr nonnull %30, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #16
   unreachable
@@ -251,7 +251,7 @@ define void @_ZN6marisa8grimoire2io6Mapper5open_EPKc(ptr nocapture noundef nonnu
 35:                                               ; preds = %24
   store ptr %26, ptr %0, align 8
   %36 = load i64, ptr %14, align 8
-  %37 = getelementptr inbounds i8, ptr %0, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %36, ptr %37, align 8
   ret void
 }
@@ -262,26 +262,26 @@ define void @_ZN6marisa8grimoire2io6Mapper4swapERS2_(ptr nocapture noundef nonnu
   %4 = load ptr, ptr %1, align 8
   store ptr %4, ptr %0, align 8
   store ptr %3, ptr %1, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load i64, ptr %5, align 8
   %8 = load i64, ptr %6, align 8
   store i64 %8, ptr %5, align 8
   store i64 %7, ptr %6, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %9, align 8
   %12 = load ptr, ptr %10, align 8
   store ptr %12, ptr %9, align 8
   store ptr %11, ptr %10, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
-  %14 = getelementptr inbounds i8, ptr %1, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %15 = load i64, ptr %13, align 8
   %16 = load i64, ptr %14, align 8
   store i64 %16, ptr %13, align 8
   store i64 %15, ptr %14, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 32
-  %18 = getelementptr inbounds i8, ptr %1, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %19 = load i32, ptr %17, align 8
   %20 = load i32, ptr %18, align 8
   store i32 %20, ptr %17, align 8
@@ -300,41 +300,41 @@ define void @_ZN6marisa8grimoire2io6Mapper4openEPKvm(ptr nocapture noundef nonnu
 7:                                                ; preds = %3
   %8 = tail call ptr @__cxa_allocate_exception(i64 32) #14
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr @.str, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %8, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 63, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %8, i64 20
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 20
   store i32 2, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %8, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr @.str.2, ptr %12, align 8
   tail call void @__cxa_throw(ptr nonnull %8, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #16
   unreachable
 
 13:                                               ; preds = %3
   call void @_ZN6marisa8grimoire2io6MapperC1Ev(ptr noundef nonnull align 8 dereferenceable(36) %4)
-  %14 = getelementptr inbounds i8, ptr %4, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %15 = load ptr, ptr %0, align 8
   store ptr %1, ptr %0, align 8
   store ptr %15, ptr %4, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = load i64, ptr %16, align 8
   store i64 %2, ptr %16, align 8
   store i64 %17, ptr %14, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
-  %19 = getelementptr inbounds i8, ptr %4, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %20 = load ptr, ptr %18, align 8
   %21 = load ptr, ptr %19, align 8
   store ptr %21, ptr %18, align 8
   store ptr %20, ptr %19, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 24
-  %23 = getelementptr inbounds i8, ptr %4, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %24 = load i64, ptr %22, align 8
   %25 = load i64, ptr %23, align 8
   store i64 %25, ptr %22, align 8
   store i64 %24, ptr %23, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 32
-  %27 = getelementptr inbounds i8, ptr %4, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %28 = load i32, ptr %26, align 8
   %29 = load i32, ptr %27, align 8
   store i32 %29, ptr %26, align 8
@@ -346,7 +346,7 @@ define void @_ZN6marisa8grimoire2io6Mapper4openEPKvm(ptr nocapture noundef nonnu
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN6marisa8grimoire2io6Mapper5open_EPKvm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(36) initializes((0, 8), (16, 24)) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %2, ptr %4, align 8
   ret void
 }
@@ -360,19 +360,19 @@ define void @_ZN6marisa8grimoire2io6Mapper4seekEm(ptr nocapture noundef nonnull 
 4:                                                ; preds = %2
   %5 = tail call ptr @__cxa_allocate_exception(i64 32) #14
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @.str, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 71, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 20
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i32 1, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %5, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr @.str.3, ptr %9, align 8
   tail call void @__cxa_throw(ptr nonnull %5, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #16
   unreachable
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load i64, ptr %11, align 8
   %13 = icmp ugt i64 %1, %12
   br i1 %13, label %14, label %_ZN6marisa8grimoire2io6Mapper8map_dataEm.exit
@@ -380,13 +380,13 @@ define void @_ZN6marisa8grimoire2io6Mapper4seekEm(ptr nocapture noundef nonnull 
 14:                                               ; preds = %10
   %15 = tail call ptr @__cxa_allocate_exception(i64 32) #14
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr @.str, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %15, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store i32 72, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %15, i64 20
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 20
   store i32 9, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %15, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 24
   store ptr @.str.4, ptr %19, align 8
   tail call void @__cxa_throw(ptr nonnull %15, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #16
   unreachable
@@ -415,19 +415,19 @@ define noundef ptr @_ZN6marisa8grimoire2io6Mapper8map_dataEm(ptr nocapture nound
 4:                                                ; preds = %2
   %5 = tail call ptr @__cxa_allocate_exception(i64 32) #14
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @.str, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 99, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 20
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i32 1, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %5, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr @.str.5, ptr %9, align 8
   tail call void @__cxa_throw(ptr nonnull %5, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #16
   unreachable
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load i64, ptr %11, align 8
   %13 = icmp ugt i64 %1, %12
   br i1 %13, label %14, label %20
@@ -435,13 +435,13 @@ define noundef ptr @_ZN6marisa8grimoire2io6Mapper8map_dataEm(ptr nocapture nound
 14:                                               ; preds = %10
   %15 = tail call ptr @__cxa_allocate_exception(i64 32) #14
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr @.str, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %15, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store i32 100, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %15, i64 20
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 20
   store i32 9, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %15, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 24
   store ptr @.str.6, ptr %19, align 8
   tail call void @__cxa_throw(ptr nonnull %15, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #16
   unreachable
@@ -462,26 +462,26 @@ define void @_ZN6marisa8grimoire2io6Mapper5clearEv(ptr nocapture noundef nonnull
   %4 = load ptr, ptr %0, align 8
   store ptr %4, ptr %2, align 8
   store ptr %3, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 16
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i64, ptr %5, align 8
   %8 = load i64, ptr %6, align 8
   store i64 %8, ptr %5, align 8
   store i64 %7, ptr %6, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %9, align 8
   %12 = load ptr, ptr %10, align 8
   store ptr %12, ptr %9, align 8
   store ptr %11, ptr %10, align 8
-  %13 = getelementptr inbounds i8, ptr %2, i64 24
-  %14 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %15 = load i64, ptr %13, align 8
   %16 = load i64, ptr %14, align 8
   store i64 %16, ptr %13, align 8
   store i64 %15, ptr %14, align 8
-  %17 = getelementptr inbounds i8, ptr %2, i64 32
-  %18 = getelementptr inbounds i8, ptr %0, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %19 = load i32, ptr %17, align 8
   %20 = load i32, ptr %18, align 8
   store i32 %20, ptr %17, align 8
@@ -508,7 +508,7 @@ define linkonce_odr void @_ZN6marisa9ExceptionD0Ev(ptr noundef nonnull align 8 d
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef ptr @_ZNK6marisa9Exception4whatEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #1 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }

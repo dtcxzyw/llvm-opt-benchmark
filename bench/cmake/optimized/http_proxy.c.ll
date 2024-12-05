@@ -29,16 +29,16 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local noundef i32 @Curl_http_proxy_get_destination(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture noundef writeonly initializes((0, 1)) %3) local_unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 672
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 672
   %8 = load i32, ptr %7, align 8
   %9 = and i32 %8, 512
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %10, label %14
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load i32, ptr %11, align 8
   %13 = icmp eq i32 %12, 1
   %. = select i1 %13, i64 104, i64 80
@@ -46,35 +46,35 @@ define dso_local noundef i32 @Curl_http_proxy_get_destination(ptr nocapture noun
 
 14:                                               ; preds = %10, %4
   %.sink = phi i64 [ 128, %4 ], [ %., %10 ]
-  %15 = getelementptr inbounds i8, ptr %6, i64 %.sink
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 %.sink
   %16 = load ptr, ptr %15, align 8
   store ptr %16, ptr %1, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %18 = load i32, ptr %17, align 8
   %19 = icmp eq i32 %18, 1
   %20 = load ptr, ptr %5, align 8
   br i1 %19, label %21, label %25
 
 21:                                               ; preds = %14
-  %22 = getelementptr inbounds i8, ptr %20, i64 1146
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 1146
   %23 = load i16, ptr %22, align 2
   %24 = zext i16 %23 to i32
   br label %35
 
 25:                                               ; preds = %14
-  %26 = getelementptr inbounds i8, ptr %20, i64 672
+  %26 = getelementptr inbounds nuw i8, ptr %20, i64 672
   %27 = load i32, ptr %26, align 8
   %28 = and i32 %27, 1024
   %.not22 = icmp eq i32 %28, 0
   br i1 %.not22, label %32, label %29
 
 29:                                               ; preds = %25
-  %30 = getelementptr inbounds i8, ptr %20, i64 1136
+  %30 = getelementptr inbounds nuw i8, ptr %20, i64 1136
   %31 = load i32, ptr %30, align 8
   br label %35
 
 32:                                               ; preds = %25
-  %33 = getelementptr inbounds i8, ptr %20, i64 1132
+  %33 = getelementptr inbounds nuw i8, ptr %20, i64 1132
   %34 = load i32, ptr %33, align 4
   br label %35
 
@@ -83,7 +83,7 @@ define dso_local noundef i32 @Curl_http_proxy_get_destination(ptr nocapture noun
   store i32 %.sink25, ptr %2, align 4
   %36 = load ptr, ptr %1, align 8
   %37 = load ptr, ptr %5, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 80
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 80
   %39 = load ptr, ptr %38, align 8
   %.not23 = icmp eq ptr %36, %39
   br i1 %.not23, label %44, label %40
@@ -95,7 +95,7 @@ define dso_local noundef i32 @Curl_http_proxy_get_destination(ptr nocapture noun
   br label %50
 
 44:                                               ; preds = %35
-  %45 = getelementptr inbounds i8, ptr %37, i64 672
+  %45 = getelementptr inbounds nuw i8, ptr %37, i64 672
   %46 = load i32, ptr %45, align 8
   %47 = lshr i32 %46, 11
   %48 = trunc i32 %47 to i8
@@ -116,24 +116,24 @@ define dso_local i32 @Curl_http_proxy_create_CONNECT(ptr nocapture noundef write
 ._crit_edge:
   %4 = alloca ptr, align 8
   store ptr null, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 672
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 672
   %8 = load i32, ptr %7, align 8
   %9 = and i32 %8, 512
   %.not.i = icmp eq i32 %9, 0
-  %10 = getelementptr inbounds i8, ptr %1, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %11 = load i32, ptr %10, align 8
   %12 = icmp eq i32 %11, 1
   %..i = select i1 %12, i64 104, i64 80
   %.sink.i = select i1 %.not.i, i64 %..i, i64 128
-  %13 = getelementptr inbounds i8, ptr %6, i64 %.sink.i
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 %.sink.i
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq i32 %11, 1
   br i1 %15, label %16, label %20
 
 16:                                               ; preds = %._crit_edge
-  %17 = getelementptr inbounds i8, ptr %6, i64 1146
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 1146
   %18 = load i16, ptr %17, align 2
   %19 = zext i16 %18 to i32
   br label %28
@@ -144,18 +144,18 @@ define dso_local i32 @Curl_http_proxy_create_CONNECT(ptr nocapture noundef write
   br i1 %.not22.i, label %25, label %22
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds i8, ptr %6, i64 1136
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 1136
   %24 = load i32, ptr %23, align 8
   br label %28
 
 25:                                               ; preds = %20
-  %26 = getelementptr inbounds i8, ptr %6, i64 1132
+  %26 = getelementptr inbounds nuw i8, ptr %6, i64 1132
   %27 = load i32, ptr %26, align 4
   br label %28
 
 28:                                               ; preds = %25, %22, %16
   %.sink25.i = phi i32 [ %24, %22 ], [ %27, %25 ], [ %19, %16 ]
-  %29 = getelementptr inbounds i8, ptr %6, i64 80
+  %29 = getelementptr inbounds nuw i8, ptr %6, i64 80
   %30 = load ptr, ptr %29, align 8
   %.not23.i = icmp eq ptr %14, %30
   br i1 %.not23.i, label %34, label %31
@@ -187,7 +187,7 @@ Curl_http_proxy_get_destination.exit:             ; preds = %31, %34
 43:                                               ; preds = %40
   %44 = load ptr, ptr %5, align 8
   %45 = load ptr, ptr %4, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 32
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 32
   %47 = load ptr, ptr %46, align 8
   %48 = call i32 @Curl_http_output_auth(ptr noundef %2, ptr noundef %44, ptr noundef %45, i32 noundef 0, ptr noundef %47, i1 noundef zeroext true) #5
   %.not45 = icmp eq i32 %48, 0
@@ -205,20 +205,20 @@ Curl_http_proxy_get_destination.exit:             ; preds = %31, %34
 
 54:                                               ; preds = %51
   %55 = load ptr, ptr %4, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 48
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 48
   %57 = call i32 @Curl_dynhds_cadd(ptr noundef nonnull %56, ptr noundef nonnull @.str.5, ptr noundef nonnull %39) #5
   %.not47 = icmp eq i32 %57, 0
   br i1 %.not47, label %58, label %89
 
 58:                                               ; preds = %54, %51, %49
-  %59 = getelementptr inbounds i8, ptr %2, i64 4824
+  %59 = getelementptr inbounds nuw i8, ptr %2, i64 4824
   %60 = load ptr, ptr %59, align 8
   %.not48 = icmp eq ptr %60, null
   br i1 %.not48, label %65, label %61
 
 61:                                               ; preds = %58
   %62 = load ptr, ptr %4, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 48
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 48
   %64 = call i32 @Curl_dynhds_h1_cadd_line(ptr noundef nonnull %63, ptr noundef nonnull %60) #5
   %.not49 = icmp eq i32 %64, 0
   br i1 %.not49, label %65, label %89
@@ -230,7 +230,7 @@ Curl_http_proxy_get_destination.exit:             ; preds = %31, %34
   br i1 %.not50, label %68, label %77
 
 68:                                               ; preds = %65
-  %69 = getelementptr inbounds i8, ptr %2, i64 2048
+  %69 = getelementptr inbounds nuw i8, ptr %2, i64 2048
   %70 = load ptr, ptr %69, align 8
   %.not51 = icmp eq ptr %70, null
   br i1 %.not51, label %77, label %71
@@ -242,7 +242,7 @@ Curl_http_proxy_get_destination.exit:             ; preds = %31, %34
 
 73:                                               ; preds = %71
   %74 = load ptr, ptr %4, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 48
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 48
   %76 = call i32 @Curl_dynhds_cadd(ptr noundef nonnull %75, ptr noundef nonnull @.str.6, ptr noundef nonnull %70) #5
   %.not53 = icmp eq i32 %76, 0
   br i1 %.not53, label %77, label %89
@@ -258,14 +258,14 @@ Curl_http_proxy_get_destination.exit:             ; preds = %31, %34
 
 81:                                               ; preds = %78
   %82 = load ptr, ptr %4, align 8
-  %83 = getelementptr inbounds i8, ptr %82, i64 48
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 48
   %84 = call i32 @Curl_dynhds_cadd(ptr noundef nonnull %83, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8) #5
   %.not55 = icmp eq i32 %84, 0
   br i1 %.not55, label %85, label %89
 
 85:                                               ; preds = %81, %78, %77
   %86 = load ptr, ptr %4, align 8
-  %87 = getelementptr inbounds i8, ptr %86, i64 48
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 48
   %88 = call i32 @Curl_dynhds_add_custom(ptr noundef nonnull %2, i1 noundef zeroext true, ptr noundef nonnull %87) #5
   br label %89
 
@@ -311,33 +311,33 @@ declare void @Curl_http_req_free(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @Curl_cf_http_proxy_get_host(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #2 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 36
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %7 = load i8, ptr %6, align 4
   %8 = and i8 %7, 1
   %.not = icmp eq i8 %8, 0
   br i1 %.not, label %9, label %20
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 216
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 216
   %13 = load ptr, ptr %12, align 8
   store ptr %13, ptr %2, align 8
   %14 = load ptr, ptr %10, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 224
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 224
   %16 = load ptr, ptr %15, align 8
   store ptr %16, ptr %3, align 8
   %17 = load ptr, ptr %10, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 232
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 232
   %19 = load i32, ptr %18, align 8
   store i32 %19, ptr %4, align 4
   br label %26
 
 20:                                               ; preds = %5
-  %21 = getelementptr inbounds i8, ptr %0, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = load ptr, ptr %21, align 8
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 40
   %25 = load ptr, ptr %24, align 8
   tail call void %25(ptr noundef nonnull %22, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5
   br label %26
@@ -348,13 +348,13 @@ define dso_local void @Curl_cf_http_proxy_get_host(ptr nocapture noundef readonl
 
 ; Function Attrs: nounwind uwtable
 define internal void @http_proxy_cf_destroy(ptr noundef %0, ptr noundef %1) #2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %15, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 2642
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 2642
   %7 = load i64, ptr %6, align 2
   %8 = and i64 %7, 268435456
   %.not10 = icmp eq i64 %8, 0
@@ -362,7 +362,7 @@ define internal void @http_proxy_cf_destroy(ptr noundef %0, ptr noundef %1) #2 {
 
 9:                                                ; preds = %5
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 12
   %12 = load i32, ptr %11, align 4
   %13 = icmp sgt i32 %12, 0
   br i1 %13, label %14, label %15
@@ -379,9 +379,9 @@ define internal void @http_proxy_cf_destroy(ptr noundef %0, ptr noundef %1) #2 {
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @http_proxy_cf_connect(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef %3) #2 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 36
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %8 = load i8, ptr %7, align 4
   %9 = and i8 %8, 1
   %.not = icmp eq i8 %9, 0
@@ -396,7 +396,7 @@ define internal i32 @http_proxy_cf_connect(ptr noundef %0, ptr noundef %1, i1 no
   br i1 %.not72, label %22, label %12
 
 12:                                               ; preds = %11
-  %13 = getelementptr inbounds i8, ptr %1, i64 2642
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 2642
   %14 = load i64, ptr %13, align 2
   %15 = and i64 %14, 268435456
   %.not87 = icmp eq i64 %15, 0
@@ -404,7 +404,7 @@ define internal i32 @http_proxy_cf_connect(ptr noundef %0, ptr noundef %1, i1 no
 
 16:                                               ; preds = %12
   %17 = load ptr, ptr %0, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 12
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 12
   %19 = load i32, ptr %18, align 4
   %20 = icmp sgt i32 %19, 0
   br i1 %20, label %21, label %22
@@ -414,18 +414,18 @@ define internal i32 @http_proxy_cf_connect(ptr noundef %0, ptr noundef %1, i1 no
   br label %22
 
 22:                                               ; preds = %11, %12, %16, %21
-  %23 = getelementptr inbounds i8, ptr %0, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load ptr, ptr %23, align 8
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %27 = load ptr, ptr %26, align 8
   %28 = tail call i32 %27(ptr noundef nonnull %24, ptr noundef %1, i1 noundef zeroext %2, ptr noundef %3) #5
   %.not7390 = icmp eq i32 %28, 0
   br i1 %.not7390, label %.lr.ph, label %.thread84
 
 .lr.ph:                                           ; preds = %22
-  %29 = getelementptr inbounds i8, ptr %0, i64 24
-  %30 = getelementptr inbounds i8, ptr %1, i64 2642
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 2642
   br label %31
 
 31:                                               ; preds = %.lr.ph, %75
@@ -446,7 +446,7 @@ define internal i32 @http_proxy_cf_connect(ptr noundef %0, ptr noundef %1, i1 no
 
 39:                                               ; preds = %36
   %40 = load ptr, ptr %29, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 1149
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 1149
   %42 = load i8, ptr %41, align 1
   %43 = zext i8 %42 to i32
   switch i8 %42, label %70 [
@@ -468,7 +468,7 @@ define internal i32 @http_proxy_cf_connect(ptr noundef %0, ptr noundef %1, i1 no
 
 48:                                               ; preds = %45
   %49 = load ptr, ptr %0, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 12
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 12
   %51 = load i32, ptr %50, align 4
   %52 = icmp sgt i32 %51, 0
   br i1 %52, label %53, label %.thread101
@@ -502,7 +502,7 @@ define internal i32 @http_proxy_cf_connect(ptr noundef %0, ptr noundef %1, i1 no
 
 62:                                               ; preds = %59
   %63 = load ptr, ptr %0, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 12
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 12
   %65 = load i32, ptr %64, align 4
   %66 = icmp sgt i32 %65, 0
   br i1 %66, label %67, label %.thread105
@@ -540,7 +540,7 @@ define internal i32 @http_proxy_cf_connect(ptr noundef %0, ptr noundef %1, i1 no
   %.064 = load ptr, ptr %23, align 8
   store ptr %.064, ptr %6, align 8
   %76 = load ptr, ptr %.064, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 24
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 24
   %78 = load ptr, ptr %77, align 8
   %79 = tail call i32 %78(ptr noundef nonnull %.064, ptr noundef %1, i1 noundef zeroext %2, ptr noundef nonnull %3) #5
   %.not73 = icmp eq i32 %79, 0
@@ -560,13 +560,13 @@ define internal i32 @http_proxy_cf_connect(ptr noundef %0, ptr noundef %1, i1 no
 
 ; Function Attrs: nounwind uwtable
 define internal void @http_proxy_cf_close(ptr noundef %0, ptr noundef %1) #2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %15, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 2642
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 2642
   %7 = load i64, ptr %6, align 2
   %8 = and i64 %7, 268435456
   %.not30 = icmp eq i64 %8, 0
@@ -574,7 +574,7 @@ define internal void @http_proxy_cf_close(ptr noundef %0, ptr noundef %1) #2 {
 
 9:                                                ; preds = %5
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 12
   %12 = load i32, ptr %11, align 4
   %13 = icmp sgt i32 %12, 0
   br i1 %13, label %14, label %15
@@ -584,7 +584,7 @@ define internal void @http_proxy_cf_close(ptr noundef %0, ptr noundef %1) #2 {
   br label %15
 
 15:                                               ; preds = %2, %5, %9, %14
-  %16 = getelementptr inbounds i8, ptr %0, i64 36
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %17 = load i8, ptr %16, align 4
   %18 = and i8 %17, -2
   store i8 %18, ptr %16, align 4
@@ -594,7 +594,7 @@ define internal void @http_proxy_cf_close(ptr noundef %0, ptr noundef %1) #2 {
 
 .preheader:                                       ; preds = %15, %20
   %.pn = phi ptr [ %.0, %20 ], [ %0, %15 ]
-  %.0.in = getelementptr inbounds i8, ptr %.pn, i64 8
+  %.0.in = getelementptr inbounds nuw i8, ptr %.pn, i64 8
   %.0 = load ptr, ptr %.0.in, align 8
   %.not28 = icmp eq ptr %.0, null
   br i1 %.not28, label %.loopexit, label %20
@@ -612,14 +612,14 @@ define internal void @http_proxy_cf_close(ptr noundef %0, ptr noundef %1) #2 {
   br label %24
 
 24:                                               ; preds = %.loopexit, %15
-  %25 = getelementptr inbounds i8, ptr %0, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %26 = load ptr, ptr %25, align 8
   %.not29 = icmp eq ptr %26, null
   br i1 %.not29, label %31, label %27
 
 27:                                               ; preds = %24
   %28 = load ptr, ptr %26, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 32
   %30 = load ptr, ptr %29, align 8
   tail call void %30(ptr noundef nonnull %26, ptr noundef %1) #5
   br label %31

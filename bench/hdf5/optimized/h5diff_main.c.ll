@@ -33,17 +33,17 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %11 = load ptr, ptr %6, align 8
   %12 = call i64 @h5diff(ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef nonnull %7) #4
   call void @print_info(ptr noundef nonnull %7) #4
-  %13 = getelementptr inbounds i8, ptr %7, i64 80
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 80
   %14 = load i32, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %7, i64 136
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 136
   %16 = load i32, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %7, i64 1736
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 1736
   br label %18
 
 18:                                               ; preds = %2, %42
   %19 = phi i1 [ true, %2 ], [ false, %42 ]
   %indvars.iv = phi i64 [ 0, %2 ], [ 1, %42 ]
-  %20 = getelementptr inbounds [2 x ptr], ptr %17, i64 0, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [2 x ptr], ptr %17, i64 0, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8
   %.not23 = icmp eq ptr %21, null
   br i1 %.not23, label %42, label %22
@@ -60,7 +60,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 25:                                               ; preds = %24, %22
   %26 = phi ptr [ %.pre, %24 ], [ %21, %22 ]
-  %27 = getelementptr inbounds i8, ptr %26, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %28 = load ptr, ptr %27, align 8
   %.not25 = icmp eq ptr %28, null
   br i1 %.not25, label %30, label %29
@@ -72,7 +72,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 30:                                               ; preds = %29, %25
   %31 = phi ptr [ %.pre30, %29 ], [ %26, %25 ]
-  %32 = getelementptr inbounds i8, ptr %31, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 32
   %33 = load ptr, ptr %32, align 8
   %.not26 = icmp eq ptr %33, null
   br i1 %.not26, label %35, label %34
@@ -84,7 +84,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 35:                                               ; preds = %34, %30
   %36 = phi ptr [ %.pre31, %34 ], [ %31, %30 ]
-  %37 = getelementptr inbounds i8, ptr %36, i64 48
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 48
   %38 = load ptr, ptr %37, align 8
   %.not27 = icmp eq ptr %38, null
   br i1 %.not27, label %40, label %39

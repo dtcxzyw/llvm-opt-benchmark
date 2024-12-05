@@ -2593,7 +2593,7 @@ gv_recalloc.exit:                                 ; preds = %7, %14, %16
   %22 = phi i8 [ %32, %30 ], [ %21, %19 ]
   %.pn = phi ptr [ %23, %30 ], [ %0, %19 ]
   %.01218 = phi ptr [ %31, %30 ], [ %20, %19 ]
-  %23 = getelementptr inbounds i8, ptr %.pn, i64 1
+  %23 = getelementptr inbounds nuw i8, ptr %.pn, i64 1
   %24 = sext i8 %22 to i32
   %25 = add nsw i32 %24, -65
   %26 = icmp ult i32 %25, 26
@@ -2606,7 +2606,7 @@ gv_recalloc.exit:                                 ; preds = %7, %14, %16
 
 30:                                               ; preds = %27, %.lr.ph
   %.0 = phi i8 [ %29, %27 ], [ %22, %.lr.ph ]
-  %31 = getelementptr inbounds i8, ptr %.01218, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %.01218, i64 1
   store i8 %.0, ptr %.01218, align 1
   %32 = load i8, ptr %23, align 1
   %.not16 = icmp eq i8 %32, 0
@@ -2636,7 +2636,7 @@ define range(i32 -1, 2) i32 @colorxlate(ptr noundef %0, ptr noundef writeonly in
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
   %13 = alloca %struct.agxbuf, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i32 %2, ptr %14, align 8
   br label %15
 
@@ -2644,7 +2644,7 @@ define range(i32 -1, 2) i32 @colorxlate(ptr noundef %0, ptr noundef writeonly in
   %.0112 = phi ptr [ %0, %3 ], [ %18, %15 ]
   %16 = load i8, ptr %.0112, align 1
   %17 = icmp eq i8 %16, 32
-  %18 = getelementptr inbounds i8, ptr %.0112, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %.0112, i64 1
   br i1 %17, label %15, label %19
 
 19:                                               ; preds = %15
@@ -2772,11 +2772,11 @@ rgb2hsv.exit:                                     ; preds = %42, %83, %86
   %.044.i = phi double [ %87, %86 ], [ %84, %83 ], [ 0.000000e+00, %42 ]
   %88 = fdiv double %.044.i, 3.600000e+02
   store double %88, ptr %1, align 8
-  %89 = getelementptr inbounds i8, ptr %1, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store double %.0.i, ptr %89, align 8
-  %90 = getelementptr inbounds i8, ptr %1, i64 16
+  %90 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store double %58, ptr %90, align 8
-  %91 = getelementptr inbounds i8, ptr %1, i64 24
+  %91 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store double %54, ptr %91, align 8
   br label %agxbfree.exit
 
@@ -2786,15 +2786,15 @@ rgb2hsv.exit:                                     ; preds = %42, %83, %86
   store i8 %94, ptr %1, align 8
   %95 = load i32, ptr %10, align 4
   %96 = trunc i32 %95 to i8
-  %97 = getelementptr inbounds i8, ptr %1, i64 1
+  %97 = getelementptr inbounds nuw i8, ptr %1, i64 1
   store i8 %96, ptr %97, align 1
   %98 = load i32, ptr %11, align 4
   %99 = trunc i32 %98 to i8
-  %100 = getelementptr inbounds i8, ptr %1, i64 2
+  %100 = getelementptr inbounds nuw i8, ptr %1, i64 2
   store i8 %99, ptr %100, align 2
   %101 = load i32, ptr %12, align 4
   %102 = trunc i32 %101 to i8
-  %103 = getelementptr inbounds i8, ptr %1, i64 3
+  %103 = getelementptr inbounds nuw i8, ptr %1, i64 3
   store i8 %102, ptr %103, align 1
   br label %agxbfree.exit
 
@@ -2823,17 +2823,17 @@ rgb2hsv.exit:                                     ; preds = %42, %83, %86
   %125 = fptosi double %120 to i32
   %126 = trunc i32 %125 to i8
   %127 = sub i8 0, %126
-  %128 = getelementptr inbounds i8, ptr %1, i64 1
+  %128 = getelementptr inbounds nuw i8, ptr %1, i64 1
   store i8 %127, ptr %128, align 1
   %129 = fptosi double %121 to i32
   %130 = trunc i32 %129 to i8
   %131 = sub i8 0, %130
-  %132 = getelementptr inbounds i8, ptr %1, i64 2
+  %132 = getelementptr inbounds nuw i8, ptr %1, i64 2
   store i8 %131, ptr %132, align 2
   %133 = fptosi double %118 to i32
   %134 = trunc i32 %133 to i8
   %135 = sub i8 0, %134
-  %136 = getelementptr inbounds i8, ptr %1, i64 3
+  %136 = getelementptr inbounds nuw i8, ptr %1, i64 3
   store i8 %135, ptr %136, align 1
   br label %agxbfree.exit
 
@@ -2845,17 +2845,17 @@ rgb2hsv.exit:                                     ; preds = %42, %83, %86
   %141 = load i32, ptr %10, align 4
   %142 = mul i32 %141, 65535
   %143 = udiv i32 %142, 255
-  %144 = getelementptr inbounds i8, ptr %1, i64 4
+  %144 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 %143, ptr %144, align 4
   %145 = load i32, ptr %11, align 4
   %146 = mul i32 %145, 65535
   %147 = udiv i32 %146, 255
-  %148 = getelementptr inbounds i8, ptr %1, i64 8
+  %148 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %147, ptr %148, align 8
   %149 = load i32, ptr %12, align 4
   %150 = mul i32 %149, 65535
   %151 = udiv i32 %150, 255
-  %152 = getelementptr inbounds i8, ptr %1, i64 12
+  %152 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 %151, ptr %152, align 4
   br label %agxbfree.exit
 
@@ -2867,17 +2867,17 @@ rgb2hsv.exit:                                     ; preds = %42, %83, %86
   %157 = load i32, ptr %10, align 4
   %158 = uitofp i32 %157 to double
   %159 = fdiv double %158, 2.550000e+02
-  %160 = getelementptr inbounds i8, ptr %1, i64 8
+  %160 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store double %159, ptr %160, align 8
   %161 = load i32, ptr %11, align 4
   %162 = uitofp i32 %161 to double
   %163 = fdiv double %162, 2.550000e+02
-  %164 = getelementptr inbounds i8, ptr %1, i64 16
+  %164 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store double %163, ptr %164, align 8
   %165 = load i32, ptr %12, align 4
   %166 = uitofp i32 %165 to double
   %167 = fdiv double %166, 2.550000e+02
-  %168 = getelementptr inbounds i8, ptr %1, i64 24
+  %168 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store double %167, ptr %168, align 8
   br label %agxbfree.exit
 
@@ -2902,9 +2902,9 @@ rgb2hsv.exit:                                     ; preds = %42, %83, %86
   br i1 %.not200, label %agxbsizeof.exit.i.i, label %agxbsizeof.exit.i.lr.ph
 
 agxbsizeof.exit.i.lr.ph:                          ; preds = %177
-  %178 = getelementptr inbounds i8, ptr %13, i64 31
-  %179 = getelementptr inbounds i8, ptr %13, i64 8
-  %180 = getelementptr inbounds i8, ptr %13, i64 16
+  %178 = getelementptr inbounds nuw i8, ptr %13, i64 31
+  %179 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %180 = getelementptr inbounds nuw i8, ptr %13, i64 16
   br label %agxbsizeof.exit.i
 
 agxbsizeof.exit.i:                                ; preds = %agxbsizeof.exit.i.lr.ph, %agxbputc.exit
@@ -2912,7 +2912,7 @@ agxbsizeof.exit.i:                                ; preds = %agxbsizeof.exit.i.l
   %.val.i.i = phi i8 [ 0, %agxbsizeof.exit.i.lr.ph ], [ %.val.i.i204, %agxbputc.exit ]
   %181 = phi i8 [ %172, %agxbsizeof.exit.i.lr.ph ], [ %199, %agxbputc.exit ]
   %.0111201 = phi ptr [ %.0112, %agxbsizeof.exit.i.lr.ph ], [ %182, %agxbputc.exit ]
-  %182 = getelementptr inbounds i8, ptr %.0111201, i64 1
+  %182 = getelementptr inbounds nuw i8, ptr %.0111201, i64 1
   %183 = icmp eq i8 %181, 44
   %narrow = select i1 %183, i8 32, i8 %181
   %.not.i.i = icmp eq i8 %.val.i.i, -1
@@ -2937,7 +2937,7 @@ agxbsizeof.exit.i:                                ; preds = %agxbsizeof.exit.i.l
 
 189:                                              ; preds = %188
   %190 = zext i8 %.val.i.i202 to i64
-  %191 = getelementptr inbounds [31 x i8], ptr %13, i64 0, i64 %190
+  %191 = getelementptr inbounds nuw [31 x i8], ptr %13, i64 0, i64 %190
   store i8 %narrow, ptr %191, align 1
   %192 = load i8, ptr %178, align 1
   %193 = add i8 %192, 1
@@ -2970,9 +2970,9 @@ agxbsizeof.exit.i.i:                              ; preds = %agxbsizeof.exit.i.i
   %201 = phi i64 [ %.pre209, %agxbsizeof.exit.i.i.loopexit ], [ 0, %177 ]
   %.val.i.i.i = phi i8 [ %.val.i.i.i205, %agxbsizeof.exit.i.i.loopexit ], [ 0, %177 ]
   store double 1.000000e+00, ptr %8, align 8
-  %202 = getelementptr inbounds i8, ptr %13, i64 31
+  %202 = getelementptr inbounds nuw i8, ptr %13, i64 31
   %.not.i.i.i = icmp eq i8 %.val.i.i.i, -1
-  %203 = getelementptr inbounds i8, ptr %13, i64 8
+  %203 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %204 = zext i8 %.val.i.i.i to i64
   %.0.i20.i.i = select i1 %.not.i.i.i, i64 %201, i64 %204
   %.0.i14.i.i = select i1 %.not.i.i.i, i64 %200, i64 31
@@ -2998,7 +2998,7 @@ agxbputc.exit.i.thread:                           ; preds = %206
 
 agxbputc.exit.i:                                  ; preds = %206
   %210 = zext i8 %.val.i.pr.i to i64
-  %211 = getelementptr inbounds [31 x i8], ptr %13, i64 0, i64 %210
+  %211 = getelementptr inbounds nuw [31 x i8], ptr %13, i64 0, i64 %210
   store i8 0, ptr %211, align 1
   %212 = load i8, ptr %202, align 1
   %213 = add i8 %212, 1
@@ -3051,11 +3051,11 @@ agxbuse.exit:                                     ; preds = %agxbclear.exit.thre
 
 233:                                              ; preds = %220
   store double %223, ptr %1, align 8
-  %234 = getelementptr inbounds i8, ptr %1, i64 8
+  %234 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store double %226, ptr %234, align 8
-  %235 = getelementptr inbounds i8, ptr %1, i64 16
+  %235 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store double %229, ptr %235, align 8
-  %236 = getelementptr inbounds i8, ptr %1, i64 24
+  %236 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store double %232, ptr %236, align 8
   br label %392
 
@@ -3119,17 +3119,17 @@ hsv2rgb.exit:                                     ; preds = %237, %239, %254, %2
   %265 = fmul double %.sink58.i, 2.550000e+02
   %266 = fptosi double %265 to i32
   %267 = trunc i32 %266 to i8
-  %268 = getelementptr inbounds i8, ptr %1, i64 1
+  %268 = getelementptr inbounds nuw i8, ptr %1, i64 1
   store i8 %267, ptr %268, align 1
   %269 = fmul double %.sink.i, 2.550000e+02
   %270 = fptosi double %269 to i32
   %271 = trunc i32 %270 to i8
-  %272 = getelementptr inbounds i8, ptr %1, i64 2
+  %272 = getelementptr inbounds nuw i8, ptr %1, i64 2
   store i8 %271, ptr %272, align 2
   %273 = fmul double %232, 2.550000e+02
   %274 = fptosi double %273 to i32
   %275 = trunc i32 %274 to i8
-  %276 = getelementptr inbounds i8, ptr %1, i64 3
+  %276 = getelementptr inbounds nuw i8, ptr %1, i64 3
   store i8 %275, ptr %276, align 1
   br label %392
 
@@ -3201,17 +3201,17 @@ hsv2rgb.exit128:                                  ; preds = %277, %279, %294, %2
   %313 = fptosi double %308 to i32
   %314 = trunc i32 %313 to i8
   %315 = sub i8 0, %314
-  %316 = getelementptr inbounds i8, ptr %1, i64 1
+  %316 = getelementptr inbounds nuw i8, ptr %1, i64 1
   store i8 %315, ptr %316, align 1
   %317 = fptosi double %309 to i32
   %318 = trunc i32 %317 to i8
   %319 = sub i8 0, %318
-  %320 = getelementptr inbounds i8, ptr %1, i64 2
+  %320 = getelementptr inbounds nuw i8, ptr %1, i64 2
   store i8 %319, ptr %320, align 2
   %321 = fptosi double %306 to i32
   %322 = trunc i32 %321 to i8
   %323 = sub i8 0, %322
-  %324 = getelementptr inbounds i8, ptr %1, i64 3
+  %324 = getelementptr inbounds nuw i8, ptr %1, i64 3
   store i8 %323, ptr %324, align 1
   br label %392
 
@@ -3273,15 +3273,15 @@ hsv2rgb.exit132:                                  ; preds = %325, %327, %342, %3
   store i32 %351, ptr %1, align 8
   %352 = fmul double %.sink58.i130, 6.553500e+04
   %353 = fptosi double %352 to i32
-  %354 = getelementptr inbounds i8, ptr %1, i64 4
+  %354 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 %353, ptr %354, align 4
   %355 = fmul double %.sink.i131, 6.553500e+04
   %356 = fptosi double %355 to i32
-  %357 = getelementptr inbounds i8, ptr %1, i64 8
+  %357 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %356, ptr %357, align 8
   %358 = fmul double %232, 6.553500e+04
   %359 = fptosi double %358 to i32
-  %360 = getelementptr inbounds i8, ptr %1, i64 12
+  %360 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 %359, ptr %360, align 4
   br label %392
 
@@ -3339,11 +3339,11 @@ hsv2rgb.exit136:                                  ; preds = %361, %363, %378, %3
   %.sink58.i134 = phi double [ %229, %378 ], [ %229, %379 ], [ %374, %380 ], [ %371, %381 ], [ %371, %382 ], [ %229, %361 ], [ %377, %363 ]
   %.sink.i135 = phi double [ %371, %378 ], [ %377, %379 ], [ %229, %380 ], [ %229, %381 ], [ %374, %382 ], [ %229, %361 ], [ %371, %363 ]
   store double %.sink59.i133, ptr %1, align 8
-  %386 = getelementptr inbounds i8, ptr %1, i64 8
+  %386 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store double %.sink58.i134, ptr %386, align 8
-  %387 = getelementptr inbounds i8, ptr %1, i64 16
+  %387 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store double %.sink.i135, ptr %387, align 8
-  %388 = getelementptr inbounds i8, ptr %1, i64 24
+  %388 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store double %232, ptr %388, align 8
   br label %392
 
@@ -3417,18 +3417,18 @@ agxbfree.exit137:                                 ; preds = %.thread193, %395, %
   br i1 %.not34.i, label %418, label %415
 
 415:                                              ; preds = %413
-  %416 = getelementptr inbounds i8, ptr %.0112, i64 2
+  %416 = getelementptr inbounds nuw i8, ptr %.0112, i64 2
   %417 = call fastcc ptr @fullColor(ptr noundef %4, ptr noundef %410, ptr noundef nonnull %416)
   br label %fullColor.exit.i
 
 418:                                              ; preds = %413, %411, %409
-  %419 = getelementptr inbounds i8, ptr %.0112, i64 2
+  %419 = getelementptr inbounds nuw i8, ptr %.0112, i64 2
   br label %fullColor.exit.i
 
 420:                                              ; preds = %406
   %421 = call i32 @strncasecmp(ptr noundef nonnull @.str.10, ptr noundef nonnull %18, i64 noundef 4) #20
   %.not31.i = icmp eq i32 %421, 0
-  %422 = getelementptr inbounds i8, ptr %405, i64 1
+  %422 = getelementptr inbounds nuw i8, ptr %405, i64 1
   %spec.select.i = select i1 %.not31.i, ptr %422, ptr %.0112
   br label %fullColor.exit.i
 
@@ -3449,12 +3449,12 @@ agxbfree.exit137:                                 ; preds = %.thread193, %395, %
 
 agxbsizeof.exit.i.i.i.i:                          ; preds = %427
   call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %4, ptr nonnull poison, ptr noundef nonnull %424, ptr noundef nonnull %.0112)
-  %429 = getelementptr inbounds i8, ptr %4, i64 31
+  %429 = getelementptr inbounds nuw i8, ptr %4, i64 31
   %.val.i.i.i.i.i = load i8, ptr %429, align 1
   %.not.i.i.i.i.i = icmp eq i8 %.val.i.i.i.i.i, -1
-  %430 = getelementptr inbounds i8, ptr %4, i64 8
+  %430 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %431 = load i64, ptr %430, align 8
-  %432 = getelementptr inbounds i8, ptr %4, i64 16
+  %432 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %433 = load i64, ptr %432, align 8
   %434 = zext i8 %.val.i.i.i.i.i to i64
   %.0.i20.i.i.i.i = select i1 %.not.i.i.i.i.i, i64 %431, i64 %434
@@ -3481,7 +3481,7 @@ agxbputc.exit.i.i.thread.i:                       ; preds = %436
 
 agxbputc.exit.i.i.i:                              ; preds = %436
   %440 = zext i8 %.val.i.pr.i.i.i to i64
-  %441 = getelementptr inbounds [31 x i8], ptr %4, i64 0, i64 %440
+  %441 = getelementptr inbounds nuw [31 x i8], ptr %4, i64 0, i64 %440
   store i8 0, ptr %441, align 1
   %442 = load i8, ptr %429, align 1
   %443 = add i8 %442, 1
@@ -3505,7 +3505,7 @@ agxbclear.exit.thread.i.i.i:                      ; preds = %agxbputc.exit.i.i.i
 fullColor.exit.i:                                 ; preds = %445, %agxbclear.exit.thread.i.i.i, %427, %425, %423, %420, %418, %415, %404
   %.021.i = phi ptr [ %417, %415 ], [ %419, %418 ], [ %18, %404 ], [ %.0112, %427 ], [ %.0112, %425 ], [ %.0112, %423 ], [ %spec.select.i, %420 ], [ %446, %445 ], [ %4, %agxbclear.exit.thread.i.i.i ]
   %447 = call ptr @canontoken(ptr noundef %.021.i)
-  %448 = getelementptr inbounds i8, ptr %4, i64 31
+  %448 = getelementptr inbounds nuw i8, ptr %4, i64 31
   %.val35.i = load i8, ptr %448, align 1
   %449 = icmp eq i8 %.val35.i, -1
   br i1 %449, label %450, label %resolveColor.exit
@@ -3551,59 +3551,59 @@ thread-pre-split.thread:                          ; preds = %454, %thread-pre-sp
   ]
 
 459:                                              ; preds = %thread-pre-split.thread
-  %460 = getelementptr inbounds i8, ptr %458, i64 8
+  %460 = getelementptr inbounds nuw i8, ptr %458, i64 8
   %461 = load i8, ptr %460, align 8
   %462 = uitofp i8 %461 to double
   %463 = fdiv double %462, 2.550000e+02
   store double %463, ptr %1, align 8
-  %464 = getelementptr inbounds i8, ptr %458, i64 9
+  %464 = getelementptr inbounds nuw i8, ptr %458, i64 9
   %465 = load i8, ptr %464, align 1
   %466 = uitofp i8 %465 to double
   %467 = fdiv double %466, 2.550000e+02
-  %468 = getelementptr inbounds i8, ptr %1, i64 8
+  %468 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store double %467, ptr %468, align 8
-  %469 = getelementptr inbounds i8, ptr %458, i64 10
+  %469 = getelementptr inbounds nuw i8, ptr %458, i64 10
   %470 = load i8, ptr %469, align 2
   %471 = uitofp i8 %470 to double
   %472 = fdiv double %471, 2.550000e+02
-  %473 = getelementptr inbounds i8, ptr %1, i64 16
+  %473 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store double %472, ptr %473, align 8
-  %474 = getelementptr inbounds i8, ptr %458, i64 14
+  %474 = getelementptr inbounds nuw i8, ptr %458, i64 14
   %475 = load i8, ptr %474, align 2
   %476 = uitofp i8 %475 to double
   %477 = fdiv double %476, 2.550000e+02
-  %478 = getelementptr inbounds i8, ptr %1, i64 24
+  %478 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store double %477, ptr %478, align 8
   br label %agxbfree.exit
 
 479:                                              ; preds = %thread-pre-split.thread
-  %480 = getelementptr inbounds i8, ptr %458, i64 11
+  %480 = getelementptr inbounds nuw i8, ptr %458, i64 11
   %481 = load i8, ptr %480, align 1
   store i8 %481, ptr %1, align 8
-  %482 = getelementptr inbounds i8, ptr %458, i64 12
+  %482 = getelementptr inbounds nuw i8, ptr %458, i64 12
   %483 = load i8, ptr %482, align 4
-  %484 = getelementptr inbounds i8, ptr %1, i64 1
+  %484 = getelementptr inbounds nuw i8, ptr %1, i64 1
   store i8 %483, ptr %484, align 1
-  %485 = getelementptr inbounds i8, ptr %458, i64 13
+  %485 = getelementptr inbounds nuw i8, ptr %458, i64 13
   %486 = load i8, ptr %485, align 1
-  %487 = getelementptr inbounds i8, ptr %1, i64 2
+  %487 = getelementptr inbounds nuw i8, ptr %1, i64 2
   store i8 %486, ptr %487, align 2
-  %488 = getelementptr inbounds i8, ptr %458, i64 14
+  %488 = getelementptr inbounds nuw i8, ptr %458, i64 14
   %489 = load i8, ptr %488, align 2
-  %490 = getelementptr inbounds i8, ptr %1, i64 3
+  %490 = getelementptr inbounds nuw i8, ptr %1, i64 3
   store i8 %489, ptr %490, align 1
   br label %agxbfree.exit
 
 491:                                              ; preds = %thread-pre-split.thread
-  %492 = getelementptr inbounds i8, ptr %458, i64 11
+  %492 = getelementptr inbounds nuw i8, ptr %458, i64 11
   %493 = load i8, ptr %492, align 1
   %494 = uitofp i8 %493 to double
   %495 = fdiv double %494, 2.550000e+02
-  %496 = getelementptr inbounds i8, ptr %458, i64 12
+  %496 = getelementptr inbounds nuw i8, ptr %458, i64 12
   %497 = load i8, ptr %496, align 4
   %498 = uitofp i8 %497 to double
   %499 = fdiv double %498, 2.550000e+02
-  %500 = getelementptr inbounds i8, ptr %458, i64 13
+  %500 = getelementptr inbounds nuw i8, ptr %458, i64 13
   %501 = load i8, ptr %500, align 1
   %502 = uitofp i8 %501 to double
   %503 = fdiv double %502, 2.550000e+02
@@ -3622,69 +3622,69 @@ thread-pre-split.thread:                          ; preds = %454, %thread-pre-sp
   %515 = fptosi double %510 to i32
   %516 = trunc i32 %515 to i8
   %517 = sub i8 0, %516
-  %518 = getelementptr inbounds i8, ptr %1, i64 1
+  %518 = getelementptr inbounds nuw i8, ptr %1, i64 1
   store i8 %517, ptr %518, align 1
   %519 = fptosi double %511 to i32
   %520 = trunc i32 %519 to i8
   %521 = sub i8 0, %520
-  %522 = getelementptr inbounds i8, ptr %1, i64 2
+  %522 = getelementptr inbounds nuw i8, ptr %1, i64 2
   store i8 %521, ptr %522, align 2
   %523 = fptosi double %508 to i32
   %524 = trunc i32 %523 to i8
   %525 = sub i8 0, %524
-  %526 = getelementptr inbounds i8, ptr %1, i64 3
+  %526 = getelementptr inbounds nuw i8, ptr %1, i64 3
   store i8 %525, ptr %526, align 1
   br label %agxbfree.exit
 
 527:                                              ; preds = %thread-pre-split.thread
-  %528 = getelementptr inbounds i8, ptr %458, i64 11
+  %528 = getelementptr inbounds nuw i8, ptr %458, i64 11
   %529 = load i8, ptr %528, align 1
   %530 = zext i8 %529 to i32
   %531 = mul nuw nsw i32 %530, 257
   store i32 %531, ptr %1, align 8
-  %532 = getelementptr inbounds i8, ptr %458, i64 12
+  %532 = getelementptr inbounds nuw i8, ptr %458, i64 12
   %533 = load i8, ptr %532, align 4
   %534 = zext i8 %533 to i32
   %535 = mul nuw nsw i32 %534, 257
-  %536 = getelementptr inbounds i8, ptr %1, i64 4
+  %536 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 %535, ptr %536, align 4
-  %537 = getelementptr inbounds i8, ptr %458, i64 13
+  %537 = getelementptr inbounds nuw i8, ptr %458, i64 13
   %538 = load i8, ptr %537, align 1
   %539 = zext i8 %538 to i32
   %540 = mul nuw nsw i32 %539, 257
-  %541 = getelementptr inbounds i8, ptr %1, i64 8
+  %541 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %540, ptr %541, align 8
-  %542 = getelementptr inbounds i8, ptr %458, i64 14
+  %542 = getelementptr inbounds nuw i8, ptr %458, i64 14
   %543 = load i8, ptr %542, align 2
   %544 = zext i8 %543 to i32
   %545 = mul nuw nsw i32 %544, 257
-  %546 = getelementptr inbounds i8, ptr %1, i64 12
+  %546 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 %545, ptr %546, align 4
   br label %agxbfree.exit
 
 547:                                              ; preds = %thread-pre-split.thread
-  %548 = getelementptr inbounds i8, ptr %458, i64 11
+  %548 = getelementptr inbounds nuw i8, ptr %458, i64 11
   %549 = load i8, ptr %548, align 1
   %550 = uitofp i8 %549 to double
   %551 = fdiv double %550, 2.550000e+02
   store double %551, ptr %1, align 8
-  %552 = getelementptr inbounds i8, ptr %458, i64 12
+  %552 = getelementptr inbounds nuw i8, ptr %458, i64 12
   %553 = load i8, ptr %552, align 4
   %554 = uitofp i8 %553 to double
   %555 = fdiv double %554, 2.550000e+02
-  %556 = getelementptr inbounds i8, ptr %1, i64 8
+  %556 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store double %555, ptr %556, align 8
-  %557 = getelementptr inbounds i8, ptr %458, i64 13
+  %557 = getelementptr inbounds nuw i8, ptr %458, i64 13
   %558 = load i8, ptr %557, align 1
   %559 = uitofp i8 %558 to double
   %560 = fdiv double %559, 2.550000e+02
-  %561 = getelementptr inbounds i8, ptr %1, i64 16
+  %561 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store double %560, ptr %561, align 8
-  %562 = getelementptr inbounds i8, ptr %458, i64 14
+  %562 = getelementptr inbounds nuw i8, ptr %458, i64 14
   %563 = load i8, ptr %562, align 2
   %564 = uitofp i8 %563 to double
   %565 = fdiv double %564, 2.550000e+02
-  %566 = getelementptr inbounds i8, ptr %1, i64 24
+  %566 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store double %565, ptr %566, align 8
   br label %agxbfree.exit
 
@@ -3706,18 +3706,18 @@ thread-pre-split.thread:                          ; preds = %454, %thread-pre-sp
   ]
 
 571:                                              ; preds = %570
-  %572 = getelementptr inbounds i8, ptr %1, i64 24
+  %572 = getelementptr inbounds nuw i8, ptr %1, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
   store double 1.000000e+00, ptr %572, align 8
   br label %agxbfree.exit
 
 573:                                              ; preds = %570
-  %574 = getelementptr inbounds i8, ptr %1, i64 2
+  %574 = getelementptr inbounds nuw i8, ptr %1, i64 2
   store i8 0, ptr %574, align 2
-  %575 = getelementptr inbounds i8, ptr %1, i64 1
+  %575 = getelementptr inbounds nuw i8, ptr %1, i64 1
   store i8 0, ptr %575, align 1
   store i8 0, ptr %1, align 8
-  %576 = getelementptr inbounds i8, ptr %1, i64 3
+  %576 = getelementptr inbounds nuw i8, ptr %1, i64 3
   store i8 -1, ptr %576, align 1
   br label %agxbfree.exit
 
@@ -3726,17 +3726,17 @@ thread-pre-split.thread:                          ; preds = %454, %thread-pre-sp
   br label %agxbfree.exit
 
 578:                                              ; preds = %570
-  %579 = getelementptr inbounds i8, ptr %1, i64 8
+  %579 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 0, ptr %579, align 8
-  %580 = getelementptr inbounds i8, ptr %1, i64 4
+  %580 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 0, ptr %580, align 4
   store i32 0, ptr %1, align 8
-  %581 = getelementptr inbounds i8, ptr %1, i64 12
+  %581 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 65535, ptr %581, align 4
   br label %agxbfree.exit
 
 582:                                              ; preds = %570
-  %583 = getelementptr inbounds i8, ptr %1, i64 24
+  %583 = getelementptr inbounds nuw i8, ptr %1, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
   store double 1.000000e+00, ptr %583, align 8
   br label %agxbfree.exit
@@ -3830,7 +3830,7 @@ define internal fastcc void @agxbmore(ptr nocapture noundef nonnull %0, i64 noun
   br i1 %.not.i, label %agxbsizeof.exit, label %23
 
 agxbsizeof.exit:                                  ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8
   %.fr = freeze i64 %5
   %6 = icmp eq i64 %.fr, 0
@@ -3883,7 +3883,7 @@ agxbsizeof.exit:                                  ; preds = %2
 gv_calloc.exit:                                   ; preds = %23
   %30 = zext i8 %.val.i to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %25, ptr nonnull align 8 %0, i64 %30, i1 false)
-  %31 = getelementptr inbounds i8, ptr %0, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %30, ptr %31, align 8
   br label %gv_recalloc.exit
 
@@ -3891,7 +3891,7 @@ gv_recalloc.exit:                                 ; preds = %20, %18, %11, %gv_c
   %spec.select3641 = phi i64 [ %spec.select, %gv_calloc.exit ], [ 0, %11 ], [ %spec.select33, %18 ], [ %spec.select33, %20 ]
   %.0 = phi ptr [ %25, %gv_calloc.exit ], [ null, %11 ], [ %13, %18 ], [ %13, %20 ]
   store ptr %.0, ptr %0, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %spec.select3641, ptr %32, align 8
   store i8 -1, ptr %3, align 1
   ret void
@@ -3925,9 +3925,9 @@ agxblen.exit.i.i:                                 ; preds = %3
   br label %agxbsizeof.exit.i.i
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i64, ptr %9, align 8
   br label %agxbsizeof.exit.i.i
 
@@ -3949,7 +3949,7 @@ agxbsizeof.exit.i.i:                              ; preds = %6, %agxblen.exit.i.
 
 13:                                               ; preds = %12
   %14 = zext i8 %.val.i15.i.i to i64
-  %15 = getelementptr inbounds [31 x i8], ptr %0, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw [31 x i8], ptr %0, i64 0, i64 %14
   store i8 0, ptr %15, align 1
   %16 = load i8, ptr %4, align 1
   %17 = add i8 %16, 1
@@ -3957,7 +3957,7 @@ agxbsizeof.exit.i.i:                              ; preds = %6, %agxblen.exit.i.
   br label %agxbputc.exit.i
 
 18:                                               ; preds = %12
-  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = load i64, ptr %19, align 8
   %21 = load ptr, ptr %0, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 %20
@@ -3978,7 +3978,7 @@ agxbclear.exit.thread.i:                          ; preds = %agxbputc.exit.i
   br label %agxbuse.exit
 
 25:                                               ; preds = %agxbputc.exit.i
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %26, align 8
   %27 = load ptr, ptr %0, align 8
   br label %agxbuse.exit
@@ -4017,9 +4017,9 @@ agxbsizeof.exit.i:                                ; preds = %8
   br label %agxblen.exit.i
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load i64, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load i64, ptr %15, align 8
   br label %agxblen.exit.i
 
@@ -4043,11 +4043,11 @@ agxblen.exit.i:                                   ; preds = %12, %agxbsizeof.exi
 
 22:                                               ; preds = %21
   %23 = zext i8 %.val.i.i.i to i64
-  %24 = getelementptr inbounds [31 x i8], ptr %0, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw [31 x i8], ptr %0, i64 0, i64 %23
   br label %agxbnext.exit.i
 
 25:                                               ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load i64, ptr %26, align 8
   %28 = load ptr, ptr %0, align 8
   %29 = getelementptr inbounds i8, ptr %28, i64 %27
@@ -4072,7 +4072,7 @@ agxbnext.exit.i:                                  ; preds = %25, %22
 
 37:                                               ; preds = %33
   %38 = zext nneg i32 %31 to i64
-  %39 = getelementptr inbounds i8, ptr %0, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %40 = load i64, ptr %39, align 8
   %41 = add i64 %40, %38
   store i64 %41, ptr %39, align 8

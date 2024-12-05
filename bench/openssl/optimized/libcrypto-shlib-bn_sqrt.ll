@@ -134,7 +134,7 @@ if.then75:                                        ; preds = %while.end
   br i1 %tobool77.not, label %if.then316, label %if.end79
 
 if.end79:                                         ; preds = %if.then75
-  %neg = getelementptr inbounds i8, ptr %call50, i64 16
+  %neg = getelementptr inbounds nuw i8, ptr %call50, i64 16
   store i32 0, ptr %neg, align 8
   %call80 = tail call i32 @BN_add_word(ptr noundef %call50, i64 noundef 1) #2
   %tobool81.not = icmp eq i32 %call80, 0
@@ -156,7 +156,7 @@ if.end95:                                         ; preds = %if.then91
   br i1 %tobool97.not, label %if.then316, label %if.end99
 
 if.end99:                                         ; preds = %if.end95
-  %neg100 = getelementptr inbounds i8, ptr %call50, i64 16
+  %neg100 = getelementptr inbounds nuw i8, ptr %call50, i64 16
   store i32 0, ptr %neg100, align 8
   %call101 = tail call i32 @BN_mod_exp(ptr noundef %call49, ptr noundef %call51, ptr noundef %call50, ptr noundef %p, ptr noundef %ctx) #2
   %tobool102.not = icmp eq i32 %call101, 0
@@ -198,9 +198,9 @@ if.end129:                                        ; preds = %while.end
   br i1 %tobool131.not, label %if.then316, label %if.end133
 
 if.end133:                                        ; preds = %if.end129
-  %neg134 = getelementptr inbounds i8, ptr %call50, i64 16
+  %neg134 = getelementptr inbounds nuw i8, ptr %call50, i64 16
   store i32 0, ptr %neg134, align 8
-  %neg152 = getelementptr inbounds i8, ptr %p, i64 16
+  %neg152 = getelementptr inbounds nuw i8, ptr %p, i64 16
   br label %do.body
 
 do.body:                                          ; preds = %land.rhs, %if.end133

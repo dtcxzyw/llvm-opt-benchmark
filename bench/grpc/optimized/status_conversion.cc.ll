@@ -27,7 +27,7 @@ entry:
 
 switch.lookup:                                    ; preds = %entry
   %1 = zext nneg i32 %status to i64
-  %switch.gep = getelementptr inbounds [15 x i32], ptr @switch.table._Z26grpc_status_to_http2_error16grpc_status_code, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw [15 x i32], ptr @switch.table._Z26grpc_status_to_http2_error16grpc_status_code, i64 0, i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %return
 

@@ -45,7 +45,7 @@ define void @Wla_ManJoinThread(ptr nocapture noundef %0, i32 noundef %1) local_u
   br label %10
 
 10:                                               ; preds = %5, %2
-  %11 = getelementptr inbounds i8, ptr %0, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %12 = load ptr, ptr %11, align 8
   %13 = load i64, ptr %12, align 8
   %14 = tail call i32 @pthread_join(i64 noundef %13, ptr noundef null) #11
@@ -76,29 +76,29 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
 ; Function Attrs: noreturn nounwind uwtable
 define noalias noundef nonnull ptr @Wla_Bmc3Thread(ptr nocapture noundef %0) #5 {
   %2 = alloca %struct.Saig_ParBmc_t_, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = tail call ptr @Abc_NtkFromAigPhase(ptr noundef %4) #11
   call void @Saig_ParBmcSetDefaultParams(ptr noundef nonnull %2) #11
-  %6 = getelementptr inbounds i8, ptr %2, i64 144
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 144
   store ptr @Wla_CallBackToStop, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load i32, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 136
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 136
   store i32 %8, ptr %9, align 8
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 72
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 72
   %14 = load i32, ptr %13, align 8
   %.not = icmp eq i32 %14, 0
   br i1 %.not, label %20, label %15
 
 15:                                               ; preds = %1
-  %16 = getelementptr inbounds i8, ptr %10, i64 80
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 80
   %17 = load i32, ptr %16, align 8
   %18 = add nsw i32 %17, 10
-  %19 = getelementptr inbounds i8, ptr %2, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %18, ptr %19, align 4
   br label %20
 
@@ -110,13 +110,13 @@ define noalias noundef nonnull ptr @Wla_Bmc3Thread(ptr nocapture noundef %0) #5 
   ]
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds i8, ptr %5, i64 312
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 312
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %26 = load ptr, ptr %25, align 8
   store ptr %24, ptr %26, align 8
   store ptr null, ptr %23, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 28
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %28 = load i32, ptr %27, align 4
   %.not36 = icmp eq i32 %28, 0
   br i1 %.not36, label %.sink.split, label %29
@@ -133,7 +133,7 @@ define noalias noundef nonnull ptr @Wla_Bmc3Thread(ptr nocapture noundef %0) #5 
   br i1 %34, label %35, label %39
 
 35:                                               ; preds = %31
-  %36 = getelementptr inbounds i8, ptr %0, i64 28
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %37 = load i32, ptr %36, align 4
   %.not35 = icmp eq i32 %37, 0
   br i1 %.not35, label %39, label %38
@@ -144,7 +144,7 @@ define noalias noundef nonnull ptr @Wla_Bmc3Thread(ptr nocapture noundef %0) #5 
 
 39:                                               ; preds = %38, %35, %31
   %40 = load ptr, ptr %0, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 88
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 88
   %42 = load i32, ptr %41, align 8
   %43 = icmp sgt i32 %42, 1
   br i1 %43, label %44, label %65
@@ -156,12 +156,12 @@ define noalias noundef nonnull ptr @Wla_Bmc3Thread(ptr nocapture noundef %0) #5 
   br i1 %47, label %48, label %65
 
 48:                                               ; preds = %44
-  %49 = getelementptr inbounds i8, ptr %40, i64 80
+  %49 = getelementptr inbounds nuw i8, ptr %40, i64 80
   %50 = load i32, ptr %49, align 8
   %51 = add nsw i32 %50, 10
   %52 = call i32 @Wla_ManShrinkAbs(ptr noundef nonnull %40, i32 noundef %51, i32 noundef %45) #11
   %53 = load ptr, ptr %0, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 80
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 80
   %55 = load i32, ptr %54, align 8
   %56 = add nsw i32 %55, 10
   store i32 %56, ptr %54, align 8
@@ -170,7 +170,7 @@ define noalias noundef nonnull ptr @Wla_Bmc3Thread(ptr nocapture noundef %0) #5 
 
 58:                                               ; preds = %48
   %59 = load ptr, ptr %0, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 84
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 84
   store i32 1, ptr %60, align 4
   br label %.sink.split
 
@@ -244,22 +244,22 @@ declare void @pthread_exit(ptr noundef) local_unnamed_addr #6
 ; Function Attrs: nounwind uwtable
 define void @Wla_ManConcurrentBmc3(ptr noundef initializes((72, 80)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = tail call noalias dereferenceable_or_null(8) ptr @calloc(i64 noundef 1, i64 noundef 8) #14
-  %5 = getelementptr inbounds i8, ptr %0, i64 72
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %4, ptr %5, align 8
   %6 = tail call noalias dereferenceable_or_null(32) ptr @calloc(i64 noundef 1, i64 noundef 32) #14
   store ptr %0, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %1, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %6, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %2, ptr %8, align 8
   %9 = load volatile i32, ptr @g_nRunIds, align 4
-  %10 = getelementptr inbounds i8, ptr %6, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i32 %9, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 80
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 80
   %14 = load i32, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %6, i64 28
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 28
   store i32 %14, ptr %15, align 4
   %16 = tail call i32 @pthread_create(ptr noundef %4, ptr noundef null, ptr noundef nonnull @Wla_Bmc3Thread, ptr noundef nonnull %6) #11
   ret void

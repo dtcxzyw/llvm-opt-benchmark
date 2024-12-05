@@ -20,14 +20,14 @@ define i32 @dtstrhash(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %6 = zext i8 %5 to i32
   %7 = shl nuw nsw i32 %6, 8
   %8 = add i32 %7, %.02435
-  %9 = getelementptr inbounds i8, ptr %.02336, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %.02336, i64 1
   %10 = load i8, ptr %9, align 1
   %11 = zext i8 %10 to i32
   %12 = add i32 %8, %11
   %13 = mul i32 %12, 17109811
   %.not30 = icmp eq i8 %10, 0
   %14 = select i1 %.not30, i64 1, i64 2
-  %15 = getelementptr inbounds i8, ptr %.02336, i64 %14
+  %15 = getelementptr inbounds nuw i8, ptr %.02336, i64 %14
   %16 = load i8, ptr %15, align 1
   %.not29 = icmp eq i8 %16, 0
   br i1 %.not29, label %._crit_edge38, label %.lr.ph37
@@ -43,7 +43,7 @@ define i32 @dtstrhash(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
 
 21:                                               ; preds = %2
   %22 = zext nneg i32 %1 to i64
-  %23 = getelementptr inbounds i8, ptr %0, i64 %22
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 %22
   %24 = getelementptr inbounds i8, ptr %23, i64 -1
   %25 = icmp ult ptr %0, %24
   br i1 %25, label %.lr.ph, label %._crit_edge
@@ -55,12 +55,12 @@ define i32 @dtstrhash(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %27 = zext i8 %26 to i32
   %28 = shl nuw nsw i32 %27, 8
   %29 = add i32 %28, %.231
-  %30 = getelementptr inbounds i8, ptr %.132, i64 1
+  %30 = getelementptr inbounds nuw i8, ptr %.132, i64 1
   %31 = load i8, ptr %30, align 1
   %32 = zext i8 %31 to i32
   %33 = add i32 %29, %32
   %34 = mul i32 %33, 17109811
-  %35 = getelementptr inbounds i8, ptr %.132, i64 2
+  %35 = getelementptr inbounds nuw i8, ptr %.132, i64 2
   %36 = icmp ult ptr %35, %24
   br i1 %36, label %.lr.ph, label %._crit_edge
 

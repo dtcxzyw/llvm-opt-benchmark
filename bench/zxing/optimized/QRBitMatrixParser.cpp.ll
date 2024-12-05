@@ -134,7 +134,7 @@ define { i64, i64 } @_ZN5ZXing6QRCode21ReadFormatInformationERKNS_9BitMatrixE(pt
 
 33:                                               ; preds = %38
   %34 = load i32, ptr %0, align 8, !tbaa !7
-  %35 = getelementptr inbounds i8, ptr %0, i64 4
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %36 = load i32, ptr %35, align 4, !tbaa !17
   %37 = add nsw i32 %36, -6
   br label %50
@@ -223,7 +223,7 @@ define { i64, i64 } @_ZN5ZXing6QRCode21ReadFormatInformationERKNS_9BitMatrixE(pt
   br i1 %99, label %.split, label %.preheader8, !llvm.loop !23
 
 100:                                              ; preds = %.split1
-  %101 = getelementptr inbounds i8, ptr %0, i64 4
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %102 = load i32, ptr %101, align 4, !tbaa !17
   %103 = add nsw i32 %102, -8
   br label %112
@@ -297,7 +297,7 @@ define void @_ZN5ZXing6QRCode13ReadCodewordsERKNS_9BitMatrixERKNS0_7VersionERKNS
   %15 = alloca %"class.ZXing::BitMatrix", align 8
   %16 = alloca %"class.ZXing::ByteArray", align 8
   %17 = alloca i8, align 1
-  %18 = getelementptr inbounds i8, ptr %2, i64 116
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 116
   %19 = load i32, ptr %18, align 4, !tbaa !27
   switch i32 %19, label %817 [
     i32 2, label %20
@@ -314,31 +314,31 @@ define void @_ZN5ZXing6QRCode13ReadCodewordsERKNS_9BitMatrixERKNS0_7VersionERKNS
   %22 = and i32 %21, -2147483647
   %23 = icmp eq i32 %22, 1
   %24 = icmp eq i32 %21, 1
-  %25 = getelementptr inbounds i8, ptr %3, i64 12
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %26 = load i32, ptr %25, align 4, !noalias !35
   %27 = icmp eq i32 %26, 0
   %28 = select i1 %27, i32 10, i32 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %16) #14, !noalias !35
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, i8 0, i64 24, i1 false), !noalias !35
-  %29 = getelementptr inbounds i8, ptr %2, i64 112
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 112
   %30 = load i32, ptr %29, align 8, !tbaa !39, !noalias !35
   %31 = sext i32 %30 to i64
   invoke void @_ZNSt6vectorIhSaIhEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(24) %16, i64 noundef %31) #13
           to label %32 unwind label %58, !noalias !35
 
 32:                                               ; preds = %20
-  %33 = getelementptr inbounds i8, ptr %1, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %34 = load i32, ptr %33, align 4, !tbaa !17, !noalias !35
   %35 = add nsw i32 %34, -1
   %36 = icmp sgt i32 %34, 1
   br i1 %36, label %37, label %.loopexit
 
 37:                                               ; preds = %32
-  %38 = getelementptr inbounds i8, ptr %15, i64 8
-  %39 = getelementptr inbounds i8, ptr %15, i64 16
-  %40 = getelementptr inbounds i8, ptr %3, i64 8
-  %41 = getelementptr inbounds i8, ptr %3, i64 7
-  %42 = getelementptr inbounds i8, ptr %16, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %3, i64 7
+  %42 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %43 = select i1 %24, i32 2, i32 %28
   br label %44
 
@@ -350,7 +350,7 @@ define void @_ZN5ZXing6QRCode13ReadCodewordsERKNS_9BitMatrixERKNS0_7VersionERKNS
   br label %64
 
 .loopexit:                                        ; preds = %60, %32
-  %49 = getelementptr inbounds i8, ptr %16, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %50 = load ptr, ptr %49, align 8, !tbaa !40, !noalias !35
   %51 = load ptr, ptr %16, align 8, !tbaa !41, !noalias !35
   %52 = ptrtoint ptr %50 to i64
@@ -487,10 +487,10 @@ define void @_ZN5ZXing6QRCode13ReadCodewordsERKNS_9BitMatrixERKNS0_7VersionERKNS
 
 132:                                              ; preds = %.loopexit
   store ptr %51, ptr %0, align 8, !tbaa !41, !alias.scope !35
-  %133 = getelementptr inbounds i8, ptr %0, i64 8
+  %133 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %50, ptr %133, align 8, !tbaa !40, !alias.scope !35
-  %134 = getelementptr inbounds i8, ptr %0, i64 16
-  %135 = getelementptr inbounds i8, ptr %16, i64 16
+  %134 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %135 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %136 = load ptr, ptr %135, align 8, !tbaa !53, !noalias !35
   store ptr %136, ptr %134, align 8, !tbaa !53, !alias.scope !35
   br label %140
@@ -506,7 +506,7 @@ define void @_ZN5ZXing6QRCode13ReadCodewordsERKNS_9BitMatrixERKNS0_7VersionERKNS
 
 140:                                              ; preds = %139, %137, %132
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16) #14, !noalias !35
-  %141 = getelementptr inbounds i8, ptr %15, i64 8
+  %141 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %142 = load ptr, ptr %141, align 8, !tbaa !41, !noalias !35
   %143 = icmp eq ptr %142, null
   br i1 %143, label %158, label %144
@@ -527,7 +527,7 @@ define void @_ZN5ZXing6QRCode13ReadCodewordsERKNS_9BitMatrixERKNS0_7VersionERKNS
 
 150:                                              ; preds = %149, %145
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16) #14, !noalias !35
-  %151 = getelementptr inbounds i8, ptr %15, i64 8
+  %151 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %152 = load ptr, ptr %151, align 8, !tbaa !41, !noalias !35
   %153 = icmp eq ptr %152, null
   br i1 %153, label %157, label %154
@@ -554,7 +554,7 @@ define void @_ZN5ZXing6QRCode13ReadCodewordsERKNS_9BitMatrixERKNS0_7VersionERKNS
   call void @_ZNK5ZXing6QRCode7Version20buildFunctionPatternEv(ptr dead_on_unwind nonnull writable sret(%"class.ZXing::BitMatrix") align 8 %12, ptr noundef nonnull align 8 dereferenceable(120) %2) #13, !noalias !54
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13) #14, !noalias !54
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, i8 0, i64 24, i1 false), !noalias !54
-  %160 = getelementptr inbounds i8, ptr %2, i64 112
+  %160 = getelementptr inbounds nuw i8, ptr %2, i64 112
   %161 = load i32, ptr %160, align 8, !tbaa !39, !noalias !54
   %162 = sext i32 %161 to i64
   invoke void @_ZNSt6vectorIhSaIhEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(24) %13, i64 noundef %162) #13
@@ -562,17 +562,17 @@ define void @_ZN5ZXing6QRCode13ReadCodewordsERKNS_9BitMatrixERKNS0_7VersionERKNS
 
 163:                                              ; preds = %159
   %164 = load i32, ptr %1, align 8, !tbaa !7, !noalias !54
-  %165 = getelementptr inbounds i8, ptr %1, i64 4
+  %165 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %166 = load i32, ptr %165, align 4, !tbaa !17, !noalias !54
   %167 = icmp sgt i32 %164, 2
   br i1 %167, label %168, label %.loopexit76
 
 168:                                              ; preds = %163
   %169 = icmp sgt i32 %166, 0
-  %170 = getelementptr inbounds i8, ptr %12, i64 8
-  %171 = getelementptr inbounds i8, ptr %12, i64 16
-  %172 = getelementptr inbounds i8, ptr %3, i64 8
-  %173 = getelementptr inbounds i8, ptr %3, i64 7
+  %170 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %171 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %172 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %173 = getelementptr inbounds nuw i8, ptr %3, i64 7
   br label %174
 
 174:                                              ; preds = %.loopexit75, %168
@@ -584,7 +584,7 @@ define void @_ZN5ZXing6QRCode13ReadCodewordsERKNS_9BitMatrixERKNS0_7VersionERKNS
   br i1 %169, label %.preheader, label %.loopexit75
 
 .loopexit76:                                      ; preds = %.loopexit75, %163
-  %180 = getelementptr inbounds i8, ptr %13, i64 8
+  %180 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %181 = load ptr, ptr %180, align 8, !tbaa !40, !noalias !54
   %182 = load ptr, ptr %13, align 8, !tbaa !41, !noalias !54
   %183 = ptrtoint ptr %181 to i64
@@ -788,10 +788,10 @@ _ZN5ZXing6QRCode14GetDataMaskBitEiiib.exit:       ; preds = %229, %255, %251, %2
 
 291:                                              ; preds = %.loopexit76
   store ptr %182, ptr %0, align 8, !tbaa !41, !alias.scope !54
-  %292 = getelementptr inbounds i8, ptr %0, i64 8
+  %292 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %181, ptr %292, align 8, !tbaa !40, !alias.scope !54
-  %293 = getelementptr inbounds i8, ptr %0, i64 16
-  %294 = getelementptr inbounds i8, ptr %13, i64 16
+  %293 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %294 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %295 = load ptr, ptr %294, align 8, !tbaa !53, !noalias !54
   store ptr %295, ptr %293, align 8, !tbaa !53, !alias.scope !54
   br label %299
@@ -807,7 +807,7 @@ _ZN5ZXing6QRCode14GetDataMaskBitEiiib.exit:       ; preds = %229, %255, %251, %2
 
 299:                                              ; preds = %298, %296, %291
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13) #14, !noalias !54
-  %300 = getelementptr inbounds i8, ptr %12, i64 8
+  %300 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %301 = load ptr, ptr %300, align 8, !tbaa !41, !noalias !54
   %302 = icmp eq ptr %301, null
   br i1 %302, label %314, label %303
@@ -828,7 +828,7 @@ _ZN5ZXing6QRCode14GetDataMaskBitEiiib.exit:       ; preds = %229, %255, %251, %2
 
 308:                                              ; preds = %307, %.body
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13) #14, !noalias !54
-  %309 = getelementptr inbounds i8, ptr %12, i64 8
+  %309 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %310 = load ptr, ptr %309, align 8, !tbaa !41, !noalias !54
   %311 = icmp eq ptr %310, null
   br i1 %311, label %313, label %312
@@ -849,14 +849,14 @@ _ZN5ZXing6QRCode14GetDataMaskBitEiiib.exit:       ; preds = %229, %255, %251, %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !60)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #14, !noalias !60
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false), !noalias !60
-  %316 = getelementptr inbounds i8, ptr %2, i64 112
+  %316 = getelementptr inbounds nuw i8, ptr %2, i64 112
   %317 = load i32, ptr %316, align 8, !tbaa !39, !noalias !60
   %318 = sext i32 %317 to i64
   invoke void @_ZNSt6vectorIhSaIhEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(24) %8, i64 noundef %318) #13
           to label %319 unwind label %358, !noalias !60
 
 319:                                              ; preds = %315
-  %320 = getelementptr inbounds i8, ptr %1, i64 4
+  %320 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %321 = load i32, ptr %320, align 4, !tbaa !17, !noalias !60
   %322 = sdiv i32 %321, 4
   %323 = add nsw i32 %322, 3
@@ -869,10 +869,10 @@ _ZN5ZXing6QRCode14GetDataMaskBitEiiib.exit:       ; preds = %229, %255, %251, %2
   %328 = add nsw i32 %326, -4
   %329 = add nsw i32 %322, -2
   %330 = add nsw i32 %326, -3
-  %331 = getelementptr inbounds i8, ptr %3, i64 8
-  %332 = getelementptr inbounds i8, ptr %3, i64 7
-  %333 = getelementptr inbounds i8, ptr %8, i64 8
-  %334 = getelementptr inbounds i8, ptr %8, i64 16
+  %331 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %332 = getelementptr inbounds nuw i8, ptr %3, i64 7
+  %333 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %334 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %335 = add nsw i32 %321, -16
   %336 = sdiv i32 %335, 4
   %337 = icmp sgt i32 %321, 19
@@ -893,7 +893,7 @@ _ZN5ZXing6QRCode14GetDataMaskBitEiiib.exit:       ; preds = %229, %255, %251, %2
   %347 = load i8, ptr %346, align 1, !tbaa !44, !noalias !60
   %348 = and i8 %347, 15
   store i8 %348, ptr %346, align 1, !tbaa !44, !noalias !60
-  %349 = getelementptr inbounds i8, ptr %8, i64 8
+  %349 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %350 = load ptr, ptr %349, align 8, !tbaa !40, !noalias !60
   %351 = load ptr, ptr %8, align 8, !tbaa !41, !noalias !60
   %352 = ptrtoint ptr %350 to i64
@@ -950,7 +950,7 @@ _ZN5ZXing6QRCode14GetDataMaskBitEiiib.exit:       ; preds = %229, %255, %251, %2
 382:                                              ; preds = %378
   store i8 %446, ptr %379, align 1, !tbaa !44, !noalias !60
   %383 = load ptr, ptr %333, align 8, !tbaa !40, !noalias !60
-  %384 = getelementptr inbounds i8, ptr %383, i64 1
+  %384 = getelementptr inbounds nuw i8, ptr %383, i64 1
   store ptr %384, ptr %333, align 8, !tbaa !40, !noalias !60
   br label %449
 
@@ -1128,7 +1128,7 @@ _ZN5ZXing6QRCode14GetDataMaskBitEiiib.exit48:     ; preds = %423, %419, %415, %4
 473:                                              ; preds = %469
   store i8 %536, ptr %470, align 1, !tbaa !44, !noalias !60
   %474 = load ptr, ptr %333, align 8, !tbaa !40, !noalias !60
-  %475 = getelementptr inbounds i8, ptr %474, i64 1
+  %475 = getelementptr inbounds nuw i8, ptr %474, i64 1
   store ptr %475, ptr %333, align 8, !tbaa !40, !noalias !60
   br label %539
 
@@ -1313,7 +1313,7 @@ _ZN5ZXing6QRCode14GetDataMaskBitEiiib.exit52:     ; preds = %513, %509, %505, %4
 571:                                              ; preds = %567
   store i8 %634, ptr %568, align 1, !tbaa !44, !noalias !60
   %572 = load ptr, ptr %333, align 8, !tbaa !40, !noalias !60
-  %573 = getelementptr inbounds i8, ptr %572, i64 1
+  %573 = getelementptr inbounds nuw i8, ptr %572, i64 1
   store ptr %573, ptr %333, align 8, !tbaa !40, !noalias !60
   br label %637
 
@@ -1465,10 +1465,10 @@ _ZN5ZXing6QRCode14GetDataMaskBitEiiib.exit56:     ; preds = %611, %607, %603, %5
 
 646:                                              ; preds = %.loopexit95
   store ptr %351, ptr %0, align 8, !tbaa !41, !alias.scope !60
-  %647 = getelementptr inbounds i8, ptr %0, i64 8
+  %647 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %350, ptr %647, align 8, !tbaa !40, !alias.scope !60
-  %648 = getelementptr inbounds i8, ptr %0, i64 16
-  %649 = getelementptr inbounds i8, ptr %8, i64 16
+  %648 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %649 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %650 = load ptr, ptr %649, align 8, !tbaa !53, !noalias !60
   store ptr %650, ptr %648, align 8, !tbaa !53, !alias.scope !60
   br label %660
@@ -1506,28 +1506,28 @@ _ZN5ZXing6QRCode14GetDataMaskBitEiiib.exit56:     ; preds = %611, %607, %603, %5
   call void @_ZNK5ZXing6QRCode7Version20buildFunctionPatternEv(ptr dead_on_unwind nonnull writable sret(%"class.ZXing::BitMatrix") align 8 %5, ptr noundef nonnull align 8 dereferenceable(120) %2) #13, !noalias !71
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #14, !noalias !71
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false), !noalias !71
-  %662 = getelementptr inbounds i8, ptr %2, i64 112
+  %662 = getelementptr inbounds nuw i8, ptr %2, i64 112
   %663 = load i32, ptr %662, align 8, !tbaa !39, !noalias !71
   %664 = sext i32 %663 to i64
   invoke void @_ZNSt6vectorIhSaIhEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(24) %6, i64 noundef %664) #13
           to label %665 unwind label %684, !noalias !71
 
 665:                                              ; preds = %661
-  %666 = getelementptr inbounds i8, ptr %1, i64 4
+  %666 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %667 = load i32, ptr %666, align 4, !tbaa !17, !noalias !71
   %668 = add nsw i32 %667, -1
   %669 = icmp sgt i32 %667, 1
   br i1 %669, label %670, label %.loopexit101
 
 670:                                              ; preds = %665
-  %671 = getelementptr inbounds i8, ptr %5, i64 8
-  %672 = getelementptr inbounds i8, ptr %5, i64 16
-  %673 = getelementptr inbounds i8, ptr %3, i64 8
-  %674 = getelementptr inbounds i8, ptr %3, i64 7
+  %671 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %672 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %673 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %674 = getelementptr inbounds nuw i8, ptr %3, i64 7
   br label %686
 
 .loopexit101:                                     ; preds = %693, %665
-  %675 = getelementptr inbounds i8, ptr %6, i64 8
+  %675 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %676 = load ptr, ptr %675, align 8, !tbaa !40, !noalias !71
   %677 = load ptr, ptr %6, align 8, !tbaa !41, !noalias !71
   %678 = ptrtoint ptr %676 to i64
@@ -1738,10 +1738,10 @@ _ZN5ZXing6QRCode14GetDataMaskBitEiiib.exit60:     ; preds = %731, %757, %753, %7
 
 793:                                              ; preds = %.loopexit101
   store ptr %677, ptr %0, align 8, !tbaa !41, !alias.scope !71
-  %794 = getelementptr inbounds i8, ptr %0, i64 8
+  %794 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %676, ptr %794, align 8, !tbaa !40, !alias.scope !71
-  %795 = getelementptr inbounds i8, ptr %0, i64 16
-  %796 = getelementptr inbounds i8, ptr %6, i64 16
+  %795 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %796 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %797 = load ptr, ptr %796, align 8, !tbaa !53, !noalias !71
   store ptr %797, ptr %795, align 8, !tbaa !53, !alias.scope !71
   br label %801
@@ -1757,7 +1757,7 @@ _ZN5ZXing6QRCode14GetDataMaskBitEiiib.exit60:     ; preds = %731, %757, %753, %7
 
 801:                                              ; preds = %800, %798, %793
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #14, !noalias !71
-  %802 = getelementptr inbounds i8, ptr %5, i64 8
+  %802 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %803 = load ptr, ptr %802, align 8, !tbaa !41, !noalias !71
   %804 = icmp eq ptr %803, null
   br i1 %804, label %816, label %805
@@ -1778,7 +1778,7 @@ _ZN5ZXing6QRCode14GetDataMaskBitEiiib.exit60:     ; preds = %731, %757, %753, %7
 
 810:                                              ; preds = %809, %.body58
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #14, !noalias !71
-  %811 = getelementptr inbounds i8, ptr %5, i64 8
+  %811 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %812 = load ptr, ptr %811, align 8, !tbaa !41, !noalias !71
   %813 = icmp eq ptr %812, null
   br i1 %813, label %815, label %814
@@ -1811,9 +1811,9 @@ define linkonce_odr noundef zeroext i1 @_ZNK5ZXing9BitMatrix3getEii(ptr noundef 
   %4 = load i32, ptr %0, align 8, !tbaa !7
   %5 = mul nsw i32 %4, %2
   %6 = add nsw i32 %5, %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = sext i32 %6 to i64
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8, !tbaa !40
   %11 = load ptr, ptr %7, align 8, !tbaa !41
   %12 = ptrtoint ptr %10 to i64
@@ -1851,7 +1851,7 @@ define linkonce_odr void @_ZNSt6vectorIhSaIhEE7reserveEm(ptr noundef nonnull ali
   unreachable
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8, !tbaa !53
   %8 = load ptr, ptr %0, align 8, !tbaa !41
   %9 = ptrtoint ptr %7 to i64
@@ -1861,7 +1861,7 @@ define linkonce_odr void @_ZNSt6vectorIhSaIhEE7reserveEm(ptr noundef nonnull ali
   br i1 %12, label %13, label %27
 
 13:                                               ; preds = %5
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !40
   %16 = ptrtoint ptr %15 to i64
   %17 = sub i64 %16, %10
@@ -1885,7 +1885,7 @@ define linkonce_odr void @_ZNSt6vectorIhSaIhEE7reserveEm(ptr noundef nonnull ali
   store ptr %18, ptr %0, align 8, !tbaa !41
   %25 = getelementptr inbounds i8, ptr %18, i64 %17
   store ptr %25, ptr %14, align 8, !tbaa !40
-  %26 = getelementptr inbounds i8, ptr %18, i64 %1
+  %26 = getelementptr inbounds nuw i8, ptr %18, i64 %1
   store ptr %26, ptr %6, align 8, !tbaa !53
   br label %27
 
@@ -1920,7 +1920,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5ZXing6QRCode14GetDataMaskBitEiiib(i3
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #14
   store <4 x i32> <i32 1, i32 4, i32 6, i32 7>, ptr %5, align 16, !tbaa !77
   %14 = zext nneg i32 %0 to i64
-  %15 = getelementptr inbounds [4 x i32], ptr %5, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw [4 x i32], ptr %5, i64 0, i64 %14
   %16 = load i32, ptr %15, align 4, !tbaa !77
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #14
   br label %17
@@ -2041,9 +2041,9 @@ declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress optsize uwtable
 define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt6vectorIhSaIhEE12emplace_backIJhEEERhDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) local_unnamed_addr #0 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !63
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !53
   %7 = icmp eq ptr %4, %6
   br i1 %7, label %12, label %8
@@ -2052,7 +2052,7 @@ define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt6vector
   %9 = load i8, ptr %1, align 1, !tbaa !44
   store i8 %9, ptr %4, align 1, !tbaa !44
   %10 = load ptr, ptr %3, align 8, !tbaa !40
-  %11 = getelementptr inbounds i8, ptr %10, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 1
   store ptr %11, ptr %3, align 8, !tbaa !40
   br label %14
 
@@ -2069,7 +2069,7 @@ define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt6vector
 
 ; Function Attrs: mustprogress optsize uwtable
 define linkonce_odr void @_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr noundef nonnull align 1 dereferenceable(1) %2) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !40
   %6 = load ptr, ptr %0, align 8, !tbaa !63
   %7 = ptrtoint ptr %5 to i64
@@ -2110,7 +2110,7 @@ define linkonce_odr void @_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_
   br label %29
 
 29:                                               ; preds = %28, %23
-  %30 = getelementptr inbounds i8, ptr %25, i64 1
+  %30 = getelementptr inbounds nuw i8, ptr %25, i64 1
   %31 = sub i64 %7, %18
   %32 = icmp sgt i64 %31, 0
   br i1 %32, label %33, label %34
@@ -2128,18 +2128,18 @@ define linkonce_odr void @_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_
   br label %37
 
 37:                                               ; preds = %36, %34
-  %38 = getelementptr inbounds i8, ptr %0, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %39 = getelementptr inbounds i8, ptr %30, i64 %31
   store ptr %24, ptr %0, align 8, !tbaa !41
   store ptr %39, ptr %4, align 8, !tbaa !40
-  %40 = getelementptr inbounds i8, ptr %24, i64 %17
+  %40 = getelementptr inbounds nuw i8, ptr %24, i64 %17
   store ptr %40, ptr %38, align 8, !tbaa !53
   ret void
 }
 
 ; Function Attrs: mustprogress optsize uwtable
 define linkonce_odr void @_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr noundef nonnull align 1 dereferenceable(1) %2) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !40
   %6 = load ptr, ptr %0, align 8, !tbaa !63
   %7 = ptrtoint ptr %5 to i64
@@ -2180,7 +2180,7 @@ define linkonce_odr void @_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gn
   br label %29
 
 29:                                               ; preds = %28, %23
-  %30 = getelementptr inbounds i8, ptr %25, i64 1
+  %30 = getelementptr inbounds nuw i8, ptr %25, i64 1
   %31 = sub i64 %7, %18
   %32 = icmp sgt i64 %31, 0
   br i1 %32, label %33, label %34
@@ -2198,11 +2198,11 @@ define linkonce_odr void @_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gn
   br label %37
 
 37:                                               ; preds = %36, %34
-  %38 = getelementptr inbounds i8, ptr %0, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %39 = getelementptr inbounds i8, ptr %30, i64 %31
   store ptr %24, ptr %0, align 8, !tbaa !41
   store ptr %39, ptr %4, align 8, !tbaa !40
-  %40 = getelementptr inbounds i8, ptr %24, i64 %17
+  %40 = getelementptr inbounds nuw i8, ptr %24, i64 %17
   store ptr %40, ptr %38, align 8, !tbaa !53
   ret void
 }

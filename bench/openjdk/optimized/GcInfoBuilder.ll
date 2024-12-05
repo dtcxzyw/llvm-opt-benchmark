@@ -43,7 +43,7 @@ define i32 @Java_com_sun_management_internal_GcInfoBuilder_getNumGcExtAttributes
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr @jmm_interface_management_ext, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 104
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 104
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i64 %9(ptr noundef %0, ptr noundef nonnull %2, i32 noundef 401) #4
   %11 = trunc i64 %10 to i32
@@ -86,7 +86,7 @@ define void @Java_com_sun_management_internal_GcInfoBuilder_fillGcAttributeInfo(
 
 19:                                               ; preds = %13
   %20 = load ptr, ptr @jmm_interface_management_ext, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 208
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 208
   %22 = load ptr, ptr %21, align 8
   %23 = tail call i32 %22(ptr noundef %0, ptr noundef nonnull %2, ptr noundef nonnull %16, i32 noundef %3) #4
   %.not = icmp eq i32 %23, %3
@@ -115,19 +115,19 @@ define void @Java_com_sun_management_internal_GcInfoBuilder_fillGcAttributeInfo(
 
 .lr.ph:                                           ; preds = %25, %30
   %indvars.iv = phi i64 [ %indvars.iv.next, %30 ], [ 0, %25 ]
-  %31 = getelementptr inbounds %struct.jmmExtAttributeInfo, ptr %16, i64 %indvars.iv
-  %32 = getelementptr inbounds i8, ptr %31, i64 8
+  %31 = getelementptr inbounds nuw %struct.jmmExtAttributeInfo, ptr %16, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %33 = load i8, ptr %32, align 8
   %34 = sext i8 %33 to i16
-  %35 = getelementptr inbounds i16, ptr %27, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw i16, ptr %27, i64 %indvars.iv
   store i16 %34, ptr %35, align 2
   %36 = load ptr, ptr %0, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 1336
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 1336
   %38 = load ptr, ptr %37, align 8
   %39 = load ptr, ptr %31, align 8
   %40 = tail call ptr %38(ptr noundef nonnull %0, ptr noundef %39) #4
   %41 = load ptr, ptr %0, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 1824
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 1824
   %43 = load ptr, ptr %42, align 8
   %44 = tail call zeroext i8 %43(ptr noundef nonnull %0) #4
   %.not72 = icmp eq i8 %44, 0
@@ -140,12 +140,12 @@ define void @Java_com_sun_management_internal_GcInfoBuilder_fillGcAttributeInfo(
 
 46:                                               ; preds = %.lr.ph
   %47 = load ptr, ptr %0, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 1392
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 1392
   %49 = load ptr, ptr %48, align 8
   %50 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void %49(ptr noundef nonnull %0, ptr noundef %4, i32 noundef %50, ptr noundef %40) #4
   %51 = load ptr, ptr %0, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 1824
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 1824
   %53 = load ptr, ptr %52, align 8
   %54 = tail call zeroext i8 %53(ptr noundef nonnull %0) #4
   %.not73 = icmp eq i8 %54, 0
@@ -158,13 +158,13 @@ define void @Java_com_sun_management_internal_GcInfoBuilder_fillGcAttributeInfo(
 
 56:                                               ; preds = %46
   %57 = load ptr, ptr %0, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 1336
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 1336
   %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %31, i64 16
+  %60 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %61 = load ptr, ptr %60, align 8
   %62 = tail call ptr %59(ptr noundef nonnull %0, ptr noundef %61) #4
   %63 = load ptr, ptr %0, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 1824
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 1824
   %65 = load ptr, ptr %64, align 8
   %66 = tail call zeroext i8 %65(ptr noundef nonnull %0) #4
   %.not74 = icmp eq i8 %66, 0
@@ -177,11 +177,11 @@ define void @Java_com_sun_management_internal_GcInfoBuilder_fillGcAttributeInfo(
 
 68:                                               ; preds = %56
   %69 = load ptr, ptr %0, align 8
-  %70 = getelementptr inbounds i8, ptr %69, i64 1392
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 1392
   %71 = load ptr, ptr %70, align 8
   tail call void %71(ptr noundef nonnull %0, ptr noundef %6, i32 noundef %50, ptr noundef %62) #4
   %72 = load ptr, ptr %0, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 1824
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 1824
   %74 = load ptr, ptr %73, align 8
   %75 = tail call zeroext i8 %74(ptr noundef nonnull %0) #4
   %.not75 = icmp eq i8 %75, 0
@@ -194,7 +194,7 @@ define void @Java_com_sun_management_internal_GcInfoBuilder_fillGcAttributeInfo(
 
 ._crit_edge:                                      ; preds = %30
   %77 = load ptr, ptr %0, align 8
-  %78 = getelementptr inbounds i8, ptr %77, i64 1672
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 1672
   %79 = load ptr, ptr %78, align 8
   tail call void %79(ptr noundef nonnull %0, ptr noundef %5, i32 noundef 0, i32 noundef %3, ptr noundef nonnull %27) #4
   tail call void @free(ptr noundef nonnull %16) #4
@@ -236,16 +236,16 @@ define ptr @Java_com_sun_management_internal_GcInfoBuilder_getLastGcInfo0(ptr no
   br label %124
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %9, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store ptr %6, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %9, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store ptr %7, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %9, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %9, i64 40
   store i32 %3, ptr %18, align 8
   %19 = zext nneg i32 %3 to i64
   %20 = shl nuw nsw i64 %19, 3
   %21 = tail call noalias ptr @malloc(i64 noundef %20) #5
-  %22 = getelementptr inbounds i8, ptr %9, i64 48
+  %22 = getelementptr inbounds nuw i8, ptr %9, i64 48
   store ptr %21, ptr %22, align 8
   %23 = icmp eq ptr %21, null
   br i1 %23, label %24, label %25
@@ -256,7 +256,7 @@ define ptr @Java_com_sun_management_internal_GcInfoBuilder_getLastGcInfo0(ptr no
 
 25:                                               ; preds = %15
   %26 = load ptr, ptr @jmm_interface_management_ext, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 216
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 216
   %28 = load ptr, ptr %27, align 8
   call void %28(ptr noundef %0, ptr noundef nonnull %2, ptr noundef nonnull %9) #4
   %29 = load i64, ptr %9, align 8
@@ -294,7 +294,7 @@ define ptr @Java_com_sun_management_internal_GcInfoBuilder_getLastGcInfo0(ptr no
 
 .lr.ph.preheader:                                 ; preds = %34
   %43 = load ptr, ptr %0, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 1608
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 1608
   %45 = load ptr, ptr %44, align 8
   call void %45(ptr noundef nonnull %0, ptr noundef %5, i32 noundef 0, i32 noundef %3, ptr noundef nonnull %37) #4
   br label %.lr.ph
@@ -302,11 +302,11 @@ define ptr @Java_com_sun_management_internal_GcInfoBuilder_getLastGcInfo0(ptr no
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %setBooleanValueAtObjectArray.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %setBooleanValueAtObjectArray.exit ]
   %46 = load ptr, ptr %22, align 8
-  %47 = getelementptr inbounds %union.jvalue, ptr %46, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw %union.jvalue, ptr %46, i64 %indvars.iv
   %.sroa.0.0.copyload8 = load i32, ptr %47, align 8
-  %.sroa_idx = getelementptr inbounds i8, ptr %47, i64 4
+  %.sroa_idx = getelementptr inbounds nuw i8, ptr %47, i64 4
   %.sroa.0.0.copyload9 = load i32, ptr %.sroa_idx, align 4
-  %48 = getelementptr inbounds i16, ptr %37, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw i16, ptr %37, i64 %indvars.iv
   %49 = load i16, ptr %48, align 2
   switch i16 %49, label %105 [
     i16 90, label %50
@@ -323,7 +323,7 @@ define ptr @Java_com_sun_management_internal_GcInfoBuilder_getLastGcInfo0(ptr no
   %51 = and i32 %.sroa.0.0.copyload8, 255
   %52 = call ptr (ptr, ptr, ptr, ...) @JNU_NewObjectByName(ptr noundef nonnull %0, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef %51) #4
   %53 = load ptr, ptr %0, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 1824
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 1824
   %55 = load ptr, ptr %54, align 8
   %56 = call zeroext i8 %55(ptr noundef nonnull %0) #4
   %.not.i = icmp eq i8 %56, 0
@@ -334,7 +334,7 @@ define ptr @Java_com_sun_management_internal_GcInfoBuilder_getLastGcInfo0(ptr no
   %58 = ashr exact i32 %sext, 24
   %59 = call ptr (ptr, ptr, ptr, ...) @JNU_NewObjectByName(ptr noundef nonnull %0, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, i32 noundef %58) #4
   %60 = load ptr, ptr %0, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 1824
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 1824
   %62 = load ptr, ptr %61, align 8
   %63 = call zeroext i8 %62(ptr noundef nonnull %0) #4
   %.not.i147 = icmp eq i8 %63, 0
@@ -344,7 +344,7 @@ define ptr @Java_com_sun_management_internal_GcInfoBuilder_getLastGcInfo0(ptr no
   %65 = and i32 %.sroa.0.0.copyload8, 65535
   %66 = call ptr (ptr, ptr, ptr, ...) @JNU_NewObjectByName(ptr noundef nonnull %0, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, i32 noundef %65) #4
   %67 = load ptr, ptr %0, align 8
-  %68 = getelementptr inbounds i8, ptr %67, i64 1824
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 1824
   %69 = load ptr, ptr %68, align 8
   %70 = call zeroext i8 %69(ptr noundef nonnull %0) #4
   %.not.i148 = icmp eq i8 %70, 0
@@ -355,7 +355,7 @@ define ptr @Java_com_sun_management_internal_GcInfoBuilder_getLastGcInfo0(ptr no
   %72 = ashr exact i32 %sext155, 16
   %73 = call ptr (ptr, ptr, ptr, ...) @JNU_NewObjectByName(ptr noundef nonnull %0, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14, i32 noundef %72) #4
   %74 = load ptr, ptr %0, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 1824
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 1824
   %76 = load ptr, ptr %75, align 8
   %77 = call zeroext i8 %76(ptr noundef nonnull %0) #4
   %.not.i149 = icmp eq i8 %77, 0
@@ -364,7 +364,7 @@ define ptr @Java_com_sun_management_internal_GcInfoBuilder_getLastGcInfo0(ptr no
 78:                                               ; preds = %.lr.ph
   %79 = call ptr (ptr, ptr, ptr, ...) @JNU_NewObjectByName(ptr noundef nonnull %0, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16, i32 noundef %.sroa.0.0.copyload8) #4
   %80 = load ptr, ptr %0, align 8
-  %81 = getelementptr inbounds i8, ptr %80, i64 1824
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 1824
   %82 = load ptr, ptr %81, align 8
   %83 = call zeroext i8 %82(ptr noundef nonnull %0) #4
   %.not.i150 = icmp eq i8 %83, 0
@@ -377,7 +377,7 @@ define ptr @Java_com_sun_management_internal_GcInfoBuilder_getLastGcInfo0(ptr no
   %.sroa.0.sroa.0.0.insert.insert12 = or disjoint i64 %.sroa.0.sroa.9.0.insert.shift14, %.sroa.0.sroa.0.0.insert.ext10
   %85 = call ptr (ptr, ptr, ptr, ...) @JNU_NewObjectByName(ptr noundef nonnull %0, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, i64 noundef %.sroa.0.sroa.0.0.insert.insert12) #4
   %86 = load ptr, ptr %0, align 8
-  %87 = getelementptr inbounds i8, ptr %86, i64 1824
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 1824
   %88 = load ptr, ptr %87, align 8
   %89 = call zeroext i8 %88(ptr noundef nonnull %0) #4
   %.not.i151 = icmp eq i8 %89, 0
@@ -388,7 +388,7 @@ define ptr @Java_com_sun_management_internal_GcInfoBuilder_getLastGcInfo0(ptr no
   %92 = fpext float %91 to double
   %93 = call ptr (ptr, ptr, ptr, ...) @JNU_NewObjectByName(ptr noundef nonnull %0, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20, double noundef %92) #4
   %94 = load ptr, ptr %0, align 8
-  %95 = getelementptr inbounds i8, ptr %94, i64 1824
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 1824
   %96 = load ptr, ptr %95, align 8
   %97 = call zeroext i8 %96(ptr noundef nonnull %0) #4
   %.not.i152 = icmp eq i8 %97, 0
@@ -402,7 +402,7 @@ define ptr @Java_com_sun_management_internal_GcInfoBuilder_getLastGcInfo0(ptr no
   %99 = bitcast i64 %.sroa.0.sroa.0.0.insert.insert to double
   %100 = call ptr (ptr, ptr, ptr, ...) @JNU_NewObjectByName(ptr noundef nonnull %0, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22, double noundef %99) #4
   %101 = load ptr, ptr %0, align 8
-  %102 = getelementptr inbounds i8, ptr %101, i64 1824
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 1824
   %103 = load ptr, ptr %102, align 8
   %104 = call zeroext i8 %103(ptr noundef nonnull %0) #4
   %.not.i153 = icmp eq i8 %104, 0
@@ -417,7 +417,7 @@ define ptr @Java_com_sun_management_internal_GcInfoBuilder_getLastGcInfo0(ptr no
 setBooleanValueAtObjectArray.exit.sink.split:     ; preds = %98, %90, %84, %78, %71, %64, %57, %50
   %.sink159 = phi ptr [ %52, %50 ], [ %59, %57 ], [ %66, %64 ], [ %73, %71 ], [ %79, %78 ], [ %85, %84 ], [ %93, %90 ], [ %100, %98 ]
   %106 = load ptr, ptr %0, align 8
-  %107 = getelementptr inbounds i8, ptr %106, i64 1392
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 1392
   %108 = load ptr, ptr %107, align 8
   %109 = trunc nuw nsw i64 %indvars.iv to i32
   call void %108(ptr noundef nonnull %0, ptr noundef %4, i32 noundef range(i32 -2147483648, 2147483647) %109, ptr noundef %.sink159) #4
@@ -440,7 +440,7 @@ setBooleanValueAtObjectArray.exit:                ; preds = %setBooleanValueAtOb
 112:                                              ; preds = %._crit_edge, %111
   call void @free(ptr noundef nonnull %37) #4
   %113 = load ptr, ptr %0, align 8
-  %114 = getelementptr inbounds i8, ptr %113, i64 1824
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 1824
   %115 = load ptr, ptr %114, align 8
   %116 = call zeroext i8 %115(ptr noundef nonnull %0) #4
   %.not142 = icmp eq i8 %116, 0
@@ -448,9 +448,9 @@ setBooleanValueAtObjectArray.exit:                ; preds = %setBooleanValueAtOb
 
 117:                                              ; preds = %112
   %118 = load i64, ptr %9, align 8
-  %119 = getelementptr inbounds i8, ptr %9, i64 8
+  %119 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %120 = load i64, ptr %119, align 8
-  %121 = getelementptr inbounds i8, ptr %9, i64 16
+  %121 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %122 = load i64, ptr %121, align 8
   %123 = call ptr (ptr, ptr, ptr, ...) @JNU_NewObjectByName(ptr noundef nonnull %0, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, ptr noundef %1, i64 noundef %118, i64 noundef %120, i64 noundef %122, ptr noundef %6, ptr noundef %7, ptr noundef %4) #4
   br label %124

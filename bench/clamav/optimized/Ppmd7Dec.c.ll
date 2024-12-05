@@ -7,11 +7,11 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @Ppmd7z_RangeDec_Init(ptr nocapture noundef initializes((24, 32)) %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 28
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 0, ptr %2, align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 -1, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i8 %6(ptr noundef nonnull %5) #5
@@ -49,18 +49,18 @@ define range(i32 0, 2) i32 @Ppmd7z_RangeDec_Init(ptr nocapture noundef initializ
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @Ppmd7z_RangeDec_CreateVTable(ptr nocapture noundef writeonly initializes((0, 24)) %0) local_unnamed_addr #1 {
   store ptr @Range_GetThreshold, ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @Range_Decode, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr @Range_DecodeBit, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal i32 @Range_GetThreshold(ptr nocapture noundef %0, i32 noundef %1) #2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 28
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i32, ptr %5, align 8
   %7 = udiv i32 %6, %1
   store i32 %7, ptr %5, align 8
@@ -70,10 +70,10 @@ define internal i32 @Range_GetThreshold(ptr nocapture noundef %0, i32 noundef %1
 
 ; Function Attrs: nounwind uwtable
 define internal void @Range_Decode(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8
   %6 = mul i32 %5, %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 28
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %8 = load i32, ptr %7, align 4
   %9 = sub i32 %8, %6
   store i32 %9, ptr %7, align 4
@@ -84,7 +84,7 @@ define internal void @Range_Decode(ptr nocapture noundef %0, i32 noundef %1, i32
 
 12:                                               ; preds = %3
   %13 = shl i32 %9, 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %15 = load ptr, ptr %14, align 8
   %16 = load ptr, ptr %15, align 8
   %17 = tail call zeroext i8 %16(ptr noundef nonnull %15) #5
@@ -116,11 +116,11 @@ Range_Normalize.exit:                             ; preds = %3, %12, %23
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @Range_DecodeBit(ptr nocapture noundef %0, i32 noundef %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8
   %5 = lshr i32 %4, 14
   %6 = mul i32 %5, %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 28
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %8 = load i32, ptr %7, align 4
   %9 = icmp ult i32 %8, %6
   br i1 %9, label %13, label %10
@@ -141,7 +141,7 @@ define internal range(i32 0, 2) i32 @Range_DecodeBit(ptr nocapture noundef %0, i
 
 16:                                               ; preds = %13
   %17 = shl i32 %14, 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %19 = load ptr, ptr %18, align 8
   %20 = load ptr, ptr %19, align 8
   %21 = tail call zeroext i8 %20(ptr noundef nonnull %19) #5
@@ -182,28 +182,28 @@ define range(i32 -2, 256) i32 @Ppmd7_DecodeSymbol(ptr noundef %0, ptr noundef %1
   br i1 %.not, label %83, label %8
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %6, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %12 = load i32, ptr %11, align 4
   %13 = zext i32 %12 to i64
-  %14 = getelementptr inbounds i8, ptr %10, i64 %13
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 %13
   %15 = load ptr, ptr %1, align 8
-  %16 = getelementptr inbounds i8, ptr %6, i64 2
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 2
   %17 = load i16, ptr %16, align 2
   %18 = zext i16 %17 to i32
   %19 = tail call i32 %15(ptr noundef nonnull %1, i32 noundef %18) #5
-  %20 = getelementptr inbounds i8, ptr %14, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %14, i64 1
   %21 = load i8, ptr %20, align 1
   %22 = zext i8 %21 to i32
   %23 = icmp ult i32 %19, %22
   br i1 %23, label %24, label %30
 
 24:                                               ; preds = %8
-  %25 = getelementptr inbounds i8, ptr %1, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8
   tail call void %26(ptr noundef nonnull %1, i32 noundef 0, i32 noundef %22) #5
-  %27 = getelementptr inbounds i8, ptr %0, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %14, ptr %27, align 8
   %28 = load i8, ptr %14, align 2
   tail call void @Ppmd7_Update1_0(ptr noundef nonnull %0) #5
@@ -211,7 +211,7 @@ define range(i32 -2, 256) i32 @Ppmd7_DecodeSymbol(ptr noundef %0, ptr noundef %1
   br label %.loopexit188
 
 30:                                               ; preds = %8
-  %31 = getelementptr inbounds i8, ptr %0, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 0, ptr %31, align 8
   %32 = load ptr, ptr %0, align 8
   %33 = load i16, ptr %32, align 4
@@ -223,8 +223,8 @@ define range(i32 -2, 256) i32 @Ppmd7_DecodeSymbol(ptr noundef %0, ptr noundef %1
   %.0156 = phi i32 [ %22, %30 ], [ %41, %49 ]
   %.0154 = phi i32 [ %35, %30 ], [ %50, %49 ]
   %.0153 = phi ptr [ %14, %30 ], [ %37, %49 ]
-  %37 = getelementptr inbounds i8, ptr %.0153, i64 6
-  %38 = getelementptr inbounds i8, ptr %.0153, i64 7
+  %37 = getelementptr inbounds nuw i8, ptr %.0153, i64 6
+  %38 = getelementptr inbounds nuw i8, ptr %.0153, i64 7
   %39 = load i8, ptr %38, align 1
   %40 = zext i8 %39 to i32
   %41 = add i32 %.0156, %40
@@ -232,10 +232,10 @@ define range(i32 -2, 256) i32 @Ppmd7_DecodeSymbol(ptr noundef %0, ptr noundef %1
   br i1 %42, label %43, label %49
 
 43:                                               ; preds = %36
-  %44 = getelementptr inbounds i8, ptr %1, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %45 = load ptr, ptr %44, align 8
   tail call void %45(ptr noundef nonnull %1, i32 noundef %.0156, i32 noundef %40) #5
-  %46 = getelementptr inbounds i8, ptr %0, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %37, ptr %46, align 8
   %47 = load i8, ptr %37, align 2
   tail call void @Ppmd7_Update1(ptr noundef %0) #5
@@ -248,24 +248,24 @@ define range(i32 -2, 256) i32 @Ppmd7_DecodeSymbol(ptr noundef %0, ptr noundef %1
   br i1 %.not180, label %51, label %36
 
 51:                                               ; preds = %49
-  %52 = getelementptr inbounds i8, ptr %32, i64 2
+  %52 = getelementptr inbounds nuw i8, ptr %32, i64 2
   %53 = load i16, ptr %52, align 2
   %54 = zext i16 %53 to i32
   %.not181 = icmp ult i32 %19, %54
   br i1 %.not181, label %55, label %.loopexit188
 
 55:                                               ; preds = %51
-  %56 = getelementptr inbounds i8, ptr %0, i64 940
-  %57 = getelementptr inbounds i8, ptr %0, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 940
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %58 = load ptr, ptr %57, align 8
   %59 = load i8, ptr %58, align 2
   %60 = zext i8 %59 to i64
-  %61 = getelementptr inbounds [256 x i8], ptr %56, i64 0, i64 %60
+  %61 = getelementptr inbounds nuw [256 x i8], ptr %56, i64 0, i64 %60
   %62 = load i8, ptr %61, align 1
   %63 = zext i8 %62 to i32
-  %64 = getelementptr inbounds i8, ptr %0, i64 40
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 %63, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %1, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %66 = load ptr, ptr %65, align 8
   %67 = load i16, ptr %52, align 2
   %68 = zext i16 %67 to i32
@@ -274,7 +274,7 @@ define range(i32 -2, 256) i32 @Ppmd7_DecodeSymbol(ptr noundef %0, ptr noundef %1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %3, i8 -1, i64 256, i1 false)
   %70 = load i8, ptr %37, align 2
   %71 = zext i8 %70 to i64
-  %72 = getelementptr inbounds i8, ptr %3, i64 %71
+  %72 = getelementptr inbounds nuw i8, ptr %3, i64 %71
   store i8 0, ptr %72, align 1
   %73 = load ptr, ptr %0, align 8
   %74 = load i16, ptr %73, align 4
@@ -288,27 +288,27 @@ define range(i32 -2, 256) i32 @Ppmd7_DecodeSymbol(ptr noundef %0, ptr noundef %1
   %78 = getelementptr inbounds i8, ptr %.1, i64 -6
   %79 = load i8, ptr %78, align 2
   %80 = zext i8 %79 to i64
-  %81 = getelementptr inbounds i8, ptr %3, i64 %80
+  %81 = getelementptr inbounds nuw i8, ptr %3, i64 %80
   store i8 0, ptr %81, align 1
   %82 = add i32 %.1155, -1
   %.not182 = icmp eq i32 %82, 0
   br i1 %.not182, label %.loopexit190, label %77
 
 83:                                               ; preds = %2
-  %84 = getelementptr inbounds i8, ptr %0, i64 2800
-  %85 = getelementptr inbounds i8, ptr %6, i64 3
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 2800
+  %85 = getelementptr inbounds nuw i8, ptr %6, i64 3
   %86 = load i8, ptr %85, align 1
   %87 = zext i8 %86 to i64
   %88 = add nsw i64 %87, -1
-  %89 = getelementptr inbounds i8, ptr %0, i64 32
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %90 = load i32, ptr %89, align 8
-  %91 = getelementptr inbounds i8, ptr %0, i64 684
-  %92 = getelementptr inbounds i8, ptr %0, i64 64
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 684
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %93 = load ptr, ptr %92, align 8
-  %94 = getelementptr inbounds i8, ptr %6, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %95 = load i32, ptr %94, align 4
   %96 = zext i32 %95 to i64
-  %97 = getelementptr inbounds i8, ptr %93, i64 %96
+  %97 = getelementptr inbounds nuw i8, ptr %93, i64 %96
   %98 = load i16, ptr %97, align 4
   %99 = zext i16 %98 to i64
   %100 = add nsw i64 %99, -1
@@ -316,33 +316,33 @@ define range(i32 -2, 256) i32 @Ppmd7_DecodeSymbol(ptr noundef %0, ptr noundef %1
   %102 = load i8, ptr %101, align 1
   %103 = zext i8 %102 to i32
   %104 = add i32 %90, %103
-  %105 = getelementptr inbounds i8, ptr %0, i64 940
-  %106 = getelementptr inbounds i8, ptr %0, i64 16
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 940
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %107 = load ptr, ptr %106, align 8
   %108 = load i8, ptr %107, align 2
   %109 = zext i8 %108 to i64
-  %110 = getelementptr inbounds [256 x i8], ptr %105, i64 0, i64 %109
+  %110 = getelementptr inbounds nuw [256 x i8], ptr %105, i64 0, i64 %109
   %111 = load i8, ptr %110, align 1
   %112 = zext i8 %111 to i32
-  %113 = getelementptr inbounds i8, ptr %0, i64 40
+  %113 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 %112, ptr %113, align 8
   %114 = add i32 %104, %112
-  %115 = getelementptr inbounds i8, ptr %6, i64 2
+  %115 = getelementptr inbounds nuw i8, ptr %6, i64 2
   %116 = load i8, ptr %115, align 2
   %117 = zext i8 %116 to i64
-  %118 = getelementptr inbounds [256 x i8], ptr %105, i64 0, i64 %117
+  %118 = getelementptr inbounds nuw [256 x i8], ptr %105, i64 0, i64 %117
   %119 = load i8, ptr %118, align 1
   %120 = zext i8 %119 to i32
   %121 = shl nuw nsw i32 %120, 1
   %122 = add i32 %114, %121
-  %123 = getelementptr inbounds i8, ptr %0, i64 44
+  %123 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %124 = load i32, ptr %123, align 4
   %125 = lshr i32 %124, 26
   %126 = and i32 %125, 32
   %127 = add i32 %122, %126
   %128 = zext i32 %127 to i64
   %129 = getelementptr inbounds [128 x [64 x i16]], ptr %84, i64 0, i64 %88, i64 %128
-  %130 = getelementptr inbounds i8, ptr %1, i64 16
+  %130 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %131 = load ptr, ptr %130, align 8
   %132 = load i16, ptr %129, align 2
   %133 = zext i16 %132 to i32
@@ -360,7 +360,7 @@ define range(i32 -2, 256) i32 @Ppmd7_DecodeSymbol(ptr noundef %0, ptr noundef %1
   %143 = trunc i32 %142 to i16
   store i16 %143, ptr %129, align 2
   %144 = load ptr, ptr %0, align 8
-  %145 = getelementptr inbounds i8, ptr %144, i64 2
+  %145 = getelementptr inbounds nuw i8, ptr %144, i64 2
   store ptr %145, ptr %106, align 8
   %146 = load i8, ptr %145, align 2
   tail call void @Ppmd7_UpdateBin(ptr noundef nonnull %0) #5
@@ -375,26 +375,26 @@ define range(i32 -2, 256) i32 @Ppmd7_DecodeSymbol(ptr noundef %0, ptr noundef %1
   store i16 %152, ptr %129, align 2
   %153 = lshr i16 %152, 10
   %154 = zext nneg i16 %153 to i64
-  %155 = getelementptr inbounds [16 x i8], ptr @PPMD7_kExpEscape, i64 0, i64 %154
+  %155 = getelementptr inbounds nuw [16 x i8], ptr @PPMD7_kExpEscape, i64 0, i64 %154
   %156 = load i8, ptr %155, align 1
   %157 = zext i8 %156 to i32
-  %158 = getelementptr inbounds i8, ptr %0, i64 28
+  %158 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %157, ptr %158, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %3, i8 -1, i64 256, i1 false)
   %159 = load ptr, ptr %0, align 8
-  %160 = getelementptr inbounds i8, ptr %159, i64 2
+  %160 = getelementptr inbounds nuw i8, ptr %159, i64 2
   %161 = load i8, ptr %160, align 2
   %162 = zext i8 %161 to i64
-  %163 = getelementptr inbounds i8, ptr %3, i64 %162
+  %163 = getelementptr inbounds nuw i8, ptr %3, i64 %162
   store i8 0, ptr %163, align 1
   store i32 0, ptr %89, align 8
   br label %.loopexit190
 
 .loopexit190:                                     ; preds = %77, %148
   %164 = phi ptr [ %159, %148 ], [ %73, %77 ]
-  %165 = getelementptr inbounds i8, ptr %0, i64 24
-  %166 = getelementptr inbounds i8, ptr %0, i64 64
-  %167 = getelementptr inbounds i8, ptr %1, i64 8
+  %165 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %166 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %167 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %.loopexit
 
 .loopexit.loopexit:                               ; preds = %248
@@ -413,7 +413,7 @@ define range(i32 -2, 256) i32 @Ppmd7_DecodeSymbol(ptr noundef %0, ptr noundef %1
   %173 = phi i32 [ %174, %177 ], [ %.promoted, %.loopexit ]
   %174 = add i32 %173, 1
   store i32 %174, ptr %165, align 8
-  %175 = getelementptr inbounds i8, ptr %172, i64 8
+  %175 = getelementptr inbounds nuw i8, ptr %172, i64 8
   %176 = load i32, ptr %175, align 4
   %.not183 = icmp eq i32 %176, 0
   br i1 %.not183, label %.loopexit188, label %177
@@ -421,7 +421,7 @@ define range(i32 -2, 256) i32 @Ppmd7_DecodeSymbol(ptr noundef %0, ptr noundef %1
 177:                                              ; preds = %171
   %178 = load ptr, ptr %166, align 8
   %179 = zext i32 %176 to i64
-  %180 = getelementptr inbounds i8, ptr %178, i64 %179
+  %180 = getelementptr inbounds nuw i8, ptr %178, i64 %179
   store ptr %180, ptr %0, align 8
   %181 = load i16, ptr %180, align 4
   %182 = icmp eq i16 %181, %169
@@ -429,10 +429,10 @@ define range(i32 -2, 256) i32 @Ppmd7_DecodeSymbol(ptr noundef %0, ptr noundef %1
 
 183:                                              ; preds = %177
   %184 = zext i16 %181 to i32
-  %185 = getelementptr inbounds i8, ptr %180, i64 4
+  %185 = getelementptr inbounds nuw i8, ptr %180, i64 4
   %186 = load i32, ptr %185, align 4
   %187 = zext i32 %186 to i64
-  %188 = getelementptr inbounds i8, ptr %178, i64 %187
+  %188 = getelementptr inbounds nuw i8, ptr %178, i64 %187
   %189 = sub nsw i32 %184, %170
   br label %190
 
@@ -442,17 +442,17 @@ define range(i32 -2, 256) i32 @Ppmd7_DecodeSymbol(ptr noundef %0, ptr noundef %1
   %.0157 = phi i32 [ 0, %183 ], [ %204, %190 ]
   %191 = load i8, ptr %.0163, align 2
   %192 = zext i8 %191 to i64
-  %193 = getelementptr inbounds i8, ptr %3, i64 %192
+  %193 = getelementptr inbounds nuw i8, ptr %3, i64 %192
   %194 = load i8, ptr %193, align 1
   %195 = sext i8 %194 to i32
-  %196 = getelementptr inbounds i8, ptr %.0163, i64 1
+  %196 = getelementptr inbounds nuw i8, ptr %.0163, i64 1
   %197 = load i8, ptr %196, align 1
   %198 = zext i8 %197 to i32
   %199 = and i32 %198, %195
   %200 = add i32 %199, %.0160
-  %201 = getelementptr inbounds i8, ptr %.0163, i64 6
+  %201 = getelementptr inbounds nuw i8, ptr %.0163, i64 6
   %202 = zext i32 %.0157 to i64
-  %203 = getelementptr inbounds [256 x ptr], ptr %4, i64 0, i64 %202
+  %203 = getelementptr inbounds nuw [256 x ptr], ptr %4, i64 0, i64 %202
   store ptr %.0163, ptr %203, align 8
   %204 = sub i32 %.0157, %195
   %.not184 = icmp eq i32 %204, %189
@@ -472,24 +472,24 @@ define range(i32 -2, 256) i32 @Ppmd7_DecodeSymbol(ptr noundef %0, ptr noundef %1
   %.1161 = phi i32 [ %216, %.preheader ], [ 0, %205 ]
   %.0 = phi ptr [ %217, %.preheader ], [ %4, %205 ]
   %212 = load ptr, ptr %.0, align 8
-  %213 = getelementptr inbounds i8, ptr %212, i64 1
+  %213 = getelementptr inbounds nuw i8, ptr %212, i64 1
   %214 = load i8, ptr %213, align 1
   %215 = zext i8 %214 to i32
   %216 = add i32 %.1161, %215
   %.not187 = icmp ugt i32 %216, %210
-  %217 = getelementptr inbounds i8, ptr %.0, i64 8
+  %217 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   br i1 %.not187, label %218, label %.preheader
 
 218:                                              ; preds = %.preheader
   %219 = load ptr, ptr %167, align 8
   call void %219(ptr noundef nonnull %1, i32 noundef %.1161, i32 noundef %215) #5
-  %220 = getelementptr inbounds i8, ptr %206, i64 2
+  %220 = getelementptr inbounds nuw i8, ptr %206, i64 2
   %221 = load i8, ptr %220, align 2
   %222 = icmp ult i8 %221, 7
   br i1 %222, label %223, label %235
 
 223:                                              ; preds = %218
-  %224 = getelementptr inbounds i8, ptr %206, i64 3
+  %224 = getelementptr inbounds nuw i8, ptr %206, i64 3
   %225 = load i8, ptr %224, align 1
   %226 = add i8 %225, -1
   store i8 %226, ptr %224, align 1
@@ -509,7 +509,7 @@ define range(i32 -2, 256) i32 @Ppmd7_DecodeSymbol(ptr noundef %0, ptr noundef %1
   br label %235
 
 235:                                              ; preds = %228, %223, %218
-  %236 = getelementptr inbounds i8, ptr %0, i64 16
+  %236 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %212, ptr %236, align 8
   %237 = load i8, ptr %212, align 2
   call void @Ppmd7_Update2(ptr noundef %0) #5
@@ -536,11 +536,11 @@ define range(i32 -2, 256) i32 @Ppmd7_DecodeSymbol(ptr noundef %0, ptr noundef %1
   %.1158 = phi i32 [ %189, %241 ], [ %249, %248 ]
   %249 = add i32 %.1158, -1
   %250 = zext i32 %249 to i64
-  %251 = getelementptr inbounds [256 x ptr], ptr %4, i64 0, i64 %250
+  %251 = getelementptr inbounds nuw [256 x ptr], ptr %4, i64 0, i64 %250
   %252 = load ptr, ptr %251, align 8
   %253 = load i8, ptr %252, align 2
   %254 = zext i8 %253 to i64
-  %255 = getelementptr inbounds i8, ptr %3, i64 %254
+  %255 = getelementptr inbounds nuw i8, ptr %3, i64 %254
   store i8 0, ptr %255, align 1
   %.not186 = icmp eq i32 %249, 0
   br i1 %.not186, label %.loopexit.loopexit, label %248

@@ -752,11 +752,11 @@ _ZN14CompilerConfig10is_c1_onlyEv.exit:           ; preds = %19
 
 34:                                               ; preds = %_ZN14CompilerConfig10is_c1_onlyEv.exit
   %35 = load ptr, ptr @_ZN7JVMFlag5flagsE, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 20256
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 20256
   %37 = load ptr, ptr @_ZN12JVMFlagLimit10flagLimitsE, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 6752
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 6752
   %39 = load ptr, ptr %38, align 8, !nonnull !6, !noundef !6
-  %40 = getelementptr inbounds i8, ptr %39, i64 3
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 3
   %41 = load i8, ptr %40, align 1
   %42 = and i8 %41, 2
   %.not7.i.i.i.i = icmp ne i8 %42, 0
@@ -769,11 +769,11 @@ _ZN14CompilerConfig10is_c1_onlyEv.exit:           ; preds = %19
 
 _ZN12JVMFlagLimit14get_constraintEPK7JVMFlag.exit12.i: ; preds = %34
   %45 = load ptr, ptr @_ZN7JVMFlag5flagsE, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 10152
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 10152
   %47 = load ptr, ptr @_ZN12JVMFlagLimit10flagLimitsE, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 3384
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 3384
   %49 = load ptr, ptr %48, align 8, !nonnull !6, !noundef !6
-  %50 = getelementptr inbounds i8, ptr %49, i64 3
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 3
   %51 = load i8, ptr %50, align 1
   %52 = and i8 %51, 2
   %.not7.i.i.i10.i = icmp ne i8 %52, 0
@@ -786,7 +786,7 @@ _ZN12JVMFlagLimit14get_constraintEPK7JVMFlag.exit12.i: ; preds = %34
 
 _ZL18check_legacy_flagsv.exit:                    ; preds = %_ZN12JVMFlagLimit14get_constraintEPK7JVMFlag.exit12.i
   %55 = load ptr, ptr @_ZN7JVMFlag5flagsE, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 10176
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 10176
   %57 = tail call noundef i32 @_ZN13JVMFlagAccess11check_rangeEPK7JVMFlagb(ptr noundef nonnull %56, i1 noundef zeroext false) #11
   %.not7.i = icmp eq i32 %57, 0
   br i1 %.not7.i, label %58, label %_ZL18check_legacy_flagsv.exit.thread

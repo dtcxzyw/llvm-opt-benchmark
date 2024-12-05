@@ -84,7 +84,7 @@ define void @dlaed9_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noca
 
 59:                                               ; preds = %.preheader26, %59
   %60 = phi i64 [ %65, %59 ], [ 1, %.preheader26 ]
-  %61 = getelementptr inbounds double, ptr %21, i64 %60
+  %61 = getelementptr inbounds nuw double, ptr %21, i64 %60
   %62 = tail call double @dlamc3_(ptr noundef nonnull %61, ptr noundef nonnull %61) #6
   %63 = load double, ptr %61, align 8, !tbaa !7
   %64 = fsub double %62, %63
@@ -187,7 +187,7 @@ define void @dlaed9_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noca
 
 120:                                              ; preds = %117
   %121 = mul nsw i64 %118, %114
-  %122 = getelementptr inbounds double, ptr %21, i64 %118
+  %122 = getelementptr inbounds nuw double, ptr %21, i64 %118
   %123 = getelementptr double, ptr %20, i64 %121
   br label %129
 
@@ -197,7 +197,7 @@ define void @dlaed9_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noca
 
 125:                                              ; preds = %.loopexit22
   %126 = mul nsw i64 %118, %114
-  %127 = getelementptr inbounds double, ptr %21, i64 %118
+  %127 = getelementptr inbounds nuw double, ptr %21, i64 %118
   %128 = getelementptr double, ptr %20, i64 %126
   br label %143
 
@@ -205,12 +205,12 @@ define void @dlaed9_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noca
   %130 = phi i64 [ 1, %120 ], [ %141, %129 ]
   %131 = getelementptr double, ptr %123, i64 %130
   %132 = load double, ptr %131, align 8, !tbaa !7
-  %133 = getelementptr inbounds double, ptr %21, i64 %130
+  %133 = getelementptr inbounds nuw double, ptr %21, i64 %130
   %134 = load double, ptr %133, align 8, !tbaa !7
   %135 = load double, ptr %122, align 8, !tbaa !7
   %136 = fsub double %134, %135
   %137 = fdiv double %132, %136
-  %138 = getelementptr inbounds double, ptr %22, i64 %130
+  %138 = getelementptr inbounds nuw double, ptr %22, i64 %130
   %139 = load double, ptr %138, align 8, !tbaa !7
   %140 = fmul double %139, %137
   store double %140, ptr %138, align 8, !tbaa !7
@@ -248,7 +248,7 @@ define void @dlaed9_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noca
 
 162:                                              ; preds = %162, %159
   %163 = phi i64 [ 1, %159 ], [ %175, %162 ]
-  %164 = getelementptr inbounds double, ptr %22, i64 %163
+  %164 = getelementptr inbounds nuw double, ptr %22, i64 %163
   %165 = load double, ptr %164, align 8, !tbaa !7
   %166 = fneg double %165
   %167 = call double @sqrt(double noundef %166) #6
@@ -289,7 +289,7 @@ define void @dlaed9_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noca
 
 187:                                              ; preds = %187, %183
   %188 = phi i64 [ 1, %183 ], [ %194, %187 ]
-  %189 = getelementptr inbounds double, ptr %22, i64 %188
+  %189 = getelementptr inbounds nuw double, ptr %22, i64 %188
   %190 = load double, ptr %189, align 8, !tbaa !7
   %191 = getelementptr double, ptr %186, i64 %188
   %192 = load double, ptr %191, align 8, !tbaa !7

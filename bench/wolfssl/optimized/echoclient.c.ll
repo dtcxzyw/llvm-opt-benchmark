@@ -56,23 +56,23 @@ entry:
   %buffer = alloca [80 x i8], align 16
   %0 = load ptr, ptr @stdin, align 8
   %1 = load ptr, ptr @stdout, align 8
-  %return_code = getelementptr inbounds i8, ptr %args, i64 16
+  %return_code = getelementptr inbounds nuw i8, ptr %args, i64 16
   store i32 -1, ptr %return_code, align 8
   %2 = load i32, ptr %args, align 8
-  %argv2 = getelementptr inbounds i8, ptr %args, i64 8
+  %argv2 = getelementptr inbounds nuw i8, ptr %args, i64 8
   %3 = load ptr, ptr %argv2, align 8
   %cmp = icmp slt i32 %2, 2
   br i1 %cmp, label %if.end7, label %if.end
 
 if.end:                                           ; preds = %entry
-  %arrayidx = getelementptr inbounds i8, ptr %3, i64 8
+  %arrayidx = getelementptr inbounds nuw i8, ptr %3, i64 8
   %4 = load ptr, ptr %arrayidx, align 8
   %call = tail call noalias ptr @fopen(ptr noundef %4, ptr noundef nonnull @.str)
   %cmp3 = icmp eq i32 %2, 2
   br i1 %cmp3, label %if.end7, label %if.then4
 
 if.then4:                                         ; preds = %if.end
-  %arrayidx5 = getelementptr inbounds i8, ptr %3, i64 16
+  %arrayidx5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load ptr, ptr %arrayidx5, align 8
   %call6 = tail call noalias ptr @fopen(ptr noundef %5, ptr noundef nonnull @.str.1)
   br label %if.end7
@@ -122,7 +122,7 @@ if.end22:                                         ; preds = %if.end18
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %addr.i, i8 0, i64 16, i1 false)
   %call.i.i = tail call ptr @__ctype_b_loc() #16
   %6 = load ptr, ptr %call.i.i, align 8
-  %arrayidx2.i.i = getelementptr inbounds i8, ptr %6, i64 98
+  %arrayidx2.i.i = getelementptr inbounds nuw i8, ptr %6, i64 98
   %7 = load i16, ptr %arrayidx2.i.i, align 2
   %8 = and i16 %7, 1024
   %tobool.not.i.i = icmp eq i16 %8, 0
@@ -134,17 +134,17 @@ if.then4.i.i:                                     ; preds = %if.end22
   br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
 
 if.then8.i.i:                                     ; preds = %if.then4.i.i
-  %sin_addr.i.i = getelementptr inbounds i8, ptr %addr.i, i64 4
-  %h_addr_list.i.i = getelementptr inbounds i8, ptr %call6.i.i, i64 24
+  %sin_addr.i.i = getelementptr inbounds nuw i8, ptr %addr.i, i64 4
+  %h_addr_list.i.i = getelementptr inbounds nuw i8, ptr %call6.i.i, i64 24
   %9 = load ptr, ptr %h_addr_list.i.i, align 8
   %10 = load ptr, ptr %9, align 8
-  %h_length.i.i = getelementptr inbounds i8, ptr %call6.i.i, i64 20
+  %h_length.i.i = getelementptr inbounds nuw i8, ptr %call6.i.i, i64 20
   %11 = load i32, ptr %h_length.i.i, align 4
   %conv10.i.i = sext i32 %11 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %sin_addr.i.i, ptr align 1 %10, i64 %conv10.i.i, i1 false)
   store i16 2, ptr %addr.i, align 4
   %call13.c.i.i = tail call zeroext i16 @htons(i16 noundef zeroext 11111) #16
-  %sin_port.c.i.i = getelementptr inbounds i8, ptr %addr.i, i64 2
+  %sin_port.c.i.i = getelementptr inbounds nuw i8, ptr %addr.i, i64 2
   store i16 %call13.c.i.i, ptr %sin_port.c.i.i, align 2
   br label %build_addr.exit.i
 
@@ -155,10 +155,10 @@ if.else.i.i:                                      ; preds = %if.then4.i.i
 if.end12.i.i:                                     ; preds = %if.end22
   store i16 2, ptr %addr.i, align 4
   %call13.i.i = tail call zeroext i16 @htons(i16 noundef zeroext 11111) #16
-  %sin_port.i.i = getelementptr inbounds i8, ptr %addr.i, i64 2
+  %sin_port.i.i = getelementptr inbounds nuw i8, ptr %addr.i, i64 2
   store i16 %call13.i.i, ptr %sin_port.i.i, align 2
   %call22.i.i = tail call i32 @inet_addr(ptr noundef nonnull @.str.7) #15
-  %sin_addr23.i.i = getelementptr inbounds i8, ptr %addr.i, i64 4
+  %sin_addr23.i.i = getelementptr inbounds nuw i8, ptr %addr.i, i64 4
   store i32 %call22.i.i, ptr %sin_addr23.i.i, align 4
   br label %build_addr.exit.i
 
@@ -315,7 +315,7 @@ do.cond107:                                       ; preds = %do.body99
 
 if.then113:                                       ; preds = %do.body99
   %idxprom = zext nneg i32 %call101 to i64
-  %arrayidx114 = getelementptr inbounds [1025 x i8], ptr %reply, i64 0, i64 %idxprom
+  %arrayidx114 = getelementptr inbounds nuw [1025 x i8], ptr %reply, i64 0, i64 %idxprom
   store i8 0, ptr %arrayidx114, align 1
   %call118 = call i32 @fputs(ptr noundef nonnull %reply, ptr noundef nonnull %fout.0)
   %cmp119 = icmp slt i32 %call118, 0
@@ -452,9 +452,9 @@ define dso_local i32 @main(i32 noundef %argc, ptr noundef %argv) local_unnamed_a
 entry:
   %args = alloca %struct.func_args, align 8
   store i32 %argc, ptr %args, align 8
-  %argv2 = getelementptr inbounds i8, ptr %args, i64 8
+  %argv2 = getelementptr inbounds nuw i8, ptr %args, i64 8
   store ptr %argv, ptr %argv2, align 8
-  %return_code = getelementptr inbounds i8, ptr %args, i64 16
+  %return_code = getelementptr inbounds nuw i8, ptr %args, i64 16
   store i32 0, ptr %return_code, align 8
   %call = tail call i32 @wolfSSL_Init() #15
   br label %for.body.i

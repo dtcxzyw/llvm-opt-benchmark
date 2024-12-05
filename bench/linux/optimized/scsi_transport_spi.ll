@@ -228,7 +228,7 @@ define dso_local void @spi_dv_device(ptr noundef %0) #0 align 16 {
   %3 = alloca %struct.scsi_exec_args, align 8
   %4 = alloca %struct.scsi_sense_hdr, align 8
   %5 = alloca %struct.scsi_exec_args, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 312
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 @lock_system_sleep() #17
   %9 = tail call i32 @scsi_autopm_get_device(ptr noundef %0) #17
@@ -236,7 +236,7 @@ define dso_local void @spi_dv_device(ptr noundef %0) #0 align 16 {
   br i1 %10, label %11, label %320
 
 11:                                               ; preds = %1
-  %12 = getelementptr inbounds i8, ptr %7, i64 864
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 864
   %13 = load i8, ptr %12, align 8
   %14 = and i8 %13, 2
   %15 = icmp eq i8 %14, 0
@@ -266,26 +266,26 @@ define dso_local void @spi_dv_device(ptr noundef %0) #0 align 16 {
   %29 = load i8, ptr %12, align 8
   %30 = or i8 %29, 1
   store i8 %30, ptr %12, align 8
-  %31 = getelementptr inbounds i8, ptr %7, i64 872
-  tail call void @mutex_lock(ptr noundef %31) #17
-  %32 = getelementptr inbounds i8, ptr %7, i64 40
-  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef nonnull @.str, ptr noundef %32, ptr noundef nonnull @.str.1) #19
+  %31 = getelementptr inbounds nuw i8, ptr %7, i64 872
+  tail call void @mutex_lock(ptr noundef nonnull %31) #17
+  %32 = getelementptr inbounds nuw i8, ptr %7, i64 40
+  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef nonnull @.str, ptr noundef nonnull %32, ptr noundef nonnull @.str.1) #19
   %33 = load ptr, ptr %0, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 176
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 176
   %35 = load ptr, ptr %34, align 8
   %36 = load ptr, ptr %6, align 8
-  %37 = getelementptr inbounds i8, ptr %0, i64 216
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %38 = load i8, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %36, i64 820
+  %39 = getelementptr inbounds nuw i8, ptr %36, i64 820
   %40 = load i32, ptr %39, align 4
-  %41 = getelementptr inbounds i8, ptr %36, i64 832
+  %41 = getelementptr inbounds nuw i8, ptr %36, i64 832
   %42 = load i16, ptr %41, align 8
   %43 = lshr i16 %42, 1
   %44 = and i16 %43, 1
   %45 = zext nneg i16 %44 to i32
-  %46 = getelementptr inbounds i8, ptr %35, i64 352
+  %46 = getelementptr inbounds nuw i8, ptr %35, i64 352
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 24
   %49 = load ptr, ptr %48, align 8
   %50 = icmp eq ptr %49, null
   br i1 %50, label %52, label %51
@@ -297,7 +297,7 @@ define dso_local void @spi_dv_device(ptr noundef %0) #0 align 16 {
 
 52:                                               ; preds = %51, %28
   %53 = phi ptr [ %.pre, %51 ], [ %47, %28 ]
-  %54 = getelementptr inbounds i8, ptr %53, i64 40
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 40
   %55 = load ptr, ptr %54, align 8
   %56 = icmp eq ptr %55, null
   br i1 %56, label %59, label %57
@@ -313,12 +313,12 @@ define dso_local void @spi_dv_device(ptr noundef %0) #0 align 16 {
   br i1 %61, label %64, label %62
 
 62:                                               ; preds = %59
-  %63 = getelementptr inbounds i8, ptr %36, i64 40
-  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef nonnull @.str.40, ptr noundef %63, ptr noundef nonnull @.str.41) #19
+  %63 = getelementptr inbounds nuw i8, ptr %36, i64 40
+  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef nonnull @.str.40, ptr noundef nonnull %63, ptr noundef nonnull @.str.41) #19
   br label %.loopexit
 
 64:                                               ; preds = %59
-  %65 = getelementptr inbounds i8, ptr %36, i64 848
+  %65 = getelementptr inbounds nuw i8, ptr %36, i64 848
   %66 = load i8, ptr %65, align 8
   %67 = and i8 %66, 2
   %68 = icmp eq i8 %67, 0
@@ -332,7 +332,7 @@ define dso_local void @spi_dv_device(ptr noundef %0) #0 align 16 {
 
 71:                                               ; preds = %64
   %72 = load ptr, ptr %46, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 40
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 40
   %74 = load ptr, ptr %73, align 8
   %75 = icmp ne ptr %74, null
   %76 = icmp ne i16 %44, 0
@@ -348,10 +348,10 @@ define dso_local void @spi_dv_device(ptr noundef %0) #0 align 16 {
   br i1 %82, label %89, label %83
 
 83:                                               ; preds = %78
-  %84 = getelementptr inbounds i8, ptr %36, i64 40
-  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef nonnull @.str.40, ptr noundef %84, ptr noundef nonnull @.str.42) #19
+  %84 = getelementptr inbounds nuw i8, ptr %36, i64 40
+  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef nonnull @.str.40, ptr noundef nonnull %84, ptr noundef nonnull @.str.42) #19
   %85 = load ptr, ptr %46, align 8
-  %86 = getelementptr inbounds i8, ptr %85, i64 40
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 40
   %87 = load ptr, ptr %86, align 8
   tail call void %87(ptr noundef %36, i32 noundef 0) #17
   %88 = tail call i32 @llvm.smax.i32(i32 %40, i32 10)
@@ -361,7 +361,7 @@ define dso_local void @spi_dv_device(ptr noundef %0) #0 align 16 {
   %90 = phi i32 [ %88, %83 ], [ %40, %78 ], [ %40, %71 ], [ %40, %.thread ]
   %91 = phi i32 [ 0, %83 ], [ 1, %78 ], [ %45, %71 ], [ 0, %.thread ]
   %92 = load ptr, ptr %46, align 8
-  %93 = getelementptr inbounds i8, ptr %92, i64 8
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 8
   %94 = load ptr, ptr %93, align 8
   %95 = icmp eq ptr %94, null
   br i1 %95, label %.loopexit, label %96
@@ -373,31 +373,31 @@ define dso_local void @spi_dv_device(ptr noundef %0) #0 align 16 {
   br i1 %99, label %.loopexit, label %100
 
 100:                                              ; preds = %96
-  %101 = getelementptr inbounds i8, ptr %36, i64 828
-  %102 = getelementptr inbounds i8, ptr %36, i64 860
-  %103 = getelementptr inbounds i8, ptr %36, i64 856
+  %101 = getelementptr inbounds nuw i8, ptr %36, i64 828
+  %102 = getelementptr inbounds nuw i8, ptr %36, i64 860
+  %103 = getelementptr inbounds nuw i8, ptr %36, i64 856
   %104 = icmp slt i32 %90, 9
   %105 = icmp eq i32 %90, 8
-  %106 = getelementptr inbounds i8, ptr %33, i64 2048
-  %107 = getelementptr inbounds i8, ptr %5, i64 16
-  %108 = getelementptr inbounds i8, ptr %5, i64 24
-  %109 = getelementptr inbounds i8, ptr %5, i64 28
-  %110 = getelementptr inbounds i8, ptr %5, i64 32
-  %111 = getelementptr inbounds i8, ptr %4, i64 1
-  %112 = getelementptr inbounds i8, ptr %3, i64 16
-  %113 = getelementptr inbounds i8, ptr %3, i64 24
-  %114 = getelementptr inbounds i8, ptr %3, i64 28
-  %115 = getelementptr inbounds i8, ptr %3, i64 32
-  %116 = getelementptr inbounds i8, ptr %2, i64 1
+  %106 = getelementptr inbounds nuw i8, ptr %33, i64 2048
+  %107 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %108 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %109 = getelementptr inbounds nuw i8, ptr %5, i64 28
+  %110 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %111 = getelementptr inbounds nuw i8, ptr %4, i64 1
+  %112 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %113 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %114 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %115 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %116 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %117 = getelementptr i8, ptr %23, i64 3
   %118 = getelementptr i8, ptr %23, i64 2
-  %119 = getelementptr inbounds i8, ptr %36, i64 40
+  %119 = getelementptr inbounds nuw i8, ptr %36, i64 40
   br label %120
 
 120:                                              ; preds = %304, %100
   %121 = phi i1 [ false, %304 ], [ true, %100 ]
   %122 = load ptr, ptr %46, align 8
-  %123 = getelementptr inbounds i8, ptr %122, i64 24
+  %123 = getelementptr inbounds nuw i8, ptr %122, i64 24
   %124 = load ptr, ptr %123, align 8
   %125 = icmp eq ptr %124, null
   br i1 %125, label %129, label %126
@@ -411,7 +411,7 @@ define dso_local void @spi_dv_device(ptr noundef %0) #0 align 16 {
 
 129:                                              ; preds = %126, %120
   %130 = phi ptr [ %.pre32, %126 ], [ %122, %120 ]
-  %131 = getelementptr inbounds i8, ptr %130, i64 8
+  %131 = getelementptr inbounds nuw i8, ptr %130, i64 8
   %132 = load ptr, ptr %131, align 8
   %133 = icmp eq ptr %132, null
   br i1 %133, label %136, label %134
@@ -438,7 +438,7 @@ define dso_local void @spi_dv_device(ptr noundef %0) #0 align 16 {
   br i1 %142, label %149, label %143
 
 143:                                              ; preds = %139
-  %144 = getelementptr inbounds i8, ptr %.pre34, i64 88
+  %144 = getelementptr inbounds nuw i8, ptr %.pre34, i64 88
   %145 = load ptr, ptr %144, align 8
   %146 = icmp eq ptr %145, null
   br i1 %146, label %156, label %147
@@ -450,7 +450,7 @@ define dso_local void @spi_dv_device(ptr noundef %0) #0 align 16 {
 
 149:                                              ; preds = %._crit_edge, %139
   %150 = phi ptr [ %.pre33, %._crit_edge ], [ %.pre34, %139 ]
-  %151 = getelementptr inbounds i8, ptr %150, i64 88
+  %151 = getelementptr inbounds nuw i8, ptr %150, i64 88
   %152 = load ptr, ptr %151, align 8
   %153 = icmp eq ptr %152, null
   br i1 %153, label %156, label %154
@@ -478,7 +478,7 @@ define dso_local void @spi_dv_device(ptr noundef %0) #0 align 16 {
   br i1 %163, label %164, label %199
 
 164:                                              ; preds = %159
-  %165 = getelementptr inbounds i8, ptr %.pre40, i64 56
+  %165 = getelementptr inbounds nuw i8, ptr %.pre40, i64 56
   %166 = load ptr, ptr %165, align 8
   %167 = icmp eq ptr %166, null
   br i1 %167, label %170, label %168
@@ -491,7 +491,7 @@ define dso_local void @spi_dv_device(ptr noundef %0) #0 align 16 {
 
 170:                                              ; preds = %168, %164
   %171 = phi ptr [ %.pre35, %168 ], [ %.pre40, %164 ]
-  %172 = getelementptr inbounds i8, ptr %171, i64 120
+  %172 = getelementptr inbounds nuw i8, ptr %171, i64 120
   %173 = load ptr, ptr %172, align 8
   %174 = icmp eq ptr %173, null
   br i1 %174, label %177, label %175
@@ -504,7 +504,7 @@ define dso_local void @spi_dv_device(ptr noundef %0) #0 align 16 {
 
 177:                                              ; preds = %175, %170
   %178 = phi ptr [ %.pre36, %175 ], [ %171, %170 ]
-  %179 = getelementptr inbounds i8, ptr %178, i64 104
+  %179 = getelementptr inbounds nuw i8, ptr %178, i64 104
   %180 = load ptr, ptr %179, align 8
   %181 = icmp eq ptr %180, null
   br i1 %181, label %184, label %182
@@ -517,7 +517,7 @@ define dso_local void @spi_dv_device(ptr noundef %0) #0 align 16 {
 
 184:                                              ; preds = %182, %177
   %185 = phi ptr [ %.pre37, %182 ], [ %178, %177 ]
-  %186 = getelementptr inbounds i8, ptr %185, i64 136
+  %186 = getelementptr inbounds nuw i8, ptr %185, i64 136
   %187 = load ptr, ptr %186, align 8
   %188 = icmp eq ptr %187, null
   br i1 %188, label %191, label %189
@@ -532,7 +532,7 @@ define dso_local void @spi_dv_device(ptr noundef %0) #0 align 16 {
 
 192:                                              ; preds = %191
   %193 = load ptr, ptr %46, align 8
-  %194 = getelementptr inbounds i8, ptr %193, i64 152
+  %194 = getelementptr inbounds nuw i8, ptr %193, i64 152
   %195 = load ptr, ptr %194, align 8
   %196 = icmp eq ptr %195, null
   br i1 %196, label %206, label %197
@@ -544,7 +544,7 @@ define dso_local void @spi_dv_device(ptr noundef %0) #0 align 16 {
 
 199:                                              ; preds = %._crit_edge38, %159
   %200 = phi ptr [ %.pre39, %._crit_edge38 ], [ %.pre40, %159 ]
-  %201 = getelementptr inbounds i8, ptr %200, i64 56
+  %201 = getelementptr inbounds nuw i8, ptr %200, i64 56
   %202 = load ptr, ptr %201, align 8
   %203 = icmp eq ptr %202, null
   br i1 %203, label %206, label %204
@@ -556,7 +556,7 @@ define dso_local void @spi_dv_device(ptr noundef %0) #0 align 16 {
 
 206:                                              ; preds = %204, %199, %197, %192, %191
   %207 = load ptr, ptr %46, align 8
-  %208 = getelementptr inbounds i8, ptr %207, i64 176
+  %208 = getelementptr inbounds nuw i8, ptr %207, i64 176
   %209 = load ptr, ptr %208, align 8
   %210 = icmp eq ptr %209, null
   br i1 %210, label %212, label %211
@@ -581,7 +581,7 @@ define dso_local void @spi_dv_device(ptr noundef %0) #0 align 16 {
 
 219:                                              ; preds = %215, %212, %212
   %220 = load ptr, ptr %46, align 8
-  %221 = getelementptr inbounds i8, ptr %220, i64 72
+  %221 = getelementptr inbounds nuw i8, ptr %220, i64 72
   %222 = load ptr, ptr %221, align 8
   %223 = icmp eq ptr %222, null
   br i1 %223, label %233, label %224
@@ -593,7 +593,7 @@ define dso_local void @spi_dv_device(ptr noundef %0) #0 align 16 {
 
 226:                                              ; preds = %215
   %227 = load ptr, ptr %46, align 8
-  %228 = getelementptr inbounds i8, ptr %227, i64 72
+  %228 = getelementptr inbounds nuw i8, ptr %227, i64 72
   %229 = load ptr, ptr %228, align 8
   %230 = icmp eq ptr %229, null
   br i1 %230, label %233, label %231
@@ -605,7 +605,7 @@ define dso_local void @spi_dv_device(ptr noundef %0) #0 align 16 {
 
 233:                                              ; preds = %231, %226, %224, %219
   %234 = load ptr, ptr %46, align 8
-  %235 = getelementptr inbounds i8, ptr %234, i64 40
+  %235 = getelementptr inbounds nuw i8, ptr %234, i64 40
   %236 = load ptr, ptr %235, align 8
   %237 = icmp eq ptr %236, null
   br i1 %237, label %240, label %238
@@ -621,7 +621,7 @@ define dso_local void @spi_dv_device(ptr noundef %0) #0 align 16 {
   %243 = getelementptr i8, ptr %23, i64 %242
   %244 = call fastcc i32 @spi_dv_retrain(ptr noundef %0, ptr noundef nonnull %23, ptr noundef %243, ptr noundef nonnull @spi_dv_device_compare_inquiry)
   %245 = load ptr, ptr %46, align 8
-  %246 = getelementptr inbounds i8, ptr %245, i64 64
+  %246 = getelementptr inbounds nuw i8, ptr %245, i64 64
   %247 = load ptr, ptr %246, align 8
   %248 = icmp eq ptr %247, null
   br i1 %248, label %250, label %249
@@ -741,7 +741,7 @@ define dso_local void @spi_dv_device(ptr noundef %0) #0 align 16 {
   br i1 %300, label %.thread25, label %301
 
 .thread25:                                        ; preds = %290, %250, %251, %292, %272, %.thread24
-  call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef nonnull @.str, ptr noundef %119, ptr noundef nonnull @.str.43) #19
+  call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef nonnull @.str, ptr noundef nonnull %119, ptr noundef nonnull @.str.43) #19
   br label %.loopexit
 
 301:                                              ; preds = %292
@@ -749,7 +749,7 @@ define dso_local void @spi_dv_device(ptr noundef %0) #0 align 16 {
   br i1 %302, label %303, label %304
 
 303:                                              ; preds = %301
-  call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef nonnull @.str.44, ptr noundef %119, ptr noundef nonnull @.str.45, i32 noundef %299, i32 noundef 4096) #19
+  call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef nonnull @.str.44, ptr noundef nonnull %119, ptr noundef nonnull @.str.45, i32 noundef %299, i32 noundef 4096) #19
   br label %304
 
 304:                                              ; preds = %303, %301
@@ -761,13 +761,13 @@ define dso_local void @spi_dv_device(ptr noundef %0) #0 align 16 {
   br i1 %309, label %120, label %.loopexit
 
 .loopexit:                                        ; preds = %304, %.thread25, %96, %89, %62
-  call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef nonnull @.str, ptr noundef %32, ptr noundef nonnull @.str.2) #19
-  call void @mutex_unlock(ptr noundef %31) #17
+  call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef nonnull @.str, ptr noundef nonnull %32, ptr noundef nonnull @.str.2) #19
+  call void @mutex_unlock(ptr noundef nonnull %31) #17
   %310 = load i8, ptr %12, align 8
   %311 = and i8 %310, -2
   store i8 %311, ptr %12, align 8
   call void @scsi_target_resume(ptr noundef %7) #17
-  %312 = getelementptr inbounds i8, ptr %7, i64 832
+  %312 = getelementptr inbounds nuw i8, ptr %7, i64 832
   %313 = load i16, ptr %312, align 8
   %314 = or i16 %313, 4096
   store i16 %314, ptr %312, align 8
@@ -846,9 +846,9 @@ define dso_local void @spi_schedule_dv_device(ptr noundef %0) #0 align 16 {
   br i1 %4, label %29, label %5, !prof !6
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 312
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 864
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 864
   %9 = load i8, ptr %8, align 8
   %10 = and i8 %9, 1
   %11 = icmp eq i8 %10, 0
@@ -868,7 +868,7 @@ define dso_local void @spi_schedule_dv_device(ptr noundef %0) #0 align 16 {
 17:                                               ; preds = %13
   tail call void @kfree(ptr noundef nonnull %3) #17
   %18 = load ptr, ptr %6, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 864
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 864
   %20 = load i8, ptr %19, align 8
   %21 = and i8 %20, -2
   store i8 %21, ptr %19, align 8
@@ -876,13 +876,13 @@ define dso_local void @spi_schedule_dv_device(ptr noundef %0) #0 align 16 {
 
 22:                                               ; preds = %13
   store i64 68719476704, ptr %3, align 8
-  %23 = getelementptr inbounds i8, ptr %3, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store volatile ptr %23, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %3, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store volatile ptr %23, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %3, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr @spi_dv_device_work_wrapper, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %3, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr %0, ptr %26, align 8
   %27 = load ptr, ptr @system_wq, align 8
   %28 = tail call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %27, ptr noundef nonnull %3) #17
@@ -894,13 +894,13 @@ define dso_local void @spi_schedule_dv_device(ptr noundef %0) #0 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @spi_dv_device_work_wrapper(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   tail call void @kfree(ptr noundef %0) #17
   tail call void @spi_dv_device(ptr noundef %3)
-  %4 = getelementptr inbounds i8, ptr %3, i64 312
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 312
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 864
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 864
   %7 = load i8, ptr %6, align 8
   %8 = and i8 %7, -2
   store i8 %8, ptr %6, align 8
@@ -911,13 +911,13 @@ define internal void @spi_dv_device_work_wrapper(ptr noundef %0) #0 align 16 {
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @spi_display_xfer_agreement(ptr noundef %0) #0 align 16 {
   %2 = alloca [8 x i8], align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 824
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 824
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %6, label %94
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 816
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %8 = load i32, ptr %7, align 8
   %9 = icmp sgt i32 %8, 0
   br i1 %9, label %10, label %94
@@ -972,7 +972,7 @@ define dso_local void @spi_display_xfer_agreement(ptr noundef %0) #0 align 16 {
   %30 = lshr i32 %28, 1
   %31 = add nuw i32 %30, 10000000
   %32 = udiv i32 %31, %28
-  %33 = getelementptr inbounds i8, ptr %0, i64 832
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 832
   %34 = load i16, ptr %33, align 8
   %35 = and i16 %34, 1
   %36 = zext nneg i16 %35 to i32
@@ -1011,7 +1011,7 @@ define dso_local void @spi_display_xfer_agreement(ptr noundef %0) #0 align 16 {
   br label %61
 
 61:                                               ; preds = %58, %27
-  %62 = getelementptr inbounds i8, ptr %0, i64 40
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %63 = load i16, ptr %33, align 8
   %64 = and i16 %63, 1
   %65 = icmp eq i16 %64, 0
@@ -1043,18 +1043,18 @@ define dso_local void @spi_display_xfer_agreement(ptr noundef %0) #0 align 16 {
   %91 = icmp eq i16 %90, 0
   %92 = select i1 %91, ptr @.str.13, ptr @.str.22
   %93 = load i32, ptr %3, align 8
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %62, ptr noundef nonnull @.str.11, ptr noundef nonnull %29, ptr noundef nonnull %66, i32 noundef %67, i32 noundef %68, ptr noundef nonnull %71, ptr noundef nonnull %74, ptr noundef nonnull %77, ptr noundef nonnull %80, ptr noundef nonnull %83, ptr noundef nonnull %86, ptr noundef nonnull %89, ptr noundef nonnull %92, ptr noundef nonnull %2, i32 noundef %93) #19
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %62, ptr noundef nonnull @.str.11, ptr noundef nonnull %29, ptr noundef nonnull %66, i32 noundef %67, i32 noundef %68, ptr noundef nonnull %71, ptr noundef nonnull %74, ptr noundef nonnull %77, ptr noundef nonnull %80, ptr noundef nonnull %83, ptr noundef nonnull %86, ptr noundef nonnull %89, ptr noundef nonnull %92, ptr noundef nonnull %2, i32 noundef %93) #19
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #17
   br label %101
 
 94:                                               ; preds = %6, %1
-  %95 = getelementptr inbounds i8, ptr %0, i64 40
-  %96 = getelementptr inbounds i8, ptr %0, i64 832
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 832
   %97 = load i16, ptr %96, align 8
   %98 = and i16 %97, 1
   %99 = icmp eq i16 %98, 0
   %100 = select i1 %99, ptr @.str.13, ptr @.str.24
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %95, ptr noundef nonnull @.str.23, ptr noundef nonnull %100) #19
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %95, ptr noundef nonnull @.str.23, ptr noundef nonnull %100) #19
   br label %101
 
 101:                                              ; preds = %94, %61
@@ -1122,7 +1122,7 @@ define dso_local noundef i32 @spi_populate_ppr_msg(ptr nocapture noundef writeon
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
 define dso_local noundef range(i32 0, 3) i32 @spi_populate_tag_msg(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) #6 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 256
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 256
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 1
   %6 = icmp eq i32 %5, 0
@@ -1459,26 +1459,26 @@ define dso_local noundef ptr @spi_attach_transport(ptr noundef %0) #0 align 16 {
   br i1 %4, label %18, label %5, !prof !6
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %3, i64 104
-  %7 = getelementptr inbounds i8, ptr %3, i64 160
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 104
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 160
   store ptr @spi_transport_class, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 168
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 168
   store ptr @target_attribute_group, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 184
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 184
   store ptr @spi_target_match, ptr %9, align 8
-  %10 = tail call i32 @attribute_container_register(ptr noundef %6) #17
-  %11 = getelementptr inbounds i8, ptr %3, i64 328
+  %10 = tail call i32 @attribute_container_register(ptr noundef nonnull %6) #17
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 328
   store i32 88, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %3, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store ptr @spi_host_class, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %3, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store ptr @host_attribute_group, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %3, i64 80
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 80
   store ptr @spi_host_match, ptr %14, align 8
   %15 = tail call i32 @attribute_container_register(ptr noundef nonnull %3) #17
-  %16 = getelementptr inbounds i8, ptr %3, i64 336
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 336
   store i32 4, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %3, i64 352
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 352
   store ptr %0, ptr %17, align 8
   br label %18
 
@@ -1493,7 +1493,7 @@ define internal range(i32 0, 2) i32 @spi_target_match(ptr noundef readnone %0, p
   br i1 %4, label %40, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %7 = load ptr, ptr %6, align 8
   br label %8
 
@@ -1504,7 +1504,7 @@ define internal range(i32 0, 2) i32 @spi_target_match(ptr noundef readnone %0, p
   br i1 %11, label %12, label %16
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %9, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 64
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %.loopexit, label %8, !llvm.loop !15
@@ -1515,21 +1515,21 @@ define internal range(i32 0, 2) i32 @spi_target_match(ptr noundef readnone %0, p
 
 .loopexit:                                        ; preds = %12, %16
   %18 = phi ptr [ %17, %16 ], [ null, %12 ]
-  %19 = getelementptr inbounds i8, ptr %18, i64 176
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 176
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
   br i1 %21, label %40, label %22
 
 22:                                               ; preds = %.loopexit
-  %23 = getelementptr inbounds i8, ptr %20, i64 56
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 56
   %24 = load ptr, ptr %23, align 8
   %25 = icmp eq ptr %24, @spi_host_class
   br i1 %25, label %26, label %40
 
 26:                                               ; preds = %22
-  %27 = getelementptr inbounds i8, ptr %20, i64 352
+  %27 = getelementptr inbounds nuw i8, ptr %20, i64 352
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 192
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 192
   %30 = load ptr, ptr %29, align 8
   %31 = icmp eq ptr %30, null
   br i1 %31, label %36, label %32
@@ -1541,7 +1541,7 @@ define internal range(i32 0, 2) i32 @spi_target_match(ptr noundef readnone %0, p
   br i1 %35, label %36, label %40
 
 36:                                               ; preds = %32, %26
-  %37 = getelementptr inbounds i8, ptr %20, i64 104
+  %37 = getelementptr inbounds nuw i8, ptr %20, i64 104
   %38 = icmp eq ptr %37, %0
   %39 = zext i1 %38 to i32
   br label %40
@@ -1564,7 +1564,7 @@ define internal range(i32 0, 2) i32 @spi_host_match(ptr noundef readnone %0, ptr
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %.preheader
-  %9 = getelementptr inbounds i8, ptr %5, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %.loopexit, label %.preheader, !llvm.loop !15
@@ -1575,13 +1575,13 @@ define internal range(i32 0, 2) i32 @spi_host_match(ptr noundef readnone %0, ptr
 
 .loopexit:                                        ; preds = %8, %12
   %14 = phi ptr [ %13, %12 ], [ null, %8 ]
-  %15 = getelementptr inbounds i8, ptr %14, i64 176
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 176
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
   br i1 %17, label %25, label %18
 
 18:                                               ; preds = %.loopexit
-  %19 = getelementptr inbounds i8, ptr %16, i64 56
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 56
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, @spi_host_class
   br i1 %21, label %22, label %25
@@ -1598,8 +1598,8 @@ define internal range(i32 0, 2) i32 @spi_host_match(ptr noundef readnone %0, ptr
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @spi_release_transport(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 104
-  %3 = tail call i32 @attribute_container_unregister(ptr noundef %2) #17
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %3 = tail call i32 @attribute_container_unregister(ptr noundef nonnull %2) #17
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %6, label %5, !prof !5
 
@@ -1651,9 +1651,9 @@ define internal i32 @spi_transport_init() #8 section ".init.text" align 16 {
   %3 = phi i64 [ %11, %.preheader ], [ 0, %0 ]
   %4 = phi ptr [ %13, %.preheader ], [ @.str.124, %0 ]
   %5 = phi ptr [ %12, %.preheader ], [ @spi_static_device_list, %0 ]
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load i64, ptr %8, align 8
   %10 = tail call i32 @scsi_dev_info_list_add_keyed(i32 noundef 1, ptr noundef nonnull %4, ptr noundef %7, ptr noundef null, i64 noundef %9, i32 noundef 1) #17
   %11 = add nuw nsw i64 %3, 1
@@ -1682,32 +1682,32 @@ define internal noundef range(i32 0, 2) i32 @spi_dv_device_compare_inquiry(ptr n
   %5 = alloca %struct.scsi_sense_hdr, align 8
   %6 = alloca %struct.scsi_exec_args, align 8
   %7 = alloca [6 x i8], align 1
-  %8 = getelementptr inbounds i8, ptr %0, i64 216
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %9 = load i8, ptr %8, align 8
   %10 = zext i8 %9 to i32
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %7) #17
   store i8 18, ptr %7, align 1
-  %11 = getelementptr inbounds i8, ptr %7, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 1
   store i8 0, ptr %11, align 1
-  %12 = getelementptr inbounds i8, ptr %7, i64 2
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 2
   store i8 0, ptr %12, align 1
-  %13 = getelementptr inbounds i8, ptr %7, i64 3
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 3
   store i8 0, ptr %13, align 1
-  %14 = getelementptr inbounds i8, ptr %7, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i8 %9, ptr %14, align 1
-  %15 = getelementptr inbounds i8, ptr %7, i64 5
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 5
   store i8 0, ptr %15, align 1
   %16 = icmp sgt i32 %3, 0
   br i1 %16, label %17, label %.loopexit5
 
 17:                                               ; preds = %4
   %18 = zext i8 %9 to i64
-  %19 = getelementptr inbounds i8, ptr %6, i64 16
-  %20 = getelementptr inbounds i8, ptr %6, i64 24
-  %21 = getelementptr inbounds i8, ptr %6, i64 28
-  %22 = getelementptr inbounds i8, ptr %6, i64 32
-  %23 = getelementptr inbounds i8, ptr %5, i64 1
-  %24 = getelementptr inbounds i8, ptr %0, i64 2016
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 28
+  %22 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 2016
   br label %25
 
 25:                                               ; preds = %55, %17
@@ -1797,14 +1797,14 @@ define internal noundef range(i32 0, 2) i32 @spi_dv_device_compare_inquiry(ptr n
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc range(i32 0, 3) i32 @spi_dv_retrain(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 align 16 {
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 176
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 176
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 312
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %7, i64 352
-  %11 = getelementptr inbounds i8, ptr %9, i64 832
-  %12 = getelementptr inbounds i8, ptr %9, i64 40
-  %13 = getelementptr inbounds i8, ptr %9, i64 816
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 352
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 832
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 816
   %14 = tail call i32 %3(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef 3) #17, !callees !20
   %15 = and i32 %14, -3
   %16 = icmp eq i32 %15, 0
@@ -1814,7 +1814,7 @@ define internal fastcc range(i32 0, 3) i32 @spi_dv_retrain(ptr noundef %0, ptr n
   %17 = phi i32 [ %93, %91 ], [ 0, %4 ]
   %18 = phi i32 [ %92, %91 ], [ 0, %4 ]
   %19 = load ptr, ptr %10, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 48
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, null
   br i1 %22, label %24, label %23
@@ -1826,7 +1826,7 @@ define internal fastcc range(i32 0, 3) i32 @spi_dv_retrain(ptr noundef %0, ptr n
 
 24:                                               ; preds = %23, %.lr.ph
   %25 = phi ptr [ %.pre, %23 ], [ %19, %.lr.ph ]
-  %26 = getelementptr inbounds i8, ptr %25, i64 80
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 80
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, null
   br i1 %28, label %30, label %29
@@ -1850,7 +1850,7 @@ define internal fastcc range(i32 0, 3) i32 @spi_dv_retrain(ptr noundef %0, ptr n
 
 36:                                               ; preds = %34, %30
   %37 = phi ptr [ %.pre11, %34 ], [ %31, %30 ]
-  %38 = getelementptr inbounds i8, ptr %37, i64 56
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 56
   %39 = load ptr, ptr %38, align 8
   %40 = icmp eq ptr %39, null
   br i1 %40, label %52, label %41
@@ -1862,9 +1862,9 @@ define internal fastcc range(i32 0, 3) i32 @spi_dv_retrain(ptr noundef %0, ptr n
   br i1 %44, label %52, label %45
 
 45:                                               ; preds = %41
-  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef nonnull @.str.40, ptr noundef %12, ptr noundef nonnull @.str.46) #19
+  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef nonnull @.str.40, ptr noundef nonnull %12, ptr noundef nonnull @.str.46) #19
   %46 = load ptr, ptr %10, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 56
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 56
   %48 = load ptr, ptr %47, align 8
   %49 = icmp eq ptr %48, null
   br i1 %49, label %91, label %50
@@ -1875,7 +1875,7 @@ define internal fastcc range(i32 0, 3) i32 @spi_dv_retrain(ptr noundef %0, ptr n
   br label %91
 
 52:                                               ; preds = %41, %36
-  %53 = getelementptr inbounds i8, ptr %37, i64 88
+  %53 = getelementptr inbounds nuw i8, ptr %37, i64 88
   %54 = load ptr, ptr %53, align 8
   %55 = icmp eq ptr %54, null
   br i1 %55, label %67, label %56
@@ -1887,9 +1887,9 @@ define internal fastcc range(i32 0, 3) i32 @spi_dv_retrain(ptr noundef %0, ptr n
   br i1 %59, label %67, label %60
 
 60:                                               ; preds = %56
-  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef nonnull @.str.40, ptr noundef %12, ptr noundef nonnull @.str.47) #19
+  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef nonnull @.str.40, ptr noundef nonnull %12, ptr noundef nonnull @.str.47) #19
   %61 = load ptr, ptr %10, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 88
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 88
   %63 = load ptr, ptr %62, align 8
   %64 = icmp eq ptr %63, null
   br i1 %64, label %91, label %65
@@ -1912,9 +1912,9 @@ define internal fastcc range(i32 0, 3) i32 @spi_dv_retrain(ptr noundef %0, ptr n
   br i1 %76, label %77, label %84, !prof !6
 
 77:                                               ; preds = %67
-  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef nonnull @.str.40, ptr noundef %12, ptr noundef nonnull @.str.48) #19
+  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef nonnull @.str.40, ptr noundef nonnull %12, ptr noundef nonnull @.str.48) #19
   %78 = load ptr, ptr %10, align 8
-  %79 = getelementptr inbounds i8, ptr %78, i64 24
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 24
   %80 = load ptr, ptr %79, align 8
   %81 = icmp eq ptr %80, null
   br i1 %81, label %.thread, label %82
@@ -1925,9 +1925,9 @@ define internal fastcc range(i32 0, 3) i32 @spi_dv_retrain(ptr noundef %0, ptr n
   br label %.thread
 
 84:                                               ; preds = %67
-  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef nonnull @.str.40, ptr noundef %12, ptr noundef nonnull @.str.49) #19
+  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef nonnull @.str.40, ptr noundef nonnull %12, ptr noundef nonnull @.str.49) #19
   %85 = load ptr, ptr %10, align 8
-  %86 = getelementptr inbounds i8, ptr %85, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 8
   %87 = load ptr, ptr %86, align 8
   %88 = icmp eq ptr %87, null
   br i1 %88, label %91, label %89
@@ -1966,30 +1966,30 @@ define internal noundef range(i32 0, 3) i32 @spi_dv_device_echo_buffer(ptr nound
   store i64 0, ptr %8, align 8, !annotation !8
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %9) #17
   store i8 59, ptr %9, align 1
-  %15 = getelementptr inbounds i8, ptr %9, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 1
   store i8 10, ptr %15, align 1
-  %16 = getelementptr inbounds i8, ptr %9, i64 2
-  %17 = getelementptr inbounds i8, ptr %9, i64 7
+  %16 = getelementptr inbounds nuw i8, ptr %9, i64 2
+  %17 = getelementptr inbounds nuw i8, ptr %9, i64 7
   %18 = lshr i64 %13, 8
   %19 = trunc i64 %18 to i8
-  call void @llvm.memset.p0.i64(ptr noundef align 1 dereferenceable(5) %16, i8 0, i64 5, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %16, i8 0, i64 5, i1 false)
   store i8 %19, ptr %17, align 1
-  %20 = getelementptr inbounds i8, ptr %9, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %21 = trunc i64 %13 to i8
   store i8 %21, ptr %20, align 1
-  %22 = getelementptr inbounds i8, ptr %9, i64 9
+  %22 = getelementptr inbounds nuw i8, ptr %9, i64 9
   store i8 0, ptr %22, align 1
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %10) #17
   store i8 60, ptr %10, align 1
-  %23 = getelementptr inbounds i8, ptr %10, i64 1
+  %23 = getelementptr inbounds nuw i8, ptr %10, i64 1
   store i8 10, ptr %23, align 1
-  %24 = getelementptr inbounds i8, ptr %10, i64 2
-  %25 = getelementptr inbounds i8, ptr %10, i64 7
-  call void @llvm.memset.p0.i64(ptr noundef align 1 dereferenceable(5) %24, i8 0, i64 5, i1 false)
+  %24 = getelementptr inbounds nuw i8, ptr %10, i64 2
+  %25 = getelementptr inbounds nuw i8, ptr %10, i64 7
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %24, i8 0, i64 5, i1 false)
   store i8 %19, ptr %25, align 1
-  %26 = getelementptr inbounds i8, ptr %10, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i8 %21, ptr %26, align 1
-  %27 = getelementptr inbounds i8, ptr %10, i64 9
+  %27 = getelementptr inbounds nuw i8, ptr %10, i64 9
   store i8 0, ptr %27, align 1
   %28 = icmp sgt i32 %14, 0
   br i1 %28, label %29, label %.loopexit23
@@ -2020,19 +2020,19 @@ define internal noundef range(i32 0, 3) i32 @spi_dv_device_echo_buffer(ptr nound
   br i1 %41, label %42, label %.loopexit
 
 42:                                               ; preds = %.loopexit23
-  %43 = getelementptr inbounds i8, ptr %7, i64 16
-  %44 = getelementptr inbounds i8, ptr %7, i64 24
-  %45 = getelementptr inbounds i8, ptr %7, i64 28
-  %46 = getelementptr inbounds i8, ptr %7, i64 32
-  %47 = getelementptr inbounds i8, ptr %8, i64 1
-  %48 = getelementptr inbounds i8, ptr %0, i64 2016
+  %43 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %7, i64 28
+  %46 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %47 = getelementptr inbounds nuw i8, ptr %8, i64 1
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 2016
   %49 = shl i64 %13, 32
   %50 = ashr exact i64 %49, 32
-  %51 = getelementptr inbounds i8, ptr %6, i64 16
-  %52 = getelementptr inbounds i8, ptr %6, i64 24
-  %53 = getelementptr inbounds i8, ptr %6, i64 28
-  %54 = getelementptr inbounds i8, ptr %6, i64 32
-  %55 = getelementptr inbounds i8, ptr %5, i64 1
+  %51 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %6, i64 28
+  %54 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %55 = getelementptr inbounds nuw i8, ptr %5, i64 1
   br label %97
 
 .loopexit46:                                      ; preds = %60, %35
@@ -2173,11 +2173,11 @@ define internal noundef range(i32 0, 3) i32 @spi_dv_device_echo_buffer(ptr nound
   %123 = load i8, ptr %47, align 1
   %124 = icmp eq i8 %123, 5
   %125 = select i1 %122, i1 %124, i1 false
-  %126 = getelementptr inbounds i8, ptr %8, i64 2
+  %126 = getelementptr inbounds nuw i8, ptr %8, i64 2
   %127 = load i8, ptr %126, align 2
   %128 = icmp eq i8 %127, 36
   %129 = select i1 %125, i1 %128, i1 false
-  %130 = getelementptr inbounds i8, ptr %8, i64 3
+  %130 = getelementptr inbounds nuw i8, ptr %8, i64 3
   %131 = load i8, ptr %130, align 1
   %132 = icmp eq i8 %131, 0
   %133 = select i1 %129, i1 %132, i1 false
@@ -2291,7 +2291,7 @@ declare dso_local i32 @sysfs_update_group(ptr noundef, ptr noundef) local_unname
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal zeroext range(i16 0, 512) i16 @target_attribute_is_visible(ptr nocapture noundef readonly %0, ptr noundef readnone %1, i32 %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
   br label %6
 
@@ -2302,7 +2302,7 @@ define internal zeroext range(i16 0, 512) i16 @target_attribute_is_visible(ptr n
   br i1 %9, label %10, label %14
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %7, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
   br i1 %13, label %.loopexit, label %6, !llvm.loop !15
@@ -2313,7 +2313,7 @@ define internal zeroext range(i16 0, 512) i16 @target_attribute_is_visible(ptr n
 
 .loopexit:                                        ; preds = %10, %14
   %16 = phi ptr [ %15, %14 ], [ null, %10 ]
-  %17 = getelementptr inbounds i8, ptr %16, i64 176
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 176
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %1, @dev_attr_period
   br i1 %19, label %20, label %38
@@ -2326,14 +2326,14 @@ define internal zeroext range(i16 0, 512) i16 @target_attribute_is_visible(ptr n
   br i1 %24, label %.thread20, label %25
 
 25:                                               ; preds = %20
-  %26 = getelementptr inbounds i8, ptr %18, i64 352
+  %26 = getelementptr inbounds nuw i8, ptr %18, i64 352
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 200
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 200
   %29 = load i16, ptr %28, align 8
   %30 = and i16 %29, 1
   %31 = icmp eq i16 %30, 0
   %32 = select i1 %31, i16 0, i16 292
-  %33 = getelementptr inbounds i8, ptr %27, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %34 = load ptr, ptr %33, align 8
   %35 = icmp eq ptr %34, null
   %36 = select i1 %35, i16 0, i16 128
@@ -2352,14 +2352,14 @@ define internal zeroext range(i16 0, 512) i16 @target_attribute_is_visible(ptr n
   br i1 %44, label %.thread20, label %45
 
 45:                                               ; preds = %40
-  %46 = getelementptr inbounds i8, ptr %18, i64 352
+  %46 = getelementptr inbounds nuw i8, ptr %18, i64 352
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 200
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 200
   %49 = load i16, ptr %48, align 8
   %50 = and i16 %49, 1
   %51 = icmp eq i16 %50, 0
   %52 = select i1 %51, i16 0, i16 292
-  %53 = getelementptr inbounds i8, ptr %47, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %54 = load ptr, ptr %53, align 8
   %55 = icmp eq ptr %54, null
   %56 = select i1 %55, i16 0, i16 128
@@ -2378,14 +2378,14 @@ define internal zeroext range(i16 0, 512) i16 @target_attribute_is_visible(ptr n
   br i1 %64, label %.thread20, label %65
 
 65:                                               ; preds = %60
-  %66 = getelementptr inbounds i8, ptr %18, i64 352
+  %66 = getelementptr inbounds nuw i8, ptr %18, i64 352
   %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds i8, ptr %67, i64 200
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 200
   %69 = load i16, ptr %68, align 8
   %70 = and i16 %69, 2
   %71 = icmp eq i16 %70, 0
   %72 = select i1 %71, i16 0, i16 292
-  %73 = getelementptr inbounds i8, ptr %67, i64 24
+  %73 = getelementptr inbounds nuw i8, ptr %67, i64 24
   %74 = load ptr, ptr %73, align 8
   %75 = icmp eq ptr %74, null
   %76 = select i1 %75, i16 0, i16 128
@@ -2404,14 +2404,14 @@ define internal zeroext range(i16 0, 512) i16 @target_attribute_is_visible(ptr n
   br i1 %83, label %.thread20, label %84
 
 84:                                               ; preds = %79
-  %85 = getelementptr inbounds i8, ptr %18, i64 352
+  %85 = getelementptr inbounds nuw i8, ptr %18, i64 352
   %86 = load ptr, ptr %85, align 8
-  %87 = getelementptr inbounds i8, ptr %86, i64 200
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 200
   %88 = load i16, ptr %87, align 8
   %89 = and i16 %88, 2
   %90 = icmp eq i16 %89, 0
   %91 = select i1 %90, i16 0, i16 292
-  %92 = getelementptr inbounds i8, ptr %86, i64 24
+  %92 = getelementptr inbounds nuw i8, ptr %86, i64 24
   %93 = load ptr, ptr %92, align 8
   %94 = icmp eq ptr %93, null
   %95 = select i1 %94, i16 0, i16 128
@@ -2430,14 +2430,14 @@ define internal zeroext range(i16 0, 512) i16 @target_attribute_is_visible(ptr n
   br i1 %102, label %.thread20, label %103
 
 103:                                              ; preds = %98
-  %104 = getelementptr inbounds i8, ptr %18, i64 352
+  %104 = getelementptr inbounds nuw i8, ptr %18, i64 352
   %105 = load ptr, ptr %104, align 8
-  %106 = getelementptr inbounds i8, ptr %105, i64 200
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 200
   %107 = load i16, ptr %106, align 8
   %108 = and i16 %107, 4
   %109 = icmp eq i16 %108, 0
   %110 = select i1 %109, i16 0, i16 292
-  %111 = getelementptr inbounds i8, ptr %105, i64 40
+  %111 = getelementptr inbounds nuw i8, ptr %105, i64 40
   %112 = load ptr, ptr %111, align 8
   %113 = icmp eq ptr %112, null
   %114 = select i1 %113, i16 0, i16 128
@@ -2456,14 +2456,14 @@ define internal zeroext range(i16 0, 512) i16 @target_attribute_is_visible(ptr n
   br i1 %121, label %.thread20, label %122
 
 122:                                              ; preds = %117
-  %123 = getelementptr inbounds i8, ptr %18, i64 352
+  %123 = getelementptr inbounds nuw i8, ptr %18, i64 352
   %124 = load ptr, ptr %123, align 8
-  %125 = getelementptr inbounds i8, ptr %124, i64 200
+  %125 = getelementptr inbounds nuw i8, ptr %124, i64 200
   %126 = load i16, ptr %125, align 8
   %127 = and i16 %126, 4
   %128 = icmp eq i16 %127, 0
   %129 = select i1 %128, i16 0, i16 292
-  %130 = getelementptr inbounds i8, ptr %124, i64 40
+  %130 = getelementptr inbounds nuw i8, ptr %124, i64 40
   %131 = load ptr, ptr %130, align 8
   %132 = icmp eq ptr %131, null
   %133 = select i1 %132, i16 0, i16 128
@@ -2481,14 +2481,14 @@ define internal zeroext range(i16 0, 512) i16 @target_attribute_is_visible(ptr n
   br i1 %139, label %.thread20, label %140
 
 140:                                              ; preds = %136
-  %141 = getelementptr inbounds i8, ptr %18, i64 352
+  %141 = getelementptr inbounds nuw i8, ptr %18, i64 352
   %142 = load ptr, ptr %141, align 8
-  %143 = getelementptr inbounds i8, ptr %142, i64 200
+  %143 = getelementptr inbounds nuw i8, ptr %142, i64 200
   %144 = load i16, ptr %143, align 8
   %145 = and i16 %144, 8
   %146 = icmp eq i16 %145, 0
   %147 = select i1 %146, i16 0, i16 292
-  %148 = getelementptr inbounds i8, ptr %142, i64 56
+  %148 = getelementptr inbounds nuw i8, ptr %142, i64 56
   %149 = load ptr, ptr %148, align 8
   %150 = icmp eq ptr %149, null
   %151 = select i1 %150, i16 0, i16 128
@@ -2506,14 +2506,14 @@ define internal zeroext range(i16 0, 512) i16 @target_attribute_is_visible(ptr n
   br i1 %157, label %.thread20, label %158
 
 158:                                              ; preds = %154
-  %159 = getelementptr inbounds i8, ptr %18, i64 352
+  %159 = getelementptr inbounds nuw i8, ptr %18, i64 352
   %160 = load ptr, ptr %159, align 8
-  %161 = getelementptr inbounds i8, ptr %160, i64 200
+  %161 = getelementptr inbounds nuw i8, ptr %160, i64 200
   %162 = load i16, ptr %161, align 8
   %163 = and i16 %162, 8
   %164 = icmp eq i16 %163, 0
   %165 = select i1 %164, i16 0, i16 292
-  %166 = getelementptr inbounds i8, ptr %160, i64 56
+  %166 = getelementptr inbounds nuw i8, ptr %160, i64 56
   %167 = load ptr, ptr %166, align 8
   %168 = icmp eq ptr %167, null
   %169 = select i1 %168, i16 0, i16 128
@@ -2532,14 +2532,14 @@ define internal zeroext range(i16 0, 512) i16 @target_attribute_is_visible(ptr n
   br i1 %176, label %.thread20, label %177
 
 177:                                              ; preds = %172
-  %178 = getelementptr inbounds i8, ptr %18, i64 352
+  %178 = getelementptr inbounds nuw i8, ptr %18, i64 352
   %179 = load ptr, ptr %178, align 8
-  %180 = getelementptr inbounds i8, ptr %179, i64 200
+  %180 = getelementptr inbounds nuw i8, ptr %179, i64 200
   %181 = load i16, ptr %180, align 8
   %182 = and i16 %181, 16
   %183 = icmp eq i16 %182, 0
   %184 = select i1 %183, i16 0, i16 292
-  %185 = getelementptr inbounds i8, ptr %179, i64 72
+  %185 = getelementptr inbounds nuw i8, ptr %179, i64 72
   %186 = load ptr, ptr %185, align 8
   %187 = icmp eq ptr %186, null
   %188 = select i1 %187, i16 0, i16 128
@@ -2557,14 +2557,14 @@ define internal zeroext range(i16 0, 512) i16 @target_attribute_is_visible(ptr n
   br i1 %194, label %.thread20, label %195
 
 195:                                              ; preds = %191
-  %196 = getelementptr inbounds i8, ptr %18, i64 352
+  %196 = getelementptr inbounds nuw i8, ptr %18, i64 352
   %197 = load ptr, ptr %196, align 8
-  %198 = getelementptr inbounds i8, ptr %197, i64 200
+  %198 = getelementptr inbounds nuw i8, ptr %197, i64 200
   %199 = load i16, ptr %198, align 8
   %200 = and i16 %199, 32
   %201 = icmp eq i16 %200, 0
   %202 = select i1 %201, i16 0, i16 292
-  %203 = getelementptr inbounds i8, ptr %197, i64 88
+  %203 = getelementptr inbounds nuw i8, ptr %197, i64 88
   %204 = load ptr, ptr %203, align 8
   %205 = icmp eq ptr %204, null
   %206 = select i1 %205, i16 0, i16 128
@@ -2582,14 +2582,14 @@ define internal zeroext range(i16 0, 512) i16 @target_attribute_is_visible(ptr n
   br i1 %212, label %.thread20, label %213
 
 213:                                              ; preds = %209
-  %214 = getelementptr inbounds i8, ptr %18, i64 352
+  %214 = getelementptr inbounds nuw i8, ptr %18, i64 352
   %215 = load ptr, ptr %214, align 8
-  %216 = getelementptr inbounds i8, ptr %215, i64 200
+  %216 = getelementptr inbounds nuw i8, ptr %215, i64 200
   %217 = load i16, ptr %216, align 8
   %218 = and i16 %217, 32
   %219 = icmp eq i16 %218, 0
   %220 = select i1 %219, i16 0, i16 292
-  %221 = getelementptr inbounds i8, ptr %215, i64 88
+  %221 = getelementptr inbounds nuw i8, ptr %215, i64 88
   %222 = load ptr, ptr %221, align 8
   %223 = icmp eq ptr %222, null
   %224 = select i1 %223, i16 0, i16 128
@@ -2607,14 +2607,14 @@ define internal zeroext range(i16 0, 512) i16 @target_attribute_is_visible(ptr n
   br i1 %230, label %.thread20, label %231
 
 231:                                              ; preds = %227
-  %232 = getelementptr inbounds i8, ptr %18, i64 352
+  %232 = getelementptr inbounds nuw i8, ptr %18, i64 352
   %233 = load ptr, ptr %232, align 8
-  %234 = getelementptr inbounds i8, ptr %233, i64 200
+  %234 = getelementptr inbounds nuw i8, ptr %233, i64 200
   %235 = load i16, ptr %234, align 8
   %236 = and i16 %235, 64
   %237 = icmp eq i16 %236, 0
   %238 = select i1 %237, i16 0, i16 292
-  %239 = getelementptr inbounds i8, ptr %233, i64 104
+  %239 = getelementptr inbounds nuw i8, ptr %233, i64 104
   %240 = load ptr, ptr %239, align 8
   %241 = icmp eq ptr %240, null
   %242 = select i1 %241, i16 0, i16 128
@@ -2632,14 +2632,14 @@ define internal zeroext range(i16 0, 512) i16 @target_attribute_is_visible(ptr n
   br i1 %248, label %.thread20, label %249
 
 249:                                              ; preds = %245
-  %250 = getelementptr inbounds i8, ptr %18, i64 352
+  %250 = getelementptr inbounds nuw i8, ptr %18, i64 352
   %251 = load ptr, ptr %250, align 8
-  %252 = getelementptr inbounds i8, ptr %251, i64 200
+  %252 = getelementptr inbounds nuw i8, ptr %251, i64 200
   %253 = load i16, ptr %252, align 8
   %254 = and i16 %253, 128
   %255 = icmp eq i16 %254, 0
   %256 = select i1 %255, i16 0, i16 292
-  %257 = getelementptr inbounds i8, ptr %251, i64 120
+  %257 = getelementptr inbounds nuw i8, ptr %251, i64 120
   %258 = load ptr, ptr %257, align 8
   %259 = icmp eq ptr %258, null
   %260 = select i1 %259, i16 0, i16 128
@@ -2657,14 +2657,14 @@ define internal zeroext range(i16 0, 512) i16 @target_attribute_is_visible(ptr n
   br i1 %266, label %.thread20, label %267
 
 267:                                              ; preds = %263
-  %268 = getelementptr inbounds i8, ptr %18, i64 352
+  %268 = getelementptr inbounds nuw i8, ptr %18, i64 352
   %269 = load ptr, ptr %268, align 8
-  %270 = getelementptr inbounds i8, ptr %269, i64 200
+  %270 = getelementptr inbounds nuw i8, ptr %269, i64 200
   %271 = load i16, ptr %270, align 8
   %272 = and i16 %271, 256
   %273 = icmp eq i16 %272, 0
   %274 = select i1 %273, i16 0, i16 292
-  %275 = getelementptr inbounds i8, ptr %269, i64 136
+  %275 = getelementptr inbounds nuw i8, ptr %269, i64 136
   %276 = load ptr, ptr %275, align 8
   %277 = icmp eq ptr %276, null
   %278 = select i1 %277, i16 0, i16 128
@@ -2682,14 +2682,14 @@ define internal zeroext range(i16 0, 512) i16 @target_attribute_is_visible(ptr n
   br i1 %284, label %.thread20, label %285
 
 285:                                              ; preds = %281
-  %286 = getelementptr inbounds i8, ptr %18, i64 352
+  %286 = getelementptr inbounds nuw i8, ptr %18, i64 352
   %287 = load ptr, ptr %286, align 8
-  %288 = getelementptr inbounds i8, ptr %287, i64 200
+  %288 = getelementptr inbounds nuw i8, ptr %287, i64 200
   %289 = load i16, ptr %288, align 8
   %290 = and i16 %289, 512
   %291 = icmp eq i16 %290, 0
   %292 = select i1 %291, i16 0, i16 292
-  %293 = getelementptr inbounds i8, ptr %287, i64 152
+  %293 = getelementptr inbounds nuw i8, ptr %287, i64 152
   %294 = load ptr, ptr %293, align 8
   %295 = icmp eq ptr %294, null
   %296 = select i1 %295, i16 0, i16 128
@@ -2707,14 +2707,14 @@ define internal zeroext range(i16 0, 512) i16 @target_attribute_is_visible(ptr n
   br i1 %302, label %.thread20, label %303
 
 303:                                              ; preds = %299
-  %304 = getelementptr inbounds i8, ptr %18, i64 352
+  %304 = getelementptr inbounds nuw i8, ptr %18, i64 352
   %305 = load ptr, ptr %304, align 8
-  %306 = getelementptr inbounds i8, ptr %305, i64 200
+  %306 = getelementptr inbounds nuw i8, ptr %305, i64 200
   %307 = load i16, ptr %306, align 8
   %308 = and i16 %307, 1024
   %309 = icmp eq i16 %308, 0
   %310 = select i1 %309, i16 0, i16 292
-  %311 = getelementptr inbounds i8, ptr %305, i64 168
+  %311 = getelementptr inbounds nuw i8, ptr %305, i64 168
   %312 = load ptr, ptr %311, align 8
   %313 = icmp eq ptr %312, null
   %314 = select i1 %313, i16 0, i16 128
@@ -2736,9 +2736,9 @@ declare dso_local i32 @scsi_is_host_device(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i64 -2147483648, 2147483648) i64 @show_spi_transport_period(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %7 = load ptr, ptr %6, align 8
   br label %8
 
@@ -2749,7 +2749,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @show_spi_transport_perio
   br i1 %11, label %12, label %16
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %9, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 64
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %.loopexit, label %8, !llvm.loop !15
@@ -2760,9 +2760,9 @@ define internal range(i64 -2147483648, 2147483648) i64 @show_spi_transport_perio
 
 .loopexit:                                        ; preds = %12, %16
   %18 = phi ptr [ %17, %16 ], [ null, %12 ]
-  %19 = getelementptr inbounds i8, ptr %18, i64 176
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 176
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 352
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 352
   %22 = load ptr, ptr %21, align 8
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, null
@@ -2849,10 +2849,10 @@ define internal range(i64 -2147483648, 2147483648) i64 @show_spi_transport_perio
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i64 -2147483648, 2147483648) i64 @store_spi_transport_period(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2, i64 noundef %3) #0 align 16 {
   %5 = alloca ptr, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr i8, ptr %7, i64 -40
-  %9 = getelementptr inbounds i8, ptr %7, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %10 = load ptr, ptr %9, align 8
   br label %11
 
@@ -2863,7 +2863,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @store_spi_transport_peri
   br i1 %14, label %15, label %19
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %12, i64 64
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 64
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, null
   br i1 %18, label %.loopexit5, label %11, !llvm.loop !15
@@ -2874,11 +2874,11 @@ define internal range(i64 -2147483648, 2147483648) i64 @store_spi_transport_peri
 
 .loopexit5:                                       ; preds = %15, %19
   %21 = phi ptr [ %20, %19 ], [ null, %15 ]
-  %22 = getelementptr inbounds i8, ptr %21, i64 176
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 176
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 352
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 352
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, null
   br i1 %28, label %74, label %29
@@ -2948,7 +2948,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @store_spi_transport_peri
   %67 = load i32, ptr %66, align 4
   %68 = call i32 @llvm.smax.i32(i32 %65, i32 %67)
   %69 = load ptr, ptr %24, align 8
-  %70 = getelementptr inbounds i8, ptr %69, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %71 = load ptr, ptr %70, align 8
   call void %71(ptr noundef %8, i32 noundef %68) #17
   %72 = shl i64 %3, 32
@@ -2965,9 +2965,9 @@ declare dso_local i64 @simple_strtoul(ptr noundef, ptr noundef, i32 noundef) loc
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i64 -2147483648, 2147483648) i64 @show_spi_transport_min_period(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %7 = load ptr, ptr %6, align 8
   br label %8
 
@@ -2978,7 +2978,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @show_spi_transport_min_p
   br i1 %11, label %12, label %16
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %9, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 64
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %.loopexit, label %8, !llvm.loop !15
@@ -2989,11 +2989,11 @@ define internal range(i64 -2147483648, 2147483648) i64 @show_spi_transport_min_p
 
 .loopexit:                                        ; preds = %12, %16
   %18 = phi ptr [ %17, %16 ], [ null, %12 ]
-  %19 = getelementptr inbounds i8, ptr %18, i64 176
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 176
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 352
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 352
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load ptr, ptr %23, align 8
   %25 = icmp eq ptr %24, null
   br i1 %25, label %71, label %26
@@ -3078,7 +3078,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @show_spi_transport_min_p
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i64 @store_spi_transport_min_period(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2, i64 noundef returned %3) #0 align 16 {
   %5 = alloca ptr, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %7 = load ptr, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #17
   store ptr null, ptr %5, align 8, !annotation !8
@@ -3147,9 +3147,9 @@ define internal noundef i64 @store_spi_transport_min_period(ptr nocapture nounde
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_transport_offset(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %7 = load ptr, ptr %6, align 8
   br label %8
 
@@ -3160,7 +3160,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_transpo
   br i1 %11, label %12, label %16
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %9, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 64
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %.loopexit, label %8, !llvm.loop !15
@@ -3171,11 +3171,11 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_transpo
 
 .loopexit:                                        ; preds = %12, %16
   %18 = phi ptr [ %17, %16 ], [ null, %12 ]
-  %19 = getelementptr inbounds i8, ptr %18, i64 176
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 176
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 352
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 352
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %24 = load ptr, ptr %23, align 8
   %25 = icmp eq ptr %24, null
   br i1 %25, label %28, label %26
@@ -3195,10 +3195,10 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_transpo
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i64 @store_spi_transport_offset(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2, i64 noundef %3) #0 align 16 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr i8, ptr %6, i64 -40
-  %8 = getelementptr inbounds i8, ptr %6, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %9 = load ptr, ptr %8, align 8
   br label %10
 
@@ -3209,7 +3209,7 @@ define internal noundef i64 @store_spi_transport_offset(ptr nocapture noundef re
   br i1 %13, label %14, label %18
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %11, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 64
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
   br i1 %17, label %.loopexit, label %10, !llvm.loop !15
@@ -3220,11 +3220,11 @@ define internal noundef i64 @store_spi_transport_offset(ptr nocapture noundef re
 
 .loopexit:                                        ; preds = %14, %18
   %20 = phi ptr [ %19, %18 ], [ null, %14 ]
-  %21 = getelementptr inbounds i8, ptr %20, i64 176
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 176
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 352
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 352
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, null
   br i1 %27, label %37, label %28
@@ -3236,7 +3236,7 @@ define internal noundef i64 @store_spi_transport_offset(ptr nocapture noundef re
   %32 = load i32, ptr %31, align 4
   %33 = tail call i32 @llvm.smin.i32(i32 %32, i32 %30)
   %34 = load ptr, ptr %23, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 24
   %36 = load ptr, ptr %35, align 8
   tail call void %36(ptr noundef %7, i32 noundef %33) #17
   br label %37
@@ -3251,7 +3251,7 @@ declare dso_local noundef i32 @snprintf(ptr noalias nocapture noundef writeonly,
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
 define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_transport_max_offset(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #11 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %5, i64 788
   %7 = load i32, ptr %6, align 4
@@ -3262,7 +3262,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_transpo
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i64 @store_spi_transport_max_offset(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2, i64 noundef returned %3) #0 align 16 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i64 @simple_strtoul(ptr noundef %2, ptr noundef null, i32 noundef 0) #17
   %8 = trunc i64 %7 to i32
@@ -3273,9 +3273,9 @@ define internal noundef i64 @store_spi_transport_max_offset(ptr nocapture nounde
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_transport_width(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %7 = load ptr, ptr %6, align 8
   br label %8
 
@@ -3286,7 +3286,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_transpo
   br i1 %11, label %12, label %16
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %9, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 64
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %.loopexit, label %8, !llvm.loop !15
@@ -3297,11 +3297,11 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_transpo
 
 .loopexit:                                        ; preds = %12, %16
   %18 = phi ptr [ %17, %16 ], [ null, %12 ]
-  %19 = getelementptr inbounds i8, ptr %18, i64 176
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 176
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 352
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 352
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %24 = load ptr, ptr %23, align 8
   %25 = icmp eq ptr %24, null
   br i1 %25, label %28, label %26
@@ -3323,10 +3323,10 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_transpo
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i64 @store_spi_transport_width(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2, i64 noundef %3) #0 align 16 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr i8, ptr %6, i64 -40
-  %8 = getelementptr inbounds i8, ptr %6, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %9 = load ptr, ptr %8, align 8
   br label %10
 
@@ -3337,7 +3337,7 @@ define internal noundef i64 @store_spi_transport_width(ptr nocapture noundef rea
   br i1 %13, label %14, label %18
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %11, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 64
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
   br i1 %17, label %.loopexit, label %10, !llvm.loop !15
@@ -3348,11 +3348,11 @@ define internal noundef i64 @store_spi_transport_width(ptr nocapture noundef rea
 
 .loopexit:                                        ; preds = %14, %18
   %20 = phi ptr [ %19, %18 ], [ null, %14 ]
-  %21 = getelementptr inbounds i8, ptr %20, i64 176
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 176
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 352
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 352
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 40
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, null
   br i1 %27, label %40, label %28
@@ -3367,7 +3367,7 @@ define internal noundef i64 @store_spi_transport_width(ptr nocapture noundef rea
   %35 = zext nneg i16 %34 to i32
   %36 = tail call i32 @llvm.smin.i32(i32 %30, i32 %35)
   %37 = load ptr, ptr %23, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 40
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 40
   %39 = load ptr, ptr %38, align 8
   tail call void %39(ptr noundef %7, i32 noundef %36) #17
   br label %40
@@ -3379,7 +3379,7 @@ define internal noundef i64 @store_spi_transport_width(ptr nocapture noundef rea
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
 define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_transport_max_width(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #11 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %5, i64 792
   %7 = load i16, ptr %6, align 8
@@ -3393,7 +3393,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_transpo
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i64 @store_spi_transport_max_width(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2, i64 noundef returned %3) #0 align 16 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i64 @simple_strtoul(ptr noundef %2, ptr noundef null, i32 noundef 0) #17
   %8 = getelementptr i8, ptr %6, i64 792
@@ -3409,9 +3409,9 @@ define internal noundef i64 @store_spi_transport_max_width(ptr nocapture noundef
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_transport_iu(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %7 = load ptr, ptr %6, align 8
   br label %8
 
@@ -3422,7 +3422,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_transpo
   br i1 %11, label %12, label %16
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %9, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 64
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %.loopexit, label %8, !llvm.loop !15
@@ -3433,11 +3433,11 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_transpo
 
 .loopexit:                                        ; preds = %12, %16
   %18 = phi ptr [ %17, %16 ], [ null, %12 ]
-  %19 = getelementptr inbounds i8, ptr %18, i64 176
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 176
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 352
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 352
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 48
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 48
   %24 = load ptr, ptr %23, align 8
   %25 = icmp eq ptr %24, null
   br i1 %25, label %28, label %26
@@ -3460,10 +3460,10 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_transpo
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i64 @store_spi_transport_iu(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2, i64 noundef %3) #0 align 16 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr i8, ptr %6, i64 -40
-  %8 = getelementptr inbounds i8, ptr %6, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %9 = load ptr, ptr %8, align 8
   br label %10
 
@@ -3474,7 +3474,7 @@ define internal noundef i64 @store_spi_transport_iu(ptr nocapture noundef readon
   br i1 %13, label %14, label %18
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %11, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 64
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
   br i1 %17, label %.loopexit, label %10, !llvm.loop !15
@@ -3485,11 +3485,11 @@ define internal noundef i64 @store_spi_transport_iu(ptr nocapture noundef readon
 
 .loopexit:                                        ; preds = %14, %18
   %20 = phi ptr [ %19, %18 ], [ null, %14 ]
-  %21 = getelementptr inbounds i8, ptr %20, i64 176
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 176
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 352
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 352
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 56
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 56
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, null
   br i1 %27, label %40, label %28
@@ -3504,7 +3504,7 @@ define internal noundef i64 @store_spi_transport_iu(ptr nocapture noundef readon
   %35 = zext nneg i16 %34 to i32
   %36 = tail call i32 @llvm.smin.i32(i32 %30, i32 %35)
   %37 = load ptr, ptr %23, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 56
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 56
   %39 = load ptr, ptr %38, align 8
   tail call void %39(ptr noundef %7, i32 noundef %36) #17
   br label %40
@@ -3516,7 +3516,7 @@ define internal noundef i64 @store_spi_transport_iu(ptr nocapture noundef readon
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
 define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_transport_max_iu(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #11 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %5, i64 792
   %7 = load i16, ptr %6, align 8
@@ -3530,7 +3530,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_transpo
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i64 @store_spi_transport_max_iu(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2, i64 noundef returned %3) #0 align 16 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i64 @simple_strtoul(ptr noundef %2, ptr noundef null, i32 noundef 0) #17
   %8 = getelementptr i8, ptr %6, i64 792
@@ -3546,9 +3546,9 @@ define internal noundef i64 @store_spi_transport_max_iu(ptr nocapture noundef re
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_transport_dt(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %7 = load ptr, ptr %6, align 8
   br label %8
 
@@ -3559,7 +3559,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_transpo
   br i1 %11, label %12, label %16
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %9, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 64
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %.loopexit, label %8, !llvm.loop !15
@@ -3570,11 +3570,11 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_transpo
 
 .loopexit:                                        ; preds = %12, %16
   %18 = phi ptr [ %17, %16 ], [ null, %12 ]
-  %19 = getelementptr inbounds i8, ptr %18, i64 176
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 176
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 352
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 352
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 64
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 64
   %24 = load ptr, ptr %23, align 8
   %25 = icmp eq ptr %24, null
   br i1 %25, label %28, label %26
@@ -3597,9 +3597,9 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_transpo
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i64 @store_spi_transport_dt(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2, i64 noundef %3) #0 align 16 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %8 = load ptr, ptr %7, align 8
   br label %9
 
@@ -3610,7 +3610,7 @@ define internal noundef i64 @store_spi_transport_dt(ptr nocapture noundef readon
   br i1 %12, label %13, label %17
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %10, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 64
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %.loopexit, label %9, !llvm.loop !15
@@ -3621,11 +3621,11 @@ define internal noundef i64 @store_spi_transport_dt(ptr nocapture noundef readon
 
 .loopexit:                                        ; preds = %13, %17
   %19 = phi ptr [ %18, %17 ], [ null, %13 ]
-  %20 = getelementptr inbounds i8, ptr %19, i64 176
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 176
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 352
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 352
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 72
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 72
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, null
   br i1 %26, label %34, label %27
@@ -3635,7 +3635,7 @@ define internal noundef i64 @store_spi_transport_dt(ptr nocapture noundef readon
   %29 = tail call i64 @simple_strtoul(ptr noundef %2, ptr noundef null, i32 noundef 0) #17
   %30 = trunc i64 %29 to i32
   %31 = load ptr, ptr %22, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 72
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 72
   %33 = load ptr, ptr %32, align 8
   tail call void %33(ptr noundef %28, i32 noundef %30) #17
   br label %34
@@ -3647,9 +3647,9 @@ define internal noundef i64 @store_spi_transport_dt(ptr nocapture noundef readon
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_transport_qas(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %7 = load ptr, ptr %6, align 8
   br label %8
 
@@ -3660,7 +3660,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_transpo
   br i1 %11, label %12, label %16
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %9, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 64
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %.loopexit, label %8, !llvm.loop !15
@@ -3671,11 +3671,11 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_transpo
 
 .loopexit:                                        ; preds = %12, %16
   %18 = phi ptr [ %17, %16 ], [ null, %12 ]
-  %19 = getelementptr inbounds i8, ptr %18, i64 176
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 176
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 352
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 352
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 80
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 80
   %24 = load ptr, ptr %23, align 8
   %25 = icmp eq ptr %24, null
   br i1 %25, label %28, label %26
@@ -3698,10 +3698,10 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_transpo
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i64 @store_spi_transport_qas(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2, i64 noundef %3) #0 align 16 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr i8, ptr %6, i64 -40
-  %8 = getelementptr inbounds i8, ptr %6, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %9 = load ptr, ptr %8, align 8
   br label %10
 
@@ -3712,7 +3712,7 @@ define internal noundef i64 @store_spi_transport_qas(ptr nocapture noundef reado
   br i1 %13, label %14, label %18
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %11, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 64
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
   br i1 %17, label %.loopexit, label %10, !llvm.loop !15
@@ -3723,11 +3723,11 @@ define internal noundef i64 @store_spi_transport_qas(ptr nocapture noundef reado
 
 .loopexit:                                        ; preds = %14, %18
   %20 = phi ptr [ %19, %18 ], [ null, %14 ]
-  %21 = getelementptr inbounds i8, ptr %20, i64 176
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 176
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 352
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 352
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 88
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 88
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, null
   br i1 %27, label %40, label %28
@@ -3742,7 +3742,7 @@ define internal noundef i64 @store_spi_transport_qas(ptr nocapture noundef reado
   %35 = zext nneg i16 %34 to i32
   %36 = tail call i32 @llvm.smin.i32(i32 %30, i32 %35)
   %37 = load ptr, ptr %23, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 88
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 88
   %39 = load ptr, ptr %38, align 8
   tail call void %39(ptr noundef %7, i32 noundef %36) #17
   br label %40
@@ -3754,7 +3754,7 @@ define internal noundef i64 @store_spi_transport_qas(ptr nocapture noundef reado
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
 define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_transport_max_qas(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #11 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %5, i64 792
   %7 = load i16, ptr %6, align 8
@@ -3768,7 +3768,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_transpo
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i64 @store_spi_transport_max_qas(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2, i64 noundef returned %3) #0 align 16 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i64 @simple_strtoul(ptr noundef %2, ptr noundef null, i32 noundef 0) #17
   %8 = getelementptr i8, ptr %6, i64 792
@@ -3784,9 +3784,9 @@ define internal noundef i64 @store_spi_transport_max_qas(ptr nocapture noundef r
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_transport_wr_flow(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %7 = load ptr, ptr %6, align 8
   br label %8
 
@@ -3797,7 +3797,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_transpo
   br i1 %11, label %12, label %16
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %9, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 64
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %.loopexit, label %8, !llvm.loop !15
@@ -3808,11 +3808,11 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_transpo
 
 .loopexit:                                        ; preds = %12, %16
   %18 = phi ptr [ %17, %16 ], [ null, %12 ]
-  %19 = getelementptr inbounds i8, ptr %18, i64 176
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 176
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 352
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 352
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 96
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 96
   %24 = load ptr, ptr %23, align 8
   %25 = icmp eq ptr %24, null
   br i1 %25, label %28, label %26
@@ -3835,9 +3835,9 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_transpo
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i64 @store_spi_transport_wr_flow(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2, i64 noundef %3) #0 align 16 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %8 = load ptr, ptr %7, align 8
   br label %9
 
@@ -3848,7 +3848,7 @@ define internal noundef i64 @store_spi_transport_wr_flow(ptr nocapture noundef r
   br i1 %12, label %13, label %17
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %10, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 64
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %.loopexit, label %9, !llvm.loop !15
@@ -3859,11 +3859,11 @@ define internal noundef i64 @store_spi_transport_wr_flow(ptr nocapture noundef r
 
 .loopexit:                                        ; preds = %13, %17
   %19 = phi ptr [ %18, %17 ], [ null, %13 ]
-  %20 = getelementptr inbounds i8, ptr %19, i64 176
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 176
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 352
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 352
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 104
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 104
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, null
   br i1 %26, label %34, label %27
@@ -3873,7 +3873,7 @@ define internal noundef i64 @store_spi_transport_wr_flow(ptr nocapture noundef r
   %29 = tail call i64 @simple_strtoul(ptr noundef %2, ptr noundef null, i32 noundef 0) #17
   %30 = trunc i64 %29 to i32
   %31 = load ptr, ptr %22, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 104
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 104
   %33 = load ptr, ptr %32, align 8
   tail call void %33(ptr noundef %28, i32 noundef %30) #17
   br label %34
@@ -3885,9 +3885,9 @@ define internal noundef i64 @store_spi_transport_wr_flow(ptr nocapture noundef r
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_transport_rd_strm(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %7 = load ptr, ptr %6, align 8
   br label %8
 
@@ -3898,7 +3898,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_transpo
   br i1 %11, label %12, label %16
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %9, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 64
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %.loopexit, label %8, !llvm.loop !15
@@ -3909,11 +3909,11 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_transpo
 
 .loopexit:                                        ; preds = %12, %16
   %18 = phi ptr [ %17, %16 ], [ null, %12 ]
-  %19 = getelementptr inbounds i8, ptr %18, i64 176
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 176
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 352
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 352
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 112
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 112
   %24 = load ptr, ptr %23, align 8
   %25 = icmp eq ptr %24, null
   br i1 %25, label %28, label %26
@@ -3936,9 +3936,9 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_transpo
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i64 @store_spi_transport_rd_strm(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2, i64 noundef %3) #0 align 16 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %8 = load ptr, ptr %7, align 8
   br label %9
 
@@ -3949,7 +3949,7 @@ define internal noundef i64 @store_spi_transport_rd_strm(ptr nocapture noundef r
   br i1 %12, label %13, label %17
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %10, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 64
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %.loopexit, label %9, !llvm.loop !15
@@ -3960,11 +3960,11 @@ define internal noundef i64 @store_spi_transport_rd_strm(ptr nocapture noundef r
 
 .loopexit:                                        ; preds = %13, %17
   %19 = phi ptr [ %18, %17 ], [ null, %13 ]
-  %20 = getelementptr inbounds i8, ptr %19, i64 176
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 176
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 352
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 352
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 120
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 120
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, null
   br i1 %26, label %34, label %27
@@ -3974,7 +3974,7 @@ define internal noundef i64 @store_spi_transport_rd_strm(ptr nocapture noundef r
   %29 = tail call i64 @simple_strtoul(ptr noundef %2, ptr noundef null, i32 noundef 0) #17
   %30 = trunc i64 %29 to i32
   %31 = load ptr, ptr %22, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 120
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 120
   %33 = load ptr, ptr %32, align 8
   tail call void %33(ptr noundef %28, i32 noundef %30) #17
   br label %34
@@ -3986,9 +3986,9 @@ define internal noundef i64 @store_spi_transport_rd_strm(ptr nocapture noundef r
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_transport_rti(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %7 = load ptr, ptr %6, align 8
   br label %8
 
@@ -3999,7 +3999,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_transpo
   br i1 %11, label %12, label %16
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %9, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 64
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %.loopexit, label %8, !llvm.loop !15
@@ -4010,11 +4010,11 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_transpo
 
 .loopexit:                                        ; preds = %12, %16
   %18 = phi ptr [ %17, %16 ], [ null, %12 ]
-  %19 = getelementptr inbounds i8, ptr %18, i64 176
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 176
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 352
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 352
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 128
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 128
   %24 = load ptr, ptr %23, align 8
   %25 = icmp eq ptr %24, null
   br i1 %25, label %28, label %26
@@ -4037,9 +4037,9 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_transpo
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i64 @store_spi_transport_rti(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2, i64 noundef %3) #0 align 16 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %8 = load ptr, ptr %7, align 8
   br label %9
 
@@ -4050,7 +4050,7 @@ define internal noundef i64 @store_spi_transport_rti(ptr nocapture noundef reado
   br i1 %12, label %13, label %17
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %10, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 64
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %.loopexit, label %9, !llvm.loop !15
@@ -4061,11 +4061,11 @@ define internal noundef i64 @store_spi_transport_rti(ptr nocapture noundef reado
 
 .loopexit:                                        ; preds = %13, %17
   %19 = phi ptr [ %18, %17 ], [ null, %13 ]
-  %20 = getelementptr inbounds i8, ptr %19, i64 176
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 176
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 352
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 352
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 136
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 136
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, null
   br i1 %26, label %34, label %27
@@ -4075,7 +4075,7 @@ define internal noundef i64 @store_spi_transport_rti(ptr nocapture noundef reado
   %29 = tail call i64 @simple_strtoul(ptr noundef %2, ptr noundef null, i32 noundef 0) #17
   %30 = trunc i64 %29 to i32
   %31 = load ptr, ptr %22, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 136
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 136
   %33 = load ptr, ptr %32, align 8
   tail call void %33(ptr noundef %28, i32 noundef %30) #17
   br label %34
@@ -4087,9 +4087,9 @@ define internal noundef i64 @store_spi_transport_rti(ptr nocapture noundef reado
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_transport_pcomp_en(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %7 = load ptr, ptr %6, align 8
   br label %8
 
@@ -4100,7 +4100,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_transpo
   br i1 %11, label %12, label %16
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %9, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 64
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %.loopexit, label %8, !llvm.loop !15
@@ -4111,11 +4111,11 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_transpo
 
 .loopexit:                                        ; preds = %12, %16
   %18 = phi ptr [ %17, %16 ], [ null, %12 ]
-  %19 = getelementptr inbounds i8, ptr %18, i64 176
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 176
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 352
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 352
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 144
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 144
   %24 = load ptr, ptr %23, align 8
   %25 = icmp eq ptr %24, null
   br i1 %25, label %28, label %26
@@ -4138,9 +4138,9 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_transpo
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i64 @store_spi_transport_pcomp_en(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2, i64 noundef %3) #0 align 16 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %8 = load ptr, ptr %7, align 8
   br label %9
 
@@ -4151,7 +4151,7 @@ define internal noundef i64 @store_spi_transport_pcomp_en(ptr nocapture noundef 
   br i1 %12, label %13, label %17
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %10, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 64
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %.loopexit, label %9, !llvm.loop !15
@@ -4162,11 +4162,11 @@ define internal noundef i64 @store_spi_transport_pcomp_en(ptr nocapture noundef 
 
 .loopexit:                                        ; preds = %13, %17
   %19 = phi ptr [ %18, %17 ], [ null, %13 ]
-  %20 = getelementptr inbounds i8, ptr %19, i64 176
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 176
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 352
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 352
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 152
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 152
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, null
   br i1 %26, label %34, label %27
@@ -4176,7 +4176,7 @@ define internal noundef i64 @store_spi_transport_pcomp_en(ptr nocapture noundef 
   %29 = tail call i64 @simple_strtoul(ptr noundef %2, ptr noundef null, i32 noundef 0) #17
   %30 = trunc i64 %29 to i32
   %31 = load ptr, ptr %22, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 152
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 152
   %33 = load ptr, ptr %32, align 8
   tail call void %33(ptr noundef %28, i32 noundef %30) #17
   br label %34
@@ -4188,9 +4188,9 @@ define internal noundef i64 @store_spi_transport_pcomp_en(ptr nocapture noundef 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_transport_hold_mcs(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %7 = load ptr, ptr %6, align 8
   br label %8
 
@@ -4201,7 +4201,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_transpo
   br i1 %11, label %12, label %16
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %9, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 64
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %.loopexit, label %8, !llvm.loop !15
@@ -4212,11 +4212,11 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_transpo
 
 .loopexit:                                        ; preds = %12, %16
   %18 = phi ptr [ %17, %16 ], [ null, %12 ]
-  %19 = getelementptr inbounds i8, ptr %18, i64 176
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 176
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 352
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 352
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 160
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 160
   %24 = load ptr, ptr %23, align 8
   %25 = icmp eq ptr %24, null
   br i1 %25, label %28, label %26
@@ -4239,9 +4239,9 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_transpo
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i64 @store_spi_transport_hold_mcs(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2, i64 noundef %3) #0 align 16 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %8 = load ptr, ptr %7, align 8
   br label %9
 
@@ -4252,7 +4252,7 @@ define internal noundef i64 @store_spi_transport_hold_mcs(ptr nocapture noundef 
   br i1 %12, label %13, label %17
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %10, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 64
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %.loopexit, label %9, !llvm.loop !15
@@ -4263,11 +4263,11 @@ define internal noundef i64 @store_spi_transport_hold_mcs(ptr nocapture noundef 
 
 .loopexit:                                        ; preds = %13, %17
   %19 = phi ptr [ %18, %17 ], [ null, %13 ]
-  %20 = getelementptr inbounds i8, ptr %19, i64 176
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 176
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 352
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 352
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 168
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 168
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, null
   br i1 %26, label %34, label %27
@@ -4277,7 +4277,7 @@ define internal noundef i64 @store_spi_transport_hold_mcs(ptr nocapture noundef 
   %29 = tail call i64 @simple_strtoul(ptr noundef %2, ptr noundef null, i32 noundef 0) #17
   %30 = trunc i64 %29 to i32
   %31 = load ptr, ptr %22, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 168
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 168
   %33 = load ptr, ptr %32, align 8
   tail call void %33(ptr noundef %28, i32 noundef %30) #17
   br label %34
@@ -4289,7 +4289,7 @@ define internal noundef i64 @store_spi_transport_hold_mcs(ptr nocapture noundef 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i64 @store_spi_revalidate(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture readnone %2, i64 noundef returned %3) #0 align 16 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 @device_for_each_child(ptr noundef %6, ptr noundef null, ptr noundef nonnull @child_iter) #17
   ret i64 %3
@@ -4334,7 +4334,7 @@ define internal noundef i32 @spi_host_setup(ptr nocapture readnone %0, ptr nound
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %5, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %.loopexit, label %4, !llvm.loop !15
@@ -4345,7 +4345,7 @@ define internal noundef i32 @spi_host_setup(ptr nocapture readnone %0, ptr nound
 
 .loopexit:                                        ; preds = %8, %12
   %14 = phi ptr [ %13, %12 ], [ null, %8 ]
-  %15 = getelementptr inbounds i8, ptr %14, i64 2048
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 2048
   %16 = load ptr, ptr %15, align 8
   store i32 1, ptr %16, align 4
   ret i32 0
@@ -4353,7 +4353,7 @@ define internal noundef i32 @spi_host_setup(ptr nocapture readnone %0, ptr nound
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @spi_host_configure(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %5 = load ptr, ptr %4, align 8
   br label %6
 
@@ -4364,7 +4364,7 @@ define internal i32 @spi_host_configure(ptr nocapture readnone %0, ptr nocapture
   br i1 %9, label %10, label %14
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %7, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
   br i1 %13, label %.loopexit, label %6, !llvm.loop !15
@@ -4375,11 +4375,11 @@ define internal i32 @spi_host_configure(ptr nocapture readnone %0, ptr nocapture
 
 .loopexit:                                        ; preds = %10, %14
   %16 = phi ptr [ %15, %14 ], [ null, %10 ]
-  %17 = getelementptr inbounds i8, ptr %16, i64 176
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 176
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 352
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 352
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 184
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 184
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, null
   br i1 %23, label %28, label %24
@@ -4400,7 +4400,7 @@ declare dso_local i32 @sysfs_chmod_file(ptr noundef, ptr noundef, i16 noundef ze
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_host_signalling(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
   br label %6
 
@@ -4411,7 +4411,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_host_si
   br i1 %9, label %10, label %14
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %7, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
   br i1 %13, label %.loopexit3, label %6, !llvm.loop !15
@@ -4422,11 +4422,11 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_host_si
 
 .loopexit3:                                       ; preds = %10, %14
   %16 = phi ptr [ %15, %14 ], [ null, %10 ]
-  %17 = getelementptr inbounds i8, ptr %16, i64 176
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 176
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 352
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 352
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 176
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 176
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, null
   br i1 %23, label %25, label %24
@@ -4436,7 +4436,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_host_si
   br label %25
 
 25:                                               ; preds = %24, %.loopexit3
-  %26 = getelementptr inbounds i8, ptr %16, i64 2048
+  %26 = getelementptr inbounds nuw i8, ptr %16, i64 2048
   %27 = load ptr, ptr %26, align 8
   %28 = load i32, ptr %27, align 4
   br label %32
@@ -4454,7 +4454,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_host_si
   br i1 %36, label %37, label %29
 
 37:                                               ; preds = %32
-  %38 = getelementptr inbounds i8, ptr %34, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %39 = load ptr, ptr %38, align 8
   br label %.loopexit
 
@@ -4467,7 +4467,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_host_si
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i64 @store_spi_host_signalling(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2, i64 noundef %3) #0 align 16 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load ptr, ptr %5, align 8
   br label %7
 
@@ -4478,7 +4478,7 @@ define internal noundef i64 @store_spi_host_signalling(ptr nocapture noundef rea
   br i1 %10, label %11, label %15
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %8, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 64
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %.loopexit, label %7, !llvm.loop !15
@@ -4489,14 +4489,14 @@ define internal noundef i64 @store_spi_host_signalling(ptr nocapture noundef rea
 
 .loopexit:                                        ; preds = %11, %15
   %17 = phi ptr [ %16, %15 ], [ null, %11 ]
-  %18 = getelementptr inbounds i8, ptr %17, i64 176
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 176
   %19 = load ptr, ptr %18, align 8
   br label %20
 
 20:                                               ; preds = %33, %.loopexit
   %21 = phi i64 [ 0, %.loopexit ], [ %34, %33 ]
   %22 = getelementptr [4 x %struct.anon.7], ptr @signal_types, i64 0, i64 %21
-  %23 = getelementptr inbounds i8, ptr %22, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load ptr, ptr %23, align 8
   %25 = tail call i64 @strlen(ptr noundef %24) #17
   %26 = shl i64 %25, 32
@@ -4520,17 +4520,17 @@ define internal noundef i64 @store_spi_host_signalling(ptr nocapture noundef rea
 
 36:                                               ; preds = %30, %30
   %37 = load i32, ptr %22, align 16
-  %38 = getelementptr inbounds i8, ptr %19, i64 352
+  %38 = getelementptr inbounds nuw i8, ptr %19, i64 352
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 184
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 184
   %41 = load ptr, ptr %40, align 8
   %42 = icmp eq ptr %41, null
   br i1 %42, label %.thread4, label %48
 
 .thread:                                          ; preds = %33
-  %43 = getelementptr inbounds i8, ptr %19, i64 352
+  %43 = getelementptr inbounds nuw i8, ptr %19, i64 352
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 184
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 184
   %46 = load ptr, ptr %45, align 8
   %47 = icmp eq ptr %46, null
   %spec.select = select i1 %47, i64 -22, i64 %3
@@ -4557,7 +4557,7 @@ declare dso_local i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_host_width(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
   br label %6
 
@@ -4568,7 +4568,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_host_wi
   br i1 %9, label %10, label %14
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %7, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
   br i1 %13, label %.loopexit, label %6, !llvm.loop !15
@@ -4579,7 +4579,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_host_wi
 
 .loopexit:                                        ; preds = %10, %14
   %16 = phi ptr [ %15, %14 ], [ null, %10 ]
-  %17 = getelementptr inbounds i8, ptr %16, i64 428
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 428
   %18 = load i32, ptr %17, align 4
   %19 = icmp eq i32 %18, 16
   %20 = select i1 %19, ptr @.str.118, ptr @.str.119
@@ -4590,7 +4590,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_host_wi
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_host_hba_id(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
   br label %6
 
@@ -4601,7 +4601,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_host_hb
   br i1 %9, label %10, label %14
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %7, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
   br i1 %13, label %.loopexit, label %6, !llvm.loop !15
@@ -4612,7 +4612,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_host_hb
 
 .loopexit:                                        ; preds = %10, %14
   %16 = phi ptr [ %15, %14 ], [ null, %10 ]
-  %17 = getelementptr inbounds i8, ptr %16, i64 448
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 448
   %18 = load i32, ptr %17, align 8
   %19 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %2, ptr noundef nonnull dereferenceable(1) @.str.95, i32 noundef %18) #17
   %20 = sext i32 %19 to i64
@@ -4634,7 +4634,7 @@ define internal noundef i32 @spi_device_configure(ptr nocapture readnone %0, ptr
   %11 = tail call i64 @scsi_get_device_flags_keyed(ptr noundef %4, ptr noundef %9, ptr noundef %10, i32 noundef 1) #17
   %12 = getelementptr i8, ptr %1, i64 -108
   %13 = load i64, ptr %12, align 4
-  %14 = getelementptr inbounds i8, ptr %6, i64 848
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 848
   %15 = lshr i64 %13, 12
   %16 = trunc i64 %15 to i8
   %17 = and i8 %16, 1
@@ -4672,7 +4672,7 @@ define internal noundef i32 @spi_device_configure(ptr nocapture readnone %0, ptr
 
 43:                                               ; preds = %36, %3
   %44 = phi i32 [ %42, %36 ], [ 0, %3 ]
-  %45 = getelementptr inbounds i8, ptr %6, i64 852
+  %45 = getelementptr inbounds nuw i8, ptr %6, i64 852
   store i32 %44, ptr %45, align 4
   %46 = load i8, ptr %33, align 8
   %47 = icmp ult i8 %46, 57
@@ -4688,7 +4688,7 @@ define internal noundef i32 @spi_device_configure(ptr nocapture readnone %0, ptr
 
 54:                                               ; preds = %48, %43
   %55 = phi i32 [ %53, %48 ], [ 0, %43 ]
-  %56 = getelementptr inbounds i8, ptr %6, i64 856
+  %56 = getelementptr inbounds nuw i8, ptr %6, i64 856
   store i32 %55, ptr %56, align 8
   %57 = and i64 %11, 1
   %58 = icmp eq i64 %57, 0
@@ -4714,7 +4714,7 @@ define internal noundef i32 @spi_device_configure(ptr nocapture readnone %0, ptr
 
 69:                                               ; preds = %63, %60
   %70 = phi i32 [ %68, %63 ], [ 0, %60 ]
-  %71 = getelementptr inbounds i8, ptr %6, i64 860
+  %71 = getelementptr inbounds nuw i8, ptr %6, i64 860
   store i32 %70, ptr %71, align 4
   ret i32 0
 }
@@ -4728,21 +4728,21 @@ define internal noundef range(i32 0, 2) i32 @spi_device_match(ptr nocapture read
 5:                                                ; preds = %2
   %6 = getelementptr i8, ptr %1, i64 -440
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 176
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 176
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %27, label %11
 
 11:                                               ; preds = %5
-  %12 = getelementptr inbounds i8, ptr %9, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 56
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, @spi_host_class
   br i1 %14, label %15, label %27
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %9, i64 352
+  %16 = getelementptr inbounds nuw i8, ptr %9, i64 352
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 192
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 192
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
   br i1 %20, label %26, label %21

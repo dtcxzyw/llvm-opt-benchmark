@@ -17,7 +17,7 @@ define range(i32 -1, 27) i32 @lib_checkbase(i32 noundef %0, ptr nocapture nounde
   br i1 %6, label %7, label %25
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %3, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %25 [
     i8 88, label %10
@@ -25,7 +25,7 @@ define range(i32 -1, 27) i32 @lib_checkbase(i32 noundef %0, ptr nocapture nounde
   ]
 
 10:                                               ; preds = %7, %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 2
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 2
   %12 = load i8, ptr %11, align 1
   %13 = sext i8 %12 to i32
   %14 = tail call zeroext i1 @lib_isbasedigit(i32 noundef %13, i32 noundef 16, ptr noundef null) #2
@@ -39,7 +39,7 @@ define range(i32 -1, 27) i32 @lib_checkbase(i32 noundef %0, ptr nocapture nounde
   br i1 %17, label %18, label %25
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %3, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %20 = load i8, ptr %19, align 1
   switch i8 %20, label %25 [
     i8 88, label %21
@@ -47,7 +47,7 @@ define range(i32 -1, 27) i32 @lib_checkbase(i32 noundef %0, ptr nocapture nounde
   ]
 
 21:                                               ; preds = %18, %18
-  %22 = getelementptr inbounds i8, ptr %3, i64 2
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 2
   br label %25
 
 23:                                               ; preds = %2

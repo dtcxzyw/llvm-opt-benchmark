@@ -131,7 +131,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_vp9(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca ptr, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void @col_set_str(ptr noundef %7, i32 noundef 34, ptr noundef nonnull @.str.54) #2
   %8 = load i32, ptr @proto_vp9, align 4
@@ -286,13 +286,13 @@ define internal i32 @dissect_vp9(ptr noundef %0, ptr nocapture noundef readonly 
   br i1 %.not.i, label %proto_item_set_generated.exit, label %100
 
 100:                                              ; preds = %84
-  %101 = getelementptr inbounds i8, ptr %95, i64 32
+  %101 = getelementptr inbounds nuw i8, ptr %95, i64 32
   %102 = load ptr, ptr %101, align 8
   %.not5.i = icmp eq ptr %102, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %103
 
 103:                                              ; preds = %100
-  %104 = getelementptr inbounds i8, ptr %102, i64 28
+  %104 = getelementptr inbounds nuw i8, ptr %102, i64 28
   %105 = load i32, ptr %104, align 4
   %106 = or i32 %105, 2
   store i32 %106, ptr %104, align 4

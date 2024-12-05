@@ -2482,7 +2482,7 @@ define internal fastcc void @dissect_wbxml_common(ptr noundef %0, ptr noundef %1
   br i1 %switch, label %22, label %17
 
 17:                                               ; preds = %4
-  %18 = getelementptr inbounds i8, ptr %1, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %19 = load ptr, ptr %18, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %19, i32 noundef 25, ptr noundef nonnull @.str.154, i32 noundef %16) #4
   %20 = load i32, ptr @proto_wbxml, align 4
@@ -2528,7 +2528,7 @@ define internal fastcc void @dissect_wbxml_common(ptr noundef %0, ptr noundef %1
   %.0100123 = phi i32 [ %36, %37 ], [ %36, %33 ], [ %32, %30 ]
   %.0103122 = phi i32 [ %34, %37 ], [ 0, %33 ], [ 0, %30 ]
   %.0104 = phi i32 [ %38, %37 ], [ 2, %33 ], [ 2, %30 ]
-  %39 = getelementptr inbounds i8, ptr %1, i64 408
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %40 = load ptr, ptr %39, align 8
   %41 = load i32, ptr @proto_wbxml, align 4
   %42 = zext i32 %.0104 to i64
@@ -2557,7 +2557,7 @@ define internal fastcc void @dissect_wbxml_common(ptr noundef %0, ptr noundef %1
 
 59:                                               ; preds = %50, %45
   %.0 = phi ptr [ %49, %45 ], [ %58, %50 ]
-  %60 = getelementptr inbounds i8, ptr %1, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %61 = load ptr, ptr %60, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %61, i32 noundef 25, ptr noundef nonnull @.str.160, ptr noundef %.0) #4
   %62 = load i32, ptr @proto_wbxml, align 4
@@ -2686,13 +2686,13 @@ show_wbxml_string_table.exit:                     ; preds = %.lr.ph.i, %91
   br i1 %132, label %get_wbxml_decoding_from_public_id.exit, label %.preheader.i
 
 get_wbxml_decoding_from_public_id.exit:           ; preds = %.preheader.i.preheader
-  %133 = getelementptr inbounds i8, ptr %.014.i140, i64 8
+  %133 = getelementptr inbounds nuw i8, ptr %.014.i140, i64 8
   %134 = load ptr, ptr %133, align 8
   %.not116 = icmp eq ptr %134, null
   br i1 %.not116, label %get_wbxml_decoding_from_public_id.exit.thread, label %155
 
 get_wbxml_decoding_from_public_id.exit.thread:    ; preds = %.preheader.i, %127, %get_wbxml_decoding_from_public_id.exit
-  %135 = getelementptr inbounds i8, ptr %1, i64 296
+  %135 = getelementptr inbounds nuw i8, ptr %1, i64 296
   %136 = load ptr, ptr %135, align 8
   %.not.i = icmp eq ptr %136, null
   br i1 %.not.i, label %.sink.split, label %137
@@ -2710,7 +2710,7 @@ get_wbxml_decoding_from_public_id.exit.thread:    ; preds = %.preheader.i, %127,
   br i1 %141, label %142, label %.preheader.i118
 
 142:                                              ; preds = %.preheader.i118.preheader
-  %143 = getelementptr inbounds i8, ptr %.023.i141, i64 8
+  %143 = getelementptr inbounds nuw i8, ptr %.023.i141, i64 8
   %144 = load ptr, ptr %143, align 8
   %.not20.i = icmp eq ptr %144, null
   br i1 %.not20.i, label %get_wbxml_decoding_from_content_type.exit, label %145
@@ -2727,7 +2727,7 @@ get_wbxml_decoding_from_public_id.exit.thread:    ; preds = %.preheader.i, %127,
   br i1 %.not19.i, label %.sink.split, label %.preheader.i118.preheader
 
 get_wbxml_decoding_from_content_type.exit:        ; preds = %142, %145
-  %150 = getelementptr inbounds i8, ptr %.023.i141, i64 16
+  %150 = getelementptr inbounds nuw i8, ptr %.023.i141, i64 16
   %151 = load ptr, ptr %150, align 8
   %.not117 = icmp eq ptr %151, null
   br i1 %.not117, label %.sink.split, label %get_wbxml_decoding_from_content_type.exit.thread129
@@ -2803,7 +2803,7 @@ define internal fastcc i32 @parse_wbxml_tag_defined(ptr noundef %0, ptr noundef 
   %12 = tail call i32 @tvb_reported_length(ptr noundef %1) #4
   %13 = load i32, ptr @proto_wbxml, align 4
   %14 = tail call i32 @p_get_proto_depth(ptr noundef %2, i32 noundef %13) #4
-  %15 = getelementptr inbounds i8, ptr %2, i64 408
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %16 = load ptr, ptr %15, align 8
   %17 = load i32, ptr @proto_wbxml, align 4
   %18 = tail call ptr @p_get_proto_data(ptr noundef %16, ptr noundef %2, i32 noundef %17, i32 noundef 0) #4
@@ -2818,7 +2818,7 @@ define internal fastcc i32 @parse_wbxml_tag_defined(ptr noundef %0, ptr noundef 
 
 .lr.ph:                                           ; preds = %.preheader
   %.not = icmp eq ptr %7, null
-  %23 = getelementptr inbounds i8, ptr %7, i64 80
+  %23 = getelementptr inbounds nuw i8, ptr %7, i64 80
   %24 = add nuw nsw i32 %14, 1
   %25 = shl nuw nsw i32 %14, 1
   %narrow = sub nuw nsw i32 512, %25
@@ -2829,10 +2829,10 @@ define internal fastcc i32 @parse_wbxml_tag_defined(ptr noundef %0, ptr noundef 
   %narrow496 = sub nuw nsw i32 512, %29
   %30 = zext nneg i32 %narrow496 to i64
   %31 = getelementptr i8, ptr @indent_buffer, i64 %30
-  %32 = getelementptr inbounds i8, ptr %7, i64 40
-  %33 = getelementptr inbounds i8, ptr %7, i64 48
-  %34 = getelementptr inbounds i8, ptr %7, i64 72
-  %35 = getelementptr inbounds i8, ptr %7, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %7, i64 40
+  %33 = getelementptr inbounds nuw i8, ptr %7, i64 48
+  %34 = getelementptr inbounds nuw i8, ptr %7, i64 72
+  %35 = getelementptr inbounds nuw i8, ptr %7, i64 16
   br label %39
 
 36:                                               ; preds = %8
@@ -2955,7 +2955,7 @@ define internal fastcc i32 @parse_wbxml_tag_defined(ptr noundef %0, ptr noundef 
   br i1 %.not.i, label %map_token.exit, label %104
 
 104:                                              ; preds = %102
-  %105 = getelementptr inbounds i8, ptr %103, i64 8
+  %105 = getelementptr inbounds nuw i8, ptr %103, i64 8
   %106 = load ptr, ptr %105, align 8
   %.not10.i.i = icmp eq ptr %106, null
   br i1 %.not10.i.i, label %map_token.exit, label %.lr.ph.i.preheader.i
@@ -2970,7 +2970,7 @@ define internal fastcc i32 @parse_wbxml_tag_defined(ptr noundef %0, ptr noundef 
   %109 = add i32 %.011.i15.i, 1
   %110 = sext i32 %109 to i64
   %111 = getelementptr %struct._value_valuestring, ptr %103, i64 %110
-  %112 = getelementptr inbounds i8, ptr %111, i64 8
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 8
   %113 = load ptr, ptr %112, align 8
   %.not.i.i = icmp eq ptr %113, null
   br i1 %.not.i.i, label %map_token.exit, label %.lr.ph.i.i, !llvm.loop !6
@@ -3033,7 +3033,7 @@ map_token.exit:                                   ; preds = %.lr.ph.i, %val_to_v
   br i1 %.not.i453, label %map_token.exit465, label %146
 
 146:                                              ; preds = %143
-  %147 = getelementptr inbounds i8, ptr %145, i64 8
+  %147 = getelementptr inbounds nuw i8, ptr %145, i64 8
   %148 = load ptr, ptr %147, align 8
   %.not10.i.i454 = icmp eq ptr %148, null
   br i1 %.not10.i.i454, label %map_token.exit465, label %.lr.ph.i.preheader.i455
@@ -3048,7 +3048,7 @@ map_token.exit:                                   ; preds = %.lr.ph.i, %val_to_v
   %151 = add i32 %.011.i15.i457, 1
   %152 = sext i32 %151 to i64
   %153 = getelementptr %struct._value_valuestring, ptr %145, i64 %152
-  %154 = getelementptr inbounds i8, ptr %153, i64 8
+  %154 = getelementptr inbounds nuw i8, ptr %153, i64 8
   %155 = load ptr, ptr %154, align 8
   %.not.i.i458 = icmp eq ptr %155, null
   br i1 %.not.i.i458, label %map_token.exit465, label %.lr.ph.i.i459, !llvm.loop !6
@@ -3113,7 +3113,7 @@ map_token.exit465:                                ; preds = %.lr.ph.i456, %143, 
   br i1 %.not.i466, label %map_token.exit478, label %190
 
 190:                                              ; preds = %188
-  %191 = getelementptr inbounds i8, ptr %189, i64 8
+  %191 = getelementptr inbounds nuw i8, ptr %189, i64 8
   %192 = load ptr, ptr %191, align 8
   %.not10.i.i467 = icmp eq ptr %192, null
   br i1 %.not10.i.i467, label %map_token.exit478, label %.lr.ph.i.preheader.i468
@@ -3128,7 +3128,7 @@ map_token.exit465:                                ; preds = %.lr.ph.i456, %143, 
   %195 = add i32 %.011.i15.i470, 1
   %196 = sext i32 %195 to i64
   %197 = getelementptr %struct._value_valuestring, ptr %189, i64 %196
-  %198 = getelementptr inbounds i8, ptr %197, i64 8
+  %198 = getelementptr inbounds nuw i8, ptr %197, i64 8
   %199 = load ptr, ptr %198, align 8
   %.not.i.i471 = icmp eq ptr %199, null
   br i1 %.not.i.i471, label %map_token.exit478, label %.lr.ph.i.i472, !llvm.loop !6
@@ -3272,7 +3272,7 @@ map_token.exit478:                                ; preds = %.lr.ph.i469, %val_t
 279:                                              ; preds = %277
   %280 = load i8, ptr %5, align 1
   %281 = zext i8 %280 to i32
-  %282 = getelementptr inbounds i8, ptr %278, i64 8
+  %282 = getelementptr inbounds nuw i8, ptr %278, i64 8
   %283 = load ptr, ptr %282, align 8
   %.not10.i.i480 = icmp eq ptr %283, null
   br i1 %.not10.i.i480, label %map_token.exit491, label %.lr.ph.i.preheader.i481
@@ -3287,7 +3287,7 @@ map_token.exit478:                                ; preds = %.lr.ph.i469, %val_t
   %286 = add i32 %.011.i15.i483, 1
   %287 = sext i32 %286 to i64
   %288 = getelementptr %struct._value_valuestring, ptr %278, i64 %287
-  %289 = getelementptr inbounds i8, ptr %288, i64 8
+  %289 = getelementptr inbounds nuw i8, ptr %288, i64 8
   %290 = load ptr, ptr %289, align 8
   %.not.i.i484 = icmp eq ptr %290, null
   br i1 %.not.i.i484, label %map_token.exit491, label %.lr.ph.i.i485, !llvm.loop !6
@@ -3506,7 +3506,7 @@ define internal noalias ptr @ext_t_2_wml_10(ptr noundef %0, i32 noundef %1, i32 
 ; Function Attrs: nounwind uwtable
 define internal noalias ptr @default_opaque_binary_tag(ptr noundef %0, i32 noundef %1, i8 zeroext %2, i8 zeroext %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = tail call i32 @tvb_get_guintvar(ptr noundef %0, i32 noundef %1, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @ei_wbxml_oversized_uintvar) #4
-  %8 = getelementptr inbounds i8, ptr %5, i64 408
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 408
   %9 = load ptr, ptr %8, align 8
   %10 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %9, ptr noundef nonnull @.str.174, i32 noundef %7) #4
   %11 = load i32, ptr %4, align 4
@@ -3518,7 +3518,7 @@ define internal noalias ptr @default_opaque_binary_tag(ptr noundef %0, i32 nound
 ; Function Attrs: nounwind uwtable
 define internal noalias ptr @default_opaque_literal_tag(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2, i8 zeroext %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = tail call i32 @tvb_get_guintvar(ptr noundef %0, i32 noundef %1, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @ei_wbxml_oversized_uintvar) #4
-  %8 = getelementptr inbounds i8, ptr %5, i64 408
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 408
   %9 = load ptr, ptr %8, align 8
   %10 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %9, ptr noundef nonnull @.str.174, i32 noundef %7) #4
   %11 = load i32, ptr %4, align 4
@@ -3530,7 +3530,7 @@ define internal noalias ptr @default_opaque_literal_tag(ptr noundef %0, i32 noun
 ; Function Attrs: nounwind uwtable
 define internal noalias ptr @default_opaque_binary_attr(ptr noundef %0, i32 noundef %1, i8 zeroext %2, i8 zeroext %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = tail call i32 @tvb_get_guintvar(ptr noundef %0, i32 noundef %1, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @ei_wbxml_oversized_uintvar) #4
-  %8 = getelementptr inbounds i8, ptr %5, i64 408
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 408
   %9 = load ptr, ptr %8, align 8
   %10 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %9, ptr noundef nonnull @.str.174, i32 noundef %7) #4
   %11 = load i32, ptr %4, align 4
@@ -3542,7 +3542,7 @@ define internal noalias ptr @default_opaque_binary_attr(ptr noundef %0, i32 noun
 ; Function Attrs: nounwind uwtable
 define internal noalias ptr @default_opaque_literal_attr(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2, i8 zeroext %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = tail call i32 @tvb_get_guintvar(ptr noundef %0, i32 noundef %1, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @ei_wbxml_oversized_uintvar) #4
-  %8 = getelementptr inbounds i8, ptr %5, i64 408
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 408
   %9 = load ptr, ptr %8, align 8
   %10 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %9, ptr noundef nonnull @.str.174, i32 noundef %7) #4
   %11 = load i32, ptr %4, align 4
@@ -3564,7 +3564,7 @@ define internal noalias ptr @sic10_opaque_binary_attr(ptr noundef %0, i32 nounde
   ]
 
 9:                                                ; preds = %8, %8
-  %10 = getelementptr inbounds i8, ptr %5, i64 408
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 408
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr %4, align 4
   %13 = add i32 %12, %1
@@ -3573,7 +3573,7 @@ define internal noalias ptr @sic10_opaque_binary_attr(ptr noundef %0, i32 nounde
   br i1 %15, label %.thread, label %19
 
 .thread:                                          ; preds = %6, %8, %9
-  %16 = getelementptr inbounds i8, ptr %5, i64 408
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 408
   %17 = load ptr, ptr %16, align 8
   %18 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %17, ptr noundef nonnull @.str.444, i32 noundef %7) #4
   br label %19
@@ -3603,7 +3603,7 @@ define internal noalias ptr @sic10_opaque_literal_attr(ptr noundef %0, i32 nound
   br i1 %13, label %14, label %.thread
 
 14:                                               ; preds = %8, %11
-  %15 = getelementptr inbounds i8, ptr %5, i64 408
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 408
   %16 = load ptr, ptr %15, align 8
   %17 = load i32, ptr %4, align 4
   %18 = add i32 %17, %1
@@ -3612,7 +3612,7 @@ define internal noalias ptr @sic10_opaque_literal_attr(ptr noundef %0, i32 nound
   br i1 %20, label %.thread, label %24
 
 .thread:                                          ; preds = %6, %11, %14
-  %21 = getelementptr inbounds i8, ptr %5, i64 408
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 408
   %22 = load ptr, ptr %21, align 8
   %23 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %22, ptr noundef nonnull @.str.444, i32 noundef %7) #4
   br label %24
@@ -3733,7 +3733,7 @@ define internal noalias ptr @emnc10_opaque_binary_attr(ptr noundef %0, i32 nound
   br i1 %or.cond, label %8, label %.thread
 
 8:                                                ; preds = %6
-  %9 = getelementptr inbounds i8, ptr %5, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr %4, align 4
   %12 = add i32 %11, %1
@@ -3742,7 +3742,7 @@ define internal noalias ptr @emnc10_opaque_binary_attr(ptr noundef %0, i32 nound
   br i1 %14, label %.thread, label %18
 
 .thread:                                          ; preds = %6, %8
-  %15 = getelementptr inbounds i8, ptr %5, i64 408
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 408
   %16 = load ptr, ptr %15, align 8
   %17 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %16, ptr noundef nonnull @.str.444, i32 noundef %7) #4
   br label %18
@@ -3767,7 +3767,7 @@ define internal noalias ptr @emnc10_opaque_literal_attr(ptr noundef %0, i32 noun
   br i1 %10, label %11, label %.thread
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %5, i64 408
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 408
   %13 = load ptr, ptr %12, align 8
   %14 = load i32, ptr %4, align 4
   %15 = add i32 %14, %1
@@ -3776,7 +3776,7 @@ define internal noalias ptr @emnc10_opaque_literal_attr(ptr noundef %0, i32 noun
   br i1 %17, label %.thread, label %21
 
 .thread:                                          ; preds = %6, %8, %11
-  %18 = getelementptr inbounds i8, ptr %5, i64 408
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 408
   %19 = load ptr, ptr %18, align 8
   %20 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %19, ptr noundef nonnull @.str.444, i32 noundef %7) #4
   br label %21
@@ -3808,7 +3808,7 @@ define internal ptr @wv_csp10_opaque_binary_tag(ptr noundef %0, i32 noundef %1, 
   ]
 
 9:                                                ; preds = %8, %8, %8, %8
-  %10 = getelementptr inbounds i8, ptr %5, i64 408
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 408
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr %4, align 4
   %13 = add i32 %12, %1
@@ -3816,7 +3816,7 @@ define internal ptr @wv_csp10_opaque_binary_tag(ptr noundef %0, i32 noundef %1, 
   br label %35
 
 15:                                               ; preds = %8
-  %16 = getelementptr inbounds i8, ptr %5, i64 408
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 408
   %17 = load ptr, ptr %16, align 8
   %18 = load i32, ptr %4, align 4
   %19 = add i32 %18, %1
@@ -3830,7 +3830,7 @@ define internal ptr @wv_csp10_opaque_binary_tag(ptr noundef %0, i32 noundef %1, 
   ]
 
 22:                                               ; preds = %21, %21
-  %23 = getelementptr inbounds i8, ptr %5, i64 408
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 408
   %24 = load ptr, ptr %23, align 8
   %25 = load i32, ptr %4, align 4
   %26 = add i32 %25, %1
@@ -3849,7 +3849,7 @@ define internal ptr @wv_csp10_opaque_binary_tag(ptr noundef %0, i32 noundef %1, 
   ]
 
 29:                                               ; preds = %28, %28, %28, %28, %28, %28, %28
-  %30 = getelementptr inbounds i8, ptr %5, i64 408
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 408
   %31 = load ptr, ptr %30, align 8
   %32 = load i32, ptr %4, align 4
   %33 = add i32 %32, %1
@@ -3862,7 +3862,7 @@ define internal ptr @wv_csp10_opaque_binary_tag(ptr noundef %0, i32 noundef %1, 
   br i1 %36, label %.thread, label %40
 
 .thread:                                          ; preds = %8, %21, %28, %6, %35
-  %37 = getelementptr inbounds i8, ptr %5, i64 408
+  %37 = getelementptr inbounds nuw i8, ptr %5, i64 408
   %38 = load ptr, ptr %37, align 8
   %39 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %38, ptr noundef nonnull @.str.688, i32 noundef %7) #4
   br label %40
@@ -3947,7 +3947,7 @@ define internal ptr @wv_csp10_opaque_literal_tag(ptr noundef %0, i32 noundef %1,
   br i1 %46, label %47, label %53
 
 47:                                               ; preds = %44, %41, %38, %35, %32, %29, %26, %23, %20, %17, %14, %11, %8
-  %48 = getelementptr inbounds i8, ptr %5, i64 408
+  %48 = getelementptr inbounds nuw i8, ptr %5, i64 408
   %49 = load ptr, ptr %48, align 8
   %50 = load i32, ptr %4, align 4
   %51 = add i32 %50, %1
@@ -3960,7 +3960,7 @@ define internal ptr @wv_csp10_opaque_literal_tag(ptr noundef %0, i32 noundef %1,
   br i1 %55, label %56, label %.critedge.thread
 
 56:                                               ; preds = %53
-  %57 = getelementptr inbounds i8, ptr %5, i64 408
+  %57 = getelementptr inbounds nuw i8, ptr %5, i64 408
   %58 = load ptr, ptr %57, align 8
   %59 = load i32, ptr %4, align 4
   %60 = add i32 %59, %1
@@ -3973,7 +3973,7 @@ define internal ptr @wv_csp10_opaque_literal_tag(ptr noundef %0, i32 noundef %1,
   br i1 %62, label %.critedge.thread, label %66
 
 .critedge.thread:                                 ; preds = %6, %53, %.critedge
-  %63 = getelementptr inbounds i8, ptr %5, i64 408
+  %63 = getelementptr inbounds nuw i8, ptr %5, i64 408
   %64 = load ptr, ptr %63, align 8
   %65 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %64, ptr noundef nonnull @.str.444, i32 noundef %7) #4
   br label %66
@@ -4118,7 +4118,7 @@ define internal ptr @wv_csp11_opaque_binary_tag(ptr noundef %0, i32 noundef %1, 
   ]
 
 9:                                                ; preds = %8, %8, %8, %8
-  %10 = getelementptr inbounds i8, ptr %5, i64 408
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 408
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr %4, align 4
   %13 = add i32 %12, %1
@@ -4126,7 +4126,7 @@ define internal ptr @wv_csp11_opaque_binary_tag(ptr noundef %0, i32 noundef %1, 
   br label %42
 
 15:                                               ; preds = %8
-  %16 = getelementptr inbounds i8, ptr %5, i64 408
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 408
   %17 = load ptr, ptr %16, align 8
   %18 = load i32, ptr %4, align 4
   %19 = add i32 %18, %1
@@ -4140,7 +4140,7 @@ define internal ptr @wv_csp11_opaque_binary_tag(ptr noundef %0, i32 noundef %1, 
   ]
 
 22:                                               ; preds = %21, %21
-  %23 = getelementptr inbounds i8, ptr %5, i64 408
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 408
   %24 = load ptr, ptr %23, align 8
   %25 = load i32, ptr %4, align 4
   %26 = add i32 %25, %1
@@ -4158,7 +4158,7 @@ define internal ptr @wv_csp11_opaque_binary_tag(ptr noundef %0, i32 noundef %1, 
   ]
 
 29:                                               ; preds = %28, %28, %28, %28, %28, %28
-  %30 = getelementptr inbounds i8, ptr %5, i64 408
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 408
   %31 = load ptr, ptr %30, align 8
   %32 = load i32, ptr %4, align 4
   %33 = add i32 %32, %1
@@ -4170,7 +4170,7 @@ define internal ptr @wv_csp11_opaque_binary_tag(ptr noundef %0, i32 noundef %1, 
   br i1 %cond, label %36, label %.thread
 
 36:                                               ; preds = %35
-  %37 = getelementptr inbounds i8, ptr %5, i64 408
+  %37 = getelementptr inbounds nuw i8, ptr %5, i64 408
   %38 = load ptr, ptr %37, align 8
   %39 = load i32, ptr %4, align 4
   %40 = add i32 %39, %1
@@ -4183,7 +4183,7 @@ define internal ptr @wv_csp11_opaque_binary_tag(ptr noundef %0, i32 noundef %1, 
   br i1 %43, label %.thread, label %47
 
 .thread:                                          ; preds = %8, %21, %28, %35, %6, %42
-  %44 = getelementptr inbounds i8, ptr %5, i64 408
+  %44 = getelementptr inbounds nuw i8, ptr %5, i64 408
   %45 = load ptr, ptr %44, align 8
   %46 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %45, ptr noundef nonnull @.str.444, i32 noundef %7) #4
   br label %47
@@ -4263,7 +4263,7 @@ define internal ptr @wv_csp11_opaque_literal_tag(ptr noundef %0, i32 noundef %1,
   br i1 %43, label %44, label %50
 
 44:                                               ; preds = %41, %38, %35, %32, %29, %26, %23, %20, %17, %14, %11, %8
-  %45 = getelementptr inbounds i8, ptr %5, i64 408
+  %45 = getelementptr inbounds nuw i8, ptr %5, i64 408
   %46 = load ptr, ptr %45, align 8
   %47 = load i32, ptr %4, align 4
   %48 = add i32 %47, %1
@@ -4281,7 +4281,7 @@ define internal ptr @wv_csp11_opaque_literal_tag(ptr noundef %0, i32 noundef %1,
   br i1 %55, label %56, label %.critedge.thread
 
 56:                                               ; preds = %53, %50
-  %57 = getelementptr inbounds i8, ptr %5, i64 408
+  %57 = getelementptr inbounds nuw i8, ptr %5, i64 408
   %58 = load ptr, ptr %57, align 8
   %59 = load i32, ptr %4, align 4
   %60 = add i32 %59, %1
@@ -4294,7 +4294,7 @@ define internal ptr @wv_csp11_opaque_literal_tag(ptr noundef %0, i32 noundef %1,
   br i1 %62, label %.critedge.thread, label %66
 
 .critedge.thread:                                 ; preds = %6, %53, %.critedge
-  %63 = getelementptr inbounds i8, ptr %5, i64 408
+  %63 = getelementptr inbounds nuw i8, ptr %5, i64 408
   %64 = load ptr, ptr %63, align 8
   %65 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %64, ptr noundef nonnull @.str.444, i32 noundef %7) #4
   br label %66
@@ -4336,7 +4336,7 @@ define internal ptr @wv_csp12_opaque_binary_tag(ptr noundef %0, i32 noundef %1, 
   ]
 
 9:                                                ; preds = %8, %8, %8, %8
-  %10 = getelementptr inbounds i8, ptr %5, i64 408
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 408
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr %4, align 4
   %13 = add i32 %12, %1
@@ -4344,7 +4344,7 @@ define internal ptr @wv_csp12_opaque_binary_tag(ptr noundef %0, i32 noundef %1, 
   br label %49
 
 15:                                               ; preds = %8
-  %16 = getelementptr inbounds i8, ptr %5, i64 408
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 408
   %17 = load ptr, ptr %16, align 8
   %18 = load i32, ptr %4, align 4
   %19 = add i32 %18, %1
@@ -4358,7 +4358,7 @@ define internal ptr @wv_csp12_opaque_binary_tag(ptr noundef %0, i32 noundef %1, 
   ]
 
 22:                                               ; preds = %21, %21
-  %23 = getelementptr inbounds i8, ptr %5, i64 408
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 408
   %24 = load ptr, ptr %23, align 8
   %25 = load i32, ptr %4, align 4
   %26 = add i32 %25, %1
@@ -4376,7 +4376,7 @@ define internal ptr @wv_csp12_opaque_binary_tag(ptr noundef %0, i32 noundef %1, 
   ]
 
 29:                                               ; preds = %28, %28, %28, %28, %28, %28
-  %30 = getelementptr inbounds i8, ptr %5, i64 408
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 408
   %31 = load ptr, ptr %30, align 8
   %32 = load i32, ptr %4, align 4
   %33 = add i32 %32, %1
@@ -4388,7 +4388,7 @@ define internal ptr @wv_csp12_opaque_binary_tag(ptr noundef %0, i32 noundef %1, 
   br i1 %cond, label %36, label %.thread
 
 36:                                               ; preds = %35
-  %37 = getelementptr inbounds i8, ptr %5, i64 408
+  %37 = getelementptr inbounds nuw i8, ptr %5, i64 408
   %38 = load ptr, ptr %37, align 8
   %39 = load i32, ptr %4, align 4
   %40 = add i32 %39, %1
@@ -4402,7 +4402,7 @@ define internal ptr @wv_csp12_opaque_binary_tag(ptr noundef %0, i32 noundef %1, 
   ]
 
 43:                                               ; preds = %42, %42
-  %44 = getelementptr inbounds i8, ptr %5, i64 408
+  %44 = getelementptr inbounds nuw i8, ptr %5, i64 408
   %45 = load ptr, ptr %44, align 8
   %46 = load i32, ptr %4, align 4
   %47 = add i32 %46, %1
@@ -4415,7 +4415,7 @@ define internal ptr @wv_csp12_opaque_binary_tag(ptr noundef %0, i32 noundef %1, 
   br i1 %50, label %.thread, label %54
 
 .thread:                                          ; preds = %8, %21, %28, %35, %42, %6, %49
-  %51 = getelementptr inbounds i8, ptr %5, i64 408
+  %51 = getelementptr inbounds nuw i8, ptr %5, i64 408
   %52 = load ptr, ptr %51, align 8
   %53 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %52, ptr noundef nonnull @.str.444, i32 noundef %7) #4
   br label %54
@@ -4505,7 +4505,7 @@ define internal ptr @wv_csp12_opaque_literal_tag(ptr noundef %0, i32 noundef %1,
   br i1 %49, label %50, label %56
 
 50:                                               ; preds = %47, %44, %41, %38, %35, %32, %29, %26, %23, %20, %17, %14, %11, %8
-  %51 = getelementptr inbounds i8, ptr %5, i64 408
+  %51 = getelementptr inbounds nuw i8, ptr %5, i64 408
   %52 = load ptr, ptr %51, align 8
   %53 = load i32, ptr %4, align 4
   %54 = add i32 %53, %1
@@ -4523,7 +4523,7 @@ define internal ptr @wv_csp12_opaque_literal_tag(ptr noundef %0, i32 noundef %1,
   br i1 %61, label %62, label %.critedge.thread
 
 62:                                               ; preds = %59, %56
-  %63 = getelementptr inbounds i8, ptr %5, i64 408
+  %63 = getelementptr inbounds nuw i8, ptr %5, i64 408
   %64 = load ptr, ptr %63, align 8
   %65 = load i32, ptr %4, align 4
   %66 = add i32 %65, %1
@@ -4536,7 +4536,7 @@ define internal ptr @wv_csp12_opaque_literal_tag(ptr noundef %0, i32 noundef %1,
   br i1 %68, label %.critedge.thread, label %72
 
 .critedge.thread:                                 ; preds = %6, %59, %.critedge
-  %69 = getelementptr inbounds i8, ptr %5, i64 408
+  %69 = getelementptr inbounds nuw i8, ptr %5, i64 408
   %70 = load ptr, ptr %69, align 8
   %71 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %70, ptr noundef nonnull @.str.444, i32 noundef %7) #4
   br label %72
@@ -4582,7 +4582,7 @@ define internal ptr @wv_csp13_opaque_binary_tag(ptr noundef %0, i32 noundef %1, 
   ]
 
 9:                                                ; preds = %8, %8, %8, %8
-  %10 = getelementptr inbounds i8, ptr %5, i64 408
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 408
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr %4, align 4
   %13 = add i32 %12, %1
@@ -4590,7 +4590,7 @@ define internal ptr @wv_csp13_opaque_binary_tag(ptr noundef %0, i32 noundef %1, 
   br label %63
 
 15:                                               ; preds = %8
-  %16 = getelementptr inbounds i8, ptr %5, i64 408
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 408
   %17 = load ptr, ptr %16, align 8
   %18 = load i32, ptr %4, align 4
   %19 = add i32 %18, %1
@@ -4608,7 +4608,7 @@ define internal ptr @wv_csp13_opaque_binary_tag(ptr noundef %0, i32 noundef %1, 
   ]
 
 22:                                               ; preds = %21, %21, %21, %21, %21, %21
-  %23 = getelementptr inbounds i8, ptr %5, i64 408
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 408
   %24 = load ptr, ptr %23, align 8
   %25 = load i32, ptr %4, align 4
   %26 = add i32 %25, %1
@@ -4635,7 +4635,7 @@ define internal ptr @wv_csp13_opaque_binary_tag(ptr noundef %0, i32 noundef %1, 
   ]
 
 29:                                               ; preds = %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28
-  %30 = getelementptr inbounds i8, ptr %5, i64 408
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 408
   %31 = load ptr, ptr %30, align 8
   %32 = load i32, ptr %4, align 4
   %33 = add i32 %32, %1
@@ -4648,7 +4648,7 @@ define internal ptr @wv_csp13_opaque_binary_tag(ptr noundef %0, i32 noundef %1, 
   br i1 %switch, label %36, label %.thread
 
 36:                                               ; preds = %35
-  %37 = getelementptr inbounds i8, ptr %5, i64 408
+  %37 = getelementptr inbounds nuw i8, ptr %5, i64 408
   %38 = load ptr, ptr %37, align 8
   %39 = load i32, ptr %4, align 4
   %40 = add i32 %39, %1
@@ -4662,7 +4662,7 @@ define internal ptr @wv_csp13_opaque_binary_tag(ptr noundef %0, i32 noundef %1, 
   ]
 
 43:                                               ; preds = %42, %42
-  %44 = getelementptr inbounds i8, ptr %5, i64 408
+  %44 = getelementptr inbounds nuw i8, ptr %5, i64 408
   %45 = load ptr, ptr %44, align 8
   %46 = load i32, ptr %4, align 4
   %47 = add i32 %46, %1
@@ -4681,7 +4681,7 @@ define internal ptr @wv_csp13_opaque_binary_tag(ptr noundef %0, i32 noundef %1, 
   ]
 
 50:                                               ; preds = %49, %49, %49, %49, %49, %49, %49
-  %51 = getelementptr inbounds i8, ptr %5, i64 408
+  %51 = getelementptr inbounds nuw i8, ptr %5, i64 408
   %52 = load ptr, ptr %51, align 8
   %53 = load i32, ptr %4, align 4
   %54 = add i32 %53, %1
@@ -4693,7 +4693,7 @@ define internal ptr @wv_csp13_opaque_binary_tag(ptr noundef %0, i32 noundef %1, 
   br i1 %cond, label %57, label %.thread
 
 57:                                               ; preds = %56
-  %58 = getelementptr inbounds i8, ptr %5, i64 408
+  %58 = getelementptr inbounds nuw i8, ptr %5, i64 408
   %59 = load ptr, ptr %58, align 8
   %60 = load i32, ptr %4, align 4
   %61 = add i32 %60, %1
@@ -4706,7 +4706,7 @@ define internal ptr @wv_csp13_opaque_binary_tag(ptr noundef %0, i32 noundef %1, 
   br i1 %64, label %.thread, label %68
 
 .thread:                                          ; preds = %8, %21, %28, %35, %42, %49, %56, %6, %63
-  %65 = getelementptr inbounds i8, ptr %5, i64 408
+  %65 = getelementptr inbounds nuw i8, ptr %5, i64 408
   %66 = load ptr, ptr %65, align 8
   %67 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %66, ptr noundef nonnull @.str.444, i32 noundef %7) #4
   br label %68
@@ -4891,7 +4891,7 @@ define internal ptr @wv_csp13_opaque_literal_tag(ptr noundef %0, i32 noundef %1,
   br i1 %106, label %107, label %113
 
 107:                                              ; preds = %104, %101, %98, %95, %92, %89, %86, %83, %80, %77, %74, %71, %68, %65, %62, %59, %56, %53, %50, %47, %44, %41, %38, %35, %32, %29, %26, %23, %20, %17, %14, %11, %8
-  %108 = getelementptr inbounds i8, ptr %5, i64 408
+  %108 = getelementptr inbounds nuw i8, ptr %5, i64 408
   %109 = load ptr, ptr %108, align 8
   %110 = load i32, ptr %4, align 4
   %111 = add i32 %110, %1
@@ -4909,7 +4909,7 @@ define internal ptr @wv_csp13_opaque_literal_tag(ptr noundef %0, i32 noundef %1,
   br i1 %118, label %119, label %.critedge.thread
 
 119:                                              ; preds = %116, %113
-  %120 = getelementptr inbounds i8, ptr %5, i64 408
+  %120 = getelementptr inbounds nuw i8, ptr %5, i64 408
   %121 = load ptr, ptr %120, align 8
   %122 = load i32, ptr %4, align 4
   %123 = add i32 %122, %1
@@ -4922,7 +4922,7 @@ define internal ptr @wv_csp13_opaque_literal_tag(ptr noundef %0, i32 noundef %1,
   br i1 %125, label %.critedge.thread, label %129
 
 .critedge.thread:                                 ; preds = %6, %116, %.critedge
-  %126 = getelementptr inbounds i8, ptr %5, i64 408
+  %126 = getelementptr inbounds nuw i8, ptr %5, i64 408
   %127 = load ptr, ptr %126, align 8
   %128 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %127, ptr noundef nonnull @.str.444, i32 noundef %7) #4
   br label %129
@@ -4996,7 +4996,7 @@ define internal fastcc i32 @parse_wbxml_attribute_list_defined(ptr noundef %0, p
   %10 = tail call i32 @tvb_reported_length(ptr noundef %1) #4
   %11 = load i32, ptr @proto_wbxml, align 4
   %12 = tail call i32 @p_get_proto_depth(ptr noundef %2, i32 noundef %11) #4
-  %13 = getelementptr inbounds i8, ptr %2, i64 408
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %14 = load ptr, ptr %13, align 8
   %15 = load i32, ptr @proto_wbxml, align 4
   %16 = tail call ptr @p_get_proto_data(ptr noundef %14, ptr noundef %2, i32 noundef %15, i32 noundef 0) #4
@@ -5007,18 +5007,18 @@ define internal fastcc i32 @parse_wbxml_attribute_list_defined(ptr noundef %0, p
 
 .lr.ph:                                           ; preds = %7
   %.not270 = icmp eq ptr %6, null
-  %20 = getelementptr inbounds i8, ptr %6, i64 96
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 96
   %21 = shl i32 %12, 1
   %22 = and i32 %21, 510
   %narrow = sub nuw nsw i32 512, %22
   %23 = zext nneg i32 %narrow to i64
   %24 = getelementptr i8, ptr @indent_buffer, i64 %23
-  %25 = getelementptr inbounds i8, ptr %6, i64 88
-  %26 = getelementptr inbounds i8, ptr %6, i64 56
-  %27 = getelementptr inbounds i8, ptr %6, i64 48
-  %28 = getelementptr inbounds i8, ptr %6, i64 64
-  %29 = getelementptr inbounds i8, ptr %6, i64 72
-  %30 = getelementptr inbounds i8, ptr %6, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %6, i64 88
+  %26 = getelementptr inbounds nuw i8, ptr %6, i64 56
+  %27 = getelementptr inbounds nuw i8, ptr %6, i64 48
+  %28 = getelementptr inbounds nuw i8, ptr %6, i64 64
+  %29 = getelementptr inbounds nuw i8, ptr %6, i64 72
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 16
   br label %31
 
 31:                                               ; preds = %.lr.ph, %316
@@ -5135,7 +5135,7 @@ define internal fastcc i32 @parse_wbxml_attribute_list_defined(ptr noundef %0, p
   br i1 %.not.i, label %map_token.exit, label %98
 
 98:                                               ; preds = %96
-  %99 = getelementptr inbounds i8, ptr %97, i64 8
+  %99 = getelementptr inbounds nuw i8, ptr %97, i64 8
   %100 = load ptr, ptr %99, align 8
   %.not10.i.i = icmp eq ptr %100, null
   br i1 %.not10.i.i, label %map_token.exit, label %.lr.ph.i.preheader.i
@@ -5150,7 +5150,7 @@ define internal fastcc i32 @parse_wbxml_attribute_list_defined(ptr noundef %0, p
   %103 = add i32 %.011.i15.i, 1
   %104 = sext i32 %103 to i64
   %105 = getelementptr %struct._value_valuestring, ptr %97, i64 %104
-  %106 = getelementptr inbounds i8, ptr %105, i64 8
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 8
   %107 = load ptr, ptr %106, align 8
   %.not.i.i = icmp eq ptr %107, null
   br i1 %.not.i.i, label %map_token.exit, label %.lr.ph.i.i, !llvm.loop !6
@@ -5198,7 +5198,7 @@ map_token.exit:                                   ; preds = %.lr.ph.i, %val_to_v
   br i1 %.not.i286, label %map_token.exit298, label %128
 
 128:                                              ; preds = %125
-  %129 = getelementptr inbounds i8, ptr %127, i64 8
+  %129 = getelementptr inbounds nuw i8, ptr %127, i64 8
   %130 = load ptr, ptr %129, align 8
   %.not10.i.i287 = icmp eq ptr %130, null
   br i1 %.not10.i.i287, label %map_token.exit298, label %.lr.ph.i.preheader.i288
@@ -5213,7 +5213,7 @@ map_token.exit:                                   ; preds = %.lr.ph.i, %val_to_v
   %133 = add i32 %.011.i15.i290, 1
   %134 = sext i32 %133 to i64
   %135 = getelementptr %struct._value_valuestring, ptr %127, i64 %134
-  %136 = getelementptr inbounds i8, ptr %135, i64 8
+  %136 = getelementptr inbounds nuw i8, ptr %135, i64 8
   %137 = load ptr, ptr %136, align 8
   %.not.i.i291 = icmp eq ptr %137, null
   br i1 %.not.i.i291, label %map_token.exit298, label %.lr.ph.i.i292, !llvm.loop !6
@@ -5287,7 +5287,7 @@ map_token.exit298:                                ; preds = %.lr.ph.i289, %125, 
   br i1 %.not.i299, label %map_token.exit311, label %175
 
 175:                                              ; preds = %173
-  %176 = getelementptr inbounds i8, ptr %174, i64 8
+  %176 = getelementptr inbounds nuw i8, ptr %174, i64 8
   %177 = load ptr, ptr %176, align 8
   %.not10.i.i300 = icmp eq ptr %177, null
   br i1 %.not10.i.i300, label %map_token.exit311, label %.lr.ph.i.preheader.i301
@@ -5302,7 +5302,7 @@ map_token.exit298:                                ; preds = %.lr.ph.i289, %125, 
   %180 = add i32 %.011.i15.i303, 1
   %181 = sext i32 %180 to i64
   %182 = getelementptr %struct._value_valuestring, ptr %174, i64 %181
-  %183 = getelementptr inbounds i8, ptr %182, i64 8
+  %183 = getelementptr inbounds nuw i8, ptr %182, i64 8
   %184 = load ptr, ptr %183, align 8
   %.not.i.i304 = icmp eq ptr %184, null
   br i1 %.not.i.i304, label %map_token.exit311, label %.lr.ph.i.i305, !llvm.loop !6
@@ -5451,7 +5451,7 @@ map_token.exit311:                                ; preds = %.lr.ph.i302, %val_t
 266:                                              ; preds = %264
   %267 = load i8, ptr %5, align 1
   %268 = zext i8 %267 to i32
-  %269 = getelementptr inbounds i8, ptr %265, i64 8
+  %269 = getelementptr inbounds nuw i8, ptr %265, i64 8
   %270 = load ptr, ptr %269, align 8
   %.not10.i.i313 = icmp eq ptr %270, null
   br i1 %.not10.i.i313, label %map_token.exit324, label %.lr.ph.i.preheader.i314
@@ -5466,7 +5466,7 @@ map_token.exit311:                                ; preds = %.lr.ph.i302, %val_t
   %273 = add i32 %.011.i15.i316, 1
   %274 = sext i32 %273 to i64
   %275 = getelementptr %struct._value_valuestring, ptr %265, i64 %274
-  %276 = getelementptr inbounds i8, ptr %275, i64 8
+  %276 = getelementptr inbounds nuw i8, ptr %275, i64 8
   %277 = load ptr, ptr %276, align 8
   %.not.i.i317 = icmp eq ptr %277, null
   br i1 %.not.i.i317, label %map_token.exit324, label %.lr.ph.i.i318, !llvm.loop !6
@@ -5509,7 +5509,7 @@ map_token.exit324:                                ; preds = %.lr.ph.i315, %val_t
 293:                                              ; preds = %291
   %294 = load i8, ptr %5, align 1
   %295 = zext i8 %294 to i32
-  %296 = getelementptr inbounds i8, ptr %292, i64 8
+  %296 = getelementptr inbounds nuw i8, ptr %292, i64 8
   %297 = load ptr, ptr %296, align 8
   %.not10.i.i326 = icmp eq ptr %297, null
   br i1 %.not10.i.i326, label %map_token.exit337, label %.lr.ph.i.preheader.i327
@@ -5524,7 +5524,7 @@ map_token.exit324:                                ; preds = %.lr.ph.i315, %val_t
   %300 = add i32 %.011.i15.i329, 1
   %301 = sext i32 %300 to i64
   %302 = getelementptr %struct._value_valuestring, ptr %292, i64 %301
-  %303 = getelementptr inbounds i8, ptr %302, i64 8
+  %303 = getelementptr inbounds nuw i8, ptr %302, i64 8
   %304 = load ptr, ptr %303, align 8
   %.not.i.i330 = icmp eq ptr %304, null
   br i1 %.not.i.i330, label %map_token.exit337, label %.lr.ph.i.i331, !llvm.loop !6

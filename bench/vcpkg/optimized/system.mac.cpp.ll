@@ -51,7 +51,7 @@ define dso_local noundef zeroext i1 @_ZN5vcpkg27validate_mac_address_formatENS_1
   br i1 %.not7, label %8, label %5
 
 5:                                                ; preds = %.preheader
-  %6 = getelementptr inbounds i8, ptr %0, i64 %.013
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 %.013
   %7 = load i8, ptr %6, align 1
   %.not8 = icmp eq i8 %7, 58
   br i1 %.not8, label %8, label %.loopexit
@@ -62,7 +62,7 @@ define dso_local noundef zeroext i1 @_ZN5vcpkg27validate_mac_address_formatENS_1
   br i1 %.not9, label %_ZN5vcpkg10ParserBase12is_hex_digitEDi.exit.thread, label %10
 
 10:                                               ; preds = %8
-  %11 = getelementptr inbounds i8, ptr %0, i64 %.013
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 %.013
   %12 = load i8, ptr %11, align 1
   %.fr = freeze i8 %12
   %13 = sext i8 %.fr to i32
@@ -109,7 +109,7 @@ define dso_local noundef zeroext i1 @_ZN5vcpkg26is_valid_mac_for_telemetryENS_10
   br i1 %.not7.i, label %8, label %5
 
 5:                                                ; preds = %.preheader.i
-  %6 = getelementptr inbounds i8, ptr %0, i64 %.013.i
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 %.013.i
   %7 = load i8, ptr %6, align 1
   %.not8.i = icmp eq i8 %7, 58
   br i1 %.not8.i, label %8, label %_ZN5vcpkg27validate_mac_address_formatENS_10StringViewE.exit.thread
@@ -120,7 +120,7 @@ define dso_local noundef zeroext i1 @_ZN5vcpkg26is_valid_mac_for_telemetryENS_10
   br i1 %.not9.i, label %_ZN5vcpkg10ParserBase12is_hex_digitEDi.exit.thread.i, label %10
 
 10:                                               ; preds = %8
-  %11 = getelementptr inbounds i8, ptr %0, i64 %.013.i
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 %.013.i
   %12 = load i8, ptr %11, align 1
   %.fr.i = freeze i8 %12
   %13 = sext i8 %.fr.i to i32
@@ -171,7 +171,7 @@ _ZN5vcpkg27validate_mac_address_formatENS_10StringViewE.exit.thread: ; preds = %
 define dso_local void @_ZN5vcpkg19mac_bytes_to_stringB5cxx11ERKNS_4SpanIcEE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %3 = alloca [17 x i8], align 16
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8
   %.not = icmp eq i64 %6, 6
   br i1 %.not, label %.preheader, label %7
@@ -188,27 +188,27 @@ define dso_local void @_ZN5vcpkg19mac_bytes_to_stringB5cxx11ERKNS_4SpanIcEE(ptr 
   br i1 %.not18, label %10, label %8
 
 8:                                                ; preds = %.preheader
-  %9 = getelementptr inbounds i8, ptr %.021, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %.021, i64 1
   store i8 58, ptr %.021, align 1
   br label %10
 
 10:                                               ; preds = %8, %.preheader
   %.1 = phi ptr [ %9, %8 ], [ %.021, %.preheader ]
   %11 = load ptr, ptr %1, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 %.01619
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 %.01619
   %13 = load i8, ptr %12, align 1
   %14 = zext i8 %13 to i32
   %15 = lshr i32 %14, 4
   %16 = zext nneg i32 %15 to i64
-  %17 = getelementptr inbounds [17 x i8], ptr @_ZZN5vcpkg19mac_bytes_to_stringB5cxx11ERKNS_4SpanIcEEE6hexits, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw [17 x i8], ptr @_ZZN5vcpkg19mac_bytes_to_stringB5cxx11ERKNS_4SpanIcEEE6hexits, i64 0, i64 %16
   %18 = load i8, ptr %17, align 1
-  %19 = getelementptr inbounds i8, ptr %.1, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %.1, i64 1
   store i8 %18, ptr %.1, align 1
   %20 = and i32 %14, 15
   %21 = zext nneg i32 %20 to i64
-  %22 = getelementptr inbounds [17 x i8], ptr @_ZZN5vcpkg19mac_bytes_to_stringB5cxx11ERKNS_4SpanIcEEE6hexits, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw [17 x i8], ptr @_ZZN5vcpkg19mac_bytes_to_stringB5cxx11ERKNS_4SpanIcEEE6hexits, i64 0, i64 %21
   %23 = load i8, ptr %22, align 1
-  %24 = getelementptr inbounds i8, ptr %.1, i64 2
+  %24 = getelementptr inbounds nuw i8, ptr %.1, i64 2
   store i8 %23, ptr %19, align 1
   %25 = or i8 %13, %.01520
   %26 = add nuw nsw i64 %.01619, 1
@@ -361,7 +361,7 @@ define dso_local noundef zeroext i1 @_ZN5vcpkg35extract_mac_from_getmac_output_l
 37:                                               ; preds = %35
   %38 = extractvalue { ptr, i64 } %36, 0
   store ptr %38, ptr %6, align 8
-  %39 = getelementptr inbounds i8, ptr %6, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %40 = extractvalue { ptr, i64 } %36, 1
   store i64 %40, ptr %39, align 8
   invoke void @_ZNK5vcpkg10StringView9to_stringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull align 8 dereferenceable(16) %6)
@@ -431,7 +431,7 @@ define dso_local noundef zeroext i1 @_ZN5vcpkg35extract_mac_from_getmac_output_l
   br label %68
 
 68:                                               ; preds = %67, %.lr.ph.i
-  %69 = getelementptr inbounds i8, ptr %.sroa.02.07.i, i64 1
+  %69 = getelementptr inbounds nuw i8, ptr %.sroa.02.07.i, i64 1
   %.not.i = icmp eq ptr %69, %64
   br i1 %.not.i, label %_ZSt7replaceIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcEvT_SA_RKT0_SD_.exit, label %.lr.ph.i, !llvm.loop !9
 
@@ -441,19 +441,19 @@ _ZSt7replaceIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11cha
 
 70:                                               ; preds = %_ZSt7replaceIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcEvT_SA_RKT0_SD_.exit, %55, %50, %47, %44, %34, %31, %28, %21, %18, %15, %8, %61
   %.0 = phi i1 [ false, %61 ], [ false, %8 ], [ false, %15 ], [ false, %18 ], [ false, %21 ], [ false, %28 ], [ false, %31 ], [ false, %34 ], [ false, %44 ], [ false, %47 ], [ false, %50 ], [ false, %55 ], [ true, %_ZSt7replaceIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcEvT_SA_RKT0_SD_.exit ]
-  %71 = getelementptr inbounds i8, ptr %4, i64 104
-  %72 = getelementptr inbounds i8, ptr %4, i64 144
+  %71 = getelementptr inbounds nuw i8, ptr %4, i64 104
+  %72 = getelementptr inbounds nuw i8, ptr %4, i64 144
   %73 = load ptr, ptr %72, align 8
-  %74 = getelementptr inbounds i8, ptr %4, i64 152
+  %74 = getelementptr inbounds nuw i8, ptr %4, i64 152
   %75 = load ptr, ptr %74, align 8
   %.not4.i.i.i.i.i.i = icmp eq ptr %73, %75
   br i1 %.not4.i.i.i.i.i.i, label %_ZSt8_DestroyIPN5vcpkg12ParseMessageES1_EvT_S3_RSaIT0_E.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %70, %.lr.ph.i.i.i.i.i.i
   %.05.i.i.i.i.i.i = phi ptr [ %77, %.lr.ph.i.i.i.i.i.i ], [ %73, %70 ]
-  %76 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i, i64 72
+  %76 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i, i64 72
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %76) #8
-  %77 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i, i64 104
+  %77 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i, i64 104
   %.not.i.i.i.i.i.i = icmp eq ptr %77, %75
   br i1 %.not.i.i.i.i.i.i, label %_ZSt8_DestroyIPN5vcpkg12ParseMessageES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !10
 
@@ -476,7 +476,7 @@ _ZNSt6vectorIN5vcpkg12ParseMessageESaIS1_EED2Ev.exit.i.i: ; preds = %79, %_ZSt8_
   br i1 %81, label %82, label %_ZN5vcpkg10ParserBaseD2Ev.exit
 
 82:                                               ; preds = %_ZNSt6vectorIN5vcpkg12ParseMessageESaIS1_EED2Ev.exit.i.i
-  %83 = getelementptr inbounds i8, ptr %4, i64 112
+  %83 = getelementptr inbounds nuw i8, ptr %4, i64 112
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %83) #8
   br label %_ZN5vcpkg10ParserBaseD2Ev.exit
 
@@ -493,7 +493,7 @@ declare noundef zeroext i1 @_ZN5vcpkg10ParserBase17require_characterEc(ptr nound
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc { ptr, i64 } @"_ZN5vcpkg10ParserBase11match_untilIZNS_35extract_mac_from_getmac_output_lineENS_10StringViewERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EES2_T_"(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load i32, ptr %0, align 8
   br label %5
@@ -539,19 +539,19 @@ declare void @_ZN5vcpkg7Strings26inplace_ascii_to_lowercaseERNSt7__cxx1112basic_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN5vcpkg10ParserBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 104
-  %3 = getelementptr inbounds i8, ptr %0, i64 144
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 152
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %6 = load ptr, ptr %5, align 8
   %.not4.i.i.i.i.i = icmp eq ptr %4, %6
   br i1 %.not4.i.i.i.i.i, label %_ZSt8_DestroyIPN5vcpkg12ParseMessageES1_EvT_S3_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %1, %.lr.ph.i.i.i.i.i
   %.05.i.i.i.i.i = phi ptr [ %8, %.lr.ph.i.i.i.i.i ], [ %4, %1 ]
-  %7 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 72
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #8
-  %8 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 104
+  %8 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 104
   %.not.i.i.i.i.i = icmp eq ptr %8, %6
   br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPN5vcpkg12ParseMessageES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !10
 
@@ -574,7 +574,7 @@ _ZNSt6vectorIN5vcpkg12ParseMessageESaIS1_EED2Ev.exit.i: ; preds = %10, %_ZSt8_De
   br i1 %12, label %13, label %_ZN5vcpkg13ParseMessagesD2Ev.exit
 
 13:                                               ; preds = %_ZNSt6vectorIN5vcpkg12ParseMessageESaIS1_EED2Ev.exit.i
-  %14 = getelementptr inbounds i8, ptr %0, i64 112
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 112
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #8
   br label %_ZN5vcpkg13ParseMessagesD2Ev.exit
 
@@ -602,8 +602,8 @@ define dso_local void @_ZN5vcpkg17get_user_mac_hashB5cxx11Ev(ptr dead_on_unwind 
   br i1 %.not35, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %11 = getelementptr inbounds i8, ptr %4, i64 8
-  %12 = getelementptr inbounds i8, ptr %6, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 8
   br label %19
 
 13:                                               ; preds = %1
@@ -641,7 +641,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 19:                                               ; preds = %.lr.ph, %63
   %.01236 = phi ptr [ %.01234, %.lr.ph ], [ %.012, %63 ]
-  %20 = getelementptr inbounds i8, ptr %.01236, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %.01236, i64 24
   %21 = load ptr, ptr %20, align 8
   %.not16 = icmp eq ptr %21, null
   br i1 %.not16, label %63, label %22
@@ -652,20 +652,20 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   br i1 %.not17, label %24, label %63
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds i8, ptr %.01236, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %.01236, i64 16
   %26 = load i32, ptr %25, align 8
   %27 = and i32 %26, 73
   %or.cond23.not = icmp eq i32 %27, 65
   br i1 %or.cond23.not, label %28, label %63
 
 28:                                               ; preds = %24
-  %29 = getelementptr inbounds i8, ptr %21, i64 11
+  %29 = getelementptr inbounds nuw i8, ptr %21, i64 11
   %30 = load i8, ptr %29, align 1
   %.not21 = icmp eq i8 %30, 6
   br i1 %.not21, label %31, label %63
 
 31:                                               ; preds = %28
-  %32 = getelementptr inbounds i8, ptr %21, i64 12
+  %32 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store ptr %32, ptr %4, align 8
   store i64 6, ptr %11, align 8
   invoke void @_ZN5vcpkg19mac_bytes_to_stringB5cxx11ERKNS_4SpanIcEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull align 8 dereferenceable(16) %4)
@@ -686,7 +686,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   br i1 %.not7.i.i, label %41, label %38
 
 38:                                               ; preds = %.preheader.i.i
-  %39 = getelementptr inbounds i8, ptr %34, i64 %.013.i.i
+  %39 = getelementptr inbounds nuw i8, ptr %34, i64 %.013.i.i
   %40 = load i8, ptr %39, align 1
   %.not8.i.i = icmp eq i8 %40, 58
   br i1 %.not8.i.i, label %41, label %.critedge
@@ -697,7 +697,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   br i1 %.not9.i.i, label %_ZN5vcpkg10ParserBase12is_hex_digitEDi.exit.thread.i.i, label %43
 
 43:                                               ; preds = %41
-  %44 = getelementptr inbounds i8, ptr %34, i64 %.013.i.i
+  %44 = getelementptr inbounds nuw i8, ptr %34, i64 %.013.i.i
   %45 = load i8, ptr %44, align 1
   %.fr.i.i = freeze i8 %45
   %46 = sext i8 %.fr.i.i to i32
@@ -741,7 +741,7 @@ _ZN5vcpkg26is_valid_mac_for_telemetryENS_10StringViewE.exit: ; preds = %51
 54:                                               ; preds = %_ZN5vcpkg26is_valid_mac_for_telemetryENS_10StringViewE.exit
   call void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(32) %5) #8
   %55 = load ptr, ptr %7, align 8
-  %56 = getelementptr inbounds i8, ptr %7, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %57 = load i64, ptr %56, align 8
   invoke void @_ZN5vcpkg4Hash15get_string_hashB5cxx11ENS_10StringViewENS0_9AlgorithmE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr %55, i64 %57, i32 noundef 0)
           to label %62 unwind label %60

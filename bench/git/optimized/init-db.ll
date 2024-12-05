@@ -78,141 +78,141 @@ entry:
   store ptr null, ptr %initial_branch, align 8
   store i32 -1, ptr %init_shared_repository, align 4
   store i32 10, ptr %init_db_options, align 16
-  %short_name = getelementptr inbounds i8, ptr %init_db_options, i64 4
+  %short_name = getelementptr inbounds nuw i8, ptr %init_db_options, i64 4
   store i32 0, ptr %short_name, align 4
-  %long_name = getelementptr inbounds i8, ptr %init_db_options, i64 8
+  %long_name = getelementptr inbounds nuw i8, ptr %init_db_options, i64 8
   store ptr @.str, ptr %long_name, align 8
-  %value = getelementptr inbounds i8, ptr %init_db_options, i64 16
+  %value = getelementptr inbounds nuw i8, ptr %init_db_options, i64 16
   store ptr %template_dir, ptr %value, align 16
-  %argh = getelementptr inbounds i8, ptr %init_db_options, i64 24
+  %argh = getelementptr inbounds nuw i8, ptr %init_db_options, i64 24
   store ptr @.str.1, ptr %argh, align 8
-  %help = getelementptr inbounds i8, ptr %init_db_options, i64 32
+  %help = getelementptr inbounds nuw i8, ptr %init_db_options, i64 32
   store ptr @.str.2, ptr %help, align 16
-  %flags1 = getelementptr inbounds i8, ptr %init_db_options, i64 40
+  %flags1 = getelementptr inbounds nuw i8, ptr %init_db_options, i64 40
   store i32 0, ptr %flags1, align 8
-  %callback = getelementptr inbounds i8, ptr %init_db_options, i64 48
-  %arrayinit.element = getelementptr inbounds i8, ptr %init_db_options, i64 88
+  %callback = getelementptr inbounds nuw i8, ptr %init_db_options, i64 48
+  %arrayinit.element = getelementptr inbounds nuw i8, ptr %init_db_options, i64 88
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %callback, i8 0, i64 40, i1 false)
   store i32 9, ptr %arrayinit.element, align 8
-  %short_name3 = getelementptr inbounds i8, ptr %init_db_options, i64 92
+  %short_name3 = getelementptr inbounds nuw i8, ptr %init_db_options, i64 92
   store i32 0, ptr %short_name3, align 4
-  %long_name4 = getelementptr inbounds i8, ptr %init_db_options, i64 96
+  %long_name4 = getelementptr inbounds nuw i8, ptr %init_db_options, i64 96
   store ptr @.str.3, ptr %long_name4, align 16
-  %value5 = getelementptr inbounds i8, ptr %init_db_options, i64 104
+  %value5 = getelementptr inbounds nuw i8, ptr %init_db_options, i64 104
   store ptr @is_bare_repository_cfg, ptr %value5, align 8
-  %argh6 = getelementptr inbounds i8, ptr %init_db_options, i64 112
+  %argh6 = getelementptr inbounds nuw i8, ptr %init_db_options, i64 112
   store ptr null, ptr %argh6, align 16
-  %help7 = getelementptr inbounds i8, ptr %init_db_options, i64 120
+  %help7 = getelementptr inbounds nuw i8, ptr %init_db_options, i64 120
   store ptr @.str.4, ptr %help7, align 8
-  %flags8 = getelementptr inbounds i8, ptr %init_db_options, i64 128
+  %flags8 = getelementptr inbounds nuw i8, ptr %init_db_options, i64 128
   store i32 2, ptr %flags8, align 16
-  %callback9 = getelementptr inbounds i8, ptr %init_db_options, i64 136
+  %callback9 = getelementptr inbounds nuw i8, ptr %init_db_options, i64 136
   store ptr null, ptr %callback9, align 8
-  %defval10 = getelementptr inbounds i8, ptr %init_db_options, i64 144
+  %defval10 = getelementptr inbounds nuw i8, ptr %init_db_options, i64 144
   store i64 1, ptr %defval10, align 16
-  %ll_callback11 = getelementptr inbounds i8, ptr %init_db_options, i64 152
-  %arrayinit.element14 = getelementptr inbounds i8, ptr %init_db_options, i64 176
+  %ll_callback11 = getelementptr inbounds nuw i8, ptr %init_db_options, i64 152
+  %arrayinit.element14 = getelementptr inbounds nuw i8, ptr %init_db_options, i64 176
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ll_callback11, i8 0, i64 24, i1 false)
   store i32 13, ptr %arrayinit.element14, align 16
-  %short_name16 = getelementptr inbounds i8, ptr %init_db_options, i64 180
+  %short_name16 = getelementptr inbounds nuw i8, ptr %init_db_options, i64 180
   store i32 0, ptr %short_name16, align 4
-  %long_name17 = getelementptr inbounds i8, ptr %init_db_options, i64 184
+  %long_name17 = getelementptr inbounds nuw i8, ptr %init_db_options, i64 184
   store ptr @.str.5, ptr %long_name17, align 8
-  %value18 = getelementptr inbounds i8, ptr %init_db_options, i64 192
+  %value18 = getelementptr inbounds nuw i8, ptr %init_db_options, i64 192
   store ptr %init_shared_repository, ptr %value18, align 16
-  %argh19 = getelementptr inbounds i8, ptr %init_db_options, i64 200
+  %argh19 = getelementptr inbounds nuw i8, ptr %init_db_options, i64 200
   store ptr @.str.6, ptr %argh19, align 8
-  %help20 = getelementptr inbounds i8, ptr %init_db_options, i64 208
+  %help20 = getelementptr inbounds nuw i8, ptr %init_db_options, i64 208
   store ptr @.str.7, ptr %help20, align 16
-  %flags21 = getelementptr inbounds i8, ptr %init_db_options, i64 216
+  %flags21 = getelementptr inbounds nuw i8, ptr %init_db_options, i64 216
   store i32 5, ptr %flags21, align 8
-  %callback22 = getelementptr inbounds i8, ptr %init_db_options, i64 224
+  %callback22 = getelementptr inbounds nuw i8, ptr %init_db_options, i64 224
   store ptr @shared_callback, ptr %callback22, align 16
-  %defval23 = getelementptr inbounds i8, ptr %init_db_options, i64 232
-  %arrayinit.element27 = getelementptr inbounds i8, ptr %init_db_options, i64 264
+  %defval23 = getelementptr inbounds nuw i8, ptr %init_db_options, i64 232
+  %arrayinit.element27 = getelementptr inbounds nuw i8, ptr %init_db_options, i64 264
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %defval23, i8 0, i64 32, i1 false)
   store i32 5, ptr %arrayinit.element27, align 8
-  %short_name29 = getelementptr inbounds i8, ptr %init_db_options, i64 268
+  %short_name29 = getelementptr inbounds nuw i8, ptr %init_db_options, i64 268
   store i32 113, ptr %short_name29, align 4
-  %long_name30 = getelementptr inbounds i8, ptr %init_db_options, i64 272
+  %long_name30 = getelementptr inbounds nuw i8, ptr %init_db_options, i64 272
   store ptr @.str.8, ptr %long_name30, align 16
-  %value31 = getelementptr inbounds i8, ptr %init_db_options, i64 280
+  %value31 = getelementptr inbounds nuw i8, ptr %init_db_options, i64 280
   store ptr %flags, ptr %value31, align 8
-  %argh32 = getelementptr inbounds i8, ptr %init_db_options, i64 288
+  %argh32 = getelementptr inbounds nuw i8, ptr %init_db_options, i64 288
   store ptr null, ptr %argh32, align 16
-  %help33 = getelementptr inbounds i8, ptr %init_db_options, i64 296
+  %help33 = getelementptr inbounds nuw i8, ptr %init_db_options, i64 296
   store ptr @.str.9, ptr %help33, align 8
-  %flags34 = getelementptr inbounds i8, ptr %init_db_options, i64 304
+  %flags34 = getelementptr inbounds nuw i8, ptr %init_db_options, i64 304
   store i32 2, ptr %flags34, align 16
-  %callback35 = getelementptr inbounds i8, ptr %init_db_options, i64 312
+  %callback35 = getelementptr inbounds nuw i8, ptr %init_db_options, i64 312
   store ptr null, ptr %callback35, align 8
-  %defval36 = getelementptr inbounds i8, ptr %init_db_options, i64 320
+  %defval36 = getelementptr inbounds nuw i8, ptr %init_db_options, i64 320
   store i64 1, ptr %defval36, align 16
-  %ll_callback37 = getelementptr inbounds i8, ptr %init_db_options, i64 328
-  %arrayinit.element40 = getelementptr inbounds i8, ptr %init_db_options, i64 352
+  %ll_callback37 = getelementptr inbounds nuw i8, ptr %init_db_options, i64 328
+  %arrayinit.element40 = getelementptr inbounds nuw i8, ptr %init_db_options, i64 352
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ll_callback37, i8 0, i64 24, i1 false)
   store i32 10, ptr %arrayinit.element40, align 16
-  %short_name42 = getelementptr inbounds i8, ptr %init_db_options, i64 356
+  %short_name42 = getelementptr inbounds nuw i8, ptr %init_db_options, i64 356
   store i32 0, ptr %short_name42, align 4
-  %long_name43 = getelementptr inbounds i8, ptr %init_db_options, i64 360
+  %long_name43 = getelementptr inbounds nuw i8, ptr %init_db_options, i64 360
   store ptr @.str.10, ptr %long_name43, align 8
-  %value44 = getelementptr inbounds i8, ptr %init_db_options, i64 368
+  %value44 = getelementptr inbounds nuw i8, ptr %init_db_options, i64 368
   store ptr %real_git_dir, ptr %value44, align 16
-  %argh45 = getelementptr inbounds i8, ptr %init_db_options, i64 376
+  %argh45 = getelementptr inbounds nuw i8, ptr %init_db_options, i64 376
   store ptr @.str.11, ptr %argh45, align 8
-  %help46 = getelementptr inbounds i8, ptr %init_db_options, i64 384
+  %help46 = getelementptr inbounds nuw i8, ptr %init_db_options, i64 384
   store ptr @.str.12, ptr %help46, align 16
-  %flags47 = getelementptr inbounds i8, ptr %init_db_options, i64 392
+  %flags47 = getelementptr inbounds nuw i8, ptr %init_db_options, i64 392
   store i32 0, ptr %flags47, align 8
-  %callback48 = getelementptr inbounds i8, ptr %init_db_options, i64 400
-  %arrayinit.element53 = getelementptr inbounds i8, ptr %init_db_options, i64 440
+  %callback48 = getelementptr inbounds nuw i8, ptr %init_db_options, i64 400
+  %arrayinit.element53 = getelementptr inbounds nuw i8, ptr %init_db_options, i64 440
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %callback48, i8 0, i64 40, i1 false)
   store i32 10, ptr %arrayinit.element53, align 8
-  %short_name55 = getelementptr inbounds i8, ptr %init_db_options, i64 444
+  %short_name55 = getelementptr inbounds nuw i8, ptr %init_db_options, i64 444
   store i32 98, ptr %short_name55, align 4
-  %long_name56 = getelementptr inbounds i8, ptr %init_db_options, i64 448
+  %long_name56 = getelementptr inbounds nuw i8, ptr %init_db_options, i64 448
   store ptr @.str.13, ptr %long_name56, align 16
-  %value57 = getelementptr inbounds i8, ptr %init_db_options, i64 456
+  %value57 = getelementptr inbounds nuw i8, ptr %init_db_options, i64 456
   store ptr %initial_branch, ptr %value57, align 8
-  %argh58 = getelementptr inbounds i8, ptr %init_db_options, i64 464
+  %argh58 = getelementptr inbounds nuw i8, ptr %init_db_options, i64 464
   store ptr @.str.14, ptr %argh58, align 16
-  %help59 = getelementptr inbounds i8, ptr %init_db_options, i64 472
+  %help59 = getelementptr inbounds nuw i8, ptr %init_db_options, i64 472
   store ptr @.str.15, ptr %help59, align 8
-  %flags60 = getelementptr inbounds i8, ptr %init_db_options, i64 480
+  %flags60 = getelementptr inbounds nuw i8, ptr %init_db_options, i64 480
   store i32 0, ptr %flags60, align 16
-  %callback61 = getelementptr inbounds i8, ptr %init_db_options, i64 488
-  %arrayinit.element66 = getelementptr inbounds i8, ptr %init_db_options, i64 528
+  %callback61 = getelementptr inbounds nuw i8, ptr %init_db_options, i64 488
+  %arrayinit.element66 = getelementptr inbounds nuw i8, ptr %init_db_options, i64 528
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %callback61, i8 0, i64 40, i1 false)
   store i32 10, ptr %arrayinit.element66, align 16
-  %short_name68 = getelementptr inbounds i8, ptr %init_db_options, i64 532
+  %short_name68 = getelementptr inbounds nuw i8, ptr %init_db_options, i64 532
   store i32 0, ptr %short_name68, align 4
-  %long_name69 = getelementptr inbounds i8, ptr %init_db_options, i64 536
+  %long_name69 = getelementptr inbounds nuw i8, ptr %init_db_options, i64 536
   store ptr @.str.16, ptr %long_name69, align 8
-  %value70 = getelementptr inbounds i8, ptr %init_db_options, i64 544
+  %value70 = getelementptr inbounds nuw i8, ptr %init_db_options, i64 544
   store ptr %object_format, ptr %value70, align 16
-  %argh71 = getelementptr inbounds i8, ptr %init_db_options, i64 552
+  %argh71 = getelementptr inbounds nuw i8, ptr %init_db_options, i64 552
   store ptr @.str.17, ptr %argh71, align 8
-  %help72 = getelementptr inbounds i8, ptr %init_db_options, i64 560
+  %help72 = getelementptr inbounds nuw i8, ptr %init_db_options, i64 560
   store ptr @.str.18, ptr %help72, align 16
-  %flags73 = getelementptr inbounds i8, ptr %init_db_options, i64 568
+  %flags73 = getelementptr inbounds nuw i8, ptr %init_db_options, i64 568
   store i32 0, ptr %flags73, align 8
-  %callback74 = getelementptr inbounds i8, ptr %init_db_options, i64 576
-  %arrayinit.element79 = getelementptr inbounds i8, ptr %init_db_options, i64 616
+  %callback74 = getelementptr inbounds nuw i8, ptr %init_db_options, i64 576
+  %arrayinit.element79 = getelementptr inbounds nuw i8, ptr %init_db_options, i64 616
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %callback74, i8 0, i64 40, i1 false)
   store i32 10, ptr %arrayinit.element79, align 8
-  %short_name81 = getelementptr inbounds i8, ptr %init_db_options, i64 620
+  %short_name81 = getelementptr inbounds nuw i8, ptr %init_db_options, i64 620
   store i32 0, ptr %short_name81, align 4
-  %long_name82 = getelementptr inbounds i8, ptr %init_db_options, i64 624
+  %long_name82 = getelementptr inbounds nuw i8, ptr %init_db_options, i64 624
   store ptr @.str.19, ptr %long_name82, align 16
-  %value83 = getelementptr inbounds i8, ptr %init_db_options, i64 632
+  %value83 = getelementptr inbounds nuw i8, ptr %init_db_options, i64 632
   store ptr %ref_format, ptr %value83, align 8
-  %argh84 = getelementptr inbounds i8, ptr %init_db_options, i64 640
+  %argh84 = getelementptr inbounds nuw i8, ptr %init_db_options, i64 640
   store ptr @.str.20, ptr %argh84, align 16
-  %help85 = getelementptr inbounds i8, ptr %init_db_options, i64 648
+  %help85 = getelementptr inbounds nuw i8, ptr %init_db_options, i64 648
   store ptr @.str.21, ptr %help85, align 8
-  %flags86 = getelementptr inbounds i8, ptr %init_db_options, i64 656
+  %flags86 = getelementptr inbounds nuw i8, ptr %init_db_options, i64 656
   store i32 0, ptr %flags86, align 16
-  %callback87 = getelementptr inbounds i8, ptr %init_db_options, i64 664
+  %callback87 = getelementptr inbounds nuw i8, ptr %init_db_options, i64 664
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %callback87, i8 0, i64 128, i1 false)
   %call = call i32 @parse_options(i32 noundef %argc, ptr noundef %argv, ptr noundef %prefix, ptr noundef nonnull %init_db_options, ptr noundef nonnull @init_db_usage, i32 noundef 0) #13
   %0 = load ptr, ptr %real_git_dir, align 8
@@ -433,9 +433,9 @@ land.lhs.true204:                                 ; preds = %if.then201
 if.then207:                                       ; preds = %land.lhs.true204
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mainwt, ptr noundef nonnull align 8 dereferenceable(24) @__const.cmd_init_db.mainwt, i64 24, i1 false)
   call void @strbuf_addbuf(ptr noundef nonnull %mainwt, ptr noundef nonnull %sb) #13
-  %buf.i = getelementptr inbounds i8, ptr %mainwt, i64 16
+  %buf.i = getelementptr inbounds nuw i8, ptr %mainwt, i64 16
   %18 = load ptr, ptr %buf.i, align 8
-  %len.i = getelementptr inbounds i8, ptr %mainwt, i64 8
+  %len.i = getelementptr inbounds nuw i8, ptr %mainwt, i64 8
   %19 = load i64, ptr %len.i, align 8
   %cmp.i.i41 = icmp ult i64 %19, 5
   br i1 %cmp.i.i41, label %strbuf_strip_suffix.exit, label %lor.lhs.false.i.i
@@ -503,7 +503,7 @@ if.then221:                                       ; preds = %if.end218
   br i1 %.not.i, label %sub_1.i, label %entry.tail.i
 
 sub_1.i:                                          ; preds = %if.then221
-  %27 = getelementptr inbounds i8, ptr %git_dir.0, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %git_dir.0, i64 1
   %28 = load i8, ptr %27, align 1
   %29 = zext i8 %28 to i32
   %30 = sub nsw i32 0, %29
@@ -638,7 +638,7 @@ cond.true:                                        ; preds = %do.end
 
 cond.end:                                         ; preds = %do.end, %cond.true
   %cond = phi i32 [ %call, %cond.true ], [ 432, %do.end ]
-  %value = getelementptr inbounds i8, ptr %opt, i64 16
+  %value = getelementptr inbounds nuw i8, ptr %opt, i64 16
   %0 = load ptr, ptr %value, align 8
   store i32 %cond, ptr %0, align 4
   ret i32 0

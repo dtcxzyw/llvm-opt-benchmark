@@ -18,23 +18,23 @@ entry:
   %__args.i = alloca %"class.llvh::StringRef", align 8
   %__args.addr.i = alloca ptr, align 8
   %source = alloca %"class.llvh::Optional", align 8
-  %Next.i.i.i.i.i = getelementptr inbounds i8, ptr %M, i64 72
-  %FunctionList.i = getelementptr inbounds i8, ptr %M, i64 64
+  %Next.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %M, i64 72
+  %FunctionList.i = getelementptr inbounds nuw i8, ptr %M, i64 64
   %__begin2.sroa.0.018 = load ptr, ptr %Next.i.i.i.i.i, align 8
   %cmp.i.not19 = icmp eq ptr %__begin2.sroa.0.018, %FunctionList.i
   br i1 %cmp.i.not19, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %_M_manager.i.i = getelementptr inbounds i8, ptr %shouldVisitFunction, i64 16
-  %_M_invoker.i = getelementptr inbounds i8, ptr %shouldVisitFunction, i64 24
-  %0 = getelementptr inbounds i8, ptr %__args.i, i64 8
-  %_M_manager.i.i5 = getelementptr inbounds i8, ptr %traversal, i64 16
-  %_M_invoker.i7 = getelementptr inbounds i8, ptr %traversal, i64 24
-  %hasVal.i = getelementptr inbounds i8, ptr %source, i64 16
-  %agg.tmp15.sroa.2.0.call16.sroa_idx = getelementptr inbounds i8, ptr %source, i64 8
-  %1 = getelementptr inbounds i8, ptr %__args.i10, i64 8
-  %_M_manager.i.i11 = getelementptr inbounds i8, ptr %functionSourceTraversal, i64 16
-  %_M_invoker.i13 = getelementptr inbounds i8, ptr %functionSourceTraversal, i64 24
+  %_M_manager.i.i = getelementptr inbounds nuw i8, ptr %shouldVisitFunction, i64 16
+  %_M_invoker.i = getelementptr inbounds nuw i8, ptr %shouldVisitFunction, i64 24
+  %0 = getelementptr inbounds nuw i8, ptr %__args.i, i64 8
+  %_M_manager.i.i5 = getelementptr inbounds nuw i8, ptr %traversal, i64 16
+  %_M_invoker.i7 = getelementptr inbounds nuw i8, ptr %traversal, i64 24
+  %hasVal.i = getelementptr inbounds nuw i8, ptr %source, i64 16
+  %agg.tmp15.sroa.2.0.call16.sroa_idx = getelementptr inbounds nuw i8, ptr %source, i64 8
+  %1 = getelementptr inbounds nuw i8, ptr %__args.i10, i64 8
+  %_M_manager.i.i11 = getelementptr inbounds nuw i8, ptr %functionSourceTraversal, i64 16
+  %_M_invoker.i13 = getelementptr inbounds nuw i8, ptr %functionSourceTraversal, i64 24
   br i1 %stripFunctionNames, label %for.body.us, label %for.body
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.inc.us
@@ -52,7 +52,7 @@ _ZNKSt8functionIFbPN6hermes8FunctionEEEclES2_.exit.us: ; preds = %for.body.us
   br i1 %call2.i.us, label %if.end.us, label %for.inc.us
 
 if.end.us:                                        ; preds = %_ZNKSt8functionIFbPN6hermes8FunctionEEEclES2_.exit.us
-  %isGlobal_.i.us = getelementptr inbounds i8, ptr %__begin2.sroa.0.020.us, i64 64
+  %isGlobal_.i.us = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.020.us, i64 64
   %4 = load i8, ptr %isGlobal_.i.us, align 8
   %tobool.i.us = trunc i8 %4 to i1
   br i1 %tobool.i.us, label %for.inc.us, label %if.then12.us
@@ -80,7 +80,7 @@ _ZNKSt8functionIFvN4llvh9StringRefEEEclES1_.exit15.us: ; preds = %if.then14.us
   br label %for.inc.us
 
 for.inc.us:                                       ; preds = %_ZNKSt8functionIFvN4llvh9StringRefEEEclES1_.exit15.us, %if.then12.us, %if.end.us, %_ZNKSt8functionIFbPN6hermes8FunctionEEEclES2_.exit.us
-  %Next.i.i.i.us = getelementptr inbounds i8, ptr %__begin2.sroa.0.020.us, i64 8
+  %Next.i.i.i.us = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.020.us, i64 8
   %__begin2.sroa.0.0.us = load ptr, ptr %Next.i.i.i.us, align 8
   %cmp.i.not.us = icmp eq ptr %__begin2.sroa.0.0.us, %FunctionList.i
   br i1 %cmp.i.not.us, label %for.end, label %for.body.us
@@ -104,10 +104,10 @@ _ZNKSt8functionIFbPN6hermes8FunctionEEEclES2_.exit: ; preds = %for.body
   br i1 %call2.i, label %if.end, label %for.inc
 
 if.end:                                           ; preds = %_ZNKSt8functionIFbPN6hermes8FunctionEEEclES2_.exit
-  %originalOrInferredName_.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.020, i64 176
+  %originalOrInferredName_.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.020, i64 176
   %retval.sroa.0.0.copyload.i = load ptr, ptr %originalOrInferredName_.i, align 8
   %agg.tmp.sroa.0.0.copyload = load ptr, ptr %retval.sroa.0.0.copyload.i, align 8
-  %agg.tmp.sroa.2.0.call9.sroa_idx = getelementptr inbounds i8, ptr %retval.sroa.0.0.copyload.i, i64 8
+  %agg.tmp.sroa.2.0.call9.sroa_idx = getelementptr inbounds nuw i8, ptr %retval.sroa.0.0.copyload.i, i64 8
   %agg.tmp.sroa.2.0.copyload = load i64, ptr %agg.tmp.sroa.2.0.call9.sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__args.i)
   store ptr %agg.tmp.sroa.0.0.copyload, ptr %__args.i, align 8
@@ -124,7 +124,7 @@ _ZNKSt8functionIFvN4llvh9StringRefEEEclES1_.exit: ; preds = %if.end
   %11 = load ptr, ptr %_M_invoker.i7, align 8
   call void %11(ptr noundef nonnull align 8 dereferenceable(32) %traversal, ptr noundef nonnull align 8 dereferenceable(16) %__args.i) #4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__args.i)
-  %isGlobal_.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.020, i64 64
+  %isGlobal_.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.020, i64 64
   %12 = load i8, ptr %isGlobal_.i, align 8
   %tobool.i = trunc i8 %12 to i1
   br i1 %tobool.i, label %for.inc, label %if.then12
@@ -156,7 +156,7 @@ _ZNKSt8functionIFvN4llvh9StringRefEEEclES1_.exit15: ; preds = %if.then14
   br label %for.inc
 
 for.inc:                                          ; preds = %_ZNKSt8functionIFvN4llvh9StringRefEEEclES1_.exit, %_ZNKSt8functionIFvN4llvh9StringRefEEEclES1_.exit15, %if.then12, %_ZNKSt8functionIFbPN6hermes8FunctionEEEclES2_.exit
-  %Next.i.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.020, i64 8
+  %Next.i.i.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.020, i64 8
   %__begin2.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin2.sroa.0.0, %FunctionList.i
   br i1 %cmp.i.not, label %for.end, label %for.body
@@ -172,20 +172,20 @@ define hidden void @_ZN6hermes3hbc22traverseCJSModuleNamesEPNS_6ModuleESt8functi
 entry:
   %__args.i = alloca %"class.llvh::StringRef", align 8
   %__args.addr.i = alloca ptr, align 8
-  %Next.i.i.i.i.i = getelementptr inbounds i8, ptr %M, i64 72
-  %FunctionList.i = getelementptr inbounds i8, ptr %M, i64 64
+  %Next.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %M, i64 72
+  %FunctionList.i = getelementptr inbounds nuw i8, ptr %M, i64 64
   %__begin2.sroa.0.013 = load ptr, ptr %Next.i.i.i.i.i, align 8
   %cmp.i.not14 = icmp eq ptr %__begin2.sroa.0.013, %FunctionList.i
   br i1 %cmp.i.not14, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %_M_manager.i.i = getelementptr inbounds i8, ptr %shouldVisitFunction, i64 16
-  %_M_invoker.i = getelementptr inbounds i8, ptr %shouldVisitFunction, i64 24
-  %cjsModuleFunctionMap_.i = getelementptr inbounds i8, ptr %M, i64 840
-  %NumBuckets.i.i.i.i.i = getelementptr inbounds i8, ptr %M, i64 856
-  %0 = getelementptr inbounds i8, ptr %__args.i, i64 8
-  %_M_manager.i.i5 = getelementptr inbounds i8, ptr %traversal, i64 16
-  %_M_invoker.i7 = getelementptr inbounds i8, ptr %traversal, i64 24
+  %_M_manager.i.i = getelementptr inbounds nuw i8, ptr %shouldVisitFunction, i64 16
+  %_M_invoker.i = getelementptr inbounds nuw i8, ptr %shouldVisitFunction, i64 24
+  %cjsModuleFunctionMap_.i = getelementptr inbounds nuw i8, ptr %M, i64 840
+  %NumBuckets.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %M, i64 856
+  %0 = getelementptr inbounds nuw i8, ptr %__args.i, i64 8
+  %_M_manager.i.i5 = getelementptr inbounds nuw i8, ptr %traversal, i64 16
+  %_M_invoker.i7 = getelementptr inbounds nuw i8, ptr %traversal, i64 24
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -221,7 +221,7 @@ if.end.i.i.i:                                     ; preds = %if.end
   %sub.i.i.i = add i32 %4, -1
   %BucketNo.019.i.i.i = and i32 %sub.i.i.i, %xor.i.i.i.i.i
   %idx.ext20.i.i.i = zext nneg i32 %BucketNo.019.i.i.i to i64
-  %add.ptr21.i.i.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %3, i64 %idx.ext20.i.i.i
+  %add.ptr21.i.i.i = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair", ptr %3, i64 %idx.ext20.i.i.i
   %6 = load ptr, ptr %add.ptr21.i.i.i, align 8
   %cmp.i22.i.i.i = icmp eq ptr %__begin2.sroa.0.015, %6
   br i1 %cmp.i22.i.i.i, label %_ZNK4llvh12DenseMapBaseINS_8DenseMapIPN6hermes8FunctionEPNS2_6Module9CJSModuleENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E4findEPKS3_.exit.i, label %if.end9.i.i.i
@@ -238,34 +238,34 @@ if.end13.i.i.i:                                   ; preds = %if.end9.i.i.i
   %add.i.i.i = add i32 %ProbeAmt.024.i.i.i, %BucketNo.025.i.i.i
   %BucketNo.0.i.i.i = and i32 %add.i.i.i, %sub.i.i.i
   %idx.ext.i.i.i = zext i32 %BucketNo.0.i.i.i to i64
-  %add.ptr.i.i.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %3, i64 %idx.ext.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair", ptr %3, i64 %idx.ext.i.i.i
   %8 = load ptr, ptr %add.ptr.i.i.i, align 8
   %cmp.i.i.i.i = icmp eq ptr %__begin2.sroa.0.015, %8
   br i1 %cmp.i.i.i.i, label %_ZNK4llvh12DenseMapBaseINS_8DenseMapIPN6hermes8FunctionEPNS2_6Module9CJSModuleENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E4findEPKS3_.exit.i, label %if.end9.i.i.i, !llvm.loop !4
 
 if.end.i.i:                                       ; preds = %if.end9.i.i.i, %if.end
   %idx.ext.i.i.i.i = zext i32 %4 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %3, i64 %idx.ext.i.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair", ptr %3, i64 %idx.ext.i.i.i.i
   br label %_ZNK4llvh12DenseMapBaseINS_8DenseMapIPN6hermes8FunctionEPNS2_6Module9CJSModuleENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E4findEPKS3_.exit.i
 
 _ZNK4llvh12DenseMapBaseINS_8DenseMapIPN6hermes8FunctionEPNS2_6Module9CJSModuleENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E4findEPKS3_.exit.i: ; preds = %if.end13.i.i.i, %if.end.i.i, %if.end.i.i.i
   %cond.sink.i.ph.pn.i.i = phi ptr [ %add.ptr.i.i.i.i, %if.end.i.i ], [ %add.ptr21.i.i.i, %if.end.i.i.i ], [ %add.ptr.i.i.i, %if.end13.i.i.i ]
   %idx.ext.i.i2.i = zext i32 %4 to i64
-  %add.ptr.i.i3.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %3, i64 %idx.ext.i.i2.i
+  %add.ptr.i.i3.i = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair", ptr %3, i64 %idx.ext.i.i2.i
   %cmp.i.i = icmp eq ptr %cond.sink.i.ph.pn.i.i, %add.ptr.i.i3.i
   br i1 %cmp.i.i, label %for.inc, label %_ZNK6hermes6Module13findCJSModuleEPNS_8FunctionE.exit
 
 _ZNK6hermes6Module13findCJSModuleEPNS_8FunctionE.exit: ; preds = %_ZNK4llvh12DenseMapBaseINS_8DenseMapIPN6hermes8FunctionEPNS2_6Module9CJSModuleENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E4findEPKS3_.exit.i
-  %second.i = getelementptr inbounds i8, ptr %cond.sink.i.ph.pn.i.i, i64 8
+  %second.i = getelementptr inbounds nuw i8, ptr %cond.sink.i.ph.pn.i.i, i64 8
   %9 = load ptr, ptr %second.i, align 8
   %tobool.not = icmp eq ptr %9, null
   br i1 %tobool.not, label %for.inc, label %if.then7
 
 if.then7:                                         ; preds = %_ZNK6hermes6Module13findCJSModuleEPNS_8FunctionE.exit
-  %filename = getelementptr inbounds i8, ptr %9, i64 8
+  %filename = getelementptr inbounds nuw i8, ptr %9, i64 8
   %10 = load ptr, ptr %filename, align 8
   %agg.tmp.sroa.0.0.copyload = load ptr, ptr %10, align 8
-  %agg.tmp.sroa.2.0.call8.sroa_idx = getelementptr inbounds i8, ptr %10, i64 8
+  %agg.tmp.sroa.2.0.call8.sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
   %agg.tmp.sroa.2.0.copyload = load i64, ptr %agg.tmp.sroa.2.0.call8.sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__args.i)
   store ptr %agg.tmp.sroa.0.0.copyload, ptr %__args.i, align 8
@@ -285,7 +285,7 @@ _ZNKSt8functionIFvN4llvh9StringRefEEEclES1_.exit: ; preds = %if.then7
   br label %for.inc
 
 for.inc:                                          ; preds = %_ZNK4llvh12DenseMapBaseINS_8DenseMapIPN6hermes8FunctionEPNS2_6Module9CJSModuleENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E4findEPKS3_.exit.i, %_ZNK6hermes6Module13findCJSModuleEPNS_8FunctionE.exit, %_ZNKSt8functionIFvN4llvh9StringRefEEEclES1_.exit, %_ZNKSt8functionIFbPN6hermes8FunctionEEEclES2_.exit
-  %Next.i.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.015, i64 8
+  %Next.i.i.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.015, i64 8
   %__begin2.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin2.sroa.0.0, %FunctionList.i
   br i1 %cmp.i.not, label %for.end, label %for.body
@@ -302,34 +302,34 @@ entry:
   %__args.addr.i17 = alloca ptr, align 8
   %__args.i = alloca %"class.llvh::StringRef", align 8
   %__args.addr.i = alloca i8, align 1
-  %globalPropertyList_.i = getelementptr inbounds i8, ptr %M, i64 80
+  %globalPropertyList_.i = getelementptr inbounds nuw i8, ptr %M, i64 80
   %0 = load ptr, ptr %globalPropertyList_.i, align 8
-  %_M_finish.i.i = getelementptr inbounds i8, ptr %M, i64 88
+  %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %M, i64 88
   %1 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.not47 = icmp eq ptr %0, %1
   br i1 %cmp.i.not47, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %2 = getelementptr inbounds i8, ptr %__args.i, i64 8
-  %_M_manager.i.i = getelementptr inbounds i8, ptr %traversal, i64 16
-  %_M_invoker.i = getelementptr inbounds i8, ptr %traversal, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %__args.i, i64 8
+  %_M_manager.i.i = getelementptr inbounds nuw i8, ptr %traversal, i64 16
+  %_M_invoker.i = getelementptr inbounds nuw i8, ptr %traversal, i64 24
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %__begin2.sroa.0.048 = phi ptr [ %0, %for.body.lr.ph ], [ %incdec.ptr.i, %for.inc ]
   %3 = load ptr, ptr %__begin2.sroa.0.048, align 8
-  %declared_.i = getelementptr inbounds i8, ptr %3, i64 56
+  %declared_.i = getelementptr inbounds nuw i8, ptr %3, i64 56
   %4 = load i8, ptr %declared_.i, align 8
   %tobool.i = trunc i8 %4 to i1
   br i1 %tobool.i, label %if.then, label %for.inc
 
 if.then:                                          ; preds = %for.body
-  %name_.i = getelementptr inbounds i8, ptr %3, i64 48
+  %name_.i = getelementptr inbounds nuw i8, ptr %3, i64 48
   %5 = load ptr, ptr %name_.i, align 8
-  %value.i = getelementptr inbounds i8, ptr %5, i64 48
+  %value.i = getelementptr inbounds nuw i8, ptr %5, i64 48
   %retval.sroa.0.0.copyload.i15 = load ptr, ptr %value.i, align 8
   %agg.tmp.sroa.0.0.copyload = load ptr, ptr %retval.sroa.0.0.copyload.i15, align 8
-  %agg.tmp.sroa.2.0.call11.sroa_idx = getelementptr inbounds i8, ptr %retval.sroa.0.0.copyload.i15, i64 8
+  %agg.tmp.sroa.2.0.call11.sroa_idx = getelementptr inbounds nuw i8, ptr %retval.sroa.0.0.copyload.i15, i64 8
   %agg.tmp.sroa.2.0.copyload = load i64, ptr %agg.tmp.sroa.2.0.call11.sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__args.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__args.addr.i)
@@ -352,23 +352,23 @@ _ZNKSt8functionIFvN4llvh9StringRefEbEEclES1_b.exit: ; preds = %if.then
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %_ZNKSt8functionIFvN4llvh9StringRefEbEEclES1_b.exit
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.048, i64 8
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.048, i64 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %1
   br i1 %cmp.i.not, label %for.end, label %for.body
 
 for.end:                                          ; preds = %for.inc, %entry
-  %Next.i.i.i.i.i = getelementptr inbounds i8, ptr %M, i64 72
-  %FunctionList.i = getelementptr inbounds i8, ptr %M, i64 64
+  %Next.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %M, i64 72
+  %FunctionList.i = getelementptr inbounds nuw i8, ptr %M, i64 64
   %__begin214.sroa.0.058 = load ptr, ptr %Next.i.i.i.i.i, align 8
   %cmp.i16.not59 = icmp eq ptr %__begin214.sroa.0.058, %FunctionList.i
   br i1 %cmp.i16.not59, label %for.end66, label %for.body22.lr.ph
 
 for.body22.lr.ph:                                 ; preds = %for.end
-  %_M_manager.i.i18 = getelementptr inbounds i8, ptr %shouldVisitFunction, i64 16
-  %_M_invoker.i20 = getelementptr inbounds i8, ptr %shouldVisitFunction, i64 24
-  %8 = getelementptr inbounds i8, ptr %__args.i29, i64 8
-  %_M_manager.i.i31 = getelementptr inbounds i8, ptr %traversal, i64 16
-  %_M_invoker.i33 = getelementptr inbounds i8, ptr %traversal, i64 24
+  %_M_manager.i.i18 = getelementptr inbounds nuw i8, ptr %shouldVisitFunction, i64 16
+  %_M_invoker.i20 = getelementptr inbounds nuw i8, ptr %shouldVisitFunction, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %__args.i29, i64 8
+  %_M_manager.i.i31 = getelementptr inbounds nuw i8, ptr %traversal, i64 16
+  %_M_invoker.i33 = getelementptr inbounds nuw i8, ptr %traversal, i64 24
   br label %for.body22
 
 for.body22:                                       ; preds = %for.body22.lr.ph, %for.inc64
@@ -390,16 +390,16 @@ _ZNKSt8functionIFbPN6hermes8FunctionEEEclES2_.exit: ; preds = %for.body22
   br i1 %call2.i, label %if.end26, label %for.inc64
 
 if.end26:                                         ; preds = %_ZNKSt8functionIFbPN6hermes8FunctionEEEclES2_.exit
-  %Next.i.i.i.i.i22 = getelementptr inbounds i8, ptr %__begin214.sroa.0.060, i64 88
-  %BasicBlockList.i = getelementptr inbounds i8, ptr %__begin214.sroa.0.060, i64 80
+  %Next.i.i.i.i.i22 = getelementptr inbounds nuw i8, ptr %__begin214.sroa.0.060, i64 88
+  %BasicBlockList.i = getelementptr inbounds nuw i8, ptr %__begin214.sroa.0.060, i64 80
   %__begin3.sroa.0.055 = load ptr, ptr %Next.i.i.i.i.i22, align 8
   %cmp.i23.not56 = icmp eq ptr %__begin3.sroa.0.055, %BasicBlockList.i
   br i1 %cmp.i23.not56, label %for.inc64, label %for.body33
 
 for.body33:                                       ; preds = %if.end26, %for.inc61
   %__begin3.sroa.0.057 = phi ptr [ %__begin3.sroa.0.0, %for.inc61 ], [ %__begin3.sroa.0.055, %if.end26 ]
-  %Next.i.i.i.i.i24 = getelementptr inbounds i8, ptr %__begin3.sroa.0.057, i64 64
-  %InstList.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.057, i64 56
+  %Next.i.i.i.i.i24 = getelementptr inbounds nuw i8, ptr %__begin3.sroa.0.057, i64 64
+  %InstList.i = getelementptr inbounds nuw i8, ptr %__begin3.sroa.0.057, i64 56
   %__begin4.sroa.0.052 = load ptr, ptr %Next.i.i.i.i.i24, align 8
   %cmp.i25.not53 = icmp eq ptr %__begin4.sroa.0.052, %InstList.i
   br i1 %cmp.i25.not53, label %for.inc61, label %for.body41
@@ -422,10 +422,10 @@ for.body45:                                       ; preds = %for.body45.lr.ph, %
   br i1 %cmp.i.i.i.i.i.i.i.not, label %if.then48, label %for.inc56
 
 if.then48:                                        ; preds = %for.body45
-  %value.i26 = getelementptr inbounds i8, ptr %call46, i64 48
+  %value.i26 = getelementptr inbounds nuw i8, ptr %call46, i64 48
   %retval.sroa.0.0.copyload.i27 = load ptr, ptr %value.i26, align 8
   %agg.tmp49.sroa.0.0.copyload = load ptr, ptr %retval.sroa.0.0.copyload.i27, align 8
-  %agg.tmp49.sroa.2.0.call53.sroa_idx = getelementptr inbounds i8, ptr %retval.sroa.0.0.copyload.i27, i64 8
+  %agg.tmp49.sroa.2.0.call53.sroa_idx = getelementptr inbounds nuw i8, ptr %retval.sroa.0.0.copyload.i27, i64 8
   %agg.tmp49.sroa.2.0.copyload = load i64, ptr %agg.tmp49.sroa.2.0.call53.sroa_idx, align 8
   %call42.val = load i8, ptr %11, align 8
   switch i8 %call42.val, label %_ZN12_GLOBAL__N_111isIdOperandEPN6hermes11InstructionEj.exit [
@@ -501,19 +501,19 @@ for.inc56:                                        ; preds = %for.body45, %_ZNKSt
   br i1 %exitcond.not, label %for.inc58, label %for.body45, !llvm.loop !6
 
 for.inc58:                                        ; preds = %for.inc56, %for.body41
-  %Next.i.i.i = getelementptr inbounds i8, ptr %__begin4.sroa.0.054, i64 8
+  %Next.i.i.i = getelementptr inbounds nuw i8, ptr %__begin4.sroa.0.054, i64 8
   %__begin4.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i25.not = icmp eq ptr %__begin4.sroa.0.0, %InstList.i
   br i1 %cmp.i25.not, label %for.inc61, label %for.body41
 
 for.inc61:                                        ; preds = %for.inc58, %for.body33
-  %Next.i.i.i36 = getelementptr inbounds i8, ptr %__begin3.sroa.0.057, i64 8
+  %Next.i.i.i36 = getelementptr inbounds nuw i8, ptr %__begin3.sroa.0.057, i64 8
   %__begin3.sroa.0.0 = load ptr, ptr %Next.i.i.i36, align 8
   %cmp.i23.not = icmp eq ptr %__begin3.sroa.0.0, %BasicBlockList.i
   br i1 %cmp.i23.not, label %for.inc64, label %for.body33
 
 for.inc64:                                        ; preds = %for.inc61, %if.end26, %_ZNKSt8functionIFbPN6hermes8FunctionEEEclES2_.exit
-  %Next.i.i.i37 = getelementptr inbounds i8, ptr %__begin214.sroa.0.060, i64 8
+  %Next.i.i.i37 = getelementptr inbounds nuw i8, ptr %__begin214.sroa.0.060, i64 8
   %__begin214.sroa.0.0 = load ptr, ptr %Next.i.i.i37, align 8
   %cmp.i16.not = icmp eq ptr %__begin214.sroa.0.0, %FunctionList.i
   br i1 %cmp.i16.not, label %for.end66, label %for.body22

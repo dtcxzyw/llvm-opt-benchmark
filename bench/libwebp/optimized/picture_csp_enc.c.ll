@@ -35,17 +35,17 @@ define range(i32 0, 2) i32 @WebPPictureHasTransparency(ptr noundef readonly %0) 
   br i1 %.not, label %26, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 72
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %7 = load ptr, ptr %6, align 8
   %.not13 = icmp eq ptr %7, null
   br i1 %.not13, label %CheckNonOpaque.exit, label %8
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i32, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %12 = load i32, ptr %11, align 4
-  %13 = getelementptr inbounds i8, ptr %0, i64 80
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %14 = load i32, ptr %13, align 8
   tail call void @WebPInitAlphaProcessing() #9
   %15 = icmp sgt i32 %12, 0
@@ -53,7 +53,7 @@ define range(i32 0, 2) i32 @WebPPictureHasTransparency(ptr noundef readonly %0) 
 
 .lr.ph.i:                                         ; preds = %8
   %16 = shl i32 %14, 2
-  %17 = getelementptr inbounds i8, ptr %7, i64 3
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 3
   %18 = sext i32 %16 to i64
   br label %19
 
@@ -72,13 +72,13 @@ define range(i32 0, 2) i32 @WebPPictureHasTransparency(ptr noundef readonly %0) 
   br i1 %25, label %19, label %CheckNonOpaque.exit, !llvm.loop !4
 
 26:                                               ; preds = %3
-  %27 = getelementptr inbounds i8, ptr %0, i64 48
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %30 = load i32, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 12
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %32 = load i32, ptr %31, align 4
-  %33 = getelementptr inbounds i8, ptr %0, i64 56
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %34 = load i32, ptr %33, align 8
   %35 = icmp eq ptr %28, null
   br i1 %35, label %CheckNonOpaque.exit, label %36
@@ -117,7 +117,7 @@ define i32 @WebPPictureARGBToYUVADithered(ptr noundef %0, i32 noundef %1, float 
   br i1 %4, label %PictureARGBToYUVA.exit, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 72
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %11
@@ -136,12 +136,12 @@ define i32 @WebPPictureARGBToYUVADithered(ptr noundef %0, i32 noundef %1, float 
   br label %PictureARGBToYUVA.exit
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %7, i64 3
-  %17 = getelementptr inbounds i8, ptr %7, i64 2
-  %18 = getelementptr inbounds i8, ptr %7, i64 1
-  %19 = getelementptr inbounds i8, ptr %0, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 3
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 2
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %0, i64 80
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %21 = load i32, ptr %20, align 8
   %22 = shl nsw i32 %21, 2
   %23 = tail call fastcc i32 @ImportYUVAFromRGBA(ptr noundef %17, ptr noundef %18, ptr noundef %7, ptr noundef nonnull %16, i32 noundef 4, i32 noundef %22, float noundef %2, i32 noundef 0, ptr noundef %0)
@@ -158,7 +158,7 @@ define i32 @WebPPictureARGBToYUVA(ptr noundef %0, i32 noundef %1) local_unnamed_
   br i1 %3, label %PictureARGBToYUVA.exit, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 72
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %10
@@ -177,12 +177,12 @@ define i32 @WebPPictureARGBToYUVA(ptr noundef %0, i32 noundef %1) local_unnamed_
   br label %PictureARGBToYUVA.exit
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %6, i64 3
-  %16 = getelementptr inbounds i8, ptr %6, i64 2
-  %17 = getelementptr inbounds i8, ptr %6, i64 1
-  %18 = getelementptr inbounds i8, ptr %0, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 3
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 2
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %0, i64 80
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %20 = load i32, ptr %19, align 8
   %21 = shl nsw i32 %20, 2
   %22 = tail call fastcc i32 @ImportYUVAFromRGBA(ptr noundef %16, ptr noundef %17, ptr noundef %6, ptr noundef nonnull %15, i32 noundef 4, i32 noundef %21, float noundef 0.000000e+00, i32 noundef 0, ptr noundef %0)
@@ -199,7 +199,7 @@ define i32 @WebPPictureSharpARGBToYUVA(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %2, label %PictureARGBToYUVA.exit, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 72
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %9
@@ -209,12 +209,12 @@ define i32 @WebPPictureSharpARGBToYUVA(ptr noundef %0) local_unnamed_addr #0 {
   br label %PictureARGBToYUVA.exit
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %5, i64 3
-  %11 = getelementptr inbounds i8, ptr %5, i64 2
-  %12 = getelementptr inbounds i8, ptr %5, i64 1
-  %13 = getelementptr inbounds i8, ptr %0, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 3
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 2
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %0, i64 80
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %15 = load i32, ptr %14, align 8
   %16 = shl nsw i32 %15, 2
   %17 = tail call fastcc i32 @ImportYUVAFromRGBA(ptr noundef %11, ptr noundef %12, ptr noundef %5, ptr noundef nonnull %10, i32 noundef 4, i32 noundef %16, float noundef 0.000000e+00, i32 noundef 1, ptr noundef %0)
@@ -231,7 +231,7 @@ define i32 @WebPPictureSmartARGBToYUVA(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %2, label %WebPPictureSharpARGBToYUVA.exit, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 72
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %9
@@ -241,12 +241,12 @@ define i32 @WebPPictureSmartARGBToYUVA(ptr noundef %0) local_unnamed_addr #0 {
   br label %WebPPictureSharpARGBToYUVA.exit
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %5, i64 3
-  %11 = getelementptr inbounds i8, ptr %5, i64 2
-  %12 = getelementptr inbounds i8, ptr %5, i64 1
-  %13 = getelementptr inbounds i8, ptr %0, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 3
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 2
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %0, i64 80
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %15 = load i32, ptr %14, align 8
   %16 = shl nsw i32 %15, 2
   %17 = tail call fastcc i32 @ImportYUVAFromRGBA(ptr noundef %11, ptr noundef %12, ptr noundef %5, ptr noundef nonnull %10, i32 noundef 4, i32 noundef %16, float noundef 0.000000e+00, i32 noundef 1, ptr noundef %0)
@@ -263,32 +263,32 @@ define i32 @WebPPictureYUVAToARGB(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %2, label %.loopexit, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %.loopexit.sink.split, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %.loopexit.sink.split, label %11
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %.loopexit.sink.split, label %15
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %0, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %17 = load i32, ptr %16, align 4
   %18 = and i32 %17, 4
   %.not = icmp eq i32 %18, 0
   br i1 %.not, label %23, label %19
 
 19:                                               ; preds = %15
-  %20 = getelementptr inbounds i8, ptr %0, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, null
   br i1 %22, label %.loopexit.sink.split, label %23
@@ -305,21 +305,21 @@ define i32 @WebPPictureYUVAToARGB(ptr noundef %0) local_unnamed_addr #0 {
 
 27:                                               ; preds = %25
   store i32 1, ptr %0, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %29 = load i32, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 12
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %31 = load i32, ptr %30, align 4
-  %32 = getelementptr inbounds i8, ptr %0, i64 80
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %33 = load i32, ptr %32, align 8
   %34 = shl nsw i32 %33, 2
-  %35 = getelementptr inbounds i8, ptr %0, i64 72
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %36 = load ptr, ptr %35, align 8
   %37 = load ptr, ptr %8, align 8
   %38 = load ptr, ptr %12, align 8
   %39 = load ptr, ptr %4, align 8
   %40 = tail call ptr @WebPGetLinePairConverter(i32 noundef 1) #9
   tail call void %40(ptr noundef %39, ptr noundef null, ptr noundef %37, ptr noundef %38, ptr noundef %37, ptr noundef %38, ptr noundef %36, ptr noundef null, i32 noundef %29) #9
-  %41 = getelementptr inbounds i8, ptr %0, i64 40
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %42 = load i32, ptr %41, align 8
   %43 = sext i32 %42 to i64
   %44 = getelementptr inbounds i8, ptr %39, i64 %43
@@ -329,7 +329,7 @@ define i32 @WebPPictureYUVAToARGB(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %47, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %27
-  %48 = getelementptr inbounds i8, ptr %0, i64 44
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %49 = shl nsw i32 %33, 3
   %50 = sext i32 %49 to i64
   br label %51
@@ -383,8 +383,8 @@ define i32 @WebPPictureYUVAToARGB(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %or.cond111, label %.lr.ph110, label %.loopexit
 
 .lr.ph110:                                        ; preds = %70
-  %74 = getelementptr inbounds i8, ptr %0, i64 48
-  %75 = getelementptr inbounds i8, ptr %0, i64 56
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %76 = icmp sgt i32 %29, 0
   br i1 %76, label %.lr.ph107.us.preheader, label %.loopexit
 
@@ -408,10 +408,10 @@ define i32 @WebPPictureYUVAToARGB(ptr noundef %0) local_unnamed_addr #0 {
 
 87:                                               ; preds = %.lr.ph107.us, %87
   %indvars.iv = phi i64 [ 0, %.lr.ph107.us ], [ %indvars.iv.next, %87 ]
-  %88 = getelementptr inbounds i32, ptr %81, i64 %indvars.iv
+  %88 = getelementptr inbounds nuw i32, ptr %81, i64 %indvars.iv
   %89 = load i32, ptr %88, align 4
   %90 = and i32 %89, 16777215
-  %91 = getelementptr inbounds i8, ptr %86, i64 %indvars.iv
+  %91 = getelementptr inbounds nuw i8, ptr %86, i64 %indvars.iv
   %92 = load i8, ptr %91, align 1
   %93 = zext i8 %92 to i32
   %94 = shl nuw i32 %93, 24
@@ -450,11 +450,11 @@ define i32 @WebPPictureImportBGR(ptr noundef %0, ptr noundef %1, i32 noundef %2)
   br i1 %or.cond, label %6, label %Import.exit
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %1, i64 2
-  %8 = getelementptr inbounds i8, ptr %1, i64 1
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i32, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %12 = load i32, ptr %11, align 4
   %13 = tail call i32 @llvm.abs.i32(i32 %2, i1 true)
   %14 = mul nsw i32 %10, 3
@@ -482,10 +482,10 @@ define i32 @WebPPictureImportBGR(ptr noundef %0, ptr noundef %1, i32 noundef %2)
   br i1 %23, label %.lr.ph90.i, label %Import.exit
 
 .lr.ph90.i:                                       ; preds = %22
-  %24 = getelementptr inbounds i8, ptr %0, i64 72
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %25 = load ptr, ptr %24, align 8
   %26 = sext i32 %2 to i64
-  %27 = getelementptr inbounds i8, ptr %0, i64 80
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 80
   br label %28
 
 28:                                               ; preds = %28, %.lr.ph90.i
@@ -519,11 +519,11 @@ define i32 @WebPPictureImportBGRA(ptr noundef %0, ptr noundef %1, i32 noundef %2
   br i1 %or.cond, label %6, label %Import.exit
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %1, i64 2
-  %8 = getelementptr inbounds i8, ptr %1, i64 1
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i32, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %12 = load i32, ptr %11, align 4
   %13 = tail call i32 @llvm.abs.i32(i32 %2, i1 true)
   %14 = shl nsw i32 %10, 2
@@ -536,7 +536,7 @@ define i32 @WebPPictureImportBGRA(ptr noundef %0, ptr noundef %1, i32 noundef %2
   br i1 %.not73.i, label %18, label %21
 
 18:                                               ; preds = %16
-  %19 = getelementptr inbounds i8, ptr %1, i64 3
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %20 = tail call fastcc i32 @ImportYUVAFromRGBA(ptr noundef %7, ptr noundef %8, ptr noundef %1, ptr noundef nonnull %19, i32 noundef 4, i32 noundef %2, float noundef 0.000000e+00, i32 noundef 0, ptr noundef nonnull %0)
   br label %Import.exit
 
@@ -552,11 +552,11 @@ define i32 @WebPPictureImportBGRA(ptr noundef %0, ptr noundef %1, i32 noundef %2
   br i1 %24, label %.lr.ph.i, label %Import.exit
 
 .lr.ph.i:                                         ; preds = %23
-  %25 = getelementptr inbounds i8, ptr %0, i64 72
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %26 = load ptr, ptr %25, align 8
   %27 = sext i32 %14 to i64
   %28 = sext i32 %2 to i64
-  %29 = getelementptr inbounds i8, ptr %0, i64 80
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 80
   br label %30
 
 30:                                               ; preds = %30, %.lr.ph.i
@@ -585,11 +585,11 @@ define i32 @WebPPictureImportBGRX(ptr noundef %0, ptr noundef %1, i32 noundef %2
   br i1 %or.cond, label %6, label %Import.exit
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %1, i64 2
-  %8 = getelementptr inbounds i8, ptr %1, i64 1
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i32, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %12 = load i32, ptr %11, align 4
   %13 = tail call i32 @llvm.abs.i32(i32 %2, i1 true)
   %14 = mul nsw i32 %10, 3
@@ -617,10 +617,10 @@ define i32 @WebPPictureImportBGRX(ptr noundef %0, ptr noundef %1, i32 noundef %2
   br i1 %23, label %.lr.ph90.i, label %Import.exit
 
 .lr.ph90.i:                                       ; preds = %22
-  %24 = getelementptr inbounds i8, ptr %0, i64 72
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %25 = load ptr, ptr %24, align 8
   %26 = sext i32 %2 to i64
-  %27 = getelementptr inbounds i8, ptr %0, i64 80
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 80
   br label %28
 
 28:                                               ; preds = %28, %.lr.ph90.i
@@ -654,11 +654,11 @@ define i32 @WebPPictureImportRGB(ptr noundef %0, ptr noundef %1, i32 noundef %2)
   br i1 %or.cond, label %6, label %Import.exit
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %1, i64 1
-  %8 = getelementptr inbounds i8, ptr %1, i64 2
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i32, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %12 = load i32, ptr %11, align 4
   %13 = tail call i32 @llvm.abs.i32(i32 %2, i1 true)
   %14 = mul nsw i32 %10, 3
@@ -686,10 +686,10 @@ define i32 @WebPPictureImportRGB(ptr noundef %0, ptr noundef %1, i32 noundef %2)
   br i1 %23, label %.lr.ph90.i, label %Import.exit
 
 .lr.ph90.i:                                       ; preds = %22
-  %24 = getelementptr inbounds i8, ptr %0, i64 72
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %25 = load ptr, ptr %24, align 8
   %26 = sext i32 %2 to i64
-  %27 = getelementptr inbounds i8, ptr %0, i64 80
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 80
   br label %28
 
 28:                                               ; preds = %28, %.lr.ph90.i
@@ -723,11 +723,11 @@ define i32 @WebPPictureImportRGBA(ptr noundef %0, ptr noundef %1, i32 noundef %2
   br i1 %or.cond, label %6, label %Import.exit
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %1, i64 1
-  %8 = getelementptr inbounds i8, ptr %1, i64 2
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i32, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %12 = load i32, ptr %11, align 4
   %13 = tail call i32 @llvm.abs.i32(i32 %2, i1 true)
   %14 = shl nsw i32 %10, 2
@@ -740,7 +740,7 @@ define i32 @WebPPictureImportRGBA(ptr noundef %0, ptr noundef %1, i32 noundef %2
   br i1 %.not73.i, label %18, label %21
 
 18:                                               ; preds = %16
-  %19 = getelementptr inbounds i8, ptr %1, i64 3
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %20 = tail call fastcc i32 @ImportYUVAFromRGBA(ptr noundef %1, ptr noundef %7, ptr noundef %8, ptr noundef nonnull %19, i32 noundef 4, i32 noundef %2, float noundef 0.000000e+00, i32 noundef 0, ptr noundef nonnull %0)
   br label %Import.exit
 
@@ -756,10 +756,10 @@ define i32 @WebPPictureImportRGBA(ptr noundef %0, ptr noundef %1, i32 noundef %2
   br i1 %24, label %.lr.ph84.i, label %Import.exit
 
 .lr.ph84.i:                                       ; preds = %23
-  %25 = getelementptr inbounds i8, ptr %0, i64 72
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %26 = load ptr, ptr %25, align 8
   %27 = sext i32 %2 to i64
-  %28 = getelementptr inbounds i8, ptr %0, i64 80
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 80
   br label %29
 
 29:                                               ; preds = %29, %.lr.ph84.i
@@ -789,11 +789,11 @@ define i32 @WebPPictureImportRGBX(ptr noundef %0, ptr noundef %1, i32 noundef %2
   br i1 %or.cond, label %6, label %Import.exit
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %1, i64 1
-  %8 = getelementptr inbounds i8, ptr %1, i64 2
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i32, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %12 = load i32, ptr %11, align 4
   %13 = tail call i32 @llvm.abs.i32(i32 %2, i1 true)
   %14 = mul nsw i32 %10, 3
@@ -821,10 +821,10 @@ define i32 @WebPPictureImportRGBX(ptr noundef %0, ptr noundef %1, i32 noundef %2
   br i1 %23, label %.lr.ph90.i, label %Import.exit
 
 .lr.ph90.i:                                       ; preds = %22
-  %24 = getelementptr inbounds i8, ptr %0, i64 72
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %25 = load ptr, ptr %24, align 8
   %26 = sext i32 %2 to i64
-  %27 = getelementptr inbounds i8, ptr %0, i64 80
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 80
   br label %28
 
 28:                                               ; preds = %28, %.lr.ph90.i
@@ -855,14 +855,14 @@ declare void @WebPInitAlphaProcessing() local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @ImportYUVAFromRGBA(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef range(i32 3, 5) %4, i32 noundef %5, float noundef %6, i32 noundef range(i32 0, 2) %7, ptr noundef nonnull %8) unnamed_addr #0 {
   %10 = alloca %struct.VP8Random, align 4
-  %11 = getelementptr inbounds i8, ptr %8, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load i32, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %8, i64 12
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 12
   %14 = load i32, ptr %13, align 4
   %15 = icmp eq ptr %3, null
-  %.0179.sroa.gep = getelementptr inbounds i8, ptr %10, i64 228
-  %.0179.sroa.gep246 = getelementptr inbounds i8, ptr %10, i64 8
-  %.0179.sroa.gep248 = getelementptr inbounds i8, ptr %10, i64 4
+  %.0179.sroa.gep = getelementptr inbounds nuw i8, ptr %10, i64 228
+  %.0179.sroa.gep246 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %.0179.sroa.gep248 = getelementptr inbounds nuw i8, ptr %10, i64 4
   br i1 %15, label %CheckNonOpaque.exit, label %16
 
 16:                                               ; preds = %9
@@ -892,7 +892,7 @@ CheckNonOpaque.exit:                              ; preds = %22, %19, %16, %9
   %.not294 = phi i1 [ true, %9 ], [ true, %16 ], [ %.not.i, %19 ], [ %.not.i, %22 ]
   %26 = phi i32 [ 0, %9 ], [ 0, %16 ], [ 0, %22 ], [ 4, %19 ]
   %27 = icmp ult ptr %0, %2
-  %28 = getelementptr inbounds i8, ptr %8, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 %26, ptr %28, align 4
   store i32 0, ptr %8, align 8
   %29 = tail call i32 @WebPPictureAllocYUVA(ptr noundef nonnull %8) #9
@@ -910,15 +910,15 @@ CheckNonOpaque.exit:                              ; preds = %22, %19, %16, %9
 33:                                               ; preds = %30
   %34 = load ptr, ptr @VP8GetCPUInfo, align 8
   tail call void @SharpYuvInit(ptr noundef %34) #9
-  %35 = getelementptr inbounds i8, ptr %8, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %8, i64 40
+  %37 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %38 = load i32, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %8, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %8, i64 44
+  %41 = getelementptr inbounds nuw i8, ptr %8, i64 44
   %42 = load i32, ptr %41, align 4
-  %43 = getelementptr inbounds i8, ptr %8, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %44 = load ptr, ptr %43, align 8
   %45 = load i32, ptr %11, align 8
   %46 = load i32, ptr %13, align 4
@@ -941,9 +941,9 @@ PreprocessARGB.exit:                              ; preds = %33, %49
 
 52:                                               ; preds = %PreprocessARGB.exit
   %53 = load ptr, ptr @WebPExtractAlpha, align 8
-  %54 = getelementptr inbounds i8, ptr %8, i64 48
+  %54 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %8, i64 56
+  %56 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %57 = load i32, ptr %56, align 8
   %58 = tail call i32 %53(ptr noundef %3, i32 noundef %5, i32 noundef %12, i32 noundef %14, ptr noundef %55, i32 noundef %57) #9
   br label %353
@@ -956,13 +956,13 @@ PreprocessARGB.exit:                              ; preds = %33, %49
   %64 = shl nsw i32 %61, 2
   %65 = sext i32 %64 to i64
   %66 = tail call ptr @WebPSafeMalloc(i64 noundef %65, i64 noundef 2) #9
-  %67 = getelementptr inbounds i8, ptr %8, i64 16
+  %67 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %8, i64 24
+  %69 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %70 = load ptr, ptr %69, align 8
-  %71 = getelementptr inbounds i8, ptr %8, i64 32
+  %71 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds i8, ptr %8, i64 48
+  %73 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %74 = load ptr, ptr %73, align 8
   %75 = fcmp ogt float %6, 0.000000e+00
   br i1 %75, label %76, label %77
@@ -1001,7 +1001,7 @@ PreprocessARGB.exit:                              ; preds = %33, %49
   %87 = call double @pow(double noundef %86, double noundef 8.000000e-01) #9
   %88 = call double @llvm.fmuladd.f64(double %87, double 4.095000e+03, double 5.000000e-01)
   %89 = fptoui double %88 to i16
-  %90 = getelementptr inbounds [256 x i16], ptr @kGammaToLinearTab, i64 0, i64 %indvars.iv.i.i
+  %90 = getelementptr inbounds nuw [256 x i16], ptr @kGammaToLinearTab, i64 0, i64 %indvars.iv.i.i
   store i16 %89, ptr %90, align 2
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 256
@@ -1015,7 +1015,7 @@ PreprocessARGB.exit:                              ; preds = %33, %49
   %94 = call double @pow(double noundef %93, double noundef 1.250000e+00) #9
   %95 = call double @llvm.fmuladd.f64(double %94, double 2.550000e+02, double 5.000000e-01)
   %96 = fptosi double %95 to i32
-  %97 = getelementptr inbounds [33 x i32], ptr @kLinearToGammaTab, i64 0, i64 %indvars.iv12.i.i
+  %97 = getelementptr inbounds nuw [33 x i32], ptr @kLinearToGammaTab, i64 0, i64 %indvars.iv12.i.i
   store i32 %96, ptr %97, align 4
   %indvars.iv.next13.i.i = add nuw nsw i64 %indvars.iv12.i.i, 1
   %exitcond15.not.i.i = icmp eq i64 %indvars.iv.next13.i.i, 33
@@ -1044,13 +1044,13 @@ InitGammaTables.exit:                             ; preds = %77, %InitGammaTable
 .lr.ph:                                           ; preds = %.preheader
   %.not202 = icmp eq i32 %.0185, 0
   %104 = sext i32 %5 to i64
-  %105 = getelementptr inbounds i8, ptr %8, i64 40
+  %105 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %106 = icmp sgt i32 %12, 0
   %107 = icmp eq ptr %.0179, null
   %108 = zext nneg i32 %4 to i64
   %wide.trip.count29.i = zext nneg i32 %12 to i64
-  %109 = getelementptr inbounds i8, ptr %8, i64 56
-  %110 = getelementptr inbounds i8, ptr %8, i64 44
+  %109 = getelementptr inbounds nuw i8, ptr %8, i64 56
+  %110 = getelementptr inbounds nuw i8, ptr %8, i64 44
   %111 = shl nsw i32 %5, 1
   %112 = sext i32 %111 to i64
   %spec.select206.idx = select i1 %.not294, i64 0, i64 %112
@@ -1094,13 +1094,13 @@ ConvertRowToY.exit227.sink.split:                 ; preds = %115
 RGBToY.exit.us.i:                                 ; preds = %.lr.ph.i210, %RGBToY.exit.us.i
   %indvars.iv24.i = phi i64 [ %indvars.iv.next25.i, %RGBToY.exit.us.i ], [ 0, %.lr.ph.i210 ]
   %indvars.iv22.i = phi i64 [ %indvars.iv.next23.i, %RGBToY.exit.us.i ], [ 0, %.lr.ph.i210 ]
-  %123 = getelementptr inbounds i8, ptr %.0186273, i64 %indvars.iv22.i
+  %123 = getelementptr inbounds nuw i8, ptr %.0186273, i64 %indvars.iv22.i
   %124 = load i8, ptr %123, align 1
   %125 = zext i8 %124 to i32
-  %126 = getelementptr inbounds i8, ptr %.0187272, i64 %indvars.iv22.i
+  %126 = getelementptr inbounds nuw i8, ptr %.0187272, i64 %indvars.iv22.i
   %127 = load i8, ptr %126, align 1
   %128 = zext i8 %127 to i32
-  %129 = getelementptr inbounds i8, ptr %.0188271, i64 %indvars.iv22.i
+  %129 = getelementptr inbounds nuw i8, ptr %.0188271, i64 %indvars.iv22.i
   %130 = load i8, ptr %129, align 1
   %131 = zext i8 %130 to i32
   %132 = mul nuw nsw i32 %125, 16839
@@ -1111,7 +1111,7 @@ RGBToY.exit.us.i:                                 ; preds = %.lr.ph.i210, %RGBTo
   %137 = add nuw nsw i32 %136, %134
   %138 = lshr i32 %137, 16
   %139 = trunc nuw i32 %138 to i8
-  %140 = getelementptr inbounds i8, ptr %.0183274, i64 %indvars.iv24.i
+  %140 = getelementptr inbounds nuw i8, ptr %.0183274, i64 %indvars.iv24.i
   store i8 %139, ptr %140, align 1
   %indvars.iv.next25.i = add nuw nsw i64 %indvars.iv24.i, 1
   %indvars.iv.next23.i = add nuw nsw i64 %indvars.iv22.i, %108
@@ -1121,13 +1121,13 @@ RGBToY.exit.us.i:                                 ; preds = %.lr.ph.i210, %RGBTo
 RGBToY.exit.i:                                    ; preds = %.lr.ph.i210, %RGBToY.exit.i
   %indvars.iv17.i = phi i64 [ %indvars.iv.next18.i, %RGBToY.exit.i ], [ 0, %.lr.ph.i210 ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %RGBToY.exit.i ], [ 0, %.lr.ph.i210 ]
-  %141 = getelementptr inbounds i8, ptr %.0186273, i64 %indvars.iv.i
+  %141 = getelementptr inbounds nuw i8, ptr %.0186273, i64 %indvars.iv.i
   %142 = load i8, ptr %141, align 1
   %143 = zext i8 %142 to i32
-  %144 = getelementptr inbounds i8, ptr %.0187272, i64 %indvars.iv.i
+  %144 = getelementptr inbounds nuw i8, ptr %.0187272, i64 %indvars.iv.i
   %145 = load i8, ptr %144, align 1
   %146 = zext i8 %145 to i32
-  %147 = getelementptr inbounds i8, ptr %.0188271, i64 %indvars.iv.i
+  %147 = getelementptr inbounds nuw i8, ptr %.0188271, i64 %indvars.iv.i
   %148 = load i8, ptr %147, align 1
   %149 = zext i8 %148 to i32
   %150 = load i32, ptr %.0179.sroa.phi, align 4
@@ -1165,7 +1165,7 @@ RGBToY.exit.i:                                    ; preds = %.lr.ph.i210, %RGBTo
   %177 = add nuw nsw i32 %176, %170
   %178 = lshr i32 %177, 16
   %179 = trunc i32 %178 to i8
-  %180 = getelementptr inbounds i8, ptr %.0183274, i64 %indvars.iv17.i
+  %180 = getelementptr inbounds nuw i8, ptr %.0183274, i64 %indvars.iv17.i
   store i8 %179, ptr %180, align 1
   %indvars.iv.next18.i = add nuw nsw i64 %indvars.iv17.i, 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, %108
@@ -1193,13 +1193,13 @@ ConvertRowToY.exit:                               ; preds = %RGBToY.exit.us.i
 RGBToY.exit.us.i221:                              ; preds = %ConvertRowToY.exit, %RGBToY.exit.us.i221
   %indvars.iv24.i222 = phi i64 [ %indvars.iv.next25.i224, %RGBToY.exit.us.i221 ], [ 0, %ConvertRowToY.exit ]
   %indvars.iv22.i223 = phi i64 [ %indvars.iv.next23.i225, %RGBToY.exit.us.i221 ], [ 0, %ConvertRowToY.exit ]
-  %193 = getelementptr inbounds i8, ptr %187, i64 %indvars.iv22.i223
+  %193 = getelementptr inbounds nuw i8, ptr %187, i64 %indvars.iv22.i223
   %194 = load i8, ptr %193, align 1
   %195 = zext i8 %194 to i32
-  %196 = getelementptr inbounds i8, ptr %188, i64 %indvars.iv22.i223
+  %196 = getelementptr inbounds nuw i8, ptr %188, i64 %indvars.iv22.i223
   %197 = load i8, ptr %196, align 1
   %198 = zext i8 %197 to i32
-  %199 = getelementptr inbounds i8, ptr %189, i64 %indvars.iv22.i223
+  %199 = getelementptr inbounds nuw i8, ptr %189, i64 %indvars.iv22.i223
   %200 = load i8, ptr %199, align 1
   %201 = zext i8 %200 to i32
   %202 = mul nuw nsw i32 %195, 16839
@@ -1210,7 +1210,7 @@ RGBToY.exit.us.i221:                              ; preds = %ConvertRowToY.exit,
   %207 = add nuw nsw i32 %206, %204
   %208 = lshr i32 %207, 16
   %209 = trunc nuw i32 %208 to i8
-  %210 = getelementptr inbounds i8, ptr %192, i64 %indvars.iv24.i222
+  %210 = getelementptr inbounds nuw i8, ptr %192, i64 %indvars.iv24.i222
   store i8 %209, ptr %210, align 1
   %indvars.iv.next25.i224 = add nuw nsw i64 %indvars.iv24.i222, 1
   %indvars.iv.next23.i225 = add nuw nsw i64 %indvars.iv22.i223, %108
@@ -1220,13 +1220,13 @@ RGBToY.exit.us.i221:                              ; preds = %ConvertRowToY.exit,
 RGBToY.exit.i213:                                 ; preds = %ConvertRowToY.exit.thread, %RGBToY.exit.i213
   %indvars.iv17.i214 = phi i64 [ %indvars.iv.next18.i218, %RGBToY.exit.i213 ], [ 0, %ConvertRowToY.exit.thread ]
   %indvars.iv.i215 = phi i64 [ %indvars.iv.next.i219, %RGBToY.exit.i213 ], [ 0, %ConvertRowToY.exit.thread ]
-  %211 = getelementptr inbounds i8, ptr %181, i64 %indvars.iv.i215
+  %211 = getelementptr inbounds nuw i8, ptr %181, i64 %indvars.iv.i215
   %212 = load i8, ptr %211, align 1
   %213 = zext i8 %212 to i32
-  %214 = getelementptr inbounds i8, ptr %182, i64 %indvars.iv.i215
+  %214 = getelementptr inbounds nuw i8, ptr %182, i64 %indvars.iv.i215
   %215 = load i8, ptr %214, align 1
   %216 = zext i8 %215 to i32
-  %217 = getelementptr inbounds i8, ptr %183, i64 %indvars.iv.i215
+  %217 = getelementptr inbounds nuw i8, ptr %183, i64 %indvars.iv.i215
   %218 = load i8, ptr %217, align 1
   %219 = zext i8 %218 to i32
   %220 = load i32, ptr %.0179.sroa.phi, align 4
@@ -1264,7 +1264,7 @@ RGBToY.exit.i213:                                 ; preds = %ConvertRowToY.exit.
   %247 = add nuw nsw i32 %246, %240
   %248 = lshr i32 %247, 16
   %249 = trunc i32 %248 to i8
-  %250 = getelementptr inbounds i8, ptr %186, i64 %indvars.iv17.i214
+  %250 = getelementptr inbounds nuw i8, ptr %186, i64 %indvars.iv17.i214
   store i8 %249, ptr %250, align 1
   %indvars.iv.next18.i218 = add nuw nsw i64 %indvars.iv17.i214, 1
   %indvars.iv.next.i219 = add nuw nsw i64 %indvars.iv.i215, %108
@@ -1363,13 +1363,13 @@ ConvertRowToY.exit244.sink.split:                 ; preds = %278
 RGBToY.exit.us.i238:                              ; preds = %.lr.ph.i228, %RGBToY.exit.us.i238
   %indvars.iv24.i239 = phi i64 [ %indvars.iv.next25.i241, %RGBToY.exit.us.i238 ], [ 0, %.lr.ph.i228 ]
   %indvars.iv22.i240 = phi i64 [ %indvars.iv.next23.i242, %RGBToY.exit.us.i238 ], [ 0, %.lr.ph.i228 ]
-  %285 = getelementptr inbounds i8, ptr %.0186.lcssa, i64 %indvars.iv22.i240
+  %285 = getelementptr inbounds nuw i8, ptr %.0186.lcssa, i64 %indvars.iv22.i240
   %286 = load i8, ptr %285, align 1
   %287 = zext i8 %286 to i32
-  %288 = getelementptr inbounds i8, ptr %.0187.lcssa, i64 %indvars.iv22.i240
+  %288 = getelementptr inbounds nuw i8, ptr %.0187.lcssa, i64 %indvars.iv22.i240
   %289 = load i8, ptr %288, align 1
   %290 = zext i8 %289 to i32
-  %291 = getelementptr inbounds i8, ptr %.0188.lcssa, i64 %indvars.iv22.i240
+  %291 = getelementptr inbounds nuw i8, ptr %.0188.lcssa, i64 %indvars.iv22.i240
   %292 = load i8, ptr %291, align 1
   %293 = zext i8 %292 to i32
   %294 = mul nuw nsw i32 %287, 16839
@@ -1380,7 +1380,7 @@ RGBToY.exit.us.i238:                              ; preds = %.lr.ph.i228, %RGBTo
   %299 = add nuw nsw i32 %298, %296
   %300 = lshr i32 %299, 16
   %301 = trunc nuw i32 %300 to i8
-  %302 = getelementptr inbounds i8, ptr %.0183.lcssa, i64 %indvars.iv24.i239
+  %302 = getelementptr inbounds nuw i8, ptr %.0183.lcssa, i64 %indvars.iv24.i239
   store i8 %301, ptr %302, align 1
   %indvars.iv.next25.i241 = add nuw nsw i64 %indvars.iv24.i239, 1
   %indvars.iv.next23.i242 = add nuw nsw i64 %indvars.iv22.i240, %284
@@ -1390,13 +1390,13 @@ RGBToY.exit.us.i238:                              ; preds = %.lr.ph.i228, %RGBTo
 RGBToY.exit.i230:                                 ; preds = %.lr.ph.i228, %RGBToY.exit.i230
   %indvars.iv17.i231 = phi i64 [ %indvars.iv.next18.i235, %RGBToY.exit.i230 ], [ 0, %.lr.ph.i228 ]
   %indvars.iv.i232 = phi i64 [ %indvars.iv.next.i236, %RGBToY.exit.i230 ], [ 0, %.lr.ph.i228 ]
-  %303 = getelementptr inbounds i8, ptr %.0186.lcssa, i64 %indvars.iv.i232
+  %303 = getelementptr inbounds nuw i8, ptr %.0186.lcssa, i64 %indvars.iv.i232
   %304 = load i8, ptr %303, align 1
   %305 = zext i8 %304 to i32
-  %306 = getelementptr inbounds i8, ptr %.0187.lcssa, i64 %indvars.iv.i232
+  %306 = getelementptr inbounds nuw i8, ptr %.0187.lcssa, i64 %indvars.iv.i232
   %307 = load i8, ptr %306, align 1
   %308 = zext i8 %307 to i32
-  %309 = getelementptr inbounds i8, ptr %.0188.lcssa, i64 %indvars.iv.i232
+  %309 = getelementptr inbounds nuw i8, ptr %.0188.lcssa, i64 %indvars.iv.i232
   %310 = load i8, ptr %309, align 1
   %311 = zext i8 %310 to i32
   %312 = load i32, ptr %.0179.sroa.phi, align 4
@@ -1434,7 +1434,7 @@ RGBToY.exit.i230:                                 ; preds = %.lr.ph.i228, %RGBTo
   %339 = add nuw nsw i32 %338, %332
   %340 = lshr i32 %339, 16
   %341 = trunc i32 %340 to i8
-  %342 = getelementptr inbounds i8, ptr %.0183.lcssa, i64 %indvars.iv17.i231
+  %342 = getelementptr inbounds nuw i8, ptr %.0183.lcssa, i64 %indvars.iv17.i231
   store i8 %341, ptr %342, align 1
   %indvars.iv.next18.i235 = add nuw nsw i64 %indvars.iv17.i231, 1
   %indvars.iv.next.i236 = add nuw nsw i64 %indvars.iv.i232, %284
@@ -1508,41 +1508,41 @@ define internal fastcc void @AccumulateRGB(ptr nocapture noundef nonnull readonl
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %15 ]
   %.06366 = phi i32 [ 0, %.lr.ph ], [ %147, %15 ]
   %.06465 = phi ptr [ %5, %.lr.ph ], [ %148, %15 ]
-  %16 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %17 = load i8, ptr %16, align 1
   %18 = zext i8 %17 to i64
-  %19 = getelementptr inbounds [256 x i16], ptr @kGammaToLinearTab, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw [256 x i16], ptr @kGammaToLinearTab, i64 0, i64 %18
   %20 = load i16, ptr %19, align 2
   %21 = zext i16 %20 to i32
-  %22 = getelementptr inbounds i8, ptr %16, i64 %10
+  %22 = getelementptr inbounds nuw i8, ptr %16, i64 %10
   %23 = load i8, ptr %22, align 1
   %24 = zext i8 %23 to i64
-  %25 = getelementptr inbounds [256 x i16], ptr @kGammaToLinearTab, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw [256 x i16], ptr @kGammaToLinearTab, i64 0, i64 %24
   %26 = load i16, ptr %25, align 2
   %27 = zext i16 %26 to i32
   %28 = add nuw nsw i32 %27, %21
   %29 = getelementptr inbounds i8, ptr %16, i64 %11
   %30 = load i8, ptr %29, align 1
   %31 = zext i8 %30 to i64
-  %32 = getelementptr inbounds [256 x i16], ptr @kGammaToLinearTab, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw [256 x i16], ptr @kGammaToLinearTab, i64 0, i64 %31
   %33 = load i16, ptr %32, align 2
   %34 = zext i16 %33 to i32
   %35 = add nuw nsw i32 %28, %34
   %36 = getelementptr inbounds i8, ptr %16, i64 %13
   %37 = load i8, ptr %36, align 1
   %38 = zext i8 %37 to i64
-  %39 = getelementptr inbounds [256 x i16], ptr @kGammaToLinearTab, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw [256 x i16], ptr @kGammaToLinearTab, i64 0, i64 %38
   %40 = load i16, ptr %39, align 2
   %41 = zext i16 %40 to i32
   %42 = add nuw nsw i32 %35, %41
   %43 = lshr i32 %42, 9
   %44 = and i32 %42, 511
   %45 = zext nneg i32 %43 to i64
-  %46 = getelementptr inbounds [33 x i32], ptr @kLinearToGammaTab, i64 0, i64 %45
+  %46 = getelementptr inbounds nuw [33 x i32], ptr @kLinearToGammaTab, i64 0, i64 %45
   %47 = load i32, ptr %46, align 4
   %48 = add nuw nsw i32 %43, 1
   %49 = zext nneg i32 %48 to i64
-  %50 = getelementptr inbounds [33 x i32], ptr @kLinearToGammaTab, i64 0, i64 %49
+  %50 = getelementptr inbounds nuw [33 x i32], ptr @kLinearToGammaTab, i64 0, i64 %49
   %51 = load i32, ptr %50, align 4
   %52 = mul nsw i32 %44, %51
   %53 = sub nuw nsw i32 512, %44
@@ -1552,41 +1552,41 @@ define internal fastcc void @AccumulateRGB(ptr nocapture noundef nonnull readonl
   %57 = lshr i32 %56, 7
   %58 = trunc i32 %57 to i16
   store i16 %58, ptr %.06465, align 2
-  %59 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   %60 = load i8, ptr %59, align 1
   %61 = zext i8 %60 to i64
-  %62 = getelementptr inbounds [256 x i16], ptr @kGammaToLinearTab, i64 0, i64 %61
+  %62 = getelementptr inbounds nuw [256 x i16], ptr @kGammaToLinearTab, i64 0, i64 %61
   %63 = load i16, ptr %62, align 2
   %64 = zext i16 %63 to i32
-  %65 = getelementptr inbounds i8, ptr %59, i64 %10
+  %65 = getelementptr inbounds nuw i8, ptr %59, i64 %10
   %66 = load i8, ptr %65, align 1
   %67 = zext i8 %66 to i64
-  %68 = getelementptr inbounds [256 x i16], ptr @kGammaToLinearTab, i64 0, i64 %67
+  %68 = getelementptr inbounds nuw [256 x i16], ptr @kGammaToLinearTab, i64 0, i64 %67
   %69 = load i16, ptr %68, align 2
   %70 = zext i16 %69 to i32
   %71 = add nuw nsw i32 %70, %64
   %72 = getelementptr inbounds i8, ptr %59, i64 %11
   %73 = load i8, ptr %72, align 1
   %74 = zext i8 %73 to i64
-  %75 = getelementptr inbounds [256 x i16], ptr @kGammaToLinearTab, i64 0, i64 %74
+  %75 = getelementptr inbounds nuw [256 x i16], ptr @kGammaToLinearTab, i64 0, i64 %74
   %76 = load i16, ptr %75, align 2
   %77 = zext i16 %76 to i32
   %78 = add nuw nsw i32 %71, %77
   %79 = getelementptr inbounds i8, ptr %59, i64 %13
   %80 = load i8, ptr %79, align 1
   %81 = zext i8 %80 to i64
-  %82 = getelementptr inbounds [256 x i16], ptr @kGammaToLinearTab, i64 0, i64 %81
+  %82 = getelementptr inbounds nuw [256 x i16], ptr @kGammaToLinearTab, i64 0, i64 %81
   %83 = load i16, ptr %82, align 2
   %84 = zext i16 %83 to i32
   %85 = add nuw nsw i32 %78, %84
   %86 = lshr i32 %85, 9
   %87 = and i32 %85, 511
   %88 = zext nneg i32 %86 to i64
-  %89 = getelementptr inbounds [33 x i32], ptr @kLinearToGammaTab, i64 0, i64 %88
+  %89 = getelementptr inbounds nuw [33 x i32], ptr @kLinearToGammaTab, i64 0, i64 %88
   %90 = load i32, ptr %89, align 4
   %91 = add nuw nsw i32 %86, 1
   %92 = zext nneg i32 %91 to i64
-  %93 = getelementptr inbounds [33 x i32], ptr @kLinearToGammaTab, i64 0, i64 %92
+  %93 = getelementptr inbounds nuw [33 x i32], ptr @kLinearToGammaTab, i64 0, i64 %92
   %94 = load i32, ptr %93, align 4
   %95 = mul nsw i32 %87, %94
   %96 = sub nuw nsw i32 512, %87
@@ -1595,43 +1595,43 @@ define internal fastcc void @AccumulateRGB(ptr nocapture noundef nonnull readonl
   %99 = add i32 %98, %97
   %100 = lshr i32 %99, 7
   %101 = trunc i32 %100 to i16
-  %102 = getelementptr inbounds i8, ptr %.06465, i64 2
+  %102 = getelementptr inbounds nuw i8, ptr %.06465, i64 2
   store i16 %101, ptr %102, align 2
-  %103 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv
+  %103 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   %104 = load i8, ptr %103, align 1
   %105 = zext i8 %104 to i64
-  %106 = getelementptr inbounds [256 x i16], ptr @kGammaToLinearTab, i64 0, i64 %105
+  %106 = getelementptr inbounds nuw [256 x i16], ptr @kGammaToLinearTab, i64 0, i64 %105
   %107 = load i16, ptr %106, align 2
   %108 = zext i16 %107 to i32
-  %109 = getelementptr inbounds i8, ptr %103, i64 %10
+  %109 = getelementptr inbounds nuw i8, ptr %103, i64 %10
   %110 = load i8, ptr %109, align 1
   %111 = zext i8 %110 to i64
-  %112 = getelementptr inbounds [256 x i16], ptr @kGammaToLinearTab, i64 0, i64 %111
+  %112 = getelementptr inbounds nuw [256 x i16], ptr @kGammaToLinearTab, i64 0, i64 %111
   %113 = load i16, ptr %112, align 2
   %114 = zext i16 %113 to i32
   %115 = add nuw nsw i32 %114, %108
   %116 = getelementptr inbounds i8, ptr %103, i64 %11
   %117 = load i8, ptr %116, align 1
   %118 = zext i8 %117 to i64
-  %119 = getelementptr inbounds [256 x i16], ptr @kGammaToLinearTab, i64 0, i64 %118
+  %119 = getelementptr inbounds nuw [256 x i16], ptr @kGammaToLinearTab, i64 0, i64 %118
   %120 = load i16, ptr %119, align 2
   %121 = zext i16 %120 to i32
   %122 = add nuw nsw i32 %115, %121
   %123 = getelementptr inbounds i8, ptr %103, i64 %13
   %124 = load i8, ptr %123, align 1
   %125 = zext i8 %124 to i64
-  %126 = getelementptr inbounds [256 x i16], ptr @kGammaToLinearTab, i64 0, i64 %125
+  %126 = getelementptr inbounds nuw [256 x i16], ptr @kGammaToLinearTab, i64 0, i64 %125
   %127 = load i16, ptr %126, align 2
   %128 = zext i16 %127 to i32
   %129 = add nuw nsw i32 %122, %128
   %130 = lshr i32 %129, 9
   %131 = and i32 %129, 511
   %132 = zext nneg i32 %130 to i64
-  %133 = getelementptr inbounds [33 x i32], ptr @kLinearToGammaTab, i64 0, i64 %132
+  %133 = getelementptr inbounds nuw [33 x i32], ptr @kLinearToGammaTab, i64 0, i64 %132
   %134 = load i32, ptr %133, align 4
   %135 = add nuw nsw i32 %130, 1
   %136 = zext nneg i32 %135 to i64
-  %137 = getelementptr inbounds [33 x i32], ptr @kLinearToGammaTab, i64 0, i64 %136
+  %137 = getelementptr inbounds nuw [33 x i32], ptr @kLinearToGammaTab, i64 0, i64 %136
   %138 = load i32, ptr %137, align 4
   %139 = mul nsw i32 %131, %138
   %140 = sub nuw nsw i32 512, %131
@@ -1640,11 +1640,11 @@ define internal fastcc void @AccumulateRGB(ptr nocapture noundef nonnull readonl
   %143 = add i32 %142, %141
   %144 = lshr i32 %143, 7
   %145 = trunc i32 %144 to i16
-  %146 = getelementptr inbounds i8, ptr %.06465, i64 4
+  %146 = getelementptr inbounds nuw i8, ptr %.06465, i64 4
   store i16 %145, ptr %146, align 2
   %147 = add nuw nsw i32 %.06366, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, %14
-  %148 = getelementptr inbounds i8, ptr %.06465, i64 8
+  %148 = getelementptr inbounds nuw i8, ptr %.06465, i64 8
   %exitcond.not = icmp eq i32 %147, %8
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %15, !llvm.loop !17
 
@@ -1660,17 +1660,17 @@ define internal fastcc void @AccumulateRGB(ptr nocapture noundef nonnull readonl
   br i1 %.not, label %245, label %151
 
 151:                                              ; preds = %._crit_edge
-  %152 = getelementptr inbounds i8, ptr %0, i64 %.0.lcssa
+  %152 = getelementptr inbounds nuw i8, ptr %0, i64 %.0.lcssa
   %153 = load i8, ptr %152, align 1
   %154 = zext i8 %153 to i64
-  %155 = getelementptr inbounds [256 x i16], ptr @kGammaToLinearTab, i64 0, i64 %154
+  %155 = getelementptr inbounds nuw [256 x i16], ptr @kGammaToLinearTab, i64 0, i64 %154
   %156 = load i16, ptr %155, align 2
   %157 = zext i16 %156 to i32
   %158 = sext i32 %4 to i64
   %159 = getelementptr inbounds i8, ptr %152, i64 %158
   %160 = load i8, ptr %159, align 1
   %161 = zext i8 %160 to i64
-  %162 = getelementptr inbounds [256 x i16], ptr @kGammaToLinearTab, i64 0, i64 %161
+  %162 = getelementptr inbounds nuw [256 x i16], ptr @kGammaToLinearTab, i64 0, i64 %161
   %163 = load i16, ptr %162, align 2
   %164 = zext i16 %163 to i32
   %165 = add nuw nsw i32 %164, %157
@@ -1678,11 +1678,11 @@ define internal fastcc void @AccumulateRGB(ptr nocapture noundef nonnull readonl
   %167 = lshr i32 %165, 8
   %168 = and i32 %166, 510
   %169 = zext nneg i32 %167 to i64
-  %170 = getelementptr inbounds [33 x i32], ptr @kLinearToGammaTab, i64 0, i64 %169
+  %170 = getelementptr inbounds nuw [33 x i32], ptr @kLinearToGammaTab, i64 0, i64 %169
   %171 = load i32, ptr %170, align 4
   %172 = add nuw nsw i32 %167, 1
   %173 = zext nneg i32 %172 to i64
-  %174 = getelementptr inbounds [33 x i32], ptr @kLinearToGammaTab, i64 0, i64 %173
+  %174 = getelementptr inbounds nuw [33 x i32], ptr @kLinearToGammaTab, i64 0, i64 %173
   %175 = load i32, ptr %174, align 4
   %176 = mul nsw i32 %168, %175
   %177 = sub nuw nsw i32 512, %168
@@ -1692,16 +1692,16 @@ define internal fastcc void @AccumulateRGB(ptr nocapture noundef nonnull readonl
   %181 = lshr i32 %180, 7
   %182 = trunc i32 %181 to i16
   store i16 %182, ptr %.064.lcssa, align 2
-  %183 = getelementptr inbounds i8, ptr %1, i64 %.0.lcssa
+  %183 = getelementptr inbounds nuw i8, ptr %1, i64 %.0.lcssa
   %184 = load i8, ptr %183, align 1
   %185 = zext i8 %184 to i64
-  %186 = getelementptr inbounds [256 x i16], ptr @kGammaToLinearTab, i64 0, i64 %185
+  %186 = getelementptr inbounds nuw [256 x i16], ptr @kGammaToLinearTab, i64 0, i64 %185
   %187 = load i16, ptr %186, align 2
   %188 = zext i16 %187 to i32
   %189 = getelementptr inbounds i8, ptr %183, i64 %158
   %190 = load i8, ptr %189, align 1
   %191 = zext i8 %190 to i64
-  %192 = getelementptr inbounds [256 x i16], ptr @kGammaToLinearTab, i64 0, i64 %191
+  %192 = getelementptr inbounds nuw [256 x i16], ptr @kGammaToLinearTab, i64 0, i64 %191
   %193 = load i16, ptr %192, align 2
   %194 = zext i16 %193 to i32
   %195 = add nuw nsw i32 %194, %188
@@ -1709,11 +1709,11 @@ define internal fastcc void @AccumulateRGB(ptr nocapture noundef nonnull readonl
   %197 = lshr i32 %195, 8
   %198 = and i32 %196, 510
   %199 = zext nneg i32 %197 to i64
-  %200 = getelementptr inbounds [33 x i32], ptr @kLinearToGammaTab, i64 0, i64 %199
+  %200 = getelementptr inbounds nuw [33 x i32], ptr @kLinearToGammaTab, i64 0, i64 %199
   %201 = load i32, ptr %200, align 4
   %202 = add nuw nsw i32 %197, 1
   %203 = zext nneg i32 %202 to i64
-  %204 = getelementptr inbounds [33 x i32], ptr @kLinearToGammaTab, i64 0, i64 %203
+  %204 = getelementptr inbounds nuw [33 x i32], ptr @kLinearToGammaTab, i64 0, i64 %203
   %205 = load i32, ptr %204, align 4
   %206 = mul nsw i32 %198, %205
   %207 = sub nuw nsw i32 512, %198
@@ -1722,18 +1722,18 @@ define internal fastcc void @AccumulateRGB(ptr nocapture noundef nonnull readonl
   %210 = add i32 %209, %208
   %211 = lshr i32 %210, 7
   %212 = trunc i32 %211 to i16
-  %213 = getelementptr inbounds i8, ptr %.064.lcssa, i64 2
+  %213 = getelementptr inbounds nuw i8, ptr %.064.lcssa, i64 2
   store i16 %212, ptr %213, align 2
-  %214 = getelementptr inbounds i8, ptr %2, i64 %.0.lcssa
+  %214 = getelementptr inbounds nuw i8, ptr %2, i64 %.0.lcssa
   %215 = load i8, ptr %214, align 1
   %216 = zext i8 %215 to i64
-  %217 = getelementptr inbounds [256 x i16], ptr @kGammaToLinearTab, i64 0, i64 %216
+  %217 = getelementptr inbounds nuw [256 x i16], ptr @kGammaToLinearTab, i64 0, i64 %216
   %218 = load i16, ptr %217, align 2
   %219 = zext i16 %218 to i32
   %220 = getelementptr inbounds i8, ptr %214, i64 %158
   %221 = load i8, ptr %220, align 1
   %222 = zext i8 %221 to i64
-  %223 = getelementptr inbounds [256 x i16], ptr @kGammaToLinearTab, i64 0, i64 %222
+  %223 = getelementptr inbounds nuw [256 x i16], ptr @kGammaToLinearTab, i64 0, i64 %222
   %224 = load i16, ptr %223, align 2
   %225 = zext i16 %224 to i32
   %226 = add nuw nsw i32 %225, %219
@@ -1741,11 +1741,11 @@ define internal fastcc void @AccumulateRGB(ptr nocapture noundef nonnull readonl
   %228 = lshr i32 %226, 8
   %229 = and i32 %227, 510
   %230 = zext nneg i32 %228 to i64
-  %231 = getelementptr inbounds [33 x i32], ptr @kLinearToGammaTab, i64 0, i64 %230
+  %231 = getelementptr inbounds nuw [33 x i32], ptr @kLinearToGammaTab, i64 0, i64 %230
   %232 = load i32, ptr %231, align 4
   %233 = add nuw nsw i32 %228, 1
   %234 = zext nneg i32 %233 to i64
-  %235 = getelementptr inbounds [33 x i32], ptr @kLinearToGammaTab, i64 0, i64 %234
+  %235 = getelementptr inbounds nuw [33 x i32], ptr @kLinearToGammaTab, i64 0, i64 %234
   %236 = load i32, ptr %235, align 4
   %237 = mul nsw i32 %229, %236
   %238 = sub nuw nsw i32 512, %229
@@ -1754,7 +1754,7 @@ define internal fastcc void @AccumulateRGB(ptr nocapture noundef nonnull readonl
   %241 = add i32 %240, %239
   %242 = lshr i32 %241, 7
   %243 = trunc i32 %242 to i16
-  %244 = getelementptr inbounds i8, ptr %.064.lcssa, i64 4
+  %244 = getelementptr inbounds nuw i8, ptr %.064.lcssa, i64 4
   store i16 %243, ptr %244, align 2
   br label %245
 
@@ -1778,13 +1778,13 @@ define internal fastcc void @AccumulateRGBA(ptr nocapture noundef nonnull readon
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %272 ]
   %.0126136 = phi ptr [ %5, %.lr.ph ], [ %294, %272 ]
   %.0130135 = phi i32 [ 0, %.lr.ph ], [ %293, %272 ]
-  %14 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv
   %15 = load i8, ptr %14, align 1
   %16 = zext i8 %15 to i32
   %17 = getelementptr inbounds i8, ptr %14, i64 %10
   %18 = load i8, ptr %17, align 1
   %19 = zext i8 %18 to i32
-  %20 = getelementptr inbounds i8, ptr %14, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %21 = load i8, ptr %20, align 1
   %22 = zext i8 %21 to i32
   %23 = getelementptr inbounds i8, ptr %20, i64 %10
@@ -1799,112 +1799,112 @@ define internal fastcc void @AccumulateRGBA(ptr nocapture noundef nonnull readon
   ]
 
 29:                                               ; preds = %13, %13
-  %30 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %31 = load i8, ptr %30, align 1
   %32 = zext i8 %31 to i64
-  %33 = getelementptr inbounds [256 x i16], ptr @kGammaToLinearTab, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw [256 x i16], ptr @kGammaToLinearTab, i64 0, i64 %32
   %34 = load i16, ptr %33, align 2
   %35 = zext i16 %34 to i32
-  %36 = getelementptr inbounds i8, ptr %30, i64 4
+  %36 = getelementptr inbounds nuw i8, ptr %30, i64 4
   %37 = load i8, ptr %36, align 1
   %38 = zext i8 %37 to i64
-  %39 = getelementptr inbounds [256 x i16], ptr @kGammaToLinearTab, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw [256 x i16], ptr @kGammaToLinearTab, i64 0, i64 %38
   %40 = load i16, ptr %39, align 2
   %41 = zext i16 %40 to i32
   %42 = add nuw nsw i32 %41, %35
   %43 = getelementptr inbounds i8, ptr %30, i64 %10
   %44 = load i8, ptr %43, align 1
   %45 = zext i8 %44 to i64
-  %46 = getelementptr inbounds [256 x i16], ptr @kGammaToLinearTab, i64 0, i64 %45
+  %46 = getelementptr inbounds nuw [256 x i16], ptr @kGammaToLinearTab, i64 0, i64 %45
   %47 = load i16, ptr %46, align 2
   %48 = zext i16 %47 to i32
   %49 = add nuw nsw i32 %42, %48
   %50 = getelementptr inbounds i8, ptr %30, i64 %12
   %51 = load i8, ptr %50, align 1
   %52 = zext i8 %51 to i64
-  %53 = getelementptr inbounds [256 x i16], ptr @kGammaToLinearTab, i64 0, i64 %52
+  %53 = getelementptr inbounds nuw [256 x i16], ptr @kGammaToLinearTab, i64 0, i64 %52
   %54 = load i16, ptr %53, align 2
   %55 = zext i16 %54 to i32
   %56 = add nuw nsw i32 %49, %55
   %57 = lshr i32 %56, 9
   %58 = and i32 %56, 511
   %59 = zext nneg i32 %57 to i64
-  %60 = getelementptr inbounds [33 x i32], ptr @kLinearToGammaTab, i64 0, i64 %59
+  %60 = getelementptr inbounds nuw [33 x i32], ptr @kLinearToGammaTab, i64 0, i64 %59
   %61 = load i32, ptr %60, align 4
   %62 = add nuw nsw i32 %57, 1
   %63 = zext nneg i32 %62 to i64
-  %64 = getelementptr inbounds [33 x i32], ptr @kLinearToGammaTab, i64 0, i64 %63
+  %64 = getelementptr inbounds nuw [33 x i32], ptr @kLinearToGammaTab, i64 0, i64 %63
   %65 = load i32, ptr %64, align 4
   %66 = mul nsw i32 %58, %65
   %67 = sub nuw nsw i32 512, %58
   %68 = mul nsw i32 %67, %61
   %69 = add i32 %66, 64
   %70 = add i32 %69, %68
-  %71 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   %72 = load i8, ptr %71, align 1
   %73 = zext i8 %72 to i64
-  %74 = getelementptr inbounds [256 x i16], ptr @kGammaToLinearTab, i64 0, i64 %73
+  %74 = getelementptr inbounds nuw [256 x i16], ptr @kGammaToLinearTab, i64 0, i64 %73
   %75 = load i16, ptr %74, align 2
   %76 = zext i16 %75 to i32
-  %77 = getelementptr inbounds i8, ptr %71, i64 4
+  %77 = getelementptr inbounds nuw i8, ptr %71, i64 4
   %78 = load i8, ptr %77, align 1
   %79 = zext i8 %78 to i64
-  %80 = getelementptr inbounds [256 x i16], ptr @kGammaToLinearTab, i64 0, i64 %79
+  %80 = getelementptr inbounds nuw [256 x i16], ptr @kGammaToLinearTab, i64 0, i64 %79
   %81 = load i16, ptr %80, align 2
   %82 = zext i16 %81 to i32
   %83 = add nuw nsw i32 %82, %76
   %84 = getelementptr inbounds i8, ptr %71, i64 %10
   %85 = load i8, ptr %84, align 1
   %86 = zext i8 %85 to i64
-  %87 = getelementptr inbounds [256 x i16], ptr @kGammaToLinearTab, i64 0, i64 %86
+  %87 = getelementptr inbounds nuw [256 x i16], ptr @kGammaToLinearTab, i64 0, i64 %86
   %88 = load i16, ptr %87, align 2
   %89 = zext i16 %88 to i32
   %90 = add nuw nsw i32 %83, %89
   %91 = getelementptr inbounds i8, ptr %71, i64 %12
   %92 = load i8, ptr %91, align 1
   %93 = zext i8 %92 to i64
-  %94 = getelementptr inbounds [256 x i16], ptr @kGammaToLinearTab, i64 0, i64 %93
+  %94 = getelementptr inbounds nuw [256 x i16], ptr @kGammaToLinearTab, i64 0, i64 %93
   %95 = load i16, ptr %94, align 2
   %96 = zext i16 %95 to i32
   %97 = add nuw nsw i32 %90, %96
   %98 = lshr i32 %97, 9
   %99 = and i32 %97, 511
   %100 = zext nneg i32 %98 to i64
-  %101 = getelementptr inbounds [33 x i32], ptr @kLinearToGammaTab, i64 0, i64 %100
+  %101 = getelementptr inbounds nuw [33 x i32], ptr @kLinearToGammaTab, i64 0, i64 %100
   %102 = load i32, ptr %101, align 4
   %103 = add nuw nsw i32 %98, 1
   %104 = zext nneg i32 %103 to i64
-  %105 = getelementptr inbounds [33 x i32], ptr @kLinearToGammaTab, i64 0, i64 %104
+  %105 = getelementptr inbounds nuw [33 x i32], ptr @kLinearToGammaTab, i64 0, i64 %104
   %106 = load i32, ptr %105, align 4
   %107 = mul nsw i32 %99, %106
   %108 = sub nuw nsw i32 512, %99
   %109 = mul nsw i32 %108, %102
   %110 = add i32 %107, 64
   %111 = add i32 %110, %109
-  %112 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv
+  %112 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   %113 = load i8, ptr %112, align 1
   %114 = zext i8 %113 to i64
-  %115 = getelementptr inbounds [256 x i16], ptr @kGammaToLinearTab, i64 0, i64 %114
+  %115 = getelementptr inbounds nuw [256 x i16], ptr @kGammaToLinearTab, i64 0, i64 %114
   %116 = load i16, ptr %115, align 2
   %117 = zext i16 %116 to i32
-  %118 = getelementptr inbounds i8, ptr %112, i64 4
+  %118 = getelementptr inbounds nuw i8, ptr %112, i64 4
   %119 = load i8, ptr %118, align 1
   %120 = zext i8 %119 to i64
-  %121 = getelementptr inbounds [256 x i16], ptr @kGammaToLinearTab, i64 0, i64 %120
+  %121 = getelementptr inbounds nuw [256 x i16], ptr @kGammaToLinearTab, i64 0, i64 %120
   %122 = load i16, ptr %121, align 2
   %123 = zext i16 %122 to i32
   %124 = add nuw nsw i32 %123, %117
   %125 = getelementptr inbounds i8, ptr %112, i64 %10
   %126 = load i8, ptr %125, align 1
   %127 = zext i8 %126 to i64
-  %128 = getelementptr inbounds [256 x i16], ptr @kGammaToLinearTab, i64 0, i64 %127
+  %128 = getelementptr inbounds nuw [256 x i16], ptr @kGammaToLinearTab, i64 0, i64 %127
   %129 = load i16, ptr %128, align 2
   %130 = zext i16 %129 to i32
   %131 = add nuw nsw i32 %124, %130
   %132 = getelementptr inbounds i8, ptr %112, i64 %12
   %133 = load i8, ptr %132, align 1
   %134 = zext i8 %133 to i64
-  %135 = getelementptr inbounds [256 x i16], ptr @kGammaToLinearTab, i64 0, i64 %134
+  %135 = getelementptr inbounds nuw [256 x i16], ptr @kGammaToLinearTab, i64 0, i64 %134
   %136 = load i16, ptr %135, align 2
   %137 = zext i16 %136 to i32
   %138 = add nuw nsw i32 %131, %137
@@ -1912,17 +1912,17 @@ define internal fastcc void @AccumulateRGBA(ptr nocapture noundef nonnull readon
   br label %272
 
 140:                                              ; preds = %13
-  %141 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %141 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %142 = load i8, ptr %141, align 1
   %143 = zext i8 %142 to i64
-  %144 = getelementptr inbounds [256 x i16], ptr @kGammaToLinearTab, i64 0, i64 %143
+  %144 = getelementptr inbounds nuw [256 x i16], ptr @kGammaToLinearTab, i64 0, i64 %143
   %145 = load i16, ptr %144, align 2
   %146 = zext i16 %145 to i32
   %147 = mul nuw nsw i32 %146, %16
-  %148 = getelementptr inbounds i8, ptr %141, i64 4
+  %148 = getelementptr inbounds nuw i8, ptr %141, i64 4
   %149 = load i8, ptr %148, align 1
   %150 = zext i8 %149 to i64
-  %151 = getelementptr inbounds [256 x i16], ptr @kGammaToLinearTab, i64 0, i64 %150
+  %151 = getelementptr inbounds nuw [256 x i16], ptr @kGammaToLinearTab, i64 0, i64 %150
   %152 = load i16, ptr %151, align 2
   %153 = zext i16 %152 to i32
   %154 = mul nuw nsw i32 %153, %22
@@ -1930,7 +1930,7 @@ define internal fastcc void @AccumulateRGBA(ptr nocapture noundef nonnull readon
   %156 = getelementptr inbounds i8, ptr %141, i64 %10
   %157 = load i8, ptr %156, align 1
   %158 = zext i8 %157 to i64
-  %159 = getelementptr inbounds [256 x i16], ptr @kGammaToLinearTab, i64 0, i64 %158
+  %159 = getelementptr inbounds nuw [256 x i16], ptr @kGammaToLinearTab, i64 0, i64 %158
   %160 = load i16, ptr %159, align 2
   %161 = zext i16 %160 to i32
   %162 = mul nuw nsw i32 %161, %19
@@ -1938,41 +1938,41 @@ define internal fastcc void @AccumulateRGBA(ptr nocapture noundef nonnull readon
   %164 = getelementptr inbounds i8, ptr %141, i64 %12
   %165 = load i8, ptr %164, align 1
   %166 = zext i8 %165 to i64
-  %167 = getelementptr inbounds [256 x i16], ptr @kGammaToLinearTab, i64 0, i64 %166
+  %167 = getelementptr inbounds nuw [256 x i16], ptr @kGammaToLinearTab, i64 0, i64 %166
   %168 = load i16, ptr %167, align 2
   %169 = zext i16 %168 to i32
   %170 = mul nuw nsw i32 %169, %25
   %171 = add nuw nsw i32 %163, %170
   %172 = zext nneg i32 %28 to i64
-  %173 = getelementptr inbounds [1021 x i32], ptr @kInvAlpha, i64 0, i64 %172
+  %173 = getelementptr inbounds nuw [1021 x i32], ptr @kInvAlpha, i64 0, i64 %172
   %174 = load i32, ptr %173, align 4
   %175 = mul i32 %171, %174
   %176 = lshr i32 %175, 17
   %177 = lshr i32 %175, 26
   %178 = and i32 %176, 511
   %179 = zext nneg i32 %177 to i64
-  %180 = getelementptr inbounds [33 x i32], ptr @kLinearToGammaTab, i64 0, i64 %179
+  %180 = getelementptr inbounds nuw [33 x i32], ptr @kLinearToGammaTab, i64 0, i64 %179
   %181 = load i32, ptr %180, align 4
   %182 = add nuw nsw i32 %177, 1
   %183 = zext nneg i32 %182 to i64
-  %184 = getelementptr inbounds [33 x i32], ptr @kLinearToGammaTab, i64 0, i64 %183
+  %184 = getelementptr inbounds nuw [33 x i32], ptr @kLinearToGammaTab, i64 0, i64 %183
   %185 = load i32, ptr %184, align 4
   %186 = mul nsw i32 %178, %185
   %187 = sub nuw nsw i32 512, %178
   %188 = mul nsw i32 %187, %181
   %189 = add i32 %186, 64
   %190 = add i32 %189, %188
-  %191 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
+  %191 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   %192 = load i8, ptr %191, align 1
   %193 = zext i8 %192 to i64
-  %194 = getelementptr inbounds [256 x i16], ptr @kGammaToLinearTab, i64 0, i64 %193
+  %194 = getelementptr inbounds nuw [256 x i16], ptr @kGammaToLinearTab, i64 0, i64 %193
   %195 = load i16, ptr %194, align 2
   %196 = zext i16 %195 to i32
   %197 = mul nuw nsw i32 %196, %16
-  %198 = getelementptr inbounds i8, ptr %191, i64 4
+  %198 = getelementptr inbounds nuw i8, ptr %191, i64 4
   %199 = load i8, ptr %198, align 1
   %200 = zext i8 %199 to i64
-  %201 = getelementptr inbounds [256 x i16], ptr @kGammaToLinearTab, i64 0, i64 %200
+  %201 = getelementptr inbounds nuw [256 x i16], ptr @kGammaToLinearTab, i64 0, i64 %200
   %202 = load i16, ptr %201, align 2
   %203 = zext i16 %202 to i32
   %204 = mul nuw nsw i32 %203, %22
@@ -1980,7 +1980,7 @@ define internal fastcc void @AccumulateRGBA(ptr nocapture noundef nonnull readon
   %206 = getelementptr inbounds i8, ptr %191, i64 %10
   %207 = load i8, ptr %206, align 1
   %208 = zext i8 %207 to i64
-  %209 = getelementptr inbounds [256 x i16], ptr @kGammaToLinearTab, i64 0, i64 %208
+  %209 = getelementptr inbounds nuw [256 x i16], ptr @kGammaToLinearTab, i64 0, i64 %208
   %210 = load i16, ptr %209, align 2
   %211 = zext i16 %210 to i32
   %212 = mul nuw nsw i32 %211, %19
@@ -1988,7 +1988,7 @@ define internal fastcc void @AccumulateRGBA(ptr nocapture noundef nonnull readon
   %214 = getelementptr inbounds i8, ptr %191, i64 %12
   %215 = load i8, ptr %214, align 1
   %216 = zext i8 %215 to i64
-  %217 = getelementptr inbounds [256 x i16], ptr @kGammaToLinearTab, i64 0, i64 %216
+  %217 = getelementptr inbounds nuw [256 x i16], ptr @kGammaToLinearTab, i64 0, i64 %216
   %218 = load i16, ptr %217, align 2
   %219 = zext i16 %218 to i32
   %220 = mul nuw nsw i32 %219, %25
@@ -1998,28 +1998,28 @@ define internal fastcc void @AccumulateRGBA(ptr nocapture noundef nonnull readon
   %224 = lshr i32 %222, 26
   %225 = and i32 %223, 511
   %226 = zext nneg i32 %224 to i64
-  %227 = getelementptr inbounds [33 x i32], ptr @kLinearToGammaTab, i64 0, i64 %226
+  %227 = getelementptr inbounds nuw [33 x i32], ptr @kLinearToGammaTab, i64 0, i64 %226
   %228 = load i32, ptr %227, align 4
   %229 = add nuw nsw i32 %224, 1
   %230 = zext nneg i32 %229 to i64
-  %231 = getelementptr inbounds [33 x i32], ptr @kLinearToGammaTab, i64 0, i64 %230
+  %231 = getelementptr inbounds nuw [33 x i32], ptr @kLinearToGammaTab, i64 0, i64 %230
   %232 = load i32, ptr %231, align 4
   %233 = mul nsw i32 %225, %232
   %234 = sub nuw nsw i32 512, %225
   %235 = mul nsw i32 %234, %228
   %236 = add i32 %233, 64
   %237 = add i32 %236, %235
-  %238 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv
+  %238 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   %239 = load i8, ptr %238, align 1
   %240 = zext i8 %239 to i64
-  %241 = getelementptr inbounds [256 x i16], ptr @kGammaToLinearTab, i64 0, i64 %240
+  %241 = getelementptr inbounds nuw [256 x i16], ptr @kGammaToLinearTab, i64 0, i64 %240
   %242 = load i16, ptr %241, align 2
   %243 = zext i16 %242 to i32
   %244 = mul nuw nsw i32 %243, %16
-  %245 = getelementptr inbounds i8, ptr %238, i64 4
+  %245 = getelementptr inbounds nuw i8, ptr %238, i64 4
   %246 = load i8, ptr %245, align 1
   %247 = zext i8 %246 to i64
-  %248 = getelementptr inbounds [256 x i16], ptr @kGammaToLinearTab, i64 0, i64 %247
+  %248 = getelementptr inbounds nuw [256 x i16], ptr @kGammaToLinearTab, i64 0, i64 %247
   %249 = load i16, ptr %248, align 2
   %250 = zext i16 %249 to i32
   %251 = mul nuw nsw i32 %250, %22
@@ -2027,7 +2027,7 @@ define internal fastcc void @AccumulateRGBA(ptr nocapture noundef nonnull readon
   %253 = getelementptr inbounds i8, ptr %238, i64 %10
   %254 = load i8, ptr %253, align 1
   %255 = zext i8 %254 to i64
-  %256 = getelementptr inbounds [256 x i16], ptr @kGammaToLinearTab, i64 0, i64 %255
+  %256 = getelementptr inbounds nuw [256 x i16], ptr @kGammaToLinearTab, i64 0, i64 %255
   %257 = load i16, ptr %256, align 2
   %258 = zext i16 %257 to i32
   %259 = mul nuw nsw i32 %258, %19
@@ -2035,7 +2035,7 @@ define internal fastcc void @AccumulateRGBA(ptr nocapture noundef nonnull readon
   %261 = getelementptr inbounds i8, ptr %238, i64 %12
   %262 = load i8, ptr %261, align 1
   %263 = zext i8 %262 to i64
-  %264 = getelementptr inbounds [256 x i16], ptr @kGammaToLinearTab, i64 0, i64 %263
+  %264 = getelementptr inbounds nuw [256 x i16], ptr @kGammaToLinearTab, i64 0, i64 %263
   %265 = load i16, ptr %264, align 2
   %266 = zext i16 %265 to i32
   %267 = mul nuw nsw i32 %266, %25
@@ -2052,11 +2052,11 @@ define internal fastcc void @AccumulateRGBA(ptr nocapture noundef nonnull readon
   %.0128.in = phi i32 [ %237, %140 ], [ %111, %29 ]
   %273 = and i32 %.sink152, 511
   %274 = zext nneg i32 %.sink151 to i64
-  %275 = getelementptr inbounds [33 x i32], ptr @kLinearToGammaTab, i64 0, i64 %274
+  %275 = getelementptr inbounds nuw [33 x i32], ptr @kLinearToGammaTab, i64 0, i64 %274
   %276 = load i32, ptr %275, align 4
   %277 = add nuw nsw i32 %.sink151, 1
   %278 = zext nneg i32 %277 to i64
-  %279 = getelementptr inbounds [33 x i32], ptr @kLinearToGammaTab, i64 0, i64 %278
+  %279 = getelementptr inbounds nuw [33 x i32], ptr @kLinearToGammaTab, i64 0, i64 %278
   %280 = load i32, ptr %279, align 4
   %281 = mul nsw i32 %273, %280
   %282 = sub nuw nsw i32 512, %273
@@ -2069,17 +2069,17 @@ define internal fastcc void @AccumulateRGBA(ptr nocapture noundef nonnull readon
   %286 = trunc i32 %.0129 to i16
   store i16 %286, ptr %.0126136, align 2
   %287 = trunc i32 %.0128 to i16
-  %288 = getelementptr inbounds i8, ptr %.0126136, i64 2
+  %288 = getelementptr inbounds nuw i8, ptr %.0126136, i64 2
   store i16 %287, ptr %288, align 2
   %289 = trunc i32 %.0127 to i16
-  %290 = getelementptr inbounds i8, ptr %.0126136, i64 4
+  %290 = getelementptr inbounds nuw i8, ptr %.0126136, i64 4
   store i16 %289, ptr %290, align 2
   %291 = trunc nuw nsw i32 %28 to i16
-  %292 = getelementptr inbounds i8, ptr %.0126136, i64 6
+  %292 = getelementptr inbounds nuw i8, ptr %.0126136, i64 6
   store i16 %291, ptr %292, align 2
   %293 = add nuw nsw i32 %.0130135, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 8
-  %294 = getelementptr inbounds i8, ptr %.0126136, i64 8
+  %294 = getelementptr inbounds nuw i8, ptr %.0126136, i64 8
   %exitcond.not = icmp eq i32 %293, %8
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %13, !llvm.loop !18
 
@@ -2095,7 +2095,7 @@ define internal fastcc void @AccumulateRGBA(ptr nocapture noundef nonnull readon
   br i1 %.not, label %488, label %297
 
 297:                                              ; preds = %._crit_edge
-  %298 = getelementptr inbounds i8, ptr %3, i64 %.0131.lcssa
+  %298 = getelementptr inbounds nuw i8, ptr %3, i64 %.0131.lcssa
   %299 = load i8, ptr %298, align 1
   %300 = zext i8 %299 to i32
   %301 = sext i32 %4 to i64
@@ -2110,16 +2110,16 @@ define internal fastcc void @AccumulateRGBA(ptr nocapture noundef nonnull readon
   ]
 
 307:                                              ; preds = %297, %297
-  %308 = getelementptr inbounds i8, ptr %0, i64 %.0131.lcssa
+  %308 = getelementptr inbounds nuw i8, ptr %0, i64 %.0131.lcssa
   %309 = load i8, ptr %308, align 1
   %310 = zext i8 %309 to i64
-  %311 = getelementptr inbounds [256 x i16], ptr @kGammaToLinearTab, i64 0, i64 %310
+  %311 = getelementptr inbounds nuw [256 x i16], ptr @kGammaToLinearTab, i64 0, i64 %310
   %312 = load i16, ptr %311, align 2
   %313 = zext i16 %312 to i32
   %314 = getelementptr inbounds i8, ptr %308, i64 %301
   %315 = load i8, ptr %314, align 1
   %316 = zext i8 %315 to i64
-  %317 = getelementptr inbounds [256 x i16], ptr @kGammaToLinearTab, i64 0, i64 %316
+  %317 = getelementptr inbounds nuw [256 x i16], ptr @kGammaToLinearTab, i64 0, i64 %316
   %318 = load i16, ptr %317, align 2
   %319 = zext i16 %318 to i32
   %320 = add nuw nsw i32 %319, %313
@@ -2127,27 +2127,27 @@ define internal fastcc void @AccumulateRGBA(ptr nocapture noundef nonnull readon
   %322 = lshr i32 %320, 8
   %323 = and i32 %321, 510
   %324 = zext nneg i32 %322 to i64
-  %325 = getelementptr inbounds [33 x i32], ptr @kLinearToGammaTab, i64 0, i64 %324
+  %325 = getelementptr inbounds nuw [33 x i32], ptr @kLinearToGammaTab, i64 0, i64 %324
   %326 = load i32, ptr %325, align 4
   %327 = add nuw nsw i32 %322, 1
   %328 = zext nneg i32 %327 to i64
-  %329 = getelementptr inbounds [33 x i32], ptr @kLinearToGammaTab, i64 0, i64 %328
+  %329 = getelementptr inbounds nuw [33 x i32], ptr @kLinearToGammaTab, i64 0, i64 %328
   %330 = load i32, ptr %329, align 4
   %331 = mul nsw i32 %323, %330
   %332 = sub nuw nsw i32 512, %323
   %333 = mul nsw i32 %332, %326
   %334 = add i32 %331, 64
   %335 = add i32 %334, %333
-  %336 = getelementptr inbounds i8, ptr %1, i64 %.0131.lcssa
+  %336 = getelementptr inbounds nuw i8, ptr %1, i64 %.0131.lcssa
   %337 = load i8, ptr %336, align 1
   %338 = zext i8 %337 to i64
-  %339 = getelementptr inbounds [256 x i16], ptr @kGammaToLinearTab, i64 0, i64 %338
+  %339 = getelementptr inbounds nuw [256 x i16], ptr @kGammaToLinearTab, i64 0, i64 %338
   %340 = load i16, ptr %339, align 2
   %341 = zext i16 %340 to i32
   %342 = getelementptr inbounds i8, ptr %336, i64 %301
   %343 = load i8, ptr %342, align 1
   %344 = zext i8 %343 to i64
-  %345 = getelementptr inbounds [256 x i16], ptr @kGammaToLinearTab, i64 0, i64 %344
+  %345 = getelementptr inbounds nuw [256 x i16], ptr @kGammaToLinearTab, i64 0, i64 %344
   %346 = load i16, ptr %345, align 2
   %347 = zext i16 %346 to i32
   %348 = add nuw nsw i32 %347, %341
@@ -2155,27 +2155,27 @@ define internal fastcc void @AccumulateRGBA(ptr nocapture noundef nonnull readon
   %350 = lshr i32 %348, 8
   %351 = and i32 %349, 510
   %352 = zext nneg i32 %350 to i64
-  %353 = getelementptr inbounds [33 x i32], ptr @kLinearToGammaTab, i64 0, i64 %352
+  %353 = getelementptr inbounds nuw [33 x i32], ptr @kLinearToGammaTab, i64 0, i64 %352
   %354 = load i32, ptr %353, align 4
   %355 = add nuw nsw i32 %350, 1
   %356 = zext nneg i32 %355 to i64
-  %357 = getelementptr inbounds [33 x i32], ptr @kLinearToGammaTab, i64 0, i64 %356
+  %357 = getelementptr inbounds nuw [33 x i32], ptr @kLinearToGammaTab, i64 0, i64 %356
   %358 = load i32, ptr %357, align 4
   %359 = mul nsw i32 %351, %358
   %360 = sub nuw nsw i32 512, %351
   %361 = mul nsw i32 %360, %354
   %362 = add i32 %359, 64
   %363 = add i32 %362, %361
-  %364 = getelementptr inbounds i8, ptr %2, i64 %.0131.lcssa
+  %364 = getelementptr inbounds nuw i8, ptr %2, i64 %.0131.lcssa
   %365 = load i8, ptr %364, align 1
   %366 = zext i8 %365 to i64
-  %367 = getelementptr inbounds [256 x i16], ptr @kGammaToLinearTab, i64 0, i64 %366
+  %367 = getelementptr inbounds nuw [256 x i16], ptr @kGammaToLinearTab, i64 0, i64 %366
   %368 = load i16, ptr %367, align 2
   %369 = zext i16 %368 to i32
   %370 = getelementptr inbounds i8, ptr %364, i64 %301
   %371 = load i8, ptr %370, align 1
   %372 = zext i8 %371 to i64
-  %373 = getelementptr inbounds [256 x i16], ptr @kGammaToLinearTab, i64 0, i64 %372
+  %373 = getelementptr inbounds nuw [256 x i16], ptr @kGammaToLinearTab, i64 0, i64 %372
   %374 = load i16, ptr %373, align 2
   %375 = zext i16 %374 to i32
   %376 = add nuw nsw i32 %375, %369
@@ -2185,52 +2185,52 @@ define internal fastcc void @AccumulateRGBA(ptr nocapture noundef nonnull readon
   br label %468
 
 380:                                              ; preds = %297
-  %381 = getelementptr inbounds i8, ptr %0, i64 %.0131.lcssa
+  %381 = getelementptr inbounds nuw i8, ptr %0, i64 %.0131.lcssa
   %382 = load i8, ptr %381, align 1
   %383 = zext i8 %382 to i64
-  %384 = getelementptr inbounds [256 x i16], ptr @kGammaToLinearTab, i64 0, i64 %383
+  %384 = getelementptr inbounds nuw [256 x i16], ptr @kGammaToLinearTab, i64 0, i64 %383
   %385 = load i16, ptr %384, align 2
   %386 = zext i16 %385 to i32
   %387 = mul nuw nsw i32 %386, %300
   %388 = getelementptr inbounds i8, ptr %381, i64 %301
   %389 = load i8, ptr %388, align 1
   %390 = zext i8 %389 to i64
-  %391 = getelementptr inbounds [256 x i16], ptr @kGammaToLinearTab, i64 0, i64 %390
+  %391 = getelementptr inbounds nuw [256 x i16], ptr @kGammaToLinearTab, i64 0, i64 %390
   %392 = load i16, ptr %391, align 2
   %393 = zext i16 %392 to i32
   %394 = mul nuw nsw i32 %393, %304
   %395 = add nuw nsw i32 %394, %387
   %396 = shl nuw nsw i32 %395, 1
   %397 = zext nneg i32 %306 to i64
-  %398 = getelementptr inbounds [1021 x i32], ptr @kInvAlpha, i64 0, i64 %397
+  %398 = getelementptr inbounds nuw [1021 x i32], ptr @kInvAlpha, i64 0, i64 %397
   %399 = load i32, ptr %398, align 8
   %400 = mul i32 %396, %399
   %401 = lshr i32 %400, 17
   %402 = lshr i32 %400, 26
   %403 = and i32 %401, 511
   %404 = zext nneg i32 %402 to i64
-  %405 = getelementptr inbounds [33 x i32], ptr @kLinearToGammaTab, i64 0, i64 %404
+  %405 = getelementptr inbounds nuw [33 x i32], ptr @kLinearToGammaTab, i64 0, i64 %404
   %406 = load i32, ptr %405, align 4
   %407 = add nuw nsw i32 %402, 1
   %408 = zext nneg i32 %407 to i64
-  %409 = getelementptr inbounds [33 x i32], ptr @kLinearToGammaTab, i64 0, i64 %408
+  %409 = getelementptr inbounds nuw [33 x i32], ptr @kLinearToGammaTab, i64 0, i64 %408
   %410 = load i32, ptr %409, align 4
   %411 = mul nsw i32 %403, %410
   %412 = sub nuw nsw i32 512, %403
   %413 = mul nsw i32 %412, %406
   %414 = add i32 %411, 64
   %415 = add i32 %414, %413
-  %416 = getelementptr inbounds i8, ptr %1, i64 %.0131.lcssa
+  %416 = getelementptr inbounds nuw i8, ptr %1, i64 %.0131.lcssa
   %417 = load i8, ptr %416, align 1
   %418 = zext i8 %417 to i64
-  %419 = getelementptr inbounds [256 x i16], ptr @kGammaToLinearTab, i64 0, i64 %418
+  %419 = getelementptr inbounds nuw [256 x i16], ptr @kGammaToLinearTab, i64 0, i64 %418
   %420 = load i16, ptr %419, align 2
   %421 = zext i16 %420 to i32
   %422 = mul nuw nsw i32 %421, %300
   %423 = getelementptr inbounds i8, ptr %416, i64 %301
   %424 = load i8, ptr %423, align 1
   %425 = zext i8 %424 to i64
-  %426 = getelementptr inbounds [256 x i16], ptr @kGammaToLinearTab, i64 0, i64 %425
+  %426 = getelementptr inbounds nuw [256 x i16], ptr @kGammaToLinearTab, i64 0, i64 %425
   %427 = load i16, ptr %426, align 2
   %428 = zext i16 %427 to i32
   %429 = mul nuw nsw i32 %428, %304
@@ -2241,28 +2241,28 @@ define internal fastcc void @AccumulateRGBA(ptr nocapture noundef nonnull readon
   %434 = lshr i32 %432, 26
   %435 = and i32 %433, 511
   %436 = zext nneg i32 %434 to i64
-  %437 = getelementptr inbounds [33 x i32], ptr @kLinearToGammaTab, i64 0, i64 %436
+  %437 = getelementptr inbounds nuw [33 x i32], ptr @kLinearToGammaTab, i64 0, i64 %436
   %438 = load i32, ptr %437, align 4
   %439 = add nuw nsw i32 %434, 1
   %440 = zext nneg i32 %439 to i64
-  %441 = getelementptr inbounds [33 x i32], ptr @kLinearToGammaTab, i64 0, i64 %440
+  %441 = getelementptr inbounds nuw [33 x i32], ptr @kLinearToGammaTab, i64 0, i64 %440
   %442 = load i32, ptr %441, align 4
   %443 = mul nsw i32 %435, %442
   %444 = sub nuw nsw i32 512, %435
   %445 = mul nsw i32 %444, %438
   %446 = add i32 %443, 64
   %447 = add i32 %446, %445
-  %448 = getelementptr inbounds i8, ptr %2, i64 %.0131.lcssa
+  %448 = getelementptr inbounds nuw i8, ptr %2, i64 %.0131.lcssa
   %449 = load i8, ptr %448, align 1
   %450 = zext i8 %449 to i64
-  %451 = getelementptr inbounds [256 x i16], ptr @kGammaToLinearTab, i64 0, i64 %450
+  %451 = getelementptr inbounds nuw [256 x i16], ptr @kGammaToLinearTab, i64 0, i64 %450
   %452 = load i16, ptr %451, align 2
   %453 = zext i16 %452 to i32
   %454 = mul nuw nsw i32 %453, %300
   %455 = getelementptr inbounds i8, ptr %448, i64 %301
   %456 = load i8, ptr %455, align 1
   %457 = zext i8 %456 to i64
-  %458 = getelementptr inbounds [256 x i16], ptr @kGammaToLinearTab, i64 0, i64 %457
+  %458 = getelementptr inbounds nuw [256 x i16], ptr @kGammaToLinearTab, i64 0, i64 %457
   %459 = load i16, ptr %458, align 2
   %460 = zext i16 %459 to i32
   %461 = mul nuw nsw i32 %460, %304
@@ -2280,11 +2280,11 @@ define internal fastcc void @AccumulateRGBA(ptr nocapture noundef nonnull readon
   %.0125.in = phi i32 [ %415, %380 ], [ %335, %307 ]
   %.0124.in = phi i32 [ %447, %380 ], [ %363, %307 ]
   %469 = zext nneg i32 %.sink164 to i64
-  %470 = getelementptr inbounds [33 x i32], ptr @kLinearToGammaTab, i64 0, i64 %469
+  %470 = getelementptr inbounds nuw [33 x i32], ptr @kLinearToGammaTab, i64 0, i64 %469
   %471 = load i32, ptr %470, align 4
   %472 = add nuw nsw i32 %.sink164, 1
   %473 = zext nneg i32 %472 to i64
-  %474 = getelementptr inbounds [33 x i32], ptr @kLinearToGammaTab, i64 0, i64 %473
+  %474 = getelementptr inbounds nuw [33 x i32], ptr @kLinearToGammaTab, i64 0, i64 %473
   %475 = load i32, ptr %474, align 4
   %476 = mul nsw i32 %.sink, %475
   %477 = sub nuw nsw i32 512, %.sink
@@ -2297,13 +2297,13 @@ define internal fastcc void @AccumulateRGBA(ptr nocapture noundef nonnull readon
   %481 = trunc i32 %.0125 to i16
   store i16 %481, ptr %.0126.lcssa, align 2
   %482 = trunc i32 %.0124 to i16
-  %483 = getelementptr inbounds i8, ptr %.0126.lcssa, i64 2
+  %483 = getelementptr inbounds nuw i8, ptr %.0126.lcssa, i64 2
   store i16 %482, ptr %483, align 2
   %484 = trunc i32 %.0 to i16
-  %485 = getelementptr inbounds i8, ptr %.0126.lcssa, i64 4
+  %485 = getelementptr inbounds nuw i8, ptr %.0126.lcssa, i64 4
   store i16 %484, ptr %485, align 2
   %486 = trunc nuw nsw i32 %306 to i16
-  %487 = getelementptr inbounds i8, ptr %.0126.lcssa, i64 6
+  %487 = getelementptr inbounds nuw i8, ptr %.0126.lcssa, i64 6
   store i16 %486, ptr %487, align 2
   br label %488
 
@@ -2317,9 +2317,9 @@ define internal fastcc void @ConvertRowsToUV(ptr nocapture noundef nonnull reado
   br i1 %6, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5
-  %7 = getelementptr inbounds i8, ptr %4, i64 228
-  %8 = getelementptr inbounds i8, ptr %4, i64 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 228
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %wide.trip.count = zext nneg i32 %3 to i64
   br label %10
 
@@ -2328,10 +2328,10 @@ define internal fastcc void @ConvertRowsToUV(ptr nocapture noundef nonnull reado
   %.023 = phi ptr [ %0, %.lr.ph ], [ %82, %10 ]
   %11 = load i16, ptr %.023, align 2
   %12 = zext i16 %11 to i32
-  %13 = getelementptr inbounds i8, ptr %.023, i64 2
+  %13 = getelementptr inbounds nuw i8, ptr %.023, i64 2
   %14 = load i16, ptr %13, align 2
   %15 = zext i16 %14 to i32
-  %16 = getelementptr inbounds i8, ptr %.023, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %.023, i64 4
   %17 = load i16, ptr %16, align 2
   %18 = zext i16 %17 to i32
   %19 = load i32, ptr %7, align 4
@@ -2371,7 +2371,7 @@ define internal fastcc void @ConvertRowsToUV(ptr nocapture noundef nonnull reado
   %47 = tail call i32 @llvm.smax.i32(i32 %46, i32 0)
   %48 = tail call range(i32 0, 256) i32 @llvm.umin.i32(i32 %47, i32 255)
   %49 = trunc nuw i32 %48 to i8
-  %50 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   store i8 %49, ptr %50, align 1
   %51 = load i32, ptr %7, align 4
   %52 = load i32, ptr %4, align 4
@@ -2410,10 +2410,10 @@ define internal fastcc void @ConvertRowsToUV(ptr nocapture noundef nonnull reado
   %78 = tail call i32 @llvm.smax.i32(i32 %77, i32 0)
   %79 = tail call range(i32 0, 256) i32 @llvm.umin.i32(i32 %78, i32 255)
   %80 = trunc nuw i32 %79 to i8
-  %81 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv
+  %81 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   store i8 %80, ptr %81, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %82 = getelementptr inbounds i8, ptr %.023, i64 8
+  %82 = getelementptr inbounds nuw i8, ptr %.023, i64 8
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !19
 

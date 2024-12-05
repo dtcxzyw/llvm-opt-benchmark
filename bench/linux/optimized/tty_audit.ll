@@ -24,15 +24,15 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local void @tty_audit_exit() local_unnamed_addr #0 align 16 {
   %1 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #8, !srcloc !5
   %2 = inttoptr i64 %1 to ptr
-  %3 = getelementptr inbounds i8, ptr %2, i64 1880
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 1880
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 1000
-  %6 = tail call ptr asm sideeffect "xchgq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(ptr) %5, ptr nonnull inttoptr (i64 -3 to ptr), ptr elementtype(ptr) %5) #9, !srcloc !6
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 1000
+  %6 = tail call ptr asm sideeffect "xchgq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %5, ptr nonnull inttoptr (i64 -3 to ptr), ptr nonnull elementtype(ptr) %5) #9, !srcloc !6
   %7 = icmp eq ptr %6, null
   br i1 %7, label %24, label %8
 
 8:                                                ; preds = %0
-  %9 = getelementptr inbounds i8, ptr %6, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %10 = load i64, ptr %9, align 8
   %11 = icmp eq i64 %10, 0
   br i1 %11, label %21, label %12
@@ -43,9 +43,9 @@ define dso_local void @tty_audit_exit() local_unnamed_addr #0 align 16 {
   br i1 %14, label %20, label %15
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %6, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %17 = load i32, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %6, i64 48
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %19 = load ptr, ptr %18, align 8
   tail call fastcc void @tty_audit_log(ptr noundef nonnull @.str.1, i32 noundef %17, ptr noundef %19, i64 noundef %10)
   br label %20
@@ -55,7 +55,7 @@ define dso_local void @tty_audit_exit() local_unnamed_addr #0 align 16 {
   br label %21
 
 21:                                               ; preds = %8, %20
-  %22 = getelementptr inbounds i8, ptr %6, i64 48
+  %22 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %23 = load ptr, ptr %22, align 8
   tail call void @kfree(ptr noundef %23) #9
   tail call void @kfree(ptr noundef nonnull %6) #9
@@ -75,11 +75,11 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 define dso_local void @tty_audit_fork(ptr nocapture noundef writeonly initializes((992, 996)) %0) local_unnamed_addr #2 align 16 {
   %2 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #8, !srcloc !5
   %3 = inttoptr i64 %2 to ptr
-  %4 = getelementptr inbounds i8, ptr %3, i64 1880
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 1880
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 992
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 992
   %7 = load i32, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 992
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 992
   store i32 %7, ptr %8, align 8
   ret void
 }
@@ -88,13 +88,13 @@ define dso_local void @tty_audit_fork(ptr nocapture noundef writeonly initialize
 define dso_local void @tty_audit_tiocsti(ptr nocapture noundef readonly %0, i8 noundef zeroext %1) local_unnamed_addr #0 align 16 {
   %3 = alloca i8, align 1
   store i8 %1, ptr %3, align 1
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 44
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 44
   %7 = load i32, ptr %6, align 4
-  %8 = getelementptr inbounds i8, ptr %5, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %9 = load i32, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %11 = load i32, ptr %10, align 4
   %12 = tail call i32 @tty_audit_push(), !range !7
   %13 = icmp ne i32 %12, 0
@@ -118,16 +118,16 @@ define dso_local void @tty_audit_tiocsti(ptr nocapture noundef readonly %0, i8 n
 define dso_local noundef range(i32 -1, 1) i32 @tty_audit_push() local_unnamed_addr #0 align 16 {
   %1 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #8, !srcloc !5
   %2 = inttoptr i64 %1 to ptr
-  %3 = getelementptr inbounds i8, ptr %2, i64 1880
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 1880
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 992
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 992
   %6 = load i32, ptr %5, align 8
   %7 = and i32 %6, 1
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %31, label %9
 
 9:                                                ; preds = %0
-  %10 = getelementptr inbounds i8, ptr %4, i64 1000
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 1000
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, inttoptr (i64 -3 to ptr)
   br i1 %12, label %.thread, label %13, !prof !8
@@ -146,7 +146,7 @@ define dso_local noundef range(i32 -1, 1) i32 @tty_audit_push() local_unnamed_ad
 
 17:                                               ; preds = %13
   tail call void @mutex_lock(ptr noundef nonnull %11) #9
-  %18 = getelementptr inbounds i8, ptr %11, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %19 = load i64, ptr %18, align 8
   %20 = icmp eq i64 %19, 0
   br i1 %20, label %30, label %21
@@ -157,9 +157,9 @@ define dso_local noundef range(i32 -1, 1) i32 @tty_audit_push() local_unnamed_ad
   br i1 %23, label %29, label %24
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds i8, ptr %11, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %26 = load i32, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %11, i64 48
+  %27 = getelementptr inbounds nuw i8, ptr %11, i64 48
   %28 = load ptr, ptr %27, align 8
   tail call fastcc void @tty_audit_log(ptr noundef nonnull @.str.1, i32 noundef %26, ptr noundef %28, i64 noundef %19)
   br label %29
@@ -182,20 +182,20 @@ define internal fastcc void @tty_audit_log(ptr noundef %0, i32 noundef %1, ptr n
   %5 = alloca [16 x i8], align 16
   %6 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #8, !srcloc !5
   %7 = inttoptr i64 %6 to ptr
-  %8 = getelementptr inbounds i8, ptr %7, i64 1320
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 1320
   %9 = load i32, ptr %8, align 8
   tail call void @__rcu_read_lock() #9
-  %10 = getelementptr inbounds i8, ptr %7, i64 1776
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 1776
   %11 = load volatile ptr, ptr %10, align 16
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load i32, ptr %12, align 8
   tail call void @__rcu_read_unlock() #9
-  %14 = getelementptr inbounds i8, ptr %7, i64 1984
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 1984
   %15 = load i32, ptr %14, align 64
-  %16 = getelementptr inbounds i8, ptr %7, i64 1988
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 1988
   %17 = load i32, ptr %16, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #9
-  %18 = getelementptr inbounds i8, ptr %7, i64 1976
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 1976
   %19 = load ptr, ptr %18, align 8
   %20 = tail call ptr @audit_log_start(ptr noundef %19, i32 noundef 3264, i32 noundef 1319) #9
   %21 = icmp eq ptr %20, null
@@ -226,16 +226,16 @@ declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @tty_audit_add_data(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 276
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 276
   %5 = load i32, ptr %4, align 4
   %6 = lshr i32 %5, 1
   %7 = and i32 %6, 1
   %8 = trunc nuw nsw i32 %7 to i8
   %9 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #8, !srcloc !5
   %10 = inttoptr i64 %9 to ptr
-  %11 = getelementptr inbounds i8, ptr %10, i64 1880
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 1880
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 992
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 992
   %14 = load volatile i32, ptr %13, align 8
   %15 = xor i32 %14, -1
   %16 = zext i32 %15 to i64
@@ -246,15 +246,15 @@ define dso_local void @tty_audit_add_data(ptr nocapture noundef readonly %0, ptr
   br i1 %20, label %.thread9, label %21, !prof !13
 
 21:                                               ; preds = %3
-  %22 = getelementptr inbounds i8, ptr %0, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 56
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 56
   %25 = load i16, ptr %24, align 8
   %26 = icmp eq i16 %25, 4
   br i1 %26, label %27, label %31
 
 27:                                               ; preds = %21
-  %28 = getelementptr inbounds i8, ptr %23, i64 58
+  %28 = getelementptr inbounds nuw i8, ptr %23, i64 58
   %29 = load i16, ptr %28, align 2
   %30 = icmp eq i16 %29, 1
   br i1 %30, label %.thread9, label %31
@@ -268,7 +268,7 @@ define dso_local void @tty_audit_add_data(ptr nocapture noundef readonly %0, ptr
   br i1 %36, label %.thread9, label %37
 
 37:                                               ; preds = %31
-  %38 = getelementptr inbounds i8, ptr %12, i64 1000
+  %38 = getelementptr inbounds nuw i8, ptr %12, i64 1000
   %39 = load ptr, ptr %38, align 8
   %40 = ptrtoint ptr %39 to i64
   switch i64 %40, label %71 [
@@ -291,7 +291,7 @@ define dso_local void @tty_audit_add_data(ptr nocapture noundef readonly %0, ptr
 46:                                               ; preds = %42
   %47 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 96), align 16
   %48 = tail call noalias align 8 dereferenceable_or_null(4096) ptr @kmalloc_trace(ptr noundef %47, i32 noundef 3264, i64 noundef 4096) #10
-  %49 = getelementptr inbounds i8, ptr %44, i64 48
+  %49 = getelementptr inbounds nuw i8, ptr %44, i64 48
   store ptr %48, ptr %49, align 8
   %50 = icmp eq ptr %48, null
   br i1 %50, label %51, label %53
@@ -307,13 +307,13 @@ define dso_local void @tty_audit_add_data(ptr nocapture noundef readonly %0, ptr
 53:                                               ; preds = %46
   tail call void @__mutex_init(ptr noundef nonnull %44, ptr noundef nonnull @.str.6, ptr noundef nonnull @tty_audit_buf_alloc.__key) #9
   %54 = load ptr, ptr %11, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 1000
-  %56 = tail call ptr asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgq $2,$1", "={ax},=*m,r,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %55, ptr nonnull %44, ptr null, ptr elementtype(i64) %55) #9, !srcloc !15
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 1000
+  %56 = tail call ptr asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgq $2,$1", "={ax},=*m,r,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %55, ptr nonnull %44, ptr null, ptr nonnull elementtype(i64) %55) #9, !srcloc !15
   %57 = icmp eq ptr %56, null
   br i1 %57, label %65, label %58
 
 58:                                               ; preds = %53
-  %59 = getelementptr inbounds i8, ptr %44, i64 40
+  %59 = getelementptr inbounds nuw i8, ptr %44, i64 40
   %60 = load i64, ptr %59, align 8
   %61 = icmp eq i64 %60, 0
   br i1 %61, label %63, label %62, !prof !16
@@ -332,7 +332,7 @@ define dso_local void @tty_audit_add_data(ptr nocapture noundef readonly %0, ptr
 
 65:                                               ; preds = %63, %53
   %66 = load ptr, ptr %11, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 1000
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 1000
   %68 = load ptr, ptr %67, align 8
   %69 = icmp eq ptr %68, inttoptr (i64 -3 to ptr)
   br i1 %69, label %70, label %71, !prof !8
@@ -353,34 +353,34 @@ define dso_local void @tty_audit_add_data(ptr nocapture noundef readonly %0, ptr
 76:                                               ; preds = %71
   tail call void @mutex_lock(ptr noundef nonnull %72) #9
   %77 = load ptr, ptr %22, align 8
-  %78 = getelementptr inbounds i8, ptr %77, i64 44
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 44
   %79 = load i32, ptr %78, align 4
   %80 = shl i32 %79, 20
-  %81 = getelementptr inbounds i8, ptr %77, i64 48
+  %81 = getelementptr inbounds nuw i8, ptr %77, i64 48
   %82 = load i32, ptr %81, align 8
   %83 = or i32 %80, %82
-  %84 = getelementptr inbounds i8, ptr %0, i64 4
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %85 = load i32, ptr %84, align 4
   %86 = add i32 %83, %85
-  %87 = getelementptr inbounds i8, ptr %72, i64 32
+  %87 = getelementptr inbounds nuw i8, ptr %72, i64 32
   %88 = load i32, ptr %87, align 8
   %89 = icmp eq i32 %88, %86
   br i1 %89, label %90, label %95
 
 90:                                               ; preds = %76
-  %91 = getelementptr inbounds i8, ptr %72, i64 36
+  %91 = getelementptr inbounds nuw i8, ptr %72, i64 36
   %92 = load i8, ptr %91, align 4, !range !20, !noundef !21
   %93 = zext nneg i8 %92 to i32
   %94 = icmp eq i32 %7, %93
   br i1 %94, label %._crit_edge, label %95
 
 ._crit_edge:                                      ; preds = %90
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %72, i64 40
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %72, i64 40
   %.pre.pre = load i64, ptr %.phi.trans.insert, align 8
   br label %108
 
 95:                                               ; preds = %90, %76
-  %96 = getelementptr inbounds i8, ptr %72, i64 40
+  %96 = getelementptr inbounds nuw i8, ptr %72, i64 40
   %97 = load i64, ptr %96, align 8
   %98 = icmp eq i64 %97, 0
   br i1 %98, label %106, label %99
@@ -391,7 +391,7 @@ define dso_local void @tty_audit_add_data(ptr nocapture noundef readonly %0, ptr
   br i1 %101, label %105, label %102
 
 102:                                              ; preds = %99
-  %103 = getelementptr inbounds i8, ptr %72, i64 48
+  %103 = getelementptr inbounds nuw i8, ptr %72, i64 48
   %104 = load ptr, ptr %103, align 8
   tail call fastcc void @tty_audit_log(ptr noundef nonnull @.str.1, i32 noundef %88, ptr noundef %104, i64 noundef %97)
   br label %105
@@ -402,14 +402,14 @@ define dso_local void @tty_audit_add_data(ptr nocapture noundef readonly %0, ptr
 
 106:                                              ; preds = %105, %95
   store i32 %86, ptr %87, align 8
-  %107 = getelementptr inbounds i8, ptr %72, i64 36
+  %107 = getelementptr inbounds nuw i8, ptr %72, i64 36
   store i8 %8, ptr %107, align 4
   br label %108
 
 108:                                              ; preds = %._crit_edge, %106
   %.pre = phi i64 [ %.pre.pre, %._crit_edge ], [ 0, %106 ]
-  %109 = getelementptr inbounds i8, ptr %72, i64 40
-  %110 = getelementptr inbounds i8, ptr %72, i64 48
+  %109 = getelementptr inbounds nuw i8, ptr %72, i64 40
+  %110 = getelementptr inbounds nuw i8, ptr %72, i64 48
   br label %111
 
 111:                                              ; preds = %131, %108

@@ -106,9 +106,9 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define dso_local void @namelist_add(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2, i32 noundef %3) local_unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 12
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %8 = load i32, ptr %7, align 4
   %9 = icmp eq i32 %6, %8
   %.pre = load ptr, ptr %0, align 8
@@ -144,9 +144,9 @@ define dso_local void @namelist_add(ptr nocapture noundef %0, ptr nocapture noun
 
 26:                                               ; preds = %17, %24
   %.sink = phi ptr [ %25, %24 ], [ null, %17 ]
-  %27 = getelementptr inbounds i8, ptr %22, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr %.sink, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %22, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %22, i64 16
   store i32 %3, ptr %28, align 8
   ret void
 }
@@ -159,7 +159,7 @@ declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @namelist_free(ptr nocapture noundef %0) local_unnamed_addr #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph, label %._crit_edge
@@ -173,7 +173,7 @@ define dso_local void @namelist_free(ptr nocapture noundef %0) local_unnamed_add
   %9 = getelementptr %struct.namelist_entry_t, ptr %6, i64 %8
   %10 = load ptr, ptr %9, align 8
   tail call void @free(ptr noundef %10) #17
-  %11 = getelementptr inbounds i8, ptr %9, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %12 = load ptr, ptr %11, align 8
   tail call void @free(ptr noundef %12) #17
   %13 = load i32, ptr %2, align 8
@@ -184,7 +184,7 @@ define dso_local void @namelist_free(ptr nocapture noundef %0) local_unnamed_add
   %15 = load ptr, ptr %0, align 8
   tail call void @free(ptr noundef %15) #17
   store ptr null, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 12
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 0, ptr %16, align 4
   ret void
 }
@@ -194,7 +194,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef ptr @namelist_find(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #5 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph, label %._crit_edge
@@ -253,7 +253,7 @@ define dso_local ptr @jsc_module_loader(ptr noundef %0, ptr noundef %1, ptr noca
   br i1 %.not.i, label %namelist_find.exit, label %10
 
 namelist_find.exit:                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %12, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = load i32, ptr @init_module_list.1, align 8
   %18 = load i32, ptr @init_module_list.2, align 4
@@ -291,9 +291,9 @@ namelist_find.exit:                               ; preds = %11
 
 namelist_add.exit:                                ; preds = %27, %34
   %.sink.i = phi ptr [ %35, %34 ], [ null, %27 ]
-  %36 = getelementptr inbounds i8, ptr %32, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %32, i64 8
   store ptr %.sink.i, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %32, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %32, i64 16
   store i32 0, ptr %37, align 8
   %38 = tail call ptr @JS_NewCModule(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @js_module_dummy_init) #17
   br label %JS_FreeValue.exit
@@ -360,7 +360,7 @@ namelist_find.exit50:                             ; preds = %59
   br i1 %64, label %65, label %67
 
 65:                                               ; preds = %namelist_find.exit50
-  %66 = getelementptr inbounds i8, ptr %6, i64 1008
+  %66 = getelementptr inbounds nuw i8, ptr %6, i64 1008
   store i8 0, ptr %66, align 16
   br label %67
 
@@ -558,9 +558,9 @@ namelist_add.exit:                                ; preds = %10, %14
   %25 = getelementptr %struct.namelist_entry_t, ptr %22, i64 %24
   %26 = call noalias ptr @strdup(ptr noundef nonnull readonly %4) #17
   store ptr %26, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %25, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store ptr null, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %25, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %25, i64 16
   store i32 %5, ptr %28, align 8
   %29 = load i64, ptr %7, align 8
   %30 = trunc i64 %29 to i32
@@ -712,9 +712,9 @@ namelist_add.exit:                                ; preds = %2, %19
   %31 = tail call noalias dereferenceable_or_null(4) ptr @strdup(ptr noundef nonnull @.str.4) #17
   store ptr %31, ptr %30, align 8
   %32 = tail call noalias dereferenceable_or_null(4) ptr @strdup(ptr noundef nonnull @.str.4) #17
-  %33 = getelementptr inbounds i8, ptr %30, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store ptr %32, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %30, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %30, i64 16
   store i32 0, ptr %34, align 8
   %35 = load i32, ptr @cmodule_list.1, align 8
   %36 = load i32, ptr @cmodule_list.2, align 4
@@ -744,9 +744,9 @@ namelist_add.exit137:                             ; preds = %namelist_add.exit, 
   %50 = tail call noalias dereferenceable_or_null(3) ptr @strdup(ptr noundef nonnull @.str.5) #17
   store ptr %50, ptr %49, align 8
   %51 = tail call noalias dereferenceable_or_null(3) ptr @strdup(ptr noundef nonnull @.str.5) #17
-  %52 = getelementptr inbounds i8, ptr %49, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %49, i64 8
   store ptr %51, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %49, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %49, i64 16
   store i32 0, ptr %53, align 8
   br label %54
 
@@ -913,9 +913,9 @@ namelist_add.exit140:                             ; preds = %91, %95
   %107 = call noalias ptr @strdup(ptr noundef nonnull readonly %14) #17
   store ptr %107, ptr %106, align 8
   %108 = call noalias ptr @strdup(ptr noundef nonnull readonly %15) #17
-  %109 = getelementptr inbounds i8, ptr %106, i64 8
+  %109 = getelementptr inbounds nuw i8, ptr %106, i64 8
   store ptr %108, ptr %109, align 8
-  %110 = getelementptr inbounds i8, ptr %106, i64 16
+  %110 = getelementptr inbounds nuw i8, ptr %106, i64 16
   store i32 0, ptr %110, align 8
   br label %.backedge
 
@@ -941,9 +941,9 @@ namelist_add.exit143:                             ; preds = %111, %114
   %123 = getelementptr %struct.namelist_entry_t, ptr %.sroa.0.2, i64 %122
   %124 = call noalias ptr @strdup(ptr noundef readonly %112) #17
   store ptr %124, ptr %123, align 8
-  %125 = getelementptr inbounds i8, ptr %123, i64 8
+  %125 = getelementptr inbounds nuw i8, ptr %123, i64 8
   store ptr null, ptr %125, align 8
-  %126 = getelementptr inbounds i8, ptr %123, i64 16
+  %126 = getelementptr inbounds nuw i8, ptr %123, i64 16
   store i32 0, ptr %126, align 8
   br label %.backedge
 
@@ -1211,7 +1211,7 @@ compile_file.exit:                                ; preds = %188, %191, %196
   %indvars.iv241 = phi i64 [ %indvars.iv.next242, %.lr.ph191 ], [ 0, %221 ]
   %226 = load ptr, ptr @init_module_list.0, align 8
   %227 = getelementptr %struct.namelist_entry_t, ptr %226, i64 %indvars.iv241
-  %228 = getelementptr inbounds i8, ptr %227, i64 8
+  %228 = getelementptr inbounds nuw i8, ptr %227, i64 8
   %229 = load ptr, ptr %228, align 8
   %230 = load ptr, ptr %227, align 8
   %231 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %146, ptr noundef nonnull @.str.23, ptr noundef %229, ptr noundef %229, ptr noundef %230) #17
@@ -1226,7 +1226,7 @@ compile_file.exit:                                ; preds = %188, %191, %196
   %236 = phi ptr [ %.pre255, %.lr.ph193.preheader ], [ %245, %243 ]
   %indvars.iv244 = phi i64 [ 0, %.lr.ph193.preheader ], [ %indvars.iv.next245, %243 ]
   %237 = getelementptr %struct.namelist_entry_t, ptr %236, i64 %indvars.iv244
-  %238 = getelementptr inbounds i8, ptr %237, i64 16
+  %238 = getelementptr inbounds nuw i8, ptr %237, i64 16
   %239 = load i32, ptr %238, align 8
   %.not131 = icmp eq i32 %239, 0
   br i1 %.not131, label %243, label %240
@@ -1282,7 +1282,7 @@ compile_file.exit:                                ; preds = %188, %191, %196
   %263 = phi ptr [ %.pre258, %.lr.ph197.preheader ], [ %272, %270 ]
   %indvars.iv247 = phi i64 [ 0, %.lr.ph197.preheader ], [ %indvars.iv.next248, %270 ]
   %264 = getelementptr %struct.namelist_entry_t, ptr %263, i64 %indvars.iv247
-  %265 = getelementptr inbounds i8, ptr %264, i64 16
+  %265 = getelementptr inbounds nuw i8, ptr %264, i64 16
   %266 = load i32, ptr %265, align 8
   %.not130 = icmp eq i32 %266, 0
   br i1 %.not130, label %267, label %270
@@ -1350,27 +1350,27 @@ compile_file.exit:                                ; preds = %188, %191, %196
   br label %291
 
 291:                                              ; preds = %288, %287
-  %292 = getelementptr inbounds i8, ptr %4, i64 8
+  %292 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @.str.66, ptr %4, align 16
-  %293 = getelementptr inbounds i8, ptr %4, i64 16
+  %293 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr @.str.67, ptr %292, align 8
-  %294 = getelementptr inbounds i8, ptr %4, i64 24
+  %294 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr @.str.68, ptr %293, align 16
-  %295 = getelementptr inbounds i8, ptr %4, i64 32
+  %295 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr @.str.69, ptr %294, align 8
-  %296 = getelementptr inbounds i8, ptr %4, i64 40
+  %296 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store ptr @.str.70, ptr %295, align 16
-  %297 = getelementptr inbounds i8, ptr %4, i64 48
+  %297 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store ptr %7, ptr %296, align 8
-  %298 = getelementptr inbounds i8, ptr %4, i64 56
+  %298 = getelementptr inbounds nuw i8, ptr %4, i64 56
   store ptr @.str.71, ptr %297, align 16
-  %299 = getelementptr inbounds i8, ptr %4, i64 64
+  %299 = getelementptr inbounds nuw i8, ptr %4, i64 64
   store ptr %.299, ptr %298, align 8
   %.b.i = load i1, ptr @dynamic_export, align 4
   br i1 %.b.i, label %300, label %302
 
 300:                                              ; preds = %291
-  %301 = getelementptr inbounds i8, ptr %4, i64 72
+  %301 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr @.str.72, ptr %299, align 16
   br label %302
 
@@ -1464,7 +1464,7 @@ output_executable.exit:                           ; preds = %322
   %336 = getelementptr %struct.namelist_entry_t, ptr %332, i64 %335
   %337 = load ptr, ptr %336, align 8
   call void @free(ptr noundef %337) #17
-  %338 = getelementptr inbounds i8, ptr %336, i64 8
+  %338 = getelementptr inbounds nuw i8, ptr %336, i64 8
   %339 = load ptr, ptr %338, align 8
   call void @free(ptr noundef %339) #17
   %340 = icmp sgt i32 %334, 0
@@ -1494,7 +1494,7 @@ namelist_free.exit:                               ; preds = %namelist_free.exit.
   %348 = getelementptr %struct.namelist_entry_t, ptr %344, i64 %347
   %349 = load ptr, ptr %348, align 8
   call void @free(ptr noundef %349) #17
-  %350 = getelementptr inbounds i8, ptr %348, i64 8
+  %350 = getelementptr inbounds nuw i8, ptr %348, i64 8
   %351 = load ptr, ptr %350, align 8
   call void @free(ptr noundef %351) #17
   %352 = icmp sgt i32 %346, 0
@@ -1524,7 +1524,7 @@ namelist_free.exit150:                            ; preds = %namelist_free.exit1
   %360 = getelementptr %struct.namelist_entry_t, ptr %356, i64 %359
   %361 = load ptr, ptr %360, align 8
   call void @free(ptr noundef %361) #17
-  %362 = getelementptr inbounds i8, ptr %360, i64 8
+  %362 = getelementptr inbounds nuw i8, ptr %360, i64 8
   %363 = load ptr, ptr %362, align 8
   call void @free(ptr noundef %363) #17
   %364 = icmp sgt i32 %358, 0

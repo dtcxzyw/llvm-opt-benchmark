@@ -92,7 +92,7 @@ define i32 @df_semcheck_param(ptr noundef %0, ptr nocapture readnone %1, i32 nou
   br label %33
 
 22:                                               ; preds = %6
-  %23 = getelementptr inbounds i8, ptr %0, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %24 = load i32, ptr %23, align 8
   %25 = add i32 %24, 1
   store i32 %25, ptr %23, align 8
@@ -311,7 +311,7 @@ define internal noundef zeroext i1 @df_func_lower(ptr nocapture noundef readonly
   br i1 %4, label %.preheader.i, label %string_walk.exit
 
 .preheader.i:                                     ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %.val, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   %6 = load i32, ptr %5, align 8
   %.not.i = icmp eq i32 %6, 0
   br i1 %.not.i, label %string_walk.exit, label %.lr.ph3.i
@@ -347,7 +347,7 @@ define internal noundef zeroext i1 @df_func_lower(ptr nocapture noundef readonly
 
 24:                                               ; preds = %21, %18, %15, %12, %.lr.ph3.i
   %25 = tail call ptr @fvalue_get_strbuf(ptr noundef %9) #4
-  %26 = getelementptr inbounds i8, ptr %25, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load i64, ptr %26, align 8
   %28 = tail call noalias ptr @wmem_strbuf_new_sized(ptr noundef null, i64 noundef %27) #4
   %29 = load i64, ptr %26, align 8
@@ -355,7 +355,7 @@ define internal noundef zeroext i1 @df_func_lower(ptr nocapture noundef readonly
   br i1 %.not4.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %24
-  %30 = getelementptr inbounds i8, ptr %25, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %25, i64 8
   br label %31
 
 31:                                               ; preds = %31, %.lr.ph.i
@@ -430,7 +430,7 @@ define internal noundef zeroext i1 @df_func_upper(ptr nocapture noundef readonly
   br i1 %4, label %.preheader.i, label %string_walk.exit
 
 .preheader.i:                                     ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %.val, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   %6 = load i32, ptr %5, align 8
   %.not.i = icmp eq i32 %6, 0
   br i1 %.not.i, label %string_walk.exit, label %.lr.ph3.i
@@ -466,7 +466,7 @@ define internal noundef zeroext i1 @df_func_upper(ptr nocapture noundef readonly
 
 24:                                               ; preds = %21, %18, %15, %12, %.lr.ph3.i
   %25 = tail call ptr @fvalue_get_strbuf(ptr noundef %9) #4
-  %26 = getelementptr inbounds i8, ptr %25, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load i64, ptr %26, align 8
   %28 = tail call noalias ptr @wmem_strbuf_new_sized(ptr noundef null, i64 noundef %27) #4
   %29 = load i64, ptr %26, align 8
@@ -474,7 +474,7 @@ define internal noundef zeroext i1 @df_func_upper(ptr nocapture noundef readonly
   br i1 %.not4.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %24
-  %30 = getelementptr inbounds i8, ptr %25, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %25, i64 8
   br label %31
 
 31:                                               ; preds = %31, %.lr.ph.i
@@ -531,7 +531,7 @@ define internal noundef zeroext i1 @df_func_count(ptr nocapture noundef readonly
   br i1 %5, label %6, label %10
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load i32, ptr %7, align 8
   %9 = tail call ptr @fvalue_new(i32 noundef 7) #4
   tail call void @fvalue_set_uinteger(ptr noundef %9, i32 noundef %8) #4
@@ -569,7 +569,7 @@ define internal noundef zeroext i1 @df_func_string(ptr nocapture noundef readonl
   br i1 %5, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %7 = load i32, ptr %6, align 8
   %.not21 = icmp eq i32 %7, 0
   br i1 %.not21, label %.loopexit, label %.lr.ph
@@ -649,12 +649,12 @@ define internal noundef i32 @ul_semcheck_string(ptr noundef %0, ptr noundef %1, 
   br i1 %9, label %10, label %23
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load i32, ptr %11, align 8
   %13 = add i32 %12, 1
   store i32 %13, ptr %11, align 8
   %14 = tail call ptr @sttype_field_hfinfo(ptr noundef %7) #4
-  %15 = getelementptr inbounds i8, ptr %14, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load i32, ptr %15, align 8
   switch i32 %16, label %17 [
     i32 4, label %27
@@ -695,7 +695,7 @@ define internal noundef i32 @ul_semcheck_string(ptr noundef %0, ptr noundef %1, 
   %18 = tail call { i64, i64 } @stnode_location(ptr noundef %7) #4
   %19 = extractvalue { i64, i64 } %18, 0
   %20 = extractvalue { i64, i64 } %18, 1
-  %21 = getelementptr inbounds i8, ptr %14, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %22 = load ptr, ptr %21, align 8
   tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail_throw(ptr noundef nonnull %0, i32 noundef -1, i64 %19, i64 %20, ptr noundef nonnull @.str.20, ptr noundef %22) #5
   unreachable
@@ -727,12 +727,12 @@ define internal noundef i32 @ul_semcheck_base(ptr noundef %0, ptr noundef %1, i3
   br i1 %9, label %10, label %23
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load i32, ptr %11, align 8
   %13 = add i32 %12, 1
   store i32 %13, ptr %11, align 8
   %14 = tail call ptr @sttype_field_hfinfo(ptr noundef %7) #4
-  %15 = getelementptr inbounds i8, ptr %14, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load i32, ptr %15, align 8
   switch i32 %16, label %17 [
     i32 3, label %27
@@ -751,7 +751,7 @@ define internal noundef i32 @ul_semcheck_base(ptr noundef %0, ptr noundef %1, i3
   %18 = tail call { i64, i64 } @stnode_location(ptr noundef %7) #4
   %19 = extractvalue { i64, i64 } %18, 0
   %20 = extractvalue { i64, i64 } %18, 1
-  %21 = getelementptr inbounds i8, ptr %14, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %22 = load ptr, ptr %21, align 8
   tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail_throw(ptr noundef nonnull %0, i32 noundef -1, i64 %19, i64 %20, ptr noundef nonnull @.str.21, ptr noundef %22) #5
   unreachable
@@ -788,7 +788,7 @@ define internal noundef zeroext i1 @df_func_max(ptr nocapture noundef readonly %
   br i1 %.not.i, label %.loopexit.i, label %.preheader.i
 
 .preheader.i:                                     ; preds = %.lr.ph30.i
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i32, ptr %5, align 8
   %.not33.i = icmp eq i32 %6, 0
   br i1 %.not33.i, label %.loopexit.i, label %.lr.ph.i
@@ -819,7 +819,7 @@ define internal noundef zeroext i1 @df_func_max(ptr nocapture noundef readonly %
 
 .loopexit.i:                                      ; preds = %14, %.preheader.i, %.lr.ph30.i
   %.3.i = phi ptr [ %.02228.i, %.lr.ph30.i ], [ %.02228.i, %.preheader.i ], [ %.2.i, %14 ]
-  %18 = getelementptr inbounds i8, ptr %.02327.i, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %.02327.i, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = add nuw i32 %.02029.i, 1
   %exitcond.not.i = icmp eq i32 %20, %1
@@ -873,7 +873,7 @@ define internal noundef i32 @ul_semcheck_compare(ptr noundef %0, ptr noundef %1,
   unreachable
 
 23:                                               ; preds = %16
-  %24 = getelementptr inbounds i8, ptr %.028, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %.028, i64 8
   %25 = load ptr, ptr %24, align 8
   %.not = icmp eq ptr %25, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
@@ -896,7 +896,7 @@ define internal noundef zeroext i1 @df_func_min(ptr nocapture noundef readonly %
   br i1 %.not.i, label %.loopexit.i, label %.preheader.i
 
 .preheader.i:                                     ; preds = %.lr.ph30.i
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i32, ptr %5, align 8
   %.not33.i = icmp eq i32 %6, 0
   br i1 %.not33.i, label %.loopexit.i, label %.lr.ph.i
@@ -927,7 +927,7 @@ define internal noundef zeroext i1 @df_func_min(ptr nocapture noundef readonly %
 
 .loopexit.i:                                      ; preds = %14, %.preheader.i, %.lr.ph30.i
   %.3.i = phi ptr [ %.02228.i, %.lr.ph30.i ], [ %.02228.i, %.preheader.i ], [ %.2.i, %14 ]
-  %18 = getelementptr inbounds i8, ptr %.02327.i, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %.02327.i, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = add nuw i32 %.02029.i, 1
   %exitcond.not.i = icmp eq i32 %20, %1
@@ -956,7 +956,7 @@ define internal zeroext i1 @df_func_abs(ptr nocapture noundef readonly %0, i32 %
   br i1 %6, label %26, label %.preheader
 
 .preheader:                                       ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %5, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %8 = load i32, ptr %7, align 8
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -1070,7 +1070,7 @@ define internal fastcc noundef zeroext i1 @df_func_base(ptr readonly %.0.val, pt
   br i1 %3, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %.0.val, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
   %5 = load i32, ptr %4, align 8
   %.not2 = icmp eq i32 %5, 0
   br i1 %.not2, label %.loopexit, label %.lr.ph

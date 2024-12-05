@@ -234,7 +234,7 @@ define hidden i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %.148109 = phi ptr [ %69, %70 ], [ %62, %.preheader ]
   call void @randpkt_loop(ptr noundef nonnull %.148109, i64 noundef 1, i64 noundef 0) #5
   %66 = call i32 @randpkt_parse_type(ptr noundef null) #5
-  %67 = getelementptr inbounds i8, ptr %.148109, i64 56
+  %67 = getelementptr inbounds nuw i8, ptr %.148109, i64 56
   %68 = load ptr, ptr %67, align 8
   %69 = call ptr @randpkt_find_example(i32 noundef %66) #5
   %.not75 = icmp eq ptr %69, null
@@ -242,9 +242,9 @@ define hidden i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 
 70:                                               ; preds = %.lr.ph
   %71 = add nsw i32 %.in, -1
-  %72 = getelementptr inbounds i8, ptr %69, i64 56
+  %72 = getelementptr inbounds nuw i8, ptr %69, i64 56
   store ptr %68, ptr %72, align 8
-  %73 = getelementptr inbounds i8, ptr %69, i64 64
+  %73 = getelementptr inbounds nuw i8, ptr %69, i64 64
   store ptr %43, ptr %73, align 8
   %74 = icmp sgt i32 %.in, 1
   br i1 %74, label %.lr.ph, label %.loopexit, !llvm.loop !7
@@ -339,7 +339,7 @@ declare i32 @wtap_name_to_file_type_subtype(ptr noundef) local_unnamed_addr #1
 define internal fastcc void @list_capture_types() unnamed_addr #0 {
   tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.13) #5
   %1 = tail call ptr @wtap_get_writable_file_types_subtypes(i32 noundef 0) #5
-  %2 = getelementptr inbounds i8, ptr %1, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %3 = load i32, ptr %2, align 8
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph

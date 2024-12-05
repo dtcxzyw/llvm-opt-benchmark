@@ -75,11 +75,11 @@ define range(i32 0, 2) i32 @WebPPlaneDistortion(ptr noundef %0, i64 noundef %1, 
   %gep.us = getelementptr i8, ptr %invariant.gep.us, i64 %42
   %43 = load i8, ptr %gep.us, align 1
   %44 = add nuw nsw i64 %indvars.iv, %39
-  %45 = getelementptr inbounds i8, ptr %30, i64 %44
+  %45 = getelementptr inbounds nuw i8, ptr %30, i64 %44
   store i8 %43, ptr %45, align 1
   %gep85.us = getelementptr i8, ptr %invariant.gep84.us, i64 %42
   %46 = load i8, ptr %gep85.us, align 1
-  %47 = getelementptr inbounds i8, ptr %34, i64 %44
+  %47 = getelementptr inbounds nuw i8, ptr %34, i64 %44
   store i8 %46, ptr %47, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %37
@@ -447,17 +447,17 @@ define range(i32 0, 2) i32 @WebPPictureDistortion(ptr noundef %0, ptr noundef %1
   br i1 %or.cond, label %89, label %10
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load i32, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load i32, ptr %13, align 8
   %.not = icmp eq i32 %12, %14
   br i1 %.not, label %15, label %89
 
 15:                                               ; preds = %10
-  %16 = getelementptr inbounds i8, ptr %0, i64 12
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %17 = load i32, ptr %16, align 4
-  %18 = getelementptr inbounds i8, ptr %1, i64 12
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %19 = load i32, ptr %18, align 4
   %20 = icmp ne i32 %17, %19
   %21 = icmp eq ptr %3, null
@@ -508,10 +508,10 @@ define range(i32 0, 2) i32 @WebPPictureDistortion(ptr noundef %0, ptr noundef %1
   br i1 %.not53, label %.loopexit, label %42
 
 42:                                               ; preds = %40, %37
-  %43 = getelementptr inbounds i8, ptr %5, i64 80
-  %44 = getelementptr inbounds i8, ptr %6, i64 80
-  %45 = getelementptr inbounds i8, ptr %5, i64 72
-  %46 = getelementptr inbounds i8, ptr %6, i64 72
+  %43 = getelementptr inbounds nuw i8, ptr %5, i64 80
+  %44 = getelementptr inbounds nuw i8, ptr %6, i64 80
+  %45 = getelementptr inbounds nuw i8, ptr %5, i64 72
+  %46 = getelementptr inbounds nuw i8, ptr %6, i64 72
   %47 = mul nsw i32 %28, %27
   %48 = sitofp i32 %47 to double
   br label %49
@@ -527,10 +527,10 @@ define range(i32 0, 2) i32 @WebPPictureDistortion(ptr noundef %0, ptr noundef %1
   %54 = sext i32 %53 to i64
   %55 = shl nsw i64 %54, 2
   %56 = load ptr, ptr %45, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 %indvars.iv
   %58 = load ptr, ptr %46, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 %indvars.iv
-  %60 = getelementptr inbounds float, ptr %3, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 %indvars.iv
+  %60 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv
   %61 = call i32 @WebPPlaneDistortion(ptr noundef %57, i64 noundef %52, ptr noundef %59, i64 noundef %55, i32 noundef %27, i32 noundef %28, i64 noundef 4, i32 noundef %2, ptr noundef nonnull %7, ptr noundef %60)
   %.not54 = icmp eq i32 %61, 0
   br i1 %.not54, label %.loopexit, label %62
@@ -578,7 +578,7 @@ define range(i32 0, 2) i32 @WebPPictureDistortion(ptr noundef %0, ptr noundef %1
 GetLogSSIM.exit:                                  ; preds = %81, %78, %74, %69
   %.in = phi double [ %77, %74 ], [ 9.900000e+01, %69 ], [ %86, %81 ], [ 9.900000e+01, %78 ]
   %87 = fptrunc double %.in to float
-  %88 = getelementptr inbounds i8, ptr %3, i64 16
+  %88 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store float %87, ptr %88, align 4
   br label %.loopexit
 

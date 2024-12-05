@@ -45,13 +45,13 @@ define noundef i32 @fini() local_unnamed_addr #2 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define range(i32 1, 0) i32 @priority_p_set(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 224
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 224
   %4 = load i16, ptr %3, align 8
   %.not = icmp eq i16 %4, 0
   br i1 %.not, label %9, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 712
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 712
   %7 = load i32, ptr %6, align 8
   %8 = icmp ugt i32 %7, 1
   br i1 %8, label %22, label %9
@@ -59,13 +59,13 @@ define range(i32 1, 0) i32 @priority_p_set(i32 noundef %0, ptr nocapture noundef
 9:                                                ; preds = %5, %2
   %10 = tail call i32 @llvm.umax.i32(i32 %0, i32 2)
   %spec.select = add i32 %10, -1
-  %11 = getelementptr inbounds i8, ptr %1, i64 216
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 216
   %12 = load ptr, ptr %11, align 8
   %.not20 = icmp eq ptr %12, null
   br i1 %.not20, label %21, label %13
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %12, i64 288
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 288
   %15 = load i32, ptr %14, align 8
   %16 = xor i32 %15, -2147483648
   %17 = icmp slt i32 %16, 1
@@ -109,13 +109,13 @@ declare i32 @list_for_each(ptr noundef, ptr noundef, ptr noundef) local_unnamed_
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef i32 @_foreach_job_boost_prio(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) #4 {
   %3 = load i32, ptr %1, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 712
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 712
   %5 = load i32, ptr %4, align 8
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %12, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 224
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %8 = load i16, ptr %7, align 8
   %9 = icmp eq i16 %8, 0
   br i1 %9, label %10, label %12
@@ -174,7 +174,7 @@ declare ptr @list_create(ptr noundef) local_unnamed_addr #1
 define void @priority_p_job_end(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca %struct.assoc_mgr_lock_t, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 944
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %5 = load i32, ptr %4, align 8
   %6 = zext i32 %5 to i64
   %7 = mul nuw nsw i64 %6, 60
@@ -189,21 +189,21 @@ define void @priority_p_job_end(ptr nocapture noundef readonly %0) local_unnamed
   br i1 %13, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
-  %14 = getelementptr inbounds i8, ptr %0, i64 1040
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 1040
   %wide.trip.count = zext nneg i32 %12 to i64
   br label %15
 
 15:                                               ; preds = %.lr.ph, %23
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %23 ]
   %16 = load ptr, ptr %14, align 8
-  %17 = getelementptr inbounds i64, ptr %16, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw i64, ptr %16, i64 %indvars.iv
   %18 = load i64, ptr %17, align 8
   %19 = icmp eq i64 %18, -3
   br i1 %19, label %23, label %20
 
 20:                                               ; preds = %15
   %21 = mul i64 %7, %18
-  %22 = getelementptr inbounds i64, ptr %11, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw i64, ptr %11, i64 %indvars.iv
   store i64 %21, ptr %22, align 8
   br label %23
 
@@ -214,7 +214,7 @@ define void @priority_p_job_end(ptr nocapture noundef readonly %0) local_unnamed
 
 ._crit_edge:                                      ; preds = %23, %1
   call void @assoc_mgr_lock(ptr noundef nonnull %3) #7
-  %24 = getelementptr inbounds i8, ptr %0, i64 760
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 760
   %25 = load ptr, ptr %24, align 8
   %.not = icmp ne ptr %25, null
   %26 = load i32, ptr @slurmctld_tres_cnt, align 4
@@ -223,18 +223,18 @@ define void @priority_p_job_end(ptr nocapture noundef readonly %0) local_unnamed
   br i1 %or.cond, label %.lr.ph54, label %.loopexit
 
 .lr.ph54:                                         ; preds = %._crit_edge
-  %28 = getelementptr inbounds i8, ptr %25, i64 304
-  %29 = getelementptr inbounds i8, ptr %25, i64 256
+  %28 = getelementptr inbounds nuw i8, ptr %25, i64 304
+  %29 = getelementptr inbounds nuw i8, ptr %25, i64 256
   br label %30
 
 30:                                               ; preds = %.lr.ph54, %49
   %indvars.iv66 = phi i64 [ 0, %.lr.ph54 ], [ %indvars.iv.next67, %49 ]
-  %31 = getelementptr inbounds i64, ptr %11, i64 %indvars.iv66
+  %31 = getelementptr inbounds nuw i64, ptr %11, i64 %indvars.iv66
   %32 = load i64, ptr %31, align 8
   %33 = load ptr, ptr %28, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 56
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 56
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i64, ptr %35, i64 %indvars.iv66
+  %36 = getelementptr inbounds nuw i64, ptr %35, i64 %indvars.iv66
   %37 = load i64, ptr %36, align 8
   %38 = icmp ugt i64 %32, %37
   br i1 %38, label %39, label %47
@@ -248,7 +248,7 @@ define void @priority_p_job_end(ptr nocapture noundef readonly %0) local_unnamed
 42:                                               ; preds = %39
   %43 = load ptr, ptr %29, align 8
   %44 = load ptr, ptr @assoc_mgr_tres_name_array, align 8
-  %45 = getelementptr inbounds ptr, ptr %44, i64 %indvars.iv66
+  %45 = getelementptr inbounds nuw ptr, ptr %44, i64 %indvars.iv66
   %46 = load ptr, ptr %45, align 8
   call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.2, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.priority_p_job_end, ptr noundef %43, ptr noundef %46) #7
   br label %49
@@ -267,13 +267,13 @@ define void @priority_p_job_end(ptr nocapture noundef readonly %0) local_unnamed
 
 .loopexit:                                        ; preds = %49, %._crit_edge
   %53 = phi i32 [ %26, %._crit_edge ], [ %50, %49 ]
-  %.0.in58 = getelementptr inbounds i8, ptr %0, i64 72
+  %.0.in58 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %.059 = load ptr, ptr %.0.in58, align 8
   %.not5060 = icmp eq ptr %.059, null
   br i1 %.not5060, label %._crit_edge62, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %.loopexit
-  %54 = getelementptr inbounds i8, ptr %0, i64 392
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %55 = icmp sgt i32 %53, 0
   br i1 %55, label %.preheader, label %._crit_edge62
 
@@ -284,18 +284,18 @@ define void @priority_p_job_end(ptr nocapture noundef readonly %0) local_unnamed
   br i1 %57, label %.lr.ph56, label %._crit_edge57
 
 .lr.ph56:                                         ; preds = %.preheader
-  %58 = getelementptr inbounds i8, ptr %.061, i64 312
-  %59 = getelementptr inbounds i8, ptr %.061, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %.061, i64 312
+  %59 = getelementptr inbounds nuw i8, ptr %.061, i64 8
   br label %60
 
 60:                                               ; preds = %.lr.ph56, %94
   %indvars.iv69 = phi i64 [ 0, %.lr.ph56 ], [ %indvars.iv.next70, %94 ]
-  %61 = getelementptr inbounds i64, ptr %11, i64 %indvars.iv69
+  %61 = getelementptr inbounds nuw i64, ptr %11, i64 %indvars.iv69
   %62 = load i64, ptr %61, align 8
   %63 = load ptr, ptr %58, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 40
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 40
   %65 = load ptr, ptr %64, align 8
-  %66 = getelementptr inbounds i64, ptr %65, i64 %indvars.iv69
+  %66 = getelementptr inbounds nuw i64, ptr %65, i64 %indvars.iv69
   %67 = load i64, ptr %66, align 8
   %68 = icmp ugt i64 %62, %67
   br i1 %68, label %69, label %77
@@ -309,7 +309,7 @@ define void @priority_p_job_end(ptr nocapture noundef readonly %0) local_unnamed
 72:                                               ; preds = %69
   %73 = load ptr, ptr %59, align 8
   %74 = load ptr, ptr @assoc_mgr_tres_name_array, align 8
-  %75 = getelementptr inbounds ptr, ptr %74, i64 %indvars.iv69
+  %75 = getelementptr inbounds nuw ptr, ptr %74, i64 %indvars.iv69
   %76 = load ptr, ptr %75, align 8
   call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.3, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.priority_p_job_end, ptr noundef %73, ptr noundef %76) #7
   br label %94
@@ -323,16 +323,16 @@ define void @priority_p_job_end(ptr nocapture noundef readonly %0) local_unnamed
 
 81:                                               ; preds = %77
   %82 = load i32, ptr %54, align 8
-  %83 = getelementptr inbounds i64, ptr %11, i64 %indvars.iv69
+  %83 = getelementptr inbounds nuw i64, ptr %11, i64 %indvars.iv69
   %84 = load i64, ptr %83, align 8
   %85 = load ptr, ptr %59, align 8
   %86 = load ptr, ptr @assoc_mgr_tres_name_array, align 8
-  %87 = getelementptr inbounds ptr, ptr %86, i64 %indvars.iv69
+  %87 = getelementptr inbounds nuw ptr, ptr %86, i64 %indvars.iv69
   %88 = load ptr, ptr %87, align 8
   %89 = load ptr, ptr %58, align 8
-  %90 = getelementptr inbounds i8, ptr %89, i64 40
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 40
   %91 = load ptr, ptr %90, align 8
-  %92 = getelementptr inbounds i64, ptr %91, i64 %indvars.iv69
+  %92 = getelementptr inbounds nuw i64, ptr %91, i64 %indvars.iv69
   %93 = load i64, ptr %92, align 8
   call void (i32, ptr, ...) @log_var(i32 noundef 8, ptr noundef nonnull @.str.4, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.priority_p_job_end, i32 noundef %82, i64 noundef %84, ptr noundef %85, ptr noundef %88, i64 noundef %93) #7
   br label %94
@@ -346,9 +346,9 @@ define void @priority_p_job_end(ptr nocapture noundef readonly %0) local_unnamed
 
 ._crit_edge57:                                    ; preds = %94, %.preheader
   %98 = phi i32 [ %56, %.preheader ], [ %95, %94 ]
-  %99 = getelementptr inbounds i8, ptr %.061, i64 312
+  %99 = getelementptr inbounds nuw i8, ptr %.061, i64 312
   %100 = load ptr, ptr %99, align 8
-  %.0.in = getelementptr inbounds i8, ptr %100, i64 72
+  %.0.in = getelementptr inbounds nuw i8, ptr %100, i64 72
   %.0 = load ptr, ptr %.0.in, align 8
   %.not50 = icmp eq ptr %.0, null
   br i1 %.not50, label %._crit_edge62, label %.preheader, !llvm.loop !10

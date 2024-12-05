@@ -13,22 +13,22 @@ define hidden noundef ptr @timelib_diff(ptr noundef %0, ptr noundef %1) local_un
   %8 = alloca ptr, align 8
   store ptr %0, ptr %7, align 8
   store ptr %1, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 232
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %10 = load i32, ptr %9, align 8
   %11 = icmp eq i32 %10, 3
   br i1 %11, label %12, label %173
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %1, i64 232
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %14 = load i32, ptr %13, align 8
   %15 = icmp eq i32 %14, 3
   br i1 %15, label %16, label %173
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %0, i64 72
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %18 = load ptr, ptr %17, align 8
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 72
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %21 = load ptr, ptr %20, align 8
   %22 = load ptr, ptr %21, align 8
   %23 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(1) %22) #8
@@ -43,14 +43,14 @@ define hidden noundef ptr @timelib_diff(ptr noundef %0, ptr noundef %1) local_un
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %26 = tail call ptr @timelib_rel_time_ctor() #9
-  %27 = getelementptr inbounds i8, ptr %26, i64 68
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 68
   store i32 0, ptr %27, align 4
   call fastcc void @sort_old_to_new(ptr noundef %3, ptr noundef %4, ptr noundef %26)
   %28 = load ptr, ptr %4, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 56
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 56
   %30 = load i32, ptr %29, align 8
   %31 = load ptr, ptr %3, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 56
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 56
   %33 = load i32, ptr %32, align 8
   %34 = sub nsw i32 %30, %33
   %35 = sext i32 %34 to i64
@@ -64,55 +64,55 @@ define hidden noundef ptr @timelib_diff(ptr noundef %0, ptr noundef %1) local_un
   %40 = load i64, ptr %31, align 8
   %41 = sub nsw i64 %39, %40
   store i64 %41, ptr %26, align 8
-  %42 = getelementptr inbounds i8, ptr %28, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %43 = load i64, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %31, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %45 = load i64, ptr %44, align 8
   %46 = sub nsw i64 %43, %45
-  %47 = getelementptr inbounds i8, ptr %26, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store i64 %46, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %28, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %49 = load i64, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %31, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %51 = load i64, ptr %50, align 8
   %52 = sub nsw i64 %49, %51
-  %53 = getelementptr inbounds i8, ptr %26, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %26, i64 16
   store i64 %52, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %28, i64 24
+  %54 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %55 = load i64, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %31, i64 24
+  %56 = getelementptr inbounds nuw i8, ptr %31, i64 24
   %57 = load i64, ptr %56, align 8
   %58 = sub nsw i64 %55, %57
-  %59 = getelementptr inbounds i8, ptr %26, i64 24
+  %59 = getelementptr inbounds nuw i8, ptr %26, i64 24
   store i64 %58, ptr %59, align 8
-  %60 = getelementptr inbounds i8, ptr %28, i64 32
+  %60 = getelementptr inbounds nuw i8, ptr %28, i64 32
   %61 = load i64, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %31, i64 32
+  %62 = getelementptr inbounds nuw i8, ptr %31, i64 32
   %63 = load i64, ptr %62, align 8
   %64 = sub nsw i64 %61, %63
-  %65 = getelementptr inbounds i8, ptr %26, i64 32
+  %65 = getelementptr inbounds nuw i8, ptr %26, i64 32
   store i64 %64, ptr %65, align 8
-  %66 = getelementptr inbounds i8, ptr %28, i64 40
+  %66 = getelementptr inbounds nuw i8, ptr %28, i64 40
   %67 = load i64, ptr %66, align 8
-  %68 = getelementptr inbounds i8, ptr %31, i64 40
+  %68 = getelementptr inbounds nuw i8, ptr %31, i64 40
   %69 = load i64, ptr %68, align 8
   %70 = sub nsw i64 %67, %69
-  %71 = getelementptr inbounds i8, ptr %26, i64 40
+  %71 = getelementptr inbounds nuw i8, ptr %26, i64 40
   store i64 %70, ptr %71, align 8
-  %72 = getelementptr inbounds i8, ptr %28, i64 48
+  %72 = getelementptr inbounds nuw i8, ptr %28, i64 48
   %73 = load i64, ptr %72, align 8
-  %74 = getelementptr inbounds i8, ptr %31, i64 48
+  %74 = getelementptr inbounds nuw i8, ptr %31, i64 48
   %75 = load i64, ptr %74, align 8
   %76 = sub nsw i64 %73, %75
-  %77 = getelementptr inbounds i8, ptr %26, i64 48
+  %77 = getelementptr inbounds nuw i8, ptr %26, i64 48
   store i64 %76, ptr %77, align 8
   %78 = tail call i32 @timelib_diff_days(ptr noundef nonnull %31, ptr noundef nonnull %28)
   %79 = sext i32 %78 to i64
-  %80 = getelementptr inbounds i8, ptr %26, i64 72
+  %80 = getelementptr inbounds nuw i8, ptr %26, i64 72
   store i64 %79, ptr %80, align 8
-  %81 = getelementptr inbounds i8, ptr %28, i64 192
+  %81 = getelementptr inbounds nuw i8, ptr %28, i64 192
   %82 = load i64, ptr %81, align 8
-  %83 = getelementptr inbounds i8, ptr %31, i64 192
+  %83 = getelementptr inbounds nuw i8, ptr %31, i64 192
   %84 = load i64, ptr %83, align 8
   %85 = icmp slt i64 %82, %84
   %.pre.i = load i32, ptr %27, align 4
@@ -142,7 +142,7 @@ define hidden noundef ptr @timelib_diff(ptr noundef %0, ptr noundef %1) local_un
   %.not.i = icmp eq i32 %99, 0
   %100 = select i1 %.not.i, ptr %28, ptr %31
   tail call void @timelib_do_rel_normalize(ptr noundef nonnull %100, ptr noundef nonnull %26) #9
-  %101 = getelementptr inbounds i8, ptr %31, i64 80
+  %101 = getelementptr inbounds nuw i8, ptr %31, i64 80
   %102 = load i32, ptr %101, align 8
   switch i32 %102, label %.thread.i [
     i32 1, label %103
@@ -150,13 +150,13 @@ define hidden noundef ptr @timelib_diff(ptr noundef %0, ptr noundef %1) local_un
   ]
 
 103:                                              ; preds = %98
-  %104 = getelementptr inbounds i8, ptr %28, i64 80
+  %104 = getelementptr inbounds nuw i8, ptr %28, i64 80
   %105 = load i32, ptr %104, align 8
   %106 = icmp eq i32 %105, 0
   br i1 %106, label %107, label %.thread.i
 
 107:                                              ; preds = %103
-  %108 = getelementptr inbounds i8, ptr %28, i64 72
+  %108 = getelementptr inbounds nuw i8, ptr %28, i64 72
   %109 = load ptr, ptr %108, align 8
   %.not52.i = icmp eq ptr %109, null
   br i1 %.not52.i, label %timelib_diff_with_tzid.exit, label %110
@@ -179,13 +179,13 @@ define hidden noundef ptr @timelib_diff(ptr noundef %0, ptr noundef %1) local_un
   br label %timelib_diff_with_tzid.exit
 
 121:                                              ; preds = %98
-  %122 = getelementptr inbounds i8, ptr %28, i64 80
+  %122 = getelementptr inbounds nuw i8, ptr %28, i64 80
   %123 = load i32, ptr %122, align 8
   %124 = icmp eq i32 %123, 1
   br i1 %124, label %125, label %.thread.i
 
 125:                                              ; preds = %121
-  %126 = getelementptr inbounds i8, ptr %28, i64 72
+  %126 = getelementptr inbounds nuw i8, ptr %28, i64 72
   %127 = load ptr, ptr %126, align 8
   %.not48.i = icmp eq ptr %127, null
   br i1 %.not48.i, label %timelib_diff_with_tzid.exit, label %128
@@ -239,7 +239,7 @@ define hidden noundef ptr @timelib_diff(ptr noundef %0, ptr noundef %1) local_un
   %155 = load i32, ptr %29, align 8
   %156 = sext i32 %155 to i64
   %157 = sub nsw i64 %150, %156
-  %158 = getelementptr inbounds i8, ptr %28, i64 72
+  %158 = getelementptr inbounds nuw i8, ptr %28, i64 72
   %159 = load ptr, ptr %158, align 8
   %160 = call i32 @timelib_get_time_zone_offset_info(i64 noundef %157, ptr noundef %159, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef null) #9
   %.not46.i = icmp eq i32 %160, 0
@@ -274,7 +274,7 @@ timelib_diff_with_tzid.exit:                      ; preds = %107, %110, %116, %1
 
 173:                                              ; preds = %16, %12, %2
   %174 = tail call ptr @timelib_rel_time_ctor() #9
-  %175 = getelementptr inbounds i8, ptr %174, i64 68
+  %175 = getelementptr inbounds nuw i8, ptr %174, i64 68
   store i32 0, ptr %175, align 4
   call fastcc void @sort_old_to_new(ptr noundef %7, ptr noundef %8, ptr noundef %174)
   %176 = load ptr, ptr %8, align 8
@@ -283,34 +283,34 @@ timelib_diff_with_tzid.exit:                      ; preds = %107, %110, %116, %1
   %179 = load i64, ptr %178, align 8
   %180 = sub nsw i64 %177, %179
   store i64 %180, ptr %174, align 8
-  %181 = getelementptr inbounds i8, ptr %176, i64 8
+  %181 = getelementptr inbounds nuw i8, ptr %176, i64 8
   %182 = load i64, ptr %181, align 8
-  %183 = getelementptr inbounds i8, ptr %178, i64 8
+  %183 = getelementptr inbounds nuw i8, ptr %178, i64 8
   %184 = load i64, ptr %183, align 8
   %185 = sub nsw i64 %182, %184
-  %186 = getelementptr inbounds i8, ptr %174, i64 8
+  %186 = getelementptr inbounds nuw i8, ptr %174, i64 8
   store i64 %185, ptr %186, align 8
-  %187 = getelementptr inbounds i8, ptr %176, i64 16
+  %187 = getelementptr inbounds nuw i8, ptr %176, i64 16
   %188 = load i64, ptr %187, align 8
-  %189 = getelementptr inbounds i8, ptr %178, i64 16
+  %189 = getelementptr inbounds nuw i8, ptr %178, i64 16
   %190 = load i64, ptr %189, align 8
   %191 = sub nsw i64 %188, %190
-  %192 = getelementptr inbounds i8, ptr %174, i64 16
+  %192 = getelementptr inbounds nuw i8, ptr %174, i64 16
   store i64 %191, ptr %192, align 8
-  %193 = getelementptr inbounds i8, ptr %176, i64 24
+  %193 = getelementptr inbounds nuw i8, ptr %176, i64 24
   %194 = load i64, ptr %193, align 8
-  %195 = getelementptr inbounds i8, ptr %178, i64 24
+  %195 = getelementptr inbounds nuw i8, ptr %178, i64 24
   %196 = load i64, ptr %195, align 8
   %197 = sub nsw i64 %194, %196
-  %198 = getelementptr inbounds i8, ptr %174, i64 24
+  %198 = getelementptr inbounds nuw i8, ptr %174, i64 24
   store i64 %197, ptr %198, align 8
-  %199 = getelementptr inbounds i8, ptr %178, i64 232
+  %199 = getelementptr inbounds nuw i8, ptr %178, i64 232
   %200 = load i32, ptr %199, align 8
   %.not = icmp eq i32 %200, 3
   br i1 %.not, label %206, label %201
 
 201:                                              ; preds = %173
-  %202 = getelementptr inbounds i8, ptr %178, i64 80
+  %202 = getelementptr inbounds nuw i8, ptr %178, i64 80
   %203 = load i32, ptr %202, align 8
   %204 = sext i32 %203 to i64
   %205 = add nsw i64 %197, %204
@@ -319,13 +319,13 @@ timelib_diff_with_tzid.exit:                      ; preds = %107, %110, %116, %1
 
 206:                                              ; preds = %201, %173
   %207 = phi i64 [ %205, %201 ], [ %197, %173 ]
-  %208 = getelementptr inbounds i8, ptr %176, i64 232
+  %208 = getelementptr inbounds nuw i8, ptr %176, i64 232
   %209 = load i32, ptr %208, align 8
   %.not18 = icmp eq i32 %209, 3
   br i1 %.not18, label %215, label %210
 
 210:                                              ; preds = %206
-  %211 = getelementptr inbounds i8, ptr %176, i64 80
+  %211 = getelementptr inbounds nuw i8, ptr %176, i64 80
   %212 = load i32, ptr %211, align 8
   %213 = sext i32 %212 to i64
   %214 = sub nsw i64 %207, %213
@@ -333,38 +333,38 @@ timelib_diff_with_tzid.exit:                      ; preds = %107, %110, %116, %1
   br label %215
 
 215:                                              ; preds = %210, %206
-  %216 = getelementptr inbounds i8, ptr %176, i64 32
+  %216 = getelementptr inbounds nuw i8, ptr %176, i64 32
   %217 = load i64, ptr %216, align 8
-  %218 = getelementptr inbounds i8, ptr %178, i64 32
+  %218 = getelementptr inbounds nuw i8, ptr %178, i64 32
   %219 = load i64, ptr %218, align 8
   %220 = sub nsw i64 %217, %219
-  %221 = getelementptr inbounds i8, ptr %174, i64 32
+  %221 = getelementptr inbounds nuw i8, ptr %174, i64 32
   store i64 %220, ptr %221, align 8
-  %222 = getelementptr inbounds i8, ptr %176, i64 40
+  %222 = getelementptr inbounds nuw i8, ptr %176, i64 40
   %223 = load i64, ptr %222, align 8
-  %224 = getelementptr inbounds i8, ptr %178, i64 40
+  %224 = getelementptr inbounds nuw i8, ptr %178, i64 40
   %225 = load i64, ptr %224, align 8
-  %226 = getelementptr inbounds i8, ptr %176, i64 56
+  %226 = getelementptr inbounds nuw i8, ptr %176, i64 56
   %227 = load i32, ptr %226, align 8
   %228 = sext i32 %227 to i64
-  %229 = getelementptr inbounds i8, ptr %178, i64 56
+  %229 = getelementptr inbounds nuw i8, ptr %178, i64 56
   %230 = load i32, ptr %229, align 8
   %231 = sext i32 %230 to i64
   %232 = add i64 %225, %228
   %233 = sub i64 %223, %232
   %234 = add nsw i64 %233, %231
-  %235 = getelementptr inbounds i8, ptr %174, i64 40
+  %235 = getelementptr inbounds nuw i8, ptr %174, i64 40
   store i64 %234, ptr %235, align 8
-  %236 = getelementptr inbounds i8, ptr %176, i64 48
+  %236 = getelementptr inbounds nuw i8, ptr %176, i64 48
   %237 = load i64, ptr %236, align 8
-  %238 = getelementptr inbounds i8, ptr %178, i64 48
+  %238 = getelementptr inbounds nuw i8, ptr %178, i64 48
   %239 = load i64, ptr %238, align 8
   %240 = sub nsw i64 %237, %239
-  %241 = getelementptr inbounds i8, ptr %174, i64 48
+  %241 = getelementptr inbounds nuw i8, ptr %174, i64 48
   store i64 %240, ptr %241, align 8
   %242 = tail call i32 @timelib_diff_days(ptr noundef nonnull %178, ptr noundef nonnull %176)
   %243 = sext i32 %242 to i64
-  %244 = getelementptr inbounds i8, ptr %174, i64 72
+  %244 = getelementptr inbounds nuw i8, ptr %174, i64 72
   store i64 %243, ptr %244, align 8
   %245 = load i32, ptr %175, align 4
   %.not19 = icmp eq i32 %245, 0
@@ -385,23 +385,23 @@ declare ptr @timelib_rel_time_ctor() local_unnamed_addr #2
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal fastcc void @sort_old_to_new(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef writeonly %2) unnamed_addr #3 {
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 232
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 232
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, 3
   %.pre = load ptr, ptr %1, align 8
   br i1 %7, label %8, label %125
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %.pre, i64 232
+  %9 = getelementptr inbounds nuw i8, ptr %.pre, i64 232
   %10 = load i32, ptr %9, align 8
   %11 = icmp eq i32 %10, 3
   br i1 %11, label %12, label %125
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %4, i64 72
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %.pre, i64 72
+  %16 = getelementptr inbounds nuw i8, ptr %.pre, i64 72
   %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr %17, align 8
   %19 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(1) %18) #8
@@ -419,9 +419,9 @@ define internal fastcc void @sort_old_to_new(ptr nocapture noundef nonnull %0, p
   br i1 %26, label %27, label %140
 
 27:                                               ; preds = %25
-  %28 = getelementptr inbounds i8, ptr %4, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %29 = load i64, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %.pre, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
   %31 = load i64, ptr %30, align 8
   %32 = icmp sgt i64 %29, %31
   br i1 %32, label %.sink.split, label %33
@@ -431,129 +431,129 @@ define internal fastcc void @sort_old_to_new(ptr nocapture noundef nonnull %0, p
   br i1 %34, label %35, label %140
 
 35:                                               ; preds = %33
-  %36 = getelementptr inbounds i8, ptr %4, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %37 = load i64, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %.pre, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %.pre, i64 16
   %39 = load i64, ptr %38, align 8
   %40 = icmp sgt i64 %37, %39
   br i1 %40, label %.sink.split, label %41
 
 41:                                               ; preds = %35
-  %42 = getelementptr inbounds i8, ptr %4, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %43 = load i64, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %.pre, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %.pre, i64 16
   %45 = load i64, ptr %44, align 8
   %46 = icmp eq i64 %43, %45
   br i1 %46, label %47, label %53
 
 47:                                               ; preds = %41
-  %48 = getelementptr inbounds i8, ptr %4, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %49 = load i64, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %.pre, i64 24
+  %50 = getelementptr inbounds nuw i8, ptr %.pre, i64 24
   %51 = load i64, ptr %50, align 8
   %52 = icmp sgt i64 %49, %51
   br i1 %52, label %.sink.split, label %53
 
 53:                                               ; preds = %47, %41
-  %54 = getelementptr inbounds i8, ptr %4, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %55 = load i64, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %.pre, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %.pre, i64 16
   %57 = load i64, ptr %56, align 8
   %58 = icmp eq i64 %55, %57
   br i1 %58, label %59, label %71
 
 59:                                               ; preds = %53
-  %60 = getelementptr inbounds i8, ptr %4, i64 24
+  %60 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %61 = load i64, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %.pre, i64 24
+  %62 = getelementptr inbounds nuw i8, ptr %.pre, i64 24
   %63 = load i64, ptr %62, align 8
   %64 = icmp eq i64 %61, %63
   br i1 %64, label %65, label %71
 
 65:                                               ; preds = %59
-  %66 = getelementptr inbounds i8, ptr %4, i64 32
+  %66 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %67 = load i64, ptr %66, align 8
-  %68 = getelementptr inbounds i8, ptr %.pre, i64 32
+  %68 = getelementptr inbounds nuw i8, ptr %.pre, i64 32
   %69 = load i64, ptr %68, align 8
   %70 = icmp sgt i64 %67, %69
   br i1 %70, label %.sink.split, label %71
 
 71:                                               ; preds = %65, %59, %53
-  %72 = getelementptr inbounds i8, ptr %4, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %73 = load i64, ptr %72, align 8
-  %74 = getelementptr inbounds i8, ptr %.pre, i64 16
+  %74 = getelementptr inbounds nuw i8, ptr %.pre, i64 16
   %75 = load i64, ptr %74, align 8
   %76 = icmp eq i64 %73, %75
   br i1 %76, label %77, label %95
 
 77:                                               ; preds = %71
-  %78 = getelementptr inbounds i8, ptr %4, i64 24
+  %78 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %79 = load i64, ptr %78, align 8
-  %80 = getelementptr inbounds i8, ptr %.pre, i64 24
+  %80 = getelementptr inbounds nuw i8, ptr %.pre, i64 24
   %81 = load i64, ptr %80, align 8
   %82 = icmp eq i64 %79, %81
   br i1 %82, label %83, label %95
 
 83:                                               ; preds = %77
-  %84 = getelementptr inbounds i8, ptr %4, i64 32
+  %84 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %85 = load i64, ptr %84, align 8
-  %86 = getelementptr inbounds i8, ptr %.pre, i64 32
+  %86 = getelementptr inbounds nuw i8, ptr %.pre, i64 32
   %87 = load i64, ptr %86, align 8
   %88 = icmp eq i64 %85, %87
   br i1 %88, label %89, label %95
 
 89:                                               ; preds = %83
-  %90 = getelementptr inbounds i8, ptr %4, i64 40
+  %90 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %91 = load i64, ptr %90, align 8
-  %92 = getelementptr inbounds i8, ptr %.pre, i64 40
+  %92 = getelementptr inbounds nuw i8, ptr %.pre, i64 40
   %93 = load i64, ptr %92, align 8
   %94 = icmp sgt i64 %91, %93
   br i1 %94, label %.sink.split, label %95
 
 95:                                               ; preds = %89, %83, %77, %71
-  %96 = getelementptr inbounds i8, ptr %4, i64 16
+  %96 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %97 = load i64, ptr %96, align 8
-  %98 = getelementptr inbounds i8, ptr %.pre, i64 16
+  %98 = getelementptr inbounds nuw i8, ptr %.pre, i64 16
   %99 = load i64, ptr %98, align 8
   %100 = icmp eq i64 %97, %99
   br i1 %100, label %101, label %140
 
 101:                                              ; preds = %95
-  %102 = getelementptr inbounds i8, ptr %4, i64 24
+  %102 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %103 = load i64, ptr %102, align 8
-  %104 = getelementptr inbounds i8, ptr %.pre, i64 24
+  %104 = getelementptr inbounds nuw i8, ptr %.pre, i64 24
   %105 = load i64, ptr %104, align 8
   %106 = icmp eq i64 %103, %105
   br i1 %106, label %107, label %140
 
 107:                                              ; preds = %101
-  %108 = getelementptr inbounds i8, ptr %4, i64 32
+  %108 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %109 = load i64, ptr %108, align 8
-  %110 = getelementptr inbounds i8, ptr %.pre, i64 32
+  %110 = getelementptr inbounds nuw i8, ptr %.pre, i64 32
   %111 = load i64, ptr %110, align 8
   %112 = icmp eq i64 %109, %111
   br i1 %112, label %113, label %140
 
 113:                                              ; preds = %107
-  %114 = getelementptr inbounds i8, ptr %4, i64 40
+  %114 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %115 = load i64, ptr %114, align 8
-  %116 = getelementptr inbounds i8, ptr %.pre, i64 40
+  %116 = getelementptr inbounds nuw i8, ptr %.pre, i64 40
   %117 = load i64, ptr %116, align 8
   %118 = icmp eq i64 %115, %117
   br i1 %118, label %119, label %140
 
 119:                                              ; preds = %113
-  %120 = getelementptr inbounds i8, ptr %4, i64 48
+  %120 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %121 = load i64, ptr %120, align 8
-  %122 = getelementptr inbounds i8, ptr %.pre, i64 48
+  %122 = getelementptr inbounds nuw i8, ptr %.pre, i64 48
   %123 = load i64, ptr %122, align 8
   %124 = icmp sgt i64 %121, %123
   br i1 %124, label %.sink.split, label %140
 
 125:                                              ; preds = %12, %8, %3
-  %126 = getelementptr inbounds i8, ptr %4, i64 192
+  %126 = getelementptr inbounds nuw i8, ptr %4, i64 192
   %127 = load i64, ptr %126, align 8
-  %128 = getelementptr inbounds i8, ptr %.pre, i64 192
+  %128 = getelementptr inbounds nuw i8, ptr %.pre, i64 192
   %129 = load i64, ptr %128, align 8
   %130 = icmp sgt i64 %127, %129
   br i1 %130, label %.sink.split, label %131
@@ -563,9 +563,9 @@ define internal fastcc void @sort_old_to_new(ptr nocapture noundef nonnull %0, p
   br i1 %132, label %133, label %140
 
 133:                                              ; preds = %131
-  %134 = getelementptr inbounds i8, ptr %4, i64 48
+  %134 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %135 = load i64, ptr %134, align 8
-  %136 = getelementptr inbounds i8, ptr %.pre, i64 48
+  %136 = getelementptr inbounds nuw i8, ptr %.pre, i64 48
   %137 = load i64, ptr %136, align 8
   %138 = icmp sgt i64 %135, %137
   br i1 %138, label %.sink.split, label %140
@@ -573,7 +573,7 @@ define internal fastcc void @sort_old_to_new(ptr nocapture noundef nonnull %0, p
 .sink.split:                                      ; preds = %125, %133, %21, %27, %35, %47, %65, %89, %119
   store ptr %4, ptr %1, align 8
   store ptr %.pre, ptr %0, align 8
-  %139 = getelementptr inbounds i8, ptr %2, i64 68
+  %139 = getelementptr inbounds nuw i8, ptr %2, i64 68
   store i32 1, ptr %139, align 4
   br label %140
 
@@ -594,29 +594,29 @@ define hidden i32 @timelib_diff_days(ptr noundef %0, ptr noundef %1) local_unnam
   %8 = icmp slt i32 %7, 0
   %. = select i1 %8, ptr %0, ptr %1
   %.26 = select i1 %8, ptr %1, ptr %0
-  %9 = getelementptr inbounds i8, ptr %., i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %., i64 24
   %10 = load i64, ptr %9, align 8
   %11 = trunc i64 %10 to i32
-  %12 = getelementptr inbounds i8, ptr %., i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %., i64 32
   %13 = load i64, ptr %12, align 8
   %14 = trunc i64 %13 to i32
-  %15 = getelementptr inbounds i8, ptr %., i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %., i64 40
   %16 = load i64, ptr %15, align 8
   %17 = trunc i64 %16 to i32
-  %18 = getelementptr inbounds i8, ptr %., i64 48
+  %18 = getelementptr inbounds nuw i8, ptr %., i64 48
   %19 = load i64, ptr %18, align 8
   %20 = trunc i64 %19 to i32
   call void @timelib_hmsf_to_decimal_hour(i32 noundef %11, i32 noundef %14, i32 noundef %17, i32 noundef %20, ptr noundef nonnull %3) #9
-  %21 = getelementptr inbounds i8, ptr %.26, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %.26, i64 24
   %22 = load i64, ptr %21, align 8
   %23 = trunc i64 %22 to i32
-  %24 = getelementptr inbounds i8, ptr %.26, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %.26, i64 32
   %25 = load i64, ptr %24, align 8
   %26 = trunc i64 %25 to i32
-  %27 = getelementptr inbounds i8, ptr %.26, i64 40
+  %27 = getelementptr inbounds nuw i8, ptr %.26, i64 40
   %28 = load i64, ptr %27, align 8
   %29 = trunc i64 %28 to i32
-  %30 = getelementptr inbounds i8, ptr %.26, i64 48
+  %30 = getelementptr inbounds nuw i8, ptr %.26, i64 48
   %31 = load i64, ptr %30, align 8
   %32 = trunc i64 %31 to i32
   call void @timelib_hmsf_to_decimal_hour(i32 noundef %23, i32 noundef %26, i32 noundef %29, i32 noundef %32, ptr noundef nonnull %4) #9
@@ -635,9 +635,9 @@ define hidden i32 @timelib_diff_days(ptr noundef %0, ptr noundef %1) local_unnam
   br label %53
 
 43:                                               ; preds = %2
-  %44 = getelementptr inbounds i8, ptr %0, i64 192
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %45 = load i64, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %1, i64 192
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %47 = load i64, ptr %46, align 8
   %48 = sub nsw i64 %45, %47
   %49 = sitofp i64 %48 to double
@@ -670,68 +670,68 @@ declare double @llvm.fabs.f64(double) #4
 ; Function Attrs: nounwind uwtable
 define hidden ptr @timelib_add(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = tail call ptr @timelib_time_clone(ptr noundef %0) #9
-  %4 = getelementptr inbounds i8, ptr %1, i64 96
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %5 = load i32, ptr %4, align 8
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %6, label %9
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %1, i64 100
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 100
   %8 = load i32, ptr %7, align 4
   %.not33 = icmp eq i32 %8, 0
   br i1 %.not33, label %11, label %9
 
 9:                                                ; preds = %6, %2
-  %10 = getelementptr inbounds i8, ptr %3, i64 88
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 88
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %10, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 104, i1 false)
   br label %41
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %1, i64 68
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %13 = load i32, ptr %12, align 4
   %.not34 = icmp eq i32 %13, 0
   %spec.select = select i1 %.not34, i64 1, i64 -1
-  %14 = getelementptr inbounds i8, ptr %3, i64 88
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 88
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %14, i8 0, i64 104, i1 false)
   %15 = load i64, ptr %1, align 8
   %16 = mul nsw i64 %15, %spec.select
   store i64 %16, ptr %14, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load i64, ptr %17, align 8
   %19 = mul nsw i64 %18, %spec.select
-  %20 = getelementptr inbounds i8, ptr %3, i64 96
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 96
   store i64 %19, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %22 = load i64, ptr %21, align 8
   %23 = mul nsw i64 %22, %spec.select
-  %24 = getelementptr inbounds i8, ptr %3, i64 104
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 104
   store i64 %23, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %1, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %26 = load i64, ptr %25, align 8
   %27 = mul nsw i64 %26, %spec.select
-  %28 = getelementptr inbounds i8, ptr %3, i64 112
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 112
   store i64 %27, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %1, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %30 = load i64, ptr %29, align 8
   %31 = mul nsw i64 %30, %spec.select
-  %32 = getelementptr inbounds i8, ptr %3, i64 120
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 120
   store i64 %31, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %1, i64 40
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %34 = load i64, ptr %33, align 8
   %35 = mul nsw i64 %34, %spec.select
-  %36 = getelementptr inbounds i8, ptr %3, i64 128
+  %36 = getelementptr inbounds nuw i8, ptr %3, i64 128
   store i64 %35, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %1, i64 48
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %38 = load i64, ptr %37, align 8
   %39 = mul nsw i64 %38, %spec.select
-  %40 = getelementptr inbounds i8, ptr %3, i64 136
+  %40 = getelementptr inbounds nuw i8, ptr %3, i64 136
   store i64 %39, ptr %40, align 8
   br label %41
 
 41:                                               ; preds = %11, %9
-  %42 = getelementptr inbounds i8, ptr %3, i64 212
+  %42 = getelementptr inbounds nuw i8, ptr %3, i64 212
   store i32 1, ptr %42, align 4
-  %43 = getelementptr inbounds i8, ptr %3, i64 220
+  %43 = getelementptr inbounds nuw i8, ptr %3, i64 220
   store i32 0, ptr %43, align 4
   tail call void @timelib_update_ts(ptr noundef nonnull %3, ptr noundef null) #9
   tail call void @timelib_update_from_sse(ptr noundef nonnull %3) #9
@@ -754,54 +754,54 @@ declare void @timelib_update_from_sse(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define hidden ptr @timelib_sub(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = tail call ptr @timelib_time_clone(ptr noundef %0) #9
-  %4 = getelementptr inbounds i8, ptr %1, i64 68
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %5 = load i32, ptr %4, align 4
   %.not = icmp eq i32 %5, 0
-  %6 = getelementptr inbounds i8, ptr %3, i64 88
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 88
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %6, i8 0, i64 104, i1 false)
   %7 = load i64, ptr %1, align 8
   %8 = sub nsw i64 0, %7
   %.neg = select i1 %.not, i64 %8, i64 %7
   store i64 %.neg, ptr %6, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load i64, ptr %9, align 8
   %11 = sub nsw i64 0, %10
   %.neg29 = select i1 %.not, i64 %11, i64 %10
-  %12 = getelementptr inbounds i8, ptr %3, i64 96
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 96
   store i64 %.neg29, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %14 = load i64, ptr %13, align 8
   %15 = sub nsw i64 0, %14
   %.neg30 = select i1 %.not, i64 %15, i64 %14
-  %16 = getelementptr inbounds i8, ptr %3, i64 104
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 104
   store i64 %.neg30, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %18 = load i64, ptr %17, align 8
   %19 = sub nsw i64 0, %18
   %.neg31 = select i1 %.not, i64 %19, i64 %18
-  %20 = getelementptr inbounds i8, ptr %3, i64 112
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 112
   store i64 %.neg31, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %22 = load i64, ptr %21, align 8
   %23 = sub nsw i64 0, %22
   %.neg32 = select i1 %.not, i64 %23, i64 %22
-  %24 = getelementptr inbounds i8, ptr %3, i64 120
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 120
   store i64 %.neg32, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %1, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %26 = load i64, ptr %25, align 8
   %27 = sub nsw i64 0, %26
   %.neg33 = select i1 %.not, i64 %27, i64 %26
-  %28 = getelementptr inbounds i8, ptr %3, i64 128
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 128
   store i64 %.neg33, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %1, i64 48
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %30 = load i64, ptr %29, align 8
   %31 = sub i64 0, %30
   %32 = select i1 %.not, i64 %31, i64 %30
-  %33 = getelementptr inbounds i8, ptr %3, i64 136
+  %33 = getelementptr inbounds nuw i8, ptr %3, i64 136
   store i64 %32, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %3, i64 212
+  %34 = getelementptr inbounds nuw i8, ptr %3, i64 212
   store i32 1, ptr %34, align 4
-  %35 = getelementptr inbounds i8, ptr %3, i64 220
+  %35 = getelementptr inbounds nuw i8, ptr %3, i64 220
   store i32 0, ptr %35, align 4
   tail call void @timelib_update_ts(ptr noundef %3, ptr noundef null) #9
   tail call void @timelib_update_from_sse(ptr noundef %3) #9
@@ -812,47 +812,47 @@ define hidden ptr @timelib_sub(ptr noundef %0, ptr nocapture noundef readonly %1
 ; Function Attrs: nounwind uwtable
 define hidden ptr @timelib_add_wall(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @timelib_time_clone(ptr noundef %0) #9
-  %4 = getelementptr inbounds i8, ptr %3, i64 212
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 212
   store i32 1, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %3, i64 220
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 220
   store i32 0, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %1, i64 96
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %7 = load i32, ptr %6, align 8
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %8, label %11
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %1, i64 100
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 100
   %10 = load i32, ptr %9, align 4
   %.not51 = icmp eq i32 %10, 0
   br i1 %.not51, label %13, label %11
 
 11:                                               ; preds = %8, %2
-  %12 = getelementptr inbounds i8, ptr %3, i64 88
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 88
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %12, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 104, i1 false)
   tail call void @timelib_update_ts(ptr noundef nonnull %3, ptr noundef null) #9
   tail call void @timelib_update_from_sse(ptr noundef nonnull %3) #9
   br label %78
 
 13:                                               ; preds = %8
-  %14 = getelementptr inbounds i8, ptr %1, i64 68
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %15 = load i32, ptr %14, align 4
   %.not52 = icmp eq i32 %15, 0
   %spec.select = select i1 %.not52, i64 1, i64 -1
-  %16 = getelementptr inbounds i8, ptr %3, i64 88
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 88
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %16, i8 0, i64 104, i1 false)
   %17 = load i64, ptr %1, align 8
   %18 = mul nsw i64 %17, %spec.select
   store i64 %18, ptr %16, align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %20 = load i64, ptr %19, align 8
   %21 = mul nsw i64 %20, %spec.select
-  %22 = getelementptr inbounds i8, ptr %3, i64 96
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 96
   store i64 %21, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %24 = load i64, ptr %23, align 8
   %25 = mul nsw i64 %24, %spec.select
-  %26 = getelementptr inbounds i8, ptr %3, i64 104
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 104
   store i64 %25, ptr %26, align 8
   %.not53 = icmp eq i64 %17, 0
   br i1 %.not53, label %27, label %28
@@ -868,21 +868,21 @@ define hidden ptr @timelib_add_wall(ptr noundef %0, ptr noundef %1) local_unname
   br label %29
 
 29:                                               ; preds = %27, %28
-  %30 = getelementptr inbounds i8, ptr %1, i64 48
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %31 = load i64, ptr %30, align 8
   %32 = icmp eq i64 %31, 0
   br i1 %32, label %33, label %45
 
 33:                                               ; preds = %29
-  %34 = getelementptr inbounds i8, ptr %1, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %35 = load i64, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %1, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %37 = load i64, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %1, i64 40
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %39 = load i64, ptr %38, align 8
   %40 = tail call i64 @timelib_hms_to_seconds(i64 noundef %35, i64 noundef %37, i64 noundef %39) #9
   %41 = mul nsw i64 %40, %spec.select
-  %42 = getelementptr inbounds i8, ptr %3, i64 192
+  %42 = getelementptr inbounds nuw i8, ptr %3, i64 192
   %43 = load i64, ptr %42, align 8
   %44 = add nsw i64 %43, %41
   store i64 %44, ptr %42, align 8
@@ -891,8 +891,8 @@ define hidden ptr @timelib_add_wall(ptr noundef %0, ptr noundef %1) local_unname
 
 45:                                               ; preds = %29
   %46 = tail call ptr @timelib_rel_time_clone(ptr noundef nonnull %1) #9
-  %47 = getelementptr inbounds i8, ptr %46, i64 48
-  %48 = getelementptr inbounds i8, ptr %46, i64 40
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 48
+  %48 = getelementptr inbounds nuw i8, ptr %46, i64 40
   %49 = load i64, ptr %47, align 8
   %.fr21.i = freeze i64 %49
   %50 = icmp slt i64 %.fr21.i, 0
@@ -928,20 +928,20 @@ do_range_limit.exit.sink.split:                   ; preds = %58, %.thread
 
 do_range_limit.exit:                              ; preds = %do_range_limit.exit.sink.split, %56
   %62 = phi i64 [ %.pre.pre, %56 ], [ %.ph, %do_range_limit.exit.sink.split ]
-  %63 = getelementptr inbounds i8, ptr %46, i64 24
+  %63 = getelementptr inbounds nuw i8, ptr %46, i64 24
   %64 = load i64, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %46, i64 32
+  %65 = getelementptr inbounds nuw i8, ptr %46, i64 32
   %66 = load i64, ptr %65, align 8
   %67 = tail call i64 @timelib_hms_to_seconds(i64 noundef %64, i64 noundef %66, i64 noundef %62) #9
   %68 = mul nsw i64 %67, %spec.select
-  %69 = getelementptr inbounds i8, ptr %3, i64 192
+  %69 = getelementptr inbounds nuw i8, ptr %3, i64 192
   %70 = load i64, ptr %69, align 8
   %71 = add nsw i64 %70, %68
   store i64 %71, ptr %69, align 8
   tail call void @timelib_update_from_sse(ptr noundef nonnull %3) #9
   %72 = load i64, ptr %47, align 8
   %73 = mul nsw i64 %72, %spec.select
-  %74 = getelementptr inbounds i8, ptr %3, i64 48
+  %74 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %75 = load i64, ptr %74, align 8
   %76 = add nsw i64 %75, %73
   store i64 %76, ptr %74, align 8
@@ -955,13 +955,13 @@ do_range_limit.exit:                              ; preds = %do_range_limit.exit
   br label %78
 
 78:                                               ; preds = %77, %11
-  %79 = getelementptr inbounds i8, ptr %3, i64 232
+  %79 = getelementptr inbounds nuw i8, ptr %3, i64 232
   %80 = load i32, ptr %79, align 8
   %81 = icmp eq i32 %80, 3
   br i1 %81, label %82, label %85
 
 82:                                               ; preds = %78
-  %83 = getelementptr inbounds i8, ptr %3, i64 72
+  %83 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %84 = load ptr, ptr %83, align 8
   tail call void @timelib_set_timezone(ptr noundef nonnull %3, ptr noundef %84) #9
   br label %85
@@ -984,50 +984,50 @@ declare void @timelib_set_timezone(ptr noundef, ptr noundef) local_unnamed_addr 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @timelib_sub_wall(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @timelib_time_clone(ptr noundef %0) #9
-  %4 = getelementptr inbounds i8, ptr %3, i64 212
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 212
   store i32 1, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %3, i64 220
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 220
   store i32 0, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %1, i64 96
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %7 = load i32, ptr %6, align 8
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %8, label %11
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %1, i64 100
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 100
   %10 = load i32, ptr %9, align 4
   %.not51 = icmp eq i32 %10, 0
   br i1 %.not51, label %13, label %11
 
 11:                                               ; preds = %8, %2
-  %12 = getelementptr inbounds i8, ptr %3, i64 88
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 88
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %12, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 104, i1 false)
   tail call void @timelib_update_ts(ptr noundef nonnull %3, ptr noundef null) #9
   tail call void @timelib_update_from_sse(ptr noundef nonnull %3) #9
   br label %78
 
 13:                                               ; preds = %8
-  %14 = getelementptr inbounds i8, ptr %1, i64 68
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %15 = load i32, ptr %14, align 4
   %.not52 = icmp eq i32 %15, 0
   %spec.select = select i1 %.not52, i64 1, i64 -1
-  %16 = getelementptr inbounds i8, ptr %3, i64 88
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 88
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %16, i8 0, i64 104, i1 false)
   %17 = load i64, ptr %1, align 8
   %18 = sub nsw i64 0, %17
   %.neg = select i1 %.not52, i64 %18, i64 %17
   store i64 %.neg, ptr %16, align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %20 = load i64, ptr %19, align 8
   %21 = sub nsw i64 0, %20
   %.neg56 = select i1 %.not52, i64 %21, i64 %20
-  %22 = getelementptr inbounds i8, ptr %3, i64 96
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 96
   store i64 %.neg56, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %24 = load i64, ptr %23, align 8
   %25 = sub nsw i64 0, %24
   %.neg57 = select i1 %.not52, i64 %25, i64 %24
-  %26 = getelementptr inbounds i8, ptr %3, i64 104
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 104
   store i64 %.neg57, ptr %26, align 8
   %.not53 = icmp eq i64 %.neg, 0
   br i1 %.not53, label %27, label %28
@@ -1043,21 +1043,21 @@ define hidden ptr @timelib_sub_wall(ptr noundef %0, ptr noundef %1) local_unname
   br label %29
 
 29:                                               ; preds = %27, %28
-  %30 = getelementptr inbounds i8, ptr %1, i64 48
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %31 = load i64, ptr %30, align 8
   %32 = icmp eq i64 %31, 0
   br i1 %32, label %33, label %45
 
 33:                                               ; preds = %29
-  %34 = getelementptr inbounds i8, ptr %1, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %35 = load i64, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %1, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %37 = load i64, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %1, i64 40
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %39 = load i64, ptr %38, align 8
   %40 = tail call i64 @timelib_hms_to_seconds(i64 noundef %35, i64 noundef %37, i64 noundef %39) #9
   %41 = mul nsw i64 %40, %spec.select
-  %42 = getelementptr inbounds i8, ptr %3, i64 192
+  %42 = getelementptr inbounds nuw i8, ptr %3, i64 192
   %43 = load i64, ptr %42, align 8
   %44 = sub nsw i64 %43, %41
   store i64 %44, ptr %42, align 8
@@ -1066,8 +1066,8 @@ define hidden ptr @timelib_sub_wall(ptr noundef %0, ptr noundef %1) local_unname
 
 45:                                               ; preds = %29
   %46 = tail call ptr @timelib_rel_time_clone(ptr noundef nonnull %1) #9
-  %47 = getelementptr inbounds i8, ptr %46, i64 48
-  %48 = getelementptr inbounds i8, ptr %46, i64 40
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 48
+  %48 = getelementptr inbounds nuw i8, ptr %46, i64 40
   %49 = load i64, ptr %47, align 8
   %.fr21.i = freeze i64 %49
   %50 = icmp slt i64 %.fr21.i, 0
@@ -1103,20 +1103,20 @@ do_range_limit.exit.sink.split:                   ; preds = %58, %.thread
 
 do_range_limit.exit:                              ; preds = %do_range_limit.exit.sink.split, %56
   %62 = phi i64 [ %.pre.pre, %56 ], [ %.ph, %do_range_limit.exit.sink.split ]
-  %63 = getelementptr inbounds i8, ptr %46, i64 24
+  %63 = getelementptr inbounds nuw i8, ptr %46, i64 24
   %64 = load i64, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %46, i64 32
+  %65 = getelementptr inbounds nuw i8, ptr %46, i64 32
   %66 = load i64, ptr %65, align 8
   %67 = tail call i64 @timelib_hms_to_seconds(i64 noundef %64, i64 noundef %66, i64 noundef %62) #9
   %68 = mul nsw i64 %67, %spec.select
-  %69 = getelementptr inbounds i8, ptr %3, i64 192
+  %69 = getelementptr inbounds nuw i8, ptr %3, i64 192
   %70 = load i64, ptr %69, align 8
   %71 = sub nsw i64 %70, %68
   store i64 %71, ptr %69, align 8
   tail call void @timelib_update_from_sse(ptr noundef nonnull %3) #9
   %72 = load i64, ptr %47, align 8
   %73 = mul nsw i64 %72, %spec.select
-  %74 = getelementptr inbounds i8, ptr %3, i64 48
+  %74 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %75 = load i64, ptr %74, align 8
   %76 = sub nsw i64 %75, %73
   store i64 %76, ptr %74, align 8
@@ -1130,13 +1130,13 @@ do_range_limit.exit:                              ; preds = %do_range_limit.exit
   br label %78
 
 78:                                               ; preds = %77, %11
-  %79 = getelementptr inbounds i8, ptr %3, i64 232
+  %79 = getelementptr inbounds nuw i8, ptr %3, i64 232
   %80 = load i32, ptr %79, align 8
   %81 = icmp eq i32 %80, 3
   br i1 %81, label %82, label %85
 
 82:                                               ; preds = %78
-  %83 = getelementptr inbounds i8, ptr %3, i64 72
+  %83 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %84 = load ptr, ptr %83, align 8
   tail call void @timelib_set_timezone(ptr noundef nonnull %3, ptr noundef %84) #9
   br label %85

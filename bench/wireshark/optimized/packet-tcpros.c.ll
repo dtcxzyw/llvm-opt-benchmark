@@ -232,7 +232,7 @@ define internal i32 @get_tcpros_pdu_len(ptr nocapture readnone %0, ptr noundef %
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_tcpros_pdu(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.66) #3
   %7 = load ptr, ptr %5, align 8
@@ -257,9 +257,9 @@ define internal i32 @dissect_tcpros_pdu(ptr noundef %0, ptr nocapture noundef %1
   br i1 %17, label %18, label %21
 
 18:                                               ; preds = %15, %.lr.ph.i
-  %19 = getelementptr inbounds i8, ptr %1, i64 332
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 332
   store i32 %.063.i, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %1, i64 336
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 336
   store i32 268435455, ptr %20, align 8
   br label %dissect_ros_common.exit
 
@@ -380,7 +380,7 @@ declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) local_unnam
 define internal fastcc i32 @dissect_ros_message(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %3) #3
-  %7 = getelementptr inbounds i8, ptr %2, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void @col_append_str(ptr noundef %8, i32 noundef 25, ptr noundef nonnull @.str.77) #3
   %9 = load i32, ptr @hf_tcpros_message, align 4
@@ -429,7 +429,7 @@ define internal fastcc i32 @dissect_ros_message(ptr noundef %0, ptr noundef %1, 
   %49 = tail call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %48, ptr noundef %0, i32 noundef %21, i32 noundef 4, i32 noundef -2147483648) #3
   %50 = load i32, ptr @hf_tcpros_message_header_frame_value, align 4
   %51 = add i32 %3, 20
-  %52 = getelementptr inbounds i8, ptr %2, i64 408
+  %52 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %53 = load ptr, ptr %52, align 8
   %54 = call ptr @proto_tree_add_item_ret_string(ptr noundef %47, i32 noundef %50, ptr noundef %0, i32 noundef %51, i32 noundef %22, i32 noundef 2, ptr noundef %53, ptr noundef nonnull %5) #3
   %55 = load ptr, ptr %7, align 8
@@ -503,7 +503,7 @@ is_rosheaderfield.exit:                           ; preds = %18, %20, %.preheade
 define internal fastcc i32 @dissect_ros_connection_header(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %3) #3
-  %7 = getelementptr inbounds i8, ptr %2, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void @col_append_str(ptr noundef %8, i32 noundef 25, ptr noundef nonnull @.str.80) #3
   %9 = load i32, ptr @hf_tcpros_connection_header, align 4
@@ -522,7 +522,7 @@ define internal fastcc i32 @dissect_ros_connection_header(ptr noundef %0, ptr no
   br i1 %21, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %4
-  %22 = getelementptr inbounds i8, ptr %2, i64 408
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %23 = add i32 %3, 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %24 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %23) #3

@@ -76,22 +76,22 @@ define internal i32 @dissect_rtps_processed(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %6, label %119, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %3, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %9 = load i16, ptr %8, align 2
-  %10 = getelementptr inbounds i8, ptr %3, i64 2
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 2
   %11 = load i8, ptr %10, align 2
   %12 = icmp eq i8 %11, 1
   %13 = select i1 %12, ptr @.str.8, ptr @.str.9
   %14 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef 4, i32 noundef 0) #4
   %15 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef 6, i32 noundef 0) #4
   %16 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 8) #4
-  %17 = getelementptr inbounds i8, ptr %5, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %16, ptr %17, align 4
   %18 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 12) #4
-  %19 = getelementptr inbounds i8, ptr %5, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %18, ptr %19, align 4
   %20 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 16) #4
-  %21 = getelementptr inbounds i8, ptr %5, i64 12
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 %20, ptr %21, align 4
   store i32 7, ptr %5, align 4
   %22 = zext i16 %9 to i32
@@ -179,7 +179,7 @@ define internal i32 @dissect_rtps_processed(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %.not134, label %112, label %77
 
 77:                                               ; preds = %67
-  %78 = getelementptr inbounds i8, ptr %1, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %79 = load ptr, ptr %78, align 8
   %.not136 = icmp eq ptr %79, null
   br i1 %.not136, label %87, label %80
@@ -190,7 +190,7 @@ define internal i32 @dissect_rtps_processed(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %.not137, label %87, label %82
 
 82:                                               ; preds = %80
-  %83 = getelementptr inbounds i8, ptr %1, i64 408
+  %83 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %84 = load ptr, ptr %83, align 8
   %85 = tail call noalias ptr @wmem_strbuf_new(ptr noundef %84, ptr noundef nonnull %81) #4
   %86 = load ptr, ptr %78, align 8
@@ -207,7 +207,7 @@ define internal i32 @dissect_rtps_processed(ptr noundef %0, ptr noundef %1, ptr 
 
 90:                                               ; preds = %87
   %91 = call ptr @col_get_text(ptr noundef nonnull %89, i32 noundef 25) #4
-  %92 = getelementptr inbounds i8, ptr %1, i64 408
+  %92 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %93 = load ptr, ptr %92, align 8
   %94 = call noalias ptr @wmem_strbuf_new(ptr noundef %93, ptr noundef nonnull @.str.14) #4
   %.not139 = icmp eq ptr %91, null

@@ -150,9 +150,9 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %limit = getelementptr inbounds i8, ptr %offsets, i64 12
+  %limit = getelementptr inbounds nuw i8, ptr %offsets, i64 12
   %1 = load i32, ptr %limit, align 4
-  %start = getelementptr inbounds i8, ptr %offsets, i64 8
+  %start = getelementptr inbounds nuw i8, ptr %offsets, i64 8
   store i32 %1, ptr %start, align 4
   br label %return
 
@@ -163,16 +163,16 @@ if.end:                                           ; preds = %entry
   br i1 %cmp3, label %if.then4, label %if.end7
 
 if.then4:                                         ; preds = %if.end
-  %limit5 = getelementptr inbounds i8, ptr %offsets, i64 12
+  %limit5 = getelementptr inbounds nuw i8, ptr %offsets, i64 12
   %2 = load i32, ptr %limit5, align 4
-  %start6 = getelementptr inbounds i8, ptr %offsets, i64 8
+  %start6 = getelementptr inbounds nuw i8, ptr %offsets, i64 8
   store i32 %2, ptr %start6, align 4
   br label %return
 
 if.end7:                                          ; preds = %if.end
-  %start8 = getelementptr inbounds i8, ptr %offsets, i64 8
+  %start8 = getelementptr inbounds nuw i8, ptr %offsets, i64 8
   %3 = load i32, ptr %start8, align 4
-  %limit10 = getelementptr inbounds i8, ptr %offsets, i64 12
+  %limit10 = getelementptr inbounds nuw i8, ptr %offsets, i64 12
   %4 = load i32, ptr %limit10, align 4
   store ptr @_ZN6icu_75L10OPEN_DELIME, ptr %agg.tmp, align 8
   invoke void @_ZN6icu_7513UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %str, i8 noundef signext 0, ptr noundef nonnull %agg.tmp, i32 noundef 3)
@@ -185,17 +185,17 @@ invoke.cont:                                      ; preds = %if.end7
   br i1 %cmp1144, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %invoke.cont
-  %fUnion.i.i = getelementptr inbounds i8, ptr %str, i64 8
-  %fLength.i.i = getelementptr inbounds i8, ptr %str, i64 12
-  %fUnion.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  %fLength.i.i36 = getelementptr inbounds i8, ptr %ref.tmp, i64 12
+  %fUnion.i.i = getelementptr inbounds nuw i8, ptr %str, i64 8
+  %fLength.i.i = getelementptr inbounds nuw i8, ptr %str, i64 12
+  %fUnion.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
+  %fLength.i.i36 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 12
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end35
   %cursor.046 = phi i32 [ %3, %while.body.lr.ph ], [ %cursor.1, %if.end35 ]
   %limit9.045 = phi i32 [ %4, %while.body.lr.ph ], [ %limit9.1, %if.end35 ]
   %vtable.i = load ptr, ptr %text, align 8
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 80
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 80
   %6 = load ptr, ptr %vfn.i, align 8
   %call.i33 = invoke noundef i32 %6(ptr noundef nonnull align 8 dereferenceable(8) %text, i32 noundef %cursor.046)
           to label %invoke.cont13 unwind label %lpad12.loopexit
@@ -256,7 +256,7 @@ invoke.cont28:                                    ; preds = %invoke.cont26
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp) #7
   %add = add nsw i32 %cond, %cursor.046
   %vtable = load ptr, ptr %text, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 32
   %15 = load ptr, ptr %vfn, align 8
   invoke void %15(ptr noundef nonnull align 8 dereferenceable(8) %text, i32 noundef %cursor.046, i32 noundef %add, ptr noundef nonnull align 8 dereferenceable(64) %str)
           to label %invoke.cont30 unwind label %lpad12.loopexit
@@ -302,7 +302,7 @@ while.end:                                        ; preds = %if.end35, %invoke.c
   %cursor.0.lcssa = phi i32 [ %3, %invoke.cont ], [ %cursor.1, %if.end35 ]
   %19 = load i32, ptr %limit10, align 4
   %sub37 = sub i32 %limit9.0.lcssa, %19
-  %contextLimit = getelementptr inbounds i8, ptr %offsets, i64 4
+  %contextLimit = getelementptr inbounds nuw i8, ptr %offsets, i64 4
   %20 = load i32, ptr %contextLimit, align 4
   %add38 = add nsw i32 %sub37, %20
   store i32 %add38, ptr %contextLimit, align 4

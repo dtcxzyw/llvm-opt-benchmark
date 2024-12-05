@@ -9,16 +9,16 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define i32 @mca_coll_basic_gather_inter(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7, ptr nocapture noundef readnone %8) local_unnamed_addr #0 {
-  %10 = getelementptr inbounds i8, ptr %7, i64 224
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 224
   %11 = load i32, ptr %10, align 8
   %12 = and i32 %11, 1
   %.not.i = icmp eq i32 %12, 0
   br i1 %.not.i, label %ompi_comm_remote_size.exit, label %13
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %7, i64 256
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 256
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %17 = load i32, ptr %16, align 8
   br label %ompi_comm_remote_size.exit
 
@@ -36,9 +36,9 @@ ompi_comm_remote_size.exit:                       ; preds = %9, %13
   br label %.loopexit
 
 23:                                               ; preds = %ompi_comm_remote_size.exit
-  %24 = getelementptr inbounds i8, ptr %5, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %25 = load i64, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %5, i64 56
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %27 = load i64, ptr %26, align 8
   %28 = sub nsw i64 %27, %25
   %29 = sext i32 %4 to i64

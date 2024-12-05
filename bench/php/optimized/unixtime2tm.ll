@@ -57,8 +57,8 @@ define hidden void @timelib_unixtime2date(i64 noundef %0, ptr nocapture noundef 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @timelib_unixtime2gmt(ptr nocapture noundef writeonly initializes((0, 48), (56, 60), (80, 84), (192, 200), (220, 232)) %0, i64 noundef %1) local_unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = sdiv i64 %1, 86400
   %6 = add nsw i64 %5, 719468
   %7 = srem i64 %1, 86400
@@ -115,23 +115,23 @@ define hidden void @timelib_unixtime2gmt(ptr nocapture noundef writeonly initial
   %.sext24 = sext i32 %43 to i64
   %44 = srem i32 %.lhs.trunc, 60
   %.sext26 = sext i32 %44 to i64
-  %45 = getelementptr inbounds i8, ptr %0, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %.sext, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %0, i64 32
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %.sext24, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %0, i64 40
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %.sext26, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %0, i64 56
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 0, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %0, i64 80
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 0, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %0, i64 192
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store i64 %1, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %0, i64 220
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 220
   store i32 1, ptr %51, align 4
-  %52 = getelementptr inbounds i8, ptr %0, i64 224
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 224
   store i32 1, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %0, i64 228
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 228
   store i32 0, ptr %53, align 4
   ret void
 }
@@ -139,13 +139,13 @@ define hidden void @timelib_unixtime2gmt(ptr nocapture noundef writeonly initial
 ; Function Attrs: nounwind uwtable
 define hidden void @timelib_update_from_sse(ptr nocapture noundef initializes((0, 48), (208, 212), (220, 232)) %0) local_unnamed_addr #2 {
   %2 = alloca i32, align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 56
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load i32, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 80
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %6 = load i32, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 192
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 232
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %10 = load i32, ptr %9, align 8
   switch i32 %10, label %115 [
     i32 2, label %11
@@ -159,8 +159,8 @@ define hidden void @timelib_update_from_sse(ptr nocapture noundef initializes((0
   %14 = mul nsw i32 %6, 3600
   %15 = sext i32 %14 to i64
   %16 = add nsw i64 %13, %15
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = sdiv i64 %16, 86400
   %20 = add nsw i64 %19, 719468
   %21 = srem i64 %16, 86400
@@ -217,25 +217,25 @@ define hidden void @timelib_update_from_sse(ptr nocapture noundef initializes((0
   %.sext24.i = sext i32 %57 to i64
   %58 = srem i32 %.lhs.trunc.i, 60
   %.sext26.i = sext i32 %58 to i64
-  %59 = getelementptr inbounds i8, ptr %0, i64 24
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %.sext.i, ptr %59, align 8
-  %60 = getelementptr inbounds i8, ptr %0, i64 32
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %.sext24.i, ptr %60, align 8
-  %61 = getelementptr inbounds i8, ptr %0, i64 40
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %.sext26.i, ptr %61, align 8
   br label %161
 
 62:                                               ; preds = %1
   store i32 0, ptr %2, align 4
-  %63 = getelementptr inbounds i8, ptr %0, i64 72
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %64 = load ptr, ptr %63, align 8
   %65 = call i32 @timelib_get_time_zone_offset_info(i64 noundef %8, ptr noundef %64, ptr noundef nonnull %2, ptr noundef null, ptr noundef null) #4
   %66 = load i64, ptr %7, align 8
   %67 = load i32, ptr %2, align 4
   %68 = sext i32 %67 to i64
   %69 = add nsw i64 %66, %68
-  %70 = getelementptr inbounds i8, ptr %0, i64 8
-  %71 = getelementptr inbounds i8, ptr %0, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %72 = sdiv i64 %69, 86400
   %73 = add nsw i64 %72, 719468
   %74 = srem i64 %69, 86400
@@ -292,18 +292,18 @@ define hidden void @timelib_update_from_sse(ptr nocapture noundef initializes((0
   %.sext24.i32 = sext i32 %110 to i64
   %111 = srem i32 %.lhs.trunc.i28, 60
   %.sext26.i33 = sext i32 %111 to i64
-  %112 = getelementptr inbounds i8, ptr %0, i64 24
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %.sext.i29, ptr %112, align 8
-  %113 = getelementptr inbounds i8, ptr %0, i64 32
+  %113 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %.sext24.i32, ptr %113, align 8
-  %114 = getelementptr inbounds i8, ptr %0, i64 40
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %.sext26.i33, ptr %114, align 8
   store i64 %69, ptr %7, align 8
   br label %161
 
 115:                                              ; preds = %1
-  %116 = getelementptr inbounds i8, ptr %0, i64 8
-  %117 = getelementptr inbounds i8, ptr %0, i64 16
+  %116 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %118 = sdiv i64 %8, 86400
   %119 = add nsw i64 %118, 719468
   %120 = srem i64 %8, 86400
@@ -360,23 +360,23 @@ define hidden void @timelib_update_from_sse(ptr nocapture noundef initializes((0
   %.sext24.i45 = sext i32 %156 to i64
   %157 = srem i32 %.lhs.trunc.i41, 60
   %.sext26.i46 = sext i32 %157 to i64
-  %158 = getelementptr inbounds i8, ptr %0, i64 24
+  %158 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %.sext.i42, ptr %158, align 8
-  %159 = getelementptr inbounds i8, ptr %0, i64 32
+  %159 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %.sext24.i45, ptr %159, align 8
-  %160 = getelementptr inbounds i8, ptr %0, i64 40
+  %160 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %.sext26.i46, ptr %160, align 8
   br label %161
 
 161:                                              ; preds = %115, %62, %11
-  %162 = getelementptr inbounds i8, ptr %0, i64 220
+  %162 = getelementptr inbounds nuw i8, ptr %0, i64 220
   store i32 1, ptr %162, align 4
-  %163 = getelementptr inbounds i8, ptr %0, i64 224
+  %163 = getelementptr inbounds nuw i8, ptr %0, i64 224
   store i32 1, ptr %163, align 8
   store i64 %8, ptr %7, align 8
-  %164 = getelementptr inbounds i8, ptr %0, i64 228
+  %164 = getelementptr inbounds nuw i8, ptr %0, i64 228
   store i32 1, ptr %164, align 4
-  %165 = getelementptr inbounds i8, ptr %0, i64 208
+  %165 = getelementptr inbounds nuw i8, ptr %0, i64 208
   store i32 1, ptr %165, align 8
   store i32 %4, ptr %3, align 8
   store i32 %6, ptr %5, align 8
@@ -387,7 +387,7 @@ declare i32 @timelib_get_time_zone_offset_info(i64 noundef, ptr noundef, ptr nou
 
 ; Function Attrs: nounwind uwtable
 define hidden void @timelib_unixtime2local(ptr noundef initializes((228, 232)) %0, i64 noundef %1) local_unnamed_addr #2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 232
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %4 = load i32, ptr %3, align 8
   switch i32 %4, label %126 [
     i32 2, label %5
@@ -396,17 +396,17 @@ define hidden void @timelib_unixtime2local(ptr noundef initializes((228, 232)) %
   ]
 
 5:                                                ; preds = %2, %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %7 = load i32, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %9 = load i32, ptr %8, align 8
   %10 = sext i32 %7 to i64
   %11 = add nsw i64 %1, %10
   %12 = mul nsw i32 %9, 3600
   %13 = sext i32 %12 to i64
   %14 = add nsw i64 %11, %13
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = sdiv i64 %14, 86400
   %18 = add nsw i64 %17, 719468
   %19 = srem i64 %14, 86400
@@ -463,29 +463,29 @@ define hidden void @timelib_unixtime2local(ptr noundef initializes((228, 232)) %
   %.sext24.i = sext i32 %55 to i64
   %56 = srem i32 %.lhs.trunc.i, 60
   %.sext26.i = sext i32 %56 to i64
-  %57 = getelementptr inbounds i8, ptr %0, i64 24
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %.sext.i, ptr %57, align 8
-  %58 = getelementptr inbounds i8, ptr %0, i64 32
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %.sext24.i, ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %0, i64 40
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %.sext26.i, ptr %59, align 8
-  %60 = getelementptr inbounds i8, ptr %0, i64 192
-  %61 = getelementptr inbounds i8, ptr %0, i64 220
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 220
   store i32 1, ptr %61, align 4
-  %62 = getelementptr inbounds i8, ptr %0, i64 224
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 224
   store i32 1, ptr %62, align 8
   store i64 %1, ptr %60, align 8
   br label %126
 
 63:                                               ; preds = %2
-  %64 = getelementptr inbounds i8, ptr %0, i64 72
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %65 = load ptr, ptr %64, align 8
   %66 = tail call ptr @timelib_get_time_zone_info(i64 noundef %1, ptr noundef %65) #4
   %67 = load i32, ptr %66, align 8
   %68 = sext i32 %67 to i64
   %69 = add nsw i64 %1, %68
-  %70 = getelementptr inbounds i8, ptr %0, i64 8
-  %71 = getelementptr inbounds i8, ptr %0, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %72 = sdiv i64 %69, 86400
   %73 = add nsw i64 %72, 719468
   %74 = srem i64 %69, 86400
@@ -542,31 +542,31 @@ define hidden void @timelib_unixtime2local(ptr noundef initializes((228, 232)) %
   %.sext24.i44 = sext i32 %110 to i64
   %111 = srem i32 %.lhs.trunc.i40, 60
   %.sext26.i45 = sext i32 %111 to i64
-  %112 = getelementptr inbounds i8, ptr %0, i64 24
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %.sext.i41, ptr %112, align 8
-  %113 = getelementptr inbounds i8, ptr %0, i64 32
+  %113 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %.sext24.i44, ptr %113, align 8
-  %114 = getelementptr inbounds i8, ptr %0, i64 40
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %.sext26.i45, ptr %114, align 8
-  %115 = getelementptr inbounds i8, ptr %0, i64 56
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 0, ptr %115, align 8
-  %116 = getelementptr inbounds i8, ptr %0, i64 80
+  %116 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 0, ptr %116, align 8
-  %117 = getelementptr inbounds i8, ptr %0, i64 192
-  %118 = getelementptr inbounds i8, ptr %0, i64 220
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 220
   store i32 1, ptr %118, align 4
-  %119 = getelementptr inbounds i8, ptr %0, i64 224
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 224
   store i32 1, ptr %119, align 8
-  %120 = getelementptr inbounds i8, ptr %0, i64 228
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 228
   store i32 0, ptr %120, align 4
   store i64 %1, ptr %117, align 8
-  %121 = getelementptr inbounds i8, ptr %66, i64 8
+  %121 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %122 = load i32, ptr %121, align 8
   store i32 %122, ptr %116, align 8
   %123 = load i32, ptr %66, align 8
   store i32 %123, ptr %115, align 8
   store ptr %65, ptr %64, align 8
-  %124 = getelementptr inbounds i8, ptr %66, i64 16
+  %124 = getelementptr inbounds nuw i8, ptr %66, i64 16
   %125 = load ptr, ptr %124, align 8
   tail call void @timelib_time_tz_abbr_update(ptr noundef nonnull %0, ptr noundef %125) #4
   tail call void @timelib_time_offset_dtor(ptr noundef nonnull %66) #4
@@ -574,9 +574,9 @@ define hidden void @timelib_unixtime2local(ptr noundef initializes((228, 232)) %
 
 126:                                              ; preds = %5, %63, %2
   %.sink56 = phi i32 [ 0, %2 ], [ 1, %63 ], [ 1, %5 ]
-  %127 = getelementptr inbounds i8, ptr %0, i64 228
+  %127 = getelementptr inbounds nuw i8, ptr %0, i64 228
   store i32 %.sink56, ptr %127, align 4
-  %128 = getelementptr inbounds i8, ptr %0, i64 208
+  %128 = getelementptr inbounds nuw i8, ptr %0, i64 208
   store i32 %.sink56, ptr %128, align 8
   ret void
 }
@@ -589,7 +589,7 @@ declare void @timelib_time_offset_dtor(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define hidden void @timelib_set_timezone_from_offset(ptr nocapture noundef initializes((56, 60), (72, 84), (208, 212), (232, 236)) %0, i64 noundef %1) local_unnamed_addr #2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 64
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %6, label %5
@@ -601,15 +601,15 @@ define hidden void @timelib_set_timezone_from_offset(ptr nocapture noundef initi
 6:                                                ; preds = %5, %2
   store ptr null, ptr %3, align 8
   %7 = trunc i64 %1 to i32
-  %8 = getelementptr inbounds i8, ptr %0, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 %7, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 208
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 208
   store i32 1, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 232
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 232
   store i32 1, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 80
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 0, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 72
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr null, ptr %12, align 8
   ret void
 }
@@ -618,7 +618,7 @@ declare void @_efree(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define hidden void @timelib_set_timezone_from_abbr(ptr nocapture noundef initializes((56, 60), (72, 84), (208, 212), (232, 236)) %0, ptr nocapture noundef readonly byval(%struct._timelib_abbr_info) align 8 %1) local_unnamed_addr #2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 64
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %6, label %5
@@ -628,23 +628,23 @@ define hidden void @timelib_set_timezone_from_abbr(ptr nocapture noundef initial
   br label %6
 
 6:                                                ; preds = %5, %2
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noalias ptr @_estrdup(ptr noundef %8) #4
   store ptr %9, ptr %3, align 8
   %10 = load i64, ptr %1, align 8
   %11 = trunc i64 %10 to i32
-  %12 = getelementptr inbounds i8, ptr %0, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 %11, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 208
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 208
   store i32 1, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 232
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 232
   store i32 2, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %16 = load i32, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 80
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 %16, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 72
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr null, ptr %18, align 8
   ret void
 }
@@ -653,19 +653,19 @@ declare noalias ptr @_estrdup(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define hidden void @timelib_set_timezone(ptr nocapture noundef initializes((56, 60), (72, 84), (208, 212), (232, 236)) %0, ptr noundef %1) local_unnamed_addr #2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 192
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %4 = load i64, ptr %3, align 8
   %5 = tail call ptr @timelib_get_time_zone_info(i64 noundef %4, ptr noundef %1) #4
   %6 = load i32, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 %6, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %9 = load i32, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 %9, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %1, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %13 = load ptr, ptr %12, align 8
   %.not = icmp eq ptr %13, null
   br i1 %.not, label %15, label %14
@@ -675,14 +675,14 @@ define hidden void @timelib_set_timezone(ptr nocapture noundef initializes((56, 
   br label %15
 
 15:                                               ; preds = %14, %2
-  %16 = getelementptr inbounds i8, ptr %5, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = tail call noalias ptr @_estrdup(ptr noundef %17) #4
   store ptr %18, ptr %12, align 8
   tail call void @timelib_time_offset_dtor(ptr noundef nonnull %5) #4
-  %19 = getelementptr inbounds i8, ptr %0, i64 208
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 208
   store i32 1, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 232
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 232
   store i32 3, ptr %20, align 8
   ret void
 }
@@ -693,22 +693,22 @@ define hidden range(i32 -1, 1) i32 @timelib_apply_localtime(ptr noundef %0, i32 
   br i1 %.not, label %9, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 72
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = load ptr, ptr %4, align 8
   %.not6 = icmp eq ptr %5, null
   br i1 %.not6, label %62, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 192
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %8 = load i64, ptr %7, align 8
   tail call void @timelib_unixtime2local(ptr noundef nonnull %0, i64 noundef %8)
   br label %62
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %0, i64 192
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %11 = load i64, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = sdiv i64 %11, 86400
   %15 = add nsw i64 %14, 719468
   %16 = srem i64 %11, 86400
@@ -765,21 +765,21 @@ define hidden range(i32 -1, 1) i32 @timelib_apply_localtime(ptr noundef %0, i32 
   %.sext24.i = sext i32 %52 to i64
   %53 = srem i32 %.lhs.trunc.i, 60
   %.sext26.i = sext i32 %53 to i64
-  %54 = getelementptr inbounds i8, ptr %0, i64 24
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %.sext.i, ptr %54, align 8
-  %55 = getelementptr inbounds i8, ptr %0, i64 32
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %.sext24.i, ptr %55, align 8
-  %56 = getelementptr inbounds i8, ptr %0, i64 40
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %.sext26.i, ptr %56, align 8
-  %57 = getelementptr inbounds i8, ptr %0, i64 56
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 0, ptr %57, align 8
-  %58 = getelementptr inbounds i8, ptr %0, i64 80
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 0, ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %0, i64 220
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 220
   store i32 1, ptr %59, align 4
-  %60 = getelementptr inbounds i8, ptr %0, i64 224
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 224
   store i32 1, ptr %60, align 8
-  %61 = getelementptr inbounds i8, ptr %0, i64 228
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 228
   store i32 0, ptr %61, align 4
   br label %62
 

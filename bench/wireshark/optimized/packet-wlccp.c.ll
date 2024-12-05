@@ -757,7 +757,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_wlccp(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.366) #4
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #4
@@ -777,7 +777,7 @@ define internal i32 @dissect_wlccp(ptr noundef %0, ptr nocapture noundef readonl
 switch.lookup:                                    ; preds = %9
   %17 = and i8 %12, 63
   %18 = zext nneg i8 %11 to i64
-  %switch.gep = getelementptr inbounds [6 x ptr], ptr @switch.table.dissect_wlccp, i64 0, i64 %18
+  %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table.dissect_wlccp, i64 0, i64 %18
   %switch.load = load ptr, ptr %switch.gep, align 8
   %19 = zext nneg i8 %17 to i32
   %20 = tail call ptr @val_to_str_const(i32 noundef %19, ptr noundef nonnull %switch.load, ptr noundef nonnull @.str.429) #4

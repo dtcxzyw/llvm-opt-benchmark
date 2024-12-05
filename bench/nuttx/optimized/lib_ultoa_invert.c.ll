@@ -21,7 +21,7 @@ define nonnull ptr @__ultoa_invert(i64 noundef %0, ptr noundef writeonly %1, i32
   %.0.us.v = select i1 %10, i32 48, i32 87
   %.0.us = add nsw i32 %.0.us.v, %8
   %11 = trunc i32 %.0.us to i8
-  %12 = getelementptr inbounds i8, ptr %.016.us, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %.016.us, i64 1
   store i8 %11, ptr %.016.us, align 1
   %.not21.us = icmp ult i64 %.017.us, %6
   br i1 %.not21.us, label %.split23.us, label %.split.us, !llvm.loop !6
@@ -36,7 +36,7 @@ define nonnull ptr @__ultoa_invert(i64 noundef %0, ptr noundef writeonly %1, i32
   %.0.v = select i1 %16, i32 48, i32 55
   %.0 = add nsw i32 %.0.v, %14
   %17 = trunc i32 %.0 to i8
-  %18 = getelementptr inbounds i8, ptr %.016, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %.016, i64 1
   store i8 %17, ptr %.016, align 1
   %.not21 = icmp ult i64 %.017, %6
   br i1 %.not21, label %.split23.us, label %.split, !llvm.loop !6

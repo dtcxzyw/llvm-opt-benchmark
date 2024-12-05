@@ -12,9 +12,9 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local void @_ZN3net14QuicDataWriterC2EmPc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %this, i64 noundef %size, ptr noundef %buffer) unnamed_addr #0 align 2 {
 entry:
   store ptr %buffer, ptr %this, align 8
-  %capacity_ = getelementptr inbounds i8, ptr %this, i64 8
+  %capacity_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i64 %size, ptr %capacity_, align 8
-  %length_ = getelementptr inbounds i8, ptr %this, i64 16
+  %length_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i64 0, ptr %length_, align 8
   ret void
 }
@@ -35,9 +35,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN3net14QuicDataWriter10WriteUInt8Eh(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, i8 noundef zeroext %value) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %length_.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %length_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i64, ptr %length_.i.i, align 8
-  %capacity_.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %capacity_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i64, ptr %capacity_.i.i, align 8
   %or.cond.i.i.not = icmp ugt i64 %1, %0
   %2 = load ptr, ptr %this, align 8
@@ -60,9 +60,9 @@ _ZN3net14QuicDataWriter10WriteBytesEPKvm.exit:    ; preds = %entry, %if.end.i
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN3net14QuicDataWriter10WriteBytesEPKvm(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture noundef readonly %data, i64 noundef %data_len) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %length_.i = getelementptr inbounds i8, ptr %this, i64 16
+  %length_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i64, ptr %length_.i, align 8
-  %capacity_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %capacity_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i64, ptr %capacity_.i, align 8
   %cmp.i = icmp ugt i64 %0, %1
   %sub.i = sub nuw i64 %1, %0
@@ -88,9 +88,9 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN3net14QuicDataWriter11WriteUInt16Et(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, i16 noundef zeroext %value) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %length_.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %length_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i64, ptr %length_.i.i, align 8
-  %capacity_.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %capacity_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i64, ptr %capacity_.i.i, align 8
   %cmp.i.i = icmp ugt i64 %0, %1
   %sub.i.i = sub nuw i64 %1, %0
@@ -116,9 +116,9 @@ _ZN3net14QuicDataWriter10WriteBytesEPKvm.exit:    ; preds = %entry, %if.end.i
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN3net14QuicDataWriter11WriteUInt32Ej(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %value) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %length_.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %length_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i64, ptr %length_.i.i, align 8
-  %capacity_.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %capacity_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i64, ptr %capacity_.i.i, align 8
   %cmp.i.i = icmp ugt i64 %0, %1
   %sub.i.i = sub nuw i64 %1, %0
@@ -144,9 +144,9 @@ _ZN3net14QuicDataWriter10WriteBytesEPKvm.exit:    ; preds = %entry, %if.end.i
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN3net14QuicDataWriter11WriteUInt48Em(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %value) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %length_.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %length_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i64, ptr %length_.i.i.i, align 8
-  %capacity_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %capacity_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i64, ptr %capacity_.i.i.i, align 8
   %cmp.i.i.i = icmp ugt i64 %0, %1
   %sub.i.i.i = sub nuw i64 %1, %0
@@ -192,9 +192,9 @@ land.end:                                         ; preds = %if.end.i.i11, %land
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN3net14QuicDataWriter11WriteUInt64Em(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %value) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %length_.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %length_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i64, ptr %length_.i.i, align 8
-  %capacity_.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %capacity_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i64, ptr %capacity_.i.i, align 8
   %cmp.i.i = icmp ugt i64 %0, %1
   %sub.i.i = sub nuw i64 %1, %0
@@ -258,9 +258,9 @@ if.end53:                                         ; preds = %for.body
 
 if.end60:                                         ; preds = %if.else, %if.end53, %if.then
   %result.0 = phi i16 [ %conv, %if.then ], [ %conv58, %if.end53 ], [ -1, %if.else ]
-  %length_.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %length_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load i64, ptr %length_.i.i, align 8
-  %capacity_.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %capacity_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load i64, ptr %capacity_.i.i, align 8
   %cmp.i.i = icmp ugt i64 %1, %2
   %sub.i.i = sub nuw i64 %2, %1
@@ -290,7 +290,7 @@ define dso_local noundef zeroext i1 @_ZN3net14QuicDataWriter18WriteStringPiece16
 entry:
   %val = alloca %"class.base::BasicStringPiece", align 8
   store ptr %val.coerce0, ptr %val, align 8
-  %0 = getelementptr inbounds i8, ptr %val, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %val, i64 8
   store i64 %val.coerce1, ptr %0, align 8
   %call = call noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %val)
   %cmp = icmp ugt i64 %call, 65535
@@ -298,9 +298,9 @@ entry:
 
 if.end:                                           ; preds = %entry
   %call3 = call noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %val)
-  %length_.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %length_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load i64, ptr %length_.i.i.i, align 8
-  %capacity_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %capacity_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load i64, ptr %capacity_.i.i.i, align 8
   %cmp.i.i.i = icmp ugt i64 %1, %2
   %sub.i.i.i = sub nuw i64 %2, %1
@@ -351,9 +351,9 @@ declare noundef ptr @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef ptr @_ZN3net14QuicDataWriter10BeginWriteEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i64 noundef %length) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %length_ = getelementptr inbounds i8, ptr %this, i64 16
+  %length_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i64, ptr %length_, align 8
-  %capacity_ = getelementptr inbounds i8, ptr %this, i64 8
+  %capacity_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i64, ptr %capacity_, align 8
   %cmp = icmp ugt i64 %0, %1
   %sub = sub nuw i64 %1, %0
@@ -371,9 +371,9 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN3net14QuicDataWriter17WriteRepeatedByteEhm(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, i8 noundef zeroext %byte, i64 noundef %count) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %length_.i = getelementptr inbounds i8, ptr %this, i64 16
+  %length_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i64, ptr %length_.i, align 8
-  %capacity_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %capacity_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i64, ptr %capacity_.i, align 8
   %cmp.i = icmp ugt i64 %0, %1
   %sub.i = sub nuw i64 %1, %0
@@ -402,9 +402,9 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local void @_ZN3net14QuicDataWriter12WritePaddingEv(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 if.end:
-  %length_ = getelementptr inbounds i8, ptr %this, i64 16
+  %length_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i64, ptr %length_, align 8
-  %capacity_ = getelementptr inbounds i8, ptr %this, i64 8
+  %capacity_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i64, ptr %capacity_, align 8
   %cmp = icmp ugt i64 %0, %1
   br i1 %cmp, label %return, label %if.end5

@@ -29,9 +29,9 @@ if.end6:                                          ; preds = %if.end
   br i1 %cmp8, label %err, label %if.end10
 
 if.end10:                                         ; preds = %if.end6
-  %neg = getelementptr inbounds i8, ptr %call, i64 16
+  %neg = getelementptr inbounds nuw i8, ptr %call, i64 16
   store i32 0, ptr %neg, align 8
-  %neg11 = getelementptr inbounds i8, ptr %call1, i64 16
+  %neg11 = getelementptr inbounds nuw i8, ptr %call1, i64 16
   store i32 0, ptr %neg11, align 8
   %call12 = tail call i32 @BN_cmp(ptr noundef nonnull %call, ptr noundef nonnull %call1) #3
   %cmp13 = icmp slt i32 %call12, 0
@@ -161,14 +161,14 @@ define hidden ptr @BN_mod_inverse_ex(ptr noundef %out, ptr nocapture noundef wri
 entry:
   %local_A.i = alloca %struct.bignum_st, align 8
   %local_B.i = alloca %struct.bignum_st, align 8
-  %flags = getelementptr inbounds i8, ptr %a, i64 20
+  %flags = getelementptr inbounds nuw i8, ptr %a, i64 20
   %0 = load i32, ptr %flags, align 4
   %and = and i32 %0, 4
   %cmp.not = icmp eq i32 %and, 0
   br i1 %cmp.not, label %lor.lhs.false, label %if.then
 
 lor.lhs.false:                                    ; preds = %entry
-  %flags1 = getelementptr inbounds i8, ptr %n, i64 20
+  %flags1 = getelementptr inbounds nuw i8, ptr %n, i64 20
   %1 = load i32, ptr %flags1, align 4
   %and2 = and i32 %1, 4
   %cmp3.not = icmp eq i32 %and2, 0
@@ -216,9 +216,9 @@ lor.lhs.false17.i:                                ; preds = %lor.lhs.false.i
   br i1 %cmp19.i, label %err.i, label %if.end21.i
 
 if.end21.i:                                       ; preds = %lor.lhs.false17.i
-  %neg.i = getelementptr inbounds i8, ptr %call.i, i64 16
+  %neg.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
   store i32 0, ptr %neg.i, align 8
-  %neg22.i = getelementptr inbounds i8, ptr %call1.i, i64 16
+  %neg22.i = getelementptr inbounds nuw i8, ptr %call1.i, i64 16
   %2 = load i32, ptr %neg22.i, align 8
   %tobool23.not.i = icmp eq i32 %2, 0
   br i1 %tobool23.not.i, label %lor.lhs.false24.i, label %if.then27.i
@@ -286,7 +286,7 @@ if.end53.i:                                       ; preds = %if.then48.i, %while
   br i1 %tobool55.not.i, label %if.else72.i, label %if.then56.i
 
 if.then56.i:                                      ; preds = %if.end53.i
-  %neg57.i = getelementptr inbounds i8, ptr %Y.0.lcssa83.i, i64 16
+  %neg57.i = getelementptr inbounds nuw i8, ptr %Y.0.lcssa83.i, i64 16
   %4 = load i32, ptr %neg57.i, align 8
   %tobool58.not.i = icmp eq i32 %4, 0
   br i1 %tobool58.not.i, label %land.lhs.true.i, label %if.else66.i
@@ -368,9 +368,9 @@ lor.lhs.false25:                                  ; preds = %lor.lhs.false22
   br i1 %cmp27, label %err, label %if.end29
 
 if.end29:                                         ; preds = %lor.lhs.false25
-  %neg = getelementptr inbounds i8, ptr %call4, i64 16
+  %neg = getelementptr inbounds nuw i8, ptr %call4, i64 16
   store i32 0, ptr %neg, align 8
-  %neg30 = getelementptr inbounds i8, ptr %call5, i64 16
+  %neg30 = getelementptr inbounds nuw i8, ptr %call5, i64 16
   %5 = load i32, ptr %neg30, align 8
   %tobool31.not = icmp eq i32 %5, 0
   br i1 %tobool31.not, label %lor.lhs.false32, label %if.then35
@@ -505,7 +505,7 @@ if.else120:                                       ; preds = %land.lhs.true, %if.
   br i1 %tobool123.not178, label %while.body125.lr.ph, label %if.then242
 
 while.body125.lr.ph:                              ; preds = %if.else120
-  %top = getelementptr inbounds i8, ptr %call7, i64 8
+  %top = getelementptr inbounds nuw i8, ptr %call7, i64 8
   br label %while.body125
 
 while.body125:                                    ; preds = %while.body125.lr.ph, %if.end238
@@ -674,7 +674,7 @@ if.end247:                                        ; preds = %if.then242, %if.end
   br i1 %tobool249.not, label %if.else267, label %if.then250
 
 if.then250:                                       ; preds = %if.end247
-  %neg251 = getelementptr inbounds i8, ptr %Y.0155, i64 16
+  %neg251 = getelementptr inbounds nuw i8, ptr %Y.0155, i64 16
   %10 = load i32, ptr %neg251, align 8
   %tobool252.not = icmp eq i32 %10, 0
   br i1 %tobool252.not, label %land.lhs.true253, label %if.else261

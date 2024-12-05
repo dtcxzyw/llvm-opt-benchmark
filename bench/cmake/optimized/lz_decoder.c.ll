@@ -19,27 +19,27 @@ define dso_local i32 @lzma_lz_decoder_init(ptr nocapture noundef %0, ptr noundef
 
 11:                                               ; preds = %8
   store ptr %9, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr @lz_decode, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr @lz_decoder_end, ptr %13, align 8
   store ptr null, ptr %9, align 8
-  %14 = getelementptr inbounds i8, ptr %9, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store i64 0, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %9, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %15, i8 0, i64 40, i1 false)
-  %16 = getelementptr inbounds i8, ptr %9, i64 88
+  %16 = getelementptr inbounds nuw i8, ptr %9, i64 88
   store ptr null, ptr %16, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 96
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 96
   store i64 -1, ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 104
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.3.0..sroa_idx, i8 0, i64 56, i1 false)
   br label %17
 
 17:                                               ; preds = %4, %11
   %.043 = phi ptr [ %9, %11 ], [ %6, %4 ]
-  %18 = getelementptr inbounds i8, ptr %.043, i64 48
-  %19 = getelementptr inbounds i8, ptr %2, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %.043, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %20 = load ptr, ptr %19, align 8
   %21 = call i32 %3(ptr noundef nonnull %18, ptr noundef %1, ptr noundef %20, ptr noundef nonnull %5) #7
   %.not = icmp eq i32 %21, 0
@@ -59,7 +59,7 @@ define dso_local i32 @lzma_lz_decoder_init(ptr nocapture noundef %0, ptr noundef
   %28 = add nuw i64 %27, 15
   %29 = and i64 %28, -16
   store i64 %29, ptr %5, align 8
-  %30 = getelementptr inbounds i8, ptr %.043, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %.043, i64 32
   %31 = load i64, ptr %30, align 8
   %.not50 = icmp eq i64 %31, %29
   br i1 %.not50, label %39, label %32
@@ -80,20 +80,20 @@ define dso_local i32 @lzma_lz_decoder_init(ptr nocapture noundef %0, ptr noundef
 
 39:                                               ; preds = %37, %.thread
   %40 = load ptr, ptr %0, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %41, i8 0, i64 16, i1 false)
   %42 = load ptr, ptr %40, align 8
-  %43 = getelementptr inbounds i8, ptr %40, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %40, i64 32
   %44 = load i64, ptr %43, align 8
   %45 = getelementptr i8, ptr %42, i64 %44
   %46 = getelementptr i8, ptr %45, i64 -1
   store i8 0, ptr %46, align 1
-  %47 = getelementptr inbounds i8, ptr %40, i64 40
+  %47 = getelementptr inbounds nuw i8, ptr %40, i64 40
   store i8 0, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %5, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %49 = load ptr, ptr %48, align 8
   %50 = icmp ne ptr %49, null
-  %51 = getelementptr inbounds i8, ptr %5, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %52 = load i64, ptr %51, align 8
   %53 = icmp ne i64 %52, 0
   %or.cond = select i1 %50, i1 %53, i1 false
@@ -106,20 +106,20 @@ define dso_local i32 @lzma_lz_decoder_init(ptr nocapture noundef %0, ptr noundef
   %58 = load ptr, ptr %.043, align 8
   %59 = getelementptr inbounds i8, ptr %49, i64 %57
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %58, ptr nonnull align 1 %59, i64 %56, i1 false)
-  %60 = getelementptr inbounds i8, ptr %.043, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %.043, i64 8
   store i64 %56, ptr %60, align 8
-  %61 = getelementptr inbounds i8, ptr %.043, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %.043, i64 16
   store i64 %56, ptr %61, align 8
   br label %62
 
 62:                                               ; preds = %54, %39
-  %63 = getelementptr inbounds i8, ptr %.043, i64 160
+  %63 = getelementptr inbounds nuw i8, ptr %.043, i64 160
   store i8 0, ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %.043, i64 161
+  %64 = getelementptr inbounds nuw i8, ptr %.043, i64 161
   store i8 0, ptr %64, align 1
-  %65 = getelementptr inbounds i8, ptr %.043, i64 168
-  %66 = getelementptr inbounds i8, ptr %.043, i64 88
-  %67 = getelementptr inbounds i8, ptr %2, i64 24
+  %65 = getelementptr inbounds nuw i8, ptr %.043, i64 168
+  %66 = getelementptr inbounds nuw i8, ptr %.043, i64 88
+  %67 = getelementptr inbounds nuw i8, ptr %2, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %65, i8 0, i64 16, i1 false)
   %68 = call i32 @lzma_next_filter_init(ptr noundef nonnull %66, ptr noundef %1, ptr noundef nonnull %67) #7
   br label %69
@@ -133,8 +133,8 @@ declare noalias ptr @lzma_alloc(i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @lz_decode(ptr noundef %0, ptr noundef %1, ptr noalias noundef %2, ptr noalias noundef %3, i64 noundef %4, ptr noalias nocapture noundef writeonly %5, ptr noalias nocapture noundef %6, i64 noundef %7, i32 noundef %8) #0 {
-  %10 = getelementptr inbounds i8, ptr %0, i64 88
-  %11 = getelementptr inbounds i8, ptr %0, i64 112
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
   br i1 %13, label %26, label %.preheader
@@ -145,28 +145,28 @@ define internal i32 @lz_decode(ptr noundef %0, ptr noundef %1, ptr noalias nound
   br i1 %14, label %.lr.ph, label %decode_buffer.exit
 
 .lr.ph:                                           ; preds = %.preheader
-  %15 = getelementptr inbounds i8, ptr %0, i64 160
-  %16 = getelementptr inbounds i8, ptr %0, i64 168
-  %17 = getelementptr inbounds i8, ptr %0, i64 176
-  %18 = getelementptr inbounds i8, ptr %0, i64 184
-  %19 = getelementptr inbounds i8, ptr %0, i64 161
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 32
-  %22 = getelementptr inbounds i8, ptr %0, i64 24
-  %23 = getelementptr inbounds i8, ptr %0, i64 48
-  %24 = getelementptr inbounds i8, ptr %0, i64 56
-  %25 = getelementptr inbounds i8, ptr %0, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 161
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %68
 
 26:                                               ; preds = %9
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5)
-  %27 = getelementptr inbounds i8, ptr %0, i64 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 32
-  %29 = getelementptr inbounds i8, ptr %0, i64 24
-  %30 = getelementptr inbounds i8, ptr %0, i64 48
-  %31 = getelementptr inbounds i8, ptr %0, i64 56
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %.promoted.i = load i64, ptr %6, align 8, !alias.scope !5, !noalias !8
-  %32 = getelementptr inbounds i8, ptr %0, i64 40
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %33
 
 33:                                               ; preds = %.backedge, %26
@@ -382,12 +382,12 @@ decode_buffer.exit:                               ; preds = %76, %81, %decode_bu
 
 ; Function Attrs: nounwind uwtable
 define internal void @lz_decoder_end(ptr noundef %0, ptr noundef %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 88
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   tail call void @lzma_next_end(ptr noundef nonnull %3, ptr noundef %1) #7
   %4 = load ptr, ptr %0, align 8
   tail call void @lzma_free(ptr noundef %4, ptr noundef %1) #7
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
-  %6 = getelementptr inbounds i8, ptr %0, i64 80
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   %8 = load ptr, ptr %5, align 8
@@ -424,8 +424,8 @@ define dso_local noundef i64 @lzma_lz_decoder_memusage(i64 noundef %0) local_unn
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @lzma_lz_decoder_uncompressed(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
-  %4 = getelementptr inbounds i8, ptr %0, i64 72
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %3, align 8
   tail call void %5(ptr noundef %6, i64 noundef %1) #7

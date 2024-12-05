@@ -16,15 +16,15 @@ module asm ".previous\09\09\09\09\09"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_kcmp(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 112
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i64, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 104
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %5 = load i64, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 96
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %9 = load i64, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %11 = load i64, ptr %10, align 8
   %12 = tail call fastcc i64 @__se_sys_kcmp(i64 noundef %3, i64 noundef %5, i64 noundef %7, i64 noundef %9, i64 noundef %11), !range !5
   ret i64 %12
@@ -44,8 +44,8 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_kcmp(i64
   br i1 %13, label %14, label %212
 
 14:                                               ; preds = %5
-  %15 = getelementptr inbounds i8, ptr %9, i64 40
-  %16 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %15, i32 1, ptr elementtype(i32) %15) #5, !srcloc !6
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 40
+  %16 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %15, i32 1, ptr nonnull elementtype(i32) %15) #5, !srcloc !6
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %22, label %18, !prof !7
 
@@ -57,12 +57,12 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_kcmp(i64
 
 22:                                               ; preds = %18, %14
   %23 = phi i32 [ 2, %14 ], [ 1, %18 ]
-  tail call void @refcount_warn_saturate(ptr noundef %15, i32 noundef %23) #5
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %15, i32 noundef %23) #5
   br label %24
 
 24:                                               ; preds = %22, %18
-  %25 = getelementptr inbounds i8, ptr %10, i64 40
-  %26 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %25, i32 1, ptr elementtype(i32) %25) #5, !srcloc !6
+  %25 = getelementptr inbounds nuw i8, ptr %10, i64 40
+  %26 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %25, i32 1, ptr nonnull elementtype(i32) %25) #5, !srcloc !6
   %27 = icmp eq i32 %26, 0
   br i1 %27, label %32, label %28, !prof !7
 
@@ -74,21 +74,21 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_kcmp(i64
 
 32:                                               ; preds = %28, %24
   %33 = phi i32 [ 2, %24 ], [ 1, %28 ]
-  tail call void @refcount_warn_saturate(ptr noundef %25, i32 noundef %33) #5
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %25, i32 noundef %33) #5
   br label %34
 
 34:                                               ; preds = %32, %28
   tail call void @__rcu_read_unlock() #5
-  %35 = getelementptr inbounds i8, ptr %9, i64 1880
+  %35 = getelementptr inbounds nuw i8, ptr %9, i64 1880
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 1056
-  %38 = getelementptr inbounds i8, ptr %10, i64 1880
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 1056
+  %38 = getelementptr inbounds nuw i8, ptr %10, i64 1880
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 1056
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 1056
   %41 = icmp ugt ptr %39, %36
   %42 = select i1 %41, ptr %37, ptr %40
   %43 = select i1 %41, ptr %40, ptr %37
-  %44 = tail call i32 @down_read_killable(ptr noundef %43) #5
+  %44 = tail call i32 @down_read_killable(ptr noundef nonnull %43) #5
   %45 = icmp eq i32 %44, 0
   br i1 %45, label %46, label %197
 
@@ -97,7 +97,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_kcmp(i64
   br i1 %47, label %51, label %48, !prof !7
 
 48:                                               ; preds = %46
-  %49 = tail call i32 @down_read_killable(ptr noundef %42) #5
+  %49 = tail call i32 @down_read_killable(ptr noundef nonnull %42) #5
   %50 = icmp eq i32 %49, 0
   br i1 %50, label %51, label %.sink.split
 
@@ -148,9 +148,9 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_kcmp(i64
   br label %189
 
 78:                                               ; preds = %55
-  %79 = getelementptr inbounds i8, ptr %9, i64 1192
+  %79 = getelementptr inbounds nuw i8, ptr %9, i64 1192
   %80 = load ptr, ptr %79, align 8
-  %81 = getelementptr inbounds i8, ptr %10, i64 1192
+  %81 = getelementptr inbounds nuw i8, ptr %10, i64 1192
   %82 = load ptr, ptr %81, align 8
   %83 = ptrtoint ptr %80 to i64
   %84 = load i64, ptr getelementptr inbounds (i8, ptr @cookies, i64 16), align 16
@@ -168,9 +168,9 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_kcmp(i64
   br label %189
 
 96:                                               ; preds = %55
-  %97 = getelementptr inbounds i8, ptr %9, i64 1856
+  %97 = getelementptr inbounds nuw i8, ptr %9, i64 1856
   %98 = load ptr, ptr %97, align 64
-  %99 = getelementptr inbounds i8, ptr %10, i64 1856
+  %99 = getelementptr inbounds nuw i8, ptr %10, i64 1856
   %100 = load ptr, ptr %99, align 64
   %101 = ptrtoint ptr %98 to i64
   %102 = load i64, ptr getelementptr inbounds (i8, ptr @cookies, i64 32), align 16
@@ -188,9 +188,9 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_kcmp(i64
   br label %189
 
 114:                                              ; preds = %55
-  %115 = getelementptr inbounds i8, ptr %9, i64 1848
+  %115 = getelementptr inbounds nuw i8, ptr %9, i64 1848
   %116 = load ptr, ptr %115, align 8
-  %117 = getelementptr inbounds i8, ptr %10, i64 1848
+  %117 = getelementptr inbounds nuw i8, ptr %10, i64 1848
   %118 = load ptr, ptr %117, align 8
   %119 = ptrtoint ptr %116 to i64
   %120 = load i64, ptr getelementptr inbounds (i8, ptr @cookies, i64 48), align 16
@@ -208,9 +208,9 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_kcmp(i64
   br label %189
 
 132:                                              ; preds = %55
-  %133 = getelementptr inbounds i8, ptr %9, i64 1888
+  %133 = getelementptr inbounds nuw i8, ptr %9, i64 1888
   %134 = load ptr, ptr %133, align 32
-  %135 = getelementptr inbounds i8, ptr %10, i64 1888
+  %135 = getelementptr inbounds nuw i8, ptr %10, i64 1888
   %136 = load ptr, ptr %135, align 32
   %137 = ptrtoint ptr %134 to i64
   %138 = load i64, ptr getelementptr inbounds (i8, ptr @cookies, i64 64), align 16
@@ -228,9 +228,9 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_kcmp(i64
   br label %189
 
 150:                                              ; preds = %55
-  %151 = getelementptr inbounds i8, ptr %9, i64 2136
+  %151 = getelementptr inbounds nuw i8, ptr %9, i64 2136
   %152 = load ptr, ptr %151, align 8
-  %153 = getelementptr inbounds i8, ptr %10, i64 2136
+  %153 = getelementptr inbounds nuw i8, ptr %10, i64 2136
   %154 = load ptr, ptr %153, align 8
   %155 = ptrtoint ptr %152 to i64
   %156 = load i64, ptr getelementptr inbounds (i8, ptr @cookies, i64 80), align 16
@@ -248,9 +248,9 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_kcmp(i64
   br label %189
 
 168:                                              ; preds = %55
-  %169 = getelementptr inbounds i8, ptr %9, i64 1824
+  %169 = getelementptr inbounds nuw i8, ptr %9, i64 1824
   %170 = load ptr, ptr %169, align 32
-  %171 = getelementptr inbounds i8, ptr %10, i64 1824
+  %171 = getelementptr inbounds nuw i8, ptr %10, i64 1824
   %172 = load ptr, ptr %171, align 32
   %173 = ptrtoint ptr %170 to i64
   %174 = load i64, ptr getelementptr inbounds (i8, ptr @cookies, i64 96), align 16
@@ -275,25 +275,25 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_kcmp(i64
 189:                                              ; preds = %186, %168, %150, %132, %114, %96, %78, %64, %56, %55, %53, %51
   %190 = phi i32 [ %188, %186 ], [ %185, %168 ], [ %167, %150 ], [ %149, %132 ], [ %131, %114 ], [ %113, %96 ], [ %95, %78 ], [ -1, %53 ], [ -1, %51 ], [ %77, %64 ], [ -9, %56 ], [ -22, %55 ]
   %191 = load ptr, ptr %35, align 8
-  %192 = getelementptr inbounds i8, ptr %191, i64 1056
+  %192 = getelementptr inbounds nuw i8, ptr %191, i64 1056
   %193 = load ptr, ptr %38, align 8
   %194 = icmp eq ptr %193, %191
   br i1 %194, label %.sink.split, label %195, !prof !7
 
 195:                                              ; preds = %189
-  %196 = getelementptr inbounds i8, ptr %193, i64 1056
-  tail call void @up_read(ptr noundef %196) #5
+  %196 = getelementptr inbounds nuw i8, ptr %193, i64 1056
+  tail call void @up_read(ptr noundef nonnull %196) #5
   br label %.sink.split
 
 .sink.split:                                      ; preds = %189, %195, %48
   %.sink = phi ptr [ %43, %48 ], [ %192, %195 ], [ %192, %189 ]
   %.ph = phi i32 [ %49, %48 ], [ %190, %195 ], [ %190, %189 ]
-  tail call void @up_read(ptr noundef %.sink) #5
+  tail call void @up_read(ptr noundef nonnull %.sink) #5
   br label %197
 
 197:                                              ; preds = %.sink.split, %34
   %198 = phi i32 [ %44, %34 ], [ %.ph, %.sink.split ]
-  %199 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %15, i32 -1, ptr elementtype(i32) %15) #5, !srcloc !9
+  %199 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %15, i32 -1, ptr nonnull elementtype(i32) %15) #5, !srcloc !9
   %200 = icmp eq i32 %199, 1
   br i1 %200, label %204, label %201
 
@@ -302,7 +302,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_kcmp(i64
   br i1 %202, label %.thread13, label %203, !prof !8
 
 203:                                              ; preds = %201
-  tail call void @refcount_warn_saturate(ptr noundef %15, i32 noundef 3) #5
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %15, i32 noundef 3) #5
   br label %.thread13
 
 204:                                              ; preds = %197
@@ -311,7 +311,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_kcmp(i64
   br label %.thread13
 
 .thread13:                                        ; preds = %201, %203, %204
-  %205 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %25, i32 -1, ptr elementtype(i32) %25) #5, !srcloc !9
+  %205 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %25, i32 -1, ptr nonnull elementtype(i32) %25) #5, !srcloc !9
   %206 = icmp eq i32 %205, 1
   br i1 %206, label %210, label %207
 
@@ -320,7 +320,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_kcmp(i64
   br i1 %208, label %.thread15, label %209, !prof !8
 
 209:                                              ; preds = %207
-  tail call void @refcount_warn_saturate(ptr noundef %25, i32 noundef 3) #5
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %25, i32 noundef 3) #5
   br label %.thread15
 
 210:                                              ; preds = %.thread13
@@ -343,19 +343,19 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_kcmp(i64
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_kcmp(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 4294967295
-  %5 = getelementptr inbounds i8, ptr %0, i64 88
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %6 = load i64, ptr %5, align 8
   %7 = and i64 %6, 4294967295
-  %8 = getelementptr inbounds i8, ptr %0, i64 96
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %9 = load i64, ptr %8, align 8
   %10 = and i64 %9, 4294967295
-  %11 = getelementptr inbounds i8, ptr %0, i64 104
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %12 = load i64, ptr %11, align 8
   %13 = and i64 %12, 4294967295
-  %14 = getelementptr inbounds i8, ptr %0, i64 112
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %15 = load i64, ptr %14, align 8
   %16 = and i64 %15, 4294967295
   %17 = tail call fastcc i64 @__se_sys_kcmp(i64 noundef %4, i64 noundef %7, i64 noundef %10, i64 noundef %13, i64 noundef %16), !range !5
@@ -434,9 +434,9 @@ define internal fastcc i32 @kcmp_epoll_target(ptr noundef nonnull %0, ptr nounde
   br i1 %15, label %41, label %16
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %5, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %18 = load i32, ptr %17, align 4
-  %19 = getelementptr inbounds i8, ptr %5, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %20 = load i32, ptr %19, align 4
   %21 = zext i32 %20 to i64
   %22 = call ptr @get_epoll_tfile_raw_ptr(ptr noundef nonnull %14, i32 noundef %18, i64 noundef %21) #5

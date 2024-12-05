@@ -73,7 +73,7 @@ define noundef i32 @_ZN5boost7archive17archive_exception6appendEjPKc(ptr nocaptu
 define void @_ZN5boost7archive17archive_exceptionC2ENS1_14exception_codeEPKcS4_(ptr noundef nonnull writeonly align 8 dereferenceable(140) initializes((0, 8), (136, 140)) %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef readonly %3, ptr noundef readonly %4) unnamed_addr #1 align 2 {
   %6 = load ptr, ptr %1, align 8
   store ptr %6, ptr %0, align 8, !tbaa !6
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr i8, ptr %6, i64 -40
   %10 = load i64, ptr %9, align 8
@@ -1546,7 +1546,7 @@ _ZN5boost7archive17archive_exception6appendEjPKc.exit320: ; preds = %.preheader
 define void @_ZN5boost7archive17archive_exceptionC2ERKS1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(140) initializes((0, 140)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(140) %2) unnamed_addr #2 align 2 {
   %4 = load ptr, ptr %1, align 8
   store ptr %4, ptr %0, align 8, !tbaa !6
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr i8, ptr %4, i64 -40
   %8 = load i64, ptr %7, align 8
@@ -1643,7 +1643,7 @@ define noundef nonnull ptr @_ZTv0_n32_NK5boost7archive17archive_exception4whatEv
 define void @_ZN5boost7archive17archive_exceptionC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(140) initializes((0, 8), (136, 140)) %0, ptr nocapture noundef readonly %1) unnamed_addr #2 align 2 {
   %3 = load ptr, ptr %1, align 8
   store ptr %3, ptr %0, align 8, !tbaa !6
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %3, i64 -40
   %7 = load i64, ptr %6, align 8

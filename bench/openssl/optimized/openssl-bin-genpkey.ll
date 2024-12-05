@@ -178,7 +178,7 @@ if.end11.i:                                       ; preds = %if.end7.i
 for.body.i:                                       ; preds = %if.end11.i, %for.inc.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.inc.i ], [ 0, %if.end11.i ]
   %3 = phi ptr [ %9, %for.inc.i ], [ %2, %if.end11.i ]
-  %data_type.i = getelementptr inbounds %struct.ossl_param_st, ptr %call8.i, i64 %indvars.iv.i, i32 1
+  %data_type.i = getelementptr inbounds nuw %struct.ossl_param_st, ptr %call8.i, i64 %indvars.iv.i, i32 1
   %4 = load i32, ptr %data_type.i, align 8
   %switch.tableidx = add i32 %4, -1
   %5 = icmp ult i32 %switch.tableidx, 5
@@ -186,10 +186,10 @@ for.body.i:                                       ; preds = %if.end11.i, %for.in
 
 switch.lookup:                                    ; preds = %for.body.i
   %6 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [5 x ptr], ptr @switch.table.genpkey_main, i64 0, i64 %6
+  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table.genpkey_main, i64 0, i64 %6
   %switch.load = load ptr, ptr %switch.gep, align 8
   %7 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep228 = getelementptr inbounds [5 x ptr], ptr @switch.table.genpkey_main.1, i64 0, i64 %7
+  %switch.gep228 = getelementptr inbounds nuw [5 x ptr], ptr @switch.table.genpkey_main.1, i64 0, i64 %7
   %switch.load229 = load ptr, ptr %switch.gep228, align 8
   %8 = load ptr, ptr @bio_err, align 8
   %call22.i = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %8, ptr noundef nonnull @.str.52, ptr noundef nonnull %switch.load229, ptr noundef nonnull %3, ptr noundef nonnull %switch.load) #2
@@ -197,7 +197,7 @@ switch.lookup:                                    ; preds = %for.body.i
 
 for.inc.i:                                        ; preds = %for.body.i, %switch.lookup
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %arrayidx.i = getelementptr inbounds %struct.ossl_param_st, ptr %call8.i, i64 %indvars.iv.next.i
+  %arrayidx.i = getelementptr inbounds nuw %struct.ossl_param_st, ptr %call8.i, i64 %indvars.iv.next.i
   %9 = load ptr, ptr %arrayidx.i, align 8
   %cmp13.not.i = icmp eq ptr %9, null
   br i1 %cmp13.not.i, label %cleanup.i, label %for.body.i, !llvm.loop !7

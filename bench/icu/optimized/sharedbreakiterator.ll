@@ -15,10 +15,10 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN6icu_7519SharedBreakIteratorC2EPNS_13BreakIteratorE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %this, ptr noundef %biToAdopt) unnamed_addr #0 align 2 {
 entry:
-  %softRefCount.i = getelementptr inbounds i8, ptr %this, i64 8
+  %softRefCount.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %softRefCount.i, i8 0, i64 16, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7519SharedBreakIteratorE, i64 16), ptr %this, align 8
-  %ptr = getelementptr inbounds i8, ptr %this, i64 24
+  %ptr = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr %biToAdopt, ptr %ptr, align 8
   ret void
 }
@@ -27,14 +27,14 @@ entry:
 define void @_ZN6icu_7519SharedBreakIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %this) unnamed_addr #1 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7519SharedBreakIteratorE, i64 16), ptr %this, align 8
-  %ptr = getelementptr inbounds i8, ptr %this, i64 24
+  %ptr = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %ptr, align 8
   %isnull = icmp eq ptr %0, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 8
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(479) %0) #5
   br label %delete.end

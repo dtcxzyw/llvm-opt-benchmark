@@ -47,16 +47,16 @@ if.then.i.i:                                      ; preds = %entry
   %tobool2.not = icmp eq ptr %out, null
   %cond-lvalue = select i1 %tobool2.not, ptr @_ZSt4cerr, ptr %out
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %call, i8 0, i64 17, i1 false)
-  %m_msg.i = getelementptr inbounds i8, ptr %call, i64 24
+  %m_msg.i = getelementptr inbounds nuw i8, ptr %call, i64 24
   store ptr %msg, ptr %m_msg.i, align 8
-  %m_out.i = getelementptr inbounds i8, ptr %call, i64 32
+  %m_out.i = getelementptr inbounds nuw i8, ptr %call, i64 32
   store ptr %cond-lvalue, ptr %m_out.i, align 8
-  %m_start_memory.i = getelementptr inbounds i8, ptr %call, i64 40
+  %m_start_memory.i = getelementptr inbounds nuw i8, ptr %call, i64 40
   %call.i = tail call noundef i64 @_ZN6memory19get_allocation_sizeEv()
   %conv.i = uitofp i64 %call.i to double
   %div.i = fmul double %conv.i, 0x3EB0000000000000
   store double %div.i, ptr %m_start_memory.i, align 8
-  %m_running.i.i = getelementptr inbounds i8, ptr %call, i64 16
+  %m_running.i.i = getelementptr inbounds nuw i8, ptr %call, i64 16
   %call.i.i.i = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #9
   store i64 %call.i.i.i, ptr %call, align 8
   store i8 1, ptr %m_running.i.i, align 8
@@ -115,7 +115,7 @@ declare i64 @_ZNSt6chrono3_V212steady_clock3nowEv() local_unnamed_addr #1
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6timeit3impD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_running.i = getelementptr inbounds i8, ptr %this, i64 16
+  %m_running.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i8, ptr %m_running.i, align 8
   %tobool.i = trunc i8 %0 to i1
   br i1 %tobool.i, label %if.then.i, label %invoke.cont
@@ -124,7 +124,7 @@ if.then.i:                                        ; preds = %entry
   %call.i.i = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #9
   %retval.sroa.0.0.copyload.i1.i.i = load i64, ptr %this, align 8
   %sub.i.i.i = sub i64 %call.i.i, %retval.sroa.0.0.copyload.i1.i.i
-  %m_elapsed.i = getelementptr inbounds i8, ptr %this, i64 8
+  %m_elapsed.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i64, ptr %m_elapsed.i, align 8
   %add.i.i = add nsw i64 %sub.i.i.i, %1
   store i64 %add.i.i, ptr %m_elapsed.i, align 8
@@ -138,13 +138,13 @@ invoke.cont:                                      ; preds = %if.then.i, %entry
 invoke.cont2:                                     ; preds = %invoke.cont
   %conv = uitofp i64 %call to double
   %div = fmul double %conv, 0x3EB0000000000000
-  %m_out = getelementptr inbounds i8, ptr %this, i64 32
+  %m_out = getelementptr inbounds nuw i8, ptr %this, i64 32
   %2 = load ptr, ptr %m_out, align 8
   %call4 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str)
           to label %invoke.cont3 unwind label %terminate.lpad
 
 invoke.cont3:                                     ; preds = %invoke.cont2
-  %m_msg = getelementptr inbounds i8, ptr %this, i64 24
+  %m_msg = getelementptr inbounds nuw i8, ptr %this, i64 24
   %3 = load ptr, ptr %m_msg, align 8
   %call6 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call4, ptr noundef %3)
           to label %invoke.cont5 unwind label %terminate.lpad
@@ -170,7 +170,7 @@ _ZN9stopwatch4stopEv.exit.i:                      ; preds = %invoke.cont14
   %call.i.i.i = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #9
   %retval.sroa.0.0.copyload.i1.i.i.i = load i64, ptr %this, align 8
   %sub.i.i.i.i = sub i64 %call.i.i.i, %retval.sroa.0.0.copyload.i1.i.i.i
-  %m_elapsed.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %m_elapsed.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %5 = load i64, ptr %m_elapsed.i.i, align 8
   %add.i.i.i = add nsw i64 %sub.i.i.i.i, %5
   store i64 %add.i.i.i, ptr %m_elapsed.i.i, align 8
@@ -181,7 +181,7 @@ _ZN9stopwatch4stopEv.exit.i:                      ; preds = %invoke.cont14
   br label %invoke.cont17
 
 invoke.cont17:                                    ; preds = %_ZN9stopwatch4stopEv.exit.i, %invoke.cont14
-  %m_elapsed.i3 = getelementptr inbounds i8, ptr %this, i64 8
+  %m_elapsed.i3 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %6 = load i64, ptr %m_elapsed.i3, align 8
   %div.i.i.i = sdiv i64 %6, 1000000
   %conv.i = sitofp i64 %div.i.i.i to double
@@ -202,7 +202,7 @@ invoke.cont23:                                    ; preds = %invoke.cont21
           to label %invoke.cont30 unwind label %terminate.lpad
 
 invoke.cont30:                                    ; preds = %invoke.cont23
-  %m_start_memory = getelementptr inbounds i8, ptr %this, i64 40
+  %m_start_memory = getelementptr inbounds nuw i8, ptr %this, i64 40
   %7 = load double, ptr %m_start_memory, align 8
   %call33 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %call31, double noundef %7)
           to label %invoke.cont32 unwind label %terminate.lpad
@@ -253,7 +253,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSt8ios_baseS0
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(216) ptr @_ZSt5fixedRSt8ios_base(ptr noundef nonnull align 8 dereferenceable(216) %__base) #3 comdat {
 entry:
-  %_M_flags.i = getelementptr inbounds i8, ptr %__base, i64 24
+  %_M_flags.i = getelementptr inbounds nuw i8, ptr %__base, i64 24
   %0 = load i32, ptr %_M_flags.i, align 8
   %and.i.i.i = and i32 %0, -261
   %or.i.i.i = or disjoint i32 %and.i.i.i, 4

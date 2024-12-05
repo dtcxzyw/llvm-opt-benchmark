@@ -70,11 +70,11 @@ define dso_local void @_ZN4llvm12MCAsmInfoELFC2Ev(ptr noundef nonnull align 8 de
   store ptr @.str.1, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr @.str.2, ptr %4, align 8
-  %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 96
+  %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i64 2, ptr %.sroa.22.0..sroa_idx, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr @.str.2, ptr %5, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 112
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i64 2, ptr %.sroa.2.0..sroa_idx, align 8
   ret void
 }

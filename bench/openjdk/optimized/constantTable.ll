@@ -43,19 +43,19 @@ define hidden noundef zeroext i1 @_ZN13ConstantTable8ConstanteqERKS0_(ptr nocapt
   br i1 %.not, label %5, label %.loopexit
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load i8, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %9 = load i8, ptr %8, align 8
   %10 = xor i8 %9, %7
   %11 = trunc i8 %10 to i1
   br i1 %11, label %.loopexit, label %12
 
 12:                                               ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %0, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %14 = load i8, ptr %13, align 1
   %15 = trunc i8 %14 to i1
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 1
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 1
   %.pre = load i8, ptr %.phi.trans.insert, align 1
   br i1 %15, label %._crit_edge, label %16
 
@@ -69,10 +69,10 @@ define hidden noundef zeroext i1 @_ZN13ConstantTable8ConstanteqERKS0_(ptr nocapt
   br i1 %19, label %.loopexit, label %20
 
 20:                                               ; preds = %._crit_edge
-  %21 = getelementptr inbounds i8, ptr %0, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = load ptr, ptr %21, align 8
   %23 = load i32, ptr %22, align 4
-  %24 = getelementptr inbounds i8, ptr %1, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %25 = load ptr, ptr %24, align 8
   %26 = load i32, ptr %25, align 4
   %.not179 = icmp eq i32 %23, %26
@@ -83,9 +83,9 @@ define hidden noundef zeroext i1 @_ZN13ConstantTable8ConstanteqERKS0_(ptr nocapt
   br i1 %27, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader
-  %28 = getelementptr inbounds i8, ptr %22, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %25, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %31 = load ptr, ptr %30, align 8
   %.off = add i8 %3, -4
   %switch = icmp ult i8 %.off, 8
@@ -97,13 +97,13 @@ define hidden noundef zeroext i1 @_ZN13ConstantTable8ConstanteqERKS0_(ptr nocapt
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %58
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %58 ]
-  %32 = getelementptr inbounds %union.jvalue, ptr %29, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw %union.jvalue, ptr %29, i64 %indvars.iv
   %.sroa.0.0.copyload80 = load i32, ptr %32, align 8
-  %.sroa_idx81 = getelementptr inbounds i8, ptr %32, i64 4
+  %.sroa_idx81 = getelementptr inbounds nuw i8, ptr %32, i64 4
   %.sroa.0.0.copyload82 = load i32, ptr %.sroa_idx81, align 4
-  %33 = getelementptr inbounds %union.jvalue, ptr %31, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw %union.jvalue, ptr %31, i64 %indvars.iv
   %.sroa.0.0.copyload8 = load i32, ptr %33, align 8
-  %.sroa_idx = getelementptr inbounds i8, ptr %33, i64 4
+  %.sroa_idx = getelementptr inbounds nuw i8, ptr %33, i64 4
   %.sroa.0.0.copyload9 = load i32, ptr %.sroa_idx, align 4
   switch i8 %3, label %50 [
     i8 4, label %54
@@ -195,57 +195,57 @@ define hidden noundef zeroext i1 @_ZN13ConstantTable8ConstanteqERKS0_(ptr nocapt
   ]
 
 60:                                               ; preds = %59
-  %61 = getelementptr inbounds i8, ptr %0, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %62 = load i32, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %1, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %64 = load i32, ptr %63, align 8
   %65 = icmp eq i32 %62, %64
   br label %.loopexit
 
 66:                                               ; preds = %59
-  %67 = getelementptr inbounds i8, ptr %0, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %68 = load i32, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %1, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %70 = load i32, ptr %69, align 8
   %71 = icmp eq i32 %68, %70
   br label %.loopexit
 
 72:                                               ; preds = %59
-  %73 = getelementptr inbounds i8, ptr %0, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %74 = load i64, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %1, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %76 = load i64, ptr %75, align 8
   %77 = icmp eq i64 %74, %76
   br label %.loopexit
 
 78:                                               ; preds = %59
-  %79 = getelementptr inbounds i8, ptr %0, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %80 = load i64, ptr %79, align 8
-  %81 = getelementptr inbounds i8, ptr %1, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %82 = load i64, ptr %81, align 8
   %83 = icmp eq i64 %80, %82
   br label %.loopexit
 
 84:                                               ; preds = %59, %59
-  %85 = getelementptr inbounds i8, ptr %0, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %86 = load ptr, ptr %85, align 8
-  %87 = getelementptr inbounds i8, ptr %1, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %88 = load ptr, ptr %87, align 8
   %89 = icmp eq ptr %86, %88
   br label %.loopexit
 
 90:                                               ; preds = %59
-  %91 = getelementptr inbounds i8, ptr %0, i64 8
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %92 = load ptr, ptr %91, align 8
-  %93 = getelementptr inbounds i8, ptr %1, i64 8
+  %93 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %94 = load ptr, ptr %93, align 8
   %95 = icmp eq ptr %92, %94
   br label %.loopexit
 
 96:                                               ; preds = %59
-  %97 = getelementptr inbounds i8, ptr %0, i64 8
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %98 = load ptr, ptr %97, align 8
-  %99 = getelementptr inbounds i8, ptr %1, i64 8
+  %99 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %100 = load ptr, ptr %99, align 8
   %101 = icmp eq ptr %98, %100
   br label %.loopexit
@@ -269,9 +269,9 @@ declare void @_Z28report_should_not_reach_herePKci(ptr noundef, i32 noundef) loc
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef range(i32 -1, 2) i32 @_ZN13ConstantTable16qsort_comparatorEPNS_8ConstantES1_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 20
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %4 = load float, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %1, i64 20
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %6 = load float, ptr %5, align 4
   %7 = fcmp ogt float %4, %6
   %8 = fcmp olt float %4, %6
@@ -282,7 +282,7 @@ define hidden noundef range(i32 -1, 2) i32 @_ZN13ConstantTable16qsort_comparator
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN13ConstantTable26calculate_offsets_and_sizeEv(ptr nocapture noundef nonnull align 8 dereferenceable(36) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %_ZN17GrowableArrayViewIN13ConstantTable8ConstantEE4sortEPFiPS1_S3_E.exit, label %5
@@ -302,8 +302,8 @@ _ZN17GrowableArrayViewIN13ConstantTable8ConstantEE4sortEPFiPS1_S3_E.exit: ; pred
   %indvars.iv = phi i64 [ %indvars.iv.next, %43 ], [ 0, %_ZN17GrowableArrayViewIN13ConstantTable8ConstantEE4sortEPFiPS1_S3_E.exit ]
   %.019 = phi i32 [ %.1, %43 ], [ 0, %_ZN17GrowableArrayViewIN13ConstantTable8ConstantEE4sortEPFiPS1_S3_E.exit ]
   %10 = load ptr, ptr %2, align 8
-  %11 = getelementptr inbounds %"class.ConstantTable::Constant", ptr %10, i64 %indvars.iv
-  %12 = getelementptr inbounds i8, ptr %11, i64 1
+  %11 = getelementptr inbounds nuw %"class.ConstantTable::Constant", ptr %10, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 1
   %13 = load i8, ptr %12, align 1
   %14 = trunc i8 %13 to i1
   %15 = load i8, ptr %11, align 8
@@ -311,9 +311,9 @@ _ZN17GrowableArrayViewIN13ConstantTable8ConstantEE4sortEPFiPS1_S3_E.exit: ; pred
 
 16:                                               ; preds = %.lr.ph
   %17 = zext i8 %15 to i64
-  %18 = getelementptr inbounds [20 x i32], ptr @_type2aelembytes, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw [20 x i32], ptr @_type2aelembytes, i64 0, i64 %17
   %19 = load i32, ptr %18, align 4
-  %20 = getelementptr inbounds i8, ptr %11, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %21 = load ptr, ptr %20, align 8
   %22 = load i32, ptr %21, align 4
   %23 = mul nsw i32 %22, %19
@@ -338,27 +338,27 @@ switch.hole_check:                                ; preds = %24
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %28 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [12 x i32], ptr @switch.table._ZN13ConstantTable26calculate_offsets_and_sizeEv, i64 0, i64 %28
+  %switch.gep = getelementptr inbounds nuw [12 x i32], ptr @switch.table._ZN13ConstantTable26calculate_offsets_and_sizeEv, i64 0, i64 %28
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZL13constant_sizePN13ConstantTable8ConstantE.exit
 
 _ZL13constant_sizePN13ConstantTable8ConstantE.exit: ; preds = %switch.lookup, %16
   %.0.i = phi i32 [ %23, %16 ], [ %switch.load, %switch.lookup ]
-  %29 = getelementptr inbounds i8, ptr %11, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %30 = load i32, ptr %29, align 4
   %31 = add i32 %.019, -1
   %32 = add i32 %31, %30
   %33 = sub i32 0, %30
   %34 = and i32 %32, %33
-  %35 = getelementptr inbounds i8, ptr %11, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i32 %34, ptr %35, align 8
   %36 = icmp eq i8 %15, 14
   br i1 %36, label %37, label %43
 
 37:                                               ; preds = %_ZL13constant_sizePN13ConstantTable8ConstantE.exit
-  %38 = getelementptr inbounds i8, ptr %11, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 32
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 32
   %41 = load i32, ptr %40, align 8
   %42 = mul i32 %41, %.0.i
   br label %43
@@ -383,7 +383,7 @@ _ZL13constant_sizePN13ConstantTable8ConstantE.exit: ; preds = %switch.lookup, %1
   %50 = add i32 %.0.lcssa, %49
   %51 = sub i32 0, %49
   %52 = and i32 %50, %51
-  %53 = getelementptr inbounds i8, ptr %0, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %52, ptr %53, align 8
   ret void
 }
@@ -397,27 +397,27 @@ define hidden noundef zeroext i1 @_ZNK13ConstantTable4emitEP17C2_MacroAssembler(
   br i1 %6, label %_ZN17AbstractAssembler16address_constantEPh.exit43.thread, label %.lr.ph107
 
 .lr.ph107:                                        ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 16
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 16
-  %11 = getelementptr inbounds i8, ptr %4, i64 20
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
-  %13 = getelementptr inbounds i8, ptr %3, i64 8
-  %14 = getelementptr inbounds i8, ptr %3, i64 16
-  %15 = getelementptr inbounds i8, ptr %3, i64 20
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 20
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 20
   br label %16
 
 16:                                               ; preds = %.lr.ph107, %_ZN17AbstractAssembler12int_constantEi.exit.thread100
   %indvars.iv125 = phi i64 [ 0, %.lr.ph107 ], [ %indvars.iv.next126, %_ZN17AbstractAssembler12int_constantEi.exit.thread100 ]
   %17 = load ptr, ptr %7, align 8
-  %18 = getelementptr inbounds %"class.ConstantTable::Constant", ptr %17, i64 %indvars.iv125
+  %18 = getelementptr inbounds nuw %"class.ConstantTable::Constant", ptr %17, i64 %indvars.iv125
   %.sroa.0.0.copyload = load i8, ptr %18, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %18, i64 1
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 1
   %.sroa.3.0.copyload = load i8, ptr %.sroa.3.0..sroa_idx, align 1
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %18, i64 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 8
   %.sroa.5.0.copyload60 = load i32, ptr %.sroa.5.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %18, i64 12
+  %.sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 12
   %.sroa.5.0.copyload61 = load i32, ptr %.sroa.5.0..sroa_idx.sroa_idx, align 4
   %19 = trunc i8 %.sroa.3.0.copyload to i1
   br i1 %19, label %_ZN17AbstractAssembler12int_constantEi.exit, label %20
@@ -442,11 +442,11 @@ define hidden noundef zeroext i1 @_ZNK13ConstantTable4emitEP17C2_MacroAssembler(
 
 24:                                               ; preds = %21
   %25 = load ptr, ptr %12, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load ptr, ptr %26, align 8
   store i32 %.sroa.5.0.copyload60, ptr %27, align 1
   %28 = load ptr, ptr %26, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 4
   store ptr %29, ptr %26, align 8
   br label %_ZN17AbstractAssembler12int_constantEi.exit.thread100.sink.split
 
@@ -458,13 +458,13 @@ define hidden noundef zeroext i1 @_ZNK13ConstantTable4emitEP17C2_MacroAssembler(
 
 33:                                               ; preds = %30
   %34 = load ptr, ptr %12, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load ptr, ptr %35, align 8
   store i32 %.sroa.5.0.copyload60, ptr %36, align 1
-  %.sroa_idx = getelementptr inbounds i8, ptr %36, i64 4
+  %.sroa_idx = getelementptr inbounds nuw i8, ptr %36, i64 4
   store i32 %.sroa.5.0.copyload61, ptr %.sroa_idx, align 1
   %37 = load ptr, ptr %35, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store ptr %38, ptr %35, align 8
   br label %_ZN17AbstractAssembler12int_constantEi.exit.thread100.sink.split
 
@@ -476,11 +476,11 @@ define hidden noundef zeroext i1 @_ZNK13ConstantTable4emitEP17C2_MacroAssembler(
 
 42:                                               ; preds = %39
   %43 = load ptr, ptr %12, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %45 = load ptr, ptr %44, align 8
   store i32 %.sroa.5.0.copyload60, ptr %45, align 1
   %46 = load ptr, ptr %44, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 4
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 4
   store ptr %47, ptr %44, align 8
   br label %_ZN17AbstractAssembler12int_constantEi.exit.thread100.sink.split
 
@@ -496,11 +496,11 @@ define hidden noundef zeroext i1 @_ZNK13ConstantTable4emitEP17C2_MacroAssembler(
   %.sroa.5.sroa.0.0.insert.ext63 = zext i32 %.sroa.5.0.copyload60 to i64
   %.sroa.5.sroa.0.0.insert.insert65 = or disjoint i64 %.sroa.5.sroa.10.0.insert.shift79, %.sroa.5.sroa.0.0.insert.ext63
   %52 = load ptr, ptr %12, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %54 = load ptr, ptr %53, align 8
   store i64 %.sroa.5.sroa.0.0.insert.insert65, ptr %54, align 1
   %55 = load ptr, ptr %53, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   store ptr %56, ptr %53, align 8
   br label %_ZN17AbstractAssembler12int_constantEi.exit.thread100.sink.split
 
@@ -511,7 +511,7 @@ define hidden noundef zeroext i1 @_ZNK13ConstantTable4emitEP17C2_MacroAssembler(
   %.sroa.5.sroa.0.0.insert.insert68 = or disjoint i64 %.sroa.5.sroa.10.0.insert.shift83, %.sroa.5.sroa.0.0.insert.ext66
   %58 = inttoptr i64 %.sroa.5.sroa.0.0.insert.insert68 to ptr
   %59 = load ptr, ptr %8, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 80
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 80
   %61 = load ptr, ptr %60, align 8
   %.not.i39 = icmp eq ptr %61, null
   br i1 %.not.i39, label %64, label %62
@@ -542,15 +542,15 @@ _ZN11OopRecorder10find_indexEP8_jobject.exit:     ; preds = %62, %64, %67
 
 72:                                               ; preds = %_ZN11OopRecorder10find_indexEP8_jobject.exit
   %73 = load ptr, ptr %12, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i64 16
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 16
   %75 = load ptr, ptr %74, align 8
   call void @_ZN11CodeSection8relocateEPhRK16RelocationHolderi(ptr noundef nonnull align 8 dereferenceable(88) %73, ptr noundef %75, ptr noundef nonnull align 8 dereferenceable(40) %3, i32 noundef 0) #10
   %76 = load ptr, ptr %12, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 16
   %78 = load ptr, ptr %77, align 8
   store ptr %58, ptr %78, align 1
   %79 = load ptr, ptr %77, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
   store ptr %80, ptr %77, align 8
   br label %_ZN17AbstractAssembler12int_constantEi.exit.thread100.sink.split
 
@@ -567,11 +567,11 @@ _ZN11OopRecorder10find_indexEP8_jobject.exit:     ; preds = %62, %64, %67
   %.sroa.5.sroa.0.0.insert.insert71 = or disjoint i64 %.sroa.5.sroa.10.0.insert.shift87, %.sroa.5.sroa.0.0.insert.ext69
   %85 = inttoptr i64 %.sroa.5.sroa.0.0.insert.insert71 to ptr
   %86 = load ptr, ptr %12, align 8
-  %87 = getelementptr inbounds i8, ptr %86, i64 16
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 16
   %88 = load ptr, ptr %87, align 8
   store ptr %85, ptr %88, align 1
   %89 = load ptr, ptr %87, align 8
-  %90 = getelementptr inbounds i8, ptr %89, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 8
   store ptr %90, ptr %87, align 8
   br label %_ZN17AbstractAssembler12int_constantEi.exit.thread100.sink.split
 
@@ -588,14 +588,14 @@ _ZN11OopRecorder10find_indexEP8_jobject.exit:     ; preds = %62, %64, %67
 
 _ZN17AbstractAssembler16address_constantEPh.exit43: ; preds = %91
   %95 = load ptr, ptr %12, align 8
-  %96 = getelementptr inbounds i8, ptr %95, i64 16
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 16
   %97 = load ptr, ptr %96, align 8
   store ptr %92, ptr %97, align 1
   %98 = load ptr, ptr %96, align 8
-  %99 = getelementptr inbounds i8, ptr %98, i64 8
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 8
   store ptr %99, ptr %96, align 8
   call void @_ZN17AbstractAssembler11end_a_constEP11CodeSection(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef %93) #10
-  %100 = getelementptr inbounds i8, ptr %92, i64 32
+  %100 = getelementptr inbounds nuw i8, ptr %92, i64 32
   %101 = load i32, ptr %100, align 8
   %102 = icmp ugt i32 %101, 1
   br i1 %102, label %.lr.ph, label %_ZN17AbstractAssembler12int_constantEi.exit.thread100
@@ -608,13 +608,13 @@ _ZN17AbstractAssembler16address_constantEPh.exit43: ; preds = %91
   br i1 %.not.i44, label %_ZN17AbstractAssembler16address_constantEPh.exit43.thread, label %105
 
 105:                                              ; preds = %.lr.ph
-  %106 = getelementptr inbounds i8, ptr %92, i64 %indvars.iv
+  %106 = getelementptr inbounds nuw i8, ptr %92, i64 %indvars.iv
   %107 = load ptr, ptr %12, align 8
-  %108 = getelementptr inbounds i8, ptr %107, i64 16
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 16
   %109 = load ptr, ptr %108, align 8
   store ptr %106, ptr %109, align 1
   %110 = load ptr, ptr %108, align 8
-  %111 = getelementptr inbounds i8, ptr %110, i64 8
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 8
   store ptr %111, ptr %108, align 8
   call void @_ZN17AbstractAssembler11end_a_constEP11CodeSection(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef %103) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -630,7 +630,7 @@ _ZN17AbstractAssembler16address_constantEPh.exit43: ; preds = %91
   %.sroa.5.sroa.0.0.insert.insert77 = or disjoint i64 %.sroa.5.sroa.10.0.insert.shift95, %.sroa.5.sroa.0.0.insert.ext75
   %116 = inttoptr i64 %.sroa.5.sroa.0.0.insert.insert77 to ptr
   %117 = load ptr, ptr %8, align 8
-  %118 = getelementptr inbounds i8, ptr %117, i64 40
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 40
   %119 = call noundef i32 @_ZN13ValueRecorderIP8MetadataE16maybe_find_indexES1_(ptr noundef nonnull align 8 dereferenceable(33) %118, ptr noundef %116) #10
   %120 = icmp slt i32 %119, 0
   br i1 %120, label %121, label %_ZN11OopRecorder10find_indexEP8Metadata.exit
@@ -652,15 +652,15 @@ _ZN11OopRecorder10find_indexEP8Metadata.exit:     ; preds = %115, %121
 
 125:                                              ; preds = %_ZN11OopRecorder10find_indexEP8Metadata.exit
   %126 = load ptr, ptr %12, align 8
-  %127 = getelementptr inbounds i8, ptr %126, i64 16
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 16
   %128 = load ptr, ptr %127, align 8
   call void @_ZN11CodeSection8relocateEPhRK16RelocationHolderi(ptr noundef nonnull align 8 dereferenceable(88) %126, ptr noundef %128, ptr noundef nonnull align 8 dereferenceable(40) %4, i32 noundef 0) #10
   %129 = load ptr, ptr %12, align 8
-  %130 = getelementptr inbounds i8, ptr %129, i64 16
+  %130 = getelementptr inbounds nuw i8, ptr %129, i64 16
   %131 = load ptr, ptr %130, align 8
   store ptr %116, ptr %131, align 1
   %132 = load ptr, ptr %130, align 8
-  %133 = getelementptr inbounds i8, ptr %132, i64 8
+  %133 = getelementptr inbounds nuw i8, ptr %132, i64 8
   store ptr %133, ptr %130, align 8
   br label %_ZN17AbstractAssembler12int_constantEi.exit.thread100.sink.split
 
@@ -671,7 +671,7 @@ _ZN11OopRecorder10find_indexEP8Metadata.exit:     ; preds = %115, %121
   unreachable
 
 _ZN17AbstractAssembler12int_constantEi.exit:      ; preds = %16
-  %.sroa.449.0..sroa_idx = getelementptr inbounds i8, ptr %18, i64 4
+  %.sroa.449.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 4
   %.sroa.449.0.copyload = load i32, ptr %.sroa.449.0..sroa_idx, align 4
   %.sroa.5.sroa.10.0.insert.ext = zext i32 %.sroa.5.0.copyload61 to i64
   %.sroa.5.sroa.10.0.insert.shift = shl nuw i64 %.sroa.5.sroa.10.0.insert.ext, 32
@@ -701,11 +701,11 @@ _ZN17AbstractAssembler16address_constantEPh.exit43.thread: ; preds = %_ZN17Abstr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN17AbstractAssembler14array_constantE9BasicTypeP13GrowableArrayI6jvalueEi(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 noundef zeroext %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 comdat align 2 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load i32, ptr %2, align 4
   %8 = zext i8 %1 to i64
-  %9 = getelementptr inbounds [20 x i32], ptr @_type2aelembytes, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw [20 x i32], ptr @_type2aelembytes, i64 0, i64 %8
   %10 = load i32, ptr %9, align 4
   %11 = mul nsw i32 %10, %7
   %12 = tail call noundef ptr @_ZN17AbstractAssembler13start_a_constEii(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %11, i32 noundef %3) #10
@@ -717,7 +717,7 @@ define linkonce_odr hidden noundef ptr @_ZN17AbstractAssembler14array_constantE9
   br i1 %13, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  %14 = getelementptr inbounds i8, ptr %2, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.off = add i8 %1, -4
   %switch = icmp ult i8 %.off, 8
   br i1 %switch, label %.lr.ph.split, label %70
@@ -737,13 +737,13 @@ define linkonce_odr hidden noundef ptr @_ZN17AbstractAssembler14array_constantE9
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %.lr.ph.split.split.us
   %indvars.iv154 = phi i64 [ %indvars.iv.next155, %.lr.ph.split.split.us ], [ 0, %.lr.ph.split ]
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds %union.jvalue, ptr %15, i64 %indvars.iv154
+  %16 = getelementptr inbounds nuw %union.jvalue, ptr %15, i64 %indvars.iv154
   %.sroa.0.0.copyload8.us = load i32, ptr %16, align 8
   %17 = load ptr, ptr %5, align 8
   %.0.i.i.us = trunc i32 %.sroa.0.0.copyload8.us to i8
-  %18 = getelementptr inbounds i8, ptr %17, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 1
   store i8 %.0.i.i.us, ptr %19, align 1
   store ptr %20, ptr %18, align 8
   %indvars.iv.next155 = add nuw nsw i64 %indvars.iv154, 1
@@ -753,13 +753,13 @@ define linkonce_odr hidden noundef ptr @_ZN17AbstractAssembler14array_constantE9
 .lr.ph.split.split.us91:                          ; preds = %.lr.ph.split, %.lr.ph.split.split.us91
   %indvars.iv149 = phi i64 [ %indvars.iv.next150, %.lr.ph.split.split.us91 ], [ 0, %.lr.ph.split ]
   %21 = load ptr, ptr %14, align 8
-  %22 = getelementptr inbounds %union.jvalue, ptr %21, i64 %indvars.iv149
+  %22 = getelementptr inbounds nuw %union.jvalue, ptr %21, i64 %indvars.iv149
   %.sroa.0.0.copyload8.us93 = load i32, ptr %22, align 8
   %23 = load ptr, ptr %5, align 8
   %.0.i.i87.us = trunc i32 %.sroa.0.0.copyload8.us93 to i8
-  %24 = getelementptr inbounds i8, ptr %23, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 1
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 1
   store i8 %.0.i.i87.us, ptr %25, align 1
   store ptr %26, ptr %24, align 8
   %indvars.iv.next150 = add nuw nsw i64 %indvars.iv149, 1
@@ -769,15 +769,15 @@ define linkonce_odr hidden noundef ptr @_ZN17AbstractAssembler14array_constantE9
 .lr.ph.split.split.us96:                          ; preds = %.lr.ph.split, %.lr.ph.split.split.us96
   %indvars.iv144 = phi i64 [ %indvars.iv.next145, %.lr.ph.split.split.us96 ], [ 0, %.lr.ph.split ]
   %27 = load ptr, ptr %14, align 8
-  %28 = getelementptr inbounds %union.jvalue, ptr %27, i64 %indvars.iv144
+  %28 = getelementptr inbounds nuw %union.jvalue, ptr %27, i64 %indvars.iv144
   %.sroa.0.0.copyload8.us98 = load i32, ptr %28, align 8
   %29 = load ptr, ptr %5, align 8
   %.0.i.i88.us = trunc i32 %.sroa.0.0.copyload8.us98 to i16
-  %30 = getelementptr inbounds i8, ptr %29, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %31 = load ptr, ptr %30, align 8
   store i16 %.0.i.i88.us, ptr %31, align 1
   %32 = load ptr, ptr %30, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 2
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 2
   store ptr %33, ptr %30, align 8
   %indvars.iv.next145 = add nuw nsw i64 %indvars.iv144, 1
   %exitcond148.not = icmp eq i64 %indvars.iv.next145, %wide.trip.count162
@@ -786,15 +786,15 @@ define linkonce_odr hidden noundef ptr @_ZN17AbstractAssembler14array_constantE9
 .lr.ph.split.split.us101:                         ; preds = %.lr.ph.split, %.lr.ph.split.split.us101
   %indvars.iv139 = phi i64 [ %indvars.iv.next140, %.lr.ph.split.split.us101 ], [ 0, %.lr.ph.split ]
   %34 = load ptr, ptr %14, align 8
-  %35 = getelementptr inbounds %union.jvalue, ptr %34, i64 %indvars.iv139
+  %35 = getelementptr inbounds nuw %union.jvalue, ptr %34, i64 %indvars.iv139
   %.sroa.0.0.copyload8.us103 = load i32, ptr %35, align 8
   %36 = trunc i32 %.sroa.0.0.copyload8.us103 to i16
   %37 = load ptr, ptr %5, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %39 = load ptr, ptr %38, align 8
   store i16 %36, ptr %39, align 1
   %40 = load ptr, ptr %38, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 2
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 2
   store ptr %41, ptr %38, align 8
   %indvars.iv.next140 = add nuw nsw i64 %indvars.iv139, 1
   %exitcond143.not = icmp eq i64 %indvars.iv.next140, %wide.trip.count162
@@ -803,14 +803,14 @@ define linkonce_odr hidden noundef ptr @_ZN17AbstractAssembler14array_constantE9
 .lr.ph.split.split.us106:                         ; preds = %.lr.ph.split, %.lr.ph.split.split.us106
   %indvars.iv134 = phi i64 [ %indvars.iv.next135, %.lr.ph.split.split.us106 ], [ 0, %.lr.ph.split ]
   %42 = load ptr, ptr %14, align 8
-  %43 = getelementptr inbounds %union.jvalue, ptr %42, i64 %indvars.iv134
+  %43 = getelementptr inbounds nuw %union.jvalue, ptr %42, i64 %indvars.iv134
   %.sroa.0.0.copyload8.us108 = load i32, ptr %43, align 8
   %44 = load ptr, ptr %5, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %46 = load ptr, ptr %45, align 8
   store i32 %.sroa.0.0.copyload8.us108, ptr %46, align 1
   %47 = load ptr, ptr %45, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 4
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 4
   store ptr %48, ptr %45, align 8
   %indvars.iv.next135 = add nuw nsw i64 %indvars.iv134, 1
   %exitcond138.not = icmp eq i64 %indvars.iv.next135, %wide.trip.count162
@@ -819,20 +819,20 @@ define linkonce_odr hidden noundef ptr @_ZN17AbstractAssembler14array_constantE9
 .lr.ph.split.split.us111:                         ; preds = %.lr.ph.split, %.lr.ph.split.split.us111
   %indvars.iv129 = phi i64 [ %indvars.iv.next130, %.lr.ph.split.split.us111 ], [ 0, %.lr.ph.split ]
   %49 = load ptr, ptr %14, align 8
-  %50 = getelementptr inbounds %union.jvalue, ptr %49, i64 %indvars.iv129
+  %50 = getelementptr inbounds nuw %union.jvalue, ptr %49, i64 %indvars.iv129
   %.sroa.0.0.copyload8.us113 = load i32, ptr %50, align 8
-  %.sroa_idx.us114 = getelementptr inbounds i8, ptr %50, i64 4
+  %.sroa_idx.us114 = getelementptr inbounds nuw i8, ptr %50, i64 4
   %.sroa.0.0.copyload9.us115 = load i32, ptr %.sroa_idx.us114, align 4
   %.sroa.0.sroa.9.0.insert.ext13.us = zext i32 %.sroa.0.0.copyload9.us115 to i64
   %.sroa.0.sroa.9.0.insert.shift14.us = shl nuw i64 %.sroa.0.sroa.9.0.insert.ext13.us, 32
   %.sroa.0.sroa.0.0.insert.ext10.us = zext i32 %.sroa.0.0.copyload8.us113 to i64
   %.sroa.0.sroa.0.0.insert.insert12.us = or disjoint i64 %.sroa.0.sroa.9.0.insert.shift14.us, %.sroa.0.sroa.0.0.insert.ext10.us
   %51 = load ptr, ptr %5, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %53 = load ptr, ptr %52, align 8
   store i64 %.sroa.0.sroa.0.0.insert.insert12.us, ptr %53, align 1
   %54 = load ptr, ptr %52, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
   store ptr %55, ptr %52, align 8
   %indvars.iv.next130 = add nuw nsw i64 %indvars.iv129, 1
   %exitcond133.not = icmp eq i64 %indvars.iv.next130, %wide.trip.count162
@@ -841,14 +841,14 @@ define linkonce_odr hidden noundef ptr @_ZN17AbstractAssembler14array_constantE9
 .lr.ph.split.split.us116:                         ; preds = %.lr.ph.split, %.lr.ph.split.split.us116
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split.split.us116 ], [ 0, %.lr.ph.split ]
   %56 = load ptr, ptr %14, align 8
-  %57 = getelementptr inbounds %union.jvalue, ptr %56, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw %union.jvalue, ptr %56, i64 %indvars.iv
   %.sroa.0.0.copyload8.us118 = load i32, ptr %57, align 8
   %58 = load ptr, ptr %5, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 16
   %60 = load ptr, ptr %59, align 8
   store i32 %.sroa.0.0.copyload8.us118, ptr %60, align 1
   %61 = load ptr, ptr %59, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 4
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 4
   store ptr %62, ptr %59, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count162
@@ -857,20 +857,20 @@ define linkonce_odr hidden noundef ptr @_ZN17AbstractAssembler14array_constantE9
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %.lr.ph.split.split
   %indvars.iv159 = phi i64 [ %indvars.iv.next160, %.lr.ph.split.split ], [ 0, %.lr.ph.split ]
   %63 = load ptr, ptr %14, align 8
-  %64 = getelementptr inbounds %union.jvalue, ptr %63, i64 %indvars.iv159
+  %64 = getelementptr inbounds nuw %union.jvalue, ptr %63, i64 %indvars.iv159
   %.sroa.0.0.copyload8 = load i32, ptr %64, align 8
-  %.sroa_idx = getelementptr inbounds i8, ptr %64, i64 4
+  %.sroa_idx = getelementptr inbounds nuw i8, ptr %64, i64 4
   %.sroa.0.0.copyload9 = load i32, ptr %.sroa_idx, align 4
   %.sroa.0.sroa.9.0.insert.ext = zext i32 %.sroa.0.0.copyload9 to i64
   %.sroa.0.sroa.9.0.insert.shift = shl nuw i64 %.sroa.0.sroa.9.0.insert.ext, 32
   %.sroa.0.sroa.0.0.insert.ext = zext i32 %.sroa.0.0.copyload8 to i64
   %.sroa.0.sroa.0.0.insert.insert = or disjoint i64 %.sroa.0.sroa.9.0.insert.shift, %.sroa.0.sroa.0.0.insert.ext
   %65 = load ptr, ptr %5, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 16
   %67 = load ptr, ptr %66, align 8
   store i64 %.sroa.0.sroa.0.0.insert.insert, ptr %67, align 1
   %68 = load ptr, ptr %66, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
   store ptr %69, ptr %66, align 8
   %indvars.iv.next160 = add nuw nsw i64 %indvars.iv159, 1
   %exitcond163.not = icmp eq i64 %indvars.iv.next160, %wide.trip.count162
@@ -897,13 +897,13 @@ define hidden noundef range(i32 0, -1) i32 @_ZNK13ConstantTable11find_offsetERNS
   br i1 %4, label %.lr.ph.i, label %_ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit.thread
 
 .lr.ph.i:                                         ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %6
 
 6:                                                ; preds = %10, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %10 ]
   %7 = load ptr, ptr %5, align 8
-  %8 = getelementptr inbounds %"class.ConstantTable::Constant", ptr %7, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw %"class.ConstantTable::Constant", ptr %7, i64 %indvars.iv.i
   %9 = tail call noundef zeroext i1 @_ZN13ConstantTable8ConstanteqERKS0_(ptr noundef nonnull align 8 dereferenceable(25) %8, ptr noundef nonnull align 8 dereferenceable(25) %1)
   br i1 %9, label %_ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit, label %10
 
@@ -925,7 +925,7 @@ _ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit: ; preds = %
   %sext = shl i64 %indvars.iv.i, 32
   %16 = ashr exact i64 %sext, 27
   %17 = getelementptr inbounds i8, ptr %15, i64 %16
-  %18 = getelementptr inbounds i8, ptr %17, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load i32, ptr %18, align 8
   %.not6 = icmp eq i32 %19, -1
   br i1 %.not6, label %20, label %22
@@ -945,7 +945,7 @@ declare void @_Z15report_vm_errorPKciS0_S0_z(ptr noundef, i32 noundef, ptr nound
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN13ConstantTable3addERNS_8ConstantE(ptr noundef nonnull align 8 dereferenceable(36) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
   %6 = load i32, ptr %0, align 8
@@ -954,13 +954,13 @@ define hidden void @_ZN13ConstantTable3addERNS_8ConstantE(ptr noundef nonnull al
   br i1 %or.cond, label %.lr.ph.i, label %_ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit.thread
 
 .lr.ph.i:                                         ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %9
 
 9:                                                ; preds = %13, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %13 ]
   %10 = load ptr, ptr %8, align 8
-  %11 = getelementptr inbounds %"class.ConstantTable::Constant", ptr %10, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw %"class.ConstantTable::Constant", ptr %10, i64 %indvars.iv.i
   %12 = tail call noundef zeroext i1 @_ZN13ConstantTable8ConstanteqERKS0_(ptr noundef nonnull align 8 dereferenceable(25) %11, ptr noundef nonnull align 8 dereferenceable(25) %1)
   br i1 %12, label %_ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit, label %13
 
@@ -976,7 +976,7 @@ _ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit: ; preds = %
   %sext = shl i64 %indvars.iv.i, 32
   %18 = ashr exact i64 %sext, 27
   %19 = getelementptr inbounds i8, ptr %17, i64 %18
-  %20 = getelementptr inbounds i8, ptr %19, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %21 = load i8, ptr %20, align 8
   %22 = trunc i8 %21 to i1
   br i1 %22, label %23, label %_ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit._ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit.thread_crit_edge
@@ -986,9 +986,9 @@ _ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit._ZNK17Growab
   br label %_ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit.thread
 
 23:                                               ; preds = %_ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit
-  %24 = getelementptr inbounds i8, ptr %1, i64 20
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %25 = load float, ptr %24, align 4
-  %26 = getelementptr inbounds i8, ptr %19, i64 20
+  %26 = getelementptr inbounds nuw i8, ptr %19, i64 20
   %27 = load float, ptr %26, align 4
   %28 = fadd float %25, %27
   store float %28, ptr %26, align 4
@@ -996,7 +996,7 @@ _ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit._ZNK17Growab
 
 _ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit.thread: ; preds = %13, %_ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit._ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit.thread_crit_edge, %2
   %29 = phi i32 [ %.pre, %_ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit._ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit.thread_crit_edge ], [ %6, %2 ], [ %14, %13 ]
-  %30 = getelementptr inbounds i8, ptr %0, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %31 = load i32, ptr %30, align 4
   %32 = icmp eq i32 %29, %31
   br i1 %32, label %33, label %_ZN26GrowableArrayWithAllocatorIN13ConstantTable8ConstantE13GrowableArrayIS1_EE6appendERKS1_.exit
@@ -1019,7 +1019,7 @@ _ZN26GrowableArrayWithAllocatorIN13ConstantTable8ConstantE13GrowableArrayIS1_EE6
   %41 = phi i32 [ %.pre.i, %33 ], [ %29, %_ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit.thread ]
   %42 = add nsw i32 %41, 1
   store i32 %42, ptr %0, align 8
-  %43 = getelementptr inbounds i8, ptr %0, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %44 = load ptr, ptr %43, align 8
   %45 = sext i32 %41 to i64
   %46 = getelementptr inbounds %"class.ConstantTable::Constant", ptr %44, i64 %45
@@ -1034,58 +1034,58 @@ _ZN26GrowableArrayWithAllocatorIN13ConstantTable8ConstantE13GrowableArrayIS1_EE6
 define hidden void @_ZN13ConstantTable3addEP16MachConstantNode9BasicType6jvalue(ptr dead_on_unwind noalias nocapture writable sret(%"class.ConstantTable::Constant") align 8 initializes((0, 2), (4, 25)) %0, ptr noundef nonnull align 8 dereferenceable(36) %1, ptr nocapture noundef readonly %2, i8 noundef zeroext %3, i64 %4) local_unnamed_addr #0 align 2 {
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 1808
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 1808
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 128
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 128
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 2136
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 2136
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %2, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %15 = load i32, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %13, i64 120
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 120
   %17 = load ptr, ptr %16, align 8
   %18 = zext i32 %15 to i64
-  %19 = getelementptr inbounds ptr, ptr %17, i64 %18
+  %19 = getelementptr inbounds nuw ptr, ptr %17, i64 %18
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load double, ptr %21, align 8
   %23 = fptrunc double %22 to float
   store i8 %3, ptr %0, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 0, ptr %24, align 1
-  %25 = getelementptr inbounds i8, ptr %0, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 -1, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 20
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store float %23, ptr %26, align 4
-  %27 = getelementptr inbounds i8, ptr %0, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i8 1, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %4, ptr %28, align 8
   %29 = icmp eq i8 %3, 14
   br i1 %29, label %_ZN13ConstantTable8ConstantC2E9BasicType6jvaluefb.exit, label %30
 
 30:                                               ; preds = %5
   %31 = zext i8 %3 to i64
-  %32 = getelementptr inbounds [20 x i32], ptr @_type2aelembytes, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw [20 x i32], ptr @_type2aelembytes, i64 0, i64 %31
   %33 = load i32, ptr %32, align 4
   br label %_ZN13ConstantTable8ConstantC2E9BasicType6jvaluefb.exit
 
 _ZN13ConstantTable8ConstantC2E9BasicType6jvaluefb.exit: ; preds = %5, %30
   %34 = phi i32 [ %33, %30 ], [ 8, %5 ]
-  %35 = getelementptr inbounds i8, ptr %0, i64 4
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %34, ptr %35, align 4
   %36 = load i32, ptr %1, align 8
   %37 = icmp sgt i32 %36, 0
   br i1 %37, label %.lr.ph.i.i, label %_ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit.thread.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN13ConstantTable8ConstantC2E9BasicType6jvaluefb.exit
-  %38 = getelementptr inbounds i8, ptr %1, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %39
 
 39:                                               ; preds = %43, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %43 ]
   %40 = load ptr, ptr %38, align 8
-  %41 = getelementptr inbounds %"class.ConstantTable::Constant", ptr %40, i64 %indvars.iv.i.i
+  %41 = getelementptr inbounds nuw %"class.ConstantTable::Constant", ptr %40, i64 %indvars.iv.i.i
   %42 = tail call noundef zeroext i1 @_ZN13ConstantTable8ConstanteqERKS0_(ptr noundef nonnull align 8 dereferenceable(25) %41, ptr noundef nonnull readonly align 8 dereferenceable(25) %0)
   br i1 %42, label %_ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit.i, label %43
 
@@ -1101,7 +1101,7 @@ _ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit.i: ; preds =
   %sext.i = shl i64 %indvars.iv.i.i, 32
   %48 = ashr exact i64 %sext.i, 27
   %49 = getelementptr inbounds i8, ptr %47, i64 %48
-  %50 = getelementptr inbounds i8, ptr %49, i64 24
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 24
   %51 = load i8, ptr %50, align 8
   %52 = trunc i8 %51 to i1
   br i1 %52, label %53, label %_ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit._ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit.thread_crit_edge.i
@@ -1111,7 +1111,7 @@ _ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit._ZNK17Growab
   br label %_ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit.thread.i
 
 53:                                               ; preds = %_ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit.i
-  %54 = getelementptr inbounds i8, ptr %49, i64 20
+  %54 = getelementptr inbounds nuw i8, ptr %49, i64 20
   %55 = load float, ptr %54, align 4
   %56 = fadd float %55, %23
   store float %56, ptr %54, align 4
@@ -1119,7 +1119,7 @@ _ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit._ZNK17Growab
 
 _ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit.thread.i: ; preds = %43, %_ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit._ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit.thread_crit_edge.i, %_ZN13ConstantTable8ConstantC2E9BasicType6jvaluefb.exit
   %57 = phi i32 [ %.pre.i, %_ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit._ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit.thread_crit_edge.i ], [ %36, %_ZN13ConstantTable8ConstantC2E9BasicType6jvaluefb.exit ], [ %44, %43 ]
-  %58 = getelementptr inbounds i8, ptr %1, i64 4
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %59 = load i32, ptr %58, align 4
   %60 = icmp eq i32 %57, %59
   br i1 %60, label %61, label %_ZN26GrowableArrayWithAllocatorIN13ConstantTable8ConstantE13GrowableArrayIS1_EE6appendERKS1_.exit.i
@@ -1142,7 +1142,7 @@ _ZN26GrowableArrayWithAllocatorIN13ConstantTable8ConstantE13GrowableArrayIS1_EE6
   %69 = phi i32 [ %.pre.i.i, %61 ], [ %57, %_ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit.thread.i ]
   %70 = add nsw i32 %69, 1
   store i32 %70, ptr %1, align 8
-  %71 = getelementptr inbounds i8, ptr %1, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %72 = load ptr, ptr %71, align 8
   %73 = sext i32 %69 to i64
   %74 = getelementptr inbounds %"class.ConstantTable::Constant", ptr %72, i64 %73
@@ -1156,30 +1156,30 @@ _ZN13ConstantTable3addERNS_8ConstantE.exit:       ; preds = %53, %_ZN26GrowableA
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN13ConstantTable3addEP8Metadata(ptr dead_on_unwind noalias nocapture writable sret(%"class.ConstantTable::Constant") align 8 initializes((0, 2), (4, 25)) %0, ptr noundef nonnull align 8 dereferenceable(36) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   store i8 17, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 1
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 0, ptr %4, align 1
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 8, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 -1, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 20
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store float 0.000000e+00, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i8 1, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %9, align 8
   %10 = load i32, ptr %1, align 8
   %11 = icmp sgt i32 %10, 0
   br i1 %11, label %.lr.ph.i.i, label %_ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit.thread.i
 
 .lr.ph.i.i:                                       ; preds = %3
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %13
 
 13:                                               ; preds = %17, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %17 ]
   %14 = load ptr, ptr %12, align 8
-  %15 = getelementptr inbounds %"class.ConstantTable::Constant", ptr %14, i64 %indvars.iv.i.i
+  %15 = getelementptr inbounds nuw %"class.ConstantTable::Constant", ptr %14, i64 %indvars.iv.i.i
   %16 = tail call noundef zeroext i1 @_ZN13ConstantTable8ConstanteqERKS0_(ptr noundef nonnull align 8 dereferenceable(25) %15, ptr noundef nonnull readonly align 8 dereferenceable(25) %0)
   br i1 %16, label %_ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit.i, label %17
 
@@ -1195,7 +1195,7 @@ _ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit.i: ; preds =
   %sext.i = shl i64 %indvars.iv.i.i, 32
   %22 = ashr exact i64 %sext.i, 27
   %23 = getelementptr inbounds i8, ptr %21, i64 %22
-  %24 = getelementptr inbounds i8, ptr %23, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 24
   %25 = load i8, ptr %24, align 8
   %26 = trunc i8 %25 to i1
   br i1 %26, label %27, label %_ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit._ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit.thread_crit_edge.i
@@ -1205,7 +1205,7 @@ _ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit._ZNK17Growab
   br label %_ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit.thread.i
 
 27:                                               ; preds = %_ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit.i
-  %28 = getelementptr inbounds i8, ptr %23, i64 20
+  %28 = getelementptr inbounds nuw i8, ptr %23, i64 20
   %29 = load float, ptr %28, align 4
   %30 = fadd float %29, 0.000000e+00
   store float %30, ptr %28, align 4
@@ -1213,7 +1213,7 @@ _ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit._ZNK17Growab
 
 _ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit.thread.i: ; preds = %17, %_ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit._ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit.thread_crit_edge.i, %3
   %31 = phi i32 [ %.pre.i, %_ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit._ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit.thread_crit_edge.i ], [ %10, %3 ], [ %18, %17 ]
-  %32 = getelementptr inbounds i8, ptr %1, i64 4
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %33 = load i32, ptr %32, align 4
   %34 = icmp eq i32 %31, %33
   br i1 %34, label %35, label %_ZN26GrowableArrayWithAllocatorIN13ConstantTable8ConstantE13GrowableArrayIS1_EE6appendERKS1_.exit.i
@@ -1236,7 +1236,7 @@ _ZN26GrowableArrayWithAllocatorIN13ConstantTable8ConstantE13GrowableArrayIS1_EE6
   %43 = phi i32 [ %.pre.i.i, %35 ], [ %31, %_ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit.thread.i ]
   %44 = add nsw i32 %43, 1
   store i32 %44, ptr %1, align 8
-  %45 = getelementptr inbounds i8, ptr %1, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %46 = load ptr, ptr %45, align 8
   %47 = sext i32 %43 to i64
   %48 = getelementptr inbounds %"class.ConstantTable::Constant", ptr %46, i64 %47
@@ -1250,7 +1250,7 @@ _ZN13ConstantTable3addERNS_8ConstantE.exit:       ; preds = %27, %_ZN26GrowableA
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN13ConstantTable3addEP16MachConstantNode9BasicTypeP13GrowableArrayI6jvalueEi(ptr dead_on_unwind noalias nonnull writable sret(%"class.ConstantTable::Constant") align 8 %0, ptr noundef nonnull align 8 dereferenceable(36) %1, ptr nocapture readnone %2, i8 noundef zeroext %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #0 align 2 {
   tail call void @_ZN13ConstantTable8ConstantC2E9BasicTypeP13GrowableArrayI6jvalueEib(ptr noundef nonnull align 8 dereferenceable(25) %0, i8 noundef zeroext %3, ptr noundef %4, i32 noundef %5, i1 noundef zeroext true)
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load i8, ptr %7, align 8
   %9 = trunc i8 %8 to i1
   %10 = load i32, ptr %1, align 8
@@ -1259,13 +1259,13 @@ define hidden void @_ZN13ConstantTable3addEP16MachConstantNode9BasicTypeP13Growa
   br i1 %or.cond.i, label %.lr.ph.i.i, label %_ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit.thread.i
 
 .lr.ph.i.i:                                       ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %13
 
 13:                                               ; preds = %17, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %17 ]
   %14 = load ptr, ptr %12, align 8
-  %15 = getelementptr inbounds %"class.ConstantTable::Constant", ptr %14, i64 %indvars.iv.i.i
+  %15 = getelementptr inbounds nuw %"class.ConstantTable::Constant", ptr %14, i64 %indvars.iv.i.i
   %16 = tail call noundef zeroext i1 @_ZN13ConstantTable8ConstanteqERKS0_(ptr noundef nonnull align 8 dereferenceable(25) %15, ptr noundef nonnull readonly align 8 dereferenceable(25) %0)
   br i1 %16, label %_ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit.i, label %17
 
@@ -1281,7 +1281,7 @@ _ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit.i: ; preds =
   %sext.i = shl i64 %indvars.iv.i.i, 32
   %22 = ashr exact i64 %sext.i, 27
   %23 = getelementptr inbounds i8, ptr %21, i64 %22
-  %24 = getelementptr inbounds i8, ptr %23, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 24
   %25 = load i8, ptr %24, align 8
   %26 = trunc i8 %25 to i1
   br i1 %26, label %27, label %_ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit._ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit.thread_crit_edge.i
@@ -1291,9 +1291,9 @@ _ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit._ZNK17Growab
   br label %_ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit.thread.i
 
 27:                                               ; preds = %_ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit.i
-  %28 = getelementptr inbounds i8, ptr %0, i64 20
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %29 = load float, ptr %28, align 4
-  %30 = getelementptr inbounds i8, ptr %23, i64 20
+  %30 = getelementptr inbounds nuw i8, ptr %23, i64 20
   %31 = load float, ptr %30, align 4
   %32 = fadd float %29, %31
   store float %32, ptr %30, align 4
@@ -1301,7 +1301,7 @@ _ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit._ZNK17Growab
 
 _ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit.thread.i: ; preds = %17, %_ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit._ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit.thread_crit_edge.i, %6
   %33 = phi i32 [ %.pre.i, %_ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit._ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit.thread_crit_edge.i ], [ %10, %6 ], [ %18, %17 ]
-  %34 = getelementptr inbounds i8, ptr %1, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %35 = load i32, ptr %34, align 4
   %36 = icmp eq i32 %33, %35
   br i1 %36, label %37, label %_ZN26GrowableArrayWithAllocatorIN13ConstantTable8ConstantE13GrowableArrayIS1_EE6appendERKS1_.exit.i
@@ -1324,7 +1324,7 @@ _ZN26GrowableArrayWithAllocatorIN13ConstantTable8ConstantE13GrowableArrayIS1_EE6
   %45 = phi i32 [ %.pre.i.i, %37 ], [ %33, %_ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit.thread.i ]
   %46 = add nsw i32 %45, 1
   store i32 %46, ptr %1, align 8
-  %47 = getelementptr inbounds i8, ptr %1, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %48 = load ptr, ptr %47, align 8
   %49 = sext i32 %45 to i64
   %50 = getelementptr inbounds %"class.ConstantTable::Constant", ptr %48, i64 %49
@@ -1339,23 +1339,23 @@ _ZN13ConstantTable3addERNS_8ConstantE.exit:       ; preds = %27, %_ZN26GrowableA
 define linkonce_odr hidden void @_ZN13ConstantTable8ConstantC2E9BasicTypeP13GrowableArrayI6jvalueEib(ptr noundef nonnull align 8 dereferenceable(25) %0, i8 noundef zeroext %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4) unnamed_addr #0 comdat align 2 {
   %6 = zext i1 %4 to i8
   store i8 %1, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 1
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 1, ptr %7, align 1
-  %8 = getelementptr inbounds i8, ptr %0, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %3, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 -1, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 20
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store float 0.000000e+00, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i8 %6, ptr %11, align 8
   %12 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 24, i32 noundef 0) #10
   %13 = load i32, ptr %2, align 4
   %14 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef %13, i32 noundef 8) #10
   store i32 0, ptr %12, align 4
-  %15 = getelementptr inbounds i8, ptr %12, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store i32 %13, ptr %15, align 4
-  %16 = getelementptr inbounds i8, ptr %12, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %14, ptr %16, align 8
   %17 = icmp sgt i32 %13, 0
   br i1 %17, label %.lr.ph.preheader.i.i, label %_ZN13GrowableArrayI6jvalueEC2Ei.exit
@@ -1367,27 +1367,27 @@ define linkonce_odr hidden void @_ZN13ConstantTable8ConstantC2E9BasicTypeP13Grow
   br label %_ZN13GrowableArrayI6jvalueEC2Ei.exit
 
 _ZN13GrowableArrayI6jvalueEC2Ei.exit:             ; preds = %5, %.lr.ph.preheader.i.i
-  %20 = getelementptr inbounds i8, ptr %12, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i64 0, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %12, ptr %21, align 8
   %22 = load i32, ptr %2, align 4
   %.not13 = icmp eq i32 %22, 0
   br i1 %.not13, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN13GrowableArrayI6jvalueEC2Ei.exit
-  %23 = getelementptr inbounds i8, ptr %2, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %24 = zext i32 %22 to i64
   br label %25
 
 25:                                               ; preds = %.lr.ph, %_ZN26GrowableArrayWithAllocatorI6jvalue13GrowableArrayIS0_EE6appendERKS0_.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN26GrowableArrayWithAllocatorI6jvalue13GrowableArrayIS0_EE6appendERKS0_.exit ]
   %26 = load ptr, ptr %23, align 8
-  %27 = getelementptr inbounds %union.jvalue, ptr %26, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw %union.jvalue, ptr %26, i64 %indvars.iv
   %.sroa.0.0.copyload.i = load i64, ptr %27, align 8
   %28 = load ptr, ptr %21, align 8
   %29 = load i32, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %28, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %28, i64 4
   %31 = load i32, ptr %30, align 4
   %32 = icmp eq i32 %29, %31
   br i1 %32, label %33, label %_ZN26GrowableArrayWithAllocatorI6jvalue13GrowableArrayIS0_EE6appendERKS0_.exit
@@ -1410,7 +1410,7 @@ _ZN26GrowableArrayWithAllocatorI6jvalue13GrowableArrayIS0_EE6appendERKS0_.exit: 
   %41 = phi i32 [ %.pre.i, %33 ], [ %29, %25 ]
   %42 = add nsw i32 %41, 1
   store i32 %42, ptr %28, align 8
-  %43 = getelementptr inbounds i8, ptr %28, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %44 = load ptr, ptr %43, align 8
   %45 = sext i32 %41 to i64
   %46 = getelementptr inbounds %union.jvalue, ptr %44, i64 %45
@@ -1427,7 +1427,7 @@ _ZN26GrowableArrayWithAllocatorI6jvalue13GrowableArrayIS0_EE6appendERKS0_.exit: 
 define hidden void @_ZN13ConstantTable3addEP16MachConstantNode9BasicTypeP13GrowableArrayI6jvalueE(ptr dead_on_unwind noalias writable sret(%"class.ConstantTable::Constant") align 8 %0, ptr noundef nonnull align 8 dereferenceable(36) %1, ptr nocapture noundef readnone %2, i8 noundef zeroext %3, ptr noundef %4) local_unnamed_addr #0 align 2 {
   %6 = load i32, ptr %4, align 4
   %7 = zext i8 %3 to i64
-  %8 = getelementptr inbounds [20 x i32], ptr @_type2aelembytes, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw [20 x i32], ptr @_type2aelembytes, i64 0, i64 %7
   %9 = load i32, ptr %8, align 4
   %10 = mul nsw i32 %9, %6
   tail call void @_ZN13ConstantTable3addEP16MachConstantNode9BasicTypeP13GrowableArrayI6jvalueEi(ptr dead_on_unwind writable sret(%"class.ConstantTable::Constant") align 8 %0, ptr noundef nonnull align 8 dereferenceable(36) %1, ptr poison, i8 noundef zeroext %3, ptr noundef nonnull %4, i32 noundef %10)
@@ -1437,13 +1437,13 @@ define hidden void @_ZN13ConstantTable3addEP16MachConstantNode9BasicTypeP13Growa
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN13ConstantTable3addEP16MachConstantNodeP8MachOper(ptr dead_on_unwind noalias nocapture writable sret(%"class.ConstantTable::Constant") align 8 %0, ptr noundef nonnull align 8 dereferenceable(36) %1, ptr nocapture noundef readonly %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 216
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 216
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef ptr %7(ptr noundef nonnull align 8 dereferenceable(8) %3) #10
-  %9 = getelementptr inbounds i8, ptr %8, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load i32, ptr %9, align 8
   %11 = zext i32 %10 to i64
-  %12 = getelementptr inbounds [0 x %"struct.Type::TypeInfo"], ptr @_ZN4Type10_type_infoE, i64 0, i64 %11, i32 1
+  %12 = getelementptr inbounds nuw [0 x %"struct.Type::TypeInfo"], ptr @_ZN4Type10_type_infoE, i64 0, i64 %11, i32 1
   %13 = load i8, ptr %12, align 4
   switch i8 %13, label %48 [
     i8 11, label %14
@@ -1457,7 +1457,7 @@ define hidden void @_ZN13ConstantTable3addEP16MachConstantNodeP8MachOper(ptr dea
 
 14:                                               ; preds = %4
   %15 = load ptr, ptr %3, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 80
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 80
   %17 = load ptr, ptr %16, align 8
   %18 = tail call noundef i64 %17(ptr noundef nonnull align 8 dereferenceable(8) %3) #10
   %.sroa.03.sroa.0.0.extract.trunc7 = trunc i64 %18 to i32
@@ -1466,7 +1466,7 @@ define hidden void @_ZN13ConstantTable3addEP16MachConstantNodeP8MachOper(ptr dea
 
 19:                                               ; preds = %4
   %20 = load ptr, ptr %3, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 48
   %22 = load ptr, ptr %21, align 8
   %23 = tail call noundef i64 %22(ptr noundef nonnull align 8 dereferenceable(8) %3) #10
   %24 = trunc i64 %23 to i32
@@ -1474,7 +1474,7 @@ define hidden void @_ZN13ConstantTable3addEP16MachConstantNodeP8MachOper(ptr dea
 
 25:                                               ; preds = %4
   %26 = load ptr, ptr %3, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 72
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 72
   %28 = load ptr, ptr %27, align 8
   %29 = tail call noundef float %28(ptr noundef nonnull align 8 dereferenceable(8) %3) #10
   %30 = bitcast float %29 to i32
@@ -1482,7 +1482,7 @@ define hidden void @_ZN13ConstantTable3addEP16MachConstantNodeP8MachOper(ptr dea
 
 31:                                               ; preds = %4
   %32 = load ptr, ptr %3, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 64
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 64
   %34 = load ptr, ptr %33, align 8
   %35 = tail call noundef double %34(ptr noundef nonnull align 8 dereferenceable(8) %3) #10
   %36 = bitcast double %35 to i64
@@ -1492,7 +1492,7 @@ define hidden void @_ZN13ConstantTable3addEP16MachConstantNodeP8MachOper(ptr dea
 
 37:                                               ; preds = %4, %4
   %38 = load ptr, ptr %3, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 48
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 48
   %40 = load ptr, ptr %39, align 8
   %41 = tail call noundef i64 %40(ptr noundef nonnull align 8 dereferenceable(8) %3) #10
   %.sroa.03.sroa.0.0.extract.trunc6 = trunc i64 %41 to i32
@@ -1501,7 +1501,7 @@ define hidden void @_ZN13ConstantTable3addEP16MachConstantNodeP8MachOper(ptr dea
 
 42:                                               ; preds = %4
   %43 = load ptr, ptr %3, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 48
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 48
   %45 = load ptr, ptr %44, align 8
   %46 = tail call noundef i64 %45(ptr noundef nonnull align 8 dereferenceable(8) %3) #10
   %47 = inttoptr i64 %46 to ptr
@@ -1533,27 +1533,27 @@ declare noundef ptr @_Z9type2name9BasicType(i8 noundef zeroext) local_unnamed_ad
 define hidden void @_ZN13ConstantTable14add_jump_tableEP16MachConstantNode(ptr dead_on_unwind noalias nocapture writable sret(%"class.ConstantTable::Constant") align 8 initializes((0, 2), (4, 25)) %0, ptr noundef nonnull align 8 dereferenceable(36) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
 _ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit.thread.i:
   %3 = ptrtoint ptr %2 to i64
-  %4 = getelementptr inbounds i8, ptr %1, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %5 = load i32, ptr %4, align 8
   %6 = add nsw i32 %5, 1
   store i32 %6, ptr %4, align 8
   %7 = sitofp i32 %6 to float
   %8 = fneg float %7
   store i8 14, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 0, ptr %9, align 1
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 -1, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 20
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store float %8, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i8 0, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %3, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 8, ptr %14, align 4
   %15 = load i32, ptr %1, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %17 = load i32, ptr %16, align 4
   %18 = icmp eq i32 %15, %17
   br i1 %18, label %19, label %_ZN13ConstantTable3addERNS_8ConstantE.exit
@@ -1576,7 +1576,7 @@ _ZN13ConstantTable3addERNS_8ConstantE.exit:       ; preds = %_ZNK17GrowableArray
   %27 = phi i32 [ %.pre.i.i, %19 ], [ %15, %_ZNK17GrowableArrayViewIN13ConstantTable8ConstantEE4findERKS1_.exit.thread.i ]
   %28 = add nsw i32 %27, 1
   store i32 %28, ptr %1, align 8
-  %29 = getelementptr inbounds i8, ptr %1, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %30 = load ptr, ptr %29, align 8
   %31 = sext i32 %27 to i64
   %32 = getelementptr inbounds %"class.ConstantTable::Constant", ptr %30, i64 %31
@@ -1588,47 +1588,47 @@ _ZN13ConstantTable3addERNS_8ConstantE.exit:       ; preds = %_ZNK17GrowableArray
 define hidden void @_ZNK13ConstantTable15fill_jump_tableEP17C2_MacroAssemblerP16MachConstantNode13GrowableArrayIP5LabelE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 1808
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 128
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 128
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 2288
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 2288
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 572
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 572
   %14 = load i8, ptr %13, align 4
   %15 = trunc i8 %14 to i1
   br i1 %15, label %.loopexit, label %16
 
 16:                                               ; preds = %4
   %17 = tail call noundef i32 @_ZN16MachConstantNode15constant_offsetEv(ptr noundef nonnull align 8 dereferenceable(104) %2) #10
-  %18 = getelementptr inbounds i8, ptr %0, i64 28
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %19 = load i32, ptr %18, align 4
   %20 = sub nsw i32 %17, %19
-  %21 = getelementptr inbounds i8, ptr %1, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 80
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 80
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = sext i32 %20 to i64
   %28 = getelementptr inbounds i8, ptr %26, i64 %27
-  %29 = getelementptr inbounds i8, ptr %2, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %30 = load i32, ptr %29, align 8
   %.not = icmp eq i32 %30, 0
   br i1 %.not, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %16
-  %31 = getelementptr inbounds i8, ptr %3, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %32
 
 32:                                               ; preds = %.lr.ph, %32
   %.014 = phi i32 [ 0, %.lr.ph ], [ %48, %32 ]
   %33 = zext i32 %.014 to i64
-  %34 = getelementptr inbounds ptr, ptr %28, i64 %33
+  %34 = getelementptr inbounds nuw ptr, ptr %28, i64 %33
   %35 = load ptr, ptr %21, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 80
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 80
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %39 = load ptr, ptr %31, align 8
   %40 = sext i32 %.014 to i64
   %41 = getelementptr inbounds ptr, ptr %39, i64 %40
@@ -1636,9 +1636,9 @@ define hidden void @_ZNK13ConstantTable15fill_jump_tableEP17C2_MacroAssemblerP16
   %43 = tail call noundef ptr @_ZN11CodeSection6targetER5LabelPh(ptr noundef nonnull align 8 dereferenceable(88) %38, ptr noundef nonnull align 8 dereferenceable(33) %42, ptr noundef %34) #10
   store ptr %43, ptr %34, align 8
   %44 = load ptr, ptr %21, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 80
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 80
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   tail call void @_ZN11CodeSection8relocateEPhN9relocInfo9relocTypeEii(ptr noundef nonnull align 8 dereferenceable(88) %47, ptr noundef nonnull %34, i32 noundef 8, i32 noundef 0, i32 noundef 0) #10
   %48 = add nuw i32 %.014, 1
   %49 = load i32, ptr %29, align 8
@@ -1683,9 +1683,9 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorI6jvalue13GrowableArrayIS0_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #0 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %1, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8
   %6 = icmp eq i64 %5, 0
   br i1 %6, label %7, label %9
@@ -1717,7 +1717,7 @@ _ZN13GrowableArrayI6jvalueE8allocateEv.exit:      ; preds = %7, %11, %15
   br i1 %19, label %.lr.ph, label %.preheader16
 
 .lr.ph:                                           ; preds = %_ZN13GrowableArrayI6jvalueE8allocateEv.exit
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %25
 
 .preheader16.loopexit:                            ; preds = %25
@@ -1736,9 +1736,9 @@ _ZN13GrowableArrayI6jvalueE8allocateEv.exit:      ; preds = %7, %11, %15
 
 25:                                               ; preds = %.lr.ph, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
-  %26 = getelementptr inbounds %union.jvalue, ptr %.0.i, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw %union.jvalue, ptr %.0.i, i64 %indvars.iv
   %27 = load ptr, ptr %20, align 8
-  %28 = getelementptr inbounds %union.jvalue, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw %union.jvalue, ptr %27, i64 %indvars.iv
   %29 = load i64, ptr %28, align 8
   store i64 %29, ptr %26, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1748,14 +1748,14 @@ _ZN13GrowableArrayI6jvalueE8allocateEv.exit:      ; preds = %7, %11, %15
   br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !24
 
 .preheader:                                       ; preds = %.lr.ph19, %.preheader16
-  %33 = getelementptr inbounds i8, ptr %0, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %34 = load ptr, ptr %33, align 8
   %.not = icmp eq ptr %34, null
   br i1 %.not, label %_ZN13GrowableArrayI6jvalueE10deallocateEPS0_.exit, label %39
 
 .lr.ph19:                                         ; preds = %.lr.ph19.preheader, %.lr.ph19
   %indvars.iv21 = phi i64 [ %24, %.lr.ph19.preheader ], [ %indvars.iv.next22, %.lr.ph19 ]
-  %35 = getelementptr inbounds %union.jvalue, ptr %.0.i, i64 %indvars.iv21
+  %35 = getelementptr inbounds nuw %union.jvalue, ptr %.0.i, i64 %indvars.iv21
   store i64 0, ptr %35, align 8
   %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
   %36 = load i32, ptr %3, align 4
@@ -1792,9 +1792,9 @@ declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIN13ConstantTable8ConstantE13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #0 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %1, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8
   %6 = icmp eq i64 %5, 0
   br i1 %6, label %7, label %9
@@ -1826,7 +1826,7 @@ _ZN13GrowableArrayIN13ConstantTable8ConstantEE8allocateEv.exit: ; preds = %7, %1
   br i1 %19, label %.lr.ph, label %.preheader16
 
 .lr.ph:                                           ; preds = %_ZN13GrowableArrayIN13ConstantTable8ConstantEE8allocateEv.exit
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %25
 
 .preheader16.loopexit:                            ; preds = %25
@@ -1845,9 +1845,9 @@ _ZN13GrowableArrayIN13ConstantTable8ConstantEE8allocateEv.exit: ; preds = %7, %1
 
 25:                                               ; preds = %.lr.ph, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
-  %26 = getelementptr inbounds %"class.ConstantTable::Constant", ptr %.0.i, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw %"class.ConstantTable::Constant", ptr %.0.i, i64 %indvars.iv
   %27 = load ptr, ptr %20, align 8
-  %28 = getelementptr inbounds %"class.ConstantTable::Constant", ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw %"class.ConstantTable::Constant", ptr %27, i64 %indvars.iv
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %26, ptr noundef nonnull align 8 dereferenceable(32) %28, i64 32, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %29 = load i32, ptr %0, align 8
@@ -1856,26 +1856,26 @@ _ZN13GrowableArrayIN13ConstantTable8ConstantEE8allocateEv.exit: ; preds = %7, %1
   br i1 %31, label %25, label %.preheader16.loopexit, !llvm.loop !26
 
 .preheader:                                       ; preds = %.lr.ph19, %.preheader16
-  %32 = getelementptr inbounds i8, ptr %0, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %33 = load ptr, ptr %32, align 8
   %.not = icmp eq ptr %33, null
   br i1 %.not, label %_ZN13GrowableArrayIN13ConstantTable8ConstantEE10deallocateEPS1_.exit, label %44
 
 .lr.ph19:                                         ; preds = %.lr.ph19.preheader, %.lr.ph19
   %indvars.iv21 = phi i64 [ %24, %.lr.ph19.preheader ], [ %indvars.iv.next22, %.lr.ph19 ]
-  %34 = getelementptr inbounds %"class.ConstantTable::Constant", ptr %.0.i, i64 %indvars.iv21
+  %34 = getelementptr inbounds nuw %"class.ConstantTable::Constant", ptr %.0.i, i64 %indvars.iv21
   store i8 99, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 1
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 1
   store i8 0, ptr %35, align 1
-  %36 = getelementptr inbounds i8, ptr %34, i64 4
+  %36 = getelementptr inbounds nuw i8, ptr %34, i64 4
   store i32 -1, ptr %36, align 4
-  %37 = getelementptr inbounds i8, ptr %34, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %34, i64 16
   store i32 -1, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %34, i64 20
+  %38 = getelementptr inbounds nuw i8, ptr %34, i64 20
   store float 0.000000e+00, ptr %38, align 4
-  %39 = getelementptr inbounds i8, ptr %34, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %34, i64 24
   store i8 1, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %34, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store ptr null, ptr %40, align 8
   %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
   %41 = load i32, ptr %3, align 4

@@ -46,7 +46,7 @@ define hidden i32 @VP8LResidualImage(i32 noundef %0, i32 noundef %1, i32 noundef
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %30 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
   store i32 -16774400, ptr %30, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -64,7 +64,7 @@ define hidden i32 @VP8LResidualImage(i32 noundef %0, i32 noundef %1, i32 noundef
   %34 = sext i32 %0 to i64
   %gep76 = getelementptr i32, ptr %invariant.gep75, i64 %34
   %35 = getelementptr inbounds i32, ptr %gep76, i64 %34
-  %36 = getelementptr inbounds i8, ptr %35, i64 4
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 4
   %37 = icmp sgt i32 %27, 1
   %38 = sext i32 %1 to i64
   %invariant.op.i = add nsw i64 %38, -1
@@ -96,7 +96,7 @@ define hidden i32 @VP8LResidualImage(i32 noundef %0, i32 noundef %1, i32 noundef
   %wide.trip.count154.i.us = zext nneg i32 %43 to i64
   %invariant.gep108 = getelementptr i32, ptr %invariant.gep, i64 %44
   %invariant.gep109 = getelementptr i32, ptr %6, i64 %46
-  %invariant.gep111 = getelementptr inbounds i32, ptr %6, i64 %44
+  %invariant.gep111 = getelementptr inbounds nuw i32, ptr %6, i64 %44
   br label %54
 
 54:                                               ; preds = %.preheader.us, %GetBestPredictorForTile.exit.us
@@ -199,11 +199,11 @@ define hidden i32 @VP8LResidualImage(i32 noundef %0, i32 noundef %1, i32 noundef
 
 .lr.ph.i.us:                                      ; preds = %100, %.lr.ph.i.us
   %indvars.iv.i.us = phi i64 [ %indvars.iv.next.i.us, %.lr.ph.i.us ], [ 0, %100 ]
-  %102 = getelementptr inbounds [512 x i32], ptr %16, i64 0, i64 %indvars.iv.i.us
+  %102 = getelementptr inbounds nuw [512 x i32], ptr %16, i64 0, i64 %indvars.iv.i.us
   %103 = load i32, ptr %102, align 4
   %104 = lshr i32 %103, 24
   %105 = zext nneg i32 %104 to i64
-  %106 = getelementptr inbounds i32, ptr %.0122143.i.us, i64 %105
+  %106 = getelementptr inbounds nuw i32, ptr %.0122143.i.us, i64 %105
   %107 = load i32, ptr %106, align 4
   %108 = add i32 %107, 1
   store i32 %108, ptr %106, align 4
@@ -211,7 +211,7 @@ define hidden i32 @VP8LResidualImage(i32 noundef %0, i32 noundef %1, i32 noundef
   %110 = and i32 %109, 255
   %111 = or disjoint i32 %110, 256
   %112 = zext nneg i32 %111 to i64
-  %113 = getelementptr inbounds i32, ptr %.0122143.i.us, i64 %112
+  %113 = getelementptr inbounds nuw i32, ptr %.0122143.i.us, i64 %112
   %114 = load i32, ptr %113, align 4
   %115 = add i32 %114, 1
   store i32 %115, ptr %113, align 4
@@ -219,14 +219,14 @@ define hidden i32 @VP8LResidualImage(i32 noundef %0, i32 noundef %1, i32 noundef
   %117 = and i32 %116, 255
   %118 = or disjoint i32 %117, 512
   %119 = zext nneg i32 %118 to i64
-  %120 = getelementptr inbounds i32, ptr %.0122143.i.us, i64 %119
+  %120 = getelementptr inbounds nuw i32, ptr %.0122143.i.us, i64 %119
   %121 = load i32, ptr %120, align 4
   %122 = add i32 %121, 1
   store i32 %122, ptr %120, align 4
   %123 = and i32 %103, 255
   %124 = or disjoint i32 %123, 768
   %125 = zext nneg i32 %124 to i64
-  %126 = getelementptr inbounds i32, ptr %.0122143.i.us, i64 %125
+  %126 = getelementptr inbounds nuw i32, ptr %.0122143.i.us, i64 %125
   %127 = load i32, ptr %126, align 4
   %128 = add i32 %127, 1
   store i32 %128, ptr %126, align 4
@@ -248,7 +248,7 @@ define hidden i32 @VP8LResidualImage(i32 noundef %0, i32 noundef %1, i32 noundef
   %indvars.iv.i.i.us = phi i64 [ %indvars.iv.next.i.i.us, %PredictionCostBias.exit.i.i.us ], [ 0, %.preheader.i.us ]
   %.01617.i.i.us = phi float [ %151, %PredictionCostBias.exit.i.i.us ], [ 0.000000e+00, %.preheader.i.us ]
   %130 = shl nuw nsw i64 %indvars.iv.i.i.us, 8
-  %131 = getelementptr inbounds i32, ptr %.0122143.i.us, i64 %130
+  %131 = getelementptr inbounds nuw i32, ptr %.0122143.i.us, i64 %130
   %132 = load i32, ptr %131, align 4
   %133 = uitofp i32 %132 to float
   br label %134
@@ -257,10 +257,10 @@ define hidden i32 @VP8LResidualImage(i32 noundef %0, i32 noundef %1, i32 noundef
   %indvars.iv.i.i.i.us = phi i64 [ 1, %129 ], [ %indvars.iv.next.i.i.i.us, %134 ]
   %.01114.i.i.i.us = phi float [ %133, %129 ], [ %142, %134 ]
   %.01213.i.i.i.us = phi float [ 0x3FEE147AE0000000, %129 ], [ %143, %134 ]
-  %135 = getelementptr inbounds i32, ptr %131, i64 %indvars.iv.i.i.i.us
+  %135 = getelementptr inbounds nuw i32, ptr %131, i64 %indvars.iv.i.i.i.us
   %136 = load i32, ptr %135, align 4
   %137 = sub nuw nsw i64 256, %indvars.iv.i.i.i.us
-  %138 = getelementptr inbounds i32, ptr %131, i64 %137
+  %138 = getelementptr inbounds nuw i32, ptr %131, i64 %137
   %139 = load i32, ptr %138, align 4
   %140 = add i32 %139, %136
   %141 = uitofp i32 %140 to float
@@ -276,7 +276,7 @@ PredictionCostBias.exit.i.i.us:                   ; preds = %134
   %146 = fptrunc double %145 to float
   %147 = fadd float %.01617.i.i.us, %146
   %148 = load ptr, ptr @VP8LCombinedShannonEntropy, align 8
-  %149 = getelementptr inbounds i32, ptr %17, i64 %130
+  %149 = getelementptr inbounds nuw i32, ptr %17, i64 %130
   %150 = call float %148(ptr noundef nonnull %131, ptr noundef nonnull %149) #8
   %151 = fadd float %147, %150
   %indvars.iv.next.i.i.us = add nuw nsw i64 %indvars.iv.i.i.us, 1
@@ -313,7 +313,7 @@ GetBestPredictorForTile.exit.us:                  ; preds = %158
   call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %16)
   %161 = shl i32 %.1119.i.us, 8
   %162 = or i32 %161, -16777216
-  %gep112 = getelementptr inbounds i32, ptr %invariant.gep111, i64 %indvars.iv89
+  %gep112 = getelementptr inbounds nuw i32, ptr %invariant.gep111, i64 %indvars.iv89
   store i32 %162, ptr %gep112, align 4
   %indvars.iv.next90 = add nuw nsw i64 %indvars.iv89, 1
   %exitcond93.not = icmp eq i64 %indvars.iv.next90, %wide.trip.count92
@@ -358,9 +358,9 @@ GetBestPredictorForTile.exit.us:                  ; preds = %158
 .lr.ph89.i.thread100:                             ; preds = %.loopexit.thread99
   %177 = sext i32 %0 to i64
   %178 = getelementptr inbounds i32, ptr %5, i64 %177
-  %179 = getelementptr inbounds i8, ptr %178, i64 4
+  %179 = getelementptr inbounds nuw i8, ptr %178, i64 4
   %180 = getelementptr inbounds i32, ptr %179, i64 %177
-  %181 = getelementptr inbounds i8, ptr %180, i64 4
+  %181 = getelementptr inbounds nuw i8, ptr %180, i64 4
   %182 = getelementptr inbounds i8, ptr %181, i64 %177
   %183 = zext nneg i32 %1 to i64
   br label %.lr.ph89.split.us.i
@@ -372,16 +372,16 @@ GetBestPredictorForTile.exit.us:                  ; preds = %158
 .lr.ph89.i.thread:                                ; preds = %.loopexit.thread
   %185 = sext i32 %0 to i64
   %186 = getelementptr inbounds i32, ptr %5, i64 %185
-  %187 = getelementptr inbounds i8, ptr %186, i64 4
+  %187 = getelementptr inbounds nuw i8, ptr %186, i64 4
   %188 = zext nneg i32 %1 to i64
   br label %.lr.ph89.split.i.preheader
 
 .lr.ph89.i:                                       ; preds = %.loopexit
   %189 = sext i32 %0 to i64
   %190 = getelementptr inbounds i32, ptr %5, i64 %189
-  %191 = getelementptr inbounds i8, ptr %190, i64 4
+  %191 = getelementptr inbounds nuw i8, ptr %190, i64 4
   %192 = getelementptr inbounds i32, ptr %191, i64 %189
-  %193 = getelementptr inbounds i8, ptr %192, i64 4
+  %193 = getelementptr inbounds nuw i8, ptr %192, i64 4
   %194 = getelementptr inbounds i8, ptr %193, i64 %189
   %195 = zext nneg i32 %1 to i64
   br i1 %.not, label %.lr.ph89.split.us.i, label %.lr.ph89.split.i.preheader
@@ -413,7 +413,7 @@ GetBestPredictorForTile.exit.us:                  ; preds = %158
   %.07486.us.us.i = phi ptr [ %202, %.lr.ph89.split.us.split.us.preheader.i ], [ %.1.us.us.i, %.PredictBatch.exit.loopexit_crit_edge.us.us.i ]
   %.07784.us.us.i = phi ptr [ %203, %.lr.ph89.split.us.split.us.preheader.i ], [ %.178.us.us.i, %.PredictBatch.exit.loopexit_crit_edge.us.us.i ]
   %207 = mul nuw nsw i64 %indvars.iv112.i, %206
-  %208 = getelementptr inbounds i32, ptr %4, i64 %207
+  %208 = getelementptr inbounds nuw i32, ptr %4, i64 %207
   %indvars.iv.next113.i = add nuw nsw i64 %indvars.iv112.i, 1
   %209 = icmp samesign ult i64 %indvars.iv.next113.i, %199
   %210 = zext i1 %209 to i32
@@ -431,7 +431,7 @@ GetBestPredictorForTile.exit.us:                  ; preds = %158
 
 218:                                              ; preds = %215
   %219 = mul nuw nsw i64 %indvars.iv.next113.i, %206
-  %220 = getelementptr inbounds i32, ptr %4, i64 %219
+  %220 = getelementptr inbounds nuw i32, ptr %4, i64 %219
   call fastcc void @MaxDiffsForRow(i32 noundef %0, i32 noundef %0, ptr noundef nonnull %220, ptr noundef %.07486.us.us.i, i32 noundef %9)
   br label %.lr.ph.us.us.i
 
@@ -525,8 +525,8 @@ PredictBatch.exit.loopexit.us.i:                  ; preds = %.lr.ph89.split.us.s
   %260 = shl nsw i64 %259, 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %.07288.i, ptr align 4 %255, i64 %260, i1 false)
   %261 = icmp eq i64 %indvars.iv.i62, 0
-  %262 = getelementptr inbounds i8, ptr %255, i64 4
-  %263 = getelementptr inbounds i8, ptr %.07288.i, i64 4
+  %262 = getelementptr inbounds nuw i8, ptr %255, i64 4
+  %263 = getelementptr inbounds nuw i8, ptr %.07288.i, i64 4
   br i1 %261, label %264, label %267
 
 264:                                              ; preds = %.lr.ph89.split.i
@@ -540,7 +540,7 @@ PredictBatch.exit.loopexit.us.i:                  ; preds = %.lr.ph89.split.us.s
   %268 = load ptr, ptr getelementptr inbounds (i8, ptr @VP8LPredictorsSub, i64 16), align 16
   call void %268(ptr noundef %.07288.i, ptr noundef %.07387.i, i32 noundef 1, ptr noundef %255) #8
   %269 = load ptr, ptr getelementptr inbounds (i8, ptr @VP8LPredictorsSub, i64 88), align 8
-  %270 = getelementptr inbounds i8, ptr %.07387.i, i64 4
+  %270 = getelementptr inbounds nuw i8, ptr %.07387.i, i64 4
   call void %269(ptr noundef nonnull %263, ptr noundef nonnull %270, i32 noundef %19, ptr noundef nonnull %262) #8
   br label %PredictBatch.exit.i
 
@@ -697,7 +697,7 @@ define hidden range(i32 0, 2) i32 @VP8LColorSpaceTransform(i32 noundef %0, i32 n
   %58 = zext i8 %.sink219.off0 to i32
   %59 = or disjoint i32 %57, %58
   %60 = or disjoint i32 %59, -16777216
-  %61 = getelementptr inbounds i32, ptr %5, i64 %41
+  %61 = getelementptr inbounds nuw i32, ptr %5, i64 %41
   store i32 %60, ptr %61, align 4
   %.sroa.6129.0.insert.ext.us = zext i16 %.sink219.off8 to i24
   %.sroa.6129.0.insert.shift.us = shl nuw i24 %.sroa.6129.0.insert.ext.us, 8
@@ -805,13 +805,13 @@ CopyTileWithColorTransform.exit.us:               ; preds = %67, %55
   %109 = lshr i32 %80, 16
   %110 = and i32 %109, 255
   %111 = zext nneg i32 %110 to i64
-  %112 = getelementptr inbounds [256 x i32], ptr %11, i64 0, i64 %111
+  %112 = getelementptr inbounds nuw [256 x i32], ptr %11, i64 0, i64 %111
   %113 = load i32, ptr %112, align 4
   %114 = add i32 %113, 1
   store i32 %114, ptr %112, align 4
   %115 = and i32 %80, 255
   %116 = zext nneg i32 %115 to i64
-  %117 = getelementptr inbounds [256 x i32], ptr %12, i64 0, i64 %116
+  %117 = getelementptr inbounds nuw [256 x i32], ptr %12, i64 0, i64 %116
   %118 = load i32, ptr %117, align 4
   %119 = add i32 %118, 1
   store i32 %119, ptr %117, align 4
@@ -896,10 +896,10 @@ define internal fastcc i24 @GetBestColorTransformForTile(i32 noundef %0, i32 nou
   %indvars.iv.i.i.i.i = phi i64 [ 1, %11 ], [ %indvars.iv.next.i.i.i.i, %36 ]
   %.01114.i.i.i.i = phi float [ %35, %11 ], [ %44, %36 ]
   %.01213.i.i.i.i = phi float [ 0x4003333340000000, %11 ], [ %45, %36 ]
-  %37 = getelementptr inbounds i32, ptr %15, i64 %indvars.iv.i.i.i.i
+  %37 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv.i.i.i.i
   %38 = load i32, ptr %37, align 4
   %39 = sub nuw nsw i64 256, %indvars.iv.i.i.i.i
-  %40 = getelementptr inbounds i32, ptr %15, i64 %39
+  %40 = getelementptr inbounds nuw i32, ptr %15, i64 %39
   %41 = load i32, ptr %40, align 4
   %42 = add i32 %41, %38
   %43 = uitofp i32 %42 to float
@@ -964,10 +964,10 @@ GetPredictionCostCrossColorRed.exit.i:            ; preds = %36
   %indvars.iv.i.i.i47.i = phi i64 [ 1, %66 ], [ %indvars.iv.next.i.i.i50.i, %74 ]
   %.01114.i.i.i48.i = phi float [ %73, %66 ], [ %82, %74 ]
   %.01213.i.i.i49.i = phi float [ 0x4003333340000000, %66 ], [ %83, %74 ]
-  %75 = getelementptr inbounds i32, ptr %14, i64 %indvars.iv.i.i.i47.i
+  %75 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv.i.i.i47.i
   %76 = load i32, ptr %75, align 4
   %77 = sub nuw nsw i64 256, %indvars.iv.i.i.i47.i
-  %78 = getelementptr inbounds i32, ptr %14, i64 %77
+  %78 = getelementptr inbounds nuw i32, ptr %14, i64 %77
   %79 = load i32, ptr %78, align 4
   %80 = add i32 %79, %76
   %81 = uitofp i32 %80 to float
@@ -1026,10 +1026,10 @@ GetBestGreenToRed.exit:                           ; preds = %GetPredictionCostCr
   %indvars.iv.i.i.i.i44 = phi i64 [ 1, %GetBestGreenToRed.exit ], [ %indvars.iv.next.i.i.i.i47, %105 ]
   %.01114.i.i.i.i45 = phi float [ %104, %GetBestGreenToRed.exit ], [ %113, %105 ]
   %.01213.i.i.i.i46 = phi float [ 0x4003333340000000, %GetBestGreenToRed.exit ], [ %114, %105 ]
-  %106 = getelementptr inbounds i32, ptr %13, i64 %indvars.iv.i.i.i.i44
+  %106 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv.i.i.i.i44
   %107 = load i32, ptr %106, align 4
   %108 = sub nuw nsw i64 256, %indvars.iv.i.i.i.i44
-  %109 = getelementptr inbounds i32, ptr %13, i64 %108
+  %109 = getelementptr inbounds nuw i32, ptr %13, i64 %108
   %110 = load i32, ptr %109, align 4
   %111 = add i32 %110, %107
   %112 = uitofp i32 %111 to float
@@ -1085,7 +1085,7 @@ GetPredictionCostCrossColorBlue.exit.i:           ; preds = %105
   %.093.i = phi i32 [ 0, %GetPredictionCostCrossColorBlue.exit.i ], [ %.4.i, %136 ]
   %.05792.i = phi i32 [ 0, %GetPredictionCostCrossColorBlue.exit.i ], [ %.461.i, %136 ]
   %.06390.i = phi float [ %135, %GetPredictionCostCrossColorBlue.exit.i ], [ %.366.i, %136 ]
-  %140 = getelementptr inbounds [7 x i8], ptr @__const.GetBestGreenRedToBlue.delta_lut, i64 0, i64 %indvars.iv99.i
+  %140 = getelementptr inbounds nuw [7 x i8], ptr @__const.GetBestGreenRedToBlue.delta_lut, i64 0, i64 %indvars.iv99.i
   %141 = load i8, ptr %140, align 1
   %142 = sext i8 %141 to i32
   %143 = icmp ne i64 %indvars.iv99.i, 4
@@ -1097,12 +1097,12 @@ GetPredictionCostCrossColorBlue.exit.i:           ; preds = %105
   %.289.i = phi i32 [ %.4.i, %GetPredictionCostCrossColorBlue.exit84.i ], [ %.093.i, %139 ]
   %.25988.i = phi i32 [ %.461.i, %GetPredictionCostCrossColorBlue.exit84.i ], [ %.05792.i, %139 ]
   %.16487.i = phi float [ %.366.i, %GetPredictionCostCrossColorBlue.exit84.i ], [ %.06390.i, %139 ]
-  %145 = getelementptr inbounds [8 x [2 x i8]], ptr @__const.GetBestGreenRedToBlue.offset, i64 0, i64 %indvars.iv.i
+  %145 = getelementptr inbounds nuw [8 x [2 x i8]], ptr @__const.GetBestGreenRedToBlue.offset, i64 0, i64 %indvars.iv.i
   %146 = load i8, ptr %145, align 2
   %147 = sext i8 %146 to i32
   %148 = mul nsw i32 %147, %142
   %149 = add nsw i32 %148, %.289.i
-  %150 = getelementptr inbounds i8, ptr %145, i64 1
+  %150 = getelementptr inbounds nuw i8, ptr %145, i64 1
   %151 = load i8, ptr %150, align 1
   %152 = sext i8 %151 to i32
   %153 = mul nsw i32 %152, %142
@@ -1122,10 +1122,10 @@ GetPredictionCostCrossColorBlue.exit.i:           ; preds = %105
   %indvars.iv.i.i.i69.i = phi i64 [ 1, %144 ], [ %indvars.iv.next.i.i.i72.i, %161 ]
   %.01114.i.i.i70.i = phi float [ %160, %144 ], [ %169, %161 ]
   %.01213.i.i.i71.i = phi float [ 0x4003333340000000, %144 ], [ %170, %161 ]
-  %162 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv.i.i.i69.i
+  %162 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv.i.i.i69.i
   %163 = load i32, ptr %162, align 4
   %164 = sub nuw nsw i64 256, %indvars.iv.i.i.i69.i
-  %165 = getelementptr inbounds i32, ptr %12, i64 %164
+  %165 = getelementptr inbounds nuw i32, ptr %12, i64 %164
   %166 = load i32, ptr %165, align 4
   %167 = add i32 %166, %163
   %168 = uitofp i32 %167 to float
@@ -1203,7 +1203,7 @@ define internal fastcc void @MaxDiffsForRow(i32 noundef %0, i32 noundef %1, ptr 
 
 7:                                                ; preds = %5
   %8 = load i32, ptr %2, align 4
-  %9 = getelementptr inbounds i8, ptr %2, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %10 = load i32, ptr %9, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %.lr.ph.preheader, label %11
@@ -1248,7 +1248,7 @@ define internal fastcc void @MaxDiffsForRow(i32 noundef %0, i32 noundef %1, ptr 
   %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv
   %34 = load i32, ptr %gep, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %35 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv.next
+  %35 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.next
   %36 = load i32, ptr %35, align 4
   br i1 %.not, label %65, label %37
 
@@ -1364,7 +1364,7 @@ define internal fastcc void @MaxDiffsForRow(i32 noundef %0, i32 noundef %1, ptr 
   %141 = tail call range(i32 0, 256) i32 @llvm.umax.i32(i32 range(i32 0, 256) %122, i32 range(i32 0, 256) %139)
   %142 = tail call range(i32 0, 256) i32 @llvm.umax.i32(i32 range(i32 0, 256) %140, i32 range(i32 0, 256) %141)
   %143 = trunc nuw i32 %142 to i8
-  %144 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv
+  %144 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv
   store i8 %143, ptr %144, align 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !24
@@ -1398,7 +1398,7 @@ define internal fastcc void @GetResidual(i32 noundef %0, i32 noundef %1, ptr nou
   br label %23
 
 23:                                               ; preds = %21, %19
-  %24 = getelementptr inbounds i8, ptr %12, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %25 = add nsw i32 %15, -1
   br label %26
 

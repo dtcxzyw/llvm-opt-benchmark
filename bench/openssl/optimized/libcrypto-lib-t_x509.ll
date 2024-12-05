@@ -193,7 +193,7 @@ if.end45:                                         ; preds = %if.end38
   br i1 %cmp46.not, label %if.else56, label %if.then47
 
 if.then47:                                        ; preds = %if.end45
-  %type = getelementptr inbounds i8, ptr %call34, i64 4
+  %type = getelementptr inbounds nuw i8, ptr %call34, i64 4
   %1 = load i32, ptr %type, align 4
   %cmp48 = icmp eq i32 %1, 258
   %sub = sub i64 0, %call42
@@ -204,7 +204,7 @@ if.then47:                                        ; preds = %if.end45
   br i1 %cmp53, label %err, label %if.end76
 
 if.else56:                                        ; preds = %if.end38, %if.end45
-  %type57 = getelementptr inbounds i8, ptr %call34, i64 4
+  %type57 = getelementptr inbounds nuw i8, ptr %call34, i64 4
   %2 = load i32, ptr %type57, align 4
   %cmp58 = icmp eq i32 %2, 258
   %cond = select i1 %cmp58, ptr @.str.9, ptr @.str.4
@@ -213,7 +213,7 @@ if.else56:                                        ; preds = %if.end38, %if.end45
   br i1 %cmp60, label %err, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.else56
-  %data = getelementptr inbounds i8, ptr %call34, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %call34, i64 8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.preheader, %for.body
@@ -225,7 +225,7 @@ for.cond:                                         ; preds = %for.cond.preheader,
 
 for.body:                                         ; preds = %for.cond
   %5 = load ptr, ptr %data, align 8
-  %arrayidx = getelementptr inbounds i8, ptr %5, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv
   %6 = load i8, ptr %arrayidx, align 1
   %conv = zext i8 %6 to i32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -518,7 +518,7 @@ if.then15:                                        ; preds = %if.then12
   br i1 %tobool17.not, label %if.end25, label %land.lhs.true18
 
 land.lhs.true18:                                  ; preds = %if.then15
-  %sig_print = getelementptr inbounds i8, ptr %call16, i64 160
+  %sig_print = getelementptr inbounds nuw i8, ptr %call16, i64 160
   %3 = load ptr, ptr %sig_print, align 8
   %tobool19.not = icmp eq ptr %3, null
   br i1 %tobool19.not, label %if.end25, label %if.then20
@@ -574,7 +574,7 @@ declare void @X509_get0_uids(ptr noundef, ptr noundef, ptr noundef) local_unname
 define range(i32 0, 2) i32 @X509_signature_dump(ptr noundef %bp, ptr nocapture noundef readonly %sig, i32 noundef %indent) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %sig, align 8
-  %data = getelementptr inbounds i8, ptr %sig, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %sig, i64 8
   %1 = load ptr, ptr %data, align 8
   %2 = zext i32 %0 to i64
   %smax = tail call i32 @llvm.smax.i32(i32 %0, i32 0)
@@ -607,7 +607,7 @@ if.end:                                           ; preds = %land.lhs.true, %if.
   br i1 %cmp6, label %return, label %if.end9
 
 if.end9:                                          ; preds = %if.end, %for.body
-  %arrayidx = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   %4 = load i8, ptr %arrayidx, align 1
   %conv = zext i8 %4 to i32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -792,9 +792,9 @@ if.end9:                                          ; preds = %if.end4
 
 if.end14:                                         ; preds = %if.end9
   %call15 = call i32 @i2d_X509_NAME(ptr noundef %call5, ptr noundef nonnull %dertmp) #3
-  %libctx = getelementptr inbounds i8, ptr %x, i64 368
+  %libctx = getelementptr inbounds nuw i8, ptr %x, i64 368
   %0 = load ptr, ptr %libctx, align 8
-  %propq = getelementptr inbounds i8, ptr %x, i64 376
+  %propq = getelementptr inbounds nuw i8, ptr %x, i64 376
   %1 = load ptr, ptr %propq, align 8
   %call16 = call ptr @EVP_MD_fetch(ptr noundef %0, ptr noundef nonnull @.str.26, ptr noundef %1) #3
   %cmp17 = icmp eq ptr %call16, null
@@ -812,7 +812,7 @@ for.cond:                                         ; preds = %for.body
 
 for.body:                                         ; preds = %if.end20, %for.cond
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.cond ], [ 0, %if.end20 ]
-  %arrayidx = getelementptr inbounds [20 x i8], ptr %SHA1md, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [20 x i8], ptr %SHA1md, i64 0, i64 %indvars.iv
   %2 = load i8, ptr %arrayidx, align 1
   %conv27 = zext i8 %2 to i32
   %call28 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bp, ptr noundef nonnull @.str.27, i32 noundef %conv27) #3
@@ -845,7 +845,7 @@ for.cond51:                                       ; preds = %for.body54
 
 for.body54:                                       ; preds = %if.end42, %for.cond51
   %indvars.iv31 = phi i64 [ %indvars.iv.next32, %for.cond51 ], [ 0, %if.end42 ]
-  %arrayidx56 = getelementptr inbounds [20 x i8], ptr %SHA1md, i64 0, i64 %indvars.iv31
+  %arrayidx56 = getelementptr inbounds nuw [20 x i8], ptr %SHA1md, i64 0, i64 %indvars.iv31
   %3 = load i8, ptr %arrayidx56, align 1
   %conv57 = zext i8 %3 to i32
   %call58 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bp, ptr noundef nonnull @.str.27, i32 noundef %conv57) #3

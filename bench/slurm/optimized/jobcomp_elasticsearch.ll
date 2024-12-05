@@ -94,7 +94,7 @@ define i32 @jobcomp_p_log_record(ptr noundef %0) local_unnamed_addr #0 {
   %9 = tail call ptr @jobcomp_common_job_record_to_data(ptr noundef %0) #9
   %10 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.2, i32 noundef 334, ptr noundef nonnull @__func__.jobcomp_p_log_record) #9
   store ptr %10, ptr %2, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = tail call i32 @serialize_g_data_to_string(ptr noundef nonnull %11, ptr noundef null, ptr noundef %9, ptr noundef nonnull @.str.3, i32 noundef 2) #9
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %21, label %13
@@ -160,7 +160,7 @@ declare void @data_free(ptr noundef) local_unnamed_addr #1
 define noalias noundef ptr @_process_jobs(ptr nocapture readnone %0) #0 {
   %2 = alloca %struct.http_response, align 8
   %3 = alloca %struct.timespec, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 0, ptr %4, align 8
   %5 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @location_mutex) #9
   %.not = icmp eq i32 %5, 0
@@ -198,7 +198,7 @@ define noalias noundef ptr @_process_jobs(ptr nocapture readnone %0) #0 {
   br i1 %.b353763, label %._crit_edge65, label %.lr.ph64
 
 .lr.ph64:                                         ; preds = %.preheader
-  %17 = getelementptr inbounds i8, ptr %2, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %20
 
 18:                                               ; preds = %15
@@ -233,7 +233,7 @@ define noalias noundef ptr @_process_jobs(ptr nocapture readnone %0) #0 {
   br i1 %32, label %149, label %33
 
 33:                                               ; preds = %30, %.lr.ph
-  %34 = getelementptr inbounds i8, ptr %26, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %35 = load ptr, ptr %34, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   %36 = call i32 @pthread_mutex_lock(ptr noundef nonnull @location_mutex) #9
@@ -708,7 +708,7 @@ define i32 @init() local_unnamed_addr #0 {
 55:                                               ; preds = %.lr.ph.i
   %56 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.2, i32 noundef 158, ptr noundef nonnull @__func__._load_pending_jobs) #9
   %57 = load ptr, ptr %1, align 8
-  %58 = getelementptr inbounds i8, ptr %56, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %56, i64 8
   store ptr %57, ptr %58, align 8
   %59 = load ptr, ptr @jobslist, align 8
   call void @slurm_list_enqueue(ptr noundef %59, ptr noundef %56) #9
@@ -773,7 +773,7 @@ declare ptr @slurm_list_create(ptr noundef) local_unnamed_addr #1
 define internal void @_jobslist_del(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @slurm_xfree(ptr noundef nonnull %3) #9
   call void @slurm_xfree(ptr noundef nonnull %2) #9
   ret void
@@ -826,7 +826,7 @@ define noundef i32 @fini() local_unnamed_addr #0 {
 
 .lr.ph.i:                                         ; preds = %.thread, %20
   %13 = phi ptr [ %21, %20 ], [ %12, %.thread ]
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8
   %.not24.i = icmp eq ptr %15, null
   br i1 %.not24.i, label %20, label %16
@@ -988,7 +988,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
 ; Function Attrs: nounwind uwtable
 define internal noundef i64 @_write_callback(ptr nocapture noundef readonly %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) #0 {
   %5 = mul i64 %2, %1
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load i64, ptr %6, align 8
   %8 = add i64 %5, 1
   %9 = add i64 %8, %7

@@ -65,7 +65,7 @@ define range(i32 0, 4) i32 @PMPI_Status_set_elements(ptr noundef writeonly %0, p
   %.val23 = load i64, ptr %25, align 8
   %26 = sext i32 %2 to i64
   %27 = mul i64 %.val23, %26
-  %28 = getelementptr inbounds i8, ptr %0, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %27, ptr %28, align 8
   br label %34
 
@@ -73,7 +73,7 @@ define range(i32 0, 4) i32 @PMPI_Status_set_elements(ptr noundef writeonly %0, p
   %30 = sext i32 %2 to i64
   %31 = call i32 @opal_datatype_set_element_count(ptr noundef nonnull %1, i64 noundef range(i64 -2147483648, 2147483648) %30, ptr noundef nonnull %4) #2
   %32 = load i64, ptr %4, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %32, ptr %33, align 8
   br label %34
 

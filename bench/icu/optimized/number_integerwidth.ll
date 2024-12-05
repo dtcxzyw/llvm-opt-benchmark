@@ -12,12 +12,12 @@ target triple = "x86_64-unknown-linux-gnu"
 define void @_ZN6icu_756number12IntegerWidthC2Essb(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(9) initializes((0, 5), (8, 9)) %this, i16 noundef signext %minInt, i16 noundef signext %maxInt, i1 noundef zeroext %formatFailIfMoreThanMaxDigits) unnamed_addr #0 align 2 {
 entry:
   %frombool = zext i1 %formatFailIfMoreThanMaxDigits to i8
-  %fHasError = getelementptr inbounds i8, ptr %this, i64 8
+  %fHasError = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i8 0, ptr %fHasError, align 4
   store i16 %minInt, ptr %this, align 4
-  %fMaxInt = getelementptr inbounds i8, ptr %this, i64 2
+  %fMaxInt = getelementptr inbounds nuw i8, ptr %this, i64 2
   store i16 %maxInt, ptr %fMaxInt, align 2
-  %fFormatFailIfMoreThanMaxDigits = getelementptr inbounds i8, ptr %this, i64 4
+  %fFormatFailIfMoreThanMaxDigits = getelementptr inbounds nuw i8, ptr %this, i64 4
   store i8 %frombool, ptr %fFormatFailIfMoreThanMaxDigits, align 4
   ret void
 }
@@ -32,7 +32,7 @@ entry:
 if.then:                                          ; preds = %entry
   %conv = trunc nuw nsw i32 %minInt to i16
   call void @_ZN6icu_756number12IntegerWidthC1Essb(ptr noundef nonnull align 4 dereferenceable(9) %retval, i16 noundef signext %conv, i16 noundef signext -1, i1 noundef zeroext false)
-  %retval.coerce.sroa.2.0.retval.sroa_idx.phi.trans.insert = getelementptr inbounds i8, ptr %retval, i64 8
+  %retval.coerce.sroa.2.0.retval.sroa_idx.phi.trans.insert = getelementptr inbounds nuw i8, ptr %retval, i64 8
   %retval.coerce.sroa.2.0.copyload.pre = load i8, ptr %retval.coerce.sroa.2.0.retval.sroa_idx.phi.trans.insert, align 8
   br label %return
 
@@ -55,7 +55,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define { i64, i8 } @_ZN6icu_756number12IntegerWidth10truncateAtEi(ptr nocapture noundef nonnull readonly align 4 dereferenceable(9) %this, i32 noundef %maxInt) local_unnamed_addr #1 align 2 {
 entry:
   %retval = alloca %"class.icu_75::number::IntegerWidth", align 8
-  %fHasError = getelementptr inbounds i8, ptr %this, i64 8
+  %fHasError = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i8, ptr %fHasError, align 4
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %if.then, label %if.end
@@ -86,14 +86,14 @@ if.then8:                                         ; preds = %if.else
   br label %return
 
 if.else9:                                         ; preds = %if.else
-  %fHasError.i = getelementptr inbounds i8, ptr %retval, i64 8
+  %fHasError.i = getelementptr inbounds nuw i8, ptr %retval, i64 8
   store i32 65810, ptr %retval, align 8
   store i8 1, ptr %fHasError.i, align 8
   br label %return
 
 return:                                           ; preds = %if.else9, %if.then8, %if.then5, %if.then
   %retval.coerce.sroa.0.0.copyload = load i64, ptr %retval, align 8
-  %retval.coerce.sroa.2.0.retval.sroa_idx = getelementptr inbounds i8, ptr %retval, i64 8
+  %retval.coerce.sroa.2.0.retval.sroa_idx = getelementptr inbounds nuw i8, ptr %retval, i64 8
   %retval.coerce.sroa.2.0.copyload = load i8, ptr %retval.coerce.sroa.2.0.retval.sroa_idx, align 8
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %retval.coerce.sroa.0.0.copyload, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %retval.coerce.sroa.2.0.copyload, 1
@@ -108,7 +108,7 @@ entry:
   br i1 %cmp.i, label %if.end, label %if.end24
 
 if.end:                                           ; preds = %entry
-  %fHasError = getelementptr inbounds i8, ptr %this, i64 8
+  %fHasError = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i8, ptr %fHasError, align 4
   %tobool2 = trunc i8 %1 to i1
   br i1 %tobool2, label %if.then3, label %if.else
@@ -118,7 +118,7 @@ if.then3:                                         ; preds = %if.end
   br label %if.end24
 
 if.else:                                          ; preds = %if.end
-  %fMaxInt = getelementptr inbounds i8, ptr %this, i64 2
+  %fMaxInt = getelementptr inbounds nuw i8, ptr %this, i64 2
   %2 = load i16, ptr %fMaxInt, align 2
   %conv = sext i16 %2 to i32
   %cmp = icmp eq i16 %2, -1
@@ -131,7 +131,7 @@ if.then4:                                         ; preds = %if.else
   br label %if.end24
 
 if.else7:                                         ; preds = %if.else
-  %fFormatFailIfMoreThanMaxDigits = getelementptr inbounds i8, ptr %this, i64 4
+  %fFormatFailIfMoreThanMaxDigits = getelementptr inbounds nuw i8, ptr %this, i64 4
   %4 = load i8, ptr %fFormatFailIfMoreThanMaxDigits, align 4
   %tobool9 = trunc i8 %4 to i1
   br i1 %tobool9, label %land.lhs.true, label %if.end16
@@ -170,9 +170,9 @@ entry:
   %0 = load i16, ptr %this, align 4
   %1 = load i16, ptr %other, align 4
   %cmp = icmp eq i16 %0, %1
-  %fMaxInt = getelementptr inbounds i8, ptr %this, i64 2
+  %fMaxInt = getelementptr inbounds nuw i8, ptr %this, i64 2
   %2 = load i16, ptr %fMaxInt, align 2
-  %fMaxInt8 = getelementptr inbounds i8, ptr %other, i64 2
+  %fMaxInt8 = getelementptr inbounds nuw i8, ptr %other, i64 2
   %3 = load i16, ptr %fMaxInt8, align 2
   %cmp10 = icmp eq i16 %2, %3
   %4 = select i1 %cmp, i1 %cmp10, i1 false

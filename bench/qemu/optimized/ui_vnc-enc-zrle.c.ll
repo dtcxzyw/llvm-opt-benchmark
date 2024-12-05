@@ -29,7 +29,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef i32 @vnc_zrle_send_framebuffer_update(ptr noundef %vs, i32 noundef %x, i32 noundef %y, i32 noundef %w, i32 noundef %h) local_unnamed_addr #0 {
 entry:
-  %zrle = getelementptr inbounds i8, ptr %vs, i64 49816
+  %zrle = getelementptr inbounds nuw i8, ptr %vs, i64 49816
   %0 = load ptr, ptr %zrle, align 8
   store i32 16, ptr %0, align 8
   tail call fastcc void @zrle_send_framebuffer_update(ptr noundef %vs, i32 noundef %x, i32 noundef %y, i32 noundef %w, i32 noundef %h)
@@ -48,27 +48,27 @@ entry:
   %found.i.i = alloca i8, align 1
   %colors.i.i = alloca [256 x i32], align 16
   %tmp.i.i = alloca %struct.Buffer, align 8
-  %client_be = getelementptr inbounds i8, ptr %vs, i64 49452
+  %client_be = getelementptr inbounds nuw i8, ptr %vs, i64 49452
   %0 = load i8, ptr %client_be, align 4
   %tobool = trunc i8 %0 to i1
-  %zrle = getelementptr inbounds i8, ptr %vs, i64 49816
+  %zrle = getelementptr inbounds nuw i8, ptr %vs, i64 49816
   %1 = load ptr, ptr %zrle, align 8
   %2 = load i32, ptr %1, align 8
   %cmp = icmp eq i32 %2, 17
   br i1 %cmp, label %if.then, label %if.end30
 
 if.then:                                          ; preds = %entry
-  %vd = getelementptr inbounds i8, ptr %vs, i64 49192
+  %vd = getelementptr inbounds nuw i8, ptr %vs, i64 49192
   %3 = load ptr, ptr %vd, align 8
-  %lossy = getelementptr inbounds i8, ptr %3, i64 285000
+  %lossy = getelementptr inbounds nuw i8, ptr %3, i64 285000
   %4 = load i8, ptr %lossy, align 8
   %tobool1 = trunc i8 %4 to i1
   br i1 %tobool1, label %lor.lhs.false, label %if.then10
 
 lor.lhs.false:                                    ; preds = %if.then
-  %tight = getelementptr inbounds i8, ptr %vs, i64 49600
+  %tight = getelementptr inbounds nuw i8, ptr %vs, i64 49600
   %5 = load ptr, ptr %tight, align 8
-  %quality = getelementptr inbounds i8, ptr %5, i64 4
+  %quality = getelementptr inbounds nuw i8, ptr %5, i64 4
   %6 = load i8, ptr %quality, align 4
   switch i8 %6, label %if.else [
     i8 -1, label %if.then10
@@ -92,16 +92,16 @@ if.else19:                                        ; preds = %if.else
 if.end30:                                         ; preds = %entry, %if.else19, %if.else, %if.then10
   %7 = phi ptr [ %.pre, %if.then10 ], [ %1, %if.else ], [ %1, %if.else19 ], [ %1, %entry ]
   %zywrle_level.0 = phi i32 [ 0, %if.then10 ], [ 3, %if.else ], [ %., %if.else19 ], [ 0, %entry ]
-  %zrle1.i = getelementptr inbounds i8, ptr %7, i64 48
+  %zrle1.i = getelementptr inbounds nuw i8, ptr %7, i64 48
   tail call void @buffer_reset(ptr noundef nonnull %zrle1.i) #9
   %8 = load ptr, ptr %zrle, align 8
-  %tmp.i = getelementptr inbounds i8, ptr %8, i64 88
-  %output.i = getelementptr inbounds i8, ptr %vs, i64 49328
+  %tmp.i = getelementptr inbounds nuw i8, ptr %8, i64 88
+  %output.i = getelementptr inbounds nuw i8, ptr %vs, i64 49328
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %tmp.i, ptr noundef nonnull align 8 dereferenceable(40) %output.i, i64 40, i1 false)
   %9 = load ptr, ptr %zrle, align 8
-  %zrle5.i = getelementptr inbounds i8, ptr %9, i64 48
+  %zrle5.i = getelementptr inbounds nuw i8, ptr %9, i64 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %output.i, ptr noundef nonnull align 8 dereferenceable(40) %zrle5.i, i64 40, i1 false)
-  %bytes_per_pixel = getelementptr inbounds i8, ptr %vs, i64 49417
+  %bytes_per_pixel = getelementptr inbounds nuw i8, ptr %vs, i64 49417
   %10 = load i8, ptr %bytes_per_pixel, align 1
   switch i8 %10, label %sw.epilog [
     i8 1, label %sw.bb
@@ -132,10 +132,10 @@ for.body6.us.i:                                   ; preds = %zrle_encode_tile8ne
   %cond14.us.i = call i32 @llvm.smin.i32(i32 %sub8.us.i, i32 64)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %tmp.i.i)
   %11 = load ptr, ptr %zrle, align 8
-  %fb.i.us.i = getelementptr inbounds i8, ptr %11, i64 8
+  %fb.i.us.i = getelementptr inbounds nuw i8, ptr %11, i64 8
   call void @buffer_reset(ptr noundef nonnull %fb.i.us.i) #9
   %12 = load ptr, ptr %zrle, align 8
-  %fb2.i.us.i = getelementptr inbounds i8, ptr %12, i64 8
+  %fb2.i.us.i = getelementptr inbounds nuw i8, ptr %12, i64 8
   %mul.i.us.i = mul i32 %cond14.us.i, %cond.us.i
   %mul313.i.us.i = shl i32 %mul.i.us.i, 3
   %add.i.us.i = add i32 %mul313.i.us.i, 8
@@ -143,20 +143,20 @@ for.body6.us.i:                                   ; preds = %zrle_encode_tile8ne
   call void @buffer_reserve(ptr noundef nonnull %fb2.i.us.i, i64 noundef %conv.i.us.i) #9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %tmp.i.i, ptr noundef nonnull align 8 dereferenceable(40) %output.i, i64 40, i1 false)
   %13 = load ptr, ptr %zrle, align 8
-  %fb6.i.us.i = getelementptr inbounds i8, ptr %13, i64 8
+  %fb6.i.us.i = getelementptr inbounds nuw i8, ptr %13, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %output.i, ptr noundef nonnull align 8 dereferenceable(40) %fb6.i.us.i, i64 40, i1 false)
   %call.i.us.i = call i32 @vnc_raw_send_framebuffer_update(ptr noundef %vs, i32 noundef %tx.027.us.i, i32 noundef %ty.029.us.i, i32 noundef %cond14.us.i, i32 noundef %cond.us.i) #9
   %14 = load ptr, ptr %zrle, align 8
-  %fb8.i.us.i = getelementptr inbounds i8, ptr %14, i64 8
+  %fb8.i.us.i = getelementptr inbounds nuw i8, ptr %14, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %fb8.i.us.i, ptr noundef nonnull align 8 dereferenceable(40) %output.i, i64 40, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %output.i, ptr noundef nonnull align 8 dereferenceable(40) %tmp.i.i, i64 40, i1 false)
   %15 = load ptr, ptr %zrle, align 8
-  %buffer.i.us.i = getelementptr inbounds i8, ptr %15, i64 40
+  %buffer.i.us.i = getelementptr inbounds nuw i8, ptr %15, i64 40
   %16 = load ptr, ptr %buffer.i.us.i, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %tmp.i.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %found.i.i)
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %colors.i.i)
-  %palette1.i.us.i = getelementptr inbounds i8, ptr %15, i64 280
+  %palette1.i.us.i = getelementptr inbounds nuw i8, ptr %15, i64 280
   %idx.ext.i.us.i = sext i32 %mul.i.us.i to i64
   %add.ptr.i.us.i = getelementptr i8, ptr %16, i64 %idx.ext.i.us.i
   %add.ptr2.i.us.i = getelementptr i8, ptr %add.ptr.i.us.i, i64 -1
@@ -457,7 +457,7 @@ if.else104.i.i:                                   ; preds = %if.then99.i.us.i
   unreachable
 
 sw.bb32:                                          ; preds = %if.end30
-  %gmax = getelementptr inbounds i8, ptr %vs, i64 49441
+  %gmax = getelementptr inbounds nuw i8, ptr %vs, i64 49441
   %34 = load i8, ptr %gmax, align 1
   %cmp35 = icmp ugt i8 %34, 31
   %add.i111 = add i32 %h, %y
@@ -488,25 +488,25 @@ for.body6.us.i120:                                ; preds = %for.body6.us.i120, 
   %cond14.us.i122 = tail call i32 @llvm.smin.i32(i32 %sub8.us.i121, i32 64)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %tmp.i.i110)
   %35 = load ptr, ptr %zrle, align 8
-  %fb.i.us.i123 = getelementptr inbounds i8, ptr %35, i64 8
+  %fb.i.us.i123 = getelementptr inbounds nuw i8, ptr %35, i64 8
   tail call void @buffer_reset(ptr noundef nonnull %fb.i.us.i123) #9
   %36 = load ptr, ptr %zrle, align 8
-  %fb2.i.us.i124 = getelementptr inbounds i8, ptr %36, i64 8
+  %fb2.i.us.i124 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %mul313.i.us.i125 = mul i32 %mul.i.us.i119, %cond14.us.i122
   %add.i.us.i126 = add i32 %mul313.i.us.i125, 16
   %conv.i.us.i127 = sext i32 %add.i.us.i126 to i64
   tail call void @buffer_reserve(ptr noundef nonnull %fb2.i.us.i124, i64 noundef %conv.i.us.i127) #9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %tmp.i.i110, ptr noundef nonnull align 8 dereferenceable(40) %output.i, i64 40, i1 false)
   %37 = load ptr, ptr %zrle, align 8
-  %fb6.i.us.i128 = getelementptr inbounds i8, ptr %37, i64 8
+  %fb6.i.us.i128 = getelementptr inbounds nuw i8, ptr %37, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %output.i, ptr noundef nonnull align 8 dereferenceable(40) %fb6.i.us.i128, i64 40, i1 false)
   %call.i.us.i129 = tail call i32 @vnc_raw_send_framebuffer_update(ptr noundef nonnull %vs, i32 noundef %tx.021.us.i, i32 noundef %ty.023.us.i, i32 noundef %cond14.us.i122, i32 noundef %cond.us.i118) #9
   %38 = load ptr, ptr %zrle, align 8
-  %fb8.i.us.i130 = getelementptr inbounds i8, ptr %38, i64 8
+  %fb8.i.us.i130 = getelementptr inbounds nuw i8, ptr %38, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %fb8.i.us.i130, ptr noundef nonnull align 8 dereferenceable(40) %output.i, i64 40, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %output.i, ptr noundef nonnull align 8 dereferenceable(40) %tmp.i.i110, i64 40, i1 false)
   %39 = load ptr, ptr %zrle, align 8
-  %buffer.i.us.i131 = getelementptr inbounds i8, ptr %39, i64 40
+  %buffer.i.us.i131 = getelementptr inbounds nuw i8, ptr %39, i64 40
   %40 = load ptr, ptr %buffer.i.us.i131, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %tmp.i.i110)
   tail call fastcc void @zrle_encode_tile16be(ptr noundef nonnull %vs, ptr noundef %40, i32 noundef %cond14.us.i122, i32 noundef %cond.us.i118, i32 noundef range(i32 0, 4) %zywrle_level.0)
@@ -540,25 +540,25 @@ for.body6.us.i150:                                ; preds = %for.body6.us.i150, 
   %cond14.us.i153 = tail call i32 @llvm.smin.i32(i32 %sub8.us.i152, i32 64)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %tmp.i.i137)
   %41 = load ptr, ptr %zrle, align 8
-  %fb.i.us.i154 = getelementptr inbounds i8, ptr %41, i64 8
+  %fb.i.us.i154 = getelementptr inbounds nuw i8, ptr %41, i64 8
   tail call void @buffer_reset(ptr noundef nonnull %fb.i.us.i154) #9
   %42 = load ptr, ptr %zrle, align 8
-  %fb2.i.us.i155 = getelementptr inbounds i8, ptr %42, i64 8
+  %fb2.i.us.i155 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %mul313.i.us.i156 = mul i32 %mul.i.us.i149, %cond14.us.i153
   %add.i.us.i157 = add i32 %mul313.i.us.i156, 16
   %conv.i.us.i158 = sext i32 %add.i.us.i157 to i64
   tail call void @buffer_reserve(ptr noundef nonnull %fb2.i.us.i155, i64 noundef %conv.i.us.i158) #9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %tmp.i.i137, ptr noundef nonnull align 8 dereferenceable(40) %output.i, i64 40, i1 false)
   %43 = load ptr, ptr %zrle, align 8
-  %fb6.i.us.i159 = getelementptr inbounds i8, ptr %43, i64 8
+  %fb6.i.us.i159 = getelementptr inbounds nuw i8, ptr %43, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %output.i, ptr noundef nonnull align 8 dereferenceable(40) %fb6.i.us.i159, i64 40, i1 false)
   %call.i.us.i160 = tail call i32 @vnc_raw_send_framebuffer_update(ptr noundef nonnull %vs, i32 noundef %tx.021.us.i151, i32 noundef %ty.023.us.i146, i32 noundef %cond14.us.i153, i32 noundef %cond.us.i148) #9
   %44 = load ptr, ptr %zrle, align 8
-  %fb8.i.us.i161 = getelementptr inbounds i8, ptr %44, i64 8
+  %fb8.i.us.i161 = getelementptr inbounds nuw i8, ptr %44, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %fb8.i.us.i161, ptr noundef nonnull align 8 dereferenceable(40) %output.i, i64 40, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %output.i, ptr noundef nonnull align 8 dereferenceable(40) %tmp.i.i137, i64 40, i1 false)
   %45 = load ptr, ptr %zrle, align 8
-  %buffer.i.us.i162 = getelementptr inbounds i8, ptr %45, i64 40
+  %buffer.i.us.i162 = getelementptr inbounds nuw i8, ptr %45, i64 40
   %46 = load ptr, ptr %buffer.i.us.i162, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %tmp.i.i137)
   tail call fastcc void @zrle_encode_tile16le(ptr noundef nonnull %vs, ptr noundef %46, i32 noundef %cond14.us.i153, i32 noundef %cond.us.i148, i32 noundef range(i32 0, 4) %zywrle_level.0)
@@ -595,25 +595,25 @@ for.body6.us.i181:                                ; preds = %for.body6.us.i181, 
   %cond14.us.i184 = tail call i32 @llvm.smin.i32(i32 %sub8.us.i183, i32 64)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %tmp.i.i168)
   %47 = load ptr, ptr %zrle, align 8
-  %fb.i.us.i185 = getelementptr inbounds i8, ptr %47, i64 8
+  %fb.i.us.i185 = getelementptr inbounds nuw i8, ptr %47, i64 8
   tail call void @buffer_reset(ptr noundef nonnull %fb.i.us.i185) #9
   %48 = load ptr, ptr %zrle, align 8
-  %fb2.i.us.i186 = getelementptr inbounds i8, ptr %48, i64 8
+  %fb2.i.us.i186 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %49 = mul i32 %mul.i.us.i180, %cond14.us.i184
   %add.i.us.i187 = add i32 %49, 15
   %conv.i.us.i188 = sext i32 %add.i.us.i187 to i64
   tail call void @buffer_reserve(ptr noundef nonnull %fb2.i.us.i186, i64 noundef %conv.i.us.i188) #9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %tmp.i.i168, ptr noundef nonnull align 8 dereferenceable(40) %output.i, i64 40, i1 false)
   %50 = load ptr, ptr %zrle, align 8
-  %fb6.i.us.i189 = getelementptr inbounds i8, ptr %50, i64 8
+  %fb6.i.us.i189 = getelementptr inbounds nuw i8, ptr %50, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %output.i, ptr noundef nonnull align 8 dereferenceable(40) %fb6.i.us.i189, i64 40, i1 false)
   %call.i.us.i190 = tail call i32 @vnc_raw_send_framebuffer_update(ptr noundef nonnull %vs, i32 noundef %tx.021.us.i182, i32 noundef %ty.023.us.i177, i32 noundef %cond14.us.i184, i32 noundef %cond.us.i179) #9
   %51 = load ptr, ptr %zrle, align 8
-  %fb8.i.us.i191 = getelementptr inbounds i8, ptr %51, i64 8
+  %fb8.i.us.i191 = getelementptr inbounds nuw i8, ptr %51, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %fb8.i.us.i191, ptr noundef nonnull align 8 dereferenceable(40) %output.i, i64 40, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %output.i, ptr noundef nonnull align 8 dereferenceable(40) %tmp.i.i168, i64 40, i1 false)
   %52 = load ptr, ptr %zrle, align 8
-  %buffer.i.us.i192 = getelementptr inbounds i8, ptr %52, i64 40
+  %buffer.i.us.i192 = getelementptr inbounds nuw i8, ptr %52, i64 40
   %53 = load ptr, ptr %buffer.i.us.i192, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %tmp.i.i168)
   tail call fastcc void @zrle_encode_tile15be(ptr noundef nonnull %vs, ptr noundef %53, i32 noundef %cond14.us.i184, i32 noundef %cond.us.i179, i32 noundef range(i32 0, 4) %zywrle_level.0)
@@ -647,25 +647,25 @@ for.body6.us.i211:                                ; preds = %for.body6.us.i211, 
   %cond14.us.i214 = tail call i32 @llvm.smin.i32(i32 %sub8.us.i213, i32 64)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %tmp.i.i198)
   %54 = load ptr, ptr %zrle, align 8
-  %fb.i.us.i215 = getelementptr inbounds i8, ptr %54, i64 8
+  %fb.i.us.i215 = getelementptr inbounds nuw i8, ptr %54, i64 8
   tail call void @buffer_reset(ptr noundef nonnull %fb.i.us.i215) #9
   %55 = load ptr, ptr %zrle, align 8
-  %fb2.i.us.i216 = getelementptr inbounds i8, ptr %55, i64 8
+  %fb2.i.us.i216 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %56 = mul i32 %mul.i.us.i210, %cond14.us.i214
   %add.i.us.i217 = add i32 %56, 15
   %conv.i.us.i218 = sext i32 %add.i.us.i217 to i64
   tail call void @buffer_reserve(ptr noundef nonnull %fb2.i.us.i216, i64 noundef %conv.i.us.i218) #9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %tmp.i.i198, ptr noundef nonnull align 8 dereferenceable(40) %output.i, i64 40, i1 false)
   %57 = load ptr, ptr %zrle, align 8
-  %fb6.i.us.i219 = getelementptr inbounds i8, ptr %57, i64 8
+  %fb6.i.us.i219 = getelementptr inbounds nuw i8, ptr %57, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %output.i, ptr noundef nonnull align 8 dereferenceable(40) %fb6.i.us.i219, i64 40, i1 false)
   %call.i.us.i220 = tail call i32 @vnc_raw_send_framebuffer_update(ptr noundef nonnull %vs, i32 noundef %tx.021.us.i212, i32 noundef %ty.023.us.i207, i32 noundef %cond14.us.i214, i32 noundef %cond.us.i209) #9
   %58 = load ptr, ptr %zrle, align 8
-  %fb8.i.us.i221 = getelementptr inbounds i8, ptr %58, i64 8
+  %fb8.i.us.i221 = getelementptr inbounds nuw i8, ptr %58, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %fb8.i.us.i221, ptr noundef nonnull align 8 dereferenceable(40) %output.i, i64 40, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %output.i, ptr noundef nonnull align 8 dereferenceable(40) %tmp.i.i198, i64 40, i1 false)
   %59 = load ptr, ptr %zrle, align 8
-  %buffer.i.us.i222 = getelementptr inbounds i8, ptr %59, i64 40
+  %buffer.i.us.i222 = getelementptr inbounds nuw i8, ptr %59, i64 40
   %60 = load ptr, ptr %buffer.i.us.i222, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %tmp.i.i198)
   tail call fastcc void @zrle_encode_tile15le(ptr noundef nonnull %vs, ptr noundef %60, i32 noundef %cond14.us.i214, i32 noundef %cond.us.i209, i32 noundef range(i32 0, 4) %zywrle_level.0)
@@ -679,10 +679,10 @@ for.cond3.for.inc16_crit_edge.us.i225:            ; preds = %for.body6.us.i211
   br i1 %cmp.us.i227, label %for.body.us.i206, label %sw.epilog, !llvm.loop !23
 
 sw.bb48:                                          ; preds = %if.end30
-  %rmax = getelementptr inbounds i8, ptr %vs, i64 49440
+  %rmax = getelementptr inbounds nuw i8, ptr %vs, i64 49440
   %61 = load i8, ptr %rmax, align 8
   %conv50 = zext i8 %61 to i32
-  %rshift = getelementptr inbounds i8, ptr %vs, i64 49436
+  %rshift = getelementptr inbounds nuw i8, ptr %vs, i64 49436
   %62 = load i8, ptr %rshift, align 4
   %conv52 = zext nneg i8 %62 to i32
   %shl = shl i32 %conv50, %conv52
@@ -690,10 +690,10 @@ sw.bb48:                                          ; preds = %if.end30
   br i1 %cmp53, label %land.lhs.true, label %land.end
 
 land.lhs.true:                                    ; preds = %sw.bb48
-  %gmax56 = getelementptr inbounds i8, ptr %vs, i64 49441
+  %gmax56 = getelementptr inbounds nuw i8, ptr %vs, i64 49441
   %63 = load i8, ptr %gmax56, align 1
   %conv57 = zext i8 %63 to i32
-  %gshift = getelementptr inbounds i8, ptr %vs, i64 49437
+  %gshift = getelementptr inbounds nuw i8, ptr %vs, i64 49437
   %64 = load i8, ptr %gshift, align 1
   %conv59 = zext nneg i8 %64 to i32
   %shl60 = shl i32 %conv57, %conv59
@@ -701,10 +701,10 @@ land.lhs.true:                                    ; preds = %sw.bb48
   br i1 %cmp61, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %land.lhs.true
-  %bmax = getelementptr inbounds i8, ptr %vs, i64 49442
+  %bmax = getelementptr inbounds nuw i8, ptr %vs, i64 49442
   %65 = load i8, ptr %bmax, align 2
   %conv64 = zext i8 %65 to i32
-  %bshift = getelementptr inbounds i8, ptr %vs, i64 49438
+  %bshift = getelementptr inbounds nuw i8, ptr %vs, i64 49438
   %66 = load i8, ptr %bshift, align 2
   %conv66 = zext nneg i8 %66 to i32
   %shl67 = shl i32 %conv64, %conv66
@@ -717,13 +717,13 @@ land.end:                                         ; preds = %land.rhs, %land.lhs
   br i1 %cmp74, label %land.lhs.true76, label %land.end88
 
 land.lhs.true76:                                  ; preds = %land.end
-  %gshift78 = getelementptr inbounds i8, ptr %vs, i64 49437
+  %gshift78 = getelementptr inbounds nuw i8, ptr %vs, i64 49437
   %67 = load i8, ptr %gshift78, align 1
   %cmp80 = icmp ugt i8 %67, 7
   br i1 %cmp80, label %land.rhs82, label %land.end88
 
 land.rhs82:                                       ; preds = %land.lhs.true76
-  %bshift84 = getelementptr inbounds i8, ptr %vs, i64 49438
+  %bshift84 = getelementptr inbounds nuw i8, ptr %vs, i64 49438
   %68 = load i8, ptr %bshift84, align 2
   %cmp86 = icmp ult i8 %68, 8
   br label %land.end88
@@ -764,25 +764,25 @@ for.body6.us.i241:                                ; preds = %for.body6.us.i241, 
   %cond14.us.i244 = tail call i32 @llvm.smin.i32(i32 %sub8.us.i243, i32 64)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %tmp.i.i228)
   %69 = load ptr, ptr %zrle, align 8
-  %fb.i.us.i245 = getelementptr inbounds i8, ptr %69, i64 8
+  %fb.i.us.i245 = getelementptr inbounds nuw i8, ptr %69, i64 8
   tail call void @buffer_reset(ptr noundef nonnull %fb.i.us.i245) #9
   %70 = load ptr, ptr %zrle, align 8
-  %fb2.i.us.i246 = getelementptr inbounds i8, ptr %70, i64 8
+  %fb2.i.us.i246 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %mul313.i.us.i247 = mul i32 %mul.i.us.i240, %cond14.us.i244
   %add.i.us.i248 = add i32 %mul313.i.us.i247, 32
   %conv.i.us.i249 = sext i32 %add.i.us.i248 to i64
   tail call void @buffer_reserve(ptr noundef nonnull %fb2.i.us.i246, i64 noundef %conv.i.us.i249) #9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %tmp.i.i228, ptr noundef nonnull align 8 dereferenceable(40) %output.i, i64 40, i1 false)
   %71 = load ptr, ptr %zrle, align 8
-  %fb6.i.us.i250 = getelementptr inbounds i8, ptr %71, i64 8
+  %fb6.i.us.i250 = getelementptr inbounds nuw i8, ptr %71, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %output.i, ptr noundef nonnull align 8 dereferenceable(40) %fb6.i.us.i250, i64 40, i1 false)
   %call.i.us.i251 = tail call i32 @vnc_raw_send_framebuffer_update(ptr noundef nonnull %vs, i32 noundef %tx.021.us.i242, i32 noundef %ty.023.us.i237, i32 noundef %cond14.us.i244, i32 noundef %cond.us.i239) #9
   %72 = load ptr, ptr %zrle, align 8
-  %fb8.i.us.i252 = getelementptr inbounds i8, ptr %72, i64 8
+  %fb8.i.us.i252 = getelementptr inbounds nuw i8, ptr %72, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %fb8.i.us.i252, ptr noundef nonnull align 8 dereferenceable(40) %output.i, i64 40, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %output.i, ptr noundef nonnull align 8 dereferenceable(40) %tmp.i.i228, i64 40, i1 false)
   %73 = load ptr, ptr %zrle, align 8
-  %buffer.i.us.i253 = getelementptr inbounds i8, ptr %73, i64 40
+  %buffer.i.us.i253 = getelementptr inbounds nuw i8, ptr %73, i64 40
   %74 = load ptr, ptr %buffer.i.us.i253, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %tmp.i.i228)
   tail call fastcc void @zrle_encode_tile24abe(ptr noundef nonnull %vs, ptr noundef %74, i32 noundef %cond14.us.i244, i32 noundef %cond.us.i239, i32 noundef range(i32 0, 4) %zywrle_level.0)
@@ -816,25 +816,25 @@ for.body6.us.i272:                                ; preds = %for.body6.us.i272, 
   %cond14.us.i275 = tail call i32 @llvm.smin.i32(i32 %sub8.us.i274, i32 64)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %tmp.i.i259)
   %75 = load ptr, ptr %zrle, align 8
-  %fb.i.us.i276 = getelementptr inbounds i8, ptr %75, i64 8
+  %fb.i.us.i276 = getelementptr inbounds nuw i8, ptr %75, i64 8
   tail call void @buffer_reset(ptr noundef nonnull %fb.i.us.i276) #9
   %76 = load ptr, ptr %zrle, align 8
-  %fb2.i.us.i277 = getelementptr inbounds i8, ptr %76, i64 8
+  %fb2.i.us.i277 = getelementptr inbounds nuw i8, ptr %76, i64 8
   %mul313.i.us.i278 = mul i32 %mul.i.us.i271, %cond14.us.i275
   %add.i.us.i279 = add i32 %mul313.i.us.i278, 32
   %conv.i.us.i280 = sext i32 %add.i.us.i279 to i64
   tail call void @buffer_reserve(ptr noundef nonnull %fb2.i.us.i277, i64 noundef %conv.i.us.i280) #9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %tmp.i.i259, ptr noundef nonnull align 8 dereferenceable(40) %output.i, i64 40, i1 false)
   %77 = load ptr, ptr %zrle, align 8
-  %fb6.i.us.i281 = getelementptr inbounds i8, ptr %77, i64 8
+  %fb6.i.us.i281 = getelementptr inbounds nuw i8, ptr %77, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %output.i, ptr noundef nonnull align 8 dereferenceable(40) %fb6.i.us.i281, i64 40, i1 false)
   %call.i.us.i282 = tail call i32 @vnc_raw_send_framebuffer_update(ptr noundef nonnull %vs, i32 noundef %tx.021.us.i273, i32 noundef %ty.023.us.i268, i32 noundef %cond14.us.i275, i32 noundef %cond.us.i270) #9
   %78 = load ptr, ptr %zrle, align 8
-  %fb8.i.us.i283 = getelementptr inbounds i8, ptr %78, i64 8
+  %fb8.i.us.i283 = getelementptr inbounds nuw i8, ptr %78, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %fb8.i.us.i283, ptr noundef nonnull align 8 dereferenceable(40) %output.i, i64 40, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %output.i, ptr noundef nonnull align 8 dereferenceable(40) %tmp.i.i259, i64 40, i1 false)
   %79 = load ptr, ptr %zrle, align 8
-  %buffer.i.us.i284 = getelementptr inbounds i8, ptr %79, i64 40
+  %buffer.i.us.i284 = getelementptr inbounds nuw i8, ptr %79, i64 40
   %80 = load ptr, ptr %buffer.i.us.i284, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %tmp.i.i259)
   tail call fastcc void @zrle_encode_tile24ale(ptr noundef nonnull %vs, ptr noundef %80, i32 noundef %cond14.us.i275, i32 noundef %cond.us.i270, i32 noundef range(i32 0, 4) %zywrle_level.0)
@@ -877,23 +877,23 @@ if.else124:                                       ; preds = %if.else121
 
 sw.epilog:                                        ; preds = %for.cond3.for.inc16_crit_edge.us.i287, %for.cond3.for.inc16_crit_edge.us.i256, %for.cond3.for.inc16_crit_edge.us.i225, %for.cond3.for.inc16_crit_edge.us.i195, %for.cond3.for.inc16_crit_edge.us.i165, %for.cond3.for.inc16_crit_edge.us.i134, %for.cond3.for.inc16_crit_edge.us.i, %for.body.lr.ph.i262, %if.else103, %for.body.lr.ph.i231, %if.then102, %for.body.lr.ph.i201, %if.else45, %for.body.lr.ph.i171, %if.then44, %for.body.lr.ph.i140, %if.else40, %for.body.lr.ph.i112, %if.then39, %for.body.lr.ph.i, %sw.bb, %if.then123, %if.else124, %if.then118, %if.else119, %if.end30
   %81 = load ptr, ptr %zrle, align 8
-  %zrle1.i291 = getelementptr inbounds i8, ptr %81, i64 48
+  %zrle1.i291 = getelementptr inbounds nuw i8, ptr %81, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %zrle1.i291, ptr noundef nonnull align 8 dereferenceable(40) %output.i, i64 40, i1 false)
   %82 = load ptr, ptr %zrle, align 8
-  %tmp.i293 = getelementptr inbounds i8, ptr %82, i64 88
+  %tmp.i293 = getelementptr inbounds nuw i8, ptr %82, i64 88
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %output.i, ptr noundef nonnull align 8 dereferenceable(40) %tmp.i293, i64 40, i1 false)
-  %stream.i = getelementptr inbounds i8, ptr %82, i64 168
-  %zlib.i = getelementptr inbounds i8, ptr %82, i64 128
+  %stream.i = getelementptr inbounds nuw i8, ptr %82, i64 168
+  %zlib.i = getelementptr inbounds nuw i8, ptr %82, i64 128
   call void @buffer_reset(ptr noundef nonnull %zlib.i) #9
-  %opaque.i = getelementptr inbounds i8, ptr %82, i64 248
+  %opaque.i = getelementptr inbounds nuw i8, ptr %82, i64 248
   %83 = load ptr, ptr %opaque.i, align 8
   %cmp.not.i = icmp eq ptr %83, %vs
   br i1 %cmp.not.i, label %if.end6.i, label %if.then.i
 
 if.then.i:                                        ; preds = %sw.epilog
-  %zalloc.i = getelementptr inbounds i8, ptr %82, i64 232
+  %zalloc.i = getelementptr inbounds nuw i8, ptr %82, i64 232
   store ptr @vnc_zlib_zalloc, ptr %zalloc.i, align 8
-  %zfree.i = getelementptr inbounds i8, ptr %82, i64 240
+  %zfree.i = getelementptr inbounds nuw i8, ptr %82, i64 240
   store ptr @vnc_zlib_zfree, ptr %zfree.i, align 8
   %call.i = call i32 @deflateInit2_(ptr noundef nonnull %stream.i, i32 noundef -1, i32 noundef 8, i32 noundef 15, i32 noundef 9, i32 noundef 0, ptr noundef nonnull @.str.3, i32 noundef 112) #9
   %cmp2.not.i = icmp eq i32 %call.i, 0
@@ -910,33 +910,33 @@ if.end.i:                                         ; preds = %if.then.i
 
 if.end6.i:                                        ; preds = %if.end.i, %sw.epilog
   %86 = load ptr, ptr %zrle, align 8
-  %zlib8.i = getelementptr inbounds i8, ptr %86, i64 128
-  %offset.i = getelementptr inbounds i8, ptr %86, i64 64
+  %zlib8.i = getelementptr inbounds nuw i8, ptr %86, i64 128
+  %offset.i = getelementptr inbounds nuw i8, ptr %86, i64 64
   %87 = load i64, ptr %offset.i, align 8
   %add.i295 = add i64 %87, 64
   call void @buffer_reserve(ptr noundef nonnull %zlib8.i, i64 noundef %add.i295) #9
   %88 = load ptr, ptr %zrle, align 8
-  %buffer.i = getelementptr inbounds i8, ptr %88, i64 80
+  %buffer.i = getelementptr inbounds nuw i8, ptr %88, i64 80
   %89 = load ptr, ptr %buffer.i, align 8
   store ptr %89, ptr %stream.i, align 8
   %90 = load ptr, ptr %zrle, align 8
-  %offset15.i = getelementptr inbounds i8, ptr %90, i64 64
+  %offset15.i = getelementptr inbounds nuw i8, ptr %90, i64 64
   %91 = load i64, ptr %offset15.i, align 8
   %conv.i = trunc i64 %91 to i32
-  %avail_in.i = getelementptr inbounds i8, ptr %82, i64 176
+  %avail_in.i = getelementptr inbounds nuw i8, ptr %82, i64 176
   store i32 %conv.i, ptr %avail_in.i, align 8
   %92 = load ptr, ptr %zrle, align 8
-  %buffer18.i = getelementptr inbounds i8, ptr %92, i64 160
+  %buffer18.i = getelementptr inbounds nuw i8, ptr %92, i64 160
   %93 = load ptr, ptr %buffer18.i, align 8
-  %next_out.i = getelementptr inbounds i8, ptr %82, i64 192
+  %next_out.i = getelementptr inbounds nuw i8, ptr %82, i64 192
   store ptr %93, ptr %next_out.i, align 8
   %94 = load ptr, ptr %zrle, align 8
-  %capacity.i = getelementptr inbounds i8, ptr %94, i64 136
+  %capacity.i = getelementptr inbounds nuw i8, ptr %94, i64 136
   %95 = load i64, ptr %capacity.i, align 8
   %conv21.i = trunc i64 %95 to i32
-  %avail_out.i = getelementptr inbounds i8, ptr %82, i64 200
+  %avail_out.i = getelementptr inbounds nuw i8, ptr %82, i64 200
   store i32 %conv21.i, ptr %avail_out.i, align 8
-  %data_type.i = getelementptr inbounds i8, ptr %82, i64 256
+  %data_type.i = getelementptr inbounds nuw i8, ptr %82, i64 256
   store i32 0, ptr %data_type.i, align 8
   %call22.i = call i32 @deflate(ptr noundef nonnull %stream.i, i32 noundef 2) #9
   %cmp23.not.i = icmp eq i32 %call22.i, 0
@@ -949,15 +949,15 @@ if.then25.i:                                      ; preds = %if.end6.i
 
 if.end27.i:                                       ; preds = %if.end6.i
   %98 = load ptr, ptr %zrle, align 8
-  %capacity30.i = getelementptr inbounds i8, ptr %98, i64 136
+  %capacity30.i = getelementptr inbounds nuw i8, ptr %98, i64 136
   %99 = load i64, ptr %capacity30.i, align 8
   %100 = load i32, ptr %avail_out.i, align 8
   %conv32.i = zext i32 %100 to i64
   %sub.i = sub i64 %99, %conv32.i
-  %offset35.i = getelementptr inbounds i8, ptr %98, i64 144
+  %offset35.i = getelementptr inbounds nuw i8, ptr %98, i64 144
   store i64 %sub.i, ptr %offset35.i, align 8
   %101 = load ptr, ptr %zrle, align 8
-  %offset38.i = getelementptr inbounds i8, ptr %101, i64 144
+  %offset38.i = getelementptr inbounds nuw i8, ptr %101, i64 144
   %102 = load i64, ptr %offset38.i, align 8
   %conv39.i = trunc i64 %102 to i32
   br label %zrle_compress_data.exit
@@ -969,9 +969,9 @@ zrle_compress_data.exit:                          ; preds = %if.then3.i, %if.the
   call void @vnc_framebuffer_update(ptr noundef nonnull %vs, i32 noundef %x, i32 noundef %y, i32 noundef %w, i32 noundef %h, i32 noundef %104) #9
   call void @vnc_write_u32(ptr noundef nonnull %vs, i32 noundef %retval.0.i) #9
   %105 = load ptr, ptr %zrle, align 8
-  %buffer = getelementptr inbounds i8, ptr %105, i64 160
+  %buffer = getelementptr inbounds nuw i8, ptr %105, i64 160
   %106 = load ptr, ptr %buffer, align 8
-  %offset = getelementptr inbounds i8, ptr %105, i64 144
+  %offset = getelementptr inbounds nuw i8, ptr %105, i64 144
   %107 = load i64, ptr %offset, align 8
   call void @vnc_write(ptr noundef nonnull %vs, ptr noundef %106, i64 noundef %107) #9
   ret void
@@ -980,7 +980,7 @@ zrle_compress_data.exit:                          ; preds = %if.then3.i, %if.the
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef i32 @vnc_zywrle_send_framebuffer_update(ptr noundef %vs, i32 noundef %x, i32 noundef %y, i32 noundef %w, i32 noundef %h) local_unnamed_addr #0 {
 entry:
-  %zrle = getelementptr inbounds i8, ptr %vs, i64 49816
+  %zrle = getelementptr inbounds nuw i8, ptr %vs, i64 49816
   %0 = load ptr, ptr %zrle, align 8
   store i32 17, ptr %0, align 8
   tail call fastcc void @zrle_send_framebuffer_update(ptr noundef %vs, i32 noundef %x, i32 noundef %y, i32 noundef %w, i32 noundef %h)
@@ -990,28 +990,28 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @vnc_zrle_clear(ptr nocapture noundef readonly %vs) local_unnamed_addr #0 {
 entry:
-  %zrle = getelementptr inbounds i8, ptr %vs, i64 49816
+  %zrle = getelementptr inbounds nuw i8, ptr %vs, i64 49816
   %0 = load ptr, ptr %zrle, align 8
-  %opaque = getelementptr inbounds i8, ptr %0, i64 248
+  %opaque = getelementptr inbounds nuw i8, ptr %0, i64 248
   %1 = load ptr, ptr %opaque, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %stream = getelementptr inbounds i8, ptr %0, i64 168
+  %stream = getelementptr inbounds nuw i8, ptr %0, i64 168
   %call = tail call i32 @deflateEnd(ptr noundef nonnull %stream) #9
   %.pre = load ptr, ptr %zrle, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
   %2 = phi ptr [ %.pre, %if.then ], [ %0, %entry ]
-  %zrle4 = getelementptr inbounds i8, ptr %2, i64 48
+  %zrle4 = getelementptr inbounds nuw i8, ptr %2, i64 48
   tail call void @buffer_free(ptr noundef nonnull %zrle4) #9
   %3 = load ptr, ptr %zrle, align 8
-  %fb = getelementptr inbounds i8, ptr %3, i64 8
+  %fb = getelementptr inbounds nuw i8, ptr %3, i64 8
   tail call void @buffer_free(ptr noundef nonnull %fb) #9
   %4 = load ptr, ptr %zrle, align 8
-  %zlib = getelementptr inbounds i8, ptr %4, i64 128
+  %zlib = getelementptr inbounds nuw i8, ptr %4, i64 128
   tail call void @buffer_free(ptr noundef nonnull %zlib) #9
   ret void
 }
@@ -1031,8 +1031,8 @@ entry:
 for.body.lr.ph:                                   ; preds = %entry
   %add4 = add i32 %w, %x
   %cmp520 = icmp slt i32 %x, %add4
-  %zrle.i = getelementptr inbounds i8, ptr %vs, i64 49816
-  %output.i = getelementptr inbounds i8, ptr %vs, i64 49328
+  %zrle.i = getelementptr inbounds nuw i8, ptr %vs, i64 49816
+  %output.i = getelementptr inbounds nuw i8, ptr %vs, i64 49328
   br i1 %cmp520, label %for.body.us, label %for.end18
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.cond3.for.inc16_crit_edge.us
@@ -1048,25 +1048,25 @@ for.body6.us:                                     ; preds = %for.body.us, %for.b
   %cond14.us = tail call i32 @llvm.smin.i32(i32 %sub8.us, i32 64)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %tmp.i)
   %0 = load ptr, ptr %zrle.i, align 8
-  %fb.i.us = getelementptr inbounds i8, ptr %0, i64 8
+  %fb.i.us = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @buffer_reset(ptr noundef nonnull %fb.i.us) #9
   %1 = load ptr, ptr %zrle.i, align 8
-  %fb2.i.us = getelementptr inbounds i8, ptr %1, i64 8
+  %fb2.i.us = getelementptr inbounds nuw i8, ptr %1, i64 8
   %mul313.i.us = mul i32 %mul.i.us, %cond14.us
   %add.i.us = add i32 %mul313.i.us, 32
   %conv.i.us = sext i32 %add.i.us to i64
   tail call void @buffer_reserve(ptr noundef nonnull %fb2.i.us, i64 noundef %conv.i.us) #9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %tmp.i, ptr noundef nonnull align 8 dereferenceable(40) %output.i, i64 40, i1 false)
   %2 = load ptr, ptr %zrle.i, align 8
-  %fb6.i.us = getelementptr inbounds i8, ptr %2, i64 8
+  %fb6.i.us = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %output.i, ptr noundef nonnull align 8 dereferenceable(40) %fb6.i.us, i64 40, i1 false)
   %call.i.us = tail call i32 @vnc_raw_send_framebuffer_update(ptr noundef %vs, i32 noundef %tx.021.us, i32 noundef %ty.023.us, i32 noundef %cond14.us, i32 noundef %cond.us) #9
   %3 = load ptr, ptr %zrle.i, align 8
-  %fb8.i.us = getelementptr inbounds i8, ptr %3, i64 8
+  %fb8.i.us = getelementptr inbounds nuw i8, ptr %3, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %fb8.i.us, ptr noundef nonnull align 8 dereferenceable(40) %output.i, i64 40, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %output.i, ptr noundef nonnull align 8 dereferenceable(40) %tmp.i, i64 40, i1 false)
   %4 = load ptr, ptr %zrle.i, align 8
-  %buffer.i.us = getelementptr inbounds i8, ptr %4, i64 40
+  %buffer.i.us = getelementptr inbounds nuw i8, ptr %4, i64 40
   %5 = load ptr, ptr %buffer.i.us, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %tmp.i)
   tail call fastcc void @zrle_encode_tile24bbe(ptr noundef %vs, ptr noundef %5, i32 noundef %cond14.us, i32 noundef %cond.us, i32 noundef %zywrle_level)
@@ -1094,8 +1094,8 @@ entry:
 for.body.lr.ph:                                   ; preds = %entry
   %add4 = add i32 %w, %x
   %cmp520 = icmp slt i32 %x, %add4
-  %zrle.i = getelementptr inbounds i8, ptr %vs, i64 49816
-  %output.i = getelementptr inbounds i8, ptr %vs, i64 49328
+  %zrle.i = getelementptr inbounds nuw i8, ptr %vs, i64 49816
+  %output.i = getelementptr inbounds nuw i8, ptr %vs, i64 49328
   br i1 %cmp520, label %for.body.us, label %for.end18
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.cond3.for.inc16_crit_edge.us
@@ -1111,25 +1111,25 @@ for.body6.us:                                     ; preds = %for.body.us, %for.b
   %cond14.us = tail call i32 @llvm.smin.i32(i32 %sub8.us, i32 64)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %tmp.i)
   %0 = load ptr, ptr %zrle.i, align 8
-  %fb.i.us = getelementptr inbounds i8, ptr %0, i64 8
+  %fb.i.us = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @buffer_reset(ptr noundef nonnull %fb.i.us) #9
   %1 = load ptr, ptr %zrle.i, align 8
-  %fb2.i.us = getelementptr inbounds i8, ptr %1, i64 8
+  %fb2.i.us = getelementptr inbounds nuw i8, ptr %1, i64 8
   %mul313.i.us = mul i32 %mul.i.us, %cond14.us
   %add.i.us = add i32 %mul313.i.us, 32
   %conv.i.us = sext i32 %add.i.us to i64
   tail call void @buffer_reserve(ptr noundef nonnull %fb2.i.us, i64 noundef %conv.i.us) #9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %tmp.i, ptr noundef nonnull align 8 dereferenceable(40) %output.i, i64 40, i1 false)
   %2 = load ptr, ptr %zrle.i, align 8
-  %fb6.i.us = getelementptr inbounds i8, ptr %2, i64 8
+  %fb6.i.us = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %output.i, ptr noundef nonnull align 8 dereferenceable(40) %fb6.i.us, i64 40, i1 false)
   %call.i.us = tail call i32 @vnc_raw_send_framebuffer_update(ptr noundef %vs, i32 noundef %tx.021.us, i32 noundef %ty.023.us, i32 noundef %cond14.us, i32 noundef %cond.us) #9
   %3 = load ptr, ptr %zrle.i, align 8
-  %fb8.i.us = getelementptr inbounds i8, ptr %3, i64 8
+  %fb8.i.us = getelementptr inbounds nuw i8, ptr %3, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %fb8.i.us, ptr noundef nonnull align 8 dereferenceable(40) %output.i, i64 40, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %output.i, ptr noundef nonnull align 8 dereferenceable(40) %tmp.i, i64 40, i1 false)
   %4 = load ptr, ptr %zrle.i, align 8
-  %buffer.i.us = getelementptr inbounds i8, ptr %4, i64 40
+  %buffer.i.us = getelementptr inbounds nuw i8, ptr %4, i64 40
   %5 = load ptr, ptr %buffer.i.us, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %tmp.i)
   tail call fastcc void @zrle_encode_tile24ble(ptr noundef %vs, ptr noundef %5, i32 noundef %cond14.us, i32 noundef %cond.us, i32 noundef %zywrle_level)
@@ -1157,8 +1157,8 @@ entry:
 for.body.lr.ph:                                   ; preds = %entry
   %add4 = add i32 %w, %x
   %cmp520 = icmp slt i32 %x, %add4
-  %zrle.i = getelementptr inbounds i8, ptr %vs, i64 49816
-  %output.i = getelementptr inbounds i8, ptr %vs, i64 49328
+  %zrle.i = getelementptr inbounds nuw i8, ptr %vs, i64 49816
+  %output.i = getelementptr inbounds nuw i8, ptr %vs, i64 49328
   br i1 %cmp520, label %for.body.us, label %for.end18
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.cond3.for.inc16_crit_edge.us
@@ -1174,25 +1174,25 @@ for.body6.us:                                     ; preds = %for.body.us, %for.b
   %cond14.us = tail call i32 @llvm.smin.i32(i32 %sub8.us, i32 64)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %tmp.i)
   %0 = load ptr, ptr %zrle.i, align 8
-  %fb.i.us = getelementptr inbounds i8, ptr %0, i64 8
+  %fb.i.us = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @buffer_reset(ptr noundef nonnull %fb.i.us) #9
   %1 = load ptr, ptr %zrle.i, align 8
-  %fb2.i.us = getelementptr inbounds i8, ptr %1, i64 8
+  %fb2.i.us = getelementptr inbounds nuw i8, ptr %1, i64 8
   %mul313.i.us = mul i32 %mul.i.us, %cond14.us
   %add.i.us = add i32 %mul313.i.us, 32
   %conv.i.us = sext i32 %add.i.us to i64
   tail call void @buffer_reserve(ptr noundef nonnull %fb2.i.us, i64 noundef %conv.i.us) #9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %tmp.i, ptr noundef nonnull align 8 dereferenceable(40) %output.i, i64 40, i1 false)
   %2 = load ptr, ptr %zrle.i, align 8
-  %fb6.i.us = getelementptr inbounds i8, ptr %2, i64 8
+  %fb6.i.us = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %output.i, ptr noundef nonnull align 8 dereferenceable(40) %fb6.i.us, i64 40, i1 false)
   %call.i.us = tail call i32 @vnc_raw_send_framebuffer_update(ptr noundef %vs, i32 noundef %tx.021.us, i32 noundef %ty.023.us, i32 noundef %cond14.us, i32 noundef %cond.us) #9
   %3 = load ptr, ptr %zrle.i, align 8
-  %fb8.i.us = getelementptr inbounds i8, ptr %3, i64 8
+  %fb8.i.us = getelementptr inbounds nuw i8, ptr %3, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %fb8.i.us, ptr noundef nonnull align 8 dereferenceable(40) %output.i, i64 40, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %output.i, ptr noundef nonnull align 8 dereferenceable(40) %tmp.i, i64 40, i1 false)
   %4 = load ptr, ptr %zrle.i, align 8
-  %buffer.i.us = getelementptr inbounds i8, ptr %4, i64 40
+  %buffer.i.us = getelementptr inbounds nuw i8, ptr %4, i64 40
   %5 = load ptr, ptr %buffer.i.us, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %tmp.i)
   tail call fastcc void @zrle_encode_tile32be(ptr noundef %vs, ptr noundef %5, i32 noundef %cond14.us, i32 noundef %cond.us, i32 noundef %zywrle_level)
@@ -1220,8 +1220,8 @@ entry:
 for.body.lr.ph:                                   ; preds = %entry
   %add4 = add i32 %w, %x
   %cmp520 = icmp slt i32 %x, %add4
-  %zrle.i = getelementptr inbounds i8, ptr %vs, i64 49816
-  %output.i = getelementptr inbounds i8, ptr %vs, i64 49328
+  %zrle.i = getelementptr inbounds nuw i8, ptr %vs, i64 49816
+  %output.i = getelementptr inbounds nuw i8, ptr %vs, i64 49328
   br i1 %cmp520, label %for.body.us, label %for.end18
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.cond3.for.inc16_crit_edge.us
@@ -1237,25 +1237,25 @@ for.body6.us:                                     ; preds = %for.body.us, %for.b
   %cond14.us = tail call i32 @llvm.smin.i32(i32 %sub8.us, i32 64)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %tmp.i)
   %0 = load ptr, ptr %zrle.i, align 8
-  %fb.i.us = getelementptr inbounds i8, ptr %0, i64 8
+  %fb.i.us = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @buffer_reset(ptr noundef nonnull %fb.i.us) #9
   %1 = load ptr, ptr %zrle.i, align 8
-  %fb2.i.us = getelementptr inbounds i8, ptr %1, i64 8
+  %fb2.i.us = getelementptr inbounds nuw i8, ptr %1, i64 8
   %mul313.i.us = mul i32 %mul.i.us, %cond14.us
   %add.i.us = add i32 %mul313.i.us, 32
   %conv.i.us = sext i32 %add.i.us to i64
   tail call void @buffer_reserve(ptr noundef nonnull %fb2.i.us, i64 noundef %conv.i.us) #9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %tmp.i, ptr noundef nonnull align 8 dereferenceable(40) %output.i, i64 40, i1 false)
   %2 = load ptr, ptr %zrle.i, align 8
-  %fb6.i.us = getelementptr inbounds i8, ptr %2, i64 8
+  %fb6.i.us = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %output.i, ptr noundef nonnull align 8 dereferenceable(40) %fb6.i.us, i64 40, i1 false)
   %call.i.us = tail call i32 @vnc_raw_send_framebuffer_update(ptr noundef %vs, i32 noundef %tx.021.us, i32 noundef %ty.023.us, i32 noundef %cond14.us, i32 noundef %cond.us) #9
   %3 = load ptr, ptr %zrle.i, align 8
-  %fb8.i.us = getelementptr inbounds i8, ptr %3, i64 8
+  %fb8.i.us = getelementptr inbounds nuw i8, ptr %3, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %fb8.i.us, ptr noundef nonnull align 8 dereferenceable(40) %output.i, i64 40, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %output.i, ptr noundef nonnull align 8 dereferenceable(40) %tmp.i, i64 40, i1 false)
   %4 = load ptr, ptr %zrle.i, align 8
-  %buffer.i.us = getelementptr inbounds i8, ptr %4, i64 40
+  %buffer.i.us = getelementptr inbounds nuw i8, ptr %4, i64 40
   %5 = load ptr, ptr %buffer.i.us, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %tmp.i)
   tail call fastcc void @zrle_encode_tile32le(ptr noundef %vs, ptr noundef %5, i32 noundef %cond14.us, i32 noundef %cond.us, i32 noundef %zywrle_level)
@@ -1398,9 +1398,9 @@ entry:
 
 tailrecurse:                                      ; preds = %zywrle_analyze_16be.exit, %entry
   %zywrle_level.tr = phi i32 [ %zywrle_level, %entry ], [ %or158, %zywrle_analyze_16be.exit ]
-  %zrle = getelementptr inbounds i8, ptr %vs, i64 49816
+  %zrle = getelementptr inbounds nuw i8, ptr %vs, i64 49816
   %0 = load ptr, ptr %zrle, align 8
-  %palette1 = getelementptr inbounds i8, ptr %0, i64 280
+  %palette1 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %mul = mul i32 %h, %w
   %idx.ext = sext i32 %mul to i64
   %add.ptr = getelementptr i16, ptr %data, i64 %idx.ext
@@ -1663,7 +1663,7 @@ if.else150:                                       ; preds = %if.end43.thread
   br i1 %or.cond, label %if.then155, label %if.else159
 
 if.then155:                                       ; preds = %if.else150
-  %zywrle = getelementptr inbounds i8, ptr %vs, i64 49824
+  %zywrle = getelementptr inbounds nuw i8, ptr %vs, i64 49824
   %notmask.i.i = shl nsw i32 -1, %zywrle_level.tr
   %and.i.i = and i32 %notmask.i.i, %w
   %and4.i.i = and i32 %notmask.i.i, %h
@@ -2515,9 +2515,9 @@ entry:
 
 tailrecurse:                                      ; preds = %zywrle_analyze_16le.exit, %entry
   %zywrle_level.tr = phi i32 [ %zywrle_level, %entry ], [ %or158, %zywrle_analyze_16le.exit ]
-  %zrle = getelementptr inbounds i8, ptr %vs, i64 49816
+  %zrle = getelementptr inbounds nuw i8, ptr %vs, i64 49816
   %0 = load ptr, ptr %zrle, align 8
-  %palette1 = getelementptr inbounds i8, ptr %0, i64 280
+  %palette1 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %mul = mul i32 %h, %w
   %idx.ext = sext i32 %mul to i64
   %add.ptr = getelementptr i16, ptr %data, i64 %idx.ext
@@ -2780,7 +2780,7 @@ if.else150:                                       ; preds = %if.end43.thread
   br i1 %or.cond, label %if.then155, label %if.else159
 
 if.then155:                                       ; preds = %if.else150
-  %zywrle = getelementptr inbounds i8, ptr %vs, i64 49824
+  %zywrle = getelementptr inbounds nuw i8, ptr %vs, i64 49824
   %notmask.i.i = shl nsw i32 -1, %zywrle_level.tr
   %and.i.i = and i32 %notmask.i.i, %w
   %and4.i.i = and i32 %notmask.i.i, %h
@@ -3251,9 +3251,9 @@ entry:
 
 tailrecurse:                                      ; preds = %zywrle_analyze_15be.exit, %entry
   %zywrle_level.tr = phi i32 [ %zywrle_level, %entry ], [ %or158, %zywrle_analyze_15be.exit ]
-  %zrle = getelementptr inbounds i8, ptr %vs, i64 49816
+  %zrle = getelementptr inbounds nuw i8, ptr %vs, i64 49816
   %0 = load ptr, ptr %zrle, align 8
-  %palette1 = getelementptr inbounds i8, ptr %0, i64 280
+  %palette1 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %mul = mul i32 %h, %w
   %idx.ext = sext i32 %mul to i64
   %add.ptr = getelementptr i16, ptr %data, i64 %idx.ext
@@ -3516,7 +3516,7 @@ if.else150:                                       ; preds = %if.end43.thread
   br i1 %or.cond, label %if.then155, label %if.else159
 
 if.then155:                                       ; preds = %if.else150
-  %zywrle = getelementptr inbounds i8, ptr %vs, i64 49824
+  %zywrle = getelementptr inbounds nuw i8, ptr %vs, i64 49824
   %notmask.i.i = shl nsw i32 -1, %zywrle_level.tr
   %and.i.i = and i32 %notmask.i.i, %w
   %and4.i.i = and i32 %notmask.i.i, %h
@@ -3991,9 +3991,9 @@ entry:
 
 tailrecurse:                                      ; preds = %zywrle_analyze_15le.exit, %entry
   %zywrle_level.tr = phi i32 [ %zywrle_level, %entry ], [ %or158, %zywrle_analyze_15le.exit ]
-  %zrle = getelementptr inbounds i8, ptr %vs, i64 49816
+  %zrle = getelementptr inbounds nuw i8, ptr %vs, i64 49816
   %0 = load ptr, ptr %zrle, align 8
-  %palette1 = getelementptr inbounds i8, ptr %0, i64 280
+  %palette1 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %mul = mul i32 %h, %w
   %idx.ext = sext i32 %mul to i64
   %add.ptr = getelementptr i16, ptr %data, i64 %idx.ext
@@ -4256,7 +4256,7 @@ if.else150:                                       ; preds = %if.end43.thread
   br i1 %or.cond, label %if.then155, label %if.else159
 
 if.then155:                                       ; preds = %if.else150
-  %zywrle = getelementptr inbounds i8, ptr %vs, i64 49824
+  %zywrle = getelementptr inbounds nuw i8, ptr %vs, i64 49824
   %notmask.i.i = shl nsw i32 -1, %zywrle_level.tr
   %and.i.i = and i32 %notmask.i.i, %w
   %and4.i.i = and i32 %notmask.i.i, %h
@@ -4732,9 +4732,9 @@ entry:
 
 tailrecurse:                                      ; preds = %if.then137, %entry
   %zywrle_level.tr = phi i32 [ %zywrle_level, %entry ], [ %or140, %if.then137 ]
-  %zrle = getelementptr inbounds i8, ptr %vs, i64 49816
+  %zrle = getelementptr inbounds nuw i8, ptr %vs, i64 49816
   %0 = load ptr, ptr %zrle, align 8
-  %palette1 = getelementptr inbounds i8, ptr %0, i64 280
+  %palette1 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %mul = mul i32 %h, %w
   %idx.ext = sext i32 %mul to i64
   %add.ptr = getelementptr i32, ptr %data, i64 %idx.ext
@@ -4995,7 +4995,7 @@ for.cond142.preheader:                            ; preds = %if.else132
   br i1 %cmp111, label %for.body148, label %if.end154
 
 if.then137:                                       ; preds = %if.else132
-  %zywrle = getelementptr inbounds i8, ptr %vs, i64 49824
+  %zywrle = getelementptr inbounds nuw i8, ptr %vs, i64 49824
   tail call fastcc void @zywrle_analyze_32be(ptr noundef %data, ptr noundef %data, i32 noundef %w, i32 noundef %h, i32 noundef %w, i32 noundef %zywrle_level.tr, ptr noundef nonnull %zywrle)
   %or140 = or disjoint i32 %zywrle_level.tr, 128
   br label %tailrecurse
@@ -5530,9 +5530,9 @@ entry:
 
 tailrecurse:                                      ; preds = %if.then137, %entry
   %zywrle_level.tr = phi i32 [ %zywrle_level, %entry ], [ %or140, %if.then137 ]
-  %zrle = getelementptr inbounds i8, ptr %vs, i64 49816
+  %zrle = getelementptr inbounds nuw i8, ptr %vs, i64 49816
   %0 = load ptr, ptr %zrle, align 8
-  %palette1 = getelementptr inbounds i8, ptr %0, i64 280
+  %palette1 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %mul = mul i32 %h, %w
   %idx.ext = sext i32 %mul to i64
   %add.ptr = getelementptr i32, ptr %data, i64 %idx.ext
@@ -5793,7 +5793,7 @@ for.cond142.preheader:                            ; preds = %if.else132
   br i1 %cmp111, label %for.body148, label %if.end154
 
 if.then137:                                       ; preds = %if.else132
-  %zywrle = getelementptr inbounds i8, ptr %vs, i64 49824
+  %zywrle = getelementptr inbounds nuw i8, ptr %vs, i64 49824
   tail call fastcc void @zywrle_analyze_32le(ptr noundef %data, ptr noundef %data, i32 noundef %w, i32 noundef %h, i32 noundef %w, i32 noundef %zywrle_level.tr, ptr noundef nonnull %zywrle)
   %or140 = or disjoint i32 %zywrle_level.tr, 128
   br label %tailrecurse
@@ -6323,9 +6323,9 @@ entry:
 
 tailrecurse:                                      ; preds = %if.then137, %entry
   %zywrle_level.tr = phi i32 [ %zywrle_level, %entry ], [ %or140, %if.then137 ]
-  %zrle = getelementptr inbounds i8, ptr %vs, i64 49816
+  %zrle = getelementptr inbounds nuw i8, ptr %vs, i64 49816
   %0 = load ptr, ptr %zrle, align 8
-  %palette1 = getelementptr inbounds i8, ptr %0, i64 280
+  %palette1 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %mul = mul i32 %h, %w
   %idx.ext = sext i32 %mul to i64
   %add.ptr = getelementptr i32, ptr %data, i64 %idx.ext
@@ -6382,7 +6382,7 @@ if.then12:                                        ; preds = %while.end9
   %call13 = call i32 @palette_color(ptr noundef nonnull %palette1, i32 noundef 0, ptr noundef nonnull %found) #9
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.addr.i)
   store i32 %call13, ptr %value.addr.i, align 4
-  %add.ptr.i = getelementptr inbounds i8, ptr %value.addr.i, i64 1
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %value.addr.i, i64 1
   call void @vnc_write(ptr noundef %vs, ptr noundef nonnull %add.ptr.i, i64 noundef 3) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.addr.i)
   br label %if.end154
@@ -6406,7 +6406,7 @@ if.else17:                                        ; preds = %if.end14
   br i1 %cmp26122.not, label %if.end29, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.else17
-  %add.ptr.i100 = getelementptr inbounds i8, ptr %value.addr.i99, i64 1
+  %add.ptr.i100 = getelementptr inbounds nuw i8, ptr %value.addr.i99, i64 1
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -6437,7 +6437,7 @@ while.cond36.preheader:                           ; preds = %if.end29, %if.end29
   br i1 %cmp115, label %while.body39.lr.ph, label %if.end154
 
 while.body39.lr.ph:                               ; preds = %while.cond36.preheader
-  %add.ptr.i102 = getelementptr inbounds i8, ptr %value.addr.i101, i64 1
+  %add.ptr.i102 = getelementptr inbounds nuw i8, ptr %value.addr.i101, i64 1
   br label %while.body39
 
 while.body39:                                     ; preds = %while.body39.lr.ph, %while.cond36.backedge
@@ -6595,11 +6595,11 @@ for.cond142.preheader:                            ; preds = %if.else132
   br i1 %cmp115, label %for.body148.lr.ph, label %if.end154
 
 for.body148.lr.ph:                                ; preds = %for.cond142.preheader
-  %add.ptr.i104 = getelementptr inbounds i8, ptr %value.addr.i103, i64 1
+  %add.ptr.i104 = getelementptr inbounds nuw i8, ptr %value.addr.i103, i64 1
   br label %for.body148
 
 if.then137:                                       ; preds = %if.else132
-  %zywrle = getelementptr inbounds i8, ptr %vs, i64 49824
+  %zywrle = getelementptr inbounds nuw i8, ptr %vs, i64 49824
   tail call fastcc void @zywrle_analyze_32be(ptr noundef %data, ptr noundef %data, i32 noundef %w, i32 noundef %h, i32 noundef %w, i32 noundef %zywrle_level.tr, ptr noundef nonnull %zywrle)
   %or140 = or disjoint i32 %zywrle_level.tr, 128
   br label %tailrecurse
@@ -6634,9 +6634,9 @@ entry:
 
 tailrecurse:                                      ; preds = %if.then137, %entry
   %zywrle_level.tr = phi i32 [ %zywrle_level, %entry ], [ %or140, %if.then137 ]
-  %zrle = getelementptr inbounds i8, ptr %vs, i64 49816
+  %zrle = getelementptr inbounds nuw i8, ptr %vs, i64 49816
   %0 = load ptr, ptr %zrle, align 8
-  %palette1 = getelementptr inbounds i8, ptr %0, i64 280
+  %palette1 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %mul = mul i32 %h, %w
   %idx.ext = sext i32 %mul to i64
   %add.ptr = getelementptr i32, ptr %data, i64 %idx.ext
@@ -6693,7 +6693,7 @@ if.then12:                                        ; preds = %while.end9
   %call13 = call i32 @palette_color(ptr noundef nonnull %palette1, i32 noundef 0, ptr noundef nonnull %found) #9
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.addr.i)
   store i32 %call13, ptr %value.addr.i, align 4
-  %add.ptr.i = getelementptr inbounds i8, ptr %value.addr.i, i64 1
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %value.addr.i, i64 1
   call void @vnc_write(ptr noundef %vs, ptr noundef nonnull %add.ptr.i, i64 noundef 3) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.addr.i)
   br label %if.end154
@@ -6717,7 +6717,7 @@ if.else17:                                        ; preds = %if.end14
   br i1 %cmp26122.not, label %if.end29, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.else17
-  %add.ptr.i100 = getelementptr inbounds i8, ptr %value.addr.i99, i64 1
+  %add.ptr.i100 = getelementptr inbounds nuw i8, ptr %value.addr.i99, i64 1
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -6748,7 +6748,7 @@ while.cond36.preheader:                           ; preds = %if.end29, %if.end29
   br i1 %cmp115, label %while.body39.lr.ph, label %if.end154
 
 while.body39.lr.ph:                               ; preds = %while.cond36.preheader
-  %add.ptr.i102 = getelementptr inbounds i8, ptr %value.addr.i101, i64 1
+  %add.ptr.i102 = getelementptr inbounds nuw i8, ptr %value.addr.i101, i64 1
   br label %while.body39
 
 while.body39:                                     ; preds = %while.body39.lr.ph, %while.cond36.backedge
@@ -6906,11 +6906,11 @@ for.cond142.preheader:                            ; preds = %if.else132
   br i1 %cmp115, label %for.body148.lr.ph, label %if.end154
 
 for.body148.lr.ph:                                ; preds = %for.cond142.preheader
-  %add.ptr.i104 = getelementptr inbounds i8, ptr %value.addr.i103, i64 1
+  %add.ptr.i104 = getelementptr inbounds nuw i8, ptr %value.addr.i103, i64 1
   br label %for.body148
 
 if.then137:                                       ; preds = %if.else132
-  %zywrle = getelementptr inbounds i8, ptr %vs, i64 49824
+  %zywrle = getelementptr inbounds nuw i8, ptr %vs, i64 49824
   tail call fastcc void @zywrle_analyze_32le(ptr noundef %data, ptr noundef %data, i32 noundef %w, i32 noundef %h, i32 noundef %w, i32 noundef %zywrle_level.tr, ptr noundef nonnull %zywrle)
   %or140 = or disjoint i32 %zywrle_level.tr, 128
   br label %tailrecurse
@@ -6944,9 +6944,9 @@ entry:
 
 tailrecurse:                                      ; preds = %if.then137, %entry
   %zywrle_level.tr = phi i32 [ %zywrle_level, %entry ], [ %or140, %if.then137 ]
-  %zrle = getelementptr inbounds i8, ptr %vs, i64 49816
+  %zrle = getelementptr inbounds nuw i8, ptr %vs, i64 49816
   %0 = load ptr, ptr %zrle, align 8
-  %palette1 = getelementptr inbounds i8, ptr %0, i64 280
+  %palette1 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %mul = mul i32 %h, %w
   %idx.ext = sext i32 %mul to i64
   %add.ptr = getelementptr i32, ptr %data, i64 %idx.ext
@@ -7204,7 +7204,7 @@ if.else132:                                       ; preds = %if.end29.thread
   br i1 %or.cond, label %if.then137, label %if.else141
 
 if.then137:                                       ; preds = %if.else132
-  %zywrle = getelementptr inbounds i8, ptr %vs, i64 49824
+  %zywrle = getelementptr inbounds nuw i8, ptr %vs, i64 49824
   tail call fastcc void @zywrle_analyze_32be(ptr noundef %data, ptr noundef %data, i32 noundef %w, i32 noundef %h, i32 noundef %w, i32 noundef %zywrle_level.tr, ptr noundef nonnull %zywrle)
   %or140 = or disjoint i32 %zywrle_level.tr, 128
   br label %tailrecurse
@@ -7233,9 +7233,9 @@ entry:
 
 tailrecurse:                                      ; preds = %if.then137, %entry
   %zywrle_level.tr = phi i32 [ %zywrle_level, %entry ], [ %or140, %if.then137 ]
-  %zrle = getelementptr inbounds i8, ptr %vs, i64 49816
+  %zrle = getelementptr inbounds nuw i8, ptr %vs, i64 49816
   %0 = load ptr, ptr %zrle, align 8
-  %palette1 = getelementptr inbounds i8, ptr %0, i64 280
+  %palette1 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %mul = mul i32 %h, %w
   %idx.ext = sext i32 %mul to i64
   %add.ptr = getelementptr i32, ptr %data, i64 %idx.ext
@@ -7493,7 +7493,7 @@ if.else132:                                       ; preds = %if.end29.thread
   br i1 %or.cond, label %if.then137, label %if.else141
 
 if.then137:                                       ; preds = %if.else132
-  %zywrle = getelementptr inbounds i8, ptr %vs, i64 49824
+  %zywrle = getelementptr inbounds nuw i8, ptr %vs, i64 49824
   tail call fastcc void @zywrle_analyze_32le(ptr noundef %data, ptr noundef %data, i32 noundef %w, i32 noundef %h, i32 noundef %w, i32 noundef %zywrle_level.tr, ptr noundef nonnull %zywrle)
   %or140 = or disjoint i32 %zywrle_level.tr, 128
   br label %tailrecurse

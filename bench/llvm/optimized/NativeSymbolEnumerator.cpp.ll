@@ -117,57 +117,57 @@ define dso_local void @_ZNK4llvm3pdb22NativeSymbolEnumerator4dumpERNS_11raw_ostr
   %7 = alloca %"struct.llvm::pdb::Variant", align 8
   tail call void @_ZNK4llvm3pdb15NativeRawSymbol4dumpERNS_11raw_ostreamEiNS0_16PdbSymbolIdFieldES4_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #7
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 224
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 224
   %10 = load ptr, ptr %9, align 8
   %11 = tail call noundef i32 %10(ptr noundef nonnull align 8 dereferenceable(72) %0) #7
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8
   tail call void @_ZN4llvm3pdb17dumpSymbolIdFieldERNS_11raw_ostreamENS_9StringRefEjiRKNS0_11IPDBSessionENS0_16PdbSymbolIdFieldES7_S7_(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr nonnull @.str, i64 13, i32 noundef %11, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(8) %13, i32 noundef 4, i32 noundef %3, i32 noundef %4) #7
   %14 = load ptr, ptr %0, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 272
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 272
   %16 = load ptr, ptr %15, align 8
   %17 = tail call noundef i32 %16(ptr noundef nonnull align 8 dereferenceable(72) %0) #7
   %18 = load ptr, ptr %12, align 8
   tail call void @_ZN4llvm3pdb17dumpSymbolIdFieldERNS_11raw_ostreamENS_9StringRefEjiRKNS0_11IPDBSessionENS0_16PdbSymbolIdFieldES7_S7_(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr nonnull @.str.1, i64 15, i32 noundef %17, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(8) %18, i32 noundef 2, i32 noundef %3, i32 noundef %4) #7
   %19 = load ptr, ptr %0, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 336
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 336
   %21 = load ptr, ptr %20, align 8
   call void %21(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, ptr noundef nonnull align 8 dereferenceable(72) %0) #7
   call void @_ZN4llvm3pdb15dumpSymbolFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRNS_11raw_ostreamENS_9StringRefET_i(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr nonnull @.str.2, i64 4, ptr noundef nonnull %6, i32 noundef %2)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #7
   %22 = load ptr, ptr %0, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 592
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 592
   %24 = load ptr, ptr %23, align 8
   %25 = call noundef i32 %24(ptr noundef nonnull align 8 dereferenceable(72) %0) #7
   %26 = load ptr, ptr %12, align 8
   call void @_ZN4llvm3pdb17dumpSymbolIdFieldERNS_11raw_ostreamENS_9StringRefEjiRKNS0_11IPDBSessionENS0_16PdbSymbolIdFieldES7_S7_(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr nonnull @.str.3, i64 6, i32 noundef %25, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(8) %26, i32 noundef 8, i32 noundef %3, i32 noundef %4) #7
   %27 = load ptr, ptr %0, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 680
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 680
   %29 = load ptr, ptr %28, align 8
   %30 = call noundef i32 %29(ptr noundef nonnull align 8 dereferenceable(72) %0) #7
   call void @_ZN4llvm3pdb15dumpSymbolFieldINS0_12PDB_DataKindEEEvRNS_11raw_ostreamENS_9StringRefET_i(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr nonnull @.str.4, i64 8, i32 noundef %30, i32 noundef %2)
   %31 = load ptr, ptr %0, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 728
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 728
   %33 = load ptr, ptr %32, align 8
   %34 = call noundef i32 %33(ptr noundef nonnull align 8 dereferenceable(72) %0) #7
   call void @_ZN4llvm3pdb15dumpSymbolFieldINS0_11PDB_LocTypeEEEvRNS_11raw_ostreamENS_9StringRefET_i(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr nonnull @.str.5, i64 12, i32 noundef %34, i32 noundef %2)
   %35 = load ptr, ptr %0, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 824
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 824
   %37 = load ptr, ptr %36, align 8
   %38 = call noundef zeroext i1 %37(ptr noundef nonnull align 8 dereferenceable(72) %0) #7
   call void @_ZN4llvm3pdb15dumpSymbolFieldIbEEvRNS_11raw_ostreamENS_9StringRefET_i(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr nonnull @.str.6, i64 9, i1 noundef zeroext %38, i32 noundef %2)
   %39 = load ptr, ptr %0, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 1368
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 1368
   %41 = load ptr, ptr %40, align 8
   %42 = call noundef zeroext i1 %41(ptr noundef nonnull align 8 dereferenceable(72) %0) #7
   call void @_ZN4llvm3pdb15dumpSymbolFieldIbEEvRNS_11raw_ostreamENS_9StringRefET_i(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr nonnull @.str.7, i64 13, i1 noundef zeroext %42, i32 noundef %2)
   %43 = load ptr, ptr %0, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 1416
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 1416
   %45 = load ptr, ptr %44, align 8
   %46 = call noundef zeroext i1 %45(ptr noundef nonnull align 8 dereferenceable(72) %0) #7
   call void @_ZN4llvm3pdb15dumpSymbolFieldIbEEvRNS_11raw_ostreamENS_9StringRefET_i(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr nonnull @.str.8, i64 12, i1 noundef zeroext %46, i32 noundef %2)
   %47 = load ptr, ptr %0, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 640
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 640
   %49 = load ptr, ptr %48, align 8
   call void %49(ptr dead_on_unwind nonnull writable sret(%"struct.llvm::pdb::Variant") align 8 %7, ptr noundef nonnull align 8 dereferenceable(72) %0) #7
   call void @_ZN4llvm3pdb15dumpSymbolFieldINS0_7VariantEEEvRNS_11raw_ostreamENS_9StringRefET_i(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr nonnull @.str.9, i64 5, ptr noundef nonnull %7, i32 noundef %2)
@@ -209,7 +209,7 @@ define linkonce_odr void @_ZN4llvm3pdb15dumpSymbolFieldINSt7__cxx1112basic_strin
 13:                                               ; preds = %5
   store i8 10, ptr %9, align 1
   %14 = load ptr, ptr %8, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 1
   store ptr %15, ptr %8, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -259,7 +259,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %23, %25, %26
   %39 = getelementptr inbounds nuw i8, ptr %.0.i, i64 32
   store i16 8250, ptr %29, align 1
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 2
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 2
   store ptr %41, ptr %39, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit7
 
@@ -292,7 +292,7 @@ define linkonce_odr void @_ZN4llvm3pdb15dumpSymbolFieldINS0_12PDB_DataKindEEEvRN
 14:                                               ; preds = %5
   store i8 10, ptr %10, align 1
   %15 = load ptr, ptr %9, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 1
   store ptr %16, ptr %9, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -342,7 +342,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %24, %26, %27
   %40 = getelementptr inbounds nuw i8, ptr %.0.i, i64 32
   store i16 8250, ptr %30, align 1
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 2
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 2
   store ptr %42, ptr %40, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit7
 
@@ -370,7 +370,7 @@ define linkonce_odr void @_ZN4llvm3pdb15dumpSymbolFieldINS0_11PDB_LocTypeEEEvRNS
 14:                                               ; preds = %5
   store i8 10, ptr %10, align 1
   %15 = load ptr, ptr %9, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 1
   store ptr %16, ptr %9, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -420,7 +420,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %24, %26, %27
   %40 = getelementptr inbounds nuw i8, ptr %.0.i, i64 32
   store i16 8250, ptr %30, align 1
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 2
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 2
   store ptr %42, ptr %40, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit7
 
@@ -446,7 +446,7 @@ define linkonce_odr void @_ZN4llvm3pdb15dumpSymbolFieldIbEEvRNS_11raw_ostreamENS
 13:                                               ; preds = %5
   store i8 10, ptr %9, align 1
   %14 = load ptr, ptr %8, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 1
   store ptr %15, ptr %8, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -496,7 +496,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %23, %25, %26
   %39 = getelementptr inbounds nuw i8, ptr %.0.i, i64 32
   store i16 8250, ptr %29, align 1
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 2
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 2
   store ptr %41, ptr %39, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit8
 
@@ -523,7 +523,7 @@ define linkonce_odr void @_ZN4llvm3pdb15dumpSymbolFieldINS0_7VariantEEEvRNS_11ra
 13:                                               ; preds = %5
   store i8 10, ptr %9, align 1
   %14 = load ptr, ptr %8, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 1
   store ptr %15, ptr %8, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -573,7 +573,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %23, %25, %26
   %39 = getelementptr inbounds nuw i8, ptr %.0.i, i64 32
   store i16 8250, ptr %29, align 1
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 2
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 2
   store ptr %41, ptr %39, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit7
 
@@ -588,7 +588,7 @@ define dso_local noundef i32 @_ZNK4llvm3pdb22NativeSymbolEnumerator16getClassPar
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 528
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 528
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef i32 %6(ptr noundef nonnull align 8 dereferenceable(24) %3) #7
   ret i32 %7
@@ -633,7 +633,7 @@ define dso_local noundef i32 @_ZNK4llvm3pdb22NativeSymbolEnumerator9getTypeIdEv(
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 592
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 592
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef i32 %6(ptr noundef nonnull align 8 dereferenceable(114) %3) #7
   ret i32 %7
@@ -670,7 +670,7 @@ define dso_local void @_ZNK4llvm3pdb22NativeSymbolEnumerator8getValueEv(ptr dead
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK4llvm3pdb14NativeTypeEnum24getUnderlyingBuiltinTypeEv(ptr noundef nonnull align 8 dereferenceable(114) %4) #7
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 200
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 200
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noundef i32 %8(ptr noundef nonnull align 8 dereferenceable(48) %5) #7
   switch i32 %9, label %70 [
@@ -707,7 +707,7 @@ define dso_local void @_ZNK4llvm3pdb22NativeSymbolEnumerator8getValueEv(ptr dead
 _ZNK4llvm5APInt12getSExtValueEv.exit:             ; preds = %15, %22
   %.0.i = phi i64 [ %.0.i.i, %15 ], [ %24, %22 ]
   %25 = load ptr, ptr %5, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 752
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 752
   %27 = load ptr, ptr %26, align 8
   %28 = tail call noundef i64 %27(ptr noundef nonnull align 8 dereferenceable(48) %5) #7
   switch i64 %28, label %70 [
@@ -753,7 +753,7 @@ _ZNK4llvm5APInt12getSExtValueEv.exit:             ; preds = %15, %22
   %.0.in.i = select i1 %44, ptr %41, ptr %45
   %.0.i12 = load i64, ptr %.0.in.i, align 8
   %46 = load ptr, ptr %5, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 752
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 752
   %48 = load ptr, ptr %47, align 8
   %49 = tail call noundef i64 %48(ptr noundef nonnull align 8 dereferenceable(48) %5) #7
   switch i64 %49, label %70 [

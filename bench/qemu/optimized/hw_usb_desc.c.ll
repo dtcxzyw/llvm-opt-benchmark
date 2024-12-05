@@ -74,7 +74,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   store i8 18, ptr %dest, align 1
-  %bDescriptorType = getelementptr inbounds i8, ptr %dest, i64 1
+  %bDescriptorType = getelementptr inbounds nuw i8, ptr %dest, i64 1
   store i8 1, ptr %bDescriptorType, align 1
   %.pre = load i16, ptr %dev, align 8
   %cmp5 = icmp ult i16 %.pre, 512
@@ -82,13 +82,13 @@ if.end:                                           ; preds = %entry
   br i1 %or.cond, label %if.then7, label %if.else
 
 if.then7:                                         ; preds = %if.end
-  %u = getelementptr inbounds i8, ptr %dest, i64 2
+  %u = getelementptr inbounds nuw i8, ptr %dest, i64 2
   store i8 0, ptr %u, align 1
   br label %if.end18
 
 if.else:                                          ; preds = %if.end
   %conv1.i = trunc i16 %.pre to i8
-  %u12 = getelementptr inbounds i8, ptr %dest, i64 2
+  %u12 = getelementptr inbounds nuw i8, ptr %dest, i64 2
   store i8 %conv1.i, ptr %u12, align 1
   %0 = load i16, ptr %dev, align 8
   %1 = lshr i16 %0, 8
@@ -97,68 +97,68 @@ if.else:                                          ; preds = %if.end
 
 if.end18:                                         ; preds = %if.else, %if.then7
   %conv1.i37.sink = phi i8 [ %conv1.i37, %if.else ], [ 2, %if.then7 ]
-  %bcdUSB_hi17 = getelementptr inbounds i8, ptr %dest, i64 3
+  %bcdUSB_hi17 = getelementptr inbounds nuw i8, ptr %dest, i64 3
   store i8 %conv1.i37.sink, ptr %bcdUSB_hi17, align 1
-  %bDeviceClass = getelementptr inbounds i8, ptr %dev, i64 2
+  %bDeviceClass = getelementptr inbounds nuw i8, ptr %dev, i64 2
   %2 = load i8, ptr %bDeviceClass, align 2
-  %bDeviceClass20 = getelementptr inbounds i8, ptr %dest, i64 4
+  %bDeviceClass20 = getelementptr inbounds nuw i8, ptr %dest, i64 4
   store i8 %2, ptr %bDeviceClass20, align 1
-  %bDeviceSubClass = getelementptr inbounds i8, ptr %dev, i64 3
+  %bDeviceSubClass = getelementptr inbounds nuw i8, ptr %dev, i64 3
   %3 = load i8, ptr %bDeviceSubClass, align 1
-  %bDeviceSubClass22 = getelementptr inbounds i8, ptr %dest, i64 5
+  %bDeviceSubClass22 = getelementptr inbounds nuw i8, ptr %dest, i64 5
   store i8 %3, ptr %bDeviceSubClass22, align 1
-  %bDeviceProtocol = getelementptr inbounds i8, ptr %dev, i64 4
+  %bDeviceProtocol = getelementptr inbounds nuw i8, ptr %dev, i64 4
   %4 = load i8, ptr %bDeviceProtocol, align 4
-  %bDeviceProtocol24 = getelementptr inbounds i8, ptr %dest, i64 6
+  %bDeviceProtocol24 = getelementptr inbounds nuw i8, ptr %dest, i64 6
   store i8 %4, ptr %bDeviceProtocol24, align 1
-  %bMaxPacketSize0 = getelementptr inbounds i8, ptr %dev, i64 5
+  %bMaxPacketSize0 = getelementptr inbounds nuw i8, ptr %dev, i64 5
   %5 = load i8, ptr %bMaxPacketSize0, align 1
-  %bMaxPacketSize026 = getelementptr inbounds i8, ptr %dest, i64 7
+  %bMaxPacketSize026 = getelementptr inbounds nuw i8, ptr %dest, i64 7
   store i8 %5, ptr %bMaxPacketSize026, align 1
   %6 = load i16, ptr %id, align 2
   %conv1.i38 = trunc i16 %6 to i8
-  %idVendor_lo = getelementptr inbounds i8, ptr %dest, i64 8
+  %idVendor_lo = getelementptr inbounds nuw i8, ptr %dest, i64 8
   store i8 %conv1.i38, ptr %idVendor_lo, align 1
   %7 = load i16, ptr %id, align 2
   %8 = lshr i16 %7, 8
   %conv1.i39 = trunc nuw i16 %8 to i8
-  %idVendor_hi = getelementptr inbounds i8, ptr %dest, i64 9
+  %idVendor_hi = getelementptr inbounds nuw i8, ptr %dest, i64 9
   store i8 %conv1.i39, ptr %idVendor_hi, align 1
-  %idProduct = getelementptr inbounds i8, ptr %id, i64 2
+  %idProduct = getelementptr inbounds nuw i8, ptr %id, i64 2
   %9 = load i16, ptr %idProduct, align 2
   %conv1.i40 = trunc i16 %9 to i8
-  %idProduct_lo = getelementptr inbounds i8, ptr %dest, i64 10
+  %idProduct_lo = getelementptr inbounds nuw i8, ptr %dest, i64 10
   store i8 %conv1.i40, ptr %idProduct_lo, align 1
   %10 = load i16, ptr %idProduct, align 2
   %11 = lshr i16 %10, 8
   %conv1.i41 = trunc nuw i16 %11 to i8
-  %idProduct_hi = getelementptr inbounds i8, ptr %dest, i64 11
+  %idProduct_hi = getelementptr inbounds nuw i8, ptr %dest, i64 11
   store i8 %conv1.i41, ptr %idProduct_hi, align 1
-  %bcdDevice = getelementptr inbounds i8, ptr %id, i64 4
+  %bcdDevice = getelementptr inbounds nuw i8, ptr %id, i64 4
   %12 = load i16, ptr %bcdDevice, align 2
   %conv1.i42 = trunc i16 %12 to i8
-  %bcdDevice_lo = getelementptr inbounds i8, ptr %dest, i64 12
+  %bcdDevice_lo = getelementptr inbounds nuw i8, ptr %dest, i64 12
   store i8 %conv1.i42, ptr %bcdDevice_lo, align 1
   %13 = load i16, ptr %bcdDevice, align 2
   %14 = lshr i16 %13, 8
   %conv1.i43 = trunc nuw i16 %14 to i8
-  %bcdDevice_hi = getelementptr inbounds i8, ptr %dest, i64 13
+  %bcdDevice_hi = getelementptr inbounds nuw i8, ptr %dest, i64 13
   store i8 %conv1.i43, ptr %bcdDevice_hi, align 1
-  %iManufacturer = getelementptr inbounds i8, ptr %id, i64 6
+  %iManufacturer = getelementptr inbounds nuw i8, ptr %id, i64 6
   %15 = load i8, ptr %iManufacturer, align 2
-  %iManufacturer43 = getelementptr inbounds i8, ptr %dest, i64 14
+  %iManufacturer43 = getelementptr inbounds nuw i8, ptr %dest, i64 14
   store i8 %15, ptr %iManufacturer43, align 1
-  %iProduct = getelementptr inbounds i8, ptr %id, i64 7
+  %iProduct = getelementptr inbounds nuw i8, ptr %id, i64 7
   %16 = load i8, ptr %iProduct, align 1
-  %iProduct45 = getelementptr inbounds i8, ptr %dest, i64 15
+  %iProduct45 = getelementptr inbounds nuw i8, ptr %dest, i64 15
   store i8 %16, ptr %iProduct45, align 1
-  %iSerialNumber = getelementptr inbounds i8, ptr %id, i64 8
+  %iSerialNumber = getelementptr inbounds nuw i8, ptr %id, i64 8
   %17 = load i8, ptr %iSerialNumber, align 2
-  %iSerialNumber47 = getelementptr inbounds i8, ptr %dest, i64 16
+  %iSerialNumber47 = getelementptr inbounds nuw i8, ptr %dest, i64 16
   store i8 %17, ptr %iSerialNumber47, align 1
-  %bNumConfigurations = getelementptr inbounds i8, ptr %dev, i64 6
+  %bNumConfigurations = getelementptr inbounds nuw i8, ptr %dev, i64 6
   %18 = load i8, ptr %bNumConfigurations, align 2
-  %bNumConfigurations49 = getelementptr inbounds i8, ptr %dest, i64 17
+  %bNumConfigurations49 = getelementptr inbounds nuw i8, ptr %dest, i64 17
   store i8 %18, ptr %bNumConfigurations49, align 1
   br label %return
 
@@ -175,38 +175,38 @@ entry:
 
 if.end:                                           ; preds = %entry
   store i8 10, ptr %dest, align 1
-  %bDescriptorType = getelementptr inbounds i8, ptr %dest, i64 1
+  %bDescriptorType = getelementptr inbounds nuw i8, ptr %dest, i64 1
   store i8 6, ptr %bDescriptorType, align 1
   %0 = load i16, ptr %dev, align 8
   %conv1.i = trunc i16 %0 to i8
-  %u = getelementptr inbounds i8, ptr %dest, i64 2
+  %u = getelementptr inbounds nuw i8, ptr %dest, i64 2
   store i8 %conv1.i, ptr %u, align 1
   %1 = load i16, ptr %dev, align 8
   %2 = lshr i16 %1, 8
   %conv1.i18 = trunc nuw i16 %2 to i8
-  %bcdUSB_hi = getelementptr inbounds i8, ptr %dest, i64 3
+  %bcdUSB_hi = getelementptr inbounds nuw i8, ptr %dest, i64 3
   store i8 %conv1.i18, ptr %bcdUSB_hi, align 1
-  %bDeviceClass = getelementptr inbounds i8, ptr %dev, i64 2
+  %bDeviceClass = getelementptr inbounds nuw i8, ptr %dev, i64 2
   %3 = load i8, ptr %bDeviceClass, align 2
-  %bDeviceClass7 = getelementptr inbounds i8, ptr %dest, i64 4
+  %bDeviceClass7 = getelementptr inbounds nuw i8, ptr %dest, i64 4
   store i8 %3, ptr %bDeviceClass7, align 1
-  %bDeviceSubClass = getelementptr inbounds i8, ptr %dev, i64 3
+  %bDeviceSubClass = getelementptr inbounds nuw i8, ptr %dev, i64 3
   %4 = load i8, ptr %bDeviceSubClass, align 1
-  %bDeviceSubClass9 = getelementptr inbounds i8, ptr %dest, i64 5
+  %bDeviceSubClass9 = getelementptr inbounds nuw i8, ptr %dest, i64 5
   store i8 %4, ptr %bDeviceSubClass9, align 1
-  %bDeviceProtocol = getelementptr inbounds i8, ptr %dev, i64 4
+  %bDeviceProtocol = getelementptr inbounds nuw i8, ptr %dev, i64 4
   %5 = load i8, ptr %bDeviceProtocol, align 4
-  %bDeviceProtocol11 = getelementptr inbounds i8, ptr %dest, i64 6
+  %bDeviceProtocol11 = getelementptr inbounds nuw i8, ptr %dest, i64 6
   store i8 %5, ptr %bDeviceProtocol11, align 1
-  %bMaxPacketSize0 = getelementptr inbounds i8, ptr %dev, i64 5
+  %bMaxPacketSize0 = getelementptr inbounds nuw i8, ptr %dev, i64 5
   %6 = load i8, ptr %bMaxPacketSize0, align 1
-  %bMaxPacketSize013 = getelementptr inbounds i8, ptr %dest, i64 7
+  %bMaxPacketSize013 = getelementptr inbounds nuw i8, ptr %dest, i64 7
   store i8 %6, ptr %bMaxPacketSize013, align 1
-  %bNumConfigurations = getelementptr inbounds i8, ptr %dev, i64 6
+  %bNumConfigurations = getelementptr inbounds nuw i8, ptr %dev, i64 6
   %7 = load i8, ptr %bNumConfigurations, align 2
-  %bNumConfigurations15 = getelementptr inbounds i8, ptr %dest, i64 8
+  %bNumConfigurations15 = getelementptr inbounds nuw i8, ptr %dest, i64 8
   store i8 %7, ptr %bNumConfigurations15, align 1
-  %bReserved = getelementptr inbounds i8, ptr %dest, i64 9
+  %bReserved = getelementptr inbounds nuw i8, ptr %dest, i64 9
   store i8 0, ptr %bReserved, align 1
   br label %return
 
@@ -223,46 +223,46 @@ entry:
 
 if.end:                                           ; preds = %entry
   store i8 9, ptr %dest, align 1
-  %bDescriptorType = getelementptr inbounds i8, ptr %dest, i64 1
+  %bDescriptorType = getelementptr inbounds nuw i8, ptr %dest, i64 1
   store i8 2, ptr %bDescriptorType, align 1
   %0 = load i8, ptr %conf, align 8
-  %u = getelementptr inbounds i8, ptr %dest, i64 2
-  %bNumInterfaces3 = getelementptr inbounds i8, ptr %dest, i64 4
+  %u = getelementptr inbounds nuw i8, ptr %dest, i64 2
+  %bNumInterfaces3 = getelementptr inbounds nuw i8, ptr %dest, i64 4
   store i8 %0, ptr %bNumInterfaces3, align 1
-  %bConfigurationValue = getelementptr inbounds i8, ptr %conf, i64 1
+  %bConfigurationValue = getelementptr inbounds nuw i8, ptr %conf, i64 1
   %1 = load i8, ptr %bConfigurationValue, align 1
-  %bConfigurationValue5 = getelementptr inbounds i8, ptr %dest, i64 5
+  %bConfigurationValue5 = getelementptr inbounds nuw i8, ptr %dest, i64 5
   store i8 %1, ptr %bConfigurationValue5, align 1
-  %iConfiguration = getelementptr inbounds i8, ptr %conf, i64 2
+  %iConfiguration = getelementptr inbounds nuw i8, ptr %conf, i64 2
   %2 = load i8, ptr %iConfiguration, align 2
-  %iConfiguration7 = getelementptr inbounds i8, ptr %dest, i64 6
+  %iConfiguration7 = getelementptr inbounds nuw i8, ptr %dest, i64 6
   store i8 %2, ptr %iConfiguration7, align 1
-  %bmAttributes = getelementptr inbounds i8, ptr %conf, i64 3
+  %bmAttributes = getelementptr inbounds nuw i8, ptr %conf, i64 3
   %3 = load i8, ptr %bmAttributes, align 1
-  %bmAttributes9 = getelementptr inbounds i8, ptr %dest, i64 7
+  %bmAttributes9 = getelementptr inbounds nuw i8, ptr %dest, i64 7
   store i8 %3, ptr %bmAttributes9, align 1
-  %bMaxPower = getelementptr inbounds i8, ptr %conf, i64 4
+  %bMaxPower = getelementptr inbounds nuw i8, ptr %conf, i64 4
   %4 = load i8, ptr %bMaxPower, align 4
-  %bMaxPower11 = getelementptr inbounds i8, ptr %dest, i64 8
+  %bMaxPower11 = getelementptr inbounds nuw i8, ptr %dest, i64 8
   store i8 %4, ptr %bMaxPower11, align 1
-  %nif_groups = getelementptr inbounds i8, ptr %conf, i64 5
+  %nif_groups = getelementptr inbounds nuw i8, ptr %conf, i64 5
   %5 = load i8, ptr %nif_groups, align 1
   %cmp1657.not = icmp eq i8 %5, 0
   br i1 %cmp1657.not, label %for.cond27.preheader, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end
-  %if_groups = getelementptr inbounds i8, ptr %conf, i64 8
+  %if_groups = getelementptr inbounds nuw i8, ptr %conf, i64 8
   br label %for.body
 
 for.cond27.preheader:                             ; preds = %if.end23, %if.end
   %wTotalLength.0.lcssa = phi i16 [ 9, %if.end ], [ %conv26, %if.end23 ]
-  %nif = getelementptr inbounds i8, ptr %conf, i64 16
+  %nif = getelementptr inbounds nuw i8, ptr %conf, i64 16
   %6 = load i8, ptr %nif, align 8
   %cmp2961.not = icmp eq i8 %6, 0
   br i1 %cmp2961.not, label %for.end49, label %for.body31.lr.ph
 
 for.body31.lr.ph:                                 ; preds = %for.cond27.preheader
-  %ifs = getelementptr inbounds i8, ptr %conf, i64 24
+  %ifs = getelementptr inbounds nuw i8, ptr %conf, i64 24
   br label %for.body31
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end23
@@ -283,28 +283,28 @@ if.end.i:                                         ; preds = %for.body
   %8 = load i8, ptr %arrayidx, align 8
   %arrayidx3.i = getelementptr i8, ptr %add.ptr, i64 2
   store i8 %8, ptr %arrayidx3.i, align 1
-  %bInterfaceCount.i = getelementptr inbounds i8, ptr %arrayidx, i64 1
+  %bInterfaceCount.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 1
   %9 = load i8, ptr %bInterfaceCount.i, align 1
   %arrayidx4.i = getelementptr i8, ptr %add.ptr, i64 3
   store i8 %9, ptr %arrayidx4.i, align 1
-  %bFunctionClass.i = getelementptr inbounds i8, ptr %arrayidx, i64 2
+  %bFunctionClass.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 2
   %10 = load i8, ptr %bFunctionClass.i, align 2
   %arrayidx5.i = getelementptr i8, ptr %add.ptr, i64 4
   store i8 %10, ptr %arrayidx5.i, align 1
-  %bFunctionSubClass.i = getelementptr inbounds i8, ptr %arrayidx, i64 3
+  %bFunctionSubClass.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 3
   %11 = load i8, ptr %bFunctionSubClass.i, align 1
   %arrayidx6.i = getelementptr i8, ptr %add.ptr, i64 5
   store i8 %11, ptr %arrayidx6.i, align 1
-  %bFunctionProtocol.i = getelementptr inbounds i8, ptr %arrayidx, i64 4
+  %bFunctionProtocol.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 4
   %12 = load i8, ptr %bFunctionProtocol.i, align 4
   %arrayidx7.i = getelementptr i8, ptr %add.ptr, i64 6
   store i8 %12, ptr %arrayidx7.i, align 1
-  %iFunction.i = getelementptr inbounds i8, ptr %arrayidx, i64 5
+  %iFunction.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 5
   %13 = load i8, ptr %iFunction.i, align 1
   %arrayidx8.i = getelementptr i8, ptr %add.ptr, i64 7
   store i8 %13, ptr %arrayidx8.i, align 1
-  %ifs.i = getelementptr inbounds i8, ptr %arrayidx, i64 8
-  %nif.i = getelementptr inbounds i8, ptr %arrayidx, i64 6
+  %ifs.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
+  %nif.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 6
   %14 = load i8, ptr %nif.i, align 2
   %cmp1128.not.i = icmp eq i8 %14, 0
   br i1 %cmp1128.not.i, label %if.end23, label %for.body.i
@@ -370,7 +370,7 @@ for.end49:                                        ; preds = %if.end43, %for.cond
   store i8 %conv1.i, ptr %u, align 1
   %25 = lshr i16 %wTotalLength.1.lcssa, 8
   %conv1.i43 = trunc nuw i16 %25 to i8
-  %wTotalLength_hi = getelementptr inbounds i8, ptr %dest, i64 3
+  %wTotalLength_hi = getelementptr inbounds nuw i8, ptr %dest, i64 3
   store i8 %conv1.i43, ptr %wTotalLength_hi, align 1
   %conv54 = zext i16 %wTotalLength.1.lcssa to i32
   br label %return
@@ -393,28 +393,28 @@ if.end:                                           ; preds = %entry
   %0 = load i8, ptr %iad, align 8
   %arrayidx3 = getelementptr i8, ptr %dest, i64 2
   store i8 %0, ptr %arrayidx3, align 1
-  %bInterfaceCount = getelementptr inbounds i8, ptr %iad, i64 1
+  %bInterfaceCount = getelementptr inbounds nuw i8, ptr %iad, i64 1
   %1 = load i8, ptr %bInterfaceCount, align 1
   %arrayidx4 = getelementptr i8, ptr %dest, i64 3
   store i8 %1, ptr %arrayidx4, align 1
-  %bFunctionClass = getelementptr inbounds i8, ptr %iad, i64 2
+  %bFunctionClass = getelementptr inbounds nuw i8, ptr %iad, i64 2
   %2 = load i8, ptr %bFunctionClass, align 2
   %arrayidx5 = getelementptr i8, ptr %dest, i64 4
   store i8 %2, ptr %arrayidx5, align 1
-  %bFunctionSubClass = getelementptr inbounds i8, ptr %iad, i64 3
+  %bFunctionSubClass = getelementptr inbounds nuw i8, ptr %iad, i64 3
   %3 = load i8, ptr %bFunctionSubClass, align 1
   %arrayidx6 = getelementptr i8, ptr %dest, i64 5
   store i8 %3, ptr %arrayidx6, align 1
-  %bFunctionProtocol = getelementptr inbounds i8, ptr %iad, i64 4
+  %bFunctionProtocol = getelementptr inbounds nuw i8, ptr %iad, i64 4
   %4 = load i8, ptr %bFunctionProtocol, align 4
   %arrayidx7 = getelementptr i8, ptr %dest, i64 6
   store i8 %4, ptr %arrayidx7, align 1
-  %iFunction = getelementptr inbounds i8, ptr %iad, i64 5
+  %iFunction = getelementptr inbounds nuw i8, ptr %iad, i64 5
   %5 = load i8, ptr %iFunction, align 1
   %arrayidx8 = getelementptr i8, ptr %dest, i64 7
   store i8 %5, ptr %arrayidx8, align 1
-  %ifs = getelementptr inbounds i8, ptr %iad, i64 8
-  %nif = getelementptr inbounds i8, ptr %iad, i64 6
+  %ifs = getelementptr inbounds nuw i8, ptr %iad, i64 8
+  %nif = getelementptr inbounds nuw i8, ptr %iad, i64 6
   %6 = load i8, ptr %nif, align 2
   %cmp1128.not = icmp eq i8 %6, 0
   br i1 %cmp1128.not, label %return, label %for.body
@@ -452,42 +452,42 @@ entry:
 
 if.end:                                           ; preds = %entry
   store i8 9, ptr %dest, align 1
-  %bDescriptorType = getelementptr inbounds i8, ptr %dest, i64 1
+  %bDescriptorType = getelementptr inbounds nuw i8, ptr %dest, i64 1
   store i8 4, ptr %bDescriptorType, align 1
   %0 = load i8, ptr %iface, align 8
-  %u = getelementptr inbounds i8, ptr %dest, i64 2
+  %u = getelementptr inbounds nuw i8, ptr %dest, i64 2
   store i8 %0, ptr %u, align 1
-  %bAlternateSetting = getelementptr inbounds i8, ptr %iface, i64 1
+  %bAlternateSetting = getelementptr inbounds nuw i8, ptr %iface, i64 1
   %1 = load i8, ptr %bAlternateSetting, align 1
-  %bAlternateSetting5 = getelementptr inbounds i8, ptr %dest, i64 3
+  %bAlternateSetting5 = getelementptr inbounds nuw i8, ptr %dest, i64 3
   store i8 %1, ptr %bAlternateSetting5, align 1
-  %bNumEndpoints = getelementptr inbounds i8, ptr %iface, i64 2
+  %bNumEndpoints = getelementptr inbounds nuw i8, ptr %iface, i64 2
   %2 = load i8, ptr %bNumEndpoints, align 2
-  %bNumEndpoints7 = getelementptr inbounds i8, ptr %dest, i64 4
+  %bNumEndpoints7 = getelementptr inbounds nuw i8, ptr %dest, i64 4
   store i8 %2, ptr %bNumEndpoints7, align 1
-  %bInterfaceClass = getelementptr inbounds i8, ptr %iface, i64 3
+  %bInterfaceClass = getelementptr inbounds nuw i8, ptr %iface, i64 3
   %3 = load i8, ptr %bInterfaceClass, align 1
-  %bInterfaceClass9 = getelementptr inbounds i8, ptr %dest, i64 5
+  %bInterfaceClass9 = getelementptr inbounds nuw i8, ptr %dest, i64 5
   store i8 %3, ptr %bInterfaceClass9, align 1
-  %bInterfaceSubClass = getelementptr inbounds i8, ptr %iface, i64 4
+  %bInterfaceSubClass = getelementptr inbounds nuw i8, ptr %iface, i64 4
   %4 = load i8, ptr %bInterfaceSubClass, align 4
-  %bInterfaceSubClass11 = getelementptr inbounds i8, ptr %dest, i64 6
+  %bInterfaceSubClass11 = getelementptr inbounds nuw i8, ptr %dest, i64 6
   store i8 %4, ptr %bInterfaceSubClass11, align 1
-  %bInterfaceProtocol = getelementptr inbounds i8, ptr %iface, i64 5
+  %bInterfaceProtocol = getelementptr inbounds nuw i8, ptr %iface, i64 5
   %5 = load i8, ptr %bInterfaceProtocol, align 1
-  %bInterfaceProtocol13 = getelementptr inbounds i8, ptr %dest, i64 7
+  %bInterfaceProtocol13 = getelementptr inbounds nuw i8, ptr %dest, i64 7
   store i8 %5, ptr %bInterfaceProtocol13, align 1
-  %iInterface = getelementptr inbounds i8, ptr %iface, i64 6
+  %iInterface = getelementptr inbounds nuw i8, ptr %iface, i64 6
   %6 = load i8, ptr %iInterface, align 2
-  %iInterface15 = getelementptr inbounds i8, ptr %dest, i64 8
+  %iInterface15 = getelementptr inbounds nuw i8, ptr %dest, i64 8
   store i8 %6, ptr %iInterface15, align 1
-  %ndesc = getelementptr inbounds i8, ptr %iface, i64 7
+  %ndesc = getelementptr inbounds nuw i8, ptr %iface, i64 7
   %7 = load i8, ptr %ndesc, align 1
   %cmp1855.not = icmp eq i8 %7, 0
   br i1 %cmp1855.not, label %for.cond28.preheader, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end
-  %descs = getelementptr inbounds i8, ptr %iface, i64 8
+  %descs = getelementptr inbounds nuw i8, ptr %iface, i64 8
   br label %for.body
 
 for.cond28.preheader:                             ; preds = %usb_desc_other.exit, %if.end
@@ -497,7 +497,7 @@ for.cond28.preheader:                             ; preds = %usb_desc_other.exit
   br i1 %cmp3159.not, label %return, label %for.body33.lr.ph
 
 for.body33.lr.ph:                                 ; preds = %for.cond28.preheader
-  %eps = getelementptr inbounds i8, ptr %iface, i64 16
+  %eps = getelementptr inbounds nuw i8, ptr %iface, i64 16
   %and.i = and i32 %flags, 2
   %tobool7.not.i = icmp eq i32 %and.i, 0
   %conv12.i = select i1 %tobool7.not.i, i32 0, i32 6
@@ -517,7 +517,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %us
   br i1 %tobool.not.i, label %cond.false.i, label %cond.end.i
 
 cond.false.i:                                     ; preds = %for.body
-  %data.i = getelementptr inbounds i8, ptr %add.ptr, i64 8
+  %data.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 8
   %11 = load ptr, ptr %data.i, align 8
   %12 = load i8, ptr %11, align 1
   br label %cond.end.i
@@ -530,7 +530,7 @@ cond.end.i:                                       ; preds = %cond.false.i, %for.
 
 usb_desc_other.exit:                              ; preds = %cond.end.i
   %cond.i = zext i8 %cond.in.i to i32
-  %data6.i = getelementptr inbounds i8, ptr %add.ptr, i64 8
+  %data6.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 8
   %13 = load ptr, ptr %data6.i, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr21, ptr align 1 %13, i64 %conv4.i, i1 false)
   %add27 = add i32 %pos.057, %cond.i
@@ -548,11 +548,11 @@ for.body33:                                       ; preds = %for.body33.lr.ph, %
   %idx.ext36 = sext i32 %pos.161 to i64
   %add.ptr37 = getelementptr i8, ptr %dest, i64 %idx.ext36
   %sub39 = sub i64 %len, %idx.ext36
-  %is_audio.i = getelementptr inbounds i8, ptr %add.ptr35, i64 7
+  %is_audio.i = getelementptr inbounds nuw i8, ptr %add.ptr35, i64 7
   %17 = load i8, ptr %is_audio.i, align 1
   %tobool.not.i42 = icmp eq i8 %17, 0
   %conv1.i = select i1 %tobool.not.i42, i8 7, i8 9
-  %extra.i = getelementptr inbounds i8, ptr %add.ptr35, i64 8
+  %extra.i = getelementptr inbounds nuw i8, ptr %add.ptr35, i64 8
   %18 = load ptr, ptr %extra.i, align 8
   %tobool2.not.i = icmp eq ptr %18, null
   br i1 %tobool2.not.i, label %cond.end.i43, label %cond.true.i
@@ -573,41 +573,41 @@ cond.end.i43:                                     ; preds = %cond.true.i, %for.b
 
 if.end.i45:                                       ; preds = %cond.end.i43
   store i8 %conv1.i, ptr %add.ptr37, align 1
-  %bDescriptorType.i = getelementptr inbounds i8, ptr %add.ptr37, i64 1
+  %bDescriptorType.i = getelementptr inbounds nuw i8, ptr %add.ptr37, i64 1
   store i8 5, ptr %bDescriptorType.i, align 1
   %20 = load i8, ptr %add.ptr35, align 8
-  %u.i = getelementptr inbounds i8, ptr %add.ptr37, i64 2
+  %u.i = getelementptr inbounds nuw i8, ptr %add.ptr37, i64 2
   store i8 %20, ptr %u.i, align 1
-  %bmAttributes.i = getelementptr inbounds i8, ptr %add.ptr35, i64 1
+  %bmAttributes.i = getelementptr inbounds nuw i8, ptr %add.ptr35, i64 1
   %21 = load i8, ptr %bmAttributes.i, align 1
-  %bmAttributes19.i = getelementptr inbounds i8, ptr %add.ptr37, i64 3
+  %bmAttributes19.i = getelementptr inbounds nuw i8, ptr %add.ptr37, i64 3
   store i8 %21, ptr %bmAttributes19.i, align 1
-  %wMaxPacketSize.i = getelementptr inbounds i8, ptr %add.ptr35, i64 2
+  %wMaxPacketSize.i = getelementptr inbounds nuw i8, ptr %add.ptr35, i64 2
   %22 = load i16, ptr %wMaxPacketSize.i, align 2
   %conv1.i.i = trunc i16 %22 to i8
-  %wMaxPacketSize_lo.i = getelementptr inbounds i8, ptr %add.ptr37, i64 4
+  %wMaxPacketSize_lo.i = getelementptr inbounds nuw i8, ptr %add.ptr37, i64 4
   store i8 %conv1.i.i, ptr %wMaxPacketSize_lo.i, align 1
   %23 = load i16, ptr %wMaxPacketSize.i, align 2
   %24 = lshr i16 %23, 8
   %conv1.i43.i = trunc nuw i16 %24 to i8
-  %wMaxPacketSize_hi.i = getelementptr inbounds i8, ptr %add.ptr37, i64 5
+  %wMaxPacketSize_hi.i = getelementptr inbounds nuw i8, ptr %add.ptr37, i64 5
   store i8 %conv1.i43.i, ptr %wMaxPacketSize_hi.i, align 1
-  %bInterval.i = getelementptr inbounds i8, ptr %add.ptr35, i64 4
+  %bInterval.i = getelementptr inbounds nuw i8, ptr %add.ptr35, i64 4
   %25 = load i8, ptr %bInterval.i, align 4
-  %bInterval25.i = getelementptr inbounds i8, ptr %add.ptr37, i64 6
+  %bInterval25.i = getelementptr inbounds nuw i8, ptr %add.ptr37, i64 6
   store i8 %25, ptr %bInterval25.i, align 1
   %26 = load i8, ptr %is_audio.i, align 1
   %tobool27.not.i = icmp eq i8 %26, 0
   br i1 %tobool27.not.i, label %if.end33.i, label %if.then28.i
 
 if.then28.i:                                      ; preds = %if.end.i45
-  %bRefresh.i = getelementptr inbounds i8, ptr %add.ptr35, i64 5
+  %bRefresh.i = getelementptr inbounds nuw i8, ptr %add.ptr35, i64 5
   %27 = load i8, ptr %bRefresh.i, align 1
-  %bRefresh30.i = getelementptr inbounds i8, ptr %add.ptr37, i64 7
+  %bRefresh30.i = getelementptr inbounds nuw i8, ptr %add.ptr37, i64 7
   store i8 %27, ptr %bRefresh30.i, align 1
-  %bSynchAddress.i = getelementptr inbounds i8, ptr %add.ptr35, i64 6
+  %bSynchAddress.i = getelementptr inbounds nuw i8, ptr %add.ptr35, i64 6
   %28 = load i8, ptr %bSynchAddress.i, align 2
-  %bSynchAddress32.i = getelementptr inbounds i8, ptr %add.ptr37, i64 8
+  %bSynchAddress32.i = getelementptr inbounds nuw i8, ptr %add.ptr37, i64 8
   store i8 %28, ptr %bSynchAddress32.i, align 1
   br label %if.end33.i
 
@@ -618,25 +618,25 @@ if.then35.i:                                      ; preds = %if.end33.i
   %idx.ext.i = zext nneg i8 %conv1.i to i64
   %add.ptr.i = getelementptr i8, ptr %add.ptr37, i64 %idx.ext.i
   store i8 6, ptr %add.ptr.i, align 1
-  %bDescriptorType38.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 1
+  %bDescriptorType38.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 1
   store i8 48, ptr %bDescriptorType38.i, align 1
-  %bMaxBurst.i = getelementptr inbounds i8, ptr %add.ptr35, i64 16
+  %bMaxBurst.i = getelementptr inbounds nuw i8, ptr %add.ptr35, i64 16
   %29 = load i8, ptr %bMaxBurst.i, align 8
-  %u39.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 2
+  %u39.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 2
   store i8 %29, ptr %u39.i, align 1
-  %bmAttributes_super.i = getelementptr inbounds i8, ptr %add.ptr35, i64 17
+  %bmAttributes_super.i = getelementptr inbounds nuw i8, ptr %add.ptr35, i64 17
   %30 = load i8, ptr %bmAttributes_super.i, align 1
-  %bmAttributes42.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 3
+  %bmAttributes42.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 3
   store i8 %30, ptr %bmAttributes42.i, align 1
-  %wBytesPerInterval.i = getelementptr inbounds i8, ptr %add.ptr35, i64 18
+  %wBytesPerInterval.i = getelementptr inbounds nuw i8, ptr %add.ptr35, i64 18
   %31 = load i16, ptr %wBytesPerInterval.i, align 2
   %conv1.i44.i = trunc i16 %31 to i8
-  %wBytesPerInterval_lo.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 4
+  %wBytesPerInterval_lo.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 4
   store i8 %conv1.i44.i, ptr %wBytesPerInterval_lo.i, align 1
   %32 = load i16, ptr %wBytesPerInterval.i, align 2
   %33 = lshr i16 %32, 8
   %conv1.i45.i = trunc nuw i16 %33 to i8
-  %wBytesPerInterval_hi.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 5
+  %wBytesPerInterval_hi.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 5
   store i8 %conv1.i45.i, ptr %wBytesPerInterval_hi.i, align 1
   br label %if.end48.i
 
@@ -674,7 +674,7 @@ entry:
   br i1 %tobool.not, label %cond.false, label %cond.end
 
 cond.false:                                       ; preds = %entry
-  %data = getelementptr inbounds i8, ptr %desc, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %desc, i64 8
   %1 = load ptr, ptr %data, align 8
   %2 = load i8, ptr %1, align 1
   br label %cond.end
@@ -687,7 +687,7 @@ cond.end:                                         ; preds = %entry, %cond.false
 
 if.end:                                           ; preds = %cond.end
   %cond = zext i8 %cond.in to i32
-  %data6 = getelementptr inbounds i8, ptr %desc, i64 8
+  %data6 = getelementptr inbounds nuw i8, ptr %desc, i64 8
   %3 = load ptr, ptr %data6, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %dest, ptr align 1 %3, i64 %conv4, i1 false)
   br label %return
@@ -700,11 +700,11 @@ return:                                           ; preds = %cond.end, %if.end
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local range(i32 -1, 271) i32 @usb_desc_endpoint(ptr nocapture noundef readonly %ep, i32 noundef %flags, ptr nocapture noundef writeonly %dest, i64 noundef %len) local_unnamed_addr #2 {
 entry:
-  %is_audio = getelementptr inbounds i8, ptr %ep, i64 7
+  %is_audio = getelementptr inbounds nuw i8, ptr %ep, i64 7
   %0 = load i8, ptr %is_audio, align 1
   %tobool.not = icmp eq i8 %0, 0
   %conv1 = select i1 %tobool.not, i8 7, i8 9
-  %extra = getelementptr inbounds i8, ptr %ep, i64 8
+  %extra = getelementptr inbounds nuw i8, ptr %ep, i64 8
   %1 = load ptr, ptr %extra, align 8
   %tobool2.not = icmp eq ptr %1, null
   br i1 %tobool2.not, label %cond.end, label %cond.true
@@ -728,41 +728,41 @@ cond.end:                                         ; preds = %entry, %cond.true
 
 if.end:                                           ; preds = %cond.end
   store i8 %conv1, ptr %dest, align 1
-  %bDescriptorType = getelementptr inbounds i8, ptr %dest, i64 1
+  %bDescriptorType = getelementptr inbounds nuw i8, ptr %dest, i64 1
   store i8 5, ptr %bDescriptorType, align 1
   %3 = load i8, ptr %ep, align 8
-  %u = getelementptr inbounds i8, ptr %dest, i64 2
+  %u = getelementptr inbounds nuw i8, ptr %dest, i64 2
   store i8 %3, ptr %u, align 1
-  %bmAttributes = getelementptr inbounds i8, ptr %ep, i64 1
+  %bmAttributes = getelementptr inbounds nuw i8, ptr %ep, i64 1
   %4 = load i8, ptr %bmAttributes, align 1
-  %bmAttributes19 = getelementptr inbounds i8, ptr %dest, i64 3
+  %bmAttributes19 = getelementptr inbounds nuw i8, ptr %dest, i64 3
   store i8 %4, ptr %bmAttributes19, align 1
-  %wMaxPacketSize = getelementptr inbounds i8, ptr %ep, i64 2
+  %wMaxPacketSize = getelementptr inbounds nuw i8, ptr %ep, i64 2
   %5 = load i16, ptr %wMaxPacketSize, align 2
   %conv1.i = trunc i16 %5 to i8
-  %wMaxPacketSize_lo = getelementptr inbounds i8, ptr %dest, i64 4
+  %wMaxPacketSize_lo = getelementptr inbounds nuw i8, ptr %dest, i64 4
   store i8 %conv1.i, ptr %wMaxPacketSize_lo, align 1
   %6 = load i16, ptr %wMaxPacketSize, align 2
   %7 = lshr i16 %6, 8
   %conv1.i43 = trunc nuw i16 %7 to i8
-  %wMaxPacketSize_hi = getelementptr inbounds i8, ptr %dest, i64 5
+  %wMaxPacketSize_hi = getelementptr inbounds nuw i8, ptr %dest, i64 5
   store i8 %conv1.i43, ptr %wMaxPacketSize_hi, align 1
-  %bInterval = getelementptr inbounds i8, ptr %ep, i64 4
+  %bInterval = getelementptr inbounds nuw i8, ptr %ep, i64 4
   %8 = load i8, ptr %bInterval, align 4
-  %bInterval25 = getelementptr inbounds i8, ptr %dest, i64 6
+  %bInterval25 = getelementptr inbounds nuw i8, ptr %dest, i64 6
   store i8 %8, ptr %bInterval25, align 1
   %9 = load i8, ptr %is_audio, align 1
   %tobool27.not = icmp eq i8 %9, 0
   br i1 %tobool27.not, label %if.end33, label %if.then28
 
 if.then28:                                        ; preds = %if.end
-  %bRefresh = getelementptr inbounds i8, ptr %ep, i64 5
+  %bRefresh = getelementptr inbounds nuw i8, ptr %ep, i64 5
   %10 = load i8, ptr %bRefresh, align 1
-  %bRefresh30 = getelementptr inbounds i8, ptr %dest, i64 7
+  %bRefresh30 = getelementptr inbounds nuw i8, ptr %dest, i64 7
   store i8 %10, ptr %bRefresh30, align 1
-  %bSynchAddress = getelementptr inbounds i8, ptr %ep, i64 6
+  %bSynchAddress = getelementptr inbounds nuw i8, ptr %ep, i64 6
   %11 = load i8, ptr %bSynchAddress, align 2
-  %bSynchAddress32 = getelementptr inbounds i8, ptr %dest, i64 8
+  %bSynchAddress32 = getelementptr inbounds nuw i8, ptr %dest, i64 8
   store i8 %11, ptr %bSynchAddress32, align 1
   br label %if.end33
 
@@ -773,25 +773,25 @@ if.then35:                                        ; preds = %if.end33
   %idx.ext = zext nneg i8 %conv1 to i64
   %add.ptr = getelementptr i8, ptr %dest, i64 %idx.ext
   store i8 6, ptr %add.ptr, align 1
-  %bDescriptorType38 = getelementptr inbounds i8, ptr %add.ptr, i64 1
+  %bDescriptorType38 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 1
   store i8 48, ptr %bDescriptorType38, align 1
-  %bMaxBurst = getelementptr inbounds i8, ptr %ep, i64 16
+  %bMaxBurst = getelementptr inbounds nuw i8, ptr %ep, i64 16
   %12 = load i8, ptr %bMaxBurst, align 8
-  %u39 = getelementptr inbounds i8, ptr %add.ptr, i64 2
+  %u39 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 2
   store i8 %12, ptr %u39, align 1
-  %bmAttributes_super = getelementptr inbounds i8, ptr %ep, i64 17
+  %bmAttributes_super = getelementptr inbounds nuw i8, ptr %ep, i64 17
   %13 = load i8, ptr %bmAttributes_super, align 1
-  %bmAttributes42 = getelementptr inbounds i8, ptr %add.ptr, i64 3
+  %bmAttributes42 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 3
   store i8 %13, ptr %bmAttributes42, align 1
-  %wBytesPerInterval = getelementptr inbounds i8, ptr %ep, i64 18
+  %wBytesPerInterval = getelementptr inbounds nuw i8, ptr %ep, i64 18
   %14 = load i16, ptr %wBytesPerInterval, align 2
   %conv1.i44 = trunc i16 %14 to i8
-  %wBytesPerInterval_lo = getelementptr inbounds i8, ptr %add.ptr, i64 4
+  %wBytesPerInterval_lo = getelementptr inbounds nuw i8, ptr %add.ptr, i64 4
   store i8 %conv1.i44, ptr %wBytesPerInterval_lo, align 1
   %15 = load i16, ptr %wBytesPerInterval, align 2
   %16 = lshr i16 %15, 8
   %conv1.i45 = trunc nuw i16 %16 to i8
-  %wBytesPerInterval_hi = getelementptr inbounds i8, ptr %add.ptr, i64 5
+  %wBytesPerInterval_hi = getelementptr inbounds nuw i8, ptr %add.ptr, i64 5
   store i8 %conv1.i45, ptr %wBytesPerInterval_hi, align 1
   br label %if.end48
 
@@ -829,16 +829,16 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %speed = getelementptr inbounds i8, ptr %dev, i64 216
+  %speed = getelementptr inbounds nuw i8, ptr %dev, i64 216
   store i32 1, ptr %speed, align 8
-  %speedmask = getelementptr inbounds i8, ptr %dev, i64 220
+  %speedmask = getelementptr inbounds nuw i8, ptr %dev, i64 220
   store i32 0, ptr %speedmask, align 4
-  %full = getelementptr inbounds i8, ptr %call, i64 16
+  %full = getelementptr inbounds nuw i8, ptr %call, i64 16
   %0 = load ptr, ptr %full, align 8
   %tobool.not = icmp eq ptr %0, null
   %spec.store.select = select i1 %tobool.not, i32 0, i32 2
   store i32 %spec.store.select, ptr %speedmask, align 4
-  %high = getelementptr inbounds i8, ptr %call, i64 24
+  %high = getelementptr inbounds nuw i8, ptr %call, i64 24
   %1 = load ptr, ptr %high, align 8
   %tobool4.not = icmp eq ptr %1, null
   br i1 %tobool4.not, label %if.end8, label %if.then5
@@ -850,7 +850,7 @@ if.then5:                                         ; preds = %if.end
 
 if.end8:                                          ; preds = %if.then5, %if.end
   %2 = phi i32 [ %or7, %if.then5 ], [ %spec.store.select, %if.end ]
-  %super = getelementptr inbounds i8, ptr %call, i64 32
+  %super = getelementptr inbounds nuw i8, ptr %call, i64 32
   %3 = load ptr, ptr %super, align 8
   %tobool9.not = icmp eq ptr %3, null
   br i1 %tobool9.not, label %if.end13, label %if.then10
@@ -861,13 +861,13 @@ if.then10:                                        ; preds = %if.end8
   br label %if.end13
 
 if.end13:                                         ; preds = %if.then10, %if.end8
-  %msos = getelementptr inbounds i8, ptr %call, i64 48
+  %msos = getelementptr inbounds nuw i8, ptr %call, i64 48
   %4 = load ptr, ptr %msos, align 8
   %tobool14.not = icmp eq ptr %4, null
   br i1 %tobool14.not, label %if.end19, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end13
-  %flags = getelementptr inbounds i8, ptr %dev, i64 192
+  %flags = getelementptr inbounds nuw i8, ptr %dev, i64 192
   %5 = load i32, ptr %flags, align 8
   %and = and i32 %5, 2
   %tobool15.not = icmp eq i32 %and, 0
@@ -876,7 +876,7 @@ land.lhs.true:                                    ; preds = %if.end13
 if.then16:                                        ; preds = %land.lhs.true
   %or18 = or i32 %5, 4
   store i32 %or18, ptr %flags, align 8
-  %strings.i = getelementptr inbounds i8, ptr %dev, i64 5632
+  %strings.i = getelementptr inbounds nuw i8, ptr %dev, i64 5632
   %s.017.i = load ptr, ptr %strings.i, align 8
   %cond18.i = icmp eq ptr %s.017.i, null
   br i1 %cond18.i, label %if.then6.i, label %for.body.i
@@ -888,7 +888,7 @@ for.body.i:                                       ; preds = %if.then16, %for.inc
   br i1 %cmp.i, label %usb_desc_set_string.exit, label %for.inc.i
 
 for.inc.i:                                        ; preds = %for.body.i
-  %next.i = getelementptr inbounds i8, ptr %s.019.i, i64 16
+  %next.i = getelementptr inbounds nuw i8, ptr %s.019.i, i64 16
   %s.0.i = load ptr, ptr %next.i, align 8
   %cond.i = icmp eq ptr %s.0.i, null
   br i1 %cond.i, label %if.then6.i, label %for.body.i, !llvm.loop !11
@@ -897,25 +897,25 @@ if.then6.i:                                       ; preds = %for.inc.i, %if.then
   %call.i = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0(i64 noundef 32) #14
   store i8 -18, ptr %call.i, align 8
   %7 = load ptr, ptr %strings.i, align 8
-  %next10.i = getelementptr inbounds i8, ptr %call.i, i64 16
+  %next10.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
   store ptr %7, ptr %next10.i, align 8
   %cmp12.not.i = icmp eq ptr %7, null
   br i1 %cmp12.not.i, label %if.end20.i, label %if.then14.i
 
 if.then14.i:                                      ; preds = %if.then6.i
-  %le_prev.i = getelementptr inbounds i8, ptr %7, i64 24
+  %le_prev.i = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr %next10.i, ptr %le_prev.i, align 8
   br label %if.end20.i
 
 if.end20.i:                                       ; preds = %if.then14.i, %if.then6.i
   store ptr %call.i, ptr %strings.i, align 8
-  %le_prev26.i = getelementptr inbounds i8, ptr %call.i, i64 24
+  %le_prev26.i = getelementptr inbounds nuw i8, ptr %call.i, i64 24
   store ptr %strings.i, ptr %le_prev26.i, align 8
   br label %usb_desc_set_string.exit
 
 usb_desc_set_string.exit:                         ; preds = %for.body.i, %if.end20.i
   %s.1.i = phi ptr [ %call.i, %if.end20.i ], [ %s.019.i, %for.body.i ]
-  %str28.i = getelementptr inbounds i8, ptr %s.1.i, i64 8
+  %str28.i = getelementptr inbounds nuw i8, ptr %s.1.i, i64 8
   %8 = load ptr, ptr %str28.i, align 8
   tail call void @g_free(ptr noundef %8) #12
   %call29.i = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.2) #12
@@ -938,23 +938,23 @@ if.end.i:                                         ; preds = %if.end19
 
 switch.lookup:                                    ; preds = %if.end.i
   %11 = zext nneg i32 %9 to i64
-  %switch.gep = getelementptr inbounds [4 x i64], ptr @switch.table.usb_desc_attach, i64 0, i64 %11
+  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @switch.table.usb_desc_attach, i64 0, i64 %11
   %switch.load = load i64, ptr %switch.gep, align 8
-  %full.i = getelementptr inbounds i8, ptr %call.i14, i64 %switch.load
+  %full.i = getelementptr inbounds nuw i8, ptr %call.i14, i64 %switch.load
   %12 = load ptr, ptr %full.i, align 8
-  %device.i = getelementptr inbounds i8, ptr %dev, i64 5648
+  %device.i = getelementptr inbounds nuw i8, ptr %dev, i64 5648
   store ptr %12, ptr %device.i, align 8
   br label %for.body43.lr.ph.i.i
 
 for.body43.lr.ph.i.i:                             ; preds = %if.end.i, %switch.lookup
-  %configuration.i.i = getelementptr inbounds i8, ptr %dev, i64 5656
+  %configuration.i.i = getelementptr inbounds nuw i8, ptr %dev, i64 5656
   store i32 0, ptr %configuration.i.i, align 8
-  %ninterfaces.i.i = getelementptr inbounds i8, ptr %dev, i64 5660
+  %ninterfaces.i.i = getelementptr inbounds nuw i8, ptr %dev, i64 5660
   store i32 0, ptr %ninterfaces.i.i, align 4
-  %config.i.i = getelementptr inbounds i8, ptr %dev, i64 5728
+  %config.i.i = getelementptr inbounds nuw i8, ptr %dev, i64 5728
   store ptr null, ptr %config.i.i, align 8
-  %altsetting.i.i = getelementptr inbounds i8, ptr %dev, i64 5664
-  %ifaces.i.i = getelementptr inbounds i8, ptr %dev, i64 5736
+  %altsetting.i.i = getelementptr inbounds nuw i8, ptr %dev, i64 5664
+  %ifaces.i.i = getelementptr inbounds nuw i8, ptr %dev, i64 5736
   br label %for.body43.i.i
 
 for.body43.i.i:                                   ; preds = %for.body43.i.i, %for.body43.lr.ph.i.i
@@ -979,7 +979,7 @@ declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @usb_desc_set_string(ptr noundef %dev, i8 noundef zeroext %index, ptr noundef %str) local_unnamed_addr #4 {
 entry:
-  %strings = getelementptr inbounds i8, ptr %dev, i64 5632
+  %strings = getelementptr inbounds nuw i8, ptr %dev, i64 5632
   %s.017 = load ptr, ptr %strings, align 8
   %cond18 = icmp eq ptr %s.017, null
   br i1 %cond18, label %if.then6, label %for.body
@@ -991,7 +991,7 @@ for.body:                                         ; preds = %entry, %for.inc
   br i1 %cmp, label %if.end27, label %for.inc
 
 for.inc:                                          ; preds = %for.body
-  %next = getelementptr inbounds i8, ptr %s.019, i64 16
+  %next = getelementptr inbounds nuw i8, ptr %s.019, i64 16
   %s.0 = load ptr, ptr %next, align 8
   %cond = icmp eq ptr %s.0, null
   br i1 %cond, label %if.then6, label %for.body, !llvm.loop !11
@@ -1000,25 +1000,25 @@ if.then6:                                         ; preds = %for.inc, %entry
   %call = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0(i64 noundef 32) #14
   store i8 %index, ptr %call, align 8
   %1 = load ptr, ptr %strings, align 8
-  %next10 = getelementptr inbounds i8, ptr %call, i64 16
+  %next10 = getelementptr inbounds nuw i8, ptr %call, i64 16
   store ptr %1, ptr %next10, align 8
   %cmp12.not = icmp eq ptr %1, null
   br i1 %cmp12.not, label %if.end20, label %if.then14
 
 if.then14:                                        ; preds = %if.then6
-  %le_prev = getelementptr inbounds i8, ptr %1, i64 24
+  %le_prev = getelementptr inbounds nuw i8, ptr %1, i64 24
   store ptr %next10, ptr %le_prev, align 8
   br label %if.end20
 
 if.end20:                                         ; preds = %if.then14, %if.then6
   store ptr %call, ptr %strings, align 8
-  %le_prev26 = getelementptr inbounds i8, ptr %call, i64 24
+  %le_prev26 = getelementptr inbounds nuw i8, ptr %call, i64 24
   store ptr %strings, ptr %le_prev26, align 8
   br label %if.end27
 
 if.end27:                                         ; preds = %for.body, %if.end20
   %s.1 = phi ptr [ %call, %if.end20 ], [ %s.019, %for.body ]
-  %str28 = getelementptr inbounds i8, ptr %s.1, i64 8
+  %str28 = getelementptr inbounds nuw i8, ptr %s.1, i64 8
   %2 = load ptr, ptr %str28, align 8
   tail call void @g_free(ptr noundef %2) #12
   %call29 = tail call noalias ptr @g_strdup(ptr noundef %str) #12
@@ -1038,30 +1038,30 @@ if.else.i:                                        ; preds = %entry
   unreachable
 
 if.end.i:                                         ; preds = %entry
-  %speed.i = getelementptr inbounds i8, ptr %dev, i64 216
+  %speed.i = getelementptr inbounds nuw i8, ptr %dev, i64 216
   %0 = load i32, ptr %speed.i, align 8
   %1 = icmp ult i32 %0, 4
   br i1 %1, label %switch.lookup, label %for.body43.lr.ph.i.i
 
 switch.lookup:                                    ; preds = %if.end.i
   %2 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds [4 x i64], ptr @switch.table.usb_desc_attach, i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @switch.table.usb_desc_attach, i64 0, i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
-  %full.i = getelementptr inbounds i8, ptr %call.i, i64 %switch.load
+  %full.i = getelementptr inbounds nuw i8, ptr %call.i, i64 %switch.load
   %3 = load ptr, ptr %full.i, align 8
-  %device.i = getelementptr inbounds i8, ptr %dev, i64 5648
+  %device.i = getelementptr inbounds nuw i8, ptr %dev, i64 5648
   store ptr %3, ptr %device.i, align 8
   br label %for.body43.lr.ph.i.i
 
 for.body43.lr.ph.i.i:                             ; preds = %if.end.i, %switch.lookup
-  %configuration.i.i = getelementptr inbounds i8, ptr %dev, i64 5656
+  %configuration.i.i = getelementptr inbounds nuw i8, ptr %dev, i64 5656
   store i32 0, ptr %configuration.i.i, align 8
-  %ninterfaces.i.i = getelementptr inbounds i8, ptr %dev, i64 5660
+  %ninterfaces.i.i = getelementptr inbounds nuw i8, ptr %dev, i64 5660
   store i32 0, ptr %ninterfaces.i.i, align 4
-  %config.i.i = getelementptr inbounds i8, ptr %dev, i64 5728
+  %config.i.i = getelementptr inbounds nuw i8, ptr %dev, i64 5728
   store ptr null, ptr %config.i.i, align 8
-  %altsetting.i.i = getelementptr inbounds i8, ptr %dev, i64 5664
-  %ifaces.i.i = getelementptr inbounds i8, ptr %dev, i64 5736
+  %altsetting.i.i = getelementptr inbounds nuw i8, ptr %dev, i64 5664
+  %ifaces.i.i = getelementptr inbounds nuw i8, ptr %dev, i64 5736
   br label %for.body43.i.i
 
 for.body43.i.i:                                   ; preds = %for.body43.i.i, %for.body43.lr.ph.i.i
@@ -1088,20 +1088,20 @@ declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #5
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @usb_desc_create_serial(ptr noundef %dev) local_unnamed_addr #4 {
 entry:
-  %parent_bus = getelementptr inbounds i8, ptr %dev, i64 88
+  %parent_bus = getelementptr inbounds nuw i8, ptr %dev, i64 88
   %0 = load ptr, ptr %parent_bus, align 8
-  %parent = getelementptr inbounds i8, ptr %0, i64 40
+  %parent = getelementptr inbounds nuw i8, ptr %0, i64 40
   %1 = load ptr, ptr %parent, align 8
   %call = tail call ptr @usb_device_get_usb_desc(ptr noundef %dev) #12
-  %iSerialNumber = getelementptr inbounds i8, ptr %call, i64 8
+  %iSerialNumber = getelementptr inbounds nuw i8, ptr %call, i64 8
   %2 = load i8, ptr %iSerialNumber, align 8
-  %serial1 = getelementptr inbounds i8, ptr %dev, i64 176
+  %serial1 = getelementptr inbounds nuw i8, ptr %dev, i64 176
   %3 = load ptr, ptr %serial1, align 8
   %tobool.not = icmp eq ptr %3, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %strings.i = getelementptr inbounds i8, ptr %dev, i64 5632
+  %strings.i = getelementptr inbounds nuw i8, ptr %dev, i64 5632
   %s.017.i = load ptr, ptr %strings.i, align 8
   %cond18.i = icmp eq ptr %s.017.i, null
   br i1 %cond18.i, label %if.then6.i, label %for.body.i
@@ -1113,7 +1113,7 @@ for.body.i:                                       ; preds = %if.then, %for.inc.i
   br i1 %cmp.i, label %usb_desc_set_string.exit, label %for.inc.i
 
 for.inc.i:                                        ; preds = %for.body.i
-  %next.i = getelementptr inbounds i8, ptr %s.019.i, i64 16
+  %next.i = getelementptr inbounds nuw i8, ptr %s.019.i, i64 16
   %s.0.i = load ptr, ptr %next.i, align 8
   %cond.i = icmp eq ptr %s.0.i, null
   br i1 %cond.i, label %if.then6.i, label %for.body.i, !llvm.loop !11
@@ -1122,25 +1122,25 @@ if.then6.i:                                       ; preds = %for.inc.i, %if.then
   %call.i = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0(i64 noundef 32) #14
   store i8 %2, ptr %call.i, align 8
   %5 = load ptr, ptr %strings.i, align 8
-  %next10.i = getelementptr inbounds i8, ptr %call.i, i64 16
+  %next10.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
   store ptr %5, ptr %next10.i, align 8
   %cmp12.not.i = icmp eq ptr %5, null
   br i1 %cmp12.not.i, label %if.end20.i, label %if.then14.i
 
 if.then14.i:                                      ; preds = %if.then6.i
-  %le_prev.i = getelementptr inbounds i8, ptr %5, i64 24
+  %le_prev.i = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %next10.i, ptr %le_prev.i, align 8
   br label %if.end20.i
 
 if.end20.i:                                       ; preds = %if.then14.i, %if.then6.i
   store ptr %call.i, ptr %strings.i, align 8
-  %le_prev26.i = getelementptr inbounds i8, ptr %call.i, i64 24
+  %le_prev26.i = getelementptr inbounds nuw i8, ptr %call.i, i64 24
   store ptr %strings.i, ptr %le_prev26.i, align 8
   br label %usb_desc_set_string.exit
 
 usb_desc_set_string.exit:                         ; preds = %for.body.i, %if.end20.i
   %s.1.i = phi ptr [ %call.i, %if.end20.i ], [ %s.019.i, %for.body.i ]
-  %str28.i = getelementptr inbounds i8, ptr %s.1.i, i64 8
+  %str28.i = getelementptr inbounds nuw i8, ptr %s.1.i, i64 8
   %6 = load ptr, ptr %str28.i, align 8
   tail call void @g_free(ptr noundef %6) #12
   %call29.i = tail call noalias ptr @g_strdup(ptr noundef nonnull %3) #12
@@ -1152,7 +1152,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.not, label %if.else, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %str = getelementptr inbounds i8, ptr %call, i64 40
+  %str = getelementptr inbounds nuw i8, ptr %call, i64 40
   %7 = load ptr, ptr %str, align 8
   %idxprom = zext i8 %2 to i64
   %arrayidx = getelementptr ptr, ptr %7, i64 %idxprom
@@ -1170,9 +1170,9 @@ if.end8:                                          ; preds = %land.lhs.true
   %9 = load ptr, ptr %str, align 8
   %arrayidx20 = getelementptr ptr, ptr %9, i64 %idxprom
   %10 = load ptr, ptr %arrayidx20, align 8
-  %port21 = getelementptr inbounds i8, ptr %dev, i64 160
+  %port21 = getelementptr inbounds nuw i8, ptr %dev, i64 160
   %11 = load ptr, ptr %port21, align 8
-  %path22 = getelementptr inbounds i8, ptr %11, i64 16
+  %path22 = getelementptr inbounds nuw i8, ptr %11, i64 16
   br i1 %tobool10.not, label %if.else17, label %if.then11
 
 if.then11:                                        ; preds = %if.end8
@@ -1185,7 +1185,7 @@ if.else17:                                        ; preds = %if.end8
 
 if.end25:                                         ; preds = %if.else17, %if.then11
   %serial.0 = phi ptr [ %call16, %if.then11 ], [ %call24, %if.else17 ]
-  %strings.i19 = getelementptr inbounds i8, ptr %dev, i64 5632
+  %strings.i19 = getelementptr inbounds nuw i8, ptr %dev, i64 5632
   %s.017.i20 = load ptr, ptr %strings.i19, align 8
   %cond18.i21 = icmp eq ptr %s.017.i20, null
   br i1 %cond18.i21, label %if.then6.i29, label %for.body.i22
@@ -1197,7 +1197,7 @@ for.body.i22:                                     ; preds = %if.end25, %for.inc.
   br i1 %cmp.i24, label %usb_desc_set_string.exit40, label %for.inc.i25
 
 for.inc.i25:                                      ; preds = %for.body.i22
-  %next.i26 = getelementptr inbounds i8, ptr %s.019.i23, i64 16
+  %next.i26 = getelementptr inbounds nuw i8, ptr %s.019.i23, i64 16
   %s.0.i27 = load ptr, ptr %next.i26, align 8
   %cond.i28 = icmp eq ptr %s.0.i27, null
   br i1 %cond.i28, label %if.then6.i29, label %for.body.i22, !llvm.loop !11
@@ -1206,25 +1206,25 @@ if.then6.i29:                                     ; preds = %for.inc.i25, %if.en
   %call.i30 = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0(i64 noundef 32) #14
   store i8 %2, ptr %call.i30, align 8
   %13 = load ptr, ptr %strings.i19, align 8
-  %next10.i31 = getelementptr inbounds i8, ptr %call.i30, i64 16
+  %next10.i31 = getelementptr inbounds nuw i8, ptr %call.i30, i64 16
   store ptr %13, ptr %next10.i31, align 8
   %cmp12.not.i32 = icmp eq ptr %13, null
   br i1 %cmp12.not.i32, label %if.end20.i35, label %if.then14.i33
 
 if.then14.i33:                                    ; preds = %if.then6.i29
-  %le_prev.i34 = getelementptr inbounds i8, ptr %13, i64 24
+  %le_prev.i34 = getelementptr inbounds nuw i8, ptr %13, i64 24
   store ptr %next10.i31, ptr %le_prev.i34, align 8
   br label %if.end20.i35
 
 if.end20.i35:                                     ; preds = %if.then14.i33, %if.then6.i29
   store ptr %call.i30, ptr %strings.i19, align 8
-  %le_prev26.i36 = getelementptr inbounds i8, ptr %call.i30, i64 24
+  %le_prev26.i36 = getelementptr inbounds nuw i8, ptr %call.i30, i64 24
   store ptr %strings.i19, ptr %le_prev26.i36, align 8
   br label %usb_desc_set_string.exit40
 
 usb_desc_set_string.exit40:                       ; preds = %for.body.i22, %if.end20.i35
   %s.1.i37 = phi ptr [ %call.i30, %if.end20.i35 ], [ %s.019.i23, %for.body.i22 ]
-  %str28.i38 = getelementptr inbounds i8, ptr %s.1.i37, i64 8
+  %str28.i38 = getelementptr inbounds nuw i8, ptr %s.1.i37, i64 8
   %14 = load ptr, ptr %str28.i38, align 8
   tail call void @g_free(ptr noundef %14) #12
   %call29.i39 = tail call noalias ptr @g_strdup(ptr noundef %serial.0) #12
@@ -1244,7 +1244,7 @@ declare noalias ptr @g_strdup_printf(ptr noundef, ...) local_unnamed_addr #5
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
 define dso_local ptr @usb_desc_get_string(ptr nocapture noundef readonly %dev, i8 noundef zeroext %index) local_unnamed_addr #8 {
 entry:
-  %strings = getelementptr inbounds i8, ptr %dev, i64 5632
+  %strings = getelementptr inbounds nuw i8, ptr %dev, i64 5632
   %s.05 = load ptr, ptr %strings, align 8
   %tobool.not6 = icmp eq ptr %s.05, null
   br i1 %tobool.not6, label %return, label %for.body
@@ -1256,12 +1256,12 @@ for.body:                                         ; preds = %entry, %for.inc
   br i1 %cmp, label %if.then, label %for.inc
 
 if.then:                                          ; preds = %for.body
-  %str = getelementptr inbounds i8, ptr %s.07, i64 8
+  %str = getelementptr inbounds nuw i8, ptr %s.07, i64 8
   %1 = load ptr, ptr %str, align 8
   br label %return
 
 for.inc:                                          ; preds = %for.body
-  %next = getelementptr inbounds i8, ptr %s.07, i64 16
+  %next = getelementptr inbounds nuw i8, ptr %s.07, i64 16
   %s.0 = load ptr, ptr %next, align 8
   %tobool.not = icmp eq ptr %s.0, null
   br i1 %tobool.not, label %return, label %for.body, !llvm.loop !13
@@ -1293,7 +1293,7 @@ if.then2:                                         ; preds = %if.end
 
 if.end6:                                          ; preds = %if.end
   %conv = trunc i32 %index to i8
-  %strings.i = getelementptr inbounds i8, ptr %dev, i64 5632
+  %strings.i = getelementptr inbounds nuw i8, ptr %dev, i64 5632
   %s.05.i = load ptr, ptr %strings.i, align 8
   %tobool.not6.i = icmp eq ptr %s.05.i, null
   br i1 %tobool.not6.i, label %if.then9, label %for.body.i
@@ -1305,20 +1305,20 @@ for.body.i:                                       ; preds = %if.end6, %for.inc.i
   br i1 %cmp.i, label %usb_desc_get_string.exit, label %for.inc.i
 
 for.inc.i:                                        ; preds = %for.body.i
-  %next.i = getelementptr inbounds i8, ptr %s.07.i, i64 16
+  %next.i = getelementptr inbounds nuw i8, ptr %s.07.i, i64 16
   %s.0.i = load ptr, ptr %next.i, align 8
   %tobool.not.i = icmp eq ptr %s.0.i, null
   br i1 %tobool.not.i, label %if.then9, label %for.body.i, !llvm.loop !13
 
 usb_desc_get_string.exit:                         ; preds = %for.body.i
-  %str.i = getelementptr inbounds i8, ptr %s.07.i, i64 8
+  %str.i = getelementptr inbounds nuw i8, ptr %s.07.i, i64 8
   %1 = load ptr, ptr %str.i, align 8
   %cmp7 = icmp eq ptr %1, null
   br i1 %cmp7, label %if.then9, label %if.end17
 
 if.then9:                                         ; preds = %for.inc.i, %if.end6, %usb_desc_get_string.exit
   %call10 = tail call ptr @usb_device_get_usb_desc(ptr noundef %dev) #12
-  %str11 = getelementptr inbounds i8, ptr %call10, i64 40
+  %str11 = getelementptr inbounds nuw i8, ptr %call10, i64 40
   %2 = load ptr, ptr %str11, align 8
   %idxprom = sext i32 %index to i64
   %arrayidx12 = getelementptr ptr, ptr %2, i64 %idxprom
@@ -1379,19 +1379,19 @@ entry:
   %_now.i.i73 = alloca %struct.timeval, align 8
   %_now.i.i58 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
-  %flags = getelementptr inbounds i8, ptr %dev, i64 192
+  %flags = getelementptr inbounds nuw i8, ptr %dev, i64 192
   %0 = load i32, ptr %flags, align 8
   %call = tail call ptr @usb_device_get_usb_desc(ptr noundef %dev) #12
   %call1 = tail call noalias dereferenceable_or_null(8192) ptr @g_malloc(i64 noundef 8192) #14
   %shr = lshr i32 %value, 8
-  %speed = getelementptr inbounds i8, ptr %dev, i64 216
+  %speed = getelementptr inbounds nuw i8, ptr %dev, i64 216
   %1 = load i32, ptr %speed, align 8
   %cmp = icmp eq i32 %1, 2
   %call6 = tail call ptr @usb_device_get_usb_desc(ptr noundef nonnull %dev) #12
   %. = select i1 %cmp, i64 16, i64 24
-  %high = getelementptr inbounds i8, ptr %call6, i64 %.
+  %high = getelementptr inbounds nuw i8, ptr %call6, i64 %.
   %other_dev.0 = load ptr, ptr %high, align 8
-  %device = getelementptr inbounds i8, ptr %dev, i64 5648
+  %device = getelementptr inbounds nuw i8, ptr %dev, i64 5648
   %2 = load ptr, ptr %device, align 8
   %3 = load i16, ptr %2, align 8
   %cmp9 = icmp ugt i16 %3, 767
@@ -1411,7 +1411,7 @@ sw.bb:                                            ; preds = %entry
   %and = and i32 %0, 4
   %tobool = icmp ne i32 %and, 0
   store i8 18, ptr %call1, align 1
-  %bDescriptorType.i = getelementptr inbounds i8, ptr %call1, i64 1
+  %bDescriptorType.i = getelementptr inbounds nuw i8, ptr %call1, i64 1
   store i8 1, ptr %bDescriptorType.i, align 1
   %.pre.i = load i16, ptr %2, align 8
   %cmp5.i = icmp ult i16 %.pre.i, 512
@@ -1419,13 +1419,13 @@ sw.bb:                                            ; preds = %entry
   br i1 %or.cond.i, label %if.then7.i, label %if.else.i
 
 if.then7.i:                                       ; preds = %sw.bb
-  %u.i = getelementptr inbounds i8, ptr %call1, i64 2
+  %u.i = getelementptr inbounds nuw i8, ptr %call1, i64 2
   store i8 0, ptr %u.i, align 1
   br label %usb_desc_device.exit
 
 if.else.i:                                        ; preds = %sw.bb
   %conv1.i.i = trunc i16 %.pre.i to i8
-  %u12.i = getelementptr inbounds i8, ptr %call1, i64 2
+  %u12.i = getelementptr inbounds nuw i8, ptr %call1, i64 2
   store i8 %conv1.i.i, ptr %u12.i, align 1
   %4 = load i16, ptr %2, align 8
   %5 = lshr i16 %4, 8
@@ -1434,70 +1434,70 @@ if.else.i:                                        ; preds = %sw.bb
 
 usb_desc_device.exit:                             ; preds = %if.then7.i, %if.else.i
   %conv1.i37.sink.i = phi i8 [ %conv1.i37.i, %if.else.i ], [ 2, %if.then7.i ]
-  %bcdUSB_hi17.i = getelementptr inbounds i8, ptr %call1, i64 3
+  %bcdUSB_hi17.i = getelementptr inbounds nuw i8, ptr %call1, i64 3
   store i8 %conv1.i37.sink.i, ptr %bcdUSB_hi17.i, align 1
-  %bDeviceClass.i = getelementptr inbounds i8, ptr %2, i64 2
+  %bDeviceClass.i = getelementptr inbounds nuw i8, ptr %2, i64 2
   %6 = load i8, ptr %bDeviceClass.i, align 2
-  %bDeviceClass20.i = getelementptr inbounds i8, ptr %call1, i64 4
+  %bDeviceClass20.i = getelementptr inbounds nuw i8, ptr %call1, i64 4
   store i8 %6, ptr %bDeviceClass20.i, align 1
-  %bDeviceSubClass.i = getelementptr inbounds i8, ptr %2, i64 3
+  %bDeviceSubClass.i = getelementptr inbounds nuw i8, ptr %2, i64 3
   %7 = load i8, ptr %bDeviceSubClass.i, align 1
-  %bDeviceSubClass22.i = getelementptr inbounds i8, ptr %call1, i64 5
+  %bDeviceSubClass22.i = getelementptr inbounds nuw i8, ptr %call1, i64 5
   store i8 %7, ptr %bDeviceSubClass22.i, align 1
-  %bDeviceProtocol.i = getelementptr inbounds i8, ptr %2, i64 4
+  %bDeviceProtocol.i = getelementptr inbounds nuw i8, ptr %2, i64 4
   %8 = load i8, ptr %bDeviceProtocol.i, align 4
-  %bDeviceProtocol24.i = getelementptr inbounds i8, ptr %call1, i64 6
+  %bDeviceProtocol24.i = getelementptr inbounds nuw i8, ptr %call1, i64 6
   store i8 %8, ptr %bDeviceProtocol24.i, align 1
-  %bMaxPacketSize0.i = getelementptr inbounds i8, ptr %2, i64 5
+  %bMaxPacketSize0.i = getelementptr inbounds nuw i8, ptr %2, i64 5
   %9 = load i8, ptr %bMaxPacketSize0.i, align 1
-  %bMaxPacketSize026.i = getelementptr inbounds i8, ptr %call1, i64 7
+  %bMaxPacketSize026.i = getelementptr inbounds nuw i8, ptr %call1, i64 7
   store i8 %9, ptr %bMaxPacketSize026.i, align 1
   %10 = load i16, ptr %call, align 2
   %conv1.i38.i = trunc i16 %10 to i8
-  %idVendor_lo.i = getelementptr inbounds i8, ptr %call1, i64 8
+  %idVendor_lo.i = getelementptr inbounds nuw i8, ptr %call1, i64 8
   store i8 %conv1.i38.i, ptr %idVendor_lo.i, align 1
   %11 = load i16, ptr %call, align 2
   %12 = lshr i16 %11, 8
   %conv1.i39.i = trunc nuw i16 %12 to i8
-  %idVendor_hi.i = getelementptr inbounds i8, ptr %call1, i64 9
+  %idVendor_hi.i = getelementptr inbounds nuw i8, ptr %call1, i64 9
   store i8 %conv1.i39.i, ptr %idVendor_hi.i, align 1
-  %idProduct.i = getelementptr inbounds i8, ptr %call, i64 2
+  %idProduct.i = getelementptr inbounds nuw i8, ptr %call, i64 2
   %13 = load i16, ptr %idProduct.i, align 2
   %conv1.i40.i = trunc i16 %13 to i8
-  %idProduct_lo.i = getelementptr inbounds i8, ptr %call1, i64 10
+  %idProduct_lo.i = getelementptr inbounds nuw i8, ptr %call1, i64 10
   store i8 %conv1.i40.i, ptr %idProduct_lo.i, align 1
   %14 = load i16, ptr %idProduct.i, align 2
   %15 = lshr i16 %14, 8
   %conv1.i41.i = trunc nuw i16 %15 to i8
-  %idProduct_hi.i = getelementptr inbounds i8, ptr %call1, i64 11
+  %idProduct_hi.i = getelementptr inbounds nuw i8, ptr %call1, i64 11
   store i8 %conv1.i41.i, ptr %idProduct_hi.i, align 1
-  %bcdDevice.i = getelementptr inbounds i8, ptr %call, i64 4
+  %bcdDevice.i = getelementptr inbounds nuw i8, ptr %call, i64 4
   %16 = load i16, ptr %bcdDevice.i, align 2
   %conv1.i42.i = trunc i16 %16 to i8
-  %bcdDevice_lo.i = getelementptr inbounds i8, ptr %call1, i64 12
+  %bcdDevice_lo.i = getelementptr inbounds nuw i8, ptr %call1, i64 12
   store i8 %conv1.i42.i, ptr %bcdDevice_lo.i, align 1
   %17 = load i16, ptr %bcdDevice.i, align 2
   %18 = lshr i16 %17, 8
   %conv1.i43.i = trunc nuw i16 %18 to i8
-  %bcdDevice_hi.i = getelementptr inbounds i8, ptr %call1, i64 13
+  %bcdDevice_hi.i = getelementptr inbounds nuw i8, ptr %call1, i64 13
   store i8 %conv1.i43.i, ptr %bcdDevice_hi.i, align 1
-  %iManufacturer.i = getelementptr inbounds i8, ptr %call, i64 6
+  %iManufacturer.i = getelementptr inbounds nuw i8, ptr %call, i64 6
   %19 = load i8, ptr %iManufacturer.i, align 2
-  %iManufacturer43.i = getelementptr inbounds i8, ptr %call1, i64 14
+  %iManufacturer43.i = getelementptr inbounds nuw i8, ptr %call1, i64 14
   store i8 %19, ptr %iManufacturer43.i, align 1
-  %iProduct.i = getelementptr inbounds i8, ptr %call, i64 7
+  %iProduct.i = getelementptr inbounds nuw i8, ptr %call, i64 7
   %20 = load i8, ptr %iProduct.i, align 1
-  %iProduct45.i = getelementptr inbounds i8, ptr %call1, i64 15
+  %iProduct45.i = getelementptr inbounds nuw i8, ptr %call1, i64 15
   store i8 %20, ptr %iProduct45.i, align 1
-  %iSerialNumber.i = getelementptr inbounds i8, ptr %call, i64 8
+  %iSerialNumber.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   %21 = load i8, ptr %iSerialNumber.i, align 2
-  %iSerialNumber47.i = getelementptr inbounds i8, ptr %call1, i64 16
+  %iSerialNumber47.i = getelementptr inbounds nuw i8, ptr %call1, i64 16
   store i8 %21, ptr %iSerialNumber47.i, align 1
-  %bNumConfigurations.i = getelementptr inbounds i8, ptr %2, i64 6
+  %bNumConfigurations.i = getelementptr inbounds nuw i8, ptr %2, i64 6
   %22 = load i8, ptr %bNumConfigurations.i, align 2
-  %bNumConfigurations49.i = getelementptr inbounds i8, ptr %call1, i64 17
+  %bNumConfigurations49.i = getelementptr inbounds nuw i8, ptr %call1, i64 17
   store i8 %22, ptr %bNumConfigurations49.i, align 1
-  %addr = getelementptr inbounds i8, ptr %dev, i64 224
+  %addr = getelementptr inbounds nuw i8, ptr %dev, i64 224
   %23 = load i8, ptr %addr, align 8
   %conv17 = zext i8 %23 to i32
   %conv18 = trunc i64 %len to i32
@@ -1524,7 +1524,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #12
   %call10.i.i = tail call i32 @qemu_get_thread_id() #12
   %28 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %29 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.7, i32 noundef %call10.i.i, i64 noundef %28, i64 noundef %29, i32 noundef range(i32 0, 256) %conv17, i32 noundef %conv18, i32 noundef range(i32 -1, 19) 18) #12
   br label %trace_usb_desc_device.exit
@@ -1539,14 +1539,14 @@ trace_usb_desc_device.exit:                       ; preds = %usb_desc_device.exi
 
 sw.bb19:                                          ; preds = %entry
   %conv20 = and i32 %value, 255
-  %bNumConfigurations = getelementptr inbounds i8, ptr %2, i64 6
+  %bNumConfigurations = getelementptr inbounds nuw i8, ptr %2, i64 6
   %30 = load i8, ptr %bNumConfigurations, align 2
   %conv22 = zext i8 %30 to i32
   %cmp23 = icmp samesign ult i32 %conv20, %conv22
   br i1 %cmp23, label %if.then25, label %if.end29
 
 if.then25:                                        ; preds = %sw.bb19
-  %confs = getelementptr inbounds i8, ptr %2, i64 8
+  %confs = getelementptr inbounds nuw i8, ptr %2, i64 8
   %31 = load ptr, ptr %confs, align 8
   %idx.ext = zext nneg i32 %conv20 to i64
   %add.ptr = getelementptr %struct.USBDescConfig, ptr %31, i64 %idx.ext
@@ -1555,7 +1555,7 @@ if.then25:                                        ; preds = %sw.bb19
 
 if.end29:                                         ; preds = %if.then25, %sw.bb19
   %ret.1 = phi i32 [ %call28, %if.then25 ], [ -1, %sw.bb19 ]
-  %addr30 = getelementptr inbounds i8, ptr %dev, i64 224
+  %addr30 = getelementptr inbounds nuw i8, ptr %dev, i64 224
   %32 = load i8, ptr %addr30, align 8
   %conv31 = zext i8 %32 to i32
   %conv33 = trunc i64 %len to i32
@@ -1582,7 +1582,7 @@ if.then8.i.i68:                                   ; preds = %if.then.i.i65
   %call9.i.i69 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i58, ptr noundef null) #12
   %call10.i.i70 = tail call i32 @qemu_get_thread_id() #12
   %37 = load i64, ptr %_now.i.i58, align 8
-  %tv_usec.i.i71 = getelementptr inbounds i8, ptr %_now.i.i58, i64 8
+  %tv_usec.i.i71 = getelementptr inbounds nuw i8, ptr %_now.i.i58, i64 8
   %38 = load i64, ptr %tv_usec.i.i71, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.9, i32 noundef %call10.i.i70, i64 noundef %37, i64 noundef %38, i32 noundef range(i32 0, 256) %conv31, i32 noundef range(i32 0, 256) %conv20, i32 noundef %conv33, i32 noundef %ret.1) #12
   br label %trace_usb_desc_config.exit
@@ -1612,7 +1612,7 @@ if.then2.i:                                       ; preds = %sw.bb34
 
 if.end6.i:                                        ; preds = %sw.bb34
   %conv.i = trunc i32 %value to i8
-  %strings.i.i = getelementptr inbounds i8, ptr %dev, i64 5632
+  %strings.i.i = getelementptr inbounds nuw i8, ptr %dev, i64 5632
   %s.05.i.i = load ptr, ptr %strings.i.i, align 8
   %tobool.not6.i.i = icmp eq ptr %s.05.i.i, null
   br i1 %tobool.not6.i.i, label %if.then9.i, label %for.body.i.i
@@ -1624,20 +1624,20 @@ for.body.i.i:                                     ; preds = %if.end6.i, %for.inc
   br i1 %cmp.i.i, label %usb_desc_get_string.exit.i, label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %for.body.i.i
-  %next.i.i = getelementptr inbounds i8, ptr %s.07.i.i, i64 16
+  %next.i.i = getelementptr inbounds nuw i8, ptr %s.07.i.i, i64 16
   %s.0.i.i = load ptr, ptr %next.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %s.0.i.i, null
   br i1 %tobool.not.i.i, label %if.then9.i, label %for.body.i.i, !llvm.loop !13
 
 usb_desc_get_string.exit.i:                       ; preds = %for.body.i.i
-  %str.i.i = getelementptr inbounds i8, ptr %s.07.i.i, i64 8
+  %str.i.i = getelementptr inbounds nuw i8, ptr %s.07.i.i, i64 8
   %40 = load ptr, ptr %str.i.i, align 8
   %cmp7.i = icmp eq ptr %40, null
   br i1 %cmp7.i, label %if.then9.i, label %if.end17.i
 
 if.then9.i:                                       ; preds = %for.inc.i.i, %usb_desc_get_string.exit.i, %if.end6.i
   %call10.i = tail call ptr @usb_device_get_usb_desc(ptr noundef %dev) #12
-  %str11.i = getelementptr inbounds i8, ptr %call10.i, i64 40
+  %str11.i = getelementptr inbounds nuw i8, ptr %call10.i, i64 40
   %41 = load ptr, ptr %str11.i, align 8
   %idxprom.i = zext nneg i32 %conv35 to i64
   %arrayidx12.i = getelementptr ptr, ptr %41, i64 %idxprom.i
@@ -1682,7 +1682,7 @@ while.body.i:                                     ; preds = %while.body.i.prehea
 
 usb_desc_string.exit:                             ; preds = %while.body.i, %if.then2.i, %if.then9.i, %if.end17.i
   %retval.0.i = phi i32 [ 4, %if.then2.i ], [ 0, %if.then9.i ], [ 2, %if.end17.i ], [ %conv24.i, %while.body.i ]
-  %addr37 = getelementptr inbounds i8, ptr %dev, i64 224
+  %addr37 = getelementptr inbounds nuw i8, ptr %dev, i64 224
   %49 = load i8, ptr %addr37, align 8
   %conv38 = zext i8 %49 to i32
   %conv40 = trunc i64 %len to i32
@@ -1709,7 +1709,7 @@ if.then8.i.i83:                                   ; preds = %if.then.i.i80
   %call9.i.i84 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i73, ptr noundef null) #12
   %call10.i.i85 = tail call i32 @qemu_get_thread_id() #12
   %54 = load i64, ptr %_now.i.i73, align 8
-  %tv_usec.i.i86 = getelementptr inbounds i8, ptr %_now.i.i73, i64 8
+  %tv_usec.i.i86 = getelementptr inbounds nuw i8, ptr %_now.i.i73, i64 8
   %55 = load i64, ptr %tv_usec.i.i86, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %call10.i.i85, i64 noundef %54, i64 noundef %55, i32 noundef range(i32 0, 256) %conv38, i32 noundef range(i32 0, 256) %conv35, i32 noundef %conv40, i32 noundef %retval.0.i) #12
   br label %trace_usb_desc_string.exit
@@ -1728,44 +1728,44 @@ sw.bb41:                                          ; preds = %entry
 
 if.then44:                                        ; preds = %sw.bb41
   store i8 10, ptr %call1, align 1
-  %bDescriptorType.i87 = getelementptr inbounds i8, ptr %call1, i64 1
+  %bDescriptorType.i87 = getelementptr inbounds nuw i8, ptr %call1, i64 1
   store i8 6, ptr %bDescriptorType.i87, align 1
   %56 = load i16, ptr %other_dev.0, align 8
   %conv1.i.i88 = trunc i16 %56 to i8
-  %u.i89 = getelementptr inbounds i8, ptr %call1, i64 2
+  %u.i89 = getelementptr inbounds nuw i8, ptr %call1, i64 2
   store i8 %conv1.i.i88, ptr %u.i89, align 1
   %57 = load i16, ptr %other_dev.0, align 8
   %58 = lshr i16 %57, 8
   %conv1.i18.i = trunc nuw i16 %58 to i8
-  %bcdUSB_hi.i = getelementptr inbounds i8, ptr %call1, i64 3
+  %bcdUSB_hi.i = getelementptr inbounds nuw i8, ptr %call1, i64 3
   store i8 %conv1.i18.i, ptr %bcdUSB_hi.i, align 1
-  %bDeviceClass.i90 = getelementptr inbounds i8, ptr %other_dev.0, i64 2
+  %bDeviceClass.i90 = getelementptr inbounds nuw i8, ptr %other_dev.0, i64 2
   %59 = load i8, ptr %bDeviceClass.i90, align 2
-  %bDeviceClass7.i = getelementptr inbounds i8, ptr %call1, i64 4
+  %bDeviceClass7.i = getelementptr inbounds nuw i8, ptr %call1, i64 4
   store i8 %59, ptr %bDeviceClass7.i, align 1
-  %bDeviceSubClass.i91 = getelementptr inbounds i8, ptr %other_dev.0, i64 3
+  %bDeviceSubClass.i91 = getelementptr inbounds nuw i8, ptr %other_dev.0, i64 3
   %60 = load i8, ptr %bDeviceSubClass.i91, align 1
-  %bDeviceSubClass9.i = getelementptr inbounds i8, ptr %call1, i64 5
+  %bDeviceSubClass9.i = getelementptr inbounds nuw i8, ptr %call1, i64 5
   store i8 %60, ptr %bDeviceSubClass9.i, align 1
-  %bDeviceProtocol.i92 = getelementptr inbounds i8, ptr %other_dev.0, i64 4
+  %bDeviceProtocol.i92 = getelementptr inbounds nuw i8, ptr %other_dev.0, i64 4
   %61 = load i8, ptr %bDeviceProtocol.i92, align 4
-  %bDeviceProtocol11.i = getelementptr inbounds i8, ptr %call1, i64 6
+  %bDeviceProtocol11.i = getelementptr inbounds nuw i8, ptr %call1, i64 6
   store i8 %61, ptr %bDeviceProtocol11.i, align 1
-  %bMaxPacketSize0.i93 = getelementptr inbounds i8, ptr %other_dev.0, i64 5
+  %bMaxPacketSize0.i93 = getelementptr inbounds nuw i8, ptr %other_dev.0, i64 5
   %62 = load i8, ptr %bMaxPacketSize0.i93, align 1
-  %bMaxPacketSize013.i = getelementptr inbounds i8, ptr %call1, i64 7
+  %bMaxPacketSize013.i = getelementptr inbounds nuw i8, ptr %call1, i64 7
   store i8 %62, ptr %bMaxPacketSize013.i, align 1
-  %bNumConfigurations.i94 = getelementptr inbounds i8, ptr %other_dev.0, i64 6
+  %bNumConfigurations.i94 = getelementptr inbounds nuw i8, ptr %other_dev.0, i64 6
   %63 = load i8, ptr %bNumConfigurations.i94, align 2
-  %bNumConfigurations15.i = getelementptr inbounds i8, ptr %call1, i64 8
+  %bNumConfigurations15.i = getelementptr inbounds nuw i8, ptr %call1, i64 8
   store i8 %63, ptr %bNumConfigurations15.i, align 1
-  %bReserved.i = getelementptr inbounds i8, ptr %call1, i64 9
+  %bReserved.i = getelementptr inbounds nuw i8, ptr %call1, i64 9
   store i8 0, ptr %bReserved.i, align 1
   br label %if.end46
 
 if.end46:                                         ; preds = %if.then44, %sw.bb41
   %ret.2 = phi i32 [ 10, %if.then44 ], [ -1, %sw.bb41 ]
-  %addr47 = getelementptr inbounds i8, ptr %dev, i64 224
+  %addr47 = getelementptr inbounds nuw i8, ptr %dev, i64 224
   %64 = load i8, ptr %addr47, align 8
   %conv48 = zext i8 %64 to i32
   %conv49 = trunc i64 %len to i32
@@ -1792,7 +1792,7 @@ if.then8.i.i106:                                  ; preds = %if.then.i.i103
   %call9.i.i107 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i96, ptr noundef null) #12
   %call10.i.i108 = tail call i32 @qemu_get_thread_id() #12
   %69 = load i64, ptr %_now.i.i96, align 8
-  %tv_usec.i.i109 = getelementptr inbounds i8, ptr %_now.i.i96, i64 8
+  %tv_usec.i.i109 = getelementptr inbounds nuw i8, ptr %_now.i.i96, i64 8
   %70 = load i64, ptr %tv_usec.i.i109, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.13, i32 noundef %call10.i.i108, i64 noundef %69, i64 noundef %70, i32 noundef range(i32 0, 256) %conv48, i32 noundef %conv49, i32 noundef range(i32 -1, 11) %ret.2) #12
   br label %trace_usb_desc_device_qualifier.exit
@@ -1811,14 +1811,14 @@ sw.bb50:                                          ; preds = %entry
   br i1 %cmp51.not, label %if.end64, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %sw.bb50
-  %bNumConfigurations54 = getelementptr inbounds i8, ptr %other_dev.0, i64 6
+  %bNumConfigurations54 = getelementptr inbounds nuw i8, ptr %other_dev.0, i64 6
   %71 = load i8, ptr %bNumConfigurations54, align 2
   %conv55 = zext i8 %71 to i32
   %cmp56 = icmp samesign ult i32 %.pre164, %conv55
   br i1 %cmp56, label %if.then58, label %if.end64
 
 if.then58:                                        ; preds = %land.lhs.true
-  %confs59 = getelementptr inbounds i8, ptr %other_dev.0, i64 8
+  %confs59 = getelementptr inbounds nuw i8, ptr %other_dev.0, i64 8
   %72 = load ptr, ptr %confs59, align 8
   %idx.ext61 = zext nneg i32 %.pre164 to i64
   %add.ptr62 = getelementptr %struct.USBDescConfig, ptr %72, i64 %idx.ext61
@@ -1829,7 +1829,7 @@ if.then58:                                        ; preds = %land.lhs.true
 
 if.end64:                                         ; preds = %sw.bb50, %if.then58, %land.lhs.true
   %ret.3 = phi i32 [ %call63, %if.then58 ], [ -1, %land.lhs.true ], [ -1, %sw.bb50 ]
-  %addr65 = getelementptr inbounds i8, ptr %dev, i64 224
+  %addr65 = getelementptr inbounds nuw i8, ptr %dev, i64 224
   %73 = load i8, ptr %addr65, align 8
   %conv66 = zext i8 %73 to i32
   %conv68 = trunc i64 %len to i32
@@ -1856,7 +1856,7 @@ if.then8.i.i120:                                  ; preds = %if.then.i.i117
   %call9.i.i121 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i110, ptr noundef null) #12
   %call10.i.i122 = tail call i32 @qemu_get_thread_id() #12
   %78 = load i64, ptr %_now.i.i110, align 8
-  %tv_usec.i.i123 = getelementptr inbounds i8, ptr %_now.i.i110, i64 8
+  %tv_usec.i.i123 = getelementptr inbounds nuw i8, ptr %_now.i.i110, i64 8
   %79 = load i64, ptr %tv_usec.i.i123, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.15, i32 noundef %call10.i.i122, i64 noundef %78, i64 noundef %79, i32 noundef range(i32 0, 256) %conv66, i32 noundef range(i32 0, 256) %.pre164, i32 noundef %conv68, i32 noundef %ret.3) #12
   br label %trace_usb_desc_other_speed_config.exit
@@ -1871,9 +1871,9 @@ trace_usb_desc_other_speed_config.exit:           ; preds = %if.end64, %land.lhs
 
 sw.bb69:                                          ; preds = %entry
   store i8 5, ptr %call1, align 1
-  %bDescriptorType.i124 = getelementptr inbounds i8, ptr %call1, i64 1
+  %bDescriptorType.i124 = getelementptr inbounds nuw i8, ptr %call1, i64 1
   store i8 15, ptr %bDescriptorType.i124, align 1
-  %high.i = getelementptr inbounds i8, ptr %call, i64 24
+  %high.i = getelementptr inbounds nuw i8, ptr %call, i64 24
   %80 = load ptr, ptr %high.i, align 8
   %cmp6.not.i = icmp eq ptr %80, null
   br i1 %cmp6.not.i, label %if.end18.i, label %if.then8.i
@@ -1898,7 +1898,7 @@ if.then8.i:                                       ; preds = %sw.bb69
 if.end18.i:                                       ; preds = %if.then8.i, %sw.bb69
   %wTotalLength.0.i = phi i16 [ 12, %if.then8.i ], [ 5, %sw.bb69 ]
   %bNumDeviceCaps.0.i = phi i8 [ 1, %if.then8.i ], [ 0, %sw.bb69 ]
-  %super.i = getelementptr inbounds i8, ptr %call, i64 32
+  %super.i = getelementptr inbounds nuw i8, ptr %call, i64 32
   %81 = load ptr, ptr %super.i, align 8
   %cmp19.not.i = icmp eq ptr %81, null
   br i1 %cmp19.not.i, label %usb_desc_bos.exit, label %if.then21.i
@@ -1907,21 +1907,21 @@ if.then21.i:                                      ; preds = %if.end18.i
   %idx.ext23.i = zext nneg i16 %wTotalLength.0.i to i64
   %add.ptr24.i = getelementptr i8, ptr %call1, i64 %idx.ext23.i
   store i8 10, ptr %add.ptr24.i, align 1
-  %bDescriptorType.i30.i = getelementptr inbounds i8, ptr %add.ptr24.i, i64 1
+  %bDescriptorType.i30.i = getelementptr inbounds nuw i8, ptr %add.ptr24.i, i64 1
   store i8 16, ptr %bDescriptorType.i30.i, align 1
-  %u.i31.i = getelementptr inbounds i8, ptr %add.ptr24.i, i64 2
+  %u.i31.i = getelementptr inbounds nuw i8, ptr %add.ptr24.i, i64 2
   store i8 3, ptr %u.i31.i, align 1
-  %u4.i32.i = getelementptr inbounds i8, ptr %add.ptr24.i, i64 3
-  %wSpeedsSupported_lo.i.i = getelementptr inbounds i8, ptr %add.ptr24.i, i64 4
-  %bFunctionalitySupport.i.i = getelementptr inbounds i8, ptr %add.ptr24.i, i64 6
-  %bU1DevExitLat.i.i = getelementptr inbounds i8, ptr %add.ptr24.i, i64 7
+  %u4.i32.i = getelementptr inbounds nuw i8, ptr %add.ptr24.i, i64 3
+  %wSpeedsSupported_lo.i.i = getelementptr inbounds nuw i8, ptr %add.ptr24.i, i64 4
+  %bFunctionalitySupport.i.i = getelementptr inbounds nuw i8, ptr %add.ptr24.i, i64 6
+  %bU1DevExitLat.i.i = getelementptr inbounds nuw i8, ptr %add.ptr24.i, i64 7
   store i32 0, ptr %u4.i32.i, align 1
   store i8 10, ptr %bU1DevExitLat.i.i, align 1
-  %wU2DevExitLat_lo.i.i = getelementptr inbounds i8, ptr %add.ptr24.i, i64 8
+  %wU2DevExitLat_lo.i.i = getelementptr inbounds nuw i8, ptr %add.ptr24.i, i64 8
   store i8 32, ptr %wU2DevExitLat_lo.i.i, align 1
-  %wU2DevExitLat_hi.i.i = getelementptr inbounds i8, ptr %add.ptr24.i, i64 9
+  %wU2DevExitLat_hi.i.i = getelementptr inbounds nuw i8, ptr %add.ptr24.i, i64 9
   store i8 0, ptr %wU2DevExitLat_hi.i.i, align 1
-  %full.i.i = getelementptr inbounds i8, ptr %call, i64 16
+  %full.i.i = getelementptr inbounds nuw i8, ptr %call, i64 16
   %82 = load ptr, ptr %full.i.i, align 8
   %tobool.not.i.i125 = icmp eq ptr %82, null
   br i1 %tobool.not.i.i125, label %if.end26.i.i, label %if.end26.thread.i.i
@@ -1976,14 +1976,14 @@ usb_desc_bos.exit:                                ; preds = %if.end18.i, %if.end
   %wTotalLength.1.i = phi i16 [ %conv34.i, %if.end31.i ], [ %wTotalLength.0.i, %if.end18.i ]
   %bNumDeviceCaps.1.i = phi i8 [ %inc35.i, %if.end31.i ], [ %bNumDeviceCaps.0.i, %if.end18.i ]
   %conv1.i.i126 = trunc nuw nsw i16 %wTotalLength.1.i to i8
-  %u.i127 = getelementptr inbounds i8, ptr %call1, i64 2
+  %u.i127 = getelementptr inbounds nuw i8, ptr %call1, i64 2
   store i8 %conv1.i.i126, ptr %u.i127, align 1
-  %wTotalLength_hi.i = getelementptr inbounds i8, ptr %call1, i64 3
+  %wTotalLength_hi.i = getelementptr inbounds nuw i8, ptr %call1, i64 3
   store i8 0, ptr %wTotalLength_hi.i, align 1
-  %bNumDeviceCaps41.i = getelementptr inbounds i8, ptr %call1, i64 4
+  %bNumDeviceCaps41.i = getelementptr inbounds nuw i8, ptr %call1, i64 4
   store i8 %bNumDeviceCaps.1.i, ptr %bNumDeviceCaps41.i, align 1
   %conv42.i = zext nneg i16 %wTotalLength.1.i to i32
-  %addr71 = getelementptr inbounds i8, ptr %dev, i64 224
+  %addr71 = getelementptr inbounds nuw i8, ptr %dev, i64 224
   %88 = load i8, ptr %addr71, align 8
   %conv72 = zext i8 %88 to i32
   %conv73 = trunc i64 %len to i32
@@ -2010,7 +2010,7 @@ if.then8.i.i138:                                  ; preds = %if.then.i.i135
   %call9.i.i139 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i128, ptr noundef null) #12
   %call10.i.i140 = tail call i32 @qemu_get_thread_id() #12
   %93 = load i64, ptr %_now.i.i128, align 8
-  %tv_usec.i.i141 = getelementptr inbounds i8, ptr %_now.i.i128, i64 8
+  %tv_usec.i.i141 = getelementptr inbounds nuw i8, ptr %_now.i.i128, i64 8
   %94 = load i64, ptr %tv_usec.i.i141, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.17, i32 noundef %call10.i.i140, i64 noundef %93, i64 noundef %94, i32 noundef range(i32 0, 256) %conv72, i32 noundef %conv73, i32 noundef range(i32 -2147483648, 65536) %conv42.i) #12
   br label %trace_usb_desc_bos.exit
@@ -2026,7 +2026,7 @@ trace_usb_desc_bos.exit:                          ; preds = %usb_desc_bos.exit, 
 sw.default:                                       ; preds = %entry
   %conv13 = and i32 %shr, 255
   %95 = load ptr, ptr @stderr, align 8
-  %addr75 = getelementptr inbounds i8, ptr %dev, i64 224
+  %addr75 = getelementptr inbounds nuw i8, ptr %dev, i64 224
   %96 = load i8, ptr %addr75, align 8
   %conv76 = zext i8 %96 to i32
   %call78 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %95, ptr noundef nonnull @.str.6, ptr noundef nonnull @__func__.usb_desc_get_descriptor, i32 noundef %conv76, i32 noundef %conv13, i64 noundef %len) #16
@@ -2049,7 +2049,7 @@ if.then81:                                        ; preds = %sw.epilog.if.then81
   %spec.select57 = select i1 %cmp83, i32 %conv86.pre-phi, i32 %ret.0151
   %conv88 = zext nneg i32 %spec.select57 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %dest, ptr align 1 %call1, i64 %conv88, i1 false)
-  %actual_length = getelementptr inbounds i8, ptr %p, i64 88
+  %actual_length = getelementptr inbounds nuw i8, ptr %p, i64 88
   store i32 %spec.select57, ptr %actual_length, align 8
   br label %if.end89
 
@@ -2077,7 +2077,7 @@ entry:
   %_now.i.i90 = alloca %struct.timeval, align 8
   %_now.i.i76 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
-  %flags = getelementptr inbounds i8, ptr %dev, i64 192
+  %flags = getelementptr inbounds nuw i8, ptr %dev, i64 192
   %0 = load i32, ptr %flags, align 8
   %and = and i32 %0, 4
   %tobool.not = icmp eq i32 %and, 0
@@ -2108,7 +2108,7 @@ if.end:                                           ; preds = %entry
 
 sw.bb:                                            ; preds = %if.end
   %conv = trunc i32 %value to i8
-  %addr = getelementptr inbounds i8, ptr %dev, i64 224
+  %addr = getelementptr inbounds nuw i8, ptr %dev, i64 224
   store i8 %conv, ptr %addr, align 8
   %conv2 = and i32 %value, 255
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
@@ -2134,7 +2134,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #12
   %call10.i.i = tail call i32 @qemu_get_thread_id() #12
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.19, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i32 noundef range(i32 0, 256) %conv2) #12
   br label %trace_usb_set_addr.exit
@@ -2153,20 +2153,20 @@ sw.bb3:                                           ; preds = %if.end
   br label %sw.epilog
 
 sw.bb6:                                           ; preds = %if.end
-  %config = getelementptr inbounds i8, ptr %dev, i64 5728
+  %config = getelementptr inbounds nuw i8, ptr %dev, i64 5728
   %7 = load ptr, ptr %config, align 8
   %tobool7.not = icmp eq ptr %7, null
   br i1 %tobool7.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %sw.bb6
-  %bConfigurationValue = getelementptr inbounds i8, ptr %7, i64 1
+  %bConfigurationValue = getelementptr inbounds nuw i8, ptr %7, i64 1
   %8 = load i8, ptr %bConfigurationValue, align 1
   br label %cond.end
 
 cond.end:                                         ; preds = %sw.bb6, %cond.true
   %cond = phi i8 [ %8, %cond.true ], [ 0, %sw.bb6 ]
   store i8 %cond, ptr %data, align 1
-  %actual_length = getelementptr inbounds i8, ptr %p, i64 88
+  %actual_length = getelementptr inbounds nuw i8, ptr %p, i64 88
   store i32 1, ptr %actual_length, align 8
   br label %sw.epilog
 
@@ -2175,26 +2175,26 @@ sw.bb11:                                          ; preds = %if.end
   br i1 %cmp.i, label %if.then.i, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %sw.bb11
-  %device.i = getelementptr inbounds i8, ptr %dev, i64 5648
+  %device.i = getelementptr inbounds nuw i8, ptr %dev, i64 5648
   %9 = load ptr, ptr %device.i, align 8
-  %bNumConfigurations.i = getelementptr inbounds i8, ptr %9, i64 6
+  %bNumConfigurations.i = getelementptr inbounds nuw i8, ptr %9, i64 6
   %10 = load i8, ptr %bNumConfigurations.i, align 2
   %cmp131.not.i = icmp eq i8 %10, 0
   br i1 %cmp131.not.i, label %if.end31.i, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
-  %confs.i = getelementptr inbounds i8, ptr %9, i64 8
-  %configuration8.i = getelementptr inbounds i8, ptr %dev, i64 5656
-  %ninterfaces14.i = getelementptr inbounds i8, ptr %dev, i64 5660
-  %config17.i = getelementptr inbounds i8, ptr %dev, i64 5728
+  %confs.i = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %configuration8.i = getelementptr inbounds nuw i8, ptr %dev, i64 5656
+  %ninterfaces14.i = getelementptr inbounds nuw i8, ptr %dev, i64 5660
+  %config17.i = getelementptr inbounds nuw i8, ptr %dev, i64 5728
   br label %for.body.i
 
 if.then.i:                                        ; preds = %sw.bb11
-  %configuration.i = getelementptr inbounds i8, ptr %dev, i64 5656
+  %configuration.i = getelementptr inbounds nuw i8, ptr %dev, i64 5656
   store i32 0, ptr %configuration.i, align 8
-  %ninterfaces.i = getelementptr inbounds i8, ptr %dev, i64 5660
+  %ninterfaces.i = getelementptr inbounds nuw i8, ptr %dev, i64 5660
   store i32 0, ptr %ninterfaces.i, align 4
-  %config.i = getelementptr inbounds i8, ptr %dev, i64 5728
+  %config.i = getelementptr inbounds nuw i8, ptr %dev, i64 5728
   store ptr null, ptr %config.i, align 8
   br label %if.end31.i
 
@@ -2237,7 +2237,7 @@ for.inc.i:                                        ; preds = %if.then7.for.inc_cr
   br i1 %cmp1.i, label %for.body.i, label %if.end31.i, !llvm.loop !15
 
 if.end31.i:                                       ; preds = %for.inc.i, %if.then.i, %for.cond.preheader.i
-  %ninterfaces33.i = getelementptr inbounds i8, ptr %dev, i64 5660
+  %ninterfaces33.i = getelementptr inbounds nuw i8, ptr %dev, i64 5660
   %19 = load i32, ptr %ninterfaces33.i, align 4
   %cmp3433.i = icmp sgt i32 %19, 0
   br i1 %cmp3433.i, label %for.body36.i, label %for.body43.lr.ph.i
@@ -2248,8 +2248,8 @@ for.cond40.preheader.i:                           ; preds = %for.body36.i
 
 for.body43.lr.ph.i:                               ; preds = %for.cond40.preheader.i, %if.end31.i
   %i.1.lcssa43.i = phi i32 [ %inc38.i, %for.cond40.preheader.i ], [ 0, %if.end31.i ]
-  %altsetting.i = getelementptr inbounds i8, ptr %dev, i64 5664
-  %ifaces.i = getelementptr inbounds i8, ptr %dev, i64 5736
+  %altsetting.i = getelementptr inbounds nuw i8, ptr %dev, i64 5664
+  %ifaces.i = getelementptr inbounds nuw i8, ptr %dev, i64 5736
   %20 = zext nneg i32 %i.1.lcssa43.i to i64
   br label %for.body43.i
 
@@ -2272,7 +2272,7 @@ for.body43.i:                                     ; preds = %for.body43.i, %for.
   br i1 %exitcond.not.i, label %usb_desc_set_config.exit, label %for.body43.i, !llvm.loop !12
 
 usb_desc_set_config.exit:                         ; preds = %for.body43.i, %for.cond40.preheader.i
-  %addr13 = getelementptr inbounds i8, ptr %dev, i64 224
+  %addr13 = getelementptr inbounds nuw i8, ptr %dev, i64 224
   %22 = load i8, ptr %addr13, align 8
   %conv14 = zext i8 %22 to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i76)
@@ -2298,7 +2298,7 @@ if.then8.i.i86:                                   ; preds = %if.then.i.i83
   %call9.i.i87 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i76, ptr noundef null) #12
   %call10.i.i88 = tail call i32 @qemu_get_thread_id() #12
   %27 = load i64, ptr %_now.i.i76, align 8
-  %tv_usec.i.i89 = getelementptr inbounds i8, ptr %_now.i.i76, i64 8
+  %tv_usec.i.i89 = getelementptr inbounds nuw i8, ptr %_now.i.i76, i64 8
   %28 = load i64, ptr %tv_usec.i.i89, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.22, i32 noundef %call10.i.i88, i64 noundef %27, i64 noundef %28, i32 noundef range(i32 0, 256) %conv14, i32 noundef %value, i32 noundef 0) #12
   br label %trace_usb_set_config.exit
@@ -2312,27 +2312,27 @@ trace_usb_set_config.exit:                        ; preds = %usb_desc_set_config
   br label %sw.epilog
 
 sw.bb15:                                          ; preds = %if.end
-  %config17 = getelementptr inbounds i8, ptr %dev, i64 5728
+  %config17 = getelementptr inbounds nuw i8, ptr %dev, i64 5728
   %29 = load ptr, ptr %config17, align 8
   %tobool18.not = icmp eq ptr %29, null
   br i1 %tobool18.not, label %cond.false21, label %cond.end23
 
 cond.false21:                                     ; preds = %sw.bb15
-  %device = getelementptr inbounds i8, ptr %dev, i64 5648
+  %device = getelementptr inbounds nuw i8, ptr %dev, i64 5648
   %30 = load ptr, ptr %device, align 8
-  %confs = getelementptr inbounds i8, ptr %30, i64 8
+  %confs = getelementptr inbounds nuw i8, ptr %30, i64 8
   %31 = load ptr, ptr %confs, align 8
   br label %cond.end23
 
 cond.end23:                                       ; preds = %sw.bb15, %cond.false21
   %cond24 = phi ptr [ %31, %cond.false21 ], [ %29, %sw.bb15 ]
   store i8 0, ptr %data, align 1
-  %bmAttributes = getelementptr inbounds i8, ptr %cond24, i64 3
+  %bmAttributes = getelementptr inbounds nuw i8, ptr %cond24, i64 3
   %32 = load i8, ptr %bmAttributes, align 1
   %33 = lshr i8 %32, 6
   %.lobit = and i8 %33, 1
   store i8 %.lobit, ptr %data, align 1
-  %remote_wakeup = getelementptr inbounds i8, ptr %dev, i64 4376
+  %remote_wakeup = getelementptr inbounds nuw i8, ptr %dev, i64 4376
   %34 = load i32, ptr %remote_wakeup, align 8
   %tobool34.not = icmp eq i32 %34, 0
   br i1 %tobool34.not, label %if.end40, label %if.then35
@@ -2345,7 +2345,7 @@ if.then35:                                        ; preds = %cond.end23
 if.end40:                                         ; preds = %if.then35, %cond.end23
   %arrayidx41 = getelementptr i8, ptr %data, i64 1
   store i8 0, ptr %arrayidx41, align 1
-  %actual_length42 = getelementptr inbounds i8, ptr %p, i64 88
+  %actual_length42 = getelementptr inbounds nuw i8, ptr %p, i64 88
   store i32 2, ptr %actual_length42, align 8
   br label %sw.epilog
 
@@ -2354,7 +2354,7 @@ sw.bb43:                                          ; preds = %if.end
   br i1 %cmp44, label %if.then46, label %sw.bb43.split
 
 sw.bb43.split:                                    ; preds = %sw.bb43
-  %addr4967 = getelementptr inbounds i8, ptr %dev, i64 224
+  %addr4967 = getelementptr inbounds nuw i8, ptr %dev, i64 224
   %36 = load i8, ptr %addr4967, align 8
   %conv5068 = zext i8 %36 to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i90)
@@ -2380,7 +2380,7 @@ if.then8.i.i100:                                  ; preds = %if.then.i.i97
   %call9.i.i101 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i90, ptr noundef null) #12
   %call10.i.i102 = tail call i32 @qemu_get_thread_id() #12
   %41 = load i64, ptr %_now.i.i90, align 8
-  %tv_usec.i.i103 = getelementptr inbounds i8, ptr %_now.i.i90, i64 8
+  %tv_usec.i.i103 = getelementptr inbounds nuw i8, ptr %_now.i.i90, i64 8
   %42 = load i64, ptr %tv_usec.i.i103, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.24, i32 noundef %call10.i.i102, i64 noundef %41, i64 noundef %42, i32 noundef range(i32 0, 256) %conv5068, i32 noundef %value, i32 noundef range(i32 -1, 1) -1) #12
   br label %trace_usb_clear_device_feature.exit
@@ -2394,9 +2394,9 @@ trace_usb_clear_device_feature.exit:              ; preds = %sw.bb43.split, %lan
   br label %sw.epilog
 
 if.then46:                                        ; preds = %sw.bb43
-  %remote_wakeup47 = getelementptr inbounds i8, ptr %dev, i64 4376
+  %remote_wakeup47 = getelementptr inbounds nuw i8, ptr %dev, i64 4376
   store i32 0, ptr %remote_wakeup47, align 8
-  %addr4969 = getelementptr inbounds i8, ptr %dev, i64 224
+  %addr4969 = getelementptr inbounds nuw i8, ptr %dev, i64 224
   %43 = load i8, ptr %addr4969, align 8
   %conv5070 = zext i8 %43 to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i104)
@@ -2422,7 +2422,7 @@ if.then8.i.i114:                                  ; preds = %if.then.i.i111
   %call9.i.i115 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i104, ptr noundef null) #12
   %call10.i.i116 = tail call i32 @qemu_get_thread_id() #12
   %48 = load i64, ptr %_now.i.i104, align 8
-  %tv_usec.i.i117 = getelementptr inbounds i8, ptr %_now.i.i104, i64 8
+  %tv_usec.i.i117 = getelementptr inbounds nuw i8, ptr %_now.i.i104, i64 8
   %49 = load i64, ptr %tv_usec.i.i117, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.24, i32 noundef %call10.i.i116, i64 noundef %48, i64 noundef %49, i32 noundef range(i32 0, 256) %conv5070, i32 noundef 1, i32 noundef range(i32 -1, 1) 0) #12
   br label %trace_usb_clear_device_feature.exit118
@@ -2440,7 +2440,7 @@ sw.bb51:                                          ; preds = %if.end
   br i1 %cmp52, label %if.then54, label %sw.bb51.split
 
 sw.bb51.split:                                    ; preds = %sw.bb51
-  %addr5771 = getelementptr inbounds i8, ptr %dev, i64 224
+  %addr5771 = getelementptr inbounds nuw i8, ptr %dev, i64 224
   %50 = load i8, ptr %addr5771, align 8
   %conv5872 = zext i8 %50 to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i119)
@@ -2466,7 +2466,7 @@ if.then8.i.i129:                                  ; preds = %if.then.i.i126
   %call9.i.i130 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i119, ptr noundef null) #12
   %call10.i.i131 = tail call i32 @qemu_get_thread_id() #12
   %55 = load i64, ptr %_now.i.i119, align 8
-  %tv_usec.i.i132 = getelementptr inbounds i8, ptr %_now.i.i119, i64 8
+  %tv_usec.i.i132 = getelementptr inbounds nuw i8, ptr %_now.i.i119, i64 8
   %56 = load i64, ptr %tv_usec.i.i132, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.26, i32 noundef %call10.i.i131, i64 noundef %55, i64 noundef %56, i32 noundef range(i32 0, 256) %conv5872, i32 noundef %value, i32 noundef range(i32 -1, 1) -1) #12
   br label %trace_usb_set_device_feature.exit
@@ -2480,9 +2480,9 @@ trace_usb_set_device_feature.exit:                ; preds = %sw.bb51.split, %lan
   br label %sw.epilog
 
 if.then54:                                        ; preds = %sw.bb51
-  %remote_wakeup55 = getelementptr inbounds i8, ptr %dev, i64 4376
+  %remote_wakeup55 = getelementptr inbounds nuw i8, ptr %dev, i64 4376
   store i32 1, ptr %remote_wakeup55, align 8
-  %addr5773 = getelementptr inbounds i8, ptr %dev, i64 224
+  %addr5773 = getelementptr inbounds nuw i8, ptr %dev, i64 224
   %57 = load i8, ptr %addr5773, align 8
   %conv5874 = zext i8 %57 to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i133)
@@ -2508,7 +2508,7 @@ if.then8.i.i143:                                  ; preds = %if.then.i.i140
   %call9.i.i144 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i133, ptr noundef null) #12
   %call10.i.i145 = tail call i32 @qemu_get_thread_id() #12
   %62 = load i64, ptr %_now.i.i133, align 8
-  %tv_usec.i.i146 = getelementptr inbounds i8, ptr %_now.i.i133, i64 8
+  %tv_usec.i.i146 = getelementptr inbounds nuw i8, ptr %_now.i.i133, i64 8
   %63 = load i64, ptr %tv_usec.i.i146, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.26, i32 noundef %call10.i.i145, i64 noundef %62, i64 noundef %63, i32 noundef range(i32 0, 256) %conv5874, i32 noundef 1, i32 noundef range(i32 -1, 1) 0) #12
   br label %trace_usb_set_device_feature.exit147
@@ -2522,7 +2522,7 @@ trace_usb_set_device_feature.exit147:             ; preds = %if.then54, %land.lh
   br label %sw.epilog
 
 sw.bb59:                                          ; preds = %if.end, %if.end
-  %speed = getelementptr inbounds i8, ptr %dev, i64 216
+  %speed = getelementptr inbounds nuw i8, ptr %dev, i64 216
   %64 = load i32, ptr %speed, align 8
   %cmp60 = icmp ne i32 %64, 3
   %spec.select = sext i1 %cmp60 to i32
@@ -2533,25 +2533,25 @@ sw.bb64:                                          ; preds = %if.end
   br i1 %cmp65, label %sw.epilog, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %sw.bb64
-  %ninterfaces = getelementptr inbounds i8, ptr %dev, i64 5660
+  %ninterfaces = getelementptr inbounds nuw i8, ptr %dev, i64 5660
   %65 = load i32, ptr %ninterfaces, align 4
   %cmp67.not = icmp slt i32 %index, %65
   br i1 %cmp67.not, label %if.end70, label %sw.epilog
 
 if.end70:                                         ; preds = %lor.lhs.false
-  %altsetting = getelementptr inbounds i8, ptr %dev, i64 5664
+  %altsetting = getelementptr inbounds nuw i8, ptr %dev, i64 5664
   %idxprom = zext nneg i32 %index to i64
   %arrayidx71 = getelementptr [16 x i32], ptr %altsetting, i64 0, i64 %idxprom
   %66 = load i32, ptr %arrayidx71, align 4
   %conv72 = trunc i32 %66 to i8
   store i8 %conv72, ptr %data, align 1
-  %actual_length74 = getelementptr inbounds i8, ptr %p, i64 88
+  %actual_length74 = getelementptr inbounds nuw i8, ptr %p, i64 88
   store i32 1, ptr %actual_length74, align 8
   br label %sw.epilog
 
 sw.bb75:                                          ; preds = %if.end
   %call76 = tail call fastcc i32 @usb_desc_set_interface(ptr noundef nonnull %dev, i32 noundef %index, i32 noundef %value)
-  %addr77 = getelementptr inbounds i8, ptr %dev, i64 224
+  %addr77 = getelementptr inbounds nuw i8, ptr %dev, i64 224
   %67 = load i8, ptr %addr77, align 8
   %conv78 = zext i8 %67 to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i148)
@@ -2577,7 +2577,7 @@ if.then8.i.i158:                                  ; preds = %if.then.i.i155
   %call9.i.i159 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i148, ptr noundef null) #12
   %call10.i.i160 = tail call i32 @qemu_get_thread_id() #12
   %72 = load i64, ptr %_now.i.i148, align 8
-  %tv_usec.i.i161 = getelementptr inbounds i8, ptr %_now.i.i148, i64 8
+  %tv_usec.i.i161 = getelementptr inbounds nuw i8, ptr %_now.i.i148, i64 8
   %73 = load i64, ptr %tv_usec.i.i161, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.28, i32 noundef %call10.i.i160, i64 noundef %72, i64 noundef %73, i32 noundef range(i32 0, 256) %conv78, i32 noundef %index, i32 noundef %value, i32 noundef range(i32 -1, 1) %call76) #12
   br label %trace_usb_set_interface.exit
@@ -2596,7 +2596,7 @@ sw.bb79:                                          ; preds = %if.end
 if.then81:                                        ; preds = %sw.bb79
   %conv82 = sext i32 %length to i64
   %call83 = tail call i32 @usb_desc_msos(ptr noundef nonnull %call, ptr noundef %p, i32 noundef %index, ptr noundef %data, i64 noundef %conv82) #12
-  %addr84 = getelementptr inbounds i8, ptr %dev, i64 224
+  %addr84 = getelementptr inbounds nuw i8, ptr %dev, i64 224
   %74 = load i8, ptr %addr84, align 8
   %conv85 = zext i8 %74 to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i162)
@@ -2622,7 +2622,7 @@ if.then8.i.i172:                                  ; preds = %if.then.i.i169
   %call9.i.i173 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i162, ptr noundef null) #12
   %call10.i.i174 = tail call i32 @qemu_get_thread_id() #12
   %79 = load i64, ptr %_now.i.i162, align 8
-  %tv_usec.i.i175 = getelementptr inbounds i8, ptr %_now.i.i162, i64 8
+  %tv_usec.i.i175 = getelementptr inbounds nuw i8, ptr %_now.i.i162, i64 8
   %80 = load i64, ptr %tv_usec.i.i175, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.30, i32 noundef %call10.i.i174, i64 noundef %79, i64 noundef %80, i32 noundef range(i32 0, 256) %conv85, i32 noundef %index, i32 noundef %length, i32 noundef %call83) #12
   br label %trace_usb_desc_msos.exit
@@ -2641,7 +2641,7 @@ sw.bb87:                                          ; preds = %if.end
 if.then89:                                        ; preds = %sw.bb87
   %conv90 = sext i32 %length to i64
   %call91 = tail call i32 @usb_desc_msos(ptr noundef nonnull %call, ptr noundef %p, i32 noundef %index, ptr noundef %data, i64 noundef %conv90) #12
-  %addr92 = getelementptr inbounds i8, ptr %dev, i64 224
+  %addr92 = getelementptr inbounds nuw i8, ptr %dev, i64 224
   %81 = load i8, ptr %addr92, align 8
   %conv93 = zext i8 %81 to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i176)
@@ -2667,7 +2667,7 @@ if.then8.i.i186:                                  ; preds = %if.then.i.i183
   %call9.i.i187 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i176, ptr noundef null) #12
   %call10.i.i188 = tail call i32 @qemu_get_thread_id() #12
   %86 = load i64, ptr %_now.i.i176, align 8
-  %tv_usec.i.i189 = getelementptr inbounds i8, ptr %_now.i.i176, i64 8
+  %tv_usec.i.i189 = getelementptr inbounds nuw i8, ptr %_now.i.i176, i64 8
   %87 = load i64, ptr %tv_usec.i.i189, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.30, i32 noundef %call10.i.i188, i64 noundef %86, i64 noundef %87, i32 noundef range(i32 0, 256) %conv93, i32 noundef %index, i32 noundef %length, i32 noundef %call91) #12
   br label %trace_usb_desc_msos.exit190
@@ -2694,13 +2694,13 @@ entry:
   br i1 %tobool.not.i, label %return, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %entry
-  %nif_groups.i = getelementptr inbounds i8, ptr %dev.val, i64 5
+  %nif_groups.i = getelementptr inbounds nuw i8, ptr %dev.val, i64 5
   %1 = load i8, ptr %nif_groups.i, align 1
   %cmp4.not.i = icmp eq i8 %1, 0
   br i1 %cmp4.not.i, label %for.cond27.preheader.i, label %for.cond3.preheader.lr.ph.i
 
 for.cond3.preheader.lr.ph.i:                      ; preds = %for.cond.preheader.i
-  %if_groups.i = getelementptr inbounds i8, ptr %dev.val, i64 8
+  %if_groups.i = getelementptr inbounds nuw i8, ptr %dev.val, i64 8
   %2 = load ptr, ptr %if_groups.i, align 8
   %wide.trip.count15.i = zext i8 %1 to i64
   br label %for.cond3.preheader.i
@@ -2708,25 +2708,25 @@ for.cond3.preheader.lr.ph.i:                      ; preds = %for.cond.preheader.
 for.cond3.preheader.i:                            ; preds = %for.inc24.i, %for.cond3.preheader.lr.ph.i
   %indvars.iv12.i = phi i64 [ 0, %for.cond3.preheader.lr.ph.i ], [ %indvars.iv.next13.i, %for.inc24.i ]
   %arrayidx.i = getelementptr %struct.USBDescIfaceAssoc, ptr %2, i64 %indvars.iv12.i
-  %nif5.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 6
+  %nif5.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 6
   %3 = load i8, ptr %nif5.i, align 2
   %cmp72.not.i = icmp eq i8 %3, 0
   br i1 %cmp72.not.i, label %for.inc24.i, label %for.body9.lr.ph.i
 
 for.body9.lr.ph.i:                                ; preds = %for.cond3.preheader.i
-  %ifs.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  %ifs.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   %4 = load ptr, ptr %ifs.i, align 8
   %wide.trip.count.i = zext i8 %3 to i64
   br label %for.body9.i
 
 for.cond27.preheader.i:                           ; preds = %for.inc24.i, %for.cond.preheader.i
-  %nif29.i = getelementptr inbounds i8, ptr %dev.val, i64 16
+  %nif29.i = getelementptr inbounds nuw i8, ptr %dev.val, i64 16
   %5 = load i8, ptr %nif29.i, align 8
   %cmp316.not.i = icmp eq i8 %5, 0
   br i1 %cmp316.not.i, label %return, label %for.body33.lr.ph.i
 
 for.body33.lr.ph.i:                               ; preds = %for.cond27.preheader.i
-  %ifs35.i = getelementptr inbounds i8, ptr %dev.val, i64 24
+  %ifs35.i = getelementptr inbounds nuw i8, ptr %dev.val, i64 24
   %6 = load ptr, ptr %ifs35.i, align 8
   %wide.trip.count20.i = zext i8 %5 to i64
   br label %for.body33.i
@@ -2740,7 +2740,7 @@ for.body9.i:                                      ; preds = %for.inc.i, %for.bod
   br i1 %cmp17.i, label %land.lhs.true.i, label %for.inc.i
 
 land.lhs.true.i:                                  ; preds = %for.body9.i
-  %bAlternateSetting.i = getelementptr inbounds i8, ptr %arrayidx15.i, i64 1
+  %bAlternateSetting.i = getelementptr inbounds nuw i8, ptr %arrayidx15.i, i64 1
   %8 = load i8, ptr %bAlternateSetting.i, align 1
   %conv19.i = zext i8 %8 to i32
   %cmp20.i = icmp eq i32 %value, %conv19.i
@@ -2765,7 +2765,7 @@ for.body33.i:                                     ; preds = %for.inc49.i, %for.b
   br i1 %cmp40.i, label %land.lhs.true42.i, label %for.inc49.i
 
 land.lhs.true42.i:                                ; preds = %for.body33.i
-  %bAlternateSetting43.i = getelementptr inbounds i8, ptr %arrayidx37.i, i64 1
+  %bAlternateSetting43.i = getelementptr inbounds nuw i8, ptr %arrayidx37.i, i64 1
   %10 = load i8, ptr %bAlternateSetting43.i, align 1
   %conv44.i = zext i8 %10 to i32
   %cmp45.i = icmp eq i32 %value, %conv44.i
@@ -2778,16 +2778,16 @@ for.inc49.i:                                      ; preds = %land.lhs.true42.i, 
 
 if.end:                                           ; preds = %land.lhs.true.i, %land.lhs.true42.i
   %retval.0.i = phi ptr [ %arrayidx37.i, %land.lhs.true42.i ], [ %arrayidx15.i, %land.lhs.true.i ]
-  %altsetting = getelementptr inbounds i8, ptr %dev, i64 5664
+  %altsetting = getelementptr inbounds nuw i8, ptr %dev, i64 5664
   %idxprom = zext nneg i32 %index to i64
   %arrayidx = getelementptr [16 x i32], ptr %altsetting, i64 0, i64 %idxprom
   %11 = load i32, ptr %arrayidx, align 4
   store i32 %value, ptr %arrayidx, align 4
-  %ifaces = getelementptr inbounds i8, ptr %dev, i64 5736
+  %ifaces = getelementptr inbounds nuw i8, ptr %dev, i64 5736
   %arrayidx5 = getelementptr [16 x ptr], ptr %ifaces, i64 0, i64 %idxprom
   store ptr %retval.0.i, ptr %arrayidx5, align 8
   tail call void @usb_ep_init(ptr noundef %dev) #12
-  %ninterfaces.i = getelementptr inbounds i8, ptr %dev, i64 5660
+  %ninterfaces.i = getelementptr inbounds nuw i8, ptr %dev, i64 5660
   %12 = load i32, ptr %ninterfaces.i, align 4
   %cmp31.i = icmp sgt i32 %12, 0
   br i1 %cmp31.i, label %for.body.i, label %usb_desc_ep_init.exit
@@ -2801,13 +2801,13 @@ for.body.i:                                       ; preds = %if.end, %for.inc27.
   br i1 %cmp1.i, label %for.inc27.i, label %for.cond2.preheader.i
 
 for.cond2.preheader.i:                            ; preds = %for.body.i
-  %bNumEndpoints.i = getelementptr inbounds i8, ptr %14, i64 2
+  %bNumEndpoints.i = getelementptr inbounds nuw i8, ptr %14, i64 2
   %15 = load i8, ptr %bNumEndpoints.i, align 2
   %cmp329.not.i = icmp eq i8 %15, 0
   br i1 %cmp329.not.i, label %for.inc27.i, label %for.body5.lr.ph.i
 
 for.body5.lr.ph.i:                                ; preds = %for.cond2.preheader.i
-  %eps.i = getelementptr inbounds i8, ptr %14, i64 16
+  %eps.i = getelementptr inbounds nuw i8, ptr %14, i64 16
   br label %for.body5.i
 
 for.body5.i:                                      ; preds = %for.body5.i, %for.body5.lr.ph.i
@@ -2819,7 +2819,7 @@ for.body5.i:                                      ; preds = %for.body5.i, %for.b
   %cond.i = select i1 %tobool.not.i17, i32 225, i32 105
   %18 = and i8 %17, 15
   %and14.i = zext nneg i8 %18 to i32
-  %bmAttributes.i = getelementptr inbounds i8, ptr %arrayidx7.i, i64 1
+  %bmAttributes.i = getelementptr inbounds nuw i8, ptr %arrayidx7.i, i64 1
   %19 = load i8, ptr %bmAttributes.i, align 1
   %20 = and i8 %19, 3
   tail call void @usb_ep_set_type(ptr noundef %dev, i32 noundef %cond.i, i32 noundef %and14.i, i8 noundef zeroext %20) #12

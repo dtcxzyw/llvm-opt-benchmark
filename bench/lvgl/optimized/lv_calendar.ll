@@ -81,7 +81,7 @@ define internal void @lv_calendar_constructor(ptr nocapture readnone %0, ptr nou
   br i1 %exitcond.not, label %29, label %12, !llvm.loop !22
 
 29:                                               ; preds = %28
-  %30 = getelementptr inbounds i8, ptr %1, i64 536
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 536
   store ptr @.str.3, ptr %30, align 8, !tbaa !20
   %31 = tail call ptr @lv_buttonmatrix_create(ptr noundef nonnull %1) #5
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 64
@@ -600,7 +600,7 @@ define range(i32 0, 2) i32 @lv_calendar_get_pressed_date(ptr nocapture noundef r
   %11 = load ptr, ptr %3, align 8, !tbaa !24
   %12 = tail call i32 @lv_buttonmatrix_get_selected_button(ptr noundef %11) #5
   %13 = tail call ptr @lv_buttonmatrix_get_button_text(ptr noundef %11, i32 noundef %12) #5
-  %14 = getelementptr inbounds i8, ptr %13, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 1
   %15 = load i8, ptr %14, align 1, !tbaa !21
   %16 = icmp eq i8 %15, 0
   %17 = load i8, ptr %13, align 1, !tbaa !21

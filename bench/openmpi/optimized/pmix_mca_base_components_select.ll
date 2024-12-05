@@ -27,7 +27,7 @@ define range(i32 -63, 1) i32 @pmix_mca_base_select(ptr noundef %0, i32 noundef %
 
 9:                                                ; preds = %6
   %10 = zext nneg i32 %1 to i64
-  %11 = getelementptr inbounds [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %10, i32 2
+  %11 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %10, i32 2
   %12 = load i32, ptr %11, align 4
   %13 = icmp sgt i32 %12, 9
   br i1 %13, label %14, label %15
@@ -37,30 +37,30 @@ define range(i32 -63, 1) i32 @pmix_mca_base_select(ptr noundef %0, i32 noundef %
   br label %15
 
 15:                                               ; preds = %14, %9
-  %16 = getelementptr inbounds i8, ptr %2, i64 120
-  %17 = getelementptr inbounds i8, ptr %2, i64 240
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 120
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 240
   %.07888 = load ptr, ptr %17, align 8
   %.not89 = icmp eq ptr %.07888, %16
   br i1 %.not89, label %._crit_edge, label %.lr.ph
 
 .thread:                                          ; preds = %6
-  %18 = getelementptr inbounds i8, ptr %2, i64 120
-  %19 = getelementptr inbounds i8, ptr %2, i64 240
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 120
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 240
   %.0788895 = load ptr, ptr %19, align 8
   %.not8996 = icmp eq ptr %.0788895, %18
   br i1 %.not8996, label %._crit_edge, label %.lr.ph.split
 
 .lr.ph:                                           ; preds = %15
   %20 = zext nneg i32 %1 to i64
-  %21 = getelementptr inbounds [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %20, i32 2
+  %21 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %20, i32 2
   br label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %55
   %.07891.us = phi ptr [ %.078.us, %55 ], [ %.07888, %.lr.ph ]
   %.07790.us = phi i32 [ %.1.us, %55 ], [ -2147483648, %.lr.ph ]
-  %22 = getelementptr inbounds i8, ptr %.07891.us, i64 144
+  %22 = getelementptr inbounds nuw i8, ptr %.07891.us, i64 144
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 176
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 176
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, null
   %27 = load i32, ptr %21, align 4
@@ -71,7 +71,7 @@ define range(i32 -63, 1) i32 @pmix_mca_base_select(ptr noundef %0, i32 noundef %
   br i1 %28, label %30, label %32
 
 30:                                               ; preds = %29
-  %31 = getelementptr inbounds i8, ptr %23, i64 84
+  %31 = getelementptr inbounds nuw i8, ptr %23, i64 84
   call void (i32, ptr, ...) @pmix_output(i32 noundef %1, ptr noundef nonnull @.str.2, ptr noundef %0, ptr noundef nonnull %31) #2
   %.pre = load ptr, ptr %24, align 8
   br label %32
@@ -95,7 +95,7 @@ define range(i32 -63, 1) i32 @pmix_mca_base_select(ptr noundef %0, i32 noundef %
   br i1 %39, label %41, label %44
 
 41:                                               ; preds = %40
-  %42 = getelementptr inbounds i8, ptr %23, i64 84
+  %42 = getelementptr inbounds nuw i8, ptr %23, i64 84
   %43 = load i32, ptr %8, align 4
   call void (i32, ptr, ...) @pmix_output(i32 noundef %1, ptr noundef nonnull @.str.4, ptr noundef %0, ptr noundef nonnull %42, i32 noundef %43) #2
   br label %44
@@ -115,7 +115,7 @@ define range(i32 -63, 1) i32 @pmix_mca_base_select(ptr noundef %0, i32 noundef %
   br i1 %39, label %50, label %55
 
 50:                                               ; preds = %49
-  %51 = getelementptr inbounds i8, ptr %23, i64 84
+  %51 = getelementptr inbounds nuw i8, ptr %23, i64 84
   call void (i32, ptr, ...) @pmix_output(i32 noundef %1, ptr noundef nonnull @.str.3, ptr noundef %0, ptr noundef nonnull %51) #2
   br label %55
 
@@ -123,13 +123,13 @@ define range(i32 -63, 1) i32 @pmix_mca_base_select(ptr noundef %0, i32 noundef %
   br i1 %28, label %53, label %55
 
 53:                                               ; preds = %52
-  %54 = getelementptr inbounds i8, ptr %23, i64 84
+  %54 = getelementptr inbounds nuw i8, ptr %23, i64 84
   call void (i32, ptr, ...) @pmix_output(i32 noundef %1, ptr noundef nonnull @.str.1, ptr noundef %0, ptr noundef nonnull %54) #2
   br label %55
 
 55:                                               ; preds = %53, %52, %50, %49, %47, %44, %32
   %.1.us = phi i32 [ %.07790.us, %53 ], [ %.07790.us, %52 ], [ %.07790.us, %50 ], [ %.07790.us, %49 ], [ %45, %47 ], [ %.07790.us, %44 ], [ %.07790.us, %32 ]
-  %56 = getelementptr inbounds i8, ptr %.07891.us, i64 120
+  %56 = getelementptr inbounds nuw i8, ptr %.07891.us, i64 120
   %.078.us = load ptr, ptr %56, align 8
   %.not.us = icmp eq ptr %.078.us, %16
   br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !4
@@ -137,9 +137,9 @@ define range(i32 -63, 1) i32 @pmix_mca_base_select(ptr noundef %0, i32 noundef %
 .lr.ph.split:                                     ; preds = %.thread, %71
   %.07891 = phi ptr [ %.078, %71 ], [ %.0788895, %.thread ]
   %.07790 = phi i32 [ %.1, %71 ], [ -2147483648, %.thread ]
-  %57 = getelementptr inbounds i8, ptr %.07891, i64 144
+  %57 = getelementptr inbounds nuw i8, ptr %.07891, i64 144
   %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 176
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 176
   %60 = load ptr, ptr %59, align 8
   %61 = icmp eq ptr %60, null
   br i1 %61, label %71, label %62
@@ -168,7 +168,7 @@ define range(i32 -63, 1) i32 @pmix_mca_base_select(ptr noundef %0, i32 noundef %
 
 71:                                               ; preds = %64, %.lr.ph.split, %62, %67, %70
   %.1 = phi i32 [ %68, %70 ], [ %.07790, %67 ], [ %.07790, %62 ], [ %.07790, %.lr.ph.split ], [ %.07790, %64 ]
-  %72 = getelementptr inbounds i8, ptr %.07891, i64 120
+  %72 = getelementptr inbounds nuw i8, ptr %.07891, i64 120
   %.078 = load ptr, ptr %72, align 8
   %.not = icmp eq ptr %.078, %18
   br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !4
@@ -192,7 +192,7 @@ define range(i32 -63, 1) i32 @pmix_mca_base_select(ptr noundef %0, i32 noundef %
 
 78:                                               ; preds = %77
   %79 = zext nneg i32 %1 to i64
-  %80 = getelementptr inbounds [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %79, i32 2
+  %80 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %79, i32 2
   %81 = load i32, ptr %80, align 4
   %82 = icmp sgt i32 %81, 9
   br i1 %82, label %83, label %84
@@ -210,13 +210,13 @@ define range(i32 -63, 1) i32 @pmix_mca_base_select(ptr noundef %0, i32 noundef %
 
 87:                                               ; preds = %86
   %88 = zext nneg i32 %1 to i64
-  %89 = getelementptr inbounds [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %88, i32 2
+  %89 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %88, i32 2
   %90 = load i32, ptr %89, align 4
   %91 = icmp sgt i32 %90, 9
   br i1 %91, label %92, label %94
 
 92:                                               ; preds = %87
-  %93 = getelementptr inbounds i8, ptr %75, i64 84
+  %93 = getelementptr inbounds nuw i8, ptr %75, i64 84
   call void (i32, ptr, ...) @pmix_output(i32 noundef %1, ptr noundef nonnull @.str.6, ptr noundef %0, ptr noundef nonnull %93) #2
   %.pre94 = load ptr, ptr %4, align 8
   br label %94

@@ -25,7 +25,7 @@ define dso_local ptr @source_file_by_id(i16 noundef zeroext %0) local_unnamed_ad
 3:                                                ; preds = %1
   %4 = load ptr, ptr getelementptr inbounds (i8, ptr @global_context, i64 72), align 8
   %5 = zext i16 %0 to i64
-  %6 = getelementptr inbounds ptr, ptr %4, i64 %5
+  %6 = getelementptr inbounds nuw ptr, ptr %4, i64 %5
   %7 = load ptr, ptr %6, align 8
   br label %8
 
@@ -52,17 +52,17 @@ define dso_local ptr @source_file_text_load(ptr noundef %0, ptr noundef %1) loca
   store i16 %.0, ptr %3, align 8
   %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #7
   %11 = tail call ptr @str_copy(ptr noundef %0, i64 noundef %10) #6
-  %12 = getelementptr inbounds i8, ptr %3, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store ptr %11, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %3, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %1, ptr %13, align 8
   %14 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #7
-  %15 = getelementptr inbounds i8, ptr %3, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 %14, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %3, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %11, ptr %16, align 8
   %17 = tail call ptr @str_copy(ptr noundef nonnull @.str, i64 noundef 0) #6
-  %18 = getelementptr inbounds i8, ptr %3, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr %17, ptr %18, align 8
   %19 = load ptr, ptr getelementptr inbounds (i8, ptr @global_context, i64 72), align 8
   %.not.i = icmp eq ptr %19, null
@@ -70,7 +70,7 @@ define dso_local ptr @source_file_text_load(ptr noundef %0, ptr noundef %1) loca
 
 20:                                               ; preds = %9
   %21 = tail call ptr @calloc_arena(i64 noundef 72) #6
-  %22 = getelementptr inbounds i8, ptr %21, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
   store i32 8, ptr %22, align 4
   br label %25
 
@@ -88,13 +88,13 @@ define dso_local ptr @source_file_text_load(ptr noundef %0, ptr noundef %1) loca
   br i1 %28, label %29, label %43
 
 29:                                               ; preds = %25
-  %30 = getelementptr inbounds i8, ptr %.0.i, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
   %31 = shl i32 %26, 1
   %32 = zext i32 %31 to i64
   %33 = shl nuw nsw i64 %32, 3
   %34 = or disjoint i64 %33, 8
   %35 = tail call ptr @calloc_arena(i64 noundef %34) #6
-  %36 = getelementptr inbounds i8, ptr %35, i64 4
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 4
   store i32 %31, ptr %36, align 4
   %37 = load i32, ptr %30, align 4
   %38 = zext i32 %37 to i64
@@ -112,12 +112,12 @@ define dso_local ptr @source_file_text_load(ptr noundef %0, ptr noundef %1) loca
   %.1.i = phi ptr [ %35, %29 ], [ %.0.i, %25 ]
   %45 = add i32 %44, 1
   store i32 %45, ptr %.1.i, align 4
-  %46 = getelementptr inbounds i8, ptr %.1.i, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %.1.i, i64 8
   store ptr %46, ptr getelementptr inbounds (i8, ptr @global_context, i64 72), align 8
   %47 = load i32, ptr %.1.i, align 4
   %48 = add i32 %47, -1
   %49 = zext i32 %48 to i64
-  %50 = getelementptr inbounds ptr, ptr %46, i64 %49
+  %50 = getelementptr inbounds nuw ptr, ptr %46, i64 %49
   store ptr %3, ptr %50, align 8
   ret ptr %3
 }
@@ -146,9 +146,9 @@ define dso_local ptr @source_file_load(ptr noundef %0, ptr noundef writeonly %1,
 
 8:                                                ; preds = %6
   %9 = tail call ptr @calloc_arena(i64 noundef 1032) #6
-  %10 = getelementptr inbounds i8, ptr %9, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 128, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %9, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %11, ptr getelementptr inbounds (i8, ptr @global_context, i64 72), align 8
   br label %12
 
@@ -185,9 +185,9 @@ define dso_local ptr @source_file_load(ptr noundef %0, ptr noundef writeonly %1,
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %22
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %22 ]
-  %23 = getelementptr inbounds ptr, ptr %18, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 40
   %26 = load ptr, ptr %25, align 8
   %27 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %26, ptr noundef nonnull dereferenceable(1) %13) #7
   %28 = icmp eq i32 %27, 0
@@ -199,7 +199,7 @@ define dso_local ptr @source_file_load(ptr noundef %0, ptr noundef writeonly %1,
 30:                                               ; preds = %29
   store i8 1, ptr %1, align 1
   %.pre = load ptr, ptr getelementptr inbounds (i8, ptr @global_context, i64 72), align 8
-  %.phi.trans.insert = getelementptr inbounds ptr, ptr %.pre, i64 %indvars.iv
+  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre, i64 %indvars.iv
   %.pre64 = load ptr, ptr %.phi.trans.insert, align 8
   br label %82
 
@@ -230,15 +230,15 @@ define dso_local ptr @source_file_load(ptr noundef %0, ptr noundef writeonly %1,
 43:                                               ; preds = %.critedge, %39
   %.045 = phi i16 [ %42, %39 ], [ 0, %.critedge ]
   store i16 %.045, ptr %37, align 8
-  %44 = getelementptr inbounds i8, ptr %37, i64 40
+  %44 = getelementptr inbounds nuw i8, ptr %37, i64 40
   store ptr %13, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %37, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store ptr %36, ptr %45, align 8
   %46 = load i64, ptr %4, align 8
-  %47 = getelementptr inbounds i8, ptr %37, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %37, i64 16
   store i64 %46, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %37, i64 24
-  %49 = getelementptr inbounds i8, ptr %37, i64 32
+  %48 = getelementptr inbounds nuw i8, ptr %37, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %37, i64 32
   call void @file_get_dir_and_filename_from_full(ptr noundef %13, ptr noundef nonnull %48, ptr noundef nonnull %49) #6
   %50 = load ptr, ptr getelementptr inbounds (i8, ptr @global_context, i64 72), align 8
   %.not.i = icmp eq ptr %50, null
@@ -246,7 +246,7 @@ define dso_local ptr @source_file_load(ptr noundef %0, ptr noundef writeonly %1,
 
 51:                                               ; preds = %43
   %52 = call ptr @calloc_arena(i64 noundef 72) #6
-  %53 = getelementptr inbounds i8, ptr %52, i64 4
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 4
   store i32 8, ptr %53, align 4
   br label %56
 
@@ -264,13 +264,13 @@ define dso_local ptr @source_file_load(ptr noundef %0, ptr noundef writeonly %1,
   br i1 %59, label %60, label %74
 
 60:                                               ; preds = %56
-  %61 = getelementptr inbounds i8, ptr %.0.i, i64 4
+  %61 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
   %62 = shl i32 %57, 1
   %63 = zext i32 %62 to i64
   %64 = shl nuw nsw i64 %63, 3
   %65 = or disjoint i64 %64, 8
   %66 = call ptr @calloc_arena(i64 noundef %65) #6
-  %67 = getelementptr inbounds i8, ptr %66, i64 4
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 4
   store i32 %62, ptr %67, align 4
   %68 = load i32, ptr %61, align 4
   %69 = zext i32 %68 to i64
@@ -288,12 +288,12 @@ define dso_local ptr @source_file_load(ptr noundef %0, ptr noundef writeonly %1,
   %.1.i = phi ptr [ %66, %60 ], [ %.0.i, %56 ]
   %76 = add i32 %75, 1
   store i32 %76, ptr %.1.i, align 4
-  %77 = getelementptr inbounds i8, ptr %.1.i, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %.1.i, i64 8
   store ptr %77, ptr getelementptr inbounds (i8, ptr @global_context, i64 72), align 8
   %78 = load i32, ptr %.1.i, align 4
   %79 = add i32 %78, -1
   %80 = zext i32 %79 to i64
-  %81 = getelementptr inbounds ptr, ptr %77, i64 %80
+  %81 = getelementptr inbounds nuw ptr, ptr %77, i64 %80
   store ptr %37, ptr %81, align 8
   br label %82
 

@@ -25,7 +25,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm4COFF17encodeSectionNameEPcm(ptr no
   br i1 %6, label %_ZNK4llvm5Twine6concatERKS0_.exit, label %17
 
 _ZNK4llvm5Twine6concatERKS0_.exit:                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %4, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 24
   call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull %7, i64 noundef 8) #4
   store ptr inttoptr (i64 47 to ptr), ptr %5, align 8, !alias.scope !4
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -53,9 +53,9 @@ _ZNK4llvm5Twine6concatERKS0_.exit:                ; preds = %2
 
 19:                                               ; preds = %17
   store i8 47, ptr %0, align 1
-  %20 = getelementptr inbounds i8, ptr %0, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 47, ptr %20, align 1
-  %21 = getelementptr inbounds i8, ptr %0, i64 7
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 7
   br label %22
 
 22:                                               ; preds = %22, %19
@@ -64,7 +64,7 @@ _ZNK4llvm5Twine6concatERKS0_.exit:                ; preds = %2
   %.0910.i = phi ptr [ %21, %19 ], [ %27, %22 ]
   %23 = and i64 %.012.i, 63
   %24 = lshr i64 %.012.i, 6
-  %25 = getelementptr inbounds [65 x i8], ptr @_ZZL23encodeBase64StringEntryPcmE8Alphabet, i64 0, i64 %23
+  %25 = getelementptr inbounds nuw [65 x i8], ptr @_ZZL23encodeBase64StringEntryPcmE8Alphabet, i64 0, i64 %23
   %26 = load i8, ptr %25, align 1
   %27 = getelementptr inbounds i8, ptr %.0910.i, i64 -1
   store i8 %26, ptr %.0910.i, align 1

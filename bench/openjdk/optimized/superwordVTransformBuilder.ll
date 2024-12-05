@@ -58,55 +58,55 @@ $_ZTV25VTransformInputScalarNode = comdat any
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN26SuperWordVTransformBuilder5buildEv(ptr nocapture noundef nonnull align 8 dereferenceable(2088) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %class.VectorSet, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load i32, ptr %5, align 4
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %.lr.ph14.i, label %_ZN26SuperWordVTransformBuilder37build_vector_vtnodes_for_packed_nodesEv.exit
 
 .lr.ph14.i:                                       ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
-  %9 = getelementptr inbounds i8, ptr %0, i64 2080
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 2080
   br label %10
 
 10:                                               ; preds = %._crit_edge.i, %.lr.ph14.i
   %indvars.iv17.i = phi i64 [ 0, %.lr.ph14.i ], [ %indvars.iv.next18.i, %._crit_edge.i ]
   %11 = phi ptr [ %4, %.lr.ph14.i ], [ %41, %._crit_edge.i ]
-  %12 = getelementptr inbounds i8, ptr %11, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds ptr, ptr %13, i64 %indvars.iv17.i
+  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv17.i
   %15 = load ptr, ptr %14, align 8
   %16 = tail call noundef ptr @_ZNK26SuperWordVTransformBuilder27make_vector_vtnode_for_packEPK9Node_List(ptr noundef nonnull align 8 dereferenceable(2088) %0, ptr noundef %15)
-  %17 = getelementptr inbounds i8, ptr %15, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %18 = load i32, ptr %17, align 8
   %.not.i = icmp eq i32 %18, 0
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %10
-  %19 = getelementptr inbounds i8, ptr %15, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 16
   br label %20
 
 20:                                               ; preds = %20, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %20 ]
   %21 = load ptr, ptr %19, align 8
-  %22 = getelementptr inbounds ptr, ptr %21, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv.i
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 40
   %25 = load i32, ptr %24, align 8
   %26 = lshr i32 %25, 3
   %27 = xor i32 %26, %25
   %28 = and i32 %27, 255
   %29 = zext nneg i32 %28 to i64
-  %30 = getelementptr inbounds ptr, ptr %8, i64 %29
+  %30 = getelementptr inbounds nuw ptr, ptr %8, i64 %29
   %31 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 24, i32 noundef 0) #8
   %32 = load ptr, ptr %30, align 8
   store i32 %27, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %31, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %31, i64 4
   store i32 %25, ptr %33, align 4
-  %34 = getelementptr inbounds i8, ptr %31, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store ptr %16, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %31, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %31, i64 16
   store ptr %32, ptr %35, align 8
   store ptr %31, ptr %30, align 8
   %36 = load i32, ptr %9, align 8
@@ -121,7 +121,7 @@ define hidden void @_ZN26SuperWordVTransformBuilder5buildEv(ptr nocapture nounde
 ._crit_edge.i:                                    ; preds = %20, %10
   %indvars.iv.next18.i = add nuw nsw i64 %indvars.iv17.i, 1
   %41 = load ptr, ptr %3, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %43 = load i32, ptr %42, align 4
   %44 = sext i32 %43 to i64
   %45 = icmp slt i64 %indvars.iv.next18.i, %44
@@ -137,55 +137,55 @@ _ZN26SuperWordVTransformBuilder37build_vector_vtnodes_for_packed_nodesEv.exit: ;
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN26SuperWordVTransformBuilder37build_vector_vtnodes_for_packed_nodesEv(ptr nocapture noundef nonnull align 8 dereferenceable(2088) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load i32, ptr %4, align 4
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph14, label %._crit_edge15
 
 .lr.ph14:                                         ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
-  %8 = getelementptr inbounds i8, ptr %0, i64 2080
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 2080
   br label %9
 
 9:                                                ; preds = %.lr.ph14, %._crit_edge
   %indvars.iv17 = phi i64 [ 0, %.lr.ph14 ], [ %indvars.iv.next18, %._crit_edge ]
   %10 = phi ptr [ %3, %.lr.ph14 ], [ %40, %._crit_edge ]
-  %11 = getelementptr inbounds i8, ptr %10, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds ptr, ptr %12, i64 %indvars.iv17
+  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv17
   %14 = load ptr, ptr %13, align 8
   %15 = tail call noundef ptr @_ZNK26SuperWordVTransformBuilder27make_vector_vtnode_for_packEPK9Node_List(ptr noundef nonnull align 8 dereferenceable(2088) %0, ptr noundef %14)
-  %16 = getelementptr inbounds i8, ptr %14, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %17 = load i32, ptr %16, align 8
   %.not = icmp eq i32 %17, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %9
-  %18 = getelementptr inbounds i8, ptr %14, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 16
   br label %19
 
 19:                                               ; preds = %.lr.ph, %19
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %19 ]
   %20 = load ptr, ptr %18, align 8
-  %21 = getelementptr inbounds ptr, ptr %20, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 40
   %24 = load i32, ptr %23, align 8
   %25 = lshr i32 %24, 3
   %26 = xor i32 %25, %24
   %27 = and i32 %26, 255
   %28 = zext nneg i32 %27 to i64
-  %29 = getelementptr inbounds ptr, ptr %7, i64 %28
+  %29 = getelementptr inbounds nuw ptr, ptr %7, i64 %28
   %30 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 24, i32 noundef 0) #8
   %31 = load ptr, ptr %29, align 8
   store i32 %26, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %30, i64 4
+  %32 = getelementptr inbounds nuw i8, ptr %30, i64 4
   store i32 %24, ptr %32, align 4
-  %33 = getelementptr inbounds i8, ptr %30, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store ptr %15, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %30, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %30, i64 16
   store ptr %31, ptr %34, align 8
   store ptr %30, ptr %29, align 8
   %35 = load i32, ptr %8, align 8
@@ -200,7 +200,7 @@ define hidden void @_ZN26SuperWordVTransformBuilder37build_vector_vtnodes_for_pa
 ._crit_edge:                                      ; preds = %19, %9
   %indvars.iv.next18 = add nuw nsw i64 %indvars.iv17, 1
   %40 = load ptr, ptr %2, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %42 = load i32, ptr %41, align 4
   %43 = sext i32 %42 to i64
   %44 = icmp slt i64 %indvars.iv.next18, %43
@@ -213,40 +213,40 @@ define hidden void @_ZN26SuperWordVTransformBuilder37build_vector_vtnodes_for_pa
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN26SuperWordVTransformBuilder41build_scalar_vtnodes_for_non_packed_nodesEv(ptr nocapture noundef nonnull align 8 dereferenceable(2088) %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 168
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 168
   %4 = load i32, ptr %3, align 4
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
-  %9 = getelementptr inbounds i8, ptr %0, i64 2080
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 2080
   br label %10
 
 10:                                               ; preds = %.lr.ph, %121
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %121 ]
   %11 = phi ptr [ %2, %.lr.ph ], [ %122, %121 ]
-  %12 = getelementptr inbounds i8, ptr %11, i64 176
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 176
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds ptr, ptr %13, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8
   %16 = load ptr, ptr %6, align 8
   %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %15, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 40
   %20 = load i32, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %18, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 32
   %22 = load i32, ptr %21, align 8
   %23 = icmp ult i32 %20, %22
   br i1 %23, label %_ZNK14PhaseIdealLoop8has_ctrlEPK4Node.exit.i.i, label %.thread.i.i
 
 _ZNK14PhaseIdealLoop8has_ctrlEPK4Node.exit.i.i:   ; preds = %10
-  %24 = getelementptr inbounds i8, ptr %18, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %18, i64 40
   %25 = load ptr, ptr %24, align 8
   %26 = zext i32 %20 to i64
-  %27 = getelementptr inbounds ptr, ptr %25, i64 %26
+  %27 = getelementptr inbounds nuw ptr, ptr %25, i64 %26
   %28 = load ptr, ptr %27, align 8
   %29 = ptrtoint ptr %28 to i64
   %30 = and i64 %29, 1
@@ -256,7 +256,7 @@ _ZNK14PhaseIdealLoop8has_ctrlEPK4Node.exit.i.i:   ; preds = %10
 31:                                               ; preds = %_ZNK14PhaseIdealLoop8has_ctrlEPK4Node.exit.i.i
   %32 = and i64 %29, -2
   %33 = inttoptr i64 %32 to ptr
-  %34 = getelementptr inbounds i8, ptr %33, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %35 = load ptr, ptr %34, align 8
   %36 = load ptr, ptr %35, align 8
   %.not.i.i.i.i = icmp eq ptr %36, null
@@ -264,24 +264,24 @@ _ZNK14PhaseIdealLoop8has_ctrlEPK4Node.exit.i.i:   ; preds = %10
 
 _ZNK14PhaseIdealLoop25get_ctrl_no_update_helperEPK4Node.exit8.i.i.i.i: ; preds = %31, %_ZNK14PhaseIdealLoop25get_ctrl_no_update_helperEPK4Node.exit8.i.i.i.i
   %.1.i.i.i.i = phi ptr [ %45, %_ZNK14PhaseIdealLoop25get_ctrl_no_update_helperEPK4Node.exit8.i.i.i.i ], [ %33, %31 ]
-  %37 = getelementptr inbounds i8, ptr %.1.i.i.i.i, i64 40
+  %37 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i, i64 40
   %38 = load i32, ptr %37, align 8
   %39 = icmp ult i32 %38, %22
   tail call void @llvm.assume(i1 %39)
   %40 = zext i32 %38 to i64
-  %41 = getelementptr inbounds ptr, ptr %25, i64 %40
+  %41 = getelementptr inbounds nuw ptr, ptr %25, i64 %40
   %42 = load ptr, ptr %41, align 8
   %43 = ptrtoint ptr %42 to i64
   %44 = and i64 %43, -2
   %45 = inttoptr i64 %44 to ptr
-  %46 = getelementptr inbounds i8, ptr %45, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %47 = load ptr, ptr %46, align 8
   %48 = load ptr, ptr %47, align 8
   %.not7.i.i.i.i = icmp eq ptr %48, null
   br i1 %.not7.i.i.i.i, label %_ZNK14PhaseIdealLoop25get_ctrl_no_update_helperEPK4Node.exit8.i.i.i.i, label %49, !llvm.loop !9
 
 49:                                               ; preds = %_ZNK14PhaseIdealLoop25get_ctrl_no_update_helperEPK4Node.exit8.i.i.i.i
-  %50 = getelementptr inbounds i8, ptr %45, i64 44
+  %50 = getelementptr inbounds nuw i8, ptr %45, i64 44
   %51 = load i32, ptr %50, align 4
   %52 = and i32 %51, 7
   %53 = icmp eq i32 %52, 5
@@ -295,29 +295,29 @@ _ZNK14PhaseIdealLoop25get_ctrl_no_update_helperEPK4Node.exit8.i.i.i.i: ; preds =
 
 .thread.i.i:                                      ; preds = %49, %31, %_ZNK14PhaseIdealLoop8has_ctrlEPK4Node.exit.i.i, %10
   %57 = phi ptr [ %spec.select.i.i.i.i, %49 ], [ %15, %_ZNK14PhaseIdealLoop8has_ctrlEPK4Node.exit.i.i ], [ %15, %10 ], [ %33, %31 ]
-  %58 = getelementptr inbounds i8, ptr %15, i64 32
+  %58 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %59 = load i32, ptr %58, align 8
   %.not7.i.i = icmp eq i32 %59, 0
   br i1 %.not7.i.i, label %_ZNK7PackSet8get_packEPK4Node.exit.thread, label %_ZNK5VLoop5in_bbEPK4Node.exit.i
 
 _ZNK5VLoop5in_bbEPK4Node.exit.i:                  ; preds = %.thread.i.i
-  %60 = getelementptr inbounds i8, ptr %17, i64 24
+  %60 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %61 = load ptr, ptr %60, align 8
   %62 = icmp eq ptr %57, %61
   br i1 %62, label %_ZNK7PackSet8get_packEPK4Node.exit, label %_ZNK7PackSet8get_packEPK4Node.exit.thread
 
 _ZNK7PackSet8get_packEPK4Node.exit:               ; preds = %_ZNK5VLoop5in_bbEPK4Node.exit.i
-  %63 = getelementptr inbounds i8, ptr %16, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 32
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 32
   %66 = load ptr, ptr %65, align 8
   %67 = load i32, ptr %19, align 8
-  %68 = getelementptr inbounds i8, ptr %66, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %69 = load ptr, ptr %68, align 8
   %70 = sext i32 %67 to i64
   %71 = getelementptr inbounds i32, ptr %69, i64 %70
   %72 = load i32, ptr %71, align 4
-  %73 = getelementptr inbounds i8, ptr %16, i64 48
+  %73 = getelementptr inbounds nuw i8, ptr %16, i64 48
   %74 = load ptr, ptr %73, align 8
   %75 = sext i32 %72 to i64
   %76 = getelementptr inbounds ptr, ptr %74, i64 %75
@@ -327,31 +327,31 @@ _ZNK7PackSet8get_packEPK4Node.exit:               ; preds = %_ZNK5VLoop5in_bbEPK
 
 _ZNK7PackSet8get_packEPK4Node.exit.thread:        ; preds = %49, %.thread.i.i, %_ZNK5VLoop5in_bbEPK4Node.exit.i, %_ZNK7PackSet8get_packEPK4Node.exit
   %78 = load ptr, ptr %7, align 8
-  %79 = getelementptr inbounds i8, ptr %78, i64 16
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 16
   %80 = tail call noundef ptr @_ZN8ArenaObjnwEmP5Arena(i64 noundef 72, ptr noundef nonnull %79) #8
   %81 = icmp eq ptr %80, null
   br i1 %81, label %107, label %82
 
 82:                                               ; preds = %_ZNK7PackSet8get_packEPK4Node.exit.thread
   %83 = load ptr, ptr %7, align 8
-  %84 = getelementptr inbounds i8, ptr %15, i64 24
+  %84 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %85 = load i32, ptr %84, align 8
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV14VTransformNode, i64 16), ptr %80, align 8
-  %86 = getelementptr inbounds i8, ptr %80, i64 8
-  %87 = getelementptr inbounds i8, ptr %83, i64 80
+  %86 = getelementptr inbounds nuw i8, ptr %80, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %83, i64 80
   %88 = load i32, ptr %87, align 8
   %89 = add nsw i32 %88, 1
   store i32 %89, ptr %87, align 8
   store i32 %88, ptr %86, align 8
-  %90 = getelementptr inbounds i8, ptr %80, i64 12
+  %90 = getelementptr inbounds nuw i8, ptr %80, i64 12
   store i32 %85, ptr %90, align 4
-  %91 = getelementptr inbounds i8, ptr %80, i64 16
-  %92 = getelementptr inbounds i8, ptr %83, i64 16
+  %91 = getelementptr inbounds nuw i8, ptr %80, i64 16
+  %92 = getelementptr inbounds nuw i8, ptr %83, i64 16
   %93 = tail call noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef %85, i32 noundef 8, ptr noundef nonnull %92) #8
   store i32 %85, ptr %91, align 4
-  %94 = getelementptr inbounds i8, ptr %80, i64 20
+  %94 = getelementptr inbounds nuw i8, ptr %80, i64 20
   store i32 %85, ptr %94, align 4
-  %95 = getelementptr inbounds i8, ptr %80, i64 24
+  %95 = getelementptr inbounds nuw i8, ptr %80, i64 24
   store ptr %93, ptr %95, align 8
   %96 = icmp sgt i32 %85, 0
   br i1 %96, label %.lr.ph.preheader.i.i.i.i, label %_ZN20VTransformScalarNodeC2ER10VTransformP4Node.exit
@@ -363,23 +363,23 @@ _ZNK7PackSet8get_packEPK4Node.exit.thread:        ; preds = %49, %.thread.i.i, %
   br label %_ZN20VTransformScalarNodeC2ER10VTransformP4Node.exit
 
 _ZN20VTransformScalarNodeC2ER10VTransformP4Node.exit: ; preds = %82, %.lr.ph.preheader.i.i.i.i
-  %98 = getelementptr inbounds i8, ptr %83, i64 64
-  %99 = getelementptr inbounds i8, ptr %80, i64 32
+  %98 = getelementptr inbounds nuw i8, ptr %83, i64 64
+  %99 = getelementptr inbounds nuw i8, ptr %80, i64 32
   %100 = ptrtoint ptr %92 to i64
   store i64 %100, ptr %99, align 8
-  %101 = getelementptr inbounds i8, ptr %80, i64 40
+  %101 = getelementptr inbounds nuw i8, ptr %80, i64 40
   %102 = tail call noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef 4, i32 noundef 8, ptr noundef nonnull %92) #8
   store i32 0, ptr %101, align 4
-  %103 = getelementptr inbounds i8, ptr %80, i64 44
+  %103 = getelementptr inbounds nuw i8, ptr %80, i64 44
   store i32 4, ptr %103, align 4
-  %104 = getelementptr inbounds i8, ptr %80, i64 48
+  %104 = getelementptr inbounds nuw i8, ptr %80, i64 48
   store ptr %102, ptr %104, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %102, i8 0, i64 32, i1 false)
-  %105 = getelementptr inbounds i8, ptr %80, i64 56
+  %105 = getelementptr inbounds nuw i8, ptr %80, i64 56
   store i64 %100, ptr %105, align 8
   tail call void @_ZN15VTransformGraph10add_vtnodeEP14VTransformNode(ptr noundef nonnull align 8 dereferenceable(72) %98, ptr noundef nonnull align 8 dereferenceable(72) %80) #8
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV20VTransformScalarNode, i64 16), ptr %80, align 8
-  %106 = getelementptr inbounds i8, ptr %80, i64 64
+  %106 = getelementptr inbounds nuw i8, ptr %80, i64 64
   store ptr %15, ptr %106, align 8
   br label %107
 
@@ -389,15 +389,15 @@ _ZN20VTransformScalarNodeC2ER10VTransformP4Node.exit: ; preds = %82, %.lr.ph.pre
   %110 = xor i32 %109, %108
   %111 = and i32 %110, 255
   %112 = zext nneg i32 %111 to i64
-  %113 = getelementptr inbounds ptr, ptr %8, i64 %112
+  %113 = getelementptr inbounds nuw ptr, ptr %8, i64 %112
   %114 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 24, i32 noundef 0) #8
   %115 = load ptr, ptr %113, align 8
   store i32 %110, ptr %114, align 8
-  %116 = getelementptr inbounds i8, ptr %114, i64 4
+  %116 = getelementptr inbounds nuw i8, ptr %114, i64 4
   store i32 %108, ptr %116, align 4
-  %117 = getelementptr inbounds i8, ptr %114, i64 8
+  %117 = getelementptr inbounds nuw i8, ptr %114, i64 8
   store ptr %80, ptr %117, align 8
-  %118 = getelementptr inbounds i8, ptr %114, i64 16
+  %118 = getelementptr inbounds nuw i8, ptr %114, i64 16
   store ptr %115, ptr %118, align 8
   store ptr %114, ptr %113, align 8
   %119 = load i32, ptr %9, align 8
@@ -408,7 +408,7 @@ _ZN20VTransformScalarNodeC2ER10VTransformP4Node.exit: ; preds = %82, %.lr.ph.pre
 121:                                              ; preds = %_ZNK7PackSet8get_packEPK4Node.exit, %107
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %122 = load ptr, ptr %0, align 8
-  %123 = getelementptr inbounds i8, ptr %122, i64 168
+  %123 = getelementptr inbounds nuw i8, ptr %122, i64 168
   %124 = load i32, ptr %123, align 4
   %125 = sext i32 %124 to i64
   %126 = icmp slt i64 %indvars.iv.next, %125
@@ -422,35 +422,35 @@ declare void @_ZN9VectorSetC1Ev(ptr noundef nonnull align 8 dereferenceable(32))
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN26SuperWordVTransformBuilder31build_inputs_for_vector_vtnodesER9VectorSet(ptr nocapture noundef nonnull align 8 dereferenceable(2088) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load i32, ptr %5, align 4
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %.lr.ph110, label %._crit_edge111
 
 .lr.ph110:                                        ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %10
 
 10:                                               ; preds = %.lr.ph110, %._crit_edge
   %indvars.iv114 = phi i64 [ 0, %.lr.ph110 ], [ %indvars.iv.next115, %._crit_edge ]
   %11 = phi ptr [ %4, %.lr.ph110 ], [ %440, %._crit_edge ]
-  %12 = getelementptr inbounds i8, ptr %11, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds ptr, ptr %13, i64 %indvars.iv114
+  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv114
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 40
   %20 = load i32, ptr %19, align 8
   %21 = lshr i32 %20, 3
   %22 = xor i32 %21, %20
   %23 = and i32 %22, 255
   %24 = zext nneg i32 %23 to i64
-  %25 = getelementptr inbounds ptr, ptr %8, i64 %24
+  %25 = getelementptr inbounds nuw ptr, ptr %8, i64 %24
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %33, %10
@@ -461,42 +461,42 @@ define hidden void @_ZN26SuperWordVTransformBuilder31build_inputs_for_vector_vtn
   br i1 %28, label %29, label %33
 
 29:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %30 = getelementptr inbounds i8, ptr %26, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %26, i64 4
   %31 = load i32, ptr %30, align 4
   %32 = icmp eq i32 %20, %31
   br i1 %32, label %_ZNK26SuperWordVTransformBuilder10get_vtnodeEP4Node.exit, label %33
 
 33:                                               ; preds = %29, %.lr.ph.i.i.i.i.i
-  %34 = getelementptr inbounds i8, ptr %26, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %26, i64 16
   br label %.lr.ph.i.i.i.i.i
 
 _ZNK26SuperWordVTransformBuilder10get_vtnodeEP4Node.exit: ; preds = %29
-  %35 = getelementptr inbounds i8, ptr %26, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %36 = load ptr, ptr %35, align 8
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %39 = load ptr, ptr %38, align 8
   %40 = tail call noundef ptr %39(ptr noundef nonnull align 8 dereferenceable(64) %36) #8
   store i32 0, ptr %1, align 8
-  %41 = getelementptr inbounds i8, ptr %18, i64 44
+  %41 = getelementptr inbounds nuw i8, ptr %18, i64 44
   %42 = load i32, ptr %41, align 4
   %43 = and i32 %42, 63
   %44 = icmp eq i32 %43, 48
   br i1 %44, label %45, label %85
 
 45:                                               ; preds = %_ZNK26SuperWordVTransformBuilder10get_vtnodeEP4Node.exit
-  %46 = getelementptr inbounds i8, ptr %18, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %49 = load ptr, ptr %48, align 8
   %50 = tail call noundef ptr @_ZN26SuperWordVTransformBuilder34get_vtnode_or_wrap_as_input_scalarEP4Node(ptr noundef nonnull align 8 dereferenceable(2088) %0, ptr noundef %49)
-  %51 = getelementptr inbounds i8, ptr %40, i64 24
+  %51 = getelementptr inbounds nuw i8, ptr %40, i64 24
   %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
   store ptr %50, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %50, i64 40
+  %54 = getelementptr inbounds nuw i8, ptr %50, i64 40
   %55 = load i32, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %50, i64 44
+  %56 = getelementptr inbounds nuw i8, ptr %50, i64 44
   %57 = load i32, ptr %56, align 4
   %58 = icmp eq i32 %55, %57
   br i1 %58, label %59, label %_ZN14VTransformNode7set_reqEjPS_.exit.i
@@ -519,12 +519,12 @@ _ZN14VTransformNode7set_reqEjPS_.exit.i:          ; preds = %59, %45
   %67 = phi i32 [ %.pre.i.i.i.i.i, %59 ], [ %55, %45 ]
   %68 = add nsw i32 %67, 1
   store i32 %68, ptr %54, align 8
-  %69 = getelementptr inbounds i8, ptr %50, i64 48
+  %69 = getelementptr inbounds nuw i8, ptr %50, i64 48
   %70 = load ptr, ptr %69, align 8
   %71 = sext i32 %67 to i64
   %72 = getelementptr inbounds ptr, ptr %70, i64 %71
   store ptr %40, ptr %72, align 8
-  %73 = getelementptr inbounds i8, ptr %50, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %74 = load i32, ptr %73, align 8
   %75 = lshr i32 %74, 5
   %76 = load i32, ptr %1, align 8
@@ -540,7 +540,7 @@ _ZN26SuperWordVTransformBuilder19set_req_with_scalarEP4NodeP14VTransformNodeR9Ve
   %79 = shl nuw i32 1, %78
   %80 = load ptr, ptr %9, align 8
   %81 = zext nneg i32 %75 to i64
-  %82 = getelementptr inbounds i32, ptr %80, i64 %81
+  %82 = getelementptr inbounds nuw i32, ptr %80, i64 %81
   %83 = load i32, ptr %82, align 4
   %84 = or i32 %83, %79
   store i32 %84, ptr %82, align 4
@@ -552,18 +552,18 @@ _ZN26SuperWordVTransformBuilder19set_req_with_scalarEP4NodeP14VTransformNodeR9Ve
   br i1 %87, label %88, label %162
 
 88:                                               ; preds = %85
-  %89 = getelementptr inbounds i8, ptr %18, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %90 = load ptr, ptr %89, align 8
-  %91 = getelementptr inbounds i8, ptr %90, i64 16
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 16
   %92 = load ptr, ptr %91, align 8
   %93 = tail call noundef ptr @_ZN26SuperWordVTransformBuilder34get_vtnode_or_wrap_as_input_scalarEP4Node(ptr noundef nonnull align 8 dereferenceable(2088) %0, ptr noundef %92)
-  %94 = getelementptr inbounds i8, ptr %40, i64 24
+  %94 = getelementptr inbounds nuw i8, ptr %40, i64 24
   %95 = load ptr, ptr %94, align 8
-  %96 = getelementptr inbounds i8, ptr %95, i64 16
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 16
   store ptr %93, ptr %96, align 8
-  %97 = getelementptr inbounds i8, ptr %93, i64 40
+  %97 = getelementptr inbounds nuw i8, ptr %93, i64 40
   %98 = load i32, ptr %97, align 8
-  %99 = getelementptr inbounds i8, ptr %93, i64 44
+  %99 = getelementptr inbounds nuw i8, ptr %93, i64 44
   %100 = load i32, ptr %99, align 4
   %101 = icmp eq i32 %98, %100
   br i1 %101, label %102, label %_ZN14VTransformNode7set_reqEjPS_.exit.i59
@@ -586,12 +586,12 @@ _ZN14VTransformNode7set_reqEjPS_.exit.i59:        ; preds = %102, %88
   %110 = phi i32 [ %.pre.i.i.i.i.i63, %102 ], [ %98, %88 ]
   %111 = add nsw i32 %110, 1
   store i32 %111, ptr %97, align 8
-  %112 = getelementptr inbounds i8, ptr %93, i64 48
+  %112 = getelementptr inbounds nuw i8, ptr %93, i64 48
   %113 = load ptr, ptr %112, align 8
   %114 = sext i32 %110 to i64
   %115 = getelementptr inbounds ptr, ptr %113, i64 %114
   store ptr %40, ptr %115, align 8
-  %116 = getelementptr inbounds i8, ptr %93, i64 8
+  %116 = getelementptr inbounds nuw i8, ptr %93, i64 8
   %117 = load i32, ptr %116, align 8
   %118 = lshr i32 %117, 5
   %119 = load i32, ptr %1, align 8
@@ -607,17 +607,17 @@ _ZN26SuperWordVTransformBuilder19set_req_with_scalarEP4NodeP14VTransformNodeR9Ve
   %122 = shl nuw i32 1, %121
   %123 = load ptr, ptr %9, align 8
   %124 = zext nneg i32 %118 to i64
-  %125 = getelementptr inbounds i32, ptr %123, i64 %124
+  %125 = getelementptr inbounds nuw i32, ptr %123, i64 %124
   %126 = load i32, ptr %125, align 4
   %127 = or i32 %126, %122
   store i32 %127, ptr %125, align 4
   %128 = tail call noundef ptr @_ZN26SuperWordVTransformBuilder40get_or_make_vtnode_vector_input_at_indexEPK9Node_Listi(ptr noundef nonnull align 8 dereferenceable(2088) %0, ptr noundef nonnull %15, i32 noundef 3)
   %129 = load ptr, ptr %94, align 8
-  %130 = getelementptr inbounds i8, ptr %129, i64 24
+  %130 = getelementptr inbounds nuw i8, ptr %129, i64 24
   store ptr %128, ptr %130, align 8
-  %131 = getelementptr inbounds i8, ptr %128, i64 40
+  %131 = getelementptr inbounds nuw i8, ptr %128, i64 40
   %132 = load i32, ptr %131, align 8
-  %133 = getelementptr inbounds i8, ptr %128, i64 44
+  %133 = getelementptr inbounds nuw i8, ptr %128, i64 44
   %134 = load i32, ptr %133, align 4
   %135 = icmp eq i32 %132, %134
   br i1 %135, label %136, label %_ZN14VTransformNode7set_reqEjPS_.exit.i65
@@ -640,12 +640,12 @@ _ZN14VTransformNode7set_reqEjPS_.exit.i65:        ; preds = %136, %_ZN26SuperWor
   %144 = phi i32 [ %.pre.i.i.i.i.i69, %136 ], [ %132, %_ZN26SuperWordVTransformBuilder19set_req_with_scalarEP4NodeP14VTransformNodeR9VectorSeti.exit64 ]
   %145 = add nsw i32 %144, 1
   store i32 %145, ptr %131, align 8
-  %146 = getelementptr inbounds i8, ptr %128, i64 48
+  %146 = getelementptr inbounds nuw i8, ptr %128, i64 48
   %147 = load ptr, ptr %146, align 8
   %148 = sext i32 %144 to i64
   %149 = getelementptr inbounds ptr, ptr %147, i64 %148
   store ptr %40, ptr %149, align 8
-  %150 = getelementptr inbounds i8, ptr %128, i64 8
+  %150 = getelementptr inbounds nuw i8, ptr %128, i64 8
   %151 = load i32, ptr %150, align 8
   %152 = lshr i32 %151, 5
   %153 = load i32, ptr %1, align 8
@@ -661,7 +661,7 @@ _ZN26SuperWordVTransformBuilder19set_req_with_vectorEPK9Node_ListP14VTransformNo
   %156 = shl nuw i32 1, %155
   %157 = load ptr, ptr %9, align 8
   %158 = zext nneg i32 %152 to i64
-  %159 = getelementptr inbounds i32, ptr %157, i64 %158
+  %159 = getelementptr inbounds nuw i32, ptr %157, i64 %158
   %160 = load i32, ptr %159, align 4
   %161 = or i32 %160, %156
   store i32 %161, ptr %159, align 4
@@ -669,25 +669,25 @@ _ZN26SuperWordVTransformBuilder19set_req_with_vectorEPK9Node_ListP14VTransformNo
 
 162:                                              ; preds = %85
   %163 = load ptr, ptr %40, align 8
-  %164 = getelementptr inbounds i8, ptr %163, i64 40
+  %164 = getelementptr inbounds nuw i8, ptr %163, i64 40
   %165 = load ptr, ptr %164, align 8
   %166 = tail call noundef ptr %165(ptr noundef nonnull align 8 dereferenceable(64) %40) #8
   %.not = icmp eq ptr %166, null
   br i1 %.not, label %241, label %167
 
 167:                                              ; preds = %162
-  %168 = getelementptr inbounds i8, ptr %18, i64 8
+  %168 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %169 = load ptr, ptr %168, align 8
-  %170 = getelementptr inbounds i8, ptr %169, i64 8
+  %170 = getelementptr inbounds nuw i8, ptr %169, i64 8
   %171 = load ptr, ptr %170, align 8
   %172 = tail call noundef ptr @_ZN26SuperWordVTransformBuilder34get_vtnode_or_wrap_as_input_scalarEP4Node(ptr noundef nonnull align 8 dereferenceable(2088) %0, ptr noundef %171)
-  %173 = getelementptr inbounds i8, ptr %40, i64 24
+  %173 = getelementptr inbounds nuw i8, ptr %40, i64 24
   %174 = load ptr, ptr %173, align 8
-  %175 = getelementptr inbounds i8, ptr %174, i64 8
+  %175 = getelementptr inbounds nuw i8, ptr %174, i64 8
   store ptr %172, ptr %175, align 8
-  %176 = getelementptr inbounds i8, ptr %172, i64 40
+  %176 = getelementptr inbounds nuw i8, ptr %172, i64 40
   %177 = load i32, ptr %176, align 8
-  %178 = getelementptr inbounds i8, ptr %172, i64 44
+  %178 = getelementptr inbounds nuw i8, ptr %172, i64 44
   %179 = load i32, ptr %178, align 4
   %180 = icmp eq i32 %177, %179
   br i1 %180, label %181, label %_ZN14VTransformNode7set_reqEjPS_.exit.i70
@@ -710,12 +710,12 @@ _ZN14VTransformNode7set_reqEjPS_.exit.i70:        ; preds = %181, %167
   %189 = phi i32 [ %.pre.i.i.i.i.i74, %181 ], [ %177, %167 ]
   %190 = add nsw i32 %189, 1
   store i32 %190, ptr %176, align 8
-  %191 = getelementptr inbounds i8, ptr %172, i64 48
+  %191 = getelementptr inbounds nuw i8, ptr %172, i64 48
   %192 = load ptr, ptr %191, align 8
   %193 = sext i32 %189 to i64
   %194 = getelementptr inbounds ptr, ptr %192, i64 %193
   store ptr %40, ptr %194, align 8
-  %195 = getelementptr inbounds i8, ptr %172, i64 8
+  %195 = getelementptr inbounds nuw i8, ptr %172, i64 8
   %196 = load i32, ptr %195, align 8
   %197 = lshr i32 %196, 5
   %198 = load i32, ptr %1, align 8
@@ -731,17 +731,17 @@ _ZN26SuperWordVTransformBuilder19set_req_with_scalarEP4NodeP14VTransformNodeR9Ve
   %201 = shl nuw i32 1, %200
   %202 = load ptr, ptr %9, align 8
   %203 = zext nneg i32 %197 to i64
-  %204 = getelementptr inbounds i32, ptr %202, i64 %203
+  %204 = getelementptr inbounds nuw i32, ptr %202, i64 %203
   %205 = load i32, ptr %204, align 4
   %206 = or i32 %205, %201
   store i32 %206, ptr %204, align 4
   %207 = tail call noundef ptr @_ZN26SuperWordVTransformBuilder40get_or_make_vtnode_vector_input_at_indexEPK9Node_Listi(ptr noundef nonnull align 8 dereferenceable(2088) %0, ptr noundef nonnull %15, i32 noundef 2)
   %208 = load ptr, ptr %173, align 8
-  %209 = getelementptr inbounds i8, ptr %208, i64 16
+  %209 = getelementptr inbounds nuw i8, ptr %208, i64 16
   store ptr %207, ptr %209, align 8
-  %210 = getelementptr inbounds i8, ptr %207, i64 40
+  %210 = getelementptr inbounds nuw i8, ptr %207, i64 40
   %211 = load i32, ptr %210, align 8
-  %212 = getelementptr inbounds i8, ptr %207, i64 44
+  %212 = getelementptr inbounds nuw i8, ptr %207, i64 44
   %213 = load i32, ptr %212, align 4
   %214 = icmp eq i32 %211, %213
   br i1 %214, label %215, label %_ZN14VTransformNode7set_reqEjPS_.exit.i76
@@ -764,12 +764,12 @@ _ZN14VTransformNode7set_reqEjPS_.exit.i76:        ; preds = %215, %_ZN26SuperWor
   %223 = phi i32 [ %.pre.i.i.i.i.i80, %215 ], [ %211, %_ZN26SuperWordVTransformBuilder19set_req_with_scalarEP4NodeP14VTransformNodeR9VectorSeti.exit75 ]
   %224 = add nsw i32 %223, 1
   store i32 %224, ptr %210, align 8
-  %225 = getelementptr inbounds i8, ptr %207, i64 48
+  %225 = getelementptr inbounds nuw i8, ptr %207, i64 48
   %226 = load ptr, ptr %225, align 8
   %227 = sext i32 %223 to i64
   %228 = getelementptr inbounds ptr, ptr %226, i64 %227
   store ptr %40, ptr %228, align 8
-  %229 = getelementptr inbounds i8, ptr %207, i64 8
+  %229 = getelementptr inbounds nuw i8, ptr %207, i64 8
   %230 = load i32, ptr %229, align 8
   %231 = lshr i32 %230, 5
   %232 = load i32, ptr %1, align 8
@@ -785,7 +785,7 @@ _ZN26SuperWordVTransformBuilder19set_req_with_vectorEPK9Node_ListP14VTransformNo
   %235 = shl nuw i32 1, %234
   %236 = load ptr, ptr %9, align 8
   %237 = zext nneg i32 %231 to i64
-  %238 = getelementptr inbounds i32, ptr %236, i64 %237
+  %238 = getelementptr inbounds nuw i32, ptr %236, i64 %237
   %239 = load i32, ptr %238, align 4
   %240 = or i32 %239, %235
   store i32 %240, ptr %238, align 4
@@ -796,11 +796,11 @@ _ZN26SuperWordVTransformBuilder19set_req_with_vectorEPK9Node_ListP14VTransformNo
   br i1 %242, label %243, label %332
 
 243:                                              ; preds = %241
-  %244 = getelementptr inbounds i8, ptr %18, i64 8
+  %244 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %245 = load ptr, ptr %244, align 8
-  %246 = getelementptr inbounds i8, ptr %245, i64 16
+  %246 = getelementptr inbounds nuw i8, ptr %245, i64 16
   %247 = load ptr, ptr %246, align 8
-  %248 = getelementptr inbounds i8, ptr %247, i64 48
+  %248 = getelementptr inbounds nuw i8, ptr %247, i64 48
   %249 = load i32, ptr %248, align 8
   %250 = and i32 %249, 16
   %.not106 = icmp eq i32 %250, 0
@@ -818,7 +818,7 @@ _ZN26SuperWordVTransformBuilder19set_req_with_vectorEPK9Node_ListP14VTransformNo
   unreachable
 
 _ZNK4Node7get_intEv.exit:                         ; preds = %251
-  %255 = getelementptr inbounds i8, ptr %252, i64 24
+  %255 = getelementptr inbounds nuw i8, ptr %252, i64 24
   %256 = load i32, ptr %255, align 8
   %257 = add i32 %256, 128
   %258 = icmp ult i32 %257, 256
@@ -826,13 +826,13 @@ _ZNK4Node7get_intEv.exit:                         ; preds = %251
 
 259:                                              ; preds = %_ZNK4Node7get_intEv.exit
   %260 = tail call noundef ptr @_ZN26SuperWordVTransformBuilder40get_or_make_vtnode_vector_input_at_indexEPK9Node_Listi(ptr noundef nonnull align 8 dereferenceable(2088) %0, ptr noundef nonnull %15, i32 noundef 1)
-  %261 = getelementptr inbounds i8, ptr %40, i64 24
+  %261 = getelementptr inbounds nuw i8, ptr %40, i64 24
   %262 = load ptr, ptr %261, align 8
-  %263 = getelementptr inbounds i8, ptr %262, i64 8
+  %263 = getelementptr inbounds nuw i8, ptr %262, i64 8
   store ptr %260, ptr %263, align 8
-  %264 = getelementptr inbounds i8, ptr %260, i64 40
+  %264 = getelementptr inbounds nuw i8, ptr %260, i64 40
   %265 = load i32, ptr %264, align 8
-  %266 = getelementptr inbounds i8, ptr %260, i64 44
+  %266 = getelementptr inbounds nuw i8, ptr %260, i64 44
   %267 = load i32, ptr %266, align 4
   %268 = icmp eq i32 %265, %267
   br i1 %268, label %269, label %_ZN14VTransformNode7set_reqEjPS_.exit.i82
@@ -855,12 +855,12 @@ _ZN14VTransformNode7set_reqEjPS_.exit.i82:        ; preds = %269, %259
   %277 = phi i32 [ %.pre.i.i.i.i.i86, %269 ], [ %265, %259 ]
   %278 = add nsw i32 %277, 1
   store i32 %278, ptr %264, align 8
-  %279 = getelementptr inbounds i8, ptr %260, i64 48
+  %279 = getelementptr inbounds nuw i8, ptr %260, i64 48
   %280 = load ptr, ptr %279, align 8
   %281 = sext i32 %277 to i64
   %282 = getelementptr inbounds ptr, ptr %280, i64 %281
   store ptr %40, ptr %282, align 8
-  %283 = getelementptr inbounds i8, ptr %260, i64 8
+  %283 = getelementptr inbounds nuw i8, ptr %260, i64 8
   %284 = load i32, ptr %283, align 8
   %285 = lshr i32 %284, 5
   %286 = load i32, ptr %1, align 8
@@ -876,20 +876,20 @@ _ZN26SuperWordVTransformBuilder19set_req_with_vectorEPK9Node_ListP14VTransformNo
   %289 = shl nuw i32 1, %288
   %290 = load ptr, ptr %9, align 8
   %291 = zext nneg i32 %285 to i64
-  %292 = getelementptr inbounds i32, ptr %290, i64 %291
+  %292 = getelementptr inbounds nuw i32, ptr %290, i64 %291
   %293 = load i32, ptr %292, align 4
   %294 = or i32 %293, %289
   store i32 %294, ptr %292, align 4
   %295 = load ptr, ptr %244, align 8
-  %296 = getelementptr inbounds i8, ptr %295, i64 16
+  %296 = getelementptr inbounds nuw i8, ptr %295, i64 16
   %297 = load ptr, ptr %296, align 8
   %298 = tail call noundef ptr @_ZN26SuperWordVTransformBuilder34get_vtnode_or_wrap_as_input_scalarEP4Node(ptr noundef nonnull align 8 dereferenceable(2088) %0, ptr noundef %297)
   %299 = load ptr, ptr %261, align 8
-  %300 = getelementptr inbounds i8, ptr %299, i64 16
+  %300 = getelementptr inbounds nuw i8, ptr %299, i64 16
   store ptr %298, ptr %300, align 8
-  %301 = getelementptr inbounds i8, ptr %298, i64 40
+  %301 = getelementptr inbounds nuw i8, ptr %298, i64 40
   %302 = load i32, ptr %301, align 8
-  %303 = getelementptr inbounds i8, ptr %298, i64 44
+  %303 = getelementptr inbounds nuw i8, ptr %298, i64 44
   %304 = load i32, ptr %303, align 4
   %305 = icmp eq i32 %302, %304
   br i1 %305, label %306, label %_ZN14VTransformNode7set_reqEjPS_.exit.i88
@@ -912,12 +912,12 @@ _ZN14VTransformNode7set_reqEjPS_.exit.i88:        ; preds = %306, %_ZN26SuperWor
   %314 = phi i32 [ %.pre.i.i.i.i.i92, %306 ], [ %302, %_ZN26SuperWordVTransformBuilder19set_req_with_vectorEPK9Node_ListP14VTransformNodeR9VectorSeti.exit87 ]
   %315 = add nsw i32 %314, 1
   store i32 %315, ptr %301, align 8
-  %316 = getelementptr inbounds i8, ptr %298, i64 48
+  %316 = getelementptr inbounds nuw i8, ptr %298, i64 48
   %317 = load ptr, ptr %316, align 8
   %318 = sext i32 %314 to i64
   %319 = getelementptr inbounds ptr, ptr %317, i64 %318
   store ptr %40, ptr %319, align 8
-  %320 = getelementptr inbounds i8, ptr %298, i64 8
+  %320 = getelementptr inbounds nuw i8, ptr %298, i64 8
   %321 = load i32, ptr %320, align 8
   %322 = lshr i32 %321, 5
   %323 = load i32, ptr %1, align 8
@@ -933,7 +933,7 @@ _ZN26SuperWordVTransformBuilder19set_req_with_scalarEP4NodeP14VTransformNodeR9Ve
   %326 = shl nuw i32 1, %325
   %327 = load ptr, ptr %9, align 8
   %328 = zext nneg i32 %322 to i64
-  %329 = getelementptr inbounds i32, ptr %327, i64 %328
+  %329 = getelementptr inbounds nuw i32, ptr %327, i64 %328
   %330 = load i32, ptr %329, align 4
   %331 = or i32 %330, %326
   store i32 %331, ptr %329, align 4
@@ -945,13 +945,13 @@ _ZN26SuperWordVTransformBuilder19set_req_with_scalarEP4NodeP14VTransformNodeR9Ve
 
 334:                                              ; preds = %332
   %335 = tail call noundef ptr @_ZN26SuperWordVTransformBuilder40get_or_make_vtnode_vector_input_at_indexEPK9Node_Listi(ptr noundef nonnull align 8 dereferenceable(2088) %0, ptr noundef nonnull %15, i32 noundef 1)
-  %336 = getelementptr inbounds i8, ptr %40, i64 24
+  %336 = getelementptr inbounds nuw i8, ptr %40, i64 24
   %337 = load ptr, ptr %336, align 8
-  %338 = getelementptr inbounds i8, ptr %337, i64 8
+  %338 = getelementptr inbounds nuw i8, ptr %337, i64 8
   store ptr %335, ptr %338, align 8
-  %339 = getelementptr inbounds i8, ptr %335, i64 40
+  %339 = getelementptr inbounds nuw i8, ptr %335, i64 40
   %340 = load i32, ptr %339, align 8
-  %341 = getelementptr inbounds i8, ptr %335, i64 44
+  %341 = getelementptr inbounds nuw i8, ptr %335, i64 44
   %342 = load i32, ptr %341, align 4
   %343 = icmp eq i32 %340, %342
   br i1 %343, label %344, label %_ZN14VTransformNode7set_reqEjPS_.exit.i94
@@ -974,12 +974,12 @@ _ZN14VTransformNode7set_reqEjPS_.exit.i94:        ; preds = %344, %334
   %352 = phi i32 [ %.pre.i.i.i.i.i98, %344 ], [ %340, %334 ]
   %353 = add nsw i32 %352, 1
   store i32 %353, ptr %339, align 8
-  %354 = getelementptr inbounds i8, ptr %335, i64 48
+  %354 = getelementptr inbounds nuw i8, ptr %335, i64 48
   %355 = load ptr, ptr %354, align 8
   %356 = sext i32 %352 to i64
   %357 = getelementptr inbounds ptr, ptr %355, i64 %356
   store ptr %40, ptr %357, align 8
-  %358 = getelementptr inbounds i8, ptr %335, i64 8
+  %358 = getelementptr inbounds nuw i8, ptr %335, i64 8
   %359 = load i32, ptr %358, align 8
   %360 = lshr i32 %359, 5
   %361 = load i32, ptr %1, align 8
@@ -995,21 +995,21 @@ _ZN26SuperWordVTransformBuilder19set_req_with_vectorEPK9Node_ListP14VTransformNo
   %364 = shl nuw i32 1, %363
   %365 = load ptr, ptr %9, align 8
   %366 = zext nneg i32 %360 to i64
-  %367 = getelementptr inbounds i32, ptr %365, i64 %366
+  %367 = getelementptr inbounds nuw i32, ptr %365, i64 %366
   %368 = load i32, ptr %367, align 4
   %369 = or i32 %368, %364
   store i32 %369, ptr %367, align 4
-  %370 = getelementptr inbounds i8, ptr %18, i64 8
+  %370 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %371 = load ptr, ptr %370, align 8
-  %372 = getelementptr inbounds i8, ptr %371, i64 16
+  %372 = getelementptr inbounds nuw i8, ptr %371, i64 16
   %373 = load ptr, ptr %372, align 8
   %374 = tail call noundef ptr @_ZN26SuperWordVTransformBuilder34get_vtnode_or_wrap_as_input_scalarEP4Node(ptr noundef nonnull align 8 dereferenceable(2088) %0, ptr noundef %373)
   %375 = load ptr, ptr %336, align 8
-  %376 = getelementptr inbounds i8, ptr %375, i64 16
+  %376 = getelementptr inbounds nuw i8, ptr %375, i64 16
   store ptr %374, ptr %376, align 8
-  %377 = getelementptr inbounds i8, ptr %374, i64 40
+  %377 = getelementptr inbounds nuw i8, ptr %374, i64 40
   %378 = load i32, ptr %377, align 8
-  %379 = getelementptr inbounds i8, ptr %374, i64 44
+  %379 = getelementptr inbounds nuw i8, ptr %374, i64 44
   %380 = load i32, ptr %379, align 4
   %381 = icmp eq i32 %378, %380
   br i1 %381, label %382, label %_ZN14VTransformNode7set_reqEjPS_.exit.i100
@@ -1032,12 +1032,12 @@ _ZN14VTransformNode7set_reqEjPS_.exit.i100:       ; preds = %382, %_ZN26SuperWor
   %390 = phi i32 [ %.pre.i.i.i.i.i104, %382 ], [ %378, %_ZN26SuperWordVTransformBuilder19set_req_with_vectorEPK9Node_ListP14VTransformNodeR9VectorSeti.exit99 ]
   %391 = add nsw i32 %390, 1
   store i32 %391, ptr %377, align 8
-  %392 = getelementptr inbounds i8, ptr %374, i64 48
+  %392 = getelementptr inbounds nuw i8, ptr %374, i64 48
   %393 = load ptr, ptr %392, align 8
   %394 = sext i32 %390 to i64
   %395 = getelementptr inbounds ptr, ptr %393, i64 %394
   store ptr %40, ptr %395, align 8
-  %396 = getelementptr inbounds i8, ptr %374, i64 8
+  %396 = getelementptr inbounds nuw i8, ptr %374, i64 8
   %397 = load i32, ptr %396, align 8
   %398 = lshr i32 %397, 5
   %399 = load i32, ptr %1, align 8
@@ -1053,7 +1053,7 @@ _ZN26SuperWordVTransformBuilder19set_req_with_scalarEP4NodeP14VTransformNodeR9Ve
   %402 = shl nuw i32 1, %401
   %403 = load ptr, ptr %9, align 8
   %404 = zext nneg i32 %398 to i64
-  %405 = getelementptr inbounds i32, ptr %403, i64 %404
+  %405 = getelementptr inbounds nuw i32, ptr %403, i64 %404
   %406 = load i32, ptr %405, align 4
   %407 = or i32 %406, %402
   store i32 %407, ptr %405, align 4
@@ -1067,15 +1067,15 @@ _ZN26SuperWordVTransformBuilder19set_req_with_scalarEP4NodeP14VTransformNodeR9Ve
   br i1 %411, label %412, label %431
 
 412:                                              ; preds = %408
-  %413 = getelementptr inbounds i8, ptr %40, i64 24
+  %413 = getelementptr inbounds nuw i8, ptr %40, i64 24
   %414 = load ptr, ptr %413, align 8
-  %415 = getelementptr inbounds i8, ptr %414, i64 8
+  %415 = getelementptr inbounds nuw i8, ptr %414, i64 8
   %416 = load ptr, ptr %415, align 8
   %417 = load ptr, ptr %416, align 8
-  %418 = getelementptr inbounds i8, ptr %417, i64 32
+  %418 = getelementptr inbounds nuw i8, ptr %417, i64 32
   %419 = load ptr, ptr %418, align 8
   %420 = tail call noundef ptr %419(ptr noundef nonnull align 8 dereferenceable(64) %416) #8
-  %421 = getelementptr inbounds i8, ptr %420, i64 88
+  %421 = getelementptr inbounds nuw i8, ptr %420, i64 88
   %.sroa.0.0.copyload.i = load i64, ptr %421, align 8
   %422 = and i64 %.sroa.0.0.copyload.i, 4294967296
   %.not58 = icmp eq i64 %422, 0
@@ -1083,18 +1083,18 @@ _ZN26SuperWordVTransformBuilder19set_req_with_scalarEP4NodeP14VTransformNodeR9Ve
 
 423:                                              ; preds = %412
   %424 = load ptr, ptr %413, align 8
-  %425 = getelementptr inbounds i8, ptr %424, i64 16
+  %425 = getelementptr inbounds nuw i8, ptr %424, i64 16
   %426 = load ptr, ptr %425, align 8
-  %427 = getelementptr inbounds i8, ptr %424, i64 24
+  %427 = getelementptr inbounds nuw i8, ptr %424, i64 24
   %428 = load ptr, ptr %427, align 8
   store ptr %428, ptr %425, align 8
   %429 = load ptr, ptr %413, align 8
-  %430 = getelementptr inbounds i8, ptr %429, i64 24
+  %430 = getelementptr inbounds nuw i8, ptr %429, i64 24
   store ptr %426, ptr %430, align 8
   br label %431
 
 431:                                              ; preds = %408, %_ZN26SuperWordVTransformBuilder19set_req_with_vectorEPK9Node_ListP14VTransformNodeR9VectorSeti.exit, %_ZN26SuperWordVTransformBuilder19set_req_with_scalarEP4NodeP14VTransformNodeR9VectorSeti.exit93, %423, %412, %_ZN26SuperWordVTransformBuilder19set_req_with_scalarEP4NodeP14VTransformNodeR9VectorSeti.exit105, %_ZN26SuperWordVTransformBuilder19set_req_with_vectorEPK9Node_ListP14VTransformNodeR9VectorSeti.exit81, %_ZN26SuperWordVTransformBuilder19set_req_with_scalarEP4NodeP14VTransformNodeR9VectorSeti.exit
-  %432 = getelementptr inbounds i8, ptr %15, i64 24
+  %432 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %433 = load i32, ptr %432, align 8
   %.not112 = icmp eq i32 %433, 0
   br i1 %.not112, label %._crit_edge, label %.lr.ph
@@ -1102,7 +1102,7 @@ _ZN26SuperWordVTransformBuilder19set_req_with_scalarEP4NodeP14VTransformNodeR9Ve
 .lr.ph:                                           ; preds = %431, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %431 ]
   %434 = load ptr, ptr %16, align 8
-  %435 = getelementptr inbounds ptr, ptr %434, i64 %indvars.iv
+  %435 = getelementptr inbounds nuw ptr, ptr %434, i64 %indvars.iv
   %436 = load ptr, ptr %435, align 8
   tail call void @_ZN26SuperWordVTransformBuilder34add_dependencies_of_node_to_vtnodeEP4NodeP14VTransformNodeR9VectorSet(ptr noundef nonnull align 8 dereferenceable(2088) %0, ptr noundef %436, ptr noundef %40, ptr noundef nonnull align 8 dereferenceable(32) %1)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1114,7 +1114,7 @@ _ZN26SuperWordVTransformBuilder19set_req_with_scalarEP4NodeP14VTransformNodeR9Ve
 ._crit_edge:                                      ; preds = %.lr.ph, %431
   %indvars.iv.next115 = add nuw nsw i64 %indvars.iv114, 1
   %440 = load ptr, ptr %3, align 8
-  %441 = getelementptr inbounds i8, ptr %440, i64 16
+  %441 = getelementptr inbounds nuw i8, ptr %440, i64 16
   %442 = load i32, ptr %441, align 4
   %443 = sext i32 %442 to i64
   %444 = icmp slt i64 %indvars.iv.next115, %443
@@ -1127,30 +1127,30 @@ _ZN26SuperWordVTransformBuilder19set_req_with_scalarEP4NodeP14VTransformNodeR9Ve
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN26SuperWordVTransformBuilder31build_inputs_for_scalar_vtnodesER9VectorSet(ptr nocapture noundef nonnull align 8 dereferenceable(2088) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 168
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 168
   %5 = load i32, ptr %4, align 4
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %9
 
 9:                                                ; preds = %.lr.ph, %208
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %208 ]
   %10 = phi ptr [ %3, %.lr.ph ], [ %209, %208 ]
-  %11 = getelementptr inbounds i8, ptr %10, i64 176
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 176
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds ptr, ptr %12, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 40
   %16 = load i32, ptr %15, align 8
   %17 = lshr i32 %16, 3
   %18 = xor i32 %17, %16
   %19 = and i32 %18, 255
   %20 = zext nneg i32 %19 to i64
-  %21 = getelementptr inbounds ptr, ptr %7, i64 %20
+  %21 = getelementptr inbounds nuw ptr, ptr %7, i64 %20
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %29, %9
@@ -1161,17 +1161,17 @@ define hidden void @_ZN26SuperWordVTransformBuilder31build_inputs_for_scalar_vtn
   br i1 %24, label %25, label %29
 
 25:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %26 = getelementptr inbounds i8, ptr %22, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %22, i64 4
   %27 = load i32, ptr %26, align 4
   %28 = icmp eq i32 %16, %27
   br i1 %28, label %_ZNK26SuperWordVTransformBuilder10get_vtnodeEP4Node.exit, label %29
 
 29:                                               ; preds = %25, %.lr.ph.i.i.i.i.i
-  %30 = getelementptr inbounds i8, ptr %22, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %22, i64 16
   br label %.lr.ph.i.i.i.i.i
 
 _ZNK26SuperWordVTransformBuilder10get_vtnodeEP4Node.exit: ; preds = %25
-  %31 = getelementptr inbounds i8, ptr %22, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %32 = load ptr, ptr %31, align 8
   %33 = load ptr, ptr %32, align 8
   %34 = load ptr, ptr %33, align 8
@@ -1181,25 +1181,25 @@ _ZNK26SuperWordVTransformBuilder10get_vtnodeEP4Node.exit: ; preds = %25
 
 37:                                               ; preds = %_ZNK26SuperWordVTransformBuilder10get_vtnodeEP4Node.exit
   store i32 0, ptr %1, align 8
-  %38 = getelementptr inbounds i8, ptr %14, i64 44
+  %38 = getelementptr inbounds nuw i8, ptr %14, i64 44
   %39 = load i32, ptr %38, align 4
   %40 = and i32 %39, 63
   %41 = icmp eq i32 %40, 48
   br i1 %41, label %42, label %82
 
 42:                                               ; preds = %37
-  %43 = getelementptr inbounds i8, ptr %14, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %46 = load ptr, ptr %45, align 8
   %47 = tail call noundef ptr @_ZN26SuperWordVTransformBuilder34get_vtnode_or_wrap_as_input_scalarEP4Node(ptr noundef nonnull align 8 dereferenceable(2088) %0, ptr noundef %46)
-  %48 = getelementptr inbounds i8, ptr %35, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 16
   store ptr %47, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %47, i64 40
+  %51 = getelementptr inbounds nuw i8, ptr %47, i64 40
   %52 = load i32, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %47, i64 44
+  %53 = getelementptr inbounds nuw i8, ptr %47, i64 44
   %54 = load i32, ptr %53, align 4
   %55 = icmp eq i32 %52, %54
   br i1 %55, label %56, label %_ZN14VTransformNode7set_reqEjPS_.exit.i
@@ -1222,12 +1222,12 @@ _ZN14VTransformNode7set_reqEjPS_.exit.i:          ; preds = %56, %42
   %64 = phi i32 [ %.pre.i.i.i.i.i, %56 ], [ %52, %42 ]
   %65 = add nsw i32 %64, 1
   store i32 %65, ptr %51, align 8
-  %66 = getelementptr inbounds i8, ptr %47, i64 48
+  %66 = getelementptr inbounds nuw i8, ptr %47, i64 48
   %67 = load ptr, ptr %66, align 8
   %68 = sext i32 %64 to i64
   %69 = getelementptr inbounds ptr, ptr %67, i64 %68
   store ptr %35, ptr %69, align 8
-  %70 = getelementptr inbounds i8, ptr %47, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %71 = load i32, ptr %70, align 8
   %72 = lshr i32 %71, 5
   %73 = load i32, ptr %1, align 8
@@ -1243,7 +1243,7 @@ _ZN26SuperWordVTransformBuilder19set_req_with_scalarEP4NodeP14VTransformNodeR9Ve
   %76 = shl nuw i32 1, %75
   %77 = load ptr, ptr %8, align 8
   %78 = zext nneg i32 %72 to i64
-  %79 = getelementptr inbounds i32, ptr %77, i64 %78
+  %79 = getelementptr inbounds nuw i32, ptr %77, i64 %78
   %80 = load i32, ptr %79, align 4
   %81 = or i32 %80, %76
   store i32 %81, ptr %79, align 4
@@ -1255,18 +1255,18 @@ _ZN26SuperWordVTransformBuilder19set_req_with_scalarEP4NodeP14VTransformNodeR9Ve
   br i1 %84, label %85, label %162
 
 85:                                               ; preds = %82
-  %86 = getelementptr inbounds i8, ptr %14, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %87 = load ptr, ptr %86, align 8
-  %88 = getelementptr inbounds i8, ptr %87, i64 16
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 16
   %89 = load ptr, ptr %88, align 8
   %90 = tail call noundef ptr @_ZN26SuperWordVTransformBuilder34get_vtnode_or_wrap_as_input_scalarEP4Node(ptr noundef nonnull align 8 dereferenceable(2088) %0, ptr noundef %89)
-  %91 = getelementptr inbounds i8, ptr %35, i64 24
+  %91 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %92 = load ptr, ptr %91, align 8
-  %93 = getelementptr inbounds i8, ptr %92, i64 16
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 16
   store ptr %90, ptr %93, align 8
-  %94 = getelementptr inbounds i8, ptr %90, i64 40
+  %94 = getelementptr inbounds nuw i8, ptr %90, i64 40
   %95 = load i32, ptr %94, align 8
-  %96 = getelementptr inbounds i8, ptr %90, i64 44
+  %96 = getelementptr inbounds nuw i8, ptr %90, i64 44
   %97 = load i32, ptr %96, align 4
   %98 = icmp eq i32 %95, %97
   br i1 %98, label %99, label %_ZN14VTransformNode7set_reqEjPS_.exit.i29
@@ -1289,12 +1289,12 @@ _ZN14VTransformNode7set_reqEjPS_.exit.i29:        ; preds = %99, %85
   %107 = phi i32 [ %.pre.i.i.i.i.i33, %99 ], [ %95, %85 ]
   %108 = add nsw i32 %107, 1
   store i32 %108, ptr %94, align 8
-  %109 = getelementptr inbounds i8, ptr %90, i64 48
+  %109 = getelementptr inbounds nuw i8, ptr %90, i64 48
   %110 = load ptr, ptr %109, align 8
   %111 = sext i32 %107 to i64
   %112 = getelementptr inbounds ptr, ptr %110, i64 %111
   store ptr %35, ptr %112, align 8
-  %113 = getelementptr inbounds i8, ptr %90, i64 8
+  %113 = getelementptr inbounds nuw i8, ptr %90, i64 8
   %114 = load i32, ptr %113, align 8
   %115 = lshr i32 %114, 5
   %116 = load i32, ptr %1, align 8
@@ -1310,20 +1310,20 @@ _ZN26SuperWordVTransformBuilder19set_req_with_scalarEP4NodeP14VTransformNodeR9Ve
   %119 = shl nuw i32 1, %118
   %120 = load ptr, ptr %8, align 8
   %121 = zext nneg i32 %115 to i64
-  %122 = getelementptr inbounds i32, ptr %120, i64 %121
+  %122 = getelementptr inbounds nuw i32, ptr %120, i64 %121
   %123 = load i32, ptr %122, align 4
   %124 = or i32 %123, %119
   store i32 %124, ptr %122, align 4
   %125 = load ptr, ptr %86, align 8
-  %126 = getelementptr inbounds i8, ptr %125, i64 24
+  %126 = getelementptr inbounds nuw i8, ptr %125, i64 24
   %127 = load ptr, ptr %126, align 8
   %128 = tail call noundef ptr @_ZN26SuperWordVTransformBuilder34get_vtnode_or_wrap_as_input_scalarEP4Node(ptr noundef nonnull align 8 dereferenceable(2088) %0, ptr noundef %127)
   %129 = load ptr, ptr %91, align 8
-  %130 = getelementptr inbounds i8, ptr %129, i64 24
+  %130 = getelementptr inbounds nuw i8, ptr %129, i64 24
   store ptr %128, ptr %130, align 8
-  %131 = getelementptr inbounds i8, ptr %128, i64 40
+  %131 = getelementptr inbounds nuw i8, ptr %128, i64 40
   %132 = load i32, ptr %131, align 8
-  %133 = getelementptr inbounds i8, ptr %128, i64 44
+  %133 = getelementptr inbounds nuw i8, ptr %128, i64 44
   %134 = load i32, ptr %133, align 4
   %135 = icmp eq i32 %132, %134
   br i1 %135, label %136, label %_ZN14VTransformNode7set_reqEjPS_.exit.i35
@@ -1346,12 +1346,12 @@ _ZN14VTransformNode7set_reqEjPS_.exit.i35:        ; preds = %136, %_ZN26SuperWor
   %144 = phi i32 [ %.pre.i.i.i.i.i39, %136 ], [ %132, %_ZN26SuperWordVTransformBuilder19set_req_with_scalarEP4NodeP14VTransformNodeR9VectorSeti.exit34 ]
   %145 = add nsw i32 %144, 1
   store i32 %145, ptr %131, align 8
-  %146 = getelementptr inbounds i8, ptr %128, i64 48
+  %146 = getelementptr inbounds nuw i8, ptr %128, i64 48
   %147 = load ptr, ptr %146, align 8
   %148 = sext i32 %144 to i64
   %149 = getelementptr inbounds ptr, ptr %147, i64 %148
   store ptr %35, ptr %149, align 8
-  %150 = getelementptr inbounds i8, ptr %128, i64 8
+  %150 = getelementptr inbounds nuw i8, ptr %128, i64 8
   %151 = load i32, ptr %150, align 8
   %152 = lshr i32 %151, 5
   %153 = load i32, ptr %1, align 8
@@ -1367,7 +1367,7 @@ _ZN26SuperWordVTransformBuilder19set_req_with_scalarEP4NodeP14VTransformNodeR9Ve
   %156 = shl nuw i32 1, %155
   %157 = load ptr, ptr %8, align 8
   %158 = zext nneg i32 %152 to i64
-  %159 = getelementptr inbounds i32, ptr %157, i64 %158
+  %159 = getelementptr inbounds nuw i32, ptr %157, i64 %158
   %160 = load i32, ptr %159, align 4
   %161 = or i32 %160, %156
   store i32 %161, ptr %159, align 4
@@ -1384,16 +1384,16 @@ _ZN26SuperWordVTransformBuilder19set_req_with_scalarEP4NodeP14VTransformNodeR9Ve
   br i1 %167, label %168, label %206
 
 168:                                              ; preds = %165
-  %169 = getelementptr inbounds i8, ptr %14, i64 8
+  %169 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %170 = load ptr, ptr %169, align 8
   %171 = load ptr, ptr %170, align 8
   %172 = tail call noundef ptr @_ZN26SuperWordVTransformBuilder34get_vtnode_or_wrap_as_input_scalarEP4Node(ptr noundef nonnull align 8 dereferenceable(2088) %0, ptr noundef %171)
-  %173 = getelementptr inbounds i8, ptr %35, i64 24
+  %173 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %174 = load ptr, ptr %173, align 8
   store ptr %172, ptr %174, align 8
-  %175 = getelementptr inbounds i8, ptr %172, i64 40
+  %175 = getelementptr inbounds nuw i8, ptr %172, i64 40
   %176 = load i32, ptr %175, align 8
-  %177 = getelementptr inbounds i8, ptr %172, i64 44
+  %177 = getelementptr inbounds nuw i8, ptr %172, i64 44
   %178 = load i32, ptr %177, align 4
   %179 = icmp eq i32 %176, %178
   br i1 %179, label %180, label %_ZN14VTransformNode7set_reqEjPS_.exit.i41
@@ -1416,12 +1416,12 @@ _ZN14VTransformNode7set_reqEjPS_.exit.i41:        ; preds = %180, %168
   %188 = phi i32 [ %.pre.i.i.i.i.i45, %180 ], [ %176, %168 ]
   %189 = add nsw i32 %188, 1
   store i32 %189, ptr %175, align 8
-  %190 = getelementptr inbounds i8, ptr %172, i64 48
+  %190 = getelementptr inbounds nuw i8, ptr %172, i64 48
   %191 = load ptr, ptr %190, align 8
   %192 = sext i32 %188 to i64
   %193 = getelementptr inbounds ptr, ptr %191, i64 %192
   store ptr %35, ptr %193, align 8
-  %194 = getelementptr inbounds i8, ptr %172, i64 8
+  %194 = getelementptr inbounds nuw i8, ptr %172, i64 8
   %195 = load i32, ptr %194, align 8
   %196 = lshr i32 %195, 5
   %197 = load i32, ptr %1, align 8
@@ -1437,7 +1437,7 @@ _ZN26SuperWordVTransformBuilder19set_req_with_scalarEP4NodeP14VTransformNodeR9Ve
   %200 = shl nuw i32 1, %199
   %201 = load ptr, ptr %8, align 8
   %202 = zext nneg i32 %196 to i64
-  %203 = getelementptr inbounds i32, ptr %201, i64 %202
+  %203 = getelementptr inbounds nuw i32, ptr %201, i64 %202
   %204 = load i32, ptr %203, align 4
   %205 = or i32 %204, %200
   store i32 %205, ptr %203, align 4
@@ -1454,7 +1454,7 @@ _ZN26SuperWordVTransformBuilder19set_req_with_scalarEP4NodeP14VTransformNodeR9Ve
 208:                                              ; preds = %162, %_ZNK26SuperWordVTransformBuilder10get_vtnodeEP4Node.exit, %207, %_ZN26SuperWordVTransformBuilder19set_req_with_scalarEP4NodeP14VTransformNodeR9VectorSeti.exit46
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %209 = load ptr, ptr %0, align 8
-  %210 = getelementptr inbounds i8, ptr %209, i64 168
+  %210 = getelementptr inbounds nuw i8, ptr %209, i64 168
   %211 = load i32, ptr %210, align 4
   %212 = sext i32 %211 to i64
   %213 = icmp slt i64 %indvars.iv.next, %212
@@ -1466,24 +1466,24 @@ _ZN26SuperWordVTransformBuilder19set_req_with_scalarEP4NodeP14VTransformNodeR9Ve
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZNK26SuperWordVTransformBuilder27make_vector_vtnode_for_packEPK9Node_List(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2088) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load i32, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %8, align 8
   %10 = tail call noundef i32 %9(ptr noundef nonnull align 8 dereferenceable(52) %7) #8
-  %11 = getelementptr inbounds i8, ptr %7, i64 44
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 44
   %12 = load i32, ptr %11, align 4
   %13 = and i32 %12, 63
   %14 = icmp eq i32 %13, 48
   br i1 %14, label %15, label %23
 
 15:                                               ; preds = %2
-  %16 = getelementptr inbounds i8, ptr %0, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = tail call noundef ptr @_ZN8ArenaObjnwEmP5Arena(i64 noundef 88, ptr noundef nonnull %18) #8
   %20 = icmp eq ptr %19, null
   br i1 %20, label %86, label %21
@@ -1500,9 +1500,9 @@ define hidden noundef ptr @_ZNK26SuperWordVTransformBuilder27make_vector_vtnode_
   br i1 %25, label %26, label %34
 
 26:                                               ; preds = %23
-  %27 = getelementptr inbounds i8, ptr %0, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %30 = tail call noundef ptr @_ZN8ArenaObjnwEmP5Arena(i64 noundef 88, ptr noundef nonnull %29) #8
   %31 = icmp eq ptr %30, null
   br i1 %31, label %86, label %32
@@ -1519,12 +1519,12 @@ define hidden noundef ptr @_ZNK26SuperWordVTransformBuilder27make_vector_vtnode_
   br i1 %36, label %37, label %49
 
 37:                                               ; preds = %34
-  %38 = getelementptr inbounds i8, ptr %0, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %39 = load ptr, ptr %38, align 8
   %40 = tail call i64 @_ZNK7PackSet13get_bool_testEPK9Node_List(ptr noundef nonnull align 8 dereferenceable(64) %39, ptr noundef nonnull %1) #8
-  %41 = getelementptr inbounds i8, ptr %0, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %44 = tail call noundef ptr @_ZN8ArenaObjnwEmP5Arena(i64 noundef 96, ptr noundef nonnull %43) #8
   %45 = icmp eq ptr %44, null
   br i1 %45, label %86, label %46
@@ -1533,14 +1533,14 @@ define hidden noundef ptr @_ZNK26SuperWordVTransformBuilder27make_vector_vtnode_
   %47 = load ptr, ptr %41, align 8
   tail call void @_ZN20VTransformVectorNodeC2ER10VTransformjj(ptr noundef nonnull align 8 dereferenceable(96) %44, ptr noundef nonnull align 8 dereferenceable(148) %47, i32 noundef 2, i32 noundef %4)
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV24VTransformBoolVectorNode, i64 16), ptr %44, align 8
-  %48 = getelementptr inbounds i8, ptr %44, i64 88
+  %48 = getelementptr inbounds nuw i8, ptr %44, i64 88
   store i64 %40, ptr %48, align 8
   br label %86
 
 49:                                               ; preds = %34
   %50 = load ptr, ptr %0, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 72
-  %52 = getelementptr inbounds i8, ptr %7, i64 40
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 72
+  %52 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %53 = load i32, ptr %52, align 8
   %54 = lshr i32 %53, 5
   %55 = load i32, ptr %51, align 8
@@ -1550,19 +1550,19 @@ define hidden noundef ptr @_ZNK26SuperWordVTransformBuilder27make_vector_vtnode_
 _ZNK15VLoopReductions19is_marked_reductionEPK4Node.exit: ; preds = %49
   %56 = and i32 %53, 31
   %57 = shl nuw i32 1, %56
-  %58 = getelementptr inbounds i8, ptr %50, i64 80
+  %58 = getelementptr inbounds nuw i8, ptr %50, i64 80
   %59 = load ptr, ptr %58, align 8
   %60 = zext nneg i32 %54 to i64
-  %61 = getelementptr inbounds i32, ptr %59, i64 %60
+  %61 = getelementptr inbounds nuw i32, ptr %59, i64 %60
   %62 = load i32, ptr %61, align 4
   %63 = and i32 %62, %57
   %.not = icmp eq i32 %63, 0
   br i1 %.not, label %_ZNK15VLoopReductions19is_marked_reductionEPK4Node.exit.thread, label %64
 
 64:                                               ; preds = %_ZNK15VLoopReductions19is_marked_reductionEPK4Node.exit
-  %65 = getelementptr inbounds i8, ptr %0, i64 24
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 16
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 16
   %68 = tail call noundef ptr @_ZN8ArenaObjnwEmP5Arena(i64 noundef 88, ptr noundef nonnull %67) #8
   %69 = icmp eq ptr %68, null
   br i1 %69, label %86, label %70
@@ -1575,9 +1575,9 @@ _ZNK15VLoopReductions19is_marked_reductionEPK4Node.exit: ; preds = %49
 
 _ZNK15VLoopReductions19is_marked_reductionEPK4Node.exit.thread: ; preds = %49, %_ZNK15VLoopReductions19is_marked_reductionEPK4Node.exit
   %72 = tail call noundef zeroext i1 @_ZN10VectorNode12is_muladds2iEPK4Node(ptr noundef nonnull %7) #8
-  %73 = getelementptr inbounds i8, ptr %0, i64 24
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 16
   %76 = tail call noundef ptr @_ZN8ArenaObjnwEmP5Arena(i64 noundef 88, ptr noundef nonnull %75) #8
   %77 = icmp eq ptr %76, null
   br i1 %72, label %78, label %81
@@ -1596,7 +1596,7 @@ _ZNK15VLoopReductions19is_marked_reductionEPK4Node.exit.thread: ; preds = %49, %
 
 82:                                               ; preds = %81
   %83 = load ptr, ptr %73, align 8
-  %84 = getelementptr inbounds i8, ptr %7, i64 24
+  %84 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %85 = load i32, ptr %84, align 8
   tail call void @_ZN20VTransformVectorNodeC2ER10VTransformjj(ptr noundef nonnull align 8 dereferenceable(88) %76, ptr noundef nonnull align 8 dereferenceable(148) %83, i32 noundef %85, i32 noundef %4)
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV31VTransformElementWiseVectorNode, i64 16), ptr %76, align 8
@@ -1609,14 +1609,14 @@ _ZNK15VLoopReductions19is_marked_reductionEPK4Node.exit.thread: ; preds = %49, %
   br i1 %.not.i, label %_ZN20VTransformVectorNode9set_nodesEPK9Node_List.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %86
-  %88 = getelementptr inbounds i8, ptr %.0, i64 72
+  %88 = getelementptr inbounds nuw i8, ptr %.0, i64 72
   br label %89
 
 89:                                               ; preds = %89, %.lr.ph.i
   %.06.i = phi i32 [ 0, %.lr.ph.i ], [ %97, %89 ]
   %90 = load ptr, ptr %5, align 8
   %91 = zext i32 %.06.i to i64
-  %92 = getelementptr inbounds ptr, ptr %90, i64 %91
+  %92 = getelementptr inbounds nuw ptr, ptr %90, i64 %91
   %93 = load ptr, ptr %92, align 8
   %94 = load ptr, ptr %88, align 8
   %95 = sext i32 %.06.i to i64
@@ -1636,20 +1636,20 @@ declare noundef ptr @_ZN8ArenaObjnwEmP5Arena(i64 noundef, ptr noundef) local_unn
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN26SuperWordVTransformBuilder19set_req_with_scalarEP4NodeP14VTransformNodeR9VectorSeti(ptr nocapture noundef nonnull align 8 dereferenceable(2088) %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef %4) local_unnamed_addr #0 align 2 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = zext i32 %4 to i64
-  %9 = getelementptr inbounds ptr, ptr %7, i64 %8
+  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = tail call noundef ptr @_ZN26SuperWordVTransformBuilder34get_vtnode_or_wrap_as_input_scalarEP4Node(ptr noundef nonnull align 8 dereferenceable(2088) %0, ptr noundef %10)
-  %12 = getelementptr inbounds i8, ptr %2, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = sext i32 %4 to i64
   %15 = getelementptr inbounds ptr, ptr %13, i64 %14
   store ptr %11, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %11, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %17 = load i32, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %11, i64 44
+  %18 = getelementptr inbounds nuw i8, ptr %11, i64 44
   %19 = load i32, ptr %18, align 4
   %20 = icmp eq i32 %17, %19
   br i1 %20, label %21, label %_ZN14VTransformNode7set_reqEjPS_.exit
@@ -1672,12 +1672,12 @@ _ZN14VTransformNode7set_reqEjPS_.exit:            ; preds = %5, %21
   %29 = phi i32 [ %.pre.i.i.i.i, %21 ], [ %17, %5 ]
   %30 = add nsw i32 %29, 1
   store i32 %30, ptr %16, align 8
-  %31 = getelementptr inbounds i8, ptr %11, i64 48
+  %31 = getelementptr inbounds nuw i8, ptr %11, i64 48
   %32 = load ptr, ptr %31, align 8
   %33 = sext i32 %29 to i64
   %34 = getelementptr inbounds ptr, ptr %32, i64 %33
   store ptr %2, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %11, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %36 = load i32, ptr %35, align 8
   %37 = lshr i32 %36, 5
   %38 = load i32, ptr %3, align 8
@@ -1691,10 +1691,10 @@ _ZN14VTransformNode7set_reqEjPS_.exit:            ; preds = %5, %21
 _ZN9VectorSet3setEj.exit:                         ; preds = %_ZN14VTransformNode7set_reqEjPS_.exit, %39
   %40 = and i32 %36, 31
   %41 = shl nuw i32 1, %40
-  %42 = getelementptr inbounds i8, ptr %3, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %43 = load ptr, ptr %42, align 8
   %44 = zext nneg i32 %37 to i64
-  %45 = getelementptr inbounds i32, ptr %43, i64 %44
+  %45 = getelementptr inbounds nuw i32, ptr %43, i64 %44
   %46 = load i32, ptr %45, align 4
   %47 = or i32 %46, %41
   store i32 %47, ptr %45, align 4
@@ -1704,14 +1704,14 @@ _ZN9VectorSet3setEj.exit:                         ; preds = %_ZN14VTransformNode
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN26SuperWordVTransformBuilder19set_req_with_vectorEPK9Node_ListP14VTransformNodeR9VectorSeti(ptr nocapture noundef nonnull align 8 dereferenceable(2088) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef %4) local_unnamed_addr #0 align 2 {
   %6 = tail call noundef ptr @_ZN26SuperWordVTransformBuilder40get_or_make_vtnode_vector_input_at_indexEPK9Node_Listi(ptr noundef nonnull align 8 dereferenceable(2088) %0, ptr noundef %1, i32 noundef %4)
-  %7 = getelementptr inbounds i8, ptr %2, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = sext i32 %4 to i64
   %10 = getelementptr inbounds ptr, ptr %8, i64 %9
   store ptr %6, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %6, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %12 = load i32, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %6, i64 44
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 44
   %14 = load i32, ptr %13, align 4
   %15 = icmp eq i32 %12, %14
   br i1 %15, label %16, label %_ZN14VTransformNode7set_reqEjPS_.exit
@@ -1734,12 +1734,12 @@ _ZN14VTransformNode7set_reqEjPS_.exit:            ; preds = %5, %16
   %24 = phi i32 [ %.pre.i.i.i.i, %16 ], [ %12, %5 ]
   %25 = add nsw i32 %24, 1
   store i32 %25, ptr %11, align 8
-  %26 = getelementptr inbounds i8, ptr %6, i64 48
+  %26 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %27 = load ptr, ptr %26, align 8
   %28 = sext i32 %24 to i64
   %29 = getelementptr inbounds ptr, ptr %27, i64 %28
   store ptr %2, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %6, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %31 = load i32, ptr %30, align 8
   %32 = lshr i32 %31, 5
   %33 = load i32, ptr %3, align 8
@@ -1753,10 +1753,10 @@ _ZN14VTransformNode7set_reqEjPS_.exit:            ; preds = %5, %16
 _ZN9VectorSet3setEj.exit:                         ; preds = %_ZN14VTransformNode7set_reqEjPS_.exit, %34
   %35 = and i32 %31, 31
   %36 = shl nuw i32 1, %35
-  %37 = getelementptr inbounds i8, ptr %3, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %38 = load ptr, ptr %37, align 8
   %39 = zext nneg i32 %32 to i64
-  %40 = getelementptr inbounds i32, ptr %38, i64 %39
+  %40 = getelementptr inbounds nuw i32, ptr %38, i64 %39
   %41 = load i32, ptr %40, align 4
   %42 = or i32 %41, %36
   store i32 %42, ptr %40, align 4
@@ -1769,18 +1769,18 @@ declare noundef zeroext i1 @_ZN10VectorNode11is_roundopDEP4Node(ptr noundef) loc
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN26SuperWordVTransformBuilder24set_all_req_with_vectorsEPK9Node_ListP14VTransformNodeR9VectorSet(ptr nocapture noundef nonnull align 8 dereferenceable(2088) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %3) local_unnamed_addr #0 align 2 {
-  %5 = getelementptr inbounds i8, ptr %2, i64 12
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %6 = load i32, ptr %5, align 4
   %7 = icmp ugt i32 %6, 1
   br i1 %7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %1, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
-  %12 = getelementptr inbounds i8, ptr %2, i64 24
-  %13 = getelementptr inbounds i8, ptr %3, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %14
 
 14:                                               ; preds = %.lr.ph, %57
@@ -1788,7 +1788,7 @@ define hidden void @_ZN26SuperWordVTransformBuilder24set_all_req_with_vectorsEPK
   %.011 = phi i32 [ 1, %.lr.ph ], [ %59, %57 ]
   %16 = load ptr, ptr %11, align 8
   %17 = zext i32 %.011 to i64
-  %18 = getelementptr inbounds ptr, ptr %16, i64 %17
+  %18 = getelementptr inbounds nuw ptr, ptr %16, i64 %17
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
   br i1 %20, label %57, label %21
@@ -1799,9 +1799,9 @@ define hidden void @_ZN26SuperWordVTransformBuilder24set_all_req_with_vectorsEPK
   %24 = sext i32 %.011 to i64
   %25 = getelementptr inbounds ptr, ptr %23, i64 %24
   store ptr %22, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %22, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %22, i64 40
   %27 = load i32, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %22, i64 44
+  %28 = getelementptr inbounds nuw i8, ptr %22, i64 44
   %29 = load i32, ptr %28, align 4
   %30 = icmp eq i32 %27, %29
   br i1 %30, label %31, label %_ZN14VTransformNode7set_reqEjPS_.exit.i
@@ -1824,12 +1824,12 @@ _ZN14VTransformNode7set_reqEjPS_.exit.i:          ; preds = %31, %21
   %39 = phi i32 [ %.pre.i.i.i.i.i, %31 ], [ %27, %21 ]
   %40 = add nsw i32 %39, 1
   store i32 %40, ptr %26, align 8
-  %41 = getelementptr inbounds i8, ptr %22, i64 48
+  %41 = getelementptr inbounds nuw i8, ptr %22, i64 48
   %42 = load ptr, ptr %41, align 8
   %43 = sext i32 %39 to i64
   %44 = getelementptr inbounds ptr, ptr %42, i64 %43
   store ptr %2, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %22, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %46 = load i32, ptr %45, align 8
   %47 = lshr i32 %46, 5
   %48 = load i32, ptr %3, align 8
@@ -1845,7 +1845,7 @@ _ZN26SuperWordVTransformBuilder19set_req_with_vectorEPK9Node_ListP14VTransformNo
   %51 = shl nuw i32 1, %50
   %52 = load ptr, ptr %13, align 8
   %53 = zext nneg i32 %47 to i64
-  %54 = getelementptr inbounds i32, ptr %52, i64 %53
+  %54 = getelementptr inbounds nuw i32, ptr %52, i64 %53
   %55 = load i32, ptr %54, align 4
   %56 = or i32 %55, %51
   store i32 %56, ptr %54, align 4
@@ -1866,40 +1866,40 @@ _ZN26SuperWordVTransformBuilder19set_req_with_vectorEPK9Node_ListP14VTransformNo
 define hidden void @_ZN26SuperWordVTransformBuilder34add_dependencies_of_node_to_vtnodeEP4NodeP14VTransformNodeR9VectorSet(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2088) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.VLoopDependencyGraph::PredsIterator", align 8
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 304
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 304
   call void @_ZN20VLoopDependencyGraph13PredsIteratorC1ERKS_PK4Node(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 8 dereferenceable(88) %7, ptr noundef %1) #8
-  %8 = getelementptr inbounds i8, ptr %5, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 44
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
-  %14 = getelementptr inbounds i8, ptr %1, i64 40
-  %15 = getelementptr inbounds i8, ptr %3, i64 8
-  %16 = getelementptr inbounds i8, ptr %2, i64 16
-  %17 = getelementptr inbounds i8, ptr %2, i64 20
-  %18 = getelementptr inbounds i8, ptr %2, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 44
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 20
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 24
   br label %19
 
 19:                                               ; preds = %.lr.ph, %_ZNK5VLoop5in_bbEPK4Node.exit.thread
   %20 = phi ptr [ %9, %.lr.ph ], [ %162, %_ZNK5VLoop5in_bbEPK4Node.exit.thread ]
   %21 = load ptr, ptr %11, align 8
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %20, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 40
   %24 = load i32, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %22, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %26 = load i32, ptr %25, align 8
   %27 = icmp ult i32 %24, %26
   br i1 %27, label %_ZNK14PhaseIdealLoop8has_ctrlEPK4Node.exit.i, label %.thread.i
 
 _ZNK14PhaseIdealLoop8has_ctrlEPK4Node.exit.i:     ; preds = %19
-  %28 = getelementptr inbounds i8, ptr %22, i64 40
+  %28 = getelementptr inbounds nuw i8, ptr %22, i64 40
   %29 = load ptr, ptr %28, align 8
   %30 = zext i32 %24 to i64
-  %31 = getelementptr inbounds ptr, ptr %29, i64 %30
+  %31 = getelementptr inbounds nuw ptr, ptr %29, i64 %30
   %32 = load ptr, ptr %31, align 8
   %33 = ptrtoint ptr %32 to i64
   %34 = and i64 %33, 1
@@ -1909,7 +1909,7 @@ _ZNK14PhaseIdealLoop8has_ctrlEPK4Node.exit.i:     ; preds = %19
 35:                                               ; preds = %_ZNK14PhaseIdealLoop8has_ctrlEPK4Node.exit.i
   %36 = and i64 %33, -2
   %37 = inttoptr i64 %36 to ptr
-  %38 = getelementptr inbounds i8, ptr %37, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %39 = load ptr, ptr %38, align 8
   %40 = load ptr, ptr %39, align 8
   %.not.i.i.i = icmp eq ptr %40, null
@@ -1917,24 +1917,24 @@ _ZNK14PhaseIdealLoop8has_ctrlEPK4Node.exit.i:     ; preds = %19
 
 _ZNK14PhaseIdealLoop25get_ctrl_no_update_helperEPK4Node.exit8.i.i.i: ; preds = %35, %_ZNK14PhaseIdealLoop25get_ctrl_no_update_helperEPK4Node.exit8.i.i.i
   %.1.i.i.i = phi ptr [ %49, %_ZNK14PhaseIdealLoop25get_ctrl_no_update_helperEPK4Node.exit8.i.i.i ], [ %37, %35 ]
-  %41 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 40
+  %41 = getelementptr inbounds nuw i8, ptr %.1.i.i.i, i64 40
   %42 = load i32, ptr %41, align 8
   %43 = icmp ult i32 %42, %26
   call void @llvm.assume(i1 %43)
   %44 = zext i32 %42 to i64
-  %45 = getelementptr inbounds ptr, ptr %29, i64 %44
+  %45 = getelementptr inbounds nuw ptr, ptr %29, i64 %44
   %46 = load ptr, ptr %45, align 8
   %47 = ptrtoint ptr %46 to i64
   %48 = and i64 %47, -2
   %49 = inttoptr i64 %48 to ptr
-  %50 = getelementptr inbounds i8, ptr %49, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %51 = load ptr, ptr %50, align 8
   %52 = load ptr, ptr %51, align 8
   %.not7.i.i.i = icmp eq ptr %52, null
   br i1 %.not7.i.i.i, label %_ZNK14PhaseIdealLoop25get_ctrl_no_update_helperEPK4Node.exit8.i.i.i, label %53, !llvm.loop !9
 
 53:                                               ; preds = %_ZNK14PhaseIdealLoop25get_ctrl_no_update_helperEPK4Node.exit8.i.i.i
-  %54 = getelementptr inbounds i8, ptr %49, i64 44
+  %54 = getelementptr inbounds nuw i8, ptr %49, i64 44
   %55 = load i32, ptr %54, align 4
   %56 = and i32 %55, 7
   %57 = icmp eq i32 %56, 5
@@ -1947,13 +1947,13 @@ _ZNK14PhaseIdealLoop25get_ctrl_no_update_helperEPK4Node.exit8.i.i.i: ; preds = %
 
 .thread.i:                                        ; preds = %53, %35, %_ZNK14PhaseIdealLoop8has_ctrlEPK4Node.exit.i, %19
   %61 = phi ptr [ %spec.select.i.i.i, %53 ], [ %20, %_ZNK14PhaseIdealLoop8has_ctrlEPK4Node.exit.i ], [ %20, %19 ], [ %37, %35 ]
-  %62 = getelementptr inbounds i8, ptr %20, i64 32
+  %62 = getelementptr inbounds nuw i8, ptr %20, i64 32
   %63 = load i32, ptr %62, align 8
   %.not7.i = icmp eq i32 %63, 0
   br i1 %.not7.i, label %_ZNK5VLoop5in_bbEPK4Node.exit.thread, label %_ZNK5VLoop5in_bbEPK4Node.exit
 
 _ZNK5VLoop5in_bbEPK4Node.exit:                    ; preds = %.thread.i
-  %64 = getelementptr inbounds i8, ptr %21, i64 24
+  %64 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %65 = load ptr, ptr %64, align 8
   %66 = icmp eq ptr %61, %65
   br i1 %66, label %67, label %_ZNK5VLoop5in_bbEPK4Node.exit.thread
@@ -1965,7 +1965,7 @@ _ZNK5VLoop5in_bbEPK4Node.exit:                    ; preds = %.thread.i
   br i1 %70, label %71, label %76
 
 71:                                               ; preds = %67
-  %72 = getelementptr inbounds i8, ptr %20, i64 44
+  %72 = getelementptr inbounds nuw i8, ptr %20, i64 44
   %73 = load i32, ptr %72, align 4
   %74 = and i32 %73, 31
   %75 = icmp eq i32 %74, 16
@@ -1977,7 +1977,7 @@ _ZNK5VLoop5in_bbEPK4Node.exit:                    ; preds = %.thread.i
   %79 = xor i32 %78, %77
   %80 = and i32 %79, 255
   %81 = zext nneg i32 %80 to i64
-  %82 = getelementptr inbounds ptr, ptr %13, i64 %81
+  %82 = getelementptr inbounds nuw ptr, ptr %13, i64 %81
   %83 = load ptr, ptr %82, align 8
   %.not11.i.i.i.i.i = icmp eq ptr %83, null
   br i1 %.not11.i.i.i.i.i, label %_ZNK26SuperWordVTransformBuilder10get_vtnodeEP4Node.exit, label %.lr.ph.i.i.i.i.i
@@ -1989,19 +1989,19 @@ _ZNK5VLoop5in_bbEPK4Node.exit:                    ; preds = %.thread.i
   br i1 %86, label %87, label %91
 
 87:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %88 = getelementptr inbounds i8, ptr %84, i64 4
+  %88 = getelementptr inbounds nuw i8, ptr %84, i64 4
   %89 = load i32, ptr %88, align 4
   %90 = icmp eq i32 %77, %89
   br i1 %90, label %94, label %91
 
 91:                                               ; preds = %87, %.lr.ph.i.i.i.i.i
-  %92 = getelementptr inbounds i8, ptr %84, i64 16
+  %92 = getelementptr inbounds nuw i8, ptr %84, i64 16
   %93 = load ptr, ptr %92, align 8
   %.not.i.i.i.i.i = icmp eq ptr %93, null
   br i1 %.not.i.i.i.i.i, label %_ZNK26SuperWordVTransformBuilder10get_vtnodeEP4Node.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !17
 
 94:                                               ; preds = %87
-  %95 = getelementptr inbounds i8, ptr %84, i64 8
+  %95 = getelementptr inbounds nuw i8, ptr %84, i64 8
   %96 = load ptr, ptr %95, align 8
   br label %_ZNK26SuperWordVTransformBuilder10get_vtnodeEP4Node.exit
 
@@ -2012,7 +2012,7 @@ _ZNK26SuperWordVTransformBuilder10get_vtnodeEP4Node.exit: ; preds = %91, %76, %9
 
 99:                                               ; preds = %_ZNK26SuperWordVTransformBuilder10get_vtnodeEP4Node.exit
   %100 = load ptr, ptr %0, align 8
-  %101 = getelementptr inbounds i8, ptr %100, i64 72
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 72
   %102 = load i32, ptr %14, align 8
   %103 = lshr i32 %102, 5
   %104 = load i32, ptr %101, align 8
@@ -2022,17 +2022,17 @@ _ZNK26SuperWordVTransformBuilder10get_vtnodeEP4Node.exit: ; preds = %91, %76, %9
 _ZNK15VLoopReductions19is_marked_reductionEPK4Node.exit: ; preds = %99
   %105 = and i32 %102, 31
   %106 = shl nuw i32 1, %105
-  %107 = getelementptr inbounds i8, ptr %100, i64 80
+  %107 = getelementptr inbounds nuw i8, ptr %100, i64 80
   %108 = load ptr, ptr %107, align 8
   %109 = zext nneg i32 %103 to i64
-  %110 = getelementptr inbounds i32, ptr %108, i64 %109
+  %110 = getelementptr inbounds nuw i32, ptr %108, i64 %109
   %111 = load i32, ptr %110, align 4
   %112 = and i32 %111, %106
   %.not = icmp eq i32 %112, 0
   br i1 %.not, label %_ZNK15VLoopReductions19is_marked_reductionEPK4Node.exit.thread, label %_ZNK5VLoop5in_bbEPK4Node.exit.thread
 
 _ZNK15VLoopReductions19is_marked_reductionEPK4Node.exit.thread: ; preds = %99, %_ZNK15VLoopReductions19is_marked_reductionEPK4Node.exit, %_ZNK26SuperWordVTransformBuilder10get_vtnodeEP4Node.exit
-  %113 = getelementptr inbounds i8, ptr %97, i64 8
+  %113 = getelementptr inbounds nuw i8, ptr %97, i64 8
   %114 = load i32, ptr %113, align 8
   %115 = lshr i32 %114, 5
   %116 = load i32, ptr %3, align 8
@@ -2048,7 +2048,7 @@ _ZN9VectorSet8test_setEj.exit:                    ; preds = %_ZNK15VLoopReductio
   %119 = shl nuw i32 1, %118
   %120 = load ptr, ptr %15, align 8
   %121 = zext nneg i32 %115 to i64
-  %122 = getelementptr inbounds i32, ptr %120, i64 %121
+  %122 = getelementptr inbounds nuw i32, ptr %120, i64 %121
   %123 = load i32, ptr %122, align 4
   %124 = or i32 %123, %119
   store i32 %124, ptr %122, align 4
@@ -2084,9 +2084,9 @@ _ZN26GrowableArrayWithAllocatorIP14VTransformNode13GrowableArrayIS1_EE4pushERKS1
   %141 = sext i32 %138 to i64
   %142 = getelementptr inbounds ptr, ptr %140, i64 %141
   store ptr %97, ptr %142, align 8
-  %143 = getelementptr inbounds i8, ptr %97, i64 40
+  %143 = getelementptr inbounds nuw i8, ptr %97, i64 40
   %144 = load i32, ptr %143, align 8
-  %145 = getelementptr inbounds i8, ptr %97, i64 44
+  %145 = getelementptr inbounds nuw i8, ptr %97, i64 44
   %146 = load i32, ptr %145, align 4
   %147 = icmp eq i32 %144, %146
   br i1 %147, label %148, label %_ZN14VTransformNode14add_dependencyEPS_.exit
@@ -2109,7 +2109,7 @@ _ZN14VTransformNode14add_dependencyEPS_.exit:     ; preds = %_ZN26GrowableArrayW
   %156 = phi i32 [ %.pre.i.i.i.i, %148 ], [ %144, %_ZN26GrowableArrayWithAllocatorIP14VTransformNode13GrowableArrayIS1_EE4pushERKS1_.exit.i ]
   %157 = add nsw i32 %156, 1
   store i32 %157, ptr %143, align 8
-  %158 = getelementptr inbounds i8, ptr %97, i64 48
+  %158 = getelementptr inbounds nuw i8, ptr %97, i64 48
   %159 = load ptr, ptr %158, align 8
   %160 = sext i32 %156 to i64
   %161 = getelementptr inbounds ptr, ptr %159, i64 %160
@@ -2128,15 +2128,15 @@ _ZNK5VLoop5in_bbEPK4Node.exit.thread:             ; preds = %.thread.i, %_ZN9Vec
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN26SuperWordVTransformBuilder24set_all_req_with_scalarsEP4NodeP14VTransformNodeR9VectorSet(ptr nocapture noundef nonnull align 8 dereferenceable(2088) %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %3) local_unnamed_addr #0 align 2 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load i32, ptr %5, align 8
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 24
-  %9 = getelementptr inbounds i8, ptr %3, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %10
 
 10:                                               ; preds = %.lr.ph, %53
@@ -2144,7 +2144,7 @@ define hidden void @_ZN26SuperWordVTransformBuilder24set_all_req_with_scalarsEP4
   %.010 = phi i32 [ 0, %.lr.ph ], [ %55, %53 ]
   %12 = load ptr, ptr %7, align 8
   %13 = zext i32 %.010 to i64
-  %14 = getelementptr inbounds ptr, ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw ptr, ptr %12, i64 %13
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %53, label %17
@@ -2155,9 +2155,9 @@ define hidden void @_ZN26SuperWordVTransformBuilder24set_all_req_with_scalarsEP4
   %20 = sext i32 %.010 to i64
   %21 = getelementptr inbounds ptr, ptr %19, i64 %20
   store ptr %18, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %18, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %18, i64 40
   %23 = load i32, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %18, i64 44
+  %24 = getelementptr inbounds nuw i8, ptr %18, i64 44
   %25 = load i32, ptr %24, align 4
   %26 = icmp eq i32 %23, %25
   br i1 %26, label %27, label %_ZN14VTransformNode7set_reqEjPS_.exit.i
@@ -2180,12 +2180,12 @@ _ZN14VTransformNode7set_reqEjPS_.exit.i:          ; preds = %27, %17
   %35 = phi i32 [ %.pre.i.i.i.i.i, %27 ], [ %23, %17 ]
   %36 = add nsw i32 %35, 1
   store i32 %36, ptr %22, align 8
-  %37 = getelementptr inbounds i8, ptr %18, i64 48
+  %37 = getelementptr inbounds nuw i8, ptr %18, i64 48
   %38 = load ptr, ptr %37, align 8
   %39 = sext i32 %35 to i64
   %40 = getelementptr inbounds ptr, ptr %38, i64 %39
   store ptr %2, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %18, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %42 = load i32, ptr %41, align 8
   %43 = lshr i32 %42, 5
   %44 = load i32, ptr %3, align 8
@@ -2201,7 +2201,7 @@ _ZN26SuperWordVTransformBuilder19set_req_with_scalarEP4NodeP14VTransformNodeR9Ve
   %47 = shl nuw i32 1, %46
   %48 = load ptr, ptr %9, align 8
   %49 = zext nneg i32 %43 to i64
-  %50 = getelementptr inbounds i32, ptr %48, i64 %49
+  %50 = getelementptr inbounds nuw i32, ptr %48, i64 %49
   %51 = load i32, ptr %50, align 4
   %52 = or i32 %51, %47
   store i32 %52, ptr %50, align 4
@@ -2224,14 +2224,14 @@ declare noundef zeroext i1 @_ZN10VectorNode12is_muladds2iEPK4Node(ptr noundef) l
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN26SuperWordVTransformBuilder34get_vtnode_or_wrap_as_input_scalarEP4Node(ptr nocapture noundef nonnull align 8 dereferenceable(2088) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
-  %4 = getelementptr inbounds i8, ptr %1, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %5 = load i32, ptr %4, align 8
   %6 = lshr i32 %5, 3
   %7 = xor i32 %6, %5
   %8 = and i32 %7, 255
   %9 = zext nneg i32 %8 to i64
-  %10 = getelementptr inbounds ptr, ptr %3, i64 %9
+  %10 = getelementptr inbounds nuw ptr, ptr %3, i64 %9
   %11 = load ptr, ptr %10, align 8
   %.not11.i.i.i.i = icmp eq ptr %11, null
   br i1 %.not11.i.i.i.i, label %_ZNK26SuperWordVTransformBuilder18get_vtnode_or_nullEP4Node.exit.thread, label %.lr.ph.i.i.i.i
@@ -2243,51 +2243,51 @@ define hidden noundef ptr @_ZN26SuperWordVTransformBuilder34get_vtnode_or_wrap_a
   br i1 %14, label %15, label %19
 
 15:                                               ; preds = %.lr.ph.i.i.i.i
-  %16 = getelementptr inbounds i8, ptr %12, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %17 = load i32, ptr %16, align 4
   %18 = icmp eq i32 %5, %17
   br i1 %18, label %_ZNK26SuperWordVTransformBuilder18get_vtnode_or_nullEP4Node.exit, label %19
 
 19:                                               ; preds = %15, %.lr.ph.i.i.i.i
-  %20 = getelementptr inbounds i8, ptr %12, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %21 = load ptr, ptr %20, align 8
   %.not.i.i.i.i = icmp eq ptr %21, null
   br i1 %.not.i.i.i.i, label %_ZNK26SuperWordVTransformBuilder18get_vtnode_or_nullEP4Node.exit.thread, label %.lr.ph.i.i.i.i, !llvm.loop !17
 
 _ZNK26SuperWordVTransformBuilder18get_vtnode_or_nullEP4Node.exit: ; preds = %15
-  %22 = getelementptr inbounds i8, ptr %12, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %23 = load ptr, ptr %22, align 8
   %.not = icmp eq ptr %23, null
   br i1 %.not, label %_ZNK26SuperWordVTransformBuilder18get_vtnode_or_nullEP4Node.exit.thread, label %69
 
 _ZNK26SuperWordVTransformBuilder18get_vtnode_or_nullEP4Node.exit.thread: ; preds = %19, %2, %_ZNK26SuperWordVTransformBuilder18get_vtnode_or_nullEP4Node.exit
-  %24 = getelementptr inbounds i8, ptr %0, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = tail call noundef ptr @_ZN8ArenaObjnwEmP5Arena(i64 noundef 72, ptr noundef nonnull %26) #8
   %28 = icmp eq ptr %27, null
   br i1 %28, label %54, label %29
 
 29:                                               ; preds = %_ZNK26SuperWordVTransformBuilder18get_vtnode_or_nullEP4Node.exit.thread
   %30 = load ptr, ptr %24, align 8
-  %31 = getelementptr inbounds i8, ptr %1, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %32 = load i32, ptr %31, align 8
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV14VTransformNode, i64 16), ptr %27, align 8
-  %33 = getelementptr inbounds i8, ptr %27, i64 8
-  %34 = getelementptr inbounds i8, ptr %30, i64 80
+  %33 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %30, i64 80
   %35 = load i32, ptr %34, align 8
   %36 = add nsw i32 %35, 1
   store i32 %36, ptr %34, align 8
   store i32 %35, ptr %33, align 8
-  %37 = getelementptr inbounds i8, ptr %27, i64 12
+  %37 = getelementptr inbounds nuw i8, ptr %27, i64 12
   store i32 %32, ptr %37, align 4
-  %38 = getelementptr inbounds i8, ptr %27, i64 16
-  %39 = getelementptr inbounds i8, ptr %30, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %27, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %40 = tail call noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef %32, i32 noundef 8, ptr noundef nonnull %39) #8
   store i32 %32, ptr %38, align 4
-  %41 = getelementptr inbounds i8, ptr %27, i64 20
+  %41 = getelementptr inbounds nuw i8, ptr %27, i64 20
   store i32 %32, ptr %41, align 4
-  %42 = getelementptr inbounds i8, ptr %27, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %27, i64 24
   store ptr %40, ptr %42, align 8
   %43 = icmp sgt i32 %32, 0
   br i1 %43, label %.lr.ph.preheader.i.i.i.i.i, label %_ZN25VTransformInputScalarNodeC2ER10VTransformP4Node.exit
@@ -2299,22 +2299,22 @@ _ZNK26SuperWordVTransformBuilder18get_vtnode_or_nullEP4Node.exit.thread: ; preds
   br label %_ZN25VTransformInputScalarNodeC2ER10VTransformP4Node.exit
 
 _ZN25VTransformInputScalarNodeC2ER10VTransformP4Node.exit: ; preds = %29, %.lr.ph.preheader.i.i.i.i.i
-  %45 = getelementptr inbounds i8, ptr %30, i64 64
-  %46 = getelementptr inbounds i8, ptr %27, i64 32
+  %45 = getelementptr inbounds nuw i8, ptr %30, i64 64
+  %46 = getelementptr inbounds nuw i8, ptr %27, i64 32
   %47 = ptrtoint ptr %39 to i64
   store i64 %47, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %27, i64 40
+  %48 = getelementptr inbounds nuw i8, ptr %27, i64 40
   %49 = tail call noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef 4, i32 noundef 8, ptr noundef nonnull %39) #8
   store i32 0, ptr %48, align 4
-  %50 = getelementptr inbounds i8, ptr %27, i64 44
+  %50 = getelementptr inbounds nuw i8, ptr %27, i64 44
   store i32 4, ptr %50, align 4
-  %51 = getelementptr inbounds i8, ptr %27, i64 48
+  %51 = getelementptr inbounds nuw i8, ptr %27, i64 48
   store ptr %49, ptr %51, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %49, i8 0, i64 32, i1 false)
-  %52 = getelementptr inbounds i8, ptr %27, i64 56
+  %52 = getelementptr inbounds nuw i8, ptr %27, i64 56
   store i64 %47, ptr %52, align 8
   tail call void @_ZN15VTransformGraph10add_vtnodeEP14VTransformNode(ptr noundef nonnull align 8 dereferenceable(72) %45, ptr noundef nonnull align 8 dereferenceable(72) %27) #8
-  %53 = getelementptr inbounds i8, ptr %27, i64 64
+  %53 = getelementptr inbounds nuw i8, ptr %27, i64 64
   store ptr %1, ptr %53, align 8
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV25VTransformInputScalarNode, i64 16), ptr %27, align 8
   br label %54
@@ -2325,18 +2325,18 @@ _ZN25VTransformInputScalarNodeC2ER10VTransformP4Node.exit: ; preds = %29, %.lr.p
   %57 = xor i32 %56, %55
   %58 = and i32 %57, 255
   %59 = zext nneg i32 %58 to i64
-  %60 = getelementptr inbounds ptr, ptr %3, i64 %59
+  %60 = getelementptr inbounds nuw ptr, ptr %3, i64 %59
   %61 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 24, i32 noundef 0) #8
   %62 = load ptr, ptr %60, align 8
   store i32 %57, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %61, i64 4
+  %63 = getelementptr inbounds nuw i8, ptr %61, i64 4
   store i32 %55, ptr %63, align 4
-  %64 = getelementptr inbounds i8, ptr %61, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %61, i64 8
   store ptr %27, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %61, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %61, i64 16
   store ptr %62, ptr %65, align 8
   store ptr %61, ptr %60, align 8
-  %66 = getelementptr inbounds i8, ptr %0, i64 2080
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 2080
   %67 = load i32, ptr %66, align 8
   %68 = add nsw i32 %67, 1
   store i32 %68, ptr %66, align 8
@@ -2349,27 +2349,27 @@ _ZN25VTransformInputScalarNodeC2ER10VTransformP4Node.exit: ; preds = %29, %.lr.p
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN26SuperWordVTransformBuilder40get_or_make_vtnode_vector_input_at_indexEPK9Node_Listi(ptr nocapture noundef nonnull align 8 dereferenceable(2088) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noundef ptr @_ZNK7PackSet35strided_pack_input_at_index_or_nullEPK9Node_Listiii(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef nonnull %1, i32 noundef %2, i32 noundef 1, i32 noundef 0) #8
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %36, label %10
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %9, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
-  %15 = getelementptr inbounds i8, ptr %13, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 40
   %16 = load i32, ptr %15, align 8
   %17 = lshr i32 %16, 3
   %18 = xor i32 %17, %16
   %19 = and i32 %18, 255
   %20 = zext nneg i32 %19 to i64
-  %21 = getelementptr inbounds ptr, ptr %14, i64 %20
+  %21 = getelementptr inbounds nuw ptr, ptr %14, i64 %20
   %22 = load ptr, ptr %21, align 8
   %.not11.i.i.i.i.i = icmp eq ptr %22, null
   br i1 %.not11.i.i.i.i.i, label %_ZNK26SuperWordVTransformBuilder10get_vtnodeEP4Node.exit, label %.lr.ph.i.i.i.i.i
@@ -2381,19 +2381,19 @@ define hidden noundef ptr @_ZN26SuperWordVTransformBuilder40get_or_make_vtnode_v
   br i1 %25, label %26, label %30
 
 26:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %27 = getelementptr inbounds i8, ptr %23, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %28 = load i32, ptr %27, align 4
   %29 = icmp eq i32 %16, %28
   br i1 %29, label %33, label %30
 
 30:                                               ; preds = %26, %.lr.ph.i.i.i.i.i
-  %31 = getelementptr inbounds i8, ptr %23, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %32 = load ptr, ptr %31, align 8
   %.not.i.i.i.i.i = icmp eq ptr %32, null
   br i1 %.not.i.i.i.i.i, label %_ZNK26SuperWordVTransformBuilder10get_vtnodeEP4Node.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !17
 
 33:                                               ; preds = %26
-  %34 = getelementptr inbounds i8, ptr %23, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %35 = load ptr, ptr %34, align 8
   br label %_ZNK26SuperWordVTransformBuilder10get_vtnodeEP4Node.exit
 
@@ -2408,17 +2408,17 @@ define hidden noundef ptr @_ZN26SuperWordVTransformBuilder40get_or_make_vtnode_v
   br i1 %.not62, label %67, label %41
 
 41:                                               ; preds = %38
-  %42 = getelementptr inbounds i8, ptr %40, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %43 = load ptr, ptr %42, align 8
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %0, i64 32
-  %46 = getelementptr inbounds i8, ptr %44, i64 40
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %46 = getelementptr inbounds nuw i8, ptr %44, i64 40
   %47 = load i32, ptr %46, align 8
   %48 = lshr i32 %47, 3
   %49 = xor i32 %48, %47
   %50 = and i32 %49, 255
   %51 = zext nneg i32 %50 to i64
-  %52 = getelementptr inbounds ptr, ptr %45, i64 %51
+  %52 = getelementptr inbounds nuw ptr, ptr %45, i64 %51
   %53 = load ptr, ptr %52, align 8
   %.not11.i.i.i.i.i66 = icmp eq ptr %53, null
   br i1 %.not11.i.i.i.i.i66, label %_ZNK26SuperWordVTransformBuilder10get_vtnodeEP4Node.exit, label %.lr.ph.i.i.i.i.i67
@@ -2430,19 +2430,19 @@ define hidden noundef ptr @_ZN26SuperWordVTransformBuilder40get_or_make_vtnode_v
   br i1 %56, label %57, label %61
 
 57:                                               ; preds = %.lr.ph.i.i.i.i.i67
-  %58 = getelementptr inbounds i8, ptr %54, i64 4
+  %58 = getelementptr inbounds nuw i8, ptr %54, i64 4
   %59 = load i32, ptr %58, align 4
   %60 = icmp eq i32 %47, %59
   br i1 %60, label %64, label %61
 
 61:                                               ; preds = %57, %.lr.ph.i.i.i.i.i67
-  %62 = getelementptr inbounds i8, ptr %54, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %63 = load ptr, ptr %62, align 8
   %.not.i.i.i.i.i68 = icmp eq ptr %63, null
   br i1 %.not.i.i.i.i.i68, label %_ZNK26SuperWordVTransformBuilder10get_vtnodeEP4Node.exit, label %.lr.ph.i.i.i.i.i67, !llvm.loop !17
 
 64:                                               ; preds = %57
-  %65 = getelementptr inbounds i8, ptr %54, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %66 = load ptr, ptr %65, align 8
   br label %_ZNK26SuperWordVTransformBuilder10get_vtnodeEP4Node.exit
 
@@ -2453,17 +2453,17 @@ define hidden noundef ptr @_ZN26SuperWordVTransformBuilder40get_or_make_vtnode_v
   br i1 %.not63, label %96, label %70
 
 70:                                               ; preds = %67
-  %71 = getelementptr inbounds i8, ptr %69, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %69, i64 16
   %72 = load ptr, ptr %71, align 8
   %73 = load ptr, ptr %72, align 8
-  %74 = getelementptr inbounds i8, ptr %0, i64 32
-  %75 = getelementptr inbounds i8, ptr %73, i64 40
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %75 = getelementptr inbounds nuw i8, ptr %73, i64 40
   %76 = load i32, ptr %75, align 8
   %77 = lshr i32 %76, 3
   %78 = xor i32 %77, %76
   %79 = and i32 %78, 255
   %80 = zext nneg i32 %79 to i64
-  %81 = getelementptr inbounds ptr, ptr %74, i64 %80
+  %81 = getelementptr inbounds nuw ptr, ptr %74, i64 %80
   %82 = load ptr, ptr %81, align 8
   %.not11.i.i.i.i.i70 = icmp eq ptr %82, null
   br i1 %.not11.i.i.i.i.i70, label %_ZNK26SuperWordVTransformBuilder10get_vtnodeEP4Node.exit, label %.lr.ph.i.i.i.i.i71
@@ -2475,19 +2475,19 @@ define hidden noundef ptr @_ZN26SuperWordVTransformBuilder40get_or_make_vtnode_v
   br i1 %85, label %86, label %90
 
 86:                                               ; preds = %.lr.ph.i.i.i.i.i71
-  %87 = getelementptr inbounds i8, ptr %83, i64 4
+  %87 = getelementptr inbounds nuw i8, ptr %83, i64 4
   %88 = load i32, ptr %87, align 4
   %89 = icmp eq i32 %76, %88
   br i1 %89, label %93, label %90
 
 90:                                               ; preds = %86, %.lr.ph.i.i.i.i.i71
-  %91 = getelementptr inbounds i8, ptr %83, i64 16
+  %91 = getelementptr inbounds nuw i8, ptr %83, i64 16
   %92 = load ptr, ptr %91, align 8
   %.not.i.i.i.i.i72 = icmp eq ptr %92, null
   br i1 %.not.i.i.i.i.i72, label %_ZNK26SuperWordVTransformBuilder10get_vtnodeEP4Node.exit, label %.lr.ph.i.i.i.i.i71, !llvm.loop !17
 
 93:                                               ; preds = %86
-  %94 = getelementptr inbounds i8, ptr %83, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %83, i64 8
   %95 = load ptr, ptr %94, align 8
   br label %_ZNK26SuperWordVTransformBuilder10get_vtnodeEP4Node.exit
 
@@ -2498,14 +2498,14 @@ define hidden noundef ptr @_ZN26SuperWordVTransformBuilder40get_or_make_vtnode_v
   br i1 %cond, label %99, label %181
 
 99:                                               ; preds = %96
-  %100 = getelementptr inbounds i8, ptr %6, i64 8
+  %100 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %101 = load ptr, ptr %100, align 8
   %102 = zext i32 %2 to i64
-  %103 = getelementptr inbounds ptr, ptr %101, i64 %102
+  %103 = getelementptr inbounds nuw ptr, ptr %101, i64 %102
   %104 = load ptr, ptr %103, align 8
-  %105 = getelementptr inbounds i8, ptr %0, i64 8
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %106 = load ptr, ptr %105, align 8
-  %107 = getelementptr inbounds i8, ptr %106, i64 40
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 40
   %108 = load ptr, ptr %107, align 8
   %109 = icmp eq ptr %104, %108
   br i1 %109, label %110, label %386
@@ -2513,18 +2513,18 @@ define hidden noundef ptr @_ZN26SuperWordVTransformBuilder40get_or_make_vtnode_v
 110:                                              ; preds = %99
   %111 = tail call noundef ptr @_ZN26SuperWordVTransformBuilder34get_vtnode_or_wrap_as_input_scalarEP4Node(ptr noundef nonnull align 8 dereferenceable(2088) %0, ptr noundef %108)
   %112 = load ptr, ptr %0, align 8
-  %113 = getelementptr inbounds i8, ptr %112, i64 208
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 208
   %114 = load ptr, ptr %113, align 8
-  %115 = getelementptr inbounds i8, ptr %114, i64 32
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 32
   %116 = load ptr, ptr %115, align 8
-  %117 = getelementptr inbounds i8, ptr %6, i64 40
+  %117 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %118 = load i32, ptr %117, align 8
-  %119 = getelementptr inbounds i8, ptr %116, i64 8
+  %119 = getelementptr inbounds nuw i8, ptr %116, i64 8
   %120 = load ptr, ptr %119, align 8
   %121 = sext i32 %118 to i64
   %122 = getelementptr inbounds i32, ptr %120, i64 %121
   %123 = load i32, ptr %122, align 4
-  %124 = getelementptr inbounds i8, ptr %112, i64 224
+  %124 = getelementptr inbounds nuw i8, ptr %112, i64 224
   %125 = load ptr, ptr %124, align 8
   %126 = sext i32 %123 to i64
   %127 = getelementptr inbounds ptr, ptr %125, i64 %126
@@ -2533,60 +2533,60 @@ define hidden noundef ptr @_ZN26SuperWordVTransformBuilder40get_or_make_vtnode_v
   %130 = add i8 %129, -4
   %switch.and.i = and i8 %130, -6
   %switch.selectcmp.i = icmp eq i8 %switch.and.i, 0
-  %131 = getelementptr inbounds i8, ptr %0, i64 24
+  %131 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %132 = load ptr, ptr %131, align 8
-  %133 = getelementptr inbounds i8, ptr %132, i64 16
+  %133 = getelementptr inbounds nuw i8, ptr %132, i64 16
   %134 = tail call noundef ptr @_ZN8ArenaObjnwEmP5Arena(i64 noundef 72, ptr noundef nonnull %133) #8
   %135 = icmp ne ptr %134, null
   tail call void @llvm.assume(i1 %135)
   %136 = select i1 %switch.selectcmp.i, i8 %129, i8 10
   %137 = load ptr, ptr %131, align 8
-  %138 = getelementptr inbounds i8, ptr %1, i64 24
+  %138 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %139 = load i32, ptr %138, align 8
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV14VTransformNode, i64 16), ptr %134, align 8
-  %140 = getelementptr inbounds i8, ptr %134, i64 8
-  %141 = getelementptr inbounds i8, ptr %137, i64 80
+  %140 = getelementptr inbounds nuw i8, ptr %134, i64 8
+  %141 = getelementptr inbounds nuw i8, ptr %137, i64 80
   %142 = load i32, ptr %141, align 8
   %143 = add nsw i32 %142, 1
   store i32 %143, ptr %141, align 8
   store i32 %142, ptr %140, align 8
-  %144 = getelementptr inbounds i8, ptr %134, i64 12
+  %144 = getelementptr inbounds nuw i8, ptr %134, i64 12
   store i32 2, ptr %144, align 4
-  %145 = getelementptr inbounds i8, ptr %134, i64 16
-  %146 = getelementptr inbounds i8, ptr %137, i64 16
+  %145 = getelementptr inbounds nuw i8, ptr %134, i64 16
+  %146 = getelementptr inbounds nuw i8, ptr %137, i64 16
   %147 = tail call noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef 2, i32 noundef 8, ptr noundef nonnull %146) #8
   store i32 2, ptr %145, align 4
-  %148 = getelementptr inbounds i8, ptr %134, i64 20
+  %148 = getelementptr inbounds nuw i8, ptr %134, i64 20
   store i32 2, ptr %148, align 4
-  %149 = getelementptr inbounds i8, ptr %134, i64 24
+  %149 = getelementptr inbounds nuw i8, ptr %134, i64 24
   store ptr %147, ptr %149, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %147, i8 0, i64 16, i1 false)
-  %150 = getelementptr inbounds i8, ptr %137, i64 64
-  %151 = getelementptr inbounds i8, ptr %134, i64 32
+  %150 = getelementptr inbounds nuw i8, ptr %137, i64 64
+  %151 = getelementptr inbounds nuw i8, ptr %134, i64 32
   %152 = ptrtoint ptr %146 to i64
   store i64 %152, ptr %151, align 8
-  %153 = getelementptr inbounds i8, ptr %134, i64 40
+  %153 = getelementptr inbounds nuw i8, ptr %134, i64 40
   %154 = tail call noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef 4, i32 noundef 8, ptr noundef nonnull %146) #8
   store i32 0, ptr %153, align 4
-  %155 = getelementptr inbounds i8, ptr %134, i64 44
+  %155 = getelementptr inbounds nuw i8, ptr %134, i64 44
   store i32 4, ptr %155, align 4
-  %156 = getelementptr inbounds i8, ptr %134, i64 48
+  %156 = getelementptr inbounds nuw i8, ptr %134, i64 48
   store ptr %154, ptr %156, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %154, i8 0, i64 32, i1 false)
-  %157 = getelementptr inbounds i8, ptr %134, i64 56
+  %157 = getelementptr inbounds nuw i8, ptr %134, i64 56
   store i64 %152, ptr %157, align 8
   tail call void @_ZN15VTransformGraph10add_vtnodeEP14VTransformNode(ptr noundef nonnull align 8 dereferenceable(72) %150, ptr noundef nonnull align 8 dereferenceable(69) %134) #8
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV27VTransformPopulateIndexNode, i64 16), ptr %134, align 8
-  %158 = getelementptr inbounds i8, ptr %134, i64 64
+  %158 = getelementptr inbounds nuw i8, ptr %134, i64 64
   store i32 %139, ptr %158, align 8
-  %159 = getelementptr inbounds i8, ptr %134, i64 68
+  %159 = getelementptr inbounds nuw i8, ptr %134, i64 68
   store i8 %136, ptr %159, align 4
   %160 = load ptr, ptr %149, align 8
-  %161 = getelementptr inbounds i8, ptr %160, i64 8
+  %161 = getelementptr inbounds nuw i8, ptr %160, i64 8
   store ptr %111, ptr %161, align 8
-  %162 = getelementptr inbounds i8, ptr %111, i64 40
+  %162 = getelementptr inbounds nuw i8, ptr %111, i64 40
   %163 = load i32, ptr %162, align 8
-  %164 = getelementptr inbounds i8, ptr %111, i64 44
+  %164 = getelementptr inbounds nuw i8, ptr %111, i64 44
   %165 = load i32, ptr %164, align 4
   %166 = icmp eq i32 %163, %165
   br i1 %166, label %167, label %_ZN14VTransformNode7set_reqEjPS_.exit
@@ -2609,7 +2609,7 @@ _ZN14VTransformNode7set_reqEjPS_.exit:            ; preds = %110, %167
   %175 = phi i32 [ %.pre.i.i.i.i, %167 ], [ %163, %110 ]
   %176 = add nsw i32 %175, 1
   store i32 %176, ptr %162, align 8
-  %177 = getelementptr inbounds i8, ptr %111, i64 48
+  %177 = getelementptr inbounds nuw i8, ptr %111, i64 48
   %178 = load ptr, ptr %177, align 8
   %179 = sext i32 %175 to i64
   %180 = getelementptr inbounds ptr, ptr %178, i64 %179
@@ -2627,90 +2627,90 @@ _ZN14VTransformNode7set_reqEjPS_.exit:            ; preds = %110, %167
 
 186:                                              ; preds = %184
   %187 = load ptr, ptr %0, align 8
-  %188 = getelementptr inbounds i8, ptr %187, i64 208
+  %188 = getelementptr inbounds nuw i8, ptr %187, i64 208
   %189 = load ptr, ptr %188, align 8
-  %190 = getelementptr inbounds i8, ptr %189, i64 32
+  %190 = getelementptr inbounds nuw i8, ptr %189, i64 32
   %191 = load ptr, ptr %190, align 8
-  %192 = getelementptr inbounds i8, ptr %6, i64 40
+  %192 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %193 = load i32, ptr %192, align 8
-  %194 = getelementptr inbounds i8, ptr %191, i64 8
+  %194 = getelementptr inbounds nuw i8, ptr %191, i64 8
   %195 = load ptr, ptr %194, align 8
   %196 = sext i32 %193 to i64
   %197 = getelementptr inbounds i32, ptr %195, i64 %196
   %198 = load i32, ptr %197, align 4
-  %199 = getelementptr inbounds i8, ptr %187, i64 224
+  %199 = getelementptr inbounds nuw i8, ptr %187, i64 224
   %200 = load ptr, ptr %199, align 8
   %201 = sext i32 %198 to i64
   %202 = getelementptr inbounds ptr, ptr %200, i64 %201
   %203 = load ptr, ptr %202, align 8
   %204 = tail call noundef zeroext i8 @_ZNK4Type24array_element_basic_typeEv(ptr noundef nonnull align 8 dereferenceable(20) %203) #8
   %205 = load ptr, ptr %6, align 8
-  %206 = getelementptr inbounds i8, ptr %205, i64 40
+  %206 = getelementptr inbounds nuw i8, ptr %205, i64 40
   %207 = load ptr, ptr %206, align 8
   %208 = tail call noundef ptr %207(ptr noundef nonnull align 8 dereferenceable(52) %6) #8
   %209 = load ptr, ptr @_ZN7TypeInt3INTE, align 8
-  %210 = getelementptr inbounds i8, ptr %0, i64 24
+  %210 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %211 = load ptr, ptr %210, align 8
-  %212 = getelementptr inbounds i8, ptr %211, i64 16
+  %212 = getelementptr inbounds nuw i8, ptr %211, i64 16
   %213 = tail call noundef ptr @_ZN8ArenaObjnwEmP5Arena(i64 noundef 80, ptr noundef nonnull %212) #8
   %214 = icmp ne ptr %213, null
   tail call void @llvm.assume(i1 %214)
   %215 = icmp eq ptr %208, %209
   %216 = select i1 %215, i32 31, i32 63
   %217 = load ptr, ptr %210, align 8
-  %218 = getelementptr inbounds i8, ptr %1, i64 24
+  %218 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %219 = load i32, ptr %218, align 8
   %220 = load ptr, ptr %6, align 8
   %221 = load ptr, ptr %220, align 8
   %222 = tail call noundef i32 %221(ptr noundef nonnull align 8 dereferenceable(52) %6) #8
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV14VTransformNode, i64 16), ptr %213, align 8
-  %223 = getelementptr inbounds i8, ptr %213, i64 8
-  %224 = getelementptr inbounds i8, ptr %217, i64 80
+  %223 = getelementptr inbounds nuw i8, ptr %213, i64 8
+  %224 = getelementptr inbounds nuw i8, ptr %217, i64 80
   %225 = load i32, ptr %224, align 8
   %226 = add nsw i32 %225, 1
   store i32 %226, ptr %224, align 8
   store i32 %225, ptr %223, align 8
-  %227 = getelementptr inbounds i8, ptr %213, i64 12
+  %227 = getelementptr inbounds nuw i8, ptr %213, i64 12
   store i32 2, ptr %227, align 4
-  %228 = getelementptr inbounds i8, ptr %213, i64 16
-  %229 = getelementptr inbounds i8, ptr %217, i64 16
+  %228 = getelementptr inbounds nuw i8, ptr %213, i64 16
+  %229 = getelementptr inbounds nuw i8, ptr %217, i64 16
   %230 = tail call noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef 2, i32 noundef 8, ptr noundef nonnull %229) #8
   store i32 2, ptr %228, align 4
-  %231 = getelementptr inbounds i8, ptr %213, i64 20
+  %231 = getelementptr inbounds nuw i8, ptr %213, i64 20
   store i32 2, ptr %231, align 4
-  %232 = getelementptr inbounds i8, ptr %213, i64 24
+  %232 = getelementptr inbounds nuw i8, ptr %213, i64 24
   store ptr %230, ptr %232, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %230, i8 0, i64 16, i1 false)
-  %233 = getelementptr inbounds i8, ptr %217, i64 64
-  %234 = getelementptr inbounds i8, ptr %213, i64 32
+  %233 = getelementptr inbounds nuw i8, ptr %217, i64 64
+  %234 = getelementptr inbounds nuw i8, ptr %213, i64 32
   %235 = ptrtoint ptr %229 to i64
   store i64 %235, ptr %234, align 8
-  %236 = getelementptr inbounds i8, ptr %213, i64 40
+  %236 = getelementptr inbounds nuw i8, ptr %213, i64 40
   %237 = tail call noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef 4, i32 noundef 8, ptr noundef nonnull %229) #8
   store i32 0, ptr %236, align 4
-  %238 = getelementptr inbounds i8, ptr %213, i64 44
+  %238 = getelementptr inbounds nuw i8, ptr %213, i64 44
   store i32 4, ptr %238, align 4
-  %239 = getelementptr inbounds i8, ptr %213, i64 48
+  %239 = getelementptr inbounds nuw i8, ptr %213, i64 48
   store ptr %237, ptr %239, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %237, i8 0, i64 32, i1 false)
-  %240 = getelementptr inbounds i8, ptr %213, i64 56
+  %240 = getelementptr inbounds nuw i8, ptr %213, i64 56
   store i64 %235, ptr %240, align 8
   tail call void @_ZN15VTransformGraph10add_vtnodeEP14VTransformNode(ptr noundef nonnull align 8 dereferenceable(72) %233, ptr noundef nonnull align 8 dereferenceable(80) %213) #8
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV24VTransformShiftCountNode, i64 16), ptr %213, align 8
-  %241 = getelementptr inbounds i8, ptr %213, i64 64
+  %241 = getelementptr inbounds nuw i8, ptr %213, i64 64
   store i32 %219, ptr %241, align 8
-  %242 = getelementptr inbounds i8, ptr %213, i64 68
+  %242 = getelementptr inbounds nuw i8, ptr %213, i64 68
   store i8 %204, ptr %242, align 4
-  %243 = getelementptr inbounds i8, ptr %213, i64 72
+  %243 = getelementptr inbounds nuw i8, ptr %213, i64 72
   store i32 %216, ptr %243, align 8
-  %244 = getelementptr inbounds i8, ptr %213, i64 76
+  %244 = getelementptr inbounds nuw i8, ptr %213, i64 76
   store i32 %222, ptr %244, align 4
   %245 = load ptr, ptr %232, align 8
-  %246 = getelementptr inbounds i8, ptr %245, i64 8
+  %246 = getelementptr inbounds nuw i8, ptr %245, i64 8
   store ptr %182, ptr %246, align 8
-  %247 = getelementptr inbounds i8, ptr %182, i64 40
+  %247 = getelementptr inbounds nuw i8, ptr %182, i64 40
   %248 = load i32, ptr %247, align 8
-  %249 = getelementptr inbounds i8, ptr %182, i64 44
+  %249 = getelementptr inbounds nuw i8, ptr %182, i64 44
   %250 = load i32, ptr %249, align 4
   %251 = icmp eq i32 %248, %250
   br i1 %251, label %252, label %_ZN14VTransformNode7set_reqEjPS_.exit77
@@ -2733,7 +2733,7 @@ _ZN14VTransformNode7set_reqEjPS_.exit77:          ; preds = %186, %252
   %260 = phi i32 [ %.pre.i.i.i.i76, %252 ], [ %248, %186 ]
   %261 = add nsw i32 %260, 1
   store i32 %261, ptr %247, align 8
-  %262 = getelementptr inbounds i8, ptr %182, i64 48
+  %262 = getelementptr inbounds nuw i8, ptr %182, i64 48
   %263 = load ptr, ptr %262, align 8
   %264 = sext i32 %260 to i64
   %265 = getelementptr inbounds ptr, ptr %263, i64 %264
@@ -2742,18 +2742,18 @@ _ZN14VTransformNode7set_reqEjPS_.exit77:          ; preds = %186, %252
 
 266:                                              ; preds = %184, %181
   %267 = load ptr, ptr %0, align 8
-  %268 = getelementptr inbounds i8, ptr %267, i64 208
+  %268 = getelementptr inbounds nuw i8, ptr %267, i64 208
   %269 = load ptr, ptr %268, align 8
-  %270 = getelementptr inbounds i8, ptr %269, i64 32
+  %270 = getelementptr inbounds nuw i8, ptr %269, i64 32
   %271 = load ptr, ptr %270, align 8
-  %272 = getelementptr inbounds i8, ptr %6, i64 40
+  %272 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %273 = load i32, ptr %272, align 8
-  %274 = getelementptr inbounds i8, ptr %271, i64 8
+  %274 = getelementptr inbounds nuw i8, ptr %271, i64 8
   %275 = load ptr, ptr %274, align 8
   %276 = sext i32 %273 to i64
   %277 = getelementptr inbounds i32, ptr %275, i64 %276
   %278 = load i32, ptr %277, align 4
-  %279 = getelementptr inbounds i8, ptr %267, i64 224
+  %279 = getelementptr inbounds nuw i8, ptr %267, i64 224
   %280 = load ptr, ptr %279, align 8
   %281 = sext i32 %278 to i64
   %282 = getelementptr inbounds ptr, ptr %280, i64 %281
@@ -2765,7 +2765,7 @@ _ZN14VTransformNode7set_reqEjPS_.exit77:          ; preds = %186, %252
   br i1 %285, label %286, label %336
 
 286:                                              ; preds = %284
-  %287 = getelementptr inbounds i8, ptr %283, i64 16
+  %287 = getelementptr inbounds nuw i8, ptr %283, i64 16
   %288 = load i32, ptr %287, align 8
   %289 = icmp ne i32 %288, 4
   %.not6586 = icmp eq ptr %283, null
@@ -2773,53 +2773,53 @@ _ZN14VTransformNode7set_reqEjPS_.exit77:          ; preds = %186, %252
   br i1 %.not65, label %336, label %290
 
 290:                                              ; preds = %286
-  %291 = getelementptr inbounds i8, ptr %0, i64 24
+  %291 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %292 = load ptr, ptr %291, align 8
-  %293 = getelementptr inbounds i8, ptr %292, i64 16
+  %293 = getelementptr inbounds nuw i8, ptr %292, i64 16
   %294 = tail call noundef ptr @_ZN8ArenaObjnwEmP5Arena(i64 noundef 64, ptr noundef nonnull %293) #8
   %295 = icmp ne ptr %294, null
   tail call void @llvm.assume(i1 %295)
   %296 = load ptr, ptr %291, align 8
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV14VTransformNode, i64 16), ptr %294, align 8
-  %297 = getelementptr inbounds i8, ptr %294, i64 8
-  %298 = getelementptr inbounds i8, ptr %296, i64 80
+  %297 = getelementptr inbounds nuw i8, ptr %294, i64 8
+  %298 = getelementptr inbounds nuw i8, ptr %296, i64 80
   %299 = load i32, ptr %298, align 8
   %300 = add nsw i32 %299, 1
   store i32 %300, ptr %298, align 8
   store i32 %299, ptr %297, align 8
-  %301 = getelementptr inbounds i8, ptr %294, i64 12
+  %301 = getelementptr inbounds nuw i8, ptr %294, i64 12
   store i32 2, ptr %301, align 4
-  %302 = getelementptr inbounds i8, ptr %294, i64 16
-  %303 = getelementptr inbounds i8, ptr %296, i64 16
+  %302 = getelementptr inbounds nuw i8, ptr %294, i64 16
+  %303 = getelementptr inbounds nuw i8, ptr %296, i64 16
   %304 = tail call noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef 2, i32 noundef 8, ptr noundef nonnull %303) #8
   store i32 2, ptr %302, align 4
-  %305 = getelementptr inbounds i8, ptr %294, i64 20
+  %305 = getelementptr inbounds nuw i8, ptr %294, i64 20
   store i32 2, ptr %305, align 4
-  %306 = getelementptr inbounds i8, ptr %294, i64 24
+  %306 = getelementptr inbounds nuw i8, ptr %294, i64 24
   store ptr %304, ptr %306, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %304, i8 0, i64 16, i1 false)
-  %307 = getelementptr inbounds i8, ptr %296, i64 64
-  %308 = getelementptr inbounds i8, ptr %294, i64 32
+  %307 = getelementptr inbounds nuw i8, ptr %296, i64 64
+  %308 = getelementptr inbounds nuw i8, ptr %294, i64 32
   %309 = ptrtoint ptr %303 to i64
   store i64 %309, ptr %308, align 8
-  %310 = getelementptr inbounds i8, ptr %294, i64 40
+  %310 = getelementptr inbounds nuw i8, ptr %294, i64 40
   %311 = tail call noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef 4, i32 noundef 8, ptr noundef nonnull %303) #8
   store i32 0, ptr %310, align 4
-  %312 = getelementptr inbounds i8, ptr %294, i64 44
+  %312 = getelementptr inbounds nuw i8, ptr %294, i64 44
   store i32 4, ptr %312, align 4
-  %313 = getelementptr inbounds i8, ptr %294, i64 48
+  %313 = getelementptr inbounds nuw i8, ptr %294, i64 48
   store ptr %311, ptr %313, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %311, i8 0, i64 32, i1 false)
-  %314 = getelementptr inbounds i8, ptr %294, i64 56
+  %314 = getelementptr inbounds nuw i8, ptr %294, i64 56
   store i64 %309, ptr %314, align 8
   tail call void @_ZN15VTransformGraph10add_vtnodeEP14VTransformNode(ptr noundef nonnull align 8 dereferenceable(72) %307, ptr noundef nonnull align 8 dereferenceable(64) %294) #8
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV21VTransformConvI2LNode, i64 16), ptr %294, align 8
   %315 = load ptr, ptr %306, align 8
-  %316 = getelementptr inbounds i8, ptr %315, i64 8
+  %316 = getelementptr inbounds nuw i8, ptr %315, i64 8
   store ptr %182, ptr %316, align 8
-  %317 = getelementptr inbounds i8, ptr %182, i64 40
+  %317 = getelementptr inbounds nuw i8, ptr %182, i64 40
   %318 = load i32, ptr %317, align 8
-  %319 = getelementptr inbounds i8, ptr %182, i64 44
+  %319 = getelementptr inbounds nuw i8, ptr %182, i64 44
   %320 = load i32, ptr %319, align 4
   %321 = icmp eq i32 %318, %320
   br i1 %321, label %322, label %_ZN14VTransformNode7set_reqEjPS_.exit81
@@ -2842,7 +2842,7 @@ _ZN14VTransformNode7set_reqEjPS_.exit81:          ; preds = %290, %322
   %330 = phi i32 [ %.pre.i.i.i.i80, %322 ], [ %318, %290 ]
   %331 = add nsw i32 %330, 1
   store i32 %331, ptr %317, align 8
-  %332 = getelementptr inbounds i8, ptr %182, i64 48
+  %332 = getelementptr inbounds nuw i8, ptr %182, i64 48
   %333 = load ptr, ptr %332, align 8
   %334 = sext i32 %330 to i64
   %335 = getelementptr inbounds ptr, ptr %333, i64 %334
@@ -2851,59 +2851,59 @@ _ZN14VTransformNode7set_reqEjPS_.exit81:          ; preds = %290, %322
 
 336:                                              ; preds = %_ZN14VTransformNode7set_reqEjPS_.exit81, %286, %284, %266
   %.053 = phi ptr [ %294, %_ZN14VTransformNode7set_reqEjPS_.exit81 ], [ %182, %286 ], [ %182, %284 ], [ %182, %266 ]
-  %337 = getelementptr inbounds i8, ptr %0, i64 24
+  %337 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %338 = load ptr, ptr %337, align 8
-  %339 = getelementptr inbounds i8, ptr %338, i64 16
+  %339 = getelementptr inbounds nuw i8, ptr %338, i64 16
   %340 = tail call noundef ptr @_ZN8ArenaObjnwEmP5Arena(i64 noundef 80, ptr noundef nonnull %339) #8
   %341 = icmp ne ptr %340, null
   tail call void @llvm.assume(i1 %341)
   %342 = load ptr, ptr %337, align 8
-  %343 = getelementptr inbounds i8, ptr %1, i64 24
+  %343 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %344 = load i32, ptr %343, align 8
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV14VTransformNode, i64 16), ptr %340, align 8
-  %345 = getelementptr inbounds i8, ptr %340, i64 8
-  %346 = getelementptr inbounds i8, ptr %342, i64 80
+  %345 = getelementptr inbounds nuw i8, ptr %340, i64 8
+  %346 = getelementptr inbounds nuw i8, ptr %342, i64 80
   %347 = load i32, ptr %346, align 8
   %348 = add nsw i32 %347, 1
   store i32 %348, ptr %346, align 8
   store i32 %347, ptr %345, align 8
-  %349 = getelementptr inbounds i8, ptr %340, i64 12
+  %349 = getelementptr inbounds nuw i8, ptr %340, i64 12
   store i32 2, ptr %349, align 4
-  %350 = getelementptr inbounds i8, ptr %340, i64 16
-  %351 = getelementptr inbounds i8, ptr %342, i64 16
+  %350 = getelementptr inbounds nuw i8, ptr %340, i64 16
+  %351 = getelementptr inbounds nuw i8, ptr %342, i64 16
   %352 = tail call noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef 2, i32 noundef 8, ptr noundef nonnull %351) #8
   store i32 2, ptr %350, align 4
-  %353 = getelementptr inbounds i8, ptr %340, i64 20
+  %353 = getelementptr inbounds nuw i8, ptr %340, i64 20
   store i32 2, ptr %353, align 4
-  %354 = getelementptr inbounds i8, ptr %340, i64 24
+  %354 = getelementptr inbounds nuw i8, ptr %340, i64 24
   store ptr %352, ptr %354, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %352, i8 0, i64 16, i1 false)
-  %355 = getelementptr inbounds i8, ptr %342, i64 64
-  %356 = getelementptr inbounds i8, ptr %340, i64 32
+  %355 = getelementptr inbounds nuw i8, ptr %342, i64 64
+  %356 = getelementptr inbounds nuw i8, ptr %340, i64 32
   %357 = ptrtoint ptr %351 to i64
   store i64 %357, ptr %356, align 8
-  %358 = getelementptr inbounds i8, ptr %340, i64 40
+  %358 = getelementptr inbounds nuw i8, ptr %340, i64 40
   %359 = tail call noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef 4, i32 noundef 8, ptr noundef nonnull %351) #8
   store i32 0, ptr %358, align 4
-  %360 = getelementptr inbounds i8, ptr %340, i64 44
+  %360 = getelementptr inbounds nuw i8, ptr %340, i64 44
   store i32 4, ptr %360, align 4
-  %361 = getelementptr inbounds i8, ptr %340, i64 48
+  %361 = getelementptr inbounds nuw i8, ptr %340, i64 48
   store ptr %359, ptr %361, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %359, i8 0, i64 32, i1 false)
-  %362 = getelementptr inbounds i8, ptr %340, i64 56
+  %362 = getelementptr inbounds nuw i8, ptr %340, i64 56
   store i64 %357, ptr %362, align 8
   tail call void @_ZN15VTransformGraph10add_vtnodeEP14VTransformNode(ptr noundef nonnull align 8 dereferenceable(72) %355, ptr noundef nonnull align 8 dereferenceable(80) %340) #8
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV23VTransformReplicateNode, i64 16), ptr %340, align 8
-  %363 = getelementptr inbounds i8, ptr %340, i64 64
+  %363 = getelementptr inbounds nuw i8, ptr %340, i64 64
   store i32 %344, ptr %363, align 8
-  %364 = getelementptr inbounds i8, ptr %340, i64 72
+  %364 = getelementptr inbounds nuw i8, ptr %340, i64 72
   store ptr %283, ptr %364, align 8
   %365 = load ptr, ptr %354, align 8
-  %366 = getelementptr inbounds i8, ptr %365, i64 8
+  %366 = getelementptr inbounds nuw i8, ptr %365, i64 8
   store ptr %.053, ptr %366, align 8
-  %367 = getelementptr inbounds i8, ptr %.053, i64 40
+  %367 = getelementptr inbounds nuw i8, ptr %.053, i64 40
   %368 = load i32, ptr %367, align 8
-  %369 = getelementptr inbounds i8, ptr %.053, i64 44
+  %369 = getelementptr inbounds nuw i8, ptr %.053, i64 44
   %370 = load i32, ptr %369, align 4
   %371 = icmp eq i32 %368, %370
   br i1 %371, label %372, label %_ZN14VTransformNode7set_reqEjPS_.exit85
@@ -2926,7 +2926,7 @@ _ZN14VTransformNode7set_reqEjPS_.exit85:          ; preds = %336, %372
   %380 = phi i32 [ %.pre.i.i.i.i84, %372 ], [ %368, %336 ]
   %381 = add nsw i32 %380, 1
   store i32 %381, ptr %367, align 8
-  %382 = getelementptr inbounds i8, ptr %.053, i64 48
+  %382 = getelementptr inbounds nuw i8, ptr %.053, i64 48
   %383 = load ptr, ptr %382, align 8
   %384 = sext i32 %380 to i64
   %385 = getelementptr inbounds ptr, ptr %383, i64 %384
@@ -3003,21 +3003,21 @@ declare void @_Z15report_vm_errorPKciS0_S0_z(ptr noundef, i32 noundef, ptr nound
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN20VTransformVectorNodeC2ER10VTransformjj(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(148) %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV14VTransformNode, i64 16), ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 80
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %7 = load i32, ptr %6, align 8
   %8 = add nsw i32 %7, 1
   store i32 %8, ptr %6, align 8
   store i32 %7, ptr %5, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 12
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %2, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = tail call noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef %2, i32 noundef 8, ptr noundef nonnull %11) #8
   store i32 %2, ptr %10, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 20
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %2, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %0, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %12, ptr %14, align 8
   %15 = icmp sgt i32 %2, 0
   br i1 %15, label %.lr.ph.preheader.i.i.i, label %_ZN14VTransformNodeC2ER10VTransformj.exit
@@ -3029,28 +3029,28 @@ define linkonce_odr hidden void @_ZN20VTransformVectorNodeC2ER10VTransformjj(ptr
   br label %_ZN14VTransformNodeC2ER10VTransformj.exit
 
 _ZN14VTransformNodeC2ER10VTransformj.exit:        ; preds = %4, %.lr.ph.preheader.i.i.i
-  %17 = getelementptr inbounds i8, ptr %1, i64 64
-  %18 = getelementptr inbounds i8, ptr %0, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %19 = ptrtoint ptr %11 to i64
   store i64 %19, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %21 = tail call noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef 4, i32 noundef 8, ptr noundef nonnull %11) #8
   store i32 0, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 44
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i32 4, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %0, i64 48
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %21, ptr %23, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %21, i8 0, i64 32, i1 false)
-  %24 = getelementptr inbounds i8, ptr %0, i64 56
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 %19, ptr %24, align 8
   tail call void @_ZN15VTransformGraph10add_vtnodeEP14VTransformNode(ptr noundef nonnull align 8 dereferenceable(72) %17, ptr noundef nonnull align 8 dereferenceable(64) %0) #8
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV20VTransformVectorNode, i64 16), ptr %0, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 64
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %26 = tail call noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef %3, i32 noundef 8, ptr noundef nonnull %11) #8
   store i32 %3, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 68
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i32 %3, ptr %27, align 4
-  %28 = getelementptr inbounds i8, ptr %0, i64 72
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %26, ptr %28, align 8
   %29 = icmp sgt i32 %3, 0
   br i1 %29, label %.lr.ph.preheader.i.i, label %_ZN13GrowableArrayIP4NodeEC2EP5ArenaiiRKS1_.exit
@@ -3062,7 +3062,7 @@ _ZN14VTransformNodeC2ER10VTransformj.exit:        ; preds = %4, %.lr.ph.preheade
   br label %_ZN13GrowableArrayIP4NodeEC2EP5ArenaiiRKS1_.exit
 
 _ZN13GrowableArrayIP4NodeEC2EP5ArenaiiRKS1_.exit: ; preds = %.lr.ph.preheader.i.i, %_ZN14VTransformNodeC2ER10VTransformj.exit
-  %31 = getelementptr inbounds i8, ptr %0, i64 80
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i64 %19, ptr %31, align 8
   ret void
 }
@@ -3074,9 +3074,9 @@ define linkonce_odr hidden noundef ptr @_ZN20VTransformVectorNode10isa_VectorEv(
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIP14VTransformNode13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #0 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %1, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8
   %6 = icmp eq i64 %5, 0
   br i1 %6, label %7, label %9
@@ -3108,7 +3108,7 @@ _ZN13GrowableArrayIP14VTransformNodeE8allocateEv.exit: ; preds = %7, %11, %15
   br i1 %19, label %.lr.ph, label %.preheader16
 
 .lr.ph:                                           ; preds = %_ZN13GrowableArrayIP14VTransformNodeE8allocateEv.exit
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %25
 
 .preheader16.loopexit:                            ; preds = %25
@@ -3127,9 +3127,9 @@ _ZN13GrowableArrayIP14VTransformNodeE8allocateEv.exit: ; preds = %7, %11, %15
 
 25:                                               ; preds = %.lr.ph, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
-  %26 = getelementptr inbounds ptr, ptr %.0.i, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv
   %27 = load ptr, ptr %20, align 8
-  %28 = getelementptr inbounds ptr, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8
   store ptr %29, ptr %26, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3139,14 +3139,14 @@ _ZN13GrowableArrayIP14VTransformNodeE8allocateEv.exit: ; preds = %7, %11, %15
   br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !20
 
 .preheader:                                       ; preds = %.lr.ph19, %.preheader16
-  %33 = getelementptr inbounds i8, ptr %0, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %34 = load ptr, ptr %33, align 8
   %.not = icmp eq ptr %34, null
   br i1 %.not, label %_ZN13GrowableArrayIP14VTransformNodeE10deallocateEPS1_.exit, label %39
 
 .lr.ph19:                                         ; preds = %.lr.ph19.preheader, %.lr.ph19
   %indvars.iv21 = phi i64 [ %24, %.lr.ph19.preheader ], [ %indvars.iv.next22, %.lr.ph19 ]
-  %35 = getelementptr inbounds ptr, ptr %.0.i, i64 %indvars.iv21
+  %35 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv21
   store ptr null, ptr %35, align 8
   %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
   %36 = load i32, ptr %3, align 4

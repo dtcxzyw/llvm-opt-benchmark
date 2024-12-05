@@ -24,28 +24,28 @@ define dso_local range(i32 -2, 18) i32 @pg_regprefix(ptr noundef readonly %0, pt
   br i1 %.not, label %10, label %39
 
 10:                                               ; preds = %8
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load i32, ptr %11, align 8
   %.not32 = icmp eq i32 %12, 4
   br i1 %.not32, label %13, label %39
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %0, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %15 = load i32, ptr %14, align 8
   tail call void @pg_set_regex_collation(i32 noundef %15) #2
-  %16 = getelementptr inbounds i8, ptr %0, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load i64, ptr %18, align 8
   %20 = and i64 %19, 4096
   %.not33 = icmp eq i64 %20, 0
   br i1 %.not33, label %21, label %39
 
 21:                                               ; preds = %13
-  %22 = getelementptr inbounds i8, ptr %17, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 56
-  %25 = getelementptr inbounds i8, ptr %23, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 56
+  %25 = getelementptr inbounds nuw i8, ptr %23, i64 64
   %26 = load i32, ptr %25, align 8
   %27 = and i32 %26, 2
   %.not34 = icmp eq i32 %27, 0
@@ -61,7 +61,7 @@ define dso_local range(i32 -2, 18) i32 @pg_regprefix(ptr noundef readonly %0, pt
   br i1 %33, label %39, label %34
 
 34:                                               ; preds = %28
-  %35 = getelementptr inbounds i8, ptr %17, i64 104
+  %35 = getelementptr inbounds nuw i8, ptr %17, i64 104
   %36 = tail call fastcc i32 @findprefix(ptr noundef nonnull %24, ptr noundef nonnull %35, ptr noundef %32, ptr noundef %2)
   %or.cond3 = icmp ult i32 %36, -2
   br i1 %or.cond3, label %37, label %39
@@ -84,9 +84,9 @@ declare ptr @palloc_extended(i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -2, 2) i32 @findprefix(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef nonnull writeonly %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 12
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %6 = load i32, ptr %5, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load ptr, ptr %7, align 8
   %9 = sext i32 %6 to i64
   %10 = getelementptr ptr, ptr %8, i64 %9
@@ -96,7 +96,7 @@ define internal fastcc range(i32 -2, 2) i32 @findprefix(ptr nocapture noundef re
   br i1 %.not97, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
-  %13 = getelementptr inbounds i8, ptr %0, i64 20
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %14 = load i16, ptr %13, align 4
   %15 = getelementptr i8, ptr %0, i64 22
   br label %16
@@ -115,7 +115,7 @@ define internal fastcc range(i32 -2, 2) i32 @findprefix(ptr nocapture noundef re
 
 22:                                               ; preds = %19, %16
   %23 = icmp eq i32 %.07198, -1
-  %24 = getelementptr inbounds i8, ptr %.099, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %.099, i64 4
   %25 = load i32, ptr %24, align 4
   br i1 %23, label %27, label %26
 
@@ -135,13 +135,13 @@ define internal fastcc range(i32 -2, 2) i32 @findprefix(ptr nocapture noundef re
   br i1 %30, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %._crit_edge
-  %31 = getelementptr inbounds i8, ptr %0, i64 20
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %32 = getelementptr i8, ptr %0, i64 22
-  %33 = getelementptr inbounds i8, ptr %0, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %34 = getelementptr i8, ptr %0, i64 26
-  %35 = getelementptr inbounds i8, ptr %0, i64 4
-  %36 = getelementptr inbounds i8, ptr %1, i64 40
-  %37 = getelementptr inbounds i8, ptr %1, i64 48
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 48
   br label %38
 
 38:                                               ; preds = %.preheader, %92
@@ -194,7 +194,7 @@ define internal fastcc range(i32 -2, 2) i32 @findprefix(ptr nocapture noundef re
   br i1 %62, label %63, label %66
 
 63:                                               ; preds = %61
-  %64 = getelementptr inbounds i8, ptr %.1103, i64 4
+  %64 = getelementptr inbounds nuw i8, ptr %.1103, i64 4
   %65 = load i32, ptr %64, align 4
   br label %68
 
@@ -223,13 +223,13 @@ define internal fastcc range(i32 -2, 2) i32 @findprefix(ptr nocapture noundef re
   br i1 %.not83, label %77, label %.thread.loopexit120
 
 77:                                               ; preds = %72
-  %78 = getelementptr inbounds i8, ptr %75, i64 4
+  %78 = getelementptr inbounds nuw i8, ptr %75, i64 4
   %79 = load i32, ptr %78, align 4
   %.not84 = icmp eq i32 %79, 0
   br i1 %.not84, label %80, label %.thread.loopexit120
 
 80:                                               ; preds = %77
-  %81 = getelementptr inbounds i8, ptr %75, i64 24
+  %81 = getelementptr inbounds nuw i8, ptr %75, i64 24
   %82 = load i32, ptr %81, align 8
   %83 = icmp ult i32 %82, 2048
   br i1 %83, label %84, label %89
@@ -290,7 +290,7 @@ define internal fastcc range(i32 -2, 2) i32 @findprefix(ptr nocapture noundef re
 
 105:                                              ; preds = %102, %99
   %106 = icmp eq i32 %.5110, -1
-  %107 = getelementptr inbounds i8, ptr %.2111, i64 4
+  %107 = getelementptr inbounds nuw i8, ptr %.2111, i64 4
   %108 = load i32, ptr %107, align 4
   br i1 %106, label %110, label %109
 
@@ -307,7 +307,7 @@ define internal fastcc range(i32 -2, 2) i32 @findprefix(ptr nocapture noundef re
 
 ._crit_edge113:                                   ; preds = %110, %109, %102, %.thread
   %.6 = phi i32 [ -1, %.thread ], [ -1, %102 ], [ -1, %109 ], [ %.7, %110 ]
-  %113 = getelementptr inbounds i8, ptr %0, i64 16
+  %113 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %114 = load i32, ptr %113, align 8
   %115 = icmp eq i32 %.6, %114
   br i1 %115, label %.loopexit, label %116

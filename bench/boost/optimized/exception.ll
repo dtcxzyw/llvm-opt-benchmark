@@ -2501,7 +2501,7 @@ define hidden void @_ZN5boost10filesystem10emit_errorEiPNS_6system10error_codeEP
 
 11:                                               ; preds = %5
   %12 = load ptr, ptr @_ZN5boost6system6detail17system_cat_holderIvE8instanceE, align 8, !tbaa !3
-  %13 = getelementptr inbounds i8, ptr %12, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 48
   %14 = load ptr, ptr %13, align 8
   %15 = tail call noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(52) @_ZN5boost6system6detail17system_cat_holderIvE8instanceE, i32 noundef %0) #21
   br label %_ZN5boost6system10error_codeC2EiRKNS0_14error_categoryE.exit
@@ -2539,7 +2539,7 @@ _ZN5boost6system10error_codeC2EiRKNS0_14error_categoryE.exit: ; preds = %9, %11
 
 27:                                               ; preds = %22
   %28 = load ptr, ptr @_ZN5boost6system6detail17system_cat_holderIvE8instanceE, align 8, !tbaa !3
-  %29 = getelementptr inbounds i8, ptr %28, i64 48
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 48
   %30 = load ptr, ptr %29, align 8
   %31 = tail call noundef zeroext i1 %30(ptr noundef nonnull align 8 dereferenceable(52) @_ZN5boost6system6detail17system_cat_holderIvE8instanceE, i32 noundef %0) #21
   br label %_ZN5boost6system10error_code6assignEiRKNS0_14error_categoryE.exit
@@ -2548,11 +2548,11 @@ _ZN5boost6system10error_code6assignEiRKNS0_14error_categoryE.exit: ; preds = %25
   %.0.i.i.i = phi i1 [ %26, %25 ], [ %31, %27 ]
   %32 = select i1 %.0.i.i.i, i64 3, i64 2
   store i32 %0, ptr %1, align 8
-  %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 4
+  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 0, ptr %.sroa.5.0..sroa_idx.i, align 4
-  %.sroa.52.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.52.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr @_ZN5boost6system6detail17system_cat_holderIvE8instanceE, ptr %.sroa.52.0..sroa_idx.i, align 8, !tbaa !12
-  %.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 16
+  %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i64 %32, ptr %.sroa.6.0..sroa_idx.i, align 8, !tbaa !17
   ret void
 }
@@ -2584,7 +2584,7 @@ define hidden void @_ZN5boost10filesystem10emit_errorEiRKNS0_4pathEPNS_6system10
 
 12:                                               ; preds = %6
   %13 = load ptr, ptr @_ZN5boost6system6detail17system_cat_holderIvE8instanceE, align 8, !tbaa !3
-  %14 = getelementptr inbounds i8, ptr %13, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %15 = load ptr, ptr %14, align 8
   %16 = tail call noundef zeroext i1 %15(ptr noundef nonnull align 8 dereferenceable(52) @_ZN5boost6system6detail17system_cat_holderIvE8instanceE, i32 noundef %0) #21
   br label %_ZN5boost6system10error_codeC2EiRKNS0_14error_categoryE.exit
@@ -2622,7 +2622,7 @@ _ZN5boost6system10error_codeC2EiRKNS0_14error_categoryE.exit: ; preds = %10, %12
 
 28:                                               ; preds = %23
   %29 = load ptr, ptr @_ZN5boost6system6detail17system_cat_holderIvE8instanceE, align 8, !tbaa !3
-  %30 = getelementptr inbounds i8, ptr %29, i64 48
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 48
   %31 = load ptr, ptr %30, align 8
   %32 = tail call noundef zeroext i1 %31(ptr noundef nonnull align 8 dereferenceable(52) @_ZN5boost6system6detail17system_cat_holderIvE8instanceE, i32 noundef %0) #21
   br label %_ZN5boost6system10error_code6assignEiRKNS0_14error_categoryE.exit
@@ -2631,11 +2631,11 @@ _ZN5boost6system10error_code6assignEiRKNS0_14error_categoryE.exit: ; preds = %26
   %.0.i.i.i = phi i1 [ %27, %26 ], [ %32, %28 ]
   %33 = select i1 %.0.i.i.i, i64 3, i64 2
   store i32 %0, ptr %2, align 8
-  %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 4
+  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 0, ptr %.sroa.5.0..sroa_idx.i, align 4
-  %.sroa.52.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.52.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @_ZN5boost6system6detail17system_cat_holderIvE8instanceE, ptr %.sroa.52.0..sroa_idx.i, align 8, !tbaa !12
-  %.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 16
+  %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 %33, ptr %.sroa.6.0..sroa_idx.i, align 8, !tbaa !17
   ret void
 }
@@ -2660,7 +2660,7 @@ define hidden void @_ZN5boost10filesystem10emit_errorEiRKNS0_4pathES3_PNS_6syste
 
 13:                                               ; preds = %7
   %14 = load ptr, ptr @_ZN5boost6system6detail17system_cat_holderIvE8instanceE, align 8, !tbaa !3
-  %15 = getelementptr inbounds i8, ptr %14, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 48
   %16 = load ptr, ptr %15, align 8
   %17 = tail call noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(52) @_ZN5boost6system6detail17system_cat_holderIvE8instanceE, i32 noundef %0) #21
   br label %_ZN5boost6system10error_codeC2EiRKNS0_14error_categoryE.exit
@@ -2698,7 +2698,7 @@ _ZN5boost6system10error_codeC2EiRKNS0_14error_categoryE.exit: ; preds = %11, %13
 
 29:                                               ; preds = %24
   %30 = load ptr, ptr @_ZN5boost6system6detail17system_cat_holderIvE8instanceE, align 8, !tbaa !3
-  %31 = getelementptr inbounds i8, ptr %30, i64 48
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 48
   %32 = load ptr, ptr %31, align 8
   %33 = tail call noundef zeroext i1 %32(ptr noundef nonnull align 8 dereferenceable(52) @_ZN5boost6system6detail17system_cat_holderIvE8instanceE, i32 noundef %0) #21
   br label %_ZN5boost6system10error_code6assignEiRKNS0_14error_categoryE.exit
@@ -2707,11 +2707,11 @@ _ZN5boost6system10error_code6assignEiRKNS0_14error_categoryE.exit: ; preds = %27
   %.0.i.i.i = phi i1 [ %28, %27 ], [ %33, %29 ]
   %34 = select i1 %.0.i.i.i, i64 3, i64 2
   store i32 %0, ptr %3, align 8
-  %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 4
+  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 0, ptr %.sroa.5.0..sroa_idx.i, align 4
-  %.sroa.52.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.52.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @_ZN5boost6system6detail17system_cat_holderIvE8instanceE, ptr %.sroa.52.0..sroa_idx.i, align 8, !tbaa !12
-  %.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 16
+  %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 %34, ptr %.sroa.6.0..sroa_idx.i, align 8, !tbaa !17
   ret void
 }
@@ -2719,7 +2719,7 @@ _ZN5boost6system10error_code6assignEiRKNS0_14error_categoryE.exit: ; preds = %27
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK5boost6system14error_category10equivalentEiRKNS0_15error_conditionE(ptr noundef nonnull align 8 dereferenceable(52) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2) unnamed_addr #0 comdat align 2 {
   %4 = load ptr, ptr %0, align 8, !tbaa !3
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call { i32, ptr } %6(ptr noundef nonnull align 8 dereferenceable(52) %0, i32 noundef %1) #21
   %8 = extractvalue { i32, ptr } %7, 0
@@ -3199,7 +3199,7 @@ define linkonce_odr hidden void @_ZNK5boost6system10error_code7messageB5cxx11Ev(
   %9 = load ptr, ptr %8, align 8, !tbaa !45, !noalias !54
   %10 = load i32, ptr %1, align 8, !tbaa !57, !noalias !54
   %11 = load ptr, ptr %9, align 8, !tbaa !3, !noalias !54
-  %12 = getelementptr inbounds i8, ptr %11, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %13 = load ptr, ptr %12, align 8, !noalias !54
   tail call void %13(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %9, i32 noundef %10)
   br label %37
@@ -3265,7 +3265,7 @@ _ZNK5boost6system10error_code8categoryEv.exit.thread: ; preds = %2
   %32 = load ptr, ptr %31, align 8, !tbaa !12
   %33 = load i32, ptr %1, align 8, !tbaa !12
   %34 = load ptr, ptr %32, align 8, !tbaa !3
-  %35 = getelementptr inbounds i8, ptr %34, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 32
   %36 = load ptr, ptr %35, align 8
   tail call void %36(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(52) %32, i32 noundef %33)
   br label %37
@@ -3297,7 +3297,7 @@ define linkonce_odr hidden void @_ZNK5boost6system10error_code9to_stringB5cxx11E
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8, !tbaa !45
   %13 = load ptr, ptr %12, align 8, !tbaa !3
-  %14 = getelementptr inbounds i8, ptr %13, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = tail call noundef ptr %15(ptr noundef nonnull align 8 dereferenceable(8) %12) #21
   %17 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %16) #21

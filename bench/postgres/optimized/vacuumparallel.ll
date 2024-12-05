@@ -66,9 +66,9 @@ define dso_local ptr @parallel_vacuum_init(ptr noundef %0, ptr noundef %1, i32 n
   %.03342.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.134.i, %32 ]
   %15 = getelementptr ptr, ptr %1, i64 %indvars.iv.i
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 344
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 344
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 26
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 26
   %20 = load i8, ptr %19, align 2
   %21 = zext i8 %20 to i32
   %22 = icmp eq i8 %20, 0
@@ -121,27 +121,27 @@ parallel_vacuum_compute_workers.exit.thread:      ; preds = %._crit_edge.i, %7, 
 
 42:                                               ; preds = %parallel_vacuum_compute_workers.exit
   %43 = tail call ptr @palloc0(i64 noundef 136) #9
-  %44 = getelementptr inbounds i8, ptr %43, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
   store ptr %1, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %43, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %43, i64 24
   store i32 %2, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %43, i64 72
+  %46 = getelementptr inbounds nuw i8, ptr %43, i64 72
   store ptr %9, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %43, i64 96
+  %47 = getelementptr inbounds nuw i8, ptr %43, i64 96
   store ptr %6, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %43, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %43, i64 8
   store ptr %0, ptr %48, align 8
   tail call void @EnterParallelMode() #9
   %49 = tail call ptr @CreateParallelContext(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef %40) #9
   store ptr %49, ptr %43, align 8
   %50 = tail call i64 @mul_size(i64 noundef 48, i64 noundef %8) #9
-  %51 = getelementptr inbounds i8, ptr %49, i64 56
+  %51 = getelementptr inbounds nuw i8, ptr %49, i64 56
   %52 = load i64, ptr %51, align 8
   %53 = add i64 %50, 31
   %54 = and i64 %53, -32
   %55 = tail call i64 @add_size(i64 noundef %52, i64 noundef %54) #9
   store i64 %55, ptr %51, align 8
-  %56 = getelementptr inbounds i8, ptr %49, i64 64
+  %56 = getelementptr inbounds nuw i8, ptr %49, i64 64
   %57 = load i64, ptr %56, align 8
   %58 = tail call i64 @add_size(i64 noundef %57, i64 noundef 1) #9
   store i64 %58, ptr %56, align 8
@@ -161,7 +161,7 @@ parallel_vacuum_compute_workers.exit.thread:      ; preds = %._crit_edge.i, %7, 
   %69 = tail call i64 @add_size(i64 noundef %68, i64 noundef 1) #9
   store i64 %69, ptr %56, align 8
   %70 = load i64, ptr %51, align 8
-  %71 = getelementptr inbounds i8, ptr %49, i64 20
+  %71 = getelementptr inbounds nuw i8, ptr %49, i64 20
   %72 = load i32, ptr %71, align 4
   %73 = sext i32 %72 to i64
   %74 = tail call i64 @mul_size(i64 noundef 128, i64 noundef %73) #9
@@ -206,7 +206,7 @@ parallel_vacuum_compute_workers.exit.thread:      ; preds = %._crit_edge.i, %7, 
 101:                                              ; preds = %42, %90
   %.0184 = phi i32 [ %92, %90 ], [ 0, %42 ]
   tail call void @InitializeParallelDSM(ptr noundef nonnull %49) #9
-  %102 = getelementptr inbounds i8, ptr %49, i64 88
+  %102 = getelementptr inbounds nuw i8, ptr %49, i64 88
   %103 = load ptr, ptr %102, align 8
   %104 = tail call ptr @shm_toc_allocate(ptr noundef %103, i64 noundef %50) #9
   %105 = ptrtoint ptr %104 to i64
@@ -245,9 +245,9 @@ parallel_vacuum_compute_workers.exit.thread:      ; preds = %._crit_edge.i, %7, 
   br i1 %14, label %.lr.ph202, label %._crit_edge
 
 .lr.ph202:                                        ; preds = %.loopexit198
-  %122 = getelementptr inbounds i8, ptr %43, i64 80
-  %123 = getelementptr inbounds i8, ptr %43, i64 84
-  %124 = getelementptr inbounds i8, ptr %43, i64 88
+  %122 = getelementptr inbounds nuw i8, ptr %43, i64 80
+  %123 = getelementptr inbounds nuw i8, ptr %43, i64 84
+  %124 = getelementptr inbounds nuw i8, ptr %43, i64 88
   %wide.trip.count = zext nneg i32 %2 to i64
   br label %125
 
@@ -262,11 +262,11 @@ parallel_vacuum_compute_workers.exit.thread:      ; preds = %._crit_edge.i, %7, 
 129:                                              ; preds = %125
   %130 = getelementptr ptr, ptr %1, i64 %indvars.iv
   %131 = load ptr, ptr %130, align 8
-  %132 = getelementptr inbounds i8, ptr %131, i64 344
+  %132 = getelementptr inbounds nuw i8, ptr %131, i64 344
   %133 = load ptr, ptr %132, align 8
-  %134 = getelementptr inbounds i8, ptr %133, i64 26
+  %134 = getelementptr inbounds nuw i8, ptr %133, i64 26
   %135 = load i8, ptr %134, align 2
-  %136 = getelementptr inbounds i8, ptr %133, i64 24
+  %136 = getelementptr inbounds nuw i8, ptr %133, i64 24
   %137 = load i8, ptr %136, align 8
   %138 = and i8 %137, 1
   %139 = zext nneg i8 %138 to i32
@@ -314,7 +314,7 @@ parallel_vacuum_compute_workers.exit.thread:      ; preds = %._crit_edge.i, %7, 
   %.0182.lcssa = phi i32 [ 0, %.loopexit198 ], [ %.1, %155 ]
   %156 = load ptr, ptr %102, align 8
   tail call void @shm_toc_insert(ptr noundef %156, i64 noundef 6, ptr noundef %104) #9
-  %157 = getelementptr inbounds i8, ptr %43, i64 40
+  %157 = getelementptr inbounds nuw i8, ptr %43, i64 40
   store ptr %104, ptr %157, align 8
   %158 = load ptr, ptr %102, align 8
   %159 = tail call ptr @shm_toc_allocate(ptr noundef %158, i64 noundef 40) #9
@@ -344,10 +344,10 @@ parallel_vacuum_compute_workers.exit.thread:      ; preds = %._crit_edge.i, %7, 
   br label %.loopexit197
 
 .loopexit197:                                     ; preds = %.lr.ph205.preheader, %163, %172
-  %173 = getelementptr inbounds i8, ptr %0, i64 72
+  %173 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %174 = load i32, ptr %173, align 8
   store i32 %174, ptr %159, align 8
-  %175 = getelementptr inbounds i8, ptr %159, i64 4
+  %175 = getelementptr inbounds nuw i8, ptr %159, i64 4
   store i32 %5, ptr %175, align 4
   %176 = icmp sgt i32 %.0182.lcssa, 0
   %177 = load i32, ptr @maintenance_work_mem, align 4
@@ -360,28 +360,28 @@ parallel_vacuum_compute_workers.exit.thread:      ; preds = %._crit_edge.i, %7, 
 
 181:                                              ; preds = %.loopexit197, %178
   %182 = phi i32 [ %180, %178 ], [ %177, %.loopexit197 ]
-  %183 = getelementptr inbounds i8, ptr %159, i64 20
+  %183 = getelementptr inbounds nuw i8, ptr %159, i64 20
   store i32 %182, ptr %183, align 4
   %184 = tail call i32 @GetAccessStrategyBufferCount(ptr noundef %6) #9
-  %185 = getelementptr inbounds i8, ptr %159, i64 24
+  %185 = getelementptr inbounds nuw i8, ptr %159, i64 24
   store i32 %184, ptr %185, align 8
-  %186 = getelementptr inbounds i8, ptr %159, i64 28
+  %186 = getelementptr inbounds nuw i8, ptr %159, i64 28
   store volatile i32 0, ptr %186, align 4
-  %187 = getelementptr inbounds i8, ptr %159, i64 32
+  %187 = getelementptr inbounds nuw i8, ptr %159, i64 32
   store volatile i32 0, ptr %187, align 4
-  %188 = getelementptr inbounds i8, ptr %159, i64 36
+  %188 = getelementptr inbounds nuw i8, ptr %159, i64 36
   store volatile i32 0, ptr %188, align 4
   %189 = load ptr, ptr %102, align 8
   tail call void @shm_toc_insert(ptr noundef %189, i64 noundef 1, ptr noundef nonnull %159) #9
-  %190 = getelementptr inbounds i8, ptr %43, i64 32
+  %190 = getelementptr inbounds nuw i8, ptr %43, i64 32
   store ptr %159, ptr %190, align 8
   %191 = load ptr, ptr %102, align 8
   %192 = tail call ptr @shm_toc_allocate(ptr noundef %191, i64 noundef %63) #9
   %193 = ptrtoint ptr %192 to i64
   store i32 %4, ptr %192, align 4
-  %194 = getelementptr inbounds i8, ptr %192, i64 4
+  %194 = getelementptr inbounds nuw i8, ptr %192, i64 4
   store i32 0, ptr %194, align 4
-  %195 = getelementptr inbounds i8, ptr %192, i64 8
+  %195 = getelementptr inbounds nuw i8, ptr %192, i64 8
   %196 = sext i32 %4 to i64
   %197 = mul nsw i64 %196, 6
   %198 = ptrtoint ptr %195 to i64
@@ -420,7 +420,7 @@ parallel_vacuum_compute_workers.exit.thread:      ; preds = %._crit_edge.i, %7, 
 .loopexit:                                        ; preds = %.lr.ph208.preheader, %205, %215
   %216 = load ptr, ptr %102, align 8
   tail call void @shm_toc_insert(ptr noundef %216, i64 noundef 2, ptr noundef nonnull %192) #9
-  %217 = getelementptr inbounds i8, ptr %43, i64 48
+  %217 = getelementptr inbounds nuw i8, ptr %43, i64 48
   store ptr %192, ptr %217, align 8
   %218 = load ptr, ptr %102, align 8
   %219 = load i32, ptr %71, align 4
@@ -429,7 +429,7 @@ parallel_vacuum_compute_workers.exit.thread:      ; preds = %._crit_edge.i, %7, 
   %222 = tail call ptr @shm_toc_allocate(ptr noundef %218, i64 noundef %221) #9
   %223 = load ptr, ptr %102, align 8
   tail call void @shm_toc_insert(ptr noundef %223, i64 noundef 4, ptr noundef %222) #9
-  %224 = getelementptr inbounds i8, ptr %43, i64 56
+  %224 = getelementptr inbounds nuw i8, ptr %43, i64 56
   store ptr %222, ptr %224, align 8
   %225 = load ptr, ptr %102, align 8
   %226 = load i32, ptr %71, align 4
@@ -438,7 +438,7 @@ parallel_vacuum_compute_workers.exit.thread:      ; preds = %._crit_edge.i, %7, 
   %229 = tail call ptr @shm_toc_allocate(ptr noundef %225, i64 noundef %228) #9
   %230 = load ptr, ptr %102, align 8
   tail call void @shm_toc_insert(ptr noundef %230, i64 noundef 5, ptr noundef %229) #9
-  %231 = getelementptr inbounds i8, ptr %43, i64 64
+  %231 = getelementptr inbounds nuw i8, ptr %43, i64 64
   store ptr %229, ptr %231, align 8
   %232 = load ptr, ptr @debug_query_string, align 8
   %.not192 = icmp eq ptr %232, null
@@ -496,20 +496,20 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @parallel_vacuum_end(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %7
 
 7:                                                ; preds = %.lr.ph, %19
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %19 ]
   %8 = load ptr, ptr %6, align 8
   %9 = getelementptr %struct.PVIndStats, ptr %8, i64 %indvars.iv
-  %10 = getelementptr inbounds i8, ptr %9, i64 5
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 5
   %11 = load i8, ptr %10, align 1
   %12 = trunc i8 %11 to i1
   br i1 %12, label %13, label %17
@@ -518,7 +518,7 @@ define dso_local void @parallel_vacuum_end(ptr noundef %0, ptr nocapture noundef
   %14 = tail call ptr @palloc0(i64 noundef 40) #9
   %15 = getelementptr ptr, ptr %1, i64 %indvars.iv
   store ptr %14, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %9, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %9, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull align 8 dereferenceable(40) %16, i64 40, i1 false)
   br label %19
 
@@ -538,7 +538,7 @@ define dso_local void @parallel_vacuum_end(ptr noundef %0, ptr nocapture noundef
   %23 = load ptr, ptr %0, align 8
   tail call void @DestroyParallelContext(ptr noundef %23) #9
   tail call void @ExitParallelMode() #9
-  %24 = getelementptr inbounds i8, ptr %0, i64 72
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %25 = load ptr, ptr %24, align 8
   tail call void @pfree(ptr noundef %25) #9
   tail call void @pfree(ptr noundef nonnull %0) #9
@@ -551,7 +551,7 @@ declare void @ExitParallelMode() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local ptr @parallel_vacuum_get_dead_items(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
@@ -559,12 +559,12 @@ define dso_local ptr @parallel_vacuum_get_dead_items(ptr nocapture noundef reado
 ; Function Attrs: nounwind uwtable
 define dso_local void @parallel_vacuum_bulkdel_all_indexes(ptr nocapture noundef %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = sitofp i64 %1 to double
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store double %4, ptr %7, align 8
   %8 = load ptr, ptr %5, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i8 1, ptr %9, align 8
   tail call fastcc void @parallel_vacuum_process_all_indexes(ptr noundef %0, i32 noundef %2, i1 noundef zeroext true)
   ret void
@@ -575,18 +575,18 @@ define internal fastcc void @parallel_vacuum_process_all_indexes(ptr nocapture n
   br i1 %2, label %4, label %7
 
 4:                                                ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %0, i64 80
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %6 = load i32, ptr %5, align 8
   br label %15
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 84
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %9 = load i32, ptr %8, align 4
   %10 = icmp eq i32 %1, 0
   br i1 %10, label %11, label %15
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %0, i64 88
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %13 = load i32, ptr %12, align 8
   %14 = add i32 %13, %9
   br label %15
@@ -596,18 +596,18 @@ define internal fastcc void @parallel_vacuum_process_all_indexes(ptr nocapture n
   %.0 = phi i32 [ %6, %4 ], [ %14, %11 ], [ %9, %7 ]
   %16 = add i32 %.0, -1
   %17 = load ptr, ptr %0, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 20
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 20
   %19 = load i32, ptr %18, align 4
   %. = tail call i32 @llvm.smin.i32(i32 %16, i32 %19)
-  %20 = getelementptr inbounds i8, ptr %0, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %21 = load i32, ptr %20, align 8
   %22 = icmp sgt i32 %21, 0
   br i1 %22, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %15
-  %23 = getelementptr inbounds i8, ptr %0, i64 40
-  %24 = getelementptr inbounds i8, ptr %0, i64 72
-  %25 = getelementptr inbounds i8, ptr %0, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %26 = icmp slt i32 %1, 1
   br label %27
 
@@ -656,7 +656,7 @@ parallel_vacuum_index_is_parallel_safe.exit:      ; preds = %40, %43, %46
 
 50:                                               ; preds = %parallel_vacuum_index_is_parallel_safe.exit, %27
   %51 = phi i8 [ 0, %27 ], [ %49, %parallel_vacuum_index_is_parallel_safe.exit ]
-  %52 = getelementptr inbounds i8, ptr %29, i64 4
+  %52 = getelementptr inbounds nuw i8, ptr %29, i64 4
   store i8 %51, ptr %52, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %53 = load i32, ptr %20, align 8
@@ -665,9 +665,9 @@ parallel_vacuum_index_is_parallel_safe.exit:      ; preds = %40, %43, %46
   br i1 %55, label %27, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %50, %15
-  %56 = getelementptr inbounds i8, ptr %0, i64 32
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 36
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 36
   store volatile i32 0, ptr %58, align 4
   %59 = icmp sgt i32 %., 0
   br i1 %59, label %60, label %.critedge
@@ -683,18 +683,18 @@ parallel_vacuum_index_is_parallel_safe.exit:      ; preds = %40, %43, %46
 
 64:                                               ; preds = %62, %60
   %65 = load ptr, ptr %56, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 28
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 28
   %67 = load i32, ptr @VacuumCostBalance, align 4
   store volatile i32 %67, ptr %66, align 4
   %68 = load ptr, ptr %56, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 32
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 32
   store volatile i32 0, ptr %69, align 4
   %70 = load ptr, ptr %0, align 8
   tail call void @ReinitializeParallelWorkers(ptr noundef %70, i32 noundef %.) #9
   %71 = load ptr, ptr %0, align 8
   tail call void @LaunchParallelWorkers(ptr noundef %71) #9
   %72 = load ptr, ptr %0, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 28
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 28
   %74 = load i32, ptr %73, align 4
   %75 = icmp sgt i32 %74, 0
   br i1 %75, label %76, label %80
@@ -703,15 +703,15 @@ parallel_vacuum_index_is_parallel_safe.exit:      ; preds = %40, %43, %46
   store i32 0, ptr @VacuumCostBalance, align 4
   store i32 0, ptr @VacuumCostBalanceLocal, align 4
   %77 = load ptr, ptr %56, align 8
-  %78 = getelementptr inbounds i8, ptr %77, i64 28
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 28
   store ptr %78, ptr @VacuumSharedCostBalance, align 8
-  %79 = getelementptr inbounds i8, ptr %77, i64 32
+  %79 = getelementptr inbounds nuw i8, ptr %77, i64 32
   store ptr %79, ptr @VacuumActiveNWorkers, align 8
   br label %80
 
 80:                                               ; preds = %76, %64
   %81 = load ptr, ptr %56, align 8
-  %82 = getelementptr inbounds i8, ptr %81, i64 4
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 4
   %83 = load i32, ptr %82, align 4
   %84 = tail call zeroext i1 @errstart(i32 noundef %83, ptr noundef null) #9
   br i1 %2, label %85, label %93
@@ -721,7 +721,7 @@ parallel_vacuum_index_is_parallel_safe.exit:      ; preds = %40, %43, %46
 
 86:                                               ; preds = %85
   %87 = load ptr, ptr %0, align 8
-  %88 = getelementptr inbounds i8, ptr %87, i64 28
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 28
   %89 = load i32, ptr %88, align 4
   %90 = icmp eq i32 %89, 1
   %91 = select i1 %90, ptr @.str.4, ptr @.str.5
@@ -733,7 +733,7 @@ parallel_vacuum_index_is_parallel_safe.exit:      ; preds = %40, %43, %46
 
 94:                                               ; preds = %93
   %95 = load ptr, ptr %0, align 8
-  %96 = getelementptr inbounds i8, ptr %95, i64 28
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 28
   %97 = load i32, ptr %96, align 4
   %98 = icmp eq i32 %97, 1
   %99 = select i1 %98, ptr @.str.6, ptr @.str.7
@@ -760,8 +760,8 @@ parallel_vacuum_index_is_parallel_safe.exit:      ; preds = %40, %43, %46
   br i1 %107, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %105
-  %108 = getelementptr inbounds i8, ptr %0, i64 40
-  %109 = getelementptr inbounds i8, ptr %0, i64 16
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %110
 
 110:                                              ; preds = %121, %.lr.ph.i
@@ -769,7 +769,7 @@ parallel_vacuum_index_is_parallel_safe.exit:      ; preds = %40, %43, %46
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %121 ]
   %112 = load ptr, ptr %108, align 8
   %113 = getelementptr %struct.PVIndStats, ptr %112, i64 %indvars.iv.i
-  %114 = getelementptr inbounds i8, ptr %113, i64 4
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 4
   %115 = load i8, ptr %114, align 4
   %116 = trunc i8 %115 to i1
   br i1 %116, label %121, label %117
@@ -806,15 +806,15 @@ parallel_vacuum_process_unsafe_indexes.exit:      ; preds = %._crit_edge.i
 
 parallel_vacuum_process_unsafe_indexes.exit.thread: ; preds = %._crit_edge.i, %127, %parallel_vacuum_process_unsafe_indexes.exit
   %129 = load ptr, ptr %56, align 8
-  %130 = getelementptr inbounds i8, ptr %129, i64 36
+  %130 = getelementptr inbounds nuw i8, ptr %129, i64 36
   %131 = tail call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %130, i32 1, ptr nonnull elementtype(i32) %130) #9, !srcloc !10
   %132 = load i32, ptr %20, align 8
   %.not1113.i = icmp slt i32 %131, %132
   br i1 %.not1113.i, label %.lr.ph.i89, label %._crit_edge.i88
 
 .lr.ph.i89:                                       ; preds = %parallel_vacuum_process_unsafe_indexes.exit.thread
-  %133 = getelementptr inbounds i8, ptr %0, i64 40
-  %134 = getelementptr inbounds i8, ptr %0, i64 16
+  %133 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %134 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %135
 
 135:                                              ; preds = %.backedge.i, %.lr.ph.i89
@@ -822,7 +822,7 @@ parallel_vacuum_process_unsafe_indexes.exit.thread: ; preds = %._crit_edge.i, %1
   %137 = load ptr, ptr %133, align 8
   %138 = sext i32 %136 to i64
   %139 = getelementptr %struct.PVIndStats, ptr %137, i64 %138
-  %140 = getelementptr inbounds i8, ptr %139, i64 4
+  %140 = getelementptr inbounds nuw i8, ptr %139, i64 4
   %141 = load i8, ptr %140, align 4
   %142 = trunc i8 %141 to i1
   br i1 %142, label %143, label %.backedge.i
@@ -836,7 +836,7 @@ parallel_vacuum_process_unsafe_indexes.exit.thread: ; preds = %._crit_edge.i, %1
 
 .backedge.i:                                      ; preds = %143, %135
   %147 = load ptr, ptr %56, align 8
-  %148 = getelementptr inbounds i8, ptr %147, i64 36
+  %148 = getelementptr inbounds nuw i8, ptr %147, i64 36
   %149 = tail call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %148, i32 1, ptr nonnull elementtype(i32) %148) #9, !srcloc !10
   %150 = load i32, ptr %20, align 8
   %.not11.i90 = icmp slt i32 %149, %150
@@ -855,14 +855,14 @@ parallel_vacuum_process_safe_indexes.exit:        ; preds = %152, %._crit_edge.i
   %154 = load ptr, ptr %0, align 8
   tail call void @WaitForParallelWorkersToFinish(ptr noundef %154) #9
   %155 = load ptr, ptr %0, align 8
-  %156 = getelementptr inbounds i8, ptr %155, i64 28
+  %156 = getelementptr inbounds nuw i8, ptr %155, i64 28
   %157 = load i32, ptr %156, align 4
   %158 = icmp sgt i32 %157, 0
   br i1 %158, label %.lr.ph113, label %parallel_vacuum_process_safe_indexes.exit106
 
 .lr.ph113:                                        ; preds = %parallel_vacuum_process_safe_indexes.exit
-  %159 = getelementptr inbounds i8, ptr %0, i64 56
-  %160 = getelementptr inbounds i8, ptr %0, i64 64
+  %159 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %160 = getelementptr inbounds nuw i8, ptr %0, i64 64
   br label %161
 
 161:                                              ; preds = %.lr.ph113, %161
@@ -874,7 +874,7 @@ parallel_vacuum_process_safe_indexes.exit:        ; preds = %152, %._crit_edge.i
   tail call void @InstrAccumParallelQuery(ptr noundef %163, ptr noundef %165) #9
   %indvars.iv.next120 = add nuw nsw i64 %indvars.iv119, 1
   %166 = load ptr, ptr %0, align 8
-  %167 = getelementptr inbounds i8, ptr %166, i64 28
+  %167 = getelementptr inbounds nuw i8, ptr %166, i64 28
   %168 = load i32, ptr %167, align 4
   %169 = sext i32 %168 to i64
   %170 = icmp slt i64 %indvars.iv.next120, %169
@@ -895,8 +895,8 @@ parallel_vacuum_process_safe_indexes.exit:        ; preds = %152, %._crit_edge.i
   br i1 %176, label %.lr.ph.i94, label %._crit_edge.i92
 
 .lr.ph.i94:                                       ; preds = %174
-  %177 = getelementptr inbounds i8, ptr %0, i64 40
-  %178 = getelementptr inbounds i8, ptr %0, i64 16
+  %177 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %178 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %179
 
 179:                                              ; preds = %190, %.lr.ph.i94
@@ -904,7 +904,7 @@ parallel_vacuum_process_safe_indexes.exit:        ; preds = %152, %._crit_edge.i
   %indvars.iv.i95 = phi i64 [ 0, %.lr.ph.i94 ], [ %indvars.iv.next.i97, %190 ]
   %181 = load ptr, ptr %177, align 8
   %182 = getelementptr %struct.PVIndStats, ptr %181, i64 %indvars.iv.i95
-  %183 = getelementptr inbounds i8, ptr %182, i64 4
+  %183 = getelementptr inbounds nuw i8, ptr %182, i64 4
   %184 = load i8, ptr %183, align 4
   %185 = trunc i8 %184 to i1
   br i1 %185, label %190, label %186
@@ -941,15 +941,15 @@ parallel_vacuum_process_unsafe_indexes.exit98:    ; preds = %._crit_edge.i92
 
 parallel_vacuum_process_unsafe_indexes.exit98.thread: ; preds = %._crit_edge.i92, %196, %parallel_vacuum_process_unsafe_indexes.exit98
   %198 = load ptr, ptr %56, align 8
-  %199 = getelementptr inbounds i8, ptr %198, i64 36
+  %199 = getelementptr inbounds nuw i8, ptr %198, i64 36
   %200 = tail call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %199, i32 1, ptr nonnull elementtype(i32) %199) #9, !srcloc !10
   %201 = load i32, ptr %20, align 8
   %.not1113.i100 = icmp slt i32 %200, %201
   br i1 %.not1113.i100, label %.lr.ph.i103, label %._crit_edge.i101
 
 .lr.ph.i103:                                      ; preds = %parallel_vacuum_process_unsafe_indexes.exit98.thread
-  %202 = getelementptr inbounds i8, ptr %0, i64 40
-  %203 = getelementptr inbounds i8, ptr %0, i64 16
+  %202 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %203 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %204
 
 204:                                              ; preds = %.backedge.i104, %.lr.ph.i103
@@ -957,7 +957,7 @@ parallel_vacuum_process_unsafe_indexes.exit98.thread: ; preds = %._crit_edge.i92
   %206 = load ptr, ptr %202, align 8
   %207 = sext i32 %205 to i64
   %208 = getelementptr %struct.PVIndStats, ptr %206, i64 %207
-  %209 = getelementptr inbounds i8, ptr %208, i64 4
+  %209 = getelementptr inbounds nuw i8, ptr %208, i64 4
   %210 = load i8, ptr %209, align 4
   %211 = trunc i8 %210 to i1
   br i1 %211, label %212, label %.backedge.i104
@@ -971,7 +971,7 @@ parallel_vacuum_process_unsafe_indexes.exit98.thread: ; preds = %._crit_edge.i92
 
 .backedge.i104:                                   ; preds = %212, %204
   %216 = load ptr, ptr %56, align 8
-  %217 = getelementptr inbounds i8, ptr %216, i64 36
+  %217 = getelementptr inbounds nuw i8, ptr %216, i64 36
   %218 = tail call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %217, i32 1, ptr nonnull elementtype(i32) %217) #9, !srcloc !10
   %219 = load i32, ptr %20, align 8
   %.not11.i105 = icmp slt i32 %218, %219
@@ -992,7 +992,7 @@ parallel_vacuum_process_safe_indexes.exit106:     ; preds = %161, %parallel_vacu
   br i1 %224, label %.lr.ph115, label %._crit_edge116
 
 .lr.ph115:                                        ; preds = %parallel_vacuum_process_safe_indexes.exit106
-  %225 = getelementptr inbounds i8, ptr %0, i64 40
+  %225 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %226
 
 226:                                              ; preds = %.lr.ph115, %240
@@ -1006,13 +1006,13 @@ parallel_vacuum_process_safe_indexes.exit106:     ; preds = %161, %parallel_vacu
 230:                                              ; preds = %226
   %231 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   tail call void @llvm.assume(i1 %231)
-  %232 = getelementptr inbounds i8, ptr %0, i64 16
+  %232 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %233 = load ptr, ptr %232, align 8
   %234 = getelementptr ptr, ptr %233, i64 %indvars.iv122
   %235 = load ptr, ptr %234, align 8
-  %236 = getelementptr inbounds i8, ptr %235, i64 56
+  %236 = getelementptr inbounds nuw i8, ptr %235, i64 56
   %237 = load ptr, ptr %236, align 8
-  %238 = getelementptr inbounds i8, ptr %237, i64 4
+  %238 = getelementptr inbounds nuw i8, ptr %237, i64 4
   %239 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8, ptr noundef nonnull %238) #9
   tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 722, ptr noundef nonnull @__func__.parallel_vacuum_process_all_indexes) #9
   unreachable
@@ -1045,12 +1045,12 @@ parallel_vacuum_process_safe_indexes.exit106:     ; preds = %161, %parallel_vacu
 define dso_local void @parallel_vacuum_cleanup_all_indexes(ptr nocapture noundef %0, i64 noundef %1, i32 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = zext i1 %3 to i8
   %6 = sitofp i64 %1 to double
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store double %6, ptr %9, align 8
   %10 = load ptr, ptr %7, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i8 %5, ptr %11, align 8
   tail call fastcc void @parallel_vacuum_process_all_indexes(ptr noundef %0, i32 noundef %2, i1 noundef zeroext false)
   ret void
@@ -1078,7 +1078,7 @@ define dso_local void @parallel_vacuum_main(ptr nocapture noundef readnone %0, p
   %13 = load i32, ptr %11, align 8
   %14 = tail call ptr @table_open(i32 noundef %13, i32 noundef 4) #9
   call void @vac_open_indexes(ptr noundef %14, i32 noundef 3, ptr noundef nonnull %5, ptr noundef nonnull %4) #9
-  %15 = getelementptr inbounds i8, ptr %11, i64 20
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 20
   %16 = load i32, ptr %15, align 4
   %17 = icmp sgt i32 %16, 0
   br i1 %17, label %18, label %19
@@ -1096,49 +1096,49 @@ define dso_local void @parallel_vacuum_main(ptr nocapture noundef readnone %0, p
   store i64 0, ptr @VacuumPageMiss, align 8
   store i64 0, ptr @VacuumPageDirty, align 8
   store i32 0, ptr @VacuumCostBalanceLocal, align 4
-  %22 = getelementptr inbounds i8, ptr %11, i64 28
+  %22 = getelementptr inbounds nuw i8, ptr %11, i64 28
   store ptr %22, ptr @VacuumSharedCostBalance, align 8
-  %23 = getelementptr inbounds i8, ptr %11, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %11, i64 32
   store ptr %23, ptr @VacuumActiveNWorkers, align 8
   %24 = load ptr, ptr %4, align 8
-  %25 = getelementptr inbounds i8, ptr %3, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %24, ptr %25, align 8
   %26 = load i32, ptr %5, align 4
-  %27 = getelementptr inbounds i8, ptr %3, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i32 %26, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %3, i64 40
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store ptr %20, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %3, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr %11, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %3, i64 48
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store ptr %21, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %14, i64 56
+  %31 = getelementptr inbounds nuw i8, ptr %14, i64 56
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 68
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 68
   %34 = load i32, ptr %33, align 4
   %35 = call ptr @get_namespace_name(i32 noundef %34) #9
-  %36 = getelementptr inbounds i8, ptr %3, i64 104
+  %36 = getelementptr inbounds nuw i8, ptr %3, i64 104
   store ptr %35, ptr %36, align 8
   %37 = load ptr, ptr %31, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 4
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 4
   %39 = call ptr @pstrdup(ptr noundef nonnull %38) #9
-  %40 = getelementptr inbounds i8, ptr %3, i64 112
+  %40 = getelementptr inbounds nuw i8, ptr %3, i64 112
   store ptr %39, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %3, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %14, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %3, i64 120
+  %42 = getelementptr inbounds nuw i8, ptr %3, i64 120
   store ptr null, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %3, i64 128
+  %43 = getelementptr inbounds nuw i8, ptr %3, i64 128
   store i32 0, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %11, i64 24
+  %44 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %45 = load i32, ptr %44, align 8
   %46 = shl i32 %45, 3
   %47 = call ptr @GetAccessStrategyWithSize(i32 noundef 3, i32 noundef %46) #9
-  %48 = getelementptr inbounds i8, ptr %3, i64 96
+  %48 = getelementptr inbounds nuw i8, ptr %3, i64 96
   store ptr %47, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %6, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr @parallel_vacuum_error_callback, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %6, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %3, ptr %50, align 8
   %51 = load ptr, ptr @error_context_stack, align 8
   store ptr %51, ptr %6, align 8
@@ -1154,7 +1154,7 @@ define dso_local void @parallel_vacuum_main(ptr nocapture noundef readnone %0, p
 
 55:                                               ; preds = %53, %19
   %56 = load ptr, ptr %29, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 36
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 36
   %58 = call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %57, i32 1, ptr nonnull elementtype(i32) %57) #9, !srcloc !10
   %59 = load i32, ptr %27, align 8
   %.not1113.i = icmp slt i32 %58, %59
@@ -1165,7 +1165,7 @@ define dso_local void @parallel_vacuum_main(ptr nocapture noundef readnone %0, p
   %61 = load ptr, ptr %28, align 8
   %62 = sext i32 %60 to i64
   %63 = getelementptr %struct.PVIndStats, ptr %61, i64 %62
-  %64 = getelementptr inbounds i8, ptr %63, i64 4
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 4
   %65 = load i8, ptr %64, align 4
   %66 = trunc i8 %65 to i1
   br i1 %66, label %67, label %.backedge.i
@@ -1179,7 +1179,7 @@ define dso_local void @parallel_vacuum_main(ptr nocapture noundef readnone %0, p
 
 .backedge.i:                                      ; preds = %67, %.lr.ph.i
   %71 = load ptr, ptr %29, align 8
-  %72 = getelementptr inbounds i8, ptr %71, i64 36
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 36
   %73 = call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %72, i32 1, ptr nonnull elementtype(i32) %72) #9, !srcloc !10
   %74 = load i32, ptr %27, align 8
   %.not11.i = icmp slt i32 %73, %74
@@ -1240,7 +1240,7 @@ declare ptr @GetAccessStrategyWithSize(i32 noundef, i32 noundef) local_unnamed_a
 
 ; Function Attrs: nounwind uwtable
 define internal void @parallel_vacuum_error_callback(ptr nocapture noundef readonly %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 128
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load i32, ptr %2, align 8
   switch i32 %3, label %13 [
     i32 1, label %.sink.split
@@ -1253,11 +1253,11 @@ define internal void @parallel_vacuum_error_callback(ptr nocapture noundef reado
 .sink.split:                                      ; preds = %1, %4
   %.str.11.sink = phi ptr [ @.str.11, %4 ], [ @.str.10, %1 ]
   %5 = tail call i32 @set_errcontext_domain(ptr noundef null) #9
-  %6 = getelementptr inbounds i8, ptr %0, i64 120
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 104
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 112
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull %.str.11.sink, ptr noundef %7, ptr noundef %9, ptr noundef %11) #9
   br label %13
@@ -1293,45 +1293,45 @@ declare void @InstrAccumParallelQuery(ptr noundef, ptr noundef) local_unnamed_ad
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @parallel_vacuum_process_one_index(ptr nocapture noundef initializes((120, 132)) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct.IndexVacuumInfo, align 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 5
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 5
   %6 = load i8, ptr %5, align 1
   %7 = trunc i8 %6 to i1
-  %8 = getelementptr inbounds i8, ptr %2, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %spec.select = select i1 %7, ptr %8, ptr null
   store ptr %1, ptr %4, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %10, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i8 0, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %4, i64 17
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 17
   store i8 0, ptr %13, align 1
-  %14 = getelementptr inbounds i8, ptr %4, i64 20
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i32 13, ptr %14, align 4
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = load i8, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %4, i64 18
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 18
   %20 = and i8 %18, 1
   store i8 %20, ptr %19, align 2
-  %21 = getelementptr inbounds i8, ptr %16, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %22 = load double, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %4, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store double %22, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 96
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %4, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr %25, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %1, i64 56
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 4
   %30 = tail call ptr @pstrdup(ptr noundef nonnull %29) #9
-  %31 = getelementptr inbounds i8, ptr %0, i64 120
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr %30, ptr %31, align 8
   %32 = load i32, ptr %2, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 128
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i32 %32, ptr %33, align 8
   switch i32 %32, label %40 [
     i32 1, label %34
@@ -1339,7 +1339,7 @@ define internal fastcc void @parallel_vacuum_process_one_index(ptr nocapture nou
   ]
 
 34:                                               ; preds = %3
-  %35 = getelementptr inbounds i8, ptr %0, i64 48
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %36 = load ptr, ptr %35, align 8
   %37 = call ptr @vac_bulkdel_one_index(ptr noundef nonnull %4, ptr noundef %spec.select, ptr noundef %36) #9
   br label %46
@@ -1353,7 +1353,7 @@ define internal fastcc void @parallel_vacuum_process_one_index(ptr nocapture nou
   tail call void @llvm.assume(i1 %41)
   %42 = load i32, ptr %2, align 8
   %43 = load ptr, ptr %27, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 4
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 4
   %45 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9, i32 noundef %42, ptr noundef nonnull %44) #9
   tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 872, ptr noundef nonnull @__func__.parallel_vacuum_process_one_index) #9
   unreachable

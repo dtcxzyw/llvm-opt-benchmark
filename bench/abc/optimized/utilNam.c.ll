@@ -28,7 +28,7 @@ define noalias noundef ptr @Abc_NamStart(i32 noundef %0, i32 noundef %1) local_u
   store i32 %9, ptr %4, align 8
   %10 = sext i32 %9 to i64
   %11 = tail call noalias ptr @malloc(i64 noundef %10) #19
-  %12 = getelementptr inbounds i8, ptr %4, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %11, ptr %12, align 8
   %13 = add i32 %spec.store.select, -1
   br label %.loopexit.i
@@ -60,15 +60,15 @@ define noalias noundef ptr @Abc_NamStart(i32 noundef %0, i32 noundef %1) local_u
   br i1 %20, label %.loopexit.i.backedge, label %16, !llvm.loop !4
 
 Abc_PrimeCudd.exit:                               ; preds = %.preheader.i, %16
-  %21 = getelementptr inbounds i8, ptr %4, i64 56
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 56
   store i32 %14, ptr %21, align 8
   %22 = sext i32 %14 to i64
   %23 = tail call noalias ptr @calloc(i64 noundef %22, i64 noundef 4) #18
-  %24 = getelementptr inbounds i8, ptr %4, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store ptr %23, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %4, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %.not.i19 = icmp slt i32 %spec.store.select, 1
-  %26 = getelementptr inbounds i8, ptr %4, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %27 = zext nneg i32 %spec.store.select to i64
   %28 = shl nuw nsw i64 %27, 2
   %.sink40 = select i1 %.not.i19, i64 64, i64 %28
@@ -76,16 +76,16 @@ Abc_PrimeCudd.exit:                               ; preds = %.preheader.i, %16
   %29 = tail call noalias ptr @malloc(i64 noundef %.sink40) #19
   store ptr %29, ptr %26, align 8
   store i32 %storemerge, ptr %25, align 8
-  %30 = getelementptr inbounds i8, ptr %4, i64 20
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i32 1, ptr %30, align 4
   store i32 -1, ptr %29, align 4
-  %31 = getelementptr inbounds i8, ptr %4, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %32 = load i32, ptr %31, align 8
   %.not.i20 = icmp slt i32 %32, %spec.store.select
   br i1 %.not.i20, label %33, label %Vec_IntGrow.exit22
 
 33:                                               ; preds = %Abc_PrimeCudd.exit
-  %34 = getelementptr inbounds i8, ptr %4, i64 40
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %35 = load ptr, ptr %34, align 8
   %.not9.i21 = icmp eq ptr %35, null
   %36 = sext i32 %spec.store.select to i64
@@ -108,13 +108,13 @@ Abc_PrimeCudd.exit:                               ; preds = %.preheader.i, %16
 
 Vec_IntGrow.exit22:                               ; preds = %Abc_PrimeCudd.exit, %42
   %44 = phi i32 [ %32, %Abc_PrimeCudd.exit ], [ %spec.store.select, %42 ]
-  %45 = getelementptr inbounds i8, ptr %4, i64 36
+  %45 = getelementptr inbounds nuw i8, ptr %4, i64 36
   %46 = load i32, ptr %45, align 4
   %47 = icmp eq i32 %46, %44
   br i1 %47, label %48, label %.Vec_IntGrow.exit10_crit_edge.i23
 
 .Vec_IntGrow.exit10_crit_edge.i23:                ; preds = %Vec_IntGrow.exit22
-  %.phi.trans.insert.i24 = getelementptr inbounds i8, ptr %4, i64 40
+  %.phi.trans.insert.i24 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %.pre.i25 = load ptr, ptr %.phi.trans.insert.i24, align 8
   br label %Vec_IntPush.exit29
 
@@ -123,7 +123,7 @@ Vec_IntGrow.exit22:                               ; preds = %Abc_PrimeCudd.exit,
   br i1 %49, label %50, label %58
 
 50:                                               ; preds = %48
-  %51 = getelementptr inbounds i8, ptr %4, i64 40
+  %51 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %52 = load ptr, ptr %51, align 8
   %.not9.i.i27 = icmp eq ptr %52, null
   br i1 %.not9.i.i27, label %55, label %53
@@ -144,7 +144,7 @@ Vec_IntGrow.exit.i28:                             ; preds = %55, %53
 
 58:                                               ; preds = %48
   %59 = shl nuw nsw i32 %44, 1
-  %60 = getelementptr inbounds i8, ptr %4, i64 40
+  %60 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %61 = load ptr, ptr %60, align 8
   %.not9.i9.i26 = icmp eq ptr %61, null
   %62 = zext nneg i32 %59 to i64
@@ -172,11 +172,11 @@ Vec_IntPush.exit29:                               ; preds = %.Vec_IntGrow.exit10
   %72 = sext i32 %46 to i64
   %73 = getelementptr inbounds i32, ptr %70, i64 %72
   store i32 -1, ptr %73, align 4
-  %74 = getelementptr inbounds i8, ptr %4, i64 4
+  %74 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 4, ptr %74, align 4
   %75 = load ptr, ptr %12, align 8
   store i32 0, ptr %75, align 1
-  %76 = getelementptr inbounds i8, ptr %4, i64 60
+  %76 = getelementptr inbounds nuw i8, ptr %4, i64 60
   store i32 1, ptr %76, align 4
   ret ptr %4
 }
@@ -192,8 +192,8 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define void @Abc_NamStop(ptr nocapture noundef initializes((16, 24), (32, 40), (64, 72)) %0) local_unnamed_addr #4 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 64
-  %3 = getelementptr inbounds i8, ptr %0, i64 72
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %Vec_StrErase.exit, label %5
@@ -204,11 +204,11 @@ define void @Abc_NamStop(ptr nocapture noundef initializes((16, 24), (32, 40), (
   br label %Vec_StrErase.exit
 
 Vec_StrErase.exit:                                ; preds = %1, %5
-  %6 = getelementptr inbounds i8, ptr %0, i64 68
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i32 0, ptr %6, align 4
   store i32 0, ptr %2, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8
   %.not.i15 = icmp eq ptr %9, null
   br i1 %.not.i15, label %Vec_IntErase.exit, label %10
@@ -219,11 +219,11 @@ Vec_StrErase.exit:                                ; preds = %1, %5
   br label %Vec_IntErase.exit
 
 Vec_IntErase.exit:                                ; preds = %Vec_StrErase.exit, %10
-  %11 = getelementptr inbounds i8, ptr %0, i64 20
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 0, ptr %11, align 4
   store i32 0, ptr %7, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
-  %13 = getelementptr inbounds i8, ptr %0, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %14 = load ptr, ptr %13, align 8
   %.not.i16 = icmp eq ptr %14, null
   br i1 %.not.i16, label %Vec_IntErase.exit17, label %15
@@ -234,10 +234,10 @@ Vec_IntErase.exit:                                ; preds = %Vec_StrErase.exit, 
   br label %Vec_IntErase.exit17
 
 Vec_IntErase.exit17:                              ; preds = %Vec_IntErase.exit, %15
-  %16 = getelementptr inbounds i8, ptr %0, i64 36
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 0, ptr %16, align 4
   store i32 0, ptr %12, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load ptr, ptr %17, align 8
   %.not = icmp eq ptr %18, null
   br i1 %.not, label %20, label %19
@@ -248,7 +248,7 @@ Vec_IntErase.exit17:                              ; preds = %Vec_IntErase.exit, 
   br label %20
 
 20:                                               ; preds = %Vec_IntErase.exit17, %19
-  %21 = getelementptr inbounds i8, ptr %0, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %22 = load ptr, ptr %21, align 8
   %.not13 = icmp eq ptr %22, null
   br i1 %.not13, label %24, label %23
@@ -301,7 +301,7 @@ define void @Abc_NamPrint(ptr nocapture noundef readonly %0, ptr noundef %1) loc
 16:                                               ; preds = %.lr.ph, %16
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %16 ]
   %.val17 = load ptr, ptr %12, align 8
-  %17 = getelementptr inbounds i32, ptr %.val17, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw i32, ptr %.val17, i64 %indvars.iv
   %18 = load i32, ptr %17, align 4
   %.val18 = load ptr, ptr %13, align 8
   %19 = sext i32 %18 to i64
@@ -363,7 +363,7 @@ define void @Abc_NamSave(ptr nocapture noundef readonly %0, ptr noundef %1) loca
 11:                                               ; preds = %.lr.ph, %11
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %11 ]
   %.val12 = load ptr, ptr %7, align 8
-  %12 = getelementptr inbounds i32, ptr %.val12, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw i32, ptr %.val12, i64 %indvars.iv
   %13 = load i32, ptr %12, align 4
   %.val13 = load ptr, ptr %8, align 8
   %14 = sext i32 %13 to i64
@@ -438,9 +438,9 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
 ; Function Attrs: nounwind uwtable
 define i32 @Abc_NamStrFindOrAdd(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
   %4 = load i8, ptr %1, align 1
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %8 = load i32, ptr %7, align 8
   %cond = icmp eq i8 %4, 0
   br i1 %cond, label %Abc_NamStrHash.exit.i, label %.lr.ph42.i.i
@@ -457,7 +457,7 @@ define i32 @Abc_NamStrFindOrAdd(ptr nocapture noundef %0, ptr nocapture noundef 
 12:                                               ; preds = %.lr.ph42.i.i
   %13 = and i32 %.12840.i.i, 127
   %14 = zext nneg i32 %13 to i64
-  %15 = getelementptr inbounds [128 x i32], ptr @Abc_NamStrHash.s_FPrimes, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw [128 x i32], ptr @Abc_NamStrHash.s_FPrimes, i64 0, i64 %14
   %16 = load i32, ptr %15, align 4
   %17 = mul i32 %.341.i.i, %11
   %18 = mul i32 %17, %16
@@ -466,7 +466,7 @@ define i32 @Abc_NamStrFindOrAdd(ptr nocapture noundef %0, ptr nocapture noundef 
 19:                                               ; preds = %.lr.ph42.i.i
   %20 = and i32 %.12840.i.i, 126
   %21 = zext nneg i32 %20 to i64
-  %22 = getelementptr inbounds [128 x i32], ptr @Abc_NamStrHash.s_FPrimes, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw [128 x i32], ptr @Abc_NamStrHash.s_FPrimes, i64 0, i64 %21
   %23 = load i32, ptr %22, align 8
   %24 = mul nsw i32 %23, %11
   %25 = xor i32 %24, %.341.i.i
@@ -476,7 +476,7 @@ define i32 @Abc_NamStrFindOrAdd(ptr nocapture noundef %0, ptr nocapture noundef 
   %.4.i.i = phi i32 [ %18, %12 ], [ %25, %19 ]
   %27 = add i32 %.12840.i.i, 1
   %28 = zext i32 %27 to i64
-  %29 = getelementptr inbounds i8, ptr %1, i64 %28
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 %28
   %30 = load i8, ptr %29, align 1
   %.not32.i.i = icmp eq i8 %30, 0
   br i1 %.not32.i.i, label %Abc_NamStrHash.exit.i, label %.lr.ph42.i.i, !llvm.loop !10
@@ -520,8 +520,8 @@ Abc_NamStrHash.exit.i:                            ; preds = %26, %3
   br i1 %.not14.i.us.i, label %Abc_NamStrcmp.exit.loopexit.us.i, label %41
 
 41:                                               ; preds = %.preheader.i28.us.i
-  %42 = getelementptr inbounds i8, ptr %.112.i.us.i, i64 1
-  %43 = getelementptr inbounds i8, ptr %.1.i29.us.i, i64 1
+  %42 = getelementptr inbounds nuw i8, ptr %.112.i.us.i, i64 1
+  %43 = getelementptr inbounds nuw i8, ptr %.1.i29.us.i, i64 1
   %44 = load i8, ptr %.1.i29.us.i, align 1
   %.not15.i.us.i = icmp eq i8 %40, %44
   br i1 %.not15.i.us.i, label %.preheader.i28.us.i, label %Abc_NamStrcmp.exit.thread.us.i, !llvm.loop !11
@@ -559,7 +559,7 @@ Abc_NamStrHashFind.exit.thread:                   ; preds = %Abc_NamStrcmp.exit.
   br label %50
 
 50:                                               ; preds = %49, %Abc_NamStrHashFind.exit.thread
-  %51 = getelementptr inbounds i8, ptr %0, i64 4
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %52 = load i32, ptr %51, align 4
   %53 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #22
   %54 = trunc i64 %53 to i32
@@ -570,7 +570,7 @@ Abc_NamStrHashFind.exit.thread:                   ; preds = %Abc_NamStrcmp.exit.
   br i1 %58, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %50
-  %59 = getelementptr inbounds i8, ptr %0, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre69 = load ptr, ptr %59, align 8
   br label %60
 
@@ -601,7 +601,7 @@ Abc_NamStrHashFind.exit.thread:                   ; preds = %Abc_NamStrcmp.exit.
   br i1 %73, label %60, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %70, %50
-  %74 = getelementptr inbounds i8, ptr %0, i64 16
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %75 = getelementptr i8, ptr %0, i64 20
   %.val50 = load i32, ptr %75, align 4
   store i32 %.val50, ptr %.0.lcssa.i62, align 4
@@ -618,7 +618,7 @@ Abc_NamStrHashFind.exit.thread:                   ; preds = %Abc_NamStrcmp.exit.
   br i1 %84, label %85, label %.Vec_IntGrow.exit10_crit_edge.i
 
 .Vec_IntGrow.exit10_crit_edge.i:                  ; preds = %._crit_edge
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %0, i64 24
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
   br label %Vec_IntPush.exit
 
@@ -627,7 +627,7 @@ Abc_NamStrHashFind.exit.thread:                   ; preds = %Abc_NamStrcmp.exit.
   br i1 %86, label %87, label %95
 
 87:                                               ; preds = %85
-  %88 = getelementptr inbounds i8, ptr %0, i64 24
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %89 = load ptr, ptr %88, align 8
   %.not9.i.i = icmp eq ptr %89, null
   br i1 %.not9.i.i, label %92, label %90
@@ -648,7 +648,7 @@ Vec_IntGrow.exit.i:                               ; preds = %92, %90
 
 95:                                               ; preds = %85
   %96 = shl nuw nsw i32 %82, 1
-  %97 = getelementptr inbounds i8, ptr %0, i64 24
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %98 = load ptr, ptr %97, align 8
   %.not9.i9.i = icmp eq ptr %98, null
   %99 = zext nneg i32 %96 to i64
@@ -677,15 +677,15 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %110 = sext i32 %108 to i64
   %111 = getelementptr inbounds i32, ptr %107, i64 %110
   store i32 %81, ptr %111, align 4
-  %112 = getelementptr inbounds i8, ptr %0, i64 32
-  %113 = getelementptr inbounds i8, ptr %0, i64 36
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %113 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %114 = load i32, ptr %113, align 4
   %115 = load i32, ptr %112, align 8
   %116 = icmp eq i32 %114, %115
   br i1 %116, label %117, label %.Vec_IntGrow.exit10_crit_edge.i52
 
 .Vec_IntGrow.exit10_crit_edge.i52:                ; preds = %Vec_IntPush.exit
-  %.phi.trans.insert.i53 = getelementptr inbounds i8, ptr %0, i64 40
+  %.phi.trans.insert.i53 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.pre.i54 = load ptr, ptr %.phi.trans.insert.i53, align 8
   br label %Vec_IntPush.exit58
 
@@ -694,7 +694,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   br i1 %118, label %119, label %127
 
 119:                                              ; preds = %117
-  %120 = getelementptr inbounds i8, ptr %0, i64 40
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %121 = load ptr, ptr %120, align 8
   %.not9.i.i56 = icmp eq ptr %121, null
   br i1 %.not9.i.i56, label %124, label %122
@@ -715,7 +715,7 @@ Vec_IntGrow.exit.i57:                             ; preds = %124, %122
 
 127:                                              ; preds = %117
   %128 = shl nuw nsw i32 %114, 1
-  %129 = getelementptr inbounds i8, ptr %0, i64 40
+  %129 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %130 = load ptr, ptr %129, align 8
   %.not9.i9.i55 = icmp eq ptr %130, null
   %131 = zext nneg i32 %128 to i64
@@ -768,7 +768,7 @@ Vec_IntPush.exit58:                               ; preds = %.Vec_IntGrow.exit10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef ptr @Abc_NamRef(ptr noundef returned %0) local_unnamed_addr #9 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 60
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %3 = load i32, ptr %2, align 4
   %4 = add nsw i32 %3, 1
   store i32 %4, ptr %2, align 4
@@ -781,7 +781,7 @@ define void @Abc_NamDeref(ptr noundef %0) local_unnamed_addr #4 {
   br i1 %2, label %9, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 60
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %5 = load i32, ptr %4, align 4
   %6 = add nsw i32 %5, -1
   store i32 %6, ptr %4, align 4
@@ -809,13 +809,13 @@ define i32 @Abc_NamMemUsed(ptr noundef readonly %0) local_unnamed_addr #10 {
   br i1 %2, label %15, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %7 = load i32, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 20
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %9 = load i32, ptr %8, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 36
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %11 = load i32, ptr %10, align 4
   %12 = add i32 %9, %7
   %reass.add = add i32 %12, %11
@@ -836,11 +836,11 @@ define i32 @Abc_NamMemAlloc(ptr noundef readonly %0) local_unnamed_addr #10 {
 
 3:                                                ; preds = %1
   %4 = load i32, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 56
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load i32, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i32, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load i32, ptr %9, align 8
   %11 = add i32 %8, %6
   %reass.add = add i32 %11, %10
@@ -881,7 +881,7 @@ define range(i32 0, -1) i32 @Abc_NamStrHash(ptr noundef readonly %0, ptr noundef
 10:                                               ; preds = %.lr.ph
   %11 = and i32 %.02737, 127
   %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr inbounds [128 x i32], ptr @Abc_NamStrHash.s_FPrimes, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw [128 x i32], ptr @Abc_NamStrHash.s_FPrimes, i64 0, i64 %12
   %14 = load i32, ptr %13, align 4
   %15 = mul i32 %.038, %9
   %16 = mul i32 %15, %14
@@ -890,7 +890,7 @@ define range(i32 0, -1) i32 @Abc_NamStrHash(ptr noundef readonly %0, ptr noundef
 17:                                               ; preds = %.lr.ph
   %18 = and i32 %.02737, 126
   %19 = zext nneg i32 %18 to i64
-  %20 = getelementptr inbounds [128 x i32], ptr @Abc_NamStrHash.s_FPrimes, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw [128 x i32], ptr @Abc_NamStrHash.s_FPrimes, i64 0, i64 %19
   %21 = load i32, ptr %20, align 8
   %22 = mul nsw i32 %21, %9
   %23 = xor i32 %22, %.038
@@ -900,7 +900,7 @@ define range(i32 0, -1) i32 @Abc_NamStrHash(ptr noundef readonly %0, ptr noundef
   %.1 = phi i32 [ %16, %10 ], [ %23, %17 ]
   %25 = add i32 %.02737, 1
   %26 = zext i32 %25 to i64
-  %27 = getelementptr inbounds i8, ptr %0, i64 %26
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 %26
   %28 = icmp ult ptr %27, %1
   br i1 %28, label %.lr.ph, label %.loopexit, !llvm.loop !14
 
@@ -916,7 +916,7 @@ define range(i32 0, -1) i32 @Abc_NamStrHash(ptr noundef readonly %0, ptr noundef
 32:                                               ; preds = %.lr.ph42
   %33 = and i32 %.12840, 127
   %34 = zext nneg i32 %33 to i64
-  %35 = getelementptr inbounds [128 x i32], ptr @Abc_NamStrHash.s_FPrimes, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw [128 x i32], ptr @Abc_NamStrHash.s_FPrimes, i64 0, i64 %34
   %36 = load i32, ptr %35, align 4
   %37 = mul i32 %.341, %31
   %38 = mul i32 %37, %36
@@ -925,7 +925,7 @@ define range(i32 0, -1) i32 @Abc_NamStrHash(ptr noundef readonly %0, ptr noundef
 39:                                               ; preds = %.lr.ph42
   %40 = and i32 %.12840, 126
   %41 = zext nneg i32 %40 to i64
-  %42 = getelementptr inbounds [128 x i32], ptr @Abc_NamStrHash.s_FPrimes, i64 0, i64 %41
+  %42 = getelementptr inbounds nuw [128 x i32], ptr @Abc_NamStrHash.s_FPrimes, i64 0, i64 %41
   %43 = load i32, ptr %42, align 8
   %44 = mul nsw i32 %43, %31
   %45 = xor i32 %44, %.341
@@ -935,7 +935,7 @@ define range(i32 0, -1) i32 @Abc_NamStrHash(ptr noundef readonly %0, ptr noundef
   %.4 = phi i32 [ %38, %32 ], [ %45, %39 ]
   %47 = add i32 %.12840, 1
   %48 = zext i32 %47 to i64
-  %49 = getelementptr inbounds i8, ptr %0, i64 %48
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 %48
   %50 = load i8, ptr %49, align 1
   %.not32 = icmp eq i8 %50, 0
   br i1 %.not32, label %.loopexit, label %.lr.ph42, !llvm.loop !10
@@ -979,7 +979,7 @@ define range(i32 0, -1) i32 @Abc_NamStrHash2(ptr noundef %0, ptr noundef %1, i32
   %13 = mul i32 %12, 1025
   %14 = lshr i32 %13, 6
   %15 = xor i32 %14, %13
-  %16 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.next
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.next
   %17 = load i8, ptr %16, align 1
   %.not25.us = icmp eq i8 %17, 0
   br i1 %.not25.us, label %.critedge, label %.lr.ph35
@@ -987,7 +987,7 @@ define range(i32 0, -1) i32 @Abc_NamStrHash2(ptr noundef %0, ptr noundef %1, i32
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %20
   %indvars.iv38 = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next39, %20 ]
   %.029 = phi i32 [ 0, %.lr.ph.split.preheader ], [ %25, %20 ]
-  %18 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv38
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv38
   %19 = load i8, ptr %18, align 1
   %.not25 = icmp eq i8 %19, 0
   br i1 %.not25, label %.critedge, label %20
@@ -1014,9 +1014,9 @@ define range(i32 0, -1) i32 @Abc_NamStrHash2(ptr noundef %0, ptr noundef %1, i32
 
 ; Function Attrs: nounwind uwtable
 define void @Abc_NamStrHashResize(ptr nocapture noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load i32, ptr %4, align 8
   %6 = mul nsw i32 %5, 3
   %7 = add i32 %6, -1
@@ -1053,8 +1053,8 @@ Abc_PrimeCudd.exit:                               ; preds = %.preheader.i, %10
   %15 = sext i32 %8 to i64
   %16 = tail call noalias ptr @calloc(i64 noundef %15, i64 noundef 4) #18
   store ptr %16, ptr %2, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 20
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 20
   %.sroa.2.0.copyload = load i32, ptr %.sroa.2.0..sroa_idx, align 4
   %.sroa.5.0..sroa_idx = getelementptr i8, ptr %0, i64 24
   %.sroa.5.0.copyload = load ptr, ptr %.sroa.5.0..sroa_idx, align 8
@@ -1070,12 +1070,12 @@ Abc_PrimeCudd.exit:                               ; preds = %.preheader.i, %10
   store i32 %.sink, ptr %17, align 8
   store i32 1, ptr %.sroa.2.0..sroa_idx, align 4
   store i32 -1, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %0, i64 32
-  %23 = getelementptr inbounds i8, ptr %0, i64 36
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 0, ptr %23, align 4
   %24 = load i32, ptr %22, align 8
   %25 = icmp eq i32 %24, 0
-  %26 = getelementptr inbounds i8, ptr %0, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %27 = load ptr, ptr %26, align 8
   br i1 %25, label %28, label %Vec_IntPush.exit36
 
@@ -1118,7 +1118,7 @@ Vec_IntPush.exit36:                               ; preds = %Abc_PrimeCudd.exit,
 
 42:                                               ; preds = %.lr.ph, %Vec_IntPush.exit52
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %Vec_IntPush.exit52 ]
-  %43 = getelementptr inbounds i32, ptr %.sroa.5.0.copyload, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw i32, ptr %.sroa.5.0.copyload, i64 %indvars.iv
   %44 = load i32, ptr %43, align 4
   %.val28 = load ptr, ptr %40, align 8
   %45 = sext i32 %44 to i64
@@ -1141,7 +1141,7 @@ Vec_IntPush.exit36:                               ; preds = %Abc_PrimeCudd.exit,
 53:                                               ; preds = %.lr.ph42.i.i
   %54 = and i32 %.12840.i.i, 127
   %55 = zext nneg i32 %54 to i64
-  %56 = getelementptr inbounds [128 x i32], ptr @Abc_NamStrHash.s_FPrimes, i64 0, i64 %55
+  %56 = getelementptr inbounds nuw [128 x i32], ptr @Abc_NamStrHash.s_FPrimes, i64 0, i64 %55
   %57 = load i32, ptr %56, align 4
   %58 = mul i32 %.341.i.i, %52
   %59 = mul i32 %58, %57
@@ -1150,7 +1150,7 @@ Vec_IntPush.exit36:                               ; preds = %Abc_PrimeCudd.exit,
 60:                                               ; preds = %.lr.ph42.i.i
   %61 = and i32 %.12840.i.i, 126
   %62 = zext nneg i32 %61 to i64
-  %63 = getelementptr inbounds [128 x i32], ptr @Abc_NamStrHash.s_FPrimes, i64 0, i64 %62
+  %63 = getelementptr inbounds nuw [128 x i32], ptr @Abc_NamStrHash.s_FPrimes, i64 0, i64 %62
   %64 = load i32, ptr %63, align 8
   %65 = mul nsw i32 %64, %52
   %66 = xor i32 %65, %.341.i.i
@@ -1160,7 +1160,7 @@ Vec_IntPush.exit36:                               ; preds = %Abc_PrimeCudd.exit,
   %.4.i.i = phi i32 [ %59, %53 ], [ %66, %60 ]
   %68 = add i32 %.12840.i.i, 1
   %69 = zext i32 %68 to i64
-  %70 = getelementptr inbounds i8, ptr %46, i64 %69
+  %70 = getelementptr inbounds nuw i8, ptr %46, i64 %69
   %71 = load i8, ptr %70, align 1
   %.not32.i.i = icmp eq i8 %71, 0
   br i1 %.not32.i.i, label %Abc_NamStrHash.exit.i, label %.lr.ph42.i.i, !llvm.loop !10
@@ -1196,8 +1196,8 @@ Abc_NamStrHash.exit.i:                            ; preds = %67, %42
   br i1 %.not14.i.us.i, label %Abc_NamStrcmp.exit.loopexit.us.i, label %78
 
 78:                                               ; preds = %.preheader.i28.us.i
-  %79 = getelementptr inbounds i8, ptr %.112.i.us.i, i64 1
-  %80 = getelementptr inbounds i8, ptr %.1.i29.us.i, i64 1
+  %79 = getelementptr inbounds nuw i8, ptr %.112.i.us.i, i64 1
+  %80 = getelementptr inbounds nuw i8, ptr %.1.i29.us.i, i64 1
   %81 = load i8, ptr %.1.i29.us.i, align 1
   %.not15.i.us.i = icmp eq i8 %77, %81
   br i1 %.not15.i.us.i, label %.preheader.i28.us.i, label %Abc_NamStrcmp.exit.thread.us.i, !llvm.loop !11
@@ -1367,9 +1367,9 @@ Vec_IntErase.exit:                                ; preds = %.critedge, %140
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define internal fastcc noundef ptr @Abc_NamStrHashFind(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr noundef readnone %2) unnamed_addr #12 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %7 = load i32, ptr %6, align 8
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %.preheader.i, label %.preheader35.i
@@ -1396,7 +1396,7 @@ define internal fastcc noundef ptr @Abc_NamStrHashFind(ptr nocapture noundef rea
 14:                                               ; preds = %.lr.ph.i
   %15 = and i32 %.02737.i, 127
   %16 = zext nneg i32 %15 to i64
-  %17 = getelementptr inbounds [128 x i32], ptr @Abc_NamStrHash.s_FPrimes, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw [128 x i32], ptr @Abc_NamStrHash.s_FPrimes, i64 0, i64 %16
   %18 = load i32, ptr %17, align 4
   %19 = mul i32 %.038.i, %13
   %20 = mul i32 %19, %18
@@ -1405,7 +1405,7 @@ define internal fastcc noundef ptr @Abc_NamStrHashFind(ptr nocapture noundef rea
 21:                                               ; preds = %.lr.ph.i
   %22 = and i32 %.02737.i, 126
   %23 = zext nneg i32 %22 to i64
-  %24 = getelementptr inbounds [128 x i32], ptr @Abc_NamStrHash.s_FPrimes, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw [128 x i32], ptr @Abc_NamStrHash.s_FPrimes, i64 0, i64 %23
   %25 = load i32, ptr %24, align 8
   %26 = mul nsw i32 %25, %13
   %27 = xor i32 %26, %.038.i
@@ -1415,7 +1415,7 @@ define internal fastcc noundef ptr @Abc_NamStrHashFind(ptr nocapture noundef rea
   %.1.i = phi i32 [ %20, %14 ], [ %27, %21 ]
   %29 = add i32 %.02737.i, 1
   %30 = zext i32 %29 to i64
-  %31 = getelementptr inbounds i8, ptr %1, i64 %30
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 %30
   %32 = icmp ult ptr %31, %2
   br i1 %32, label %.lr.ph.i, label %Abc_NamStrHash.exit, !llvm.loop !14
 
@@ -1431,7 +1431,7 @@ define internal fastcc noundef ptr @Abc_NamStrHashFind(ptr nocapture noundef rea
 36:                                               ; preds = %.lr.ph42.i
   %37 = and i32 %.12840.i, 127
   %38 = zext nneg i32 %37 to i64
-  %39 = getelementptr inbounds [128 x i32], ptr @Abc_NamStrHash.s_FPrimes, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw [128 x i32], ptr @Abc_NamStrHash.s_FPrimes, i64 0, i64 %38
   %40 = load i32, ptr %39, align 4
   %41 = mul i32 %.341.i, %35
   %42 = mul i32 %41, %40
@@ -1440,7 +1440,7 @@ define internal fastcc noundef ptr @Abc_NamStrHashFind(ptr nocapture noundef rea
 43:                                               ; preds = %.lr.ph42.i
   %44 = and i32 %.12840.i, 126
   %45 = zext nneg i32 %44 to i64
-  %46 = getelementptr inbounds [128 x i32], ptr @Abc_NamStrHash.s_FPrimes, i64 0, i64 %45
+  %46 = getelementptr inbounds nuw [128 x i32], ptr @Abc_NamStrHash.s_FPrimes, i64 0, i64 %45
   %47 = load i32, ptr %46, align 8
   %48 = mul nsw i32 %47, %35
   %49 = xor i32 %48, %.341.i
@@ -1450,7 +1450,7 @@ define internal fastcc noundef ptr @Abc_NamStrHashFind(ptr nocapture noundef rea
   %.4.i = phi i32 [ %42, %36 ], [ %49, %43 ]
   %51 = add i32 %.12840.i, 1
   %52 = zext i32 %51 to i64
-  %53 = getelementptr inbounds i8, ptr %1, i64 %52
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 %52
   %54 = load i8, ptr %53, align 1
   %.not32.i = icmp eq i8 %54, 0
   br i1 %.not32.i, label %Abc_NamStrHash.exit, label %.lr.ph42.i, !llvm.loop !10
@@ -1497,8 +1497,8 @@ Abc_NamStrHash.exit:                              ; preds = %28, %50, %.preheade
   br i1 %.not14.i.us, label %Abc_NamStrcmp.exit.loopexit.us, label %72
 
 72:                                               ; preds = %.preheader.i28.us
-  %73 = getelementptr inbounds i8, ptr %.112.i.us, i64 1
-  %74 = getelementptr inbounds i8, ptr %.1.i29.us, i64 1
+  %73 = getelementptr inbounds nuw i8, ptr %.112.i.us, i64 1
+  %74 = getelementptr inbounds nuw i8, ptr %.1.i29.us, i64 1
   %75 = load i8, ptr %.1.i29.us, align 1
   %.not15.i.us = icmp eq i8 %71, %75
   br i1 %.not15.i.us, label %.preheader.i28.us, label %Abc_NamStrcmp.exit.thread.us, !llvm.loop !11
@@ -1540,9 +1540,9 @@ Abc_NamStrcmp.exit.loopexit.us:                   ; preds = %.preheader.i28.us
   br i1 %87, label %88, label %Abc_NamStrcmp.exit.loopexit33
 
 88:                                               ; preds = %.preheader17.i
-  %89 = getelementptr inbounds i8, ptr %.011.i, i64 1
+  %89 = getelementptr inbounds nuw i8, ptr %.011.i, i64 1
   %90 = load i8, ptr %.011.i, align 1
-  %91 = getelementptr inbounds i8, ptr %.0.i, i64 1
+  %91 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
   %92 = load i8, ptr %.0.i, align 1
   %.not16.i = icmp eq i8 %90, %92
   br i1 %.not16.i, label %.preheader17.i, label %Abc_NamStrcmp.exit.thread, !llvm.loop !17
@@ -1578,9 +1578,9 @@ Abc_NamStrcmp.exit._crit_edge:                    ; preds = %Abc_NamStrcmp.exit.
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define i32 @Abc_NamStrFind(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #12 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 56
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load i32, ptr %5, align 8
   %7 = load i8, ptr %1, align 1
   %.not3239.i.i = icmp eq i8 %7, 0
@@ -1598,7 +1598,7 @@ define i32 @Abc_NamStrFind(ptr nocapture noundef readonly %0, ptr nocapture noun
 11:                                               ; preds = %.lr.ph42.i.i
   %12 = and i32 %.12840.i.i, 127
   %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr inbounds [128 x i32], ptr @Abc_NamStrHash.s_FPrimes, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw [128 x i32], ptr @Abc_NamStrHash.s_FPrimes, i64 0, i64 %13
   %15 = load i32, ptr %14, align 4
   %16 = mul i32 %.341.i.i, %10
   %17 = mul i32 %16, %15
@@ -1607,7 +1607,7 @@ define i32 @Abc_NamStrFind(ptr nocapture noundef readonly %0, ptr nocapture noun
 18:                                               ; preds = %.lr.ph42.i.i
   %19 = and i32 %.12840.i.i, 126
   %20 = zext nneg i32 %19 to i64
-  %21 = getelementptr inbounds [128 x i32], ptr @Abc_NamStrHash.s_FPrimes, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw [128 x i32], ptr @Abc_NamStrHash.s_FPrimes, i64 0, i64 %20
   %22 = load i32, ptr %21, align 8
   %23 = mul nsw i32 %22, %10
   %24 = xor i32 %23, %.341.i.i
@@ -1617,7 +1617,7 @@ define i32 @Abc_NamStrFind(ptr nocapture noundef readonly %0, ptr nocapture noun
   %.4.i.i = phi i32 [ %17, %11 ], [ %24, %18 ]
   %26 = add i32 %.12840.i.i, 1
   %27 = zext i32 %26 to i64
-  %28 = getelementptr inbounds i8, ptr %1, i64 %27
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 %27
   %29 = load i8, ptr %28, align 1
   %.not32.i.i = icmp eq i8 %29, 0
   br i1 %.not32.i.i, label %Abc_NamStrHash.exit.i, label %.lr.ph42.i.i, !llvm.loop !10
@@ -1660,8 +1660,8 @@ Abc_NamStrHash.exit.i:                            ; preds = %25, %2
   br i1 %.not14.i.us.i, label %Abc_NamStrcmp.exit.loopexit.us.i, label %40
 
 40:                                               ; preds = %.preheader.i28.us.i
-  %41 = getelementptr inbounds i8, ptr %.112.i.us.i, i64 1
-  %42 = getelementptr inbounds i8, ptr %.1.i29.us.i, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %.112.i.us.i, i64 1
+  %42 = getelementptr inbounds nuw i8, ptr %.1.i29.us.i, i64 1
   %43 = load i8, ptr %.1.i29.us.i, align 1
   %.not15.i.us.i = icmp eq i8 %39, %43
   br i1 %.not15.i.us.i, label %.preheader.i28.us.i, label %Abc_NamStrcmp.exit.thread.us.i, !llvm.loop !11
@@ -1720,7 +1720,7 @@ define i32 @Abc_NamStrFindOrAddLim(ptr nocapture noundef %0, ptr noundef %1, ptr
   br label %11
 
 11:                                               ; preds = %10, %9
-  %12 = getelementptr inbounds i8, ptr %0, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %13 = load i32, ptr %12, align 4
   %14 = ptrtoint ptr %2 to i64
   %15 = ptrtoint ptr %1 to i64
@@ -1733,7 +1733,7 @@ define i32 @Abc_NamStrFindOrAddLim(ptr nocapture noundef %0, ptr noundef %1, ptr
   br i1 %21, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %11
-  %22 = getelementptr inbounds i8, ptr %0, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre58 = load ptr, ptr %22, align 8
   br label %23
 
@@ -1764,7 +1764,7 @@ define i32 @Abc_NamStrFindOrAddLim(ptr nocapture noundef %0, ptr noundef %1, ptr
   br i1 %36, label %23, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %33, %11
-  %37 = getelementptr inbounds i8, ptr %0, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %38 = getelementptr i8, ptr %0, i64 20
   %.val49 = load i32, ptr %38, align 4
   store i32 %.val49, ptr %5, align 4
@@ -1783,7 +1783,7 @@ define i32 @Abc_NamStrFindOrAddLim(ptr nocapture noundef %0, ptr noundef %1, ptr
   br i1 %48, label %49, label %.Vec_IntGrow.exit10_crit_edge.i
 
 .Vec_IntGrow.exit10_crit_edge.i:                  ; preds = %._crit_edge
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %0, i64 24
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
   br label %Vec_IntPush.exit
 
@@ -1792,7 +1792,7 @@ define i32 @Abc_NamStrFindOrAddLim(ptr nocapture noundef %0, ptr noundef %1, ptr
   br i1 %50, label %51, label %59
 
 51:                                               ; preds = %49
-  %52 = getelementptr inbounds i8, ptr %0, i64 24
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %53 = load ptr, ptr %52, align 8
   %.not9.i.i = icmp eq ptr %53, null
   br i1 %.not9.i.i, label %56, label %54
@@ -1813,7 +1813,7 @@ Vec_IntGrow.exit.i:                               ; preds = %56, %54
 
 59:                                               ; preds = %49
   %60 = shl nuw nsw i32 %46, 1
-  %61 = getelementptr inbounds i8, ptr %0, i64 24
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %62 = load ptr, ptr %61, align 8
   %.not9.i9.i = icmp eq ptr %62, null
   %63 = zext nneg i32 %60 to i64
@@ -1842,15 +1842,15 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %74 = sext i32 %72 to i64
   %75 = getelementptr inbounds i32, ptr %71, i64 %74
   store i32 %45, ptr %75, align 4
-  %76 = getelementptr inbounds i8, ptr %0, i64 32
-  %77 = getelementptr inbounds i8, ptr %0, i64 36
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %78 = load i32, ptr %77, align 4
   %79 = load i32, ptr %76, align 8
   %80 = icmp eq i32 %78, %79
   br i1 %80, label %81, label %.Vec_IntGrow.exit10_crit_edge.i51
 
 .Vec_IntGrow.exit10_crit_edge.i51:                ; preds = %Vec_IntPush.exit
-  %.phi.trans.insert.i52 = getelementptr inbounds i8, ptr %0, i64 40
+  %.phi.trans.insert.i52 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.pre.i53 = load ptr, ptr %.phi.trans.insert.i52, align 8
   br label %Vec_IntPush.exit57
 
@@ -1859,7 +1859,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   br i1 %82, label %83, label %91
 
 83:                                               ; preds = %81
-  %84 = getelementptr inbounds i8, ptr %0, i64 40
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %85 = load ptr, ptr %84, align 8
   %.not9.i.i55 = icmp eq ptr %85, null
   br i1 %.not9.i.i55, label %88, label %86
@@ -1880,7 +1880,7 @@ Vec_IntGrow.exit.i56:                             ; preds = %88, %86
 
 91:                                               ; preds = %81
   %92 = shl nuw nsw i32 %78, 1
-  %93 = getelementptr inbounds i8, ptr %0, i64 40
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %94 = load ptr, ptr %93, align 8
   %.not9.i9.i54 = icmp eq ptr %94, null
   %95 = zext nneg i32 %92 to i64
@@ -1911,7 +1911,7 @@ Vec_IntPush.exit57:                               ; preds = %.Vec_IntGrow.exit10
   store i32 0, ptr %107, align 4
   store i32 %19, ptr %12, align 4
   %.val48 = load i32, ptr %38, align 4
-  %108 = getelementptr inbounds i8, ptr %0, i64 56
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %109 = load i32, ptr %108, align 8
   %110 = shl nsw i32 %109, 1
   %111 = icmp sgt i32 %.val48, %110
@@ -1939,7 +1939,7 @@ declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocaptu
 define i32 @Abc_NamStrFindOrAddF(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ...) local_unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %3)
-  %4 = getelementptr inbounds i8, ptr %0, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = getelementptr i8, ptr %0, i64 68
   %.val = load i32, ptr %5, align 4
   %6 = add nsw i32 %.val, 1000
@@ -2045,7 +2045,7 @@ define ptr @Abc_NamStr(ptr nocapture noundef readonly %0, i32 noundef %1) local_
   %6 = getelementptr i8, ptr %0, i64 24
   %.val2 = load ptr, ptr %6, align 8
   %7 = zext nneg i32 %1 to i64
-  %8 = getelementptr inbounds i32, ptr %.val2, i64 %7
+  %8 = getelementptr inbounds nuw i32, ptr %.val2, i64 %7
   %9 = load i32, ptr %8, align 4
   %10 = sext i32 %9 to i64
   %11 = getelementptr inbounds i8, ptr %.val, i64 %10
@@ -2058,8 +2058,8 @@ define ptr @Abc_NamStr(ptr nocapture noundef readonly %0, i32 noundef %1) local_
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define nonnull ptr @Abc_NamBuffer(ptr noundef writeonly initializes((68, 72)) %0) local_unnamed_addr #16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 64
-  %3 = getelementptr inbounds i8, ptr %0, i64 68
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i32 0, ptr %3, align 4
   ret ptr %2
 }
@@ -2073,7 +2073,7 @@ define noalias noundef ptr @Abc_NamComputeIdMap(ptr noundef readonly %0, ptr nou
   %6 = add i32 %.val.i, -1
   %or.cond.i.i = icmp ult i32 %6, 15
   %spec.store.select.i.i = select i1 %or.cond.i.i, i32 16, i32 %.val.i
-  %7 = getelementptr inbounds i8, ptr %5, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %spec.store.select.i.i, ptr %5, align 8
   %.not.i.i = icmp eq i32 %spec.store.select.i.i, 0
   br i1 %3, label %8, label %19
@@ -2089,7 +2089,7 @@ define noalias noundef ptr @Abc_NamComputeIdMap(ptr noundef readonly %0, ptr nou
 
 Vec_IntAlloc.exit.i:                              ; preds = %9, %8
   %13 = phi ptr [ %12, %9 ], [ null, %8 ]
-  %14 = getelementptr inbounds i8, ptr %5, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %13, ptr %14, align 8
   store i32 %.val.i, ptr %7, align 4
   %15 = icmp sgt i32 %.val.i, 0
@@ -2101,7 +2101,7 @@ Vec_IntAlloc.exit.i:                              ; preds = %9, %8
 
 16:                                               ; preds = %16, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %16 ]
-  %17 = getelementptr inbounds i32, ptr %13, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv.i
   %18 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %18, ptr %17, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -2112,7 +2112,7 @@ Vec_IntAlloc.exit.i:                              ; preds = %9, %8
   br i1 %.not.i.i, label %Vec_IntAlloc.exit.thread.i, label %Vec_IntAlloc.exit.i27
 
 Vec_IntAlloc.exit.thread.i:                       ; preds = %19
-  %20 = getelementptr inbounds i8, ptr %5, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr null, ptr %20, align 8
   store i32 %.val.i, ptr %7, align 4
   br label %Vec_IntStart.exit
@@ -2121,7 +2121,7 @@ Vec_IntAlloc.exit.i27:                            ; preds = %19
   %21 = sext i32 %spec.store.select.i.i to i64
   %22 = shl nsw i64 %21, 2
   %23 = tail call noalias ptr @malloc(i64 noundef %22) #19
-  %24 = getelementptr inbounds i8, ptr %5, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %23, ptr %24, align 8
   store i32 %.val.i, ptr %7, align 4
   %.not.i = icmp eq ptr %23, null
@@ -2141,8 +2141,8 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
 .lr.ph:                                           ; preds = %Vec_IntStart.exit
   %29 = getelementptr i8, ptr %0, i64 24
   %30 = getelementptr i8, ptr %0, i64 8
-  %31 = getelementptr inbounds i8, ptr %1, i64 48
-  %32 = getelementptr inbounds i8, ptr %1, i64 56
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %33 = getelementptr i8, ptr %1, i64 8
   %34 = getelementptr i8, ptr %1, i64 24
   %35 = getelementptr i8, ptr %1, i64 40
@@ -2155,7 +2155,7 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
 
 37:                                               ; preds = %.lr.ph, %Abc_NamStrHashFind.exit
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %Abc_NamStrHashFind.exit ]
-  %38 = getelementptr inbounds i32, ptr %.val20.pre, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw i32, ptr %.val20.pre, i64 %indvars.iv
   %39 = load i32, ptr %38, align 4
   %40 = sext i32 %39 to i64
   %41 = getelementptr inbounds i8, ptr %.val21.pre, i64 %40
@@ -2175,7 +2175,7 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
 46:                                               ; preds = %.lr.ph42.i.i
   %47 = and i32 %.12840.i.i, 127
   %48 = zext nneg i32 %47 to i64
-  %49 = getelementptr inbounds [128 x i32], ptr @Abc_NamStrHash.s_FPrimes, i64 0, i64 %48
+  %49 = getelementptr inbounds nuw [128 x i32], ptr @Abc_NamStrHash.s_FPrimes, i64 0, i64 %48
   %50 = load i32, ptr %49, align 4
   %51 = mul i32 %.341.i.i, %45
   %52 = mul i32 %51, %50
@@ -2184,7 +2184,7 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
 53:                                               ; preds = %.lr.ph42.i.i
   %54 = and i32 %.12840.i.i, 126
   %55 = zext nneg i32 %54 to i64
-  %56 = getelementptr inbounds [128 x i32], ptr @Abc_NamStrHash.s_FPrimes, i64 0, i64 %55
+  %56 = getelementptr inbounds nuw [128 x i32], ptr @Abc_NamStrHash.s_FPrimes, i64 0, i64 %55
   %57 = load i32, ptr %56, align 8
   %58 = mul nsw i32 %57, %45
   %59 = xor i32 %58, %.341.i.i
@@ -2194,7 +2194,7 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
   %.4.i.i = phi i32 [ %52, %46 ], [ %59, %53 ]
   %61 = add i32 %.12840.i.i, 1
   %62 = zext i32 %61 to i64
-  %63 = getelementptr inbounds i8, ptr %41, i64 %62
+  %63 = getelementptr inbounds nuw i8, ptr %41, i64 %62
   %64 = load i8, ptr %63, align 1
   %.not32.i.i = icmp eq i8 %64, 0
   br i1 %.not32.i.i, label %Abc_NamStrHash.exit.i, label %.lr.ph42.i.i, !llvm.loop !10
@@ -2234,8 +2234,8 @@ Abc_NamStrHash.exit.i:                            ; preds = %60, %37
   br i1 %.not14.i.us.i, label %Abc_NamStrcmp.exit.loopexit.us.i, label %72
 
 72:                                               ; preds = %.preheader.i28.us.i
-  %73 = getelementptr inbounds i8, ptr %.112.i.us.i, i64 1
-  %74 = getelementptr inbounds i8, ptr %.1.i29.us.i, i64 1
+  %73 = getelementptr inbounds nuw i8, ptr %.112.i.us.i, i64 1
+  %74 = getelementptr inbounds nuw i8, ptr %.1.i29.us.i, i64 1
   %75 = load i8, ptr %.1.i29.us.i, align 1
   %.not15.i.us.i = icmp eq i8 %71, %75
   br i1 %.not15.i.us.i, label %.preheader.i28.us.i, label %Abc_NamStrcmp.exit.thread.us.i, !llvm.loop !11
@@ -2254,7 +2254,7 @@ Abc_NamStrcmp.exit.loopexit.us.i:                 ; preds = %.preheader.i28.us.i
 
 Abc_NamStrHashFind.exit:                          ; preds = %Abc_NamStrcmp.exit.thread.us.i, %Abc_NamStrcmp.exit.loopexit.us.i, %Abc_NamStrHash.exit.i, %69
   %79 = phi i32 [ %68, %69 ], [ 0, %Abc_NamStrHash.exit.i ], [ %70, %Abc_NamStrcmp.exit.loopexit.us.i ], [ 0, %Abc_NamStrcmp.exit.thread.us.i ]
-  %80 = getelementptr inbounds i32, ptr %.val22, i64 %indvars.iv
+  %80 = getelementptr inbounds nuw i32, ptr %.val22, i64 %indvars.iv
   store i32 %79, ptr %80, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %81 = icmp samesign ult i64 %indvars.iv.next, %36
@@ -2276,9 +2276,9 @@ define i32 @Abc_NamReportCommon(ptr nocapture noundef readonly %0, ptr nocapture
   %.val10 = load ptr, ptr %6, align 8
   %7 = getelementptr i8, ptr %1, i64 8
   %8 = getelementptr i8, ptr %1, i64 24
-  %9 = getelementptr inbounds i8, ptr %2, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %2, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %12 = load i32, ptr %11, align 8
   %13 = getelementptr i8, ptr %2, i64 8
   %14 = getelementptr i8, ptr %2, i64 24
@@ -2289,7 +2289,7 @@ define i32 @Abc_NamReportCommon(ptr nocapture noundef readonly %0, ptr nocapture
 16:                                               ; preds = %.lr.ph, %Abc_NamStrFind.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Abc_NamStrFind.exit ]
   %.013 = phi i32 [ 0, %.lr.ph ], [ %67, %Abc_NamStrFind.exit ]
-  %17 = getelementptr inbounds i32, ptr %.val10, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw i32, ptr %.val10, i64 %indvars.iv
   %18 = load i32, ptr %17, align 4
   %19 = icmp sgt i32 %18, 0
   br i1 %19, label %20, label %Abc_NamStr.exit
@@ -2298,7 +2298,7 @@ define i32 @Abc_NamReportCommon(ptr nocapture noundef readonly %0, ptr nocapture
   %.val.i = load ptr, ptr %7, align 8
   %.val2.i = load ptr, ptr %8, align 8
   %21 = zext nneg i32 %18 to i64
-  %22 = getelementptr inbounds i32, ptr %.val2.i, i64 %21
+  %22 = getelementptr inbounds nuw i32, ptr %.val2.i, i64 %21
   %23 = load i32, ptr %22, align 4
   %24 = sext i32 %23 to i64
   %25 = getelementptr inbounds i8, ptr %.val.i, i64 %24
@@ -2322,7 +2322,7 @@ Abc_NamStr.exit:                                  ; preds = %16, %20
 31:                                               ; preds = %.lr.ph42.i.i.i
   %32 = and i32 %.12840.i.i.i, 127
   %33 = zext nneg i32 %32 to i64
-  %34 = getelementptr inbounds [128 x i32], ptr @Abc_NamStrHash.s_FPrimes, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw [128 x i32], ptr @Abc_NamStrHash.s_FPrimes, i64 0, i64 %33
   %35 = load i32, ptr %34, align 4
   %36 = mul i32 %.341.i.i.i, %30
   %37 = mul i32 %36, %35
@@ -2331,7 +2331,7 @@ Abc_NamStr.exit:                                  ; preds = %16, %20
 38:                                               ; preds = %.lr.ph42.i.i.i
   %39 = and i32 %.12840.i.i.i, 126
   %40 = zext nneg i32 %39 to i64
-  %41 = getelementptr inbounds [128 x i32], ptr @Abc_NamStrHash.s_FPrimes, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw [128 x i32], ptr @Abc_NamStrHash.s_FPrimes, i64 0, i64 %40
   %42 = load i32, ptr %41, align 8
   %43 = mul nsw i32 %42, %30
   %44 = xor i32 %43, %.341.i.i.i
@@ -2341,7 +2341,7 @@ Abc_NamStr.exit:                                  ; preds = %16, %20
   %.4.i.i.i = phi i32 [ %37, %31 ], [ %44, %38 ]
   %46 = add i32 %.12840.i.i.i, 1
   %47 = zext i32 %46 to i64
-  %48 = getelementptr inbounds i8, ptr %26, i64 %47
+  %48 = getelementptr inbounds nuw i8, ptr %26, i64 %47
   %49 = load i8, ptr %48, align 1
   %.not32.i.i.i = icmp eq i8 %49, 0
   br i1 %.not32.i.i.i, label %Abc_NamStrHash.exit.i.i, label %.lr.ph42.i.i.i, !llvm.loop !10
@@ -2381,8 +2381,8 @@ Abc_NamStrHash.exit.i.i:                          ; preds = %45, %Abc_NamStr.exi
   br i1 %.not14.i.us.i.i, label %Abc_NamStrcmp.exit.loopexit.us.i.i, label %57
 
 57:                                               ; preds = %.preheader.i28.us.i.i
-  %58 = getelementptr inbounds i8, ptr %.112.i.us.i.i, i64 1
-  %59 = getelementptr inbounds i8, ptr %.1.i29.us.i.i, i64 1
+  %58 = getelementptr inbounds nuw i8, ptr %.112.i.us.i.i, i64 1
+  %59 = getelementptr inbounds nuw i8, ptr %.1.i29.us.i.i, i64 1
   %60 = load i8, ptr %.1.i29.us.i.i, align 1
   %.not15.i.us.i.i = icmp eq i8 %56, %60
   br i1 %.not15.i.us.i.i, label %.preheader.i28.us.i.i, label %Abc_NamStrcmp.exit.thread.us.i.i, !llvm.loop !11
@@ -2425,9 +2425,9 @@ define ptr @Abc_NamReportUnique(ptr nocapture noundef readonly %0, ptr nocapture
   %.val11 = load ptr, ptr %6, align 8
   %7 = getelementptr i8, ptr %1, i64 8
   %8 = getelementptr i8, ptr %1, i64 24
-  %9 = getelementptr inbounds i8, ptr %2, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %2, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %12 = load i32, ptr %11, align 8
   %13 = getelementptr i8, ptr %2, i64 8
   %14 = getelementptr i8, ptr %2, i64 24
@@ -2437,7 +2437,7 @@ define ptr @Abc_NamReportUnique(ptr nocapture noundef readonly %0, ptr nocapture
 
 16:                                               ; preds = %.lr.ph, %Abc_NamStrFind.exit.thread15
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Abc_NamStrFind.exit.thread15 ]
-  %17 = getelementptr inbounds i32, ptr %.val11, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw i32, ptr %.val11, i64 %indvars.iv
   %18 = load i32, ptr %17, align 4
   %19 = icmp sgt i32 %18, 0
   br i1 %19, label %20, label %Abc_NamStr.exit
@@ -2446,7 +2446,7 @@ define ptr @Abc_NamReportUnique(ptr nocapture noundef readonly %0, ptr nocapture
   %.val.i = load ptr, ptr %7, align 8
   %.val2.i = load ptr, ptr %8, align 8
   %21 = zext nneg i32 %18 to i64
-  %22 = getelementptr inbounds i32, ptr %.val2.i, i64 %21
+  %22 = getelementptr inbounds nuw i32, ptr %.val2.i, i64 %21
   %23 = load i32, ptr %22, align 4
   %24 = sext i32 %23 to i64
   %25 = getelementptr inbounds i8, ptr %.val.i, i64 %24
@@ -2470,7 +2470,7 @@ Abc_NamStr.exit:                                  ; preds = %16, %20
 31:                                               ; preds = %.lr.ph42.i.i.i
   %32 = and i32 %.12840.i.i.i, 127
   %33 = zext nneg i32 %32 to i64
-  %34 = getelementptr inbounds [128 x i32], ptr @Abc_NamStrHash.s_FPrimes, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw [128 x i32], ptr @Abc_NamStrHash.s_FPrimes, i64 0, i64 %33
   %35 = load i32, ptr %34, align 4
   %36 = mul i32 %.341.i.i.i, %30
   %37 = mul i32 %36, %35
@@ -2479,7 +2479,7 @@ Abc_NamStr.exit:                                  ; preds = %16, %20
 38:                                               ; preds = %.lr.ph42.i.i.i
   %39 = and i32 %.12840.i.i.i, 126
   %40 = zext nneg i32 %39 to i64
-  %41 = getelementptr inbounds [128 x i32], ptr @Abc_NamStrHash.s_FPrimes, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw [128 x i32], ptr @Abc_NamStrHash.s_FPrimes, i64 0, i64 %40
   %42 = load i32, ptr %41, align 8
   %43 = mul nsw i32 %42, %30
   %44 = xor i32 %43, %.341.i.i.i
@@ -2489,7 +2489,7 @@ Abc_NamStr.exit:                                  ; preds = %16, %20
   %.4.i.i.i = phi i32 [ %37, %31 ], [ %44, %38 ]
   %46 = add i32 %.12840.i.i.i, 1
   %47 = zext i32 %46 to i64
-  %48 = getelementptr inbounds i8, ptr %26, i64 %47
+  %48 = getelementptr inbounds nuw i8, ptr %26, i64 %47
   %49 = load i8, ptr %48, align 1
   %.not32.i.i.i = icmp eq i8 %49, 0
   br i1 %.not32.i.i.i, label %Abc_NamStrHash.exit.i.i, label %.lr.ph42.i.i.i, !llvm.loop !10
@@ -2529,8 +2529,8 @@ Abc_NamStrHash.exit.i.i:                          ; preds = %45, %Abc_NamStr.exi
   br i1 %.not14.i.us.i.i, label %Abc_NamStrcmp.exit.loopexit.us.i.i, label %57
 
 57:                                               ; preds = %.preheader.i28.us.i.i
-  %58 = getelementptr inbounds i8, ptr %.112.i.us.i.i, i64 1
-  %59 = getelementptr inbounds i8, ptr %.1.i29.us.i.i, i64 1
+  %58 = getelementptr inbounds nuw i8, ptr %.112.i.us.i.i, i64 1
+  %59 = getelementptr inbounds nuw i8, ptr %.1.i29.us.i.i, i64 1
   %60 = load i8, ptr %.1.i29.us.i.i, align 1
   %.not15.i.us.i.i = icmp eq i8 %56, %60
   br i1 %.not15.i.us.i.i, label %.preheader.i28.us.i.i, label %Abc_NamStrcmp.exit.thread.us.i.i, !llvm.loop !11
@@ -2554,7 +2554,7 @@ Abc_NamStrFind.exit.thread:                       ; preds = %Abc_NamStrHash.exit
   %.val.i12 = load ptr, ptr %7, align 8
   %.val2.i13 = load ptr, ptr %8, align 8
   %65 = zext nneg i32 %18 to i64
-  %66 = getelementptr inbounds i32, ptr %.val2.i13, i64 %65
+  %66 = getelementptr inbounds nuw i32, ptr %.val2.i13, i64 %65
   %67 = load i32, ptr %66, align 4
   %68 = sext i32 %67 to i64
   %69 = getelementptr inbounds i8, ptr %.val.i12, i64 %68

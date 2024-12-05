@@ -105,7 +105,7 @@ if.then1.i15:                                     ; preds = %if.end.i12
 
 do.body1:                                         ; preds = %if.end.i12, %if.then1.i15, %if.then, %entry
   %module.val11 = load ptr, ptr %0, align 8
-  %Long___abs__ = getelementptr inbounds i8, ptr %module.val11, i64 8
+  %Long___abs__ = getelementptr inbounds nuw i8, ptr %module.val11, i64 8
   %4 = load ptr, ptr %Long___abs__, align 8
   %cmp5.not = icmp eq ptr %4, null
   br i1 %cmp5.not, label %do.end8, label %if.then6
@@ -159,7 +159,7 @@ if.then1.i15.i:                                   ; preds = %if.end.i12.i
 
 do.body1.i:                                       ; preds = %if.then1.i15.i, %if.end.i12.i, %if.then.i, %entry
   %module.val11.i = load ptr, ptr %0, align 8
-  %Long___abs__.i = getelementptr inbounds i8, ptr %module.val11.i, i64 8
+  %Long___abs__.i = getelementptr inbounds nuw i8, ptr %module.val11.i, i64 8
   %4 = load ptr, ptr %Long___abs__.i, align 8
   %cmp5.not.i = icmp eq ptr %4, null
   br i1 %cmp5.not.i, label %_random_clear.exit, label %if.then6.i
@@ -228,7 +228,7 @@ Py_DECREF.exit29:                                 ; preds = %if.end11, %if.then1
 
 if.end15:                                         ; preds = %Py_DECREF.exit29
   %call16 = tail call ptr @PyObject_GetAttrString(ptr noundef nonnull %call12, ptr noundef nonnull @.str.1) #8
-  %Long___abs__ = getelementptr inbounds i8, ptr %module.val, i64 8
+  %Long___abs__ = getelementptr inbounds nuw i8, ptr %module.val, i64 8
   store ptr %call16, ptr %Long___abs__, align 8
   %3 = load i64, ptr %call12, align 8
   %4 = and i64 %3, 2147483648
@@ -282,9 +282,9 @@ entry:
   br i1 %cmp.i.not, label %land.lhs.true, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %tp_init = getelementptr inbounds i8, ptr %self.val9, i64 296
+  %tp_init = getelementptr inbounds nuw i8, ptr %self.val9, i64 296
   %3 = load ptr, ptr %tp_init, align 8
-  %tp_init6 = getelementptr inbounds i8, ptr %2, i64 296
+  %tp_init6 = getelementptr inbounds nuw i8, ptr %2, i64 296
   %4 = load ptr, ptr %tp_init6, align 8
   %cmp = icmp ne ptr %3, %4
   %cmp7 = icmp eq ptr %kwds, null
@@ -316,7 +316,7 @@ if.end14:                                         ; preds = %if.end
   br i1 %cmp16, label %if.then17, label %if.end18
 
 if.then17:                                        ; preds = %if.end14
-  %ob_item = getelementptr inbounds i8, ptr %args, i64 24
+  %ob_item = getelementptr inbounds nuw i8, ptr %args, i64 24
   %7 = load ptr, ptr %ob_item, align 8
   br label %if.end18
 
@@ -386,8 +386,8 @@ entry:
   br i1 %cmp.i, label %_random_Random_getstate_impl.exit, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %entry
-  %state2.i = getelementptr inbounds i8, ptr %self, i64 20
-  %ob_item.i.i = getelementptr inbounds i8, ptr %call.i, i64 24
+  %state2.i = getelementptr inbounds nuw i8, ptr %self, i64 20
+  %ob_item.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 24
   br label %for.body.i
 
 for.body.i:                                       ; preds = %if.end7.i, %for.cond.preheader.i
@@ -407,7 +407,7 @@ if.end7.i:                                        ; preds = %for.body.i
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !4
 
 for.end.i:                                        ; preds = %if.end7.i
-  %index.i = getelementptr inbounds i8, ptr %self, i64 16
+  %index.i = getelementptr inbounds nuw i8, ptr %self, i64 16
   %1 = load i32, ptr %index.i, align 8
   %conv9.i = sext i32 %1 to i64
   %call10.i = tail call ptr @PyLong_FromLong(i64 noundef %conv9.i) #8
@@ -464,7 +464,7 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp.not.i, label %for.cond.preheader.i, label %if.then3.i
 
 for.cond.preheader.i:                             ; preds = %if.end.i
-  %ob_item.i = getelementptr inbounds i8, ptr %state, i64 24
+  %ob_item.i = getelementptr inbounds nuw i8, ptr %state, i64 24
   br label %for.body.i
 
 if.then3.i:                                       ; preds = %if.end.i
@@ -516,9 +516,9 @@ if.then29.i:                                      ; preds = %if.end24.i, %land.l
 
 if.end30.i:                                       ; preds = %if.end24.i
   %conv31.i = trunc nuw nsw i64 %call17.i to i32
-  %index32.i = getelementptr inbounds i8, ptr %self, i64 16
+  %index32.i = getelementptr inbounds nuw i8, ptr %self, i64 16
   store i32 %conv31.i, ptr %index32.i, align 8
-  %state39.i = getelementptr inbounds i8, ptr %self, i64 20
+  %state39.i = getelementptr inbounds nuw i8, ptr %self, i64 20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(2496) %state39.i, ptr noundef nonnull align 16 dereferenceable(2496) %new_state.i, i64 2496, i1 false)
   br label %_random_Random_setstate_impl.exit
 
@@ -557,8 +557,8 @@ exit:                                             ; preds = %entry.split, %land.
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc i32 @genrand_uint32(ptr nocapture noundef %self) unnamed_addr #2 {
 entry:
-  %state = getelementptr inbounds i8, ptr %self, i64 20
-  %index = getelementptr inbounds i8, ptr %self, i64 16
+  %state = getelementptr inbounds nuw i8, ptr %self, i64 20
+  %index = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load i32, ptr %index, align 8
   %cmp = icmp sgt i32 %0, 623
   br i1 %cmp, label %for.body.preheader, label %if.end
@@ -681,7 +681,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i, label %if.then3, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then
-  %state.i.i = getelementptr inbounds i8, ptr %self, i64 20
+  %state.i.i = getelementptr inbounds nuw i8, ptr %self, i64 20
   store i32 19650218, ptr %state.i.i, align 4
   br label %for.body.i.i.i
 
@@ -700,7 +700,7 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %if
   br i1 %exitcond.not.i.i.i, label %init_genrand.exit.i.i, label %for.body.i.i.i, !llvm.loop !9
 
 init_genrand.exit.i.i:                            ; preds = %for.body.i.i.i
-  %index.i.i.i = getelementptr inbounds i8, ptr %self, i64 16
+  %index.i.i.i = getelementptr inbounds nuw i8, ptr %self, i64 16
   store i32 624, ptr %index.i.i.i, align 8
   %arrayidx11.i.i = getelementptr i8, ptr %self, i64 2512
   br label %for.body.i.i
@@ -784,20 +784,20 @@ if.then3:                                         ; preds = %if.then
   store i32 %conv.i, ptr %key.i23, align 16
   %shr.i = lshr i64 %call.i24, 32
   %conv1.i = trunc nuw i64 %shr.i to i32
-  %arrayidx2.i = getelementptr inbounds i8, ptr %key.i23, i64 4
+  %arrayidx2.i = getelementptr inbounds nuw i8, ptr %key.i23, i64 4
   store i32 %conv1.i, ptr %arrayidx2.i, align 4
   %call3.i = call i32 @getpid() #8
-  %arrayidx4.i = getelementptr inbounds i8, ptr %key.i23, i64 8
+  %arrayidx4.i = getelementptr inbounds nuw i8, ptr %key.i23, i64 8
   store i32 %call3.i, ptr %arrayidx4.i, align 8
   %call5.i = call i64 @_PyTime_GetMonotonicClock() #8
   %conv7.i = trunc i64 %call5.i to i32
-  %arrayidx8.i = getelementptr inbounds i8, ptr %key.i23, i64 12
+  %arrayidx8.i = getelementptr inbounds nuw i8, ptr %key.i23, i64 12
   store i32 %conv7.i, ptr %arrayidx8.i, align 4
   %shr9.i = lshr i64 %call5.i, 32
   %conv10.i = trunc nuw i64 %shr9.i to i32
-  %arrayidx11.i = getelementptr inbounds i8, ptr %key.i23, i64 16
+  %arrayidx11.i = getelementptr inbounds nuw i8, ptr %key.i23, i64 16
   store i32 %conv10.i, ptr %arrayidx11.i, align 16
-  %state.i.i25 = getelementptr inbounds i8, ptr %self, i64 20
+  %state.i.i25 = getelementptr inbounds nuw i8, ptr %self, i64 20
   store i32 19650218, ptr %state.i.i25, align 4
   br label %for.body.i.i.i26
 
@@ -816,7 +816,7 @@ for.body.i.i.i26:                                 ; preds = %for.body.i.i.i26, %
   br i1 %exitcond.not.i.i.i34, label %init_genrand.exit.i.i35, label %for.body.i.i.i26, !llvm.loop !9
 
 init_genrand.exit.i.i35:                          ; preds = %for.body.i.i.i26
-  %index.i.i.i36 = getelementptr inbounds i8, ptr %self, i64 16
+  %index.i.i.i36 = getelementptr inbounds nuw i8, ptr %self, i64 16
   store i32 624, ptr %index.i.i.i36, align 8
   %arrayidx11.i.i37 = getelementptr i8, ptr %self, i64 2512
   br label %for.body.i.i38
@@ -914,7 +914,7 @@ if.then11:                                        ; preds = %if.else
   %call13 = tail call ptr @PyType_GetModuleByDef(ptr noundef %self.val, ptr noundef nonnull @_randommodule) #8
   %22 = getelementptr i8, ptr %call13, i64 32
   %call13.val = load ptr, ptr %22, align 8
-  %Long___abs__ = getelementptr inbounds i8, ptr %call13.val, i64 8
+  %Long___abs__ = getelementptr inbounds nuw i8, ptr %call13.val, i64 8
   %23 = load ptr, ptr %Long___abs__, align 8
   %call15 = tail call ptr @PyObject_CallOneArg(ptr noundef %23, ptr noundef nonnull %arg) #8
   br label %if.end23
@@ -964,7 +964,7 @@ if.end38:                                         ; preds = %if.end32
   br i1 %cmp41, label %if.then.i95, label %if.end43
 
 if.end43:                                         ; preds = %if.end38
-  %state.i = getelementptr inbounds i8, ptr %self, i64 20
+  %state.i = getelementptr inbounds nuw i8, ptr %self, i64 20
   store i32 19650218, ptr %state.i, align 4
   br label %for.body.i.i85
 
@@ -983,7 +983,7 @@ for.body.i.i85:                                   ; preds = %for.body.i.i85, %if
   br i1 %exitcond.not.i.i, label %init_genrand.exit.i, label %for.body.i.i85, !llvm.loop !9
 
 init_genrand.exit.i:                              ; preds = %for.body.i.i85
-  %index.i.i = getelementptr inbounds i8, ptr %self, i64 16
+  %index.i.i = getelementptr inbounds nuw i8, ptr %self, i64 16
   store i32 624, ptr %index.i.i, align 8
   %cond.i = tail call i64 @llvm.umax.i64(i64 range(i64 1, 576460752303423489) %cond, i64 624)
   %arrayidx11.i91 = getelementptr i8, ptr %self, i64 2512

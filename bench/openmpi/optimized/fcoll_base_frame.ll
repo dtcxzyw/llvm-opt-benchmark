@@ -25,16 +25,16 @@ define ptr @mca_fcoll_base_component_lookup(ptr nocapture noundef readonly %0) l
   br i1 %.not9, label %._crit_edge, label %.lr.ph
 
 2:                                                ; preds = %.lr.ph
-  %3 = getelementptr inbounds i8, ptr %.0710, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %.0710, i64 16
   %.07 = load volatile ptr, ptr %3, align 8
   %.not = icmp eq ptr %.07, getelementptr inbounds (i8, ptr @ompi_fcoll_base_framework, i64 96)
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
 .lr.ph:                                           ; preds = %1, %2
   %.0710 = phi ptr [ %.07, %2 ], [ %.078, %1 ]
-  %4 = getelementptr inbounds i8, ptr %.0710, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %.0710, i64 40
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 84
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 84
   %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) %0) #2
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %._crit_edge, label %2

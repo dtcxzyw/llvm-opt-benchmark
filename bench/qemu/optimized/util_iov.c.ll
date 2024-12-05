@@ -56,7 +56,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %offset.addr.030 = phi i64 [ %offset, %for.body.preheader ], [ %offset.addr.1, %for.inc ]
   %done.029 = phi i64 [ 0, %for.body.preheader ], [ %done.1, %for.inc ]
   %arrayidx = getelementptr %struct.iovec, ptr %iov, i64 %indvars.iv
-  %iov_len = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %iov_len = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %2 = load i64, ptr %iov_len, align 8
   %cmp2 = icmp ult i64 %offset.addr.030, %2
   br i1 %cmp2, label %if.then, label %if.else
@@ -125,7 +125,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %offset.addr.030 = phi i64 [ %offset, %for.body.preheader ], [ %offset.addr.1, %for.inc ]
   %done.029 = phi i64 [ 0, %for.body.preheader ], [ %done.1, %for.inc ]
   %arrayidx = getelementptr %struct.iovec, ptr %iov, i64 %indvars.iv
-  %iov_len = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %iov_len = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %2 = load i64, ptr %iov_len, align 8
   %cmp2 = icmp ult i64 %offset.addr.030, %2
   br i1 %cmp2, label %if.then, label %if.else
@@ -189,7 +189,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %offset.addr.029 = phi i64 [ %offset, %for.body.lr.ph ], [ %offset.addr.1, %for.inc ]
   %done.028 = phi i64 [ 0, %for.body.lr.ph ], [ %done.1, %for.inc ]
   %arrayidx = getelementptr %struct.iovec, ptr %iov, i64 %indvars.iv
-  %iov_len = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %iov_len = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %3 = load i64, ptr %iov_len, align 8
   %cmp2 = icmp ult i64 %offset.addr.029, %3
   br i1 %cmp2, label %if.then, label %if.else
@@ -287,7 +287,7 @@ land.rhs.i:                                       ; preds = %if.end, %for.inc.i
 
 for.body.i:                                       ; preds = %land.rhs.i
   %arrayidx.i = getelementptr %struct.iovec, ptr %_iov, i64 %indvars.iv.i
-  %iov_len.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  %iov_len.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   %1 = load i64, ptr %iov_len.i, align 8
   %cmp3.not.i = icmp ult i64 %offset.addr.034.i, %1
   br i1 %cmp3.not.i, label %if.end.i, label %if.then.i
@@ -304,7 +304,7 @@ if.end.i:                                         ; preds = %for.body.i
   %idxprom14.i = zext i32 %j.031.i to i64
   %arrayidx15.i = getelementptr %struct.iovec, ptr %call, i64 %idxprom14.i
   store ptr %add.ptr.i, ptr %arrayidx15.i, align 8
-  %iov_len19.i = getelementptr inbounds i8, ptr %arrayidx15.i, i64 8
+  %iov_len19.i = getelementptr inbounds nuw i8, ptr %arrayidx15.i, i64 8
   store i64 %cond.i, ptr %iov_len19.i, align 8
   %inc.i = add nuw i32 %j.031.i, 1
   %sub20.i = sub i64 %bytes.addr.033.i, %cond.i
@@ -330,10 +330,10 @@ if.else.i:                                        ; preds = %for.end.i
   unreachable
 
 iov_copy.exit:                                    ; preds = %land.rhs.i, %for.end.i
-  %msg_iov.i = getelementptr inbounds i8, ptr %msg.i, i64 16
-  %msg_iovlen.i = getelementptr inbounds i8, ptr %msg.i, i64 24
-  %msg_iov.i74 = getelementptr inbounds i8, ptr %msg.i73, i64 16
-  %msg_iovlen.i76 = getelementptr inbounds i8, ptr %msg.i73, i64 24
+  %msg_iov.i = getelementptr inbounds nuw i8, ptr %msg.i, i64 16
+  %msg_iovlen.i = getelementptr inbounds nuw i8, ptr %msg.i, i64 24
+  %msg_iov.i74 = getelementptr inbounds nuw i8, ptr %msg.i73, i64 16
+  %msg_iovlen.i76 = getelementptr inbounds nuw i8, ptr %msg.i73, i64 24
   br label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %iov_copy.exit, %if.end103
@@ -382,7 +382,7 @@ if.then16:                                        ; preds = %if.end14
   %5 = load ptr, ptr %add.ptr, align 8
   %add.ptr18 = getelementptr i8, ptr %5, i64 %offset.addr.1104
   store ptr %add.ptr18, ptr %add.ptr, align 8
-  %iov_len20 = getelementptr inbounds i8, ptr %add.ptr, i64 8
+  %iov_len20 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 8
   %sub21 = sub i64 %3, %offset.addr.1104
   store i64 %sub21, ptr %iov_len20, align 8
   br label %if.end22
@@ -516,7 +516,7 @@ if.then74:                                        ; preds = %if.end72
   %idx.neg = sub i64 0, %offset.addr.1104
   %add.ptr77 = getelementptr i8, ptr %14, i64 %idx.neg
   store ptr %add.ptr77, ptr %add.ptr, align 8
-  %iov_len79 = getelementptr inbounds i8, ptr %add.ptr, i64 8
+  %iov_len79 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 8
   %15 = load i64, ptr %iov_len79, align 8
   %add = add i64 %15, %offset.addr.1104
   store i64 %add, ptr %iov_len79, align 8
@@ -594,7 +594,7 @@ land.rhs:                                         ; preds = %land.rhs.preheader,
 
 for.body:                                         ; preds = %land.rhs
   %arrayidx = getelementptr %struct.iovec, ptr %iov, i64 %indvars.iv
-  %iov_len = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %iov_len = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %2 = load i64, ptr %iov_len, align 8
   %cmp3.not = icmp ult i64 %offset.addr.034, %2
   br i1 %cmp3.not, label %if.end, label %if.then
@@ -611,7 +611,7 @@ if.end:                                           ; preds = %for.body
   %idxprom14 = zext i32 %j.031 to i64
   %arrayidx15 = getelementptr %struct.iovec, ptr %dst_iov, i64 %idxprom14
   store ptr %add.ptr, ptr %arrayidx15, align 8
-  %iov_len19 = getelementptr inbounds i8, ptr %arrayidx15, i64 8
+  %iov_len19 = getelementptr inbounds nuw i8, ptr %arrayidx15, i64 8
   store i64 %cond, ptr %iov_len19, align 8
   %inc = add nuw i32 %j.031, 1
   %sub20 = sub i64 %bytes.addr.033, %cond
@@ -681,7 +681,7 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %for.b
   %indvars.iv.i.i = phi i64 [ 0, %for.body.preheader.i.i ], [ %indvars.iv.next.i.i, %for.inc.i.i ]
   %done.029.i.i = phi i64 [ 0, %for.body.preheader.i.i ], [ %done.1.i.i, %for.inc.i.i ]
   %arrayidx.i.i = getelementptr %struct.iovec, ptr %iov, i64 %indvars.iv.i.i
-  %iov_len.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 8
+  %iov_len.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 8
   %2 = load i64, ptr %iov_len.i.i, align 8
   %cmp2.i.i.not = icmp eq i64 %2, 0
   br i1 %cmp2.i.i.not, label %for.inc.i.i, label %if.then.i.i
@@ -720,11 +720,11 @@ entry:
   %conv = sext i32 %alloc_hint to i64
   %call = tail call noalias ptr @g_malloc_n(i64 noundef %conv, i64 noundef 16) #18
   store ptr %call, ptr %qiov, align 8
-  %niov = getelementptr inbounds i8, ptr %qiov, i64 8
+  %niov = getelementptr inbounds nuw i8, ptr %qiov, i64 8
   store i32 0, ptr %niov, align 8
-  %0 = getelementptr inbounds i8, ptr %qiov, i64 16
+  %0 = getelementptr inbounds nuw i8, ptr %qiov, i64 16
   store i32 %alloc_hint, ptr %0, align 8
-  %size = getelementptr inbounds i8, ptr %qiov, i64 32
+  %size = getelementptr inbounds nuw i8, ptr %qiov, i64 32
   store i64 0, ptr %size, align 8
   ret void
 }
@@ -736,11 +736,11 @@ declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #5
 define dso_local void @qemu_iovec_init_external(ptr nocapture noundef writeonly initializes((0, 12), (16, 20), (32, 40)) %qiov, ptr noundef %iov, i32 noundef %niov) local_unnamed_addr #9 {
 entry:
   store ptr %iov, ptr %qiov, align 8
-  %niov2 = getelementptr inbounds i8, ptr %qiov, i64 8
+  %niov2 = getelementptr inbounds nuw i8, ptr %qiov, i64 8
   store i32 %niov, ptr %niov2, align 8
-  %0 = getelementptr inbounds i8, ptr %qiov, i64 16
+  %0 = getelementptr inbounds nuw i8, ptr %qiov, i64 16
   store i32 -1, ptr %0, align 8
-  %size = getelementptr inbounds i8, ptr %qiov, i64 32
+  %size = getelementptr inbounds nuw i8, ptr %qiov, i64 32
   store i64 0, ptr %size, align 8
   %cmp9 = icmp sgt i32 %niov, 0
   br i1 %cmp9, label %for.body.lr.ph, label %for.end
@@ -767,7 +767,7 @@ for.end:                                          ; preds = %for.body, %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qemu_iovec_add(ptr nocapture noundef %qiov, ptr noundef %base, i64 noundef %len) local_unnamed_addr #0 {
 entry:
-  %0 = getelementptr inbounds i8, ptr %qiov, i64 16
+  %0 = getelementptr inbounds nuw i8, ptr %qiov, i64 16
   %1 = load i32, ptr %0, align 8
   %cmp.not = icmp eq i32 %1, -1
   br i1 %cmp.not, label %if.else, label %if.end
@@ -777,7 +777,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %niov = getelementptr inbounds i8, ptr %qiov, i64 8
+  %niov = getelementptr inbounds nuw i8, ptr %qiov, i64 8
   %2 = load i32, ptr %niov, align 8
   %cmp2 = icmp eq i32 %2, %1
   %.pre = load ptr, ptr %qiov, align 8
@@ -804,7 +804,7 @@ if.end8:                                          ; preds = %if.then3, %if.end
   %idxprom13 = sext i32 %6 to i64
   %iov_len = getelementptr %struct.iovec, ptr %5, i64 %idxprom13, i32 1
   store i64 %len, ptr %iov_len, align 8
-  %size = getelementptr inbounds i8, ptr %qiov, i64 32
+  %size = getelementptr inbounds nuw i8, ptr %qiov, i64 32
   %7 = load i64, ptr %size, align 8
   %add15 = add i64 %7, %len
   store i64 %add15, ptr %size, align 8
@@ -823,7 +823,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %0 = getelementptr inbounds i8, ptr %dst, i64 16
+  %0 = getelementptr inbounds nuw i8, ptr %dst, i64 16
   %1 = load i32, ptr %0, align 8
   %cmp.not = icmp eq i32 %1, -1
   br i1 %cmp.not, label %if.else, label %for.cond.preheader
@@ -833,8 +833,8 @@ for.cond.preheader:                               ; preds = %if.end
   br i1 %cmp424.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %niov.i = getelementptr inbounds i8, ptr %dst, i64 8
-  %size.i = getelementptr inbounds i8, ptr %dst, i64 32
+  %niov.i = getelementptr inbounds nuw i8, ptr %dst, i64 8
+  %size.i = getelementptr inbounds nuw i8, ptr %dst, i64 32
   br label %for.body
 
 if.else:                                          ; preds = %if.end
@@ -847,7 +847,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %done.025 = phi i64 [ 0, %for.body.lr.ph ], [ %done.1, %for.inc ]
   %idxprom = sext i32 %i.026 to i64
   %arrayidx = getelementptr %struct.iovec, ptr %src_iov, i64 %idxprom
-  %iov_len = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %iov_len = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %2 = load i64, ptr %iov_len, align 8
   %cmp5 = icmp ult i64 %soffset.addr.027, %2
   br i1 %cmp5, label %if.then6, label %if.else14
@@ -934,7 +934,7 @@ return:                                           ; preds = %for.end, %entry
 define dso_local void @qemu_iovec_concat(ptr nocapture noundef %dst, ptr nocapture noundef readonly %src, i64 noundef %soffset, i64 noundef %sbytes) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %src, align 8
-  %niov = getelementptr inbounds i8, ptr %src, i64 8
+  %niov = getelementptr inbounds nuw i8, ptr %src, i64 8
   %1 = load i32, ptr %niov, align 8
   %call = tail call i64 @qemu_iovec_concat_iov(ptr noundef %dst, ptr noundef %0, i32 noundef %1, i64 noundef %soffset, i64 noundef %sbytes)
   ret void
@@ -944,7 +944,7 @@ entry:
 define dso_local ptr @qemu_iovec_slice(ptr nocapture noundef readonly %qiov, i64 noundef %offset, i64 noundef %len, ptr nocapture noundef writeonly %head, ptr nocapture noundef writeonly %tail, ptr nocapture noundef writeonly %niov) local_unnamed_addr #0 {
 entry:
   %add = add i64 %len, %offset
-  %size = getelementptr inbounds i8, ptr %qiov, i64 32
+  %size = getelementptr inbounds nuw i8, ptr %qiov, i64 32
   %0 = load i64, ptr %size, align 8
   %cmp.not = icmp ugt i64 %add, %0
   br i1 %cmp.not, label %if.else, label %if.end
@@ -961,7 +961,7 @@ if.end:                                           ; preds = %entry
 land.rhs.i:                                       ; preds = %if.end, %while.body.i
   %iov.addr.09.i = phi ptr [ %incdec.ptr.i, %while.body.i ], [ %1, %if.end ]
   %offset.addr.08.i = phi i64 [ %sub.i, %while.body.i ], [ %offset, %if.end ]
-  %iov_len.i = getelementptr inbounds i8, ptr %iov.addr.09.i, i64 8
+  %iov_len.i = getelementptr inbounds nuw i8, ptr %iov.addr.09.i, i64 8
   %2 = load i64, ptr %iov_len.i, align 8
   %cmp1.not.i = icmp ult i64 %offset.addr.08.i, %2
   br i1 %cmp1.not.i, label %iov_skip_offset.exit, label %while.body.i
@@ -983,7 +983,7 @@ iov_skip_offset.exit:                             ; preds = %land.rhs.i, %while.
 land.rhs.i16:                                     ; preds = %iov_skip_offset.exit, %while.body.i21
   %iov.addr.09.i17 = phi ptr [ %incdec.ptr.i23, %while.body.i21 ], [ %iov.addr.0.lcssa.i, %iov_skip_offset.exit ]
   %offset.addr.08.i18 = phi i64 [ %sub.i22, %while.body.i21 ], [ %add2, %iov_skip_offset.exit ]
-  %iov_len.i19 = getelementptr inbounds i8, ptr %iov.addr.09.i17, i64 8
+  %iov_len.i19 = getelementptr inbounds nuw i8, ptr %iov.addr.09.i17, i64 8
   %3 = load i64, ptr %iov_len.i19, align 8
   %cmp1.not.i20 = icmp ult i64 %offset.addr.08.i18, %3
   br i1 %cmp1.not.i20, label %if.then5, label %while.body.i21
@@ -1000,7 +1000,7 @@ iov_skip_offset.exit27.thread:                    ; preds = %while.body.i21, %io
   br label %if.end11
 
 if.then5:                                         ; preds = %land.rhs.i16
-  %iov_len.i19.le = getelementptr inbounds i8, ptr %iov.addr.09.i17, i64 8
+  %iov_len.i19.le = getelementptr inbounds nuw i8, ptr %iov.addr.09.i17, i64 8
   store i64 %offset.addr.08.i18, ptr %tail, align 8
   %4 = load i64, ptr %iov_len.i19.le, align 8
   %cmp6 = icmp ult i64 %offset.addr.08.i18, %4
@@ -1031,7 +1031,7 @@ if.end11:                                         ; preds = %iov_skip_offset.exi
 define dso_local i32 @qemu_iovec_subvec_niov(ptr nocapture noundef readonly %qiov, i64 noundef %offset, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %add.i = add i64 %len, %offset
-  %size.i = getelementptr inbounds i8, ptr %qiov, i64 32
+  %size.i = getelementptr inbounds nuw i8, ptr %qiov, i64 32
   %0 = load i64, ptr %size.i, align 8
   %cmp.not.i = icmp ugt i64 %add.i, %0
   br i1 %cmp.not.i, label %if.else.i, label %if.end.i
@@ -1048,7 +1048,7 @@ if.end.i:                                         ; preds = %entry
 land.rhs.i.i:                                     ; preds = %if.end.i, %while.body.i.i
   %iov.addr.09.i.i = phi ptr [ %incdec.ptr.i.i, %while.body.i.i ], [ %1, %if.end.i ]
   %offset.addr.08.i.i = phi i64 [ %sub.i.i, %while.body.i.i ], [ %offset, %if.end.i ]
-  %iov_len.i.i = getelementptr inbounds i8, ptr %iov.addr.09.i.i, i64 8
+  %iov_len.i.i = getelementptr inbounds nuw i8, ptr %iov.addr.09.i.i, i64 8
   %2 = load i64, ptr %iov_len.i.i, align 8
   %cmp1.not.i.i = icmp ult i64 %offset.addr.08.i.i, %2
   br i1 %cmp1.not.i.i, label %iov_skip_offset.exit.i, label %while.body.i.i
@@ -1069,7 +1069,7 @@ iov_skip_offset.exit.i:                           ; preds = %while.body.i.i, %la
 land.rhs.i16.i:                                   ; preds = %iov_skip_offset.exit.i, %while.body.i21.i
   %iov.addr.09.i17.i = phi ptr [ %incdec.ptr.i23.i, %while.body.i21.i ], [ %iov.addr.0.lcssa.i.i, %iov_skip_offset.exit.i ]
   %offset.addr.08.i18.i = phi i64 [ %sub.i22.i, %while.body.i21.i ], [ %add2.i, %iov_skip_offset.exit.i ]
-  %iov_len.i19.i = getelementptr inbounds i8, ptr %iov.addr.09.i17.i, i64 8
+  %iov_len.i19.i = getelementptr inbounds nuw i8, ptr %iov.addr.09.i17.i, i64 8
   %3 = load i64, ptr %iov_len.i19.i, align 8
   %cmp1.not.i20.i = icmp ult i64 %offset.addr.08.i18.i, %3
   br i1 %cmp1.not.i20.i, label %if.end9.i, label %while.body.i21.i
@@ -1098,7 +1098,7 @@ qemu_iovec_slice.exit:                            ; preds = %while.body.i21.i, %
 define dso_local noundef zeroext i1 @qemu_iovec_is_zero(ptr nocapture noundef readonly %qiov, i64 noundef %offset, i64 noundef %bytes) local_unnamed_addr #0 {
 entry:
   %add = add i64 %bytes, %offset
-  %size = getelementptr inbounds i8, ptr %qiov, i64 32
+  %size = getelementptr inbounds nuw i8, ptr %qiov, i64 32
   %0 = load i64, ptr %size, align 8
   %cmp.not = icmp ugt i64 %add, %0
   br i1 %cmp.not, label %if.else, label %if.end
@@ -1115,7 +1115,7 @@ if.end:                                           ; preds = %entry
 land.rhs.i:                                       ; preds = %if.end, %while.body.i
   %iov.addr.09.i = phi ptr [ %incdec.ptr.i, %while.body.i ], [ %1, %if.end ]
   %offset.addr.08.i = phi i64 [ %sub.i, %while.body.i ], [ %offset, %if.end ]
-  %iov_len.i = getelementptr inbounds i8, ptr %iov.addr.09.i, i64 8
+  %iov_len.i = getelementptr inbounds nuw i8, ptr %iov.addr.09.i, i64 8
   %2 = load i64, ptr %iov_len.i, align 8
   %cmp1.not.i = icmp ult i64 %offset.addr.08.i, %2
   br i1 %cmp1.not.i, label %iov_skip_offset.exit, label %while.body.i
@@ -1138,7 +1138,7 @@ while.body:                                       ; preds = %iov_skip_offset.exi
   %current_offset.012 = phi i64 [ 0, %while.body ], [ %offset.addr.0.lcssa.i, %iov_skip_offset.exit ]
   %3 = load ptr, ptr %iov.013, align 8
   %add.ptr = getelementptr i8, ptr %3, i64 %current_offset.012
-  %iov_len = getelementptr inbounds i8, ptr %iov.013, i64 8
+  %iov_len = getelementptr inbounds nuw i8, ptr %iov.013, i64 8
   %4 = load i64, ptr %iov_len, align 8
   %sub = sub i64 %4, %current_offset.012
   %cond = tail call i64 @llvm.umin.i64(i64 %sub, i64 %bytes.addr.014)
@@ -1159,7 +1159,7 @@ declare zeroext i1 @buffer_is_zero(ptr noundef, i64 noundef) local_unnamed_addr 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qemu_iovec_init_slice(ptr noundef %qiov, ptr nocapture noundef readonly %source, i64 noundef %offset, i64 noundef %len) local_unnamed_addr #0 {
 entry:
-  %size = getelementptr inbounds i8, ptr %source, i64 32
+  %size = getelementptr inbounds nuw i8, ptr %source, i64 32
   %0 = load i64, ptr %size, align 8
   %cmp.not = icmp ult i64 %0, %len
   br i1 %cmp.not, label %if.else, label %if.end
@@ -1194,7 +1194,7 @@ if.end.i:                                         ; preds = %if.end5
 land.rhs.i.i:                                     ; preds = %if.end.i, %while.body.i.i
   %iov.addr.09.i.i = phi ptr [ %incdec.ptr.i.i, %while.body.i.i ], [ %1, %if.end.i ]
   %offset.addr.08.i.i = phi i64 [ %sub.i.i, %while.body.i.i ], [ %offset, %if.end.i ]
-  %iov_len.i.i = getelementptr inbounds i8, ptr %iov.addr.09.i.i, i64 8
+  %iov_len.i.i = getelementptr inbounds nuw i8, ptr %iov.addr.09.i.i, i64 8
   %2 = load i64, ptr %iov_len.i.i, align 8
   %cmp1.not.i.i = icmp ult i64 %offset.addr.08.i.i, %2
   br i1 %cmp1.not.i.i, label %iov_skip_offset.exit.i, label %while.body.i.i
@@ -1215,7 +1215,7 @@ iov_skip_offset.exit.i:                           ; preds = %while.body.i.i, %la
 land.rhs.i16.i:                                   ; preds = %iov_skip_offset.exit.i, %while.body.i21.i
   %iov.addr.09.i17.i = phi ptr [ %incdec.ptr.i23.i, %while.body.i21.i ], [ %iov.addr.0.lcssa.i.i, %iov_skip_offset.exit.i ]
   %offset.addr.08.i18.i = phi i64 [ %sub.i22.i, %while.body.i21.i ], [ %add2.i, %iov_skip_offset.exit.i ]
-  %iov_len.i19.i = getelementptr inbounds i8, ptr %iov.addr.09.i17.i, i64 8
+  %iov_len.i19.i = getelementptr inbounds nuw i8, ptr %iov.addr.09.i17.i, i64 8
   %3 = load i64, ptr %iov_len.i19.i, align 8
   %cmp1.not.i20.i = icmp ult i64 %offset.addr.08.i18.i, %3
   br i1 %cmp1.not.i20.i, label %if.end9.i, label %while.body.i21.i
@@ -1243,14 +1243,14 @@ qemu_iovec_slice.exit:                            ; preds = %while.body.i21.i, %
 if.then7:                                         ; preds = %qemu_iovec_slice.exit
   %4 = load ptr, ptr %iov.addr.0.lcssa.i.i, align 8
   %add.ptr = getelementptr i8, ptr %4, i64 %offset.addr.0.lcssa.i.i
-  %5 = getelementptr inbounds i8, ptr %qiov, i64 16
-  %local_iov.i = getelementptr inbounds i8, ptr %qiov, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %qiov, i64 16
+  %local_iov.i = getelementptr inbounds nuw i8, ptr %qiov, i64 24
   store ptr %local_iov.i, ptr %qiov, align 8
-  %.compoundliteral.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %qiov, i64 8
+  %.compoundliteral.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %qiov, i64 8
   store i32 1, ptr %.compoundliteral.sroa.2.0..sroa_idx.i, align 8
   store i32 -1, ptr %5, align 8
   store ptr %add.ptr, ptr %local_iov.i, align 8
-  %.compoundliteral.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %qiov, i64 32
+  %.compoundliteral.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %qiov, i64 32
   store i64 %len, ptr %.compoundliteral.sroa.5.0..sroa_idx.i, align 8
   br label %if.end10
 
@@ -1259,11 +1259,11 @@ if.else8:                                         ; preds = %qemu_iovec_slice.ex
   %conv.i12 = ashr i64 %sext, 32
   %call.i = tail call noalias ptr @g_malloc_n(i64 noundef %conv.i12, i64 noundef 16) #18
   store ptr %call.i, ptr %qiov, align 8
-  %niov.i = getelementptr inbounds i8, ptr %qiov, i64 8
+  %niov.i = getelementptr inbounds nuw i8, ptr %qiov, i64 8
   store i32 0, ptr %niov.i, align 8
-  %6 = getelementptr inbounds i8, ptr %qiov, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %qiov, i64 16
   store i32 %conv.i, ptr %6, align 8
-  %size.i13 = getelementptr inbounds i8, ptr %qiov, i64 32
+  %size.i13 = getelementptr inbounds nuw i8, ptr %qiov, i64 32
   store i64 0, ptr %size.i13, align 8
   %call9 = tail call i64 @qemu_iovec_concat_iov(ptr noundef nonnull %qiov, ptr noundef %iov.addr.0.lcssa.i.i, i32 noundef %conv.i, i64 noundef %offset.addr.0.lcssa.i.i, i64 noundef %len)
   br label %if.end10
@@ -1275,7 +1275,7 @@ if.end10:                                         ; preds = %if.else8, %if.then7
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qemu_iovec_destroy(ptr nocapture noundef initializes((8, 16), (20, 40)) %qiov) local_unnamed_addr #0 {
 entry:
-  %0 = getelementptr inbounds i8, ptr %qiov, i64 16
+  %0 = getelementptr inbounds nuw i8, ptr %qiov, i64 16
   %1 = load i32, ptr %0, align 8
   %cmp.not = icmp eq i32 %1, -1
   br i1 %cmp.not, label %if.end, label %if.then
@@ -1293,7 +1293,7 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qemu_iovec_reset(ptr nocapture noundef %qiov) local_unnamed_addr #0 {
 entry:
-  %0 = getelementptr inbounds i8, ptr %qiov, i64 16
+  %0 = getelementptr inbounds nuw i8, ptr %qiov, i64 16
   %1 = load i32, ptr %0, align 8
   %cmp.not = icmp eq i32 %1, -1
   br i1 %cmp.not, label %if.else, label %if.end
@@ -1303,9 +1303,9 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %niov = getelementptr inbounds i8, ptr %qiov, i64 8
+  %niov = getelementptr inbounds nuw i8, ptr %qiov, i64 8
   store i32 0, ptr %niov, align 8
-  %size = getelementptr inbounds i8, ptr %qiov, i64 32
+  %size = getelementptr inbounds nuw i8, ptr %qiov, i64 32
   store i64 0, ptr %size, align 8
   ret void
 }
@@ -1314,7 +1314,7 @@ if.end:                                           ; preds = %entry
 define dso_local i64 @qemu_iovec_to_buf(ptr nocapture noundef readonly %qiov, i64 noundef %offset, ptr nocapture noundef writeonly %buf, i64 noundef %bytes) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %qiov, align 8
-  %niov = getelementptr inbounds i8, ptr %qiov, i64 8
+  %niov = getelementptr inbounds nuw i8, ptr %qiov, i64 8
   %1 = load i32, ptr %niov, align 8
   %tobool.i = icmp ne i32 %1, 0
   %2 = or i64 %bytes, %offset
@@ -1331,7 +1331,7 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %for.b
   %offset.addr.030.i.i = phi i64 [ %offset, %for.body.preheader.i.i ], [ %offset.addr.1.i.i, %for.inc.i.i ]
   %done.029.i.i = phi i64 [ 0, %for.body.preheader.i.i ], [ %done.1.i.i, %for.inc.i.i ]
   %arrayidx.i.i = getelementptr %struct.iovec, ptr %0, i64 %indvars.iv.i.i
-  %iov_len.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 8
+  %iov_len.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 8
   %4 = load i64, ptr %iov_len.i.i, align 8
   %cmp2.i.i = icmp ult i64 %offset.addr.030.i.i, %4
   br i1 %cmp2.i.i, label %if.then.i.i, label %if.else.i.i
@@ -1380,7 +1380,7 @@ iov_to_buf.exit:                                  ; preds = %for.end.i.i
 define dso_local i64 @qemu_iovec_from_buf(ptr nocapture noundef readonly %qiov, i64 noundef %offset, ptr nocapture noundef readonly %buf, i64 noundef %bytes) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %qiov, align 8
-  %niov = getelementptr inbounds i8, ptr %qiov, i64 8
+  %niov = getelementptr inbounds nuw i8, ptr %qiov, i64 8
   %1 = load i32, ptr %niov, align 8
   %tobool.i = icmp ne i32 %1, 0
   %2 = or i64 %bytes, %offset
@@ -1397,7 +1397,7 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %for.b
   %offset.addr.030.i.i = phi i64 [ %offset, %for.body.preheader.i.i ], [ %offset.addr.1.i.i, %for.inc.i.i ]
   %done.029.i.i = phi i64 [ 0, %for.body.preheader.i.i ], [ %done.1.i.i, %for.inc.i.i ]
   %arrayidx.i.i = getelementptr %struct.iovec, ptr %0, i64 %indvars.iv.i.i
-  %iov_len.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 8
+  %iov_len.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 8
   %4 = load i64, ptr %iov_len.i.i, align 8
   %cmp2.i.i = icmp ult i64 %offset.addr.030.i.i, %4
   br i1 %cmp2.i.i, label %if.then.i.i, label %if.else.i.i
@@ -1446,7 +1446,7 @@ iov_from_buf.exit:                                ; preds = %for.end.i.i
 define dso_local i64 @qemu_iovec_memset(ptr nocapture noundef readonly %qiov, i64 noundef %offset, i32 noundef %fillc, i64 noundef %bytes) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %qiov, align 8
-  %niov = getelementptr inbounds i8, ptr %qiov, i64 8
+  %niov = getelementptr inbounds nuw i8, ptr %qiov, i64 8
   %1 = load i32, ptr %niov, align 8
   %2 = or i64 %bytes, %offset
   %or.cond24.i = icmp ne i64 %2, 0
@@ -1464,7 +1464,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   %offset.addr.029.i = phi i64 [ %offset, %for.body.lr.ph.i ], [ %offset.addr.1.i, %for.inc.i ]
   %done.028.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %done.1.i, %for.inc.i ]
   %arrayidx.i = getelementptr %struct.iovec, ptr %0, i64 %indvars.iv.i
-  %iov_len.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  %iov_len.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   %5 = load i64, ptr %iov_len.i, align 8
   %cmp2.i = icmp ult i64 %offset.addr.029.i, %5
   br i1 %cmp2.i, label %if.then.i, label %if.else.i
@@ -1511,9 +1511,9 @@ iov_memset.exit:                                  ; preds = %for.end.i
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @qemu_iovec_compare(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) local_unnamed_addr #0 {
 entry:
-  %niov = getelementptr inbounds i8, ptr %a, i64 8
+  %niov = getelementptr inbounds nuw i8, ptr %a, i64 8
   %0 = load i32, ptr %niov, align 8
-  %niov1 = getelementptr inbounds i8, ptr %b, i64 8
+  %niov1 = getelementptr inbounds nuw i8, ptr %b, i64 8
   %1 = load i32, ptr %niov1, align 8
   %cmp = icmp eq i32 %0, %1
   br i1 %cmp, label %for.cond.preheader, label %if.else
@@ -1543,9 +1543,9 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %idxprom = zext nneg i32 %i.027 to i64
   %arrayidx = getelementptr %struct.iovec, ptr %2, i64 %idxprom
   %arrayidx6 = getelementptr %struct.iovec, ptr %3, i64 %idxprom
-  %iov_len = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %iov_len = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %4 = load i64, ptr %iov_len, align 8
-  %iov_len14 = getelementptr inbounds i8, ptr %arrayidx6, i64 8
+  %iov_len14 = getelementptr inbounds nuw i8, ptr %arrayidx6, i64 8
   %5 = load i64, ptr %iov_len14, align 8
   %cmp15 = icmp eq i64 %4, %5
   br i1 %cmp15, label %while.cond.preheader, label %if.else17
@@ -1597,7 +1597,7 @@ return:                                           ; preds = %while.end, %for.con
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qemu_iovec_clone(ptr nocapture noundef %dest, ptr nocapture noundef readonly %src, ptr noundef %buf) local_unnamed_addr #0 {
 entry:
-  %niov = getelementptr inbounds i8, ptr %src, i64 8
+  %niov = getelementptr inbounds nuw i8, ptr %src, i64 8
   %0 = load i32, ptr %niov, align 8
   %conv = sext i32 %0 to i64
   %call = tail call noalias ptr @g_malloc_n(i64 noundef %conv, i64 noundef 24) #18
@@ -1659,7 +1659,7 @@ if.end:                                           ; preds = %if.then, %land.lhs.
   %add.ptr = getelementptr i8, ptr %buf.addr.049, i64 %idx.neg
   %dest_base = getelementptr %struct.IOVectorSortElem, ptr %call, i64 %indvars.iv54, i32 2
   store ptr %add.ptr, ptr %dest_base, align 8
-  %iov_len = getelementptr inbounds i8, ptr %5, i64 8
+  %iov_len = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i64, ptr %iov_len, align 8
   %sub = tail call i64 @llvm.usub.sat.i64(i64 %7, i64 %rewind.0)
   %add.ptr25 = getelementptr i8, ptr %buf.addr.049, i64 %sub
@@ -1679,9 +1679,9 @@ for.end38:                                        ; preds = %if.end, %for.end
   br i1 %cmp4351, label %for.body45.lr.ph, label %for.end55
 
 for.body45.lr.ph:                                 ; preds = %for.end38
-  %10 = getelementptr inbounds i8, ptr %dest, i64 16
-  %niov.i = getelementptr inbounds i8, ptr %dest, i64 8
-  %size.i = getelementptr inbounds i8, ptr %dest, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %dest, i64 16
+  %niov.i = getelementptr inbounds nuw i8, ptr %dest, i64 8
+  %size.i = getelementptr inbounds nuw i8, ptr %dest, i64 32
   br label %for.body45
 
 for.body45:                                       ; preds = %for.body45.lr.ph, %qemu_iovec_add.exit
@@ -1749,10 +1749,10 @@ declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
 define internal range(i32 -1, 2) i32 @sortelem_cmp_src_base(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #11 {
 entry:
-  %src_iov = getelementptr inbounds i8, ptr %a, i64 8
+  %src_iov = getelementptr inbounds nuw i8, ptr %a, i64 8
   %0 = load ptr, ptr %src_iov, align 8
   %1 = load ptr, ptr %0, align 8
-  %src_iov1 = getelementptr inbounds i8, ptr %b, i64 8
+  %src_iov1 = getelementptr inbounds nuw i8, ptr %b, i64 8
   %2 = load ptr, ptr %src_iov1, align 8
   %3 = load ptr, ptr %2, align 8
   %cmp = icmp ult ptr %1, %3
@@ -1779,7 +1779,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %orig = getelementptr inbounds i8, ptr %undo, i64 8
+  %orig = getelementptr inbounds nuw i8, ptr %undo, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %orig, i64 16, i1 false)
   br label %if.end
 
@@ -1808,18 +1808,18 @@ for.body:                                         ; preds = %if.end, %if.end8
   %total.029 = phi i64 [ %add12, %if.end8 ], [ 0, %if.end ]
   %bytes.addr.028 = phi i64 [ %sub10, %if.end8 ], [ %bytes, %if.end ]
   %1 = phi i32 [ %sub13, %if.end8 ], [ %.pr, %if.end ]
-  %iov_len = getelementptr inbounds i8, ptr %cur.030, i64 8
+  %iov_len = getelementptr inbounds nuw i8, ptr %cur.030, i64 8
   %2 = load i64, ptr %iov_len, align 8
   %cmp1 = icmp ugt i64 %2, %bytes.addr.028
   br i1 %cmp1, label %if.then2, label %if.end8
 
 if.then2:                                         ; preds = %for.body
-  %iov_len.le = getelementptr inbounds i8, ptr %cur.030, i64 8
+  %iov_len.le = getelementptr inbounds nuw i8, ptr %cur.030, i64 8
   br i1 %tobool.not, label %if.end6, label %if.then4
 
 if.then4:                                         ; preds = %if.then2
   store ptr %cur.030, ptr %undo, align 8
-  %orig = getelementptr inbounds i8, ptr %undo, i64 8
+  %orig = getelementptr inbounds nuw i8, ptr %undo, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %orig, ptr noundef nonnull align 8 dereferenceable(16) %cur.030, i64 16, i1 false)
   %.pre = load i64, ptr %iov_len.le, align 8
   br label %if.end6
@@ -1863,13 +1863,13 @@ for.body.i:                                       ; preds = %entry, %if.end8.i
   %total.029.i = phi i64 [ %add12.i, %if.end8.i ], [ 0, %entry ]
   %bytes.addr.028.i = phi i64 [ %sub10.i, %if.end8.i ], [ %bytes, %entry ]
   %1 = phi i32 [ %sub13.i, %if.end8.i ], [ %.pr.i, %entry ]
-  %iov_len.i = getelementptr inbounds i8, ptr %cur.030.i, i64 8
+  %iov_len.i = getelementptr inbounds nuw i8, ptr %cur.030.i, i64 8
   %2 = load i64, ptr %iov_len.i, align 8
   %cmp1.i = icmp ugt i64 %2, %bytes.addr.028.i
   br i1 %cmp1.i, label %if.then2.i, label %if.end8.i
 
 if.then2.i:                                       ; preds = %for.body.i
-  %iov_len.i.le = getelementptr inbounds i8, ptr %cur.030.i, i64 8
+  %iov_len.i.le = getelementptr inbounds nuw i8, ptr %cur.030.i, i64 8
   %3 = load ptr, ptr %cur.030.i, align 8
   %add.ptr.i = getelementptr i8, ptr %3, i64 %bytes.addr.028.i
   store ptr %add.ptr.i, ptr %cur.030.i, align 8
@@ -1920,18 +1920,18 @@ while.body:                                       ; preds = %while.body.preheade
   %total.026 = phi i64 [ %add16, %if.end12 ], [ 0, %while.body.preheader ]
   %bytes.addr.025 = phi i64 [ %sub14, %if.end12 ], [ %bytes, %while.body.preheader ]
   %1 = phi i32 [ %sub17, %if.end12 ], [ %0, %while.body.preheader ]
-  %iov_len = getelementptr inbounds i8, ptr %cur.027, i64 8
+  %iov_len = getelementptr inbounds nuw i8, ptr %cur.027, i64 8
   %2 = load i64, ptr %iov_len, align 8
   %cmp4 = icmp ugt i64 %2, %bytes.addr.025
   br i1 %cmp4, label %if.then5, label %if.end12
 
 if.then5:                                         ; preds = %while.body
-  %iov_len.le = getelementptr inbounds i8, ptr %cur.027, i64 8
+  %iov_len.le = getelementptr inbounds nuw i8, ptr %cur.027, i64 8
   br i1 %tobool.not, label %if.end9, label %if.then7
 
 if.then7:                                         ; preds = %if.then5
   store ptr %cur.027, ptr %undo, align 8
-  %orig = getelementptr inbounds i8, ptr %undo, i64 8
+  %orig = getelementptr inbounds nuw i8, ptr %undo, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %orig, ptr noundef nonnull align 8 dereferenceable(16) %cur.027, i64 16, i1 false)
   %.pre = load i64, ptr %iov_len.le, align 8
   br label %if.end9
@@ -1975,13 +1975,13 @@ while.body.i:                                     ; preds = %if.end12.i, %while.
   %total.026.i = phi i64 [ %add16.i, %if.end12.i ], [ 0, %while.body.preheader.i ]
   %bytes.addr.025.i = phi i64 [ %sub14.i, %if.end12.i ], [ %bytes, %while.body.preheader.i ]
   %1 = phi i32 [ %sub17.i, %if.end12.i ], [ %0, %while.body.preheader.i ]
-  %iov_len.i = getelementptr inbounds i8, ptr %cur.027.i, i64 8
+  %iov_len.i = getelementptr inbounds nuw i8, ptr %cur.027.i, i64 8
   %2 = load i64, ptr %iov_len.i, align 8
   %cmp4.i = icmp ugt i64 %2, %bytes.addr.025.i
   br i1 %cmp4.i, label %if.then5.i, label %if.end12.i
 
 if.then5.i:                                       ; preds = %while.body.i
-  %iov_len.i.le = getelementptr inbounds i8, ptr %cur.027.i, i64 8
+  %iov_len.i.le = getelementptr inbounds nuw i8, ptr %cur.027.i, i64 8
   %sub11.i = sub nuw i64 %2, %bytes.addr.025.i
   store i64 %sub11.i, ptr %iov_len.i.le, align 8
   %add.i = add i64 %bytes.addr.025.i, %total.026.i
@@ -2004,9 +2004,9 @@ iov_discard_back_undoable.exit:                   ; preds = %if.end12.i, %entry,
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qemu_iovec_discard_back(ptr nocapture noundef %qiov, i64 noundef %bytes) local_unnamed_addr #0 {
 entry:
-  %niov1 = getelementptr inbounds i8, ptr %qiov, i64 8
+  %niov1 = getelementptr inbounds nuw i8, ptr %qiov, i64 8
   %0 = load i32, ptr %niov1, align 8
-  %size = getelementptr inbounds i8, ptr %qiov, i64 32
+  %size = getelementptr inbounds nuw i8, ptr %qiov, i64 32
   %1 = load i64, ptr %size, align 8
   %cmp.not = icmp ult i64 %1, %bytes
   br i1 %cmp.not, label %if.else, label %if.end
@@ -2031,13 +2031,13 @@ while.body.i.i:                                   ; preds = %if.end12.i.i, %whil
   %cur.027.i.i = phi ptr [ %add.ptr.i.i, %while.body.preheader.i.i ], [ %incdec.ptr.i.i, %if.end12.i.i ]
   %total.026.i.i = phi i64 [ 0, %while.body.preheader.i.i ], [ %add16.i.i, %if.end12.i.i ]
   %bytes.addr.025.i.i = phi i64 [ %bytes, %while.body.preheader.i.i ], [ %sub14.i.i, %if.end12.i.i ]
-  %iov_len.i.i = getelementptr inbounds i8, ptr %cur.027.i.i, i64 8
+  %iov_len.i.i = getelementptr inbounds nuw i8, ptr %cur.027.i.i, i64 8
   %3 = load i64, ptr %iov_len.i.i, align 8
   %cmp4.i.i = icmp ugt i64 %3, %bytes.addr.025.i.i
   br i1 %cmp4.i.i, label %if.then5.i.i, label %if.end12.i.i
 
 if.then5.i.i:                                     ; preds = %while.body.i.i
-  %iov_len.i.i.le = getelementptr inbounds i8, ptr %cur.027.i.i, i64 8
+  %iov_len.i.i.le = getelementptr inbounds nuw i8, ptr %cur.027.i.i, i64 8
   %sub11.i.i = sub nuw i64 %3, %bytes.addr.025.i.i
   store i64 %sub11.i.i, ptr %iov_len.i.i.le, align 8
   %add.i.i = add i64 %bytes.addr.025.i.i, %total.026.i.i

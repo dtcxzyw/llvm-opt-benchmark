@@ -49,28 +49,28 @@ define noundef ptr @php_std_date(i64 noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %29, label %6
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %4, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %8 = load i32, ptr %7, align 8
   %9 = sext i32 %8 to i64
   %10 = getelementptr inbounds [7 x ptr], ptr @day_short_names, i64 0, i64 %9
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 12
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %13 = load i32, ptr %12, align 4
-  %14 = getelementptr inbounds i8, ptr %4, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %15 = load i32, ptr %14, align 8
   %16 = sext i32 %15 to i64
   %17 = getelementptr inbounds [12 x ptr], ptr @mon_short_names, i64 0, i64 %16
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %4, i64 20
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 20
   %20 = load i32, ptr %19, align 4
   %21 = add nsw i32 %20, 1900
-  %22 = getelementptr inbounds i8, ptr %4, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %23 = load i32, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %4, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %25 = load i32, ptr %24, align 4
   %26 = load i32, ptr %4, align 8
   %27 = call i32 (ptr, i64, ptr, ...) @ap_php_snprintf(ptr noundef nonnull %5, i64 noundef 80, ptr noundef nonnull @.str, ptr noundef %11, i32 noundef %13, ptr noundef %18, i32 noundef %21, i32 noundef %23, i32 noundef %25, i32 noundef %26) #4
-  %28 = getelementptr inbounds i8, ptr %5, i64 79
+  %28 = getelementptr inbounds nuw i8, ptr %5, i64 79
   store i8 0, ptr %28, align 1
   br label %29
 
@@ -90,7 +90,7 @@ define hidden void @zif_strptime(ptr noundef %0, ptr noundef %1) local_unnamed_a
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca %struct.tm, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 44
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %7 = load i32, ptr %6, align 4
   %.not = icmp eq i32 %7, 2
   br i1 %.not, label %9, label %8
@@ -100,8 +100,8 @@ define hidden void @zif_strptime(ptr noundef %0, ptr noundef %1) local_unnamed_a
   br label %28
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %0, i64 80
-  %11 = getelementptr inbounds i8, ptr %0, i64 88
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %12 = load i8, ptr %11, align 8
   %13 = icmp eq i8 %12, 6
   br i1 %13, label %.thread174, label %15
@@ -118,9 +118,9 @@ define hidden void @zif_strptime(ptr noundef %0, ptr noundef %1) local_unnamed_a
 
 18:                                               ; preds = %.thread174, %15
   %.pn = phi ptr [ %14, %.thread174 ], [ %17, %15 ]
-  %19 = getelementptr inbounds i8, ptr %.pn, i64 24
-  %20 = getelementptr inbounds i8, ptr %0, i64 96
-  %21 = getelementptr inbounds i8, ptr %0, i64 104
+  %19 = getelementptr inbounds nuw i8, ptr %.pn, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %22 = load i8, ptr %21, align 8
   %23 = icmp eq i8 %22, 6
   br i1 %23, label %.thread180, label %25
@@ -145,50 +145,50 @@ define hidden void @zif_strptime(ptr noundef %0, ptr noundef %1) local_unnamed_a
 
 29:                                               ; preds = %25, %.thread180
   %.pn194 = phi ptr [ %24, %.thread180 ], [ %27, %25 ]
-  %.0163 = getelementptr inbounds i8, ptr %.pn194, i64 24
+  %.0163 = getelementptr inbounds nuw i8, ptr %.pn194, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
   %30 = call ptr @strptime(ptr noundef nonnull %19, ptr noundef nonnull %.0163, ptr noundef nonnull %5) #4
   %31 = icmp eq ptr %30, null
   br i1 %31, label %32, label %34
 
 32:                                               ; preds = %29
-  %33 = getelementptr inbounds i8, ptr %1, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %33, align 8
   br label %60
 
 34:                                               ; preds = %29
   %35 = call ptr @_zend_new_array_0() #4
   store ptr %35, ptr %1, align 8
-  %36 = getelementptr inbounds i8, ptr %1, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 775, ptr %36, align 8
   %37 = load i32, ptr %5, align 8
   %38 = sext i32 %37 to i64
   call void @add_assoc_long_ex(ptr noundef nonnull %1, ptr noundef nonnull @.str.1, i64 noundef 6, i64 noundef %38) #4
-  %39 = getelementptr inbounds i8, ptr %5, i64 4
+  %39 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %40 = load i32, ptr %39, align 4
   %41 = sext i32 %40 to i64
   call void @add_assoc_long_ex(ptr noundef nonnull %1, ptr noundef nonnull @.str.2, i64 noundef 6, i64 noundef %41) #4
-  %42 = getelementptr inbounds i8, ptr %5, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %43 = load i32, ptr %42, align 8
   %44 = sext i32 %43 to i64
   call void @add_assoc_long_ex(ptr noundef nonnull %1, ptr noundef nonnull @.str.3, i64 noundef 7, i64 noundef %44) #4
-  %45 = getelementptr inbounds i8, ptr %5, i64 12
+  %45 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %46 = load i32, ptr %45, align 4
   %47 = sext i32 %46 to i64
   call void @add_assoc_long_ex(ptr noundef nonnull %1, ptr noundef nonnull @.str.4, i64 noundef 7, i64 noundef %47) #4
-  %48 = getelementptr inbounds i8, ptr %5, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %49 = load i32, ptr %48, align 8
   %50 = sext i32 %49 to i64
   call void @add_assoc_long_ex(ptr noundef nonnull %1, ptr noundef nonnull @.str.5, i64 noundef 6, i64 noundef %50) #4
-  %51 = getelementptr inbounds i8, ptr %5, i64 20
+  %51 = getelementptr inbounds nuw i8, ptr %5, i64 20
   %52 = load i32, ptr %51, align 4
   %53 = sext i32 %52 to i64
   call void @add_assoc_long_ex(ptr noundef nonnull %1, ptr noundef nonnull @.str.6, i64 noundef 7, i64 noundef %53) #4
-  %54 = getelementptr inbounds i8, ptr %5, i64 24
+  %54 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %55 = load i32, ptr %54, align 8
   %56 = sext i32 %55 to i64
   call void @add_assoc_long_ex(ptr noundef nonnull %1, ptr noundef nonnull @.str.7, i64 noundef 7, i64 noundef %56) #4
-  %57 = getelementptr inbounds i8, ptr %5, i64 28
+  %57 = getelementptr inbounds nuw i8, ptr %5, i64 28
   %58 = load i32, ptr %57, align 4
   %59 = sext i32 %58 to i64
   call void @add_assoc_long_ex(ptr noundef nonnull %1, ptr noundef nonnull @.str.8, i64 noundef 7, i64 noundef %59) #4

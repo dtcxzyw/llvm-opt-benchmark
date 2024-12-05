@@ -125,9 +125,9 @@ define hidden void @_ZNK5boost4urls6detail16ipvfuture_rule_t5parseERPKcS4_(ptr d
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #8
   store i8 118, ptr %6, align 8, !tbaa !7, !alias.scope !8
-  %9 = getelementptr inbounds i8, ptr %6, i64 2
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 2
   store i8 46, ptr %9, align 2, !tbaa !7, !alias.scope !8
-  %10 = getelementptr inbounds i8, ptr %6, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) @_ZZNK5boost4urls6detail16ipvfuture_rule_t5parseERPKcS4_E11minor_chars, i64 32, i1 false), !tbaa.struct !11
   call void @_ZNK5boost4urls7grammar22implementation_defined12tuple_rule_tINS2_13ch_delim_ruleEJNS2_12token_rule_tINS2_14hexdig_chars_tEEES4_NS5_INS1_9lut_charsEEEEE5parseERPKcSC_(ptr dead_on_unwind nonnull writable sret(%"class.boost::system::result.5") align 8 %5, ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %3)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #8
@@ -157,13 +157,13 @@ _ZNKR5boost6system6resultISt5tupleIJNS_4core17basic_string_viewIcEES5_S5_S5_EENS
   br label %49
 
 19:                                               ; preds = %4
-  %.sroa.gep = getelementptr inbounds i8, ptr %5, i64 48
+  %.sroa.gep = getelementptr inbounds nuw i8, ptr %5, i64 48
   %.sroa.625.16.copyload = load ptr, ptr %.sroa.gep, align 8, !tbaa !3
-  %.sroa.gep.sroa.gep = getelementptr inbounds i8, ptr %5, i64 56
+  %.sroa.gep.sroa.gep = getelementptr inbounds nuw i8, ptr %5, i64 56
   %.sroa.7.16.copyload = load i64, ptr %.sroa.gep.sroa.gep, align 8, !tbaa !16
-  %.sroa.gep31 = getelementptr inbounds i8, ptr %5, i64 32
+  %.sroa.gep31 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.sroa.8.32.copyload = load ptr, ptr %.sroa.gep31, align 8, !tbaa !3
-  %.sroa.gep31.sroa.gep = getelementptr inbounds i8, ptr %5, i64 40
+  %.sroa.gep31.sroa.gep = getelementptr inbounds nuw i8, ptr %5, i64 40
   %.sroa.9.32.copyload = load i64, ptr %.sroa.gep31.sroa.gep, align 8, !tbaa !16
   %20 = icmp eq i64 %.sroa.7.16.copyload, 0
   br i1 %20, label %21, label %31
@@ -176,7 +176,7 @@ _ZNKR5boost6system6resultISt5tupleIJNS_4core17basic_string_viewIcEES5_S5_S5_EENS
 
 _ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit: ; preds = %21
   %24 = load ptr, ptr @_ZN5boost4urls7grammar6detail9error_catE, align 8, !tbaa !31, !noalias !28
-  %25 = getelementptr inbounds i8, ptr %24, i64 48
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 48
   %26 = load ptr, ptr %25, align 8, !noalias !28
   %27 = call noundef zeroext i1 %26(ptr noundef nonnull align 8 dereferenceable(52) @_ZN5boost4urls7grammar6detail9error_catE, i32 noundef 5) #8, !noalias !28
   br i1 %27, label %_ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit.thread, label %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit
@@ -188,9 +188,9 @@ _ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit: ; preds = %_ZN
   %28 = phi i64 [ 1, %_ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit.thread ], [ 0, %_ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit ]
   %29 = or disjoint i64 %28, ptrtoint (ptr @_ZZNK5boost4urls6detail16ipvfuture_rule_t5parseERPKcS4_E11loc__LINE__ to i64)
   store i64 5, ptr %0, align 8
-  %.sroa.521.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.521.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @_ZN5boost4urls7grammar6detail9error_catE, ptr %.sroa.521.0..sroa_idx, align 8, !tbaa !7
-  %.sroa.622.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.622.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %29, ptr %.sroa.622.0..sroa_idx, align 8, !tbaa !16
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 2, ptr %30, align 8, !tbaa !21
@@ -208,7 +208,7 @@ _ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit: ; preds = %_ZN
 
 _ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit10: ; preds = %33
   %36 = load ptr, ptr @_ZN5boost4urls7grammar6detail9error_catE, align 8, !tbaa !31, !noalias !33
-  %37 = getelementptr inbounds i8, ptr %36, i64 48
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 48
   %38 = load ptr, ptr %37, align 8, !noalias !33
   %39 = call noundef zeroext i1 %38(ptr noundef nonnull align 8 dereferenceable(52) @_ZN5boost4urls7grammar6detail9error_catE, i32 noundef 5) #8, !noalias !33
   br i1 %39, label %_ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit10.thread, label %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit12
@@ -220,9 +220,9 @@ _ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit12: ; preds = %_
   %40 = phi i64 [ 1, %_ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit10.thread ], [ 0, %_ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit10 ]
   %41 = or disjoint i64 %40, ptrtoint (ptr @_ZZNK5boost4urls6detail16ipvfuture_rule_t5parseERPKcS4_E11loc__LINE___0 to i64)
   store i64 5, ptr %0, align 8
-  %.sroa.515.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.515.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @_ZN5boost4urls7grammar6detail9error_catE, ptr %.sroa.515.0..sroa_idx, align 8, !tbaa !7
-  %.sroa.616.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.616.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %41, ptr %.sroa.616.0..sroa_idx, align 8, !tbaa !16
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 2, ptr %42, align 8, !tbaa !21
@@ -234,15 +234,15 @@ _ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit12: ; preds = %_
   %46 = ptrtoint ptr %8 to i64
   %47 = sub i64 %45, %46
   store ptr %8, ptr %0, align 8, !tbaa !3
-  %.sroa.524.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.524.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %47, ptr %.sroa.524.0..sroa_idx, align 8, !tbaa !16
-  %.sroa.625.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.625.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %.sroa.625.16.copyload, ptr %.sroa.625.0..sroa_idx, align 8, !tbaa !3
-  %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %.sroa.7.16.copyload, ptr %.sroa.7.0..sroa_idx, align 8, !tbaa !16
-  %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
+  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %.sroa.8.32.copyload, ptr %.sroa.8.0..sroa_idx, align 8, !tbaa !3
-  %.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
+  %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %.sroa.9.32.copyload, ptr %.sroa.9.0..sroa_idx, align 8, !tbaa !16
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 1, ptr %48, align 8, !tbaa !21
@@ -280,20 +280,20 @@ define linkonce_odr hidden void @_ZNK5boost4urls7grammar22implementation_defined
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 56
   store i32 2, ptr %15, align 8, !tbaa !36
-  %16 = getelementptr inbounds i8, ptr %12, i64 64
-  %.sroa.0.24..sroa_idx.i = getelementptr inbounds i8, ptr %.sroa.0.i, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 64
+  %.sroa.0.24..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.24..sroa_idx.i, i64 24, i1 false), !tbaa.struct !15
-  %17 = getelementptr inbounds i8, ptr %12, i64 88
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 88
   store i32 2, ptr %17, align 8, !tbaa !36
-  %18 = getelementptr inbounds i8, ptr %12, i64 96
-  %.sroa.0.48..sroa_idx.i = getelementptr inbounds i8, ptr %.sroa.0.i, i64 48
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 96
+  %.sroa.0.48..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.48..sroa_idx.i, i64 24, i1 false), !tbaa.struct !15
-  %19 = getelementptr inbounds i8, ptr %12, i64 120
+  %19 = getelementptr inbounds nuw i8, ptr %12, i64 120
   store i32 2, ptr %19, align 8, !tbaa !36
-  %20 = getelementptr inbounds i8, ptr %12, i64 128
-  %.sroa.0.72..sroa_idx.i = getelementptr inbounds i8, ptr %.sroa.0.i, i64 72
+  %20 = getelementptr inbounds nuw i8, ptr %12, i64 128
+  %.sroa.0.72..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 72
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.72..sroa_idx.i, i64 24, i1 false), !tbaa.struct !15
-  %21 = getelementptr inbounds i8, ptr %12, i64 152
+  %21 = getelementptr inbounds nuw i8, ptr %12, i64 152
   store i32 2, ptr %21, align 8, !tbaa !36
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %.sroa.0.i)
   call void @_ZNK5boost4urls7grammar22implementation_defined13ch_delim_rule5parseERPKcS5_(ptr dead_on_unwind nonnull writable sret(%"class.boost::system::result.42") align 8 %20, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %3) #8
@@ -321,7 +321,7 @@ _ZNKR5boost6system6resultINS_4core17basic_string_viewIcEENS0_10error_codeEE5erro
 
 28:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #8
-  %29 = getelementptr inbounds i8, ptr %1, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 1
   call void @_ZNK5boost4urls7grammar22implementation_defined12token_rule_tINS2_14hexdig_chars_tEE5parseERPKcS7_(ptr dead_on_unwind nonnull writable sret(%"class.boost::system::result.42") align 8 %9, ptr noundef nonnull align 1 dereferenceable(1) %29, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %3) #8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #8
@@ -349,7 +349,7 @@ _ZNKR5boost6system6resultINS_4core17basic_string_viewIcEENS0_10error_codeEE5erro
 
 36:                                               ; preds = %28
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #8
-  %37 = getelementptr inbounds i8, ptr %1, i64 2
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 2
   call void @_ZNK5boost4urls7grammar22implementation_defined13ch_delim_rule5parseERPKcS5_(ptr dead_on_unwind nonnull writable sret(%"class.boost::system::result.42") align 8 %7, ptr noundef nonnull align 1 dereferenceable(1) %37, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %3) #8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #8
@@ -377,7 +377,7 @@ _ZNKR5boost6system6resultINS_4core17basic_string_viewIcEENS0_10error_codeEE5erro
 
 44:                                               ; preds = %36
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #8
-  %45 = getelementptr inbounds i8, ptr %1, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 8
   call void @_ZNK5boost4urls7grammar22implementation_defined12token_rule_tINS1_9lut_charsEE5parseERPKcS7_(ptr dead_on_unwind nonnull writable sret(%"class.boost::system::result.42") align 8 %5, ptr noundef nonnull align 8 dereferenceable(32) %45, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %3) #8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #8
@@ -428,11 +428,11 @@ _ZNK5boost6system10error_code6failedEv.exit.thread.i: ; preds = %55
 _ZNK5boost6system10error_code6failedEv.exit.thread3.i: ; preds = %55, %_ZN5boost4urls7grammar6detail14parse_sequenceILb1ENS1_22implementation_defined13ch_delim_ruleEJNS4_12token_rule_tINS4_14hexdig_chars_tEEES5_NS6_INS1_9lut_charsEEEEE5applyILm0ELm0EEENSt9enable_ifIXltT_plLi1EsZT1_EvE4typeERPKcSH_RKSt17integral_constantImXT_EERKSJ_ImXT0_EE.exit
   %spec.select.i.i.i.i.i.i.i.i.i = select i1 %23, ptr %20, ptr null
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(16) %spec.select.i.i.i.i.i.i10.i.i.i, i64 16, i1 false), !tbaa.struct !55
-  %59 = getelementptr inbounds i8, ptr %0, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %59, ptr noundef nonnull align 8 dereferenceable(16) %spec.select.i.i.i.i.i.i9.i.i.i, i64 16, i1 false), !tbaa.struct !55
-  %60 = getelementptr inbounds i8, ptr %0, i64 32
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %60, ptr noundef nonnull align 8 dereferenceable(16) %spec.select.i.i.i.i.i.i8.i.i.i, i64 16, i1 false), !tbaa.struct !55
-  %61 = getelementptr inbounds i8, ptr %0, i64 48
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %61, ptr noundef nonnull align 8 dereferenceable(16) %spec.select.i.i.i.i.i.i.i.i.i, i64 16, i1 false), !tbaa.struct !55
   br label %_ZN5boost4urls7grammar6detail14parse_sequenceILb1ENS1_22implementation_defined13ch_delim_ruleEJNS4_12token_rule_tINS4_14hexdig_chars_tEEES5_NS6_INS1_9lut_charsEEEEE11make_resultEv.exit
 
@@ -462,7 +462,7 @@ define linkonce_odr hidden void @_ZNK5boost4urls7grammar22implementation_defined
 
 _ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit: ; preds = %8
   %11 = load ptr, ptr @_ZN5boost4urls7grammar6detail9error_catE, align 8, !tbaa !31, !noalias !56
-  %12 = getelementptr inbounds i8, ptr %11, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 48
   %13 = load ptr, ptr %12, align 8, !noalias !56
   %14 = tail call noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(52) @_ZN5boost4urls7grammar6detail9error_catE, i32 noundef 1) #8, !noalias !56
   br i1 %14, label %_ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit.thread, label %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit
@@ -474,7 +474,7 @@ _ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit: ; preds = %_ZN
   %15 = phi i64 [ 1, %_ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit.thread ], [ 0, %_ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit ]
   %16 = or disjoint i64 %15, ptrtoint (ptr @_ZZNK5boost4urls7grammar22implementation_defined12token_rule_tINS2_14hexdig_chars_tEE5parseERPKcS7_E11loc__LINE__ to i64)
   store i64 1, ptr %0, align 8
-  %.sroa.527.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.527.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @_ZN5boost4urls7grammar6detail9error_catE, ptr %.sroa.527.0..sroa_idx, align 8, !tbaa !7
   br label %57
 
@@ -511,7 +511,7 @@ _ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit: ; preds = %_ZN
 
 _ZNK5boost4urls7grammar22implementation_defined14hexdig_chars_tclEc.exit.i.i.i.i: ; preds = %_ZNK5boost4urls7grammar22implementation_defined14hexdig_chars_tclEc.exit.i.i.i.i, %.lr.ph.i.i.i.i
   %indvars.iv.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i ], [ %indvars.iv.next.i.i.i.i, %_ZNK5boost4urls7grammar22implementation_defined14hexdig_chars_tclEc.exit.i.i.i.i ]
-  %27 = getelementptr inbounds i8, ptr %.02138.i.i.i.i, i64 %indvars.iv.i.i.i.i
+  %27 = getelementptr inbounds nuw i8, ptr %.02138.i.i.i.i, i64 %indvars.iv.i.i.i.i
   %28 = load i8, ptr %27, align 1, !tbaa !7
   %29 = add i8 %28, -58
   %or.cond.i.i.i.i.i = icmp ult i8 %29, -10
@@ -522,7 +522,7 @@ _ZNK5boost4urls7grammar22implementation_defined14hexdig_chars_tclEc.exit.i.i.i.i
   %32 = icmp ult i8 %31, -6
   %narrow.i.i.i.i = select i1 %or.cond11.i.not.i.i.i.i, i1 %32, i1 false
   %not..i.i.i.i = sext i1 %narrow.i.i.i.i to i8
-  %33 = getelementptr inbounds [16 x i8], ptr %5, i64 0, i64 %indvars.iv.i.i.i.i
+  %33 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 0, i64 %indvars.iv.i.i.i.i
   store i8 %not..i.i.i.i, ptr %33, align 1, !tbaa !7
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i, 16
@@ -531,12 +531,12 @@ _ZNK5boost4urls7grammar22implementation_defined14hexdig_chars_tclEc.exit.i.i.i.i
 .thread.i.i.i.i:                                  ; preds = %23
   %34 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %26, i1 true)
   %35 = zext nneg i16 %34 to i64
-  %36 = getelementptr inbounds i8, ptr %.02138.i.i.i.i, i64 %35
+  %36 = getelementptr inbounds nuw i8, ptr %.02138.i.i.i.i, i64 %35
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #8
   br label %_ZN5boost4urls7grammar11find_if_notINS1_22implementation_defined14hexdig_chars_tEEEPKcS6_S6_RKT_.exit
 
 37:                                               ; preds = %23
-  %38 = getelementptr inbounds i8, ptr %.02138.i.i.i.i, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %.02138.i.i.i.i, i64 16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #8
   %39 = ptrtoint ptr %38 to i64
   %40 = sub i64 %18, %39
@@ -592,7 +592,7 @@ _ZN5boost4urls7grammar11find_if_notINS1_22implementation_defined14hexdig_chars_t
 
 _ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit16: ; preds = %48
   %51 = load ptr, ptr @_ZN5boost4urls7grammar6detail9error_catE, align 8, !tbaa !31, !noalias !62
-  %52 = getelementptr inbounds i8, ptr %51, i64 48
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 48
   %53 = load ptr, ptr %52, align 8, !noalias !62
   %54 = tail call noundef zeroext i1 %53(ptr noundef nonnull align 8 dereferenceable(52) @_ZN5boost4urls7grammar6detail9error_catE, i32 noundef 2) #8, !noalias !62
   br i1 %54, label %_ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit16.thread, label %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit18
@@ -604,7 +604,7 @@ _ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit18: ; preds = %_
   %55 = phi i64 [ 1, %_ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit16.thread ], [ 0, %_ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit16 ]
   %56 = or disjoint i64 %55, ptrtoint (ptr @_ZZNK5boost4urls7grammar22implementation_defined12token_rule_tINS2_14hexdig_chars_tEE5parseERPKcS7_E11loc__LINE___0 to i64)
   store i64 2, ptr %0, align 8
-  %.sroa.520.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.520.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @_ZN5boost4urls7grammar6detail9error_catE, ptr %.sroa.520.0..sroa_idx, align 8, !tbaa !7
   br label %57
 
@@ -612,7 +612,7 @@ _ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit18: ; preds = %_
   %.sink45 = phi i64 [ 16, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit18 ], [ 8, %45 ], [ 16, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit ]
   %.sink44 = phi i64 [ %56, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit18 ], [ %47, %45 ], [ %16, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit ]
   %.sink = phi i32 [ 2, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit18 ], [ 1, %45 ], [ 2, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit ]
-  %.sroa.621.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 %.sink45
+  %.sroa.621.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 %.sink45
   store i64 %.sink44, ptr %.sroa.621.0..sroa_idx, align 8, !tbaa !16
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %.sink, ptr %58, align 8, !tbaa !36
@@ -634,7 +634,7 @@ define linkonce_odr hidden void @_ZNK5boost4urls7grammar22implementation_defined
 
 _ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit: ; preds = %8
   %11 = load ptr, ptr @_ZN5boost4urls7grammar6detail9error_catE, align 8, !tbaa !31, !noalias !65
-  %12 = getelementptr inbounds i8, ptr %11, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 48
   %13 = load ptr, ptr %12, align 8, !noalias !65
   %14 = tail call noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(52) @_ZN5boost4urls7grammar6detail9error_catE, i32 noundef 1) #8, !noalias !65
   br i1 %14, label %_ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit.thread, label %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit
@@ -646,7 +646,7 @@ _ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit: ; preds = %_ZN
   %15 = phi i64 [ 1, %_ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit.thread ], [ 0, %_ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit ]
   %16 = or disjoint i64 %15, ptrtoint (ptr @_ZZNK5boost4urls7grammar22implementation_defined12token_rule_tINS1_9lut_charsEE5parseERPKcS7_E11loc__LINE__ to i64)
   store i64 1, ptr %0, align 8
-  %.sroa.527.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.527.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @_ZN5boost4urls7grammar6detail9error_catE, ptr %.sroa.527.0..sroa_idx, align 8, !tbaa !7
   br label %71
 
@@ -683,7 +683,7 @@ _ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit: ; preds = %_ZN
 
 27:                                               ; preds = %27, %.lr.ph.i.i.i.i
   %indvars.iv.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i ], [ %indvars.iv.next.i.i.i.i, %27 ]
-  %28 = getelementptr inbounds i8, ptr %.02134.i.i.i.i, i64 %indvars.iv.i.i.i.i
+  %28 = getelementptr inbounds nuw i8, ptr %.02134.i.i.i.i, i64 %indvars.iv.i.i.i.i
   %29 = load i8, ptr %28, align 1, !tbaa !7
   %30 = and i8 %29, 3
   %31 = zext nneg i8 %30 to i64
@@ -695,7 +695,7 @@ _ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit: ; preds = %_ZN
   %37 = and i64 %36, %33
   %.not31.i.i.i.i = icmp eq i64 %37, 0
   %38 = sext i1 %.not31.i.i.i.i to i8
-  %39 = getelementptr inbounds [16 x i8], ptr %5, i64 0, i64 %indvars.iv.i.i.i.i
+  %39 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 0, i64 %indvars.iv.i.i.i.i
   store i8 %38, ptr %39, align 1, !tbaa !7
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i, 16
@@ -704,12 +704,12 @@ _ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit: ; preds = %_ZN
 .thread.i.i.i.i:                                  ; preds = %23
   %40 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %26, i1 true)
   %41 = zext nneg i16 %40 to i64
-  %42 = getelementptr inbounds i8, ptr %.02134.i.i.i.i, i64 %41
+  %42 = getelementptr inbounds nuw i8, ptr %.02134.i.i.i.i, i64 %41
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #8
   br label %_ZN5boost4urls7grammar11find_if_notINS1_9lut_charsEEEPKcS5_S5_RKT_.exit
 
 43:                                               ; preds = %23
-  %44 = getelementptr inbounds i8, ptr %.02134.i.i.i.i, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %.02134.i.i.i.i, i64 16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #8
   %45 = ptrtoint ptr %44 to i64
   %46 = sub i64 %18, %45
@@ -755,7 +755,7 @@ _ZN5boost4urls7grammar11find_if_notINS1_9lut_charsEEEPKcS5_S5_RKT_.exit: ; preds
 
 _ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit16: ; preds = %62
   %65 = load ptr, ptr @_ZN5boost4urls7grammar6detail9error_catE, align 8, !tbaa !31, !noalias !70
-  %66 = getelementptr inbounds i8, ptr %65, i64 48
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 48
   %67 = load ptr, ptr %66, align 8, !noalias !70
   %68 = tail call noundef zeroext i1 %67(ptr noundef nonnull align 8 dereferenceable(52) @_ZN5boost4urls7grammar6detail9error_catE, i32 noundef 2) #8, !noalias !70
   br i1 %68, label %_ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit16.thread, label %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit18
@@ -767,7 +767,7 @@ _ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit18: ; preds = %_
   %69 = phi i64 [ 1, %_ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit16.thread ], [ 0, %_ZN5boost6system10error_codeC2INS_4urls7grammar5errorEEET_PNSt9enable_ifIXoosr18is_error_code_enumIS6_EE5valuesr3std18is_error_code_enumIS6_EE5valueEvE4typeE.exit16 ]
   %70 = or disjoint i64 %69, ptrtoint (ptr @_ZZNK5boost4urls7grammar22implementation_defined12token_rule_tINS1_9lut_charsEE5parseERPKcS7_E11loc__LINE___0 to i64)
   store i64 2, ptr %0, align 8
-  %.sroa.520.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.520.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @_ZN5boost4urls7grammar6detail9error_catE, ptr %.sroa.520.0..sroa_idx, align 8, !tbaa !7
   br label %71
 
@@ -775,7 +775,7 @@ _ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit18: ; preds = %_
   %.sink45 = phi i64 [ 16, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit18 ], [ 8, %59 ], [ 16, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit ]
   %.sink44 = phi i64 [ %70, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit18 ], [ %61, %59 ], [ %16, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit ]
   %.sink = phi i32 [ 2, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit18 ], [ 1, %59 ], [ 2, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit ]
-  %.sroa.621.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 %.sink45
+  %.sroa.621.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 %.sink45
   store i64 %.sink44, ptr %.sroa.621.0..sroa_idx, align 8, !tbaa !16
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %.sink, ptr %72, align 8, !tbaa !36

@@ -65,7 +65,7 @@ define dso_local noundef zeroext i1 @_ZN19cmCTestSleepCommand11InitialPassERKSt6
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::allocator.0", align 1
   %8 = load ptr, ptr %1, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %8, %10
   br i1 %11, label %12, label %21
@@ -125,17 +125,17 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 30:                                               ; preds = %21
   tail call void @_ZN20cmCTestScriptHandler14SleepInSecondsEj(i32 noundef %23)
-  %31 = getelementptr inbounds i8, ptr %0, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %32 = load ptr, ptr %31, align 8
   tail call void @_ZN20cmCTestScriptHandler17UpdateElapsedTimeEv(ptr noundef nonnull align 8 dereferenceable(824) %32)
   br label %56
 
 33:                                               ; preds = %21
-  %34 = getelementptr inbounds i8, ptr %25, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %25, i64 32
   %35 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %34) #12
   %36 = tail call i32 @atoi(ptr nocapture noundef %35) #13
   %37 = load ptr, ptr %1, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 64
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 64
   %39 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %38) #12
   %40 = tail call i32 @atoi(ptr nocapture noundef %39) #13
   %41 = add i32 %36, %23
@@ -145,7 +145,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 43:                                               ; preds = %33
   %44 = sub nuw i32 %41, %40
   tail call void @_ZN20cmCTestScriptHandler14SleepInSecondsEj(i32 noundef %44)
-  %45 = getelementptr inbounds i8, ptr %0, i64 32
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %46 = load ptr, ptr %45, align 8
   tail call void @_ZN20cmCTestScriptHandler17UpdateElapsedTimeEv(ptr noundef nonnull align 8 dereferenceable(824) %46)
   br label %56
@@ -238,16 +238,16 @@ define linkonce_odr dso_local void @_ZN19cmCTestSleepCommandD0Ev(ptr noundef non
 define linkonce_odr dso_local void @_ZN19cmCTestSleepCommand5CloneEv(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.33") align 8 %0, ptr noundef nonnull align 8 dereferenceable(40) %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt10unique_ptrI19cmCTestSleepCommandSt14default_deleteIS0_EED2Ev.exit:
   %2 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #15, !noalias !5
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 16, i1 false), !noalias !5
   store ptr getelementptr inbounds (i8, ptr @_ZTV19cmCTestSleepCommand, i64 16), ptr %2, align 8, !noalias !5
-  %4 = getelementptr inbounds i8, ptr %1, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %5, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store ptr %8, ptr %9, align 8
   store ptr %2, ptr %0, align 8
   ret void

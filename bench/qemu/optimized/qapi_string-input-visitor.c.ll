@@ -51,35 +51,35 @@ if.else:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %call = tail call noalias dereferenceable_or_null(264) ptr @g_malloc0(i64 noundef 264) #8
-  %type = getelementptr inbounds i8, ptr %call, i64 160
+  %type = getelementptr inbounds nuw i8, ptr %call, i64 160
   store i32 1, ptr %type, align 8
-  %type_int64 = getelementptr inbounds i8, ptr %call, i64 72
+  %type_int64 = getelementptr inbounds nuw i8, ptr %call, i64 72
   store ptr @parse_type_int64, ptr %type_int64, align 8
-  %type_uint64 = getelementptr inbounds i8, ptr %call, i64 80
+  %type_uint64 = getelementptr inbounds nuw i8, ptr %call, i64 80
   store ptr @parse_type_uint64, ptr %type_uint64, align 8
-  %type_size = getelementptr inbounds i8, ptr %call, i64 88
+  %type_size = getelementptr inbounds nuw i8, ptr %call, i64 88
   store ptr @parse_type_size, ptr %type_size, align 8
-  %type_bool = getelementptr inbounds i8, ptr %call, i64 96
+  %type_bool = getelementptr inbounds nuw i8, ptr %call, i64 96
   store ptr @parse_type_bool, ptr %type_bool, align 8
-  %type_str = getelementptr inbounds i8, ptr %call, i64 104
+  %type_str = getelementptr inbounds nuw i8, ptr %call, i64 104
   store ptr @parse_type_str, ptr %type_str, align 8
-  %type_number = getelementptr inbounds i8, ptr %call, i64 112
+  %type_number = getelementptr inbounds nuw i8, ptr %call, i64 112
   store ptr @parse_type_number, ptr %type_number, align 8
-  %type_null = getelementptr inbounds i8, ptr %call, i64 128
+  %type_null = getelementptr inbounds nuw i8, ptr %call, i64 128
   store ptr @parse_type_null, ptr %type_null, align 8
-  %start_list = getelementptr inbounds i8, ptr %call, i64 24
+  %start_list = getelementptr inbounds nuw i8, ptr %call, i64 24
   store ptr @start_list, ptr %start_list, align 8
-  %next_list = getelementptr inbounds i8, ptr %call, i64 32
+  %next_list = getelementptr inbounds nuw i8, ptr %call, i64 32
   store ptr @next_list, ptr %next_list, align 8
-  %check_list = getelementptr inbounds i8, ptr %call, i64 40
+  %check_list = getelementptr inbounds nuw i8, ptr %call, i64 40
   store ptr @check_list, ptr %check_list, align 8
-  %end_list = getelementptr inbounds i8, ptr %call, i64 48
+  %end_list = getelementptr inbounds nuw i8, ptr %call, i64 48
   store ptr @end_list, ptr %end_list, align 8
-  %free = getelementptr inbounds i8, ptr %call, i64 208
+  %free = getelementptr inbounds nuw i8, ptr %call, i64 208
   store ptr @string_input_free, ptr %free, align 8
-  %string = getelementptr inbounds i8, ptr %call, i64 256
+  %string = getelementptr inbounds nuw i8, ptr %call, i64 256
   store ptr %str, ptr %string, align 8
-  %lm = getelementptr inbounds i8, ptr %call, i64 216
+  %lm = getelementptr inbounds nuw i8, ptr %call, i64 216
   store i32 0, ptr %lm, align 8
   ret ptr %call
 }
@@ -97,7 +97,7 @@ entry:
   %start.i = alloca i64, align 8
   %end.i = alloca i64, align 8
   %val = alloca i64, align 8
-  %lm = getelementptr inbounds i8, ptr %v, i64 216
+  %lm = getelementptr inbounds nuw i8, ptr %v, i64 216
   %0 = load i32, ptr %lm, align 8
   switch i32 %0, label %sw.default [
     i32 0, label %sw.bb
@@ -107,14 +107,14 @@ entry:
   ]
 
 entry.sw.bb16_crit_edge:                          ; preds = %entry
-  %rangeNext.phi.trans.insert = getelementptr inbounds i8, ptr %v, i64 224
+  %rangeNext.phi.trans.insert = getelementptr inbounds nuw i8, ptr %v, i64 224
   %.pre = load i64, ptr %rangeNext.phi.trans.insert, align 8
-  %rangeEnd.phi.trans.insert = getelementptr inbounds i8, ptr %v, i64 232
+  %rangeEnd.phi.trans.insert = getelementptr inbounds nuw i8, ptr %v, i64 232
   %.pre21 = load i64, ptr %rangeEnd.phi.trans.insert, align 8
   br label %sw.bb16
 
 sw.bb:                                            ; preds = %entry
-  %string = getelementptr inbounds i8, ptr %v, i64 256
+  %string = getelementptr inbounds nuw i8, ptr %v, i64 256
   %1 = load ptr, ptr %string, align 8
   %call1 = call i32 @qemu_strtoi64(ptr noundef %1, ptr noundef null, i32 noundef 0, ptr noundef nonnull %val) #9
   %tobool.not = icmp eq i32 %call1, 0
@@ -135,7 +135,7 @@ sw.bb3:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %endptr.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %start.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i)
-  %unparsed_string.i = getelementptr inbounds i8, ptr %v, i64 240
+  %unparsed_string.i = getelementptr inbounds nuw i8, ptr %v, i64 240
   %3 = load ptr, ptr %unparsed_string.i, align 8
   %call.i = call i32 @qemu_strtoi64(ptr noundef %3, ptr noundef nonnull %endptr.i, i32 noundef 0, ptr noundef nonnull %start.i) #9
   %tobool.not.i = icmp eq i32 %call.i, 0
@@ -198,9 +198,9 @@ if.end12:                                         ; preds = %sw.bb19.i, %if.end1
   %12 = phi i64 [ %7, %sw.bb19.i ], [ %4, %sw.bb2.i ], [ %4, %if.end.i ], [ %7, %if.end14.i ]
   store ptr %.sink.i, ptr %unparsed_string.i, align 8
   store i32 2, ptr %lm, align 8
-  %rangeNext.i = getelementptr inbounds i8, ptr %v, i64 224
+  %rangeNext.i = getelementptr inbounds nuw i8, ptr %v, i64 224
   store i64 %12, ptr %rangeNext.i, align 8
-  %rangeEnd.i = getelementptr inbounds i8, ptr %v, i64 232
+  %rangeEnd.i = getelementptr inbounds nuw i8, ptr %v, i64 232
   store i64 %11, ptr %rangeEnd.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %endptr.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %start.i)
@@ -218,8 +218,8 @@ if.else19:                                        ; preds = %sw.bb16
   unreachable
 
 if.end20:                                         ; preds = %sw.bb16
-  %rangeEnd = getelementptr inbounds i8, ptr %v, i64 232
-  %rangeNext = getelementptr inbounds i8, ptr %v, i64 224
+  %rangeEnd = getelementptr inbounds nuw i8, ptr %v, i64 232
+  %rangeNext = getelementptr inbounds nuw i8, ptr %v, i64 224
   %inc = add i64 %14, 1
   store i64 %inc, ptr %rangeNext, align 8
   store i64 %14, ptr %obj, align 8
@@ -231,7 +231,7 @@ if.end20:                                         ; preds = %sw.bb16
   br i1 %or.cond, label %if.then26, label %return
 
 if.then26:                                        ; preds = %if.end20
-  %unparsed_string = getelementptr inbounds i8, ptr %v, i64 240
+  %unparsed_string = getelementptr inbounds nuw i8, ptr %v, i64 240
   %17 = load ptr, ptr %unparsed_string, align 8
   %18 = load i8, ptr %17, align 1
   %tobool27.not = icmp eq i8 %18, 0
@@ -259,7 +259,7 @@ entry:
   %start.i = alloca i64, align 8
   %end.i = alloca i64, align 8
   %val = alloca i64, align 8
-  %lm = getelementptr inbounds i8, ptr %v, i64 216
+  %lm = getelementptr inbounds nuw i8, ptr %v, i64 216
   %0 = load i32, ptr %lm, align 8
   switch i32 %0, label %sw.default [
     i32 0, label %sw.bb
@@ -269,14 +269,14 @@ entry:
   ]
 
 entry.sw.bb16_crit_edge:                          ; preds = %entry
-  %rangeNext.phi.trans.insert = getelementptr inbounds i8, ptr %v, i64 224
+  %rangeNext.phi.trans.insert = getelementptr inbounds nuw i8, ptr %v, i64 224
   %.pre = load i64, ptr %rangeNext.phi.trans.insert, align 8
-  %rangeEnd.phi.trans.insert = getelementptr inbounds i8, ptr %v, i64 232
+  %rangeEnd.phi.trans.insert = getelementptr inbounds nuw i8, ptr %v, i64 232
   %.pre21 = load i64, ptr %rangeEnd.phi.trans.insert, align 8
   br label %sw.bb16
 
 sw.bb:                                            ; preds = %entry
-  %string = getelementptr inbounds i8, ptr %v, i64 256
+  %string = getelementptr inbounds nuw i8, ptr %v, i64 256
   %1 = load ptr, ptr %string, align 8
   %call1 = call i32 @qemu_strtou64(ptr noundef %1, ptr noundef null, i32 noundef 0, ptr noundef nonnull %val) #9
   %tobool.not = icmp eq i32 %call1, 0
@@ -297,7 +297,7 @@ sw.bb3:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %endptr.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %start.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i)
-  %unparsed_string.i = getelementptr inbounds i8, ptr %v, i64 240
+  %unparsed_string.i = getelementptr inbounds nuw i8, ptr %v, i64 240
   %3 = load ptr, ptr %unparsed_string.i, align 8
   %call.i = call i32 @qemu_strtou64(ptr noundef %3, ptr noundef nonnull %endptr.i, i32 noundef 0, ptr noundef nonnull %start.i) #9
   %tobool.not.i = icmp eq i32 %call.i, 0
@@ -360,9 +360,9 @@ if.end12:                                         ; preds = %sw.bb19.i, %if.end1
   %12 = phi i64 [ %7, %sw.bb19.i ], [ %4, %sw.bb2.i ], [ %4, %if.end.i ], [ %7, %if.end14.i ]
   store ptr %.sink.i, ptr %unparsed_string.i, align 8
   store i32 3, ptr %lm, align 8
-  %rangeNext.i = getelementptr inbounds i8, ptr %v, i64 224
+  %rangeNext.i = getelementptr inbounds nuw i8, ptr %v, i64 224
   store i64 %12, ptr %rangeNext.i, align 8
-  %rangeEnd.i = getelementptr inbounds i8, ptr %v, i64 232
+  %rangeEnd.i = getelementptr inbounds nuw i8, ptr %v, i64 232
   store i64 %11, ptr %rangeEnd.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %endptr.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %start.i)
@@ -380,8 +380,8 @@ if.else19:                                        ; preds = %sw.bb16
   unreachable
 
 if.end20:                                         ; preds = %sw.bb16
-  %rangeEnd = getelementptr inbounds i8, ptr %v, i64 232
-  %rangeNext = getelementptr inbounds i8, ptr %v, i64 224
+  %rangeEnd = getelementptr inbounds nuw i8, ptr %v, i64 232
+  %rangeNext = getelementptr inbounds nuw i8, ptr %v, i64 224
   %inc = add i64 %14, 1
   store i64 %inc, ptr %rangeNext, align 8
   store i64 %14, ptr %obj, align 8
@@ -393,7 +393,7 @@ if.end20:                                         ; preds = %sw.bb16
   br i1 %or.cond, label %if.then26, label %return
 
 if.then26:                                        ; preds = %if.end20
-  %unparsed_string = getelementptr inbounds i8, ptr %v, i64 240
+  %unparsed_string = getelementptr inbounds nuw i8, ptr %v, i64 240
   %17 = load ptr, ptr %unparsed_string, align 8
   %18 = load i8, ptr %17, align 1
   %tobool27.not = icmp eq i8 %18, 0
@@ -418,7 +418,7 @@ return:                                           ; preds = %if.then26, %if.end2
 define internal noundef zeroext i1 @parse_type_size(ptr nocapture noundef readonly %v, ptr noundef %name, ptr nocapture noundef writeonly %obj, ptr noundef %errp) #0 {
 entry:
   %val = alloca i64, align 8
-  %lm = getelementptr inbounds i8, ptr %v, i64 216
+  %lm = getelementptr inbounds nuw i8, ptr %v, i64 216
   %0 = load i32, ptr %lm, align 8
   %cmp = icmp eq i32 %0, 0
   br i1 %cmp, label %if.end, label %if.else
@@ -428,7 +428,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %string = getelementptr inbounds i8, ptr %v, i64 256
+  %string = getelementptr inbounds nuw i8, ptr %v, i64 256
   %1 = load ptr, ptr %string, align 8
   %call1 = call zeroext i1 @parse_option_size(ptr noundef %name, ptr noundef %1, ptr noundef nonnull %val, ptr noundef %errp) #9
   br i1 %call1, label %if.end3, label %return
@@ -445,7 +445,7 @@ return:                                           ; preds = %if.end, %if.end3
 ; Function Attrs: nounwind sspstrong uwtable
 define internal zeroext i1 @parse_type_bool(ptr nocapture noundef readonly %v, ptr noundef %name, ptr noundef %obj, ptr noundef %errp) #0 {
 entry:
-  %lm = getelementptr inbounds i8, ptr %v, i64 216
+  %lm = getelementptr inbounds nuw i8, ptr %v, i64 216
   %0 = load i32, ptr %lm, align 8
   %cmp = icmp eq i32 %0, 0
   br i1 %cmp, label %if.end, label %if.else
@@ -457,7 +457,7 @@ if.else:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %tobool.not = icmp eq ptr %name, null
   %cond = select i1 %tobool.not, ptr @.str.3, ptr %name
-  %string = getelementptr inbounds i8, ptr %v, i64 256
+  %string = getelementptr inbounds nuw i8, ptr %v, i64 256
   %1 = load ptr, ptr %string, align 8
   %call1 = tail call zeroext i1 @qapi_bool_parse(ptr noundef nonnull %cond, ptr noundef %1, ptr noundef %obj, ptr noundef %errp) #9
   ret i1 %call1
@@ -466,7 +466,7 @@ if.end:                                           ; preds = %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef zeroext i1 @parse_type_str(ptr nocapture noundef readonly %v, ptr nocapture readnone %name, ptr nocapture noundef writeonly %obj, ptr nocapture readnone %errp) #0 {
 entry:
-  %lm = getelementptr inbounds i8, ptr %v, i64 216
+  %lm = getelementptr inbounds nuw i8, ptr %v, i64 216
   %0 = load i32, ptr %lm, align 8
   %cmp = icmp eq i32 %0, 0
   br i1 %cmp, label %if.end, label %if.else
@@ -476,7 +476,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %string = getelementptr inbounds i8, ptr %v, i64 256
+  %string = getelementptr inbounds nuw i8, ptr %v, i64 256
   %1 = load ptr, ptr %string, align 8
   %call1 = tail call noalias ptr @g_strdup(ptr noundef %1) #9
   store ptr %call1, ptr %obj, align 8
@@ -487,7 +487,7 @@ if.end:                                           ; preds = %entry
 define internal noundef zeroext i1 @parse_type_number(ptr nocapture noundef readonly %v, ptr noundef %name, ptr nocapture noundef writeonly %obj, ptr noundef %errp) #0 {
 entry:
   %val = alloca double, align 8
-  %lm = getelementptr inbounds i8, ptr %v, i64 216
+  %lm = getelementptr inbounds nuw i8, ptr %v, i64 216
   %0 = load i32, ptr %lm, align 8
   %cmp = icmp eq i32 %0, 0
   br i1 %cmp, label %if.end, label %if.else
@@ -497,7 +497,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %string = getelementptr inbounds i8, ptr %v, i64 256
+  %string = getelementptr inbounds nuw i8, ptr %v, i64 256
   %1 = load ptr, ptr %string, align 8
   %call1 = call i32 @qemu_strtod_finite(ptr noundef %1, ptr noundef null, ptr noundef nonnull %val) #9
   %tobool.not = icmp eq i32 %call1, 0
@@ -521,7 +521,7 @@ return:                                           ; preds = %if.end4, %if.then2
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef zeroext i1 @parse_type_null(ptr nocapture noundef readonly %v, ptr noundef %name, ptr nocapture noundef writeonly %obj, ptr noundef %errp) #0 {
 entry:
-  %lm = getelementptr inbounds i8, ptr %v, i64 216
+  %lm = getelementptr inbounds nuw i8, ptr %v, i64 216
   %0 = load i32, ptr %lm, align 8
   %cmp = icmp eq i32 %0, 0
   br i1 %cmp, label %if.end, label %if.else
@@ -532,7 +532,7 @@ if.else:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   store ptr null, ptr %obj, align 8
-  %string = getelementptr inbounds i8, ptr %v, i64 256
+  %string = getelementptr inbounds nuw i8, ptr %v, i64 256
   %1 = load ptr, ptr %string, align 8
   %2 = load i8, ptr %1, align 1
   %tobool.not = icmp eq i8 %2, 0
@@ -558,7 +558,7 @@ return:                                           ; preds = %if.end3, %if.then1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef zeroext i1 @start_list(ptr nocapture noundef %v, ptr nocapture readnone %name, ptr noundef %list, i64 noundef %size, ptr nocapture readnone %errp) #0 {
 entry:
-  %lm = getelementptr inbounds i8, ptr %v, i64 216
+  %lm = getelementptr inbounds nuw i8, ptr %v, i64 216
   %0 = load i32, ptr %lm, align 8
   %cmp = icmp eq i32 %0, 0
   br i1 %cmp, label %if.end, label %if.else
@@ -568,11 +568,11 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %list1 = getelementptr inbounds i8, ptr %v, i64 248
+  %list1 = getelementptr inbounds nuw i8, ptr %v, i64 248
   store ptr %list, ptr %list1, align 8
-  %string = getelementptr inbounds i8, ptr %v, i64 256
+  %string = getelementptr inbounds nuw i8, ptr %v, i64 256
   %1 = load ptr, ptr %string, align 8
-  %unparsed_string = getelementptr inbounds i8, ptr %v, i64 240
+  %unparsed_string = getelementptr inbounds nuw i8, ptr %v, i64 240
   store ptr %1, ptr %unparsed_string, align 8
   %2 = load i8, ptr %1, align 1
   %tobool.not = icmp eq i8 %2, 0
@@ -604,7 +604,7 @@ if.end14:                                         ; preds = %if.end14.sink.split
 ; Function Attrs: nounwind sspstrong uwtable
 define internal ptr @next_list(ptr nocapture noundef readonly %v, ptr nocapture noundef writeonly %tail, i64 noundef %size) #0 {
 entry:
-  %lm = getelementptr inbounds i8, ptr %v, i64 216
+  %lm = getelementptr inbounds nuw i8, ptr %v, i64 216
   %0 = load i32, ptr %lm, align 8
   switch i32 %0, label %sw.default [
     i32 4, label %return
@@ -630,7 +630,7 @@ return:                                           ; preds = %entry, %sw.epilog
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef zeroext i1 @check_list(ptr nocapture noundef readonly %v, ptr noundef %errp) #0 {
 entry:
-  %lm = getelementptr inbounds i8, ptr %v, i64 216
+  %lm = getelementptr inbounds nuw i8, ptr %v, i64 216
   %0 = load i32, ptr %lm, align 8
   switch i32 %0, label %sw.default [
     i32 2, label %sw.bb
@@ -655,7 +655,7 @@ return:                                           ; preds = %entry, %sw.bb
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @end_list(ptr nocapture noundef %v, ptr noundef readnone %obj) #0 {
 entry:
-  %lm = getelementptr inbounds i8, ptr %v, i64 216
+  %lm = getelementptr inbounds nuw i8, ptr %v, i64 216
   %0 = load i32, ptr %lm, align 8
   %cmp.not = icmp eq i32 %0, 0
   br i1 %cmp.not, label %if.else, label %if.end
@@ -665,7 +665,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %list = getelementptr inbounds i8, ptr %v, i64 248
+  %list = getelementptr inbounds nuw i8, ptr %v, i64 248
   %1 = load ptr, ptr %list, align 8
   %cmp1 = icmp eq ptr %1, %obj
   br i1 %cmp1, label %if.end4, label %if.else3
@@ -675,7 +675,7 @@ if.else3:                                         ; preds = %if.end
   unreachable
 
 if.end4:                                          ; preds = %if.end
-  %unparsed_string = getelementptr inbounds i8, ptr %v, i64 240
+  %unparsed_string = getelementptr inbounds nuw i8, ptr %v, i64 240
   store i32 0, ptr %lm, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %unparsed_string, i8 0, i64 16, i1 false)
   ret void

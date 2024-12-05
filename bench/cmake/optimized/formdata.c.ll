@@ -25,8 +25,8 @@ define dso_local i32 @curl_formadd(ptr nocapture noundef writeonly %0, ptr nocap
   br i1 %.not.i, label %FormAdd.exit, label %.preheader417.i
 
 .preheader417.i:                                  ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   br label %.outer.i
 
 .outer.i:                                         ; preds = %.outer.i.backedge, %.preheader417.i
@@ -52,9 +52,9 @@ define dso_local i32 @curl_formadd(ptr nocapture noundef writeonly %0, ptr nocap
 
 12:                                               ; preds = %10
   %13 = load i32, ptr %.0271.i, align 8
-  %14 = getelementptr inbounds i8, ptr %.0271.i, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %.0271.i, i64 8
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %.0271.i, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %.0271.i, i64 16
   %17 = icmp eq i32 %13, 17
   br i1 %17, label %8, label %.loopexit419.i, !llvm.loop !5
 
@@ -138,7 +138,7 @@ define dso_local i32 @curl_formadd(ptr nocapture noundef writeonly %0, ptr nocap
   br label %.outer.i.backedge
 
 48:                                               ; preds = %.loopexit419.i
-  %49 = getelementptr inbounds i8, ptr %.0263.ph.i, i64 40
+  %49 = getelementptr inbounds nuw i8, ptr %.0263.ph.i, i64 40
   %50 = load i64, ptr %49, align 8
   %51 = or i64 %50, 4
   store i64 %51, ptr %49, align 8
@@ -186,7 +186,7 @@ define dso_local i32 @curl_formadd(ptr nocapture noundef writeonly %0, ptr nocap
   br label %.outer.i.backedge
 
 72:                                               ; preds = %.loopexit419.i
-  %73 = getelementptr inbounds i8, ptr %.0263.ph.i, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %.0263.ph.i, i64 8
   %74 = load i64, ptr %73, align 8
   %.not383.i = icmp eq i64 %74, 0
   br i1 %.not383.i, label %75, label %.outer.i.backedge
@@ -228,14 +228,14 @@ define dso_local i32 @curl_formadd(ptr nocapture noundef writeonly %0, ptr nocap
   br label %.outer.i.backedge
 
 94:                                               ; preds = %.loopexit419.i
-  %95 = getelementptr inbounds i8, ptr %.0263.ph.i, i64 40
+  %95 = getelementptr inbounds nuw i8, ptr %.0263.ph.i, i64 40
   %96 = load i64, ptr %95, align 8
   %97 = or i64 %96, 8
   store i64 %97, ptr %95, align 8
   br label %98
 
 98:                                               ; preds = %94, %.loopexit419.i
-  %99 = getelementptr inbounds i8, ptr %.0263.ph.i, i64 16
+  %99 = getelementptr inbounds nuw i8, ptr %.0263.ph.i, i64 16
   %100 = load ptr, ptr %99, align 8
   %.not381.i = icmp eq ptr %100, null
   br i1 %.not381.i, label %101, label %.outer.i.backedge
@@ -309,12 +309,12 @@ define dso_local i32 @curl_formadd(ptr nocapture noundef writeonly %0, ptr nocap
 
 136:                                              ; preds = %133, %120
   %137 = phi i64 [ %121, %120 ], [ %135, %133 ]
-  %138 = getelementptr inbounds i8, ptr %.0263.ph.i, i64 24
+  %138 = getelementptr inbounds nuw i8, ptr %.0263.ph.i, i64 24
   store i64 %137, ptr %138, align 8
   br label %.outer.i.backedge
 
 139:                                              ; preds = %.loopexit419.i
-  %140 = getelementptr inbounds i8, ptr %.0263.ph.i, i64 40
+  %140 = getelementptr inbounds nuw i8, ptr %.0263.ph.i, i64 40
   %141 = load i64, ptr %140, align 8
   %142 = or i64 %141, 128
   store i64 %142, ptr %140, align 8
@@ -350,12 +350,12 @@ define dso_local i32 @curl_formadd(ptr nocapture noundef writeonly %0, ptr nocap
 
 159:                                              ; preds = %156, %143
   %160 = phi i64 [ %144, %143 ], [ %158, %156 ]
-  %161 = getelementptr inbounds i8, ptr %.0263.ph.i, i64 24
+  %161 = getelementptr inbounds nuw i8, ptr %.0263.ph.i, i64 24
   store i64 %160, ptr %161, align 8
   br label %.outer.i.backedge
 
 162:                                              ; preds = %.loopexit419.i
-  %163 = getelementptr inbounds i8, ptr %.0263.ph.i, i64 40
+  %163 = getelementptr inbounds nuw i8, ptr %.0263.ph.i, i64 40
   %164 = load i64, ptr %163, align 8
   %165 = and i64 %164, 10
   %.not378.i = icmp eq i64 %165, 0
@@ -396,7 +396,7 @@ define dso_local i32 @curl_formadd(ptr nocapture noundef writeonly %0, ptr nocap
 183:                                              ; preds = %181
   %184 = load ptr, ptr @Curl_cstrdup, align 8
   %185 = call ptr %184(ptr noundef nonnull %182) #6
-  %186 = getelementptr inbounds i8, ptr %.0263.ph.i, i64 16
+  %186 = getelementptr inbounds nuw i8, ptr %.0263.ph.i, i64 16
   store ptr %185, ptr %186, align 8
   %.not380.i = icmp eq ptr %185, null
   br i1 %.not380.i, label %.outer.i.backedge, label %187
@@ -405,7 +405,7 @@ define dso_local i32 @curl_formadd(ptr nocapture noundef writeonly %0, ptr nocap
   %188 = load i64, ptr %163, align 8
   %189 = or i64 %188, 2
   store i64 %189, ptr %163, align 8
-  %190 = getelementptr inbounds i8, ptr %.0263.ph.i, i64 97
+  %190 = getelementptr inbounds nuw i8, ptr %.0263.ph.i, i64 97
   store i8 1, ptr %190, align 1
   br label %.outer.i.backedge
 
@@ -438,13 +438,13 @@ define dso_local i32 @curl_formadd(ptr nocapture noundef writeonly %0, ptr nocap
 
 206:                                              ; preds = %203, %191
   %207 = phi ptr [ %205, %203 ], [ %.1275.i, %191 ]
-  %208 = getelementptr inbounds i8, ptr %.0263.ph.i, i64 16
+  %208 = getelementptr inbounds nuw i8, ptr %.0263.ph.i, i64 16
   %209 = load ptr, ptr %208, align 8
   %.not371.i = icmp eq ptr %209, null
   br i1 %.not371.i, label %230, label %210
 
 210:                                              ; preds = %206
-  %211 = getelementptr inbounds i8, ptr %.0263.ph.i, i64 40
+  %211 = getelementptr inbounds nuw i8, ptr %.0263.ph.i, i64 40
   %212 = load i64, ptr %211, align 8
   %213 = and i64 %212, 1
   %.not374.i = icmp eq i64 %213, 0
@@ -472,16 +472,16 @@ define dso_local i32 @curl_formadd(ptr nocapture noundef writeonly %0, ptr nocap
   br label %.outer.i.backedge
 
 223:                                              ; preds = %218
-  %224 = getelementptr inbounds i8, ptr %220, i64 16
+  %224 = getelementptr inbounds nuw i8, ptr %220, i64 16
   store ptr %217, ptr %224, align 8
-  %225 = getelementptr inbounds i8, ptr %220, i64 40
+  %225 = getelementptr inbounds nuw i8, ptr %220, i64 40
   store i64 1, ptr %225, align 8
-  %226 = getelementptr inbounds i8, ptr %.0263.ph.i, i64 88
+  %226 = getelementptr inbounds nuw i8, ptr %.0263.ph.i, i64 88
   %227 = load ptr, ptr %226, align 8
-  %228 = getelementptr inbounds i8, ptr %220, i64 88
+  %228 = getelementptr inbounds nuw i8, ptr %220, i64 88
   store ptr %227, ptr %228, align 8
   store ptr %220, ptr %226, align 8
-  %229 = getelementptr inbounds i8, ptr %220, i64 97
+  %229 = getelementptr inbounds nuw i8, ptr %220, i64 97
   store i8 1, ptr %229, align 1
   br label %.outer.i.backedge
 
@@ -497,20 +497,20 @@ define dso_local i32 @curl_formadd(ptr nocapture noundef writeonly %0, ptr nocap
   br i1 %.not373.i, label %.outer.i.backedge, label %234
 
 234:                                              ; preds = %231
-  %235 = getelementptr inbounds i8, ptr %.0263.ph.i, i64 40
+  %235 = getelementptr inbounds nuw i8, ptr %.0263.ph.i, i64 40
   %236 = load i64, ptr %235, align 8
   %237 = or i64 %236, 1
   store i64 %237, ptr %235, align 8
-  %238 = getelementptr inbounds i8, ptr %.0263.ph.i, i64 97
+  %238 = getelementptr inbounds nuw i8, ptr %.0263.ph.i, i64 97
   store i8 1, ptr %238, align 1
   br label %.outer.i.backedge
 
 239:                                              ; preds = %.loopexit419.i
-  %240 = getelementptr inbounds i8, ptr %.0263.ph.i, i64 40
+  %240 = getelementptr inbounds nuw i8, ptr %.0263.ph.i, i64 40
   %241 = load i64, ptr %240, align 8
   %242 = or i64 %241, 48
   store i64 %242, ptr %240, align 8
-  %243 = getelementptr inbounds i8, ptr %.0263.ph.i, i64 48
+  %243 = getelementptr inbounds nuw i8, ptr %.0263.ph.i, i64 48
   %244 = load ptr, ptr %243, align 8
   %.not369.i = icmp eq ptr %244, null
   br i1 %.not369.i, label %245, label %.outer.i.backedge
@@ -549,12 +549,12 @@ define dso_local i32 @curl_formadd(ptr nocapture noundef writeonly %0, ptr nocap
 
 262:                                              ; preds = %260
   store ptr %261, ptr %243, align 8
-  %263 = getelementptr inbounds i8, ptr %.0263.ph.i, i64 16
+  %263 = getelementptr inbounds nuw i8, ptr %.0263.ph.i, i64 16
   store ptr %261, ptr %263, align 8
   br label %.outer.i.backedge
 
 264:                                              ; preds = %.loopexit419.i
-  %265 = getelementptr inbounds i8, ptr %.0263.ph.i, i64 56
+  %265 = getelementptr inbounds nuw i8, ptr %.0263.ph.i, i64 56
   %266 = load i64, ptr %265, align 8
   %.not368.i = icmp eq i64 %266, 0
   br i1 %.not368.i, label %267, label %.outer.i.backedge
@@ -596,11 +596,11 @@ define dso_local i32 @curl_formadd(ptr nocapture noundef writeonly %0, ptr nocap
   br label %.outer.i.backedge
 
 286:                                              ; preds = %.loopexit419.i
-  %287 = getelementptr inbounds i8, ptr %.0263.ph.i, i64 40
+  %287 = getelementptr inbounds nuw i8, ptr %.0263.ph.i, i64 40
   %288 = load i64, ptr %287, align 8
   %289 = or i64 %288, 64
   store i64 %289, ptr %287, align 8
-  %290 = getelementptr inbounds i8, ptr %.0263.ph.i, i64 72
+  %290 = getelementptr inbounds nuw i8, ptr %.0263.ph.i, i64 72
   %291 = load ptr, ptr %290, align 8
   %.not366.i = icmp eq ptr %291, null
   br i1 %.not366.i, label %292, label %.outer.i.backedge
@@ -639,7 +639,7 @@ define dso_local i32 @curl_formadd(ptr nocapture noundef writeonly %0, ptr nocap
 
 309:                                              ; preds = %307
   store ptr %308, ptr %290, align 8
-  %310 = getelementptr inbounds i8, ptr %.0263.ph.i, i64 16
+  %310 = getelementptr inbounds nuw i8, ptr %.0263.ph.i, i64 16
   store ptr %308, ptr %310, align 8
   br label %.outer.i.backedge
 
@@ -672,13 +672,13 @@ define dso_local i32 @curl_formadd(ptr nocapture noundef writeonly %0, ptr nocap
 
 326:                                              ; preds = %323, %311
   %327 = phi ptr [ %325, %323 ], [ %.1275.i, %311 ]
-  %328 = getelementptr inbounds i8, ptr %.0263.ph.i, i64 32
+  %328 = getelementptr inbounds nuw i8, ptr %.0263.ph.i, i64 32
   %329 = load ptr, ptr %328, align 8
   %.not359.i = icmp eq ptr %329, null
   br i1 %.not359.i, label %350, label %330
 
 330:                                              ; preds = %326
-  %331 = getelementptr inbounds i8, ptr %.0263.ph.i, i64 40
+  %331 = getelementptr inbounds nuw i8, ptr %.0263.ph.i, i64 40
   %332 = load i64, ptr %331, align 8
   %333 = and i64 %332, 1
   %.not362.i = icmp eq i64 %333, 0
@@ -706,16 +706,16 @@ define dso_local i32 @curl_formadd(ptr nocapture noundef writeonly %0, ptr nocap
   br label %.outer.i.backedge
 
 343:                                              ; preds = %338
-  %344 = getelementptr inbounds i8, ptr %340, i64 32
+  %344 = getelementptr inbounds nuw i8, ptr %340, i64 32
   store ptr %337, ptr %344, align 8
-  %345 = getelementptr inbounds i8, ptr %340, i64 40
+  %345 = getelementptr inbounds nuw i8, ptr %340, i64 40
   store i64 1, ptr %345, align 8
-  %346 = getelementptr inbounds i8, ptr %.0263.ph.i, i64 88
+  %346 = getelementptr inbounds nuw i8, ptr %.0263.ph.i, i64 88
   %347 = load ptr, ptr %346, align 8
-  %348 = getelementptr inbounds i8, ptr %340, i64 88
+  %348 = getelementptr inbounds nuw i8, ptr %340, i64 88
   store ptr %347, ptr %348, align 8
   store ptr %340, ptr %346, align 8
-  %349 = getelementptr inbounds i8, ptr %340, i64 98
+  %349 = getelementptr inbounds nuw i8, ptr %340, i64 98
   store i8 1, ptr %349, align 2
   br label %.outer.i.backedge
 
@@ -731,7 +731,7 @@ define dso_local i32 @curl_formadd(ptr nocapture noundef writeonly %0, ptr nocap
   br i1 %.not361.i, label %.outer.i.backedge, label %354
 
 354:                                              ; preds = %351
-  %355 = getelementptr inbounds i8, ptr %.0263.ph.i, i64 98
+  %355 = getelementptr inbounds nuw i8, ptr %.0263.ph.i, i64 98
   store i8 1, ptr %355, align 2
   br label %.outer.i.backedge
 
@@ -764,7 +764,7 @@ define dso_local i32 @curl_formadd(ptr nocapture noundef writeonly %0, ptr nocap
 
 371:                                              ; preds = %368, %356
   %372 = phi ptr [ %370, %368 ], [ %.1275.i, %356 ]
-  %373 = getelementptr inbounds i8, ptr %.0263.ph.i, i64 80
+  %373 = getelementptr inbounds nuw i8, ptr %.0263.ph.i, i64 80
   %374 = load ptr, ptr %373, align 8
   %.not358.i = icmp eq ptr %374, null
   br i1 %.not358.i, label %375, label %.outer.i.backedge
@@ -802,7 +802,7 @@ define dso_local i32 @curl_formadd(ptr nocapture noundef writeonly %0, ptr nocap
 
 391:                                              ; preds = %388, %376
   %392 = phi ptr [ %390, %388 ], [ %.1275.i, %376 ]
-  %393 = getelementptr inbounds i8, ptr %.0263.ph.i, i64 64
+  %393 = getelementptr inbounds nuw i8, ptr %.0263.ph.i, i64 64
   %394 = load ptr, ptr %393, align 8
   %.not356.i = icmp eq ptr %394, null
   br i1 %.not356.i, label %395, label %.outer.i.backedge
@@ -815,7 +815,7 @@ define dso_local i32 @curl_formadd(ptr nocapture noundef writeonly %0, ptr nocap
   br i1 %.not357.i, label %.outer.i.backedge, label %398
 
 398:                                              ; preds = %395
-  %399 = getelementptr inbounds i8, ptr %.0263.ph.i, i64 99
+  %399 = getelementptr inbounds nuw i8, ptr %.0263.ph.i, i64 99
   store i8 1, ptr %399, align 1
   br label %.outer.i.backedge
 
@@ -828,7 +828,7 @@ define dso_local i32 @curl_formadd(ptr nocapture noundef writeonly %0, ptr nocap
 
 .preheader416.i:                                  ; preds = %8, %430
   %.0262438.i = phi ptr [ %432, %430 ], [ %5, %8 ]
-  %400 = getelementptr inbounds i8, ptr %.0262438.i, i64 96
+  %400 = getelementptr inbounds nuw i8, ptr %.0262438.i, i64 96
   %401 = load i8, ptr %400, align 8
   %402 = trunc i8 %401 to i1
   br i1 %402, label %403, label %406
@@ -842,14 +842,14 @@ define dso_local i32 @curl_formadd(ptr nocapture noundef writeonly %0, ptr nocap
   br label %406
 
 406:                                              ; preds = %403, %.preheader416.i
-  %407 = getelementptr inbounds i8, ptr %.0262438.i, i64 97
+  %407 = getelementptr inbounds nuw i8, ptr %.0262438.i, i64 97
   %408 = load i8, ptr %407, align 1
   %409 = trunc i8 %408 to i1
   br i1 %409, label %410, label %414
 
 410:                                              ; preds = %406
   %411 = load ptr, ptr @Curl_cfree, align 8
-  %412 = getelementptr inbounds i8, ptr %.0262438.i, i64 16
+  %412 = getelementptr inbounds nuw i8, ptr %.0262438.i, i64 16
   %413 = load ptr, ptr %412, align 8
   call void %411(ptr noundef %413) #6
   store ptr null, ptr %412, align 8
@@ -857,14 +857,14 @@ define dso_local i32 @curl_formadd(ptr nocapture noundef writeonly %0, ptr nocap
   br label %414
 
 414:                                              ; preds = %410, %406
-  %415 = getelementptr inbounds i8, ptr %.0262438.i, i64 98
+  %415 = getelementptr inbounds nuw i8, ptr %.0262438.i, i64 98
   %416 = load i8, ptr %415, align 2
   %417 = trunc i8 %416 to i1
   br i1 %417, label %418, label %422
 
 418:                                              ; preds = %414
   %419 = load ptr, ptr @Curl_cfree, align 8
-  %420 = getelementptr inbounds i8, ptr %.0262438.i, i64 32
+  %420 = getelementptr inbounds nuw i8, ptr %.0262438.i, i64 32
   %421 = load ptr, ptr %420, align 8
   call void %419(ptr noundef %421) #6
   store ptr null, ptr %420, align 8
@@ -872,14 +872,14 @@ define dso_local i32 @curl_formadd(ptr nocapture noundef writeonly %0, ptr nocap
   br label %422
 
 422:                                              ; preds = %418, %414
-  %423 = getelementptr inbounds i8, ptr %.0262438.i, i64 99
+  %423 = getelementptr inbounds nuw i8, ptr %.0262438.i, i64 99
   %424 = load i8, ptr %423, align 1
   %425 = trunc i8 %424 to i1
   br i1 %425, label %426, label %430
 
 426:                                              ; preds = %422
   %427 = load ptr, ptr @Curl_cfree, align 8
-  %428 = getelementptr inbounds i8, ptr %.0262438.i, i64 64
+  %428 = getelementptr inbounds nuw i8, ptr %.0262438.i, i64 64
   %429 = load ptr, ptr %428, align 8
   call void %427(ptr noundef %429) #6
   store ptr null, ptr %428, align 8
@@ -887,7 +887,7 @@ define dso_local i32 @curl_formadd(ptr nocapture noundef writeonly %0, ptr nocap
   br label %430
 
 430:                                              ; preds = %426, %422
-  %431 = getelementptr inbounds i8, ptr %.0262438.i, i64 88
+  %431 = getelementptr inbounds nuw i8, ptr %.0262438.i, i64 88
   %432 = load ptr, ptr %431, align 8
   %.not319.i = icmp eq ptr %432, null
   br i1 %.not319.i, label %.thread408.i, label %.preheader416.i, !llvm.loop !7
@@ -901,7 +901,7 @@ define dso_local i32 @curl_formadd(ptr nocapture noundef writeonly %0, ptr nocap
   br i1 %.not321.i, label %439, label %434
 
 434:                                              ; preds = %.preheader413.i
-  %435 = getelementptr inbounds i8, ptr %.0264442.i, i64 16
+  %435 = getelementptr inbounds nuw i8, ptr %.0264442.i, i64 16
   %436 = load ptr, ptr %435, align 8
   %437 = icmp ne ptr %436, null
   %438 = icmp ne ptr %.0269440.i, null
@@ -913,10 +913,10 @@ define dso_local i32 @curl_formadd(ptr nocapture noundef writeonly %0, ptr nocap
   br i1 %.old2.not.i, label %.thread396.i, label %440
 
 440:                                              ; preds = %439, %434
-  %441 = getelementptr inbounds i8, ptr %.0264442.i, i64 24
+  %441 = getelementptr inbounds nuw i8, ptr %.0264442.i, i64 24
   %442 = load i64, ptr %441, align 8
   %.not322.i = icmp ne i64 %442, 0
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.0264442.i, i64 40
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.0264442.i, i64 40
   %.pre.i = load i64, ptr %.phi.trans.insert.i, align 8
   %443 = and i64 %.pre.i, 1
   %.not323.i = icmp ne i64 %443, 0
@@ -927,7 +927,7 @@ define dso_local i32 @curl_formadd(ptr nocapture noundef writeonly %0, ptr nocap
   br i1 %or.cond, label %.thread396.i, label %445
 
 445:                                              ; preds = %440
-  %446 = getelementptr inbounds i8, ptr %.0264442.i, i64 48
+  %446 = getelementptr inbounds nuw i8, ptr %.0264442.i, i64 48
   %447 = load ptr, ptr %446, align 8
   %.not326.i = icmp eq ptr %447, null
   %448 = and i64 %.pre.i, 48
@@ -946,14 +946,14 @@ define dso_local i32 @curl_formadd(ptr nocapture noundef writeonly %0, ptr nocap
   br i1 %or.cond391.i, label %463, label %453
 
 453:                                              ; preds = %450
-  %454 = getelementptr inbounds i8, ptr %.0264442.i, i64 32
+  %454 = getelementptr inbounds nuw i8, ptr %.0264442.i, i64 32
   %455 = load ptr, ptr %454, align 8
   %.not333.i = icmp eq ptr %455, null
   br i1 %.not333.i, label %456, label %463
 
 456:                                              ; preds = %453
   %.in.v.i = select i1 %.not332.i, i64 16, i64 64
-  %.in.i = getelementptr inbounds i8, ptr %.0264442.i, i64 %.in.v.i
+  %.in.i = getelementptr inbounds nuw i8, ptr %.0264442.i, i64 %.in.v.i
   %457 = load ptr, ptr %.in.i, align 8
   %458 = call ptr @Curl_mime_contenttype(ptr noundef %457) #6
   %.not335.i = icmp eq ptr %458, null
@@ -967,7 +967,7 @@ define dso_local i32 @curl_formadd(ptr nocapture noundef writeonly %0, ptr nocap
   br i1 %.not337.i, label %.thread396.i, label %461
 
 461:                                              ; preds = %456
-  %462 = getelementptr inbounds i8, ptr %.0264442.i, i64 98
+  %462 = getelementptr inbounds nuw i8, ptr %.0264442.i, i64 98
   store i8 1, ptr %462, align 2
   %.pre468.i = load ptr, ptr %.0264442.i, align 8
   br label %463
@@ -978,7 +978,7 @@ define dso_local i32 @curl_formadd(ptr nocapture noundef writeonly %0, ptr nocap
   br i1 %.not338.i, label %.thread402.i, label %464
 
 464:                                              ; preds = %463
-  %465 = getelementptr inbounds i8, ptr %.0264442.i, i64 8
+  %465 = getelementptr inbounds nuw i8, ptr %.0264442.i, i64 8
   %466 = load i64, ptr %465, align 8
   %.not339.i = icmp eq i64 %466, 0
   br i1 %.not339.i, label %.thread398.i, label %.preheader.i
@@ -1031,7 +1031,7 @@ thread-pre-split.i:                               ; preds = %481, %471
   br i1 %.not346.i, label %.thread396.i, label %485
 
 485:                                              ; preds = %thread-pre-split.i
-  %486 = getelementptr inbounds i8, ptr %.0264442.i, i64 96
+  %486 = getelementptr inbounds nuw i8, ptr %.0264442.i, i64 96
   store i8 1, ptr %486, align 8
   %.pre469.i = load i64, ptr %.phi.trans.insert.i, align 8
   br label %487
@@ -1041,7 +1041,7 @@ thread-pre-split.i:                               ; preds = %481, %471
   %489 = phi i64 [ %475, %.thread402.i ], [ %478, %.thread398.i ], [ %.pre469.i, %485 ], [ %472, %471 ]
   %490 = and i64 %489, 107
   %.not347.i = icmp eq i64 %490, 0
-  %491 = getelementptr inbounds i8, ptr %.0264442.i, i64 16
+  %491 = getelementptr inbounds nuw i8, ptr %.0264442.i, i64 16
   %492 = load ptr, ptr %491, align 8
   br i1 %.not347.i, label %493, label %._crit_edge471.i
 
@@ -1067,7 +1067,7 @@ thread-pre-split.i:                               ; preds = %481, %471
   br i1 %.not350.i, label %.thread396.i, label %501
 
 501:                                              ; preds = %499
-  %502 = getelementptr inbounds i8, ptr %.0264442.i, i64 97
+  %502 = getelementptr inbounds nuw i8, ptr %.0264442.i, i64 97
   store i8 1, ptr %502, align 1
   %.pre470.i = load ptr, ptr %.0264442.i, align 8
   %.pre474.i = load i64, ptr %.phi.trans.insert.i, align 8
@@ -1077,19 +1077,19 @@ thread-pre-split.i:                               ; preds = %481, %471
   %503 = phi i64 [ %.pre474.i, %501 ], [ %489, %493 ], [ %489, %487 ]
   %504 = phi ptr [ %500, %501 ], [ null, %493 ], [ %492, %487 ]
   %505 = phi ptr [ %.pre470.i, %501 ], [ %488, %493 ], [ %488, %487 ]
-  %506 = getelementptr inbounds i8, ptr %.0264442.i, i64 8
+  %506 = getelementptr inbounds nuw i8, ptr %.0264442.i, i64 8
   %507 = load i64, ptr %506, align 8
   %508 = load i64, ptr %441, align 8
   %509 = load ptr, ptr %446, align 8
-  %510 = getelementptr inbounds i8, ptr %.0264442.i, i64 56
+  %510 = getelementptr inbounds nuw i8, ptr %.0264442.i, i64 56
   %511 = load i64, ptr %510, align 8
-  %512 = getelementptr inbounds i8, ptr %.0264442.i, i64 32
+  %512 = getelementptr inbounds nuw i8, ptr %.0264442.i, i64 32
   %513 = load ptr, ptr %512, align 8
-  %514 = getelementptr inbounds i8, ptr %.0264442.i, i64 80
+  %514 = getelementptr inbounds nuw i8, ptr %.0264442.i, i64 80
   %515 = load ptr, ptr %514, align 8
-  %516 = getelementptr inbounds i8, ptr %.0264442.i, i64 64
+  %516 = getelementptr inbounds nuw i8, ptr %.0264442.i, i64 64
   %517 = load ptr, ptr %516, align 8
-  %518 = getelementptr inbounds i8, ptr %.0264442.i, i64 72
+  %518 = getelementptr inbounds nuw i8, ptr %.0264442.i, i64 72
   %519 = load ptr, ptr %518, align 8
   %520 = icmp eq i64 %507, 0
   %521 = icmp ne ptr %505, null
@@ -1114,36 +1114,36 @@ thread-pre-split.i:                               ; preds = %481, %471
   br i1 %.not.i395.i, label %.thread396.i, label %530
 
 530:                                              ; preds = %527
-  %531 = getelementptr inbounds i8, ptr %529, i64 8
+  %531 = getelementptr inbounds nuw i8, ptr %529, i64 8
   store ptr %505, ptr %531, align 8
-  %532 = getelementptr inbounds i8, ptr %529, i64 16
+  %532 = getelementptr inbounds nuw i8, ptr %529, i64 16
   store i64 %.044.i.i, ptr %532, align 8
-  %533 = getelementptr inbounds i8, ptr %529, i64 24
+  %533 = getelementptr inbounds nuw i8, ptr %529, i64 24
   store ptr %504, ptr %533, align 8
-  %534 = getelementptr inbounds i8, ptr %529, i64 104
+  %534 = getelementptr inbounds nuw i8, ptr %529, i64 104
   store i64 %508, ptr %534, align 8
-  %535 = getelementptr inbounds i8, ptr %529, i64 40
+  %535 = getelementptr inbounds nuw i8, ptr %529, i64 40
   store ptr %509, ptr %535, align 8
-  %536 = getelementptr inbounds i8, ptr %529, i64 48
+  %536 = getelementptr inbounds nuw i8, ptr %529, i64 48
   store i64 %511, ptr %536, align 8
-  %537 = getelementptr inbounds i8, ptr %529, i64 56
+  %537 = getelementptr inbounds nuw i8, ptr %529, i64 56
   store ptr %513, ptr %537, align 8
-  %538 = getelementptr inbounds i8, ptr %529, i64 64
+  %538 = getelementptr inbounds nuw i8, ptr %529, i64 64
   store ptr %515, ptr %538, align 8
-  %539 = getelementptr inbounds i8, ptr %529, i64 88
+  %539 = getelementptr inbounds nuw i8, ptr %529, i64 88
   store ptr %517, ptr %539, align 8
-  %540 = getelementptr inbounds i8, ptr %529, i64 96
+  %540 = getelementptr inbounds nuw i8, ptr %529, i64 96
   store ptr %519, ptr %540, align 8
   %541 = or i64 %503, 128
-  %542 = getelementptr inbounds i8, ptr %529, i64 80
+  %542 = getelementptr inbounds nuw i8, ptr %529, i64 80
   store i64 %541, ptr %542, align 8
   %.not50.i.i = icmp eq ptr %.0269440.i, null
   br i1 %.not50.i.i, label %547, label %543
 
 543:                                              ; preds = %530
-  %544 = getelementptr inbounds i8, ptr %.0269440.i, i64 72
+  %544 = getelementptr inbounds nuw i8, ptr %.0269440.i, i64 72
   %545 = load ptr, ptr %544, align 8
-  %546 = getelementptr inbounds i8, ptr %529, i64 72
+  %546 = getelementptr inbounds nuw i8, ptr %529, i64 72
   store ptr %545, ptr %546, align 8
   store ptr %529, ptr %544, align 8
   br label %AddHttpPost.exit.i
@@ -1160,7 +1160,7 @@ AddHttpPost.exit.i:                               ; preds = %547, %543
   %549 = load ptr, ptr %512, align 8
   %.not352.i = icmp eq ptr %549, null
   %spec.select.i = select i1 %.not352.i, ptr %.0267441.i, ptr %549
-  %550 = getelementptr inbounds i8, ptr %.0264442.i, i64 88
+  %550 = getelementptr inbounds nuw i8, ptr %.0264442.i, i64 88
   %551 = load ptr, ptr %550, align 8
   %.not320.i = icmp eq ptr %551, null
   br i1 %.not320.i, label %.thread408.i, label %.preheader413.i, !llvm.loop !9
@@ -1171,7 +1171,7 @@ AddHttpPost.exit.i:                               ; preds = %547, %543
 
 552:                                              ; preds = %583, %.thread396.i
   %.0257445.i = phi ptr [ %.0264442.i, %.thread396.i ], [ %585, %583 ]
-  %553 = getelementptr inbounds i8, ptr %.0257445.i, i64 96
+  %553 = getelementptr inbounds nuw i8, ptr %.0257445.i, i64 96
   %554 = load i8, ptr %553, align 8
   %555 = trunc i8 %554 to i1
   br i1 %555, label %556, label %559
@@ -1185,14 +1185,14 @@ AddHttpPost.exit.i:                               ; preds = %547, %543
   br label %559
 
 559:                                              ; preds = %556, %552
-  %560 = getelementptr inbounds i8, ptr %.0257445.i, i64 97
+  %560 = getelementptr inbounds nuw i8, ptr %.0257445.i, i64 97
   %561 = load i8, ptr %560, align 1
   %562 = trunc i8 %561 to i1
   br i1 %562, label %563, label %567
 
 563:                                              ; preds = %559
   %564 = load ptr, ptr @Curl_cfree, align 8
-  %565 = getelementptr inbounds i8, ptr %.0257445.i, i64 16
+  %565 = getelementptr inbounds nuw i8, ptr %.0257445.i, i64 16
   %566 = load ptr, ptr %565, align 8
   call void %564(ptr noundef %566) #6
   store ptr null, ptr %565, align 8
@@ -1200,14 +1200,14 @@ AddHttpPost.exit.i:                               ; preds = %547, %543
   br label %567
 
 567:                                              ; preds = %563, %559
-  %568 = getelementptr inbounds i8, ptr %.0257445.i, i64 98
+  %568 = getelementptr inbounds nuw i8, ptr %.0257445.i, i64 98
   %569 = load i8, ptr %568, align 2
   %570 = trunc i8 %569 to i1
   br i1 %570, label %571, label %575
 
 571:                                              ; preds = %567
   %572 = load ptr, ptr @Curl_cfree, align 8
-  %573 = getelementptr inbounds i8, ptr %.0257445.i, i64 32
+  %573 = getelementptr inbounds nuw i8, ptr %.0257445.i, i64 32
   %574 = load ptr, ptr %573, align 8
   call void %572(ptr noundef %574) #6
   store ptr null, ptr %573, align 8
@@ -1215,14 +1215,14 @@ AddHttpPost.exit.i:                               ; preds = %547, %543
   br label %575
 
 575:                                              ; preds = %571, %567
-  %576 = getelementptr inbounds i8, ptr %.0257445.i, i64 99
+  %576 = getelementptr inbounds nuw i8, ptr %.0257445.i, i64 99
   %577 = load i8, ptr %576, align 1
   %578 = trunc i8 %577 to i1
   br i1 %578, label %579, label %583
 
 579:                                              ; preds = %575
   %580 = load ptr, ptr @Curl_cfree, align 8
-  %581 = getelementptr inbounds i8, ptr %.0257445.i, i64 64
+  %581 = getelementptr inbounds nuw i8, ptr %.0257445.i, i64 64
   %582 = load ptr, ptr %581, align 8
   call void %580(ptr noundef %582) #6
   store ptr null, ptr %581, align 8
@@ -1230,7 +1230,7 @@ AddHttpPost.exit.i:                               ; preds = %547, %543
   br label %583
 
 583:                                              ; preds = %579, %575
-  %584 = getelementptr inbounds i8, ptr %.0257445.i, i64 88
+  %584 = getelementptr inbounds nuw i8, ptr %.0257445.i, i64 88
   %585 = load ptr, ptr %584, align 8
   %.not354.i = icmp eq ptr %585, null
   br i1 %.not354.i, label %.thread408.i, label %552, !llvm.loop !10
@@ -1241,7 +1241,7 @@ AddHttpPost.exit.i:                               ; preds = %547, %543
 
 586:                                              ; preds = %586, %.thread408.i
   %.0261446.i = phi ptr [ %5, %.thread408.i ], [ %588, %586 ]
-  %587 = getelementptr inbounds i8, ptr %.0261446.i, i64 88
+  %587 = getelementptr inbounds nuw i8, ptr %.0261446.i, i64 88
   %588 = load ptr, ptr %587, align 8
   %589 = load ptr, ptr @Curl_cfree, align 8
   call void %589(ptr noundef nonnull %.0261446.i) #6
@@ -1313,7 +1313,7 @@ define dso_local i32 @Curl_getformdata(ptr noundef %0, ptr noundef %1, ptr nound
 
 .lr.ph167:                                        ; preds = %7, %._crit_edge
   %.086164 = phi ptr [ %109, %._crit_edge ], [ %2, %7 ]
-  %9 = getelementptr inbounds i8, ptr %.086164, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %.086164, i64 72
   %10 = load ptr, ptr %9, align 8
   %.not95 = icmp eq ptr %10, null
   br i1 %.not95, label %.lr.ph, label %11
@@ -1324,9 +1324,9 @@ define dso_local i32 @Curl_getformdata(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %.not96.not, label %.thread, label %13
 
 13:                                               ; preds = %11
-  %14 = getelementptr inbounds i8, ptr %.086164, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %.086164, i64 8
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %.086164, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %.086164, i64 16
   %17 = load i64, ptr %16, align 8
   %18 = icmp ne ptr %15, null
   %19 = icmp ne i64 %17, 0
@@ -1370,14 +1370,14 @@ setname.exit:                                     ; preds = %24, %20
 
 .lr.ph:                                           ; preds = %.lr.ph167, %.thread
   %.081183 = phi ptr [ %.081, %.thread ], [ %6, %.lr.ph167 ]
-  %31 = getelementptr inbounds i8, ptr %.086164, i64 8
-  %32 = getelementptr inbounds i8, ptr %.086164, i64 16
-  %33 = getelementptr inbounds i8, ptr %.086164, i64 80
-  %34 = getelementptr inbounds i8, ptr %.086164, i64 40
-  %35 = getelementptr inbounds i8, ptr %.086164, i64 48
-  %36 = getelementptr inbounds i8, ptr %.086164, i64 96
-  %37 = getelementptr inbounds i8, ptr %.086164, i64 24
-  %38 = getelementptr inbounds i8, ptr %.086164, i64 88
+  %31 = getelementptr inbounds nuw i8, ptr %.086164, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %.086164, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %.086164, i64 80
+  %34 = getelementptr inbounds nuw i8, ptr %.086164, i64 40
+  %35 = getelementptr inbounds nuw i8, ptr %.086164, i64 48
+  %36 = getelementptr inbounds nuw i8, ptr %.086164, i64 96
+  %37 = getelementptr inbounds nuw i8, ptr %.086164, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %.086164, i64 88
   br label %39
 
 39:                                               ; preds = %.lr.ph, %.thread154
@@ -1387,14 +1387,14 @@ setname.exit:                                     ; preds = %24, %20
   br i1 %.not102.not, label %.thread154, label %41
 
 41:                                               ; preds = %39
-  %42 = getelementptr inbounds i8, ptr %.082162, i64 64
+  %42 = getelementptr inbounds nuw i8, ptr %.082162, i64 64
   %43 = load ptr, ptr %42, align 8
   %44 = tail call i32 @curl_mime_headers(ptr noundef nonnull %40, ptr noundef %43, i32 noundef 0) #6
   %.not104 = icmp eq i32 %44, 0
   br i1 %.not104, label %45, label %._crit_edge168.thread
 
 45:                                               ; preds = %41
-  %46 = getelementptr inbounds i8, ptr %.082162, i64 56
+  %46 = getelementptr inbounds nuw i8, ptr %.082162, i64 56
   %47 = load ptr, ptr %46, align 8
   %.not105 = icmp eq ptr %47, null
   br i1 %.not105, label %.thread145, label %48
@@ -1442,21 +1442,21 @@ setname.exit132.thread150:                        ; preds = %.thread145, %setnam
   %64 = and i64 %63, 128
   %.not109 = icmp eq i64 %64, 0
   %spec.select127.v = select i1 %.not109, i64 32, i64 104
-  %spec.select127 = getelementptr inbounds i8, ptr %.086164, i64 %spec.select127.v
+  %spec.select127 = getelementptr inbounds nuw i8, ptr %.086164, i64 %spec.select127.v
   %.080 = load i64, ptr %spec.select127, align 8
   %65 = and i64 %63, 3
   %.not110 = icmp eq i64 %65, 0
   br i1 %.not110, label %82, label %sub_0
 
 sub_0:                                            ; preds = %setname.exit132.thread150
-  %66 = getelementptr inbounds i8, ptr %.082162, i64 24
+  %66 = getelementptr inbounds nuw i8, ptr %.082162, i64 24
   %67 = load ptr, ptr %66, align 8
   %68 = load i8, ptr %67, align 1
   %.not171 = icmp eq i8 %68, 45
   br i1 %.not171, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_0
-  %69 = getelementptr inbounds i8, ptr %67, i64 1
+  %69 = getelementptr inbounds nuw i8, ptr %67, i64 1
   %70 = load i8, ptr %69, align 1
   %71 = icmp eq i8 %70, 0
   br i1 %71, label %72, label %.tail.thread
@@ -1542,7 +1542,7 @@ sub_0:                                            ; preds = %setname.exit132.thr
 
 .thread154:                                       ; preds = %39, %.thread157, %103, %100
   %.14 = phi i32 [ %104, %103 ], [ 0, %100 ], [ 0, %.thread157 ], [ 27, %39 ]
-  %105 = getelementptr inbounds i8, ptr %.082162, i64 72
+  %105 = getelementptr inbounds nuw i8, ptr %.082162, i64 72
   %106 = load ptr, ptr %105, align 8
   %.not101 = icmp eq i32 %.14, 0
   %107 = icmp ne ptr %106, null
@@ -1583,10 +1583,10 @@ define dso_local void @curl_formfree(ptr noundef %0) local_unnamed_addr #0 {
 .preheader:                                       ; preds = %1, %19
   %.0 = phi ptr [ %2, %19 ], [ %0, %1 ]
   %2 = load ptr, ptr %.0, align 8
-  %3 = getelementptr inbounds i8, ptr %.0, i64 72
+  %3 = getelementptr inbounds nuw i8, ptr %.0, i64 72
   %4 = load ptr, ptr %3, align 8
   tail call void @curl_formfree(ptr noundef %4)
-  %5 = getelementptr inbounds i8, ptr %.0, i64 80
+  %5 = getelementptr inbounds nuw i8, ptr %.0, i64 80
   %6 = load i64, ptr %5, align 8
   %7 = and i64 %6, 4
   %.not14 = icmp eq i64 %7, 0
@@ -1594,7 +1594,7 @@ define dso_local void @curl_formfree(ptr noundef %0) local_unnamed_addr #0 {
 
 8:                                                ; preds = %.preheader
   %9 = load ptr, ptr @Curl_cfree, align 8
-  %10 = getelementptr inbounds i8, ptr %.0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %11 = load ptr, ptr %10, align 8
   tail call void %9(ptr noundef %11) #6
   %.pre = load i64, ptr %5, align 8
@@ -1608,18 +1608,18 @@ define dso_local void @curl_formfree(ptr noundef %0) local_unnamed_addr #0 {
 
 15:                                               ; preds = %12
   %16 = load ptr, ptr @Curl_cfree, align 8
-  %17 = getelementptr inbounds i8, ptr %.0, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %.0, i64 24
   %18 = load ptr, ptr %17, align 8
   tail call void %16(ptr noundef %18) #6
   br label %19
 
 19:                                               ; preds = %15, %12
   %20 = load ptr, ptr @Curl_cfree, align 8
-  %21 = getelementptr inbounds i8, ptr %.0, i64 56
+  %21 = getelementptr inbounds nuw i8, ptr %.0, i64 56
   %22 = load ptr, ptr %21, align 8
   tail call void %20(ptr noundef %22) #6
   %23 = load ptr, ptr @Curl_cfree, align 8
-  %24 = getelementptr inbounds i8, ptr %.0, i64 88
+  %24 = getelementptr inbounds nuw i8, ptr %.0, i64 88
   %25 = load ptr, ptr %24, align 8
   tail call void %23(ptr noundef %25) #6
   %26 = load ptr, ptr @Curl_cfree, align 8

@@ -28,8 +28,8 @@ define ptr @Aig_NodeBddToMuxes_rec(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %.not, label %8, label %30
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %1, i64 16
-  %10 = getelementptr inbounds i8, ptr %1, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = ptrtoint ptr %11 to i64
   %13 = and i64 %12, -2
@@ -94,9 +94,9 @@ Abc_UtilStrsav.exit:                              ; preds = %3, %10
   %.val69 = load ptr, ptr %16, align 8
   %17 = getelementptr i8, ptr %0, i64 48
   %.val70 = load ptr, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %.val70, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %.val70, i64 40
   store ptr %.val69, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr i8, ptr %20, i64 4
   %.val80 = load i32, ptr %21, align 4
@@ -108,10 +108,10 @@ Abc_UtilStrsav.exit:                              ; preds = %3, %10
   %23 = phi ptr [ %29, %.lr.ph ], [ %20, %Abc_UtilStrsav.exit ]
   %24 = getelementptr i8, ptr %23, i64 8
   %.val72 = load ptr, ptr %24, align 8
-  %25 = getelementptr inbounds ptr, ptr %.val72, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw ptr, ptr %.val72, i64 %indvars.iv
   %26 = load ptr, ptr %25, align 8
   %27 = tail call ptr @Aig_ObjCreateCi(ptr noundef nonnull %8) #14
-  %28 = getelementptr inbounds i8, ptr %26, i64 40
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 40
   store ptr %27, ptr %28, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %29 = load ptr, ptr %19, align 8
@@ -147,11 +147,11 @@ Abc_UtilStrsav.exit:                              ; preds = %3, %10
   %42 = phi ptr [ %51, %.lr.ph84 ], [ %36, %.critedge ]
   %43 = getelementptr i8, ptr %42, i64 8
   %.val73 = load ptr, ptr %43, align 8
-  %44 = getelementptr inbounds ptr, ptr %.val73, i64 %indvars.iv92
+  %44 = getelementptr inbounds nuw ptr, ptr %.val73, i64 %indvars.iv92
   %45 = load ptr, ptr %44, align 8
   %46 = trunc nuw nsw i64 %indvars.iv92 to i32
   %47 = tail call ptr @Cudd_bddIthVar(ptr noundef %1, i32 noundef %46) #14
-  %48 = getelementptr inbounds i8, ptr %45, i64 40
+  %48 = getelementptr inbounds nuw i8, ptr %45, i64 40
   %49 = load ptr, ptr %48, align 8
   %50 = tail call i32 @st__insert(ptr noundef %33, ptr noundef %47, ptr noundef %49) #14
   %indvars.iv.next93 = add nuw nsw i64 %indvars.iv92, 1
@@ -165,7 +165,7 @@ Abc_UtilStrsav.exit:                              ; preds = %3, %10
 55:                                               ; preds = %.lr.ph87, %.critedge2
   %indvars.iv95 = phi i64 [ 0, %.lr.ph87 ], [ %indvars.iv.next96, %.critedge2 ]
   %.val74 = load ptr, ptr %41, align 8
-  %56 = getelementptr inbounds ptr, ptr %.val74, i64 %indvars.iv95
+  %56 = getelementptr inbounds nuw ptr, ptr %.val74, i64 %indvars.iv95
   %57 = load ptr, ptr %56, align 8
   %58 = tail call ptr @Cudd_ReadLogicZero(ptr noundef %1) #14
   %59 = icmp eq ptr %57, %58
@@ -192,7 +192,7 @@ Abc_UtilStrsav.exit:                              ; preds = %3, %10
 
 .critedge4:                                       ; preds = %.critedge2, %.critedge2.preheader
   tail call void @st__free_table(ptr noundef %33) #14
-  %72 = getelementptr inbounds i8, ptr %0, i64 24
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %73 = load ptr, ptr %72, align 8
   %74 = getelementptr i8, ptr %73, i64 4
   %.val6688 = load i32, ptr %74, align 4
@@ -204,7 +204,7 @@ Abc_UtilStrsav.exit:                              ; preds = %3, %10
   %indvars.iv98 = phi i64 [ %indvars.iv.next99, %100 ], [ 0, %.critedge4 ]
   %77 = getelementptr i8, ptr %76, i64 8
   %.val75 = load ptr, ptr %77, align 8
-  %78 = getelementptr inbounds ptr, ptr %.val75, i64 %indvars.iv98
+  %78 = getelementptr inbounds nuw ptr, ptr %.val75, i64 %indvars.iv98
   %79 = load ptr, ptr %78, align 8
   %80 = icmp eq i64 %indvars.iv98, 0
   br i1 %80, label %100, label %81
@@ -224,7 +224,7 @@ Abc_UtilStrsav.exit:                              ; preds = %3, %10
 
 89:                                               ; preds = %81
   %90 = inttoptr i64 %88 to ptr
-  %91 = getelementptr inbounds i8, ptr %90, i64 40
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 40
   %92 = load ptr, ptr %91, align 8
   %93 = and i64 %87, 1
   %94 = ptrtoint ptr %92 to i64
@@ -235,7 +235,7 @@ Abc_UtilStrsav.exit:                              ; preds = %3, %10
 Aig_ObjChild0Copy.exit:                           ; preds = %81, %89
   %97 = phi ptr [ %96, %89 ], [ null, %81 ]
   %98 = tail call ptr @Aig_ObjCreateCo(ptr noundef nonnull %8, ptr noundef %97) #14
-  %99 = getelementptr inbounds i8, ptr %79, i64 40
+  %99 = getelementptr inbounds nuw i8, ptr %79, i64 40
   store ptr %98, ptr %99, align 8
   %.pre = load ptr, ptr %72, align 8
   br label %100
@@ -299,7 +299,7 @@ declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_a
 
 ; Function Attrs: nounwind uwtable
 define ptr @Aig_ManBuildPoBdd_rec(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %common.ret23
@@ -347,11 +347,11 @@ declare void @Cudd_Ref(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define noalias noundef ptr @Aig_ManCofactorBdds(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #16
-  %6 = getelementptr inbounds i8, ptr %5, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 0, ptr %6, align 4
   store i32 100, ptr %5, align 8
   %7 = tail call noalias dereferenceable_or_null(800) ptr @malloc(i64 noundef 800) #16
-  %8 = getelementptr inbounds i8, ptr %5, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %7, ptr %8, align 8
   %9 = getelementptr i8, ptr %1, i64 8
   %.val24 = load ptr, ptr %9, align 8
@@ -458,10 +458,10 @@ define noundef ptr @Aig_ManBuildPoBdd(ptr noundef %0, ptr nocapture noundef %1) 
   %5 = getelementptr i8, ptr %0, i64 48
   %.val40 = load ptr, ptr %5, align 8
   %6 = tail call ptr @Cudd_ReadOne(ptr noundef %4) #14
-  %7 = getelementptr inbounds i8, ptr %.val40, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %.val40, i64 40
   store ptr %6, ptr %7, align 8
   tail call void @Cudd_Ref(ptr noundef %6) #14
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr i8, ptr %9, i64 4
   %.val3947 = load i32, ptr %10, align 4
@@ -473,11 +473,11 @@ define noundef ptr @Aig_ManBuildPoBdd(ptr noundef %0, ptr nocapture noundef %1) 
   %12 = phi ptr [ %19, %.lr.ph ], [ %9, %2 ]
   %13 = getelementptr i8, ptr %12, i64 8
   %.val42 = load ptr, ptr %13, align 8
-  %14 = getelementptr inbounds ptr, ptr %.val42, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw ptr, ptr %.val42, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8
   %16 = trunc nuw nsw i64 %indvars.iv to i32
   %17 = tail call ptr @Cudd_bddIthVar(ptr noundef %4, i32 noundef %16) #14
-  %18 = getelementptr inbounds i8, ptr %15, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 40
   store ptr %17, ptr %18, align 8
   tail call void @Cudd_Ref(ptr noundef %17) #14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -510,7 +510,7 @@ define noundef ptr @Aig_ManBuildPoBdd(ptr noundef %0, ptr nocapture noundef %1) 
   %34 = xor i64 %33, %31
   %35 = inttoptr i64 %34 to ptr
   store ptr %35, ptr %1, align 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %37 = load ptr, ptr %36, align 8
   %38 = getelementptr i8, ptr %37, i64 4
   %.val49 = load i32, ptr %38, align 4
@@ -522,13 +522,13 @@ define noundef ptr @Aig_ManBuildPoBdd(ptr noundef %0, ptr nocapture noundef %1) 
   %indvars.iv53 = phi i64 [ %indvars.iv.next54, %49 ], [ 0, %.critedge ]
   %41 = getelementptr i8, ptr %40, i64 8
   %.val41 = load ptr, ptr %41, align 8
-  %42 = getelementptr inbounds ptr, ptr %.val41, i64 %indvars.iv53
+  %42 = getelementptr inbounds nuw ptr, ptr %.val41, i64 %indvars.iv53
   %43 = load ptr, ptr %42, align 8
   %44 = icmp eq ptr %43, null
   br i1 %44, label %49, label %45
 
 45:                                               ; preds = %.lr.ph51
-  %46 = getelementptr inbounds i8, ptr %43, i64 40
+  %46 = getelementptr inbounds nuw i8, ptr %43, i64 40
   %47 = load ptr, ptr %46, align 8
   %.not = icmp eq ptr %47, null
   br i1 %.not, label %49, label %48
@@ -561,7 +561,7 @@ declare i32 @Cudd_ReduceHeap(ptr noundef, i32 noundef, i32 noundef) local_unname
 ; Function Attrs: nounwind uwtable
 define noalias noundef ptr @Aig_ManVecRandSubset(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #16
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = load i32, ptr %0, align 8
   store i32 %6, ptr %3, align 8
@@ -576,9 +576,9 @@ define noalias noundef ptr @Aig_ManVecRandSubset(ptr nocapture noundef readonly 
 
 Vec_PtrDup.exit:                                  ; preds = %2, %7
   %.val9 = phi ptr [ %10, %7 ], [ null, %2 ]
-  %11 = getelementptr inbounds i8, ptr %3, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %.val9, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = sext i32 %5 to i64
   %15 = shl nsw i64 %14, 3
@@ -610,7 +610,7 @@ Vec_PtrDup.exit:                                  ; preds = %2, %7
 
 28:                                               ; preds = %25
   %29 = add nsw i64 %indvars.iv.i, -1
-  %30 = getelementptr inbounds ptr, ptr %.val9, i64 %29
+  %30 = getelementptr inbounds nuw ptr, ptr %.val9, i64 %29
   %31 = load ptr, ptr %30, align 8
   %32 = icmp eq ptr %31, %23
   br i1 %32, label %33, label %25, !llvm.loop !12
@@ -642,7 +642,7 @@ Vec_PtrRemove.exit:                               ; preds = %.lr.ph.i, %33
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %Vec_PtrDup.exit
   %.lcssa = phi i32 [ %5, %Vec_PtrDup.exit ], [ %41, %._crit_edge.loopexit ]
-  %42 = getelementptr inbounds i8, ptr %3, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 %.lcssa, ptr %42, align 4
   ret ptr %3
 }
@@ -662,7 +662,7 @@ define ptr @Aig_ManSplit(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_u
 9:                                                ; preds = %3
   %10 = load i64, ptr %5, align 8
   %.neg72 = mul i64 %10, -1000000
-  %11 = getelementptr inbounds i8, ptr %5, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %12 = load i64, ptr %11, align 8
   %.neg = sdiv i64 %12, -1000
   %.neg73 = add i64 %.neg, %.neg72
@@ -715,7 +715,7 @@ Abc_Clock.exit:                                   ; preds = %3, %9
 
 31:                                               ; preds = %21
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
-  %32 = getelementptr inbounds i8, ptr %28, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %33 = load ptr, ptr %32, align 8
   %.not.i = icmp eq ptr %33, null
   br i1 %.not.i, label %Vec_PtrFree.exit, label %34
@@ -756,9 +756,9 @@ Vec_PtrFree.exit:                                 ; preds = %31, %34
 
 Vec_PtrDup.exit.i:                                ; preds = %45, %41
   %49 = phi ptr [ %48, %45 ], [ null, %41 ]
-  %50 = getelementptr inbounds i8, ptr %42, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %42, i64 8
   store ptr %49, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %28, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %52 = load ptr, ptr %51, align 8
   %53 = sext i32 %43 to i64
   %54 = shl nsw i64 %53, 3
@@ -790,7 +790,7 @@ Vec_PtrDup.exit.i:                                ; preds = %45, %41
 
 67:                                               ; preds = %64
   %68 = add nsw i64 %indvars.iv.i.i, -1
-  %69 = getelementptr inbounds ptr, ptr %49, i64 %68
+  %69 = getelementptr inbounds nuw ptr, ptr %49, i64 %68
   %70 = load ptr, ptr %69, align 8
   %71 = icmp eq ptr %70, %62
   br i1 %71, label %72, label %64, !llvm.loop !12
@@ -822,7 +822,7 @@ Vec_PtrRemove.exit.i:                             ; preds = %.lr.ph.i.i, %72
 
 Aig_ManVecRandSubset.exit:                        ; preds = %Vec_PtrDup.exit.i, %._crit_edge.loopexit.i
   %.lcssa.i = phi i32 [ %43, %Vec_PtrDup.exit.i ], [ %80, %._crit_edge.loopexit.i ]
-  %81 = getelementptr inbounds i8, ptr %42, i64 4
+  %81 = getelementptr inbounds nuw i8, ptr %42, i64 4
   store i32 %.lcssa.i, ptr %81, align 4
   %82 = icmp sgt i32 %.lcssa.i, 0
   br i1 %82, label %.lr.ph, label %.critedge
@@ -833,9 +833,9 @@ Aig_ManVecRandSubset.exit:                        ; preds = %Vec_PtrDup.exit.i, 
 
 83:                                               ; preds = %.lr.ph, %83
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %83 ]
-  %84 = getelementptr inbounds ptr, ptr %49, i64 %indvars.iv
+  %84 = getelementptr inbounds nuw ptr, ptr %49, i64 %indvars.iv
   %85 = load ptr, ptr %84, align 8
-  %86 = getelementptr inbounds i8, ptr %85, i64 40
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 40
   %87 = load ptr, ptr %86, align 8
   store ptr %87, ptr %84, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -881,7 +881,7 @@ Vec_PtrFree.exit67:                               ; preds = %Vec_PtrFree.exit65,
 100:                                              ; preds = %94
   %101 = load i64, ptr %4, align 8
   %102 = mul nsw i64 %101, 1000000
-  %103 = getelementptr inbounds i8, ptr %4, i64 8
+  %103 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %104 = load i64, ptr %103, align 8
   %105 = sdiv i64 %104, 1000
   %106 = add nsw i64 %105, %102
@@ -912,7 +912,7 @@ Abc_Clock.exit69:                                 ; preds = %94, %100
 
 113:                                              ; preds = %.lr.ph76, %113
   %indvars.iv81 = phi i64 [ 0, %.lr.ph76 ], [ %indvars.iv.next82, %113 ]
-  %114 = getelementptr inbounds ptr, ptr %.val57, i64 %indvars.iv81
+  %114 = getelementptr inbounds nuw ptr, ptr %.val57, i64 %indvars.iv81
   %115 = load ptr, ptr %114, align 8
   call void @Cudd_RecursiveDeref(ptr noundef %36, ptr noundef %115) #14
   %indvars.iv.next82 = add nuw nsw i64 %indvars.iv81, 1

@@ -713,7 +713,7 @@ define internal i32 @dissect_stanag4607(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %7, label %429, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8
   tail call void @col_set_str(ptr noundef %10, i32 noundef 34, ptr noundef nonnull @.str.373) #6
   %11 = load ptr, ptr %9, align 8
@@ -734,7 +734,7 @@ define internal i32 @dissect_stanag4607(ptr noundef %0, ptr noundef %1, ptr noun
   %.neg = mul i32 %19, -1000
   %21 = add i32 %.neg, %18
   %22 = mul i32 %21, 1000000
-  %23 = getelementptr inbounds i8, ptr %5, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %22, ptr %23, align 8
   %24 = load ptr, ptr %9, align 8
   call void @col_set_time(ptr noundef %24, i32 noundef 35, ptr noundef nonnull %5, ptr noundef nonnull @.str.192) #6

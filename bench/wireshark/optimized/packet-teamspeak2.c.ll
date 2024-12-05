@@ -310,13 +310,13 @@ define internal i32 @dissect_ts2(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %13 = tail call ptr @wmem_file_scope() #4
   %14 = tail call noalias ptr @wmem_alloc(ptr noundef %13, i64 noundef 56) #4
   store i32 0, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
   store i32 0, ptr %15, align 4
-  %16 = getelementptr inbounds i8, ptr %1, i64 284
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %17 = load i32, ptr %16, align 4
-  %18 = getelementptr inbounds i8, ptr %14, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store i32 %17, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %14, i64 36
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 36
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %19, i8 0, i64 16, i1 false)
   %20 = load i32, ptr @proto_ts2, align 4
   tail call void @conversation_add_proto_data(ptr noundef nonnull %8, i32 noundef %20, ptr noundef nonnull %14) #4
@@ -324,7 +324,7 @@ define internal i32 @dissect_ts2(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 ts2_get_conversation.exit:                        ; preds = %4, %12
   %.0.i = phi ptr [ %14, %12 ], [ %10, %4 ]
-  %21 = getelementptr inbounds i8, ptr %1, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %22 = load ptr, ptr %21, align 8
   tail call void @col_set_str(ptr noundef %22, i32 noundef 34, ptr noundef nonnull @.str.175) #4
   %23 = icmp eq i16 %7, -16655
@@ -360,23 +360,23 @@ ts2_get_conversation.exit:                        ; preds = %4, %12
   br i1 %cond, label %36, label %135
 
 36:                                               ; preds = %35
-  %37 = getelementptr inbounds i8, ptr %1, i64 288
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %38 = load i32, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %.0.i, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %.0.i, i64 32
   store i32 %38, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %.0.i, i64 8
-  %41 = getelementptr inbounds i8, ptr %1, i64 232
+  %40 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %42 = load i32, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %1, i64 236
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 236
   %44 = load i32, ptr %43, align 4
-  %45 = getelementptr inbounds i8, ptr %1, i64 240
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 240
   %46 = load ptr, ptr %45, align 8
   store i32 %42, ptr %40, align 8
-  %47 = getelementptr inbounds i8, ptr %.0.i, i64 12
+  %47 = getelementptr inbounds nuw i8, ptr %.0.i, i64 12
   store i32 %44, ptr %47, align 4
-  %48 = getelementptr inbounds i8, ptr %.0.i, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   store ptr %46, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %.0.i, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
   store ptr null, ptr %49, align 8
   br label %135
 
@@ -464,23 +464,23 @@ ts2_add_checked_crc32.exit:                       ; preds = %72, %79
   %101 = call ptr @proto_tree_add_item(ptr noundef %54, i32 noundef %100, ptr noundef %0, i32 noundef 120, i32 noundef 1, i32 noundef 0) #4
   %102 = load i32, ptr @hf_ts2_nick, align 4
   %103 = call ptr @proto_tree_add_item(ptr noundef %54, i32 noundef %102, ptr noundef %0, i32 noundef 150, i32 noundef 1, i32 noundef 0) #4
-  %104 = getelementptr inbounds i8, ptr %1, i64 288
+  %104 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %105 = load i32, ptr %104, align 8
-  %106 = getelementptr inbounds i8, ptr %.0.i, i64 32
+  %106 = getelementptr inbounds nuw i8, ptr %.0.i, i64 32
   store i32 %105, ptr %106, align 8
-  %107 = getelementptr inbounds i8, ptr %.0.i, i64 8
-  %108 = getelementptr inbounds i8, ptr %1, i64 232
+  %107 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
+  %108 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %109 = load i32, ptr %108, align 8
-  %110 = getelementptr inbounds i8, ptr %1, i64 236
+  %110 = getelementptr inbounds nuw i8, ptr %1, i64 236
   %111 = load i32, ptr %110, align 4
-  %112 = getelementptr inbounds i8, ptr %1, i64 240
+  %112 = getelementptr inbounds nuw i8, ptr %1, i64 240
   %113 = load ptr, ptr %112, align 8
   store i32 %109, ptr %107, align 8
-  %114 = getelementptr inbounds i8, ptr %.0.i, i64 12
+  %114 = getelementptr inbounds nuw i8, ptr %.0.i, i64 12
   store i32 %111, ptr %114, align 4
-  %115 = getelementptr inbounds i8, ptr %.0.i, i64 16
+  %115 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   store ptr %113, ptr %115, align 8
-  %116 = getelementptr inbounds i8, ptr %.0.i, i64 24
+  %116 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
   store ptr null, ptr %116, align 8
   br label %135
 
@@ -556,36 +556,36 @@ define internal fastcc void @ts2_standard_dissect(ptr noundef %0, ptr noundef %1
 
 16:                                               ; preds = %13, %4
   %.092 = phi ptr [ %12, %4 ], [ %15, %13 ]
-  %17 = getelementptr inbounds i8, ptr %1, i64 80
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 50
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 50
   %20 = load i16, ptr %19, align 2
   %21 = and i16 %20, 8
   %.not98 = icmp eq i16 %21, 0
   br i1 %.not98, label %22, label %38
 
 22:                                               ; preds = %16
-  %23 = getelementptr inbounds i8, ptr %3, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %24 = load i32, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %1, i64 284
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %26 = load i32, ptr %25, align 4
   %27 = icmp eq i32 %24, %26
   %.sink125 = select i1 %27, i64 36, i64 44
   %.sink124 = select i1 %27, i64 40, i64 48
   %.sink121.idx = select i1 %27, i64 0, i64 4
-  %.sink121 = getelementptr inbounds i8, ptr %3, i64 %.sink121.idx
-  %28 = getelementptr inbounds i8, ptr %3, i64 %.sink125
-  %29 = getelementptr inbounds i8, ptr %3, i64 %.sink124
+  %.sink121 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink121.idx
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink125
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink124
   %30 = call fastcc i32 @ts2_standard_find_fragments(ptr noundef %0, ptr noundef nonnull %.sink121, ptr noundef nonnull %28, ptr noundef nonnull %29, ptr noundef %6)
-  %31 = getelementptr inbounds i8, ptr %.092, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %.092, i64 8
   store i32 %30, ptr %31, align 4
   %32 = load i32, ptr %29, align 8
   store i32 %32, ptr %.092, align 4
   %.sink = load i32, ptr %28, align 4
-  %33 = getelementptr inbounds i8, ptr %.092, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %.092, i64 4
   store i32 %.sink, ptr %33, align 4
   %34 = load i32, ptr %6, align 4
-  %35 = getelementptr inbounds i8, ptr %.092, i64 12
+  %35 = getelementptr inbounds nuw i8, ptr %.092, i64 12
   store i32 %34, ptr %35, align 4
   %36 = tail call ptr @wmem_file_scope() #4
   %37 = load i32, ptr @proto_ts2, align 4
@@ -627,13 +627,13 @@ ts2_add_checked_crc32.exit:                       ; preds = %38, %50
   br label %.critedge
 
 58:                                               ; preds = %ts2_add_checked_crc32.exit
-  %59 = getelementptr inbounds i8, ptr %41, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %60 = load i32, ptr %59, align 4
   %.not100 = icmp eq i32 %60, 0
   br i1 %.not100, label %81, label %61
 
 61:                                               ; preds = %58
-  %62 = getelementptr inbounds i8, ptr %1, i64 272
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %63 = load i32, ptr %62, align 8
   store i32 1, ptr %62, align 8
   %64 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 18) #4
@@ -644,7 +644,7 @@ ts2_add_checked_crc32.exit:                       ; preds = %38, %50
   %69 = call ptr @fragment_add_seq_check(ptr noundef nonnull @msg_reassembly_table, ptr noundef %0, i32 noundef 24, ptr noundef nonnull %1, i32 noundef %65, ptr noundef null, i32 noundef %66, i32 noundef %67, i32 noundef %68) #4
   %70 = call ptr @process_reassembled_data(ptr noundef %0, i32 noundef 24, ptr noundef nonnull %1, ptr noundef nonnull @.str.179, ptr noundef %69, ptr noundef nonnull @msg_frag_items, ptr noundef null, ptr noundef %2) #4
   %.not101 = icmp eq ptr %69, null
-  %71 = getelementptr inbounds i8, ptr %1, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %72 = load ptr, ptr %71, align 8
   br i1 %.not101, label %74, label %73
 
@@ -684,7 +684,7 @@ ts2_add_checked_crc32.exit:                       ; preds = %38, %50
 
 85:                                               ; preds = %79, %83
   %.1109 = phi ptr [ %.1110115, %83 ], [ %70, %79 ]
-  %86 = getelementptr inbounds i8, ptr %41, i64 12
+  %86 = getelementptr inbounds nuw i8, ptr %41, i64 12
   %87 = load i32, ptr %86, align 4
   %.not105 = icmp eq i32 %87, 0
   br i1 %.not105, label %88, label %102
@@ -709,7 +709,7 @@ ts2_add_checked_crc32.exit:                       ; preds = %38, %50
   br label %102
 
 90:                                               ; preds = %88
-  %91 = getelementptr inbounds i8, ptr %1, i64 408
+  %91 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %92 = load ptr, ptr %91, align 8
   call fastcc void @ts2_parse_channellist(ptr noundef %.1109, ptr noundef %2, ptr noundef %92)
   br label %102
@@ -751,13 +751,13 @@ ts2_add_checked_crc32.exit:                       ; preds = %38, %50
   br label %102
 
 102:                                              ; preds = %83, %85, %101, %100, %99, %98, %97, %96, %95, %94, %93, %90, %89, %88
-  %103 = getelementptr inbounds i8, ptr %41, i64 12
+  %103 = getelementptr inbounds nuw i8, ptr %41, i64 12
   %104 = load i32, ptr %103, align 4
   %.not106 = icmp eq i32 %104, 0
   br i1 %.not106, label %.critedge, label %105
 
 105:                                              ; preds = %102
-  %106 = getelementptr inbounds i8, ptr %1, i64 8
+  %106 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %107 = load ptr, ptr %106, align 8
   call void @col_append_str(ptr noundef %107, i32 noundef 25, ptr noundef nonnull @.str.182) #4
   br label %.critedge

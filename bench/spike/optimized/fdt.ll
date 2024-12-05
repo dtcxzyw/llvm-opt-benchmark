@@ -5,38 +5,38 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define range(i32 -10, 2147483647) i32 @fdt_ro_probe_(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 4
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i8, ptr %2, align 1
   %4 = zext i8 %3 to i32
   %5 = shl nuw i32 %4, 24
-  %6 = getelementptr inbounds i8, ptr %0, i64 5
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 5
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i32
   %9 = shl nuw nsw i32 %8, 16
   %10 = or disjoint i32 %9, %5
-  %11 = getelementptr inbounds i8, ptr %0, i64 6
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %12 = load i8, ptr %11, align 1
   %13 = zext i8 %12 to i32
   %14 = shl nuw nsw i32 %13, 8
   %15 = or disjoint i32 %10, %14
-  %16 = getelementptr inbounds i8, ptr %0, i64 7
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 7
   %17 = load i8, ptr %16, align 1
   %18 = zext i8 %17 to i32
   %19 = or disjoint i32 %15, %18
   %20 = load i8, ptr %0, align 1
   %21 = zext i8 %20 to i32
   %22 = shl nuw i32 %21, 24
-  %23 = getelementptr inbounds i8, ptr %0, i64 1
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %24 = load i8, ptr %23, align 1
   %25 = zext i8 %24 to i32
   %26 = shl nuw nsw i32 %25, 16
   %27 = or disjoint i32 %26, %22
-  %28 = getelementptr inbounds i8, ptr %0, i64 2
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %29 = load i8, ptr %28, align 1
   %30 = zext i8 %29 to i32
   %31 = shl nuw nsw i32 %30, 8
   %32 = or disjoint i32 %27, %31
-  %33 = getelementptr inbounds i8, ptr %0, i64 3
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %34 = load i8, ptr %33, align 1
   %35 = zext i8 %34 to i32
   %36 = or disjoint i32 %32, %35
@@ -46,21 +46,21 @@ define range(i32 -10, 2147483647) i32 @fdt_ro_probe_(ptr nocapture noundef reado
   ]
 
 37:                                               ; preds = %1
-  %38 = getelementptr inbounds i8, ptr %0, i64 20
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %39 = load i8, ptr %38, align 1
   %40 = zext i8 %39 to i32
   %41 = shl nuw i32 %40, 24
-  %42 = getelementptr inbounds i8, ptr %0, i64 21
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 21
   %43 = load i8, ptr %42, align 1
   %44 = zext i8 %43 to i32
   %45 = shl nuw nsw i32 %44, 16
   %46 = or disjoint i32 %45, %41
-  %47 = getelementptr inbounds i8, ptr %0, i64 22
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 22
   %48 = load i8, ptr %47, align 1
   %49 = zext i8 %48 to i32
   %50 = shl nuw nsw i32 %49, 8
   %51 = or disjoint i32 %46, %50
-  %52 = getelementptr inbounds i8, ptr %0, i64 23
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 23
   %53 = load i8, ptr %52, align 1
   %54 = zext i8 %53 to i32
   %55 = or disjoint i32 %51, %54
@@ -68,21 +68,21 @@ define range(i32 -10, 2147483647) i32 @fdt_ro_probe_(ptr nocapture noundef reado
   br i1 %56, label %99, label %57
 
 57:                                               ; preds = %37
-  %58 = getelementptr inbounds i8, ptr %0, i64 24
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %59 = load i8, ptr %58, align 1
   %60 = zext i8 %59 to i32
   %61 = shl nuw i32 %60, 24
-  %62 = getelementptr inbounds i8, ptr %0, i64 25
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 25
   %63 = load i8, ptr %62, align 1
   %64 = zext i8 %63 to i32
   %65 = shl nuw nsw i32 %64, 16
   %66 = or disjoint i32 %65, %61
-  %67 = getelementptr inbounds i8, ptr %0, i64 26
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 26
   %68 = load i8, ptr %67, align 1
   %69 = zext i8 %68 to i32
   %70 = shl nuw nsw i32 %69, 8
   %71 = or disjoint i32 %66, %70
-  %72 = getelementptr inbounds i8, ptr %0, i64 27
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 27
   %73 = load i8, ptr %72, align 1
   %74 = zext i8 %73 to i32
   %75 = or disjoint i32 %71, %74
@@ -90,21 +90,21 @@ define range(i32 -10, 2147483647) i32 @fdt_ro_probe_(ptr nocapture noundef reado
   br i1 %76, label %99, label %97
 
 77:                                               ; preds = %1
-  %78 = getelementptr inbounds i8, ptr %0, i64 36
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %79 = load i8, ptr %78, align 1
   %80 = zext i8 %79 to i32
   %81 = shl nuw i32 %80, 24
-  %82 = getelementptr inbounds i8, ptr %0, i64 37
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 37
   %83 = load i8, ptr %82, align 1
   %84 = zext i8 %83 to i32
   %85 = shl nuw nsw i32 %84, 16
   %86 = or disjoint i32 %85, %81
-  %87 = getelementptr inbounds i8, ptr %0, i64 38
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 38
   %88 = load i8, ptr %87, align 1
   %89 = zext i8 %88 to i32
   %90 = shl nuw nsw i32 %89, 8
   %91 = or disjoint i32 %86, %90
-  %92 = getelementptr inbounds i8, ptr %0, i64 39
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 39
   %93 = load i8, ptr %92, align 1
   %94 = zext i8 %93 to i32
   %95 = or disjoint i32 %91, %94
@@ -149,17 +149,17 @@ define range(i32 -10, 1) i32 @fdt_check_header(ptr nocapture noundef readonly %0
   %2 = load i8, ptr %0, align 1
   %3 = zext i8 %2 to i32
   %4 = shl nuw i32 %3, 24
-  %5 = getelementptr inbounds i8, ptr %0, i64 1
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %6 = load i8, ptr %5, align 1
   %7 = zext i8 %6 to i32
   %8 = shl nuw nsw i32 %7, 16
   %9 = or disjoint i32 %8, %4
-  %10 = getelementptr inbounds i8, ptr %0, i64 2
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i32
   %13 = shl nuw nsw i32 %12, 8
   %14 = or disjoint i32 %9, %13
-  %15 = getelementptr inbounds i8, ptr %0, i64 3
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %16 = load i8, ptr %15, align 1
   %17 = zext i8 %16 to i32
   %18 = or disjoint i32 %14, %17
@@ -167,19 +167,19 @@ define range(i32 -10, 1) i32 @fdt_check_header(ptr nocapture noundef readonly %0
   br i1 %.not, label %19, label %check_block_.exit.thread
 
 19:                                               ; preds = %1
-  %20 = getelementptr inbounds i8, ptr %0, i64 20
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %21 = load i8, ptr %20, align 1
   %22 = zext i8 %21 to i32
   %23 = shl nuw i32 %22, 24
-  %24 = getelementptr inbounds i8, ptr %0, i64 21
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 21
   %25 = load i8, ptr %24, align 1
   %26 = zext i8 %25 to i32
   %27 = shl nuw nsw i32 %26, 16
-  %28 = getelementptr inbounds i8, ptr %0, i64 22
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 22
   %29 = load i8, ptr %28, align 1
   %30 = zext i8 %29 to i32
   %31 = shl nuw nsw i32 %30, 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 23
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 23
   %33 = load i8, ptr %32, align 1
   %34 = zext i8 %33 to i32
   %35 = or disjoint i32 %27, %31
@@ -203,21 +203,21 @@ define range(i32 -10, 1) i32 @fdt_check_header(ptr nocapture noundef readonly %0
 
 45:                                               ; preds = %39, %41, %43
   %.0.i.i.ph = phi i64 [ %..i.i, %43 ], [ 36, %41 ], [ 32, %39 ]
-  %46 = getelementptr inbounds i8, ptr %0, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %47 = load i8, ptr %46, align 1
   %48 = zext i8 %47 to i32
   %49 = shl nuw i32 %48, 24
-  %50 = getelementptr inbounds i8, ptr %0, i64 25
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 25
   %51 = load i8, ptr %50, align 1
   %52 = zext i8 %51 to i32
   %53 = shl nuw nsw i32 %52, 16
   %54 = or disjoint i32 %53, %49
-  %55 = getelementptr inbounds i8, ptr %0, i64 26
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 26
   %56 = load i8, ptr %55, align 1
   %57 = zext i8 %56 to i32
   %58 = shl nuw nsw i32 %57, 8
   %59 = or disjoint i32 %54, %58
-  %60 = getelementptr inbounds i8, ptr %0, i64 27
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 27
   %61 = load i8, ptr %60, align 1
   %62 = zext i8 %61 to i32
   %63 = or disjoint i32 %59, %62
@@ -227,19 +227,19 @@ define range(i32 -10, 1) i32 @fdt_check_header(ptr nocapture noundef readonly %0
   br i1 %or.cond, label %check_block_.exit.thread, label %66
 
 66:                                               ; preds = %45
-  %67 = getelementptr inbounds i8, ptr %0, i64 4
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %68 = load i8, ptr %67, align 1
   %69 = zext i8 %68 to i32
   %70 = shl nuw i32 %69, 24
-  %71 = getelementptr inbounds i8, ptr %0, i64 5
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 5
   %72 = load i8, ptr %71, align 1
   %73 = zext i8 %72 to i32
   %74 = shl nuw nsw i32 %73, 16
-  %75 = getelementptr inbounds i8, ptr %0, i64 6
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %76 = load i8, ptr %75, align 1
   %77 = zext i8 %76 to i32
   %78 = shl nuw nsw i32 %77, 8
-  %79 = getelementptr inbounds i8, ptr %0, i64 7
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 7
   %80 = load i8, ptr %79, align 1
   %81 = zext i8 %80 to i32
   %82 = or disjoint i32 %74, %81
@@ -253,21 +253,21 @@ define range(i32 -10, 1) i32 @fdt_check_header(ptr nocapture noundef readonly %0
 
 88:                                               ; preds = %66
   %89 = trunc nuw nsw i64 %.0.i.i.ph to i32
-  %90 = getelementptr inbounds i8, ptr %0, i64 16
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %91 = load i8, ptr %90, align 1
   %92 = zext i8 %91 to i32
   %93 = shl nuw i32 %92, 24
-  %94 = getelementptr inbounds i8, ptr %0, i64 17
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 17
   %95 = load i8, ptr %94, align 1
   %96 = zext i8 %95 to i32
   %97 = shl nuw nsw i32 %96, 16
   %98 = or disjoint i32 %97, %93
-  %99 = getelementptr inbounds i8, ptr %0, i64 18
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 18
   %100 = load i8, ptr %99, align 1
   %101 = zext i8 %100 to i32
   %102 = shl nuw nsw i32 %101, 8
   %103 = or disjoint i32 %98, %102
-  %104 = getelementptr inbounds i8, ptr %0, i64 19
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 19
   %105 = load i8, ptr %104, align 1
   %106 = zext i8 %105 to i32
   %107 = or disjoint i32 %103, %106
@@ -278,21 +278,21 @@ define range(i32 -10, 1) i32 @fdt_check_header(ptr nocapture noundef readonly %0
 
 110:                                              ; preds = %88
   %111 = icmp ult i32 %37, 17
-  %112 = getelementptr inbounds i8, ptr %0, i64 8
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %113 = load i8, ptr %112, align 1
   %114 = zext i8 %113 to i32
   %115 = shl nuw i32 %114, 24
-  %116 = getelementptr inbounds i8, ptr %0, i64 9
+  %116 = getelementptr inbounds nuw i8, ptr %0, i64 9
   %117 = load i8, ptr %116, align 1
   %118 = zext i8 %117 to i32
   %119 = shl nuw nsw i32 %118, 16
   %120 = or disjoint i32 %119, %115
-  %121 = getelementptr inbounds i8, ptr %0, i64 10
+  %121 = getelementptr inbounds nuw i8, ptr %0, i64 10
   %122 = load i8, ptr %121, align 1
   %123 = zext i8 %122 to i32
   %124 = shl nuw nsw i32 %123, 8
   %125 = or disjoint i32 %120, %124
-  %126 = getelementptr inbounds i8, ptr %0, i64 11
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 11
   %127 = load i8, ptr %126, align 1
   %128 = zext i8 %127 to i32
   %129 = or disjoint i32 %125, %128
@@ -308,21 +308,21 @@ define range(i32 -10, 1) i32 @fdt_check_header(ptr nocapture noundef readonly %0
   br i1 %.not45, label %check_block_.exit.thread, label %134
 
 134:                                              ; preds = %133
-  %135 = getelementptr inbounds i8, ptr %0, i64 37
+  %135 = getelementptr inbounds nuw i8, ptr %0, i64 37
   %136 = load i8, ptr %135, align 1
   %137 = zext i8 %136 to i32
   %138 = shl nuw nsw i32 %137, 16
-  %139 = getelementptr inbounds i8, ptr %0, i64 36
+  %139 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %140 = load i8, ptr %139, align 1
   %141 = zext i8 %140 to i32
   %142 = shl nuw i32 %141, 24
   %143 = or disjoint i32 %142, %138
-  %144 = getelementptr inbounds i8, ptr %0, i64 38
+  %144 = getelementptr inbounds nuw i8, ptr %0, i64 38
   %145 = load i8, ptr %144, align 1
   %146 = zext i8 %145 to i32
   %147 = shl nuw nsw i32 %146, 8
   %148 = or disjoint i32 %143, %147
-  %149 = getelementptr inbounds i8, ptr %0, i64 39
+  %149 = getelementptr inbounds nuw i8, ptr %0, i64 39
   %150 = load i8, ptr %149, align 1
   %151 = zext i8 %150 to i32
   %152 = or disjoint i32 %148, %151
@@ -333,21 +333,21 @@ define range(i32 -10, 1) i32 @fdt_check_header(ptr nocapture noundef readonly %0
   br i1 %or.cond47, label %check_block_.exit.thread, label %155
 
 155:                                              ; preds = %134, %132
-  %156 = getelementptr inbounds i8, ptr %0, i64 12
+  %156 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %157 = load i8, ptr %156, align 1
   %158 = zext i8 %157 to i32
   %159 = shl nuw i32 %158, 24
-  %160 = getelementptr inbounds i8, ptr %0, i64 13
+  %160 = getelementptr inbounds nuw i8, ptr %0, i64 13
   %161 = load i8, ptr %160, align 1
   %162 = zext i8 %161 to i32
   %163 = shl nuw nsw i32 %162, 16
   %164 = or disjoint i32 %163, %159
-  %165 = getelementptr inbounds i8, ptr %0, i64 14
+  %165 = getelementptr inbounds nuw i8, ptr %0, i64 14
   %166 = load i8, ptr %165, align 1
   %167 = zext i8 %166 to i32
   %168 = shl nuw nsw i32 %167, 8
   %169 = or disjoint i32 %164, %168
-  %170 = getelementptr inbounds i8, ptr %0, i64 15
+  %170 = getelementptr inbounds nuw i8, ptr %0, i64 15
   %171 = load i8, ptr %170, align 1
   %172 = zext i8 %171 to i32
   %173 = or disjoint i32 %169, %172
@@ -357,21 +357,21 @@ define range(i32 -10, 1) i32 @fdt_check_header(ptr nocapture noundef readonly %0
   br i1 %.not15.i29, label %check_block_.exit32.thread, label %176
 
 176:                                              ; preds = %155
-  %177 = getelementptr inbounds i8, ptr %0, i64 33
+  %177 = getelementptr inbounds nuw i8, ptr %0, i64 33
   %178 = load i8, ptr %177, align 1
   %179 = zext i8 %178 to i32
   %180 = shl nuw nsw i32 %179, 16
-  %181 = getelementptr inbounds i8, ptr %0, i64 32
+  %181 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %182 = load i8, ptr %181, align 1
   %183 = zext i8 %182 to i32
   %184 = shl nuw i32 %183, 24
   %185 = or disjoint i32 %184, %180
-  %186 = getelementptr inbounds i8, ptr %0, i64 34
+  %186 = getelementptr inbounds nuw i8, ptr %0, i64 34
   %187 = load i8, ptr %186, align 1
   %188 = zext i8 %187 to i32
   %189 = shl nuw nsw i32 %188, 8
   %190 = or disjoint i32 %185, %189
-  %191 = getelementptr inbounds i8, ptr %0, i64 35
+  %191 = getelementptr inbounds nuw i8, ptr %0, i64 35
   %192 = load i8, ptr %191, align 1
   %193 = zext i8 %192 to i32
   %194 = or disjoint i32 %190, %193
@@ -394,21 +394,21 @@ check_block_.exit.thread:                         ; preds = %19, %134, %133, %ch
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @fdt_offset_ptr(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i8, ptr %4, align 1
   %6 = zext i8 %5 to i32
   %7 = shl nuw i32 %6, 24
-  %8 = getelementptr inbounds i8, ptr %0, i64 9
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 9
   %9 = load i8, ptr %8, align 1
   %10 = zext i8 %9 to i32
   %11 = shl nuw nsw i32 %10, 16
   %12 = or disjoint i32 %11, %7
-  %13 = getelementptr inbounds i8, ptr %0, i64 10
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 10
   %14 = load i8, ptr %13, align 1
   %15 = zext i8 %14 to i32
   %16 = shl nuw nsw i32 %15, 8
   %17 = or disjoint i32 %12, %16
-  %18 = getelementptr inbounds i8, ptr %0, i64 11
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 11
   %19 = load i8, ptr %18, align 1
   %20 = zext i8 %19 to i32
   %21 = or disjoint i32 %17, %20
@@ -422,21 +422,21 @@ define ptr @fdt_offset_ptr(ptr noundef readonly %0, i32 noundef %1, i32 noundef 
   br i1 %26, label %104, label %27
 
 27:                                               ; preds = %24
-  %28 = getelementptr inbounds i8, ptr %0, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %29 = load i8, ptr %28, align 1
   %30 = zext i8 %29 to i32
   %31 = shl nuw i32 %30, 24
-  %32 = getelementptr inbounds i8, ptr %0, i64 5
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 5
   %33 = load i8, ptr %32, align 1
   %34 = zext i8 %33 to i32
   %35 = shl nuw nsw i32 %34, 16
   %36 = or disjoint i32 %35, %31
-  %37 = getelementptr inbounds i8, ptr %0, i64 6
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %38 = load i8, ptr %37, align 1
   %39 = zext i8 %38 to i32
   %40 = shl nuw nsw i32 %39, 8
   %41 = or disjoint i32 %36, %40
-  %42 = getelementptr inbounds i8, ptr %0, i64 7
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 7
   %43 = load i8, ptr %42, align 1
   %44 = zext i8 %43 to i32
   %45 = or disjoint i32 %41, %44
@@ -444,21 +444,21 @@ define ptr @fdt_offset_ptr(ptr noundef readonly %0, i32 noundef %1, i32 noundef 
   br i1 %46, label %104, label %47
 
 47:                                               ; preds = %27
-  %48 = getelementptr inbounds i8, ptr %0, i64 20
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %49 = load i8, ptr %48, align 1
   %50 = zext i8 %49 to i32
   %51 = shl nuw i32 %50, 24
-  %52 = getelementptr inbounds i8, ptr %0, i64 21
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 21
   %53 = load i8, ptr %52, align 1
   %54 = zext i8 %53 to i32
   %55 = shl nuw nsw i32 %54, 16
   %56 = or disjoint i32 %55, %51
-  %57 = getelementptr inbounds i8, ptr %0, i64 22
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 22
   %58 = load i8, ptr %57, align 1
   %59 = zext i8 %58 to i32
   %60 = shl nuw nsw i32 %59, 8
   %61 = or disjoint i32 %56, %60
-  %62 = getelementptr inbounds i8, ptr %0, i64 23
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 23
   %63 = load i8, ptr %62, align 1
   %64 = zext i8 %63 to i32
   %65 = or disjoint i32 %61, %64
@@ -471,21 +471,21 @@ define ptr @fdt_offset_ptr(ptr noundef readonly %0, i32 noundef %1, i32 noundef 
   br i1 %69, label %104, label %70
 
 70:                                               ; preds = %67
-  %71 = getelementptr inbounds i8, ptr %0, i64 36
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %72 = load i8, ptr %71, align 1
   %73 = zext i8 %72 to i32
   %74 = shl nuw i32 %73, 24
-  %75 = getelementptr inbounds i8, ptr %0, i64 37
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 37
   %76 = load i8, ptr %75, align 1
   %77 = zext i8 %76 to i32
   %78 = shl nuw nsw i32 %77, 16
   %79 = or disjoint i32 %78, %74
-  %80 = getelementptr inbounds i8, ptr %0, i64 38
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 38
   %81 = load i8, ptr %80, align 1
   %82 = zext i8 %81 to i32
   %83 = shl nuw nsw i32 %82, 8
   %84 = or disjoint i32 %79, %83
-  %85 = getelementptr inbounds i8, ptr %0, i64 39
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 39
   %86 = load i8, ptr %85, align 1
   %87 = zext i8 %86 to i32
   %88 = or disjoint i32 %84, %87
@@ -503,7 +503,7 @@ define ptr @fdt_offset_ptr(ptr noundef readonly %0, i32 noundef %1, i32 noundef 
   %98 = or disjoint i64 %95, %97
   %99 = zext i8 %19 to i64
   %100 = or disjoint i64 %98, %99
-  %101 = getelementptr inbounds i8, ptr %0, i64 %100
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 %100
   %102 = sext i32 %1 to i64
   %103 = getelementptr inbounds i8, ptr %101, i64 %102
   br label %104
@@ -555,21 +555,21 @@ define noundef i32 @fdt_next_tag(ptr noundef readonly %0, i32 noundef %1, ptr no
   %rev.i41 = tail call noundef i32 @llvm.bswap.i32(i32 %15)
   %16 = add i32 %1, 12
   %17 = add i32 %16, %rev.i41
-  %18 = getelementptr inbounds i8, ptr %0, i64 20
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %19 = load i8, ptr %18, align 1
   %20 = zext i8 %19 to i32
   %21 = shl nuw i32 %20, 24
-  %22 = getelementptr inbounds i8, ptr %0, i64 21
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 21
   %23 = load i8, ptr %22, align 1
   %24 = zext i8 %23 to i32
   %25 = shl nuw nsw i32 %24, 16
   %26 = or disjoint i32 %25, %21
-  %27 = getelementptr inbounds i8, ptr %0, i64 22
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 22
   %28 = load i8, ptr %27, align 1
   %29 = zext i8 %28 to i32
   %30 = shl nuw nsw i32 %29, 8
   %31 = or disjoint i32 %26, %30
-  %32 = getelementptr inbounds i8, ptr %0, i64 23
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 23
   %33 = load i8, ptr %32, align 1
   %34 = zext i8 %33 to i32
   %35 = or disjoint i32 %31, %34
@@ -809,23 +809,23 @@ fdt_next_node.exit:                               ; preds = %.split.i, %.split25
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define range(i32 -1, -2147483648) i32 @fdt_next_subnode(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = alloca i32, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 9
-  %6 = getelementptr inbounds i8, ptr %0, i64 10
-  %7 = getelementptr inbounds i8, ptr %0, i64 11
-  %8 = getelementptr inbounds i8, ptr %0, i64 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 5
-  %10 = getelementptr inbounds i8, ptr %0, i64 6
-  %11 = getelementptr inbounds i8, ptr %0, i64 7
-  %12 = getelementptr inbounds i8, ptr %0, i64 20
-  %13 = getelementptr inbounds i8, ptr %0, i64 21
-  %14 = getelementptr inbounds i8, ptr %0, i64 22
-  %15 = getelementptr inbounds i8, ptr %0, i64 23
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 9
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 10
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 11
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 5
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 6
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 7
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 21
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 22
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 23
   %.not.i.old = icmp eq ptr %0, null
-  %16 = getelementptr inbounds i8, ptr %0, i64 36
-  %17 = getelementptr inbounds i8, ptr %0, i64 37
-  %18 = getelementptr inbounds i8, ptr %0, i64 38
-  %19 = getelementptr inbounds i8, ptr %0, i64 39
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 37
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 38
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 39
   br label %20
 
 20:                                               ; preds = %161, %2
@@ -903,7 +903,7 @@ fdt_check_node_offset_.exit.i:                    ; preds = %24
   %68 = or disjoint i64 %65, %67
   %69 = zext i8 %41 to i64
   %70 = or disjoint i64 %68, %69
-  %71 = getelementptr inbounds i8, ptr %0, i64 %70
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 %70
   br label %72
 
 72:                                               ; preds = %.lr.ph, %.backedge.i
@@ -1101,7 +1101,7 @@ define ptr @fdt_find_string_(ptr noundef readonly %0, i32 noundef %1, ptr nocapt
   br i1 %11, label %._crit_edge, label %12
 
 12:                                               ; preds = %.lr.ph
-  %13 = getelementptr inbounds i8, ptr %.014, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %.014, i64 1
   %.not = icmp ugt ptr %13, %10
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
@@ -1120,21 +1120,21 @@ define range(i32 -10, 1) i32 @fdt_move(ptr nocapture noundef readonly %0, ptr no
   br i1 %5, label %28, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %8 = load i8, ptr %7, align 1
   %9 = zext i8 %8 to i32
   %10 = shl nuw i32 %9, 24
-  %11 = getelementptr inbounds i8, ptr %0, i64 5
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 5
   %12 = load i8, ptr %11, align 1
   %13 = zext i8 %12 to i32
   %14 = shl nuw nsw i32 %13, 16
   %15 = or disjoint i32 %14, %10
-  %16 = getelementptr inbounds i8, ptr %0, i64 6
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %17 = load i8, ptr %16, align 1
   %18 = zext i8 %17 to i32
   %19 = shl nuw nsw i32 %18, 8
   %20 = or disjoint i32 %15, %19
-  %21 = getelementptr inbounds i8, ptr %0, i64 7
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 7
   %22 = load i8, ptr %21, align 1
   %23 = zext i8 %22 to i32
   %24 = or disjoint i32 %20, %23

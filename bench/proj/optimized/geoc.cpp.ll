@@ -15,15 +15,15 @@ define hidden noundef ptr @pj_geoc(ptr noundef writeonly %0) local_unnamed_addr 
   br i1 %.not, label %8, label %2
 
 2:                                                ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 144
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store ptr @_ZL7inverseR8PJ_COORDP8PJconsts, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 136
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store ptr @_ZL7forwardR8PJ_COORDP8PJconsts, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 380
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 380
   store i32 4, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 384
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 384
   store i32 4, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 352
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 352
   store i32 1, ptr %7, align 8
   br label %17
 
@@ -33,15 +33,15 @@ define hidden noundef ptr @pj_geoc(ptr noundef writeonly %0) local_unnamed_addr 
   br i1 %10, label %17, label %11
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %9, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr @.str, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %9, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr @_ZL8des_geoc, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %9, i64 360
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 360
   store i32 1, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %9, i64 380
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 380
   store i32 4, ptr %15, align 4
-  %16 = getelementptr inbounds i8, ptr %9, i64 384
+  %16 = getelementptr inbounds nuw i8, ptr %9, i64 384
   store i32 1, ptr %16, align 8
   br label %17
 

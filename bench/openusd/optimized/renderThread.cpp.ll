@@ -70,7 +70,7 @@ $_ZTINSt6thread11_State_implINS_8_InvokerISt5tupleIJMN32pxrInternal_v0_24__pxrRe
 define void @_ZN32pxrInternal_v0_24__pxrReserved__14HdRenderThreadC2Ev(ptr noundef nonnull align 8 dereferenceable(216) initializes((0, 68), (72, 112)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %4, align 8
   store ptr @_ZN32pxrInternal_v0_24__pxrReserved__14HdRenderThread22_DefaultRenderCallbackEv, ptr %0, align 8
   store ptr @_ZNSt17_Function_handlerIFvvEPS0_E9_M_invokeERKSt9_Any_data, ptr %3, align 8
@@ -78,7 +78,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__14HdRenderThreadC2Ev(ptr nound
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %8 = getelementptr inbounds i8, ptr %0, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %8, align 8
   store ptr @_ZN32pxrInternal_v0_24__pxrReserved__14HdRenderThread24_DefaultShutdownCallbackEv, ptr %5, align 8
   store ptr @_ZNSt17_Function_handlerIFvvEPS0_E9_M_invokeERKSt9_Any_data, ptr %7, align 8
@@ -452,9 +452,9 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__14HdRenderThread11StartThreadE
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJMN32pxrInternal_v0_24__pxrReserved__14HdRenderThreadEFvvEPS4_EEEEEE, i64 16), ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %0, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %13, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i64 ptrtoint (ptr @_ZN32pxrInternal_v0_24__pxrReserved__14HdRenderThread11_RenderLoopEv to i64), ptr %15, align 8
-  %.repack4.i.i.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 24
+  %.repack4.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %13, i64 24
   store i64 0, ptr %.repack4.i.i.i.i.i.i, align 8
   store ptr %13, ptr %2, align 8
   invoke void @_ZNSt6thread15_M_start_threadESt10unique_ptrINS_6_StateESt14default_deleteIS1_EEPFvvE(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull %2, ptr noundef null)
@@ -467,7 +467,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__14HdRenderThread11StartThreadE
 
 _ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i.i: ; preds = %16
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load ptr, ptr %19, align 8
   call void %20(ptr noundef nonnull align 8 dereferenceable(8) %17) #15
   br label %_ZNSt6threadC2IMN32pxrInternal_v0_24__pxrReserved__14HdRenderThreadEFvvEJPS2_EvEEOT_DpOT0_.exit
@@ -481,7 +481,7 @@ _ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i.i: ; preds = %16
 
 _ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i7.i: ; preds = %21
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load ptr, ptr %25, align 8
   call void %26(ptr noundef nonnull align 8 dereferenceable(8) %23) #15
   br label %_ZNSt10unique_ptrINSt6thread6_StateESt14default_deleteIS1_EED2Ev.exit8.i
@@ -516,7 +516,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__14HdRenderThread11_RenderLoopE
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %6 = getelementptr inbounds i8, ptr %0, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 161
@@ -873,10 +873,10 @@ define linkonce_odr void @_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJMN32p
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJMN32pxrInternal_v0_24__pxrReserved__14HdRenderThreadEFvvEPS4_EEEEE6_M_runEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #1 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %2, align 8
   %.unpack.i.i.i.i = load i64, ptr %3, align 8
-  %.elt2.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 24
+  %.elt2.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.unpack3.i.i.i.i = load i64, ptr %.elt2.i.i.i.i, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 %.unpack3.i.i.i.i
   %6 = and i64 %.unpack.i.i.i.i, 1

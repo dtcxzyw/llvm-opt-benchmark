@@ -88,7 +88,7 @@ define range(i32 -27, 1) i32 @pmix_os_dirpath_create(ptr noundef %0, i32 noundef
   br label %33
 
 33:                                               ; preds = %32, %27
-  %34 = getelementptr inbounds ptr, ptr %16, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv
   br label %35
 
 35:                                               ; preds = %23, %26, %33
@@ -184,25 +184,25 @@ sub_0.lr.ph.us:                                   ; preds = %sub_0.lr.ph.lr.ph, 
 
 sub_0.us67:                                       ; preds = %sub_0.lr.ph.us, %.backedge.us75
   %10 = phi ptr [ %9, %sub_0.lr.ph.us ], [ %39, %.backedge.us75 ]
-  %11 = getelementptr inbounds i8, ptr %10, i64 19
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 19
   %12 = load i8, ptr %11, align 1
   %.not89 = icmp eq i8 %12, 46
   br i1 %.not89, label %.tail.us69, label %.tail49.us73.thread
 
 .tail.us69:                                       ; preds = %sub_0.us67
-  %13 = getelementptr inbounds i8, ptr %10, i64 20
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 20
   %14 = load i8, ptr %13, align 1
   %15 = icmp eq i8 %14, 0
   br i1 %15, label %.backedge.us75, label %sub_151.us71
 
 sub_151.us71:                                     ; preds = %.tail.us69
-  %16 = getelementptr inbounds i8, ptr %10, i64 20
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 20
   %17 = load i8, ptr %16, align 1
   %.not91 = icmp eq i8 %17, 46
   br i1 %.not91, label %.tail49.us73, label %.tail49.us73.thread
 
 .tail49.us73:                                     ; preds = %sub_151.us71
-  %18 = getelementptr inbounds i8, ptr %10, i64 21
+  %18 = getelementptr inbounds nuw i8, ptr %10, i64 21
   %19 = load i8, ptr %18, align 1
   %20 = icmp eq i8 %19, 0
   br i1 %20, label %.backedge.us75, label %.tail49.us73.thread
@@ -262,25 +262,25 @@ sub_0.lr.ph:                                      ; preds = %sub_0.lr.ph.lr.ph, 
 
 sub_0.us:                                         ; preds = %.backedge.us, %sub_0.lr.ph
   %41 = phi ptr [ %40, %sub_0.lr.ph ], [ %63, %.backedge.us ]
-  %42 = getelementptr inbounds i8, ptr %41, i64 19
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 19
   %43 = load i8, ptr %42, align 1
   %.not = icmp eq i8 %43, 46
   br i1 %.not, label %.tail.us, label %.tail49.us.thread
 
 .tail.us:                                         ; preds = %sub_0.us
-  %44 = getelementptr inbounds i8, ptr %41, i64 20
+  %44 = getelementptr inbounds nuw i8, ptr %41, i64 20
   %45 = load i8, ptr %44, align 1
   %46 = icmp eq i8 %45, 0
   br i1 %46, label %.backedge.us, label %sub_151.us
 
 sub_151.us:                                       ; preds = %.tail.us
-  %47 = getelementptr inbounds i8, ptr %41, i64 20
+  %47 = getelementptr inbounds nuw i8, ptr %41, i64 20
   %48 = load i8, ptr %47, align 1
   %.not88 = icmp eq i8 %48, 46
   br i1 %.not88, label %.tail49.us, label %.tail49.us.thread
 
 .tail49.us:                                       ; preds = %sub_151.us
-  %49 = getelementptr inbounds i8, ptr %41, i64 21
+  %49 = getelementptr inbounds nuw i8, ptr %41, i64 21
   %50 = load i8, ptr %49, align 1
   %51 = icmp eq i8 %50, 0
   br i1 %51, label %.backedge.us, label %.tail49.us.thread
@@ -386,25 +386,25 @@ define noundef zeroext i1 @pmix_os_dirpath_is_empty(ptr noundef readonly %0) loc
 
 sub_0:                                            ; preds = %.preheader, %16
   %5 = phi ptr [ %17, %16 ], [ %4, %.preheader ]
-  %6 = getelementptr inbounds i8, ptr %5, i64 19
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 19
   %7 = load i8, ptr %6, align 1
   %.not20 = icmp eq i8 %7, 46
   br i1 %.not20, label %.tail, label %.sink.split
 
 .tail:                                            ; preds = %sub_0
-  %8 = getelementptr inbounds i8, ptr %5, i64 20
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 20
   %9 = load i8, ptr %8, align 1
   %10 = icmp eq i8 %9, 0
   br i1 %10, label %16, label %sub_117
 
 sub_117:                                          ; preds = %.tail
-  %11 = getelementptr inbounds i8, ptr %5, i64 20
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 20
   %12 = load i8, ptr %11, align 1
   %.not22 = icmp eq i8 %12, 46
   br i1 %.not22, label %.tail15, label %.sink.split
 
 .tail15:                                          ; preds = %sub_117
-  %13 = getelementptr inbounds i8, ptr %5, i64 21
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 21
   %14 = load i8, ptr %13, align 1
   %15 = icmp eq i8 %14, 0
   br i1 %15, label %16, label %.sink.split

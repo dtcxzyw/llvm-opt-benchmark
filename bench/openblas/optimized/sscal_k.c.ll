@@ -146,10 +146,10 @@ sscal_kernel_inc_8.exit:                          ; preds = %45
 
 .preheader14:                                     ; preds = %85, %.preheader14
   %94 = phi i64 [ %102, %.preheader14 ], [ 0, %85 ]
-  %95 = getelementptr inbounds float, ptr %4, i64 %94
+  %95 = getelementptr inbounds nuw float, ptr %4, i64 %94
   %96 = load <16 x float>, ptr %95, align 1, !tbaa !13
   %97 = or disjoint i64 %94, 16
-  %98 = getelementptr inbounds float, ptr %4, i64 %97
+  %98 = getelementptr inbounds nuw float, ptr %4, i64 %97
   %99 = load <16 x float>, ptr %98, align 1, !tbaa !13
   %100 = fmul <16 x float> %87, %96
   %101 = fmul <16 x float> %87, %99
@@ -161,7 +161,7 @@ sscal_kernel_inc_8.exit:                          ; preds = %45
 
 .preheader12:                                     ; preds = %91, %.preheader12
   %104 = phi i64 [ %108, %.preheader12 ], [ %92, %91 ]
-  %105 = getelementptr inbounds float, ptr %4, i64 %104
+  %105 = getelementptr inbounds nuw float, ptr %4, i64 %104
   %106 = load <16 x float>, ptr %105, align 1, !tbaa !13
   %107 = fmul <16 x float> %87, %106
   store <16 x float> %107, ptr %105, align 1, !tbaa !13

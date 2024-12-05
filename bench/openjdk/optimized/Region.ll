@@ -24,7 +24,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define void @Java_sun_java2d_pipe_Region_initIDs(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 752
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 752
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr %5(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #6
   store ptr %6, ptr @endIndexID, align 8
@@ -33,7 +33,7 @@ define void @Java_sun_java2d_pipe_Region_initIDs(ptr noundef %0, ptr noundef %1)
 
 8:                                                ; preds = %2
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 752
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 752
   %11 = load ptr, ptr %10, align 8
   %12 = tail call ptr %11(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3) #6
   store ptr %12, ptr @bandsID, align 8
@@ -42,7 +42,7 @@ define void @Java_sun_java2d_pipe_Region_initIDs(ptr noundef %0, ptr noundef %1)
 
 14:                                               ; preds = %8
   %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 752
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 752
   %17 = load ptr, ptr %16, align 8
   %18 = tail call ptr %17(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.1) #6
   store ptr %18, ptr @loxID, align 8
@@ -51,7 +51,7 @@ define void @Java_sun_java2d_pipe_Region_initIDs(ptr noundef %0, ptr noundef %1)
 
 20:                                               ; preds = %14
   %21 = load ptr, ptr %0, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 752
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 752
   %23 = load ptr, ptr %22, align 8
   %24 = tail call ptr %23(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1) #6
   store ptr %24, ptr @loyID, align 8
@@ -60,7 +60,7 @@ define void @Java_sun_java2d_pipe_Region_initIDs(ptr noundef %0, ptr noundef %1)
 
 26:                                               ; preds = %20
   %27 = load ptr, ptr %0, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 752
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 752
   %29 = load ptr, ptr %28, align 8
   %30 = tail call ptr %29(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.1) #6
   store ptr %30, ptr @hixID, align 8
@@ -69,7 +69,7 @@ define void @Java_sun_java2d_pipe_Region_initIDs(ptr noundef %0, ptr noundef %1)
 
 32:                                               ; preds = %26
   %33 = load ptr, ptr %0, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 752
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 752
   %35 = load ptr, ptr %34, align 8
   %36 = tail call ptr %35(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.1) #6
   store ptr %36, ptr @hiyID, align 8
@@ -85,58 +85,58 @@ define noundef i32 @Region_GetInfo(ptr noundef %0, ptr noundef %1, ptr nocapture
   br i1 %4, label %.thread, label %9
 
 .thread:                                          ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %2, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 -2147483648, ptr %5, align 4
   store i32 -2147483648, ptr %2, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 12
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 2147483647, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %2, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 2147483647, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 0, ptr %8, align 8
   br label %46
 
 9:                                                ; preds = %3
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 800
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 800
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr @loxID, align 8
   %14 = tail call i32 %12(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %13) #6
   store i32 %14, ptr %2, align 8
   %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 800
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 800
   %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr @loyID, align 8
   %19 = tail call i32 %17(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %18) #6
-  %20 = getelementptr inbounds i8, ptr %2, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %19, ptr %20, align 4
   %21 = load ptr, ptr %0, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 800
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 800
   %23 = load ptr, ptr %22, align 8
   %24 = load ptr, ptr @hixID, align 8
   %25 = tail call i32 %23(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %24) #6
-  %26 = getelementptr inbounds i8, ptr %2, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %25, ptr %26, align 8
   %27 = load ptr, ptr %0, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 800
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 800
   %29 = load ptr, ptr %28, align 8
   %30 = load ptr, ptr @hiyID, align 8
   %31 = tail call i32 %29(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %30) #6
-  %32 = getelementptr inbounds i8, ptr %2, i64 12
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 %31, ptr %32, align 4
   %33 = load ptr, ptr %0, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 800
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 800
   %35 = load ptr, ptr %34, align 8
   %36 = load ptr, ptr @endIndexID, align 8
   %37 = tail call i32 %35(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %36) #6
-  %38 = getelementptr inbounds i8, ptr %2, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 %37, ptr %38, align 8
   %39 = icmp eq i32 %37, 0
   br i1 %39, label %46, label %40
 
 40:                                               ; preds = %9
   %41 = load ptr, ptr %0, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 760
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 760
   %43 = load ptr, ptr %42, align 8
   %44 = load ptr, ptr @bandsID, align 8
   %45 = tail call ptr %43(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %44) #6
@@ -144,7 +144,7 @@ define noundef i32 @Region_GetInfo(ptr noundef %0, ptr noundef %1, ptr nocapture
 
 46:                                               ; preds = %.thread, %9, %40
   %47 = phi ptr [ %45, %40 ], [ null, %9 ], [ null, %.thread ]
-  %48 = getelementptr inbounds i8, ptr %2, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %47, ptr %48, align 8
   ret i32 0
 }
@@ -155,36 +155,36 @@ define void @Region_GetBounds(ptr noundef %0, ptr noundef %1, ptr nocapture noun
   br i1 %4, label %5, label %8
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %2, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 -2147483648, ptr %6, align 4
   store i32 -2147483648, ptr %2, align 4
-  %7 = getelementptr inbounds i8, ptr %2, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 2147483647, ptr %7, align 4
   br label %31
 
 8:                                                ; preds = %3
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 800
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 800
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr @loxID, align 8
   %13 = tail call i32 %11(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %12) #6
   store i32 %13, ptr %2, align 4
   %14 = load ptr, ptr %0, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 800
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 800
   %16 = load ptr, ptr %15, align 8
   %17 = load ptr, ptr @loyID, align 8
   %18 = tail call i32 %16(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %17) #6
-  %19 = getelementptr inbounds i8, ptr %2, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %18, ptr %19, align 4
   %20 = load ptr, ptr %0, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 800
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 800
   %22 = load ptr, ptr %21, align 8
   %23 = load ptr, ptr @hixID, align 8
   %24 = tail call i32 %22(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %23) #6
-  %25 = getelementptr inbounds i8, ptr %2, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %24, ptr %25, align 4
   %26 = load ptr, ptr %0, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 800
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 800
   %28 = load ptr, ptr %27, align 8
   %29 = load ptr, ptr @hiyID, align 8
   %30 = tail call i32 %28(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %29) #6
@@ -192,34 +192,34 @@ define void @Region_GetBounds(ptr noundef %0, ptr noundef %1, ptr nocapture noun
 
 31:                                               ; preds = %8, %5
   %.sink = phi i32 [ 2147483647, %5 ], [ %30, %8 ]
-  %32 = getelementptr inbounds i8, ptr %2, i64 12
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 %.sink, ptr %32, align 4
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define void @Region_StartIteration(ptr noundef %0, ptr nocapture noundef initializes((32, 48)) %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %13, label %6
 
 6:                                                ; preds = %2
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 1776
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 1776
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = tail call ptr %9(ptr noundef nonnull %0, ptr noundef %11, ptr noundef null) #6
   br label %13
 
 13:                                               ; preds = %2, %6
   %14 = phi ptr [ %12, %6 ], [ null, %2 ]
-  %15 = getelementptr inbounds i8, ptr %1, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store ptr %14, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i32 0, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 36
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 36
   store i32 0, ptr %17, align 4
   ret void
 }
@@ -227,27 +227,27 @@ define void @Region_StartIteration(ptr noundef %0, ptr nocapture noundef initial
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define i32 @Region_CountIterationRects(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
   %2 = load i32, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %.not = icmp slt i32 %2, %4
   br i1 %.not, label %5, label %.loopexit44
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = load i32, ptr %6, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 12
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %9 = load i32, ptr %8, align 4
   %.not41 = icmp slt i32 %7, %9
   br i1 %.not41, label %10, label %.loopexit44
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load i32, ptr %11, align 8
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %.loopexit44, label %14
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %0, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %16 = load ptr, ptr %15, align 8
   %17 = icmp sgt i32 %12, 0
   br i1 %17, label %.lr.ph, label %.loopexit44
@@ -318,9 +318,9 @@ define i32 @Region_CountIterationRects(ptr nocapture noundef readonly %0) local_
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define range(i32 0, 2) i32 @Region_NextIteration(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i32, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %8, label %26
@@ -331,15 +331,15 @@ define range(i32 0, 2) i32 @Region_NextIteration(ptr nocapture noundef %0, ptr n
 
 10:                                               ; preds = %8
   %11 = load i32, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load i32, ptr %12, align 8
   %.not86 = icmp slt i32 %11, %13
   br i1 %.not86, label %14, label %.loopexit
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %0, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %16 = load i32, ptr %15, align 4
-  %17 = getelementptr inbounds i8, ptr %0, i64 12
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %18 = load i32, ptr %17, align 4
   %.not87 = icmp slt i32 %16, %18
   br i1 %.not87, label %19, label %.loopexit
@@ -347,26 +347,26 @@ define range(i32 0, 2) i32 @Region_NextIteration(ptr nocapture noundef %0, ptr n
 19:                                               ; preds = %14
   store i32 %11, ptr %1, align 4
   %20 = load i32, ptr %12, align 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %20, ptr %21, align 4
   %22 = load i32, ptr %15, align 4
-  %23 = getelementptr inbounds i8, ptr %1, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 %22, ptr %23, align 4
   %24 = load i32, ptr %17, align 4
-  %25 = getelementptr inbounds i8, ptr %1, i64 12
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 %24, ptr %25, align 4
   br label %72
 
 26:                                               ; preds = %2
-  %27 = getelementptr inbounds i8, ptr %0, i64 40
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 36
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %30 = load i32, ptr %29, align 4
-  %31 = getelementptr inbounds i8, ptr %0, i64 12
-  %32 = getelementptr inbounds i8, ptr %0, i64 4
-  %33 = getelementptr inbounds i8, ptr %1, i64 4
-  %34 = getelementptr inbounds i8, ptr %1, i64 12
-  %35 = getelementptr inbounds i8, ptr %0, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %26
@@ -443,7 +443,7 @@ define range(i32 0, 2) i32 @Region_NextIteration(ptr nocapture noundef %0, ptr n
 
 70:                                               ; preds = %65
   store i32 %spec.select88, ptr %1, align 4
-  %71 = getelementptr inbounds i8, ptr %1, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %.168, ptr %71, align 4
   store i32 %60, ptr %29, align 4
   br label %72
@@ -460,18 +460,18 @@ define range(i32 0, 2) i32 @Region_NextIteration(ptr nocapture noundef %0, ptr n
 
 ; Function Attrs: nounwind uwtable
 define void @Region_EndIteration(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %13, label %5
 
 5:                                                ; preds = %2
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 1784
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 1784
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %12 = load ptr, ptr %11, align 8
   tail call void %8(ptr noundef nonnull %0, ptr noundef %10, ptr noundef %12, i32 noundef 2) #6
   br label %13
@@ -497,43 +497,43 @@ define i32 @RegionToYXBandedRectangles(ptr noundef %0, i32 noundef %1, i32 nound
   store i16 %12, ptr %13, align 2
   %14 = trunc i32 %2 to i16
   %15 = load ptr, ptr %6, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 2
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 2
   store i16 %14, ptr %16, align 2
   %17 = sub nsw i32 %3, %1
   %18 = trunc i32 %17 to i16
   %19 = load ptr, ptr %6, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
   store i16 %18, ptr %20, align 2
   %21 = sub nsw i32 %4, %2
   %22 = trunc i32 %21 to i16
   %23 = load ptr, ptr %6, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 6
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 6
   store i16 %22, ptr %24, align 2
   br label %Region_EndIteration.exit63
 
 25:                                               ; preds = %8
   %26 = load ptr, ptr %0, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 800
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 800
   %28 = load ptr, ptr %27, align 8
   %29 = load ptr, ptr @loxID, align 8
   %30 = tail call i32 %28(ptr noundef nonnull %0, ptr noundef nonnull %5, ptr noundef %29) #6
   %31 = load ptr, ptr %0, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 800
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 800
   %33 = load ptr, ptr %32, align 8
   %34 = load ptr, ptr @loyID, align 8
   %35 = tail call i32 %33(ptr noundef nonnull %0, ptr noundef nonnull %5, ptr noundef %34) #6
   %36 = load ptr, ptr %0, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 800
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 800
   %38 = load ptr, ptr %37, align 8
   %39 = load ptr, ptr @hixID, align 8
   %40 = tail call i32 %38(ptr noundef nonnull %0, ptr noundef nonnull %5, ptr noundef %39) #6
   %41 = load ptr, ptr %0, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 800
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 800
   %43 = load ptr, ptr %42, align 8
   %44 = load ptr, ptr @hiyID, align 8
   %45 = tail call i32 %43(ptr noundef nonnull %0, ptr noundef nonnull %5, ptr noundef %44) #6
   %46 = load ptr, ptr %0, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 800
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 800
   %48 = load ptr, ptr %47, align 8
   %49 = load ptr, ptr @endIndexID, align 8
   %50 = tail call i32 %48(ptr noundef nonnull %0, ptr noundef nonnull %5, ptr noundef %49) #6
@@ -542,12 +542,12 @@ define i32 @RegionToYXBandedRectangles(ptr noundef %0, i32 noundef %1, i32 nound
 
 52:                                               ; preds = %25
   %53 = load ptr, ptr %0, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 760
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 760
   %55 = load ptr, ptr %54, align 8
   %56 = load ptr, ptr @bandsID, align 8
   %57 = tail call ptr %55(ptr noundef nonnull %0, ptr noundef nonnull %5, ptr noundef %56) #6
   %58 = load ptr, ptr %0, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 1776
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 1776
   %60 = load ptr, ptr %59, align 8
   %61 = tail call ptr %60(ptr noundef nonnull %0, ptr noundef %57, ptr noundef null) #6
   br label %Region_StartIteration.exit
@@ -556,7 +556,7 @@ Region_StartIteration.exit:                       ; preds = %25, %52
   %62 = phi ptr [ %57, %52 ], [ null, %25 ]
   %63 = phi ptr [ %61, %52 ], [ null, %25 ]
   %64 = load ptr, ptr %0, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 1824
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 1824
   %66 = load ptr, ptr %65, align 8
   %67 = tail call zeroext i8 %66(ptr noundef nonnull %0) #6
   %.not = icmp eq i8 %67, 0
@@ -661,7 +661,7 @@ Region_CountIterationRects.exit:                  ; preds = %.lr.ph.i, %.loopexi
 
 107:                                              ; preds = %106
   %108 = load ptr, ptr %0, align 8
-  %109 = getelementptr inbounds i8, ptr %108, i64 1784
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 1784
   %110 = load ptr, ptr %109, align 8
   tail call void %110(ptr noundef nonnull %0, ptr noundef %62, ptr noundef %63, i32 noundef 2) #6
   br label %Region_EndIteration.exit
@@ -690,13 +690,13 @@ Region_NextIteration.exit.us.us:                  ; preds = %.split.us
   %118 = load ptr, ptr %6, align 8
   store i16 %112, ptr %118, align 2
   %119 = load ptr, ptr %6, align 8
-  %120 = getelementptr inbounds i8, ptr %119, i64 2
+  %120 = getelementptr inbounds nuw i8, ptr %119, i64 2
   store i16 %113, ptr %120, align 2
   %121 = load ptr, ptr %6, align 8
-  %122 = getelementptr inbounds i8, ptr %121, i64 4
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 4
   store i16 %115, ptr %122, align 2
   %123 = load ptr, ptr %6, align 8
-  %124 = getelementptr inbounds i8, ptr %123, i64 6
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 6
   store i16 %117, ptr %124, align 2
   br label %Region_EndIteration.exit63
 
@@ -782,28 +782,28 @@ Region_NextIteration.exit.us.us:                  ; preds = %.split.us
 Region_NextIteration.exit.loopexit:               ; preds = %149
   %153 = trunc i32 %spec.select88.i to i16
   %154 = load ptr, ptr %6, align 8
-  %155 = getelementptr inbounds %struct.XRectangle, ptr %154, i64 %indvars.iv
+  %155 = getelementptr inbounds nuw %struct.XRectangle, ptr %154, i64 %indvars.iv
   store i16 %153, ptr %155, align 2
   %156 = trunc i32 %.sroa.4.2 to i16
   %157 = load ptr, ptr %6, align 8
-  %158 = getelementptr inbounds %struct.XRectangle, ptr %157, i64 %indvars.iv, i32 1
+  %158 = getelementptr inbounds nuw %struct.XRectangle, ptr %157, i64 %indvars.iv, i32 1
   store i16 %156, ptr %158, align 2
   %159 = sub nsw i32 %.168.i, %spec.select88.i
   %160 = trunc i32 %159 to i16
   %161 = load ptr, ptr %6, align 8
-  %162 = getelementptr inbounds %struct.XRectangle, ptr %161, i64 %indvars.iv, i32 2
+  %162 = getelementptr inbounds nuw %struct.XRectangle, ptr %161, i64 %indvars.iv, i32 2
   store i16 %160, ptr %162, align 2
   %163 = sub nsw i32 %.sroa.11.2, %.sroa.4.2
   %164 = trunc i32 %163 to i16
   %165 = load ptr, ptr %6, align 8
-  %166 = getelementptr inbounds %struct.XRectangle, ptr %165, i64 %indvars.iv, i32 3
+  %166 = getelementptr inbounds nuw %struct.XRectangle, ptr %165, i64 %indvars.iv, i32 3
   store i16 %164, ptr %166, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   br label %.preheader, !llvm.loop !8
 
 167:                                              ; preds = %127, %126
   %168 = load ptr, ptr %0, align 8
-  %169 = getelementptr inbounds i8, ptr %168, i64 1784
+  %169 = getelementptr inbounds nuw i8, ptr %168, i64 1784
   %170 = load ptr, ptr %169, align 8
   tail call void %170(ptr noundef nonnull %0, ptr noundef %62, ptr noundef %63, i32 noundef 2) #6
   br label %Region_EndIteration.exit63

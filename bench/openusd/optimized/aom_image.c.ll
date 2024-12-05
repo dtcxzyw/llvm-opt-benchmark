@@ -234,9 +234,9 @@ define internal fastcc noundef ptr @img_alloc_helper(ptr noundef %0, i32 noundef
   %102 = getelementptr inbounds nuw i8, ptr %.1, i64 88
   store i32 %55, ptr %102, align 8
   %103 = lshr i32 %55, %.099138
-  %104 = getelementptr inbounds i8, ptr %.1, i64 96
+  %104 = getelementptr inbounds nuw i8, ptr %.1, i64 96
   store i32 %103, ptr %104, align 8
-  %105 = getelementptr inbounds i8, ptr %.1, i64 92
+  %105 = getelementptr inbounds nuw i8, ptr %.1, i64 92
   store i32 %103, ptr %105, align 4
   %.not.i = icmp ugt i32 %2, %38
   %.not74.i = icmp ugt i32 %3, %42
@@ -254,7 +254,7 @@ define internal fastcc noundef ptr @img_alloc_helper(ptr noundef %0, i32 noundef
   %110 = mul i32 %.097120135, %7
   %111 = lshr i32 %110, 3
   %112 = zext nneg i32 %111 to i64
-  %113 = getelementptr inbounds i8, ptr %95, i64 %112
+  %113 = getelementptr inbounds nuw i8, ptr %95, i64 %112
   %114 = mul i32 %55, %7
   %.pre = zext i32 %114 to i64
   br label %.sink.split.i
@@ -264,42 +264,42 @@ define internal fastcc noundef ptr @img_alloc_helper(ptr noundef %0, i32 noundef
   %.lobit.i = and i32 %116, 1
   %117 = shl i32 %7, %.lobit.i
   %118 = zext i32 %117 to i64
-  %119 = getelementptr inbounds i8, ptr %95, i64 %118
+  %119 = getelementptr inbounds nuw i8, ptr %95, i64 %118
   %120 = mul i32 %55, %7
   %121 = zext i32 %120 to i64
-  %122 = getelementptr inbounds i8, ptr %119, i64 %121
+  %122 = getelementptr inbounds nuw i8, ptr %119, i64 %121
   %123 = getelementptr inbounds nuw i8, ptr %.1, i64 64
   store ptr %122, ptr %123, align 8
   %124 = add i32 %42, %48
   %125 = mul i32 %55, %124
   %126 = zext i32 %125 to i64
-  %127 = getelementptr inbounds i8, ptr %95, i64 %126
+  %127 = getelementptr inbounds nuw i8, ptr %95, i64 %126
   %128 = lshr i32 %7, %.098
   %129 = lshr i32 %7, %.099138
   %130 = and i32 %1, 512
   %.not77.i = icmp eq i32 %130, 0
   %131 = shl i32 %129, %.lobit.i
   %132 = zext i32 %131 to i64
-  %133 = getelementptr inbounds i8, ptr %127, i64 %132
+  %133 = getelementptr inbounds nuw i8, ptr %127, i64 %132
   %134 = lshr i32 %42, %.098
   %135 = shl i32 %128, 1
   %136 = add i32 %134, %135
   %137 = mul i32 %103, %128
   %138 = zext i32 %137 to i64
-  %139 = getelementptr inbounds i8, ptr %133, i64 %138
+  %139 = getelementptr inbounds nuw i8, ptr %133, i64 %138
   %140 = mul i32 %103, %136
   %141 = zext i32 %140 to i64
-  %142 = getelementptr inbounds i8, ptr %127, i64 %141
-  %143 = getelementptr inbounds i8, ptr %142, i64 %132
+  %142 = getelementptr inbounds nuw i8, ptr %127, i64 %141
+  %143 = getelementptr inbounds nuw i8, ptr %142, i64 %132
   br i1 %.not77.i, label %144, label %146
 
 144:                                              ; preds = %115
-  %145 = getelementptr inbounds i8, ptr %.1, i64 72
+  %145 = getelementptr inbounds nuw i8, ptr %.1, i64 72
   store ptr %139, ptr %145, align 8
   br label %.sink.split.i
 
 146:                                              ; preds = %115
-  %147 = getelementptr inbounds i8, ptr %.1, i64 80
+  %147 = getelementptr inbounds nuw i8, ptr %.1, i64 80
   store ptr %139, ptr %147, align 8
   br label %.sink.split.i
 
@@ -307,8 +307,8 @@ define internal fastcc noundef ptr @img_alloc_helper(ptr noundef %0, i32 noundef
   %.pre-phi = phi i64 [ %138, %146 ], [ %138, %144 ], [ %.pre, %109 ]
   %.sink82.i = phi ptr [ %143, %146 ], [ %143, %144 ], [ %113, %109 ]
   %.sink81.i = phi i64 [ 72, %146 ], [ 80, %144 ], [ 64, %109 ]
-  %148 = getelementptr inbounds i8, ptr %.sink82.i, i64 %.pre-phi
-  %149 = getelementptr inbounds i8, ptr %.1, i64 %.sink81.i
+  %148 = getelementptr inbounds nuw i8, ptr %.sink82.i, i64 %.pre-phi
+  %149 = getelementptr inbounds nuw i8, ptr %.1, i64 %.sink81.i
   store ptr %148, ptr %149, align 8
   br label %aom_img_set_rect.exit
 
@@ -375,7 +375,7 @@ define hidden range(i32 -1, 1) i32 @aom_img_set_rect(ptr nocapture noundef %0, i
   %26 = mul i32 %25, %17
   %27 = lshr i32 %26, 3
   %28 = zext nneg i32 %27 to i64
-  %29 = getelementptr inbounds i8, ptr %22, i64 %28
+  %29 = getelementptr inbounds nuw i8, ptr %22, i64 %28
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %31 = load i32, ptr %30, align 8
   %32 = mul i32 %31, %18
@@ -386,19 +386,19 @@ define hidden range(i32 -1, 1) i32 @aom_img_set_rect(ptr nocapture noundef %0, i
   %.lobit = and i32 %34, 1
   %35 = shl i32 %17, %.lobit
   %36 = zext i32 %35 to i64
-  %37 = getelementptr inbounds i8, ptr %22, i64 %36
+  %37 = getelementptr inbounds nuw i8, ptr %22, i64 %36
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %39 = load i32, ptr %38, align 8
   %40 = mul i32 %39, %18
   %41 = zext i32 %40 to i64
-  %42 = getelementptr inbounds i8, ptr %37, i64 %41
+  %42 = getelementptr inbounds nuw i8, ptr %37, i64 %41
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %42, ptr %43, align 8
   %44 = shl i32 %5, 1
   %45 = add i32 %13, %44
   %46 = mul i32 %39, %45
   %47 = zext i32 %46 to i64
-  %48 = getelementptr inbounds i8, ptr %22, i64 %47
+  %48 = getelementptr inbounds nuw i8, ptr %22, i64 %47
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %50 = load i32, ptr %49, align 4
   %51 = lshr i32 %5, %50
@@ -410,42 +410,42 @@ define hidden range(i32 -1, 1) i32 @aom_img_set_rect(ptr nocapture noundef %0, i
   %.not77 = icmp eq i32 %56, 0
   %57 = shl i32 %54, %.lobit
   %58 = zext i32 %57 to i64
-  %59 = getelementptr inbounds i8, ptr %48, i64 %58
+  %59 = getelementptr inbounds nuw i8, ptr %48, i64 %58
   %60 = lshr i32 %13, %50
   %61 = shl i32 %51, 1
   %62 = add i32 %61, %60
   br i1 %.not77, label %63, label %77
 
 63:                                               ; preds = %33
-  %64 = getelementptr inbounds i8, ptr %0, i64 92
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %65 = load i32, ptr %64, align 4
   %66 = mul i32 %65, %55
   %67 = zext i32 %66 to i64
-  %68 = getelementptr inbounds i8, ptr %59, i64 %67
-  %69 = getelementptr inbounds i8, ptr %0, i64 72
+  %68 = getelementptr inbounds nuw i8, ptr %59, i64 %67
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %68, ptr %69, align 8
   %70 = mul i32 %65, %62
   %71 = zext i32 %70 to i64
-  %72 = getelementptr inbounds i8, ptr %48, i64 %71
-  %73 = getelementptr inbounds i8, ptr %72, i64 %58
-  %74 = getelementptr inbounds i8, ptr %0, i64 96
+  %72 = getelementptr inbounds nuw i8, ptr %48, i64 %71
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 %58
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %75 = load i32, ptr %74, align 8
   %76 = mul i32 %75, %55
   br label %.sink.split
 
 77:                                               ; preds = %33
-  %78 = getelementptr inbounds i8, ptr %0, i64 96
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %79 = load i32, ptr %78, align 8
   %80 = mul i32 %79, %55
   %81 = zext i32 %80 to i64
-  %82 = getelementptr inbounds i8, ptr %59, i64 %81
-  %83 = getelementptr inbounds i8, ptr %0, i64 80
+  %82 = getelementptr inbounds nuw i8, ptr %59, i64 %81
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %82, ptr %83, align 8
   %84 = mul i32 %79, %62
   %85 = zext i32 %84 to i64
-  %86 = getelementptr inbounds i8, ptr %48, i64 %85
-  %87 = getelementptr inbounds i8, ptr %86, i64 %58
-  %88 = getelementptr inbounds i8, ptr %0, i64 92
+  %86 = getelementptr inbounds nuw i8, ptr %48, i64 %85
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 %58
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %89 = load i32, ptr %88, align 4
   %90 = mul i32 %89, %55
   br label %.sink.split
@@ -455,8 +455,8 @@ define hidden range(i32 -1, 1) i32 @aom_img_set_rect(ptr nocapture noundef %0, i
   %.sink82 = phi ptr [ %29, %23 ], [ %87, %77 ], [ %73, %63 ]
   %.sink81 = phi i64 [ 64, %23 ], [ 72, %77 ], [ 80, %63 ]
   %91 = zext i32 %.sink to i64
-  %92 = getelementptr inbounds i8, ptr %.sink82, i64 %91
-  %93 = getelementptr inbounds i8, ptr %0, i64 %.sink81
+  %92 = getelementptr inbounds nuw i8, ptr %.sink82, i64 %91
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink81
   store ptr %92, ptr %93, align 8
   br label %94
 
@@ -484,20 +484,20 @@ define hidden void @aom_img_flip(ptr nocapture noundef %0) local_unnamed_addr #1
   %14 = load i32, ptr %13, align 4
   %15 = lshr i32 %3, %14
   %16 = add i32 %15, -1
-  %17 = getelementptr inbounds i8, ptr %0, i64 92
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %18 = load i32, ptr %17, align 4
   %19 = mul nsw i32 %16, %18
-  %20 = getelementptr inbounds i8, ptr %0, i64 72
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %21 = load ptr, ptr %20, align 8
   %22 = sext i32 %19 to i64
   %23 = getelementptr inbounds i8, ptr %21, i64 %22
   store ptr %23, ptr %20, align 8
   %24 = sub nsw i32 0, %18
   store i32 %24, ptr %17, align 4
-  %25 = getelementptr inbounds i8, ptr %0, i64 96
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %26 = load i32, ptr %25, align 8
   %27 = mul nsw i32 %26, %16
-  %28 = getelementptr inbounds i8, ptr %0, i64 80
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %29 = load ptr, ptr %28, align 8
   %30 = sext i32 %27 to i64
   %31 = getelementptr inbounds i8, ptr %29, i64 %30

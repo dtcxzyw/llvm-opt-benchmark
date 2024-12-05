@@ -195,8 +195,8 @@ define void @dbdsqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 114:                                              ; preds = %114, %111
   %115 = phi i64 [ 1, %111 ], [ %120, %114 ]
-  %116 = getelementptr inbounds double, ptr %33, i64 %115
-  %117 = getelementptr inbounds double, ptr %34, i64 %115
+  %116 = getelementptr inbounds nuw double, ptr %33, i64 %115
+  %117 = getelementptr inbounds nuw double, ptr %34, i64 %115
   call void @dlartg_(ptr noundef nonnull %116, ptr noundef nonnull %117, ptr noundef nonnull %31, ptr noundef nonnull %32, ptr noundef nonnull %25) #6
   %118 = load double, ptr %25, align 8, !tbaa !7
   store double %118, ptr %116, align 8, !tbaa !7
@@ -210,7 +210,7 @@ define void @dbdsqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %125 = load double, ptr %121, align 8, !tbaa !7
   %126 = fmul double %124, %125
   store double %126, ptr %121, align 8, !tbaa !7
-  %127 = getelementptr inbounds double, ptr %47, i64 %115
+  %127 = getelementptr inbounds nuw double, ptr %47, i64 %115
   store double %124, ptr %127, align 8, !tbaa !7
   %128 = getelementptr double, ptr %113, i64 %115
   store double %119, ptr %128, align 8, !tbaa !7
@@ -267,7 +267,7 @@ define void @dbdsqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 158:                                              ; preds = %158, %155
   %159 = phi i64 [ 1, %155 ], [ %168, %158 ]
   %160 = phi double [ 0.000000e+00, %155 ], [ %167, %158 ]
-  %161 = getelementptr inbounds double, ptr %33, i64 %159
+  %161 = getelementptr inbounds nuw double, ptr %33, i64 %159
   %162 = load double, ptr %161, align 8, !tbaa !7
   %163 = fcmp oge double %162, 0.000000e+00
   %164 = fneg double %162
@@ -291,7 +291,7 @@ define void @dbdsqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 174:                                              ; preds = %174, %172
   %175 = phi i64 [ 1, %172 ], [ %184, %174 ]
   %176 = phi double [ %167, %172 ], [ %183, %174 ]
-  %177 = getelementptr inbounds double, ptr %34, i64 %175
+  %177 = getelementptr inbounds nuw double, ptr %34, i64 %175
   %178 = load double, ptr %177, align 8, !tbaa !7
   %179 = fcmp oge double %178, 0.000000e+00
   %180 = fneg double %178
@@ -329,7 +329,7 @@ define void @dbdsqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %201 = phi i64 [ 2, %197 ], [ %220, %200 ]
   %202 = phi double [ %192, %197 ], [ %218, %200 ]
   %203 = phi double [ %192, %197 ], [ %216, %200 ]
-  %204 = getelementptr inbounds double, ptr %33, i64 %201
+  %204 = getelementptr inbounds nuw double, ptr %33, i64 %201
   %205 = load double, ptr %204, align 8, !tbaa !7
   %206 = fcmp oge double %205, 0.000000e+00
   %207 = fneg double %205
@@ -411,11 +411,11 @@ define void @dbdsqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %266 = phi i32 [ 0, %242 ], [ %293, %.loopexit76 ]
   %267 = phi i32 [ -1, %242 ], [ %292, %.loopexit76 ]
   %268 = zext nneg i32 %265 to i64
-  %269 = getelementptr inbounds double, ptr %33, i64 %268
+  %269 = getelementptr inbounds nuw double, ptr %33, i64 %268
   %270 = add nsw i32 %265, -1
   %271 = zext nneg i32 %270 to i64
-  %272 = getelementptr inbounds double, ptr %34, i64 %271
-  %273 = getelementptr inbounds double, ptr %33, i64 %271
+  %272 = getelementptr inbounds nuw double, ptr %34, i64 %271
+  %273 = getelementptr inbounds nuw double, ptr %33, i64 %271
   br label %274
 
 274:                                              ; preds = %.backedge477, %261
@@ -1564,7 +1564,7 @@ thread-pre-split64:                               ; preds = %.loopexit76
 963:                                              ; preds = %975, %959
   %964 = phi i32 [ %960, %959 ], [ %976, %975 ]
   %965 = phi i64 [ 1, %959 ], [ %977, %975 ]
-  %966 = getelementptr inbounds double, ptr %33, i64 %965
+  %966 = getelementptr inbounds nuw double, ptr %33, i64 %965
   %967 = load double, ptr %966, align 8, !tbaa !7
   %968 = fcmp olt double %967, 0.000000e+00
   br i1 %968, label %969, label %975
@@ -1621,7 +1621,7 @@ thread-pre-split64:                               ; preds = %.loopexit76
   %998 = phi i64 [ 2, %994 ], [ %1007, %997 ]
   %999 = phi double [ %989, %994 ], [ %1006, %997 ]
   %1000 = phi i32 [ 1, %994 ], [ %1005, %997 ]
-  %1001 = getelementptr inbounds double, ptr %33, i64 %998
+  %1001 = getelementptr inbounds nuw double, ptr %33, i64 %998
   %1002 = load double, ptr %1001, align 8, !tbaa !7
   %1003 = fcmp ugt double %1002, %999
   %1004 = trunc i64 %998 to i32
@@ -1714,7 +1714,7 @@ thread-pre-split64:                               ; preds = %.loopexit76
 1062:                                             ; preds = %1070, %1060
   %1063 = phi i32 [ 0, %1060 ], [ %1071, %1070 ]
   %1064 = phi i64 [ 1, %1060 ], [ %1072, %1070 ]
-  %1065 = getelementptr inbounds double, ptr %34, i64 %1064
+  %1065 = getelementptr inbounds nuw double, ptr %34, i64 %1064
   %1066 = load double, ptr %1065, align 8, !tbaa !7
   %1067 = fcmp une double %1066, 0.000000e+00
   br i1 %1067, label %1068, label %1070

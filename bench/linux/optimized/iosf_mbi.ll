@@ -142,8 +142,8 @@ define dso_local noundef range(i32 -2147483648, 1) i32 @iosf_mbi_read(i8 noundef
 34:                                               ; preds = %30, %26, %23
   %35 = phi i32 [ %24, %23 ], [ %28, %26 ], [ %32, %30 ]
   %36 = load ptr, ptr @mbi_pdev, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 184
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %37, ptr noundef nonnull @.str.4, i32 noundef %35) #8
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 184
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %37, ptr noundef nonnull @.str.4, i32 noundef %35) #8
   br label %38
 
 38:                                               ; preds = %34, %30, %7
@@ -216,8 +216,8 @@ define dso_local noundef range(i32 -2147483648, 1) i32 @iosf_mbi_write(i8 nounde
 34:                                               ; preds = %30, %26, %21
   %35 = phi i32 [ %22, %21 ], [ %28, %26 ], [ %32, %30 ]
   %36 = load ptr, ptr @mbi_pdev, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 184
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %37, ptr noundef nonnull @.str.4, i32 noundef %35) #8
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 184
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %37, ptr noundef nonnull @.str.4, i32 noundef %35) #8
   br label %38
 
 38:                                               ; preds = %34, %30, %7
@@ -289,8 +289,8 @@ define dso_local noundef range(i32 -2147483648, 1) i32 @iosf_mbi_modify(i8 nound
 37:                                               ; preds = %33, %29, %26
   %38 = phi i32 [ %27, %26 ], [ %31, %29 ], [ %35, %33 ]
   %39 = load ptr, ptr @mbi_pdev, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 184
-  call void (ptr, ptr, ...) @_dev_err(ptr noundef %40, ptr noundef nonnull @.str.4, i32 noundef %38) #8
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 184
+  call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %40, ptr noundef nonnull @.str.4, i32 noundef %38) #8
   br label %41
 
 41:                                               ; preds = %37, %9
@@ -333,8 +333,8 @@ define dso_local noundef range(i32 -2147483648, 1) i32 @iosf_mbi_modify(i8 nound
 63:                                               ; preds = %59, %55, %51
   %64 = phi i32 [ %52, %51 ], [ %57, %55 ], [ %61, %59 ]
   %65 = load ptr, ptr @mbi_pdev, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 184
-  call void (ptr, ptr, ...) @_dev_err(ptr noundef %66, ptr noundef nonnull @.str.4, i32 noundef %64) #8
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 184
+  call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %66, ptr noundef nonnull @.str.4, i32 noundef %64) #8
   br label %67
 
 67:                                               ; preds = %63, %59, %42
@@ -531,8 +531,8 @@ define dso_local noundef range(i32 -2147483648, 1) i32 @iosf_mbi_block_punit_i2c
 
 .thread:                                          ; preds = %34
   %38 = load ptr, ptr @mbi_pdev, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 184
-  call void (ptr, ptr, ...) @_dev_err(ptr noundef %39, ptr noundef nonnull @.str.5) #8
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 184
+  call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %39, ptr noundef nonnull @.str.5) #8
   br label %45
 
 40:                                               ; preds = %34
@@ -559,8 +559,8 @@ define dso_local noundef range(i32 -2147483648, 1) i32 @iosf_mbi_block_punit_i2c
   %49 = phi ptr [ @.str.1, %27 ], [ @.str.2, %45 ]
   %50 = phi i32 [ %30, %27 ], [ -110, %45 ]
   %51 = load ptr, ptr @mbi_pdev, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 184
-  call void (ptr, ptr, ...) @_dev_err(ptr noundef %52, ptr noundef nonnull %49) #8
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 184
+  call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %52, ptr noundef nonnull %49) #8
   %53 = load i32, ptr @iosf_mbi_sem_address, align 4
   %54 = call i32 @iosf_mbi_modify(i8 noundef zeroext 4, i8 noundef zeroext 16, i32 noundef %53, i32 noundef 0, i32 noundef 1), !range !23
   %55 = icmp eq i32 %54, 0
@@ -568,8 +568,8 @@ define dso_local noundef range(i32 -2147483648, 1) i32 @iosf_mbi_block_punit_i2c
 
 56:                                               ; preds = %.loopexit
   %57 = load ptr, ptr @mbi_pdev, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 184
-  call void (ptr, ptr, ...) @_dev_err(ptr noundef %58, ptr noundef nonnull @.str.6) #8
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 184
+  call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %58, ptr noundef nonnull @.str.6) #8
   br label %59
 
 59:                                               ; preds = %56, %.loopexit
@@ -582,8 +582,8 @@ define dso_local noundef range(i32 -2147483648, 1) i32 @iosf_mbi_block_punit_i2c
 
 64:                                               ; preds = %59
   %65 = load ptr, ptr @mbi_pdev, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 184
-  call void (ptr, ptr, ...) @_dev_err(ptr noundef %66, ptr noundef nonnull @.str.5) #8
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 184
+  call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %66, ptr noundef nonnull @.str.5) #8
   br label %72
 
 67:                                               ; preds = %59
@@ -591,8 +591,8 @@ define dso_local noundef range(i32 -2147483648, 1) i32 @iosf_mbi_block_punit_i2c
   %69 = and i32 %68, 1
   store i32 %69, ptr %1, align 4
   %70 = load ptr, ptr @mbi_pdev, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 184
-  call void (ptr, ptr, ...) @_dev_err(ptr noundef %71, ptr noundef nonnull @.str.3, i32 noundef %69) #8
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 184
+  call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %71, ptr noundef nonnull @.str.3, i32 noundef %69) #8
   br label %72
 
 72:                                               ; preds = %67, %64
@@ -644,8 +644,8 @@ define dso_local void @iosf_mbi_unblock_punit_i2c_access() #0 align 16 {
 
 8:                                                ; preds = %4
   %9 = load ptr, ptr @mbi_pdev, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 184
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %10, ptr noundef nonnull @.str.6) #8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 184
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %10, ptr noundef nonnull @.str.6) #8
   br label %11
 
 11:                                               ; preds = %8, %4
@@ -801,14 +801,14 @@ define internal range(i32 -2147483648, 1) i32 @iosf_mbi_probe(ptr noundef %0, pt
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 184
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %6, ptr noundef nonnull @.str.8) #8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %6, ptr noundef nonnull @.str.8) #8
   br label %12
 
 7:                                                ; preds = %2
   %8 = tail call ptr @pci_dev_get(ptr noundef %0) #7
   store ptr %8, ptr @mbi_pdev, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load i64, ptr %9, align 8
   %11 = trunc i64 %10 to i32
   store i32 %11, ptr @iosf_mbi_sem_address, align 4

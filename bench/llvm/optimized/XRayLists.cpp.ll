@@ -54,7 +54,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_S_ch
   br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit.thread.i.i.i, label %.lr.ph.i.i.i.i.preheader.i.i.i
 
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit.thread.i.i.i: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_S_check_init_lenEmRKS6_.exit.i.i.i
-  %14 = getelementptr inbounds i8, ptr null, i64 %.idx.i
+  %14 = getelementptr inbounds nuw i8, ptr null, i64 %.idx.i
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %14, ptr %15, align 8, !alias.scope !4
   br label %_ZNK4llvm8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcvSt6vectorIS6_SaIS6_EEEv.exit
@@ -62,7 +62,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 .lr.ph.i.i.i.i.preheader.i.i.i:                   ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_S_check_init_lenEmRKS6_.exit.i.i.i
   %16 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %.idx.i) #9, !noalias !4
   store ptr %16, ptr %8, align 8, !alias.scope !4
-  %17 = getelementptr inbounds i8, ptr %16, i64 %.idx.i
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 %.idx.i
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %17, ptr %18, align 8, !alias.scope !4
   br label %.lr.ph.i.i.i.i.i.i.i
@@ -71,8 +71,8 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %.011.i.i.i.i.i.i.i = phi ptr [ %20, %.lr.ph.i.i.i.i.i.i.i ], [ %16, %.lr.ph.i.i.i.i.preheader.i.i.i ]
   %.0810.i.i.i.i.i.i.i = phi ptr [ %19, %.lr.ph.i.i.i.i.i.i.i ], [ %1, %.lr.ph.i.i.i.i.preheader.i.i.i ]
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %.011.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.0810.i.i.i.i.i.i.i) #10, !noalias !4
-  %19 = getelementptr inbounds i8, ptr %.0810.i.i.i.i.i.i.i, i64 32
-  %20 = getelementptr inbounds i8, ptr %.011.i.i.i.i.i.i.i, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i.i.i, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i.i.i = icmp eq ptr %19, %11
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNK4llvm8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcvSt6vectorIS6_SaIS6_EEEv.exit, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !7
 
@@ -93,7 +93,7 @@ _ZNK4llvm8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcvSt6vec
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNK4llvm8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcvSt6vectorIS6_SaIS6_EEEv.exit, %.lr.ph.i.i.i.i
   %.05.i.i.i.i = phi ptr [ %28, %.lr.ph.i.i.i.i ], [ %26, %_ZNK4llvm8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcvSt6vectorIS6_SaIS6_EEEv.exit ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i) #10
-  %28 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 32
   %.not.i.i.i.i5 = icmp eq ptr %28, %27
   br i1 %.not.i.i.i.i5, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !9
 
@@ -133,7 +133,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_S_ch
   br i1 %.not.i.i.i.i8, label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit.thread.i.i.i15, label %.lr.ph.i.i.i.i.preheader.i.i.i9
 
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit.thread.i.i.i15: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_S_check_init_lenEmRKS6_.exit.i.i.i7
-  %40 = getelementptr inbounds i8, ptr null, i64 %.idx.i6
+  %40 = getelementptr inbounds nuw i8, ptr null, i64 %.idx.i6
   %41 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %40, ptr %41, align 8, !alias.scope !10
   br label %_ZNK4llvm8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcvSt6vectorIS6_SaIS6_EEEv.exit16
@@ -141,7 +141,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 .lr.ph.i.i.i.i.preheader.i.i.i9:                  ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_S_check_init_lenEmRKS6_.exit.i.i.i7
   %42 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %.idx.i6) #9, !noalias !10
   store ptr %42, ptr %9, align 8, !alias.scope !10
-  %43 = getelementptr inbounds i8, ptr %42, i64 %.idx.i6
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 %.idx.i6
   %44 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %43, ptr %44, align 8, !alias.scope !10
   br label %.lr.ph.i.i.i.i.i.i.i10
@@ -150,8 +150,8 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %.011.i.i.i.i.i.i.i11 = phi ptr [ %46, %.lr.ph.i.i.i.i.i.i.i10 ], [ %42, %.lr.ph.i.i.i.i.preheader.i.i.i9 ]
   %.0810.i.i.i.i.i.i.i12 = phi ptr [ %45, %.lr.ph.i.i.i.i.i.i.i10 ], [ %3, %.lr.ph.i.i.i.i.preheader.i.i.i9 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %.011.i.i.i.i.i.i.i11, ptr noundef nonnull align 8 dereferenceable(32) %.0810.i.i.i.i.i.i.i12) #10, !noalias !10
-  %45 = getelementptr inbounds i8, ptr %.0810.i.i.i.i.i.i.i12, i64 32
-  %46 = getelementptr inbounds i8, ptr %.011.i.i.i.i.i.i.i11, i64 32
+  %45 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i.i.i12, i64 32
+  %46 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.i.i11, i64 32
   %.not.i.i.i.i.i.i.i13 = icmp eq ptr %45, %37
   br i1 %.not.i.i.i.i.i.i.i13, label %_ZNK4llvm8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcvSt6vectorIS6_SaIS6_EEEv.exit16, label %.lr.ph.i.i.i.i.i.i.i10, !llvm.loop !7
 
@@ -171,7 +171,7 @@ _ZNK4llvm8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcvSt6vec
 .lr.ph.i.i.i.i18:                                 ; preds = %_ZNK4llvm8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcvSt6vectorIS6_SaIS6_EEEv.exit16, %.lr.ph.i.i.i.i18
   %.05.i.i.i.i19 = phi ptr [ %53, %.lr.ph.i.i.i.i18 ], [ %51, %_ZNK4llvm8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcvSt6vectorIS6_SaIS6_EEEv.exit16 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i19) #10
-  %53 = getelementptr inbounds i8, ptr %.05.i.i.i.i19, i64 32
+  %53 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i19, i64 32
   %.not.i.i.i.i20 = icmp eq ptr %53, %52
   br i1 %.not.i.i.i.i20, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i21, label %.lr.ph.i.i.i.i18, !llvm.loop !9
 
@@ -214,7 +214,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_S_ch
   br i1 %.not.i.i.i.i28, label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit.thread.i.i.i35, label %.lr.ph.i.i.i.i.preheader.i.i.i29
 
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit.thread.i.i.i35: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_S_check_init_lenEmRKS6_.exit.i.i.i27
-  %68 = getelementptr inbounds i8, ptr null, i64 %.idx.i26
+  %68 = getelementptr inbounds nuw i8, ptr null, i64 %.idx.i26
   %69 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %68, ptr %69, align 8, !alias.scope !13
   br label %_ZNK4llvm8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcvSt6vectorIS6_SaIS6_EEEv.exit36
@@ -222,7 +222,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 .lr.ph.i.i.i.i.preheader.i.i.i29:                 ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_S_check_init_lenEmRKS6_.exit.i.i.i27
   %70 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %.idx.i26) #9, !noalias !13
   store ptr %70, ptr %10, align 8, !alias.scope !13
-  %71 = getelementptr inbounds i8, ptr %70, i64 %.idx.i26
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 %.idx.i26
   %72 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %71, ptr %72, align 8, !alias.scope !13
   br label %.lr.ph.i.i.i.i.i.i.i30
@@ -231,8 +231,8 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %.011.i.i.i.i.i.i.i31 = phi ptr [ %74, %.lr.ph.i.i.i.i.i.i.i30 ], [ %70, %.lr.ph.i.i.i.i.preheader.i.i.i29 ]
   %.0810.i.i.i.i.i.i.i32 = phi ptr [ %73, %.lr.ph.i.i.i.i.i.i.i30 ], [ %62, %.lr.ph.i.i.i.i.preheader.i.i.i29 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %.011.i.i.i.i.i.i.i31, ptr noundef nonnull align 8 dereferenceable(32) %.0810.i.i.i.i.i.i.i32) #10, !noalias !13
-  %73 = getelementptr inbounds i8, ptr %.0810.i.i.i.i.i.i.i32, i64 32
-  %74 = getelementptr inbounds i8, ptr %.011.i.i.i.i.i.i.i31, i64 32
+  %73 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i.i.i32, i64 32
+  %74 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.i.i31, i64 32
   %.not.i.i.i.i.i.i.i33 = icmp eq ptr %73, %65
   br i1 %.not.i.i.i.i.i.i.i33, label %_ZNK4llvm8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcvSt6vectorIS6_SaIS6_EEEv.exit36, label %.lr.ph.i.i.i.i.i.i.i30, !llvm.loop !7
 
@@ -252,7 +252,7 @@ _ZNK4llvm8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcvSt6vec
 .lr.ph.i.i.i.i38:                                 ; preds = %_ZNK4llvm8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcvSt6vectorIS6_SaIS6_EEEv.exit36, %.lr.ph.i.i.i.i38
   %.05.i.i.i.i39 = phi ptr [ %81, %.lr.ph.i.i.i.i38 ], [ %79, %_ZNK4llvm8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcvSt6vectorIS6_SaIS6_EEEv.exit36 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i39) #10
-  %81 = getelementptr inbounds i8, ptr %.05.i.i.i.i39, i64 32
+  %81 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i39, i64 32
   %.not.i.i.i.i40 = icmp eq ptr %81, %80
   br i1 %.not.i.i.i.i40, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i41, label %.lr.ph.i.i.i.i38, !llvm.loop !9
 
@@ -338,7 +338,7 @@ define dso_local noundef range(i32 0, 4) i32 @_ZNK5clang18XRayFunctionFilter19sh
   %15 = alloca %"class.llvm::StringRef", align 8
   %16 = load ptr, ptr %0, align 8
   store ptr %1, ptr %4, align 8
-  %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %2, ptr %.sroa.7.0..sroa_idx, align 8
   store ptr @.str.2, ptr %5, align 8
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -350,7 +350,7 @@ define dso_local noundef range(i32 0, 4) i32 @_ZNK5clang18XRayFunctionFilter19sh
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %21 = load ptr, ptr %20, align 8
   store ptr %1, ptr %6, align 8
-  %.sroa.7.0..sroa_idx6 = getelementptr inbounds i8, ptr %6, i64 8
+  %.sroa.7.0..sroa_idx6 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %2, ptr %.sroa.7.0..sroa_idx6, align 8
   store ptr @.str.2, ptr %7, align 8
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -361,7 +361,7 @@ define dso_local noundef range(i32 0, 4) i32 @_ZNK5clang18XRayFunctionFilter19sh
 24:                                               ; preds = %19
   %25 = load ptr, ptr %0, align 8
   store ptr %1, ptr %8, align 8
-  %.sroa.7.0..sroa_idx8 = getelementptr inbounds i8, ptr %8, i64 8
+  %.sroa.7.0..sroa_idx8 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 %2, ptr %.sroa.7.0..sroa_idx8, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   %26 = tail call noundef zeroext i1 @_ZNK4llvm15SpecialCaseList9inSectionENS_9StringRefES1_S1_S1_(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr nonnull @.str, i64 22, ptr nonnull @.str.1, i64 3, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %8, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %9) #10
@@ -370,7 +370,7 @@ define dso_local noundef range(i32 0, 4) i32 @_ZNK5clang18XRayFunctionFilter19sh
 27:                                               ; preds = %24
   %28 = load ptr, ptr %20, align 8
   store ptr %1, ptr %10, align 8
-  %.sroa.7.0..sroa_idx10 = getelementptr inbounds i8, ptr %10, i64 8
+  %.sroa.7.0..sroa_idx10 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 %2, ptr %.sroa.7.0..sroa_idx10, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   %29 = tail call noundef zeroext i1 @_ZNK4llvm15SpecialCaseList9inSectionENS_9StringRefES1_S1_S1_(ptr noundef nonnull align 8 dereferenceable(24) %28, ptr nonnull @.str.3, i64 6, ptr nonnull @.str.1, i64 3, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %10, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %11) #10
@@ -380,7 +380,7 @@ define dso_local noundef range(i32 0, 4) i32 @_ZNK5clang18XRayFunctionFilter19sh
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %32 = load ptr, ptr %31, align 8
   store ptr %1, ptr %12, align 8
-  %.sroa.7.0..sroa_idx12 = getelementptr inbounds i8, ptr %12, i64 8
+  %.sroa.7.0..sroa_idx12 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i64 %2, ptr %.sroa.7.0..sroa_idx12, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
   %33 = tail call noundef zeroext i1 @_ZNK4llvm15SpecialCaseList9inSectionENS_9StringRefES1_S1_S1_(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr nonnull @.str.4, i64 21, ptr nonnull @.str.1, i64 3, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %12, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %13) #10
@@ -389,7 +389,7 @@ define dso_local noundef range(i32 0, 4) i32 @_ZNK5clang18XRayFunctionFilter19sh
 34:                                               ; preds = %30
   %35 = load ptr, ptr %20, align 8
   store ptr %1, ptr %14, align 8
-  %.sroa.7.0..sroa_idx14 = getelementptr inbounds i8, ptr %14, i64 8
+  %.sroa.7.0..sroa_idx14 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i64 %2, ptr %.sroa.7.0..sroa_idx14, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
   %36 = tail call noundef zeroext i1 @_ZNK4llvm15SpecialCaseList9inSectionENS_9StringRefES1_S1_S1_(ptr noundef nonnull align 8 dereferenceable(24) %35, ptr nonnull @.str.5, i64 5, ptr nonnull @.str.1, i64 3, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %14, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %15) #10
@@ -418,10 +418,10 @@ define dso_local noundef range(i32 0, 3) i32 @_ZNK5clang18XRayFunctionFilter26sh
   %13 = alloca %"class.llvm::StringRef", align 8
   %14 = load ptr, ptr %0, align 8
   store ptr %1, ptr %6, align 8
-  %.sroa.514.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 8
+  %.sroa.514.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %2, ptr %.sroa.514.0..sroa_idx, align 8
   store ptr %3, ptr %7, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %4, ptr %.sroa.5.0..sroa_idx, align 8
   %15 = tail call noundef zeroext i1 @_ZNK4llvm15SpecialCaseList9inSectionENS_9StringRefES1_S1_S1_(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr nonnull @.str, i64 22, ptr nonnull @.str.6, i64 3, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %6, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %7) #10
   br i1 %15, label %27, label %16
@@ -430,10 +430,10 @@ define dso_local noundef range(i32 0, 3) i32 @_ZNK5clang18XRayFunctionFilter26sh
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load ptr, ptr %17, align 8
   store ptr %1, ptr %8, align 8
-  %.sroa.514.0..sroa_idx15 = getelementptr inbounds i8, ptr %8, i64 8
+  %.sroa.514.0..sroa_idx15 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 %2, ptr %.sroa.514.0..sroa_idx15, align 8
   store ptr %3, ptr %9, align 8
-  %.sroa.5.0..sroa_idx4 = getelementptr inbounds i8, ptr %9, i64 8
+  %.sroa.5.0..sroa_idx4 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 %4, ptr %.sroa.5.0..sroa_idx4, align 8
   %19 = tail call noundef zeroext i1 @_ZNK4llvm15SpecialCaseList9inSectionENS_9StringRefES1_S1_S1_(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr nonnull @.str.3, i64 6, ptr nonnull @.str.6, i64 3, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %8, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %9) #10
   br i1 %19, label %27, label %20
@@ -442,10 +442,10 @@ define dso_local noundef range(i32 0, 3) i32 @_ZNK5clang18XRayFunctionFilter26sh
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = load ptr, ptr %21, align 8
   store ptr %1, ptr %10, align 8
-  %.sroa.514.0..sroa_idx17 = getelementptr inbounds i8, ptr %10, i64 8
+  %.sroa.514.0..sroa_idx17 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 %2, ptr %.sroa.514.0..sroa_idx17, align 8
   store ptr %3, ptr %11, align 8
-  %.sroa.5.0..sroa_idx6 = getelementptr inbounds i8, ptr %11, i64 8
+  %.sroa.5.0..sroa_idx6 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 %4, ptr %.sroa.5.0..sroa_idx6, align 8
   %23 = tail call noundef zeroext i1 @_ZNK4llvm15SpecialCaseList9inSectionENS_9StringRefES1_S1_S1_(ptr noundef nonnull align 8 dereferenceable(24) %22, ptr nonnull @.str.4, i64 21, ptr nonnull @.str.6, i64 3, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %10, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %11) #10
   br i1 %23, label %27, label %24
@@ -453,10 +453,10 @@ define dso_local noundef range(i32 0, 3) i32 @_ZNK5clang18XRayFunctionFilter26sh
 24:                                               ; preds = %20
   %25 = load ptr, ptr %17, align 8
   store ptr %1, ptr %12, align 8
-  %.sroa.514.0..sroa_idx19 = getelementptr inbounds i8, ptr %12, i64 8
+  %.sroa.514.0..sroa_idx19 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i64 %2, ptr %.sroa.514.0..sroa_idx19, align 8
   store ptr %3, ptr %13, align 8
-  %.sroa.5.0..sroa_idx8 = getelementptr inbounds i8, ptr %13, i64 8
+  %.sroa.5.0..sroa_idx8 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i64 %4, ptr %.sroa.5.0..sroa_idx8, align 8
   %26 = tail call noundef zeroext i1 @_ZNK4llvm15SpecialCaseList9inSectionENS_9StringRefES1_S1_S1_(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr nonnull @.str.5, i64 5, ptr nonnull @.str.6, i64 3, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %12, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %13) #10
   %spec.select = select i1 %26, i32 2, i32 0

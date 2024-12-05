@@ -203,9 +203,9 @@ entry:
 for.body:                                         ; preds = %entry, %for.body
   %pBegin.0266 = phi ptr [ @__const._Z17TestSpanIteratorsRi.arr, %entry ], [ %incdec.ptr, %for.body ]
   %__begin1.0.idx265 = phi i64 [ 0, %entry ], [ %__begin1.0.add, %for.body ]
-  %__begin1.0.ptr = getelementptr inbounds i8, ptr @__const._Z17TestSpanIteratorsRi.arr, i64 %__begin1.0.idx265
+  %__begin1.0.ptr = getelementptr inbounds nuw i8, ptr @__const._Z17TestSpanIteratorsRi.arr, i64 %__begin1.0.idx265
   %0 = load i32, ptr %__begin1.0.ptr, align 4
-  %incdec.ptr = getelementptr inbounds i8, ptr %pBegin.0266, i64 4
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %pBegin.0266, i64 4
   %1 = load i32, ptr %pBegin.0266, align 4
   %cmp3 = icmp eq i32 %0, %1
   %call = tail call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp3, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 160, ptr noundef nonnull @.str.31)
@@ -461,12 +461,12 @@ land.rhs.i:
 for.body.i.i:                                     ; preds = %for.body.i.i, %land.rhs.i
   %first2.addr.06.i.i = phi ptr [ @__const._Z18TestSpanComparisonRi.arr2, %land.rhs.i ], [ %incdec.ptr2.i.i, %for.body.i.i ]
   %first1.addr.05.i.i.idx = phi i64 [ 0, %land.rhs.i ], [ %first1.addr.05.i.i.add, %for.body.i.i ]
-  %first1.addr.05.i.i.ptr = getelementptr inbounds i8, ptr @__const._Z18TestSpanComparisonRi.arr2, i64 %first1.addr.05.i.i.idx
+  %first1.addr.05.i.i.ptr = getelementptr inbounds nuw i8, ptr @__const._Z18TestSpanComparisonRi.arr2, i64 %first1.addr.05.i.i.idx
   %0 = load i32, ptr %first1.addr.05.i.i.ptr, align 4
   %1 = load i32, ptr %first2.addr.06.i.i, align 4
   %cmp1.i.i = icmp eq i32 %0, %1
   %first1.addr.05.i.i.add = add nuw nsw i64 %first1.addr.05.i.i.idx, 4
-  %incdec.ptr2.i.i = getelementptr inbounds i8, ptr %first2.addr.06.i.i, i64 4
+  %incdec.ptr2.i.i = getelementptr inbounds nuw i8, ptr %first2.addr.06.i.i, i64 4
   %cmp.not.i.i = icmp ne i64 %first1.addr.05.i.i.add, 32
   %or.cond.not = select i1 %cmp1.i.i, i1 %cmp.not.i.i, i1 false
   br i1 %or.cond.not, label %for.body.i.i, label %_ZN5eastlneIiLm18446744073709551615EiLm18446744073709551615EEEbNS_4spanIT_XT0_EEENS1_IT1_XT2_EEE.exit, !llvm.loop !5
@@ -478,8 +478,8 @@ _ZN5eastlneIiLm18446744073709551615EiLm18446744073709551615EEEbNS_4spanIT_XT0_EE
 
 for.body.i.i9:                                    ; preds = %_ZN5eastlneIiLm18446744073709551615EiLm18446744073709551615EEEbNS_4spanIT_XT0_EEENS1_IT1_XT2_EEE.exit, %for.inc.i.i10
   %first2.addr.017.i.i.idx = phi i64 [ %first2.addr.017.i.i.add, %for.inc.i.i10 ], [ 0, %_ZN5eastlneIiLm18446744073709551615EiLm18446744073709551615EEEbNS_4spanIT_XT0_EEENS1_IT1_XT2_EEE.exit ]
-  %first2.addr.017.i.i.ptr = getelementptr inbounds i8, ptr @__const._Z18TestSpanComparisonRi.arr2, i64 %first2.addr.017.i.i.idx
-  %first1.addr.016.i.i.ptr = getelementptr inbounds i8, ptr @__const._Z18TestSpanComparisonRi.arr1, i64 %first2.addr.017.i.i.idx
+  %first2.addr.017.i.i.ptr = getelementptr inbounds nuw i8, ptr @__const._Z18TestSpanComparisonRi.arr2, i64 %first2.addr.017.i.i.idx
+  %first1.addr.016.i.i.ptr = getelementptr inbounds nuw i8, ptr @__const._Z18TestSpanComparisonRi.arr1, i64 %first2.addr.017.i.i.idx
   %2 = load i32, ptr %first1.addr.016.i.i.ptr, align 4
   %3 = load i32, ptr %first2.addr.017.i.i.ptr, align 4
   %cmp2.i.i = icmp slt i32 %2, %3
@@ -501,8 +501,8 @@ _ZN5eastlltIiLm18446744073709551615EiLm18446744073709551615EEEbNS_4spanIT_XT0_EE
 
 for.body.i.i.i15:                                 ; preds = %if.end.i.i.i, %_ZN5eastlltIiLm18446744073709551615EiLm18446744073709551615EEEbNS_4spanIT_XT0_EEENS1_IT1_XT2_EEE.exit
   %first2.addr.017.i.i.i.idx = phi i64 [ 0, %_ZN5eastlltIiLm18446744073709551615EiLm18446744073709551615EEEbNS_4spanIT_XT0_EEENS1_IT1_XT2_EEE.exit ], [ %first2.addr.017.i.i.i.add, %if.end.i.i.i ]
-  %first2.addr.017.i.i.i.ptr = getelementptr inbounds i8, ptr @__const._Z18TestSpanComparisonRi.arr1, i64 %first2.addr.017.i.i.i.idx
-  %first1.addr.016.i.i.i.ptr = getelementptr inbounds i8, ptr @__const._Z18TestSpanComparisonRi.arr2, i64 %first2.addr.017.i.i.i.idx
+  %first2.addr.017.i.i.i.ptr = getelementptr inbounds nuw i8, ptr @__const._Z18TestSpanComparisonRi.arr1, i64 %first2.addr.017.i.i.i.idx
+  %first1.addr.016.i.i.i.ptr = getelementptr inbounds nuw i8, ptr @__const._Z18TestSpanComparisonRi.arr2, i64 %first2.addr.017.i.i.i.idx
   %4 = load i32, ptr %first1.addr.016.i.i.i.ptr, align 4
   %5 = load i32, ptr %first2.addr.017.i.i.i.ptr, align 4
   %cmp2.i.i.not.i.not.not.not = icmp sge i32 %4, %5
@@ -521,8 +521,8 @@ _ZN5eastlleIiLm18446744073709551615EiLm18446744073709551615EEEbNS_4spanIT_XT0_EE
 
 for.body.i.i.i27:                                 ; preds = %_ZN5eastlleIiLm18446744073709551615EiLm18446744073709551615EEEbNS_4spanIT_XT0_EEENS1_IT1_XT2_EEE.exit, %for.inc.i.i.i32
   %first2.addr.017.i.i.i28.idx = phi i64 [ %first2.addr.017.i.i.i28.add, %for.inc.i.i.i32 ], [ 0, %_ZN5eastlleIiLm18446744073709551615EiLm18446744073709551615EEEbNS_4spanIT_XT0_EEENS1_IT1_XT2_EEE.exit ]
-  %first2.addr.017.i.i.i28.ptr = getelementptr inbounds i8, ptr @__const._Z18TestSpanComparisonRi.arr2, i64 %first2.addr.017.i.i.i28.idx
-  %first1.addr.016.i.i.i29.ptr = getelementptr inbounds i8, ptr @__const._Z18TestSpanComparisonRi.arr1, i64 %first2.addr.017.i.i.i28.idx
+  %first2.addr.017.i.i.i28.ptr = getelementptr inbounds nuw i8, ptr @__const._Z18TestSpanComparisonRi.arr2, i64 %first2.addr.017.i.i.i28.idx
+  %first1.addr.016.i.i.i29.ptr = getelementptr inbounds nuw i8, ptr @__const._Z18TestSpanComparisonRi.arr1, i64 %first2.addr.017.i.i.i28.idx
   %6 = load i32, ptr %first1.addr.016.i.i.i29.ptr, align 4
   %7 = load i32, ptr %first2.addr.017.i.i.i28.ptr, align 4
   %cmp2.i.i.i = icmp slt i32 %6, %7
@@ -544,8 +544,8 @@ _ZN5eastlgtIiLm18446744073709551615EiLm18446744073709551615EEEbNS_4spanIT_XT0_EE
 
 for.body.i.i.i46:                                 ; preds = %if.end.i.i.i50, %_ZN5eastlgtIiLm18446744073709551615EiLm18446744073709551615EEEbNS_4spanIT_XT0_EEENS1_IT1_XT2_EEE.exit
   %first2.addr.017.i.i.i47.idx = phi i64 [ 0, %_ZN5eastlgtIiLm18446744073709551615EiLm18446744073709551615EEEbNS_4spanIT_XT0_EEENS1_IT1_XT2_EEE.exit ], [ %first2.addr.017.i.i.i47.add, %if.end.i.i.i50 ]
-  %first2.addr.017.i.i.i47.ptr = getelementptr inbounds i8, ptr @__const._Z18TestSpanComparisonRi.arr1, i64 %first2.addr.017.i.i.i47.idx
-  %first1.addr.016.i.i.i48.ptr = getelementptr inbounds i8, ptr @__const._Z18TestSpanComparisonRi.arr2, i64 %first2.addr.017.i.i.i47.idx
+  %first2.addr.017.i.i.i47.ptr = getelementptr inbounds nuw i8, ptr @__const._Z18TestSpanComparisonRi.arr1, i64 %first2.addr.017.i.i.i47.idx
+  %first1.addr.016.i.i.i48.ptr = getelementptr inbounds nuw i8, ptr @__const._Z18TestSpanComparisonRi.arr2, i64 %first2.addr.017.i.i.i47.idx
   %8 = load i32, ptr %first1.addr.016.i.i.i48.ptr, align 4
   %9 = load i32, ptr %first2.addr.017.i.i.i47.ptr, align 4
   %cmp2.i.i.not.i49.not.not.not = icmp sge i32 %8, %9

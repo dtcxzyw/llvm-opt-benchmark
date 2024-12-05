@@ -176,13 +176,13 @@ sub_0:                                            ; preds = %2
   br i1 %.not233, label %sub_1, label %.tail.thread
 
 sub_1:                                            ; preds = %sub_0
-  %10 = getelementptr inbounds i8, ptr %8, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 1
   %11 = load i8, ptr %10, align 1
   %.not234 = icmp eq i8 %11, 63
   br i1 %.not234, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_1
-  %12 = getelementptr inbounds i8, ptr %8, i64 2
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 2
   %13 = load i8, ptr %12, align 1
   %14 = icmp eq i8 %13, 0
   br i1 %14, label %19, label %.tail.thread
@@ -210,13 +210,13 @@ sub_0136:                                         ; preds = %20
   br i1 %.not233, label %sub_1137, label %.tail135.thread
 
 sub_1137:                                         ; preds = %sub_0136
-  %23 = getelementptr inbounds i8, ptr %8, i64 1
+  %23 = getelementptr inbounds nuw i8, ptr %8, i64 1
   %24 = load i8, ptr %23, align 1
   %.not236 = icmp eq i8 %24, 86
   br i1 %.not236, label %.tail135, label %.tail135.thread
 
 .tail135:                                         ; preds = %sub_1137
-  %25 = getelementptr inbounds i8, ptr %8, i64 2
+  %25 = getelementptr inbounds nuw i8, ptr %8, i64 2
   %26 = load i8, ptr %25, align 1
   %27 = icmp eq i8 %26, 0
   br i1 %27, label %28, label %.tail135.thread
@@ -449,7 +449,7 @@ simple_action_list_append.exit.i.cont.backedge:   ; preds = %simple_action_list_
   %107 = getelementptr i8, ptr %103, i64 1
   %108 = call ptr @pg_malloc(i64 noundef 24) #15
   store ptr null, ptr %108, align 8
-  %109 = getelementptr inbounds i8, ptr %108, i64 8
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 8
   store i32 1, ptr %109, align 8
   %.not.i.i = icmp eq ptr %107, null
   br i1 %.not.i.i, label %simple_action_list_append.exit.i, label %110
@@ -460,7 +460,7 @@ simple_action_list_append.exit.i.cont.backedge:   ; preds = %simple_action_list_
 
 simple_action_list_append.exit.i:                 ; preds = %110, %106
   %.sink.i.i = phi ptr [ %111, %110 ], [ null, %106 ]
-  %112 = getelementptr inbounds i8, ptr %108, i64 16
+  %112 = getelementptr inbounds nuw i8, ptr %108, i64 16
   store ptr %.sink.i.i, ptr %112, align 8
   %.not14.i.i = icmp eq ptr %.sroa.36.0, null
   br i1 %.not14.i.i, label %simple_action_list_append.exit.i.cont.backedge, label %simple_action_list_append.exit.i.else
@@ -472,10 +472,10 @@ simple_action_list_append.exit.i.else:            ; preds = %simple_action_list_
 simple_action_list_append.exit58.i:               ; preds = %102
   %113 = call ptr @pg_malloc(i64 noundef 24) #15
   store ptr null, ptr %113, align 8
-  %114 = getelementptr inbounds i8, ptr %113, i64 8
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 8
   store i32 0, ptr %114, align 8
   %115 = call ptr @pg_strdup(ptr noundef nonnull %103) #15
-  %116 = getelementptr inbounds i8, ptr %113, i64 16
+  %116 = getelementptr inbounds nuw i8, ptr %113, i64 16
   store ptr %115, ptr %116, align 8
   %.not14.i56.i = icmp eq ptr %.sroa.36.0, null
   br i1 %.not14.i56.i, label %simple_action_list_append.exit.i.cont.backedge, label %simple_action_list_append.exit58.i.else
@@ -503,7 +503,7 @@ simple_action_list_append.exit58.i.else:          ; preds = %simple_action_list_
   %127 = load ptr, ptr @optarg, align 8
   %128 = call ptr @pg_malloc(i64 noundef 24) #15
   store ptr null, ptr %128, align 8
-  %129 = getelementptr inbounds i8, ptr %128, i64 8
+  %129 = getelementptr inbounds nuw i8, ptr %128, i64 8
   store i32 2, ptr %129, align 8
   %.not.i59.i = icmp eq ptr %127, null
   br i1 %.not.i59.i, label %simple_action_list_append.exit63.i, label %130
@@ -514,7 +514,7 @@ simple_action_list_append.exit58.i.else:          ; preds = %simple_action_list_
 
 simple_action_list_append.exit63.i:               ; preds = %130, %126
   %.sink.i60.i = phi ptr [ %131, %130 ], [ null, %126 ]
-  %132 = getelementptr inbounds i8, ptr %128, i64 16
+  %132 = getelementptr inbounds nuw i8, ptr %128, i64 16
   store ptr %.sink.i60.i, ptr %132, align 8
   %.not14.i61.i = icmp eq ptr %.sroa.36.0, null
   br i1 %.not14.i61.i, label %simple_action_list_append.exit.i.cont.backedge, label %simple_action_list_append.exit63.i.else
@@ -701,13 +701,13 @@ sub_0.i:                                          ; preds = %203
   br i1 %.not.i, label %sub_1.i, label %.loopexit.i
 
 sub_1.i:                                          ; preds = %sub_0.i
-  %210 = getelementptr inbounds i8, ptr %208, i64 1
+  %210 = getelementptr inbounds nuw i8, ptr %208, i64 1
   %211 = load i8, ptr %210, align 1
   %.not64.i = icmp eq i8 %211, 63
   br i1 %.not64.i, label %.tail.i, label %.loopexit.i
 
 .tail.i:                                          ; preds = %sub_1.i
-  %212 = getelementptr inbounds i8, ptr %208, i64 2
+  %212 = getelementptr inbounds nuw i8, ptr %208, i64 2
   %213 = load i8, ptr %212, align 1
   %214 = icmp eq i8 %213, 0
   br i1 %214, label %215, label %.loopexit.i
@@ -824,9 +824,9 @@ parse_psql_options.exit:                          ; preds = %250, %.preheader.i
 259:                                              ; preds = %256
   %260 = call ptr @pg_malloc(i64 noundef 24) #15
   store ptr null, ptr %260, align 8
-  %261 = getelementptr inbounds i8, ptr %260, i64 8
+  %261 = getelementptr inbounds nuw i8, ptr %260, i64 8
   store i32 2, ptr %261, align 8
-  %262 = getelementptr inbounds i8, ptr %260, i64 16
+  %262 = getelementptr inbounds nuw i8, ptr %260, i64 16
   store ptr null, ptr %262, align 8
   %.not14.i = icmp eq ptr %.sroa.36.0, null
   br i1 %.not14.i, label %.cont.thread, label %.else
@@ -1087,7 +1087,7 @@ parse_psql_options.exit:                          ; preds = %250, %.preheader.i
 .lr.ph:                                           ; preds = %376, %417
   %.0230 = phi i32 [ %.2, %417 ], [ 0, %376 ]
   %.079229 = phi ptr [ %418, %417 ], [ %.sroa.28119.0132, %376 ]
-  %377 = getelementptr inbounds i8, ptr %.079229, i64 8
+  %377 = getelementptr inbounds nuw i8, ptr %.079229, i64 8
   %378 = load i32, ptr %377, align 8
   switch i32 %378, label %413 [
     i32 0, label %379
@@ -1102,13 +1102,13 @@ parse_psql_options.exit:                          ; preds = %250, %.preheader.i
   br i1 %381, label %382, label %386
 
 382:                                              ; preds = %379
-  %383 = getelementptr inbounds i8, ptr %.079229, i64 16
+  %383 = getelementptr inbounds nuw i8, ptr %.079229, i64 16
   %384 = load ptr, ptr %383, align 8
   %385 = call i32 @puts(ptr noundef nonnull dereferenceable(1) %384)
   br label %386
 
 386:                                              ; preds = %382, %379
-  %387 = getelementptr inbounds i8, ptr %.079229, i64 16
+  %387 = getelementptr inbounds nuw i8, ptr %.079229, i64 16
   %388 = load ptr, ptr %387, align 8
   %389 = call zeroext i1 @SendQuery(ptr noundef %388) #15
   %not. = xor i1 %389, true
@@ -1122,14 +1122,14 @@ parse_psql_options.exit:                          ; preds = %250, %.preheader.i
   br i1 %393, label %394, label %398
 
 394:                                              ; preds = %391
-  %395 = getelementptr inbounds i8, ptr %.079229, i64 16
+  %395 = getelementptr inbounds nuw i8, ptr %.079229, i64 16
   %396 = load ptr, ptr %395, align 8
   %397 = call i32 @puts(ptr noundef nonnull dereferenceable(1) %396)
   br label %398
 
 398:                                              ; preds = %394, %391
   %399 = call ptr @psql_scan_create(ptr noundef nonnull @psqlscan_callbacks) #15
-  %400 = getelementptr inbounds i8, ptr %.079229, i64 16
+  %400 = getelementptr inbounds nuw i8, ptr %.079229, i64 16
   %401 = load ptr, ptr %400, align 8
   %402 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %401) #16
   %403 = trunc i64 %402 to i32
@@ -1146,7 +1146,7 @@ parse_psql_options.exit:                          ; preds = %250, %.preheader.i
   br label %413
 
 409:                                              ; preds = %.lr.ph
-  %410 = getelementptr inbounds i8, ptr %.079229, i64 16
+  %410 = getelementptr inbounds nuw i8, ptr %.079229, i64 16
   %411 = load ptr, ptr %410, align 8
   %412 = call i32 @process_file(ptr noundef %411, i1 noundef zeroext false) #15
   br label %413

@@ -1883,13 +1883,13 @@ define internal fastcc void @draw_main(ptr noundef %0) unnamed_addr #0 {
 .lr.ph.split.preheader:                           ; preds = %.thread
   %134 = zext i32 %.0138216 to i64
   %135 = sub nuw i32 %119, %.0138216
-  %invariant.gep = getelementptr inbounds i8, ptr %130, i64 4
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %130, i64 4
   br label %.lr.ph.split
 
 .lr.ph.split.us.preheader:                        ; preds = %121
   %136 = zext i32 %.0138216 to i64
   %137 = sub nuw i32 %119, %.0138216
-  %invariant.gep340 = getelementptr inbounds i8, ptr %124, i64 4
+  %invariant.gep278 = getelementptr inbounds nuw i8, ptr %124, i64 4
   br label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %149
@@ -1911,8 +1911,8 @@ define internal fastcc void @draw_main(ptr noundef %0) unnamed_addr #0 {
   br i1 %.not158.us, label %._crit_edge.loopexit.split.loop.exit268, label %149
 
 149:                                              ; preds = %146
-  %gep341 = getelementptr inbounds i32, ptr %invariant.gep340, i64 %139
-  %150 = load i32, ptr %gep341, align 4, !tbaa !15
+  %gep279 = getelementptr inbounds nuw i32, ptr %invariant.gep278, i64 %139
+  %150 = load i32, ptr %gep279, align 4, !tbaa !15
   %151 = sub nsw i32 %138, %150
   store i32 %151, ptr %5, align 4, !tbaa !41
   %indvars.iv.next236 = add nuw nsw i64 %indvars.iv235, 1
@@ -1939,7 +1939,7 @@ define internal fastcc void @draw_main(ptr noundef %0) unnamed_addr #0 {
   br i1 %.not158, label %._crit_edge.loopexit254.split.loop.exit258, label %163
 
 163:                                              ; preds = %160
-  %gep = getelementptr inbounds i32, ptr %invariant.gep, i64 %153
+  %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %153
   %164 = load i32, ptr %gep, align 4, !tbaa !15
   %165 = add nsw i32 %152, %164
   store i32 %165, ptr %42, align 4, !tbaa !42
@@ -2304,7 +2304,7 @@ define internal fastcc i32 @get_row_height(ptr nocapture noundef readonly %0, i3
 
 .lr.ph.preheader:                                 ; preds = %30
   %37 = sub nuw i32 %35, %.06493
-  %invariant.gep = getelementptr inbounds i8, ptr %31, i64 4
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %31, i64 4
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %48
@@ -2326,7 +2326,7 @@ define internal fastcc i32 @get_row_height(ptr nocapture noundef readonly %0, i3
   br i1 %.not, label %.thread.loopexit.split.loop.exit, label %48
 
 48:                                               ; preds = %45
-  %gep = getelementptr inbounds i32, ptr %invariant.gep, i64 %38
+  %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %38
   %49 = load i32, ptr %gep, align 4, !tbaa !15
   %50 = add nsw i32 %49, %.06881
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

@@ -42,7 +42,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 land.lhs.true2.i:                                 ; preds = %entry
-  %iov_len.i = getelementptr inbounds i8, ptr %out_iov, i64 8
+  %iov_len.i = getelementptr inbounds nuw i8, ptr %out_iov, i64 8
   %1 = load i64, ptr %iov_len.i, align 8
   %cmp5.i = icmp ugt i64 %1, 15
   br i1 %cmp5.i, label %iov_to_buf.exit.thread, label %iov_to_buf.exit
@@ -79,7 +79,7 @@ if.end11:                                         ; preds = %if.end6
   %conv13 = trunc i64 %call12 to i32
   %arrayidx16 = getelementptr %struct.iovec, ptr %in_iov, i64 %idxprom
   %4 = load ptr, ptr %arrayidx16, align 8
-  %iov_len20 = getelementptr inbounds i8, ptr %arrayidx16, i64 8
+  %iov_len20 = getelementptr inbounds nuw i8, ptr %arrayidx16, i64 8
   %5 = load i64, ptr %iov_len20, align 8
   %add.ptr = getelementptr i8, ptr %4, i64 %5
   %add.ptr21 = getelementptr i8, ptr %add.ptr, i64 -1
@@ -98,12 +98,12 @@ if.end11:                                         ; preds = %if.end6
 sw.bb:                                            ; preds = %if.end11, %if.end11
   %and25 = and i32 %6, 1
   %tobool26.not = icmp eq i32 %and25, 0
-  %sector = getelementptr inbounds i8, ptr %out, i64 8
+  %sector = getelementptr inbounds nuw i8, ptr %out, i64 8
   %7 = load i64, ptr %sector, align 8
   br i1 %tobool26.not, label %if.end35, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %sw.bb
-  %writable = getelementptr inbounds i8, ptr %handler, i64 20
+  %writable = getelementptr inbounds nuw i8, ptr %handler, i64 20
   %8 = load i8, ptr %writable, align 4
   %tobool30 = trunc i8 %8 to i1
   br i1 %tobool30, label %if.then34, label %if.then31
@@ -121,9 +121,9 @@ if.end35:                                         ; preds = %sw.bb, %if.then34
   %in_iov.sink = phi ptr [ %9, %if.then34 ], [ %in_iov, %sw.bb ]
   %10 = load i32, ptr %in_num.addr.sink, align 4
   call void @qemu_iovec_init_external(ptr noundef nonnull %qiov, ptr noundef %in_iov.sink, i32 noundef %10) #6
-  %logical_block_size = getelementptr inbounds i8, ptr %handler, i64 16
+  %logical_block_size = getelementptr inbounds nuw i8, ptr %handler, i64 16
   %11 = load i32, ptr %logical_block_size, align 8
-  %size = getelementptr inbounds i8, ptr %qiov, i64 32
+  %size = getelementptr inbounds nuw i8, ptr %qiov, i64 32
   %12 = load i64, ptr %size, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %total_sectors.i)
   %rem.i = and i64 %12, 511
@@ -199,7 +199,7 @@ if.else71:                                        ; preds = %sw.bb65
   br label %return
 
 sw.bb74:                                          ; preds = %if.end11
-  %serial = getelementptr inbounds i8, ptr %handler, i64 8
+  %serial = getelementptr inbounds nuw i8, ptr %handler, i64 8
   %15 = load ptr, ptr %serial, align 8
   %call76 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %15) #7
   %16 = load i32, ptr %in_num.addr, align 4
@@ -214,7 +214,7 @@ sw.bb74:                                          ; preds = %if.end11
   br label %return
 
 sw.bb90:                                          ; preds = %if.end11, %if.end11
-  %writable91 = getelementptr inbounds i8, ptr %handler, i64 20
+  %writable91 = getelementptr inbounds nuw i8, ptr %handler, i64 20
   %19 = load i8, ptr %writable91, align 4
   %tobool92 = trunc i8 %19 to i1
   br i1 %tobool92, label %if.end95, label %if.then93
@@ -308,7 +308,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not.i, label %iov_to_buf.exit, label %land.lhs.true2.i
 
 land.lhs.true2.i:                                 ; preds = %if.end
-  %iov_len.i = getelementptr inbounds i8, ptr %iov, i64 8
+  %iov_len.i = getelementptr inbounds nuw i8, ptr %iov, i64 8
   %1 = load i64, ptr %iov_len.i, align 8
   %cmp5.i = icmp ugt i64 %1, 15
   br i1 %cmp5.i, label %iov_to_buf.exit.thread, label %iov_to_buf.exit
@@ -329,16 +329,16 @@ if.then12:                                        ; preds = %iov_to_buf.exit
 
 if.end13:                                         ; preds = %iov_to_buf.exit.thread, %iov_to_buf.exit
   %3 = load i64, ptr %desc, align 8
-  %num_sectors16 = getelementptr inbounds i8, ptr %desc, i64 8
+  %num_sectors16 = getelementptr inbounds nuw i8, ptr %desc, i64 8
   %4 = load i32, ptr %num_sectors16, align 8
-  %flags18 = getelementptr inbounds i8, ptr %desc, i64 12
+  %flags18 = getelementptr inbounds nuw i8, ptr %desc, i64 12
   %5 = load i32, ptr %flags18, align 4
   %cmp22 = icmp ugt i32 %4, 32768
   br i1 %cmp22, label %return, label %if.end31
 
 if.end31:                                         ; preds = %if.end13
   %shl = shl nuw nsw i32 %4, 9
-  %logical_block_size = getelementptr inbounds i8, ptr %handler, i64 16
+  %logical_block_size = getelementptr inbounds nuw i8, ptr %handler, i64 16
   %6 = load i32, ptr %logical_block_size, align 8
   %conv32 = zext nneg i32 %shl to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %total_sectors.i)

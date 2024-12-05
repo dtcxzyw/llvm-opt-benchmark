@@ -50,9 +50,9 @@ entry:
 define void @_ZN6icu_7523RuleBasedTransliterator10_constructERKNS_13UnicodeStringE15UTransDirectionR11UParseErrorR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(97) initializes((88, 97)) %this, ptr noundef nonnull align 8 dereferenceable(64) %rules, i32 noundef %direction, ptr noundef nonnull align 4 dereferenceable(72) %parseError, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %parser = alloca %"class.icu_75::TransliteratorParser", align 8
-  %fData = getelementptr inbounds i8, ptr %this, i64 88
+  %fData = getelementptr inbounds nuw i8, ptr %this, i64 88
   store ptr null, ptr %fData, align 8
-  %isDataOwned = getelementptr inbounds i8, ptr %this, i64 96
+  %isDataOwned = getelementptr inbounds nuw i8, ptr %this, i64 96
   store i8 1, ptr %isDataOwned, align 8
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -75,14 +75,14 @@ lpad:                                             ; preds = %invoke.cont21, %inv
   resume { ptr, i32 } %2
 
 if.end6:                                          ; preds = %invoke.cont
-  %count.i = getelementptr inbounds i8, ptr %parser, i64 56
+  %count.i = getelementptr inbounds nuw i8, ptr %parser, i64 56
   %3 = load i32, ptr %count.i, align 8
   %cmp = icmp ne i32 %3, 0
-  %compoundFilter = getelementptr inbounds i8, ptr %parser, i64 88
+  %compoundFilter = getelementptr inbounds nuw i8, ptr %parser, i64 88
   %4 = load ptr, ptr %compoundFilter, align 8
   %cmp9 = icmp ne ptr %4, null
   %or.cond = select i1 %cmp, i1 true, i1 %cmp9
-  %count.i7 = getelementptr inbounds i8, ptr %parser, i64 16
+  %count.i7 = getelementptr inbounds nuw i8, ptr %parser, i64 16
   %5 = load i32, ptr %count.i7, align 8
   %cmp13 = icmp eq i32 %5, 0
   %or.cond8 = select i1 %or.cond, i1 true, i1 %cmp13
@@ -93,13 +93,13 @@ if.then14:                                        ; preds = %if.end6
   br label %cleanup
 
 if.end15:                                         ; preds = %if.end6
-  %dataVector = getelementptr inbounds i8, ptr %parser, i64 8
+  %dataVector = getelementptr inbounds nuw i8, ptr %parser, i64 8
   %call18 = invoke noundef ptr @_ZN6icu_757UVector15orphanElementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %dataVector, i32 noundef 0)
           to label %invoke.cont17 unwind label %lpad
 
 invoke.cont17:                                    ; preds = %if.end15
   store ptr %call18, ptr %fData, align 8
-  %ruleSet = getelementptr inbounds i8, ptr %call18, i64 8
+  %ruleSet = getelementptr inbounds nuw i8, ptr %call18, i64 8
   %call22 = invoke noundef i32 @_ZNK6icu_7522TransliterationRuleSet23getMaximumContextLengthEv(ptr noundef nonnull align 8 dereferenceable(1056) %ruleSet)
           to label %invoke.cont21 unwind label %lpad
 
@@ -158,11 +158,11 @@ define void @_ZN6icu_7523RuleBasedTransliteratorC2ERKNS_13UnicodeStringEPKNS_23T
 entry:
   tail call void @_ZN6icu_7514TransliteratorC2ERKNS_13UnicodeStringEPNS_13UnicodeFilterE(ptr noundef nonnull align 8 dereferenceable(84) %this, ptr noundef nonnull align 8 dereferenceable(64) %id, ptr noundef %adoptedFilter)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7523RuleBasedTransliteratorE, i64 16), ptr %this, align 8
-  %fData = getelementptr inbounds i8, ptr %this, i64 88
+  %fData = getelementptr inbounds nuw i8, ptr %this, i64 88
   store ptr %theData, ptr %fData, align 8
-  %isDataOwned = getelementptr inbounds i8, ptr %this, i64 96
+  %isDataOwned = getelementptr inbounds nuw i8, ptr %this, i64 96
   store i8 0, ptr %isDataOwned, align 8
-  %ruleSet = getelementptr inbounds i8, ptr %theData, i64 8
+  %ruleSet = getelementptr inbounds nuw i8, ptr %theData, i64 8
   %call = invoke noundef i32 @_ZNK6icu_7522TransliterationRuleSet23getMaximumContextLengthEv(ptr noundef nonnull align 8 dereferenceable(1056) %ruleSet)
           to label %invoke.cont unwind label %lpad
 
@@ -185,11 +185,11 @@ define void @_ZN6icu_7523RuleBasedTransliteratorC2ERKNS_13UnicodeStringEPNS_23Tr
 entry:
   tail call void @_ZN6icu_7514TransliteratorC2ERKNS_13UnicodeStringEPNS_13UnicodeFilterE(ptr noundef nonnull align 8 dereferenceable(84) %this, ptr noundef nonnull align 8 dereferenceable(64) %id, ptr noundef null)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7523RuleBasedTransliteratorE, i64 16), ptr %this, align 8
-  %fData = getelementptr inbounds i8, ptr %this, i64 88
+  %fData = getelementptr inbounds nuw i8, ptr %this, i64 88
   store ptr %theData, ptr %fData, align 8
-  %isDataOwned = getelementptr inbounds i8, ptr %this, i64 96
+  %isDataOwned = getelementptr inbounds nuw i8, ptr %this, i64 96
   store i8 %isDataAdopted, ptr %isDataOwned, align 8
-  %ruleSet = getelementptr inbounds i8, ptr %theData, i64 8
+  %ruleSet = getelementptr inbounds nuw i8, ptr %theData, i64 8
   %call = invoke noundef i32 @_ZNK6icu_7522TransliterationRuleSet23getMaximumContextLengthEv(ptr noundef nonnull align 8 dereferenceable(1056) %ruleSet)
           to label %invoke.cont unwind label %lpad
 
@@ -212,12 +212,12 @@ define void @_ZN6icu_7523RuleBasedTransliteratorC2ERKS0_(ptr noundef nonnull ali
 entry:
   tail call void @_ZN6icu_7514TransliteratorC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(84) %this, ptr noundef nonnull align 8 dereferenceable(84) %other)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7523RuleBasedTransliteratorE, i64 16), ptr %this, align 8
-  %fData = getelementptr inbounds i8, ptr %this, i64 88
-  %fData2 = getelementptr inbounds i8, ptr %other, i64 88
+  %fData = getelementptr inbounds nuw i8, ptr %this, i64 88
+  %fData2 = getelementptr inbounds nuw i8, ptr %other, i64 88
   %0 = load ptr, ptr %fData2, align 8
   store ptr %0, ptr %fData, align 8
-  %isDataOwned = getelementptr inbounds i8, ptr %this, i64 96
-  %isDataOwned3 = getelementptr inbounds i8, ptr %other, i64 96
+  %isDataOwned = getelementptr inbounds nuw i8, ptr %this, i64 96
+  %isDataOwned3 = getelementptr inbounds nuw i8, ptr %other, i64 96
   %1 = load i8, ptr %isDataOwned3, align 8
   store i8 %1, ptr %isDataOwned, align 8
   %tobool.not = icmp eq i8 %1, 0
@@ -262,13 +262,13 @@ declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #3
 define void @_ZN6icu_7523RuleBasedTransliteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(97) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7523RuleBasedTransliteratorE, i64 16), ptr %this, align 8
-  %isDataOwned = getelementptr inbounds i8, ptr %this, i64 96
+  %isDataOwned = getelementptr inbounds nuw i8, ptr %this, i64 96
   %0 = load i8, ptr %isDataOwned, align 8
   %tobool.not = icmp eq i8 %0, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %fData = getelementptr inbounds i8, ptr %this, i64 88
+  %fData = getelementptr inbounds nuw i8, ptr %this, i64 88
   %1 = load ptr, ptr %fData, align 8
   %isnull = icmp eq ptr %1, null
   br i1 %isnull, label %if.end, label %delete.notnull
@@ -318,9 +318,9 @@ lpad:                                             ; preds = %new.notnull
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK6icu_7523RuleBasedTransliterator19handleTransliterateERNS_11ReplaceableER14UTransPositiona(ptr nocapture noundef nonnull readonly align 8 dereferenceable(97) %this, ptr noundef nonnull align 8 dereferenceable(8) %text, ptr noundef nonnull align 4 dereferenceable(16) %index, i8 noundef signext %isIncremental) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %limit = getelementptr inbounds i8, ptr %index, i64 12
+  %limit = getelementptr inbounds nuw i8, ptr %index, i64 12
   %0 = load i32, ptr %limit, align 4
-  %start = getelementptr inbounds i8, ptr %index, i64 8
+  %start = getelementptr inbounds nuw i8, ptr %index, i64 8
   %1 = load i32, ptr %start, align 4
   %sub = sub nsw i32 %0, %1
   %cmp = icmp ult i32 %sub, 268435456
@@ -356,7 +356,7 @@ terminate.lpad.i10:                               ; preds = %if.then3
   unreachable
 
 if.end5:                                          ; preds = %if.then3, %_ZN6icu_755MutexD2Ev.exit
-  %fData = getelementptr inbounds i8, ptr %this, i64 88
+  %fData = getelementptr inbounds nuw i8, ptr %this, i64 88
   %7 = load ptr, ptr %fData, align 8
   %cmp6.not = icmp eq ptr %7, null
   br i1 %cmp6.not, label %if.end14, label %while.cond.preheader
@@ -380,7 +380,7 @@ while.cond:                                       ; preds = %land.rhs
 land.rhs:                                         ; preds = %while.cond.preheader, %while.cond
   %loopCount.016 = phi i32 [ %inc, %while.cond ], [ 0, %while.cond.preheader ]
   %12 = load ptr, ptr %fData, align 8
-  %ruleSet = getelementptr inbounds i8, ptr %12, i64 8
+  %ruleSet = getelementptr inbounds nuw i8, ptr %12, i64 8
   %call = tail call noundef signext i8 @_ZN6icu_7522TransliterationRuleSet13transliterateERNS_11ReplaceableER14UTransPositiona(ptr noundef nonnull align 8 dereferenceable(1056) %ruleSet, ptr noundef nonnull align 8 dereferenceable(8) %text, ptr noundef nonnull align 4 dereferenceable(16) %index, i8 noundef signext %isIncremental)
   %tobool13.not = icmp eq i8 %call, 0
   br i1 %tobool13.not, label %if.end14, label %while.cond
@@ -418,9 +418,9 @@ declare void @umtx_unlock_75(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7523RuleBasedTransliterator7toRulesERNS_13UnicodeStringEa(ptr nocapture noundef nonnull readonly align 8 dereferenceable(97) %this, ptr noundef nonnull align 8 dereferenceable(64) %rulesSource, i8 noundef signext %escapeUnprintable) unnamed_addr #1 align 2 {
 entry:
-  %fData = getelementptr inbounds i8, ptr %this, i64 88
+  %fData = getelementptr inbounds nuw i8, ptr %this, i64 88
   %0 = load ptr, ptr %fData, align 8
-  %ruleSet = getelementptr inbounds i8, ptr %0, i64 8
+  %ruleSet = getelementptr inbounds nuw i8, ptr %0, i64 8
   %call = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7522TransliterationRuleSet7toRulesERNS_13UnicodeStringEa(ptr noundef nonnull align 8 dereferenceable(1056) %ruleSet, ptr noundef nonnull align 8 dereferenceable(64) %rulesSource, i8 noundef signext %escapeUnprintable)
   ret ptr %call
 }
@@ -430,9 +430,9 @@ declare noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7522Transliter
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK6icu_7523RuleBasedTransliterator18handleGetSourceSetERNS_10UnicodeSetE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(97) %this, ptr noundef nonnull align 8 dereferenceable(200) %result) unnamed_addr #1 align 2 {
 entry:
-  %fData = getelementptr inbounds i8, ptr %this, i64 88
+  %fData = getelementptr inbounds nuw i8, ptr %this, i64 88
   %0 = load ptr, ptr %fData, align 8
-  %ruleSet = getelementptr inbounds i8, ptr %0, i64 8
+  %ruleSet = getelementptr inbounds nuw i8, ptr %0, i64 8
   %call = tail call noundef nonnull align 8 dereferenceable(200) ptr @_ZNK6icu_7522TransliterationRuleSet18getSourceTargetSetERNS_10UnicodeSetEa(ptr noundef nonnull align 8 dereferenceable(1056) %ruleSet, ptr noundef nonnull align 8 dereferenceable(200) %result, i8 noundef signext 0)
   ret void
 }
@@ -442,9 +442,9 @@ declare noundef nonnull align 8 dereferenceable(200) ptr @_ZNK6icu_7522Translite
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull align 8 dereferenceable(200) ptr @_ZNK6icu_7523RuleBasedTransliterator12getTargetSetERNS_10UnicodeSetE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(97) %this, ptr noundef nonnull align 8 dereferenceable(200) %result) unnamed_addr #1 align 2 {
 entry:
-  %fData = getelementptr inbounds i8, ptr %this, i64 88
+  %fData = getelementptr inbounds nuw i8, ptr %this, i64 88
   %0 = load ptr, ptr %fData, align 8
-  %ruleSet = getelementptr inbounds i8, ptr %0, i64 8
+  %ruleSet = getelementptr inbounds nuw i8, ptr %0, i64 8
   %call = tail call noundef nonnull align 8 dereferenceable(200) ptr @_ZNK6icu_7522TransliterationRuleSet18getSourceTargetSetERNS_10UnicodeSetEa(ptr noundef nonnull align 8 dereferenceable(1056) %ruleSet, ptr noundef nonnull align 8 dereferenceable(200) %result, i8 noundef signext 1)
   ret ptr %call
 }

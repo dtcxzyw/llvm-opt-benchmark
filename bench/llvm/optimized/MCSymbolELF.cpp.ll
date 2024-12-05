@@ -61,7 +61,7 @@ define dso_local noundef range(i32 0, 11) i32 @_ZNK4llvm11MCSymbolELF10getBindin
 switch.lookup:                                    ; preds = %1
   %sum.shift = lshr i64 %3, 35
   %5 = and i64 %sum.shift, 3
-  %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table._ZNK4llvm11MCSymbolELF10getBindingEv, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZNK4llvm11MCSymbolELF10getBindingEv, i64 0, i64 %5
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZNK4llvm8MCSymbol9isDefinedEv.exit.thread
 
@@ -159,7 +159,7 @@ switch.lookup:
   %2 = load i64, ptr %1, align 8
   %3 = lshr i64 %2, 32
   %4 = and i64 %3, 7
-  %switch.gep = getelementptr inbounds [7 x i32], ptr @switch.table._ZNK4llvm11MCSymbolELF7getTypeEv, i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw [7 x i32], ptr @switch.table._ZNK4llvm11MCSymbolELF7getTypeEv, i64 0, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }

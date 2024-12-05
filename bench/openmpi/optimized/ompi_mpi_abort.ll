@@ -65,7 +65,7 @@ opal_gethostname.exit:                            ; preds = %6, %11
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %21 = load ptr, ptr @stderr, align 8
   %22 = load ptr, ptr %3, align 8
-  %23 = getelementptr inbounds ptr, ptr %22, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv
   %24 = load ptr, ptr %23, align 8
   %25 = trunc nuw nsw i64 %indvars.iv to i32
   %26 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %21, ptr noundef nonnull @.str, ptr noundef %.0, i32 noundef %13, i32 noundef %25, ptr noundef %24) #9
@@ -146,16 +146,16 @@ define internal fastcc void @try_kill_peers(ptr nocapture noundef nonnull readon
   %.val = load ptr, ptr %3, align 8
   %4 = getelementptr i8, ptr %.val, i64 16
   %.val.val = load i32, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 224
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %6 = load i32, ptr %5, align 8
   %7 = and i32 %6, 1
   %.not.i = icmp eq i32 %7, 0
   br i1 %.not.i, label %ompi_comm_remote_size.exit, label %8
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 256
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load i32, ptr %11, align 8
   br label %ompi_comm_remote_size.exit
 
@@ -178,7 +178,7 @@ ompi_comm_remote_size.exit:                       ; preds = %2, %8
 .lr.ph:                                           ; preds = %19
   %21 = getelementptr i8, ptr %0, i64 220
   %.val34 = load i32, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %0, i64 256
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %23 = zext i32 %.val34 to i64
   br label %26
 
@@ -189,7 +189,7 @@ ompi_comm_remote_size.exit:                       ; preds = %2, %8
 .preheader:                                       ; preds = %.preheader.loopexit, %19
   %.030.lcssa = phi i32 [ %14, %19 ], [ %.131, %.preheader.loopexit ]
   %.0.lcssa = phi i64 [ 0, %19 ], [ %24, %.preheader.loopexit ]
-  %25 = getelementptr inbounds i8, ptr %0, i64 256
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 256
   br label %67
 
 26:                                               ; preds = %.lr.ph, %63
@@ -209,9 +209,9 @@ ompi_comm_remote_size.exit:                       ; preds = %2, %8
   %32 = sext i32 %.045 to i64
   %33 = getelementptr inbounds %struct.opal_process_name_t, ptr %16, i64 %32
   %34 = load ptr, ptr %22, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 32
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds ptr, ptr %36, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv
   %38 = load ptr, ptr %37, align 8
   %39 = ptrtoint ptr %38 to i64
   %40 = and i64 %39, 1
@@ -225,14 +225,14 @@ ompi_comm_remote_size.exit:                       ; preds = %2, %8
   %.sroa.0.0.insert.insert.i.i.i = or disjoint i64 %43, %44
   %45 = tail call ptr @ompi_proc_for_name(i64 %.sroa.0.0.insert.insert.i.i.i) #8
   %46 = load ptr, ptr %35, align 8
-  %47 = getelementptr inbounds ptr, ptr %46, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw ptr, ptr %46, i64 %indvars.iv
   %48 = ptrtoint ptr %45 to i64
   %49 = cmpxchg volatile ptr %47, i64 %39, i64 %48 acquire monotonic, align 8
   %50 = extractvalue { i64, i1 } %49, 1
   br i1 %50, label %51, label %ompi_group_get_proc_ptr.exit
 
 51:                                               ; preds = %41
-  %52 = getelementptr inbounds i8, ptr %45, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %53 = load i8, ptr @opal_uses_threads, align 1
   %54 = trunc i8 %53 to i1
   br i1 %54, label %55, label %57
@@ -250,7 +250,7 @@ ompi_comm_remote_size.exit:                       ; preds = %2, %8
 
 ompi_group_get_proc_ptr.exit:                     ; preds = %30, %41, %55, %57
   %.0.i.i = phi ptr [ %38, %30 ], [ %45, %57 ], [ %45, %55 ], [ %45, %41 ]
-  %61 = getelementptr inbounds i8, ptr %.0.i.i, i64 40
+  %61 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 40
   %62 = load i64, ptr %61, align 8
   store i64 %62, ptr %33, align 4
   %.val33.pre = load ptr, ptr %3, align 8
@@ -277,7 +277,7 @@ ompi_group_get_proc_ptr.exit:                     ; preds = %30, %41, %55, %57
 
 70:                                               ; preds = %67
   %71 = load ptr, ptr %25, align 8
-  %72 = getelementptr inbounds i8, ptr %71, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 16
   %73 = load i32, ptr %72, align 8
   %74 = sext i32 %73 to i64
   br label %ompi_comm_remote_size.exit36
@@ -291,9 +291,9 @@ ompi_comm_remote_size.exit36:                     ; preds = %67, %70
   %indvars.iv.next51 = add nsw i64 %indvars.iv50, 1
   %78 = getelementptr inbounds %struct.opal_process_name_t, ptr %16, i64 %indvars.iv50
   %79 = load ptr, ptr %25, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 32
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 32
   %81 = load ptr, ptr %80, align 8
-  %82 = getelementptr inbounds ptr, ptr %81, i64 %indvars.iv48
+  %82 = getelementptr inbounds nuw ptr, ptr %81, i64 %indvars.iv48
   %83 = load ptr, ptr %82, align 8
   %84 = ptrtoint ptr %83 to i64
   %85 = and i64 %84, 1
@@ -307,14 +307,14 @@ ompi_comm_remote_size.exit36:                     ; preds = %67, %70
   %.sroa.0.0.insert.insert.i.i.i38 = or disjoint i64 %88, %89
   %90 = tail call ptr @ompi_proc_for_name(i64 %.sroa.0.0.insert.insert.i.i.i38) #8
   %91 = load ptr, ptr %80, align 8
-  %92 = getelementptr inbounds ptr, ptr %91, i64 %indvars.iv48
+  %92 = getelementptr inbounds nuw ptr, ptr %91, i64 %indvars.iv48
   %93 = ptrtoint ptr %90 to i64
   %94 = cmpxchg volatile ptr %92, i64 %84, i64 %93 acquire monotonic, align 8
   %95 = extractvalue { i64, i1 } %94, 1
   br i1 %95, label %96, label %ompi_group_get_proc_ptr.exit40
 
 96:                                               ; preds = %86
-  %97 = getelementptr inbounds i8, ptr %90, i64 8
+  %97 = getelementptr inbounds nuw i8, ptr %90, i64 8
   %98 = load i8, ptr @opal_uses_threads, align 1
   %99 = trunc i8 %98 to i1
   br i1 %99, label %100, label %102
@@ -332,7 +332,7 @@ ompi_comm_remote_size.exit36:                     ; preds = %67, %70
 
 ompi_group_get_proc_ptr.exit40:                   ; preds = %77, %86, %100, %102
   %.0.i.i39 = phi ptr [ %83, %77 ], [ %90, %102 ], [ %90, %100 ], [ %90, %86 ]
-  %106 = getelementptr inbounds i8, ptr %.0.i.i39, i64 40
+  %106 = getelementptr inbounds nuw i8, ptr %.0.i.i39, i64 40
   %107 = load i64, ptr %106, align 8
   store i64 %107, ptr %78, align 4
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1

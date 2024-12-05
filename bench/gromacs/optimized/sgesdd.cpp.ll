@@ -326,7 +326,7 @@ define void @sgesdd_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %179 = add i32 %reass.sub, 1
   store i32 %179, ptr %15, align 4
   %180 = zext nneg i32 %176 to i64
-  %181 = getelementptr inbounds float, ptr %39, i64 %180
+  %181 = getelementptr inbounds nuw float, ptr %39, i64 %180
   %182 = sext i32 %177 to i64
   %183 = getelementptr inbounds float, ptr %39, i64 %182
   call void @sgeqrf_(ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef nonnull %181, ptr noundef nonnull %183, ptr noundef nonnull %15, ptr noundef nonnull %20)
@@ -483,7 +483,7 @@ define void @sgesdd_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %270 = add i32 %reass.sub697, 1
   store i32 %270, ptr %15, align 4
   %271 = zext nneg i32 %267 to i64
-  %272 = getelementptr inbounds float, ptr %39, i64 %271
+  %272 = getelementptr inbounds nuw float, ptr %39, i64 %271
   %273 = sext i32 %268 to i64
   %274 = getelementptr inbounds float, ptr %39, i64 %273
   call void @sgelqf_(ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef nonnull %272, ptr noundef nonnull %274, ptr noundef nonnull %15, ptr noundef nonnull %20)

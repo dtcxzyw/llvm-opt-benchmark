@@ -38,17 +38,17 @@ define dso_local zeroext i1 @hashvalidate(i32 noundef %0) local_unnamed_addr #0 
   unreachable
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %3, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 22
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 22
   %11 = load i8, ptr %10, align 2
   %12 = zext i8 %11 to i64
   %13 = getelementptr i8, ptr %9, i64 %12
-  %14 = getelementptr inbounds i8, ptr %13, i64 80
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 80
   %15 = load i32, ptr %14, align 4
-  %16 = getelementptr inbounds i8, ptr %13, i64 84
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 84
   %17 = load i32, ptr %16, align 4
-  %18 = getelementptr inbounds i8, ptr %13, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %19 = zext i32 %15 to i64
   %20 = tail call ptr @SearchSysCache1(i32 noundef 40, i64 noundef %19) #4
   %.not106 = icmp eq ptr %20, null
@@ -62,34 +62,34 @@ define dso_local zeroext i1 @hashvalidate(i32 noundef %0) local_unnamed_addr #0 
   unreachable
 
 24:                                               ; preds = %7
-  %25 = getelementptr inbounds i8, ptr %20, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 22
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 22
   %28 = load i8, ptr %27, align 2
   %29 = zext i8 %28 to i64
   %30 = getelementptr i8, ptr %26, i64 %29
-  %31 = getelementptr inbounds i8, ptr %30, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = tail call ptr @SearchSysCacheList(i32 noundef 4, i32 noundef 1, i64 noundef %19, i64 noundef 0, i64 noundef 0) #4
   %33 = tail call ptr @SearchSysCacheList(i32 noundef 5, i32 noundef 1, i64 noundef %19, i64 noundef 0, i64 noundef 0) #4
-  %34 = getelementptr inbounds i8, ptr %33, i64 64
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 64
   %35 = load i32, ptr %34, align 8
   %36 = icmp sgt i32 %35, 0
   br i1 %36, label %.lr.ph, label %.preheader
 
 .lr.ph:                                           ; preds = %24
-  %37 = getelementptr inbounds i8, ptr %33, i64 80
+  %37 = getelementptr inbounds nuw i8, ptr %33, i64 80
   br label %42
 
 .preheader:                                       ; preds = %145, %24
   %.096.lcssa = phi ptr [ null, %24 ], [ %.197, %145 ]
   %.0.lcssa = phi i1 [ true, %24 ], [ %.2, %145 ]
-  %38 = getelementptr inbounds i8, ptr %32, i64 64
+  %38 = getelementptr inbounds nuw i8, ptr %32, i64 64
   %39 = load i32, ptr %38, align 8
   %40 = icmp sgt i32 %39, 0
   br i1 %40, label %.lr.ph133, label %._crit_edge
 
 .lr.ph133:                                        ; preds = %.preheader
-  %41 = getelementptr inbounds i8, ptr %32, i64 80
+  %41 = getelementptr inbounds nuw i8, ptr %32, i64 80
   br label %149
 
 42:                                               ; preds = %.lr.ph, %145
@@ -98,15 +98,15 @@ define dso_local zeroext i1 @hashvalidate(i32 noundef %0) local_unnamed_addr #0 
   %.096128 = phi ptr [ null, %.lr.ph ], [ %.197, %145 ]
   %43 = getelementptr [0 x ptr], ptr %37, i64 0, i64 %indvars.iv
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 80
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 80
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 22
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 22
   %48 = load i8, ptr %47, align 2
   %49 = zext i8 %48 to i64
   %50 = getelementptr i8, ptr %46, i64 %49
-  %51 = getelementptr inbounds i8, ptr %50, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %52 = load i32, ptr %51, align 4
-  %53 = getelementptr inbounds i8, ptr %50, i64 12
+  %53 = getelementptr inbounds nuw i8, ptr %50, i64 12
   %54 = load i32, ptr %53, align 4
   %.not115 = icmp eq i32 %52, %54
   br i1 %.not115, label %63, label %55
@@ -117,7 +117,7 @@ define dso_local zeroext i1 @hashvalidate(i32 noundef %0) local_unnamed_addr #0 
 
 57:                                               ; preds = %55
   %58 = tail call i32 @errcode(i32 noundef 117833860) #4
-  %59 = getelementptr inbounds i8, ptr %50, i64 20
+  %59 = getelementptr inbounds nuw i8, ptr %50, i64 20
   %60 = load i32, ptr %59, align 4
   %61 = tail call ptr @format_procedure(i32 noundef %60) #4
   %62 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3, ptr noundef nonnull %31, ptr noundef nonnull @.str.4, ptr noundef %61) #4
@@ -126,7 +126,7 @@ define dso_local zeroext i1 @hashvalidate(i32 noundef %0) local_unnamed_addr #0 
 
 63:                                               ; preds = %57, %55, %42
   %.1 = phi i1 [ %.0129, %42 ], [ false, %55 ], [ false, %57 ]
-  %64 = getelementptr inbounds i8, ptr %50, i64 16
+  %64 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %65 = load i16, ptr %64, align 4
   switch i16 %65, label %135 [
     i16 1, label %66
@@ -135,7 +135,7 @@ define dso_local zeroext i1 @hashvalidate(i32 noundef %0) local_unnamed_addr #0 
   ]
 
 66:                                               ; preds = %63, %63
-  %67 = getelementptr inbounds i8, ptr %50, i64 20
+  %67 = getelementptr inbounds nuw i8, ptr %50, i64 20
   %68 = load i32, ptr %67, align 4
   %69 = load i32, ptr %51, align 4
   %70 = zext i32 %68 to i64
@@ -153,25 +153,25 @@ define dso_local zeroext i1 @hashvalidate(i32 noundef %0) local_unnamed_addr #0 
 75:                                               ; preds = %66
   %switch = icmp eq i16 %65, 1
   %spec.select124 = select i1 %switch, i32 23, i32 20
-  %76 = getelementptr inbounds i8, ptr %71, i64 16
+  %76 = getelementptr inbounds nuw i8, ptr %71, i64 16
   %77 = load ptr, ptr %76, align 8
-  %78 = getelementptr inbounds i8, ptr %77, i64 22
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 22
   %79 = load i8, ptr %78, align 2
   %80 = zext i8 %79 to i64
   %81 = getelementptr i8, ptr %77, i64 %80
-  %82 = getelementptr inbounds i8, ptr %81, i64 108
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 108
   %83 = load i32, ptr %82, align 4
   %.not57.i = icmp eq i32 %83, %spec.select124
   br i1 %.not57.i, label %84, label %91
 
 84:                                               ; preds = %75
-  %85 = getelementptr inbounds i8, ptr %81, i64 100
+  %85 = getelementptr inbounds nuw i8, ptr %81, i64 100
   %86 = load i8, ptr %85, align 4
   %87 = trunc i8 %86 to i1
   br i1 %87, label %91, label %88
 
 88:                                               ; preds = %84
-  %89 = getelementptr inbounds i8, ptr %81, i64 104
+  %89 = getelementptr inbounds nuw i8, ptr %81, i64 104
   %90 = load i16, ptr %89, align 4
   %.not58.i = icmp eq i16 %90, %65
   br i1 %.not58.i, label %92, label %91
@@ -181,7 +181,7 @@ define dso_local zeroext i1 @hashvalidate(i32 noundef %0) local_unnamed_addr #0 
 
 92:                                               ; preds = %91, %88
   %.0.i = phi i1 [ false, %91 ], [ true, %88 ]
-  %93 = getelementptr inbounds i8, ptr %81, i64 136
+  %93 = getelementptr inbounds nuw i8, ptr %81, i64 136
   %94 = load i32, ptr %93, align 4
   %95 = tail call zeroext i1 @IsBinaryCoercible(i32 noundef %69, i32 noundef %94) #4
   br i1 %95, label %114, label %96
@@ -269,7 +269,7 @@ check_hash_func_signature.exit:                   ; preds = %114
   br label %145
 
 131:                                              ; preds = %63
-  %132 = getelementptr inbounds i8, ptr %50, i64 20
+  %132 = getelementptr inbounds nuw i8, ptr %50, i64 20
   %133 = load i32, ptr %132, align 4
   %134 = tail call zeroext i1 @check_amoptsproc_signature(i32 noundef %133) #4
   %spec.select = select i1 %134, i1 %.1, i1 false
@@ -281,7 +281,7 @@ check_hash_func_signature.exit:                   ; preds = %114
 
 137:                                              ; preds = %135
   %138 = tail call i32 @errcode(i32 noundef 117833860) #4
-  %139 = getelementptr inbounds i8, ptr %50, i64 20
+  %139 = getelementptr inbounds nuw i8, ptr %50, i64 20
   %140 = load i32, ptr %139, align 4
   %141 = tail call ptr @format_procedure(i32 noundef %140) #4
   %142 = load i16, ptr %64, align 4
@@ -304,13 +304,13 @@ check_hash_func_signature.exit:                   ; preds = %114
   %.3132 = phi i1 [ %.0.lcssa, %.lr.ph133 ], [ %.7, %212 ]
   %150 = getelementptr [0 x ptr], ptr %41, i64 0, i64 %indvars.iv160
   %151 = load ptr, ptr %150, align 8
-  %152 = getelementptr inbounds i8, ptr %151, i64 80
+  %152 = getelementptr inbounds nuw i8, ptr %151, i64 80
   %153 = load ptr, ptr %152, align 8
-  %154 = getelementptr inbounds i8, ptr %153, i64 22
+  %154 = getelementptr inbounds nuw i8, ptr %153, i64 22
   %155 = load i8, ptr %154, align 2
   %156 = zext i8 %155 to i64
   %157 = getelementptr i8, ptr %153, i64 %156
-  %158 = getelementptr inbounds i8, ptr %157, i64 16
+  %158 = getelementptr inbounds nuw i8, ptr %157, i64 16
   %159 = load i16, ptr %158, align 4
   %.not112 = icmp eq i16 %159, 1
   br i1 %.not112, label %170, label %160
@@ -321,7 +321,7 @@ check_hash_func_signature.exit:                   ; preds = %114
 
 162:                                              ; preds = %160
   %163 = tail call i32 @errcode(i32 noundef 117833860) #4
-  %164 = getelementptr inbounds i8, ptr %157, i64 20
+  %164 = getelementptr inbounds nuw i8, ptr %157, i64 20
   %165 = load i32, ptr %164, align 4
   %166 = tail call ptr @format_operator(i32 noundef %165) #4
   %167 = load i16, ptr %158, align 4
@@ -332,13 +332,13 @@ check_hash_func_signature.exit:                   ; preds = %114
 
 170:                                              ; preds = %162, %160, %149
   %.4 = phi i1 [ %.3132, %149 ], [ false, %160 ], [ false, %162 ]
-  %171 = getelementptr inbounds i8, ptr %157, i64 18
+  %171 = getelementptr inbounds nuw i8, ptr %157, i64 18
   %172 = load i8, ptr %171, align 2
   %.not113 = icmp eq i8 %172, 115
   br i1 %.not113, label %173, label %176
 
 173:                                              ; preds = %170
-  %174 = getelementptr inbounds i8, ptr %157, i64 28
+  %174 = getelementptr inbounds nuw i8, ptr %157, i64 28
   %175 = load i32, ptr %174, align 4
   %.not114 = icmp eq i32 %175, 0
   br i1 %.not114, label %184, label %176
@@ -349,7 +349,7 @@ check_hash_func_signature.exit:                   ; preds = %114
 
 178:                                              ; preds = %176
   %179 = tail call i32 @errcode(i32 noundef 117833860) #4
-  %180 = getelementptr inbounds i8, ptr %157, i64 20
+  %180 = getelementptr inbounds nuw i8, ptr %157, i64 20
   %181 = load i32, ptr %180, align 4
   %182 = tail call ptr @format_operator(i32 noundef %181) #4
   %183 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8, ptr noundef nonnull %31, ptr noundef nonnull @.str.4, ptr noundef %182) #4
@@ -358,11 +358,11 @@ check_hash_func_signature.exit:                   ; preds = %114
 
 184:                                              ; preds = %178, %176, %173
   %.5 = phi i1 [ %.4, %173 ], [ false, %176 ], [ false, %178 ]
-  %185 = getelementptr inbounds i8, ptr %157, i64 20
+  %185 = getelementptr inbounds nuw i8, ptr %157, i64 20
   %186 = load i32, ptr %185, align 4
-  %187 = getelementptr inbounds i8, ptr %157, i64 8
+  %187 = getelementptr inbounds nuw i8, ptr %157, i64 8
   %188 = load i32, ptr %187, align 4
-  %189 = getelementptr inbounds i8, ptr %157, i64 12
+  %189 = getelementptr inbounds nuw i8, ptr %157, i64 12
   %190 = load i32, ptr %189, align 4
   %191 = tail call zeroext i1 @check_amop_signature(i32 noundef %186, i32 noundef 16, i32 noundef %188, i32 noundef %190) #4
   br i1 %191, label %199, label %192
@@ -413,12 +413,12 @@ check_hash_func_signature.exit:                   ; preds = %114
 ._crit_edge:                                      ; preds = %212, %.preheader
   %.3.lcssa = phi i1 [ %.0.lcssa, %.preheader ], [ %.7, %212 ]
   %216 = tail call ptr @identify_opfamily_groups(ptr noundef nonnull %32, ptr noundef %33) #4
-  %217 = getelementptr inbounds i8, ptr %216, i64 4
+  %217 = getelementptr inbounds nuw i8, ptr %216, i64 4
   %.not107 = icmp eq ptr %216, null
   br i1 %.not107, label %._crit_edge140.thread, label %.lr.ph139
 
 .lr.ph139:                                        ; preds = %._crit_edge
-  %218 = getelementptr inbounds i8, ptr %216, i64 16
+  %218 = getelementptr inbounds nuw i8, ptr %216, i64 16
   %219 = load i32, ptr %217, align 4
   %220 = icmp sgt i32 %219, 0
   br i1 %220, label %.lr.ph156, label %._crit_edge140.thread
@@ -435,7 +435,7 @@ check_hash_func_signature.exit:                   ; preds = %114
   br i1 %225, label %226, label %230
 
 226:                                              ; preds = %.lr.ph156
-  %227 = getelementptr inbounds i8, ptr %223, i64 4
+  %227 = getelementptr inbounds nuw i8, ptr %223, i64 4
   %228 = load i32, ptr %227, align 4
   %229 = icmp eq i32 %228, %17
   %spec.select116 = select i1 %229, ptr %223, ptr %.094136154
@@ -443,7 +443,7 @@ check_hash_func_signature.exit:                   ; preds = %114
 
 230:                                              ; preds = %226, %.lr.ph156
   %.195 = phi ptr [ %.094136154, %.lr.ph156 ], [ %spec.select116, %226 ]
-  %231 = getelementptr inbounds i8, ptr %223, i64 8
+  %231 = getelementptr inbounds nuw i8, ptr %223, i64 8
   %232 = load i64, ptr %231, align 8
   %.not111 = icmp eq i64 %232, 2
   br i1 %.not111, label %243, label %233
@@ -456,7 +456,7 @@ check_hash_func_signature.exit:                   ; preds = %114
   %236 = tail call i32 @errcode(i32 noundef 117833860) #4
   %237 = load i32, ptr %223, align 8
   %238 = tail call ptr @format_type_be(i32 noundef %237) #4
-  %239 = getelementptr inbounds i8, ptr %223, i64 4
+  %239 = getelementptr inbounds nuw i8, ptr %223, i64 4
   %240 = load i32, ptr %239, align 4
   %241 = tail call ptr @format_type_be(i32 noundef %240) #4
   %242 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11, ptr noundef nonnull %31, ptr noundef nonnull @.str.4, ptr noundef %238, ptr noundef %241) #4
@@ -500,7 +500,7 @@ list_length.exit:                                 ; preds = %252, %.thread
   br i1 %.not.i118, label %list_length.exit121, label %255
 
 255:                                              ; preds = %list_length.exit
-  %256 = getelementptr inbounds i8, ptr %.096.lcssa, i64 4
+  %256 = getelementptr inbounds nuw i8, ptr %.096.lcssa, i64 4
   %257 = load i32, ptr %256, align 4
   br label %list_length.exit121
 
@@ -579,12 +579,12 @@ define dso_local void @hashadjustmembers(i32 noundef %0, i32 noundef %1, ptr nou
 7:                                                ; preds = %4, %5
   %.034 = phi i32 [ %6, %5 ], [ 0, %4 ]
   %8 = tail call ptr @list_concat_copy(ptr noundef %2, ptr noundef %3) #4
-  %9 = getelementptr inbounds i8, ptr %8, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %.not41 = icmp eq ptr %8, null
   br i1 %.not41, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %8, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %11 = load i32, ptr %9, align 4
   %12 = icmp sgt i32 %11, 0
   br i1 %12, label %.lr.ph56, label %._crit_edge
@@ -601,34 +601,34 @@ define dso_local void @hashadjustmembers(i32 noundef %0, i32 noundef %1, ptr nou
   br i1 %17, label %18, label %25
 
 18:                                               ; preds = %.lr.ph56
-  %19 = getelementptr inbounds i8, ptr %15, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %20 = load i32, ptr %19, align 4
   %.not43 = icmp eq i32 %20, 1
   br i1 %.not43, label %25, label %21
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %15, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %15, i64 24
   store i8 0, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %15, i64 25
+  %23 = getelementptr inbounds nuw i8, ptr %15, i64 25
   store i8 1, ptr %23, align 1
-  %24 = getelementptr inbounds i8, ptr %15, i64 28
+  %24 = getelementptr inbounds nuw i8, ptr %15, i64 28
   store i32 %0, ptr %24, align 4
   br label %43
 
 25:                                               ; preds = %18, %.lr.ph56
-  %26 = getelementptr inbounds i8, ptr %15, i64 12
+  %26 = getelementptr inbounds nuw i8, ptr %15, i64 12
   %27 = load i32, ptr %26, align 4
-  %28 = getelementptr inbounds i8, ptr %15, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %29 = load i32, ptr %28, align 4
   %.not44 = icmp eq i32 %27, %29
   br i1 %.not44, label %34, label %30
 
 30:                                               ; preds = %25
-  %31 = getelementptr inbounds i8, ptr %15, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %15, i64 24
   store i8 0, ptr %31, align 4
-  %32 = getelementptr inbounds i8, ptr %15, i64 25
+  %32 = getelementptr inbounds nuw i8, ptr %15, i64 25
   store i8 1, ptr %32, align 1
-  %33 = getelementptr inbounds i8, ptr %15, i64 28
+  %33 = getelementptr inbounds nuw i8, ptr %15, i64 28
   store i32 %0, ptr %33, align 4
   br label %43
 
@@ -644,9 +644,9 @@ define dso_local void @hashadjustmembers(i32 noundef %0, i32 noundef %1, ptr nou
   %.236 = phi i32 [ %27, %35 ], [ %.1355054, %34 ]
   %.1 = phi i32 [ %36, %35 ], [ %.05153, %34 ]
   %.not46 = icmp eq i32 %.1, 0
-  %38 = getelementptr inbounds i8, ptr %15, i64 24
-  %39 = getelementptr inbounds i8, ptr %15, i64 25
-  %40 = getelementptr inbounds i8, ptr %15, i64 28
+  %38 = getelementptr inbounds nuw i8, ptr %15, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %15, i64 25
+  %40 = getelementptr inbounds nuw i8, ptr %15, i64 28
   br i1 %.not46, label %42, label %41
 
 41:                                               ; preds = %37

@@ -24,7 +24,7 @@ define hidden noundef ptr @_ZNK13JVMFlagLookup9find_implEPKcm(ptr nocapture noun
   %6 = load i8, ptr %.057.i, align 1
   %7 = sext i8 %6 to i32
   %8 = add i32 %5, %7
-  %9 = getelementptr inbounds i8, ptr %.057.i, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %.057.i, i64 1
   %.not.i = icmp eq i64 %4, 0
   br i1 %.not.i, label %_ZN13JVMFlagLookup9hash_codeEPKcm.exit, label %.lr.ph.i, !llvm.loop !6
 
@@ -32,29 +32,29 @@ _ZN13JVMFlagLookup9hash_codeEPKcm.exit:           ; preds = %.lr.ph.i, %3
   %.0.lcssa.i = phi i32 [ 0, %3 ], [ %8, %.lr.ph.i ]
   %10 = urem i32 %.0.lcssa.i, 277
   %11 = zext nneg i32 %10 to i64
-  %12 = getelementptr inbounds [277 x i16], ptr %0, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw [277 x i16], ptr %0, i64 0, i64 %11
   %.016.in17 = load i16, ptr %12, align 2
   %13 = icmp sgt i16 %.016.in17, -1
   br i1 %13, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZN13JVMFlagLookup9hash_codeEPKcm.exit
-  %14 = getelementptr inbounds i8, ptr %0, i64 3000
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 3000
   %15 = trunc i32 %.0.lcssa.i to i16
   %16 = load ptr, ptr @_ZN7JVMFlag5flagsE, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 554
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 554
   br label %18
 
 18:                                               ; preds = %.lr.ph, %32
   %.016.in18 = phi i16 [ %.016.in17, %.lr.ph ], [ %.016.in, %32 ]
   %.016 = zext nneg i16 %.016.in18 to i64
-  %19 = getelementptr inbounds [1223 x i16], ptr %14, i64 0, i64 %.016
+  %19 = getelementptr inbounds nuw [1223 x i16], ptr %14, i64 0, i64 %.016
   %20 = load i16, ptr %19, align 2
   %21 = icmp eq i16 %20, %15
   br i1 %21, label %22, label %32
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds %class.JVMFlag, ptr %16, i64 %.016
-  %24 = getelementptr inbounds i8, ptr %23, i64 8
+  %23 = getelementptr inbounds nuw %class.JVMFlag, ptr %16, i64 %.016
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load ptr, ptr %24, align 8
   %26 = tail call i32 @strncmp(ptr noundef %1, ptr noundef %25, i64 noundef %2) #2
   %27 = icmp eq i32 %26, 0
@@ -67,7 +67,7 @@ _ZN13JVMFlagLookup9hash_codeEPKcm.exit:           ; preds = %.lr.ph.i, %3
   br i1 %31, label %._crit_edge, label %32
 
 32:                                               ; preds = %22, %28, %18
-  %33 = getelementptr inbounds [1223 x i16], ptr %17, i64 0, i64 %.016
+  %33 = getelementptr inbounds nuw [1223 x i16], ptr %17, i64 0, i64 %.016
   %.016.in = load i16, ptr %33, align 2
   %34 = icmp sgt i16 %.016.in, -1
   br i1 %34, label %18, label %._crit_edge, !llvm.loop !8
@@ -94,7 +94,7 @@ define hidden noundef ptr @_ZN13JVMFlagLookup4findEPKcm(ptr nocapture noundef re
   %5 = load i8, ptr %.057.i.i, align 1
   %6 = sext i8 %5 to i32
   %7 = add i32 %4, %6
-  %8 = getelementptr inbounds i8, ptr %.057.i.i, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %.057.i.i, i64 1
   %.not.i.i = icmp eq i64 %3, 0
   br i1 %.not.i.i, label %_ZN13JVMFlagLookup9hash_codeEPKcm.exit.i, label %.lr.ph.i.i, !llvm.loop !6
 
@@ -102,7 +102,7 @@ _ZN13JVMFlagLookup9hash_codeEPKcm.exit.i:         ; preds = %.lr.ph.i.i, %2
   %.0.lcssa.i.i = phi i32 [ 0, %2 ], [ %7, %.lr.ph.i.i ]
   %9 = urem i32 %.0.lcssa.i.i, 277
   %10 = zext nneg i32 %9 to i64
-  %11 = getelementptr inbounds [277 x i16], ptr @_ZL18_flag_lookup_table, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw [277 x i16], ptr @_ZL18_flag_lookup_table, i64 0, i64 %10
   %.016.in17.i = load i16, ptr %11, align 2
   %12 = icmp sgt i16 %.016.in17.i, -1
   br i1 %12, label %.lr.ph.i, label %_ZNK13JVMFlagLookup9find_implEPKcm.exit
@@ -115,14 +115,14 @@ _ZN13JVMFlagLookup9hash_codeEPKcm.exit.i:         ; preds = %.lr.ph.i.i, %2
 15:                                               ; preds = %29, %.lr.ph.i
   %.016.in18.i = phi i16 [ %.016.in17.i, %.lr.ph.i ], [ %.016.in.i, %29 ]
   %.016.i = zext nneg i16 %.016.in18.i to i64
-  %16 = getelementptr inbounds [1223 x i16], ptr getelementptr inbounds (i8, ptr @_ZL18_flag_lookup_table, i64 3000), i64 0, i64 %.016.i
+  %16 = getelementptr inbounds nuw [1223 x i16], ptr getelementptr inbounds nuw (i8, ptr @_ZL18_flag_lookup_table, i64 3000), i64 0, i64 %.016.i
   %17 = load i16, ptr %16, align 2
   %18 = icmp eq i16 %17, %13
   br i1 %18, label %19, label %29
 
 19:                                               ; preds = %15
-  %20 = getelementptr inbounds %class.JVMFlag, ptr %14, i64 %.016.i
-  %21 = getelementptr inbounds i8, ptr %20, i64 8
+  %20 = getelementptr inbounds nuw %class.JVMFlag, ptr %14, i64 %.016.i
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8
   %23 = tail call i32 @strncmp(ptr noundef readonly %0, ptr noundef %22, i64 noundef %1) #2
   %24 = icmp eq i32 %23, 0
@@ -135,7 +135,7 @@ _ZN13JVMFlagLookup9hash_codeEPKcm.exit.i:         ; preds = %.lr.ph.i.i, %2
   br i1 %28, label %_ZNK13JVMFlagLookup9find_implEPKcm.exit, label %29
 
 29:                                               ; preds = %25, %19, %15
-  %30 = getelementptr inbounds [1223 x i16], ptr getelementptr inbounds (i8, ptr @_ZL18_flag_lookup_table, i64 554), i64 0, i64 %.016.i
+  %30 = getelementptr inbounds nuw [1223 x i16], ptr getelementptr inbounds nuw (i8, ptr @_ZL18_flag_lookup_table, i64 554), i64 0, i64 %.016.i
   %.016.in.i = load i16, ptr %30, align 2
   %31 = icmp sgt i16 %.016.in.i, -1
   br i1 %31, label %15, label %_ZNK13JVMFlagLookup9find_implEPKcm.exit, !llvm.loop !8

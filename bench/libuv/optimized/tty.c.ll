@@ -129,7 +129,7 @@ if.end38:                                         ; preds = %if.then36, %skip
   %or45 = or disjoint i32 %spec.select28, 32768
   %flags.2 = select i1 %cmp43.not, i32 %or41, i32 %or45
   %call47 = call i32 @uv__stream_open(ptr noundef %tty, i32 noundef %fd.addr.036, i32 noundef %flags.2) #8
-  %mode48 = getelementptr inbounds i8, ptr %tty, i64 308
+  %mode48 = getelementptr inbounds nuw i8, ptr %tty, i64 308
   store i32 0, ptr %mode48, align 4
   br label %return
 
@@ -159,7 +159,7 @@ if.end2:                                          ; preds = %if.end
   br i1 %tobool4.not, label %if.end6, label %return
 
 if.end6:                                          ; preds = %if.end2
-  %st_mode = getelementptr inbounds i8, ptr %s, i64 24
+  %st_mode = getelementptr inbounds nuw i8, ptr %s, i64 24
   %0 = load i32, ptr %st_mode, align 8
   %1 = trunc i32 %0 to i16
   %trunc = and i16 %1, -4096
@@ -240,13 +240,13 @@ declare i32 @uv__stream_open(ptr noundef, i32 noundef, i32 noundef) local_unname
 define range(i32 -2147483647, -2147483648) i32 @uv_tty_set_mode(ptr noundef %tty, i32 noundef %mode) local_unnamed_addr #0 {
 entry:
   %tmp = alloca %struct.termios, align 4
-  %mode1 = getelementptr inbounds i8, ptr %tty, i64 308
+  %mode1 = getelementptr inbounds nuw i8, ptr %tty, i64 308
   %0 = load i32, ptr %mode1, align 4
   %cmp = icmp eq i32 %0, %mode
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %fd2 = getelementptr inbounds i8, ptr %tty, i64 184
+  %fd2 = getelementptr inbounds nuw i8, ptr %tty, i64 184
   %1 = load i32, ptr %fd2, align 8
   %cmp4 = icmp eq i32 %0, 0
   %cmp5 = icmp ne i32 %mode, 0
@@ -254,7 +254,7 @@ if.end:                                           ; preds = %entry
   br i1 %or.cond, label %do.body.preheader, label %if.end22
 
 do.body.preheader:                                ; preds = %if.end
-  %orig_termios = getelementptr inbounds i8, ptr %tty, i64 248
+  %orig_termios = getelementptr inbounds nuw i8, ptr %tty, i64 248
   br label %do.body
 
 do.body:                                          ; preds = %do.body.preheader, %land.rhs
@@ -292,7 +292,7 @@ if.end20:                                         ; preds = %if.then18, %do.end1
   br label %if.end22
 
 if.end22:                                         ; preds = %if.end20, %if.end
-  %orig_termios23 = getelementptr inbounds i8, ptr %tty, i64 248
+  %orig_termios23 = getelementptr inbounds nuw i8, ptr %tty, i64 248
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %tmp, ptr noundef nonnull align 8 dereferenceable(60) %orig_termios23, i64 60, i1 false)
   switch i32 %mode, label %do.body.i.preheader [
     i32 2, label %sw.bb29
@@ -303,21 +303,21 @@ sw.bb24:                                          ; preds = %if.end22
   %6 = load i32, ptr %tmp, align 4
   %and = and i32 %6, -1331
   store i32 %and, ptr %tmp, align 4
-  %c_oflag = getelementptr inbounds i8, ptr %tmp, i64 4
+  %c_oflag = getelementptr inbounds nuw i8, ptr %tmp, i64 4
   %7 = load i32, ptr %c_oflag, align 4
   %or = or i32 %7, 4
   store i32 %or, ptr %c_oflag, align 4
-  %c_cflag = getelementptr inbounds i8, ptr %tmp, i64 8
+  %c_cflag = getelementptr inbounds nuw i8, ptr %tmp, i64 8
   %8 = load i32, ptr %c_cflag, align 4
   %or25 = or i32 %8, 48
   store i32 %or25, ptr %c_cflag, align 4
-  %c_lflag = getelementptr inbounds i8, ptr %tmp, i64 12
+  %c_lflag = getelementptr inbounds nuw i8, ptr %tmp, i64 12
   %9 = load i32, ptr %c_lflag, align 4
   %and26 = and i32 %9, -32780
   store i32 %and26, ptr %c_lflag, align 4
-  %arrayidx = getelementptr inbounds i8, ptr %tmp, i64 23
+  %arrayidx = getelementptr inbounds nuw i8, ptr %tmp, i64 23
   store i8 1, ptr %arrayidx, align 1
-  %arrayidx28 = getelementptr inbounds i8, ptr %tmp, i64 22
+  %arrayidx28 = getelementptr inbounds nuw i8, ptr %tmp, i64 22
   store i8 0, ptr %arrayidx28, align 2
   br label %do.body.i.preheader
 
@@ -363,7 +363,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define range(i32 -2147483647, -2147483648) i32 @uv_tty_get_winsize(ptr nocapture noundef readonly %tty, ptr nocapture noundef writeonly %width, ptr nocapture noundef writeonly %height) local_unnamed_addr #0 {
 entry:
   %ws = alloca %struct.winsize, align 2
-  %fd = getelementptr inbounds i8, ptr %tty, i64 184
+  %fd = getelementptr inbounds nuw i8, ptr %tty, i64 184
   br label %do.body
 
 do.body:                                          ; preds = %land.rhs, %entry
@@ -383,7 +383,7 @@ if.then:                                          ; preds = %land.rhs
   br label %return
 
 if.end:                                           ; preds = %do.body
-  %ws_col = getelementptr inbounds i8, ptr %ws, i64 2
+  %ws_col = getelementptr inbounds nuw i8, ptr %ws, i64 2
   %2 = load i16, ptr %ws_col, align 2
   %conv = zext i16 %2 to i32
   store i32 %conv, ptr %width, align 4

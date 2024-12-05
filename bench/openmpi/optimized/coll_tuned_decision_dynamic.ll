@@ -8,21 +8,21 @@ define i32 @ompi_coll_tuned_allreduce_intra_dec_dynamic(ptr noundef %0, ptr noun
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
-  %11 = getelementptr inbounds i8, ptr %6, i64 632
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 632
   %12 = load i32, ptr %11, align 8
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %19, label %13
 
 13:                                               ; preds = %7
-  %14 = getelementptr inbounds i8, ptr %6, i64 640
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 640
   %15 = load i32, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %6, i64 636
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 636
   %17 = load i32, ptr %16, align 4
   %18 = tail call i32 @ompi_coll_tuned_allreduce_intra_do_this(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %6, i32 noundef %12, i32 noundef %15, i32 noundef %17) #2
   br label %33
 
 19:                                               ; preds = %7
-  %20 = getelementptr inbounds i8, ptr %6, i64 1048
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 1048
   %21 = load ptr, ptr %20, align 8
   %.not34 = icmp eq ptr %21, null
   br i1 %.not34, label %31, label %22
@@ -62,23 +62,23 @@ define i32 @ompi_coll_tuned_alltoall_intra_dec_dynamic(ptr noundef %0, i32 nound
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
-  %12 = getelementptr inbounds i8, ptr %7, i64 652
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 652
   %13 = load i32, ptr %12, align 4
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %22, label %14
 
 14:                                               ; preds = %8
-  %15 = getelementptr inbounds i8, ptr %7, i64 660
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 660
   %16 = load i32, ptr %15, align 4
-  %17 = getelementptr inbounds i8, ptr %7, i64 656
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 656
   %18 = load i32, ptr %17, align 4
-  %19 = getelementptr inbounds i8, ptr %7, i64 668
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 668
   %20 = load i32, ptr %19, align 4
   %21 = tail call i32 @ompi_coll_tuned_alltoall_intra_do_this(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef nonnull %7, i32 noundef %13, i32 noundef %16, i32 noundef %18, i32 noundef %20) #2
   br label %41
 
 22:                                               ; preds = %8
-  %23 = getelementptr inbounds i8, ptr %7, i64 1056
+  %23 = getelementptr inbounds nuw i8, ptr %7, i64 1056
   %24 = load ptr, ptr %23, align 8
   %.not40 = icmp eq ptr %24, null
   br i1 %.not40, label %39, label %25
@@ -123,7 +123,7 @@ define i32 @ompi_coll_tuned_alltoallv_intra_dec_dynamic(ptr noundef %0, ptr noun
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
   %13 = alloca i32, align 4
-  %14 = getelementptr inbounds i8, ptr %9, i64 672
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 672
   %15 = load i32, ptr %14, align 8
   %.not = icmp eq i32 %15, 0
   br i1 %.not, label %18, label %16
@@ -133,7 +133,7 @@ define i32 @ompi_coll_tuned_alltoallv_intra_dec_dynamic(ptr noundef %0, ptr noun
   br label %27
 
 18:                                               ; preds = %10
-  %19 = getelementptr inbounds i8, ptr %9, i64 1064
+  %19 = getelementptr inbounds nuw i8, ptr %9, i64 1064
   %20 = load ptr, ptr %19, align 8
   %.not40 = icmp eq ptr %20, null
   br i1 %.not40, label %25, label %21
@@ -165,21 +165,21 @@ define i32 @ompi_coll_tuned_barrier_intra_dec_dynamic(ptr noundef %0, ptr nounde
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
-  %6 = getelementptr inbounds i8, ptr %1, i64 712
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 712
   %7 = load i32, ptr %6, align 8
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %14, label %8
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %1, i64 720
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 720
   %10 = load i32, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 716
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 716
   %12 = load i32, ptr %11, align 4
   %13 = tail call i32 @ompi_coll_tuned_barrier_intra_do_this(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %7, i32 noundef %10, i32 noundef %12) #2
   br label %25
 
 14:                                               ; preds = %2
-  %15 = getelementptr inbounds i8, ptr %1, i64 1080
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 1080
   %16 = load ptr, ptr %15, align 8
   %.not18 = icmp eq ptr %16, null
   br i1 %.not18, label %23, label %17
@@ -213,21 +213,21 @@ define i32 @ompi_coll_tuned_bcast_intra_dec_dynamic(ptr noundef %0, i32 noundef 
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
-  %10 = getelementptr inbounds i8, ptr %5, i64 732
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 732
   %11 = load i32, ptr %10, align 4
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %18, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %5, i64 744
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 744
   %14 = load i32, ptr %13, align 4
-  %15 = getelementptr inbounds i8, ptr %5, i64 736
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 736
   %16 = load i32, ptr %15, align 4
   %17 = tail call i32 @ompi_coll_tuned_bcast_intra_do_this(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef nonnull %5, i32 noundef %11, i32 noundef %14, i32 noundef %16) #2
   br label %32
 
 18:                                               ; preds = %6
-  %19 = getelementptr inbounds i8, ptr %5, i64 1088
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 1088
   %20 = load ptr, ptr %19, align 8
   %.not31 = icmp eq ptr %20, null
   br i1 %.not31, label %30, label %21
@@ -265,23 +265,23 @@ define i32 @ompi_coll_tuned_reduce_intra_dec_dynamic(ptr noundef %0, ptr noundef
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
-  %12 = getelementptr inbounds i8, ptr %7, i64 812
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 812
   %13 = load i32, ptr %12, align 4
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %22, label %14
 
 14:                                               ; preds = %8
-  %15 = getelementptr inbounds i8, ptr %7, i64 824
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 824
   %16 = load i32, ptr %15, align 4
-  %17 = getelementptr inbounds i8, ptr %7, i64 816
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 816
   %18 = load i32, ptr %17, align 4
-  %19 = getelementptr inbounds i8, ptr %7, i64 828
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 828
   %20 = load i32, ptr %19, align 4
   %21 = tail call i32 @ompi_coll_tuned_reduce_intra_do_this(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef nonnull %7, i32 noundef %13, i32 noundef %16, i32 noundef %18, i32 noundef %20) #2
   br label %37
 
 22:                                               ; preds = %8
-  %23 = getelementptr inbounds i8, ptr %7, i64 1120
+  %23 = getelementptr inbounds nuw i8, ptr %7, i64 1120
   %24 = load ptr, ptr %23, align 8
   %.not38 = icmp eq ptr %24, null
   br i1 %.not38, label %35, label %25
@@ -320,21 +320,21 @@ define i32 @ompi_coll_tuned_reduce_scatter_intra_dec_dynamic(ptr noundef %0, ptr
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
-  %11 = getelementptr inbounds i8, ptr %6, i64 832
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 832
   %12 = load i32, ptr %11, align 8
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %19, label %13
 
 13:                                               ; preds = %7
-  %14 = getelementptr inbounds i8, ptr %6, i64 844
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 844
   %15 = load i32, ptr %14, align 4
-  %16 = getelementptr inbounds i8, ptr %6, i64 836
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 836
   %17 = load i32, ptr %16, align 4
   %18 = tail call i32 @ompi_coll_tuned_reduce_scatter_intra_do_this(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %6, i32 noundef %12, i32 noundef %15, i32 noundef %17) #2
   br label %39
 
 19:                                               ; preds = %7
-  %20 = getelementptr inbounds i8, ptr %6, i64 1128
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 1128
   %21 = load ptr, ptr %20, align 8
   %.not43 = icmp eq ptr %21, null
   br i1 %.not43, label %37, label %22
@@ -354,7 +354,7 @@ define i32 @ompi_coll_tuned_reduce_scatter_intra_dec_dynamic(ptr noundef %0, ptr
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.03947 = phi i32 [ 0, %.lr.ph.preheader ], [ %28, %.lr.ph ]
-  %26 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
   %27 = load i32, ptr %26, align 4
   %28 = add nsw i32 %27, %.03947
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -398,21 +398,21 @@ define i32 @ompi_coll_tuned_reduce_scatter_block_intra_dec_dynamic(ptr noundef %
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
-  %11 = getelementptr inbounds i8, ptr %6, i64 852
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 852
   %12 = load i32, ptr %11, align 4
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %19, label %13
 
 13:                                               ; preds = %7
-  %14 = getelementptr inbounds i8, ptr %6, i64 864
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 864
   %15 = load i32, ptr %14, align 4
-  %16 = getelementptr inbounds i8, ptr %6, i64 856
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 856
   %17 = load i32, ptr %16, align 4
   %18 = tail call i32 @ompi_coll_tuned_reduce_scatter_block_intra_do_this(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %6, i32 noundef %12, i32 noundef %15, i32 noundef %17) #2
   br label %36
 
 19:                                               ; preds = %7
-  %20 = getelementptr inbounds i8, ptr %6, i64 1136
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 1136
   %21 = load ptr, ptr %20, align 8
   %.not36 = icmp eq ptr %21, null
   br i1 %.not36, label %34, label %22
@@ -455,21 +455,21 @@ define i32 @ompi_coll_tuned_allgather_intra_dec_dynamic(ptr noundef %0, i32 noun
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
-  %12 = getelementptr inbounds i8, ptr %7, i64 592
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 592
   %13 = load i32, ptr %12, align 8
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %20, label %14
 
 14:                                               ; preds = %8
-  %15 = getelementptr inbounds i8, ptr %7, i64 600
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 600
   %16 = load i32, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %7, i64 596
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 596
   %18 = load i32, ptr %17, align 4
   %19 = tail call i32 @ompi_coll_tuned_allgather_intra_do_this(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef nonnull %7, i32 noundef %13, i32 noundef %16, i32 noundef %18) #2
   br label %38
 
 20:                                               ; preds = %8
-  %21 = getelementptr inbounds i8, ptr %7, i64 1032
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 1032
   %22 = load ptr, ptr %21, align 8
   %.not39 = icmp eq ptr %22, null
   br i1 %.not39, label %36, label %23
@@ -513,21 +513,21 @@ define i32 @ompi_coll_tuned_allgatherv_intra_dec_dynamic(ptr noundef %0, i32 nou
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
-  %13 = getelementptr inbounds i8, ptr %8, i64 612
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 612
   %14 = load i32, ptr %13, align 4
   %.not = icmp eq i32 %14, 0
   br i1 %.not, label %21, label %15
 
 15:                                               ; preds = %9
-  %16 = getelementptr inbounds i8, ptr %8, i64 620
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 620
   %17 = load i32, ptr %16, align 4
-  %18 = getelementptr inbounds i8, ptr %8, i64 616
+  %18 = getelementptr inbounds nuw i8, ptr %8, i64 616
   %19 = load i32, ptr %18, align 4
   %20 = tail call i32 @ompi_coll_tuned_allgatherv_intra_do_this(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef nonnull %8, i32 noundef %14, i32 noundef %17, i32 noundef %19) #2
   br label %43
 
 21:                                               ; preds = %9
-  %22 = getelementptr inbounds i8, ptr %8, i64 1040
+  %22 = getelementptr inbounds nuw i8, ptr %8, i64 1040
   %23 = load ptr, ptr %22, align 8
   %.not52 = icmp eq ptr %23, null
   br i1 %.not52, label %41, label %24
@@ -549,7 +549,7 @@ define i32 @ompi_coll_tuned_allgatherv_intra_dec_dynamic(ptr noundef %0, i32 nou
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.04756 = phi i64 [ 0, %.lr.ph.preheader ], [ %33, %.lr.ph ]
-  %29 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
   %30 = load i32, ptr %29, align 4
   %31 = sext i32 %30 to i64
   %32 = mul i64 %.val, %31
@@ -590,21 +590,21 @@ define i32 @ompi_coll_tuned_gather_intra_dec_dynamic(ptr noundef %0, i32 noundef
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
-  %13 = getelementptr inbounds i8, ptr %8, i64 772
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 772
   %14 = load i32, ptr %13, align 4
   %.not = icmp eq i32 %14, 0
   br i1 %.not, label %21, label %15
 
 15:                                               ; preds = %9
-  %16 = getelementptr inbounds i8, ptr %8, i64 780
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 780
   %17 = load i32, ptr %16, align 4
-  %18 = getelementptr inbounds i8, ptr %8, i64 776
+  %18 = getelementptr inbounds nuw i8, ptr %8, i64 776
   %19 = load i32, ptr %18, align 4
   %20 = tail call i32 @ompi_coll_tuned_gather_intra_do_this(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7, ptr noundef nonnull %8, i32 noundef %14, i32 noundef %17, i32 noundef %19) #2
   br label %38
 
 21:                                               ; preds = %9
-  %22 = getelementptr inbounds i8, ptr %8, i64 1104
+  %22 = getelementptr inbounds nuw i8, ptr %8, i64 1104
   %23 = load ptr, ptr %22, align 8
   %.not42 = icmp eq ptr %23, null
   br i1 %.not42, label %36, label %24
@@ -647,21 +647,21 @@ define i32 @ompi_coll_tuned_scatter_intra_dec_dynamic(ptr noundef %0, i32 nounde
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
-  %13 = getelementptr inbounds i8, ptr %8, i64 892
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 892
   %14 = load i32, ptr %13, align 4
   %.not = icmp eq i32 %14, 0
   br i1 %.not, label %21, label %15
 
 15:                                               ; preds = %9
-  %16 = getelementptr inbounds i8, ptr %8, i64 904
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 904
   %17 = load i32, ptr %16, align 4
-  %18 = getelementptr inbounds i8, ptr %8, i64 896
+  %18 = getelementptr inbounds nuw i8, ptr %8, i64 896
   %19 = load i32, ptr %18, align 4
   %20 = tail call i32 @ompi_coll_tuned_scatter_intra_do_this(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7, ptr noundef nonnull %8, i32 noundef %14, i32 noundef %17, i32 noundef %19) #2
   br label %38
 
 21:                                               ; preds = %9
-  %22 = getelementptr inbounds i8, ptr %8, i64 1152
+  %22 = getelementptr inbounds nuw i8, ptr %8, i64 1152
   %23 = load ptr, ptr %22, align 8
   %.not42 = icmp eq ptr %23, null
   br i1 %.not42, label %36, label %24
@@ -704,7 +704,7 @@ define i32 @ompi_coll_tuned_exscan_intra_dec_dynamic(ptr noundef %0, ptr noundef
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
-  %11 = getelementptr inbounds i8, ptr %6, i64 752
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 752
   %12 = load i32, ptr %11, align 8
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %15, label %13
@@ -714,7 +714,7 @@ define i32 @ompi_coll_tuned_exscan_intra_dec_dynamic(ptr noundef %0, ptr noundef
   br label %29
 
 15:                                               ; preds = %7
-  %16 = getelementptr inbounds i8, ptr %6, i64 1096
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 1096
   %17 = load ptr, ptr %16, align 8
   %.not33 = icmp eq ptr %17, null
   br i1 %.not33, label %27, label %18
@@ -754,7 +754,7 @@ define i32 @ompi_coll_tuned_scan_intra_dec_dynamic(ptr noundef %0, ptr noundef %
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
-  %11 = getelementptr inbounds i8, ptr %6, i64 872
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 872
   %12 = load i32, ptr %11, align 8
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %15, label %13
@@ -764,7 +764,7 @@ define i32 @ompi_coll_tuned_scan_intra_dec_dynamic(ptr noundef %0, ptr noundef %
   br label %29
 
 15:                                               ; preds = %7
-  %16 = getelementptr inbounds i8, ptr %6, i64 1144
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 1144
   %17 = load ptr, ptr %16, align 8
   %.not33 = icmp eq ptr %17, null
   br i1 %.not33, label %27, label %18

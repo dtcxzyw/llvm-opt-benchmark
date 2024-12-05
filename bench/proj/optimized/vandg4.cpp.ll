@@ -13,9 +13,9 @@ define hidden noundef ptr @pj_vandg4(ptr noundef writeonly %0) local_unnamed_add
   br i1 %.not, label %5, label %2
 
 2:                                                ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 216
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 216
   store double 0.000000e+00, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 104
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr @_ZL16vandg4_s_forward5PJ_LPP8PJconsts, ptr %4, align 8
   br label %14
 
@@ -25,15 +25,15 @@ define hidden noundef ptr @pj_vandg4(ptr noundef writeonly %0) local_unnamed_add
   br i1 %7, label %14, label %8
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %6, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr @.str, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %6, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr @_ZL10des_vandg4, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %6, i64 360
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 360
   store i32 1, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %6, i64 380
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 380
   store i32 4, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %6, i64 384
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 384
   store i32 1, ptr %13, align 8
   br label %14
 
@@ -44,9 +44,9 @@ define hidden noundef ptr @pj_vandg4(ptr noundef writeonly %0) local_unnamed_add
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden noundef ptr @_Z35pj_projection_specific_setup_vandg4P8PJconsts(ptr noundef returned writeonly initializes((104, 112), (216, 224)) %0) local_unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 216
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 216
   store double 0.000000e+00, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 104
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr @_ZL16vandg4_s_forward5PJ_LPP8PJconsts, ptr %3, align 8
   ret ptr %0
 }

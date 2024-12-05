@@ -35,8 +35,8 @@ $__clang_call_terminate = comdat any
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN5ceres8internal20InvalidateEvaluationERKNS0_13ResidualBlockEPdS4_PS4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) local_unnamed_addr #0 {
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %6, align 8
   %10 = ptrtoint ptr %8 to i64
@@ -44,7 +44,7 @@ define hidden void @_ZN5ceres8internal20InvalidateEvaluationERKNS0_13ResidualBlo
   %12 = sub i64 %10, %11
   %13 = lshr i64 %12, 2
   %14 = trunc i64 %13 to i32
-  %15 = getelementptr inbounds i8, ptr %5, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %16 = load i32, ptr %15, align 8
   tail call void @_ZN5ceres8internal15InvalidateArrayElPd(i64 noundef 1, ptr noundef %1)
   %17 = sext i32 %16 to i64
@@ -55,20 +55,20 @@ define hidden void @_ZN5ceres8internal20InvalidateEvaluationERKNS0_13ResidualBlo
   br i1 %or.cond, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %4
-  %19 = getelementptr inbounds i8, ptr %0, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %wide.trip.count = and i64 %13, 2147483647
   br label %20
 
 20:                                               ; preds = %.lr.ph, %20
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %20 ]
   %21 = load ptr, ptr %19, align 8
-  %22 = getelementptr inbounds ptr, ptr %21, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load i32, ptr %24, align 8
   %26 = mul nsw i32 %25, %16
   %27 = sext i32 %26 to i64
-  %28 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8
   tail call void @_ZN5ceres8internal15InvalidateArrayElPd(i64 noundef %27, ptr noundef %29)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -135,8 +135,8 @@ define hidden void @_ZN5ceres8internal18EvaluationToStringB5cxx11ERKNS0_13Residu
 
 .critedge54:                                      ; preds = %.critedge
   %26 = load ptr, ptr %1, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 8
-  %28 = getelementptr inbounds i8, ptr %26, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %29 = load ptr, ptr %28, align 8
   %30 = load ptr, ptr %27, align 8
   %31 = ptrtoint ptr %29 to i64
@@ -144,7 +144,7 @@ define hidden void @_ZN5ceres8internal18EvaluationToStringB5cxx11ERKNS0_13Residu
   %33 = sub i64 %31, %32
   %34 = lshr i64 %33, 2
   %35 = trunc i64 %34 to i32
-  %36 = getelementptr inbounds i8, ptr %26, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %26, i64 32
   %37 = load i32, ptr %36, align 8
   %.fr95 = freeze i32 %37
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #8
@@ -212,7 +212,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit60: ; 
   br i1 %51, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader65
-  %52 = getelementptr inbounds i8, ptr %1, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %53 = icmp sgt i32 %.fr95, 0
   br i1 %53, label %.lr.ph.split.us, label %.lr.ph.split.preheader
 
@@ -232,9 +232,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit60: ; 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %61
   %indvars.iv125 = phi i64 [ %indvars.iv.next126, %61 ], [ 0, %.lr.ph.split.us ]
   %54 = load ptr, ptr %52, align 8
-  %55 = getelementptr inbounds ptr, ptr %54, i64 %indvars.iv125
+  %55 = getelementptr inbounds nuw ptr, ptr %54, i64 %indvars.iv125
   %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %58 = load i32, ptr %57, align 8
   %59 = trunc nuw nsw i64 %indvars.iv125 to i32
   invoke void (ptr, ptr, ...) @_ZN5ceres8internal13StringAppendFEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull %0, ptr noundef nonnull @.str.10, i32 noundef %59, i32 noundef %58)
@@ -258,14 +258,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit60: ; 
   br i1 %62, label %.lr.ph70.us.us, label %._crit_edge71.split.us.split.us.us.us
 
 .lr.ph70.us.us:                                   ; preds = %.preheader61.us.us
-  %63 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv125
+  %63 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv125
   %wide.trip.count123 = zext nneg i32 %58 to i64
   br label %64
 
 64:                                               ; preds = %68, %.lr.ph70.us.us
   %indvars.iv120 = phi i64 [ %indvars.iv.next121, %68 ], [ 0, %.lr.ph70.us.us ]
   %65 = load ptr, ptr %63, align 8
-  %66 = getelementptr inbounds double, ptr %65, i64 %indvars.iv120
+  %66 = getelementptr inbounds nuw double, ptr %65, i64 %indvars.iv120
   invoke void @_ZN5ceres8internal19AppendArrayToStringElPKdPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(i64 noundef 1, ptr noundef %66, ptr noundef nonnull %0)
           to label %67 unwind label %.loopexit.split-lp.loopexit.split.us.split.us.split.us.split.us
 
@@ -310,9 +310,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit60: ; 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us.split.preheader, %78
   %indvars.iv114 = phi i64 [ 0, %.lr.ph.split.us.split.preheader ], [ %indvars.iv.next115, %78 ]
   %71 = load ptr, ptr %52, align 8
-  %72 = getelementptr inbounds ptr, ptr %71, i64 %indvars.iv114
+  %72 = getelementptr inbounds nuw ptr, ptr %71, i64 %indvars.iv114
   %73 = load ptr, ptr %72, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 8
   %75 = load i32, ptr %74, align 8
   %76 = trunc nuw nsw i64 %indvars.iv114 to i32
   invoke void (ptr, ptr, ...) @_ZN5ceres8internal13StringAppendFEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull %0, ptr noundef nonnull @.str.10, i32 noundef %76, i32 noundef %75)
@@ -336,15 +336,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit60: ; 
   br i1 %79, label %.lr.ph70.us, label %._crit_edge71.split.us.split.us84
 
 .lr.ph70.us:                                      ; preds = %.preheader61.us
-  %80 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv114
-  %81 = getelementptr inbounds ptr, ptr %5, i64 %indvars.iv114
+  %80 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv114
+  %81 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv114
   %82 = zext nneg i32 %75 to i64
   br label %83
 
 83:                                               ; preds = %.lr.ph70.us, %87
   %indvars.iv109 = phi i64 [ 0, %.lr.ph70.us ], [ %indvars.iv.next110, %87 ]
   %84 = load ptr, ptr %80, align 8
-  %85 = getelementptr inbounds double, ptr %84, i64 %indvars.iv109
+  %85 = getelementptr inbounds nuw double, ptr %84, i64 %indvars.iv109
   invoke void @_ZN5ceres8internal19AppendArrayToStringElPKdPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(i64 noundef 1, ptr noundef %85, ptr noundef nonnull %0)
           to label %86 unwind label %.loopexit.split-lp.loopexit.split.us.split.split.us
 
@@ -362,8 +362,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit60: ; 
   %88 = load ptr, ptr %81, align 8
   %.not50.us.us = icmp eq ptr %88, null
   %89 = mul nuw nsw i64 %indvars.iv104, %82
-  %90 = getelementptr inbounds double, ptr %88, i64 %89
-  %91 = getelementptr inbounds double, ptr %90, i64 %indvars.iv109
+  %90 = getelementptr inbounds nuw double, ptr %88, i64 %89
+  %91 = getelementptr inbounds nuw double, ptr %90, i64 %indvars.iv109
   %92 = select i1 %.not50.us.us, ptr null, ptr %91
   invoke void @_ZN5ceres8internal19AppendArrayToStringElPKdPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(i64 noundef 1, ptr noundef %92, ptr noundef nonnull %0)
           to label %93 unwind label %.loopexit.split.split.us.split.us
@@ -395,9 +395,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit60: ; 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %114
   %indvars.iv99 = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next100, %114 ]
   %94 = load ptr, ptr %52, align 8
-  %95 = getelementptr inbounds ptr, ptr %94, i64 %indvars.iv99
+  %95 = getelementptr inbounds nuw ptr, ptr %94, i64 %indvars.iv99
   %96 = load ptr, ptr %95, align 8
-  %97 = getelementptr inbounds i8, ptr %96, i64 8
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 8
   %98 = load i32, ptr %97, align 8
   %99 = trunc nuw nsw i64 %indvars.iv99 to i32
   invoke void (ptr, ptr, ...) @_ZN5ceres8internal13StringAppendFEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull %0, ptr noundef nonnull @.str.10, i32 noundef %99, i32 noundef %98)
@@ -412,14 +412,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit60: ; 
   br i1 %101, label %.lr.ph70, label %._crit_edge71.split
 
 .lr.ph70:                                         ; preds = %.preheader61
-  %102 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv99
+  %102 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv99
   %wide.trip.count = zext nneg i32 %98 to i64
   br label %103
 
 103:                                              ; preds = %.lr.ph70, %113
   %indvars.iv = phi i64 [ 0, %.lr.ph70 ], [ %indvars.iv.next, %113 ]
   %104 = load ptr, ptr %102, align 8
-  %105 = getelementptr inbounds double, ptr %104, i64 %indvars.iv
+  %105 = getelementptr inbounds nuw double, ptr %104, i64 %indvars.iv
   invoke void @_ZN5ceres8internal19AppendArrayToStringElPKdPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(i64 noundef 1, ptr noundef %105, ptr noundef nonnull %0)
           to label %106 unwind label %.loopexit.split-lp.loopexit.split
 
@@ -539,15 +539,15 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 ; Function Attrs: mustprogress uwtable
 define hidden noundef zeroext i1 @_ZN5ceres8internal17IsEvaluationValidERKNS0_13ResidualBlockEPKPKdPdPS8_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %0, ptr nocapture noundef readnone %1, ptr noundef %2, ptr noundef readonly %3) local_unnamed_addr #0 {
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %6, align 8
   %10 = ptrtoint ptr %8 to i64
   %11 = ptrtoint ptr %9 to i64
   %12 = sub i64 %10, %11
   %13 = lshr i64 %12, 2
-  %14 = getelementptr inbounds i8, ptr %5, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %15 = load i32, ptr %14, align 8
   %16 = sext i32 %15 to i64
   %17 = tail call noundef zeroext i1 @_ZN5ceres8internal12IsArrayValidElPKd(i64 noundef %16, ptr noundef %2)
@@ -561,20 +561,20 @@ define hidden noundef zeroext i1 @_ZN5ceres8internal17IsEvaluationValidERKNS0_13
   br i1 %or.cond, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %18
-  %21 = getelementptr inbounds i8, ptr %0, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %wide.trip.count = and i64 %13, 2147483647
   br label %22
 
 22:                                               ; preds = %22, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %22 ]
   %23 = load ptr, ptr %21, align 8
-  %24 = getelementptr inbounds ptr, ptr %23, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load i32, ptr %26, align 8
   %28 = mul nsw i32 %27, %15
   %29 = sext i32 %28 to i64
-  %30 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
   %31 = load ptr, ptr %30, align 8
   %32 = tail call noundef zeroext i1 @_ZN5ceres8internal12IsArrayValidElPKd(i64 noundef %29, ptr noundef %31)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

@@ -230,30 +230,30 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @clocksource_mark_unstable(ptr noundef %0) local_unnamed_addr #2 align 16 {
   %2 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @watchdog_lock) #16
-  %3 = getelementptr inbounds i8, ptr %0, i64 88
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %4 = load i64, ptr %3, align 8
   %5 = and i64 %4, 64
   %6 = icmp eq i64 %5, 0
   br i1 %6, label %7, label %37
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %9 = load volatile ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, %8
   br i1 %10, label %19, label %11
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %0, i64 144
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %13 = load volatile ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, %12
   br i1 %14, label %15, label %19
 
 15:                                               ; preds = %11
   %16 = load ptr, ptr @watchdog_list, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %12, ptr %17, align 8
   store ptr %16, ptr %12, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 152
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store ptr @watchdog_list, ptr %18, align 8
   store volatile ptr %12, ptr @watchdog_list, align 8
   %.pre = load i64, ptr %3, align 8
@@ -269,12 +269,12 @@ define dso_local void @clocksource_mark_unstable(ptr noundef %0) local_unnamed_a
   br i1 %24, label %25, label %27
 
 25:                                               ; preds = %19
-  %26 = getelementptr inbounds i8, ptr %0, i64 72
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 0, ptr %26, align 8
   br label %37
 
 27:                                               ; preds = %19
-  %28 = getelementptr inbounds i8, ptr %0, i64 128
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq ptr %29, null
   br i1 %30, label %32, label %31
@@ -302,23 +302,23 @@ declare dso_local i64 @_raw_spin_lock_irqsave(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @__clocksource_unstable(ptr noundef %0) unnamed_addr #2 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 88
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, -113
   %5 = or disjoint i64 %4, 64
   store i64 %5, ptr %2, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %7 = load volatile ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, %6
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %1
-  %10 = getelementptr inbounds i8, ptr %0, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 0, ptr %10, align 8
   br label %21
 
 11:                                               ; preds = %1
-  %12 = getelementptr inbounds i8, ptr %0, i64 128
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %16, label %15
@@ -511,20 +511,20 @@ define dso_local void @clocksource_verify_percpu(ptr noundef %0) #2 align 16 {
 
 89:                                               ; preds = %86, %.thread
   tail call void @cpus_read_unlock() #16
-  %90 = getelementptr inbounds i8, ptr %0, i64 48
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %91 = load ptr, ptr %90, align 8
   %92 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str, ptr noundef %91) #18
   br label %189
 
 93:                                               ; preds = %81
   %94 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #17, !srcloc !30
-  %95 = getelementptr inbounds i8, ptr %0, i64 48
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %96 = load ptr, ptr %95, align 8
   %97 = load i32, ptr @nr_cpu_ids, align 4
   %98 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.2, ptr noundef %96, i32 noundef %94, i32 noundef %97, ptr noundef nonnull @cpus_chosen) #18
-  %99 = getelementptr inbounds i8, ptr %0, i64 8
-  %100 = getelementptr inbounds i8, ptr %0, i64 16
-  %101 = getelementptr inbounds i8, ptr %0, i64 20
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 20
   br label %102
 
 102:                                              ; preds = %93, %154
@@ -706,7 +706,7 @@ define dso_local void @clocksource_start_suspend_timing(ptr noundef readnone %0,
   br label %23
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %3, i64 96
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 96
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %19, label %12
@@ -764,7 +764,7 @@ define dso_local i64 @clocksource_stop_suspend_timing(ptr noundef readnone %0, i
   br i1 %13, label %14, label %34
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %.pre, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
   %16 = load i64, ptr %15, align 8
   %17 = sub nuw i64 %11, %12
   %18 = and i64 %16, %17
@@ -773,9 +773,9 @@ define dso_local i64 @clocksource_stop_suspend_timing(ptr noundef readnone %0, i
   %21 = and i64 %18, %20
   %22 = icmp eq i64 %21, 0
   %23 = select i1 %22, i64 %18, i64 0
-  %24 = getelementptr inbounds i8, ptr %.pre, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %.pre, i64 16
   %25 = load i32, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %.pre, i64 20
+  %26 = getelementptr inbounds nuw i8, ptr %.pre, i64 20
   %27 = load i32, ptr %26, align 4
   %28 = zext i64 %23 to i128
   %29 = zext i32 %25 to i128
@@ -791,7 +791,7 @@ define dso_local i64 @clocksource_stop_suspend_timing(ptr noundef readnone %0, i
   br i1 %36, label %42, label %37
 
 37:                                               ; preds = %34
-  %38 = getelementptr inbounds i8, ptr %.pre, i64 104
+  %38 = getelementptr inbounds nuw i8, ptr %.pre, i64 104
   %39 = load ptr, ptr %38, align 8
   %40 = icmp eq ptr %39, null
   br i1 %40, label %42, label %41
@@ -824,7 +824,7 @@ define dso_local void @clocksource_suspend() local_unnamed_addr #2 align 16 {
   br label %9
 
 9:                                                ; preds = %7, %.preheader
-  %10 = getelementptr inbounds i8, ptr %3, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, @clocksource_list
   br i1 %12, label %.loopexit, label %.preheader, !llvm.loop !35
@@ -908,7 +908,7 @@ define dso_local void @__clocksource_update_freq_scale(ptr nocapture noundef %0,
   br i1 %.not, label %.thread, label %4
 
 4:                                                ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = zext i32 %2 to i64
   %8 = udiv i64 %6, %7
@@ -919,8 +919,8 @@ define dso_local void @__clocksource_update_freq_scale(ptr nocapture noundef %0,
   %13 = tail call i64 @llvm.umin.i64(i64 %10, i64 600)
   %14 = select i1 %12, i64 %13, i64 %10
   %15 = trunc i64 %14 to i32
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
-  %17 = getelementptr inbounds i8, ptr %0, i64 20
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %18 = udiv i32 1000000000, %1
   %19 = select i1 %11, i32 1, i32 %15
   %20 = mul i32 %19, %1
@@ -975,7 +975,7 @@ define dso_local void @__clocksource_update_freq_scale(ptr nocapture noundef %0,
   %52 = trunc i64 %43 to i32
   store i32 %52, ptr %16, align 4
   store i32 %51, ptr %17, align 4
-  %53 = getelementptr inbounds i8, ptr %0, i64 36
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %54 = load i32, ptr %53, align 4
   %55 = icmp eq i32 %54, 0
   br i1 %55, label %56, label %.thread.thread
@@ -989,15 +989,15 @@ define dso_local void @__clocksource_update_freq_scale(ptr nocapture noundef %0,
   br label %.thread.thread
 
 .thread:                                          ; preds = %3
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 36
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 36
   %.pre = load i32, ptr %.phi.trans.insert, align 4
   %61 = icmp eq i32 %.pre, 0
   br i1 %61, label %.thread24, label %.thread.thread
 
 .thread24:                                        ; preds = %.thread
-  %62 = getelementptr inbounds i8, ptr %0, i64 36
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 31250000, ptr %62, align 4
-  %63 = getelementptr inbounds i8, ptr %0, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %64 = load i32, ptr %63, align 8
   %65 = zext i32 %64 to i64
   %66 = mul nuw nsw i64 %65, 11
@@ -1017,7 +1017,7 @@ define dso_local void @__clocksource_update_freq_scale(ptr nocapture noundef %0,
   br label %72
 
 72:                                               ; preds = %71, %.thread.thread
-  %73 = getelementptr inbounds i8, ptr %0, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %74 = load i32, ptr %73, align 8
   %75 = zext i32 %74 to i64
   %76 = mul nuw nsw i64 %75, 11
@@ -1026,7 +1026,7 @@ define dso_local void @__clocksource_update_freq_scale(ptr nocapture noundef %0,
   br i1 %.not, label %.loopexit, label %79
 
 79:                                               ; preds = %72
-  %80 = getelementptr inbounds i8, ptr %0, i64 20
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %81 = xor i32 %74, -1
   %82 = icmp ugt i32 %78, %81
   %83 = icmp ult i32 %74, %78
@@ -1058,7 +1058,7 @@ define dso_local void @__clocksource_update_freq_scale(ptr nocapture noundef %0,
   %95 = phi ptr [ %73, %72 ], [ %73, %..loopexit_crit_edge ], [ %73, %79 ], [ %63, %.thread24 ]
   %96 = phi i32 [ %74, %72 ], [ %88, %..loopexit_crit_edge ], [ %74, %79 ], [ %64, %.thread24 ]
   %97 = phi i32 [ %78, %72 ], [ %93, %..loopexit_crit_edge ], [ %78, %79 ], [ %68, %.thread24 ]
-  %98 = getelementptr inbounds i8, ptr %0, i64 32
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 %97, ptr %98, align 8
   %99 = xor i32 %96, -1
   %100 = icmp ule i32 %97, %99
@@ -1069,7 +1069,7 @@ define dso_local void @__clocksource_update_freq_scale(ptr nocapture noundef %0,
 103:                                              ; preds = %.loopexit
   store i1 true, ptr @__clocksource_update_freq_scale.__already_done, align 1
   tail call void asm sideeffect "333: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 333b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 333) #16, !srcloc !43
-  %104 = getelementptr inbounds i8, ptr %0, i64 48
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %105 = load ptr, ptr %104, align 8
   tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.8, ptr noundef %105) #16
   tail call void asm sideeffect "334: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 334b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 334) #16, !srcloc !44
@@ -1083,11 +1083,11 @@ define dso_local void @__clocksource_update_freq_scale(ptr nocapture noundef %0,
 106:                                              ; preds = %103, %.loopexit
   %107 = phi i32 [ %.pre22, %103 ], [ %97, %.loopexit ]
   %108 = phi i32 [ %.pre21, %103 ], [ %96, %.loopexit ]
-  %109 = getelementptr inbounds i8, ptr %0, i64 20
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %110 = load i32, ptr %109, align 4
-  %111 = getelementptr inbounds i8, ptr %0, i64 8
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %112 = load i64, ptr %111, align 8
-  %113 = getelementptr inbounds i8, ptr %0, i64 40
+  %113 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %114 = add i32 %107, %108
   %115 = zext i32 %114 to i64
   %116 = udiv i64 -1, %115
@@ -1099,9 +1099,9 @@ define dso_local void @__clocksource_update_freq_scale(ptr nocapture noundef %0,
   %121 = zext nneg i32 %110 to i64
   %122 = lshr i64 %120, %121
   %123 = lshr i64 %122, 1
-  %124 = getelementptr inbounds i8, ptr %0, i64 24
+  %124 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %123, ptr %124, align 8
-  %125 = getelementptr inbounds i8, ptr %0, i64 48
+  %125 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %126 = load ptr, ptr %125, align 8
   %127 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.9, ptr noundef %126, i64 noundef %112, i64 noundef %117, i64 noundef %123) #18
   ret void
@@ -1113,7 +1113,7 @@ declare dso_local void @__warn_printk(ptr noundef, ...) local_unnamed_addr #3
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @__clocksource_register_scale(ptr noundef %0, i32 noundef %1, i32 noundef %2) #2 align 16 {
   tail call void @clocksource_arch_init(ptr noundef %0) #16
-  %4 = getelementptr inbounds i8, ptr %0, i64 76
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %5 = load i32, ptr %4, align 4
   %6 = icmp ugt i32 %5, 1
   br i1 %6, label %7, label %8, !prof !16
@@ -1126,13 +1126,13 @@ define dso_local noundef i32 @__clocksource_register_scale(ptr noundef %0, i32 n
   br label %8
 
 8:                                                ; preds = %7, %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %10 = load i32, ptr %9, align 8
   %11 = icmp ugt i32 %10, 3
   br i1 %11, label %12, label %16
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %0, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %14 = load ptr, ptr %13, align 8
   %15 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.10, ptr noundef %14, i32 noundef %10) #18
   store i32 0, ptr %9, align 8
@@ -1142,7 +1142,7 @@ define dso_local noundef i32 @__clocksource_register_scale(ptr noundef %0, i32 n
   tail call void @__clocksource_update_freq_scale(ptr noundef %0, i32 noundef %1, i32 noundef %2)
   tail call void @mutex_lock(ptr noundef nonnull @clocksource_mutex) #16
   %17 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @watchdog_lock) #16
-  %18 = getelementptr inbounds i8, ptr %0, i64 72
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 72
   br label %19
 
 19:                                               ; preds = %23, %16
@@ -1159,18 +1159,18 @@ define dso_local noundef i32 @__clocksource_register_scale(ptr noundef %0, i32 n
   br i1 %27, label %28, label %19, !llvm.loop !51
 
 28:                                               ; preds = %23, %19
-  %29 = getelementptr inbounds i8, ptr %0, i64 56
-  %30 = getelementptr inbounds i8, ptr %21, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %30 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store ptr %29, ptr %30, align 8
   store ptr %21, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 64
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %20, ptr %31, align 8
   store volatile ptr %29, ptr %20, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 144
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store volatile ptr %32, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 152
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store volatile ptr %32, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 88
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %35 = load i64, ptr %34, align 8
   %36 = and i64 %35, 2
   %37 = icmp eq i64 %36, 0
@@ -1178,7 +1178,7 @@ define dso_local noundef i32 @__clocksource_register_scale(ptr noundef %0, i32 n
 
 38:                                               ; preds = %28
   %39 = load ptr, ptr @watchdog_list, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   store ptr %32, ptr %40, align 8
   store ptr %39, ptr %32, align 8
   store ptr @watchdog_list, ptr %33, align 8
@@ -1211,19 +1211,19 @@ define dso_local noundef i32 @__clocksource_register_scale(ptr noundef %0, i32 n
   br i1 %53, label %75, label %54
 
 54:                                               ; preds = %50
-  %55 = getelementptr inbounds i8, ptr %0, i64 112
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %56 = load ptr, ptr %55, align 8
   %57 = icmp eq ptr %56, null
   br i1 %57, label %58, label %62
 
 58:                                               ; preds = %54
-  %59 = getelementptr inbounds i8, ptr %0, i64 120
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %60 = load ptr, ptr %59, align 8
   %61 = icmp eq ptr %60, null
   br i1 %61, label %66, label %62
 
 62:                                               ; preds = %58, %54
-  %63 = getelementptr inbounds i8, ptr %0, i64 48
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %64 = load ptr, ptr %63, align 8
   %65 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.27, ptr noundef %64) #18
   br label %66
@@ -1235,7 +1235,7 @@ define dso_local noundef i32 @__clocksource_register_scale(ptr noundef %0, i32 n
 
 69:                                               ; preds = %66
   %70 = load i32, ptr %18, align 8
-  %71 = getelementptr inbounds i8, ptr %67, i64 72
+  %71 = getelementptr inbounds nuw i8, ptr %67, i64 72
   %72 = load i32, ptr %71, align 8
   %73 = icmp sgt i32 %70, %72
   br i1 %73, label %74, label %75
@@ -1291,7 +1291,7 @@ define internal fastcc void @clocksource_select_watchdog(i1 noundef zeroext %0) 
 21:                                               ; preds = %19
   %22 = getelementptr i8, ptr %9, i64 16
   %23 = load i32, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %10, i64 72
+  %24 = getelementptr inbounds nuw i8, ptr %10, i64 72
   %25 = load i32, ptr %24, align 8
   %26 = icmp sgt i32 %23, %25
   br i1 %26, label %27, label %28
@@ -1380,16 +1380,16 @@ declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #3
 define dso_local void @clocksource_change_rating(ptr noundef initializes((72, 76)) %0, i32 noundef %1) #2 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @clocksource_mutex) #16
   %3 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @watchdog_lock) #16
-  %4 = getelementptr inbounds i8, ptr %0, i64 56
-  %5 = getelementptr inbounds i8, ptr %0, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %6, ptr %8, align 8
   store volatile ptr %7, ptr %6, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %4, align 8
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %5, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 %1, ptr %9, align 8
   br label %10
 
@@ -1406,7 +1406,7 @@ define dso_local void @clocksource_change_rating(ptr noundef initializes((72, 76
   br i1 %17, label %18, label %10, !llvm.loop !51
 
 18:                                               ; preds = %14, %10
-  %19 = getelementptr inbounds i8, ptr %12, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %4, ptr %19, align 8
   store ptr %12, ptr %4, align 8
   store ptr %11, ptr %5, align 8
@@ -1453,7 +1453,7 @@ define dso_local void @clocksource_change_rating(ptr noundef initializes((72, 76
 43:                                               ; preds = %40
   %44 = getelementptr i8, ptr %22, i64 16
   %45 = load i32, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %41, i64 72
+  %46 = getelementptr inbounds nuw i8, ptr %41, i64 72
   %47 = load i32, ptr %46, align 8
   %48 = icmp sgt i32 %45, %47
   br i1 %48, label %49, label %50
@@ -1475,7 +1475,7 @@ define dso_local void @clocksource_change_rating(ptr noundef initializes((72, 76
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -16, 1) i32 @clocksource_unregister(ptr noundef %0) #2 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @clocksource_mutex) #16
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load volatile ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, %2
   br i1 %4, label %7, label %5
@@ -1565,7 +1565,7 @@ define internal fastcc noundef range(i32 -16, 1) i32 @clocksource_unbind(ptr nou
 43:                                               ; preds = %40
   %44 = getelementptr i8, ptr %20, i64 16
   %45 = load i32, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %41, i64 72
+  %46 = getelementptr inbounds nuw i8, ptr %41, i64 72
   %47 = load i32, ptr %46, align 8
   %48 = icmp sgt i32 %45, %47
   br i1 %48, label %49, label %50
@@ -1587,18 +1587,18 @@ define internal fastcc noundef range(i32 -16, 1) i32 @clocksource_unbind(ptr nou
   br i1 %56, label %76, label %57
 
 57:                                               ; preds = %.loopexit
-  %58 = getelementptr inbounds i8, ptr %0, i64 88
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %59 = load i64, ptr %58, align 8
   %60 = and i64 %59, 2
   %61 = icmp eq i64 %60, 0
   br i1 %61, label %76, label %62
 
 62:                                               ; preds = %57
-  %63 = getelementptr inbounds i8, ptr %0, i64 144
-  %64 = getelementptr inbounds i8, ptr %0, i64 152
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %65 = load ptr, ptr %64, align 8
   %66 = load ptr, ptr %63, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
   store ptr %65, ptr %67, align 8
   store volatile ptr %66, ptr %65, align 8
   store volatile ptr %63, ptr %63, align 8
@@ -1621,11 +1621,11 @@ define internal fastcc noundef range(i32 -16, 1) i32 @clocksource_unbind(ptr nou
   br label %76
 
 76:                                               ; preds = %74, %71, %62, %57, %.loopexit
-  %77 = getelementptr inbounds i8, ptr %0, i64 56
-  %78 = getelementptr inbounds i8, ptr %0, i64 64
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %79 = load ptr, ptr %78, align 8
   %80 = load ptr, ptr %77, align 8
-  %81 = getelementptr inbounds i8, ptr %80, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 8
   store ptr %79, ptr %81, align 8
   store volatile ptr %80, ptr %79, align 8
   store volatile ptr %77, ptr %77, align 8
@@ -1758,7 +1758,7 @@ define internal fastcc range(i32 0, 2) i32 @__clocksource_watchdog_kthread() unn
   br i1 %2, label %9, label %3
 
 3:                                                ; preds = %0
-  %4 = getelementptr inbounds i8, ptr %1, i64 88
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %5 = load i64, ptr %4, align 8
   %6 = and i64 %5, 576
   %7 = icmp eq i64 %6, 576
@@ -1785,9 +1785,9 @@ define internal fastcc range(i32 0, 2) i32 @__clocksource_watchdog_kthread() unn
   br i1 %19, label %40, label %20
 
 20:                                               ; preds = %.preheader
-  %21 = getelementptr inbounds i8, ptr %13, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %15, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %22, ptr %23, align 8
   store volatile ptr %15, ptr %22, align 8
   store volatile ptr %13, ptr %13, align 8
@@ -1796,7 +1796,7 @@ define internal fastcc range(i32 0, 2) i32 @__clocksource_watchdog_kthread() unn
   %25 = getelementptr i8, ptr %13, i64 -80
   %26 = load ptr, ptr %25, align 8
   %27 = load ptr, ptr %24, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store ptr %26, ptr %28, align 8
   store volatile ptr %27, ptr %26, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %24, align 8
@@ -1818,7 +1818,7 @@ define internal fastcc range(i32 0, 2) i32 @__clocksource_watchdog_kthread() unn
   br i1 %37, label %38, label %30, !llvm.loop !51
 
 38:                                               ; preds = %34, %30
-  %39 = getelementptr inbounds i8, ptr %32, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %32, i64 8
   store ptr %24, ptr %39, align 8
   store ptr %32, ptr %24, align 8
   store ptr %31, ptr %25, align 8
@@ -2044,7 +2044,7 @@ define internal fastcc void @__clocksource_select(i1 noundef zeroext %0) unnamed
   br i1 %79, label %80, label %.thread
 
 80:                                               ; preds = %77
-  %81 = getelementptr inbounds i8, ptr %74, i64 48
+  %81 = getelementptr inbounds nuw i8, ptr %74, i64 48
   %82 = load ptr, ptr %81, align 8
   %83 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.14, ptr noundef %82) #18
   store ptr %74, ptr @curr_clocksource, align 8
@@ -2113,7 +2113,7 @@ define internal void @clocksource_watchdog(ptr nocapture readnone %0) #2 align 1
   %30 = tail call i64 %29(ptr noundef %28) #16
   tail call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !60
   %31 = load ptr, ptr @watchdog, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %33 = load i64, ptr %32, align 8
   %34 = sub i64 %27, %22
   %35 = and i64 %33, %34
@@ -2122,9 +2122,9 @@ define internal void @clocksource_watchdog(ptr nocapture readnone %0) #2 align 1
   %38 = and i64 %35, %37
   %39 = icmp eq i64 %38, 0
   %40 = select i1 %39, i64 %35, i64 0
-  %41 = getelementptr inbounds i8, ptr %31, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %42 = load i32, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %31, i64 20
+  %43 = getelementptr inbounds nuw i8, ptr %31, i64 20
   %44 = load i32, ptr %43, align 4
   %45 = zext i32 %42 to i64
   %46 = mul i64 %40, %45
@@ -2142,7 +2142,7 @@ define internal void @clocksource_watchdog(ptr nocapture readnone %0) #2 align 1
 
 55:                                               ; preds = %50
   %56 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #17, !srcloc !61
-  %57 = getelementptr inbounds i8, ptr %31, i64 48
+  %57 = getelementptr inbounds nuw i8, ptr %31, i64 48
   %58 = load ptr, ptr %57, align 8
   %59 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.23, i32 noundef %56, ptr noundef %58, i32 noundef %19) #18
   br label %113
@@ -2205,7 +2205,7 @@ define internal void @clocksource_watchdog(ptr nocapture readnone %0) #2 align 1
 
 97:                                               ; preds = %60
   %98 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #17, !srcloc !64
-  %99 = getelementptr inbounds i8, ptr %31, i64 48
+  %99 = getelementptr inbounds nuw i8, ptr %31, i64 48
   %100 = load ptr, ptr %99, align 8
   %101 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.25, i32 noundef %98, ptr noundef %100, i64 noundef %67) #18
   %102 = getelementptr i8, ptr %7, i64 -96
@@ -2249,7 +2249,7 @@ define internal void @clocksource_watchdog(ptr nocapture readnone %0) #2 align 1
   %125 = getelementptr i8, ptr %7, i64 24
   %126 = load i64, ptr %125, align 8
   %127 = load ptr, ptr @watchdog, align 8
-  %128 = getelementptr inbounds i8, ptr %127, i64 8
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 8
   %129 = load i64, ptr %128, align 8
   %130 = sub i64 %22, %126
   %131 = and i64 %129, %130
@@ -2258,9 +2258,9 @@ define internal void @clocksource_watchdog(ptr nocapture readnone %0) #2 align 1
   %134 = and i64 %131, %133
   %135 = icmp eq i64 %134, 0
   %136 = select i1 %135, i64 %131, i64 0
-  %137 = getelementptr inbounds i8, ptr %127, i64 16
+  %137 = getelementptr inbounds nuw i8, ptr %127, i64 16
   %138 = load i32, ptr %137, align 8
-  %139 = getelementptr inbounds i8, ptr %127, i64 20
+  %139 = getelementptr inbounds nuw i8, ptr %127, i64 20
   %140 = load i32, ptr %139, align 4
   %141 = zext i32 %138 to i64
   %142 = mul i64 %136, %141
@@ -2320,7 +2320,7 @@ define internal void @clocksource_watchdog(ptr nocapture readnone %0) #2 align 1
 180:                                              ; preds = %166
   %181 = getelementptr i8, ptr %7, i64 -108
   %182 = load i32, ptr %181, align 4
-  %183 = getelementptr inbounds i8, ptr %127, i64 36
+  %183 = getelementptr inbounds nuw i8, ptr %127, i64 36
   %184 = load i32, ptr %183, align 4
   %185 = add i32 %184, %182
   %186 = sub i64 %163, %144
@@ -2335,9 +2335,9 @@ define internal void @clocksource_watchdog(ptr nocapture readnone %0) #2 align 1
   %193 = load ptr, ptr %192, align 8
   %194 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.16, i32 noundef %191, ptr noundef %193) #18
   %195 = load ptr, ptr @watchdog, align 8
-  %196 = getelementptr inbounds i8, ptr %195, i64 48
+  %196 = getelementptr inbounds nuw i8, ptr %195, i64 48
   %197 = load ptr, ptr %196, align 8
-  %198 = getelementptr inbounds i8, ptr %195, i64 8
+  %198 = getelementptr inbounds nuw i8, ptr %195, i64 8
   %199 = load i64, ptr %198, align 8
   %200 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.17, ptr noundef %197, i64 noundef %144, i64 noundef %22, i64 noundef %126, i64 noundef %199) #18
   %201 = load ptr, ptr %192, align 8
@@ -2347,7 +2347,7 @@ define internal void @clocksource_watchdog(ptr nocapture readnone %0) #2 align 1
   %205 = sdiv i64 %144, 1000000
   %206 = load ptr, ptr %192, align 8
   %207 = load ptr, ptr @watchdog, align 8
-  %208 = getelementptr inbounds i8, ptr %207, i64 48
+  %208 = getelementptr inbounds nuw i8, ptr %207, i64 48
   %209 = load ptr, ptr %208, align 8
   %210 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.19, ptr noundef %206, i64 noundef %186, i64 noundef %204, ptr noundef %209, i64 noundef %144, i64 noundef %205) #18
   %211 = load ptr, ptr @curr_clocksource, align 8
@@ -2364,7 +2364,7 @@ define internal void @clocksource_watchdog(ptr nocapture readnone %0) #2 align 1
   br i1 %217, label %223, label %218
 
 218:                                              ; preds = %216
-  %219 = getelementptr inbounds i8, ptr %211, i64 48
+  %219 = getelementptr inbounds nuw i8, ptr %211, i64 48
   %220 = load ptr, ptr %219, align 8
   %221 = load ptr, ptr %192, align 8
   %222 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.21, ptr noundef %220, ptr noundef %221) #18
@@ -2402,7 +2402,7 @@ define internal void @clocksource_watchdog(ptr nocapture readnone %0) #2 align 1
 
 238:                                              ; preds = %234
   %239 = load ptr, ptr @watchdog, align 8
-  %240 = getelementptr inbounds i8, ptr %239, i64 88
+  %240 = getelementptr inbounds nuw i8, ptr %239, i64 88
   %241 = load i64, ptr %240, align 8
   %242 = and i64 %241, 1
   %243 = icmp eq i64 %242, 0
@@ -2519,7 +2519,7 @@ declare dso_local i32 @device_register(ptr noundef) local_unnamed_addr #3
 define internal noundef range(i64 -2147483648, 2147483648) i64 @current_clocksource_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #2 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @clocksource_mutex) #16
   %4 = load ptr, ptr @curr_clocksource, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %2, i64 noundef 4096, ptr noundef nonnull @.str.30, ptr noundef %6) #16
   %8 = sext i32 %7 to i64

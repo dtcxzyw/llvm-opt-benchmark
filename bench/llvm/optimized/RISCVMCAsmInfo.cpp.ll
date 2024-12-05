@@ -41,7 +41,7 @@ define dso_local void @_ZN4llvm14RISCVMCAsmInfoC2ERKNS_6TripleE(ptr noundef nonn
   store i32 %4, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr @.str, ptr %7, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 56
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 1, ptr %.sroa.2.0..sroa_idx, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 339
   store i8 0, ptr %8, align 1
@@ -76,7 +76,7 @@ define dso_local noundef ptr @_ZNK4llvm14RISCVMCAsmInfo19getExprForFDESymbolEPKN
   %11 = tail call noundef ptr @_ZN4llvm15MCSymbolRefExpr6createEPKNS_8MCSymbolENS0_11VariantKindERNS_9MCContextENS_5SMLocE(ptr noundef %1, i16 noundef zeroext 0, ptr noundef nonnull align 1 %10, ptr null) #5
   %12 = tail call noundef ptr @_ZN4llvm11RISCVMCExpr6createEPKNS_6MCExprENS0_11VariantKindERNS_9MCContextE(ptr noundef %11, i32 noundef 13, ptr noundef nonnull align 1 %10) #5
   %13 = icmp eq ptr %12, null
-  %14 = getelementptr inbounds i8, ptr %12, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %spec.select = select i1 %13, ptr null, ptr %14
   br label %15
 

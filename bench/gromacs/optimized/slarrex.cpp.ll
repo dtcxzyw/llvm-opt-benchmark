@@ -50,7 +50,7 @@ define void @slarrex_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noc
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %53
   %41 = phi i32 [ 1, %.lr.ph.preheader ], [ %54, %53 ]
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %53 ]
-  %42 = getelementptr inbounds float, ptr %34, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw float, ptr %34, i64 %indvars.iv
   %43 = load float, ptr %42, align 4
   %44 = tail call noundef float @llvm.fabs.f32(float %43)
   %45 = load float, ptr %8, align 4
@@ -99,7 +99,7 @@ define void @slarrex_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noc
   %.0574766 = phi float [ 0.000000e+00, %.lr.ph769 ], [ %.3577, %.loopexit658 ]
   %.0579765 = phi i32 [ 1, %.lr.ph769 ], [ %.1580.pre-phi, %.loopexit658 ]
   %.0583764 = phi float [ 0.000000e+00, %.lr.ph769 ], [ %.4587, %.loopexit658 ]
-  %62 = getelementptr inbounds i32, ptr %33, i64 %indvars.iv922
+  %62 = getelementptr inbounds nuw i32, ptr %33, i64 %indvars.iv922
   %63 = load i32, ptr %62, align 4
   %64 = icmp eq i32 %.0579765, %63
   %65 = sext i32 %.0579765 to i64
@@ -335,7 +335,7 @@ define void @slarrex_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noc
 .lr.ph698.us:                                     ; preds = %.split.us, %.lr.ph698.us
   %indvars.iv871 = phi i64 [ %indvars.iv.next872, %.lr.ph698.us ], [ 1, %.split.us ]
   %indvars.iv869 = phi i64 [ %indvars.iv.next870, %.lr.ph698.us ], [ %65, %.split.us ]
-  %191 = getelementptr inbounds float, ptr %28, i64 %indvars.iv871
+  %191 = getelementptr inbounds nuw float, ptr %28, i64 %indvars.iv871
   %192 = load float, ptr %191, align 4
   %193 = fdiv float 1.000000e+00, %192
   %gep1012 = getelementptr float, ptr %invariant.gep, i64 %indvars.iv871
@@ -367,7 +367,7 @@ define void @slarrex_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noc
 
 .preheader657.us:                                 ; preds = %.preheader657.us.preheader, %203
   %indvars.iv878 = phi i64 [ %indvars.iv.next879, %203 ], [ %186, %.preheader657.us.preheader ]
-  %205 = getelementptr inbounds float, ptr %28, i64 %indvars.iv878
+  %205 = getelementptr inbounds nuw float, ptr %28, i64 %indvars.iv878
   %206 = load float, ptr %205, align 4
   %207 = fmul float %.2576, %206
   %208 = fcmp olt float %207, 0.000000e+00
@@ -416,19 +416,19 @@ define void @slarrex_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noc
   %227 = zext nneg i32 %224 to i64
   %228 = sext i32 %225 to i64
   %wide.trip.count884 = zext nneg i32 %222 to i64
-  %invariant.gep1017 = getelementptr inbounds float, ptr %28, i64 %226
-  %invariant.gep1019 = getelementptr inbounds float, ptr %28, i64 %227
+  %invariant.gep1017 = getelementptr inbounds nuw float, ptr %28, i64 %226
+  %invariant.gep1019 = getelementptr inbounds nuw float, ptr %28, i64 %227
   %invariant.gep1021 = getelementptr float, ptr %28, i64 %228
   br label %229
 
 229:                                              ; preds = %.lr.ph707, %229
   %indvars.iv881 = phi i64 [ 1, %.lr.ph707 ], [ %indvars.iv.next882, %229 ]
-  %230 = getelementptr inbounds float, ptr %28, i64 %indvars.iv881
+  %230 = getelementptr inbounds nuw float, ptr %28, i64 %indvars.iv881
   %231 = load float, ptr %230, align 4
-  %gep1018 = getelementptr inbounds float, ptr %invariant.gep1017, i64 %indvars.iv881
+  %gep1018 = getelementptr inbounds nuw float, ptr %invariant.gep1017, i64 %indvars.iv881
   %232 = load float, ptr %gep1018, align 4
   %233 = fmul float %231, %232
-  %gep1020 = getelementptr inbounds float, ptr %invariant.gep1019, i64 %indvars.iv881
+  %gep1020 = getelementptr inbounds nuw float, ptr %invariant.gep1019, i64 %indvars.iv881
   store float %233, ptr %gep1020, align 4
   %234 = fmul float %233, %232
   %gep1022 = getelementptr float, ptr %invariant.gep1021, i64 %indvars.iv881
@@ -575,7 +575,7 @@ define void @slarrex_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noc
 
 305:                                              ; preds = %.lr.ph719.us, %303
   %indvars.iv895 = phi i64 [ %.pre-phi993, %.lr.ph719.us ], [ %indvars.iv.next896, %303 ]
-  %306 = getelementptr inbounds float, ptr %28, i64 %indvars.iv895
+  %306 = getelementptr inbounds nuw float, ptr %28, i64 %indvars.iv895
   %307 = load float, ptr %306, align 4
   %308 = fmul float %.2576, %307
   %309 = fcmp olt float %308, 0.000000e+00
@@ -601,7 +601,7 @@ define void @slarrex_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noc
   %317 = getelementptr inbounds float, ptr %35, i64 %indvars.iv886
   %318 = load float, ptr %317, align 4
   %319 = fadd float %.0604712.us, %318
-  %320 = getelementptr inbounds float, ptr %28, i64 %indvars.iv888
+  %320 = getelementptr inbounds nuw float, ptr %28, i64 %indvars.iv888
   store float %319, ptr %320, align 4
   %321 = fdiv float 1.000000e+00, %319
   %gep1024 = getelementptr float, ptr %invariant.gep1023, i64 %indvars.iv888
@@ -699,8 +699,8 @@ define void @slarrex_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noc
   %366 = load float, ptr %365, align 4
   %367 = fmul float %366, %366
   %368 = fmul float %363, %367
-  %.idx = shl i64 %indvars.iv905, 3
-  %369 = getelementptr inbounds i8, ptr %28, i64 %.idx
+  %.idx = shl nuw i64 %indvars.iv905, 3
+  %369 = getelementptr inbounds nuw i8, ptr %28, i64 %.idx
   store float %368, ptr %369, align 4
   %indvars.iv.next904 = add nsw i64 %indvars.iv903, 1
   %indvars.iv.next906 = add nuw nsw i64 %indvars.iv905, 1
@@ -773,7 +773,7 @@ define void @slarrex_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noc
   %397 = load i32, ptr %11, align 4
   %398 = add nsw i32 %397, 1
   store i32 %398, ptr %11, align 4
-  %399 = getelementptr inbounds float, ptr %28, i64 %indvars.iv912
+  %399 = getelementptr inbounds nuw float, ptr %28, i64 %indvars.iv912
   %400 = load float, ptr %399, align 4
   %401 = fneg float %400
   %402 = sext i32 %398 to i64
@@ -818,7 +818,7 @@ define void @slarrex_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noc
 .lr.ph830:                                        ; preds = %.lr.ph830.preheader, %._crit_edge825
   %indvars.iv972 = phi i64 [ 1, %.lr.ph830.preheader ], [ %indvars.iv.next973, %._crit_edge825 ]
   %.2581828 = phi i32 [ 1, %.lr.ph830.preheader ], [ %.pre-phi997, %._crit_edge825 ]
-  %414 = getelementptr inbounds i32, ptr %33, i64 %indvars.iv972
+  %414 = getelementptr inbounds nuw i32, ptr %33, i64 %indvars.iv972
   %415 = load i32, ptr %414, align 4
   %416 = load float, ptr %2, align 4
   %417 = sext i32 %415 to i64
@@ -923,13 +923,13 @@ define void @slarrex_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noc
   %460 = sext i32 %459 to i64
   %gep817 = getelementptr float, ptr %invariant.gep816, i64 %460
   %461 = load float, ptr %gep817, align 4
-  %462 = getelementptr inbounds float, ptr %32, i64 %indvars.iv962
+  %462 = getelementptr inbounds nuw float, ptr %32, i64 %indvars.iv962
   store float %461, ptr %462, align 4
   %463 = load i32, ptr %4, align 4
   %464 = trunc i64 %indvars.iv962 to i32
   %465 = add i32 %464, -1
   %466 = add i32 %465, %463
-  %467 = getelementptr inbounds i32, ptr %30, i64 %indvars.iv962
+  %467 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv962
   store i32 %466, ptr %467, align 4
   %indvars.iv.next963 = add nuw nsw i64 %indvars.iv962, 1
   %exitcond966 = icmp eq i64 %indvars.iv.next963, %wide.trip.count965
@@ -938,7 +938,7 @@ define void @slarrex_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noc
 .lr.ph779:                                        ; preds = %.lr.ph779.preheader, %._crit_edge775
   %indvars.iv932 = phi i64 [ 1, %.lr.ph779.preheader ], [ %indvars.iv.next933, %._crit_edge775 ]
   %.3582778 = phi i32 [ 1, %.lr.ph779.preheader ], [ %.pre-phi999, %._crit_edge775 ]
-  %468 = getelementptr inbounds i32, ptr %33, i64 %indvars.iv932
+  %468 = getelementptr inbounds nuw i32, ptr %33, i64 %indvars.iv932
   %469 = load i32, ptr %468, align 4
   %.not636771 = icmp sgt i32 %.3582778, %469
   br i1 %.not636771, label %.lr.ph779.._crit_edge775_crit_edge, label %.lr.ph774
@@ -989,10 +989,10 @@ define void @slarrex_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noc
 
 .lr.ph785:                                        ; preds = %.lr.ph785.preheader, %.lr.ph785
   %indvars.iv937 = phi i64 [ 1, %.lr.ph785.preheader ], [ %indvars.iv.next938, %.lr.ph785 ]
-  %483 = getelementptr inbounds i32, ptr %27, i64 %indvars.iv937
+  %483 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv937
   %484 = trunc nuw nsw i64 %indvars.iv937 to i32
   store i32 %484, ptr %483, align 4
-  %485 = getelementptr inbounds i32, ptr %31, i64 %indvars.iv937
+  %485 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv937
   %486 = load i32, ptr %485, align 4
   %487 = load i32, ptr %1, align 4
   %488 = add nsw i32 %487, %484
@@ -1026,14 +1026,14 @@ define void @slarrex_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noc
   %498 = sext i32 %497 to i64
   %499 = getelementptr inbounds float, ptr %32, i64 %498
   %500 = load float, ptr %499, align 4
-  %501 = getelementptr inbounds float, ptr %28, i64 %indvars.iv942
+  %501 = getelementptr inbounds nuw float, ptr %28, i64 %indvars.iv942
   store float %500, ptr %501, align 4
   %502 = load i32, ptr %1, align 4
   %503 = add nsw i32 %502, %497
   %504 = sext i32 %503 to i64
   %505 = getelementptr inbounds i32, ptr %27, i64 %504
   %506 = load i32, ptr %505, align 4
-  %507 = getelementptr inbounds i32, ptr %31, i64 %indvars.iv942
+  %507 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv942
   store i32 %506, ptr %507, align 4
   %indvars.iv.next943 = add nuw nsw i64 %indvars.iv942, 1
   %exitcond946.not = icmp eq i64 %indvars.iv.next943, %wide.trip.count945
@@ -1062,7 +1062,7 @@ define void @slarrex_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noc
   %516 = sext i32 %515 to i64
   %517 = getelementptr inbounds i32, ptr %27, i64 %516
   store i32 %513, ptr %517, align 4
-  %518 = getelementptr inbounds i32, ptr %27, i64 %indvars.iv947
+  %518 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv947
   store i32 %510, ptr %518, align 4
   %indvars.iv.next948 = add nuw nsw i64 %indvars.iv947, 1
   %exitcond951.not = icmp eq i64 %indvars.iv.next948, %wide.trip.count950
@@ -1108,14 +1108,14 @@ define void @slarrex_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noc
   %.5812 = phi i32 [ %.4, %.lr.ph815.preheader ], [ %.6, %593 ]
   %.0590811 = phi i32 [ %519, %.lr.ph815.preheader ], [ %.1591, %593 ]
   %.6612810 = phi i32 [ 1, %.lr.ph815.preheader ], [ %.7, %593 ]
-  %537 = getelementptr inbounds i32, ptr %27, i64 %indvars.iv957
+  %537 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv957
   %538 = load i32, ptr %537, align 4
   %539 = sext i32 %538 to i64
   %540 = getelementptr inbounds float, ptr %28, i64 %539
   %541 = load float, ptr %540, align 4
-  %542 = getelementptr inbounds float, ptr %32, i64 %indvars.iv957
+  %542 = getelementptr inbounds nuw float, ptr %32, i64 %indvars.iv957
   store float %541, ptr %542, align 4
-  %543 = getelementptr inbounds i32, ptr %31, i64 %indvars.iv957
+  %543 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv957
   %544 = load i32, ptr %543, align 4
   %.not634 = icmp eq i32 %544, %.0590811
   br i1 %.not634, label %545, label %549

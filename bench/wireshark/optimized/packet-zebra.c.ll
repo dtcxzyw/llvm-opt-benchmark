@@ -535,10 +535,10 @@ define internal i32 @dissect_zebra(ptr noundef %0, ptr nocapture noundef readonl
   br i1 %or.cond.i, label %test_zebra.exit.thread, label %10
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %5, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %12 = load i8, ptr %11, align 2
   %13 = icmp ult i8 %12, 4
-  %14 = getelementptr inbounds i8, ptr %5, i64 2
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 2
   %15 = load i16, ptr %14, align 2
   %16 = zext i16 %15 to i32
   br i1 %13, label %17, label %19
@@ -575,12 +575,12 @@ test_zebra.exit.thread:                           ; preds = %4, %17, %20, %22, %
 
 26:                                               ; preds = %24, %22, %20, %17
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %5)
-  %27 = getelementptr inbounds i8, ptr %1, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %28 = load ptr, ptr %27, align 8
   tail call void @col_set_str(ptr noundef %28, i32 noundef 34, ptr noundef nonnull @.str.215) #4
-  %29 = getelementptr inbounds i8, ptr %1, i64 288
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %30 = load i32, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %1, i64 292
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 292
   %32 = load i32, ptr %31, align 4
   %33 = icmp eq i32 %30, %32
   %34 = zext i1 %33 to i32
@@ -599,13 +599,13 @@ test_zebra.exit.thread:                           ; preds = %4, %17, %20, %22, %
   br i1 %.not.i51, label %proto_item_set_hidden.exit, label %45
 
 45:                                               ; preds = %26
-  %46 = getelementptr inbounds i8, ptr %44, i64 32
+  %46 = getelementptr inbounds nuw i8, ptr %44, i64 32
   %47 = load ptr, ptr %46, align 8
   %.not5.i52 = icmp eq ptr %47, null
   br i1 %.not5.i52, label %proto_item_set_hidden.exit, label %48
 
 48:                                               ; preds = %45
-  %49 = getelementptr inbounds i8, ptr %47, i64 28
+  %49 = getelementptr inbounds nuw i8, ptr %47, i64 28
   %50 = load i32, ptr %49, align 4
   %51 = or i32 %50, 1
   store i32 %51, ptr %49, align 4
@@ -617,8 +617,8 @@ proto_item_set_hidden.exit:                       ; preds = %26, %45, %48
   br i1 %.not5067, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %proto_item_set_hidden.exit
-  %53 = getelementptr inbounds i8, ptr %6, i64 4
-  %54 = getelementptr inbounds i8, ptr %6, i64 2
+  %53 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %54 = getelementptr inbounds nuw i8, ptr %6, i64 2
   br label %55
 
 55:                                               ; preds = %.lr.ph, %dissect_zebra_request.exit
@@ -1291,9 +1291,9 @@ define internal fastcc range(i32 0, 2) i32 @zebra_get_header(ptr noundef %0, i32
   %.038 = phi i16 [ %14, %13 ], [ %31, %30 ]
   %.0 = phi i8 [ 0, %13 ], [ %20, %30 ]
   store i16 %7, ptr %2, align 2
-  %33 = getelementptr inbounds i8, ptr %2, i64 2
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 2
   store i16 %.038, ptr %33, align 2
-  %34 = getelementptr inbounds i8, ptr %2, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i8 %.0, ptr %34, align 2
   br label %35
 

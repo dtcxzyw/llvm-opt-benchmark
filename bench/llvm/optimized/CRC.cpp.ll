@@ -20,7 +20,7 @@ define dso_local noundef i32 @_ZN4llvm5crc32EjNS_8ArrayRefIhEE(i32 noundef %0, p
   %7 = tail call i64 @crc32(i64 noundef %5, ptr noundef %.sroa.03.0, i32 noundef %6) #3
   %8 = trunc i64 %7 to i32
   %9 = sub i64 %.sroa.4.0, %..i
-  %10 = getelementptr inbounds i8, ptr %.sroa.03.0, i64 %..i
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.03.0, i64 %..i
   %.not = icmp eq i64 %9, 0
   br i1 %.not, label %11, label %4, !llvm.loop !4
 
@@ -43,7 +43,7 @@ define dso_local noundef i32 @_ZN4llvm5crc32ENS_8ArrayRefIhEE(ptr %0, i64 %1) lo
   %5 = trunc nuw i64 %..i.i to i32
   %6 = tail call i64 @crc32(i64 noundef %4, ptr noundef %.sroa.03.0.i, i32 noundef %5) #3
   %7 = sub i64 %.sroa.4.0.i, %..i.i
-  %8 = getelementptr inbounds i8, ptr %.sroa.03.0.i, i64 %..i.i
+  %8 = getelementptr inbounds nuw i8, ptr %.sroa.03.0.i, i64 %..i.i
   %.not.i = icmp eq i64 %7, 0
   br i1 %.not.i, label %_ZN4llvm5crc32EjNS_8ArrayRefIhEE.exit, label %3, !llvm.loop !4
 
@@ -69,7 +69,7 @@ define dso_local void @_ZN4llvm6JamCRC6updateENS_8ArrayRefIhEE(ptr nocapture nou
   %9 = tail call i64 @crc32(i64 noundef %7, ptr noundef %.sroa.03.0.i, i32 noundef %8) #3
   %10 = trunc i64 %9 to i32
   %11 = sub i64 %.sroa.4.0.i, %..i.i
-  %12 = getelementptr inbounds i8, ptr %.sroa.03.0.i, i64 %..i.i
+  %12 = getelementptr inbounds nuw i8, ptr %.sroa.03.0.i, i64 %..i.i
   %.not.i = icmp eq i64 %11, 0
   br i1 %.not.i, label %_ZN4llvm5crc32EjNS_8ArrayRefIhEE.exit, label %6, !llvm.loop !4
 

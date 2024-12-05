@@ -22,7 +22,7 @@ define ptr @group_findbypid(i32 noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %12, label %5
 
 5:                                                ; preds = %4
-  %6 = getelementptr inbounds i8, ptr %.07, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %.07, i64 8
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, %0
   br i1 %8, label %9, label %4, !llvm.loop !8

@@ -58,7 +58,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define hidden void @xmpp_iq_reqresp_track(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr @g_hash_table_lookup(ptr noundef %5, ptr noundef nonnull @.str) #8
   %.not.i = icmp eq ptr %6, null
@@ -72,15 +72,15 @@ define hidden void @xmpp_iq_reqresp_track(ptr nocapture noundef readonly %0, ptr
 
 10:                                               ; preds = %7, %3
   %.012.i = phi ptr [ %9, %7 ], [ %6, %3 ]
-  %11 = getelementptr inbounds i8, ptr %.012.i, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %.012.i, i64 24
   store i32 1, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 408
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %.012.i, align 8
   %15 = tail call noalias ptr @wmem_strdup(ptr noundef %13, ptr noundef %14) #8
-  %16 = getelementptr inbounds i8, ptr %0, i64 80
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 50
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 50
   %19 = load i16, ptr %18, align 2
   %20 = and i16 %19, 8
   %.not20 = icmp eq i16 %20, 0
@@ -93,9 +93,9 @@ define hidden void @xmpp_iq_reqresp_track(ptr nocapture noundef readonly %0, ptr
   br i1 %.not21, label %28, label %24
 
 24:                                               ; preds = %23
-  %25 = getelementptr inbounds i8, ptr %0, i64 20
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %26 = load i32, ptr %25, align 4
-  %27 = getelementptr inbounds i8, ptr %22, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %22, i64 4
   store i32 %26, ptr %27, align 4
   br label %xmpp_get_attr.exit.thread
 
@@ -104,10 +104,10 @@ define hidden void @xmpp_iq_reqresp_track(ptr nocapture noundef readonly %0, ptr
   %30 = tail call noalias ptr @wmem_strdup(ptr noundef %29, ptr noundef %15) #8
   %31 = tail call ptr @wmem_file_scope() #8
   %32 = tail call noalias ptr @wmem_alloc(ptr noundef %31, i64 noundef 8) #8
-  %33 = getelementptr inbounds i8, ptr %0, i64 20
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %34 = load i32, ptr %33, align 4
   store i32 %34, ptr %32, align 4
-  %35 = getelementptr inbounds i8, ptr %32, i64 4
+  %35 = getelementptr inbounds nuw i8, ptr %32, i64 4
   store i32 0, ptr %35, align 4
   %36 = load ptr, ptr %2, align 8
   tail call void @wmem_tree_insert_string(ptr noundef %36, ptr noundef %30, ptr noundef nonnull %32, i32 noundef 1) #8
@@ -119,7 +119,7 @@ xmpp_get_attr.exit.thread:                        ; preds = %10, %7, %24, %28
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @xmpp_get_attr(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = tail call ptr @g_hash_table_lookup(ptr noundef %4, ptr noundef %1) #8
   %.not = icmp eq ptr %5, null
@@ -133,7 +133,7 @@ define hidden ptr @xmpp_get_attr(ptr nocapture noundef readonly %0, ptr noundef 
 
 .thread:                                          ; preds = %2, %6
   %.012 = phi ptr [ %8, %6 ], [ %5, %2 ]
-  %9 = getelementptr inbounds i8, ptr %.012, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %.012, i64 24
   store i32 1, ptr %9, align 8
   br label %10
 
@@ -159,7 +159,7 @@ define hidden void @xmpp_jingle_session_track(ptr nocapture noundef readonly %0,
   %6 = tail call ptr @wmem_packet_scope() #8
   %7 = tail call noalias ptr @wmem_strdup(ptr noundef %6, ptr noundef nonnull @.str.1) #8
   store ptr %7, ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %9 = load ptr, ptr %8, align 8
   %10 = tail call ptr @g_list_find_custom(ptr noundef %9, ptr noundef nonnull %5, ptr noundef nonnull @xmpp_element_t_cmp) #8
   %.not = icmp eq ptr %10, null
@@ -171,16 +171,16 @@ define hidden void @xmpp_jingle_session_track(ptr nocapture noundef readonly %0,
   br i1 %.not17, label %.thread, label %13
 
 13:                                               ; preds = %11
-  %14 = getelementptr inbounds i8, ptr %0, i64 80
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 50
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 50
   %17 = load i16, ptr %16, align 2
   %18 = and i16 %17, 8
   %.not18 = icmp eq i16 %18, 0
   br i1 %.not18, label %19, label %.thread
 
 19:                                               ; preds = %13
-  %20 = getelementptr inbounds i8, ptr %1, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %21 = load ptr, ptr %20, align 8
   %22 = tail call ptr @g_hash_table_lookup(ptr noundef %21, ptr noundef nonnull @.str) #8
   %.not.i = icmp eq ptr %22, null
@@ -194,9 +194,9 @@ define hidden void @xmpp_jingle_session_track(ptr nocapture noundef readonly %0,
 
 26:                                               ; preds = %23, %19
   %.012.i = phi ptr [ %25, %23 ], [ %22, %19 ]
-  %27 = getelementptr inbounds i8, ptr %.012.i, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %.012.i, i64 24
   store i32 1, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %12, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %29 = load ptr, ptr %28, align 8
   %30 = tail call ptr @g_hash_table_lookup(ptr noundef %29, ptr noundef nonnull @.str.2) #8
   %.not.i21 = icmp eq ptr %30, null
@@ -210,7 +210,7 @@ define hidden void @xmpp_jingle_session_track(ptr nocapture noundef readonly %0,
 
 34:                                               ; preds = %31, %26
   %.012.i23 = phi ptr [ %33, %31 ], [ %30, %26 ]
-  %35 = getelementptr inbounds i8, ptr %.012.i23, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %.012.i23, i64 24
   store i32 1, ptr %35, align 8
   %36 = tail call ptr @wmem_file_scope() #8
   %37 = load ptr, ptr %.012.i, align 8
@@ -218,7 +218,7 @@ define hidden void @xmpp_jingle_session_track(ptr nocapture noundef readonly %0,
   %39 = tail call ptr @wmem_file_scope() #8
   %40 = load ptr, ptr %.012.i23, align 8
   %41 = tail call noalias ptr @wmem_strdup(ptr noundef %39, ptr noundef %40) #8
-  %42 = getelementptr inbounds i8, ptr %2, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %43 = load ptr, ptr %42, align 8
   tail call void @wmem_tree_insert_string(ptr noundef %43, ptr noundef %38, ptr noundef %41, i32 noundef 1) #8
   br label %.thread
@@ -234,7 +234,7 @@ define hidden void @xmpp_gtalk_session_track(ptr nocapture noundef readonly %0, 
   %6 = tail call ptr @wmem_packet_scope() #8
   %7 = tail call noalias ptr @wmem_strdup(ptr noundef %6, ptr noundef nonnull @.str.3) #8
   store ptr %7, ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %9 = load ptr, ptr %8, align 8
   %10 = tail call ptr @g_list_find_custom(ptr noundef %9, ptr noundef nonnull %5, ptr noundef nonnull @xmpp_element_t_cmp) #8
   %.not = icmp eq ptr %10, null
@@ -246,16 +246,16 @@ define hidden void @xmpp_gtalk_session_track(ptr nocapture noundef readonly %0, 
   br i1 %.not21, label %.thread, label %13
 
 13:                                               ; preds = %11
-  %14 = getelementptr inbounds i8, ptr %0, i64 80
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 50
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 50
   %17 = load i16, ptr %16, align 2
   %18 = and i16 %17, 8
   %.not22 = icmp eq i16 %18, 0
   br i1 %.not22, label %19, label %.thread
 
 19:                                               ; preds = %13
-  %20 = getelementptr inbounds i8, ptr %12, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %21 = load ptr, ptr %20, align 8
   %22 = tail call ptr @g_hash_table_lookup(ptr noundef %21, ptr noundef nonnull @.str.4) #8
   %.not.i = icmp eq ptr %22, null
@@ -269,7 +269,7 @@ define hidden void @xmpp_gtalk_session_track(ptr nocapture noundef readonly %0, 
 
 26:                                               ; preds = %23, %19
   %.012.i = phi ptr [ %25, %23 ], [ %22, %19 ]
-  %27 = getelementptr inbounds i8, ptr %.012.i, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %.012.i, i64 24
   store i32 1, ptr %27, align 8
   %28 = load ptr, ptr %.012.i, align 8
   %29 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %28, ptr noundef nonnull dereferenceable(30) @.str.5) #9
@@ -277,7 +277,7 @@ define hidden void @xmpp_gtalk_session_track(ptr nocapture noundef readonly %0, 
   br i1 %.not24, label %xmpp_get_attr.exit.thread, label %.thread
 
 xmpp_get_attr.exit.thread:                        ; preds = %23, %26
-  %30 = getelementptr inbounds i8, ptr %1, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %31 = load ptr, ptr %30, align 8
   %32 = tail call ptr @g_hash_table_lookup(ptr noundef %31, ptr noundef nonnull @.str) #8
   %.not.i27 = icmp eq ptr %32, null
@@ -291,7 +291,7 @@ xmpp_get_attr.exit.thread:                        ; preds = %23, %26
 
 36:                                               ; preds = %33, %xmpp_get_attr.exit.thread
   %.012.i29 = phi ptr [ %35, %33 ], [ %32, %xmpp_get_attr.exit.thread ]
-  %37 = getelementptr inbounds i8, ptr %.012.i29, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %.012.i29, i64 24
   store i32 1, ptr %37, align 8
   %38 = load ptr, ptr %20, align 8
   %39 = tail call ptr @g_hash_table_lookup(ptr noundef %38, ptr noundef nonnull @.str) #8
@@ -306,7 +306,7 @@ xmpp_get_attr.exit.thread:                        ; preds = %23, %26
 
 43:                                               ; preds = %40, %36
   %.012.i35 = phi ptr [ %42, %40 ], [ %39, %36 ]
-  %44 = getelementptr inbounds i8, ptr %.012.i35, i64 24
+  %44 = getelementptr inbounds nuw i8, ptr %.012.i35, i64 24
   store i32 1, ptr %44, align 8
   %45 = tail call ptr @wmem_file_scope() #8
   %46 = load ptr, ptr %.012.i29, align 8
@@ -314,7 +314,7 @@ xmpp_get_attr.exit.thread:                        ; preds = %23, %26
   %48 = tail call ptr @wmem_file_scope() #8
   %49 = load ptr, ptr %.012.i35, align 8
   %50 = tail call noalias ptr @wmem_strdup(ptr noundef %48, ptr noundef %49) #8
-  %51 = getelementptr inbounds i8, ptr %2, i64 24
+  %51 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %52 = load ptr, ptr %51, align 8
   tail call void @wmem_tree_insert_string(ptr noundef %52, ptr noundef %47, ptr noundef %50, i32 noundef 1) #8
   br label %.thread
@@ -339,7 +339,7 @@ define hidden void @xmpp_ibb_session_track(ptr nocapture noundef readonly %0, pt
   %10 = tail call ptr @wmem_packet_scope() #8
   %11 = tail call noalias ptr @wmem_strdup(ptr noundef %10, ptr noundef nonnull @.str.7) #8
   store ptr %11, ptr %9, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %13 = load ptr, ptr %12, align 8
   %14 = tail call ptr @g_list_find_custom(ptr noundef %13, ptr noundef nonnull %9, ptr noundef nonnull @xmpp_element_t_cmp) #8
   %.not31 = icmp eq ptr %14, null
@@ -351,13 +351,13 @@ sub_0:                                            ; preds = %3
   br i1 %.not53, label %sub_1, label %.thread47
 
 sub_1:                                            ; preds = %sub_0
-  %16 = getelementptr inbounds i8, ptr %4, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %17 = load i8, ptr %16, align 1
   %.not54 = icmp eq i8 %17, 113
   br i1 %.not54, label %.tail, label %.thread47
 
 .tail:                                            ; preds = %sub_1
-  %18 = getelementptr inbounds i8, ptr %4, i64 2
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 2
   %19 = load i8, ptr %18, align 1
   %20 = icmp eq i8 %19, 0
   br i1 %20, label %21, label %.thread47
@@ -368,7 +368,7 @@ sub_1:                                            ; preds = %sub_0
   %24 = tail call ptr @wmem_packet_scope() #8
   %25 = tail call noalias ptr @wmem_strdup(ptr noundef %24, ptr noundef nonnull @.str.9) #8
   store ptr %25, ptr %23, align 8
-  %26 = getelementptr inbounds i8, ptr %1, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %27 = load ptr, ptr %26, align 8
   %28 = tail call ptr @g_list_find_custom(ptr noundef %27, ptr noundef nonnull %23, ptr noundef nonnull @xmpp_element_t_cmp) #8
   %.not = icmp eq ptr %28, null
@@ -403,16 +403,16 @@ sub_1:                                            ; preds = %sub_0
   br i1 %.not32, label %.thread47, label %43
 
 43:                                               ; preds = %.thread42
-  %44 = getelementptr inbounds i8, ptr %0, i64 80
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 50
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 50
   %47 = load i16, ptr %46, align 2
   %48 = and i16 %47, 8
   %.not33 = icmp eq i16 %48, 0
   br i1 %.not33, label %49, label %.thread47
 
 49:                                               ; preds = %43
-  %50 = getelementptr inbounds i8, ptr %1, i64 24
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %51 = load ptr, ptr %50, align 8
   %52 = tail call ptr @g_hash_table_lookup(ptr noundef %51, ptr noundef nonnull @.str) #8
   %.not.i = icmp eq ptr %52, null
@@ -426,13 +426,13 @@ sub_1:                                            ; preds = %sub_0
 
 .thread.i:                                        ; preds = %53, %49
   %.012.i = phi ptr [ %55, %53 ], [ %52, %49 ]
-  %56 = getelementptr inbounds i8, ptr %.012.i, i64 24
+  %56 = getelementptr inbounds nuw i8, ptr %.012.i, i64 24
   store i32 1, ptr %56, align 8
   br label %xmpp_get_attr.exit
 
 xmpp_get_attr.exit:                               ; preds = %53, %.thread.i
   %.013.i = phi ptr [ %.012.i, %.thread.i ], [ null, %53 ]
-  %57 = getelementptr inbounds i8, ptr %.0, i64 24
+  %57 = getelementptr inbounds nuw i8, ptr %.0, i64 24
   %58 = load ptr, ptr %57, align 8
   %59 = tail call ptr @g_hash_table_lookup(ptr noundef %58, ptr noundef nonnull @.str.2) #8
   %.not.i34 = icmp eq ptr %59, null
@@ -446,7 +446,7 @@ xmpp_get_attr.exit:                               ; preds = %53, %.thread.i
 
 xmpp_get_attr.exit39:                             ; preds = %xmpp_get_attr.exit, %60
   %.012.i36 = phi ptr [ %62, %60 ], [ %59, %xmpp_get_attr.exit ]
-  %63 = getelementptr inbounds i8, ptr %.012.i36, i64 24
+  %63 = getelementptr inbounds nuw i8, ptr %.012.i36, i64 24
   store i32 1, ptr %63, align 8
   %.not52 = icmp eq ptr %.013.i, null
   br i1 %.not52, label %.thread47, label %64
@@ -458,7 +458,7 @@ xmpp_get_attr.exit39:                             ; preds = %xmpp_get_attr.exit,
   %68 = tail call ptr @wmem_file_scope() #8
   %69 = load ptr, ptr %.012.i36, align 8
   %70 = tail call noalias ptr @wmem_strdup(ptr noundef %68, ptr noundef %69) #8
-  %71 = getelementptr inbounds i8, ptr %2, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %72 = load ptr, ptr %71, align 8
   tail call void @wmem_tree_insert_string(ptr noundef %72, ptr noundef %67, ptr noundef %70, i32 noundef 1) #8
   br label %.thread47
@@ -469,29 +469,29 @@ xmpp_get_attr.exit39:                             ; preds = %xmpp_get_attr.exit,
 
 ; Function Attrs: nounwind uwtable
 define hidden void @xmpp_unknown(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %3, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.041 = load ptr, ptr %5, align 8
   %.not42 = icmp eq ptr %.041, null
   br i1 %.not42, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
-  %6 = getelementptr inbounds i8, ptr %2, i64 408
-  %7 = getelementptr inbounds i8, ptr %2, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 408
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %8
 
 8:                                                ; preds = %.lr.ph, %62
   %.043 = phi ptr [ %.041, %.lr.ph ], [ %.0, %62 ]
   %9 = load ptr, ptr %.043, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 56
   %11 = load i32, ptr %10, align 8
   %.not29 = icmp eq i32 %11, 0
   br i1 %.not29, label %12, label %62
 
 12:                                               ; preds = %8
   %13 = load i32, ptr @hf_xmpp_unknown, align 4
-  %14 = getelementptr inbounds i8, ptr %9, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %15 = load i32, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %9, i64 52
+  %16 = getelementptr inbounds nuw i8, ptr %9, i64 52
   %17 = load i32, ptr %16, align 4
   %18 = load ptr, ptr %9, align 8
   %19 = load ptr, ptr %6, align 8
@@ -532,13 +532,13 @@ xmpp_ep_string_upcase.exit:                       ; preds = %.lr.ph.i, %12
   br i1 %.not44, label %sub_1, label %xmpp_ep_string_upcase.exit.tail.thread
 
 sub_1:                                            ; preds = %xmpp_ep_string_upcase.exit
-  %36 = getelementptr inbounds i8, ptr %34, i64 1
+  %36 = getelementptr inbounds nuw i8, ptr %34, i64 1
   %37 = load i8, ptr %36, align 1
   %.not45 = icmp eq i8 %37, 113
   br i1 %.not45, label %xmpp_ep_string_upcase.exit.tail, label %xmpp_ep_string_upcase.exit.tail.thread
 
 xmpp_ep_string_upcase.exit.tail:                  ; preds = %sub_1
-  %38 = getelementptr inbounds i8, ptr %34, i64 2
+  %38 = getelementptr inbounds nuw i8, ptr %34, i64 2
   %39 = load i8, ptr %38, align 1
   %40 = icmp eq i8 %39, 0
   br i1 %40, label %41, label %xmpp_ep_string_upcase.exit.tail.thread
@@ -579,7 +579,7 @@ xmpp_ep_string_upcase.exit40:                     ; preds = %.lr.ph.i34, %41
   br label %xmpp_ep_string_upcase.exit.tail.thread
 
 xmpp_ep_string_upcase.exit.tail.thread:           ; preds = %sub_1, %xmpp_ep_string_upcase.exit, %xmpp_ep_string_upcase.exit40, %xmpp_ep_string_upcase.exit.tail
-  %56 = getelementptr inbounds i8, ptr %9, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %57 = load ptr, ptr %56, align 8
   %.not30 = icmp eq ptr %57, null
   br i1 %.not30, label %59, label %58
@@ -596,7 +596,7 @@ xmpp_ep_string_upcase.exit.tail.thread:           ; preds = %sub_1, %xmpp_ep_str
   br label %62
 
 62:                                               ; preds = %59, %8
-  %63 = getelementptr inbounds i8, ptr %.043, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %.043, i64 8
   %.0 = load ptr, ptr %63, align 8
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %._crit_edge, label %8, !llvm.loop !6
@@ -616,7 +616,7 @@ declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unname
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @xmpp_unknown_items(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %8 = load ptr, ptr %7, align 8
   %9 = icmp ult i32 %4, 20
   br i1 %9, label %11, label %10
@@ -627,16 +627,16 @@ define internal fastcc void @xmpp_unknown_items(ptr noundef %0, ptr noundef %1, 
 
 11:                                               ; preds = %5
   tail call fastcc void @xmpp_unknown_attrs(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, i32 noundef 1)
-  %12 = getelementptr inbounds i8, ptr %3, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %13 = load ptr, ptr %12, align 8
   %.not = icmp eq ptr %13, null
   br i1 %.not, label %22, label %14
 
 14:                                               ; preds = %11
   %15 = load i32, ptr @hf_xmpp_cdata, align 4
-  %16 = getelementptr inbounds i8, ptr %13, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %17 = load i32, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %13, i64 12
+  %18 = getelementptr inbounds nuw i8, ptr %13, i64 12
   %19 = load i32, ptr %18, align 4
   %20 = load ptr, ptr %13, align 8
   %21 = tail call ptr @proto_tree_add_string(ptr noundef %0, i32 noundef %15, ptr noundef %1, i32 noundef %17, i32 noundef %19, ptr noundef %20) #8
@@ -649,16 +649,16 @@ define internal fastcc void @xmpp_unknown_items(ptr noundef %0, ptr noundef %1, 
 .lr.ph:                                           ; preds = %22
   %23 = zext nneg i32 %4 to i64
   %24 = getelementptr [20 x i32], ptr @ett_unknown, i64 0, i64 %23
-  %25 = getelementptr inbounds i8, ptr %2, i64 408
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %26 = add nuw nsw i32 %4, 1
   br label %27
 
 27:                                               ; preds = %.lr.ph, %52
   %.034 = phi ptr [ %8, %.lr.ph ], [ %54, %52 ]
   %28 = load ptr, ptr %.034, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 48
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 48
   %30 = load i32, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %28, i64 52
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 52
   %32 = load i32, ptr %31, align 4
   %33 = load i32, ptr %24, align 4
   %34 = load ptr, ptr %25, align 8
@@ -692,7 +692,7 @@ define internal fastcc void @xmpp_unknown_items(ptr noundef %0, ptr noundef %1, 
 
 xmpp_ep_string_upcase.exit:                       ; preds = %.lr.ph.i, %27
   %47 = call ptr @proto_tree_add_subtree(ptr noundef %0, ptr noundef %1, i32 noundef %30, i32 noundef %32, i32 noundef %33, ptr noundef nonnull %6, ptr noundef %40) #8
-  %48 = getelementptr inbounds i8, ptr %28, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %49 = load ptr, ptr %48, align 8
   %.not32 = icmp eq ptr %49, null
   br i1 %.not32, label %52, label %50
@@ -704,7 +704,7 @@ xmpp_ep_string_upcase.exit:                       ; preds = %.lr.ph.i, %27
 
 52:                                               ; preds = %50, %xmpp_ep_string_upcase.exit
   call fastcc void @xmpp_unknown_items(ptr noundef %47, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %28, i32 noundef %26)
-  %53 = getelementptr inbounds i8, ptr %.034, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %.034, i64 8
   %54 = load ptr, ptr %53, align 8
   %.not31 = icmp eq ptr %54, null
   br i1 %.not31, label %._crit_edge, label %27, !llvm.loop !7
@@ -717,7 +717,7 @@ declare ptr @expert_add_info_format(ptr noundef, ptr noundef, ptr noundef, ptr n
 
 ; Function Attrs: nounwind uwtable
 define hidden void @xmpp_cdata(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %2, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
   %7 = icmp eq i32 %3, -1
@@ -728,18 +728,18 @@ define hidden void @xmpp_cdata(ptr noundef %0, ptr noundef %1, ptr nocapture nou
 
 9:                                                ; preds = %8
   %10 = load i32, ptr @hf_xmpp_cdata, align 4
-  %11 = getelementptr inbounds i8, ptr %6, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %12 = load i32, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %6, i64 12
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %14 = load i32, ptr %13, align 4
   %15 = load ptr, ptr %6, align 8
   %16 = tail call ptr @proto_tree_add_string(ptr noundef %0, i32 noundef %10, ptr noundef %1, i32 noundef %12, i32 noundef %14, ptr noundef %15) #8
   br label %30
 
 17:                                               ; preds = %8
-  %18 = getelementptr inbounds i8, ptr %6, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %19 = load i32, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %6, i64 12
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %21 = load i32, ptr %20, align 4
   %22 = load ptr, ptr %6, align 8
   %23 = tail call ptr @proto_tree_add_string(ptr noundef %0, i32 noundef %3, ptr noundef %1, i32 noundef %19, i32 noundef %21, ptr noundef %22) #8
@@ -768,11 +768,11 @@ declare ptr @proto_tree_add_string_format_value(ptr noundef, i32 noundef, ptr no
 ; Function Attrs: nounwind uwtable
 define hidden void @xmpp_simple_cdata_elem(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
   %5 = load i32, ptr @hf_xmpp_cdata, align 4
-  %6 = getelementptr inbounds i8, ptr %3, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %7 = load i32, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 52
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 52
   %9 = load i32, ptr %8, align 4
-  %10 = getelementptr inbounds i8, ptr %3, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %11 = load ptr, ptr %10, align 8
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %14, label %12
@@ -783,7 +783,7 @@ define hidden void @xmpp_simple_cdata_elem(ptr noundef %0, ptr noundef %1, ptr n
 
 14:                                               ; preds = %4, %12
   %15 = phi ptr [ %13, %12 ], [ @.str.16, %4 ]
-  %16 = getelementptr inbounds i8, ptr %2, i64 408
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr %3, align 8
   %19 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %18) #9
@@ -832,7 +832,7 @@ xmpp_ep_string_upcase.exit:                       ; preds = %.lr.ph.i, %14
 define hidden noalias noundef ptr @xmpp_ep_init_array_t(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call noalias ptr @wmem_alloc(ptr noundef %0, i64 noundef 16) #8
   store ptr %1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %2, ptr %5, align 8
   ret ptr %4
 }
@@ -841,11 +841,11 @@ define hidden noalias noundef ptr @xmpp_ep_init_array_t(ptr noundef %0, ptr noun
 define hidden noalias noundef ptr @xmpp_ep_init_attr_t(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = tail call noalias ptr @wmem_alloc(ptr noundef %0, i64 noundef 32) #8
   store ptr %1, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 %2, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 20
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i32 %3, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %5, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr null, ptr %8, align 8
   ret ptr %5
 }
@@ -857,7 +857,7 @@ define hidden ptr @xmpp_steal_element_by_name(ptr nocapture noundef readonly %0,
   %5 = tail call ptr @wmem_packet_scope() #8
   %6 = tail call noalias ptr @wmem_strdup(ptr noundef %5, ptr noundef %1) #8
   store ptr %6, ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load ptr, ptr %7, align 8
   %9 = tail call ptr @g_list_find_custom(ptr noundef %8, ptr noundef nonnull %4, ptr noundef nonnull @xmpp_element_t_cmp) #8
   %.not = icmp eq ptr %9, null
@@ -865,7 +865,7 @@ define hidden ptr @xmpp_steal_element_by_name(ptr nocapture noundef readonly %0,
 
 10:                                               ; preds = %2
   %11 = load ptr, ptr %9, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 56
   store i32 1, ptr %12, align 8
   br label %13
 
@@ -880,7 +880,7 @@ define hidden ptr @xmpp_steal_element_by_names(ptr nocapture noundef readonly %0
   br i1 %4, label %.lr.ph, label %xmpp_steal_element_by_name.exit._crit_edge
 
 .lr.ph:                                           ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %wide.trip.count = zext nneg i32 %2 to i64
   br label %6
 
@@ -900,7 +900,7 @@ define hidden ptr @xmpp_steal_element_by_names(ptr nocapture noundef readonly %0
 
 xmpp_steal_element_by_name.exit:                  ; preds = %6
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 56
   store i32 1, ptr %16, align 8
   br label %xmpp_steal_element_by_name.exit._crit_edge
 
@@ -916,7 +916,7 @@ xmpp_steal_element_by_name.exit._crit_edge:       ; preds = %xmpp_steal_element_
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @xmpp_steal_element_by_attr(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.025 = load ptr, ptr %4, align 8
   %.not26 = icmp eq ptr %.025, null
   br i1 %.not26, label %.loopexit, label %.lr.ph
@@ -924,7 +924,7 @@ define hidden ptr @xmpp_steal_element_by_attr(ptr nocapture noundef readonly %0,
 .lr.ph:                                           ; preds = %3, %xmpp_get_attr.exit.thread21
   %.027 = phi ptr [ %.0, %xmpp_get_attr.exit.thread21 ], [ %.025, %3 ]
   %5 = load ptr, ptr %.027, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = tail call ptr @g_hash_table_lookup(ptr noundef %7, ptr noundef %1) #8
   %.not.i = icmp eq ptr %8, null
@@ -938,9 +938,9 @@ define hidden ptr @xmpp_steal_element_by_attr(ptr nocapture noundef readonly %0,
 
 xmpp_get_attr.exit:                               ; preds = %9, %.lr.ph
   %.012.i = phi ptr [ %11, %9 ], [ %8, %.lr.ph ]
-  %12 = getelementptr inbounds i8, ptr %.012.i, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %.012.i, i64 24
   store i32 0, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %5, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %14 = load i32, ptr %13, align 8
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %16, label %xmpp_get_attr.exit.thread21
@@ -953,12 +953,12 @@ xmpp_get_attr.exit:                               ; preds = %9, %.lr.ph
 
 20:                                               ; preds = %16
   %21 = load ptr, ptr %.027, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 56
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 56
   store i32 1, ptr %22, align 8
   br label %.loopexit
 
 xmpp_get_attr.exit.thread21:                      ; preds = %9, %16, %xmpp_get_attr.exit
-  %23 = getelementptr inbounds i8, ptr %.027, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %.027, i64 8
   %.0 = load ptr, ptr %23, align 8
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !9
@@ -970,7 +970,7 @@ xmpp_get_attr.exit.thread21:                      ; preds = %9, %16, %xmpp_get_a
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @xmpp_steal_element_by_name_and_attr(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.027 = load ptr, ptr %5, align 8
   %.not28 = icmp eq ptr %.027, null
   br i1 %.not28, label %.loopexit, label %.lr.ph
@@ -978,7 +978,7 @@ define hidden ptr @xmpp_steal_element_by_name_and_attr(ptr nocapture noundef rea
 .lr.ph:                                           ; preds = %4, %xmpp_get_attr.exit.thread23
   %.029 = phi ptr [ %.0, %xmpp_get_attr.exit.thread23 ], [ %.027, %4 ]
   %6 = load ptr, ptr %.029, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = tail call ptr @g_hash_table_lookup(ptr noundef %8, ptr noundef %2) #8
   %.not.i = icmp eq ptr %9, null
@@ -992,9 +992,9 @@ define hidden ptr @xmpp_steal_element_by_name_and_attr(ptr nocapture noundef rea
 
 xmpp_get_attr.exit:                               ; preds = %10, %.lr.ph
   %.012.i = phi ptr [ %12, %10 ], [ %9, %.lr.ph ]
-  %13 = getelementptr inbounds i8, ptr %.012.i, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %.012.i, i64 24
   store i32 0, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %6, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %15 = load i32, ptr %14, align 8
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %17, label %xmpp_get_attr.exit.thread23
@@ -1013,12 +1013,12 @@ xmpp_get_attr.exit:                               ; preds = %10, %.lr.ph
 
 25:                                               ; preds = %21
   %26 = load ptr, ptr %.029, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 56
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 56
   store i32 1, ptr %27, align 8
   br label %.loopexit
 
 xmpp_get_attr.exit.thread23:                      ; preds = %10, %21, %17, %xmpp_get_attr.exit
-  %28 = getelementptr inbounds i8, ptr %.029, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %.029, i64 8
   %.0 = load ptr, ptr %28, align 8
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !10
@@ -1030,7 +1030,7 @@ xmpp_get_attr.exit.thread23:                      ; preds = %10, %21, %17, %xmpp
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden ptr @xmpp_get_first_element(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %6, label %4
@@ -1054,29 +1054,29 @@ define hidden ptr @xmpp_xml_frame_to_element_t(ptr noundef %0, ptr nocapture nou
   %6 = alloca %struct.except_cleanup, align 8
   %7 = tail call noalias ptr @wmem_alloc0(ptr noundef %0, i64 noundef 64) #8
   %8 = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal) #8
-  %9 = getelementptr inbounds i8, ptr %7, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr %8, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %7, i64 32
-  %11 = getelementptr inbounds i8, ptr %7, i64 40
-  %12 = getelementptr inbounds i8, ptr %7, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 56
   store i32 0, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %7, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr null, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
   %15 = load ptr, ptr %14, align 8
   %16 = tail call noalias ptr @wmem_strdup(ptr noundef %0, ptr noundef %15) #8
   store ptr %16, ptr %7, align 8
-  %17 = getelementptr inbounds i8, ptr %7, i64 48
-  %18 = getelementptr inbounds i8, ptr %7, i64 52
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 48
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 52
   %19 = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal) #8
-  %20 = getelementptr inbounds i8, ptr %7, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %19, ptr %20, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %24, label %21
 
 21:                                               ; preds = %4
-  %22 = getelementptr inbounds i8, ptr %2, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %23 = load ptr, ptr %22, align 8
   tail call void @g_hash_table_foreach(ptr noundef %23, ptr noundef nonnull @xmpp_copy_hash_table_func, ptr noundef %19) #8
   br label %26
@@ -1086,10 +1086,10 @@ define hidden ptr @xmpp_xml_frame_to_element_t(ptr noundef %0, ptr nocapture nou
   br label %26
 
 26:                                               ; preds = %24, %21
-  %27 = getelementptr inbounds i8, ptr %1, i64 104
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %28 = load i32, ptr %27, align 8
   store i32 %28, ptr %17, align 8
-  %29 = getelementptr inbounds i8, ptr %1, i64 108
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 108
   %30 = load i32, ptr %29, align 4
   store i32 %30, ptr %18, align 4
   call void @except_setup_clean(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull @xmpp_element_t_cleanup, ptr noundef nonnull %7) #8
@@ -1102,20 +1102,20 @@ define hidden ptr @xmpp_xml_frame_to_element_t(ptr noundef %0, ptr nocapture nou
   br i1 %.not105, label %46, label %36
 
 36:                                               ; preds = %26
-  %37 = getelementptr inbounds i8, ptr %35, i64 40
+  %37 = getelementptr inbounds nuw i8, ptr %35, i64 40
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %38, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %38, i64 24
   %42 = load i32, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %38, i64 28
+  %43 = getelementptr inbounds nuw i8, ptr %38, i64 28
   %44 = load i32, ptr %43, align 4
   %45 = call ptr @tvb_get_string_enc(ptr noundef %0, ptr noundef %40, i32 noundef %42, i32 noundef %44, i32 noundef 0) #8
   store ptr %45, ptr %13, align 8
   br label %46
 
 46:                                               ; preds = %36, %26
-  %47 = getelementptr inbounds i8, ptr %1, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.097110 = load ptr, ptr %47, align 8
   %.not106111 = icmp eq ptr %.097110, null
   br i1 %.not106111, label %._crit_edge, label %.lr.ph
@@ -1131,13 +1131,13 @@ define hidden ptr @xmpp_xml_frame_to_element_t(ptr noundef %0, ptr nocapture nou
 
 49:                                               ; preds = %.lr.ph
   %50 = call noalias ptr @wmem_alloc(ptr noundef %0, i64 noundef 32) #8
-  %51 = getelementptr inbounds i8, ptr %50, i64 20
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 20
   store i32 0, ptr %51, align 4
-  %52 = getelementptr inbounds i8, ptr %50, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %50, i64 16
   store i32 0, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %50, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %50, i64 24
   store i32 0, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %.097112, i64 64
+  %54 = getelementptr inbounds nuw i8, ptr %.097112, i64 64
   %55 = load ptr, ptr %54, align 8
   %.not109 = icmp eq ptr %55, null
   br i1 %.not109, label %64, label %56
@@ -1154,17 +1154,17 @@ define hidden ptr @xmpp_xml_frame_to_element_t(ptr noundef %0, ptr nocapture nou
 
 64:                                               ; preds = %56, %49
   %.098 = phi ptr [ %60, %56 ], [ null, %49 ]
-  %65 = getelementptr inbounds i8, ptr %.097112, i64 104
+  %65 = getelementptr inbounds nuw i8, ptr %.097112, i64 104
   %66 = load i32, ptr %65, align 8
   store i32 %66, ptr %52, align 8
-  %67 = getelementptr inbounds i8, ptr %.097112, i64 108
+  %67 = getelementptr inbounds nuw i8, ptr %.097112, i64 108
   %68 = load i32, ptr %67, align 4
   store i32 %68, ptr %51, align 4
   store ptr %.098, ptr %50, align 8
-  %69 = getelementptr inbounds i8, ptr %.097112, i64 56
+  %69 = getelementptr inbounds nuw i8, ptr %.097112, i64 56
   %70 = load ptr, ptr %69, align 8
   %71 = call noalias ptr @wmem_strdup(ptr noundef %0, ptr noundef %70) #8
-  %72 = getelementptr inbounds i8, ptr %50, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %50, i64 8
   store ptr %71, ptr %72, align 8
   %73 = load ptr, ptr %9, align 8
   %74 = call i32 @g_hash_table_insert(ptr noundef %73, ptr noundef %71, ptr noundef nonnull %50) #8
@@ -1205,11 +1205,11 @@ define hidden ptr @xmpp_xml_frame_to_element_t(ptr noundef %0, ptr nocapture nou
 
 97:                                               ; preds = %.lr.ph
   %98 = call noalias ptr @wmem_alloc(ptr noundef %0, i64 noundef 16) #8
-  %99 = getelementptr inbounds i8, ptr %98, i64 12
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 12
   store i32 0, ptr %99, align 4
-  %100 = getelementptr inbounds i8, ptr %98, i64 8
+  %100 = getelementptr inbounds nuw i8, ptr %98, i64 8
   store i32 0, ptr %100, align 8
-  %101 = getelementptr inbounds i8, ptr %.097112, i64 64
+  %101 = getelementptr inbounds nuw i8, ptr %.097112, i64 64
   %102 = load ptr, ptr %101, align 8
   %.not108 = icmp eq ptr %102, null
   br i1 %.not108, label %111, label %103
@@ -1227,10 +1227,10 @@ define hidden ptr @xmpp_xml_frame_to_element_t(ptr noundef %0, ptr nocapture nou
 111:                                              ; preds = %103, %97
   %.0 = phi ptr [ %107, %103 ], [ null, %97 ]
   store ptr %.0, ptr %98, align 8
-  %112 = getelementptr inbounds i8, ptr %.097112, i64 104
+  %112 = getelementptr inbounds nuw i8, ptr %.097112, i64 104
   %113 = load i32, ptr %112, align 8
   store i32 %113, ptr %100, align 8
-  %114 = getelementptr inbounds i8, ptr %.097112, i64 108
+  %114 = getelementptr inbounds nuw i8, ptr %.097112, i64 108
   %115 = load i32, ptr %114, align 4
   store i32 %115, ptr %99, align 4
   store ptr %98, ptr %11, align 8
@@ -1244,7 +1244,7 @@ define hidden ptr @xmpp_xml_frame_to_element_t(ptr noundef %0, ptr nocapture nou
   br label %.thread
 
 .thread:                                          ; preds = %79, %82, %.lr.ph, %85, %92, %64, %111, %116
-  %120 = getelementptr inbounds i8, ptr %.097112, i64 40
+  %120 = getelementptr inbounds nuw i8, ptr %.097112, i64 40
   %.097 = load ptr, ptr %120, align 8
   %.not106 = icmp eq ptr %.097, null
   br i1 %.not106, label %._crit_edge, label %.lr.ph, !llvm.loop !11
@@ -1293,12 +1293,12 @@ declare ptr @except_pop() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @xmpp_element_t_tree_free(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   tail call void @g_hash_table_destroy(ptr noundef %5) #8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   tail call void @g_hash_table_destroy(ptr noundef %7) #8
   %.not8 = icmp eq ptr %3, null
@@ -1308,7 +1308,7 @@ define hidden void @xmpp_element_t_tree_free(ptr nocapture noundef readonly %0) 
   %.09 = phi ptr [ %10, %.lr.ph ], [ %3, %1 ]
   %8 = load ptr, ptr %.09, align 8
   tail call void @xmpp_element_t_tree_free(ptr noundef %8)
-  %9 = getelementptr inbounds i8, ptr %.09, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %.09, i64 8
   %10 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
@@ -1348,9 +1348,9 @@ define internal range(i32 0, 2) i32 @attr_find_pred(ptr noundef %0, ptr nocaptur
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @xmpp_element_to_string(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %5 = load i32, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 52
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 52
   %7 = load i32, ptr %6, align 4
   %8 = add i32 %5, -1
   %9 = add i32 %8, %7
@@ -1390,13 +1390,13 @@ define internal void @children_foreach_hide_func(ptr noundef readonly %0, ptr no
   br i1 %or.cond, label %proto_item_set_hidden.exit, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8
   %.not5.i = icmp eq ptr %7, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %8
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %7, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 28
   %10 = load i32, ptr %9, align 4
   %11 = or i32 %10, 1
   store i32 %11, ptr %9, align 4
@@ -1427,13 +1427,13 @@ define internal void @children_foreach_show_func(ptr noundef readonly %0, ptr no
   br i1 %or.cond, label %proto_item_set_visible.exit, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8
   %.not5.i = icmp eq ptr %7, null
   br i1 %.not5.i, label %proto_item_set_visible.exit, label %8
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %7, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 28
   %10 = load i32, ptr %9, align 4
   %11 = and i32 %10, -2
   store i32 %11, ptr %9, align 4
@@ -1453,13 +1453,13 @@ define hidden noalias ptr @proto_item_get_text(ptr noundef %0, ptr noundef reado
   br i1 %3, label %14, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %1, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %14, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %6, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %14, label %12
@@ -1476,7 +1476,7 @@ define hidden noalias ptr @proto_item_get_text(ptr noundef %0, ptr noundef reado
 ; Function Attrs: nounwind uwtable
 define hidden void @xmpp_display_attrs(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = tail call ptr @proto_tree_get_parent(ptr noundef %0) #8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %11, label %10
@@ -1493,7 +1493,7 @@ define hidden void @xmpp_display_attrs(ptr noundef %0, ptr nocapture noundef rea
   br i1 %14, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %1, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %16 = zext i32 %5 to i64
   br label %17
 
@@ -1515,21 +1515,21 @@ define hidden void @xmpp_display_attrs(ptr noundef %0, ptr nocapture noundef rea
 
 25:                                               ; preds = %22, %17
   %.012.i = phi ptr [ %24, %22 ], [ %21, %17 ]
-  %26 = getelementptr inbounds i8, ptr %.012.i, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %.012.i, i64 24
   store i32 1, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %18, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %28 = load ptr, ptr %27, align 8
   %.not95 = icmp eq ptr %28, null
   br i1 %.not95, label %42, label %29
 
 29:                                               ; preds = %25
-  %30 = getelementptr inbounds i8, ptr %.012.i, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %.012.i, i64 8
   %31 = load ptr, ptr %30, align 8
   %.not97 = icmp eq ptr %31, null
   %32 = load i32, ptr %28, align 4
-  %33 = getelementptr inbounds i8, ptr %.012.i, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %.012.i, i64 16
   %34 = load i32, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %.012.i, i64 20
+  %35 = getelementptr inbounds nuw i8, ptr %.012.i, i64 20
   %36 = load i32, ptr %35, align 4
   %37 = load ptr, ptr %.012.i, align 8
   br i1 %.not97, label %40, label %38
@@ -1544,12 +1544,12 @@ define hidden void @xmpp_display_attrs(ptr noundef %0, ptr nocapture noundef rea
 
 42:                                               ; preds = %25
   %43 = load i32, ptr @hf_xmpp_attribute, align 4
-  %44 = getelementptr inbounds i8, ptr %.012.i, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %.012.i, i64 16
   %45 = load i32, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %.012.i, i64 20
+  %46 = getelementptr inbounds nuw i8, ptr %.012.i, i64 20
   %47 = load i32, ptr %46, align 4
   %48 = load ptr, ptr %.012.i, align 8
-  %49 = getelementptr inbounds i8, ptr %.012.i, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %.012.i, i64 8
   %50 = load ptr, ptr %49, align 8
   %.not96 = icmp eq ptr %50, null
   br i1 %.not96, label %51, label %53
@@ -1564,7 +1564,7 @@ define hidden void @xmpp_display_attrs(ptr noundef %0, ptr nocapture noundef rea
   br label %56
 
 56:                                               ; preds = %38, %40, %53
-  %57 = getelementptr inbounds i8, ptr %18, i64 20
+  %57 = getelementptr inbounds nuw i8, ptr %18, i64 20
   %58 = load i32, ptr %57, align 4
   %.not98 = icmp eq i32 %58, 0
   br i1 %.not98, label %76, label %59
@@ -1578,7 +1578,7 @@ define hidden void @xmpp_display_attrs(ptr noundef %0, ptr nocapture noundef rea
   br label %61
 
 61:                                               ; preds = %60, %59
-  %62 = getelementptr inbounds i8, ptr %.012.i, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %.012.i, i64 8
   %63 = load ptr, ptr %62, align 8
   %.not100 = icmp eq ptr %63, null
   br i1 %.not100, label %64, label %66
@@ -1594,7 +1594,7 @@ define hidden void @xmpp_display_attrs(ptr noundef %0, ptr nocapture noundef rea
   br label %76
 
 69:                                               ; preds = %22
-  %70 = getelementptr inbounds i8, ptr %18, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %71 = load i32, ptr %70, align 8
   %.not94 = icmp eq i32 %71, 0
   br i1 %.not94, label %76, label %72
@@ -1609,7 +1609,7 @@ define hidden void @xmpp_display_attrs(ptr noundef %0, ptr nocapture noundef rea
   %.not93106 = phi i1 [ false, %66 ], [ false, %56 ], [ true, %72 ], [ true, %69 ]
   %.013.i104 = phi ptr [ %.012.i, %66 ], [ %.012.i, %56 ], [ null, %72 ], [ null, %69 ]
   %.1 = phi i32 [ 1, %66 ], [ %.0109, %56 ], [ %.0109, %72 ], [ %.0109, %69 ]
-  %77 = getelementptr inbounds i8, ptr %18, i64 24
+  %77 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %78 = load ptr, ptr %77, align 8
   %.not101 = icmp eq ptr %78, null
   br i1 %.not101, label %85, label %79
@@ -1624,7 +1624,7 @@ define hidden void @xmpp_display_attrs(ptr noundef %0, ptr nocapture noundef rea
 
 .sink.split:                                      ; preds = %79, %81
   %.sink = phi ptr [ %82, %81 ], [ null, %79 ]
-  %83 = getelementptr inbounds i8, ptr %18, i64 32
+  %83 = getelementptr inbounds nuw i8, ptr %18, i64 32
   %84 = load ptr, ptr %83, align 8
   tail call void %78(ptr noundef %2, ptr noundef %7, ptr noundef %80, ptr noundef %.sink, ptr noundef %84) #8
   br label %85
@@ -1649,7 +1649,7 @@ define internal fastcc void @xmpp_unknown_attrs(ptr noundef %0, ptr noundef %1, 
   %8 = alloca %struct.except_stacknode, align 8
   %9 = alloca %struct.except_cleanup, align 8
   %10 = tail call ptr @proto_tree_get_parent(ptr noundef %0) #8
-  %11 = getelementptr inbounds i8, ptr %3, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = tail call ptr @g_hash_table_get_keys(ptr noundef %12) #8
   %14 = load ptr, ptr %11, align 8
@@ -1670,7 +1670,7 @@ define internal fastcc void @xmpp_unknown_attrs(ptr noundef %0, ptr noundef %1, 
   %.05159 = phi ptr [ %15, %.lr.ph ], [ %68, %64 ]
   %.05258 = phi i32 [ 0, %.lr.ph ], [ %.1, %64 ]
   %20 = load ptr, ptr %.05159, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %22 = load i32, ptr %21, align 8
   %.not = icmp eq i32 %22, 0
   br i1 %.not, label %23, label %64
@@ -1696,9 +1696,9 @@ define internal fastcc void @xmpp_unknown_attrs(ptr noundef %0, ptr noundef %1, 
 
 31:                                               ; preds = %27
   %32 = load i32, ptr @hf_xmpp_xmlns, align 4
-  %33 = getelementptr inbounds i8, ptr %20, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %34 = load i32, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %20, i64 20
+  %35 = getelementptr inbounds nuw i8, ptr %20, i64 20
   %36 = load i32, ptr %35, align 4
   %37 = load ptr, ptr %20, align 8
   %38 = call ptr @proto_tree_add_string(ptr noundef %0, i32 noundef %32, ptr noundef %1, i32 noundef %34, i32 noundef %36, ptr noundef %37) #8
@@ -1716,9 +1716,9 @@ define internal fastcc void @xmpp_unknown_attrs(ptr noundef %0, ptr noundef %1, 
 
 44:                                               ; preds = %41
   %45 = load i32, ptr @hf_xmpp_xmlns, align 4
-  %46 = getelementptr inbounds i8, ptr %20, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %47 = load i32, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %20, i64 20
+  %48 = getelementptr inbounds nuw i8, ptr %20, i64 20
   %49 = load i32, ptr %48, align 4
   %50 = load ptr, ptr %20, align 8
   %51 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %0, i32 noundef %45, ptr noundef %1, i32 noundef %47, i32 noundef %49, ptr noundef %50, ptr noundef nonnull @.str.18, ptr noundef %42, ptr noundef %50) #8
@@ -1726,11 +1726,11 @@ define internal fastcc void @xmpp_unknown_attrs(ptr noundef %0, ptr noundef %1, 
 
 52:                                               ; preds = %41, %39
   %53 = load i32, ptr @hf_xmpp_unknown_attr, align 4
-  %54 = getelementptr inbounds i8, ptr %20, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %55 = load i32, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %20, i64 20
+  %56 = getelementptr inbounds nuw i8, ptr %20, i64 20
   %57 = load i32, ptr %56, align 4
-  %58 = getelementptr inbounds i8, ptr %20, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %59 = load ptr, ptr %58, align 8
   %60 = load ptr, ptr %20, align 8
   %61 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %0, i32 noundef %53, ptr noundef %1, i32 noundef %55, i32 noundef %57, ptr noundef %59, ptr noundef nonnull @.str.18, ptr noundef %59, ptr noundef %60) #8
@@ -1741,9 +1741,9 @@ define internal fastcc void @xmpp_unknown_attrs(ptr noundef %0, ptr noundef %1, 
 
 64:                                               ; preds = %31, %52, %44, %19
   %.1 = phi i32 [ %.05258, %19 ], [ %.2, %31 ], [ %.2, %44 ], [ %.2, %52 ]
-  %65 = getelementptr inbounds i8, ptr %.060, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %.060, i64 8
   %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %.05159, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %.05159, i64 8
   %68 = load ptr, ptr %67, align 8
   %69 = icmp ne ptr %66, null
   %70 = icmp ne ptr %68, null
@@ -1763,12 +1763,12 @@ define internal fastcc void @xmpp_unknown_attrs(ptr noundef %0, ptr noundef %1, 
 ._crit_edge.thread:                               ; preds = %5, %74, %._crit_edge
   %75 = call ptr @except_pop() #8
   %76 = load ptr, ptr %9, align 8
-  %77 = getelementptr inbounds i8, ptr %9, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %78 = load ptr, ptr %77, align 8
   call void %76(ptr noundef %78) #8
   %79 = call ptr @except_pop() #8
   %80 = load ptr, ptr %7, align 8
-  %81 = getelementptr inbounds i8, ptr %7, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %82 = load ptr, ptr %81, align 8
   call void %80(ptr noundef %82) #8
   ret void
@@ -1777,12 +1777,12 @@ define internal fastcc void @xmpp_unknown_attrs(ptr noundef %0, ptr noundef %1, 
 ; Function Attrs: nounwind uwtable
 define hidden void @xmpp_display_attrs_ext(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = tail call ptr @proto_tree_get_parent(ptr noundef %0) #8
-  %8 = getelementptr inbounds i8, ptr %1, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = tail call ptr @g_hash_table_get_keys(ptr noundef %9) #8
   %11 = load ptr, ptr %8, align 8
   %12 = tail call ptr @g_hash_table_get_values(ptr noundef %11) #8
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load ptr, ptr %13, align 8
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %16, label %15
@@ -1802,8 +1802,8 @@ define hidden void @xmpp_display_attrs_ext(ptr noundef %0, ptr nocapture noundef
   %20 = icmp ne ptr %4, null
   %21 = icmp ne i32 %5, 0
   %22 = and i1 %20, %21
-  %23 = getelementptr inbounds i8, ptr %2, i64 408
-  %24 = getelementptr inbounds i8, ptr %1, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 408
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 24
   br i1 %22, label %.preheader.us.preheader, label %._crit_edge152
 
 .preheader.us.preheader:                          ; preds = %.preheader.lr.ph
@@ -1827,7 +1827,7 @@ define hidden void @xmpp_display_attrs_ext(ptr noundef %0, ptr nocapture noundef
   br i1 %31, label %32, label %128
 
 32:                                               ; preds = %26
-  %33 = getelementptr inbounds i8, ptr %28, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %34 = load ptr, ptr %33, align 8
   %35 = load ptr, ptr %.0107150.us, align 8
   %strcmpload.i.us = load i8, ptr %35, align 1
@@ -1894,21 +1894,21 @@ define hidden void @xmpp_display_attrs_ext(ptr noundef %0, ptr nocapture noundef
 
 xmpp_get_attr_ext.exit137.us:                     ; preds = %60, %66, %48, %51
   %.023.i134.us.sink = phi ptr [ %53, %51 ], [ %50, %48 ], [ %68, %66 ], [ %65, %60 ]
-  %69 = getelementptr inbounds i8, ptr %.023.i134.us.sink, i64 24
+  %69 = getelementptr inbounds nuw i8, ptr %.023.i134.us.sink, i64 24
   store i32 1, ptr %69, align 8
-  %70 = getelementptr inbounds i8, ptr %28, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %71 = load ptr, ptr %70, align 8
   %.not124.us = icmp eq ptr %71, null
   br i1 %.not124.us, label %85, label %72
 
 72:                                               ; preds = %xmpp_get_attr_ext.exit137.us
-  %73 = getelementptr inbounds i8, ptr %.023.i134.us.sink, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %.023.i134.us.sink, i64 8
   %74 = load ptr, ptr %73, align 8
   %.not126.us = icmp eq ptr %74, null
   %75 = load i32, ptr %71, align 4
-  %76 = getelementptr inbounds i8, ptr %.023.i134.us.sink, i64 16
+  %76 = getelementptr inbounds nuw i8, ptr %.023.i134.us.sink, i64 16
   %77 = load i32, ptr %76, align 8
-  %78 = getelementptr inbounds i8, ptr %.023.i134.us.sink, i64 20
+  %78 = getelementptr inbounds nuw i8, ptr %.023.i134.us.sink, i64 20
   %79 = load i32, ptr %78, align 4
   %80 = load ptr, ptr %.023.i134.us.sink, align 8
   br i1 %.not126.us, label %83, label %81
@@ -1923,12 +1923,12 @@ xmpp_get_attr_ext.exit137.us:                     ; preds = %60, %66, %48, %51
 
 85:                                               ; preds = %xmpp_get_attr_ext.exit137.us
   %86 = load i32, ptr @hf_xmpp_attribute, align 4
-  %87 = getelementptr inbounds i8, ptr %.023.i134.us.sink, i64 16
+  %87 = getelementptr inbounds nuw i8, ptr %.023.i134.us.sink, i64 16
   %88 = load i32, ptr %87, align 8
-  %89 = getelementptr inbounds i8, ptr %.023.i134.us.sink, i64 20
+  %89 = getelementptr inbounds nuw i8, ptr %.023.i134.us.sink, i64 20
   %90 = load i32, ptr %89, align 4
   %91 = load ptr, ptr %.023.i134.us.sink, align 8
-  %92 = getelementptr inbounds i8, ptr %.023.i134.us.sink, i64 8
+  %92 = getelementptr inbounds nuw i8, ptr %.023.i134.us.sink, i64 8
   %93 = load ptr, ptr %92, align 8
   %.not125.us = icmp eq ptr %93, null
   br i1 %.not125.us, label %94, label %96
@@ -1943,7 +1943,7 @@ xmpp_get_attr_ext.exit137.us:                     ; preds = %60, %66, %48, %51
   br label %99
 
 99:                                               ; preds = %96, %83, %81
-  %100 = getelementptr inbounds i8, ptr %28, i64 28
+  %100 = getelementptr inbounds nuw i8, ptr %28, i64 28
   %101 = load i32, ptr %100, align 4
   %.not127.us = icmp eq i32 %101, 0
   br i1 %.not127.us, label %119, label %102
@@ -1957,7 +1957,7 @@ xmpp_get_attr_ext.exit137.us:                     ; preds = %60, %66, %48, %51
   br label %104
 
 104:                                              ; preds = %103, %102
-  %105 = getelementptr inbounds i8, ptr %.023.i134.us.sink, i64 8
+  %105 = getelementptr inbounds nuw i8, ptr %.023.i134.us.sink, i64 8
   %106 = load ptr, ptr %105, align 8
   %.not129.us = icmp eq ptr %106, null
   br i1 %.not129.us, label %107, label %109
@@ -1973,7 +1973,7 @@ xmpp_get_attr_ext.exit137.us:                     ; preds = %60, %66, %48, %51
   br label %119
 
 112:                                              ; preds = %66, %56, %54
-  %113 = getelementptr inbounds i8, ptr %28, i64 24
+  %113 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %114 = load i32, ptr %113, align 8
   %.not123.us = icmp eq i32 %114, 0
   br i1 %.not123.us, label %119, label %115
@@ -1988,7 +1988,7 @@ xmpp_get_attr_ext.exit137.us:                     ; preds = %60, %66, %48, %51
   %.not122144.us = phi i1 [ false, %109 ], [ false, %99 ], [ true, %115 ], [ true, %112 ]
   %.0106142.us = phi ptr [ %.023.i134.us.sink, %109 ], [ %.023.i134.us.sink, %99 ], [ null, %115 ], [ null, %112 ]
   %.2.us = phi i32 [ 1, %109 ], [ %.1146.us, %99 ], [ %.1146.us, %115 ], [ %.1146.us, %112 ]
-  %120 = getelementptr inbounds i8, ptr %28, i64 32
+  %120 = getelementptr inbounds nuw i8, ptr %28, i64 32
   %121 = load ptr, ptr %120, align 8
   %.not130.us = icmp eq ptr %121, null
   br i1 %.not130.us, label %128, label %122
@@ -2003,7 +2003,7 @@ xmpp_get_attr_ext.exit137.us:                     ; preds = %60, %66, %48, %51
 
 .sink.split:                                      ; preds = %122, %124
   %.sink = phi ptr [ %125, %124 ], [ null, %122 ]
-  %126 = getelementptr inbounds i8, ptr %28, i64 40
+  %126 = getelementptr inbounds nuw i8, ptr %28, i64 40
   %127 = load ptr, ptr %126, align 8
   tail call void %121(ptr noundef nonnull %2, ptr noundef %7, ptr noundef %123, ptr noundef %.sink, ptr noundef %127) #8
   br label %128
@@ -2015,9 +2015,9 @@ xmpp_get_attr_ext.exit137.us:                     ; preds = %60, %66, %48, %51
   br i1 %129, label %26, label %._crit_edge.us, !llvm.loop !15
 
 ._crit_edge.us:                                   ; preds = %128
-  %130 = getelementptr inbounds i8, ptr %.0107150.us, i64 8
+  %130 = getelementptr inbounds nuw i8, ptr %.0107150.us, i64 8
   %131 = load ptr, ptr %130, align 8
-  %132 = getelementptr inbounds i8, ptr %.0151.us, i64 8
+  %132 = getelementptr inbounds nuw i8, ptr %.0151.us, i64 8
   %133 = load ptr, ptr %132, align 8
   %134 = icmp ne ptr %131, null
   %135 = icmp ne ptr %133, null
@@ -2040,9 +2040,9 @@ declare ptr @g_hash_table_get_values(ptr noundef) local_unnamed_addr #1
 define hidden noalias noundef ptr @xmpp_name_attr_struct(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = tail call noalias ptr @wmem_alloc(ptr noundef %0, i64 noundef 24) #8
   store ptr %1, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %2, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %3, ptr %7, align 8
   ret ptr %5
 }
@@ -2055,7 +2055,7 @@ define hidden void @xmpp_display_elems(ptr noundef %0, ptr nocapture noundef rea
   br i1 %9, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %1, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %11 = zext i32 %5 to i64
   br label %12
 
@@ -2071,12 +2071,12 @@ define hidden void @xmpp_display_elems(ptr noundef %0, ptr nocapture noundef rea
   ]
 
 .critedge126:                                     ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %13, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 8
-  %18 = getelementptr inbounds i8, ptr %16, i64 16
-  %19 = getelementptr inbounds i8, ptr %13, i64 16
-  %20 = getelementptr inbounds i8, ptr %13, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %13, i64 24
   br label %21
 
 21:                                               ; preds = %.critedge126, %select.unfold
@@ -2090,7 +2090,7 @@ define hidden void @xmpp_display_elems(ptr noundef %0, ptr nocapture noundef rea
 .lr.ph.i:                                         ; preds = %21, %xmpp_get_attr.exit.thread23.i
   %.029.i = phi ptr [ %.0.i, %xmpp_get_attr.exit.thread23.i ], [ %.027.i, %21 ]
   %25 = load ptr, ptr %.029.i, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %27 = load ptr, ptr %26, align 8
   %28 = tail call ptr @g_hash_table_lookup(ptr noundef %27, ptr noundef %23) #8
   %.not.i.i = icmp eq ptr %28, null
@@ -2104,9 +2104,9 @@ define hidden void @xmpp_display_elems(ptr noundef %0, ptr nocapture noundef rea
 
 xmpp_get_attr.exit.i:                             ; preds = %29, %.lr.ph.i
   %.012.i.i = phi ptr [ %31, %29 ], [ %28, %.lr.ph.i ]
-  %32 = getelementptr inbounds i8, ptr %.012.i.i, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %.012.i.i, i64 24
   store i32 0, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %25, i64 56
+  %33 = getelementptr inbounds nuw i8, ptr %25, i64 56
   %34 = load i32, ptr %33, align 8
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %36, label %xmpp_get_attr.exit.thread23.i
@@ -2124,14 +2124,14 @@ xmpp_get_attr.exit.i:                             ; preds = %29, %.lr.ph.i
   br i1 %43, label %select.unfold, label %xmpp_get_attr.exit.thread23.i
 
 xmpp_get_attr.exit.thread23.i:                    ; preds = %40, %36, %xmpp_get_attr.exit.i, %29
-  %44 = getelementptr inbounds i8, ptr %.029.i, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %.029.i, i64 8
   %.0.i = load ptr, ptr %44, align 8
   %.not.i = icmp eq ptr %.0.i, null
   br i1 %.not.i, label %.critedge, label %.lr.ph.i, !llvm.loop !10
 
 select.unfold:                                    ; preds = %40
   %45 = load ptr, ptr %.029.i, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 56
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 56
   store i32 1, ptr %46, align 8
   %47 = load ptr, ptr %19, align 8
   tail call void %47(ptr noundef %0, ptr noundef %3, ptr noundef %2, ptr noundef nonnull %45) #8
@@ -2140,10 +2140,10 @@ select.unfold:                                    ; preds = %40
   br i1 %49, label %.critedge, label %21
 
 .critedge127:                                     ; preds = %12
-  %50 = getelementptr inbounds i8, ptr %13, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %13, i64 16
-  %53 = getelementptr inbounds i8, ptr %13, i64 24
+  %52 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %13, i64 24
   br label %54
 
 54:                                               ; preds = %.critedge127, %select.unfold114
@@ -2159,7 +2159,7 @@ select.unfold:                                    ; preds = %40
 
 select.unfold114:                                 ; preds = %54
   %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 56
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 56
   store i32 1, ptr %62, align 8
   %63 = load ptr, ptr %52, align 8
   tail call void %63(ptr noundef %0, ptr noundef %3, ptr noundef %2, ptr noundef nonnull %61) #8
@@ -2168,12 +2168,12 @@ select.unfold114:                                 ; preds = %54
   br i1 %65, label %.critedge, label %54
 
 .critedge128:                                     ; preds = %12
-  %66 = getelementptr inbounds i8, ptr %13, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds i8, ptr %67, i64 8
-  %69 = getelementptr inbounds i8, ptr %67, i64 16
-  %70 = getelementptr inbounds i8, ptr %13, i64 16
-  %71 = getelementptr inbounds i8, ptr %13, i64 24
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %67, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %13, i64 24
   br label %72
 
 72:                                               ; preds = %.critedge128, %select.unfold117
@@ -2186,7 +2186,7 @@ select.unfold114:                                 ; preds = %54
 .lr.ph.i102:                                      ; preds = %72, %xmpp_get_attr.exit.thread21.i
   %.027.i103 = phi ptr [ %.0.i107, %xmpp_get_attr.exit.thread21.i ], [ %.025.i, %72 ]
   %75 = load ptr, ptr %.027.i103, align 8
-  %76 = getelementptr inbounds i8, ptr %75, i64 24
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 24
   %77 = load ptr, ptr %76, align 8
   %78 = tail call ptr @g_hash_table_lookup(ptr noundef %77, ptr noundef %73) #8
   %.not.i.i104 = icmp eq ptr %78, null
@@ -2200,9 +2200,9 @@ select.unfold114:                                 ; preds = %54
 
 xmpp_get_attr.exit.i105:                          ; preds = %79, %.lr.ph.i102
   %.012.i.i106 = phi ptr [ %81, %79 ], [ %78, %.lr.ph.i102 ]
-  %82 = getelementptr inbounds i8, ptr %.012.i.i106, i64 24
+  %82 = getelementptr inbounds nuw i8, ptr %.012.i.i106, i64 24
   store i32 0, ptr %82, align 8
-  %83 = getelementptr inbounds i8, ptr %75, i64 56
+  %83 = getelementptr inbounds nuw i8, ptr %75, i64 56
   %84 = load i32, ptr %83, align 8
   %85 = icmp eq i32 %84, 0
   br i1 %85, label %86, label %xmpp_get_attr.exit.thread21.i
@@ -2214,14 +2214,14 @@ xmpp_get_attr.exit.i105:                          ; preds = %79, %.lr.ph.i102
   br i1 %89, label %select.unfold117, label %xmpp_get_attr.exit.thread21.i
 
 xmpp_get_attr.exit.thread21.i:                    ; preds = %86, %xmpp_get_attr.exit.i105, %79
-  %90 = getelementptr inbounds i8, ptr %.027.i103, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %.027.i103, i64 8
   %.0.i107 = load ptr, ptr %90, align 8
   %.not.i108 = icmp eq ptr %.0.i107, null
   br i1 %.not.i108, label %.critedge, label %.lr.ph.i102, !llvm.loop !9
 
 select.unfold117:                                 ; preds = %86
   %91 = load ptr, ptr %.027.i103, align 8
-  %92 = getelementptr inbounds i8, ptr %91, i64 56
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 56
   store i32 1, ptr %92, align 8
   %93 = load ptr, ptr %70, align 8
   tail call void %93(ptr noundef %0, ptr noundef %3, ptr noundef %2, ptr noundef nonnull %91) #8
@@ -2230,11 +2230,11 @@ select.unfold117:                                 ; preds = %86
   br i1 %95, label %.critedge, label %72
 
 .critedge129:                                     ; preds = %12
-  %96 = getelementptr inbounds i8, ptr %13, i64 8
+  %96 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %97 = load ptr, ptr %96, align 8
-  %98 = getelementptr inbounds i8, ptr %97, i64 8
-  %99 = getelementptr inbounds i8, ptr %13, i64 16
-  %100 = getelementptr inbounds i8, ptr %13, i64 24
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 8
+  %99 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %100 = getelementptr inbounds nuw i8, ptr %13, i64 24
   br label %101
 
 101:                                              ; preds = %.critedge129, %select.unfold120
@@ -2268,7 +2268,7 @@ xmpp_steal_element_by_name.exit.thread.i:         ; preds = %105
 
 select.unfold120:                                 ; preds = %105
   %114 = load ptr, ptr %113, align 8
-  %115 = getelementptr inbounds i8, ptr %114, i64 56
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 56
   store i32 1, ptr %115, align 8
   %116 = load ptr, ptr %99, align 8
   tail call void %116(ptr noundef %0, ptr noundef %3, ptr noundef %2, ptr noundef nonnull %114) #8
@@ -2293,7 +2293,7 @@ define hidden void @xmpp_val_enum_list(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %.not, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %5
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load i32, ptr %7, align 8
   %.not1617 = icmp sgt i32 %8, 0
   br i1 %.not1617, label %.lr.ph.preheader, label %.critedge
@@ -2330,7 +2330,7 @@ define hidden void @xmpp_change_elem_to_attrib(ptr noundef %0, ptr noundef %1, p
   %8 = tail call ptr @wmem_packet_scope() #8
   %9 = tail call noalias ptr @wmem_strdup(ptr noundef %8, ptr noundef %1) #8
   store ptr %9, ptr %7, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %11 = load ptr, ptr %10, align 8
   %12 = tail call ptr @g_list_find_custom(ptr noundef %11, ptr noundef nonnull %7, ptr noundef nonnull @xmpp_element_t_cmp) #8
   %.not.i = icmp eq ptr %12, null
@@ -2338,14 +2338,14 @@ define hidden void @xmpp_change_elem_to_attrib(ptr noundef %0, ptr noundef %1, p
 
 13:                                               ; preds = %5
   %14 = load ptr, ptr %12, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 56
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 56
   store i32 1, ptr %15, align 8
   %16 = tail call ptr %4(ptr noundef %0, ptr noundef nonnull %14) #8
   %.not11 = icmp eq ptr %16, null
   br i1 %.not11, label %.thread, label %17
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %3, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %19 = load ptr, ptr %18, align 8
   %20 = tail call i32 @g_hash_table_insert(ptr noundef %19, ptr noundef %2, ptr noundef nonnull %16) #8
   br label %.thread
@@ -2356,7 +2356,7 @@ define hidden void @xmpp_change_elem_to_attrib(ptr noundef %0, ptr noundef %1, p
 
 ; Function Attrs: nounwind uwtable
 define hidden noalias noundef ptr @xmpp_transform_func_cdata(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %7, label %5
@@ -2367,17 +2367,17 @@ define hidden noalias noundef ptr @xmpp_transform_func_cdata(ptr noundef %0, ptr
 
 7:                                                ; preds = %2, %5
   %8 = phi ptr [ %6, %5 ], [ @.str.16, %2 ]
-  %9 = getelementptr inbounds i8, ptr %1, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %10 = load i32, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 52
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %12 = load i32, ptr %11, align 4
   %13 = tail call noalias ptr @wmem_alloc(ptr noundef %0, i64 noundef 32) #8
   store ptr %8, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i32 %10, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %13, i64 20
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 20
   store i32 %12, ptr %15, align 4
-  %16 = getelementptr inbounds i8, ptr %13, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr null, ptr %16, align 8
   ret ptr %13
 }
@@ -2400,7 +2400,7 @@ define internal i32 @xmpp_element_t_cmp(ptr nocapture noundef readonly %0, ptr n
   br i1 %6, label %7, label %10
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %9 = load i32, ptr %8, align 8
   %.not = icmp ne i32 %9, 0
   %spec.select = sext i1 %.not to i32

@@ -51,18 +51,18 @@ if.end8:                                          ; preds = %if.then6, %if.then1
   %storemerge = phi ptr [ @RSA_default_method, %if.then6 ], [ %call2, %if.then1 ]
   store ptr %storemerge, ptr %calloc, align 8
   tail call void @METHOD_ref(ptr noundef nonnull %storemerge) #9
-  %references = getelementptr inbounds i8, ptr %calloc, i64 88
+  %references = getelementptr inbounds nuw i8, ptr %calloc, i64 88
   store i32 1, ptr %references, align 8
-  %flags = getelementptr inbounds i8, ptr %storemerge, i64 112
+  %flags = getelementptr inbounds nuw i8, ptr %storemerge, i64 112
   %1 = load i32, ptr %flags, align 8
-  %flags11 = getelementptr inbounds i8, ptr %calloc, i64 92
+  %flags11 = getelementptr inbounds nuw i8, ptr %calloc, i64 92
   store i32 %1, ptr %flags11, align 4
-  %lock = getelementptr inbounds i8, ptr %calloc, i64 96
+  %lock = getelementptr inbounds nuw i8, ptr %calloc, i64 96
   tail call void @CRYPTO_MUTEX_init(ptr noundef nonnull %lock) #9
-  %ex_data = getelementptr inbounds i8, ptr %calloc, i64 80
+  %ex_data = getelementptr inbounds nuw i8, ptr %calloc, i64 80
   tail call void @CRYPTO_new_ex_data(ptr noundef nonnull %ex_data) #9
   %2 = load ptr, ptr %calloc, align 8
-  %init = getelementptr inbounds i8, ptr %2, i64 16
+  %init = getelementptr inbounds nuw i8, ptr %2, i64 16
   %3 = load ptr, ptr %init, align 8
   %tobool13.not = icmp eq ptr %3, null
   br i1 %tobool13.not, label %return, label %land.lhs.true
@@ -116,16 +116,16 @@ entry:
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %ap, align 8
   tail call void @BN_clear_free(ptr noundef %0) #9
-  %exp = getelementptr inbounds i8, ptr %ap, i64 8
+  %exp = getelementptr inbounds nuw i8, ptr %ap, i64 8
   %1 = load ptr, ptr %exp, align 8
   tail call void @BN_clear_free(ptr noundef %1) #9
-  %coeff = getelementptr inbounds i8, ptr %ap, i64 16
+  %coeff = getelementptr inbounds nuw i8, ptr %ap, i64 16
   %2 = load ptr, ptr %coeff, align 8
   tail call void @BN_clear_free(ptr noundef %2) #9
-  %r = getelementptr inbounds i8, ptr %ap, i64 24
+  %r = getelementptr inbounds nuw i8, ptr %ap, i64 24
   %3 = load ptr, ptr %r, align 8
   tail call void @BN_clear_free(ptr noundef %3) #9
-  %mont = getelementptr inbounds i8, ptr %ap, i64 32
+  %mont = getelementptr inbounds nuw i8, ptr %ap, i64 32
   %4 = load ptr, ptr %mont, align 8
   tail call void @BN_MONT_CTX_free(ptr noundef %4) #9
   tail call void @free(ptr noundef nonnull %ap) #9
@@ -146,14 +146,14 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %references = getelementptr inbounds i8, ptr %rsa, i64 88
+  %references = getelementptr inbounds nuw i8, ptr %rsa, i64 88
   %call = tail call i32 @CRYPTO_refcount_dec_and_test_zero(ptr noundef nonnull %references) #9
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end2
 
 if.end2:                                          ; preds = %if.end
   %0 = load ptr, ptr %rsa, align 8
-  %finish = getelementptr inbounds i8, ptr %0, i64 24
+  %finish = getelementptr inbounds nuw i8, ptr %0, i64 24
   %1 = load ptr, ptr %finish, align 8
   %tobool3.not = icmp eq ptr %1, null
   br i1 %tobool3.not, label %if.end8, label %if.then4
@@ -166,54 +166,54 @@ if.then4:                                         ; preds = %if.end2
 if.end8:                                          ; preds = %if.then4, %if.end2
   %2 = phi ptr [ %.pre, %if.then4 ], [ %0, %if.end2 ]
   tail call void @METHOD_unref(ptr noundef %2) #9
-  %ex_data = getelementptr inbounds i8, ptr %rsa, i64 80
+  %ex_data = getelementptr inbounds nuw i8, ptr %rsa, i64 80
   tail call void @CRYPTO_free_ex_data(ptr noundef nonnull @g_ex_data_class, ptr noundef nonnull %rsa, ptr noundef nonnull %ex_data) #9
-  %n = getelementptr inbounds i8, ptr %rsa, i64 8
+  %n = getelementptr inbounds nuw i8, ptr %rsa, i64 8
   %3 = load ptr, ptr %n, align 8
   tail call void @BN_clear_free(ptr noundef %3) #9
-  %e = getelementptr inbounds i8, ptr %rsa, i64 16
+  %e = getelementptr inbounds nuw i8, ptr %rsa, i64 16
   %4 = load ptr, ptr %e, align 8
   tail call void @BN_clear_free(ptr noundef %4) #9
-  %d = getelementptr inbounds i8, ptr %rsa, i64 24
+  %d = getelementptr inbounds nuw i8, ptr %rsa, i64 24
   %5 = load ptr, ptr %d, align 8
   tail call void @BN_clear_free(ptr noundef %5) #9
-  %p = getelementptr inbounds i8, ptr %rsa, i64 32
+  %p = getelementptr inbounds nuw i8, ptr %rsa, i64 32
   %6 = load ptr, ptr %p, align 8
   tail call void @BN_clear_free(ptr noundef %6) #9
-  %q = getelementptr inbounds i8, ptr %rsa, i64 40
+  %q = getelementptr inbounds nuw i8, ptr %rsa, i64 40
   %7 = load ptr, ptr %q, align 8
   tail call void @BN_clear_free(ptr noundef %7) #9
-  %dmp1 = getelementptr inbounds i8, ptr %rsa, i64 48
+  %dmp1 = getelementptr inbounds nuw i8, ptr %rsa, i64 48
   %8 = load ptr, ptr %dmp1, align 8
   tail call void @BN_clear_free(ptr noundef %8) #9
-  %dmq1 = getelementptr inbounds i8, ptr %rsa, i64 56
+  %dmq1 = getelementptr inbounds nuw i8, ptr %rsa, i64 56
   %9 = load ptr, ptr %dmq1, align 8
   tail call void @BN_clear_free(ptr noundef %9) #9
-  %iqmp = getelementptr inbounds i8, ptr %rsa, i64 64
+  %iqmp = getelementptr inbounds nuw i8, ptr %rsa, i64 64
   %10 = load ptr, ptr %iqmp, align 8
   tail call void @BN_clear_free(ptr noundef %10) #9
-  %mont_n = getelementptr inbounds i8, ptr %rsa, i64 152
+  %mont_n = getelementptr inbounds nuw i8, ptr %rsa, i64 152
   %11 = load ptr, ptr %mont_n, align 8
   tail call void @BN_MONT_CTX_free(ptr noundef %11) #9
-  %mont_p = getelementptr inbounds i8, ptr %rsa, i64 160
+  %mont_p = getelementptr inbounds nuw i8, ptr %rsa, i64 160
   %12 = load ptr, ptr %mont_p, align 8
   tail call void @BN_MONT_CTX_free(ptr noundef %12) #9
-  %mont_q = getelementptr inbounds i8, ptr %rsa, i64 168
+  %mont_q = getelementptr inbounds nuw i8, ptr %rsa, i64 168
   %13 = load ptr, ptr %mont_q, align 8
   tail call void @BN_MONT_CTX_free(ptr noundef %13) #9
-  %num_blindings = getelementptr inbounds i8, ptr %rsa, i64 176
+  %num_blindings = getelementptr inbounds nuw i8, ptr %rsa, i64 176
   %14 = load i32, ptr %num_blindings, align 8
   %cmp1030.not = icmp eq i32 %14, 0
   br i1 %cmp1030.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end8
-  %blindings = getelementptr inbounds i8, ptr %rsa, i64 184
+  %blindings = getelementptr inbounds nuw i8, ptr %rsa, i64 184
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
   %15 = load ptr, ptr %blindings, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %15, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
   %16 = load ptr, ptr %arrayidx, align 8
   tail call void @BN_BLINDING_free(ptr noundef %16) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -223,13 +223,13 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp10, label %for.body, label %for.end, !llvm.loop !7
 
 for.end:                                          ; preds = %for.body, %if.end8
-  %blindings11 = getelementptr inbounds i8, ptr %rsa, i64 184
+  %blindings11 = getelementptr inbounds nuw i8, ptr %rsa, i64 184
   %19 = load ptr, ptr %blindings11, align 8
   tail call void @free(ptr noundef %19) #9
-  %blindings_inuse = getelementptr inbounds i8, ptr %rsa, i64 192
+  %blindings_inuse = getelementptr inbounds nuw i8, ptr %rsa, i64 192
   %20 = load ptr, ptr %blindings_inuse, align 8
   tail call void @free(ptr noundef %20) #9
-  %additional_primes = getelementptr inbounds i8, ptr %rsa, i64 72
+  %additional_primes = getelementptr inbounds nuw i8, ptr %rsa, i64 72
   %21 = load ptr, ptr %additional_primes, align 8
   %cmp12.not = icmp eq ptr %21, null
   br i1 %cmp12.not, label %if.end15, label %if.then13
@@ -239,7 +239,7 @@ if.then13:                                        ; preds = %for.end
   br label %if.end15
 
 if.end15:                                         ; preds = %if.then13, %for.end
-  %lock = getelementptr inbounds i8, ptr %rsa, i64 96
+  %lock = getelementptr inbounds nuw i8, ptr %rsa, i64 96
   tail call void @CRYPTO_MUTEX_cleanup(ptr noundef nonnull %lock) #9
   tail call void @free(ptr noundef nonnull %rsa) #9
   br label %return
@@ -257,7 +257,7 @@ declare void @sk_pop_free(ptr noundef, ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @RSA_up_ref(ptr noundef %rsa) local_unnamed_addr #0 {
 entry:
-  %references = getelementptr inbounds i8, ptr %rsa, i64 88
+  %references = getelementptr inbounds nuw i8, ptr %rsa, i64 88
   tail call void @CRYPTO_refcount_inc(ptr noundef nonnull %references) #9
   ret i32 1
 }
@@ -268,7 +268,7 @@ declare void @CRYPTO_refcount_inc(ptr noundef) local_unnamed_addr #2
 define hidden i32 @RSA_generate_key_ex(ptr noundef %rsa, i32 noundef %bits, ptr noundef %e_value, ptr noundef %cb) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %rsa, align 8
-  %keygen = getelementptr inbounds i8, ptr %0, i64 120
+  %keygen = getelementptr inbounds nuw i8, ptr %0, i64 120
   %1 = load ptr, ptr %keygen, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -292,7 +292,7 @@ declare i32 @rsa_default_keygen(ptr noundef, i32 noundef, ptr noundef, ptr nound
 define hidden i32 @RSA_generate_multi_prime_key(ptr noundef %rsa, i32 noundef %bits, i32 noundef %num_primes, ptr noundef %e_value, ptr noundef %cb) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %rsa, align 8
-  %multi_prime_keygen = getelementptr inbounds i8, ptr %0, i64 128
+  %multi_prime_keygen = getelementptr inbounds nuw i8, ptr %0, i64 128
   %1 = load ptr, ptr %multi_prime_keygen, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -316,7 +316,7 @@ declare i32 @rsa_default_multi_prime_keygen(ptr noundef, i32 noundef, i32 nounde
 define hidden i32 @RSA_encrypt(ptr noundef %rsa, ptr noundef %out_len, ptr noundef %out, i64 noundef %max_out, ptr noundef %in, i64 noundef %in_len, i32 noundef %padding) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %rsa, align 8
-  %encrypt = getelementptr inbounds i8, ptr %0, i64 56
+  %encrypt = getelementptr inbounds nuw i8, ptr %0, i64 56
   %1 = load ptr, ptr %encrypt, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -341,7 +341,7 @@ define hidden range(i32 -1, -2147483648) i32 @RSA_public_encrypt(i64 noundef %fl
 entry:
   %out_len = alloca i64, align 8
   %0 = load ptr, ptr %rsa, align 8
-  %size.i = getelementptr inbounds i8, ptr %0, i64 32
+  %size.i = getelementptr inbounds nuw i8, ptr %0, i64 32
   %1 = load ptr, ptr %size.i, align 8
   %tobool.not.i = icmp eq ptr %1, null
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
@@ -358,7 +358,7 @@ RSA_size.exit:                                    ; preds = %if.then.i, %if.end.
   %retval.0.in.i = phi i64 [ %call.i, %if.then.i ], [ %call3.i, %if.end.i ]
   %conv = and i64 %retval.0.in.i, 4294967295
   %2 = load ptr, ptr %rsa, align 8
-  %encrypt.i = getelementptr inbounds i8, ptr %2, i64 56
+  %encrypt.i = getelementptr inbounds nuw i8, ptr %2, i64 56
   %3 = load ptr, ptr %encrypt.i, align 8
   %tobool.not.i2 = icmp eq ptr %3, null
   br i1 %tobool.not.i2, label %if.end.i6, label %if.then.i3
@@ -398,7 +398,7 @@ return:                                           ; preds = %RSA_encrypt.exit, %
 define hidden i32 @RSA_size(ptr noundef %rsa) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %rsa, align 8
-  %size = getelementptr inbounds i8, ptr %0, i64 32
+  %size = getelementptr inbounds nuw i8, ptr %0, i64 32
   %1 = load ptr, ptr %size, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -421,7 +421,7 @@ return:                                           ; preds = %if.end, %if.then
 define hidden i32 @RSA_sign_raw(ptr noundef %rsa, ptr noundef %out_len, ptr noundef %out, i64 noundef %max_out, ptr noundef %in, i64 noundef %in_len, i32 noundef %padding) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %rsa, align 8
-  %sign_raw = getelementptr inbounds i8, ptr %0, i64 64
+  %sign_raw = getelementptr inbounds nuw i8, ptr %0, i64 64
   %1 = load ptr, ptr %sign_raw, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -446,7 +446,7 @@ define hidden range(i32 -1, -2147483648) i32 @RSA_private_encrypt(i64 noundef %f
 entry:
   %out_len = alloca i64, align 8
   %0 = load ptr, ptr %rsa, align 8
-  %size.i = getelementptr inbounds i8, ptr %0, i64 32
+  %size.i = getelementptr inbounds nuw i8, ptr %0, i64 32
   %1 = load ptr, ptr %size.i, align 8
   %tobool.not.i = icmp eq ptr %1, null
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
@@ -463,7 +463,7 @@ RSA_size.exit:                                    ; preds = %if.then.i, %if.end.
   %retval.0.in.i = phi i64 [ %call.i, %if.then.i ], [ %call3.i, %if.end.i ]
   %conv = and i64 %retval.0.in.i, 4294967295
   %2 = load ptr, ptr %rsa, align 8
-  %sign_raw.i = getelementptr inbounds i8, ptr %2, i64 64
+  %sign_raw.i = getelementptr inbounds nuw i8, ptr %2, i64 64
   %3 = load ptr, ptr %sign_raw.i, align 8
   %tobool.not.i2 = icmp eq ptr %3, null
   br i1 %tobool.not.i2, label %if.end.i6, label %if.then.i3
@@ -503,7 +503,7 @@ return:                                           ; preds = %RSA_sign_raw.exit, 
 define hidden i32 @RSA_decrypt(ptr noundef %rsa, ptr noundef %out_len, ptr noundef %out, i64 noundef %max_out, ptr noundef %in, i64 noundef %in_len, i32 noundef %padding) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %rsa, align 8
-  %decrypt = getelementptr inbounds i8, ptr %0, i64 72
+  %decrypt = getelementptr inbounds nuw i8, ptr %0, i64 72
   %1 = load ptr, ptr %decrypt, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -528,7 +528,7 @@ define hidden range(i32 -1, -2147483648) i32 @RSA_private_decrypt(i64 noundef %f
 entry:
   %out_len = alloca i64, align 8
   %0 = load ptr, ptr %rsa, align 8
-  %size.i = getelementptr inbounds i8, ptr %0, i64 32
+  %size.i = getelementptr inbounds nuw i8, ptr %0, i64 32
   %1 = load ptr, ptr %size.i, align 8
   %tobool.not.i = icmp eq ptr %1, null
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
@@ -545,7 +545,7 @@ RSA_size.exit:                                    ; preds = %if.then.i, %if.end.
   %retval.0.in.i = phi i64 [ %call.i, %if.then.i ], [ %call3.i, %if.end.i ]
   %conv = and i64 %retval.0.in.i, 4294967295
   %2 = load ptr, ptr %rsa, align 8
-  %decrypt.i = getelementptr inbounds i8, ptr %2, i64 72
+  %decrypt.i = getelementptr inbounds nuw i8, ptr %2, i64 72
   %3 = load ptr, ptr %decrypt.i, align 8
   %tobool.not.i2 = icmp eq ptr %3, null
   br i1 %tobool.not.i2, label %if.end.i6, label %if.then.i3
@@ -586,7 +586,7 @@ define hidden range(i32 -1, -2147483648) i32 @RSA_public_decrypt(i64 noundef %fl
 entry:
   %out_len = alloca i64, align 8
   %0 = load ptr, ptr %rsa, align 8
-  %size.i = getelementptr inbounds i8, ptr %0, i64 32
+  %size.i = getelementptr inbounds nuw i8, ptr %0, i64 32
   %1 = load ptr, ptr %size.i, align 8
   %tobool.not.i = icmp eq ptr %1, null
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
@@ -636,7 +636,7 @@ entry:
   br i1 %tobool.not, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %entry
-  %flags = getelementptr inbounds i8, ptr %0, i64 112
+  %flags = getelementptr inbounds nuw i8, ptr %0, i64 112
   %1 = load i32, ptr %flags, align 8
   %and = and i32 %1, 1
   br label %land.end
@@ -654,7 +654,7 @@ entry:
   br i1 %tobool.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %supports_digest = getelementptr inbounds i8, ptr %0, i64 136
+  %supports_digest = getelementptr inbounds nuw i8, ptr %0, i64 136
   %1 = load ptr, ptr %supports_digest, align 8
   %tobool2.not = icmp eq ptr %1, null
   br i1 %tobool2.not, label %return, label %if.then
@@ -684,7 +684,7 @@ declare i32 @CRYPTO_get_ex_new_index(ptr noundef, ptr noundef, i64 noundef, ptr 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @RSA_set_ex_data(ptr noundef %d, i32 noundef %idx, ptr noundef %arg) local_unnamed_addr #0 {
 entry:
-  %ex_data = getelementptr inbounds i8, ptr %d, i64 80
+  %ex_data = getelementptr inbounds nuw i8, ptr %d, i64 80
   %call = tail call i32 @CRYPTO_set_ex_data(ptr noundef nonnull %ex_data, i32 noundef %idx, ptr noundef %arg) #9
   ret i32 %call
 }
@@ -694,7 +694,7 @@ declare i32 @CRYPTO_set_ex_data(ptr noundef, i32 noundef, ptr noundef) local_unn
 ; Function Attrs: nounwind uwtable
 define hidden ptr @RSA_get_ex_data(ptr noundef %d, i32 noundef %idx) local_unnamed_addr #0 {
 entry:
-  %ex_data = getelementptr inbounds i8, ptr %d, i64 80
+  %ex_data = getelementptr inbounds nuw i8, ptr %d, i64 80
   %call = tail call ptr @CRYPTO_get_ex_data(ptr noundef nonnull %ex_data, i32 noundef %idx) #9
   ret ptr %call
 }
@@ -730,15 +730,15 @@ for.cond:                                         ; preds = %entry, %for.body
   br i1 %exitcond, label %for.end, label %for.body, !llvm.loop !9
 
 for.body:                                         ; preds = %for.cond
-  %arrayidx = getelementptr inbounds [7 x %struct.pkcs1_sig_prefix], ptr @kPKCS1SigPrefixes, i64 0, i64 %indvars.iv.next
+  %arrayidx = getelementptr inbounds nuw [7 x %struct.pkcs1_sig_prefix], ptr @kPKCS1SigPrefixes, i64 0, i64 %indvars.iv.next
   %0 = load i32, ptr %arrayidx, align 8
   %cmp8.not = icmp eq i32 %0, %hash_nid
   br i1 %cmp8.not, label %if.end10, label %for.cond, !llvm.loop !9
 
 if.end10:                                         ; preds = %for.body, %entry
   %arrayidx22.lcssa = phi ptr [ @kPKCS1SigPrefixes, %entry ], [ %arrayidx, %for.body ]
-  %bytes = getelementptr inbounds i8, ptr %arrayidx22.lcssa, i64 5
-  %len = getelementptr inbounds i8, ptr %arrayidx22.lcssa, i64 4
+  %bytes = getelementptr inbounds nuw i8, ptr %arrayidx22.lcssa, i64 5
+  %len = getelementptr inbounds nuw i8, ptr %arrayidx22.lcssa, i64 4
   %1 = load i8, ptr %len, align 4
   %conv = zext i8 %1 to i32
   %conv11 = zext i8 %1 to i64
@@ -763,7 +763,7 @@ if.then18:                                        ; preds = %if.end16
 
 if.end19:                                         ; preds = %if.end16
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call, ptr nonnull align 1 %bytes, i64 %conv11, i1 false)
-  %add.ptr = getelementptr inbounds i8, ptr %call, i64 %conv11
+  %add.ptr = getelementptr inbounds nuw i8, ptr %call, i64 %conv11
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr, ptr align 1 %msg, i64 %msg_len, i1 false)
   store ptr %call, ptr %out_msg, align 8
   store i64 %conv17, ptr %out_msg_len, align 8
@@ -790,7 +790,7 @@ entry:
   %signed_msg_is_alloced = alloca i32, align 4
   %size_t_out_len = alloca i64, align 8
   %0 = load ptr, ptr %rsa, align 8
-  %size.i = getelementptr inbounds i8, ptr %0, i64 32
+  %size.i = getelementptr inbounds nuw i8, ptr %0, i64 32
   %1 = load ptr, ptr %size.i, align 8
   %tobool.not.i = icmp eq ptr %1, null
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
@@ -808,7 +808,7 @@ RSA_size.exit:                                    ; preds = %if.then.i, %if.end.
   %retval.0.i = trunc i64 %retval.0.in.i to i32
   store i32 0, ptr %signed_msg_is_alloced, align 4
   %2 = load ptr, ptr %rsa, align 8
-  %sign = getelementptr inbounds i8, ptr %2, i64 40
+  %sign = getelementptr inbounds nuw i8, ptr %2, i64 40
   %3 = load ptr, ptr %sign, align 8
   %tobool.not = icmp eq ptr %3, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -842,7 +842,7 @@ if.end13:                                         ; preds = %lor.lhs.false
   %conv14 = and i64 %retval.0.in.i, 4294967295
   %5 = load ptr, ptr %signed_msg, align 8
   %6 = load ptr, ptr %rsa, align 8
-  %sign_raw.i = getelementptr inbounds i8, ptr %6, i64 64
+  %sign_raw.i = getelementptr inbounds nuw i8, ptr %6, i64 64
   %7 = load ptr, ptr %sign_raw.i, align 8
   %tobool.not.i13 = icmp eq ptr %7, null
   br i1 %tobool.not.i13, label %if.end.i17, label %if.then.i14
@@ -889,13 +889,13 @@ entry:
   %signed_msg_len = alloca i64, align 8
   %len = alloca i64, align 8
   %signed_msg_is_alloced = alloca i32, align 4
-  %n = getelementptr inbounds i8, ptr %rsa, i64 8
+  %n = getelementptr inbounds nuw i8, ptr %rsa, i64 8
   %0 = load ptr, ptr %n, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %e = getelementptr inbounds i8, ptr %rsa, i64 16
+  %e = getelementptr inbounds nuw i8, ptr %rsa, i64 16
   %1 = load ptr, ptr %e, align 8
   %cmp1 = icmp eq ptr %1, null
   br i1 %cmp1, label %if.then, label %if.end
@@ -906,7 +906,7 @@ if.then:                                          ; preds = %lor.lhs.false, %ent
 
 if.end:                                           ; preds = %lor.lhs.false
   %2 = load ptr, ptr %rsa, align 8
-  %size.i = getelementptr inbounds i8, ptr %2, i64 32
+  %size.i = getelementptr inbounds nuw i8, ptr %2, i64 32
   %3 = load ptr, ptr %size.i, align 8
   %tobool.not.i = icmp eq ptr %3, null
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
@@ -1002,17 +1002,17 @@ entry:
   br i1 %tobool.not.i, label %if.end, label %RSA_is_opaque.exit
 
 RSA_is_opaque.exit:                               ; preds = %entry
-  %flags.i = getelementptr inbounds i8, ptr %0, i64 112
+  %flags.i = getelementptr inbounds nuw i8, ptr %0, i64 112
   %1 = load i32, ptr %flags.i, align 8
   %and.i = and i32 %1, 1
   %tobool.not = icmp eq i32 %and.i, 0
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry, %RSA_is_opaque.exit
-  %p = getelementptr inbounds i8, ptr %key, i64 32
+  %p = getelementptr inbounds nuw i8, ptr %key, i64 32
   %2 = load ptr, ptr %p, align 8
   %cmp = icmp ne ptr %2, null
-  %q = getelementptr inbounds i8, ptr %key, i64 40
+  %q = getelementptr inbounds nuw i8, ptr %key, i64 40
   %3 = load ptr, ptr %q, align 8
   %4 = icmp eq ptr %3, null
   %cmp3.not = xor i1 %cmp, %4
@@ -1023,13 +1023,13 @@ if.then5:                                         ; preds = %if.end
   br label %return
 
 if.end6:                                          ; preds = %if.end
-  %n7 = getelementptr inbounds i8, ptr %key, i64 8
+  %n7 = getelementptr inbounds nuw i8, ptr %key, i64 8
   %5 = load ptr, ptr %n7, align 8
   %tobool8.not = icmp eq ptr %5, null
   br i1 %tobool8.not, label %if.then10, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end6
-  %e = getelementptr inbounds i8, ptr %key, i64 16
+  %e = getelementptr inbounds nuw i8, ptr %key, i64 16
   %6 = load ptr, ptr %e, align 8
   %tobool9.not = icmp eq ptr %6, null
   br i1 %tobool9.not, label %if.then10, label %if.end11
@@ -1039,7 +1039,7 @@ if.then10:                                        ; preds = %lor.lhs.false, %if.
   br label %return
 
 if.end11:                                         ; preds = %lor.lhs.false
-  %d = getelementptr inbounds i8, ptr %key, i64 24
+  %d = getelementptr inbounds nuw i8, ptr %key, i64 24
   %7 = load ptr, ptr %d, align 8
   %tobool12.not = icmp ne ptr %7, null
   %brmerge.not = and i1 %cmp, %tobool12.not
@@ -1099,7 +1099,7 @@ if.then43:                                        ; preds = %lor.lhs.false40, %l
   br label %out
 
 if.end44:                                         ; preds = %lor.lhs.false40
-  %additional_primes = getelementptr inbounds i8, ptr %key, i64 72
+  %additional_primes = getelementptr inbounds nuw i8, ptr %key, i64 72
   %12 = load ptr, ptr %additional_primes, align 8
   %cmp45.not = icmp eq ptr %12, null
   br i1 %cmp45.not, label %for.end, label %if.end50
@@ -1186,17 +1186,17 @@ if.then90:                                        ; preds = %if.end87
   br label %out
 
 if.end91:                                         ; preds = %if.end87
-  %dmp192 = getelementptr inbounds i8, ptr %key, i64 48
+  %dmp192 = getelementptr inbounds nuw i8, ptr %key, i64 48
   %19 = load ptr, ptr %dmp192, align 8
   %cmp93 = icmp ne ptr %19, null
-  %dmq195 = getelementptr inbounds i8, ptr %key, i64 56
+  %dmq195 = getelementptr inbounds nuw i8, ptr %key, i64 56
   %20 = load ptr, ptr %dmq195, align 8
   %21 = icmp eq ptr %20, null
   %cmp98.not = xor i1 %cmp93, %21
   br i1 %cmp98.not, label %lor.lhs.false100, label %if.then106
 
 lor.lhs.false100:                                 ; preds = %if.end91
-  %iqmp101 = getelementptr inbounds i8, ptr %key, i64 64
+  %iqmp101 = getelementptr inbounds nuw i8, ptr %key, i64 64
   %22 = load ptr, ptr %iqmp101, align 8
   %23 = icmp eq ptr %22, null
   %cmp104.not = xor i1 %cmp93, %23
@@ -1307,19 +1307,19 @@ declare void @BN_CTX_free(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @RSA_recover_crt_params(ptr nocapture noundef %rsa) local_unnamed_addr #0 {
 entry:
-  %n = getelementptr inbounds i8, ptr %rsa, i64 8
+  %n = getelementptr inbounds nuw i8, ptr %rsa, i64 8
   %0 = load ptr, ptr %n, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %e = getelementptr inbounds i8, ptr %rsa, i64 16
+  %e = getelementptr inbounds nuw i8, ptr %rsa, i64 16
   %1 = load ptr, ptr %e, align 8
   %cmp1 = icmp eq ptr %1, null
   br i1 %cmp1, label %if.then, label %lor.lhs.false2
 
 lor.lhs.false2:                                   ; preds = %lor.lhs.false
-  %d = getelementptr inbounds i8, ptr %rsa, i64 24
+  %d = getelementptr inbounds nuw i8, ptr %rsa, i64 24
   %2 = load ptr, ptr %d, align 8
   %cmp3 = icmp eq ptr %2, null
   br i1 %cmp3, label %if.then, label %if.end
@@ -1329,31 +1329,31 @@ if.then:                                          ; preds = %lor.lhs.false2, %lo
   br label %return
 
 if.end:                                           ; preds = %lor.lhs.false2
-  %p = getelementptr inbounds i8, ptr %rsa, i64 32
+  %p = getelementptr inbounds nuw i8, ptr %rsa, i64 32
   %3 = load ptr, ptr %p, align 8
   %tobool.not = icmp eq ptr %3, null
   br i1 %tobool.not, label %lor.lhs.false4, label %if.then12
 
 lor.lhs.false4:                                   ; preds = %if.end
-  %q = getelementptr inbounds i8, ptr %rsa, i64 40
+  %q = getelementptr inbounds nuw i8, ptr %rsa, i64 40
   %4 = load ptr, ptr %q, align 8
   %tobool5.not = icmp eq ptr %4, null
   br i1 %tobool5.not, label %lor.lhs.false6, label %if.then12
 
 lor.lhs.false6:                                   ; preds = %lor.lhs.false4
-  %dmp1 = getelementptr inbounds i8, ptr %rsa, i64 48
+  %dmp1 = getelementptr inbounds nuw i8, ptr %rsa, i64 48
   %5 = load ptr, ptr %dmp1, align 8
   %tobool7.not = icmp eq ptr %5, null
   br i1 %tobool7.not, label %lor.lhs.false8, label %if.then12
 
 lor.lhs.false8:                                   ; preds = %lor.lhs.false6
-  %dmq1 = getelementptr inbounds i8, ptr %rsa, i64 56
+  %dmq1 = getelementptr inbounds nuw i8, ptr %rsa, i64 56
   %6 = load ptr, ptr %dmq1, align 8
   %tobool9.not = icmp eq ptr %6, null
   br i1 %tobool9.not, label %lor.lhs.false10, label %if.then12
 
 lor.lhs.false10:                                  ; preds = %lor.lhs.false8
-  %iqmp = getelementptr inbounds i8, ptr %rsa, i64 64
+  %iqmp = getelementptr inbounds nuw i8, ptr %rsa, i64 64
   %7 = load ptr, ptr %iqmp, align 8
   %tobool11.not = icmp eq ptr %7, null
   br i1 %tobool11.not, label %if.end13, label %if.then12
@@ -1363,7 +1363,7 @@ if.then12:                                        ; preds = %lor.lhs.false10, %l
   br label %return
 
 if.end13:                                         ; preds = %lor.lhs.false10
-  %additional_primes = getelementptr inbounds i8, ptr %rsa, i64 72
+  %additional_primes = getelementptr inbounds nuw i8, ptr %rsa, i64 72
   %8 = load ptr, ptr %additional_primes, align 8
   %cmp14.not = icmp eq ptr %8, null
   br i1 %cmp14.not, label %if.end16, label %if.then15
@@ -1649,7 +1649,7 @@ declare void @BN_CTX_end(ptr noundef) local_unnamed_addr #2
 define hidden i32 @RSA_private_transform(ptr noundef %rsa, ptr noundef %out, ptr noundef %in, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %rsa, align 8
-  %private_transform = getelementptr inbounds i8, ptr %0, i64 88
+  %private_transform = getelementptr inbounds nuw i8, ptr %0, i64 88
   %1 = load ptr, ptr %private_transform, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.end, label %if.then

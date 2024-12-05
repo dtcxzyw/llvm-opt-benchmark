@@ -405,7 +405,7 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocap
   %219 = fneg double %217
   %220 = select i1 %218, double %217, double %219
   %221 = fadd double %215, %220
-  %222 = getelementptr inbounds double, ptr %5, i64 %214
+  %222 = getelementptr inbounds nuw double, ptr %5, i64 %214
   %223 = load double, ptr %222, align 8, !tbaa !7
   %224 = fadd double %223, %220
   store double %224, ptr %222, align 8, !tbaa !7
@@ -435,7 +435,7 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocap
   %242 = fcmp oge double %241, 0.000000e+00
   %243 = fneg double %241
   %244 = select i1 %242, double %241, double %243
-  %245 = getelementptr inbounds double, ptr %5, i64 %205
+  %245 = getelementptr inbounds nuw double, ptr %5, i64 %205
   %246 = load double, ptr %245, align 8, !tbaa !7
   %247 = fadd double %246, %244
   store double %247, ptr %245, align 8, !tbaa !7
@@ -459,7 +459,7 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocap
   %261 = fneg double %259
   %262 = select i1 %260, double %259, double %261
   %263 = fadd double %255, %262
-  %264 = getelementptr inbounds double, ptr %5, i64 %256
+  %264 = getelementptr inbounds nuw double, ptr %5, i64 %256
   %265 = load double, ptr %264, align 8, !tbaa !7
   %266 = fadd double %265, %262
   store double %266, ptr %264, align 8, !tbaa !7
@@ -505,7 +505,7 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocap
 .preheader90:                                     ; preds = %279, %._crit_edge387
   %284 = phi i64 [ %293, %._crit_edge387 ], [ 1, %279 ]
   %285 = phi double [ %292, %._crit_edge387 ], [ %281, %279 ]
-  %286 = getelementptr inbounds double, ptr %5, i64 %284
+  %286 = getelementptr inbounds nuw double, ptr %5, i64 %284
   %287 = load double, ptr %286, align 8, !tbaa !7
   store double %287, ptr %9, align 8, !tbaa !7
   %288 = fcmp olt double %285, %287
@@ -683,7 +683,7 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocap
 .preheader87:                                     ; preds = %393, %._crit_edge390
   %397 = phi i64 [ %406, %._crit_edge390 ], [ 1, %393 ]
   %398 = phi double [ %405, %._crit_edge390 ], [ %395, %393 ]
-  %399 = getelementptr inbounds double, ptr %5, i64 %397
+  %399 = getelementptr inbounds nuw double, ptr %5, i64 %397
   %400 = load double, ptr %399, align 8, !tbaa !7
   store double %400, ptr %9, align 8, !tbaa !7
   %401 = fcmp olt double %398, %400
@@ -747,7 +747,7 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocap
   %435 = fneg double %433
   %436 = select i1 %434, double %433, double %435
   %437 = fadd double %431, %436
-  %438 = getelementptr inbounds double, ptr %5, i64 %430
+  %438 = getelementptr inbounds nuw double, ptr %5, i64 %430
   %439 = load double, ptr %438, align 8, !tbaa !7
   %440 = fadd double %439, %436
   store double %440, ptr %438, align 8, !tbaa !7
@@ -770,14 +770,14 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocap
   %452 = fneg double %450
   %453 = select i1 %451, double %450, double %452
   %454 = fadd double %445, %453
-  %455 = getelementptr inbounds double, ptr %5, i64 %425
+  %455 = getelementptr inbounds nuw double, ptr %5, i64 %425
   store double %454, ptr %455, align 8, !tbaa !7
   %456 = getelementptr i8, ptr %449, i64 8
   %457 = load double, ptr %456, align 8, !tbaa !7
   %458 = fcmp oge double %457, 0.000000e+00
   %459 = fneg double %457
   %460 = select i1 %458, double %457, double %459
-  %461 = getelementptr inbounds double, ptr %5, i64 %424
+  %461 = getelementptr inbounds nuw double, ptr %5, i64 %424
   %462 = load double, ptr %461, align 8, !tbaa !7
   %463 = fadd double %462, %460
   store double %463, ptr %461, align 8, !tbaa !7
@@ -801,7 +801,7 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocap
   %477 = fneg double %475
   %478 = select i1 %476, double %475, double %477
   %479 = fadd double %471, %478
-  %480 = getelementptr inbounds double, ptr %5, i64 %472
+  %480 = getelementptr inbounds nuw double, ptr %5, i64 %472
   %481 = load double, ptr %480, align 8, !tbaa !7
   %482 = fadd double %481, %478
   store double %482, ptr %480, align 8, !tbaa !7
@@ -834,7 +834,7 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocap
 493:                                              ; preds = %490, %._crit_edge393
   %494 = phi i64 [ %503, %._crit_edge393 ], [ 1, %490 ]
   %495 = phi double [ %502, %._crit_edge393 ], [ %491, %490 ]
-  %496 = getelementptr inbounds double, ptr %5, i64 %494
+  %496 = getelementptr inbounds nuw double, ptr %5, i64 %494
   %497 = load double, ptr %496, align 8, !tbaa !7
   store double %497, ptr %9, align 8, !tbaa !7
   %498 = fcmp olt double %495, %497
@@ -999,7 +999,7 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocap
 .preheader:                                       ; preds = %597, %._crit_edge396
   %600 = phi i64 [ %609, %._crit_edge396 ], [ 1, %597 ]
   %601 = phi double [ %608, %._crit_edge396 ], [ %599, %597 ]
-  %602 = getelementptr inbounds double, ptr %5, i64 %600
+  %602 = getelementptr inbounds nuw double, ptr %5, i64 %600
   %603 = load double, ptr %602, align 8, !tbaa !7
   store double %603, ptr %9, align 8, !tbaa !7
   %604 = fcmp olt double %601, %603
@@ -1083,7 +1083,7 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocap
   br i1 %651, label %652, label %638, !llvm.loop !36
 
 652:                                              ; preds = %638
-  %653 = getelementptr inbounds double, ptr %5, i64 %635
+  %653 = getelementptr inbounds nuw double, ptr %5, i64 %635
   store double %649, ptr %653, align 8, !tbaa !7
   %654 = add nuw nsw i64 %635, 1
   %655 = icmp eq i64 %654, %621
@@ -1132,7 +1132,7 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocap
 684:                                              ; preds = %683, %.loopexit535
   %685 = phi double [ %680, %683 ], [ %663, %.loopexit535 ]
   %686 = zext nneg i32 %656 to i64
-  %687 = getelementptr inbounds double, ptr %5, i64 %686
+  %687 = getelementptr inbounds nuw double, ptr %5, i64 %686
   %688 = load double, ptr %687, align 8, !tbaa !7
   %689 = fadd double %685, %688
   store double %689, ptr %687, align 8, !tbaa !7
@@ -1170,7 +1170,7 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocap
   %711 = fcmp oge double %710, 0.000000e+00
   %712 = fneg double %710
   %713 = select i1 %711, double %710, double %712
-  %714 = getelementptr inbounds double, ptr %5, i64 %707
+  %714 = getelementptr inbounds nuw double, ptr %5, i64 %707
   %715 = load double, ptr %714, align 8, !tbaa !7
   %716 = fadd double %715, %713
   store double %716, ptr %714, align 8, !tbaa !7
@@ -1258,7 +1258,7 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocap
 .preheader104:                                    ; preds = %768, %._crit_edge378
   %772 = phi i64 [ %781, %._crit_edge378 ], [ 1, %768 ]
   %773 = phi double [ %780, %._crit_edge378 ], [ %771, %768 ]
-  %774 = getelementptr inbounds double, ptr %5, i64 %772
+  %774 = getelementptr inbounds nuw double, ptr %5, i64 %772
   %775 = load double, ptr %774, align 8, !tbaa !7
   store double %775, ptr %9, align 8, !tbaa !7
   %776 = fcmp olt double %773, %775
@@ -1327,7 +1327,7 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocap
   %815 = fcmp oge double %814, 0.000000e+00
   %816 = fneg double %814
   %817 = select i1 %815, double %814, double %816
-  %818 = getelementptr inbounds double, ptr %5, i64 %811
+  %818 = getelementptr inbounds nuw double, ptr %5, i64 %811
   %819 = load double, ptr %818, align 8, !tbaa !7
   %820 = fadd double %819, %817
   store double %820, ptr %818, align 8, !tbaa !7
@@ -1352,7 +1352,7 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocap
   %833 = fneg double %831
   %834 = select i1 %832, double %831, double %833
   %835 = fadd double %826, %834
-  %836 = getelementptr inbounds double, ptr %5, i64 %805
+  %836 = getelementptr inbounds nuw double, ptr %5, i64 %805
   store double %835, ptr %836, align 8, !tbaa !7
   %837 = getelementptr i8, ptr %830, i64 8
   %838 = load double, ptr %837, align 8, !tbaa !7
@@ -1380,7 +1380,7 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocap
   %856 = fneg double %854
   %857 = select i1 %855, double %854, double %856
   %858 = fadd double %850, %857
-  %859 = getelementptr inbounds double, ptr %5, i64 %851
+  %859 = getelementptr inbounds nuw double, ptr %5, i64 %851
   %860 = load double, ptr %859, align 8, !tbaa !7
   %861 = fadd double %860, %857
   store double %861, ptr %859, align 8, !tbaa !7
@@ -1390,7 +1390,7 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocap
 
 .loopexit103:                                     ; preds = %847, %._crit_edge406
   %864 = phi double [ %841, %._crit_edge406 ], [ %858, %847 ]
-  %865 = getelementptr inbounds double, ptr %5, i64 %842
+  %865 = getelementptr inbounds nuw double, ptr %5, i64 %842
   %866 = load double, ptr %865, align 8, !tbaa !7
   %867 = fadd double %864, %866
   store double %867, ptr %865, align 8, !tbaa !7
@@ -1415,7 +1415,7 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocap
   %879 = fcmp oge double %878, 0.000000e+00
   %880 = fneg double %878
   %881 = select i1 %879, double %878, double %880
-  %882 = getelementptr inbounds double, ptr %5, i64 %875
+  %882 = getelementptr inbounds nuw double, ptr %5, i64 %875
   %883 = load double, ptr %882, align 8, !tbaa !7
   %884 = fadd double %883, %881
   store double %884, ptr %882, align 8, !tbaa !7
@@ -1439,7 +1439,7 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocap
   %899 = fadd double %888, %898
   store double %899, ptr %12, align 8, !tbaa !7
   %900 = zext nneg i32 %889 to i64
-  %901 = getelementptr inbounds double, ptr %5, i64 %900
+  %901 = getelementptr inbounds nuw double, ptr %5, i64 %900
   store double %899, ptr %901, align 8, !tbaa !7
   br i1 %786, label %902, label %934
 
@@ -1468,7 +1468,7 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocap
   %918 = fcmp oge double %917, 0.000000e+00
   %919 = fneg double %917
   %920 = select i1 %918, double %917, double %919
-  %921 = getelementptr inbounds double, ptr %5, i64 %914
+  %921 = getelementptr inbounds nuw double, ptr %5, i64 %914
   %922 = load double, ptr %921, align 8, !tbaa !7
   %923 = fadd double %922, %920
   store double %923, ptr %921, align 8, !tbaa !7
@@ -1504,7 +1504,7 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocap
 .preheader100:                                    ; preds = %934, %._crit_edge380
   %939 = phi i64 [ %948, %._crit_edge380 ], [ 1, %934 ]
   %940 = phi double [ %947, %._crit_edge380 ], [ %937, %934 ]
-  %941 = getelementptr inbounds double, ptr %5, i64 %939
+  %941 = getelementptr inbounds nuw double, ptr %5, i64 %939
   %942 = load double, ptr %941, align 8, !tbaa !7
   store double %942, ptr %9, align 8, !tbaa !7
   %943 = fcmp olt double %940, %942
@@ -1582,7 +1582,7 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocap
   br i1 %987, label %988, label %974, !llvm.loop !50
 
 988:                                              ; preds = %974
-  %989 = getelementptr inbounds double, ptr %5, i64 %971
+  %989 = getelementptr inbounds nuw double, ptr %5, i64 %971
   store double %985, ptr %989, align 8, !tbaa !7
   %990 = add nuw nsw i64 %971, 1
   %991 = icmp eq i64 %990, %958
@@ -1632,7 +1632,7 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocap
 .loopexit532:                                     ; preds = %1009, %993
   %1023 = phi double [ %1002, %993 ], [ %1020, %1009 ]
   %1024 = zext nneg i32 %995 to i64
-  %1025 = getelementptr inbounds double, ptr %5, i64 %1024
+  %1025 = getelementptr inbounds nuw double, ptr %5, i64 %1024
   %1026 = load double, ptr %1025, align 8, !tbaa !7
   %1027 = fadd double %1023, %1026
   store double %1027, ptr %1025, align 8, !tbaa !7
@@ -1672,7 +1672,7 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocap
   %1047 = fcmp oge double %1046, 0.000000e+00
   %1048 = fneg double %1046
   %1049 = select i1 %1047, double %1046, double %1048
-  %1050 = getelementptr inbounds double, ptr %5, i64 %1043
+  %1050 = getelementptr inbounds nuw double, ptr %5, i64 %1043
   %1051 = load double, ptr %1050, align 8, !tbaa !7
   %1052 = fadd double %1051, %1049
   store double %1052, ptr %1050, align 8, !tbaa !7
@@ -1773,7 +1773,7 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocap
   %1122 = fcmp oge double %1121, 0.000000e+00
   %1123 = fneg double %1121
   %1124 = select i1 %1122, double %1121, double %1123
-  %1125 = getelementptr inbounds double, ptr %5, i64 %1118
+  %1125 = getelementptr inbounds nuw double, ptr %5, i64 %1118
   %1126 = load double, ptr %1125, align 8, !tbaa !7
   %1127 = fadd double %1126, %1124
   store double %1127, ptr %1125, align 8, !tbaa !7
@@ -1795,7 +1795,7 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocap
   %1140 = fadd double %1131, %1139
   store double %1140, ptr %12, align 8, !tbaa !7
   %1141 = zext nneg i32 %1132 to i64
-  %1142 = getelementptr inbounds double, ptr %5, i64 %1141
+  %1142 = getelementptr inbounds nuw double, ptr %5, i64 %1141
   %1143 = load double, ptr %1142, align 8, !tbaa !7
   %1144 = fadd double %1143, %1140
   store double %1144, ptr %1142, align 8, !tbaa !7
@@ -1807,7 +1807,7 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocap
 .preheader97:                                     ; preds = %._crit_edge407, %._crit_edge382
   %1147 = phi i64 [ %1156, %._crit_edge382 ], [ 1, %._crit_edge407 ]
   %1148 = phi double [ %1155, %._crit_edge382 ], [ %1145, %._crit_edge407 ]
-  %1149 = getelementptr inbounds double, ptr %5, i64 %1147
+  %1149 = getelementptr inbounds nuw double, ptr %5, i64 %1147
   %1150 = load double, ptr %1149, align 8, !tbaa !7
   store double %1150, ptr %9, align 8, !tbaa !7
   %1151 = fcmp olt double %1148, %1150
@@ -1871,7 +1871,7 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocap
 1186:                                             ; preds = %1186, %1181
   %1187 = phi i64 [ 1, %1181 ], [ %1198, %1186 ]
   %1188 = phi double [ %1174, %1181 ], [ %1197, %1186 ]
-  %1189 = getelementptr inbounds double, ptr %4, i64 %1187
+  %1189 = getelementptr inbounds nuw double, ptr %4, i64 %1187
   %1190 = load double, ptr %1189, align 8, !tbaa !7
   %1191 = fcmp oge double %1190, 0.000000e+00
   %1192 = fneg double %1190
@@ -1887,7 +1887,7 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocap
 
 1200:                                             ; preds = %1186
   %1201 = zext nneg i32 %184 to i64
-  %1202 = getelementptr inbounds double, ptr %5, i64 %1201
+  %1202 = getelementptr inbounds nuw double, ptr %5, i64 %1201
   %1203 = load double, ptr %1202, align 8, !tbaa !7
   %1204 = fadd double %1197, %1203
   store double %1204, ptr %1202, align 8, !tbaa !7
@@ -1921,7 +1921,7 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocap
   %1223 = fcmp oge double %1222, 0.000000e+00
   %1224 = fneg double %1222
   %1225 = select i1 %1223, double %1222, double %1224
-  %1226 = getelementptr inbounds double, ptr %5, i64 %1219
+  %1226 = getelementptr inbounds nuw double, ptr %5, i64 %1219
   %1227 = load double, ptr %1226, align 8, !tbaa !7
   %1228 = fadd double %1227, %1225
   store double %1228, ptr %1226, align 8, !tbaa !7
@@ -1973,7 +1973,7 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocap
   %1264 = fneg double %1262
   %1265 = select i1 %1263, double %1262, double %1264
   %1266 = fadd double %1258, %1265
-  %1267 = getelementptr inbounds double, ptr %5, i64 %1259
+  %1267 = getelementptr inbounds nuw double, ptr %5, i64 %1259
   %1268 = load double, ptr %1267, align 8, !tbaa !7
   %1269 = fadd double %1268, %1265
   store double %1269, ptr %1267, align 8, !tbaa !7
@@ -1983,7 +1983,7 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocap
 
 .loopexit96:                                      ; preds = %1255, %._crit_edge409
   %1272 = phi double [ %1249, %._crit_edge409 ], [ %1266, %1255 ]
-  %1273 = getelementptr inbounds double, ptr %5, i64 %1250
+  %1273 = getelementptr inbounds nuw double, ptr %5, i64 %1250
   %1274 = load double, ptr %1273, align 8, !tbaa !7
   %1275 = fadd double %1272, %1274
   store double %1275, ptr %1273, align 8, !tbaa !7
@@ -2011,7 +2011,7 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocap
   %1292 = fcmp oge double %1291, 0.000000e+00
   %1293 = fneg double %1291
   %1294 = select i1 %1292, double %1291, double %1293
-  %1295 = getelementptr inbounds double, ptr %5, i64 %1288
+  %1295 = getelementptr inbounds nuw double, ptr %5, i64 %1288
   %1296 = load double, ptr %1295, align 8, !tbaa !7
   %1297 = fadd double %1296, %1294
   store double %1297, ptr %1295, align 8, !tbaa !7
@@ -2035,7 +2035,7 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocap
   %1312 = fadd double %1301, %1311
   store double %1312, ptr %12, align 8, !tbaa !7
   %1313 = zext nneg i32 %1303 to i64
-  %1314 = getelementptr inbounds double, ptr %5, i64 %1313
+  %1314 = getelementptr inbounds nuw double, ptr %5, i64 %1313
   store double %1312, ptr %1314, align 8, !tbaa !7
   br i1 %954, label %1316, label %.thread443
 
@@ -2069,7 +2069,7 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocap
   %1332 = fcmp oge double %1331, 0.000000e+00
   %1333 = fneg double %1331
   %1334 = select i1 %1332, double %1331, double %1333
-  %1335 = getelementptr inbounds double, ptr %5, i64 %1328
+  %1335 = getelementptr inbounds nuw double, ptr %5, i64 %1328
   %1336 = load double, ptr %1335, align 8, !tbaa !7
   %1337 = fadd double %1336, %1334
   store double %1337, ptr %1335, align 8, !tbaa !7
@@ -2101,7 +2101,7 @@ define double @dlansf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocap
 .preheader93:                                     ; preds = %1348, %._crit_edge384
   %1351 = phi i64 [ %1360, %._crit_edge384 ], [ 1, %1348 ]
   %1352 = phi double [ %1359, %._crit_edge384 ], [ %1349, %1348 ]
-  %1353 = getelementptr inbounds double, ptr %5, i64 %1351
+  %1353 = getelementptr inbounds nuw double, ptr %5, i64 %1351
   %1354 = load double, ptr %1353, align 8, !tbaa !7
   store double %1354, ptr %9, align 8, !tbaa !7
   %1355 = fcmp olt double %1352, %1354
@@ -2492,7 +2492,7 @@ thread-pre-split73:                               ; preds = %.preheader135
   %1550 = add nsw i32 %1549, -1
   store i32 %1550, ptr %7, align 4, !tbaa !3
   store i32 %1548, ptr %8, align 4, !tbaa !3
-  %1551 = getelementptr inbounds i8, ptr %4, i64 8
+  %1551 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @dlassq_(ptr noundef nonnull %7, ptr noundef nonnull %1551, ptr noundef nonnull %8, ptr noundef nonnull %13, ptr noundef nonnull %12) #6
   br label %1722
 
@@ -2637,7 +2637,7 @@ thread-pre-split73:                               ; preds = %.preheader135
   store double %1621, ptr %12, align 8, !tbaa !7
   %1622 = add nsw i32 %34, 1
   store i32 %1622, ptr %7, align 4, !tbaa !3
-  %1623 = getelementptr inbounds i8, ptr %4, i64 8
+  %1623 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @dlassq_(ptr noundef nonnull %11, ptr noundef nonnull %1623, ptr noundef nonnull %7, ptr noundef nonnull %13, ptr noundef nonnull %12) #6
   store i32 %1622, ptr %7, align 4, !tbaa !3
   call void @dlassq_(ptr noundef nonnull %11, ptr noundef %4, ptr noundef nonnull %7, ptr noundef nonnull %13, ptr noundef nonnull %12) #6

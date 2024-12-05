@@ -63,7 +63,7 @@ define hidden void @_ZN7nanogui13MessageDialogC2EPNS_6WidgetENS0_4TypeERKNSt7__c
   %19 = alloca %"class.std::allocator.1", align 1
   tail call void @_ZN7nanogui6WindowC2EPNS_6WidgetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(186) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %3)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7nanogui13MessageDialogE, i64 16), ptr %0, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 192
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 192
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %20, i8 0, i64 32, i1 false)
   %21 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #14
           to label %22 unwind label %47
@@ -73,7 +73,7 @@ define hidden void @_ZN7nanogui13MessageDialogC2EPNS_6WidgetENS0_4TypeERKNSt7__c
           to label %23 unwind label %49
 
 23:                                               ; preds = %22
-  %24 = getelementptr inbounds i8, ptr %0, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %25 = load ptr, ptr %24, align 8
   %.not.i.i = icmp eq ptr %25, %21
   br i1 %.not.i.i, label %_ZN7nanogui6Widget10set_layoutEPNS_6LayoutE.exit, label %26
@@ -103,7 +103,7 @@ thread-pre-split.i.i:                             ; preds = %26
   unreachable
 
 _ZN7nanogui6Widget10set_layoutEPNS_6LayoutE.exit: ; preds = %23, %28
-  %32 = getelementptr inbounds i8, ptr %0, i64 184
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 184
   store i8 1, ptr %32, align 8
   %33 = invoke noalias noundef nonnull dereferenceable(144) ptr @_Znwm(i64 noundef 144) #14
           to label %34 unwind label %47
@@ -121,7 +121,7 @@ _ZN7nanogui6Widget10set_layoutEPNS_6LayoutE.exit: ; preds = %23, %28
           to label %38 unwind label %53
 
 38:                                               ; preds = %37
-  %39 = getelementptr inbounds i8, ptr %33, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %33, i64 32
   %40 = load ptr, ptr %39, align 8
   %.not.i.i35 = icmp eq ptr %40, %36
   br i1 %.not.i.i35, label %_ZN7nanogui6Widget10set_layoutEPNS_6LayoutE.exit39, label %41
@@ -181,23 +181,23 @@ _ZN7nanogui6Widget10set_layoutEPNS_6LayoutE.exit39: ; preds = %38, %43
   br label %_ZNSt8functionIFvvEED2Ev.exit60
 
 55:                                               ; preds = %_ZN7nanogui6Widget10set_layoutEPNS_6LayoutE.exit39
-  %56 = getelementptr inbounds i8, ptr %0, i64 24
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 492
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 492
   %59 = load i32, ptr %58, align 4
   br label %70
 
 60:                                               ; preds = %_ZN7nanogui6Widget10set_layoutEPNS_6LayoutE.exit39
-  %61 = getelementptr inbounds i8, ptr %0, i64 24
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 496
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 496
   %64 = load i32, ptr %63, align 8
   br label %70
 
 65:                                               ; preds = %_ZN7nanogui6Widget10set_layoutEPNS_6LayoutE.exit39
-  %66 = getelementptr inbounds i8, ptr %0, i64 24
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds i8, ptr %67, i64 500
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 500
   %69 = load i32, ptr %68, align 4
   br label %70
 
@@ -293,7 +293,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit45: ; 
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #15
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #15
-  %94 = getelementptr inbounds i8, ptr %71, i64 128
+  %94 = getelementptr inbounds nuw i8, ptr %71, i64 128
   store i32 50, ptr %94, align 8
   %95 = invoke noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #14
           to label %96 unwind label %47
@@ -343,12 +343,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit50: ; 
           to label %106 unwind label %156
 
 106:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit50
-  %107 = getelementptr inbounds i8, ptr %0, i64 224
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 224
   store ptr %95, ptr %107, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #15
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %19) #15
   %108 = load ptr, ptr %107, align 8
-  %109 = getelementptr inbounds i8, ptr %108, i64 56
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 56
   store i32 200, ptr %109, align 4
   %110 = invoke noalias noundef nonnull dereferenceable(144) ptr @_Znwm(i64 noundef 144) #14
           to label %111 unwind label %47
@@ -366,7 +366,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit50: ; 
           to label %115 unwind label %160
 
 115:                                              ; preds = %114
-  %116 = getelementptr inbounds i8, ptr %110, i64 32
+  %116 = getelementptr inbounds nuw i8, ptr %110, i64 32
   %117 = load ptr, ptr %116, align 8
   %.not.i.i51 = icmp eq ptr %117, %113
   br i1 %.not.i.i51, label %_ZN7nanogui6Widget10set_layoutEPNS_6LayoutE.exit55, label %118
@@ -403,20 +403,20 @@ _ZN7nanogui6Widget10set_layoutEPNS_6LayoutE.exit55: ; preds = %115, %120
           to label %126 unwind label %47
 
 126:                                              ; preds = %124
-  %127 = getelementptr inbounds i8, ptr %0, i64 24
+  %127 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %128 = load ptr, ptr %127, align 8
-  %129 = getelementptr inbounds i8, ptr %128, i64 504
+  %129 = getelementptr inbounds nuw i8, ptr %128, i64 504
   %130 = load i32, ptr %129, align 8
   invoke void @_ZN7nanogui6ButtonC1EPNS_6WidgetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull align 8 dereferenceable(312) %125, ptr noundef nonnull %110, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef %130)
           to label %_ZNSt8functionIFvvEEC2ERKS1_.exit.i.i unwind label %162
 
 _ZNSt8functionIFvvEEC2ERKS1_.exit.i.i:            ; preds = %126
   %131 = ptrtoint ptr %0 to i64
-  %132 = getelementptr inbounds i8, ptr %125, i64 224
+  %132 = getelementptr inbounds nuw i8, ptr %125, i64 224
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12)
-  %133 = getelementptr inbounds i8, ptr %12, i64 16
-  %134 = getelementptr inbounds i8, ptr %12, i64 24
-  %135 = getelementptr inbounds i8, ptr %12, i64 8
+  %133 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %134 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  %135 = getelementptr inbounds nuw i8, ptr %12, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %135, i8 0, i64 24, i1 false)
   store i64 %131, ptr %12, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i.i)
@@ -424,11 +424,11 @@ _ZNSt8functionIFvvEEC2ERKS1_.exit.i.i:            ; preds = %126
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %132, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %132, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i.i)
-  %136 = getelementptr inbounds i8, ptr %125, i64 240
+  %136 = getelementptr inbounds nuw i8, ptr %125, i64 240
   %137 = load ptr, ptr %136, align 8
   store ptr %137, ptr %133, align 8
   store ptr @"_ZNSt17_Function_handlerIFvvEZN7nanogui13MessageDialogC1EPNS1_6WidgetENS2_4TypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_SD_SD_bE3$_0E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation", ptr %136, align 8
-  %138 = getelementptr inbounds i8, ptr %125, i64 248
+  %138 = getelementptr inbounds nuw i8, ptr %125, i64 248
   %139 = load ptr, ptr %138, align 8
   store ptr %139, ptr %134, align 8
   store ptr @"_ZNSt17_Function_handlerIFvvEZN7nanogui13MessageDialogC1EPNS1_6WidgetENS2_4TypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_SD_SD_bE3$_0E9_M_invokeERKSt9_Any_data", ptr %138, align 8
@@ -528,20 +528,20 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %.thread, %_ZN7nanog
           to label %165 unwind label %47
 
 165:                                              ; preds = %_ZNSt8functionIFvvEED2Ev.exit
-  %166 = getelementptr inbounds i8, ptr %0, i64 24
+  %166 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %167 = load ptr, ptr %166, align 8
-  %168 = getelementptr inbounds i8, ptr %167, i64 508
+  %168 = getelementptr inbounds nuw i8, ptr %167, i64 508
   %169 = load i32, ptr %168, align 4
   invoke void @_ZN7nanogui6ButtonC1EPNS_6WidgetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull align 8 dereferenceable(312) %164, ptr noundef nonnull %110, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef %169)
           to label %_ZNSt8functionIFvvEEC2ERKS1_.exit.i.i65 unwind label %186
 
 _ZNSt8functionIFvvEEC2ERKS1_.exit.i.i65:          ; preds = %165
   %170 = ptrtoint ptr %0 to i64
-  %171 = getelementptr inbounds i8, ptr %164, i64 224
+  %171 = getelementptr inbounds nuw i8, ptr %164, i64 224
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
-  %172 = getelementptr inbounds i8, ptr %11, i64 16
-  %173 = getelementptr inbounds i8, ptr %11, i64 24
-  %174 = getelementptr inbounds i8, ptr %11, i64 8
+  %172 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %173 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  %174 = getelementptr inbounds nuw i8, ptr %11, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %174, i8 0, i64 24, i1 false)
   store i64 %170, ptr %11, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i.i61)
@@ -549,11 +549,11 @@ _ZNSt8functionIFvvEEC2ERKS1_.exit.i.i65:          ; preds = %165
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %171, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %171, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i.i61, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i.i61)
-  %175 = getelementptr inbounds i8, ptr %164, i64 240
+  %175 = getelementptr inbounds nuw i8, ptr %164, i64 240
   %176 = load ptr, ptr %175, align 8
   store ptr %176, ptr %172, align 8
   store ptr @"_ZNSt17_Function_handlerIFvvEZN7nanogui13MessageDialogC1EPNS1_6WidgetENS2_4TypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_SD_SD_bE3$_1E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation", ptr %175, align 8
-  %177 = getelementptr inbounds i8, ptr %164, i64 248
+  %177 = getelementptr inbounds nuw i8, ptr %164, i64 248
   %178 = load ptr, ptr %177, align 8
   store ptr %178, ptr %173, align 8
   store ptr @"_ZNSt17_Function_handlerIFvvEZN7nanogui13MessageDialogC1EPNS1_6WidgetENS2_4TypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_SD_SD_bE3$_1E9_M_invokeERKSt9_Any_data", ptr %177, align 8
@@ -591,7 +591,7 @@ _ZNSt8functionIFvvEED2Ev.exit71:                  ; preds = %179, %_ZNSt8functio
 
 _ZNSt8functionIFvvEED2Ev.exit60:                  ; preds = %.body48, %153, %186, %162, %160, %158, %53, %51, %49, %47
   %.pn32 = phi { ptr, i32 } [ %48, %47 ], [ %187, %186 ], [ %163, %162 ], [ %161, %160 ], [ %159, %158 ], [ %.pn30, %.body48 ], [ %.pn.pn.pn, %153 ], [ %54, %53 ], [ %52, %51 ], [ %50, %49 ]
-  %188 = getelementptr inbounds i8, ptr %0, i64 208
+  %188 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %189 = load ptr, ptr %188, align 8
   %.not.i.i74 = icmp eq ptr %189, null
   br i1 %.not.i.i74, label %_ZNSt8functionIFviEED2Ev.exit, label %190
@@ -609,7 +609,7 @@ _ZNSt8functionIFvvEED2Ev.exit60:                  ; preds = %.body48, %153, %186
 
 _ZNSt8functionIFviEED2Ev.exit:                    ; preds = %_ZNSt8functionIFvvEED2Ev.exit60, %190
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7nanogui6WindowE, i64 16), ptr %0, align 8
-  %195 = getelementptr inbounds i8, ptr %0, i64 144
+  %195 = getelementptr inbounds nuw i8, ptr %0, i64 144
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %195) #15
   call void @_ZN7nanogui6WidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(186) %0) #15
   resume { ptr, i32 } %.pn32
@@ -654,13 +654,13 @@ declare void @_ZN7nanogui6Widget13request_focusEv(ptr noundef nonnull align 8 de
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7nanogui13MessageDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(232) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7nanogui13MessageDialogE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 208
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i, label %_ZNSt8functionIFviEED2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 192
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %6 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %_ZNSt8functionIFviEED2Ev.exit unwind label %7
 
@@ -673,7 +673,7 @@ define linkonce_odr hidden void @_ZN7nanogui13MessageDialogD2Ev(ptr noundef nonn
 
 _ZNSt8functionIFviEED2Ev.exit:                    ; preds = %1, %4
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7nanogui6WindowE, i64 16), ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 144
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 144
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #15
   tail call void @_ZN7nanogui6WidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(186) %0) #15
   ret void
@@ -682,13 +682,13 @@ _ZNSt8functionIFviEED2Ev.exit:                    ; preds = %1, %4
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7nanogui13MessageDialogD0Ev(ptr noundef nonnull align 8 dereferenceable(232) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7nanogui13MessageDialogE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 208
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i, label %_ZN7nanogui13MessageDialogD2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 192
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %6 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %_ZN7nanogui13MessageDialogD2Ev.exit unwind label %7
 
@@ -701,7 +701,7 @@ define linkonce_odr hidden void @_ZN7nanogui13MessageDialogD0Ev(ptr noundef nonn
 
 _ZN7nanogui13MessageDialogD2Ev.exit:              ; preds = %1, %4
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7nanogui6WindowE, i64 16), ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 144
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 144
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #15
   tail call void @_ZN7nanogui6WidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(232) %0) #15
   tail call void @_ZdlPv(ptr noundef nonnull %0) #17
@@ -866,16 +866,16 @@ declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 define internal void @"_ZNSt17_Function_handlerIFvvEZN7nanogui13MessageDialogC1EPNS1_6WidgetENS2_4TypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_SD_SD_bE3$_0E9_M_invokeERKSt9_Any_data"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) #0 align 2 {
   %2 = alloca i32, align 4
   %.val = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %.val, i64 208
+  %3 = getelementptr inbounds nuw i8, ptr %.val, i64 208
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.not.i.i.i = icmp eq ptr %4, null
   br i1 %.not.i.i.not.i.i.i, label %"_ZSt10__invoke_rIvRZN7nanogui13MessageDialogC1EPNS0_6WidgetENS1_4TypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_SC_SC_bE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.exit", label %_ZNKSt8functionIFviEEclEi.exit.i.i.i
 
 _ZNKSt8functionIFviEEclEi.exit.i.i.i:             ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %.val, i64 192
+  %5 = getelementptr inbounds nuw i8, ptr %.val, i64 192
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
   store i32 1, ptr %2, align 4
-  %6 = getelementptr inbounds i8, ptr %.val, i64 216
+  %6 = getelementptr inbounds nuw i8, ptr %.val, i64 216
   %7 = load ptr, ptr %6, align 8
   call void %7(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 4 dereferenceable(4) %2)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
@@ -917,16 +917,16 @@ declare void @_ZN7nanogui6Window7disposeEv(ptr noundef nonnull align 8 dereferen
 define internal void @"_ZNSt17_Function_handlerIFvvEZN7nanogui13MessageDialogC1EPNS1_6WidgetENS2_4TypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_SD_SD_bE3$_1E9_M_invokeERKSt9_Any_data"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) #0 align 2 {
   %2 = alloca i32, align 4
   %.val = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %.val, i64 208
+  %3 = getelementptr inbounds nuw i8, ptr %.val, i64 208
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.not.i.i.i = icmp eq ptr %4, null
   br i1 %.not.i.i.not.i.i.i, label %"_ZSt10__invoke_rIvRZN7nanogui13MessageDialogC1EPNS0_6WidgetENS1_4TypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_SC_SC_bE3$_1JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.exit", label %_ZNKSt8functionIFviEEclEi.exit.i.i.i
 
 _ZNKSt8functionIFviEEclEi.exit.i.i.i:             ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %.val, i64 192
+  %5 = getelementptr inbounds nuw i8, ptr %.val, i64 192
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
   store i32 0, ptr %2, align 4
-  %6 = getelementptr inbounds i8, ptr %.val, i64 216
+  %6 = getelementptr inbounds nuw i8, ptr %.val, i64 216
   %7 = load ptr, ptr %6, align 8
   call void %7(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 4 dereferenceable(4) %2)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)

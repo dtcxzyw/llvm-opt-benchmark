@@ -83,13 +83,13 @@ sub_0:                                            ; preds = %1
   br i1 %.not, label %sub_1, label %.tail.thread
 
 sub_1:                                            ; preds = %sub_0
-  %4 = getelementptr inbounds i8, ptr %0, i64 1
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %5 = load i8, ptr %4, align 1
   %.not1 = icmp eq i8 %5, 102
   br i1 %.not1, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_1
-  %6 = getelementptr inbounds i8, ptr %0, i64 2
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %7 = load i8, ptr %6, align 1
   %8 = icmp eq i8 %7, 102
   br i1 %8, label %9, label %.tail.thread
@@ -237,7 +237,7 @@ define dso_local void @numa_remove_memblk_from(i32 noundef %0, ptr nocapture nou
   %3 = load i32, ptr %1, align 8
   %4 = add i32 %3, -1
   store i32 %4, ptr %1, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = sext i32 %0 to i64
   %7 = getelementptr [128 x %struct.numa_memblk], ptr %5, i64 0, i64 %6
   %8 = add i32 %0, 1
@@ -285,7 +285,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @numa_add_memblk_to(i32 nou
   br label %29
 
 18:                                               ; preds = %13
-  %19 = getelementptr inbounds i8, ptr %3, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %20 = sext i32 %14 to i64
   %21 = getelementptr [128 x %struct.numa_memblk], ptr %19, i64 0, i64 %20
   store i64 %1, ptr %21, align 8
@@ -313,11 +313,11 @@ define dso_local noundef range(i32 -22, 1) i32 @numa_cleanup_meminfo(ptr nocaptu
   %3 = shl i64 %2, 12
   %4 = load i32, ptr %0, align 8
   %5 = icmp sgt i32 %4, 0
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br i1 %5, label %.preheader, label %._crit_edge
 
 .loopexit21:                                      ; preds = %44
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = icmp sgt i32 %47, 0
   br i1 %8, label %.lr.ph.preheader, label %._crit_edge
 
@@ -330,7 +330,7 @@ define dso_local noundef range(i32 -22, 1) i32 @numa_cleanup_meminfo(ptr nocaptu
   %11 = sext i32 %10 to i64
   %12 = getelementptr [128 x %struct.numa_memblk], ptr %6, i64 0, i64 %11
   %13 = load i64, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %12, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %15 = load i64, ptr %14, align 8
   %16 = sub i64 %15, %13
   %17 = tail call zeroext i1 @memblock_overlaps_region(ptr noundef nonnull getelementptr inbounds (i8, ptr @memblock, i64 16), i64 noundef %13, i64 noundef %16) #15
@@ -351,7 +351,7 @@ define dso_local noundef range(i32 -22, 1) i32 @numa_cleanup_meminfo(ptr nocaptu
   br i1 %25, label %26, label %30
 
 26:                                               ; preds = %23
-  %27 = getelementptr inbounds i8, ptr %12, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %28 = load i32, ptr %27, align 8
   %29 = tail call fastcc i32 @numa_add_memblk_to(i32 noundef %28, i64 noundef %3, i64 noundef %24, ptr noundef nonnull @numa_reserved_meminfo) #17, !range !5
   store i64 %3, ptr %14, align 8
@@ -391,7 +391,7 @@ define dso_local noundef range(i32 -22, 1) i32 @numa_cleanup_meminfo(ptr nocaptu
 
 50:                                               ; preds = %._crit_edge
   %51 = zext nneg i32 %.lcssa30 to i64
-  %52 = getelementptr inbounds i8, ptr %0, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %139
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.loopexit20
@@ -405,8 +405,8 @@ define dso_local noundef range(i32 -22, 1) i32 @numa_cleanup_meminfo(ptr nocaptu
   br i1 %58, label %59, label %.loopexit20
 
 59:                                               ; preds = %.lr.ph
-  %60 = getelementptr inbounds i8, ptr %56, i64 8
-  %61 = getelementptr inbounds i8, ptr %56, i64 16
+  %60 = getelementptr inbounds nuw i8, ptr %56, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %56, i64 16
   %62 = trunc i64 %57 to i32
   br label %63
 
@@ -422,14 +422,14 @@ define dso_local noundef range(i32 -22, 1) i32 @numa_cleanup_meminfo(ptr nocaptu
 
 70:                                               ; preds = %63
   %71 = load i64, ptr %56, align 8
-  %72 = getelementptr inbounds i8, ptr %66, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %73 = load i64, ptr %72, align 8
   %74 = icmp ult i64 %71, %73
   br i1 %74, label %75, label %84
 
 75:                                               ; preds = %70
   %76 = load i32, ptr %61, align 8
-  %77 = getelementptr inbounds i8, ptr %66, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %66, i64 16
   %78 = load i32, ptr %77, align 8
   %79 = icmp eq i32 %76, %78
   %80 = add i64 %67, -1
@@ -444,7 +444,7 @@ define dso_local noundef range(i32 -22, 1) i32 @numa_cleanup_meminfo(ptr nocaptu
 84:                                               ; preds = %82, %70, %63
   %.pre41 = phi i32 [ %.pre41.pre, %82 ], [ %.pre4144, %70 ], [ %.pre4144, %63 ]
   %85 = load i32, ptr %61, align 8
-  %86 = getelementptr inbounds i8, ptr %66, i64 16
+  %86 = getelementptr inbounds nuw i8, ptr %66, i64 16
   %87 = load i32, ptr %86, align 8
   %88 = icmp eq i32 %85, %87
   br i1 %88, label %89, label %133
@@ -454,7 +454,7 @@ define dso_local noundef range(i32 -22, 1) i32 @numa_cleanup_meminfo(ptr nocaptu
   %91 = load i64, ptr %66, align 8
   %92 = tail call i64 @llvm.umin.i64(i64 %90, i64 %91)
   %93 = load i64, ptr %60, align 8
-  %94 = getelementptr inbounds i8, ptr %66, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %95 = load i64, ptr %94, align 8
   %96 = tail call i64 @llvm.umax.i64(i64 %93, i64 %95)
   %97 = icmp sgt i32 %.pre41, 0
@@ -468,13 +468,13 @@ define dso_local noundef range(i32 -22, 1) i32 @numa_cleanup_meminfo(ptr nocaptu
   %101 = phi i64 [ 0, %98 ], [ %115, %114 ]
   %102 = phi i1 [ true, %98 ], [ %116, %114 ]
   %103 = getelementptr [128 x %struct.numa_memblk], ptr %7, i64 0, i64 %101
-  %104 = getelementptr inbounds i8, ptr %103, i64 16
+  %104 = getelementptr inbounds nuw i8, ptr %103, i64 16
   %105 = load i32, ptr %104, align 8
   %106 = icmp eq i32 %85, %105
   br i1 %106, label %114, label %107
 
 107:                                              ; preds = %100
-  %108 = getelementptr inbounds i8, ptr %103, i64 8
+  %108 = getelementptr inbounds nuw i8, ptr %103, i64 8
   %109 = load i64, ptr %108, align 8
   %110 = icmp ult i64 %92, %109
   br i1 %110, label %111, label %114
@@ -535,7 +535,7 @@ define dso_local noundef range(i32 -22, 1) i32 @numa_cleanup_meminfo(ptr nocaptu
 139:                                              ; preds = %139, %50
   %140 = phi i64 [ %51, %50 ], [ %143, %139 ]
   %141 = getelementptr [128 x %struct.numa_memblk], ptr %52, i64 0, i64 %140
-  %142 = getelementptr inbounds i8, ptr %141, i64 16
+  %142 = getelementptr inbounds nuw i8, ptr %141, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %141, i8 0, i64 16, i1 false)
   store i32 -1, ptr %142, align 8
   %143 = add nuw nsw i64 %140, 1
@@ -653,13 +653,13 @@ define internal fastcc noundef range(i32 -12, 1) i32 @numa_alloc_distance() unna
   %4 = phi i64 [ 0, %0 ], [ %17, %16 ]
   %5 = getelementptr %struct.numa_meminfo, ptr @numa_meminfo, i64 0, i32 1, i64 %4
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %8 = load i64, ptr %7, align 8
   %9 = icmp eq i64 %6, %8
   br i1 %9, label %16, label %10
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %5, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %12 = load i32, ptr %11, align 8
   %13 = icmp eq i32 %12, -1
   br i1 %13, label %16, label %14
@@ -1237,13 +1237,13 @@ define internal fastcc noundef range(i32 -22, 1) i32 @numa_register_memblks() un
   %3 = phi i64 [ 0, %0 ], [ %16, %15 ]
   %4 = getelementptr %struct.numa_meminfo, ptr @numa_meminfo, i64 0, i32 1, i64 %3
   %5 = load i64, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %7 = load i64, ptr %6, align 8
   %8 = icmp eq i64 %5, %7
   br i1 %8, label %15, label %9
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %4, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %11 = load i32, ptr %10, align 8
   %12 = icmp eq i32 %11, -1
   br i1 %12, label %15, label %13
@@ -1278,10 +1278,10 @@ define internal fastcc noundef range(i32 -22, 1) i32 @numa_register_memblks() un
   %25 = phi i64 [ %34, %.preheader10 ], [ 0, %21 ]
   %26 = getelementptr %struct.numa_meminfo, ptr @numa_meminfo, i64 0, i32 1, i64 %25
   %27 = load i64, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %26, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %29 = load i64, ptr %28, align 8
   %30 = sub i64 %29, %27
-  %31 = getelementptr inbounds i8, ptr %26, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %32 = load i32, ptr %31, align 8
   %33 = tail call i32 @memblock_set_node(i64 noundef %27, i64 noundef %30, ptr noundef nonnull getelementptr inbounds (i8, ptr @memblock, i64 16), i32 noundef %32) #15
   %34 = add nuw nsw i64 %25, 1
@@ -1327,7 +1327,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @numa_register_memblks() un
   %55 = phi i64 [ %51, %49 ], [ %69, %67 ]
   %56 = phi i64 [ 0, %49 ], [ %68, %67 ]
   %57 = getelementptr %struct.numa_meminfo, ptr @numa_meminfo, i64 0, i32 1, i64 %54
-  %58 = getelementptr inbounds i8, ptr %57, i64 16
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 16
   %59 = load i32, ptr %58, align 8
   %60 = icmp eq i32 %47, %59
   br i1 %60, label %61, label %67
@@ -1335,7 +1335,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @numa_register_memblks() un
 61:                                               ; preds = %53
   %62 = load i64, ptr %57, align 8
   %63 = tail call i64 @llvm.umin.i64(i64 %62, i64 %55)
-  %64 = getelementptr inbounds i8, ptr %57, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %65 = load i64, ptr %64, align 8
   %66 = tail call i64 @llvm.umax.i64(i64 %65, i64 %56)
   br label %67
@@ -1498,10 +1498,10 @@ define internal fastcc void @numa_clear_kernel_node_hotplug() unnamed_addr #0 se
   %4 = phi i64 [ %16, %15 ], [ 0, %0 ]
   %5 = getelementptr %struct.numa_memblk, ptr getelementptr inbounds (i8, ptr @numa_meminfo, i64 8), i64 %4
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %8 = load i64, ptr %7, align 8
   %9 = sub i64 %8, %6
-  %10 = getelementptr inbounds i8, ptr %5, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %11 = load i32, ptr %10, align 8
   %12 = tail call i32 @memblock_set_node(i64 noundef %6, i64 noundef %9, ptr noundef nonnull getelementptr inbounds (i8, ptr @memblock, i64 56), i32 noundef %11) #15
   %13 = icmp eq i32 %12, 0
@@ -1541,7 +1541,7 @@ define internal fastcc void @numa_clear_kernel_node_hotplug() unnamed_addr #0 se
   %27 = phi i64 [ %36, %35 ], [ %22, %.loopexit8 ]
   %28 = phi ptr [ %37, %35 ], [ %21, %.loopexit8 ]
   %29 = phi ptr [ %38, %35 ], [ %21, %.loopexit8 ]
-  %30 = getelementptr inbounds i8, ptr %29, i64 20
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 20
   %31 = load i32, ptr %30, align 4
   %32 = icmp eq i32 %31, 64
   br i1 %32, label %35, label %33
@@ -1564,7 +1564,7 @@ define internal fastcc void @numa_clear_kernel_node_hotplug() unnamed_addr #0 se
 .preheader:                                       ; preds = %.loopexit6, %55
   %41 = phi i64 [ %56, %55 ], [ 0, %.loopexit6 ]
   %42 = getelementptr %struct.numa_memblk, ptr getelementptr inbounds (i8, ptr @numa_meminfo, i64 8), i64 %41
-  %43 = getelementptr inbounds i8, ptr %42, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %44 = load i32, ptr %43, align 8
   %45 = sext i32 %44 to i64
   %46 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1, i64 %45) #15, !srcloc !33
@@ -1575,7 +1575,7 @@ define internal fastcc void @numa_clear_kernel_node_hotplug() unnamed_addr #0 se
 
 49:                                               ; preds = %.preheader
   %50 = load i64, ptr %42, align 8
-  %51 = getelementptr inbounds i8, ptr %42, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %52 = load i64, ptr %51, align 8
   %53 = sub i64 %52, %50
   %54 = call i32 @memblock_clear_hotplug(i64 noundef %50, i64 noundef %53) #15

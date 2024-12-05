@@ -57,9 +57,9 @@ define void @ecpg_raise(i32 noundef %0, i32 noundef %1, ptr nocapture noundef re
 
 8:                                                ; preds = %4
   %9 = sext i32 %1 to i64
-  %10 = getelementptr inbounds i8, ptr %5, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 %9, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 248
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 248
   %12 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(1) %2, i64 noundef 5) #5
   switch i32 %1, label %88 [
     i32 100, label %13
@@ -89,48 +89,48 @@ define void @ecpg_raise(i32 noundef %0, i32 noundef %1, ptr nocapture noundef re
   ]
 
 13:                                               ; preds = %8
-  %14 = getelementptr inbounds i8, ptr %5, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 28
   %15 = tail call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %14, i64 noundef 150, ptr noundef nonnull @.str.1, i32 noundef %0) #5
   br label %91
 
 16:                                               ; preds = %8
-  %17 = getelementptr inbounds i8, ptr %5, i64 28
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 28
   %18 = tail call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %17, i64 noundef 150, ptr noundef nonnull @.str.2, i32 noundef %0) #5
   br label %91
 
 19:                                               ; preds = %8
-  %20 = getelementptr inbounds i8, ptr %5, i64 28
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 28
   %21 = tail call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %20, i64 noundef 150, ptr noundef nonnull @.str.3, ptr noundef %3, i32 noundef %0) #5
   br label %91
 
 22:                                               ; preds = %8
-  %23 = getelementptr inbounds i8, ptr %5, i64 28
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 28
   %24 = tail call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %23, i64 noundef 150, ptr noundef nonnull @.str.4, i32 noundef %0) #5
   br label %91
 
 25:                                               ; preds = %8
-  %26 = getelementptr inbounds i8, ptr %5, i64 28
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 28
   %27 = tail call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %26, i64 noundef 150, ptr noundef nonnull @.str.5, i32 noundef %0) #5
   br label %91
 
 28:                                               ; preds = %8
-  %29 = getelementptr inbounds i8, ptr %5, i64 28
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 28
   %30 = tail call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %29, i64 noundef 150, ptr noundef nonnull @.str.6, ptr noundef %3, i32 noundef %0) #5
   br label %91
 
 31:                                               ; preds = %8
-  %32 = getelementptr inbounds i8, ptr %5, i64 28
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 28
   %33 = tail call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %32, i64 noundef 150, ptr noundef nonnull @.str.7, ptr noundef %3, i32 noundef %0) #5
   br label %91
 
 34:                                               ; preds = %8
-  %35 = getelementptr inbounds i8, ptr %5, i64 28
+  %35 = getelementptr inbounds nuw i8, ptr %5, i64 28
   %36 = tail call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %35, i64 noundef 150, ptr noundef nonnull @.str.8, ptr noundef %3, i32 noundef %0) #5
   br label %91
 
 37:                                               ; preds = %8
   %.not = icmp eq ptr %3, null
-  %38 = getelementptr inbounds i8, ptr %5, i64 28
+  %38 = getelementptr inbounds nuw i8, ptr %5, i64 28
   br i1 %.not, label %41, label %39
 
 39:                                               ; preds = %37
@@ -142,88 +142,88 @@ define void @ecpg_raise(i32 noundef %0, i32 noundef %1, ptr nocapture noundef re
   br label %91
 
 43:                                               ; preds = %8
-  %44 = getelementptr inbounds i8, ptr %5, i64 28
+  %44 = getelementptr inbounds nuw i8, ptr %5, i64 28
   %45 = tail call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %44, i64 noundef 150, ptr noundef nonnull @.str.11, i32 noundef %0) #5
   br label %91
 
 46:                                               ; preds = %8
-  %47 = getelementptr inbounds i8, ptr %5, i64 28
+  %47 = getelementptr inbounds nuw i8, ptr %5, i64 28
   %48 = tail call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %47, i64 noundef 150, ptr noundef nonnull @.str.12, i32 noundef %0) #5
   br label %91
 
 49:                                               ; preds = %8
-  %50 = getelementptr inbounds i8, ptr %5, i64 28
+  %50 = getelementptr inbounds nuw i8, ptr %5, i64 28
   %51 = tail call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %50, i64 noundef 150, ptr noundef nonnull @.str.13, i32 noundef %0) #5
   br label %91
 
 52:                                               ; preds = %8
-  %53 = getelementptr inbounds i8, ptr %5, i64 28
+  %53 = getelementptr inbounds nuw i8, ptr %5, i64 28
   %54 = tail call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %53, i64 noundef 150, ptr noundef nonnull @.str.14, i32 noundef %0) #5
   br label %91
 
 55:                                               ; preds = %8
-  %56 = getelementptr inbounds i8, ptr %5, i64 28
+  %56 = getelementptr inbounds nuw i8, ptr %5, i64 28
   %57 = tail call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %56, i64 noundef 150, ptr noundef nonnull @.str.15, i32 noundef %0) #5
   br label %91
 
 58:                                               ; preds = %8
-  %59 = getelementptr inbounds i8, ptr %5, i64 28
+  %59 = getelementptr inbounds nuw i8, ptr %5, i64 28
   %60 = tail call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %59, i64 noundef 150, ptr noundef nonnull @.str.16, ptr noundef %3, i32 noundef %0) #5
   br label %91
 
 61:                                               ; preds = %8
-  %62 = getelementptr inbounds i8, ptr %5, i64 28
+  %62 = getelementptr inbounds nuw i8, ptr %5, i64 28
   %63 = tail call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %62, i64 noundef 150, ptr noundef nonnull @.str.17, ptr noundef %3, i32 noundef %0) #5
   br label %91
 
 64:                                               ; preds = %8
-  %65 = getelementptr inbounds i8, ptr %5, i64 28
+  %65 = getelementptr inbounds nuw i8, ptr %5, i64 28
   %66 = tail call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %65, i64 noundef 150, ptr noundef nonnull @.str.18, ptr noundef %3, i32 noundef %0) #5
   br label %91
 
 67:                                               ; preds = %8
-  %68 = getelementptr inbounds i8, ptr %5, i64 28
+  %68 = getelementptr inbounds nuw i8, ptr %5, i64 28
   %69 = tail call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %68, i64 noundef 150, ptr noundef nonnull @.str.19, ptr noundef %3, i32 noundef %0) #5
   br label %91
 
 70:                                               ; preds = %8
-  %71 = getelementptr inbounds i8, ptr %5, i64 28
+  %71 = getelementptr inbounds nuw i8, ptr %5, i64 28
   %72 = tail call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %71, i64 noundef 150, ptr noundef nonnull @.str.20, i32 noundef %0) #5
   br label %91
 
 73:                                               ; preds = %8
-  %74 = getelementptr inbounds i8, ptr %5, i64 28
+  %74 = getelementptr inbounds nuw i8, ptr %5, i64 28
   %75 = tail call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %74, i64 noundef 150, ptr noundef nonnull @.str.21, ptr noundef %3, i32 noundef %0) #5
   br label %91
 
 76:                                               ; preds = %8
-  %77 = getelementptr inbounds i8, ptr %5, i64 28
+  %77 = getelementptr inbounds nuw i8, ptr %5, i64 28
   %78 = tail call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %77, i64 noundef 150, ptr noundef nonnull @.str.22, i32 noundef %0) #5
   br label %91
 
 79:                                               ; preds = %8
-  %80 = getelementptr inbounds i8, ptr %5, i64 28
+  %80 = getelementptr inbounds nuw i8, ptr %5, i64 28
   %81 = tail call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %80, i64 noundef 150, ptr noundef nonnull @.str.23, i32 noundef %0) #5
   br label %91
 
 82:                                               ; preds = %8
-  %83 = getelementptr inbounds i8, ptr %5, i64 28
+  %83 = getelementptr inbounds nuw i8, ptr %5, i64 28
   %84 = tail call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %83, i64 noundef 150, ptr noundef nonnull @.str.24, i32 noundef %0) #5
   br label %91
 
 85:                                               ; preds = %8
-  %86 = getelementptr inbounds i8, ptr %5, i64 28
+  %86 = getelementptr inbounds nuw i8, ptr %5, i64 28
   %87 = tail call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %86, i64 noundef 150, ptr noundef nonnull @.str.25, ptr noundef %3, i32 noundef %0) #5
   br label %91
 
 88:                                               ; preds = %8
-  %89 = getelementptr inbounds i8, ptr %5, i64 28
+  %89 = getelementptr inbounds nuw i8, ptr %5, i64 28
   %90 = tail call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %89, i64 noundef 150, ptr noundef nonnull @.str.26, i32 noundef %1, i32 noundef %0) #5
   br label %91
 
 91:                                               ; preds = %39, %41, %88, %85, %82, %79, %76, %73, %70, %67, %64, %61, %58, %55, %52, %49, %46, %43, %34, %31, %28, %25, %22, %19, %16, %13
-  %92 = getelementptr inbounds i8, ptr %5, i64 24
-  %93 = getelementptr inbounds i8, ptr %5, i64 28
+  %92 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %93 = getelementptr inbounds nuw i8, ptr %5, i64 28
   %94 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %93) #6
   %95 = trunc i64 %94 to i32
   store i32 %95, ptr %92, align 8
@@ -287,13 +287,13 @@ define void @ecpg_raise_backend(i32 noundef %0, ptr noundef %1, ptr noundef %2, 
 21:                                               ; preds = %18, %15
   %.026 = phi ptr [ %spec.store.select, %15 ], [ %spec.select, %18 ]
   %.1 = phi ptr [ %.0, %15 ], [ %spec.select29, %18 ]
-  %22 = getelementptr inbounds i8, ptr %5, i64 24
-  %23 = getelementptr inbounds i8, ptr %5, i64 28
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 28
   %24 = tail call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %23, i64 noundef 150, ptr noundef nonnull @.str.31, ptr noundef %.1, i32 noundef %0) #5
   %25 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %23) #6
   %26 = trunc i64 %25 to i32
   store i32 %26, ptr %22, align 8
-  %27 = getelementptr inbounds i8, ptr %5, i64 248
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 248
   %28 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %27, ptr noundef nonnull dereferenceable(1) %.026, i64 noundef 5) #5
   %29 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %27, ptr noundef nonnull dereferenceable(6) @.str.32, i64 noundef 5) #6
   %30 = icmp eq i32 %29, 0
@@ -318,7 +318,7 @@ define void @ecpg_raise_backend(i32 noundef %0, ptr noundef %1, ptr noundef %2, 
 
 42:                                               ; preds = %35, %38, %31
   %.sink = phi i64 [ %41, %38 ], [ %34, %31 ], [ -400, %35 ]
-  %43 = getelementptr inbounds i8, ptr %5, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 %.sink, ptr %43, align 8
   tail call void (ptr, ...) @ecpg_log(ptr noundef nonnull @.str.34, i32 noundef 5, ptr noundef nonnull %27, i64 noundef %.sink, ptr noundef nonnull %23) #5
   br label %44
@@ -374,13 +374,13 @@ define noundef zeroext i1 @ecpg_check_PQresult(ptr noundef %0, i32 noundef %1, p
   br label %ecpg_raise.exit
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %11, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i64 -212, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %11, i64 248
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 248
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %16, ptr noundef nonnull align 1 dereferenceable(6) @.str.28, i64 noundef 5, i1 false) #5
-  %17 = getelementptr inbounds i8, ptr %11, i64 28
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 28
   %18 = tail call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %17, i64 noundef 150, ptr noundef nonnull @.str.11, i32 noundef %1) #5
-  %19 = getelementptr inbounds i8, ptr %11, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %20 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %17) #6
   %21 = trunc i64 %20 to i32
   store i32 %21, ptr %19, align 8
@@ -435,8 +435,8 @@ define void @sqlprint() local_unnamed_addr #0 {
   br label %12
 
 4:                                                ; preds = %0
-  %5 = getelementptr inbounds i8, ptr %1, i64 24
-  %6 = getelementptr inbounds i8, ptr %1, i64 28
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %7 = load i32, ptr %5, align 8
   %8 = sext i32 %7 to i64
   %9 = getelementptr [150 x i8], ptr %6, i64 0, i64 %8

@@ -80,7 +80,7 @@ declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) l
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @pg_lsn_in(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call i64 @strspn(ptr noundef readonly %4, ptr noundef nonnull @.str) #11
@@ -114,7 +114,7 @@ define dso_local i64 @pg_lsn_in(ptr nocapture noundef readonly %0) local_unnamed
   br i1 %.not26.i, label %30, label %23
 
 23:                                               ; preds = %8, %1, %17, %12
-  %24 = getelementptr inbounds i8, ptr %0, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %25 = load ptr, ptr %24, align 8
   %26 = tail call zeroext i1 @errsave_start(ptr noundef %25, ptr noundef null) #12
   br i1 %26, label %27, label %36
@@ -149,7 +149,7 @@ declare void @errsave_finish(ptr noundef, ptr noundef, i32 noundef, ptr noundef)
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @pg_lsn_out(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
   %2 = alloca [18 x i8], align 16
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
   %5 = lshr i64 %4, 32
   %6 = trunc nuw i64 %5 to i32
@@ -166,7 +166,7 @@ declare ptr @pstrdup(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @pg_lsn_recv(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call i64 @pq_getmsgint64(ptr noundef %4) #12
@@ -178,14 +178,14 @@ declare i64 @pq_getmsgint64(ptr noundef) local_unnamed_addr #4
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @pg_lsn_send(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
   %2 = alloca %struct.StringInfoData, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
   call void @pq_begintypsend(ptr noundef nonnull %2) #12
   call void @enlargeStringInfo(ptr noundef nonnull %2, i32 noundef 8) #12
   call void @llvm.experimental.noalias.scope.decl(metadata !5)
   %5 = call i64 @llvm.bswap.i64(i64 %4)
   %6 = load ptr, ptr %2, align 8, !alias.scope !5
-  %7 = getelementptr inbounds i8, ptr %2, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %8 = load i32, ptr %7, align 8, !alias.scope !5
   %9 = sext i32 %8 to i64
   %10 = getelementptr i8, ptr %6, i64 %9
@@ -203,7 +203,7 @@ declare ptr @pq_endtypsend(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local range(i64 0, 2) i64 @pg_lsn_eq(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr i8, ptr %0, i64 48
   %5 = load i64, ptr %4, align 8
@@ -214,7 +214,7 @@ define dso_local range(i64 0, 2) i64 @pg_lsn_eq(ptr nocapture noundef readonly %
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local range(i64 0, 2) i64 @pg_lsn_ne(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr i8, ptr %0, i64 48
   %5 = load i64, ptr %4, align 8
@@ -225,7 +225,7 @@ define dso_local range(i64 0, 2) i64 @pg_lsn_ne(ptr nocapture noundef readonly %
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local range(i64 0, 2) i64 @pg_lsn_lt(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr i8, ptr %0, i64 48
   %5 = load i64, ptr %4, align 8
@@ -236,7 +236,7 @@ define dso_local range(i64 0, 2) i64 @pg_lsn_lt(ptr nocapture noundef readonly %
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local range(i64 0, 2) i64 @pg_lsn_gt(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr i8, ptr %0, i64 48
   %5 = load i64, ptr %4, align 8
@@ -247,7 +247,7 @@ define dso_local range(i64 0, 2) i64 @pg_lsn_gt(ptr nocapture noundef readonly %
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local range(i64 0, 2) i64 @pg_lsn_le(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr i8, ptr %0, i64 48
   %5 = load i64, ptr %4, align 8
@@ -258,7 +258,7 @@ define dso_local range(i64 0, 2) i64 @pg_lsn_le(ptr nocapture noundef readonly %
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local range(i64 0, 2) i64 @pg_lsn_ge(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr i8, ptr %0, i64 48
   %5 = load i64, ptr %4, align 8
@@ -269,7 +269,7 @@ define dso_local range(i64 0, 2) i64 @pg_lsn_ge(ptr nocapture noundef readonly %
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local i64 @pg_lsn_larger(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr i8, ptr %0, i64 48
   %5 = load i64, ptr %4, align 8
@@ -279,7 +279,7 @@ define dso_local i64 @pg_lsn_larger(ptr nocapture noundef readonly %0) local_unn
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local i64 @pg_lsn_smaller(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr i8, ptr %0, i64 48
   %5 = load i64, ptr %4, align 8
@@ -289,7 +289,7 @@ define dso_local i64 @pg_lsn_smaller(ptr nocapture noundef readonly %0) local_un
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local range(i64 -1, 2) i64 @pg_lsn_cmp(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr i8, ptr %0, i64 48
   %5 = load i64, ptr %4, align 8
@@ -316,7 +316,7 @@ declare i64 @hashint8extended(ptr noundef) local_unnamed_addr #4
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @pg_lsn_mi(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
   %2 = alloca [256 x i8], align 16
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr i8, ptr %0, i64 48
   %6 = load i64, ptr %5, align 8
@@ -346,7 +346,7 @@ declare i64 @numeric_in(ptr noundef) #4
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @pg_lsn_pli(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
   %2 = alloca [32 x i8], align 16
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr i8, ptr %0, i64 48
   %6 = load i64, ptr %5, align 8
@@ -391,7 +391,7 @@ declare i64 @numeric_pg_lsn(ptr noundef) #4
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @pg_lsn_mii(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
   %2 = alloca [32 x i8], align 16
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr i8, ptr %0, i64 48
   %6 = load i64, ptr %5, align 8

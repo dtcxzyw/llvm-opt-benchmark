@@ -54,24 +54,24 @@ opal_thread_add_fetch_32.exit.i.us:               ; preds = %8, %5
   br i1 %12, label %13, label %wait_sync_update.exit.us
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %.05.us, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %.05.us, i64 56
   %15 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %14) #3
-  %16 = getelementptr inbounds i8, ptr %.05.us, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %.05.us, i64 8
   %17 = tail call i32 @pthread_cond_signal(ptr noundef nonnull %16) #3
   %18 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %14) #3
-  %19 = getelementptr inbounds i8, ptr %.05.us, i64 112
+  %19 = getelementptr inbounds nuw i8, ptr %.05.us, i64 112
   store volatile i8 0, ptr %19, align 8
   br label %wait_sync_update.exit.us
 
 wait_sync_update.exit.us:                         ; preds = %13, %10, %opal_thread_add_fetch_32.exit.i.us
-  %20 = getelementptr inbounds i8, ptr %.05.us, i64 96
+  %20 = getelementptr inbounds nuw i8, ptr %.05.us, i64 96
   %.0.us = load ptr, ptr %20, align 8
   %.not.us = icmp eq ptr %.0.us, null
   br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !4
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %wait_sync_update.exit
   %.05 = phi ptr [ %.0, %wait_sync_update.exit ], [ %.03, %.lr.ph ]
-  %21 = getelementptr inbounds i8, ptr %.05, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %.05, i64 4
   store i32 %0, ptr %21, align 4
   fence release
   %22 = atomicrmw volatile xchg ptr %.05, i32 0 monotonic, align 4
@@ -80,17 +80,17 @@ wait_sync_update.exit.us:                         ; preds = %13, %10, %opal_thre
   br i1 %24, label %25, label %wait_sync_update.exit
 
 25:                                               ; preds = %.lr.ph.split
-  %26 = getelementptr inbounds i8, ptr %.05, i64 56
+  %26 = getelementptr inbounds nuw i8, ptr %.05, i64 56
   %27 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %26) #3
-  %28 = getelementptr inbounds i8, ptr %.05, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %.05, i64 8
   %29 = tail call i32 @pthread_cond_signal(ptr noundef nonnull %28) #3
   %30 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %26) #3
-  %31 = getelementptr inbounds i8, ptr %.05, i64 112
+  %31 = getelementptr inbounds nuw i8, ptr %.05, i64 112
   store volatile i8 0, ptr %31, align 8
   br label %wait_sync_update.exit
 
 wait_sync_update.exit:                            ; preds = %.lr.ph.split, %25
-  %32 = getelementptr inbounds i8, ptr %.05, i64 96
+  %32 = getelementptr inbounds nuw i8, ptr %.05, i64 96
   %.0 = load ptr, ptr %32, align 8
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !4
@@ -137,17 +137,17 @@ opal_thread_add_fetch_32.exit.i.us:               ; preds = %11, %8
   br i1 %15, label %16, label %wait_sync_update.exit.us
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %.0.us, i64 56
+  %17 = getelementptr inbounds nuw i8, ptr %.0.us, i64 56
   %18 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %17) #3
-  %19 = getelementptr inbounds i8, ptr %.0.us, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %.0.us, i64 8
   %20 = tail call i32 @pthread_cond_signal(ptr noundef nonnull %19) #3
   %21 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %17) #3
-  %22 = getelementptr inbounds i8, ptr %.0.us, i64 112
+  %22 = getelementptr inbounds nuw i8, ptr %.0.us, i64 112
   store volatile i8 0, ptr %22, align 8
   br label %wait_sync_update.exit.us
 
 wait_sync_update.exit.us:                         ; preds = %16, %13, %opal_thread_add_fetch_32.exit.i.us
-  %23 = getelementptr inbounds i8, ptr %.0.us, i64 96
+  %23 = getelementptr inbounds nuw i8, ptr %.0.us, i64 96
   %24 = load ptr, ptr %23, align 8
   %25 = load ptr, ptr @opal_threads_base_wait_sync_list, align 8
   %26 = icmp eq ptr %24, %25
@@ -159,7 +159,7 @@ wait_sync_update.exit.us:                         ; preds = %16, %13, %opal_thre
   br i1 %.not, label %.split6.us, label %27
 
 27:                                               ; preds = %.split
-  %28 = getelementptr inbounds i8, ptr %.0, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %.0, i64 4
   store i32 %0, ptr %28, align 4
   fence release
   %29 = atomicrmw volatile xchg ptr %.0, i32 0 monotonic, align 4
@@ -168,17 +168,17 @@ wait_sync_update.exit.us:                         ; preds = %16, %13, %opal_thre
   br i1 %31, label %32, label %wait_sync_update.exit
 
 32:                                               ; preds = %27
-  %33 = getelementptr inbounds i8, ptr %.0, i64 56
+  %33 = getelementptr inbounds nuw i8, ptr %.0, i64 56
   %34 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %33) #3
-  %35 = getelementptr inbounds i8, ptr %.0, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %36 = tail call i32 @pthread_cond_signal(ptr noundef nonnull %35) #3
   %37 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %33) #3
-  %38 = getelementptr inbounds i8, ptr %.0, i64 112
+  %38 = getelementptr inbounds nuw i8, ptr %.0, i64 112
   store volatile i8 0, ptr %38, align 8
   br label %wait_sync_update.exit
 
 wait_sync_update.exit:                            ; preds = %27, %32
-  %39 = getelementptr inbounds i8, ptr %.0, i64 96
+  %39 = getelementptr inbounds nuw i8, ptr %.0, i64 96
   %40 = load ptr, ptr %39, align 8
   %41 = load ptr, ptr @opal_threads_base_wait_sync_list, align 8
   %42 = icmp eq ptr %40, %41
@@ -196,7 +196,7 @@ define range(i32 -1, 1) i32 @ompi_sync_wait_mt(ptr noundef %0) local_unnamed_add
   br i1 %3, label %97, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 56
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %5) #3
   %7 = load volatile i32, ptr %0, align 8
   %8 = icmp slt i32 %7, 1
@@ -217,21 +217,21 @@ define range(i32 -1, 1) i32 @ompi_sync_wait_mt(ptr noundef %0) local_unnamed_add
   br i1 %16, label %17, label %20
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %0, i64 104
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr %0, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 96
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %0, ptr %19, align 8
   store ptr %0, ptr @opal_threads_base_wait_sync_list, align 8
   br label %26
 
 20:                                               ; preds = %14
-  %21 = getelementptr inbounds i8, ptr %15, i64 104
+  %21 = getelementptr inbounds nuw i8, ptr %15, i64 104
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 104
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr %22, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %22, i64 96
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 96
   store ptr %0, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 96
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %15, ptr %25, align 8
   store ptr %0, ptr %21, align 8
   br label %26
@@ -246,7 +246,7 @@ define range(i32 -1, 1) i32 @ompi_sync_wait_mt(ptr noundef %0) local_unnamed_add
   br label %31
 
 31:                                               ; preds = %26, %29
-  %32 = getelementptr inbounds i8, ptr %0, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %33
 
 33:                                               ; preds = %38, %31
@@ -329,14 +329,14 @@ opal_thread_add_fetch_32.exit38:                  ; preds = %63, %61, %42
   br label %71
 
 71:                                               ; preds = %opal_thread_add_fetch_32.exit38, %69
-  %72 = getelementptr inbounds i8, ptr %0, i64 96
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %73 = load ptr, ptr %72, align 8
-  %74 = getelementptr inbounds i8, ptr %0, i64 104
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %75 = load ptr, ptr %74, align 8
-  %76 = getelementptr inbounds i8, ptr %75, i64 96
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 96
   store ptr %73, ptr %76, align 8
   %77 = load ptr, ptr %74, align 8
-  %78 = getelementptr inbounds i8, ptr %73, i64 104
+  %78 = getelementptr inbounds nuw i8, ptr %73, i64 104
   store ptr %77, ptr %78, align 8
   %79 = load ptr, ptr @opal_threads_base_wait_sync_list, align 8
   %80 = icmp eq ptr %0, %79
@@ -351,13 +351,13 @@ opal_thread_add_fetch_32.exit38:                  ; preds = %63, %61, %42
   br i1 %.not36, label %93, label %84
 
 84:                                               ; preds = %81
-  %85 = getelementptr inbounds i8, ptr %spec.select, i64 56
+  %85 = getelementptr inbounds nuw i8, ptr %spec.select, i64 56
   %86 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %85) #3
   %87 = load ptr, ptr @opal_threads_base_wait_sync_list, align 8
-  %88 = getelementptr inbounds i8, ptr %87, i64 8
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
   %89 = tail call i32 @pthread_cond_signal(ptr noundef nonnull %88) #3
   %90 = load ptr, ptr @opal_threads_base_wait_sync_list, align 8
-  %91 = getelementptr inbounds i8, ptr %90, i64 56
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 56
   %92 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %91) #3
   br label %93
 
@@ -372,7 +372,7 @@ opal_thread_add_fetch_32.exit38:                  ; preds = %63, %61, %42
   br label %97
 
 97:                                               ; preds = %.sink.split, %93, %1
-  %.0.in.in.in = getelementptr inbounds i8, ptr %0, i64 4
+  %.0.in.in.in = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.0.in.in = load i32, ptr %.0.in.in.in, align 4
   %.0.in = icmp ne i32 %.0.in.in, 0
   %.0 = sext i1 %.0.in to i32

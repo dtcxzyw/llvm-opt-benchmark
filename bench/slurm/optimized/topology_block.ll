@@ -91,16 +91,16 @@ define i32 @topology_p_eval_nodes(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %10, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 80
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 @slurm_bit_overlap_any(ptr noundef nonnull %2, ptr noundef %5) #8
   %.not4 = icmp eq i32 %6, 0
   br i1 %.not4, label %10, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr @eval_nodes_block, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 96
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i8 1, ptr %9, align 8
   br label %10
 
@@ -141,7 +141,7 @@ define noundef i32 @topology_p_topology_free(ptr noundef %0) local_unnamed_addr 
   br i1 %.not, label %15, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %.not5 = icmp eq ptr %5, null
   br i1 %.not5, label %14, label %.preheader
@@ -154,10 +154,10 @@ define noundef i32 @topology_p_topology_free(ptr noundef %0) local_unnamed_addr 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %struct.topoinfo_bblock, ptr %7, i64 %indvars.iv, i32 1
+  %8 = getelementptr inbounds nuw %struct.topoinfo_bblock, ptr %7, i64 %indvars.iv, i32 1
   tail call void @slurm_xfree(ptr noundef nonnull %8) #8
   %9 = load ptr, ptr %4, align 8
-  %10 = getelementptr inbounds %struct.topoinfo_bblock, ptr %9, i64 %indvars.iv, i32 2
+  %10 = getelementptr inbounds nuw %struct.topoinfo_bblock, ptr %9, i64 %indvars.iv, i32 2
   tail call void @slurm_xfree(ptr noundef nonnull %10) #8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %11 = load i32, ptr %0, align 8
@@ -192,13 +192,13 @@ define range(i32 -1, 1) i32 @topology_p_get(i32 noundef %0, ptr nocapture nounde
   store ptr %5, ptr %1, align 8
   store ptr %4, ptr %5, align 8
   %6 = load ptr, ptr %1, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 103, ptr %7, align 8
   %8 = load i32, ptr @block_record_cnt, align 4
   store i32 %8, ptr %4, align 8
   %9 = zext i32 %8 to i64
   %10 = tail call ptr @slurm_xcalloc(i64 noundef %9, i64 noundef 24, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 237, ptr noundef nonnull @__func__.topology_p_get) #8
-  %11 = getelementptr inbounds i8, ptr %4, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %10, ptr %11, align 8
   %12 = load i32, ptr %4, align 8
   %.not = icmp eq i32 %12, 0
@@ -207,24 +207,24 @@ define range(i32 -1, 1) i32 @topology_p_get(i32 noundef %0, ptr nocapture nounde
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %3 ]
   %13 = load ptr, ptr @block_record_table, align 8
-  %14 = getelementptr inbounds %struct.block_record_t, ptr %13, i64 %indvars.iv, i32 4
+  %14 = getelementptr inbounds nuw %struct.block_record_t, ptr %13, i64 %indvars.iv, i32 4
   %15 = load i16, ptr %14, align 8
   %16 = load ptr, ptr %11, align 8
-  %17 = getelementptr inbounds %struct.topoinfo_bblock, ptr %16, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw %struct.topoinfo_bblock, ptr %16, i64 %indvars.iv
   store i16 %15, ptr %17, align 8
   %18 = load ptr, ptr @block_record_table, align 8
-  %19 = getelementptr inbounds %struct.block_record_t, ptr %18, i64 %indvars.iv, i32 1
+  %19 = getelementptr inbounds nuw %struct.block_record_t, ptr %18, i64 %indvars.iv, i32 1
   %20 = load ptr, ptr %19, align 8
   %21 = tail call ptr @slurm_xstrdup(ptr noundef %20) #8
   %22 = load ptr, ptr %11, align 8
-  %23 = getelementptr inbounds %struct.topoinfo_bblock, ptr %22, i64 %indvars.iv, i32 1
+  %23 = getelementptr inbounds nuw %struct.topoinfo_bblock, ptr %22, i64 %indvars.iv, i32 1
   store ptr %21, ptr %23, align 8
   %24 = load ptr, ptr @block_record_table, align 8
-  %25 = getelementptr inbounds %struct.block_record_t, ptr %24, i64 %indvars.iv, i32 3
+  %25 = getelementptr inbounds nuw %struct.block_record_t, ptr %24, i64 %indvars.iv, i32 3
   %26 = load ptr, ptr %25, align 8
   %27 = tail call ptr @slurm_xstrdup(ptr noundef %26) #8
   %28 = load ptr, ptr %11, align 8
-  %29 = getelementptr inbounds %struct.topoinfo_bblock, ptr %28, i64 %indvars.iv, i32 2
+  %29 = getelementptr inbounds nuw %struct.topoinfo_bblock, ptr %28, i64 %indvars.iv, i32 2
   store ptr %27, ptr %29, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %30 = load i32, ptr %4, align 8
@@ -261,17 +261,17 @@ define noundef i32 @topology_p_topology_pack(ptr nocapture noundef readonly %0, 
   br i1 %.not30, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %7
 
 7:                                                ; preds = %.lr.ph, %26
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %26 ]
   %8 = load ptr, ptr %6, align 8
-  %9 = getelementptr inbounds %struct.topoinfo_bblock, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw %struct.topoinfo_bblock, ptr %8, i64 %indvars.iv
   %10 = load i16, ptr %9, align 8
   tail call void @slurm_pack16(i16 noundef zeroext %10, ptr noundef %1) #8
   %11 = load ptr, ptr %6, align 8
-  %12 = getelementptr inbounds %struct.topoinfo_bblock, ptr %11, i64 %indvars.iv, i32 1
+  %12 = getelementptr inbounds nuw %struct.topoinfo_bblock, ptr %11, i64 %indvars.iv, i32 1
   %13 = load ptr, ptr %12, align 8
   %.not = icmp eq ptr %13, null
   br i1 %.not, label %18, label %14
@@ -286,7 +286,7 @@ define noundef i32 @topology_p_topology_pack(ptr nocapture noundef readonly %0, 
   %.024 = phi i32 [ %17, %14 ], [ 0, %7 ]
   tail call void @slurm_packmem(ptr noundef %13, i32 noundef %.024, ptr noundef %1) #8
   %19 = load ptr, ptr %6, align 8
-  %20 = getelementptr inbounds %struct.topoinfo_bblock, ptr %19, i64 %indvars.iv, i32 2
+  %20 = getelementptr inbounds nuw %struct.topoinfo_bblock, ptr %19, i64 %indvars.iv, i32 2
   %21 = load ptr, ptr %20, align 8
   %.not28 = icmp eq ptr %21, null
   br i1 %.not28, label %26, label %22
@@ -336,7 +336,7 @@ define noundef i32 @topology_p_topology_print(ptr nocapture noundef readonly %0,
   br i1 %.not56, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader47
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %28
 
 10:                                               ; preds = %5, %3
@@ -345,7 +345,7 @@ define noundef i32 @topology_p_topology_print(ptr nocapture noundef readonly %0,
   br i1 %12, label %14, label %.lr.ph55
 
 .lr.ph55:                                         ; preds = %10
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %16
 
 14:                                               ; preds = %10
@@ -355,7 +355,7 @@ define noundef i32 @topology_p_topology_print(ptr nocapture noundef readonly %0,
 16:                                               ; preds = %.lr.ph55, %16
   %indvars.iv64 = phi i64 [ 0, %.lr.ph55 ], [ %indvars.iv.next65, %16 ]
   %17 = load ptr, ptr %13, align 8
-  %18 = getelementptr inbounds %struct.topoinfo_bblock, ptr %17, i64 %indvars.iv64
+  %18 = getelementptr inbounds nuw %struct.topoinfo_bblock, ptr %17, i64 %indvars.iv64
   tail call fastcc void @_print_topo_record(ptr noundef %18, ptr noundef nonnull %2)
   %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 1
   %19 = load i32, ptr %0, align 8
@@ -375,13 +375,13 @@ define noundef i32 @topology_p_topology_print(ptr nocapture noundef readonly %0,
   br i1 %26, label %._crit_edge.thread, label %.lr.ph53
 
 .lr.ph53:                                         ; preds = %.preheader46
-  %27 = getelementptr inbounds i8, ptr %0, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %36
 
 28:                                               ; preds = %.lr.ph, %22
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %22 ]
   %29 = load ptr, ptr %9, align 8
-  %30 = getelementptr inbounds %struct.topoinfo_bblock, ptr %29, i64 %indvars.iv, i32 1
+  %30 = getelementptr inbounds nuw %struct.topoinfo_bblock, ptr %29, i64 %indvars.iv, i32 1
   %31 = load ptr, ptr %30, align 8
   %32 = tail call i32 @slurm_xstrcmp(ptr noundef %31, ptr noundef nonnull %1) #8
   %.not45 = icmp eq i32 %32, 0
@@ -389,7 +389,7 @@ define noundef i32 @topology_p_topology_print(ptr nocapture noundef readonly %0,
 
 33:                                               ; preds = %28
   %34 = load ptr, ptr %9, align 8
-  %35 = getelementptr inbounds %struct.topoinfo_bblock, ptr %34, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw %struct.topoinfo_bblock, ptr %34, i64 %indvars.iv
   tail call fastcc void @_print_topo_record(ptr noundef %35, ptr noundef nonnull %2)
   br label %.loopexit
 
@@ -397,7 +397,7 @@ define noundef i32 @topology_p_topology_print(ptr nocapture noundef readonly %0,
   %indvars.iv61 = phi i64 [ 0, %.lr.ph53 ], [ %indvars.iv.next62, %54 ]
   %.04151 = phi i32 [ 0, %.lr.ph53 ], [ %.142, %54 ]
   %37 = load ptr, ptr %27, align 8
-  %38 = getelementptr inbounds %struct.topoinfo_bblock, ptr %37, i64 %indvars.iv61, i32 2
+  %38 = getelementptr inbounds nuw %struct.topoinfo_bblock, ptr %37, i64 %indvars.iv61, i32 2
   %39 = load ptr, ptr %38, align 8
   %40 = icmp eq ptr %39, null
   br i1 %40, label %54, label %41
@@ -425,7 +425,7 @@ define noundef i32 @topology_p_topology_print(ptr nocapture noundef readonly %0,
 50:                                               ; preds = %48
   %51 = add nsw i32 %.04151, 1
   %52 = load ptr, ptr %27, align 8
-  %53 = getelementptr inbounds %struct.topoinfo_bblock, ptr %52, i64 %indvars.iv61
+  %53 = getelementptr inbounds nuw %struct.topoinfo_bblock, ptr %52, i64 %indvars.iv61
   tail call fastcc void @_print_topo_record(ptr noundef %53, ptr noundef nonnull %2)
   br label %54
 
@@ -455,12 +455,12 @@ define internal fastcc void @_print_topo_record(ptr nocapture noundef readonly %
   %4 = alloca ptr, align 8
   store ptr null, ptr %3, align 8
   store ptr null, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load i16, ptr %0, align 8
   %8 = zext i16 %7 to i32
   call void (ptr, ptr, ptr, ...) @slurm_xstrfmtcatat(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull @.str.6, ptr noundef %6, i32 noundef %8) #8
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %12, label %11
@@ -518,14 +518,14 @@ define range(i32 -1, 1) i32 @topology_p_topology_unpack(ptr nocapture noundef wr
   br i1 %.not28, label %.thread37, label %12
 
 .thread37:                                        ; preds = %9
-  %11 = getelementptr inbounds i8, ptr %7, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr null, ptr %11, align 8
   br label %.loopexit
 
 12:                                               ; preds = %9
   %13 = zext i32 %10 to i64
   %14 = tail call ptr @slurm_xcalloc(i64 noundef %13, i64 noundef 24, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.1, i32 noundef 342, ptr noundef nonnull @__func__.topology_p_topology_unpack) #8
-  %15 = getelementptr inbounds i8, ptr %7, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %14, ptr %15, align 8
   %.not29 = icmp eq ptr %14, null
   br i1 %.not29, label %.thread, label %16
@@ -536,7 +536,7 @@ define range(i32 -1, 1) i32 @topology_p_topology_unpack(ptr nocapture noundef wr
   br i1 %17, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %16
-  %18 = getelementptr inbounds i8, ptr %7, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 8
   br label %23
 
 19:                                               ; preds = %31
@@ -549,21 +549,21 @@ define range(i32 -1, 1) i32 @topology_p_topology_unpack(ptr nocapture noundef wr
 23:                                               ; preds = %.lr.ph, %19
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %19 ]
   %24 = load ptr, ptr %18, align 8
-  %25 = getelementptr inbounds %struct.topoinfo_bblock, ptr %24, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw %struct.topoinfo_bblock, ptr %24, i64 %indvars.iv
   %26 = call i32 @slurm_unpack16(ptr noundef %25, ptr noundef %1) #8
   %.not30 = icmp eq i32 %26, 0
   br i1 %.not30, label %27, label %.thread
 
 27:                                               ; preds = %23
   %28 = load ptr, ptr %18, align 8
-  %29 = getelementptr inbounds %struct.topoinfo_bblock, ptr %28, i64 %indvars.iv, i32 1
+  %29 = getelementptr inbounds nuw %struct.topoinfo_bblock, ptr %28, i64 %indvars.iv, i32 1
   %30 = call i32 @slurm_unpackstr_xmalloc_chooser(ptr noundef nonnull %29, ptr noundef nonnull %5, ptr noundef %1) #8
   %.not31 = icmp eq i32 %30, 0
   br i1 %.not31, label %31, label %.thread
 
 31:                                               ; preds = %27
   %32 = load ptr, ptr %18, align 8
-  %33 = getelementptr inbounds %struct.topoinfo_bblock, ptr %32, i64 %indvars.iv, i32 2
+  %33 = getelementptr inbounds nuw %struct.topoinfo_bblock, ptr %32, i64 %indvars.iv, i32 2
   %34 = call i32 @slurm_unpackstr_xmalloc_chooser(ptr noundef nonnull %33, ptr noundef nonnull %6, ptr noundef %1) #8
   %.not32 = icmp eq i32 %34, 0
   br i1 %.not32, label %19, label %.thread
@@ -580,7 +580,7 @@ define range(i32 -1, 1) i32 @topology_p_topology_unpack(ptr nocapture noundef wr
   br i1 %.not.i, label %topology_p_topology_free.exit, label %36
 
 36:                                               ; preds = %.thread, %35
-  %37 = getelementptr inbounds i8, ptr %7, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %38 = load ptr, ptr %37, align 8
   %.not5.i = icmp eq ptr %38, null
   br i1 %.not5.i, label %47, label %.preheader.i
@@ -593,10 +593,10 @@ define range(i32 -1, 1) i32 @topology_p_topology_unpack(ptr nocapture noundef wr
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.preheader.i ]
   %40 = load ptr, ptr %37, align 8
-  %41 = getelementptr inbounds %struct.topoinfo_bblock, ptr %40, i64 %indvars.iv.i, i32 1
+  %41 = getelementptr inbounds nuw %struct.topoinfo_bblock, ptr %40, i64 %indvars.iv.i, i32 1
   call void @slurm_xfree(ptr noundef nonnull %41) #8
   %42 = load ptr, ptr %37, align 8
-  %43 = getelementptr inbounds %struct.topoinfo_bblock, ptr %42, i64 %indvars.iv.i, i32 2
+  %43 = getelementptr inbounds nuw %struct.topoinfo_bblock, ptr %42, i64 %indvars.iv.i, i32 2
   call void @slurm_xfree(ptr noundef nonnull %43) #8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %44 = load i32, ptr %7, align 8

@@ -27,12 +27,12 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN3ozz9animation7offline12RawAnimationC2Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 28)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store float 1.000000e+00, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %4, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %5, align 8
   store i8 0, ptr %4, align 8
   ret void
@@ -41,7 +41,7 @@ define dso_local void @_ZN3ozz9animation7offline12RawAnimationC2Ev(ptr noundef n
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZNK3ozz9animation7offline12RawAnimation10JointTrack8ValidateEf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, float noundef %1) local_unnamed_addr #1 align 2 {
   %.val = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val4 = load ptr, ptr %3, align 8
   %4 = icmp eq ptr %.val4, %.val
   br i1 %4, label %.loopexit31, label %.lr.ph.preheader.i
@@ -72,9 +72,9 @@ define dso_local noundef zeroext i1 @_ZNK3ozz9animation7offline12RawAnimation10J
   br i1 %or.cond14.i, label %9, label %_ZN3ozz9animation7offline12_GLOBAL__N_113ValidateTrackINS1_12RawAnimation14TranslationKeyEEEbRKSt6vectorIT_NS_12StdAllocatorIS7_EEEf.exit
 
 .loopexit31:                                      ; preds = %9, %2
-  %16 = getelementptr inbounds i8, ptr %0, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val5 = load ptr, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.val6 = load ptr, ptr %17, align 8
   %18 = icmp eq ptr %.val6, %.val5
   br i1 %18, label %.loopexit, label %.lr.ph.preheader.i9
@@ -105,9 +105,9 @@ define dso_local noundef zeroext i1 @_ZNK3ozz9animation7offline12RawAnimation10J
   br i1 %or.cond14.i15, label %23, label %_ZN3ozz9animation7offline12_GLOBAL__N_113ValidateTrackINS1_12RawAnimation14TranslationKeyEEEbRKSt6vectorIT_NS_12StdAllocatorIS7_EEEf.exit
 
 .loopexit:                                        ; preds = %23, %.loopexit31
-  %30 = getelementptr inbounds i8, ptr %0, i64 48
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.val7 = load ptr, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 56
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %.val8 = load ptr, ptr %31, align 8
   %32 = icmp eq ptr %.val8, %.val7
   br i1 %32, label %_ZN3ozz9animation7offline12_GLOBAL__N_113ValidateTrackINS1_12RawAnimation14TranslationKeyEEEbRKSt6vectorIT_NS_12StdAllocatorIS7_EEEf.exit, label %.lr.ph.preheader.i18
@@ -142,13 +142,13 @@ _ZN3ozz9animation7offline12_GLOBAL__N_113ValidateTrackINS1_12RawAnimation14Trans
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZNK3ozz9animation7offline12RawAnimation8ValidateEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0) local_unnamed_addr #1 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load float, ptr %2, align 8
   %4 = fcmp ugt float %3, 0.000000e+00
   br i1 %4, label %5, label %.critedge
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %0, align 8
   %9 = ptrtoint ptr %7 to i64
@@ -166,7 +166,7 @@ define dso_local noundef zeroext i1 @_ZNK3ozz9animation7offline12RawAnimation8Va
   %.01023 = phi i64 [ %56, %_ZNK3ozz9animation7offline12RawAnimation10JointTrack8ValidateEf.exit ], [ 0, %.preheader.preheader ]
   %14 = getelementptr inbounds %"struct.ozz::animation::offline::RawAnimation::JointTrack", ptr %8, i64 %.01023
   %.val.i = load ptr, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %.val4.i = load ptr, ptr %15, align 8
   %16 = icmp eq ptr %.val4.i, %.val.i
   br i1 %16, label %.loopexit31.i, label %.lr.ph.preheader.i.i
@@ -197,9 +197,9 @@ define dso_local noundef zeroext i1 @_ZNK3ozz9animation7offline12RawAnimation8Va
   br i1 %or.cond14.i.i, label %21, label %.critedge
 
 .loopexit31.i:                                    ; preds = %21, %.lr.ph
-  %28 = getelementptr inbounds i8, ptr %14, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %.val5.i = load ptr, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %14, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %.val6.i = load ptr, ptr %29, align 8
   %30 = icmp eq ptr %.val6.i, %.val5.i
   br i1 %30, label %.loopexit.i, label %.lr.ph.preheader.i9.i
@@ -230,9 +230,9 @@ define dso_local noundef zeroext i1 @_ZNK3ozz9animation7offline12RawAnimation8Va
   br i1 %or.cond14.i15.i, label %35, label %.critedge
 
 .loopexit.i:                                      ; preds = %35, %.loopexit31.i
-  %42 = getelementptr inbounds i8, ptr %14, i64 48
+  %42 = getelementptr inbounds nuw i8, ptr %14, i64 48
   %.val7.i = load ptr, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %14, i64 56
+  %43 = getelementptr inbounds nuw i8, ptr %14, i64 56
   %.val8.i = load ptr, ptr %43, align 8
   %44 = icmp eq ptr %.val8.i, %.val7.i
   br i1 %44, label %_ZNK3ozz9animation7offline12RawAnimation10JointTrack8ValidateEf.exit, label %.lr.ph.preheader.i18.i
@@ -274,7 +274,7 @@ _ZNK3ozz9animation7offline12RawAnimation10JointTrack8ValidateEf.exit: ; preds = 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef i64 @_ZNK3ozz9animation7offline12RawAnimation4sizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0) local_unnamed_addr #1 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %0, align 8
   %5 = ptrtoint ptr %3 to i64
@@ -292,19 +292,19 @@ define dso_local noundef i64 @_ZNK3ozz9animation7offline12RawAnimation4sizeEv(pt
   %.018 = phi i64 [ %33, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %.01317 = phi i64 [ %32, %.lr.ph ], [ 64, %.lr.ph.preheader ]
   %9 = getelementptr inbounds %"struct.ozz::animation::offline::RawAnimation::JointTrack", ptr %4, i64 %.018
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr %9, align 8
   %13 = ptrtoint ptr %11 to i64
   %14 = ptrtoint ptr %12 to i64
-  %15 = getelementptr inbounds i8, ptr %9, i64 24
-  %16 = getelementptr inbounds i8, ptr %9, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr %15, align 8
   %19 = ptrtoint ptr %17 to i64
   %20 = ptrtoint ptr %18 to i64
-  %21 = getelementptr inbounds i8, ptr %9, i64 48
-  %22 = getelementptr inbounds i8, ptr %9, i64 56
+  %21 = getelementptr inbounds nuw i8, ptr %9, i64 48
+  %22 = getelementptr inbounds nuw i8, ptr %9, i64 56
   %23 = load ptr, ptr %22, align 8
   %24 = load ptr, ptr %21, align 8
   %25 = ptrtoint ptr %23 to i64
@@ -322,7 +322,7 @@ define dso_local noundef i64 @_ZNK3ozz9animation7offline12RawAnimation4sizeEv(pt
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %.013.lcssa = phi i64 [ 64, %1 ], [ %32, %.lr.ph ]
   %34 = add i64 %.013.lcssa, %7
-  %35 = getelementptr inbounds i8, ptr %0, i64 40
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %36 = load i64, ptr %35, align 8
   %37 = add i64 %34, %36
   ret i64 %37

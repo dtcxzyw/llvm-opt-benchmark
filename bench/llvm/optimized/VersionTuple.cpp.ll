@@ -62,7 +62,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvmlsERNS
   br label %_ZN4llvm11raw_ostreamlsEc.exit
 
 16:                                               ; preds = %9
-  %17 = getelementptr inbounds i8, ptr %11, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 1
   store ptr %17, ptr %10, align 8
   store i8 46, ptr %11, align 1
   br label %_ZN4llvm11raw_ostreamlsEc.exit
@@ -93,7 +93,7 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %14, %16
   br label %_ZN4llvm11raw_ostreamlsEc.exit15
 
 30:                                               ; preds = %23
-  %31 = getelementptr inbounds i8, ptr %25, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 1
   store ptr %31, ptr %24, align 8
   store i8 46, ptr %25, align 1
   br label %_ZN4llvm11raw_ostreamlsEc.exit15
@@ -124,7 +124,7 @@ _ZN4llvm11raw_ostreamlsEc.exit15:                 ; preds = %28, %30
   br label %_ZN4llvm11raw_ostreamlsEc.exit22
 
 44:                                               ; preds = %37
-  %45 = getelementptr inbounds i8, ptr %39, i64 1
+  %45 = getelementptr inbounds nuw i8, ptr %39, i64 1
   store ptr %45, ptr %38, align 8
   store i8 46, ptr %39, align 1
   br label %_ZN4llvm11raw_ostreamlsEc.exit22
@@ -151,7 +151,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm12VersionTuple8tryParseENS_9StringR
 
 9:                                                ; preds = %3
   %10 = load i8, ptr %1, align 1
-  %11 = getelementptr inbounds i8, ptr %1, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %12 = add i64 %2, -1
   %13 = add i8 %10, -58
   %or.cond.i = icmp ult i8 %13, -10
@@ -170,7 +170,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm12VersionTuple8tryParseENS_9StringR
   br i1 %or.cond5.i60, label %.loopexit, label %.lr.ph
 
 .lr.ph.i:                                         ; preds = %.lr.ph
-  %20 = getelementptr inbounds i8, ptr %25, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %25, i64 1
   %21 = load i8, ptr %20, align 1
   %22 = add i8 %21, -58
   %or.cond5.i = icmp ult i8 %22, -10
@@ -203,7 +203,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm12VersionTuple8tryParseENS_9StringR
   br i1 %.not, label %34, label %_ZL8parseIntRN4llvm9StringRefERj.exit
 
 34:                                               ; preds = %.loopexit
-  %35 = getelementptr inbounds i8, ptr %.lcssa55, i64 1
+  %35 = getelementptr inbounds nuw i8, ptr %.lcssa55, i64 1
   %36 = add i64 %.lcssa58, -1
   store ptr %35, ptr %4, align 8
   store i64 %36, ptr %7, align 8
@@ -212,7 +212,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm12VersionTuple8tryParseENS_9StringR
 
 38:                                               ; preds = %34
   %39 = load i8, ptr %35, align 1
-  %40 = getelementptr inbounds i8, ptr %.lcssa55, i64 2
+  %40 = getelementptr inbounds nuw i8, ptr %.lcssa55, i64 2
   %41 = add i64 %.lcssa58, -2
   store ptr %40, ptr %4, align 8
   store i64 %41, ptr %7, align 8
@@ -233,7 +233,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm12VersionTuple8tryParseENS_9StringR
   br i1 %or.cond5.i470, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i, label %.lr.ph72
 
 .lr.ph.i3:                                        ; preds = %.lr.ph72
-  %49 = getelementptr inbounds i8, ptr %54, i64 1
+  %49 = getelementptr inbounds nuw i8, ptr %54, i64 1
   %50 = load i8, ptr %49, align 1
   %51 = add i8 %50, -58
   %or.cond5.i4 = icmp ult i8 %51, -10
@@ -273,7 +273,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.i:      ; preds = %.lr.ph.i3, %.lr.ph.
   br i1 %67, label %68, label %_ZL8parseIntRN4llvm9StringRefERj.exit
 
 68:                                               ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.i
-  %69 = getelementptr inbounds i8, ptr %.lcssa65, i64 1
+  %69 = getelementptr inbounds nuw i8, ptr %.lcssa65, i64 1
   %70 = add i64 %.lcssa68, -1
   store ptr %69, ptr %4, align 8
   store i64 %70, ptr %7, align 8
@@ -304,7 +304,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.i9:     ; preds = %72
   br i1 %85, label %86, label %_ZL8parseIntRN4llvm9StringRefERj.exit
 
 86:                                               ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.i9
-  %87 = getelementptr inbounds i8, ptr %.pre.i8, i64 1
+  %87 = getelementptr inbounds nuw i8, ptr %.pre.i8, i64 1
   %88 = add i64 %73, -1
   store ptr %87, ptr %4, align 8
   store i64 %88, ptr %7, align 8
@@ -335,7 +335,7 @@ _ZL8parseIntRN4llvm9StringRefERj.exit.sink.split: ; preds = %.thread, %.thread44
   %.sink110 = phi i64 [ %100, %92 ], [ %82, %75 ], [ %66, %.thread44 ], [ %32, %.thread ]
   %.sink = phi i64 [ %105, %92 ], [ %84, %75 ], [ 0, %.thread44 ], [ 0, %.thread ]
   store i64 %.sink110, ptr %0, align 4
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sink, ptr %.sroa.2.0..sroa_idx, align 4
   br label %_ZL8parseIntRN4llvm9StringRefERj.exit
 
@@ -354,7 +354,7 @@ define internal fastcc noundef zeroext i1 @_ZL8parseIntRN4llvm9StringRefERj(ptr 
 6:                                                ; preds = %2
   %7 = load ptr, ptr %0, align 8
   %8 = load i8, ptr %7, align 1
-  %9 = getelementptr inbounds i8, ptr %7, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 1
   %10 = add i64 %4, -1
   store ptr %9, ptr %0, align 8
   store i64 %10, ptr %3, align 8
@@ -380,7 +380,7 @@ define internal fastcc noundef zeroext i1 @_ZL8parseIntRN4llvm9StringRefERj(ptr 
 
 21:                                               ; preds = %.lr.ph
   %22 = zext nneg i8 %19 to i32
-  %23 = getelementptr inbounds i8, ptr %18, i64 1
+  %23 = getelementptr inbounds nuw i8, ptr %18, i64 1
   %24 = add i64 %17, -1
   store ptr %23, ptr %0, align 8
   store i64 %24, ptr %3, align 8

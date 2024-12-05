@@ -134,27 +134,27 @@ define internal noundef i32 @zm_startup_json(i32 %0, i32 noundef %1) #0 {
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %4, i8 0, i64 512, i1 false)
   %5 = load ptr, ptr @zend_string_init_interned, align 8
   %6 = tail call ptr %5(ptr noundef nonnull @.str.18, i64 noundef 16, i1 noundef zeroext true) #13
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %6, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 360
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 360
   store ptr @std_object_handlers, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 496
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 496
   store ptr @class_JsonSerializable_methods, ptr %9, align 8
   %10 = call ptr @zend_register_internal_interface(ptr noundef nonnull %4) #13
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %4)
   store ptr %10, ptr @php_json_serializable_ce, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 384
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 384
   store ptr @php_json_implement_json_serializable, ptr %11, align 8
   %12 = load ptr, ptr @zend_ce_exception, align 8
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %3, i8 0, i64 512, i1 false)
   %13 = load ptr, ptr @zend_string_init_interned, align 8
   %14 = call ptr %13(ptr noundef nonnull @.str.20, i64 noundef 13, i1 noundef zeroext true) #13
-  %15 = getelementptr inbounds i8, ptr %3, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %14, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %3, i64 360
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 360
   store ptr @std_object_handlers, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %3, i64 496
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store ptr @class_JsonException_methods, ptr %17, align 8
   %18 = call ptr @zend_register_internal_class_ex(ptr noundef nonnull %3, ptr noundef %12) #13
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %3)
@@ -208,9 +208,9 @@ define internal void @zm_info_json(ptr nocapture readnone %0) #0 {
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @zm_globals_ctor_json(ptr nocapture noundef writeonly initializes((0, 12)) %0) #2 {
   store i32 0, ptr %0, align 4
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %2, align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 512, ptr %3, align 4
   ret void
 }
@@ -231,7 +231,7 @@ define ptr @php_json_encode_string(ptr noundef %0, i64 noundef %1, i32 noundef %
   br i1 %.not125, label %68, label %10
 
 10:                                               ; preds = %9
-  %11 = getelementptr inbounds i8, ptr %8, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %12 = load i32, ptr %11, align 4
   %13 = and i32 %12, 64
   %.not126 = icmp eq i32 %13, 0
@@ -254,8 +254,8 @@ define ptr @php_json_encode_string(ptr noundef %0, i64 noundef %1, i32 noundef %
   br i1 %.not125, label %66, label %21
 
 21:                                               ; preds = %20
-  %22 = getelementptr inbounds i8, ptr %8, i64 24
-  %23 = getelementptr inbounds i8, ptr %8, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %24 = load i64, ptr %23, align 8
   %25 = getelementptr inbounds [1 x i8], ptr %22, i64 0, i64 %24
   store i8 0, ptr %25, align 1
@@ -264,15 +264,15 @@ define ptr @php_json_encode_string(ptr noundef %0, i64 noundef %1, i32 noundef %
   br i1 %.not122, label %68, label %27
 
 27:                                               ; preds = %21
-  %28 = getelementptr inbounds i8, ptr %4, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %29 = load i64, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %26, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %31 = load i64, ptr %30, align 8
   %32 = icmp ugt i64 %29, %31
   br i1 %32, label %33, label %68
 
 33:                                               ; preds = %27
-  %34 = getelementptr inbounds i8, ptr %26, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %26, i64 4
   %35 = load i32, ptr %34, align 4
   %36 = and i32 %35, 64
   %.not123 = icmp eq i32 %36, 0
@@ -287,11 +287,11 @@ define ptr @php_json_encode_string(ptr noundef %0, i64 noundef %1, i32 noundef %
   %41 = and i64 %31, -8
   %42 = add i64 %41, 32
   %43 = call ptr @_erealloc(ptr noundef nonnull %26, i64 noundef %42) #14
-  %44 = getelementptr inbounds i8, ptr %43, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
   store i64 %31, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %43, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %43, i64 8
   store i64 0, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %43, i64 4
+  %46 = getelementptr inbounds nuw i8, ptr %43, i64 4
   %47 = load i32, ptr %46, align 4
   %48 = and i32 %47, -513
   store i32 %48, ptr %46, align 4
@@ -302,14 +302,14 @@ define ptr @php_json_encode_string(ptr noundef %0, i64 noundef %1, i32 noundef %
   %51 = add i64 %50, 32
   %52 = call noalias ptr @_emalloc(i64 noundef %51) #15
   store i32 1, ptr %52, align 4
-  %53 = getelementptr inbounds i8, ptr %52, i64 4
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 4
   store i32 22, ptr %53, align 4
-  %54 = getelementptr inbounds i8, ptr %52, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %52, i64 8
   store i64 0, ptr %54, align 8
-  %55 = getelementptr inbounds i8, ptr %52, i64 16
+  %55 = getelementptr inbounds nuw i8, ptr %52, i64 16
   store i64 %31, ptr %55, align 8
-  %56 = getelementptr inbounds i8, ptr %52, i64 24
-  %57 = getelementptr inbounds i8, ptr %26, i64 24
+  %56 = getelementptr inbounds nuw i8, ptr %52, i64 24
+  %57 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %58 = load i64, ptr %30, align 8
   %. = call i64 @llvm.umin.i64(i64 %31, i64 %58)
   %59 = add nuw i64 %., 1
@@ -346,10 +346,10 @@ define i32 @php_json_encode_ex(ptr noundef %0, ptr noundef %1, i32 noundef %2, i
   %5 = alloca %struct._php_json_encoder, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %5, i8 0, i64 12, i1 false)
   %6 = trunc i64 %3 to i32
-  %7 = getelementptr inbounds i8, ptr %5, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %6, ptr %7, align 4
   %8 = call i32 @php_json_encode_zval(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %5) #13
-  %9 = getelementptr inbounds i8, ptr %5, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %10 = load i32, ptr %9, align 4
   store i32 %10, ptr getelementptr inbounds (i8, ptr @json_globals, i64 8), align 4
   ret i32 %8
@@ -363,10 +363,10 @@ define i32 @php_json_encode(ptr noundef %0, ptr noundef %1, i32 noundef %2) loca
   %5 = load i32, ptr getelementptr inbounds (i8, ptr @json_globals, i64 4), align 4
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %4, i8 0, i64 12, i1 false)
-  %6 = getelementptr inbounds i8, ptr %4, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %5, ptr %6, align 4
   %7 = call i32 @php_json_encode_zval(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %4) #13
-  %8 = getelementptr inbounds i8, ptr %4, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %9 = load i32, ptr %8, align 4
   store i32 %9, ptr getelementptr inbounds (i8, ptr @json_globals, i64 8), align 4
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4)
@@ -400,7 +400,7 @@ define range(i32 -1, 1) i32 @php_json_decode_ex(ptr noundef %0, ptr noundef %1, 
 
 switch.lookup:                                    ; preds = %14
   %17 = zext nneg i32 %11 to i64
-  %switch.gep = getelementptr inbounds [12 x ptr], ptr @switch.table.zif_json_last_error_msg, i64 0, i64 %17
+  %switch.gep = getelementptr inbounds nuw [12 x ptr], ptr @switch.table.zif_json_last_error_msg, i64 0, i64 %17
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %php_json_get_error_msg.exit
 
@@ -411,7 +411,7 @@ php_json_get_error_msg.exit:                      ; preds = %14, %switch.lookup
   br label %20
 
 20:                                               ; preds = %13, %php_json_get_error_msg.exit
-  %21 = getelementptr inbounds i8, ptr %0, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 1, ptr %21, align 8
   br label %22
 
@@ -462,7 +462,7 @@ define hidden void @zif_json_encode(ptr noundef %0, ptr nocapture noundef writeo
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   store i64 0, ptr %5, align 8
   store i64 512, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 44
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %8 = load i32, ptr %7, align 4
   %9 = add i32 %8, -4
   %or.cond = icmp ult i32 %9, -3
@@ -473,13 +473,13 @@ define hidden void @zif_json_encode(ptr noundef %0, ptr nocapture noundef writeo
   br label %.thread294
 
 11:                                               ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %0, i64 80
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %13 = icmp eq i32 %8, 1
   br i1 %13, label %.thread303, label %14
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %0, i64 96
-  %16 = getelementptr inbounds i8, ptr %0, i64 104
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %17 = load i8, ptr %16, align 8
   %18 = icmp eq i8 %17, 4
   br i1 %18, label %.critedge, label %20
@@ -498,8 +498,8 @@ define hidden void @zif_json_encode(ptr noundef %0, ptr nocapture noundef writeo
   br i1 %.not, label %23, label %.thread303
 
 23:                                               ; preds = %22
-  %24 = getelementptr inbounds i8, ptr %0, i64 112
-  %25 = getelementptr inbounds i8, ptr %0, i64 120
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %26 = load i8, ptr %25, align 8
   %27 = icmp eq i8 %26, 4
   br i1 %27, label %.thread282, label %29
@@ -525,7 +525,7 @@ define hidden void @zif_json_encode(ptr noundef %0, ptr nocapture noundef writeo
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %3, i8 0, i64 12, i1 false)
   %31 = load i64, ptr %6, align 8
   %32 = trunc i64 %31 to i32
-  %33 = getelementptr inbounds i8, ptr %3, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 %32, ptr %33, align 4
   %34 = load i64, ptr %5, align 8
   %35 = trunc i64 %34 to i32
@@ -538,7 +538,7 @@ define hidden void @zif_json_encode(ptr noundef %0, ptr nocapture noundef writeo
 39:                                               ; preds = %.thread303
   %40 = and i64 %37, 512
   %.not262 = icmp ne i64 %40, 0
-  %41 = getelementptr inbounds i8, ptr %3, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %42 = load i32, ptr %41, align 4
   store i32 %42, ptr getelementptr inbounds (i8, ptr @json_globals, i64 8), align 4
   %.not266 = icmp eq i32 %42, 0
@@ -551,7 +551,7 @@ define hidden void @zif_json_encode(ptr noundef %0, ptr nocapture noundef writeo
   br i1 %.not268, label %55, label %45
 
 45:                                               ; preds = %43
-  %46 = getelementptr inbounds i8, ptr %44, i64 4
+  %46 = getelementptr inbounds nuw i8, ptr %44, i64 4
   %47 = load i32, ptr %46, align 4
   %48 = and i32 %47, 64
   %.not269 = icmp eq i32 %48, 0
@@ -571,12 +571,12 @@ define hidden void @zif_json_encode(ptr noundef %0, ptr nocapture noundef writeo
   br label %55
 
 55:                                               ; preds = %45, %54, %49, %43
-  %56 = getelementptr inbounds i8, ptr %1, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %56, align 8
   br label %141
 
 57:                                               ; preds = %.thread303
-  %58 = getelementptr inbounds i8, ptr %3, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %59 = load i32, ptr %58, align 4
   %.not263 = icmp eq i32 %59, 0
   br i1 %.not263, label %83, label %60
@@ -587,7 +587,7 @@ define hidden void @zif_json_encode(ptr noundef %0, ptr nocapture noundef writeo
   br i1 %.not264, label %73, label %62
 
 62:                                               ; preds = %60
-  %63 = getelementptr inbounds i8, ptr %61, i64 4
+  %63 = getelementptr inbounds nuw i8, ptr %61, i64 4
   %64 = load i32, ptr %63, align 4
   %65 = and i32 %64, 64
   %.not265 = icmp eq i32 %65, 0
@@ -613,7 +613,7 @@ define hidden void @zif_json_encode(ptr noundef %0, ptr nocapture noundef writeo
 
 73:                                               ; preds = %72, %60
   %74 = phi i32 [ %.pr, %72 ], [ %59, %60 ]
-  %75 = getelementptr inbounds i8, ptr %4, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 0, ptr %75, align 8
   %76 = load ptr, ptr @php_json_exception_ce, align 8
   %77 = icmp ult i32 %74, 12
@@ -621,7 +621,7 @@ define hidden void @zif_json_encode(ptr noundef %0, ptr nocapture noundef writeo
 
 switch.lookup:                                    ; preds = %73
   %78 = zext nneg i32 %74 to i64
-  %switch.gep = getelementptr inbounds [12 x ptr], ptr @switch.table.zif_json_last_error_msg, i64 0, i64 %78
+  %switch.gep = getelementptr inbounds nuw [12 x ptr], ptr @switch.table.zif_json_last_error_msg, i64 0, i64 %78
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %php_json_get_error_msg.exit
 
@@ -640,8 +640,8 @@ php_json_get_error_msg.exit:                      ; preds = %73, %switch.lookup
   br i1 %.not270, label %133, label %85
 
 85:                                               ; preds = %83
-  %86 = getelementptr inbounds i8, ptr %84, i64 24
-  %87 = getelementptr inbounds i8, ptr %84, i64 16
+  %86 = getelementptr inbounds nuw i8, ptr %84, i64 24
+  %87 = getelementptr inbounds nuw i8, ptr %84, i64 16
   %88 = load i64, ptr %87, align 8
   %89 = getelementptr inbounds [1 x i8], ptr %86, i64 0, i64 %88
   store i8 0, ptr %89, align 1
@@ -650,15 +650,15 @@ php_json_get_error_msg.exit:                      ; preds = %73, %switch.lookup
   br i1 %.not271, label %131, label %91
 
 91:                                               ; preds = %85
-  %92 = getelementptr inbounds i8, ptr %4, i64 8
+  %92 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %93 = load i64, ptr %92, align 8
-  %94 = getelementptr inbounds i8, ptr %90, i64 16
+  %94 = getelementptr inbounds nuw i8, ptr %90, i64 16
   %95 = load i64, ptr %94, align 8
   %96 = icmp ugt i64 %93, %95
   br i1 %96, label %97, label %131
 
 97:                                               ; preds = %91
-  %98 = getelementptr inbounds i8, ptr %90, i64 4
+  %98 = getelementptr inbounds nuw i8, ptr %90, i64 4
   %99 = load i32, ptr %98, align 4
   %100 = and i32 %99, 64
   %.not272 = icmp eq i32 %100, 0
@@ -673,11 +673,11 @@ php_json_get_error_msg.exit:                      ; preds = %73, %switch.lookup
   %105 = and i64 %95, -8
   %106 = add i64 %105, 32
   %107 = call ptr @_erealloc(ptr noundef nonnull %90, i64 noundef %106) #14
-  %108 = getelementptr inbounds i8, ptr %107, i64 16
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 16
   store i64 %95, ptr %108, align 8
-  %109 = getelementptr inbounds i8, ptr %107, i64 8
+  %109 = getelementptr inbounds nuw i8, ptr %107, i64 8
   store i64 0, ptr %109, align 8
-  %110 = getelementptr inbounds i8, ptr %107, i64 4
+  %110 = getelementptr inbounds nuw i8, ptr %107, i64 4
   %111 = load i32, ptr %110, align 4
   %112 = and i32 %111, -513
   store i32 %112, ptr %110, align 4
@@ -688,14 +688,14 @@ php_json_get_error_msg.exit:                      ; preds = %73, %switch.lookup
   %115 = add i64 %114, 32
   %116 = call noalias ptr @_emalloc(i64 noundef %115) #15
   store i32 1, ptr %116, align 4
-  %117 = getelementptr inbounds i8, ptr %116, i64 4
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 4
   store i32 22, ptr %117, align 4
-  %118 = getelementptr inbounds i8, ptr %116, i64 8
+  %118 = getelementptr inbounds nuw i8, ptr %116, i64 8
   store i64 0, ptr %118, align 8
-  %119 = getelementptr inbounds i8, ptr %116, i64 16
+  %119 = getelementptr inbounds nuw i8, ptr %116, i64 16
   store i64 %95, ptr %119, align 8
-  %120 = getelementptr inbounds i8, ptr %116, i64 24
-  %121 = getelementptr inbounds i8, ptr %90, i64 24
+  %120 = getelementptr inbounds nuw i8, ptr %116, i64 24
+  %121 = getelementptr inbounds nuw i8, ptr %90, i64 24
   %122 = load i64, ptr %94, align 8
   %.277 = call i64 @llvm.umin.i64(i64 %95, i64 %122)
   %123 = add nuw i64 %.277, 1
@@ -730,12 +730,12 @@ php_json_get_error_msg.exit:                      ; preds = %73, %switch.lookup
 135:                                              ; preds = %133, %131
   %.0248 = phi ptr [ %132, %131 ], [ %134, %133 ]
   store ptr %.0248, ptr %1, align 8
-  %136 = getelementptr inbounds i8, ptr %.0248, i64 4
+  %136 = getelementptr inbounds nuw i8, ptr %.0248, i64 4
   %137 = load i32, ptr %136, align 4
   %138 = and i32 %137, 64
   %.not274 = icmp eq i32 %138, 0
   %139 = select i1 %.not274, i32 262, i32 6
-  %140 = getelementptr inbounds i8, ptr %1, i64 8
+  %140 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %139, ptr %140, align 8
   br label %141
 
@@ -759,7 +759,7 @@ define hidden void @zif_json_decode(ptr noundef %0, ptr noundef %1) #0 {
   store i8 0, ptr %4, align 1
   store i64 512, ptr %5, align 8
   store i64 0, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 44
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %8 = load i32, ptr %7, align 4
   %9 = add i32 %8, -5
   %or.cond = icmp ult i32 %9, -4
@@ -770,8 +770,8 @@ define hidden void @zif_json_decode(ptr noundef %0, ptr noundef %1) #0 {
   br label %.thread242
 
 11:                                               ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %0, i64 80
-  %13 = getelementptr inbounds i8, ptr %0, i64 88
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %14 = load i8, ptr %13, align 8
   %15 = icmp eq i8 %14, 6
   br i1 %15, label %.thread, label %17
@@ -791,21 +791,21 @@ define hidden void @zif_json_decode(ptr noundef %0, ptr noundef %1) #0 {
 
 19:                                               ; preds = %._crit_edge, %.thread
   %20 = phi ptr [ %.pre, %._crit_edge ], [ %16, %.thread ]
-  %21 = getelementptr inbounds i8, ptr %20, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = load i64, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %20, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %24 = icmp eq i32 %8, 1
   br i1 %24, label %.thread255.thread, label %25
 
 25:                                               ; preds = %19
-  %26 = getelementptr inbounds i8, ptr %0, i64 104
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %27 = load i8, ptr %26, align 8
   %switch.tableidx = add i8 %27, -1
   %28 = icmp ult i8 %switch.tableidx, 3
   br i1 %28, label %switch.lookup, label %29
 
 29:                                               ; preds = %25
-  %30 = getelementptr inbounds i8, ptr %0, i64 96
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %31 = call zeroext i1 @zend_parse_arg_bool_slow(ptr noundef nonnull %30, ptr noundef nonnull %4, i32 noundef 2) #13
   br i1 %31, label %.thread214, label %.thread242
 
@@ -826,8 +826,8 @@ switch.lookup:                                    ; preds = %25
   br i1 %33, label %.thread255.thread, label %34
 
 34:                                               ; preds = %.thread214
-  %35 = getelementptr inbounds i8, ptr %0, i64 112
-  %36 = getelementptr inbounds i8, ptr %0, i64 120
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %37 = load i8, ptr %36, align 8
   %38 = icmp eq i8 %37, 4
   br i1 %38, label %.critedge, label %40
@@ -846,8 +846,8 @@ switch.lookup:                                    ; preds = %25
   br i1 %.not, label %43, label %.thread255.thread
 
 43:                                               ; preds = %42
-  %44 = getelementptr inbounds i8, ptr %0, i64 128
-  %45 = getelementptr inbounds i8, ptr %0, i64 136
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %46 = load i8, ptr %45, align 8
   %47 = icmp eq i8 %46, 4
   br i1 %47, label %.thread223, label %49
@@ -901,7 +901,7 @@ switch.lookup:                                    ; preds = %25
   br label %57
 
 57:                                               ; preds = %.thread258, %54
-  %58 = getelementptr inbounds i8, ptr %1, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 1, ptr %58, align 8
   br label %79
 
@@ -963,7 +963,7 @@ define hidden void @zif_json_validate(ptr noundef %0, ptr nocapture noundef writ
   %7 = alloca i64, align 8
   store i64 512, ptr %6, align 8
   store i64 0, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 44
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %9 = load i32, ptr %8, align 4
   %10 = add i32 %9, -4
   %or.cond = icmp ult i32 %10, -3
@@ -974,8 +974,8 @@ define hidden void @zif_json_validate(ptr noundef %0, ptr nocapture noundef writ
   br label %.thread187
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %0, i64 80
-  %14 = getelementptr inbounds i8, ptr %0, i64 88
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %15 = load i8, ptr %14, align 8
   %16 = icmp eq i8 %15, 6
   br i1 %16, label %.thread, label %18
@@ -995,15 +995,15 @@ define hidden void @zif_json_validate(ptr noundef %0, ptr nocapture noundef writ
 
 20:                                               ; preds = %._crit_edge, %.thread
   %21 = phi ptr [ %.pre, %._crit_edge ], [ %17, %.thread ]
-  %22 = getelementptr inbounds i8, ptr %21, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load i64, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %21, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %25 = icmp eq i32 %9, 1
   br i1 %25, label %.thread199.thread, label %26
 
 26:                                               ; preds = %20
-  %27 = getelementptr inbounds i8, ptr %0, i64 96
-  %28 = getelementptr inbounds i8, ptr %0, i64 104
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %29 = load i8, ptr %28, align 8
   %30 = icmp eq i8 %29, 4
   br i1 %30, label %.critedge, label %32
@@ -1022,8 +1022,8 @@ define hidden void @zif_json_validate(ptr noundef %0, ptr nocapture noundef writ
   br i1 %.not, label %35, label %.thread199.thread
 
 35:                                               ; preds = %34
-  %36 = getelementptr inbounds i8, ptr %0, i64 112
-  %37 = getelementptr inbounds i8, ptr %0, i64 120
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %38 = load i8, ptr %37, align 8
   %39 = icmp eq i8 %38, 4
   br i1 %39, label %.thread172, label %41
@@ -1070,7 +1070,7 @@ define hidden void @zif_json_validate(ptr noundef %0, ptr nocapture noundef writ
 
 49:                                               ; preds = %.thread199.thread
   store i32 4, ptr getelementptr inbounds (i8, ptr @json_globals, i64 8), align 4
-  %50 = getelementptr inbounds i8, ptr %1, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %50, align 8
   br label %71
 
@@ -1118,7 +1118,7 @@ php_json_validate_ex.exit:                        ; preds = %62, %67
   %69 = phi i32 [ 3, %62 ], [ 2, %67 ]
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  %70 = getelementptr inbounds i8, ptr %1, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %69, ptr %70, align 8
   br label %71
 
@@ -1128,7 +1128,7 @@ php_json_validate_ex.exit:                        ; preds = %62, %67
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zif_json_last_error(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 44
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %6, label %5
@@ -1141,7 +1141,7 @@ define hidden void @zif_json_last_error(ptr nocapture noundef readonly %0, ptr n
   %7 = load i32, ptr getelementptr inbounds (i8, ptr @json_globals, i64 8), align 4
   %8 = zext i32 %7 to i64
   store i64 %8, ptr %1, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 4, ptr %9, align 8
   br label %10
 
@@ -1153,7 +1153,7 @@ declare void @zend_wrong_parameters_none_error() local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zif_json_last_error_msg(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 44
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %6, label %5
@@ -1169,7 +1169,7 @@ define hidden void @zif_json_last_error_msg(ptr nocapture noundef readonly %0, p
 
 switch.lookup:                                    ; preds = %6
   %9 = zext nneg i32 %7 to i64
-  %switch.gep = getelementptr inbounds [12 x ptr], ptr @switch.table.zif_json_last_error_msg, i64 0, i64 %9
+  %switch.gep = getelementptr inbounds nuw [12 x ptr], ptr @switch.table.zif_json_last_error_msg, i64 0, i64 %9
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %php_json_get_error_msg.exit
 
@@ -1180,18 +1180,18 @@ php_json_get_error_msg.exit:                      ; preds = %6, %switch.lookup
   %12 = add i64 %11, 32
   %13 = tail call noalias ptr @_emalloc(i64 noundef %12) #15
   store i32 1, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %13, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
   store i32 22, ptr %14, align 4
-  %15 = getelementptr inbounds i8, ptr %13, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i64 0, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %13, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i64 %10, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %13, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %17, ptr nonnull align 1 %.0.i, i64 %10, i1 false)
   %18 = getelementptr inbounds [1 x i8], ptr %17, i64 0, i64 %10
   store i8 0, ptr %18, align 1
   store ptr %13, ptr %1, align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 262, ptr %19, align 8
   br label %20
 
@@ -1204,7 +1204,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef i32 @php_json_implement_json_serializable(ptr nocapture readnone %0, ptr nocapture noundef %1) #7 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 28
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %4 = load i32, ptr %3, align 4
   %5 = or i32 %4, 2048
   store i32 %5, ptr %3, align 4

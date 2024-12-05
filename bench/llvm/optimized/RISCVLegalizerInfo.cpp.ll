@@ -567,12 +567,12 @@ define dso_local void @_ZN4llvm18RISCVLegalizerInfoC2ERKNS_14RISCVSubtargetE(ptr
 
 425:                                              ; preds = %425, %2
   %.idx.i = phi i64 [ 8, %2 ], [ %.add.i, %425 ]
-  %.ptr.i = getelementptr inbounds i8, ptr %0, i64 %.idx.i
+  %.ptr.i = getelementptr inbounds nuw i8, ptr %0, i64 %.idx.i
   store i32 0, ptr %.ptr.i, align 8
   %426 = getelementptr inbounds nuw i8, ptr %.ptr.i, i64 4
   store i8 0, ptr %426, align 4
   %427 = getelementptr inbounds nuw i8, ptr %.ptr.i, i64 8
-  %428 = getelementptr inbounds i8, ptr %.ptr.i, i64 24
+  %428 = getelementptr inbounds nuw i8, ptr %.ptr.i, i64 24
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(160) %427, ptr noundef nonnull %428, i64 noundef 2) #15
   %.add.i = add nuw nsw i64 %.idx.i, 168
   %429 = icmp eq i64 %.add.i, 41000
@@ -608,18 +608,18 @@ _ZN4llvm3LLT15scalable_vectorEjS0_.exit846:       ; preds = %425
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %273, ptr noundef nonnull align 8 dereferenceable(56) @constinit, i64 56, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %274, ptr noundef nonnull align 8 dereferenceable(176) @constinit.1, i64 176, i1 false)
   store i64 %445, ptr %275, align 8
-  %450 = getelementptr inbounds i8, ptr %275, i64 8
+  %450 = getelementptr inbounds nuw i8, ptr %275, i64 8
   store i64 %446, ptr %450, align 8
-  %451 = getelementptr inbounds i8, ptr %275, i64 16
+  %451 = getelementptr inbounds nuw i8, ptr %275, i64 16
   store i64 %447, ptr %451, align 8
-  %452 = getelementptr inbounds i8, ptr %275, i64 24
+  %452 = getelementptr inbounds nuw i8, ptr %275, i64 24
   store i64 %448, ptr %452, align 8
-  %453 = getelementptr inbounds i8, ptr %275, i64 32
+  %453 = getelementptr inbounds nuw i8, ptr %275, i64 32
   store i64 %449, ptr %453, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %276, ptr noundef nonnull align 4 dereferenceable(20) @constinit.2, i64 20, i1 false)
   %454 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderESt16initializer_listIjE(ptr noundef nonnull align 8 dereferenceable(121040) %0, ptr nonnull %276, i64 5) #15
   store i64 257, ptr %277, align 8
-  %455 = getelementptr inbounds i8, ptr %277, i64 8
+  %455 = getelementptr inbounds nuw i8, ptr %277, i64 8
   %456 = load i64, ptr %437, align 8
   store i64 %456, ptr %455, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %272)
@@ -642,7 +642,7 @@ _ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listINS_3LLTEE.exit: ; preds 
   %462 = getelementptr inbounds nuw i8, ptr %271, i64 24
   %463 = getelementptr inbounds nuw i8, ptr %271, i64 16
   store ptr %1, ptr %271, align 8, !noalias !4
-  %.sroa.42306.0..sroa_idx = getelementptr inbounds i8, ptr %271, i64 8
+  %.sroa.42306.0..sroa_idx = getelementptr inbounds nuw i8, ptr %271, i64 8
   store i64 0, ptr %.sroa.42306.0..sroa_idx, align 8, !noalias !4
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL21typeIsLegalIntOrFPVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E9_M_invokeERKSt9_Any_dataS3_", ptr %462, align 8, !noalias !4
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL21typeIsLegalIntOrFPVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation", ptr %463, align 8, !noalias !4
@@ -696,7 +696,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit2.i1864: ; preds = %474,
   %484 = phi ptr [ null, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1858 ], [ %480, %474 ]
   %485 = phi ptr [ %472, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1858 ], [ %.pre5.i1863, %474 ]
   %486 = phi ptr [ %471, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1858 ], [ %.pre.i1861, %474 ]
-  %487 = getelementptr inbounds i8, ptr %278, i64 8
+  %487 = getelementptr inbounds nuw i8, ptr %278, i64 8
   store i64 0, ptr %487, align 8, !alias.scope !7
   %488 = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #16, !noalias !7
   %489 = getelementptr inbounds nuw i8, ptr %488, i64 24
@@ -818,7 +818,7 @@ _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit: ; preds = %_ZNSt8funct
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %46)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %47)
   store i64 32, ptr %46, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %46, i64 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %46, i64 8
   store i8 0, ptr %.sroa.2.0..sroa_idx.i, align 8
   %528 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %46) #15
   %529 = trunc i64 %528 to i32
@@ -859,17 +859,17 @@ _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit: ; preds = %_ZNSt8functionIFS
 
 _ZNSt8functionIFbRKN4llvm13LegalityQueryEEED2Ev.exit: ; preds = %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit, %541
   store i32 148, ptr %279, align 4
-  %543 = getelementptr inbounds i8, ptr %279, i64 4
+  %543 = getelementptr inbounds nuw i8, ptr %279, i64 4
   store i32 147, ptr %543, align 4
-  %544 = getelementptr inbounds i8, ptr %279, i64 8
+  %544 = getelementptr inbounds nuw i8, ptr %279, i64 8
   store i32 150, ptr %544, align 4
-  %545 = getelementptr inbounds i8, ptr %279, i64 12
+  %545 = getelementptr inbounds nuw i8, ptr %279, i64 12
   store i32 149, ptr %545, align 4
   %546 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderESt16initializer_listIjE(ptr noundef nonnull align 8 dereferenceable(121040) %0, ptr nonnull %279, i64 4) #15
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %266)
   %547 = getelementptr inbounds nuw i8, ptr %266, i64 16
   %548 = getelementptr inbounds nuw i8, ptr %266, i64 24
-  %549 = getelementptr inbounds i8, ptr %266, i64 8
+  %549 = getelementptr inbounds nuw i8, ptr %266, i64 8
   store i64 0, ptr %549, align 8
   store ptr @_ZN4llvm15LegalizeRuleSet6alwaysERKNS_13LegalityQueryE, ptr %266, align 8
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEPS4_E9_M_invokeERKSt9_Any_dataS3_, ptr %548, align 8
@@ -886,7 +886,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEED2Ev.exit: ; preds = %_ZN4llvm15Legal
 _ZN4llvm15LegalizeRuleSet5lowerEv.exit:           ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEED2Ev.exit, %552
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %266)
   store i32 151, ptr %280, align 4
-  %554 = getelementptr inbounds i8, ptr %280, i64 4
+  %554 = getelementptr inbounds nuw i8, ptr %280, i64 4
   store i32 153, ptr %554, align 4
   %555 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderESt16initializer_listIjE(ptr noundef nonnull align 8 dereferenceable(121040) %0, ptr nonnull %280, i64 2) #15
   %.sroa.0348.0.copyload = load i64, ptr %437, align 8
@@ -894,7 +894,7 @@ _ZN4llvm15LegalizeRuleSet5lowerEv.exit:           ; preds = %_ZNSt8functionIFbRK
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %265)
   %557 = getelementptr inbounds nuw i8, ptr %265, i64 16
   %558 = getelementptr inbounds nuw i8, ptr %265, i64 24
-  %559 = getelementptr inbounds i8, ptr %265, i64 8
+  %559 = getelementptr inbounds nuw i8, ptr %265, i64 8
   store i64 0, ptr %559, align 8
   store ptr @_ZN4llvm15LegalizeRuleSet6alwaysERKNS_13LegalityQueryE, ptr %265, align 8
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEPS4_E9_M_invokeERKSt9_Any_dataS3_, ptr %558, align 8
@@ -911,17 +911,17 @@ _ZN4llvm15LegalizeRuleSet5lowerEv.exit:           ; preds = %_ZNSt8functionIFbRK
 _ZN4llvm15LegalizeRuleSet5lowerEv.exit976:        ; preds = %_ZN4llvm15LegalizeRuleSet5lowerEv.exit, %562
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %265)
   store i32 159, ptr %281, align 4
-  %564 = getelementptr inbounds i8, ptr %281, i64 4
+  %564 = getelementptr inbounds nuw i8, ptr %281, i64 4
   store i32 160, ptr %564, align 4
-  %565 = getelementptr inbounds i8, ptr %281, i64 8
+  %565 = getelementptr inbounds nuw i8, ptr %281, i64 8
   store i32 161, ptr %565, align 4
-  %566 = getelementptr inbounds i8, ptr %281, i64 12
+  %566 = getelementptr inbounds nuw i8, ptr %281, i64 12
   store i32 162, ptr %566, align 4
   %567 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderESt16initializer_listIjE(ptr noundef nonnull align 8 dereferenceable(121040) %0, ptr nonnull %281, i64 4) #15
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %264)
   %568 = getelementptr inbounds nuw i8, ptr %264, i64 16
   %569 = getelementptr inbounds nuw i8, ptr %264, i64 24
-  %570 = getelementptr inbounds i8, ptr %264, i64 8
+  %570 = getelementptr inbounds nuw i8, ptr %264, i64 8
   store i64 0, ptr %570, align 8
   store ptr @_ZN4llvm15LegalizeRuleSet6alwaysERKNS_13LegalityQueryE, ptr %264, align 8
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEPS4_E9_M_invokeERKSt9_Any_dataS3_, ptr %569, align 8
@@ -938,9 +938,9 @@ _ZN4llvm15LegalizeRuleSet5lowerEv.exit976:        ; preds = %_ZN4llvm15LegalizeR
 _ZN4llvm15LegalizeRuleSet5lowerEv.exit979:        ; preds = %_ZN4llvm15LegalizeRuleSet5lowerEv.exit976, %573
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %264)
   store i32 137, ptr %282, align 4
-  %575 = getelementptr inbounds i8, ptr %282, i64 4
+  %575 = getelementptr inbounds nuw i8, ptr %282, i64 4
   store i32 136, ptr %575, align 4
-  %576 = getelementptr inbounds i8, ptr %282, i64 8
+  %576 = getelementptr inbounds nuw i8, ptr %282, i64 8
   store i32 135, ptr %576, align 4
   %577 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderESt16initializer_listIjE(ptr noundef nonnull align 8 dereferenceable(121040) %0, ptr nonnull %282, i64 3) #15
   %578 = load i8, ptr %433, align 1
@@ -971,14 +971,14 @@ _ZN4llvm15LegalizeRuleSet9customForESt16initializer_listISt4pairINS_3LLTES3_EE.e
   store i64 257, ptr %284, align 8
   %588 = getelementptr inbounds nuw i8, ptr %284, i64 8
   store i64 257, ptr %588, align 8
-  %589 = getelementptr inbounds i8, ptr %284, i64 16
+  %589 = getelementptr inbounds nuw i8, ptr %284, i64 16
   store i64 257, ptr %589, align 8
-  %590 = getelementptr inbounds i8, ptr %284, i64 24
+  %590 = getelementptr inbounds nuw i8, ptr %284, i64 24
   %591 = load i64, ptr %437, align 8
   store i64 %591, ptr %590, align 8
-  %592 = getelementptr inbounds i8, ptr %284, i64 32
+  %592 = getelementptr inbounds nuw i8, ptr %284, i64 32
   store i64 %591, ptr %592, align 8
-  %593 = getelementptr inbounds i8, ptr %284, i64 40
+  %593 = getelementptr inbounds nuw i8, ptr %284, i64 40
   store i64 %591, ptr %593, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %262)
   call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %262, i32 noundef 0, i32 noundef 1, ptr nonnull %284, i64 3) #15
@@ -1026,7 +1026,7 @@ _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit986: ; preds = %_ZNSt8fu
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %43)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %44)
   store i64 32, ptr %43, align 8
-  %.sroa.2.0..sroa_idx.i2543 = getelementptr inbounds i8, ptr %43, i64 8
+  %.sroa.2.0..sroa_idx.i2543 = getelementptr inbounds nuw i8, ptr %43, i64 8
   store i8 0, ptr %.sroa.2.0..sroa_idx.i2543, align 8
   %608 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %43) #15
   %609 = trunc i64 %608 to i32
@@ -1062,7 +1062,7 @@ _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2548: ; preds = %_ZNSt8functio
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %40)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %41)
   store i64 32, ptr %40, align 8
-  %.sroa.2.0..sroa_idx.i2549 = getelementptr inbounds i8, ptr %40, i64 8
+  %.sroa.2.0..sroa_idx.i2549 = getelementptr inbounds nuw i8, ptr %40, i64 8
   store i8 0, ptr %.sroa.2.0..sroa_idx.i2549, align 8
   %620 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %40) #15
   %621 = trunc i64 %620 to i32
@@ -1122,9 +1122,9 @@ _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit991: ; preds = %_ZNSt8fu
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %258)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %259)
   store i32 134, ptr %285, align 4
-  %642 = getelementptr inbounds i8, ptr %285, i64 4
+  %642 = getelementptr inbounds nuw i8, ptr %285, i64 4
   store i32 132, ptr %642, align 4
-  %643 = getelementptr inbounds i8, ptr %285, i64 8
+  %643 = getelementptr inbounds nuw i8, ptr %285, i64 8
   store i32 126, ptr %643, align 4
   %644 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderESt16initializer_listIjE(ptr noundef nonnull align 8 dereferenceable(121040) %0, ptr nonnull %285, i64 3) #15
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %256)
@@ -1133,7 +1133,7 @@ _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit991: ; preds = %_ZNSt8fu
   %645 = getelementptr inbounds nuw i8, ptr %257, i64 24
   %646 = getelementptr inbounds nuw i8, ptr %257, i64 16
   store ptr %1, ptr %257, align 8, !noalias !10
-  %.sroa.42308.0..sroa_idx = getelementptr inbounds i8, ptr %257, i64 8
+  %.sroa.42308.0..sroa_idx = getelementptr inbounds nuw i8, ptr %257, i64 8
   store i64 0, ptr %.sroa.42308.0..sroa_idx, align 8, !noalias !10
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL21typeIsLegalIntOrFPVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E9_M_invokeERKSt9_Any_dataS3_", ptr %645, align 8, !noalias !10
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL21typeIsLegalIntOrFPVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation", ptr %646, align 8, !noalias !10
@@ -1187,7 +1187,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit2.i1879: ; preds = %657,
   %667 = phi ptr [ null, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1873 ], [ %663, %657 ]
   %668 = phi ptr [ %655, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1873 ], [ %.pre5.i1878, %657 ]
   %669 = phi ptr [ %654, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1873 ], [ %.pre.i1876, %657 ]
-  %670 = getelementptr inbounds i8, ptr %287, i64 8
+  %670 = getelementptr inbounds nuw i8, ptr %287, i64 8
   store i64 0, ptr %670, align 8, !alias.scope !13
   %671 = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #16, !noalias !13
   %672 = getelementptr inbounds nuw i8, ptr %671, i64 24
@@ -1254,7 +1254,7 @@ _ZL21typeIsLegalIntOrFPVecjSt16initializer_listIN4llvm3LLTEERKNS0_14RISCVSubtarg
   %690 = getelementptr inbounds nuw i8, ptr %255, i64 24
   %691 = getelementptr inbounds nuw i8, ptr %255, i64 16
   store ptr %1, ptr %255, align 8, !noalias !16
-  %.sroa.42312.0..sroa_idx = getelementptr inbounds i8, ptr %255, i64 8
+  %.sroa.42312.0..sroa_idx = getelementptr inbounds nuw i8, ptr %255, i64 8
   store i64 1, ptr %.sroa.42312.0..sroa_idx, align 8, !noalias !16
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL21typeIsLegalIntOrFPVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E9_M_invokeERKSt9_Any_dataS3_", ptr %690, align 8, !noalias !16
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL21typeIsLegalIntOrFPVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation", ptr %691, align 8, !noalias !16
@@ -1308,7 +1308,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit2.i1894: ; preds = %702,
   %712 = phi ptr [ null, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1888 ], [ %708, %702 ]
   %713 = phi ptr [ %700, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1888 ], [ %.pre5.i1893, %702 ]
   %714 = phi ptr [ %699, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1888 ], [ %.pre.i1891, %702 ]
-  %715 = getelementptr inbounds i8, ptr %288, i64 8
+  %715 = getelementptr inbounds nuw i8, ptr %288, i64 8
   store i64 0, ptr %715, align 8, !alias.scope !19
   %716 = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #16, !noalias !19
   %717 = getelementptr inbounds nuw i8, ptr %716, i64 24
@@ -1410,7 +1410,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit2.i: ; preds = %746, %_Z
   %751 = phi ptr [ null, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1003 ], [ %748, %746 ]
   %752 = phi ptr [ %742, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1003 ], [ %.pre5.i, %746 ]
   %753 = phi ptr [ %743, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1003 ], [ %.pre.i, %746 ]
-  %754 = getelementptr inbounds i8, ptr %286, i64 8
+  %754 = getelementptr inbounds nuw i8, ptr %286, i64 8
   store i64 0, ptr %754, align 8, !alias.scope !22
   %755 = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #16, !noalias !22
   %756 = getelementptr inbounds nuw i8, ptr %755, i64 24
@@ -1554,7 +1554,7 @@ _ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listISt4pairINS_3LLTES3_EE.ex
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %251)
   %808 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderEj(ptr noundef nonnull align 8 dereferenceable(121040) %0, i32 noundef 133) #15
   store i64 257, ptr %290, align 8
-  %809 = getelementptr inbounds i8, ptr %290, i64 8
+  %809 = getelementptr inbounds nuw i8, ptr %290, i64 8
   %810 = load i64, ptr %437, align 8
   store i64 %810, ptr %809, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %250)
@@ -1576,7 +1576,7 @@ _ZN4llvm15LegalizeRuleSet9customForESt16initializer_listINS_3LLTEE.exit: ; preds
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %249)
   %817 = getelementptr inbounds nuw i8, ptr %249, i64 16
   %818 = getelementptr inbounds nuw i8, ptr %249, i64 24
-  %819 = getelementptr inbounds i8, ptr %249, i64 8
+  %819 = getelementptr inbounds nuw i8, ptr %249, i64 8
   store i64 0, ptr %819, align 8
   store ptr @_ZN4llvm15LegalizeRuleSet6alwaysERKNS_13LegalityQueryE, ptr %249, align 8
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEPS4_E9_M_invokeERKSt9_Any_dataS3_, ptr %818, align 8
@@ -1616,7 +1616,7 @@ _ZN4llvm15LegalizeRuleSet9customForESt16initializer_listINS_3LLTEE.exit1022: ; p
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %247)
   %832 = getelementptr inbounds nuw i8, ptr %247, i64 16
   %833 = getelementptr inbounds nuw i8, ptr %247, i64 24
-  %834 = getelementptr inbounds i8, ptr %247, i64 8
+  %834 = getelementptr inbounds nuw i8, ptr %247, i64 8
   store i64 0, ptr %834, align 8
   store ptr @_ZN4llvm15LegalizeRuleSet6alwaysERKNS_13LegalityQueryE, ptr %247, align 8
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEPS4_E9_M_invokeERKSt9_Any_dataS3_, ptr %833, align 8
@@ -1641,7 +1641,7 @@ _ZN4llvm15LegalizeRuleSet5lowerEv.exit1025:       ; preds = %_ZN4llvm15LegalizeR
   %840 = getelementptr inbounds nuw i8, ptr %246, i64 24
   %841 = getelementptr inbounds nuw i8, ptr %246, i64 16
   store ptr %1, ptr %246, align 8, !noalias !25
-  %.sroa.42316.0..sroa_idx = getelementptr inbounds i8, ptr %246, i64 8
+  %.sroa.42316.0..sroa_idx = getelementptr inbounds nuw i8, ptr %246, i64 8
   store i64 1, ptr %.sroa.42316.0..sroa_idx, align 8, !noalias !25
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL18typeIsLegalBoolVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E9_M_invokeERKSt9_Any_dataS3_", ptr %840, align 8, !noalias !25
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL18typeIsLegalBoolVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation", ptr %841, align 8, !noalias !25
@@ -1695,7 +1695,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit2.i1909: ; preds = %852,
   %862 = phi ptr [ null, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1903 ], [ %858, %852 ]
   %863 = phi ptr [ %850, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1903 ], [ %.pre5.i1908, %852 ]
   %864 = phi ptr [ %849, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1903 ], [ %.pre.i1906, %852 ]
-  %865 = getelementptr inbounds i8, ptr %292, i64 8
+  %865 = getelementptr inbounds nuw i8, ptr %292, i64 8
   store i64 0, ptr %865, align 8, !alias.scope !28
   %866 = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #16, !noalias !28
   %867 = getelementptr inbounds nuw i8, ptr %866, i64 24
@@ -1797,7 +1797,7 @@ _ZN4llvm15LegalizeRuleSet8customIfESt8functionIFbRKNS_13LegalityQueryEEE.exit: ;
 
 _ZNSt8functionIFbRKN4llvm13LegalityQueryEEED2Ev.exit1035: ; preds = %_ZN4llvm15LegalizeRuleSet8customIfESt8functionIFbRKNS_13LegalityQueryEEE.exit, %899
   store i32 73, ptr %293, align 4
-  %901 = getelementptr inbounds i8, ptr %293, i64 4
+  %901 = getelementptr inbounds nuw i8, ptr %293, i64 4
   store i32 71, ptr %901, align 4
   %902 = getelementptr inbounds nuw i8, ptr %1, i64 311
   %903 = getelementptr inbounds nuw i8, ptr %295, i64 16
@@ -1807,7 +1807,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEED2Ev.exit1035: ; preds = %_ZN4llvm15L
   %907 = getelementptr inbounds nuw i8, ptr %243, i64 32
   %908 = getelementptr inbounds nuw i8, ptr %296, i64 16
   %909 = getelementptr inbounds nuw i8, ptr %296, i64 24
-  %910 = getelementptr inbounds i8, ptr %294, i64 8
+  %910 = getelementptr inbounds nuw i8, ptr %294, i64 8
   %911 = getelementptr inbounds nuw i8, ptr %294, i64 24
   %912 = getelementptr inbounds nuw i8, ptr %294, i64 16
   %913 = getelementptr inbounds nuw i8, ptr %242, i64 24
@@ -1820,7 +1820,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEED2Ev.exit1035: ; preds = %_ZN4llvm15L
 
 919:                                              ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEED2Ev.exit1035, %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1071
   %.0.idx2436 = phi i64 [ 0, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEED2Ev.exit1035 ], [ %.0.add, %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1071 ]
-  %.0.ptr = getelementptr inbounds i8, ptr %293, i64 %.0.idx2436
+  %.0.ptr = getelementptr inbounds nuw i8, ptr %293, i64 %.0.idx2436
   %920 = load i32, ptr %.0.ptr, align 4
   %921 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderEj(ptr noundef nonnull align 8 dereferenceable(121040) %0, i32 noundef %920) #15
   %922 = icmp ne i32 %920, 73
@@ -2053,13 +2053,13 @@ _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1071: ; preds = %_ZNSt8f
 
 1006:                                             ; preds = %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1071
   store i32 138, ptr %297, align 4
-  %1007 = getelementptr inbounds i8, ptr %297, i64 4
+  %1007 = getelementptr inbounds nuw i8, ptr %297, i64 4
   store i32 139, ptr %1007, align 4
   %1008 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderESt16initializer_listIjE(ptr noundef nonnull align 8 dereferenceable(121040) %0, ptr nonnull %297, i64 2) #15
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %237)
   %1009 = getelementptr inbounds nuw i8, ptr %237, i64 16
   %1010 = getelementptr inbounds nuw i8, ptr %237, i64 24
-  %1011 = getelementptr inbounds i8, ptr %237, i64 8
+  %1011 = getelementptr inbounds nuw i8, ptr %237, i64 8
   store i64 0, ptr %1011, align 8
   store ptr @_ZN4llvm15LegalizeRuleSet6alwaysERKNS_13LegalityQueryE, ptr %237, align 8
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEPS4_E9_M_invokeERKSt9_Any_dataS3_, ptr %1010, align 8
@@ -2076,7 +2076,7 @@ _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1071: ; preds = %_ZNSt8f
 _ZN4llvm15LegalizeRuleSet5lowerEv.exit1074:       ; preds = %1006, %1014
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %237)
   store i32 141, ptr %298, align 4
-  %1016 = getelementptr inbounds i8, ptr %298, i64 4
+  %1016 = getelementptr inbounds nuw i8, ptr %298, i64 4
   store i32 140, ptr %1016, align 4
   %1017 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderESt16initializer_listIjE(ptr noundef nonnull align 8 dereferenceable(121040) %0, ptr nonnull %298, i64 2) #15
   %1018 = getelementptr inbounds nuw i8, ptr %1, i64 365
@@ -2095,9 +2095,9 @@ _ZN4llvm15LegalizeRuleSet5lowerEv.exit1074:       ; preds = %1006, %1014
   %1026 = getelementptr inbounds nuw i8, ptr %299, i64 8
   %1027 = load i64, ptr %437, align 8
   store i64 %1027, ptr %1026, align 8
-  %1028 = getelementptr inbounds i8, ptr %299, i64 16
+  %1028 = getelementptr inbounds nuw i8, ptr %299, i64 16
   store i64 %1027, ptr %1028, align 8
-  %1029 = getelementptr inbounds i8, ptr %299, i64 24
+  %1029 = getelementptr inbounds nuw i8, ptr %299, i64 24
   store i64 %1027, ptr %1029, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %236)
   call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %236, i32 noundef 0, i32 noundef 1, ptr nonnull %299, i64 2) #15
@@ -2165,7 +2165,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit2.i1084: ; preds = %1052
   %1058 = phi ptr [ null, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1078 ], [ %1055, %1052 ]
   %1059 = phi ptr [ %1047, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1078 ], [ %.pre5.i1083, %1052 ]
   %1060 = phi ptr [ %1048, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1078 ], [ %.pre.i1081, %1052 ]
-  %1061 = getelementptr inbounds i8, ptr %300, i64 8
+  %1061 = getelementptr inbounds nuw i8, ptr %300, i64 8
   store i64 0, ptr %1061, align 8, !alias.scope !34
   %1062 = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #16, !noalias !34
   %1063 = getelementptr inbounds nuw i8, ptr %1062, i64 24
@@ -2301,7 +2301,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEED2Ev.exit1104: ; preds = %1106, %_ZNS
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %232)
   %1108 = getelementptr inbounds nuw i8, ptr %232, i64 16
   %1109 = getelementptr inbounds nuw i8, ptr %232, i64 24
-  %1110 = getelementptr inbounds i8, ptr %232, i64 8
+  %1110 = getelementptr inbounds nuw i8, ptr %232, i64 8
   store i64 0, ptr %1110, align 8
   store ptr @_ZN4llvm15LegalizeRuleSet6alwaysERKNS_13LegalityQueryE, ptr %232, align 8
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEPS4_E9_M_invokeERKSt9_Any_dataS3_, ptr %1109, align 8
@@ -2323,7 +2323,7 @@ _ZN4llvm15LegalizeRuleSet5lowerEv.exit1107:       ; preds = %_ZNSt8functionIFbRK
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %231)
   %1117 = getelementptr inbounds nuw i8, ptr %231, i64 16
   %1118 = getelementptr inbounds nuw i8, ptr %231, i64 24
-  %1119 = getelementptr inbounds i8, ptr %231, i64 8
+  %1119 = getelementptr inbounds nuw i8, ptr %231, i64 8
   store i64 0, ptr %1119, align 8
   store ptr @_ZN4llvm15LegalizeRuleSet6alwaysERKNS_13LegalityQueryE, ptr %231, align 8
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEPS4_E9_M_invokeERKSt9_Any_dataS3_, ptr %1118, align 8
@@ -2346,7 +2346,7 @@ _ZN4llvm15LegalizeRuleSet5lowerEv.exit1110:       ; preds = %_ZN4llvm15LegalizeR
   %1125 = getelementptr inbounds nuw i8, ptr %230, i64 24
   %1126 = getelementptr inbounds nuw i8, ptr %230, i64 16
   store ptr %1, ptr %230, align 8, !noalias !37
-  %.sroa.42320.0..sroa_idx = getelementptr inbounds i8, ptr %230, i64 8
+  %.sroa.42320.0..sroa_idx = getelementptr inbounds nuw i8, ptr %230, i64 8
   store i64 0, ptr %.sroa.42320.0..sroa_idx, align 8, !noalias !37
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL21typeIsLegalIntOrFPVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E9_M_invokeERKSt9_Any_dataS3_", ptr %1125, align 8, !noalias !37
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL21typeIsLegalIntOrFPVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation", ptr %1126, align 8, !noalias !37
@@ -2400,7 +2400,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit2.i1924: ; preds = %1137
   %1147 = phi ptr [ null, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1918 ], [ %1143, %1137 ]
   %1148 = phi ptr [ %1135, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1918 ], [ %.pre5.i1923, %1137 ]
   %1149 = phi ptr [ %1134, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1918 ], [ %.pre.i1921, %1137 ]
-  %1150 = getelementptr inbounds i8, ptr %306, i64 8
+  %1150 = getelementptr inbounds nuw i8, ptr %306, i64 8
   store i64 0, ptr %1150, align 8, !alias.scope !40
   %1151 = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #16, !noalias !40
   %1152 = getelementptr inbounds nuw i8, ptr %1151, i64 24
@@ -2467,7 +2467,7 @@ _ZL21typeIsLegalIntOrFPVecjSt16initializer_listIN4llvm3LLTEERKNS0_14RISCVSubtarg
   %1170 = getelementptr inbounds nuw i8, ptr %228, i64 24
   %1171 = getelementptr inbounds nuw i8, ptr %228, i64 16
   store ptr %1, ptr %228, align 8, !noalias !43
-  %.sroa.42324.0..sroa_idx = getelementptr inbounds i8, ptr %228, i64 8
+  %.sroa.42324.0..sroa_idx = getelementptr inbounds nuw i8, ptr %228, i64 8
   store i64 0, ptr %.sroa.42324.0..sroa_idx, align 8, !noalias !43
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL18typeIsLegalBoolVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E9_M_invokeERKSt9_Any_dataS3_", ptr %1170, align 8, !noalias !43
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL18typeIsLegalBoolVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation", ptr %1171, align 8, !noalias !43
@@ -2521,7 +2521,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit2.i1939: ; preds = %1182
   %1192 = phi ptr [ null, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1933 ], [ %1188, %1182 ]
   %1193 = phi ptr [ %1180, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1933 ], [ %.pre5.i1938, %1182 ]
   %1194 = phi ptr [ %1179, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1933 ], [ %.pre.i1936, %1182 ]
-  %1195 = getelementptr inbounds i8, ptr %307, i64 8
+  %1195 = getelementptr inbounds nuw i8, ptr %307, i64 8
   store i64 0, ptr %1195, align 8, !alias.scope !46
   %1196 = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #16, !noalias !46
   %1197 = getelementptr inbounds nuw i8, ptr %1196, i64 24
@@ -2623,7 +2623,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit2.i1128: ; preds = %1226
   %1231 = phi ptr [ null, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1122 ], [ %1228, %1226 ]
   %1232 = phi ptr [ %1222, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1122 ], [ %.pre5.i1127, %1226 ]
   %1233 = phi ptr [ %1223, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1122 ], [ %.pre.i1125, %1226 ]
-  %1234 = getelementptr inbounds i8, ptr %305, i64 8
+  %1234 = getelementptr inbounds nuw i8, ptr %305, i64 8
   store i64 0, ptr %1234, align 8, !alias.scope !49
   %1235 = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #16, !noalias !49
   %1236 = getelementptr inbounds nuw i8, ptr %1235, i64 24
@@ -2665,7 +2665,7 @@ _ZN4llvm18LegalityPredicates3anyISt8functionIFbRKNS_13LegalityQueryEEEEET_S8_S8_
   %1244 = getelementptr inbounds nuw i8, ptr %225, i64 24
   %1245 = getelementptr inbounds nuw i8, ptr %225, i64 16
   store ptr %1, ptr %225, align 8, !noalias !52
-  %.sroa.42328.0..sroa_idx = getelementptr inbounds i8, ptr %225, i64 8
+  %.sroa.42328.0..sroa_idx = getelementptr inbounds nuw i8, ptr %225, i64 8
   store i64 1, ptr %.sroa.42328.0..sroa_idx, align 8, !noalias !52
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL21typeIsLegalIntOrFPVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E9_M_invokeERKSt9_Any_dataS3_", ptr %1244, align 8, !noalias !52
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL21typeIsLegalIntOrFPVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation", ptr %1245, align 8, !noalias !52
@@ -2719,7 +2719,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit2.i1954: ; preds = %1256
   %1266 = phi ptr [ null, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1948 ], [ %1262, %1256 ]
   %1267 = phi ptr [ %1254, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1948 ], [ %.pre5.i1953, %1256 ]
   %1268 = phi ptr [ %1253, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1948 ], [ %.pre.i1951, %1256 ]
-  %1269 = getelementptr inbounds i8, ptr %309, i64 8
+  %1269 = getelementptr inbounds nuw i8, ptr %309, i64 8
   store i64 0, ptr %1269, align 8, !alias.scope !55
   %1270 = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #16, !noalias !55
   %1271 = getelementptr inbounds nuw i8, ptr %1270, i64 24
@@ -2786,7 +2786,7 @@ _ZL21typeIsLegalIntOrFPVecjSt16initializer_listIN4llvm3LLTEERKNS0_14RISCVSubtarg
   %1289 = getelementptr inbounds nuw i8, ptr %223, i64 24
   %1290 = getelementptr inbounds nuw i8, ptr %223, i64 16
   store ptr %1, ptr %223, align 8, !noalias !58
-  %.sroa.42332.0..sroa_idx = getelementptr inbounds i8, ptr %223, i64 8
+  %.sroa.42332.0..sroa_idx = getelementptr inbounds nuw i8, ptr %223, i64 8
   store i64 1, ptr %.sroa.42332.0..sroa_idx, align 8, !noalias !58
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL18typeIsLegalBoolVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E9_M_invokeERKSt9_Any_dataS3_", ptr %1289, align 8, !noalias !58
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL18typeIsLegalBoolVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation", ptr %1290, align 8, !noalias !58
@@ -2840,7 +2840,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit2.i1969: ; preds = %1301
   %1311 = phi ptr [ null, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1963 ], [ %1307, %1301 ]
   %1312 = phi ptr [ %1299, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1963 ], [ %.pre5.i1968, %1301 ]
   %1313 = phi ptr [ %1298, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1963 ], [ %.pre.i1966, %1301 ]
-  %1314 = getelementptr inbounds i8, ptr %310, i64 8
+  %1314 = getelementptr inbounds nuw i8, ptr %310, i64 8
   store i64 0, ptr %1314, align 8, !alias.scope !61
   %1315 = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #16, !noalias !61
   %1316 = getelementptr inbounds nuw i8, ptr %1315, i64 24
@@ -2942,7 +2942,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit2.i1151: ; preds = %1345
   %1350 = phi ptr [ null, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1145 ], [ %1347, %1345 ]
   %1351 = phi ptr [ %1341, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1145 ], [ %.pre5.i1150, %1345 ]
   %1352 = phi ptr [ %1342, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1145 ], [ %.pre.i1148, %1345 ]
-  %1353 = getelementptr inbounds i8, ptr %308, i64 8
+  %1353 = getelementptr inbounds nuw i8, ptr %308, i64 8
   store i64 0, ptr %1353, align 8, !alias.scope !64
   %1354 = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #16, !noalias !64
   %1355 = getelementptr inbounds nuw i8, ptr %1354, i64 24
@@ -3026,7 +3026,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit2.i1166: ; preds = %1370
   %1380 = phi ptr [ null, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1160 ], [ %1376, %1370 ]
   %1381 = phi ptr [ %1368, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1160 ], [ %.pre5.i1165, %1370 ]
   %1382 = phi ptr [ %1367, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1160 ], [ %.pre.i1163, %1370 ]
-  %1383 = getelementptr inbounds i8, ptr %304, i64 8
+  %1383 = getelementptr inbounds nuw i8, ptr %304, i64 8
   store i64 0, ptr %1383, align 8, !alias.scope !67
   %1384 = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #16, !noalias !67
   %1385 = getelementptr inbounds nuw i8, ptr %1384, i64 24
@@ -3222,7 +3222,7 @@ _ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listINS_3LLTEE.exit1194: ; pr
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %217)
   %1458 = getelementptr inbounds nuw i8, ptr %217, i64 16
   %1459 = getelementptr inbounds nuw i8, ptr %217, i64 24
-  %1460 = getelementptr inbounds i8, ptr %217, i64 8
+  %1460 = getelementptr inbounds nuw i8, ptr %217, i64 8
   store i64 0, ptr %1460, align 8
   store ptr @_ZN4llvm15LegalizeRuleSet6alwaysERKNS_13LegalityQueryE, ptr %217, align 8
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEPS4_E9_M_invokeERKSt9_Any_dataS3_, ptr %1459, align 8
@@ -3242,11 +3242,11 @@ _ZN4llvm15LegalizeRuleSet5lowerEv.exit1197:       ; preds = %1456, %1463
 
 1465:                                             ; preds = %_ZN4llvm15LegalizeRuleSet5lowerEv.exit1197, %_ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listINS_3LLTEE.exit1194
   store i32 234, ptr %312, align 4
-  %1466 = getelementptr inbounds i8, ptr %312, i64 4
+  %1466 = getelementptr inbounds nuw i8, ptr %312, i64 4
   store i32 232, ptr %1466, align 4
   %1467 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderESt16initializer_listIjE(ptr noundef nonnull align 8 dereferenceable(121040) %0, ptr nonnull %312, i64 2) #15
   store i32 235, ptr %313, align 4
-  %1468 = getelementptr inbounds i8, ptr %313, i64 4
+  %1468 = getelementptr inbounds nuw i8, ptr %313, i64 4
   store i32 233, ptr %1468, align 4
   %1469 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderESt16initializer_listIjE(ptr noundef nonnull align 8 dereferenceable(121040) %0, ptr nonnull %313, i64 2) #15
   %1470 = load i8, ptr %1018, align 1
@@ -3257,10 +3257,10 @@ _ZN4llvm15LegalizeRuleSet5lowerEv.exit1197:       ; preds = %1456, %1463
   store i64 257, ptr %314, align 8
   %1473 = getelementptr inbounds nuw i8, ptr %314, i64 8
   store i64 257, ptr %1473, align 8
-  %1474 = getelementptr inbounds i8, ptr %314, i64 16
+  %1474 = getelementptr inbounds nuw i8, ptr %314, i64 16
   %1475 = load i64, ptr %437, align 8
   store i64 %1475, ptr %1474, align 8
-  %1476 = getelementptr inbounds i8, ptr %314, i64 24
+  %1476 = getelementptr inbounds nuw i8, ptr %314, i64 24
   store i64 %1475, ptr %1476, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %216)
   call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %216, i32 noundef 0, i32 noundef 1, ptr nonnull %314, i64 2) #15
@@ -3281,7 +3281,7 @@ _ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listISt4pairINS_3LLTES3_EE.ex
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %37)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %38)
   store i64 32, ptr %37, align 8
-  %.sroa.2.0..sroa_idx.i2555 = getelementptr inbounds i8, ptr %37, i64 8
+  %.sroa.2.0..sroa_idx.i2555 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store i8 0, ptr %.sroa.2.0..sroa_idx.i2555, align 8
   %1482 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %37) #15
   %1483 = trunc i64 %1482 to i32
@@ -3349,7 +3349,7 @@ _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1204: ; preds = %_ZNSt8f
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %213)
   %1507 = getelementptr inbounds nuw i8, ptr %213, i64 16
   %1508 = getelementptr inbounds nuw i8, ptr %213, i64 24
-  %1509 = getelementptr inbounds i8, ptr %213, i64 8
+  %1509 = getelementptr inbounds nuw i8, ptr %213, i64 8
   store i64 0, ptr %1509, align 8
   store ptr @_ZN4llvm15LegalizeRuleSet6alwaysERKNS_13LegalityQueryE, ptr %213, align 8
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEPS4_E9_M_invokeERKSt9_Any_dataS3_, ptr %1508, align 8
@@ -3376,7 +3376,7 @@ _ZN4llvm15LegalizeRuleSet5lowerEv.exit1207:       ; preds = %1503, %1512
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %212)
   %1518 = getelementptr inbounds nuw i8, ptr %212, i64 16
   %1519 = getelementptr inbounds nuw i8, ptr %212, i64 24
-  %1520 = getelementptr inbounds i8, ptr %212, i64 8
+  %1520 = getelementptr inbounds nuw i8, ptr %212, i64 8
   store i64 0, ptr %1520, align 8
   store ptr @_ZN4llvm15LegalizeRuleSet6alwaysERKNS_13LegalityQueryE, ptr %212, align 8
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEPS4_E9_M_invokeERKSt9_Any_dataS3_, ptr %1519, align 8
@@ -3401,10 +3401,10 @@ _ZN4llvm15LegalizeRuleSet5lowerEv.exit1210:       ; preds = %1515, %1523
   store i64 257, ptr %315, align 8
   %1529 = getelementptr inbounds nuw i8, ptr %315, i64 8
   store i64 257, ptr %1529, align 8
-  %1530 = getelementptr inbounds i8, ptr %315, i64 16
+  %1530 = getelementptr inbounds nuw i8, ptr %315, i64 16
   %1531 = load i64, ptr %437, align 8
   store i64 %1531, ptr %1530, align 8
-  %1532 = getelementptr inbounds i8, ptr %315, i64 24
+  %1532 = getelementptr inbounds nuw i8, ptr %315, i64 24
   store i64 %1531, ptr %1532, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %211)
   call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %211, i32 noundef 0, i32 noundef 1, ptr nonnull %315, i64 2) #15
@@ -3425,7 +3425,7 @@ _ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listISt4pairINS_3LLTES3_EE.ex
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %34)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %35)
   store i64 32, ptr %34, align 8
-  %.sroa.2.0..sroa_idx.i2561 = getelementptr inbounds i8, ptr %34, i64 8
+  %.sroa.2.0..sroa_idx.i2561 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store i8 0, ptr %.sroa.2.0..sroa_idx.i2561, align 8
   %1538 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %34) #15
   %1539 = trunc i64 %1538 to i32
@@ -3495,7 +3495,7 @@ _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1217: ; preds = %_ZNSt8f
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %208)
   %1565 = getelementptr inbounds nuw i8, ptr %208, i64 16
   %1566 = getelementptr inbounds nuw i8, ptr %208, i64 24
-  %1567 = getelementptr inbounds i8, ptr %208, i64 8
+  %1567 = getelementptr inbounds nuw i8, ptr %208, i64 8
   store i64 0, ptr %1567, align 8
   store ptr @_ZN4llvm15LegalizeRuleSet6alwaysERKNS_13LegalityQueryE, ptr %208, align 8
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEPS4_E9_M_invokeERKSt9_Any_dataS3_, ptr %1566, align 8
@@ -3516,7 +3516,7 @@ _ZN4llvm15LegalizeRuleSet5lowerEv.exit1220:       ; preds = %1561, %1570
 1572:                                             ; preds = %_ZN4llvm15LegalizeRuleSet5lowerEv.exit1220, %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1217
   %1573 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderEj(ptr noundef nonnull align 8 dereferenceable(121040) %0, i32 noundef 128) #15
   store i64 257, ptr %316, align 8
-  %1574 = getelementptr inbounds i8, ptr %316, i64 8
+  %1574 = getelementptr inbounds nuw i8, ptr %316, i64 8
   store i64 %444, ptr %1574, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %207)
   call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %207, i32 noundef 0, ptr nonnull %316, i64 2) #15
@@ -3587,7 +3587,7 @@ _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1229: ; preds = %_ZNSt8f
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %31)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %32)
   store i64 32, ptr %31, align 8
-  %.sroa.2.0..sroa_idx.i2567 = getelementptr inbounds i8, ptr %31, i64 8
+  %.sroa.2.0..sroa_idx.i2567 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store i8 0, ptr %.sroa.2.0..sroa_idx.i2567, align 8
   %1598 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %31) #15
   %1599 = trunc i64 %1598 to i32
@@ -3619,16 +3619,16 @@ _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2572: ; preds = %_ZNSt8functio
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %32)
   %1609 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet9maxScalarEjNS_3LLTE(ptr noundef nonnull align 8 dereferenceable(168) %1600, i32 noundef 0, i64 %.sroa.0235.0.copyload)
   store i32 64, ptr %318, align 4
-  %1610 = getelementptr inbounds i8, ptr %318, i64 4
+  %1610 = getelementptr inbounds nuw i8, ptr %318, i64 4
   store i32 81, ptr %1610, align 4
-  %1611 = getelementptr inbounds i8, ptr %318, i64 8
+  %1611 = getelementptr inbounds nuw i8, ptr %318, i64 8
   store i32 80, ptr %1611, align 4
   %1612 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderESt16initializer_listIjE(ptr noundef nonnull align 8 dereferenceable(121040) %0, ptr nonnull %318, i64 3) #15
   store i64 257, ptr %319, align 8
-  %1613 = getelementptr inbounds i8, ptr %319, i64 8
+  %1613 = getelementptr inbounds nuw i8, ptr %319, i64 8
   %1614 = load i64, ptr %437, align 8
   store i64 %1614, ptr %1613, align 8
-  %1615 = getelementptr inbounds i8, ptr %319, i64 16
+  %1615 = getelementptr inbounds nuw i8, ptr %319, i64 16
   store i64 %444, ptr %1615, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %203)
   call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %203, i32 noundef 0, ptr nonnull %319, i64 3) #15
@@ -3650,7 +3650,7 @@ _ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listINS_3LLTEE.exit1231: ; pr
   %1621 = getelementptr inbounds nuw i8, ptr %202, i64 24
   %1622 = getelementptr inbounds nuw i8, ptr %202, i64 16
   store ptr %1, ptr %202, align 8, !noalias !70
-  %.sroa.42336.0..sroa_idx = getelementptr inbounds i8, ptr %202, i64 8
+  %.sroa.42336.0..sroa_idx = getelementptr inbounds nuw i8, ptr %202, i64 8
   store i64 0, ptr %.sroa.42336.0..sroa_idx, align 8, !noalias !70
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL18typeIsLegalBoolVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E9_M_invokeERKSt9_Any_dataS3_", ptr %1621, align 8, !noalias !70
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL18typeIsLegalBoolVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation", ptr %1622, align 8, !noalias !70
@@ -3704,7 +3704,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit2.i1984: ; preds = %1633
   %1643 = phi ptr [ null, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1978 ], [ %1639, %1633 ]
   %1644 = phi ptr [ %1631, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1978 ], [ %.pre5.i1983, %1633 ]
   %1645 = phi ptr [ %1630, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1978 ], [ %.pre.i1981, %1633 ]
-  %1646 = getelementptr inbounds i8, ptr %320, i64 8
+  %1646 = getelementptr inbounds nuw i8, ptr %320, i64 8
   store i64 0, ptr %1646, align 8, !alias.scope !73
   %1647 = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #16, !noalias !73
   %1648 = getelementptr inbounds nuw i8, ptr %1647, i64 24
@@ -3800,7 +3800,7 @@ _ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit1241
   %1678 = getelementptr inbounds nuw i8, ptr %199, i64 24
   %1679 = getelementptr inbounds nuw i8, ptr %199, i64 16
   store ptr %1, ptr %199, align 8, !noalias !76
-  %.sroa.42340.0..sroa_idx = getelementptr inbounds i8, ptr %199, i64 8
+  %.sroa.42340.0..sroa_idx = getelementptr inbounds nuw i8, ptr %199, i64 8
   store i64 0, ptr %.sroa.42340.0..sroa_idx, align 8, !noalias !76
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL21typeIsLegalIntOrFPVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E9_M_invokeERKSt9_Any_dataS3_", ptr %1678, align 8, !noalias !76
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL21typeIsLegalIntOrFPVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation", ptr %1679, align 8, !noalias !76
@@ -3854,7 +3854,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit2.i1999: ; preds = %1690
   %1700 = phi ptr [ null, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1993 ], [ %1696, %1690 ]
   %1701 = phi ptr [ %1688, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1993 ], [ %.pre5.i1998, %1690 ]
   %1702 = phi ptr [ %1687, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1993 ], [ %.pre.i1996, %1690 ]
-  %1703 = getelementptr inbounds i8, ptr %321, i64 8
+  %1703 = getelementptr inbounds nuw i8, ptr %321, i64 8
   store i64 0, ptr %1703, align 8, !alias.scope !79
   %1704 = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #16, !noalias !79
   %1705 = getelementptr inbounds nuw i8, ptr %1704, i64 24
@@ -3976,7 +3976,7 @@ _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1256: ; preds = %_ZNSt8f
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %28)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %29)
   store i64 32, ptr %28, align 8
-  %.sroa.2.0..sroa_idx.i2573 = getelementptr inbounds i8, ptr %28, i64 8
+  %.sroa.2.0..sroa_idx.i2573 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store i8 0, ptr %.sroa.2.0..sroa_idx.i2573, align 8
   %1744 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %28) #15
   %1745 = trunc i64 %1744 to i32
@@ -4030,9 +4030,9 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEED2Ev.exit1260: ; preds = %_ZNSt8funct
   store i64 %1763, ptr %322, align 8
   %1764 = getelementptr inbounds nuw i8, ptr %322, i64 8
   store i64 %1763, ptr %1764, align 8
-  %1765 = getelementptr inbounds i8, ptr %322, i64 16
+  %1765 = getelementptr inbounds nuw i8, ptr %322, i64 16
   store i64 %1763, ptr %1765, align 8
-  %1766 = getelementptr inbounds i8, ptr %322, i64 24
+  %1766 = getelementptr inbounds nuw i8, ptr %322, i64 24
   store i64 %444, ptr %1766, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %194)
   call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %194, i32 noundef 0, i32 noundef 1, ptr nonnull %322, i64 2) #15
@@ -4054,7 +4054,7 @@ _ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listISt4pairINS_3LLTES3_EE.ex
   %1772 = getelementptr inbounds nuw i8, ptr %193, i64 24
   %1773 = getelementptr inbounds nuw i8, ptr %193, i64 16
   store ptr %1, ptr %193, align 8, !noalias !82
-  %.sroa.42344.0..sroa_idx = getelementptr inbounds i8, ptr %193, i64 8
+  %.sroa.42344.0..sroa_idx = getelementptr inbounds nuw i8, ptr %193, i64 8
   store i64 0, ptr %.sroa.42344.0..sroa_idx, align 8, !noalias !82
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL18typeIsLegalBoolVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E9_M_invokeERKSt9_Any_dataS3_", ptr %1772, align 8, !noalias !82
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL18typeIsLegalBoolVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation", ptr %1773, align 8, !noalias !82
@@ -4108,7 +4108,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit2.i2014: ; preds = %1784
   %1794 = phi ptr [ null, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i2008 ], [ %1790, %1784 ]
   %1795 = phi ptr [ %1782, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i2008 ], [ %.pre5.i2013, %1784 ]
   %1796 = phi ptr [ %1781, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i2008 ], [ %.pre.i2011, %1784 ]
-  %1797 = getelementptr inbounds i8, ptr %324, i64 8
+  %1797 = getelementptr inbounds nuw i8, ptr %324, i64 8
   store i64 0, ptr %1797, align 8, !alias.scope !85
   %1798 = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #16, !noalias !85
   %1799 = getelementptr inbounds nuw i8, ptr %1798, i64 24
@@ -4175,7 +4175,7 @@ _ZL18typeIsLegalBoolVecjSt16initializer_listIN4llvm3LLTEERKNS0_14RISCVSubtargetE
   %1817 = getelementptr inbounds nuw i8, ptr %191, i64 24
   %1818 = getelementptr inbounds nuw i8, ptr %191, i64 16
   store ptr %1, ptr %191, align 8, !noalias !88
-  %.sroa.42348.0..sroa_idx = getelementptr inbounds i8, ptr %191, i64 8
+  %.sroa.42348.0..sroa_idx = getelementptr inbounds nuw i8, ptr %191, i64 8
   store i64 1, ptr %.sroa.42348.0..sroa_idx, align 8, !noalias !88
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL21typeIsLegalIntOrFPVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E9_M_invokeERKSt9_Any_dataS3_", ptr %1817, align 8, !noalias !88
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL21typeIsLegalIntOrFPVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation", ptr %1818, align 8, !noalias !88
@@ -4229,7 +4229,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit2.i2029: ; preds = %1829
   %1839 = phi ptr [ null, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i2023 ], [ %1835, %1829 ]
   %1840 = phi ptr [ %1827, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i2023 ], [ %.pre5.i2028, %1829 ]
   %1841 = phi ptr [ %1826, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i2023 ], [ %.pre.i2026, %1829 ]
-  %1842 = getelementptr inbounds i8, ptr %325, i64 8
+  %1842 = getelementptr inbounds nuw i8, ptr %325, i64 8
   store i64 0, ptr %1842, align 8, !alias.scope !91
   %1843 = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #16, !noalias !91
   %1844 = getelementptr inbounds nuw i8, ptr %1843, i64 24
@@ -4331,7 +4331,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit2.i1280: ; preds = %1873
   %1878 = phi ptr [ null, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1274 ], [ %1875, %1873 ]
   %1879 = phi ptr [ %1869, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1274 ], [ %.pre5.i1279, %1873 ]
   %1880 = phi ptr [ %1870, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1274 ], [ %.pre.i1277, %1873 ]
-  %1881 = getelementptr inbounds i8, ptr %323, i64 8
+  %1881 = getelementptr inbounds nuw i8, ptr %323, i64 8
   store i64 0, ptr %1881, align 8, !alias.scope !94
   %1882 = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #16, !noalias !94
   %1883 = getelementptr inbounds nuw i8, ptr %1882, i64 24
@@ -4462,9 +4462,9 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEED2Ev.exit1298: ; preds = %_ZNSt8funct
   %1931 = getelementptr inbounds nuw i8, ptr %326, i64 8
   %1932 = load i64, ptr %437, align 8
   store i64 %1932, ptr %1931, align 8
-  %1933 = getelementptr inbounds i8, ptr %326, i64 16
+  %1933 = getelementptr inbounds nuw i8, ptr %326, i64 16
   store i64 %444, ptr %1933, align 8
-  %1934 = getelementptr inbounds i8, ptr %326, i64 24
+  %1934 = getelementptr inbounds nuw i8, ptr %326, i64 24
   store i64 %1932, ptr %1934, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %187)
   call void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %187, i32 noundef 0, i32 noundef 1, ptr nonnull %326, i64 2) #15
@@ -4486,7 +4486,7 @@ _ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listISt4pairINS_3LLTES3_EE.ex
   %1940 = getelementptr inbounds nuw i8, ptr %186, i64 24
   %1941 = getelementptr inbounds nuw i8, ptr %186, i64 16
   store ptr %1, ptr %186, align 8, !noalias !97
-  %.sroa.42352.0..sroa_idx = getelementptr inbounds i8, ptr %186, i64 8
+  %.sroa.42352.0..sroa_idx = getelementptr inbounds nuw i8, ptr %186, i64 8
   store i64 0, ptr %.sroa.42352.0..sroa_idx, align 8, !noalias !97
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL21typeIsLegalIntOrFPVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E9_M_invokeERKSt9_Any_dataS3_", ptr %1940, align 8, !noalias !97
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL21typeIsLegalIntOrFPVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation", ptr %1941, align 8, !noalias !97
@@ -4540,7 +4540,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit2.i2044: ; preds = %1952
   %1962 = phi ptr [ null, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i2038 ], [ %1958, %1952 ]
   %1963 = phi ptr [ %1950, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i2038 ], [ %.pre5.i2043, %1952 ]
   %1964 = phi ptr [ %1949, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i2038 ], [ %.pre.i2041, %1952 ]
-  %1965 = getelementptr inbounds i8, ptr %328, i64 8
+  %1965 = getelementptr inbounds nuw i8, ptr %328, i64 8
   store i64 0, ptr %1965, align 8, !alias.scope !100
   %1966 = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #16, !noalias !100
   %1967 = getelementptr inbounds nuw i8, ptr %1966, i64 24
@@ -4607,7 +4607,7 @@ _ZL21typeIsLegalIntOrFPVecjSt16initializer_listIN4llvm3LLTEERKNS0_14RISCVSubtarg
   %1985 = getelementptr inbounds nuw i8, ptr %184, i64 24
   %1986 = getelementptr inbounds nuw i8, ptr %184, i64 16
   store ptr %1, ptr %184, align 8, !noalias !103
-  %.sroa.42356.0..sroa_idx = getelementptr inbounds i8, ptr %184, i64 8
+  %.sroa.42356.0..sroa_idx = getelementptr inbounds nuw i8, ptr %184, i64 8
   store i64 1, ptr %.sroa.42356.0..sroa_idx, align 8, !noalias !103
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL18typeIsLegalBoolVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E9_M_invokeERKSt9_Any_dataS3_", ptr %1985, align 8, !noalias !103
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL18typeIsLegalBoolVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation", ptr %1986, align 8, !noalias !103
@@ -4661,7 +4661,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit2.i2059: ; preds = %1997
   %2007 = phi ptr [ null, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i2053 ], [ %2003, %1997 ]
   %2008 = phi ptr [ %1995, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i2053 ], [ %.pre5.i2058, %1997 ]
   %2009 = phi ptr [ %1994, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i2053 ], [ %.pre.i2056, %1997 ]
-  %2010 = getelementptr inbounds i8, ptr %329, i64 8
+  %2010 = getelementptr inbounds nuw i8, ptr %329, i64 8
   store i64 0, ptr %2010, align 8, !alias.scope !106
   %2011 = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #16, !noalias !106
   %2012 = getelementptr inbounds nuw i8, ptr %2011, i64 24
@@ -4763,7 +4763,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit2.i1318: ; preds = %2041
   %2046 = phi ptr [ null, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1312 ], [ %2043, %2041 ]
   %2047 = phi ptr [ %2037, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1312 ], [ %.pre5.i1317, %2041 ]
   %2048 = phi ptr [ %2038, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1312 ], [ %.pre.i1315, %2041 ]
-  %2049 = getelementptr inbounds i8, ptr %327, i64 8
+  %2049 = getelementptr inbounds nuw i8, ptr %327, i64 8
   store i64 0, ptr %2049, align 8, !alias.scope !109
   %2050 = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #16, !noalias !109
   %2051 = getelementptr inbounds nuw i8, ptr %2050, i64 24
@@ -4950,7 +4950,7 @@ _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1343: ; preds = %_ZNSt8f
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %25)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %26)
   store i64 32, ptr %25, align 8
-  %.sroa.2.0..sroa_idx.i2579 = getelementptr inbounds i8, ptr %25, i64 8
+  %.sroa.2.0..sroa_idx.i2579 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store i8 0, ptr %.sroa.2.0..sroa_idx.i2579, align 8
   %2121 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %25) #15
   %2122 = trunc i64 %2121 to i32
@@ -4993,30 +4993,30 @@ _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2584: ; preds = %_ZNSt8functio
   store i64 65, ptr %2138, align 8
   %2139 = getelementptr inbounds nuw i8, ptr %331, i64 24
   store i64 8, ptr %2139, align 8
-  %2140 = getelementptr inbounds i8, ptr %331, i64 32
+  %2140 = getelementptr inbounds nuw i8, ptr %331, i64 32
   store i64 257, ptr %2140, align 8
-  %2141 = getelementptr inbounds i8, ptr %331, i64 40
+  %2141 = getelementptr inbounds nuw i8, ptr %331, i64 40
   store i64 %444, ptr %2141, align 8
-  %2142 = getelementptr inbounds i8, ptr %331, i64 48
+  %2142 = getelementptr inbounds nuw i8, ptr %331, i64 48
   store i64 129, ptr %2142, align 8
-  %2143 = getelementptr inbounds i8, ptr %331, i64 56
+  %2143 = getelementptr inbounds nuw i8, ptr %331, i64 56
   store i64 16, ptr %2143, align 8
-  %2144 = getelementptr inbounds i8, ptr %331, i64 64
+  %2144 = getelementptr inbounds nuw i8, ptr %331, i64 64
   store i64 257, ptr %2144, align 8
-  %2145 = getelementptr inbounds i8, ptr %331, i64 72
+  %2145 = getelementptr inbounds nuw i8, ptr %331, i64 72
   store i64 %444, ptr %2145, align 8
-  %2146 = getelementptr inbounds i8, ptr %331, i64 80
+  %2146 = getelementptr inbounds nuw i8, ptr %331, i64 80
   store i64 257, ptr %2146, align 8
-  %2147 = getelementptr inbounds i8, ptr %331, i64 88
+  %2147 = getelementptr inbounds nuw i8, ptr %331, i64 88
   store i64 32, ptr %2147, align 8
-  %2148 = getelementptr inbounds i8, ptr %331, i64 96
+  %2148 = getelementptr inbounds nuw i8, ptr %331, i64 96
   store i64 %444, ptr %2148, align 8
-  %2149 = getelementptr inbounds i8, ptr %331, i64 104
+  %2149 = getelementptr inbounds nuw i8, ptr %331, i64 104
   store i64 %444, ptr %2149, align 8
-  %2150 = getelementptr inbounds i8, ptr %331, i64 112
+  %2150 = getelementptr inbounds nuw i8, ptr %331, i64 112
   %2151 = load i64, ptr %437, align 8
   store i64 %2151, ptr %2150, align 8
-  %2152 = getelementptr inbounds i8, ptr %331, i64 120
+  %2152 = getelementptr inbounds nuw i8, ptr %331, i64 120
   %2153 = load i32, ptr %432, align 8
   %2154 = zext i32 %2153 to i64
   store i64 %2154, ptr %2152, align 8
@@ -5041,30 +5041,30 @@ _ZN4llvm15LegalizeRuleSet24legalForTypesWithMemDescESt16initializer_listINS_18Le
   store i64 65, ptr %2161, align 8
   %2162 = getelementptr inbounds nuw i8, ptr %332, i64 24
   store i64 8, ptr %2162, align 8
-  %2163 = getelementptr inbounds i8, ptr %332, i64 32
+  %2163 = getelementptr inbounds nuw i8, ptr %332, i64 32
   store i64 257, ptr %2163, align 8
-  %2164 = getelementptr inbounds i8, ptr %332, i64 40
+  %2164 = getelementptr inbounds nuw i8, ptr %332, i64 40
   store i64 %444, ptr %2164, align 8
-  %2165 = getelementptr inbounds i8, ptr %332, i64 48
+  %2165 = getelementptr inbounds nuw i8, ptr %332, i64 48
   store i64 129, ptr %2165, align 8
-  %2166 = getelementptr inbounds i8, ptr %332, i64 56
+  %2166 = getelementptr inbounds nuw i8, ptr %332, i64 56
   store i64 16, ptr %2166, align 8
-  %2167 = getelementptr inbounds i8, ptr %332, i64 64
+  %2167 = getelementptr inbounds nuw i8, ptr %332, i64 64
   store i64 257, ptr %2167, align 8
-  %2168 = getelementptr inbounds i8, ptr %332, i64 72
+  %2168 = getelementptr inbounds nuw i8, ptr %332, i64 72
   store i64 %444, ptr %2168, align 8
-  %2169 = getelementptr inbounds i8, ptr %332, i64 80
+  %2169 = getelementptr inbounds nuw i8, ptr %332, i64 80
   store i64 257, ptr %2169, align 8
-  %2170 = getelementptr inbounds i8, ptr %332, i64 88
+  %2170 = getelementptr inbounds nuw i8, ptr %332, i64 88
   store i64 32, ptr %2170, align 8
-  %2171 = getelementptr inbounds i8, ptr %332, i64 96
+  %2171 = getelementptr inbounds nuw i8, ptr %332, i64 96
   store i64 %444, ptr %2171, align 8
-  %2172 = getelementptr inbounds i8, ptr %332, i64 104
+  %2172 = getelementptr inbounds nuw i8, ptr %332, i64 104
   store i64 %444, ptr %2172, align 8
-  %2173 = getelementptr inbounds i8, ptr %332, i64 112
+  %2173 = getelementptr inbounds nuw i8, ptr %332, i64 112
   %2174 = load i64, ptr %437, align 8
   store i64 %2174, ptr %2173, align 8
-  %2175 = getelementptr inbounds i8, ptr %332, i64 120
+  %2175 = getelementptr inbounds nuw i8, ptr %332, i64 120
   %2176 = load i32, ptr %432, align 8
   %2177 = zext i32 %2176 to i64
   store i64 %2177, ptr %2175, align 8
@@ -5083,7 +5083,7 @@ _ZN4llvm15LegalizeRuleSet24legalForTypesWithMemDescESt16initializer_listINS_18Le
 _ZN4llvm15LegalizeRuleSet24legalForTypesWithMemDescESt16initializer_listINS_18LegalityPredicates18TypePairAndMemDescEE.exit1348: ; preds = %_ZN4llvm15LegalizeRuleSet24legalForTypesWithMemDescESt16initializer_listINS_18LegalityPredicates18TypePairAndMemDescEE.exit, %2181
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %176)
   store i32 91, ptr %333, align 4
-  %2183 = getelementptr inbounds i8, ptr %333, i64 4
+  %2183 = getelementptr inbounds nuw i8, ptr %333, i64 4
   store i32 92, ptr %2183, align 4
   %2184 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderESt16initializer_listIjE(ptr noundef nonnull align 8 dereferenceable(121040) %0, ptr nonnull %333, i64 2) #15
   store i64 257, ptr %334, align 8
@@ -5093,13 +5093,13 @@ _ZN4llvm15LegalizeRuleSet24legalForTypesWithMemDescESt16initializer_listINS_18Le
   store i64 65, ptr %2186, align 8
   %2187 = getelementptr inbounds nuw i8, ptr %334, i64 24
   store i64 8, ptr %2187, align 8
-  %2188 = getelementptr inbounds i8, ptr %334, i64 32
+  %2188 = getelementptr inbounds nuw i8, ptr %334, i64 32
   store i64 257, ptr %2188, align 8
-  %2189 = getelementptr inbounds i8, ptr %334, i64 40
+  %2189 = getelementptr inbounds nuw i8, ptr %334, i64 40
   store i64 %444, ptr %2189, align 8
-  %2190 = getelementptr inbounds i8, ptr %334, i64 48
+  %2190 = getelementptr inbounds nuw i8, ptr %334, i64 48
   store i64 129, ptr %2190, align 8
-  %2191 = getelementptr inbounds i8, ptr %334, i64 56
+  %2191 = getelementptr inbounds nuw i8, ptr %334, i64 56
   store i64 16, ptr %2191, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %175)
   call void @_ZN4llvm18LegalityPredicates23typePairAndMemDescInSetEjjjSt16initializer_listINS0_18TypePairAndMemDescEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %175, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr nonnull %334, i64 2) #15
@@ -5127,29 +5127,29 @@ _ZN4llvm15LegalizeRuleSet24legalForTypesWithMemDescESt16initializer_listINS_18Le
   store i64 65, ptr %2201, align 8
   %2202 = getelementptr inbounds nuw i8, ptr %335, i64 24
   store i64 8, ptr %2202, align 8
-  %2203 = getelementptr inbounds i8, ptr %335, i64 32
+  %2203 = getelementptr inbounds nuw i8, ptr %335, i64 32
   store i64 513, ptr %2203, align 8
-  %2204 = getelementptr inbounds i8, ptr %335, i64 40
+  %2204 = getelementptr inbounds nuw i8, ptr %335, i64 40
   store i64 %444, ptr %2204, align 8
-  %2205 = getelementptr inbounds i8, ptr %335, i64 48
+  %2205 = getelementptr inbounds nuw i8, ptr %335, i64 48
   store i64 129, ptr %2205, align 8
-  %2206 = getelementptr inbounds i8, ptr %335, i64 56
+  %2206 = getelementptr inbounds nuw i8, ptr %335, i64 56
   store i64 16, ptr %2206, align 8
-  %2207 = getelementptr inbounds i8, ptr %335, i64 64
+  %2207 = getelementptr inbounds nuw i8, ptr %335, i64 64
   store i64 513, ptr %2207, align 8
-  %2208 = getelementptr inbounds i8, ptr %335, i64 72
+  %2208 = getelementptr inbounds nuw i8, ptr %335, i64 72
   store i64 %444, ptr %2208, align 8
-  %2209 = getelementptr inbounds i8, ptr %335, i64 80
+  %2209 = getelementptr inbounds nuw i8, ptr %335, i64 80
   store i64 257, ptr %2209, align 8
-  %2210 = getelementptr inbounds i8, ptr %335, i64 88
+  %2210 = getelementptr inbounds nuw i8, ptr %335, i64 88
   store i64 32, ptr %2210, align 8
-  %2211 = getelementptr inbounds i8, ptr %335, i64 96
+  %2211 = getelementptr inbounds nuw i8, ptr %335, i64 96
   store i64 513, ptr %2211, align 8
-  %2212 = getelementptr inbounds i8, ptr %335, i64 104
+  %2212 = getelementptr inbounds nuw i8, ptr %335, i64 104
   store i64 %444, ptr %2212, align 8
-  %2213 = getelementptr inbounds i8, ptr %335, i64 112
+  %2213 = getelementptr inbounds nuw i8, ptr %335, i64 112
   store i64 513, ptr %2213, align 8
-  %2214 = getelementptr inbounds i8, ptr %335, i64 120
+  %2214 = getelementptr inbounds nuw i8, ptr %335, i64 120
   store i64 64, ptr %2214, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %174)
   call void @_ZN4llvm18LegalityPredicates23typePairAndMemDescInSetEjjjSt16initializer_listINS0_18TypePairAndMemDescEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %174, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr nonnull %335, i64 4) #15
@@ -5172,29 +5172,29 @@ _ZN4llvm15LegalizeRuleSet24legalForTypesWithMemDescESt16initializer_listINS_18Le
   store i64 65, ptr %2221, align 8
   %2222 = getelementptr inbounds nuw i8, ptr %336, i64 24
   store i64 8, ptr %2222, align 8
-  %2223 = getelementptr inbounds i8, ptr %336, i64 32
+  %2223 = getelementptr inbounds nuw i8, ptr %336, i64 32
   store i64 513, ptr %2223, align 8
-  %2224 = getelementptr inbounds i8, ptr %336, i64 40
+  %2224 = getelementptr inbounds nuw i8, ptr %336, i64 40
   store i64 %444, ptr %2224, align 8
-  %2225 = getelementptr inbounds i8, ptr %336, i64 48
+  %2225 = getelementptr inbounds nuw i8, ptr %336, i64 48
   store i64 129, ptr %2225, align 8
-  %2226 = getelementptr inbounds i8, ptr %336, i64 56
+  %2226 = getelementptr inbounds nuw i8, ptr %336, i64 56
   store i64 16, ptr %2226, align 8
-  %2227 = getelementptr inbounds i8, ptr %336, i64 64
+  %2227 = getelementptr inbounds nuw i8, ptr %336, i64 64
   store i64 513, ptr %2227, align 8
-  %2228 = getelementptr inbounds i8, ptr %336, i64 72
+  %2228 = getelementptr inbounds nuw i8, ptr %336, i64 72
   store i64 %444, ptr %2228, align 8
-  %2229 = getelementptr inbounds i8, ptr %336, i64 80
+  %2229 = getelementptr inbounds nuw i8, ptr %336, i64 80
   store i64 257, ptr %2229, align 8
-  %2230 = getelementptr inbounds i8, ptr %336, i64 88
+  %2230 = getelementptr inbounds nuw i8, ptr %336, i64 88
   store i64 32, ptr %2230, align 8
-  %2231 = getelementptr inbounds i8, ptr %336, i64 96
+  %2231 = getelementptr inbounds nuw i8, ptr %336, i64 96
   store i64 513, ptr %2231, align 8
-  %2232 = getelementptr inbounds i8, ptr %336, i64 104
+  %2232 = getelementptr inbounds nuw i8, ptr %336, i64 104
   store i64 %444, ptr %2232, align 8
-  %2233 = getelementptr inbounds i8, ptr %336, i64 112
+  %2233 = getelementptr inbounds nuw i8, ptr %336, i64 112
   store i64 513, ptr %2233, align 8
-  %2234 = getelementptr inbounds i8, ptr %336, i64 120
+  %2234 = getelementptr inbounds nuw i8, ptr %336, i64 120
   store i64 64, ptr %2234, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %173)
   call void @_ZN4llvm18LegalityPredicates23typePairAndMemDescInSetEjjjSt16initializer_listINS0_18TypePairAndMemDescEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %173, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr nonnull %336, i64 4) #15
@@ -5217,21 +5217,21 @@ _ZN4llvm15LegalizeRuleSet24legalForTypesWithMemDescESt16initializer_listINS_18Le
   store i64 65, ptr %2241, align 8
   %2242 = getelementptr inbounds nuw i8, ptr %337, i64 24
   store i64 8, ptr %2242, align 8
-  %2243 = getelementptr inbounds i8, ptr %337, i64 32
+  %2243 = getelementptr inbounds nuw i8, ptr %337, i64 32
   store i64 513, ptr %2243, align 8
-  %2244 = getelementptr inbounds i8, ptr %337, i64 40
+  %2244 = getelementptr inbounds nuw i8, ptr %337, i64 40
   store i64 %444, ptr %2244, align 8
-  %2245 = getelementptr inbounds i8, ptr %337, i64 48
+  %2245 = getelementptr inbounds nuw i8, ptr %337, i64 48
   store i64 129, ptr %2245, align 8
-  %2246 = getelementptr inbounds i8, ptr %337, i64 56
+  %2246 = getelementptr inbounds nuw i8, ptr %337, i64 56
   store i64 16, ptr %2246, align 8
-  %2247 = getelementptr inbounds i8, ptr %337, i64 64
+  %2247 = getelementptr inbounds nuw i8, ptr %337, i64 64
   store i64 513, ptr %2247, align 8
-  %2248 = getelementptr inbounds i8, ptr %337, i64 72
+  %2248 = getelementptr inbounds nuw i8, ptr %337, i64 72
   store i64 %444, ptr %2248, align 8
-  %2249 = getelementptr inbounds i8, ptr %337, i64 80
+  %2249 = getelementptr inbounds nuw i8, ptr %337, i64 80
   store i64 257, ptr %2249, align 8
-  %2250 = getelementptr inbounds i8, ptr %337, i64 88
+  %2250 = getelementptr inbounds nuw i8, ptr %337, i64 88
   store i64 32, ptr %2250, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %172)
   call void @_ZN4llvm18LegalityPredicates23typePairAndMemDescInSetEjjjSt16initializer_listINS0_18TypePairAndMemDescEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %172, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr nonnull %337, i64 3) #15
@@ -5313,117 +5313,117 @@ _ZN4llvm15LegalizeRuleSet24legalForTypesWithMemDescESt16initializer_listINS_18Le
   store i64 2251799817879572, ptr %2282, align 8
   %2283 = getelementptr inbounds nuw i8, ptr %340, i64 24
   store i64 8, ptr %2283, align 8
-  %2284 = getelementptr inbounds i8, ptr %340, i64 32
+  %2284 = getelementptr inbounds nuw i8, ptr %340, i64 32
   store i64 2251799817879588, ptr %2284, align 8
-  %2285 = getelementptr inbounds i8, ptr %340, i64 40
+  %2285 = getelementptr inbounds nuw i8, ptr %340, i64 40
   store i64 %444, ptr %2285, align 8
-  %2286 = getelementptr inbounds i8, ptr %340, i64 48
+  %2286 = getelementptr inbounds nuw i8, ptr %340, i64 48
   store i64 2251799817879588, ptr %2286, align 8
-  %2287 = getelementptr inbounds i8, ptr %340, i64 56
+  %2287 = getelementptr inbounds nuw i8, ptr %340, i64 56
   store i64 8, ptr %2287, align 8
-  %2288 = getelementptr inbounds i8, ptr %340, i64 64
+  %2288 = getelementptr inbounds nuw i8, ptr %340, i64 64
   store i64 2251799817879620, ptr %2288, align 8
-  %2289 = getelementptr inbounds i8, ptr %340, i64 72
+  %2289 = getelementptr inbounds nuw i8, ptr %340, i64 72
   store i64 %444, ptr %2289, align 8
-  %2290 = getelementptr inbounds i8, ptr %340, i64 80
+  %2290 = getelementptr inbounds nuw i8, ptr %340, i64 80
   store i64 2251799817879620, ptr %2290, align 8
-  %2291 = getelementptr inbounds i8, ptr %340, i64 88
+  %2291 = getelementptr inbounds nuw i8, ptr %340, i64 88
   store i64 8, ptr %2291, align 8
-  %2292 = getelementptr inbounds i8, ptr %340, i64 96
+  %2292 = getelementptr inbounds nuw i8, ptr %340, i64 96
   store i64 2251799817879684, ptr %2292, align 8
-  %2293 = getelementptr inbounds i8, ptr %340, i64 104
+  %2293 = getelementptr inbounds nuw i8, ptr %340, i64 104
   store i64 %444, ptr %2293, align 8
-  %2294 = getelementptr inbounds i8, ptr %340, i64 112
+  %2294 = getelementptr inbounds nuw i8, ptr %340, i64 112
   store i64 2251799817879684, ptr %2294, align 8
-  %2295 = getelementptr inbounds i8, ptr %340, i64 120
+  %2295 = getelementptr inbounds nuw i8, ptr %340, i64 120
   store i64 8, ptr %2295, align 8
-  %2296 = getelementptr inbounds i8, ptr %340, i64 128
+  %2296 = getelementptr inbounds nuw i8, ptr %340, i64 128
   store i64 2251799817879812, ptr %2296, align 8
-  %2297 = getelementptr inbounds i8, ptr %340, i64 136
+  %2297 = getelementptr inbounds nuw i8, ptr %340, i64 136
   store i64 %444, ptr %2297, align 8
-  %2298 = getelementptr inbounds i8, ptr %340, i64 144
+  %2298 = getelementptr inbounds nuw i8, ptr %340, i64 144
   store i64 2251799817879812, ptr %2298, align 8
-  %2299 = getelementptr inbounds i8, ptr %340, i64 152
+  %2299 = getelementptr inbounds nuw i8, ptr %340, i64 152
   store i64 8, ptr %2299, align 8
-  %2300 = getelementptr inbounds i8, ptr %340, i64 160
+  %2300 = getelementptr inbounds nuw i8, ptr %340, i64 160
   store i64 2251799817880068, ptr %2300, align 8
-  %2301 = getelementptr inbounds i8, ptr %340, i64 168
+  %2301 = getelementptr inbounds nuw i8, ptr %340, i64 168
   store i64 %444, ptr %2301, align 8
-  %2302 = getelementptr inbounds i8, ptr %340, i64 176
+  %2302 = getelementptr inbounds nuw i8, ptr %340, i64 176
   store i64 2251799817880068, ptr %2302, align 8
-  %2303 = getelementptr inbounds i8, ptr %340, i64 184
+  %2303 = getelementptr inbounds nuw i8, ptr %340, i64 184
   store i64 8, ptr %2303, align 8
-  %2304 = getelementptr inbounds i8, ptr %340, i64 192
+  %2304 = getelementptr inbounds nuw i8, ptr %340, i64 192
   store i64 2251799822073876, ptr %2304, align 8
-  %2305 = getelementptr inbounds i8, ptr %340, i64 200
+  %2305 = getelementptr inbounds nuw i8, ptr %340, i64 200
   store i64 %444, ptr %2305, align 8
-  %2306 = getelementptr inbounds i8, ptr %340, i64 208
+  %2306 = getelementptr inbounds nuw i8, ptr %340, i64 208
   store i64 2251799822073876, ptr %2306, align 8
-  %2307 = getelementptr inbounds i8, ptr %340, i64 216
+  %2307 = getelementptr inbounds nuw i8, ptr %340, i64 216
   store i64 16, ptr %2307, align 8
-  %2308 = getelementptr inbounds i8, ptr %340, i64 224
+  %2308 = getelementptr inbounds nuw i8, ptr %340, i64 224
   store i64 2251799822073892, ptr %2308, align 8
-  %2309 = getelementptr inbounds i8, ptr %340, i64 232
+  %2309 = getelementptr inbounds nuw i8, ptr %340, i64 232
   store i64 %444, ptr %2309, align 8
-  %2310 = getelementptr inbounds i8, ptr %340, i64 240
+  %2310 = getelementptr inbounds nuw i8, ptr %340, i64 240
   store i64 2251799822073892, ptr %2310, align 8
-  %2311 = getelementptr inbounds i8, ptr %340, i64 248
+  %2311 = getelementptr inbounds nuw i8, ptr %340, i64 248
   store i64 16, ptr %2311, align 8
-  %2312 = getelementptr inbounds i8, ptr %340, i64 256
+  %2312 = getelementptr inbounds nuw i8, ptr %340, i64 256
   store i64 2251799822073924, ptr %2312, align 8
-  %2313 = getelementptr inbounds i8, ptr %340, i64 264
+  %2313 = getelementptr inbounds nuw i8, ptr %340, i64 264
   store i64 %444, ptr %2313, align 8
-  %2314 = getelementptr inbounds i8, ptr %340, i64 272
+  %2314 = getelementptr inbounds nuw i8, ptr %340, i64 272
   store i64 2251799822073924, ptr %2314, align 8
-  %2315 = getelementptr inbounds i8, ptr %340, i64 280
+  %2315 = getelementptr inbounds nuw i8, ptr %340, i64 280
   store i64 16, ptr %2315, align 8
-  %2316 = getelementptr inbounds i8, ptr %340, i64 288
+  %2316 = getelementptr inbounds nuw i8, ptr %340, i64 288
   store i64 2251799822073988, ptr %2316, align 8
-  %2317 = getelementptr inbounds i8, ptr %340, i64 296
+  %2317 = getelementptr inbounds nuw i8, ptr %340, i64 296
   store i64 %444, ptr %2317, align 8
-  %2318 = getelementptr inbounds i8, ptr %340, i64 304
+  %2318 = getelementptr inbounds nuw i8, ptr %340, i64 304
   store i64 2251799822073988, ptr %2318, align 8
-  %2319 = getelementptr inbounds i8, ptr %340, i64 312
+  %2319 = getelementptr inbounds nuw i8, ptr %340, i64 312
   store i64 16, ptr %2319, align 8
-  %2320 = getelementptr inbounds i8, ptr %340, i64 320
+  %2320 = getelementptr inbounds nuw i8, ptr %340, i64 320
   store i64 2251799822074116, ptr %2320, align 8
-  %2321 = getelementptr inbounds i8, ptr %340, i64 328
+  %2321 = getelementptr inbounds nuw i8, ptr %340, i64 328
   store i64 %444, ptr %2321, align 8
-  %2322 = getelementptr inbounds i8, ptr %340, i64 336
+  %2322 = getelementptr inbounds nuw i8, ptr %340, i64 336
   store i64 2251799822074116, ptr %2322, align 8
-  %2323 = getelementptr inbounds i8, ptr %340, i64 344
+  %2323 = getelementptr inbounds nuw i8, ptr %340, i64 344
   store i64 16, ptr %2323, align 8
-  %2324 = getelementptr inbounds i8, ptr %340, i64 352
+  %2324 = getelementptr inbounds nuw i8, ptr %340, i64 352
   store i64 2251799830462484, ptr %2324, align 8
-  %2325 = getelementptr inbounds i8, ptr %340, i64 360
+  %2325 = getelementptr inbounds nuw i8, ptr %340, i64 360
   store i64 %444, ptr %2325, align 8
-  %2326 = getelementptr inbounds i8, ptr %340, i64 368
+  %2326 = getelementptr inbounds nuw i8, ptr %340, i64 368
   store i64 2251799830462484, ptr %2326, align 8
-  %2327 = getelementptr inbounds i8, ptr %340, i64 376
+  %2327 = getelementptr inbounds nuw i8, ptr %340, i64 376
   store i64 32, ptr %2327, align 8
-  %2328 = getelementptr inbounds i8, ptr %340, i64 384
+  %2328 = getelementptr inbounds nuw i8, ptr %340, i64 384
   store i64 2251799830462500, ptr %2328, align 8
-  %2329 = getelementptr inbounds i8, ptr %340, i64 392
+  %2329 = getelementptr inbounds nuw i8, ptr %340, i64 392
   store i64 %444, ptr %2329, align 8
-  %2330 = getelementptr inbounds i8, ptr %340, i64 400
+  %2330 = getelementptr inbounds nuw i8, ptr %340, i64 400
   store i64 2251799830462500, ptr %2330, align 8
-  %2331 = getelementptr inbounds i8, ptr %340, i64 408
+  %2331 = getelementptr inbounds nuw i8, ptr %340, i64 408
   store i64 32, ptr %2331, align 8
-  %2332 = getelementptr inbounds i8, ptr %340, i64 416
+  %2332 = getelementptr inbounds nuw i8, ptr %340, i64 416
   store i64 2251799830462532, ptr %2332, align 8
-  %2333 = getelementptr inbounds i8, ptr %340, i64 424
+  %2333 = getelementptr inbounds nuw i8, ptr %340, i64 424
   store i64 %444, ptr %2333, align 8
-  %2334 = getelementptr inbounds i8, ptr %340, i64 432
+  %2334 = getelementptr inbounds nuw i8, ptr %340, i64 432
   store i64 2251799830462532, ptr %2334, align 8
-  %2335 = getelementptr inbounds i8, ptr %340, i64 440
+  %2335 = getelementptr inbounds nuw i8, ptr %340, i64 440
   store i64 32, ptr %2335, align 8
-  %2336 = getelementptr inbounds i8, ptr %340, i64 448
+  %2336 = getelementptr inbounds nuw i8, ptr %340, i64 448
   store i64 2251799830462596, ptr %2336, align 8
-  %2337 = getelementptr inbounds i8, ptr %340, i64 456
+  %2337 = getelementptr inbounds nuw i8, ptr %340, i64 456
   store i64 %444, ptr %2337, align 8
-  %2338 = getelementptr inbounds i8, ptr %340, i64 464
+  %2338 = getelementptr inbounds nuw i8, ptr %340, i64 464
   store i64 2251799830462596, ptr %2338, align 8
-  %2339 = getelementptr inbounds i8, ptr %340, i64 472
+  %2339 = getelementptr inbounds nuw i8, ptr %340, i64 472
   store i64 32, ptr %2339, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %169)
   call void @_ZN4llvm18LegalityPredicates23typePairAndMemDescInSetEjjjSt16initializer_listINS0_18TypePairAndMemDescEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %169, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr nonnull %340, i64 15) #15
@@ -5446,117 +5446,117 @@ _ZN4llvm15LegalizeRuleSet24legalForTypesWithMemDescESt16initializer_listINS_18Le
   store i64 2251799817879572, ptr %2346, align 8
   %2347 = getelementptr inbounds nuw i8, ptr %341, i64 24
   store i64 8, ptr %2347, align 8
-  %2348 = getelementptr inbounds i8, ptr %341, i64 32
+  %2348 = getelementptr inbounds nuw i8, ptr %341, i64 32
   store i64 2251799817879588, ptr %2348, align 8
-  %2349 = getelementptr inbounds i8, ptr %341, i64 40
+  %2349 = getelementptr inbounds nuw i8, ptr %341, i64 40
   store i64 %444, ptr %2349, align 8
-  %2350 = getelementptr inbounds i8, ptr %341, i64 48
+  %2350 = getelementptr inbounds nuw i8, ptr %341, i64 48
   store i64 2251799817879588, ptr %2350, align 8
-  %2351 = getelementptr inbounds i8, ptr %341, i64 56
+  %2351 = getelementptr inbounds nuw i8, ptr %341, i64 56
   store i64 8, ptr %2351, align 8
-  %2352 = getelementptr inbounds i8, ptr %341, i64 64
+  %2352 = getelementptr inbounds nuw i8, ptr %341, i64 64
   store i64 2251799817879620, ptr %2352, align 8
-  %2353 = getelementptr inbounds i8, ptr %341, i64 72
+  %2353 = getelementptr inbounds nuw i8, ptr %341, i64 72
   store i64 %444, ptr %2353, align 8
-  %2354 = getelementptr inbounds i8, ptr %341, i64 80
+  %2354 = getelementptr inbounds nuw i8, ptr %341, i64 80
   store i64 2251799817879620, ptr %2354, align 8
-  %2355 = getelementptr inbounds i8, ptr %341, i64 88
+  %2355 = getelementptr inbounds nuw i8, ptr %341, i64 88
   store i64 8, ptr %2355, align 8
-  %2356 = getelementptr inbounds i8, ptr %341, i64 96
+  %2356 = getelementptr inbounds nuw i8, ptr %341, i64 96
   store i64 2251799817879684, ptr %2356, align 8
-  %2357 = getelementptr inbounds i8, ptr %341, i64 104
+  %2357 = getelementptr inbounds nuw i8, ptr %341, i64 104
   store i64 %444, ptr %2357, align 8
-  %2358 = getelementptr inbounds i8, ptr %341, i64 112
+  %2358 = getelementptr inbounds nuw i8, ptr %341, i64 112
   store i64 2251799817879684, ptr %2358, align 8
-  %2359 = getelementptr inbounds i8, ptr %341, i64 120
+  %2359 = getelementptr inbounds nuw i8, ptr %341, i64 120
   store i64 8, ptr %2359, align 8
-  %2360 = getelementptr inbounds i8, ptr %341, i64 128
+  %2360 = getelementptr inbounds nuw i8, ptr %341, i64 128
   store i64 2251799817879812, ptr %2360, align 8
-  %2361 = getelementptr inbounds i8, ptr %341, i64 136
+  %2361 = getelementptr inbounds nuw i8, ptr %341, i64 136
   store i64 %444, ptr %2361, align 8
-  %2362 = getelementptr inbounds i8, ptr %341, i64 144
+  %2362 = getelementptr inbounds nuw i8, ptr %341, i64 144
   store i64 2251799817879812, ptr %2362, align 8
-  %2363 = getelementptr inbounds i8, ptr %341, i64 152
+  %2363 = getelementptr inbounds nuw i8, ptr %341, i64 152
   store i64 8, ptr %2363, align 8
-  %2364 = getelementptr inbounds i8, ptr %341, i64 160
+  %2364 = getelementptr inbounds nuw i8, ptr %341, i64 160
   store i64 2251799817880068, ptr %2364, align 8
-  %2365 = getelementptr inbounds i8, ptr %341, i64 168
+  %2365 = getelementptr inbounds nuw i8, ptr %341, i64 168
   store i64 %444, ptr %2365, align 8
-  %2366 = getelementptr inbounds i8, ptr %341, i64 176
+  %2366 = getelementptr inbounds nuw i8, ptr %341, i64 176
   store i64 2251799817880068, ptr %2366, align 8
-  %2367 = getelementptr inbounds i8, ptr %341, i64 184
+  %2367 = getelementptr inbounds nuw i8, ptr %341, i64 184
   store i64 8, ptr %2367, align 8
-  %2368 = getelementptr inbounds i8, ptr %341, i64 192
+  %2368 = getelementptr inbounds nuw i8, ptr %341, i64 192
   store i64 2251799822073876, ptr %2368, align 8
-  %2369 = getelementptr inbounds i8, ptr %341, i64 200
+  %2369 = getelementptr inbounds nuw i8, ptr %341, i64 200
   store i64 %444, ptr %2369, align 8
-  %2370 = getelementptr inbounds i8, ptr %341, i64 208
+  %2370 = getelementptr inbounds nuw i8, ptr %341, i64 208
   store i64 2251799822073876, ptr %2370, align 8
-  %2371 = getelementptr inbounds i8, ptr %341, i64 216
+  %2371 = getelementptr inbounds nuw i8, ptr %341, i64 216
   store i64 16, ptr %2371, align 8
-  %2372 = getelementptr inbounds i8, ptr %341, i64 224
+  %2372 = getelementptr inbounds nuw i8, ptr %341, i64 224
   store i64 2251799822073892, ptr %2372, align 8
-  %2373 = getelementptr inbounds i8, ptr %341, i64 232
+  %2373 = getelementptr inbounds nuw i8, ptr %341, i64 232
   store i64 %444, ptr %2373, align 8
-  %2374 = getelementptr inbounds i8, ptr %341, i64 240
+  %2374 = getelementptr inbounds nuw i8, ptr %341, i64 240
   store i64 2251799822073892, ptr %2374, align 8
-  %2375 = getelementptr inbounds i8, ptr %341, i64 248
+  %2375 = getelementptr inbounds nuw i8, ptr %341, i64 248
   store i64 16, ptr %2375, align 8
-  %2376 = getelementptr inbounds i8, ptr %341, i64 256
+  %2376 = getelementptr inbounds nuw i8, ptr %341, i64 256
   store i64 2251799822073924, ptr %2376, align 8
-  %2377 = getelementptr inbounds i8, ptr %341, i64 264
+  %2377 = getelementptr inbounds nuw i8, ptr %341, i64 264
   store i64 %444, ptr %2377, align 8
-  %2378 = getelementptr inbounds i8, ptr %341, i64 272
+  %2378 = getelementptr inbounds nuw i8, ptr %341, i64 272
   store i64 2251799822073924, ptr %2378, align 8
-  %2379 = getelementptr inbounds i8, ptr %341, i64 280
+  %2379 = getelementptr inbounds nuw i8, ptr %341, i64 280
   store i64 16, ptr %2379, align 8
-  %2380 = getelementptr inbounds i8, ptr %341, i64 288
+  %2380 = getelementptr inbounds nuw i8, ptr %341, i64 288
   store i64 2251799822073988, ptr %2380, align 8
-  %2381 = getelementptr inbounds i8, ptr %341, i64 296
+  %2381 = getelementptr inbounds nuw i8, ptr %341, i64 296
   store i64 %444, ptr %2381, align 8
-  %2382 = getelementptr inbounds i8, ptr %341, i64 304
+  %2382 = getelementptr inbounds nuw i8, ptr %341, i64 304
   store i64 2251799822073988, ptr %2382, align 8
-  %2383 = getelementptr inbounds i8, ptr %341, i64 312
+  %2383 = getelementptr inbounds nuw i8, ptr %341, i64 312
   store i64 16, ptr %2383, align 8
-  %2384 = getelementptr inbounds i8, ptr %341, i64 320
+  %2384 = getelementptr inbounds nuw i8, ptr %341, i64 320
   store i64 2251799822074116, ptr %2384, align 8
-  %2385 = getelementptr inbounds i8, ptr %341, i64 328
+  %2385 = getelementptr inbounds nuw i8, ptr %341, i64 328
   store i64 %444, ptr %2385, align 8
-  %2386 = getelementptr inbounds i8, ptr %341, i64 336
+  %2386 = getelementptr inbounds nuw i8, ptr %341, i64 336
   store i64 2251799822074116, ptr %2386, align 8
-  %2387 = getelementptr inbounds i8, ptr %341, i64 344
+  %2387 = getelementptr inbounds nuw i8, ptr %341, i64 344
   store i64 16, ptr %2387, align 8
-  %2388 = getelementptr inbounds i8, ptr %341, i64 352
+  %2388 = getelementptr inbounds nuw i8, ptr %341, i64 352
   store i64 2251799830462484, ptr %2388, align 8
-  %2389 = getelementptr inbounds i8, ptr %341, i64 360
+  %2389 = getelementptr inbounds nuw i8, ptr %341, i64 360
   store i64 %444, ptr %2389, align 8
-  %2390 = getelementptr inbounds i8, ptr %341, i64 368
+  %2390 = getelementptr inbounds nuw i8, ptr %341, i64 368
   store i64 2251799830462484, ptr %2390, align 8
-  %2391 = getelementptr inbounds i8, ptr %341, i64 376
+  %2391 = getelementptr inbounds nuw i8, ptr %341, i64 376
   store i64 32, ptr %2391, align 8
-  %2392 = getelementptr inbounds i8, ptr %341, i64 384
+  %2392 = getelementptr inbounds nuw i8, ptr %341, i64 384
   store i64 2251799830462500, ptr %2392, align 8
-  %2393 = getelementptr inbounds i8, ptr %341, i64 392
+  %2393 = getelementptr inbounds nuw i8, ptr %341, i64 392
   store i64 %444, ptr %2393, align 8
-  %2394 = getelementptr inbounds i8, ptr %341, i64 400
+  %2394 = getelementptr inbounds nuw i8, ptr %341, i64 400
   store i64 2251799830462500, ptr %2394, align 8
-  %2395 = getelementptr inbounds i8, ptr %341, i64 408
+  %2395 = getelementptr inbounds nuw i8, ptr %341, i64 408
   store i64 32, ptr %2395, align 8
-  %2396 = getelementptr inbounds i8, ptr %341, i64 416
+  %2396 = getelementptr inbounds nuw i8, ptr %341, i64 416
   store i64 2251799830462532, ptr %2396, align 8
-  %2397 = getelementptr inbounds i8, ptr %341, i64 424
+  %2397 = getelementptr inbounds nuw i8, ptr %341, i64 424
   store i64 %444, ptr %2397, align 8
-  %2398 = getelementptr inbounds i8, ptr %341, i64 432
+  %2398 = getelementptr inbounds nuw i8, ptr %341, i64 432
   store i64 2251799830462532, ptr %2398, align 8
-  %2399 = getelementptr inbounds i8, ptr %341, i64 440
+  %2399 = getelementptr inbounds nuw i8, ptr %341, i64 440
   store i64 32, ptr %2399, align 8
-  %2400 = getelementptr inbounds i8, ptr %341, i64 448
+  %2400 = getelementptr inbounds nuw i8, ptr %341, i64 448
   store i64 2251799830462596, ptr %2400, align 8
-  %2401 = getelementptr inbounds i8, ptr %341, i64 456
+  %2401 = getelementptr inbounds nuw i8, ptr %341, i64 456
   store i64 %444, ptr %2401, align 8
-  %2402 = getelementptr inbounds i8, ptr %341, i64 464
+  %2402 = getelementptr inbounds nuw i8, ptr %341, i64 464
   store i64 2251799830462596, ptr %2402, align 8
-  %2403 = getelementptr inbounds i8, ptr %341, i64 472
+  %2403 = getelementptr inbounds nuw i8, ptr %341, i64 472
   store i64 32, ptr %2403, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %168)
   call void @_ZN4llvm18LegalityPredicates23typePairAndMemDescInSetEjjjSt16initializer_listINS0_18TypePairAndMemDescEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %168, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr nonnull %341, i64 15) #15
@@ -5585,21 +5585,21 @@ _ZN4llvm15LegalizeRuleSet24legalForTypesWithMemDescESt16initializer_listINS_18Le
   store i64 2251799817879564, ptr %2414, align 8
   %2415 = getelementptr inbounds nuw i8, ptr %342, i64 24
   store i64 8, ptr %2415, align 8
-  %2416 = getelementptr inbounds i8, ptr %342, i64 32
+  %2416 = getelementptr inbounds nuw i8, ptr %342, i64 32
   store i64 2251799822073868, ptr %2416, align 8
-  %2417 = getelementptr inbounds i8, ptr %342, i64 40
+  %2417 = getelementptr inbounds nuw i8, ptr %342, i64 40
   store i64 %444, ptr %2417, align 8
-  %2418 = getelementptr inbounds i8, ptr %342, i64 48
+  %2418 = getelementptr inbounds nuw i8, ptr %342, i64 48
   store i64 2251799822073868, ptr %2418, align 8
-  %2419 = getelementptr inbounds i8, ptr %342, i64 56
+  %2419 = getelementptr inbounds nuw i8, ptr %342, i64 56
   store i64 16, ptr %2419, align 8
-  %2420 = getelementptr inbounds i8, ptr %342, i64 64
+  %2420 = getelementptr inbounds nuw i8, ptr %342, i64 64
   store i64 2251799830462476, ptr %2420, align 8
-  %2421 = getelementptr inbounds i8, ptr %342, i64 72
+  %2421 = getelementptr inbounds nuw i8, ptr %342, i64 72
   store i64 %444, ptr %2421, align 8
-  %2422 = getelementptr inbounds i8, ptr %342, i64 80
+  %2422 = getelementptr inbounds nuw i8, ptr %342, i64 80
   store i64 2251799830462476, ptr %2422, align 8
-  %2423 = getelementptr inbounds i8, ptr %342, i64 88
+  %2423 = getelementptr inbounds nuw i8, ptr %342, i64 88
   store i64 32, ptr %2423, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %167)
   call void @_ZN4llvm18LegalityPredicates23typePairAndMemDescInSetEjjjSt16initializer_listINS0_18TypePairAndMemDescEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %167, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr nonnull %342, i64 3) #15
@@ -5622,21 +5622,21 @@ _ZN4llvm15LegalizeRuleSet24legalForTypesWithMemDescESt16initializer_listINS_18Le
   store i64 2251799817879564, ptr %2430, align 8
   %2431 = getelementptr inbounds nuw i8, ptr %343, i64 24
   store i64 8, ptr %2431, align 8
-  %2432 = getelementptr inbounds i8, ptr %343, i64 32
+  %2432 = getelementptr inbounds nuw i8, ptr %343, i64 32
   store i64 2251799822073868, ptr %2432, align 8
-  %2433 = getelementptr inbounds i8, ptr %343, i64 40
+  %2433 = getelementptr inbounds nuw i8, ptr %343, i64 40
   store i64 %444, ptr %2433, align 8
-  %2434 = getelementptr inbounds i8, ptr %343, i64 48
+  %2434 = getelementptr inbounds nuw i8, ptr %343, i64 48
   store i64 2251799822073868, ptr %2434, align 8
-  %2435 = getelementptr inbounds i8, ptr %343, i64 56
+  %2435 = getelementptr inbounds nuw i8, ptr %343, i64 56
   store i64 16, ptr %2435, align 8
-  %2436 = getelementptr inbounds i8, ptr %343, i64 64
+  %2436 = getelementptr inbounds nuw i8, ptr %343, i64 64
   store i64 2251799830462476, ptr %2436, align 8
-  %2437 = getelementptr inbounds i8, ptr %343, i64 72
+  %2437 = getelementptr inbounds nuw i8, ptr %343, i64 72
   store i64 %444, ptr %2437, align 8
-  %2438 = getelementptr inbounds i8, ptr %343, i64 80
+  %2438 = getelementptr inbounds nuw i8, ptr %343, i64 80
   store i64 2251799830462476, ptr %2438, align 8
-  %2439 = getelementptr inbounds i8, ptr %343, i64 88
+  %2439 = getelementptr inbounds nuw i8, ptr %343, i64 88
   store i64 32, ptr %2439, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %166)
   call void @_ZN4llvm18LegalityPredicates23typePairAndMemDescInSetEjjjSt16initializer_listINS0_18TypePairAndMemDescEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %166, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr nonnull %343, i64 3) #15
@@ -5668,29 +5668,29 @@ _ZN4llvm15LegalizeRuleSet24legalForTypesWithMemDescESt16initializer_listINS_18Le
   store i64 2251799847239692, ptr %2450, align 8
   %2451 = getelementptr inbounds nuw i8, ptr %344, i64 24
   store i64 64, ptr %2451, align 8
-  %2452 = getelementptr inbounds i8, ptr %344, i64 32
+  %2452 = getelementptr inbounds nuw i8, ptr %344, i64 32
   store i64 2251799847239700, ptr %2452, align 8
-  %2453 = getelementptr inbounds i8, ptr %344, i64 40
+  %2453 = getelementptr inbounds nuw i8, ptr %344, i64 40
   store i64 %444, ptr %2453, align 8
-  %2454 = getelementptr inbounds i8, ptr %344, i64 48
+  %2454 = getelementptr inbounds nuw i8, ptr %344, i64 48
   store i64 2251799847239700, ptr %2454, align 8
-  %2455 = getelementptr inbounds i8, ptr %344, i64 56
+  %2455 = getelementptr inbounds nuw i8, ptr %344, i64 56
   store i64 64, ptr %2455, align 8
-  %2456 = getelementptr inbounds i8, ptr %344, i64 64
+  %2456 = getelementptr inbounds nuw i8, ptr %344, i64 64
   store i64 2251799847239716, ptr %2456, align 8
-  %2457 = getelementptr inbounds i8, ptr %344, i64 72
+  %2457 = getelementptr inbounds nuw i8, ptr %344, i64 72
   store i64 %444, ptr %2457, align 8
-  %2458 = getelementptr inbounds i8, ptr %344, i64 80
+  %2458 = getelementptr inbounds nuw i8, ptr %344, i64 80
   store i64 2251799847239716, ptr %2458, align 8
-  %2459 = getelementptr inbounds i8, ptr %344, i64 88
+  %2459 = getelementptr inbounds nuw i8, ptr %344, i64 88
   store i64 64, ptr %2459, align 8
-  %2460 = getelementptr inbounds i8, ptr %344, i64 96
+  %2460 = getelementptr inbounds nuw i8, ptr %344, i64 96
   store i64 2251799847239748, ptr %2460, align 8
-  %2461 = getelementptr inbounds i8, ptr %344, i64 104
+  %2461 = getelementptr inbounds nuw i8, ptr %344, i64 104
   store i64 %444, ptr %2461, align 8
-  %2462 = getelementptr inbounds i8, ptr %344, i64 112
+  %2462 = getelementptr inbounds nuw i8, ptr %344, i64 112
   store i64 2251799847239748, ptr %2462, align 8
-  %2463 = getelementptr inbounds i8, ptr %344, i64 120
+  %2463 = getelementptr inbounds nuw i8, ptr %344, i64 120
   store i64 64, ptr %2463, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %165)
   call void @_ZN4llvm18LegalityPredicates23typePairAndMemDescInSetEjjjSt16initializer_listINS0_18TypePairAndMemDescEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %165, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr nonnull %344, i64 4) #15
@@ -5713,29 +5713,29 @@ _ZN4llvm15LegalizeRuleSet24legalForTypesWithMemDescESt16initializer_listINS_18Le
   store i64 2251799847239692, ptr %2470, align 8
   %2471 = getelementptr inbounds nuw i8, ptr %345, i64 24
   store i64 64, ptr %2471, align 8
-  %2472 = getelementptr inbounds i8, ptr %345, i64 32
+  %2472 = getelementptr inbounds nuw i8, ptr %345, i64 32
   store i64 2251799847239700, ptr %2472, align 8
-  %2473 = getelementptr inbounds i8, ptr %345, i64 40
+  %2473 = getelementptr inbounds nuw i8, ptr %345, i64 40
   store i64 %444, ptr %2473, align 8
-  %2474 = getelementptr inbounds i8, ptr %345, i64 48
+  %2474 = getelementptr inbounds nuw i8, ptr %345, i64 48
   store i64 2251799847239700, ptr %2474, align 8
-  %2475 = getelementptr inbounds i8, ptr %345, i64 56
+  %2475 = getelementptr inbounds nuw i8, ptr %345, i64 56
   store i64 64, ptr %2475, align 8
-  %2476 = getelementptr inbounds i8, ptr %345, i64 64
+  %2476 = getelementptr inbounds nuw i8, ptr %345, i64 64
   store i64 2251799847239716, ptr %2476, align 8
-  %2477 = getelementptr inbounds i8, ptr %345, i64 72
+  %2477 = getelementptr inbounds nuw i8, ptr %345, i64 72
   store i64 %444, ptr %2477, align 8
-  %2478 = getelementptr inbounds i8, ptr %345, i64 80
+  %2478 = getelementptr inbounds nuw i8, ptr %345, i64 80
   store i64 2251799847239716, ptr %2478, align 8
-  %2479 = getelementptr inbounds i8, ptr %345, i64 88
+  %2479 = getelementptr inbounds nuw i8, ptr %345, i64 88
   store i64 64, ptr %2479, align 8
-  %2480 = getelementptr inbounds i8, ptr %345, i64 96
+  %2480 = getelementptr inbounds nuw i8, ptr %345, i64 96
   store i64 2251799847239748, ptr %2480, align 8
-  %2481 = getelementptr inbounds i8, ptr %345, i64 104
+  %2481 = getelementptr inbounds nuw i8, ptr %345, i64 104
   store i64 %444, ptr %2481, align 8
-  %2482 = getelementptr inbounds i8, ptr %345, i64 112
+  %2482 = getelementptr inbounds nuw i8, ptr %345, i64 112
   store i64 2251799847239748, ptr %2482, align 8
-  %2483 = getelementptr inbounds i8, ptr %345, i64 120
+  %2483 = getelementptr inbounds nuw i8, ptr %345, i64 120
   store i64 64, ptr %2483, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %164)
   call void @_ZN4llvm18LegalityPredicates23typePairAndMemDescInSetEjjjSt16initializer_listINS0_18TypePairAndMemDescEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %164, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr nonnull %345, i64 4) #15
@@ -5760,7 +5760,7 @@ _ZN4llvm15LegalizeRuleSet24legalForTypesWithMemDescESt16initializer_listINS_18Le
   %2490 = getelementptr inbounds nuw i8, ptr %163, i64 24
   %2491 = getelementptr inbounds nuw i8, ptr %163, i64 16
   store ptr %1, ptr %163, align 8, !noalias !112
-  %.sroa.42360.0..sroa_idx = getelementptr inbounds i8, ptr %163, i64 8
+  %.sroa.42360.0..sroa_idx = getelementptr inbounds nuw i8, ptr %163, i64 8
   store i64 0, ptr %.sroa.42360.0..sroa_idx, align 8, !noalias !112
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL21typeIsLegalIntOrFPVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E9_M_invokeERKSt9_Any_dataS3_", ptr %2490, align 8, !noalias !112
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL21typeIsLegalIntOrFPVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation", ptr %2491, align 8, !noalias !112
@@ -5814,7 +5814,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit2.i2074: ; preds = %2502
   %2512 = phi ptr [ null, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i2068 ], [ %2508, %2502 ]
   %2513 = phi ptr [ %2500, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i2068 ], [ %.pre5.i2073, %2502 ]
   %2514 = phi ptr [ %2499, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i2068 ], [ %.pre.i2071, %2502 ]
-  %2515 = getelementptr inbounds i8, ptr %346, i64 8
+  %2515 = getelementptr inbounds nuw i8, ptr %346, i64 8
   store i64 0, ptr %2515, align 8, !alias.scope !115
   %2516 = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #16, !noalias !115
   %2517 = getelementptr inbounds nuw i8, ptr %2516, i64 24
@@ -5919,7 +5919,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEED2Ev.exit1396: ; preds = %_ZN4llvm15L
   %2550 = getelementptr inbounds nuw i8, ptr %160, i64 24
   %2551 = getelementptr inbounds nuw i8, ptr %160, i64 16
   store ptr %1, ptr %160, align 8, !noalias !118
-  %.sroa.42364.0..sroa_idx = getelementptr inbounds i8, ptr %160, i64 8
+  %.sroa.42364.0..sroa_idx = getelementptr inbounds nuw i8, ptr %160, i64 8
   store i64 0, ptr %.sroa.42364.0..sroa_idx, align 8, !noalias !118
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL21typeIsLegalIntOrFPVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E9_M_invokeERKSt9_Any_dataS3_", ptr %2550, align 8, !noalias !118
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL21typeIsLegalIntOrFPVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation", ptr %2551, align 8, !noalias !118
@@ -5973,7 +5973,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit2.i2089: ; preds = %2562
   %2572 = phi ptr [ null, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i2083 ], [ %2568, %2562 ]
   %2573 = phi ptr [ %2560, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i2083 ], [ %.pre5.i2088, %2562 ]
   %2574 = phi ptr [ %2559, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i2083 ], [ %.pre.i2086, %2562 ]
-  %2575 = getelementptr inbounds i8, ptr %347, i64 8
+  %2575 = getelementptr inbounds nuw i8, ptr %347, i64 8
   store i64 0, ptr %2575, align 8, !alias.scope !121
   %2576 = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #16, !noalias !121
   %2577 = getelementptr inbounds nuw i8, ptr %2576, i64 24
@@ -6086,7 +6086,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEED2Ev.exit1408: ; preds = %_ZN4llvm15L
   %2615 = getelementptr inbounds nuw i8, ptr %157, i64 24
   %2616 = getelementptr inbounds nuw i8, ptr %157, i64 16
   store ptr %1, ptr %157, align 8, !noalias !124
-  %.sroa.42368.0..sroa_idx = getelementptr inbounds i8, ptr %157, i64 8
+  %.sroa.42368.0..sroa_idx = getelementptr inbounds nuw i8, ptr %157, i64 8
   store i64 0, ptr %.sroa.42368.0..sroa_idx, align 8, !noalias !124
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL17typeIsLegalPtrVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E9_M_invokeERKSt9_Any_dataS3_", ptr %2615, align 8, !noalias !124
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL17typeIsLegalPtrVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation", ptr %2616, align 8, !noalias !124
@@ -6140,7 +6140,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit2.i2104: ; preds = %2627
   %2637 = phi ptr [ null, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i2098 ], [ %2633, %2627 ]
   %2638 = phi ptr [ %2625, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i2098 ], [ %.pre5.i2103, %2627 ]
   %2639 = phi ptr [ %2624, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i2098 ], [ %.pre.i2101, %2627 ]
-  %2640 = getelementptr inbounds i8, ptr %348, i64 8
+  %2640 = getelementptr inbounds nuw i8, ptr %348, i64 8
   store i64 0, ptr %2640, align 8, !alias.scope !127
   %2641 = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #16, !noalias !127
   %2642 = getelementptr inbounds nuw i8, ptr %2641, i64 24
@@ -6245,7 +6245,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEED2Ev.exit1419: ; preds = %_ZN4llvm15L
   %2675 = getelementptr inbounds nuw i8, ptr %154, i64 24
   %2676 = getelementptr inbounds nuw i8, ptr %154, i64 16
   store ptr %1, ptr %154, align 8, !noalias !130
-  %.sroa.42371.0..sroa_idx = getelementptr inbounds i8, ptr %154, i64 8
+  %.sroa.42371.0..sroa_idx = getelementptr inbounds nuw i8, ptr %154, i64 8
   store i64 0, ptr %.sroa.42371.0..sroa_idx, align 8, !noalias !130
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL17typeIsLegalPtrVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E9_M_invokeERKSt9_Any_dataS3_", ptr %2675, align 8, !noalias !130
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL17typeIsLegalPtrVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation", ptr %2676, align 8, !noalias !130
@@ -6299,7 +6299,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit2.i2119: ; preds = %2687
   %2697 = phi ptr [ null, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i2113 ], [ %2693, %2687 ]
   %2698 = phi ptr [ %2685, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i2113 ], [ %.pre5.i2118, %2687 ]
   %2699 = phi ptr [ %2684, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i2113 ], [ %.pre.i2116, %2687 ]
-  %2700 = getelementptr inbounds i8, ptr %349, i64 8
+  %2700 = getelementptr inbounds nuw i8, ptr %349, i64 8
   store i64 0, ptr %2700, align 8, !alias.scope !133
   %2701 = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #16, !noalias !133
   %2702 = getelementptr inbounds nuw i8, ptr %2701, i64 24
@@ -6444,7 +6444,7 @@ _ZN4llvm15LegalizeRuleSet29lowerIfMemSizeNotByteSizePow2Ev.exit: ; preds = %_ZN4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %22)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %23)
   store i64 32, ptr %22, align 8
-  %.sroa.2.0..sroa_idx.i2585 = getelementptr inbounds i8, ptr %22, i64 8
+  %.sroa.2.0..sroa_idx.i2585 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store i8 0, ptr %.sroa.2.0..sroa_idx.i2585, align 8
   %2749 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %22) #15
   %2750 = trunc i64 %2749 to i32
@@ -6478,7 +6478,7 @@ _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2590: ; preds = %_ZNSt8functio
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %148)
   %2761 = getelementptr inbounds nuw i8, ptr %148, i64 16
   %2762 = getelementptr inbounds nuw i8, ptr %148, i64 24
-  %2763 = getelementptr inbounds i8, ptr %148, i64 8
+  %2763 = getelementptr inbounds nuw i8, ptr %148, i64 8
   store i64 0, ptr %2763, align 8
   store ptr @_ZN4llvm15LegalizeRuleSet6alwaysERKNS_13LegalityQueryE, ptr %148, align 8
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEPS4_E9_M_invokeERKSt9_Any_dataS3_, ptr %2762, align 8
@@ -6499,7 +6499,7 @@ _ZN4llvm15LegalizeRuleSet5lowerEv.exit1441:       ; preds = %_ZN4llvm15LegalizeR
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %19)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %20)
   store i64 32, ptr %19, align 8
-  %.sroa.2.0..sroa_idx.i2591 = getelementptr inbounds i8, ptr %19, i64 8
+  %.sroa.2.0..sroa_idx.i2591 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i8 0, ptr %.sroa.2.0..sroa_idx.i2591, align 8
   %2768 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %19) #15
   %2769 = trunc i64 %2768 to i32
@@ -6547,7 +6547,7 @@ _ZN4llvm15LegalizeRuleSet29lowerIfMemSizeNotByteSizePow2Ev.exit1444: ; preds = %
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %146)
   %2785 = getelementptr inbounds nuw i8, ptr %146, i64 16
   %2786 = getelementptr inbounds nuw i8, ptr %146, i64 24
-  %2787 = getelementptr inbounds i8, ptr %146, i64 8
+  %2787 = getelementptr inbounds nuw i8, ptr %146, i64 8
   store i64 0, ptr %2787, align 8
   store ptr @_ZN4llvm15LegalizeRuleSet6alwaysERKNS_13LegalityQueryE, ptr %146, align 8
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEPS4_E9_M_invokeERKSt9_Any_dataS3_, ptr %2786, align 8
@@ -6595,7 +6595,7 @@ _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1452: ; preds = %_ZNSt8f
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17)
   store i64 32, ptr %16, align 8
-  %.sroa.2.0..sroa_idx.i2597 = getelementptr inbounds i8, ptr %16, i64 8
+  %.sroa.2.0..sroa_idx.i2597 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i8 0, ptr %.sroa.2.0..sroa_idx.i2597, align 8
   %2801 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %16) #15
   %2802 = trunc i64 %2801 to i32
@@ -6629,7 +6629,7 @@ _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2602: ; preds = %_ZNSt8functio
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %143)
   %2813 = getelementptr inbounds nuw i8, ptr %143, i64 16
   %2814 = getelementptr inbounds nuw i8, ptr %143, i64 24
-  %2815 = getelementptr inbounds i8, ptr %143, i64 8
+  %2815 = getelementptr inbounds nuw i8, ptr %143, i64 8
   store i64 0, ptr %2815, align 8
   store ptr @_ZN4llvm15LegalizeRuleSet6alwaysERKNS_13LegalityQueryE, ptr %143, align 8
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEPS4_E9_M_invokeERKSt9_Any_dataS3_, ptr %2814, align 8
@@ -6646,7 +6646,7 @@ _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2602: ; preds = %_ZNSt8functio
 _ZN4llvm15LegalizeRuleSet5lowerEv.exit1455:       ; preds = %_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2602, %2818
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %143)
   store i32 213, ptr %350, align 4
-  %2820 = getelementptr inbounds i8, ptr %350, i64 4
+  %2820 = getelementptr inbounds nuw i8, ptr %350, i64 4
   store i32 214, ptr %2820, align 4
   %2821 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderESt16initializer_listIjE(ptr noundef nonnull align 8 dereferenceable(121040) %0, ptr nonnull %350, i64 2) #15
   store i64 %444, ptr %351, align 8
@@ -6767,7 +6767,7 @@ _ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listINS_3LLTEE.exit1467: ; pr
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %137)
   %2871 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderEj(ptr noundef nonnull align 8 dereferenceable(121040) %0, i32 noundef 65) #15
   store i64 %444, ptr %357, align 8
-  %2872 = getelementptr inbounds i8, ptr %357, i64 8
+  %2872 = getelementptr inbounds nuw i8, ptr %357, i64 8
   %2873 = load i64, ptr %437, align 8
   store i64 %2873, ptr %2872, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %136)
@@ -6815,9 +6815,9 @@ _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1474: ; preds = %_ZNSt8f
   %2888 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE(ptr noundef nonnull align 8 dereferenceable(168) %2879, i32 noundef 0, i64 %.sroa.0115.0.copyload)
   %2889 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet9maxScalarEjNS_3LLTE(ptr noundef nonnull align 8 dereferenceable(168) %2888, i32 noundef 0, i64 %.sroa.0115.0.copyload)
   store i32 67, ptr %358, align 4
-  %2890 = getelementptr inbounds i8, ptr %358, i64 4
+  %2890 = getelementptr inbounds nuw i8, ptr %358, i64 4
   store i32 255, ptr %2890, align 4
-  %2891 = getelementptr inbounds i8, ptr %358, i64 8
+  %2891 = getelementptr inbounds nuw i8, ptr %358, i64 8
   store i32 69, ptr %2891, align 4
   %2892 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderESt16initializer_listIjE(ptr noundef nonnull align 8 dereferenceable(121040) %0, ptr nonnull %358, i64 3) #15
   store i64 %444, ptr %359, align 8
@@ -6843,7 +6843,7 @@ _ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listINS_3LLTEE.exit1476: ; pr
 
 2902:                                             ; preds = %_ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listINS_3LLTEE.exit1476
   store i64 257, ptr %360, align 8
-  %2903 = getelementptr inbounds i8, ptr %360, i64 8
+  %2903 = getelementptr inbounds nuw i8, ptr %360, i64 8
   %2904 = load i64, ptr %437, align 8
   store i64 %2904, ptr %2903, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %132)
@@ -6892,7 +6892,7 @@ _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1483: ; preds = %_ZNSt8f
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14)
   store i64 32, ptr %13, align 8
-  %.sroa.2.0..sroa_idx.i2603 = getelementptr inbounds i8, ptr %13, i64 8
+  %.sroa.2.0..sroa_idx.i2603 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i8 0, ptr %.sroa.2.0..sroa_idx.i2603, align 8
   %2919 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %13) #15
   %2920 = trunc i64 %2919 to i32
@@ -6924,7 +6924,7 @@ _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2608: ; preds = %_ZNSt8functio
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14)
   %2930 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet9maxScalarEjNS_3LLTE(ptr noundef nonnull align 8 dereferenceable(168) %2921, i32 noundef 0, i64 %.sroa.0106.0.copyload)
   store i32 158, ptr %361, align 4
-  %2931 = getelementptr inbounds i8, ptr %361, i64 4
+  %2931 = getelementptr inbounds nuw i8, ptr %361, i64 4
   store i32 157, ptr %2931, align 4
   %2932 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderESt16initializer_listIjE(ptr noundef nonnull align 8 dereferenceable(121040) %0, ptr nonnull %361, i64 2) #15
   %2933 = load i64, ptr %437, align 8
@@ -6946,7 +6946,7 @@ _ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listINS_3LLTEE.exit1485: ; pr
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %128)
   %2939 = getelementptr inbounds nuw i8, ptr %128, i64 16
   %2940 = getelementptr inbounds nuw i8, ptr %128, i64 24
-  %2941 = getelementptr inbounds i8, ptr %128, i64 8
+  %2941 = getelementptr inbounds nuw i8, ptr %128, i64 8
   store i64 0, ptr %2941, align 8
   store ptr @_ZN4llvm15LegalizeRuleSet6alwaysERKNS_13LegalityQueryE, ptr %128, align 8
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEPS4_E9_M_invokeERKSt9_Any_dataS3_, ptr %2940, align 8
@@ -6963,7 +6963,7 @@ _ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listINS_3LLTEE.exit1485: ; pr
 _ZN4llvm15LegalizeRuleSet5lowerEv.exit1488:       ; preds = %_ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listINS_3LLTEE.exit1485, %2944
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %128)
   store i32 156, ptr %363, align 4
-  %2946 = getelementptr inbounds i8, ptr %363, i64 4
+  %2946 = getelementptr inbounds nuw i8, ptr %363, i64 4
   store i32 155, ptr %2946, align 4
   %2947 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderESt16initializer_listIjE(ptr noundef nonnull align 8 dereferenceable(121040) %0, ptr nonnull %363, i64 2) #15
   %.sroa.099.0.copyload = load i64, ptr %437, align 8
@@ -6971,7 +6971,7 @@ _ZN4llvm15LegalizeRuleSet5lowerEv.exit1488:       ; preds = %_ZN4llvm15LegalizeR
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %127)
   %2949 = getelementptr inbounds nuw i8, ptr %127, i64 16
   %2950 = getelementptr inbounds nuw i8, ptr %127, i64 24
-  %2951 = getelementptr inbounds i8, ptr %127, i64 8
+  %2951 = getelementptr inbounds nuw i8, ptr %127, i64 8
   store i64 0, ptr %2951, align 8
   store ptr @_ZN4llvm15LegalizeRuleSet6alwaysERKNS_13LegalityQueryE, ptr %127, align 8
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEPS4_E9_M_invokeERKSt9_Any_dataS3_, ptr %2950, align 8
@@ -6992,7 +6992,7 @@ _ZN4llvm15LegalizeRuleSet5lowerEv.exit1491:       ; preds = %_ZN4llvm15LegalizeR
 2956:                                             ; preds = %_ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listINS_3LLTEE.exit1476
   %2957 = load i64, ptr %437, align 8
   store i64 %2957, ptr %364, align 8
-  %2958 = getelementptr inbounds i8, ptr %364, i64 8
+  %2958 = getelementptr inbounds nuw i8, ptr %364, i64 8
   store i64 %443, ptr %2958, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %126)
   call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %126, i32 noundef 0, ptr nonnull %364, i64 2) #15
@@ -7039,7 +7039,7 @@ _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1497: ; preds = %_ZNSt8f
   %2973 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE(ptr noundef nonnull align 8 dereferenceable(168) %2964, i32 noundef 0, i64 %.sroa.096.0.copyload)
   %2974 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet9maxScalarEjNS_3LLTE(ptr noundef nonnull align 8 dereferenceable(168) %2973, i32 noundef 0, i64 %443)
   store i32 158, ptr %365, align 4
-  %2975 = getelementptr inbounds i8, ptr %365, i64 4
+  %2975 = getelementptr inbounds nuw i8, ptr %365, i64 4
   store i32 157, ptr %2975, align 4
   %2976 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderESt16initializer_listIjE(ptr noundef nonnull align 8 dereferenceable(121040) %0, ptr nonnull %365, i64 2) #15
   %2977 = load i64, ptr %437, align 8
@@ -7059,7 +7059,7 @@ _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1497: ; preds = %_ZNSt8f
 _ZN4llvm15LegalizeRuleSet8lowerForESt16initializer_listINS_3LLTEE.exit: ; preds = %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1497, %2981
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %123)
   store i32 156, ptr %367, align 4
-  %2983 = getelementptr inbounds i8, ptr %367, i64 4
+  %2983 = getelementptr inbounds nuw i8, ptr %367, i64 4
   store i32 155, ptr %2983, align 4
   %2984 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderESt16initializer_listIjE(ptr noundef nonnull align 8 dereferenceable(121040) %0, ptr nonnull %367, i64 2) #15
   %.sroa.088.0.copyload = load i64, ptr %437, align 8
@@ -7131,7 +7131,7 @@ _ZN4llvm15LegalizeRuleSet13widenScalarIfESt8functionIFbRKNS_13LegalityQueryEEES1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %120)
   %3013 = getelementptr inbounds nuw i8, ptr %120, i64 16
   %3014 = getelementptr inbounds nuw i8, ptr %120, i64 24
-  %3015 = getelementptr inbounds i8, ptr %120, i64 8
+  %3015 = getelementptr inbounds nuw i8, ptr %120, i64 8
   store i64 0, ptr %3015, align 8
   store ptr @_ZN4llvm15LegalizeRuleSet6alwaysERKNS_13LegalityQueryE, ptr %120, align 8
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEPS4_E9_M_invokeERKSt9_Any_dataS3_, ptr %3014, align 8
@@ -7172,11 +7172,11 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEED2Ev.exit1514: ; preds = %3024, %_ZNS
 
 3029:                                             ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEED2Ev.exit1514
   store i32 56, ptr %370, align 4
-  %3030 = getelementptr inbounds i8, ptr %370, i64 4
+  %3030 = getelementptr inbounds nuw i8, ptr %370, i64 4
   store i32 55, ptr %3030, align 4
-  %3031 = getelementptr inbounds i8, ptr %370, i64 8
+  %3031 = getelementptr inbounds nuw i8, ptr %370, i64 8
   store i32 58, ptr %3031, align 4
-  %3032 = getelementptr inbounds i8, ptr %370, i64 12
+  %3032 = getelementptr inbounds nuw i8, ptr %370, i64 12
   store i32 57, ptr %3032, align 4
   %3033 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderESt16initializer_listIjE(ptr noundef nonnull align 8 dereferenceable(121040) %0, ptr nonnull %370, i64 4) #15
   %3034 = load i64, ptr %437, align 8
@@ -7244,16 +7244,16 @@ _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1523: ; preds = %_ZNSt8f
 
 3056:                                             ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEED2Ev.exit1514
   store i32 56, ptr %373, align 4
-  %3057 = getelementptr inbounds i8, ptr %373, i64 4
+  %3057 = getelementptr inbounds nuw i8, ptr %373, i64 4
   store i32 55, ptr %3057, align 4
-  %3058 = getelementptr inbounds i8, ptr %373, i64 8
+  %3058 = getelementptr inbounds nuw i8, ptr %373, i64 8
   store i32 58, ptr %3058, align 4
-  %3059 = getelementptr inbounds i8, ptr %373, i64 12
+  %3059 = getelementptr inbounds nuw i8, ptr %373, i64 12
   store i32 57, ptr %3059, align 4
   %3060 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderESt16initializer_listIjE(ptr noundef nonnull align 8 dereferenceable(121040) %0, ptr nonnull %373, i64 4) #15
   %3061 = load i64, ptr %437, align 8
   store i64 %3061, ptr %374, align 8
-  %3062 = getelementptr inbounds i8, ptr %374, i64 8
+  %3062 = getelementptr inbounds nuw i8, ptr %374, i64 8
   store i64 %443, ptr %3062, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %115)
   call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %115, i32 noundef 0, ptr nonnull %374, i64 2) #15
@@ -7303,13 +7303,13 @@ _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1530: ; preds = %_ZNSt8f
 
 3079:                                             ; preds = %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1530, %_ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1523
   store i32 60, ptr %375, align 4
-  %3080 = getelementptr inbounds i8, ptr %375, i64 4
+  %3080 = getelementptr inbounds nuw i8, ptr %375, i64 4
   store i32 59, ptr %3080, align 4
   %3081 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderESt16initializer_listIjE(ptr noundef nonnull align 8 dereferenceable(121040) %0, ptr nonnull %375, i64 2) #15
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %112)
   %3082 = getelementptr inbounds nuw i8, ptr %112, i64 16
   %3083 = getelementptr inbounds nuw i8, ptr %112, i64 24
-  %3084 = getelementptr inbounds i8, ptr %112, i64 8
+  %3084 = getelementptr inbounds nuw i8, ptr %112, i64 8
   store i64 0, ptr %3084, align 8
   store ptr @_ZN4llvm15LegalizeRuleSet6alwaysERKNS_13LegalityQueryE, ptr %112, align 8
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEPS4_E9_M_invokeERKSt9_Any_dataS3_, ptr %3083, align 8
@@ -7355,7 +7355,7 @@ _ZN4llvm15LegalizeRuleSet9customForESt16initializer_listINS_3LLTEE.exit1535: ; p
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %110)
   %3101 = getelementptr inbounds nuw i8, ptr %110, i64 16
   %3102 = getelementptr inbounds nuw i8, ptr %110, i64 24
-  %3103 = getelementptr inbounds i8, ptr %110, i64 8
+  %3103 = getelementptr inbounds nuw i8, ptr %110, i64 8
   store i64 0, ptr %3103, align 8
   store ptr @_ZN4llvm15LegalizeRuleSet6alwaysERKNS_13LegalityQueryE, ptr %110, align 8
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEPS4_E9_M_invokeERKSt9_Any_dataS3_, ptr %3102, align 8
@@ -7372,11 +7372,11 @@ _ZN4llvm15LegalizeRuleSet9customForESt16initializer_listINS_3LLTEE.exit1535: ; p
 _ZN4llvm15LegalizeRuleSet5lowerEv.exit1538:       ; preds = %3100, %3106
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %110)
   store i32 218, ptr %377, align 4
-  %3108 = getelementptr inbounds i8, ptr %377, i64 4
+  %3108 = getelementptr inbounds nuw i8, ptr %377, i64 4
   store i32 217, ptr %3108, align 4
-  %3109 = getelementptr inbounds i8, ptr %377, i64 8
+  %3109 = getelementptr inbounds nuw i8, ptr %377, i64 8
   store i32 216, ptr %3109, align 4
-  %3110 = getelementptr inbounds i8, ptr %377, i64 12
+  %3110 = getelementptr inbounds nuw i8, ptr %377, i64 12
   store i32 215, ptr %3110, align 4
   %3111 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderESt16initializer_listIjE(ptr noundef nonnull align 8 dereferenceable(121040) %0, ptr nonnull %377, i64 4) #15
   %3112 = load i8, ptr %1018, align 1
@@ -7408,7 +7408,7 @@ _ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listINS_3LLTEE.exit1540: ; pr
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %108)
   %3123 = getelementptr inbounds nuw i8, ptr %108, i64 16
   %3124 = getelementptr inbounds nuw i8, ptr %108, i64 24
-  %3125 = getelementptr inbounds i8, ptr %108, i64 8
+  %3125 = getelementptr inbounds nuw i8, ptr %108, i64 8
   store i64 0, ptr %3125, align 8
   store ptr @_ZN4llvm15LegalizeRuleSet6alwaysERKNS_13LegalityQueryE, ptr %108, align 8
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEPS4_E9_M_invokeERKSt9_Any_dataS3_, ptr %3124, align 8
@@ -7441,15 +7441,15 @@ _ZN4llvm15LegalizeRuleSet5lowerEv.exit1543:       ; preds = %3122, %3128
 _ZN4llvm15LegalizeRuleSet8legalForESt16initializer_listINS_3LLTEE.exit1545: ; preds = %_ZN4llvm15LegalizeRuleSet5lowerEv.exit1543, %3134
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %107)
   store i32 269, ptr %380, align 4
-  %3136 = getelementptr inbounds i8, ptr %380, i64 4
+  %3136 = getelementptr inbounds nuw i8, ptr %380, i64 4
   store i32 271, ptr %3136, align 4
-  %3137 = getelementptr inbounds i8, ptr %380, i64 8
+  %3137 = getelementptr inbounds nuw i8, ptr %380, i64 8
   store i32 272, ptr %3137, align 4
   %3138 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderESt16initializer_listIjE(ptr noundef nonnull align 8 dereferenceable(121040) %0, ptr nonnull %380, i64 3) #15
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %106)
   %3139 = getelementptr inbounds nuw i8, ptr %106, i64 16
   %3140 = getelementptr inbounds nuw i8, ptr %106, i64 24
-  %3141 = getelementptr inbounds i8, ptr %106, i64 8
+  %3141 = getelementptr inbounds nuw i8, ptr %106, i64 8
   store i64 0, ptr %3141, align 8
   store ptr @_ZN4llvm15LegalizeRuleSet6alwaysERKNS_13LegalityQueryE, ptr %106, align 8
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEPS4_E9_M_invokeERKSt9_Any_dataS3_, ptr %3140, align 8
@@ -7469,7 +7469,7 @@ _ZN4llvm15LegalizeRuleSet7libcallEv.exit:         ; preds = %_ZN4llvm15LegalizeR
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %105)
   %3147 = getelementptr inbounds nuw i8, ptr %105, i64 16
   %3148 = getelementptr inbounds nuw i8, ptr %105, i64 24
-  %3149 = getelementptr inbounds i8, ptr %105, i64 8
+  %3149 = getelementptr inbounds nuw i8, ptr %105, i64 8
   store i64 0, ptr %3149, align 8
   store ptr @_ZN4llvm15LegalizeRuleSet6alwaysERKNS_13LegalityQueryE, ptr %105, align 8
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEPS4_E9_M_invokeERKSt9_Any_dataS3_, ptr %3148, align 8
@@ -7489,7 +7489,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1552: ; preds = %_ZN4l
   %3154 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderESt16initializer_listIjE(ptr noundef nonnull align 8 dereferenceable(121040) %0, ptr nonnull %381, i64 10) #15
   %3155 = getelementptr inbounds nuw i8, ptr %382, i64 16
   %3156 = getelementptr inbounds nuw i8, ptr %382, i64 24
-  %3157 = getelementptr inbounds i8, ptr %382, i64 8
+  %3157 = getelementptr inbounds nuw i8, ptr %382, i64 8
   store i64 0, ptr %3157, align 8, !alias.scope !136
   store ptr %1, ptr %382, align 8, !alias.scope !136
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL19typeIsScalarFPArithjRKNS0_14RISCVSubtargetEE3$_0E9_M_invokeERKSt9_Any_dataS3_", ptr %3156, align 8, !alias.scope !136
@@ -7522,7 +7522,7 @@ _ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit1555
 _ZNSt8functionIFbRKN4llvm13LegalityQueryEEED2Ev.exit1557: ; preds = %_ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit1555, %3165
   %3167 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderEj(ptr noundef nonnull align 8 dereferenceable(121040) %0, i32 noundef 179) #15
   store i64 257, ptr %383, align 8
-  %3168 = getelementptr inbounds i8, ptr %383, i64 8
+  %3168 = getelementptr inbounds nuw i8, ptr %383, i64 8
   store i64 513, ptr %3168, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %103)
   call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %103, i32 noundef 0, ptr nonnull %383, i64 2) #15
@@ -7542,7 +7542,7 @@ _ZN4llvm15LegalizeRuleSet10libcallForESt16initializer_listINS_3LLTEE.exit1559: ;
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
   store i64 32, ptr %10, align 8
-  %.sroa.2.0..sroa_idx.i2609 = getelementptr inbounds i8, ptr %10, i64 8
+  %.sroa.2.0..sroa_idx.i2609 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i8 0, ptr %.sroa.2.0..sroa_idx.i2609, align 8
   %3174 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %10) #15
   %3175 = trunc i64 %3174 to i32
@@ -7602,20 +7602,20 @@ _ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates3allISt8function
   %3194 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderEj(ptr noundef nonnull align 8 dereferenceable(121040) %0, i32 noundef 198) #15
   %3195 = getelementptr inbounds nuw i8, ptr %385, i64 16
   %3196 = getelementptr inbounds nuw i8, ptr %385, i64 24
-  %3197 = getelementptr inbounds i8, ptr %385, i64 8
+  %3197 = getelementptr inbounds nuw i8, ptr %385, i64 8
   store i64 0, ptr %3197, align 8, !alias.scope !139
   store ptr %1, ptr %385, align 8, !alias.scope !139
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL19typeIsScalarFPArithjRKNS0_14RISCVSubtargetEE3$_0E9_M_invokeERKSt9_Any_dataS3_", ptr %3196, align 8, !alias.scope !139
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL19typeIsScalarFPArithjRKNS0_14RISCVSubtargetEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation", ptr %3195, align 8, !alias.scope !139
   %3198 = getelementptr inbounds nuw i8, ptr %386, i64 16
   %3199 = getelementptr inbounds nuw i8, ptr %386, i64 24
-  %3200 = getelementptr inbounds i8, ptr %386, i64 8
+  %3200 = getelementptr inbounds nuw i8, ptr %386, i64 8
   store i64 1, ptr %3200, align 8, !alias.scope !142
   store ptr %1, ptr %386, align 8, !alias.scope !142
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL19typeIsScalarFPArithjRKNS0_14RISCVSubtargetEE3$_0E9_M_invokeERKSt9_Any_dataS3_", ptr %3199, align 8, !alias.scope !142
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL19typeIsScalarFPArithjRKNS0_14RISCVSubtargetEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation", ptr %3198, align 8, !alias.scope !142
   call void @llvm.experimental.noalias.scope.decl(metadata !145)
-  %3201 = getelementptr inbounds i8, ptr %384, i64 8
+  %3201 = getelementptr inbounds nuw i8, ptr %384, i64 8
   store i64 0, ptr %3201, align 8, !alias.scope !145
   %3202 = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #16, !noalias !145
   %3203 = getelementptr inbounds nuw i8, ptr %3202, i64 24
@@ -7635,7 +7635,7 @@ _ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates3allISt8function
   %3209 = getelementptr inbounds nuw i8, ptr %384, i64 16
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates3allISt8functionIS4_EEET_S9_S9_EUlS3_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %3209, align 8, !alias.scope !145
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %100)
-  %3210 = getelementptr inbounds i8, ptr %100, i64 8
+  %3210 = getelementptr inbounds nuw i8, ptr %100, i64 8
   store i64 0, ptr %3210, align 8
   %3211 = getelementptr inbounds nuw i8, ptr %100, i64 24
   %3212 = getelementptr inbounds nuw i8, ptr %100, i64 16
@@ -7695,21 +7695,21 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1593: ; preds = %_ZNSt
   %3232 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderEj(ptr noundef nonnull align 8 dereferenceable(121040) %0, i32 noundef 192) #15
   %3233 = getelementptr inbounds nuw i8, ptr %387, i64 16
   %3234 = getelementptr inbounds nuw i8, ptr %387, i64 24
-  %3235 = getelementptr inbounds i8, ptr %387, i64 8
+  %3235 = getelementptr inbounds nuw i8, ptr %387, i64 8
   store i64 0, ptr %3235, align 8
   %3236 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #16
   store ptr %1, ptr %3236, align 16
-  %.sroa.22158.0..sroa_idx = getelementptr inbounds i8, ptr %3236, i64 8
+  %.sroa.22158.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3236, i64 8
   store i64 257, ptr %.sroa.22158.0..sroa_idx, align 8
-  %.sroa.32159.0..sroa_idx = getelementptr inbounds i8, ptr %3236, i64 16
+  %.sroa.32159.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3236, i64 16
   store i64 513, ptr %.sroa.32159.0..sroa_idx, align 16
-  %.sroa.42160.0..sroa_idx = getelementptr inbounds i8, ptr %3236, i64 24
+  %.sroa.42160.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3236, i64 24
   store i64 129, ptr %.sroa.42160.0..sroa_idx, align 8
   store ptr %3236, ptr %387, align 8
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18RISCVLegalizerInfoC1ERKNS0_14RISCVSubtargetEE3$_0E9_M_invokeERKSt9_Any_dataS3_", ptr %3234, align 8
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18RISCVLegalizerInfoC1ERKNS0_14RISCVSubtargetEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation", ptr %3233, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %99)
-  %3237 = getelementptr inbounds i8, ptr %99, i64 8
+  %3237 = getelementptr inbounds nuw i8, ptr %99, i64 8
   store i64 0, ptr %3237, align 8
   %3238 = getelementptr inbounds nuw i8, ptr %99, i64 24
   %3239 = getelementptr inbounds nuw i8, ptr %99, i64 16
@@ -7741,21 +7741,21 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1600: ; preds = %_ZN4l
   %3248 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderEj(ptr noundef nonnull align 8 dereferenceable(121040) %0, i32 noundef 191) #15
   %3249 = getelementptr inbounds nuw i8, ptr %388, i64 16
   %3250 = getelementptr inbounds nuw i8, ptr %388, i64 24
-  %3251 = getelementptr inbounds i8, ptr %388, i64 8
+  %3251 = getelementptr inbounds nuw i8, ptr %388, i64 8
   store i64 0, ptr %3251, align 8
   %3252 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #16
   store ptr %1, ptr %3252, align 16
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %3252, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3252, i64 8
   store i64 513, ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %3252, i64 16
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3252, i64 16
   store i64 257, ptr %.sroa.3.0..sroa_idx, align 16
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %3252, i64 24
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3252, i64 24
   store i64 129, ptr %.sroa.4.0..sroa_idx, align 8
   store ptr %3252, ptr %388, align 8
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18RISCVLegalizerInfoC1ERKNS0_14RISCVSubtargetEE3$_1E9_M_invokeERKSt9_Any_dataS3_", ptr %3250, align 8
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18RISCVLegalizerInfoC1ERKNS0_14RISCVSubtargetEE3$_1E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation", ptr %3249, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %98)
-  %3253 = getelementptr inbounds i8, ptr %98, i64 8
+  %3253 = getelementptr inbounds nuw i8, ptr %98, i64 8
   store i64 0, ptr %3253, align 8
   %3254 = getelementptr inbounds nuw i8, ptr %98, i64 24
   %3255 = getelementptr inbounds nuw i8, ptr %98, i64 16
@@ -7789,7 +7789,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEED2Ev.exit1605: ; preds = %_ZN4llvm15L
   call void @_ZN4llvm18LegalityPredicates6typeIsEjNS_3LLTE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %390, i32 noundef 0, i64 %.sroa.048.0.copyload) #15
   %3265 = getelementptr inbounds nuw i8, ptr %391, i64 16
   %3266 = getelementptr inbounds nuw i8, ptr %391, i64 24
-  %3267 = getelementptr inbounds i8, ptr %391, i64 8
+  %3267 = getelementptr inbounds nuw i8, ptr %391, i64 8
   store i64 1, ptr %3267, align 8, !alias.scope !148
   store ptr %1, ptr %391, align 8, !alias.scope !148
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL19typeIsScalarFPArithjRKNS0_14RISCVSubtargetEE3$_0E9_M_invokeERKSt9_Any_dataS3_", ptr %3266, align 8, !alias.scope !148
@@ -7844,7 +7844,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit2.i1614: ; preds = %3278
   %3288 = phi ptr [ null, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1608 ], [ %3284, %3278 ]
   %3289 = phi ptr [ %3276, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1608 ], [ %.pre5.i1613, %3278 ]
   %3290 = phi ptr [ %3275, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1608 ], [ %.pre.i1611, %3278 ]
-  %3291 = getelementptr inbounds i8, ptr %389, i64 8
+  %3291 = getelementptr inbounds nuw i8, ptr %389, i64 8
   store i64 0, ptr %3291, align 8, !alias.scope !151
   %3292 = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #16, !noalias !151
   %3293 = getelementptr inbounds nuw i8, ptr %3292, i64 24
@@ -7972,7 +7972,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEED2Ev.exit1632: ; preds = %_ZNSt8funct
   call void @_ZN4llvm18LegalityPredicates6typeIsEjNS_3LLTE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %393, i32 noundef 0, i64 9) #15
   %3339 = getelementptr inbounds nuw i8, ptr %394, i64 16
   %3340 = getelementptr inbounds nuw i8, ptr %394, i64 24
-  %3341 = getelementptr inbounds i8, ptr %394, i64 8
+  %3341 = getelementptr inbounds nuw i8, ptr %394, i64 8
   store i64 1, ptr %3341, align 8, !alias.scope !154
   store ptr %1, ptr %394, align 8, !alias.scope !154
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL19typeIsScalarFPArithjRKNS0_14RISCVSubtargetEE3$_0E9_M_invokeERKSt9_Any_dataS3_", ptr %3340, align 8, !alias.scope !154
@@ -8027,7 +8027,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit2.i1641: ; preds = %3352
   %3362 = phi ptr [ null, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1635 ], [ %3358, %3352 ]
   %3363 = phi ptr [ %3350, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1635 ], [ %.pre5.i1640, %3352 ]
   %3364 = phi ptr [ %3349, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1635 ], [ %.pre.i1638, %3352 ]
-  %3365 = getelementptr inbounds i8, ptr %392, i64 8
+  %3365 = getelementptr inbounds nuw i8, ptr %392, i64 8
   store i64 0, ptr %3365, align 8, !alias.scope !157
   %3366 = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #16, !noalias !157
   %3367 = getelementptr inbounds nuw i8, ptr %3366, i64 24
@@ -8151,7 +8151,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1662: ; preds = %_ZNSt
   %3410 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderEj(ptr noundef nonnull align 8 dereferenceable(121040) %0, i32 noundef 129) #15
   %3411 = getelementptr inbounds nuw i8, ptr %395, i64 16
   %3412 = getelementptr inbounds nuw i8, ptr %395, i64 24
-  %3413 = getelementptr inbounds i8, ptr %395, i64 8
+  %3413 = getelementptr inbounds nuw i8, ptr %395, i64 8
   store i64 0, ptr %3413, align 8, !alias.scope !160
   store ptr %1, ptr %395, align 8, !alias.scope !160
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL19typeIsScalarFPArithjRKNS0_14RISCVSubtargetEE3$_0E9_M_invokeERKSt9_Any_dataS3_", ptr %3412, align 8, !alias.scope !160
@@ -8174,7 +8174,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1662: ; preds = %_ZNSt
 _ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit1665: ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1662, %3418
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %93)
   store i64 257, ptr %396, align 8
-  %3420 = getelementptr inbounds i8, ptr %396, i64 8
+  %3420 = getelementptr inbounds nuw i8, ptr %396, i64 8
   store i64 513, ptr %3420, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %92)
   call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %92, i32 noundef 0, ptr nonnull %396, i64 2) #15
@@ -8200,17 +8200,17 @@ _ZN4llvm15LegalizeRuleSet8lowerForESt16initializer_listINS_3LLTEE.exit1667: ; pr
 
 _ZNSt8functionIFbRKN4llvm13LegalityQueryEEED2Ev.exit1669: ; preds = %_ZN4llvm15LegalizeRuleSet8lowerForESt16initializer_listINS_3LLTEE.exit1667, %3427
   store i32 193, ptr %397, align 4
-  %3429 = getelementptr inbounds i8, ptr %397, i64 4
+  %3429 = getelementptr inbounds nuw i8, ptr %397, i64 4
   store i32 194, ptr %3429, align 4
   %3430 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderESt16initializer_listIjE(ptr noundef nonnull align 8 dereferenceable(121040) %0, ptr nonnull %397, i64 2) #15
   store i64 257, ptr %400, align 8
-  %3431 = getelementptr inbounds i8, ptr %400, i64 8
+  %3431 = getelementptr inbounds nuw i8, ptr %400, i64 8
   %3432 = load i64, ptr %437, align 8
   store i64 %3432, ptr %3431, align 8
   call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %399, i32 noundef 0, ptr nonnull %400, i64 2) #15
   %3433 = getelementptr inbounds nuw i8, ptr %401, i64 16
   %3434 = getelementptr inbounds nuw i8, ptr %401, i64 24
-  %3435 = getelementptr inbounds i8, ptr %401, i64 8
+  %3435 = getelementptr inbounds nuw i8, ptr %401, i64 8
   store i64 1, ptr %3435, align 8, !alias.scope !163
   store ptr %1, ptr %401, align 8, !alias.scope !163
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL19typeIsScalarFPArithjRKNS0_14RISCVSubtargetEE3$_0E9_M_invokeERKSt9_Any_dataS3_", ptr %3434, align 8, !alias.scope !163
@@ -8265,7 +8265,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit2.i1678: ; preds = %3446
   %3456 = phi ptr [ null, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1672 ], [ %3452, %3446 ]
   %3457 = phi ptr [ %3444, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1672 ], [ %.pre5.i1677, %3446 ]
   %3458 = phi ptr [ %3443, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1672 ], [ %.pre.i1675, %3446 ]
-  %3459 = getelementptr inbounds i8, ptr %398, i64 8
+  %3459 = getelementptr inbounds nuw i8, ptr %398, i64 8
   store i64 0, ptr %3459, align 8, !alias.scope !166
   %3460 = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #16, !noalias !166
   %3461 = getelementptr inbounds nuw i8, ptr %3460, i64 24
@@ -8391,7 +8391,7 @@ _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1695: ; preds = %_ZNSt8f
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
   store i64 32, ptr %7, align 8
-  %.sroa.2.0..sroa_idx.i2616 = getelementptr inbounds i8, ptr %7, i64 8
+  %.sroa.2.0..sroa_idx.i2616 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i8 0, ptr %.sroa.2.0..sroa_idx.i2616, align 8
   %3504 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %7) #15
   %3505 = trunc i64 %3504 to i32
@@ -8425,7 +8425,7 @@ _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2621: ; preds = %_ZNSt8functio
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %87)
   %3516 = getelementptr inbounds nuw i8, ptr %87, i64 16
   %3517 = getelementptr inbounds nuw i8, ptr %87, i64 24
-  %3518 = getelementptr inbounds i8, ptr %87, i64 8
+  %3518 = getelementptr inbounds nuw i8, ptr %87, i64 8
   store i64 0, ptr %3518, align 8
   store ptr @_ZN4llvm15LegalizeRuleSet6alwaysERKNS_13LegalityQueryE, ptr %87, align 8
   store ptr @_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEPS4_E9_M_invokeERKSt9_Any_dataS3_, ptr %3517, align 8
@@ -8469,18 +8469,18 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEED2Ev.exit1702: ; preds = %_ZNSt8funct
 
 _ZNSt8functionIFbRKN4llvm13LegalityQueryEEED2Ev.exit1704: ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEED2Ev.exit1702, %3530
   store i32 195, ptr %402, align 4
-  %3532 = getelementptr inbounds i8, ptr %402, i64 4
+  %3532 = getelementptr inbounds nuw i8, ptr %402, i64 4
   store i32 196, ptr %3532, align 4
   %3533 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderESt16initializer_listIjE(ptr noundef nonnull align 8 dereferenceable(121040) %0, ptr nonnull %402, i64 2) #15
   %3534 = getelementptr inbounds nuw i8, ptr %404, i64 16
   %3535 = getelementptr inbounds nuw i8, ptr %404, i64 24
-  %3536 = getelementptr inbounds i8, ptr %404, i64 8
+  %3536 = getelementptr inbounds nuw i8, ptr %404, i64 8
   store i64 0, ptr %3536, align 8, !alias.scope !169
   store ptr %1, ptr %404, align 8, !alias.scope !169
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL19typeIsScalarFPArithjRKNS0_14RISCVSubtargetEE3$_0E9_M_invokeERKSt9_Any_dataS3_", ptr %3535, align 8, !alias.scope !169
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL19typeIsScalarFPArithjRKNS0_14RISCVSubtargetEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation", ptr %3534, align 8, !alias.scope !169
   store i64 257, ptr %406, align 8
-  %3537 = getelementptr inbounds i8, ptr %406, i64 8
+  %3537 = getelementptr inbounds nuw i8, ptr %406, i64 8
   %3538 = load i64, ptr %437, align 8
   store i64 %3538, ptr %3537, align 8
   call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %405, i32 noundef 1, ptr nonnull %406, i64 2) #15
@@ -8527,7 +8527,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit2.i1713: ; preds = %3551
   %3557 = phi ptr [ null, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1707 ], [ %3554, %3551 ]
   %3558 = phi ptr [ %3546, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1707 ], [ %.pre5.i1712, %3551 ]
   %3559 = phi ptr [ %3547, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1707 ], [ %.pre.i1710, %3551 ]
-  %3560 = getelementptr inbounds i8, ptr %403, i64 8
+  %3560 = getelementptr inbounds nuw i8, ptr %403, i64 8
   store i64 0, ptr %3560, align 8, !alias.scope !172
   %3561 = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #16, !noalias !172
   %3562 = getelementptr inbounds nuw i8, ptr %3561, i64 24
@@ -8651,7 +8651,7 @@ _ZN4llvm15LegalizeRuleSet21widenScalarToNextPow2Ejj.exit1730: ; preds = %_ZNSt8f
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   store i64 32, ptr %4, align 8
-  %.sroa.2.0..sroa_idx.i2622 = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.2.0..sroa_idx.i2622 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i8 0, ptr %.sroa.2.0..sroa_idx.i2622, align 8
   %3604 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %4) #15
   %3605 = trunc i64 %3604 to i32
@@ -8710,11 +8710,11 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEED2Ev.exit1734: ; preds = %_ZNSt8funct
 
 _ZNSt8functionIFbRKN4llvm13LegalityQueryEEED2Ev.exit1736: ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEED2Ev.exit1734, %3623
   store i32 239, ptr %407, align 4
-  %3625 = getelementptr inbounds i8, ptr %407, i64 4
+  %3625 = getelementptr inbounds nuw i8, ptr %407, i64 4
   store i32 250, ptr %3625, align 4
   %3626 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm13LegalizerInfo27getActionDefinitionsBuilderESt16initializer_listIjE(ptr noundef nonnull align 8 dereferenceable(121040) %0, ptr nonnull %407, i64 2) #15
   store i64 257, ptr %408, align 8
-  %3627 = getelementptr inbounds i8, ptr %408, i64 8
+  %3627 = getelementptr inbounds nuw i8, ptr %408, i64 8
   store i64 513, ptr %3627, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %82)
   call void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind nonnull writable sret(%"class.std::function") align 8 %82, i32 noundef 0, ptr nonnull %408, i64 2) #15
@@ -8752,7 +8752,7 @@ _ZN4llvm15LegalizeRuleSet9customForESt16initializer_listINS_3LLTEE.exit1740: ; p
   %3641 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet9maxScalarEjNS_3LLTE(ptr noundef nonnull align 8 dereferenceable(168) %3640, i32 noundef 0, i64 %.sroa.024.0.copyload)
   %3642 = load i64, ptr %437, align 8
   store i64 %3642, ptr %410, align 8
-  %3643 = getelementptr inbounds i8, ptr %410, i64 8
+  %3643 = getelementptr inbounds nuw i8, ptr %410, i64 8
   store i64 %444, ptr %3643, align 8
   store i64 %444, ptr %411, align 8
   %3644 = call noundef nonnull align 8 dereferenceable(168) ptr @_ZN4llvm15LegalizeRuleSet25actionForCartesianProductENS_15LegalizeActions14LegalizeActionESt16initializer_listINS_3LLTEES5_(ptr noundef nonnull align 8 dereferenceable(168) %3641, i8 noundef zeroext 6, ptr nonnull %410, i64 2, ptr nonnull %411, i64 1)
@@ -8783,7 +8783,7 @@ _ZN4llvm15LegalizeRuleSet9customForESt16initializer_listINS_3LLTEE.exit1742: ; p
   %3655 = getelementptr inbounds nuw i8, ptr %79, i64 24
   %3656 = getelementptr inbounds nuw i8, ptr %79, i64 16
   store ptr %1, ptr %79, align 8, !noalias !175
-  %.sroa.42375.0..sroa_idx = getelementptr inbounds i8, ptr %79, i64 8
+  %.sroa.42375.0..sroa_idx = getelementptr inbounds nuw i8, ptr %79, i64 8
   store i64 0, ptr %.sroa.42375.0..sroa_idx, align 8, !noalias !175
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL21typeIsLegalIntOrFPVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E9_M_invokeERKSt9_Any_dataS3_", ptr %3655, align 8, !noalias !175
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL21typeIsLegalIntOrFPVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation", ptr %3656, align 8, !noalias !175
@@ -8837,7 +8837,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit2.i2134: ; preds = %3667
   %3677 = phi ptr [ null, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i2128 ], [ %3673, %3667 ]
   %3678 = phi ptr [ %3665, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i2128 ], [ %.pre5.i2133, %3667 ]
   %3679 = phi ptr [ %3664, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i2128 ], [ %.pre.i2131, %3667 ]
-  %3680 = getelementptr inbounds i8, ptr %414, i64 8
+  %3680 = getelementptr inbounds nuw i8, ptr %414, i64 8
   store i64 0, ptr %3680, align 8, !alias.scope !178
   %3681 = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #16, !noalias !178
   %3682 = getelementptr inbounds nuw i8, ptr %3681, i64 24
@@ -8943,7 +8943,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit2.i1755: ; preds = %3712
   %3718 = phi ptr [ null, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1749 ], [ %3715, %3712 ]
   %3719 = phi ptr [ %3707, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1749 ], [ %.pre5.i1754, %3712 ]
   %3720 = phi ptr [ %3708, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1749 ], [ %.pre.i1752, %3712 ]
-  %3721 = getelementptr inbounds i8, ptr %413, i64 8
+  %3721 = getelementptr inbounds nuw i8, ptr %413, i64 8
   store i64 0, ptr %3721, align 8, !alias.scope !181
   %3722 = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #16, !noalias !181
   %3723 = getelementptr inbounds nuw i8, ptr %3722, i64 24
@@ -9041,7 +9041,7 @@ _ZN4llvm15LegalizeRuleSet7legalIfESt8functionIFbRKNS_13LegalityQueryEEE.exit1767
   %3756 = getelementptr inbounds nuw i8, ptr %75, i64 24
   %3757 = getelementptr inbounds nuw i8, ptr %75, i64 16
   store ptr %1, ptr %75, align 8, !noalias !184
-  %.sroa.42379.0..sroa_idx = getelementptr inbounds i8, ptr %75, i64 8
+  %.sroa.42379.0..sroa_idx = getelementptr inbounds nuw i8, ptr %75, i64 8
   store i64 0, ptr %.sroa.42379.0..sroa_idx, align 8, !noalias !184
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL18typeIsLegalBoolVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E9_M_invokeERKSt9_Any_dataS3_", ptr %3756, align 8, !noalias !184
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZL18typeIsLegalBoolVecjSt16initializer_listINS0_3LLTEERKNS0_14RISCVSubtargetEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation", ptr %3757, align 8, !noalias !184
@@ -9095,7 +9095,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit2.i2149: ; preds = %3768
   %3778 = phi ptr [ null, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i2143 ], [ %3774, %3768 ]
   %3779 = phi ptr [ %3766, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i2143 ], [ %.pre5.i2148, %3768 ]
   %3780 = phi ptr [ %3765, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i2143 ], [ %.pre.i2146, %3768 ]
-  %3781 = getelementptr inbounds i8, ptr %417, i64 8
+  %3781 = getelementptr inbounds nuw i8, ptr %417, i64 8
   store i64 0, ptr %3781, align 8, !alias.scope !187
   %3782 = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #16, !noalias !187
   %3783 = getelementptr inbounds nuw i8, ptr %3782, i64 24
@@ -9200,7 +9200,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit2.i1780: ; preds = %3813
   %3819 = phi ptr [ null, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1774 ], [ %3816, %3813 ]
   %3820 = phi ptr [ %3808, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1774 ], [ %.pre5.i1779, %3813 ]
   %3821 = phi ptr [ %3809, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1774 ], [ %.pre.i1777, %3813 ]
-  %3822 = getelementptr inbounds i8, ptr %416, i64 8
+  %3822 = getelementptr inbounds nuw i8, ptr %416, i64 8
   store i64 0, ptr %3822, align 8, !alias.scope !190
   %3823 = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #16, !noalias !190
   %3824 = getelementptr inbounds nuw i8, ptr %3823, i64 24
@@ -9439,7 +9439,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2IZNS0_18LegalityPredicates3allIS5_E
 _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1821: ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2EOS5_.exit.i.i.i.i.i1814, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2IZNS0_18LegalityPredicates3allIS5_EET_S9_S9_EUlS3_E_vEEOS9_.exit.i1816
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %71)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %70)
-  %3915 = getelementptr inbounds i8, ptr %70, i64 8
+  %3915 = getelementptr inbounds nuw i8, ptr %70, i64 8
   store i64 0, ptr %3915, align 8
   %3916 = getelementptr inbounds nuw i8, ptr %70, i64 24
   %3917 = getelementptr inbounds nuw i8, ptr %70, i64 16
@@ -9615,7 +9615,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2IZNS0_18LegalityPredicates3allIS5_E
 _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i1847: ; preds = %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2EOS5_.exit.i.i.i.i.i1840, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2IZNS0_18LegalityPredicates3allIS5_EET_S9_S9_EUlS3_E_vEEOS9_.exit.i1842
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %69)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %68)
-  %3989 = getelementptr inbounds i8, ptr %68, i64 8
+  %3989 = getelementptr inbounds nuw i8, ptr %68, i64 8
   store i64 0, ptr %3989, align 8
   %3990 = getelementptr inbounds nuw i8, ptr %68, i64 24
   %3991 = getelementptr inbounds nuw i8, ptr %68, i64 16
@@ -9782,7 +9782,7 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit:              ; preds = %14, %18, %21, %_ZNK
   %.sroa.3.0.i = phi i8 [ %31, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i ], [ 0, %14 ], [ 0, %21 ], [ 0, %18 ]
   %.sroa.012.0.i = and i64 %.sroa.012.0.in.i, 4294967295
   store i64 %.sroa.012.0.i, ptr %5, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i8 %.sroa.3.0.i, ptr %.sroa.2.0..sroa_idx, align 8
   %32 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %5) #15
   %33 = trunc i64 %32 to i32
@@ -9825,7 +9825,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i:
   call void @_ZN4llvm17LegalizeMutations19changeElementSizeToEjj(ptr dead_on_unwind nonnull writable sret(%"class.std::function.67") align 8 %5, i32 noundef %1, i32 noundef %2) #15
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 0, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -9948,7 +9948,7 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit:              ; preds = %14, %18, %21, %_ZNK
   %.sroa.3.0.i = phi i8 [ %31, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i ], [ 0, %14 ], [ 0, %21 ], [ 0, %18 ]
   %.sroa.012.0.i = and i64 %.sroa.012.0.in.i, 4294967295
   store i64 %.sroa.012.0.i, ptr %5, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i8 %.sroa.3.0.i, ptr %.sroa.2.0..sroa_idx, align 8
   %32 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %5) #15
   %33 = trunc i64 %32 to i32
@@ -10038,7 +10038,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit2.i: ; preds = %23, %_ZN
   %30 = phi ptr [ null, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i ], [ %27, %23 ]
   %31 = phi ptr [ %18, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i ], [ %.pre5.i, %23 ]
   %32 = phi ptr [ %19, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i ], [ %.pre.i, %23 ]
-  %33 = getelementptr inbounds i8, ptr %5, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %33, align 8, !alias.scope !199
   %34 = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #16, !noalias !199
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 24
@@ -10134,7 +10134,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm18RISCVLegalizerInfo17legalizeIntr
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %14 = load ptr, ptr %13, align 8
   %15 = zext i32 %12 to i64
-  %16 = getelementptr inbounds %"class.llvm::MachineOperand", ptr %14, i64 %15, i32 3
+  %16 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %14, i64 %15, i32 3
   %17 = load i32, ptr %16, align 8
   %cond = icmp eq i32 %17, 364
   br i1 %cond, label %18, label %58
@@ -10151,7 +10151,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm18RISCVLegalizerInfo17legalizeIntr
   %27 = load ptr, ptr %22, align 8
   %28 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm8Function10getContextEv(ptr noundef nonnull align 8 dereferenceable(136) %27) #15
   %29 = load ptr, ptr %13, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 36
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 36
   %31 = load i32, ptr %30, align 4
   %32 = icmp slt i32 %31, 0
   br i1 %32, label %33, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit
@@ -10166,7 +10166,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm18RISCVLegalizerInfo17legalizeIntr
 
 39:                                               ; preds = %33
   %40 = load ptr, ptr %34, align 8
-  %41 = getelementptr inbounds %"class.llvm::LLT", ptr %40, i64 %36
+  %41 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %40, i64 %36
   %42 = load i64, ptr %41, align 8
   br label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit
 
@@ -10181,7 +10181,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit: ; preds = %18, %33, %
   %46 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 0, ptr %46, align 8
   %47 = load ptr, ptr %13, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 68
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 68
   %49 = load i32, ptr %48, align 4
   store i32 %49, ptr %7, align 8
   %50 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -10193,7 +10193,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit: ; preds = %18, %33, %
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 32, i1 false)
   %54 = call noundef ptr @_ZN4llvm15MachineFunction20getMachineMemOperandENS_18MachinePointerInfoENS_17MachineMemOperand5FlagsENS_3LLTENS_5AlignERKNS_9AAMDNodesEPKNS_6MDNodeEhNS_14AtomicOrderingESC_(ptr noundef nonnull align 8 dereferenceable(1041) %22, ptr noundef nonnull byval(%"struct.llvm::MachinePointerInfo") align 8 %8, i16 noundef zeroext 2, i64 %.sroa.04.0.i, i8 %44, ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef null, i8 noundef zeroext 1, i32 noundef 0, i32 noundef 0) #15
   store ptr %52, ptr %10, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %53, ptr %.sroa.2.0..sroa_idx, align 8
   %55 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i32 1, ptr %55, align 8
@@ -10231,7 +10231,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm18RISCVLegalizerInfo19legalizeShlA
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 68
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 68
   %12 = load i32, ptr %11, align 4
   call void @_ZN4llvm34getIConstantVRegValWithLookThroughENS_8RegisterERKNS_19MachineRegisterInfoEb(ptr dead_on_unwind nonnull writable sret(%"class.std::optional.281") align 8 %5, i32 %12, ptr noundef nonnull align 8 dereferenceable(512) %8, i1 noundef zeroext true) #15
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -10256,18 +10256,18 @@ define dso_local noundef zeroext i1 @_ZNK4llvm18RISCVLegalizerInfo19legalizeShlA
   %24 = call { ptr, ptr } @_ZN4llvm16MachineIRBuilder13buildConstantERKNS_5DstOpEl(ptr noundef nonnull align 8 dereferenceable(88) %2, ptr noundef nonnull align 8 dereferenceable(12) %6, i64 noundef %.0.i) #15
   %25 = extractvalue { ptr, ptr } %24, 1
   %26 = load ptr, ptr %3, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 32
   %28 = load ptr, ptr %27, align 8
   call void %28(ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull align 8 dereferenceable(70) %1) #15
   %29 = load ptr, ptr %9, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 64
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 64
   %31 = getelementptr inbounds nuw i8, ptr %25, i64 32
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 4
   %34 = load i32, ptr %33, align 4
   call void @_ZN4llvm14MachineOperand6setRegENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(32) %30, i32 %34) #15
   %35 = load ptr, ptr %3, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 40
   %37 = load ptr, ptr %36, align 8
   call void %37(ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull align 8 dereferenceable(70) %1) #15
   %.pre = load i8, ptr %13, align 8
@@ -10336,7 +10336,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm18RISCVLegalizerInfo15legalizeVASt
 
 28:                                               ; preds = %20
   %29 = load ptr, ptr %23, align 8
-  %30 = getelementptr inbounds %"class.llvm::LLT", ptr %29, i64 %25
+  %30 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %29, i64 %25
   %31 = load i64, ptr %30, align 8
   br label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit
 
@@ -10349,7 +10349,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit: ; preds = %3, %20, %2
   %34 = extractvalue { ptr, ptr } %33, 0
   %35 = extractvalue { ptr, ptr } %33, 1
   store ptr %34, ptr %5, align 8
-  %.sroa.215.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
+  %.sroa.215.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %35, ptr %.sroa.215.0..sroa_idx, align 8
   %36 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 1, ptr %36, align 8
@@ -10379,7 +10379,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit: ; preds = %3, %20, %2
   call void @llvm.assume(i1 %49)
   call void @llvm.assume(i1 %.not9.i)
   %51 = inttoptr i64 %50 to ptr
-  %52 = getelementptr inbounds i8, ptr %51, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %.pre = load ptr, ptr %52, align 8
   br label %_ZNK4llvm12MachineInstr11memoperandsEv.exit
 
@@ -10461,7 +10461,7 @@ _ZNK4llvm5APInt12getSExtValueEv.exit:             ; preds = %11, %18
   %44 = phi i1 [ true, %33 ], [ %42, %36 ]
   %45 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %7) #15
   %46 = load ptr, ptr %7, align 8
-  %47 = getelementptr inbounds i8, ptr %7, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %48 = icmp eq ptr %46, %47
   br i1 %48, label %_ZN4llvm11SmallVectorINS_11RISCVMatInt4InstELj8EED2Ev.exit, label %49
 
@@ -10473,7 +10473,7 @@ _ZN4llvm11SmallVectorINS_11RISCVMatInt4InstELj8EED2Ev.exit: ; preds = %49, %43, 
   %.1 = phi i1 [ %not..not, %27 ], [ %44, %43 ], [ %44, %49 ]
   %50 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %4) #15
   %51 = load ptr, ptr %4, align 8
-  %52 = getelementptr inbounds i8, ptr %4, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %53 = icmp eq ptr %51, %52
   br i1 %53, label %_ZN4llvm11SmallVectorINS_11RISCVMatInt4InstELj8EED2Ev.exit5, label %54
 
@@ -10543,7 +10543,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm18RISCVLegalizerInfo14legalizeVSca
 
 42:                                               ; preds = %3
   %43 = load ptr, ptr %31, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 48
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 48
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 24
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 32
@@ -10574,7 +10574,7 @@ _ZN4llvm13isPowerOf2_64Em.exit:                   ; preds = %42
   %60 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i32 0, ptr %60, align 8
   %61 = load ptr, ptr %2, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 32
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 32
   %63 = load ptr, ptr %62, align 8
   %64 = call { ptr, ptr } %63(ptr noundef nonnull align 8 dereferenceable(88) %2, i32 noundef 300, ptr nonnull %15, i64 1, ptr null, i64 0, i64 0) #15
   %65 = extractvalue { ptr, ptr } %64, 0
@@ -10590,21 +10590,21 @@ _ZN4llvm13isPowerOf2_64Em.exit:                   ; preds = %42
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %13)
   store i32 %34, ptr %12, align 8
-  %.sroa.2176.0..sroa_idx = getelementptr inbounds i8, ptr %12, i64 8
+  %.sroa.2176.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i32 1, ptr %.sroa.2176.0..sroa_idx, align 8
   store ptr %65, ptr %13, align 8
-  %.sroa.0172.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 8
+  %.sroa.0172.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %66, ptr %.sroa.0172.sroa.2.0..sroa_idx, align 8
-  %.sroa.2173.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 16
+  %.sroa.2173.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i32 1, ptr %.sroa.2173.0..sroa_idx, align 8
-  %72 = getelementptr inbounds i8, ptr %13, i64 24
+  %72 = getelementptr inbounds nuw i8, ptr %13, i64 24
   store ptr %70, ptr %72, align 8
-  %.sroa.2170.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 32
+  %.sroa.2170.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 32
   store ptr %71, ptr %.sroa.2170.0..sroa_idx, align 8
-  %.sroa.3171.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 40
+  %.sroa.3171.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 40
   store i32 1, ptr %.sroa.3171.0..sroa_idx, align 8
   %73 = load ptr, ptr %2, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i64 32
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 32
   %75 = load ptr, ptr %74, align 8
   %76 = call { ptr, ptr } %75(ptr noundef nonnull align 8 dereferenceable(88) %2, i32 noundef 136, ptr nonnull %12, i64 1, ptr nonnull %13, i64 2, i64 0) #15
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
@@ -10621,7 +10621,7 @@ _ZN4llvm13isPowerOf2_64Em.exit:                   ; preds = %42
   %79 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i32 0, ptr %79, align 8
   %80 = load ptr, ptr %2, align 8
-  %81 = getelementptr inbounds i8, ptr %80, i64 32
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 32
   %82 = load ptr, ptr %81, align 8
   %83 = call { ptr, ptr } %82(ptr noundef nonnull align 8 dereferenceable(88) %2, i32 noundef 300, ptr nonnull %17, i64 1, ptr null, i64 0, i64 0) #15
   %84 = extractvalue { ptr, ptr } %83, 0
@@ -10637,21 +10637,21 @@ _ZN4llvm13isPowerOf2_64Em.exit:                   ; preds = %42
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %11)
   store i32 %34, ptr %10, align 8
-  %.sroa.2149.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 8
+  %.sroa.2149.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i32 1, ptr %.sroa.2149.0..sroa_idx, align 8
   store ptr %84, ptr %11, align 8
-  %.sroa.0145.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %11, i64 8
+  %.sroa.0145.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %85, ptr %.sroa.0145.sroa.2.0..sroa_idx, align 8
-  %.sroa.2146.0..sroa_idx = getelementptr inbounds i8, ptr %11, i64 16
+  %.sroa.2146.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i32 1, ptr %.sroa.2146.0..sroa_idx, align 8
-  %91 = getelementptr inbounds i8, ptr %11, i64 24
+  %91 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store ptr %89, ptr %91, align 8
-  %.sroa.2143.0..sroa_idx = getelementptr inbounds i8, ptr %11, i64 32
+  %.sroa.2143.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 32
   store ptr %90, ptr %.sroa.2143.0..sroa_idx, align 8
-  %.sroa.3144.0..sroa_idx = getelementptr inbounds i8, ptr %11, i64 40
+  %.sroa.3144.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 40
   store i32 1, ptr %.sroa.3144.0..sroa_idx, align 8
   %92 = load ptr, ptr %2, align 8
-  %93 = getelementptr inbounds i8, ptr %92, i64 32
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 32
   %94 = load ptr, ptr %93, align 8
   %95 = call { ptr, ptr } %94(ptr noundef nonnull align 8 dereferenceable(88) %2, i32 noundef 135, ptr nonnull %10, i64 1, ptr nonnull %11, i64 2, i64 0) #15
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
@@ -10663,7 +10663,7 @@ _ZN4llvm13isPowerOf2_64Em.exit:                   ; preds = %42
   %97 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i32 1, ptr %97, align 8
   %98 = load ptr, ptr %2, align 8
-  %99 = getelementptr inbounds i8, ptr %98, i64 32
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 32
   %100 = load ptr, ptr %99, align 8
   %101 = call { ptr, ptr } %100(ptr noundef nonnull align 8 dereferenceable(88) %2, i32 noundef 300, ptr nonnull %19, i64 1, ptr null, i64 0, i64 0) #15
   br label %150
@@ -10679,7 +10679,7 @@ _ZN4llvm13isPowerOf2_64Em.exit:                   ; preds = %42
   %105 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store i32 0, ptr %105, align 8
   %106 = load ptr, ptr %2, align 8
-  %107 = getelementptr inbounds i8, ptr %106, i64 32
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 32
   %108 = load ptr, ptr %107, align 8
   %109 = call { ptr, ptr } %108(ptr noundef nonnull align 8 dereferenceable(88) %2, i32 noundef 300, ptr nonnull %20, i64 1, ptr null, i64 0, i64 0) #15
   %110 = extractvalue { ptr, ptr } %109, 0
@@ -10695,21 +10695,21 @@ _ZN4llvm13isPowerOf2_64Em.exit:                   ; preds = %42
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9)
   store i32 %34, ptr %8, align 8
-  %.sroa.2110.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 8
+  %.sroa.2110.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 1, ptr %.sroa.2110.0..sroa_idx, align 8
   store ptr %110, ptr %9, align 8
-  %.sroa.0106.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 8
+  %.sroa.0106.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %111, ptr %.sroa.0106.sroa.2.0..sroa_idx, align 8
-  %.sroa.2107.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 16
+  %.sroa.2107.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i32 1, ptr %.sroa.2107.0..sroa_idx, align 8
-  %117 = getelementptr inbounds i8, ptr %9, i64 24
+  %117 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store ptr %115, ptr %117, align 8
-  %.sroa.2104.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 32
+  %.sroa.2104.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 32
   store ptr %116, ptr %.sroa.2104.0..sroa_idx, align 8
-  %.sroa.3105.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 40
+  %.sroa.3105.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 40
   store i32 1, ptr %.sroa.3105.0..sroa_idx, align 8
   %118 = load ptr, ptr %2, align 8
-  %119 = getelementptr inbounds i8, ptr %118, i64 32
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 32
   %120 = load ptr, ptr %119, align 8
   %121 = call { ptr, ptr } %120(ptr noundef nonnull align 8 dereferenceable(88) %2, i32 noundef 54, ptr nonnull %8, i64 1, ptr nonnull %9, i64 2, i64 0) #15
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
@@ -10722,7 +10722,7 @@ _ZN4llvm13isPowerOf2_64Em.exit:                   ; preds = %42
   %123 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store i32 0, ptr %123, align 8
   %124 = load ptr, ptr %2, align 8
-  %125 = getelementptr inbounds i8, ptr %124, i64 32
+  %125 = getelementptr inbounds nuw i8, ptr %124, i64 32
   %126 = load ptr, ptr %125, align 8
   %127 = call { ptr, ptr } %126(ptr noundef nonnull align 8 dereferenceable(88) %2, i32 noundef 300, ptr nonnull %22, i64 1, ptr null, i64 0, i64 0) #15
   %128 = extractvalue { ptr, ptr } %127, 0
@@ -10737,21 +10737,21 @@ _ZN4llvm13isPowerOf2_64Em.exit:                   ; preds = %42
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7)
   store i64 %.sroa.04.0.copyload, ptr %6, align 8
-  %.sroa.281.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 8
+  %.sroa.281.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 0, ptr %.sroa.281.0..sroa_idx, align 8
   store ptr %128, ptr %7, align 8
-  %.sroa.078.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 8
+  %.sroa.078.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %129, ptr %.sroa.078.sroa.2.0..sroa_idx, align 8
-  %.sroa.279.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 16
+  %.sroa.279.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i32 1, ptr %.sroa.279.0..sroa_idx, align 8
-  %134 = getelementptr inbounds i8, ptr %7, i64 24
+  %134 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr %132, ptr %134, align 8
-  %.sroa.276.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 32
+  %.sroa.276.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr %133, ptr %.sroa.276.0..sroa_idx, align 8
-  %.sroa.377.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 40
+  %.sroa.377.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 40
   store i32 1, ptr %.sroa.377.0..sroa_idx, align 8
   %135 = load ptr, ptr %2, align 8
-  %136 = getelementptr inbounds i8, ptr %135, i64 32
+  %136 = getelementptr inbounds nuw i8, ptr %135, i64 32
   %137 = load ptr, ptr %136, align 8
   %138 = call { ptr, ptr } %137(ptr noundef nonnull align 8 dereferenceable(88) %2, i32 noundef 136, ptr nonnull %6, i64 1, ptr nonnull %7, i64 2, i64 0) #15
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
@@ -10768,21 +10768,21 @@ _ZN4llvm13isPowerOf2_64Em.exit:                   ; preds = %42
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
   store i32 %34, ptr %4, align 8
-  %.sroa.269.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.269.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 1, ptr %.sroa.269.0..sroa_idx, align 8
   store ptr %139, ptr %5, align 8
-  %.sroa.065.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
+  %.sroa.065.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %140, ptr %.sroa.065.sroa.2.0..sroa_idx, align 8
-  %.sroa.266.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 16
+  %.sroa.266.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 1, ptr %.sroa.266.0..sroa_idx, align 8
-  %145 = getelementptr inbounds i8, ptr %5, i64 24
+  %145 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %143, ptr %145, align 8
-  %.sroa.264.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 32
+  %.sroa.264.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr %144, ptr %.sroa.264.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 40
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 40
   store i32 1, ptr %.sroa.3.0..sroa_idx, align 8
   %146 = load ptr, ptr %2, align 8
-  %147 = getelementptr inbounds i8, ptr %146, i64 32
+  %147 = getelementptr inbounds nuw i8, ptr %146, i64 32
   %148 = load ptr, ptr %147, align 8
   %149 = call { ptr, ptr } %148(ptr noundef nonnull align 8 dereferenceable(88) %2, i32 noundef 54, ptr nonnull %4, i64 1, ptr nonnull %5, i64 2, i64 0) #15
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
@@ -10817,7 +10817,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm18RISCVLegalizerInfo11legalizeExtE
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %19 = load i32, ptr %18, align 4
-  %20 = getelementptr inbounds i8, ptr %17, i64 36
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 36
   %21 = load i32, ptr %20, align 4
   %22 = icmp slt i32 %19, 0
   br i1 %22, label %23, label %.thread42
@@ -10839,7 +10839,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm18RISCVLegalizerInfo11legalizeExtE
 
 _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit: ; preds = %23
   %33 = load ptr, ptr %26, align 8
-  %34 = getelementptr inbounds %"class.llvm::LLT", ptr %33, i64 %28
+  %34 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %33, i64 %28
   %35 = load i64, ptr %34, align 8
   %36 = icmp eq i16 %15, 132
   %37 = select i1 %36, i64 -1, i64 1
@@ -10913,7 +10913,7 @@ _ZNK4llvm3LLT14getElementTypeEv.exit:             ; preds = %_ZNK4llvm3LLT19getS
   %67 = extractvalue { ptr, ptr } %66, 0
   %68 = extractvalue { ptr, ptr } %66, 1
   store ptr %67, ptr %5, align 8
-  %.sroa.228.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
+  %.sroa.228.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %68, ptr %.sroa.228.0..sroa_idx, align 8
   %69 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 1, ptr %69, align 8
@@ -10930,7 +10930,7 @@ _ZNK4llvm3LLT14getElementTypeEv.exit:             ; preds = %_ZNK4llvm3LLT19getS
   %76 = extractvalue { ptr, ptr } %75, 0
   %77 = extractvalue { ptr, ptr } %75, 1
   store ptr %76, ptr %8, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %77, ptr %.sroa.2.0..sroa_idx, align 8
   %78 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 1, ptr %78, align 8
@@ -10944,12 +10944,12 @@ _ZNK4llvm3LLT14getElementTypeEv.exit:             ; preds = %_ZNK4llvm3LLT19getS
   %83 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i32 0, ptr %83, align 8
   store ptr %80, ptr %12, align 8
-  %.sroa.226.0..sroa_idx = getelementptr inbounds i8, ptr %12, i64 8
+  %.sroa.226.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %81, ptr %.sroa.226.0..sroa_idx, align 8
   %84 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i32 1, ptr %84, align 8
   store ptr %71, ptr %13, align 8
-  %.sroa.230.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 8
+  %.sroa.230.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %72, ptr %.sroa.230.0..sroa_idx, align 8
   %85 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i32 1, ptr %85, align 8
@@ -10990,7 +10990,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm18RISCVLegalizerInfo17legalizeLoad
 
 _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit: ; preds = %19
   %25 = load ptr, ptr %20, align 8
-  %26 = getelementptr inbounds %"class.llvm::LLT", ptr %25, i64 %22
+  %26 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %25, i64 %22
   %27 = load i64, ptr %26, align 8
   %28 = and i64 %27, -7
   %spec.select.i.i = icmp ne i64 %28, 0
@@ -11033,7 +11033,7 @@ thread-pre-split:                                 ; preds = %_ZNK4llvm12MachineI
   %.not9.i.i26 = icmp ne i64 %47, 0
   tail call void @llvm.assume(i1 %.not9.i.i26)
   %48 = inttoptr i64 %47 to ptr
-  %49 = getelementptr inbounds i8, ptr %48, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %.pre = load ptr, ptr %49, align 8
   br label %_ZNK4llvm12MachineInstr17memoperands_beginEv.exit
 
@@ -11042,7 +11042,7 @@ _ZNK4llvm12MachineInstr17memoperands_beginEv.exit: ; preds = %45, %thread-pre-sp
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 121040
   %52 = load ptr, ptr %51, align 8
   %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 144
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 144
   %55 = load ptr, ptr %54, align 8
   %56 = tail call noundef ptr %55(ptr noundef nonnull align 8 dereferenceable(409192) %52) #15
   %57 = tail call noundef ptr @_ZN4llvm13getTypeForLLTENS_3LLTERNS_11LLVMContextE(i64 %27, ptr noundef nonnull align 8 dereferenceable(8) %13) #15
@@ -11132,7 +11132,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm18RISCVLegalizerInfo19legalizeSpla
   %37 = load ptr, ptr %36, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 4
   %39 = load i32, ptr %38, align 4
-  %40 = getelementptr inbounds i8, ptr %37, i64 36
+  %40 = getelementptr inbounds nuw i8, ptr %37, i64 36
   %41 = load i32, ptr %40, align 4
   %42 = icmp slt i32 %39, 0
   br i1 %42, label %43, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit
@@ -11147,7 +11147,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm18RISCVLegalizerInfo19legalizeSpla
 
 49:                                               ; preds = %43
   %50 = load ptr, ptr %44, align 8
-  %51 = getelementptr inbounds %"class.llvm::LLT", ptr %50, i64 %46
+  %51 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %50, i64 %46
   %52 = load i64, ptr %51, align 8
   br label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit
 
@@ -11218,7 +11218,7 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit:              ; preds = %67, %71, %74, %_ZNK
   %.sroa.3.0.i = phi i8 [ %84, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i ], [ 0, %67 ], [ 0, %74 ], [ 0, %71 ]
   %.sroa.012.0.i = and i64 %.sroa.012.0.in.i, 4294967295
   store i64 %.sroa.012.0.i, ptr %15, align 8
-  %.sroa.243.0..sroa_idx = getelementptr inbounds i8, ptr %15, i64 8
+  %.sroa.243.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i8 %.sroa.3.0.i, ptr %.sroa.243.0..sroa_idx, align 8
   %85 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %15) #15
   %86 = icmp eq i64 %85, 32
@@ -11336,7 +11336,7 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit106:           ; preds = %118, %122, %125, %_
   %.sroa.3.0.i99 = phi i8 [ %135, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i91 ], [ 0, %118 ], [ 0, %125 ], [ 0, %122 ]
   %.sroa.012.0.i100 = and i64 %.sroa.012.0.in.i98, 4294967295
   store i64 %.sroa.012.0.i100, ptr %16, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %16, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i8 %.sroa.3.0.i99, ptr %.sroa.2.0..sroa_idx, align 8
   %136 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %16) #15
   %137 = icmp eq i64 %136, 64
@@ -11355,7 +11355,7 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit106:           ; preds = %118, %122, %125, %_
 
 145:                                              ; preds = %139
   %146 = load ptr, ptr %140, align 8, !noalias !202
-  %147 = getelementptr inbounds %"class.llvm::LLT", ptr %146, i64 %142
+  %147 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %146, i64 %142
   %148 = load i64, ptr %147, align 8, !noalias !202
   br label %_ZL17buildDefaultVLOpsRKN4llvm5DstOpERNS_16MachineIRBuilderERNS_19MachineRegisterInfoE.exit
 
@@ -11376,10 +11376,10 @@ _ZL17buildDefaultVLOpsRKN4llvm5DstOpERNS_16MachineIRBuilderERNS_19MachineRegiste
   %154 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i32 0, ptr %154, align 8, !noalias !202
   store i32 43, ptr %13, align 8, !noalias !202
-  %.sroa.27.0..sroa_idx.i = getelementptr inbounds i8, ptr %13, i64 16
+  %.sroa.27.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i32 0, ptr %.sroa.27.0..sroa_idx.i, align 8, !noalias !202
   %155 = load ptr, ptr %2, align 8, !noalias !202
-  %156 = getelementptr inbounds i8, ptr %155, i64 32
+  %156 = getelementptr inbounds nuw i8, ptr %155, i64 32
   %157 = load ptr, ptr %156, align 8, !noalias !202
   %158 = call { ptr, ptr } %157(ptr noundef nonnull align 8 dereferenceable(88) %2, i32 noundef 303, ptr nonnull %12, i64 1, ptr nonnull %13, i64 1, i64 0) #15, !noalias !202
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12), !noalias !202
@@ -11397,34 +11397,34 @@ _ZL17buildDefaultVLOpsRKN4llvm5DstOpERNS_16MachineIRBuilderERNS_19MachineRegiste
   %165 = extractvalue { ptr, ptr } %164, 1
   %166 = getelementptr inbounds nuw i8, ptr %165, i64 32
   %167 = load ptr, ptr %166, align 8
-  %168 = getelementptr inbounds i8, ptr %167, i64 4
+  %168 = getelementptr inbounds nuw i8, ptr %167, i64 4
   %169 = load i32, ptr %168, align 4
-  %170 = getelementptr inbounds i8, ptr %167, i64 36
+  %170 = getelementptr inbounds nuw i8, ptr %167, i64 36
   %171 = load i32, ptr %170, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %11)
   store i32 %39, ptr %10, align 8
-  %.sroa.2194.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 8
+  %.sroa.2194.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i32 1, ptr %.sroa.2194.0..sroa_idx, align 8
   store ptr %161, ptr %11, align 8
-  %.sroa.2190.0..sroa_idx = getelementptr inbounds i8, ptr %11, i64 8
+  %.sroa.2190.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %162, ptr %.sroa.2190.0..sroa_idx, align 8
-  %.sroa.3191.0..sroa_idx = getelementptr inbounds i8, ptr %11, i64 16
+  %.sroa.3191.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i32 1, ptr %.sroa.3191.0..sroa_idx, align 8
-  %172 = getelementptr inbounds i8, ptr %11, i64 24
+  %172 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store i32 %169, ptr %172, align 8
-  %173 = getelementptr inbounds i8, ptr %11, i64 40
+  %173 = getelementptr inbounds nuw i8, ptr %11, i64 40
   store i32 0, ptr %173, align 8
-  %174 = getelementptr inbounds i8, ptr %11, i64 48
+  %174 = getelementptr inbounds nuw i8, ptr %11, i64 48
   store i32 %171, ptr %174, align 8
-  %175 = getelementptr inbounds i8, ptr %11, i64 64
+  %175 = getelementptr inbounds nuw i8, ptr %11, i64 64
   store i32 0, ptr %175, align 8
-  %176 = getelementptr inbounds i8, ptr %11, i64 72
+  %176 = getelementptr inbounds nuw i8, ptr %11, i64 72
   store i32 43, ptr %176, align 8
-  %177 = getelementptr inbounds i8, ptr %11, i64 88
+  %177 = getelementptr inbounds nuw i8, ptr %11, i64 88
   store i32 0, ptr %177, align 8
   %178 = load ptr, ptr %2, align 8
-  %179 = getelementptr inbounds i8, ptr %178, i64 32
+  %179 = getelementptr inbounds nuw i8, ptr %178, i64 32
   %180 = load ptr, ptr %179, align 8
   %181 = call { ptr, ptr } %180(ptr noundef nonnull align 8 dereferenceable(88) %2, i32 noundef 301, ptr nonnull %10, i64 1, ptr nonnull %11, i64 4, i64 0) #15
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
@@ -11452,10 +11452,10 @@ _ZL17buildDefaultVLOpsRKN4llvm5DstOpERNS_16MachineIRBuilderERNS_19MachineRegiste
   %189 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 0, ptr %189, align 8, !noalias !205
   store i32 43, ptr %9, align 8, !noalias !205
-  %.sroa.27.0..sroa_idx.i113 = getelementptr inbounds i8, ptr %9, i64 16
+  %.sroa.27.0..sroa_idx.i113 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i32 0, ptr %.sroa.27.0..sroa_idx.i113, align 8, !noalias !205
   %190 = load ptr, ptr %2, align 8, !noalias !205
-  %191 = getelementptr inbounds i8, ptr %190, i64 32
+  %191 = getelementptr inbounds nuw i8, ptr %190, i64 32
   %192 = load ptr, ptr %191, align 8, !noalias !205
   %193 = call { ptr, ptr } %192(ptr noundef nonnull align 8 dereferenceable(88) %2, i32 noundef 303, ptr nonnull %8, i64 1, ptr nonnull %9, i64 1, i64 0) #15, !noalias !205
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8), !noalias !205
@@ -11467,7 +11467,7 @@ _ZL17buildDefaultVLOpsRKN4llvm5DstOpERNS_16MachineIRBuilderERNS_19MachineRegiste
   %195 = getelementptr inbounds nuw i8, ptr %20, i64 16
   store i32 0, ptr %195, align 8
   %196 = load ptr, ptr %2, align 8
-  %197 = getelementptr inbounds i8, ptr %196, i64 32
+  %197 = getelementptr inbounds nuw i8, ptr %196, i64 32
   %198 = load ptr, ptr %197, align 8
   %199 = call { ptr, ptr } %198(ptr noundef nonnull align 8 dereferenceable(88) %2, i32 noundef 303, ptr nonnull %19, i64 1, ptr nonnull %20, i64 1, i64 0) #15
   br label %263
@@ -11492,10 +11492,10 @@ _ZL17buildDefaultVLOpsRKN4llvm5DstOpERNS_16MachineIRBuilderERNS_19MachineRegiste
   %207 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 0, ptr %207, align 8, !noalias !208
   store i32 43, ptr %7, align 8, !noalias !208
-  %.sroa.27.0..sroa_idx.i123 = getelementptr inbounds i8, ptr %7, i64 16
+  %.sroa.27.0..sroa_idx.i123 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i32 0, ptr %.sroa.27.0..sroa_idx.i123, align 8, !noalias !208
   %208 = load ptr, ptr %2, align 8, !noalias !208
-  %209 = getelementptr inbounds i8, ptr %208, i64 32
+  %209 = getelementptr inbounds nuw i8, ptr %208, i64 32
   %210 = load ptr, ptr %209, align 8, !noalias !208
   %211 = call { ptr, ptr } %210(ptr noundef nonnull align 8 dereferenceable(88) %2, i32 noundef 303, ptr nonnull %6, i64 1, ptr nonnull %7, i64 1, i64 0) #15, !noalias !208
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !208
@@ -11507,7 +11507,7 @@ _ZL17buildDefaultVLOpsRKN4llvm5DstOpERNS_16MachineIRBuilderERNS_19MachineRegiste
   %213 = getelementptr inbounds nuw i8, ptr %22, i64 16
   store i32 0, ptr %213, align 8
   %214 = load ptr, ptr %2, align 8
-  %215 = getelementptr inbounds i8, ptr %214, i64 32
+  %215 = getelementptr inbounds nuw i8, ptr %214, i64 32
   %216 = load ptr, ptr %215, align 8
   %217 = call { ptr, ptr } %216(ptr noundef nonnull align 8 dereferenceable(88) %2, i32 noundef 302, ptr nonnull %21, i64 1, ptr nonnull %22, i64 1, i64 0) #15
   br label %263
@@ -11551,21 +11551,21 @@ _ZNK4llvm3LLT17changeElementTypeES0_.exit:        ; preds = %218, %223
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
   store i64 65, ptr %4, align 8
-  %.sroa.2142.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.2142.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 0, ptr %.sroa.2142.0..sroa_idx, align 8
   store ptr %232, ptr %5, align 8
-  %.sroa.0139.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
+  %.sroa.0139.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %233, ptr %.sroa.0139.sroa.2.0..sroa_idx, align 8
-  %.sroa.2140.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 16
+  %.sroa.2140.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 1, ptr %.sroa.2140.0..sroa_idx, align 8
-  %238 = getelementptr inbounds i8, ptr %5, i64 24
+  %238 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %236, ptr %238, align 8
-  %.sroa.2138.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 32
+  %.sroa.2138.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr %237, ptr %.sroa.2138.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 40
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 40
   store i32 1, ptr %.sroa.3.0..sroa_idx, align 8
   %239 = load ptr, ptr %2, align 8
-  %240 = getelementptr inbounds i8, ptr %239, i64 32
+  %240 = getelementptr inbounds nuw i8, ptr %239, i64 32
   %241 = load ptr, ptr %240, align 8
   %242 = call { ptr, ptr } %241(ptr noundef nonnull align 8 dereferenceable(88) %2, i32 noundef 61, ptr nonnull %4, i64 1, ptr nonnull %5, i64 2, i64 0) #15
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
@@ -11576,7 +11576,7 @@ _ZNK4llvm3LLT17changeElementTypeES0_.exit:        ; preds = %218, %223
   %245 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store i32 0, ptr %245, align 8
   store ptr %243, ptr %27, align 8
-  %.sroa.2144.0..sroa_idx = getelementptr inbounds i8, ptr %27, i64 8
+  %.sroa.2144.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 8
   store ptr %244, ptr %.sroa.2144.0..sroa_idx, align 8
   %246 = getelementptr inbounds nuw i8, ptr %27, i64 16
   store i32 1, ptr %246, align 8
@@ -11593,7 +11593,7 @@ _ZNK4llvm3LLT17changeElementTypeES0_.exit:        ; preds = %218, %223
   %253 = extractvalue { ptr, ptr } %252, 0
   %254 = extractvalue { ptr, ptr } %252, 1
   store ptr %253, ptr %29, align 8
-  %.sroa.2.0..sroa_idx130 = getelementptr inbounds i8, ptr %29, i64 8
+  %.sroa.2.0..sroa_idx130 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store ptr %254, ptr %.sroa.2.0..sroa_idx130, align 8
   %255 = getelementptr inbounds nuw i8, ptr %29, i64 16
   store i32 1, ptr %255, align 8
@@ -11604,12 +11604,12 @@ _ZNK4llvm3LLT17changeElementTypeES0_.exit:        ; preds = %218, %223
   %259 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store i32 1, ptr %259, align 8
   store ptr %248, ptr %32, align 8
-  %.sroa.2134.0..sroa_idx = getelementptr inbounds i8, ptr %32, i64 8
+  %.sroa.2134.0..sroa_idx = getelementptr inbounds nuw i8, ptr %32, i64 8
   store ptr %249, ptr %.sroa.2134.0..sroa_idx, align 8
   %260 = getelementptr inbounds nuw i8, ptr %32, i64 16
   store i32 1, ptr %260, align 8
   store ptr %257, ptr %33, align 8
-  %.sroa.2132.0..sroa_idx = getelementptr inbounds i8, ptr %33, i64 8
+  %.sroa.2132.0..sroa_idx = getelementptr inbounds nuw i8, ptr %33, i64 8
   store ptr %258, ptr %.sroa.2132.0..sroa_idx, align 8
   %261 = getelementptr inbounds nuw i8, ptr %33, i64 16
   store i32 1, ptr %261, align 8
@@ -11701,7 +11701,7 @@ _ZNK4llvm8Function10hasOptSizeEv.exit.thread:     ; preds = %28, %36, %_ZNK4llvm
   %38 = phi i1 [ true, %_ZNK4llvm8Function10hasOptSizeEv.exit ], [ %37, %36 ], [ true, %28 ]
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 48
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 48
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 24
   %44 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -11767,14 +11767,14 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %_ZN4llvm5APIntC2ERK
 
 77:                                               ; preds = %71
   %78 = load ptr, ptr %72, align 8
-  %79 = getelementptr inbounds %"class.llvm::LLT", ptr %78, i64 %74
+  %79 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %78, i64 %74
   %80 = load i64, ptr %79, align 8
   br label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit
 
 _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit: ; preds = %65, %71, %77
   %.sroa.04.0.i = phi i64 [ %80, %77 ], [ 0, %71 ], [ 0, %65 ]
   %81 = load ptr, ptr %66, align 8
-  %82 = getelementptr inbounds i8, ptr %81, i64 80
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 80
   %83 = load i64, ptr %82, align 8
   %84 = and i64 %.sroa.04.0.i, -7
   %spec.select.i.i.i = icmp ne i64 %84, 0
@@ -11833,7 +11833,7 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit:              ; preds = %91, %95, %98, %_ZNK
   %.sroa.3.0.i = phi i8 [ %108, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i ], [ 0, %91 ], [ 0, %98 ], [ 0, %95 ]
   %.sroa.012.0.i = and i64 %.sroa.012.0.in.i, 4294967295
   store i64 %.sroa.012.0.i, ptr %8, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i8 %.sroa.3.0.i, ptr %.sroa.2.0..sroa_idx, align 8
   %109 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %8) #15
   %110 = icmp eq i64 %109, 64
@@ -11865,10 +11865,10 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit:              ; preds = %91, %95, %98, %_ZNK
   %125 = load ptr, ptr %124, align 8
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 4
   %127 = load i32, ptr %126, align 4
-  %128 = getelementptr inbounds i8, ptr %125, i64 36
+  %128 = getelementptr inbounds nuw i8, ptr %125, i64 36
   %129 = load i32, ptr %128, align 4
   call void @_ZN4llvm16MachineIRBuilderC2ERNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(88) %9, ptr noundef nonnull align 8 dereferenceable(70) %2)
-  %130 = getelementptr inbounds i8, ptr %125, i64 80
+  %130 = getelementptr inbounds nuw i8, ptr %125, i64 80
   %131 = load i64, ptr %130, align 8
   %132 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i32 10, ptr %132, align 8
@@ -11937,21 +11937,21 @@ _ZN4llvm5APIntD2Ev.exit56:                        ; preds = %_ZN4llvm5APIntD2Ev.
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6)
   store i64 %.sroa.03.0.copyload, ptr %5, align 8
-  %.sroa.263.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
+  %.sroa.263.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 0, ptr %.sroa.263.0..sroa_idx, align 8
   store ptr %162, ptr %6, align 8
-  %.sroa.060.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 8
+  %.sroa.060.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %163, ptr %.sroa.060.sroa.2.0..sroa_idx, align 8
-  %.sroa.261.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 16
+  %.sroa.261.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 1, ptr %.sroa.261.0..sroa_idx, align 8
-  %164 = getelementptr inbounds i8, ptr %6, i64 24
+  %164 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %139, ptr %164, align 8
-  %.sroa.0.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 32
+  %.sroa.0.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr %140, ptr %.sroa.0.sroa.2.0..sroa_idx, align 8
-  %.sroa.2.0..sroa_idx59 = getelementptr inbounds i8, ptr %6, i64 40
+  %.sroa.2.0..sroa_idx59 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store i32 1, ptr %.sroa.2.0..sroa_idx59, align 8
   %165 = load ptr, ptr %9, align 8
-  %166 = getelementptr inbounds i8, ptr %165, i64 32
+  %166 = getelementptr inbounds nuw i8, ptr %165, i64 32
   %167 = load ptr, ptr %166, align 8
   %168 = call { ptr, ptr } %167(ptr noundef nonnull align 8 dereferenceable(88) %9, i32 noundef 61, ptr nonnull %5, i64 1, ptr nonnull %6, i64 2, i64 0) #15
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
@@ -11962,12 +11962,12 @@ _ZN4llvm5APIntD2Ev.exit56:                        ; preds = %_ZN4llvm5APIntD2Ev.
   %171 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i32 1, ptr %171, align 8
   store ptr %169, ptr %18, align 8
-  %.sroa.265.0..sroa_idx = getelementptr inbounds i8, ptr %18, i64 8
+  %.sroa.265.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr %170, ptr %.sroa.265.0..sroa_idx, align 8
   %172 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store i32 1, ptr %172, align 8
   store ptr %157, ptr %19, align 8
-  %.sroa.281.0..sroa_idx = getelementptr inbounds i8, ptr %19, i64 8
+  %.sroa.281.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr %158, ptr %.sroa.281.0..sroa_idx, align 8
   %173 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store i32 1, ptr %173, align 8
@@ -12067,7 +12067,7 @@ define linkonce_odr hidden void @_ZN4llvm16MachineIRBuilderC2ERNS_12MachineInstr
   br i1 %23, label %24, label %_ZNK4llvm12MachineInstr13getPCSectionsEv.exit.i
 
 24:                                               ; preds = %20
-  %25 = getelementptr inbounds i8, ptr %19, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %26 = load i32, ptr %19, align 8
   %27 = sext i32 %26 to i64
   %28 = getelementptr inbounds ptr, ptr %25, i64 %27
@@ -12079,12 +12079,12 @@ define linkonce_odr hidden void @_ZN4llvm16MachineIRBuilderC2ERNS_12MachineInstr
   %34 = and i8 %33, 1
   %narrow.i.i.i.i.i.i.i = add nuw nsw i8 %34, %31
   %35 = zext nneg i8 %narrow.i.i.i.i.i.i.i to i64
-  %36 = getelementptr inbounds ptr, ptr %28, i64 %35
+  %36 = getelementptr inbounds nuw ptr, ptr %28, i64 %35
   %37 = getelementptr inbounds nuw i8, ptr %19, i64 6
   %38 = load i8, ptr %37, align 2
   %39 = and i8 %38, 1
   %40 = zext nneg i8 %39 to i64
-  %41 = getelementptr inbounds ptr, ptr %36, i64 %40
+  %41 = getelementptr inbounds nuw ptr, ptr %36, i64 %40
   %42 = load ptr, ptr %41, align 8
   br label %_ZNK4llvm12MachineInstr13getPCSectionsEv.exit.i
 
@@ -12112,7 +12112,7 @@ _ZNK4llvm12MachineInstr13getPCSectionsEv.exit.i:  ; preds = %24, %20, %15, %2
   br i1 %54, label %55, label %_ZN4llvm16MachineIRBuilder8setInstrERNS_12MachineInstrE.exit
 
 55:                                               ; preds = %51
-  %56 = getelementptr inbounds i8, ptr %50, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %57 = load i32, ptr %50, align 8
   %58 = sext i32 %57 to i64
   %59 = getelementptr inbounds ptr, ptr %56, i64 %58
@@ -12124,7 +12124,7 @@ _ZNK4llvm12MachineInstr13getPCSectionsEv.exit.i:  ; preds = %24, %20, %15, %2
   %65 = and i8 %64, 1
   %narrow.i.i.i.i.i.i8.i = add nuw nsw i8 %65, %62
   %66 = zext nneg i8 %narrow.i.i.i.i.i.i8.i to i64
-  %67 = getelementptr inbounds ptr, ptr %59, i64 %66
+  %67 = getelementptr inbounds nuw ptr, ptr %59, i64 %66
   %68 = getelementptr inbounds nuw i8, ptr %50, i64 6
   %69 = load i8, ptr %68, align 2
   %70 = and i8 %69, 1
@@ -12133,7 +12133,7 @@ _ZNK4llvm12MachineInstr13getPCSectionsEv.exit.i:  ; preds = %24, %20, %15, %2
   %73 = and i8 %72, 1
   %narrow.i.i.i = add nuw nsw i8 %73, %70
   %74 = zext nneg i8 %narrow.i.i.i to i64
-  %75 = getelementptr inbounds ptr, ptr %67, i64 %74
+  %75 = getelementptr inbounds nuw ptr, ptr %67, i64 %74
   %76 = load ptr, ptr %75, align 8
   br label %_ZN4llvm16MachineIRBuilder8setInstrERNS_12MachineInstrE.exit
 
@@ -12227,7 +12227,7 @@ _ZN4llvm12LegalizeRuleD2Ev.exit.i.i.i.i:          ; preds = %16, %_ZNSt8function
 
 _ZN4llvm23SmallVectorTemplateBaseINS_12LegalizeRuleELb0EE13destroy_rangeEPS1_S3_.exit.i.i.i: ; preds = %_ZN4llvm12LegalizeRuleD2Ev.exit.i.i.i.i, %3
   %18 = load ptr, ptr %4, align 8
-  %19 = getelementptr inbounds i8, ptr %.ptr1.i, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %.ptr1.i, i64 24
   %20 = icmp eq ptr %18, %19
   br i1 %20, label %_ZN4llvm15LegalizeRuleSetD2Ev.exit.i, label %21
 
@@ -12293,7 +12293,7 @@ _ZN4llvm12LegalizeRuleD2Ev.exit.i.i.i.i.i:        ; preds = %16, %_ZNSt8function
 
 _ZN4llvm23SmallVectorTemplateBaseINS_12LegalizeRuleELb0EE13destroy_rangeEPS1_S3_.exit.i.i.i.i: ; preds = %_ZN4llvm12LegalizeRuleD2Ev.exit.i.i.i.i.i, %3
   %18 = load ptr, ptr %4, align 8
-  %19 = getelementptr inbounds i8, ptr %.ptr1.i.i, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %.ptr1.i.i, i64 24
   %20 = icmp eq ptr %18, %19
   br i1 %20, label %_ZN4llvm15LegalizeRuleSetD2Ev.exit.i.i, label %21
 
@@ -12493,7 +12493,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm25SmallVectorTemplateCommonINS_1
 20:                                               ; preds = %14, %8
   %.0 = phi i64 [ %19, %14 ], [ -1, %8 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  %21 = getelementptr inbounds i8, ptr %0, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = call noundef ptr @_ZN4llvm15SmallVectorBaseIjE13mallocForGrowEPvmmRm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %21, i64 noundef %6, i64 noundef 72, ptr noundef nonnull align 8 dereferenceable(8) %4) #15
   call void @_ZN4llvm23SmallVectorTemplateBaseINS_12LegalizeRuleELb0EE19moveElementsForGrowEPS1_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %22)
   %23 = load i64, ptr %4, align 8
@@ -12577,8 +12577,8 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2EOS5_.exit.i.i.i.i.i.i.i: ; preds =
   br label %_ZSt10_ConstructIN4llvm12LegalizeRuleEJS1_EEvPT_DpOT0_.exit.i.i.i.i.i
 
 _ZSt10_ConstructIN4llvm12LegalizeRuleEJS1_EEvPT_DpOT0_.exit.i.i.i.i.i: ; preds = %23, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2EOS5_.exit.i.i.i.i.i.i.i
-  %27 = getelementptr inbounds i8, ptr %.sroa.04.08.i.i.i.i.i, i64 72
-  %28 = getelementptr inbounds i8, ptr %.09.i.i.i.i.i, i64 72
+  %27 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 72
+  %28 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 72
   %.not.i.i.i.i.i = icmp eq ptr %27, %5
   br i1 %.not.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_12LegalizeRuleELb0EE18uninitialized_moveIPS1_S4_EEvT_S5_T0_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !213
 
@@ -12639,12 +12639,12 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   br i1 %5, label %6, label %"_ZSt10__invoke_rIbRZL21typeIsLegalIntOrFPVecjSt16initializer_listIN4llvm3LLTEERKNS1_14RISCVSubtargetEE3$_0JRKNS1_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit"
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val3 = load ptr, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val2 = load i32, ptr %8, align 8
   %9 = zext i32 %.val2 to i64
-  %10 = getelementptr inbounds %"class.llvm::LLT", ptr %.val3, i64 %9
+  %10 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %.val3, i64 %9
   %11 = load i64, ptr %10, align 8
   %12 = and i64 %11, 1
   %.not.i.i.i.i = icmp eq i64 %12, 0
@@ -12937,7 +12937,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZZN4llvm15LegalizeRuleSet15minSc
   %5 = load i32, ptr %0, align 4
   %6 = zext i32 %5 to i64
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %"class.llvm::LLT", ptr %7, i64 %6
+  %8 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %7, i64 %6
   %9 = load i64, ptr %8, align 8
   %10 = and i64 %9, 1
   %.not.i = icmp eq i64 %10, 0
@@ -12970,7 +12970,7 @@ _ZNK4llvm3LLT19getScalarSizeInBitsEv.exit:        ; preds = %11, %15, %19
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %23 = load i32, ptr %22, align 4
   %24 = zext i32 %23 to i64
-  %25 = getelementptr inbounds %"class.llvm::LLT", ptr %7, i64 %24
+  %25 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %7, i64 %24
   %26 = load i64, ptr %25, align 8
   %27 = and i64 %26, -7
   %spec.select.i.i.i = icmp ne i64 %27, 0
@@ -13030,7 +13030,7 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit:              ; preds = %34, %38, %41, %_ZNK
   %52 = and i64 %.0.in.i, 4294967295
   %.sroa.012.0.i = and i64 %.sroa.012.0.in.i, 4294967295
   store i64 %.sroa.012.0.i, ptr %3, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i8 %.sroa.3.0.i, ptr %.sroa.2.0..sroa_idx, align 8
   %53 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %3) #15
   %54 = icmp ult i64 %53, %52
@@ -13048,12 +13048,12 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   br i1 %5, label %6, label %"_ZSt10__invoke_rIbRZL18typeIsLegalBoolVecjSt16initializer_listIN4llvm3LLTEERKNS1_14RISCVSubtargetEE3$_0JRKNS1_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit"
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val3 = load ptr, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val2 = load i32, ptr %8, align 8
   %9 = zext i32 %.val2 to i64
-  %10 = getelementptr inbounds %"class.llvm::LLT", ptr %.val3, i64 %9
+  %10 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %.val3, i64 %9
   %11 = load i64, ptr %10, align 8
   %12 = and i64 %11, 524280
   %.not.i.i.i = icmp eq i64 %12, 8
@@ -13107,7 +13107,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i:
   call void @_ZN4llvm17LegalizeMutations19changeElementSizeToEjj(ptr dead_on_unwind nonnull writable sret(%"class.std::function.67") align 8 %5, i32 noundef %1, i32 noundef %2) #15
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 0, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -13204,7 +13204,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZZN4llvm15LegalizeRuleSet15maxSc
   %5 = load i32, ptr %0, align 4
   %6 = zext i32 %5 to i64
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %"class.llvm::LLT", ptr %7, i64 %6
+  %8 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %7, i64 %6
   %9 = load i64, ptr %8, align 8
   %10 = and i64 %9, 1
   %.not.i = icmp eq i64 %10, 0
@@ -13237,7 +13237,7 @@ _ZNK4llvm3LLT19getScalarSizeInBitsEv.exit:        ; preds = %11, %15, %19
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %23 = load i32, ptr %22, align 4
   %24 = zext i32 %23 to i64
-  %25 = getelementptr inbounds %"class.llvm::LLT", ptr %7, i64 %24
+  %25 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %7, i64 %24
   %26 = load i64, ptr %25, align 8
   %27 = and i64 %26, -7
   %spec.select.i.i.i = icmp ne i64 %27, 0
@@ -13297,7 +13297,7 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit:              ; preds = %34, %38, %41, %_ZNK
   %52 = and i64 %.0.in.i, 4294967295
   %.sroa.012.0.i = and i64 %.sroa.012.0.in.i, 4294967295
   store i64 %.sroa.012.0.i, ptr %3, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i8 %.sroa.3.0.i, ptr %.sroa.2.0..sroa_idx, align 8
   %53 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %3) #15
   %54 = icmp ugt i64 %53, %52
@@ -13319,12 +13319,12 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   br i1 %5, label %6, label %"_ZSt10__invoke_rIbRZL17typeIsLegalPtrVecjSt16initializer_listIN4llvm3LLTEERKNS1_14RISCVSubtargetEE3$_0JRKNS1_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit"
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val3 = load ptr, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val2 = load i32, ptr %8, align 8
   %9 = zext i32 %.val2 to i64
-  %10 = getelementptr inbounds %"class.llvm::LLT", ptr %.val3, i64 %9
+  %10 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %.val3, i64 %9
   %11 = load i64, ptr %10, align 8
   %12 = and i64 %11, 2
   %.not.i.i.i.i = icmp eq i64 %12, 0
@@ -13408,7 +13408,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   %8 = load i32, ptr %7, align 8
   %9 = zext i32 %8 to i64
   %10 = load ptr, ptr %6, align 8
-  %11 = getelementptr inbounds %"class.llvm::LLT", ptr %10, i64 %9
+  %11 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %10, i64 %9
   %12 = load i64, ptr %11, align 8
   %13 = and i64 %12, 1
   %.not.i.i.i = icmp eq i64 %13, 0
@@ -13425,7 +13425,7 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i.i:        ; preds = %14
   %19 = lshr i64 %12, 3
   %.sroa.012.0.i.i.i.i = and i64 %19, 4294967295
   store i64 %.sroa.012.0.i.i.i.i, ptr %3, align 8
-  %.sroa.28.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.28.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i8 0, ptr %.sroa.28.0..sroa_idx.i.i.i, align 8
   %20 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %3) #15
   %21 = icmp eq i64 %20, 16
@@ -13446,7 +13446,7 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit._crit_edge.i.i.i: ; preds = %_ZNK4llvm3LLT13
   %28 = load i32, ptr %7, align 8
   %29 = zext i32 %28 to i64
   %30 = load ptr, ptr %6, align 8
-  %31 = getelementptr inbounds %"class.llvm::LLT", ptr %30, i64 %29
+  %31 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %30, i64 %29
   %32 = load i64, ptr %31, align 8
   %33 = and i64 %32, -7
   %spec.select.i.i.i13.i.i.i = icmp ne i64 %33, 0
@@ -13505,7 +13505,7 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit31.i.i.i:      ; preds = %_ZNK4llvm3LLT19getS
   %.sroa.3.0.i24.i.i.i = phi i8 [ %57, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i17.i.i.i ], [ 0, %40 ], [ 0, %47 ], [ 0, %44 ]
   %.sroa.012.0.i25.i.i.i = and i64 %.sroa.012.0.in.i23.i.i.i, 4294967295
   store i64 %.sroa.012.0.i25.i.i.i, ptr %4, align 8
-  %.sroa.24.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.24.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i8 %.sroa.3.0.i24.i.i.i, ptr %.sroa.24.0..sroa_idx.i.i.i, align 8
   %58 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %4) #15
   %59 = icmp eq i64 %58, 32
@@ -13526,7 +13526,7 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit31._crit_edge.i.i.i: ; preds = %_ZNK4llvm3LLT
   %66 = load i32, ptr %7, align 8
   %67 = zext i32 %66 to i64
   %68 = load ptr, ptr %6, align 8
-  %69 = getelementptr inbounds %"class.llvm::LLT", ptr %68, i64 %67
+  %69 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %68, i64 %67
   %70 = load i64, ptr %69, align 8
   %71 = and i64 %70, -7
   %spec.select.i.i.i32.i.i.i = icmp ne i64 %71, 0
@@ -13585,7 +13585,7 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit50.i.i.i:      ; preds = %_ZNK4llvm3LLT19getS
   %.sroa.3.0.i43.i.i.i = phi i8 [ %95, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i36.i.i.i ], [ 0, %78 ], [ 0, %85 ], [ 0, %82 ]
   %.sroa.012.0.i44.i.i.i = and i64 %.sroa.012.0.in.i42.i.i.i, 4294967295
   store i64 %.sroa.012.0.i44.i.i.i, ptr %5, align 8
-  %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
+  %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i8 %.sroa.3.0.i43.i.i.i, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
   %96 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %5) #15
   %97 = icmp eq i64 %96, 64
@@ -13682,7 +13682,7 @@ _ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit2.i: ; preds = %25, %_ZN
   %32 = phi ptr [ null, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i ], [ %29, %25 ]
   %33 = phi ptr [ %20, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i ], [ %.pre5.i, %25 ]
   %34 = phi ptr [ %21, %_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2ERKS5_.exit.i ], [ %.pre.i, %25 ]
-  %35 = getelementptr inbounds i8, ptr %8, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 0, ptr %35, align 8, !alias.scope !214
   %36 = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #16, !noalias !214
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 24
@@ -13832,7 +13832,7 @@ _ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4
 
 _ZN4llvm23SmallVectorTemplateBaseISt6vectorISt4pairItNS_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EELb0EE13destroy_rangeEPS7_S9_.exit.i: ; preds = %_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EED2Ev.exit.i.i, %.preheader53
   %16 = load ptr, ptr %.ptr9, align 8
-  %17 = getelementptr inbounds i8, ptr %.ptr9, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %.ptr9, i64 16
   %18 = icmp eq ptr %16, %17
   br i1 %18, label %_ZN4llvm11SmallVectorISt6vectorISt4pairItNS_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EELj1EED2Ev.exit, label %19
 
@@ -13879,7 +13879,7 @@ _ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4
 
 _ZN4llvm23SmallVectorTemplateBaseISt6vectorISt4pairItNS_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EELb0EE13destroy_rangeEPS7_S9_.exit.i30: ; preds = %_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EED2Ev.exit.i.i28, %.preheader52
   %32 = load ptr, ptr %.ptr13, align 8
-  %33 = getelementptr inbounds i8, ptr %.ptr13, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %.ptr13, i64 16
   %34 = icmp eq ptr %32, %33
   br i1 %34, label %_ZN4llvm11SmallVectorISt6vectorISt4pairItNS_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EELj1EED2Ev.exit31, label %35
 
@@ -13922,7 +13922,7 @@ _ZNSt8functionIFSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalize
 
 _ZN4llvm23SmallVectorTemplateBaseISt8functionIFSt6vectorISt4pairItNS_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS6_EERKS8_EELb0EE13destroy_rangeEPSC_SE_.exit.i: ; preds = %_ZNSt8functionIFSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EERKS7_EED2Ev.exit.i.i, %.preheader51
   %45 = load ptr, ptr %.ptr17, align 8
-  %46 = getelementptr inbounds i8, ptr %.ptr17, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %.ptr17, i64 16
   %47 = icmp eq ptr %45, %46
   br i1 %47, label %_ZN4llvm11SmallVectorISt8functionIFSt6vectorISt4pairItNS_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS6_EERKS8_EELj1EED2Ev.exit, label %48
 
@@ -13965,7 +13965,7 @@ _ZNSt8functionIFSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalize
 
 _ZN4llvm23SmallVectorTemplateBaseISt8functionIFSt6vectorISt4pairItNS_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS6_EERKS8_EELb0EE13destroy_rangeEPSC_SE_.exit.i44: ; preds = %_ZNSt8functionIFSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EERKS7_EED2Ev.exit.i.i42, %.preheader55
   %58 = load ptr, ptr %.ptr21, align 8
-  %59 = getelementptr inbounds i8, ptr %.ptr21, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %.ptr21, i64 16
   %60 = icmp eq ptr %58, %59
   br i1 %60, label %_ZN4llvm11SmallVectorISt8functionIFSt6vectorISt4pairItNS_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS6_EERKS8_EELj1EED2Ev.exit45, label %61
 
@@ -13978,7 +13978,7 @@ _ZN4llvm11SmallVectorISt8functionIFSt6vectorISt4pairItNS_21LegacyLegalizeActions
   br i1 %62, label %.preheader.preheader, label %.preheader55
 
 .preheader.preheader:                             ; preds = %_ZN4llvm11SmallVectorISt8functionIFSt6vectorISt4pairItNS_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS6_EERKS8_EELj1EED2Ev.exit45
-  %63 = getelementptr inbounds i8, ptr %0, i64 9760
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 9760
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %_ZN4llvm11SmallVectorINS_8DenseMapINS_3LLTENS_21LegacyLegalizeActions20LegacyLegalizeActionENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S4_EEEELj1EED2Ev.exit
@@ -14033,7 +14033,7 @@ define linkonce_odr void @_ZNSt10_HashtableItSt4pairIKtN4llvm11SmallVectorISt6ve
 .lr.ph.i.i:                                       ; preds = %1, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKtN4llvm11SmallVectorISt6vectorIS2_ItNS4_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS9_EELj1EEEELb0EEEEE18_M_deallocate_nodeEPSE_.exit.i.i
   %.06.i.i = phi ptr [ %4, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKtN4llvm11SmallVectorISt6vectorIS2_ItNS4_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS9_EELj1EEEELb0EEEEE18_M_deallocate_nodeEPSE_.exit.i.i ], [ %3, %1 ]
   %4 = load ptr, ptr %.06.i.i, align 8
-  %5 = getelementptr inbounds i8, ptr %.06.i.i, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %.06.i.i, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(40) %5) #15
   %.not4.i.i.i.i.i.i.i.i = icmp eq i64 %7, 0
@@ -14065,7 +14065,7 @@ _ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4
 
 _ZN4llvm23SmallVectorTemplateBaseISt6vectorISt4pairItNS_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS5_EELb0EE13destroy_rangeEPS7_S9_.exit.i.i.i.i.i.i.i: ; preds = %_ZNSt6vectorISt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESaIS4_EED2Ev.exit.i.i.i.i.i.i.i.i, %.lr.ph.i.i
   %17 = load ptr, ptr %5, align 8
-  %18 = getelementptr inbounds i8, ptr %.06.i.i, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %.06.i.i, i64 32
   %19 = icmp eq ptr %17, %18
   br i1 %19, label %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKtN4llvm11SmallVectorISt6vectorIS2_ItNS4_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS9_EELj1EEEELb0EEEEE18_M_deallocate_nodeEPSE_.exit.i.i, label %20
 

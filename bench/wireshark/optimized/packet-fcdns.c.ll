@@ -411,19 +411,19 @@ define internal i32 @dissect_fcdns(ptr noundef %0, ptr noundef %1, ptr noundef %
   %19 = and i32 %17, -16777216
   %20 = or disjoint i32 %19, %18
   store i32 %20, ptr %5, align 4
-  %21 = getelementptr inbounds i8, ptr %5, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %22 = load i16, ptr %21, align 4
   %rev = call i16 @llvm.bswap.i16(i16 %22)
   store i16 %rev, ptr %21, align 4
   %23 = zext i16 %rev to i32
-  %24 = getelementptr inbounds i8, ptr %5, i64 10
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 10
   %25 = load i16, ptr %24, align 2
   %rev232 = call i16 @llvm.bswap.i16(i16 %25)
   store i16 %rev232, ptr %24, align 2
-  %26 = getelementptr inbounds i8, ptr %5, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %27 = load i8, ptr %26, align 4
   %28 = icmp eq i8 %27, -4
-  %29 = getelementptr inbounds i8, ptr %1, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %30 = load ptr, ptr %29, align 8
   %.str.219..str.220 = select i1 %28, ptr @.str.219, ptr @.str.220
   call void @col_set_str(ptr noundef %30, i32 noundef 34, ptr noundef nonnull %.str.219..str.220) #4
@@ -448,17 +448,17 @@ define internal i32 @dissect_fcdns(ptr noundef %0, ptr noundef %1, ptr noundef %
   ]
 
 38:                                               ; preds = %37
-  %39 = getelementptr inbounds i8, ptr %1, i64 20
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %40 = load i32, ptr %39, align 4
-  %41 = getelementptr inbounds i8, ptr %1, i64 208
-  %42 = getelementptr inbounds i8, ptr %1, i64 232
-  %43 = getelementptr inbounds i8, ptr %1, i64 280
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 208
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 232
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %44 = load i32, ptr %43, align 8
   %45 = call i32 @conversation_pt_to_conversation_type(i32 noundef %44) #4
-  %46 = getelementptr inbounds i8, ptr %3, i64 56
+  %46 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %47 = load i16, ptr %46, align 8
   %48 = zext i16 %47 to i32
-  %49 = getelementptr inbounds i8, ptr %3, i64 58
+  %49 = getelementptr inbounds nuw i8, ptr %3, i64 58
   %50 = load i16, ptr %49, align 2
   %51 = zext i16 %50 to i32
   %52 = call ptr @find_conversation(i32 noundef %40, ptr noundef nonnull %41, ptr noundef nonnull %42, i32 noundef %45, i32 noundef %48, i32 noundef %51, i32 noundef 131072) #4
@@ -478,7 +478,7 @@ define internal i32 @dissect_fcdns(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 62:                                               ; preds = %53, %38
   %.0220 = phi ptr [ %52, %38 ], [ %61, %53 ]
-  %63 = getelementptr inbounds i8, ptr %.0220, i64 24
+  %63 = getelementptr inbounds nuw i8, ptr %.0220, i64 24
   %64 = load i32, ptr %63, align 8
   store i32 %64, ptr %6, align 4
   %65 = load ptr, ptr @fcdns_req_hash, align 8
@@ -503,24 +503,24 @@ define internal i32 @dissect_fcdns(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %76
 
 76:                                               ; preds = %68, %67
-  %77 = getelementptr inbounds i8, ptr %1, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %78 = load ptr, ptr %77, align 8
   %79 = call ptr @val_to_str(i32 noundef %23, ptr noundef nonnull @fc_dns_opcode_val, ptr noundef nonnull @.str.221) #4
   call void @col_add_str(ptr noundef %78, i32 noundef 25, ptr noundef %79) #4
   br label %118
 
 80:                                               ; preds = %37, %37
-  %81 = getelementptr inbounds i8, ptr %1, i64 20
+  %81 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %82 = load i32, ptr %81, align 4
-  %83 = getelementptr inbounds i8, ptr %1, i64 208
-  %84 = getelementptr inbounds i8, ptr %1, i64 232
-  %85 = getelementptr inbounds i8, ptr %1, i64 280
+  %83 = getelementptr inbounds nuw i8, ptr %1, i64 208
+  %84 = getelementptr inbounds nuw i8, ptr %1, i64 232
+  %85 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %86 = load i32, ptr %85, align 8
   %87 = call i32 @conversation_pt_to_conversation_type(i32 noundef %86) #4
-  %88 = getelementptr inbounds i8, ptr %3, i64 56
+  %88 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %89 = load i16, ptr %88, align 8
   %90 = zext i16 %89 to i32
-  %91 = getelementptr inbounds i8, ptr %3, i64 58
+  %91 = getelementptr inbounds nuw i8, ptr %3, i64 58
   %92 = load i16, ptr %91, align 2
   %93 = zext i16 %92 to i32
   %94 = call ptr @find_conversation(i32 noundef %82, ptr noundef nonnull %83, ptr noundef nonnull %84, i32 noundef %87, i32 noundef %90, i32 noundef %93, i32 noundef 131072) #4
@@ -532,7 +532,7 @@ define internal i32 @dissect_fcdns(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %96, label %97, label %118
 
 97:                                               ; preds = %95
-  %98 = getelementptr inbounds i8, ptr %1, i64 8
+  %98 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %99 = load ptr, ptr %98, align 8
   %100 = call ptr @val_to_str(i32 noundef 32770, ptr noundef nonnull @fc_dns_opcode_val, ptr noundef nonnull @.str.221) #4
   call void @col_add_str(ptr noundef %99, i32 noundef 25, ptr noundef %100) #4
@@ -540,7 +540,7 @@ define internal i32 @dissect_fcdns(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %174
 
 102:                                              ; preds = %80
-  %103 = getelementptr inbounds i8, ptr %94, i64 24
+  %103 = getelementptr inbounds nuw i8, ptr %94, i64 24
   %104 = load i32, ptr %103, align 8
   store i32 %104, ptr %6, align 4
   %105 = load ptr, ptr @fcdns_req_hash, align 8
@@ -559,7 +559,7 @@ define internal i32 @dissect_fcdns(ptr noundef %0, ptr noundef %1, ptr noundef %
   %.1 = phi i32 [ %23, %102 ], [ %., %107 ]
   %.0222 = phi i32 [ 0, %102 ], [ %.242, %107 ]
   %.not240 = icmp eq i32 %.1, 32769
-  %111 = getelementptr inbounds i8, ptr %1, i64 8
+  %111 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %112 = load ptr, ptr %111, align 8
   br i1 %.not240, label %.thread, label %114
 
@@ -1999,7 +1999,7 @@ define internal fastcc void @dissect_fcdns_gezm(ptr noundef %0, ptr noundef %1, 
 24:                                               ; preds = %5
   %25 = zext i8 %12 to i32
   %26 = load i32, ptr @hf_fcdns_zone_mbrid, align 4
-  %27 = getelementptr inbounds i8, ptr %1, i64 408
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %28 = load ptr, ptr %27, align 8
   %29 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 20) #4
   %30 = zext i8 %29 to i32

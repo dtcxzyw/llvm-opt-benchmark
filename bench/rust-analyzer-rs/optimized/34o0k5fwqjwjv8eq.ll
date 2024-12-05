@@ -80,7 +80,7 @@ define hidden noundef i64 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15parti
   br i1 %.not.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h03f3cd62d2e8270eE.llvm.8288705794032622223.exit", label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3
-  %4 = getelementptr inbounds i8, ptr %2, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %5 = load i32, ptr %4, align 4, !noalias !20, !noundef !9
   br label %6
 
@@ -116,7 +116,7 @@ define hidden { i64, i64 } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16bina
 
 .lr.ph:                                           ; preds = %3
   %.val.i = load ptr, ptr %2, align 8, !nonnull !9, !align !23, !noundef !9
-  %4 = getelementptr inbounds i8, ptr %.val.i, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %.val.i, i64 4
   %5 = load i32, ptr %4, align 4, !noundef !9
   br label %8
 

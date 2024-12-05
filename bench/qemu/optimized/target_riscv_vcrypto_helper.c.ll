@@ -486,14 +486,14 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @helper_vbrev8_v_b(ptr noundef %vd, ptr nocapture noundef readonly %v0, ptr nocapture noundef readonly %vs2, ptr nocapture noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
-  %vl1 = getelementptr inbounds i8, ptr %env, i64 4624
+  %vl1 = getelementptr inbounds nuw i8, ptr %env, i64 4624
   %0 = load i64, ptr %vl1, align 16
   %conv = trunc i64 %0 to i32
   %1 = getelementptr i8, ptr %env, i64 4640
   %env.val = load i64, ptr %1, align 16
   %shr.i.i.i16 = lshr i32 %desc, 16
   %and.i.i17 = and i32 %shr.i.i.i16, 1
-  %vstart = getelementptr inbounds i8, ptr %env, i64 4632
+  %vstart = getelementptr inbounds nuw i8, ptr %env, i64 4632
   %2 = load i64, ptr %vstart, align 8
   %conv5 = trunc i64 %2 to i32
   %cmp20 = icmp ult i32 %conv5, %conv
@@ -573,14 +573,14 @@ declare void @vext_set_elems_1s(ptr noundef, i32 noundef, i32 noundef, i32 nound
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @helper_vbrev8_v_h(ptr noundef %vd, ptr nocapture noundef readonly %v0, ptr nocapture noundef readonly %vs2, ptr nocapture noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
-  %vl1 = getelementptr inbounds i8, ptr %env, i64 4624
+  %vl1 = getelementptr inbounds nuw i8, ptr %env, i64 4624
   %0 = load i64, ptr %vl1, align 16
   %conv = trunc i64 %0 to i32
   %1 = getelementptr i8, ptr %env, i64 4640
   %env.val = load i64, ptr %1, align 16
   %shr.i.i.i16 = lshr i32 %desc, 16
   %and.i.i17 = and i32 %shr.i.i.i16, 1
-  %vstart = getelementptr inbounds i8, ptr %env, i64 4632
+  %vstart = getelementptr inbounds nuw i8, ptr %env, i64 4632
   %2 = load i64, ptr %vstart, align 8
   %conv5 = trunc i64 %2 to i32
   %cmp24 = icmp ult i32 %conv5, %conv
@@ -689,14 +689,14 @@ for.end:                                          ; preds = %for.body, %for.inc.
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @helper_vbrev8_v_w(ptr noundef %vd, ptr nocapture noundef readonly %v0, ptr nocapture noundef readonly %vs2, ptr nocapture noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
-  %vl1 = getelementptr inbounds i8, ptr %env, i64 4624
+  %vl1 = getelementptr inbounds nuw i8, ptr %env, i64 4624
   %0 = load i64, ptr %vl1, align 16
   %conv = trunc i64 %0 to i32
   %1 = getelementptr i8, ptr %env, i64 4640
   %env.val = load i64, ptr %1, align 16
   %shr.i.i.i16 = lshr i32 %desc, 16
   %and.i.i17 = and i32 %shr.i.i.i16, 1
-  %vstart = getelementptr inbounds i8, ptr %env, i64 4632
+  %vstart = getelementptr inbounds nuw i8, ptr %env, i64 4632
   %2 = load i64, ptr %vstart, align 8
   %conv5 = trunc i64 %2 to i32
   %cmp23 = icmp ult i32 %conv5, %conv
@@ -804,14 +804,14 @@ for.end:                                          ; preds = %for.body, %for.inc.
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @helper_vbrev8_v_d(ptr noundef %vd, ptr nocapture noundef readonly %v0, ptr nocapture noundef readonly %vs2, ptr nocapture noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
-  %vl1 = getelementptr inbounds i8, ptr %env, i64 4624
+  %vl1 = getelementptr inbounds nuw i8, ptr %env, i64 4624
   %0 = load i64, ptr %vl1, align 16
   %conv = trunc i64 %0 to i32
   %1 = getelementptr i8, ptr %env, i64 4640
   %env.val = load i64, ptr %1, align 16
   %shr.i.i.i16 = lshr i32 %desc, 16
   %and.i.i17 = and i32 %shr.i.i.i16, 1
-  %vstart = getelementptr inbounds i8, ptr %env, i64 4632
+  %vstart = getelementptr inbounds nuw i8, ptr %env, i64 4632
   %2 = load i64, ptr %vstart, align 8
   %conv5 = trunc i64 %2 to i32
   %cmp23 = icmp ult i32 %conv5, %conv
@@ -919,14 +919,14 @@ for.end:                                          ; preds = %for.body, %for.inc.
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @helper_vrev8_v_b(ptr noundef %vd, ptr nocapture noundef readonly %v0, ptr nocapture noundef readonly %vs2, ptr nocapture noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
-  %vl1 = getelementptr inbounds i8, ptr %env, i64 4624
+  %vl1 = getelementptr inbounds nuw i8, ptr %env, i64 4624
   %0 = load i64, ptr %vl1, align 16
   %conv = trunc i64 %0 to i32
   %1 = getelementptr i8, ptr %env, i64 4640
   %env.val = load i64, ptr %1, align 16
   %shr.i.i.i16 = lshr i32 %desc, 16
   %and.i.i17 = and i32 %shr.i.i.i16, 1
-  %vstart = getelementptr inbounds i8, ptr %env, i64 4632
+  %vstart = getelementptr inbounds nuw i8, ptr %env, i64 4632
   %2 = load i64, ptr %vstart, align 8
   %conv5 = trunc i64 %2 to i32
   %cmp20 = icmp ult i32 %conv5, %conv
@@ -1002,14 +1002,14 @@ for.end:                                          ; preds = %for.body, %for.inc.
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @helper_vrev8_v_h(ptr noundef %vd, ptr nocapture noundef readonly %v0, ptr nocapture noundef readonly %vs2, ptr nocapture noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
-  %vl1 = getelementptr inbounds i8, ptr %env, i64 4624
+  %vl1 = getelementptr inbounds nuw i8, ptr %env, i64 4624
   %0 = load i64, ptr %vl1, align 16
   %conv = trunc i64 %0 to i32
   %1 = getelementptr i8, ptr %env, i64 4640
   %env.val = load i64, ptr %1, align 16
   %shr.i.i.i16 = lshr i32 %desc, 16
   %and.i.i17 = and i32 %shr.i.i.i16, 1
-  %vstart = getelementptr inbounds i8, ptr %env, i64 4632
+  %vstart = getelementptr inbounds nuw i8, ptr %env, i64 4632
   %2 = load i64, ptr %vstart, align 8
   %conv5 = trunc i64 %2 to i32
   %cmp23 = icmp ult i32 %conv5, %conv
@@ -1090,14 +1090,14 @@ for.end:                                          ; preds = %for.body, %for.inc.
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @helper_vrev8_v_w(ptr noundef %vd, ptr nocapture noundef readonly %v0, ptr nocapture noundef readonly %vs2, ptr nocapture noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
-  %vl1 = getelementptr inbounds i8, ptr %env, i64 4624
+  %vl1 = getelementptr inbounds nuw i8, ptr %env, i64 4624
   %0 = load i64, ptr %vl1, align 16
   %conv = trunc i64 %0 to i32
   %1 = getelementptr i8, ptr %env, i64 4640
   %env.val = load i64, ptr %1, align 16
   %shr.i.i.i16 = lshr i32 %desc, 16
   %and.i.i17 = and i32 %shr.i.i.i16, 1
-  %vstart = getelementptr inbounds i8, ptr %env, i64 4632
+  %vstart = getelementptr inbounds nuw i8, ptr %env, i64 4632
   %2 = load i64, ptr %vstart, align 8
   %conv5 = trunc i64 %2 to i32
   %cmp22 = icmp ult i32 %conv5, %conv
@@ -1177,14 +1177,14 @@ for.end:                                          ; preds = %for.body, %for.inc.
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @helper_vrev8_v_d(ptr noundef %vd, ptr nocapture noundef readonly %v0, ptr nocapture noundef readonly %vs2, ptr nocapture noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
-  %vl1 = getelementptr inbounds i8, ptr %env, i64 4624
+  %vl1 = getelementptr inbounds nuw i8, ptr %env, i64 4624
   %0 = load i64, ptr %vl1, align 16
   %conv = trunc i64 %0 to i32
   %1 = getelementptr i8, ptr %env, i64 4640
   %env.val = load i64, ptr %1, align 16
   %shr.i.i.i16 = lshr i32 %desc, 16
   %and.i.i17 = and i32 %shr.i.i.i16, 1
-  %vstart = getelementptr inbounds i8, ptr %env, i64 4632
+  %vstart = getelementptr inbounds nuw i8, ptr %env, i64 4632
   %2 = load i64, ptr %vstart, align 8
   %conv5 = trunc i64 %2 to i32
   %cmp22 = icmp ult i32 %conv5, %conv
@@ -1435,14 +1435,14 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @helper_vbrev_v_b(ptr noundef %vd, ptr nocapture noundef readonly %v0, ptr nocapture noundef readonly %vs2, ptr nocapture noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
-  %vl1 = getelementptr inbounds i8, ptr %env, i64 4624
+  %vl1 = getelementptr inbounds nuw i8, ptr %env, i64 4624
   %0 = load i64, ptr %vl1, align 16
   %conv = trunc i64 %0 to i32
   %1 = getelementptr i8, ptr %env, i64 4640
   %env.val = load i64, ptr %1, align 16
   %shr.i.i.i16 = lshr i32 %desc, 16
   %and.i.i17 = and i32 %shr.i.i.i16, 1
-  %vstart = getelementptr inbounds i8, ptr %env, i64 4632
+  %vstart = getelementptr inbounds nuw i8, ptr %env, i64 4632
   %2 = load i64, ptr %vstart, align 8
   %conv5 = trunc i64 %2 to i32
   %cmp20 = icmp ult i32 %conv5, %conv
@@ -1520,14 +1520,14 @@ for.end:                                          ; preds = %for.body, %for.inc.
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @helper_vbrev_v_h(ptr noundef %vd, ptr nocapture noundef readonly %v0, ptr nocapture noundef readonly %vs2, ptr nocapture noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
-  %vl1 = getelementptr inbounds i8, ptr %env, i64 4624
+  %vl1 = getelementptr inbounds nuw i8, ptr %env, i64 4624
   %0 = load i64, ptr %vl1, align 16
   %conv = trunc i64 %0 to i32
   %1 = getelementptr i8, ptr %env, i64 4640
   %env.val = load i64, ptr %1, align 16
   %shr.i.i.i16 = lshr i32 %desc, 16
   %and.i.i17 = and i32 %shr.i.i.i16, 1
-  %vstart = getelementptr inbounds i8, ptr %env, i64 4632
+  %vstart = getelementptr inbounds nuw i8, ptr %env, i64 4632
   %2 = load i64, ptr %vstart, align 8
   %conv5 = trunc i64 %2 to i32
   %cmp23 = icmp ult i32 %conv5, %conv
@@ -1608,14 +1608,14 @@ for.end:                                          ; preds = %for.body, %for.inc.
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @helper_vbrev_v_w(ptr noundef %vd, ptr nocapture noundef readonly %v0, ptr nocapture noundef readonly %vs2, ptr nocapture noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
-  %vl1 = getelementptr inbounds i8, ptr %env, i64 4624
+  %vl1 = getelementptr inbounds nuw i8, ptr %env, i64 4624
   %0 = load i64, ptr %vl1, align 16
   %conv = trunc i64 %0 to i32
   %1 = getelementptr i8, ptr %env, i64 4640
   %env.val = load i64, ptr %1, align 16
   %shr.i.i.i16 = lshr i32 %desc, 16
   %and.i.i17 = and i32 %shr.i.i.i16, 1
-  %vstart = getelementptr inbounds i8, ptr %env, i64 4632
+  %vstart = getelementptr inbounds nuw i8, ptr %env, i64 4632
   %2 = load i64, ptr %vstart, align 8
   %conv5 = trunc i64 %2 to i32
   %cmp22 = icmp ult i32 %conv5, %conv
@@ -1695,14 +1695,14 @@ for.end:                                          ; preds = %for.body, %for.inc.
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @helper_vbrev_v_d(ptr noundef %vd, ptr nocapture noundef readonly %v0, ptr nocapture noundef readonly %vs2, ptr nocapture noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
-  %vl1 = getelementptr inbounds i8, ptr %env, i64 4624
+  %vl1 = getelementptr inbounds nuw i8, ptr %env, i64 4624
   %0 = load i64, ptr %vl1, align 16
   %conv = trunc i64 %0 to i32
   %1 = getelementptr i8, ptr %env, i64 4640
   %env.val = load i64, ptr %1, align 16
   %shr.i.i.i16 = lshr i32 %desc, 16
   %and.i.i17 = and i32 %shr.i.i.i16, 1
-  %vstart = getelementptr inbounds i8, ptr %env, i64 4632
+  %vstart = getelementptr inbounds nuw i8, ptr %env, i64 4632
   %2 = load i64, ptr %vstart, align 8
   %conv5 = trunc i64 %2 to i32
   %cmp22 = icmp ult i32 %conv5, %conv
@@ -1782,14 +1782,14 @@ for.end:                                          ; preds = %for.body, %for.inc.
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @helper_vclz_v_b(ptr noundef %vd, ptr nocapture noundef readonly %v0, ptr nocapture noundef readonly %vs2, ptr nocapture noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
-  %vl1 = getelementptr inbounds i8, ptr %env, i64 4624
+  %vl1 = getelementptr inbounds nuw i8, ptr %env, i64 4624
   %0 = load i64, ptr %vl1, align 16
   %conv = trunc i64 %0 to i32
   %1 = getelementptr i8, ptr %env, i64 4640
   %env.val = load i64, ptr %1, align 16
   %shr.i.i.i16 = lshr i32 %desc, 16
   %and.i.i17 = and i32 %shr.i.i.i16, 1
-  %vstart = getelementptr inbounds i8, ptr %env, i64 4632
+  %vstart = getelementptr inbounds nuw i8, ptr %env, i64 4632
   %2 = load i64, ptr %vstart, align 8
   %conv5 = trunc i64 %2 to i32
   %cmp20 = icmp ult i32 %conv5, %conv
@@ -1867,14 +1867,14 @@ for.end:                                          ; preds = %for.body, %for.inc.
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @helper_vclz_v_h(ptr noundef %vd, ptr nocapture noundef readonly %v0, ptr nocapture noundef readonly %vs2, ptr nocapture noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
-  %vl1 = getelementptr inbounds i8, ptr %env, i64 4624
+  %vl1 = getelementptr inbounds nuw i8, ptr %env, i64 4624
   %0 = load i64, ptr %vl1, align 16
   %conv = trunc i64 %0 to i32
   %1 = getelementptr i8, ptr %env, i64 4640
   %env.val = load i64, ptr %1, align 16
   %shr.i.i.i16 = lshr i32 %desc, 16
   %and.i.i17 = and i32 %shr.i.i.i16, 1
-  %vstart = getelementptr inbounds i8, ptr %env, i64 4632
+  %vstart = getelementptr inbounds nuw i8, ptr %env, i64 4632
   %2 = load i64, ptr %vstart, align 8
   %conv5 = trunc i64 %2 to i32
   %cmp23 = icmp ult i32 %conv5, %conv
@@ -1955,14 +1955,14 @@ for.end:                                          ; preds = %for.body, %for.inc.
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @helper_vclz_v_w(ptr noundef %vd, ptr nocapture noundef readonly %v0, ptr nocapture noundef readonly %vs2, ptr nocapture noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
-  %vl1 = getelementptr inbounds i8, ptr %env, i64 4624
+  %vl1 = getelementptr inbounds nuw i8, ptr %env, i64 4624
   %0 = load i64, ptr %vl1, align 16
   %conv = trunc i64 %0 to i32
   %1 = getelementptr i8, ptr %env, i64 4640
   %env.val = load i64, ptr %1, align 16
   %shr.i.i.i16 = lshr i32 %desc, 16
   %and.i.i17 = and i32 %shr.i.i.i16, 1
-  %vstart = getelementptr inbounds i8, ptr %env, i64 4632
+  %vstart = getelementptr inbounds nuw i8, ptr %env, i64 4632
   %2 = load i64, ptr %vstart, align 8
   %conv5 = trunc i64 %2 to i32
   %cmp22 = icmp ult i32 %conv5, %conv
@@ -2042,14 +2042,14 @@ for.end:                                          ; preds = %for.body, %for.inc.
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @helper_vclz_v_d(ptr noundef %vd, ptr nocapture noundef readonly %v0, ptr nocapture noundef readonly %vs2, ptr nocapture noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
-  %vl1 = getelementptr inbounds i8, ptr %env, i64 4624
+  %vl1 = getelementptr inbounds nuw i8, ptr %env, i64 4624
   %0 = load i64, ptr %vl1, align 16
   %conv = trunc i64 %0 to i32
   %1 = getelementptr i8, ptr %env, i64 4640
   %env.val = load i64, ptr %1, align 16
   %shr.i.i.i16 = lshr i32 %desc, 16
   %and.i.i17 = and i32 %shr.i.i.i16, 1
-  %vstart = getelementptr inbounds i8, ptr %env, i64 4632
+  %vstart = getelementptr inbounds nuw i8, ptr %env, i64 4632
   %2 = load i64, ptr %vstart, align 8
   %conv5 = trunc i64 %2 to i32
   %cmp22 = icmp ult i32 %conv5, %conv
@@ -2129,14 +2129,14 @@ for.end:                                          ; preds = %for.body, %for.inc.
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @helper_vctz_v_b(ptr noundef %vd, ptr nocapture noundef readonly %v0, ptr nocapture noundef readonly %vs2, ptr nocapture noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
-  %vl1 = getelementptr inbounds i8, ptr %env, i64 4624
+  %vl1 = getelementptr inbounds nuw i8, ptr %env, i64 4624
   %0 = load i64, ptr %vl1, align 16
   %conv = trunc i64 %0 to i32
   %1 = getelementptr i8, ptr %env, i64 4640
   %env.val = load i64, ptr %1, align 16
   %shr.i.i.i16 = lshr i32 %desc, 16
   %and.i.i17 = and i32 %shr.i.i.i16, 1
-  %vstart = getelementptr inbounds i8, ptr %env, i64 4632
+  %vstart = getelementptr inbounds nuw i8, ptr %env, i64 4632
   %2 = load i64, ptr %vstart, align 8
   %conv5 = trunc i64 %2 to i32
   %cmp20 = icmp ult i32 %conv5, %conv
@@ -2214,14 +2214,14 @@ for.end:                                          ; preds = %for.body, %for.inc.
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @helper_vctz_v_h(ptr noundef %vd, ptr nocapture noundef readonly %v0, ptr nocapture noundef readonly %vs2, ptr nocapture noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
-  %vl1 = getelementptr inbounds i8, ptr %env, i64 4624
+  %vl1 = getelementptr inbounds nuw i8, ptr %env, i64 4624
   %0 = load i64, ptr %vl1, align 16
   %conv = trunc i64 %0 to i32
   %1 = getelementptr i8, ptr %env, i64 4640
   %env.val = load i64, ptr %1, align 16
   %shr.i.i.i16 = lshr i32 %desc, 16
   %and.i.i17 = and i32 %shr.i.i.i16, 1
-  %vstart = getelementptr inbounds i8, ptr %env, i64 4632
+  %vstart = getelementptr inbounds nuw i8, ptr %env, i64 4632
   %2 = load i64, ptr %vstart, align 8
   %conv5 = trunc i64 %2 to i32
   %cmp23 = icmp ult i32 %conv5, %conv
@@ -2302,14 +2302,14 @@ for.end:                                          ; preds = %for.body, %for.inc.
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @helper_vctz_v_w(ptr noundef %vd, ptr nocapture noundef readonly %v0, ptr nocapture noundef readonly %vs2, ptr nocapture noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
-  %vl1 = getelementptr inbounds i8, ptr %env, i64 4624
+  %vl1 = getelementptr inbounds nuw i8, ptr %env, i64 4624
   %0 = load i64, ptr %vl1, align 16
   %conv = trunc i64 %0 to i32
   %1 = getelementptr i8, ptr %env, i64 4640
   %env.val = load i64, ptr %1, align 16
   %shr.i.i.i16 = lshr i32 %desc, 16
   %and.i.i17 = and i32 %shr.i.i.i16, 1
-  %vstart = getelementptr inbounds i8, ptr %env, i64 4632
+  %vstart = getelementptr inbounds nuw i8, ptr %env, i64 4632
   %2 = load i64, ptr %vstart, align 8
   %conv5 = trunc i64 %2 to i32
   %cmp22 = icmp ult i32 %conv5, %conv
@@ -2389,14 +2389,14 @@ for.end:                                          ; preds = %for.body, %for.inc.
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @helper_vctz_v_d(ptr noundef %vd, ptr nocapture noundef readonly %v0, ptr nocapture noundef readonly %vs2, ptr nocapture noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
-  %vl1 = getelementptr inbounds i8, ptr %env, i64 4624
+  %vl1 = getelementptr inbounds nuw i8, ptr %env, i64 4624
   %0 = load i64, ptr %vl1, align 16
   %conv = trunc i64 %0 to i32
   %1 = getelementptr i8, ptr %env, i64 4640
   %env.val = load i64, ptr %1, align 16
   %shr.i.i.i16 = lshr i32 %desc, 16
   %and.i.i17 = and i32 %shr.i.i.i16, 1
-  %vstart = getelementptr inbounds i8, ptr %env, i64 4632
+  %vstart = getelementptr inbounds nuw i8, ptr %env, i64 4632
   %2 = load i64, ptr %vstart, align 8
   %conv5 = trunc i64 %2 to i32
   %cmp22 = icmp ult i32 %conv5, %conv
@@ -2476,14 +2476,14 @@ for.end:                                          ; preds = %for.body, %for.inc.
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @helper_vcpop_v_b(ptr noundef %vd, ptr nocapture noundef readonly %v0, ptr nocapture noundef readonly %vs2, ptr nocapture noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
-  %vl1 = getelementptr inbounds i8, ptr %env, i64 4624
+  %vl1 = getelementptr inbounds nuw i8, ptr %env, i64 4624
   %0 = load i64, ptr %vl1, align 16
   %conv = trunc i64 %0 to i32
   %1 = getelementptr i8, ptr %env, i64 4640
   %env.val = load i64, ptr %1, align 16
   %shr.i.i.i16 = lshr i32 %desc, 16
   %and.i.i17 = and i32 %shr.i.i.i16, 1
-  %vstart = getelementptr inbounds i8, ptr %env, i64 4632
+  %vstart = getelementptr inbounds nuw i8, ptr %env, i64 4632
   %2 = load i64, ptr %vstart, align 8
   %conv5 = trunc i64 %2 to i32
   %cmp20 = icmp ult i32 %conv5, %conv
@@ -2561,14 +2561,14 @@ for.end:                                          ; preds = %for.body, %for.inc.
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @helper_vcpop_v_h(ptr noundef %vd, ptr nocapture noundef readonly %v0, ptr nocapture noundef readonly %vs2, ptr nocapture noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
-  %vl1 = getelementptr inbounds i8, ptr %env, i64 4624
+  %vl1 = getelementptr inbounds nuw i8, ptr %env, i64 4624
   %0 = load i64, ptr %vl1, align 16
   %conv = trunc i64 %0 to i32
   %1 = getelementptr i8, ptr %env, i64 4640
   %env.val = load i64, ptr %1, align 16
   %shr.i.i.i16 = lshr i32 %desc, 16
   %and.i.i17 = and i32 %shr.i.i.i16, 1
-  %vstart = getelementptr inbounds i8, ptr %env, i64 4632
+  %vstart = getelementptr inbounds nuw i8, ptr %env, i64 4632
   %2 = load i64, ptr %vstart, align 8
   %conv5 = trunc i64 %2 to i32
   %cmp23 = icmp ult i32 %conv5, %conv
@@ -2649,14 +2649,14 @@ for.end:                                          ; preds = %for.body, %for.inc.
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @helper_vcpop_v_w(ptr noundef %vd, ptr nocapture noundef readonly %v0, ptr nocapture noundef readonly %vs2, ptr nocapture noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
-  %vl1 = getelementptr inbounds i8, ptr %env, i64 4624
+  %vl1 = getelementptr inbounds nuw i8, ptr %env, i64 4624
   %0 = load i64, ptr %vl1, align 16
   %conv = trunc i64 %0 to i32
   %1 = getelementptr i8, ptr %env, i64 4640
   %env.val = load i64, ptr %1, align 16
   %shr.i.i.i16 = lshr i32 %desc, 16
   %and.i.i17 = and i32 %shr.i.i.i16, 1
-  %vstart = getelementptr inbounds i8, ptr %env, i64 4632
+  %vstart = getelementptr inbounds nuw i8, ptr %env, i64 4632
   %2 = load i64, ptr %vstart, align 8
   %conv5 = trunc i64 %2 to i32
   %cmp22 = icmp ult i32 %conv5, %conv
@@ -2736,14 +2736,14 @@ for.end:                                          ; preds = %for.body, %for.inc.
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @helper_vcpop_v_d(ptr noundef %vd, ptr nocapture noundef readonly %v0, ptr nocapture noundef readonly %vs2, ptr nocapture noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
-  %vl1 = getelementptr inbounds i8, ptr %env, i64 4624
+  %vl1 = getelementptr inbounds nuw i8, ptr %env, i64 4624
   %0 = load i64, ptr %vl1, align 16
   %conv = trunc i64 %0 to i32
   %1 = getelementptr i8, ptr %env, i64 4640
   %env.val = load i64, ptr %1, align 16
   %shr.i.i.i16 = lshr i32 %desc, 16
   %and.i.i17 = and i32 %shr.i.i.i16, 1
-  %vstart = getelementptr inbounds i8, ptr %env, i64 4632
+  %vstart = getelementptr inbounds nuw i8, ptr %env, i64 4632
   %2 = load i64, ptr %vstart, align 8
   %conv5 = trunc i64 %2 to i32
   %cmp22 = icmp ult i32 %conv5, %conv
@@ -2960,7 +2960,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @helper_egs_check(i32 noundef %egs, ptr noundef %env) local_unnamed_addr #0 {
 entry:
-  %vl1 = getelementptr inbounds i8, ptr %env, i64 4624
+  %vl1 = getelementptr inbounds nuw i8, ptr %env, i64 4624
   %0 = load i64, ptr %vl1, align 16
   %conv = trunc i64 %0 to i32
   %rem = urem i32 %conv, %egs
@@ -2968,7 +2968,7 @@ entry:
   br i1 %cmp.not, label %lor.lhs.false, label %if.then
 
 lor.lhs.false:                                    ; preds = %entry
-  %vstart2 = getelementptr inbounds i8, ptr %env, i64 4632
+  %vstart2 = getelementptr inbounds nuw i8, ptr %env, i64 4632
   %1 = load i64, ptr %vstart2, align 8
   %conv3 = trunc i64 %1 to i32
   %rem5 = urem i32 %conv3, %egs
@@ -2996,11 +2996,11 @@ define dso_local void @helper_vaesef_vv(ptr noundef %vd, ptr nocapture noundef r
 entry:
   %round_key = alloca %union.AESState, align 16
   %round_state = alloca %union.AESState, align 16
-  %vl1 = getelementptr inbounds i8, ptr %env, i64 4624
+  %vl1 = getelementptr inbounds nuw i8, ptr %env, i64 4624
   %0 = load i64, ptr %vl1, align 16
   %1 = getelementptr i8, ptr %env, i64 4640
   %env.val = load i64, ptr %1, align 16
-  %vstart = getelementptr inbounds i8, ptr %env, i64 4632
+  %vstart = getelementptr inbounds nuw i8, ptr %env, i64 4632
   %2 = load i64, ptr %vstart, align 8
   %div18 = lshr i64 %2, 2
   %conv421 = and i64 %div18, 4294967295
@@ -3010,8 +3010,8 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %conv3 = trunc i64 %div18 to i32
-  %arrayidx12 = getelementptr inbounds i8, ptr %round_key, i64 8
-  %arrayidx22 = getelementptr inbounds i8, ptr %round_state, i64 8
+  %arrayidx12 = getelementptr inbounds nuw i8, ptr %round_key, i64 8
+  %arrayidx22 = getelementptr inbounds nuw i8, ptr %round_state, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %aesenc_SB_SR_AK.exit
@@ -3084,11 +3084,11 @@ define dso_local void @helper_vaesef_vs(ptr noundef %vd, ptr nocapture noundef r
 entry:
   %round_key = alloca %union.AESState, align 16
   %round_state = alloca %union.AESState, align 16
-  %vl1 = getelementptr inbounds i8, ptr %env, i64 4624
+  %vl1 = getelementptr inbounds nuw i8, ptr %env, i64 4624
   %0 = load i64, ptr %vl1, align 16
   %1 = getelementptr i8, ptr %env, i64 4640
   %env.val = load i64, ptr %1, align 16
-  %vstart = getelementptr inbounds i8, ptr %env, i64 4632
+  %vstart = getelementptr inbounds nuw i8, ptr %env, i64 4632
   %2 = load i64, ptr %vstart, align 8
   %div16 = lshr i64 %2, 2
   %conv419 = and i64 %div16, 4294967295
@@ -3099,8 +3099,8 @@ entry:
 for.body.lr.ph:                                   ; preds = %entry
   %conv3 = trunc i64 %div16 to i32
   %add.ptr8 = getelementptr i8, ptr %vs2, i64 8
-  %arrayidx9 = getelementptr inbounds i8, ptr %round_key, i64 8
-  %arrayidx16 = getelementptr inbounds i8, ptr %round_state, i64 8
+  %arrayidx9 = getelementptr inbounds nuw i8, ptr %round_key, i64 8
+  %arrayidx16 = getelementptr inbounds nuw i8, ptr %round_state, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %aesenc_SB_SR_AK.exit
@@ -3171,11 +3171,11 @@ define dso_local void @helper_vaesdf_vv(ptr noundef %vd, ptr nocapture noundef r
 entry:
   %round_key = alloca %union.AESState, align 16
   %round_state = alloca %union.AESState, align 16
-  %vl1 = getelementptr inbounds i8, ptr %env, i64 4624
+  %vl1 = getelementptr inbounds nuw i8, ptr %env, i64 4624
   %0 = load i64, ptr %vl1, align 16
   %1 = getelementptr i8, ptr %env, i64 4640
   %env.val = load i64, ptr %1, align 16
-  %vstart = getelementptr inbounds i8, ptr %env, i64 4632
+  %vstart = getelementptr inbounds nuw i8, ptr %env, i64 4632
   %2 = load i64, ptr %vstart, align 8
   %div18 = lshr i64 %2, 2
   %conv421 = and i64 %div18, 4294967295
@@ -3185,8 +3185,8 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %conv3 = trunc i64 %div18 to i32
-  %arrayidx12 = getelementptr inbounds i8, ptr %round_key, i64 8
-  %arrayidx22 = getelementptr inbounds i8, ptr %round_state, i64 8
+  %arrayidx12 = getelementptr inbounds nuw i8, ptr %round_key, i64 8
+  %arrayidx22 = getelementptr inbounds nuw i8, ptr %round_state, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %aesdec_ISB_ISR_AK.exit
@@ -3259,11 +3259,11 @@ define dso_local void @helper_vaesdf_vs(ptr noundef %vd, ptr nocapture noundef r
 entry:
   %round_key = alloca %union.AESState, align 16
   %round_state = alloca %union.AESState, align 16
-  %vl1 = getelementptr inbounds i8, ptr %env, i64 4624
+  %vl1 = getelementptr inbounds nuw i8, ptr %env, i64 4624
   %0 = load i64, ptr %vl1, align 16
   %1 = getelementptr i8, ptr %env, i64 4640
   %env.val = load i64, ptr %1, align 16
-  %vstart = getelementptr inbounds i8, ptr %env, i64 4632
+  %vstart = getelementptr inbounds nuw i8, ptr %env, i64 4632
   %2 = load i64, ptr %vstart, align 8
   %div16 = lshr i64 %2, 2
   %conv419 = and i64 %div16, 4294967295
@@ -3274,8 +3274,8 @@ entry:
 for.body.lr.ph:                                   ; preds = %entry
   %conv3 = trunc i64 %div16 to i32
   %add.ptr8 = getelementptr i8, ptr %vs2, i64 8
-  %arrayidx9 = getelementptr inbounds i8, ptr %round_key, i64 8
-  %arrayidx16 = getelementptr inbounds i8, ptr %round_state, i64 8
+  %arrayidx9 = getelementptr inbounds nuw i8, ptr %round_key, i64 8
+  %arrayidx16 = getelementptr inbounds nuw i8, ptr %round_state, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %aesdec_ISB_ISR_AK.exit
@@ -3346,11 +3346,11 @@ define dso_local void @helper_vaesem_vv(ptr noundef %vd, ptr nocapture noundef r
 entry:
   %round_key = alloca %union.AESState, align 16
   %round_state = alloca %union.AESState, align 16
-  %vl1 = getelementptr inbounds i8, ptr %env, i64 4624
+  %vl1 = getelementptr inbounds nuw i8, ptr %env, i64 4624
   %0 = load i64, ptr %vl1, align 16
   %1 = getelementptr i8, ptr %env, i64 4640
   %env.val = load i64, ptr %1, align 16
-  %vstart = getelementptr inbounds i8, ptr %env, i64 4632
+  %vstart = getelementptr inbounds nuw i8, ptr %env, i64 4632
   %2 = load i64, ptr %vstart, align 8
   %div18 = lshr i64 %2, 2
   %conv421 = and i64 %div18, 4294967295
@@ -3360,8 +3360,8 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %conv3 = trunc i64 %div18 to i32
-  %arrayidx12 = getelementptr inbounds i8, ptr %round_key, i64 8
-  %arrayidx22 = getelementptr inbounds i8, ptr %round_state, i64 8
+  %arrayidx12 = getelementptr inbounds nuw i8, ptr %round_key, i64 8
+  %arrayidx22 = getelementptr inbounds nuw i8, ptr %round_state, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %aesenc_SB_SR_MC_AK.exit
@@ -3434,11 +3434,11 @@ define dso_local void @helper_vaesem_vs(ptr noundef %vd, ptr nocapture noundef r
 entry:
   %round_key = alloca %union.AESState, align 16
   %round_state = alloca %union.AESState, align 16
-  %vl1 = getelementptr inbounds i8, ptr %env, i64 4624
+  %vl1 = getelementptr inbounds nuw i8, ptr %env, i64 4624
   %0 = load i64, ptr %vl1, align 16
   %1 = getelementptr i8, ptr %env, i64 4640
   %env.val = load i64, ptr %1, align 16
-  %vstart = getelementptr inbounds i8, ptr %env, i64 4632
+  %vstart = getelementptr inbounds nuw i8, ptr %env, i64 4632
   %2 = load i64, ptr %vstart, align 8
   %div16 = lshr i64 %2, 2
   %conv419 = and i64 %div16, 4294967295
@@ -3449,8 +3449,8 @@ entry:
 for.body.lr.ph:                                   ; preds = %entry
   %conv3 = trunc i64 %div16 to i32
   %add.ptr8 = getelementptr i8, ptr %vs2, i64 8
-  %arrayidx9 = getelementptr inbounds i8, ptr %round_key, i64 8
-  %arrayidx16 = getelementptr inbounds i8, ptr %round_state, i64 8
+  %arrayidx9 = getelementptr inbounds nuw i8, ptr %round_key, i64 8
+  %arrayidx16 = getelementptr inbounds nuw i8, ptr %round_state, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %aesenc_SB_SR_MC_AK.exit
@@ -3521,11 +3521,11 @@ define dso_local void @helper_vaesdm_vv(ptr noundef %vd, ptr nocapture noundef r
 entry:
   %round_key = alloca %union.AESState, align 16
   %round_state = alloca %union.AESState, align 16
-  %vl1 = getelementptr inbounds i8, ptr %env, i64 4624
+  %vl1 = getelementptr inbounds nuw i8, ptr %env, i64 4624
   %0 = load i64, ptr %vl1, align 16
   %1 = getelementptr i8, ptr %env, i64 4640
   %env.val = load i64, ptr %1, align 16
-  %vstart = getelementptr inbounds i8, ptr %env, i64 4632
+  %vstart = getelementptr inbounds nuw i8, ptr %env, i64 4632
   %2 = load i64, ptr %vstart, align 8
   %div18 = lshr i64 %2, 2
   %conv421 = and i64 %div18, 4294967295
@@ -3535,8 +3535,8 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %conv3 = trunc i64 %div18 to i32
-  %arrayidx12 = getelementptr inbounds i8, ptr %round_key, i64 8
-  %arrayidx22 = getelementptr inbounds i8, ptr %round_state, i64 8
+  %arrayidx12 = getelementptr inbounds nuw i8, ptr %round_key, i64 8
+  %arrayidx22 = getelementptr inbounds nuw i8, ptr %round_state, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %aesdec_ISB_ISR_AK_IMC.exit
@@ -3609,11 +3609,11 @@ define dso_local void @helper_vaesdm_vs(ptr noundef %vd, ptr nocapture noundef r
 entry:
   %round_key = alloca %union.AESState, align 16
   %round_state = alloca %union.AESState, align 16
-  %vl1 = getelementptr inbounds i8, ptr %env, i64 4624
+  %vl1 = getelementptr inbounds nuw i8, ptr %env, i64 4624
   %0 = load i64, ptr %vl1, align 16
   %1 = getelementptr i8, ptr %env, i64 4640
   %env.val = load i64, ptr %1, align 16
-  %vstart = getelementptr inbounds i8, ptr %env, i64 4632
+  %vstart = getelementptr inbounds nuw i8, ptr %env, i64 4632
   %2 = load i64, ptr %vstart, align 8
   %div16 = lshr i64 %2, 2
   %conv419 = and i64 %div16, 4294967295
@@ -3624,8 +3624,8 @@ entry:
 for.body.lr.ph:                                   ; preds = %entry
   %conv3 = trunc i64 %div16 to i32
   %add.ptr8 = getelementptr i8, ptr %vs2, i64 8
-  %arrayidx9 = getelementptr inbounds i8, ptr %round_key, i64 8
-  %arrayidx16 = getelementptr inbounds i8, ptr %round_state, i64 8
+  %arrayidx9 = getelementptr inbounds nuw i8, ptr %round_key, i64 8
+  %arrayidx16 = getelementptr inbounds nuw i8, ptr %round_state, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %aesdec_ISB_ISR_AK_IMC.exit
@@ -3694,11 +3694,11 @@ for.end:                                          ; preds = %aesdec_ISB_ISR_AK_I
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @helper_vaesz_vs(ptr noundef %vd, ptr nocapture noundef readonly %vs2, ptr nocapture noundef %env, i32 noundef %desc) local_unnamed_addr #6 {
 entry:
-  %vl1 = getelementptr inbounds i8, ptr %env, i64 4624
+  %vl1 = getelementptr inbounds nuw i8, ptr %env, i64 4624
   %0 = load i64, ptr %vl1, align 16
   %1 = getelementptr i8, ptr %env, i64 4640
   %env.val = load i64, ptr %1, align 16
-  %vstart = getelementptr inbounds i8, ptr %env, i64 4632
+  %vstart = getelementptr inbounds nuw i8, ptr %env, i64 4632
   %2 = load i64, ptr %vstart, align 8
   %div16 = lshr i64 %2, 2
   %conv425 = and i64 %div16, 4294967295
@@ -3764,11 +3764,11 @@ for.end:                                          ; preds = %for.body, %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @helper_vaeskf1_vi(ptr noundef %vd_vptr, ptr nocapture noundef readonly %vs2_vptr, i32 noundef %uimm, ptr nocapture noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
-  %vl1 = getelementptr inbounds i8, ptr %env, i64 4624
+  %vl1 = getelementptr inbounds nuw i8, ptr %env, i64 4624
   %0 = load i64, ptr %vl1, align 16
   %1 = getelementptr i8, ptr %env, i64 4640
   %env.val = load i64, ptr %1, align 16
-  %vstart = getelementptr inbounds i8, ptr %env, i64 4632
+  %vstart = getelementptr inbounds nuw i8, ptr %env, i64 4632
   %2 = load i64, ptr %vstart, align 8
   %div33 = lshr i64 %2, 2
   %conv736 = and i64 %div33, 4294967295
@@ -3881,7 +3881,7 @@ for.end:                                          ; preds = %for.body, %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @helper_vaeskf2_vi(ptr noundef %vd_vptr, ptr nocapture noundef readonly %vs2_vptr, i32 noundef %uimm, ptr nocapture noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
-  %vl1 = getelementptr inbounds i8, ptr %env, i64 4624
+  %vl1 = getelementptr inbounds nuw i8, ptr %env, i64 4624
   %0 = load i64, ptr %vl1, align 16
   %1 = getelementptr i8, ptr %env, i64 4640
   %env.val = load i64, ptr %1, align 16
@@ -3898,7 +3898,7 @@ if.then:                                          ; preds = %entry, %entry, %ent
 
 if.end:                                           ; preds = %entry, %if.then
   %uimm.addr.0 = phi i32 [ %xor, %if.then ], [ %and, %entry ]
-  %vstart = getelementptr inbounds i8, ptr %env, i64 4632
+  %vstart = getelementptr inbounds nuw i8, ptr %env, i64 4632
   %2 = load i64, ptr %vstart, align 8
   %div46 = lshr i64 %2, 2
   %conv6 = trunc i64 %div46 to i32
@@ -4073,14 +4073,14 @@ for.end:                                          ; preds = %for.body, %for.body
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @helper_vsha2ms_vv(ptr noundef %vd, ptr nocapture noundef readonly %vs1, ptr nocapture noundef readonly %vs2, ptr nocapture noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
-  %vtype = getelementptr inbounds i8, ptr %env, i64 4640
+  %vtype = getelementptr inbounds nuw i8, ptr %env, i64 4640
   %0 = load i64, ptr %vtype, align 16
   %1 = and i64 %0, 56
   %cmp = icmp eq i64 %1, 16
-  %vstart = getelementptr inbounds i8, ptr %env, i64 4632
+  %vstart = getelementptr inbounds nuw i8, ptr %env, i64 4632
   %2 = load i64, ptr %vstart, align 8
   %div21 = lshr i64 %2, 2
-  %vl = getelementptr inbounds i8, ptr %env, i64 4624
+  %vl = getelementptr inbounds nuw i8, ptr %env, i64 4624
   %conv485 = and i64 %div21, 4294967295
   %3 = load i64, ptr %vl, align 16
   %div52286 = lshr i64 %3, 2
@@ -4298,10 +4298,10 @@ for.end:                                          ; preds = %for.body, %for.body
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @helper_vsha2ch32_vv(ptr noundef %vd, ptr nocapture noundef readonly %vs1, ptr nocapture noundef readonly %vs2, ptr nocapture noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
-  %vstart = getelementptr inbounds i8, ptr %env, i64 4632
+  %vstart = getelementptr inbounds nuw i8, ptr %env, i64 4632
   %0 = load i64, ptr %vstart, align 8
   %div11 = lshr i64 %0, 2
-  %vl = getelementptr inbounds i8, ptr %env, i64 4624
+  %vl = getelementptr inbounds nuw i8, ptr %env, i64 4624
   %conv116 = and i64 %div11, 4294967295
   %1 = load i64, ptr %vl, align 16
   %div21217 = lshr i64 %1, 2
@@ -4424,10 +4424,10 @@ for.end:                                          ; preds = %for.body, %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @helper_vsha2ch64_vv(ptr noundef %vd, ptr nocapture noundef readonly %vs1, ptr nocapture noundef readonly %vs2, ptr nocapture noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
-  %vstart = getelementptr inbounds i8, ptr %env, i64 4632
+  %vstart = getelementptr inbounds nuw i8, ptr %env, i64 4632
   %0 = load i64, ptr %vstart, align 8
   %div11 = lshr i64 %0, 2
-  %vl = getelementptr inbounds i8, ptr %env, i64 4624
+  %vl = getelementptr inbounds nuw i8, ptr %env, i64 4624
   %conv116 = and i64 %div11, 4294967295
   %1 = load i64, ptr %vl, align 16
   %div21217 = lshr i64 %1, 2
@@ -4550,10 +4550,10 @@ for.end:                                          ; preds = %for.body, %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @helper_vsha2cl32_vv(ptr noundef %vd, ptr nocapture noundef readonly %vs1, ptr nocapture noundef readonly %vs2, ptr nocapture noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
-  %vstart = getelementptr inbounds i8, ptr %env, i64 4632
+  %vstart = getelementptr inbounds nuw i8, ptr %env, i64 4632
   %0 = load i64, ptr %vstart, align 8
   %div11 = lshr i64 %0, 2
-  %vl = getelementptr inbounds i8, ptr %env, i64 4624
+  %vl = getelementptr inbounds nuw i8, ptr %env, i64 4624
   %conv116 = and i64 %div11, 4294967295
   %1 = load i64, ptr %vl, align 16
   %div21217 = lshr i64 %1, 2
@@ -4675,10 +4675,10 @@ for.end:                                          ; preds = %for.body, %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @helper_vsha2cl64_vv(ptr noundef %vd, ptr nocapture noundef readonly %vs1, ptr nocapture noundef readonly %vs2, ptr nocapture noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
-  %vstart = getelementptr inbounds i8, ptr %env, i64 4632
+  %vstart = getelementptr inbounds nuw i8, ptr %env, i64 4632
   %0 = load i64, ptr %vstart, align 8
   %div13 = lshr i64 %0, 2
-  %vl = getelementptr inbounds i8, ptr %env, i64 4624
+  %vl = getelementptr inbounds nuw i8, ptr %env, i64 4624
   %conv118 = and i64 %div13, 4294967295
   %1 = load i64, ptr %vl, align 16
   %div21419 = lshr i64 %1, 2
@@ -4801,12 +4801,12 @@ for.end:                                          ; preds = %for.body, %entry
 define dso_local void @helper_vsm3me_vv(ptr noundef %vd_vptr, ptr nocapture noundef readonly %vs1_vptr, ptr nocapture noundef readonly %vs2_vptr, ptr nocapture noundef %env, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %w = alloca [24 x i32], align 16
-  %vtype = getelementptr inbounds i8, ptr %env, i64 4640
+  %vtype = getelementptr inbounds nuw i8, ptr %env, i64 4640
   %0 = load i64, ptr %vtype, align 16
-  %vstart = getelementptr inbounds i8, ptr %env, i64 4632
+  %vstart = getelementptr inbounds nuw i8, ptr %env, i64 4632
   %1 = load i64, ptr %vstart, align 8
   %div29 = lshr i64 %1, 3
-  %vl = getelementptr inbounds i8, ptr %env, i64 4624
+  %vl = getelementptr inbounds nuw i8, ptr %env, i64 4624
   %sext = shl i64 %div29, 32
   %conv537 = ashr exact i64 %sext, 32
   %2 = load i64, ptr %vl, align 16
@@ -4931,12 +4931,12 @@ entry:
   %v1 = alloca [8 x i32], align 16
   %v2 = alloca [8 x i32], align 16
   %v3 = alloca [8 x i32], align 16
-  %vtype = getelementptr inbounds i8, ptr %env, i64 4640
+  %vtype = getelementptr inbounds nuw i8, ptr %env, i64 4640
   %0 = load i64, ptr %vtype, align 16
-  %vstart = getelementptr inbounds i8, ptr %env, i64 4632
+  %vstart = getelementptr inbounds nuw i8, ptr %env, i64 4632
   %1 = load i64, ptr %vstart, align 8
   %div23 = lshr i64 %1, 3
-  %vl = getelementptr inbounds i8, ptr %env, i64 4624
+  %vl = getelementptr inbounds nuw i8, ptr %env, i64 4624
   %sext = shl i64 %div23, 32
   %conv532 = ashr exact i64 %sext, 32
   %2 = load i64, ptr %vl, align 16
@@ -4946,28 +4946,28 @@ entry:
 
 for.cond8.preheader.lr.ph:                        ; preds = %entry
   %conv4 = trunc i64 %div23 to i32
-  %arrayidx1.i = getelementptr inbounds i8, ptr %v3, i64 16
-  %arrayidx2.i = getelementptr inbounds i8, ptr %v3, i64 4
-  %arrayidx3.i = getelementptr inbounds i8, ptr %v3, i64 20
+  %arrayidx1.i = getelementptr inbounds nuw i8, ptr %v3, i64 16
+  %arrayidx2.i = getelementptr inbounds nuw i8, ptr %v3, i64 4
+  %arrayidx3.i = getelementptr inbounds nuw i8, ptr %v3, i64 20
   %mul.i = shl i32 %uimm, 1
-  %arrayidx6.i = getelementptr inbounds i8, ptr %v2, i64 16
+  %arrayidx6.i = getelementptr inbounds nuw i8, ptr %v2, i64 16
   %cmp.i.i = icmp ult i32 %mul.i, 16
   %cond.i.i = select i1 %cmp.i.i, i32 2043430169, i32 2055708042
   %or.i60.i = tail call noundef i32 @llvm.fshl.i32(i32 %cond.i.i, i32 %cond.i.i, i32 %mul.i)
-  %arrayidx15.i = getelementptr inbounds i8, ptr %v2, i64 4
-  %arrayidx16.i = getelementptr inbounds i8, ptr %v2, i64 8
-  %arrayidx18.i = getelementptr inbounds i8, ptr %v2, i64 12
-  %arrayidx23.i = getelementptr inbounds i8, ptr %v2, i64 20
-  %arrayidx24.i = getelementptr inbounds i8, ptr %v2, i64 24
-  %arrayidx26.i = getelementptr inbounds i8, ptr %v2, i64 28
-  %arrayidx35.i = getelementptr inbounds i8, ptr %v1, i64 12
-  %arrayidx38.i = getelementptr inbounds i8, ptr %v1, i64 4
-  %arrayidx43.i = getelementptr inbounds i8, ptr %v1, i64 28
-  %arrayidx47.i = getelementptr inbounds i8, ptr %v1, i64 20
+  %arrayidx15.i = getelementptr inbounds nuw i8, ptr %v2, i64 4
+  %arrayidx16.i = getelementptr inbounds nuw i8, ptr %v2, i64 8
+  %arrayidx18.i = getelementptr inbounds nuw i8, ptr %v2, i64 12
+  %arrayidx23.i = getelementptr inbounds nuw i8, ptr %v2, i64 20
+  %arrayidx24.i = getelementptr inbounds nuw i8, ptr %v2, i64 24
+  %arrayidx26.i = getelementptr inbounds nuw i8, ptr %v2, i64 28
+  %arrayidx35.i = getelementptr inbounds nuw i8, ptr %v1, i64 12
+  %arrayidx38.i = getelementptr inbounds nuw i8, ptr %v1, i64 4
+  %arrayidx43.i = getelementptr inbounds nuw i8, ptr %v1, i64 28
+  %arrayidx47.i = getelementptr inbounds nuw i8, ptr %v1, i64 20
   %rem55.i = or disjoint i32 %mul.i, 1
-  %arrayidx81.i = getelementptr inbounds i8, ptr %v1, i64 8
-  %arrayidx85.i = getelementptr inbounds i8, ptr %v1, i64 24
-  %arrayidx87.i = getelementptr inbounds i8, ptr %v1, i64 16
+  %arrayidx81.i = getelementptr inbounds nuw i8, ptr %v1, i64 8
+  %arrayidx85.i = getelementptr inbounds nuw i8, ptr %v1, i64 24
+  %arrayidx87.i = getelementptr inbounds nuw i8, ptr %v1, i64 16
   br label %for.cond8.preheader
 
 for.cond8.preheader:                              ; preds = %for.cond8.preheader.lr.ph, %for.inc36
@@ -5159,10 +5159,10 @@ entry:
   %S = alloca [2 x i64], align 16
   %0 = getelementptr i8, ptr %env, i64 4640
   %env.val = load i64, ptr %0, align 16
-  %vstart = getelementptr inbounds i8, ptr %env, i64 4632
+  %vstart = getelementptr inbounds nuw i8, ptr %env, i64 4632
   %1 = load i64, ptr %vstart, align 8
   %div32 = lshr i64 %1, 2
-  %vl = getelementptr inbounds i8, ptr %env, i64 4624
+  %vl = getelementptr inbounds nuw i8, ptr %env, i64 4624
   %conv2117 = and i64 %div32, 4294967295
   %2 = load i64, ptr %vl, align 16
   %div333118 = lshr i64 %2, 2
@@ -5171,7 +5171,7 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %conv = trunc i64 %div32 to i32
-  %arrayinit.element35 = getelementptr inbounds i8, ptr %S, i64 8
+  %arrayinit.element35 = getelementptr inbounds nuw i8, ptr %S, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.end
@@ -5358,10 +5358,10 @@ entry:
   %Y = alloca [2 x i64], align 16
   %0 = getelementptr i8, ptr %env, i64 4640
   %env.val = load i64, ptr %0, align 16
-  %vstart = getelementptr inbounds i8, ptr %env, i64 4632
+  %vstart = getelementptr inbounds nuw i8, ptr %env, i64 4632
   %1 = load i64, ptr %vstart, align 8
   %div29 = lshr i64 %1, 2
-  %vl = getelementptr inbounds i8, ptr %env, i64 4624
+  %vl = getelementptr inbounds nuw i8, ptr %env, i64 4624
   %conv2114 = and i64 %div29, 4294967295
   %2 = load i64, ptr %vl, align 16
   %div330115 = lshr i64 %2, 2
@@ -5370,7 +5370,7 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %conv = trunc i64 %div29 to i32
-  %arrayinit.element = getelementptr inbounds i8, ptr %Y, i64 8
+  %arrayinit.element = getelementptr inbounds nuw i8, ptr %Y, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.end
@@ -5547,11 +5547,11 @@ define dso_local void @helper_vsm4k_vi(ptr noundef %vd, ptr nocapture noundef re
 entry:
   %rk = alloca [4 x i32], align 16
   %tmp = alloca [8 x i32], align 16
-  %vstart = getelementptr inbounds i8, ptr %env, i64 4632
+  %vstart = getelementptr inbounds nuw i8, ptr %env, i64 4632
   %0 = load i64, ptr %vstart, align 8
   %div34 = lshr i64 %0, 2
   %conv = trunc i64 %div34 to i32
-  %vl = getelementptr inbounds i8, ptr %env, i64 4624
+  %vl = getelementptr inbounds nuw i8, ptr %env, i64 4624
   %1 = load i64, ptr %vl, align 16
   %div135 = lshr i64 %1, 2
   %conv2 = trunc i64 %div135 to i32
@@ -5565,12 +5565,12 @@ for.body.lr.ph:                                   ; preds = %entry
   %mul37 = and i32 %and, 28
   %3 = shl i32 %conv, 2
   %4 = zext nneg i32 %mul37 to i64
-  %scevgep64 = getelementptr inbounds i8, ptr %tmp, i64 16
+  %scevgep64 = getelementptr inbounds nuw i8, ptr %tmp, i64 16
   %5 = sub nuw i32 %conv2, %conv
-  %6 = getelementptr inbounds i8, ptr %tmp, i64 16
-  %arrayidx29.phi.trans.insert = getelementptr inbounds i8, ptr %tmp, i64 4
-  %arrayidx32.phi.trans.insert = getelementptr inbounds i8, ptr %tmp, i64 8
-  %scevgep76 = getelementptr inbounds i8, ptr %tmp, i64 12
+  %6 = getelementptr inbounds nuw i8, ptr %tmp, i64 16
+  %arrayidx29.phi.trans.insert = getelementptr inbounds nuw i8, ptr %tmp, i64 4
+  %arrayidx32.phi.trans.insert = getelementptr inbounds nuw i8, ptr %tmp, i64 8
+  %scevgep76 = getelementptr inbounds nuw i8, ptr %tmp, i64 12
   br label %for.body
 
 for.cond.loopexit:                                ; preds = %for.body60.lr.ph, %for.cond57.preheader
@@ -5702,11 +5702,11 @@ define dso_local void @helper_vsm4r_vv(ptr noundef %vd, ptr nocapture noundef re
 entry:
   %rk = alloca [4 x i32], align 16
   %tmp = alloca [8 x i32], align 16
-  %vstart = getelementptr inbounds i8, ptr %env, i64 4632
+  %vstart = getelementptr inbounds nuw i8, ptr %env, i64 4632
   %0 = load i64, ptr %vstart, align 8
   %div29 = lshr i64 %0, 2
   %conv = trunc i64 %div29 to i32
-  %vl = getelementptr inbounds i8, ptr %env, i64 4624
+  %vl = getelementptr inbounds nuw i8, ptr %env, i64 4624
   %1 = load i64, ptr %vl, align 16
   %div130 = lshr i64 %1, 2
   %conv2 = trunc i64 %div130 to i32
@@ -5716,11 +5716,11 @@ entry:
   br i1 %cmp39, label %for.body.lr.ph, label %for.end40
 
 for.body.lr.ph:                                   ; preds = %entry
-  %arrayidx.phi.trans.insert.i = getelementptr inbounds i8, ptr %tmp, i64 4
-  %arrayidx3.phi.trans.insert.i = getelementptr inbounds i8, ptr %tmp, i64 8
-  %arrayidx6.phi.trans.insert.i = getelementptr inbounds i8, ptr %tmp, i64 12
+  %arrayidx.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %tmp, i64 4
+  %arrayidx3.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %tmp, i64 8
+  %arrayidx6.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %tmp, i64 12
   %3 = shl i32 %conv, 2
-  %scevgep52 = getelementptr inbounds i8, ptr %tmp, i64 16
+  %scevgep52 = getelementptr inbounds nuw i8, ptr %tmp, i64 16
   %4 = sub nuw i32 %conv2, %conv
   br label %for.body
 
@@ -5859,11 +5859,11 @@ define dso_local void @helper_vsm4r_vs(ptr noundef %vd, ptr nocapture noundef re
 entry:
   %rk = alloca [4 x i32], align 16
   %tmp = alloca [8 x i32], align 16
-  %vstart = getelementptr inbounds i8, ptr %env, i64 4632
+  %vstart = getelementptr inbounds nuw i8, ptr %env, i64 4632
   %0 = load i64, ptr %vstart, align 8
   %div26 = lshr i64 %0, 2
   %conv = trunc i64 %div26 to i32
-  %vl = getelementptr inbounds i8, ptr %env, i64 4624
+  %vl = getelementptr inbounds nuw i8, ptr %env, i64 4624
   %1 = load i64, ptr %vl, align 16
   %div127 = lshr i64 %1, 2
   %conv2 = trunc i64 %div127 to i32
@@ -5873,11 +5873,11 @@ entry:
   br i1 %cmp35, label %for.body.lr.ph, label %for.end39
 
 for.body.lr.ph:                                   ; preds = %entry
-  %arrayidx.phi.trans.insert.i = getelementptr inbounds i8, ptr %tmp, i64 4
-  %arrayidx3.phi.trans.insert.i = getelementptr inbounds i8, ptr %tmp, i64 8
-  %arrayidx6.phi.trans.insert.i = getelementptr inbounds i8, ptr %tmp, i64 12
+  %arrayidx.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %tmp, i64 4
+  %arrayidx3.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %tmp, i64 8
+  %arrayidx6.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %tmp, i64 12
   %3 = shl i32 %conv, 2
-  %scevgep44 = getelementptr inbounds i8, ptr %tmp, i64 16
+  %scevgep44 = getelementptr inbounds nuw i8, ptr %tmp, i64 16
   %4 = sub nuw i32 %conv2, %conv
   br label %for.body
 

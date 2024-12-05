@@ -271,15 +271,15 @@ define hidden range(i32 -46, 1) i32 @mbedtls_oid_get_attr_short_name(ptr noundef
   br i1 %3, label %oid_x520_attr_from_asn1.exit.thread, label %.preheader.i
 
 .preheader.i:                                     ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   br label %7
 
 7:                                                ; preds = %15, %.preheader.i
   %8 = phi ptr [ @.str.2, %.preheader.i ], [ %17, %15 ]
   %.018.i = phi ptr [ @oid_x520_attr_type, %.preheader.i ], [ %16, %15 ]
-  %9 = getelementptr inbounds i8, ptr %.018.i, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %.018.i, i64 8
   %10 = load i64, ptr %9, align 8
   %11 = icmp eq i64 %10, %6
   br i1 %11, label %12, label %15
@@ -291,13 +291,13 @@ define hidden range(i32 -46, 1) i32 @mbedtls_oid_get_attr_short_name(ptr noundef
   br i1 %14, label %oid_x520_attr_from_asn1.exit, label %15
 
 15:                                               ; preds = %12, %7
-  %16 = getelementptr inbounds i8, ptr %.018.i, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %.018.i, i64 40
   %17 = load ptr, ptr %16, align 8
   %.not.i = icmp eq ptr %17, null
   br i1 %.not.i, label %oid_x520_attr_from_asn1.exit.thread, label %7, !llvm.loop !4
 
 oid_x520_attr_from_asn1.exit:                     ; preds = %12
-  %18 = getelementptr inbounds i8, ptr %.018.i, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %.018.i, i64 32
   %19 = load ptr, ptr %18, align 8
   store ptr %19, ptr %1, align 8
   br label %oid_x520_attr_from_asn1.exit.thread
@@ -313,15 +313,15 @@ define hidden range(i32 -46, 1) i32 @mbedtls_oid_get_x509_ext_type(ptr noundef r
   br i1 %3, label %oid_x509_ext_from_asn1.exit.thread, label %.preheader.i
 
 .preheader.i:                                     ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   br label %7
 
 7:                                                ; preds = %15, %.preheader.i
   %8 = phi ptr [ @.str.81, %.preheader.i ], [ %17, %15 ]
   %.018.i = phi ptr [ @oid_x509_ext, %.preheader.i ], [ %16, %15 ]
-  %9 = getelementptr inbounds i8, ptr %.018.i, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %.018.i, i64 8
   %10 = load i64, ptr %9, align 8
   %11 = icmp eq i64 %10, %6
   br i1 %11, label %12, label %15
@@ -333,13 +333,13 @@ define hidden range(i32 -46, 1) i32 @mbedtls_oid_get_x509_ext_type(ptr noundef r
   br i1 %14, label %oid_x509_ext_from_asn1.exit, label %15
 
 15:                                               ; preds = %12, %7
-  %16 = getelementptr inbounds i8, ptr %.018.i, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %.018.i, i64 40
   %17 = load ptr, ptr %16, align 8
   %.not.i = icmp eq ptr %17, null
   br i1 %.not.i, label %oid_x509_ext_from_asn1.exit.thread, label %7, !llvm.loop !6
 
 oid_x509_ext_from_asn1.exit:                      ; preds = %12
-  %18 = getelementptr inbounds i8, ptr %.018.i, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %.018.i, i64 32
   %19 = load i32, ptr %18, align 8
   store i32 %19, ptr %1, align 4
   br label %oid_x509_ext_from_asn1.exit.thread
@@ -355,15 +355,15 @@ define hidden range(i32 -46, 1) i32 @mbedtls_oid_get_extended_key_usage(ptr noun
   br i1 %3, label %oid_ext_key_usage_from_asn1.exit.thread, label %.preheader.i
 
 .preheader.i:                                     ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   br label %7
 
 7:                                                ; preds = %15, %.preheader.i
   %8 = phi ptr [ @.str.99, %.preheader.i ], [ %17, %15 ]
   %.018.i = phi ptr [ @oid_ext_key_usage, %.preheader.i ], [ %16, %15 ]
-  %9 = getelementptr inbounds i8, ptr %.018.i, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %.018.i, i64 8
   %10 = load i64, ptr %9, align 8
   %11 = icmp eq i64 %10, %6
   br i1 %11, label %12, label %15
@@ -375,13 +375,13 @@ define hidden range(i32 -46, 1) i32 @mbedtls_oid_get_extended_key_usage(ptr noun
   br i1 %14, label %oid_ext_key_usage_from_asn1.exit, label %15
 
 15:                                               ; preds = %12, %7
-  %16 = getelementptr inbounds i8, ptr %.018.i, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %.018.i, i64 32
   %17 = load ptr, ptr %16, align 8
   %.not.i = icmp eq ptr %17, null
   br i1 %.not.i, label %oid_ext_key_usage_from_asn1.exit.thread, label %7, !llvm.loop !7
 
 oid_ext_key_usage_from_asn1.exit:                 ; preds = %12
-  %18 = getelementptr inbounds i8, ptr %.018.i, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %.018.i, i64 24
   %19 = load ptr, ptr %18, align 8
   store ptr %19, ptr %1, align 8
   br label %oid_ext_key_usage_from_asn1.exit.thread
@@ -397,13 +397,13 @@ define hidden range(i32 -46, 1) i32 @mbedtls_oid_get_certificate_policies(ptr no
   br i1 %3, label %oid_certificate_policies_from_asn1.exit.thread, label %.preheader.i
 
 .preheader.i:                                     ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = icmp eq i64 %5, 4
   br i1 %6, label %7, label %oid_certificate_policies_from_asn1.exit.thread
 
 7:                                                ; preds = %.preheader.i
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) @.str.120, ptr noundef nonnull dereferenceable(4) %9, i64 4)
   %10 = icmp eq i32 %bcmp.i, 0
@@ -424,15 +424,15 @@ define hidden range(i32 -46, 1) i32 @mbedtls_oid_get_sig_alg_desc(ptr noundef re
   br i1 %3, label %oid_sig_alg_from_asn1.exit.thread, label %.preheader.i
 
 .preheader.i:                                     ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   br label %7
 
 7:                                                ; preds = %15, %.preheader.i
   %8 = phi ptr [ @.str.123, %.preheader.i ], [ %17, %15 ]
   %.018.i = phi ptr [ @oid_sig_alg, %.preheader.i ], [ %16, %15 ]
-  %9 = getelementptr inbounds i8, ptr %.018.i, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %.018.i, i64 8
   %10 = load i64, ptr %9, align 8
   %11 = icmp eq i64 %10, %6
   br i1 %11, label %12, label %15
@@ -444,13 +444,13 @@ define hidden range(i32 -46, 1) i32 @mbedtls_oid_get_sig_alg_desc(ptr noundef re
   br i1 %14, label %oid_sig_alg_from_asn1.exit, label %15
 
 15:                                               ; preds = %12, %7
-  %16 = getelementptr inbounds i8, ptr %.018.i, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %.018.i, i64 40
   %17 = load ptr, ptr %16, align 8
   %.not.i = icmp eq ptr %17, null
   br i1 %.not.i, label %oid_sig_alg_from_asn1.exit.thread, label %7, !llvm.loop !8
 
 oid_sig_alg_from_asn1.exit:                       ; preds = %12
-  %18 = getelementptr inbounds i8, ptr %.018.i, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %.018.i, i64 24
   %19 = load ptr, ptr %18, align 8
   store ptr %19, ptr %1, align 8
   br label %oid_sig_alg_from_asn1.exit.thread
@@ -466,15 +466,15 @@ define hidden range(i32 -46, 1) i32 @mbedtls_oid_get_sig_alg(ptr noundef readonl
   br i1 %4, label %oid_sig_alg_from_asn1.exit.thread, label %.preheader.i
 
 .preheader.i:                                     ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8
   br label %8
 
 8:                                                ; preds = %16, %.preheader.i
   %9 = phi ptr [ @.str.123, %.preheader.i ], [ %18, %16 ]
   %.018.i = phi ptr [ @oid_sig_alg, %.preheader.i ], [ %17, %16 ]
-  %10 = getelementptr inbounds i8, ptr %.018.i, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.018.i, i64 8
   %11 = load i64, ptr %10, align 8
   %12 = icmp eq i64 %11, %7
   br i1 %12, label %13, label %16
@@ -486,16 +486,16 @@ define hidden range(i32 -46, 1) i32 @mbedtls_oid_get_sig_alg(ptr noundef readonl
   br i1 %15, label %oid_sig_alg_from_asn1.exit, label %16
 
 16:                                               ; preds = %13, %8
-  %17 = getelementptr inbounds i8, ptr %.018.i, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %.018.i, i64 40
   %18 = load ptr, ptr %17, align 8
   %.not.i = icmp eq ptr %18, null
   br i1 %.not.i, label %oid_sig_alg_from_asn1.exit.thread, label %8, !llvm.loop !8
 
 oid_sig_alg_from_asn1.exit:                       ; preds = %13
-  %19 = getelementptr inbounds i8, ptr %.018.i, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %.018.i, i64 32
   %20 = load i32, ptr %19, align 8
   store i32 %20, ptr %1, align 4
-  %21 = getelementptr inbounds i8, ptr %.018.i, i64 36
+  %21 = getelementptr inbounds nuw i8, ptr %.018.i, i64 36
   %22 = load i32, ptr %21, align 4
   store i32 %22, ptr %2, align 4
   br label %oid_sig_alg_from_asn1.exit.thread
@@ -512,26 +512,26 @@ define hidden range(i32 -46, 1) i32 @mbedtls_oid_get_oid_by_sig_alg(i32 noundef 
 5:                                                ; preds = %4, %17
   %6 = phi ptr [ @.str.123, %4 ], [ %19, %17 ]
   %.014 = phi ptr [ @oid_sig_alg, %4 ], [ %18, %17 ]
-  %7 = getelementptr inbounds i8, ptr %.014, i64 36
+  %7 = getelementptr inbounds nuw i8, ptr %.014, i64 36
   %8 = load i32, ptr %7, align 4
   %9 = icmp eq i32 %8, %0
   br i1 %9, label %10, label %17
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %.014, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %.014, i64 32
   %12 = load i32, ptr %11, align 8
   %13 = icmp eq i32 %12, %1
   br i1 %13, label %14, label %17
 
 14:                                               ; preds = %10
   store ptr %6, ptr %2, align 8
-  %15 = getelementptr inbounds i8, ptr %.014, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %.014, i64 8
   %16 = load i64, ptr %15, align 8
   store i64 %16, ptr %3, align 8
   br label %.loopexit
 
 17:                                               ; preds = %10, %5
-  %18 = getelementptr inbounds i8, ptr %.014, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %.014, i64 40
   %19 = load ptr, ptr %18, align 8
   %.not = icmp eq ptr %19, null
   br i1 %.not, label %.loopexit, label %5, !llvm.loop !9
@@ -547,15 +547,15 @@ define hidden range(i32 -46, 1) i32 @mbedtls_oid_get_pk_alg(ptr noundef readonly
   br i1 %3, label %oid_pk_alg_from_asn1.exit.thread, label %.preheader.i
 
 .preheader.i:                                     ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   br label %7
 
 7:                                                ; preds = %15, %.preheader.i
   %8 = phi ptr [ @.str.159, %.preheader.i ], [ %17, %15 ]
   %.018.i = phi ptr [ @oid_pk_alg, %.preheader.i ], [ %16, %15 ]
-  %9 = getelementptr inbounds i8, ptr %.018.i, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %.018.i, i64 8
   %10 = load i64, ptr %9, align 8
   %11 = icmp eq i64 %10, %6
   br i1 %11, label %12, label %15
@@ -567,13 +567,13 @@ define hidden range(i32 -46, 1) i32 @mbedtls_oid_get_pk_alg(ptr noundef readonly
   br i1 %14, label %oid_pk_alg_from_asn1.exit, label %15
 
 15:                                               ; preds = %12, %7
-  %16 = getelementptr inbounds i8, ptr %.018.i, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %.018.i, i64 40
   %17 = load ptr, ptr %16, align 8
   %.not.i = icmp eq ptr %17, null
   br i1 %.not.i, label %oid_pk_alg_from_asn1.exit.thread, label %7, !llvm.loop !10
 
 oid_pk_alg_from_asn1.exit:                        ; preds = %12
-  %18 = getelementptr inbounds i8, ptr %.018.i, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %.018.i, i64 32
   %19 = load i32, ptr %18, align 8
   store i32 %19, ptr %1, align 4
   br label %oid_pk_alg_from_asn1.exit.thread
@@ -589,7 +589,7 @@ define hidden range(i32 -46, 1) i32 @mbedtls_oid_get_oid_by_pk_alg(i32 noundef %
   br i1 %4, label %._crit_edge, label %.lr.ph
 
 5:                                                ; preds = %.lr.ph
-  %6 = getelementptr inbounds i8, ptr %.01219, i64 72
+  %6 = getelementptr inbounds nuw i8, ptr %.01219, i64 72
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, %0
   br i1 %8, label %._crit_edge, label %.lr.ph, !llvm.loop !11
@@ -598,14 +598,14 @@ define hidden range(i32 -46, 1) i32 @mbedtls_oid_get_oid_by_pk_alg(i32 noundef %
   %.lcssa = phi ptr [ @.str.159, %3 ], [ %12, %5 ]
   %.012.lcssa = phi ptr [ @oid_pk_alg, %3 ], [ %11, %5 ]
   store ptr %.lcssa, ptr %1, align 8
-  %9 = getelementptr inbounds i8, ptr %.012.lcssa, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %.012.lcssa, i64 8
   %10 = load i64, ptr %9, align 8
   store i64 %10, ptr %2, align 8
   br label %.loopexit
 
 .lr.ph:                                           ; preds = %3, %5
   %.01219 = phi ptr [ %11, %5 ], [ @oid_pk_alg, %3 ]
-  %11 = getelementptr inbounds i8, ptr %.01219, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %.01219, i64 40
   %12 = load ptr, ptr %11, align 8
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %.loopexit, label %5, !llvm.loop !11
@@ -621,15 +621,15 @@ define hidden range(i32 -46, 1) i32 @mbedtls_oid_get_ec_grp(ptr noundef readonly
   br i1 %3, label %oid_grp_id_from_asn1.exit.thread, label %.preheader.i
 
 .preheader.i:                                     ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   br label %7
 
 7:                                                ; preds = %15, %.preheader.i
   %8 = phi ptr [ @.str.168, %.preheader.i ], [ %17, %15 ]
   %.018.i = phi ptr [ @oid_ecp_grp, %.preheader.i ], [ %16, %15 ]
-  %9 = getelementptr inbounds i8, ptr %.018.i, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %.018.i, i64 8
   %10 = load i64, ptr %9, align 8
   %11 = icmp eq i64 %10, %6
   br i1 %11, label %12, label %15
@@ -641,13 +641,13 @@ define hidden range(i32 -46, 1) i32 @mbedtls_oid_get_ec_grp(ptr noundef readonly
   br i1 %14, label %oid_grp_id_from_asn1.exit, label %15
 
 15:                                               ; preds = %12, %7
-  %16 = getelementptr inbounds i8, ptr %.018.i, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %.018.i, i64 40
   %17 = load ptr, ptr %16, align 8
   %.not.i = icmp eq ptr %17, null
   br i1 %.not.i, label %oid_grp_id_from_asn1.exit.thread, label %7, !llvm.loop !12
 
 oid_grp_id_from_asn1.exit:                        ; preds = %12
-  %18 = getelementptr inbounds i8, ptr %.018.i, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %.018.i, i64 32
   %19 = load i32, ptr %18, align 8
   store i32 %19, ptr %1, align 4
   br label %oid_grp_id_from_asn1.exit.thread
@@ -663,7 +663,7 @@ define hidden range(i32 -46, 1) i32 @mbedtls_oid_get_oid_by_ec_grp(i32 noundef %
   br i1 %4, label %._crit_edge, label %.lr.ph
 
 5:                                                ; preds = %.lr.ph
-  %6 = getelementptr inbounds i8, ptr %.01219, i64 72
+  %6 = getelementptr inbounds nuw i8, ptr %.01219, i64 72
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, %0
   br i1 %8, label %._crit_edge, label %.lr.ph, !llvm.loop !13
@@ -672,14 +672,14 @@ define hidden range(i32 -46, 1) i32 @mbedtls_oid_get_oid_by_ec_grp(i32 noundef %
   %.lcssa = phi ptr [ @.str.168, %3 ], [ %12, %5 ]
   %.012.lcssa = phi ptr [ @oid_ecp_grp, %3 ], [ %11, %5 ]
   store ptr %.lcssa, ptr %1, align 8
-  %9 = getelementptr inbounds i8, ptr %.012.lcssa, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %.012.lcssa, i64 8
   %10 = load i64, ptr %9, align 8
   store i64 %10, ptr %2, align 8
   br label %.loopexit
 
 .lr.ph:                                           ; preds = %3, %5
   %.01219 = phi ptr [ %11, %5 ], [ @oid_ecp_grp, %3 ]
-  %11 = getelementptr inbounds i8, ptr %.01219, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %.01219, i64 40
   %12 = load ptr, ptr %11, align 8
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %.loopexit, label %5, !llvm.loop !13
@@ -695,15 +695,15 @@ define hidden range(i32 -46, 1) i32 @mbedtls_oid_get_cipher_alg(ptr noundef read
   br i1 %3, label %oid_cipher_alg_from_asn1.exit.thread, label %.preheader.i
 
 .preheader.i:                                     ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   br label %7
 
 7:                                                ; preds = %15, %.preheader.i
   %8 = phi ptr [ @.str.193, %.preheader.i ], [ %17, %15 ]
   %.018.i = phi ptr [ @oid_cipher_alg, %.preheader.i ], [ %16, %15 ]
-  %9 = getelementptr inbounds i8, ptr %.018.i, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %.018.i, i64 8
   %10 = load i64, ptr %9, align 8
   %11 = icmp eq i64 %10, %6
   br i1 %11, label %12, label %15
@@ -715,13 +715,13 @@ define hidden range(i32 -46, 1) i32 @mbedtls_oid_get_cipher_alg(ptr noundef read
   br i1 %14, label %oid_cipher_alg_from_asn1.exit, label %15
 
 15:                                               ; preds = %12, %7
-  %16 = getelementptr inbounds i8, ptr %.018.i, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %.018.i, i64 40
   %17 = load ptr, ptr %16, align 8
   %.not.i = icmp eq ptr %17, null
   br i1 %.not.i, label %oid_cipher_alg_from_asn1.exit.thread, label %7, !llvm.loop !14
 
 oid_cipher_alg_from_asn1.exit:                    ; preds = %12
-  %18 = getelementptr inbounds i8, ptr %.018.i, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %.018.i, i64 32
   %19 = load i32, ptr %18, align 8
   store i32 %19, ptr %1, align 4
   br label %oid_cipher_alg_from_asn1.exit.thread
@@ -737,15 +737,15 @@ define hidden range(i32 -46, 1) i32 @mbedtls_oid_get_md_alg(ptr noundef readonly
   br i1 %3, label %oid_md_alg_from_asn1.exit.thread, label %.preheader.i
 
 .preheader.i:                                     ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   br label %7
 
 7:                                                ; preds = %15, %.preheader.i
   %8 = phi ptr [ @.str.199, %.preheader.i ], [ %17, %15 ]
   %.018.i = phi ptr [ @oid_md_alg, %.preheader.i ], [ %16, %15 ]
-  %9 = getelementptr inbounds i8, ptr %.018.i, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %.018.i, i64 8
   %10 = load i64, ptr %9, align 8
   %11 = icmp eq i64 %10, %6
   br i1 %11, label %12, label %15
@@ -757,13 +757,13 @@ define hidden range(i32 -46, 1) i32 @mbedtls_oid_get_md_alg(ptr noundef readonly
   br i1 %14, label %oid_md_alg_from_asn1.exit, label %15
 
 15:                                               ; preds = %12, %7
-  %16 = getelementptr inbounds i8, ptr %.018.i, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %.018.i, i64 40
   %17 = load ptr, ptr %16, align 8
   %.not.i = icmp eq ptr %17, null
   br i1 %.not.i, label %oid_md_alg_from_asn1.exit.thread, label %7, !llvm.loop !15
 
 oid_md_alg_from_asn1.exit:                        ; preds = %12
-  %18 = getelementptr inbounds i8, ptr %.018.i, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %.018.i, i64 32
   %19 = load i32, ptr %18, align 8
   store i32 %19, ptr %1, align 4
   br label %oid_md_alg_from_asn1.exit.thread
@@ -779,7 +779,7 @@ define hidden range(i32 -46, 1) i32 @mbedtls_oid_get_oid_by_md(i32 noundef %0, p
   br i1 %4, label %._crit_edge, label %.lr.ph
 
 5:                                                ; preds = %.lr.ph
-  %6 = getelementptr inbounds i8, ptr %.01219, i64 72
+  %6 = getelementptr inbounds nuw i8, ptr %.01219, i64 72
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, %0
   br i1 %8, label %._crit_edge, label %.lr.ph, !llvm.loop !16
@@ -788,14 +788,14 @@ define hidden range(i32 -46, 1) i32 @mbedtls_oid_get_oid_by_md(i32 noundef %0, p
   %.lcssa = phi ptr [ @.str.199, %3 ], [ %12, %5 ]
   %.012.lcssa = phi ptr [ @oid_md_alg, %3 ], [ %11, %5 ]
   store ptr %.lcssa, ptr %1, align 8
-  %9 = getelementptr inbounds i8, ptr %.012.lcssa, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %.012.lcssa, i64 8
   %10 = load i64, ptr %9, align 8
   store i64 %10, ptr %2, align 8
   br label %.loopexit
 
 .lr.ph:                                           ; preds = %3, %5
   %.01219 = phi ptr [ %11, %5 ], [ @oid_md_alg, %3 ]
-  %11 = getelementptr inbounds i8, ptr %.01219, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %.01219, i64 40
   %12 = load ptr, ptr %11, align 8
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %.loopexit, label %5, !llvm.loop !16
@@ -811,15 +811,15 @@ define hidden range(i32 -46, 1) i32 @mbedtls_oid_get_md_hmac(ptr noundef readonl
   br i1 %3, label %oid_md_hmac_from_asn1.exit.thread, label %.preheader.i
 
 .preheader.i:                                     ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   br label %7
 
 7:                                                ; preds = %15, %.preheader.i
   %8 = phi ptr [ @.str.220, %.preheader.i ], [ %17, %15 ]
   %.018.i = phi ptr [ @oid_md_hmac, %.preheader.i ], [ %16, %15 ]
-  %9 = getelementptr inbounds i8, ptr %.018.i, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %.018.i, i64 8
   %10 = load i64, ptr %9, align 8
   %11 = icmp eq i64 %10, %6
   br i1 %11, label %12, label %15
@@ -831,13 +831,13 @@ define hidden range(i32 -46, 1) i32 @mbedtls_oid_get_md_hmac(ptr noundef readonl
   br i1 %14, label %oid_md_hmac_from_asn1.exit, label %15
 
 15:                                               ; preds = %12, %7
-  %16 = getelementptr inbounds i8, ptr %.018.i, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %.018.i, i64 40
   %17 = load ptr, ptr %16, align 8
   %.not.i = icmp eq ptr %17, null
   br i1 %.not.i, label %oid_md_hmac_from_asn1.exit.thread, label %7, !llvm.loop !17
 
 oid_md_hmac_from_asn1.exit:                       ; preds = %12
-  %18 = getelementptr inbounds i8, ptr %.018.i, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %.018.i, i64 32
   %19 = load i32, ptr %18, align 8
   store i32 %19, ptr %1, align 4
   br label %oid_md_hmac_from_asn1.exit.thread
@@ -853,15 +853,15 @@ define hidden range(i32 -46, 1) i32 @mbedtls_oid_get_pkcs12_pbe_alg(ptr noundef 
   br i1 %4, label %oid_pkcs12_pbe_alg_from_asn1.exit.thread, label %.preheader.i
 
 .preheader.i:                                     ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8
   br label %8
 
 8:                                                ; preds = %16, %.preheader.i
   %9 = phi ptr [ @.str.235, %.preheader.i ], [ %18, %16 ]
   %.018.i = phi ptr [ @oid_pkcs12_pbe_alg, %.preheader.i ], [ %17, %16 ]
-  %10 = getelementptr inbounds i8, ptr %.018.i, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.018.i, i64 8
   %11 = load i64, ptr %10, align 8
   %12 = icmp eq i64 %11, %7
   br i1 %12, label %13, label %16
@@ -873,16 +873,16 @@ define hidden range(i32 -46, 1) i32 @mbedtls_oid_get_pkcs12_pbe_alg(ptr noundef 
   br i1 %15, label %oid_pkcs12_pbe_alg_from_asn1.exit, label %16
 
 16:                                               ; preds = %13, %8
-  %17 = getelementptr inbounds i8, ptr %.018.i, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %.018.i, i64 40
   %18 = load ptr, ptr %17, align 8
   %.not.i = icmp eq ptr %18, null
   br i1 %.not.i, label %oid_pkcs12_pbe_alg_from_asn1.exit.thread, label %8, !llvm.loop !18
 
 oid_pkcs12_pbe_alg_from_asn1.exit:                ; preds = %13
-  %19 = getelementptr inbounds i8, ptr %.018.i, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %.018.i, i64 32
   %20 = load i32, ptr %19, align 8
   store i32 %20, ptr %1, align 4
-  %21 = getelementptr inbounds i8, ptr %.018.i, i64 36
+  %21 = getelementptr inbounds nuw i8, ptr %.018.i, i64 36
   %22 = load i32, ptr %21, align 4
   store i32 %22, ptr %2, align 4
   br label %oid_pkcs12_pbe_alg_from_asn1.exit.thread
@@ -894,13 +894,13 @@ oid_pkcs12_pbe_alg_from_asn1.exit.thread:         ; preds = %16, %3, %oid_pkcs12
 
 ; Function Attrs: nofree nounwind uwtable
 define hidden i32 @mbedtls_oid_get_numeric_string(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #3 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load i64, ptr %4, align 8
   %.not = icmp eq i64 %5, 0
   br i1 %.not, label %._crit_edge, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %2, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = load i8, ptr %8, align 1
   %10 = udiv i8 %9, 40
@@ -923,8 +923,8 @@ define hidden i32 @mbedtls_oid_get_numeric_string(ptr nocapture noundef writeonl
   br i1 %18, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %16
-  %19 = getelementptr inbounds i8, ptr %0, i64 %15
-  %20 = getelementptr inbounds i8, ptr %2, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 %15
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 16
   br label %21
 
 21:                                               ; preds = %.lr.ph, %39
@@ -959,7 +959,7 @@ define hidden i32 @mbedtls_oid_get_numeric_string(ptr nocapture noundef writeonl
 
 36:                                               ; preds = %34
   %37 = sub nuw i64 %.14057, %35
-  %38 = getelementptr inbounds i8, ptr %.159, i64 %35
+  %38 = getelementptr inbounds nuw i8, ptr %.159, i64 %35
   %.pre60 = load i64, ptr %4, align 8
   br label %39
 

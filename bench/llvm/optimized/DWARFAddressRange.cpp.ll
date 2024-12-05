@@ -48,7 +48,7 @@ define dso_local void @_ZNK4llvm17DWARFAddressRange4dumpERNS_11raw_ostreamEjNS_1
   %18 = load i8, ptr %.str..str.1, align 1
   store i8 %18, ptr %13, align 1
   %19 = load ptr, ptr %12, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 1
   store ptr %20, ptr %12, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -71,7 +71,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %15, %17
 31:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit
   store i16 8236, ptr %24, align 1
   %32 = load ptr, ptr %12, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 2
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 2
   store ptr %33, ptr %12, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit12
 
@@ -102,7 +102,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit12:               ; preds = %29, %31
 49:                                               ; preds = %48
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %40, ptr nonnull align 1 @.str.4, i64 %38, i1 false)
   %50 = load ptr, ptr %12, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 %38
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 %38
   store ptr %51, ptr %12, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit15
 
@@ -242,7 +242,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvmlsERNS
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 96
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 112
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 120
-  %15 = getelementptr inbounds i8, ptr %3, i64 104
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 104
   store i64 0, ptr %15, align 8
   store ptr @_ZN4llvm9WithColor19defaultErrorHandlerENS_5ErrorE, ptr %12, align 8
   store ptr @_ZNSt17_Function_handlerIFvN4llvm5ErrorEEPS2_E9_M_invokeERKSt9_Any_dataOS1_, ptr %14, align 8
@@ -250,7 +250,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvmlsERNS
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 128
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 144
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 152
-  %19 = getelementptr inbounds i8, ptr %3, i64 136
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 136
   store i64 0, ptr %19, align 8
   store ptr @_ZN4llvm9WithColor21defaultWarningHandlerENS_5ErrorE, ptr %16, align 8
   store ptr @_ZNSt17_Function_handlerIFvN4llvm5ErrorEEPS2_E9_M_invokeERKSt9_Any_dataOS1_, ptr %18, align 8
@@ -323,7 +323,7 @@ define linkonce_odr hidden void @_ZNSt17_Function_handlerIFvN4llvm5ErrorEEPS2_E9
 
 8:                                                ; preds = %2
   %9 = load ptr, ptr %6, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   call void %11(ptr noundef nonnull align 8 dereferenceable(8) %6) #6
   br label %_ZSt10__invoke_rIvRPFvN4llvm5ErrorEEJS1_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES6_E4typeEOS7_DpOS8_.exit

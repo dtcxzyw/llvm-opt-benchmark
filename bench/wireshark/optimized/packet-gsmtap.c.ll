@@ -494,7 +494,7 @@ define internal i32 @dissect_gsmtap(ptr noundef %0, ptr noundef %1, ptr noundef 
   %.0233.i = phi ptr [ %28, %27 ], [ null, %14 ]
   %31 = sub i32 %15, %.sink16.i
   %32 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.sink16.i, i32 noundef %31) #6
-  %33 = getelementptr inbounds i8, ptr %1, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %34 = load ptr, ptr %33, align 8
   tail call void @col_clear(ptr noundef %34, i32 noundef 25) #6
   %35 = load ptr, ptr %33, align 8
@@ -528,7 +528,7 @@ define internal i32 @dissect_gsmtap(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 switch.lookup:                                    ; preds = %45
   %48 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [15 x ptr], ptr @switch.table.dissect_gsmtap, i64 0, i64 %48
+  %switch.gep = getelementptr inbounds nuw [15 x ptr], ptr @switch.table.dissect_gsmtap, i64 0, i64 %48
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %49
 
@@ -537,7 +537,7 @@ switch.lookup:                                    ; preds = %45
   %.sink18.i = phi i32 [ 0, %44 ], [ 1, %switch.lookup ], [ 1, %45 ]
   %50 = load ptr, ptr %33, align 8
   tail call void @col_set_str(ptr noundef %50, i32 noundef 26, ptr noundef nonnull %.str.330.sink.sink.i) #6
-  %51 = getelementptr inbounds i8, ptr %1, i64 348
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 348
   store i32 %.sink18.i, ptr %51, align 4
   %52 = zext i8 %19 to i32
   %53 = shl nuw nsw i32 %52, 3
@@ -833,7 +833,7 @@ handle_tetra.exit.i:                              ; preds = %154, %150, %147
   %170 = icmp eq i32 %169, 0
   %171 = zext i1 %170 to i32
   store i32 %171, ptr %7, align 4
-  %172 = getelementptr inbounds i8, ptr %7, i64 4
+  %172 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i8 0, ptr %172, align 4
   %173 = call i32 @call_dissector_with_data(ptr noundef nonnull %167, ptr noundef %32, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %7) #6
   br label %174
@@ -852,7 +852,7 @@ handle_tetra.exit.i:                              ; preds = %154, %150, %147
   %180 = icmp eq i32 %179, 0
   %181 = zext i1 %180 to i32
   store i32 %181, ptr %8, align 4
-  %182 = getelementptr inbounds i8, ptr %8, i64 4
+  %182 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i8 0, ptr %182, align 4
   %183 = call i32 @call_dissector_with_data(ptr noundef nonnull %177, ptr noundef %32, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %8) #6
   br label %184
@@ -871,7 +871,7 @@ handle_tetra.exit.i:                              ; preds = %154, %150, %147
   %190 = icmp eq i32 %189, 0
   %191 = zext i1 %190 to i32
   store i32 %191, ptr %9, align 4
-  %192 = getelementptr inbounds i8, ptr %9, i64 4
+  %192 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i8 0, ptr %192, align 4
   %193 = call i32 @call_dissector_with_data(ptr noundef nonnull %187, ptr noundef %32, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %9) #6
   br label %194
@@ -890,7 +890,7 @@ handle_tetra.exit.i:                              ; preds = %154, %150, %147
   %200 = icmp eq i32 %199, 0
   %201 = zext i1 %200 to i32
   store i32 %201, ptr %10, align 4
-  %202 = getelementptr inbounds i8, ptr %10, i64 4
+  %202 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store i8 0, ptr %202, align 4
   %203 = call i32 @call_dissector_with_data(ptr noundef nonnull %197, ptr noundef %32, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %10) #6
   br label %204
@@ -909,7 +909,7 @@ handle_tetra.exit.i:                              ; preds = %154, %150, %147
   %210 = icmp eq i32 %209, 0
   %211 = zext i1 %210 to i32
   store i32 %211, ptr %11, align 4
-  %212 = getelementptr inbounds i8, ptr %11, i64 4
+  %212 = getelementptr inbounds nuw i8, ptr %11, i64 4
   store i8 0, ptr %212, align 4
   %213 = call i32 @call_dissector_with_data(ptr noundef nonnull %207, ptr noundef %32, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %11) #6
   br label %214
@@ -979,7 +979,7 @@ dissect_gsmtap_v2.exit:                           ; preds = %38, %122, %130, %13
   %238 = zext i8 %12 to i32
   %239 = load i32, ptr @proto_gsmtap, align 4
   %240 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %239, ptr noundef %0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull @.str.328, i32 noundef %238) #6
-  %241 = getelementptr inbounds i8, ptr %1, i64 8
+  %241 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %242 = load ptr, ptr %241, align 8
   tail call void @col_set_str(ptr noundef %242, i32 noundef 34, ptr noundef nonnull @.str.54) #6
   %243 = load ptr, ptr %241, align 8
@@ -1418,18 +1418,18 @@ define internal fastcc void @dissect_sacch_l1h(ptr noundef nonnull %0, ptr nound
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @handle_rlcmac(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca %struct.RlcMacPrivateData_t, align 4
-  %6 = getelementptr inbounds i8, ptr %5, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %6, i8 0, i64 24, i1 false)
-  %7 = getelementptr inbounds i8, ptr %2, i64 348
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 348
   %8 = load i32, ptr %7, align 4
   %9 = icmp eq i32 %8, 0
   %. = select i1 %9, i64 3, i64 4
   store i32 1735422579, ptr %5, align 4
-  %10 = getelementptr inbounds i8, ptr %5, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 %0, ptr %10, align 4
   %11 = tail call i32 @tvb_reported_length(ptr noundef %1) #6
-  %12 = getelementptr inbounds i8, ptr %5, i64 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %14 = icmp ult i32 %11, 6
   %or.cond.i = and i1 %9, %14
   br i1 %or.cond.i, label %53, label %15
@@ -1524,7 +1524,7 @@ define internal fastcc void @handle_rlcmac(i32 noundef %0, ptr noundef %1, ptr n
   %.sroa.6.0.i.ph = phi i32 [ 0, %27 ], [ %38, %34 ], [ 0, %39 ]
   %43 = shl i32 %33, 3
   %44 = or disjoint i32 %43, 2
-  %45 = getelementptr inbounds i8, ptr %5, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 1, ptr %45, align 4
   %46 = call fastcc ptr @get_egprs_data_block(ptr noundef %1, i32 noundef %.sroa.0.0.i.ph, i32 noundef %44, ptr noundef nonnull %2)
   %47 = load ptr, ptr %28, align 8
@@ -1572,13 +1572,13 @@ define internal fastcc void @dissect_ptcch_dl(ptr noundef %0, ptr %.8.val, ptr n
   br i1 %.not.i, label %proto_item_set_generated.exit, label %11
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %10, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %13 = load ptr, ptr %12, align 8
   %.not5.i = icmp eq ptr %13, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %14
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %13, i64 28
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 28
   %16 = load i32, ptr %15, align 4
   %17 = or i32 %16, 2
   store i32 %17, ptr %15, align 4
@@ -1605,7 +1605,7 @@ proto_item_set_generated.exit:                    ; preds = %8, %11, %14
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @dissect_um_voice(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #6
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = zext i8 %4 to i32
   %8 = tail call ptr @val_to_str(i32 noundef %7, ptr noundef nonnull @gsmtap_um_voice_types, ptr noundef nonnull @.str.342) #6
@@ -1635,7 +1635,7 @@ define internal fastcc noundef ptr @get_egprs_data_block(ptr noundef %0, i32 nou
   %8 = add i32 %2, 13
   %9 = lshr i32 %8, 3
   tail call void @tvb_ensure_bytes_exist(ptr noundef %0, i32 noundef 0, i32 noundef %7) #6
-  %10 = getelementptr inbounds i8, ptr %3, i64 408
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 408
   %11 = load ptr, ptr %10, align 8
   %12 = zext nneg i32 %9 to i64
   %13 = tail call noalias ptr @wmem_alloc(ptr noundef %11, i64 noundef %12) #6

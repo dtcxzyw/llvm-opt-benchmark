@@ -133,7 +133,7 @@ define dso_local ptr @GetTransactionSnapshot() local_unnamed_addr #0 {
   br i1 %.not.i, label %InvalidateCatalogSnapshot.exit, label %7
 
 7:                                                ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %6, i64 72
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 72
   tail call void @pairingheap_remove(ptr noundef nonnull @RegisteredSnapshots, ptr noundef nonnull %8) #16
   store ptr null, ptr @CatalogSnapshot, align 8
   %9 = load ptr, ptr @ActiveSnapshot, align 8
@@ -148,7 +148,7 @@ define dso_local ptr @GetTransactionSnapshot() local_unnamed_addr #0 {
 13:                                               ; preds = %10
   %14 = tail call ptr @pairingheap_first(ptr noundef nonnull @RegisteredSnapshots) #16
   %15 = load ptr, ptr @MyProc, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 56
   %17 = load i32, ptr %16, align 8
   %18 = getelementptr i8, ptr %14, i64 -68
   %19 = load i32, ptr %18, align 4
@@ -162,7 +162,7 @@ define dso_local ptr @GetTransactionSnapshot() local_unnamed_addr #0 {
 .sink.split.i.i:                                  ; preds = %21, %10
   %.sink.i.i = phi i32 [ %22, %21 ], [ 0, %10 ]
   %23 = load ptr, ptr @MyProc, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 56
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 56
   store i32 %.sink.i.i, ptr %24, align 8
   br label %InvalidateCatalogSnapshot.exit
 
@@ -197,12 +197,12 @@ InvalidateCatalogSnapshot.exit:                   ; preds = %5, %7, %13, %.sink.
 38:                                               ; preds = %36, %34
   %storemerge = phi ptr [ %37, %36 ], [ %35, %34 ]
   store ptr %storemerge, ptr @CurrentSnapshot, align 8
-  %39 = getelementptr inbounds i8, ptr %storemerge, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %storemerge, i64 24
   %40 = load i32, ptr %39, align 8
   %41 = zext i32 %40 to i64
   %42 = shl nuw nsw i64 %41, 2
   %43 = add nuw nsw i64 %42, 120
-  %44 = getelementptr inbounds i8, ptr %storemerge, i64 40
+  %44 = getelementptr inbounds nuw i8, ptr %storemerge, i64 40
   %45 = load i32, ptr %44, align 8
   %46 = icmp sgt i32 %45, 0
   %47 = zext nneg i32 %45 to i64
@@ -213,13 +213,13 @@ InvalidateCatalogSnapshot.exit:                   ; preds = %5, %7, %13, %.sink.
   %51 = load ptr, ptr @TopTransactionContext, align 8
   %52 = tail call ptr @MemoryContextAlloc(ptr noundef %51, i64 noundef %.0.i) #16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %52, ptr noundef nonnull readonly align 8 dereferenceable(120) %storemerge, i64 112, i1 false)
-  %53 = getelementptr inbounds i8, ptr %52, i64 68
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 68
   store i32 0, ptr %53, align 4
-  %54 = getelementptr inbounds i8, ptr %52, i64 64
+  %54 = getelementptr inbounds nuw i8, ptr %52, i64 64
   store i32 0, ptr %54, align 8
-  %55 = getelementptr inbounds i8, ptr %52, i64 46
+  %55 = getelementptr inbounds nuw i8, ptr %52, i64 46
   store i8 1, ptr %55, align 2
-  %56 = getelementptr inbounds i8, ptr %52, i64 112
+  %56 = getelementptr inbounds nuw i8, ptr %52, i64 112
   store i64 0, ptr %56, align 8
   %57 = load i32, ptr %39, align 8
   %.not.i2 = icmp eq i32 %57, 0
@@ -227,9 +227,9 @@ InvalidateCatalogSnapshot.exit:                   ; preds = %5, %7, %13, %.sink.
 
 58:                                               ; preds = %38
   %59 = getelementptr i8, ptr %52, i64 120
-  %60 = getelementptr inbounds i8, ptr %52, i64 16
+  %60 = getelementptr inbounds nuw i8, ptr %52, i64 16
   store ptr %59, ptr %60, align 8
-  %61 = getelementptr inbounds i8, ptr %storemerge, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %storemerge, i64 16
   %62 = load ptr, ptr %61, align 8
   %63 = load i32, ptr %39, align 8
   %64 = zext i32 %63 to i64
@@ -238,7 +238,7 @@ InvalidateCatalogSnapshot.exit:                   ; preds = %5, %7, %13, %.sink.
   br label %68
 
 66:                                               ; preds = %38
-  %67 = getelementptr inbounds i8, ptr %52, i64 16
+  %67 = getelementptr inbounds nuw i8, ptr %52, i64 16
   store ptr null, ptr %67, align 8
   br label %68
 
@@ -248,22 +248,22 @@ InvalidateCatalogSnapshot.exit:                   ; preds = %5, %7, %13, %.sink.
   br i1 %70, label %71, label %88
 
 71:                                               ; preds = %68
-  %72 = getelementptr inbounds i8, ptr %storemerge, i64 44
+  %72 = getelementptr inbounds nuw i8, ptr %storemerge, i64 44
   %73 = load i8, ptr %72, align 4
   %74 = trunc i8 %73 to i1
   br i1 %74, label %75, label %79
 
 75:                                               ; preds = %71
-  %76 = getelementptr inbounds i8, ptr %storemerge, i64 45
+  %76 = getelementptr inbounds nuw i8, ptr %storemerge, i64 45
   %77 = load i8, ptr %76, align 1
   %78 = trunc i8 %77 to i1
   br i1 %78, label %79, label %88
 
 79:                                               ; preds = %75, %71
   %80 = getelementptr i8, ptr %52, i64 %43
-  %81 = getelementptr inbounds i8, ptr %52, i64 32
+  %81 = getelementptr inbounds nuw i8, ptr %52, i64 32
   store ptr %80, ptr %81, align 8
-  %82 = getelementptr inbounds i8, ptr %storemerge, i64 32
+  %82 = getelementptr inbounds nuw i8, ptr %storemerge, i64 32
   %83 = load ptr, ptr %82, align 8
   %84 = load i32, ptr %44, align 8
   %85 = sext i32 %84 to i64
@@ -274,7 +274,7 @@ InvalidateCatalogSnapshot.exit:                   ; preds = %5, %7, %13, %.sink.
   br label %CopySnapshot.exit
 
 88:                                               ; preds = %75, %68
-  %89 = getelementptr inbounds i8, ptr %52, i64 32
+  %89 = getelementptr inbounds nuw i8, ptr %52, i64 32
   store ptr null, ptr %89, align 8
   br label %CopySnapshot.exit
 
@@ -283,7 +283,7 @@ CopySnapshot.exit:                                ; preds = %79, %88
   store ptr %52, ptr @CurrentSnapshot, align 8
   store ptr %52, ptr @FirstXactSnapshot, align 8
   store i32 %90, ptr %53, align 4
-  %91 = getelementptr inbounds i8, ptr %52, i64 72
+  %91 = getelementptr inbounds nuw i8, ptr %52, i64 72
   tail call void @pairingheap_add(ptr noundef nonnull @RegisteredSnapshots, ptr noundef nonnull %91) #16
   %.pre8 = load ptr, ptr @CurrentSnapshot, align 8
   br label %94
@@ -313,7 +313,7 @@ CopySnapshot.exit:                                ; preds = %79, %88
   br i1 %.not.i3, label %InvalidateCatalogSnapshot.exit7, label %103
 
 103:                                              ; preds = %101
-  %104 = getelementptr inbounds i8, ptr %102, i64 72
+  %104 = getelementptr inbounds nuw i8, ptr %102, i64 72
   tail call void @pairingheap_remove(ptr noundef nonnull @RegisteredSnapshots, ptr noundef nonnull %104) #16
   store ptr null, ptr @CatalogSnapshot, align 8
   %105 = load ptr, ptr @ActiveSnapshot, align 8
@@ -328,7 +328,7 @@ CopySnapshot.exit:                                ; preds = %79, %88
 109:                                              ; preds = %106
   %110 = tail call ptr @pairingheap_first(ptr noundef nonnull @RegisteredSnapshots) #16
   %111 = load ptr, ptr @MyProc, align 8
-  %112 = getelementptr inbounds i8, ptr %111, i64 56
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 56
   %113 = load i32, ptr %112, align 8
   %114 = getelementptr i8, ptr %110, i64 -68
   %115 = load i32, ptr %114, align 4
@@ -342,7 +342,7 @@ CopySnapshot.exit:                                ; preds = %79, %88
 .sink.split.i.i5:                                 ; preds = %117, %106
   %.sink.i.i6 = phi i32 [ %118, %117 ], [ 0, %106 ]
   %119 = load ptr, ptr @MyProc, align 8
-  %120 = getelementptr inbounds i8, ptr %119, i64 56
+  %120 = getelementptr inbounds nuw i8, ptr %119, i64 56
   store i32 %.sink.i.i6, ptr %120, align 8
   br label %InvalidateCatalogSnapshot.exit7
 
@@ -370,7 +370,7 @@ define dso_local void @InvalidateCatalogSnapshot() local_unnamed_addr #0 {
   br i1 %.not, label %SnapshotResetXmin.exit, label %2
 
 2:                                                ; preds = %0
-  %3 = getelementptr inbounds i8, ptr %1, i64 72
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   tail call void @pairingheap_remove(ptr noundef nonnull @RegisteredSnapshots, ptr noundef nonnull %3) #16
   store ptr null, ptr @CatalogSnapshot, align 8
   %4 = load ptr, ptr @ActiveSnapshot, align 8
@@ -385,7 +385,7 @@ define dso_local void @InvalidateCatalogSnapshot() local_unnamed_addr #0 {
 8:                                                ; preds = %5
   %9 = tail call ptr @pairingheap_first(ptr noundef nonnull @RegisteredSnapshots) #16
   %10 = load ptr, ptr @MyProc, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 56
   %12 = load i32, ptr %11, align 8
   %13 = getelementptr i8, ptr %9, i64 -68
   %14 = load i32, ptr %13, align 4
@@ -399,7 +399,7 @@ define dso_local void @InvalidateCatalogSnapshot() local_unnamed_addr #0 {
 .sink.split.i:                                    ; preds = %16, %5
   %.sink.i = phi i32 [ %17, %16 ], [ 0, %5 ]
   %18 = load ptr, ptr @MyProc, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 56
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 56
   store i32 %.sink.i, ptr %19, align 8
   br label %SnapshotResetXmin.exit
 
@@ -481,7 +481,7 @@ define dso_local ptr @GetOldestSnapshot() local_unnamed_addr #0 {
 
 12:                                               ; preds = %10
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 104
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 104
   %15 = load i64, ptr %14, align 8
   %16 = icmp ugt i64 %7, %15
   br i1 %16, label %.thread13, label %19
@@ -533,7 +533,7 @@ define dso_local ptr @GetNonHistoricCatalogSnapshot(i32 noundef %0) local_unname
   br i1 %.not.i, label %InvalidateCatalogSnapshot.exit.thread, label %9
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %8, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 72
   tail call void @pairingheap_remove(ptr noundef nonnull @RegisteredSnapshots, ptr noundef nonnull %10) #16
   store ptr null, ptr @CatalogSnapshot, align 8
   %11 = load ptr, ptr @ActiveSnapshot, align 8
@@ -548,7 +548,7 @@ define dso_local ptr @GetNonHistoricCatalogSnapshot(i32 noundef %0) local_unname
 15:                                               ; preds = %12
   %16 = tail call ptr @pairingheap_first(ptr noundef nonnull @RegisteredSnapshots) #16
   %17 = load ptr, ptr @MyProc, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 56
   %19 = load i32, ptr %18, align 8
   %20 = getelementptr i8, ptr %16, i64 -68
   %21 = load i32, ptr %20, align 4
@@ -562,7 +562,7 @@ define dso_local ptr @GetNonHistoricCatalogSnapshot(i32 noundef %0) local_unname
 .sink.split.i.i:                                  ; preds = %23, %12
   %.sink.i.i = phi i32 [ %24, %23 ], [ 0, %12 ]
   %25 = load ptr, ptr @MyProc, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 56
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 56
   store i32 %.sink.i.i, ptr %26, align 8
   br label %InvalidateCatalogSnapshot.exit
 
@@ -574,7 +574,7 @@ InvalidateCatalogSnapshot.exit:                   ; preds = %.sink.split.i.i, %1
 InvalidateCatalogSnapshot.exit.thread:            ; preds = %1, %7, %9, %InvalidateCatalogSnapshot.exit
   %28 = tail call ptr @GetSnapshotData(ptr noundef nonnull @CatalogSnapshotData) #16
   store ptr %28, ptr @CatalogSnapshot, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 72
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 72
   tail call void @pairingheap_add(ptr noundef nonnull @RegisteredSnapshots, ptr noundef nonnull %29) #16
   %.pre = load ptr, ptr @CatalogSnapshot, align 8
   br label %30
@@ -608,7 +608,7 @@ define dso_local void @InvalidateCatalogSnapshotConditionally() local_unnamed_ad
   br i1 %9, label %10, label %InvalidateCatalogSnapshot.exit
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %1, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 72
   tail call void @pairingheap_remove(ptr noundef nonnull @RegisteredSnapshots, ptr noundef nonnull %11) #16
   store ptr null, ptr @CatalogSnapshot, align 8
   %12 = load ptr, ptr @ActiveSnapshot, align 8
@@ -623,7 +623,7 @@ define dso_local void @InvalidateCatalogSnapshotConditionally() local_unnamed_ad
 16:                                               ; preds = %13
   %17 = tail call ptr @pairingheap_first(ptr noundef nonnull @RegisteredSnapshots) #16
   %18 = load ptr, ptr @MyProc, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 56
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 56
   %20 = load i32, ptr %19, align 8
   %21 = getelementptr i8, ptr %17, i64 -68
   %22 = load i32, ptr %21, align 4
@@ -637,7 +637,7 @@ define dso_local void @InvalidateCatalogSnapshotConditionally() local_unnamed_ad
 .sink.split.i.i:                                  ; preds = %24, %13
   %.sink.i.i = phi i32 [ %25, %24 ], [ 0, %13 ]
   %26 = load ptr, ptr @MyProc, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 56
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 56
   store i32 %.sink.i.i, ptr %27, align 8
   br label %InvalidateCatalogSnapshot.exit
 
@@ -657,7 +657,7 @@ define dso_local void @SnapshotSetCommandId(i32 noundef %0) local_unnamed_addr #
   br i1 %.not, label %8, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %5, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store i32 %0, ptr %7, align 8
   br label %8
 
@@ -667,7 +667,7 @@ define dso_local void @SnapshotSetCommandId(i32 noundef %0) local_unnamed_addr #
   br i1 %.not3, label %12, label %10
 
 10:                                               ; preds = %8
-  %11 = getelementptr inbounds i8, ptr %9, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 48
   store i32 %0, ptr %11, align 8
   br label %12
 
@@ -694,18 +694,18 @@ define dso_local void @PushActiveSnapshotWithLevel(ptr noundef %0, i32 noundef %
   br i1 %or.cond, label %13, label %9
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %0, i64 46
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 46
   %11 = load i8, ptr %10, align 2
   %12 = trunc i8 %11 to i1
   br i1 %12, label %CopySnapshot.exit, label %13
 
 13:                                               ; preds = %9, %2
-  %14 = getelementptr inbounds i8, ptr %0, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %15 = load i32, ptr %14, align 8
   %16 = zext i32 %15 to i64
   %17 = shl nuw nsw i64 %16, 2
   %18 = add nuw nsw i64 %17, 120
-  %19 = getelementptr inbounds i8, ptr %0, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %20 = load i32, ptr %19, align 8
   %21 = icmp sgt i32 %20, 0
   %22 = zext nneg i32 %20 to i64
@@ -716,13 +716,13 @@ define dso_local void @PushActiveSnapshotWithLevel(ptr noundef %0, i32 noundef %
   %26 = load ptr, ptr @TopTransactionContext, align 8
   %27 = tail call ptr @MemoryContextAlloc(ptr noundef %26, i64 noundef %.0.i) #16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %27, ptr noundef nonnull readonly align 8 dereferenceable(120) %0, i64 112, i1 false)
-  %28 = getelementptr inbounds i8, ptr %27, i64 68
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 68
   store i32 0, ptr %28, align 4
-  %29 = getelementptr inbounds i8, ptr %27, i64 64
+  %29 = getelementptr inbounds nuw i8, ptr %27, i64 64
   store i32 0, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %27, i64 46
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 46
   store i8 1, ptr %30, align 2
-  %31 = getelementptr inbounds i8, ptr %27, i64 112
+  %31 = getelementptr inbounds nuw i8, ptr %27, i64 112
   store i64 0, ptr %31, align 8
   %32 = load i32, ptr %14, align 8
   %.not.i = icmp eq i32 %32, 0
@@ -730,9 +730,9 @@ define dso_local void @PushActiveSnapshotWithLevel(ptr noundef %0, i32 noundef %
 
 33:                                               ; preds = %13
   %34 = getelementptr i8, ptr %27, i64 120
-  %35 = getelementptr inbounds i8, ptr %27, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %27, i64 16
   store ptr %34, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %37 = load ptr, ptr %36, align 8
   %38 = load i32, ptr %14, align 8
   %39 = zext i32 %38 to i64
@@ -741,7 +741,7 @@ define dso_local void @PushActiveSnapshotWithLevel(ptr noundef %0, i32 noundef %
   br label %43
 
 41:                                               ; preds = %13
-  %42 = getelementptr inbounds i8, ptr %27, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %27, i64 16
   store ptr null, ptr %42, align 8
   br label %43
 
@@ -751,22 +751,22 @@ define dso_local void @PushActiveSnapshotWithLevel(ptr noundef %0, i32 noundef %
   br i1 %45, label %46, label %62
 
 46:                                               ; preds = %43
-  %47 = getelementptr inbounds i8, ptr %0, i64 44
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %48 = load i8, ptr %47, align 4
   %49 = trunc i8 %48 to i1
   br i1 %49, label %50, label %54
 
 50:                                               ; preds = %46
-  %51 = getelementptr inbounds i8, ptr %0, i64 45
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 45
   %52 = load i8, ptr %51, align 1
   %53 = trunc i8 %52 to i1
   br i1 %53, label %54, label %62
 
 54:                                               ; preds = %50, %46
   %55 = getelementptr i8, ptr %27, i64 %18
-  %56 = getelementptr inbounds i8, ptr %27, i64 32
+  %56 = getelementptr inbounds nuw i8, ptr %27, i64 32
   store ptr %55, ptr %56, align 8
-  %57 = getelementptr inbounds i8, ptr %0, i64 32
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %58 = load ptr, ptr %57, align 8
   %59 = load i32, ptr %19, align 8
   %60 = sext i32 %59 to i64
@@ -775,7 +775,7 @@ define dso_local void @PushActiveSnapshotWithLevel(ptr noundef %0, i32 noundef %
   br label %CopySnapshot.exit
 
 62:                                               ; preds = %50, %43
-  %63 = getelementptr inbounds i8, ptr %27, i64 32
+  %63 = getelementptr inbounds nuw i8, ptr %27, i64 32
   store ptr null, ptr %63, align 8
   br label %CopySnapshot.exit
 
@@ -783,11 +783,11 @@ CopySnapshot.exit:                                ; preds = %62, %54, %9
   %storemerge = phi ptr [ %0, %9 ], [ %27, %54 ], [ %27, %62 ]
   store ptr %storemerge, ptr %4, align 8
   %64 = load ptr, ptr @ActiveSnapshot, align 8
-  %65 = getelementptr inbounds i8, ptr %4, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %64, ptr %65, align 8
-  %66 = getelementptr inbounds i8, ptr %4, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %1, ptr %66, align 8
-  %67 = getelementptr inbounds i8, ptr %storemerge, i64 64
+  %67 = getelementptr inbounds nuw i8, ptr %storemerge, i64 64
   %68 = load i32, ptr %67, align 8
   %69 = add i32 %68, 1
   store i32 %69, ptr %67, align 8
@@ -810,12 +810,12 @@ declare ptr @MemoryContextAlloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @PushCopiedSnapshot(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8
   %4 = zext i32 %3 to i64
   %5 = shl nuw nsw i64 %4, 2
   %6 = add nuw nsw i64 %5, 120
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load i32, ptr %7, align 8
   %9 = icmp sgt i32 %8, 0
   %10 = zext nneg i32 %8 to i64
@@ -826,13 +826,13 @@ define dso_local void @PushCopiedSnapshot(ptr nocapture noundef readonly %0) loc
   %14 = load ptr, ptr @TopTransactionContext, align 8
   %15 = tail call ptr @MemoryContextAlloc(ptr noundef %14, i64 noundef %.0.i) #16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %15, ptr noundef nonnull readonly align 8 dereferenceable(120) %0, i64 112, i1 false)
-  %16 = getelementptr inbounds i8, ptr %15, i64 68
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 68
   store i32 0, ptr %16, align 4
-  %17 = getelementptr inbounds i8, ptr %15, i64 64
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 64
   store i32 0, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %15, i64 46
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 46
   store i8 1, ptr %18, align 2
-  %19 = getelementptr inbounds i8, ptr %15, i64 112
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 112
   store i64 0, ptr %19, align 8
   %20 = load i32, ptr %2, align 8
   %.not.i = icmp eq i32 %20, 0
@@ -840,9 +840,9 @@ define dso_local void @PushCopiedSnapshot(ptr nocapture noundef readonly %0) loc
 
 21:                                               ; preds = %1
   %22 = getelementptr i8, ptr %15, i64 120
-  %23 = getelementptr inbounds i8, ptr %15, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store ptr %22, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %25 = load ptr, ptr %24, align 8
   %26 = load i32, ptr %2, align 8
   %27 = zext i32 %26 to i64
@@ -851,7 +851,7 @@ define dso_local void @PushCopiedSnapshot(ptr nocapture noundef readonly %0) loc
   br label %31
 
 29:                                               ; preds = %1
-  %30 = getelementptr inbounds i8, ptr %15, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store ptr null, ptr %30, align 8
   br label %31
 
@@ -861,22 +861,22 @@ define dso_local void @PushCopiedSnapshot(ptr nocapture noundef readonly %0) loc
   br i1 %33, label %34, label %50
 
 34:                                               ; preds = %31
-  %35 = getelementptr inbounds i8, ptr %0, i64 44
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %36 = load i8, ptr %35, align 4
   %37 = trunc i8 %36 to i1
   br i1 %37, label %38, label %42
 
 38:                                               ; preds = %34
-  %39 = getelementptr inbounds i8, ptr %0, i64 45
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 45
   %40 = load i8, ptr %39, align 1
   %41 = trunc i8 %40 to i1
   br i1 %41, label %42, label %50
 
 42:                                               ; preds = %38, %34
   %43 = getelementptr i8, ptr %15, i64 %6
-  %44 = getelementptr inbounds i8, ptr %15, i64 32
+  %44 = getelementptr inbounds nuw i8, ptr %15, i64 32
   store ptr %43, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %0, i64 32
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %46 = load ptr, ptr %45, align 8
   %47 = load i32, ptr %7, align 8
   %48 = sext i32 %47 to i64
@@ -885,7 +885,7 @@ define dso_local void @PushCopiedSnapshot(ptr nocapture noundef readonly %0) loc
   br label %CopySnapshot.exit
 
 50:                                               ; preds = %38, %31
-  %51 = getelementptr inbounds i8, ptr %15, i64 32
+  %51 = getelementptr inbounds nuw i8, ptr %15, i64 32
   store ptr null, ptr %51, align 8
   br label %CopySnapshot.exit
 
@@ -899,7 +899,7 @@ CopySnapshot.exit:                                ; preds = %42, %50
 define dso_local void @UpdateActiveSnapshotCommandId() local_unnamed_addr #0 {
   %1 = load ptr, ptr @ActiveSnapshot, align 8
   %2 = load ptr, ptr %1, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %4 = load i32, ptr %3, align 8
   %5 = tail call i32 @GetCurrentCommandId(i1 noundef zeroext false) #16
   %6 = tail call zeroext i1 @IsInParallelMode() #16
@@ -917,7 +917,7 @@ define dso_local void @UpdateActiveSnapshotCommandId() local_unnamed_addr #0 {
 10:                                               ; preds = %0
   %11 = load ptr, ptr @ActiveSnapshot, align 8
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 48
   store i32 %5, ptr %13, align 8
   ret void
 }
@@ -927,21 +927,21 @@ declare i32 @GetCurrentCommandId(i1 noundef zeroext) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define dso_local void @PopActiveSnapshot() local_unnamed_addr #0 {
   %1 = load ptr, ptr @ActiveSnapshot, align 8
-  %2 = getelementptr inbounds i8, ptr %1, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %1, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %6 = load i32, ptr %5, align 8
   %7 = add i32 %6, -1
   store i32 %7, ptr %5, align 8
   %8 = load ptr, ptr %1, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 64
   %10 = load i32, ptr %9, align 8
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %12, label %17
 
 12:                                               ; preds = %0
-  %13 = getelementptr inbounds i8, ptr %8, i64 68
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 68
   %14 = load i32, ptr %13, align 4
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %16, label %17
@@ -967,7 +967,7 @@ define dso_local void @PopActiveSnapshot() local_unnamed_addr #0 {
 23:                                               ; preds = %20
   %24 = tail call ptr @pairingheap_first(ptr noundef nonnull @RegisteredSnapshots) #16
   %25 = load ptr, ptr @MyProc, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 56
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 56
   %27 = load i32, ptr %26, align 8
   %28 = getelementptr i8, ptr %24, i64 -68
   %29 = load i32, ptr %28, align 4
@@ -981,7 +981,7 @@ define dso_local void @PopActiveSnapshot() local_unnamed_addr #0 {
 .sink.split.i:                                    ; preds = %31, %20
   %.sink.i = phi i32 [ %32, %31 ], [ 0, %20 ]
   %33 = load ptr, ptr @MyProc, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 56
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 56
   store i32 %.sink.i, ptr %34, align 8
   br label %SnapshotResetXmin.exit
 
@@ -1026,18 +1026,18 @@ define dso_local noundef ptr @RegisterSnapshotOnOwner(ptr noundef %0, ptr nounde
   br i1 %3, label %68, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 46
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 46
   %6 = load i8, ptr %5, align 2
   %7 = trunc i8 %6 to i1
   br i1 %7, label %CopySnapshot.exit, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load i32, ptr %9, align 8
   %11 = zext i32 %10 to i64
   %12 = shl nuw nsw i64 %11, 2
   %13 = add nuw nsw i64 %12, 120
-  %14 = getelementptr inbounds i8, ptr %0, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %15 = load i32, ptr %14, align 8
   %16 = icmp sgt i32 %15, 0
   %17 = zext nneg i32 %15 to i64
@@ -1048,13 +1048,13 @@ define dso_local noundef ptr @RegisterSnapshotOnOwner(ptr noundef %0, ptr nounde
   %21 = load ptr, ptr @TopTransactionContext, align 8
   %22 = tail call ptr @MemoryContextAlloc(ptr noundef %21, i64 noundef %.0.i) #16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %22, ptr noundef nonnull readonly align 8 dereferenceable(120) %0, i64 112, i1 false)
-  %23 = getelementptr inbounds i8, ptr %22, i64 68
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 68
   store i32 0, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %22, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 64
   store i32 0, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %22, i64 46
+  %25 = getelementptr inbounds nuw i8, ptr %22, i64 46
   store i8 1, ptr %25, align 2
-  %26 = getelementptr inbounds i8, ptr %22, i64 112
+  %26 = getelementptr inbounds nuw i8, ptr %22, i64 112
   store i64 0, ptr %26, align 8
   %27 = load i32, ptr %9, align 8
   %.not.i = icmp eq i32 %27, 0
@@ -1062,9 +1062,9 @@ define dso_local noundef ptr @RegisterSnapshotOnOwner(ptr noundef %0, ptr nounde
 
 28:                                               ; preds = %8
   %29 = getelementptr i8, ptr %22, i64 120
-  %30 = getelementptr inbounds i8, ptr %22, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %22, i64 16
   store ptr %29, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %32 = load ptr, ptr %31, align 8
   %33 = load i32, ptr %9, align 8
   %34 = zext i32 %33 to i64
@@ -1073,7 +1073,7 @@ define dso_local noundef ptr @RegisterSnapshotOnOwner(ptr noundef %0, ptr nounde
   br label %38
 
 36:                                               ; preds = %8
-  %37 = getelementptr inbounds i8, ptr %22, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %22, i64 16
   store ptr null, ptr %37, align 8
   br label %38
 
@@ -1083,22 +1083,22 @@ define dso_local noundef ptr @RegisterSnapshotOnOwner(ptr noundef %0, ptr nounde
   br i1 %40, label %41, label %57
 
 41:                                               ; preds = %38
-  %42 = getelementptr inbounds i8, ptr %0, i64 44
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %43 = load i8, ptr %42, align 4
   %44 = trunc i8 %43 to i1
   br i1 %44, label %45, label %49
 
 45:                                               ; preds = %41
-  %46 = getelementptr inbounds i8, ptr %0, i64 45
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 45
   %47 = load i8, ptr %46, align 1
   %48 = trunc i8 %47 to i1
   br i1 %48, label %49, label %57
 
 49:                                               ; preds = %45, %41
   %50 = getelementptr i8, ptr %22, i64 %13
-  %51 = getelementptr inbounds i8, ptr %22, i64 32
+  %51 = getelementptr inbounds nuw i8, ptr %22, i64 32
   store ptr %50, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %0, i64 32
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %53 = load ptr, ptr %52, align 8
   %54 = load i32, ptr %14, align 8
   %55 = sext i32 %54 to i64
@@ -1107,14 +1107,14 @@ define dso_local noundef ptr @RegisterSnapshotOnOwner(ptr noundef %0, ptr nounde
   br label %CopySnapshot.exit
 
 57:                                               ; preds = %45, %38
-  %58 = getelementptr inbounds i8, ptr %22, i64 32
+  %58 = getelementptr inbounds nuw i8, ptr %22, i64 32
   store ptr null, ptr %58, align 8
   br label %CopySnapshot.exit
 
 CopySnapshot.exit:                                ; preds = %57, %49, %4
   %59 = phi ptr [ %0, %4 ], [ %22, %49 ], [ %22, %57 ]
   tail call void @ResourceOwnerEnlarge(ptr noundef %1) #16
-  %60 = getelementptr inbounds i8, ptr %59, i64 68
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 68
   %61 = load i32, ptr %60, align 4
   %62 = add i32 %61, 1
   store i32 %62, ptr %60, align 4
@@ -1125,7 +1125,7 @@ CopySnapshot.exit:                                ; preds = %57, %49, %4
   br i1 %65, label %66, label %68
 
 66:                                               ; preds = %CopySnapshot.exit
-  %67 = getelementptr inbounds i8, ptr %59, i64 72
+  %67 = getelementptr inbounds nuw i8, ptr %59, i64 72
   tail call void @pairingheap_add(ptr noundef nonnull @RegisteredSnapshots, ptr noundef nonnull %67) #16
   br label %68
 
@@ -1158,7 +1158,7 @@ define dso_local void @UnregisterSnapshotFromOwner(ptr noundef %0, ptr noundef %
 4:                                                ; preds = %2
   %5 = ptrtoint ptr %0 to i64
   tail call void @ResourceOwnerForget(ptr noundef %1, i64 noundef %5, ptr noundef nonnull @snapshot_resowner_desc) #16
-  %6 = getelementptr inbounds i8, ptr %0, i64 68
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %7 = load i32, ptr %6, align 4
   %8 = add i32 %7, -1
   store i32 %8, ptr %6, align 4
@@ -1166,14 +1166,14 @@ define dso_local void @UnregisterSnapshotFromOwner(ptr noundef %0, ptr noundef %
   br i1 %9, label %10, label %UnregisterSnapshotNoOwner.exit
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %0, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @pairingheap_remove(ptr noundef nonnull @RegisteredSnapshots, ptr noundef nonnull %11) #16
   %.pr.i = load i32, ptr %6, align 4
   %12 = icmp eq i32 %.pr.i, 0
   br i1 %12, label %13, label %UnregisterSnapshotNoOwner.exit
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %0, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %15 = load i32, ptr %14, align 8
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %17, label %UnregisterSnapshotNoOwner.exit
@@ -1192,7 +1192,7 @@ define dso_local void @UnregisterSnapshotFromOwner(ptr noundef %0, ptr noundef %
 22:                                               ; preds = %19
   %23 = tail call ptr @pairingheap_first(ptr noundef nonnull @RegisteredSnapshots) #16
   %24 = load ptr, ptr @MyProc, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 56
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 56
   %26 = load i32, ptr %25, align 8
   %27 = getelementptr i8, ptr %23, i64 -68
   %28 = load i32, ptr %27, align 4
@@ -1206,7 +1206,7 @@ define dso_local void @UnregisterSnapshotFromOwner(ptr noundef %0, ptr noundef %
 .sink.split.i.i:                                  ; preds = %30, %19
   %.sink.i.i = phi i32 [ %31, %30 ], [ 0, %19 ]
   %32 = load ptr, ptr @MyProc, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 56
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 56
   store i32 %.sink.i.i, ptr %33, align 8
   br label %UnregisterSnapshotNoOwner.exit
 
@@ -1226,14 +1226,14 @@ define dso_local void @AtSubCommit_Snapshot(i32 noundef %0) local_unnamed_addr #
 
 3:                                                ; preds = %.lr.ph, %7
   %.08 = phi ptr [ %.06, %.lr.ph ], [ %.0, %7 ]
-  %4 = getelementptr inbounds i8, ptr %.08, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %.08, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = icmp slt i32 %5, %0
   br i1 %6, label %._crit_edge, label %7
 
 7:                                                ; preds = %3
   store i32 %2, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %.08, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %.08, i64 16
   %.0 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %._crit_edge, label %3, !llvm.loop !5
@@ -1250,27 +1250,27 @@ define dso_local void @AtSubAbort_Snapshot(i32 noundef %0) local_unnamed_addr #0
 
 .lr.ph:                                           ; preds = %1, %22
   %3 = phi ptr [ %8, %22 ], [ %2, %1 ]
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load i32, ptr %4, align 8
   %.not1 = icmp slt i32 %5, %0
   br i1 %.not1, label %SnapshotResetXmin.exit, label %6
 
 6:                                                ; preds = %.lr.ph
-  %7 = getelementptr inbounds i8, ptr %3, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %3, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 64
   %11 = load i32, ptr %10, align 8
   %12 = add i32 %11, -1
   store i32 %12, ptr %10, align 8
   %13 = load ptr, ptr %3, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 64
   %15 = load i32, ptr %14, align 8
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %17, label %22
 
 17:                                               ; preds = %6
-  %18 = getelementptr inbounds i8, ptr %13, i64 68
+  %18 = getelementptr inbounds nuw i8, ptr %13, i64 68
   %19 = load i32, ptr %18, align 4
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %21, label %22
@@ -1299,7 +1299,7 @@ define dso_local void @AtSubAbort_Snapshot(i32 noundef %0) local_unnamed_addr #0
 27:                                               ; preds = %._crit_edge
   %28 = tail call ptr @pairingheap_first(ptr noundef nonnull @RegisteredSnapshots) #16
   %29 = load ptr, ptr @MyProc, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 56
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 56
   %31 = load i32, ptr %30, align 8
   %32 = getelementptr i8, ptr %28, i64 -68
   %33 = load i32, ptr %32, align 4
@@ -1313,7 +1313,7 @@ define dso_local void @AtSubAbort_Snapshot(i32 noundef %0) local_unnamed_addr #0
 .sink.split.i:                                    ; preds = %35, %._crit_edge
   %.sink.i = phi i32 [ %36, %35 ], [ 0, %._crit_edge ]
   %37 = load ptr, ptr @MyProc, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 56
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 56
   store i32 %.sink.i, ptr %38, align 8
   br label %SnapshotResetXmin.exit
 
@@ -1328,7 +1328,7 @@ define dso_local void @AtEOXact_Snapshot(i1 noundef zeroext %0, i1 noundef zeroe
   br i1 %.not, label %6, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %3, i64 72
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 72
   tail call void @pairingheap_remove(ptr noundef nonnull @RegisteredSnapshots, ptr noundef nonnull %5) #16
   br label %6
 
@@ -1339,13 +1339,13 @@ define dso_local void @AtEOXact_Snapshot(i1 noundef zeroext %0, i1 noundef zeroe
   br i1 %.not15, label %28, label %.preheader
 
 .preheader:                                       ; preds = %6
-  %8 = getelementptr inbounds i8, ptr %7, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %9 = load i32, ptr %8, align 4
   %.not1723 = icmp sgt i32 %9, 0
   br i1 %.not1723, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  %10 = getelementptr inbounds i8, ptr %7, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 16
   br label %11
 
 11:                                               ; preds = %.lr.ph, %22
@@ -1369,9 +1369,9 @@ define dso_local void @AtEOXact_Snapshot(i1 noundef zeroext %0, i1 noundef zeroe
   br label %22
 
 22:                                               ; preds = %19, %17, %11
-  %23 = getelementptr inbounds i8, ptr %14, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 72
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 72
   tail call void @pairingheap_remove(ptr noundef nonnull @RegisteredSnapshots, ptr noundef nonnull %25) #16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %26 = load i32, ptr %8, align 4
@@ -1389,7 +1389,7 @@ define dso_local void @AtEOXact_Snapshot(i1 noundef zeroext %0, i1 noundef zeroe
   br i1 %.not.i, label %InvalidateCatalogSnapshot.exit, label %30
 
 30:                                               ; preds = %28
-  %31 = getelementptr inbounds i8, ptr %29, i64 72
+  %31 = getelementptr inbounds nuw i8, ptr %29, i64 72
   tail call void @pairingheap_remove(ptr noundef nonnull @RegisteredSnapshots, ptr noundef nonnull %31) #16
   store ptr null, ptr @CatalogSnapshot, align 8
   %32 = load ptr, ptr @ActiveSnapshot, align 8
@@ -1404,7 +1404,7 @@ define dso_local void @AtEOXact_Snapshot(i1 noundef zeroext %0, i1 noundef zeroe
 36:                                               ; preds = %33
   %37 = tail call ptr @pairingheap_first(ptr noundef nonnull @RegisteredSnapshots) #16
   %38 = load ptr, ptr @MyProc, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 56
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 56
   %40 = load i32, ptr %39, align 8
   %41 = getelementptr i8, ptr %37, i64 -68
   %42 = load i32, ptr %41, align 4
@@ -1418,7 +1418,7 @@ define dso_local void @AtEOXact_Snapshot(i1 noundef zeroext %0, i1 noundef zeroe
 .sink.split.i.i:                                  ; preds = %44, %33
   %.sink.i.i = phi i32 [ %45, %44 ], [ 0, %33 ]
   %46 = load ptr, ptr @MyProc, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 56
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 56
   store i32 %.sink.i.i, ptr %47, align 8
   br label %InvalidateCatalogSnapshot.exit
 
@@ -1455,7 +1455,7 @@ InvalidateCatalogSnapshot.exit:                   ; preds = %28, %30, %36, %.sin
   br label %59
 
 59:                                               ; preds = %57, %.lr.ph29
-  %60 = getelementptr inbounds i8, ptr %.027, i64 16
+  %60 = getelementptr inbounds nuw i8, ptr %.027, i64 16
   %.0 = load ptr, ptr %60, align 8
   %.not18 = icmp eq ptr %.0, null
   br i1 %.not18, label %.loopexit, label %.lr.ph29, !llvm.loop !9
@@ -1471,7 +1471,7 @@ InvalidateCatalogSnapshot.exit:                   ; preds = %28, %30, %36, %.sin
 
 SnapshotResetXmin.exit:                           ; preds = %.loopexit
   %61 = load ptr, ptr @MyProc, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 56
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 56
   store i32 0, ptr %62, align 8
   br label %63
 
@@ -1503,16 +1503,16 @@ define dso_local ptr @ExportSnapshot(ptr nocapture noundef readonly %0) local_un
 12:                                               ; preds = %1
   %13 = call i32 @xactGetCommittedChildren(ptr noundef nonnull %2) #16
   %14 = load ptr, ptr @MyProc, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 68
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 68
   %16 = load i32, ptr %15, align 4
-  %17 = getelementptr inbounds i8, ptr %14, i64 72
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 72
   %18 = load i32, ptr %17, align 4
   %19 = load ptr, ptr @exportedSnapshots, align 8
   %.not.i = icmp eq ptr %19, null
   br i1 %.not.i, label %list_length.exit, label %20
 
 20:                                               ; preds = %12
-  %21 = getelementptr inbounds i8, ptr %19, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %22 = load i32, ptr %21, align 4
   %23 = add i32 %22, 1
   br label %list_length.exit
@@ -1520,12 +1520,12 @@ define dso_local ptr @ExportSnapshot(ptr nocapture noundef readonly %0) local_un
 list_length.exit:                                 ; preds = %12, %20
   %24 = phi i32 [ %23, %20 ], [ 1, %12 ]
   %25 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull @.str.8, i32 noundef %16, i32 noundef %18, i32 noundef %24) #16
-  %26 = getelementptr inbounds i8, ptr %0, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %27 = load i32, ptr %26, align 8
   %28 = zext i32 %27 to i64
   %29 = shl nuw nsw i64 %28, 2
   %30 = add nuw nsw i64 %29, 120
-  %31 = getelementptr inbounds i8, ptr %0, i64 40
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %32 = load i32, ptr %31, align 8
   %33 = icmp sgt i32 %32, 0
   %34 = zext nneg i32 %32 to i64
@@ -1536,13 +1536,13 @@ list_length.exit:                                 ; preds = %12, %20
   %38 = load ptr, ptr @TopTransactionContext, align 8
   %39 = call ptr @MemoryContextAlloc(ptr noundef %38, i64 noundef %.0.i) #16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %39, ptr noundef nonnull readonly align 8 dereferenceable(120) %0, i64 112, i1 false)
-  %40 = getelementptr inbounds i8, ptr %39, i64 68
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 68
   store i32 0, ptr %40, align 4
-  %41 = getelementptr inbounds i8, ptr %39, i64 64
+  %41 = getelementptr inbounds nuw i8, ptr %39, i64 64
   store i32 0, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %39, i64 46
+  %42 = getelementptr inbounds nuw i8, ptr %39, i64 46
   store i8 1, ptr %42, align 2
-  %43 = getelementptr inbounds i8, ptr %39, i64 112
+  %43 = getelementptr inbounds nuw i8, ptr %39, i64 112
   store i64 0, ptr %43, align 8
   %44 = load i32, ptr %26, align 8
   %.not.i43 = icmp eq i32 %44, 0
@@ -1550,9 +1550,9 @@ list_length.exit:                                 ; preds = %12, %20
 
 45:                                               ; preds = %list_length.exit
   %46 = getelementptr i8, ptr %39, i64 120
-  %47 = getelementptr inbounds i8, ptr %39, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %39, i64 16
   store ptr %46, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %0, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %49 = load ptr, ptr %48, align 8
   %50 = load i32, ptr %26, align 8
   %51 = zext i32 %50 to i64
@@ -1561,7 +1561,7 @@ list_length.exit:                                 ; preds = %12, %20
   br label %55
 
 53:                                               ; preds = %list_length.exit
-  %54 = getelementptr inbounds i8, ptr %39, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %39, i64 16
   store ptr null, ptr %54, align 8
   br label %55
 
@@ -1571,22 +1571,22 @@ list_length.exit:                                 ; preds = %12, %20
   br i1 %57, label %58, label %74
 
 58:                                               ; preds = %55
-  %59 = getelementptr inbounds i8, ptr %0, i64 44
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %60 = load i8, ptr %59, align 4
   %61 = trunc i8 %60 to i1
   br i1 %61, label %62, label %66
 
 62:                                               ; preds = %58
-  %63 = getelementptr inbounds i8, ptr %0, i64 45
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 45
   %64 = load i8, ptr %63, align 1
   %65 = trunc i8 %64 to i1
   br i1 %65, label %66, label %74
 
 66:                                               ; preds = %62, %58
   %67 = getelementptr i8, ptr %39, i64 %30
-  %68 = getelementptr inbounds i8, ptr %39, i64 32
+  %68 = getelementptr inbounds nuw i8, ptr %39, i64 32
   store ptr %67, ptr %68, align 8
-  %69 = getelementptr inbounds i8, ptr %0, i64 32
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %70 = load ptr, ptr %69, align 8
   %71 = load i32, ptr %31, align 8
   %72 = sext i32 %71 to i64
@@ -1595,7 +1595,7 @@ list_length.exit:                                 ; preds = %12, %20
   br label %CopySnapshot.exit
 
 74:                                               ; preds = %62, %55
-  %75 = getelementptr inbounds i8, ptr %39, i64 32
+  %75 = getelementptr inbounds nuw i8, ptr %39, i64 32
   store ptr null, ptr %75, align 8
   br label %CopySnapshot.exit
 
@@ -1606,7 +1606,7 @@ CopySnapshot.exit:                                ; preds = %66, %74
   %78 = call ptr @palloc(i64 noundef 16) #16
   %79 = call ptr @pstrdup(ptr noundef nonnull %4) #16
   store ptr %79, ptr %78, align 8
-  %80 = getelementptr inbounds i8, ptr %78, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %78, i64 8
   store ptr %39, ptr %80, align 8
   %81 = load ptr, ptr @exportedSnapshots, align 8
   %82 = call ptr @lappend(ptr noundef %81, ptr noundef nonnull %78) #16
@@ -1615,13 +1615,13 @@ CopySnapshot.exit:                                ; preds = %66, %74
   %83 = load i32, ptr %40, align 4
   %84 = add i32 %83, 1
   store i32 %84, ptr %40, align 4
-  %85 = getelementptr inbounds i8, ptr %39, i64 72
+  %85 = getelementptr inbounds nuw i8, ptr %39, i64 72
   call void @pairingheap_add(ptr noundef nonnull @RegisteredSnapshots, ptr noundef nonnull %85) #16
   call void @initStringInfo(ptr noundef nonnull %3) #16
   %86 = load ptr, ptr @MyProc, align 8
-  %87 = getelementptr inbounds i8, ptr %86, i64 68
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 68
   %88 = load i32, ptr %87, align 4
-  %89 = getelementptr inbounds i8, ptr %86, i64 72
+  %89 = getelementptr inbounds nuw i8, ptr %86, i64 72
   %90 = load i32, ptr %89, align 4
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %3, ptr noundef nonnull @.str.9, i32 noundef %88, i32 noundef %90) #16
   %91 = load i32, ptr @MyProcPid, align 4
@@ -1634,10 +1634,10 @@ CopySnapshot.exit:                                ; preds = %66, %74
   %95 = and i8 %94, 1
   %96 = zext nneg i8 %95 to i32
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %3, ptr noundef nonnull @.str.13, i32 noundef %96) #16
-  %97 = getelementptr inbounds i8, ptr %39, i64 4
+  %97 = getelementptr inbounds nuw i8, ptr %39, i64 4
   %98 = load i32, ptr %97, align 4
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %3, ptr noundef nonnull @.str.14, i32 noundef %98) #16
-  %99 = getelementptr inbounds i8, ptr %39, i64 8
+  %99 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %100 = load i32, ptr %99, align 8
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %3, ptr noundef nonnull @.str.15, i32 noundef %100) #16
   %.not = icmp eq i32 %6, 0
@@ -1651,7 +1651,7 @@ CopySnapshot.exit:                                ; preds = %66, %74
 104:                                              ; preds = %101, %CopySnapshot.exit
   %105 = phi i1 [ false, %CopySnapshot.exit ], [ %103, %101 ]
   %106 = zext i1 %105 to i32
-  %107 = getelementptr inbounds i8, ptr %39, i64 24
+  %107 = getelementptr inbounds nuw i8, ptr %39, i64 24
   %108 = load i32, ptr %107, align 8
   %109 = add i32 %108, %106
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %3, ptr noundef nonnull @.str.16, i32 noundef %109) #16
@@ -1660,7 +1660,7 @@ CopySnapshot.exit:                                ; preds = %66, %74
   br i1 %.not50, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %104
-  %111 = getelementptr inbounds i8, ptr %39, i64 16
+  %111 = getelementptr inbounds nuw i8, ptr %39, i64 16
   br label %112
 
 112:                                              ; preds = %.lr.ph, %112
@@ -1683,13 +1683,13 @@ CopySnapshot.exit:                                ; preds = %66, %74
   br label %121
 
 121:                                              ; preds = %120, %._crit_edge
-  %122 = getelementptr inbounds i8, ptr %39, i64 44
+  %122 = getelementptr inbounds nuw i8, ptr %39, i64 44
   %123 = load i8, ptr %122, align 4
   %124 = trunc i8 %123 to i1
   br i1 %124, label %131, label %125
 
 125:                                              ; preds = %121
-  %126 = getelementptr inbounds i8, ptr %39, i64 40
+  %126 = getelementptr inbounds nuw i8, ptr %39, i64 40
   %127 = load i32, ptr %126, align 8
   %128 = add i32 %127, %13
   %129 = call i32 @GetMaxSnapshotSubxidCount() #16
@@ -1710,7 +1710,7 @@ CopySnapshot.exit:                                ; preds = %66, %74
   br i1 %136, label %.lr.ph47, label %.preheader
 
 .lr.ph47:                                         ; preds = %132
-  %137 = getelementptr inbounds i8, ptr %39, i64 32
+  %137 = getelementptr inbounds nuw i8, ptr %39, i64 32
   br label %139
 
 .preheader:                                       ; preds = %139, %132
@@ -1744,7 +1744,7 @@ CopySnapshot.exit:                                ; preds = %66, %74
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph49, !llvm.loop !12
 
 .loopexit:                                        ; preds = %.lr.ph49, %.preheader, %131
-  %149 = getelementptr inbounds i8, ptr %39, i64 45
+  %149 = getelementptr inbounds nuw i8, ptr %39, i64 45
   %150 = load i8, ptr %149, align 1
   %151 = and i8 %150, 1
   %152 = zext nneg i8 %151 to i32
@@ -1764,7 +1764,7 @@ CopySnapshot.exit:                                ; preds = %66, %74
 
 159:                                              ; preds = %.loopexit
   %160 = load ptr, ptr %3, align 8
-  %161 = getelementptr inbounds i8, ptr %3, i64 8
+  %161 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %162 = load i32, ptr %161, align 8
   %163 = sext i32 %162 to i64
   %164 = call i64 @fwrite(ptr noundef %160, i64 noundef %163, i64 noundef 1, ptr noundef nonnull %154)
@@ -1806,7 +1806,7 @@ CopySnapshot.exit:                                ; preds = %66, %74
   unreachable
 
 182:                                              ; preds = %175
-  %183 = getelementptr inbounds i8, ptr %4, i64 13
+  %183 = getelementptr inbounds nuw i8, ptr %4, i64 13
   %184 = call ptr @pstrdup(ptr noundef nonnull %183) #16
   ret ptr %184
 }
@@ -1958,7 +1958,7 @@ define dso_local void @ImportSnapshot(ptr noundef %0) local_unnamed_addr #0 {
   unreachable
 
 51:                                               ; preds = %45
-  %52 = getelementptr inbounds i8, ptr %3, i64 48
+  %52 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %53 = load i64, ptr %52, align 8
   %54 = add i64 %53, 1
   %55 = call ptr @palloc(i64 noundef %54) #16
@@ -1977,7 +1977,7 @@ define dso_local void @ImportSnapshot(ptr noundef %0) local_unnamed_addr #0 {
   %61 = getelementptr i8, ptr %55, i64 %53
   store i8 0, ptr %61, align 1
   %62 = call i32 @FreeFile(ptr noundef nonnull %33) #16
-  %63 = getelementptr inbounds i8, ptr %6, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %6, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %63, i8 0, i64 112, i1 false)
   %64 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %55, ptr noundef nonnull dereferenceable(6) @.str.38, i64 noundef 5) #18
   %.not.i = icmp eq i32 %64, 0
@@ -1993,7 +1993,7 @@ define dso_local void @ImportSnapshot(ptr noundef %0) local_unnamed_addr #0 {
 
 69:                                               ; preds = %60
   %70 = getelementptr i8, ptr %55, i64 5
-  %71 = getelementptr inbounds i8, ptr %5, i64 4
+  %71 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %72 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %70, ptr noundef nonnull @.str.60, ptr noundef nonnull %5, ptr noundef nonnull %71) #16
   %.not16.i = icmp eq i32 %72, 2
   br i1 %.not16.i, label %77, label %73
@@ -2029,13 +2029,13 @@ parseVxidFromText.exit:                           ; preds = %77
   %.not42 = icmp eq i32 %87, 0
   store i32 0, ptr %6, align 8
   %88 = call fastcc i32 @parseXidFromText(ptr noundef nonnull @.str.43, ptr noundef %4, ptr noundef %2)
-  %89 = getelementptr inbounds i8, ptr %6, i64 4
+  %89 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 %88, ptr %89, align 4
   %90 = call fastcc i32 @parseXidFromText(ptr noundef nonnull @.str.44, ptr noundef %4, ptr noundef %2)
-  %91 = getelementptr inbounds i8, ptr %6, i64 8
+  %91 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %90, ptr %91, align 8
   %92 = call fastcc i32 @parseIntFromText(ptr noundef nonnull @.str.45, ptr noundef %4, ptr noundef %2)
-  %93 = getelementptr inbounds i8, ptr %6, i64 24
+  %93 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i32 %92, ptr %93, align 8
   %94 = icmp slt i32 %92, 0
   br i1 %94, label %98, label %95
@@ -2057,7 +2057,7 @@ parseVxidFromText.exit:                           ; preds = %77
   %103 = zext nneg i32 %92 to i64
   %104 = shl nuw nsw i64 %103, 2
   %105 = call ptr @palloc(i64 noundef %104) #16
-  %106 = getelementptr inbounds i8, ptr %6, i64 16
+  %106 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %105, ptr %106, align 8
   %.not49 = icmp eq i32 %92, 0
   br i1 %.not49, label %._crit_edge, label %.lr.ph
@@ -2074,14 +2074,14 @@ parseVxidFromText.exit:                           ; preds = %77
 ._crit_edge:                                      ; preds = %.lr.ph, %102
   %109 = call fastcc i32 @parseIntFromText(ptr noundef nonnull @.str.48, ptr noundef %4, ptr noundef %2)
   %110 = icmp ne i32 %109, 0
-  %111 = getelementptr inbounds i8, ptr %6, i64 44
+  %111 = getelementptr inbounds nuw i8, ptr %6, i64 44
   %112 = zext i1 %110 to i8
   store i8 %112, ptr %111, align 4
   br i1 %110, label %131, label %113
 
 113:                                              ; preds = %._crit_edge
   %114 = call fastcc i32 @parseIntFromText(ptr noundef nonnull @.str.49, ptr noundef %4, ptr noundef %2)
-  %115 = getelementptr inbounds i8, ptr %6, i64 40
+  %115 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store i32 %114, ptr %115, align 8
   %116 = icmp slt i32 %114, 0
   br i1 %116, label %120, label %117
@@ -2103,7 +2103,7 @@ parseVxidFromText.exit:                           ; preds = %77
   %125 = zext nneg i32 %114 to i64
   %126 = shl nuw nsw i64 %125, 2
   %127 = call ptr @palloc(i64 noundef %126) #16
-  %128 = getelementptr inbounds i8, ptr %6, i64 32
+  %128 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr %127, ptr %128, align 8
   %.not50 = icmp eq i32 %114, 0
   br i1 %.not50, label %.loopexit, label %.lr.ph48
@@ -2118,16 +2118,16 @@ parseVxidFromText.exit:                           ; preds = %77
   br i1 %exitcond56.not, label %.loopexit, label %.lr.ph48, !llvm.loop !14
 
 131:                                              ; preds = %._crit_edge
-  %132 = getelementptr inbounds i8, ptr %6, i64 40
+  %132 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store i32 0, ptr %132, align 8
-  %133 = getelementptr inbounds i8, ptr %6, i64 32
+  %133 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr null, ptr %133, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph48, %124, %131
   %134 = call fastcc i32 @parseIntFromText(ptr noundef nonnull @.str.51, ptr noundef %4, ptr noundef %2)
   %135 = icmp ne i32 %134, 0
-  %136 = getelementptr inbounds i8, ptr %6, i64 45
+  %136 = getelementptr inbounds nuw i8, ptr %6, i64 45
   %137 = zext i1 %135 to i8
   store i8 %137, ptr %136, align 1
   %138 = load i32, ptr %71, align 4
@@ -2335,7 +2335,7 @@ define internal fastcc void @SetTransactionSnapshot(ptr nocapture noundef readon
   br i1 %.not.i, label %InvalidateCatalogSnapshot.exit, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %5, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 72
   tail call void @pairingheap_remove(ptr noundef nonnull @RegisteredSnapshots, ptr noundef nonnull %7) #16
   store ptr null, ptr @CatalogSnapshot, align 8
   %8 = load ptr, ptr @ActiveSnapshot, align 8
@@ -2350,7 +2350,7 @@ define internal fastcc void @SetTransactionSnapshot(ptr nocapture noundef readon
 12:                                               ; preds = %9
   %13 = tail call ptr @pairingheap_first(ptr noundef nonnull @RegisteredSnapshots) #16
   %14 = load ptr, ptr @MyProc, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 56
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 56
   %16 = load i32, ptr %15, align 8
   %17 = getelementptr i8, ptr %13, i64 -68
   %18 = load i32, ptr %17, align 4
@@ -2364,32 +2364,32 @@ define internal fastcc void @SetTransactionSnapshot(ptr nocapture noundef readon
 .sink.split.i.i:                                  ; preds = %20, %9
   %.sink.i.i = phi i32 [ %21, %20 ], [ 0, %9 ]
   %22 = load ptr, ptr @MyProc, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 56
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 56
   store i32 %.sink.i.i, ptr %23, align 8
   br label %InvalidateCatalogSnapshot.exit
 
 InvalidateCatalogSnapshot.exit:                   ; preds = %4, %6, %12, %.sink.split.i.i
   %24 = tail call ptr @GetSnapshotData(ptr noundef nonnull @CurrentSnapshotData) #16
   store ptr %24, ptr @CurrentSnapshot, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %26 = load i32, ptr %25, align 4
-  %27 = getelementptr inbounds i8, ptr %24, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 4
   store i32 %26, ptr %27, align 4
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %29 = load i32, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %24, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i32 %29, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load i32, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %24, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %24, i64 24
   store i32 %32, ptr %33, align 8
   %.not = icmp eq i32 %32, 0
   br i1 %.not, label %41, label %34
 
 34:                                               ; preds = %InvalidateCatalogSnapshot.exit
-  %35 = getelementptr inbounds i8, ptr %24, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %0, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %38 = load ptr, ptr %37, align 8
   %39 = zext i32 %32 to i64
   %40 = shl nuw nsw i64 %39, 2
@@ -2397,17 +2397,17 @@ InvalidateCatalogSnapshot.exit:                   ; preds = %4, %6, %12, %.sink.
   br label %41
 
 41:                                               ; preds = %34, %InvalidateCatalogSnapshot.exit
-  %42 = getelementptr inbounds i8, ptr %0, i64 40
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %43 = load i32, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %24, i64 40
+  %44 = getelementptr inbounds nuw i8, ptr %24, i64 40
   store i32 %43, ptr %44, align 8
   %45 = icmp sgt i32 %43, 0
   br i1 %45, label %46, label %53
 
 46:                                               ; preds = %41
-  %47 = getelementptr inbounds i8, ptr %24, i64 32
+  %47 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %0, i64 32
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %50 = load ptr, ptr %49, align 8
   %51 = zext nneg i32 %43 to i64
   %52 = shl nuw nsw i64 %51, 2
@@ -2415,17 +2415,17 @@ InvalidateCatalogSnapshot.exit:                   ; preds = %4, %6, %12, %.sink.
   br label %53
 
 53:                                               ; preds = %46, %41
-  %54 = getelementptr inbounds i8, ptr %0, i64 44
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %55 = load i8, ptr %54, align 4
-  %56 = getelementptr inbounds i8, ptr %24, i64 44
+  %56 = getelementptr inbounds nuw i8, ptr %24, i64 44
   %57 = and i8 %55, 1
   store i8 %57, ptr %56, align 4
-  %58 = getelementptr inbounds i8, ptr %0, i64 45
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 45
   %59 = load i8, ptr %58, align 1
-  %60 = getelementptr inbounds i8, ptr %24, i64 45
+  %60 = getelementptr inbounds nuw i8, ptr %24, i64 45
   %61 = and i8 %59, 1
   store i8 %61, ptr %60, align 1
-  %62 = getelementptr inbounds i8, ptr %24, i64 112
+  %62 = getelementptr inbounds nuw i8, ptr %24, i64 112
   store i64 0, ptr %62, align 8
   %.not20 = icmp eq ptr %3, null
   %63 = load i32, ptr %27, align 4
@@ -2473,12 +2473,12 @@ InvalidateCatalogSnapshot.exit:                   ; preds = %4, %6, %12, %.sink.
 
 85:                                               ; preds = %83, %81
   %86 = load ptr, ptr @CurrentSnapshot, align 8
-  %87 = getelementptr inbounds i8, ptr %86, i64 24
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 24
   %88 = load i32, ptr %87, align 8
   %89 = zext i32 %88 to i64
   %90 = shl nuw nsw i64 %89, 2
   %91 = add nuw nsw i64 %90, 120
-  %92 = getelementptr inbounds i8, ptr %86, i64 40
+  %92 = getelementptr inbounds nuw i8, ptr %86, i64 40
   %93 = load i32, ptr %92, align 8
   %94 = icmp sgt i32 %93, 0
   %95 = zext nneg i32 %93 to i64
@@ -2489,13 +2489,13 @@ InvalidateCatalogSnapshot.exit:                   ; preds = %4, %6, %12, %.sink.
   %99 = load ptr, ptr @TopTransactionContext, align 8
   %100 = tail call ptr @MemoryContextAlloc(ptr noundef %99, i64 noundef %.0.i) #16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %100, ptr noundef nonnull readonly align 8 dereferenceable(120) %86, i64 112, i1 false)
-  %101 = getelementptr inbounds i8, ptr %100, i64 68
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 68
   store i32 0, ptr %101, align 4
-  %102 = getelementptr inbounds i8, ptr %100, i64 64
+  %102 = getelementptr inbounds nuw i8, ptr %100, i64 64
   store i32 0, ptr %102, align 8
-  %103 = getelementptr inbounds i8, ptr %100, i64 46
+  %103 = getelementptr inbounds nuw i8, ptr %100, i64 46
   store i8 1, ptr %103, align 2
-  %104 = getelementptr inbounds i8, ptr %100, i64 112
+  %104 = getelementptr inbounds nuw i8, ptr %100, i64 112
   store i64 0, ptr %104, align 8
   %105 = load i32, ptr %87, align 8
   %.not.i21 = icmp eq i32 %105, 0
@@ -2503,9 +2503,9 @@ InvalidateCatalogSnapshot.exit:                   ; preds = %4, %6, %12, %.sink.
 
 106:                                              ; preds = %85
   %107 = getelementptr i8, ptr %100, i64 120
-  %108 = getelementptr inbounds i8, ptr %100, i64 16
+  %108 = getelementptr inbounds nuw i8, ptr %100, i64 16
   store ptr %107, ptr %108, align 8
-  %109 = getelementptr inbounds i8, ptr %86, i64 16
+  %109 = getelementptr inbounds nuw i8, ptr %86, i64 16
   %110 = load ptr, ptr %109, align 8
   %111 = load i32, ptr %87, align 8
   %112 = zext i32 %111 to i64
@@ -2514,7 +2514,7 @@ InvalidateCatalogSnapshot.exit:                   ; preds = %4, %6, %12, %.sink.
   br label %116
 
 114:                                              ; preds = %85
-  %115 = getelementptr inbounds i8, ptr %100, i64 16
+  %115 = getelementptr inbounds nuw i8, ptr %100, i64 16
   store ptr null, ptr %115, align 8
   br label %116
 
@@ -2524,22 +2524,22 @@ InvalidateCatalogSnapshot.exit:                   ; preds = %4, %6, %12, %.sink.
   br i1 %118, label %119, label %136
 
 119:                                              ; preds = %116
-  %120 = getelementptr inbounds i8, ptr %86, i64 44
+  %120 = getelementptr inbounds nuw i8, ptr %86, i64 44
   %121 = load i8, ptr %120, align 4
   %122 = trunc i8 %121 to i1
   br i1 %122, label %123, label %127
 
 123:                                              ; preds = %119
-  %124 = getelementptr inbounds i8, ptr %86, i64 45
+  %124 = getelementptr inbounds nuw i8, ptr %86, i64 45
   %125 = load i8, ptr %124, align 1
   %126 = trunc i8 %125 to i1
   br i1 %126, label %127, label %136
 
 127:                                              ; preds = %123, %119
   %128 = getelementptr i8, ptr %100, i64 %91
-  %129 = getelementptr inbounds i8, ptr %100, i64 32
+  %129 = getelementptr inbounds nuw i8, ptr %100, i64 32
   store ptr %128, ptr %129, align 8
-  %130 = getelementptr inbounds i8, ptr %86, i64 32
+  %130 = getelementptr inbounds nuw i8, ptr %86, i64 32
   %131 = load ptr, ptr %130, align 8
   %132 = load i32, ptr %92, align 8
   %133 = sext i32 %132 to i64
@@ -2550,7 +2550,7 @@ InvalidateCatalogSnapshot.exit:                   ; preds = %4, %6, %12, %.sink.
   br label %CopySnapshot.exit
 
 136:                                              ; preds = %123, %116
-  %137 = getelementptr inbounds i8, ptr %100, i64 32
+  %137 = getelementptr inbounds nuw i8, ptr %100, i64 32
   store ptr null, ptr %137, align 8
   br label %CopySnapshot.exit
 
@@ -2559,7 +2559,7 @@ CopySnapshot.exit:                                ; preds = %127, %136
   store ptr %100, ptr @CurrentSnapshot, align 8
   store ptr %100, ptr @FirstXactSnapshot, align 8
   store i32 %138, ptr %101, align 4
-  %139 = getelementptr inbounds i8, ptr %100, i64 72
+  %139 = getelementptr inbounds nuw i8, ptr %100, i64 72
   tail call void @pairingheap_add(ptr noundef nonnull @RegisteredSnapshots, ptr noundef nonnull %139) #16
   br label %140
 
@@ -2585,25 +2585,25 @@ define dso_local void @DeleteAllExportedSnapshotFiles() local_unnamed_addr #0 {
 
 sub_0:                                            ; preds = %0, %.backedge
   %4 = phi ptr [ %15, %.backedge ], [ %3, %0 ]
-  %5 = getelementptr inbounds i8, ptr %4, i64 19
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 19
   %6 = load i8, ptr %5, align 1
   %.not11 = icmp eq i8 %6, 46
   br i1 %.not11, label %.tail, label %.tail6.thread
 
 .tail:                                            ; preds = %sub_0
-  %7 = getelementptr inbounds i8, ptr %4, i64 20
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 20
   %8 = load i8, ptr %7, align 1
   %9 = icmp eq i8 %8, 0
   br i1 %9, label %.backedge, label %sub_18
 
 sub_18:                                           ; preds = %.tail
-  %10 = getelementptr inbounds i8, ptr %4, i64 20
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 20
   %11 = load i8, ptr %10, align 1
   %.not13 = icmp eq i8 %11, 46
   br i1 %.not13, label %.tail6, label %.tail6.thread
 
 .tail6:                                           ; preds = %sub_18
-  %12 = getelementptr inbounds i8, ptr %4, i64 21
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 21
   %13 = load i8, ptr %12, align 1
   %14 = icmp eq i8 %13, 0
   br i1 %14, label %.backedge, label %.tail6.thread
@@ -2705,24 +2705,24 @@ define dso_local ptr @HistoricSnapshotGetTupleCids() local_unnamed_addr #1 {
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @EstimateSnapshotSpace(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8
   %4 = zext i32 %3 to i64
   %5 = tail call i64 @mul_size(i64 noundef %4, i64 noundef 4) #16
   %6 = tail call i64 @add_size(i64 noundef 40, i64 noundef %5) #16
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load i32, ptr %7, align 8
   %9 = icmp sgt i32 %8, 0
   br i1 %9, label %10, label %22
 
 10:                                               ; preds = %1
-  %11 = getelementptr inbounds i8, ptr %0, i64 44
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %12 = load i8, ptr %11, align 4
   %13 = trunc i8 %12 to i1
   br i1 %13, label %14, label %18
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %0, i64 45
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 45
   %16 = load i8, ptr %15, align 1
   %17 = trunc i8 %16 to i1
   br i1 %17, label %18, label %22
@@ -2744,46 +2744,46 @@ declare i64 @mul_size(i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @SerializeSnapshot(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 18), (20, 40)) %1) local_unnamed_addr #12 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load i32, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load i32, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 44
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %12 = load i8, ptr %11, align 4
   %13 = trunc i8 %12 to i1
   %14 = and i8 %12, 1
-  %15 = getelementptr inbounds i8, ptr %0, i64 45
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 45
   %16 = load i8, ptr %15, align 1
   %17 = and i8 %16, 1
-  %18 = getelementptr inbounds i8, ptr %0, i64 48
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %19 = load i32, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 96
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %21 = load i64, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 104
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %23 = load i64, ptr %22, align 8
   %24 = trunc i8 %16 to i1
   %spec.select = select i1 %24, i32 %10, i32 0
   %.sroa.4.0 = select i1 %13, i32 %spec.select, i32 %10
   store i32 %4, ptr %1, align 1
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 4
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 %6, ptr %.sroa.2.0..sroa_idx, align 1
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %8, ptr %.sroa.3.0..sroa_idx, align 1
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 12
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 %.sroa.4.0, ptr %.sroa.4.0..sroa_idx, align 1
-  %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 16
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i8 %14, ptr %.sroa.7.0..sroa_idx, align 1
-  %.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 17
+  %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 17
   store i8 %17, ptr %.sroa.9.0..sroa_idx, align 1
-  %.sroa.101.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 20
+  %.sroa.101.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 20
   store i32 %19, ptr %.sroa.101.0..sroa_idx, align 1
-  %.sroa.11.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 24
+  %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i64 %21, ptr %.sroa.11.0..sroa_idx, align 1
-  %.sroa.12.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 32
+  %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i64 %23, ptr %.sroa.12.0..sroa_idx, align 1
   %25 = load i32, ptr %7, align 8
   %.not = icmp eq i32 %25, 0
@@ -2791,7 +2791,7 @@ define dso_local void @SerializeSnapshot(ptr nocapture noundef readonly %0, ptr 
 
 26:                                               ; preds = %2
   %27 = getelementptr i8, ptr %1, i64 40
-  %28 = getelementptr inbounds i8, ptr %0, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %29 = load ptr, ptr %28, align 8
   %30 = zext i32 %25 to i64
   %31 = shl nuw nsw i64 %30, 2
@@ -2808,7 +2808,7 @@ define dso_local void @SerializeSnapshot(ptr nocapture noundef readonly %0, ptr 
   %37 = shl nuw nsw i64 %36, 2
   %38 = getelementptr i8, ptr %1, i64 %37
   %39 = getelementptr i8, ptr %38, i64 40
-  %40 = getelementptr inbounds i8, ptr %0, i64 32
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %41 = load ptr, ptr %40, align 8
   %42 = load i32, ptr %9, align 8
   %43 = sext i32 %42 to i64
@@ -2826,21 +2826,21 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @RestoreSnapshot(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %.sroa.0.0.copyload = load i32, ptr %0, align 1
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 4
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.sroa.2.0.copyload = load i32, ptr %.sroa.2.0..sroa_idx, align 1
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.3.0.copyload = load i32, ptr %.sroa.3.0..sroa_idx, align 1
-  %.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 12
+  %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
   %.sroa.9.0.copyload = load i32, ptr %.sroa.9.0..sroa_idx, align 1
-  %.sroa.13.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.13.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.sroa.13.0.copyload = load i8, ptr %.sroa.13.0..sroa_idx, align 1
-  %.sroa.14.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 17
+  %.sroa.14.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 17
   %.sroa.14.0.copyload = load i8, ptr %.sroa.14.0..sroa_idx, align 1
-  %.sroa.1533.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 20
+  %.sroa.1533.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 20
   %.sroa.1533.0.copyload = load i32, ptr %.sroa.1533.0..sroa_idx, align 1
-  %.sroa.16.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.16.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.sroa.16.0.copyload = load i64, ptr %.sroa.16.0..sroa_idx, align 1
-  %.sroa.17.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
+  %.sroa.17.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.sroa.17.0.copyload = load i64, ptr %.sroa.17.0..sroa_idx, align 1
   %2 = getelementptr i8, ptr %0, i64 40
   %3 = zext i32 %.sroa.3.0.copyload to i64
@@ -2852,31 +2852,31 @@ define dso_local noundef ptr @RestoreSnapshot(ptr nocapture noundef readonly %0)
   %9 = load ptr, ptr @TopTransactionContext, align 8
   %10 = tail call ptr @MemoryContextAlloc(ptr noundef %9, i64 noundef %8) #16
   store i32 0, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store i32 %.sroa.0.0.copyload, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %10, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i32 %.sroa.2.0.copyload, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %10, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr null, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %10, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store i32 %.sroa.3.0.copyload, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %10, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store ptr null, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %10, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store i32 %.sroa.9.0.copyload, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %10, i64 44
+  %17 = getelementptr inbounds nuw i8, ptr %10, i64 44
   %18 = and i8 %.sroa.13.0.copyload, 1
   store i8 %18, ptr %17, align 4
-  %19 = getelementptr inbounds i8, ptr %10, i64 45
+  %19 = getelementptr inbounds nuw i8, ptr %10, i64 45
   %20 = and i8 %.sroa.14.0.copyload, 1
   store i8 %20, ptr %19, align 1
-  %21 = getelementptr inbounds i8, ptr %10, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %10, i64 48
   store i32 %.sroa.1533.0.copyload, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %10, i64 96
+  %22 = getelementptr inbounds nuw i8, ptr %10, i64 96
   store i64 %.sroa.16.0.copyload, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %10, i64 104
+  %23 = getelementptr inbounds nuw i8, ptr %10, i64 104
   store i64 %.sroa.17.0.copyload, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %10, i64 112
+  %24 = getelementptr inbounds nuw i8, ptr %10, i64 112
   store i64 0, ptr %24, align 8
   %.not = icmp eq i32 %.sroa.3.0.copyload, 0
   br i1 %.not, label %27, label %25
@@ -2900,11 +2900,11 @@ define dso_local noundef ptr @RestoreSnapshot(ptr nocapture noundef readonly %0)
   br label %33
 
 33:                                               ; preds = %29, %27
-  %34 = getelementptr inbounds i8, ptr %10, i64 68
+  %34 = getelementptr inbounds nuw i8, ptr %10, i64 68
   store i32 0, ptr %34, align 4
-  %35 = getelementptr inbounds i8, ptr %10, i64 64
+  %35 = getelementptr inbounds nuw i8, ptr %10, i64 64
   store i32 0, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %10, i64 46
+  %36 = getelementptr inbounds nuw i8, ptr %10, i64 46
   store i8 1, ptr %36, align 2
   ret ptr %10
 }
@@ -2917,22 +2917,22 @@ define dso_local void @RestoreTransactionSnapshot(ptr nocapture noundef readonly
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef zeroext i1 @XidInMVCCSnapshot(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #14 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = tail call zeroext i1 @TransactionIdPrecedes(i32 noundef %0, i32 noundef %4) #16
   br i1 %5, label %pg_lfind32.exit43, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i32, ptr %7, align 8
   %9 = tail call zeroext i1 @TransactionIdFollowsOrEquals(i32 noundef %0, i32 noundef %8) #16
   br i1 %9, label %pg_lfind32.exit43, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %1, i64 45
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 45
   %12 = load i8, ptr %11, align 1
   %13 = trunc i8 %12 to i1
-  %14 = getelementptr inbounds i8, ptr %1, i64 44
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %15 = load i8, ptr %14, align 4
   %16 = trunc i8 %15 to i1
   br i1 %13, label %90, label %17
@@ -2941,9 +2941,9 @@ define dso_local noundef zeroext i1 @XidInMVCCSnapshot(i32 noundef %0, ptr nocap
   br i1 %16, label %54, label %18
 
 18:                                               ; preds = %17
-  %19 = getelementptr inbounds i8, ptr %1, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %22 = load i32, ptr %21, align 8
   %23 = insertelement <4 x i32> poison, i32 %0, i64 0
   %24 = shufflevector <4 x i32> %23, <4 x i32> poison, <4 x i32> zeroinitializer
@@ -3027,9 +3027,9 @@ define dso_local noundef zeroext i1 @XidInMVCCSnapshot(i32 noundef %0, ptr nocap
 pg_lfind32.exit:                                  ; preds = %50, %.pg_lfind32.exit_crit_edge, %.preheader.i
   %.pre-phi81 = phi <4 x i32> [ %.pre80, %.pg_lfind32.exit_crit_edge ], [ %24, %.preheader.i ], [ %24, %50 ]
   %.022 = phi i32 [ %55, %.pg_lfind32.exit_crit_edge ], [ %0, %.preheader.i ], [ %0, %50 ]
-  %58 = getelementptr inbounds i8, ptr %1, i64 16
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %1, i64 24
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %61 = load i32, ptr %60, align 8
   %62 = and i32 %61, -16
   %.not49.i23 = icmp eq i32 %62, 0
@@ -3106,9 +3106,9 @@ pg_lfind32.exit:                                  ; preds = %50, %.pg_lfind32.ex
 
 95:                                               ; preds = %91, %90
   %.1 = phi i32 [ %92, %91 ], [ %0, %90 ]
-  %96 = getelementptr inbounds i8, ptr %1, i64 32
+  %96 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %97 = load ptr, ptr %96, align 8
-  %98 = getelementptr inbounds i8, ptr %1, i64 40
+  %98 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %99 = load i32, ptr %98, align 8
   %100 = insertelement <4 x i32> poison, i32 %.1, i64 0
   %101 = shufflevector <4 x i32> %100, <4 x i32> poison, <4 x i32> zeroinitializer
@@ -3213,7 +3213,7 @@ declare void @ResourceOwnerRemember(ptr noundef, i64 noundef, ptr noundef) local
 ; Function Attrs: nounwind uwtable
 define internal void @ResOwnerReleaseSnapshot(i64 noundef %0) #0 {
   %2 = inttoptr i64 %0 to ptr
-  %3 = getelementptr inbounds i8, ptr %2, i64 68
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 68
   %4 = load i32, ptr %3, align 4
   %5 = add i32 %4, -1
   store i32 %5, ptr %3, align 4
@@ -3221,14 +3221,14 @@ define internal void @ResOwnerReleaseSnapshot(i64 noundef %0) #0 {
   br i1 %6, label %7, label %UnregisterSnapshotNoOwner.exit
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %2, i64 72
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 72
   tail call void @pairingheap_remove(ptr noundef nonnull @RegisteredSnapshots, ptr noundef nonnull %8) #16
   %.pr.i = load i32, ptr %3, align 4
   %9 = icmp eq i32 %.pr.i, 0
   br i1 %9, label %10, label %UnregisterSnapshotNoOwner.exit
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %2, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %12 = load i32, ptr %11, align 8
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %14, label %UnregisterSnapshotNoOwner.exit
@@ -3247,7 +3247,7 @@ define internal void @ResOwnerReleaseSnapshot(i64 noundef %0) #0 {
 19:                                               ; preds = %16
   %20 = tail call ptr @pairingheap_first(ptr noundef nonnull @RegisteredSnapshots) #16
   %21 = load ptr, ptr @MyProc, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 56
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 56
   %23 = load i32, ptr %22, align 8
   %24 = getelementptr i8, ptr %20, i64 -68
   %25 = load i32, ptr %24, align 4
@@ -3261,7 +3261,7 @@ define internal void @ResOwnerReleaseSnapshot(i64 noundef %0) #0 {
 .sink.split.i.i:                                  ; preds = %27, %16
   %.sink.i.i = phi i32 [ %28, %27 ], [ 0, %16 ]
   %29 = load ptr, ptr @MyProc, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 56
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 56
   store i32 %.sink.i.i, ptr %30, align 8
   br label %UnregisterSnapshotNoOwner.exit
 

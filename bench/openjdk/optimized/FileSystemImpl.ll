@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 define range(i32 -3, 1245185) i32 @JNI_OnLoad(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %6 = load ptr, ptr %5, align 8
   %7 = call i32 %6(ptr noundef nonnull %0, ptr noundef nonnull %3, i32 noundef 65538) #3
   %.not = icmp eq i32 %7, 0
@@ -34,7 +34,7 @@ define zeroext range(i8 0, 2) i8 @Java_jdk_internal_agent_FileSystemImpl_isAcces
   br i1 %9, label %10, label %16
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %5, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 54
   %14 = icmp eq i32 %13, 0

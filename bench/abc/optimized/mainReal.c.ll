@@ -37,21 +37,21 @@ define range(i32 0, 2) i32 @Abc_RealMain(i32 noundef %0, ptr noundef %1) local_u
   %6 = alloca %struct.rlimit, align 8
   %7 = alloca %struct.rlimit, align 8
   %8 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #11
-  %9 = getelementptr inbounds i8, ptr %8, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 0, ptr %9, align 4
   store i32 1000, ptr %8, align 8
   %10 = tail call noalias dereferenceable_or_null(1000) ptr @malloc(i64 noundef 1000) #11
-  %11 = getelementptr inbounds i8, ptr %8, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %10, ptr %11, align 8
   %12 = tail call ptr (...) @Abc_FrameGetGlobalFrame() #12
   %13 = load ptr, ptr %1, align 8
-  %14 = getelementptr inbounds i8, ptr %12, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %13, ptr %14, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(5) %4, ptr noundef nonnull align 1 dereferenceable(5) @.str, i64 5, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(6) %5, ptr noundef nonnull align 1 dereferenceable(6) @.str.1, i64 6, i1 false)
   tail call void (...) @Extra_UtilGetoptReset() #12
-  %15 = getelementptr inbounds i8, ptr %7, i64 8
-  %16 = getelementptr inbounds i8, ptr %6, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 8
   br label %17
 
 17:                                               ; preds = %.backedge, %2
@@ -363,7 +363,7 @@ Vec_StrPush.exit:                                 ; preds = %.Vec_StrGrow.exit10
 140:                                              ; preds = %138
   %141 = load ptr, ptr @stdin, align 8
   %142 = call ptr @Gia_ManFromBridge(ptr noundef %141, ptr noundef null) #12
-  %143 = getelementptr inbounds i8, ptr %12, i64 288
+  %143 = getelementptr inbounds nuw i8, ptr %12, i64 288
   store ptr %142, ptr %143, align 8
   br label %148
 
@@ -389,7 +389,7 @@ Vec_StrPush.exit:                                 ; preds = %.Vec_StrGrow.exit10
   br i1 %.not87, label %.critedge96, label %149
 
 149:                                              ; preds = %144, %144, %148
-  %150 = getelementptr inbounds i8, ptr %12, i64 92
+  %150 = getelementptr inbounds nuw i8, ptr %12, i64 92
   store i32 1, ptr %150, align 4
   %151 = load i32, ptr @globalUtilOptind, align 4
   %152 = icmp eq i32 %0, %151
@@ -513,7 +513,7 @@ Vec_StrFreeP.exit114:                             ; preds = %.critedge96, %184
 
 .loopexit148.sink.split:                          ; preds = %99, %82
   %.lcssa.sink = phi ptr [ %73, %82 ], [ %90, %99 ]
-  %192 = getelementptr inbounds i8, ptr %12, i64 136
+  %192 = getelementptr inbounds nuw i8, ptr %12, i64 136
   %193 = load ptr, ptr %192, align 8
   %194 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %193, ptr noundef nonnull @.str.18, ptr noundef %.lcssa.sink) #12
   br label %.loopexit148
@@ -555,14 +555,14 @@ define internal fastcc void @Vec_StrAppend(ptr nocapture noundef %0, ptr nocaptu
   br i1 %5, label %.lr.ph.i, label %Vec_StrPrintStr.exit
 
 .lr.ph.i:                                         ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 4
-  %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %wide.trip.count.i = and i64 %3, 2147483647
   br label %7
 
 7:                                                ; preds = %Vec_StrPush.exit.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %Vec_StrPush.exit.i ]
-  %8 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i
   %9 = load i8, ptr %8, align 1
   %10 = load i32, ptr %6, align 4
   %11 = load i32, ptr %0, align 8

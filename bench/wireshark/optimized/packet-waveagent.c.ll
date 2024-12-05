@@ -556,7 +556,7 @@ define internal range(i32 0, 2) i32 @dissect_waveagent_heur(ptr noundef %0, ptr 
   %.mask.i = and i32 %17, -268435456
   %.not64.not.not.i = icmp eq i32 %.mask.i, 268435456
   %18 = select i1 %.not64.not.not.i, i8 3, i8 2
-  %19 = getelementptr inbounds i8, ptr %1, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %20 = load ptr, ptr %19, align 8
   tail call void @col_set_str(ptr noundef %20, i32 noundef 34, ptr noundef nonnull @.str.338) #2
   %21 = load ptr, ptr %19, align 8

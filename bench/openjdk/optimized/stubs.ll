@@ -60,7 +60,7 @@ $_ZN9LogPrefixILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = c
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN9StubQueueC2EP13StubInterfaceiP5MutexPKc(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((40, 48)) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 align 2 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %3, ptr %6, align 8
   %7 = add i32 %2, 15
   %8 = and i32 %7, -16
@@ -75,12 +75,12 @@ define hidden void @_ZN9StubQueueC2EP13StubInterfaceiP5MutexPKc(ptr nocapture no
 
 13:                                               ; preds = %5
   store ptr %1, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %9, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %15 = load i32, ptr %14, align 8
   %16 = sext i32 %15 to i64
   %17 = getelementptr inbounds i8, ptr %9, i64 %16
   %18 = load ptr, ptr %1, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %20 = load ptr, ptr %19, align 8
   %21 = tail call noundef i32 %20(ptr noundef nonnull align 8 dereferenceable(8) %1) #6
   %22 = ptrtoint ptr %17 to i64
@@ -91,13 +91,13 @@ define hidden void @_ZN9StubQueueC2EP13StubInterfaceiP5MutexPKc(ptr nocapture no
   %27 = sext i32 %26 to i64
   %28 = and i64 %25, %27
   %29 = inttoptr i64 %28 to ptr
-  %30 = getelementptr inbounds i8, ptr %9, i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %31 = load i32, ptr %30, align 8
   %32 = sext i32 %31 to i64
   %33 = getelementptr inbounds i8, ptr %9, i64 %32
   %34 = load ptr, ptr %0, align 8
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %37 = load ptr, ptr %36, align 8
   %38 = tail call noundef i32 %37(ptr noundef nonnull align 8 dereferenceable(8) %34) #6
   %39 = ptrtoint ptr %33 to i64
@@ -106,17 +106,17 @@ define hidden void @_ZN9StubQueueC2EP13StubInterfaceiP5MutexPKc(ptr nocapture no
   %42 = and i64 %41, %39
   %43 = sub i64 %42, %28
   %44 = trunc i64 %43 to i32
-  %45 = getelementptr inbounds i8, ptr %0, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %44, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %0, i64 20
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %44, ptr %46, align 4
-  %47 = getelementptr inbounds i8, ptr %0, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %29, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %0, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %0, i64 28
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 0, ptr %49, align 4
-  %50 = getelementptr inbounds i8, ptr %0, i64 32
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 0, ptr %50, align 8
   ret void
 }
@@ -139,14 +139,14 @@ declare void @_Z20report_unimplementedPKci(ptr noundef, i32 noundef) local_unnam
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN9StubQueue22deallocate_unused_tailEv(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((20, 24)) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = tail call noundef ptr @_ZN9CodeCache9find_blobEPv(ptr noundef %3) #6
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i32, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load i32, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %10 = load i32, ptr %9, align 4
   %11 = xor i32 %10, -1
   %12 = add i32 %8, %11
@@ -157,13 +157,13 @@ define hidden void @_ZN9StubQueue22deallocate_unused_tailEv(ptr nocapture nounde
   %17 = add i32 %6, %16
   %18 = sext i32 %17 to i64
   tail call void @_ZN9CodeCache16free_unused_tailEP8CodeBlobm(ptr noundef %4, i64 noundef %18) #6
-  %19 = getelementptr inbounds i8, ptr %4, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %20 = load i32, ptr %19, align 8
   %21 = sext i32 %20 to i64
   %22 = getelementptr inbounds i8, ptr %4, i64 %21
   %23 = load ptr, ptr %0, align 8
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %26 = load ptr, ptr %25, align 8
   %27 = tail call noundef i32 %26(ptr noundef nonnull align 8 dereferenceable(8) %23) #6
   %28 = ptrtoint ptr %22 to i64
@@ -173,13 +173,13 @@ define hidden void @_ZN9StubQueue22deallocate_unused_tailEv(ptr nocapture nounde
   %32 = sub i32 0, %27
   %33 = zext i32 %32 to i64
   %34 = and i64 %31, %33
-  %35 = getelementptr inbounds i8, ptr %4, i64 40
+  %35 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %36 = load i32, ptr %35, align 8
   %37 = sext i32 %36 to i64
   %38 = getelementptr inbounds i8, ptr %4, i64 %37
   %39 = load ptr, ptr %0, align 8
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 24
   %42 = load ptr, ptr %41, align 8
   %43 = tail call noundef i32 %42(ptr noundef nonnull align 8 dereferenceable(8) %39) #6
   %44 = ptrtoint ptr %38 to i64
@@ -189,7 +189,7 @@ define hidden void @_ZN9StubQueue22deallocate_unused_tailEv(ptr nocapture nounde
   %48 = sub nsw i64 %47, %34
   %49 = trunc i64 %48 to i32
   store i32 %49, ptr %5, align 8
-  %50 = getelementptr inbounds i8, ptr %0, i64 20
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %49, ptr %50, align 4
   ret void
 }
@@ -200,10 +200,10 @@ declare void @_ZN9CodeCache16free_unused_tailEP8CodeBlobm(ptr noundef, i64 nound
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZNK9StubQueue15stub_containingEPh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef readnone %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp ule ptr %4, %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 20
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %6 = load i32, ptr %5, align 4
   %7 = sext i32 %6 to i64
   %8 = getelementptr inbounds i8, ptr %4, i64 %7
@@ -212,7 +212,7 @@ define hidden noundef ptr @_ZNK9StubQueue15stub_containingEPh(ptr nocapture noun
   br i1 %10, label %11, label %.loopexit
 
 11:                                               ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %13 = load i32, ptr %12, align 8
   %14 = icmp slt i32 %13, 1
   %.not1215 = icmp eq ptr %4, null
@@ -220,18 +220,18 @@ define hidden noundef ptr @_ZNK9StubQueue15stub_containingEPh(ptr nocapture noun
   br i1 %.not12, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load i32, ptr %15, align 8
   %17 = sext i32 %16 to i64
   %18 = getelementptr inbounds i8, ptr %4, i64 %17
-  %19 = getelementptr inbounds i8, ptr %0, i64 28
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 28
   br label %20
 
 20:                                               ; preds = %.lr.ph, %_ZNK9StubQueue13stub_containsEP4StubPh.exit.thread
   %.013 = phi ptr [ %18, %.lr.ph ], [ %50, %_ZNK9StubQueue13stub_containsEP4StubPh.exit.thread ]
   %21 = load ptr, ptr %0, align 8
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 40
   %24 = load ptr, ptr %23, align 8
   %25 = tail call noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull %.013) #6
   %.not.i9 = icmp ugt ptr %25, %1
@@ -240,7 +240,7 @@ define hidden noundef ptr @_ZNK9StubQueue15stub_containingEPh(ptr nocapture noun
 _ZNK9StubQueue13stub_containsEP4StubPh.exit:      ; preds = %20
   %26 = load ptr, ptr %0, align 8
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 48
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 48
   %29 = load ptr, ptr %28, align 8
   %30 = tail call noundef ptr %29(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull %.013) #6
   %31 = icmp ult ptr %1, %30
@@ -254,7 +254,7 @@ _ZNK9StubQueue13stub_containsEP4StubPh.exit.thread: ; preds = %20, %_ZNK9StubQue
   %36 = trunc i64 %35 to i32
   %37 = load ptr, ptr %0, align 8
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %40 = load ptr, ptr %39, align 8
   %41 = tail call noundef i32 %40(ptr noundef nonnull align 8 dereferenceable(8) %37, ptr noundef nonnull %.013) #6
   %42 = add nsw i32 %41, %36
@@ -284,22 +284,22 @@ define hidden noundef ptr @_ZN9StubQueue17request_committedEi(ptr nocapture noun
   br i1 %.not, label %_ZN9StubQueue6commitEi.exit, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 28
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %6 = load i32, ptr %5, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = sext i32 %6 to i64
   %10 = getelementptr inbounds i8, ptr %8, i64 %9
   %11 = load ptr, ptr %0, align 8
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %14 = load ptr, ptr %13, align 8
   %15 = tail call noundef ptr %14(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef %10) #6
   %16 = sext i32 %1 to i64
   %17 = getelementptr inbounds i8, ptr %15, i64 %16
   %18 = load ptr, ptr %0, align 8
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %21 = load ptr, ptr %20, align 8
   %22 = tail call noundef i32 %21(ptr noundef nonnull align 8 dereferenceable(8) %18) #6
   %23 = ptrtoint ptr %17 to i64
@@ -319,11 +319,11 @@ define hidden noundef ptr @_ZN9StubQueue17request_committedEi(ptr nocapture noun
   %36 = load i32, ptr %5, align 4
   %37 = add nsw i32 %36, %32
   store i32 %37, ptr %5, align 4
-  %38 = getelementptr inbounds i8, ptr %0, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %39 = load i32, ptr %38, align 8
   %40 = add nsw i32 %39, 1
   store i32 %40, ptr %38, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 40
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %42 = load ptr, ptr %41, align 8
   %.not.i = icmp eq ptr %42, null
   br i1 %.not.i, label %_ZN9StubQueue6commitEi.exit, label %43
@@ -338,7 +338,7 @@ _ZN9StubQueue6commitEi.exit:                      ; preds = %43, %4, %2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN9StubQueue7requestEi(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %6, label %5
@@ -348,22 +348,22 @@ define hidden noundef ptr @_ZN9StubQueue7requestEi(ptr nocapture noundef nonnull
   br label %6
 
 6:                                                ; preds = %5, %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 28
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %8 = load i32, ptr %7, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = sext i32 %8 to i64
   %12 = getelementptr inbounds i8, ptr %10, i64 %11
   %13 = load ptr, ptr %0, align 8
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 40
   %16 = load ptr, ptr %15, align 8
   %17 = tail call noundef ptr %16(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef %12) #6
   %18 = sext i32 %1 to i64
   %19 = getelementptr inbounds i8, ptr %17, i64 %18
   %20 = load ptr, ptr %0, align 8
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %23 = load ptr, ptr %22, align 8
   %24 = tail call noundef i32 %23(ptr noundef nonnull align 8 dereferenceable(8) %20) #6
   %25 = ptrtoint ptr %19 to i64
@@ -376,13 +376,13 @@ define hidden noundef ptr @_ZN9StubQueue7requestEi(ptr nocapture noundef nonnull
   %32 = ptrtoint ptr %12 to i64
   %33 = sub i64 %31, %32
   %34 = trunc i64 %33 to i32
-  %35 = getelementptr inbounds i8, ptr %0, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %36 = load i32, ptr %35, align 8
   %37 = load i32, ptr %7, align 4
   %38 = xor i32 %37, -1
   %39 = add i32 %36, %38
   %40 = icmp slt i32 %39, 0
-  %41 = getelementptr inbounds i8, ptr %0, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %42 = load i32, ptr %41, align 8
   %43 = select i1 %40, i32 %42, i32 0
   %44 = add nsw i32 %43, %39
@@ -404,7 +404,7 @@ define hidden noundef ptr @_ZN9StubQueue7requestEi(ptr nocapture noundef nonnull
   br label %71
 
 52:                                               ; preds = %46
-  %53 = getelementptr inbounds i8, ptr %0, i64 20
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %37, ptr %53, align 4
   store i32 0, ptr %7, align 4
   br label %54
@@ -445,22 +445,22 @@ define hidden noundef ptr @_ZN9StubQueue7requestEi(ptr nocapture noundef nonnull
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN9StubQueue6commitEi(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 28
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = sext i32 %4 to i64
   %8 = getelementptr inbounds i8, ptr %6, i64 %7
   %9 = load ptr, ptr %0, align 8
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %12 = load ptr, ptr %11, align 8
   %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef %8) #6
   %14 = sext i32 %1 to i64
   %15 = getelementptr inbounds i8, ptr %13, i64 %14
   %16 = load ptr, ptr %0, align 8
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %19 = load ptr, ptr %18, align 8
   %20 = tail call noundef i32 %19(ptr noundef nonnull align 8 dereferenceable(8) %16) #6
   %21 = ptrtoint ptr %15 to i64
@@ -480,11 +480,11 @@ define hidden void @_ZN9StubQueue6commitEi(ptr nocapture noundef nonnull align 8
   %34 = load i32, ptr %3, align 4
   %35 = add nsw i32 %34, %30
   store i32 %35, ptr %3, align 4
-  %36 = getelementptr inbounds i8, ptr %0, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %37 = load i32, ptr %36, align 8
   %38 = add nsw i32 %37, 1
   store i32 %38, ptr %36, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 40
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %40 = load ptr, ptr %39, align 8
   %.not = icmp eq ptr %40, null
   br i1 %.not, label %42, label %41
@@ -501,14 +501,14 @@ define hidden void @_ZN9StubQueue6commitEi(ptr nocapture noundef nonnull align 8
 define hidden noundef i32 @_ZN9StubQueue17compute_stub_sizeEP4Stubi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef ptr %7(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %1) #6
   %9 = sext i32 %2 to i64
   %10 = getelementptr inbounds i8, ptr %8, i64 %9
   %11 = load ptr, ptr %0, align 8
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %14 = load ptr, ptr %13, align 8
   %15 = tail call noundef i32 %14(ptr noundef nonnull align 8 dereferenceable(8) %11) #6
   %16 = ptrtoint ptr %10 to i64
@@ -530,34 +530,34 @@ declare void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN9StubQueue12remove_firstEv(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %42, label %5
 
 5:                                                ; preds = %1
   %6 = icmp sgt i32 %3, 0
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load i32, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = sext i32 %8 to i64
   %12 = getelementptr inbounds i8, ptr %10, i64 %11
   %13 = select i1 %6, ptr %12, ptr null
   %14 = load ptr, ptr %0, align 8
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef %13) #6
   %18 = load ptr, ptr %0, align 8
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = load ptr, ptr %20, align 8
   %22 = tail call noundef i32 %21(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef %13) #6
   %23 = load i32, ptr %7, align 8
   %24 = add nsw i32 %23, %22
   store i32 %24, ptr %7, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 28
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %26 = load i32, ptr %25, align 4
   %27 = icmp eq i32 %24, %26
   br i1 %27, label %28, label %32
@@ -565,20 +565,20 @@ define hidden void @_ZN9StubQueue12remove_firstEv(ptr nocapture noundef nonnull 
 28:                                               ; preds = %5
   store i32 0, ptr %7, align 8
   store i32 0, ptr %25, align 4
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load i32, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 20
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %30, ptr %31, align 4
   br label %39
 
 32:                                               ; preds = %5
-  %33 = getelementptr inbounds i8, ptr %0, i64 20
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %34 = load i32, ptr %33, align 4
   %35 = icmp eq i32 %24, %34
   br i1 %35, label %36, label %39
 
 36:                                               ; preds = %32
-  %37 = getelementptr inbounds i8, ptr %0, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %38 = load i32, ptr %37, align 8
   store i32 %38, ptr %33, align 4
   store i32 0, ptr %7, align 8
@@ -596,18 +596,18 @@ define hidden void @_ZN9StubQueue12remove_firstEv(ptr nocapture noundef nonnull 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN9StubQueue12remove_firstEi(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i32, ptr %3, align 8
   %5 = tail call noundef i32 @llvm.smin.i32(i32 %1, i32 %4)
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 28
-  %10 = getelementptr inbounds i8, ptr %0, i64 20
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = icmp eq i32 %4, 0
   br i1 %12, label %._crit_edge, label %.lr.ph.split
 
@@ -627,12 +627,12 @@ define hidden void @_ZN9StubQueue12remove_firstEi(ptr nocapture noundef nonnull 
   %22 = select i1 %17, ptr %21, ptr null
   %23 = load ptr, ptr %0, align 8
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load ptr, ptr %25, align 8
   tail call void %26(ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef %22) #6
   %27 = load ptr, ptr %0, align 8
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %30 = load ptr, ptr %29, align 8
   %31 = tail call noundef i32 %30(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef %22) #6
   %32 = load i32, ptr %7, align 8
@@ -677,17 +677,17 @@ _ZN9StubQueue12remove_firstEv.exit:               ; preds = %.lr.ph.split, %43
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN9StubQueue10remove_allEv(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph.i, label %_ZN9StubQueue12remove_firstEi.exit
 
 .lr.ph.i:                                         ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 28
-  %8 = getelementptr inbounds i8, ptr %0, i64 20
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %.lr.ph.split.i
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %_ZN9StubQueue12remove_firstEv.exit.i
@@ -706,12 +706,12 @@ define hidden void @_ZN9StubQueue10remove_allEv(ptr nocapture noundef nonnull al
   %19 = select i1 %14, ptr %18, ptr null
   %20 = load ptr, ptr %0, align 8
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load ptr, ptr %22, align 8
   tail call void %23(ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef %19) #6
   %24 = load ptr, ptr %0, align 8
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load ptr, ptr %26, align 8
   %28 = tail call noundef i32 %27(ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef %19) #6
   %29 = load i32, ptr %5, align 8
@@ -756,13 +756,13 @@ _ZN9StubQueue12remove_firstEi.exit:               ; preds = %_ZN9StubQueue12remo
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN9StubQueue6verifyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %_ZN11MutexLockerD2Ev.exit, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8
   %.not.i.i = icmp eq ptr %7, null
   br i1 %.not.i.i, label %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit, label %8
@@ -772,7 +772,7 @@ define hidden void @_ZN9StubQueue6verifyEv(ptr nocapture noundef nonnull readonl
   br label %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit
 
 _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %5, %8
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i32, ptr %9, align 8
   %11 = icmp sgt i32 %10, -1
   br i1 %11, label %14, label %12
@@ -784,7 +784,7 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %5, %8
   unreachable
 
 14:                                               ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit
-  %15 = getelementptr inbounds i8, ptr %0, i64 20
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %16 = load i32, ptr %15, align 4
   %or.cond14 = icmp ugt i32 %16, %10
   br i1 %or.cond14, label %17, label %19
@@ -796,7 +796,7 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %5, %8
   unreachable
 
 19:                                               ; preds = %14
-  %20 = getelementptr inbounds i8, ptr %0, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %21 = load i32, ptr %20, align 8
   %22 = icmp sgt i32 %21, -1
   %23 = icmp slt i32 %21, %16
@@ -810,7 +810,7 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %5, %8
   unreachable
 
 26:                                               ; preds = %19
-  %27 = getelementptr inbounds i8, ptr %0, i64 28
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %28 = load i32, ptr %27, align 4
   %29 = icmp slt i32 %28, 0
   %.not12 = icmp sgt i32 %28, %16
@@ -826,7 +826,7 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %5, %8
 32:                                               ; preds = %26
   %33 = load ptr, ptr %0, align 8
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 24
   %36 = load ptr, ptr %35, align 8
   %37 = tail call noundef i32 %36(ptr noundef nonnull align 8 dereferenceable(8) %33) #6
   %38 = srem i32 %21, %37
@@ -843,7 +843,7 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %5, %8
   %43 = load i32, ptr %27, align 4
   %44 = load ptr, ptr %0, align 8
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 24
   %47 = load ptr, ptr %46, align 8
   %48 = tail call noundef i32 %47(ptr noundef nonnull align 8 dereferenceable(8) %44) #6
   %49 = srem i32 %43, %48
@@ -875,7 +875,7 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %5, %8
   unreachable
 
 62:                                               ; preds = %56, %53
-  %63 = getelementptr inbounds i8, ptr %0, i64 32
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %64 = load i32, ptr %63, align 8
   %65 = icmp slt i32 %64, 1
   %66 = load ptr, ptr %2, align 8
@@ -893,7 +893,7 @@ select.unfold:                                    ; preds = %select.unfold.prehe
   %.0721 = phi i32 [ %73, %select.unfold ], [ 0, %select.unfold.preheader ]
   %69 = load ptr, ptr %0, align 8
   %70 = load ptr, ptr %69, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 56
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 56
   %72 = load ptr, ptr %71, align 8
   tail call void %72(ptr noundef nonnull align 8 dereferenceable(8) %69, ptr noundef nonnull %.022) #6
   %73 = add nuw nsw i32 %.0721, 1
@@ -904,7 +904,7 @@ select.unfold:                                    ; preds = %select.unfold.prehe
   %78 = trunc i64 %77 to i32
   %79 = load ptr, ptr %0, align 8
   %80 = load ptr, ptr %79, align 8
-  %81 = getelementptr inbounds i8, ptr %80, i64 16
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 16
   %82 = load ptr, ptr %81, align 8
   %83 = tail call noundef i32 %82(ptr noundef nonnull align 8 dereferenceable(8) %79, ptr noundef nonnull %.022) #6
   %84 = add nsw i32 %83, %78
@@ -968,7 +968,7 @@ declare void @_Z15report_vm_errorPKciS0_S0_z(ptr noundef, i32 noundef, ptr nound
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN9StubQueue5printEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i, label %_ZN22ConditionalMutexLockerC2EP5MutexbNS0_18SafepointCheckFlagE.exit, label %4
@@ -978,29 +978,29 @@ define hidden void @_ZN9StubQueue5printEv(ptr nocapture noundef nonnull readonly
   br label %_ZN22ConditionalMutexLockerC2EP5MutexbNS0_18SafepointCheckFlagE.exit
 
 _ZN22ConditionalMutexLockerC2EP5MutexbNS0_18SafepointCheckFlagE.exit: ; preds = %1, %4
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load i32, ptr %5, align 8
   %7 = icmp slt i32 %6, 1
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   %.not79 = icmp eq ptr %9, null
   %.not7 = select i1 %7, i1 true, i1 %.not79
   br i1 %.not7, label %select.unfold._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN22ConditionalMutexLockerC2EP5MutexbNS0_18SafepointCheckFlagE.exit
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load i32, ptr %10, align 8
   %12 = sext i32 %11 to i64
   %13 = getelementptr inbounds i8, ptr %9, i64 %12
-  %14 = getelementptr inbounds i8, ptr %0, i64 20
-  %15 = getelementptr inbounds i8, ptr %0, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 28
   br label %select.unfold
 
 select.unfold:                                    ; preds = %.lr.ph, %select.unfold
   %.08 = phi ptr [ %13, %.lr.ph ], [ %38, %select.unfold ]
   %16 = load ptr, ptr %0, align 8
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 64
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 64
   %19 = load ptr, ptr %18, align 8
   tail call void %19(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull %.08) #6
   %20 = load ptr, ptr %8, align 8
@@ -1010,7 +1010,7 @@ select.unfold:                                    ; preds = %.lr.ph, %select.unf
   %24 = trunc i64 %23 to i32
   %25 = load ptr, ptr %0, align 8
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %28 = load ptr, ptr %27, align 8
   %29 = tail call noundef i32 %28(ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull %.08) #6
   %30 = add nsw i32 %29, %24

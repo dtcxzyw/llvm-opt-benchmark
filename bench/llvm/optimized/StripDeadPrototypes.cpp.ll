@@ -82,7 +82,7 @@ _ZL19stripDeadPrototypesRN4llvm6ModuleE.exit:     ; preds = %30, %._crit_edge.i
   br i1 %.0.lcssa.i, label %31, label %34
 
 31:                                               ; preds = %_ZL19stripDeadPrototypesRN4llvm6ModuleE.exit
-  %32 = getelementptr inbounds i8, ptr %0, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %32, i8 0, i64 72, i1 false), !alias.scope !4
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %38

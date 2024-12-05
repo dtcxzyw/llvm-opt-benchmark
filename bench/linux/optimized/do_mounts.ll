@@ -281,8 +281,8 @@ define dso_local void @mount_root_generic(ptr noundef %0, ptr noundef %1, i32 no
   %51 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.5, ptr noundef %49) #17
   %52 = add nuw nsw i32 %50, 1
   %53 = call i64 @strlen(ptr noundef %49) #18
-  %54 = add i64 %53, 1
-  %55 = getelementptr i8, ptr %49, i64 %54
+  %54 = getelementptr i8, ptr %49, i64 %53
+  %55 = getelementptr i8, ptr %54, i64 1
   %56 = icmp eq i32 %52, %44
   br i1 %56, label %.loopexit3, label %.preheader2, !llvm.loop !6
 
@@ -295,8 +295,8 @@ define dso_local void @mount_root_generic(ptr noundef %0, ptr noundef %1, i32 no
 59:                                               ; preds = %33, %33, %.preheader4
   %60 = add nuw nsw i32 %30, 1
   %61 = call i64 @strlen(ptr noundef %29) #18
-  %62 = add i64 %61, 1
-  %63 = getelementptr i8, ptr %29, i64 %62
+  %62 = getelementptr i8, ptr %29, i64 %61
+  %63 = getelementptr i8, ptr %62, i64 1
   %64 = icmp eq i32 %60, %24
   br i1 %64, label %.loopexit5, label %.preheader4, !llvm.loop !9
 
@@ -317,8 +317,8 @@ define dso_local void @mount_root_generic(ptr noundef %0, ptr noundef %1, i32 no
   %72 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.10, ptr noundef %70) #17
   %73 = add nuw nsw i32 %71, 1
   %74 = call i64 @strlen(ptr noundef %70) #18
-  %75 = add i64 %74, 1
-  %76 = getelementptr i8, ptr %70, i64 %75
+  %75 = getelementptr i8, ptr %70, i64 %74
+  %76 = getelementptr i8, ptr %75, i64 1
   %77 = icmp eq i32 %73, %24
   br i1 %77, label %.loopexit, label %.preheader, !llvm.loop !10
 
@@ -328,7 +328,7 @@ define dso_local void @mount_root_generic(ptr noundef %0, ptr noundef %1, i32 no
   unreachable
 
 79:                                               ; preds = %33
-  %80 = getelementptr inbounds i8, ptr %5, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %81 = load volatile i64, ptr %80, align 8
   %82 = and i64 %81, 1
   %83 = icmp eq i64 %82, 0
@@ -368,8 +368,8 @@ define dso_local void @mount_root_generic(ptr noundef %0, ptr noundef %1, i32 no
 
 103:                                              ; preds = %102, %95, %87, %84
   %104 = phi ptr [ %86, %84 ], [ %101, %95 ], [ %5, %102 ], [ %5, %87 ]
-  %105 = getelementptr inbounds i8, ptr %104, i64 52
-  %106 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %105, ptr elementtype(i32) %105) #18, !srcloc !13
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 52
+  %106 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %105, ptr nonnull elementtype(i32) %105) #18, !srcloc !13
   %107 = icmp ult i8 %106, 2
   call void @llvm.assume(i1 %107)
   %108 = icmp eq i8 %106, 0
@@ -461,19 +461,19 @@ define internal fastcc i32 @do_mount_root(ptr noundef %0, ptr noundef %1, i32 no
   %25 = tail call i32 @init_chdir(ptr noundef nonnull @.str.21) #17
   %26 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #21, !srcloc !15
   %27 = inttoptr i64 %26 to ptr
-  %28 = getelementptr inbounds i8, ptr %27, i64 1848
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 1848
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 48
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 48
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 112
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 112
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %35 = load i32, ptr %34, align 16
   store i32 %35, ptr @ROOT_DEV, align 4
-  %36 = getelementptr inbounds i8, ptr %33, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %33, i64 40
   %37 = load ptr, ptr %36, align 8
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %33, i64 80
+  %39 = getelementptr inbounds nuw i8, ptr %33, i64 80
   %40 = load i64, ptr %39, align 16
   %41 = and i64 %40, 1
   %42 = icmp eq i64 %41, 0
@@ -488,7 +488,7 @@ define internal fastcc i32 @do_mount_root(ptr noundef %0, ptr noundef %1, i32 no
   br i1 %48, label %81, label %49
 
 49:                                               ; preds = %47
-  %50 = getelementptr inbounds i8, ptr %19, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %51 = load volatile i64, ptr %50, align 8
   %52 = and i64 %51, 1
   %53 = icmp eq i64 %52, 0
@@ -529,8 +529,8 @@ define internal fastcc i32 @do_mount_root(ptr noundef %0, ptr noundef %1, i32 no
 
 74:                                               ; preds = %73, %66, %57, %54
   %75 = phi ptr [ %56, %54 ], [ %72, %66 ], [ %19, %73 ], [ %19, %57 ]
-  %76 = getelementptr inbounds i8, ptr %75, i64 52
-  %77 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %76, ptr elementtype(i32) %76) #18, !srcloc !13
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 52
+  %77 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %76, ptr nonnull elementtype(i32) %76) #18, !srcloc !13
   %78 = icmp ult i8 %77, 2
   tail call void @llvm.assume(i1 %78)
   %79 = icmp eq i8 %77, 0
@@ -683,8 +683,8 @@ define internal fastcc i32 @mount_nodev_root(ptr noundef nonnull %0) unnamed_add
   %21 = phi i32 [ %18, %15 ], [ %9, %13 ], [ %9, %.preheader ]
   %22 = add nuw nsw i32 %8, 1
   %23 = tail call i64 @strlen(ptr noundef %10) #18
-  %24 = add i64 %23, 1
-  %25 = getelementptr i8, ptr %10, i64 %24
+  %24 = getelementptr i8, ptr %10, i64 %23
+  %25 = getelementptr i8, ptr %24, i64 1
   %26 = icmp eq i32 %22, %6
   br i1 %26, label %.loopexit, label %.preheader, !llvm.loop !17
 
@@ -967,7 +967,7 @@ define internal fastcc zeroext i1 @fs_is_nodev(ptr noundef %0) unnamed_addr #0 s
   br i1 %3, label %9, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = and i32 %6, 1
   %8 = icmp eq i32 %7, 0

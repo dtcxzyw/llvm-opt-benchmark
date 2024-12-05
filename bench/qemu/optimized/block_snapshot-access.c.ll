@@ -42,16 +42,16 @@ define internal range(i32 -22, 1) i32 @snapshot_access_open(ptr noundef %bs, ptr
 entry:
   %call = tail call ptr @bdrv_open_child(ptr noundef null, ptr noundef %options, ptr noundef nonnull @.str.1, ptr noundef %bs, ptr noundef nonnull @child_of_bds, i32 noundef 17, i1 noundef zeroext false, ptr noundef %errp) #4
   tail call void @bdrv_graph_rdlock_main_loop() #4
-  %file = getelementptr inbounds i8, ptr %bs, i64 16840
+  %file = getelementptr inbounds nuw i8, ptr %bs, i64 16840
   %0 = load ptr, ptr %file, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %if.end
 
 if.end:                                           ; preds = %entry
   %1 = load ptr, ptr %0, align 8
-  %total_sectors = getelementptr inbounds i8, ptr %1, i64 16888
+  %total_sectors = getelementptr inbounds nuw i8, ptr %1, i64 16888
   %2 = load i64, ptr %total_sectors, align 8
-  %total_sectors4 = getelementptr inbounds i8, ptr %bs, i64 16888
+  %total_sectors4 = getelementptr inbounds nuw i8, ptr %bs, i64 16888
   store i64 %2, ptr %total_sectors4, align 8
   br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
@@ -64,11 +64,11 @@ glib_autoptr_cleanup_GraphLockableMainloop.exit:  ; preds = %entry, %if.end
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @snapshot_access_refresh_filename(ptr noundef %bs) #0 {
 entry:
-  %exact_filename = getelementptr inbounds i8, ptr %bs, i64 12368
-  %file = getelementptr inbounds i8, ptr %bs, i64 16840
+  %exact_filename = getelementptr inbounds nuw i8, ptr %bs, i64 12368
+  %file = getelementptr inbounds nuw i8, ptr %bs, i64 16840
   %0 = load ptr, ptr %file, align 8
   %1 = load ptr, ptr %0, align 8
-  %filename = getelementptr inbounds i8, ptr %1, i64 49
+  %filename = getelementptr inbounds nuw i8, ptr %1, i64 49
   tail call void @pstrcpy(ptr noundef nonnull %exact_filename, i32 noundef 4096, ptr noundef nonnull %filename) #4
   ret void
 }
@@ -88,7 +88,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %file = getelementptr inbounds i8, ptr %bs, i64 16840
+  %file = getelementptr inbounds nuw i8, ptr %bs, i64 16840
   %0 = load ptr, ptr %file, align 8
   %call = tail call i32 @bdrv_co_preadv_snapshot(ptr noundef %0, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, i64 noundef %qiov_offset) #4
   br label %return
@@ -113,7 +113,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @snapshot_access_co_pdiscard(ptr nocapture noundef readonly %bs, i64 noundef %offset, i64 noundef %bytes) #0 {
 entry:
-  %file = getelementptr inbounds i8, ptr %bs, i64 16840
+  %file = getelementptr inbounds nuw i8, ptr %bs, i64 16840
   %0 = load ptr, ptr %file, align 8
   %1 = load ptr, ptr %0, align 8
   %call = tail call i32 @bdrv_co_pdiscard_snapshot(ptr noundef %1, i64 noundef %offset, i64 noundef %bytes) #4
@@ -123,7 +123,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @snapshot_access_co_block_status(ptr nocapture noundef readonly %bs, i1 noundef zeroext %want_zero, i64 noundef %offset, i64 noundef %bytes, ptr noundef %pnum, ptr noundef %map, ptr noundef %file) #0 {
 entry:
-  %file1 = getelementptr inbounds i8, ptr %bs, i64 16840
+  %file1 = getelementptr inbounds nuw i8, ptr %bs, i64 16840
   %0 = load ptr, ptr %file1, align 8
   %1 = load ptr, ptr %0, align 8
   %call = tail call i32 @bdrv_co_snapshot_block_status(ptr noundef %1, i1 noundef zeroext %want_zero, i64 noundef %offset, i64 noundef %bytes, ptr noundef %pnum, ptr noundef %map, ptr noundef %file) #4

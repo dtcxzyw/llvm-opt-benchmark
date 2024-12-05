@@ -48,11 +48,11 @@ if.end5:                                          ; preds = %entry, %if.then
   store i32 0, ptr %written.i, align 4
   %spec.store.select.i = call i32 @llvm.umin.i32(i32 %count, i32 2147483647)
   store ptr %buffer, ptr %outStr.i, align 8
-  %len.i = getelementptr inbounds i8, ptr %outStr.i, i64 12
+  %len.i = getelementptr inbounds nuw i8, ptr %outStr.i, i64 12
   store i32 %spec.store.select.i, ptr %len.i, align 4
-  %available.i = getelementptr inbounds i8, ptr %outStr.i, i64 8
+  %available.i = getelementptr inbounds nuw i8, ptr %outStr.i, i64 8
   store i32 %spec.store.select.i, ptr %available.i, align 8
-  %fBundle.i = getelementptr inbounds i8, ptr %outStr.i, i64 16
+  %fBundle.i = getelementptr inbounds nuw i8, ptr %outStr.i, i64 16
   %call.i = call ptr @u_locbund_init_75(ptr noundef nonnull %fBundle.i, ptr noundef nonnull @.str)
   %cmp1.i = icmp eq ptr %call.i, null
   br i1 %cmp1.i, label %u_vsnprintf_u_75.exit, label %if.end3.i
@@ -105,11 +105,11 @@ entry:
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %outStr.i)
   store i32 0, ptr %written.i, align 4
   store ptr %buffer, ptr %outStr.i, align 8
-  %len.i = getelementptr inbounds i8, ptr %outStr.i, i64 12
+  %len.i = getelementptr inbounds nuw i8, ptr %outStr.i, i64 12
   store i32 2147483647, ptr %len.i, align 4
-  %available.i = getelementptr inbounds i8, ptr %outStr.i, i64 8
+  %available.i = getelementptr inbounds nuw i8, ptr %outStr.i, i64 8
   store i32 2147483647, ptr %available.i, align 8
-  %fBundle.i = getelementptr inbounds i8, ptr %outStr.i, i64 16
+  %fBundle.i = getelementptr inbounds nuw i8, ptr %outStr.i, i64 16
   %call.i = call ptr @u_locbund_init_75(ptr noundef nonnull %fBundle.i, ptr noundef nonnull @.str)
   %cmp1.i = icmp eq ptr %call.i, null
   br i1 %cmp1.i, label %u_vsnprintf_u_75.exit, label %if.end3.i
@@ -151,11 +151,11 @@ entry:
   store i32 0, ptr %written, align 4
   %spec.store.select = tail call i32 @llvm.umin.i32(i32 %count, i32 2147483647)
   store ptr %buffer, ptr %outStr, align 8
-  %len = getelementptr inbounds i8, ptr %outStr, i64 12
+  %len = getelementptr inbounds nuw i8, ptr %outStr, i64 12
   store i32 %spec.store.select, ptr %len, align 4
-  %available = getelementptr inbounds i8, ptr %outStr, i64 8
+  %available = getelementptr inbounds nuw i8, ptr %outStr, i64 8
   store i32 %spec.store.select, ptr %available, align 8
-  %fBundle = getelementptr inbounds i8, ptr %outStr, i64 16
+  %fBundle = getelementptr inbounds nuw i8, ptr %outStr, i64 16
   %call = call ptr @u_locbund_init_75(ptr noundef nonnull %fBundle, ptr noundef nonnull @.str)
   %cmp1 = icmp eq ptr %call, null
   br i1 %cmp1, label %return, label %if.end3
@@ -215,11 +215,11 @@ entry:
   store i32 0, ptr %written.i, align 4
   %spec.store.select.i = call i32 @llvm.umin.i32(i32 %count, i32 2147483647)
   store ptr %buffer, ptr %outStr.i, align 8
-  %len.i = getelementptr inbounds i8, ptr %outStr.i, i64 12
+  %len.i = getelementptr inbounds nuw i8, ptr %outStr.i, i64 12
   store i32 %spec.store.select.i, ptr %len.i, align 4
-  %available.i = getelementptr inbounds i8, ptr %outStr.i, i64 8
+  %available.i = getelementptr inbounds nuw i8, ptr %outStr.i, i64 8
   store i32 %spec.store.select.i, ptr %available.i, align 8
-  %fBundle.i = getelementptr inbounds i8, ptr %outStr.i, i64 16
+  %fBundle.i = getelementptr inbounds nuw i8, ptr %outStr.i, i64 16
   %call.i = call ptr @u_locbund_init_75(ptr noundef nonnull %fBundle.i, ptr noundef nonnull @.str)
   %cmp1.i = icmp eq ptr %call.i, null
   br i1 %cmp1.i, label %u_vsnprintf_u_75.exit, label %if.end3.i
@@ -272,11 +272,11 @@ entry:
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %outStr.i)
   store i32 0, ptr %written.i, align 4
   store ptr %buffer, ptr %outStr.i, align 8
-  %len.i = getelementptr inbounds i8, ptr %outStr.i, i64 12
+  %len.i = getelementptr inbounds nuw i8, ptr %outStr.i, i64 12
   store i32 2147483647, ptr %len.i, align 4
-  %available.i = getelementptr inbounds i8, ptr %outStr.i, i64 8
+  %available.i = getelementptr inbounds nuw i8, ptr %outStr.i, i64 8
   store i32 2147483647, ptr %available.i, align 8
-  %fBundle.i = getelementptr inbounds i8, ptr %outStr.i, i64 16
+  %fBundle.i = getelementptr inbounds nuw i8, ptr %outStr.i, i64 16
   %call.i = call ptr @u_locbund_init_75(ptr noundef nonnull %fBundle.i, ptr noundef nonnull @.str)
   %cmp1.i = icmp eq ptr %call.i, null
   br i1 %cmp1.i, label %u_vsnprintf_u_75.exit, label %if.end3.i
@@ -323,10 +323,10 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %available = getelementptr inbounds i8, ptr %context, i64 8
+  %available = getelementptr inbounds nuw i8, ptr %context, i64 8
   %1 = load i32, ptr %available, align 8
   %count. = tail call i32 @llvm.smin.i32(i32 %count, i32 %1)
-  %len = getelementptr inbounds i8, ptr %context, i64 12
+  %len = getelementptr inbounds nuw i8, ptr %context, i64 12
   %2 = load i32, ptr %len, align 4
   %sub = sub nsw i32 %2, %1
   %idx.ext = sext i32 %sub to i64
@@ -347,7 +347,7 @@ define internal noundef i32 @_ZL25u_sprintf_pad_and_justifyPvPK18u_printf_spec_i
 entry:
   %0 = load ptr, ptr %context, align 8
   %cmp = icmp eq ptr %0, null
-  %fWidth = getelementptr inbounds i8, ptr %info, i64 4
+  %fWidth = getelementptr inbounds nuw i8, ptr %info, i64 4
   %1 = load i32, ptr %fWidth, align 4
   br i1 %cmp, label %land.lhs.true, label %if.end.thread
 
@@ -358,7 +358,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %or.cond, label %return, label %if.end
 
 if.end:                                           ; preds = %land.lhs.true
-  %available = getelementptr inbounds i8, ptr %context, i64 8
+  %available = getelementptr inbounds nuw i8, ptr %context, i64 8
   %2 = load i32, ptr %available, align 8
   %resultLen. = tail call i32 @llvm.smin.i32(i32 %resultLen, i32 %2)
   %cmp9.not = icmp ne i32 %1, -1
@@ -367,7 +367,7 @@ if.end:                                           ; preds = %land.lhs.true
   br i1 %or.cond51, label %if.then13, label %if.end46
 
 if.end.thread:                                    ; preds = %entry
-  %available79 = getelementptr inbounds i8, ptr %context, i64 8
+  %available79 = getelementptr inbounds nuw i8, ptr %context, i64 8
   %3 = load i32, ptr %available79, align 8
   %resultLen.80 = tail call i32 @llvm.smin.i32(i32 %resultLen, i32 %3)
   %cmp9.not81 = icmp ne i32 %1, -1
@@ -380,14 +380,14 @@ if.then13:                                        ; preds = %if.end.thread, %if.
   %4 = phi i32 [ %3, %if.end.thread ], [ %2, %if.end ]
   %available84 = phi ptr [ %available79, %if.end.thread ], [ %available, %if.end ]
   %sub = sub nsw i32 %1, %resultLen.86
-  %len = getelementptr inbounds i8, ptr %context, i64 12
+  %len = getelementptr inbounds nuw i8, ptr %context, i64 12
   %5 = load i32, ptr %len, align 4
   %sub16 = sub nsw i32 %5, %4
   %cmp18 = icmp sgt i32 %1, %4
   %sub21 = sub nsw i32 %4, %resultLen.86
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %sub21, i32 0)
   %paddingLeft.0 = select i1 %cmp18, i32 %spec.store.select, i32 %sub
-  %fLeft = getelementptr inbounds i8, ptr %info, i64 16
+  %fLeft = getelementptr inbounds nuw i8, ptr %info, i64 16
   %6 = load i8, ptr %fLeft, align 4
   %tobool.not = icmp eq i8 %6, 0
   br i1 %tobool.not, label %if.else, label %if.then27
@@ -411,7 +411,7 @@ _ZL15u_sprintf_writePvPKDsi.exit:                 ; preds = %if.then27, %if.end.
   %add30 = add nsw i32 %sub16, %resultLen.86
   %idxprom = sext i32 %add30 to i64
   %arrayidx = getelementptr inbounds i16, ptr %8, i64 %idxprom
-  %fPadChar = getelementptr inbounds i8, ptr %info, i64 12
+  %fPadChar = getelementptr inbounds nuw i8, ptr %info, i64 12
   %9 = load i16, ptr %fPadChar, align 4
   %call31 = tail call ptr @u_memset_75(ptr noundef %arrayidx, i16 noundef zeroext %9, i32 noundef %paddingLeft.0)
   %10 = load i32, ptr %available84, align 8
@@ -422,7 +422,7 @@ _ZL15u_sprintf_writePvPKDsi.exit:                 ; preds = %if.then27, %if.end.
 if.else:                                          ; preds = %if.then13
   %idxprom35 = sext i32 %sub16 to i64
   %arrayidx36 = getelementptr inbounds i16, ptr %0, i64 %idxprom35
-  %fPadChar37 = getelementptr inbounds i8, ptr %info, i64 12
+  %fPadChar37 = getelementptr inbounds nuw i8, ptr %info, i64 12
   %11 = load i16, ptr %fPadChar37, align 4
   %call38 = tail call ptr @u_memset_75(ptr noundef %arrayidx36, i16 noundef zeroext %11, i32 noundef %paddingLeft.0)
   %12 = load i32, ptr %available84, align 8
@@ -450,7 +450,7 @@ _ZL15u_sprintf_writePvPKDsi.exit64:               ; preds = %if.else, %if.end.i5
   br label %if.end46
 
 if.end.i66:                                       ; preds = %if.end.thread
-  %len.i69 = getelementptr inbounds i8, ptr %context, i64 12
+  %len.i69 = getelementptr inbounds nuw i8, ptr %context, i64 12
   %16 = load i32, ptr %len.i69, align 4
   %sub.i70 = sub nsw i32 %16, %3
   %idx.ext.i71 = sext i32 %sub.i70 to i64

@@ -46,7 +46,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define void @Java_sun_nio_ch_sctp_SctpChannelImpl_initIDs(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr %5(ptr noundef nonnull %0, ptr noundef nonnull @.str) #11
   %7 = icmp eq ptr %6, null
@@ -54,7 +54,7 @@ define void @Java_sun_nio_ch_sctp_SctpChannelImpl_initIDs(ptr noundef %0, ptr no
 
 8:                                                ; preds = %2
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 168
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
   %12 = tail call ptr %11(ptr noundef nonnull %0, ptr noundef nonnull %6) #11
   store ptr %12, ptr @smi_class, align 8
@@ -63,7 +63,7 @@ define void @Java_sun_nio_ch_sctp_SctpChannelImpl_initIDs(ptr noundef %0, ptr no
 
 14:                                               ; preds = %8
   %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 264
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 264
   %17 = load ptr, ptr %16, align 8
   %18 = tail call ptr %17(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #11
   store ptr %18, ptr @smi_ctrID, align 8
@@ -72,7 +72,7 @@ define void @Java_sun_nio_ch_sctp_SctpChannelImpl_initIDs(ptr noundef %0, ptr no
 
 20:                                               ; preds = %14
   %21 = load ptr, ptr %0, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 48
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 48
   %23 = load ptr, ptr %22, align 8
   %24 = tail call ptr %23(ptr noundef nonnull %0, ptr noundef nonnull @.str.3) #11
   %25 = icmp eq ptr %24, null
@@ -80,7 +80,7 @@ define void @Java_sun_nio_ch_sctp_SctpChannelImpl_initIDs(ptr noundef %0, ptr no
 
 26:                                               ; preds = %20
   %27 = load ptr, ptr %0, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 752
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 752
   %29 = load ptr, ptr %28, align 8
   %30 = tail call ptr %29(ptr noundef nonnull %0, ptr noundef nonnull %24, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5) #11
   store ptr %30, ptr @src_valueID, align 8
@@ -89,7 +89,7 @@ define void @Java_sun_nio_ch_sctp_SctpChannelImpl_initIDs(ptr noundef %0, ptr no
 
 32:                                               ; preds = %26
   %33 = load ptr, ptr %0, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 752
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 752
   %35 = load ptr, ptr %34, align 8
   %36 = tail call ptr %35(ptr noundef nonnull %0, ptr noundef nonnull %24, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7) #11
   store ptr %36, ptr @src_typeID, align 8
@@ -98,7 +98,7 @@ define void @Java_sun_nio_ch_sctp_SctpChannelImpl_initIDs(ptr noundef %0, ptr no
 
 38:                                               ; preds = %32
   %39 = load ptr, ptr %0, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 48
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 48
   %41 = load ptr, ptr %40, align 8
   %42 = tail call ptr %41(ptr noundef nonnull %0, ptr noundef nonnull @.str.8) #11
   %43 = icmp eq ptr %42, null
@@ -106,7 +106,7 @@ define void @Java_sun_nio_ch_sctp_SctpChannelImpl_initIDs(ptr noundef %0, ptr no
 
 44:                                               ; preds = %38
   %45 = load ptr, ptr %0, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 168
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 168
   %47 = load ptr, ptr %46, align 8
   %48 = tail call ptr %47(ptr noundef nonnull %0, ptr noundef nonnull %42) #11
   store ptr %48, ptr @ssf_class, align 8
@@ -115,7 +115,7 @@ define void @Java_sun_nio_ch_sctp_SctpChannelImpl_initIDs(ptr noundef %0, ptr no
 
 50:                                               ; preds = %44
   %51 = load ptr, ptr %0, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 264
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 264
   %53 = load ptr, ptr %52, align 8
   %54 = tail call ptr %53(ptr noundef nonnull %0, ptr noundef nonnull %42, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.9) #11
   store ptr %54, ptr @ssf_ctrID, align 8
@@ -124,7 +124,7 @@ define void @Java_sun_nio_ch_sctp_SctpChannelImpl_initIDs(ptr noundef %0, ptr no
 
 56:                                               ; preds = %50
   %57 = load ptr, ptr %0, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 48
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 48
   %59 = load ptr, ptr %58, align 8
   %60 = tail call ptr %59(ptr noundef nonnull %0, ptr noundef nonnull @.str.10) #11
   %61 = icmp eq ptr %60, null
@@ -132,7 +132,7 @@ define void @Java_sun_nio_ch_sctp_SctpChannelImpl_initIDs(ptr noundef %0, ptr no
 
 62:                                               ; preds = %56
   %63 = load ptr, ptr %0, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 168
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 168
   %65 = load ptr, ptr %64, align 8
   %66 = tail call ptr %65(ptr noundef nonnull %0, ptr noundef nonnull %60) #11
   store ptr %66, ptr @sac_class, align 8
@@ -141,7 +141,7 @@ define void @Java_sun_nio_ch_sctp_SctpChannelImpl_initIDs(ptr noundef %0, ptr no
 
 68:                                               ; preds = %62
   %69 = load ptr, ptr %0, align 8
-  %70 = getelementptr inbounds i8, ptr %69, i64 264
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 264
   %71 = load ptr, ptr %70, align 8
   %72 = tail call ptr %71(ptr noundef nonnull %0, ptr noundef nonnull %60, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.11) #11
   store ptr %72, ptr @sac_ctrID, align 8
@@ -150,7 +150,7 @@ define void @Java_sun_nio_ch_sctp_SctpChannelImpl_initIDs(ptr noundef %0, ptr no
 
 74:                                               ; preds = %68
   %75 = load ptr, ptr %0, align 8
-  %76 = getelementptr inbounds i8, ptr %75, i64 48
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 48
   %77 = load ptr, ptr %76, align 8
   %78 = tail call ptr %77(ptr noundef nonnull %0, ptr noundef nonnull @.str.12) #11
   %79 = icmp eq ptr %78, null
@@ -158,7 +158,7 @@ define void @Java_sun_nio_ch_sctp_SctpChannelImpl_initIDs(ptr noundef %0, ptr no
 
 80:                                               ; preds = %74
   %81 = load ptr, ptr %0, align 8
-  %82 = getelementptr inbounds i8, ptr %81, i64 168
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 168
   %83 = load ptr, ptr %82, align 8
   %84 = tail call ptr %83(ptr noundef nonnull %0, ptr noundef nonnull %78) #11
   store ptr %84, ptr @spc_class, align 8
@@ -167,7 +167,7 @@ define void @Java_sun_nio_ch_sctp_SctpChannelImpl_initIDs(ptr noundef %0, ptr no
 
 86:                                               ; preds = %80
   %87 = load ptr, ptr %0, align 8
-  %88 = getelementptr inbounds i8, ptr %87, i64 264
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 264
   %89 = load ptr, ptr %88, align 8
   %90 = tail call ptr %89(ptr noundef nonnull %0, ptr noundef nonnull %78, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.13) #11
   store ptr %90, ptr @spc_ctrID, align 8
@@ -176,7 +176,7 @@ define void @Java_sun_nio_ch_sctp_SctpChannelImpl_initIDs(ptr noundef %0, ptr no
 
 92:                                               ; preds = %86
   %93 = load ptr, ptr %0, align 8
-  %94 = getelementptr inbounds i8, ptr %93, i64 48
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 48
   %95 = load ptr, ptr %94, align 8
   %96 = tail call ptr %95(ptr noundef nonnull %0, ptr noundef nonnull @.str.14) #11
   %97 = icmp eq ptr %96, null
@@ -184,7 +184,7 @@ define void @Java_sun_nio_ch_sctp_SctpChannelImpl_initIDs(ptr noundef %0, ptr no
 
 98:                                               ; preds = %92
   %99 = load ptr, ptr %0, align 8
-  %100 = getelementptr inbounds i8, ptr %99, i64 168
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 168
   %101 = load ptr, ptr %100, align 8
   %102 = tail call ptr %101(ptr noundef nonnull %0, ptr noundef nonnull %96) #11
   store ptr %102, ptr @ss_class, align 8
@@ -193,7 +193,7 @@ define void @Java_sun_nio_ch_sctp_SctpChannelImpl_initIDs(ptr noundef %0, ptr no
 
 104:                                              ; preds = %98
   %105 = load ptr, ptr %0, align 8
-  %106 = getelementptr inbounds i8, ptr %105, i64 264
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 264
   %107 = load ptr, ptr %106, align 8
   %108 = tail call ptr %107(ptr noundef nonnull %0, ptr noundef nonnull %96, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.15) #11
   store ptr %108, ptr @ss_ctrID, align 8
@@ -205,48 +205,48 @@ define void @Java_sun_nio_ch_sctp_SctpChannelImpl_initIDs(ptr noundef %0, ptr no
 
 ; Function Attrs: nounwind uwtable
 define hidden void @getControlData(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i64, ptr %3, align 8
   %5 = icmp ugt i64 %4, 15
   br i1 %5, label %6, label %.loopexit
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load ptr, ptr %7, align 8
   %.not18 = icmp eq ptr %8, null
   br i1 %.not18, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6, %31
   %.019 = phi ptr [ %32, %31 ], [ %8, %6 ]
-  %9 = getelementptr inbounds i8, ptr %.019, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %.019, i64 8
   %10 = load i32, ptr %9, align 8
   %11 = icmp eq i32 %10, 132
   br i1 %11, label %12, label %31
 
 12:                                               ; preds = %.lr.ph
-  %13 = getelementptr inbounds i8, ptr %.019, i64 12
+  %13 = getelementptr inbounds nuw i8, ptr %.019, i64 12
   %14 = load i32, ptr %13, align 4
   %15 = icmp eq i32 %14, 1
   br i1 %15, label %16, label %31
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %.019, i64 16
-  %18 = getelementptr inbounds i8, ptr %.019, i64 44
+  %17 = getelementptr inbounds nuw i8, ptr %.019, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %.019, i64 44
   %19 = load i32, ptr %18, align 4
   store i32 %19, ptr %1, align 4
   %20 = load i16, ptr %17, align 4
-  %21 = getelementptr inbounds i8, ptr %1, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i16 %20, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %.019, i64 20
+  %22 = getelementptr inbounds nuw i8, ptr %.019, i64 20
   %23 = load i16, ptr %22, align 4
   %24 = trunc i16 %23 to i8
   %25 = and i8 %24, 1
-  %26 = getelementptr inbounds i8, ptr %1, i64 6
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 6
   store i8 %25, ptr %26, align 2
-  %27 = getelementptr inbounds i8, ptr %.019, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %.019, i64 24
   %28 = load i32, ptr %27, align 4
   %29 = tail call i32 @ntohl(i32 noundef %28) #12
-  %30 = getelementptr inbounds i8, ptr %1, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %29, ptr %30, align 4
   br label %.loopexit
 
@@ -267,26 +267,26 @@ declare ptr @__cmsg_nxthdr(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden void @setControlData(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i64, ptr %3, align 8
   %5 = icmp ugt i64 %4, 15
   br i1 %5, label %6, label %9
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load ptr, ptr %7, align 8
   br label %9
 
 9:                                                ; preds = %2, %6
   %10 = phi ptr [ %8, %6 ], [ null, %2 ]
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i32 132, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %10, i64 12
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 12
   store i32 1, ptr %12, align 4
   store i64 48, ptr %10, align 8
-  %13 = getelementptr inbounds i8, ptr %10, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %13, i8 0, i64 32, i1 false)
-  %14 = getelementptr inbounds i8, ptr %1, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %15 = load i16, ptr %14, align 4
   %.not = icmp eq i16 %15, 0
   br i1 %.not, label %17, label %16
@@ -301,30 +301,30 @@ define hidden void @setControlData(ptr nocapture noundef %0, ptr nocapture nound
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %17
-  %21 = getelementptr inbounds i8, ptr %10, i64 44
+  %21 = getelementptr inbounds nuw i8, ptr %10, i64 44
   store i32 %18, ptr %21, align 4
   br label %22
 
 22:                                               ; preds = %20, %17
-  %23 = getelementptr inbounds i8, ptr %1, i64 6
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 6
   %24 = load i8, ptr %23, align 2
   %25 = icmp eq i8 %24, 1
   br i1 %25, label %26, label %28
 
 26:                                               ; preds = %22
-  %27 = getelementptr inbounds i8, ptr %10, i64 20
+  %27 = getelementptr inbounds nuw i8, ptr %10, i64 20
   store i16 1, ptr %27, align 4
   br label %28
 
 28:                                               ; preds = %26, %22
-  %29 = getelementptr inbounds i8, ptr %1, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %30 = load i32, ptr %29, align 4
   %.not22 = icmp eq i32 %30, 0
   br i1 %.not22, label %34, label %31
 
 31:                                               ; preds = %28
   %32 = tail call i32 @htonl(i32 noundef %30) #12
-  %33 = getelementptr inbounds i8, ptr %10, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store i32 %32, ptr %33, align 4
   br label %34
 
@@ -343,8 +343,8 @@ declare i32 @htonl(i32 noundef) local_unnamed_addr #1
 define hidden void @handleSendFailed(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4, i8 zeroext %5, ptr noundef %6) local_unnamed_addr #0 {
   %8 = alloca [1 x %struct.iovec], align 16
   %9 = alloca [1 x %struct.msghdr], align 16
-  %10 = getelementptr inbounds i8, ptr %3, i64 12
-  %11 = getelementptr inbounds i8, ptr %3, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %12 = load i32, ptr %11, align 4
   %13 = sub i32 %12, %4
   %14 = add i32 %12, -48
@@ -357,7 +357,7 @@ define hidden void @handleSendFailed(ptr noundef %0, i32 noundef %1, ptr noundef
   br i1 %18, label %19, label %58
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %3, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %21 = zext nneg i32 %14 to i64
   %22 = tail call noalias ptr @malloc(i64 noundef %21) #13
   %23 = icmp eq ptr %22, null
@@ -369,12 +369,12 @@ define hidden void @handleSendFailed(ptr noundef %0, i32 noundef %1, ptr noundef
 
 25:                                               ; preds = %19
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %9, i8 0, i64 56, i1 false)
-  %26 = getelementptr inbounds i8, ptr %9, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %8, ptr %26, align 16
-  %27 = getelementptr inbounds i8, ptr %9, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i64 1, ptr %27, align 8
   %28 = load ptr, ptr %0, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 1832
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 1832
   %30 = load ptr, ptr %29, align 8
   %31 = call ptr %30(ptr noundef nonnull %0, ptr noundef nonnull %22, i64 noundef %21) #11
   %32 = icmp eq ptr %31, null
@@ -392,7 +392,7 @@ define hidden void @handleSendFailed(ptr noundef %0, i32 noundef %1, ptr noundef
   %37 = add nsw i32 %4, -48
   %38 = zext nneg i32 %37 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %22, ptr nonnull align 1 %20, i64 %38, i1 false)
-  %39 = getelementptr inbounds i8, ptr %22, i64 %38
+  %39 = getelementptr inbounds nuw i8, ptr %22, i64 %38
   %40 = sext i32 %13 to i64
   br label %41
 
@@ -400,7 +400,7 @@ define hidden void @handleSendFailed(ptr noundef %0, i32 noundef %1, ptr noundef
   %.sink66 = phi ptr [ %39, %36 ], [ %22, %34 ]
   %.sink = phi i64 [ %40, %36 ], [ %21, %34 ]
   store ptr %.sink66, ptr %8, align 16
-  %42 = getelementptr inbounds i8, ptr %8, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 %.sink, ptr %42, align 8
   %43 = icmp sgt i32 %13, 0
   br i1 %43, label %44, label %58
@@ -423,7 +423,7 @@ define hidden void @handleSendFailed(ptr noundef %0, i32 noundef %1, ptr noundef
   br i1 %.not, label %53, label %57
 
 53:                                               ; preds = %52
-  %54 = getelementptr inbounds i8, ptr %9, i64 48
+  %54 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %55 = load i32, ptr %54, align 16
   %56 = and i32 %55, 128
   %.not64 = icmp eq i32 %56, 0
@@ -437,13 +437,13 @@ define hidden void @handleSendFailed(ptr noundef %0, i32 noundef %1, ptr noundef
   %.056 = phi ptr [ %22, %53 ], [ %22, %41 ], [ undef, %17 ]
   %.0 = phi ptr [ %31, %53 ], [ %31, %41 ], [ null, %17 ]
   %59 = load ptr, ptr %0, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 224
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 224
   %61 = load ptr, ptr %60, align 8
   %62 = load ptr, ptr @ssf_class, align 8
   %63 = load ptr, ptr @ssf_ctrID, align 8
-  %64 = getelementptr inbounds i8, ptr %3, i64 44
+  %64 = getelementptr inbounds nuw i8, ptr %3, i64 44
   %65 = load i32, ptr %64, align 4
-  %66 = getelementptr inbounds i8, ptr %3, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %67 = load i32, ptr %66, align 4
   %68 = load i16, ptr %10, align 4
   %69 = zext i16 %68 to i32
@@ -461,12 +461,12 @@ define hidden void @handleSendFailed(ptr noundef %0, i32 noundef %1, ptr noundef
 
 74:                                               ; preds = %58
   %75 = load ptr, ptr %0, align 8
-  %76 = getelementptr inbounds i8, ptr %75, i64 832
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 832
   %77 = load ptr, ptr %76, align 8
   %78 = load ptr, ptr @src_valueID, align 8
   call void %77(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %78, ptr noundef nonnull %70) #11
   %79 = load ptr, ptr %0, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 872
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 872
   %81 = load ptr, ptr %80, align 8
   %82 = load ptr, ptr @src_typeID, align 8
   call void %81(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %82, i32 noundef 2) #11
@@ -498,23 +498,23 @@ declare ptr @__errno_location() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @handleAssocChange(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load i16, ptr %4, align 4
   %6 = icmp ult i16 %5, 5
   %switch.idx.cast = zext i16 %5 to i32
   %switch.offset = add nuw nsw i32 %switch.idx.cast, 1
   %.0 = select i1 %6, i32 %switch.offset, i32 0
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 224
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 224
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr @sac_class, align 8
   %11 = load ptr, ptr @sac_ctrID, align 8
-  %12 = getelementptr inbounds i8, ptr %2, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %13 = load i32, ptr %12, align 4
-  %14 = getelementptr inbounds i8, ptr %2, i64 12
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %15 = load i16, ptr %14, align 4
   %16 = zext i16 %15 to i32
-  %17 = getelementptr inbounds i8, ptr %2, i64 14
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 14
   %18 = load i16, ptr %17, align 2
   %19 = zext i16 %18 to i32
   %20 = tail call ptr (ptr, ptr, ptr, ...) %9(ptr noundef nonnull %0, ptr noundef %10, ptr noundef %11, i32 noundef %13, i32 noundef %.0, i32 noundef %16, i32 noundef %19) #11
@@ -523,12 +523,12 @@ define hidden void @handleAssocChange(ptr noundef %0, ptr noundef %1, ptr nocapt
 
 22:                                               ; preds = %3
   %23 = load ptr, ptr %0, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 832
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 832
   %25 = load ptr, ptr %24, align 8
   %26 = load ptr, ptr @src_valueID, align 8
   tail call void %25(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %26, ptr noundef nonnull %20) #11
   %27 = load ptr, ptr %0, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 872
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 872
   %29 = load ptr, ptr %28, align 8
   %30 = load ptr, ptr @src_typeID, align 8
   tail call void %29(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %30, i32 noundef 3) #11
@@ -541,11 +541,11 @@ define hidden void @handleAssocChange(ptr noundef %0, ptr noundef %1, ptr nocapt
 ; Function Attrs: nounwind uwtable
 define hidden void @handleShutdown(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 224
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 224
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr @ss_class, align 8
   %8 = load ptr, ptr @ss_ctrID, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %10 = load i32, ptr %9, align 4
   %11 = tail call ptr (ptr, ptr, ptr, ...) %6(ptr noundef nonnull %0, ptr noundef %7, ptr noundef %8, i32 noundef %10) #11
   %12 = icmp eq ptr %11, null
@@ -553,12 +553,12 @@ define hidden void @handleShutdown(ptr noundef %0, ptr noundef %1, ptr nocapture
 
 13:                                               ; preds = %3
   %14 = load ptr, ptr %0, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 832
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 832
   %16 = load ptr, ptr %15, align 8
   %17 = load ptr, ptr @src_valueID, align 8
   tail call void %16(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %17, ptr noundef nonnull %11) #11
   %18 = load ptr, ptr %0, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 872
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 872
   %20 = load ptr, ptr %19, align 8
   %21 = load ptr, ptr @src_typeID, align 8
   tail call void %20(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %21, i32 noundef 5) #11
@@ -571,9 +571,9 @@ define hidden void @handleShutdown(ptr noundef %0, ptr noundef %1, ptr nocapture
 ; Function Attrs: nounwind uwtable
 define hidden void @handlePeerAddrChange(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
 switch.lookup:
-  %3 = getelementptr inbounds i8, ptr %2, i64 136
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 136
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = tail call ptr @SockAddrToInetSocketAddress(ptr noundef %0, ptr noundef nonnull %5) #11
   %7 = icmp eq ptr %6, null
   br i1 %7, label %28, label %8
@@ -583,11 +583,11 @@ switch.lookup:
   %switch.offset = add nsw i32 %4, 1
   %spec.select = select i1 %9, i32 %switch.offset, i32 0
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 224
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 224
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr @spc_class, align 8
   %14 = load ptr, ptr @spc_ctrID, align 8
-  %15 = getelementptr inbounds i8, ptr %2, i64 144
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 144
   %16 = load i32, ptr %15, align 4
   %17 = tail call ptr (ptr, ptr, ptr, ...) %12(ptr noundef nonnull %0, ptr noundef %13, ptr noundef %14, i32 noundef %16, ptr noundef nonnull %6, i32 noundef %spec.select) #11
   %18 = icmp eq ptr %17, null
@@ -595,12 +595,12 @@ switch.lookup:
 
 19:                                               ; preds = %8
   %20 = load ptr, ptr %0, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 832
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 832
   %22 = load ptr, ptr %21, align 8
   %23 = load ptr, ptr @src_valueID, align 8
   tail call void %22(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %23, ptr noundef nonnull %17) #11
   %24 = load ptr, ptr %0, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 872
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 872
   %26 = load ptr, ptr %25, align 8
   %27 = load ptr, ptr @src_typeID, align 8
   tail call void %26(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %27, i32 noundef 4) #11
@@ -630,23 +630,23 @@ define hidden zeroext range(i8 0, 2) i8 @handleNotification(ptr noundef %0, i32 
   br label %handleAssocChange.exit
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %12 = load i16, ptr %11, align 4
   %13 = icmp ult i16 %12, 5
   %switch.idx.cast = zext i16 %12 to i32
   %switch.offset = add nuw nsw i32 %switch.idx.cast, 1
   %.0.i = select i1 %13, i32 %switch.offset, i32 0
   %14 = load ptr, ptr %0, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 224
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 224
   %16 = load ptr, ptr %15, align 8
   %17 = load ptr, ptr @sac_class, align 8
   %18 = load ptr, ptr @sac_ctrID, align 8
-  %19 = getelementptr inbounds i8, ptr %3, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %20 = load i32, ptr %19, align 4
-  %21 = getelementptr inbounds i8, ptr %3, i64 12
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %22 = load i16, ptr %21, align 4
   %23 = zext i16 %22 to i32
-  %24 = getelementptr inbounds i8, ptr %3, i64 14
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 14
   %25 = load i16, ptr %24, align 2
   %26 = zext i16 %25 to i32
   %27 = tail call ptr (ptr, ptr, ptr, ...) %16(ptr noundef nonnull %0, ptr noundef %17, ptr noundef %18, i32 noundef %20, i32 noundef %.0.i, i32 noundef %23, i32 noundef %26) #11
@@ -655,12 +655,12 @@ define hidden zeroext range(i8 0, 2) i8 @handleNotification(ptr noundef %0, i32 
 
 29:                                               ; preds = %10
   %30 = load ptr, ptr %0, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 832
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 832
   %32 = load ptr, ptr %31, align 8
   %33 = load ptr, ptr @src_valueID, align 8
   tail call void %32(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %33, ptr noundef nonnull %27) #11
   %34 = load ptr, ptr %0, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 872
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 872
   %36 = load ptr, ptr %35, align 8
   %37 = load ptr, ptr @src_typeID, align 8
   tail call void %36(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %37, i32 noundef 3) #11
@@ -668,11 +668,11 @@ define hidden zeroext range(i8 0, 2) i8 @handleNotification(ptr noundef %0, i32 
 
 38:                                               ; preds = %7
   %39 = load ptr, ptr %0, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 224
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 224
   %41 = load ptr, ptr %40, align 8
   %42 = load ptr, ptr @ss_class, align 8
   %43 = load ptr, ptr @ss_ctrID, align 8
-  %44 = getelementptr inbounds i8, ptr %3, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %45 = load i32, ptr %44, align 4
   %46 = tail call ptr (ptr, ptr, ptr, ...) %41(ptr noundef nonnull %0, ptr noundef %42, ptr noundef %43, i32 noundef %45) #11
   %47 = icmp eq ptr %46, null
@@ -680,21 +680,21 @@ define hidden zeroext range(i8 0, 2) i8 @handleNotification(ptr noundef %0, i32 
 
 48:                                               ; preds = %38
   %49 = load ptr, ptr %0, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 832
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 832
   %51 = load ptr, ptr %50, align 8
   %52 = load ptr, ptr @src_valueID, align 8
   tail call void %51(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %52, ptr noundef nonnull %46) #11
   %53 = load ptr, ptr %0, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 872
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 872
   %55 = load ptr, ptr %54, align 8
   %56 = load ptr, ptr @src_typeID, align 8
   tail call void %55(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %56, i32 noundef 5) #11
   br label %handleAssocChange.exit
 
 switch.lookup19:                                  ; preds = %7
-  %57 = getelementptr inbounds i8, ptr %3, i64 136
+  %57 = getelementptr inbounds nuw i8, ptr %3, i64 136
   %58 = load i32, ptr %57, align 4
-  %59 = getelementptr inbounds i8, ptr %3, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %60 = tail call ptr @SockAddrToInetSocketAddress(ptr noundef %0, ptr noundef nonnull %59) #11
   %61 = icmp eq ptr %60, null
   br i1 %61, label %handleAssocChange.exit, label %62
@@ -704,11 +704,11 @@ switch.lookup19:                                  ; preds = %7
   %switch.offset20 = add nsw i32 %58, 1
   %spec.select = select i1 %63, i32 %switch.offset20, i32 0
   %64 = load ptr, ptr %0, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 224
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 224
   %66 = load ptr, ptr %65, align 8
   %67 = load ptr, ptr @spc_class, align 8
   %68 = load ptr, ptr @spc_ctrID, align 8
-  %69 = getelementptr inbounds i8, ptr %3, i64 144
+  %69 = getelementptr inbounds nuw i8, ptr %3, i64 144
   %70 = load i32, ptr %69, align 4
   %71 = tail call ptr (ptr, ptr, ptr, ...) %66(ptr noundef nonnull %0, ptr noundef %67, ptr noundef %68, i32 noundef %70, ptr noundef nonnull %60, i32 noundef %spec.select) #11
   %72 = icmp eq ptr %71, null
@@ -716,12 +716,12 @@ switch.lookup19:                                  ; preds = %7
 
 73:                                               ; preds = %62
   %74 = load ptr, ptr %0, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 832
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 832
   %76 = load ptr, ptr %75, align 8
   %77 = load ptr, ptr @src_valueID, align 8
   tail call void %76(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %77, ptr noundef nonnull %71) #11
   %78 = load ptr, ptr %0, align 8
-  %79 = getelementptr inbounds i8, ptr %78, i64 872
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 872
   %80 = load ptr, ptr %79, align 8
   %81 = load ptr, ptr @src_typeID, align 8
   tail call void %80(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %81, i32 noundef 4) #11
@@ -740,42 +740,42 @@ define hidden void @handleMessage(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 9:                                                ; preds = %6
   %10 = icmp eq i32 %3, 0
-  %11 = getelementptr inbounds i8, ptr %2, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %12 = load i64, ptr %11, align 8
   %13 = icmp ugt i64 %12, 15
   tail call void @llvm.assume(i1 %13)
-  %14 = getelementptr inbounds i8, ptr %2, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %15 = load ptr, ptr %14, align 8, !nonnull !8, !noundef !8
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %43, %9
   %.019.i = phi ptr [ %44, %43 ], [ %15, %9 ]
-  %16 = getelementptr inbounds i8, ptr %.019.i, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %.019.i, i64 8
   %17 = load i32, ptr %16, align 8
   %18 = icmp eq i32 %17, 132
   br i1 %18, label %19, label %43
 
 19:                                               ; preds = %.lr.ph.i
-  %20 = getelementptr inbounds i8, ptr %.019.i, i64 12
+  %20 = getelementptr inbounds nuw i8, ptr %.019.i, i64 12
   %21 = load i32, ptr %20, align 4
   %22 = icmp eq i32 %21, 1
   br i1 %22, label %getControlData.exit, label %43
 
 getControlData.exit:                              ; preds = %19
   %spec.store.select = select i1 %10, i32 -1, i32 %3
-  %23 = getelementptr inbounds i8, ptr %.019.i, i64 16
-  %24 = getelementptr inbounds i8, ptr %.019.i, i64 44
+  %23 = getelementptr inbounds nuw i8, ptr %.019.i, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %.019.i, i64 44
   %25 = load i32, ptr %24, align 4
   %26 = load i16, ptr %23, align 4
-  %27 = getelementptr inbounds i8, ptr %.019.i, i64 20
+  %27 = getelementptr inbounds nuw i8, ptr %.019.i, i64 20
   %28 = load i16, ptr %27, align 4
   %29 = and i16 %28, 1
   %30 = zext nneg i16 %29 to i32
-  %31 = getelementptr inbounds i8, ptr %.019.i, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %.019.i, i64 24
   %32 = load i32, ptr %31, align 4
   %33 = tail call i32 @ntohl(i32 noundef %32) #12
   %34 = load ptr, ptr %0, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 224
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 224
   %36 = load ptr, ptr %35, align 8
   %37 = load ptr, ptr @smi_class, align 8
   %38 = load ptr, ptr @smi_ctrID, align 8
@@ -794,12 +794,12 @@ getControlData.exit:                              ; preds = %19
 
 45:                                               ; preds = %getControlData.exit
   %46 = load ptr, ptr %0, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 832
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 832
   %48 = load ptr, ptr %47, align 8
   %49 = load ptr, ptr @src_valueID, align 8
   tail call void %48(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %49, ptr noundef nonnull %41) #11
   %50 = load ptr, ptr %0, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 872
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 872
   %52 = load ptr, ptr %51, align 8
   %53 = load ptr, ptr @src_typeID, align 8
   tail call void %52(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %53, i32 noundef 1) #11
@@ -820,21 +820,21 @@ define noundef i32 @Java_sun_nio_ch_sctp_SctpChannelImpl_receive0(ptr noundef %0
   %14 = select i1 %13, i32 2, i32 0
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %10, i8 0, i64 56, i1 false)
   store ptr %8, ptr %10, align 16
-  %15 = getelementptr inbounds i8, ptr %10, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i32 28, ptr %15, align 8
   store ptr %12, ptr %9, align 16
   %16 = sext i32 %5 to i64
-  %17 = getelementptr inbounds i8, ptr %9, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 %16, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %10, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %9, ptr %18, align 16
-  %19 = getelementptr inbounds i8, ptr %10, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store i64 1, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %10, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store ptr %11, ptr %20, align 16
-  %21 = getelementptr inbounds i8, ptr %10, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store i64 48, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %10, i64 48
+  %22 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %23 = icmp slt i32 %5, 148
   br i1 %23, label %.split, label %.split.us
 
@@ -929,7 +929,7 @@ define noundef i32 @Java_sun_nio_ch_sctp_SctpChannelImpl_receive0(ptr noundef %0
 
 56:                                               ; preds = %52
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %53, ptr align 8 %12, i64 %.040, i1 false)
-  %57 = getelementptr inbounds i8, ptr %53, i64 %.040
+  %57 = getelementptr inbounds nuw i8, ptr %53, i64 %.040
   store ptr %57, ptr %9, align 16
   %58 = sub nsw i64 148, %.040
   store i64 %58, ptr %17, align 8
@@ -1025,26 +1025,26 @@ define i32 @Java_sun_nio_ch_sctp_SctpChannelImpl_send0(ptr noundef %0, ptr nocap
   %22 = phi i32 [ %.pre, %._crit_edge ], [ 0, %20 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %15, i8 0, i64 56, i1 false)
   store ptr %12, ptr %15, align 16
-  %23 = getelementptr inbounds i8, ptr %15, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i32 %22, ptr %23, align 8
   store ptr %17, ptr %14, align 16
   %24 = sext i32 %4 to i64
-  %25 = getelementptr inbounds i8, ptr %14, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i64 %24, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %15, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store ptr %14, ptr %26, align 16
-  %27 = getelementptr inbounds i8, ptr %15, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %15, i64 24
   store i64 1, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %15, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %15, i64 32
   store ptr %16, ptr %28, align 16
-  %29 = getelementptr inbounds i8, ptr %15, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %15, i64 40
   %30 = trunc i32 %8 to i16
-  %31 = getelementptr inbounds i8, ptr %16, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i32 132, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %16, i64 12
+  %32 = getelementptr inbounds nuw i8, ptr %16, i64 12
   store i32 1, ptr %32, align 4
   store i64 48, ptr %16, align 16
-  %33 = getelementptr inbounds i8, ptr %16, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %16, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %33, i8 0, i64 32, i1 false)
   %.not.i = icmp eq i16 %30, 0
   br i1 %.not.i, label %35, label %34
@@ -1058,7 +1058,7 @@ define i32 @Java_sun_nio_ch_sctp_SctpChannelImpl_send0(ptr noundef %0, ptr nocap
   br i1 %36, label %37, label %39
 
 37:                                               ; preds = %35
-  %38 = getelementptr inbounds i8, ptr %16, i64 44
+  %38 = getelementptr inbounds nuw i8, ptr %16, i64 44
   store i32 %7, ptr %38, align 4
   br label %39
 
@@ -1067,7 +1067,7 @@ define i32 @Java_sun_nio_ch_sctp_SctpChannelImpl_send0(ptr noundef %0, ptr nocap
   br i1 %40, label %41, label %43
 
 41:                                               ; preds = %39
-  %42 = getelementptr inbounds i8, ptr %16, i64 20
+  %42 = getelementptr inbounds nuw i8, ptr %16, i64 20
   store i16 1, ptr %42, align 4
   br label %43
 
@@ -1077,7 +1077,7 @@ define i32 @Java_sun_nio_ch_sctp_SctpChannelImpl_send0(ptr noundef %0, ptr nocap
 
 44:                                               ; preds = %43
   %45 = call i32 @htonl(i32 noundef %10) #12
-  %46 = getelementptr inbounds i8, ptr %16, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %16, i64 24
   store i32 %45, ptr %46, align 8
   br label %setControlData.exit
 

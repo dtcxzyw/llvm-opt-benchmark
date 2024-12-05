@@ -62,7 +62,7 @@ define void @register_capture_dissector_table(ptr noundef %0, ptr noundef %1) lo
   %7 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #9
   %8 = tail call ptr @g_hash_table_new_full(ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal, ptr noundef null, ptr noundef null) #7
   store ptr %8, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %7, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %1, ptr %9, align 8
   %10 = load ptr, ptr @capture_dissector_tables, align 8
   %11 = tail call i32 @g_hash_table_insert(ptr noundef %10, ptr noundef %0, ptr noundef nonnull %7) #7
@@ -90,10 +90,10 @@ define noalias noundef ptr @create_capture_dissector_handle(ptr noundef %0, i32 
   %3 = tail call ptr @wmem_epan_scope() #7
   %4 = tail call noalias ptr @wmem_alloc(ptr noundef %3, i64 noundef 24) #7
   store ptr null, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %0, ptr %5, align 8
   %6 = tail call ptr @find_protocol_by_id(i32 noundef %1) #7
-  %7 = getelementptr inbounds i8, ptr %4, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %6, ptr %7, align 8
   ret ptr %4
 }
@@ -110,10 +110,10 @@ define noundef ptr @register_capture_dissector(ptr noundef %0, ptr noundef %1, i
   %4 = tail call ptr @wmem_epan_scope() #7
   %5 = tail call noalias ptr @wmem_alloc(ptr noundef %4, i64 noundef 24) #7
   store ptr %0, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %1, ptr %6, align 8
   %7 = tail call ptr @find_protocol_by_id(i32 noundef %2) #7
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %7, ptr %8, align 8
   %9 = load ptr, ptr @registered_dissectors, align 8
   %10 = tail call i32 @g_hash_table_insert(ptr noundef %9, ptr noundef %0, ptr noundef nonnull %5) #7
@@ -175,7 +175,7 @@ define i32 @try_capture_dissector(ptr noundef %0, i32 noundef %1, ptr noundef %2
   br i1 %16, label %21, label %17
 
 17:                                               ; preds = %11
-  %18 = getelementptr inbounds i8, ptr %15, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = tail call i32 %19(ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6) #7
   br label %21
@@ -191,7 +191,7 @@ define i32 @call_capture_dissector(ptr noundef readonly %0, ptr noundef %1, i32 
   br i1 %7, label %12, label %8
 
 8:                                                ; preds = %6
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 %10(ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5) #7
   br label %12

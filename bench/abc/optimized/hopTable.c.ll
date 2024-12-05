@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define ptr @Hop_TableLookup(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 132
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
   %.phi.trans.insert = getelementptr i8, ptr %1, i64 16
@@ -53,21 +53,21 @@ define ptr @Hop_TableLookup(ptr nocapture noundef readonly %0, ptr nocapture nou
   %.pre-phi39 = phi ptr [ %.pre38, %._crit_edge ], [ %8, %10 ]
   %.pre-phi = phi i64 [ %.pre, %._crit_edge ], [ %6, %10 ]
   %.val10.i = phi ptr [ %.val10.i.pre, %._crit_edge ], [ %.val22, %10 ]
-  %17 = getelementptr inbounds i8, ptr %0, i64 104
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 112
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %20 = load i32, ptr %19, align 8
   %21 = getelementptr i8, ptr %1, i64 32
   %.val11.i = load i32, ptr %21, align 8
   %22 = and i32 %.val11.i, 7
   %23 = icmp eq i32 %22, 5
   %24 = select i1 %23, i64 1699, i64 0
-  %25 = getelementptr inbounds i8, ptr %.pre-phi39, i64 36
+  %25 = getelementptr inbounds nuw i8, ptr %.pre-phi39, i64 36
   %26 = load i32, ptr %25, align 4
   %27 = mul nsw i32 %26, 7937
   %28 = sext i32 %27 to i64
   %29 = xor i64 %24, %28
-  %30 = getelementptr inbounds i8, ptr %.pre-phi45, i64 36
+  %30 = getelementptr inbounds nuw i8, ptr %.pre-phi45, i64 36
   %31 = load i32, ptr %30, align 4
   %32 = mul nsw i32 %31, 2971
   %33 = sext i32 %32 to i64
@@ -106,7 +106,7 @@ define ptr @Hop_TableLookup(ptr nocapture noundef readonly %0, ptr nocapture nou
   br i1 %52, label %.loopexit, label %53
 
 53:                                               ; preds = %.lr.ph, %46, %49
-  %54 = getelementptr inbounds i8, ptr %.030, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %.030, i64 8
   %.0 = load ptr, ptr %54, align 8
   %.not19 = icmp eq ptr %.0, null
   br i1 %.not19, label %.loopexit, label %.lr.ph, !llvm.loop !4
@@ -119,14 +119,14 @@ define ptr @Hop_TableLookup(ptr nocapture noundef readonly %0, ptr nocapture nou
 ; Function Attrs: nounwind uwtable
 define void @Hop_TableInsert(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = alloca %struct.timespec, align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 36
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %5 = load i32, ptr %4, align 4
   %6 = and i32 %5, 255
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %8, label %Hop_TableResize.exit
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 112
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %10 = load i32, ptr %9, align 8
   %11 = shl nsw i32 %10, 1
   %12 = getelementptr i8, ptr %0, i64 88
@@ -141,7 +141,7 @@ define void @Hop_TableInsert(ptr nocapture noundef %0, ptr noundef %1) local_unn
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   %17 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #9
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  %18 = getelementptr inbounds i8, ptr %0, i64 104
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %19 = load ptr, ptr %18, align 8
   %20 = load i32, ptr %9, align 8
   %.val36.i = load i32, ptr %12, align 8
@@ -192,14 +192,14 @@ Abc_PrimeCudd.exit.i:                             ; preds = %.preheader.i.i, %26
 
 .lr.ph50.i:                                       ; preds = %._crit_edge.i, %.lr.ph50.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph50.preheader.i ], [ %indvars.iv.next.i, %._crit_edge.i ]
-  %34 = getelementptr inbounds ptr, ptr %19, i64 %indvars.iv.i
+  %34 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv.i
   %35 = load ptr, ptr %34, align 8
   %.not32.i = icmp eq ptr %35, null
   br i1 %.not32.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph50.i, %Hop_TableFind.exit.i
   %.sink59.i = phi ptr [ %37, %Hop_TableFind.exit.i ], [ %35, %.lr.ph50.i ]
-  %36 = getelementptr inbounds i8, ptr %.sink59.i, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %.sink59.i, i64 8
   %37 = load ptr, ptr %36, align 8
   %.val38.i = load ptr, ptr %18, align 8
   %.val39.i = load i32, ptr %9, align 8
@@ -213,7 +213,7 @@ Abc_PrimeCudd.exit.i:                             ; preds = %.preheader.i.i, %26
   %43 = ptrtoint ptr %.val.i.i.i to i64
   %44 = and i64 %43, -2
   %45 = inttoptr i64 %44 to ptr
-  %46 = getelementptr inbounds i8, ptr %45, i64 36
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 36
   %47 = load i32, ptr %46, align 4
   %48 = mul nsw i32 %47, 7937
   %49 = sext i32 %48 to i64
@@ -223,7 +223,7 @@ Abc_PrimeCudd.exit.i:                             ; preds = %.preheader.i.i, %26
   %52 = ptrtoint ptr %.val10.i.i.i to i64
   %53 = and i64 %52, -2
   %54 = inttoptr i64 %53 to ptr
-  %55 = getelementptr inbounds i8, ptr %54, i64 36
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 36
   %56 = load i32, ptr %55, align 4
   %57 = mul nsw i32 %56, 2971
   %58 = sext i32 %57 to i64
@@ -245,7 +245,7 @@ Abc_PrimeCudd.exit.i:                             ; preds = %.preheader.i.i, %26
   %.not.i41.i = icmp eq ptr %70, null
   %71 = icmp eq ptr %70, %.sink59.i
   %or.cond.i.i = or i1 %.not.i41.i, %71
-  %72 = getelementptr inbounds i8, ptr %70, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %70, i64 8
   br i1 %or.cond.i.i, label %Hop_TableFind.exit.i, label %69, !llvm.loop !8
 
 Hop_TableFind.exit.i:                             ; preds = %69
@@ -282,7 +282,7 @@ Hop_TableResize.exit:                             ; preds = %73, %._crit_edge51.
   %81 = ptrtoint ptr %.val.i.i to i64
   %82 = and i64 %81, -2
   %83 = inttoptr i64 %82 to ptr
-  %84 = getelementptr inbounds i8, ptr %83, i64 36
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 36
   %85 = load i32, ptr %84, align 4
   %86 = mul nsw i32 %85, 7937
   %87 = sext i32 %86 to i64
@@ -292,7 +292,7 @@ Hop_TableResize.exit:                             ; preds = %73, %._crit_edge51.
   %90 = ptrtoint ptr %.val10.i.i to i64
   %91 = and i64 %90, -2
   %92 = inttoptr i64 %91 to ptr
-  %93 = getelementptr inbounds i8, ptr %92, i64 36
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 36
   %94 = load i32, ptr %93, align 4
   %95 = mul nsw i32 %94, 2971
   %96 = sext i32 %95 to i64
@@ -314,7 +314,7 @@ Hop_TableResize.exit:                             ; preds = %73, %._crit_edge51.
   %.not.i11 = icmp eq ptr %108, null
   %109 = icmp eq ptr %108, %1
   %or.cond.i = or i1 %.not.i11, %109
-  %110 = getelementptr inbounds i8, ptr %108, i64 8
+  %110 = getelementptr inbounds nuw i8, ptr %108, i64 8
   br i1 %or.cond.i, label %Hop_TableFind.exit, label %107, !llvm.loop !8
 
 Hop_TableFind.exit:                               ; preds = %107
@@ -338,7 +338,7 @@ define void @Hop_TableDelete(ptr nocapture noundef readonly %0, ptr noundef %1) 
   %10 = ptrtoint ptr %.val.i.i to i64
   %11 = and i64 %10, -2
   %12 = inttoptr i64 %11 to ptr
-  %13 = getelementptr inbounds i8, ptr %12, i64 36
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 36
   %14 = load i32, ptr %13, align 4
   %15 = mul nsw i32 %14, 7937
   %16 = sext i32 %15 to i64
@@ -348,7 +348,7 @@ define void @Hop_TableDelete(ptr nocapture noundef readonly %0, ptr noundef %1) 
   %19 = ptrtoint ptr %.val10.i.i to i64
   %20 = and i64 %19, -2
   %21 = inttoptr i64 %20 to ptr
-  %22 = getelementptr inbounds i8, ptr %21, i64 36
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 36
   %23 = load i32, ptr %22, align 4
   %24 = mul nsw i32 %23, 2971
   %25 = sext i32 %24 to i64
@@ -370,11 +370,11 @@ define void @Hop_TableDelete(ptr nocapture noundef readonly %0, ptr noundef %1) 
   %.not.i = icmp eq ptr %37, null
   %38 = icmp eq ptr %37, %1
   %or.cond.i = or i1 %.not.i, %38
-  %39 = getelementptr inbounds i8, ptr %37, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %37, i64 8
   br i1 %or.cond.i, label %Hop_TableFind.exit, label %36, !llvm.loop !8
 
 Hop_TableFind.exit:                               ; preds = %36
-  %40 = getelementptr inbounds i8, ptr %1, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %41 = load ptr, ptr %40, align 8
   store ptr %41, ptr %.0.i, align 8
   store ptr null, ptr %40, align 8
@@ -383,13 +383,13 @@ Hop_TableFind.exit:                               ; preds = %36
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define i32 @Hop_TableCountEntries(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 112
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph17, label %._crit_edge18
 
 .lr.ph17:                                         ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 104
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %6 = load ptr, ptr %5, align 8
   %wide.trip.count = zext nneg i32 %3 to i64
   br label %7
@@ -397,7 +397,7 @@ define i32 @Hop_TableCountEntries(ptr nocapture noundef readonly %0) local_unnam
 7:                                                ; preds = %.lr.ph17, %._crit_edge
   %indvars.iv = phi i64 [ 0, %.lr.ph17 ], [ %indvars.iv.next, %._crit_edge ]
   %.015 = phi i32 [ 0, %.lr.ph17 ], [ %.1.lcssa, %._crit_edge ]
-  %8 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
   %.0910 = load ptr, ptr %8, align 8
   %.not11 = icmp eq ptr %.0910, null
   br i1 %.not11, label %._crit_edge, label %.lr.ph
@@ -406,7 +406,7 @@ define i32 @Hop_TableCountEntries(ptr nocapture noundef readonly %0) local_unnam
   %.0913 = phi ptr [ %.09, %.lr.ph ], [ %.0910, %7 ]
   %.112 = phi i32 [ %9, %.lr.ph ], [ %.015, %7 ]
   %9 = add nsw i32 %.112, 1
-  %10 = getelementptr inbounds i8, ptr %.0913, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.0913, i64 8
   %.09 = load ptr, ptr %10, align 8
   %.not = icmp eq ptr %.09, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
@@ -424,20 +424,20 @@ define i32 @Hop_TableCountEntries(ptr nocapture noundef readonly %0) local_unnam
 
 ; Function Attrs: nofree nounwind uwtable
 define void @Hop_TableProfile(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 112
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph18, label %._crit_edge19
 
 .lr.ph18:                                         ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 104
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 104
   br label %6
 
 6:                                                ; preds = %.lr.ph18, %._crit_edge.thread
   %7 = phi i32 [ %3, %.lr.ph18 ], [ %13, %._crit_edge.thread ]
   %indvars.iv = phi i64 [ 0, %.lr.ph18 ], [ %indvars.iv.next, %._crit_edge.thread ]
   %8 = load ptr, ptr %5, align 8
-  %9 = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
   %.01012 = load ptr, ptr %9, align 8
   %.not13 = icmp eq ptr %.01012, null
   br i1 %.not13, label %._crit_edge.thread, label %.lr.ph
@@ -446,7 +446,7 @@ define void @Hop_TableProfile(ptr nocapture noundef readonly %0) local_unnamed_a
   %.01015 = phi ptr [ %.010, %.lr.ph ], [ %.01012, %6 ]
   %.014 = phi i32 [ %10, %.lr.ph ], [ 0, %6 ]
   %10 = add nuw nsw i32 %.014, 1
-  %11 = getelementptr inbounds i8, ptr %.01015, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.01015, i64 8
   %.010 = load ptr, ptr %11, align 8
   %.not = icmp eq ptr %.010, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13

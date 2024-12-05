@@ -38,7 +38,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nofree nounwind uwtable
 define dso_local void @ParseCommitRecord(i8 noundef zeroext %0, ptr noundef %1, ptr noundef initializes((0, 328)) %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(328) %2, i8 0, i64 328, i1 false)
   %5 = load i64, ptr %1, align 8
   store i64 %5, ptr %2, align 8
@@ -56,11 +56,11 @@ define dso_local void @ParseCommitRecord(i8 noundef zeroext %0, ptr noundef %1, 
 
 11:                                               ; preds = %6
   %12 = load i32, ptr %9, align 4
-  %13 = getelementptr inbounds i8, ptr %2, i64 12
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 %12, ptr %13, align 4
   %14 = getelementptr i8, ptr %1, i64 16
   %15 = load i32, ptr %14, align 4
-  %16 = getelementptr inbounds i8, ptr %2, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 %15, ptr %16, align 8
   %17 = getelementptr i8, ptr %1, i64 20
   br label %18
@@ -73,10 +73,10 @@ define dso_local void @ParseCommitRecord(i8 noundef zeroext %0, ptr noundef %1, 
 
 20:                                               ; preds = %18
   %21 = load i32, ptr %.1, align 4
-  %22 = getelementptr inbounds i8, ptr %2, i64 20
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 20
   store i32 %21, ptr %22, align 4
   %23 = getelementptr i8, ptr %.1, i64 4
-  %24 = getelementptr inbounds i8, ptr %2, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %23, ptr %24, align 8
   %25 = sext i32 %21 to i64
   %26 = shl nsw i64 %25, 2
@@ -91,10 +91,10 @@ define dso_local void @ParseCommitRecord(i8 noundef zeroext %0, ptr noundef %1, 
 
 30:                                               ; preds = %28
   %31 = load i32, ptr %.2, align 4
-  %32 = getelementptr inbounds i8, ptr %2, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i32 %31, ptr %32, align 8
   %33 = getelementptr i8, ptr %.2, i64 4
-  %34 = getelementptr inbounds i8, ptr %2, i64 40
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store ptr %33, ptr %34, align 8
   %35 = load i32, ptr %.2, align 4
   %36 = sext i32 %35 to i64
@@ -110,10 +110,10 @@ define dso_local void @ParseCommitRecord(i8 noundef zeroext %0, ptr noundef %1, 
 
 41:                                               ; preds = %39
   %42 = load i32, ptr %.3, align 4
-  %43 = getelementptr inbounds i8, ptr %2, i64 48
+  %43 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store i32 %42, ptr %43, align 8
   %44 = getelementptr i8, ptr %.3, i64 4
-  %45 = getelementptr inbounds i8, ptr %2, i64 56
+  %45 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store ptr %44, ptr %45, align 8
   %46 = load i32, ptr %.3, align 4
   %47 = sext i32 %46 to i64
@@ -129,10 +129,10 @@ define dso_local void @ParseCommitRecord(i8 noundef zeroext %0, ptr noundef %1, 
 
 52:                                               ; preds = %50
   %53 = load i32, ptr %.4, align 4
-  %54 = getelementptr inbounds i8, ptr %2, i64 64
+  %54 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store i32 %53, ptr %54, align 8
   %55 = getelementptr i8, ptr %.4, i64 4
-  %56 = getelementptr inbounds i8, ptr %2, i64 72
+  %56 = getelementptr inbounds nuw i8, ptr %2, i64 72
   store ptr %55, ptr %56, align 8
   %57 = load i32, ptr %.4, align 4
   %58 = sext i32 %57 to i64
@@ -148,7 +148,7 @@ define dso_local void @ParseCommitRecord(i8 noundef zeroext %0, ptr noundef %1, 
 
 63:                                               ; preds = %61
   %64 = load i32, ptr %.5, align 4
-  %65 = getelementptr inbounds i8, ptr %2, i64 80
+  %65 = getelementptr inbounds nuw i8, ptr %2, i64 80
   store i32 %64, ptr %65, align 8
   %66 = getelementptr i8, ptr %.5, i64 4
   %67 = and i32 %8, 128
@@ -156,7 +156,7 @@ define dso_local void @ParseCommitRecord(i8 noundef zeroext %0, ptr noundef %1, 
   br i1 %.not73, label %74, label %68
 
 68:                                               ; preds = %63
-  %69 = getelementptr inbounds i8, ptr %2, i64 84
+  %69 = getelementptr inbounds nuw i8, ptr %2, i64 84
   %70 = tail call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) %69, ptr noundef nonnull dereferenceable(1) %66, i64 noundef 200) #10
   %71 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %66) #11
   %72 = getelementptr i8, ptr %66, i64 %71
@@ -173,11 +173,11 @@ define dso_local void @ParseCommitRecord(i8 noundef zeroext %0, ptr noundef %1, 
 
 77:                                               ; preds = %74
   %.sroa.0.0.copyload = load i64, ptr %.6, align 1
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %.6, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.6, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 1
-  %78 = getelementptr inbounds i8, ptr %2, i64 312
+  %78 = getelementptr inbounds nuw i8, ptr %2, i64 312
   store i64 %.sroa.0.0.copyload, ptr %78, align 8
-  %79 = getelementptr inbounds i8, ptr %2, i64 320
+  %79 = getelementptr inbounds nuw i8, ptr %2, i64 320
   store i64 %.sroa.2.0.copyload, ptr %79, align 8
   br label %.thread92
 
@@ -196,7 +196,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind uwtable
 define dso_local void @ParseAbortRecord(i8 noundef zeroext %0, ptr noundef %1, ptr noundef initializes((0, 288)) %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(288) %2, i8 0, i64 288, i1 false)
   %5 = load i64, ptr %1, align 8
   store i64 %5, ptr %2, align 8
@@ -214,11 +214,11 @@ define dso_local void @ParseAbortRecord(i8 noundef zeroext %0, ptr noundef %1, p
 
 11:                                               ; preds = %6
   %12 = load i32, ptr %9, align 4
-  %13 = getelementptr inbounds i8, ptr %2, i64 12
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 %12, ptr %13, align 4
   %14 = getelementptr i8, ptr %1, i64 16
   %15 = load i32, ptr %14, align 4
-  %16 = getelementptr inbounds i8, ptr %2, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 %15, ptr %16, align 8
   %17 = getelementptr i8, ptr %1, i64 20
   br label %18
@@ -231,10 +231,10 @@ define dso_local void @ParseAbortRecord(i8 noundef zeroext %0, ptr noundef %1, p
 
 20:                                               ; preds = %18
   %21 = load i32, ptr %.1, align 4
-  %22 = getelementptr inbounds i8, ptr %2, i64 20
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 20
   store i32 %21, ptr %22, align 4
   %23 = getelementptr i8, ptr %.1, i64 4
-  %24 = getelementptr inbounds i8, ptr %2, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %23, ptr %24, align 8
   %25 = sext i32 %21 to i64
   %26 = shl nsw i64 %25, 2
@@ -249,10 +249,10 @@ define dso_local void @ParseAbortRecord(i8 noundef zeroext %0, ptr noundef %1, p
 
 30:                                               ; preds = %28
   %31 = load i32, ptr %.2, align 4
-  %32 = getelementptr inbounds i8, ptr %2, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i32 %31, ptr %32, align 8
   %33 = getelementptr i8, ptr %.2, i64 4
-  %34 = getelementptr inbounds i8, ptr %2, i64 40
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store ptr %33, ptr %34, align 8
   %35 = load i32, ptr %.2, align 4
   %36 = sext i32 %35 to i64
@@ -268,10 +268,10 @@ define dso_local void @ParseAbortRecord(i8 noundef zeroext %0, ptr noundef %1, p
 
 41:                                               ; preds = %39
   %42 = load i32, ptr %.3, align 4
-  %43 = getelementptr inbounds i8, ptr %2, i64 48
+  %43 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store i32 %42, ptr %43, align 8
   %44 = getelementptr i8, ptr %.3, i64 4
-  %45 = getelementptr inbounds i8, ptr %2, i64 56
+  %45 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store ptr %44, ptr %45, align 8
   %46 = load i32, ptr %.3, align 4
   %47 = sext i32 %46 to i64
@@ -287,7 +287,7 @@ define dso_local void @ParseAbortRecord(i8 noundef zeroext %0, ptr noundef %1, p
 
 52:                                               ; preds = %50
   %53 = load i32, ptr %.4, align 4
-  %54 = getelementptr inbounds i8, ptr %2, i64 64
+  %54 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store i32 %53, ptr %54, align 8
   %55 = getelementptr i8, ptr %.4, i64 4
   %56 = and i32 %8, 128
@@ -295,7 +295,7 @@ define dso_local void @ParseAbortRecord(i8 noundef zeroext %0, ptr noundef %1, p
   br i1 %.not63, label %63, label %57
 
 57:                                               ; preds = %52
-  %58 = getelementptr inbounds i8, ptr %2, i64 68
+  %58 = getelementptr inbounds nuw i8, ptr %2, i64 68
   %59 = tail call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) %58, ptr noundef nonnull dereferenceable(1) %55, i64 noundef 200) #10
   %60 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %55) #11
   %61 = getelementptr i8, ptr %55, i64 %60
@@ -312,11 +312,11 @@ define dso_local void @ParseAbortRecord(i8 noundef zeroext %0, ptr noundef %1, p
 
 66:                                               ; preds = %63
   %.sroa.0.0.copyload = load i64, ptr %.5, align 1
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %.5, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.5, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 1
-  %67 = getelementptr inbounds i8, ptr %2, i64 272
+  %67 = getelementptr inbounds nuw i8, ptr %2, i64 272
   store i64 %.sroa.0.0.copyload, ptr %67, align 8
-  %68 = getelementptr inbounds i8, ptr %2, i64 280
+  %68 = getelementptr inbounds nuw i8, ptr %2, i64 280
   store i64 %.sroa.2.0.copyload, ptr %68, align 8
   br label %.thread79
 
@@ -328,43 +328,43 @@ define dso_local void @ParseAbortRecord(i8 noundef zeroext %0, ptr noundef %1, p
 define dso_local void @ParsePrepareRecord(i8 noundef zeroext %0, ptr noundef %1, ptr noundef initializes((0, 328)) %2) local_unnamed_addr #4 {
   %4 = getelementptr i8, ptr %1, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(328) %2, i8 0, i64 328, i1 false)
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i64, ptr %5, align 8
   store i64 %6, ptr %2, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 312
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 312
   store i64 %8, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %11 = load i64, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %2, i64 320
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 320
   store i64 %11, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load i32, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %2, i64 80
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 80
   store i32 %14, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 12
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %17 = load i32, ptr %16, align 4
-  %18 = getelementptr inbounds i8, ptr %2, i64 12
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 %17, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %1, i64 28
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %20 = load i32, ptr %19, align 4
-  %21 = getelementptr inbounds i8, ptr %2, i64 20
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 20
   store i32 %20, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %1, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %23 = load i32, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %2, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i32 %23, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %1, i64 36
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %26 = load i32, ptr %25, align 4
-  %27 = getelementptr inbounds i8, ptr %2, i64 284
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 284
   store i32 %26, ptr %27, align 4
-  %28 = getelementptr inbounds i8, ptr %1, i64 48
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %29 = load i32, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %2, i64 64
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store i32 %29, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %2, i64 84
-  %32 = getelementptr inbounds i8, ptr %1, i64 54
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 84
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 54
   %33 = load i16, ptr %32, align 2
   %34 = zext i16 %33 to i64
   %35 = tail call ptr @strncpy(ptr noundef nonnull %31, ptr noundef %4, i64 noundef %34) #10
@@ -373,7 +373,7 @@ define dso_local void @ParsePrepareRecord(i8 noundef zeroext %0, ptr noundef %1,
   %38 = add nuw nsw i64 %37, 7
   %39 = and i64 %38, 131064
   %40 = getelementptr i8, ptr %4, i64 %39
-  %41 = getelementptr inbounds i8, ptr %2, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %40, ptr %41, align 8
   %42 = load i32, ptr %19, align 4
   %43 = sext i32 %42 to i64
@@ -381,7 +381,7 @@ define dso_local void @ParsePrepareRecord(i8 noundef zeroext %0, ptr noundef %1,
   %45 = add nsw i64 %44, 7
   %46 = and i64 %45, -8
   %47 = getelementptr i8, ptr %40, i64 %46
-  %48 = getelementptr inbounds i8, ptr %2, i64 40
+  %48 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store ptr %47, ptr %48, align 8
   %49 = load i32, ptr %22, align 8
   %50 = sext i32 %49 to i64
@@ -389,7 +389,7 @@ define dso_local void @ParsePrepareRecord(i8 noundef zeroext %0, ptr noundef %1,
   %52 = add nsw i64 %51, 7
   %53 = and i64 %52, -8
   %54 = getelementptr i8, ptr %47, i64 %53
-  %55 = getelementptr inbounds i8, ptr %2, i64 288
+  %55 = getelementptr inbounds nuw i8, ptr %2, i64 288
   store ptr %54, ptr %55, align 8
   %56 = load i32, ptr %25, align 4
   %57 = sext i32 %56 to i64
@@ -397,25 +397,25 @@ define dso_local void @ParsePrepareRecord(i8 noundef zeroext %0, ptr noundef %1,
   %59 = add nsw i64 %58, 7
   %60 = and i64 %59, -8
   %61 = getelementptr i8, ptr %54, i64 %60
-  %62 = getelementptr inbounds i8, ptr %2, i64 56
+  %62 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store ptr %61, ptr %62, align 8
-  %63 = getelementptr inbounds i8, ptr %1, i64 40
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %64 = load i32, ptr %63, align 8
   %65 = sext i32 %64 to i64
   %66 = mul nsw i64 %65, 12
   %67 = add nsw i64 %66, 7
   %68 = and i64 %67, -8
   %69 = getelementptr i8, ptr %61, i64 %68
-  %70 = getelementptr inbounds i8, ptr %2, i64 304
+  %70 = getelementptr inbounds nuw i8, ptr %2, i64 304
   store ptr %69, ptr %70, align 8
-  %71 = getelementptr inbounds i8, ptr %1, i64 44
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %72 = load i32, ptr %71, align 4
   %73 = sext i32 %72 to i64
   %74 = mul nsw i64 %73, 12
   %75 = add nsw i64 %74, 7
   %76 = and i64 %75, -8
   %77 = getelementptr i8, ptr %69, i64 %76
-  %78 = getelementptr inbounds i8, ptr %2, i64 72
+  %78 = getelementptr inbounds nuw i8, ptr %2, i64 72
   store ptr %77, ptr %78, align 8
   ret void
 }
@@ -428,11 +428,11 @@ define dso_local void @xact_desc(ptr noundef %0, ptr nocapture noundef readonly 
   %3 = alloca %struct.xl_xact_parsed_commit, align 8
   %4 = alloca %struct.xl_xact_parsed_abort, align 8
   %5 = alloca %struct.xl_xact_parsed_commit, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 104
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 72
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %7, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %11 = load i8, ptr %10, align 8
   %12 = lshr i8 %11, 4
   %13 = and i8 %12, 7
@@ -448,11 +448,11 @@ define dso_local void @xact_desc(ptr noundef %0, ptr nocapture noundef readonly 
   ]
 
 14:                                               ; preds = %2, %2
-  %15 = getelementptr inbounds i8, ptr %7, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %16 = load i16, ptr %15, align 8
   call void @llvm.lifetime.start.p0(i64 328, ptr nonnull %5)
   call void @ParseCommitRecord(i8 noundef zeroext %11, ptr noundef %9, ptr noundef nonnull %5)
-  %17 = getelementptr inbounds i8, ptr %5, i64 80
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 80
   %18 = load i32, ptr %17, align 8
   %.not.i = icmp eq i32 %18, 0
   br i1 %.not.i, label %20, label %19
@@ -465,9 +465,9 @@ define dso_local void @xact_desc(ptr noundef %0, ptr nocapture noundef readonly 
   %21 = load i64, ptr %9, align 8
   %22 = call ptr @timestamptz_to_str(i64 noundef %21) #10
   call void @appendStringInfoString(ptr noundef %0, ptr noundef %22) #10
-  %23 = getelementptr inbounds i8, ptr %5, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %24 = load i32, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %5, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %26 = load ptr, ptr %25, align 8
   %27 = icmp sgt i32 %24, 0
   br i1 %27, label %28, label %xact_desc_relations.exit.i
@@ -480,10 +480,10 @@ define dso_local void @xact_desc(ptr noundef %0, ptr nocapture noundef readonly 
 29:                                               ; preds = %29, %28
   %indvars.iv.i.i = phi i64 [ 0, %28 ], [ %indvars.iv.next.i.i, %29 ]
   %30 = getelementptr %struct.RelFileLocator, ptr %26, i64 %indvars.iv.i.i
-  %31 = getelementptr inbounds i8, ptr %30, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 4
   %32 = load i32, ptr %31, align 4
   %33 = load i32, ptr %30, align 4
-  %34 = getelementptr inbounds i8, ptr %30, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %35 = load i32, ptr %34, align 4
   %36 = call ptr @GetRelationPath(i32 noundef %32, i32 noundef %33, i32 noundef %35, i32 noundef -1, i32 noundef 0) #10
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.15, ptr noundef %36) #10
@@ -493,9 +493,9 @@ define dso_local void @xact_desc(ptr noundef %0, ptr nocapture noundef readonly 
   br i1 %exitcond.not.i.i, label %xact_desc_relations.exit.i, label %29, !llvm.loop !5
 
 xact_desc_relations.exit.i:                       ; preds = %29, %20
-  %37 = getelementptr inbounds i8, ptr %5, i64 20
+  %37 = getelementptr inbounds nuw i8, ptr %5, i64 20
   %38 = load i32, ptr %37, align 4
-  %39 = getelementptr inbounds i8, ptr %5, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %40 = load ptr, ptr %39, align 8
   %41 = icmp sgt i32 %38, 0
   br i1 %41, label %42, label %xact_desc_subxacts.exit.i
@@ -515,9 +515,9 @@ xact_desc_relations.exit.i:                       ; preds = %29, %20
   br i1 %exitcond.not.i18.i, label %xact_desc_subxacts.exit.i, label %43, !llvm.loop !7
 
 xact_desc_subxacts.exit.i:                        ; preds = %43, %xact_desc_relations.exit.i
-  %46 = getelementptr inbounds i8, ptr %5, i64 48
+  %46 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %47 = load i32, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %5, i64 56
+  %48 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %49 = load ptr, ptr %48, align 8
   %50 = icmp sgt i32 %47, 0
   br i1 %50, label %51, label %xact_desc_stats.exit.i
@@ -531,9 +531,9 @@ xact_desc_subxacts.exit.i:                        ; preds = %43, %xact_desc_rela
   %indvars.iv.i20.i = phi i64 [ 0, %51 ], [ %indvars.iv.next.i21.i, %52 ]
   %53 = getelementptr %struct.xl_xact_stats_item, ptr %49, i64 %indvars.iv.i20.i
   %54 = load i32, ptr %53, align 4
-  %55 = getelementptr inbounds i8, ptr %53, i64 4
+  %55 = getelementptr inbounds nuw i8, ptr %53, i64 4
   %56 = load i32, ptr %55, align 4
-  %57 = getelementptr inbounds i8, ptr %53, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %58 = load i32, ptr %57, align 4
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.19, i32 noundef %54, i32 noundef %56, i32 noundef %58) #10
   %indvars.iv.next.i21.i = add nuw nsw i64 %indvars.iv.i20.i, 1
@@ -541,15 +541,15 @@ xact_desc_subxacts.exit.i:                        ; preds = %43, %xact_desc_rela
   br i1 %exitcond.not.i22.i, label %xact_desc_stats.exit.i, label %52, !llvm.loop !8
 
 xact_desc_stats.exit.i:                           ; preds = %52, %xact_desc_subxacts.exit.i
-  %59 = getelementptr inbounds i8, ptr %5, i64 64
+  %59 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %60 = load i32, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %5, i64 72
+  %61 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %5, i64 12
+  %63 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %64 = load i32, ptr %63, align 4
-  %65 = getelementptr inbounds i8, ptr %5, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %66 = load i32, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %5, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %68 = load i32, ptr %67, align 8
   %69 = and i32 %68, 1073741824
   %70 = icmp ne i32 %69, 0
@@ -582,12 +582,12 @@ xact_desc_stats.exit.i:                           ; preds = %52, %xact_desc_subx
 
 80:                                               ; preds = %77
   %81 = zext i16 %16 to i32
-  %82 = getelementptr inbounds i8, ptr %5, i64 312
+  %82 = getelementptr inbounds nuw i8, ptr %5, i64 312
   %83 = load i64, ptr %82, align 8
   %84 = lshr i64 %83, 32
   %85 = trunc nuw i64 %84 to i32
   %86 = trunc i64 %83 to i32
-  %87 = getelementptr inbounds i8, ptr %5, i64 320
+  %87 = getelementptr inbounds nuw i8, ptr %5, i64 320
   %88 = load i64, ptr %87, align 8
   %89 = call ptr @timestamptz_to_str(i64 noundef %88) #10
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.13, i32 noundef %81, i32 noundef %85, i32 noundef %86, ptr noundef %89) #10
@@ -598,11 +598,11 @@ xact_desc_commit.exit:                            ; preds = %77, %80
   br label %xact_desc_assignment.exit
 
 90:                                               ; preds = %2, %2
-  %91 = getelementptr inbounds i8, ptr %7, i64 64
+  %91 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %92 = load i16, ptr %91, align 8
   call void @llvm.lifetime.start.p0(i64 288, ptr nonnull %4)
   call void @ParseAbortRecord(i8 noundef zeroext %11, ptr noundef %9, ptr noundef nonnull %4)
-  %93 = getelementptr inbounds i8, ptr %4, i64 64
+  %93 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %94 = load i32, ptr %93, align 8
   %.not.i37 = icmp eq i32 %94, 0
   br i1 %.not.i37, label %96, label %95
@@ -615,9 +615,9 @@ xact_desc_commit.exit:                            ; preds = %77, %80
   %97 = load i64, ptr %9, align 8
   %98 = call ptr @timestamptz_to_str(i64 noundef %97) #10
   call void @appendStringInfoString(ptr noundef %0, ptr noundef %98) #10
-  %99 = getelementptr inbounds i8, ptr %4, i64 32
+  %99 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %100 = load i32, ptr %99, align 8
-  %101 = getelementptr inbounds i8, ptr %4, i64 40
+  %101 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %102 = load ptr, ptr %101, align 8
   %103 = icmp sgt i32 %100, 0
   br i1 %103, label %104, label %xact_desc_relations.exit.i38
@@ -630,10 +630,10 @@ xact_desc_commit.exit:                            ; preds = %77, %80
 105:                                              ; preds = %105, %104
   %indvars.iv.i.i42 = phi i64 [ 0, %104 ], [ %indvars.iv.next.i.i43, %105 ]
   %106 = getelementptr %struct.RelFileLocator, ptr %102, i64 %indvars.iv.i.i42
-  %107 = getelementptr inbounds i8, ptr %106, i64 4
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 4
   %108 = load i32, ptr %107, align 4
   %109 = load i32, ptr %106, align 4
-  %110 = getelementptr inbounds i8, ptr %106, i64 8
+  %110 = getelementptr inbounds nuw i8, ptr %106, i64 8
   %111 = load i32, ptr %110, align 4
   %112 = call ptr @GetRelationPath(i32 noundef %108, i32 noundef %109, i32 noundef %111, i32 noundef -1, i32 noundef 0) #10
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.15, ptr noundef %112) #10
@@ -643,9 +643,9 @@ xact_desc_commit.exit:                            ; preds = %77, %80
   br i1 %exitcond.not.i.i44, label %xact_desc_relations.exit.i38, label %105, !llvm.loop !5
 
 xact_desc_relations.exit.i38:                     ; preds = %105, %96
-  %113 = getelementptr inbounds i8, ptr %4, i64 20
+  %113 = getelementptr inbounds nuw i8, ptr %4, i64 20
   %114 = load i32, ptr %113, align 4
-  %115 = getelementptr inbounds i8, ptr %4, i64 24
+  %115 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %116 = load ptr, ptr %115, align 8
   %117 = icmp sgt i32 %114, 0
   br i1 %117, label %118, label %xact_desc_subxacts.exit.i39
@@ -665,7 +665,7 @@ xact_desc_relations.exit.i38:                     ; preds = %105, %96
   br i1 %exitcond.not.i13.i, label %xact_desc_subxacts.exit.i39, label %119, !llvm.loop !7
 
 xact_desc_subxacts.exit.i39:                      ; preds = %119, %xact_desc_relations.exit.i38
-  %122 = getelementptr inbounds i8, ptr %4, i64 8
+  %122 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %123 = load i32, ptr %122, align 8
   %124 = and i32 %123, 32
   %.not9.i = icmp eq i32 %124, 0
@@ -673,21 +673,21 @@ xact_desc_subxacts.exit.i39:                      ; preds = %119, %xact_desc_rel
 
 125:                                              ; preds = %xact_desc_subxacts.exit.i39
   %126 = zext i16 %92 to i32
-  %127 = getelementptr inbounds i8, ptr %4, i64 272
+  %127 = getelementptr inbounds nuw i8, ptr %4, i64 272
   %128 = load i64, ptr %127, align 8
   %129 = lshr i64 %128, 32
   %130 = trunc nuw i64 %129 to i32
   %131 = trunc i64 %128 to i32
-  %132 = getelementptr inbounds i8, ptr %4, i64 280
+  %132 = getelementptr inbounds nuw i8, ptr %4, i64 280
   %133 = load i64, ptr %132, align 8
   %134 = call ptr @timestamptz_to_str(i64 noundef %133) #10
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.13, i32 noundef %126, i32 noundef %130, i32 noundef %131, ptr noundef %134) #10
   br label %135
 
 135:                                              ; preds = %125, %xact_desc_subxacts.exit.i39
-  %136 = getelementptr inbounds i8, ptr %4, i64 48
+  %136 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %137 = load i32, ptr %136, align 8
-  %138 = getelementptr inbounds i8, ptr %4, i64 56
+  %138 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %139 = load ptr, ptr %138, align 8
   %140 = icmp sgt i32 %137, 0
   br i1 %140, label %141, label %xact_desc_abort.exit
@@ -701,9 +701,9 @@ xact_desc_subxacts.exit.i39:                      ; preds = %119, %xact_desc_rel
   %indvars.iv.i15.i = phi i64 [ 0, %141 ], [ %indvars.iv.next.i16.i, %142 ]
   %143 = getelementptr %struct.xl_xact_stats_item, ptr %139, i64 %indvars.iv.i15.i
   %144 = load i32, ptr %143, align 4
-  %145 = getelementptr inbounds i8, ptr %143, i64 4
+  %145 = getelementptr inbounds nuw i8, ptr %143, i64 4
   %146 = load i32, ptr %145, align 4
-  %147 = getelementptr inbounds i8, ptr %143, i64 8
+  %147 = getelementptr inbounds nuw i8, ptr %143, i64 8
   %148 = load i32, ptr %147, align 4
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.19, i32 noundef %144, i32 noundef %146, i32 noundef %148) #10
   %indvars.iv.next.i16.i = add nuw nsw i64 %indvars.iv.i15.i, 1
@@ -715,95 +715,95 @@ xact_desc_abort.exit:                             ; preds = %142, %135
   br label %xact_desc_assignment.exit
 
 149:                                              ; preds = %2
-  %150 = getelementptr inbounds i8, ptr %7, i64 64
+  %150 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %151 = load i16, ptr %150, align 8
   call void @llvm.lifetime.start.p0(i64 328, ptr nonnull %3)
   %152 = getelementptr i8, ptr %9, i64 72
-  %153 = getelementptr inbounds i8, ptr %3, i64 8
+  %153 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(328) %153, i8 0, i64 296, i1 false)
-  %154 = getelementptr inbounds i8, ptr %9, i64 16
+  %154 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %155 = load i64, ptr %154, align 8
   store i64 %155, ptr %3, align 8
-  %156 = getelementptr inbounds i8, ptr %9, i64 56
+  %156 = getelementptr inbounds nuw i8, ptr %9, i64 56
   %157 = load i64, ptr %156, align 8
-  %158 = getelementptr inbounds i8, ptr %3, i64 312
+  %158 = getelementptr inbounds nuw i8, ptr %3, i64 312
   store i64 %157, ptr %158, align 8
-  %159 = getelementptr inbounds i8, ptr %9, i64 64
+  %159 = getelementptr inbounds nuw i8, ptr %9, i64 64
   %160 = load i64, ptr %159, align 8
-  %161 = getelementptr inbounds i8, ptr %3, i64 320
+  %161 = getelementptr inbounds nuw i8, ptr %3, i64 320
   store i64 %160, ptr %161, align 8
-  %162 = getelementptr inbounds i8, ptr %9, i64 8
+  %162 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %163 = load i32, ptr %162, align 8
-  %164 = getelementptr inbounds i8, ptr %3, i64 80
+  %164 = getelementptr inbounds nuw i8, ptr %3, i64 80
   store i32 %163, ptr %164, align 8
-  %165 = getelementptr inbounds i8, ptr %9, i64 12
+  %165 = getelementptr inbounds nuw i8, ptr %9, i64 12
   %166 = load i32, ptr %165, align 4
-  %167 = getelementptr inbounds i8, ptr %3, i64 12
+  %167 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 %166, ptr %167, align 4
-  %168 = getelementptr inbounds i8, ptr %9, i64 28
+  %168 = getelementptr inbounds nuw i8, ptr %9, i64 28
   %169 = load i32, ptr %168, align 4
-  %170 = getelementptr inbounds i8, ptr %3, i64 20
+  %170 = getelementptr inbounds nuw i8, ptr %3, i64 20
   store i32 %169, ptr %170, align 4
-  %171 = getelementptr inbounds i8, ptr %9, i64 32
+  %171 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %172 = load i32, ptr %171, align 8
-  %173 = getelementptr inbounds i8, ptr %3, i64 32
+  %173 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 %172, ptr %173, align 8
-  %174 = getelementptr inbounds i8, ptr %9, i64 36
+  %174 = getelementptr inbounds nuw i8, ptr %9, i64 36
   %175 = load i32, ptr %174, align 4
-  %176 = getelementptr inbounds i8, ptr %3, i64 284
+  %176 = getelementptr inbounds nuw i8, ptr %3, i64 284
   store i32 %175, ptr %176, align 4
-  %177 = getelementptr inbounds i8, ptr %9, i64 48
+  %177 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %178 = load i32, ptr %177, align 8
-  %179 = getelementptr inbounds i8, ptr %3, i64 64
+  %179 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i32 %178, ptr %179, align 8
-  %180 = getelementptr inbounds i8, ptr %3, i64 84
-  %181 = getelementptr inbounds i8, ptr %9, i64 54
+  %180 = getelementptr inbounds nuw i8, ptr %3, i64 84
+  %181 = getelementptr inbounds nuw i8, ptr %9, i64 54
   %182 = load i16, ptr %181, align 2
   %183 = zext i16 %182 to i64
   %184 = call ptr @strncpy(ptr noundef nonnull %180, ptr noundef %152, i64 noundef %183) #10
   %185 = add nuw nsw i64 %183, 7
   %186 = and i64 %185, 131064
   %187 = getelementptr i8, ptr %152, i64 %186
-  %188 = getelementptr inbounds i8, ptr %3, i64 24
+  %188 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %187, ptr %188, align 8
   %189 = sext i32 %169 to i64
   %190 = shl nsw i64 %189, 2
   %191 = add nsw i64 %190, 7
   %192 = and i64 %191, -8
   %193 = getelementptr i8, ptr %187, i64 %192
-  %194 = getelementptr inbounds i8, ptr %3, i64 40
+  %194 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store ptr %193, ptr %194, align 8
   %195 = sext i32 %172 to i64
   %196 = mul nsw i64 %195, 12
   %197 = add nsw i64 %196, 7
   %198 = and i64 %197, -8
   %199 = getelementptr i8, ptr %193, i64 %198
-  %200 = getelementptr inbounds i8, ptr %3, i64 288
+  %200 = getelementptr inbounds nuw i8, ptr %3, i64 288
   store ptr %199, ptr %200, align 8
   %201 = sext i32 %175 to i64
   %202 = mul nsw i64 %201, 12
   %203 = add nsw i64 %202, 7
   %204 = and i64 %203, -8
   %205 = getelementptr i8, ptr %199, i64 %204
-  %206 = getelementptr inbounds i8, ptr %3, i64 56
+  %206 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store ptr %205, ptr %206, align 8
-  %207 = getelementptr inbounds i8, ptr %9, i64 40
+  %207 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %208 = load i32, ptr %207, align 8
   %209 = sext i32 %208 to i64
   %210 = mul nsw i64 %209, 12
   %211 = add nsw i64 %210, 7
   %212 = and i64 %211, -8
   %213 = getelementptr i8, ptr %205, i64 %212
-  %214 = getelementptr inbounds i8, ptr %3, i64 304
+  %214 = getelementptr inbounds nuw i8, ptr %3, i64 304
   store ptr %213, ptr %214, align 8
-  %215 = getelementptr inbounds i8, ptr %9, i64 44
+  %215 = getelementptr inbounds nuw i8, ptr %9, i64 44
   %216 = load i32, ptr %215, align 4
   %217 = sext i32 %216 to i64
   %218 = mul nsw i64 %217, 12
   %219 = add nsw i64 %218, 7
   %220 = and i64 %219, -8
   %221 = getelementptr i8, ptr %213, i64 %220
-  %222 = getelementptr inbounds i8, ptr %3, i64 72
+  %222 = getelementptr inbounds nuw i8, ptr %3, i64 72
   store ptr %221, ptr %222, align 8
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.20, ptr noundef nonnull %180) #10
   %223 = load i64, ptr %3, align 8
@@ -822,10 +822,10 @@ xact_desc_abort.exit:                             ; preds = %142, %135
 229:                                              ; preds = %229, %228
   %indvars.iv.i.i50 = phi i64 [ 0, %228 ], [ %indvars.iv.next.i.i51, %229 ]
   %230 = getelementptr %struct.RelFileLocator, ptr %226, i64 %indvars.iv.i.i50
-  %231 = getelementptr inbounds i8, ptr %230, i64 4
+  %231 = getelementptr inbounds nuw i8, ptr %230, i64 4
   %232 = load i32, ptr %231, align 4
   %233 = load i32, ptr %230, align 4
-  %234 = getelementptr inbounds i8, ptr %230, i64 8
+  %234 = getelementptr inbounds nuw i8, ptr %230, i64 8
   %235 = load i32, ptr %234, align 4
   %236 = call ptr @GetRelationPath(i32 noundef %232, i32 noundef %233, i32 noundef %235, i32 noundef -1, i32 noundef 0) #10
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.15, ptr noundef %236) #10
@@ -848,10 +848,10 @@ xact_desc_relations.exit.i45:                     ; preds = %229, %149
 241:                                              ; preds = %241, %240
   %indvars.iv.i14.i = phi i64 [ 0, %240 ], [ %indvars.iv.next.i15.i, %241 ]
   %242 = getelementptr %struct.RelFileLocator, ptr %238, i64 %indvars.iv.i14.i
-  %243 = getelementptr inbounds i8, ptr %242, i64 4
+  %243 = getelementptr inbounds nuw i8, ptr %242, i64 4
   %244 = load i32, ptr %243, align 4
   %245 = load i32, ptr %242, align 4
-  %246 = getelementptr inbounds i8, ptr %242, i64 8
+  %246 = getelementptr inbounds nuw i8, ptr %242, i64 8
   %247 = load i32, ptr %246, align 4
   %248 = call ptr @GetRelationPath(i32 noundef %244, i32 noundef %245, i32 noundef %247, i32 noundef -1, i32 noundef 0) #10
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.15, ptr noundef %248) #10
@@ -861,7 +861,7 @@ xact_desc_relations.exit.i45:                     ; preds = %229, %149
   br i1 %exitcond.not.i16.i, label %xact_desc_relations.exit17.i, label %241, !llvm.loop !5
 
 xact_desc_relations.exit17.i:                     ; preds = %241, %xact_desc_relations.exit.i45
-  %249 = getelementptr inbounds i8, ptr %3, i64 48
+  %249 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %250 = load i32, ptr %249, align 8
   %251 = load ptr, ptr %206, align 8
   %252 = icmp sgt i32 %250, 0
@@ -876,9 +876,9 @@ xact_desc_relations.exit17.i:                     ; preds = %241, %xact_desc_rel
   %indvars.iv.i19.i = phi i64 [ 0, %253 ], [ %indvars.iv.next.i20.i, %254 ]
   %255 = getelementptr %struct.xl_xact_stats_item, ptr %251, i64 %indvars.iv.i19.i
   %256 = load i32, ptr %255, align 4
-  %257 = getelementptr inbounds i8, ptr %255, i64 4
+  %257 = getelementptr inbounds nuw i8, ptr %255, i64 4
   %258 = load i32, ptr %257, align 4
-  %259 = getelementptr inbounds i8, ptr %255, i64 8
+  %259 = getelementptr inbounds nuw i8, ptr %255, i64 8
   %260 = load i32, ptr %259, align 4
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.19, i32 noundef %256, i32 noundef %258, i32 noundef %260) #10
   %indvars.iv.next.i20.i = add nuw nsw i64 %indvars.iv.i19.i, 1
@@ -886,7 +886,7 @@ xact_desc_relations.exit17.i:                     ; preds = %241, %xact_desc_rel
   br i1 %exitcond.not.i21.i, label %xact_desc_stats.exit.i46, label %254, !llvm.loop !8
 
 xact_desc_stats.exit.i46:                         ; preds = %254, %xact_desc_relations.exit17.i
-  %261 = getelementptr inbounds i8, ptr %3, i64 296
+  %261 = getelementptr inbounds nuw i8, ptr %3, i64 296
   %262 = load i32, ptr %261, align 8
   %263 = load ptr, ptr %214, align 8
   %264 = icmp sgt i32 %262, 0
@@ -901,9 +901,9 @@ xact_desc_stats.exit.i46:                         ; preds = %254, %xact_desc_rel
   %indvars.iv.i23.i = phi i64 [ 0, %265 ], [ %indvars.iv.next.i24.i, %266 ]
   %267 = getelementptr %struct.xl_xact_stats_item, ptr %263, i64 %indvars.iv.i23.i
   %268 = load i32, ptr %267, align 4
-  %269 = getelementptr inbounds i8, ptr %267, i64 4
+  %269 = getelementptr inbounds nuw i8, ptr %267, i64 4
   %270 = load i32, ptr %269, align 4
-  %271 = getelementptr inbounds i8, ptr %267, i64 8
+  %271 = getelementptr inbounds nuw i8, ptr %267, i64 8
   %272 = load i32, ptr %271, align 4
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.19, i32 noundef %268, i32 noundef %270, i32 noundef %272) #10
   %indvars.iv.next.i24.i = add nuw nsw i64 %indvars.iv.i23.i, 1
@@ -934,9 +934,9 @@ xact_desc_subxacts.exit.i47:                      ; preds = %277, %xact_desc_sta
   %280 = load i32, ptr %179, align 8
   %281 = load ptr, ptr %222, align 8
   %282 = load i32, ptr %167, align 4
-  %283 = getelementptr inbounds i8, ptr %3, i64 16
+  %283 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %284 = load i32, ptr %283, align 8
-  %285 = getelementptr inbounds i8, ptr %9, i64 52
+  %285 = getelementptr inbounds nuw i8, ptr %9, i64 52
   %286 = load i8, ptr %285, align 4
   %287 = trunc i8 %286 to i1
   call void @standby_desc_invalidations(ptr noundef %0, i32 noundef %280, ptr noundef %281, i32 noundef %282, i32 noundef %284, i1 noundef zeroext %287) #10
@@ -962,13 +962,13 @@ xact_desc_prepare.exit:                           ; preds = %xact_desc_subxacts.
   %297 = load i32, ptr %9, align 4
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str, i32 noundef %297) #10
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull @.str.25) #10
-  %298 = getelementptr inbounds i8, ptr %9, i64 4
+  %298 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %299 = load i32, ptr %298, align 4
   %300 = icmp sgt i32 %299, 0
   br i1 %300, label %.lr.ph.i, label %xact_desc_assignment.exit
 
 .lr.ph.i:                                         ; preds = %296
-  %301 = getelementptr inbounds i8, ptr %9, i64 8
+  %301 = getelementptr inbounds nuw i8, ptr %9, i64 8
   br label %302
 
 302:                                              ; preds = %302, %.lr.ph.i
@@ -984,7 +984,7 @@ xact_desc_prepare.exit:                           ; preds = %xact_desc_subxacts.
 
 308:                                              ; preds = %2
   %309 = load i32, ptr %9, align 4
-  %310 = getelementptr inbounds i8, ptr %9, i64 4
+  %310 = getelementptr inbounds nuw i8, ptr %9, i64 4
   tail call void @standby_desc_invalidations(ptr noundef %0, i32 noundef %309, ptr noundef nonnull %310, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false) #10
   br label %xact_desc_assignment.exit
 
@@ -1005,7 +1005,7 @@ switch.lookup:
   %1 = lshr i8 %0, 4
   %2 = and i8 %1, 7
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds [8 x ptr], ptr @switch.table.xact_identify, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x ptr], ptr @switch.table.xact_identify, i64 0, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }

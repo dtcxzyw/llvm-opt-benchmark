@@ -111,7 +111,7 @@ define internal fastcc noundef ptr @_ZL23pj_expand_init_internalP6pj_ctxP8ARG_li
   br i1 %16, label %198, label %17
 
 17:                                               ; preds = %3
-  %18 = getelementptr inbounds i8, ptr %1, i64 9
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 9
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %14)
   call void @llvm.lifetime.start.p0(i64 71, ptr nonnull %15)
@@ -126,7 +126,7 @@ define internal fastcc noundef ptr @_ZL23pj_expand_init_internalP6pj_ctxP8ARG_li
   %.061.i = phi ptr [ %0, %17 ], [ %20, %19 ]
   %22 = tail call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull dereferenceable(1) @.str.4) #13
   %23 = icmp eq ptr %22, null
-  %24 = getelementptr inbounds i8, ptr %22, i64 5
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 5
   %.062.i = select i1 %23, ptr %18, ptr %24
   tail call void (ptr, i32, ptr, ...) @_Z6pj_logP6pj_ctxiPKcz(ptr noundef %.061.i, i32 noundef 3, ptr noundef nonnull @.str.48, ptr noundef nonnull %.062.i)
   %25 = tail call noundef ptr @_Z19pj_search_initcachePKc(ptr noundef nonnull %.062.i)
@@ -145,14 +145,14 @@ define internal fastcc noundef ptr @_ZL23pj_expand_init_internalP6pj_ctxP8ARG_li
 
 32:                                               ; preds = %29, %26
   %33 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(1) %.062.i, i64 noundef 4) #14
-  %34 = getelementptr inbounds i8, ptr %14, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %14, i64 4
   store i8 0, ptr %34, align 1
   %35 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.062.i, ptr noundef nonnull dereferenceable(6) @.str.49, i64 noundef 5) #13
   %36 = icmp eq i32 %35, 0
   br i1 %36, label %37, label %43
 
 37:                                               ; preds = %32
-  %38 = getelementptr inbounds i8, ptr %.061.i, i64 80
+  %38 = getelementptr inbounds nuw i8, ptr %.061.i, i64 80
   %39 = load i32, ptr %38, align 8
   %40 = icmp slt i32 %39, 0
   br i1 %40, label %41, label %45
@@ -188,7 +188,7 @@ define internal fastcc noundef ptr @_ZL23pj_expand_init_internalP6pj_ctxP8ARG_li
 51:                                               ; preds = %48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(7) %15, ptr noundef nonnull align 1 dereferenceable(7) @.str.3, i64 7, i1 false) #14
   %52 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(1) %.062.i) #14
-  %53 = getelementptr inbounds i8, ptr %.061.i, i64 72
+  %53 = getelementptr inbounds nuw i8, ptr %.061.i, i64 72
   %54 = load i32, ptr %53, align 8
   store i32 1, ptr %53, align 8
   %55 = call ptr @proj_create(ptr noundef %.061.i, ptr noundef nonnull %15)
@@ -238,7 +238,7 @@ define internal fastcc noundef ptr @_ZL23pj_expand_init_internalP6pj_ctxP8ARG_li
 69:                                               ; preds = %.thread.i
   %70 = call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %.062.i, ptr noundef nonnull dereferenceable(1) @.str.4) #13
   %71 = icmp eq ptr %70, null
-  %72 = getelementptr inbounds i8, ptr %70, i64 5
+  %72 = getelementptr inbounds nuw i8, ptr %70, i64 5
   %.070.i.i = select i1 %71, ptr %.062.i, ptr %72
   %73 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.070.i.i) #13
   %74 = icmp ugt i64 %73, 1076
@@ -258,7 +258,7 @@ define internal fastcc noundef ptr @_ZL23pj_expand_init_internalP6pj_ctxP8ARG_li
 
 80:                                               ; preds = %75
   store i8 0, ptr %77, align 1
-  %81 = getelementptr inbounds i8, ptr %77, i64 1
+  %81 = getelementptr inbounds nuw i8, ptr %77, i64 1
   %82 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %81) #13
   call void (ptr, i32, ptr, ...) @_Z6pj_logP6pj_ctxiPKcz(ptr noundef %.061.i, i32 noundef 3, ptr noundef nonnull @.str.56, ptr noundef nonnull %81, ptr noundef nonnull %67)
   call void @_ZN5osgeo4proj11FileManager18open_resource_fileEP6pj_ctxPKcPcm(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %5, ptr noundef %.061.i, ptr noundef nonnull %67, ptr noundef null, i64 noundef 0)
@@ -370,7 +370,7 @@ define internal fastcc noundef ptr @_ZL23pj_expand_init_internalP6pj_ctxP8ARG_li
 
 118:                                              ; preds = %116
   %119 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #14
-  %120 = getelementptr inbounds i8, ptr %119, i64 1
+  %120 = getelementptr inbounds nuw i8, ptr %119, i64 1
   %121 = call i32 @strncmp(ptr noundef nonnull %120, ptr noundef nonnull %81, i64 noundef %82) #13
   %122 = icmp eq i32 %121, 0
   br i1 %122, label %123, label %.backedge.i.i.backedge
@@ -387,7 +387,7 @@ define internal fastcc noundef ptr @_ZL23pj_expand_init_internalP6pj_ctxP8ARG_li
   %127 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #14
   %128 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %81) #13
   %129 = getelementptr inbounds i8, ptr %127, i64 %128
-  %130 = getelementptr inbounds i8, ptr %129, i64 2
+  %130 = getelementptr inbounds nuw i8, ptr %129, i64 2
   %131 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %124, ptr noundef nonnull dereferenceable(1) %130) #14
   %132 = call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %124, i32 noundef 60) #13
   %.not84104.i.i = icmp eq ptr %132, null
@@ -457,7 +457,7 @@ define internal fastcc noundef ptr @_ZL23pj_expand_init_internalP6pj_ctxP8ARG_li
   %.169.i.i = phi i64 [ %153, %156 ], [ %.068106.i.i, %146 ]
   %159 = getelementptr inbounds i8, ptr %.275.i.i, i64 %142
   store i8 32, ptr %159, align 1
-  %160 = getelementptr inbounds i8, ptr %159, i64 1
+  %160 = getelementptr inbounds nuw i8, ptr %159, i64 1
   %161 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #14
   %162 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %160, ptr noundef nonnull dereferenceable(1) %161) #14
   %163 = call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %.275.i.i, i32 noundef 60) #13
@@ -491,7 +491,7 @@ define internal fastcc noundef ptr @_ZL23pj_expand_init_internalP6pj_ctxP8ARG_li
 
 _ZNKSt14default_deleteIN5osgeo4proj4FileEEclEPS2_.exit.i.i.i: ; preds = %167
   %169 = load ptr, ptr %168, align 8
-  %170 = getelementptr inbounds i8, ptr %169, i64 8
+  %170 = getelementptr inbounds nuw i8, ptr %169, i64 8
   %171 = load ptr, ptr %170, align 8
   call void %171(ptr noundef nonnull align 8 dereferenceable(73) %168) #14
   br label %177
@@ -504,7 +504,7 @@ _ZNKSt14default_deleteIN5osgeo4proj4FileEEclEPS2_.exit.i.i.i: ; preds = %167
 
 _ZNKSt14default_deleteIN5osgeo4proj4FileEEclEPS2_.exit.i88.i.i: ; preds = %172
   %174 = load ptr, ptr %173, align 8
-  %175 = getelementptr inbounds i8, ptr %174, i64 8
+  %175 = getelementptr inbounds nuw i8, ptr %174, i64 8
   %176 = load ptr, ptr %175, align 8
   call void %176(ptr noundef nonnull align 8 dereferenceable(73) %173) #14
   br label %_ZNSt10unique_ptrIN5osgeo4proj4FileESt14default_deleteIS2_EED2Ev.exit89.i.i
@@ -588,10 +588,10 @@ _ZL18string_to_paralistP6pj_ctxPc.exit.i:         ; preds = %189
   br label %_ZL8get_initP6pj_ctxPKci.exit.thread
 
 192:                                              ; preds = %_ZL18string_to_paralistP6pj_ctxPc.exit.i
-  %193 = getelementptr inbounds i8, ptr %.1.i85.i, i64 9
+  %193 = getelementptr inbounds nuw i8, ptr %.1.i85.i, i64 9
   %194 = load ptr, ptr %.1.i85.i, align 8
   %.not83.i = icmp eq ptr %194, null
-  %195 = getelementptr inbounds i8, ptr %194, i64 9
+  %195 = getelementptr inbounds nuw i8, ptr %194, i64 9
   %spec.select.i = select i1 %.not83.i, ptr @.str.54, ptr %195
   call void (ptr, i32, ptr, ...) @_Z6pj_logP6pj_ctxiPKcz(ptr noundef %.061.i, i32 noundef 3, ptr noundef nonnull @.str.53, ptr noundef nonnull %.195.i, ptr noundef nonnull %193, ptr noundef nonnull %spec.select.i)
   call void @free(ptr noundef %.195.i) #14
@@ -640,7 +640,7 @@ define hidden noundef ptr @_Z32pj_init_ctx_with_allow_init_epsgP6pj_ctxiPPci(ptr
 
 11:                                               ; preds = %9, %4
   %.0337 = phi ptr [ %10, %9 ], [ %0, %4 ]
-  %12 = getelementptr inbounds i8, ptr %.0337, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %.0337, i64 32
   store i32 0, ptr %12, align 8
   %13 = icmp slt i32 %1, 1
   br i1 %13, label %14, label %.preheader422.preheader
@@ -658,7 +658,7 @@ define hidden noundef ptr @_Z32pj_init_ctx_with_allow_init_epsgP6pj_ctxiPPci(ptr
   %indvars.iv = phi i64 [ 0, %.preheader422.preheader ], [ %indvars.iv.next, %28 ]
   %.0345427 = phi i32 [ 0, %.preheader422.preheader ], [ %.1346, %28 ]
   %.0347426 = phi i32 [ 0, %.preheader422.preheader ], [ %.1348, %28 ]
-  %15 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8
   %17 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(15) @.str.1) #13
   %.not398 = icmp eq i32 %17, 0
@@ -736,7 +736,7 @@ define hidden noundef ptr @_Z32pj_init_ctx_with_allow_init_epsgP6pj_ctxiPPci(ptr
 .lr.ph:                                           ; preds = %.preheader421, %41
   %indvars.iv448 = phi i64 [ %indvars.iv.next449, %41 ], [ 1, %.preheader421 ]
   %.0340430 = phi ptr [ %44, %41 ], [ %38, %.preheader421 ]
-  %42 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv448
+  %42 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv448
   %43 = load ptr, ptr %42, align 8
   %44 = tail call noundef ptr @_Z10pj_mkparamPKc(ptr noundef %43)
   store ptr %44, ptr %.0340430, align 8
@@ -782,7 +782,7 @@ define hidden noundef ptr @_Z32pj_init_ctx_with_allow_init_epsgP6pj_ctxiPPci(ptr
   br label %353
 
 62:                                               ; preds = %57
-  %63 = getelementptr inbounds i8, ptr %58, i64 9
+  %63 = getelementptr inbounds nuw i8, ptr %58, i64 9
   %64 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %63) #13
   %65 = icmp ult i64 %64, 6
   br i1 %65, label %66, label %68
@@ -793,7 +793,7 @@ define hidden noundef ptr @_Z32pj_init_ctx_with_allow_init_epsgP6pj_ctxiPPci(ptr
   br label %353
 
 68:                                               ; preds = %62
-  %69 = getelementptr inbounds i8, ptr %58, i64 14
+  %69 = getelementptr inbounds nuw i8, ptr %58, i64 14
   %70 = tail call fastcc noundef ptr @_ZL18locate_constructorPKc(ptr noundef %69)
   %71 = icmp eq ptr %70, null
   br i1 %71, label %72, label %74
@@ -815,17 +815,17 @@ define hidden noundef ptr @_Z32pj_init_ctx_with_allow_init_epsgP6pj_ctxiPPci(ptr
 
 79:                                               ; preds = %74
   store ptr %.0337, ptr %75, align 8
-  %80 = getelementptr inbounds i8, ptr %75, i64 24
+  %80 = getelementptr inbounds nuw i8, ptr %75, i64 24
   store ptr %38, ptr %80, align 8
-  %81 = getelementptr inbounds i8, ptr %75, i64 352
+  %81 = getelementptr inbounds nuw i8, ptr %75, i64 352
   store i32 0, ptr %81, align 8
-  %82 = getelementptr inbounds i8, ptr %75, i64 356
+  %82 = getelementptr inbounds nuw i8, ptr %75, i64 356
   store i32 0, ptr %82, align 4
-  %83 = getelementptr inbounds i8, ptr %75, i64 632
+  %83 = getelementptr inbounds nuw i8, ptr %75, i64 632
   store i32 0, ptr %83, align 8
-  %84 = getelementptr inbounds i8, ptr %75, i64 624
+  %84 = getelementptr inbounds nuw i8, ptr %75, i64 624
   store double 0.000000e+00, ptr %84, align 8
-  %85 = getelementptr inbounds i8, ptr %75, i64 636
+  %85 = getelementptr inbounds nuw i8, ptr %75, i64 636
   store i32 7695973, ptr %85, align 1
   br i1 %33, label %86, label %91
 
@@ -845,14 +845,14 @@ define hidden noundef ptr @_Z32pj_init_ctx_with_allow_init_epsgP6pj_ctxiPPci(ptr
   br i1 %.not372, label %._crit_edge462, label %93
 
 ._crit_edge462:                                   ; preds = %91
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %75, i64 168
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %75, i64 168
   %.pre = load double, ptr %.phi.trans.insert, align 8
-  %.phi.trans.insert463 = getelementptr inbounds i8, ptr %75, i64 216
+  %.phi.trans.insert463 = getelementptr inbounds nuw i8, ptr %75, i64 216
   %.pre464 = load double, ptr %.phi.trans.insert463, align 8
   br label %108
 
 93:                                               ; preds = %91
-  %94 = getelementptr inbounds i8, ptr %75, i64 360
+  %94 = getelementptr inbounds nuw i8, ptr %75, i64 360
   %95 = load i32, ptr %94, align 8
   %.not373 = icmp eq i32 %95, 0
   br i1 %.not373, label %99, label %96
@@ -864,7 +864,7 @@ define hidden noundef ptr @_Z32pj_init_ctx_with_allow_init_epsgP6pj_ctxiPPci(ptr
   br label %353
 
 99:                                               ; preds = %93
-  %100 = getelementptr inbounds i8, ptr %75, i64 168
+  %100 = getelementptr inbounds nuw i8, ptr %75, i64 168
   %101 = load double, ptr %100, align 8
   %102 = fcmp oeq double %101, 0.000000e+00
   br i1 %102, label %103, label %105
@@ -874,21 +874,21 @@ define hidden noundef ptr @_Z32pj_init_ctx_with_allow_init_epsgP6pj_ctxiPPci(ptr
   br label %105
 
 105:                                              ; preds = %103, %99
-  %106 = getelementptr inbounds i8, ptr %75, i64 272
+  %106 = getelementptr inbounds nuw i8, ptr %75, i64 272
   store double 0x3F6B775A84F3E128, ptr %106, align 8
   store double 0x415854A640000000, ptr %100, align 8
-  %107 = getelementptr inbounds i8, ptr %75, i64 216
+  %107 = getelementptr inbounds nuw i8, ptr %75, i64 216
   store double 0x3F7B6B90F1FE94F0, ptr %107, align 8
   br label %108
 
 108:                                              ; preds = %._crit_edge462, %105
   %109 = phi double [ %.pre464, %._crit_edge462 ], [ 0x3F7B6B90F1FE94F0, %105 ]
   %110 = phi double [ %.pre, %._crit_edge462 ], [ 0x415854A640000000, %105 ]
-  %111 = getelementptr inbounds i8, ptr %75, i64 168
-  %112 = getelementptr inbounds i8, ptr %75, i64 336
+  %111 = getelementptr inbounds nuw i8, ptr %75, i64 168
+  %112 = getelementptr inbounds nuw i8, ptr %75, i64 336
   store double %110, ptr %112, align 8
-  %113 = getelementptr inbounds i8, ptr %75, i64 216
-  %114 = getelementptr inbounds i8, ptr %75, i64 328
+  %113 = getelementptr inbounds nuw i8, ptr %75, i64 216
+  %114 = getelementptr inbounds nuw i8, ptr %75, i64 328
   store double %109, ptr %114, align 8
   %115 = tail call noundef i32 @_Z24pj_calc_ellipsoid_paramsP8PJconstsdd(ptr noundef nonnull %75, double noundef %110, double noundef %109)
   %.not374 = icmp eq i32 %115, 0
@@ -899,25 +899,25 @@ define hidden noundef ptr @_Z32pj_init_ctx_with_allow_init_epsgP6pj_ctxiPPci(ptr
   br label %353
 
 118:                                              ; preds = %108
-  %119 = getelementptr inbounds i8, ptr %75, i64 528
+  %119 = getelementptr inbounds nuw i8, ptr %75, i64 528
   %120 = load i32, ptr %119, align 8
   %121 = icmp eq i32 %120, 1
   br i1 %121, label %122, label %145
 
 122:                                              ; preds = %118
-  %123 = getelementptr inbounds i8, ptr %75, i64 536
+  %123 = getelementptr inbounds nuw i8, ptr %75, i64 536
   %124 = load double, ptr %123, align 8
   %125 = fcmp oeq double %124, 0.000000e+00
   br i1 %125, label %126, label %145
 
 126:                                              ; preds = %122
-  %127 = getelementptr inbounds i8, ptr %75, i64 544
+  %127 = getelementptr inbounds nuw i8, ptr %75, i64 544
   %128 = load double, ptr %127, align 8
   %129 = fcmp oeq double %128, 0.000000e+00
   br i1 %129, label %130, label %145
 
 130:                                              ; preds = %126
-  %131 = getelementptr inbounds i8, ptr %75, i64 552
+  %131 = getelementptr inbounds nuw i8, ptr %75, i64 552
   %132 = load double, ptr %131, align 8
   %133 = fcmp oeq double %132, 0.000000e+00
   br i1 %133, label %134, label %145
@@ -954,20 +954,20 @@ define hidden noundef ptr @_Z32pj_init_ctx_with_allow_init_epsgP6pj_ctxiPPci(ptr
 
 153:                                              ; preds = %148, %145
   %154 = phi i32 [ 0, %145 ], [ %152, %148 ]
-  %155 = getelementptr inbounds i8, ptr %75, i64 348
+  %155 = getelementptr inbounds nuw i8, ptr %75, i64 348
   store i32 %154, ptr %155, align 4
   %156 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef nonnull %.0337, ptr noundef nonnull %38, ptr noundef nonnull @.str.15)
   %.sroa.047.0.extract.trunc = trunc i64 %156 to i32
-  %157 = getelementptr inbounds i8, ptr %75, i64 344
+  %157 = getelementptr inbounds nuw i8, ptr %75, i64 344
   store i32 %.sroa.047.0.extract.trunc, ptr %157, align 8
-  %158 = getelementptr inbounds i8, ptr %.0337, i64 76
+  %158 = getelementptr inbounds nuw i8, ptr %.0337, i64 76
   %159 = load i8, ptr %158, align 4
   %160 = trunc i8 %159 to i1
   %spec.store.select = select i1 %160, i32 1, i32 %.sroa.047.0.extract.trunc
   store i32 %spec.store.select, ptr %157, align 8
   %161 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef nonnull %.0337, ptr noundef nonnull %38, ptr noundef nonnull @.str.16)
   %.sroa.045.0.extract.trunc = trunc i64 %161 to i32
-  %162 = getelementptr inbounds i8, ptr %75, i64 592
+  %162 = getelementptr inbounds nuw i8, ptr %75, i64 592
   store i32 %.sroa.045.0.extract.trunc, ptr %162, align 8
   %.not375 = icmp eq i32 %.sroa.045.0.extract.trunc, 0
   br i1 %.not375, label %165, label %163
@@ -1021,7 +1021,7 @@ define hidden noundef ptr @_Z32pj_init_ctx_with_allow_init_epsgP6pj_ctxiPPci(ptr
   br i1 %184, label %195, label %185
 
 185:                                              ; preds = %181
-  %186 = getelementptr inbounds i8, ptr %.sroa.031.0..sroa.031.0..cast, i64 1
+  %186 = getelementptr inbounds nuw i8, ptr %.sroa.031.0..sroa.031.0..cast, i64 1
   %187 = load i8, ptr %186, align 1
   %188 = sext i8 %187 to i32
   %memchr379 = tail call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.22, i32 %188, i64 7)
@@ -1029,7 +1029,7 @@ define hidden noundef ptr @_Z32pj_init_ctx_with_allow_init_epsgP6pj_ctxiPPci(ptr
   br i1 %189, label %195, label %190
 
 190:                                              ; preds = %185
-  %191 = getelementptr inbounds i8, ptr %.sroa.031.0..sroa.031.0..cast, i64 2
+  %191 = getelementptr inbounds nuw i8, ptr %.sroa.031.0..sroa.031.0..cast, i64 2
   %192 = load i8, ptr %191, align 1
   %193 = sext i8 %192 to i32
   %memchr380 = tail call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.22, i32 %193, i64 7)
@@ -1047,11 +1047,11 @@ define hidden noundef ptr @_Z32pj_init_ctx_with_allow_init_epsgP6pj_ctxiPPci(ptr
 
 199:                                              ; preds = %197, %174
   %200 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef nonnull %.0337, ptr noundef nonnull %38, ptr noundef nonnull @.str.24)
-  %201 = getelementptr inbounds i8, ptr %75, i64 440
+  %201 = getelementptr inbounds nuw i8, ptr %75, i64 440
   store i64 %200, ptr %201, align 8
   %202 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef nonnull %.0337, ptr noundef nonnull %38, ptr noundef nonnull @.str.25)
   %203 = bitcast i64 %202 to double
-  %204 = getelementptr inbounds i8, ptr %75, i64 448
+  %204 = getelementptr inbounds nuw i8, ptr %75, i64 448
   store i64 %202, ptr %204, align 8
   %205 = tail call double @llvm.fabs.f64(double %203)
   %206 = fcmp ogt double %205, 0x3FF921FB54442D18
@@ -1064,16 +1064,16 @@ define hidden noundef ptr @_Z32pj_init_ctx_with_allow_init_epsgP6pj_ctxiPPci(ptr
 
 209:                                              ; preds = %199
   %210 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef nonnull %.0337, ptr noundef nonnull %38, ptr noundef nonnull @.str.27)
-  %211 = getelementptr inbounds i8, ptr %75, i64 456
+  %211 = getelementptr inbounds nuw i8, ptr %75, i64 456
   store i64 %210, ptr %211, align 8
   %212 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef nonnull %.0337, ptr noundef nonnull %38, ptr noundef nonnull @.str.28)
-  %213 = getelementptr inbounds i8, ptr %75, i64 464
+  %213 = getelementptr inbounds nuw i8, ptr %75, i64 464
   store i64 %212, ptr %213, align 8
   %214 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef nonnull %.0337, ptr noundef nonnull %38, ptr noundef nonnull @.str.29)
-  %215 = getelementptr inbounds i8, ptr %75, i64 472
+  %215 = getelementptr inbounds nuw i8, ptr %75, i64 472
   store i64 %214, ptr %215, align 8
   %216 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef nonnull %.0337, ptr noundef nonnull %38, ptr noundef nonnull @.str.30)
-  %217 = getelementptr inbounds i8, ptr %75, i64 480
+  %217 = getelementptr inbounds nuw i8, ptr %75, i64 480
   store i64 %216, ptr %217, align 8
   %218 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef nonnull %.0337, ptr noundef nonnull %38, ptr noundef nonnull @.str.31)
   %219 = and i64 %218, 4294967295
@@ -1087,14 +1087,14 @@ define hidden noundef ptr @_Z32pj_init_ctx_with_allow_init_epsgP6pj_ctxiPPci(ptr
   br i1 %.not382, label %.thread465, label %224
 
 .thread465:                                       ; preds = %220
-  %223 = getelementptr inbounds i8, ptr %75, i64 488
+  %223 = getelementptr inbounds nuw i8, ptr %75, i64 488
   store double 1.000000e+00, ptr %223, align 8
   br label %231
 
 224:                                              ; preds = %220, %209
   %.str.34.sink = phi ptr [ @.str.32, %209 ], [ @.str.34, %220 ]
   %225 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef nonnull %.0337, ptr noundef nonnull %38, ptr noundef nonnull %.str.34.sink)
-  %226 = getelementptr inbounds i8, ptr %75, i64 488
+  %226 = getelementptr inbounds nuw i8, ptr %75, i64 488
   store i64 %225, ptr %226, align 8
   %227 = bitcast i64 %225 to double
   %228 = fcmp ugt double %227, 0.000000e+00
@@ -1119,7 +1119,7 @@ define hidden noundef ptr @_Z32pj_init_ctx_with_allow_init_epsgP6pj_ctxiPPci(ptr
 
 235:                                              ; preds = %.lr.ph433
   %indvars.iv.next454 = add nuw nsw i64 %indvars.iv453, 1
-  %236 = getelementptr inbounds %struct.PJ_UNITS, ptr %232, i64 %indvars.iv.next454
+  %236 = getelementptr inbounds nuw %struct.PJ_UNITS, ptr %232, i64 %indvars.iv.next454
   %237 = load ptr, ptr %236, align 8
   %.not384 = icmp eq ptr %237, null
   br i1 %.not384, label %.critedge402, label %.lr.ph433, !llvm.loop !11
@@ -1137,7 +1137,7 @@ define hidden noundef ptr @_Z32pj_init_ctx_with_allow_init_epsgP6pj_ctxiPPci(ptr
   br label %353
 
 241:                                              ; preds = %.lr.ph433
-  %242 = getelementptr inbounds %struct.PJ_UNITS, ptr %232, i64 %indvars.iv453, i32 1
+  %242 = getelementptr inbounds nuw %struct.PJ_UNITS, ptr %232, i64 %indvars.iv453, i32 1
   %243 = load ptr, ptr %242, align 8
   %.not386 = icmp eq ptr %243, null
   br i1 %.not386, label %.thread, label %.critedge5
@@ -1152,7 +1152,7 @@ define hidden noundef ptr @_Z32pj_init_ctx_with_allow_init_epsgP6pj_ctxiPPci(ptr
   %.1339 = phi ptr [ %243, %241 ], [ %.sroa.018.0..sroa.018.0..cast, %.thread ]
   store ptr %.1339, ptr %5, align 8
   %245 = call noundef double @_Z9pj_strtodPKcPPc(ptr noundef %.1339, ptr noundef nonnull %5)
-  %246 = getelementptr inbounds i8, ptr %75, i64 496
+  %246 = getelementptr inbounds nuw i8, ptr %75, i64 496
   store double %245, ptr %246, align 8
   %247 = load ptr, ptr %5, align 8
   %248 = load i8, ptr %247, align 1
@@ -1160,7 +1160,7 @@ define hidden noundef ptr @_Z32pj_init_ctx_with_allow_init_epsgP6pj_ctxiPPci(ptr
   br i1 %249, label %250, label %259
 
 250:                                              ; preds = %.critedge5
-  %251 = getelementptr inbounds i8, ptr %247, i64 1
+  %251 = getelementptr inbounds nuw i8, ptr %247, i64 1
   %252 = call noundef double @_Z9pj_strtodPKcPPc(ptr noundef nonnull %251, ptr noundef null)
   %253 = fcmp oeq double %252, 0.000000e+00
   br i1 %253, label %254, label %256
@@ -1191,14 +1191,14 @@ define hidden noundef ptr @_Z32pj_init_ctx_with_allow_init_epsgP6pj_ctxiPPci(ptr
   br label %268
 
 266:                                              ; preds = %.thread
-  %267 = getelementptr inbounds i8, ptr %75, i64 504
+  %267 = getelementptr inbounds nuw i8, ptr %75, i64 504
   store double 1.000000e+00, ptr %267, align 8
   br label %268
 
 268:                                              ; preds = %266, %264
   %.sink472 = phi i64 [ 496, %266 ], [ 504, %264 ]
   %.sink = phi double [ 1.000000e+00, %266 ], [ %265, %264 ]
-  %269 = getelementptr inbounds i8, ptr %75, i64 %.sink472
+  %269 = getelementptr inbounds nuw i8, ptr %75, i64 %.sink472
   store double %.sink, ptr %269, align 8
   %270 = call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef %.0337, ptr noundef nonnull %38, ptr noundef nonnull @.str.41)
   %.sroa.015.0..sroa.015.0..cast = inttoptr i64 %270 to ptr
@@ -1212,7 +1212,7 @@ define hidden noundef ptr @_Z32pj_init_ctx_with_allow_init_epsgP6pj_ctxiPPci(ptr
 
 272:                                              ; preds = %.lr.ph436
   %indvars.iv.next457 = add nuw nsw i64 %indvars.iv456, 1
-  %273 = getelementptr inbounds %struct.PJ_UNITS, ptr %232, i64 %indvars.iv.next457
+  %273 = getelementptr inbounds nuw %struct.PJ_UNITS, ptr %232, i64 %indvars.iv.next457
   %274 = load ptr, ptr %273, align 8
   %.not389 = icmp eq ptr %274, null
   br i1 %.not389, label %.critedge403, label %.lr.ph436, !llvm.loop !12
@@ -1230,7 +1230,7 @@ define hidden noundef ptr @_Z32pj_init_ctx_with_allow_init_epsgP6pj_ctxiPPci(ptr
   br label %353
 
 278:                                              ; preds = %.lr.ph436
-  %279 = getelementptr inbounds %struct.PJ_UNITS, ptr %232, i64 %indvars.iv456, i32 1
+  %279 = getelementptr inbounds nuw %struct.PJ_UNITS, ptr %232, i64 %indvars.iv456, i32 1
   %280 = load ptr, ptr %279, align 8
   %.not391 = icmp eq ptr %280, null
   br i1 %.not391, label %.thread406, label %.critedge9
@@ -1245,7 +1245,7 @@ define hidden noundef ptr @_Z32pj_init_ctx_with_allow_init_epsgP6pj_ctxiPPci(ptr
   %.3 = phi ptr [ %280, %278 ], [ %.sroa.014.0..sroa.014.0..cast, %.thread406 ]
   store ptr %.3, ptr %6, align 8
   %282 = call noundef double @_Z9pj_strtodPKcPPc(ptr noundef %.3, ptr noundef nonnull %6)
-  %283 = getelementptr inbounds i8, ptr %75, i64 512
+  %283 = getelementptr inbounds nuw i8, ptr %75, i64 512
   store double %282, ptr %283, align 8
   %284 = load ptr, ptr %6, align 8
   %285 = load i8, ptr %284, align 1
@@ -1253,7 +1253,7 @@ define hidden noundef ptr @_Z32pj_init_ctx_with_allow_init_epsgP6pj_ctxiPPci(ptr
   br i1 %286, label %287, label %296
 
 287:                                              ; preds = %.critedge9
-  %288 = getelementptr inbounds i8, ptr %284, i64 1
+  %288 = getelementptr inbounds nuw i8, ptr %284, i64 1
   %289 = call noundef double @_Z9pj_strtodPKcPPc(ptr noundef nonnull %288, ptr noundef null)
   %290 = fcmp oeq double %289, 0.000000e+00
   br i1 %290, label %291, label %293
@@ -1284,17 +1284,17 @@ define hidden noundef ptr @_Z32pj_init_ctx_with_allow_init_epsgP6pj_ctxiPPci(ptr
   br label %309
 
 303:                                              ; preds = %.thread406
-  %304 = getelementptr inbounds i8, ptr %75, i64 496
+  %304 = getelementptr inbounds nuw i8, ptr %75, i64 496
   %305 = load double, ptr %304, align 8
-  %306 = getelementptr inbounds i8, ptr %75, i64 512
+  %306 = getelementptr inbounds nuw i8, ptr %75, i64 512
   store double %305, ptr %306, align 8
-  %307 = getelementptr inbounds i8, ptr %75, i64 504
+  %307 = getelementptr inbounds nuw i8, ptr %75, i64 504
   %308 = load double, ptr %307, align 8
   br label %309
 
 309:                                              ; preds = %303, %301
   %.sink473 = phi double [ %308, %303 ], [ %302, %301 ]
-  %310 = getelementptr inbounds i8, ptr %75, i64 520
+  %310 = getelementptr inbounds nuw i8, ptr %75, i64 520
   store double %.sink473, ptr %310, align 8
   %311 = call ptr @proj_list_prime_meridians()
   %312 = call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef %.0337, ptr noundef nonnull %38, ptr noundef nonnull @.str.46)
@@ -1310,7 +1310,7 @@ define hidden noundef ptr @_Z32pj_init_ctx_with_allow_init_epsgP6pj_ctxiPPci(ptr
 
 315:                                              ; preds = %.lr.ph440
   %indvars.iv.next460 = add nuw nsw i64 %indvars.iv459, 1
-  %316 = getelementptr inbounds %struct.PJ_PRIME_MERIDIANS, ptr %311, i64 %indvars.iv.next460
+  %316 = getelementptr inbounds nuw %struct.PJ_PRIME_MERIDIANS, ptr %311, i64 %indvars.iv.next460
   %317 = load ptr, ptr %316, align 8
   %.not394 = icmp eq ptr %317, null
   br i1 %.not394, label %.thread409, label %.lr.ph440, !llvm.loop !13
@@ -1323,7 +1323,7 @@ define hidden noundef ptr @_Z32pj_init_ctx_with_allow_init_epsgP6pj_ctxiPPci(ptr
   br i1 %320, label %321, label %315
 
 321:                                              ; preds = %.lr.ph440
-  %322 = getelementptr inbounds %struct.PJ_PRIME_MERIDIANS, ptr %311, i64 %indvars.iv459, i32 1
+  %322 = getelementptr inbounds nuw %struct.PJ_PRIME_MERIDIANS, ptr %311, i64 %indvars.iv459, i32 1
   %323 = load ptr, ptr %322, align 8
   %324 = icmp eq ptr %323, null
   br i1 %324, label %.thread409, label %.thread414
@@ -1356,10 +1356,10 @@ define hidden noundef ptr @_Z32pj_init_ctx_with_allow_init_epsgP6pj_ctxiPPci(ptr
 
 335:                                              ; preds = %309, %.thread414
   %.sink475 = phi double [ %334, %.thread414 ], [ 0.000000e+00, %309 ]
-  %336 = getelementptr inbounds i8, ptr %75, i64 616
+  %336 = getelementptr inbounds nuw i8, ptr %75, i64 616
   store double %.sink475, ptr %336, align 8
   %337 = call noalias dereferenceable_or_null(408) ptr @calloc(i64 noundef 1, i64 noundef 408) #15
-  %338 = getelementptr inbounds i8, ptr %75, i64 80
+  %338 = getelementptr inbounds nuw i8, ptr %75, i64 80
   store ptr %337, ptr %338, align 8
   %339 = icmp eq ptr %337, null
   br i1 %339, label %340, label %342
@@ -1370,7 +1370,7 @@ define hidden noundef ptr @_Z32pj_init_ctx_with_allow_init_epsgP6pj_ctxiPPci(ptr
 
 342:                                              ; preds = %335
   %343 = load double, ptr %111, align 8
-  %344 = getelementptr inbounds i8, ptr %75, i64 272
+  %344 = getelementptr inbounds nuw i8, ptr %75, i64 272
   %345 = load double, ptr %344, align 8
   call void @geod_init(ptr noundef nonnull %337, double noundef %343, double noundef %345)
   %346 = call i32 @proj_errno_reset(ptr noundef nonnull %75)
@@ -1422,7 +1422,7 @@ define internal fastcc noundef ptr @_ZL18locate_constructorPKc(ptr nocapture nou
 
 4:                                                ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %5 = getelementptr inbounds %struct.PJ_LIST, ptr %2, i64 %indvars.iv.next
+  %5 = getelementptr inbounds nuw %struct.PJ_LIST, ptr %2, i64 %indvars.iv.next
   %6 = load ptr, ptr %5, align 8
   %cond = icmp eq ptr %6, null
   br i1 %cond, label %.loopexit, label %.lr.ph, !llvm.loop !14
@@ -1435,7 +1435,7 @@ define internal fastcc noundef ptr @_ZL18locate_constructorPKc(ptr nocapture nou
   br i1 %.not10, label %.critedge, label %4
 
 .critedge:                                        ; preds = %.lr.ph
-  %9 = getelementptr inbounds %struct.PJ_LIST, ptr %2, i64 %indvars.iv, i32 1
+  %9 = getelementptr inbounds nuw %struct.PJ_LIST, ptr %2, i64 %indvars.iv, i32 1
   %10 = load ptr, ptr %9, align 8
   br label %.loopexit
 
@@ -1456,13 +1456,13 @@ define internal fastcc void @_ZL36append_default_ellipsoid_to_paralistP8ARG_list
   br i1 %5, label %33, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %4, i64 9
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 9
   %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #13
   %9 = icmp ult i64 %8, 6
   br i1 %9, label %33, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %4, i64 14
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 14
   %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(9) @.str.61, ptr noundef nonnull dereferenceable(1) %11) #13
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %33, label %14

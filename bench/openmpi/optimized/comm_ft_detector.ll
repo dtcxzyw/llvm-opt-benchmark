@@ -163,7 +163,7 @@ define i32 @ompi_comm_failure_detector_init() local_unnamed_addr #0 {
 26:                                               ; preds = %25, %21
   store ptr @opal_thread_t_class, ptr @fd_thread, align 8
   store volatile i32 1, ptr getelementptr inbounds (i8, ptr @fd_thread, i64 8), align 8
-  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_thread_t_class, i64 40), align 8
+  %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_thread_t_class, i64 40), align 8
   %28 = load ptr, ptr %27, align 8
   %.not6.i = icmp eq ptr %28, null
   br i1 %.not6.i, label %opal_obj_run_constructors.exit, label %.lr.ph.i
@@ -172,7 +172,7 @@ define i32 @ompi_comm_failure_detector_init() local_unnamed_addr #0 {
   %29 = phi ptr [ %31, %.lr.ph.i ], [ %28, %26 ]
   %.07.i = phi ptr [ %30, %.lr.ph.i ], [ %27, %26 ]
   tail call void %29(ptr noundef nonnull @fd_thread) #10
-  %30 = getelementptr inbounds i8, ptr %.07.i, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
   %31 = load ptr, ptr %30, align 8
   %.not.i = icmp eq ptr %31, null
   br i1 %.not.i, label %opal_obj_run_constructors.exit, label %.lr.ph.i, !llvm.loop !4
@@ -208,9 +208,9 @@ declare i32 @ompi_comm_rbcast_register_cb_type(ptr noundef) local_unnamed_addr #
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @fd_heartbeat_recv_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 220
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 220
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %1, i64 12
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %6 = load i32, ptr %5, align 4
   %7 = icmp eq i32 %4, %6
   br i1 %7, label %8, label %16
@@ -268,10 +268,10 @@ define internal noundef i32 @fd_heartbeat_request_cb(ptr noundef %0, ptr nocaptu
   %.val49 = load ptr, ptr %3, align 8
   %4 = getelementptr i8, ptr %.val49, i64 16
   %.val49.val = load i32, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 220
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 220
   %6 = load i32, ptr %5, align 4
   %7 = sub nsw i32 %.val49.val, %6
-  %8 = getelementptr inbounds i8, ptr %1, i64 12
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %9 = load i32, ptr %8, align 4
   %10 = add nsw i32 %7, %9
   %11 = srem i32 %10, %.val49.val
@@ -291,7 +291,7 @@ define internal noundef i32 @fd_heartbeat_request_cb(ptr noundef %0, ptr nocaptu
   %21 = tail call ptr @ompi_pmix_print_name(ptr noundef nonnull @opal_process_info) #10
   %22 = load i32, ptr %8, align 4
   %23 = tail call ptr @ompi_comm_print_cid(ptr noundef nonnull %0) #10
-  %24 = getelementptr inbounds i8, ptr %0, i64 232
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %25 = load i32, ptr %24, align 8
   %26 = load i32, ptr getelementptr inbounds (i8, ptr @comm_world_detector, i64 20), align 4
   tail call void (i32, ptr, ...) @opal_output(i32 noundef %20, ptr noundef nonnull @.str.13, ptr noundef %21, ptr noundef nonnull @__func__.fd_heartbeat_request_cb, i32 noundef %22, ptr noundef %23, i32 noundef %25, i32 noundef %26) #10
@@ -309,7 +309,7 @@ define internal noundef i32 @fd_heartbeat_request_cb(ptr noundef %0, ptr nocaptu
   %31 = load i32, ptr %8, align 4
   %32 = getelementptr i8, ptr %30, i64 256
   %.val = load ptr, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %.val, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %.val, i64 32
   %34 = load ptr, ptr %33, align 8
   %35 = sext i32 %31 to i64
   %36 = getelementptr inbounds ptr, ptr %34, i64 %35
@@ -333,7 +333,7 @@ define internal noundef i32 @fd_heartbeat_request_cb(ptr noundef %0, ptr nocaptu
   br i1 %49, label %50, label %ompi_comm_peer_lookup.exit
 
 50:                                               ; preds = %40
-  %51 = getelementptr inbounds i8, ptr %44, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %52 = load i8, ptr @opal_uses_threads, align 1
   %53 = trunc i8 %52 to i1
   br i1 %53, label %54, label %56
@@ -351,7 +351,7 @@ define internal noundef i32 @fd_heartbeat_request_cb(ptr noundef %0, ptr nocaptu
 
 ompi_comm_peer_lookup.exit:                       ; preds = %29, %40, %54, %56
   %.0.i.i.i.i = phi ptr [ %37, %29 ], [ %44, %56 ], [ %44, %54 ], [ %44, %40 ]
-  %60 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 72
+  %60 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 72
   %61 = load ptr, ptr %60, align 8
   %62 = icmp eq ptr %61, null
   br i1 %62, label %63, label %mca_bml_base_get_endpoint.exit
@@ -362,7 +362,7 @@ ompi_comm_peer_lookup.exit:                       ; preds = %29, %40, %54, %56
   br i1 %65, label %66, label %.thread.i
 
 66:                                               ; preds = %63
-  %67 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_bml_lock, i64 16)) #10
+  %67 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mca_bml_lock, i64 16)) #10
   %.pr.i = load ptr, ptr %60, align 8
   %68 = icmp eq ptr %.pr.i, null
   br i1 %68, label %.thread.i, label %71
@@ -378,18 +378,18 @@ ompi_comm_peer_lookup.exit:                       ; preds = %29, %40, %54, %56
   br i1 %73, label %74, label %mca_bml_base_get_endpoint.exit
 
 74:                                               ; preds = %71
-  %75 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_bml_lock, i64 16)) #10
+  %75 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mca_bml_lock, i64 16)) #10
   br label %mca_bml_base_get_endpoint.exit
 
 mca_bml_base_get_endpoint.exit:                   ; preds = %ompi_comm_peer_lookup.exit, %71, %74
   %76 = load ptr, ptr %60, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 184
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 184
   %78 = load i64, ptr %77, align 8
   %.not.i = icmp eq i64 %78, 0
   br i1 %.not.i, label %mca_bml_base_btl_array_get_index.exit, label %79
 
 79:                                               ; preds = %mca_bml_base_get_endpoint.exit
-  %80 = getelementptr inbounds i8, ptr %76, i64 208
+  %80 = getelementptr inbounds nuw i8, ptr %76, i64 208
   %81 = load ptr, ptr %80, align 8
   br label %mca_bml_base_btl_array_get_index.exit
 
@@ -412,15 +412,15 @@ mca_bml_base_btl_array_get_index.exit:            ; preds = %mca_bml_base_get_en
   %89 = load ptr, ptr getelementptr inbounds (i8, ptr @comm_world_detector, i64 64), align 8
   %90 = getelementptr i8, ptr %89, i64 8
   %.val48 = load ptr, ptr %90, align 8
-  %91 = getelementptr inbounds i8, ptr %.val48, i64 264
+  %91 = getelementptr inbounds nuw i8, ptr %.val48, i64 264
   %92 = load ptr, ptr %91, align 8
   %93 = tail call i32 %92(ptr noundef %.val48, ptr noundef nonnull %87) #10
   br label %94
 
 94:                                               ; preds = %88, %86
-  %95 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %95 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %96 = load ptr, ptr %95, align 8
-  %97 = getelementptr inbounds i8, ptr %96, i64 256
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 256
   %98 = load ptr, ptr %97, align 8
   %.not46 = icmp eq ptr %98, null
   br i1 %.not46, label %110, label %99
@@ -440,17 +440,17 @@ mca_bml_base_btl_array_get_index.exit:            ; preds = %mca_bml_base_get_en
 
 104:                                              ; preds = %103, %99
   %105 = load ptr, ptr %95, align 8
-  %106 = getelementptr inbounds i8, ptr %105, i64 80
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 80
   %107 = load i64, ptr %106, align 8
   %108 = tail call noalias ptr @malloc(i64 noundef %107) #11
   store ptr %108, ptr getelementptr inbounds (i8, ptr @comm_world_detector, i64 120), align 8
-  %109 = getelementptr inbounds i8, ptr %1, i64 24
+  %109 = getelementptr inbounds nuw i8, ptr %1, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %108, ptr nonnull align 8 %109, i64 %107, i1 false)
   br label %110
 
 110:                                              ; preds = %104, %94
   store ptr %.0.i, ptr getelementptr inbounds (i8, ptr @comm_world_detector, i64 64), align 8
-  %111 = getelementptr inbounds i8, ptr %1, i64 16
+  %111 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %112 = load i64, ptr %111, align 8
   store i64 %112, ptr getelementptr inbounds (i8, ptr @comm_world_detector, i64 112), align 8
   %113 = load i8, ptr @opal_uses_threads, align 1
@@ -540,7 +540,7 @@ opal_thread_add_fetch_32.exit3:                   ; preds = %opal_thread_add_fet
 
 ._crit_edge:                                      ; preds = %.lr.ph, %23
   %32 = load ptr, ptr %2, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 128
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 128
   %34 = load ptr, ptr %33, align 8
   %.not.i = icmp eq ptr %34, null
   br i1 %.not.i, label %ompi_request_cancel.exit, label %35
@@ -663,7 +663,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %19, %22
   %41 = load ptr, ptr getelementptr inbounds (i8, ptr @comm_world_detector, i64 64), align 8
   %42 = getelementptr i8, ptr %41, i64 8
   %.val = load ptr, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %.val, i64 264
+  %43 = getelementptr inbounds nuw i8, ptr %.val, i64 264
   %44 = load ptr, ptr %43, align 8
   %45 = call i32 %44(ptr noundef %.val, ptr noundef nonnull %39) #10
   br label %46
@@ -677,7 +677,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %19, %22
   %49 = load ptr, ptr getelementptr inbounds (i8, ptr @comm_world_detector, i64 72), align 8
   %50 = getelementptr i8, ptr %49, i64 8
   %.val29 = load ptr, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %.val29, i64 264
+  %51 = getelementptr inbounds nuw i8, ptr %.val29, i64 264
   %52 = load ptr, ptr %51, align 8
   %53 = call i32 %52(ptr noundef %.val29, ptr noundef nonnull %47) #10
   br label %54
@@ -784,7 +784,7 @@ define range(i32 -7, 1) i32 @ompi_comm_start_detector(ptr noundef readnone %0) l
 27:                                               ; preds = %26, %16
   store ptr @opal_mutex_t_class, ptr getelementptr inbounds (i8, ptr @comm_world_detector, i64 128), align 8
   store volatile i32 1, ptr getelementptr inbounds (i8, ptr @comm_world_detector, i64 136), align 8
-  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_mutex_t_class, i64 40), align 8
+  %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_mutex_t_class, i64 40), align 8
   %29 = load ptr, ptr %28, align 8
   %.not6.i = icmp eq ptr %29, null
   br i1 %.not6.i, label %opal_obj_run_constructors.exit, label %.lr.ph.i
@@ -793,7 +793,7 @@ define range(i32 -7, 1) i32 @ompi_comm_start_detector(ptr noundef readnone %0) l
   %30 = phi ptr [ %32, %.lr.ph.i ], [ %29, %27 ]
   %.07.i = phi ptr [ %31, %.lr.ph.i ], [ %28, %27 ]
   tail call void %30(ptr noundef nonnull getelementptr inbounds (i8, ptr @comm_world_detector, i64 128)) #10
-  %31 = getelementptr inbounds i8, ptr %.07.i, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
   %32 = load ptr, ptr %31, align 8
   %.not.i = icmp eq ptr %32, null
   br i1 %.not.i, label %opal_obj_run_constructors.exit, label %.lr.ph.i, !llvm.loop !4
@@ -812,7 +812,7 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %27
   %41 = fadd double %36, %40
   %42 = fmul double %41, 1.000000e+06
   %43 = fptosi double %42 to i64
-  %44 = getelementptr inbounds i8, ptr %2, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %43, ptr %44, align 8
   %45 = call i32 @event_add(ptr noundef %34, ptr noundef nonnull %2) #10
   %46 = load double, ptr getelementptr inbounds (i8, ptr @comm_world_detector, i64 48), align 8
@@ -850,14 +850,14 @@ define internal fastcc void @fd_heartbeat_send(ptr noundef %0) unnamed_addr #0 {
 
 4:                                                ; preds = %1
   %5 = tail call double @PMPI_Wtime() #10
-  %6 = getelementptr inbounds i8, ptr %0, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %7 = load double, ptr %6, align 8
   %8 = fcmp une double %7, 0.000000e+00
   br i1 %8, label %9, label %23
 
 9:                                                ; preds = %4
   %10 = fsub double %5, %7
-  %11 = getelementptr inbounds i8, ptr %0, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %12 = load double, ptr %11, align 8
   %13 = fmul double %12, 2.000000e+00
   %14 = fcmp ult double %10, %13
@@ -883,7 +883,7 @@ define internal fastcc void @fd_heartbeat_send(ptr noundef %0) unnamed_addr #0 {
   br i1 %.not19, label %65, label %25
 
 25:                                               ; preds = %23
-  %26 = getelementptr inbounds i8, ptr %0, i64 112
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %27 = load i64, ptr %26, align 8
   %28 = icmp eq i64 %27, 0
   br i1 %28, label %fd_heartbeat_rdma_put.exit, label %29
@@ -894,15 +894,15 @@ define internal fastcc void @fd_heartbeat_send(ptr noundef %0) unnamed_addr #0 {
   br i1 %31, label %32, label %35
 
 32:                                               ; preds = %29
-  %33 = getelementptr inbounds i8, ptr %0, i64 144
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %34 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %33) #10
   br label %35
 
 35:                                               ; preds = %32, %29
-  %36 = getelementptr inbounds i8, ptr %0, i64 64
-  %37 = getelementptr inbounds i8, ptr %0, i64 80
-  %38 = getelementptr inbounds i8, ptr %0, i64 88
-  %39 = getelementptr inbounds i8, ptr %0, i64 120
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 120
   br label %40
 
 40:                                               ; preds = %40, %35
@@ -910,18 +910,18 @@ define internal fastcc void @fd_heartbeat_send(ptr noundef %0) unnamed_addr #0 {
   %42 = load i64, ptr %26, align 8
   %43 = load ptr, ptr %38, align 8
   %44 = load ptr, ptr %39, align 8
-  %45 = getelementptr inbounds i8, ptr %41, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 208
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 208
   %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %41, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %50 = load ptr, ptr %49, align 8
   %51 = tail call i32 %48(ptr noundef %46, ptr noundef %50, ptr noundef nonnull %37, i64 noundef %42, ptr noundef %43, ptr noundef %44, i64 noundef 4, i32 noundef 0, i32 noundef 255, ptr noundef nonnull @fd_heartbeat_rdma_cb, ptr noundef %41, ptr noundef null) #10
   %52 = icmp eq i32 %51, -2
   br i1 %52, label %40, label %53, !llvm.loop !11
 
 53:                                               ; preds = %40
-  %54 = getelementptr inbounds i8, ptr %0, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %55 = load i32, ptr %54, align 8
   %56 = load i32, ptr %37, align 8
   %57 = icmp eq i32 %55, %56
@@ -937,7 +937,7 @@ define internal fastcc void @fd_heartbeat_send(ptr noundef %0) unnamed_addr #0 {
   br i1 %61, label %62, label %fd_heartbeat_rdma_put.exit
 
 62:                                               ; preds = %59
-  %63 = getelementptr inbounds i8, ptr %0, i64 144
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %64 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %63) #10
   br label %fd_heartbeat_rdma_put.exit
 
@@ -945,20 +945,20 @@ define internal fastcc void @fd_heartbeat_send(ptr noundef %0) unnamed_addr #0 {
   %ompi_mpi_comm_world.val = load i32, ptr getelementptr inbounds (i8, ptr @ompi_mpi_comm_world, i64 216), align 8
   store i32 %ompi_mpi_comm_world.val, ptr %2, align 4
   %66 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_mpi_comm_world, i64 232), align 8
-  %67 = getelementptr inbounds i8, ptr %2, i64 4
+  %67 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %66, ptr %67, align 4
   %68 = load i32, ptr @comm_heartbeat_recv_cb_type, align 4
   %69 = trunc i32 %68 to i8
-  %70 = getelementptr inbounds i8, ptr %2, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i8 %69, ptr %70, align 4
-  %71 = getelementptr inbounds i8, ptr %0, i64 80
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %72 = load i32, ptr %71, align 8
-  %73 = getelementptr inbounds i8, ptr %2, i64 12
+  %73 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 %72, ptr %73, align 4
-  %74 = getelementptr inbounds i8, ptr %0, i64 20
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %75 = load i32, ptr %74, align 4
   %ompi_mpi_comm_world.val20 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_mpi_comm_world, i64 256), align 8
-  %76 = getelementptr inbounds i8, ptr %ompi_mpi_comm_world.val20, i64 32
+  %76 = getelementptr inbounds nuw i8, ptr %ompi_mpi_comm_world.val20, i64 32
   %77 = load ptr, ptr %76, align 8
   %78 = sext i32 %75 to i64
   %79 = getelementptr inbounds ptr, ptr %77, i64 %78
@@ -982,7 +982,7 @@ define internal fastcc void @fd_heartbeat_send(ptr noundef %0) unnamed_addr #0 {
   br i1 %92, label %93, label %ompi_comm_peer_lookup.exit
 
 93:                                               ; preds = %83
-  %94 = getelementptr inbounds i8, ptr %87, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %87, i64 8
   %95 = load i8, ptr @opal_uses_threads, align 1
   %96 = trunc i8 %95 to i1
   br i1 %96, label %97, label %99
@@ -1029,13 +1029,13 @@ declare ptr @event_new(ptr noundef, i32 noundef, i16 noundef signext, ptr nounde
 ; Function Attrs: nounwind uwtable
 define internal void @fd_event_cb(i32 %0, i16 signext %1, ptr noundef %2) #0 {
   %4 = tail call double @PMPI_Wtime() #10
-  %5 = getelementptr inbounds i8, ptr %2, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %6 = load double, ptr %5, align 8
   store double %4, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %8 = load double, ptr %7, align 8
   %9 = fsub double %4, %8
-  %10 = getelementptr inbounds i8, ptr %2, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %11 = load double, ptr %10, align 8
   %12 = fmul double %11, 9.000000e-01
   %13 = fcmp ogt double %9, %12
@@ -1046,7 +1046,7 @@ define internal void @fd_event_cb(i32 %0, i16 signext %1, ptr noundef %2) #0 {
   br label %15
 
 15:                                               ; preds = %14, %3
-  %16 = getelementptr inbounds i8, ptr %2, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %17 = load double, ptr %16, align 8
   %18 = fcmp oeq double %17, 0x7FF0000000000000
   br i1 %18, label %117, label %19
@@ -1058,7 +1058,7 @@ define internal void @fd_event_cb(i32 %0, i16 signext %1, ptr noundef %2) #0 {
   br i1 %.not, label %51, label %21
 
 21:                                               ; preds = %19
-  %22 = getelementptr inbounds i8, ptr %2, i64 96
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %23 = load volatile i32, ptr %22, align 8
   %24 = getelementptr i8, ptr %.pre, i64 220
   %.val49 = load i32, ptr %24, align 4
@@ -1079,7 +1079,7 @@ define internal void @fd_event_cb(i32 %0, i16 signext %1, ptr noundef %2) #0 {
   br label %34
 
 34:                                               ; preds = %26, %29
-  %35 = getelementptr inbounds i8, ptr %2, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 -2, ptr %35, align 8
   store double 0x7FF0000000000000, ptr %16, align 8
   br label %117
@@ -1090,7 +1090,7 @@ define internal void @fd_event_cb(i32 %0, i16 signext %1, ptr noundef %2) #0 {
 
 38:                                               ; preds = %36
   store volatile i32 -1, ptr %22, align 8
-  %39 = getelementptr inbounds i8, ptr %2, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %40 = load i32, ptr %39, align 8
   %.not48 = icmp eq i32 %23, %40
   br i1 %.not48, label %50, label %41
@@ -1114,11 +1114,11 @@ define internal void @fd_event_cb(i32 %0, i16 signext %1, ptr noundef %2) #0 {
   br label %117
 
 51:                                               ; preds = %36, %19
-  %52 = getelementptr inbounds i8, ptr %2, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %53 = load i32, ptr %52, align 8
   %54 = getelementptr i8, ptr %.pre, i64 256
   %.val = load ptr, ptr %54, align 8
-  %55 = getelementptr inbounds i8, ptr %.val, i64 32
+  %55 = getelementptr inbounds nuw i8, ptr %.val, i64 32
   %56 = load ptr, ptr %55, align 8
   %57 = sext i32 %53 to i64
   %58 = getelementptr inbounds ptr, ptr %56, i64 %57
@@ -1142,7 +1142,7 @@ define internal void @fd_event_cb(i32 %0, i16 signext %1, ptr noundef %2) #0 {
   br i1 %71, label %72, label %ompi_comm_peer_lookup.exit
 
 72:                                               ; preds = %62
-  %73 = getelementptr inbounds i8, ptr %66, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %74 = load i8, ptr @opal_uses_threads, align 1
   %75 = trunc i8 %74 to i1
   br i1 %75, label %76, label %78
@@ -1167,7 +1167,7 @@ ompi_comm_peer_lookup.exit:                       ; preds = %51, %62, %76, %78
 
 84:                                               ; preds = %ompi_comm_peer_lookup.exit
   %85 = load double, ptr %16, align 8
-  %86 = getelementptr inbounds i8, ptr %2, i64 40
+  %86 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %87 = load double, ptr %86, align 8
   %88 = fadd double %85, %87
   %89 = fcmp ogt double %4, %88
@@ -1191,7 +1191,7 @@ ompi_comm_peer_lookup.exit:                       ; preds = %51, %62, %76, %78
   %100 = tail call ptr @ompi_pmix_print_name(ptr noundef nonnull @opal_process_info) #10
   %101 = load double, ptr @startdate, align 8
   %102 = fsub double %4, %101
-  %103 = getelementptr inbounds i8, ptr %2, i64 40
+  %103 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %104 = load double, ptr %103, align 8
   %105 = load double, ptr %16, align 8
   %106 = fsub double %4, %105
@@ -1202,7 +1202,7 @@ ompi_comm_peer_lookup.exit:                       ; preds = %51, %62, %76, %78
 
 109:                                              ; preds = %95, %98
   %110 = tail call i32 @ompi_errhandler_proc_failed_internal(ptr noundef nonnull %.0.i.i.i.i, i32 noundef -200, i1 noundef zeroext true) #10
-  %111 = getelementptr inbounds i8, ptr %2, i64 20
+  %111 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %112 = load i32, ptr %111, align 4
   %113 = icmp eq i32 %112, -2
   br i1 %113, label %114, label %115
@@ -1214,7 +1214,7 @@ ompi_comm_peer_lookup.exit:                       ; preds = %51, %62, %76, %78
   br label %117
 
 115:                                              ; preds = %109
-  %116 = getelementptr inbounds i8, ptr %2, i64 96
+  %116 = getelementptr inbounds nuw i8, ptr %2, i64 96
   store volatile i32 -2, ptr %116, align 8
   tail call fastcc void @fd_heartbeat_request(ptr noundef nonnull %2)
   br label %117
@@ -1230,15 +1230,15 @@ declare void @opal_progress_event_users_increment() local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @fd_heartbeat_request(ptr noundef %0) unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 96
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %4 = load volatile i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, -2
   br i1 %5, label %6, label %14
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i32, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 224
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 224
   %10 = load i32, ptr %9, align 8
   %11 = and i32 %10, 1
   %12 = icmp ne i32 %11, 0
@@ -1250,7 +1250,7 @@ define internal fastcc void @fd_heartbeat_request(ptr noundef %0) unnamed_addr #
   %.val64 = load ptr, ptr %15, align 8
   %16 = getelementptr i8, ptr %.val64, i64 16
   %.val64.val = load i32, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load i32, ptr %17, align 8
   %19 = add nsw i32 %18, %.val64.val
   %20 = getelementptr i8, ptr %2, i64 256
@@ -1261,7 +1261,7 @@ define internal fastcc void @fd_heartbeat_request(ptr noundef %0) unnamed_addr #
   %.pn = phi i32 [ %19, %14 ], [ %52, %ompi_comm_peer_lookup.exit ]
   %.056 = srem i32 %.pn, %.val64.val
   %.val62 = load ptr, ptr %20, align 8
-  %23 = getelementptr inbounds i8, ptr %.val62, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %.val62, i64 32
   %24 = load ptr, ptr %23, align 8
   %25 = sext i32 %.056 to i64
   %26 = getelementptr inbounds ptr, ptr %24, i64 %25
@@ -1285,7 +1285,7 @@ define internal fastcc void @fd_heartbeat_request(ptr noundef %0) unnamed_addr #
   br i1 %39, label %40, label %ompi_comm_peer_lookup.exit
 
 40:                                               ; preds = %30
-  %41 = getelementptr inbounds i8, ptr %34, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %42 = load i8, ptr @opal_uses_threads, align 1
   %43 = trunc i8 %42 to i1
   br i1 %43, label %44, label %46
@@ -1310,18 +1310,18 @@ ompi_comm_peer_lookup.exit:                       ; preds = %22, %30, %44, %46
   br i1 %51, label %53, label %22
 
 53:                                               ; preds = %ompi_comm_peer_lookup.exit
-  %54 = getelementptr inbounds i8, ptr %2, i64 220
+  %54 = getelementptr inbounds nuw i8, ptr %2, i64 220
   %55 = load i32, ptr %54, align 4
   %56 = icmp eq i32 %.056, %55
   br i1 %56, label %57, label %61
 
 57:                                               ; preds = %53
   store i32 -2, ptr %17, align 8
-  %58 = getelementptr inbounds i8, ptr %0, i64 20
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 -2, ptr %58, align 4
-  %59 = getelementptr inbounds i8, ptr %0, i64 32
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store double 0x7FF0000000000000, ptr %59, align 8
-  %60 = getelementptr inbounds i8, ptr %0, i64 48
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store double 0x7FF0000000000000, ptr %60, align 8
   fence seq_cst
   br label %133
@@ -1332,7 +1332,7 @@ ompi_comm_peer_lookup.exit:                       ; preds = %22, %30, %44, %46
   br i1 %.not, label %108, label %63
 
 63:                                               ; preds = %61
-  %64 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 72
+  %64 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 72
   %65 = load ptr, ptr %64, align 8
   %66 = icmp eq ptr %65, null
   br i1 %66, label %67, label %mca_bml_base_get_endpoint.exit
@@ -1343,7 +1343,7 @@ ompi_comm_peer_lookup.exit:                       ; preds = %22, %30, %44, %46
   br i1 %69, label %70, label %.thread.i
 
 70:                                               ; preds = %67
-  %71 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_bml_lock, i64 16)) #10
+  %71 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mca_bml_lock, i64 16)) #10
   %.pr.i = load ptr, ptr %64, align 8
   %72 = icmp eq ptr %.pr.i, null
   br i1 %72, label %.thread.i, label %75
@@ -1359,42 +1359,42 @@ ompi_comm_peer_lookup.exit:                       ; preds = %22, %30, %44, %46
   br i1 %77, label %78, label %mca_bml_base_get_endpoint.exit
 
 78:                                               ; preds = %75
-  %79 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_bml_lock, i64 16)) #10
+  %79 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mca_bml_lock, i64 16)) #10
   br label %mca_bml_base_get_endpoint.exit
 
 mca_bml_base_get_endpoint.exit:                   ; preds = %63, %75, %78
   %80 = load ptr, ptr %64, align 8
-  %81 = getelementptr inbounds i8, ptr %80, i64 184
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 184
   %82 = load i64, ptr %81, align 8
   %.not.i = icmp eq i64 %82, 0
   br i1 %.not.i, label %mca_bml_base_btl_array_get_index.exit, label %83
 
 83:                                               ; preds = %mca_bml_base_get_endpoint.exit
-  %84 = getelementptr inbounds i8, ptr %80, i64 208
+  %84 = getelementptr inbounds nuw i8, ptr %80, i64 208
   %85 = load ptr, ptr %84, align 8
   br label %mca_bml_base_btl_array_get_index.exit
 
 mca_bml_base_btl_array_get_index.exit:            ; preds = %mca_bml_base_get_endpoint.exit, %83
   %.0.i = phi ptr [ %85, %83 ], [ null, %mca_bml_base_get_endpoint.exit ]
-  %86 = getelementptr inbounds i8, ptr %0, i64 104
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %87 = load ptr, ptr %86, align 8
   %.not59 = icmp eq ptr %87, null
   br i1 %.not59, label %95, label %88
 
 88:                                               ; preds = %mca_bml_base_btl_array_get_index.exit
-  %89 = getelementptr inbounds i8, ptr %0, i64 72
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %90 = load ptr, ptr %89, align 8
   %91 = getelementptr i8, ptr %90, i64 8
   %.val63 = load ptr, ptr %91, align 8
-  %92 = getelementptr inbounds i8, ptr %.val63, i64 264
+  %92 = getelementptr inbounds nuw i8, ptr %.val63, i64 264
   %93 = load ptr, ptr %92, align 8
   %94 = tail call i32 %93(ptr noundef %.val63, ptr noundef nonnull %87) #10
   br label %95
 
 95:                                               ; preds = %88, %mca_bml_base_btl_array_get_index.exit
-  %96 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %96 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %97 = load ptr, ptr %96, align 8
-  %98 = getelementptr inbounds i8, ptr %97, i64 256
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 256
   %99 = load ptr, ptr %98, align 8
   %.not60 = icmp eq ptr %99, null
   br i1 %.not60, label %106, label %100
@@ -1405,13 +1405,13 @@ mca_bml_base_btl_array_get_index.exit:            ; preds = %mca_bml_base_get_en
   %102 = tail call ptr %99(ptr noundef nonnull %97, ptr noundef %.val67, ptr noundef nonnull %3, i64 noundef 4, i32 noundef 5) #10
   store ptr %102, ptr %86, align 8
   %103 = load ptr, ptr %96, align 8
-  %104 = getelementptr inbounds i8, ptr %103, i64 80
+  %104 = getelementptr inbounds nuw i8, ptr %103, i64 80
   %105 = load i64, ptr %104, align 8
   br label %106
 
 106:                                              ; preds = %100, %95
   %.1 = phi i64 [ %105, %100 ], [ 0, %95 ]
-  %107 = getelementptr inbounds i8, ptr %0, i64 72
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %.0.i, ptr %107, align 8
   br label %108
 
@@ -1423,27 +1423,27 @@ mca_bml_base_btl_array_get_index.exit:            ; preds = %mca_bml_base_get_en
   %111 = getelementptr i8, ptr %2, i64 216
   %.val = load i32, ptr %111, align 8
   store i32 %.val, ptr %110, align 8
-  %112 = getelementptr inbounds i8, ptr %2, i64 232
+  %112 = getelementptr inbounds nuw i8, ptr %2, i64 232
   %113 = load i32, ptr %112, align 8
-  %114 = getelementptr inbounds i8, ptr %110, i64 4
+  %114 = getelementptr inbounds nuw i8, ptr %110, i64 4
   store i32 %113, ptr %114, align 4
   %115 = load i32, ptr @comm_heartbeat_request_cb_type, align 4
   %116 = trunc i32 %115 to i8
-  %117 = getelementptr inbounds i8, ptr %110, i64 8
+  %117 = getelementptr inbounds nuw i8, ptr %110, i64 8
   store i8 %116, ptr %117, align 8
   %118 = load i32, ptr %54, align 4
-  %119 = getelementptr inbounds i8, ptr %110, i64 12
+  %119 = getelementptr inbounds nuw i8, ptr %110, i64 12
   store i32 %118, ptr %119, align 4
   %.not61 = icmp eq i64 %.057, 0
   br i1 %.not61, label %126, label %120
 
 120:                                              ; preds = %108
-  %121 = getelementptr inbounds i8, ptr %110, i64 24
-  %122 = getelementptr inbounds i8, ptr %0, i64 104
+  %121 = getelementptr inbounds nuw i8, ptr %110, i64 24
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %123 = load ptr, ptr %122, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %121, ptr align 1 %123, i64 %.057, i1 false)
   %124 = ptrtoint ptr %3 to i64
-  %125 = getelementptr inbounds i8, ptr %110, i64 16
+  %125 = getelementptr inbounds nuw i8, ptr %110, i64 16
   store i64 %124, ptr %125, align 8
   br label %126
 
@@ -1451,10 +1451,10 @@ mca_bml_base_btl_array_get_index.exit:            ; preds = %mca_bml_base_get_en
   %127 = tail call i32 @ompi_comm_rbcast_send_msg(ptr noundef nonnull %.0.i.i.i.i, ptr noundef nonnull %110, i64 noundef %109) #10
   tail call void @free(ptr noundef nonnull %110) #10
   %128 = tail call double @PMPI_Wtime() #10
-  %129 = getelementptr inbounds i8, ptr %0, i64 40
+  %129 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %130 = load double, ptr %129, align 8
   %131 = fadd double %128, %130
-  %132 = getelementptr inbounds i8, ptr %0, i64 32
+  %132 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store double %131, ptr %132, align 8
   br label %133
 

@@ -171,7 +171,7 @@ declare i32 @dissect_ndr_uint1632(ptr noundef, i32 noundef, ptr noundef, ptr nou
 ; Function Attrs: nounwind uwtable
 define hidden i32 @dssetup_dissect_bitmap_DsRoleFlags(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  %10 = getelementptr inbounds i8, ptr %4, i64 28
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %11 = load i32, ptr %10, align 4
   %.not = icmp ne i32 %11, 0
   %12 = and i32 %1, 3
@@ -220,13 +220,13 @@ declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unname
 ; Function Attrs: nounwind uwtable
 define hidden i32 @dssetup_dissect_struct_DsRolePrimaryDomInfoBasic(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  %10 = getelementptr inbounds i8, ptr %4, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 96
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 96
   %13 = load i32, ptr %12, align 8
   %14 = and i32 %13, 1
   %.not = icmp eq i32 %14, 0
-  %15 = getelementptr inbounds i8, ptr %4, i64 28
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %16 = load i32, ptr %15, align 4
   %.not64 = icmp ne i32 %16, 0
   br i1 %.not, label %22, label %17
@@ -285,14 +285,14 @@ define hidden i32 @dssetup_dissect_struct_DsRolePrimaryDomInfoBasic(ptr noundef 
   %45 = sub i32 %44, %.0
   call void @proto_item_set_len(ptr noundef %.062, i32 noundef %45) #4
   %46 = load ptr, ptr %10, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 96
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 96
   %48 = load i32, ptr %47, align 8
   %49 = and i32 %48, 1
   %.not69 = icmp eq i32 %49, 0
   br i1 %.not69, label %57, label %50
 
 50:                                               ; preds = %32
-  %51 = getelementptr inbounds i8, ptr %4, i64 28
+  %51 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %52 = load i32, ptr %51, align 4
   %.not70 = icmp ne i32 %52, 0
   %53 = and i32 %44, 7
@@ -368,7 +368,7 @@ define hidden i32 @dssetup_dissect_enum_DsPrevious(ptr noundef %0, i32 noundef %
 define hidden i32 @dssetup_dissect_struct_DsRoleUpgradeStatus(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
-  %11 = getelementptr inbounds i8, ptr %4, i64 28
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %12 = load i32, ptr %11, align 4
   %.not = icmp ne i32 %12, 0
   %13 = and i32 %1, 3
@@ -401,9 +401,9 @@ define hidden i32 @dssetup_dissect_struct_DsRoleUpgradeStatus(ptr noundef %0, i3
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   %25 = sub i32 %24, %.0
   call void @proto_item_set_len(ptr noundef %.030, i32 noundef %25) #4
-  %26 = getelementptr inbounds i8, ptr %4, i64 72
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 96
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 96
   %29 = load i32, ptr %28, align 8
   %30 = and i32 %29, 1
   %.not34 = icmp eq i32 %30, 0
@@ -454,13 +454,13 @@ define hidden i32 @dssetup_dissect_enum_DsRoleOp(ptr noundef %0, i32 noundef %1,
 ; Function Attrs: nounwind uwtable
 define hidden i32 @dssetup_dissect_struct_DsRoleOpStatus(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  %10 = getelementptr inbounds i8, ptr %4, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 96
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 96
   %13 = load i32, ptr %12, align 8
   %14 = and i32 %13, 1
   %.not = icmp eq i32 %14, 0
-  %15 = getelementptr inbounds i8, ptr %4, i64 28
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %16 = load i32, ptr %15, align 4
   %.not34 = icmp ne i32 %16, 0
   br i1 %.not, label %22, label %17
@@ -509,14 +509,14 @@ define hidden i32 @dssetup_dissect_struct_DsRoleOpStatus(ptr noundef %0, i32 nou
   %35 = sub i32 %34, %.0
   call void @proto_item_set_len(ptr noundef %.032, i32 noundef %35) #4
   %36 = load ptr, ptr %10, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 96
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 96
   %38 = load i32, ptr %37, align 8
   %39 = and i32 %38, 1
   %.not39 = icmp eq i32 %39, 0
   br i1 %.not39, label %47, label %40
 
 40:                                               ; preds = %32
-  %41 = getelementptr inbounds i8, ptr %4, i64 28
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %42 = load i32, ptr %41, align 4
   %.not40 = icmp ne i32 %42, 0
   %43 = and i32 %34, 3
@@ -623,7 +623,7 @@ declare i32 @dissect_ndr_uuid_t(ptr noundef, i32 noundef, ptr noundef, ptr nound
 ; Function Attrs: nounwind uwtable
 define internal i32 @dssetup_dissect_DsRoleGetPrimaryDomainInformation_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.74, ptr %8, align 8
   %9 = load i32, ptr @hf_dssetup_dssetup_DsRoleGetPrimaryDomainInformation_level, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
@@ -637,7 +637,7 @@ define internal i32 @dssetup_dissect_DsRoleGetPrimaryDomainInformation_request(p
 ; Function Attrs: nounwind uwtable
 define internal i32 @dssetup_dissect_DsRoleGetPrimaryDomainInformation_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.74, ptr %8, align 8
   %9 = load i32, ptr @hf_dssetup_dssetup_DsRoleGetPrimaryDomainInformation_info, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @dssetup_dissect_element_DsRoleGetPrimaryDomainInformation_info_, i32 noundef 2, ptr noundef nonnull @.str.87, i32 noundef %9) #4
@@ -649,7 +649,7 @@ define internal i32 @dssetup_dissect_DsRoleGetPrimaryDomainInformation_response(
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.86) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.85, ptr noundef %18) #4
@@ -661,7 +661,7 @@ define internal i32 @dssetup_dissect_DsRoleGetPrimaryDomainInformation_response(
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @dssetup_dissect_DsRoleDnsNameToFlatName_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.75, ptr %7, align 8
   ret i32 %1
 }
@@ -669,7 +669,7 @@ define internal noundef i32 @dssetup_dissect_DsRoleDnsNameToFlatName_request(ptr
 ; Function Attrs: nounwind uwtable
 define internal i32 @dssetup_dissect_DsRoleDnsNameToFlatName_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.75, ptr %8, align 8
   %9 = load i32, ptr @hf_dssetup_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #4
@@ -678,7 +678,7 @@ define internal i32 @dssetup_dissect_DsRoleDnsNameToFlatName_response(ptr nounde
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.86) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.85, ptr noundef %15) #4
@@ -690,7 +690,7 @@ define internal i32 @dssetup_dissect_DsRoleDnsNameToFlatName_response(ptr nounde
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @dssetup_dissect_DsRoleDcAsDc_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.76, ptr %7, align 8
   ret i32 %1
 }
@@ -698,7 +698,7 @@ define internal noundef i32 @dssetup_dissect_DsRoleDcAsDc_request(ptr nocapture 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dssetup_dissect_DsRoleDcAsDc_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.76, ptr %8, align 8
   %9 = load i32, ptr @hf_dssetup_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #4
@@ -707,7 +707,7 @@ define internal i32 @dssetup_dissect_DsRoleDcAsDc_response(ptr noundef %0, i32 n
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.86) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.85, ptr noundef %15) #4
@@ -719,7 +719,7 @@ define internal i32 @dssetup_dissect_DsRoleDcAsDc_response(ptr noundef %0, i32 n
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @dssetup_dissect_DsRoleDcAsReplica_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.77, ptr %7, align 8
   ret i32 %1
 }
@@ -727,7 +727,7 @@ define internal noundef i32 @dssetup_dissect_DsRoleDcAsReplica_request(ptr nocap
 ; Function Attrs: nounwind uwtable
 define internal i32 @dssetup_dissect_DsRoleDcAsReplica_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.77, ptr %8, align 8
   %9 = load i32, ptr @hf_dssetup_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #4
@@ -736,7 +736,7 @@ define internal i32 @dssetup_dissect_DsRoleDcAsReplica_response(ptr noundef %0, 
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.86) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.85, ptr noundef %15) #4
@@ -748,7 +748,7 @@ define internal i32 @dssetup_dissect_DsRoleDcAsReplica_response(ptr noundef %0, 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @dssetup_dissect_DsRoleDemoteDc_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.78, ptr %7, align 8
   ret i32 %1
 }
@@ -756,7 +756,7 @@ define internal noundef i32 @dssetup_dissect_DsRoleDemoteDc_request(ptr nocaptur
 ; Function Attrs: nounwind uwtable
 define internal i32 @dssetup_dissect_DsRoleDemoteDc_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.78, ptr %8, align 8
   %9 = load i32, ptr @hf_dssetup_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #4
@@ -765,7 +765,7 @@ define internal i32 @dssetup_dissect_DsRoleDemoteDc_response(ptr noundef %0, i32
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.86) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.85, ptr noundef %15) #4
@@ -777,7 +777,7 @@ define internal i32 @dssetup_dissect_DsRoleDemoteDc_response(ptr noundef %0, i32
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @dssetup_dissect_DsRoleGetDcOperationProgress_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.79, ptr %7, align 8
   ret i32 %1
 }
@@ -785,7 +785,7 @@ define internal noundef i32 @dssetup_dissect_DsRoleGetDcOperationProgress_reques
 ; Function Attrs: nounwind uwtable
 define internal i32 @dssetup_dissect_DsRoleGetDcOperationProgress_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.79, ptr %8, align 8
   %9 = load i32, ptr @hf_dssetup_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #4
@@ -794,7 +794,7 @@ define internal i32 @dssetup_dissect_DsRoleGetDcOperationProgress_response(ptr n
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.86) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.85, ptr noundef %15) #4
@@ -806,7 +806,7 @@ define internal i32 @dssetup_dissect_DsRoleGetDcOperationProgress_response(ptr n
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @dssetup_dissect_DsRoleGetDcOperationResults_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.80, ptr %7, align 8
   ret i32 %1
 }
@@ -814,7 +814,7 @@ define internal noundef i32 @dssetup_dissect_DsRoleGetDcOperationResults_request
 ; Function Attrs: nounwind uwtable
 define internal i32 @dssetup_dissect_DsRoleGetDcOperationResults_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.80, ptr %8, align 8
   %9 = load i32, ptr @hf_dssetup_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #4
@@ -823,7 +823,7 @@ define internal i32 @dssetup_dissect_DsRoleGetDcOperationResults_response(ptr no
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.86) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.85, ptr noundef %15) #4
@@ -835,7 +835,7 @@ define internal i32 @dssetup_dissect_DsRoleGetDcOperationResults_response(ptr no
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @dssetup_dissect_DsRoleCancel_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.81, ptr %7, align 8
   ret i32 %1
 }
@@ -843,7 +843,7 @@ define internal noundef i32 @dssetup_dissect_DsRoleCancel_request(ptr nocapture 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dssetup_dissect_DsRoleCancel_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.81, ptr %8, align 8
   %9 = load i32, ptr @hf_dssetup_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #4
@@ -852,7 +852,7 @@ define internal i32 @dssetup_dissect_DsRoleCancel_response(ptr noundef %0, i32 n
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.86) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.85, ptr noundef %15) #4
@@ -864,7 +864,7 @@ define internal i32 @dssetup_dissect_DsRoleCancel_response(ptr noundef %0, i32 n
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @dssetup_dissect_DsRoleServerSaveStateForUpgrade_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.82, ptr %7, align 8
   ret i32 %1
 }
@@ -872,7 +872,7 @@ define internal noundef i32 @dssetup_dissect_DsRoleServerSaveStateForUpgrade_req
 ; Function Attrs: nounwind uwtable
 define internal i32 @dssetup_dissect_DsRoleServerSaveStateForUpgrade_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.82, ptr %8, align 8
   %9 = load i32, ptr @hf_dssetup_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #4
@@ -881,7 +881,7 @@ define internal i32 @dssetup_dissect_DsRoleServerSaveStateForUpgrade_response(pt
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.86) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.85, ptr noundef %15) #4
@@ -893,7 +893,7 @@ define internal i32 @dssetup_dissect_DsRoleServerSaveStateForUpgrade_response(pt
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @dssetup_dissect_DsRoleUpgradeDownlevelServer_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.83, ptr %7, align 8
   ret i32 %1
 }
@@ -901,7 +901,7 @@ define internal noundef i32 @dssetup_dissect_DsRoleUpgradeDownlevelServer_reques
 ; Function Attrs: nounwind uwtable
 define internal i32 @dssetup_dissect_DsRoleUpgradeDownlevelServer_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.83, ptr %8, align 8
   %9 = load i32, ptr @hf_dssetup_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #4
@@ -910,7 +910,7 @@ define internal i32 @dssetup_dissect_DsRoleUpgradeDownlevelServer_response(ptr n
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.86) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.85, ptr noundef %15) #4
@@ -922,7 +922,7 @@ define internal i32 @dssetup_dissect_DsRoleUpgradeDownlevelServer_response(ptr n
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @dssetup_dissect_DsRoleAbortDownlevelServerUpgrade_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.84, ptr %7, align 8
   ret i32 %1
 }
@@ -930,7 +930,7 @@ define internal noundef i32 @dssetup_dissect_DsRoleAbortDownlevelServerUpgrade_r
 ; Function Attrs: nounwind uwtable
 define internal i32 @dssetup_dissect_DsRoleAbortDownlevelServerUpgrade_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.84, ptr %8, align 8
   %9 = load i32, ptr @hf_dssetup_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #4
@@ -939,7 +939,7 @@ define internal i32 @dssetup_dissect_DsRoleAbortDownlevelServerUpgrade_response(
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.86) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.85, ptr noundef %15) #4
@@ -976,13 +976,13 @@ define internal i32 @dssetup_dissect_element_DsRoleGetPrimaryDomainInformation_i
 13:                                               ; preds = %10, %6
   %.039.i = phi ptr [ %12, %10 ], [ null, %6 ]
   %14 = call i32 @dissect_ndr_uint1632(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.039.i, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %8) #4
-  %15 = getelementptr inbounds i8, ptr %4, i64 72
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 96
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 96
   %18 = load i32, ptr %17, align 8
   %19 = and i32 %18, 1
   %.not41.i = icmp eq i32 %19, 0
-  %20 = getelementptr inbounds i8, ptr %4, i64 28
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %21 = load i32, ptr %20, align 4
   %.not42.i = icmp ne i32 %21, 0
   br i1 %.not41.i, label %27, label %22

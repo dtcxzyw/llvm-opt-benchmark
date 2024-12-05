@@ -60,17 +60,17 @@ entry:
   %0 = load i8, ptr %version, align 1
   %conv = zext i8 %0 to i32
   %shl = shl nuw i32 %conv, 24
-  %arrayidx1 = getelementptr inbounds i8, ptr %version, i64 1
+  %arrayidx1 = getelementptr inbounds nuw i8, ptr %version, i64 1
   %1 = load i8, ptr %arrayidx1, align 1
   %conv2 = zext i8 %1 to i32
   %shl3 = shl nuw nsw i32 %conv2, 16
   %add = or disjoint i32 %shl3, %shl
-  %arrayidx4 = getelementptr inbounds i8, ptr %version, i64 2
+  %arrayidx4 = getelementptr inbounds nuw i8, ptr %version, i64 2
   %2 = load i8, ptr %arrayidx4, align 1
   %conv5 = zext i8 %2 to i32
   %shl6 = shl nuw nsw i32 %conv5, 8
   %add7 = or disjoint i32 %add, %shl6
-  %arrayidx8 = getelementptr inbounds i8, ptr %version, i64 3
+  %arrayidx8 = getelementptr inbounds nuw i8, ptr %version, i64 3
   %3 = load i8, ptr %arrayidx8, align 1
   %conv9 = zext i8 %3 to i32
   %add10 = or disjoint i32 %add7, %conv9
@@ -254,9 +254,9 @@ for.inc108:                                       ; preds = %if.else92, %if.then
 for.end110:                                       ; preds = %for.inc108
   %call111 = tail call noalias dereferenceable_or_null(16) ptr @uprv_malloc_75(i64 noundef 16) #17
   store ptr %call75, ptr %call111, align 8
-  %type113 = getelementptr inbounds i8, ptr %call111, i64 12
+  %type113 = getelementptr inbounds nuw i8, ptr %call111, i64 12
   store i32 %type, ptr %type113, align 4
-  %length114 = getelementptr inbounds i8, ptr %call111, i64 8
+  %length114 = getelementptr inbounds nuw i8, ptr %call111, i64 8
   store i16 %add17, ptr %length114, align 8
   %cmp117 = icmp sgt i16 %add17, 3
   br i1 %cmp117, label %if.then119, label %if.end121
@@ -477,7 +477,7 @@ while.cond4.preheader.i:                          ; preds = %if.end.i, %while.en
 
 while.body8.lr.ph.i:                              ; preds = %while.cond4.preheader.i
   %3 = add nuw nsw i64 %indvars.iv.i, 2
-  %arrayidx.i = getelementptr inbounds [16 x i32], ptr @indexes, i64 0, i64 %3
+  %arrayidx.i = getelementptr inbounds nuw [16 x i32], ptr @indexes, i64 0, i64 %3
   %cmp20.i = icmp eq i64 %indvars.iv.i, 4
   %cmp73.i = icmp samesign ugt i64 %indvars.iv.i, 3
   %4 = trunc nuw nsw i64 %indvars.iv.i to i32
@@ -489,9 +489,9 @@ while.body8.i:                                    ; preds = %if.end96.i, %while.
   %limitIndex.159.i = phi i32 [ %limitIndex.067.i, %while.body8.lr.ph.i ], [ %limitIndex.2.i, %if.end96.i ]
   %oldMappingLength.158.i = phi i32 [ %oldMappingLength.066.i, %while.body8.lr.ph.i ], [ %oldMappingLength.2.i, %if.end96.i ]
   %writtenElementCount.157.i = phi i32 [ %writtenElementCount.064.i, %while.body8.lr.ph.i ], [ %writtenElementCount.2.i, %if.end96.i ]
-  %key.i = getelementptr inbounds i8, ptr %call560.i, i64 16
+  %key.i = getelementptr inbounds nuw i8, ptr %call560.i, i64 16
   %5 = load i32, ptr %key.i, align 8
-  %value9.i = getelementptr inbounds i8, ptr %call560.i, i64 8
+  %value9.i = getelementptr inbounds nuw i8, ptr %call560.i, i64 8
   %6 = load ptr, ptr %value9.i, align 8
   %7 = zext i32 %oldMappingLength.158.i to i64
   %cmp10.not.i = icmp eq i64 %indvars.iv.i, %7
@@ -511,7 +511,7 @@ if.then15.i:                                      ; preds = %if.then12.i
 if.end25.i:                                       ; preds = %if.then15.i, %if.then12.i, %while.body8.i
   %oldMappingLength.2.i = phi i32 [ %oldMappingLength.158.i, %while.body8.i ], [ %4, %if.then12.i ], [ %4, %if.then15.i ]
   %limitIndex.2.i = phi i32 [ %limitIndex.159.i, %while.body8.i ], [ %limitIndex.159.i, %if.then12.i ], [ %8, %if.then15.i ]
-  %length.i = getelementptr inbounds i8, ptr %6, i64 8
+  %length.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   %9 = load i16, ptr %length.i, align 8
   %conv26.i = sext i16 %9 to i64
   %10 = and i64 %conv26.i, 4294967295
@@ -641,7 +641,7 @@ if.then101.i:                                     ; preds = %while.end98.i, %if.
   %conv102.i = sext i16 %30 to i32
   %add103.i = add nsw i32 %conv102.i, 1
   %add104.i = add nuw nsw i64 %mappingLength.0.lcssa95.i, 2
-  %arrayidx106.i = getelementptr inbounds [16 x i32], ptr @indexes, i64 0, i64 %add104.i
+  %arrayidx106.i = getelementptr inbounds nuw [16 x i32], ptr @indexes, i64 0, i64 %add104.i
   store i32 %add103.i, ptr %arrayidx106.i, align 4
   br label %storeMappingData.exit
 

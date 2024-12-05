@@ -170,13 +170,13 @@ declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noun
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @dissect_nvme_ib_cm(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 20
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %6 = load i32, ptr %5, align 4
-  %7 = getelementptr inbounds i8, ptr %1, i64 208
-  %8 = getelementptr inbounds i8, ptr %1, i64 232
-  %9 = getelementptr inbounds i8, ptr %1, i64 284
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 208
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 232
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %10 = load i32, ptr %9, align 4
-  %11 = getelementptr inbounds i8, ptr %1, i64 288
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %12 = load i32, ptr %11, align 8
   %13 = tail call ptr @find_conversation(i32 noundef %6, ptr noundef nonnull %7, ptr noundef nonnull %8, i32 noundef 14, i32 noundef %10, i32 noundef %12, i32 noundef 0) #5
   %.not.i = icmp eq ptr %13, null
@@ -203,10 +203,10 @@ define internal range(i32 0, 2) i32 @dissect_nvme_ib_cm(ptr noundef %0, ptr noun
   br i1 %.not8.i.i, label %dissect_rdma_cm_packet.exit, label %find_ib_cm_conversation.exit
 
 find_ib_cm_conversation.exit:                     ; preds = %20
-  %25 = getelementptr inbounds i8, ptr %1, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8
   tail call void @col_set_str(ptr noundef %26, i32 noundef 34, ptr noundef nonnull @.str.49) #5
-  %27 = getelementptr inbounds i8, ptr %3, i64 10
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 10
   %28 = load i16, ptr %27, align 2
   switch i16 %28, label %dissect_rdma_cm_packet.exit [
     i16 16, label %29
@@ -267,10 +267,10 @@ define internal range(i32 0, 2) i32 @dissect_nvme_ib(ptr noundef %0, ptr noundef
   %5 = alloca %struct.keyed_data_req, align 8
   %6 = alloca %struct.keyed_data_req, align 8
   %7 = tail call i32 @tvb_reported_length(ptr noundef %0) #5
-  %8 = getelementptr inbounds i8, ptr %1, i64 20
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %9 = load i32, ptr %8, align 4
-  %10 = getelementptr inbounds i8, ptr %1, i64 232
-  %11 = getelementptr inbounds i8, ptr %1, i64 288
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 232
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %12 = load i32, ptr %11, align 8
   %13 = tail call ptr @find_conversation(i32 noundef %9, ptr noundef nonnull %10, ptr noundef nonnull %10, i32 noundef 14, i32 noundef %12, i32 noundef %12, i32 noundef 196608) #5
   %.not.i = icmp eq ptr %13, null
@@ -298,8 +298,8 @@ define internal range(i32 0, 2) i32 @dissect_nvme_ib(ptr noundef %0, ptr noundef
 
 find_ib_conversation.exit:                        ; preds = %20
   %25 = load i32, ptr %8, align 4
-  %26 = getelementptr inbounds i8, ptr %1, i64 208
-  %27 = getelementptr inbounds i8, ptr %1, i64 284
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 208
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %28 = load i32, ptr %27, align 4
   %29 = load i32, ptr %11, align 8
   %30 = tail call ptr @find_conversation(i32 noundef %25, ptr noundef nonnull %26, ptr noundef nonnull %10, i32 noundef 14, i32 noundef %28, i32 noundef %29, i32 noundef 0) #5
@@ -340,14 +340,14 @@ find_ib_conversation.exit:                        ; preds = %20
   br i1 %.not8.i.i.i, label %find_nvme_qid.exit.i, label %get_conversion_data.exit.i.i
 
 get_conversion_data.exit.i.i:                     ; preds = %44
-  %49 = getelementptr inbounds i8, ptr %40, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %50 = load i32, ptr %49, align 8
   %51 = icmp eq i32 %50, 0
   br i1 %51, label %get_conversion_data.exit.thread.sink.split.i.i, label %52
 
 52:                                               ; preds = %get_conversion_data.exit.i.i
   %53 = load i32, ptr %8, align 4
-  %54 = getelementptr inbounds i8, ptr %40, i64 12
+  %54 = getelementptr inbounds nuw i8, ptr %40, i64 12
   %55 = load i32, ptr %54, align 4
   %56 = tail call ptr @find_conversation(i32 noundef %53, ptr noundef nonnull %26, ptr noundef nonnull %26, i32 noundef 14, i32 noundef %55, i32 noundef %55, i32 noundef 196608) #5
   %.not27.i.i = icmp eq ptr %56, null
@@ -388,21 +388,21 @@ find_nvme_qid.exit.i:                             ; preds = %get_conversion_data
   store ptr %72, ptr %70, align 8
   %73 = tail call ptr @wmem_file_scope() #5
   %74 = tail call noalias ptr @wmem_tree_new(ptr noundef %73) #5
-  %75 = getelementptr inbounds i8, ptr %70, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %70, i64 8
   store ptr %74, ptr %75, align 8
   %76 = tail call ptr @wmem_file_scope() #5
   %77 = tail call noalias ptr @wmem_tree_new(ptr noundef %76) #5
-  %78 = getelementptr inbounds i8, ptr %70, i64 16
+  %78 = getelementptr inbounds nuw i8, ptr %70, i64 16
   store ptr %77, ptr %78, align 8
   %79 = tail call ptr @wmem_file_scope() #5
   %80 = tail call noalias ptr @wmem_tree_new(ptr noundef %79) #5
-  %81 = getelementptr inbounds i8, ptr %70, i64 24
+  %81 = getelementptr inbounds nuw i8, ptr %70, i64 24
   store ptr %80, ptr %81, align 8
   %82 = tail call ptr @wmem_file_scope() #5
   %83 = tail call noalias ptr @wmem_tree_new(ptr noundef %82) #5
-  %84 = getelementptr inbounds i8, ptr %70, i64 32
+  %84 = getelementptr inbounds nuw i8, ptr %70, i64 32
   store ptr %83, ptr %84, align 8
-  %85 = getelementptr inbounds i8, ptr %70, i64 40
+  %85 = getelementptr inbounds nuw i8, ptr %70, i64 40
   store i16 %.0.i.i, ptr %85, align 8
   %86 = load i32, ptr @proto_nvme_rdma, align 4
   tail call void @conversation_add_proto_data(ptr noundef nonnull %30, i32 noundef %86, ptr noundef nonnull %70) #5
@@ -410,7 +410,7 @@ find_nvme_qid.exit.i:                             ; preds = %get_conversion_data
 
 find_add_q_ctx.exit:                              ; preds = %find_nvme_qid.exit.i, %31
   %.0.i33 = phi ptr [ %33, %31 ], [ %70, %find_nvme_qid.exit.i ]
-  %87 = getelementptr inbounds i8, ptr %1, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %88 = load ptr, ptr %87, align 8
   tail call void @col_set_str(ptr noundef %88, i32 noundef 34, ptr noundef nonnull @.str.49) #5
   %89 = load i32, ptr @proto_nvme_rdma, align 4
@@ -418,16 +418,16 @@ find_add_q_ctx.exit:                              ; preds = %find_nvme_qid.exit.
   %91 = load i32, ptr @ett_data, align 4
   %92 = tail call ptr @proto_item_add_subtree(ptr noundef %90, i32 noundef %91) #5
   %93 = load i32, ptr @hf_nvmeof_cmd_qid, align 4
-  %94 = getelementptr inbounds i8, ptr %.0.i33, i64 40
+  %94 = getelementptr inbounds nuw i8, ptr %.0.i33, i64 40
   %95 = load i16, ptr %94, align 8
   tail call void @nvme_publish_qid(ptr noundef %92, i32 noundef %93, i16 noundef zeroext %95) #5
-  %96 = getelementptr inbounds i8, ptr %16, i64 8
+  %96 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %97 = load i32, ptr %96, align 8
   %.not31 = icmp eq i32 %97, 0
   br i1 %.not31, label %230, label %98
 
 98:                                               ; preds = %find_add_q_ctx.exit
-  %99 = getelementptr inbounds i8, ptr %3, i64 8
+  %99 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %100 = load i8, ptr %99, align 8
   switch i8 %100, label %227 [
     i8 4, label %202
@@ -438,65 +438,65 @@ find_add_q_ctx.exit:                              ; preds = %find_nvme_qid.exit.
   ]
 
 101:                                              ; preds = %98, %98
-  %102 = getelementptr inbounds i8, ptr %3, i64 28
+  %102 = getelementptr inbounds nuw i8, ptr %3, i64 28
   %103 = load i32, ptr %102, align 4
   %104 = tail call ptr @nvme_lookup_data_tr_pkt(ptr noundef nonnull %.0.i33, i32 noundef 0, i32 noundef %103) #5
   %.not98.i = icmp eq ptr %104, null
   br i1 %.not98.i, label %199, label %105
 
 105:                                              ; preds = %101
-  %106 = getelementptr inbounds i8, ptr %1, i64 80
+  %106 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %107 = load ptr, ptr %106, align 8
-  %108 = getelementptr inbounds i8, ptr %107, i64 50
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 50
   %109 = load i16, ptr %108, align 2
   %110 = and i16 %109, 8
   %.not99.i = icmp eq i16 %110, 0
   br i1 %.not99.i, label %111, label %161
 
 111:                                              ; preds = %105
-  %112 = getelementptr inbounds i8, ptr %.0.i33, i64 48
+  %112 = getelementptr inbounds nuw i8, ptr %.0.i33, i64 48
   store ptr %104, ptr %112, align 8
   %113 = load i32, ptr %102, align 4
-  %114 = getelementptr inbounds i8, ptr %.0.i33, i64 56
+  %114 = getelementptr inbounds nuw i8, ptr %.0.i33, i64 56
   store i32 %113, ptr %114, align 8
-  %115 = getelementptr inbounds i8, ptr %.0.i33, i64 60
+  %115 = getelementptr inbounds nuw i8, ptr %.0.i33, i64 60
   store i32 %113, ptr %115, align 4
-  %116 = getelementptr inbounds i8, ptr %104, i64 112
+  %116 = getelementptr inbounds nuw i8, ptr %104, i64 112
   store i32 0, ptr %116, align 8
   %117 = load i32, ptr %102, align 4
-  %118 = getelementptr inbounds i8, ptr %104, i64 76
+  %118 = getelementptr inbounds nuw i8, ptr %104, i64 76
   store i32 %117, ptr %118, align 4
   %119 = load i32, ptr %8, align 4
-  %120 = getelementptr inbounds i8, ptr %104, i64 12
+  %120 = getelementptr inbounds nuw i8, ptr %104, i64 12
   store i32 %119, ptr %120, align 4
   br label %161
 
 121:                                              ; preds = %98, %98
-  %122 = getelementptr inbounds i8, ptr %1, i64 80
+  %122 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %123 = load ptr, ptr %122, align 8
-  %124 = getelementptr inbounds i8, ptr %123, i64 50
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 50
   %125 = load i16, ptr %124, align 2
   %126 = and i16 %125, 8
   %.not.i35 = icmp eq i16 %126, 0
   br i1 %.not.i35, label %127, label %152
 
 127:                                              ; preds = %121
-  %128 = getelementptr inbounds i8, ptr %.0.i33, i64 48
+  %128 = getelementptr inbounds nuw i8, ptr %.0.i33, i64 48
   %129 = load ptr, ptr %128, align 8
   %.not96.i = icmp eq ptr %129, null
   br i1 %.not96.i, label %199, label %130
 
 130:                                              ; preds = %127
-  %131 = getelementptr inbounds i8, ptr %.0.i33, i64 60
+  %131 = getelementptr inbounds nuw i8, ptr %.0.i33, i64 60
   %132 = load i32, ptr %131, align 4
   %133 = add i32 %132, 1
-  %134 = getelementptr inbounds i8, ptr %3, i64 28
+  %134 = getelementptr inbounds nuw i8, ptr %3, i64 28
   %135 = load i32, ptr %134, align 4
   %136 = icmp eq i32 %133, %135
   br i1 %136, label %137, label %199
 
 137:                                              ; preds = %130
-  %138 = getelementptr inbounds i8, ptr %.0.i33, i64 56
+  %138 = getelementptr inbounds nuw i8, ptr %.0.i33, i64 56
   %139 = load i32, ptr %138, align 8
   %140 = sub i32 %133, %139
   store i32 %133, ptr %131, align 4
@@ -505,7 +505,7 @@ find_add_q_ctx.exit:                              ; preds = %find_nvme_qid.exit.
 
 142:                                              ; preds = %137
   %143 = load i32, ptr %8, align 4
-  %144 = getelementptr inbounds i8, ptr %129, i64 12
+  %144 = getelementptr inbounds nuw i8, ptr %129, i64 12
   %145 = zext nneg i32 %140 to i64
   %146 = getelementptr [16 x i32], ptr %144, i64 0, i64 %145
   store i32 %143, ptr %146, align 4
@@ -514,14 +514,14 @@ find_add_q_ctx.exit:                              ; preds = %find_nvme_qid.exit.
 147:                                              ; preds = %142, %137
   %148 = load i32, ptr %134, align 4
   tail call void @nvme_add_data_tr_pkt(ptr noundef nonnull %.0.i33, ptr noundef nonnull %129, i32 noundef 0, i32 noundef %148) #5
-  %149 = getelementptr inbounds i8, ptr %129, i64 112
+  %149 = getelementptr inbounds nuw i8, ptr %129, i64 112
   %150 = load i32, ptr %149, align 8
   %151 = load i32, ptr %8, align 4
   tail call void @nvme_add_data_tr_off(ptr noundef nonnull %.0.i33, i32 noundef %150, i32 noundef %151) #5
   br label %161
 
 152:                                              ; preds = %121
-  %153 = getelementptr inbounds i8, ptr %3, i64 28
+  %153 = getelementptr inbounds nuw i8, ptr %3, i64 28
   %154 = load i32, ptr %153, align 4
   %155 = tail call ptr @nvme_lookup_data_tr_pkt(ptr noundef nonnull %.0.i33, i32 noundef 0, i32 noundef %154) #5
   %.not97.i = icmp eq ptr %155, null
@@ -529,7 +529,7 @@ find_add_q_ctx.exit:                              ; preds = %find_nvme_qid.exit.
 
 156:                                              ; preds = %152
   %157 = load i32, ptr %153, align 4
-  %158 = getelementptr inbounds i8, ptr %155, i64 76
+  %158 = getelementptr inbounds nuw i8, ptr %155, i64 76
   %159 = load i32, ptr %158, align 4
   %160 = sub i32 %157, %159
   br label %161
@@ -551,7 +551,7 @@ find_add_q_ctx.exit:                              ; preds = %find_nvme_qid.exit.
 
 169:                                              ; preds = %161
   %170 = load i32, ptr @hf_nvmeof_read_from_host_prev, align 4
-  %171 = getelementptr inbounds i8, ptr %.0.i36, i64 12
+  %171 = getelementptr inbounds nuw i8, ptr %.0.i36, i64 12
   %172 = zext nneg i32 %168 to i64
   %173 = getelementptr [16 x i32], ptr %171, i64 0, i64 %172
   %174 = load i32, ptr %173, align 4
@@ -565,7 +565,7 @@ find_add_q_ctx.exit:                              ; preds = %find_nvme_qid.exit.
 
 178:                                              ; preds = %175
   %179 = load i32, ptr @hf_nvmeof_read_from_host_next, align 4
-  %180 = getelementptr inbounds i8, ptr %.0.i36, i64 12
+  %180 = getelementptr inbounds nuw i8, ptr %.0.i36, i64 12
   %181 = zext nneg i32 %176 to i64
   %182 = getelementptr [16 x i32], ptr %180, i64 0, i64 %181
   %183 = load i32, ptr %182, align 4
@@ -573,7 +573,7 @@ find_add_q_ctx.exit:                              ; preds = %find_nvme_qid.exit.
   br label %184
 
 184:                                              ; preds = %178, %175
-  %185 = getelementptr inbounds i8, ptr %.0.i36, i64 116
+  %185 = getelementptr inbounds nuw i8, ptr %.0.i36, i64 116
   %186 = load i32, ptr %185, align 4
   %187 = icmp eq i32 %186, 1
   br i1 %187, label %188, label %189
@@ -587,16 +587,16 @@ find_add_q_ctx.exit:                              ; preds = %find_nvme_qid.exit.
   br label %dissect_rdma_read_transfer.exit.i
 
 dissect_rdma_read_transfer.exit.i:                ; preds = %189, %188
-  %190 = getelementptr inbounds i8, ptr %1, i64 80
+  %190 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %191 = load ptr, ptr %190, align 8
-  %192 = getelementptr inbounds i8, ptr %191, i64 50
+  %192 = getelementptr inbounds nuw i8, ptr %191, i64 50
   %193 = load i16, ptr %192, align 2
   %194 = and i16 %193, 8
   %.not102.i = icmp eq i16 %194, 0
   br i1 %.not102.i, label %195, label %dissect_nvme_from_host.exit
 
 195:                                              ; preds = %dissect_rdma_read_transfer.exit.i
-  %196 = getelementptr inbounds i8, ptr %.0.i36, i64 112
+  %196 = getelementptr inbounds nuw i8, ptr %.0.i36, i64 112
   %197 = load i32, ptr %196, align 8
   %198 = add i32 %197, %7
   store i32 %198, ptr %196, align 8
@@ -614,9 +614,9 @@ dissect_rdma_read_transfer.exit.i:                ; preds = %189, %188
 204:                                              ; preds = %202
   %205 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #5
   %206 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef 2, i32 noundef -2147483648) #5
-  %207 = getelementptr inbounds i8, ptr %1, i64 80
+  %207 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %208 = load ptr, ptr %207, align 8
-  %209 = getelementptr inbounds i8, ptr %208, i64 50
+  %209 = getelementptr inbounds nuw i8, ptr %208, i64 50
   %210 = load i16, ptr %209, align 2
   %211 = and i16 %210, 8
   %.not.i.i.i37 = icmp eq i16 %211, 0
@@ -641,7 +641,7 @@ dissect_rdma_read_transfer.exit.i:                ; preds = %189, %188
 bind_cmd_to_qctx.exit.i.i:                        ; preds = %217, %215, %212
   %.0.i.i.i = phi ptr [ %216, %215 ], [ %219, %217 ], [ %214, %212 ]
   %220 = icmp eq i8 %205, 127
-  %221 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 116
+  %221 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 116
   br i1 %220, label %222, label %223
 
 222:                                              ; preds = %bind_cmd_to_qctx.exit.i.i
@@ -667,7 +667,7 @@ bind_cmd_to_qctx.exit.i.i:                        ; preds = %217, %215, %212
 230:                                              ; preds = %find_add_q_ctx.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  %231 = getelementptr inbounds i8, ptr %3, i64 8
+  %231 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %232 = load i8, ptr %231, align 8
   switch i8 %232, label %399 [
     i8 12, label %233
@@ -680,20 +680,20 @@ bind_cmd_to_qctx.exit.i.i:                        ; preds = %217, %215, %212
   ]
 
 233:                                              ; preds = %230
-  %234 = getelementptr inbounds i8, ptr %3, i64 16
+  %234 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %235 = load i64, ptr %234, align 8
   store i64 %235, ptr %5, align 8
-  %236 = getelementptr inbounds i8, ptr %5, i64 8
-  %237 = getelementptr inbounds i8, ptr %3, i64 12
+  %236 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %237 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %238 = load i32, ptr %237, align 4
   store i32 %238, ptr %236, align 8
-  %239 = getelementptr inbounds i8, ptr %5, i64 12
-  %240 = getelementptr inbounds i8, ptr %3, i64 24
+  %239 = getelementptr inbounds nuw i8, ptr %5, i64 12
+  %240 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %241 = load i32, ptr %240, align 8
   store i32 %241, ptr %239, align 4
-  %242 = getelementptr inbounds i8, ptr %1, i64 80
+  %242 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %243 = load ptr, ptr %242, align 8
-  %244 = getelementptr inbounds i8, ptr %243, i64 50
+  %244 = getelementptr inbounds nuw i8, ptr %243, i64 50
   %245 = load i16, ptr %244, align 2
   %246 = and i16 %245, 8
   %.not137.i = icmp eq i16 %246, 0
@@ -705,13 +705,13 @@ bind_cmd_to_qctx.exit.i.i:                        ; preds = %217, %215, %212
   br i1 %.not138.i, label %.thread.i, label %.thread142.i
 
 .thread142.i:                                     ; preds = %247
-  %249 = getelementptr inbounds i8, ptr %3, i64 28
+  %249 = getelementptr inbounds nuw i8, ptr %3, i64 28
   %250 = load i32, ptr %249, align 4
   call void @nvme_add_data_tr_pkt(ptr noundef nonnull %.0.i33, ptr noundef nonnull %248, i32 noundef 0, i32 noundef %250) #5
   br label %255
 
 251:                                              ; preds = %233
-  %252 = getelementptr inbounds i8, ptr %3, i64 28
+  %252 = getelementptr inbounds nuw i8, ptr %3, i64 28
   %253 = load i32, ptr %252, align 4
   %254 = tail call ptr @nvme_lookup_data_tr_pkt(ptr noundef nonnull %.0.i33, i32 noundef 0, i32 noundef %253) #5
   %.not139.i = icmp eq ptr %254, null
@@ -724,7 +724,7 @@ bind_cmd_to_qctx.exit.i.i:                        ; preds = %217, %215, %212
   %258 = load i32, ptr @ett_data, align 4
   %259 = call ptr @proto_item_add_subtree(ptr noundef %257, i32 noundef %258) #5
   %260 = load i32, ptr %8, align 4
-  %261 = getelementptr inbounds i8, ptr %.0145.i, i64 8
+  %261 = getelementptr inbounds nuw i8, ptr %.0145.i, i64 8
   store i32 %260, ptr %261, align 8
   %262 = load i32, ptr @hf_nvmeof_data_resp, align 4
   call void @nvme_publish_to_data_resp_link(ptr noundef %259, ptr noundef %0, i32 noundef %262, ptr noundef nonnull %.0145.i) #5
@@ -744,9 +744,9 @@ bind_cmd_to_qctx.exit.i.i:                        ; preds = %217, %215, %212
 
 268:                                              ; preds = %266
   %269 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef 12, i32 noundef -2147483648) #5
-  %270 = getelementptr inbounds i8, ptr %1, i64 80
+  %270 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %271 = load ptr, ptr %270, align 8
-  %272 = getelementptr inbounds i8, ptr %271, i64 50
+  %272 = getelementptr inbounds nuw i8, ptr %271, i64 50
   %273 = load i16, ptr %272, align 2
   %274 = and i16 %273, 8
   %.not.i.i40 = icmp eq i16 %274, 0
@@ -758,7 +758,7 @@ bind_cmd_to_qctx.exit.i.i:                        ; preds = %217, %215, %212
   br i1 %.not30.i.i, label %289, label %277
 
 277:                                              ; preds = %275
-  %278 = getelementptr inbounds i8, ptr %276, i64 4
+  %278 = getelementptr inbounds nuw i8, ptr %276, i64 4
   %279 = load i32, ptr %278, align 4
   %.not31.i.i = icmp eq i32 %279, 0
   br i1 %.not31.i.i, label %280, label %289
@@ -777,7 +777,7 @@ bind_cmd_to_qctx.exit.i.i:                        ; preds = %217, %215, %212
 284:                                              ; preds = %282, %280
   %.0.i.i41 = phi ptr [ %283, %282 ], [ %276, %280 ]
   tail call void @nvme_update_cmd_end_info(ptr noundef nonnull %1, ptr noundef nonnull %.0.i.i41) #5
-  %285 = getelementptr inbounds i8, ptr %.0.i.i41, i64 116
+  %285 = getelementptr inbounds nuw i8, ptr %.0.i.i41, i64 116
   %286 = load i32, ptr %285, align 4
   %.not33.i.i = icmp eq i32 %286, 0
   br i1 %.not33.i.i, label %288, label %287
@@ -801,20 +801,20 @@ bind_cmd_to_qctx.exit.i.i:                        ; preds = %217, %215, %212
   br label %dissect_nvme_to_host.exit
 
 295:                                              ; preds = %230, %230
-  %296 = getelementptr inbounds i8, ptr %3, i64 16
+  %296 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %297 = load i64, ptr %296, align 8
   store i64 %297, ptr %6, align 8
-  %298 = getelementptr inbounds i8, ptr %6, i64 8
-  %299 = getelementptr inbounds i8, ptr %3, i64 12
+  %298 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %299 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %300 = load i32, ptr %299, align 4
   store i32 %300, ptr %298, align 8
-  %301 = getelementptr inbounds i8, ptr %6, i64 12
-  %302 = getelementptr inbounds i8, ptr %3, i64 24
+  %301 = getelementptr inbounds nuw i8, ptr %6, i64 12
+  %302 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %303 = load i32, ptr %302, align 8
   store i32 %303, ptr %301, align 4
-  %304 = getelementptr inbounds i8, ptr %1, i64 80
+  %304 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %305 = load ptr, ptr %304, align 8
-  %306 = getelementptr inbounds i8, ptr %305, i64 50
+  %306 = getelementptr inbounds nuw i8, ptr %305, i64 50
   %307 = load i16, ptr %306, align 2
   %308 = and i16 %307, 8
   %.not132.i = icmp eq i16 %308, 0
@@ -826,35 +826,35 @@ bind_cmd_to_qctx.exit.i.i:                        ; preds = %217, %215, %212
   br i1 %.not133.i, label %.thread146.i, label %311
 
 311:                                              ; preds = %309
-  %312 = getelementptr inbounds i8, ptr %3, i64 28
+  %312 = getelementptr inbounds nuw i8, ptr %3, i64 28
   %313 = load i32, ptr %312, align 4
   call void @nvme_add_data_tr_pkt(ptr noundef nonnull %.0.i33, ptr noundef nonnull %310, i32 noundef 0, i32 noundef %313) #5
   %314 = load i32, ptr %312, align 4
-  %315 = getelementptr inbounds i8, ptr %310, i64 76
+  %315 = getelementptr inbounds nuw i8, ptr %310, i64 76
   store i32 %314, ptr %315, align 4
   %316 = load i32, ptr %8, align 4
-  %317 = getelementptr inbounds i8, ptr %310, i64 12
+  %317 = getelementptr inbounds nuw i8, ptr %310, i64 12
   store i32 %316, ptr %317, align 4
-  %318 = getelementptr inbounds i8, ptr %.0.i33, i64 48
+  %318 = getelementptr inbounds nuw i8, ptr %.0.i33, i64 48
   store ptr %310, ptr %318, align 8
   %319 = load i32, ptr %312, align 4
-  %320 = getelementptr inbounds i8, ptr %.0.i33, i64 60
+  %320 = getelementptr inbounds nuw i8, ptr %.0.i33, i64 60
   store i32 %319, ptr %320, align 4
-  %321 = getelementptr inbounds i8, ptr %.0.i33, i64 56
+  %321 = getelementptr inbounds nuw i8, ptr %.0.i33, i64 56
   store i32 %319, ptr %321, align 8
   br label %.thread151.i
 
 322:                                              ; preds = %230, %230
-  %323 = getelementptr inbounds i8, ptr %1, i64 80
+  %323 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %324 = load ptr, ptr %323, align 8
-  %325 = getelementptr inbounds i8, ptr %324, i64 50
+  %325 = getelementptr inbounds nuw i8, ptr %324, i64 50
   %326 = load i16, ptr %325, align 2
   %327 = and i16 %326, 8
   %.not.i38 = icmp eq i16 %327, 0
   br i1 %.not.i38, label %337, label %328
 
 328:                                              ; preds = %322
-  %329 = getelementptr inbounds i8, ptr %3, i64 28
+  %329 = getelementptr inbounds nuw i8, ptr %3, i64 28
   %330 = load i32, ptr %329, align 4
   %331 = tail call ptr @nvme_lookup_data_tr_pkt(ptr noundef nonnull %.0.i33, i32 noundef 0, i32 noundef %330) #5
   %.not131.i = icmp eq ptr %331, null
@@ -862,28 +862,28 @@ bind_cmd_to_qctx.exit.i.i:                        ; preds = %217, %215, %212
 
 332:                                              ; preds = %328
   %333 = load i32, ptr %329, align 4
-  %334 = getelementptr inbounds i8, ptr %331, i64 76
+  %334 = getelementptr inbounds nuw i8, ptr %331, i64 76
   %335 = load i32, ptr %334, align 4
   %336 = sub i32 %333, %335
   br label %.thread151.i
 
 337:                                              ; preds = %322
-  %338 = getelementptr inbounds i8, ptr %.0.i33, i64 48
+  %338 = getelementptr inbounds nuw i8, ptr %.0.i33, i64 48
   %339 = load ptr, ptr %338, align 8
   %.not130.i = icmp eq ptr %339, null
   br i1 %.not130.i, label %.thread146.i, label %340
 
 340:                                              ; preds = %337
-  %341 = getelementptr inbounds i8, ptr %.0.i33, i64 60
+  %341 = getelementptr inbounds nuw i8, ptr %.0.i33, i64 60
   %342 = load i32, ptr %341, align 4
   %343 = add i32 %342, 1
-  %344 = getelementptr inbounds i8, ptr %3, i64 28
+  %344 = getelementptr inbounds nuw i8, ptr %3, i64 28
   %345 = load i32, ptr %344, align 4
   %346 = icmp eq i32 %343, %345
   br i1 %346, label %347, label %.thread146.i
 
 347:                                              ; preds = %340
-  %348 = getelementptr inbounds i8, ptr %.0.i33, i64 56
+  %348 = getelementptr inbounds nuw i8, ptr %.0.i33, i64 56
   %349 = load i32, ptr %348, align 8
   %350 = sub i32 %343, %349
   store i32 %343, ptr %341, align 4
@@ -892,7 +892,7 @@ bind_cmd_to_qctx.exit.i.i:                        ; preds = %217, %215, %212
 
 352:                                              ; preds = %347
   %353 = load i32, ptr %8, align 4
-  %354 = getelementptr inbounds i8, ptr %339, i64 12
+  %354 = getelementptr inbounds nuw i8, ptr %339, i64 12
   %355 = zext nneg i32 %350 to i64
   %356 = getelementptr [16 x i32], ptr %354, i64 0, i64 %355
   store i32 %353, ptr %356, align 4
@@ -901,14 +901,14 @@ bind_cmd_to_qctx.exit.i.i:                        ; preds = %217, %215, %212
 357:                                              ; preds = %352, %347
   %358 = load i32, ptr %344, align 4
   tail call void @nvme_add_data_tr_pkt(ptr noundef nonnull %.0.i33, ptr noundef nonnull %339, i32 noundef 0, i32 noundef %358) #5
-  %359 = getelementptr inbounds i8, ptr %339, i64 112
+  %359 = getelementptr inbounds nuw i8, ptr %339, i64 112
   %360 = load i32, ptr %359, align 8
   %361 = load i32, ptr %8, align 4
   tail call void @nvme_add_data_tr_off(ptr noundef nonnull %.0.i33, i32 noundef %360, i32 noundef %361) #5
   br label %.thread151.i
 
 362:                                              ; preds = %295
-  %363 = getelementptr inbounds i8, ptr %3, i64 28
+  %363 = getelementptr inbounds nuw i8, ptr %3, i64 28
   %364 = load i32, ptr %363, align 4
   %365 = tail call ptr @nvme_lookup_data_tr_pkt(ptr noundef nonnull %.0.i33, i32 noundef 0, i32 noundef %364) #5
   %.not134.i = icmp eq ptr %365, null
@@ -929,7 +929,7 @@ bind_cmd_to_qctx.exit.i.i:                        ; preds = %217, %215, %212
 
 372:                                              ; preds = %.thread151.i
   %373 = load i32, ptr @hf_nvmeof_write_to_host_prev, align 4
-  %374 = getelementptr inbounds i8, ptr %.0116156.i, i64 12
+  %374 = getelementptr inbounds nuw i8, ptr %.0116156.i, i64 12
   %375 = zext nneg i32 %371 to i64
   %376 = getelementptr [16 x i32], ptr %374, i64 0, i64 %375
   %377 = load i32, ptr %376, align 4
@@ -943,7 +943,7 @@ bind_cmd_to_qctx.exit.i.i:                        ; preds = %217, %215, %212
 
 381:                                              ; preds = %378
   %382 = load i32, ptr @hf_nvmeof_write_to_host_next, align 4
-  %383 = getelementptr inbounds i8, ptr %.0116156.i, i64 12
+  %383 = getelementptr inbounds nuw i8, ptr %.0116156.i, i64 12
   %384 = zext nneg i32 %379 to i64
   %385 = getelementptr [16 x i32], ptr %383, i64 0, i64 %384
   %386 = load i32, ptr %385, align 4
@@ -952,16 +952,16 @@ bind_cmd_to_qctx.exit.i.i:                        ; preds = %217, %215, %212
 
 387:                                              ; preds = %381, %378
   call void @dissect_nvme_data_response(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %.0.i33, ptr noundef nonnull %.0116156.i, i32 noundef %7, i32 noundef 0) #5
-  %388 = getelementptr inbounds i8, ptr %1, i64 80
+  %388 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %389 = load ptr, ptr %388, align 8
-  %390 = getelementptr inbounds i8, ptr %389, i64 50
+  %390 = getelementptr inbounds nuw i8, ptr %389, i64 50
   %391 = load i16, ptr %390, align 2
   %392 = and i16 %391, 8
   %.not136.i = icmp eq i16 %392, 0
   br i1 %.not136.i, label %393, label %dissect_nvme_to_host.exit
 
 393:                                              ; preds = %387
-  %394 = getelementptr inbounds i8, ptr %.0116156.i, i64 112
+  %394 = getelementptr inbounds nuw i8, ptr %.0116156.i, i64 112
   %395 = load i32, ptr %394, align 8
   %396 = add i32 %395, %7
   store i32 %396, ptr %394, align 8

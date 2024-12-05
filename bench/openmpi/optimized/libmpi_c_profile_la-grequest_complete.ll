@@ -40,7 +40,7 @@ define range(i32 0, 18) i32 @PMPI_Grequest_complete(ptr noundef %0) #0 {
   br i1 %or.cond, label %.sink.split, label %12
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %0, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %14 = load i32, ptr %13, align 8
   %.not = icmp eq i32 %14, 2
   br i1 %.not, label %15, label %.sink.split

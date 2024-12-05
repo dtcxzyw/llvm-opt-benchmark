@@ -11,24 +11,24 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @dm_io_rewind(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 64
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call ptr @bio_alloc_clone(ptr noundef %6, ptr noundef %4, i32 noundef 3072, ptr noundef %1) #2
-  %8 = getelementptr inbounds i8, ptr %0, i64 72
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %9 = load i32, ptr %8, align 8
   %10 = shl i32 %9, 9
-  %11 = getelementptr inbounds i8, ptr %4, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %12 = load i32, ptr %11, align 8
   %13 = sub i32 %10, %12
-  %14 = getelementptr inbounds i8, ptr %7, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %15 = lshr i32 %13, 9
   %16 = zext nneg i32 %15 to i64
   %17 = load i64, ptr %14, align 1
   %18 = sub i64 %17, %16
   store i64 %18, ptr %14, align 1
-  %19 = getelementptr inbounds i8, ptr %7, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %20 = load i32, ptr %19, align 8
   %21 = trunc i32 %20 to i8
   switch i8 %21, label %22 [
@@ -38,19 +38,19 @@ define dso_local void @dm_io_rewind(ptr nocapture noundef %0, ptr noundef %1) lo
   ]
 
 22:                                               ; preds = %2
-  %23 = getelementptr inbounds i8, ptr %7, i64 104
+  %23 = getelementptr inbounds nuw i8, ptr %7, i64 104
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %7, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %26 = load i32, ptr %25, align 1
   %27 = add i32 %26, %13
   store i32 %27, ptr %25, align 1
-  %28 = getelementptr inbounds i8, ptr %7, i64 48
+  %28 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %29 = load i32, ptr %28, align 1
   %30 = icmp ult i32 %29, %13
   br i1 %30, label %37, label %35
 
 31:                                               ; preds = %2, %2, %2
-  %32 = getelementptr inbounds i8, ptr %7, i64 40
+  %32 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %33 = load i32, ptr %32, align 1
   %34 = add i32 %33, %13
   store i32 %34, ptr %32, align 1
@@ -63,7 +63,7 @@ define dso_local void @dm_io_rewind(ptr nocapture noundef %0, ptr noundef %1) lo
 
 37:                                               ; preds = %22
   %38 = sub nuw i32 %13, %29
-  %39 = getelementptr inbounds i8, ptr %7, i64 44
+  %39 = getelementptr inbounds nuw i8, ptr %7, i64 44
   %40 = load i32, ptr %39, align 1
   %41 = add i32 %40, -1
   %42 = icmp sgt i32 %41, -1
@@ -146,13 +146,13 @@ define dso_local void @dm_io_rewind(ptr nocapture noundef %0, ptr noundef %1) lo
   br label %83
 
 83:                                               ; preds = %.thread, %74, %35, %31
-  %84 = getelementptr inbounds i8, ptr %0, i64 76
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %85 = load i32, ptr %84, align 4
   %86 = zext i32 %85 to i64
   tail call void @bio_trim(ptr noundef %7, i64 noundef 0, i64 noundef %86) #2
   tail call void @bio_chain(ptr noundef %7, ptr noundef %4) #2
-  %87 = getelementptr inbounds i8, ptr %4, i64 28
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %87, ptr elementtype(i32) %87) #2, !srcloc !14
+  %87 = getelementptr inbounds nuw i8, ptr %4, i64 28
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %87, ptr nonnull elementtype(i32) %87) #2, !srcloc !14
   store ptr %7, ptr %3, align 8
   ret void
 }

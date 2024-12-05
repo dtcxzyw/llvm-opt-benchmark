@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define void @stress_model(i32 noundef %0, ptr noundef %1, ptr noundef readonly %2, i32 noundef %3, ptr nocapture noundef writeonly initializes((0, 4)) %4) local_unnamed_addr #0 {
   %6 = tail call zeroext i1 @SparseMatrix_is_symmetric(ptr noundef %1, i1 noundef zeroext false) #6
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i32, ptr %7, align 8
   %.not = icmp eq i32 %8, 1
   br i1 %6, label %9, label %10
@@ -54,9 +54,9 @@ define void @stress_model(i32 noundef %0, ptr noundef %1, ptr noundef readonly %
   br label %39
 
 25:                                               ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %23, i64 64
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 64
   store double 1.000000e-01, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %23, i64 48
+  %27 = getelementptr inbounds nuw i8, ptr %23, i64 48
   store i32 2, ptr %27, align 8
   %28 = load ptr, ptr %2, align 8
   %29 = tail call double @SparseStressMajorizationSmoother_smooth(ptr noundef nonnull %23, i32 noundef %0, ptr noundef %28, i32 noundef %3) #6
@@ -65,7 +65,7 @@ define void @stress_model(i32 noundef %0, ptr noundef %1, ptr noundef readonly %
   br i1 %31, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %25
-  %32 = getelementptr inbounds i8, ptr %23, i64 56
+  %32 = getelementptr inbounds nuw i8, ptr %23, i64 56
   %wide.trip.count = zext nneg i32 %30 to i64
   br label %33
 
@@ -73,7 +73,7 @@ define void @stress_model(i32 noundef %0, ptr noundef %1, ptr noundef readonly %
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %33 ]
   %34 = load double, ptr %32, align 8
   %35 = load ptr, ptr %2, align 8
-  %36 = getelementptr inbounds double, ptr %35, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw double, ptr %35, i64 %indvars.iv
   %37 = load double, ptr %36, align 8
   %38 = fdiv double %37, %34
   store double %38, ptr %36, align 8

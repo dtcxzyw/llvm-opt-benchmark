@@ -1340,7 +1340,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_mip6(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void @col_set_str(ptr noundef %7, i32 noundef 34, ptr noundef nonnull @.str.366) #5
   %8 = load ptr, ptr %6, align 8
@@ -1455,7 +1455,7 @@ define internal i32 @dissect_mip6(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %dissect_mip6_hoti.exit
 
 73:                                               ; preds = %4
-  %74 = getelementptr inbounds i8, ptr %1, i64 384
+  %74 = getelementptr inbounds nuw i8, ptr %1, i64 384
   store i32 0, ptr %74, align 8
   %.not.i152 = icmp eq ptr %19, null
   br i1 %.not.i152, label %dissect_mip6_bu.exit, label %75
@@ -1513,7 +1513,7 @@ dissect_mip6_bu.exit:                             ; preds = %73, %103
   br label %dissect_mip6_hoti.exit
 
 112:                                              ; preds = %4
-  %113 = getelementptr inbounds i8, ptr %1, i64 384
+  %113 = getelementptr inbounds nuw i8, ptr %1, i64 384
   store i32 1, ptr %113, align 8
   %.not.i153 = icmp eq ptr %19, null
   br i1 %.not.i153, label %dissect_mip6_ba.exit, label %114
@@ -1801,7 +1801,7 @@ dissect_mip6_hoti.exit.thread:                    ; preds = %dissect_mip6_hoti.e
   br i1 %.old1.i.i, label %.preheader.i.i, label %dissect_mip6_options.exit
 
 .preheader.i.i:                                   ; preds = %dissect_mip6_hoti.exit.thread
-  %291 = getelementptr inbounds i8, ptr %1, i64 408
+  %291 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %292
 
 292:                                              ; preds = %342, %.preheader.i.i
@@ -2160,7 +2160,7 @@ define internal i32 @dissect_mip6_opt_vsm_3gpp(ptr noundef %0, ptr noundef %1, p
   ]
 
 24:                                               ; preds = %23
-  %25 = getelementptr inbounds i8, ptr %1, i64 384
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 384
   store i32 1, ptr %25, align 8
   %26 = tail call zeroext i16 @de_sm_pco(ptr noundef %0, ptr noundef %2, ptr noundef %1, i32 noundef 2, i32 noundef %20, ptr noundef null, i32 noundef 0) #5
   br label %95
@@ -2224,7 +2224,7 @@ define internal i32 @dissect_mip6_opt_vsm_3gpp(ptr noundef %0, ptr noundef %1, p
 
 58:                                               ; preds = %23
   %59 = load i32, ptr @hf_mip6_opt_3gpp_mei, align 4
-  %60 = getelementptr inbounds i8, ptr %1, i64 408
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %61 = load ptr, ptr %60, align 8
   %62 = call ptr @proto_tree_add_item_ret_display_string(ptr noundef %2, i32 noundef %59, ptr noundef %0, i32 noundef 2, i32 noundef %20, i32 noundef -2147483580, ptr noundef %61, ptr noundef nonnull %5) #5
   %63 = load ptr, ptr %5, align 8
@@ -2234,7 +2234,7 @@ define internal i32 @dissect_mip6_opt_vsm_3gpp(ptr noundef %0, ptr noundef %1, p
 64:                                               ; preds = %23
   tail call void @dissect_e164_cc(ptr noundef %0, ptr noundef %2, i32 noundef 2, i32 noundef 1) #5
   %65 = load i32, ptr @hf_mip6_opt_3gpp_msisdn, align 4
-  %66 = getelementptr inbounds i8, ptr %1, i64 408
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %67 = load ptr, ptr %66, align 8
   %68 = call ptr @proto_tree_add_item_ret_display_string(ptr noundef %2, i32 noundef %65, ptr noundef %0, i32 noundef 2, i32 noundef %20, i32 noundef -2147483580, ptr noundef %67, ptr noundef nonnull %6) #5
   %69 = load ptr, ptr %6, align 8
@@ -2258,7 +2258,7 @@ define internal i32 @dissect_mip6_opt_vsm_3gpp(ptr noundef %0, ptr noundef %1, p
 
 78:                                               ; preds = %23
   %79 = load i32, ptr @hf_mip6_opt_3gpp_imsi, align 4
-  %80 = getelementptr inbounds i8, ptr %1, i64 408
+  %80 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %81 = load ptr, ptr %80, align 8
   %82 = call ptr @proto_tree_add_item_ret_display_string(ptr noundef %2, i32 noundef %79, ptr noundef %0, i32 noundef 2, i32 noundef %20, i32 noundef -2147483580, ptr noundef %81, ptr noundef nonnull %7) #5
   %83 = load ptr, ptr %7, align 8
@@ -2388,7 +2388,7 @@ define internal i32 @dissect_mip6_nemo_opt_mnp(ptr noundef %0, ptr noundef %1, p
   %14 = load i32, ptr @hf_mip6_nemo_mnp_mnp, align 4
   %15 = call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %14, ptr noundef %0, i32 noundef 4, i32 noundef 16, i32 noundef 0) #5
   %16 = load ptr, ptr %5, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 408
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %18 = load ptr, ptr %17, align 8
   %19 = call ptr @tvb_address_to_str(ptr noundef %18, ptr noundef %0, i32 noundef 3, i32 noundef 4) #5
   %20 = load i32, ptr %6, align 4
@@ -2441,7 +2441,7 @@ define internal i32 @dissect_mip6_opt_mnid(ptr noundef %0, ptr noundef %1, ptr n
 16:                                               ; preds = %4
   %17 = load i32, ptr @hf_mip6_mnid_identifier, align 4
   %18 = add i32 %7, -3
-  %19 = getelementptr inbounds i8, ptr %1, i64 408
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %20 = load ptr, ptr %19, align 8
   %21 = call ptr @proto_tree_add_item_ret_string(ptr noundef %11, i32 noundef %17, ptr noundef %0, i32 noundef 3, i32 noundef %18, i32 noundef 2, ptr noundef %20, ptr noundef nonnull %6) #5
   %22 = load ptr, ptr %5, align 8
@@ -2658,7 +2658,7 @@ define internal i32 @dissect_mip6_opt_ssm(ptr noundef %0, ptr noundef %1, ptr no
 12:                                               ; preds = %4
   %13 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #5
   %14 = icmp ult i8 %13, 32
-  %15 = getelementptr inbounds i8, ptr %1, i64 408
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %16 = load ptr, ptr %15, align 8
   %. = select i1 %14, i32 84, i32 2
   %17 = tail call ptr @tvb_get_string_enc(ptr noundef %16, ptr noundef %0, i32 noundef 2, i32 noundef %7, i32 noundef %.) #5
@@ -2710,7 +2710,7 @@ define internal i32 @dissect_mip6_opt_hnp(ptr noundef %0, ptr noundef %1, ptr no
   %14 = load i32, ptr @hf_mip6_nemo_mnp_mnp, align 4
   %15 = call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %14, ptr noundef %0, i32 noundef 4, i32 noundef 16, i32 noundef 0) #5
   %16 = load ptr, ptr %5, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 408
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %18 = load ptr, ptr %17, align 8
   %19 = call ptr @tvb_address_to_str(ptr noundef %18, ptr noundef %0, i32 noundef 3, i32 noundef 4) #5
   %20 = load i32, ptr %6, align 4
@@ -2807,7 +2807,7 @@ define internal i32 @dissect_pmip6_opt_ts(ptr noundef %0, ptr noundef %1, ptr no
   %10 = load i32, ptr @ett_pmip6_opt_ts, align 4
   %11 = call fastcc ptr @mip6_fixed_option_header(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %9, i32 noundef %10, ptr noundef %5, i32 noundef %8, i32 noundef 8)
   %12 = load i32, ptr @hf_pmip6_timestamp, align 4
-  %13 = getelementptr inbounds i8, ptr %1, i64 408
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @proto_tree_add_item_ret_time_string(ptr noundef %11, i32 noundef %12, ptr noundef %0, i32 noundef 2, i32 noundef 8, i32 noundef 36, ptr noundef %14, ptr noundef nonnull %6) #5
   %16 = load ptr, ptr %5, align 8
@@ -2964,7 +2964,7 @@ define internal i32 @dissect_pmip6_opt_mhipv6ap(ptr noundef %0, ptr noundef %1, 
   %16 = load i32, ptr @hf_mip6_opt_mhipv6ap_ipv6_address, align 4
   %17 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %16, ptr noundef %0, i32 noundef 4, i32 noundef 16, i32 noundef 0) #5
   %18 = load i32, ptr @hf_mip6_opt_mhipv6ap_ipv6_address_prefix, align 4
-  %19 = getelementptr inbounds i8, ptr %1, i64 408
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %20 = load ptr, ptr %19, align 8
   %21 = tail call ptr @tvb_address_to_str(ptr noundef %20, ptr noundef %0, i32 noundef 3, i32 noundef 4) #5
   %22 = tail call ptr @proto_tree_add_string(ptr noundef %10, i32 noundef %18, ptr noundef %0, i32 noundef 3, i32 noundef 17, ptr noundef %21) #5
@@ -2974,13 +2974,13 @@ define internal i32 @dissect_pmip6_opt_mhipv6ap(ptr noundef %0, ptr noundef %1, 
   br i1 %.not.i, label %proto_item_set_generated.exit, label %24
 
 24:                                               ; preds = %4
-  %25 = getelementptr inbounds i8, ptr %22, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %26 = load ptr, ptr %25, align 8
   %.not5.i = icmp eq ptr %26, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %27
 
 27:                                               ; preds = %24
-  %28 = getelementptr inbounds i8, ptr %26, i64 28
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 28
   %29 = load i32, ptr %28, align 4
   %30 = or i32 %29, 2
   store i32 %30, ptr %28, align 4
@@ -3049,7 +3049,7 @@ define internal i32 @dissect_pmip6_opt_ipv4hareq(ptr noundef %0, ptr noundef %1,
 
 20:                                               ; preds = %19, %4
   %21 = load ptr, ptr %5, align 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 408
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %23 = load ptr, ptr %22, align 8
   %24 = tail call ptr @tvb_address_to_str(ptr noundef %23, ptr noundef %0, i32 noundef 2, i32 noundef 4) #5
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %21, ptr noundef nonnull @.str.737, ptr noundef %24) #5
@@ -3076,7 +3076,7 @@ define internal i32 @dissect_pmip6_opt_ipv4harep(ptr noundef %0, ptr noundef %1,
   %18 = call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %17, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #5
   %19 = load i32, ptr @hf_mip6_ipv4ha_ha, align 4
   %20 = call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %19, ptr noundef %0, i32 noundef 4, i32 noundef 4, i32 noundef 0) #5
-  %21 = getelementptr inbounds i8, ptr %1, i64 408
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %22 = load ptr, ptr %21, align 8
   %23 = call ptr @tvb_address_to_str(ptr noundef %22, ptr noundef %0, i32 noundef 2, i32 noundef 4) #5
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %14, ptr noundef nonnull @.str.737, ptr noundef %23) #5
@@ -3097,7 +3097,7 @@ define internal i32 @dissect_pmip6_opt_ipv4dra(ptr noundef %0, ptr noundef %1, p
   %13 = load i32, ptr @hf_mip6_ipv4dra_dra, align 4
   %14 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %13, ptr noundef %0, i32 noundef 4, i32 noundef 4, i32 noundef 0) #5
   %15 = load ptr, ptr %5, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 408
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %17 = load ptr, ptr %16, align 8
   %18 = tail call ptr @tvb_address_to_str(ptr noundef %17, ptr noundef %0, i32 noundef 2, i32 noundef 4) #5
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %15, ptr noundef nonnull @.str.737, ptr noundef %18) #5
@@ -3219,7 +3219,7 @@ define internal i32 @dissect_pmip6_opt_lmaa(ptr noundef %0, ptr noundef %1, ptr 
   %17 = load i32, ptr %hf_mip6_lmaa_ipv4.sink, align 4
   %18 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %17, ptr noundef %0, i32 noundef 4, i32 noundef %.sink33, i32 noundef 0) #5
   %19 = load ptr, ptr %5, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 408
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %21 = load ptr, ptr %20, align 8
   %22 = tail call ptr @tvb_address_to_str(ptr noundef %21, ptr noundef %0, i32 noundef %.sink31, i32 noundef 4) #5
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %19, ptr noundef nonnull @.str.737, ptr noundef %22) #5
@@ -3380,7 +3380,7 @@ define internal i32 @dissect_pmip6_opt_acc_net_id(ptr noundef %0, ptr noundef %1
   br i1 %14, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4
-  %15 = getelementptr inbounds i8, ptr %1, i64 408
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %16
 
 16:                                               ; preds = %.lr.ph, %82
@@ -3508,7 +3508,7 @@ define internal i32 @dissect_mip6_opt_dmnp(ptr noundef %0, ptr noundef %1, ptr n
   %19 = load i32, ptr @hf_mip6_opt_dmnp_dmnp_ipv4, align 4
   %20 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %19, ptr noundef %0, i32 noundef 4, i32 noundef 4, i32 noundef 0) #5
   %21 = load ptr, ptr %5, align 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 408
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %23 = load ptr, ptr %22, align 8
   %24 = tail call ptr @tvb_address_to_str(ptr noundef %23, ptr noundef %0, i32 noundef 2, i32 noundef 4) #5
   %25 = zext i8 %17 to i32
@@ -3519,7 +3519,7 @@ define internal i32 @dissect_mip6_opt_dmnp(ptr noundef %0, ptr noundef %1, ptr n
   %27 = load i32, ptr @hf_mip6_opt_dmnp_dmnp_ipv6, align 4
   %28 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %27, ptr noundef %0, i32 noundef 4, i32 noundef 16, i32 noundef 0) #5
   %29 = load ptr, ptr %5, align 8
-  %30 = getelementptr inbounds i8, ptr %1, i64 408
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %31 = load ptr, ptr %30, align 8
   %32 = tail call ptr @tvb_address_to_str(ptr noundef %31, ptr noundef %0, i32 noundef 3, i32 noundef 4) #5
   %33 = zext i8 %17 to i32

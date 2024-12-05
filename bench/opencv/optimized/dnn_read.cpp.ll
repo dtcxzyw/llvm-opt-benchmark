@@ -81,8 +81,8 @@ define void @_ZN2cv3dnn14dnn4_v202405217readNetERKNSt7__cxx1112basic_stringIcSt1
   %19 = call i32 @tolower(i32 noundef %18) #9
   %20 = trunc i32 %19 to i8
   store i8 %20, ptr %.sroa.0.08.i.i, align 1
-  %21 = getelementptr inbounds i8, ptr %.sroa.03.07.i.i, i64 1
-  %22 = getelementptr inbounds i8, ptr %.sroa.0.08.i.i, i64 1
+  %21 = getelementptr inbounds nuw i8, ptr %.sroa.03.07.i.i, i64 1
+  %22 = getelementptr inbounds nuw i8, ptr %.sroa.0.08.i.i, i64 1
   %.not.i.i = icmp eq ptr %21, %15
   br i1 %.not.i.i, label %_ZN2cvL11toLowerCaseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %.lr.ph.i.i, !llvm.loop !4
 
@@ -593,8 +593,8 @@ define void @_ZN2cv3dnn14dnn4_v202405217readNetERKNSt7__cxx1112basic_stringIcSt1
   %14 = call i32 @tolower(i32 noundef %13) #9
   %15 = trunc i32 %14 to i8
   store i8 %15, ptr %.sroa.0.08.i.i, align 1
-  %16 = getelementptr inbounds i8, ptr %.sroa.03.07.i.i, i64 1
-  %17 = getelementptr inbounds i8, ptr %.sroa.0.08.i.i, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %.sroa.03.07.i.i, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %.sroa.0.08.i.i, i64 1
   %.not.i.i = icmp eq ptr %16, %10
   br i1 %.not.i.i, label %_ZN2cvL11toLowerCaseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %.lr.ph.i.i, !llvm.loop !4
 

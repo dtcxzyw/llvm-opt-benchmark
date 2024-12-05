@@ -77,13 +77,13 @@ define hidden noundef ptr @_ZNK11XMountPoint15find_mountpointEPKcPS1_(ptr nocapt
 
 9:                                                ; preds = %3
   store i32 5, ptr %7, align 8
-  %.sroa.21.0..sroa_idx.i = getelementptr inbounds i8, ptr %7, i64 8
+  %.sroa.21.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i, align 8
   call void (ptr, ptr, ...) @_ZN19GCLogPreciousHandle5writeEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull @.str.9, ptr noundef %1)
   br label %38
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %6, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr %12, align 8
   %14 = call noundef ptr @_ZN2os6strdupEPKc8MEMFLAGS(ptr noundef %13, i8 noundef zeroext 5) #12
@@ -92,7 +92,7 @@ define hidden noundef ptr @_ZNK11XMountPoint15find_mountpointEPKcPS1_(ptr nocapt
 _ZN18XArrayIteratorImplIPcLb0EE4nextEPS0_.exit.lr.ph.i: ; preds = %3
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  %15 = getelementptr inbounds i8, ptr %6, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = sext i32 %8 to i64
   %18 = getelementptr inbounds ptr, ptr %16, i64 %17
@@ -107,11 +107,11 @@ _ZN18XArrayIteratorImplIPcLb0EE4nextEPS0_.exit.lr.ph.i: ; preds = %3
 _ZN18XArrayIteratorImplIPcLb0EE4nextEPS0_.exit.i: ; preds = %_ZN18XArrayIteratorImplIPcLb0EE4nextEPS0_.exit.lr.ph.i, %..loopexit_crit_edge.i
   %.sroa.018.035.i = phi ptr [ %21, %..loopexit_crit_edge.i ], [ %16, %_ZN18XArrayIteratorImplIPcLb0EE4nextEPS0_.exit.lr.ph.i ]
   %20 = load ptr, ptr %.sroa.018.035.i, align 8
-  %21 = getelementptr inbounds i8, ptr %.sroa.018.035.i, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %.sroa.018.035.i, i64 8
   br label %25
 
 22:                                               ; preds = %25
-  %23 = getelementptr inbounds i8, ptr %.01033.i, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %.01033.i, i64 8
   %24 = load ptr, ptr %23, align 8
   %.not.i = icmp eq ptr %24, null
   br i1 %.not.i, label %..loopexit_crit_edge.i, label %25, !llvm.loop !8
@@ -129,7 +129,7 @@ _ZN18XArrayIteratorImplIPcLb0EE4nextEPS0_.exit.i: ; preds = %_ZN18XArrayIterator
 
 ._crit_edge.i:                                    ; preds = %..loopexit_crit_edge.i, %_ZN18XArrayIteratorImplIPcLb0EE4nextEPS0_.exit.lr.ph.i
   store i32 5, ptr %4, align 8
-  %.sroa.21.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.21.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i.i, align 8
   call void (ptr, ptr, ...) @_ZN19GCLogPreciousHandle5writeEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull @.str.7, ptr noundef %1)
   %30 = load i32, ptr %6, align 8
@@ -140,13 +140,13 @@ _ZN18XArrayIteratorImplIPcLb0EE4nextEPS0_.exit.i: ; preds = %_ZN18XArrayIterator
   %32 = load ptr, ptr %15, align 8
   %33 = sext i32 %30 to i64
   %34 = getelementptr inbounds ptr, ptr %32, i64 %33
-  %.sroa.21.0..sroa_idx.i15.i = getelementptr inbounds i8, ptr %5, i64 8
+  %.sroa.21.0..sroa_idx.i15.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %35
 
 35:                                               ; preds = %35, %.lr.ph.i
   %.sroa.0.037.i = phi ptr [ %32, %.lr.ph.i ], [ %37, %35 ]
   %36 = load ptr, ptr %.sroa.0.037.i, align 8
-  %37 = getelementptr inbounds i8, ptr %.sroa.0.037.i, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %.sroa.0.037.i, i64 8
   store i32 5, ptr %5, align 8
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i15.i, align 8
   call void (ptr, ptr, ...) @_ZN19GCLogPreciousHandle5writeEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull @.str.8, ptr noundef %36)
@@ -166,7 +166,7 @@ _ZNK11XMountPoint25find_preferred_mountpointEPKcP18GrowableArrayCHeapIPcL8MEMFLA
   br i1 %40, label %_ZNK11XMountPoint16free_mountpointsEP18GrowableArrayCHeapIPcL8MEMFLAGS5EE.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %38
-  %41 = getelementptr inbounds i8, ptr %6, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %42 = load ptr, ptr %41, align 8
   %43 = sext i32 %39 to i64
   %44 = getelementptr inbounds ptr, ptr %42, i64 %43
@@ -175,20 +175,20 @@ _ZNK11XMountPoint25find_preferred_mountpointEPKcP18GrowableArrayCHeapIPcL8MEMFLA
 .lr.ph.i6:                                        ; preds = %.lr.ph.i6, %.lr.ph.preheader.i
   %.sroa.0.08.i = phi ptr [ %46, %.lr.ph.i6 ], [ %42, %.lr.ph.preheader.i ]
   %45 = load ptr, ptr %.sroa.0.08.i, align 8
-  %46 = getelementptr inbounds i8, ptr %.sroa.0.08.i, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %.sroa.0.08.i, i64 8
   call void @free(ptr noundef %45) #12
   %.not.i7 = icmp eq ptr %46, %44
   br i1 %.not.i7, label %_ZNK11XMountPoint16free_mountpointsEP18GrowableArrayCHeapIPcL8MEMFLAGS5EE.exit, label %.lr.ph.i6, !llvm.loop !10
 
 _ZNK11XMountPoint16free_mountpointsEP18GrowableArrayCHeapIPcL8MEMFLAGS5EE.exit: ; preds = %.lr.ph.i6, %38
   store i32 0, ptr %6, align 8
-  %47 = getelementptr inbounds i8, ptr %6, i64 4
+  %47 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %48 = load i32, ptr %47, align 4
   %49 = icmp eq i32 %48, 0
   br i1 %49, label %_ZN18GrowableArrayCHeapIPcL8MEMFLAGS5EED2Ev.exit, label %.loopexit.i.i.i
 
 .loopexit.i.i.i:                                  ; preds = %_ZNK11XMountPoint16free_mountpointsEP18GrowableArrayCHeapIPcL8MEMFLAGS5EE.exit
-  %50 = getelementptr inbounds i8, ptr %6, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %51 = load ptr, ptr %50, align 8
   store i32 0, ptr %47, align 4
   %.not.i.i.i = icmp eq ptr %51, null
@@ -275,7 +275,7 @@ define hidden void @_ZNK11XMountPoint15get_mountpointsEPKcP18GrowableArrayCHeapI
 13:                                               ; preds = %3
   call void @_ZN6XErrnoC1Ev(ptr noundef nonnull align 4 dereferenceable(4) %6) #12
   store i32 5, ptr %7, align 8
-  %.sroa.21.0..sroa_idx.i = getelementptr inbounds i8, ptr %7, i64 8
+  %.sroa.21.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i, align 8
   %14 = call noundef ptr @_ZNK6XErrno9to_stringEv(ptr noundef nonnull align 4 dereferenceable(4) %6) #12
   call void (ptr, ptr, ...) @_ZN19GCLogPreciousHandle5writeEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.4, ptr noundef %14)
@@ -354,7 +354,7 @@ define linkonce_odr hidden void @_ZN19GCLogPreciousHandle5writeEPKcz(ptr noundef
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %3)
   %.sroa.0.0.copyload = load i32, ptr %0, align 8
-  %.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.21.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.21.0.copyload = load ptr, ptr %.sroa.21.0..sroa_idx, align 8
   call void @_ZN13GCLogPrecious6vwriteE15LogTargetHandlePKcP13__va_list_tag(i32 %.sroa.0.0.copyload, ptr %.sroa.21.0.copyload, ptr noundef %1, ptr noundef nonnull %3) #12
   call void @llvm.va_end.p0(ptr nonnull %3)
@@ -368,13 +368,13 @@ declare i64 @getline(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i32 @_ZN26GrowableArrayWithAllocatorIPc18GrowableArrayCHeapIS0_L8MEMFLAGS5EEE6appendERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #0 comdat align 2 {
   %3 = load i32, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = icmp eq i32 %3, %5
   br i1 %6, label %7, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %2
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre3 = load ptr, ptr %.phi.trans.insert, align 8
   br label %38
 
@@ -395,7 +395,7 @@ define linkonce_odr hidden noundef i32 @_ZN26GrowableArrayWithAllocatorIPc18Grow
   br i1 %17, label %.lr.ph.i.i, label %.preheader15.i.i
 
 .lr.ph.i.i:                                       ; preds = %7
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %23
 
 .preheader15.loopexit.i.i:                        ; preds = %23
@@ -414,9 +414,9 @@ define linkonce_odr hidden noundef i32 @_ZN26GrowableArrayWithAllocatorIPc18Grow
 
 23:                                               ; preds = %23, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %23 ]
-  %24 = getelementptr inbounds ptr, ptr %15, i64 %indvars.iv.i.i
+  %24 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv.i.i
   %25 = load ptr, ptr %18, align 8
-  %26 = getelementptr inbounds ptr, ptr %25, i64 %indvars.iv.i.i
+  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv.i.i
   %27 = load ptr, ptr %26, align 8
   store ptr %27, ptr %24, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -426,14 +426,14 @@ define linkonce_odr hidden noundef i32 @_ZN26GrowableArrayWithAllocatorIPc18Grow
   br i1 %30, label %23, label %.preheader15.loopexit.i.i, !llvm.loop !12
 
 .preheader.i.i:                                   ; preds = %.lr.ph18.i.i, %.preheader15.i.i
-  %31 = getelementptr inbounds i8, ptr %0, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %32 = load ptr, ptr %31, align 8
   %.not.i.i = icmp eq ptr %32, null
   br i1 %.not.i.i, label %_ZN26GrowableArrayWithAllocatorIPc18GrowableArrayCHeapIS0_L8MEMFLAGS5EEE4growEi.exit, label %37
 
 .lr.ph18.i.i:                                     ; preds = %.lr.ph18.i.i, %.lr.ph18.preheader.i.i
   %indvars.iv20.i.i = phi i64 [ %22, %.lr.ph18.preheader.i.i ], [ %indvars.iv.next21.i.i, %.lr.ph18.i.i ]
-  %33 = getelementptr inbounds ptr, ptr %15, i64 %indvars.iv20.i.i
+  %33 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv20.i.i
   store ptr null, ptr %33, align 8
   %indvars.iv.next21.i.i = add nuw nsw i64 %indvars.iv20.i.i, 1
   %34 = load i32, ptr %4, align 4
@@ -472,7 +472,7 @@ define hidden void @_ZNK11XMountPoint16free_mountpointsEP18GrowableArrayCHeapIPc
   br i1 %4, label %_ZN18XArrayIteratorImplIPcLb0EE4nextEPS0_.exit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = sext i32 %3 to i64
   %8 = getelementptr inbounds ptr, ptr %6, i64 %7
@@ -481,7 +481,7 @@ define hidden void @_ZNK11XMountPoint16free_mountpointsEP18GrowableArrayCHeapIPc
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.sroa.0.08 = phi ptr [ %10, %.lr.ph ], [ %6, %.lr.ph.preheader ]
   %9 = load ptr, ptr %.sroa.0.08, align 8
-  %10 = getelementptr inbounds i8, ptr %.sroa.0.08, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.0.08, i64 8
   tail call void @free(ptr noundef %9) #12
   %.not = icmp eq ptr %10, %8
   br i1 %.not, label %_ZN18XArrayIteratorImplIPcLb0EE4nextEPS0_.exit, label %.lr.ph, !llvm.loop !10
@@ -500,7 +500,7 @@ define hidden noundef ptr @_ZNK11XMountPoint25find_preferred_mountpointEPKcP18Gr
   br i1 %8, label %._crit_edge, label %_ZN18XArrayIteratorImplIPcLb0EE4nextEPS0_.exit.lr.ph
 
 _ZN18XArrayIteratorImplIPcLb0EE4nextEPS0_.exit.lr.ph: ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = sext i32 %7 to i64
   %12 = getelementptr inbounds ptr, ptr %10, i64 %11
@@ -515,11 +515,11 @@ _ZN18XArrayIteratorImplIPcLb0EE4nextEPS0_.exit.lr.ph: ; preds = %4
 _ZN18XArrayIteratorImplIPcLb0EE4nextEPS0_.exit:   ; preds = %_ZN18XArrayIteratorImplIPcLb0EE4nextEPS0_.exit.lr.ph, %..loopexit_crit_edge
   %.sroa.018.035 = phi ptr [ %15, %..loopexit_crit_edge ], [ %10, %_ZN18XArrayIteratorImplIPcLb0EE4nextEPS0_.exit.lr.ph ]
   %14 = load ptr, ptr %.sroa.018.035, align 8
-  %15 = getelementptr inbounds i8, ptr %.sroa.018.035, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %.sroa.018.035, i64 8
   br label %19
 
 16:                                               ; preds = %19
-  %17 = getelementptr inbounds i8, ptr %.01033, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %.01033, i64 8
   %18 = load ptr, ptr %17, align 8
   %.not = icmp eq ptr %18, null
   br i1 %.not, label %..loopexit_crit_edge, label %19, !llvm.loop !8
@@ -537,7 +537,7 @@ _ZN18XArrayIteratorImplIPcLb0EE4nextEPS0_.exit:   ; preds = %_ZN18XArrayIterator
 
 ._crit_edge:                                      ; preds = %..loopexit_crit_edge, %4, %_ZN18XArrayIteratorImplIPcLb0EE4nextEPS0_.exit.lr.ph
   store i32 5, ptr %5, align 8
-  %.sroa.21.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 8
+  %.sroa.21.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i, align 8
   call void (ptr, ptr, ...) @_ZN19GCLogPreciousHandle5writeEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull @.str.7, ptr noundef %1)
   %24 = load i32, ptr %2, align 4
@@ -545,17 +545,17 @@ _ZN18XArrayIteratorImplIPcLb0EE4nextEPS0_.exit:   ; preds = %_ZN18XArrayIterator
   br i1 %25, label %_ZN18XArrayIteratorImplIPcLb0EE4nextEPS0_.exit14, label %.lr.ph
 
 .lr.ph:                                           ; preds = %._crit_edge
-  %26 = getelementptr inbounds i8, ptr %2, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %27 = load ptr, ptr %26, align 8
   %28 = sext i32 %24 to i64
   %29 = getelementptr inbounds ptr, ptr %27, i64 %28
-  %.sroa.21.0..sroa_idx.i15 = getelementptr inbounds i8, ptr %6, i64 8
+  %.sroa.21.0..sroa_idx.i15 = getelementptr inbounds nuw i8, ptr %6, i64 8
   br label %30
 
 30:                                               ; preds = %.lr.ph, %30
   %.sroa.0.037 = phi ptr [ %27, %.lr.ph ], [ %32, %30 ]
   %31 = load ptr, ptr %.sroa.0.037, align 8
-  %32 = getelementptr inbounds i8, ptr %.sroa.0.037, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %.sroa.0.037, i64 8
   store i32 5, ptr %6, align 8
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i15, align 8
   call void (ptr, ptr, ...) @_ZN19GCLogPreciousHandle5writeEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull @.str.8, ptr noundef %31)

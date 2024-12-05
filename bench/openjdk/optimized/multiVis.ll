@@ -19,17 +19,17 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @initFakeVisual(ptr nocapture noundef writeonly initializes((0, 8), (16, 20), (24, 56)) %0) local_unnamed_addr #0 {
   store ptr null, ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 5, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 16711680, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 65280, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 255, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 52
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i32 256, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 8, ptr %7, align 8
   ret void
 }
@@ -41,15 +41,15 @@ define hidden range(i32 0, 2) i32 @GetMultiVisualRegions(ptr noundef %0, i64 nou
   %19 = trunc i32 %2 to i16
   store i16 %19, ptr %18, align 2
   %20 = trunc i32 %3 to i16
-  %21 = getelementptr inbounds i8, ptr %18, i64 2
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 2
   store i16 %20, ptr %21, align 2
   %22 = trunc i32 %4 to i16
-  %23 = getelementptr inbounds i8, ptr %18, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %18, i64 4
   store i16 %22, ptr %23, align 2
   %24 = trunc i32 %5 to i16
-  %25 = getelementptr inbounds i8, ptr %18, i64 6
+  %25 = getelementptr inbounds nuw i8, ptr %18, i64 6
   store i16 %24, ptr %25, align 2
-  %26 = getelementptr inbounds i8, ptr %0, i64 224
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %27 = load i32, ptr %26, align 8
   %28 = tail call i32 @GetXVisualInfo(ptr noundef %0, i32 noundef %27, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12)
   store ptr null, ptr %14, align 8
@@ -121,7 +121,7 @@ define hidden range(i32 0, 2) i32 @GetXVisualInfo(ptr noundef %0, i32 noundef %1
   %12 = alloca i64, align 8
   %13 = alloca i64, align 8
   %14 = alloca i32, align 4
-  %15 = getelementptr inbounds i8, ptr %10, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i32 %1, ptr %15, align 8
   %16 = call ptr @XGetVisualInfo(ptr noundef %0, i64 noundef 2, ptr noundef nonnull %10, ptr noundef %3) #9
   store ptr %16, ptr %4, align 8
@@ -137,7 +137,7 @@ define hidden range(i32 0, 2) i32 @GetXVisualInfo(ptr noundef %0, i32 noundef %1
 21:                                               ; preds = %19
   store i64 0, ptr %13, align 8
   store i64 4, ptr %12, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 232
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %23 = sext i32 %1 to i64
   br label %24
 
@@ -186,7 +186,7 @@ define hidden range(i32 0, 2) i32 @GetXVisualInfo(ptr noundef %0, i32 noundef %1
 
 .lr.ph:                                           ; preds = %.lr.ph68
   %43 = load ptr, ptr %6, align 8
-  %44 = getelementptr inbounds i8, ptr %.05065, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %.05065, i64 8
   br label %45
 
 45:                                               ; preds = %.lr.ph, %55
@@ -201,7 +201,7 @@ define hidden range(i32 0, 2) i32 @GetXVisualInfo(ptr noundef %0, i32 noundef %1
 
 50:                                               ; preds = %45
   store ptr %.05065, ptr %.05162, align 8
-  %51 = getelementptr inbounds i8, ptr %.05162, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %.05162, i64 8
   %52 = load i32, ptr %51, align 8
   %53 = icmp eq i32 %52, 1
   br i1 %53, label %54, label %55
@@ -212,7 +212,7 @@ define hidden range(i32 0, 2) i32 @GetXVisualInfo(ptr noundef %0, i32 noundef %1
 
 55:                                               ; preds = %50, %54, %45
   %.1 = phi i32 [ 0, %54 ], [ 0, %50 ], [ %.063, %45 ]
-  %56 = getelementptr inbounds i8, ptr %.05162, i64 32
+  %56 = getelementptr inbounds nuw i8, ptr %.05162, i64 32
   %57 = icmp samesign ugt i32 %.in69, 1
   br i1 %57, label %45, label %._crit_edge, !llvm.loop !8
 
@@ -243,14 +243,14 @@ define hidden range(i32 0, 2) i32 @GetXVisualInfo(ptr noundef %0, i32 noundef %1
 71:                                               ; preds = %61, %._crit_edge.thread
   %.254 = phi ptr [ %70, %61 ], [ %.05264, %._crit_edge.thread ]
   %.2 = phi i32 [ %62, %61 ], [ %.04566, %._crit_edge.thread ]
-  %72 = getelementptr inbounds i8, ptr %.254, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %.254, i64 8
   store ptr %.05065, ptr %.254, align 8
   br label %73
 
 73:                                               ; preds = %71, %._crit_edge
   %.153 = phi ptr [ %72, %71 ], [ %.05264, %._crit_edge ]
   %.146 = phi i32 [ %.2, %71 ], [ %.04566, %._crit_edge ]
-  %74 = getelementptr inbounds i8, ptr %.05065, i64 64
+  %74 = getelementptr inbounds nuw i8, ptr %.05065, i64 64
   %75 = icmp sgt i32 %.in, 1
   br i1 %75, label %.lr.ph68, label %.loopexit, !llvm.loop !9
 
@@ -272,17 +272,17 @@ define internal fastcc ptr @make_region_list(ptr noundef %0, i64 noundef %1, ptr
   %15 = call i32 @XGetWindowAttributes(ptr noundef %0, i64 noundef %1, ptr noundef nonnull %10) #9
   call void @zero_list(ptr noundef nonnull %11) #9
   store i16 0, ptr %12, align 2
-  %16 = getelementptr inbounds i8, ptr %12, i64 2
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 2
   store i16 0, ptr %16, align 2
-  %17 = getelementptr inbounds i8, ptr %10, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %18 = load i32, ptr %17, align 8
   %19 = trunc i32 %18 to i16
-  %20 = getelementptr inbounds i8, ptr %12, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store i16 %19, ptr %20, align 2
-  %21 = getelementptr inbounds i8, ptr %10, i64 12
+  %21 = getelementptr inbounds nuw i8, ptr %10, i64 12
   %22 = load i32, ptr %21, align 4
   %23 = trunc i32 %22 to i16
-  %24 = getelementptr inbounds i8, ptr %12, i64 6
+  %24 = getelementptr inbounds nuw i8, ptr %12, i64 6
   store i16 %23, ptr %24, align 2
   call fastcc void @make_src_list(ptr noundef %0, ptr noundef %11, ptr noundef %2, i64 noundef %1, i32 noundef 0, i32 noundef 0, ptr noundef %10, ptr noundef %12)
   %25 = call ptr @new_list() #9
@@ -295,13 +295,13 @@ define internal fastcc ptr @make_region_list(ptr noundef %0, i64 noundef %1, ptr
 .lr.ph129:                                        ; preds = %7
   %28 = icmp sgt i32 %4, 0
   %wide.trip.count.i = zext nneg i32 %4 to i64
-  %29 = getelementptr inbounds i8, ptr %9, i64 2
-  %30 = getelementptr inbounds i8, ptr %9, i64 4
-  %31 = getelementptr inbounds i8, ptr %9, i64 6
-  %32 = getelementptr inbounds i8, ptr %8, i64 2
-  %33 = getelementptr inbounds i8, ptr %8, i64 4
-  %34 = getelementptr inbounds i8, ptr %8, i64 6
-  %35 = getelementptr inbounds i8, ptr %10, i64 128
+  %29 = getelementptr inbounds nuw i8, ptr %9, i64 2
+  %30 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %9, i64 6
+  %32 = getelementptr inbounds nuw i8, ptr %8, i64 2
+  %33 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %8, i64 6
+  %35 = getelementptr inbounds nuw i8, ptr %10, i64 128
   br label %36
 
 36:                                               ; preds = %.lr.ph129, %src_in_region_list.exit
@@ -312,7 +312,7 @@ define internal fastcc ptr @make_region_list(ptr noundef %0, i64 noundef %1, ptr
   br i1 %28, label %.lr.ph.i, label %.loopexit121
 
 .lr.ph.i:                                         ; preds = %37
-  %38 = getelementptr inbounds i8, ptr %.087126, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %.087126, i64 8
   %39 = load ptr, ptr %38, align 8
   br label %41
 
@@ -323,7 +323,7 @@ define internal fastcc ptr @make_region_list(ptr noundef %0, i64 noundef %1, ptr
 
 41:                                               ; preds = %40, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %40 ]
-  %42 = getelementptr inbounds ptr, ptr %5, i64 %indvars.iv.i
+  %42 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv.i
   %43 = load ptr, ptr %42, align 8
   %44 = load ptr, ptr %43, align 8
   %45 = icmp eq ptr %44, %39
@@ -335,45 +335,45 @@ src_in_image.exit:                                ; preds = %41, %36
   br i1 %.not28.i, label %.loopexit, label %.lr.ph.i107
 
 .lr.ph.i107:                                      ; preds = %src_in_image.exit
-  %47 = getelementptr inbounds i8, ptr %.087126, i64 8
-  %48 = getelementptr inbounds i8, ptr %.087126, i64 16
-  %49 = getelementptr inbounds i8, ptr %.087126, i64 32
-  %50 = getelementptr inbounds i8, ptr %.087126, i64 36
-  %51 = getelementptr inbounds i8, ptr %.087126, i64 40
-  %52 = getelementptr inbounds i8, ptr %.087126, i64 44
+  %47 = getelementptr inbounds nuw i8, ptr %.087126, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %.087126, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %.087126, i64 32
+  %50 = getelementptr inbounds nuw i8, ptr %.087126, i64 36
+  %51 = getelementptr inbounds nuw i8, ptr %.087126, i64 40
+  %52 = getelementptr inbounds nuw i8, ptr %.087126, i64 44
   br label %53
 
 53:                                               ; preds = %83, %.lr.ph.i107
   %.029.i = phi ptr [ %46, %.lr.ph.i107 ], [ %84, %83 ]
-  %54 = getelementptr inbounds i8, ptr %.029.i, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %.029.i, i64 8
   %55 = load ptr, ptr %54, align 8
   %56 = load ptr, ptr %47, align 8
   %57 = icmp eq ptr %55, %56
   br i1 %57, label %58, label %83
 
 58:                                               ; preds = %53
-  %59 = getelementptr inbounds i8, ptr %.029.i, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %.029.i, i64 16
   %60 = load i64, ptr %59, align 8
   %61 = load i64, ptr %48, align 8
   %62 = icmp eq i64 %60, %61
   br i1 %62, label %63, label %83
 
 63:                                               ; preds = %58
-  %64 = getelementptr inbounds i8, ptr %.029.i, i64 32
+  %64 = getelementptr inbounds nuw i8, ptr %.029.i, i64 32
   %65 = load i32, ptr %64, align 8
   %66 = load i32, ptr %49, align 8
   %.not24.i = icmp sgt i32 %65, %66
   br i1 %.not24.i, label %83, label %67
 
 67:                                               ; preds = %63
-  %68 = getelementptr inbounds i8, ptr %.029.i, i64 36
+  %68 = getelementptr inbounds nuw i8, ptr %.029.i, i64 36
   %69 = load i32, ptr %68, align 4
   %70 = load i32, ptr %50, align 4
   %.not25.i = icmp sgt i32 %69, %70
   br i1 %.not25.i, label %83, label %71
 
 71:                                               ; preds = %67
-  %72 = getelementptr inbounds i8, ptr %.029.i, i64 40
+  %72 = getelementptr inbounds nuw i8, ptr %.029.i, i64 40
   %73 = load i32, ptr %72, align 8
   %74 = add nsw i32 %73, %65
   %75 = load i32, ptr %51, align 8
@@ -382,7 +382,7 @@ src_in_image.exit:                                ; preds = %41, %36
   br i1 %.not26.i, label %83, label %77
 
 77:                                               ; preds = %71
-  %78 = getelementptr inbounds i8, ptr %.029.i, i64 44
+  %78 = getelementptr inbounds nuw i8, ptr %.029.i, i64 44
   %79 = load i32, ptr %78, align 4
   %80 = add nsw i32 %79, %69
   %81 = load i32, ptr %52, align 4
@@ -402,45 +402,45 @@ src_in_image.exit:                                ; preds = %41, %36
 
 86:                                               ; preds = %.loopexit
   %87 = call ptr @XCreateRegion() #9
-  %88 = getelementptr inbounds i8, ptr %85, i64 56
+  %88 = getelementptr inbounds nuw i8, ptr %85, i64 56
   store ptr %87, ptr %88, align 8
   %89 = load i64, ptr %.087126, align 8
   store i64 %89, ptr %85, align 8
-  %90 = getelementptr inbounds i8, ptr %.087126, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %.087126, i64 8
   %91 = load ptr, ptr %90, align 8
-  %92 = getelementptr inbounds i8, ptr %85, i64 8
+  %92 = getelementptr inbounds nuw i8, ptr %85, i64 8
   store ptr %91, ptr %92, align 8
-  %93 = getelementptr inbounds i8, ptr %.087126, i64 16
+  %93 = getelementptr inbounds nuw i8, ptr %.087126, i64 16
   %94 = load i64, ptr %93, align 8
-  %95 = getelementptr inbounds i8, ptr %85, i64 16
+  %95 = getelementptr inbounds nuw i8, ptr %85, i64 16
   store i64 %94, ptr %95, align 8
-  %96 = getelementptr inbounds i8, ptr %.087126, i64 24
+  %96 = getelementptr inbounds nuw i8, ptr %.087126, i64 24
   %97 = load i32, ptr %96, align 8
-  %98 = getelementptr inbounds i8, ptr %85, i64 24
+  %98 = getelementptr inbounds nuw i8, ptr %85, i64 24
   store i32 %97, ptr %98, align 8
-  %99 = getelementptr inbounds i8, ptr %.087126, i64 28
+  %99 = getelementptr inbounds nuw i8, ptr %.087126, i64 28
   %100 = load i32, ptr %99, align 4
-  %101 = getelementptr inbounds i8, ptr %85, i64 28
+  %101 = getelementptr inbounds nuw i8, ptr %85, i64 28
   store i32 %100, ptr %101, align 4
-  %102 = getelementptr inbounds i8, ptr %.087126, i64 32
+  %102 = getelementptr inbounds nuw i8, ptr %.087126, i64 32
   %103 = load i32, ptr %102, align 8
-  %104 = getelementptr inbounds i8, ptr %85, i64 32
+  %104 = getelementptr inbounds nuw i8, ptr %85, i64 32
   store i32 %103, ptr %104, align 8
-  %105 = getelementptr inbounds i8, ptr %.087126, i64 36
+  %105 = getelementptr inbounds nuw i8, ptr %.087126, i64 36
   %106 = load i32, ptr %105, align 4
-  %107 = getelementptr inbounds i8, ptr %85, i64 36
+  %107 = getelementptr inbounds nuw i8, ptr %85, i64 36
   store i32 %106, ptr %107, align 4
-  %108 = getelementptr inbounds i8, ptr %.087126, i64 40
+  %108 = getelementptr inbounds nuw i8, ptr %.087126, i64 40
   %109 = load i32, ptr %108, align 8
-  %110 = getelementptr inbounds i8, ptr %85, i64 40
+  %110 = getelementptr inbounds nuw i8, ptr %85, i64 40
   store i32 %109, ptr %110, align 8
-  %111 = getelementptr inbounds i8, ptr %.087126, i64 44
+  %111 = getelementptr inbounds nuw i8, ptr %.087126, i64 44
   %112 = load i32, ptr %111, align 4
-  %113 = getelementptr inbounds i8, ptr %85, i64 44
+  %113 = getelementptr inbounds nuw i8, ptr %85, i64 44
   store i32 %112, ptr %113, align 4
-  %114 = getelementptr inbounds i8, ptr %.087126, i64 48
+  %114 = getelementptr inbounds nuw i8, ptr %.087126, i64 48
   %115 = load i32, ptr %114, align 8
-  %116 = getelementptr inbounds i8, ptr %85, i64 48
+  %116 = getelementptr inbounds nuw i8, ptr %85, i64 48
   store i32 %115, ptr %116, align 8
   %117 = call ptr @dup_list_head(ptr noundef nonnull %11, i32 noundef 1) #9
   %118 = call ptr @first_in_list(ptr noundef %117) #9
@@ -450,28 +450,28 @@ src_in_image.exit:                                ; preds = %41, %36
 .lr.ph:                                           ; preds = %86, %src_in_image.exit114.thread
   %.088124 = phi ptr [ %178, %src_in_image.exit114.thread ], [ %118, %86 ]
   %119 = load ptr, ptr %90, align 8
-  %120 = getelementptr inbounds i8, ptr %.088124, i64 8
+  %120 = getelementptr inbounds nuw i8, ptr %.088124, i64 8
   %121 = load ptr, ptr %120, align 8
   %122 = icmp eq ptr %119, %121
   br i1 %122, label %123, label %154
 
 123:                                              ; preds = %.lr.ph
   %124 = load i64, ptr %93, align 8
-  %125 = getelementptr inbounds i8, ptr %.088124, i64 16
+  %125 = getelementptr inbounds nuw i8, ptr %.088124, i64 16
   %126 = load i64, ptr %125, align 8
   %127 = icmp eq i64 %124, %126
   br i1 %127, label %128, label %154
 
 128:                                              ; preds = %123
   %129 = load i32, ptr %102, align 8
-  %130 = getelementptr inbounds i8, ptr %.088124, i64 32
+  %130 = getelementptr inbounds nuw i8, ptr %.088124, i64 32
   %131 = load i32, ptr %130, align 8
   %.not102 = icmp sgt i32 %129, %131
   br i1 %.not102, label %154, label %132
 
 132:                                              ; preds = %128
   %133 = load i32, ptr %105, align 4
-  %134 = getelementptr inbounds i8, ptr %.088124, i64 36
+  %134 = getelementptr inbounds nuw i8, ptr %.088124, i64 36
   %135 = load i32, ptr %134, align 4
   %.not103 = icmp sgt i32 %133, %135
   br i1 %.not103, label %154, label %136
@@ -479,7 +479,7 @@ src_in_image.exit:                                ; preds = %41, %36
 136:                                              ; preds = %132
   %137 = load i32, ptr %108, align 8
   %138 = add nsw i32 %137, %129
-  %139 = getelementptr inbounds i8, ptr %.088124, i64 40
+  %139 = getelementptr inbounds nuw i8, ptr %.088124, i64 40
   %140 = load i32, ptr %139, align 8
   %141 = add nsw i32 %140, %131
   %.not104 = icmp slt i32 %138, %141
@@ -488,7 +488,7 @@ src_in_image.exit:                                ; preds = %41, %36
 142:                                              ; preds = %136
   %143 = load i32, ptr %111, align 4
   %144 = add nsw i32 %143, %133
-  %145 = getelementptr inbounds i8, ptr %.088124, i64 44
+  %145 = getelementptr inbounds nuw i8, ptr %.088124, i64 44
   %146 = load i32, ptr %145, align 4
   %147 = add nsw i32 %146, %135
   %.not105 = icmp slt i32 %144, %147
@@ -522,20 +522,20 @@ src_in_image.exit:                                ; preds = %41, %36
 
 .lr.ph.i109:                                      ; preds = %155, %156
   %indvars.iv.i111 = phi i64 [ %indvars.iv.next.i112, %156 ], [ 0, %155 ]
-  %157 = getelementptr inbounds ptr, ptr %5, i64 %indvars.iv.i111
+  %157 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv.i111
   %158 = load ptr, ptr %157, align 8
   %159 = load ptr, ptr %158, align 8
   %160 = icmp eq ptr %159, %121
   br i1 %160, label %src_in_image.exit114, label %156
 
 src_in_image.exit114:                             ; preds = %.lr.ph.i109, %154
-  %161 = getelementptr inbounds i8, ptr %.088124, i64 32
+  %161 = getelementptr inbounds nuw i8, ptr %.088124, i64 32
   %162 = load i32, ptr %161, align 8
-  %163 = getelementptr inbounds i8, ptr %.088124, i64 36
+  %163 = getelementptr inbounds nuw i8, ptr %.088124, i64 36
   %164 = load i32, ptr %163, align 4
-  %165 = getelementptr inbounds i8, ptr %.088124, i64 40
+  %165 = getelementptr inbounds nuw i8, ptr %.088124, i64 40
   %166 = load i32, ptr %165, align 8
-  %167 = getelementptr inbounds i8, ptr %.088124, i64 44
+  %167 = getelementptr inbounds nuw i8, ptr %.088124, i64 44
   %168 = load i32, ptr %167, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   %169 = call ptr @XCreateRegion() #9
@@ -571,14 +571,14 @@ src_in_image.exit114.thread:                      ; preds = %156, %155, %148, %s
   %184 = call i32 @add_to_list(ptr noundef %25, ptr noundef nonnull %85) #9
   %185 = load ptr, ptr %92, align 8
   %186 = load ptr, ptr %35, align 8
-  %187 = getelementptr inbounds i8, ptr %186, i64 64
+  %187 = getelementptr inbounds nuw i8, ptr %186, i64 64
   %188 = load ptr, ptr %187, align 8
   %.not100 = icmp eq ptr %185, %188
   br i1 %.not100, label %189, label %193
 
 189:                                              ; preds = %183
   %190 = load i64, ptr %95, align 8
-  %191 = getelementptr inbounds i8, ptr %186, i64 80
+  %191 = getelementptr inbounds nuw i8, ptr %186, i64 80
   %192 = load i64, ptr %191, align 8
   %.not101 = icmp eq i64 %190, %192
   br i1 %.not101, label %src_in_region_list.exit, label %193
@@ -616,17 +616,17 @@ src_in_region_list.exit:                          ; preds = %77, %.loopexit121, 
 define hidden ptr @ReadAreaToImage(ptr noundef %0, i64 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %7, i32 noundef %8, ptr noundef %9, i32 noundef %10, ptr nocapture noundef %11, ptr noundef %12, ptr noundef %13, i32 noundef %14, i32 noundef %15) local_unnamed_addr #1 {
   %17 = alloca %struct.Visual, align 8
   store ptr null, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store i32 5, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %17, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 24
   store i64 16711680, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %17, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 32
   store i64 65280, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %17, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 40
   store i64 255, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %17, i64 52
+  %22 = getelementptr inbounds nuw i8, ptr %17, i64 52
   store i32 256, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %17, i64 48
+  %23 = getelementptr inbounds nuw i8, ptr %17, i64 48
   store i32 8, ptr %23, align 8
   %.mask = and i32 %5, 65535
   %.sroa.17.0.insert.ext = zext nneg i32 %.mask to i64
@@ -670,45 +670,45 @@ define hidden ptr @ReadAreaToImage(ptr noundef %0, i64 noundef %1, i32 noundef %
   %36 = add nsw i32 %.mask202, %35
   %37 = ashr exact i32 %24, 16
   %38 = add nsw i32 %.mask, %37
-  %39 = getelementptr inbounds i8, ptr %.0182, i64 104
-  %40 = getelementptr inbounds i8, ptr %25, i64 112
+  %39 = getelementptr inbounds nuw i8, ptr %.0182, i64 104
+  %40 = getelementptr inbounds nuw i8, ptr %25, i64 112
   br i1 %34, label %.lr.ph.i.us, label %src_in_overlay.exit.thread
 
 .lr.ph.i.us:                                      ; preds = %.lr.ph, %src_in_overlay.exit.thread.us
   %.0260.us = phi ptr [ %102, %src_in_overlay.exit.thread.us ], [ %33, %.lr.ph ]
-  %41 = getelementptr inbounds i8, ptr %.0260.us, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %.0260.us, i64 8
   %42 = load ptr, ptr %41, align 8
   br label %43
 
 43:                                               ; preds = %101, %.lr.ph.i.us
   %indvars.iv.i.us = phi i64 [ 0, %.lr.ph.i.us ], [ %indvars.iv.next.i.us, %101 ]
-  %44 = getelementptr inbounds %struct.OverlayInfo, ptr %9, i64 %indvars.iv.i.us
+  %44 = getelementptr inbounds nuw %struct.OverlayInfo, ptr %9, i64 %indvars.iv.i.us
   %45 = load ptr, ptr %44, align 8
   %46 = load ptr, ptr %45, align 8
   %47 = icmp eq ptr %46, %42
   br i1 %47, label %48, label %101
 
 48:                                               ; preds = %43
-  %49 = getelementptr inbounds i8, ptr %44, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %50 = load i32, ptr %49, align 8
   %.not.i.us = icmp eq i32 %50, 0
   br i1 %.not.i.us, label %101, label %51
 
 51:                                               ; preds = %48
-  %52 = getelementptr inbounds i8, ptr %44, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %53 = load i64, ptr %52, align 8
   %54 = trunc i64 %53 to i32
-  %55 = getelementptr inbounds i8, ptr %.0260.us, i64 40
+  %55 = getelementptr inbounds nuw i8, ptr %.0260.us, i64 40
   %56 = load i32, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %.0260.us, i64 32
+  %57 = getelementptr inbounds nuw i8, ptr %.0260.us, i64 32
   %58 = load i32, ptr %57, align 8
   %59 = add nsw i32 %58, %56
   %..us = call i32 @llvm.smin.i32(i32 %59, i32 %36)
   %60 = call i32 @llvm.smax.i32(i32 %58, i32 %35)
   %61 = sub nsw i32 %..us, %60
-  %62 = getelementptr inbounds i8, ptr %.0260.us, i64 44
+  %62 = getelementptr inbounds nuw i8, ptr %.0260.us, i64 44
   %63 = load i32, ptr %62, align 4
-  %64 = getelementptr inbounds i8, ptr %.0260.us, i64 36
+  %64 = getelementptr inbounds nuw i8, ptr %.0260.us, i64 36
   %65 = load i32, ptr %64, align 4
   %66 = add nsw i32 %65, %63
   %67 = call i32 @llvm.smin.i32(i32 %66, i32 %38)
@@ -716,9 +716,9 @@ define hidden ptr @ReadAreaToImage(ptr noundef %0, i64 noundef %1, i32 noundef %
   %69 = sub nsw i32 %67, %68
   %70 = sub nsw i32 %35, %58
   %71 = call i32 @llvm.smax.i32(i32 %70, i32 0)
-  %72 = getelementptr inbounds i8, ptr %.0260.us, i64 24
+  %72 = getelementptr inbounds nuw i8, ptr %.0260.us, i64 24
   %73 = load i32, ptr %72, align 8
-  %74 = getelementptr inbounds i8, ptr %.0260.us, i64 48
+  %74 = getelementptr inbounds nuw i8, ptr %.0260.us, i64 48
   %75 = load i32, ptr %74, align 8
   %.neg230.us = add i32 %71, %58
   %76 = add i32 %73, %75
@@ -727,7 +727,7 @@ define hidden ptr @ReadAreaToImage(ptr noundef %0, i64 noundef %1, i32 noundef %
   %79 = call i32 @llvm.smax.i32(i32 %78, i32 0)
   %80 = sub nsw i32 %37, %65
   %81 = call i32 @llvm.smax.i32(i32 %80, i32 0)
-  %82 = getelementptr inbounds i8, ptr %.0260.us, i64 28
+  %82 = getelementptr inbounds nuw i8, ptr %.0260.us, i64 28
   %83 = load i32, ptr %82, align 4
   %84 = add i32 %65, %81
   %85 = add i32 %75, %83
@@ -736,7 +736,7 @@ define hidden ptr @ReadAreaToImage(ptr noundef %0, i64 noundef %1, i32 noundef %
   %88 = call i32 @llvm.smax.i32(i32 %87, i32 0)
   %89 = load i64, ptr %.0260.us, align 8
   %90 = call ptr @XGetImage(ptr noundef %0, i64 noundef %89, i32 noundef %77, i32 noundef %86, i32 noundef %61, i32 noundef %69, i64 noundef 4294967295, i32 noundef 2) #9
-  %91 = getelementptr inbounds i8, ptr %90, i64 40
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 40
   %92 = load i32, ptr %91, align 8
   %93 = icmp eq i32 %92, 8
   %94 = icmp eq i32 %50, 1
@@ -751,7 +751,7 @@ define hidden ptr @ReadAreaToImage(ptr noundef %0, i64 noundef %1, i32 noundef %
   br i1 %95, label %.preheader.lr.ph.us, label %.loopexit.us
 
 .loopexit.us:                                     ; preds = %._crit_edge.us.us, %._crit_edge.us249.us, %._crit_edge.us257.us, %.preheader.lr.ph.us, %.preheader233.lr.ph.us, %.preheader234.lr.ph.us, %.preheader237.us, %.preheader235.us, %97
-  %98 = getelementptr inbounds i8, ptr %90, i64 96
+  %98 = getelementptr inbounds nuw i8, ptr %90, i64 96
   %99 = load ptr, ptr %98, align 8
   %100 = call i32 %99(ptr noundef nonnull %90) #9
   br label %src_in_overlay.exit.thread.us
@@ -774,7 +774,7 @@ src_in_overlay.exit.thread.us:                    ; preds = %101, %.loopexit.us
 
 .preheader234.lr.ph.us:                           ; preds = %.preheader237.us
   %103 = icmp sgt i32 %61, 0
-  %104 = getelementptr inbounds i8, ptr %90, i64 104
+  %104 = getelementptr inbounds nuw i8, ptr %90, i64 104
   %105 = and i64 %53, 4294967295
   br i1 %103, label %.preheader234.us.us, label %.loopexit.us
 
@@ -813,7 +813,7 @@ src_in_overlay.exit.thread.us:                    ; preds = %101, %.loopexit.us
 
 .preheader233.lr.ph.us:                           ; preds = %.preheader235.us
   %121 = icmp sgt i32 %61, 0
-  %122 = getelementptr inbounds i8, ptr %90, i64 104
+  %122 = getelementptr inbounds nuw i8, ptr %90, i64 104
   br i1 %121, label %.preheader233.us.us, label %.loopexit.us
 
 .preheader233.us.us:                              ; preds = %.preheader233.lr.ph.us, %._crit_edge.us249.us
@@ -851,11 +851,11 @@ src_in_overlay.exit.thread.us:                    ; preds = %101, %.loopexit.us
 
 .preheader.lr.ph.us:                              ; preds = %97
   %139 = icmp sgt i32 %61, 0
-  %140 = getelementptr inbounds i8, ptr %90, i64 44
+  %140 = getelementptr inbounds nuw i8, ptr %90, i64 44
   br i1 %139, label %.preheader.us.us.preheader, label %.loopexit.us
 
 .preheader.us.us.preheader:                       ; preds = %.preheader.lr.ph.us
-  %141 = getelementptr inbounds i8, ptr %90, i64 16
+  %141 = getelementptr inbounds nuw i8, ptr %90, i64 16
   %142 = load ptr, ptr %141, align 8
   br label %.preheader.us.us
 
@@ -868,7 +868,7 @@ src_in_overlay.exit.thread.us:                    ; preds = %101, %.loopexit.us
 144:                                              ; preds = %156, %.preheader.us.us
   %.0184253.us.us = phi ptr [ %.0183256.us.us, %.preheader.us.us ], [ %145, %156 ]
   %.0186251.us.us = phi i32 [ 0, %.preheader.us.us ], [ %157, %156 ]
-  %145 = getelementptr inbounds i8, ptr %.0184253.us.us, i64 1
+  %145 = getelementptr inbounds nuw i8, ptr %.0184253.us.us, i64 1
   %146 = load i8, ptr %.0184253.us.us, align 1
   %147 = zext i8 %146 to i32
   %148 = icmp eq i32 %54, %147
@@ -907,7 +907,7 @@ src_in_overlay.exit.thread:                       ; preds = %.lr.ph, %src_in_ove
   br i1 %.not206, label %167, label %163
 
 163:                                              ; preds = %._crit_edge
-  %164 = getelementptr inbounds i8, ptr %.0182, i64 96
+  %164 = getelementptr inbounds nuw i8, ptr %.0182, i64 96
   %165 = load ptr, ptr %164, align 8
   %166 = call i32 %165(ptr noundef nonnull %.0182) #9
   br label %167
@@ -936,7 +936,7 @@ define internal fastcc ptr @ReadRegionsInList(ptr noundef %0, ptr noundef nonnul
   %.sroa.13.0.extract.shift = lshr i64 %5, 48
   %.sroa.13.0.extract.trunc = trunc nuw nsw i64 %.sroa.13.0.extract.shift to i32
   %8 = tail call ptr @XCreateImage(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 24, i32 noundef %2, i32 noundef 0, ptr noundef null, i32 noundef %3, i32 noundef %4, i32 noundef 8, i32 noundef 0) #9
-  %9 = getelementptr inbounds i8, ptr %8, i64 44
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 44
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %2, 2
   %12 = zext i32 %4 to i64
@@ -955,9 +955,9 @@ define internal fastcc ptr @ReadRegionsInList(ptr noundef %0, ptr noundef nonnul
 19:                                               ; preds = %16, %14
   %.sink136 = phi i64 [ %18, %16 ], [ %15, %14 ]
   %20 = tail call noalias ptr @malloc(i64 noundef %.sink136) #10
-  %21 = getelementptr inbounds i8, ptr %8, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %20, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %8, i64 48
+  %22 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store i32 24, ptr %22, align 8
   %23 = tail call ptr @first_in_list(ptr noundef %6) #9
   %.not114 = icmp eq ptr %23, null
@@ -970,44 +970,44 @@ define internal fastcc ptr @ReadRegionsInList(ptr noundef %0, ptr noundef nonnul
   %26 = add nsw i32 %24, %25
   %27 = ashr i32 %.sroa.0.0.extract.trunc, 16
   %28 = add nsw i32 %27, %.sroa.13.0.extract.trunc
-  %29 = getelementptr inbounds i8, ptr %8, i64 112
+  %29 = getelementptr inbounds nuw i8, ptr %8, i64 112
   br label %30
 
 30:                                               ; preds = %.lr.ph117, %._crit_edge
   %.0115 = phi ptr [ %23, %.lr.ph117 ], [ %262, %._crit_edge ]
-  %31 = getelementptr inbounds i8, ptr %.0115, i64 56
+  %31 = getelementptr inbounds nuw i8, ptr %.0115, i64 56
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %34 = load i64, ptr %33, align 8
   %35 = icmp sgt i64 %34, 0
   br i1 %35, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %30
-  %36 = getelementptr inbounds i8, ptr %32, i64 16
-  %37 = getelementptr inbounds i8, ptr %.0115, i64 24
-  %38 = getelementptr inbounds i8, ptr %.0115, i64 48
-  %39 = getelementptr inbounds i8, ptr %.0115, i64 28
-  %40 = getelementptr inbounds i8, ptr %.0115, i64 16
-  %41 = getelementptr inbounds i8, ptr %.0115, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %32, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %.0115, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %.0115, i64 48
+  %39 = getelementptr inbounds nuw i8, ptr %.0115, i64 28
+  %40 = getelementptr inbounds nuw i8, ptr %.0115, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %.0115, i64 8
   br label %42
 
 42:                                               ; preds = %.lr.ph, %259
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %259 ]
   %43 = load ptr, ptr %36, align 8
-  %44 = getelementptr inbounds %struct.myBox, ptr %43, i64 %indvars.iv, i32 1
+  %44 = getelementptr inbounds nuw %struct.myBox, ptr %43, i64 %indvars.iv, i32 1
   %45 = load i16, ptr %44, align 2
   %46 = sext i16 %45 to i32
   %. = tail call i32 @llvm.smin.i32(i32 %26, i32 %46)
-  %47 = getelementptr inbounds %struct.myBox, ptr %43, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw %struct.myBox, ptr %43, i64 %indvars.iv
   %48 = load i16, ptr %47, align 2
   %49 = sext i16 %48 to i32
   %50 = tail call i32 @llvm.smax.i32(i32 %25, i32 %49)
   %51 = sub nsw i32 %., %50
-  %52 = getelementptr inbounds %struct.myBox, ptr %43, i64 %indvars.iv, i32 3
+  %52 = getelementptr inbounds nuw %struct.myBox, ptr %43, i64 %indvars.iv, i32 3
   %53 = load i16, ptr %52, align 2
   %54 = sext i16 %53 to i32
   %55 = tail call i32 @llvm.smin.i32(i32 %28, i32 %54)
-  %56 = getelementptr inbounds %struct.myBox, ptr %43, i64 %indvars.iv, i32 2
+  %56 = getelementptr inbounds nuw %struct.myBox, ptr %43, i64 %indvars.iv, i32 2
   %57 = load i16, ptr %56, align 2
   %58 = sext i16 %57 to i32
   %59 = tail call i32 @llvm.smax.i32(i32 %27, i32 %58)
@@ -1037,11 +1037,11 @@ define internal fastcc ptr @ReadRegionsInList(ptr noundef %0, ptr noundef nonnul
   %80 = tail call i32 @llvm.smax.i32(i32 %79, i32 0)
   %81 = load i64, ptr %40, align 8
   %82 = load ptr, ptr %41, align 8
-  %83 = getelementptr inbounds i8, ptr %82, i64 52
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 52
   %84 = load i32, ptr %83, align 4
   %85 = zext i32 %84 to i64
   %86 = tail call noalias ptr @calloc(i64 noundef %85, i64 noundef 16) #12
-  %87 = getelementptr inbounds i8, ptr %82, i64 16
+  %87 = getelementptr inbounds nuw i8, ptr %82, i64 16
   %88 = load i32, ptr %87, align 8
   %89 = and i32 %88, -2
   %switch.i.i = icmp eq i32 %89, 4
@@ -1053,22 +1053,22 @@ define internal fastcc ptr @ReadRegionsInList(ptr noundef %0, ptr noundef nonnul
 
 .lr.ph.i.i:                                       ; preds = %.preheader78.i.i, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 0, %.preheader78.i.i ]
-  %90 = getelementptr inbounds %struct.XColor, ptr %86, i64 %indvars.iv.i.i
+  %90 = getelementptr inbounds nuw %struct.XColor, ptr %86, i64 %indvars.iv.i.i
   store i64 %indvars.iv.i.i, ptr %90, align 8
-  %91 = getelementptr inbounds i8, ptr %90, i64 15
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 15
   store i8 0, ptr %91, align 1
-  %92 = getelementptr inbounds i8, ptr %90, i64 14
+  %92 = getelementptr inbounds nuw i8, ptr %90, i64 14
   store i8 7, ptr %92, align 2
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %85
   br i1 %exitcond.not.i.i, label %QueryColorMap.exit.i, label %.lr.ph.i.i, !llvm.loop !22
 
 93:                                               ; preds = %76
-  %94 = getelementptr inbounds i8, ptr %82, i64 24
+  %94 = getelementptr inbounds nuw i8, ptr %82, i64 24
   %95 = load i64, ptr %94, align 8
-  %96 = getelementptr inbounds i8, ptr %82, i64 32
+  %96 = getelementptr inbounds nuw i8, ptr %82, i64 32
   %97 = load i64, ptr %96, align 8
-  %98 = getelementptr inbounds i8, ptr %82, i64 40
+  %98 = getelementptr inbounds nuw i8, ptr %82, i64 40
   %99 = load i64, ptr %98, align 8
   %100 = and i64 %95, 1
   %.not7181.i.i = icmp eq i64 %100, 0
@@ -1130,7 +1130,7 @@ define internal fastcc ptr @ReadRegionsInList(ptr noundef %0, ptr noundef nonnul
   %113 = trunc nuw i64 %indvars.iv109.i.i to i32
   %114 = shl i32 %113, %.063.lcssa.i.i
   %115 = zext i32 %114 to i64
-  %116 = getelementptr inbounds %struct.XColor, ptr %86, i64 %indvars.iv109.i.i
+  %116 = getelementptr inbounds nuw %struct.XColor, ptr %86, i64 %indvars.iv109.i.i
   store i64 %115, ptr %116, align 8
   br label %117
 
@@ -1142,7 +1142,7 @@ define internal fastcc ptr @ReadRegionsInList(ptr noundef %0, ptr noundef nonnul
   %119 = trunc nuw i64 %indvars.iv109.i.i to i32
   %120 = shl i32 %119, %.062.lcssa.i.i
   %121 = zext i32 %120 to i64
-  %122 = getelementptr inbounds %struct.XColor, ptr %86, i64 %indvars.iv109.i.i
+  %122 = getelementptr inbounds nuw %struct.XColor, ptr %86, i64 %indvars.iv109.i.i
   %123 = load i64, ptr %122, align 8
   %124 = or i64 %123, %121
   store i64 %124, ptr %122, align 8
@@ -1156,17 +1156,17 @@ define internal fastcc ptr @ReadRegionsInList(ptr noundef %0, ptr noundef nonnul
   %127 = trunc nuw i64 %indvars.iv109.i.i to i32
   %128 = shl i32 %127, %.061.lcssa.i.i
   %129 = zext i32 %128 to i64
-  %130 = getelementptr inbounds %struct.XColor, ptr %86, i64 %indvars.iv109.i.i
+  %130 = getelementptr inbounds nuw %struct.XColor, ptr %86, i64 %indvars.iv109.i.i
   %131 = load i64, ptr %130, align 8
   %132 = or i64 %131, %129
   store i64 %132, ptr %130, align 8
   br label %133
 
 133:                                              ; preds = %126, %125
-  %134 = getelementptr inbounds %struct.XColor, ptr %86, i64 %indvars.iv109.i.i
-  %135 = getelementptr inbounds i8, ptr %134, i64 15
+  %134 = getelementptr inbounds nuw %struct.XColor, ptr %86, i64 %indvars.iv109.i.i
+  %135 = getelementptr inbounds nuw i8, ptr %134, i64 15
   store i8 0, ptr %135, align 1
-  %136 = getelementptr inbounds i8, ptr %134, i64 14
+  %136 = getelementptr inbounds nuw i8, ptr %134, i64 14
   store i8 7, ptr %136, align 2
   %indvars.iv.next110.i.i = add nuw nsw i64 %indvars.iv109.i.i, 1
   %exitcond113.not.i.i = icmp eq i64 %indvars.iv.next110.i.i, %85
@@ -1178,7 +1178,7 @@ QueryColorMap.exit.i:                             ; preds = %.lr.ph.i.i, %133, %
   %.094.i = phi i32 [ %.061.lcssa.i.i, %._crit_edge.i.i ], [ 0, %.preheader78.i.i ], [ %.061.lcssa.i.i, %133 ], [ 0, %.lr.ph.i.i ]
   %137 = tail call i32 @XQueryColors(ptr noundef %0, i64 noundef %81, ptr noundef %86, i32 noundef %84) #9
   %138 = load ptr, ptr %41, align 8
-  %139 = getelementptr inbounds i8, ptr %138, i64 16
+  %139 = getelementptr inbounds nuw i8, ptr %138, i64 16
   %140 = load i32, ptr %139, align 8
   %141 = icmp sgt i32 %60, 0
   switch i32 %140, label %.preheader97.i [
@@ -1194,7 +1194,7 @@ QueryColorMap.exit.i:                             ; preds = %.lr.ph.i.i, %133, %
   %invariant.gep110.i = getelementptr i8, ptr %86, i64 10
   %invariant.gep112.i = getelementptr i8, ptr %86, i64 12
   %142 = icmp sgt i32 %51, 0
-  %143 = getelementptr inbounds i8, ptr %75, i64 104
+  %143 = getelementptr inbounds nuw i8, ptr %75, i64 104
   %144 = zext nneg i32 %.096.i to i64
   %145 = zext nneg i32 %.095.i to i64
   %146 = zext nneg i32 %.094.i to i64
@@ -1212,15 +1212,15 @@ QueryColorMap.exit.i:                             ; preds = %.lr.ph.i.i, %133, %
   %sext.us.i = shl i64 %150, 32
   %151 = ashr exact i64 %sext.us.i, 32
   %152 = load ptr, ptr %41, align 8
-  %153 = getelementptr inbounds i8, ptr %152, i64 24
+  %153 = getelementptr inbounds nuw i8, ptr %152, i64 24
   %154 = load i64, ptr %153, align 8
   %155 = and i64 %151, %154
   %156 = lshr i64 %155, %144
-  %157 = getelementptr inbounds i8, ptr %152, i64 32
+  %157 = getelementptr inbounds nuw i8, ptr %152, i64 32
   %158 = load i64, ptr %157, align 8
   %159 = and i64 %158, %151
   %160 = lshr i64 %159, %145
-  %161 = getelementptr inbounds i8, ptr %152, i64 40
+  %161 = getelementptr inbounds nuw i8, ptr %152, i64 40
   %162 = load i64, ptr %161, align 8
   %163 = and i64 %162, %151
   %164 = lshr i64 %163, %146
@@ -1265,7 +1265,7 @@ QueryColorMap.exit.i:                             ; preds = %.lr.ph.i.i, %133, %
   %invariant.gep117.i = getelementptr i8, ptr %86, i64 10
   %invariant.gep119.i = getelementptr i8, ptr %86, i64 12
   %185 = icmp sgt i32 %51, 0
-  %186 = getelementptr inbounds i8, ptr %75, i64 104
+  %186 = getelementptr inbounds nuw i8, ptr %75, i64 104
   %187 = zext nneg i32 %.096.i to i64
   %188 = zext nneg i32 %.095.i to i64
   %189 = zext nneg i32 %.094.i to i64
@@ -1283,15 +1283,15 @@ QueryColorMap.exit.i:                             ; preds = %.lr.ph.i.i, %133, %
   %sext81.us.i = shl i64 %193, 32
   %194 = ashr exact i64 %sext81.us.i, 32
   %195 = load ptr, ptr %41, align 8
-  %196 = getelementptr inbounds i8, ptr %195, i64 24
+  %196 = getelementptr inbounds nuw i8, ptr %195, i64 24
   %197 = load i64, ptr %196, align 8
   %198 = and i64 %194, %197
   %199 = lshr i64 %198, %187
-  %200 = getelementptr inbounds i8, ptr %195, i64 32
+  %200 = getelementptr inbounds nuw i8, ptr %195, i64 32
   %201 = load i64, ptr %200, align 8
   %202 = and i64 %201, %194
   %203 = lshr i64 %202, %188
-  %204 = getelementptr inbounds i8, ptr %195, i64 40
+  %204 = getelementptr inbounds nuw i8, ptr %195, i64 40
   %205 = load i64, ptr %204, align 8
   %206 = and i64 %205, %194
   %207 = lshr i64 %206, %189
@@ -1333,7 +1333,7 @@ QueryColorMap.exit.i:                             ; preds = %.lr.ph.i.i, %133, %
 
 .preheader.lr.ph.i:                               ; preds = %.preheader97.i
   %228 = icmp sgt i32 %51, 0
-  %229 = getelementptr inbounds i8, ptr %75, i64 104
+  %229 = getelementptr inbounds nuw i8, ptr %75, i64 104
   br i1 %228, label %.preheader.us.i, label %TransferImage.exit
 
 .preheader.us.i:                                  ; preds = %.preheader.lr.ph.i, %._crit_edge.us127.i
@@ -1348,17 +1348,17 @@ QueryColorMap.exit.i:                             ; preds = %.lr.ph.i.i, %133, %
   %sext85.us.i = shl i64 %233, 32
   %234 = ashr exact i64 %sext85.us.i, 28
   %235 = getelementptr inbounds i8, ptr %86, i64 %234
-  %236 = getelementptr inbounds i8, ptr %235, i64 8
+  %236 = getelementptr inbounds nuw i8, ptr %235, i64 8
   %237 = load i16, ptr %236, align 8
   %238 = lshr i16 %237, 8
   %239 = zext nneg i16 %238 to i64
   %240 = shl nuw nsw i64 %239, 16
-  %241 = getelementptr inbounds i8, ptr %235, i64 10
+  %241 = getelementptr inbounds nuw i8, ptr %235, i64 10
   %242 = load i16, ptr %241, align 2
   %243 = and i16 %242, -256
   %244 = zext i16 %243 to i64
   %245 = or disjoint i64 %240, %244
-  %246 = getelementptr inbounds i8, ptr %235, i64 12
+  %246 = getelementptr inbounds nuw i8, ptr %235, i64 12
   %247 = load i16, ptr %246, align 4
   %248 = lshr i16 %247, 8
   %249 = zext nneg i16 %248 to i64
@@ -1377,7 +1377,7 @@ QueryColorMap.exit.i:                             ; preds = %.lr.ph.i.i, %133, %
 
 TransferImage.exit:                               ; preds = %._crit_edge.us.i, %._crit_edge.us124.i, %._crit_edge.us127.i, %.preheader102.i, %.preheader101.lr.ph.i, %.preheader99.i, %.preheader98.lr.ph.i, %.preheader97.i, %.preheader.lr.ph.i
   tail call void @free(ptr noundef %86) #9
-  %256 = getelementptr inbounds i8, ptr %75, i64 96
+  %256 = getelementptr inbounds nuw i8, ptr %75, i64 96
   %257 = load ptr, ptr %256, align 8
   %258 = tail call i32 %257(ptr noundef nonnull %75) #9
   br label %259
@@ -1453,13 +1453,13 @@ define internal fastcc void @make_src_list(ptr noundef %0, ptr noundef nonnull %
   %12 = alloca ptr, align 8
   %13 = alloca i32, align 4
   %14 = alloca %struct.XRectangle, align 2
-  %15 = getelementptr inbounds i8, ptr %6, i64 92
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 92
   %16 = load i32, ptr %15, align 4
   %17 = icmp eq i32 %16, 2
   br i1 %17, label %18, label %145
 
 18:                                               ; preds = %8
-  %19 = getelementptr inbounds i8, ptr %6, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %20 = load i32, ptr %19, align 8
   %21 = icmp eq i32 %20, 1
   br i1 %21, label %22, label %145
@@ -1469,7 +1469,7 @@ define internal fastcc void @make_src_list(ptr noundef %0, ptr noundef nonnull %
   %24 = sext i16 %23 to i32
   %25 = load i16, ptr %2, align 2
   %26 = sext i16 %25 to i32
-  %27 = getelementptr inbounds i8, ptr %2, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %28 = load i16, ptr %27, align 2
   %29 = zext i16 %28 to i32
   %30 = add nsw i32 %29, %26
@@ -1477,13 +1477,13 @@ define internal fastcc void @make_src_list(ptr noundef %0, ptr noundef nonnull %
   br i1 %.not, label %31, label %145
 
 31:                                               ; preds = %22
-  %32 = getelementptr inbounds i8, ptr %7, i64 2
+  %32 = getelementptr inbounds nuw i8, ptr %7, i64 2
   %33 = load i16, ptr %32, align 2
   %34 = sext i16 %33 to i32
-  %35 = getelementptr inbounds i8, ptr %2, i64 2
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %36 = load i16, ptr %35, align 2
   %37 = sext i16 %36 to i32
-  %38 = getelementptr inbounds i8, ptr %2, i64 6
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 6
   %39 = load i16, ptr %38, align 2
   %40 = zext i16 %39 to i32
   %41 = add nsw i32 %40, %37
@@ -1491,7 +1491,7 @@ define internal fastcc void @make_src_list(ptr noundef %0, ptr noundef nonnull %
   br i1 %.not104, label %42, label %145
 
 42:                                               ; preds = %31
-  %43 = getelementptr inbounds i8, ptr %7, i64 4
+  %43 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %44 = load i16, ptr %43, align 2
   %45 = zext i16 %44 to i32
   %46 = add nsw i32 %45, %24
@@ -1499,7 +1499,7 @@ define internal fastcc void @make_src_list(ptr noundef %0, ptr noundef nonnull %
   br i1 %.not105, label %47, label %145
 
 47:                                               ; preds = %42
-  %48 = getelementptr inbounds i8, ptr %7, i64 6
+  %48 = getelementptr inbounds nuw i8, ptr %7, i64 6
   %49 = load i16, ptr %48, align 2
   %50 = zext i16 %49 to i32
   %51 = add nsw i32 %50, %34
@@ -1517,11 +1517,11 @@ define internal fastcc void @make_src_list(ptr noundef %0, ptr noundef nonnull %
   %60 = zext i16 %59 to i32
   %61 = load i16, ptr %48, align 2
   %62 = zext i16 %61 to i32
-  %63 = getelementptr inbounds i8, ptr %6, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %64 = load i32, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %6, i64 24
+  %65 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %6, i64 80
+  %67 = getelementptr inbounds nuw i8, ptr %6, i64 80
   %68 = load i64, ptr %67, align 8
   %69 = load i64, ptr %11, align 8
   call fastcc void @add_window_to_list(ptr noundef %1, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %56, i32 noundef %58, i32 noundef %60, i32 noundef %62, i32 noundef %64, ptr noundef %66, i64 noundef %68, i64 noundef %69)
@@ -1537,7 +1537,7 @@ define internal fastcc void @make_src_list(ptr noundef %0, ptr noundef nonnull %
   %78 = load i16, ptr %43, align 2
   %79 = zext i16 %78 to i32
   %80 = add nsw i32 %79, %71
-  %81 = getelementptr inbounds i8, ptr %6, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %82 = load i32, ptr %81, align 8
   %83 = shl nsw i32 %72, 1
   %84 = add i32 %83, %4
@@ -1546,7 +1546,7 @@ define internal fastcc void @make_src_list(ptr noundef %0, ptr noundef nonnull %
   %87 = load i16, ptr %48, align 2
   %88 = zext i16 %87 to i32
   %89 = add nsw i32 %88, %75
-  %90 = getelementptr inbounds i8, ptr %6, i64 12
+  %90 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %91 = load i32, ptr %90, align 4
   %92 = add i32 %83, %5
   %93 = add i32 %92, %91
@@ -1558,13 +1558,13 @@ define internal fastcc void @make_src_list(ptr noundef %0, ptr noundef nonnull %
   br i1 %.not107111, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %52
-  %97 = getelementptr inbounds i8, ptr %9, i64 8
-  %98 = getelementptr inbounds i8, ptr %9, i64 16
-  %99 = getelementptr inbounds i8, ptr %14, i64 4
-  %100 = getelementptr inbounds i8, ptr %9, i64 4
-  %101 = getelementptr inbounds i8, ptr %14, i64 2
-  %102 = getelementptr inbounds i8, ptr %9, i64 12
-  %103 = getelementptr inbounds i8, ptr %14, i64 6
+  %97 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %98 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %99 = getelementptr inbounds nuw i8, ptr %14, i64 4
+  %100 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  %101 = getelementptr inbounds nuw i8, ptr %14, i64 2
+  %102 = getelementptr inbounds nuw i8, ptr %9, i64 12
+  %103 = getelementptr inbounds nuw i8, ptr %14, i64 6
   %.pre = load ptr, ptr %12, align 8
   br label %104
 
@@ -1620,7 +1620,7 @@ define internal fastcc void @make_src_list(ptr noundef %0, ptr noundef nonnull %
 
 139:                                              ; preds = %122, %135, %104
   %140 = load ptr, ptr %12, align 8
-  %141 = getelementptr inbounds i8, ptr %140, i64 8
+  %141 = getelementptr inbounds nuw i8, ptr %140, i64 8
   store ptr %141, ptr %12, align 8
   %142 = load i32, ptr %13, align 4
   %143 = add i32 %142, -1
@@ -1660,25 +1660,25 @@ define internal fastcc void @add_window_to_list(ptr noundef nonnull %0, i64 noun
 
 15:                                               ; preds = %12
   store i64 %1, ptr %13, align 8
-  %16 = getelementptr inbounds i8, ptr %13, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 24
   store i32 %2, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %13, i64 28
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 28
   store i32 %3, ptr %17, align 4
-  %18 = getelementptr inbounds i8, ptr %13, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %13, i64 32
   store i32 %4, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %13, i64 36
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 36
   store i32 %5, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %13, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %13, i64 40
   store i32 %6, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %13, i64 44
+  %21 = getelementptr inbounds nuw i8, ptr %13, i64 44
   store i32 %7, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %13, i64 48
+  %22 = getelementptr inbounds nuw i8, ptr %13, i64 48
   store i32 %8, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %13, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %9, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %13, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i64 %10, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %13, i64 56
+  %25 = getelementptr inbounds nuw i8, ptr %13, i64 56
   store i64 %11, ptr %25, align 8
   %26 = tail call i32 @add_to_list(ptr noundef nonnull %0, ptr noundef nonnull %13) #9
   br label %27
@@ -1693,7 +1693,7 @@ declare void @delete_list_destroying(ptr noundef, ptr noundef) local_unnamed_add
 
 ; Function Attrs: nounwind uwtable
 define internal void @destroy_image_region(ptr nocapture noundef %0) #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i32 @XDestroyRegion(ptr noundef %3) #9
   tail call void @free(ptr noundef %0) #9

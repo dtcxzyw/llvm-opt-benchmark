@@ -40,8 +40,8 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local range(i32 -2147483648, 1) i32 @intel_gsc_proxy_request_handler(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr i8, ptr %0, i64 -48
-  %3 = getelementptr inbounds i8, ptr %0, i64 512
-  %4 = getelementptr inbounds i8, ptr %0, i64 520
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 512
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %5 = load i8, ptr %4, align 8, !range !5, !noundef !6
   %6 = icmp eq i8 %5, 0
   br i1 %6, label %281, label %7
@@ -49,18 +49,18 @@ define dso_local range(i32 -2147483648, 1) i32 @intel_gsc_proxy_request_handler(
 7:                                                ; preds = %1
   %8 = getelementptr i8, ptr %0, i64 -24
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = load volatile i32, ptr %11, align 4
-  %13 = getelementptr inbounds i8, ptr %11, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 452
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 452
   %16 = load i32, ptr %15, align 4
   %17 = icmp eq i32 %16, 2
   br i1 %17, label %18, label %.thread
 
 18:                                               ; preds = %7
-  %19 = getelementptr inbounds i8, ptr %14, i64 440
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 440
   %20 = load i16, ptr %19, align 8
   %21 = and i16 %20, 7
   %22 = icmp ne i16 %21, 0
@@ -147,7 +147,7 @@ define dso_local range(i32 -2147483648, 1) i32 @intel_gsc_proxy_request_handler(
   br i1 %56, label %60, label %57
 
 57:                                               ; preds = %54
-  %58 = getelementptr inbounds i8, ptr %55, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %59 = load ptr, ptr %58, align 8
   br label %60
 
@@ -159,8 +159,8 @@ define dso_local range(i32 -2147483648, 1) i32 @intel_gsc_proxy_request_handler(
   br label %281
 
 64:                                               ; preds = %._crit_edge
-  %65 = getelementptr inbounds i8, ptr %0, i64 552
-  tail call void @mutex_lock(ptr noundef %65) #5
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 552
+  tail call void @mutex_lock(ptr noundef nonnull %65) #5
   %66 = load ptr, ptr %3, align 8
   %67 = icmp eq ptr %66, null
   br i1 %67, label %68, label %78
@@ -171,7 +171,7 @@ define dso_local range(i32 -2147483648, 1) i32 @intel_gsc_proxy_request_handler(
   br i1 %70, label %74, label %71
 
 71:                                               ; preds = %68
-  %72 = getelementptr inbounds i8, ptr %69, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %73 = load ptr, ptr %72, align 8
   br label %74
 
@@ -184,37 +184,37 @@ define dso_local range(i32 -2147483648, 1) i32 @intel_gsc_proxy_request_handler(
 
 78:                                               ; preds = %64
   %79 = load ptr, ptr %8, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 144
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 144
   %81 = load ptr, ptr %80, align 8
   %82 = tail call i32 %81(ptr noundef %79, i32 1142788, i1 noundef zeroext true) #5
   %83 = and i32 %82, -19
   %84 = or disjoint i32 %83, 2
-  %85 = getelementptr inbounds i8, ptr %79, i64 176
+  %85 = getelementptr inbounds nuw i8, ptr %79, i64 176
   %86 = load ptr, ptr %85, align 8
   tail call void %86(ptr noundef %79, i32 1142788, i32 noundef %84, i1 noundef zeroext true) #5
-  %87 = getelementptr inbounds i8, ptr %0, i64 536
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 536
   %88 = load ptr, ptr %87, align 8
-  %89 = getelementptr inbounds i8, ptr %0, i64 544
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %90 = load ptr, ptr %89, align 8
   tail call void @intel_gsc_uc_heci_cmd_emit_mtl_header(ptr noundef %88, i8 noundef zeroext 10, i32 noundef 52, i64 noundef 0) #5
-  %91 = getelementptr inbounds i8, ptr %88, i64 36
+  %91 = getelementptr inbounds nuw i8, ptr %88, i64 36
   store i32 1, ptr %91, align 1
-  %92 = getelementptr inbounds i8, ptr %88, i64 40
+  %92 = getelementptr inbounds nuw i8, ptr %88, i64 40
   store i32 65536, ptr %92, align 1
-  %93 = getelementptr inbounds i8, ptr %88, i64 44
+  %93 = getelementptr inbounds nuw i8, ptr %88, i64 44
   store i32 131072, ptr %93, align 1
-  %94 = getelementptr inbounds i8, ptr %88, i64 48
+  %94 = getelementptr inbounds nuw i8, ptr %88, i64 48
   store i32 0, ptr %94, align 1
-  %95 = getelementptr inbounds i8, ptr %0, i64 528
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 528
   %96 = getelementptr i8, ptr %0, i64 4904
-  %97 = getelementptr inbounds i8, ptr %90, i64 36
-  %98 = getelementptr inbounds i8, ptr %90, i64 44
-  %99 = getelementptr inbounds i8, ptr %90, i64 40
-  %100 = getelementptr inbounds i8, ptr %88, i64 24
+  %97 = getelementptr inbounds nuw i8, ptr %90, i64 36
+  %98 = getelementptr inbounds nuw i8, ptr %90, i64 44
+  %99 = getelementptr inbounds nuw i8, ptr %90, i64 40
+  %100 = getelementptr inbounds nuw i8, ptr %88, i64 24
   %101 = load ptr, ptr %89, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef align 1 dereferenceable(52) %101, i8 0, i64 52, i1 false)
   %102 = load ptr, ptr %87, align 8
-  %103 = getelementptr inbounds i8, ptr %102, i64 24
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 24
   %104 = load i32, ptr %103, align 1
   %105 = add i32 %104, -32769
   %106 = icmp ult i32 %105, -32717
@@ -227,7 +227,7 @@ define dso_local range(i32 -2147483648, 1) i32 @intel_gsc_proxy_request_handler(
   br i1 %108, label %112, label %109
 
 109:                                              ; preds = %._crit_edge64
-  %110 = getelementptr inbounds i8, ptr %107, i64 8
+  %110 = getelementptr inbounds nuw i8, ptr %107, i64 8
   %111 = load ptr, ptr %110, align 8
   br label %112
 
@@ -241,9 +241,9 @@ define dso_local range(i32 -2147483648, 1) i32 @intel_gsc_proxy_request_handler(
   %115 = phi i32 [ %265, %261 ], [ %104, %78 ]
   %116 = load ptr, ptr %89, align 8
   %117 = load ptr, ptr %95, align 8
-  %118 = getelementptr inbounds i8, ptr %117, i64 248
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 248
   %119 = load i32, ptr %118, align 8
-  %120 = getelementptr inbounds i8, ptr %117, i64 8
+  %120 = getelementptr inbounds nuw i8, ptr %117, i64 8
   %121 = load i64, ptr %120, align 8
   %122 = trunc i64 %121 to i32
   %123 = add i32 %119, %122
@@ -291,7 +291,7 @@ define dso_local range(i32 -2147483648, 1) i32 @intel_gsc_proxy_request_handler(
   br i1 %148, label %152, label %149
 
 149:                                              ; preds = %146
-  %150 = getelementptr inbounds i8, ptr %147, i64 8
+  %150 = getelementptr inbounds nuw i8, ptr %147, i64 8
   %151 = load ptr, ptr %150, align 8
   br label %152
 
@@ -308,7 +308,7 @@ define dso_local range(i32 -2147483648, 1) i32 @intel_gsc_proxy_request_handler(
   br i1 %156, label %160, label %157
 
 157:                                              ; preds = %.loopexit
-  %158 = getelementptr inbounds i8, ptr %155, i64 8
+  %158 = getelementptr inbounds nuw i8, ptr %155, i64 8
   %159 = load ptr, ptr %158, align 8
   br label %160
 
@@ -352,7 +352,7 @@ define dso_local range(i32 -2147483648, 1) i32 @intel_gsc_proxy_request_handler(
   br i1 %179, label %183, label %180
 
 180:                                              ; preds = %177
-  %181 = getelementptr inbounds i8, ptr %178, i64 8
+  %181 = getelementptr inbounds nuw i8, ptr %178, i64 8
   %182 = load ptr, ptr %181, align 8
   br label %183
 
@@ -367,7 +367,7 @@ define dso_local range(i32 -2147483648, 1) i32 @intel_gsc_proxy_request_handler(
   %188 = load ptr, ptr %89, align 8
   %189 = load ptr, ptr %87, align 8
   %190 = getelementptr i8, ptr %189, i64 36
-  %191 = getelementptr inbounds i8, ptr %188, i64 24
+  %191 = getelementptr inbounds nuw i8, ptr %188, i64 24
   %192 = load i32, ptr %191, align 1
   %193 = add i32 %192, -36
   %194 = add i32 %192, -32769
@@ -380,7 +380,7 @@ define dso_local range(i32 -2147483648, 1) i32 @intel_gsc_proxy_request_handler(
   br i1 %198, label %202, label %199
 
 199:                                              ; preds = %196
-  %200 = getelementptr inbounds i8, ptr %197, i64 8
+  %200 = getelementptr inbounds nuw i8, ptr %197, i64 8
   %201 = load ptr, ptr %200, align 8
   br label %202
 
@@ -393,9 +393,9 @@ define dso_local range(i32 -2147483648, 1) i32 @intel_gsc_proxy_request_handler(
 205:                                              ; preds = %186
   %206 = zext i32 %193 to i64
   %207 = getelementptr i8, ptr %188, i64 36
-  %208 = getelementptr inbounds i8, ptr %187, i64 8
+  %208 = getelementptr inbounds nuw i8, ptr %187, i64 8
   %209 = load ptr, ptr %208, align 8
-  %210 = getelementptr inbounds i8, ptr %209, i64 8
+  %210 = getelementptr inbounds nuw i8, ptr %209, i64 8
   %211 = load ptr, ptr %210, align 8
   %212 = load ptr, ptr %187, align 8
   %213 = tail call i32 %211(ptr noundef %212, ptr noundef %207, i64 noundef %206) #5
@@ -408,7 +408,7 @@ define dso_local range(i32 -2147483648, 1) i32 @intel_gsc_proxy_request_handler(
   br i1 %217, label %221, label %218
 
 218:                                              ; preds = %215
-  %219 = getelementptr inbounds i8, ptr %216, i64 8
+  %219 = getelementptr inbounds nuw i8, ptr %216, i64 8
   %220 = load ptr, ptr %219, align 8
   br label %221
 
@@ -420,7 +420,7 @@ define dso_local range(i32 -2147483648, 1) i32 @intel_gsc_proxy_request_handler(
 
 224:                                              ; preds = %205
   %225 = load ptr, ptr %208, align 8
-  %226 = getelementptr inbounds i8, ptr %225, i64 16
+  %226 = getelementptr inbounds nuw i8, ptr %225, i64 16
   %227 = load ptr, ptr %226, align 8
   %228 = load ptr, ptr %187, align 8
   %229 = tail call i32 %227(ptr noundef %228, ptr noundef %190, i64 noundef 32732) #5
@@ -433,7 +433,7 @@ define dso_local range(i32 -2147483648, 1) i32 @intel_gsc_proxy_request_handler(
   br i1 %233, label %237, label %234
 
 234:                                              ; preds = %231
-  %235 = getelementptr inbounds i8, ptr %232, i64 8
+  %235 = getelementptr inbounds nuw i8, ptr %232, i64 8
   %236 = load ptr, ptr %235, align 8
   br label %237
 
@@ -450,7 +450,7 @@ define dso_local range(i32 -2147483648, 1) i32 @intel_gsc_proxy_request_handler(
   br i1 %242, label %246, label %243
 
 243:                                              ; preds = %240
-  %244 = getelementptr inbounds i8, ptr %241, i64 8
+  %244 = getelementptr inbounds nuw i8, ptr %241, i64 8
   %245 = load ptr, ptr %244, align 8
   br label %246
 
@@ -488,7 +488,7 @@ define dso_local range(i32 -2147483648, 1) i32 @intel_gsc_proxy_request_handler(
   %262 = load ptr, ptr %89, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef align 1 dereferenceable(52) %262, i8 0, i64 52, i1 false)
   %263 = load ptr, ptr %87, align 8
-  %264 = getelementptr inbounds i8, ptr %263, i64 24
+  %264 = getelementptr inbounds nuw i8, ptr %263, i64 24
   %265 = load i32, ptr %264, align 1
   %266 = add i32 %265, -32769
   %267 = icmp ult i32 %266, -32717
@@ -501,7 +501,7 @@ define dso_local range(i32 -2147483648, 1) i32 @intel_gsc_proxy_request_handler(
   br i1 %270, label %274, label %271
 
 271:                                              ; preds = %268
-  %272 = getelementptr inbounds i8, ptr %269, i64 8
+  %272 = getelementptr inbounds nuw i8, ptr %269, i64 8
   %273 = load ptr, ptr %272, align 8
   br label %274
 
@@ -518,7 +518,7 @@ define dso_local range(i32 -2147483648, 1) i32 @intel_gsc_proxy_request_handler(
 
 279:                                              ; preds = %.loopexit30, %74
   %280 = phi i32 [ %278, %.loopexit30 ], [ -5, %74 ]
-  tail call void @mutex_unlock(ptr noundef %65) #5
+  tail call void @mutex_unlock(ptr noundef nonnull %65) #5
   br label %281
 
 281:                                              ; preds = %279, %60, %1
@@ -545,7 +545,7 @@ define dso_local void @intel_gsc_proxy_irq_handler(ptr noundef %0, i32 noundef %
   br i1 %4, label %27, label %5, !prof !29
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 512
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %19
@@ -556,7 +556,7 @@ define dso_local void @intel_gsc_proxy_irq_handler(ptr noundef %0, i32 noundef %
   br i1 %11, label %15, label %12
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %10, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %14 = load ptr, ptr %13, align 8
   br label %15
 
@@ -568,14 +568,14 @@ define dso_local void @intel_gsc_proxy_irq_handler(ptr noundef %0, i32 noundef %
   br label %27
 
 19:                                               ; preds = %5
-  %20 = getelementptr inbounds i8, ptr %0, i64 504
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 504
   %21 = load i32, ptr %20, align 8
   %22 = or i32 %21, 2
   store i32 %22, ptr %20, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 464
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 472
-  %26 = tail call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %24, ptr noundef %25) #5
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 472
+  %26 = tail call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %24, ptr noundef nonnull %25) #5
   br label %27
 
 27:                                               ; preds = %19, %15, %2
@@ -586,28 +586,28 @@ define dso_local void @intel_gsc_proxy_irq_handler(ptr noundef %0, i32 noundef %
 define dso_local void @intel_gsc_proxy_fini(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr i8, ptr %0, i64 -48
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 520
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %5 = load i8, ptr %4, align 8, !range !5, !noundef !6
   %6 = icmp eq i8 %5, 0
   store i8 0, ptr %4, align 8
   br i1 %6, label %10, label %7
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void @component_del(ptr noundef %9, ptr noundef nonnull @i915_gsc_proxy_component_ops) #5
   br label %10
 
 10:                                               ; preds = %7, %1
-  %11 = getelementptr inbounds i8, ptr %0, i64 528
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 528
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
   br i1 %13, label %16, label %14
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %0, i64 536
-  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
-  tail call void @i915_vma_unpin_and_release(ptr noundef %11, i32 noundef 1) #5
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 536
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
+  tail call void @i915_vma_unpin_and_release(ptr noundef nonnull %11, i32 noundef 1) #5
   br label %16
 
 16:                                               ; preds = %14, %10
@@ -620,14 +620,14 @@ declare dso_local void @component_del(ptr noundef, ptr noundef) local_unnamed_ad
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @intel_gsc_proxy_init(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr i8, ptr %0, i64 -48
-  %3 = getelementptr inbounds i8, ptr %0, i64 552
-  tail call void @__mutex_init(ptr noundef %3, ptr noundef nonnull @.str.3, ptr noundef nonnull @intel_gsc_proxy_init.__key) #5
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 552
+  tail call void @__mutex_init(ptr noundef nonnull %3, ptr noundef nonnull @.str.3, ptr noundef nonnull @intel_gsc_proxy_init.__key) #5
   %4 = load ptr, ptr %2, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %9, label %6
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load ptr, ptr %7, align 8
   br label %9
 
@@ -668,48 +668,48 @@ declare dso_local zeroext i1 @queue_work_on(i32 noundef, ptr noundef, ptr nounde
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @i915_gsc_proxy_component_bind(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 120
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 9328
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 9328
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 8928
-  %9 = tail call i64 @intel_runtime_pm_get(ptr noundef %8) #5
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 8928
+  %9 = tail call i64 @intel_runtime_pm_get(ptr noundef nonnull %8) #5
   %10 = icmp eq i64 %9, 0
   br i1 %10, label %21, label %11
 
 11:                                               ; preds = %3
-  %12 = getelementptr inbounds i8, ptr %7, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 144
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 144
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i32 %15(ptr noundef %13, i32 1142788, i1 noundef zeroext true) #5
   %17 = and i32 %16, -18
   %18 = or disjoint i32 %17, 1
-  %19 = getelementptr inbounds i8, ptr %13, i64 176
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 176
   %20 = load ptr, ptr %19, align 8
   tail call void %20(ptr noundef %13, i32 1142788, i32 noundef %18, i1 noundef zeroext true) #5
-  tail call void @intel_runtime_pm_put_unchecked(ptr noundef %8) #5
+  tail call void @intel_runtime_pm_put_unchecked(ptr noundef nonnull %8) #5
   br label %21
 
 21:                                               ; preds = %11, %3
-  %22 = getelementptr inbounds i8, ptr %7, i64 560
-  %23 = getelementptr inbounds i8, ptr %7, i64 600
-  tail call void @mutex_lock(ptr noundef %23) #5
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 560
+  %23 = getelementptr inbounds nuw i8, ptr %7, i64 600
+  tail call void @mutex_lock(ptr noundef nonnull %23) #5
   store ptr %2, ptr %22, align 8
   store ptr %1, ptr %2, align 8
-  tail call void @mutex_unlock(ptr noundef %23) #5
+  tail call void @mutex_unlock(ptr noundef nonnull %23) #5
   %24 = load ptr, ptr %7, align 8
   %25 = icmp eq ptr %24, null
   br i1 %25, label %29, label %26
 
 26:                                               ; preds = %21
-  %27 = getelementptr inbounds i8, ptr %24, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %28 = load ptr, ptr %27, align 8
   br label %29
 
 29:                                               ; preds = %26, %21
   %30 = phi ptr [ %28, %26 ], [ null, %21 ]
-  %31 = getelementptr inbounds i8, ptr %7, i64 4952
+  %31 = getelementptr inbounds nuw i8, ptr %7, i64 4952
   %32 = load i32, ptr %31, align 8
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %30, i32 noundef 1, ptr noundef nonnull @.str.18, i32 noundef %32) #5
   ret i32 0
@@ -717,31 +717,31 @@ define internal noundef i32 @i915_gsc_proxy_component_bind(ptr nocapture noundef
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @i915_gsc_proxy_component_unbind(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 120
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 9328
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 9328
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 560
-  %9 = getelementptr inbounds i8, ptr %7, i64 600
-  tail call void @mutex_lock(ptr noundef %9) #5
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 560
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 600
+  tail call void @mutex_lock(ptr noundef nonnull %9) #5
   store ptr null, ptr %8, align 8
-  tail call void @mutex_unlock(ptr noundef %9) #5
-  %10 = getelementptr inbounds i8, ptr %5, i64 8928
-  %11 = tail call i64 @intel_runtime_pm_get(ptr noundef %10) #5
+  tail call void @mutex_unlock(ptr noundef nonnull %9) #5
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 8928
+  %11 = tail call i64 @intel_runtime_pm_get(ptr noundef nonnull %10) #5
   %12 = icmp eq i64 %11, 0
   br i1 %12, label %22, label %13
 
 13:                                               ; preds = %3
-  %14 = getelementptr inbounds i8, ptr %7, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 144
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 144
   %17 = load ptr, ptr %16, align 8
   %18 = tail call i32 %17(ptr noundef %15, i32 1142788, i1 noundef zeroext true) #5
   %19 = and i32 %18, -18
-  %20 = getelementptr inbounds i8, ptr %15, i64 176
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 176
   %21 = load ptr, ptr %20, align 8
   tail call void %21(ptr noundef %15, i32 1142788, i32 noundef %19, i1 noundef zeroext true) #5
-  tail call void @intel_runtime_pm_put_unchecked(ptr noundef %10) #5
+  tail call void @intel_runtime_pm_put_unchecked(ptr noundef nonnull %10) #5
   br label %22
 
 22:                                               ; preds = %13, %3
@@ -750,13 +750,13 @@ define internal void @i915_gsc_proxy_component_unbind(ptr nocapture noundef read
   br i1 %24, label %28, label %25
 
 25:                                               ; preds = %22
-  %26 = getelementptr inbounds i8, ptr %23, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %27 = load ptr, ptr %26, align 8
   br label %28
 
 28:                                               ; preds = %25, %22
   %29 = phi ptr [ %27, %25 ], [ null, %22 ]
-  %30 = getelementptr inbounds i8, ptr %7, i64 4952
+  %30 = getelementptr inbounds nuw i8, ptr %7, i64 4952
   %31 = load i32, ptr %30, align 8
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %29, i32 noundef 1, ptr noundef nonnull @.str.19, i32 noundef %31) #5
   ret void

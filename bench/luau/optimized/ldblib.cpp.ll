@@ -105,10 +105,10 @@ _ZL9getthreadP9lua_StatePi.exit.thread.thread:    ; preds = %1
   br i1 %.not5978, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %26
-  %28 = getelementptr inbounds i8, ptr %2, i64 41
-  %29 = getelementptr inbounds i8, ptr %2, i64 42
-  %30 = getelementptr inbounds i8, ptr %2, i64 36
-  %31 = getelementptr inbounds i8, ptr %2, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 41
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 42
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 36
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 24
   br i1 %.not7491, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %57
@@ -122,7 +122,7 @@ _ZL9getthreadP9lua_StatePi.exit.thread.thread:    ; preds = %1
 
 36:                                               ; preds = %.lr.ph.split.us
   %37 = zext nneg i32 %34 to i64
-  %38 = getelementptr inbounds [26 x i8], ptr %3, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw [26 x i8], ptr %3, i64 0, i64 %37
   %39 = load i8, ptr %38, align 1
   %40 = trunc i8 %39 to i1
   br i1 %40, label %.split.us, label %41
@@ -174,7 +174,7 @@ _ZL9getthreadP9lua_StatePi.exit.thread.thread:    ; preds = %1
 57:                                               ; preds = %55, %53, %50, %48, %43
   %.sink = phi i32 [ 1, %55 ], [ 1, %53 ], [ 1, %50 ], [ 1, %48 ], [ 2, %43 ]
   %58 = add nuw nsw i32 %.04679.us, %.sink
-  %59 = getelementptr inbounds i8, ptr %.080.us, i64 1
+  %59 = getelementptr inbounds nuw i8, ptr %.080.us, i64 1
   %60 = load i8, ptr %59, align 1
   %.not59.us = icmp eq i8 %60, 0
   br i1 %.not59.us, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !5
@@ -190,7 +190,7 @@ _ZL9getthreadP9lua_StatePi.exit.thread.thread:    ; preds = %1
 
 65:                                               ; preds = %.lr.ph.split
   %66 = zext nneg i32 %63 to i64
-  %67 = getelementptr inbounds [26 x i8], ptr %3, i64 0, i64 %66
+  %67 = getelementptr inbounds nuw [26 x i8], ptr %3, i64 0, i64 %66
   %68 = load i8, ptr %67, align 1
   %69 = trunc i8 %68 to i1
   br i1 %69, label %.split.us, label %72
@@ -256,7 +256,7 @@ _ZL9getthreadP9lua_StatePi.exit.thread.thread:    ; preds = %1
 87:                                               ; preds = %74, %76, %78, %81, %82
   %.sink114 = phi i32 [ 1, %74 ], [ 1, %76 ], [ 1, %78 ], [ 1, %81 ], [ 2, %82 ]
   %88 = add nuw nsw i32 %.04679, %.sink114
-  %89 = getelementptr inbounds i8, ptr %.080, i64 1
+  %89 = getelementptr inbounds nuw i8, ptr %.080, i64 1
   %90 = load i8, ptr %89, align 1
   %.not59 = icmp eq i8 %90, 0
   br i1 %.not59, label %.loopexit, label %.lr.ph.split, !llvm.loop !5
@@ -312,12 +312,12 @@ _ZL9getthreadP9lua_StatePi.exit:                  ; preds = %1, %7
   br i1 %.not2736, label %._crit_edge, label %sub_0.lr.ph
 
 sub_0.lr.ph:                                      ; preds = %20
-  %22 = getelementptr inbounds i8, ptr %3, i64 8
-  %23 = getelementptr inbounds i8, ptr %3, i64 16
-  %24 = getelementptr inbounds i8, ptr %3, i64 24
-  %25 = getelementptr inbounds i8, ptr %3, i64 36
-  %26 = getelementptr inbounds i8, ptr %4, i64 32
-  %27 = getelementptr inbounds i8, ptr %2, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 36
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %28 = ptrtoint ptr %26 to i64
   br label %sub_0
 
@@ -329,7 +329,7 @@ sub_0:                                            ; preds = %sub_0.lr.ph, %71
   br i1 %.not38, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_0
-  %31 = getelementptr inbounds i8, ptr %29, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %29, i64 1
   %32 = load i8, ptr %31, align 1
   %33 = icmp eq i8 %32, 0
   br i1 %33, label %71, label %.tail.thread
@@ -375,7 +375,7 @@ sub_0:                                            ; preds = %sub_0.lr.ph, %71
 
 52:                                               ; preds = %50, %46
   %53 = phi ptr [ %.pre, %50 ], [ %47, %46 ]
-  %54 = getelementptr inbounds i8, ptr %53, i64 1
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 1
   store ptr %54, ptr %2, align 8
   store i8 58, ptr %53, align 1
   %55 = ptrtoint ptr %44 to i64
@@ -408,7 +408,7 @@ sub_0:                                            ; preds = %sub_0.lr.ph, %71
 
 68:                                               ; preds = %66, %62
   %69 = phi ptr [ %.pre39, %66 ], [ %63, %62 ]
-  %70 = getelementptr inbounds i8, ptr %69, i64 1
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 1
   store ptr %70, ptr %2, align 8
   store i8 10, ptr %69, align 1
   br label %71

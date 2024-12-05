@@ -297,7 +297,7 @@ entry:
 switch.lookup:                                    ; preds = %entry
   %2 = lshr i8 %0, 5
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds [6 x i32], ptr @switch.table.scsi_cdb_length, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table.scsi_cdb_length, i64 0, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %sw.epilog
 
@@ -373,16 +373,16 @@ entry:
   br i1 %fixed_sense, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %buf.13.gep9.sroa_idx = getelementptr inbounds i8, ptr %buf, i64 13
-  %buf.7.buf.7.buf.7.buf.7.arrayidx2.sroa_idx = getelementptr inbounds i8, ptr %buf, i64 7
+  %buf.13.gep9.sroa_idx = getelementptr inbounds nuw i8, ptr %buf, i64 13
+  %buf.7.buf.7.buf.7.buf.7.arrayidx2.sroa_idx = getelementptr inbounds nuw i8, ptr %buf, i64 7
   store i8 10, ptr %buf.7.buf.7.buf.7.buf.7.arrayidx2.sroa_idx, align 1
-  %buf.12.buf.12.buf.12.buf.12.arrayidx3.sroa_idx = getelementptr inbounds i8, ptr %buf, i64 12
+  %buf.12.buf.12.buf.12.buf.12.arrayidx3.sroa_idx = getelementptr inbounds nuw i8, ptr %buf, i64 12
   store i8 %sense.sroa.3.0.extract.trunc, ptr %buf.12.buf.12.buf.12.buf.12.arrayidx3.sroa_idx, align 4
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %buf.3.gep.sroa_idx = getelementptr inbounds i8, ptr %buf, i64 3
-  %buf.1.buf.1.buf.1.buf.1.arrayidx7.sroa_idx = getelementptr inbounds i8, ptr %buf, i64 1
+  %buf.3.gep.sroa_idx = getelementptr inbounds nuw i8, ptr %buf, i64 3
+  %buf.1.buf.1.buf.1.buf.1.arrayidx7.sroa_idx = getelementptr inbounds nuw i8, ptr %buf, i64 1
   store i8 %sense.sroa.0.0.extract.trunc, ptr %buf.1.buf.1.buf.1.buf.1.arrayidx7.sroa_idx, align 1
   br label %if.end
 
@@ -395,7 +395,7 @@ if.end:                                           ; preds = %if.else, %if.then
   %sense.sroa.5.0.extract.trunc = trunc nuw i24 %sense.sroa.5.0.extract.shift to i8
   store i8 %sense.sroa.5.0.extract.trunc, ptr %.sink8.sroa.phi, align 1
   store i8 %.sink, ptr %buf, align 16
-  %buf.2..sroa_idx = getelementptr inbounds i8, ptr %buf, i64 2
+  %buf.2..sroa_idx = getelementptr inbounds nuw i8, ptr %buf, i64 2
   store i8 %sense.sroa.3.0.extract.trunc.sink, ptr %buf.2..sroa_idx, align 2
   %cond = tail call i64 @llvm.umin.i64(i64 %len.0, i64 %size)
   %conv13 = trunc nuw nsw i64 %cond to i32
@@ -415,21 +415,21 @@ entry:
   %sense.sroa.5.0.extract.shift.i = lshr i24 %sense.coerce, 16
   %sense.sroa.5.0.extract.trunc.i = trunc nuw i24 %sense.sroa.5.0.extract.shift.i to i8
   store i8 112, ptr %buf, align 1
-  %buf.i.sroa.5.0.buf.sroa_idx = getelementptr inbounds i8, ptr %buf, i64 1
+  %buf.i.sroa.5.0.buf.sroa_idx = getelementptr inbounds nuw i8, ptr %buf, i64 1
   store i8 0, ptr %buf.i.sroa.5.0.buf.sroa_idx, align 1
-  %buf.i.sroa.51.0.buf.sroa_idx = getelementptr inbounds i8, ptr %buf, i64 2
+  %buf.i.sroa.51.0.buf.sroa_idx = getelementptr inbounds nuw i8, ptr %buf, i64 2
   store i8 %sense.sroa.0.0.extract.trunc.i, ptr %buf.i.sroa.51.0.buf.sroa_idx, align 1
-  %buf.i.sroa.6.0.buf.sroa_idx = getelementptr inbounds i8, ptr %buf, i64 3
+  %buf.i.sroa.6.0.buf.sroa_idx = getelementptr inbounds nuw i8, ptr %buf, i64 3
   store i32 0, ptr %buf.i.sroa.6.0.buf.sroa_idx, align 1
-  %buf.i.sroa.62.0.buf.sroa_idx = getelementptr inbounds i8, ptr %buf, i64 7
+  %buf.i.sroa.62.0.buf.sroa_idx = getelementptr inbounds nuw i8, ptr %buf, i64 7
   store i8 10, ptr %buf.i.sroa.62.0.buf.sroa_idx, align 1
-  %buf.i.sroa.7.0.buf.sroa_idx = getelementptr inbounds i8, ptr %buf, i64 8
+  %buf.i.sroa.7.0.buf.sroa_idx = getelementptr inbounds nuw i8, ptr %buf, i64 8
   store i32 0, ptr %buf.i.sroa.7.0.buf.sroa_idx, align 1
-  %buf.i.sroa.73.0.buf.sroa_idx = getelementptr inbounds i8, ptr %buf, i64 12
+  %buf.i.sroa.73.0.buf.sroa_idx = getelementptr inbounds nuw i8, ptr %buf, i64 12
   store i8 %sense.sroa.3.0.extract.trunc.i, ptr %buf.i.sroa.73.0.buf.sroa_idx, align 1
-  %buf.i.sroa.8.0.buf.sroa_idx = getelementptr inbounds i8, ptr %buf, i64 13
+  %buf.i.sroa.8.0.buf.sroa_idx = getelementptr inbounds nuw i8, ptr %buf, i64 13
   store i8 %sense.sroa.5.0.extract.trunc.i, ptr %buf.i.sroa.8.0.buf.sroa_idx, align 1
-  %buf.i.sroa.9.0.buf.sroa_idx = getelementptr inbounds i8, ptr %buf, i64 14
+  %buf.i.sroa.9.0.buf.sroa_idx = getelementptr inbounds nuw i8, ptr %buf, i64 14
   store i32 0, ptr %buf.i.sroa.9.0.buf.sroa_idx, align 1
   ret i32 18
 }
@@ -440,20 +440,20 @@ entry:
   %buf.i19 = alloca [18 x i8], align 16
   %buf.i = alloca [18 x i8], align 16
   %cmp = icmp eq i32 %in_len, 0
-  %buf.i.13.buf.i.13.buf.i.13.gep33.sroa_idx = getelementptr inbounds i8, ptr %buf.i, i64 13
-  %buf.i19.3.buf.i19.3.buf.i19.3.gep.sroa_idx = getelementptr inbounds i8, ptr %buf.i19, i64 3
-  %buf.i19.13.buf.i19.13.buf.i19.13.gep34.sroa_idx = getelementptr inbounds i8, ptr %buf.i19, i64 13
+  %buf.i.13.buf.i.13.buf.i.13.gep33.sroa_idx = getelementptr inbounds nuw i8, ptr %buf.i, i64 13
+  %buf.i19.3.buf.i19.3.buf.i19.3.gep.sroa_idx = getelementptr inbounds nuw i8, ptr %buf.i19, i64 3
+  %buf.i19.13.buf.i19.13.buf.i19.13.gep34.sroa_idx = getelementptr inbounds nuw i8, ptr %buf.i19, i64 13
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %buf.i.3.buf.i.3.buf.i.3.gep.sroa_idx = getelementptr inbounds i8, ptr %buf.i, i64 3
+  %buf.i.3.buf.i.3.buf.i.3.gep.sroa_idx = getelementptr inbounds nuw i8, ptr %buf.i, i64 3
   %conv = sext i32 %len to i64
   call void @llvm.lifetime.start.p0(i64 18, ptr nonnull %buf.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(18) %buf.i, i8 0, i64 18, i1 false)
   br i1 %fixed, label %if.then.i, label %scsi_build_sense_buf.exit
 
 if.then.i:                                        ; preds = %if.then
-  %buf.i.7.buf.i.7.buf.i.7.buf.7.buf.7.buf.7.arrayidx2.sroa_idx = getelementptr inbounds i8, ptr %buf.i, i64 7
+  %buf.i.7.buf.i.7.buf.i.7.buf.7.buf.7.buf.7.arrayidx2.sroa_idx = getelementptr inbounds nuw i8, ptr %buf.i, i64 7
   store i8 10, ptr %buf.i.7.buf.i.7.buf.i.7.buf.7.buf.7.buf.7.arrayidx2.sroa_idx, align 1
   br label %scsi_build_sense_buf.exit
 
@@ -463,7 +463,7 @@ scsi_build_sense_buf.exit:                        ; preds = %if.then, %if.then.i
   %len.0.i = phi i64 [ 18, %if.then.i ], [ 8, %if.then ]
   store i8 0, ptr %.sink8.i.sroa.phi, align 1
   store i8 %.sink.i, ptr %buf.i, align 16
-  %buf.i.2.buf.i.2.buf.i.2..sroa_idx = getelementptr inbounds i8, ptr %buf.i, i64 2
+  %buf.i.2.buf.i.2.buf.i.2..sroa_idx = getelementptr inbounds nuw i8, ptr %buf.i, i64 2
   store i8 0, ptr %buf.i.2.buf.i.2.buf.i.2..sroa_idx, align 2
   %cond.i = tail call i64 @llvm.umin.i64(i64 %len.0.i, i64 %conv)
   %conv13.i = trunc nuw nsw i64 %cond.i to i32
@@ -526,14 +526,14 @@ scsi_parse_sense_buf.exit:                        ; preds = %if.then3.i, %if.els
   br i1 %fixed, label %if.then.i29, label %if.else.i20
 
 if.then.i29:                                      ; preds = %scsi_parse_sense_buf.exit
-  %buf.i19.7.buf.i19.7.buf.i19.7.buf.7.buf.7.buf.7.arrayidx2.sroa_idx = getelementptr inbounds i8, ptr %buf.i19, i64 7
+  %buf.i19.7.buf.i19.7.buf.i19.7.buf.7.buf.7.buf.7.arrayidx2.sroa_idx = getelementptr inbounds nuw i8, ptr %buf.i19, i64 7
   store i8 10, ptr %buf.i19.7.buf.i19.7.buf.i19.7.buf.7.buf.7.buf.7.arrayidx2.sroa_idx, align 1
-  %buf.i19.12.buf.i19.12.buf.i19.12.buf.12.buf.12.buf.12.arrayidx3.sroa_idx = getelementptr inbounds i8, ptr %buf.i19, i64 12
+  %buf.i19.12.buf.i19.12.buf.i19.12.buf.12.buf.12.buf.12.arrayidx3.sroa_idx = getelementptr inbounds nuw i8, ptr %buf.i19, i64 12
   store i8 %retval.sroa.4.0.i, ptr %buf.i19.12.buf.i19.12.buf.i19.12.buf.12.buf.12.buf.12.arrayidx3.sroa_idx, align 4
   br label %scsi_build_sense_buf.exit32
 
 if.else.i20:                                      ; preds = %scsi_parse_sense_buf.exit
-  %buf.i19.1.buf.i19.1.buf.i19.1.buf.1.buf.1.buf.1.arrayidx7.sroa_idx = getelementptr inbounds i8, ptr %buf.i19, i64 1
+  %buf.i19.1.buf.i19.1.buf.i19.1.buf.1.buf.1.buf.1.arrayidx7.sroa_idx = getelementptr inbounds nuw i8, ptr %buf.i19, i64 1
   store i8 %retval.sroa.0.0.i, ptr %buf.i19.1.buf.i19.1.buf.i19.1.buf.1.buf.1.buf.1.arrayidx7.sroa_idx, align 1
   br label %scsi_build_sense_buf.exit32
 
@@ -544,7 +544,7 @@ scsi_build_sense_buf.exit32:                      ; preds = %if.then.i29, %if.el
   %len.0.i25 = phi i64 [ 8, %if.else.i20 ], [ 18, %if.then.i29 ]
   store i8 %retval.sroa.5.0.i, ptr %.sink8.i23.sroa.phi, align 1
   store i8 %.sink.i24, ptr %buf.i19, align 16
-  %buf.i19.2.buf.i19.2.buf.i19.2..sroa_idx = getelementptr inbounds i8, ptr %buf.i19, i64 2
+  %buf.i19.2.buf.i19.2.buf.i19.2..sroa_idx = getelementptr inbounds nuw i8, ptr %buf.i19, i64 2
   store i8 %sense.sroa.3.0.extract.trunc.sink.i, ptr %buf.i19.2.buf.i19.2.buf.i19.2..sroa_idx, align 2
   %cond.i27 = tail call i64 @llvm.umin.i64(i64 %len.0.i25, i64 %conv24)
   %conv13.i28 = trunc nuw nsw i64 %cond.i27 to i32

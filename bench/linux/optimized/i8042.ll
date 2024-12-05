@@ -716,7 +716,7 @@ define internal i32 @i8042_init() #3 section ".init.text" align 16 {
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @i8042_set_reset(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
   %3 = alloca i8, align 1
-  %4 = getelementptr inbounds i8, ptr %1, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %5 = load ptr, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #10
   %6 = icmp eq ptr %0, null
@@ -774,7 +774,7 @@ define internal i32 @i8042_probe(ptr nocapture readnone %0) #0 align 16 {
 11:                                               ; preds = %8, %1
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5) #10
   store i16 0, ptr %5, align 2, !annotation !16
-  %12 = getelementptr inbounds i8, ptr %5, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 1
   br label %13
 
 13:                                               ; preds = %34, %11
@@ -1157,28 +1157,28 @@ define internal i32 @i8042_probe(ptr nocapture readnone %0) #0 align 16 {
   br i1 %215, label %i8042_create_aux_port.exit, label %i8042_create_aux_port.exit.thread
 
 i8042_create_aux_port.exit.thread:                ; preds = %212
-  %216 = getelementptr inbounds i8, ptr %214, i64 201
+  %216 = getelementptr inbounds nuw i8, ptr %214, i64 201
   store i8 1, ptr %216, align 1
-  %217 = getelementptr inbounds i8, ptr %214, i64 216
+  %217 = getelementptr inbounds nuw i8, ptr %214, i64 216
   store ptr @i8042_aux_write, ptr %217, align 8
-  %218 = getelementptr inbounds i8, ptr %214, i64 240
+  %218 = getelementptr inbounds nuw i8, ptr %214, i64 240
   store ptr @i8042_start, ptr %218, align 8
-  %219 = getelementptr inbounds i8, ptr %214, i64 248
+  %219 = getelementptr inbounds nuw i8, ptr %214, i64 248
   store ptr @i8042_stop, ptr %219, align 8
-  %220 = getelementptr inbounds i8, ptr %214, i64 1088
+  %220 = getelementptr inbounds nuw i8, ptr %214, i64 1088
   store ptr @i8042_mutex, ptr %220, align 8
   store ptr getelementptr inbounds (i8, ptr @i8042_ports, i64 16), ptr %214, align 8
   %221 = load ptr, ptr @i8042_platform_device, align 8
-  %222 = getelementptr inbounds i8, ptr %221, i64 16
-  %223 = getelementptr inbounds i8, ptr %214, i64 408
+  %222 = getelementptr inbounds nuw i8, ptr %221, i64 16
+  %223 = getelementptr inbounds nuw i8, ptr %214, i64 408
   store ptr %222, ptr %223, align 8
-  %224 = getelementptr inbounds i8, ptr %214, i64 8
-  %225 = getelementptr inbounds i8, ptr %214, i64 40
-  %226 = call i64 @strscpy(ptr noundef %224, ptr noundef nonnull @.str.27, i64 noundef 32) #10
-  %227 = call i64 @strscpy(ptr noundef %225, ptr noundef nonnull @.str.28, i64 noundef 32) #10
-  %228 = getelementptr inbounds i8, ptr %214, i64 72
-  %229 = call i64 @strscpy(ptr noundef %228, ptr noundef nonnull @i8042_aux_firmware_id, i64 noundef 128) #10
-  %230 = getelementptr inbounds i8, ptr %214, i64 232
+  %224 = getelementptr inbounds nuw i8, ptr %214, i64 8
+  %225 = getelementptr inbounds nuw i8, ptr %214, i64 40
+  %226 = call i64 @strscpy(ptr noundef nonnull %224, ptr noundef nonnull @.str.27, i64 noundef 32) #10
+  %227 = call i64 @strscpy(ptr noundef nonnull %225, ptr noundef nonnull @.str.28, i64 noundef 32) #10
+  %228 = getelementptr inbounds nuw i8, ptr %214, i64 72
+  %229 = call i64 @strscpy(ptr noundef nonnull %228, ptr noundef nonnull @i8042_aux_firmware_id, i64 noundef 128) #10
+  %230 = getelementptr inbounds nuw i8, ptr %214, i64 232
   store ptr @i8042_port_close, ptr %230, align 8
   store ptr %214, ptr getelementptr inbounds (i8, ptr @i8042_ports, i64 16), align 16
   store i8 -1, ptr getelementptr inbounds (i8, ptr @i8042_ports, i64 30), align 2
@@ -1260,35 +1260,35 @@ i8042_create_aux_port.exit:                       ; preds = %235, %212, %248, %.
   %267 = load i8, ptr @i8042_direct, align 1, !range !5, !noundef !6
   %268 = icmp eq i8 %267, 0
   %269 = select i1 %268, i8 6, i8 1
-  %270 = getelementptr inbounds i8, ptr %264, i64 201
+  %270 = getelementptr inbounds nuw i8, ptr %264, i64 201
   store i8 %269, ptr %270, align 1
   %271 = load i8, ptr @i8042_dumbkbd, align 1, !range !5, !noundef !6
   %272 = icmp eq i8 %271, 0
   %273 = select i1 %272, ptr @i8042_kbd_write, ptr null
-  %274 = getelementptr inbounds i8, ptr %264, i64 216
+  %274 = getelementptr inbounds nuw i8, ptr %264, i64 216
   store ptr %273, ptr %274, align 8
-  %275 = getelementptr inbounds i8, ptr %264, i64 240
+  %275 = getelementptr inbounds nuw i8, ptr %264, i64 240
   store ptr @i8042_start, ptr %275, align 8
-  %276 = getelementptr inbounds i8, ptr %264, i64 248
+  %276 = getelementptr inbounds nuw i8, ptr %264, i64 248
   store ptr @i8042_stop, ptr %276, align 8
-  %277 = getelementptr inbounds i8, ptr %264, i64 232
+  %277 = getelementptr inbounds nuw i8, ptr %264, i64 232
   store ptr @i8042_port_close, ptr %277, align 8
-  %278 = getelementptr inbounds i8, ptr %264, i64 1088
+  %278 = getelementptr inbounds nuw i8, ptr %264, i64 1088
   store ptr @i8042_mutex, ptr %278, align 8
   store ptr @i8042_ports, ptr %264, align 8
   %279 = load ptr, ptr @i8042_platform_device, align 8
-  %280 = getelementptr inbounds i8, ptr %279, i64 16
-  %281 = getelementptr inbounds i8, ptr %264, i64 344
-  %282 = getelementptr inbounds i8, ptr %264, i64 408
+  %280 = getelementptr inbounds nuw i8, ptr %279, i64 16
+  %281 = getelementptr inbounds nuw i8, ptr %264, i64 344
+  %282 = getelementptr inbounds nuw i8, ptr %264, i64 408
   store ptr %280, ptr %282, align 8
-  %283 = getelementptr inbounds i8, ptr %264, i64 8
-  %284 = call i64 @strscpy(ptr noundef %283, ptr noundef nonnull @.str.46, i64 noundef 32) #10
-  %285 = getelementptr inbounds i8, ptr %264, i64 40
-  %286 = call i64 @strscpy(ptr noundef %285, ptr noundef nonnull @.str.47, i64 noundef 32) #10
-  %287 = getelementptr inbounds i8, ptr %264, i64 72
-  %288 = call i64 @strscpy(ptr noundef %287, ptr noundef nonnull @i8042_kbd_firmware_id, i64 noundef 128) #10
+  %283 = getelementptr inbounds nuw i8, ptr %264, i64 8
+  %284 = call i64 @strscpy(ptr noundef nonnull %283, ptr noundef nonnull @.str.46, i64 noundef 32) #10
+  %285 = getelementptr inbounds nuw i8, ptr %264, i64 40
+  %286 = call i64 @strscpy(ptr noundef nonnull %285, ptr noundef nonnull @.str.47, i64 noundef 32) #10
+  %287 = getelementptr inbounds nuw i8, ptr %264, i64 72
+  %288 = call i64 @strscpy(ptr noundef nonnull %287, ptr noundef nonnull @i8042_kbd_firmware_id, i64 noundef 128) #10
   %289 = load ptr, ptr @i8042_kbd_fwnode, align 8
-  call void @set_primary_fwnode(ptr noundef %281, ptr noundef %289) #10
+  call void @set_primary_fwnode(ptr noundef nonnull %281, ptr noundef %289) #10
   store ptr %264, ptr @i8042_ports, align 16
   %290 = load i32, ptr @i8042_kbd_irq, align 4
   store i32 %290, ptr getelementptr inbounds (i8, ptr @i8042_ports, i64 8), align 8
@@ -1349,14 +1349,14 @@ i8042_create_aux_port.exit:                       ; preds = %235, %212, %248, %.
   br i1 %319, label %329, label %320
 
 320:                                              ; preds = %315
-  %321 = getelementptr inbounds i8, ptr %318, i64 8
+  %321 = getelementptr inbounds nuw i8, ptr %318, i64 8
   %322 = load i32, ptr @i8042_data_reg, align 4
   %323 = sext i32 %322 to i64
   %324 = load i32, ptr @i8042_command_reg, align 4
   %325 = sext i32 %324 to i64
-  %326 = getelementptr inbounds i8, ptr %317, i64 8
+  %326 = getelementptr inbounds nuw i8, ptr %317, i64 8
   %327 = load i32, ptr %326, align 8
-  %328 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.49, ptr noundef %321, i64 noundef %323, i64 noundef %325, i32 noundef %327) #11
+  %328 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.49, ptr noundef nonnull %321, i64 noundef %323, i64 noundef %325, i32 noundef %327) #11
   call void @__serio_register_port(ptr noundef nonnull %318, ptr noundef null) #10
   br label %329
 
@@ -1652,49 +1652,49 @@ define internal fastcc noundef range(i32 -12, 1) i32 @i8042_create_aux_port(i32 
 
 9:                                                ; preds = %1
   %10 = icmp slt i32 %0, 0
-  %11 = getelementptr inbounds i8, ptr %7, i64 201
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 201
   store i8 1, ptr %11, align 1
-  %12 = getelementptr inbounds i8, ptr %7, i64 216
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 216
   store ptr @i8042_aux_write, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %7, i64 240
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 240
   store ptr @i8042_start, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %7, i64 248
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 248
   store ptr @i8042_stop, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %7, i64 1088
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 1088
   store ptr @i8042_mutex, ptr %15, align 8
   store ptr %5, ptr %7, align 8
   %16 = load ptr, ptr @i8042_platform_device, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 16
-  %18 = getelementptr inbounds i8, ptr %7, i64 408
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 408
   store ptr %17, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %7, i64 8
-  %20 = getelementptr inbounds i8, ptr %7, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 40
   br i1 %10, label %21, label %27
 
 21:                                               ; preds = %9
-  %22 = tail call i64 @strscpy(ptr noundef %19, ptr noundef nonnull @.str.27, i64 noundef 32) #10
-  %23 = tail call i64 @strscpy(ptr noundef %20, ptr noundef nonnull @.str.28, i64 noundef 32) #10
-  %24 = getelementptr inbounds i8, ptr %7, i64 72
-  %25 = tail call i64 @strscpy(ptr noundef %24, ptr noundef nonnull @i8042_aux_firmware_id, i64 noundef 128) #10
-  %26 = getelementptr inbounds i8, ptr %7, i64 232
+  %22 = tail call i64 @strscpy(ptr noundef nonnull %19, ptr noundef nonnull @.str.27, i64 noundef 32) #10
+  %23 = tail call i64 @strscpy(ptr noundef nonnull %20, ptr noundef nonnull @.str.28, i64 noundef 32) #10
+  %24 = getelementptr inbounds nuw i8, ptr %7, i64 72
+  %25 = tail call i64 @strscpy(ptr noundef nonnull %24, ptr noundef nonnull @i8042_aux_firmware_id, i64 noundef 128) #10
+  %26 = getelementptr inbounds nuw i8, ptr %7, i64 232
   store ptr @i8042_port_close, ptr %26, align 8
   br label %33
 
 27:                                               ; preds = %9
-  %28 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %19, i64 noundef 32, ptr noundef nonnull @.str.29, i32 noundef %0) #10
+  %28 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %19, i64 noundef 32, ptr noundef nonnull @.str.29, i32 noundef %0) #10
   %29 = add nuw nsw i32 %0, 1
-  %30 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %20, i64 noundef 32, ptr noundef nonnull @.str.30, i32 noundef %29) #10
-  %31 = getelementptr inbounds i8, ptr %7, i64 72
-  %32 = tail call i64 @strscpy(ptr noundef %31, ptr noundef nonnull @i8042_aux_firmware_id, i64 noundef 128) #10
+  %30 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %20, i64 noundef 32, ptr noundef nonnull @.str.30, i32 noundef %29) #10
+  %31 = getelementptr inbounds nuw i8, ptr %7, i64 72
+  %32 = tail call i64 @strscpy(ptr noundef nonnull %31, ptr noundef nonnull @i8042_aux_firmware_id, i64 noundef 128) #10
   br label %33
 
 33:                                               ; preds = %27, %21
   store ptr %7, ptr %5, align 16
   %34 = trunc i32 %0 to i8
-  %35 = getelementptr inbounds i8, ptr %5, i64 14
+  %35 = getelementptr inbounds nuw i8, ptr %5, i64 14
   store i8 %34, ptr %35, align 2
   %36 = load i32, ptr @i8042_aux_irq, align 4
-  %37 = getelementptr inbounds i8, ptr %5, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %36, ptr %37, align 8
   br label %38
 
@@ -1976,7 +1976,7 @@ define internal range(i32 0, 2) i32 @i8042_interrupt(i32 noundef %0, ptr nocaptu
   %77 = phi i8 [ %55, %52 ], [ %6, %60 ]
   %78 = zext nneg i32 %75 to i64
   %79 = getelementptr [6 x %struct.i8042_port], ptr @i8042_ports, i64 0, i64 %78
-  %80 = getelementptr inbounds i8, ptr %79, i64 12
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 12
   %81 = load i8, ptr %80, align 4, !range !5, !noundef !6
   %82 = icmp eq i8 %81, 0
   br i1 %82, label %85, label %83
@@ -1992,7 +1992,7 @@ define internal range(i32 0, 2) i32 @i8042_interrupt(i32 noundef %0, ptr nocaptu
   br i1 %88, label %119, label %89
 
 89:                                               ; preds = %85
-  %90 = getelementptr inbounds i8, ptr %79, i64 13
+  %90 = getelementptr inbounds nuw i8, ptr %79, i64 13
   %91 = load i8, ptr %90, align 1, !range !5, !noundef !6
   %92 = icmp ne i8 %91, 0
   %93 = load i8, ptr @i8042_unmask_kbd_data, align 1, !range !5
@@ -2331,7 +2331,7 @@ define internal range(i32 -1, 1) i32 @i8042_aux_write(ptr nocapture noundef read
 
 5:                                                ; preds = %2
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 14
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 14
   %8 = load i8, ptr %7, align 2
   %9 = icmp eq i8 %8, -1
   %10 = sext i8 %8 to i32
@@ -2350,8 +2350,8 @@ define internal range(i32 -1, 1) i32 @i8042_aux_write(ptr nocapture noundef read
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @i8042_start(ptr noundef %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 344
-  tail call void @device_set_wakeup_capable(ptr noundef %3, i1 noundef zeroext true) #10
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 344
+  tail call void @device_set_wakeup_capable(ptr noundef nonnull %3, i1 noundef zeroext true) #10
   %4 = tail call zeroext i1 @pm_suspend_default_s2idle() #10
   %5 = load ptr, ptr @i8042_ports, align 16
   %6 = icmp eq ptr %5, %0
@@ -2359,12 +2359,12 @@ define internal noundef i32 @i8042_start(ptr noundef %0) #0 align 16 {
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %1
-  %9 = tail call i32 @device_set_wakeup_enable(ptr noundef %3, i1 noundef zeroext true) #10
+  %9 = tail call i32 @device_set_wakeup_enable(ptr noundef nonnull %3, i1 noundef zeroext true) #10
   br label %10
 
 10:                                               ; preds = %8, %1
   tail call void @_raw_spin_lock_irq(ptr noundef nonnull @i8042_lock) #10
-  %11 = getelementptr inbounds i8, ptr %2, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i8 1, ptr %11, align 4
   tail call void @_raw_spin_unlock_irq(ptr noundef nonnull @i8042_lock) #10
   ret i32 0
@@ -2374,7 +2374,7 @@ define internal noundef i32 @i8042_start(ptr noundef %0) #0 align 16 {
 define internal void @i8042_stop(ptr nocapture noundef readonly %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   tail call void @_raw_spin_lock_irq(ptr noundef nonnull @i8042_lock) #10
-  %3 = getelementptr inbounds i8, ptr %2, i64 12
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i8 0, ptr %3, align 4
   store ptr null, ptr %2, align 8
   tail call void @_raw_spin_unlock_irq(ptr noundef nonnull @i8042_lock) #10
@@ -2502,20 +2502,20 @@ define internal noundef i32 @i8042_pm_suspend(ptr nocapture readnone %0) #0 alig
   br i1 %10, label %24, label %11
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %9, i64 564
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 564
   %13 = load i16, ptr %12, align 4
   %14 = and i16 %13, 1
   %15 = icmp eq i16 %14, 0
   br i1 %15, label %24, label %16
 
 16:                                               ; preds = %11
-  %17 = getelementptr inbounds i8, ptr %9, i64 624
+  %17 = getelementptr inbounds nuw i8, ptr %9, i64 624
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
   br i1 %19, label %24, label %20
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %8, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %22 = load i32, ptr %21, align 8
   %23 = tail call i32 @irq_set_irq_wake(i32 noundef %22, i32 noundef 1) #10
   br label %24
@@ -2541,20 +2541,20 @@ define internal noundef range(i32 -19, 1) i32 @i8042_pm_resume(ptr nocapture rea
   br i1 %6, label %20, label %7
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %5, i64 564
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 564
   %9 = load i16, ptr %8, align 4
   %10 = and i16 %9, 1
   %11 = icmp eq i16 %10, 0
   br i1 %11, label %20, label %12
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %5, i64 624
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 624
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %20, label %16
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %4, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %18 = load i32, ptr %17, align 8
   %19 = tail call i32 @irq_set_irq_wake(i32 noundef %18, i32 noundef 0) #10
   br label %20
@@ -2812,7 +2812,7 @@ define internal noundef i32 @i8042_pnp_kbd_probe(ptr noundef %0, ptr noundef %1)
 8:                                                ; preds = %5
   %9 = load i64, ptr %6, align 8
   %10 = icmp ne i64 %9, 0
-  %11 = getelementptr inbounds i8, ptr %6, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %12 = load i64, ptr %11, align 8
   %13 = icmp ne i64 %12, 0
   %or.cond.not13 = select i1 %10, i1 true, i1 %13
@@ -2848,7 +2848,7 @@ define internal noundef i32 @i8042_pnp_kbd_probe(ptr noundef %0, ptr noundef %1)
 29:                                               ; preds = %26
   %30 = load i64, ptr %27, align 8
   %31 = icmp ne i64 %30, 0
-  %32 = getelementptr inbounds i8, ptr %27, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %33 = load i64, ptr %32, align 8
   %34 = icmp ne i64 %33, 0
   %or.cond10.not15 = select i1 %31, i1 true, i1 %34
@@ -2893,18 +2893,18 @@ define internal noundef i32 @i8042_pnp_kbd_probe(ptr noundef %0, ptr noundef %1)
 
 55:                                               ; preds = %53, %44
   %56 = tail call i64 @strscpy(ptr noundef nonnull @i8042_pnp_kbd_name, ptr noundef %1, i64 noundef 32) #10
-  %57 = getelementptr inbounds i8, ptr %0, i64 896
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 896
   %58 = load i8, ptr %57, align 1
   %59 = icmp eq i8 %58, 0
   br i1 %59, label %63, label %60
 
 60:                                               ; preds = %55
   %61 = tail call i64 @strlcat(ptr noundef nonnull @i8042_pnp_kbd_name, ptr noundef nonnull @.str.57, i64 noundef 32) #10
-  %62 = tail call i64 @strlcat(ptr noundef nonnull @i8042_pnp_kbd_name, ptr noundef %57, i64 noundef 32) #10
+  %62 = tail call i64 @strlcat(ptr noundef nonnull @i8042_pnp_kbd_name, ptr noundef nonnull %57, i64 noundef 32) #10
   br label %63
 
 63:                                               ; preds = %60, %55
-  %64 = getelementptr inbounds i8, ptr %0, i64 840
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 840
   %65 = load ptr, ptr %64, align 8
   %66 = tail call i64 @strscpy(ptr noundef nonnull @i8042_kbd_firmware_id, ptr noundef nonnull @.str.58, i64 noundef 128) #10
   %67 = icmp eq ptr %65, null
@@ -2914,7 +2914,7 @@ define internal noundef i32 @i8042_pnp_kbd_probe(ptr noundef %0, ptr noundef %1)
   %68 = phi ptr [ %72, %.preheader ], [ %65, %63 ]
   %69 = tail call i64 @strlcat(ptr noundef nonnull @i8042_kbd_firmware_id, ptr noundef nonnull @.str.59, i64 noundef 128) #10
   %70 = tail call i64 @strlcat(ptr noundef nonnull @i8042_kbd_firmware_id, ptr noundef nonnull %68, i64 noundef 128) #10
-  %71 = getelementptr inbounds i8, ptr %68, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %72 = load ptr, ptr %71, align 8
   %73 = icmp eq ptr %72, null
   br i1 %73, label %.loopexit, label %.preheader, !llvm.loop !36
@@ -2952,7 +2952,7 @@ define internal noundef i32 @i8042_pnp_aux_probe(ptr noundef %0, ptr noundef %1)
 8:                                                ; preds = %5
   %9 = load i64, ptr %6, align 8
   %10 = icmp ne i64 %9, 0
-  %11 = getelementptr inbounds i8, ptr %6, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %12 = load i64, ptr %11, align 8
   %13 = icmp ne i64 %12, 0
   %or.cond.not13 = select i1 %10, i1 true, i1 %13
@@ -2988,7 +2988,7 @@ define internal noundef i32 @i8042_pnp_aux_probe(ptr noundef %0, ptr noundef %1)
 29:                                               ; preds = %26
   %30 = load i64, ptr %27, align 8
   %31 = icmp ne i64 %30, 0
-  %32 = getelementptr inbounds i8, ptr %27, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %33 = load i64, ptr %32, align 8
   %34 = icmp ne i64 %33, 0
   %or.cond10.not15 = select i1 %31, i1 true, i1 %34
@@ -3033,18 +3033,18 @@ define internal noundef i32 @i8042_pnp_aux_probe(ptr noundef %0, ptr noundef %1)
 
 55:                                               ; preds = %53, %44
   %56 = tail call i64 @strscpy(ptr noundef nonnull @i8042_pnp_aux_name, ptr noundef %1, i64 noundef 32) #10
-  %57 = getelementptr inbounds i8, ptr %0, i64 896
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 896
   %58 = load i8, ptr %57, align 1
   %59 = icmp eq i8 %58, 0
   br i1 %59, label %63, label %60
 
 60:                                               ; preds = %55
   %61 = tail call i64 @strlcat(ptr noundef nonnull @i8042_pnp_aux_name, ptr noundef nonnull @.str.57, i64 noundef 32) #10
-  %62 = tail call i64 @strlcat(ptr noundef nonnull @i8042_pnp_aux_name, ptr noundef %57, i64 noundef 32) #10
+  %62 = tail call i64 @strlcat(ptr noundef nonnull @i8042_pnp_aux_name, ptr noundef nonnull %57, i64 noundef 32) #10
   br label %63
 
 63:                                               ; preds = %60, %55
-  %64 = getelementptr inbounds i8, ptr %0, i64 840
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 840
   %65 = load ptr, ptr %64, align 8
   %66 = tail call i64 @strscpy(ptr noundef nonnull @i8042_aux_firmware_id, ptr noundef nonnull @.str.58, i64 noundef 128) #10
   %67 = icmp eq ptr %65, null
@@ -3054,7 +3054,7 @@ define internal noundef i32 @i8042_pnp_aux_probe(ptr noundef %0, ptr noundef %1)
   %68 = phi ptr [ %72, %.preheader ], [ %65, %63 ]
   %69 = tail call i64 @strlcat(ptr noundef nonnull @i8042_aux_firmware_id, ptr noundef nonnull @.str.59, i64 noundef 128) #10
   %70 = tail call i64 @strlcat(ptr noundef nonnull @i8042_aux_firmware_id, ptr noundef nonnull %68, i64 noundef 128) #10
-  %71 = getelementptr inbounds i8, ptr %68, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %72 = load ptr, ptr %71, align 8
   %73 = icmp eq ptr %72, null
   br i1 %73, label %.loopexit, label %.preheader, !llvm.loop !36
@@ -3085,7 +3085,7 @@ define internal noundef i32 @i8042_kbd_bind_notifier(ptr nocapture readnone %0, 
 
 10:                                               ; preds = %9, %8
   %11 = phi i8 [ 0, %9 ], [ 1, %8 ]
-  %12 = getelementptr inbounds i8, ptr %5, i64 13
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 13
   store i8 %11, ptr %12, align 1
   br label %13
 
@@ -3233,7 +3233,7 @@ define internal fastcc void @i8042_check_quirks() unnamed_addr #3 section ".init
   br i1 %2, label %67, label %3
 
 3:                                                ; preds = %0
-  %4 = getelementptr inbounds i8, ptr %1, i64 336
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 336
   %5 = load ptr, ptr %4, align 8
   %6 = ptrtoint ptr %5 to i64
   %7 = and i64 %6, 1

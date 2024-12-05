@@ -568,10 +568,10 @@ define internal void @__cxx_global_var_init.3() #6 section ".text.startup" comda
 6:                                                ; preds = %3
   store i8 1, ptr @_ZZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEvE1f, align 1, !tbaa !12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i8 0, i64 64, i1 false)
-  store i64 80, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 64), align 8, !tbaa !16
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 80), align 8, !tbaa !21
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 72), align 8, !tbaa !22
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 88), align 8, !tbaa !23
+  store i64 80, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 64), align 8, !tbaa !16
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 80), align 8, !tbaa !21
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 72), align 8, !tbaa !22
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 88), align 8, !tbaa !23
   br label %_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE14object_creatorC2Ev.exit
 
 _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE14object_creatorC2Ev.exit: ; preds = %6, %3, %0
@@ -675,7 +675,7 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
   store i32 %4, ptr %48, align 4, !tbaa !43
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store i64 ptrtoint (ptr @_ZN5boost4wave8cpplexer14include_guardsINS1_9lex_tokenINS0_4util13file_positionINS4_11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS9_EEPcEEEEEEEEE7state_0ERSH_ to i64), ptr %49, align 8, !tbaa !44
-  %.repack2.i = getelementptr inbounds i8, ptr %0, i64 168
+  %.repack2.i = getelementptr inbounds nuw i8, ptr %0, i64 168
   store i64 0, ptr %.repack2.i, align 8, !tbaa !44
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store i8 0, ptr %50, align 8, !tbaa !45
@@ -727,7 +727,7 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
 
 74:                                               ; preds = %72, %59
   %75 = phi ptr [ %.pre.i.i.i, %72 ], [ %68, %59 ]
-  %76 = getelementptr inbounds i8, ptr %75, i64 17
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 17
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr %76, ptr %77, align 8, !tbaa !55
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -844,7 +844,7 @@ define linkonce_odr hidden void @_ZN5boost4wave8cpplexer7re2clex11lex_functorIN9
 
 _ZN5boost4wave8cpplexer7re2clex5lexerIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_4util13file_positionINSE_11flex_stringIcSA_SB_NSE_9CowStringINSE_22AllocatorStringStorageIcSB_EES6_EEEEEENS1_9lex_tokenISM_EEE12set_positionERKSM_.exit: ; preds = %2, %12
   %14 = phi ptr [ %.pre.i.i.i.i, %12 ], [ %8, %2 ]
-  %15 = getelementptr inbounds i8, ptr %14, i64 17
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 17
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr %15, ptr %16, align 8, !tbaa !55
   ret void
@@ -874,7 +874,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5boost4wave8cpplexer7re2clex1
 
 _ZNK5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE5c_strEv.exit.i.i: ; preds = %12, %6
   %14 = phi ptr [ %.pre.i.i.i.i.i, %12 ], [ %8, %6 ]
-  %15 = getelementptr inbounds i8, ptr %14, i64 17
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 17
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load i64, ptr %16, align 8, !tbaa !63
   %18 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %15) #34
@@ -1099,7 +1099,7 @@ define linkonce_odr hidden noundef i32 @_ZN5boost4wave8cpplexer7re2clex5lexerIN9
   call void @llvm.va_end.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 392, ptr nonnull %6) #34
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %6)
-  %10 = getelementptr inbounds i8, ptr %6, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %11 = sext i32 %1 to i64
   %12 = getelementptr inbounds [7 x i32], ptr @_ZZN5boost4wave8cpplexer16lexing_exception14severity_levelEiE29preprocess_exception_severity, i64 0, i64 %11
   %13 = load i32, ptr %12, align 4, !tbaa !68
@@ -1232,12 +1232,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %48, %47 ]
   %72 = load ptr, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, align 8
   store ptr %72, ptr %6, align 8, !tbaa !3
-  %73 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 64), align 8
+  %73 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 64), align 8
   %74 = getelementptr i8, ptr %72, i64 -24
   %75 = load i64, ptr %74, align 8
   %76 = getelementptr inbounds i8, ptr %6, i64 %75
   store ptr %73, ptr %76, align 8, !tbaa !3
-  %77 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 72), align 8
+  %77 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 72), align 8
   store ptr %77, ptr %10, align 8, !tbaa !3
   %78 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %78, align 8, !tbaa !3
@@ -1264,16 +1264,16 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = 
   store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %78, align 8, !tbaa !3
   %88 = getelementptr inbounds nuw i8, ptr %6, i64 80
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %88) #34
-  %89 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 16), align 8
+  %89 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 16), align 8
   store ptr %89, ptr %6, align 8, !tbaa !3
-  %90 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
+  %90 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %91 = getelementptr i8, ptr %89, i64 -24
   %92 = load i64, ptr %91, align 8
   %93 = getelementptr inbounds i8, ptr %6, i64 %92
   store ptr %90, ptr %93, align 8, !tbaa !3
   %94 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 0, ptr %94, align 8, !tbaa !80
-  %95 = getelementptr inbounds i8, ptr %6, i64 128
+  %95 = getelementptr inbounds nuw i8, ptr %6, i64 128
   call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %95) #34
   call void @llvm.lifetime.end.p0(i64 392, ptr nonnull %6) #34
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #34
@@ -1383,13 +1383,13 @@ _ZNK5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcS
 
 5:                                                ; preds = %_ZNK5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcSt11char_traitsIcESaIcENS3_9CowStringINS3_22AllocatorStringStorageIcS8_EEPcEEEEEEEcvNS0_8token_idEEv.exit
   store i64 ptrtoint (ptr @_ZN5boost4wave8cpplexer14include_guardsINS1_9lex_tokenINS0_4util13file_positionINS4_11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS9_EEPcEEEEEEEEE7state_1ERSH_ to i64), ptr %0, align 8, !tbaa !44
-  %.repack6 = getelementptr inbounds i8, ptr %0, i64 8
+  %.repack6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %.repack6, align 8, !tbaa !44
   br label %_ZNK5boost4wave8cpplexer14include_guardsINS1_9lex_tokenINS0_4util13file_positionINS4_11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS9_EEPcEEEEEEEEE12is_skippableENS0_8token_idE.exit.thread
 
 6:                                                ; preds = %_ZNK5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcSt11char_traitsIcESaIcENS3_9CowStringINS3_22AllocatorStringStorageIcS8_EEPcEEEEEEEcvNS0_8token_idEEv.exit
   store i64 ptrtoint (ptr @_ZN5boost4wave8cpplexer14include_guardsINS1_9lex_tokenINS0_4util13file_positionINS4_11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS9_EEPcEEEEEEEEE8state_1aERSH_ to i64), ptr %0, align 8, !tbaa !44
-  %.repack5 = getelementptr inbounds i8, ptr %0, i64 8
+  %.repack5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %.repack5, align 8, !tbaa !44
   br label %_ZNK5boost4wave8cpplexer14include_guardsINS1_9lex_tokenINS0_4util13file_positionINS4_11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS9_EEPcEEEEEEEEE12is_skippableENS0_8token_idE.exit.thread
 
@@ -1430,7 +1430,7 @@ _ZNK5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcS
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEEaSERKSB_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %7)
   store i64 ptrtoint (ptr @_ZN5boost4wave8cpplexer14include_guardsINS1_9lex_tokenINS0_4util13file_positionINS4_11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS9_EEPcEEEEEEEEE7state_2ERSH_ to i64), ptr %0, align 8, !tbaa !44
-  %.repack5 = getelementptr inbounds i8, ptr %0, i64 8
+  %.repack5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %.repack5, align 8, !tbaa !44
   br label %_ZNK5boost4wave8cpplexer14include_guardsINS1_9lex_tokenINS0_4util13file_positionINS4_11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS9_EEPcEEEEEEEEE12is_skippableENS0_8token_idE.exit.thread
 
@@ -1471,7 +1471,7 @@ _ZNK5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcS
 
 6:                                                ; preds = %_ZNK5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcSt11char_traitsIcESaIcENS3_9CowStringINS3_22AllocatorStringStorageIcS8_EEPcEEEEEEEcvNS0_8token_idEEv.exit
   store i64 ptrtoint (ptr @_ZN5boost4wave8cpplexer14include_guardsINS1_9lex_tokenINS0_4util13file_positionINS4_11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS9_EEPcEEEEEEEEE8state_1bERSH_ to i64), ptr %0, align 8, !tbaa !44
-  %.repack4 = getelementptr inbounds i8, ptr %0, i64 8
+  %.repack4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %.repack4, align 8, !tbaa !44
   br label %_ZNK5boost4wave8cpplexer14include_guardsINS1_9lex_tokenINS0_4util13file_positionINS4_11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS9_EEPcEEEEEEEEE12is_skippableENS0_8token_idE.exit.thread
 
@@ -1596,7 +1596,7 @@ _ZNK5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcS
 
 6:                                                ; preds = %_ZNK5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcSt11char_traitsIcESaIcENS3_9CowStringINS3_22AllocatorStringStorageIcS8_EEPcEEEEEEEcvNS0_8token_idEEv.exit
   store i64 ptrtoint (ptr @_ZN5boost4wave8cpplexer14include_guardsINS1_9lex_tokenINS0_4util13file_positionINS4_11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS9_EEPcEEEEEEEEE7state_3ERSH_ to i64), ptr %0, align 8, !tbaa !44
-  %.repack4 = getelementptr inbounds i8, ptr %0, i64 8
+  %.repack4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %.repack4, align 8, !tbaa !44
   br label %_ZNK5boost4wave8cpplexer14include_guardsINS1_9lex_tokenINS0_4util13file_positionINS4_11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS9_EEPcEEEEEEEEE12is_skippableENS0_8token_idE.exit.thread
 
@@ -1666,8 +1666,8 @@ _ZNK5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcS
   br i1 %24, label %_ZN5boost4wave4utileqIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEEEbRKNS1_11flex_stringIT_T0_T1_T2_EESI_.exit, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %6
-  %25 = getelementptr inbounds i8, ptr %16, i64 17
-  %26 = getelementptr inbounds i8, ptr %9, i64 17
+  %25 = getelementptr inbounds nuw i8, ptr %16, i64 17
+  %26 = getelementptr inbounds nuw i8, ptr %9, i64 17
   %bcmp.i = tail call i32 @bcmp(ptr nonnull %26, ptr nonnull %25, i64 %23)
   %.not.i.i.i.i = icmp eq i32 %bcmp.i, 0
   %27 = icmp eq i64 %15, %22
@@ -1680,7 +1680,7 @@ _ZN5boost4wave4utileqIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStri
 
 28:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i, %_ZN5boost4wave4utileqIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEEEbRKNS1_11flex_stringIT_T0_T1_T2_EESI_.exit
   store i64 ptrtoint (ptr @_ZN5boost4wave8cpplexer14include_guardsINS1_9lex_tokenINS0_4util13file_positionINS4_11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS9_EEPcEEEEEEEEE7state_4ERSH_ to i64), ptr %0, align 8, !tbaa !44
-  %.repack5 = getelementptr inbounds i8, ptr %0, i64 8
+  %.repack5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %.repack5, align 8, !tbaa !44
   br label %_ZNK5boost4wave8cpplexer14include_guardsINS1_9lex_tokenINS0_4util13file_positionINS4_11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS9_EEPcEEEEEEEEE12is_skippableENS0_8token_idE.exit.thread
 
@@ -1741,7 +1741,7 @@ _ZNK5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcS
 
 18:                                               ; preds = %12
   store i64 ptrtoint (ptr @_ZN5boost4wave8cpplexer14include_guardsINS1_9lex_tokenINS0_4util13file_positionINS4_11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS9_EEPcEEEEEEEEE7state_5ERSH_ to i64), ptr %0, align 8, !tbaa !44
-  %.repack10 = getelementptr inbounds i8, ptr %0, i64 8
+  %.repack10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %.repack10, align 8, !tbaa !44
   br label %.thread
 
@@ -1816,7 +1816,7 @@ _ZNK5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcS
 
 _ZN5boost4wave4utileqIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEEEbRKNS1_11flex_stringIT_T0_T1_T2_EEPKNSG_10value_typeE.exit: ; preds = %6
   %16 = tail call noundef i64 @llvm.umin.i64(i64 %14, i64 7)
-  %17 = getelementptr inbounds i8, ptr %8, i64 17
+  %17 = getelementptr inbounds nuw i8, ptr %8, i64 17
   %18 = tail call i32 @memcmp(ptr noundef nonnull %17, ptr noundef nonnull @.str.4, i64 noundef %16) #34
   %.fr.i.i = freeze i32 %18
   %.not.i.i = icmp eq i32 %.fr.i.i, 0
@@ -1826,7 +1826,7 @@ _ZN5boost4wave4utileqIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStri
 
 21:                                               ; preds = %_ZN5boost4wave4utileqIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEEEbRKNS1_11flex_stringIT_T0_T1_T2_EEPKNSG_10value_typeE.exit
   store i64 ptrtoint (ptr @_ZN5boost4wave8cpplexer14include_guardsINS1_9lex_tokenINS0_4util13file_positionINS4_11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS9_EEPcEEEEEEEEE8state_1cERSH_ to i64), ptr %0, align 8, !tbaa !44
-  %.repack5 = getelementptr inbounds i8, ptr %0, i64 8
+  %.repack5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %.repack5, align 8, !tbaa !44
   br label %_ZNK5boost4wave8cpplexer14include_guardsINS1_9lex_tokenINS0_4util13file_positionINS4_11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS9_EEPcEEEEEEEEE12is_skippableENS0_8token_idE.exit.thread
 
@@ -1866,7 +1866,7 @@ _ZNK5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcS
 
 5:                                                ; preds = %_ZNK5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcSt11char_traitsIcESaIcENS3_9CowStringINS3_22AllocatorStringStorageIcS8_EEPcEEEEEEEcvNS0_8token_idEEv.exit
   store i64 ptrtoint (ptr @_ZN5boost4wave8cpplexer14include_guardsINS1_9lex_tokenINS0_4util13file_positionINS4_11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS9_EEPcEEEEEEEEE8state_1dERSH_ to i64), ptr %0, align 8, !tbaa !44
-  %.repack7 = getelementptr inbounds i8, ptr %0, i64 8
+  %.repack7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %.repack7, align 8, !tbaa !44
   br label %_ZNK5boost4wave8cpplexer14include_guardsINS1_9lex_tokenINS0_4util13file_positionINS4_11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS9_EEPcEEEEEEEEE12is_skippableENS0_8token_idE.exit.thread
 
@@ -1875,7 +1875,7 @@ _ZNK5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcS
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEEaSERKSB_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %7)
   store i64 ptrtoint (ptr @_ZN5boost4wave8cpplexer14include_guardsINS1_9lex_tokenINS0_4util13file_positionINS4_11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS9_EEPcEEEEEEEEE7state_2ERSH_ to i64), ptr %0, align 8, !tbaa !44
-  %.repack6 = getelementptr inbounds i8, ptr %0, i64 8
+  %.repack6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %.repack6, align 8, !tbaa !44
   br label %_ZNK5boost4wave8cpplexer14include_guardsINS1_9lex_tokenINS0_4util13file_positionINS4_11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS9_EEPcEEEEEEEEE12is_skippableENS0_8token_idE.exit.thread
 
@@ -1919,7 +1919,7 @@ _ZNK5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcS
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEEaSERKSB_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %7)
   store i64 ptrtoint (ptr @_ZN5boost4wave8cpplexer14include_guardsINS1_9lex_tokenINS0_4util13file_positionINS4_11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS9_EEPcEEEEEEEEE8state_1eERSH_ to i64), ptr %0, align 8, !tbaa !44
-  %.repack5 = getelementptr inbounds i8, ptr %0, i64 8
+  %.repack5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %.repack5, align 8, !tbaa !44
   br label %_ZNK5boost4wave8cpplexer14include_guardsINS1_9lex_tokenINS0_4util13file_positionINS4_11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS9_EEPcEEEEEEEEE12is_skippableENS0_8token_idE.exit.thread
 
@@ -1957,7 +1957,7 @@ _ZNK5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcS
 
 6:                                                ; preds = %_ZNK5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcSt11char_traitsIcESaIcENS3_9CowStringINS3_22AllocatorStringStorageIcS8_EEPcEEEEEEEcvNS0_8token_idEEv.exit
   store i64 ptrtoint (ptr @_ZN5boost4wave8cpplexer14include_guardsINS1_9lex_tokenINS0_4util13file_positionINS4_11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS9_EEPcEEEEEEEEE7state_2ERSH_ to i64), ptr %0, align 8, !tbaa !44
-  %.repack4 = getelementptr inbounds i8, ptr %0, i64 8
+  %.repack4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %.repack4, align 8, !tbaa !44
   br label %_ZNK5boost4wave8cpplexer14include_guardsINS1_9lex_tokenINS0_4util13file_positionINS4_11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS9_EEPcEEEEEEEEE12is_skippableENS0_8token_idE.exit.thread
 
@@ -2643,21 +2643,21 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_4wave8cpplexer16lexing_exceptionEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(1104) %0, ptr noundef nonnull align 8 dereferenceable(1056) %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %0, align 8, !tbaa !3
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost4wave8cpplexer18cpplexer_exceptionE, i64 16), ptr %3, align 8, !tbaa !3
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %4, ptr noundef nonnull align 8 dereferenceable(528) %5, i64 528, i1 false)
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost4wave8cpplexer16lexing_exceptionE, i64 16), ptr %3, align 8, !tbaa !3
-  %6 = getelementptr inbounds i8, ptr %0, i64 544
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 536
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %6, ptr noundef nonnull align 8 dereferenceable(520) %7, i64 520, i1 false)
-  %8 = getelementptr inbounds i8, ptr %0, i64 1064
-  %9 = getelementptr inbounds i8, ptr %0, i64 1072
-  %10 = getelementptr inbounds i8, ptr %0, i64 1096
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1064
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1072
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
   store i32 -1, ptr %10, align 8, !tbaa !107
-  %11 = getelementptr inbounds i8, ptr %0, i64 1100
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 1100
   store i32 -1, ptr %11, align 4, !tbaa !110
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost10wrapexceptINS_4wave8cpplexer16lexing_exceptionEEE, i64 16), ptr %0, align 8, !tbaa !3
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost10wrapexceptINS_4wave8cpplexer16lexing_exceptionEEE, i64 64), ptr %3, align 8, !tbaa !3
@@ -2669,16 +2669,16 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_4wave8cpplexer16lexing_exceptionEED2Ev(ptr noundef nonnull align 8 dereferenceable(1104) %0) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1064
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1064
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !3
-  %3 = getelementptr inbounds i8, ptr %0, i64 1072
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1072
   %4 = load ptr, ptr %3, align 8, !tbaa !111
   %.not.i.i.i = icmp eq ptr %4, null
   br i1 %.not.i.i.i, label %_ZN5boost9exceptionD2Ev.exit, label %5
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %4, align 8, !tbaa !3
-  %7 = getelementptr inbounds i8, ptr %6, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %8 = load ptr, ptr %7, align 8
   %9 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %.noexc.i.i unwind label %11
@@ -2698,7 +2698,7 @@ define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_4wave8cpplexer16lexing
   unreachable
 
 _ZN5boost9exceptionD2Ev.exit:                     ; preds = %1, %.noexc.i.i, %10
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(1056) %14) #34
   ret void
 }
@@ -2710,18 +2710,18 @@ declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #20
 define linkonce_odr hidden noundef ptr @_ZNK5boost10wrapexceptINS_4wave8cpplexer16lexing_exceptionEE5cloneEv(ptr noundef nonnull align 8 dereferenceable(1104) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(1104) ptr @_Znwm(i64 noundef 1104) #31
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %2, align 8, !tbaa !3
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
-  %4 = getelementptr inbounds i8, ptr %2, i64 16
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %4, ptr noundef nonnull align 8 dereferenceable(528) %5, i64 528, i1 false)
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost4wave8cpplexer16lexing_exceptionE, i64 16), ptr %3, align 8, !tbaa !3
-  %6 = getelementptr inbounds i8, ptr %2, i64 544
-  %7 = getelementptr inbounds i8, ptr %0, i64 544
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 544
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 544
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %6, ptr noundef nonnull align 8 dereferenceable(520) %7, i64 520, i1 false)
-  %8 = getelementptr inbounds i8, ptr %2, i64 1064
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 1064
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %8, align 8, !tbaa !3
-  %9 = getelementptr inbounds i8, ptr %2, i64 1072
-  %10 = getelementptr inbounds i8, ptr %0, i64 1072
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 1072
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 1072
   %11 = load ptr, ptr %10, align 8, !tbaa !111
   store ptr %11, ptr %9, align 8, !tbaa !111
   %.not.i.i.i.i = icmp eq ptr %11, null
@@ -2729,7 +2729,7 @@ define linkonce_odr hidden noundef ptr @_ZNK5boost10wrapexceptINS_4wave8cpplexer
 
 12:                                               ; preds = %1
   %13 = load ptr, ptr %11, align 8, !tbaa !3
-  %14 = getelementptr inbounds i8, ptr %13, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = load ptr, ptr %14, align 8
   invoke void %15(ptr noundef nonnull align 8 dereferenceable(8) %11)
           to label %17 unwind label %.body
@@ -2742,13 +2742,13 @@ define linkonce_odr hidden noundef ptr @_ZNK5boost10wrapexceptINS_4wave8cpplexer
   br label %25
 
 17:                                               ; preds = %12, %1
-  %18 = getelementptr inbounds i8, ptr %2, i64 1080
-  %19 = getelementptr inbounds i8, ptr %0, i64 1080
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 1080
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 1080
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(24) %19, i64 24, i1 false)
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost10wrapexceptINS_4wave8cpplexer16lexing_exceptionEEE, i64 16), ptr %2, align 8, !tbaa !3
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost10wrapexceptINS_4wave8cpplexer16lexing_exceptionEEE, i64 64), ptr %3, align 8, !tbaa !3
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost10wrapexceptINS_4wave8cpplexer16lexing_exceptionEEE, i64 136), ptr %8, align 8, !tbaa !3
-  %20 = getelementptr inbounds i8, ptr %0, i64 1064
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 1064
   invoke void @_ZN5boost16exception_detail20copy_boost_exceptionEPNS_9exceptionEPKS1_(ptr noundef nonnull %8, ptr noundef nonnull %20)
           to label %_ZN5boost10wrapexceptINS_4wave8cpplexer16lexing_exceptionEE7deleterD2Ev.exit unwind label %_ZN5boost10wrapexceptINS_4wave8cpplexer16lexing_exceptionEE7deleterD2Ev.exit7
 
@@ -2759,7 +2759,7 @@ _ZN5boost10wrapexceptINS_4wave8cpplexer16lexing_exceptionEE7deleterD2Ev.exit7: ;
   %21 = landingpad { ptr, i32 }
           cleanup
   %22 = load ptr, ptr %2, align 8, !tbaa !3
-  %23 = getelementptr inbounds i8, ptr %22, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %24 = load ptr, ptr %23, align 8
   tail call void %24(ptr noundef nonnull align 8 dereferenceable(1104) %2) #34
   br label %25
@@ -2788,16 +2788,16 @@ define linkonce_odr hidden void @_ZNK5boost10wrapexceptINS_4wave8cpplexer16lexin
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_4wave8cpplexer16lexing_exceptionEED0Ev(ptr noundef nonnull align 8 dereferenceable(1104) %0) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1064
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1064
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !3
-  %3 = getelementptr inbounds i8, ptr %0, i64 1072
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1072
   %4 = load ptr, ptr %3, align 8, !tbaa !111
   %.not.i.i.i.i = icmp eq ptr %4, null
   br i1 %.not.i.i.i.i, label %_ZN5boost10wrapexceptINS_4wave8cpplexer16lexing_exceptionEED2Ev.exit, label %5
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %4, align 8, !tbaa !3
-  %7 = getelementptr inbounds i8, ptr %6, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %8 = load ptr, ptr %7, align 8
   %9 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %.noexc.i.i.i unwind label %11
@@ -2817,7 +2817,7 @@ define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_4wave8cpplexer16lexing
   unreachable
 
 _ZN5boost10wrapexceptINS_4wave8cpplexer16lexing_exceptionEED2Ev.exit: ; preds = %1, %.noexc.i.i.i, %10
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(1056) %14) #34
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 1104) #32
   ret void
@@ -2825,16 +2825,16 @@ _ZN5boost10wrapexceptINS_4wave8cpplexer16lexing_exceptionEED2Ev.exit: ; preds = 
 
 ; Function Attrs: inlinehint nounwind uwtable
 define linkonce_odr hidden void @_ZThn8_N5boost10wrapexceptINS_4wave8cpplexer16lexing_exceptionEED1Ev(ptr noundef %0) unnamed_addr #21 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1056
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1056
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !3
-  %3 = getelementptr inbounds i8, ptr %0, i64 1064
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1064
   %4 = load ptr, ptr %3, align 8, !tbaa !111
   %.not.i.i.i.i = icmp eq ptr %4, null
   br i1 %.not.i.i.i.i, label %_ZN5boost10wrapexceptINS_4wave8cpplexer16lexing_exceptionEED2Ev.exit, label %5
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %4, align 8, !tbaa !3
-  %7 = getelementptr inbounds i8, ptr %6, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %8 = load ptr, ptr %7, align 8
   %9 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %.noexc.i.i.i unwind label %11
@@ -2860,16 +2860,16 @@ _ZN5boost10wrapexceptINS_4wave8cpplexer16lexing_exceptionEED2Ev.exit: ; preds = 
 
 ; Function Attrs: inlinehint nounwind uwtable
 define linkonce_odr hidden void @_ZThn8_N5boost10wrapexceptINS_4wave8cpplexer16lexing_exceptionEED0Ev(ptr noundef %0) unnamed_addr #21 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1056
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1056
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !3
-  %3 = getelementptr inbounds i8, ptr %0, i64 1064
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1064
   %4 = load ptr, ptr %3, align 8, !tbaa !111
   %.not.i.i.i.i.i = icmp eq ptr %4, null
   br i1 %.not.i.i.i.i.i, label %_ZN5boost10wrapexceptINS_4wave8cpplexer16lexing_exceptionEED0Ev.exit, label %5
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %4, align 8, !tbaa !3
-  %7 = getelementptr inbounds i8, ptr %6, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %8 = load ptr, ptr %7, align 8
   %9 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %.noexc.i.i.i.i unwind label %11
@@ -2923,7 +2923,7 @@ define linkonce_odr hidden noundef i32 @_ZNK5boost4wave8cpplexer16lexing_excepti
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK5boost4wave8cpplexer16lexing_exception14is_recoverableEv(ptr noundef nonnull align 8 dereferenceable(1056) %0) unnamed_addr #9 comdat align 2 {
   %2 = load ptr, ptr %0, align 8, !tbaa !3
-  %3 = getelementptr inbounds i8, ptr %2, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef i32 %4(ptr noundef nonnull align 8 dereferenceable(1056) %0) #34
   %.off = add i32 %5, -1
@@ -2934,14 +2934,14 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5boost4wave8cpplexer16lexing_
 ; Function Attrs: inlinehint nounwind uwtable
 define linkonce_odr hidden void @_ZThn1064_N5boost10wrapexceptINS_4wave8cpplexer16lexing_exceptionEED1Ev(ptr noundef %0) unnamed_addr #21 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8, !tbaa !3
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !111
   %.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i, label %_ZN5boost10wrapexceptINS_4wave8cpplexer16lexing_exceptionEED2Ev.exit, label %4
 
 4:                                                ; preds = %1
   %5 = load ptr, ptr %3, align 8, !tbaa !3
-  %6 = getelementptr inbounds i8, ptr %5, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %7 = load ptr, ptr %6, align 8
   %8 = invoke noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %.noexc.i.i.i unwind label %10
@@ -2969,14 +2969,14 @@ _ZN5boost10wrapexceptINS_4wave8cpplexer16lexing_exceptionEED2Ev.exit: ; preds = 
 ; Function Attrs: inlinehint nounwind uwtable
 define linkonce_odr hidden void @_ZThn1064_N5boost10wrapexceptINS_4wave8cpplexer16lexing_exceptionEED0Ev(ptr noundef %0) unnamed_addr #21 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8, !tbaa !3
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !111
   %.not.i.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i.i, label %_ZN5boost10wrapexceptINS_4wave8cpplexer16lexing_exceptionEED0Ev.exit, label %4
 
 4:                                                ; preds = %1
   %5 = load ptr, ptr %3, align 8, !tbaa !3
-  %6 = getelementptr inbounds i8, ptr %5, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %7 = load ptr, ptr %6, align 8
   %8 = invoke noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %.noexc.i.i.i.i unwind label %10
@@ -3030,19 +3030,19 @@ define linkonce_odr hidden void @_ZN5boost4wave8cpplexer18cpplexer_exceptionD0Ev
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_4wave8cpplexer16lexing_exceptionEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(1104) %0, ptr noundef nonnull align 8 dereferenceable(1104) %1) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %0, align 8, !tbaa !3
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost4wave8cpplexer18cpplexer_exceptionE, i64 16), ptr %3, align 8, !tbaa !3
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %4, ptr noundef nonnull align 8 dereferenceable(528) %5, i64 528, i1 false)
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost4wave8cpplexer16lexing_exceptionE, i64 16), ptr %3, align 8, !tbaa !3
-  %6 = getelementptr inbounds i8, ptr %0, i64 544
-  %7 = getelementptr inbounds i8, ptr %1, i64 544
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 544
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 544
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %6, ptr noundef nonnull align 8 dereferenceable(520) %7, i64 520, i1 false)
-  %8 = getelementptr inbounds i8, ptr %0, i64 1064
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1064
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %8, align 8, !tbaa !3
-  %9 = getelementptr inbounds i8, ptr %0, i64 1072
-  %10 = getelementptr inbounds i8, ptr %1, i64 1072
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1072
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 1072
   %11 = load ptr, ptr %10, align 8, !tbaa !111
   store ptr %11, ptr %9, align 8, !tbaa !111
   %.not.i.i.i = icmp eq ptr %11, null
@@ -3050,14 +3050,14 @@ define linkonce_odr hidden void @_ZN5boost10wrapexceptINS_4wave8cpplexer16lexing
 
 12:                                               ; preds = %2
   %13 = load ptr, ptr %11, align 8, !tbaa !3
-  %14 = getelementptr inbounds i8, ptr %13, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = load ptr, ptr %14, align 8
   invoke void %15(ptr noundef nonnull align 8 dereferenceable(8) %11)
           to label %16 unwind label %19
 
 16:                                               ; preds = %2, %12
-  %17 = getelementptr inbounds i8, ptr %0, i64 1080
-  %18 = getelementptr inbounds i8, ptr %1, i64 1080
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 1080
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 1080
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %18, i64 24, i1 false)
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost10wrapexceptINS_4wave8cpplexer16lexing_exceptionEEE, i64 16), ptr %0, align 8, !tbaa !3
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost10wrapexceptINS_4wave8cpplexer16lexing_exceptionEEE, i64 64), ptr %3, align 8, !tbaa !3
@@ -3082,7 +3082,7 @@ define linkonce_odr hidden void @_ZN5boost16exception_detail20copy_boost_excepti
 6:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #34
   %7 = load ptr, ptr %5, align 8, !tbaa !3
-  %8 = getelementptr inbounds i8, ptr %7, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %9 = load ptr, ptr %8, align 8
   invoke void %9(ptr dead_on_unwind nonnull writable sret(%"class.boost::exception_detail::refcount_ptr") align 8 %3, ptr noundef nonnull align 8 dereferenceable(8) %5)
           to label %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEE7releaseEv.exit.i.i unwind label %23
@@ -3094,7 +3094,7 @@ _ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEE7releaseEv
 
 11:                                               ; preds = %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEE7releaseEv.exit.i.i
   %12 = load ptr, ptr %10, align 8, !tbaa !3
-  %13 = getelementptr inbounds i8, ptr %12, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %14 = load ptr, ptr %13, align 8
   invoke void %14(ptr noundef nonnull align 8 dereferenceable(8) %10)
           to label %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEEaSERKS3_.exit unwind label %25
@@ -3106,7 +3106,7 @@ _ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEEaSERKS3_.e
 
 15:                                               ; preds = %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEEaSERKS3_.exit
   %16 = load ptr, ptr %.pr, align 8, !tbaa !3
-  %17 = getelementptr inbounds i8, ptr %16, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %18 = load ptr, ptr %17, align 8
   %19 = invoke noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(8) %.pr)
           to label %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEED2Ev.exit unwind label %20
@@ -3136,7 +3136,7 @@ _ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEED2Ev.exit:
 
 28:                                               ; preds = %25
   %29 = load ptr, ptr %27, align 8, !tbaa !3
-  %30 = getelementptr inbounds i8, ptr %29, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 32
   %31 = load ptr, ptr %30, align 8
   %32 = invoke noundef zeroext i1 %31(ptr noundef nonnull align 8 dereferenceable(8) %27)
           to label %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEED2Ev.exit22 unwind label %33
@@ -3179,7 +3179,7 @@ _ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEED2Ev.exit2
 
 51:                                               ; preds = %36
   %52 = load ptr, ptr %50, align 8, !tbaa !3
-  %53 = getelementptr inbounds i8, ptr %52, i64 32
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 32
   %54 = load ptr, ptr %53, align 8
   %55 = invoke noundef zeroext i1 %54(ptr noundef nonnull align 8 dereferenceable(8) %50)
           to label %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEE7releaseEv.exit.i.i24 unwind label %67
@@ -3191,14 +3191,14 @@ _ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEE7releaseEv
 
 56:                                               ; preds = %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEE7releaseEv.exit.i.i24
   %57 = load ptr, ptr %.sroa.0.0, align 8, !tbaa !3
-  %58 = getelementptr inbounds i8, ptr %57, i64 24
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 24
   %59 = load ptr, ptr %58, align 8
   invoke void %59(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.0.0)
           to label %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEEaSERKS3_.exit28 unwind label %67
 
 _ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEEaSERKS3_.exit28: ; preds = %56
   %60 = load ptr, ptr %.sroa.0.0, align 8, !tbaa !3
-  %61 = getelementptr inbounds i8, ptr %60, i64 32
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 32
   %62 = load ptr, ptr %61, align 8
   %63 = invoke noundef zeroext i1 %62(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.0.0)
           to label %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEED2Ev.exit31 unwind label %64
@@ -3226,7 +3226,7 @@ _ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEED2Ev.exit3
 
 70:                                               ; preds = %69
   %71 = load ptr, ptr %.sroa.0.3, align 8, !tbaa !3
-  %72 = getelementptr inbounds i8, ptr %71, i64 32
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 32
   %73 = load ptr, ptr %72, align 8
   %74 = invoke noundef zeroext i1 %73(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.0.3)
           to label %_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEED2Ev.exit34 unwind label %75
@@ -3470,10 +3470,10 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN5b
 47:                                               ; preds = %44
   store i8 1, ptr @_ZZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEvE1f, align 1, !tbaa !12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i8 0, i64 64, i1 false)
-  store i64 80, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 64), align 8, !tbaa !16
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 80), align 8, !tbaa !21
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 72), align 8, !tbaa !22
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 88), align 8, !tbaa !23
+  store i64 80, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 64), align 8, !tbaa !16
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 80), align 8, !tbaa !21
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 72), align 8, !tbaa !22
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 88), align 8, !tbaa !23
   br label %_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i
 
 _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i: ; preds = %47, %44
@@ -3496,9 +3496,9 @@ _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33defau
   unreachable
 
 _ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS8_EEPcEEEENS4_13file_positionISE_EEEdlEPvm.exit.i: ; preds = %_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i
-  %53 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !115
+  %53 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !115
   store ptr %53, ptr %42, align 8, !tbaa !24
-  store ptr %42, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !115
+  store ptr %42, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !115
   %54 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE) #34
   br label %_ZN5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcSt11char_traitsIcESaIcENS3_9CowStringINS3_22AllocatorStringStorageIcS8_EEPcEEEEEEED2Ev.exit
 
@@ -4048,7 +4048,7 @@ _ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev.exit1
   br i1 %283, label %_ZNK5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE4findEPKcm.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %_ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev.exit103
-  %284 = getelementptr inbounds i8, ptr %276, i64 17
+  %284 = getelementptr inbounds nuw i8, ptr %276, i64 17
   br label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i:   ; preds = %.preheader.i.i, %287
@@ -4073,7 +4073,7 @@ _ZNK5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22A
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i:     ; preds = %_ZNK5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE4findEPKcm.exit
   %spec.select.i = call i64 @llvm.umin.i64(i64 %.fr, i64 12)
-  %292 = getelementptr inbounds i8, ptr %276, i64 17
+  %292 = getelementptr inbounds nuw i8, ptr %276, i64 17
   %293 = getelementptr inbounds nuw i8, ptr %292, i64 %.0.i.i
   %bcmp = call i32 @bcmp(ptr nonnull %293, ptr nonnull @.str.22, i64 %spec.select.i)
   %.not.i104 = icmp eq i32 %bcmp, 0
@@ -4133,7 +4133,7 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
 315:                                              ; preds = %311
   call void @llvm.lifetime.start.p0(i64 392, ptr nonnull %14) #34
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %14)
-  %316 = getelementptr inbounds i8, ptr %14, i64 16
+  %316 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %317 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZN5boost4wave8cpplexer16lexing_exception14severity_levelEiE29preprocess_exception_severity, i64 16), align 16, !tbaa !68
   %318 = zext i32 %317 to i64
   %319 = getelementptr inbounds nuw [4 x ptr], ptr @_ZZN5boost4wave8cpplexer4util12get_severityENS2_8severityEE13severity_text, i64 0, i64 %318
@@ -4166,7 +4166,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %322
 
 333:                                              ; preds = %331, %326
   %334 = phi ptr [ %.pre.i.i.i, %331 ], [ %327, %326 ]
-  %335 = getelementptr inbounds i8, ptr %334, i64 17
+  %335 = getelementptr inbounds nuw i8, ptr %334, i64 17
   %336 = load i8, ptr %335, align 1, !tbaa !11
   %.not = icmp eq i8 %336, 0
   br i1 %.not, label %356, label %337
@@ -4191,7 +4191,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit110: ; preds = %337
 
 345:                                              ; preds = %343, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit110
   %346 = phi ptr [ %.pre.i.i.i112, %343 ], [ %339, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit110 ]
-  %347 = getelementptr inbounds i8, ptr %346, i64 17
+  %347 = getelementptr inbounds nuw i8, ptr %346, i64 17
   %348 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %316, ptr noundef nonnull %347)
           to label %356 unwind label %354
 
@@ -4247,7 +4247,7 @@ _ZNSolsEPFRSoS_E.exit:                            ; preds = %356
 
 369:                                              ; preds = %367, %358
   %370 = phi ptr [ %.pre.i.i.i116, %367 ], [ %363, %358 ]
-  %371 = getelementptr inbounds i8, ptr %370, i64 17
+  %371 = getelementptr inbounds nuw i8, ptr %370, i64 17
   call void @_ZN5boost4wave8cpplexer16lexing_exceptionC2EPKcNS2_10error_codeEmmS4_(ptr noundef nonnull align 8 dereferenceable(1056) %15, ptr noundef %359, i32 noundef 4, i64 noundef %59, i64 noundef %361, ptr noundef nonnull %371) #34
   invoke void @_ZN5boost15throw_exceptionINS_4wave8cpplexer16lexing_exceptionEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(1056) %15) #33
           to label %372 unwind label %375
@@ -4934,10 +4934,10 @@ _ZN5boost4wave4util13file_positionINS1_11flex_stringIcSt11char_traitsIcESaIcENS1
 666:                                              ; preds = %663
   store i8 1, ptr @_ZZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEvE1f, align 1, !tbaa !12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i8 0, i64 64, i1 false)
-  store i64 80, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 64), align 8, !tbaa !16
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 80), align 8, !tbaa !21
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 72), align 8, !tbaa !22
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 88), align 8, !tbaa !23
+  store i64 80, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 64), align 8, !tbaa !16
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 80), align 8, !tbaa !21
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 72), align 8, !tbaa !22
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 88), align 8, !tbaa !23
   br label %_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i159
 
 _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i159: ; preds = %666, %663
@@ -4960,9 +4960,9 @@ _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33defau
   unreachable
 
 _ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS8_EEPcEEEENS4_13file_positionISE_EEEdlEPvm.exit.i162: ; preds = %_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i159
-  %672 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !115
+  %672 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !115
   store ptr %672, ptr %661, align 8, !tbaa !24
-  store ptr %661, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !115
+  store ptr %661, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !115
   %673 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE) #34
   br label %_ZN5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcSt11char_traitsIcESaIcENS3_9CowStringINS3_22AllocatorStringStorageIcS8_EEPcEEEEEEED2Ev.exit163
 
@@ -5001,7 +5001,7 @@ _ZN5boost4wave4util13file_positionINS1_11flex_stringIcSt11char_traitsIcESaIcENS1
 689:                                              ; preds = %_ZN5boost4wave4util13file_positionINS1_11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS6_EEPcEEEEED2Ev.exit
   %690 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %.unpack.i = load i64, ptr %690, align 8, !tbaa !44
-  %.elt3.i = getelementptr inbounds i8, ptr %0, i64 168
+  %.elt3.i = getelementptr inbounds nuw i8, ptr %0, i64 168
   %.unpack4.i = load i64, ptr %.elt3.i, align 8, !tbaa !44
   %691 = getelementptr inbounds i8, ptr %690, i64 %.unpack4.i
   %692 = and i64 %.unpack.i, 1
@@ -5081,10 +5081,10 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN5b
 15:                                               ; preds = %12
   store i8 1, ptr @_ZZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEvE1f, align 1, !tbaa !12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i8 0, i64 64, i1 false)
-  store i64 80, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 64), align 8, !tbaa !16
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 80), align 8, !tbaa !21
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 72), align 8, !tbaa !22
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 88), align 8, !tbaa !23
+  store i64 80, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 64), align 8, !tbaa !16
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 80), align 8, !tbaa !21
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 72), align 8, !tbaa !22
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 88), align 8, !tbaa !23
   br label %_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i
 
 _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i: ; preds = %15, %12
@@ -5107,9 +5107,9 @@ _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33defau
   unreachable
 
 _ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS8_EEPcEEEENS4_13file_positionISE_EEEdlEPvm.exit: ; preds = %_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !115
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !115
   store ptr %21, ptr %10, align 8, !tbaa !24
-  store ptr %10, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !115
+  store ptr %10, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !115
   %22 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE) #34
   br label %23
 
@@ -5154,10 +5154,10 @@ define linkonce_odr hidden void @_ZN5boost4wave8cpplexer9lex_tokenINS0_4util13fi
 13:                                               ; preds = %10
   store i8 1, ptr @_ZZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEvE1f, align 1, !tbaa !12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i8 0, i64 64, i1 false)
-  store i64 80, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 64), align 8, !tbaa !16
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 80), align 8, !tbaa !21
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 72), align 8, !tbaa !22
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 88), align 8, !tbaa !23
+  store i64 80, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 64), align 8, !tbaa !16
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 80), align 8, !tbaa !21
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 72), align 8, !tbaa !22
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 88), align 8, !tbaa !23
   br label %_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i
 
 _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i: ; preds = %13, %10
@@ -5180,9 +5180,9 @@ _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33defau
   unreachable
 
 _ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS8_EEPcEEEENS4_13file_positionISE_EEEdlEPvm.exit: ; preds = %_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i
-  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !115
+  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !115
   store ptr %19, ptr %8, align 8, !tbaa !24
-  store ptr %8, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !115
+  store ptr %8, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !115
   %20 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE) #34
   br label %21
 
@@ -5693,7 +5693,7 @@ define linkonce_odr noundef i32 @_ZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cx
 340:                                              ; preds = %338
   %341 = zext i8 %339 to i64
   %342 = or disjoint i64 %341, 256
-  %343 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %342
+  %343 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %342
   %344 = load i8, ptr %343, align 1, !tbaa !11
   %345 = and i8 %344, 64
   %.not = icmp eq i8 %345, 0
@@ -6102,7 +6102,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 480:                                              ; preds = %478
   %481 = zext i8 %479 to i64
   %482 = or disjoint i64 %481, 256
-  %483 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %482
+  %483 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %482
   %484 = load i8, ptr %483, align 1, !tbaa !11
   %485 = and i8 %484, 64
   %.not5746 = icmp eq i8 %485, 0
@@ -6569,7 +6569,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
   %.25108 = phi i8 [ %7986, %7987 ], [ %6679, %6680 ], [ %3539, %3540 ], [ %1427, %1428 ], [ %9175, %9176 ], [ %7950, %7951 ], [ %6667, %6668 ], [ %5258, %5259 ], [ %3527, %3528 ], [ %6673, %6674 ], [ %5264, %5265 ], [ %3533, %3534 ], [ %9163, %9164 ], [ %7938, %7939 ], [ %6625, %6626 ], [ %5240, %5241 ], [ %3516, %3517 ], [ %5246, %5247 ], [ %9997, %9998 ], [ %9169, %9170 ], [ %7944, %7945 ], [ %6661, %6662 ], [ %5252, %5253 ], [ %1401, %1406 ], [ %2979, %2980 ], [ %1401, %1411 ], [ %6607, %6608 ], [ %5222, %5223 ], [ %9961, %9962 ], [ %9157, %9158 ], [ %7902, %7903 ], [ %6613, %6614 ], [ %5228, %5229 ], [ %6619, %6620 ], [ %5234, %5235 ], [ %3510, %3511 ], [ %1396, %1397 ], [ %9115, %9116 ], [ %7854, %7855 ], [ %6598, %6601 ], [ %7860, %7861 ], [ %9955, %9956 ], [ %9151, %9152 ], [ %7866, %7867 ], [ %5216, %5217 ], [ %3494, %3495 ], [ %5180, %5181 ], [ %5169, %5170 ], [ %11481, %11482 ], [ %11346, %11347 ], [ %11159, %11160 ], [ %10635, %10636 ], [ %9919, %9920 ], [ %9109, %9110 ], [ %7818, %7819 ], [ %6556, %6557 ], [ %6562, %6563 ], [ %9913, %9914 ], [ %9103, %9104 ], [ %7812, %7813 ], [ %6520, %6521 ], [ %5163, %5164 ], [ %3478, %3479 ], [ %1383, %1386 ], [ %6484, %6485 ], [ %5127, %5128 ], [ %3456, %3457 ], [ %7782, %7783 ], [ %6490, %6491 ], [ %5133, %5134 ], [ %7788, %7789 ], [ %6496, %6497 ], [ %5139, %5140 ], [ %1383, %1390 ], [ %11529, %11530 ], [ %11445, %11446 ], [ %11334, %11335 ], [ %11147, %11148 ], [ %10593, %10594 ], [ %11340, %11341 ], [ %11153, %11154 ], [ %10599, %10600 ], [ %7794, %7795 ], [ %6502, %6503 ], [ %5145, %5146 ], [ %7800, %7801 ], [ %6508, %6509 ], [ %5151, %5152 ], [ %7806, %7807 ], [ %6514, %6515 ], [ %5157, %5158 ], [ %3472, %3473 ], [ %3451, %3452 ], [ %7746, %7747 ], [ %6478, %6479 ], [ %5121, %5122 ], [ %9902, %9903 ], [ %8903, %8904 ], [ %7740, %7741 ], [ %6472, %6473 ], [ %5115, %5116 ], [ %11611, %11612 ], [ %11616, %11617 ], [ %11570, %11571 ], [ %11523, %11524 ], [ %11439, %11440 ], [ %11328, %11329 ], [ %11141, %11142 ], [ %10552, %10553 ], [ %9896, %9897 ], [ %8897, %8898 ], [ %7734, %7735 ], [ %6466, %6467 ], [ %5109, %5110 ], [ %9890, %9891 ], [ %8891, %8892 ], [ %7728, %7729 ], [ %6460, %6461 ], [ %5103, %5104 ], [ %1377, %1378 ], [ %8849, %8850 ], [ %7710, %7711 ], [ %6442, %6443 ], [ %5085, %5086 ], [ %10516, %10517 ], [ %9884, %9885 ], [ %8855, %8856 ], [ %7716, %7717 ], [ %6448, %6449 ], [ %5091, %5092 ], [ %7722, %7723 ], [ %6454, %6455 ], [ %5097, %5098 ], [ %3445, %3446 ], [ %9848, %9849 ], [ %8843, %8844 ], [ %7669, %7670 ], [ %6430, %6431 ], [ %5073, %5074 ], [ %3385, %3386 ], [ %6436, %6437 ], [ %5079, %5080 ], [ %1362, %1363 ], [ %8837, %8838 ], [ %7663, %7664 ], [ %6424, %6425 ], [ %5067, %5068 ], [ %3379, %3380 ], [ %9807, %9808 ], [ %8796, %8797 ], [ %7651, %7652 ], [ %6412, %6413 ], [ %5012, %5013 ], [ %7657, %7658 ], [ %6418, %6419 ], [ %3368, %3369 ], [ %10445, %10446 ], [ %9801, %9802 ], [ %8790, %8791 ], [ %7645, %7646 ], [ %6406, %6407 ], [ %4976, %4977 ], [ %3362, %3363 ], [ %8784, %8785 ], [ %7639, %7640 ], [ %6400, %6401 ], [ %4970, %4971 ], [ %3356, %3357 ], [ %1356, %1357 ], [ %4964, %4965 ], [ %3350, %3351 ], [ %1350, %1351 ], [ %1338, %1341 ], [ %7627, %7628 ], [ %6358, %6359 ], [ %4922, %4923 ], [ %3339, %3340 ], [ %7633, %7634 ], [ %6364, %6365 ], [ %4928, %4929 ], [ %1338, %1345 ], [ %4916, %4917 ], [ %3303, %3304 ], [ %1332, %1333 ], [ %1327, %1328 ], [ %7621, %7622 ], [ %6322, %6323 ], [ %4910, %4911 ], [ %3297, %3298 ], [ %3291, %3292 ], [ %6316, %6317 ], [ %4874, %4875 ], [ %3285, %3286 ], [ %6310, %6311 ], [ %4868, %4869 ], [ %3279, %3280 ], [ %4845, %4846 ], [ %3262, %3263 ], [ %1318, %1321 ], [ %4851, %4852 ], [ %3268, %3269 ], [ %9765, %9766 ], [ %8623, %8624 ], [ %7543, %7544 ], [ %6292, %6293 ], [ %7549, %7550 ], [ %6298, %6299 ], [ %7555, %7556 ], [ %6304, %6305 ], [ %4862, %4863 ], [ %9723, %9724 ], [ %8545, %8546 ], [ %7513, %7514 ], [ %6202, %6203 ], [ %4815, %4816 ], [ %3202, %3205 ], [ %8551, %8552 ], [ %7519, %7520 ], [ %6208, %6209 ], [ %4821, %4822 ], [ %7525, %7526 ], [ %6214, %6215 ], [ %4827, %4828 ], [ %1309, %1312 ], [ %7531, %7532 ], [ %6220, %6221 ], [ %4833, %4834 ], [ %11433, %11434 ], [ %11322, %11323 ], [ %11075, %11076 ], [ %10409, %10410 ], [ %9759, %9760 ], [ %8617, %8618 ], [ %7537, %7538 ], [ %6226, %6227 ], [ %4839, %4840 ], [ %3256, %3257 ], [ %1304, %1305 ], [ %9640, %9641 ], [ %8498, %8499 ], [ %7394, %7395 ], [ %6160, %6161 ], [ %4788, %4791 ], [ %10279, %10280 ], [ %9646, %9647 ], [ %8504, %8505 ], [ %7400, %7401 ], [ %6166, %6167 ], [ %9652, %9653 ], [ %8510, %8511 ], [ %7406, %7407 ], [ %6172, %6173 ], [ %3190, %3193 ], [ %6178, %6179 ], [ %4797, %4798 ], [ %8516, %8517 ], [ %7447, %7448 ], [ %6184, %6185 ], [ %4803, %4806 ], [ %10964, %10965 ], [ %10320, %10321 ], [ %9693, %9694 ], [ %8522, %8523 ], [ %10326, %10327 ], [ %9699, %9700 ], [ %10332, %10333 ], [ %9705, %9706 ], [ %10338, %10339 ], [ %9711, %9712 ], [ %8533, %8534 ], [ %6190, %6191 ], [ %9717, %9718 ], [ %8539, %8540 ], [ %7507, %7508 ], [ %6196, %6197 ], [ %4803, %4810 ], [ %3190, %3197 ], [ %6154, %6155 ], [ %4782, %4783 ], [ %3184, %3185 ], [ %9593, %9594 ], [ %8480, %8481 ], [ %7346, %7347 ], [ %9599, %9600 ], [ %8486, %8487 ], [ %7352, %7353 ], [ %8492, %8493 ], [ %7358, %7359 ], [ %4776, %4777 ], [ %3178, %3179 ], [ %3168, %3169 ], [ %4764, %4765 ], [ %6094, %6095 ], [ %4770, %4771 ], [ %3168, %3173 ], [ %7245, %7246 ], [ %6016, %6017 ], [ %6022, %6023 ], [ %3150, %3151 ], [ %1295, %1298 ], [ %4752, %4753 ], [ %3156, %3157 ], [ %6058, %6059 ], [ %4758, %4759 ], [ %3162, %3163 ], [ %1290, %1291 ], [ %4741, %4742 ], [ %3144, %3145 ], [ %3138, %3139 ], [ %7239, %7240 ], [ %5980, %5981 ], [ %3132, %3133 ], [ %8398, %8399 ], [ %8404, %8405 ], [ %5974, %5975 ], [ %4656, %4657 ], [ %3126, %3127 ], [ %1285, %1286 ], [ %9517, %9518 ], [ %8392, %8393 ], [ %7228, %7229 ], [ %5968, %5969 ], [ %4650, %4651 ], [ %3120, %3121 ], [ %8386, %8387 ], [ %7222, %7223 ], [ %5962, %5963 ], [ %4644, %4645 ], [ %3114, %3115 ], [ %10133, %10134 ], [ %9476, %9477 ], [ %8380, %8381 ], [ %7216, %7217 ], [ %5956, %5957 ], [ %4638, %4639 ], [ %3108, %3109 ], [ %10127, %10128 ], [ %9470, %9471 ], [ %8374, %8375 ], [ %7210, %7211 ], [ %5950, %5951 ], [ %4632, %4633 ], [ %3102, %3103 ], [ %7204, %7205 ], [ %5944, %5945 ], [ %4626, %4627 ], [ %3096, %3097 ], [ %7198, %7199 ], [ %5938, %5939 ], [ %4620, %4621 ], [ %3090, %3091 ], [ %4614, %4615 ], [ %3084, %3085 ], [ %3079, %3080 ], [ %5897, %5898 ], [ %4608, %4609 ], [ %8298, %8299 ], [ %7157, %7158 ], [ %5891, %5892 ], [ %4602, %4603 ], [ %7152, %7153 ], [ %8257, %8258 ], [ %8251, %8252 ], [ %8245, %8246 ], [ %4596, %4597 ], [ %10121, %10122 ], [ %9324, %9325 ], [ %8239, %8240 ], [ %7146, %7147 ], [ %5880, %5881 ], [ %9318, %9319 ], [ %8233, %8234 ], [ %7140, %7141 ], [ %5874, %5875 ], [ %4585, %4586 ], [ %1201, %1204 ], [ %1195, %1196 ], [ %1186, %1189 ], [ %710, %709 ], [ %1186, %1191 ], [ %1201, %1206 ], [ %1295, %1300 ], [ %1309, %1314 ], [ %1318, %1323 ], [ %1367, %1368 ], [ %1372, %1373 ], [ %1383, %1392 ], [ %1401, %1408 ], [ %1401, %1413 ], [ %1417, %1418 ], [ %1422, %1423 ], [ %3202, %3207 ], [ %3274, %3275 ], [ %3345, %3346 ], [ %3374, %3375 ], [ %3440, %3441 ], [ %3462, %3463 ], [ %3467, %3468 ], [ %3484, %3485 ], [ %3489, %3490 ], [ %3500, %3501 ], [ %3505, %3506 ], [ %3522, %3523 ], [ %4591, %4592 ], [ %4747, %4748 ], [ %4788, %4793 ], [ %4857, %4858 ], [ %5175, %5176 ], [ %5886, %5887 ], [ %6598, %6603 ], [ %7234, %7235 ], [ %8528, %8529 ], [ %9908, %9909 ]
   %712 = zext i8 %.25108 to i64
   %713 = or disjoint i64 %712, 256
-  %714 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %713
+  %714 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %713
   %715 = load i8, ptr %714, align 1, !tbaa !11
   %.not5689 = icmp sgt i8 %715, -1
   br i1 %.not5689, label %716, label %682
@@ -8424,7 +8424,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
   %.05106 = phi i8 [ 9, %598 ], [ %595, %600 ], [ %1574, %1573 ]
   %.05092 = phi i32 [ 0, %598 ], [ 0, %600 ], [ %.65098, %1573 ]
   %1576 = zext i8 %.05106 to i64
-  %1577 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %1576
+  %1577 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %1576
   %1578 = load i8, ptr %1577, align 1, !tbaa !11
   %1579 = and i8 %1578, 1
   %.not5716 = icmp eq i8 %1579, 0
@@ -9054,7 +9054,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 1860:                                             ; preds = %1858
   %1861 = zext i8 %1859 to i64
-  %1862 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %1861
+  %1862 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %1861
   %1863 = load i8, ptr %1862, align 1, !tbaa !11
   %1864 = and i8 %1863, 1
   %.not5718 = icmp eq i8 %1864, 0
@@ -10151,7 +10151,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
   %.35109 = phi i8 [ %2323, %2322 ], [ %.35109.ph, %.preheader6402 ]
   %.55097 = phi i32 [ %.125104, %2322 ], [ %.55097.ph, %.preheader6402 ]
   %2325 = zext i8 %.35109 to i64
-  %2326 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %2325
+  %2326 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %2325
   %2327 = load i8, ptr %2326, align 1, !tbaa !11
   %2328 = and i8 %2327, 2
   %.not5667 = icmp eq i8 %2328, 0
@@ -10253,7 +10253,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 2362:                                             ; preds = %2360
   %2363 = zext i8 %2361 to i64
-  %2364 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %2363
+  %2364 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %2363
   %2365 = load i8, ptr %2364, align 1, !tbaa !11
   %2366 = and i8 %2365, 2
   %.not5669 = icmp eq i8 %2366, 0
@@ -12252,7 +12252,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 3310:                                             ; preds = %3308
   %3311 = zext i8 %3309 to i64
   %3312 = or disjoint i64 %3311, 256
-  %3313 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %3312
+  %3313 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %3312
   %3314 = load i8, ptr %3313, align 1, !tbaa !11
   %.not5608 = icmp sgt i8 %3314, -1
   br i1 %.not5608, label %3315, label %682
@@ -12959,7 +12959,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 3619:                                             ; preds = %3617
   %3620 = zext i8 %3618 to i64
-  %3621 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %3620
+  %3621 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %3620
   %3622 = load i8, ptr %3621, align 1, !tbaa !11
   %3623 = and i8 %3622, 4
   %.not5720 = icmp eq i8 %3623, 0
@@ -13361,7 +13361,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 3772:                                             ; preds = %3770
   %3773 = zext i8 %3771 to i64
-  %3774 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %3773
+  %3774 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %3773
   %3775 = load i8, ptr %3774, align 1, !tbaa !11
   %3776 = and i8 %3775, 8
   %.not5713 = icmp eq i8 %3776, 0
@@ -15418,7 +15418,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 4712:                                             ; preds = %4710
   %4713 = zext i8 %4711 to i64
   %4714 = or disjoint i64 %4713, 256
-  %4715 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %4714
+  %4715 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %4714
   %4716 = load i8, ptr %4715, align 1, !tbaa !11
   %.not5647 = icmp sgt i8 %4716, -1
   br i1 %.not5647, label %4717, label %682
@@ -15791,7 +15791,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 4881:                                             ; preds = %4879
   %4882 = zext i8 %4880 to i64
   %4883 = or disjoint i64 %4882, 256
-  %4884 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %4883
+  %4884 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %4883
   %4885 = load i8, ptr %4884, align 1, !tbaa !11
   %.not5611 = icmp sgt i8 %4885, -1
   br i1 %.not5611, label %4886, label %682
@@ -15904,7 +15904,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 4935:                                             ; preds = %4933
   %4936 = zext i8 %4934 to i64
   %4937 = or disjoint i64 %4936, 256
-  %4938 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %4937
+  %4938 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %4937
   %4939 = load i8, ptr %4938, align 1, !tbaa !11
   %.not5605 = icmp sgt i8 %4939, -1
   br i1 %.not5605, label %4940, label %682
@@ -16004,7 +16004,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 4983:                                             ; preds = %4981
   %4984 = zext i8 %4982 to i64
   %4985 = or disjoint i64 %4984, 256
-  %4986 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %4985
+  %4986 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %4985
   %4987 = load i8, ptr %4986, align 1, !tbaa !11
   %.not5601 = icmp sgt i8 %4987, -1
   br i1 %.not5601, label %4988, label %682
@@ -16434,7 +16434,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 5187:                                             ; preds = %5185
   %5188 = zext i8 %5186 to i64
   %5189 = or disjoint i64 %5188, 256
-  %5190 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %5189
+  %5190 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %5189
   %5191 = load i8, ptr %5190, align 1, !tbaa !11
   %.not5574 = icmp sgt i8 %5191, -1
   br i1 %.not5574, label %5192, label %682
@@ -16786,7 +16786,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 5349:                                             ; preds = %5347
   %5350 = zext i8 %5348 to i64
-  %5351 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %5350
+  %5351 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %5350
   %5352 = load i8, ptr %5351, align 1, !tbaa !11
   %5353 = and i8 %5352, 1
   %.not5723 = icmp eq i8 %5353, 0
@@ -17074,7 +17074,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 5459:                                             ; preds = %5457
   %5460 = zext i8 %5458 to i64
-  %5461 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %5460
+  %5461 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %5460
   %5462 = load i8, ptr %5461, align 1, !tbaa !11
   %5463 = and i8 %5462, 32
   %.not5715 = icmp eq i8 %5463, 0
@@ -17415,7 +17415,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 5618:                                             ; preds = %5616
   %5619 = zext i8 %5617 to i64
-  %5620 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %5619
+  %5620 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %5619
   %5621 = load i8, ptr %5620, align 1, !tbaa !11
   %5622 = and i8 %5621, 2
   %.not5672 = icmp eq i8 %5622, 0
@@ -18082,7 +18082,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 5904:                                             ; preds = %5902
   %5905 = zext i8 %5903 to i64
   %5906 = or disjoint i64 %5905, 256
-  %5907 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %5906
+  %5907 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %5906
   %5908 = load i8, ptr %5907, align 1, !tbaa !11
   %.not5665 = icmp sgt i8 %5908, -1
   br i1 %.not5665, label %5909, label %682
@@ -18253,7 +18253,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 5987:                                             ; preds = %5985
   %5988 = zext i8 %5986 to i64
   %5989 = or disjoint i64 %5988, 256
-  %5990 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %5989
+  %5990 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %5989
   %5991 = load i8, ptr %5990, align 1, !tbaa !11
   %.not5646 = icmp sgt i8 %5991, -1
   br i1 %.not5646, label %5992, label %682
@@ -18340,7 +18340,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 6029:                                             ; preds = %6027
   %6030 = zext i8 %6028 to i64
   %6031 = or disjoint i64 %6030, 256
-  %6032 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %6031
+  %6032 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %6031
   %6033 = load i8, ptr %6032, align 1, !tbaa !11
   %.not5643 = icmp sgt i8 %6033, -1
   br i1 %.not5643, label %6034, label %682
@@ -18414,7 +18414,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 6065:                                             ; preds = %6063
   %6066 = zext i8 %6064 to i64
   %6067 = or disjoint i64 %6066, 256
-  %6068 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %6067
+  %6068 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %6067
   %6069 = load i8, ptr %6068, align 1, !tbaa !11
   %.not5641 = icmp sgt i8 %6069, -1
   br i1 %.not5641, label %6070, label %682
@@ -18774,7 +18774,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 6233:                                             ; preds = %6231
   %6234 = zext i8 %6232 to i64
   %6235 = or disjoint i64 %6234, 256
-  %6236 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %6235
+  %6236 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %6235
   %6237 = load i8, ptr %6236, align 1, !tbaa !11
   %.not5618 = icmp sgt i8 %6237, -1
   br i1 %.not5618, label %6238, label %682
@@ -18835,7 +18835,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 6263:                                             ; preds = %6261
   %6264 = zext i8 %6262 to i64
   %6265 = or disjoint i64 %6264, 256
-  %6266 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %6265
+  %6266 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %6265
   %6267 = load i8, ptr %6266, align 1, !tbaa !11
   %.not5617 = icmp sgt i8 %6267, -1
   br i1 %.not5617, label %6268, label %682
@@ -18974,7 +18974,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 6329:                                             ; preds = %6327
   %6330 = zext i8 %6328 to i64
   %6331 = or disjoint i64 %6330, 256
-  %6332 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %6331
+  %6332 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %6331
   %6333 = load i8, ptr %6332, align 1, !tbaa !11
   %.not5609 = icmp sgt i8 %6333, -1
   br i1 %.not5609, label %6334, label %682
@@ -19061,7 +19061,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 6371:                                             ; preds = %6369
   %6372 = zext i8 %6370 to i64
   %6373 = or disjoint i64 %6372, 256
-  %6374 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %6373
+  %6374 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %6373
   %6375 = load i8, ptr %6374, align 1, !tbaa !11
   %.not5604 = icmp sgt i8 %6375, -1
   br i1 %.not5604, label %6376, label %682
@@ -19395,7 +19395,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 6527:                                             ; preds = %6525
   %6528 = zext i8 %6526 to i64
   %6529 = or disjoint i64 %6528, 256
-  %6530 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %6529
+  %6530 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %6529
   %6531 = load i8, ptr %6530, align 1, !tbaa !11
   %.not5578 = icmp sgt i8 %6531, -1
   br i1 %.not5578, label %6532, label %682
@@ -19482,7 +19482,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 6569:                                             ; preds = %6567
   %6570 = zext i8 %6568 to i64
   %6571 = or disjoint i64 %6570, 256
-  %6572 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %6571
+  %6572 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %6571
   %6573 = load i8, ptr %6572, align 1, !tbaa !11
   %.not5575 = icmp sgt i8 %6573, -1
   br i1 %.not5575, label %6574, label %682
@@ -19618,7 +19618,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 6632:                                             ; preds = %6630
   %6633 = zext i8 %6631 to i64
   %6634 = or disjoint i64 %6633, 256
-  %6635 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %6634
+  %6635 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %6634
   %6636 = load i8, ptr %6635, align 1, !tbaa !11
   %.not5565 = icmp sgt i8 %6636, -1
   br i1 %.not5565, label %6637, label %682
@@ -19842,7 +19842,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 6732:                                             ; preds = %6730
   %6733 = zext i8 %6731 to i64
-  %6734 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %6733
+  %6734 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %6733
   %6735 = load i8, ptr %6734, align 1, !tbaa !11
   %6736 = and i8 %6735, 1
   %.not5725 = icmp eq i8 %6736, 0
@@ -20390,7 +20390,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 6972:                                             ; preds = %6970
   %6973 = zext i8 %6971 to i64
-  %6974 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %6973
+  %6974 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %6973
   %6975 = load i8, ptr %6974, align 1, !tbaa !11
   %6976 = and i8 %6975, 2
   %.not5674 = icmp eq i8 %6976, 0
@@ -20878,7 +20878,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 7164:                                             ; preds = %7162
   %7165 = zext i8 %7163 to i64
   %7166 = or disjoint i64 %7165, 256
-  %7167 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %7166
+  %7167 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %7166
   %7168 = load i8, ptr %7167, align 1, !tbaa !11
   %.not5651 = icmp sgt i8 %7168, -1
   br i1 %.not5651, label %7169, label %682
@@ -21064,7 +21064,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 7252:                                             ; preds = %7250
   %7253 = zext i8 %7251 to i64
   %7254 = or disjoint i64 %7253, 256
-  %7255 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %7254
+  %7255 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %7254
   %7256 = load i8, ptr %7255, align 1, !tbaa !11
   %.not5644 = icmp sgt i8 %7256, -1
   br i1 %.not5644, label %7257, label %682
@@ -21131,7 +21131,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 7287:                                             ; preds = %7285
   %7288 = zext i8 %7286 to i64
   %7289 = or disjoint i64 %7288, 256
-  %7290 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %7289
+  %7290 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %7289
   %7291 = load i8, ptr %7290, align 1, !tbaa !11
   %.not5642 = icmp sgt i8 %7291, -1
   br i1 %.not5642, label %7292, label %682
@@ -21192,7 +21192,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 7317:                                             ; preds = %7315
   %7318 = zext i8 %7316 to i64
   %7319 = or disjoint i64 %7318, 256
-  %7320 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %7319
+  %7320 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %7319
   %7321 = load i8, ptr %7320, align 1, !tbaa !11
   %.not5640 = icmp sgt i8 %7321, -1
   br i1 %.not5640, label %7322, label %682
@@ -21292,7 +21292,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 7365:                                             ; preds = %7363
   %7366 = zext i8 %7364 to i64
   %7367 = or disjoint i64 %7366, 256
-  %7368 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %7367
+  %7368 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %7367
   %7369 = load i8, ptr %7368, align 1, !tbaa !11
   %.not5635 = icmp sgt i8 %7369, -1
   br i1 %.not5635, label %7370, label %682
@@ -21392,7 +21392,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 7413:                                             ; preds = %7411
   %7414 = zext i8 %7412 to i64
   %7415 = or disjoint i64 %7414, 256
-  %7416 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %7415
+  %7416 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %7415
   %7417 = load i8, ptr %7416, align 1, !tbaa !11
   %.not5631 = icmp sgt i8 %7417, -1
   br i1 %.not5631, label %7418, label %682
@@ -21700,7 +21700,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 7562:                                             ; preds = %7560
   %7563 = zext i8 %7561 to i64
   %7564 = or disjoint i64 %7563, 256
-  %7565 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %7564
+  %7565 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %7564
   %7566 = load i8, ptr %7565, align 1, !tbaa !11
   %.not5613 = icmp sgt i8 %7566, -1
   br i1 %.not5613, label %7567, label %682
@@ -21761,7 +21761,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 7592:                                             ; preds = %7590
   %7593 = zext i8 %7591 to i64
   %7594 = or disjoint i64 %7593, 256
-  %7595 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %7594
+  %7595 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %7594
   %7596 = load i8, ptr %7595, align 1, !tbaa !11
   %.not5612 = icmp sgt i8 %7596, -1
   br i1 %.not5612, label %7597, label %682
@@ -21939,7 +21939,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 7676:                                             ; preds = %7674
   %7677 = zext i8 %7675 to i64
   %7678 = or disjoint i64 %7677, 256
-  %7679 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %7678
+  %7679 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %7678
   %7680 = load i8, ptr %7679, align 1, !tbaa !11
   %.not5596 = icmp sgt i8 %7680, -1
   br i1 %.not5596, label %7681, label %682
@@ -22097,7 +22097,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 7753:                                             ; preds = %7751
   %7754 = zext i8 %7752 to i64
   %7755 = or disjoint i64 %7754, 256
-  %7756 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %7755
+  %7756 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %7755
   %7757 = load i8, ptr %7756, align 1, !tbaa !11
   %.not5586 = icmp sgt i8 %7757, -1
   br i1 %.not5586, label %7758, label %682
@@ -22249,7 +22249,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 7825:                                             ; preds = %7823
   %7826 = zext i8 %7824 to i64
   %7827 = or disjoint i64 %7826, 256
-  %7828 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %7827
+  %7828 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %7827
   %7829 = load i8, ptr %7828, align 1, !tbaa !11
   %.not5576 = icmp sgt i8 %7829, -1
   br i1 %.not5576, label %7830, label %682
@@ -22349,7 +22349,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 7873:                                             ; preds = %7871
   %7874 = zext i8 %7872 to i64
   %7875 = or disjoint i64 %7874, 256
-  %7876 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %7875
+  %7876 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %7875
   %7877 = load i8, ptr %7876, align 1, !tbaa !11
   %.not5569 = icmp sgt i8 %7877, -1
   br i1 %.not5569, label %7878, label %682
@@ -22423,7 +22423,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 7909:                                             ; preds = %7907
   %7910 = zext i8 %7908 to i64
   %7911 = or disjoint i64 %7910, 256
-  %7912 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %7911
+  %7912 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %7911
   %7913 = load i8, ptr %7912, align 1, !tbaa !11
   %.not5567 = icmp sgt i8 %7913, -1
   br i1 %.not5567, label %7914, label %682
@@ -22523,7 +22523,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 7957:                                             ; preds = %7955
   %7958 = zext i8 %7956 to i64
   %7959 = or disjoint i64 %7958, 256
-  %7960 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %7959
+  %7960 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %7959
   %7961 = load i8, ptr %7960, align 1, !tbaa !11
   %.not5562 = icmp sgt i8 %7961, -1
   br i1 %.not5562, label %7962, label %682
@@ -23183,7 +23183,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 8264:                                             ; preds = %8262
   %8265 = zext i8 %8263 to i64
   %8266 = or disjoint i64 %8265, 256
-  %8267 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %8266
+  %8267 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %8266
   %8268 = load i8, ptr %8267, align 1, !tbaa !11
   %.not5654 = icmp sgt i8 %8268, -1
   br i1 %.not5654, label %8269, label %682
@@ -23263,7 +23263,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 8305:                                             ; preds = %8303
   %8306 = zext i8 %8304 to i64
   %8307 = or disjoint i64 %8306, 256
-  %8308 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %8307
+  %8308 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %8307
   %8309 = load i8, ptr %8308, align 1, !tbaa !11
   %.not5664 = icmp sgt i8 %8309, -1
   br i1 %.not5664, label %8310, label %682
@@ -23330,7 +23330,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 8340:                                             ; preds = %8338
   %8341 = zext i8 %8339 to i64
   %8342 = or disjoint i64 %8341, 256
-  %8343 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %8342
+  %8343 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %8342
   %8344 = load i8, ptr %8343, align 1, !tbaa !11
   %.not5663 = icmp sgt i8 %8344, -1
   br i1 %.not5663, label %8345, label %682
@@ -23475,7 +23475,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 8411:                                             ; preds = %8409
   %8412 = zext i8 %8410 to i64
   %8413 = or disjoint i64 %8412, 256
-  %8414 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %8413
+  %8414 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %8413
   %8415 = load i8, ptr %8414, align 1, !tbaa !11
   %.not5648 = icmp sgt i8 %8415, -1
   br i1 %.not5648, label %8416, label %682
@@ -23542,7 +23542,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 8446:                                             ; preds = %8444
   %8447 = zext i8 %8445 to i64
   %8448 = or disjoint i64 %8447, 256
-  %8449 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %8448
+  %8449 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %8448
   %8450 = load i8, ptr %8449, align 1, !tbaa !11
   %.not5645 = icmp sgt i8 %8450, -1
   br i1 %.not5645, label %8451, label %682
@@ -23780,7 +23780,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 8558:                                             ; preds = %8556
   %8559 = zext i8 %8557 to i64
   %8560 = or disjoint i64 %8559, 256
-  %8561 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %8560
+  %8561 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %8560
   %8562 = load i8, ptr %8561, align 1, !tbaa !11
   %.not5622 = icmp sgt i8 %8562, -1
   br i1 %.not5622, label %8563, label %682
@@ -23841,7 +23841,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 8588:                                             ; preds = %8586
   %8589 = zext i8 %8587 to i64
   %8590 = or disjoint i64 %8589, 256
-  %8591 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %8590
+  %8591 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %8590
   %8592 = load i8, ptr %8591, align 1, !tbaa !11
   %.not5620 = icmp sgt i8 %8592, -1
   br i1 %.not5620, label %8593, label %682
@@ -23928,7 +23928,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 8630:                                             ; preds = %8628
   %8631 = zext i8 %8629 to i64
   %8632 = or disjoint i64 %8631, 256
-  %8633 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %8632
+  %8633 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %8632
   %8634 = load i8, ptr %8633, align 1, !tbaa !11
   %.not5615 = icmp sgt i8 %8634, -1
   br i1 %.not5615, label %8635, label %682
@@ -23989,7 +23989,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 8660:                                             ; preds = %8658
   %8661 = zext i8 %8659 to i64
   %8662 = or disjoint i64 %8661, 256
-  %8663 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %8662
+  %8663 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %8662
   %8664 = load i8, ptr %8663, align 1, !tbaa !11
   %.not5614 = icmp sgt i8 %8664, -1
   br i1 %.not5614, label %8665, label %682
@@ -24050,7 +24050,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 8690:                                             ; preds = %8688
   %8691 = zext i8 %8689 to i64
   %8692 = or disjoint i64 %8691, 256
-  %8693 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %8692
+  %8693 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %8692
   %8694 = load i8, ptr %8693, align 1, !tbaa !11
   %.not5610 = icmp sgt i8 %8694, -1
   br i1 %.not5610, label %8695, label %682
@@ -24111,7 +24111,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 8720:                                             ; preds = %8718
   %8721 = zext i8 %8719 to i64
   %8722 = or disjoint i64 %8721, 256
-  %8723 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %8722
+  %8723 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %8722
   %8724 = load i8, ptr %8723, align 1, !tbaa !11
   %.not5607 = icmp sgt i8 %8724, -1
   br i1 %.not5607, label %8725, label %682
@@ -24178,7 +24178,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 8755:                                             ; preds = %8753
   %8756 = zext i8 %8754 to i64
   %8757 = or disjoint i64 %8756, 256
-  %8758 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %8757
+  %8758 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %8757
   %8759 = load i8, ptr %8758, align 1, !tbaa !11
   %.not5606 = icmp sgt i8 %8759, -1
   br i1 %.not5606, label %8760, label %682
@@ -24278,7 +24278,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 8803:                                             ; preds = %8801
   %8804 = zext i8 %8802 to i64
   %8805 = or disjoint i64 %8804, 256
-  %8806 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %8805
+  %8806 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %8805
   %8807 = load i8, ptr %8806, align 1, !tbaa !11
   %.not5599 = icmp sgt i8 %8807, -1
   br i1 %.not5599, label %8808, label %682
@@ -24397,7 +24397,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 8862:                                             ; preds = %8860
   %8863 = zext i8 %8861 to i64
   %8864 = or disjoint i64 %8863, 256
-  %8865 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %8864
+  %8865 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %8864
   %8866 = load i8, ptr %8865, align 1, !tbaa !11
   %.not5593 = icmp sgt i8 %8866, -1
   br i1 %.not5593, label %8867, label %682
@@ -24497,7 +24497,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 8910:                                             ; preds = %8908
   %8911 = zext i8 %8909 to i64
   %8912 = or disjoint i64 %8911, 256
-  %8913 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %8912
+  %8913 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %8912
   %8914 = load i8, ptr %8913, align 1, !tbaa !11
   %.not5587 = icmp sgt i8 %8914, -1
   br i1 %.not5587, label %8915, label %682
@@ -24558,7 +24558,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 8940:                                             ; preds = %8938
   %8941 = zext i8 %8939 to i64
   %8942 = or disjoint i64 %8941, 256
-  %8943 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %8942
+  %8943 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %8942
   %8944 = load i8, ptr %8943, align 1, !tbaa !11
   %.not5585 = icmp sgt i8 %8944, -1
   br i1 %.not5585, label %8945, label %682
@@ -24619,7 +24619,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 8970:                                             ; preds = %8968
   %8971 = zext i8 %8969 to i64
   %8972 = or disjoint i64 %8971, 256
-  %8973 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %8972
+  %8973 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %8972
   %8974 = load i8, ptr %8973, align 1, !tbaa !11
   %.not5584 = icmp sgt i8 %8974, -1
   br i1 %.not5584, label %8975, label %682
@@ -24768,7 +24768,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 9044:                                             ; preds = %9042
   %9045 = zext i8 %9043 to i64
   %9046 = or disjoint i64 %9045, 256
-  %9047 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %9046
+  %9047 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %9046
   %9048 = load i8, ptr %9047, align 1, !tbaa !11
   %.not5581 = icmp sgt i8 %9048, -1
   br i1 %.not5581, label %9049, label %682
@@ -24829,7 +24829,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 9074:                                             ; preds = %9072
   %9075 = zext i8 %9073 to i64
   %9076 = or disjoint i64 %9075, 256
-  %9077 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %9076
+  %9077 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %9076
   %9078 = load i8, ptr %9077, align 1, !tbaa !11
   %.not5580 = icmp sgt i8 %9078, -1
   br i1 %.not5580, label %9079, label %682
@@ -24929,7 +24929,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 9122:                                             ; preds = %9120
   %9123 = zext i8 %9121 to i64
   %9124 = or disjoint i64 %9123, 256
-  %9125 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %9124
+  %9125 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %9124
   %9126 = load i8, ptr %9125, align 1, !tbaa !11
   %.not5572 = icmp sgt i8 %9126, -1
   br i1 %.not5572, label %9127, label %682
@@ -25055,7 +25055,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 9182:                                             ; preds = %9180
   %9183 = zext i8 %9181 to i64
   %9184 = or disjoint i64 %9183, 256
-  %9185 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %9184
+  %9185 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %9184
   %9186 = load i8, ptr %9185, align 1, !tbaa !11
   %.not5561 = icmp sgt i8 %9186, -1
   br i1 %.not5561, label %9187, label %682
@@ -25348,7 +25348,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 9331:                                             ; preds = %9329
   %9332 = zext i8 %9330 to i64
   %9333 = or disjoint i64 %9332, 256
-  %9334 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %9333
+  %9334 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %9333
   %9335 = load i8, ptr %9334, align 1, !tbaa !11
   %.not5657 = icmp sgt i8 %9335, -1
   br i1 %.not5657, label %9336, label %682
@@ -25415,7 +25415,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 9366:                                             ; preds = %9364
   %9367 = zext i8 %9365 to i64
   %9368 = or disjoint i64 %9367, 256
-  %9369 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %9368
+  %9369 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %9368
   %9370 = load i8, ptr %9369, align 1, !tbaa !11
   %.not5656 = icmp sgt i8 %9370, -1
   br i1 %.not5656, label %9371, label %682
@@ -25482,7 +25482,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 9401:                                             ; preds = %9399
   %9402 = zext i8 %9400 to i64
   %9403 = or disjoint i64 %9402, 256
-  %9404 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %9403
+  %9404 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %9403
   %9405 = load i8, ptr %9404, align 1, !tbaa !11
   %.not5655 = icmp sgt i8 %9405, -1
   br i1 %.not5655, label %9406, label %682
@@ -25549,7 +25549,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 9436:                                             ; preds = %9434
   %9437 = zext i8 %9435 to i64
   %9438 = or disjoint i64 %9437, 256
-  %9439 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %9438
+  %9439 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %9438
   %9440 = load i8, ptr %9439, align 1, !tbaa !11
   %.not5653 = icmp sgt i8 %9440, -1
   br i1 %.not5653, label %9441, label %682
@@ -25642,7 +25642,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 9483:                                             ; preds = %9481
   %9484 = zext i8 %9482 to i64
   %9485 = or disjoint i64 %9484, 256
-  %9486 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %9485
+  %9486 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %9485
   %9487 = load i8, ptr %9486, align 1, !tbaa !11
   %.not5658 = icmp sgt i8 %9487, -1
   br i1 %.not5658, label %9488, label %682
@@ -25722,7 +25722,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 9524:                                             ; preds = %9522
   %9525 = zext i8 %9523 to i64
   %9526 = or disjoint i64 %9525, 256
-  %9527 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %9526
+  %9527 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %9526
   %9528 = load i8, ptr %9527, align 1, !tbaa !11
   %.not5650 = icmp sgt i8 %9528, -1
   br i1 %.not5650, label %9529, label %682
@@ -25789,7 +25789,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 9559:                                             ; preds = %9557
   %9560 = zext i8 %9558 to i64
   %9561 = or disjoint i64 %9560, 256
-  %9562 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %9561
+  %9562 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %9561
   %9563 = load i8, ptr %9562, align 1, !tbaa !11
   %.not5649 = icmp sgt i8 %9563, -1
   br i1 %.not5649, label %9564, label %682
@@ -25882,7 +25882,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 9606:                                             ; preds = %9604
   %9607 = zext i8 %9605 to i64
   %9608 = or disjoint i64 %9607, 256
-  %9609 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %9608
+  %9609 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %9608
   %9610 = load i8, ptr %9609, align 1, !tbaa !11
   %.not5636 = icmp sgt i8 %9610, -1
   br i1 %.not5636, label %9611, label %682
@@ -25988,7 +25988,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 9659:                                             ; preds = %9657
   %9660 = zext i8 %9658 to i64
   %9661 = or disjoint i64 %9660, 256
-  %9662 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %9661
+  %9662 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %9661
   %9663 = load i8, ptr %9662, align 1, !tbaa !11
   %.not5630 = icmp sgt i8 %9663, -1
   br i1 %.not5630, label %9664, label %682
@@ -26133,7 +26133,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 9730:                                             ; preds = %9728
   %9731 = zext i8 %9729 to i64
   %9732 = or disjoint i64 %9731, 256
-  %9733 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %9732
+  %9733 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %9732
   %9734 = load i8, ptr %9733, align 1, !tbaa !11
   %.not5623 = icmp sgt i8 %9734, -1
   br i1 %.not5623, label %9735, label %682
@@ -26220,7 +26220,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 9772:                                             ; preds = %9770
   %9773 = zext i8 %9771 to i64
   %9774 = or disjoint i64 %9773, 256
-  %9775 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %9774
+  %9775 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %9774
   %9776 = load i8, ptr %9775, align 1, !tbaa !11
   %.not5603 = icmp sgt i8 %9776, -1
   br i1 %.not5603, label %9777, label %682
@@ -26307,7 +26307,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 9814:                                             ; preds = %9812
   %9815 = zext i8 %9813 to i64
   %9816 = or disjoint i64 %9815, 256
-  %9817 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %9816
+  %9817 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %9816
   %9818 = load i8, ptr %9817, align 1, !tbaa !11
   %.not5598 = icmp sgt i8 %9818, -1
   br i1 %.not5598, label %9819, label %682
@@ -26387,7 +26387,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 9855:                                             ; preds = %9853
   %9856 = zext i8 %9854 to i64
   %9857 = or disjoint i64 %9856, 256
-  %9858 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %9857
+  %9858 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %9857
   %9859 = load i8, ptr %9858, align 1, !tbaa !11
   %.not5595 = icmp sgt i8 %9859, -1
   br i1 %.not5595, label %9860, label %682
@@ -26541,7 +26541,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 9926:                                             ; preds = %9924
   %9927 = zext i8 %9925 to i64
   %9928 = or disjoint i64 %9927, 256
-  %9929 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %9928
+  %9929 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %9928
   %9930 = load i8, ptr %9929, align 1, !tbaa !11
   %.not5573 = icmp sgt i8 %9930, -1
   br i1 %.not5573, label %9931, label %682
@@ -26628,7 +26628,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 9968:                                             ; preds = %9966
   %9969 = zext i8 %9967 to i64
   %9970 = or disjoint i64 %9969, 256
-  %9971 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %9970
+  %9971 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %9970
   %9972 = load i8, ptr %9971, align 1, !tbaa !11
   %.not5566 = icmp sgt i8 %9972, -1
   br i1 %.not5566, label %9973, label %682
@@ -26702,7 +26702,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 10004:                                            ; preds = %10002
   %10005 = zext i8 %10003 to i64
   %10006 = or disjoint i64 %10005, 256
-  %10007 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %10006
+  %10007 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %10006
   %10008 = load i8, ptr %10007, align 1, !tbaa !11
   %.not5563 = icmp sgt i8 %10008, -1
   br i1 %.not5563, label %10009, label %682
@@ -26867,7 +26867,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 10087:                                            ; preds = %10085
   %10088 = zext i8 %10086 to i64
   %10089 = or disjoint i64 %10088, 256
-  %10090 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %10089
+  %10090 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %10089
   %10091 = load i8, ptr %10090, align 1, !tbaa !11
   %.not5661 = icmp sgt i8 %10091, -1
   br i1 %.not5661, label %10092, label %682
@@ -26973,7 +26973,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 10140:                                            ; preds = %10138
   %10141 = zext i8 %10139 to i64
   %10142 = or disjoint i64 %10141, 256
-  %10143 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %10142
+  %10143 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %10142
   %10144 = load i8, ptr %10143, align 1, !tbaa !11
   %.not5652 = icmp sgt i8 %10144, -1
   br i1 %.not5652, label %10145, label %682
@@ -27040,7 +27040,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 10175:                                            ; preds = %10173
   %10176 = zext i8 %10174 to i64
   %10177 = or disjoint i64 %10176, 256
-  %10178 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %10177
+  %10178 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %10177
   %10179 = load i8, ptr %10178, align 1, !tbaa !11
   %.not5639 = icmp sgt i8 %10179, -1
   br i1 %.not5639, label %10180, label %682
@@ -27107,7 +27107,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 10210:                                            ; preds = %10208
   %10211 = zext i8 %10209 to i64
   %10212 = or disjoint i64 %10211, 256
-  %10213 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %10212
+  %10213 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %10212
   %10214 = load i8, ptr %10213, align 1, !tbaa !11
   %.not5637 = icmp sgt i8 %10214, -1
   br i1 %.not5637, label %10215, label %682
@@ -27174,7 +27174,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 10245:                                            ; preds = %10243
   %10246 = zext i8 %10244 to i64
   %10247 = or disjoint i64 %10246, 256
-  %10248 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %10247
+  %10248 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %10247
   %10249 = load i8, ptr %10248, align 1, !tbaa !11
   %.not5634 = icmp sgt i8 %10249, -1
   br i1 %.not5634, label %10250, label %682
@@ -27254,7 +27254,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 10286:                                            ; preds = %10284
   %10287 = zext i8 %10285 to i64
   %10288 = or disjoint i64 %10287, 256
-  %10289 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %10288
+  %10289 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %10288
   %10290 = load i8, ptr %10289, align 1, !tbaa !11
   %.not5632 = icmp sgt i8 %10290, -1
   br i1 %.not5632, label %10291, label %682
@@ -27373,7 +27373,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 10345:                                            ; preds = %10343
   %10346 = zext i8 %10344 to i64
   %10347 = or disjoint i64 %10346, 256
-  %10348 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %10347
+  %10348 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %10347
   %10349 = load i8, ptr %10348, align 1, !tbaa !11
   %.not5625 = icmp sgt i8 %10349, -1
   br i1 %.not5625, label %10350, label %682
@@ -27434,7 +27434,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 10375:                                            ; preds = %10373
   %10376 = zext i8 %10374 to i64
   %10377 = or disjoint i64 %10376, 256
-  %10378 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %10377
+  %10378 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %10377
   %10379 = load i8, ptr %10378, align 1, !tbaa !11
   %.not5624 = icmp sgt i8 %10379, -1
   br i1 %.not5624, label %10380, label %682
@@ -27514,7 +27514,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 10416:                                            ; preds = %10414
   %10417 = zext i8 %10415 to i64
   %10418 = or disjoint i64 %10417, 256
-  %10419 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %10418
+  %10419 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %10418
   %10420 = load i8, ptr %10419, align 1, !tbaa !11
   %.not5616 = icmp sgt i8 %10420, -1
   br i1 %.not5616, label %10421, label %682
@@ -27588,7 +27588,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 10452:                                            ; preds = %10450
   %10453 = zext i8 %10451 to i64
   %10454 = or disjoint i64 %10453, 256
-  %10455 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %10454
+  %10455 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %10454
   %10456 = load i8, ptr %10455, align 1, !tbaa !11
   %.not5600 = icmp sgt i8 %10456, -1
   br i1 %.not5600, label %10457, label %682
@@ -27655,7 +27655,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 10487:                                            ; preds = %10485
   %10488 = zext i8 %10486 to i64
   %10489 = or disjoint i64 %10488, 256
-  %10490 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %10489
+  %10490 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %10489
   %10491 = load i8, ptr %10490, align 1, !tbaa !11
   %.not5597 = icmp sgt i8 %10491, -1
   br i1 %.not5597, label %10492, label %682
@@ -27729,7 +27729,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 10523:                                            ; preds = %10521
   %10524 = zext i8 %10522 to i64
   %10525 = or disjoint i64 %10524, 256
-  %10526 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %10525
+  %10526 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %10525
   %10527 = load i8, ptr %10526, align 1, !tbaa !11
   %.not5592 = icmp sgt i8 %10527, -1
   br i1 %.not5592, label %10528, label %682
@@ -27803,7 +27803,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 10559:                                            ; preds = %10557
   %10560 = zext i8 %10558 to i64
   %10561 = or disjoint i64 %10560, 256
-  %10562 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %10561
+  %10562 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %10561
   %10563 = load i8, ptr %10562, align 1, !tbaa !11
   %.not5588 = icmp sgt i8 %10563, -1
   br i1 %.not5588, label %10564, label %682
@@ -27896,7 +27896,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 10606:                                            ; preds = %10604
   %10607 = zext i8 %10605 to i64
   %10608 = or disjoint i64 %10607, 256
-  %10609 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %10608
+  %10609 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %10608
   %10610 = load i8, ptr %10609, align 1, !tbaa !11
   %.not5579 = icmp sgt i8 %10610, -1
   br i1 %.not5579, label %10611, label %682
@@ -27970,7 +27970,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 10642:                                            ; preds = %10640
   %10643 = zext i8 %10641 to i64
   %10644 = or disjoint i64 %10643, 256
-  %10645 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %10644
+  %10645 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %10644
   %10646 = load i8, ptr %10645, align 1, !tbaa !11
   %.not5571 = icmp sgt i8 %10646, -1
   br i1 %.not5571, label %10647, label %682
@@ -28031,7 +28031,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 10672:                                            ; preds = %10670
   %10673 = zext i8 %10671 to i64
   %10674 = or disjoint i64 %10673, 256
-  %10675 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %10674
+  %10675 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %10674
   %10676 = load i8, ptr %10675, align 1, !tbaa !11
   %.not5568 = icmp sgt i8 %10676, -1
   br i1 %.not5568, label %10677, label %682
@@ -28092,7 +28092,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 10702:                                            ; preds = %10700
   %10703 = zext i8 %10701 to i64
   %10704 = or disjoint i64 %10703, 256
-  %10705 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %10704
+  %10705 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %10704
   %10706 = load i8, ptr %10705, align 1, !tbaa !11
   %.not5564 = icmp sgt i8 %10706, -1
   br i1 %.not5564, label %10707, label %682
@@ -28391,7 +28391,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 10825:                                            ; preds = %10823
   %10826 = zext i8 %10824 to i64
   %10827 = or disjoint i64 %10826, 256
-  %10828 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %10827
+  %10828 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %10827
   %10829 = load i8, ptr %10828, align 1, !tbaa !11
   %.not5659 = icmp sgt i8 %10829, -1
   br i1 %.not5659, label %10830, label %682
@@ -28458,7 +28458,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 10860:                                            ; preds = %10858
   %10861 = zext i8 %10859 to i64
   %10862 = or disjoint i64 %10861, 256
-  %10863 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %10862
+  %10863 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %10862
   %10864 = load i8, ptr %10863, align 1, !tbaa !11
   %.not5662 = icmp sgt i8 %10864, -1
   br i1 %.not5662, label %10865, label %682
@@ -28525,7 +28525,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 10895:                                            ; preds = %10893
   %10896 = zext i8 %10894 to i64
   %10897 = or disjoint i64 %10896, 256
-  %10898 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %10897
+  %10898 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %10897
   %10899 = load i8, ptr %10898, align 1, !tbaa !11
   %.not5660 = icmp sgt i8 %10899, -1
   br i1 %.not5660, label %10900, label %682
@@ -28592,7 +28592,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 10930:                                            ; preds = %10928
   %10931 = zext i8 %10929 to i64
   %10932 = or disjoint i64 %10931, 256
-  %10933 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %10932
+  %10933 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %10932
   %10934 = load i8, ptr %10933, align 1, !tbaa !11
   %.not5633 = icmp sgt i8 %10934, -1
   br i1 %.not5633, label %10935, label %682
@@ -28672,7 +28672,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 10971:                                            ; preds = %10969
   %10972 = zext i8 %10970 to i64
   %10973 = or disjoint i64 %10972, 256
-  %10974 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %10973
+  %10974 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %10973
   %10975 = load i8, ptr %10974, align 1, !tbaa !11
   %.not5628 = icmp sgt i8 %10975, -1
   br i1 %.not5628, label %10976, label %682
@@ -28739,7 +28739,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 11006:                                            ; preds = %11004
   %11007 = zext i8 %11005 to i64
   %11008 = or disjoint i64 %11007, 256
-  %11009 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %11008
+  %11009 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %11008
   %11010 = load i8, ptr %11009, align 1, !tbaa !11
   %.not5627 = icmp sgt i8 %11010, -1
   br i1 %.not5627, label %11011, label %682
@@ -28806,7 +28806,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 11041:                                            ; preds = %11039
   %11042 = zext i8 %11040 to i64
   %11043 = or disjoint i64 %11042, 256
-  %11044 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %11043
+  %11044 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %11043
   %11045 = load i8, ptr %11044, align 1, !tbaa !11
   %.not5626 = icmp sgt i8 %11045, -1
   br i1 %.not5626, label %11046, label %682
@@ -28886,7 +28886,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 11082:                                            ; preds = %11080
   %11083 = zext i8 %11081 to i64
   %11084 = or disjoint i64 %11083, 256
-  %11085 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %11084
+  %11085 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %11084
   %11086 = load i8, ptr %11085, align 1, !tbaa !11
   %.not5602 = icmp sgt i8 %11086, -1
   br i1 %.not5602, label %11087, label %682
@@ -28947,7 +28947,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 11112:                                            ; preds = %11110
   %11113 = zext i8 %11111 to i64
   %11114 = or disjoint i64 %11113, 256
-  %11115 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %11114
+  %11115 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %11114
   %11116 = load i8, ptr %11115, align 1, !tbaa !11
   %.not5594 = icmp sgt i8 %11116, -1
   br i1 %.not5594, label %11117, label %682
@@ -29166,7 +29166,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 .preheader6340:                                   ; preds = %10777, %11207
   %.55111 = phi i8 [ %11208, %11207 ], [ %10776, %10777 ]
   %11209 = zext i8 %.55111 to i64
-  %11210 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %11209
+  %11210 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %11209
   %11211 = load i8, ptr %11210, align 1, !tbaa !11
   %11212 = and i8 %11211, 64
   %.not5709 = icmp eq i8 %11212, 0
@@ -29351,7 +29351,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 .preheader6354:                                   ; preds = %10813, %11274
   %.65112 = phi i8 [ %11275, %11274 ], [ %10812, %10813 ]
   %11276 = zext i8 %.65112 to i64
-  %11277 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %11276
+  %11277 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %11276
   %11278 = load i8, ptr %11277, align 1, !tbaa !11
   %.not5703 = icmp sgt i8 %11278, -1
   br i1 %.not5703, label %11281, label %11279
@@ -29388,7 +29388,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 11293:                                            ; preds = %11291
   %11294 = zext i8 %11292 to i64
   %11295 = or disjoint i64 %11294, 256
-  %11296 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %11295
+  %11296 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %11295
   %11297 = load i8, ptr %11296, align 1, !tbaa !11
   %.not5629 = icmp sgt i8 %11297, -1
   br i1 %.not5629, label %11298, label %682
@@ -29742,7 +29742,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 11452:                                            ; preds = %11450
   %11453 = zext i8 %11451 to i64
   %11454 = or disjoint i64 %11453, 256
-  %11455 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %11454
+  %11455 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %11454
   %11456 = load i8, ptr %11455, align 1, !tbaa !11
   %.not5582 = icmp sgt i8 %11456, -1
   br i1 %.not5582, label %11457, label %682
@@ -29828,7 +29828,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 11494:                                            ; preds = %11492
   %11495 = zext i8 %11493 to i64
   %11496 = or disjoint i64 %11495, 256
-  %11497 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %11496
+  %11497 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %11496
   %11498 = load i8, ptr %11497, align 1, !tbaa !11
   %.not5619 = icmp sgt i8 %11498, -1
   br i1 %.not5619, label %11499, label %682
@@ -29915,7 +29915,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 11536:                                            ; preds = %11534
   %11537 = zext i8 %11535 to i64
   %11538 = or disjoint i64 %11537, 256
-  %11539 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %11538
+  %11539 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %11538
   %11540 = load i8, ptr %11539, align 1, !tbaa !11
   %.not5577 = icmp sgt i8 %11540, -1
   br i1 %.not5577, label %11541, label %682
@@ -29995,7 +29995,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 11577:                                            ; preds = %11575
   %11578 = zext i8 %11576 to i64
   %11579 = or disjoint i64 %11578, 256
-  %11580 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %11579
+  %11580 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %11579
   %11581 = load i8, ptr %11580, align 1, !tbaa !11
   %.not5583 = icmp sgt i8 %11581, -1
   br i1 %.not5583, label %11582, label %682
@@ -30088,7 +30088,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 11622:                                            ; preds = %11620
   %11623 = zext i8 %11621 to i64
   %11624 = or disjoint i64 %11623, 256
-  %11625 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %11624
+  %11625 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %11624
   %11626 = load i8, ptr %11625, align 1, !tbaa !11
   %.not5591 = icmp sgt i8 %11626, -1
   br i1 %.not5591, label %11627, label %682
@@ -31621,7 +31621,7 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
 
 12339:                                            ; preds = %12337
   %12340 = zext i8 %12338 to i64
-  %12341 = getelementptr inbounds [256 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm_0, i64 0, i64 %12340
+  %12341 = getelementptr inbounds nuw [256 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm_0, i64 0, i64 %12340
   %12342 = load i8, ptr %12341, align 1, !tbaa !11
   %12343 = and i8 %12342, 64
   %.not5825 = icmp eq i8 %12343, 0
@@ -31911,7 +31911,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 12463:                                            ; preds = %12461
   %12464 = zext i8 %12462 to i64
-  %12465 = getelementptr inbounds [256 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm_0, i64 0, i64 %12464
+  %12465 = getelementptr inbounds nuw [256 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm_0, i64 0, i64 %12464
   %12466 = load i8, ptr %12465, align 1, !tbaa !11
   %.not5827 = icmp sgt i8 %12466, -1
   br i1 %.not5827, label %12467, label %.preheader6414
@@ -33151,7 +33151,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 12911:                                            ; preds = %12909
   %12912 = zext i8 %12910 to i64
-  %12913 = getelementptr inbounds [256 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm_1, i64 0, i64 %12912
+  %12913 = getelementptr inbounds nuw [256 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm_1, i64 0, i64 %12912
   %12914 = load i8, ptr %12913, align 1, !tbaa !11
   %12915 = and i8 %12914, 32
   %.not5808 = icmp eq i8 %12915, 0
@@ -33435,7 +33435,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 13033:                                            ; preds = %.preheader6448, %13031
   %.05085 = phi i8 [ %13032, %13031 ], [ %12880, %.preheader6448 ]
   %13034 = zext i8 %.05085 to i64
-  %13035 = getelementptr inbounds [256 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm_1, i64 0, i64 %13034
+  %13035 = getelementptr inbounds nuw [256 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm_1, i64 0, i64 %13034
   %13036 = load i8, ptr %13035, align 1, !tbaa !11
   %13037 = and i8 %13036, 64
   %.not5810 = icmp eq i8 %13037, 0
@@ -33611,7 +33611,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 13107:                                            ; preds = %13105
   %13108 = zext i8 %13106 to i64
-  %13109 = getelementptr inbounds [256 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm_1, i64 0, i64 %13108
+  %13109 = getelementptr inbounds nuw [256 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm_1, i64 0, i64 %13108
   %13110 = load i8, ptr %13109, align 1, !tbaa !11
   %.not5812 = icmp sgt i8 %13110, -1
   br i1 %.not5812, label %.thread6295, label %.preheader6439
@@ -33847,7 +33847,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 13199:                                            ; preds = %13197
   %13200 = zext i8 %13198 to i64
-  %13201 = getelementptr inbounds [256 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm_1, i64 0, i64 %13200
+  %13201 = getelementptr inbounds nuw [256 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm_1, i64 0, i64 %13200
   %13202 = load i8, ptr %13201, align 1, !tbaa !11
   %.not5814 = icmp sgt i8 %13202, -1
   br i1 %.not5814, label %.loopexit6443, label %13171
@@ -35282,7 +35282,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 13835:                                            ; preds = %.preheader6549, %13833
   %.05081 = phi i8 [ %13834, %13833 ], [ %13736, %.preheader6549 ]
   %13836 = zext i8 %.05081 to i64
-  %13837 = getelementptr inbounds [256 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm_2, i64 0, i64 %13836
+  %13837 = getelementptr inbounds nuw [256 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm_2, i64 0, i64 %13836
   %13838 = load i8, ptr %13837, align 1, !tbaa !11
   %.not5800 = icmp sgt i8 %13838, -1
   br i1 %.not5800, label %13841, label %13839
@@ -35943,7 +35943,7 @@ switch.hole_check:                                ; preds = %14078
   %.05080 = phi i8 [ 9, %13941 ], [ %13938, %13943 ], [ 9, %14063 ], [ %14059, %14065 ], [ %14124, %14123 ]
   %.05071 = phi i32 [ 0, %13941 ], [ 0, %13943 ], [ 0, %14063 ], [ 0, %14065 ], [ %.25073, %14123 ]
   %14126 = zext i8 %.05080 to i64
-  %14127 = getelementptr inbounds [256 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm_3, i64 0, i64 %14126
+  %14127 = getelementptr inbounds nuw [256 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm_3, i64 0, i64 %14126
   %14128 = load i8, ptr %14127, align 1, !tbaa !11
   %14129 = and i8 %14128, 32
   %.not5773 = icmp eq i8 %14129, 0
@@ -36049,7 +36049,7 @@ switch.hole_check:                                ; preds = %14078
 
 14165:                                            ; preds = %14163
   %14166 = zext i8 %14164 to i64
-  %14167 = getelementptr inbounds [256 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm_3, i64 0, i64 %14166
+  %14167 = getelementptr inbounds nuw [256 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm_3, i64 0, i64 %14166
   %14168 = load i8, ptr %14167, align 1, !tbaa !11
   %14169 = and i8 %14168, 32
   %.not5775 = icmp eq i8 %14169, 0
@@ -36707,7 +36707,7 @@ switch.hole_check:                                ; preds = %14078
 
 14411:                                            ; preds = %14409
   %14412 = zext i8 %14410 to i64
-  %14413 = getelementptr inbounds [256 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm_3, i64 0, i64 %14412
+  %14413 = getelementptr inbounds nuw [256 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm_3, i64 0, i64 %14412
   %14414 = load i8, ptr %14413, align 1, !tbaa !11
   %14415 = and i8 %14414, 32
   %.not5780 = icmp eq i8 %14415, 0
@@ -36996,7 +36996,7 @@ switch.hole_check:                                ; preds = %14078
 
 14522:                                            ; preds = %14520
   %14523 = zext i8 %14521 to i64
-  %14524 = getelementptr inbounds [256 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm_3, i64 0, i64 %14523
+  %14524 = getelementptr inbounds nuw [256 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm_3, i64 0, i64 %14523
   %14525 = load i8, ptr %14524, align 1, !tbaa !11
   %14526 = and i8 %14525, 32
   %.not5782 = icmp eq i8 %14526, 0
@@ -37446,7 +37446,7 @@ switch.hole_check:                                ; preds = %14078
 
 14695:                                            ; preds = %14694, %14690
   %14696 = phi ptr [ %.pre.i.i.i, %14694 ], [ %14683, %14690 ]
-  %14697 = getelementptr inbounds i8, ptr %14696, i64 17
+  %14697 = getelementptr inbounds nuw i8, ptr %14696, i64 17
   %14698 = invoke noundef i32 (ptr, i32, ptr, ...) %14691(ptr noundef nonnull %0, i32 noundef 5, ptr noundef nonnull @.str.29, ptr noundef nonnull %14697)
           to label %.backedge7402 unwind label %.loopexit6907
 
@@ -37852,7 +37852,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
   %14864 = getelementptr inbounds i8, ptr %14853, i64 %.neg6305
   %14865 = getelementptr inbounds i8, ptr %14864, i64 -1
   store ptr %14859, ptr %298, align 8, !tbaa !28
-  %14866 = getelementptr inbounds i8, ptr %14859, i64 17
+  %14866 = getelementptr inbounds nuw i8, ptr %14859, i64 17
   store ptr %14866, ptr %14859, align 8, !tbaa !6
   %14867 = getelementptr inbounds nuw i8, ptr %14859, i64 8
   store ptr %14866, ptr %14867, align 8, !tbaa !10
@@ -37887,8 +37887,8 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
   br i1 %14885, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEEC2IS9_EET_SD_RKS5_.exit
-  %14886 = getelementptr inbounds i8, ptr %14877, i64 17
-  %14887 = getelementptr inbounds i8, ptr %14870, i64 17
+  %14886 = getelementptr inbounds nuw i8, ptr %14877, i64 17
+  %14887 = getelementptr inbounds nuw i8, ptr %14870, i64 17
   %bcmp.i = call i32 @bcmp(ptr nonnull %14887, ptr nonnull %14886, i64 %14884)
   %.not.i.i.i.i = icmp eq i32 %bcmp.i, 0
   br i1 %.not.i.i.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i, label %_ZN5boost4wave4utileqIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEEEbRKNS1_11flex_stringIT_T0_T1_T2_EESI_.exit
@@ -38221,7 +38221,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 15033:                                            ; preds = %15031
   %15034 = zext i8 %15032 to i64
-  %15035 = getelementptr inbounds [256 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm_4, i64 0, i64 %15034
+  %15035 = getelementptr inbounds nuw [256 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm_4, i64 0, i64 %15034
   %15036 = load i8, ptr %15035, align 1, !tbaa !11
   %.not5757 = icmp sgt i8 %15036, -1
   br i1 %.not5757, label %14994, label %.preheader6507
@@ -38463,7 +38463,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 15131:                                            ; preds = %15129
   %15132 = zext i8 %15130 to i64
-  %15133 = getelementptr inbounds [256 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm_4, i64 0, i64 %15132
+  %15133 = getelementptr inbounds nuw [256 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm_4, i64 0, i64 %15132
   %15134 = load i8, ptr %15133, align 1, !tbaa !11
   %.not5759 = icmp sgt i8 %15134, -1
   br i1 %.not5759, label %.loopexit6511.backedge, label %.preheader6507
@@ -38622,7 +38622,7 @@ define linkonce_odr hidden void @_ZN5boost4wave8cpplexer4impl24validate_identifi
   %17 = alloca %"class.std::__cxx11::basic_string", align 8
   %18 = load ptr, ptr %0, align 8, !tbaa !28
   %19 = load ptr, ptr %18, align 8, !tbaa !6
-  %20 = getelementptr inbounds i8, ptr %18, i64 17
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 17
   %.not17.i.i = icmp eq ptr %20, %19
   br i1 %.not17.i.i, label %._crit_edge, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i
 
@@ -38650,7 +38650,7 @@ _ZNK5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22A
   %27 = add i64 %.040103, 2
   %28 = add nuw i64 %.040103, 1
   %29 = load ptr, ptr %0, align 8, !tbaa !28
-  %30 = getelementptr inbounds i8, ptr %29, i64 17
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 17
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 %28
   %32 = load i8, ptr %31, align 1, !tbaa !11
   %33 = icmp eq i8 %32, 117
@@ -38683,7 +38683,7 @@ _ZNK5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22A
 
 50:                                               ; preds = %48, %.lr.ph
   %51 = phi ptr [ %.pre.i.i.i, %48 ], [ %44, %.lr.ph ]
-  %52 = getelementptr inbounds i8, ptr %51, i64 17
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 17
   %53 = call i64 @strtoul(ptr nocapture noundef nonnull %52, ptr noundef null, i32 noundef 16) #34
   %54 = invoke noundef i32 @_ZN5boost4wave8cpplexer4impl23classify_universal_charEm(i64 noundef %53)
           to label %55 unwind label %92
@@ -38695,7 +38695,7 @@ _ZNK5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22A
 56:                                               ; preds = %55
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #34
   %57 = load ptr, ptr %0, align 8, !tbaa !28
-  %58 = getelementptr inbounds i8, ptr %57, i64 17
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 17
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 %28
   %60 = load i8, ptr %59, align 1, !tbaa !11
   %61 = icmp eq i8 %60, 117
@@ -38726,7 +38726,7 @@ _ZNK5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22A
           to label %74 unwind label %96
 
 74:                                               ; preds = %73
-  %75 = getelementptr inbounds i8, ptr %9, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %76 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZN5boost4wave8cpplexer16lexing_exception14severity_levelEiE29preprocess_exception_severity, i64 4), align 4, !tbaa !68
   %77 = zext i32 %76 to i64
   %78 = getelementptr inbounds nuw [4 x ptr], ptr @_ZZN5boost4wave8cpplexer4util12get_severityENS2_8severityEE13severity_text, i64 0, i64 %77
@@ -38807,7 +38807,7 @@ _ZNSolsEPFRSoS_E.exit:                            ; preds = %100
 
 110:                                              ; preds = %108, %102
   %111 = phi ptr [ %.pre.i.i.i65, %108 ], [ %104, %102 ]
-  %112 = getelementptr inbounds i8, ptr %111, i64 17
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 17
   call void @_ZN5boost4wave8cpplexer16lexing_exceptionC2EPKcNS2_10error_codeEmmS4_(ptr noundef nonnull align 8 dereferenceable(1056) %10, ptr noundef %103, i32 noundef 1, i64 noundef %1, i64 noundef %2, ptr noundef nonnull %112) #34
   invoke void @_ZN5boost15throw_exceptionINS_4wave8cpplexer16lexing_exceptionEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(1056) %10) #33
           to label %113 unwind label %116
@@ -38864,7 +38864,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
           to label %129 unwind label %147
 
 129:                                              ; preds = %128
-  %130 = getelementptr inbounds i8, ptr %12, i64 16
+  %130 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %131 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZN5boost4wave8cpplexer16lexing_exception14severity_levelEiE29preprocess_exception_severity, i64 8), align 8, !tbaa !68
   %132 = zext i32 %131 to i64
   %133 = getelementptr inbounds nuw [4 x ptr], ptr @_ZZN5boost4wave8cpplexer4util12get_severityENS2_8severityEE13severity_text, i64 0, i64 %132
@@ -38935,7 +38935,7 @@ _ZNSolsEPFRSoS_E.exit69:                          ; preds = %151
 
 161:                                              ; preds = %159, %153
   %162 = phi ptr [ %.pre.i.i.i71, %159 ], [ %155, %153 ]
-  %163 = getelementptr inbounds i8, ptr %162, i64 17
+  %163 = getelementptr inbounds nuw i8, ptr %162, i64 17
   call void @_ZN5boost4wave8cpplexer16lexing_exceptionC2EPKcNS2_10error_codeEmmS4_(ptr noundef nonnull align 8 dereferenceable(1056) %13, ptr noundef %154, i32 noundef 2, i64 noundef %1, i64 noundef %2, ptr noundef nonnull %163) #34
   invoke void @_ZN5boost15throw_exceptionINS_4wave8cpplexer16lexing_exceptionEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(1056) %13) #33
           to label %164 unwind label %167
@@ -38992,7 +38992,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit75: ; preds = %_ZN
           to label %180 unwind label %198
 
 180:                                              ; preds = %179
-  %181 = getelementptr inbounds i8, ptr %15, i64 16
+  %181 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %182 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZN5boost4wave8cpplexer16lexing_exception14severity_levelEiE29preprocess_exception_severity, i64 12), align 4, !tbaa !68
   %183 = zext i32 %182 to i64
   %184 = getelementptr inbounds nuw [4 x ptr], ptr @_ZZN5boost4wave8cpplexer4util12get_severityENS2_8severityEE13severity_text, i64 0, i64 %183
@@ -39063,7 +39063,7 @@ _ZNSolsEPFRSoS_E.exit78:                          ; preds = %202
 
 212:                                              ; preds = %210, %204
   %213 = phi ptr [ %.pre.i.i.i80, %210 ], [ %206, %204 ]
-  %214 = getelementptr inbounds i8, ptr %213, i64 17
+  %214 = getelementptr inbounds nuw i8, ptr %213, i64 17
   call void @_ZN5boost4wave8cpplexer16lexing_exceptionC2EPKcNS2_10error_codeEmmS4_(ptr noundef nonnull align 8 dereferenceable(1056) %16, ptr noundef %205, i32 noundef 3, i64 noundef %1, i64 noundef %2, ptr noundef nonnull %214) #34
   invoke void @_ZN5boost15throw_exceptionINS_4wave8cpplexer16lexing_exceptionEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(1056) %16) #33
           to label %215 unwind label %218
@@ -39136,7 +39136,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit84: ; preds = %_ZN
   br i1 %240, label %_ZNK5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE13find_first_ofEcm.exit91, label %241
 
 241:                                              ; preds = %232
-  %242 = getelementptr inbounds i8, ptr %233, i64 17
+  %242 = getelementptr inbounds nuw i8, ptr %233, i64 17
   %243 = getelementptr inbounds nuw i8, ptr %242, i64 %27
   %.not17.i.i85 = icmp eq ptr %243, %234
   br i1 %.not17.i.i85, label %_ZNK5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE13find_first_ofEcm.exit91, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i86
@@ -39216,7 +39216,7 @@ define linkonce_odr hidden void @_ZN5boost4wave8cpplexer4impl17convert_trigraphs
   store i8 1, ptr %.6.i.i.ptr20.i.i, align 1, !tbaa !11
   %13 = load ptr, ptr %1, align 8, !tbaa !28
   %14 = load ptr, ptr %13, align 8, !tbaa !6
-  %15 = getelementptr inbounds i8, ptr %13, i64 17
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 17
   %.not17.i.i = icmp eq ptr %15, %14
   br i1 %.not17.i.i, label %_ZNK5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE13find_first_ofEPKcm.exit.thread, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i
 
@@ -39249,7 +39249,7 @@ _ZNK5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22A
   %26 = ptrtoint ptr %24 to i64
   %27 = ptrtoint ptr %25 to i64
   %28 = xor i64 %27, -1
-  %29 = getelementptr inbounds i8, ptr %23, i64 17
+  %29 = getelementptr inbounds nuw i8, ptr %23, i64 17
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 %.020
   %31 = sub i64 %26, %.020
   %32 = add i64 %31, %28
@@ -39279,7 +39279,7 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
   %43 = xor i64 %42, -1
   %44 = ptrtoint ptr %36 to i64
   %45 = add i64 %44, %43
-  %46 = getelementptr inbounds i8, ptr %41, i64 17
+  %46 = getelementptr inbounds nuw i8, ptr %41, i64 17
   %47 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %46, i64 noundef %45)
           to label %_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEEpLERKSB_.exit unwind label %136
 
@@ -39315,7 +39315,7 @@ _ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev.exit:
   %63 = ptrtoint ptr %61 to i64
   %64 = ptrtoint ptr %62 to i64
   %65 = xor i64 %64, -1
-  %66 = getelementptr inbounds i8, ptr %60, i64 17
+  %66 = getelementptr inbounds nuw i8, ptr %60, i64 17
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 %.0
   %68 = sub i64 %63, %.0
   %69 = add i64 %68, %65
@@ -39335,19 +39335,19 @@ _ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev.exit:
   br i1 %77, label %148, label %78
 
 78:                                               ; preds = %70
-  %79 = getelementptr inbounds i8, ptr %71, i64 17
+  %79 = getelementptr inbounds nuw i8, ptr %71, i64 17
   %80 = load i8, ptr %79, align 1, !tbaa !11
   %.not.i = icmp eq i8 %80, 63
   br i1 %.not.i, label %81, label %148
 
 81:                                               ; preds = %78
-  %82 = getelementptr inbounds i8, ptr %71, i64 18
+  %82 = getelementptr inbounds nuw i8, ptr %71, i64 18
   %83 = load i8, ptr %82, align 1, !tbaa !11
   %.not5.i = icmp eq i8 %83, 63
   br i1 %.not5.i, label %84, label %148
 
 84:                                               ; preds = %81
-  %85 = getelementptr inbounds i8, ptr %71, i64 19
+  %85 = getelementptr inbounds nuw i8, ptr %71, i64 19
   %86 = load i8, ptr %85, align 1, !tbaa !11
   switch i8 %86, label %148 [
     i8 39, label %_ZN5boost4wave8cpplexer4impl11is_trigraphINS0_4util11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS8_EEPcEEEEEEbRKT_.exit
@@ -39386,7 +39386,7 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
   %96 = xor i64 %95, -1
   %97 = ptrtoint ptr %89 to i64
   %98 = add i64 %97, %96
-  %99 = getelementptr inbounds i8, ptr %94, i64 17
+  %99 = getelementptr inbounds nuw i8, ptr %94, i64 17
   %100 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %99, i64 noundef %98)
           to label %_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEEpLERKSB_.exit48 unwind label %145
 
@@ -39427,7 +39427,7 @@ _ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev.exit5
   br i1 %121, label %_ZNK5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE13find_first_ofEPKcm.exit58, label %122
 
 122:                                              ; preds = %_ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev.exit51
-  %123 = getelementptr inbounds i8, ptr %114, i64 17
+  %123 = getelementptr inbounds nuw i8, ptr %114, i64 17
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 %113
   %.not17.i.i52 = icmp eq ptr %124, %115
   br i1 %.not17.i.i52, label %_ZNK5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE13find_first_ofEPKcm.exit58, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i53
@@ -39498,7 +39498,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i53:   ; preds = %122, %130
 
 148:                                              ; preds = %84, %70, %78, %81
   %149 = load ptr, ptr %1, align 8, !tbaa !28
-  %150 = getelementptr inbounds i8, ptr %149, i64 17
+  %150 = getelementptr inbounds nuw i8, ptr %149, i64 17
   %151 = getelementptr inbounds nuw i8, ptr %150, i64 %.0
   %152 = load i8, ptr %151, align 1, !tbaa !11
   invoke void @_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(8) %0, i8 noundef signext %152)
@@ -39517,7 +39517,7 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
   br i1 %.not82, label %161, label %_ZNK5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE13find_first_ofEPKcm.exit58
 
 161:                                              ; preds = %_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEEpLEc.exit
-  %162 = getelementptr inbounds i8, ptr %154, i64 17
+  %162 = getelementptr inbounds nuw i8, ptr %154, i64 17
   %163 = getelementptr inbounds nuw i8, ptr %162, i64 %153
   %.not17.i.i60 = icmp eq ptr %163, %155
   br i1 %.not17.i.i60, label %_ZNK5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE13find_first_ofEPKcm.exit58, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i61
@@ -39577,7 +39577,7 @@ _ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev.exit6
   %187 = ptrtoint ptr %185 to i64
   %188 = ptrtoint ptr %186 to i64
   %189 = xor i64 %188, -1
-  %190 = getelementptr inbounds i8, ptr %184, i64 17
+  %190 = getelementptr inbounds nuw i8, ptr %184, i64 17
   %191 = getelementptr inbounds nuw i8, ptr %190, i64 %.121
   %192 = sub i64 %187, %.121
   %193 = add i64 %192, %189
@@ -39606,7 +39606,7 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
   %203 = xor i64 %202, -1
   %204 = ptrtoint ptr %196 to i64
   %205 = add i64 %204, %203
-  %206 = getelementptr inbounds i8, ptr %201, i64 17
+  %206 = getelementptr inbounds nuw i8, ptr %201, i64 17
   %207 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %206, i64 noundef %205)
           to label %_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEEpLERKSB_.exit74 unwind label %224
 
@@ -39690,7 +39690,7 @@ define linkonce_odr hidden void @_ZN5boost4wave8cpplexer4impl16validate_literalI
   %14 = alloca %"class.std::__cxx11::basic_string", align 8
   %15 = load ptr, ptr %0, align 8, !tbaa !28
   %16 = load ptr, ptr %15, align 8, !tbaa !6
-  %17 = getelementptr inbounds i8, ptr %15, i64 17
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 17
   %.not17.i.i = icmp eq ptr %17, %16
   br i1 %.not17.i.i, label %._crit_edge, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i
 
@@ -39717,7 +39717,7 @@ _ZNK5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22A
   %25 = phi ptr [ %196, %_ZNK5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE13find_first_ofEcm.exit74 ], [ %15, %_ZNK5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE13find_first_ofEcm.exit ]
   %.03884 = phi i64 [ %212, %_ZNK5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE13find_first_ofEcm.exit74 ], [ %23, %_ZNK5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE13find_first_ofEcm.exit ]
   %26 = add nuw i64 %.03884, 1
-  %27 = getelementptr inbounds i8, ptr %25, i64 17
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 17
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 %26
   %29 = load i8, ptr %28, align 1, !tbaa !11
   switch i8 %29, label %194 [
@@ -39757,7 +39757,7 @@ _ZNK5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22A
 
 48:                                               ; preds = %46, %30
   %49 = phi ptr [ %.pre.i.i.i, %46 ], [ %42, %30 ]
-  %50 = getelementptr inbounds i8, ptr %49, i64 17
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 17
   %51 = call i64 @strtoul(ptr nocapture noundef nonnull %50, ptr noundef null, i32 noundef 16) #34
   %52 = invoke noundef i32 @_ZN5boost4wave8cpplexer4impl23classify_universal_charEm(i64 noundef %51)
           to label %53 unwind label %91
@@ -39771,7 +39771,7 @@ _ZNK5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22A
 54:                                               ; preds = %53
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #34
   %55 = load ptr, ptr %0, align 8, !tbaa !28
-  %56 = getelementptr inbounds i8, ptr %55, i64 17
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 17
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 %26
   %58 = load i8, ptr %57, align 1, !tbaa !11
   %59 = icmp eq i8 %58, 117
@@ -39800,7 +39800,7 @@ _ZNK5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22A
           to label %73 unwind label %95
 
 73:                                               ; preds = %72
-  %74 = getelementptr inbounds i8, ptr %9, i64 16
+  %74 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %75 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZN5boost4wave8cpplexer16lexing_exception14severity_levelEiE29preprocess_exception_severity, i64 4), align 4, !tbaa !68
   %76 = zext i32 %75 to i64
   %77 = getelementptr inbounds nuw [4 x ptr], ptr @_ZZN5boost4wave8cpplexer4util12get_severityENS2_8severityEE13severity_text, i64 0, i64 %76
@@ -39881,7 +39881,7 @@ _ZNSolsEPFRSoS_E.exit:                            ; preds = %99
 
 109:                                              ; preds = %107, %101
   %110 = phi ptr [ %.pre.i.i.i56, %107 ], [ %103, %101 ]
-  %111 = getelementptr inbounds i8, ptr %110, i64 17
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 17
   call void @_ZN5boost4wave8cpplexer16lexing_exceptionC2EPKcNS2_10error_codeEmmS4_(ptr noundef nonnull align 8 dereferenceable(1056) %10, ptr noundef %102, i32 noundef 1, i64 noundef %1, i64 noundef %2, ptr noundef nonnull %111) #34
   invoke void @_ZN5boost15throw_exceptionINS_4wave8cpplexer16lexing_exceptionEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(1056) %10) #33
           to label %112 unwind label %115
@@ -39938,7 +39938,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
           to label %128 unwind label %146
 
 128:                                              ; preds = %127
-  %129 = getelementptr inbounds i8, ptr %12, i64 16
+  %129 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %130 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZN5boost4wave8cpplexer16lexing_exception14severity_levelEiE29preprocess_exception_severity, i64 8), align 8, !tbaa !68
   %131 = zext i32 %130 to i64
   %132 = getelementptr inbounds nuw [4 x ptr], ptr @_ZZN5boost4wave8cpplexer4util12get_severityENS2_8severityEE13severity_text, i64 0, i64 %131
@@ -40009,7 +40009,7 @@ _ZNSolsEPFRSoS_E.exit60:                          ; preds = %150
 
 160:                                              ; preds = %158, %152
   %161 = phi ptr [ %.pre.i.i.i62, %158 ], [ %154, %152 ]
-  %162 = getelementptr inbounds i8, ptr %161, i64 17
+  %162 = getelementptr inbounds nuw i8, ptr %161, i64 17
   call void @_ZN5boost4wave8cpplexer16lexing_exceptionC2EPKcNS2_10error_codeEmmS4_(ptr noundef nonnull align 8 dereferenceable(1056) %13, ptr noundef %153, i32 noundef 2, i64 noundef %1, i64 noundef %2, ptr noundef nonnull %162) #34
   invoke void @_ZN5boost15throw_exceptionINS_4wave8cpplexer16lexing_exceptionEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(1056) %13) #33
           to label %163 unwind label %166
@@ -40118,7 +40118,7 @@ _ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev.exit:
   br i1 %203, label %._crit_edge, label %204
 
 204:                                              ; preds = %194
-  %205 = getelementptr inbounds i8, ptr %196, i64 17
+  %205 = getelementptr inbounds nuw i8, ptr %196, i64 17
   %206 = getelementptr inbounds nuw i8, ptr %205, i64 %197
   %.not17.i.i68 = icmp eq ptr %206, %195
   br i1 %.not17.i.i68, label %._crit_edge, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i69
@@ -40259,19 +40259,19 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
   br i1 %30, label %_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEEaSEPKc.exit, label %31
 
 31:                                               ; preds = %_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEEC2ERKSB_.exit
-  %32 = getelementptr inbounds i8, ptr %24, i64 17
+  %32 = getelementptr inbounds nuw i8, ptr %24, i64 17
   %33 = load i8, ptr %32, align 1, !tbaa !11
   %.not.i = icmp eq i8 %33, 63
   br i1 %.not.i, label %34, label %_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEEaSEPKc.exit
 
 34:                                               ; preds = %31
-  %35 = getelementptr inbounds i8, ptr %24, i64 18
+  %35 = getelementptr inbounds nuw i8, ptr %24, i64 18
   %36 = load i8, ptr %35, align 1, !tbaa !11
   %.not5.i = icmp eq i8 %36, 63
   br i1 %.not5.i, label %37, label %_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEEaSEPKc.exit
 
 37:                                               ; preds = %34
-  %38 = getelementptr inbounds i8, ptr %24, i64 19
+  %38 = getelementptr inbounds nuw i8, ptr %24, i64 19
   %39 = load i8, ptr %38, align 1, !tbaa !11
   switch i8 %39, label %_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEEaSEPKc.exit [
     i8 39, label %.invoke
@@ -40460,10 +40460,10 @@ define linkonce_odr hidden void @_ZN5boost4wave8cpplexer4impl10token_dataINS0_4u
 6:                                                ; preds = %3
   store i8 1, ptr @_ZZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEvE1f, align 1, !tbaa !12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i8 0, i64 64, i1 false)
-  store i64 80, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 64), align 8, !tbaa !16
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 80), align 8, !tbaa !21
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 72), align 8, !tbaa !22
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 88), align 8, !tbaa !23
+  store i64 80, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 64), align 8, !tbaa !16
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 80), align 8, !tbaa !21
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 72), align 8, !tbaa !22
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 88), align 8, !tbaa !23
   br label %_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i
 
 _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i: ; preds = %6, %3
@@ -40479,9 +40479,9 @@ _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33defau
   unreachable
 
 _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE4freeEPv.exit: ; preds = %_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !115
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !115
   store ptr %9, ptr %0, align 8, !tbaa !24
-  store ptr %0, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !115
+  store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !115
   %10 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE) #34
   br label %11
 
@@ -40711,7 +40711,7 @@ _ZN5boost4wave8cpplexer7re2clex18adjust_eol_offsetsIN9__gnu_cxx17__normal_iterat
   %87 = getelementptr inbounds i8, ptr %72, i64 %86
   %88 = getelementptr inbounds i8, ptr %72, i64 %70
   store ptr %88, ptr %61, align 8, !tbaa !124
-  %89 = getelementptr inbounds i8, ptr %88, i64 196608
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 196608
   store ptr %89, ptr %59, align 8, !tbaa !169
   tail call void @free(ptr noundef %68) #34
   store ptr %72, ptr %9, align 8, !tbaa !131
@@ -40805,7 +40805,7 @@ _ZN5boost4wave8cpplexer7re2clex18adjust_eol_offsetsIN9__gnu_cxx17__normal_iterat
   ]
 
 127:                                              ; preds = %125
-  %128 = getelementptr inbounds i8, ptr %121, i64 1
+  %128 = getelementptr inbounds nuw i8, ptr %121, i64 1
   %129 = icmp ult ptr %128, %123
   br i1 %129, label %130, label %133
 
@@ -41110,7 +41110,7 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
   %26 = xor i64 %25, -1
   %27 = ptrtoint ptr %19 to i64
   %28 = add i64 %27, %26
-  %29 = getelementptr inbounds i8, ptr %24, i64 17
+  %29 = getelementptr inbounds nuw i8, ptr %24, i64 17
   %30 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull %29, i64 noundef %28)
           to label %_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE6appendERKSB_.exit unwind label %31
 
@@ -41195,7 +41195,7 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
   br i1 %.not.i.i.i.i.i, label %_ZSt4copyIPKcPcET0_T_S4_S3_.exit, label %32
 
 32:                                               ; preds = %_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE5beginEv.exit
-  %33 = getelementptr inbounds i8, ptr %31, i64 17
+  %33 = getelementptr inbounds nuw i8, ptr %31, i64 17
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %33, ptr align 1 %1, i64 %2, i1 false)
   %.pre = load ptr, ptr %0, align 8, !tbaa !28
   br label %_ZSt4copyIPKcPcET0_T_S4_S3_.exit
@@ -41301,7 +41301,7 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
   br i1 %.not.i.i.i.i.i16, label %_ZSt4copyIPKcPcET0_T_S4_S3_.exit17, label %78
 
 78:                                               ; preds = %_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE5beginEv.exit15
-  %79 = getelementptr inbounds i8, ptr %77, i64 17
+  %79 = getelementptr inbounds nuw i8, ptr %77, i64 17
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %79, ptr align 1 %1, i64 %10, i1 false)
   %.pre21 = load ptr, ptr %0, align 8, !tbaa !28
   br label %_ZSt4copyIPKcPcET0_T_S4_S3_.exit17
@@ -41376,7 +41376,7 @@ _ZN5boost4wave4util22AllocatorStringStorageIcSaIcEEC2ERKS4_.exit.i.i.i: ; preds 
 
 _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE5beginEv.exit: ; preds = %6, %_ZN5boost4wave4util22AllocatorStringStorageIcSaIcEEC2ERKS4_.exit.i.i.i
   %27 = phi ptr [ %.pre, %6 ], [ %.pre.i.i, %_ZN5boost4wave4util22AllocatorStringStorageIcSaIcEEC2ERKS4_.exit.i.i.i ]
-  %28 = getelementptr inbounds i8, ptr %27, i64 17
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 17
   %29 = ptrtoint ptr %1 to i64
   %30 = ptrtoint ptr %28 to i64
   %31 = sub i64 %29, %30
@@ -41435,7 +41435,7 @@ _ZN5boost4wave4util22AllocatorStringStorageIcSaIcEEC2ERKS4_.exit.i.i.i10: ; pred
 
 _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE5beginEv.exit14: ; preds = %_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE5beginEv.exit, %_ZN5boost4wave4util22AllocatorStringStorageIcSaIcEEC2ERKS4_.exit.i.i.i10
   %60 = phi ptr [ %39, %_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE5beginEv.exit ], [ %.pre.i.i12, %_ZN5boost4wave4util22AllocatorStringStorageIcSaIcEEC2ERKS4_.exit.i.i.i10 ]
-  %61 = getelementptr inbounds i8, ptr %60, i64 17
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 17
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 %31
   br label %63
 
@@ -41594,8 +41594,8 @@ _ZN5boost4wave4util22AllocatorStringStorageIcSaIcEEC2ERKS4_.exit.i.i.i12: ; pred
 _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE5beginEv.exit16: ; preds = %11, %_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE5beginEv.exit, %_ZN5boost4wave4util22AllocatorStringStorageIcSaIcEEC2ERKS4_.exit.i.i.i12
   %.pre.i.i.pn = phi ptr [ %.pre.i.i, %_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE5beginEv.exit ], [ %.pre.i.i, %_ZN5boost4wave4util22AllocatorStringStorageIcSaIcEEC2ERKS4_.exit.i.i.i12 ], [ %4, %11 ]
   %50 = phi ptr [ %.pre.i.i, %_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE5beginEv.exit ], [ %.pre.i.i14, %_ZN5boost4wave4util22AllocatorStringStorageIcSaIcEEC2ERKS4_.exit.i.i.i12 ], [ %4, %11 ]
-  %51 = getelementptr inbounds i8, ptr %.pre.i.i.pn, i64 17
-  %52 = getelementptr inbounds i8, ptr %50, i64 17
+  %51 = getelementptr inbounds nuw i8, ptr %.pre.i.i.pn, i64 17
+  %52 = getelementptr inbounds nuw i8, ptr %50, i64 17
   %53 = load ptr, ptr %50, align 8, !tbaa !6
   %54 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %55 = ptrtoint ptr %53 to i64
@@ -41811,7 +41811,7 @@ _ZN5boost4wave4util22AllocatorStringStorageIcSaIcEEC2ERKS4_.exit.i.i: ; preds = 
   br label %_ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcE6appendIS6_EEvT_S9_.exit
 
 _ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcE6appendIS6_EEvT_S9_.exit: ; preds = %16, %_ZN5boost4wave4util22AllocatorStringStorageIcSaIcEEC2ERKS4_.exit.i.i
-  %38 = getelementptr inbounds i8, ptr %3, i64 1
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 1
   call void @_ZN5boost4wave4util22AllocatorStringStorageIcSaIcEE6appendIPcEEvT_S7_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %3, ptr noundef nonnull %38)
   ret void
 }
@@ -41988,7 +41988,7 @@ _ZN5boost4wave4util22AllocatorStringStorageIcSaIcEEC2ERKS4_.exit.i.i.i: ; preds 
 
 48:                                               ; preds = %_ZN5boost4wave4util22AllocatorStringStorageIcSaIcEEC2ERKS4_.exit.i.i.i, %_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE7reserveEm.exit
   %49 = phi ptr [ %27, %_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE7reserveEm.exit ], [ %.pre.i.i, %_ZN5boost4wave4util22AllocatorStringStorageIcSaIcEEC2ERKS4_.exit.i.i.i ]
-  %50 = getelementptr inbounds i8, ptr %49, i64 17
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 17
   %51 = load ptr, ptr %6, align 8, !tbaa !28
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %53 = load i8, ptr %52, align 1, !tbaa !11
@@ -42368,8 +42368,8 @@ _ZN5boost4wave4util22AllocatorStringStorageIcSaIcEEC2ERKS4_.exit.i.i.i12: ; pred
 _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE5beginEv.exit16: ; preds = %11, %_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE5beginEv.exit, %_ZN5boost4wave4util22AllocatorStringStorageIcSaIcEEC2ERKS4_.exit.i.i.i12
   %.pre.i.i.pn = phi ptr [ %.pre.i.i, %_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE5beginEv.exit ], [ %.pre.i.i, %_ZN5boost4wave4util22AllocatorStringStorageIcSaIcEEC2ERKS4_.exit.i.i.i12 ], [ %4, %11 ]
   %50 = phi ptr [ %.pre.i.i, %_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE5beginEv.exit ], [ %.pre.i.i14, %_ZN5boost4wave4util22AllocatorStringStorageIcSaIcEEC2ERKS4_.exit.i.i.i12 ], [ %4, %11 ]
-  %51 = getelementptr inbounds i8, ptr %.pre.i.i.pn, i64 17
-  %52 = getelementptr inbounds i8, ptr %50, i64 17
+  %51 = getelementptr inbounds nuw i8, ptr %.pre.i.i.pn, i64 17
+  %52 = getelementptr inbounds nuw i8, ptr %50, i64 17
   %53 = load ptr, ptr %50, align 8, !tbaa !6
   %54 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %55 = ptrtoint ptr %53 to i64
@@ -42436,7 +42436,7 @@ _ZN5boost4wave4util22AllocatorStringStorageIcSaIcEEC2ERKS4_.exit.i.i.i: ; preds 
 
 _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE5beginEv.exit: ; preds = %3, %_ZN5boost4wave4util22AllocatorStringStorageIcSaIcEEC2ERKS4_.exit.i.i.i
   %25 = phi ptr [ %4, %3 ], [ %.pre.i.i, %_ZN5boost4wave4util22AllocatorStringStorageIcSaIcEEC2ERKS4_.exit.i.i.i ]
-  %26 = getelementptr inbounds i8, ptr %25, i64 17
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 17
   %27 = ptrtoint ptr %1 to i64
   %28 = ptrtoint ptr %26 to i64
   %29 = sub i64 %27, %28
@@ -42490,7 +42490,7 @@ _ZN5boost4wave4util22AllocatorStringStorageIcSaIcEEC2ERKS4_.exit.i.i.i6: ; preds
 
 _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE5beginEv.exit10: ; preds = %_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE5beginEv.exit, %_ZN5boost4wave4util22AllocatorStringStorageIcSaIcEEC2ERKS4_.exit.i.i.i6
   %54 = phi ptr [ %33, %_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE5beginEv.exit ], [ %.pre.i.i8, %_ZN5boost4wave4util22AllocatorStringStorageIcSaIcEEC2ERKS4_.exit.i.i.i6 ]
-  %55 = getelementptr inbounds i8, ptr %54, i64 17
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 17
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 %29
   ret ptr %56
 }
@@ -42512,7 +42512,7 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
   br i1 %12, label %_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE5beginEv.exit.thread, label %16
 
 _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE5beginEv.exit.thread: ; preds = %_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE7ProcustERmm.exit
-  %13 = getelementptr inbounds i8, ptr %3, i64 17
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 17
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 %1
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 %spec.select
   br label %_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE3endEv.exit.thread
@@ -42556,7 +42556,7 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
   %.pre.i.i = load ptr, ptr %0, align 8, !tbaa !28
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre.i.i, i64 16
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !11
-  %33 = getelementptr inbounds i8, ptr %.pre.i.i, i64 17
+  %33 = getelementptr inbounds nuw i8, ptr %.pre.i.i, i64 17
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 %1
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 %spec.select
   %36 = icmp eq i8 %.pre, 1
@@ -42663,7 +42663,7 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
   %80 = ptrtoint ptr %76 to i64
   %81 = ptrtoint ptr %77 to i64
   %82 = sub i64 %80, %81
-  %83 = getelementptr inbounds i8, ptr %78, i64 17
+  %83 = getelementptr inbounds nuw i8, ptr %78, i64 17
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 %1
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %84, ptr nonnull align 1 %77, i64 %82, i1 false)
   %.pre19 = load ptr, ptr %0, align 8, !tbaa !28
@@ -42738,7 +42738,7 @@ define linkonce_odr hidden void @_ZN5boost4wave4util11flex_stringIcSt11char_trai
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #34
   %9 = tail call noalias noundef nonnull dereferenceable(25) ptr @_Znwm(i64 noundef 25) #31
   store ptr %9, ptr %5, align 8, !tbaa !28
-  %10 = getelementptr inbounds i8, ptr %9, i64 17
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 17
   store ptr %10, ptr %9, align 8, !tbaa !6
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %10, ptr %11, align 8, !tbaa !10
@@ -42754,7 +42754,7 @@ define linkonce_odr hidden void @_ZN5boost4wave4util11flex_stringIcSt11char_trai
 
 14:                                               ; preds = %.noexc5.i
   %15 = load ptr, ptr %5, align 8, !tbaa !28
-  %16 = getelementptr inbounds i8, ptr %15, i64 17
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 17
   %17 = load ptr, ptr %15, align 8, !tbaa !6
   invoke void @_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE10InsertImplIPKcEEvS9_T_SF_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef nonnull %16, ptr noundef %17)
           to label %18 unwind label %31
@@ -42845,7 +42845,7 @@ _ZN5boost4wave4util22AllocatorStringStorageIcSaIcEEC2ERKS4_.exit.i.i.i: ; preds 
 
 _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE5beginEv.exit: ; preds = %33, %_ZN5boost4wave4util22AllocatorStringStorageIcSaIcEEC2ERKS4_.exit.i.i.i
   %55 = phi ptr [ %34, %33 ], [ %.pre.i.i, %_ZN5boost4wave4util22AllocatorStringStorageIcSaIcEEC2ERKS4_.exit.i.i.i ]
-  %56 = getelementptr inbounds i8, ptr %55, i64 17
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 17
   %57 = ptrtoint ptr %1 to i64
   %58 = ptrtoint ptr %56 to i64
   %59 = sub i64 %57, %58
@@ -42915,7 +42915,7 @@ _ZN5boost4wave4util22AllocatorStringStorageIcSaIcEEC2ERKS4_.exit.i.i.i46: ; pred
 
 _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE5beginEv.exit50: ; preds = %70, %_ZN5boost4wave4util22AllocatorStringStorageIcSaIcEEC2ERKS4_.exit.i.i.i46
   %97 = phi ptr [ %76, %70 ], [ %.pre.i.i48, %_ZN5boost4wave4util22AllocatorStringStorageIcSaIcEEC2ERKS4_.exit.i.i.i46 ]
-  %98 = getelementptr inbounds i8, ptr %97, i64 17
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 17
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 %59
   %.pre = load ptr, ptr %97, align 8, !tbaa !6
   %.pre93 = ptrtoint ptr %.pre to i64
@@ -43102,7 +43102,7 @@ _ZN5boost4wave4util22AllocatorStringStorageIcSaIcEEC2ERKS4_.exit.i.i57: ; preds 
 _ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcE6appendIS6_EEvT_S9_.exit60: ; preds = %_ZSt7advanceIPcmEvRT_T0_.exit, %_ZN5boost4wave4util22AllocatorStringStorageIcSaIcEEC2ERKS4_.exit.i.i57
   tail call void @_ZN5boost4wave4util22AllocatorStringStorageIcSaIcEE6appendIPcEEvT_S7_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %162, ptr noundef %3)
   %182 = load ptr, ptr %0, align 8, !tbaa !28
-  %183 = getelementptr inbounds i8, ptr %182, i64 17
+  %183 = getelementptr inbounds nuw i8, ptr %182, i64 17
   %184 = getelementptr inbounds nuw i8, ptr %183, i64 %59
   %185 = getelementptr inbounds nuw i8, ptr %183, i64 %107
   %186 = getelementptr inbounds nuw i8, ptr %182, i64 16
@@ -43191,7 +43191,7 @@ define linkonce_odr hidden void @_ZN5boost4wave4util11flex_stringIcSt11char_trai
 
 15:                                               ; preds = %.noexc
   %16 = load ptr, ptr %5, align 8, !tbaa !28
-  %17 = getelementptr inbounds i8, ptr %16, i64 17
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 17
   %18 = load ptr, ptr %16, align 8, !tbaa !6
   invoke void @_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE10InsertImplIPKcEEvS9_T_SF_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef nonnull %17, ptr noundef %18)
           to label %19 unwind label %32
@@ -43282,7 +43282,7 @@ _ZN5boost4wave4util22AllocatorStringStorageIcSaIcEEC2ERKS4_.exit.i.i.i: ; preds 
 
 _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE5beginEv.exit: ; preds = %34, %_ZN5boost4wave4util22AllocatorStringStorageIcSaIcEEC2ERKS4_.exit.i.i.i
   %56 = phi ptr [ %35, %34 ], [ %.pre.i.i, %_ZN5boost4wave4util22AllocatorStringStorageIcSaIcEEC2ERKS4_.exit.i.i.i ]
-  %57 = getelementptr inbounds i8, ptr %56, i64 17
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 17
   %58 = ptrtoint ptr %1 to i64
   %59 = ptrtoint ptr %57 to i64
   %60 = sub i64 %58, %59
@@ -43352,7 +43352,7 @@ _ZN5boost4wave4util22AllocatorStringStorageIcSaIcEEC2ERKS4_.exit.i.i.i46: ; pred
 
 _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE5beginEv.exit50: ; preds = %71, %_ZN5boost4wave4util22AllocatorStringStorageIcSaIcEEC2ERKS4_.exit.i.i.i46
   %98 = phi ptr [ %77, %71 ], [ %.pre.i.i48, %_ZN5boost4wave4util22AllocatorStringStorageIcSaIcEEC2ERKS4_.exit.i.i.i46 ]
-  %99 = getelementptr inbounds i8, ptr %98, i64 17
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 17
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 %60
   %.pre = load ptr, ptr %98, align 8, !tbaa !6
   %.pre77 = ptrtoint ptr %.pre to i64
@@ -43539,7 +43539,7 @@ _ZN5boost4wave4util22AllocatorStringStorageIcSaIcEEC2ERKS4_.exit.i.i57: ; preds 
 _ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcE6appendIPKcEEvT_SB_.exit: ; preds = %_ZSt7advanceIPKcmEvRT_T0_.exit, %_ZN5boost4wave4util22AllocatorStringStorageIcSaIcEEC2ERKS4_.exit.i.i57
   tail call void @_ZN5boost4wave4util22AllocatorStringStorageIcSaIcEE6appendIPKcEEvT_S8_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %163, ptr noundef %3)
   %183 = load ptr, ptr %0, align 8, !tbaa !28
-  %184 = getelementptr inbounds i8, ptr %183, i64 17
+  %184 = getelementptr inbounds nuw i8, ptr %183, i64 17
   %185 = getelementptr inbounds nuw i8, ptr %184, i64 %60
   %186 = getelementptr inbounds nuw i8, ptr %184, i64 %108
   %187 = getelementptr inbounds nuw i8, ptr %183, i64 16
@@ -43691,7 +43691,7 @@ _ZN5boost4wave4util22AllocatorStringStorageIcSaIcEEC2ERKS4_.exit.i.i.i4: ; preds
 _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE3endEv.exit: ; preds = %3, %_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE5beginEv.exit, %_ZN5boost4wave4util22AllocatorStringStorageIcSaIcEEC2ERKS4_.exit.i.i.i4
   %44 = phi ptr [ %.pre.i.i, %_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE5beginEv.exit ], [ %.pre.i.i, %_ZN5boost4wave4util22AllocatorStringStorageIcSaIcEEC2ERKS4_.exit.i.i.i4 ], [ %4, %3 ]
   %45 = phi ptr [ %.pre.i.i, %_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE5beginEv.exit ], [ %.pre.i.i6, %_ZN5boost4wave4util22AllocatorStringStorageIcSaIcEEC2ERKS4_.exit.i.i.i4 ], [ %4, %3 ]
-  %46 = getelementptr inbounds i8, ptr %44, i64 17
+  %46 = getelementptr inbounds nuw i8, ptr %44, i64 17
   %47 = load ptr, ptr %45, align 8, !tbaa !6
   tail call void @_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE11ReplaceImplIPKcEEvS9_S9_T_SF_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %46, ptr noundef %47, ptr noundef %1, ptr noundef %2)
   ret ptr %0
@@ -43778,7 +43778,7 @@ _ZN5boost4wave4util22AllocatorStringStorageIcSaIcEEC2ERKS4_.exit.i.i.i: ; preds 
 
 48:                                               ; preds = %_ZN5boost4wave4util22AllocatorStringStorageIcSaIcEEC2ERKS4_.exit.i.i.i, %_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE7reserveEm.exit
   %49 = phi ptr [ %27, %_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE7reserveEm.exit ], [ %.pre.i.i, %_ZN5boost4wave4util22AllocatorStringStorageIcSaIcEEC2ERKS4_.exit.i.i.i ]
-  %50 = getelementptr inbounds i8, ptr %49, i64 17
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 17
   %51 = load ptr, ptr %6, align 8, !tbaa !28
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %53 = load i8, ptr %52, align 1, !tbaa !11
@@ -44547,7 +44547,7 @@ _ZN5boost4wave4util22AllocatorStringStorageIcSaIcEEC2ERKS4_.exit.i.i.i: ; preds 
 
 _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE5beginEv.exit: ; preds = %2, %_ZN5boost4wave4util22AllocatorStringStorageIcSaIcEEC2ERKS4_.exit.i.i.i
   %24 = phi ptr [ %3, %2 ], [ %.pre.i.i, %_ZN5boost4wave4util22AllocatorStringStorageIcSaIcEEC2ERKS4_.exit.i.i.i ]
-  %25 = getelementptr inbounds i8, ptr %24, i64 17
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 17
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 %1
   ret ptr %26
 }
@@ -44569,7 +44569,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN5b
 
 _ZNK5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE5c_strEv.exit: ; preds = %2, %7
   %9 = phi ptr [ %.pre.i.i.i, %7 ], [ %3, %2 ]
-  %10 = getelementptr inbounds i8, ptr %9, i64 17
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 17
   %11 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #34
   %12 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %10, i64 noundef %11)
   ret ptr %0
@@ -44585,10 +44585,10 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4wave8cpplexer4impl10token_data
 5:                                                ; preds = %1
   store i8 1, ptr @_ZZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEvE1f, align 1, !tbaa !12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i8 0, i64 64, i1 false)
-  store i64 80, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 64), align 8, !tbaa !16
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 80), align 8, !tbaa !21
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 72), align 8, !tbaa !22
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 88), align 8, !tbaa !23
+  store i64 80, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 64), align 8, !tbaa !16
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 80), align 8, !tbaa !21
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 72), align 8, !tbaa !22
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 88), align 8, !tbaa !23
   br label %_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i
 
 _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i: ; preds = %5, %1
@@ -44601,18 +44601,18 @@ _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33defau
   unreachable
 
 _ZN5boost7details4pool5guardISt5mutexEC2ERS3_.exit.i: ; preds = %_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !115
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !115
   %9 = icmp eq ptr %8, null
   br i1 %9, label %12, label %_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE6mallocEv.exit.thread
 
 _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE6mallocEv.exit.thread: ; preds = %_ZN5boost7details4pool5guardISt5mutexEC2ERS3_.exit.i
   %10 = load ptr, ptr %8, align 8, !tbaa !24
-  store ptr %10, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !115
+  store ptr %10, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !115
   %11 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE) #34
   br label %23
 
 12:                                               ; preds = %_ZN5boost7details4pool5guardISt5mutexEC2ERS3_.exit.i
-  %13 = invoke noundef ptr @_ZN5boost4poolINS_33default_user_allocator_new_deleteEE18malloc_need_resizeEv(ptr noundef nonnull align 8 dereferenceable(56) getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40))
+  %13 = invoke noundef ptr @_ZN5boost4poolINS_33default_user_allocator_new_deleteEE18malloc_need_resizeEv(ptr noundef nonnull align 8 dereferenceable(56) getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40))
           to label %_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE6mallocEv.exit unwind label %14
 
 common.resume:                                    ; preds = %21, %14
@@ -44885,13 +44885,13 @@ _ZN5boost8optionalINS_4wave4util13file_positionINS2_11flex_stringIcSt11char_trai
 ; Function Attrs: mustprogress noreturn uwtable
 define linkonce_odr hidden void @_ZN5boost15throw_exceptionISt9bad_allocEEvRKT_(ptr noundef nonnull align 8 dereferenceable(8) %0) local_unnamed_addr #19 comdat personality ptr @__gxx_personality_v0 {
   %2 = tail call ptr @__cxa_allocate_exception(i64 56) #34
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
-  %4 = getelementptr inbounds i8, ptr %2, i64 16
-  %5 = getelementptr inbounds i8, ptr %2, i64 24
-  %6 = getelementptr inbounds i8, ptr %2, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   store i32 -1, ptr %6, align 8, !tbaa !107
-  %7 = getelementptr inbounds i8, ptr %2, i64 52
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 52
   store i32 -1, ptr %7, align 4, !tbaa !110
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost10wrapexceptISt9bad_allocEE, i64 16), ptr %2, align 8, !tbaa !3
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost10wrapexceptISt9bad_allocEE, i64 64), ptr %3, align 8, !tbaa !3
@@ -45022,16 +45022,16 @@ declare noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef, ptr noundef nonnul
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost10wrapexceptISt9bad_allocED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !3
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !111
   %.not.i.i.i = icmp eq ptr %4, null
   br i1 %.not.i.i.i, label %_ZN5boost9exceptionD2Ev.exit, label %5
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %4, align 8, !tbaa !3
-  %7 = getelementptr inbounds i8, ptr %6, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %8 = load ptr, ptr %7, align 8
   %9 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %.noexc.i.i unwind label %11
@@ -45051,7 +45051,7 @@ define linkonce_odr hidden void @_ZN5boost10wrapexceptISt9bad_allocED2Ev(ptr nou
   unreachable
 
 _ZN5boost9exceptionD2Ev.exit:                     ; preds = %1, %.noexc.i.i, %10
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZNSt9bad_allocD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #34
   ret void
 }
@@ -45063,12 +45063,12 @@ declare void @_ZNSt9bad_allocD2Ev(ptr noundef nonnull align 8 dereferenceable(8)
 define linkonce_odr hidden noundef ptr @_ZNK5boost10wrapexceptISt9bad_allocE5cloneEv(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #31
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %2, align 8, !tbaa !3
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %3, align 8, !tbaa !3
-  %4 = getelementptr inbounds i8, ptr %2, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %4, align 8, !tbaa !3
-  %5 = getelementptr inbounds i8, ptr %2, i64 24
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8, !tbaa !111
   store ptr %7, ptr %5, align 8, !tbaa !111
   %.not.i.i.i.i = icmp eq ptr %7, null
@@ -45076,7 +45076,7 @@ define linkonce_odr hidden noundef ptr @_ZNK5boost10wrapexceptISt9bad_allocE5clo
 
 8:                                                ; preds = %1
   %9 = load ptr, ptr %7, align 8, !tbaa !3
-  %10 = getelementptr inbounds i8, ptr %9, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %11 = load ptr, ptr %10, align 8
   invoke void %11(ptr noundef nonnull align 8 dereferenceable(8) %7)
           to label %13 unwind label %.body
@@ -45089,13 +45089,13 @@ define linkonce_odr hidden noundef ptr @_ZNK5boost10wrapexceptISt9bad_allocE5clo
   br label %21
 
 13:                                               ; preds = %8, %1
-  %14 = getelementptr inbounds i8, ptr %2, i64 32
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %15, i64 24, i1 false)
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost10wrapexceptISt9bad_allocEE, i64 16), ptr %2, align 8, !tbaa !3
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost10wrapexceptISt9bad_allocEE, i64 64), ptr %3, align 8, !tbaa !3
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost10wrapexceptISt9bad_allocEE, i64 104), ptr %4, align 8, !tbaa !3
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   invoke void @_ZN5boost16exception_detail20copy_boost_exceptionEPNS_9exceptionEPKS1_(ptr noundef nonnull %4, ptr noundef nonnull %16)
           to label %_ZN5boost10wrapexceptISt9bad_allocE7deleterD2Ev.exit unwind label %_ZN5boost10wrapexceptISt9bad_allocE7deleterD2Ev.exit7
 
@@ -45106,7 +45106,7 @@ _ZN5boost10wrapexceptISt9bad_allocE7deleterD2Ev.exit7: ; preds = %13
   %17 = landingpad { ptr, i32 }
           cleanup
   %18 = load ptr, ptr %2, align 8, !tbaa !3
-  %19 = getelementptr inbounds i8, ptr %18, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %20 = load ptr, ptr %19, align 8
   tail call void %20(ptr noundef nonnull align 8 dereferenceable(56) %2) #34
   br label %21
@@ -45135,16 +45135,16 @@ define linkonce_odr hidden void @_ZNK5boost10wrapexceptISt9bad_allocE7rethrowEv(
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost10wrapexceptISt9bad_allocED0Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !3
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !111
   %.not.i.i.i.i = icmp eq ptr %4, null
   br i1 %.not.i.i.i.i, label %_ZN5boost10wrapexceptISt9bad_allocED2Ev.exit, label %5
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %4, align 8, !tbaa !3
-  %7 = getelementptr inbounds i8, ptr %6, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %8 = load ptr, ptr %7, align 8
   %9 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %.noexc.i.i.i unwind label %11
@@ -45164,7 +45164,7 @@ define linkonce_odr hidden void @_ZN5boost10wrapexceptISt9bad_allocED0Ev(ptr nou
   unreachable
 
 _ZN5boost10wrapexceptISt9bad_allocED2Ev.exit:     ; preds = %1, %.noexc.i.i.i, %10
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZNSt9bad_allocD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #34
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 56) #32
   ret void
@@ -45172,16 +45172,16 @@ _ZN5boost10wrapexceptISt9bad_allocED2Ev.exit:     ; preds = %1, %.noexc.i.i.i, %
 
 ; Function Attrs: inlinehint nounwind uwtable
 define linkonce_odr hidden void @_ZThn8_N5boost10wrapexceptISt9bad_allocED1Ev(ptr noundef %0) unnamed_addr #21 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !3
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !111
   %.not.i.i.i.i = icmp eq ptr %4, null
   br i1 %.not.i.i.i.i, label %_ZN5boost10wrapexceptISt9bad_allocED2Ev.exit, label %5
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %4, align 8, !tbaa !3
-  %7 = getelementptr inbounds i8, ptr %6, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %8 = load ptr, ptr %7, align 8
   %9 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %.noexc.i.i.i unwind label %11
@@ -45207,16 +45207,16 @@ _ZN5boost10wrapexceptISt9bad_allocED2Ev.exit:     ; preds = %1, %.noexc.i.i.i, %
 
 ; Function Attrs: inlinehint nounwind uwtable
 define linkonce_odr hidden void @_ZThn8_N5boost10wrapexceptISt9bad_allocED0Ev(ptr noundef %0) unnamed_addr #21 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %2, align 8, !tbaa !3
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !111
   %.not.i.i.i.i.i = icmp eq ptr %4, null
   br i1 %.not.i.i.i.i.i, label %_ZN5boost10wrapexceptISt9bad_allocED0Ev.exit, label %5
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %4, align 8, !tbaa !3
-  %7 = getelementptr inbounds i8, ptr %6, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %8 = load ptr, ptr %7, align 8
   %9 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %.noexc.i.i.i.i unwind label %11
@@ -45248,14 +45248,14 @@ declare noundef ptr @_ZNKSt9bad_alloc4whatEv(ptr noundef nonnull align 8 derefer
 ; Function Attrs: inlinehint nounwind uwtable
 define linkonce_odr hidden void @_ZThn16_N5boost10wrapexceptISt9bad_allocED1Ev(ptr noundef %0) unnamed_addr #21 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8, !tbaa !3
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !111
   %.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i, label %_ZN5boost10wrapexceptISt9bad_allocED2Ev.exit, label %4
 
 4:                                                ; preds = %1
   %5 = load ptr, ptr %3, align 8, !tbaa !3
-  %6 = getelementptr inbounds i8, ptr %5, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %7 = load ptr, ptr %6, align 8
   %8 = invoke noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %.noexc.i.i.i unwind label %10
@@ -45283,14 +45283,14 @@ _ZN5boost10wrapexceptISt9bad_allocED2Ev.exit:     ; preds = %1, %.noexc.i.i.i, %
 ; Function Attrs: inlinehint nounwind uwtable
 define linkonce_odr hidden void @_ZThn16_N5boost10wrapexceptISt9bad_allocED0Ev(ptr noundef %0) unnamed_addr #21 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %0, align 8, !tbaa !3
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !111
   %.not.i.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i.i, label %_ZN5boost10wrapexceptISt9bad_allocED0Ev.exit, label %4
 
 4:                                                ; preds = %1
   %5 = load ptr, ptr %3, align 8, !tbaa !3
-  %6 = getelementptr inbounds i8, ptr %5, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %7 = load ptr, ptr %6, align 8
   %8 = invoke noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %.noexc.i.i.i.i unwind label %10
@@ -45320,12 +45320,12 @@ _ZN5boost10wrapexceptISt9bad_allocED0Ev.exit:     ; preds = %1, %.noexc.i.i.i.i,
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr hidden void @_ZN5boost10wrapexceptISt9bad_allocEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 16), ptr %0, align 8, !tbaa !3
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %3, align 8, !tbaa !3
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost9exceptionE, i64 16), ptr %4, align 8, !tbaa !3
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
-  %6 = getelementptr inbounds i8, ptr %1, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %7 = load ptr, ptr %6, align 8, !tbaa !111
   store ptr %7, ptr %5, align 8, !tbaa !111
   %.not.i.i.i = icmp eq ptr %7, null
@@ -45333,14 +45333,14 @@ define linkonce_odr hidden void @_ZN5boost10wrapexceptISt9bad_allocEC2ERKS2_(ptr
 
 8:                                                ; preds = %2
   %9 = load ptr, ptr %7, align 8, !tbaa !3
-  %10 = getelementptr inbounds i8, ptr %9, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %11 = load ptr, ptr %10, align 8
   invoke void %11(ptr noundef nonnull align 8 dereferenceable(8) %7)
           to label %12 unwind label %15
 
 12:                                               ; preds = %2, %8
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
-  %14 = getelementptr inbounds i8, ptr %1, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %14, i64 24, i1 false)
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN5boost10wrapexceptISt9bad_allocEE, i64 16), ptr %0, align 8, !tbaa !3
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost10wrapexceptISt9bad_allocEE, i64 64), ptr %3, align 8, !tbaa !3
@@ -45451,7 +45451,7 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
   store i32 %4, ptr %48, align 4, !tbaa !189
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store i64 ptrtoint (ptr @_ZN5boost4wave8cpplexer14include_guardsINS1_9lex_tokenINS0_4util13file_positionINS4_11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS9_EEPcEEEEEEEEE7state_0ERSH_ to i64), ptr %49, align 8, !tbaa !44
-  %.repack2.i = getelementptr inbounds i8, ptr %0, i64 168
+  %.repack2.i = getelementptr inbounds nuw i8, ptr %0, i64 168
   store i64 0, ptr %.repack2.i, align 8, !tbaa !44
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store i8 0, ptr %50, align 8, !tbaa !45
@@ -45503,7 +45503,7 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
 
 74:                                               ; preds = %72, %59
   %75 = phi ptr [ %.pre.i.i.i, %72 ], [ %68, %59 ]
-  %76 = getelementptr inbounds i8, ptr %75, i64 17
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 17
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr %76, ptr %77, align 8, !tbaa !194
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -45620,7 +45620,7 @@ define linkonce_odr hidden void @_ZN5boost4wave8cpplexer7re2clex11lex_functorIN9
 
 _ZN5boost4wave8cpplexer7re2clex5lexerIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_4util13file_positionINSF_11flex_stringIcSB_SC_NSF_9CowStringINSF_22AllocatorStringStorageIcSC_EEPcEEEEEENS1_9lex_tokenISO_EEE12set_positionERKSO_.exit: ; preds = %2, %12
   %14 = phi ptr [ %.pre.i.i.i.i, %12 ], [ %8, %2 ]
-  %15 = getelementptr inbounds i8, ptr %14, i64 17
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 17
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr %15, ptr %16, align 8, !tbaa !194
   ret void
@@ -45650,7 +45650,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5boost4wave8cpplexer7re2clex1
 
 _ZNK5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE5c_strEv.exit.i.i: ; preds = %12, %6
   %14 = phi ptr [ %.pre.i.i.i.i.i, %12 ], [ %8, %6 ]
-  %15 = getelementptr inbounds i8, ptr %14, i64 17
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 17
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load i64, ptr %16, align 8, !tbaa !63
   %18 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %15) #34
@@ -45675,7 +45675,7 @@ define linkonce_odr hidden noundef i32 @_ZN5boost4wave8cpplexer7re2clex5lexerIN9
   call void @llvm.va_end.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 392, ptr nonnull %6) #34
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %6)
-  %10 = getelementptr inbounds i8, ptr %6, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %11 = sext i32 %1 to i64
   %12 = getelementptr inbounds [7 x i32], ptr @_ZZN5boost4wave8cpplexer16lexing_exception14severity_levelEiE29preprocess_exception_severity, i64 0, i64 %11
   %13 = load i32, ptr %12, align 4, !tbaa !68
@@ -45808,12 +45808,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %48, %47 ]
   %72 = load ptr, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, align 8
   store ptr %72, ptr %6, align 8, !tbaa !3
-  %73 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 64), align 8
+  %73 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 64), align 8
   %74 = getelementptr i8, ptr %72, i64 -24
   %75 = load i64, ptr %74, align 8
   %76 = getelementptr inbounds i8, ptr %6, i64 %75
   store ptr %73, ptr %76, align 8, !tbaa !3
-  %77 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 72), align 8
+  %77 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 72), align 8
   store ptr %77, ptr %10, align 8, !tbaa !3
   %78 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %78, align 8, !tbaa !3
@@ -45840,16 +45840,16 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = 
   store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %78, align 8, !tbaa !3
   %88 = getelementptr inbounds nuw i8, ptr %6, i64 80
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %88) #34
-  %89 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 16), align 8
+  %89 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 16), align 8
   store ptr %89, ptr %6, align 8, !tbaa !3
-  %90 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
+  %90 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %91 = getelementptr i8, ptr %89, i64 -24
   %92 = load i64, ptr %91, align 8
   %93 = getelementptr inbounds i8, ptr %6, i64 %92
   store ptr %90, ptr %93, align 8, !tbaa !3
   %94 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 0, ptr %94, align 8, !tbaa !80
-  %95 = getelementptr inbounds i8, ptr %6, i64 128
+  %95 = getelementptr inbounds nuw i8, ptr %6, i64 128
   call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %95) #34
   call void @llvm.lifetime.end.p0(i64 392, ptr nonnull %6) #34
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #34
@@ -46096,10 +46096,10 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN5b
 47:                                               ; preds = %44
   store i8 1, ptr @_ZZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEvE1f, align 1, !tbaa !12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i8 0, i64 64, i1 false)
-  store i64 80, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 64), align 8, !tbaa !16
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 80), align 8, !tbaa !21
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 72), align 8, !tbaa !22
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 88), align 8, !tbaa !23
+  store i64 80, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 64), align 8, !tbaa !16
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 80), align 8, !tbaa !21
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 72), align 8, !tbaa !22
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 88), align 8, !tbaa !23
   br label %_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i
 
 _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i: ; preds = %47, %44
@@ -46122,9 +46122,9 @@ _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33defau
   unreachable
 
 _ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS8_EEPcEEEENS4_13file_positionISE_EEEdlEPvm.exit.i: ; preds = %_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i
-  %53 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !115
+  %53 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !115
   store ptr %53, ptr %42, align 8, !tbaa !24
-  store ptr %42, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !115
+  store ptr %42, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !115
   %54 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE) #34
   br label %_ZN5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcSt11char_traitsIcESaIcENS3_9CowStringINS3_22AllocatorStringStorageIcS8_EEPcEEEEEEED2Ev.exit
 
@@ -46674,7 +46674,7 @@ _ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev.exit1
   br i1 %283, label %_ZNK5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE4findEPKcm.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %_ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev.exit103
-  %284 = getelementptr inbounds i8, ptr %276, i64 17
+  %284 = getelementptr inbounds nuw i8, ptr %276, i64 17
   br label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i:   ; preds = %.preheader.i.i, %287
@@ -46699,7 +46699,7 @@ _ZNK5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22A
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i:     ; preds = %_ZNK5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE4findEPKcm.exit
   %spec.select.i = call i64 @llvm.umin.i64(i64 %.fr, i64 12)
-  %292 = getelementptr inbounds i8, ptr %276, i64 17
+  %292 = getelementptr inbounds nuw i8, ptr %276, i64 17
   %293 = getelementptr inbounds nuw i8, ptr %292, i64 %.0.i.i
   %bcmp = call i32 @bcmp(ptr nonnull %293, ptr nonnull @.str.22, i64 %spec.select.i)
   %.not.i104 = icmp eq i32 %bcmp, 0
@@ -46759,7 +46759,7 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
 315:                                              ; preds = %311
   call void @llvm.lifetime.start.p0(i64 392, ptr nonnull %14) #34
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %14)
-  %316 = getelementptr inbounds i8, ptr %14, i64 16
+  %316 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %317 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZN5boost4wave8cpplexer16lexing_exception14severity_levelEiE29preprocess_exception_severity, i64 16), align 16, !tbaa !68
   %318 = zext i32 %317 to i64
   %319 = getelementptr inbounds nuw [4 x ptr], ptr @_ZZN5boost4wave8cpplexer4util12get_severityENS2_8severityEE13severity_text, i64 0, i64 %318
@@ -46792,7 +46792,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %322
 
 333:                                              ; preds = %331, %326
   %334 = phi ptr [ %.pre.i.i.i, %331 ], [ %327, %326 ]
-  %335 = getelementptr inbounds i8, ptr %334, i64 17
+  %335 = getelementptr inbounds nuw i8, ptr %334, i64 17
   %336 = load i8, ptr %335, align 1, !tbaa !11
   %.not = icmp eq i8 %336, 0
   br i1 %.not, label %356, label %337
@@ -46817,7 +46817,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit110: ; preds = %337
 
 345:                                              ; preds = %343, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit110
   %346 = phi ptr [ %.pre.i.i.i112, %343 ], [ %339, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit110 ]
-  %347 = getelementptr inbounds i8, ptr %346, i64 17
+  %347 = getelementptr inbounds nuw i8, ptr %346, i64 17
   %348 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %316, ptr noundef nonnull %347)
           to label %356 unwind label %354
 
@@ -46873,7 +46873,7 @@ _ZNSolsEPFRSoS_E.exit:                            ; preds = %356
 
 369:                                              ; preds = %367, %358
   %370 = phi ptr [ %.pre.i.i.i116, %367 ], [ %363, %358 ]
-  %371 = getelementptr inbounds i8, ptr %370, i64 17
+  %371 = getelementptr inbounds nuw i8, ptr %370, i64 17
   call void @_ZN5boost4wave8cpplexer16lexing_exceptionC2EPKcNS2_10error_codeEmmS4_(ptr noundef nonnull align 8 dereferenceable(1056) %15, ptr noundef %359, i32 noundef 4, i64 noundef %59, i64 noundef %361, ptr noundef nonnull %371) #34
   invoke void @_ZN5boost15throw_exceptionINS_4wave8cpplexer16lexing_exceptionEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(1056) %15) #33
           to label %372 unwind label %375
@@ -47560,10 +47560,10 @@ _ZN5boost4wave4util13file_positionINS1_11flex_stringIcSt11char_traitsIcESaIcENS1
 666:                                              ; preds = %663
   store i8 1, ptr @_ZZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEvE1f, align 1, !tbaa !12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i8 0, i64 64, i1 false)
-  store i64 80, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 64), align 8, !tbaa !16
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 80), align 8, !tbaa !21
-  store i64 32, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 72), align 8, !tbaa !22
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 88), align 8, !tbaa !23
+  store i64 80, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 64), align 8, !tbaa !16
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 80), align 8, !tbaa !21
+  store i64 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 72), align 8, !tbaa !22
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 88), align 8, !tbaa !23
   br label %_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i159
 
 _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i159: ; preds = %666, %663
@@ -47586,9 +47586,9 @@ _ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33defau
   unreachable
 
 _ZN5boost4wave8cpplexer4impl10token_dataINS0_4util11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS8_EEPcEEEENS4_13file_positionISE_EEEdlEPvm.exit.i162: ; preds = %_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE8get_poolEv.exit.i.i.i159
-  %672 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !115
+  %672 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !115
   store ptr %672, ptr %661, align 8, !tbaa !24
-  store ptr %661, ptr getelementptr inbounds (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !115
+  store ptr %661, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE, i64 40), align 8, !tbaa !115
   %673 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN5boost14singleton_poolINS_4wave8cpplexer4impl14token_data_tagELj80ENS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EE7storageE) #34
   br label %_ZN5boost4wave8cpplexer9lex_tokenINS0_4util13file_positionINS3_11flex_stringIcSt11char_traitsIcESaIcENS3_9CowStringINS3_22AllocatorStringStorageIcS8_EEPcEEEEEEED2Ev.exit163
 
@@ -47627,7 +47627,7 @@ _ZN5boost4wave4util13file_positionINS1_11flex_stringIcSt11char_traitsIcESaIcENS1
 689:                                              ; preds = %_ZN5boost4wave4util13file_positionINS1_11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS6_EEPcEEEEED2Ev.exit
   %690 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %.unpack.i = load i64, ptr %690, align 8, !tbaa !44
-  %.elt3.i = getelementptr inbounds i8, ptr %0, i64 168
+  %.elt3.i = getelementptr inbounds nuw i8, ptr %0, i64 168
   %.unpack4.i = load i64, ptr %.elt3.i, align 8, !tbaa !44
   %691 = getelementptr inbounds i8, ptr %690, i64 %.unpack4.i
   %692 = and i64 %.unpack.i, 1
@@ -48179,7 +48179,7 @@ define linkonce_odr noundef i32 @_ZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cx
 340:                                              ; preds = %338
   %341 = zext i8 %339 to i64
   %342 = or disjoint i64 %341, 256
-  %343 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %342
+  %343 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %342
   %344 = load i8, ptr %343, align 1, !tbaa !11
   %345 = and i8 %344, 64
   %.not = icmp eq i8 %345, 0
@@ -48588,7 +48588,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 480:                                              ; preds = %478
   %481 = zext i8 %479 to i64
   %482 = or disjoint i64 %481, 256
-  %483 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %482
+  %483 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %482
   %484 = load i8, ptr %483, align 1, !tbaa !11
   %485 = and i8 %484, 64
   %.not5746 = icmp eq i8 %485, 0
@@ -49055,7 +49055,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
   %.25108 = phi i8 [ %7986, %7987 ], [ %6679, %6680 ], [ %3539, %3540 ], [ %1427, %1428 ], [ %9175, %9176 ], [ %7950, %7951 ], [ %6667, %6668 ], [ %5258, %5259 ], [ %3527, %3528 ], [ %6673, %6674 ], [ %5264, %5265 ], [ %3533, %3534 ], [ %9163, %9164 ], [ %7938, %7939 ], [ %6625, %6626 ], [ %5240, %5241 ], [ %3516, %3517 ], [ %5246, %5247 ], [ %9997, %9998 ], [ %9169, %9170 ], [ %7944, %7945 ], [ %6661, %6662 ], [ %5252, %5253 ], [ %1401, %1406 ], [ %2979, %2980 ], [ %1401, %1411 ], [ %6607, %6608 ], [ %5222, %5223 ], [ %9961, %9962 ], [ %9157, %9158 ], [ %7902, %7903 ], [ %6613, %6614 ], [ %5228, %5229 ], [ %6619, %6620 ], [ %5234, %5235 ], [ %3510, %3511 ], [ %1396, %1397 ], [ %9115, %9116 ], [ %7854, %7855 ], [ %6598, %6601 ], [ %7860, %7861 ], [ %9955, %9956 ], [ %9151, %9152 ], [ %7866, %7867 ], [ %5216, %5217 ], [ %3494, %3495 ], [ %5180, %5181 ], [ %5169, %5170 ], [ %11481, %11482 ], [ %11346, %11347 ], [ %11159, %11160 ], [ %10635, %10636 ], [ %9919, %9920 ], [ %9109, %9110 ], [ %7818, %7819 ], [ %6556, %6557 ], [ %6562, %6563 ], [ %9913, %9914 ], [ %9103, %9104 ], [ %7812, %7813 ], [ %6520, %6521 ], [ %5163, %5164 ], [ %3478, %3479 ], [ %1383, %1386 ], [ %6484, %6485 ], [ %5127, %5128 ], [ %3456, %3457 ], [ %7782, %7783 ], [ %6490, %6491 ], [ %5133, %5134 ], [ %7788, %7789 ], [ %6496, %6497 ], [ %5139, %5140 ], [ %1383, %1390 ], [ %11529, %11530 ], [ %11445, %11446 ], [ %11334, %11335 ], [ %11147, %11148 ], [ %10593, %10594 ], [ %11340, %11341 ], [ %11153, %11154 ], [ %10599, %10600 ], [ %7794, %7795 ], [ %6502, %6503 ], [ %5145, %5146 ], [ %7800, %7801 ], [ %6508, %6509 ], [ %5151, %5152 ], [ %7806, %7807 ], [ %6514, %6515 ], [ %5157, %5158 ], [ %3472, %3473 ], [ %3451, %3452 ], [ %7746, %7747 ], [ %6478, %6479 ], [ %5121, %5122 ], [ %9902, %9903 ], [ %8903, %8904 ], [ %7740, %7741 ], [ %6472, %6473 ], [ %5115, %5116 ], [ %11611, %11612 ], [ %11616, %11617 ], [ %11570, %11571 ], [ %11523, %11524 ], [ %11439, %11440 ], [ %11328, %11329 ], [ %11141, %11142 ], [ %10552, %10553 ], [ %9896, %9897 ], [ %8897, %8898 ], [ %7734, %7735 ], [ %6466, %6467 ], [ %5109, %5110 ], [ %9890, %9891 ], [ %8891, %8892 ], [ %7728, %7729 ], [ %6460, %6461 ], [ %5103, %5104 ], [ %1377, %1378 ], [ %8849, %8850 ], [ %7710, %7711 ], [ %6442, %6443 ], [ %5085, %5086 ], [ %10516, %10517 ], [ %9884, %9885 ], [ %8855, %8856 ], [ %7716, %7717 ], [ %6448, %6449 ], [ %5091, %5092 ], [ %7722, %7723 ], [ %6454, %6455 ], [ %5097, %5098 ], [ %3445, %3446 ], [ %9848, %9849 ], [ %8843, %8844 ], [ %7669, %7670 ], [ %6430, %6431 ], [ %5073, %5074 ], [ %3385, %3386 ], [ %6436, %6437 ], [ %5079, %5080 ], [ %1362, %1363 ], [ %8837, %8838 ], [ %7663, %7664 ], [ %6424, %6425 ], [ %5067, %5068 ], [ %3379, %3380 ], [ %9807, %9808 ], [ %8796, %8797 ], [ %7651, %7652 ], [ %6412, %6413 ], [ %5012, %5013 ], [ %7657, %7658 ], [ %6418, %6419 ], [ %3368, %3369 ], [ %10445, %10446 ], [ %9801, %9802 ], [ %8790, %8791 ], [ %7645, %7646 ], [ %6406, %6407 ], [ %4976, %4977 ], [ %3362, %3363 ], [ %8784, %8785 ], [ %7639, %7640 ], [ %6400, %6401 ], [ %4970, %4971 ], [ %3356, %3357 ], [ %1356, %1357 ], [ %4964, %4965 ], [ %3350, %3351 ], [ %1350, %1351 ], [ %1338, %1341 ], [ %7627, %7628 ], [ %6358, %6359 ], [ %4922, %4923 ], [ %3339, %3340 ], [ %7633, %7634 ], [ %6364, %6365 ], [ %4928, %4929 ], [ %1338, %1345 ], [ %4916, %4917 ], [ %3303, %3304 ], [ %1332, %1333 ], [ %1327, %1328 ], [ %7621, %7622 ], [ %6322, %6323 ], [ %4910, %4911 ], [ %3297, %3298 ], [ %3291, %3292 ], [ %6316, %6317 ], [ %4874, %4875 ], [ %3285, %3286 ], [ %6310, %6311 ], [ %4868, %4869 ], [ %3279, %3280 ], [ %4845, %4846 ], [ %3262, %3263 ], [ %1318, %1321 ], [ %4851, %4852 ], [ %3268, %3269 ], [ %9765, %9766 ], [ %8623, %8624 ], [ %7543, %7544 ], [ %6292, %6293 ], [ %7549, %7550 ], [ %6298, %6299 ], [ %7555, %7556 ], [ %6304, %6305 ], [ %4862, %4863 ], [ %9723, %9724 ], [ %8545, %8546 ], [ %7513, %7514 ], [ %6202, %6203 ], [ %4815, %4816 ], [ %3202, %3205 ], [ %8551, %8552 ], [ %7519, %7520 ], [ %6208, %6209 ], [ %4821, %4822 ], [ %7525, %7526 ], [ %6214, %6215 ], [ %4827, %4828 ], [ %1309, %1312 ], [ %7531, %7532 ], [ %6220, %6221 ], [ %4833, %4834 ], [ %11433, %11434 ], [ %11322, %11323 ], [ %11075, %11076 ], [ %10409, %10410 ], [ %9759, %9760 ], [ %8617, %8618 ], [ %7537, %7538 ], [ %6226, %6227 ], [ %4839, %4840 ], [ %3256, %3257 ], [ %1304, %1305 ], [ %9640, %9641 ], [ %8498, %8499 ], [ %7394, %7395 ], [ %6160, %6161 ], [ %4788, %4791 ], [ %10279, %10280 ], [ %9646, %9647 ], [ %8504, %8505 ], [ %7400, %7401 ], [ %6166, %6167 ], [ %9652, %9653 ], [ %8510, %8511 ], [ %7406, %7407 ], [ %6172, %6173 ], [ %3190, %3193 ], [ %6178, %6179 ], [ %4797, %4798 ], [ %8516, %8517 ], [ %7447, %7448 ], [ %6184, %6185 ], [ %4803, %4806 ], [ %10964, %10965 ], [ %10320, %10321 ], [ %9693, %9694 ], [ %8522, %8523 ], [ %10326, %10327 ], [ %9699, %9700 ], [ %10332, %10333 ], [ %9705, %9706 ], [ %10338, %10339 ], [ %9711, %9712 ], [ %8533, %8534 ], [ %6190, %6191 ], [ %9717, %9718 ], [ %8539, %8540 ], [ %7507, %7508 ], [ %6196, %6197 ], [ %4803, %4810 ], [ %3190, %3197 ], [ %6154, %6155 ], [ %4782, %4783 ], [ %3184, %3185 ], [ %9593, %9594 ], [ %8480, %8481 ], [ %7346, %7347 ], [ %9599, %9600 ], [ %8486, %8487 ], [ %7352, %7353 ], [ %8492, %8493 ], [ %7358, %7359 ], [ %4776, %4777 ], [ %3178, %3179 ], [ %3168, %3169 ], [ %4764, %4765 ], [ %6094, %6095 ], [ %4770, %4771 ], [ %3168, %3173 ], [ %7245, %7246 ], [ %6016, %6017 ], [ %6022, %6023 ], [ %3150, %3151 ], [ %1295, %1298 ], [ %4752, %4753 ], [ %3156, %3157 ], [ %6058, %6059 ], [ %4758, %4759 ], [ %3162, %3163 ], [ %1290, %1291 ], [ %4741, %4742 ], [ %3144, %3145 ], [ %3138, %3139 ], [ %7239, %7240 ], [ %5980, %5981 ], [ %3132, %3133 ], [ %8398, %8399 ], [ %8404, %8405 ], [ %5974, %5975 ], [ %4656, %4657 ], [ %3126, %3127 ], [ %1285, %1286 ], [ %9517, %9518 ], [ %8392, %8393 ], [ %7228, %7229 ], [ %5968, %5969 ], [ %4650, %4651 ], [ %3120, %3121 ], [ %8386, %8387 ], [ %7222, %7223 ], [ %5962, %5963 ], [ %4644, %4645 ], [ %3114, %3115 ], [ %10133, %10134 ], [ %9476, %9477 ], [ %8380, %8381 ], [ %7216, %7217 ], [ %5956, %5957 ], [ %4638, %4639 ], [ %3108, %3109 ], [ %10127, %10128 ], [ %9470, %9471 ], [ %8374, %8375 ], [ %7210, %7211 ], [ %5950, %5951 ], [ %4632, %4633 ], [ %3102, %3103 ], [ %7204, %7205 ], [ %5944, %5945 ], [ %4626, %4627 ], [ %3096, %3097 ], [ %7198, %7199 ], [ %5938, %5939 ], [ %4620, %4621 ], [ %3090, %3091 ], [ %4614, %4615 ], [ %3084, %3085 ], [ %3079, %3080 ], [ %5897, %5898 ], [ %4608, %4609 ], [ %8298, %8299 ], [ %7157, %7158 ], [ %5891, %5892 ], [ %4602, %4603 ], [ %7152, %7153 ], [ %8257, %8258 ], [ %8251, %8252 ], [ %8245, %8246 ], [ %4596, %4597 ], [ %10121, %10122 ], [ %9324, %9325 ], [ %8239, %8240 ], [ %7146, %7147 ], [ %5880, %5881 ], [ %9318, %9319 ], [ %8233, %8234 ], [ %7140, %7141 ], [ %5874, %5875 ], [ %4585, %4586 ], [ %1201, %1204 ], [ %1195, %1196 ], [ %1186, %1189 ], [ %710, %709 ], [ %1186, %1191 ], [ %1201, %1206 ], [ %1295, %1300 ], [ %1309, %1314 ], [ %1318, %1323 ], [ %1367, %1368 ], [ %1372, %1373 ], [ %1383, %1392 ], [ %1401, %1408 ], [ %1401, %1413 ], [ %1417, %1418 ], [ %1422, %1423 ], [ %3202, %3207 ], [ %3274, %3275 ], [ %3345, %3346 ], [ %3374, %3375 ], [ %3440, %3441 ], [ %3462, %3463 ], [ %3467, %3468 ], [ %3484, %3485 ], [ %3489, %3490 ], [ %3500, %3501 ], [ %3505, %3506 ], [ %3522, %3523 ], [ %4591, %4592 ], [ %4747, %4748 ], [ %4788, %4793 ], [ %4857, %4858 ], [ %5175, %5176 ], [ %5886, %5887 ], [ %6598, %6603 ], [ %7234, %7235 ], [ %8528, %8529 ], [ %9908, %9909 ]
   %712 = zext i8 %.25108 to i64
   %713 = or disjoint i64 %712, 256
-  %714 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %713
+  %714 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %713
   %715 = load i8, ptr %714, align 1, !tbaa !11
   %.not5689 = icmp sgt i8 %715, -1
   br i1 %.not5689, label %716, label %682
@@ -50910,7 +50910,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
   %.05106 = phi i8 [ 9, %598 ], [ %595, %600 ], [ %1574, %1573 ]
   %.05092 = phi i32 [ 0, %598 ], [ 0, %600 ], [ %.65098, %1573 ]
   %1576 = zext i8 %.05106 to i64
-  %1577 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %1576
+  %1577 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %1576
   %1578 = load i8, ptr %1577, align 1, !tbaa !11
   %1579 = and i8 %1578, 1
   %.not5716 = icmp eq i8 %1579, 0
@@ -51540,7 +51540,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 1860:                                             ; preds = %1858
   %1861 = zext i8 %1859 to i64
-  %1862 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %1861
+  %1862 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %1861
   %1863 = load i8, ptr %1862, align 1, !tbaa !11
   %1864 = and i8 %1863, 1
   %.not5718 = icmp eq i8 %1864, 0
@@ -52637,7 +52637,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
   %.35109 = phi i8 [ %2323, %2322 ], [ %.35109.ph, %.preheader6402 ]
   %.55097 = phi i32 [ %.125104, %2322 ], [ %.55097.ph, %.preheader6402 ]
   %2325 = zext i8 %.35109 to i64
-  %2326 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %2325
+  %2326 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %2325
   %2327 = load i8, ptr %2326, align 1, !tbaa !11
   %2328 = and i8 %2327, 2
   %.not5667 = icmp eq i8 %2328, 0
@@ -52739,7 +52739,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 2362:                                             ; preds = %2360
   %2363 = zext i8 %2361 to i64
-  %2364 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %2363
+  %2364 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %2363
   %2365 = load i8, ptr %2364, align 1, !tbaa !11
   %2366 = and i8 %2365, 2
   %.not5669 = icmp eq i8 %2366, 0
@@ -54738,7 +54738,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 3310:                                             ; preds = %3308
   %3311 = zext i8 %3309 to i64
   %3312 = or disjoint i64 %3311, 256
-  %3313 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %3312
+  %3313 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %3312
   %3314 = load i8, ptr %3313, align 1, !tbaa !11
   %.not5608 = icmp sgt i8 %3314, -1
   br i1 %.not5608, label %3315, label %682
@@ -55445,7 +55445,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 3619:                                             ; preds = %3617
   %3620 = zext i8 %3618 to i64
-  %3621 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %3620
+  %3621 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %3620
   %3622 = load i8, ptr %3621, align 1, !tbaa !11
   %3623 = and i8 %3622, 4
   %.not5720 = icmp eq i8 %3623, 0
@@ -55847,7 +55847,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 3772:                                             ; preds = %3770
   %3773 = zext i8 %3771 to i64
-  %3774 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %3773
+  %3774 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %3773
   %3775 = load i8, ptr %3774, align 1, !tbaa !11
   %3776 = and i8 %3775, 8
   %.not5713 = icmp eq i8 %3776, 0
@@ -57904,7 +57904,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 4712:                                             ; preds = %4710
   %4713 = zext i8 %4711 to i64
   %4714 = or disjoint i64 %4713, 256
-  %4715 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %4714
+  %4715 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %4714
   %4716 = load i8, ptr %4715, align 1, !tbaa !11
   %.not5647 = icmp sgt i8 %4716, -1
   br i1 %.not5647, label %4717, label %682
@@ -58277,7 +58277,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 4881:                                             ; preds = %4879
   %4882 = zext i8 %4880 to i64
   %4883 = or disjoint i64 %4882, 256
-  %4884 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %4883
+  %4884 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %4883
   %4885 = load i8, ptr %4884, align 1, !tbaa !11
   %.not5611 = icmp sgt i8 %4885, -1
   br i1 %.not5611, label %4886, label %682
@@ -58390,7 +58390,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 4935:                                             ; preds = %4933
   %4936 = zext i8 %4934 to i64
   %4937 = or disjoint i64 %4936, 256
-  %4938 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %4937
+  %4938 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %4937
   %4939 = load i8, ptr %4938, align 1, !tbaa !11
   %.not5605 = icmp sgt i8 %4939, -1
   br i1 %.not5605, label %4940, label %682
@@ -58490,7 +58490,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 4983:                                             ; preds = %4981
   %4984 = zext i8 %4982 to i64
   %4985 = or disjoint i64 %4984, 256
-  %4986 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %4985
+  %4986 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %4985
   %4987 = load i8, ptr %4986, align 1, !tbaa !11
   %.not5601 = icmp sgt i8 %4987, -1
   br i1 %.not5601, label %4988, label %682
@@ -58920,7 +58920,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 5187:                                             ; preds = %5185
   %5188 = zext i8 %5186 to i64
   %5189 = or disjoint i64 %5188, 256
-  %5190 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %5189
+  %5190 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %5189
   %5191 = load i8, ptr %5190, align 1, !tbaa !11
   %.not5574 = icmp sgt i8 %5191, -1
   br i1 %.not5574, label %5192, label %682
@@ -59272,7 +59272,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 5349:                                             ; preds = %5347
   %5350 = zext i8 %5348 to i64
-  %5351 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %5350
+  %5351 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %5350
   %5352 = load i8, ptr %5351, align 1, !tbaa !11
   %5353 = and i8 %5352, 1
   %.not5723 = icmp eq i8 %5353, 0
@@ -59560,7 +59560,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 5459:                                             ; preds = %5457
   %5460 = zext i8 %5458 to i64
-  %5461 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %5460
+  %5461 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %5460
   %5462 = load i8, ptr %5461, align 1, !tbaa !11
   %5463 = and i8 %5462, 32
   %.not5715 = icmp eq i8 %5463, 0
@@ -59901,7 +59901,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 5618:                                             ; preds = %5616
   %5619 = zext i8 %5617 to i64
-  %5620 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %5619
+  %5620 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %5619
   %5621 = load i8, ptr %5620, align 1, !tbaa !11
   %5622 = and i8 %5621, 2
   %.not5672 = icmp eq i8 %5622, 0
@@ -60568,7 +60568,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 5904:                                             ; preds = %5902
   %5905 = zext i8 %5903 to i64
   %5906 = or disjoint i64 %5905, 256
-  %5907 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %5906
+  %5907 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %5906
   %5908 = load i8, ptr %5907, align 1, !tbaa !11
   %.not5665 = icmp sgt i8 %5908, -1
   br i1 %.not5665, label %5909, label %682
@@ -60739,7 +60739,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 5987:                                             ; preds = %5985
   %5988 = zext i8 %5986 to i64
   %5989 = or disjoint i64 %5988, 256
-  %5990 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %5989
+  %5990 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %5989
   %5991 = load i8, ptr %5990, align 1, !tbaa !11
   %.not5646 = icmp sgt i8 %5991, -1
   br i1 %.not5646, label %5992, label %682
@@ -60826,7 +60826,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 6029:                                             ; preds = %6027
   %6030 = zext i8 %6028 to i64
   %6031 = or disjoint i64 %6030, 256
-  %6032 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %6031
+  %6032 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %6031
   %6033 = load i8, ptr %6032, align 1, !tbaa !11
   %.not5643 = icmp sgt i8 %6033, -1
   br i1 %.not5643, label %6034, label %682
@@ -60900,7 +60900,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 6065:                                             ; preds = %6063
   %6066 = zext i8 %6064 to i64
   %6067 = or disjoint i64 %6066, 256
-  %6068 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %6067
+  %6068 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %6067
   %6069 = load i8, ptr %6068, align 1, !tbaa !11
   %.not5641 = icmp sgt i8 %6069, -1
   br i1 %.not5641, label %6070, label %682
@@ -61260,7 +61260,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 6233:                                             ; preds = %6231
   %6234 = zext i8 %6232 to i64
   %6235 = or disjoint i64 %6234, 256
-  %6236 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %6235
+  %6236 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %6235
   %6237 = load i8, ptr %6236, align 1, !tbaa !11
   %.not5618 = icmp sgt i8 %6237, -1
   br i1 %.not5618, label %6238, label %682
@@ -61321,7 +61321,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 6263:                                             ; preds = %6261
   %6264 = zext i8 %6262 to i64
   %6265 = or disjoint i64 %6264, 256
-  %6266 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %6265
+  %6266 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %6265
   %6267 = load i8, ptr %6266, align 1, !tbaa !11
   %.not5617 = icmp sgt i8 %6267, -1
   br i1 %.not5617, label %6268, label %682
@@ -61460,7 +61460,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 6329:                                             ; preds = %6327
   %6330 = zext i8 %6328 to i64
   %6331 = or disjoint i64 %6330, 256
-  %6332 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %6331
+  %6332 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %6331
   %6333 = load i8, ptr %6332, align 1, !tbaa !11
   %.not5609 = icmp sgt i8 %6333, -1
   br i1 %.not5609, label %6334, label %682
@@ -61547,7 +61547,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 6371:                                             ; preds = %6369
   %6372 = zext i8 %6370 to i64
   %6373 = or disjoint i64 %6372, 256
-  %6374 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %6373
+  %6374 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %6373
   %6375 = load i8, ptr %6374, align 1, !tbaa !11
   %.not5604 = icmp sgt i8 %6375, -1
   br i1 %.not5604, label %6376, label %682
@@ -61881,7 +61881,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 6527:                                             ; preds = %6525
   %6528 = zext i8 %6526 to i64
   %6529 = or disjoint i64 %6528, 256
-  %6530 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %6529
+  %6530 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %6529
   %6531 = load i8, ptr %6530, align 1, !tbaa !11
   %.not5578 = icmp sgt i8 %6531, -1
   br i1 %.not5578, label %6532, label %682
@@ -61968,7 +61968,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 6569:                                             ; preds = %6567
   %6570 = zext i8 %6568 to i64
   %6571 = or disjoint i64 %6570, 256
-  %6572 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %6571
+  %6572 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %6571
   %6573 = load i8, ptr %6572, align 1, !tbaa !11
   %.not5575 = icmp sgt i8 %6573, -1
   br i1 %.not5575, label %6574, label %682
@@ -62104,7 +62104,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 6632:                                             ; preds = %6630
   %6633 = zext i8 %6631 to i64
   %6634 = or disjoint i64 %6633, 256
-  %6635 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %6634
+  %6635 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %6634
   %6636 = load i8, ptr %6635, align 1, !tbaa !11
   %.not5565 = icmp sgt i8 %6636, -1
   br i1 %.not5565, label %6637, label %682
@@ -62328,7 +62328,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 6732:                                             ; preds = %6730
   %6733 = zext i8 %6731 to i64
-  %6734 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %6733
+  %6734 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %6733
   %6735 = load i8, ptr %6734, align 1, !tbaa !11
   %6736 = and i8 %6735, 1
   %.not5725 = icmp eq i8 %6736, 0
@@ -62876,7 +62876,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 6972:                                             ; preds = %6970
   %6973 = zext i8 %6971 to i64
-  %6974 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %6973
+  %6974 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %6973
   %6975 = load i8, ptr %6974, align 1, !tbaa !11
   %6976 = and i8 %6975, 2
   %.not5674 = icmp eq i8 %6976, 0
@@ -63364,7 +63364,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 7164:                                             ; preds = %7162
   %7165 = zext i8 %7163 to i64
   %7166 = or disjoint i64 %7165, 256
-  %7167 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %7166
+  %7167 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %7166
   %7168 = load i8, ptr %7167, align 1, !tbaa !11
   %.not5651 = icmp sgt i8 %7168, -1
   br i1 %.not5651, label %7169, label %682
@@ -63550,7 +63550,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 7252:                                             ; preds = %7250
   %7253 = zext i8 %7251 to i64
   %7254 = or disjoint i64 %7253, 256
-  %7255 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %7254
+  %7255 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %7254
   %7256 = load i8, ptr %7255, align 1, !tbaa !11
   %.not5644 = icmp sgt i8 %7256, -1
   br i1 %.not5644, label %7257, label %682
@@ -63617,7 +63617,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 7287:                                             ; preds = %7285
   %7288 = zext i8 %7286 to i64
   %7289 = or disjoint i64 %7288, 256
-  %7290 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %7289
+  %7290 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %7289
   %7291 = load i8, ptr %7290, align 1, !tbaa !11
   %.not5642 = icmp sgt i8 %7291, -1
   br i1 %.not5642, label %7292, label %682
@@ -63678,7 +63678,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 7317:                                             ; preds = %7315
   %7318 = zext i8 %7316 to i64
   %7319 = or disjoint i64 %7318, 256
-  %7320 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %7319
+  %7320 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %7319
   %7321 = load i8, ptr %7320, align 1, !tbaa !11
   %.not5640 = icmp sgt i8 %7321, -1
   br i1 %.not5640, label %7322, label %682
@@ -63778,7 +63778,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 7365:                                             ; preds = %7363
   %7366 = zext i8 %7364 to i64
   %7367 = or disjoint i64 %7366, 256
-  %7368 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %7367
+  %7368 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %7367
   %7369 = load i8, ptr %7368, align 1, !tbaa !11
   %.not5635 = icmp sgt i8 %7369, -1
   br i1 %.not5635, label %7370, label %682
@@ -63878,7 +63878,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 7413:                                             ; preds = %7411
   %7414 = zext i8 %7412 to i64
   %7415 = or disjoint i64 %7414, 256
-  %7416 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %7415
+  %7416 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %7415
   %7417 = load i8, ptr %7416, align 1, !tbaa !11
   %.not5631 = icmp sgt i8 %7417, -1
   br i1 %.not5631, label %7418, label %682
@@ -64186,7 +64186,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 7562:                                             ; preds = %7560
   %7563 = zext i8 %7561 to i64
   %7564 = or disjoint i64 %7563, 256
-  %7565 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %7564
+  %7565 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %7564
   %7566 = load i8, ptr %7565, align 1, !tbaa !11
   %.not5613 = icmp sgt i8 %7566, -1
   br i1 %.not5613, label %7567, label %682
@@ -64247,7 +64247,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 7592:                                             ; preds = %7590
   %7593 = zext i8 %7591 to i64
   %7594 = or disjoint i64 %7593, 256
-  %7595 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %7594
+  %7595 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %7594
   %7596 = load i8, ptr %7595, align 1, !tbaa !11
   %.not5612 = icmp sgt i8 %7596, -1
   br i1 %.not5612, label %7597, label %682
@@ -64425,7 +64425,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 7676:                                             ; preds = %7674
   %7677 = zext i8 %7675 to i64
   %7678 = or disjoint i64 %7677, 256
-  %7679 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %7678
+  %7679 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %7678
   %7680 = load i8, ptr %7679, align 1, !tbaa !11
   %.not5596 = icmp sgt i8 %7680, -1
   br i1 %.not5596, label %7681, label %682
@@ -64583,7 +64583,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 7753:                                             ; preds = %7751
   %7754 = zext i8 %7752 to i64
   %7755 = or disjoint i64 %7754, 256
-  %7756 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %7755
+  %7756 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %7755
   %7757 = load i8, ptr %7756, align 1, !tbaa !11
   %.not5586 = icmp sgt i8 %7757, -1
   br i1 %.not5586, label %7758, label %682
@@ -64735,7 +64735,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 7825:                                             ; preds = %7823
   %7826 = zext i8 %7824 to i64
   %7827 = or disjoint i64 %7826, 256
-  %7828 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %7827
+  %7828 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %7827
   %7829 = load i8, ptr %7828, align 1, !tbaa !11
   %.not5576 = icmp sgt i8 %7829, -1
   br i1 %.not5576, label %7830, label %682
@@ -64835,7 +64835,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 7873:                                             ; preds = %7871
   %7874 = zext i8 %7872 to i64
   %7875 = or disjoint i64 %7874, 256
-  %7876 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %7875
+  %7876 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %7875
   %7877 = load i8, ptr %7876, align 1, !tbaa !11
   %.not5569 = icmp sgt i8 %7877, -1
   br i1 %.not5569, label %7878, label %682
@@ -64909,7 +64909,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 7909:                                             ; preds = %7907
   %7910 = zext i8 %7908 to i64
   %7911 = or disjoint i64 %7910, 256
-  %7912 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %7911
+  %7912 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %7911
   %7913 = load i8, ptr %7912, align 1, !tbaa !11
   %.not5567 = icmp sgt i8 %7913, -1
   br i1 %.not5567, label %7914, label %682
@@ -65009,7 +65009,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 7957:                                             ; preds = %7955
   %7958 = zext i8 %7956 to i64
   %7959 = or disjoint i64 %7958, 256
-  %7960 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %7959
+  %7960 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %7959
   %7961 = load i8, ptr %7960, align 1, !tbaa !11
   %.not5562 = icmp sgt i8 %7961, -1
   br i1 %.not5562, label %7962, label %682
@@ -65669,7 +65669,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 8264:                                             ; preds = %8262
   %8265 = zext i8 %8263 to i64
   %8266 = or disjoint i64 %8265, 256
-  %8267 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %8266
+  %8267 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %8266
   %8268 = load i8, ptr %8267, align 1, !tbaa !11
   %.not5654 = icmp sgt i8 %8268, -1
   br i1 %.not5654, label %8269, label %682
@@ -65749,7 +65749,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 8305:                                             ; preds = %8303
   %8306 = zext i8 %8304 to i64
   %8307 = or disjoint i64 %8306, 256
-  %8308 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %8307
+  %8308 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %8307
   %8309 = load i8, ptr %8308, align 1, !tbaa !11
   %.not5664 = icmp sgt i8 %8309, -1
   br i1 %.not5664, label %8310, label %682
@@ -65816,7 +65816,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 8340:                                             ; preds = %8338
   %8341 = zext i8 %8339 to i64
   %8342 = or disjoint i64 %8341, 256
-  %8343 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %8342
+  %8343 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %8342
   %8344 = load i8, ptr %8343, align 1, !tbaa !11
   %.not5663 = icmp sgt i8 %8344, -1
   br i1 %.not5663, label %8345, label %682
@@ -65961,7 +65961,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 8411:                                             ; preds = %8409
   %8412 = zext i8 %8410 to i64
   %8413 = or disjoint i64 %8412, 256
-  %8414 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %8413
+  %8414 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %8413
   %8415 = load i8, ptr %8414, align 1, !tbaa !11
   %.not5648 = icmp sgt i8 %8415, -1
   br i1 %.not5648, label %8416, label %682
@@ -66028,7 +66028,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 8446:                                             ; preds = %8444
   %8447 = zext i8 %8445 to i64
   %8448 = or disjoint i64 %8447, 256
-  %8449 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %8448
+  %8449 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %8448
   %8450 = load i8, ptr %8449, align 1, !tbaa !11
   %.not5645 = icmp sgt i8 %8450, -1
   br i1 %.not5645, label %8451, label %682
@@ -66266,7 +66266,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 8558:                                             ; preds = %8556
   %8559 = zext i8 %8557 to i64
   %8560 = or disjoint i64 %8559, 256
-  %8561 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %8560
+  %8561 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %8560
   %8562 = load i8, ptr %8561, align 1, !tbaa !11
   %.not5622 = icmp sgt i8 %8562, -1
   br i1 %.not5622, label %8563, label %682
@@ -66327,7 +66327,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 8588:                                             ; preds = %8586
   %8589 = zext i8 %8587 to i64
   %8590 = or disjoint i64 %8589, 256
-  %8591 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %8590
+  %8591 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %8590
   %8592 = load i8, ptr %8591, align 1, !tbaa !11
   %.not5620 = icmp sgt i8 %8592, -1
   br i1 %.not5620, label %8593, label %682
@@ -66414,7 +66414,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 8630:                                             ; preds = %8628
   %8631 = zext i8 %8629 to i64
   %8632 = or disjoint i64 %8631, 256
-  %8633 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %8632
+  %8633 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %8632
   %8634 = load i8, ptr %8633, align 1, !tbaa !11
   %.not5615 = icmp sgt i8 %8634, -1
   br i1 %.not5615, label %8635, label %682
@@ -66475,7 +66475,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 8660:                                             ; preds = %8658
   %8661 = zext i8 %8659 to i64
   %8662 = or disjoint i64 %8661, 256
-  %8663 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %8662
+  %8663 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %8662
   %8664 = load i8, ptr %8663, align 1, !tbaa !11
   %.not5614 = icmp sgt i8 %8664, -1
   br i1 %.not5614, label %8665, label %682
@@ -66536,7 +66536,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 8690:                                             ; preds = %8688
   %8691 = zext i8 %8689 to i64
   %8692 = or disjoint i64 %8691, 256
-  %8693 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %8692
+  %8693 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %8692
   %8694 = load i8, ptr %8693, align 1, !tbaa !11
   %.not5610 = icmp sgt i8 %8694, -1
   br i1 %.not5610, label %8695, label %682
@@ -66597,7 +66597,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 8720:                                             ; preds = %8718
   %8721 = zext i8 %8719 to i64
   %8722 = or disjoint i64 %8721, 256
-  %8723 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %8722
+  %8723 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %8722
   %8724 = load i8, ptr %8723, align 1, !tbaa !11
   %.not5607 = icmp sgt i8 %8724, -1
   br i1 %.not5607, label %8725, label %682
@@ -66664,7 +66664,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 8755:                                             ; preds = %8753
   %8756 = zext i8 %8754 to i64
   %8757 = or disjoint i64 %8756, 256
-  %8758 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %8757
+  %8758 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %8757
   %8759 = load i8, ptr %8758, align 1, !tbaa !11
   %.not5606 = icmp sgt i8 %8759, -1
   br i1 %.not5606, label %8760, label %682
@@ -66764,7 +66764,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 8803:                                             ; preds = %8801
   %8804 = zext i8 %8802 to i64
   %8805 = or disjoint i64 %8804, 256
-  %8806 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %8805
+  %8806 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %8805
   %8807 = load i8, ptr %8806, align 1, !tbaa !11
   %.not5599 = icmp sgt i8 %8807, -1
   br i1 %.not5599, label %8808, label %682
@@ -66883,7 +66883,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 8862:                                             ; preds = %8860
   %8863 = zext i8 %8861 to i64
   %8864 = or disjoint i64 %8863, 256
-  %8865 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %8864
+  %8865 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %8864
   %8866 = load i8, ptr %8865, align 1, !tbaa !11
   %.not5593 = icmp sgt i8 %8866, -1
   br i1 %.not5593, label %8867, label %682
@@ -66983,7 +66983,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 8910:                                             ; preds = %8908
   %8911 = zext i8 %8909 to i64
   %8912 = or disjoint i64 %8911, 256
-  %8913 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %8912
+  %8913 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %8912
   %8914 = load i8, ptr %8913, align 1, !tbaa !11
   %.not5587 = icmp sgt i8 %8914, -1
   br i1 %.not5587, label %8915, label %682
@@ -67044,7 +67044,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 8940:                                             ; preds = %8938
   %8941 = zext i8 %8939 to i64
   %8942 = or disjoint i64 %8941, 256
-  %8943 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %8942
+  %8943 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %8942
   %8944 = load i8, ptr %8943, align 1, !tbaa !11
   %.not5585 = icmp sgt i8 %8944, -1
   br i1 %.not5585, label %8945, label %682
@@ -67105,7 +67105,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 8970:                                             ; preds = %8968
   %8971 = zext i8 %8969 to i64
   %8972 = or disjoint i64 %8971, 256
-  %8973 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %8972
+  %8973 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %8972
   %8974 = load i8, ptr %8973, align 1, !tbaa !11
   %.not5584 = icmp sgt i8 %8974, -1
   br i1 %.not5584, label %8975, label %682
@@ -67254,7 +67254,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 9044:                                             ; preds = %9042
   %9045 = zext i8 %9043 to i64
   %9046 = or disjoint i64 %9045, 256
-  %9047 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %9046
+  %9047 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %9046
   %9048 = load i8, ptr %9047, align 1, !tbaa !11
   %.not5581 = icmp sgt i8 %9048, -1
   br i1 %.not5581, label %9049, label %682
@@ -67315,7 +67315,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 9074:                                             ; preds = %9072
   %9075 = zext i8 %9073 to i64
   %9076 = or disjoint i64 %9075, 256
-  %9077 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %9076
+  %9077 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %9076
   %9078 = load i8, ptr %9077, align 1, !tbaa !11
   %.not5580 = icmp sgt i8 %9078, -1
   br i1 %.not5580, label %9079, label %682
@@ -67415,7 +67415,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 9122:                                             ; preds = %9120
   %9123 = zext i8 %9121 to i64
   %9124 = or disjoint i64 %9123, 256
-  %9125 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %9124
+  %9125 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %9124
   %9126 = load i8, ptr %9125, align 1, !tbaa !11
   %.not5572 = icmp sgt i8 %9126, -1
   br i1 %.not5572, label %9127, label %682
@@ -67541,7 +67541,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 9182:                                             ; preds = %9180
   %9183 = zext i8 %9181 to i64
   %9184 = or disjoint i64 %9183, 256
-  %9185 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %9184
+  %9185 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %9184
   %9186 = load i8, ptr %9185, align 1, !tbaa !11
   %.not5561 = icmp sgt i8 %9186, -1
   br i1 %.not5561, label %9187, label %682
@@ -67834,7 +67834,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 9331:                                             ; preds = %9329
   %9332 = zext i8 %9330 to i64
   %9333 = or disjoint i64 %9332, 256
-  %9334 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %9333
+  %9334 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %9333
   %9335 = load i8, ptr %9334, align 1, !tbaa !11
   %.not5657 = icmp sgt i8 %9335, -1
   br i1 %.not5657, label %9336, label %682
@@ -67901,7 +67901,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 9366:                                             ; preds = %9364
   %9367 = zext i8 %9365 to i64
   %9368 = or disjoint i64 %9367, 256
-  %9369 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %9368
+  %9369 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %9368
   %9370 = load i8, ptr %9369, align 1, !tbaa !11
   %.not5656 = icmp sgt i8 %9370, -1
   br i1 %.not5656, label %9371, label %682
@@ -67968,7 +67968,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 9401:                                             ; preds = %9399
   %9402 = zext i8 %9400 to i64
   %9403 = or disjoint i64 %9402, 256
-  %9404 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %9403
+  %9404 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %9403
   %9405 = load i8, ptr %9404, align 1, !tbaa !11
   %.not5655 = icmp sgt i8 %9405, -1
   br i1 %.not5655, label %9406, label %682
@@ -68035,7 +68035,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 9436:                                             ; preds = %9434
   %9437 = zext i8 %9435 to i64
   %9438 = or disjoint i64 %9437, 256
-  %9439 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %9438
+  %9439 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %9438
   %9440 = load i8, ptr %9439, align 1, !tbaa !11
   %.not5653 = icmp sgt i8 %9440, -1
   br i1 %.not5653, label %9441, label %682
@@ -68128,7 +68128,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 9483:                                             ; preds = %9481
   %9484 = zext i8 %9482 to i64
   %9485 = or disjoint i64 %9484, 256
-  %9486 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %9485
+  %9486 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %9485
   %9487 = load i8, ptr %9486, align 1, !tbaa !11
   %.not5658 = icmp sgt i8 %9487, -1
   br i1 %.not5658, label %9488, label %682
@@ -68208,7 +68208,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 9524:                                             ; preds = %9522
   %9525 = zext i8 %9523 to i64
   %9526 = or disjoint i64 %9525, 256
-  %9527 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %9526
+  %9527 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %9526
   %9528 = load i8, ptr %9527, align 1, !tbaa !11
   %.not5650 = icmp sgt i8 %9528, -1
   br i1 %.not5650, label %9529, label %682
@@ -68275,7 +68275,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 9559:                                             ; preds = %9557
   %9560 = zext i8 %9558 to i64
   %9561 = or disjoint i64 %9560, 256
-  %9562 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %9561
+  %9562 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %9561
   %9563 = load i8, ptr %9562, align 1, !tbaa !11
   %.not5649 = icmp sgt i8 %9563, -1
   br i1 %.not5649, label %9564, label %682
@@ -68368,7 +68368,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 9606:                                             ; preds = %9604
   %9607 = zext i8 %9605 to i64
   %9608 = or disjoint i64 %9607, 256
-  %9609 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %9608
+  %9609 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %9608
   %9610 = load i8, ptr %9609, align 1, !tbaa !11
   %.not5636 = icmp sgt i8 %9610, -1
   br i1 %.not5636, label %9611, label %682
@@ -68474,7 +68474,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 9659:                                             ; preds = %9657
   %9660 = zext i8 %9658 to i64
   %9661 = or disjoint i64 %9660, 256
-  %9662 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %9661
+  %9662 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %9661
   %9663 = load i8, ptr %9662, align 1, !tbaa !11
   %.not5630 = icmp sgt i8 %9663, -1
   br i1 %.not5630, label %9664, label %682
@@ -68619,7 +68619,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 9730:                                             ; preds = %9728
   %9731 = zext i8 %9729 to i64
   %9732 = or disjoint i64 %9731, 256
-  %9733 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %9732
+  %9733 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %9732
   %9734 = load i8, ptr %9733, align 1, !tbaa !11
   %.not5623 = icmp sgt i8 %9734, -1
   br i1 %.not5623, label %9735, label %682
@@ -68706,7 +68706,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 9772:                                             ; preds = %9770
   %9773 = zext i8 %9771 to i64
   %9774 = or disjoint i64 %9773, 256
-  %9775 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %9774
+  %9775 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %9774
   %9776 = load i8, ptr %9775, align 1, !tbaa !11
   %.not5603 = icmp sgt i8 %9776, -1
   br i1 %.not5603, label %9777, label %682
@@ -68793,7 +68793,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 9814:                                             ; preds = %9812
   %9815 = zext i8 %9813 to i64
   %9816 = or disjoint i64 %9815, 256
-  %9817 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %9816
+  %9817 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %9816
   %9818 = load i8, ptr %9817, align 1, !tbaa !11
   %.not5598 = icmp sgt i8 %9818, -1
   br i1 %.not5598, label %9819, label %682
@@ -68873,7 +68873,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 9855:                                             ; preds = %9853
   %9856 = zext i8 %9854 to i64
   %9857 = or disjoint i64 %9856, 256
-  %9858 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %9857
+  %9858 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %9857
   %9859 = load i8, ptr %9858, align 1, !tbaa !11
   %.not5595 = icmp sgt i8 %9859, -1
   br i1 %.not5595, label %9860, label %682
@@ -69027,7 +69027,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 9926:                                             ; preds = %9924
   %9927 = zext i8 %9925 to i64
   %9928 = or disjoint i64 %9927, 256
-  %9929 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %9928
+  %9929 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %9928
   %9930 = load i8, ptr %9929, align 1, !tbaa !11
   %.not5573 = icmp sgt i8 %9930, -1
   br i1 %.not5573, label %9931, label %682
@@ -69114,7 +69114,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 9968:                                             ; preds = %9966
   %9969 = zext i8 %9967 to i64
   %9970 = or disjoint i64 %9969, 256
-  %9971 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %9970
+  %9971 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %9970
   %9972 = load i8, ptr %9971, align 1, !tbaa !11
   %.not5566 = icmp sgt i8 %9972, -1
   br i1 %.not5566, label %9973, label %682
@@ -69188,7 +69188,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 10004:                                            ; preds = %10002
   %10005 = zext i8 %10003 to i64
   %10006 = or disjoint i64 %10005, 256
-  %10007 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %10006
+  %10007 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %10006
   %10008 = load i8, ptr %10007, align 1, !tbaa !11
   %.not5563 = icmp sgt i8 %10008, -1
   br i1 %.not5563, label %10009, label %682
@@ -69353,7 +69353,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 10087:                                            ; preds = %10085
   %10088 = zext i8 %10086 to i64
   %10089 = or disjoint i64 %10088, 256
-  %10090 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %10089
+  %10090 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %10089
   %10091 = load i8, ptr %10090, align 1, !tbaa !11
   %.not5661 = icmp sgt i8 %10091, -1
   br i1 %.not5661, label %10092, label %682
@@ -69459,7 +69459,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 10140:                                            ; preds = %10138
   %10141 = zext i8 %10139 to i64
   %10142 = or disjoint i64 %10141, 256
-  %10143 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %10142
+  %10143 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %10142
   %10144 = load i8, ptr %10143, align 1, !tbaa !11
   %.not5652 = icmp sgt i8 %10144, -1
   br i1 %.not5652, label %10145, label %682
@@ -69526,7 +69526,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 10175:                                            ; preds = %10173
   %10176 = zext i8 %10174 to i64
   %10177 = or disjoint i64 %10176, 256
-  %10178 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %10177
+  %10178 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %10177
   %10179 = load i8, ptr %10178, align 1, !tbaa !11
   %.not5639 = icmp sgt i8 %10179, -1
   br i1 %.not5639, label %10180, label %682
@@ -69593,7 +69593,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 10210:                                            ; preds = %10208
   %10211 = zext i8 %10209 to i64
   %10212 = or disjoint i64 %10211, 256
-  %10213 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %10212
+  %10213 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %10212
   %10214 = load i8, ptr %10213, align 1, !tbaa !11
   %.not5637 = icmp sgt i8 %10214, -1
   br i1 %.not5637, label %10215, label %682
@@ -69660,7 +69660,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 10245:                                            ; preds = %10243
   %10246 = zext i8 %10244 to i64
   %10247 = or disjoint i64 %10246, 256
-  %10248 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %10247
+  %10248 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %10247
   %10249 = load i8, ptr %10248, align 1, !tbaa !11
   %.not5634 = icmp sgt i8 %10249, -1
   br i1 %.not5634, label %10250, label %682
@@ -69740,7 +69740,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 10286:                                            ; preds = %10284
   %10287 = zext i8 %10285 to i64
   %10288 = or disjoint i64 %10287, 256
-  %10289 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %10288
+  %10289 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %10288
   %10290 = load i8, ptr %10289, align 1, !tbaa !11
   %.not5632 = icmp sgt i8 %10290, -1
   br i1 %.not5632, label %10291, label %682
@@ -69859,7 +69859,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 10345:                                            ; preds = %10343
   %10346 = zext i8 %10344 to i64
   %10347 = or disjoint i64 %10346, 256
-  %10348 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %10347
+  %10348 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %10347
   %10349 = load i8, ptr %10348, align 1, !tbaa !11
   %.not5625 = icmp sgt i8 %10349, -1
   br i1 %.not5625, label %10350, label %682
@@ -69920,7 +69920,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 10375:                                            ; preds = %10373
   %10376 = zext i8 %10374 to i64
   %10377 = or disjoint i64 %10376, 256
-  %10378 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %10377
+  %10378 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %10377
   %10379 = load i8, ptr %10378, align 1, !tbaa !11
   %.not5624 = icmp sgt i8 %10379, -1
   br i1 %.not5624, label %10380, label %682
@@ -70000,7 +70000,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 10416:                                            ; preds = %10414
   %10417 = zext i8 %10415 to i64
   %10418 = or disjoint i64 %10417, 256
-  %10419 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %10418
+  %10419 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %10418
   %10420 = load i8, ptr %10419, align 1, !tbaa !11
   %.not5616 = icmp sgt i8 %10420, -1
   br i1 %.not5616, label %10421, label %682
@@ -70074,7 +70074,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 10452:                                            ; preds = %10450
   %10453 = zext i8 %10451 to i64
   %10454 = or disjoint i64 %10453, 256
-  %10455 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %10454
+  %10455 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %10454
   %10456 = load i8, ptr %10455, align 1, !tbaa !11
   %.not5600 = icmp sgt i8 %10456, -1
   br i1 %.not5600, label %10457, label %682
@@ -70141,7 +70141,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 10487:                                            ; preds = %10485
   %10488 = zext i8 %10486 to i64
   %10489 = or disjoint i64 %10488, 256
-  %10490 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %10489
+  %10490 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %10489
   %10491 = load i8, ptr %10490, align 1, !tbaa !11
   %.not5597 = icmp sgt i8 %10491, -1
   br i1 %.not5597, label %10492, label %682
@@ -70215,7 +70215,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 10523:                                            ; preds = %10521
   %10524 = zext i8 %10522 to i64
   %10525 = or disjoint i64 %10524, 256
-  %10526 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %10525
+  %10526 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %10525
   %10527 = load i8, ptr %10526, align 1, !tbaa !11
   %.not5592 = icmp sgt i8 %10527, -1
   br i1 %.not5592, label %10528, label %682
@@ -70289,7 +70289,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 10559:                                            ; preds = %10557
   %10560 = zext i8 %10558 to i64
   %10561 = or disjoint i64 %10560, 256
-  %10562 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %10561
+  %10562 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %10561
   %10563 = load i8, ptr %10562, align 1, !tbaa !11
   %.not5588 = icmp sgt i8 %10563, -1
   br i1 %.not5588, label %10564, label %682
@@ -70382,7 +70382,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 10606:                                            ; preds = %10604
   %10607 = zext i8 %10605 to i64
   %10608 = or disjoint i64 %10607, 256
-  %10609 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %10608
+  %10609 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %10608
   %10610 = load i8, ptr %10609, align 1, !tbaa !11
   %.not5579 = icmp sgt i8 %10610, -1
   br i1 %.not5579, label %10611, label %682
@@ -70456,7 +70456,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 10642:                                            ; preds = %10640
   %10643 = zext i8 %10641 to i64
   %10644 = or disjoint i64 %10643, 256
-  %10645 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %10644
+  %10645 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %10644
   %10646 = load i8, ptr %10645, align 1, !tbaa !11
   %.not5571 = icmp sgt i8 %10646, -1
   br i1 %.not5571, label %10647, label %682
@@ -70517,7 +70517,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 10672:                                            ; preds = %10670
   %10673 = zext i8 %10671 to i64
   %10674 = or disjoint i64 %10673, 256
-  %10675 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %10674
+  %10675 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %10674
   %10676 = load i8, ptr %10675, align 1, !tbaa !11
   %.not5568 = icmp sgt i8 %10676, -1
   br i1 %.not5568, label %10677, label %682
@@ -70578,7 +70578,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 10702:                                            ; preds = %10700
   %10703 = zext i8 %10701 to i64
   %10704 = or disjoint i64 %10703, 256
-  %10705 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %10704
+  %10705 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %10704
   %10706 = load i8, ptr %10705, align 1, !tbaa !11
   %.not5564 = icmp sgt i8 %10706, -1
   br i1 %.not5564, label %10707, label %682
@@ -70877,7 +70877,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 10825:                                            ; preds = %10823
   %10826 = zext i8 %10824 to i64
   %10827 = or disjoint i64 %10826, 256
-  %10828 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %10827
+  %10828 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %10827
   %10829 = load i8, ptr %10828, align 1, !tbaa !11
   %.not5659 = icmp sgt i8 %10829, -1
   br i1 %.not5659, label %10830, label %682
@@ -70944,7 +70944,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 10860:                                            ; preds = %10858
   %10861 = zext i8 %10859 to i64
   %10862 = or disjoint i64 %10861, 256
-  %10863 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %10862
+  %10863 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %10862
   %10864 = load i8, ptr %10863, align 1, !tbaa !11
   %.not5662 = icmp sgt i8 %10864, -1
   br i1 %.not5662, label %10865, label %682
@@ -71011,7 +71011,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 10895:                                            ; preds = %10893
   %10896 = zext i8 %10894 to i64
   %10897 = or disjoint i64 %10896, 256
-  %10898 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %10897
+  %10898 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %10897
   %10899 = load i8, ptr %10898, align 1, !tbaa !11
   %.not5660 = icmp sgt i8 %10899, -1
   br i1 %.not5660, label %10900, label %682
@@ -71078,7 +71078,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 10930:                                            ; preds = %10928
   %10931 = zext i8 %10929 to i64
   %10932 = or disjoint i64 %10931, 256
-  %10933 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %10932
+  %10933 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %10932
   %10934 = load i8, ptr %10933, align 1, !tbaa !11
   %.not5633 = icmp sgt i8 %10934, -1
   br i1 %.not5633, label %10935, label %682
@@ -71158,7 +71158,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 10971:                                            ; preds = %10969
   %10972 = zext i8 %10970 to i64
   %10973 = or disjoint i64 %10972, 256
-  %10974 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %10973
+  %10974 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %10973
   %10975 = load i8, ptr %10974, align 1, !tbaa !11
   %.not5628 = icmp sgt i8 %10975, -1
   br i1 %.not5628, label %10976, label %682
@@ -71225,7 +71225,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 11006:                                            ; preds = %11004
   %11007 = zext i8 %11005 to i64
   %11008 = or disjoint i64 %11007, 256
-  %11009 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %11008
+  %11009 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %11008
   %11010 = load i8, ptr %11009, align 1, !tbaa !11
   %.not5627 = icmp sgt i8 %11010, -1
   br i1 %.not5627, label %11011, label %682
@@ -71292,7 +71292,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 11041:                                            ; preds = %11039
   %11042 = zext i8 %11040 to i64
   %11043 = or disjoint i64 %11042, 256
-  %11044 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %11043
+  %11044 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %11043
   %11045 = load i8, ptr %11044, align 1, !tbaa !11
   %.not5626 = icmp sgt i8 %11045, -1
   br i1 %.not5626, label %11046, label %682
@@ -71372,7 +71372,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 11082:                                            ; preds = %11080
   %11083 = zext i8 %11081 to i64
   %11084 = or disjoint i64 %11083, 256
-  %11085 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %11084
+  %11085 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %11084
   %11086 = load i8, ptr %11085, align 1, !tbaa !11
   %.not5602 = icmp sgt i8 %11086, -1
   br i1 %.not5602, label %11087, label %682
@@ -71433,7 +71433,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 11112:                                            ; preds = %11110
   %11113 = zext i8 %11111 to i64
   %11114 = or disjoint i64 %11113, 256
-  %11115 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %11114
+  %11115 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %11114
   %11116 = load i8, ptr %11115, align 1, !tbaa !11
   %.not5594 = icmp sgt i8 %11116, -1
   br i1 %.not5594, label %11117, label %682
@@ -71652,7 +71652,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 .preheader6340:                                   ; preds = %10777, %11207
   %.55111 = phi i8 [ %11208, %11207 ], [ %10776, %10777 ]
   %11209 = zext i8 %.55111 to i64
-  %11210 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %11209
+  %11210 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %11209
   %11211 = load i8, ptr %11210, align 1, !tbaa !11
   %11212 = and i8 %11211, 64
   %.not5709 = icmp eq i8 %11212, 0
@@ -71837,7 +71837,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 .preheader6354:                                   ; preds = %10813, %11274
   %.65112 = phi i8 [ %11275, %11274 ], [ %10812, %10813 ]
   %11276 = zext i8 %.65112 to i64
-  %11277 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %11276
+  %11277 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %11276
   %11278 = load i8, ptr %11277, align 1, !tbaa !11
   %.not5703 = icmp sgt i8 %11278, -1
   br i1 %.not5703, label %11281, label %11279
@@ -71874,7 +71874,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 11293:                                            ; preds = %11291
   %11294 = zext i8 %11292 to i64
   %11295 = or disjoint i64 %11294, 256
-  %11296 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %11295
+  %11296 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %11295
   %11297 = load i8, ptr %11296, align 1, !tbaa !11
   %.not5629 = icmp sgt i8 %11297, -1
   br i1 %.not5629, label %11298, label %682
@@ -72228,7 +72228,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 11452:                                            ; preds = %11450
   %11453 = zext i8 %11451 to i64
   %11454 = or disjoint i64 %11453, 256
-  %11455 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %11454
+  %11455 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %11454
   %11456 = load i8, ptr %11455, align 1, !tbaa !11
   %.not5582 = icmp sgt i8 %11456, -1
   br i1 %.not5582, label %11457, label %682
@@ -72314,7 +72314,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 11494:                                            ; preds = %11492
   %11495 = zext i8 %11493 to i64
   %11496 = or disjoint i64 %11495, 256
-  %11497 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %11496
+  %11497 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %11496
   %11498 = load i8, ptr %11497, align 1, !tbaa !11
   %.not5619 = icmp sgt i8 %11498, -1
   br i1 %.not5619, label %11499, label %682
@@ -72401,7 +72401,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 11536:                                            ; preds = %11534
   %11537 = zext i8 %11535 to i64
   %11538 = or disjoint i64 %11537, 256
-  %11539 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %11538
+  %11539 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %11538
   %11540 = load i8, ptr %11539, align 1, !tbaa !11
   %.not5577 = icmp sgt i8 %11540, -1
   br i1 %.not5577, label %11541, label %682
@@ -72481,7 +72481,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 11577:                                            ; preds = %11575
   %11578 = zext i8 %11576 to i64
   %11579 = or disjoint i64 %11578, 256
-  %11580 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %11579
+  %11580 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %11579
   %11581 = load i8, ptr %11580, align 1, !tbaa !11
   %.not5583 = icmp sgt i8 %11581, -1
   br i1 %.not5583, label %11582, label %682
@@ -72574,7 +72574,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 11622:                                            ; preds = %11620
   %11623 = zext i8 %11621 to i64
   %11624 = or disjoint i64 %11623, 256
-  %11625 = getelementptr inbounds [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %11624
+  %11625 = getelementptr inbounds nuw [512 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm, i64 0, i64 %11624
   %11626 = load i8, ptr %11625, align 1, !tbaa !11
   %.not5591 = icmp sgt i8 %11626, -1
   br i1 %.not5591, label %11627, label %682
@@ -74107,7 +74107,7 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
 
 12339:                                            ; preds = %12337
   %12340 = zext i8 %12338 to i64
-  %12341 = getelementptr inbounds [256 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm_0, i64 0, i64 %12340
+  %12341 = getelementptr inbounds nuw [256 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm_0, i64 0, i64 %12340
   %12342 = load i8, ptr %12341, align 1, !tbaa !11
   %12343 = and i8 %12342, 64
   %.not5825 = icmp eq i8 %12343, 0
@@ -74397,7 +74397,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 12463:                                            ; preds = %12461
   %12464 = zext i8 %12462 to i64
-  %12465 = getelementptr inbounds [256 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm_0, i64 0, i64 %12464
+  %12465 = getelementptr inbounds nuw [256 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm_0, i64 0, i64 %12464
   %12466 = load i8, ptr %12465, align 1, !tbaa !11
   %.not5827 = icmp sgt i8 %12466, -1
   br i1 %.not5827, label %12467, label %.preheader6414
@@ -75637,7 +75637,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 12911:                                            ; preds = %12909
   %12912 = zext i8 %12910 to i64
-  %12913 = getelementptr inbounds [256 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm_1, i64 0, i64 %12912
+  %12913 = getelementptr inbounds nuw [256 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm_1, i64 0, i64 %12912
   %12914 = load i8, ptr %12913, align 1, !tbaa !11
   %12915 = and i8 %12914, 32
   %.not5808 = icmp eq i8 %12915, 0
@@ -75921,7 +75921,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 13033:                                            ; preds = %.preheader6448, %13031
   %.05085 = phi i8 [ %13032, %13031 ], [ %12880, %.preheader6448 ]
   %13034 = zext i8 %.05085 to i64
-  %13035 = getelementptr inbounds [256 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm_1, i64 0, i64 %13034
+  %13035 = getelementptr inbounds nuw [256 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm_1, i64 0, i64 %13034
   %13036 = load i8, ptr %13035, align 1, !tbaa !11
   %13037 = and i8 %13036, 64
   %.not5810 = icmp eq i8 %13037, 0
@@ -76097,7 +76097,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 13107:                                            ; preds = %13105
   %13108 = zext i8 %13106 to i64
-  %13109 = getelementptr inbounds [256 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm_1, i64 0, i64 %13108
+  %13109 = getelementptr inbounds nuw [256 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm_1, i64 0, i64 %13108
   %13110 = load i8, ptr %13109, align 1, !tbaa !11
   %.not5812 = icmp sgt i8 %13110, -1
   br i1 %.not5812, label %.thread6295, label %.preheader6439
@@ -76333,7 +76333,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 13199:                                            ; preds = %13197
   %13200 = zext i8 %13198 to i64
-  %13201 = getelementptr inbounds [256 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm_1, i64 0, i64 %13200
+  %13201 = getelementptr inbounds nuw [256 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm_1, i64 0, i64 %13200
   %13202 = load i8, ptr %13201, align 1, !tbaa !11
   %.not5814 = icmp sgt i8 %13202, -1
   br i1 %.not5814, label %.loopexit6443, label %13171
@@ -77768,7 +77768,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 13835:                                            ; preds = %.preheader6549, %13833
   %.05081 = phi i8 [ %13834, %13833 ], [ %13736, %.preheader6549 ]
   %13836 = zext i8 %.05081 to i64
-  %13837 = getelementptr inbounds [256 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm_2, i64 0, i64 %13836
+  %13837 = getelementptr inbounds nuw [256 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm_2, i64 0, i64 %13836
   %13838 = load i8, ptr %13837, align 1, !tbaa !11
   %.not5800 = icmp sgt i8 %13838, -1
   br i1 %.not5800, label %13841, label %13839
@@ -78429,7 +78429,7 @@ switch.hole_check:                                ; preds = %14078
   %.05080 = phi i8 [ 9, %13941 ], [ %13938, %13943 ], [ 9, %14063 ], [ %14059, %14065 ], [ %14124, %14123 ]
   %.05071 = phi i32 [ 0, %13941 ], [ 0, %13943 ], [ 0, %14063 ], [ 0, %14065 ], [ %.25073, %14123 ]
   %14126 = zext i8 %.05080 to i64
-  %14127 = getelementptr inbounds [256 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm_3, i64 0, i64 %14126
+  %14127 = getelementptr inbounds nuw [256 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm_3, i64 0, i64 %14126
   %14128 = load i8, ptr %14127, align 1, !tbaa !11
   %14129 = and i8 %14128, 32
   %.not5773 = icmp eq i8 %14129, 0
@@ -78535,7 +78535,7 @@ switch.hole_check:                                ; preds = %14078
 
 14165:                                            ; preds = %14163
   %14166 = zext i8 %14164 to i64
-  %14167 = getelementptr inbounds [256 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm_3, i64 0, i64 %14166
+  %14167 = getelementptr inbounds nuw [256 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm_3, i64 0, i64 %14166
   %14168 = load i8, ptr %14167, align 1, !tbaa !11
   %14169 = and i8 %14168, 32
   %.not5775 = icmp eq i8 %14169, 0
@@ -79193,7 +79193,7 @@ switch.hole_check:                                ; preds = %14078
 
 14411:                                            ; preds = %14409
   %14412 = zext i8 %14410 to i64
-  %14413 = getelementptr inbounds [256 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm_3, i64 0, i64 %14412
+  %14413 = getelementptr inbounds nuw [256 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm_3, i64 0, i64 %14412
   %14414 = load i8, ptr %14413, align 1, !tbaa !11
   %14415 = and i8 %14414, 32
   %.not5780 = icmp eq i8 %14415, 0
@@ -79482,7 +79482,7 @@ switch.hole_check:                                ; preds = %14078
 
 14522:                                            ; preds = %14520
   %14523 = zext i8 %14521 to i64
-  %14524 = getelementptr inbounds [256 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm_3, i64 0, i64 %14523
+  %14524 = getelementptr inbounds nuw [256 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm_3, i64 0, i64 %14523
   %14525 = load i8, ptr %14524, align 1, !tbaa !11
   %14526 = and i8 %14525, 32
   %.not5782 = icmp eq i8 %14526, 0
@@ -79932,7 +79932,7 @@ switch.hole_check:                                ; preds = %14078
 
 14695:                                            ; preds = %14694, %14690
   %14696 = phi ptr [ %.pre.i.i.i, %14694 ], [ %14683, %14690 ]
-  %14697 = getelementptr inbounds i8, ptr %14696, i64 17
+  %14697 = getelementptr inbounds nuw i8, ptr %14696, i64 17
   %14698 = invoke noundef i32 (ptr, i32, ptr, ...) %14691(ptr noundef nonnull %0, i32 noundef 5, ptr noundef nonnull @.str.29, ptr noundef nonnull %14697)
           to label %.backedge7402 unwind label %.loopexit6907
 
@@ -80338,7 +80338,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
   %14864 = getelementptr inbounds i8, ptr %14853, i64 %.neg6305
   %14865 = getelementptr inbounds i8, ptr %14864, i64 -1
   store ptr %14859, ptr %298, align 8, !tbaa !28
-  %14866 = getelementptr inbounds i8, ptr %14859, i64 17
+  %14866 = getelementptr inbounds nuw i8, ptr %14859, i64 17
   store ptr %14866, ptr %14859, align 8, !tbaa !6
   %14867 = getelementptr inbounds nuw i8, ptr %14859, i64 8
   store ptr %14866, ptr %14867, align 8, !tbaa !10
@@ -80373,8 +80373,8 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
   br i1 %14885, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEEC2IS9_EET_SD_RKS5_.exit
-  %14886 = getelementptr inbounds i8, ptr %14877, i64 17
-  %14887 = getelementptr inbounds i8, ptr %14870, i64 17
+  %14886 = getelementptr inbounds nuw i8, ptr %14877, i64 17
+  %14887 = getelementptr inbounds nuw i8, ptr %14870, i64 17
   %bcmp.i = call i32 @bcmp(ptr nonnull %14887, ptr nonnull %14886, i64 %14884)
   %.not.i.i.i.i = icmp eq i32 %bcmp.i, 0
   br i1 %.not.i.i.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i, label %_ZN5boost4wave4utileqIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEEEbRKNS1_11flex_stringIT_T0_T1_T2_EESI_.exit
@@ -80707,7 +80707,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 15033:                                            ; preds = %15031
   %15034 = zext i8 %15032 to i64
-  %15035 = getelementptr inbounds [256 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm_4, i64 0, i64 %15034
+  %15035 = getelementptr inbounds nuw [256 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm_4, i64 0, i64 %15034
   %15036 = load i8, ptr %15035, align 1, !tbaa !11
   %.not5757 = icmp sgt i8 %15036, -1
   br i1 %.not5757, label %14994, label %.preheader6507
@@ -80949,7 +80949,7 @@ _ZN5boost4wave8cpplexer7re2clex24count_backslash_newlinesIN9__gnu_cxx17__normal_
 
 15131:                                            ; preds = %15129
   %15132 = zext i8 %15130 to i64
-  %15133 = getelementptr inbounds [256 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm_4, i64 0, i64 %15132
+  %15133 = getelementptr inbounds nuw [256 x i8], ptr @_ZZN5boost4wave8cpplexer7re2clex4scanIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_8token_idEPNS2_7ScannerIT_EEE4yybm_4, i64 0, i64 %15132
   %15134 = load i8, ptr %15133, align 1, !tbaa !11
   %.not5759 = icmp sgt i8 %15134, -1
   br i1 %.not5759, label %.loopexit6511.backedge, label %.preheader6507
@@ -81248,7 +81248,7 @@ _ZN5boost4wave8cpplexer7re2clex18adjust_eol_offsetsIN9__gnu_cxx17__normal_iterat
   %87 = getelementptr inbounds i8, ptr %72, i64 %86
   %88 = getelementptr inbounds i8, ptr %72, i64 %70
   store ptr %88, ptr %61, align 8, !tbaa !212
-  %89 = getelementptr inbounds i8, ptr %88, i64 196608
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 196608
   store ptr %89, ptr %59, align 8, !tbaa !224
   tail call void @free(ptr noundef %68) #34
   store ptr %72, ptr %9, align 8, !tbaa !215
@@ -81342,7 +81342,7 @@ _ZN5boost4wave8cpplexer7re2clex18adjust_eol_offsetsIN9__gnu_cxx17__normal_iterat
   ]
 
 127:                                              ; preds = %125
-  %128 = getelementptr inbounds i8, ptr %121, i64 1
+  %128 = getelementptr inbounds nuw i8, ptr %121, i64 1
   %129 = icmp ult ptr %128, %123
   br i1 %129, label %130, label %133
 

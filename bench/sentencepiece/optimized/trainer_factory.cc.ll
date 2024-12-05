@@ -47,7 +47,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress uwtable
 define void @_ZN13sentencepiece14TrainerFactory6CreateERKNS_11TrainerSpecERKNS_14NormalizerSpecES6_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(336) %1, ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef nonnull align 8 dereferenceable(80) %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.sentencepiece::error::Die", align 1
-  %6 = getelementptr inbounds i8, ptr %1, i64 280
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %7 = load i32, ptr %6, align 8
   switch i32 %7, label %35 [
     i32 1, label %8
@@ -88,26 +88,26 @@ _ZNSt10unique_ptrIN13sentencepiece7unigram7TrainerESt14default_deleteIS2_EED2Ev.
 
 _ZNSt10unique_ptrIN13sentencepiece3bpe7TrainerESt14default_deleteIS2_EED2Ev.exit: ; preds = %12
   store ptr getelementptr inbounds (i8, ptr @_ZTVN13sentencepiece3bpe7TrainerE, i64 16), ptr %13, align 8, !noalias !7
-  %16 = getelementptr inbounds i8, ptr %13, i64 704
-  %17 = getelementptr inbounds i8, ptr %13, i64 752
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 704
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 752
   store ptr %17, ptr %16, align 8, !noalias !7
-  %18 = getelementptr inbounds i8, ptr %13, i64 712
+  %18 = getelementptr inbounds nuw i8, ptr %13, i64 712
   store i64 1, ptr %18, align 8, !noalias !7
-  %19 = getelementptr inbounds i8, ptr %13, i64 720
-  %20 = getelementptr inbounds i8, ptr %13, i64 736
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 720
+  %20 = getelementptr inbounds nuw i8, ptr %13, i64 736
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, i8 0, i64 16, i1 false), !noalias !7
   store float 1.000000e+00, ptr %20, align 8, !noalias !7
-  %21 = getelementptr inbounds i8, ptr %13, i64 744
+  %21 = getelementptr inbounds nuw i8, ptr %13, i64 744
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, i8 0, i64 16, i1 false), !noalias !7
-  %22 = getelementptr inbounds i8, ptr %13, i64 768
+  %22 = getelementptr inbounds nuw i8, ptr %13, i64 768
   store i32 0, ptr %22, align 8, !noalias !7
-  %23 = getelementptr inbounds i8, ptr %13, i64 776
+  %23 = getelementptr inbounds nuw i8, ptr %13, i64 776
   store ptr null, ptr %23, align 8, !noalias !7
-  %24 = getelementptr inbounds i8, ptr %13, i64 784
+  %24 = getelementptr inbounds nuw i8, ptr %13, i64 784
   store ptr %22, ptr %24, align 8, !noalias !7
-  %25 = getelementptr inbounds i8, ptr %13, i64 792
+  %25 = getelementptr inbounds nuw i8, ptr %13, i64 792
   store ptr %22, ptr %25, align 8, !noalias !7
-  %26 = getelementptr inbounds i8, ptr %13, i64 800
+  %26 = getelementptr inbounds nuw i8, ptr %13, i64 800
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %26, i8 0, i64 56, i1 false), !noalias !7
   br label %68
 

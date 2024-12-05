@@ -45,19 +45,19 @@ define dso_local i32 @sch_frag_xmit_hook(ptr noundef %0, ptr noundef %1) #0 alig
   %4 = alloca %struct.vlan_hdr, align 4
   %5 = alloca %struct.rtable, align 8
   %6 = alloca %struct.rt6_info, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
-  %8 = getelementptr inbounds i8, ptr %0, i64 74
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 74
   %9 = load i16, ptr %8, align 2
   %10 = icmp eq i16 %9, 0
   br i1 %10, label %293, label %11
 
 11:                                               ; preds = %2
   %12 = zext i16 %9 to i32
-  %13 = getelementptr inbounds i8, ptr %0, i64 112
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %14 = load i32, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 172
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 172
   %18 = load i16, ptr %17, align 4
   %19 = zext i16 %18 to i32
   %20 = add nuw nsw i32 %19, %12
@@ -65,15 +65,15 @@ define dso_local i32 @sch_frag_xmit_hook(ptr noundef %0, ptr noundef %1) #0 alig
   br i1 %21, label %22, label %293
 
 22:                                               ; preds = %11
-  %23 = getelementptr inbounds i8, ptr %16, i64 272
+  %23 = getelementptr inbounds nuw i8, ptr %16, i64 272
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 192
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 180
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 180
   %28 = load i16, ptr %27, align 4
   %29 = zext i16 %28 to i64
   %30 = getelementptr i8, ptr %26, i64 %29
-  %31 = getelementptr inbounds i8, ptr %0, i64 200
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %32 = load ptr, ptr %31, align 8
   %33 = ptrtoint ptr %30 to i64
   %34 = ptrtoint ptr %32 to i64
@@ -92,9 +92,9 @@ define dso_local i32 @sch_frag_xmit_hook(ptr noundef %0, ptr noundef %1) #0 alig
   br label %292
 
 43:                                               ; preds = %22
-  %44 = getelementptr inbounds i8, ptr %0, i64 176
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %45 = load i16, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %0, i64 120
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %47 = load i16, ptr %46, align 8
   %48 = zext i16 %47 to i32
   switch i16 %45, label %.loopexit21 [
@@ -122,7 +122,7 @@ define dso_local i32 @sch_frag_xmit_hook(ptr noundef %0, ptr noundef %1) #0 alig
 
 56:                                               ; preds = %54, %49
   %57 = phi i32 [ %55, %54 ], [ 14, %49 ]
-  %58 = getelementptr inbounds i8, ptr %0, i64 116
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %59 = icmp eq ptr %0, null
   br i1 %59, label %.split.us, label %.split
 
@@ -148,7 +148,7 @@ define dso_local i32 @sch_frag_xmit_hook(ptr noundef %0, ptr noundef %1) #0 alig
   br i1 %70, label %.thread7, label %71, !prof !11
 
 71:                                               ; preds = %.lr.ph
-  %72 = getelementptr inbounds i8, ptr %65, i64 2
+  %72 = getelementptr inbounds nuw i8, ptr %65, i64 2
   %73 = load i16, ptr %72, align 2
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #11
   switch i16 %73, label %.loopexit21 [
@@ -202,7 +202,7 @@ define dso_local i32 @sch_frag_xmit_hook(ptr noundef %0, ptr noundef %1) #0 alig
   br label %.thread9
 
 99:                                               ; preds = %92
-  %100 = getelementptr inbounds i8, ptr %93, i64 2
+  %100 = getelementptr inbounds nuw i8, ptr %93, i64 2
   %101 = load i16, ptr %100, align 2
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #11
   switch i16 %101, label %.loopexit21 [
@@ -228,25 +228,25 @@ define dso_local i32 @sch_frag_xmit_hook(ptr noundef %0, ptr noundef %1) #0 alig
   %109 = load ptr, ptr %31, align 8
   %110 = call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @sch_frag_data_storage) #13, !srcloc !14
   %111 = inttoptr i64 %110 to ptr
-  %112 = getelementptr inbounds i8, ptr %0, i64 88
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %113 = load i64, ptr %112, align 8
   store i64 %113, ptr %111, align 8
-  %114 = getelementptr inbounds i8, ptr %111, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(28) %114, ptr noundef align 4 dereferenceable(28) %7, i64 28, i1 false)
-  %115 = getelementptr inbounds i8, ptr %111, i64 72
+  %114 = getelementptr inbounds nuw i8, ptr %111, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %114, ptr noundef nonnull align 4 dereferenceable(28) %7, i64 28, i1 false)
+  %115 = getelementptr inbounds nuw i8, ptr %111, i64 72
   store ptr %1, ptr %115, align 8
-  %116 = getelementptr inbounds i8, ptr %0, i64 168
+  %116 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %117 = load i16, ptr %116, align 8
-  %118 = getelementptr inbounds i8, ptr %111, i64 36
+  %118 = getelementptr inbounds nuw i8, ptr %111, i64 36
   store i16 %117, ptr %118, align 4
-  %119 = getelementptr inbounds i8, ptr %0, i64 152
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %120 = load i32, ptr %119, align 8
   %121 = icmp eq i32 %120, 0
   %122 = lshr i32 %120, 16
   %123 = trunc nuw i32 %122 to i16
   %124 = or i16 %123, 4096
   %125 = select i1 %121, i16 0, i16 %124
-  %126 = getelementptr inbounds i8, ptr %111, i64 38
+  %126 = getelementptr inbounds nuw i8, ptr %111, i64 38
   store i16 %125, ptr %126, align 2
   %127 = zext i16 %108 to i64
   %128 = getelementptr i8, ptr %107, i64 %127
@@ -255,30 +255,30 @@ define dso_local i32 @sch_frag_xmit_hook(ptr noundef %0, ptr noundef %1) #0 alig
   %131 = sub i64 %129, %130
   %132 = trunc i64 %131 to i32
   %133 = load i16, ptr %119, align 8
-  %134 = getelementptr inbounds i8, ptr %111, i64 40
+  %134 = getelementptr inbounds nuw i8, ptr %111, i64 40
   store i16 %133, ptr %134, align 8
-  %135 = getelementptr inbounds i8, ptr %111, i64 44
+  %135 = getelementptr inbounds nuw i8, ptr %111, i64 44
   store i32 %132, ptr %135, align 4
-  %136 = getelementptr inbounds i8, ptr %111, i64 48
+  %136 = getelementptr inbounds nuw i8, ptr %111, i64 48
   %137 = load ptr, ptr %31, align 8
   %138 = and i64 %131, 4294967295
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %136, ptr align 1 %137, i64 %138, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %136, ptr align 1 %137, i64 %138, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   %139 = call ptr @skb_pull(ptr noundef %0, i32 noundef %132) #11
   call void @dst_init(ptr noundef nonnull %5, ptr noundef nonnull @sch_frag_dst_ops, ptr noundef null, i32 noundef 0, i16 noundef zeroext 8) #11
   %140 = load ptr, ptr %15, align 8
   store ptr %140, ptr %5, align 8
   %141 = load i64, ptr %112, align 8
-  %142 = getelementptr inbounds i8, ptr %0, i64 129
+  %142 = getelementptr inbounds nuw i8, ptr %0, i64 129
   %143 = load i24, ptr %142, align 1
   %144 = or i24 %143, 1048576
   store i24 %144, ptr %142, align 1
   %145 = ptrtoint ptr %5 to i64
   %146 = or disjoint i64 %145, 1
   store i64 %146, ptr %112, align 8
-  %147 = getelementptr inbounds i8, ptr %0, i64 62
+  %147 = getelementptr inbounds nuw i8, ptr %0, i64 62
   store i16 %9, ptr %147, align 2
-  %148 = getelementptr inbounds i8, ptr %0, i64 24
+  %148 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %149 = load ptr, ptr %148, align 8
   %150 = call i32 @ip_do_fragment(ptr noundef %24, ptr noundef %149, ptr noundef %0, ptr noundef nonnull @sch_frag_xmit) #11
   %151 = and i64 %141, 1
@@ -323,7 +323,7 @@ define dso_local i32 @sch_frag_xmit_hook(ptr noundef %0, ptr noundef %1) #0 alig
 
 166:                                              ; preds = %164, %159
   %167 = phi i32 [ %165, %164 ], [ 14, %159 ]
-  %168 = getelementptr inbounds i8, ptr %0, i64 116
+  %168 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %169 = icmp eq ptr %0, null
   br i1 %169, label %.split25.us, label %.split25
 
@@ -353,7 +353,7 @@ define dso_local i32 @sch_frag_xmit_hook(ptr noundef %0, ptr noundef %1) #0 alig
   br i1 %183, label %.thread13, label %184, !prof !11
 
 184:                                              ; preds = %174
-  %185 = getelementptr inbounds i8, ptr %178, i64 2
+  %185 = getelementptr inbounds nuw i8, ptr %178, i64 2
   %186 = load i16, ptr %185, align 2
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #11
   switch i16 %186, label %.loopexit [
@@ -406,7 +406,7 @@ define dso_local i32 @sch_frag_xmit_hook(ptr noundef %0, ptr noundef %1) #0 alig
   br label %.thread15
 
 212:                                              ; preds = %205
-  %213 = getelementptr inbounds i8, ptr %206, i64 2
+  %213 = getelementptr inbounds nuw i8, ptr %206, i64 2
   %214 = load i16, ptr %213, align 2
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #11
   switch i16 %214, label %.loopexit [
@@ -430,25 +430,25 @@ define dso_local i32 @sch_frag_xmit_hook(ptr noundef %0, ptr noundef %1) #0 alig
   %222 = load ptr, ptr %31, align 8
   %223 = call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @sch_frag_data_storage) #13, !srcloc !14
   %224 = inttoptr i64 %223 to ptr
-  %225 = getelementptr inbounds i8, ptr %0, i64 88
+  %225 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %226 = load i64, ptr %225, align 8
   store i64 %226, ptr %224, align 8
-  %227 = getelementptr inbounds i8, ptr %224, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(28) %227, ptr noundef align 4 dereferenceable(28) %7, i64 28, i1 false)
-  %228 = getelementptr inbounds i8, ptr %224, i64 72
+  %227 = getelementptr inbounds nuw i8, ptr %224, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %227, ptr noundef nonnull align 4 dereferenceable(28) %7, i64 28, i1 false)
+  %228 = getelementptr inbounds nuw i8, ptr %224, i64 72
   store ptr %1, ptr %228, align 8
-  %229 = getelementptr inbounds i8, ptr %0, i64 168
+  %229 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %230 = load i16, ptr %229, align 8
-  %231 = getelementptr inbounds i8, ptr %224, i64 36
+  %231 = getelementptr inbounds nuw i8, ptr %224, i64 36
   store i16 %230, ptr %231, align 4
-  %232 = getelementptr inbounds i8, ptr %0, i64 152
+  %232 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %233 = load i32, ptr %232, align 8
   %234 = icmp eq i32 %233, 0
   %235 = lshr i32 %233, 16
   %236 = trunc nuw i32 %235 to i16
   %237 = or i16 %236, 4096
   %238 = select i1 %234, i16 0, i16 %237
-  %239 = getelementptr inbounds i8, ptr %224, i64 38
+  %239 = getelementptr inbounds nuw i8, ptr %224, i64 38
   store i16 %238, ptr %239, align 2
   %240 = zext i16 %221 to i64
   %241 = getelementptr i8, ptr %220, i64 %240
@@ -457,34 +457,34 @@ define dso_local i32 @sch_frag_xmit_hook(ptr noundef %0, ptr noundef %1) #0 alig
   %244 = sub i64 %242, %243
   %245 = trunc i64 %244 to i32
   %246 = load i16, ptr %232, align 8
-  %247 = getelementptr inbounds i8, ptr %224, i64 40
+  %247 = getelementptr inbounds nuw i8, ptr %224, i64 40
   store i16 %246, ptr %247, align 8
-  %248 = getelementptr inbounds i8, ptr %224, i64 44
+  %248 = getelementptr inbounds nuw i8, ptr %224, i64 44
   store i32 %245, ptr %248, align 4
-  %249 = getelementptr inbounds i8, ptr %224, i64 48
+  %249 = getelementptr inbounds nuw i8, ptr %224, i64 48
   %250 = load ptr, ptr %31, align 8
   %251 = and i64 %244, 4294967295
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %249, ptr align 1 %250, i64 %251, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %249, ptr align 1 %250, i64 %251, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   %252 = call ptr @skb_pull(ptr noundef %0, i32 noundef %245) #11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(224) %6, i8 0, i64 224, i1 false)
   call void @dst_init(ptr noundef nonnull %6, ptr noundef nonnull @sch_frag_dst_ops, ptr noundef null, i32 noundef 0, i16 noundef zeroext 8) #11
   %253 = load ptr, ptr %15, align 8
   store ptr %253, ptr %6, align 8
   %254 = load i64, ptr %225, align 8
-  %255 = getelementptr inbounds i8, ptr %0, i64 129
+  %255 = getelementptr inbounds nuw i8, ptr %0, i64 129
   %256 = load i24, ptr %255, align 1
   %257 = or i24 %256, 1048576
   store i24 %257, ptr %255, align 1
   %258 = ptrtoint ptr %6 to i64
   %259 = or disjoint i64 %258, 1
   store i64 %259, ptr %225, align 8
-  %260 = getelementptr inbounds i8, ptr %0, i64 58
+  %260 = getelementptr inbounds nuw i8, ptr %0, i64 58
   store i16 %9, ptr %260, align 2
   %261 = load ptr, ptr @ipv6_stub, align 8
-  %262 = getelementptr inbounds i8, ptr %261, i64 176
+  %262 = getelementptr inbounds nuw i8, ptr %261, i64 176
   %263 = load ptr, ptr %262, align 8
-  %264 = getelementptr inbounds i8, ptr %0, i64 24
+  %264 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %265 = load ptr, ptr %264, align 8
   %266 = call i32 %263(ptr noundef %24, ptr noundef %265, ptr noundef %0, ptr noundef nonnull @sch_frag_xmit) #11
   %267 = and i64 %254, 1
@@ -507,13 +507,13 @@ define dso_local i32 @sch_frag_xmit_hook(ptr noundef %0, ptr noundef %1) #0 alig
 
 274:                                              ; preds = %.thread15
   %275 = load ptr, ptr %15, align 8
-  %276 = getelementptr inbounds i8, ptr %275, i64 296
+  %276 = getelementptr inbounds nuw i8, ptr %275, i64 296
   %277 = load i8, ptr %276, align 8
   %278 = icmp eq i8 %277, 0
   br i1 %278, label %283, label %279
 
 279:                                              ; preds = %274
-  %280 = call ptr @strchr(ptr noundef %276, i32 noundef 37) #11
+  %280 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %276, i32 noundef 37) #11
   %281 = icmp eq ptr %280, null
   %282 = select i1 %281, ptr %276, ptr @.str.5
   br label %283
@@ -524,7 +524,7 @@ define dso_local i32 @sch_frag_xmit_hook(ptr noundef %0, ptr noundef %1) #0 alig
   %286 = call i16 @llvm.bswap.i16(i16 %285)
   %287 = zext i16 %286 to i32
   %288 = load ptr, ptr %15, align 8
-  %289 = getelementptr inbounds i8, ptr %288, i64 56
+  %289 = getelementptr inbounds nuw i8, ptr %288, i64 56
   %290 = load i32, ptr %289, align 8
   %291 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.1, ptr noundef %284, i32 noundef %287, i32 noundef %12, i32 noundef %290) #12
   br label %292
@@ -557,9 +557,9 @@ declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #3
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
 define internal fastcc zeroext range(i16 130, 129) i16 @skb_protocol(ptr noundef %0) unnamed_addr #4 align 16 {
   %2 = alloca %struct.vlan_hdr, align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 176
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %4 = load i16, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 120
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %6 = load i16, ptr %5, align 8
   %7 = zext i16 %6 to i32
   switch i16 %4, label %.loopexit [
@@ -587,10 +587,10 @@ define internal fastcc zeroext range(i16 130, 129) i16 @skb_protocol(ptr noundef
 
 15:                                               ; preds = %13, %8
   %16 = phi i32 [ %14, %13 ], [ 14, %8 ]
-  %17 = getelementptr inbounds i8, ptr %0, i64 112
-  %18 = getelementptr inbounds i8, ptr %0, i64 116
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %19 = icmp eq ptr %0, null
-  %20 = getelementptr inbounds i8, ptr %0, i64 200
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 200
   br i1 %19, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %15
@@ -619,7 +619,7 @@ define internal fastcc zeroext range(i16 130, 129) i16 @skb_protocol(ptr noundef
   br i1 %34, label %.thread4, label %35, !prof !11
 
 35:                                               ; preds = %25
-  %36 = getelementptr inbounds i8, ptr %29, i64 2
+  %36 = getelementptr inbounds nuw i8, ptr %29, i64 2
   %37 = load i16, ptr %36, align 2
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #11
   switch i16 %37, label %.loopexit [
@@ -672,7 +672,7 @@ define internal fastcc zeroext range(i16 130, 129) i16 @skb_protocol(ptr noundef
   br label %.loopexit
 
 63:                                               ; preds = %56
-  %64 = getelementptr inbounds i8, ptr %57, i64 2
+  %64 = getelementptr inbounds nuw i8, ptr %57, i64 2
   %65 = load i16, ptr %64, align 2
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #11
   switch i16 %65, label %.loopexit [
@@ -702,22 +702,22 @@ declare dso_local i32 @ip_do_fragment(ptr noundef, ptr noundef, ptr noundef, ptr
 define internal i32 @sch_frag_xmit(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
   %4 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @sch_frag_data_storage) #13, !srcloc !15
   %5 = inttoptr i64 %4 to ptr
-  %6 = getelementptr inbounds i8, ptr %5, i64 44
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 44
   %7 = load i32, ptr %6, align 4
-  %8 = getelementptr inbounds i8, ptr %2, i64 126
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 126
   %9 = load i8, ptr %8, align 2
   %10 = and i8 %9, 1
   %11 = icmp eq i8 %10, 0
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %2, i64 192
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %2, i64 192
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %11, label %._crit_edge, label %12
 
 12:                                               ; preds = %3
-  %13 = getelementptr inbounds i8, ptr %2, i64 188
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 188
   %14 = load i32, ptr %13, align 4
   %15 = zext i32 %14 to i64
   %16 = getelementptr i8, ptr %.pre, i64 %15
-  %17 = getelementptr inbounds i8, ptr %16, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %18 = load volatile i32, ptr %17, align 4
   %19 = and i32 %18, 65535
   %20 = ashr i32 %18, 16
@@ -728,9 +728,9 @@ define internal i32 @sch_frag_xmit(ptr nocapture readnone %0, ptr nocapture read
 
 ._crit_edge:                                      ; preds = %3, %12
   %24 = phi i32 [ %23, %12 ], [ 0, %3 ]
-  %25 = getelementptr inbounds i8, ptr %2, i64 200
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 200
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %2, i64 192
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 192
   %28 = ptrtoint ptr %26 to i64
   %29 = ptrtoint ptr %.pre to i64
   %30 = sub i64 %28, %29
@@ -754,7 +754,7 @@ define internal i32 @sch_frag_xmit(ptr nocapture readnone %0, ptr nocapture read
 41:                                               ; preds = %35, %._crit_edge
   %42 = load i64, ptr %5, align 8
   %43 = icmp ne i64 %42, 0
-  %44 = getelementptr inbounds i8, ptr %2, i64 129
+  %44 = getelementptr inbounds nuw i8, ptr %2, i64 129
   %45 = load i24, ptr %44, align 1
   %46 = and i24 %45, 1048576
   %47 = icmp ne i24 %46, 0
@@ -763,7 +763,7 @@ define internal i32 @sch_frag_xmit(ptr nocapture readnone %0, ptr nocapture read
   %50 = and i24 %45, -1048577
   %51 = or disjoint i24 %49, %50
   store i24 %51, ptr %44, align 1
-  %52 = getelementptr inbounds i8, ptr %2, i64 88
+  %52 = getelementptr inbounds nuw i8, ptr %2, i64 88
   store i64 %42, ptr %52, align 8
   %53 = and i64 %42, 1
   %54 = icmp ne i64 %53, 0
@@ -773,15 +773,15 @@ define internal i32 @sch_frag_xmit(ptr nocapture readnone %0, ptr nocapture read
 
 57:                                               ; preds = %41
   %58 = inttoptr i64 %42 to ptr
-  %59 = getelementptr inbounds i8, ptr %58, i64 64
-  %60 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; addl $2, $0\0A\09/* output condition code s*/\0A", "=*m,={@ccs},er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %59, i32 1, ptr elementtype(i32) %59) #11, !srcloc !16
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 64
+  %60 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; addl $2, $0\0A\09/* output condition code s*/\0A", "=*m,={@ccs},er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %59, i32 1, ptr nonnull elementtype(i32) %59) #11, !srcloc !16
   %61 = icmp ult i8 %60, 2
   tail call void @llvm.assume(i1 %61)
   %62 = icmp eq i8 %60, 0
   br i1 %62, label %66, label %63, !prof !13
 
 63:                                               ; preds = %57
-  %64 = tail call zeroext i1 @rcuref_get_slowpath(ptr noundef %59) #11
+  %64 = tail call zeroext i1 @rcuref_get_slowpath(ptr noundef nonnull %59) #11
   br i1 %64, label %66, label %65, !prof !13
 
 65:                                               ; preds = %63
@@ -791,31 +791,31 @@ define internal i32 @sch_frag_xmit(ptr nocapture readnone %0, ptr nocapture read
   br label %66
 
 66:                                               ; preds = %65, %63, %57, %41
-  %67 = getelementptr inbounds i8, ptr %2, i64 40
-  %68 = getelementptr inbounds i8, ptr %5, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(28) %67, ptr noundef align 8 dereferenceable(28) %68, i64 28, i1 false)
-  %69 = getelementptr inbounds i8, ptr %5, i64 36
+  %67 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %68 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %67, ptr noundef nonnull align 8 dereferenceable(28) %68, i64 28, i1 false)
+  %69 = getelementptr inbounds nuw i8, ptr %5, i64 36
   %70 = load i16, ptr %69, align 4
-  %71 = getelementptr inbounds i8, ptr %2, i64 168
+  %71 = getelementptr inbounds nuw i8, ptr %2, i64 168
   store i16 %70, ptr %71, align 8
-  %72 = getelementptr inbounds i8, ptr %5, i64 38
+  %72 = getelementptr inbounds nuw i8, ptr %5, i64 38
   %73 = load i16, ptr %72, align 2
   %74 = and i16 %73, 4096
   %75 = icmp eq i16 %74, 0
   br i1 %75, label %82, label %76
 
 76:                                               ; preds = %66
-  %77 = getelementptr inbounds i8, ptr %5, i64 40
+  %77 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %78 = load i16, ptr %77, align 8
   %79 = and i16 %73, -4097
-  %80 = getelementptr inbounds i8, ptr %2, i64 152
+  %80 = getelementptr inbounds nuw i8, ptr %2, i64 152
   store i16 %78, ptr %80, align 8
-  %81 = getelementptr inbounds i8, ptr %2, i64 154
+  %81 = getelementptr inbounds nuw i8, ptr %2, i64 154
   store i16 %79, ptr %81, align 2
   br label %84
 
 82:                                               ; preds = %66
-  %83 = getelementptr inbounds i8, ptr %2, i64 152
+  %83 = getelementptr inbounds nuw i8, ptr %2, i64 152
   store i32 0, ptr %83, align 8
   br label %84
 
@@ -823,11 +823,11 @@ define internal i32 @sch_frag_xmit(ptr nocapture readnone %0, ptr nocapture read
   %85 = load i32, ptr %6, align 4
   %86 = tail call ptr @skb_push(ptr noundef %2, i32 noundef %85) #11
   %87 = load ptr, ptr %25, align 8
-  %88 = getelementptr inbounds i8, ptr %5, i64 48
+  %88 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %89 = load i32, ptr %6, align 4
   %90 = zext i32 %89 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %87, ptr align 8 %88, i64 %90, i1 false)
-  %91 = getelementptr inbounds i8, ptr %2, i64 128
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %87, ptr nonnull align 8 %88, i64 %90, i1 false)
+  %91 = getelementptr inbounds nuw i8, ptr %2, i64 128
   %92 = load i8, ptr %91, align 8
   %93 = and i8 %92, 96
   %94 = icmp eq i8 %93, 64
@@ -836,7 +836,7 @@ define internal i32 @sch_frag_xmit(ptr nocapture readnone %0, ptr nocapture read
 95:                                               ; preds = %84
   %96 = load i32, ptr %6, align 4
   %97 = load ptr, ptr %25, align 8
-  %98 = getelementptr inbounds i8, ptr %2, i64 136
+  %98 = getelementptr inbounds nuw i8, ptr %2, i64 136
   %99 = load i32, ptr %98, align 8
   %100 = tail call i32 @csum_partial(ptr noundef %97, i32 noundef %96, i32 noundef 0) #11
   %101 = tail call i32 asm "addl $2,$0\0A\09adcl $$0,$0", "=r,0,rm,~{dirflag},~{fpsr},~{flags}"(i32 %99, i32 %100) #13, !srcloc !20
@@ -850,9 +850,9 @@ define internal i32 @sch_frag_xmit(ptr nocapture readnone %0, ptr nocapture read
   %106 = ptrtoint ptr %104 to i64
   %107 = sub i64 %105, %106
   %108 = trunc i64 %107 to i16
-  %109 = getelementptr inbounds i8, ptr %2, i64 182
+  %109 = getelementptr inbounds nuw i8, ptr %2, i64 182
   store i16 %108, ptr %109, align 2
-  %110 = getelementptr inbounds i8, ptr %5, i64 72
+  %110 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %111 = load ptr, ptr %110, align 8
   %112 = tail call i32 %111(ptr noundef %2) #11
   br label %113
@@ -877,7 +877,7 @@ declare dso_local ptr @skb_pull(ptr noundef, i32 noundef) local_unnamed_addr #2
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
 define internal i32 @sch_frag_dst_get_mtu(ptr nocapture noundef readonly %0) #8 align 16 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 56
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %4 = load i32, ptr %3, align 8
   ret i32 %4
 }

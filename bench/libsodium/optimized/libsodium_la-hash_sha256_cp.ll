@@ -12,7 +12,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind ssp willreturn memory(argmem: readwrite) uwtable
 define noundef i32 @crypto_hash_sha256_init(ptr nocapture noundef nonnull writeonly initializes((0, 40)) %state) local_unnamed_addr #0 {
 entry:
-  %count = getelementptr inbounds i8, ptr %state, i64 32
+  %count = getelementptr inbounds nuw i8, ptr %state, i64 32
   store i64 0, ptr %count, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %state, ptr noundef nonnull align 16 dereferenceable(32) @crypto_hash_sha256_init.sha256_initial_state, i64 32, i1 false)
   ret i32 0
@@ -30,7 +30,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   fence acquire
-  %count = getelementptr inbounds i8, ptr %state, i64 32
+  %count = getelementptr inbounds nuw i8, ptr %state, i64 32
   %0 = load i64, ptr %count, align 8
   %shr = lshr i64 %0, 3
   %and = and i64 %shr, 63
@@ -39,7 +39,7 @@ if.end:                                           ; preds = %entry
   store i64 %add, ptr %count, align 8
   %sub = sub nuw nsw i64 64, %and
   %cmp2 = icmp ult i64 %inlen, %sub
-  %buf = getelementptr inbounds i8, ptr %state, i64 40
+  %buf = getelementptr inbounds nuw i8, ptr %state, i64 40
   br i1 %cmp2, label %for.body, label %for.body11
 
 for.body:                                         ; preds = %if.end, %for.body
@@ -65,7 +65,7 @@ for.body11:                                       ; preds = %if.end, %for.body11
   br i1 %exitcond.not, label %for.end18, label %for.body11, !llvm.loop !6
 
 for.end18:                                        ; preds = %for.body11
-  %arrayidx23 = getelementptr inbounds i8, ptr %tmp32, i64 256
+  %arrayidx23 = getelementptr inbounds nuw i8, ptr %tmp32, i64 256
   call fastcc void @SHA256_Transform(ptr noundef %state, ptr noundef nonnull %buf, ptr noundef %tmp32, ptr noundef nonnull %arrayidx23)
   %add.ptr = getelementptr i8, ptr %in, i64 %sub
   %sub26 = sub i64 %inlen, %sub
@@ -939,7 +939,7 @@ define noundef i32 @crypto_hash_sha256_final(ptr noundef nonnull %state, ptr noc
 entry:
   %tmp32 = alloca [72 x i32], align 16
   fence acquire
-  %count.i = getelementptr inbounds i8, ptr %state, i64 32
+  %count.i = getelementptr inbounds nuw i8, ptr %state, i64 32
   %0 = load i64, ptr %count.i, align 8
   %1 = trunc i64 %0 to i32
   %2 = lshr i32 %1, 3
@@ -954,8 +954,8 @@ for.cond6.preheader.i:                            ; preds = %entry
   %scevgep.i = getelementptr i8, ptr %4, i64 40
   %5 = zext nneg i32 %sub7.i to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep.i, ptr noundef nonnull align 16 dereferenceable(1) @PAD, i64 %5, i1 false)
-  %buf21.i = getelementptr inbounds i8, ptr %state, i64 40
-  %arrayidx24.i = getelementptr inbounds i8, ptr %tmp32, i64 256
+  %buf21.i = getelementptr inbounds nuw i8, ptr %state, i64 40
+  %arrayidx24.i = getelementptr inbounds nuw i8, ptr %tmp32, i64 256
   call fastcc void @SHA256_Transform(ptr noundef nonnull %state, ptr noundef nonnull %buf21.i, ptr noundef nonnull %tmp32, ptr noundef nonnull %arrayidx24.i)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %buf21.i, i8 0, i64 56, i1 false)
   br label %SHA256_Pad.exit
@@ -970,7 +970,7 @@ for.body.lr.ph.i:                                 ; preds = %entry
   br label %SHA256_Pad.exit
 
 SHA256_Pad.exit:                                  ; preds = %for.cond6.preheader.i, %for.body.lr.ph.i
-  %buf27.i = getelementptr inbounds i8, ptr %state, i64 40
+  %buf27.i = getelementptr inbounds nuw i8, ptr %state, i64 40
   %arrayidx28.i = getelementptr i8, ptr %state, i64 96
   %9 = load i64, ptr %count.i, align 8
   %conv.i.i = trunc i64 %9 to i8
@@ -1003,7 +1003,7 @@ SHA256_Pad.exit:                                  ; preds = %for.cond6.preheader
   %shr18.i.i = lshr i64 %9, 56
   %conv19.i.i = trunc nuw i64 %shr18.i.i to i8
   store i8 %conv19.i.i, ptr %arrayidx28.i, align 1
-  %arrayidx35.i = getelementptr inbounds i8, ptr %tmp32, i64 256
+  %arrayidx35.i = getelementptr inbounds nuw i8, ptr %tmp32, i64 256
   call fastcc void @SHA256_Transform(ptr noundef nonnull %state, ptr noundef nonnull %buf27.i, ptr noundef nonnull %tmp32, ptr noundef nonnull %arrayidx35.i)
   br label %for.body.i
 
@@ -1041,7 +1041,7 @@ be32enc_vect.exit:                                ; preds = %for.body.i
 define noundef i32 @crypto_hash_sha256(ptr nocapture noundef nonnull writeonly %out, ptr nocapture noundef readonly %in, i64 noundef %inlen) local_unnamed_addr #2 {
 entry:
   %state = alloca %struct.crypto_hash_sha256_state, align 8
-  %count.i = getelementptr inbounds i8, ptr %state, i64 32
+  %count.i = getelementptr inbounds nuw i8, ptr %state, i64 32
   store i64 0, ptr %count.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %state, ptr noundef nonnull align 16 dereferenceable(32) @crypto_hash_sha256_init.sha256_initial_state, i64 32, i1 false)
   %call1 = call i32 @crypto_hash_sha256_update(ptr noundef %state, ptr noundef %in, i64 noundef %inlen)

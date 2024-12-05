@@ -227,7 +227,7 @@ define void @dlaqps_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
   store i32 %165, ptr %15, align 4, !tbaa !3
   %166 = add nsw i32 %153, -1
   store i32 %166, ptr %16, align 4, !tbaa !3
-  %167 = getelementptr inbounds double, ptr %24, i64 %161
+  %167 = getelementptr inbounds nuw double, ptr %24, i64 %161
   %168 = load double, ptr %167, align 8, !tbaa !7
   %169 = fneg double %168
   store double %169, ptr %17, align 8, !tbaa !7
@@ -397,7 +397,7 @@ define void @dlaqps_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
 277:                                              ; preds = %290, %275
   %278 = phi i32 [ %249, %275 ], [ %292, %290 ]
   %279 = zext nneg i32 %278 to i64
-  %280 = getelementptr inbounds double, ptr %26, i64 %279
+  %280 = getelementptr inbounds nuw double, ptr %26, i64 %279
   %281 = load double, ptr %280, align 8, !tbaa !7
   %282 = fcmp ult double %281, 0.000000e+00
   br i1 %282, label %286, label %283
@@ -424,7 +424,7 @@ define void @dlaqps_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
   %297 = sext i32 %296 to i64
   %298 = getelementptr inbounds double, ptr %22, i64 %297
   %299 = call double @dnrm2_(ptr noundef nonnull %15, ptr noundef %298, ptr noundef nonnull @c__1) #7
-  %300 = getelementptr inbounds double, ptr %25, i64 %279
+  %300 = getelementptr inbounds nuw double, ptr %25, i64 %279
   store double %299, ptr %300, align 8, !tbaa !7
   store double %299, ptr %280, align 8, !tbaa !7
   %301 = icmp sgt i32 %292, 0

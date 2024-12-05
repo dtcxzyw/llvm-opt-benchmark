@@ -59,11 +59,11 @@ define void @Init_fiddle_handle() local_unnamed_addr #0 {
   %7 = load i64, ptr @rb_cHandle, align 8
   %8 = tail call i64 @rb_data_typed_object_zalloc(i64 noundef %7, i64 noundef 16, ptr noundef nonnull @fiddle_handle_data_type) #11
   %9 = inttoptr i64 %8 to ptr
-  %10 = getelementptr inbounds i8, ptr %9, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %11 = load i64, ptr %10, align 8
   %12 = and i64 %11, 2
   %.not.i.i.i = icmp eq i64 %12, 0
-  %13 = getelementptr inbounds i8, ptr %9, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 32
   br i1 %.not.i.i.i, label %14, label %predefined_fiddle_handle.exit
 
 14:                                               ; preds = %0
@@ -75,18 +75,18 @@ predefined_fiddle_handle.exit:                    ; preds = %0, %14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false)
   %17 = load ptr, ptr %13, align 8
   store ptr inttoptr (i64 -1 to ptr), ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i32 1, ptr %18, align 8
   tail call void @rb_obj_freeze_inline(i64 noundef %8) #11
   tail call void @rb_define_const(i64 noundef %7, ptr noundef nonnull @.str.4, i64 noundef %8) #11
   %19 = load i64, ptr @rb_cHandle, align 8
   %20 = tail call i64 @rb_data_typed_object_zalloc(i64 noundef %19, i64 noundef 16, ptr noundef nonnull @fiddle_handle_data_type) #11
   %21 = inttoptr i64 %20 to ptr
-  %22 = getelementptr inbounds i8, ptr %21, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %23 = load i64, ptr %22, align 8
   %24 = and i64 %23, 2
   %.not.i.i.i1 = icmp eq i64 %24, 0
-  %25 = getelementptr inbounds i8, ptr %21, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %21, i64 32
   br i1 %.not.i.i.i1, label %26, label %predefined_fiddle_handle.exit2
 
 26:                                               ; preds = %predefined_fiddle_handle.exit
@@ -98,7 +98,7 @@ predefined_fiddle_handle.exit2:                   ; preds = %predefined_fiddle_h
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %28, i8 0, i64 16, i1 false)
   %29 = load ptr, ptr %25, align 8
   store ptr null, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store i32 1, ptr %30, align 8
   tail call void @rb_obj_freeze_inline(i64 noundef %20) #11
   tail call void @rb_define_const(i64 noundef %19, ptr noundef nonnull @.str.5, i64 noundef %20) #11
@@ -142,11 +142,11 @@ define internal i64 @rb_fiddle_handle_s_allocate(i64 %0) #0 {
   %2 = load i64, ptr @rb_cHandle, align 8
   %3 = tail call i64 @rb_data_typed_object_zalloc(i64 noundef %2, i64 noundef 16, ptr noundef nonnull @fiddle_handle_data_type) #11
   %4 = inttoptr i64 %3 to ptr
-  %5 = getelementptr inbounds i8, ptr %4, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %6 = load i64, ptr %5, align 8
   %7 = and i64 %6, 2
   %.not.i = icmp eq i64 %7, 0
-  %8 = getelementptr inbounds i8, ptr %4, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 32
   br i1 %.not.i, label %9, label %RTYPEDDATA_GET_DATA.exit
 
 9:                                                ; preds = %1
@@ -299,13 +299,13 @@ rb_num2int_inline.exit:                           ; preds = %21, %23
   br i1 %.not20, label %44, label %36
 
 36:                                               ; preds = %33
-  %37 = getelementptr inbounds i8, ptr %34, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %38 = load i32, ptr %37, align 8
   %.not21 = icmp eq i32 %38, 0
   br i1 %.not21, label %44, label %39
 
 39:                                               ; preds = %36
-  %40 = getelementptr inbounds i8, ptr %34, i64 12
+  %40 = getelementptr inbounds nuw i8, ptr %34, i64 12
   %41 = load i32, ptr %40, align 4
   %.not22 = icmp eq i32 %41, 0
   br i1 %.not22, label %44, label %42
@@ -316,9 +316,9 @@ rb_num2int_inline.exit:                           ; preds = %21, %23
 
 44:                                               ; preds = %42, %39, %36, %33
   store ptr %28, ptr %34, align 8
-  %45 = getelementptr inbounds i8, ptr %34, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store i32 1, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %34, i64 12
+  %46 = getelementptr inbounds nuw i8, ptr %34, i64 12
   store i32 0, ptr %46, align 4
   %47 = call i32 @rb_block_given_p() #11
   %.not23 = icmp eq i32 %47, 0
@@ -366,7 +366,7 @@ define internal i64 @rb_fiddle_handle_to_ptr(i64 noundef %0) #0 {
 ; Function Attrs: nounwind uwtable
 define internal noundef range(i64 1, 0) i64 @rb_fiddle_handle_close(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @fiddle_handle_data_type) #11
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %12, label %5
@@ -396,7 +396,7 @@ define internal noundef range(i64 1, 0) i64 @rb_fiddle_handle_close(i64 noundef 
 ; Function Attrs: nounwind uwtable
 define internal i64 @rb_fiddle_handle_sym(i64 noundef %0, i64 noundef %1) #0 {
   %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @fiddle_handle_data_type) #11
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load i32, ptr %4, align 8
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %6, label %8
@@ -440,7 +440,7 @@ fiddle_handle_sym.exit:                           ; preds = %16, %19
 ; Function Attrs: nounwind uwtable
 define internal i64 @rb_fiddle_handle_sym_defined(i64 noundef %0, i64 noundef %1) #0 {
   %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @fiddle_handle_data_type) #11
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load i32, ptr %4, align 8
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %6, label %8
@@ -490,7 +490,7 @@ define internal i64 @rb_fiddle_handle_file_name(i64 noundef %0) #0 {
   br i1 %or.cond, label %9, label %13
 
 9:                                                ; preds = %1
-  %10 = getelementptr inbounds i8, ptr %7, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = call i64 @rb_str_new_cstr(ptr noundef %11) #11
   ret i64 %12
@@ -505,7 +505,7 @@ define internal i64 @rb_fiddle_handle_file_name(i64 noundef %0) #0 {
 ; Function Attrs: nounwind uwtable
 define internal noundef i64 @rb_fiddle_handle_disable_close(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @fiddle_handle_data_type) #11
-  %3 = getelementptr inbounds i8, ptr %2, i64 12
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 0, ptr %3, align 4
   ret i64 4
 }
@@ -513,7 +513,7 @@ define internal noundef i64 @rb_fiddle_handle_disable_close(i64 noundef %0) #0 {
 ; Function Attrs: nounwind uwtable
 define internal noundef i64 @rb_fiddle_handle_enable_close(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @fiddle_handle_data_type) #11
-  %3 = getelementptr inbounds i8, ptr %2, i64 12
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 1, ptr %3, align 4
   ret i64 4
 }
@@ -521,7 +521,7 @@ define internal noundef i64 @rb_fiddle_handle_enable_close(i64 noundef %0) #0 {
 ; Function Attrs: nounwind uwtable
 define internal range(i64 0, 21) i64 @rb_fiddle_handle_close_enabled_p(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @fiddle_handle_data_type) #11
-  %3 = getelementptr inbounds i8, ptr %2, i64 12
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
   %. = select i1 %.not, i64 0, i64 20
@@ -537,13 +537,13 @@ define internal void @fiddle_handle_free(ptr noundef %0) #0 {
   br i1 %.not, label %11, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %.not6 = icmp eq i32 %5, 0
   br i1 %.not6, label %11, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 12
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %8 = load i32, ptr %7, align 4
   %.not7 = icmp eq i32 %8, 0
   br i1 %.not7, label %11, label %9

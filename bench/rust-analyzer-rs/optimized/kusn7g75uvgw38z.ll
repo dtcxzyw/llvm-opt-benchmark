@@ -10,7 +10,7 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN100_$LT$core.
   br i1 %4, label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$3nth17h4218a8a8beef4dc5E.llvm.2867981562457967798.exit", label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8, !alias.scope !8, !nonnull !7, !noundef !7
   %8 = ptrtoint ptr %7 to i64
   %9 = ptrtoint ptr %3 to i64
@@ -18,7 +18,7 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN100_$LT$core.
   %11 = lshr exact i64 %10, 5
   %.not.i.i = icmp ult i64 %1, %11
   %12 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i32, i32 } }, ptr %3, i64 %1
-  %13 = getelementptr inbounds i8, ptr %12, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %storemerge.i.i = select i1 %.not.i.i, ptr %13, ptr %7
   %.0.i.i = select i1 %.not.i.i, ptr %12, ptr null
   store ptr %storemerge.i.i, ptr %0, align 8, !alias.scope !8
@@ -36,7 +36,7 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN107_$LT$core.
   br i1 %4, label %14, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8, !alias.scope !11, !nonnull !7, !noundef !7
   %8 = ptrtoint ptr %7 to i64
   %9 = ptrtoint ptr %3 to i64
@@ -44,7 +44,7 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN107_$LT$core.
   %11 = lshr exact i64 %10, 5
   %.not.i = icmp ult i64 %1, %11
   %12 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i32, i32 } }, ptr %3, i64 %1
-  %13 = getelementptr inbounds i8, ptr %12, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %storemerge.i = select i1 %.not.i, ptr %13, ptr %7
   %.0.i = select i1 %.not.i, ptr %12, ptr null
   store ptr %storemerge.i, ptr %0, align 8, !alias.scope !11
@@ -64,7 +64,7 @@ define hidden { ptr, ptr } @"_ZN63_$LT$I$u20$as$u20$core..iter..traits..collect.
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17h4d2e16948fd55526E.llvm.2867981562457967798"(ptr noalias nocapture noundef align 8 dereferenceable(16) %0, i64 noundef %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !nonnull !7, !noundef !7
   %5 = load ptr, ptr %0, align 8, !nonnull !7, !noundef !7
   %6 = ptrtoint ptr %4 to i64
@@ -73,7 +73,7 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN91_$LT$core..
   %9 = lshr exact i64 %8, 5
   %.not = icmp ult i64 %1, %9
   %10 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i32, i32 } }, ptr %5, i64 %1
-  %11 = getelementptr inbounds i8, ptr %10, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %storemerge = select i1 %.not, ptr %11, ptr %4
   %.0 = select i1 %.not, ptr %10, ptr null
   store ptr %storemerge, ptr %0, align 8
@@ -82,7 +82,7 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN91_$LT$core..
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN96_$LT$itertools..adaptors..PutBack$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17h1327f9f8ba787f88E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %0, i64 noundef %1) unnamed_addr #2 personality ptr @rust_eh_personality {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !noundef !7
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %18
@@ -93,7 +93,7 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN96_$LT$iterto
   br i1 %8, label %"_ZN100_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17hbbc0629aecf4628bE.llvm.2867981562457967798.exit", label %9
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !alias.scope !19, !nonnull !7, !noundef !7
   %12 = ptrtoint ptr %11 to i64
   %13 = ptrtoint ptr %7 to i64
@@ -101,7 +101,7 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN96_$LT$iterto
   %15 = lshr exact i64 %14, 5
   %.not.i.i.i = icmp ult i64 %1, %15
   %16 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i32, i32 } }, ptr %7, i64 %1
-  %17 = getelementptr inbounds i8, ptr %16, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %storemerge.i.i.i = select i1 %.not.i.i.i, ptr %17, ptr %11
   %.0.i.i.i = select i1 %.not.i.i.i, ptr %16, ptr null
   br label %"_ZN100_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17hbbc0629aecf4628bE.llvm.2867981562457967798.exit.sink.split"
@@ -128,7 +128,7 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN96_$LT$iterto
 
 23:                                               ; preds = %20
   %24 = add i64 %1, -1
-  %25 = getelementptr inbounds i8, ptr %0, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !27, !nonnull !7, !noundef !7
   %27 = ptrtoint ptr %26 to i64
   %28 = ptrtoint ptr %21 to i64
@@ -136,7 +136,7 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN96_$LT$iterto
   %30 = lshr exact i64 %29, 5
   %.not.i.i.i4 = icmp ult i64 %24, %30
   %31 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i32, i32 } }, ptr %21, i64 %24
-  %32 = getelementptr inbounds i8, ptr %31, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 32
   %storemerge.i.i.i5 = select i1 %.not.i.i.i4, ptr %32, ptr %26
   %.0.i.i.i6 = select i1 %.not.i.i.i4, ptr %31, ptr null
   br label %"_ZN100_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17hbbc0629aecf4628bE.llvm.2867981562457967798.exit.sink.split"
@@ -144,10 +144,10 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN96_$LT$iterto
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN9itertools8adaptors8put_back17h008b404ff3d00e89E(ptr noalias nocapture noundef writeonly sret({ { { ptr, [1 x i64] } }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef %1, ptr %2) unnamed_addr #3 personality ptr @rust_eh_personality {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr null, ptr %4, align 8
   store ptr %1, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %5, align 8
   ret void
 }

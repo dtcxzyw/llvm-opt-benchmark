@@ -18,17 +18,17 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_pci_iomap_wc
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @pci_iomap_range(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2, i64 noundef %3) #0 align 16 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 920
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 920
   %6 = sext i32 %1 to i64
   %7 = getelementptr [11 x %struct.resource], ptr %5, i64 0, i64 %6
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %7, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %10 = load i64, ptr %9, align 8
   %11 = icmp eq i64 %10, 0
   %reass.sub = sub i64 %10, %8
   %12 = add i64 %reass.sub, 1
   %13 = select i1 %11, i64 0, i64 %12
-  %14 = getelementptr inbounds i8, ptr %7, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %15 = load i64, ptr %14, align 8
   %16 = icmp ugt i64 %13, %2
   %17 = icmp ne i64 %8, 0
@@ -72,17 +72,17 @@ declare dso_local ptr @ioremap(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @pci_iomap_wc_range(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2, i64 noundef %3) #0 align 16 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 920
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 920
   %6 = sext i32 %1 to i64
   %7 = getelementptr [11 x %struct.resource], ptr %5, i64 0, i64 %6
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %7, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %10 = load i64, ptr %9, align 8
   %11 = icmp eq i64 %10, 0
   %reass.sub = sub i64 %10, %8
   %12 = add i64 %reass.sub, 1
   %13 = select i1 %11, i64 0, i64 %12
-  %14 = getelementptr inbounds i8, ptr %7, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %15 = load i64, ptr %14, align 8
   %16 = and i64 %15, 256
   %17 = icmp eq i64 %16, 0
@@ -116,17 +116,17 @@ declare dso_local ptr @ioremap_wc(i64 noundef, i64 noundef) local_unnamed_addr #
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @pci_iomap(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 920
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 920
   %5 = sext i32 %1 to i64
   %6 = getelementptr [11 x %struct.resource], ptr %4, i64 0, i64 %5
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %6, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %9 = load i64, ptr %8, align 8
   %10 = icmp eq i64 %9, 0
   %reass.sub = sub i64 %9, %7
   %11 = add i64 %reass.sub, 1
   %12 = select i1 %10, i64 0, i64 %11
-  %13 = getelementptr inbounds i8, ptr %6, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %14 = load i64, ptr %13, align 8
   %15 = icmp ne i64 %12, 0
   %16 = icmp ne i64 %7, 0
@@ -162,17 +162,17 @@ define dso_local ptr @pci_iomap(ptr nocapture noundef readonly %0, i32 noundef %
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @pci_iomap_wc(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 920
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 920
   %5 = sext i32 %1 to i64
   %6 = getelementptr [11 x %struct.resource], ptr %4, i64 0, i64 %5
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %6, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %9 = load i64, ptr %8, align 8
   %10 = icmp eq i64 %9, 0
   %reass.sub = sub i64 %9, %7
   %11 = add i64 %reass.sub, 1
   %12 = select i1 %10, i64 0, i64 %11
-  %13 = getelementptr inbounds i8, ptr %6, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %14 = load i64, ptr %13, align 8
   %15 = and i64 %14, 256
   %16 = icmp eq i64 %15, 0

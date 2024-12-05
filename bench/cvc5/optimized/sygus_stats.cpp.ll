@@ -74,7 +74,7 @@ invoke.cont4:                                     ; preds = %invoke.cont
   store ptr %call, ptr %this, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #8
-  %d_filtered_solutions = getelementptr inbounds i8, ptr %this, i64 8
+  %d_filtered_solutions = getelementptr inbounds nuw i8, ptr %this, i64 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp7) #8
   %call.i20 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp6)
           to label %call.i.noexc19 unwind label %lpad8
@@ -101,7 +101,7 @@ invoke.cont11:                                    ; preds = %invoke.cont9
   store ptr %call12, ptr %d_filtered_solutions, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp6) #8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp7) #8
-  %d_enumTermsRewrite = getelementptr inbounds i8, ptr %this, i64 16
+  %d_enumTermsRewrite = getelementptr inbounds nuw i8, ptr %this, i64 16
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp18) #8
   %call.i28 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp17)
           to label %call.i.noexc27 unwind label %lpad19
@@ -128,7 +128,7 @@ invoke.cont22:                                    ; preds = %invoke.cont20
   store ptr %call23, ptr %d_enumTermsRewrite, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp17) #8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp18) #8
-  %d_enumTermsExampleEval = getelementptr inbounds i8, ptr %this, i64 24
+  %d_enumTermsExampleEval = getelementptr inbounds nuw i8, ptr %this, i64 24
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp29) #8
   %call.i36 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp28)
           to label %call.i.noexc35 unwind label %lpad30
@@ -178,7 +178,7 @@ invoke.cont42:                                    ; preds = %.noexc45
           to label %invoke.cont44 unwind label %lpad43
 
 invoke.cont44:                                    ; preds = %invoke.cont42
-  %d_enumTerms = getelementptr inbounds i8, ptr %this, i64 32
+  %d_enumTerms = getelementptr inbounds nuw i8, ptr %this, i64 32
   store ptr %call45, ptr %d_enumTerms, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp39) #8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp40) #8

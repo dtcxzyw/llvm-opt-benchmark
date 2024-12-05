@@ -70,27 +70,26 @@ entry:
   %ref.tmp91 = alloca %"class.cvc5::internal::FatalStream", align 1
   tail call void @_ZN4cvc58internal6EnvObjC2ERNS0_3EnvE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(576) %env)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory17CombinationEngineE, i64 16), ptr %this, align 8
-  %d_te = getelementptr inbounds i8, ptr %this, i64 16
+  %d_te = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %te, ptr %d_te, align 8
-  %d_valuation = getelementptr inbounds i8, ptr %this, i64 24
+  %d_valuation = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr %te, ptr %d_valuation, align 8
   %call = tail call noundef nonnull align 8 dereferenceable(88) ptr @_ZNK4cvc58internal3Env12getLogicInfoEv(ptr noundef nonnull align 8 dereferenceable(576) %env)
-  %d_logicInfo = getelementptr inbounds i8, ptr %this, i64 32
+  %d_logicInfo = getelementptr inbounds nuw i8, ptr %this, i64 32
   store ptr %call, ptr %d_logicInfo, align 8
-  %d_paraTheories = getelementptr inbounds i8, ptr %this, i64 40
-  %_M_finish.i.i = getelementptr inbounds i8, ptr %paraTheories, i64 8
+  %d_paraTheories = getelementptr inbounds nuw i8, ptr %this, i64 40
+  %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %paraTheories, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %paraTheories, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %d_paraTheories, i8 0, i64 24, i1 false)
   %cmp.not.i.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not.i.i.i.i, label %invoke.cont.i, label %cond.true.i.i.i.i
 
 cond.true.i.i.i.i:                                ; preds = %entry
-  %cmp.i.i.i.i.i.i = icmp ugt i64 %sub.ptr.div.i.i, 1152921504606846975
+  %cmp.i.i.i.i.i.i = icmp ugt i64 %sub.ptr.sub.i.i, 9223372036854775800
   br i1 %cmp.i.i.i.i.i.i, label %if.then3.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIPN4cvc58internal6theory6TheoryEEE8allocateERS5_m.exit.i.i.i.i
 
 if.then3.i.i.i.i.i.i:                             ; preds = %cond.true.i.i.i.i
@@ -104,10 +103,10 @@ _ZNSt16allocator_traitsISaIPN4cvc58internal6theory6TheoryEEE8allocateERS5_m.exit
 invoke.cont.i:                                    ; preds = %_ZNSt16allocator_traitsISaIPN4cvc58internal6theory6TheoryEEE8allocateERS5_m.exit.i.i.i.i, %entry
   %cond.i.i.i.i = phi ptr [ null, %entry ], [ %call5.i.i.i.i2.i6.i19, %_ZNSt16allocator_traitsISaIPN4cvc58internal6theory6TheoryEEE8allocateERS5_m.exit.i.i.i.i ]
   store ptr %cond.i.i.i.i, ptr %d_paraTheories, align 8
-  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   store ptr %cond.i.i.i.i, ptr %_M_finish.i.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds ptr, ptr %cond.i.i.i.i, i64 %sub.ptr.div.i.i
-  %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i, i64 %sub.ptr.sub.i.i
+  %_M_end_of_storage.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8
   %2 = load ptr, ptr %paraTheories, align 8
   %3 = load ptr, ptr %_M_finish.i.i, align 8
@@ -124,10 +123,10 @@ if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %invoke.cont.i
 invoke.cont3:                                     ; preds = %if.then.i.i.i.i.i.i.i.i.i, %invoke.cont.i
   %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i
   store ptr %add.ptr.i.i.i.i.i.i.i.i.i, ptr %_M_finish.i.i.i, align 8
-  %d_eemanager = getelementptr inbounds i8, ptr %this, i64 64
-  %d_mmanager = getelementptr inbounds i8, ptr %this, i64 72
-  %d_sharedSolver = getelementptr inbounds i8, ptr %this, i64 80
-  %d_cmbsPg = getelementptr inbounds i8, ptr %this, i64 88
+  %d_eemanager = getelementptr inbounds nuw i8, ptr %this, i64 64
+  %d_mmanager = getelementptr inbounds nuw i8, ptr %this, i64 72
+  %d_sharedSolver = getelementptr inbounds nuw i8, ptr %this, i64 80
+  %d_cmbsPg = getelementptr inbounds nuw i8, ptr %this, i64 88
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %d_eemanager, i8 0, i64 24, i1 false)
   %call6 = invoke noundef zeroext i1 @_ZNK4cvc58internal3Env22isTheoryProofProducingEv(ptr noundef nonnull align 8 dereferenceable(576) %env)
           to label %invoke.cont5 unwind label %lpad4
@@ -181,9 +180,9 @@ cleanup.done23:                                   ; preds = %cleanup.done, %clea
           to label %invoke.cont32 unwind label %lpad31
 
 invoke.cont32:                                    ; preds = %cleanup.done23
-  %theory = getelementptr inbounds i8, ptr %call33, i64 368
+  %theory = getelementptr inbounds nuw i8, ptr %call33, i64 368
   %5 = load ptr, ptr %theory, align 8
-  %eeMode = getelementptr inbounds i8, ptr %5, i64 4
+  %eeMode = getelementptr inbounds nuw i8, ptr %5, i64 4
   %6 = load i32, ptr %eeMode, align 4
   %cmp = icmp eq i32 %6, 0
   br i1 %cmp, label %if.then, label %if.else
@@ -205,7 +204,7 @@ invoke.cont39:                                    ; preds = %invoke.cont35
 
 _ZNKSt14default_deleteIN4cvc58internal6theory12SharedSolverEEclEPS3_.exit.i.i: ; preds = %invoke.cont39
   %vtable.i.i.i = load ptr, ptr %8, align 8
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
+  %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 8
   %9 = load ptr, ptr %vfn.i.i.i, align 8
   call void %9(ptr noundef nonnull align 8 dereferenceable(976) %8) #20
   br label %_ZNSt10unique_ptrIN4cvc58internal6theory12SharedSolverESt14default_deleteIS3_EE5resetEPS3_.exit
@@ -228,7 +227,7 @@ invoke.cont48:                                    ; preds = %invoke.cont42
 
 _ZNKSt14default_deleteIN4cvc58internal6theory15EqEngineManagerEEclEPS3_.exit.i.i: ; preds = %invoke.cont48
   %vtable.i.i.i25 = load ptr, ptr %12, align 8
-  %vfn.i.i.i26 = getelementptr inbounds i8, ptr %vtable.i.i.i25, i64 8
+  %vfn.i.i.i26 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i25, i64 8
   %13 = load ptr, ptr %vfn.i.i.i26, align 8
   call void %13(ptr noundef nonnull align 8 dereferenceable(80) %12) #20
   br label %_ZNSt10unique_ptrIN4cvc58internal6theory15EqEngineManagerESt14default_deleteIS3_EE5resetEPS3_.exit
@@ -308,9 +307,9 @@ if.else:                                          ; preds = %invoke.cont32
           to label %invoke.cont59 unwind label %lpad31
 
 invoke.cont59:                                    ; preds = %if.else
-  %theory61 = getelementptr inbounds i8, ptr %call60, i64 368
+  %theory61 = getelementptr inbounds nuw i8, ptr %call60, i64 368
   %25 = load ptr, ptr %theory61, align 8
-  %eeMode62 = getelementptr inbounds i8, ptr %25, i64 4
+  %eeMode62 = getelementptr inbounds nuw i8, ptr %25, i64 4
   %26 = load i32, ptr %eeMode62, align 4
   %cmp63 = icmp eq i32 %26, 1
   br i1 %cmp63, label %if.then64, label %if.else90
@@ -332,7 +331,7 @@ invoke.cont70:                                    ; preds = %invoke.cont66
 
 _ZNKSt14default_deleteIN4cvc58internal6theory12SharedSolverEEclEPS3_.exit.i.i31: ; preds = %invoke.cont70
   %vtable.i.i.i32 = load ptr, ptr %28, align 8
-  %vfn.i.i.i33 = getelementptr inbounds i8, ptr %vtable.i.i.i32, i64 8
+  %vfn.i.i.i33 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i32, i64 8
   %29 = load ptr, ptr %vfn.i.i.i33, align 8
   call void %29(ptr noundef nonnull align 8 dereferenceable(976) %28) #20
   br label %_ZNSt10unique_ptrIN4cvc58internal6theory12SharedSolverESt14default_deleteIS3_EE5resetEPS3_.exit34
@@ -355,7 +354,7 @@ invoke.cont79:                                    ; preds = %invoke.cont73
 
 _ZNKSt14default_deleteIN4cvc58internal6theory15EqEngineManagerEEclEPS3_.exit.i.i36: ; preds = %invoke.cont79
   %vtable.i.i.i37 = load ptr, ptr %32, align 8
-  %vfn.i.i.i38 = getelementptr inbounds i8, ptr %vtable.i.i.i37, i64 8
+  %vfn.i.i.i38 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i37, i64 8
   %33 = load ptr, ptr %vfn.i.i.i38, align 8
   call void %33(ptr noundef nonnull align 8 dereferenceable(80) %32) #20
   br label %_ZNSt10unique_ptrIN4cvc58internal6theory15EqEngineManagerESt14default_deleteIS3_EE5resetEPS3_.exit39
@@ -415,9 +414,9 @@ invoke.cont98:                                    ; preds = %invoke.cont96
           to label %invoke.cont100 unwind label %lpad93
 
 invoke.cont100:                                   ; preds = %invoke.cont98
-  %theory102 = getelementptr inbounds i8, ptr %call101, i64 368
+  %theory102 = getelementptr inbounds nuw i8, ptr %call101, i64 368
   %40 = load ptr, ptr %theory102, align 8
-  %eeMode103 = getelementptr inbounds i8, ptr %40, i64 4
+  %eeMode103 = getelementptr inbounds nuw i8, ptr %40, i64 4
   %41 = load i32, ptr %eeMode103, align 4
   %call105 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internal7optionslsERSoNS1_12EqEngineModeE(ptr noundef nonnull align 8 dereferenceable(8) %call99, i32 noundef %41)
           to label %invoke.cont104 unwind label %lpad93
@@ -439,7 +438,7 @@ lpad93:                                           ; preds = %invoke.cont104, %in
 if.end109.sink.split:                             ; preds = %invoke.cont88, %invoke.cont57
   %.sink56 = phi ptr [ %16, %invoke.cont57 ], [ %36, %invoke.cont88 ]
   %vtable.i.i.i42 = load ptr, ptr %.sink56, align 8
-  %vfn.i.i.i43 = getelementptr inbounds i8, ptr %vtable.i.i.i42, i64 8
+  %vfn.i.i.i43 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i42, i64 8
   %43 = load ptr, ptr %vfn.i.i.i43, align 8
   call void %43(ptr noundef nonnull align 8 dereferenceable(122) %.sink56) #20
   br label %if.end109
@@ -455,7 +454,7 @@ ehcleanup110:                                     ; preds = %lpad87, %lpad78, %l
 
 _ZNKSt14default_deleteIN4cvc58internal19EagerProofGeneratorEEclEPS2_.exit.i: ; preds = %ehcleanup110
   %vtable.i.i = load ptr, ptr %44, align 8
-  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
+  %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 8
   %45 = load ptr, ptr %vfn.i.i, align 8
   call void %45(ptr noundef nonnull align 8 dereferenceable(216) %44) #20
   br label %_ZNSt10unique_ptrIN4cvc58internal19EagerProofGeneratorESt14default_deleteIS2_EED2Ev.exit
@@ -472,7 +471,7 @@ ehcleanup111:                                     ; preds = %cleanup.action29, %
 
 _ZNKSt14default_deleteIN4cvc58internal6theory12SharedSolverEEclEPS3_.exit.i: ; preds = %ehcleanup111
   %vtable.i.i46 = load ptr, ptr %46, align 8
-  %vfn.i.i47 = getelementptr inbounds i8, ptr %vtable.i.i46, i64 8
+  %vfn.i.i47 = getelementptr inbounds nuw i8, ptr %vtable.i.i46, i64 8
   %47 = load ptr, ptr %vfn.i.i47, align 8
   call void %47(ptr noundef nonnull align 8 dereferenceable(976) %46) #20
   br label %_ZNSt10unique_ptrIN4cvc58internal6theory12SharedSolverESt14default_deleteIS3_EED2Ev.exit
@@ -485,7 +484,7 @@ _ZNSt10unique_ptrIN4cvc58internal6theory12SharedSolverESt14default_deleteIS3_EED
 
 _ZNKSt14default_deleteIN4cvc58internal6theory12ModelManagerEEclEPS3_.exit.i: ; preds = %_ZNSt10unique_ptrIN4cvc58internal6theory12SharedSolverESt14default_deleteIS3_EED2Ev.exit
   %vtable.i.i49 = load ptr, ptr %48, align 8
-  %vfn.i.i50 = getelementptr inbounds i8, ptr %vtable.i.i49, i64 8
+  %vfn.i.i50 = getelementptr inbounds nuw i8, ptr %vtable.i.i49, i64 8
   %49 = load ptr, ptr %vfn.i.i50, align 8
   call void %49(ptr noundef nonnull align 8 dereferenceable(122) %48) #20
   br label %_ZNSt10unique_ptrIN4cvc58internal6theory12ModelManagerESt14default_deleteIS3_EED2Ev.exit
@@ -498,7 +497,7 @@ _ZNSt10unique_ptrIN4cvc58internal6theory12ModelManagerESt14default_deleteIS3_EED
 
 _ZNKSt14default_deleteIN4cvc58internal6theory15EqEngineManagerEEclEPS3_.exit.i: ; preds = %_ZNSt10unique_ptrIN4cvc58internal6theory12ModelManagerESt14default_deleteIS3_EED2Ev.exit
   %vtable.i.i52 = load ptr, ptr %50, align 8
-  %vfn.i.i53 = getelementptr inbounds i8, ptr %vtable.i.i52, i64 8
+  %vfn.i.i53 = getelementptr inbounds nuw i8, ptr %vtable.i.i52, i64 8
   %51 = load ptr, ptr %vfn.i.i53, align 8
   call void %51(ptr noundef nonnull align 8 dereferenceable(80) %50) #20
   br label %_ZNSt10unique_ptrIN4cvc58internal6theory15EqEngineManagerESt14default_deleteIS3_EED2Ev.exit
@@ -569,63 +568,63 @@ declare void @_ZN4cvc58internal11FatalStreamD1Ev(ptr noundef nonnull align 1 der
 define hidden void @_ZN4cvc58internal6theory17CombinationEngineD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(96) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory17CombinationEngineE, i64 16), ptr %this, align 8
-  %d_cmbsPg = getelementptr inbounds i8, ptr %this, i64 88
+  %d_cmbsPg = getelementptr inbounds nuw i8, ptr %this, i64 88
   %0 = load ptr, ptr %d_cmbsPg, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN4cvc58internal19EagerProofGeneratorESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIN4cvc58internal19EagerProofGeneratorEEclEPS2_.exit.i
 
 _ZNKSt14default_deleteIN4cvc58internal19EagerProofGeneratorEEclEPS2_.exit.i: ; preds = %entry
   %vtable.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
+  %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 8
   %1 = load ptr, ptr %vfn.i.i, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(216) %0) #20
   br label %_ZNSt10unique_ptrIN4cvc58internal19EagerProofGeneratorESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIN4cvc58internal19EagerProofGeneratorESt14default_deleteIS2_EED2Ev.exit: ; preds = %entry, %_ZNKSt14default_deleteIN4cvc58internal19EagerProofGeneratorEEclEPS2_.exit.i
   store ptr null, ptr %d_cmbsPg, align 8
-  %d_sharedSolver = getelementptr inbounds i8, ptr %this, i64 80
+  %d_sharedSolver = getelementptr inbounds nuw i8, ptr %this, i64 80
   %2 = load ptr, ptr %d_sharedSolver, align 8
   %cmp.not.i1 = icmp eq ptr %2, null
   br i1 %cmp.not.i1, label %_ZNSt10unique_ptrIN4cvc58internal6theory12SharedSolverESt14default_deleteIS3_EED2Ev.exit, label %_ZNKSt14default_deleteIN4cvc58internal6theory12SharedSolverEEclEPS3_.exit.i
 
 _ZNKSt14default_deleteIN4cvc58internal6theory12SharedSolverEEclEPS3_.exit.i: ; preds = %_ZNSt10unique_ptrIN4cvc58internal19EagerProofGeneratorESt14default_deleteIS2_EED2Ev.exit
   %vtable.i.i2 = load ptr, ptr %2, align 8
-  %vfn.i.i3 = getelementptr inbounds i8, ptr %vtable.i.i2, i64 8
+  %vfn.i.i3 = getelementptr inbounds nuw i8, ptr %vtable.i.i2, i64 8
   %3 = load ptr, ptr %vfn.i.i3, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(976) %2) #20
   br label %_ZNSt10unique_ptrIN4cvc58internal6theory12SharedSolverESt14default_deleteIS3_EED2Ev.exit
 
 _ZNSt10unique_ptrIN4cvc58internal6theory12SharedSolverESt14default_deleteIS3_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN4cvc58internal19EagerProofGeneratorESt14default_deleteIS2_EED2Ev.exit, %_ZNKSt14default_deleteIN4cvc58internal6theory12SharedSolverEEclEPS3_.exit.i
   store ptr null, ptr %d_sharedSolver, align 8
-  %d_mmanager = getelementptr inbounds i8, ptr %this, i64 72
+  %d_mmanager = getelementptr inbounds nuw i8, ptr %this, i64 72
   %4 = load ptr, ptr %d_mmanager, align 8
   %cmp.not.i4 = icmp eq ptr %4, null
   br i1 %cmp.not.i4, label %_ZNSt10unique_ptrIN4cvc58internal6theory12ModelManagerESt14default_deleteIS3_EED2Ev.exit, label %_ZNKSt14default_deleteIN4cvc58internal6theory12ModelManagerEEclEPS3_.exit.i
 
 _ZNKSt14default_deleteIN4cvc58internal6theory12ModelManagerEEclEPS3_.exit.i: ; preds = %_ZNSt10unique_ptrIN4cvc58internal6theory12SharedSolverESt14default_deleteIS3_EED2Ev.exit
   %vtable.i.i5 = load ptr, ptr %4, align 8
-  %vfn.i.i6 = getelementptr inbounds i8, ptr %vtable.i.i5, i64 8
+  %vfn.i.i6 = getelementptr inbounds nuw i8, ptr %vtable.i.i5, i64 8
   %5 = load ptr, ptr %vfn.i.i6, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(122) %4) #20
   br label %_ZNSt10unique_ptrIN4cvc58internal6theory12ModelManagerESt14default_deleteIS3_EED2Ev.exit
 
 _ZNSt10unique_ptrIN4cvc58internal6theory12ModelManagerESt14default_deleteIS3_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN4cvc58internal6theory12SharedSolverESt14default_deleteIS3_EED2Ev.exit, %_ZNKSt14default_deleteIN4cvc58internal6theory12ModelManagerEEclEPS3_.exit.i
   store ptr null, ptr %d_mmanager, align 8
-  %d_eemanager = getelementptr inbounds i8, ptr %this, i64 64
+  %d_eemanager = getelementptr inbounds nuw i8, ptr %this, i64 64
   %6 = load ptr, ptr %d_eemanager, align 8
   %cmp.not.i7 = icmp eq ptr %6, null
   br i1 %cmp.not.i7, label %_ZNSt10unique_ptrIN4cvc58internal6theory15EqEngineManagerESt14default_deleteIS3_EED2Ev.exit, label %_ZNKSt14default_deleteIN4cvc58internal6theory15EqEngineManagerEEclEPS3_.exit.i
 
 _ZNKSt14default_deleteIN4cvc58internal6theory15EqEngineManagerEEclEPS3_.exit.i: ; preds = %_ZNSt10unique_ptrIN4cvc58internal6theory12ModelManagerESt14default_deleteIS3_EED2Ev.exit
   %vtable.i.i8 = load ptr, ptr %6, align 8
-  %vfn.i.i9 = getelementptr inbounds i8, ptr %vtable.i.i8, i64 8
+  %vfn.i.i9 = getelementptr inbounds nuw i8, ptr %vtable.i.i8, i64 8
   %7 = load ptr, ptr %vfn.i.i9, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(80) %6) #20
   br label %_ZNSt10unique_ptrIN4cvc58internal6theory15EqEngineManagerESt14default_deleteIS3_EED2Ev.exit
 
 _ZNSt10unique_ptrIN4cvc58internal6theory15EqEngineManagerESt14default_deleteIS3_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN4cvc58internal6theory12ModelManagerESt14default_deleteIS3_EED2Ev.exit, %_ZNKSt14default_deleteIN4cvc58internal6theory15EqEngineManagerEEclEPS3_.exit.i
   store ptr null, ptr %d_eemanager, align 8
-  %d_paraTheories = getelementptr inbounds i8, ptr %this, i64 40
+  %d_paraTheories = getelementptr inbounds nuw i8, ptr %this, i64 40
   %8 = load ptr, ptr %d_paraTheories, align 8
   %tobool.not.i.i.i = icmp eq ptr %8, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIPN4cvc58internal6theory6TheoryESaIS4_EED2Ev.exit, label %if.then.i.i.i
@@ -651,17 +650,17 @@ declare void @llvm.trap() #9
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN4cvc58internal6theory17CombinationEngine10finishInitEv(ptr noundef nonnull align 8 dereferenceable(96) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %d_eemanager = getelementptr inbounds i8, ptr %this, i64 64
+  %d_eemanager = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load ptr, ptr %d_eemanager, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(80) %0)
   %vtable2 = load ptr, ptr %this, align 8
-  %vfn3 = getelementptr inbounds i8, ptr %vtable2, i64 40
+  %vfn3 = getelementptr inbounds nuw i8, ptr %vtable2, i64 40
   %2 = load ptr, ptr %vfn3, align 8
   %call4 = tail call noundef ptr %2(ptr noundef nonnull align 8 dereferenceable(96) %this)
-  %d_mmanager = getelementptr inbounds i8, ptr %this, i64 72
+  %d_mmanager = getelementptr inbounds nuw i8, ptr %this, i64 72
   %3 = load ptr, ptr %d_mmanager, align 8
   tail call void @_ZN4cvc58internal6theory12ModelManager10finishInitEPNS1_2eq20EqualityEngineNotifyE(ptr noundef nonnull align 8 dereferenceable(122) %3, ptr noundef %call4)
   ret void
@@ -672,7 +671,7 @@ declare void @_ZN4cvc58internal6theory12ModelManager10finishInitEPNS1_2eq20Equal
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_ZNK4cvc58internal6theory17CombinationEngine15getEeTheoryInfoENS1_8TheoryIdE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %this, i32 noundef %tid) local_unnamed_addr #3 align 2 {
 entry:
-  %d_eemanager = getelementptr inbounds i8, ptr %this, i64 64
+  %d_eemanager = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load ptr, ptr %d_eemanager, align 8
   %call2 = tail call noundef ptr @_ZNK4cvc58internal6theory15EqEngineManager15getEeTheoryInfoENS1_8TheoryIdE(ptr noundef nonnull align 8 dereferenceable(80) %0, i32 noundef %tid)
   ret ptr %call2
@@ -683,7 +682,7 @@ declare noundef ptr @_ZNK4cvc58internal6theory15EqEngineManager15getEeTheoryInfo
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN4cvc58internal6theory17CombinationEngine10resetModelEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %d_mmanager = getelementptr inbounds i8, ptr %this, i64 72
+  %d_mmanager = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = load ptr, ptr %d_mmanager, align 8
   tail call void @_ZN4cvc58internal6theory12ModelManager10resetModelEv(ptr noundef nonnull align 8 dereferenceable(122) %0)
   ret void
@@ -694,13 +693,13 @@ declare void @_ZN4cvc58internal6theory12ModelManager10resetModelEv(ptr noundef n
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN4cvc58internal6theory17CombinationEngine16postProcessModelEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %this, i1 noundef zeroext %incomplete) local_unnamed_addr #3 align 2 {
 entry:
-  %d_eemanager = getelementptr inbounds i8, ptr %this, i64 64
+  %d_eemanager = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load ptr, ptr %d_eemanager, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 24
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(80) %0, i1 noundef zeroext %incomplete)
-  %d_mmanager = getelementptr inbounds i8, ptr %this, i64 72
+  %d_mmanager = getelementptr inbounds nuw i8, ptr %this, i64 72
   %2 = load ptr, ptr %d_mmanager, align 8
   tail call void @_ZN4cvc58internal6theory12ModelManager16postProcessModelEb(ptr noundef nonnull align 8 dereferenceable(122) %2, i1 noundef zeroext %incomplete)
   ret void
@@ -711,7 +710,7 @@ declare void @_ZN4cvc58internal6theory12ModelManager16postProcessModelEb(ptr nou
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_ZN4cvc58internal6theory17CombinationEngine8getModelEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %d_mmanager = getelementptr inbounds i8, ptr %this, i64 72
+  %d_mmanager = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = load ptr, ptr %d_mmanager, align 8
   %call2 = tail call noundef ptr @_ZN4cvc58internal6theory12ModelManager8getModelEv(ptr noundef nonnull align 8 dereferenceable(122) %0)
   ret ptr %call2
@@ -722,7 +721,7 @@ declare noundef ptr @_ZN4cvc58internal6theory12ModelManager8getModelEv(ptr nound
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef ptr @_ZN4cvc58internal6theory17CombinationEngine15getSharedSolverEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %this) local_unnamed_addr #10 align 2 {
 entry:
-  %d_sharedSolver = getelementptr inbounds i8, ptr %this, i64 80
+  %d_sharedSolver = getelementptr inbounds nuw i8, ptr %this, i64 80
   %0 = load ptr, ptr %d_sharedSolver, align 8
   ret ptr %0
 }
@@ -730,7 +729,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZNK4cvc58internal6theory17CombinationEngine14isProofEnabledEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %this) local_unnamed_addr #10 align 2 {
 entry:
-  %d_cmbsPg = getelementptr inbounds i8, ptr %this, i64 88
+  %d_cmbsPg = getelementptr inbounds nuw i8, ptr %this, i64 88
   %0 = load ptr, ptr %d_cmbsPg, align 8
   %cmp.i.i = icmp ne ptr %0, null
   ret i1 %cmp.i.i
@@ -774,9 +773,9 @@ init.i:                                           ; preds = %init.check.i
 
 invoke.cont.i:                                    ; preds = %init.i
   store i64 1152920405095219200, ptr %call.i, align 8
-  %d_kind.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
+  %d_kind.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   store i16 0, ptr %d_kind.i.i, align 8
-  %d_nchildren.i.i = getelementptr inbounds i8, ptr %call.i, i64 12
+  %d_nchildren.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 12
   store i32 0, ptr %d_nchildren.i.i, align 4
   store ptr %call.i, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #20

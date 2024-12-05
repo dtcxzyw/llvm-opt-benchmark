@@ -16,9 +16,9 @@ define dso_local void @uv__wait_children(ptr noundef readonly %0) local_unnamed_
   %2 = alloca i32, align 4
   %3 = alloca [2 x ptr], align 16
   store ptr %3, ptr %3, align 16
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %3, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 368
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %6 = load ptr, ptr %5, align 8
   %.not52 = icmp eq ptr %6, %5
   br i1 %.not52, label %._crit_edge58, label %.lr.ph
@@ -51,14 +51,14 @@ define dso_local void @uv__wait_children(ptr noundef readonly %0) local_unnamed_
 
 16:                                               ; preds = %9
   %17 = load i32, ptr %2, align 4
-  %18 = getelementptr inbounds i8, ptr %.053, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %.053, i64 16
   store i32 %17, ptr %18, align 8
   %19 = load ptr, ptr %.053, align 8
-  %20 = getelementptr inbounds i8, ptr %.053, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %.053, i64 8
   %21 = load ptr, ptr %20, align 8
   store ptr %19, ptr %21, align 8
   %22 = load ptr, ptr %20, align 8
-  %23 = getelementptr inbounds i8, ptr %19, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr %22, ptr %23, align 8
   store ptr %3, ptr %.053, align 8
   %24 = load ptr, ptr %4, align 8
@@ -80,11 +80,11 @@ define dso_local void @uv__wait_children(ptr noundef readonly %0) local_unnamed_
   %.155 = phi ptr [ %26, %.backedge ], [ %.pre, %._crit_edge ]
   %25 = getelementptr inbounds i8, ptr %.155, i64 -112
   %26 = load ptr, ptr %.155, align 8
-  %27 = getelementptr inbounds i8, ptr %.155, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %.155, i64 8
   %28 = load ptr, ptr %27, align 8
   store ptr %26, ptr %28, align 8
   %29 = load ptr, ptr %27, align 8
-  %30 = getelementptr inbounds i8, ptr %26, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store ptr %29, ptr %30, align 8
   store ptr %.155, ptr %.155, align 8
   store ptr %.155, ptr %27, align 8
@@ -104,7 +104,7 @@ define dso_local void @uv__wait_children(ptr noundef readonly %0) local_unnamed_
 38:                                               ; preds = %35
   %39 = getelementptr inbounds i8, ptr %.155, i64 -104
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %42 = load i32, ptr %41, align 8
   %43 = add i32 %42, -1
   store i32 %43, ptr %41, align 8
@@ -117,7 +117,7 @@ define dso_local void @uv__wait_children(ptr noundef readonly %0) local_unnamed_
   br i1 %47, label %.backedge, label %48
 
 48:                                               ; preds = %44
-  %49 = getelementptr inbounds i8, ptr %.155, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %.155, i64 16
   %50 = load i32, ptr %49, align 8
   %51 = and i32 %50, 127
   %52 = icmp eq i32 %51, 0
@@ -156,13 +156,13 @@ define dso_local i32 @uv_spawn(ptr noundef %0, ptr noundef %1, ptr nocapture nou
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca [8 x [2 x i32]], align 16
-  %10 = getelementptr inbounds i8, ptr %2, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %11 = load ptr, ptr %10, align 8
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %18, label %12
 
 12:                                               ; preds = %3
-  %13 = getelementptr inbounds i8, ptr %2, i64 72
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %14 = load i64, ptr %13, align 8
   %15 = tail call i32 @uv_cpumask_size() #12
   %16 = sext i32 %15 to i64
@@ -170,30 +170,30 @@ define dso_local i32 @uv_spawn(ptr noundef %0, ptr noundef %1, ptr nocapture nou
   br i1 %17, label %.thread, label %18
 
 18:                                               ; preds = %3, %12
-  %19 = getelementptr inbounds i8, ptr %1, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %0, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i32 10, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 88
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 88
   store i32 8, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 16
-  %23 = getelementptr inbounds i8, ptr %1, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store ptr %22, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %1, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store ptr %25, ptr %26, align 8
   store ptr %23, ptr %25, align 8
   store ptr %23, ptr %24, align 8
-  %27 = getelementptr inbounds i8, ptr %1, i64 80
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 80
   store ptr null, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %1, i64 112
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 112
   store ptr %28, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %1, i64 120
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 120
   store ptr %28, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %1, i64 128
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 128
   store i32 0, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %2, i64 44
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 44
   %32 = load i32, ptr %31, align 4
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %32, i32 3)
   %33 = icmp sgt i32 %32, 8
@@ -216,14 +216,14 @@ define dso_local i32 @uv_spawn(ptr noundef %0, ptr noundef %1, ptr nocapture nou
   br i1 %42, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader137.preheader
-  %43 = getelementptr inbounds i8, ptr %2, i64 48
+  %43 = getelementptr inbounds nuw i8, ptr %2, i64 48
   br label %44
 
 44:                                               ; preds = %.lr.ph, %uv__process_init_stdio.exit.thread122
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %uv__process_init_stdio.exit.thread122 ]
   %45 = load ptr, ptr %43, align 8
-  %46 = getelementptr inbounds %struct.uv_stdio_container_s, ptr %45, i64 %indvars.iv
-  %47 = getelementptr inbounds [2 x i32], ptr %.096171, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw %struct.uv_stdio_container_s, ptr %45, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw [2 x i32], ptr %.096171, i64 %indvars.iv
   %48 = load i32, ptr %46, align 8
   %49 = and i32 %48, 7
   switch i32 %49, label %uv__process_init_stdio.exit.thread [
@@ -234,9 +234,9 @@ define dso_local i32 @uv_spawn(ptr noundef %0, ptr noundef %1, ptr nocapture nou
   ]
 
 50:                                               ; preds = %44
-  %51 = getelementptr inbounds i8, ptr %46, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %54 = load i32, ptr %53, align 8
   %.not11.i = icmp eq i32 %54, 7
   br i1 %.not11.i, label %uv__process_init_stdio.exit, label %uv__process_init_stdio.exit.thread
@@ -244,12 +244,12 @@ define dso_local i32 @uv_spawn(ptr noundef %0, ptr noundef %1, ptr nocapture nou
 55:                                               ; preds = %44, %44
   %56 = and i32 %48, 2
   %.not.i = icmp eq i32 %56, 0
-  %57 = getelementptr inbounds i8, ptr %46, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %46, i64 8
   br i1 %.not.i, label %58, label %61
 
 58:                                               ; preds = %55
   %59 = load ptr, ptr %57, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 184
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 184
   br label %61
 
 61:                                               ; preds = %58, %55
@@ -259,7 +259,7 @@ define dso_local i32 @uv_spawn(ptr noundef %0, ptr noundef %1, ptr nocapture nou
   br i1 %62, label %uv__process_init_stdio.exit.thread, label %63
 
 63:                                               ; preds = %61
-  %64 = getelementptr inbounds i8, ptr %47, i64 4
+  %64 = getelementptr inbounds nuw i8, ptr %47, i64 4
   store i32 %.0.i, ptr %64, align 4
   br label %uv__process_init_stdio.exit.thread122
 
@@ -276,7 +276,7 @@ uv__process_init_stdio.exit.thread122:            ; preds = %44, %63, %uv__proce
   br i1 %68, label %44, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %uv__process_init_stdio.exit.thread122, %.preheader137.preheader
-  %69 = getelementptr inbounds i8, ptr %0, i64 616
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %70 = call i32 @uv_signal_start(ptr noundef nonnull %69, ptr noundef nonnull @uv__chld, i32 noundef 17) #12
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
@@ -293,9 +293,9 @@ uv__spawn_and_init_child.exit.thread:             ; preds = %._crit_edge
   br label %144
 
 72:                                               ; preds = %._crit_edge
-  %73 = getelementptr inbounds i8, ptr %0, i64 304
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 304
   call void @uv_rwlock_wrlock(ptr noundef nonnull %73) #12
-  %74 = getelementptr inbounds i8, ptr %6, i64 4
+  %74 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %75 = load i32, ptr %74, align 4
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5)
@@ -427,14 +427,14 @@ uv__spawn_and_init_child.exit:                    ; preds = %uv__spawn_and_init_
   br i1 %126, label %127, label %144
 
 127:                                              ; preds = %uv__spawn_and_init_child.exit.thread130, %uv__spawn_and_init_child.exit
-  %128 = getelementptr inbounds i8, ptr %1, i64 104
+  %128 = getelementptr inbounds nuw i8, ptr %1, i64 104
   store i32 %88, ptr %128, align 8
   %129 = load ptr, ptr %2, align 8
-  %130 = getelementptr inbounds i8, ptr %1, i64 96
+  %130 = getelementptr inbounds nuw i8, ptr %1, i64 96
   store ptr %129, ptr %130, align 8
-  %131 = getelementptr inbounds i8, ptr %0, i64 368
+  %131 = getelementptr inbounds nuw i8, ptr %0, i64 368
   store ptr %131, ptr %28, align 8
-  %132 = getelementptr inbounds i8, ptr %0, i64 376
+  %132 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %133 = load ptr, ptr %132, align 8
   store ptr %133, ptr %29, align 8
   store ptr %28, ptr %133, align 8
@@ -453,7 +453,7 @@ uv__spawn_and_init_child.exit:                    ; preds = %uv__spawn_and_init_
 
 139:                                              ; preds = %136
   %140 = load ptr, ptr %19, align 8
-  %141 = getelementptr inbounds i8, ptr %140, i64 8
+  %141 = getelementptr inbounds nuw i8, ptr %140, i64 8
   %142 = load i32, ptr %141, align 8
   %143 = add i32 %142, 1
   store i32 %143, ptr %141, align 8
@@ -466,15 +466,15 @@ uv__spawn_and_init_child.exit:                    ; preds = %uv__spawn_and_init_
   br i1 %146, label %.lr.ph146, label %._crit_edge147
 
 .lr.ph146:                                        ; preds = %144
-  %147 = getelementptr inbounds i8, ptr %2, i64 48
+  %147 = getelementptr inbounds nuw i8, ptr %2, i64 48
   br label %148
 
 148:                                              ; preds = %.lr.ph146, %uv__process_open_stream.exit.thread
   %149 = phi i32 [ %145, %.lr.ph146 ], [ %182, %uv__process_open_stream.exit.thread ]
   %indvars.iv158 = phi i64 [ 0, %.lr.ph146 ], [ %indvars.iv.next159, %uv__process_open_stream.exit.thread ]
   %150 = load ptr, ptr %147, align 8
-  %151 = getelementptr inbounds %struct.uv_stdio_container_s, ptr %150, i64 %indvars.iv158
-  %152 = getelementptr inbounds [2 x i32], ptr %.096171, i64 %indvars.iv158
+  %151 = getelementptr inbounds nuw %struct.uv_stdio_container_s, ptr %150, i64 %indvars.iv158
+  %152 = getelementptr inbounds nuw [2 x i32], ptr %.096171, i64 %indvars.iv158
   %153 = load i32, ptr %151, align 8
   %154 = and i32 %153, 1
   %.not.i112 = icmp eq i32 %154, 0
@@ -486,7 +486,7 @@ uv__spawn_and_init_child.exit:                    ; preds = %uv__spawn_and_init_
   br i1 %157, label %uv__process_open_stream.exit.thread, label %158
 
 158:                                              ; preds = %155
-  %159 = getelementptr inbounds i8, ptr %152, i64 4
+  %159 = getelementptr inbounds nuw i8, ptr %152, i64 4
   %160 = load i32, ptr %159, align 4
   %161 = call i32 @uv__close(i32 noundef %160) #12
   %.not14.i = icmp eq i32 %161, 0
@@ -506,7 +506,7 @@ uv__process_open_stream.exit:                     ; preds = %158
   %167 = shl i32 %165, 11
   %168 = and i32 %167, 32768
   %.1.i = or disjoint i32 %spec.select.i, %168
-  %169 = getelementptr inbounds i8, ptr %151, i64 8
+  %169 = getelementptr inbounds nuw i8, ptr %151, i64 8
   %170 = load ptr, ptr %169, align 8
   %171 = load i32, ptr %152, align 4
   %172 = call i32 @uv__stream_open(ptr noundef %170, i32 noundef %171, i32 noundef %.1.i) #12
@@ -532,7 +532,7 @@ uv__process_open_stream.exit.uv__process_open_stream.exit.thread_crit_edge: ; pr
   br i1 %.not.i114, label %uv__process_close_stream.exit, label %178
 
 178:                                              ; preds = %.lr.ph150
-  %179 = getelementptr inbounds i8, ptr %175, i64 8
+  %179 = getelementptr inbounds nuw i8, ptr %175, i64 8
   %180 = load ptr, ptr %179, align 8
   call void @uv__stream_close(ptr noundef %180) #12
   br label %uv__process_close_stream.exit
@@ -554,7 +554,7 @@ uv__process_open_stream.exit.thread:              ; preds = %uv__process_open_st
 
 uv__process_init_stdio.exit.thread:               ; preds = %44, %61, %50, %uv__process_init_stdio.exit, %uv__process_close_stream.exit, %.preheader
   %.095 = phi i32 [ %172, %.preheader ], [ %172, %uv__process_close_stream.exit ], [ -22, %44 ], [ -22, %61 ], [ -22, %50 ], [ %65, %uv__process_init_stdio.exit ]
-  %185 = getelementptr inbounds i8, ptr %2, i64 48
+  %185 = getelementptr inbounds nuw i8, ptr %2, i64 48
   br label %186
 
 186:                                              ; preds = %uv__process_init_stdio.exit.thread, %205
@@ -566,14 +566,14 @@ uv__process_init_stdio.exit.thread:               ; preds = %44, %61, %50, %uv__
 
 190:                                              ; preds = %186
   %191 = load ptr, ptr %185, align 8
-  %192 = getelementptr inbounds %struct.uv_stdio_container_s, ptr %191, i64 %indvars.iv166
+  %192 = getelementptr inbounds nuw %struct.uv_stdio_container_s, ptr %191, i64 %indvars.iv166
   %193 = load i32, ptr %192, align 8
   %194 = and i32 %193, 6
   %.not107 = icmp eq i32 %194, 0
   br i1 %.not107, label %195, label %205
 
 195:                                              ; preds = %190, %186
-  %196 = getelementptr inbounds [2 x i32], ptr %.096171, i64 %indvars.iv166
+  %196 = getelementptr inbounds nuw [2 x i32], ptr %.096171, i64 %indvars.iv166
   %197 = load i32, ptr %196, align 4
   %.not108 = icmp eq i32 %197, -1
   br i1 %.not108, label %200, label %198
@@ -583,7 +583,7 @@ uv__process_init_stdio.exit.thread:               ; preds = %44, %61, %50, %uv__
   br label %200
 
 200:                                              ; preds = %198, %195
-  %201 = getelementptr inbounds i8, ptr %196, i64 4
+  %201 = getelementptr inbounds nuw i8, ptr %196, i64 4
   %202 = load i32, ptr %201, align 4
   %.not109 = icmp eq i32 %202, -1
   br i1 %.not109, label %205, label %203
@@ -619,7 +619,7 @@ declare i32 @uv_signal_start(ptr noundef, ptr noundef, i32 noundef) local_unname
 
 ; Function Attrs: nounwind uwtable
 define internal void @uv__chld(ptr nocapture noundef readonly %0, i32 %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call void @uv__wait_children(ptr noundef %4)
   ret void
@@ -631,7 +631,7 @@ declare i32 @uv__close_nocheckstdio(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -2147483647, -2147483648) i32 @uv_process_kill(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 104
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %4 = load i32, ptr %3, align 8
   %5 = tail call i32 @kill(i32 noundef %4, i32 noundef %1) #12
   %.not.i = icmp eq i32 %5, 0
@@ -670,15 +670,15 @@ declare i32 @kill(i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @uv__process_close(ptr nocapture noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 112
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 120
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %5 = load ptr, ptr %4, align 8
   store ptr %3, ptr %5, align 8
   %6 = load ptr, ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %6, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 88
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %9 = load i32, ptr %8, align 8
   %10 = and i32 %9, 4
   %11 = icmp eq i32 %10, 0
@@ -692,24 +692,24 @@ define dso_local void @uv__process_close(ptr nocapture noundef %0) local_unnamed
   br i1 %.not, label %21, label %15
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load i32, ptr %18, align 8
   %20 = add i32 %19, -1
   store i32 %20, ptr %18, align 8
   br label %21
 
 21:                                               ; preds = %12, %15, %1
-  %22 = getelementptr inbounds i8, ptr %0, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 368
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 368
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %24, %25
   br i1 %26, label %27, label %30
 
 27:                                               ; preds = %21
-  %28 = getelementptr inbounds i8, ptr %23, i64 616
+  %28 = getelementptr inbounds nuw i8, ptr %23, i64 616
   %29 = tail call i32 @uv_signal_stop(ptr noundef nonnull %28) #12
   br label %30
 
@@ -799,7 +799,7 @@ define internal fastcc void @uv__process_child_init(ptr nocapture noundef readon
   br i1 %exitcond.not, label %31, label %16, !llvm.loop !15
 
 31:                                               ; preds = %29
-  %32 = getelementptr inbounds i8, ptr %0, i64 40
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %33 = load i32, ptr %32, align 8
   %34 = and i32 %33, 8
   %.not = icmp eq i32 %34, 0
@@ -819,7 +819,7 @@ define internal fastcc void @uv__process_child_init(ptr nocapture noundef readon
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %55
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %55 ]
-  %39 = getelementptr inbounds [2 x i32], ptr %2, i64 %indvars.iv, i64 1
+  %39 = getelementptr inbounds nuw [2 x i32], ptr %2, i64 %indvars.iv, i64 1
   %40 = load i32, ptr %39, align 4
   %41 = zext i32 %40 to i64
   %or.cond = icmp samesign ugt i64 %indvars.iv, %41
@@ -991,7 +991,7 @@ define internal fastcc void @uv__process_child_init(ptr nocapture noundef readon
   br i1 %112, label %.lr.ph162, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %110, %37
-  %113 = getelementptr inbounds i8, ptr %0, i64 32
+  %113 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %114 = load ptr, ptr %113, align 8
   %.not96 = icmp eq ptr %114, null
   br i1 %.not96, label %127, label %115
@@ -1044,7 +1044,7 @@ define internal fastcc void @uv__process_child_init(ptr nocapture noundef readon
   br i1 %.not99, label %151, label %137
 
 137:                                              ; preds = %134
-  %138 = getelementptr inbounds i8, ptr %0, i64 60
+  %138 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %139 = load i32, ptr %138, align 4
   %140 = tail call i32 @setgid(i32 noundef %139) #12
   %.not100 = icmp eq i32 %140, 0
@@ -1083,7 +1083,7 @@ define internal fastcc void @uv__process_child_init(ptr nocapture noundef readon
   br i1 %.not101, label %168, label %154
 
 154:                                              ; preds = %151
-  %155 = getelementptr inbounds i8, ptr %0, i64 56
+  %155 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %156 = load i32, ptr %155, align 8
   %157 = tail call i32 @setuid(i32 noundef %156) #12
   %.not102 = icmp eq i32 %157, 0
@@ -1112,7 +1112,7 @@ define internal fastcc void @uv__process_child_init(ptr nocapture noundef readon
   unreachable
 
 168:                                              ; preds = %154, %151
-  %169 = getelementptr inbounds i8, ptr %0, i64 64
+  %169 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %170 = load ptr, ptr %169, align 8
   %.not103 = icmp eq ptr %170, null
   br i1 %.not103, label %191, label %171
@@ -1130,7 +1130,7 @@ define internal fastcc void @uv__process_child_init(ptr nocapture noundef readon
 
 175:                                              ; preds = %.lr.ph165, %186
   %indvars.iv169 = phi i64 [ 0, %.lr.ph165 ], [ %indvars.iv.next170, %186 ]
-  %176 = getelementptr inbounds i8, ptr %174, i64 %indvars.iv169
+  %176 = getelementptr inbounds nuw i8, ptr %174, i64 %indvars.iv169
   %177 = load i8, ptr %176, align 1
   %.not107 = icmp ne i8 %177, 0
   %178 = icmp samesign ult i64 %indvars.iv169, 1024
@@ -1141,7 +1141,7 @@ define internal fastcc void @uv__process_child_init(ptr nocapture noundef readon
   %180 = and i64 %indvars.iv169, 63
   %181 = shl nuw i64 1, %180
   %182 = lshr i64 %indvars.iv169, 6
-  %183 = getelementptr inbounds i64, ptr %15, i64 %182
+  %183 = getelementptr inbounds nuw i64, ptr %15, i64 %182
   %184 = load i64, ptr %183, align 8
   %185 = or i64 %184, %181
   store i64 %185, ptr %183, align 8
@@ -1164,7 +1164,7 @@ define internal fastcc void @uv__process_child_init(ptr nocapture noundef readon
   unreachable
 
 191:                                              ; preds = %._crit_edge166, %168
-  %192 = getelementptr inbounds i8, ptr %0, i64 24
+  %192 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %193 = load ptr, ptr %192, align 8
   %.not105 = icmp eq ptr %193, null
   br i1 %.not105, label %195, label %194
@@ -1184,9 +1184,9 @@ define internal fastcc void @uv__process_child_init(ptr nocapture noundef readon
   unreachable
 
 199:                                              ; preds = %195
-  %200 = getelementptr inbounds i8, ptr %0, i64 8
+  %200 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %201 = load ptr, ptr %200, align 8
-  %202 = getelementptr inbounds i8, ptr %0, i64 16
+  %202 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %203 = load ptr, ptr %202, align 8
   %204 = call i32 @execvp(ptr noundef %201, ptr noundef %203) #12
   %205 = tail call ptr @__errno_location() #13

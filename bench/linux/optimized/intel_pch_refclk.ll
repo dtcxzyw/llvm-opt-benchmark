@@ -32,16 +32,16 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @lpt_disable_iclkip(ptr noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 7368
-  %3 = getelementptr inbounds i8, ptr %0, i64 7544
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 7368
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 7544
   %4 = load ptr, ptr %3, align 8
-  tail call void %4(ptr noundef %2, i32 811040, i32 noundef 0, i1 noundef zeroext true) #4
-  %5 = getelementptr inbounds i8, ptr %0, i64 7944
-  tail call void @mutex_lock(ptr noundef %5) #4
+  tail call void %4(ptr noundef nonnull %2, i32 811040, i32 noundef 0, i1 noundef zeroext true) #4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 7944
+  tail call void @mutex_lock(ptr noundef nonnull %5) #4
   %6 = tail call i32 @intel_sbi_read(ptr noundef %0, i16 noundef zeroext 1548, i32 noundef 0) #4
   %7 = or i32 %6, 1
   tail call void @intel_sbi_write(ptr noundef %0, i16 noundef zeroext 1548, i32 noundef %7, i32 noundef 0) #4
-  tail call void @mutex_unlock(ptr noundef %5) #4
+  tail call void @mutex_unlock(ptr noundef nonnull %5) #4
   ret void
 }
 
@@ -59,7 +59,7 @@ declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: read)
 define dso_local range(i32 0, -1974683648) i32 @lpt_iclkip(ptr nocapture noundef readonly %0) local_unnamed_addr #2 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 636
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 636
   %3 = load i32, ptr %2, align 4
   br label %4
 
@@ -89,18 +89,18 @@ define dso_local range(i32 0, -1974683648) i32 @lpt_iclkip(ptr nocapture noundef
 define dso_local void @lpt_program_iclkip(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 636
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 636
   %5 = load i32, ptr %4, align 4
-  %6 = getelementptr inbounds i8, ptr %3, i64 7368
-  %7 = getelementptr inbounds i8, ptr %3, i64 7544
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 7368
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 7544
   %8 = load ptr, ptr %7, align 8
-  tail call void %8(ptr noundef %6, i32 811040, i32 noundef 0, i1 noundef zeroext true) #4
-  %9 = getelementptr inbounds i8, ptr %3, i64 7944
-  tail call void @mutex_lock(ptr noundef %9) #4
+  tail call void %8(ptr noundef nonnull %6, i32 811040, i32 noundef 0, i1 noundef zeroext true) #4
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 7944
+  tail call void @mutex_lock(ptr noundef nonnull %9) #4
   %10 = tail call i32 @intel_sbi_read(ptr noundef %3, i16 noundef zeroext 1548, i32 noundef 0) #4
   %11 = or i32 %10, 1
   tail call void @intel_sbi_write(ptr noundef %3, i16 noundef zeroext 1548, i32 noundef %11, i32 noundef 0) #4
-  tail call void @mutex_unlock(ptr noundef %9) #4
+  tail call void @mutex_unlock(ptr noundef nonnull %9) #4
   br label %12
 
 12:                                               ; preds = %12, %1
@@ -127,11 +127,11 @@ define dso_local void @lpt_program_iclkip(ptr nocapture noundef readonly %0) loc
 
 27:                                               ; preds = %21
   tail call void asm sideeffect "901: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 901b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 901) #4, !srcloc !6
-  %28 = getelementptr inbounds i8, ptr %3, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %29 = load ptr, ptr %28, align 8
   %30 = tail call ptr @dev_driver_string(ptr noundef %29) #4
   %31 = load ptr, ptr %28, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 80
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 80
   %33 = load ptr, ptr %32, align 8
   %34 = icmp eq ptr %33, null
   br i1 %34, label %35, label %37
@@ -156,11 +156,11 @@ define dso_local void @lpt_program_iclkip(ptr nocapture noundef readonly %0) loc
 
 42:                                               ; preds = %39
   tail call void asm sideeffect "905: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 905b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 905) #4, !srcloc !11
-  %43 = getelementptr inbounds i8, ptr %3, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %44 = load ptr, ptr %43, align 8
   %45 = tail call ptr @dev_driver_string(ptr noundef %44) #4
   %46 = load ptr, ptr %43, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 80
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 80
   %48 = load ptr, ptr %47, align 8
   %49 = icmp eq ptr %48, null
   br i1 %49, label %50, label %52
@@ -183,7 +183,7 @@ define dso_local void @lpt_program_iclkip(ptr nocapture noundef readonly %0) loc
   br i1 %55, label %59, label %56
 
 56:                                               ; preds = %54
-  %57 = getelementptr inbounds i8, ptr %3, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %58 = load ptr, ptr %57, align 8
   br label %59
 
@@ -191,7 +191,7 @@ define dso_local void @lpt_program_iclkip(ptr nocapture noundef readonly %0) loc
   %60 = phi ptr [ %58, %56 ], [ null, %54 ]
   %61 = and i32 %17, 63
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %60, i32 noundef 2, ptr noundef nonnull @.str.5, i32 noundef %5, i32 noundef %.mux.le, i32 noundef %19, i32 noundef 0, i32 noundef %61) #4
-  tail call void @mutex_lock(ptr noundef %9) #4
+  tail call void @mutex_lock(ptr noundef nonnull %9) #4
   %62 = tail call i32 @intel_sbi_read(ptr noundef %3, i16 noundef zeroext 1536, i32 noundef 0) #4
   %63 = and i32 %62, -32768
   %64 = shl nsw i32 %19, 1
@@ -209,10 +209,10 @@ define dso_local void @lpt_program_iclkip(ptr nocapture noundef readonly %0) loc
   %74 = tail call i32 @intel_sbi_read(ptr noundef %3, i16 noundef zeroext 1548, i32 noundef 0) #4
   %75 = and i32 %74, -2
   tail call void @intel_sbi_write(ptr noundef %3, i16 noundef zeroext 1548, i32 noundef %75, i32 noundef 0) #4
-  tail call void @mutex_unlock(ptr noundef %9) #4
+  tail call void @mutex_unlock(ptr noundef nonnull %9) #4
   tail call void @__const_udelay(i64 noundef 103080) #4
   %76 = load ptr, ptr %7, align 8
-  tail call void %76(ptr noundef %6, i32 811040, i32 noundef 1, i1 noundef zeroext true) #4
+  tail call void %76(ptr noundef nonnull %6, i32 811040, i32 noundef 1, i1 noundef zeroext true) #4
   ret void
 }
 
@@ -230,24 +230,24 @@ declare dso_local void @__const_udelay(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local range(i32 0, 1350066) i32 @lpt_get_iclkip(ptr noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 7368
-  %3 = getelementptr inbounds i8, ptr %0, i64 7512
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 7368
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 7512
   %4 = load ptr, ptr %3, align 8
-  %5 = tail call i32 %4(ptr noundef %2, i32 811040, i1 noundef zeroext true) #4
+  %5 = tail call i32 %4(ptr noundef nonnull %2, i32 811040, i1 noundef zeroext true) #4
   %6 = and i32 %5, 1
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %29, label %8
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %0, i64 7944
-  tail call void @mutex_lock(ptr noundef %9) #4
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 7944
+  tail call void @mutex_lock(ptr noundef nonnull %9) #4
   %10 = tail call i32 @intel_sbi_read(ptr noundef %0, i16 noundef zeroext 1548, i32 noundef 0) #4
   %11 = and i32 %10, 1
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %14, label %13
 
 13:                                               ; preds = %8
-  tail call void @mutex_unlock(ptr noundef %9) #4
+  tail call void @mutex_unlock(ptr noundef nonnull %9) #4
   br label %29
 
 14:                                               ; preds = %8
@@ -257,7 +257,7 @@ define dso_local range(i32 0, 1350066) i32 @lpt_get_iclkip(ptr noundef %0) local
   %18 = tail call i32 @intel_sbi_read(ptr noundef %0, i16 noundef zeroext 1552, i32 noundef 0) #4
   %19 = lshr i32 %18, 4
   %20 = and i32 %19, 1
-  tail call void @mutex_unlock(ptr noundef %9) #4
+  tail call void @mutex_unlock(ptr noundef nonnull %9) #4
   %21 = shl i32 %15, 5
   %22 = and i32 %21, 8128
   %23 = add nuw nsw i32 %22, 128
@@ -275,9 +275,9 @@ define dso_local range(i32 0, 1350066) i32 @lpt_get_iclkip(ptr noundef %0) local
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @lpt_disable_clkout_dp(ptr noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 7944
-  tail call void @mutex_lock(ptr noundef %2) #4
-  %3 = getelementptr inbounds i8, ptr %0, i64 8116
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 7944
+  tail call void @mutex_lock(ptr noundef nonnull %2) #4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8116
   %4 = load i16, ptr %3, align 4
   %5 = and i16 %4, -129
   %6 = icmp eq i16 %5, -25600
@@ -308,13 +308,13 @@ define dso_local void @lpt_disable_clkout_dp(ptr noundef %0) local_unnamed_addr 
   br label %21
 
 21:                                               ; preds = %18, %1
-  tail call void @mutex_unlock(ptr noundef %2) #4
+  tail call void @mutex_unlock(ptr noundef nonnull %2) #4
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @intel_init_pch_refclk(ptr noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8112
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8112
   %3 = load i32, ptr %2, align 8
   switch i32 %3, label %436 [
     i32 1, label %4
@@ -323,7 +323,7 @@ define dso_local void @intel_init_pch_refclk(ptr noundef %0) local_unnamed_addr 
   ]
 
 4:                                                ; preds = %1, %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 688
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 688
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, %5
   br i1 %7, label %.loopexit19, label %.preheader
@@ -374,7 +374,7 @@ define dso_local void @intel_init_pch_refclk(ptr noundef %0) local_unnamed_addr 
   br i1 %34, label %35, label %41
 
 35:                                               ; preds = %.loopexit19
-  %36 = getelementptr inbounds i8, ptr %0, i64 6818
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 6818
   %37 = load i8, ptr %36, align 2
   %38 = lshr i8 %37, 4
   %39 = and i8 %38, 1
@@ -384,15 +384,15 @@ define dso_local void @intel_init_pch_refclk(ptr noundef %0) local_unnamed_addr 
 41:                                               ; preds = %35, %.loopexit19
   %42 = phi i1 [ %40, %35 ], [ false, %.loopexit19 ]
   %43 = phi i8 [ %39, %35 ], [ 0, %.loopexit19 ]
-  %44 = getelementptr inbounds i8, ptr %0, i64 4528
-  %45 = getelementptr inbounds i8, ptr %0, i64 4520
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 4528
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 4520
   %46 = load i32, ptr %45, align 8
   %47 = icmp sgt i32 %46, 0
   br i1 %47, label %48, label %.loopexit
 
 48:                                               ; preds = %41
-  %49 = getelementptr inbounds i8, ptr %0, i64 7368
-  %50 = getelementptr inbounds i8, ptr %0, i64 7512
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 7368
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 7512
   br label %56
 
 51:                                               ; preds = %60
@@ -409,14 +409,14 @@ define dso_local void @intel_init_pch_refclk(ptr noundef %0) local_unnamed_addr 
   br i1 %59, label %.loopexit, label %60
 
 60:                                               ; preds = %56
-  %61 = getelementptr inbounds i8, ptr %58, i64 144
+  %61 = getelementptr inbounds nuw i8, ptr %58, i64 144
   %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %64 = load i32, ptr %63, align 8
   %65 = icmp eq i32 %64, 0
   %66 = select i1 %65, i32 811028, i32 811032
   %67 = load ptr, ptr %50, align 8
-  %68 = tail call i32 %67(ptr noundef %49, i32 %66, i1 noundef zeroext true) #4
+  %68 = tail call i32 %67(ptr noundef nonnull %49, i32 %66, i1 noundef zeroext true) #4
   %69 = and i32 %68, -2147459072
   %70 = icmp eq i32 %69, -2147459072
   br i1 %70, label %.loopexit, label %51
@@ -428,7 +428,7 @@ define dso_local void @intel_init_pch_refclk(ptr noundef %0) local_unnamed_addr 
   br i1 %73, label %77, label %74
 
 74:                                               ; preds = %.loopexit
-  %75 = getelementptr inbounds i8, ptr %0, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %76 = load ptr, ptr %75, align 8
   br label %77
 
@@ -439,10 +439,10 @@ define dso_local void @intel_init_pch_refclk(ptr noundef %0) local_unnamed_addr 
   %81 = icmp eq i8 %43, 0
   %82 = zext nneg i8 %43 to i32
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %78, i32 noundef 2, ptr noundef nonnull @.str.6, i32 noundef %80, i32 noundef %33, i32 noundef %82, i32 noundef %72) #4
-  %83 = getelementptr inbounds i8, ptr %0, i64 7368
-  %84 = getelementptr inbounds i8, ptr %0, i64 7512
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 7368
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 7512
   %85 = load ptr, ptr %84, align 8
-  %86 = tail call i32 %85(ptr noundef %83, i32 811520, i1 noundef zeroext true) #4
+  %86 = tail call i32 %85(ptr noundef nonnull %83, i32 811520, i1 noundef zeroext true) #4
   %87 = and i32 %86, -1537
   %88 = select i1 %81, i32 1024, i32 512
   %89 = or disjoint i32 %87, %88
@@ -493,7 +493,7 @@ define dso_local void @intel_init_pch_refclk(ptr noundef %0) local_unnamed_addr 
   br i1 %73, label %120, label %117
 
 117:                                              ; preds = %116
-  %118 = getelementptr inbounds i8, ptr %0, i64 8
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %119 = load ptr, ptr %118, align 8
   br label %120
 
@@ -505,11 +505,11 @@ define dso_local void @intel_init_pch_refclk(ptr noundef %0) local_unnamed_addr 
 122:                                              ; preds = %120, %111
   %123 = phi i32 [ 4098, %120 ], [ 4096, %111 ]
   %124 = or disjoint i32 %123, %112
-  %125 = getelementptr inbounds i8, ptr %0, i64 7544
+  %125 = getelementptr inbounds nuw i8, ptr %0, i64 7544
   %126 = load ptr, ptr %125, align 8
-  tail call void %126(ptr noundef %83, i32 811520, i32 noundef %124, i1 noundef zeroext true) #4
+  tail call void %126(ptr noundef nonnull %83, i32 811520, i32 noundef %124, i1 noundef zeroext true) #4
   %127 = load ptr, ptr %84, align 8
-  %128 = tail call i32 %127(ptr noundef %83, i32 811520, i1 noundef zeroext false) #4
+  %128 = tail call i32 %127(ptr noundef nonnull %83, i32 811520, i1 noundef zeroext false) #4
   tail call void @__const_udelay(i64 noundef 859000) #4
   %129 = and i32 %124, -26625
   br i1 %32, label %159, label %130
@@ -524,7 +524,7 @@ define dso_local void @intel_init_pch_refclk(ptr noundef %0) local_unnamed_addr 
   br i1 %73, label %138, label %135
 
 135:                                              ; preds = %134
-  %136 = getelementptr inbounds i8, ptr %0, i64 8
+  %136 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %137 = load ptr, ptr %136, align 8
   br label %138
 
@@ -542,7 +542,7 @@ define dso_local void @intel_init_pch_refclk(ptr noundef %0) local_unnamed_addr 
   br i1 %73, label %146, label %143
 
 143:                                              ; preds = %.thread14
-  %144 = getelementptr inbounds i8, ptr %0, i64 8
+  %144 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %145 = load ptr, ptr %144, align 8
   br label %146
 
@@ -550,11 +550,11 @@ define dso_local void @intel_init_pch_refclk(ptr noundef %0) local_unnamed_addr 
   %147 = phi ptr [ %145, %143 ], [ null, %.thread14 ]
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %147, i32 noundef 2, ptr noundef nonnull @.str.9) #4
   %148 = and i32 %89, -24577
-  %149 = getelementptr inbounds i8, ptr %0, i64 7544
+  %149 = getelementptr inbounds nuw i8, ptr %0, i64 7544
   %150 = load ptr, ptr %149, align 8
-  tail call void %150(ptr noundef %83, i32 811520, i32 noundef %148, i1 noundef zeroext true) #4
+  tail call void %150(ptr noundef nonnull %83, i32 811520, i32 noundef %148, i1 noundef zeroext true) #4
   %151 = load ptr, ptr %84, align 8
-  %152 = tail call i32 %151(ptr noundef %83, i32 811520, i1 noundef zeroext false) #4
+  %152 = tail call i32 %151(ptr noundef nonnull %83, i32 811520, i1 noundef zeroext false) #4
   tail call void @__const_udelay(i64 noundef 859000) #4
   br i1 %71, label %153, label %166
 
@@ -562,7 +562,7 @@ define dso_local void @intel_init_pch_refclk(ptr noundef %0) local_unnamed_addr 
   br i1 %73, label %157, label %154
 
 154:                                              ; preds = %153
-  %155 = getelementptr inbounds i8, ptr %0, i64 8
+  %155 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %156 = load ptr, ptr %155, align 8
   br label %157
 
@@ -576,9 +576,9 @@ define dso_local void @intel_init_pch_refclk(ptr noundef %0) local_unnamed_addr 
   %161 = phi ptr [ %149, %157 ], [ %125, %141 ], [ %125, %138 ], [ %125, %122 ]
   %162 = phi i32 [ %90, %157 ], [ %142, %141 ], [ %140, %138 ], [ %129, %122 ]
   %163 = load ptr, ptr %161, align 8
-  tail call void %163(ptr noundef %83, i32 811520, i32 noundef %162, i1 noundef zeroext true) #4
+  tail call void %163(ptr noundef nonnull %83, i32 811520, i32 noundef %162, i1 noundef zeroext true) #4
   %164 = load ptr, ptr %84, align 8
-  %165 = tail call i32 %164(ptr noundef %83, i32 811520, i1 noundef zeroext false) #4
+  %165 = tail call i32 %164(ptr noundef nonnull %83, i32 811520, i1 noundef zeroext false) #4
   tail call void @__const_udelay(i64 noundef 859000) #4
   br label %166
 
@@ -590,11 +590,11 @@ define dso_local void @intel_init_pch_refclk(ptr noundef %0) local_unnamed_addr 
 
 170:                                              ; preds = %166
   tail call void asm sideeffect "929: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 929b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 929) #4, !srcloc !20
-  %171 = getelementptr inbounds i8, ptr %0, i64 8
+  %171 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %172 = load ptr, ptr %171, align 8
   %173 = tail call ptr @dev_driver_string(ptr noundef %172) #4
   %174 = load ptr, ptr %171, align 8
-  %175 = getelementptr inbounds i8, ptr %174, i64 80
+  %175 = getelementptr inbounds nuw i8, ptr %174, i64 80
   %176 = load ptr, ptr %175, align 8
   %177 = icmp eq ptr %176, null
   br i1 %177, label %178, label %180
@@ -613,7 +613,7 @@ define dso_local void @intel_init_pch_refclk(ptr noundef %0) local_unnamed_addr 
   br label %436
 
 182:                                              ; preds = %1
-  %183 = getelementptr inbounds i8, ptr %0, i64 688
+  %183 = getelementptr inbounds nuw i8, ptr %0, i64 688
   %184 = load ptr, ptr %183, align 8
   %185 = icmp eq ptr %184, %183
   br i1 %185, label %.loopexit21, label %.preheader20
@@ -635,14 +635,14 @@ define dso_local void @intel_init_pch_refclk(ptr noundef %0) local_unnamed_addr 
 
 .loopexit21:                                      ; preds = %.loopexit21.loopexit, %182
   %195 = phi i1 [ true, %182 ], [ %194, %.loopexit21.loopexit ]
-  %196 = getelementptr inbounds i8, ptr %0, i64 5984
+  %196 = getelementptr inbounds nuw i8, ptr %0, i64 5984
   store i8 0, ptr %196, align 8
-  %197 = getelementptr inbounds i8, ptr %0, i64 7368
-  %198 = getelementptr inbounds i8, ptr %0, i64 7512
+  %197 = getelementptr inbounds nuw i8, ptr %0, i64 7368
+  %198 = getelementptr inbounds nuw i8, ptr %0, i64 7512
   %199 = load ptr, ptr %198, align 8
-  %200 = tail call i32 %199(ptr noundef %197, i32 270356, i1 noundef zeroext true) #4
+  %200 = tail call i32 %199(ptr noundef nonnull %197, i32 270356, i1 noundef zeroext true) #4
   %201 = load ptr, ptr %198, align 8
-  %202 = tail call i32 %201(ptr noundef %197, i32 286752, i1 noundef zeroext true) #4
+  %202 = tail call i32 %201(ptr noundef nonnull %197, i32 286752, i1 noundef zeroext true) #4
   %203 = icmp sgt i32 %202, -1
   br i1 %203, label %226, label %204
 
@@ -655,7 +655,7 @@ define dso_local void @intel_init_pch_refclk(ptr noundef %0) local_unnamed_addr 
   br i1 %209, label %217, label %210
 
 210:                                              ; preds = %204
-  %211 = getelementptr inbounds i8, ptr %0, i64 7184
+  %211 = getelementptr inbounds nuw i8, ptr %0, i64 7184
   %212 = load i32, ptr %211, align 4
   %213 = and i32 %212, 8388608
   %214 = icmp ne i32 %213, 0
@@ -668,7 +668,7 @@ define dso_local void @intel_init_pch_refclk(ptr noundef %0) local_unnamed_addr 
   br i1 %218, label %222, label %219
 
 219:                                              ; preds = %217
-  %220 = getelementptr inbounds i8, ptr %0, i64 8
+  %220 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %221 = load ptr, ptr %220, align 8
   br label %222
 
@@ -682,9 +682,9 @@ define dso_local void @intel_init_pch_refclk(ptr noundef %0) local_unnamed_addr 
 
 226:                                              ; preds = %222, %210, %.loopexit21
   %227 = load ptr, ptr %198, align 8
-  %228 = tail call i32 %227(ptr noundef %197, i32 270356, i1 noundef zeroext true) #4
+  %228 = tail call i32 %227(ptr noundef nonnull %197, i32 270356, i1 noundef zeroext true) #4
   %229 = load ptr, ptr %198, align 8
-  %230 = tail call i32 %229(ptr noundef %197, i32 286784, i1 noundef zeroext true) #4
+  %230 = tail call i32 %229(ptr noundef nonnull %197, i32 286784, i1 noundef zeroext true) #4
   %231 = icmp sgt i32 %230, -1
   br i1 %231, label %261, label %232
 
@@ -694,7 +694,7 @@ define dso_local void @intel_init_pch_refclk(ptr noundef %0) local_unnamed_addr 
   br i1 %234, label %252, label %235
 
 235:                                              ; preds = %232
-  %236 = getelementptr inbounds i8, ptr %0, i64 7184
+  %236 = getelementptr inbounds nuw i8, ptr %0, i64 7184
   %237 = load i32, ptr %236, align 4
   %238 = and i32 %237, 8388608
   %239 = icmp eq i32 %238, 0
@@ -723,7 +723,7 @@ define dso_local void @intel_init_pch_refclk(ptr noundef %0) local_unnamed_addr 
   br i1 %253, label %257, label %254
 
 254:                                              ; preds = %252
-  %255 = getelementptr inbounds i8, ptr %0, i64 8
+  %255 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %256 = load ptr, ptr %255, align 8
   br label %257
 
@@ -737,9 +737,9 @@ define dso_local void @intel_init_pch_refclk(ptr noundef %0) local_unnamed_addr 
 
 261:                                              ; preds = %257, %249, %247, %240, %226
   %262 = load ptr, ptr %198, align 8
-  %263 = tail call i32 %262(ptr noundef %197, i32 270356, i1 noundef zeroext true) #4
+  %263 = tail call i32 %262(ptr noundef nonnull %197, i32 270356, i1 noundef zeroext true) #4
   %264 = load ptr, ptr %198, align 8
-  %265 = tail call i32 %264(ptr noundef %197, i32 286816, i1 noundef zeroext true) #4
+  %265 = tail call i32 %264(ptr noundef nonnull %197, i32 286816, i1 noundef zeroext true) #4
   %266 = icmp sgt i32 %265, -1
   br i1 %266, label %295, label %267
 
@@ -749,7 +749,7 @@ define dso_local void @intel_init_pch_refclk(ptr noundef %0) local_unnamed_addr 
   br i1 %269, label %287, label %270
 
 270:                                              ; preds = %267
-  %271 = getelementptr inbounds i8, ptr %0, i64 7184
+  %271 = getelementptr inbounds nuw i8, ptr %0, i64 7184
   %272 = load i32, ptr %271, align 4
   %273 = and i32 %272, 8388608
   %274 = icmp eq i32 %273, 0
@@ -778,7 +778,7 @@ define dso_local void @intel_init_pch_refclk(ptr noundef %0) local_unnamed_addr 
   br i1 %288, label %.thread15, label %289
 
 289:                                              ; preds = %287
-  %290 = getelementptr inbounds i8, ptr %0, i64 8
+  %290 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %291 = load ptr, ptr %290, align 8
   br label %.thread15
 
@@ -799,15 +799,15 @@ define dso_local void @intel_init_pch_refclk(ptr noundef %0) local_unnamed_addr 
   br i1 %195, label %435, label %298
 
 298:                                              ; preds = %297
-  %299 = getelementptr inbounds i8, ptr %0, i64 7944
-  tail call void @mutex_lock(ptr noundef %299) #4
+  %299 = getelementptr inbounds nuw i8, ptr %0, i64 7944
+  tail call void @mutex_lock(ptr noundef nonnull %299) #4
   tail call void @intel_sbi_write(ptr noundef %0, i16 noundef zeroext 516, i32 noundef 0, i32 noundef 0) #4
   %300 = tail call i32 @intel_sbi_read(ptr noundef %0, i16 noundef zeroext 512, i32 noundef 0) #4
   %301 = and i32 %300, -65536
   %302 = or disjoint i32 %301, 37
   tail call void @intel_sbi_write(ptr noundef %0, i16 noundef zeroext 512, i32 noundef %302, i32 noundef 0) #4
-  tail call void @mutex_unlock(ptr noundef %299) #4
-  %303 = getelementptr inbounds i8, ptr %0, i64 8116
+  tail call void @mutex_unlock(ptr noundef nonnull %299) #4
+  %303 = getelementptr inbounds nuw i8, ptr %0, i64 8116
   %304 = load i16, ptr %303, align 4
   %305 = and i16 %304, -129
   %306 = icmp eq i16 %305, -25600
@@ -815,11 +815,11 @@ define dso_local void @intel_init_pch_refclk(ptr noundef %0) local_unnamed_addr 
 
 307:                                              ; preds = %298
   tail call void asm sideeffect "917: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 917b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 917) #4, !srcloc !27
-  %308 = getelementptr inbounds i8, ptr %0, i64 8
+  %308 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %309 = load ptr, ptr %308, align 8
   %310 = tail call ptr @dev_driver_string(ptr noundef %309) #4
   %311 = load ptr, ptr %308, align 8
-  %312 = getelementptr inbounds i8, ptr %311, i64 80
+  %312 = getelementptr inbounds nuw i8, ptr %311, i64 80
   %313 = load ptr, ptr %312, align 8
   %314 = icmp eq ptr %313, null
   br i1 %314, label %315, label %317
@@ -835,7 +835,7 @@ define dso_local void @intel_init_pch_refclk(ptr noundef %0) local_unnamed_addr 
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 279, i32 2313, i64 12) #4, !srcloc !29
   tail call void asm sideeffect "919: nop\0A\09.pushsection .discard.instr_end\0A\09.long 919b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 919) #4, !srcloc !30
   tail call void asm sideeffect "920: nop\0A\09.pushsection .discard.instr_end\0A\09.long 920b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 920) #4, !srcloc !31
-  tail call void @mutex_lock(ptr noundef %299) #4
+  tail call void @mutex_lock(ptr noundef nonnull %299) #4
   %319 = tail call i32 @intel_sbi_read(ptr noundef %0, i16 noundef zeroext 524, i32 noundef 0) #4
   %320 = and i32 %319, -10
   %321 = or disjoint i32 %320, 8
@@ -847,7 +847,7 @@ define dso_local void @intel_init_pch_refclk(ptr noundef %0) local_unnamed_addr 
   br label %428
 
 324:                                              ; preds = %298
-  tail call void @mutex_lock(ptr noundef %299) #4
+  tail call void @mutex_lock(ptr noundef nonnull %299) #4
   %325 = tail call i32 @intel_sbi_read(ptr noundef %0, i16 noundef zeroext 524, i32 noundef 0) #4
   %326 = and i32 %325, -10
   %327 = or disjoint i32 %326, 8
@@ -857,11 +857,11 @@ define dso_local void @intel_init_pch_refclk(ptr noundef %0) local_unnamed_addr 
   %329 = and i32 %328, -9
   tail call void @intel_sbi_write(ptr noundef %0, i16 noundef zeroext 524, i32 noundef %329, i32 noundef 0) #4
   %330 = load ptr, ptr %198, align 8
-  %331 = tail call i32 %330(ptr noundef %197, i32 794628, i1 noundef zeroext true) #4
+  %331 = tail call i32 %330(ptr noundef nonnull %197, i32 794628, i1 noundef zeroext true) #4
   %332 = or i32 %331, 4096
-  %333 = getelementptr inbounds i8, ptr %0, i64 7544
+  %333 = getelementptr inbounds nuw i8, ptr %0, i64 7544
   %334 = load ptr, ptr %333, align 8
-  tail call void %334(ptr noundef %197, i32 794628, i32 noundef %332, i1 noundef zeroext true) #4
+  tail call void %334(ptr noundef nonnull %197, i32 794628, i32 noundef %332, i1 noundef zeroext true) #4
   %335 = tail call i64 @ktime_get_raw() #4
   %336 = add i64 %335, 100000
   %337 = tail call i32 @__SCT__might_resched() #4
@@ -869,7 +869,7 @@ define dso_local void @intel_init_pch_refclk(ptr noundef %0) local_unnamed_addr 
   %339 = icmp sle i64 %338, %336
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !32
   %340 = load ptr, ptr %198, align 8
-  %341 = tail call i32 %340(ptr noundef %197, i32 794628, i1 noundef zeroext true) #4
+  %341 = tail call i32 %340(ptr noundef nonnull %197, i32 794628, i1 noundef zeroext true) #4
   %342 = and i32 %341, 8192
   %343 = icmp eq i32 %342, 0
   %344 = select i1 %343, i1 %339, i1 false
@@ -881,7 +881,7 @@ define dso_local void @intel_init_pch_refclk(ptr noundef %0) local_unnamed_addr 
   %346 = icmp sle i64 %345, %336
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !32
   %347 = load ptr, ptr %198, align 8
-  %348 = tail call i32 %347(ptr noundef %197, i32 794628, i1 noundef zeroext true) #4
+  %348 = tail call i32 %347(ptr noundef nonnull %197, i32 794628, i1 noundef zeroext true) #4
   %349 = and i32 %348, 8192
   %350 = icmp eq i32 %349, 0
   %351 = select i1 %350, i1 %346, i1 false
@@ -896,7 +896,7 @@ define dso_local void @intel_init_pch_refclk(ptr noundef %0) local_unnamed_addr 
   br i1 %353, label %357, label %354
 
 354:                                              ; preds = %352
-  %355 = getelementptr inbounds i8, ptr %0, i64 8
+  %355 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %356 = load ptr, ptr %355, align 8
   br label %357
 
@@ -907,10 +907,10 @@ define dso_local void @intel_init_pch_refclk(ptr noundef %0) local_unnamed_addr 
 
 359:                                              ; preds = %357, %._crit_edge
   %360 = load ptr, ptr %198, align 8
-  %361 = tail call i32 %360(ptr noundef %197, i32 794628, i1 noundef zeroext true) #4
+  %361 = tail call i32 %360(ptr noundef nonnull %197, i32 794628, i1 noundef zeroext true) #4
   %362 = and i32 %361, -4097
   %363 = load ptr, ptr %333, align 8
-  tail call void %363(ptr noundef %197, i32 794628, i32 noundef %362, i1 noundef zeroext true) #4
+  tail call void %363(ptr noundef nonnull %197, i32 794628, i32 noundef %362, i1 noundef zeroext true) #4
   %364 = tail call i64 @ktime_get_raw() #4
   %365 = add i64 %364, 100000
   %366 = tail call i32 @__SCT__might_resched() #4
@@ -918,7 +918,7 @@ define dso_local void @intel_init_pch_refclk(ptr noundef %0) local_unnamed_addr 
   %368 = icmp sle i64 %367, %365
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !33
   %369 = load ptr, ptr %198, align 8
-  %370 = tail call i32 %369(ptr noundef %197, i32 794628, i1 noundef zeroext true) #4
+  %370 = tail call i32 %369(ptr noundef nonnull %197, i32 794628, i1 noundef zeroext true) #4
   %371 = and i32 %370, 8192
   %372 = icmp ne i32 %371, 0
   %373 = select i1 %372, i1 %368, i1 false
@@ -930,7 +930,7 @@ define dso_local void @intel_init_pch_refclk(ptr noundef %0) local_unnamed_addr 
   %375 = icmp sle i64 %374, %365
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !33
   %376 = load ptr, ptr %198, align 8
-  %377 = tail call i32 %376(ptr noundef %197, i32 794628, i1 noundef zeroext true) #4
+  %377 = tail call i32 %376(ptr noundef nonnull %197, i32 794628, i1 noundef zeroext true) #4
   %378 = and i32 %377, 8192
   %379 = icmp ne i32 %378, 0
   %380 = select i1 %379, i1 %375, i1 false
@@ -945,7 +945,7 @@ define dso_local void @intel_init_pch_refclk(ptr noundef %0) local_unnamed_addr 
   br i1 %382, label %386, label %383
 
 383:                                              ; preds = %381
-  %384 = getelementptr inbounds i8, ptr %0, i64 8
+  %384 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %385 = load ptr, ptr %384, align 8
   br label %386
 
@@ -1019,7 +1019,7 @@ define dso_local void @intel_init_pch_refclk(ptr noundef %0) local_unnamed_addr 
   %433 = tail call i32 @intel_sbi_read(ptr noundef %0, i16 noundef zeroext %432, i32 noundef 0) #4
   %434 = or i32 %433, 1
   tail call void @intel_sbi_write(ptr noundef %0, i16 noundef zeroext %432, i32 noundef %434, i32 noundef 0) #4
-  tail call void @mutex_unlock(ptr noundef %299) #4
+  tail call void @mutex_unlock(ptr noundef nonnull %299) #4
   br label %436
 
 435:                                              ; preds = %297

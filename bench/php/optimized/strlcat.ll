@@ -21,7 +21,7 @@ define i64 @php_strlcat(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_un
 
 5:                                                ; preds = %.lr.ph
   %6 = add i64 %.in, -1
-  %7 = getelementptr inbounds i8, ptr %.02432, i64 1
+  %7 = getelementptr inbounds nuw i8, ptr %.02432, i64 1
   %.not = icmp eq i64 %6, 0
   br i1 %.not, label %.critedge, label %.lr.ph
 
@@ -56,7 +56,7 @@ define i64 @php_strlcat(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_un
   br i1 %.not30, label %21, label %18
 
 18:                                               ; preds = %.lr.ph39
-  %19 = getelementptr inbounds i8, ptr %.12537, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %.12537, i64 1
   store i8 %17, ptr %.12537, align 1
   %20 = add i64 %.138, -1
   br label %21
@@ -64,7 +64,7 @@ define i64 @php_strlcat(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_un
 21:                                               ; preds = %18, %.lr.ph39
   %.226 = phi ptr [ %19, %18 ], [ %.12537, %.lr.ph39 ]
   %.2 = phi i64 [ %20, %18 ], [ 0, %.lr.ph39 ]
-  %22 = getelementptr inbounds i8, ptr %.02736, i64 1
+  %22 = getelementptr inbounds nuw i8, ptr %.02736, i64 1
   %23 = load i8, ptr %22, align 1
   %.not29 = icmp eq i8 %23, 0
   br i1 %.not29, label %._crit_edge, label %.lr.ph39

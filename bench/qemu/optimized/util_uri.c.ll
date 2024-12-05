@@ -148,14 +148,14 @@ while.end.i.i.i:                                  ; preds = %while.cond.i.i.i
   br i1 %cmp50.not.i.i, label %if.end13.i.i, label %if.then6.i.i.i
 
 if.then6.i.i.i:                                   ; preds = %while.end.i.i.i
-  %path.i.i.i = getelementptr inbounds i8, ptr %uri, i64 48
+  %path.i.i.i = getelementptr inbounds nuw i8, ptr %uri, i64 48
   %14 = load ptr, ptr %path.i.i.i, align 8
   tail call void @g_free(ptr noundef %14) #14
   %cmp7.not.i.i.i = icmp eq ptr %11, %12
   br i1 %cmp7.not.i.i.i, label %if.end23.sink.split.i.i.i, label %if.then9.i.i.i
 
 if.then9.i.i.i:                                   ; preds = %if.then6.i.i.i
-  %cleanup.i.i.i = getelementptr inbounds i8, ptr %uri, i64 64
+  %cleanup.i.i.i = getelementptr inbounds nuw i8, ptr %uri, i64 64
   %15 = load i32, ptr %cleanup.i.i.i, align 8
   %and.i.i.i = and i32 %15, 2
   %tobool.not.i.i.i = icmp eq i32 %and.i.i.i, 0
@@ -298,14 +298,14 @@ while.end.i28.i.i:                                ; preds = %while.cond.i27.i.i
   br i1 %cmp50.not.i.i, label %rfc3986_parse_path_rootless.exit.i.i, label %if.then10.i29.i.i
 
 if.then10.i29.i.i:                                ; preds = %while.end.i28.i.i
-  %path.i30.i.i = getelementptr inbounds i8, ptr %uri, i64 48
+  %path.i30.i.i = getelementptr inbounds nuw i8, ptr %uri, i64 48
   %25 = load ptr, ptr %path.i30.i.i, align 8
   tail call void @g_free(ptr noundef %25) #14
   %cmp11.not.i.i.i = icmp eq ptr %23, %incdec.ptr.i
   br i1 %cmp11.not.i.i.i, label %if.end27.sink.split.i.i.i, label %if.then13.i.i.i
 
 if.then13.i.i.i:                                  ; preds = %if.then10.i29.i.i
-  %cleanup.i31.i.i = getelementptr inbounds i8, ptr %uri, i64 64
+  %cleanup.i31.i.i = getelementptr inbounds nuw i8, ptr %uri, i64 64
   %26 = load i32, ptr %cleanup.i31.i.i, align 8
   %and.i32.i.i = and i32 %26, 2
   %tobool.not.i33.i.i = icmp eq i32 %and.i32.i.i, 0
@@ -340,7 +340,7 @@ if.else184.i.i:                                   ; preds = %switch.early.test49
   br i1 %cmp50.not.i.i, label %if.end9.i, label %if.then187.i.i
 
 if.then187.i.i:                                   ; preds = %if.else184.i.i
-  %path.i.i = getelementptr inbounds i8, ptr %uri, i64 48
+  %path.i.i = getelementptr inbounds nuw i8, ptr %uri, i64 48
   %27 = load ptr, ptr %path.i.i, align 8
   tail call void @g_free(ptr noundef %27) #14
   store ptr null, ptr %path.i.i, align 8
@@ -438,14 +438,14 @@ while.end.i.i17:                                  ; preds = %while.cond.i.i15
   br i1 %cmp4.not.i.i, label %rfc3986_parse_path_ab_empty.exit.thread.i, label %if.then6.i.i
 
 if.then6.i.i:                                     ; preds = %while.end.i.i17
-  %path.i.i18 = getelementptr inbounds i8, ptr %uri, i64 48
+  %path.i.i18 = getelementptr inbounds nuw i8, ptr %uri, i64 48
   %37 = load ptr, ptr %path.i.i18, align 8
   tail call void @g_free(ptr noundef %37) #14
   %cmp7.not.i.i = icmp eq ptr %34, %35
   br i1 %cmp7.not.i.i, label %if.end23.sink.split.i.i, label %if.then9.i.i
 
 if.then9.i.i:                                     ; preds = %if.then6.i.i
-  %cleanup.i.i = getelementptr inbounds i8, ptr %uri, i64 64
+  %cleanup.i.i = getelementptr inbounds nuw i8, ptr %uri, i64 64
   %38 = load i32, ptr %cleanup.i.i, align 8
   %and.i.i = and i32 %38, 2
   %tobool.not.i.i = icmp eq i32 %and.i.i, 0
@@ -589,14 +589,14 @@ while.end.i33.i:                                  ; preds = %while.cond.i32.i
   br i1 %cmp8.not.i.i, label %rfc3986_parse_path_no_scheme.exit.i, label %if.then10.i34.i
 
 if.then10.i34.i:                                  ; preds = %while.end.i33.i
-  %path.i35.i = getelementptr inbounds i8, ptr %uri, i64 48
+  %path.i35.i = getelementptr inbounds nuw i8, ptr %uri, i64 48
   %48 = load ptr, ptr %path.i35.i, align 8
   tail call void @g_free(ptr noundef %48) #14
   %cmp11.not.i.i = icmp eq ptr %46, %str
   br i1 %cmp11.not.i.i, label %if.end27.sink.split.i.i, label %if.then13.i.i
 
 if.then13.i.i:                                    ; preds = %if.then10.i34.i
-  %cleanup.i36.i = getelementptr inbounds i8, ptr %uri, i64 64
+  %cleanup.i36.i = getelementptr inbounds nuw i8, ptr %uri, i64 64
   %49 = load i32, ptr %cleanup.i36.i, align 8
   %and.i37.i = and i32 %49, 2
   %tobool.not.i38.i = icmp eq i32 %and.i37.i, 0
@@ -632,7 +632,7 @@ if.else184.i:                                     ; preds = %switch.early.test54
   br i1 %cmp185.not.i, label %if.end192.i, label %if.then187.i
 
 if.then187.i:                                     ; preds = %if.else184.i
-  %path.i = getelementptr inbounds i8, ptr %uri, i64 48
+  %path.i = getelementptr inbounds nuw i8, ptr %uri, i64 48
   %50 = load ptr, ptr %path.i, align 8
   tail call void @g_free(ptr noundef %50) #14
   store ptr null, ptr %path.i, align 8
@@ -716,7 +716,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %if.end2, label %if.then1
 
 if.then1:                                         ; preds = %if.end
-  %cleanup = getelementptr inbounds i8, ptr %call.i, i64 64
+  %cleanup = getelementptr inbounds nuw i8, ptr %call.i, i64 64
   %0 = load i32, ptr %cleanup, align 8
   %or = or i32 %0, 2
   store i32 %or, ptr %cleanup, align 8
@@ -812,7 +812,7 @@ if.end21:                                         ; preds = %if.end17, %if.end
   %max.0 = phi i32 [ 80, %if.end ], [ %max.3, %if.end17 ]
   %len.0 = phi i32 [ 0, %if.end ], [ %inc18, %if.end17 ]
   %ret.0 = phi ptr [ %call, %if.end ], [ %ret.3, %if.end17 ]
-  %opaque = getelementptr inbounds i8, ptr %uri, i64 8
+  %opaque = getelementptr inbounds nuw i8, ptr %uri, i64 8
   %5 = load ptr, ptr %opaque, align 8
   %cmp22.not = icmp eq ptr %5, null
   br i1 %cmp22.not, label %if.else169, label %while.cond26.preheader
@@ -917,7 +917,7 @@ if.end167:                                        ; preds = %if.else, %if.then14
   br i1 %cmp28.not, label %if.end763, label %while.body30, !llvm.loop !11
 
 if.else169:                                       ; preds = %if.end21
-  %server = getelementptr inbounds i8, ptr %uri, i64 24
+  %server = getelementptr inbounds nuw i8, ptr %uri, i64 24
   %14 = load ptr, ptr %server, align 8
   %cmp170.not = icmp eq ptr %14, null
   br i1 %cmp170.not, label %if.else363, label %if.then172
@@ -945,7 +945,7 @@ if.end178:                                        ; preds = %if.then176, %if.the
   %idxprom183 = sext i32 %inc179 to i64
   %arrayidx184 = getelementptr i8, ptr %ret.7, i64 %idxprom183
   store i8 47, ptr %arrayidx184, align 1
-  %user = getelementptr inbounds i8, ptr %uri, i64 32
+  %user = getelementptr inbounds nuw i8, ptr %uri, i64 32
   %15 = load ptr, ptr %user, align 8
   %cmp185.not = icmp eq ptr %15, null
   br i1 %cmp185.not, label %if.end330, label %while.cond189.preheader
@@ -1107,7 +1107,7 @@ while.end346:                                     ; preds = %if.end341, %if.end3
   %max.12.lcssa = phi i32 [ %max.8, %if.end330 ], [ %max.13, %if.end341 ]
   %len.8.lcssa = phi i32 [ %len.5, %if.end330 ], [ %inc343, %if.end341 ]
   %ret.12.lcssa = phi ptr [ %ret.8, %if.end330 ], [ %ret.13, %if.end341 ]
-  %port = getelementptr inbounds i8, ptr %uri, i64 40
+  %port = getelementptr inbounds nuw i8, ptr %uri, i64 40
   %29 = load i32, ptr %port, align 8
   %cmp347 = icmp sgt i32 %29, 0
   br i1 %cmp347, label %if.then349, label %if.end535
@@ -1138,7 +1138,7 @@ if.end355:                                        ; preds = %if.then353, %if.the
   br label %if.end535
 
 if.else363:                                       ; preds = %if.else169
-  %authority = getelementptr inbounds i8, ptr %uri, i64 16
+  %authority = getelementptr inbounds nuw i8, ptr %uri, i64 16
   %31 = load ptr, ptr %authority, align 8
   %cmp364.not = icmp eq ptr %31, null
   br i1 %cmp364.not, label %if.else516, label %if.then366
@@ -1291,7 +1291,7 @@ if.end535:                                        ; preds = %if.end514, %if.end3
   %max.15 = phi i32 [ %max.0, %if.else516 ], [ %max.19, %if.end526 ], [ %max.14, %if.end355 ], [ %max.12.lcssa, %while.end346 ], [ %max.16, %if.end372 ], [ %max.18, %if.end514 ]
   %len.9 = phi i32 [ %len.0, %if.else516 ], [ %inc530, %if.end526 ], [ %add361, %if.end355 ], [ %len.8.lcssa, %while.end346 ], [ %inc376, %if.end372 ], [ %len.11, %if.end514 ]
   %ret.15 = phi ptr [ %ret.0, %if.else516 ], [ %ret.19, %if.end526 ], [ %ret.14, %if.end355 ], [ %ret.12.lcssa, %while.end346 ], [ %ret.16, %if.end372 ], [ %ret.18, %if.end514 ]
-  %path = getelementptr inbounds i8, ptr %uri, i64 48
+  %path = getelementptr inbounds nuw i8, ptr %uri, i64 48
   %42 = load ptr, ptr %path, align 8
   %cmp536.not = icmp eq ptr %42, null
   br i1 %cmp536.not, label %if.end732, label %if.then538
@@ -1465,7 +1465,7 @@ if.end732:                                        ; preds = %if.end730, %if.end5
   %max.20 = phi i32 [ %max.15, %if.end535 ], [ %max.21, %if.end595 ], [ %max.24, %if.end730 ]
   %len.12 = phi i32 [ %len.9, %if.end535 ], [ %len.13, %if.end595 ], [ %len.15, %if.end730 ]
   %ret.20 = phi ptr [ %ret.15, %if.end535 ], [ %ret.21, %if.end595 ], [ %ret.24, %if.end730 ]
-  %query = getelementptr inbounds i8, ptr %uri, i64 72
+  %query = getelementptr inbounds nuw i8, ptr %uri, i64 72
   %60 = load ptr, ptr %query, align 8
   %cmp733.not = icmp eq ptr %60, null
   br i1 %cmp733.not, label %if.end763, label %if.then735
@@ -1527,7 +1527,7 @@ if.end763:                                        ; preds = %if.end167, %if.end7
   %max.6 = phi i32 [ %max.20, %if.end732 ], [ %max.25, %if.end741 ], [ %max.0, %while.cond26.preheader ], [ %max.27, %if.end756 ], [ %max.5, %if.end167 ]
   %len.4 = phi i32 [ %len.12, %if.end732 ], [ %add736, %if.end741 ], [ %len.0, %while.cond26.preheader ], [ %add751, %if.end756 ], [ %len.3, %if.end167 ]
   %ret.6 = phi ptr [ %ret.20, %if.end732 ], [ %ret.25, %if.end741 ], [ %ret.0, %while.cond26.preheader ], [ %ret.27, %if.end756 ], [ %ret.5, %if.end167 ]
-  %fragment = getelementptr inbounds i8, ptr %uri, i64 56
+  %fragment = getelementptr inbounds nuw i8, ptr %uri, i64 56
   %66 = load ptr, ptr %fragment, align 8
   %cmp764.not = icmp eq ptr %66, null
   br i1 %cmp764.not, label %if.end929, label %if.then766
@@ -1691,31 +1691,31 @@ if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %uri, align 8
   tail call void @g_free(ptr noundef %0) #14
   store ptr null, ptr %uri, align 8
-  %server = getelementptr inbounds i8, ptr %uri, i64 24
+  %server = getelementptr inbounds nuw i8, ptr %uri, i64 24
   %1 = load ptr, ptr %server, align 8
   tail call void @g_free(ptr noundef %1) #14
   store ptr null, ptr %server, align 8
-  %user = getelementptr inbounds i8, ptr %uri, i64 32
+  %user = getelementptr inbounds nuw i8, ptr %uri, i64 32
   %2 = load ptr, ptr %user, align 8
   tail call void @g_free(ptr noundef %2) #14
   store ptr null, ptr %user, align 8
-  %path = getelementptr inbounds i8, ptr %uri, i64 48
+  %path = getelementptr inbounds nuw i8, ptr %uri, i64 48
   %3 = load ptr, ptr %path, align 8
   tail call void @g_free(ptr noundef %3) #14
   store ptr null, ptr %path, align 8
-  %fragment = getelementptr inbounds i8, ptr %uri, i64 56
+  %fragment = getelementptr inbounds nuw i8, ptr %uri, i64 56
   %4 = load ptr, ptr %fragment, align 8
   tail call void @g_free(ptr noundef %4) #14
   store ptr null, ptr %fragment, align 8
-  %opaque = getelementptr inbounds i8, ptr %uri, i64 8
+  %opaque = getelementptr inbounds nuw i8, ptr %uri, i64 8
   %5 = load ptr, ptr %opaque, align 8
   tail call void @g_free(ptr noundef %5) #14
   store ptr null, ptr %opaque, align 8
-  %authority = getelementptr inbounds i8, ptr %uri, i64 16
+  %authority = getelementptr inbounds nuw i8, ptr %uri, i64 16
   %6 = load ptr, ptr %authority, align 8
   tail call void @g_free(ptr noundef %6) #14
   store ptr null, ptr %authority, align 8
-  %query = getelementptr inbounds i8, ptr %uri, i64 72
+  %query = getelementptr inbounds nuw i8, ptr %uri, i64 72
   %7 = load ptr, ptr %query, align 8
   tail call void @g_free(ptr noundef %7) #14
   store ptr null, ptr %query, align 8
@@ -2084,7 +2084,7 @@ if.end25:                                         ; preds = %if.end18
   br i1 %cmp8.not140, label %if.then27, label %if.end30
 
 if.then27:                                        ; preds = %if.end25
-  %fragment = getelementptr inbounds i8, ptr %call.i127, i64 56
+  %fragment = getelementptr inbounds nuw i8, ptr %call.i127, i64 56
   %4 = load ptr, ptr %fragment, align 8
   tail call void @g_free(ptr noundef %4) #14
   store ptr null, ptr %fragment, align 8
@@ -2098,19 +2098,19 @@ if.end30:                                         ; preds = %if.end25
   br i1 %cmp33, label %land.lhs.true34, label %if.then81
 
 land.lhs.true34:                                  ; preds = %if.end30
-  %path = getelementptr inbounds i8, ptr %ref.0132139, i64 48
+  %path = getelementptr inbounds nuw i8, ptr %ref.0132139, i64 48
   %6 = load ptr, ptr %path, align 8
   %cmp35 = icmp eq ptr %6, null
   br i1 %cmp35, label %land.lhs.true36, label %if.end83
 
 land.lhs.true36:                                  ; preds = %land.lhs.true34
-  %authority = getelementptr inbounds i8, ptr %ref.0132139, i64 16
+  %authority = getelementptr inbounds nuw i8, ptr %ref.0132139, i64 16
   %7 = load ptr, ptr %authority, align 8
   %cmp37 = icmp eq ptr %7, null
   br i1 %cmp37, label %land.lhs.true38, label %if.end83
 
 land.lhs.true38:                                  ; preds = %land.lhs.true36
-  %server = getelementptr inbounds i8, ptr %ref.0132139, i64 24
+  %server = getelementptr inbounds nuw i8, ptr %ref.0132139, i64 24
   %8 = load ptr, ptr %server, align 8
   %cmp39 = icmp eq ptr %8, null
   br i1 %cmp39, label %if.then40, label %if.end83
@@ -2119,63 +2119,63 @@ if.then40:                                        ; preds = %land.lhs.true38
   %9 = load ptr, ptr %call.i127, align 8
   %call42 = tail call noalias ptr @g_strdup(ptr noundef %9) #14
   store ptr %call42, ptr %call.i129, align 8
-  %authority44 = getelementptr inbounds i8, ptr %call.i127, i64 16
+  %authority44 = getelementptr inbounds nuw i8, ptr %call.i127, i64 16
   %10 = load ptr, ptr %authority44, align 8
   %cmp45.not = icmp eq ptr %10, null
   br i1 %cmp45.not, label %if.else50, label %if.then46
 
 if.then46:                                        ; preds = %if.then40
   %call48 = tail call noalias ptr @g_strdup(ptr noundef nonnull %10) #14
-  %authority49 = getelementptr inbounds i8, ptr %call.i129, i64 16
+  %authority49 = getelementptr inbounds nuw i8, ptr %call.i129, i64 16
   store ptr %call48, ptr %authority49, align 8
   br label %if.end61
 
 if.else50:                                        ; preds = %if.then40
-  %server51 = getelementptr inbounds i8, ptr %call.i127, i64 24
+  %server51 = getelementptr inbounds nuw i8, ptr %call.i127, i64 24
   %11 = load ptr, ptr %server51, align 8
   %cmp52.not = icmp eq ptr %11, null
   br i1 %cmp52.not, label %if.end61, label %if.then53
 
 if.then53:                                        ; preds = %if.else50
   %call55 = tail call noalias ptr @g_strdup(ptr noundef nonnull %11) #14
-  %server56 = getelementptr inbounds i8, ptr %call.i129, i64 24
+  %server56 = getelementptr inbounds nuw i8, ptr %call.i129, i64 24
   store ptr %call55, ptr %server56, align 8
-  %user = getelementptr inbounds i8, ptr %call.i127, i64 32
+  %user = getelementptr inbounds nuw i8, ptr %call.i127, i64 32
   %12 = load ptr, ptr %user, align 8
   %call57 = tail call noalias ptr @g_strdup(ptr noundef %12) #14
-  %user58 = getelementptr inbounds i8, ptr %call.i129, i64 32
+  %user58 = getelementptr inbounds nuw i8, ptr %call.i129, i64 32
   store ptr %call57, ptr %user58, align 8
-  %port = getelementptr inbounds i8, ptr %call.i127, i64 40
+  %port = getelementptr inbounds nuw i8, ptr %call.i127, i64 40
   %13 = load i32, ptr %port, align 8
-  %port59 = getelementptr inbounds i8, ptr %call.i129, i64 40
+  %port59 = getelementptr inbounds nuw i8, ptr %call.i129, i64 40
   store i32 %13, ptr %port59, align 8
   br label %if.end61
 
 if.end61:                                         ; preds = %if.else50, %if.then53, %if.then46
-  %path62 = getelementptr inbounds i8, ptr %call.i127, i64 48
+  %path62 = getelementptr inbounds nuw i8, ptr %call.i127, i64 48
   %14 = load ptr, ptr %path62, align 8
   %call63 = tail call noalias ptr @g_strdup(ptr noundef %14) #14
-  %path64 = getelementptr inbounds i8, ptr %call.i129, i64 48
+  %path64 = getelementptr inbounds nuw i8, ptr %call.i129, i64 48
   store ptr %call63, ptr %path64, align 8
-  %query = getelementptr inbounds i8, ptr %ref.0132139, i64 72
+  %query = getelementptr inbounds nuw i8, ptr %ref.0132139, i64 72
   %15 = load ptr, ptr %query, align 8
   %cmp65.not = icmp eq ptr %15, null
   br i1 %cmp65.not, label %if.else70, label %if.end74
 
 if.else70:                                        ; preds = %if.end61
-  %query71 = getelementptr inbounds i8, ptr %call.i127, i64 72
+  %query71 = getelementptr inbounds nuw i8, ptr %call.i127, i64 72
   %16 = load ptr, ptr %query71, align 8
   br label %if.end74
 
 if.end74:                                         ; preds = %if.end61, %if.else70
   %.sink = phi ptr [ %16, %if.else70 ], [ %15, %if.end61 ]
   %call72 = tail call noalias ptr @g_strdup(ptr noundef %.sink) #14
-  %17 = getelementptr inbounds i8, ptr %call.i129, i64 72
+  %17 = getelementptr inbounds nuw i8, ptr %call.i129, i64 72
   store ptr %call72, ptr %17, align 8
-  %fragment75 = getelementptr inbounds i8, ptr %ref.0132139, i64 56
+  %fragment75 = getelementptr inbounds nuw i8, ptr %ref.0132139, i64 56
   %18 = load ptr, ptr %fragment75, align 8
   %call76 = tail call noalias ptr @g_strdup(ptr noundef %18) #14
-  %fragment77 = getelementptr inbounds i8, ptr %call.i129, i64 56
+  %fragment77 = getelementptr inbounds nuw i8, ptr %call.i129, i64 56
   store ptr %call76, ptr %fragment77, align 8
   br label %step_7
 
@@ -2187,85 +2187,85 @@ if.end83:                                         ; preds = %land.lhs.true38, %l
   %19 = load ptr, ptr %call.i127, align 8
   %call85 = tail call noalias ptr @g_strdup(ptr noundef %19) #14
   store ptr %call85, ptr %call.i129, align 8
-  %query87 = getelementptr inbounds i8, ptr %ref.0132139, i64 72
+  %query87 = getelementptr inbounds nuw i8, ptr %ref.0132139, i64 72
   %20 = load ptr, ptr %query87, align 8
   %call88 = tail call noalias ptr @g_strdup(ptr noundef %20) #14
-  %query89 = getelementptr inbounds i8, ptr %call.i129, i64 72
+  %query89 = getelementptr inbounds nuw i8, ptr %call.i129, i64 72
   store ptr %call88, ptr %query89, align 8
-  %fragment90 = getelementptr inbounds i8, ptr %ref.0132139, i64 56
+  %fragment90 = getelementptr inbounds nuw i8, ptr %ref.0132139, i64 56
   %21 = load ptr, ptr %fragment90, align 8
   %call91 = tail call noalias ptr @g_strdup(ptr noundef %21) #14
-  %fragment92 = getelementptr inbounds i8, ptr %call.i129, i64 56
+  %fragment92 = getelementptr inbounds nuw i8, ptr %call.i129, i64 56
   store ptr %call91, ptr %fragment92, align 8
-  %authority93 = getelementptr inbounds i8, ptr %ref.0132139, i64 16
+  %authority93 = getelementptr inbounds nuw i8, ptr %ref.0132139, i64 16
   %22 = load ptr, ptr %authority93, align 8
   %cmp94.not = icmp eq ptr %22, null
   br i1 %cmp94.not, label %lor.lhs.false, label %if.then100
 
 lor.lhs.false:                                    ; preds = %if.end83
-  %server95 = getelementptr inbounds i8, ptr %ref.0132139, i64 24
+  %server95 = getelementptr inbounds nuw i8, ptr %ref.0132139, i64 24
   %23 = load ptr, ptr %server95, align 8
   %cmp96.not = icmp eq ptr %23, null
   br i1 %cmp96.not, label %if.end117, label %if.else104
 
 if.then100:                                       ; preds = %if.end83
   %call102 = tail call noalias ptr @g_strdup(ptr noundef nonnull %22) #14
-  %authority103 = getelementptr inbounds i8, ptr %call.i129, i64 16
+  %authority103 = getelementptr inbounds nuw i8, ptr %call.i129, i64 16
   store ptr %call102, ptr %authority103, align 8
   br label %if.end113
 
 if.else104:                                       ; preds = %lor.lhs.false
   %call106 = tail call noalias ptr @g_strdup(ptr noundef nonnull %23) #14
-  %server107 = getelementptr inbounds i8, ptr %call.i129, i64 24
+  %server107 = getelementptr inbounds nuw i8, ptr %call.i129, i64 24
   store ptr %call106, ptr %server107, align 8
-  %user108 = getelementptr inbounds i8, ptr %ref.0132139, i64 32
+  %user108 = getelementptr inbounds nuw i8, ptr %ref.0132139, i64 32
   %24 = load ptr, ptr %user108, align 8
   %call109 = tail call noalias ptr @g_strdup(ptr noundef %24) #14
-  %user110 = getelementptr inbounds i8, ptr %call.i129, i64 32
+  %user110 = getelementptr inbounds nuw i8, ptr %call.i129, i64 32
   store ptr %call109, ptr %user110, align 8
-  %port111 = getelementptr inbounds i8, ptr %ref.0132139, i64 40
+  %port111 = getelementptr inbounds nuw i8, ptr %ref.0132139, i64 40
   %25 = load i32, ptr %port111, align 8
-  %port112 = getelementptr inbounds i8, ptr %call.i129, i64 40
+  %port112 = getelementptr inbounds nuw i8, ptr %call.i129, i64 40
   store i32 %25, ptr %port112, align 8
   br label %if.end113
 
 if.end113:                                        ; preds = %if.else104, %if.then100
   %26 = load ptr, ptr %path, align 8
   %call115 = tail call noalias ptr @g_strdup(ptr noundef %26) #14
-  %path116 = getelementptr inbounds i8, ptr %call.i129, i64 48
+  %path116 = getelementptr inbounds nuw i8, ptr %call.i129, i64 48
   store ptr %call115, ptr %path116, align 8
   br label %step_7
 
 if.end117:                                        ; preds = %lor.lhs.false
-  %authority118 = getelementptr inbounds i8, ptr %call.i127, i64 16
+  %authority118 = getelementptr inbounds nuw i8, ptr %call.i127, i64 16
   %27 = load ptr, ptr %authority118, align 8
   %cmp119.not = icmp eq ptr %27, null
   br i1 %cmp119.not, label %if.else124, label %if.then120
 
 if.then120:                                       ; preds = %if.end117
   %call122 = tail call noalias ptr @g_strdup(ptr noundef nonnull %27) #14
-  %authority123 = getelementptr inbounds i8, ptr %call.i129, i64 16
+  %authority123 = getelementptr inbounds nuw i8, ptr %call.i129, i64 16
   store ptr %call122, ptr %authority123, align 8
   br label %if.end137
 
 if.else124:                                       ; preds = %if.end117
-  %server125 = getelementptr inbounds i8, ptr %call.i127, i64 24
+  %server125 = getelementptr inbounds nuw i8, ptr %call.i127, i64 24
   %28 = load ptr, ptr %server125, align 8
   %cmp126.not = icmp eq ptr %28, null
   br i1 %cmp126.not, label %if.end137, label %if.then127
 
 if.then127:                                       ; preds = %if.else124
   %call129 = tail call noalias ptr @g_strdup(ptr noundef nonnull %28) #14
-  %server130 = getelementptr inbounds i8, ptr %call.i129, i64 24
+  %server130 = getelementptr inbounds nuw i8, ptr %call.i129, i64 24
   store ptr %call129, ptr %server130, align 8
-  %user131 = getelementptr inbounds i8, ptr %call.i127, i64 32
+  %user131 = getelementptr inbounds nuw i8, ptr %call.i127, i64 32
   %29 = load ptr, ptr %user131, align 8
   %call132 = tail call noalias ptr @g_strdup(ptr noundef %29) #14
-  %user133 = getelementptr inbounds i8, ptr %call.i129, i64 32
+  %user133 = getelementptr inbounds nuw i8, ptr %call.i129, i64 32
   store ptr %call132, ptr %user133, align 8
-  %port134 = getelementptr inbounds i8, ptr %call.i127, i64 40
+  %port134 = getelementptr inbounds nuw i8, ptr %call.i127, i64 40
   %30 = load i32, ptr %port134, align 8
-  %port135 = getelementptr inbounds i8, ptr %call.i129, i64 40
+  %port135 = getelementptr inbounds nuw i8, ptr %call.i129, i64 40
   store i32 %30, ptr %port135, align 8
   br label %if.end137
 
@@ -2281,7 +2281,7 @@ land.lhs.true140:                                 ; preds = %if.end137
 
 if.then144:                                       ; preds = %land.lhs.true140
   %call146 = tail call noalias ptr @g_strdup(ptr noundef nonnull %31) #14
-  %path147 = getelementptr inbounds i8, ptr %call.i129, i64 48
+  %path147 = getelementptr inbounds nuw i8, ptr %call.i129, i64 48
   store ptr %call146, ptr %path147, align 8
   br label %step_7
 
@@ -2293,7 +2293,7 @@ if.then152:                                       ; preds = %land.lhs.true140
 
 if.end157:                                        ; preds = %if.end137, %if.then152
   %len.0 = phi i32 [ %conv156, %if.then152 ], [ 2, %if.end137 ]
-  %path158 = getelementptr inbounds i8, ptr %call.i127, i64 48
+  %path158 = getelementptr inbounds nuw i8, ptr %call.i127, i64 48
   %34 = load ptr, ptr %path158, align 8
   %cmp159.not = icmp eq ptr %34, null
   br i1 %cmp159.not, label %if.end167, label %if.then161
@@ -2308,7 +2308,7 @@ if.end167:                                        ; preds = %if.then161, %if.end
   %len.1 = phi i32 [ %conv166, %if.then161 ], [ %len.0, %if.end157 ]
   %conv168 = sext i32 %len.1 to i64
   %call169 = tail call noalias ptr @g_malloc(i64 noundef %conv168) #15
-  %path170 = getelementptr inbounds i8, ptr %call.i129, i64 48
+  %path170 = getelementptr inbounds nuw i8, ptr %call.i129, i64 48
   store ptr %call169, ptr %path170, align 8
   store i8 0, ptr %call169, align 1
   %36 = load ptr, ptr %path158, align 8
@@ -2397,7 +2397,7 @@ if.then231:                                       ; preds = %land.lhs.true225
   br i1 %cmp232, label %land.lhs.true234, label %while.body251.preheader
 
 land.lhs.true234:                                 ; preds = %if.then231
-  %server235 = getelementptr inbounds i8, ptr %call.i127, i64 24
+  %server235 = getelementptr inbounds nuw i8, ptr %call.i127, i64 24
   %49 = load ptr, ptr %server235, align 8
   %cmp236.not = icmp eq ptr %49, null
   br i1 %cmp236.not, label %while.body251.preheader, label %if.end243
@@ -2751,7 +2751,7 @@ if.then6:                                         ; preds = %if.end
 
 if.else:                                          ; preds = %if.end
   %call12 = tail call noalias ptr @g_strdup(ptr noundef nonnull %uri) #14
-  %path = getelementptr inbounds i8, ptr %call.i, i64 48
+  %path = getelementptr inbounds nuw i8, ptr %call.i, i64 48
   store ptr %call12, ptr %path, align 8
   br label %if.end13
 
@@ -2781,7 +2781,7 @@ if.then28:                                        ; preds = %if.end22
 
 if.else34:                                        ; preds = %if.end22
   %call35 = tail call noalias ptr @g_strdup(ptr noundef nonnull %base) #14
-  %path36 = getelementptr inbounds i8, ptr %call.i140, i64 48
+  %path36 = getelementptr inbounds nuw i8, ptr %call.i140, i64 48
   store ptr %call35, ptr %path36, align 8
   br label %if.end37
 
@@ -2801,9 +2801,9 @@ lor.lhs.false43:                                  ; preds = %land.lhs.true
   br i1 %tobool.not, label %lor.lhs.false47, label %if.then51
 
 lor.lhs.false47:                                  ; preds = %lor.lhs.false43
-  %server = getelementptr inbounds i8, ptr %call.i140, i64 24
+  %server = getelementptr inbounds nuw i8, ptr %call.i140, i64 24
   %6 = load ptr, ptr %server, align 8
-  %server48 = getelementptr inbounds i8, ptr %call.i, i64 24
+  %server48 = getelementptr inbounds nuw i8, ptr %call.i, i64 24
   %7 = load ptr, ptr %server48, align 8
   %call49 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) %7) #16
   %tobool50.not = icmp eq i32 %call49, 0
@@ -2814,9 +2814,9 @@ if.then51:                                        ; preds = %lor.lhs.false47, %l
   br label %if.end339
 
 if.end53:                                         ; preds = %lor.lhs.false47, %if.end37
-  %path54 = getelementptr inbounds i8, ptr %call.i140, i64 48
+  %path54 = getelementptr inbounds nuw i8, ptr %call.i140, i64 48
   %8 = load ptr, ptr %path54, align 8
-  %path55 = getelementptr inbounds i8, ptr %call.i, i64 48
+  %path55 = getelementptr inbounds nuw i8, ptr %call.i, i64 48
   %9 = load ptr, ptr %path55, align 8
   %cmp56 = icmp eq ptr %8, %9
   br i1 %cmp56, label %if.then69, label %lor.lhs.false58
@@ -3036,7 +3036,7 @@ for.body291:                                      ; preds = %if.end284, %for.bod
 for.end297:                                       ; preds = %for.body291, %if.end284
   %vptr.0.lcssa = phi ptr [ %call287, %if.end284 ], [ %incdec.ptr294, %for.body291 ]
   %cmp298.not = icmp eq ptr %uptr.2, null
-  br i1 %cmp298.not, label %if.end333, label %if.then300
+  br i1 %cmp298.not, label %if.else329, label %if.then300
 
 if.then300:                                       ; preds = %for.end297
   %cmp301 = icmp ugt ptr %vptr.0.lcssa, %call287
@@ -3059,19 +3059,29 @@ if.then316:                                       ; preds = %land.lhs.true311
   %add.ptr317 = getelementptr i8, ptr %uptr.2, i64 1
   %conv319 = and i64 %call272, 2147483647
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %vptr.0.lcssa, ptr align 1 %add.ptr317, i64 %conv319, i1 false)
+  %26 = zext nneg i32 %conv274 to i64
+  %27 = getelementptr i8, ptr %vptr.0.lcssa, i64 %26
+  %arrayidx322 = getelementptr i8, ptr %27, i64 -2
+  store i8 0, ptr %arrayidx322, align 1
   br label %if.end333
 
 if.else323:                                       ; preds = %land.lhs.true311, %land.lhs.true306, %if.then300
   %conv324 = sext i32 %conv274 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %vptr.0.lcssa, ptr nonnull align 1 %uptr.2, i64 %conv324, i1 false)
+  %sext = shl i64 %call272, 32
+  %idxprom326 = ashr exact i64 %sext, 32
+  %arrayidx327 = getelementptr i8, ptr %vptr.0.lcssa, i64 %idxprom326
+  store i8 0, ptr %arrayidx327, align 1
   br label %if.end333
 
-if.end333:                                        ; preds = %for.end297, %if.then316, %if.else323
-  %.sink = phi i32 [ -2, %if.then316 ], [ -1, %if.else323 ], [ -1, %for.end297 ]
-  %sub320 = add i32 %conv274, %.sink
-  %idxprom321 = sext i32 %sub320 to i64
-  %arrayidx322 = getelementptr i8, ptr %vptr.0.lcssa, i64 %idxprom321
-  store i8 0, ptr %arrayidx322, align 1
+if.else329:                                       ; preds = %for.end297
+  %sext186 = shl i64 %call272, 32
+  %idxprom331 = ashr exact i64 %sext186, 32
+  %arrayidx332 = getelementptr i8, ptr %vptr.0.lcssa, i64 %idxprom331
+  store i8 0, ptr %arrayidx332, align 1
+  br label %if.end333
+
+if.end333:                                        ; preds = %if.then316, %if.else323, %if.else329
   %call334 = tail call ptr @uri_string_escape(ptr noundef %call287, ptr noundef nonnull @.str.4)
   tail call void @g_free(ptr noundef %call287) #14
   br label %done
@@ -3107,11 +3117,11 @@ entry:
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %init_alloc, i32 1)
   %call = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #13
   store i32 0, ptr %call, align 8
-  %alloc = getelementptr inbounds i8, ptr %call, i64 4
+  %alloc = getelementptr inbounds nuw i8, ptr %call, i64 4
   store i32 %spec.store.select, ptr %alloc, align 4
   %conv = zext nneg i32 %spec.store.select to i64
   %call2 = tail call noalias ptr @g_malloc_n(i64 noundef %conv, i64 noundef 24) #13
-  %p = getelementptr inbounds i8, ptr %call, i64 8
+  %p = getelementptr inbounds nuw i8, ptr %call, i64 8
   store ptr %call2, ptr %p, align 8
   ret ptr %call
 }
@@ -3127,7 +3137,7 @@ entry:
   br i1 %cmp8, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %p = getelementptr inbounds i8, ptr %ps, i64 8
+  %p = getelementptr inbounds nuw i8, ptr %ps, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -3147,7 +3157,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !39
 
 for.end:                                          ; preds = %for.body, %entry
-  %p4 = getelementptr inbounds i8, ptr %ps, i64 8
+  %p4 = getelementptr inbounds nuw i8, ptr %ps, i64 8
   %7 = load ptr, ptr %p4, align 8
   tail call void @g_free(ptr noundef %7) #14
   tail call void @g_free(ptr noundef nonnull %ps) #14
@@ -3159,10 +3169,10 @@ define dso_local noalias noundef ptr @query_params_parse(ptr noundef %query) loc
 entry:
   %call.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #13
   store i32 0, ptr %call.i, align 8
-  %alloc.i = getelementptr inbounds i8, ptr %call.i, i64 4
+  %alloc.i = getelementptr inbounds nuw i8, ptr %call.i, i64 4
   store i32 1, ptr %alloc.i, align 4
   %call2.i = tail call noalias dereferenceable_or_null(24) ptr @g_malloc_n(i64 noundef 1, i64 noundef 24) #13
-  %p.i = getelementptr inbounds i8, ptr %call.i, i64 8
+  %p.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   store ptr %call2.i, ptr %p.i, align 8
   %tobool.not = icmp eq ptr %query, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -3293,7 +3303,7 @@ define internal fastcc void @rfc3986_parse_query(ptr noundef %uri, ptr nocapture
 entry:
   %0 = load ptr, ptr %str, align 8
   %cmp160.not = icmp eq ptr %uri, null
-  %cleanup = getelementptr inbounds i8, ptr %uri, i64 64
+  %cleanup = getelementptr inbounds nuw i8, ptr %uri, i64 64
   br i1 %cmp160.not, label %while.cond.us, label %while.cond
 
 while.cond.us:                                    ; preds = %entry, %while.body.us
@@ -3493,7 +3503,7 @@ while.body:                                       ; preds = %switch.early.test73
   br label %while.cond, !llvm.loop !41
 
 if.then201:                                       ; preds = %lor.rhs, %land.rhs
-  %query = getelementptr inbounds i8, ptr %uri, i64 72
+  %query = getelementptr inbounds nuw i8, ptr %uri, i64 72
   %18 = load ptr, ptr %query, align 8
   tail call void @g_free(ptr noundef %18) #14
   %19 = load ptr, ptr %str, align 8
@@ -3515,7 +3525,7 @@ define internal fastcc void @rfc3986_parse_fragment(ptr noundef %uri, ptr nocapt
 entry:
   %0 = load ptr, ptr %str, align 8
   %cmp168.not = icmp eq ptr %uri, null
-  %cleanup = getelementptr inbounds i8, ptr %uri, i64 64
+  %cleanup = getelementptr inbounds nuw i8, ptr %uri, i64 64
   br i1 %cmp168.not, label %while.cond.us, label %while.cond
 
 while.cond.us:                                    ; preds = %entry, %while.body.us
@@ -3717,7 +3727,7 @@ while.body:                                       ; preds = %switch.early.test80
   br label %while.cond, !llvm.loop !42
 
 if.then209:                                       ; preds = %lor.rhs, %land.rhs
-  %fragment = getelementptr inbounds i8, ptr %uri, i64 56
+  %fragment = getelementptr inbounds nuw i8, ptr %uri, i64 56
   %18 = load ptr, ptr %fragment, align 8
   tail call void @g_free(ptr noundef %18) #14
   %19 = load i32, ptr %cleanup, align 8
@@ -3850,10 +3860,10 @@ if.then.i:                                        ; preds = %lor.lhs.false20.i
   br i1 %cmp153.not.i, label %if.else, label %if.then155.i
 
 if.then155.i:                                     ; preds = %if.then.i
-  %user.i = getelementptr inbounds i8, ptr %uri, i64 32
+  %user.i = getelementptr inbounds nuw i8, ptr %uri, i64 32
   %9 = load ptr, ptr %user.i, align 8
   tail call void @g_free(ptr noundef %9) #14
-  %cleanup.i = getelementptr inbounds i8, ptr %uri, i64 64
+  %cleanup.i = getelementptr inbounds nuw i8, ptr %uri, i64 64
   %10 = load i32, ptr %cleanup.i, align 8
   %and.i = and i32 %10, 2
   %tobool.not.i = icmp eq i32 %and.i, 0
@@ -4128,11 +4138,11 @@ found.if.end231_crit_edge.i:                      ; preds = %found.i
   br label %if.end7
 
 if.then213.i:                                     ; preds = %found.i
-  %authority.i = getelementptr inbounds i8, ptr %uri, i64 16
+  %authority.i = getelementptr inbounds nuw i8, ptr %uri, i64 16
   %37 = load ptr, ptr %authority.i, align 8
   tail call void @g_free(ptr noundef %37) #14
   store ptr null, ptr %authority.i, align 8
-  %server.i = getelementptr inbounds i8, ptr %uri, i64 24
+  %server.i = getelementptr inbounds nuw i8, ptr %uri, i64 24
   %38 = load ptr, ptr %server.i, align 8
   tail call void @g_free(ptr noundef %38) #14
   %39 = load ptr, ptr %cur.i, align 8
@@ -4140,7 +4150,7 @@ if.then213.i:                                     ; preds = %found.i
   br i1 %cmp215.not.i, label %if.else228.i, label %if.then217.i
 
 if.then217.i:                                     ; preds = %if.then213.i
-  %cleanup.i12 = getelementptr inbounds i8, ptr %uri, i64 64
+  %cleanup.i12 = getelementptr inbounds nuw i8, ptr %uri, i64 64
   %40 = load i32, ptr %cleanup.i12, align 8
   %and.i13 = and i32 %40, 2
   %tobool.not.i14 = icmp eq i32 %and.i13, 0
@@ -4204,7 +4214,7 @@ while.end.i:                                      ; preds = %if.end.i21
   br i1 %cmp211.not.i, label %if.end18, label %if.then15.i
 
 if.then15.i:                                      ; preds = %while.end.i
-  %port16.i = getelementptr inbounds i8, ptr %uri, i64 40
+  %port16.i = getelementptr inbounds nuw i8, ptr %uri, i64 40
   store i32 %add.i, ptr %port16.i, align 8
   br label %if.end18
 
@@ -4256,7 +4266,7 @@ if.end14.if.end34_crit_edge:                      ; preds = %if.end14
   br label %if.end34
 
 if.then17:                                        ; preds = %if.end14
-  %path = getelementptr inbounds i8, ptr %uri, i64 48
+  %path = getelementptr inbounds nuw i8, ptr %uri, i64 48
   %4 = load ptr, ptr %path, align 8
   tail call void @g_free(ptr noundef %4) #14
   %5 = load ptr, ptr %cur, align 8
@@ -4265,7 +4275,7 @@ if.then17:                                        ; preds = %if.end14
   br i1 %cmp18.not, label %if.else31, label %if.then20
 
 if.then20:                                        ; preds = %if.then17
-  %cleanup = getelementptr inbounds i8, ptr %uri, i64 64
+  %cleanup = getelementptr inbounds nuw i8, ptr %uri, i64 64
   %7 = load i32, ptr %cleanup, align 8
   %and = and i32 %7, 2
   %tobool.not = icmp eq i32 %and, 0

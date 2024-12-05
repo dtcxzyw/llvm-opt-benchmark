@@ -692,7 +692,7 @@ define internal i32 @dissect_netbios(ptr noundef %0, ptr noundef %1, ptr noundef
   %6 = alloca ptr, align 8
   %7 = alloca [61 x i8], align 16
   %8 = alloca ptr, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8
   tail call void @col_set_str(ptr noundef %10, i32 noundef 34, ptr noundef nonnull @.str.103) #6
   %11 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 2) #6
@@ -982,7 +982,7 @@ get_netbios_name.exit125:                         ; preds = %117, %120
   %147 = call i32 %146(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %.0, ptr noundef %.099) #6
   %148 = zext i16 %17 to i32
   %149 = add nuw nsw i32 %.0, %148
-  %150 = getelementptr inbounds i8, ptr %1, i64 272
+  %150 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %151 = load i32, ptr %150, align 8
   switch i8 %20, label %188 [
     i8 8, label %152
@@ -1032,7 +1032,7 @@ dissect_netbios_payload.exit:                     ; preds = %152, %156
   br i1 %.not108, label %176, label %170
 
 170:                                              ; preds = %168
-  %171 = getelementptr inbounds i8, ptr %167, i64 56
+  %171 = getelementptr inbounds nuw i8, ptr %167, i64 56
   %172 = load ptr, ptr %171, align 8
   %173 = call ptr @tvb_new_chain(ptr noundef %0, ptr noundef %172) #6
   call void @add_new_data_source(ptr noundef nonnull %1, ptr noundef %173, ptr noundef nonnull @.str.182) #6

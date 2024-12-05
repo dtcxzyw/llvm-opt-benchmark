@@ -26,10 +26,10 @@ define hidden void @init_endpoints(ptr noundef %0, ptr noundef %1) local_unnamed
   %6 = tail call ptr @proto_get_protocol_short_name(ptr noundef %5) #9
   store ptr %6, ptr %3, align 8
   %7 = tail call noalias ptr @g_strdup(ptr noundef %1) #9
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %7, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 16
-  %10 = getelementptr inbounds i8, ptr %3, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr %3, ptr %10, align 8
   %11 = tail call i32 @get_conversation_proto_id(ptr noundef %0) #9
   %12 = tail call ptr @proto_get_protocol_filter_name(i32 noundef %11) #9
@@ -70,7 +70,7 @@ declare ptr @get_endpoint_packet_func(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define internal void @endpoints_draw(ptr nocapture noundef readonly %0) #0 {
 sub_0:
-  %1 = getelementptr inbounds i8, ptr %0, i64 16
+  %1 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %2 = load ptr, ptr %1, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = load i8, ptr %3, align 1
@@ -80,25 +80,25 @@ sub_0:
   ]
 
 sub_1:                                            ; preds = %sub_0
-  %5 = getelementptr inbounds i8, ptr %3, i64 1
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %6 = load i8, ptr %5, align 1
   %.not97 = icmp eq i8 %6, 67
   br i1 %.not97, label %.tail, label %.tail74.thread
 
 .tail:                                            ; preds = %sub_1
-  %7 = getelementptr inbounds i8, ptr %3, i64 2
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 2
   %8 = load i8, ptr %7, align 1
   %9 = icmp eq i8 %8, 80
   br i1 %9, label %16, label %.tail74.thread
 
 sub_176:                                          ; preds = %sub_0
-  %10 = getelementptr inbounds i8, ptr %3, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %11 = load i8, ptr %10, align 1
   %.not99 = icmp eq i8 %11, 68
   br i1 %.not99, label %.tail74, label %.tail74.thread
 
 .tail74:                                          ; preds = %sub_176
-  %12 = getelementptr inbounds i8, ptr %3, i64 2
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 2
   %13 = load i8, ptr %12, align 1
   %14 = icmp eq i8 %13, 80
   br i1 %14, label %16, label %.tail74.thread
@@ -114,12 +114,12 @@ sub_176:                                          ; preds = %sub_0
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
   %17 = load ptr, ptr %2, align 8
   %18 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, ptr noundef %17)
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load ptr, ptr %19, align 8
   %.not68 = icmp eq ptr %20, null
   %spec.select = select i1 %.not68, ptr @.str.7, ptr %20
   %21 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, ptr noundef nonnull %spec.select)
-  %22 = getelementptr inbounds i8, ptr %2, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 24
   br i1 %cond.fr, label %.split.us.preheader, label %.split.preheader
 
 .split.preheader:                                 ; preds = %16
@@ -143,9 +143,9 @@ sub_176:                                          ; preds = %sub_0
   %indvars.iv107 = phi i64 [ 0, %.lr.ph86.us ], [ %indvars.iv.next108, %27 ]
   %.08084.us = phi i64 [ 0, %.lr.ph86.us ], [ %.1.us91, %27 ]
   %28 = getelementptr %struct._endpoint_item_t, ptr %40, i64 %indvars.iv107
-  %29 = getelementptr inbounds i8, ptr %28, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 40
   %30 = load i64, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %28, i64 48
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 48
   %32 = load i64, ptr %31, align 8
   %33 = add i64 %32, %30
   %34 = icmp ult i64 %33, %.059.us
@@ -166,7 +166,7 @@ sub_176:                                          ; preds = %sub_0
   br i1 %.not71.us, label %.split95.us, label %.split.us, !llvm.loop !5
 
 .lr.ph.us:                                        ; preds = %.split.us
-  %38 = getelementptr inbounds i8, ptr %26, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %39 = load i32, ptr %38, align 8
   %.not101 = icmp eq i32 %39, 0
   br i1 %.not101, label %.lr.ph89.us.preheader, label %.lr.ph86.us
@@ -180,7 +180,7 @@ sub_176:                                          ; preds = %sub_0
   %41 = phi ptr [ %25, %.lr.ph89.us.preheader ], [ %70, %69 ]
   %42 = phi ptr [ %26, %.lr.ph89.us.preheader ], [ %70, %69 ]
   %indvars.iv112 = phi i64 [ 0, %.lr.ph89.us.preheader ], [ %indvars.iv.next113, %69 ]
-  %43 = getelementptr inbounds i8, ptr %42, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %44 = load i32, ptr %43, align 8
   %45 = zext i32 %44 to i64
   %46 = icmp samesign ult i64 %indvars.iv112, %45
@@ -189,24 +189,24 @@ sub_176:                                          ; preds = %sub_0
 47:                                               ; preds = %.lr.ph89.us
   %48 = load ptr, ptr %42, align 8
   %49 = getelementptr %struct._endpoint_item_t, ptr %48, i64 %indvars.iv112
-  %50 = getelementptr inbounds i8, ptr %49, i64 40
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 40
   %51 = load i64, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %49, i64 48
+  %52 = getelementptr inbounds nuw i8, ptr %49, i64 48
   %53 = load i64, ptr %52, align 8
   %54 = add i64 %53, %51
   %55 = icmp eq i64 %54, %.0.lcssa.us129
   br i1 %55, label %56, label %69
 
 56:                                               ; preds = %47
-  %57 = getelementptr inbounds i8, ptr %49, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %58 = tail call ptr @get_conversation_address(ptr noundef null, ptr noundef nonnull %57, i32 noundef 1) #9
   %59 = tail call ptr @get_endpoint_port(ptr noundef null, ptr noundef %49, i32 noundef 1) #9
   %60 = load i64, ptr %52, align 8
   %61 = load i64, ptr %50, align 8
   %62 = add i64 %61, %60
-  %63 = getelementptr inbounds i8, ptr %49, i64 64
+  %63 = getelementptr inbounds nuw i8, ptr %49, i64 64
   %64 = load i64, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %49, i64 56
+  %65 = getelementptr inbounds nuw i8, ptr %49, i64 56
   %66 = load i64, ptr %65, align 8
   %67 = add i64 %66, %64
   %68 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, ptr noundef %58, ptr noundef %59, i64 noundef %62, i64 noundef %67, i64 noundef %60, i64 noundef %64, i64 noundef %61, i64 noundef %66)
@@ -229,7 +229,7 @@ sub_176:                                          ; preds = %sub_0
   br i1 %.not69, label %.split95.us, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.split
-  %73 = getelementptr inbounds i8, ptr %72, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 8
   %74 = load i32, ptr %73, align 8
   %.not100 = icmp eq i32 %74, 0
   br i1 %.not100, label %.lr.ph89.preheader, label %.lr.ph86
@@ -243,9 +243,9 @@ sub_176:                                          ; preds = %sub_0
   %indvars.iv = phi i64 [ 0, %.lr.ph86 ], [ %indvars.iv.next, %76 ]
   %.08084 = phi i64 [ 0, %.lr.ph86 ], [ %.1, %76 ]
   %77 = getelementptr %struct._endpoint_item_t, ptr %75, i64 %indvars.iv
-  %78 = getelementptr inbounds i8, ptr %77, i64 40
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 40
   %79 = load i64, ptr %78, align 8
-  %80 = getelementptr inbounds i8, ptr %77, i64 48
+  %80 = getelementptr inbounds nuw i8, ptr %77, i64 48
   %81 = load i64, ptr %80, align 8
   %82 = add i64 %81, %79
   %83 = icmp ult i64 %82, %.059
@@ -263,7 +263,7 @@ sub_176:                                          ; preds = %sub_0
   %85 = phi ptr [ %71, %.lr.ph89.preheader ], [ %113, %112 ]
   %86 = phi ptr [ %72, %.lr.ph89.preheader ], [ %113, %112 ]
   %indvars.iv104 = phi i64 [ 0, %.lr.ph89.preheader ], [ %indvars.iv.next105, %112 ]
-  %87 = getelementptr inbounds i8, ptr %86, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 8
   %88 = load i32, ptr %87, align 8
   %89 = zext i32 %88 to i64
   %90 = icmp samesign ult i64 %indvars.iv104, %89
@@ -272,23 +272,23 @@ sub_176:                                          ; preds = %sub_0
 91:                                               ; preds = %.lr.ph89
   %92 = load ptr, ptr %86, align 8
   %93 = getelementptr %struct._endpoint_item_t, ptr %92, i64 %indvars.iv104
-  %94 = getelementptr inbounds i8, ptr %93, i64 40
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 40
   %95 = load i64, ptr %94, align 8
-  %96 = getelementptr inbounds i8, ptr %93, i64 48
+  %96 = getelementptr inbounds nuw i8, ptr %93, i64 48
   %97 = load i64, ptr %96, align 8
   %98 = add i64 %97, %95
   %99 = icmp eq i64 %98, %.0.lcssa138
   br i1 %99, label %100, label %112
 
 100:                                              ; preds = %91
-  %101 = getelementptr inbounds i8, ptr %93, i64 8
+  %101 = getelementptr inbounds nuw i8, ptr %93, i64 8
   %102 = tail call ptr @get_conversation_address(ptr noundef null, ptr noundef nonnull %101, i32 noundef 1) #9
   %103 = load i64, ptr %96, align 8
   %104 = load i64, ptr %94, align 8
   %105 = add i64 %104, %103
-  %106 = getelementptr inbounds i8, ptr %93, i64 64
+  %106 = getelementptr inbounds nuw i8, ptr %93, i64 64
   %107 = load i64, ptr %106, align 8
-  %108 = getelementptr inbounds i8, ptr %93, i64 56
+  %108 = getelementptr inbounds nuw i8, ptr %93, i64 56
   %109 = load i64, ptr %108, align 8
   %110 = add i64 %109, %107
   %111 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12, ptr noundef %102, i64 noundef %105, i64 noundef %110, i64 noundef %103, i64 noundef %107, i64 noundef %104, i64 noundef %109)

@@ -4154,7 +4154,7 @@ define internal void @ansi_map_stat_init(ptr noundef %0) #0 {
   br i1 %.not, label %8, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8
   %.not19 = icmp eq ptr %6, null
   br i1 %.not19, label %.loopexit, label %7
@@ -4166,15 +4166,15 @@ define internal void @ansi_map_stat_init(ptr noundef %0) #0 {
 8:                                                ; preds = %1
   %9 = tail call ptr @stat_tap_init_table(ptr noundef nonnull @.str.2535, i32 noundef 5, i32 noundef 0, ptr noundef nonnull @.str.2536) #5
   tail call void @stat_tap_add_table(ptr noundef %0, ptr noundef %9) #5
-  %10 = getelementptr inbounds i8, ptr %2, i64 8
-  %11 = getelementptr inbounds i8, ptr %2, i64 24
-  %12 = getelementptr inbounds i8, ptr %2, i64 32
-  %13 = getelementptr inbounds i8, ptr %2, i64 48
-  %14 = getelementptr inbounds i8, ptr %2, i64 56
-  %15 = getelementptr inbounds i8, ptr %2, i64 72
-  %16 = getelementptr inbounds i8, ptr %2, i64 80
-  %17 = getelementptr inbounds i8, ptr %2, i64 96
-  %18 = getelementptr inbounds i8, ptr %2, i64 104
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 56
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 72
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 80
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 96
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 104
   br label %19
 
 19:                                               ; preds = %8, %19
@@ -4196,7 +4196,7 @@ define internal void @ansi_map_stat_init(ptr noundef %0) #0 {
   %23 = add i32 %.020, 1
   %24 = sext i32 %23 to i64
   %25 = getelementptr [113 x %struct._value_string], ptr @ansi_map_opr_code_strings, i64 0, i64 %24
-  %26 = getelementptr inbounds i8, ptr %25, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load ptr, ptr %26, align 8
   %.not18 = icmp eq ptr %27, null
   br i1 %.not18, label %.loopexit, label %19, !llvm.loop !4
@@ -4215,14 +4215,14 @@ define internal range(i32 0, 2) i32 @ansi_map_stat_packet(ptr nocapture noundef 
 
 10:                                               ; preds = %5
   %11 = load ptr, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 104
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 104
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %14, align 8
   %16 = load i8, ptr %3, align 2
   %17 = zext i8 %16 to i32
   %18 = tail call ptr @stat_tap_get_field_data(ptr noundef %15, i32 noundef %17, i32 noundef 2) #5
-  %19 = getelementptr inbounds i8, ptr %18, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load i32, ptr %19, align 8
   %21 = add i32 %20, 1
   store i32 %21, ptr %19, align 8
@@ -4232,10 +4232,10 @@ define internal range(i32 0, 2) i32 @ansi_map_stat_packet(ptr nocapture noundef 
   %24 = load i8, ptr %3, align 2
   %25 = zext i8 %24 to i32
   %26 = tail call ptr @stat_tap_get_field_data(ptr noundef %15, i32 noundef %25, i32 noundef 3) #5
-  %27 = getelementptr inbounds i8, ptr %3, i64 2
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 2
   %28 = load i16, ptr %27, align 2
   %29 = zext i16 %28 to i32
-  %30 = getelementptr inbounds i8, ptr %26, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %31 = load i32, ptr %30, align 8
   %32 = add i32 %31, %29
   store i32 %32, ptr %30, align 8
@@ -4249,7 +4249,7 @@ define internal range(i32 0, 2) i32 @ansi_map_stat_packet(ptr nocapture noundef 
   %39 = uitofp i32 %21 to float
   %40 = fdiv float %38, %39
   %41 = fpext float %40 to double
-  %42 = getelementptr inbounds i8, ptr %37, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store double %41, ptr %42, align 8
   %43 = load i8, ptr %3, align 2
   %44 = zext i8 %43 to i32
@@ -4263,7 +4263,7 @@ define internal range(i32 0, 2) i32 @ansi_map_stat_packet(ptr nocapture noundef 
 
 ; Function Attrs: nounwind uwtable
 define internal void @ansi_map_stat_reset(ptr noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 20
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %3 = load i32, ptr %2, align 4
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -4271,15 +4271,15 @@ define internal void @ansi_map_stat_reset(ptr noundef %0) #0 {
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %.020 = phi i32 [ %10, %.lr.ph ], [ 0, %1 ]
   %4 = tail call ptr @stat_tap_get_field_data(ptr noundef nonnull %0, i32 noundef %.020, i32 noundef 2) #5
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 0, ptr %5, align 8
   tail call void @stat_tap_set_field_data(ptr noundef nonnull %0, i32 noundef %.020, i32 noundef 2, ptr noundef %4) #5
   %6 = tail call ptr @stat_tap_get_field_data(ptr noundef nonnull %0, i32 noundef %.020, i32 noundef 3) #5
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 0, ptr %7, align 8
   tail call void @stat_tap_set_field_data(ptr noundef nonnull %0, i32 noundef %.020, i32 noundef 3, ptr noundef %6) #5
   %8 = tail call ptr @stat_tap_get_field_data(ptr noundef nonnull %0, i32 noundef %.020, i32 noundef 4) #5
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store double 0.000000e+00, ptr %9, align 8
   tail call void @stat_tap_set_field_data(ptr noundef nonnull %0, i32 noundef %.020, i32 noundef 4, ptr noundef %8) #5
   %10 = add nuw i32 %.020, 1
@@ -4315,7 +4315,7 @@ define internal i32 @dissect_ansi_map(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %6, label %672, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   call void @col_set_str(ptr noundef %9, i32 noundef 34, ptr noundef nonnull @.str.1598) #5
   %10 = load i32, ptr @proto_ansi_map, align 4
@@ -4324,7 +4324,7 @@ define internal i32 @dissect_ansi_map(ptr noundef %0, ptr noundef %1, ptr nounde
   %13 = call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %12) #5
   store i1 false, ptr @ansi_map_is_invoke, align 4
   store i8 0, ptr @ServiceIndicator, align 1
-  %14 = getelementptr inbounds i8, ptr %3, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %15 = load i32, ptr %14, align 8
   switch i32 %15, label %670 [
     i32 1, label %16
@@ -4334,7 +4334,7 @@ define internal i32 @dissect_ansi_map(ptr noundef %0, ptr noundef %1, ptr nounde
   ]
 
 16:                                               ; preds = %7
-  %17 = getelementptr inbounds i8, ptr %3, i64 52
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 52
   %18 = load i32, ptr %17, align 4
   %19 = and i32 %18, 255
   store i32 %19, ptr @OperationCode, align 4
@@ -4342,7 +4342,7 @@ define internal i32 @dissect_ansi_map(ptr noundef %0, ptr noundef %1, ptr nounde
   %20 = load ptr, ptr %8, align 8
   %21 = call ptr @val_to_str_ext(i32 noundef %19, ptr noundef nonnull @ansi_map_opr_code_strings_ext, ptr noundef nonnull @.str.2547) #5
   call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.2546, ptr noundef %21) #5
-  %22 = getelementptr inbounds i8, ptr %3, i64 56
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %23 = load ptr, ptr %22, align 8
   %24 = load i32, ptr @OperationCode, align 4
   %25 = call ptr @val_to_str_ext(i32 noundef %24, ptr noundef nonnull @ansi_map_opr_code_strings_ext, ptr noundef nonnull @.str.2547) #5
@@ -4477,7 +4477,7 @@ define internal i32 @dissect_ansi_map(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %343
 
 38:                                               ; preds = %16
-  %39 = getelementptr inbounds i8, ptr %5, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %40 = load ptr, ptr %39, align 8
   %41 = call ptr @proto_tree_add_expert(ptr noundef %13, ptr noundef %40, ptr noundef nonnull @ei_ansi_map_no_data, ptr noundef %0, i32 noundef 0, i32 noundef -1) #5
   br label %343
@@ -4553,13 +4553,13 @@ define internal i32 @dissect_ansi_map(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %343
 
 84:                                               ; preds = %16
-  %85 = getelementptr inbounds i8, ptr %5, i64 16
+  %85 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %86 = load ptr, ptr %85, align 8
   %87 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %13, ptr noundef %86, ptr noundef nonnull @ei_ansi_map_unknown_invokeData_blob, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.2555) #5
   br label %343
 
 88:                                               ; preds = %16
-  %89 = getelementptr inbounds i8, ptr %5, i64 16
+  %89 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %90 = load ptr, ptr %89, align 8
   %91 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %13, ptr noundef %90, ptr noundef nonnull @ei_ansi_map_unknown_invokeData_blob, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.2556) #5
   br label %343
@@ -4570,7 +4570,7 @@ define internal i32 @dissect_ansi_map(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %343
 
 95:                                               ; preds = %16
-  %96 = getelementptr inbounds i8, ptr %5, i64 16
+  %96 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %97 = load ptr, ptr %96, align 8
   %98 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %13, ptr noundef %97, ptr noundef nonnull @ei_ansi_map_unknown_invokeData_blob, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.2557) #5
   br label %343
@@ -4671,7 +4671,7 @@ define internal i32 @dissect_ansi_map(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %343
 
 156:                                              ; preds = %16
-  %157 = getelementptr inbounds i8, ptr %5, i64 16
+  %157 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %158 = load ptr, ptr %157, align 8
   %159 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %13, ptr noundef %158, ptr noundef nonnull @ei_ansi_map_unknown_invokeData_blob, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.2558) #5
   br label %343
@@ -4977,7 +4977,7 @@ define internal i32 @dissect_ansi_map(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %343
 
 .thread.i:                                        ; preds = %16
-  %340 = getelementptr inbounds i8, ptr %5, i64 16
+  %340 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %341 = load ptr, ptr %340, align 8
   %342 = call ptr @proto_tree_add_expert(ptr noundef %13, ptr noundef %341, ptr noundef nonnull @ei_ansi_map_unknown_invokeData_blob, ptr noundef %0, i32 noundef 0, i32 noundef -1) #5
   store i1 true, ptr @dissect_invokeData.opCodeKnown, align 4
@@ -4992,7 +4992,7 @@ define internal i32 @dissect_ansi_map(ptr noundef %0, ptr noundef %1, ptr nounde
   %346 = trunc nuw i32 %345 to i8
   %347 = load ptr, ptr @dissect_invokeData.tap_p, align 8
   store i8 %346, ptr %347, align 2
-  %348 = getelementptr inbounds i8, ptr %347, i64 2
+  %348 = getelementptr inbounds nuw i8, ptr %347, i64 2
   store i16 0, ptr %348, align 2
   %349 = load i32, ptr @ansi_map_tap, align 4
   %350 = load ptr, ptr @g_pinfo, align 8
@@ -5000,23 +5000,23 @@ define internal i32 @dissect_ansi_map(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %dissect_invokeData.exit
 
 dissect_invokeData.exit:                          ; preds = %.thread.i, %343, %344
-  %351 = getelementptr inbounds i8, ptr %1, i64 208
-  %352 = getelementptr inbounds i8, ptr %1, i64 232
-  %353 = getelementptr inbounds i8, ptr %1, i64 408
+  %351 = getelementptr inbounds nuw i8, ptr %1, i64 208
+  %352 = getelementptr inbounds nuw i8, ptr %1, i64 232
+  %353 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %354 = load ptr, ptr %353, align 8
   %355 = call ptr @address_to_str(ptr noundef %354, ptr noundef nonnull %351) #5
   %356 = load ptr, ptr %353, align 8
   %357 = call ptr @address_to_str(ptr noundef %356, ptr noundef nonnull %352) #5
-  %358 = getelementptr inbounds i8, ptr %1, i64 80
+  %358 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %359 = load ptr, ptr %358, align 8
-  %360 = getelementptr inbounds i8, ptr %359, i64 50
+  %360 = getelementptr inbounds nuw i8, ptr %359, i64 50
   %361 = load i16, ptr %360, align 2
   %362 = and i16 %361, 8
   %.not.i = icmp eq i16 %362, 0
   br i1 %.not.i, label %363, label %update_saved_invokedata.exit
 
 363:                                              ; preds = %dissect_invokeData.exit
-  %364 = getelementptr inbounds i8, ptr %3, i64 32
+  %364 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %365 = load ptr, ptr %364, align 8
   %.not24.i = icmp eq ptr %365, null
   br i1 %.not24.i, label %update_saved_invokedata.exit, label %366
@@ -5048,34 +5048,34 @@ dissect_invokeData.exit:                          ; preds = %.thread.i, %343, %3
   %378 = load i32, ptr %17, align 4
   store i32 %378, ptr %377, align 4
   %379 = load i8, ptr @ServiceIndicator, align 1
-  %380 = getelementptr inbounds i8, ptr %377, i64 4
+  %380 = getelementptr inbounds nuw i8, ptr %377, i64 4
   store i8 %379, ptr %380, align 4
   %381 = load ptr, ptr @TransactionId_table, align 8
   %382 = call ptr @wmem_file_scope() #5
   %383 = call noalias ptr @wmem_strdup(ptr noundef %382, ptr noundef %.0.i) #5
-  %384 = getelementptr inbounds i8, ptr %1, i64 20
+  %384 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %385 = load i32, ptr %384, align 4
   %386 = call zeroext i1 @wmem_multimap_insert32(ptr noundef %381, ptr noundef %383, i32 noundef %385, ptr noundef nonnull %377) #5
   br label %update_saved_invokedata.exit
 
 387:                                              ; preds = %7
-  %388 = getelementptr inbounds i8, ptr %5, i64 16
+  %388 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %389 = load ptr, ptr %388, align 8
-  %390 = getelementptr inbounds i8, ptr %389, i64 208
-  %391 = getelementptr inbounds i8, ptr %389, i64 232
-  %392 = getelementptr inbounds i8, ptr %389, i64 408
+  %390 = getelementptr inbounds nuw i8, ptr %389, i64 208
+  %391 = getelementptr inbounds nuw i8, ptr %389, i64 232
+  %392 = getelementptr inbounds nuw i8, ptr %389, i64 408
   %393 = load ptr, ptr %392, align 8
   %394 = call noalias ptr @wmem_alloc(ptr noundef %393, i64 noundef 1024) #5
   %395 = load ptr, ptr %388, align 8
-  %396 = getelementptr inbounds i8, ptr %395, i64 408
+  %396 = getelementptr inbounds nuw i8, ptr %395, i64 408
   %397 = load ptr, ptr %396, align 8
   %398 = call ptr @address_to_str(ptr noundef %397, ptr noundef nonnull %390) #5
   %399 = load ptr, ptr %388, align 8
-  %400 = getelementptr inbounds i8, ptr %399, i64 408
+  %400 = getelementptr inbounds nuw i8, ptr %399, i64 408
   %401 = load ptr, ptr %400, align 8
   %402 = call ptr @address_to_str(ptr noundef %401, ptr noundef nonnull %391) #5
   %403 = load i32, ptr @ansi_map_response_matching_type, align 4
-  %404 = getelementptr inbounds i8, ptr %3, i64 32
+  %404 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %405 = load ptr, ptr %404, align 8
   switch i32 %403, label %410 [
     i32 0, label %406
@@ -5097,7 +5097,7 @@ dissect_invokeData.exit:                          ; preds = %.thread.i, %343, %3
 412:                                              ; preds = %410, %408, %406
   %413 = load ptr, ptr @TransactionId_table, align 8
   %414 = load ptr, ptr %388, align 8
-  %415 = getelementptr inbounds i8, ptr %414, i64 20
+  %415 = getelementptr inbounds nuw i8, ptr %414, i64 20
   %416 = load i32, ptr %415, align 4
   %417 = call ptr @wmem_multimap_lookup32_le(ptr noundef %413, ptr noundef %394, i32 noundef %416) #5
   %.not.i26 = icmp eq ptr %417, null
@@ -5105,7 +5105,7 @@ dissect_invokeData.exit:                          ; preds = %.thread.i, %343, %3
 
 418:                                              ; preds = %412
   %419 = load i32, ptr %417, align 4
-  %420 = getelementptr inbounds i8, ptr %417, i64 4
+  %420 = getelementptr inbounds nuw i8, ptr %417, i64 4
   %421 = load i8, ptr %420, align 4
   store i8 %421, ptr @ServiceIndicator, align 1
   br label %find_saved_invokedata.exit
@@ -5121,7 +5121,7 @@ find_saved_invokedata.exit:                       ; preds = %418, %422
   %424 = load ptr, ptr %8, align 8
   %425 = call ptr @val_to_str_ext(i32 noundef %.sink.i, ptr noundef nonnull @ansi_map_opr_code_strings_ext, ptr noundef nonnull @.str.2547) #5
   call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %424, i32 noundef 25, ptr noundef nonnull @.str.2549, ptr noundef %425) #5
-  %426 = getelementptr inbounds i8, ptr %3, i64 56
+  %426 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %427 = load ptr, ptr %426, align 8
   %428 = load i32, ptr @OperationCode, align 4
   %429 = call ptr @val_to_str_ext(i32 noundef %428, ptr noundef nonnull @ansi_map_opr_code_strings_ext, ptr noundef nonnull @.str.2547) #5
@@ -5585,7 +5585,7 @@ find_saved_invokedata.exit:                       ; preds = %418, %422
   %657 = trunc nuw i32 %656 to i8
   %658 = load ptr, ptr @dissect_returnData.tap_p, align 8
   store i8 %657, ptr %658, align 2
-  %659 = getelementptr inbounds i8, ptr %658, i64 2
+  %659 = getelementptr inbounds nuw i8, ptr %658, i64 2
   store i16 0, ptr %659, align 2
   %660 = load i32, ptr @ansi_map_tap, align 4
   %661 = load ptr, ptr @g_pinfo, align 8
@@ -5823,7 +5823,7 @@ define internal i32 @dissect_ansi_map_InterMSCCircuitID(i1 noundef zeroext %0, p
   br i1 %.not, label %24, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %3, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr @ett_billingid, align 4
   %14 = call ptr @proto_item_add_subtree(ptr noundef %12, i32 noundef %13) #5
@@ -5942,16 +5942,16 @@ define internal fastcc i32 @dissect_ansi_map_MINType(i1 noundef zeroext %0, ptr 
   br i1 %.not, label %25, label %11
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %3, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %13 = load ptr, ptr %12, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  %14 = getelementptr inbounds i8, ptr %3, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr @ett_mintype, align 4
   %17 = call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #5
   %18 = load i32, ptr @hf_ansi_map_bcd_digits, align 4
   %19 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %10, i32 noundef 0) #5
-  %20 = getelementptr inbounds i8, ptr %13, i64 408
+  %20 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %21 = load ptr, ptr %20, align 8
   %22 = call ptr @proto_tree_add_item_ret_display_string(ptr noundef %17, i32 noundef %18, ptr noundef nonnull %10, i32 noundef 0, i32 noundef %19, i32 noundef -2147483580, ptr noundef %21, ptr noundef nonnull %7) #5
   %23 = load ptr, ptr %14, align 8
@@ -6158,12 +6158,12 @@ define internal fastcc i32 @dissect_ansi_map_DigitsType(i1 noundef zeroext %0, p
   br i1 %.not, label %110, label %13
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %3, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %15 = load ptr, ptr %14, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
-  %16 = getelementptr inbounds i8, ptr %3, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %17 = load ptr, ptr %16, align 8
   %18 = load i32, ptr @ett_digitstype, align 4
   %19 = call ptr @proto_item_add_subtree(ptr noundef %17, i32 noundef %18) #5
@@ -6217,7 +6217,7 @@ define internal fastcc i32 @dissect_ansi_map_DigitsType(i1 noundef zeroext %0, p
 
 48:                                               ; preds = %43
   %49 = load i32, ptr @hf_ansi_map_bcd_digits, align 4
-  %50 = getelementptr inbounds i8, ptr %15, i64 408
+  %50 = getelementptr inbounds nuw i8, ptr %15, i64 408
   %51 = load ptr, ptr %50, align 8
   %52 = call ptr @proto_tree_add_item_ret_display_string(ptr noundef %19, i32 noundef %49, ptr noundef nonnull %12, i32 noundef 4, i32 noundef -1, i32 noundef -2147483576, ptr noundef %51, ptr noundef nonnull %7) #5
   %53 = load ptr, ptr %16, align 8
@@ -6235,7 +6235,7 @@ define internal fastcc i32 @dissect_ansi_map_DigitsType(i1 noundef zeroext %0, p
 60:                                               ; preds = %55
   %61 = load i32, ptr @hf_ansi_map_ia5_digits, align 4
   %62 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %12, i32 noundef 4) #5
-  %63 = getelementptr inbounds i8, ptr %15, i64 408
+  %63 = getelementptr inbounds nuw i8, ptr %15, i64 408
   %64 = load ptr, ptr %63, align 8
   %65 = call ptr @proto_tree_add_item_ret_string(ptr noundef %19, i32 noundef %61, ptr noundef nonnull %12, i32 noundef 4, i32 noundef %62, i32 noundef 0, ptr noundef %64, ptr noundef nonnull %8) #5
   %66 = load ptr, ptr %16, align 8
@@ -6263,7 +6263,7 @@ define internal fastcc i32 @dissect_ansi_map_DigitsType(i1 noundef zeroext %0, p
 
 77:                                               ; preds = %75
   %78 = load i32, ptr @hf_ansi_map_bcd_digits, align 4
-  %79 = getelementptr inbounds i8, ptr %15, i64 408
+  %79 = getelementptr inbounds nuw i8, ptr %15, i64 408
   %80 = load ptr, ptr %79, align 8
   %81 = call ptr @proto_tree_add_item_ret_display_string(ptr noundef %19, i32 noundef %78, ptr noundef nonnull %12, i32 noundef 4, i32 noundef -1, i32 noundef -2147483576, ptr noundef %80, ptr noundef nonnull %7) #5
   %82 = load ptr, ptr %16, align 8
@@ -6274,7 +6274,7 @@ define internal fastcc i32 @dissect_ansi_map_DigitsType(i1 noundef zeroext %0, p
 84:                                               ; preds = %75
   %85 = load i32, ptr @hf_ansi_map_ia5_digits, align 4
   %86 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %12, i32 noundef 4) #5
-  %87 = getelementptr inbounds i8, ptr %15, i64 408
+  %87 = getelementptr inbounds nuw i8, ptr %15, i64 408
   %88 = load ptr, ptr %87, align 8
   %89 = call ptr @proto_tree_add_item_ret_string(ptr noundef %19, i32 noundef %85, ptr noundef nonnull %12, i32 noundef 4, i32 noundef %86, i32 noundef 0, ptr noundef %88, ptr noundef nonnull %9) #5
   %90 = load ptr, ptr %16, align 8
@@ -6508,7 +6508,7 @@ define internal i32 @dissect_ansi_map_CallingFeaturesIndicator(i1 noundef zeroex
 
 10:                                               ; preds = %6
   %11 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %9, i32 noundef 0) #5
-  %12 = getelementptr inbounds i8, ptr %3, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = load i32, ptr @ett_mscid, align 4
   %15 = call ptr @proto_item_add_subtree(ptr noundef %13, i32 noundef %14) #5
@@ -7056,7 +7056,7 @@ define internal i32 @dissect_ansi_map_WIN_TriggerList(i1 noundef zeroext %0, ptr
 
 10:                                               ; preds = %6
   %11 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %9, i32 noundef 0) #5
-  %12 = getelementptr inbounds i8, ptr %3, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = load i32, ptr @ett_win_trigger_list, align 4
   %15 = call ptr @proto_item_add_subtree(ptr noundef %13, i32 noundef %14) #5
@@ -7738,7 +7738,7 @@ define internal i32 @dissect_ansi_map_CDMACallMode(i1 noundef zeroext %0, ptr no
 
 10:                                               ; preds = %6
   %11 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %9, i32 noundef 0) #5
-  %12 = getelementptr inbounds i8, ptr %3, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = load i32, ptr @ett_mscid, align 4
   %15 = call ptr @proto_item_add_subtree(ptr noundef %13, i32 noundef %14) #5
@@ -7789,7 +7789,7 @@ define internal i32 @dissect_ansi_map_CDMAChannelData(i1 noundef zeroext %0, ptr
 
 10:                                               ; preds = %6
   %11 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %9, i32 noundef 0) #5
-  %12 = getelementptr inbounds i8, ptr %3, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = load i32, ptr @ett_cdmachanneldata, align 4
   %15 = call ptr @proto_item_add_subtree(ptr noundef %13, i32 noundef %14) #5
@@ -8248,7 +8248,7 @@ define internal i32 @dissect_ansi_map_ExtendedSystemMyTypeCode(i1 noundef zeroex
   br i1 %.not, label %19, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %3, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr @ett_extendedsystemmytypecode, align 4
   %14 = call ptr @proto_item_add_subtree(ptr noundef %12, i32 noundef %13) #5
@@ -8336,12 +8336,12 @@ define internal i32 @dissect_ansi_map_CDMA2000HandoffInvokeIOSData(i1 noundef ze
   br i1 %.not, label %19, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %3, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr @ett_CDMA2000HandoffInvokeIOSData, align 4
   %14 = call ptr @proto_item_add_subtree(ptr noundef %12, i32 noundef %13) #5
   %15 = load ptr, ptr %7, align 8
-  %16 = getelementptr inbounds i8, ptr %3, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = call i32 @tvb_reported_length_remaining(ptr noundef %15, i32 noundef 0) #5
   call void @dissect_cdma2000_a1_elements(ptr noundef %15, ptr noundef %17, ptr noundef %14, i32 noundef 0, i32 noundef %18) #5
@@ -8693,7 +8693,7 @@ define internal i32 @dissect_ansi_map_SMS_BearerData(i1 noundef zeroext %0, ptr 
   br i1 %11, label %12, label %15
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %3, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %14 = load ptr, ptr %13, align 8
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %14, ptr noundef nonnull @.str.2569, i32 noundef %10) #5
   store ptr null, ptr @SMS_BearerData_tvb, align 8
@@ -8762,7 +8762,7 @@ define internal i32 @dissect_ansi_map_SMS_TeleserviceIdentifier(i1 noundef zeroe
   br i1 %12, label %13, label %16
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %3, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %15 = load ptr, ptr %14, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %15, ptr noundef nonnull @.str.2569, i32 noundef %11) #5
   br label %25
@@ -10028,12 +10028,12 @@ define internal i32 @dissect_ansi_map_CDMA2000HandoffResponseIOSData(i1 noundef 
   br i1 %.not, label %19, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %3, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr @ett_CDMA2000HandoffResponseIOSData, align 4
   %14 = call ptr @proto_item_add_subtree(ptr noundef %12, i32 noundef %13) #5
   %15 = load ptr, ptr %7, align 8
-  %16 = getelementptr inbounds i8, ptr %3, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = call i32 @tvb_reported_length_remaining(ptr noundef %15, i32 noundef 0) #5
   call void @dissect_cdma2000_a1_elements(ptr noundef %15, ptr noundef %17, ptr noundef %14, i32 noundef 0, i32 noundef %18) #5

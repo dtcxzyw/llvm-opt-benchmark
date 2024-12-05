@@ -258,7 +258,7 @@ define internal i32 @dissect_olsr(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %6, label %7, label %11
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 @tvb_captured_length(ptr noundef %0) #3
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %9, i32 noundef 25, ptr noundef nonnull @.str.112, i32 noundef %10) #3
@@ -269,7 +269,7 @@ define internal i32 @dissect_olsr(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %13 = zext i16 %12 to i32
   %14 = tail call i32 @tvb_reported_length(ptr noundef %0) #3
   %15 = icmp ult i32 %14, %13
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load ptr, ptr %16, align 8
   br i1 %15, label %18, label %19
 
@@ -281,7 +281,7 @@ define internal i32 @dissect_olsr(ptr noundef %0, ptr noundef %1, ptr noundef %2
   tail call void @col_set_str(ptr noundef %17, i32 noundef 34, ptr noundef nonnull @.str.113) #3
   %20 = load ptr, ptr %16, align 8
   tail call void @col_clear(ptr noundef %20, i32 noundef 25) #3
-  %21 = getelementptr inbounds i8, ptr %1, i64 208
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 208
   %22 = load i32, ptr %21, align 8
   %23 = and i32 %22, -2
   %switch = icmp eq i32 %23, 2
@@ -309,8 +309,8 @@ define internal i32 @dissect_olsr(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %36, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %26
-  %37 = getelementptr inbounds i8, ptr %1, i64 212
-  %38 = getelementptr inbounds i8, ptr %1, i64 408
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 212
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %39
 
 39:                                               ; preds = %.lr.ph, %dissect_olsr_tc.exit
@@ -795,8 +795,8 @@ define internal noundef i32 @handle_olsr_hello_rfc(ptr noundef %0, ptr noundef %
   br i1 %6, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %5
-  %7 = getelementptr inbounds i8, ptr %1, i64 212
-  %8 = getelementptr inbounds i8, ptr %1, i64 208
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 212
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 208
   br label %9
 
 9:                                                ; preds = %.lr.ph, %18
@@ -839,9 +839,9 @@ define internal noundef i32 @handle_olsr_hello_olsrorg(ptr noundef %0, ptr nound
   br i1 %6, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %5
-  %7 = getelementptr inbounds i8, ptr %1, i64 212
-  %8 = getelementptr inbounds i8, ptr %1, i64 208
-  %9 = getelementptr inbounds i8, ptr %1, i64 408
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 212
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 208
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %10
 
 10:                                               ; preds = %.lr.ph, %20
@@ -925,7 +925,7 @@ define internal fastcc noundef range(i32 17, 65536) i32 @dissect_olsrorg_nameser
   br i1 %19, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %.preheader
-  %20 = getelementptr inbounds i8, ptr %1, i64 208
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 208
   br label %26
 
 21:                                               ; preds = %10
@@ -1018,8 +1018,8 @@ define internal fastcc noundef range(i32 17, 65536) i32 @dissect_nrlolsr_tc(ptr 
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %11, ptr noundef %0, i32 noundef %3, i32 noundef 2, i32 noundef 0) #3
   %13 = add nuw nsw i32 %3, 4
   %14 = sub nsw i32 %4, %13
-  %15 = getelementptr inbounds i8, ptr %1, i64 208
-  %16 = getelementptr inbounds i8, ptr %1, i64 212
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 208
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 212
   %17 = load i32, ptr %16, align 4
   %18 = add i32 %17, 2
   %19 = sdiv i32 %14, %18

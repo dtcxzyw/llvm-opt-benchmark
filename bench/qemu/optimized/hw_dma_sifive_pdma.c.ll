@@ -57,9 +57,9 @@ declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 define internal void @sifive_pdma_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #4
-  %desc = getelementptr inbounds i8, ptr %call.i, i64 112
+  %desc = getelementptr inbounds nuw i8, ptr %call.i, i64 112
   store ptr @.str.2, ptr %desc, align 8
-  %realize = getelementptr inbounds i8, ptr %call.i, i64 144
+  %realize = getelementptr inbounds nuw i8, ptr %call.i, i64 144
   store ptr @sifive_pdma_realize, ptr %realize, align 8
   ret void
 }
@@ -68,11 +68,11 @@ entry:
 define internal void @sifive_pdma_realize(ptr noundef %dev, ptr nocapture readnone %errp) #0 {
 entry:
   %call = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, i32 noundef 456, ptr noundef nonnull @__func__.sifive_pdma_realize) #4
-  %iomem = getelementptr inbounds i8, ptr %call, i64 816
+  %iomem = getelementptr inbounds nuw i8, ptr %call, i64 816
   tail call void @memory_region_init_io(ptr noundef nonnull %iomem, ptr noundef %dev, ptr noundef nonnull @sifive_pdma_ops, ptr noundef %call, ptr noundef nonnull @.str, i64 noundef 1048576) #4
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.13, i32 noundef 20, ptr noundef nonnull @__func__.SYS_BUS_DEVICE) #4
   tail call void @sysbus_init_mmio(ptr noundef %call.i, ptr noundef nonnull %iomem) #4
-  %irq = getelementptr inbounds i8, ptr %call, i64 1088
+  %irq = getelementptr inbounds nuw i8, ptr %call, i64 1088
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.body
@@ -135,7 +135,7 @@ sw.bb:                                            ; preds = %if.end5
   ]
 
 sw.bb.i:                                          ; preds = %sw.bb
-  %chan.i = getelementptr inbounds i8, ptr %opaque, i64 1152
+  %chan.i = getelementptr inbounds nuw i8, ptr %opaque, i64 1152
   %narrow22.i = mul nuw nsw i32 %conv, 72
   %3 = zext nneg i32 %narrow22.i to i64
   %4 = getelementptr i8, ptr %chan.i, i64 %3
@@ -144,7 +144,7 @@ sw.bb.i:                                          ; preds = %sw.bb
   br label %return
 
 sw.bb1.i:                                         ; preds = %sw.bb
-  %chan2.i = getelementptr inbounds i8, ptr %opaque, i64 1152
+  %chan2.i = getelementptr inbounds nuw i8, ptr %opaque, i64 1152
   %narrow20.i = mul nuw nsw i32 %conv, 72
   %6 = zext nneg i32 %narrow20.i to i64
   %7 = getelementptr i8, ptr %chan2.i, i64 %6
@@ -153,7 +153,7 @@ sw.bb1.i:                                         ; preds = %sw.bb
   br label %return
 
 sw.bb5.i:                                         ; preds = %sw.bb
-  %chan6.i = getelementptr inbounds i8, ptr %opaque, i64 1152
+  %chan6.i = getelementptr inbounds nuw i8, ptr %opaque, i64 1152
   %narrow18.i = mul nuw nsw i32 %conv, 72
   %9 = zext nneg i32 %narrow18.i to i64
   %10 = getelementptr i8, ptr %chan6.i, i64 %9
@@ -162,7 +162,7 @@ sw.bb5.i:                                         ; preds = %sw.bb
   br label %return
 
 sw.bb9.i:                                         ; preds = %sw.bb
-  %chan10.i = getelementptr inbounds i8, ptr %opaque, i64 1152
+  %chan10.i = getelementptr inbounds nuw i8, ptr %opaque, i64 1152
   %narrow16.i = mul nuw nsw i32 %conv, 72
   %12 = zext nneg i32 %narrow16.i to i64
   %13 = getelementptr i8, ptr %chan10.i, i64 %12
@@ -171,7 +171,7 @@ sw.bb9.i:                                         ; preds = %sw.bb
   br label %return
 
 sw.bb13.i:                                        ; preds = %sw.bb
-  %chan14.i = getelementptr inbounds i8, ptr %opaque, i64 1152
+  %chan14.i = getelementptr inbounds nuw i8, ptr %opaque, i64 1152
   %narrow14.i = mul nuw nsw i32 %conv, 72
   %15 = zext nneg i32 %narrow14.i to i64
   %16 = getelementptr i8, ptr %chan14.i, i64 %15
@@ -180,7 +180,7 @@ sw.bb13.i:                                        ; preds = %sw.bb
   br label %return
 
 sw.bb17.i:                                        ; preds = %sw.bb
-  %chan18.i = getelementptr inbounds i8, ptr %opaque, i64 1152
+  %chan18.i = getelementptr inbounds nuw i8, ptr %opaque, i64 1152
   %narrow.i = mul nuw nsw i32 %conv, 72
   %18 = zext nneg i32 %narrow.i to i64
   %19 = getelementptr i8, ptr %chan18.i, i64 %18
@@ -219,14 +219,14 @@ sw.bb7:                                           ; preds = %if.end5
   ]
 
 sw.bb.i24:                                        ; preds = %sw.bb7
-  %chan.i25 = getelementptr inbounds i8, ptr %opaque, i64 1152
+  %chan.i25 = getelementptr inbounds nuw i8, ptr %opaque, i64 1152
   %idxprom.i = zext nneg i32 %conv to i64
   %arrayidx.i = getelementptr [4 x %struct.sifive_pdma_chan], ptr %chan.i25, i64 0, i64 %idxprom.i
   %22 = load i32, ptr %arrayidx.i, align 8
   br label %sifive_pdma_readl.exit
 
 sw.bb1.i22:                                       ; preds = %sw.bb7
-  %chan2.i23 = getelementptr inbounds i8, ptr %opaque, i64 1152
+  %chan2.i23 = getelementptr inbounds nuw i8, ptr %opaque, i64 1152
   %narrow56.i = mul nuw nsw i32 %conv, 72
   %23 = or disjoint i32 %narrow56.i, 4
   %next_config.offs.i = zext nneg i32 %23 to i64
@@ -235,7 +235,7 @@ sw.bb1.i22:                                       ; preds = %sw.bb7
   br label %sifive_pdma_readl.exit
 
 sw.bb5.i19:                                       ; preds = %sw.bb7
-  %chan6.i20 = getelementptr inbounds i8, ptr %opaque, i64 1152
+  %chan6.i20 = getelementptr inbounds nuw i8, ptr %opaque, i64 1152
   %narrow54.i = mul nuw nsw i32 %conv, 72
   %25 = zext nneg i32 %narrow54.i to i64
   %26 = getelementptr i8, ptr %chan6.i20, i64 %25
@@ -245,7 +245,7 @@ sw.bb5.i19:                                       ; preds = %sw.bb7
   br label %sifive_pdma_readl.exit
 
 sw.bb9.i17:                                       ; preds = %sw.bb7
-  %chan10.i18 = getelementptr inbounds i8, ptr %opaque, i64 1152
+  %chan10.i18 = getelementptr inbounds nuw i8, ptr %opaque, i64 1152
   %narrow52.i = mul nuw nsw i32 %conv, 72
   %28 = zext nneg i32 %narrow52.i to i64
   %29 = getelementptr i8, ptr %chan10.i18, i64 %28
@@ -256,7 +256,7 @@ sw.bb9.i17:                                       ; preds = %sw.bb7
   br label %sifive_pdma_readl.exit
 
 sw.bb16.i:                                        ; preds = %sw.bb7
-  %chan17.i = getelementptr inbounds i8, ptr %opaque, i64 1152
+  %chan17.i = getelementptr inbounds nuw i8, ptr %opaque, i64 1152
   %narrow50.i = mul nuw nsw i32 %conv, 72
   %31 = zext nneg i32 %narrow50.i to i64
   %32 = getelementptr i8, ptr %chan17.i, i64 %31
@@ -266,7 +266,7 @@ sw.bb16.i:                                        ; preds = %sw.bb7
   br label %sifive_pdma_readl.exit
 
 sw.bb22.i:                                        ; preds = %sw.bb7
-  %chan23.i = getelementptr inbounds i8, ptr %opaque, i64 1152
+  %chan23.i = getelementptr inbounds nuw i8, ptr %opaque, i64 1152
   %narrow48.i = mul nuw nsw i32 %conv, 72
   %34 = zext nneg i32 %narrow48.i to i64
   %35 = getelementptr i8, ptr %chan23.i, i64 %34
@@ -277,7 +277,7 @@ sw.bb22.i:                                        ; preds = %sw.bb7
   br label %sifive_pdma_readl.exit
 
 sw.bb29.i:                                        ; preds = %sw.bb7
-  %chan30.i = getelementptr inbounds i8, ptr %opaque, i64 1152
+  %chan30.i = getelementptr inbounds nuw i8, ptr %opaque, i64 1152
   %narrow46.i = mul nuw nsw i32 %conv, 72
   %37 = zext nneg i32 %narrow46.i to i64
   %38 = getelementptr i8, ptr %chan30.i, i64 %37
@@ -287,7 +287,7 @@ sw.bb29.i:                                        ; preds = %sw.bb7
   br label %sifive_pdma_readl.exit
 
 sw.bb35.i:                                        ; preds = %sw.bb7
-  %chan36.i = getelementptr inbounds i8, ptr %opaque, i64 1152
+  %chan36.i = getelementptr inbounds nuw i8, ptr %opaque, i64 1152
   %narrow44.i = mul nuw nsw i32 %conv, 72
   %40 = zext nneg i32 %narrow44.i to i64
   %41 = getelementptr i8, ptr %chan36.i, i64 %40
@@ -298,7 +298,7 @@ sw.bb35.i:                                        ; preds = %sw.bb7
   br label %sifive_pdma_readl.exit
 
 sw.bb42.i:                                        ; preds = %sw.bb7
-  %chan43.i = getelementptr inbounds i8, ptr %opaque, i64 1152
+  %chan43.i = getelementptr inbounds nuw i8, ptr %opaque, i64 1152
   %narrow42.i = mul nuw nsw i32 %conv, 72
   %43 = zext nneg i32 %narrow42.i to i64
   %44 = getelementptr i8, ptr %chan43.i, i64 %43
@@ -307,7 +307,7 @@ sw.bb42.i:                                        ; preds = %sw.bb7
   br label %sifive_pdma_readl.exit
 
 sw.bb46.i:                                        ; preds = %sw.bb7
-  %chan47.i = getelementptr inbounds i8, ptr %opaque, i64 1152
+  %chan47.i = getelementptr inbounds nuw i8, ptr %opaque, i64 1152
   %narrow40.i = mul nuw nsw i32 %conv, 72
   %46 = zext nneg i32 %narrow40.i to i64
   %47 = getelementptr i8, ptr %chan47.i, i64 %46
@@ -317,7 +317,7 @@ sw.bb46.i:                                        ; preds = %sw.bb7
   br label %sifive_pdma_readl.exit
 
 sw.bb52.i:                                        ; preds = %sw.bb7
-  %chan53.i = getelementptr inbounds i8, ptr %opaque, i64 1152
+  %chan53.i = getelementptr inbounds nuw i8, ptr %opaque, i64 1152
   %narrow38.i = mul nuw nsw i32 %conv, 72
   %49 = zext nneg i32 %narrow38.i to i64
   %50 = getelementptr i8, ptr %chan53.i, i64 %49
@@ -328,7 +328,7 @@ sw.bb52.i:                                        ; preds = %sw.bb7
   br label %sifive_pdma_readl.exit
 
 sw.bb59.i:                                        ; preds = %sw.bb7
-  %chan60.i = getelementptr inbounds i8, ptr %opaque, i64 1152
+  %chan60.i = getelementptr inbounds nuw i8, ptr %opaque, i64 1152
   %narrow36.i = mul nuw nsw i32 %conv, 72
   %52 = zext nneg i32 %narrow36.i to i64
   %53 = getelementptr i8, ptr %chan60.i, i64 %52
@@ -338,7 +338,7 @@ sw.bb59.i:                                        ; preds = %sw.bb7
   br label %sifive_pdma_readl.exit
 
 sw.bb65.i:                                        ; preds = %sw.bb7
-  %chan66.i = getelementptr inbounds i8, ptr %opaque, i64 1152
+  %chan66.i = getelementptr inbounds nuw i8, ptr %opaque, i64 1152
   %narrow34.i = mul nuw nsw i32 %conv, 72
   %55 = zext nneg i32 %narrow34.i to i64
   %56 = getelementptr i8, ptr %chan66.i, i64 %55
@@ -349,7 +349,7 @@ sw.bb65.i:                                        ; preds = %sw.bb7
   br label %sifive_pdma_readl.exit
 
 sw.bb72.i:                                        ; preds = %sw.bb7
-  %chan73.i = getelementptr inbounds i8, ptr %opaque, i64 1152
+  %chan73.i = getelementptr inbounds nuw i8, ptr %opaque, i64 1152
   %narrow32.i = mul nuw nsw i32 %conv, 72
   %58 = zext nneg i32 %narrow32.i to i64
   %59 = getelementptr i8, ptr %chan73.i, i64 %58
@@ -359,7 +359,7 @@ sw.bb72.i:                                        ; preds = %sw.bb7
   br label %sifive_pdma_readl.exit
 
 sw.bb78.i:                                        ; preds = %sw.bb7
-  %chan79.i = getelementptr inbounds i8, ptr %opaque, i64 1152
+  %chan79.i = getelementptr inbounds nuw i8, ptr %opaque, i64 1152
   %narrow.i10 = mul nuw nsw i32 %conv, 72
   %61 = zext nneg i32 %narrow.i10 to i64
   %62 = getelementptr i8, ptr %chan79.i, i64 %61
@@ -436,7 +436,7 @@ sw.bb:                                            ; preds = %if.end5
   ]
 
 sw.bb.i:                                          ; preds = %sw.bb
-  %chan.i = getelementptr inbounds i8, ptr %opaque, i64 1152
+  %chan.i = getelementptr inbounds nuw i8, ptr %opaque, i64 1152
   %narrow12.i = mul nuw nsw i32 %conv, 72
   %3 = zext nneg i32 %narrow12.i to i64
   %4 = getelementptr i8, ptr %chan.i, i64 %3
@@ -445,7 +445,7 @@ sw.bb.i:                                          ; preds = %sw.bb
   br label %sw.epilog
 
 sw.bb1.i:                                         ; preds = %sw.bb
-  %chan2.i = getelementptr inbounds i8, ptr %opaque, i64 1152
+  %chan2.i = getelementptr inbounds nuw i8, ptr %opaque, i64 1152
   %narrow10.i = mul nuw nsw i32 %conv, 72
   %5 = zext nneg i32 %narrow10.i to i64
   %6 = getelementptr i8, ptr %chan2.i, i64 %5
@@ -454,7 +454,7 @@ sw.bb1.i:                                         ; preds = %sw.bb
   br label %sw.epilog
 
 sw.bb5.i:                                         ; preds = %sw.bb
-  %chan6.i = getelementptr inbounds i8, ptr %opaque, i64 1152
+  %chan6.i = getelementptr inbounds nuw i8, ptr %opaque, i64 1152
   %narrow.i = mul nuw nsw i32 %conv, 72
   %7 = zext nneg i32 %narrow.i to i64
   %8 = getelementptr i8, ptr %chan6.i, i64 %7
@@ -494,7 +494,7 @@ sw.bb6:                                           ; preds = %if.end5
   ]
 
 sw.bb.i13:                                        ; preds = %sw.bb6
-  %chan.i14 = getelementptr inbounds i8, ptr %opaque, i64 1152
+  %chan.i14 = getelementptr inbounds nuw i8, ptr %opaque, i64 1152
   %idxprom.i = zext nneg i32 %conv to i64
   %arrayidx.i = getelementptr [4 x %struct.sifive_pdma_chan], ptr %chan.i14, i64 0, i64 %idxprom.i
   %10 = load i32, ptr %arrayidx.i, align 8
@@ -509,9 +509,9 @@ sw.bb.i13:                                        ; preds = %sw.bb6
   br i1 %or.cond.i, label %if.end.i, label %if.end.thread.i
 
 if.end.thread.i:                                  ; preds = %sw.bb.i13
-  %next_config.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
+  %next_config.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 4
   store i32 1711276032, ptr %next_config.i, align 4
-  %next_bytes.i15 = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  %next_bytes.i15 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %next_bytes.i15, i8 0, i64 24, i1 false)
   br label %if.then49.i
 
@@ -549,7 +549,7 @@ if.end62.i:                                       ; preds = %if.then61.i, %if.en
   br label %sw.epilog
 
 sw.bb63.i:                                        ; preds = %sw.bb6
-  %chan64.i = getelementptr inbounds i8, ptr %opaque, i64 1152
+  %chan64.i = getelementptr inbounds nuw i8, ptr %opaque, i64 1152
   %narrow72.i = mul nuw nsw i32 %conv, 72
   %15 = or disjoint i32 %narrow72.i, 4
   %next_config67.offs.i = zext nneg i32 %15 to i64
@@ -558,7 +558,7 @@ sw.bb63.i:                                        ; preds = %sw.bb6
   br label %sw.epilog
 
 sw.bb68.i:                                        ; preds = %sw.bb6
-  %chan69.i = getelementptr inbounds i8, ptr %opaque, i64 1152
+  %chan69.i = getelementptr inbounds nuw i8, ptr %opaque, i64 1152
   %narrow70.i = mul nuw nsw i32 %conv, 72
   %16 = zext nneg i32 %narrow70.i to i64
   %17 = getelementptr i8, ptr %chan69.i, i64 %16
@@ -571,7 +571,7 @@ sw.bb68.i:                                        ; preds = %sw.bb6
   br label %sw.epilog
 
 sw.bb78.i:                                        ; preds = %sw.bb6
-  %chan79.i = getelementptr inbounds i8, ptr %opaque, i64 1152
+  %chan79.i = getelementptr inbounds nuw i8, ptr %opaque, i64 1152
   %narrow68.i = mul nuw nsw i32 %conv, 72
   %19 = zext nneg i32 %narrow68.i to i64
   %20 = getelementptr i8, ptr %chan79.i, i64 %19
@@ -584,7 +584,7 @@ sw.bb78.i:                                        ; preds = %sw.bb6
   br label %sw.epilog
 
 sw.bb89.i:                                        ; preds = %sw.bb6
-  %chan90.i = getelementptr inbounds i8, ptr %opaque, i64 1152
+  %chan90.i = getelementptr inbounds nuw i8, ptr %opaque, i64 1152
   %narrow66.i = mul nuw nsw i32 %conv, 72
   %22 = zext nneg i32 %narrow66.i to i64
   %23 = getelementptr i8, ptr %chan90.i, i64 %22
@@ -597,7 +597,7 @@ sw.bb89.i:                                        ; preds = %sw.bb6
   br label %sw.epilog
 
 sw.bb100.i:                                       ; preds = %sw.bb6
-  %chan101.i = getelementptr inbounds i8, ptr %opaque, i64 1152
+  %chan101.i = getelementptr inbounds nuw i8, ptr %opaque, i64 1152
   %narrow64.i = mul nuw nsw i32 %conv, 72
   %25 = zext nneg i32 %narrow64.i to i64
   %26 = getelementptr i8, ptr %chan101.i, i64 %25
@@ -610,7 +610,7 @@ sw.bb100.i:                                       ; preds = %sw.bb6
   br label %sw.epilog
 
 sw.bb111.i:                                       ; preds = %sw.bb6
-  %chan112.i = getelementptr inbounds i8, ptr %opaque, i64 1152
+  %chan112.i = getelementptr inbounds nuw i8, ptr %opaque, i64 1152
   %narrow62.i = mul nuw nsw i32 %conv, 72
   %28 = zext nneg i32 %narrow62.i to i64
   %29 = getelementptr i8, ptr %chan112.i, i64 %28
@@ -623,7 +623,7 @@ sw.bb111.i:                                       ; preds = %sw.bb6
   br label %sw.epilog
 
 sw.bb122.i:                                       ; preds = %sw.bb6
-  %chan123.i = getelementptr inbounds i8, ptr %opaque, i64 1152
+  %chan123.i = getelementptr inbounds nuw i8, ptr %opaque, i64 1152
   %narrow.i11 = mul nuw nsw i32 %conv, 72
   %31 = zext nneg i32 %narrow.i11 to i64
   %32 = getelementptr i8, ptr %chan123.i, i64 %31
@@ -665,16 +665,16 @@ declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #1
 define internal fastcc void @sifive_pdma_run(ptr nocapture noundef %s, i32 noundef range(i32 0, 4) %ch) unnamed_addr #0 {
 entry:
   %buf = alloca [64 x i8], align 16
-  %chan = getelementptr inbounds i8, ptr %s, i64 1152
+  %chan = getelementptr inbounds nuw i8, ptr %s, i64 1152
   %idxprom = zext nneg i32 %ch to i64
   %arrayidx = getelementptr [4 x %struct.sifive_pdma_chan], ptr %chan, i64 0, i64 %idxprom
-  %next_bytes = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %next_bytes = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %0 = load i64, ptr %next_bytes, align 8
-  %next_dst = getelementptr inbounds i8, ptr %arrayidx, i64 16
+  %next_dst = getelementptr inbounds nuw i8, ptr %arrayidx, i64 16
   %1 = load i64, ptr %next_dst, align 8
-  %next_src = getelementptr inbounds i8, ptr %arrayidx, i64 24
+  %next_src = getelementptr inbounds nuw i8, ptr %arrayidx, i64 24
   %2 = load i64, ptr %next_src, align 8
-  %next_config = getelementptr inbounds i8, ptr %arrayidx, i64 4
+  %next_config = getelementptr inbounds nuw i8, ptr %arrayidx, i64 4
   %3 = load i32, ptr %next_config, align 4
   %tobool.not = icmp eq i64 %0, 0
   br i1 %tobool.not, label %done, label %if.end
@@ -691,18 +691,18 @@ if.end13:                                         ; preds = %if.end
   %shl = shl nuw nsw i32 1, %spec.store.select
   %conv = zext nneg i32 %shl to i64
   %4 = add nuw nsw i64 %conv, 4294967295
-  %state = getelementptr inbounds i8, ptr %arrayidx, i64 64
+  %state = getelementptr inbounds nuw i8, ptr %arrayidx, i64 64
   store i32 1, ptr %state, align 8
   %5 = load i32, ptr %arrayidx, align 8
   %6 = and i32 %5, 1073741823
   store i32 %6, ptr %arrayidx, align 8
-  %exec_config = getelementptr inbounds i8, ptr %arrayidx, i64 32
+  %exec_config = getelementptr inbounds nuw i8, ptr %arrayidx, i64 32
   store i32 %3, ptr %exec_config, align 8
-  %exec_bytes = getelementptr inbounds i8, ptr %arrayidx, i64 40
+  %exec_bytes = getelementptr inbounds nuw i8, ptr %arrayidx, i64 40
   store i64 %0, ptr %exec_bytes, align 8
-  %exec_dst = getelementptr inbounds i8, ptr %arrayidx, i64 48
+  %exec_dst = getelementptr inbounds nuw i8, ptr %arrayidx, i64 48
   store i64 %1, ptr %exec_dst, align 8
-  %exec_src = getelementptr inbounds i8, ptr %arrayidx, i64 56
+  %exec_src = getelementptr inbounds nuw i8, ptr %arrayidx, i64 56
   store i64 %2, ptr %exec_src, align 8
   %7 = zext nneg i32 %spec.store.select to i64
   %div82 = lshr i64 %0, %7
@@ -764,7 +764,7 @@ if.then117:                                       ; preds = %if.end109
   br label %done
 
 done:                                             ; preds = %if.end109, %if.then117, %entry
-  %state134 = getelementptr inbounds i8, ptr %arrayidx, i64 64
+  %state134 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 64
   store i32 3, ptr %state134, align 8
   %21 = load i32, ptr %arrayidx, align 8
   %22 = and i32 %21, -1073741827
@@ -772,7 +772,7 @@ done:                                             ; preds = %if.end109, %if.then
   br label %return
 
 error:                                            ; preds = %if.end
-  %state151 = getelementptr inbounds i8, ptr %arrayidx, i64 64
+  %state151 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 64
   store i32 2, ptr %state151, align 8
   %24 = load i32, ptr %arrayidx, align 8
   %25 = or i32 %24, -2147483648
@@ -787,7 +787,7 @@ return:                                           ; preds = %error, %done
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @sifive_pdma_update_irq(ptr nocapture noundef %s, i32 noundef range(i32 0, 4) %ch) unnamed_addr #0 {
 entry:
-  %chan = getelementptr inbounds i8, ptr %s, i64 1152
+  %chan = getelementptr inbounds nuw i8, ptr %s, i64 1152
   %idxprom = zext nneg i32 %ch to i64
   %arrayidx = getelementptr [4 x %struct.sifive_pdma_chan], ptr %chan, i64 0, i64 %idxprom
   %0 = load i32, ptr %arrayidx, align 8
@@ -796,7 +796,7 @@ entry:
   %tobool8.not = icmp eq i64 %and7, 0
   %1 = and i64 %conv, 1073758208
   %or.cond.not = icmp eq i64 %1, 1073758208
-  %irq = getelementptr inbounds i8, ptr %s, i64 1088
+  %irq = getelementptr inbounds nuw i8, ptr %s, i64 1088
   %mul = shl nuw nsw i32 %ch, 1
   %idxprom21 = zext nneg i32 %mul to i64
   %arrayidx22 = getelementptr [8 x ptr], ptr %irq, i64 0, i64 %idxprom21
@@ -815,14 +815,14 @@ if.else42:                                        ; preds = %land.lhs.true29, %e
 
 if.end48:                                         ; preds = %land.lhs.true29, %if.else42
   %.sink18 = phi i32 [ 0, %if.else42 ], [ 1, %land.lhs.true29 ]
-  %irq43 = getelementptr inbounds i8, ptr %s, i64 1088
+  %irq43 = getelementptr inbounds nuw i8, ptr %s, i64 1088
   %mul44 = shl nuw nsw i32 %ch, 1
   %add45 = or disjoint i32 %mul44, 1
   %idxprom46 = zext nneg i32 %add45 to i64
   %arrayidx47 = getelementptr [8 x ptr], ptr %irq43, i64 0, i64 %idxprom46
   %4 = load ptr, ptr %arrayidx47, align 8
   tail call void @qemu_set_irq(ptr noundef %4, i32 noundef %.sink18) #4
-  %state = getelementptr inbounds i8, ptr %arrayidx, i64 64
+  %state = getelementptr inbounds nuw i8, ptr %arrayidx, i64 64
   store i32 0, ptr %state, align 8
   ret void
 }

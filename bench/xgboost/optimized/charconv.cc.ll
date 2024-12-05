@@ -68,7 +68,7 @@ define noundef i32 @_ZN7xgboost6detail16ToCharsFloatImplEfPc(float noundef %0, p
 18:                                               ; preds = %17, %16
   %.not9.i = icmp eq i32 %9, 0
   %19 = zext nneg i32 %.lobit.i to i64
-  %20 = getelementptr inbounds i8, ptr %1, i64 %19
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 %19
   br i1 %.not9.i, label %23, label %21
 
 21:                                               ; preds = %18
@@ -116,7 +116,7 @@ define noundef i32 @_ZN7xgboost6detail16ToCharsFloatImplEfPc(float noundef %0, p
   %42 = load i8, ptr %5, align 1
   %43 = trunc i8 %42 to i1
   %.sroa.0.0.copyload.i = load i64, ptr %3, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8
   %44 = call i64 @_ZN7xgboost6detail17PowerBaseComputer22ShortestRepresentationEbbhbNS0_15MantissaIntevalE(i1 noundef zeroext %41, i1 noundef zeroext %43, i8 noundef zeroext %39, i1 noundef zeroext %30, i64 %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i) #11
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
@@ -182,9 +182,9 @@ tailrecurse.i37.preheader.i:                      ; preds = %tailrecurse.i33.pre
 _ZN7xgboost6detail10RyuPrinter12OutputLengthEj.exit: ; preds = %5, %tailrecurse.i17.preheader.i, %tailrecurse.i21.preheader.i, %tailrecurse.i25.preheader.i, %tailrecurse.i29.preheader.i, %tailrecurse.i33.preheader.i, %tailrecurse.i37.preheader.i, %6
   %.0.i = phi i32 [ 9, %5 ], [ 8, %tailrecurse.i17.preheader.i ], [ 7, %tailrecurse.i21.preheader.i ], [ 6, %tailrecurse.i25.preheader.i ], [ 5, %tailrecurse.i29.preheader.i ], [ 4, %tailrecurse.i33.preheader.i ], [ 3, %tailrecurse.i37.preheader.i ], [ %..i, %6 ]
   %7 = zext nneg i32 %.063 to i64
-  %8 = getelementptr inbounds i8, ptr %2, i64 %7
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 %7
   %9 = zext nneg i32 %.0.i to i64
-  %10 = getelementptr inbounds i8, ptr %8, i64 %9
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 %9
   %.not85 = icmp ult i32 %.sroa.0.0.extract.trunc, 10000
   br i1 %.not85, label %._crit_edge, label %tailrecurse.i71.preheader
 
@@ -204,12 +204,12 @@ tailrecurse.i71.preheader:                        ; preds = %_ZN7xgboost6detail1
   %19 = getelementptr inbounds i8, ptr %10, i64 %18
   %20 = getelementptr inbounds i8, ptr %19, i64 -1
   %21 = zext nneg i16 %14 to i64
-  %22 = getelementptr inbounds i8, ptr @_ZN7xgboost6detailL8kItoaLutE, i64 %21
+  %22 = getelementptr inbounds nuw i8, ptr @_ZN7xgboost6detailL8kItoaLutE, i64 %21
   %23 = load i16, ptr %22, align 2
   store i16 %23, ptr %20, align 1
   %24 = getelementptr inbounds i8, ptr %19, i64 -3
   %25 = zext nneg i16 %16 to i64
-  %26 = getelementptr inbounds i8, ptr @_ZN7xgboost6detailL8kItoaLutE, i64 %25
+  %26 = getelementptr inbounds nuw i8, ptr @_ZN7xgboost6detailL8kItoaLutE, i64 %25
   %27 = load i16, ptr %26, align 2
   store i16 %27, ptr %24, align 1
   %28 = add i32 %.06686, 4
@@ -234,7 +234,7 @@ tailrecurse.i71.preheader:                        ; preds = %_ZN7xgboost6detail1
   %36 = getelementptr inbounds i8, ptr %10, i64 %35
   %37 = getelementptr inbounds i8, ptr %36, i64 -1
   %38 = zext nneg i16 %32 to i64
-  %39 = getelementptr inbounds i8, ptr @_ZN7xgboost6detailL8kItoaLutE, i64 %38
+  %39 = getelementptr inbounds nuw i8, ptr @_ZN7xgboost6detailL8kItoaLutE, i64 %38
   %40 = load i16, ptr %39, align 2
   store i16 %40, ptr %37, align 1
   %41 = or disjoint i32 %.066.lcssa, 2
@@ -250,15 +250,15 @@ tailrecurse.i71.preheader:                        ; preds = %_ZN7xgboost6detail1
   %45 = shl nuw nsw i32 %.165, 1
   %46 = or disjoint i32 %45, 1
   %47 = zext nneg i32 %46 to i64
-  %48 = getelementptr inbounds [200 x i8], ptr @_ZN7xgboost6detailL8kItoaLutE, i64 0, i64 %47
+  %48 = getelementptr inbounds nuw [200 x i8], ptr @_ZN7xgboost6detailL8kItoaLutE, i64 0, i64 %47
   %49 = load i8, ptr %48, align 1
   %50 = add nuw nsw i32 %.0.i, %.063
   %51 = sub i32 %50, %.167
   %52 = zext i32 %51 to i64
-  %53 = getelementptr inbounds i8, ptr %2, i64 %52
+  %53 = getelementptr inbounds nuw i8, ptr %2, i64 %52
   store i8 %49, ptr %53, align 1
   %54 = zext nneg i32 %45 to i64
-  %55 = getelementptr inbounds [200 x i8], ptr @_ZN7xgboost6detailL8kItoaLutE, i64 0, i64 %54
+  %55 = getelementptr inbounds nuw [200 x i8], ptr @_ZN7xgboost6detailL8kItoaLutE, i64 0, i64 %54
   %56 = load i8, ptr %55, align 2
   br label %60
 
@@ -274,7 +274,7 @@ tailrecurse.i71.preheader:                        ; preds = %_ZN7xgboost6detail1
   br i1 %61, label %62, label %65
 
 62:                                               ; preds = %60
-  %63 = getelementptr inbounds i8, ptr %8, i64 1
+  %63 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store i8 46, ptr %63, align 1
   %64 = add nuw nsw i32 %.0.i, 1
   br label %65
@@ -284,7 +284,7 @@ tailrecurse.i71.preheader:                        ; preds = %_ZN7xgboost6detail1
   %.1 = add nuw nsw i32 %.pn, %.063
   %66 = add nuw nsw i32 %.1, 1
   %67 = zext nneg i32 %.1 to i64
-  %68 = getelementptr inbounds i8, ptr %2, i64 %67
+  %68 = getelementptr inbounds nuw i8, ptr %2, i64 %67
   store i8 69, ptr %68, align 1
   %69 = add nsw i32 %.0.i, %.sroa.2.0.extract.trunc
   %70 = add nsw i32 %69, -1
@@ -294,7 +294,7 @@ tailrecurse.i71.preheader:                        ; preds = %_ZN7xgboost6detail1
 72:                                               ; preds = %65
   %73 = add nuw nsw i32 %.1, 2
   %74 = zext nneg i32 %66 to i64
-  %75 = getelementptr inbounds i8, ptr %2, i64 %74
+  %75 = getelementptr inbounds nuw i8, ptr %2, i64 %74
   store i8 45, ptr %75, align 1
   %76 = sub nsw i32 1, %69
   br label %77
@@ -310,7 +310,7 @@ tailrecurse.i71.preheader:                        ; preds = %_ZN7xgboost6detail1
   %81 = getelementptr inbounds i8, ptr %2, i64 %80
   %82 = shl nuw nsw i32 %.0, 1
   %83 = zext nneg i32 %82 to i64
-  %84 = getelementptr inbounds i8, ptr @_ZN7xgboost6detailL8kItoaLutE, i64 %83
+  %84 = getelementptr inbounds nuw i8, ptr @_ZN7xgboost6detailL8kItoaLutE, i64 %83
   %85 = load i16, ptr %84, align 2
   store i16 %85, ptr %81, align 1
   %86 = add nsw i32 %.2, 2
@@ -346,16 +346,16 @@ tailrecurse.i19.preheader:                        ; preds = %tailrecurse.i19.pre
   %6 = shl nuw nsw i64 %5, 1
   %7 = udiv i64 %.029, 100
   %8 = or disjoint i64 %6, 1
-  %9 = getelementptr inbounds [200 x i8], ptr @_ZN7xgboost6detailL8kItoaLutE, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw [200 x i8], ptr @_ZN7xgboost6detailL8kItoaLutE, i64 0, i64 %8
   %10 = load i8, ptr %9, align 1
   %11 = zext i32 %.01828 to i64
-  %12 = getelementptr inbounds i8, ptr %0, i64 %11
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 %11
   store i8 %10, ptr %12, align 1
-  %13 = getelementptr inbounds [200 x i8], ptr @_ZN7xgboost6detailL8kItoaLutE, i64 0, i64 %6
+  %13 = getelementptr inbounds nuw [200 x i8], ptr @_ZN7xgboost6detailL8kItoaLutE, i64 0, i64 %6
   %14 = load i8, ptr %13, align 2
   %15 = add i32 %.01828, -1
   %16 = zext i32 %15 to i64
-  %17 = getelementptr inbounds i8, ptr %0, i64 %16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 %16
   store i8 %14, ptr %17, align 1
   %18 = add i32 %.01828, -2
   %.not = icmp ult i64 %.029, 10000
@@ -368,12 +368,12 @@ _ZN7xgboost6detail4TensEj.exit._crit_edge:        ; preds = %tailrecurse.i19.pre
 
 20:                                               ; preds = %_ZN7xgboost6detail4TensEj.exit._crit_edge
   %21 = shl nuw nsw i64 %.0.lcssa, 1
-  %22 = getelementptr inbounds [200 x i8], ptr @_ZN7xgboost6detailL8kItoaLutE, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw [200 x i8], ptr @_ZN7xgboost6detailL8kItoaLutE, i64 0, i64 %21
   %23 = load i8, ptr %22, align 2
   %24 = or disjoint i64 %21, 1
-  %25 = getelementptr inbounds [200 x i8], ptr @_ZN7xgboost6detailL8kItoaLutE, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw [200 x i8], ptr @_ZN7xgboost6detailL8kItoaLutE, i64 0, i64 %24
   %26 = load i8, ptr %25, align 1
-  %27 = getelementptr inbounds i8, ptr %0, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %26, ptr %27, align 1
   br label %31
 
@@ -445,16 +445,16 @@ tailrecurse.i19.preheader.i:                      ; preds = %tailrecurse.i19.pre
   %22 = shl nuw nsw i64 %21, 1
   %23 = udiv i64 %.0.i13, 100
   %24 = or disjoint i64 %22, 1
-  %25 = getelementptr inbounds [200 x i8], ptr @_ZN7xgboost6detailL8kItoaLutE, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw [200 x i8], ptr @_ZN7xgboost6detailL8kItoaLutE, i64 0, i64 %24
   %26 = load i8, ptr %25, align 1
   %27 = zext i32 %.018.i12 to i64
-  %28 = getelementptr inbounds i8, ptr %0, i64 %27
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 %27
   store i8 %26, ptr %28, align 1
-  %29 = getelementptr inbounds [200 x i8], ptr @_ZN7xgboost6detailL8kItoaLutE, i64 0, i64 %22
+  %29 = getelementptr inbounds nuw [200 x i8], ptr @_ZN7xgboost6detailL8kItoaLutE, i64 0, i64 %22
   %30 = load i8, ptr %29, align 2
   %31 = add i32 %.018.i12, -1
   %32 = zext i32 %31 to i64
-  %33 = getelementptr inbounds i8, ptr %0, i64 %32
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 %32
   store i8 %30, ptr %33, align 1
   %34 = add i32 %.018.i12, -2
   %.not.i = icmp ult i64 %.0.i13, 10000
@@ -467,12 +467,12 @@ _ZN7xgboost6detail4TensEj.exit.i._crit_edge:      ; preds = %tailrecurse.i19.pre
 
 36:                                               ; preds = %_ZN7xgboost6detail4TensEj.exit.i._crit_edge
   %37 = shl nuw nsw i64 %.0.i.lcssa, 1
-  %38 = getelementptr inbounds [200 x i8], ptr @_ZN7xgboost6detailL8kItoaLutE, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw [200 x i8], ptr @_ZN7xgboost6detailL8kItoaLutE, i64 0, i64 %37
   %39 = load i8, ptr %38, align 2
   %40 = or disjoint i64 %37, 1
-  %41 = getelementptr inbounds [200 x i8], ptr @_ZN7xgboost6detailL8kItoaLutE, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw [200 x i8], ptr @_ZN7xgboost6detailL8kItoaLutE, i64 0, i64 %40
   %42 = load i8, ptr %41, align 1
-  %43 = getelementptr inbounds i8, ptr %0, i64 1
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %42, ptr %43, align 1
   br label %_ZN7xgboost6detail16ItoaUnsignedImplEPcjm.exit
 
@@ -485,7 +485,7 @@ _ZN7xgboost6detail16ItoaUnsignedImplEPcjm.exit:   ; preds = %36, %44
   %.sink.i = phi i8 [ %39, %36 ], [ %46, %44 ]
   store i8 %.sink.i, ptr %0, align 1
   %47 = zext i32 %17 to i64
-  %48 = getelementptr inbounds i8, ptr %0, i64 %47
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 %47
   br label %49
 
 49:                                               ; preds = %_ZN7xgboost6detail15ShortestDigit10Em.exit, %_ZN7xgboost6detail16ItoaUnsignedImplEPcjm.exit
@@ -518,7 +518,7 @@ define { ptr, i32 } @_ZN7xgboost6detail17FromCharFloatImplEPKciPf(ptr noundef %0
   %.0230 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1, %24 ]
   %.0155229 = phi i32 [ %1, %.lr.ph.preheader ], [ %.1156, %24 ]
   %.0161228 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1162, %24 ]
-  %10 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %11 = load i8, ptr %10, align 1
   %12 = icmp eq i8 %11, 46
   br i1 %12, label %13, label %15
@@ -569,7 +569,7 @@ define { ptr, i32 } @_ZN7xgboost6detail17FromCharFloatImplEPKciPf(ptr noundef %0
 
 30:                                               ; preds = %27
   %31 = zext nneg i32 %28 to i64
-  %32 = getelementptr inbounds i8, ptr %0, i64 %31
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 %31
   %33 = load i8, ptr %32, align 1
   switch i8 %33, label %37 [
     i8 45, label %34
@@ -695,7 +695,7 @@ define { ptr, i32 } @_ZN7xgboost6detail17FromCharFloatImplEPKciPf(ptr noundef %0
   %80 = add i32 %79, %78
   %81 = sub nsw i32 %80, %60
   %82 = zext nneg i32 %60 to i64
-  %83 = getelementptr inbounds [47 x i64], ptr @_ZN7xgboost6detail14RyuPowLogUtils15kFloatPow5SplitE, i64 0, i64 %82
+  %83 = getelementptr inbounds nuw [47 x i64], ptr @_ZN7xgboost6detail14RyuPowLogUtils15kFloatPow5SplitE, i64 0, i64 %82
   %84 = load i64, ptr %83, align 8
   %85 = lshr i64 %84, 32
   %86 = zext i32 %.0161219275290 to i64
@@ -730,7 +730,7 @@ define { ptr, i32 } @_ZN7xgboost6detail17FromCharFloatImplEPKciPf(ptr noundef %0
   %106 = add i32 %105, %.neg204
   %107 = sub nsw i32 %106, %60
   %108 = zext nneg i32 %102 to i64
-  %109 = getelementptr inbounds [55 x i64], ptr @_ZN7xgboost6detail14RyuPowLogUtils18kFloatPow5InvSplitE, i64 0, i64 %108
+  %109 = getelementptr inbounds nuw [55 x i64], ptr @_ZN7xgboost6detail14RyuPowLogUtils18kFloatPow5InvSplitE, i64 0, i64 %108
   %110 = load i64, ptr %109, align 8
   %111 = lshr i64 %110, 32
   %112 = zext i32 %.0161219275290 to i64
@@ -855,7 +855,7 @@ _ZN7xgboost6detail14RyuPowLogUtils18MultipleOfPowerOf5Ejj.exit: ; preds = %.lr.p
 
 .loopexit.loopexit291:                            ; preds = %13, %17
   %.sroa.12.0.ph292 = phi i32 [ 22, %13 ], [ 34, %17 ]
-  %180 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %180 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit291, %.loopexit.loopexit, %3, %171, %139, %71, %67, %62, %51
@@ -887,7 +887,7 @@ define linkonce_odr noundef zeroext i8 @_ZN7xgboost6detail17PowerBaseComputer13T
   %15 = lshr i64 %14, 46
   %16 = trunc nuw nsw i64 %15 to i32
   %17 = sub nsw i32 %13, %.sroa.0.0.extract.trunc
-  %18 = getelementptr inbounds [55 x i64], ptr @_ZN7xgboost6detail14RyuPowLogUtils18kFloatPow5InvSplitE, i64 0, i64 %12
+  %18 = getelementptr inbounds nuw [55 x i64], ptr @_ZN7xgboost6detail14RyuPowLogUtils18kFloatPow5InvSplitE, i64 0, i64 %12
   %19 = load i64, ptr %18, align 8
   %20 = lshr i64 %19, 32
   %21 = and i64 %19, 4294967295
@@ -900,7 +900,7 @@ define linkonce_odr noundef zeroext i8 @_ZN7xgboost6detail17PowerBaseComputer13T
   %28 = zext nneg i32 %27 to i64
   %29 = lshr i64 %25, %28
   %30 = trunc i64 %29 to i32
-  %31 = getelementptr inbounds i8, ptr %4, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %30, ptr %31, align 4
   %32 = and i64 %3, 4294967295
   %33 = mul nuw i64 %21, %32
@@ -909,7 +909,7 @@ define linkonce_odr noundef zeroext i8 @_ZN7xgboost6detail17PowerBaseComputer13T
   %36 = add nuw i64 %35, %34
   %37 = lshr i64 %36, %28
   %38 = trunc i64 %37 to i32
-  %39 = getelementptr inbounds i8, ptr %4, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %38, ptr %39, align 4
   %40 = mul nuw i64 %21, %.sroa.19.8.extract.shift
   %41 = mul nuw i64 %20, %.sroa.19.8.extract.shift
@@ -917,7 +917,7 @@ define linkonce_odr noundef zeroext i8 @_ZN7xgboost6detail17PowerBaseComputer13T
   %43 = add nuw i64 %42, %41
   %44 = lshr i64 %43, %28
   %45 = trunc i64 %44 to i32
-  %46 = getelementptr inbounds i8, ptr %4, i64 12
+  %46 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 %45, ptr %46, align 4
   %.not81 = icmp ult i64 %11, 562949953421312
   br i1 %.not81, label %.thread, label %47
@@ -935,7 +935,7 @@ define linkonce_odr noundef zeroext i8 @_ZN7xgboost6detail17PowerBaseComputer13T
   %54 = mul nuw nsw i64 %53, 163391164108059
   %55 = lshr i64 %54, 46
   %56 = trunc nuw nsw i64 %55 to i32
-  %57 = getelementptr inbounds [55 x i64], ptr @_ZN7xgboost6detail14RyuPowLogUtils18kFloatPow5InvSplitE, i64 0, i64 %53
+  %57 = getelementptr inbounds nuw [55 x i64], ptr @_ZN7xgboost6detail14RyuPowLogUtils18kFloatPow5InvSplitE, i64 0, i64 %53
   %58 = load i64, ptr %57, align 8
   %59 = lshr i64 %58, 32
   %60 = and i64 %58, 4294967295
@@ -1037,7 +1037,7 @@ _ZN7xgboost6detail14RyuPowLogUtils18MultipleOfPowerOf5Ejj.exit96: ; preds = %.lr
   %105 = mul i64 %104, 163391164108059
   %106 = lshr i64 %105, 46
   %107 = zext i32 %103 to i64
-  %108 = getelementptr inbounds [47 x i64], ptr @_ZN7xgboost6detail14RyuPowLogUtils15kFloatPow5SplitE, i64 0, i64 %107
+  %108 = getelementptr inbounds nuw [47 x i64], ptr @_ZN7xgboost6detail14RyuPowLogUtils15kFloatPow5SplitE, i64 0, i64 %107
   %109 = load i64, ptr %108, align 8
   %110 = lshr i64 %109, 32
   %111 = and i64 %3, 4294967295
@@ -1051,7 +1051,7 @@ _ZN7xgboost6detail14RyuPowLogUtils18MultipleOfPowerOf5Ejj.exit96: ; preds = %.lr
   %119 = and i64 %118, 4294967295
   %120 = lshr i64 %116, %119
   %121 = trunc i64 %120 to i32
-  %122 = getelementptr inbounds i8, ptr %4, i64 8
+  %122 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %121, ptr %122, align 4
   %123 = mul nuw i64 %112, %.sroa.19.8.extract.shift
   %124 = mul nuw i64 %110, %.sroa.19.8.extract.shift
@@ -1059,7 +1059,7 @@ _ZN7xgboost6detail14RyuPowLogUtils18MultipleOfPowerOf5Ejj.exit96: ; preds = %.lr
   %126 = add nuw i64 %125, %124
   %127 = lshr i64 %126, %119
   %128 = trunc i64 %127 to i32
-  %129 = getelementptr inbounds i8, ptr %4, i64 12
+  %129 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 %128, ptr %129, align 4
   %130 = mul nuw i64 %112, %.sroa.8.0.extract.shift
   %131 = mul nuw i64 %110, %.sroa.8.0.extract.shift
@@ -1067,7 +1067,7 @@ _ZN7xgboost6detail14RyuPowLogUtils18MultipleOfPowerOf5Ejj.exit96: ; preds = %.lr
   %133 = add nuw i64 %132, %131
   %134 = lshr i64 %133, %119
   %135 = trunc i64 %134 to i32
-  %136 = getelementptr inbounds i8, ptr %4, i64 4
+  %136 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %135, ptr %136, align 4
   %.not = icmp ult i64 %99, 281474976710656
   br i1 %.not, label %.thread99, label %137
@@ -1086,7 +1086,7 @@ _ZN7xgboost6detail14RyuPowLogUtils18MultipleOfPowerOf5Ejj.exit96: ; preds = %.lr
   %145 = lshr i64 %144, 46
   %.neg102 = xor i64 %145, -1
   %146 = zext i32 %142 to i64
-  %147 = getelementptr inbounds [47 x i64], ptr @_ZN7xgboost6detail14RyuPowLogUtils15kFloatPow5SplitE, i64 0, i64 %146
+  %147 = getelementptr inbounds nuw [47 x i64], ptr @_ZN7xgboost6detail14RyuPowLogUtils15kFloatPow5SplitE, i64 0, i64 %146
   %148 = load i64, ptr %147, align 8
   %149 = lshr i64 %148, 32
   %150 = and i64 %148, 4294967295

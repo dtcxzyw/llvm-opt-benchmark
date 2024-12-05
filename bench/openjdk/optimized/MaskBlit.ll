@@ -22,9 +22,9 @@ define void @Java_sun_java2d_loops_MaskBlit_MaskBlit(ptr noundef %0, ptr noundef
   br i1 %22, label %178, label %23
 
 23:                                               ; preds = %15
-  %24 = getelementptr inbounds i8, ptr %21, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load ptr, ptr %26, align 8
   %.not = icmp eq ptr %27, null
   br i1 %.not, label %29, label %28
@@ -50,28 +50,28 @@ define void @Java_sun_java2d_loops_MaskBlit_MaskBlit(ptr noundef %0, ptr noundef
 
 37:                                               ; preds = %34
   store i32 %6, ptr %16, align 8
-  %38 = getelementptr inbounds i8, ptr %16, i64 4
+  %38 = getelementptr inbounds nuw i8, ptr %16, i64 4
   store i32 %7, ptr %38, align 4
   %39 = add nsw i32 %10, %6
-  %40 = getelementptr inbounds i8, ptr %16, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i32 %39, ptr %40, align 8
   %41 = add nsw i32 %11, %7
-  %42 = getelementptr inbounds i8, ptr %16, i64 12
+  %42 = getelementptr inbounds nuw i8, ptr %16, i64 12
   store i32 %41, ptr %42, align 4
   store i32 %8, ptr %17, align 8
-  %43 = getelementptr inbounds i8, ptr %17, i64 4
+  %43 = getelementptr inbounds nuw i8, ptr %17, i64 4
   store i32 %9, ptr %43, align 4
   %44 = add nsw i32 %10, %8
-  %45 = getelementptr inbounds i8, ptr %17, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i32 %44, ptr %45, align 8
   %46 = add nsw i32 %11, %9
-  %47 = getelementptr inbounds i8, ptr %17, i64 12
+  %47 = getelementptr inbounds nuw i8, ptr %17, i64 12
   store i32 %46, ptr %47, align 4
   %48 = sub nsw i32 %6, %8
   %49 = sub nsw i32 %7, %9
   call void @SurfaceData_IntersectBounds(ptr noundef nonnull %17, ptr noundef nonnull %19) #2
   %50 = load ptr, ptr %32, align 8
-  %51 = getelementptr inbounds i8, ptr %21, i64 48
+  %51 = getelementptr inbounds nuw i8, ptr %21, i64 48
   %52 = load i32, ptr %51, align 8
   %53 = call i32 %50(ptr noundef %0, ptr noundef nonnull %32, ptr noundef nonnull %16, i32 noundef %52) #2
   %.not131 = icmp eq i32 %53, 0
@@ -79,14 +79,14 @@ define void @Java_sun_java2d_loops_MaskBlit_MaskBlit(ptr noundef %0, ptr noundef
 
 54:                                               ; preds = %37
   %55 = load ptr, ptr %35, align 8
-  %56 = getelementptr inbounds i8, ptr %21, i64 52
+  %56 = getelementptr inbounds nuw i8, ptr %21, i64 52
   %57 = load i32, ptr %56, align 4
   %58 = call i32 %55(ptr noundef %0, ptr noundef nonnull %35, ptr noundef nonnull %17, i32 noundef %57) #2
   %.not132 = icmp eq i32 %58, 0
   br i1 %.not132, label %62, label %59
 
 59:                                               ; preds = %54
-  %60 = getelementptr inbounds i8, ptr %32, i64 24
+  %60 = getelementptr inbounds nuw i8, ptr %32, i64 24
   %61 = load ptr, ptr %60, align 8
   %.not145 = icmp eq ptr %61, null
   br i1 %.not145, label %178, label %.sink.split
@@ -95,30 +95,30 @@ define void @Java_sun_java2d_loops_MaskBlit_MaskBlit(ptr noundef %0, ptr noundef
   call void @SurfaceData_IntersectBlitBounds(ptr noundef nonnull %17, ptr noundef nonnull %16, i32 noundef %48, i32 noundef %49) #2
   call void @SurfaceData_IntersectBounds(ptr noundef nonnull %19, ptr noundef nonnull %17) #2
   %63 = load i32, ptr %19, align 8
-  %64 = getelementptr inbounds i8, ptr %19, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %65 = load i32, ptr %64, align 8
   %.not133 = icmp slt i32 %63, %65
   br i1 %.not133, label %66, label %171
 
 66:                                               ; preds = %62
-  %67 = getelementptr inbounds i8, ptr %19, i64 4
+  %67 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %68 = load i32, ptr %67, align 4
-  %69 = getelementptr inbounds i8, ptr %19, i64 12
+  %69 = getelementptr inbounds nuw i8, ptr %19, i64 12
   %70 = load i32, ptr %69, align 4
   %.not134 = icmp slt i32 %68, %70
   br i1 %.not134, label %71, label %171
 
 71:                                               ; preds = %66
-  %72 = getelementptr inbounds i8, ptr %32, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %73 = load ptr, ptr %72, align 8
   call void %73(ptr noundef %0, ptr noundef nonnull %32, ptr noundef nonnull %16) #2
-  %74 = getelementptr inbounds i8, ptr %35, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %75 = load ptr, ptr %74, align 8
   call void %75(ptr noundef %0, ptr noundef nonnull %35, ptr noundef nonnull %17) #2
-  %76 = getelementptr inbounds i8, ptr %16, i64 16
+  %76 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %77 = load ptr, ptr %76, align 8
   %78 = icmp ne ptr %77, null
-  %79 = getelementptr inbounds i8, ptr %17, i64 16
+  %79 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %80 = load ptr, ptr %79, align 8
   %81 = icmp ne ptr %80, null
   %or.cond = select i1 %78, i1 %81, i1 false
@@ -130,14 +130,14 @@ define void @Java_sun_java2d_loops_MaskBlit_MaskBlit(ptr noundef %0, ptr noundef
 
 83:                                               ; preds = %82
   %84 = load ptr, ptr %0, align 8
-  %85 = getelementptr inbounds i8, ptr %84, i64 1776
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 1776
   %86 = load ptr, ptr %85, align 8
   %87 = call ptr %86(ptr noundef nonnull %0, ptr noundef nonnull %12, ptr noundef null) #2
   %88 = icmp eq ptr %87, null
   br i1 %88, label %89, label %.thread
 
 89:                                               ; preds = %83
-  %90 = getelementptr inbounds i8, ptr %35, i64 16
+  %90 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %91 = load ptr, ptr %90, align 8
   %.not139 = icmp eq ptr %91, null
   br i1 %.not139, label %93, label %92
@@ -147,7 +147,7 @@ define void @Java_sun_java2d_loops_MaskBlit_MaskBlit(ptr noundef %0, ptr noundef
   br label %93
 
 93:                                               ; preds = %92, %89
-  %94 = getelementptr inbounds i8, ptr %32, i64 16
+  %94 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %95 = load ptr, ptr %94, align 8
   %.not140 = icmp eq ptr %95, null
   br i1 %.not140, label %97, label %96
@@ -157,7 +157,7 @@ define void @Java_sun_java2d_loops_MaskBlit_MaskBlit(ptr noundef %0, ptr noundef
   br label %97
 
 97:                                               ; preds = %96, %93
-  %98 = getelementptr inbounds i8, ptr %35, i64 24
+  %98 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %99 = load ptr, ptr %98, align 8
   %.not141 = icmp eq ptr %99, null
   br i1 %.not141, label %101, label %100
@@ -167,7 +167,7 @@ define void @Java_sun_java2d_loops_MaskBlit_MaskBlit(ptr noundef %0, ptr noundef
   br label %101
 
 101:                                              ; preds = %100, %97
-  %102 = getelementptr inbounds i8, ptr %32, i64 24
+  %102 = getelementptr inbounds nuw i8, ptr %32, i64 24
   %103 = load ptr, ptr %102, align 8
   %.not142 = icmp eq ptr %103, null
   br i1 %.not142, label %178, label %.sink.split
@@ -182,14 +182,14 @@ define void @Java_sun_java2d_loops_MaskBlit_MaskBlit(ptr noundef %0, ptr noundef
   br i1 %.not135148, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.thread
-  %108 = getelementptr inbounds i8, ptr %20, i64 4
-  %109 = getelementptr inbounds i8, ptr %16, i64 32
-  %110 = getelementptr inbounds i8, ptr %16, i64 28
-  %111 = getelementptr inbounds i8, ptr %17, i64 32
-  %112 = getelementptr inbounds i8, ptr %17, i64 28
-  %113 = getelementptr inbounds i8, ptr %21, i64 32
-  %114 = getelementptr inbounds i8, ptr %20, i64 8
-  %115 = getelementptr inbounds i8, ptr %20, i64 12
+  %108 = getelementptr inbounds nuw i8, ptr %20, i64 4
+  %109 = getelementptr inbounds nuw i8, ptr %16, i64 32
+  %110 = getelementptr inbounds nuw i8, ptr %16, i64 28
+  %111 = getelementptr inbounds nuw i8, ptr %17, i64 32
+  %112 = getelementptr inbounds nuw i8, ptr %17, i64 28
+  %113 = getelementptr inbounds nuw i8, ptr %21, i64 32
+  %114 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %115 = getelementptr inbounds nuw i8, ptr %20, i64 12
   br label %116
 
 116:                                              ; preds = %.lr.ph, %116
@@ -247,7 +247,7 @@ define void @Java_sun_java2d_loops_MaskBlit_MaskBlit(ptr noundef %0, ptr noundef
 
 158:                                              ; preds = %._crit_edge
   %159 = load ptr, ptr %0, align 8
-  %160 = getelementptr inbounds i8, ptr %159, i64 1784
+  %160 = getelementptr inbounds nuw i8, ptr %159, i64 1784
   %161 = load ptr, ptr %160, align 8
   call void %161(ptr noundef nonnull %0, ptr noundef nonnull %12, ptr noundef nonnull %104, i32 noundef 2) #2
   br label %162
@@ -258,7 +258,7 @@ define void @Java_sun_java2d_loops_MaskBlit_MaskBlit(ptr noundef %0, ptr noundef
   br label %163
 
 163:                                              ; preds = %71, %162
-  %164 = getelementptr inbounds i8, ptr %35, i64 16
+  %164 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %165 = load ptr, ptr %164, align 8
   %.not137 = icmp eq ptr %165, null
   br i1 %.not137, label %167, label %166
@@ -268,7 +268,7 @@ define void @Java_sun_java2d_loops_MaskBlit_MaskBlit(ptr noundef %0, ptr noundef
   br label %167
 
 167:                                              ; preds = %166, %163
-  %168 = getelementptr inbounds i8, ptr %32, i64 16
+  %168 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %169 = load ptr, ptr %168, align 8
   %.not138 = icmp eq ptr %169, null
   br i1 %.not138, label %171, label %170
@@ -278,7 +278,7 @@ define void @Java_sun_java2d_loops_MaskBlit_MaskBlit(ptr noundef %0, ptr noundef
   br label %171
 
 171:                                              ; preds = %62, %66, %167, %170
-  %172 = getelementptr inbounds i8, ptr %35, i64 24
+  %172 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %173 = load ptr, ptr %172, align 8
   %.not143 = icmp eq ptr %173, null
   br i1 %.not143, label %175, label %174
@@ -288,7 +288,7 @@ define void @Java_sun_java2d_loops_MaskBlit_MaskBlit(ptr noundef %0, ptr noundef
   br label %175
 
 175:                                              ; preds = %174, %171
-  %176 = getelementptr inbounds i8, ptr %32, i64 24
+  %176 = getelementptr inbounds nuw i8, ptr %32, i64 24
   %177 = load ptr, ptr %176, align 8
   %.not144 = icmp eq ptr %177, null
   br i1 %.not144, label %178, label %.sink.split

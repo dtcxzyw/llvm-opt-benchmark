@@ -710,39 +710,39 @@ entry:
   br i1 %cmp, label %err, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %data_type = getelementptr inbounds i8, ptr %call, i64 8
+  %data_type = getelementptr inbounds nuw i8, ptr %call, i64 8
   %0 = load i32, ptr %data_type, align 8
   %cmp1.not = icmp eq i32 %0, 4
   br i1 %cmp1.not, label %if.end, label %err
 
 if.end:                                           ; preds = %lor.lhs.false
-  %data = getelementptr inbounds i8, ptr %call, i64 16
+  %data = getelementptr inbounds nuw i8, ptr %call, i64 16
   %1 = load ptr, ptr %data, align 8
   %call2 = tail call ptr @OSSL_PARAM_locate_const(ptr noundef %params, ptr noundef nonnull @.str.109) #5
   %cmp3 = icmp eq ptr %call2, null
   br i1 %cmp3, label %err, label %lor.lhs.false4
 
 lor.lhs.false4:                                   ; preds = %if.end
-  %data_type5 = getelementptr inbounds i8, ptr %call2, i64 8
+  %data_type5 = getelementptr inbounds nuw i8, ptr %call2, i64 8
   %2 = load i32, ptr %data_type5, align 8
   %cmp6.not = icmp eq i32 %2, 4
   br i1 %cmp6.not, label %if.end8, label %err
 
 if.end8:                                          ; preds = %lor.lhs.false4
-  %data9 = getelementptr inbounds i8, ptr %call2, i64 16
+  %data9 = getelementptr inbounds nuw i8, ptr %call2, i64 16
   %3 = load ptr, ptr %data9, align 8
   %call10 = tail call ptr @OSSL_PARAM_locate_const(ptr noundef %params, ptr noundef nonnull @.str.110) #5
   %cmp11 = icmp eq ptr %call10, null
   br i1 %cmp11, label %err, label %lor.lhs.false12
 
 lor.lhs.false12:                                  ; preds = %if.end8
-  %data_type13 = getelementptr inbounds i8, ptr %call10, i64 8
+  %data_type13 = getelementptr inbounds nuw i8, ptr %call10, i64 8
   %4 = load i32, ptr %data_type13, align 8
   %cmp14.not = icmp eq i32 %4, 4
   br i1 %cmp14.not, label %if.end16, label %err
 
 if.end16:                                         ; preds = %lor.lhs.false12
-  %data17 = getelementptr inbounds i8, ptr %call10, i64 16
+  %data17 = getelementptr inbounds nuw i8, ptr %call10, i64 16
   %5 = load ptr, ptr %data17, align 8
   %.b = load i1, ptr @self_test_log, align 4
   br i1 %.b, label %if.end32, label %if.then18
@@ -896,7 +896,7 @@ sub_0:                                            ; preds = %if.end
   br i1 %.not, label %lor.lhs.false.tail, label %if.then5
 
 lor.lhs.false.tail:                               ; preds = %sub_0
-  %1 = getelementptr inbounds i8, ptr %call1, i64 1
+  %1 = getelementptr inbounds nuw i8, ptr %call1, i64 1
   %2 = load i8, ptr %1, align 1
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %if.end7, label %if.then5
@@ -1082,13 +1082,13 @@ if.end:                                           ; preds = %entry
   br i1 %.b, label %end, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  %incdec.ptr = getelementptr inbounds i8, ptr %params, i64 40
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %params, i64 40
   call void @OSSL_PARAM_construct_utf8_ptr(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp, ptr noundef nonnull @.str.92, ptr noundef nonnull %name, i64 noundef 8) #5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params, ptr noundef nonnull align 8 dereferenceable(40) %tmp, i64 40, i1 false)
-  %incdec.ptr3 = getelementptr inbounds i8, ptr %params, i64 80
+  %incdec.ptr3 = getelementptr inbounds nuw i8, ptr %params, i64 80
   call void @OSSL_PARAM_construct_utf8_ptr(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp4, ptr noundef nonnull @.str.93, ptr noundef nonnull %vers, i64 noundef 8) #5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %incdec.ptr, ptr noundef nonnull align 8 dereferenceable(40) %tmp4, i64 40, i1 false)
-  %incdec.ptr5 = getelementptr inbounds i8, ptr %params, i64 120
+  %incdec.ptr5 = getelementptr inbounds nuw i8, ptr %params, i64 120
   call void @OSSL_PARAM_construct_utf8_ptr(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp6, ptr noundef nonnull @.str.94, ptr noundef nonnull %build, i64 noundef 8) #5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %incdec.ptr3, ptr noundef nonnull align 8 dereferenceable(40) %tmp6, i64 40, i1 false)
   call void @OSSL_PARAM_construct_end(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp7) #5

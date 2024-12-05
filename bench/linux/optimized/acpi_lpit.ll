@@ -57,7 +57,7 @@ define dso_local void @acpi_init_lpit() local_unnamed_addr #1 align 16 {
 4:                                                ; preds = %0
   %5 = load ptr, ptr %1, align 8
   %6 = ptrtoint ptr %5 to i64
-  %7 = getelementptr inbounds i8, ptr %5, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %8 = load i32, ptr %7, align 1
   %9 = zext i32 %8 to i64
   %10 = add i64 %9, %6
@@ -77,13 +77,13 @@ define dso_local void @acpi_init_lpit() local_unnamed_addr #1 align 16 {
   br i1 %19, label %20, label %lpit_update_residency.exit
 
 20:                                               ; preds = %15
-  %21 = getelementptr inbounds i8, ptr %17, i64 12
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 12
   %22 = load i32, ptr %21, align 1
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %24, label %lpit_update_residency.exit
 
 24:                                               ; preds = %20
-  %25 = getelementptr inbounds i8, ptr %17, i64 36
+  %25 = getelementptr inbounds nuw i8, ptr %17, i64 36
   %26 = load i8, ptr %25, align 1
   %27 = icmp ne i8 %26, 0
   %28 = load i64, ptr getelementptr inbounds (i8, ptr @residency_info_mem, i64 4), align 4
@@ -97,7 +97,7 @@ define dso_local void @acpi_init_lpit() local_unnamed_addr #1 align 16 {
   br i1 %32, label %lpit_update_residency.exit, label %33
 
 33:                                               ; preds = %.split1
-  %34 = getelementptr inbounds i8, ptr %17, i64 48
+  %34 = getelementptr inbounds nuw i8, ptr %17, i64 48
   %35 = load i64, ptr %34, align 1
   %36 = icmp eq i64 %35, 0
   %37 = load i32, ptr @tsc_khz, align 4
@@ -105,8 +105,8 @@ define dso_local void @acpi_init_lpit() local_unnamed_addr #1 align 16 {
   %39 = mul nuw nsw i64 %38, 1000
   %40 = select i1 %36, i64 %39, i64 %35
   %41 = call i64 @llvm.umax.i64(i64 %40, i64 1)
-  store i64 %41, ptr getelementptr inbounds (i8, ptr @residency_info_mem, i64 16), align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) @residency_info_mem, ptr noundef readonly align 1 dereferenceable(12) %25, i64 12, i1 false)
+  store i64 %41, ptr getelementptr inbounds nuw (i8, ptr @residency_info_mem, i64 16), align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) @residency_info_mem, ptr noundef nonnull readonly align 1 dereferenceable(12) %25, i64 12, i1 false)
   %42 = load i8, ptr @residency_info_mem, align 8
   switch i8 %42, label %lpit_update_residency.exit.sink.split [
     i8 0, label %43
@@ -114,12 +114,12 @@ define dso_local void @acpi_init_lpit() local_unnamed_addr #1 align 16 {
   ]
 
 43:                                               ; preds = %33
-  %44 = load i64, ptr getelementptr inbounds (i8, ptr @residency_info_mem, i64 4), align 4
-  %45 = load i8, ptr getelementptr inbounds (i8, ptr @residency_info_mem, i64 1), align 1
+  %44 = load i64, ptr getelementptr inbounds nuw (i8, ptr @residency_info_mem, i64 4), align 4
+  %45 = load i8, ptr getelementptr inbounds nuw (i8, ptr @residency_info_mem, i64 1), align 1
   %46 = lshr i8 %45, 3
   %47 = zext nneg i8 %46 to i64
   %48 = call ptr @ioremap(i64 noundef %44, i64 noundef %47) #7
-  store ptr %48, ptr getelementptr inbounds (i8, ptr @residency_info_mem, i64 24), align 8
+  store ptr %48, ptr getelementptr inbounds nuw (i8, ptr @residency_info_mem, i64 24), align 8
   %49 = icmp eq ptr %48, null
   br i1 %49, label %lpit_update_residency.exit.sink.split, label %50
 
@@ -141,7 +141,7 @@ define dso_local void @acpi_init_lpit() local_unnamed_addr #1 align 16 {
   br i1 %59, label %lpit_update_residency.exit, label %60
 
 60:                                               ; preds = %.split
-  %61 = getelementptr inbounds i8, ptr %17, i64 48
+  %61 = getelementptr inbounds nuw i8, ptr %17, i64 48
   %62 = load i64, ptr %61, align 1
   %63 = icmp eq i64 %62, 0
   %64 = load i32, ptr @tsc_khz, align 4
@@ -149,8 +149,8 @@ define dso_local void @acpi_init_lpit() local_unnamed_addr #1 align 16 {
   %66 = mul nuw nsw i64 %65, 1000
   %67 = select i1 %63, i64 %66, i64 %62
   %68 = call i64 @llvm.umax.i64(i64 %67, i64 1)
-  store i64 %68, ptr getelementptr inbounds (i8, ptr @residency_info_ffh, i64 16), align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) @residency_info_ffh, ptr noundef readonly align 1 dereferenceable(12) %25, i64 12, i1 false)
+  store i64 %68, ptr getelementptr inbounds nuw (i8, ptr @residency_info_ffh, i64 16), align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) @residency_info_ffh, ptr noundef nonnull readonly align 1 dereferenceable(12) %25, i64 12, i1 false)
   %69 = load i8, ptr @residency_info_ffh, align 8
   switch i8 %69, label %lpit_update_residency.exit.sink.split [
     i8 0, label %70
@@ -158,12 +158,12 @@ define dso_local void @acpi_init_lpit() local_unnamed_addr #1 align 16 {
   ]
 
 70:                                               ; preds = %60
-  %71 = load i64, ptr getelementptr inbounds (i8, ptr @residency_info_ffh, i64 4), align 4
-  %72 = load i8, ptr getelementptr inbounds (i8, ptr @residency_info_ffh, i64 1), align 1
+  %71 = load i64, ptr getelementptr inbounds nuw (i8, ptr @residency_info_ffh, i64 4), align 4
+  %72 = load i8, ptr getelementptr inbounds nuw (i8, ptr @residency_info_ffh, i64 1), align 1
   %73 = lshr i8 %72, 3
   %74 = zext nneg i8 %73 to i64
   %75 = call ptr @ioremap(i64 noundef %71, i64 noundef %74) #7
-  store ptr %75, ptr getelementptr inbounds (i8, ptr @residency_info_ffh, i64 24), align 8
+  store ptr %75, ptr getelementptr inbounds nuw (i8, ptr @residency_info_ffh, i64 24), align 8
   %76 = icmp eq ptr %75, null
   br i1 %76, label %lpit_update_residency.exit.sink.split, label %77
 
@@ -178,7 +178,7 @@ lpit_update_residency.exit.sink.split:            ; preds = %60, %70, %77, %33, 
   br label %lpit_update_residency.exit
 
 lpit_update_residency.exit:                       ; preds = %lpit_update_residency.exit.sink.split, %.split, %.split1, %53, %20, %15
-  %80 = getelementptr inbounds i8, ptr %17, i64 4
+  %80 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %81 = load i32, ptr %80, align 1
   %82 = zext i32 %81 to i64
   %83 = add i64 %16, %82

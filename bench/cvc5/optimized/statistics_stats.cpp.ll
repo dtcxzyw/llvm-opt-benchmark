@@ -10,12 +10,12 @@ target triple = "x86_64-unknown-linux-gnu"
 define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internal11AverageStatlsEd(ptr noundef nonnull readonly returned align 8 dereferenceable(8) %this, double noundef %v) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %d_sum = getelementptr inbounds i8, ptr %0, i64 16
+  %d_sum = getelementptr inbounds nuw i8, ptr %0, i64 16
   %1 = load double, ptr %d_sum, align 8
   %add = fadd double %v, %1
   store double %add, ptr %d_sum, align 8
   %2 = load ptr, ptr %this, align 8
-  %d_count = getelementptr inbounds i8, ptr %2, i64 24
+  %d_count = getelementptr inbounds nuw i8, ptr %2, i64 24
   %3 = load i64, ptr %d_count, align 8
   %inc = add i64 %3, 1
   store i64 %inc, ptr %d_count, align 8
@@ -26,7 +26,7 @@ entry:
 define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internal7IntStataSEl(ptr noundef nonnull readonly returned align 8 dereferenceable(8) %this, i64 noundef %val) local_unnamed_addr #1 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %d_value = getelementptr inbounds i8, ptr %0, i64 16
+  %d_value = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %val, ptr %d_value, align 8
   ret ptr %this
 }
@@ -35,7 +35,7 @@ entry:
 define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internal7IntStatppEv(ptr noundef nonnull readonly returned align 8 dereferenceable(8) %this) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %d_value = getelementptr inbounds i8, ptr %0, i64 16
+  %d_value = getelementptr inbounds nuw i8, ptr %0, i64 16
   %1 = load i64, ptr %d_value, align 8
   %inc = add nsw i64 %1, 1
   store i64 %inc, ptr %d_value, align 8
@@ -46,7 +46,7 @@ entry:
 define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internal7IntStatppEi(ptr noundef nonnull readonly returned align 8 dereferenceable(8) %this, i32 noundef %0) local_unnamed_addr #0 align 2 {
 entry:
   %1 = load ptr, ptr %this, align 8
-  %d_value = getelementptr inbounds i8, ptr %1, i64 16
+  %d_value = getelementptr inbounds nuw i8, ptr %1, i64 16
   %2 = load i64, ptr %d_value, align 8
   %inc = add nsw i64 %2, 1
   store i64 %inc, ptr %d_value, align 8
@@ -57,7 +57,7 @@ entry:
 define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internal7IntStatpLEl(ptr noundef nonnull readonly returned align 8 dereferenceable(8) %this, i64 noundef %val) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %d_value = getelementptr inbounds i8, ptr %0, i64 16
+  %d_value = getelementptr inbounds nuw i8, ptr %0, i64 16
   %1 = load i64, ptr %d_value, align 8
   %add = add nsw i64 %1, %val
   store i64 %add, ptr %d_value, align 8
@@ -68,7 +68,7 @@ entry:
 define hidden void @_ZN4cvc58internal7IntStat9maxAssignEl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, i64 noundef %val) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %d_value = getelementptr inbounds i8, ptr %0, i64 16
+  %d_value = getelementptr inbounds nuw i8, ptr %0, i64 16
   %1 = load i64, ptr %d_value, align 8
   %cmp = icmp slt i64 %1, %val
   br i1 %cmp, label %if.then, label %if.end
@@ -85,7 +85,7 @@ if.end:                                           ; preds = %if.then, %entry
 define hidden void @_ZN4cvc58internal7IntStat9minAssignEl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, i64 noundef %val) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %d_value = getelementptr inbounds i8, ptr %0, i64 16
+  %d_value = getelementptr inbounds nuw i8, ptr %0, i64 16
   %1 = load i64, ptr %d_value, align 8
   %cmp = icmp sgt i64 %1, %val
   br i1 %cmp, label %if.then, label %if.end
@@ -103,10 +103,10 @@ define hidden void @_ZN4cvc58internal9TimerStat5startEv(ptr nocapture noundef no
 entry:
   %call = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #5
   %0 = load ptr, ptr %this, align 8
-  %d_start = getelementptr inbounds i8, ptr %0, i64 24
+  %d_start = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %call, ptr %d_start, align 8
   %1 = load ptr, ptr %this, align 8
-  %d_running = getelementptr inbounds i8, ptr %1, i64 32
+  %d_running = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i8 1, ptr %d_running, align 8
   ret void
 }
@@ -119,15 +119,15 @@ define hidden void @_ZN4cvc58internal9TimerStat4stopEv(ptr nocapture noundef non
 entry:
   %call = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #5
   %0 = load ptr, ptr %this, align 8
-  %d_start = getelementptr inbounds i8, ptr %0, i64 24
+  %d_start = getelementptr inbounds nuw i8, ptr %0, i64 24
   %retval.sroa.0.0.copyload.i1.i = load i64, ptr %d_start, align 8
   %sub.i.i = sub i64 %call, %retval.sroa.0.0.copyload.i1.i
-  %d_duration = getelementptr inbounds i8, ptr %0, i64 16
+  %d_duration = getelementptr inbounds nuw i8, ptr %0, i64 16
   %1 = load i64, ptr %d_duration, align 8
   %add.i = add nsw i64 %sub.i.i, %1
   store i64 %add.i, ptr %d_duration, align 8
   %2 = load ptr, ptr %this, align 8
-  %d_running = getelementptr inbounds i8, ptr %2, i64 32
+  %d_running = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i8 0, ptr %d_running, align 8
   ret void
 }
@@ -136,7 +136,7 @@ entry:
 define hidden noundef zeroext i1 @_ZNK4cvc58internal9TimerStat7runningEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #4 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %d_running = getelementptr inbounds i8, ptr %0, i64 32
+  %d_running = getelementptr inbounds nuw i8, ptr %0, i64 32
   %1 = load i8, ptr %d_running, align 8
   %tobool = trunc i8 %1 to i1
   ret i1 %tobool
@@ -146,13 +146,13 @@ entry:
 define hidden void @_ZN4cvc58internal9CodeTimerC2ERNS0_9TimerStatEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(9) initializes((0, 9)) %this, ptr noundef nonnull align 8 dereferenceable(8) %timer, i1 noundef zeroext %allow_reentrant) unnamed_addr #2 align 2 {
 entry:
   store ptr %timer, ptr %this, align 8
-  %d_reentrant = getelementptr inbounds i8, ptr %this, i64 8
+  %d_reentrant = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i8 0, ptr %d_reentrant, align 8
   br i1 %allow_reentrant, label %lor.lhs.false, label %if.then
 
 lor.lhs.false:                                    ; preds = %entry
   %0 = load ptr, ptr %timer, align 8
-  %d_running.i = getelementptr inbounds i8, ptr %0, i64 32
+  %d_running.i = getelementptr inbounds nuw i8, ptr %0, i64 32
   %1 = load i8, ptr %d_running.i, align 8
   %tobool.i = trunc i8 %1 to i1
   %frombool4 = and i8 %1, 1
@@ -162,10 +162,10 @@ lor.lhs.false:                                    ; preds = %entry
 if.then:                                          ; preds = %lor.lhs.false, %entry
   %call.i = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #5
   %2 = load ptr, ptr %timer, align 8
-  %d_start.i = getelementptr inbounds i8, ptr %2, i64 24
+  %d_start.i = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 %call.i, ptr %d_start.i, align 8
   %3 = load ptr, ptr %timer, align 8
-  %d_running.i1 = getelementptr inbounds i8, ptr %3, i64 32
+  %d_running.i1 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i8 1, ptr %d_running.i1, align 8
   br label %if.end
 
@@ -176,7 +176,7 @@ if.end:                                           ; preds = %if.then, %lor.lhs.f
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN4cvc58internal9CodeTimerD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %d_reentrant = getelementptr inbounds i8, ptr %this, i64 8
+  %d_reentrant = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i8, ptr %d_reentrant, align 8
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %if.end, label %if.then
@@ -185,15 +185,15 @@ if.then:                                          ; preds = %entry
   %1 = load ptr, ptr %this, align 8
   %call.i = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #5
   %2 = load ptr, ptr %1, align 8
-  %d_start.i = getelementptr inbounds i8, ptr %2, i64 24
+  %d_start.i = getelementptr inbounds nuw i8, ptr %2, i64 24
   %retval.sroa.0.0.copyload.i1.i.i = load i64, ptr %d_start.i, align 8
   %sub.i.i.i = sub i64 %call.i, %retval.sroa.0.0.copyload.i1.i.i
-  %d_duration.i = getelementptr inbounds i8, ptr %2, i64 16
+  %d_duration.i = getelementptr inbounds nuw i8, ptr %2, i64 16
   %3 = load i64, ptr %d_duration.i, align 8
   %add.i.i = add nsw i64 %sub.i.i.i, %3
   store i64 %add.i.i, ptr %d_duration.i, align 8
   %4 = load ptr, ptr %1, align 8
-  %d_running.i = getelementptr inbounds i8, ptr %4, i64 32
+  %d_running.i = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i8 0, ptr %d_running.i, align 8
   br label %if.end
 

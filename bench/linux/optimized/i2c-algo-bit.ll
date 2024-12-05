@@ -57,9 +57,9 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_i2c_bit_add_
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @bit_xfer(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %12, label %9
@@ -70,15 +70,15 @@ define internal i32 @bit_xfer(ptr noundef %0, ptr nocapture noundef %1, i32 noun
   br i1 %11, label %262, label %12
 
 12:                                               ; preds = %9, %3
-  %13 = getelementptr inbounds i8, ptr %5, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %5, align 8
   tail call void %14(ptr noundef %15, i32 noundef 0) #4
-  %16 = getelementptr inbounds i8, ptr %5, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %17 = load i32, ptr %16, align 8
   %18 = sext i32 %17 to i64
   tail call void @__udelay(i64 noundef %18) #4
-  %19 = getelementptr inbounds i8, ptr %5, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %20 = load ptr, ptr %19, align 8
   %21 = load ptr, ptr %5, align 8
   tail call void %20(ptr noundef %21, i32 noundef 0) #4
@@ -90,15 +90,15 @@ define internal i32 @bit_xfer(ptr noundef %0, ptr nocapture noundef %1, i32 noun
   br i1 %25, label %26, label %.thread19.thread
 
 26:                                               ; preds = %12
-  %27 = getelementptr inbounds i8, ptr %0, i64 108
-  %28 = getelementptr inbounds i8, ptr %0, i64 112
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 108
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %29 = zext nneg i32 %2 to i64
   br label %30
 
 30:                                               ; preds = %254, %26
   %31 = phi i64 [ 0, %26 ], [ %255, %254 ]
   %32 = getelementptr %struct.i2c_msg, ptr %1, i64 %31
-  %33 = getelementptr inbounds i8, ptr %32, i64 2
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 2
   %34 = load i16, ptr %33, align 2
   %35 = and i16 %34, 4096
   %36 = and i16 %34, 16384
@@ -208,7 +208,7 @@ define internal i32 @bit_xfer(ptr noundef %0, ptr nocapture noundef %1, i32 noun
 .sink.split:                                      ; preds = %87, %78, %69
   %.str.2.sink = phi ptr [ @.str, %69 ], [ @.str.1, %78 ], [ @.str.2, %87 ]
   %.ph65 = phi i32 [ -6, %69 ], [ -6, %78 ], [ -5, %87 ]
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %28, ptr noundef nonnull %.str.2.sink) #5
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %28, ptr noundef nonnull %.str.2.sink) #5
   br label %106
 
 106:                                              ; preds = %.sink.split, %92
@@ -223,14 +223,14 @@ define internal i32 @bit_xfer(ptr noundef %0, ptr nocapture noundef %1, i32 noun
   br i1 %110, label %223, label %111
 
 111:                                              ; preds = %.thread
-  %112 = getelementptr inbounds i8, ptr %32, i64 8
+  %112 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %113 = load ptr, ptr %112, align 8
-  %114 = getelementptr inbounds i8, ptr %32, i64 4
+  %114 = getelementptr inbounds nuw i8, ptr %32, i64 4
   %115 = load i16, ptr %114, align 4
   %116 = zext i16 %115 to i32
   %117 = zext i16 %108 to i32
   %118 = load ptr, ptr %4, align 8
-  %119 = getelementptr inbounds i8, ptr %118, i64 24
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 24
   %120 = load ptr, ptr %119, align 8
   %121 = icmp eq ptr %120, null
   br i1 %121, label %.thread19.thread, label %122
@@ -251,20 +251,20 @@ define internal i32 @bit_xfer(ptr noundef %0, ptr nocapture noundef %1, i32 noun
   %131 = phi ptr [ %113, %124 ], [ %195, %216 ]
   %132 = phi i32 [ 0, %124 ], [ %194, %216 ]
   %133 = load ptr, ptr %4, align 8
-  %134 = getelementptr inbounds i8, ptr %133, i64 8
+  %134 = getelementptr inbounds nuw i8, ptr %133, i64 8
   %135 = load ptr, ptr %134, align 8
   %136 = load ptr, ptr %133, align 8
   tail call void %135(ptr noundef %136, i32 noundef 1) #4
-  %137 = getelementptr inbounds i8, ptr %133, i64 56
+  %137 = getelementptr inbounds nuw i8, ptr %133, i64 56
   %138 = load i32, ptr %137, align 8
   %139 = add i32 %138, 1
   %140 = sdiv i32 %139, 2
   %141 = sext i32 %140 to i64
   tail call void @__udelay(i64 noundef %141) #4
-  %142 = getelementptr inbounds i8, ptr %133, i64 16
-  %143 = getelementptr inbounds i8, ptr %133, i64 32
-  %144 = getelementptr inbounds i8, ptr %133, i64 60
-  %145 = getelementptr inbounds i8, ptr %133, i64 24
+  %142 = getelementptr inbounds nuw i8, ptr %133, i64 16
+  %143 = getelementptr inbounds nuw i8, ptr %133, i64 32
+  %144 = getelementptr inbounds nuw i8, ptr %133, i64 60
+  %145 = getelementptr inbounds nuw i8, ptr %133, i64 24
   br label %146
 
 146:                                              ; preds = %.loopexit, %129
@@ -355,7 +355,7 @@ define internal i32 @bit_xfer(ptr noundef %0, ptr nocapture noundef %1, i32 noun
   br label %205
 
 205:                                              ; preds = %203, %202
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %28, ptr noundef nonnull @.str.3, i32 noundef %193) #5
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %28, ptr noundef nonnull @.str.3, i32 noundef %193) #5
   br label %.thread19.thread
 
 206:                                              ; preds = %199
@@ -393,7 +393,7 @@ define internal i32 @bit_xfer(ptr noundef %0, ptr nocapture noundef %1, i32 noun
   br label %.thread19.thread
 
 223:                                              ; preds = %.thread
-  %224 = getelementptr inbounds i8, ptr %32, i64 4
+  %224 = getelementptr inbounds nuw i8, ptr %32, i64 4
   %225 = load i16, ptr %224, align 4
   %226 = icmp eq i16 %225, 0
   br i1 %226, label %.loopexit28, label %227
@@ -401,7 +401,7 @@ define internal i32 @bit_xfer(ptr noundef %0, ptr nocapture noundef %1, i32 noun
 227:                                              ; preds = %223
   %228 = zext i16 %225 to i32
   %229 = and i16 %108, 4096
-  %230 = getelementptr inbounds i8, ptr %32, i64 8
+  %230 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %231 = load ptr, ptr %230, align 8
   %232 = icmp ne i16 %229, 0
   br label %233
@@ -428,11 +428,11 @@ define internal i32 @bit_xfer(ptr noundef %0, ptr nocapture noundef %1, i32 noun
   br i1 %239, label %.thread21, label %247
 
 .thread21:                                        ; preds = %246
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %28, ptr noundef nonnull @.str.5) #5
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %28, ptr noundef nonnull @.str.5) #5
   br label %.thread19.thread
 
 247:                                              ; preds = %246
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %28, ptr noundef nonnull @.str.6, i32 noundef %237) #5
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %28, ptr noundef nonnull @.str.6, i32 noundef %237) #5
   br label %.loopexit28
 
 .loopexit28:                                      ; preds = %242, %247, %223
@@ -456,7 +456,7 @@ define internal i32 @bit_xfer(ptr noundef %0, ptr nocapture noundef %1, i32 noun
 .thread19.thread:                                 ; preds = %111, %254, %106, %252, %.thread19, %205, %.thread21, %12
   %257 = phi i32 [ 0, %12 ], [ -5, %.thread21 ], [ -71, %205 ], [ %spec.select, %.thread19 ], [ %spec.select25, %252 ], [ -95, %111 ], [ %107, %106 ], [ %2, %254 ]
   tail call fastcc void @i2c_stop(ptr noundef %5)
-  %258 = getelementptr inbounds i8, ptr %5, i64 48
+  %258 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %259 = load ptr, ptr %258, align 8
   %260 = icmp eq ptr %259, null
   br i1 %260, label %262, label %261
@@ -472,16 +472,16 @@ define internal i32 @bit_xfer(ptr noundef %0, ptr nocapture noundef %1, i32 noun
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @bit_xfer_atomic(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %7 = load i8, ptr %6, align 8, !range !14, !noundef !15
   %8 = icmp eq i8 %7, 0
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %0, i64 112
-  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %10, ptr noundef nonnull @.str.7) #5
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef nonnull %10, ptr noundef nonnull @.str.7) #5
   br label %11
 
 11:                                               ; preds = %9, %3
@@ -502,15 +502,15 @@ define dso_local range(i32 -2147483648, 1) i32 @i2c_bit_add_bus(ptr noundef %0) 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc range(i32 -2147483648, 1) i32 @__i2c_bit_add_bus(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr @bit_test, align 4
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %193, label %7
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 852
-  %9 = getelementptr inbounds i8, ptr %4, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 852
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %15, label %12
@@ -521,23 +521,23 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__i2c_bit_add_bus(ptr noun
   br i1 %14, label %190, label %15
 
 15:                                               ; preds = %12, %7
-  %16 = getelementptr inbounds i8, ptr %4, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, null
   br i1 %18, label %19, label %21
 
 19:                                               ; preds = %15
-  %20 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.11, ptr noundef %8) #5
+  %20 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.11, ptr noundef nonnull %8) #5
   br label %21
 
 21:                                               ; preds = %19, %15
-  %22 = getelementptr inbounds i8, ptr %4, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, null
   br i1 %24, label %25, label %27
 
 25:                                               ; preds = %21
-  %26 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.12, ptr noundef %8) #5
+  %26 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.12, ptr noundef nonnull %8) #5
   br label %27
 
 27:                                               ; preds = %25, %21
@@ -569,15 +569,15 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__i2c_bit_add_bus(ptr noun
   br i1 %44, label %47, label %45
 
 45:                                               ; preds = %40
-  %46 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.13, ptr noundef %8, i32 noundef %41, i32 noundef %34) #5
+  %46 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.13, ptr noundef nonnull %8, i32 noundef %41, i32 noundef %34) #5
   br label %145
 
 47:                                               ; preds = %40
-  %48 = getelementptr inbounds i8, ptr %4, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %49 = load ptr, ptr %48, align 8
   %50 = load ptr, ptr %4, align 8
   tail call void %49(ptr noundef %50, i32 noundef 0) #4
-  %51 = getelementptr inbounds i8, ptr %4, i64 56
+  %51 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %52 = load i32, ptr %51, align 8
   %53 = add i32 %52, 1
   %54 = sdiv i32 %53, 2
@@ -594,7 +594,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__i2c_bit_add_bus(ptr noun
   br i1 %61, label %64, label %62
 
 62:                                               ; preds = %58
-  %63 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.14, ptr noundef %8) #5
+  %63 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.14, ptr noundef nonnull %8) #5
   br label %145
 
 64:                                               ; preds = %58, %47
@@ -609,7 +609,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__i2c_bit_add_bus(ptr noun
   br i1 %70, label %71, label %73
 
 71:                                               ; preds = %67
-  %72 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.15, ptr noundef %8) #5
+  %72 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.15, ptr noundef nonnull %8) #5
   br label %145
 
 73:                                               ; preds = %67, %64
@@ -632,7 +632,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__i2c_bit_add_bus(ptr noun
   br i1 %85, label %86, label %88
 
 86:                                               ; preds = %82
-  %87 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.16, ptr noundef %8) #5
+  %87 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.16, ptr noundef nonnull %8) #5
   br label %145
 
 88:                                               ; preds = %82, %73
@@ -647,11 +647,11 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__i2c_bit_add_bus(ptr noun
   br i1 %94, label %95, label %97
 
 95:                                               ; preds = %91
-  %96 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.17, ptr noundef %8) #5
+  %96 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.17, ptr noundef nonnull %8) #5
   br label %145
 
 97:                                               ; preds = %91, %88
-  %98 = getelementptr inbounds i8, ptr %4, i64 16
+  %98 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %99 = load ptr, ptr %98, align 8
   %100 = load ptr, ptr %4, align 8
   tail call void %99(ptr noundef %100, i32 noundef 0) #4
@@ -670,7 +670,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__i2c_bit_add_bus(ptr noun
   br i1 %109, label %112, label %110
 
 110:                                              ; preds = %106
-  %111 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.18, ptr noundef %8) #5
+  %111 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.18, ptr noundef nonnull %8) #5
   br label %145
 
 112:                                              ; preds = %106, %97
@@ -685,7 +685,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__i2c_bit_add_bus(ptr noun
   br i1 %118, label %119, label %121
 
 119:                                              ; preds = %115
-  %120 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.19, ptr noundef %8) #5
+  %120 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.19, ptr noundef nonnull %8) #5
   br label %145
 
 121:                                              ; preds = %115, %112
@@ -701,7 +701,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__i2c_bit_add_bus(ptr noun
   br i1 %127, label %128, label %130
 
 128:                                              ; preds = %124
-  %129 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.20, ptr noundef %8) #5
+  %129 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.20, ptr noundef nonnull %8) #5
   br label %145
 
 130:                                              ; preds = %124, %121
@@ -716,11 +716,11 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__i2c_bit_add_bus(ptr noun
   br i1 %136, label %137, label %139
 
 137:                                              ; preds = %133
-  %138 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.21, ptr noundef %8) #5
+  %138 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.21, ptr noundef nonnull %8) #5
   br label %145
 
 139:                                              ; preds = %133, %130
-  %140 = getelementptr inbounds i8, ptr %4, i64 48
+  %140 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %141 = load ptr, ptr %140, align 8
   %142 = icmp eq ptr %141, null
   br i1 %142, label %.thread, label %143
@@ -730,21 +730,21 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__i2c_bit_add_bus(ptr noun
   br label %.thread
 
 .thread:                                          ; preds = %139, %143
-  %144 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.22, ptr noundef %8) #5
+  %144 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.22, ptr noundef nonnull %8) #5
   br label %193
 
 145:                                              ; preds = %137, %128, %119, %110, %95, %86, %71, %62, %45
-  %146 = getelementptr inbounds i8, ptr %4, i64 8
+  %146 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %147 = load ptr, ptr %146, align 8
   %148 = load ptr, ptr %4, align 8
   tail call void %147(ptr noundef %148, i32 noundef 1) #4
-  %149 = getelementptr inbounds i8, ptr %4, i64 56
+  %149 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %150 = load i32, ptr %149, align 8
   %151 = add i32 %150, 1
   %152 = sdiv i32 %151, 2
   %153 = sext i32 %152 to i64
   tail call void @__udelay(i64 noundef %153) #4
-  %154 = getelementptr inbounds i8, ptr %4, i64 16
+  %154 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %155 = load ptr, ptr %154, align 8
   %156 = load ptr, ptr %4, align 8
   tail call void %155(ptr noundef %156, i32 noundef 1) #4
@@ -760,7 +760,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__i2c_bit_add_bus(ptr noun
   br i1 %163, label %164, label %.loopexit
 
 164:                                              ; preds = %159
-  %165 = getelementptr inbounds i8, ptr %4, i64 60
+  %165 = getelementptr inbounds nuw i8, ptr %4, i64 60
   br label %166
 
 166:                                              ; preds = %178, %164
@@ -794,7 +794,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__i2c_bit_add_bus(ptr noun
   br label %185
 
 185:                                              ; preds = %.loopexit, %173
-  %186 = getelementptr inbounds i8, ptr %4, i64 48
+  %186 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %187 = load ptr, ptr %186, align 8
   %188 = icmp eq ptr %187, null
   br i1 %188, label %190, label %189
@@ -809,17 +809,17 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__i2c_bit_add_bus(ptr noun
   br i1 %192, label %223, label %193
 
 193:                                              ; preds = %.thread, %190, %2
-  %194 = getelementptr inbounds i8, ptr %0, i64 16
+  %194 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr @i2c_bit_algo, ptr %194, align 8
-  %195 = getelementptr inbounds i8, ptr %0, i64 108
+  %195 = getelementptr inbounds nuw i8, ptr %0, i64 108
   store i32 3, ptr %195, align 4
-  %196 = getelementptr inbounds i8, ptr %4, i64 32
+  %196 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %197 = load ptr, ptr %196, align 8
   %198 = icmp eq ptr %197, null
   br i1 %198, label %199, label %201
 
 199:                                              ; preds = %193
-  %200 = getelementptr inbounds i8, ptr %0, i64 992
+  %200 = getelementptr inbounds nuw i8, ptr %0, i64 992
   store ptr @i2c_bit_quirk_no_clk_stretch, ptr %200, align 8
   br label %201
 
@@ -829,14 +829,14 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__i2c_bit_add_bus(ptr noun
   br i1 %203, label %223, label %204
 
 204:                                              ; preds = %201
-  %205 = getelementptr inbounds i8, ptr %4, i64 24
+  %205 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %206 = load ptr, ptr %205, align 8
   %207 = icmp eq ptr %206, null
   br i1 %207, label %208, label %210
 
 208:                                              ; preds = %204
-  %209 = getelementptr inbounds i8, ptr %0, i64 112
-  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %209, ptr noundef nonnull @.str.8) #5
+  %209 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef nonnull %209, ptr noundef nonnull @.str.8) #5
   br label %210
 
 210:                                              ; preds = %208, %204
@@ -845,8 +845,8 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__i2c_bit_add_bus(ptr noun
   br i1 %212, label %213, label %215
 
 213:                                              ; preds = %210
-  %214 = getelementptr inbounds i8, ptr %0, i64 112
-  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %214, ptr noundef nonnull @.str.9) #5
+  %214 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef nonnull %214, ptr noundef nonnull @.str.9) #5
   br label %215
 
 215:                                              ; preds = %213, %210
@@ -860,8 +860,8 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__i2c_bit_add_bus(ptr noun
   br i1 %220, label %221, label %223
 
 221:                                              ; preds = %218, %215
-  %222 = getelementptr inbounds i8, ptr %0, i64 112
-  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %222, ptr noundef nonnull @.str.10) #5
+  %222 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef nonnull %222, ptr noundef nonnull @.str.10) #5
   br label %223
 
 223:                                              ; preds = %221, %218, %201, %190
@@ -883,21 +883,21 @@ declare dso_local i32 @i2c_add_numbered_adapter(ptr noundef) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @i2c_stop(ptr nocapture noundef readonly %0) unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %0, align 8
   tail call void %3(ptr noundef %4, i32 noundef 0) #4
-  %5 = getelementptr inbounds i8, ptr %0, i64 56
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load i32, ptr %5, align 8
   %7 = add i32 %6, 1
   %8 = sdiv i32 %7, 2
   %9 = sext i32 %8 to i64
   tail call void @__udelay(i64 noundef %9) #4
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr %0, align 8
   tail call void %11(ptr noundef %12, i32 noundef 1) #4
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %.loopexit, label %16
@@ -910,7 +910,7 @@ define internal fastcc void @i2c_stop(ptr nocapture noundef readonly %0) unnamed
   br i1 %20, label %21, label %.loopexit
 
 21:                                               ; preds = %16
-  %22 = getelementptr inbounds i8, ptr %0, i64 60
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 60
   br label %23
 
 23:                                               ; preds = %35, %21
@@ -955,21 +955,21 @@ define internal fastcc void @i2c_stop(ptr nocapture noundef readonly %0) unnamed
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @i2c_repstart(ptr nocapture noundef readonly %0) unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %0, align 8
   tail call void %3(ptr noundef %4, i32 noundef 1) #4
-  %5 = getelementptr inbounds i8, ptr %0, i64 56
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load i32, ptr %5, align 8
   %7 = add i32 %6, 1
   %8 = sdiv i32 %7, 2
   %9 = sext i32 %8 to i64
   tail call void @__udelay(i64 noundef %9) #4
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr %0, align 8
   tail call void %11(ptr noundef %12, i32 noundef 1) #4
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %.loopexit, label %16
@@ -982,7 +982,7 @@ define internal fastcc void @i2c_repstart(ptr nocapture noundef readonly %0) unn
   br i1 %20, label %21, label %.loopexit
 
 21:                                               ; preds = %16
-  %22 = getelementptr inbounds i8, ptr %0, i64 60
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 60
   br label %23
 
 23:                                               ; preds = %35, %21
@@ -1037,11 +1037,11 @@ declare dso_local void @__udelay(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @sclhi(ptr nocapture noundef readonly %0) unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %0, align 8
   tail call void %3(ptr noundef %4, i32 noundef 1) #4
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.loopexit, label %8
@@ -1054,7 +1054,7 @@ define internal fastcc void @sclhi(ptr nocapture noundef readonly %0) unnamed_ad
   br i1 %12, label %13, label %.loopexit
 
 13:                                               ; preds = %8
-  %14 = getelementptr inbounds i8, ptr %0, i64 60
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 60
   br label %15
 
 15:                                               ; preds = %27, %13
@@ -1082,7 +1082,7 @@ define internal fastcc void @sclhi(ptr nocapture noundef readonly %0) unnamed_ad
   br i1 %31, label %15, label %.loopexit, !llvm.loop !6
 
 .loopexit:                                        ; preds = %27, %22, %8, %1
-  %32 = getelementptr inbounds i8, ptr %0, i64 56
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %33 = load i32, ptr %32, align 8
   %34 = sext i32 %33 to i64
   tail call void @__udelay(i64 noundef %34) #4
@@ -1094,15 +1094,15 @@ define internal fastcc void @sclhi(ptr nocapture noundef readonly %0) unnamed_ad
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc range(i32 -110, 2) i32 @try_address(ptr nocapture noundef readonly %0, i8 noundef zeroext %1, i32 noundef %2) unnamed_addr #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = icmp slt i32 %2, 0
   br i1 %6, label %.loopexit, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %5, i64 56
-  %9 = getelementptr inbounds i8, ptr %5, i64 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
   br label %11
 
 11:                                               ; preds = %17, %7
@@ -1150,11 +1150,11 @@ declare dso_local void @_dev_err(ptr noundef, ptr noundef, ...) local_unnamed_ad
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc range(i32 -110, 2) i32 @i2c_outb(ptr nocapture readonly %.24.val, i8 noundef zeroext %0) unnamed_addr #0 align 16 {
   %2 = zext i8 %0 to i32
-  %3 = getelementptr inbounds i8, ptr %.24.val, i64 8
-  %4 = getelementptr inbounds i8, ptr %.24.val, i64 56
-  %5 = getelementptr inbounds i8, ptr %.24.val, i64 16
-  %6 = getelementptr inbounds i8, ptr %.24.val, i64 32
-  %7 = getelementptr inbounds i8, ptr %.24.val, i64 60
+  %3 = getelementptr inbounds nuw i8, ptr %.24.val, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %.24.val, i64 56
+  %5 = getelementptr inbounds nuw i8, ptr %.24.val, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %.24.val, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %.24.val, i64 60
   br label %8
 
 8:                                                ; preds = %.loopexit3, %1
@@ -1273,7 +1273,7 @@ define internal fastcc range(i32 -110, 2) i32 @i2c_outb(ptr nocapture readonly %
   %84 = load i32, ptr %4, align 8
   %85 = sext i32 %84 to i64
   tail call void @__udelay(i64 noundef %85) #4
-  %86 = getelementptr inbounds i8, ptr %.24.val, i64 24
+  %86 = getelementptr inbounds nuw i8, ptr %.24.val, i64 24
   %87 = load ptr, ptr %86, align 8
   %88 = icmp eq ptr %87, null
   br i1 %88, label %94, label %89
@@ -1306,30 +1306,30 @@ declare dso_local void @yield() local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc noundef range(i32 -110, 1) i32 @acknak(ptr noundef %0, i32 noundef %1) unnamed_addr #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq i32 %1, 0
   br i1 %5, label %10, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %4, align 8
   tail call void %8(ptr noundef %9, i32 noundef 0) #4
   br label %10
 
 10:                                               ; preds = %6, %2
-  %11 = getelementptr inbounds i8, ptr %4, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %12 = load i32, ptr %11, align 8
   %13 = add i32 %12, 1
   %14 = sdiv i32 %13, 2
   %15 = sext i32 %14 to i64
   tail call void @__udelay(i64 noundef %15) #4
-  %16 = getelementptr inbounds i8, ptr %4, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr %4, align 8
   tail call void %17(ptr noundef %18, i32 noundef 1) #4
-  %19 = getelementptr inbounds i8, ptr %4, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
   br i1 %21, label %.loopexit, label %22
@@ -1342,7 +1342,7 @@ define internal fastcc noundef range(i32 -110, 1) i32 @acknak(ptr noundef %0, i3
   br i1 %26, label %27, label %.loopexit
 
 27:                                               ; preds = %22
-  %28 = getelementptr inbounds i8, ptr %4, i64 60
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 60
   br label %29
 
 29:                                               ; preds = %41, %27
@@ -1383,8 +1383,8 @@ define internal fastcc noundef range(i32 -110, 1) i32 @acknak(ptr noundef %0, i3
   br label %55
 
 53:                                               ; preds = %36
-  %54 = getelementptr inbounds i8, ptr %0, i64 112
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %54, ptr noundef nonnull @.str.4) #5
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %54, ptr noundef nonnull @.str.4) #5
   br label %55
 
 55:                                               ; preds = %53, %.loopexit

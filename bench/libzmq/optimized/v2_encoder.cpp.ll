@@ -46,14 +46,14 @@ $_ZTVN3zmq14encoder_base_tINS_12v2_encoder_tEEE = comdat any
 define void @_ZN3zmq12v2_encoder_tC2Em(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) initializes((0, 41), (48, 72)) %this, i64 noundef %bufsize_) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq14encoder_base_tINS_12v2_encoder_tEEE, i64 16), ptr %this, align 8
-  %_write_pos.i = getelementptr inbounds i8, ptr %this, i64 8
-  %_buf_size.i = getelementptr inbounds i8, ptr %this, i64 48
+  %_write_pos.i = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %_buf_size.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33) %_write_pos.i, i8 0, i64 33, i1 false)
   store i64 %bufsize_, ptr %_buf_size.i, align 8
-  %_buf.i = getelementptr inbounds i8, ptr %this, i64 56
+  %_buf.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %call.i = tail call noalias ptr @malloc(i64 noundef %bufsize_) #13
   store ptr %call.i, ptr %_buf.i, align 8
-  %_in_progress.i = getelementptr inbounds i8, ptr %this, i64 64
+  %_in_progress.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   store ptr null, ptr %_in_progress.i, align 8
   %tobool.not.i = icmp eq ptr %call.i, null
   br i1 %tobool.not.i, label %if.then.i, label %_ZN3zmq14encoder_base_tINS_12v2_encoder_tEEC2Em.exit
@@ -68,12 +68,12 @@ if.then.i:                                        ; preds = %entry
 
 _ZN3zmq14encoder_base_tINS_12v2_encoder_tEEC2Em.exit: ; preds = %entry, %if.then.i
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq12v2_encoder_tE, i64 16), ptr %this, align 8
-  %_next.i = getelementptr inbounds i8, ptr %this, i64 24
+  %_next.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_write_pos.i, i8 0, i64 16, i1 false)
   store i64 ptrtoint (ptr @_ZN3zmq12v2_encoder_t13message_readyEv to i64), ptr %_next.i, align 8
-  %_next.repack1.i = getelementptr inbounds i8, ptr %this, i64 32
+  %_next.repack1.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   store i64 0, ptr %_next.repack1.i, align 8
-  %_new_msg_flag.i = getelementptr inbounds i8, ptr %this, i64 40
+  %_new_msg_flag.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store i8 1, ptr %_new_msg_flag.i, align 8
   ret void
 }
@@ -81,10 +81,10 @@ _ZN3zmq14encoder_base_tINS_12v2_encoder_tEEC2Em.exit: ; preds = %entry, %if.then
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3zmq12v2_encoder_t13message_readyEv(ptr noundef nonnull align 8 dereferenceable(88) initializes((72, 74)) %this) #0 align 2 {
 entry:
-  %_in_progress.i = getelementptr inbounds i8, ptr %this, i64 64
+  %_in_progress.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load ptr, ptr %_in_progress.i, align 8
   %call2 = tail call noundef i64 @_ZNK3zmq5msg_t4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %0)
-  %_tmp_buf = getelementptr inbounds i8, ptr %this, i64 72
+  %_tmp_buf = getelementptr inbounds nuw i8, ptr %this, i64 72
   store i8 0, ptr %_tmp_buf, align 8
   %1 = load ptr, ptr %_in_progress.i, align 8
   %call4 = tail call noundef zeroext i8 @_ZNK3zmq5msg_t5flagsEv(ptr noundef nonnull align 8 dereferenceable(64) %1)
@@ -125,7 +125,7 @@ if.then19:                                        ; preds = %if.end13
 
 if.end23:                                         ; preds = %if.then19, %if.end13
   %12 = load ptr, ptr %_in_progress.i, align 8
-  %flags.i = getelementptr inbounds i8, ptr %12, i64 43
+  %flags.i = getelementptr inbounds nuw i8, ptr %12, i64 43
   %13 = load i8, ptr %flags.i, align 1
   %14 = and i8 %13, 28
   switch i8 %14, label %if.end29 [
@@ -146,30 +146,30 @@ if.then32:                                        ; preds = %if.end29
   %shr.i = lshr i64 %size.0, 56
   %shr1.i = lshr i64 %size.0, 48
   %conv3.i = trunc i64 %shr1.i to i8
-  %arrayidx4.i = getelementptr inbounds i8, ptr %this, i64 74
+  %arrayidx4.i = getelementptr inbounds nuw i8, ptr %this, i64 74
   store i8 %conv3.i, ptr %arrayidx4.i, align 2
   %shr5.i = lshr i64 %size.0, 40
   %conv7.i = trunc i64 %shr5.i to i8
-  %arrayidx8.i = getelementptr inbounds i8, ptr %this, i64 75
+  %arrayidx8.i = getelementptr inbounds nuw i8, ptr %this, i64 75
   store i8 %conv7.i, ptr %arrayidx8.i, align 1
   %shr9.i = lshr i64 %size.0, 32
   %conv11.i = trunc i64 %shr9.i to i8
-  %arrayidx12.i = getelementptr inbounds i8, ptr %this, i64 76
+  %arrayidx12.i = getelementptr inbounds nuw i8, ptr %this, i64 76
   store i8 %conv11.i, ptr %arrayidx12.i, align 4
   %shr13.i = lshr i64 %size.0, 24
   %conv15.i = trunc i64 %shr13.i to i8
-  %arrayidx16.i = getelementptr inbounds i8, ptr %this, i64 77
+  %arrayidx16.i = getelementptr inbounds nuw i8, ptr %this, i64 77
   store i8 %conv15.i, ptr %arrayidx16.i, align 1
   %shr17.i = lshr i64 %size.0, 16
   %conv19.i = trunc i64 %shr17.i to i8
-  %arrayidx20.i = getelementptr inbounds i8, ptr %this, i64 78
+  %arrayidx20.i = getelementptr inbounds nuw i8, ptr %this, i64 78
   store i8 %conv19.i, ptr %arrayidx20.i, align 2
   %shr21.i = lshr i64 %size.0, 8
   %conv23.i = trunc i64 %shr21.i to i8
-  %arrayidx24.i = getelementptr inbounds i8, ptr %this, i64 79
+  %arrayidx24.i = getelementptr inbounds nuw i8, ptr %this, i64 79
   store i8 %conv23.i, ptr %arrayidx24.i, align 1
   %conv26.i = trunc i64 %size.0 to i8
-  %arrayidx27.i = getelementptr inbounds i8, ptr %this, i64 80
+  %arrayidx27.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   store i8 %conv26.i, ptr %arrayidx27.i, align 8
   br label %if.end37
 
@@ -177,7 +177,7 @@ if.end37:                                         ; preds = %if.end29, %if.then3
   %conv34.sink.in = phi i64 [ %shr.i, %if.then32 ], [ %size.0, %if.end29 ]
   %header_size.0 = phi i64 [ 9, %if.then32 ], [ 2, %if.end29 ]
   %conv34.sink = trunc nuw i64 %conv34.sink.in to i8
-  %15 = getelementptr inbounds i8, ptr %this, i64 73
+  %15 = getelementptr inbounds nuw i8, ptr %this, i64 73
   store i8 %conv34.sink, ptr %15, align 1
   %16 = load i8, ptr %flags.i, align 1
   %17 = and i8 %16, 28
@@ -192,21 +192,21 @@ if.then47:                                        ; preds = %if.end37
 if.end52.sink.split:                              ; preds = %if.end37, %if.then47
   %.sink = phi i8 [ 0, %if.then47 ], [ 1, %if.end37 ]
   %inc49 = add nuw nsw i64 %header_size.0, 1
-  %arrayidx50 = getelementptr inbounds [10 x i8], ptr %_tmp_buf, i64 0, i64 %header_size.0
+  %arrayidx50 = getelementptr inbounds nuw [10 x i8], ptr %_tmp_buf, i64 0, i64 %header_size.0
   store i8 %.sink, ptr %arrayidx50, align 1
   br label %if.end52
 
 if.end52:                                         ; preds = %if.end52.sink.split, %if.end37
   %header_size.1 = phi i64 [ %header_size.0, %if.end37 ], [ %inc49, %if.end52.sink.split ]
-  %_write_pos.i = getelementptr inbounds i8, ptr %this, i64 8
+  %_write_pos.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %_tmp_buf, ptr %_write_pos.i, align 8
-  %_to_write.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_to_write.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i64 %header_size.1, ptr %_to_write.i, align 8
-  %_next.i = getelementptr inbounds i8, ptr %this, i64 24
+  %_next.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i64 ptrtoint (ptr @_ZN3zmq12v2_encoder_t10size_readyEv to i64), ptr %_next.i, align 8
-  %_next.repack1.i = getelementptr inbounds i8, ptr %this, i64 32
+  %_next.repack1.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   store i64 0, ptr %_next.repack1.i, align 8
-  %_new_msg_flag.i = getelementptr inbounds i8, ptr %this, i64 40
+  %_new_msg_flag.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store i8 0, ptr %_new_msg_flag.i, align 8
   ret void
 }
@@ -217,7 +217,7 @@ declare i32 @__gxx_personality_v0(...)
 define void @_ZN3zmq12v2_encoder_tD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %this) unnamed_addr #1 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq14encoder_base_tINS_12v2_encoder_tEEE, i64 16), ptr %this, align 8
-  %_buf.i = getelementptr inbounds i8, ptr %this, i64 56
+  %_buf.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %_buf.i, align 8
   tail call void @free(ptr noundef %0) #15
   ret void
@@ -241,20 +241,20 @@ declare noundef zeroext i8 @_ZNK3zmq5msg_t5flagsEv(ptr noundef nonnull align 8 d
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3zmq12v2_encoder_t10size_readyEv(ptr nocapture noundef nonnull align 8 dereferenceable(88) initializes((8, 41)) %this) #0 align 2 {
 entry:
-  %_in_progress.i = getelementptr inbounds i8, ptr %this, i64 64
+  %_in_progress.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load ptr, ptr %_in_progress.i, align 8
   %call2 = tail call noundef ptr @_ZN3zmq5msg_t4dataEv(ptr noundef nonnull align 8 dereferenceable(64) %0)
   %1 = load ptr, ptr %_in_progress.i, align 8
   %call4 = tail call noundef i64 @_ZNK3zmq5msg_t4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %1)
-  %_write_pos.i = getelementptr inbounds i8, ptr %this, i64 8
+  %_write_pos.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %call2, ptr %_write_pos.i, align 8
-  %_to_write.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_to_write.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i64 %call4, ptr %_to_write.i, align 8
-  %_next.i = getelementptr inbounds i8, ptr %this, i64 24
+  %_next.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i64 ptrtoint (ptr @_ZN3zmq12v2_encoder_t13message_readyEv to i64), ptr %_next.i, align 8
-  %_next.repack1.i = getelementptr inbounds i8, ptr %this, i64 32
+  %_next.repack1.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   store i64 0, ptr %_next.repack1.i, align 8
-  %_new_msg_flag.i = getelementptr inbounds i8, ptr %this, i64 40
+  %_new_msg_flag.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store i8 1, ptr %_new_msg_flag.i, align 8
   ret void
 }
@@ -266,13 +266,13 @@ define linkonce_odr noundef i64 @_ZN3zmq14encoder_base_tINS_12v2_encoder_tEE6enc
 entry:
   %0 = load ptr, ptr %data_, align 8
   %tobool.not = icmp eq ptr %0, null
-  %_buf = getelementptr inbounds i8, ptr %this, i64 56
+  %_buf = getelementptr inbounds nuw i8, ptr %this, i64 56
   %1 = load ptr, ptr %_buf, align 8
   %cond = select i1 %tobool.not, ptr %1, ptr %0
-  %_buf_size = getelementptr inbounds i8, ptr %this, i64 48
+  %_buf_size = getelementptr inbounds nuw i8, ptr %this, i64 48
   %2 = load i64, ptr %_buf_size, align 8
   %cond6 = select i1 %tobool.not, i64 %2, i64 %size_
-  %_in_progress.i = getelementptr inbounds i8, ptr %this, i64 64
+  %_in_progress.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %3 = load ptr, ptr %_in_progress.i, align 8
   %cmp = icmp eq ptr %3, null
   br i1 %cmp, label %return, label %while.cond.preheader
@@ -282,11 +282,11 @@ while.cond.preheader:                             ; preds = %entry
   br i1 %cmp728.not, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %while.cond.preheader
-  %_to_write = getelementptr inbounds i8, ptr %this, i64 16
-  %_new_msg_flag = getelementptr inbounds i8, ptr %this, i64 40
-  %_next = getelementptr inbounds i8, ptr %this, i64 24
-  %.elt21 = getelementptr inbounds i8, ptr %this, i64 32
-  %_write_pos48 = getelementptr inbounds i8, ptr %this, i64 8
+  %_to_write = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %_new_msg_flag = getelementptr inbounds nuw i8, ptr %this, i64 40
+  %_next = getelementptr inbounds nuw i8, ptr %this, i64 24
+  %.elt21 = getelementptr inbounds nuw i8, ptr %this, i64 32
+  %_write_pos48 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %.pre = load i64, ptr %_to_write, align 8
   br label %while.body
 
@@ -416,7 +416,7 @@ return:                                           ; preds = %entry, %while.end, 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN3zmq14encoder_base_tINS_12v2_encoder_tEE8load_msgEPNS_5msg_tE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef %msg_) unnamed_addr #0 comdat align 2 {
 entry:
-  %_in_progress.i = getelementptr inbounds i8, ptr %this, i64 64
+  %_in_progress.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load ptr, ptr %_in_progress.i, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %do.end, label %if.then
@@ -431,9 +431,9 @@ if.then:                                          ; preds = %entry
 
 do.end:                                           ; preds = %entry, %if.then
   store ptr %msg_, ptr %_in_progress.i, align 8
-  %_next = getelementptr inbounds i8, ptr %this, i64 24
+  %_next = getelementptr inbounds nuw i8, ptr %this, i64 24
   %.unpack = load i64, ptr %_next, align 8
-  %.elt1 = getelementptr inbounds i8, ptr %this, i64 32
+  %.elt1 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %.unpack2 = load i64, ptr %.elt1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %.unpack2
   %4 = and i64 %.unpack, 1
@@ -472,7 +472,7 @@ declare void @_ZN3zmq9zmq_abortEPKc(ptr noundef) local_unnamed_addr #4
 define linkonce_odr void @_ZN3zmq14encoder_base_tINS_12v2_encoder_tEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #2 comdat align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq14encoder_base_tINS_12v2_encoder_tEEE, i64 16), ptr %this, align 8
-  %_buf = getelementptr inbounds i8, ptr %this, i64 56
+  %_buf = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %_buf, align 8
   tail call void @free(ptr noundef %0) #15
   ret void
@@ -482,7 +482,7 @@ entry:
 define linkonce_odr void @_ZN3zmq14encoder_base_tINS_12v2_encoder_tEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #2 comdat align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq14encoder_base_tINS_12v2_encoder_tEEE, i64 16), ptr %this, align 8
-  %_buf.i = getelementptr inbounds i8, ptr %this, i64 56
+  %_buf.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %_buf.i, align 8
   tail call void @free(ptr noundef %0) #15
   tail call void @_ZdlPv(ptr noundef nonnull %this) #16

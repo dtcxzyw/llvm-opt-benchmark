@@ -549,7 +549,7 @@ land.lhs.true8:                                   ; preds = %if.end5
   br i1 %cmp.i22, label %return, label %X509_ATTRIBUTE_count.exit
 
 X509_ATTRIBUTE_count.exit:                        ; preds = %land.lhs.true8
-  %set.i = getelementptr inbounds i8, ptr %call6, i64 8
+  %set.i = getelementptr inbounds nuw i8, ptr %call6, i64 8
   %4 = load ptr, ptr %set.i, align 8
   %call1.i = tail call i32 @OPENSSL_sk_num(ptr noundef %4) #3
   %cmp10.not = icmp eq i32 %call1.i, 1
@@ -572,7 +572,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %set = getelementptr inbounds i8, ptr %attr, i64 8
+  %set = getelementptr inbounds nuw i8, ptr %attr, i64 8
   %0 = load ptr, ptr %set, align 8
   %call1 = tail call i32 @OPENSSL_sk_num(ptr noundef %0) #3
   br label %return
@@ -595,7 +595,7 @@ X509_ATTRIBUTE_get0_type.exit.thread:             ; preds = %entry
   br label %return
 
 X509_ATTRIBUTE_get0_type.exit:                    ; preds = %entry
-  %set.i = getelementptr inbounds i8, ptr %attr, i64 8
+  %set.i = getelementptr inbounds nuw i8, ptr %attr, i64 8
   %0 = load ptr, ptr %set.i, align 8
   %call1.i = tail call ptr @OPENSSL_sk_value(ptr noundef %0, i32 noundef %idx) #3
   %cmp = icmp eq ptr %call1.i, null
@@ -618,7 +618,7 @@ if.then6:                                         ; preds = %lor.lhs.false3, %if
   br label %return
 
 if.end7:                                          ; preds = %lor.lhs.false3
-  %value = getelementptr inbounds i8, ptr %call1.i, i64 8
+  %value = getelementptr inbounds nuw i8, ptr %call1.i, i64 8
   %2 = load ptr, ptr %value, align 8
   br label %return
 
@@ -727,7 +727,7 @@ if.then5:                                         ; preds = %if.then2
   br label %return
 
 if.end15.thread:                                  ; preds = %if.then2
-  %type = getelementptr inbounds i8, ptr %call3, i64 4
+  %type = getelementptr inbounds nuw i8, ptr %call3, i64 4
   %1 = load i32, ptr %type, align 4
   br label %if.end18
 
@@ -778,7 +778,7 @@ if.else31:                                        ; preds = %if.end22
 
 if.end32:                                         ; preds = %if.then26, %if.else31
   %stmp.2 = phi ptr [ %stmp.025, %if.then26 ], [ null, %if.else31 ]
-  %set = getelementptr inbounds i8, ptr %attr, i64 8
+  %set = getelementptr inbounds nuw i8, ptr %attr, i64 8
   %2 = load ptr, ptr %set, align 8
   %call35 = tail call i32 @OPENSSL_sk_push(ptr noundef %2, ptr noundef nonnull %call19) #3
   %tobool36.not = icmp eq i32 %call35, 0
@@ -857,7 +857,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %set = getelementptr inbounds i8, ptr %attr, i64 8
+  %set = getelementptr inbounds nuw i8, ptr %attr, i64 8
   %0 = load ptr, ptr %set, align 8
   %call1 = tail call ptr @OPENSSL_sk_value(ptr noundef %0, i32 noundef %idx) #3
   br label %return

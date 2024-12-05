@@ -9,19 +9,19 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define noundef i32 @opal_srand(ptr nocapture noundef initializes((0, 516)) %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 508
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 508
   store i32 126, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 512
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 512
   store i32 96, ptr %4, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(508) %0, i8 0, i64 508, i1 false)
-  %5 = getelementptr inbounds i8, ptr %0, i64 84
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 84
   store i32 1, ptr %5, align 4
   br label %.preheader
 
 .preheader:                                       ; preds = %2, %16
   %indvars.iv = phi i64 [ 1, %2 ], [ %indvars.iv.next, %16 ]
   %.01823 = phi i32 [ %1, %2 ], [ %12, %16 ]
-  %6 = getelementptr inbounds [127 x i32], ptr %0, i64 0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [127 x i32], ptr %0, i64 0, i64 %indvars.iv
   %.promoted = load i32, ptr %6, align 4
   br label %7
 
@@ -55,8 +55,8 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define i32 @opal_rand(ptr nocapture noundef %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 508
-  %3 = getelementptr inbounds i8, ptr %0, i64 512
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 508
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %4 = load i32, ptr %2, align 4
   %5 = sext i32 %4 to i64
   %6 = getelementptr inbounds [127 x i32], ptr %0, i64 0, i64 %5
@@ -70,7 +70,7 @@ define i32 @opal_rand(ptr nocapture noundef %0) local_unnamed_addr #2 {
   %narrow = select i1 %13, i32 0, i32 %12
   %spec.select = zext i32 %narrow to i64
   %.narrow = add i32 %11, %7
-  %14 = getelementptr inbounds [127 x i32], ptr %0, i64 0, i64 %spec.select
+  %14 = getelementptr inbounds nuw [127 x i32], ptr %0, i64 0, i64 %spec.select
   store i32 %.narrow, ptr %14, align 4
   %15 = load i32, ptr %2, align 4
   %16 = add nsw i32 %15, 1
@@ -86,11 +86,11 @@ define i32 @opal_rand(ptr nocapture noundef %0) local_unnamed_addr #2 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define range(i32 0, -2147483648) i32 @opal_random() local_unnamed_addr #3 {
-  %1 = load i32, ptr getelementptr inbounds (i8, ptr @alfg_buffer, i64 508), align 4
+  %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @alfg_buffer, i64 508), align 4
   %2 = sext i32 %1 to i64
   %3 = getelementptr inbounds [127 x i32], ptr @alfg_buffer, i64 0, i64 %2
   %4 = load i32, ptr %3, align 4
-  %5 = load i32, ptr getelementptr inbounds (i8, ptr @alfg_buffer, i64 512), align 4
+  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @alfg_buffer, i64 512), align 4
   %6 = sext i32 %5 to i64
   %7 = getelementptr inbounds [127 x i32], ptr @alfg_buffer, i64 0, i64 %6
   %8 = load i32, ptr %7, align 4
@@ -99,16 +99,16 @@ define range(i32 0, -2147483648) i32 @opal_random() local_unnamed_addr #3 {
   %narrow.i = select i1 %10, i32 0, i32 %9
   %spec.select.i = zext i32 %narrow.i to i64
   %.narrow.i = add i32 %8, %4
-  %11 = getelementptr inbounds [127 x i32], ptr @alfg_buffer, i64 0, i64 %spec.select.i
+  %11 = getelementptr inbounds nuw [127 x i32], ptr @alfg_buffer, i64 0, i64 %spec.select.i
   store i32 %.narrow.i, ptr %11, align 4
-  %12 = load i32, ptr getelementptr inbounds (i8, ptr @alfg_buffer, i64 508), align 4
+  %12 = load i32, ptr getelementptr inbounds nuw (i8, ptr @alfg_buffer, i64 508), align 4
   %13 = add nsw i32 %12, 1
   %14 = srem i32 %13, 127
-  store i32 %14, ptr getelementptr inbounds (i8, ptr @alfg_buffer, i64 508), align 4
-  %15 = load i32, ptr getelementptr inbounds (i8, ptr @alfg_buffer, i64 512), align 4
+  store i32 %14, ptr getelementptr inbounds nuw (i8, ptr @alfg_buffer, i64 508), align 4
+  %15 = load i32, ptr getelementptr inbounds nuw (i8, ptr @alfg_buffer, i64 512), align 4
   %16 = add nsw i32 %15, 1
   %17 = srem i32 %16, 127
-  store i32 %17, ptr getelementptr inbounds (i8, ptr @alfg_buffer, i64 512), align 4
+  store i32 %17, ptr getelementptr inbounds nuw (i8, ptr @alfg_buffer, i64 512), align 4
   %18 = load i32, ptr %11, align 4
   %19 = and i32 %18, 2147483647
   ret i32 %19

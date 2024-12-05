@@ -16,13 +16,13 @@ entry:
 
 switch.lookup:                                    ; preds = %entry
   %1 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [3 x i64], ptr @switch.table.ossl_calculate_comp_expansion, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @switch.table.ossl_calculate_comp_expansion, i64 0, i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
   %2 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep10 = getelementptr inbounds [3 x i64], ptr @switch.table.ossl_calculate_comp_expansion.1, i64 0, i64 %2
+  %switch.gep10 = getelementptr inbounds nuw [3 x i64], ptr @switch.table.ossl_calculate_comp_expansion.1, i64 0, i64 %2
   %switch.load11 = load i64, ptr %switch.gep10, align 8
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep12 = getelementptr inbounds [3 x i64], ptr @switch.table.ossl_calculate_comp_expansion.2, i64 0, i64 %3
+  %switch.gep12 = getelementptr inbounds nuw [3 x i64], ptr @switch.table.ossl_calculate_comp_expansion.2, i64 0, i64 %3
   %switch.load13 = load i64, ptr %switch.gep12, align 8
   %add8 = add i64 %length, %switch.load
   %shr9 = lshr i64 %length, %switch.load11

@@ -80,7 +80,7 @@ entry:
   br i1 %tobool.not, label %do.body5, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %prefix = getelementptr inbounds i8, ptr %config, i64 360
+  %prefix = getelementptr inbounds nuw i8, ptr %config, i64 360
   %1 = load ptr, ptr %prefix, align 8
   %tobool1.not = icmp eq ptr %1, null
   br i1 %tobool1.not, label %if.then, label %do.body5
@@ -98,7 +98,7 @@ do.body5:                                         ; preds = %if.then, %land.lhs.
   br i1 %tobool6.not, label %do.body18, label %land.lhs.true7
 
 land.lhs.true7:                                   ; preds = %do.body5
-  %exec_prefix = getelementptr inbounds i8, ptr %config, i64 376
+  %exec_prefix = getelementptr inbounds nuw i8, ptr %config, i64 376
   %4 = load ptr, ptr %exec_prefix, align 8
   %tobool8.not = icmp eq ptr %4, null
   br i1 %tobool8.not, label %if.then9, label %do.body18
@@ -116,7 +116,7 @@ do.body18:                                        ; preds = %if.then9, %land.lhs
   br i1 %tobool19.not, label %do.body31, label %land.lhs.true20
 
 land.lhs.true20:                                  ; preds = %do.body18
-  %stdlib_dir = getelementptr inbounds i8, ptr %config, i64 336
+  %stdlib_dir = getelementptr inbounds nuw i8, ptr %config, i64 336
   %7 = load ptr, ptr %stdlib_dir, align 8
   %tobool21.not = icmp eq ptr %7, null
   br i1 %tobool21.not, label %if.then22, label %do.body31
@@ -134,7 +134,7 @@ do.body31:                                        ; preds = %if.then22, %land.lh
   br i1 %tobool32.not, label %do.body44, label %land.lhs.true33
 
 land.lhs.true33:                                  ; preds = %do.body31
-  %program_name = getelementptr inbounds i8, ptr %config, i64 280
+  %program_name = getelementptr inbounds nuw i8, ptr %config, i64 280
   %10 = load ptr, ptr %program_name, align 8
   %tobool34.not = icmp eq ptr %10, null
   br i1 %tobool34.not, label %if.then35, label %do.body44
@@ -152,7 +152,7 @@ do.body44:                                        ; preds = %if.then35, %land.lh
   br i1 %tobool45.not, label %do.body57, label %land.lhs.true46
 
 land.lhs.true46:                                  ; preds = %do.body44
-  %home = getelementptr inbounds i8, ptr %config, i64 296
+  %home = getelementptr inbounds nuw i8, ptr %config, i64 296
   %13 = load ptr, ptr %home, align 8
   %tobool47.not = icmp eq ptr %13, null
   br i1 %tobool47.not, label %if.then48, label %do.body57
@@ -170,7 +170,7 @@ do.body57:                                        ; preds = %if.then48, %land.lh
   br i1 %tobool58.not, label %do.body70, label %land.lhs.true59
 
 land.lhs.true59:                                  ; preds = %do.body57
-  %executable = getelementptr inbounds i8, ptr %config, i64 344
+  %executable = getelementptr inbounds nuw i8, ptr %config, i64 344
   %16 = load ptr, ptr %executable, align 8
   %tobool60.not = icmp eq ptr %16, null
   br i1 %tobool60.not, label %if.then61, label %do.body70
@@ -192,7 +192,7 @@ do.body70:                                        ; preds = %land.lhs.true59, %d
 
 land.lhs.true72:                                  ; preds = %if.then61, %do.body70
   %19 = phi i32 [ %18, %if.then61 ], [ %.old1, %do.body70 ]
-  %_is_python_build = getelementptr inbounds i8, ptr %config, i64 440
+  %_is_python_build = getelementptr inbounds nuw i8, ptr %config, i64 440
   %20 = load i32, ptr %_is_python_build, align 8
   %cmp73 = icmp slt i32 %20, 1
   br i1 %cmp73, label %if.then74, label %done
@@ -218,7 +218,7 @@ define hidden void @_PyPathConfig_UpdateGlobal(ptr noalias nocapture writeonly s
 entry:
   %old_alloc = alloca %struct.PyMemAllocatorEx, align 8
   %call = call i32 @_PyMem_SetDefaultAllocator(i32 noundef 0, ptr noundef nonnull %old_alloc) #11
-  %prefix = getelementptr inbounds i8, ptr %config, i64 360
+  %prefix = getelementptr inbounds nuw i8, ptr %config, i64 360
   %0 = load ptr, ptr %prefix, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %do.body6, label %if.then
@@ -233,7 +233,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool3.not, label %error, label %do.body6
 
 do.body6:                                         ; preds = %if.then, %entry
-  %exec_prefix = getelementptr inbounds i8, ptr %config, i64 376
+  %exec_prefix = getelementptr inbounds nuw i8, ptr %config, i64 376
   %3 = load ptr, ptr %exec_prefix, align 8
   %tobool7.not = icmp eq ptr %3, null
   br i1 %tobool7.not, label %do.body16, label %if.then8
@@ -248,7 +248,7 @@ if.then8:                                         ; preds = %do.body6
   br i1 %tobool11.not, label %error, label %do.body16
 
 do.body16:                                        ; preds = %if.then8, %do.body6
-  %stdlib_dir = getelementptr inbounds i8, ptr %config, i64 336
+  %stdlib_dir = getelementptr inbounds nuw i8, ptr %config, i64 336
   %6 = load ptr, ptr %stdlib_dir, align 8
   %tobool17.not = icmp eq ptr %6, null
   br i1 %tobool17.not, label %do.body26, label %if.then18
@@ -263,7 +263,7 @@ if.then18:                                        ; preds = %do.body16
   br i1 %tobool21.not, label %error, label %do.body26
 
 do.body26:                                        ; preds = %if.then18, %do.body16
-  %program_name = getelementptr inbounds i8, ptr %config, i64 280
+  %program_name = getelementptr inbounds nuw i8, ptr %config, i64 280
   %9 = load ptr, ptr %program_name, align 8
   %tobool27.not = icmp eq ptr %9, null
   br i1 %tobool27.not, label %do.body36, label %if.then28
@@ -278,7 +278,7 @@ if.then28:                                        ; preds = %do.body26
   br i1 %tobool31.not, label %error, label %do.body36
 
 do.body36:                                        ; preds = %if.then28, %do.body26
-  %home = getelementptr inbounds i8, ptr %config, i64 296
+  %home = getelementptr inbounds nuw i8, ptr %config, i64 296
   %12 = load ptr, ptr %home, align 8
   %tobool37.not = icmp eq ptr %12, null
   br i1 %tobool37.not, label %do.body46, label %if.then38
@@ -293,7 +293,7 @@ if.then38:                                        ; preds = %do.body36
   br i1 %tobool41.not, label %error, label %do.body46
 
 do.body46:                                        ; preds = %if.then38, %do.body36
-  %executable = getelementptr inbounds i8, ptr %config, i64 344
+  %executable = getelementptr inbounds nuw i8, ptr %config, i64 344
   %15 = load ptr, ptr %executable, align 8
   %tobool47.not = icmp eq ptr %15, null
   br i1 %tobool47.not, label %do.body56, label %if.then48
@@ -308,7 +308,7 @@ if.then48:                                        ; preds = %do.body46
   br i1 %tobool51.not, label %error, label %do.body56
 
 do.body56:                                        ; preds = %if.then48, %do.body46
-  %_is_python_build = getelementptr inbounds i8, ptr %config, i64 440
+  %_is_python_build = getelementptr inbounds nuw i8, ptr %config, i64 440
   %18 = load i32, ptr %_is_python_build, align 8
   %cmp = icmp sgt i32 %18, 0
   br i1 %cmp, label %if.then57, label %do.end60
@@ -324,13 +324,13 @@ do.end60:                                         ; preds = %do.body56, %if.then
   %20 = load ptr, ptr getelementptr inbounds (i8, ptr @_Py_path_config, i64 40), align 8
   call void @PyMem_RawFree(ptr noundef %20) #11
   store ptr null, ptr getelementptr inbounds (i8, ptr @_Py_path_config, i64 40), align 8
-  %module_search_paths = getelementptr inbounds i8, ptr %config, i64 320
+  %module_search_paths = getelementptr inbounds nuw i8, ptr %config, i64 320
   %21 = load i64, ptr %module_search_paths, align 8
   %cmp6232 = icmp sgt i64 %21, 0
   br i1 %cmp6232, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %do.end60
-  %items = getelementptr inbounds i8, ptr %config, i64 328
+  %items = getelementptr inbounds nuw i8, ptr %config, i64 328
   %22 = load ptr, ptr %items, align 8
   br label %for.body
 
@@ -362,7 +362,7 @@ for.cond71.preheader:                             ; preds = %for.end
   br i1 %cmp7435, label %for.body75.lr.ph, label %do.body84.preheader
 
 for.body75.lr.ph:                                 ; preds = %for.cond71.preheader
-  %items77 = getelementptr inbounds i8, ptr %config, i64 328
+  %items77 = getelementptr inbounds nuw i8, ptr %config, i64 328
   br label %for.body75
 
 for.body75:                                       ; preds = %for.body75.lr.ph, %for.body75
@@ -406,11 +406,11 @@ do.end88:                                         ; preds = %do.body84, %land.rh
 error:                                            ; preds = %for.end, %if.then48, %if.then38, %if.then28, %if.then18, %if.then8, %if.then
   call void @PyMem_SetAllocator(i32 noundef 0, ptr noundef nonnull %old_alloc) #11
   store i32 1, ptr %agg.result, align 8
-  %func = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %func = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr @__func__._PyPathConfig_UpdateGlobal, ptr %func, align 8
-  %err_msg = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %err_msg = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr @.str, ptr %err_msg, align 8
-  %exitcode = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %exitcode = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store i32 0, ptr %exitcode, align 8
   br label %return
 
@@ -651,7 +651,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %items = getelementptr inbounds i8, ptr %argv, i64 8
+  %items = getelementptr inbounds nuw i8, ptr %argv, i64 8
   %1 = load ptr, ptr %items, align 8
   %2 = load ptr, ptr %1, align 8
   %call = tail call i32 @wcscmp(ptr noundef %2, ptr noundef nonnull @.str.2) #12

@@ -20,7 +20,7 @@ define internal noundef range(i32 -1, 1) i32 @_ZL12luauF_assertP9lua_StateP10lua
   br i1 %or.cond, label %9, label %15
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %2, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %11 = load i32, ptr %10, align 4
   switch i32 %11, label %16 [
     i32 0, label %15
@@ -48,7 +48,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL9luauF_absP9lua_StateP10lua_TVa
   br i1 %or.cond, label %9, label %17
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %2, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 3
   br i1 %12, label %13, label %17
@@ -57,7 +57,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL9luauF_absP9lua_StateP10lua_TVa
   %14 = load double, ptr %2, align 8
   %15 = tail call double @llvm.fabs.f64(double %14)
   store double %15, ptr %1, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 12
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 3, ptr %16, align 4
   br label %17
 
@@ -74,7 +74,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL10luauF_acosP9lua_StateP10lua_T
   br i1 %or.cond, label %9, label %17
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %2, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 3
   br i1 %12, label %13, label %17
@@ -83,7 +83,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL10luauF_acosP9lua_StateP10lua_T
   %14 = load double, ptr %2, align 8
   %15 = tail call double @acos(double noundef %14) #20
   store double %15, ptr %1, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 12
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 3, ptr %16, align 4
   br label %17
 
@@ -100,7 +100,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL10luauF_asinP9lua_StateP10lua_T
   br i1 %or.cond, label %9, label %17
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %2, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 3
   br i1 %12, label %13, label %17
@@ -109,7 +109,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL10luauF_asinP9lua_StateP10lua_T
   %14 = load double, ptr %2, align 8
   %15 = tail call double @asin(double noundef %14) #20
   store double %15, ptr %1, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 12
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 3, ptr %16, align 4
   br label %17
 
@@ -126,13 +126,13 @@ define internal noundef range(i32 -1, 2) i32 @_ZL11luauF_atan2P9lua_StateP10lua_
   br i1 %or.cond, label %9, label %22
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %2, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 3
   br i1 %12, label %13, label %22
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %4, i64 12
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %15 = load i32, ptr %14, align 4
   %16 = icmp eq i32 %15, 3
   br i1 %16, label %17, label %22
@@ -142,7 +142,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL11luauF_atan2P9lua_StateP10lua_
   %19 = load double, ptr %4, align 8
   %20 = tail call double @atan2(double noundef %18, double noundef %19) #20
   store double %20, ptr %1, align 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 12
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 3, ptr %21, align 4
   br label %22
 
@@ -159,7 +159,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL10luauF_atanP9lua_StateP10lua_T
   br i1 %or.cond, label %9, label %17
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %2, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 3
   br i1 %12, label %13, label %17
@@ -168,7 +168,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL10luauF_atanP9lua_StateP10lua_T
   %14 = load double, ptr %2, align 8
   %15 = tail call double @atan(double noundef %14) #20
   store double %15, ptr %1, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 12
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 3, ptr %16, align 4
   br label %17
 
@@ -185,7 +185,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL16luauF_ceil_sse41P9lua_StateP1
   br i1 %or.cond, label %9, label %19
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %2, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 3
   br i1 %12, label %13, label %19
@@ -196,7 +196,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL16luauF_ceil_sse41P9lua_StateP1
   %16 = tail call <2 x double> @llvm.x86.sse41.round.sd(<2 x double> poison, <2 x double> %15, i32 10)
   %17 = extractelement <2 x double> %16, i64 0
   store double %17, ptr %1, align 8
-  %18 = getelementptr inbounds i8, ptr %1, i64 12
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 3, ptr %18, align 4
   br label %19
 
@@ -213,7 +213,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL10luauF_ceilP9lua_StateP10lua_T
   br i1 %or.cond, label %9, label %17
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %2, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 3
   br i1 %12, label %13, label %17
@@ -222,7 +222,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL10luauF_ceilP9lua_StateP10lua_T
   %14 = load double, ptr %2, align 8
   %15 = tail call double @llvm.ceil.f64(double %14)
   store double %15, ptr %1, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 12
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 3, ptr %16, align 4
   br label %17
 
@@ -239,7 +239,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL10luauF_coshP9lua_StateP10lua_T
   br i1 %or.cond, label %9, label %17
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %2, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 3
   br i1 %12, label %13, label %17
@@ -248,7 +248,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL10luauF_coshP9lua_StateP10lua_T
   %14 = load double, ptr %2, align 8
   %15 = tail call double @cosh(double noundef %14) #20
   store double %15, ptr %1, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 12
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 3, ptr %16, align 4
   br label %17
 
@@ -265,7 +265,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL9luauF_cosP9lua_StateP10lua_TVa
   br i1 %or.cond, label %9, label %17
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %2, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 3
   br i1 %12, label %13, label %17
@@ -274,7 +274,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL9luauF_cosP9lua_StateP10lua_TVa
   %14 = load double, ptr %2, align 8
   %15 = tail call double @llvm.cos.f64(double %14)
   store double %15, ptr %1, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 12
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 3, ptr %16, align 4
   br label %17
 
@@ -291,7 +291,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL9luauF_degP9lua_StateP10lua_TVa
   br i1 %or.cond, label %9, label %17
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %2, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 3
   br i1 %12, label %13, label %17
@@ -300,7 +300,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL9luauF_degP9lua_StateP10lua_TVa
   %14 = load double, ptr %2, align 8
   %15 = fdiv double %14, 0x3F91DF46A2529D39
   store double %15, ptr %1, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 12
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 3, ptr %16, align 4
   br label %17
 
@@ -317,7 +317,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL9luauF_expP9lua_StateP10lua_TVa
   br i1 %or.cond, label %9, label %17
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %2, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 3
   br i1 %12, label %13, label %17
@@ -326,7 +326,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL9luauF_expP9lua_StateP10lua_TVa
   %14 = load double, ptr %2, align 8
   %15 = tail call double @llvm.exp.f64(double %14)
   store double %15, ptr %1, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 12
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 3, ptr %16, align 4
   br label %17
 
@@ -343,7 +343,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL17luauF_floor_sse41P9lua_StateP
   br i1 %or.cond, label %9, label %19
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %2, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 3
   br i1 %12, label %13, label %19
@@ -354,7 +354,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL17luauF_floor_sse41P9lua_StateP
   %16 = tail call <2 x double> @llvm.x86.sse41.round.sd(<2 x double> poison, <2 x double> %15, i32 9)
   %17 = extractelement <2 x double> %16, i64 0
   store double %17, ptr %1, align 8
-  %18 = getelementptr inbounds i8, ptr %1, i64 12
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 3, ptr %18, align 4
   br label %19
 
@@ -371,7 +371,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL11luauF_floorP9lua_StateP10lua_
   br i1 %or.cond, label %9, label %17
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %2, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 3
   br i1 %12, label %13, label %17
@@ -380,7 +380,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL11luauF_floorP9lua_StateP10lua_
   %14 = load double, ptr %2, align 8
   %15 = tail call double @llvm.floor.f64(double %14)
   store double %15, ptr %1, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 12
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 3, ptr %16, align 4
   br label %17
 
@@ -397,13 +397,13 @@ define internal noundef range(i32 -1, 2) i32 @_ZL10luauF_fmodP9lua_StateP10lua_T
   br i1 %or.cond, label %9, label %22
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %2, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 3
   br i1 %12, label %13, label %22
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %4, i64 12
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %15 = load i32, ptr %14, align 4
   %16 = icmp eq i32 %15, 3
   br i1 %16, label %17, label %22
@@ -413,7 +413,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL10luauF_fmodP9lua_StateP10lua_T
   %19 = load double, ptr %4, align 8
   %20 = frem double %18, %19
   store double %20, ptr %1, align 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 12
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 3, ptr %21, align 4
   br label %22
 
@@ -431,7 +431,7 @@ define internal noundef range(i32 -1, 3) i32 @_ZL11luauF_frexpP9lua_StateP10lua_
   br i1 %or.cond, label %10, label %22
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %2, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %12 = load i32, ptr %11, align 4
   %13 = icmp eq i32 %12, 3
   br i1 %13, label %14, label %22
@@ -440,13 +440,13 @@ define internal noundef range(i32 -1, 3) i32 @_ZL11luauF_frexpP9lua_StateP10lua_
   %15 = load double, ptr %2, align 8
   %16 = call double @frexp(double noundef %15, ptr noundef nonnull %7) #21
   store double %16, ptr %1, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 12
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 3, ptr %17, align 4
-  %18 = getelementptr inbounds i8, ptr %1, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %19 = load i32, ptr %7, align 4
   %20 = sitofp i32 %19 to double
   store double %20, ptr %18, align 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 28
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 28
   store i32 3, ptr %21, align 4
   br label %22
 
@@ -463,13 +463,13 @@ define internal noundef range(i32 -1, 2) i32 @_ZL11luauF_ldexpP9lua_StateP10lua_
   br i1 %or.cond, label %9, label %23
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %2, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 3
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %4, i64 12
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %15 = load i32, ptr %14, align 4
   %16 = icmp eq i32 %15, 3
   br i1 %16, label %17, label %23
@@ -480,7 +480,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL11luauF_ldexpP9lua_StateP10lua_
   %20 = fptosi double %19 to i32
   %21 = tail call double @ldexp(double noundef %18, i32 noundef %20) #20
   store double %21, ptr %1, align 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 12
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 3, ptr %22, align 4
   br label %23
 
@@ -497,7 +497,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL11luauF_log10P9lua_StateP10lua_
   br i1 %or.cond, label %9, label %17
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %2, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 3
   br i1 %12, label %13, label %17
@@ -506,7 +506,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL11luauF_log10P9lua_StateP10lua_
   %14 = load double, ptr %2, align 8
   %15 = tail call double @llvm.log10.f64(double %14)
   store double %15, ptr %1, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 12
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 3, ptr %16, align 4
   br label %17
 
@@ -523,7 +523,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL9luauF_logP9lua_StateP10lua_TVa
   br i1 %or.cond, label %9, label %36
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %2, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 3
   br i1 %12, label %13, label %36
@@ -538,7 +538,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL9luauF_logP9lua_StateP10lua_TVa
   br label %.sink.split
 
 18:                                               ; preds = %13
-  %19 = getelementptr inbounds i8, ptr %4, i64 12
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %20 = load i32, ptr %19, align 4
   %21 = icmp eq i32 %20, 3
   br i1 %21, label %22, label %36
@@ -569,7 +569,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL9luauF_logP9lua_StateP10lua_TVa
 .sink.split:                                      ; preds = %16, %25, %29, %31
   %.sink = phi double [ %34, %31 ], [ %30, %29 ], [ %26, %25 ], [ %17, %16 ]
   store double %.sink, ptr %1, align 8
-  %35 = getelementptr inbounds i8, ptr %1, i64 12
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 3, ptr %35, align 4
   br label %36
 
@@ -586,13 +586,13 @@ define internal noundef range(i32 -1, 2) i32 @_ZL9luauF_maxP9lua_StateP10lua_TVa
   br i1 %or.cond, label %9, label %.loopexit
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %2, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 3
   br i1 %12, label %13, label %.loopexit
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %4, i64 12
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %15 = load i32, ptr %14, align 4
   %16 = icmp eq i32 %15, 3
   br i1 %16, label %17, label %.loopexit
@@ -631,7 +631,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL9luauF_maxP9lua_StateP10lua_TVa
 ._crit_edge:                                      ; preds = %27, %17
   %.026.lcssa = phi double [ %21, %17 ], [ %31, %27 ]
   store double %.026.lcssa, ptr %1, align 8
-  %32 = getelementptr inbounds i8, ptr %1, i64 12
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 3, ptr %32, align 4
   br label %.loopexit
 
@@ -648,13 +648,13 @@ define internal noundef range(i32 -1, 2) i32 @_ZL9luauF_minP9lua_StateP10lua_TVa
   br i1 %or.cond, label %9, label %.loopexit
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %2, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 3
   br i1 %12, label %13, label %.loopexit
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %4, i64 12
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %15 = load i32, ptr %14, align 4
   %16 = icmp eq i32 %15, 3
   br i1 %16, label %17, label %.loopexit
@@ -693,7 +693,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL9luauF_minP9lua_StateP10lua_TVa
 ._crit_edge:                                      ; preds = %27, %17
   %.026.lcssa = phi double [ %21, %17 ], [ %31, %27 ]
   store double %.026.lcssa, ptr %1, align 8
-  %32 = getelementptr inbounds i8, ptr %1, i64 12
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 3, ptr %32, align 4
   br label %.loopexit
 
@@ -711,7 +711,7 @@ define internal noundef range(i32 -1, 3) i32 @_ZL10luauF_modfP9lua_StateP10lua_T
   br i1 %or.cond, label %10, label %21
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %2, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %12 = load i32, ptr %11, align 4
   %13 = icmp eq i32 %12, 3
   br i1 %13, label %14, label %21
@@ -721,11 +721,11 @@ define internal noundef range(i32 -1, 3) i32 @_ZL10luauF_modfP9lua_StateP10lua_T
   %16 = call double @modf(double noundef %15, ptr noundef nonnull %7) #21
   %17 = load double, ptr %7, align 8
   store double %17, ptr %1, align 8
-  %18 = getelementptr inbounds i8, ptr %1, i64 12
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 3, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %1, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store double %16, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 28
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 28
   store i32 3, ptr %20, align 4
   br label %21
 
@@ -742,13 +742,13 @@ define internal noundef range(i32 -1, 2) i32 @_ZL9luauF_powP9lua_StateP10lua_TVa
   br i1 %or.cond, label %9, label %22
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %2, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 3
   br i1 %12, label %13, label %22
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %4, i64 12
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %15 = load i32, ptr %14, align 4
   %16 = icmp eq i32 %15, 3
   br i1 %16, label %17, label %22
@@ -758,7 +758,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL9luauF_powP9lua_StateP10lua_TVa
   %19 = load double, ptr %4, align 8
   %20 = tail call double @llvm.pow.f64(double %18, double %19)
   store double %20, ptr %1, align 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 12
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 3, ptr %21, align 4
   br label %22
 
@@ -775,7 +775,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL9luauF_radP9lua_StateP10lua_TVa
   br i1 %or.cond, label %9, label %17
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %2, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 3
   br i1 %12, label %13, label %17
@@ -784,7 +784,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL9luauF_radP9lua_StateP10lua_TVa
   %14 = load double, ptr %2, align 8
   %15 = fmul double %14, 0x3F91DF46A2529D39
   store double %15, ptr %1, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 12
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 3, ptr %16, align 4
   br label %17
 
@@ -801,7 +801,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL10luauF_sinhP9lua_StateP10lua_T
   br i1 %or.cond, label %9, label %17
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %2, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 3
   br i1 %12, label %13, label %17
@@ -810,7 +810,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL10luauF_sinhP9lua_StateP10lua_T
   %14 = load double, ptr %2, align 8
   %15 = tail call double @sinh(double noundef %14) #20
   store double %15, ptr %1, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 12
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 3, ptr %16, align 4
   br label %17
 
@@ -827,7 +827,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL9luauF_sinP9lua_StateP10lua_TVa
   br i1 %or.cond, label %9, label %17
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %2, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 3
   br i1 %12, label %13, label %17
@@ -836,7 +836,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL9luauF_sinP9lua_StateP10lua_TVa
   %14 = load double, ptr %2, align 8
   %15 = tail call double @llvm.sin.f64(double %14)
   store double %15, ptr %1, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 12
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 3, ptr %16, align 4
   br label %17
 
@@ -853,7 +853,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL10luauF_sqrtP9lua_StateP10lua_T
   br i1 %or.cond, label %9, label %17
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %2, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 3
   br i1 %12, label %13, label %17
@@ -862,7 +862,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL10luauF_sqrtP9lua_StateP10lua_T
   %14 = load double, ptr %2, align 8
   %15 = tail call double @llvm.sqrt.f64(double %14)
   store double %15, ptr %1, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 12
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 3, ptr %16, align 4
   br label %17
 
@@ -879,7 +879,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL10luauF_tanhP9lua_StateP10lua_T
   br i1 %or.cond, label %9, label %17
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %2, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 3
   br i1 %12, label %13, label %17
@@ -888,7 +888,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL10luauF_tanhP9lua_StateP10lua_T
   %14 = load double, ptr %2, align 8
   %15 = tail call double @tanh(double noundef %14) #20
   store double %15, ptr %1, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 12
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 3, ptr %16, align 4
   br label %17
 
@@ -905,7 +905,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL9luauF_tanP9lua_StateP10lua_TVa
   br i1 %or.cond, label %9, label %17
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %2, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 3
   br i1 %12, label %13, label %17
@@ -914,7 +914,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL9luauF_tanP9lua_StateP10lua_TVa
   %14 = load double, ptr %2, align 8
   %15 = tail call double @llvm.tan.f64(double %14)
   store double %15, ptr %1, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 12
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 3, ptr %16, align 4
   br label %17
 
@@ -931,13 +931,13 @@ define internal noundef range(i32 -1, 2) i32 @_ZL13luauF_arshiftP9lua_StateP10lu
   br i1 %or.cond, label %9, label %28
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %2, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 3
   br i1 %12, label %13, label %28
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %4, i64 12
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %15 = load i32, ptr %14, align 4
   %16 = icmp eq i32 %15, 3
   br i1 %16, label %17, label %28
@@ -955,7 +955,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL13luauF_arshiftP9lua_StateP10lu
   %25 = ashr i32 %24, %19
   %26 = uitofp i32 %25 to double
   store double %26, ptr %1, align 8
-  %27 = getelementptr inbounds i8, ptr %1, i64 12
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 3, ptr %27, align 4
   br label %28
 
@@ -972,13 +972,13 @@ define internal noundef range(i32 -1, 2) i32 @_ZL10luauF_bandP9lua_StateP10lua_T
   br i1 %or.cond, label %9, label %.loopexit
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %2, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 3
   br i1 %12, label %13, label %.loopexit
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %4, i64 12
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %15 = load i32, ptr %14, align 4
   %16 = icmp eq i32 %15, 3
   br i1 %16, label %17, label %.loopexit
@@ -1021,7 +1021,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL10luauF_bandP9lua_StateP10lua_T
   %.025.lcssa = phi i32 [ %23, %17 ], [ %34, %29 ]
   %35 = uitofp i32 %.025.lcssa to double
   store double %35, ptr %1, align 8
-  %36 = getelementptr inbounds i8, ptr %1, i64 12
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 3, ptr %36, align 4
   br label %.loopexit
 
@@ -1038,7 +1038,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL10luauF_bnotP9lua_StateP10lua_T
   br i1 %or.cond, label %9, label %20
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %2, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 3
   br i1 %12, label %13, label %20
@@ -1050,7 +1050,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL10luauF_bnotP9lua_StateP10lua_T
   %17 = xor i32 %16, -1
   %18 = uitofp i32 %17 to double
   store double %18, ptr %1, align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 12
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 3, ptr %19, align 4
   br label %20
 
@@ -1067,13 +1067,13 @@ define internal noundef range(i32 -1, 2) i32 @_ZL9luauF_borP9lua_StateP10lua_TVa
   br i1 %or.cond, label %9, label %.loopexit
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %2, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 3
   br i1 %12, label %13, label %.loopexit
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %4, i64 12
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %15 = load i32, ptr %14, align 4
   %16 = icmp eq i32 %15, 3
   br i1 %16, label %17, label %.loopexit
@@ -1116,7 +1116,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL9luauF_borP9lua_StateP10lua_TVa
   %.025.lcssa = phi i32 [ %23, %17 ], [ %34, %29 ]
   %35 = uitofp i32 %.025.lcssa to double
   store double %35, ptr %1, align 8
-  %36 = getelementptr inbounds i8, ptr %1, i64 12
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 3, ptr %36, align 4
   br label %.loopexit
 
@@ -1133,13 +1133,13 @@ define internal noundef range(i32 -1, 2) i32 @_ZL10luauF_bxorP9lua_StateP10lua_T
   br i1 %or.cond, label %9, label %.loopexit
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %2, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 3
   br i1 %12, label %13, label %.loopexit
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %4, i64 12
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %15 = load i32, ptr %14, align 4
   %16 = icmp eq i32 %15, 3
   br i1 %16, label %17, label %.loopexit
@@ -1182,7 +1182,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL10luauF_bxorP9lua_StateP10lua_T
   %.025.lcssa = phi i32 [ %23, %17 ], [ %34, %29 ]
   %35 = uitofp i32 %.025.lcssa to double
   store double %35, ptr %1, align 8
-  %36 = getelementptr inbounds i8, ptr %1, i64 12
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 3, ptr %36, align 4
   br label %.loopexit
 
@@ -1199,13 +1199,13 @@ define internal noundef range(i32 -1, 2) i32 @_ZL11luauF_btestP9lua_StateP10lua_
   br i1 %or.cond, label %9, label %.loopexit
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %2, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 3
   br i1 %12, label %13, label %.loopexit
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %4, i64 12
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %15 = load i32, ptr %14, align 4
   %16 = icmp eq i32 %15, 3
   br i1 %16, label %17, label %.loopexit
@@ -1249,7 +1249,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL11luauF_btestP9lua_StateP10lua_
   %35 = icmp ne i32 %.025.lcssa, 0
   %36 = zext i1 %35 to i32
   store i32 %36, ptr %1, align 8
-  %37 = getelementptr inbounds i8, ptr %1, i64 12
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 1, ptr %37, align 4
   br label %.loopexit
 
@@ -1266,13 +1266,13 @@ define internal noundef range(i32 -1, 2) i32 @_ZL13luauF_extractP9lua_StateP10lu
   br i1 %or.cond, label %9, label %46
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %2, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 3
   br i1 %12, label %13, label %46
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %4, i64 12
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %15 = load i32, ptr %14, align 4
   %16 = icmp eq i32 %15, 3
   br i1 %16, label %17, label %46
@@ -1291,13 +1291,13 @@ define internal noundef range(i32 -1, 2) i32 @_ZL13luauF_extractP9lua_StateP10lu
   br i1 %25, label %.sink.split, label %46
 
 26:                                               ; preds = %17
-  %27 = getelementptr inbounds i8, ptr %4, i64 28
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %28 = load i32, ptr %27, align 4
   %29 = icmp eq i32 %28, 3
   br i1 %29, label %30, label %46
 
 30:                                               ; preds = %26
-  %31 = getelementptr inbounds i8, ptr %4, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %32 = load double, ptr %31, align 8
   %33 = fptosi double %32 to i32
   %34 = icmp sgt i32 %22, -1
@@ -1320,7 +1320,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL13luauF_extractP9lua_StateP10lu
   %43 = and i32 %42, %.sink41
   %44 = uitofp i32 %43 to double
   store double %44, ptr %1, align 8
-  %45 = getelementptr inbounds i8, ptr %1, i64 12
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 3, ptr %45, align 4
   br label %46
 
@@ -1337,13 +1337,13 @@ define internal noundef range(i32 -1, 2) i32 @_ZL13luauF_lrotateP9lua_StateP10lu
   br i1 %or.cond, label %9, label %26
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %2, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 3
   br i1 %12, label %13, label %26
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %4, i64 12
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %15 = load i32, ptr %14, align 4
   %16 = icmp eq i32 %15, 3
   br i1 %16, label %17, label %26
@@ -1357,7 +1357,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL13luauF_lrotateP9lua_StateP10lu
   %23 = tail call i32 @llvm.fshl.i32(i32 %21, i32 %21, i32 %22)
   %24 = uitofp i32 %23 to double
   store double %24, ptr %1, align 8
-  %25 = getelementptr inbounds i8, ptr %1, i64 12
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 3, ptr %25, align 4
   br label %26
 
@@ -1374,13 +1374,13 @@ define internal noundef range(i32 -1, 2) i32 @_ZL12luauF_lshiftP9lua_StateP10lua
   br i1 %or.cond, label %9, label %28
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %2, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 3
   br i1 %12, label %13, label %28
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %4, i64 12
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %15 = load i32, ptr %14, align 4
   %16 = icmp eq i32 %15, 3
   br i1 %16, label %17, label %28
@@ -1398,7 +1398,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL12luauF_lshiftP9lua_StateP10lua
   %25 = shl i32 %24, %19
   %26 = uitofp i32 %25 to double
   store double %26, ptr %1, align 8
-  %27 = getelementptr inbounds i8, ptr %1, i64 12
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 3, ptr %27, align 4
   br label %28
 
@@ -1415,25 +1415,25 @@ define internal noundef range(i32 -1, 2) i32 @_ZL13luauF_replaceP9lua_StateP10lu
   br i1 %or.cond, label %9, label %57
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %2, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 3
   br i1 %12, label %13, label %57
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %4, i64 12
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %15 = load i32, ptr %14, align 4
   %16 = icmp eq i32 %15, 3
   br i1 %16, label %17, label %57
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %4, i64 28
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %19 = load i32, ptr %18, align 4
   %20 = icmp eq i32 %19, 3
   br i1 %20, label %21, label %57
 
 21:                                               ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %4, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %23 = load double, ptr %2, align 8
   %24 = load double, ptr %4, align 8
   %25 = load double, ptr %22, align 8
@@ -1454,13 +1454,13 @@ define internal noundef range(i32 -1, 2) i32 @_ZL13luauF_replaceP9lua_StateP10lu
   br label %.sink.split
 
 36:                                               ; preds = %21
-  %37 = getelementptr inbounds i8, ptr %4, i64 44
+  %37 = getelementptr inbounds nuw i8, ptr %4, i64 44
   %38 = load i32, ptr %37, align 4
   %39 = icmp eq i32 %38, 3
   br i1 %39, label %40, label %57
 
 40:                                               ; preds = %36
-  %41 = getelementptr inbounds i8, ptr %4, i64 32
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %42 = load double, ptr %41, align 8
   %43 = fptosi double %42 to i32
   %44 = icmp sgt i32 %30, -1
@@ -1488,7 +1488,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL13luauF_replaceP9lua_StateP10lu
   %54 = or i32 %.sink, %53
   %55 = uitofp i32 %54 to double
   store double %55, ptr %1, align 8
-  %56 = getelementptr inbounds i8, ptr %1, i64 12
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 3, ptr %56, align 4
   br label %57
 
@@ -1505,13 +1505,13 @@ define internal noundef range(i32 -1, 2) i32 @_ZL13luauF_rrotateP9lua_StateP10lu
   br i1 %or.cond, label %9, label %26
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %2, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 3
   br i1 %12, label %13, label %26
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %4, i64 12
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %15 = load i32, ptr %14, align 4
   %16 = icmp eq i32 %15, 3
   br i1 %16, label %17, label %26
@@ -1525,7 +1525,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL13luauF_rrotateP9lua_StateP10lu
   %23 = tail call i32 @llvm.fshr.i32(i32 %21, i32 %21, i32 %22)
   %24 = uitofp i32 %23 to double
   store double %24, ptr %1, align 8
-  %25 = getelementptr inbounds i8, ptr %1, i64 12
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 3, ptr %25, align 4
   br label %26
 
@@ -1542,13 +1542,13 @@ define internal noundef range(i32 -1, 2) i32 @_ZL12luauF_rshiftP9lua_StateP10lua
   br i1 %or.cond, label %9, label %28
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %2, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 3
   br i1 %12, label %13, label %28
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %4, i64 12
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %15 = load i32, ptr %14, align 4
   %16 = icmp eq i32 %15, 3
   br i1 %16, label %17, label %28
@@ -1566,7 +1566,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL12luauF_rshiftP9lua_StateP10lua
   %25 = lshr i32 %24, %19
   %26 = uitofp i32 %25 to double
   store double %26, ptr %1, align 8
-  %27 = getelementptr inbounds i8, ptr %1, i64 12
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 3, ptr %27, align 4
   br label %28
 
@@ -1583,16 +1583,16 @@ define internal noundef range(i32 -1, 2) i32 @_ZL10luauF_typeP9lua_StateP10lua_T
   br i1 %or.cond, label %9, label %19
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %2, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %11 = load i32, ptr %10, align 4
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 2944
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 2944
   %15 = sext i32 %11 to i64
   %16 = getelementptr inbounds [11 x ptr], ptr %14, i64 0, i64 %15
   %17 = load ptr, ptr %16, align 8
   store ptr %17, ptr %1, align 8
-  %18 = getelementptr inbounds i8, ptr %1, i64 12
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 5, ptr %18, align 4
   br label %19
 
@@ -1607,13 +1607,13 @@ define internal noundef range(i32 -2147483647, -2147483648) i32 @_ZL10luauF_byte
   br i1 %7, label %8, label %.loopexit
 
 8:                                                ; preds = %6
-  %9 = getelementptr inbounds i8, ptr %2, i64 12
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %10, 5
   br i1 %11, label %12, label %.loopexit
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %4, i64 12
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %14 = load i32, ptr %13, align 4
   %15 = icmp eq i32 %14, 3
   br i1 %15, label %16, label %.loopexit
@@ -1626,13 +1626,13 @@ define internal noundef range(i32 -2147483647, -2147483648) i32 @_ZL10luauF_byte
   br i1 %.not, label %28, label %20
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %4, i64 28
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %22 = load i32, ptr %21, align 4
   %23 = icmp eq i32 %22, 3
   br i1 %23, label %24, label %28
 
 24:                                               ; preds = %20
-  %25 = getelementptr inbounds i8, ptr %4, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %26 = load double, ptr %25, align 8
   %27 = fptosi double %26 to i32
   br label %28
@@ -1645,7 +1645,7 @@ define internal noundef range(i32 -2147483647, -2147483648) i32 @_ZL10luauF_byte
   br i1 %or.cond, label %.loopexit, label %31
 
 31:                                               ; preds = %28
-  %32 = getelementptr inbounds i8, ptr %17, i64 20
+  %32 = getelementptr inbounds nuw i8, ptr %17, i64 20
   %33 = load i32, ptr %32, align 4
   %.not37 = icmp sgt i32 %29, %33
   br i1 %.not37, label %.loopexit, label %34
@@ -1667,12 +1667,12 @@ define internal noundef range(i32 -2147483647, -2147483648) i32 @_ZL10luauF_byte
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %41 = getelementptr inbounds %struct.lua_TValue, ptr %1, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw %struct.lua_TValue, ptr %1, i64 %indvars.iv
   %gep43 = getelementptr i8, ptr %invariant.gep42, i64 %indvars.iv
   %42 = load i8, ptr %gep43, align 1
   %43 = uitofp i8 %42 to double
   store double %43, ptr %41, align 8
-  %44 = getelementptr inbounds i8, ptr %41, i64 12
+  %44 = getelementptr inbounds nuw i8, ptr %41, i64 12
   store i32 3, ptr %44, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1692,11 +1692,11 @@ define internal noundef range(i32 -1, 2) i32 @_ZL10luauF_charP9lua_StateP10lua_T
   br i1 %or.cond, label %10, label %.loopexit
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 72
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 72
   %14 = load i64, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %12, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 64
   %16 = load i64, ptr %15, align 8
   %.not = icmp ult i64 %14, %16
   br i1 %.not, label %17, label %.loopexit
@@ -1706,7 +1706,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL10luauF_charP9lua_StateP10lua_T
   br i1 %18, label %19, label %._crit_edge
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %2, i64 12
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %21 = load i32, ptr %20, align 4
   %22 = icmp eq i32 %21, 3
   br i1 %22, label %23, label %.loopexit
@@ -1758,7 +1758,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL10luauF_charP9lua_StateP10lua_T
   store i8 0, ptr %42, align 1
   %43 = call noundef ptr @_Z12luaS_newlstrP9lua_StatePKcm(ptr noundef %0, ptr noundef nonnull %7, i64 noundef %41)
   store ptr %43, ptr %1, align 8
-  %44 = getelementptr inbounds i8, ptr %1, i64 12
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 5, ptr %44, align 4
   br label %.loopexit
 
@@ -1775,18 +1775,18 @@ define internal noundef range(i32 -1, 2) i32 @_ZL9luauF_lenP9lua_StateP10lua_TVa
   br i1 %or.cond, label %9, label %19
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %2, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 5
   br i1 %12, label %13, label %19
 
 13:                                               ; preds = %9
   %14 = load ptr, ptr %2, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 20
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 20
   %16 = load i32, ptr %15, align 4
   %17 = sitofp i32 %16 to double
   store double %17, ptr %1, align 8
-  %18 = getelementptr inbounds i8, ptr %1, i64 12
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 3, ptr %18, align 4
   br label %19
 
@@ -1805,7 +1805,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL12luauF_typeofP9lua_StateP10lua
 9:                                                ; preds = %6
   %10 = tail call noundef ptr @_Z19luaT_objtypenamestrP9lua_StatePK10lua_TValue(ptr noundef %0, ptr noundef %2)
   store ptr %10, ptr %1, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 5, ptr %11, align 4
   br label %12
 
@@ -1822,35 +1822,35 @@ define internal noundef range(i32 -1, 2) i32 @_ZL9luauF_subP9lua_StateP10lua_TVa
   br i1 %or.cond, label %9, label %50
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %2, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 5
   br i1 %12, label %13, label %50
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %4, i64 12
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %15 = load i32, ptr %14, align 4
   %16 = icmp eq i32 %15, 3
   br i1 %16, label %17, label %50
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %4, i64 28
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %19 = load i32, ptr %18, align 4
   %20 = icmp eq i32 %19, 3
   br i1 %20, label %21, label %50
 
 21:                                               ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %4, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %23 = load ptr, ptr %2, align 8
   %24 = load double, ptr %4, align 8
   %25 = fptosi double %24 to i32
   %26 = load double, ptr %22, align 8
   %27 = fptosi double %26 to i32
-  %28 = getelementptr inbounds i8, ptr %0, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 72
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 72
   %31 = load i64, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %29, i64 64
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 64
   %33 = load i64, ptr %32, align 8
   %.not = icmp ult i64 %31, %33
   br i1 %.not, label %34, label %50
@@ -1863,13 +1863,13 @@ define internal noundef range(i32 -1, 2) i32 @_ZL9luauF_subP9lua_StateP10lua_TVa
 
 36:                                               ; preds = %34
   %37 = add nsw i32 %27, -1
-  %38 = getelementptr inbounds i8, ptr %23, i64 20
+  %38 = getelementptr inbounds nuw i8, ptr %23, i64 20
   %39 = load i32, ptr %38, align 4
   %40 = icmp ult i32 %37, %39
   br i1 %40, label %41, label %50
 
 41:                                               ; preds = %36
-  %42 = getelementptr inbounds i8, ptr %23, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %23, i64 24
   %43 = zext nneg i32 %25 to i64
   %44 = getelementptr i8, ptr %42, i64 %43
   %45 = getelementptr i8, ptr %44, i64 -1
@@ -1878,7 +1878,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL9luauF_subP9lua_StateP10lua_TVa
   %47 = sext i32 %46 to i64
   %48 = tail call noundef ptr @_Z12luaS_newlstrP9lua_StatePKcm(ptr noundef nonnull %0, ptr noundef %45, i64 noundef %47)
   store ptr %48, ptr %1, align 8
-  %49 = getelementptr inbounds i8, ptr %1, i64 12
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 5, ptr %49, align 4
   br label %50
 
@@ -1895,25 +1895,25 @@ define internal noundef range(i32 -1, 2) i32 @_ZL11luauF_clampP9lua_StateP10lua_
   br i1 %or.cond, label %9, label %33
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %2, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 3
   br i1 %12, label %13, label %33
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %4, i64 12
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %15 = load i32, ptr %14, align 4
   %16 = icmp eq i32 %15, 3
   br i1 %16, label %17, label %33
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %4, i64 28
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %19 = load i32, ptr %18, align 4
   %20 = icmp eq i32 %19, 3
   br i1 %20, label %21, label %33
 
 21:                                               ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %4, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %23 = load double, ptr %4, align 8
   %24 = load double, ptr %22, align 8
   %25 = fcmp ugt double %23, %24
@@ -1926,7 +1926,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL11luauF_clampP9lua_StateP10lua_
   %30 = fcmp ogt double %29, %24
   %31 = select i1 %30, double %24, double %29
   store double %31, ptr %1, align 8
-  %32 = getelementptr inbounds i8, ptr %1, i64 12
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 3, ptr %32, align 4
   br label %33
 
@@ -1943,7 +1943,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL10luauF_signP9lua_StateP10lua_T
   br i1 %or.cond, label %9, label %20
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %2, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 3
   br i1 %12, label %13, label %20
@@ -1955,7 +1955,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL10luauF_signP9lua_StateP10lua_T
   %17 = select i1 %16, double -1.000000e+00, double 0.000000e+00
   %18 = select i1 %15, double 1.000000e+00, double %17
   store double %18, ptr %1, align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 12
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 3, ptr %19, align 4
   br label %20
 
@@ -1972,7 +1972,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL17luauF_round_sse41P9lua_StateP
   br i1 %or.cond, label %9, label %22
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %2, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 3
   br i1 %12, label %13, label %22
@@ -1986,7 +1986,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL17luauF_round_sse41P9lua_StateP
   %19 = tail call <2 x double> @llvm.x86.sse41.round.sd(<2 x double> poison, <2 x double> %18, i32 11)
   %20 = extractelement <2 x double> %19, i64 0
   store double %20, ptr %1, align 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 12
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 3, ptr %21, align 4
   br label %22
 
@@ -2003,7 +2003,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL11luauF_roundP9lua_StateP10lua_
   br i1 %or.cond, label %9, label %17
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %2, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 3
   br i1 %12, label %13, label %17
@@ -2012,7 +2012,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL11luauF_roundP9lua_StateP10lua_
   %14 = load double, ptr %2, align 8
   %15 = tail call double @llvm.round.f64(double %14)
   store double %15, ptr %1, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 12
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 3, ptr %16, align 4
   br label %17
 
@@ -2029,13 +2029,13 @@ define internal noundef range(i32 -1, 2) i32 @_ZL12luauF_rawsetP9lua_StateP10lua
   br i1 %or.cond, label %9, label %_Z13luai_vecisnanPKf.exit.thread
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %2, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 6
   br i1 %12, label %13, label %_Z13luai_vecisnanPKf.exit.thread
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %4, i64 12
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %15 = load i32, ptr %14, align 4
   switch i32 %15, label %.thread [
     i32 0, label %_Z13luai_vecisnanPKf.exit.thread
@@ -2054,36 +2054,36 @@ define internal noundef range(i32 -1, 2) i32 @_ZL12luauF_rawsetP9lua_StateP10lua
   br i1 %21, label %_Z13luai_vecisnanPKf.exit.thread, label %22
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %4, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %24 = load float, ptr %23, align 4
   %25 = fcmp uno float %24, 0.000000e+00
   br i1 %25, label %_Z13luai_vecisnanPKf.exit.thread, label %_Z13luai_vecisnanPKf.exit
 
 _Z13luai_vecisnanPKf.exit:                        ; preds = %22
-  %26 = getelementptr inbounds i8, ptr %4, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %27 = load float, ptr %26, align 4
   %28 = fcmp uno float %27, 0.000000e+00
   br i1 %28, label %_Z13luai_vecisnanPKf.exit.thread, label %.thread
 
 .thread:                                          ; preds = %13, %16, %_Z13luai_vecisnanPKf.exit
   %29 = load ptr, ptr %2, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 4
   %31 = load i8, ptr %30, align 4
   %.not = icmp eq i8 %31, 0
   br i1 %.not, label %32, label %_Z13luai_vecisnanPKf.exit.thread
 
 32:                                               ; preds = %.thread
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
-  %33 = getelementptr inbounds i8, ptr %4, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %34 = tail call noundef ptr @_Z8luaH_setP9lua_StateP5TablePK10lua_TValue(ptr noundef %0, ptr noundef nonnull %29, ptr noundef nonnull %4)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef nonnull align 8 dereferenceable(16) %33, i64 16, i1 false)
-  %35 = getelementptr inbounds i8, ptr %4, i64 28
+  %35 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %36 = load i32, ptr %35, align 4
   %37 = icmp sgt i32 %36, 4
   br i1 %37, label %38, label %_Z13luai_vecisnanPKf.exit.thread
 
 38:                                               ; preds = %32
-  %39 = getelementptr inbounds i8, ptr %29, i64 1
+  %39 = getelementptr inbounds nuw i8, ptr %29, i64 1
   %40 = load i8, ptr %39, align 1
   %41 = and i8 %40, 4
   %.not30 = icmp eq i8 %41, 0
@@ -2091,7 +2091,7 @@ _Z13luai_vecisnanPKf.exit:                        ; preds = %22
 
 42:                                               ; preds = %38
   %43 = load ptr, ptr %33, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 1
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 1
   %45 = load i8, ptr %44, align 1
   %46 = and i8 %45, 3
   %.not31 = icmp eq i8 %46, 0
@@ -2114,7 +2114,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL12luauF_rawgetP9lua_StateP10lua
   br i1 %or.cond, label %9, label %16
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %2, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 6
   br i1 %12, label %13, label %16
@@ -2140,7 +2140,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL14luauF_rawequalP9lua_StateP10l
 9:                                                ; preds = %6
   %10 = tail call noundef i32 @_Z16luaO_rawequalObjPK10lua_TValueS1_(ptr noundef %2, ptr noundef %4)
   store i32 %10, ptr %1, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 1, ptr %11, align 4
   br label %12
 
@@ -2157,14 +2157,14 @@ define internal noundef range(i32 -1, 1) i32 @_ZL13luauF_tinsertP9lua_StateP10lu
   br i1 %or.cond, label %9, label %34
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %2, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 6
   br i1 %12, label %13, label %34
 
 13:                                               ; preds = %9
   %14 = load ptr, ptr %2, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %16 = load i8, ptr %15, align 4
   %.not = icmp eq i8 %16, 0
   br i1 %.not, label %17, label %34
@@ -2174,13 +2174,13 @@ define internal noundef range(i32 -1, 1) i32 @_ZL13luauF_tinsertP9lua_StateP10lu
   %19 = add nsw i32 %18, 1
   %20 = tail call noundef ptr @_Z11luaH_setnumP9lua_StateP5Tablei(ptr noundef %0, ptr noundef nonnull %14, i32 noundef %19)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false)
-  %21 = getelementptr inbounds i8, ptr %4, i64 12
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %22 = load i32, ptr %21, align 4
   %23 = icmp sgt i32 %22, 4
   br i1 %23, label %24, label %34
 
 24:                                               ; preds = %17
-  %25 = getelementptr inbounds i8, ptr %14, i64 1
+  %25 = getelementptr inbounds nuw i8, ptr %14, i64 1
   %26 = load i8, ptr %25, align 1
   %27 = and i8 %26, 4
   %.not19 = icmp eq i8 %27, 0
@@ -2188,7 +2188,7 @@ define internal noundef range(i32 -1, 1) i32 @_ZL13luauF_tinsertP9lua_StateP10lu
 
 28:                                               ; preds = %24
   %29 = load ptr, ptr %4, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 1
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 1
   %31 = load i8, ptr %30, align 1
   %32 = and i8 %31, 3
   %.not20 = icmp eq i8 %32, 0
@@ -2211,7 +2211,7 @@ define internal noundef range(i32 -2147483647, -2147483648) i32 @_ZL13luauF_tunp
   br i1 %or.cond, label %9, label %.thread
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %2, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 6
   br i1 %12, label %13, label %.thread
@@ -2228,14 +2228,14 @@ define internal noundef range(i32 -2147483647, -2147483648) i32 @_ZL13luauF_tunp
   br label %32
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %4, i64 12
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %19 = load i32, ptr %18, align 4
   %20 = icmp eq i32 %19, 3
   br i1 %20, label %21, label %.thread
 
 21:                                               ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %4, i64 16
-  %23 = getelementptr inbounds i8, ptr %4, i64 28
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %24 = load i32, ptr %23, align 4
   %25 = icmp eq i32 %24, 3
   br i1 %25, label %26, label %.thread
@@ -2256,13 +2256,13 @@ define internal noundef range(i32 -2147483647, -2147483648) i32 @_ZL13luauF_tunp
   br i1 %33, label %34, label %.thread
 
 34:                                               ; preds = %32
-  %35 = getelementptr inbounds i8, ptr %14, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %36 = load i32, ptr %35, align 8
   %.not = icmp sgt i32 %.037, %36
   br i1 %.not, label %.thread, label %37
 
 37:                                               ; preds = %34
-  %38 = getelementptr inbounds i8, ptr %0, i64 40
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %39 = load ptr, ptr %38, align 8
   %40 = ptrtoint ptr %39 to i64
   %41 = ptrtoint ptr %1 to i64
@@ -2276,7 +2276,7 @@ define internal noundef range(i32 -2147483647, -2147483648) i32 @_ZL13luauF_tunp
   br i1 %or.cond43, label %47, label %.thread
 
 47:                                               ; preds = %37
-  %48 = getelementptr inbounds i8, ptr %14, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %49 = load ptr, ptr %48, align 8
   %.not46 = icmp eq i32 %.037, 0
   br i1 %.not46, label %._crit_edge, label %.lr.ph.preheader
@@ -2287,8 +2287,8 @@ define internal noundef range(i32 -2147483647, -2147483648) i32 @_ZL13luauF_tunp
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %50 = getelementptr inbounds %struct.lua_TValue, ptr %49, i64 %indvars.iv
-  %51 = getelementptr inbounds %struct.lua_TValue, ptr %1, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw %struct.lua_TValue, ptr %49, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw %struct.lua_TValue, ptr %1, i64 %indvars.iv
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %51, ptr noundef nonnull align 8 dereferenceable(16) %50, i64 16, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -2296,11 +2296,11 @@ define internal noundef range(i32 -2147483647, -2147483648) i32 @_ZL13luauF_tunp
 
 ._crit_edge:                                      ; preds = %.lr.ph, %47
   %.pre-phi = phi i64 [ 0, %47 ], [ %wide.trip.count, %.lr.ph ]
-  %52 = getelementptr inbounds i8, ptr %0, i64 32
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds %struct.lua_TValue, ptr %1, i64 %.pre-phi
+  %56 = getelementptr inbounds nuw %struct.lua_TValue, ptr %1, i64 %.pre-phi
   %57 = icmp ult ptr %55, %56
   br i1 %57, label %58, label %.thread
 
@@ -2321,37 +2321,37 @@ define internal noundef range(i32 -1, 2) i32 @_ZL12luauF_vectorP9lua_StateP10lua
   br i1 %or.cond, label %9, label %32
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %2, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 3
   br i1 %12, label %13, label %32
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %4, i64 12
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %15 = load i32, ptr %14, align 4
   %16 = icmp eq i32 %15, 3
   br i1 %16, label %17, label %32
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %4, i64 28
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %19 = load i32, ptr %18, align 4
   %20 = icmp eq i32 %19, 3
   br i1 %20, label %21, label %32
 
 21:                                               ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %4, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %23 = load double, ptr %2, align 8
   %24 = load double, ptr %4, align 8
   %25 = load double, ptr %22, align 8
   %26 = fptrunc double %23 to float
   store float %26, ptr %1, align 4
   %27 = fptrunc double %24 to float
-  %28 = getelementptr inbounds i8, ptr %1, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store float %27, ptr %28, align 4
   %29 = fptrunc double %25 to float
-  %30 = getelementptr inbounds i8, ptr %1, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store float %29, ptr %30, align 4
-  %31 = getelementptr inbounds i8, ptr %1, i64 12
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 4, ptr %31, align 4
   br label %32
 
@@ -2368,7 +2368,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL13luauF_countlzP9lua_StateP10lu
   br i1 %or.cond, label %9, label %20
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %2, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 3
   br i1 %12, label %13, label %20
@@ -2380,7 +2380,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL13luauF_countlzP9lua_StateP10lu
   %17 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %16, i1 false)
   %18 = uitofp nneg i32 %17 to double
   store double %18, ptr %1, align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 12
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 3, ptr %19, align 4
   br label %20
 
@@ -2397,7 +2397,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL13luauF_countrzP9lua_StateP10lu
   br i1 %or.cond, label %9, label %20
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %2, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 3
   br i1 %12, label %13, label %20
@@ -2409,7 +2409,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL13luauF_countrzP9lua_StateP10lu
   %17 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %16, i1 false)
   %18 = uitofp nneg i32 %17 to double
   store double %18, ptr %1, align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 12
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 3, ptr %19, align 4
   br label %20
 
@@ -2426,11 +2426,11 @@ define internal noundef range(i32 -1, 2) i32 @_ZL12luauF_selectP9lua_StateP10lua
   br i1 %or.cond, label %9, label %50
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = ptrtoint ptr %11 to i64
   %17 = ptrtoint ptr %15 to i64
@@ -2438,14 +2438,14 @@ define internal noundef range(i32 -1, 2) i32 @_ZL12luauF_selectP9lua_StateP10lua
   %19 = lshr exact i64 %18, 4
   %20 = trunc i64 %19 to i32
   %21 = load ptr, ptr %15, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %25 = load i8, ptr %24, align 4
   %26 = zext i8 %25 to i32
   %27 = xor i32 %26, -1
   %28 = add i32 %27, %20
-  %29 = getelementptr inbounds i8, ptr %2, i64 12
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %30 = load i32, ptr %29, align 4
   switch i32 %30, label %50 [
     i32 3, label %31
@@ -2470,7 +2470,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL12luauF_selectP9lua_StateP10lua
 
 42:                                               ; preds = %9
   %43 = load ptr, ptr %2, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 24
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 24
   %45 = load i8, ptr %44, align 8
   %46 = icmp eq i8 %45, 35
   br i1 %46, label %47, label %50
@@ -2478,7 +2478,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL12luauF_selectP9lua_StateP10lua
 47:                                               ; preds = %42
   %48 = sitofp i32 %28 to double
   store double %48, ptr %1, align 8
-  %49 = getelementptr inbounds i8, ptr %1, i64 12
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 3, ptr %49, align 4
   br label %50
 
@@ -2495,7 +2495,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL12luauF_rawlenP9lua_StateP10lua
   br i1 %or.cond, label %9, label %22
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %2, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %11 = load i32, ptr %10, align 4
   switch i32 %11, label %22 [
     i32 6, label %12
@@ -2510,7 +2510,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL12luauF_rawlenP9lua_StateP10lua
 
 16:                                               ; preds = %9
   %17 = load ptr, ptr %2, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 20
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 20
   %19 = load i32, ptr %18, align 4
   %20 = uitofp i32 %19 to double
   br label %.sink.split
@@ -2518,7 +2518,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL12luauF_rawlenP9lua_StateP10lua
 .sink.split:                                      ; preds = %12, %16
   %.sink = phi double [ %20, %16 ], [ %15, %12 ]
   store double %.sink, ptr %1, align 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 12
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 3, ptr %21, align 4
   br label %22
 
@@ -2535,7 +2535,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL14luauF_extractkP9lua_StateP10l
   br i1 %or.cond, label %9, label %27
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %2, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 3
   br i1 %12, label %13, label %27
@@ -2554,7 +2554,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL14luauF_extractkP9lua_StateP10l
   %24 = and i32 %23, %22
   %25 = uitofp i32 %24 to double
   store double %25, ptr %1, align 8
-  %26 = getelementptr inbounds i8, ptr %1, i64 12
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 3, ptr %26, align 4
   br label %27
 
@@ -2571,7 +2571,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL18luauF_getmetatableP9lua_State
   br i1 %or.cond, label %9, label %42
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %2, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %11 = load i32, ptr %10, align 4
   switch i32 %11, label %18 [
     i32 6, label %12
@@ -2580,18 +2580,18 @@ define internal noundef range(i32 -1, 2) i32 @_ZL18luauF_getmetatableP9lua_State
 
 12:                                               ; preds = %9
   %13 = load ptr, ptr %2, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   br label %24
 
 15:                                               ; preds = %9
   %16 = load ptr, ptr %2, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   br label %24
 
 18:                                               ; preds = %9
-  %19 = getelementptr inbounds i8, ptr %0, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 2856
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 2856
   %22 = sext i32 %11 to i64
   %23 = getelementptr inbounds [11 x ptr], ptr %21, i64 0, i64 %22
   br label %24
@@ -2603,17 +2603,17 @@ define internal noundef range(i32 -1, 2) i32 @_ZL18luauF_getmetatableP9lua_State
   br i1 %.not, label %25, label %.thread
 
 25:                                               ; preds = %24
-  %26 = load i32, ptr getelementptr inbounds (i8, ptr @luaO_nilobject_, i64 12), align 4
+  %26 = load i32, ptr getelementptr inbounds nuw (i8, ptr @luaO_nilobject_, i64 12), align 4
   %27 = icmp eq i32 %26, 0
   br i1 %27, label %40, label %36
 
 .thread:                                          ; preds = %24
-  %28 = getelementptr inbounds i8, ptr %0, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 3192
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 3192
   %31 = load ptr, ptr %30, align 8
   %32 = tail call noundef ptr @_Z11luaH_getstrP5TableP7TString(ptr noundef nonnull %.023, ptr noundef %31)
-  %33 = getelementptr inbounds i8, ptr %32, i64 12
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 12
   %34 = load i32, ptr %33, align 4
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %38, label %36
@@ -2625,12 +2625,12 @@ define internal noundef range(i32 -1, 2) i32 @_ZL18luauF_getmetatableP9lua_State
 
 38:                                               ; preds = %.thread
   store ptr %.023, ptr %1, align 8
-  %39 = getelementptr inbounds i8, ptr %1, i64 12
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 6, ptr %39, align 4
   br label %42
 
 40:                                               ; preds = %25
-  %41 = getelementptr inbounds i8, ptr %1, i64 12
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 0, ptr %41, align 4
   br label %42
 
@@ -2647,26 +2647,26 @@ define internal noundef range(i32 -1, 2) i32 @_ZL18luauF_setmetatableP9lua_State
   br i1 %or.cond, label %9, label %36
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %2, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 6
   br i1 %12, label %13, label %36
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %4, i64 12
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %15 = load i32, ptr %14, align 4
   %16 = icmp eq i32 %15, 6
   br i1 %16, label %17, label %36
 
 17:                                               ; preds = %13
   %18 = load ptr, ptr %2, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %20 = load i8, ptr %19, align 4
   %.not = icmp eq i8 %20, 0
   br i1 %.not, label %21, label %36
 
 21:                                               ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %18, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %23 = load ptr, ptr %22, align 8
   %.not20 = icmp eq ptr %23, null
   br i1 %.not20, label %24, label %36
@@ -2674,14 +2674,14 @@ define internal noundef range(i32 -1, 2) i32 @_ZL18luauF_setmetatableP9lua_State
 24:                                               ; preds = %21
   %25 = load ptr, ptr %4, align 8
   store ptr %25, ptr %22, align 8
-  %26 = getelementptr inbounds i8, ptr %18, i64 1
+  %26 = getelementptr inbounds nuw i8, ptr %18, i64 1
   %27 = load i8, ptr %26, align 1
   %28 = and i8 %27, 4
   %.not21 = icmp eq i8 %28, 0
   br i1 %.not21, label %34, label %29
 
 29:                                               ; preds = %24
-  %30 = getelementptr inbounds i8, ptr %25, i64 1
+  %30 = getelementptr inbounds nuw i8, ptr %25, i64 1
   %31 = load i8, ptr %30, align 1
   %32 = and i8 %31, 3
   %.not22 = icmp eq i8 %32, 0
@@ -2693,7 +2693,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL18luauF_setmetatableP9lua_State
 
 34:                                               ; preds = %33, %29, %24
   store ptr %18, ptr %1, align 8
-  %35 = getelementptr inbounds i8, ptr %1, i64 12
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 6, ptr %35, align 4
   br label %36
 
@@ -2711,7 +2711,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL14luauF_tonumberP9lua_StateP10l
   br i1 %or.cond, label %10, label %19
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %2, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %12 = load i32, ptr %11, align 4
   switch i32 %12, label %.sink.split [
     i32 3, label %.sink.split.sink.split
@@ -2720,7 +2720,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL14luauF_tonumberP9lua_StateP10l
 
 13:                                               ; preds = %10
   %14 = load ptr, ptr %2, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = call noundef i32 @_Z10luaO_str2dPKcPd(ptr noundef nonnull %15, ptr noundef nonnull %7)
   %.not = icmp eq i32 %16, 0
   br i1 %.not, label %.sink.split, label %.sink.split.sink.split
@@ -2733,7 +2733,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL14luauF_tonumberP9lua_StateP10l
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %13, %10
   %.sink = phi i32 [ 0, %10 ], [ 0, %13 ], [ 3, %.sink.split.sink.split ]
-  %18 = getelementptr inbounds i8, ptr %1, i64 12
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 %.sink, ptr %18, align 4
   br label %19
 
@@ -2751,7 +2751,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL14luauF_tostringP9lua_StateP10l
   br i1 %or.cond, label %10, label %41
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %2, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %12 = load i32, ptr %11, align 4
   switch i32 %12, label %41 [
     i32 0, label %13
@@ -2761,9 +2761,9 @@ define internal noundef range(i32 -1, 2) i32 @_ZL14luauF_tostringP9lua_StateP10l
   ]
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %0, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 2944
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 2944
   %17 = load ptr, ptr %16, align 8
   br label %.sink.split
 
@@ -2781,11 +2781,11 @@ define internal noundef range(i32 -1, 2) i32 @_ZL14luauF_tostringP9lua_StateP10l
   br label %.sink.split
 
 24:                                               ; preds = %10
-  %25 = getelementptr inbounds i8, ptr %0, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 72
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 72
   %28 = load i64, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %26, i64 64
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 64
   %30 = load i64, ptr %29, align 8
   %.not = icmp ult i64 %28, %30
   br i1 %.not, label %31, label %41
@@ -2806,7 +2806,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL14luauF_tostringP9lua_StateP10l
 .sink.split:                                      ; preds = %20, %22, %13, %31, %38
   %.sink = phi ptr [ %39, %38 ], [ %37, %31 ], [ %17, %13 ], [ %21, %20 ], [ %23, %22 ]
   store ptr %.sink, ptr %1, align 8
-  %40 = getelementptr inbounds i8, ptr %1, i64 12
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 5, ptr %40, align 4
   br label %41
 
@@ -2823,7 +2823,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL14luauF_byteswapP9lua_StateP10l
   br i1 %or.cond, label %9, label %19
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %2, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 3
   br i1 %12, label %13, label %19
@@ -2835,7 +2835,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL14luauF_byteswapP9lua_StateP10l
   %16 = tail call i32 @llvm.bswap.i32(i32 %trunc)
   %17 = uitofp i32 %16 to double
   store double %17, ptr %1, align 8
-  %18 = getelementptr inbounds i8, ptr %1, i64 12
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 3, ptr %18, align 4
   br label %19
 
@@ -2852,13 +2852,13 @@ define internal noundef range(i32 -1, 2) i32 @_ZL17luauF_readintegerIaEiP9lua_St
   br i1 %or.cond, label %9, label %29
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %2, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 10
   br i1 %12, label %13, label %29
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %4, i64 12
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %15 = load i32, ptr %14, align 4
   %16 = icmp eq i32 %15, 3
   br i1 %16, label %17, label %29
@@ -2867,19 +2867,19 @@ define internal noundef range(i32 -1, 2) i32 @_ZL17luauF_readintegerIaEiP9lua_St
   %18 = load double, ptr %4, align 8
   %19 = fptosi double %18 to i32
   %20 = load ptr, ptr %2, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
   %22 = load i32, ptr %21, align 4
   %.not = icmp ugt i32 %22, %19
   br i1 %.not, label %23, label %29
 
 23:                                               ; preds = %17
   %24 = zext i32 %19 to i64
-  %25 = getelementptr inbounds i8, ptr %20, i64 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 %24
+  %25 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 %24
   %.0.copyload = load i8, ptr %26, align 1
   %27 = sitofp i8 %.0.copyload to double
   store double %27, ptr %1, align 8
-  %28 = getelementptr inbounds i8, ptr %1, i64 12
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 3, ptr %28, align 4
   br label %29
 
@@ -2896,13 +2896,13 @@ define internal noundef range(i32 -1, 2) i32 @_ZL17luauF_readintegerIhEiP9lua_St
   br i1 %or.cond, label %9, label %29
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %2, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 10
   br i1 %12, label %13, label %29
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %4, i64 12
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %15 = load i32, ptr %14, align 4
   %16 = icmp eq i32 %15, 3
   br i1 %16, label %17, label %29
@@ -2911,19 +2911,19 @@ define internal noundef range(i32 -1, 2) i32 @_ZL17luauF_readintegerIhEiP9lua_St
   %18 = load double, ptr %4, align 8
   %19 = fptosi double %18 to i32
   %20 = load ptr, ptr %2, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
   %22 = load i32, ptr %21, align 4
   %.not = icmp ugt i32 %22, %19
   br i1 %.not, label %23, label %29
 
 23:                                               ; preds = %17
   %24 = zext i32 %19 to i64
-  %25 = getelementptr inbounds i8, ptr %20, i64 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 %24
+  %25 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 %24
   %.0.copyload = load i8, ptr %26, align 1
   %27 = uitofp i8 %.0.copyload to double
   store double %27, ptr %1, align 8
-  %28 = getelementptr inbounds i8, ptr %1, i64 12
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 3, ptr %28, align 4
   br label %29
 
@@ -2940,20 +2940,20 @@ define internal noundef range(i32 -1, 1) i32 @_ZL18luauF_writeintegerIhEiP9lua_S
   br i1 %or.cond, label %9, label %35
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %2, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 10
   br i1 %12, label %13, label %35
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %4, i64 12
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %15 = load i32, ptr %14, align 4
   %16 = icmp eq i32 %15, 3
   br i1 %16, label %17, label %35
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %4, i64 16
-  %19 = getelementptr inbounds i8, ptr %4, i64 28
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %20 = load i32, ptr %19, align 4
   %21 = icmp eq i32 %20, 3
   br i1 %21, label %22, label %35
@@ -2962,7 +2962,7 @@ define internal noundef range(i32 -1, 1) i32 @_ZL18luauF_writeintegerIhEiP9lua_S
   %23 = load double, ptr %4, align 8
   %24 = fptosi double %23 to i32
   %25 = load ptr, ptr %2, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 4
   %27 = load i32, ptr %26, align 4
   %.not = icmp ugt i32 %27, %24
   br i1 %.not, label %28, label %35
@@ -2972,8 +2972,8 @@ define internal noundef range(i32 -1, 1) i32 @_ZL18luauF_writeintegerIhEiP9lua_S
   %30 = load double, ptr %18, align 8
   %31 = fptosi double %30 to i64
   %32 = trunc i64 %31 to i8
-  %33 = getelementptr inbounds i8, ptr %25, i64 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 %29
+  %33 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 %29
   store i8 %32, ptr %34, align 1
   br label %35
 
@@ -2990,13 +2990,13 @@ define internal noundef range(i32 -1, 2) i32 @_ZL17luauF_readintegerIsEiP9lua_St
   br i1 %or.cond, label %9, label %31
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %2, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 10
   br i1 %12, label %13, label %31
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %4, i64 12
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %15 = load i32, ptr %14, align 4
   %16 = icmp eq i32 %15, 3
   br i1 %16, label %17, label %31
@@ -3007,19 +3007,19 @@ define internal noundef range(i32 -1, 2) i32 @_ZL17luauF_readintegerIsEiP9lua_St
   %20 = zext i32 %19 to i64
   %21 = add nuw nsw i64 %20, 1
   %22 = load ptr, ptr %2, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 4
   %24 = load i32, ptr %23, align 4
   %25 = zext i32 %24 to i64
   %.not = icmp samesign ult i64 %21, %25
   br i1 %.not, label %26, label %31
 
 26:                                               ; preds = %17
-  %27 = getelementptr inbounds i8, ptr %22, i64 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 %20
+  %27 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 %20
   %.0.copyload = load i16, ptr %28, align 1
   %29 = sitofp i16 %.0.copyload to double
   store double %29, ptr %1, align 8
-  %30 = getelementptr inbounds i8, ptr %1, i64 12
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 3, ptr %30, align 4
   br label %31
 
@@ -3036,13 +3036,13 @@ define internal noundef range(i32 -1, 2) i32 @_ZL17luauF_readintegerItEiP9lua_St
   br i1 %or.cond, label %9, label %31
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %2, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 10
   br i1 %12, label %13, label %31
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %4, i64 12
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %15 = load i32, ptr %14, align 4
   %16 = icmp eq i32 %15, 3
   br i1 %16, label %17, label %31
@@ -3053,19 +3053,19 @@ define internal noundef range(i32 -1, 2) i32 @_ZL17luauF_readintegerItEiP9lua_St
   %20 = zext i32 %19 to i64
   %21 = add nuw nsw i64 %20, 1
   %22 = load ptr, ptr %2, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 4
   %24 = load i32, ptr %23, align 4
   %25 = zext i32 %24 to i64
   %.not = icmp samesign ult i64 %21, %25
   br i1 %.not, label %26, label %31
 
 26:                                               ; preds = %17
-  %27 = getelementptr inbounds i8, ptr %22, i64 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 %20
+  %27 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 %20
   %.0.copyload = load i16, ptr %28, align 1
   %29 = uitofp i16 %.0.copyload to double
   store double %29, ptr %1, align 8
-  %30 = getelementptr inbounds i8, ptr %1, i64 12
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 3, ptr %30, align 4
   br label %31
 
@@ -3082,20 +3082,20 @@ define internal noundef range(i32 -1, 1) i32 @_ZL18luauF_writeintegerItEiP9lua_S
   br i1 %or.cond, label %9, label %37
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %2, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 10
   br i1 %12, label %13, label %37
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %4, i64 12
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %15 = load i32, ptr %14, align 4
   %16 = icmp eq i32 %15, 3
   br i1 %16, label %17, label %37
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %4, i64 16
-  %19 = getelementptr inbounds i8, ptr %4, i64 28
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %20 = load i32, ptr %19, align 4
   %21 = icmp eq i32 %20, 3
   br i1 %21, label %22, label %37
@@ -3106,7 +3106,7 @@ define internal noundef range(i32 -1, 1) i32 @_ZL18luauF_writeintegerItEiP9lua_S
   %25 = zext i32 %24 to i64
   %26 = add nuw nsw i64 %25, 1
   %27 = load ptr, ptr %2, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 4
   %29 = load i32, ptr %28, align 4
   %30 = zext i32 %29 to i64
   %.not = icmp samesign ult i64 %26, %30
@@ -3116,8 +3116,8 @@ define internal noundef range(i32 -1, 1) i32 @_ZL18luauF_writeintegerItEiP9lua_S
   %32 = load double, ptr %18, align 8
   %33 = fptosi double %32 to i64
   %34 = trunc i64 %33 to i16
-  %35 = getelementptr inbounds i8, ptr %27, i64 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 %25
+  %35 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 %25
   store i16 %34, ptr %36, align 1
   br label %37
 
@@ -3134,13 +3134,13 @@ define internal noundef range(i32 -1, 2) i32 @_ZL17luauF_readintegerIiEiP9lua_St
   br i1 %or.cond, label %9, label %31
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %2, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 10
   br i1 %12, label %13, label %31
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %4, i64 12
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %15 = load i32, ptr %14, align 4
   %16 = icmp eq i32 %15, 3
   br i1 %16, label %17, label %31
@@ -3151,19 +3151,19 @@ define internal noundef range(i32 -1, 2) i32 @_ZL17luauF_readintegerIiEiP9lua_St
   %20 = zext i32 %19 to i64
   %21 = add nuw nsw i64 %20, 3
   %22 = load ptr, ptr %2, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 4
   %24 = load i32, ptr %23, align 4
   %25 = zext i32 %24 to i64
   %.not = icmp samesign ult i64 %21, %25
   br i1 %.not, label %26, label %31
 
 26:                                               ; preds = %17
-  %27 = getelementptr inbounds i8, ptr %22, i64 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 %20
+  %27 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 %20
   %.0.copyload = load i32, ptr %28, align 1
   %29 = sitofp i32 %.0.copyload to double
   store double %29, ptr %1, align 8
-  %30 = getelementptr inbounds i8, ptr %1, i64 12
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 3, ptr %30, align 4
   br label %31
 
@@ -3180,13 +3180,13 @@ define internal noundef range(i32 -1, 2) i32 @_ZL17luauF_readintegerIjEiP9lua_St
   br i1 %or.cond, label %9, label %31
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %2, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 10
   br i1 %12, label %13, label %31
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %4, i64 12
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %15 = load i32, ptr %14, align 4
   %16 = icmp eq i32 %15, 3
   br i1 %16, label %17, label %31
@@ -3197,19 +3197,19 @@ define internal noundef range(i32 -1, 2) i32 @_ZL17luauF_readintegerIjEiP9lua_St
   %20 = zext i32 %19 to i64
   %21 = add nuw nsw i64 %20, 3
   %22 = load ptr, ptr %2, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 4
   %24 = load i32, ptr %23, align 4
   %25 = zext i32 %24 to i64
   %.not = icmp samesign ult i64 %21, %25
   br i1 %.not, label %26, label %31
 
 26:                                               ; preds = %17
-  %27 = getelementptr inbounds i8, ptr %22, i64 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 %20
+  %27 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 %20
   %.0.copyload = load i32, ptr %28, align 1
   %29 = uitofp i32 %.0.copyload to double
   store double %29, ptr %1, align 8
-  %30 = getelementptr inbounds i8, ptr %1, i64 12
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 3, ptr %30, align 4
   br label %31
 
@@ -3226,20 +3226,20 @@ define internal noundef range(i32 -1, 1) i32 @_ZL18luauF_writeintegerIjEiP9lua_S
   br i1 %or.cond, label %9, label %37
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %2, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 10
   br i1 %12, label %13, label %37
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %4, i64 12
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %15 = load i32, ptr %14, align 4
   %16 = icmp eq i32 %15, 3
   br i1 %16, label %17, label %37
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %4, i64 16
-  %19 = getelementptr inbounds i8, ptr %4, i64 28
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %20 = load i32, ptr %19, align 4
   %21 = icmp eq i32 %20, 3
   br i1 %21, label %22, label %37
@@ -3250,7 +3250,7 @@ define internal noundef range(i32 -1, 1) i32 @_ZL18luauF_writeintegerIjEiP9lua_S
   %25 = zext i32 %24 to i64
   %26 = add nuw nsw i64 %25, 3
   %27 = load ptr, ptr %2, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 4
   %29 = load i32, ptr %28, align 4
   %30 = zext i32 %29 to i64
   %.not = icmp samesign ult i64 %26, %30
@@ -3260,8 +3260,8 @@ define internal noundef range(i32 -1, 1) i32 @_ZL18luauF_writeintegerIjEiP9lua_S
   %32 = load double, ptr %18, align 8
   %33 = fptosi double %32 to i64
   %34 = trunc i64 %33 to i32
-  %35 = getelementptr inbounds i8, ptr %27, i64 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 %25
+  %35 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 %25
   store i32 %34, ptr %36, align 1
   br label %37
 
@@ -3278,13 +3278,13 @@ define internal noundef range(i32 -1, 2) i32 @_ZL12luauF_readfpIfEiP9lua_StateP1
   br i1 %or.cond, label %9, label %31
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %2, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 10
   br i1 %12, label %13, label %31
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %4, i64 12
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %15 = load i32, ptr %14, align 4
   %16 = icmp eq i32 %15, 3
   br i1 %16, label %17, label %31
@@ -3295,19 +3295,19 @@ define internal noundef range(i32 -1, 2) i32 @_ZL12luauF_readfpIfEiP9lua_StateP1
   %20 = zext i32 %19 to i64
   %21 = add nuw nsw i64 %20, 3
   %22 = load ptr, ptr %2, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 4
   %24 = load i32, ptr %23, align 4
   %25 = zext i32 %24 to i64
   %.not = icmp samesign ult i64 %21, %25
   br i1 %.not, label %26, label %31
 
 26:                                               ; preds = %17
-  %27 = getelementptr inbounds i8, ptr %22, i64 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 %20
+  %27 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 %20
   %.0.copyload = load float, ptr %28, align 1
   %29 = fpext float %.0.copyload to double
   store double %29, ptr %1, align 8
-  %30 = getelementptr inbounds i8, ptr %1, i64 12
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 3, ptr %30, align 4
   br label %31
 
@@ -3324,20 +3324,20 @@ define internal noundef range(i32 -1, 1) i32 @_ZL13luauF_writefpIfEiP9lua_StateP
   br i1 %or.cond, label %9, label %36
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %2, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 10
   br i1 %12, label %13, label %36
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %4, i64 12
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %15 = load i32, ptr %14, align 4
   %16 = icmp eq i32 %15, 3
   br i1 %16, label %17, label %36
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %4, i64 16
-  %19 = getelementptr inbounds i8, ptr %4, i64 28
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %20 = load i32, ptr %19, align 4
   %21 = icmp eq i32 %20, 3
   br i1 %21, label %22, label %36
@@ -3348,7 +3348,7 @@ define internal noundef range(i32 -1, 1) i32 @_ZL13luauF_writefpIfEiP9lua_StateP
   %25 = zext i32 %24 to i64
   %26 = add nuw nsw i64 %25, 3
   %27 = load ptr, ptr %2, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 4
   %29 = load i32, ptr %28, align 4
   %30 = zext i32 %29 to i64
   %.not = icmp samesign ult i64 %26, %30
@@ -3357,8 +3357,8 @@ define internal noundef range(i32 -1, 1) i32 @_ZL13luauF_writefpIfEiP9lua_StateP
 31:                                               ; preds = %22
   %32 = load double, ptr %18, align 8
   %33 = fptrunc double %32 to float
-  %34 = getelementptr inbounds i8, ptr %27, i64 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 %25
+  %34 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 %25
   store float %33, ptr %35, align 1
   br label %36
 
@@ -3375,13 +3375,13 @@ define internal noundef range(i32 -1, 2) i32 @_ZL12luauF_readfpIdEiP9lua_StateP1
   br i1 %or.cond, label %9, label %30
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %2, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 10
   br i1 %12, label %13, label %30
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %4, i64 12
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %15 = load i32, ptr %14, align 4
   %16 = icmp eq i32 %15, 3
   br i1 %16, label %17, label %30
@@ -3392,18 +3392,18 @@ define internal noundef range(i32 -1, 2) i32 @_ZL12luauF_readfpIdEiP9lua_StateP1
   %20 = zext i32 %19 to i64
   %21 = add nuw nsw i64 %20, 7
   %22 = load ptr, ptr %2, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 4
   %24 = load i32, ptr %23, align 4
   %25 = zext i32 %24 to i64
   %.not = icmp samesign ult i64 %21, %25
   br i1 %.not, label %26, label %30
 
 26:                                               ; preds = %17
-  %27 = getelementptr inbounds i8, ptr %22, i64 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 %20
+  %27 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 %20
   %.0.copyload = load double, ptr %28, align 1
   store double %.0.copyload, ptr %1, align 8
-  %29 = getelementptr inbounds i8, ptr %1, i64 12
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 3, ptr %29, align 4
   br label %30
 
@@ -3420,20 +3420,20 @@ define internal noundef range(i32 -1, 1) i32 @_ZL13luauF_writefpIdEiP9lua_StateP
   br i1 %or.cond, label %9, label %35
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %2, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 10
   br i1 %12, label %13, label %35
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %4, i64 12
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %15 = load i32, ptr %14, align 4
   %16 = icmp eq i32 %15, 3
   br i1 %16, label %17, label %35
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %4, i64 16
-  %19 = getelementptr inbounds i8, ptr %4, i64 28
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %20 = load i32, ptr %19, align 4
   %21 = icmp eq i32 %20, 3
   br i1 %21, label %22, label %35
@@ -3444,7 +3444,7 @@ define internal noundef range(i32 -1, 1) i32 @_ZL13luauF_writefpIdEiP9lua_StateP
   %25 = zext i32 %24 to i64
   %26 = add nuw nsw i64 %25, 7
   %27 = load ptr, ptr %2, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 4
   %29 = load i32, ptr %28, align 4
   %30 = zext i32 %29 to i64
   %.not = icmp samesign ult i64 %26, %30
@@ -3452,8 +3452,8 @@ define internal noundef range(i32 -1, 1) i32 @_ZL13luauF_writefpIdEiP9lua_StateP
 
 31:                                               ; preds = %22
   %32 = load double, ptr %18, align 8
-  %33 = getelementptr inbounds i8, ptr %27, i64 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 %25
+  %33 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 %25
   store double %32, ptr %34, align 1
   br label %35
 

@@ -20,9 +20,9 @@ define hidden i32 @hwloc_encode_to_base64(ptr nocapture noundef readonly %0, i64
   br i1 %8, label %.loopexit, label %9
 
 9:                                                ; preds = %.lr.ph
-  %10 = getelementptr inbounds i8, ptr %.04454, i64 2
+  %10 = getelementptr inbounds nuw i8, ptr %.04454, i64 2
   %11 = load i8, ptr %10, align 1
-  %12 = getelementptr inbounds i8, ptr %.04454, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %.04454, i64 1
   %13 = load i8, ptr %12, align 1
   %14 = load i8, ptr %.04454, align 1
   %15 = and i8 %11, 63
@@ -36,25 +36,25 @@ define hidden i32 @hwloc_encode_to_base64(ptr nocapture noundef readonly %0, i64
   %23 = or disjoint i8 %22, %21
   %24 = lshr i8 %14, 2
   %25 = add i64 %.04653, -3
-  %26 = getelementptr inbounds i8, ptr %.04454, i64 3
+  %26 = getelementptr inbounds nuw i8, ptr %.04454, i64 3
   %27 = zext nneg i8 %24 to i64
-  %28 = getelementptr inbounds [65 x i8], ptr @Base64, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw [65 x i8], ptr @Base64, i64 0, i64 %27
   %29 = load i8, ptr %28, align 1
   %30 = getelementptr inbounds i8, ptr %2, i64 %.04355
   store i8 %29, ptr %30, align 1
   %31 = zext nneg i8 %23 to i64
-  %32 = getelementptr inbounds [65 x i8], ptr @Base64, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw [65 x i8], ptr @Base64, i64 0, i64 %31
   %33 = load i8, ptr %32, align 1
   %34 = getelementptr i8, ptr %30, i64 1
   store i8 %33, ptr %34, align 1
   %35 = zext nneg i8 %19 to i64
-  %36 = getelementptr inbounds [65 x i8], ptr @Base64, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw [65 x i8], ptr @Base64, i64 0, i64 %35
   %37 = load i8, ptr %36, align 1
   %38 = or disjoint i64 %.04355, 3
   %39 = getelementptr i8, ptr %30, i64 2
   store i8 %37, ptr %39, align 1
   %40 = zext nneg i8 %15 to i64
-  %41 = getelementptr inbounds [65 x i8], ptr @Base64, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw [65 x i8], ptr @Base64, i64 0, i64 %40
   %42 = load i8, ptr %41, align 1
   %43 = getelementptr inbounds i8, ptr %2, i64 %38
   store i8 %42, ptr %43, align 1
@@ -69,9 +69,9 @@ define hidden i32 @hwloc_encode_to_base64(ptr nocapture noundef readonly %0, i64
   br i1 %.not, label %89, label %45
 
 45:                                               ; preds = %._crit_edge
-  %46 = getelementptr inbounds i8, ptr %5, i64 2
+  %46 = getelementptr inbounds nuw i8, ptr %5, i64 2
   store i8 0, ptr %46, align 1
-  %47 = getelementptr inbounds i8, ptr %5, i64 1
+  %47 = getelementptr inbounds nuw i8, ptr %5, i64 1
   store i8 0, ptr %47, align 1
   store i8 0, ptr %5, align 1
   br label %48
@@ -80,9 +80,9 @@ define hidden i32 @hwloc_encode_to_base64(ptr nocapture noundef readonly %0, i64
   %49 = phi i64 [ 0, %45 ], [ %54, %48 ]
   %.064 = phi i32 [ 0, %45 ], [ %53, %48 ]
   %.14563 = phi ptr [ %.044.lcssa, %45 ], [ %50, %48 ]
-  %50 = getelementptr inbounds i8, ptr %.14563, i64 1
+  %50 = getelementptr inbounds nuw i8, ptr %.14563, i64 1
   %51 = load i8, ptr %.14563, align 1
-  %52 = getelementptr inbounds [3 x i8], ptr %5, i64 0, i64 %49
+  %52 = getelementptr inbounds nuw [3 x i8], ptr %5, i64 0, i64 %49
   store i8 %51, ptr %52, align 1
   %53 = add i32 %.064, 1
   %54 = zext i32 %53 to i64
@@ -108,12 +108,12 @@ define hidden i32 @hwloc_encode_to_base64(ptr nocapture noundef readonly %0, i64
   %70 = or disjoint i8 %68, %69
   %71 = lshr i8 %66, 2
   %72 = zext nneg i8 %71 to i64
-  %73 = getelementptr inbounds [65 x i8], ptr @Base64, i64 0, i64 %72
+  %73 = getelementptr inbounds nuw [65 x i8], ptr @Base64, i64 0, i64 %72
   %74 = load i8, ptr %73, align 1
   %75 = getelementptr inbounds i8, ptr %2, i64 %.043.lcssa
   store i8 %74, ptr %75, align 1
   %76 = zext nneg i8 %70 to i64
-  %77 = getelementptr inbounds [65 x i8], ptr @Base64, i64 0, i64 %76
+  %77 = getelementptr inbounds nuw [65 x i8], ptr @Base64, i64 0, i64 %76
   %78 = load i8, ptr %77, align 1
   %79 = or disjoint i64 %.043.lcssa, 2
   %80 = getelementptr i8, ptr %75, i64 1
@@ -123,7 +123,7 @@ define hidden i32 @hwloc_encode_to_base64(ptr nocapture noundef readonly %0, i64
 
 82:                                               ; preds = %65
   %83 = zext nneg i8 %62 to i64
-  %84 = getelementptr inbounds [65 x i8], ptr @Base64, i64 0, i64 %83
+  %84 = getelementptr inbounds nuw [65 x i8], ptr @Base64, i64 0, i64 %83
   %85 = load i8, ptr %84, align 1
   br label %86
 
@@ -172,7 +172,7 @@ define hidden i32 @hwloc_decode_from_base64(ptr nocapture noundef readonly %0, p
   br i1 %cond, label %98, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %.060, i64 1
+  %7 = getelementptr inbounds nuw i8, ptr %.060, i64 1
   %8 = tail call ptr @__ctype_b_loc() #4
   %9 = load ptr, ptr %8, align 8
   %10 = sext i8 %5 to i64
@@ -231,14 +231,14 @@ define hidden i32 @hwloc_decode_from_base64(ptr nocapture noundef readonly %0, p
   %31 = sub i64 %30, ptrtoint (ptr @Base64 to i64)
   %32 = lshr i64 %31, 4
   %33 = zext i32 %.058.ph.ph to i64
-  %34 = getelementptr inbounds i8, ptr %1, i64 %33
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 %33
   %35 = load i8, ptr %34, align 1
   %36 = trunc i64 %32 to i8
   %37 = or i8 %35, %36
   store i8 %37, ptr %34, align 1
   %.tr80 = trunc i64 %30 to i8
   %38 = shl i8 %.tr80, 4
-  %39 = getelementptr inbounds i8, ptr %1, i64 %28
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 %28
   store i8 %38, ptr %39, align 1
   br label %.outer.outer.backedge
 
@@ -259,7 +259,7 @@ define hidden i32 @hwloc_decode_from_base64(ptr nocapture noundef readonly %0, p
   %.056.ph.ph = phi i32 [ 0, %3 ], [ %.056.ph.ph.be, %.outer.outer.backedge ]
   %41 = zext i32 %.058.ph.ph to i64
   %.not82 = icmp ugt i64 %2, %41
-  %42 = getelementptr inbounds i8, ptr %1, i64 %41
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 %41
   br label %.outer
 
 43:                                               ; preds = %40
@@ -272,14 +272,14 @@ define hidden i32 @hwloc_decode_from_base64(ptr nocapture noundef readonly %0, p
   %47 = sub i64 %46, ptrtoint (ptr @Base64 to i64)
   %48 = lshr i64 %47, 2
   %49 = zext i32 %.058.ph.ph to i64
-  %50 = getelementptr inbounds i8, ptr %1, i64 %49
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 %49
   %51 = load i8, ptr %50, align 1
   %52 = trunc i64 %48 to i8
   %53 = or i8 %51, %52
   store i8 %53, ptr %50, align 1
   %.tr = trunc i64 %46 to i8
   %54 = shl i8 %.tr, 6
-  %55 = getelementptr inbounds i8, ptr %1, i64 %44
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 %44
   store i8 %54, ptr %55, align 1
   br label %.outer.outer.backedge
 
@@ -293,7 +293,7 @@ define hidden i32 @hwloc_decode_from_base64(ptr nocapture noundef readonly %0, p
 
 59:                                               ; preds = %57
   %60 = ptrtoint ptr %memchr to i64
-  %61 = getelementptr inbounds i8, ptr %1, i64 %58
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 %58
   %62 = load i8, ptr %61, align 1
   %63 = trunc i64 %60 to i8
   %64 = sub i8 %63, ptrtoint (ptr @Base64 to i8)
@@ -306,7 +306,7 @@ define hidden i32 @hwloc_decode_from_base64(ptr nocapture noundef readonly %0, p
   br label %.outer.outer.backedge
 
 68:                                               ; preds = %14
-  %69 = getelementptr inbounds i8, ptr %.060, i64 2
+  %69 = getelementptr inbounds nuw i8, ptr %.060, i64 2
   %70 = load i8, ptr %7, align 1
   %71 = sext i8 %70 to i32
   switch i32 %.056.ph, label %.unreachabledefault [
@@ -331,7 +331,7 @@ define hidden i32 @hwloc_decode_from_base64(ptr nocapture noundef readonly %0, p
   br i1 %.not85, label %80, label %76
 
 76:                                               ; preds = %.lr.ph
-  %77 = getelementptr inbounds i8, ptr %.262113, i64 1
+  %77 = getelementptr inbounds nuw i8, ptr %.262113, i64 1
   %78 = load i8, ptr %.262113, align 1
   %79 = sext i8 %78 to i32
   %cond92 = icmp eq i8 %78, 0
@@ -342,7 +342,7 @@ define hidden i32 @hwloc_decode_from_base64(ptr nocapture noundef readonly %0, p
   br i1 %.not86, label %81, label %.loopexit
 
 81:                                               ; preds = %80
-  %82 = getelementptr inbounds i8, ptr %.262113, i64 1
+  %82 = getelementptr inbounds nuw i8, ptr %.262113, i64 1
   %83 = load i8, ptr %.262113, align 1
   %84 = sext i8 %83 to i32
   br label %85
@@ -364,7 +364,7 @@ define hidden i32 @hwloc_decode_from_base64(ptr nocapture noundef readonly %0, p
   br i1 %.not90, label %.loopexit, label %90
 
 90:                                               ; preds = %.lr.ph118
-  %91 = getelementptr inbounds i8, ptr %.3116, i64 1
+  %91 = getelementptr inbounds nuw i8, ptr %.3116, i64 1
   %92 = load i8, ptr %.3116, align 1
   %93 = sext i8 %92 to i32
   %.not87 = icmp eq i8 %92, 0
@@ -375,7 +375,7 @@ define hidden i32 @hwloc_decode_from_base64(ptr nocapture noundef readonly %0, p
 
 94:                                               ; preds = %._crit_edge
   %95 = zext i32 %.058.ph.ph to i64
-  %96 = getelementptr inbounds i8, ptr %1, i64 %95
+  %96 = getelementptr inbounds nuw i8, ptr %1, i64 %95
   %97 = load i8, ptr %96, align 1
   %.not89 = icmp eq i8 %97, 0
   br i1 %.not89, label %99, label %.loopexit

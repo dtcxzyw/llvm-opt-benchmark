@@ -356,7 +356,7 @@ define dso_local noalias noundef ptr @slurmctld_state_save(ptr nocapture noundef
   br i1 %.not63145, label %.preheader.preheader, label %._crit_edge
 
 .preheader.preheader:                             ; preds = %7
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %122

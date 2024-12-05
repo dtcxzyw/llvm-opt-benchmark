@@ -176,7 +176,7 @@ define internal range(i32 -1, 1) i32 @han_register() #0 {
   store i32 0, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 296), align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
   store ptr null, ptr %12, align 8
-  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_coll_han_available_components, i64 8), align 8
+  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_coll_han_available_components, i64 8), align 8
   store ptr %19, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 352), align 8
   %20 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_coll_han_component, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, i32 noundef 5, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 352)) #11
   %21 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 352), align 8
@@ -198,7 +198,7 @@ mca_coll_han_query_module_from_mca.exit:          ; preds = %0, %26
   store i32 0, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 300), align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   store ptr null, ptr %11, align 8
-  %29 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_coll_han_available_components, i64 8), align 8
+  %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_coll_han_available_components, i64 8), align 8
   store ptr %29, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 360), align 8
   %30 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_coll_han_component, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.21, i32 noundef 5, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 360)) #11
   %31 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 360), align 8
@@ -222,7 +222,7 @@ mca_coll_han_query_module_from_mca.exit157:       ; preds = %mca_coll_han_query_
   store i32 0, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 308), align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   store ptr null, ptr %10, align 8
-  %40 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_coll_han_available_components, i64 8), align 8
+  %40 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_coll_han_available_components, i64 8), align 8
   store ptr %40, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 368), align 8
   %41 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_coll_han_component, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.25, i32 noundef 5, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 368)) #11
   %42 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 368), align 8
@@ -244,7 +244,7 @@ mca_coll_han_query_module_from_mca.exit160:       ; preds = %mca_coll_han_query_
   store i32 0, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 312), align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr null, ptr %9, align 8
-  %50 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_coll_han_available_components, i64 8), align 8
+  %50 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_coll_han_available_components, i64 8), align 8
   store ptr %50, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 376), align 8
   %51 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_coll_han_component, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.27, i32 noundef 5, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 376)) #11
   %52 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 376), align 8
@@ -268,7 +268,7 @@ mca_coll_han_query_module_from_mca.exit163:       ; preds = %mca_coll_han_query_
   store i32 0, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 320), align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   store ptr null, ptr %8, align 8
-  %61 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_coll_han_available_components, i64 8), align 8
+  %61 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_coll_han_available_components, i64 8), align 8
   store ptr %61, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 384), align 8
   %62 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_coll_han_component, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.25, i32 noundef 5, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 384)) #11
   %63 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 384), align 8
@@ -290,7 +290,7 @@ mca_coll_han_query_module_from_mca.exit166:       ; preds = %mca_coll_han_query_
   store i32 0, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 324), align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   store ptr null, ptr %7, align 8
-  %71 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_coll_han_available_components, i64 8), align 8
+  %71 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_coll_han_available_components, i64 8), align 8
   store ptr %71, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 392), align 8
   %72 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_coll_han_component, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.27, i32 noundef 5, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 392)) #11
   %73 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 392), align 8
@@ -312,7 +312,7 @@ mca_coll_han_query_module_from_mca.exit169:       ; preds = %mca_coll_han_query_
   store i32 0, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 328), align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store ptr null, ptr %6, align 8
-  %81 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_coll_han_available_components, i64 8), align 8
+  %81 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_coll_han_available_components, i64 8), align 8
   store ptr %81, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 400), align 8
   %82 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_coll_han_component, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33, i32 noundef 5, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 400)) #11
   %83 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 400), align 8
@@ -334,7 +334,7 @@ mca_coll_han_query_module_from_mca.exit172:       ; preds = %mca_coll_han_query_
   store i32 0, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 332), align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr null, ptr %5, align 8
-  %91 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_coll_han_available_components, i64 8), align 8
+  %91 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_coll_han_available_components, i64 8), align 8
   store ptr %91, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 408), align 8
   %92 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_coll_han_component, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.35, i32 noundef 5, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 408)) #11
   %93 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 408), align 8
@@ -356,7 +356,7 @@ mca_coll_han_query_module_from_mca.exit175:       ; preds = %mca_coll_han_query_
   store i32 0, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 336), align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr null, ptr %4, align 8
-  %101 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_coll_han_available_components, i64 8), align 8
+  %101 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_coll_han_available_components, i64 8), align 8
   store ptr %101, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 416), align 8
   %102 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_coll_han_component, ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.37, i32 noundef 5, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 416)) #11
   %103 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 416), align 8
@@ -378,7 +378,7 @@ mca_coll_han_query_module_from_mca.exit178:       ; preds = %mca_coll_han_query_
   store i32 0, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 340), align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store ptr null, ptr %3, align 8
-  %111 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_coll_han_available_components, i64 8), align 8
+  %111 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_coll_han_available_components, i64 8), align 8
   store ptr %111, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 424), align 8
   %112 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_coll_han_component, ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.39, i32 noundef 5, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 424)) #11
   %113 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 424), align 8
@@ -400,7 +400,7 @@ mca_coll_han_query_module_from_mca.exit181:       ; preds = %mca_coll_han_query_
   store i32 0, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 344), align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   store ptr null, ptr %2, align 8
-  %121 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_coll_han_available_components, i64 8), align 8
+  %121 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_coll_han_available_components, i64 8), align 8
   store ptr %121, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 432), align 8
   %122 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_coll_han_component, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.41, i32 noundef 5, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 432)) #11
   %123 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 432), align 8
@@ -422,7 +422,7 @@ mca_coll_han_query_module_from_mca.exit184:       ; preds = %mca_coll_han_query_
   store i32 0, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 348), align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1)
   store ptr null, ptr %1, align 8
-  %131 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_coll_han_available_components, i64 8), align 8
+  %131 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_coll_han_available_components, i64 8), align 8
   store ptr %131, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 440), align 8
   %132 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_coll_han_component, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.43, i32 noundef 5, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef nonnull getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 440)) #11
   %133 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 440), align 8
@@ -454,27 +454,27 @@ mca_coll_han_query_module_from_mca.exit187:       ; preds = %mca_coll_han_query_
   br i1 %145, label %146, label %183
 
 146:                                              ; preds = %.preheader200
-  %147 = getelementptr inbounds [22 x i32], ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 944), i64 0, i64 %indvars.iv
+  %147 = getelementptr inbounds nuw [22 x i32], ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 944), i64 0, i64 %indvars.iv
   %148 = load i32, ptr %147, align 4
   %149 = icmp eq i32 %148, 0
   br i1 %149, label %183, label %150
 
 150:                                              ; preds = %146
-  %151 = getelementptr inbounds [22 x i32], ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 472), i64 0, i64 %indvars.iv
+  %151 = getelementptr inbounds nuw [22 x i32], ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 472), i64 0, i64 %indvars.iv
   store i32 0, ptr %151, align 4
   %152 = call ptr @mca_coll_base_colltype_to_str(i32 noundef %144) #11
   %153 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %13, i64 noundef 128, ptr noundef nonnull @.str.46, ptr noundef %152) #11
   %154 = call ptr @mca_coll_base_colltype_to_str(i32 noundef %144) #11
   %155 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %14, i64 noundef 256, ptr noundef nonnull @.str.47, ptr noundef %154) #11
-  %156 = getelementptr inbounds [22 x ptr], ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 1032), i64 0, i64 %indvars.iv
+  %156 = getelementptr inbounds nuw [22 x ptr], ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 1032), i64 0, i64 %indvars.iv
   %157 = load ptr, ptr %156, align 8
   %158 = call i32 @mca_base_var_enum_create(ptr noundef nonnull %13, ptr noundef %157, ptr noundef nonnull %15) #11
   %159 = load ptr, ptr %15, align 8
   %160 = call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_coll_han_component, ptr noundef nonnull %13, ptr noundef nonnull %14, i32 noundef 0, ptr noundef %159, i32 noundef 0, i32 noundef 4, i32 noundef 4, i32 noundef 5, ptr noundef nonnull %151) #11
-  %161 = getelementptr inbounds [22 x i32], ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 560), i64 0, i64 %indvars.iv
+  %161 = getelementptr inbounds nuw [22 x i32], ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 560), i64 0, i64 %indvars.iv
   store i32 %160, ptr %161, align 4
   %162 = load ptr, ptr %15, align 8
-  %163 = getelementptr inbounds i8, ptr %162, i64 8
+  %163 = getelementptr inbounds nuw i8, ptr %162, i64 8
   %164 = load i8, ptr @opal_uses_threads, align 1
   %165 = trunc i8 %164 to i1
   br i1 %165, label %166, label %169
@@ -498,7 +498,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %166, %169
 
 174:                                              ; preds = %opal_thread_add_fetch_32.exit
   %175 = load ptr, ptr %162, align 8
-  %176 = getelementptr inbounds i8, ptr %175, i64 48
+  %176 = getelementptr inbounds nuw i8, ptr %175, i64 48
   %177 = load ptr, ptr %176, align 8
   %178 = load ptr, ptr %177, align 8
   %.not6.i = icmp eq ptr %178, null
@@ -508,7 +508,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %166, %169
   %179 = phi ptr [ %181, %.lr.ph.i ], [ %178, %174 ]
   %.07.i = phi ptr [ %180, %.lr.ph.i ], [ %177, %174 ]
   call void %179(ptr noundef nonnull %162) #11
-  %180 = getelementptr inbounds i8, ptr %.07.i, i64 8
+  %180 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
   %181 = load ptr, ptr %180, align 8
   %.not.i = icmp eq ptr %181, null
   br i1 %.not.i, label %opal_obj_run_destructors.exit.loopexit, label %.lr.ph.i, !llvm.loop !4
@@ -534,7 +534,7 @@ opal_obj_run_destructors.exit:                    ; preds = %opal_obj_run_destru
   br i1 %.not152, label %.split150, label %.split
 
 .split:                                           ; preds = %.preheader199
-  %184 = getelementptr inbounds [22 x i8], ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 449), i64 0, i64 %indvars.iv222
+  %184 = getelementptr inbounds nuw [22 x i8], ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 449), i64 0, i64 %indvars.iv222
   store i8 0, ptr %184, align 1
   %185 = trunc nuw nsw i64 %indvars.iv222 to i32
   switch i32 %185, label %is_simple_implemented.exit [
@@ -554,7 +554,7 @@ opal_obj_run_destructors.exit:                    ; preds = %opal_obj_run_destru
   %187 = call ptr @mca_coll_base_colltype_to_str(i32 noundef %.pre-phi) #11
   %188 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %13, i64 noundef 128, ptr noundef nonnull @.str.48, ptr noundef %187) #11
   %189 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %14, i64 noundef 256, ptr noundef nonnull @.str.49, ptr noundef %187, ptr noundef %187) #11
-  %190 = getelementptr inbounds [22 x i8], ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 449), i64 0, i64 %indvars.iv222
+  %190 = getelementptr inbounds nuw [22 x i8], ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 449), i64 0, i64 %indvars.iv222
   %191 = call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_coll_han_component, ptr noundef nonnull %13, ptr noundef nonnull %14, i32 noundef 7, ptr noundef null, i32 noundef 0, i32 noundef 8, i32 noundef 4, i32 noundef 1, ptr noundef nonnull %190) #11
   br label %is_simple_implemented.exit
 
@@ -574,13 +574,13 @@ is_simple_implemented.exit:                       ; preds = %.split, %186
   br i1 %195, label %.preheader198, label %198
 
 .preheader198:                                    ; preds = %193
-  %196 = getelementptr inbounds [22 x [3 x i32]], ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 680), i64 0, i64 %indvars.iv229, i64 0
+  %196 = getelementptr inbounds nuw [22 x [3 x i32]], ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 680), i64 0, i64 %indvars.iv229, i64 0
   store i32 3, ptr %196, align 4
   %.idx = mul nuw nsw i64 %indvars.iv229, 12
   %gep270 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 680), i64 4), i64 %.idx
   store i32 3, ptr %gep270, align 4
   %197 = mul nuw nsw i64 %indvars.iv229, 12
-  %gep = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 688), i64 %197
+  %gep = getelementptr inbounds nuw i8, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 688), i64 %197
   store i32 6, ptr %gep, align 4
   br label %198
 
@@ -608,14 +608,14 @@ is_simple_implemented.exit:                       ; preds = %.split, %186
   br i1 %exitcond.i, label %mca_coll_han_topo_lvl_to_str.exit, label %203, !llvm.loop !9
 
 203:                                              ; preds = %.lr.ph
-  %204 = getelementptr inbounds [4 x %struct.mca_base_var_enum_value_t], ptr @level_enumerator, i64 0, i64 %indvars.iv.next.i
+  %204 = getelementptr inbounds nuw [4 x %struct.mca_base_var_enum_value_t], ptr @level_enumerator, i64 0, i64 %indvars.iv.next.i
   %205 = load i32, ptr %204, align 16
   %206 = zext i32 %205 to i64
   %207 = icmp eq i64 %indvars.iv242, %206
   br i1 %207, label %mca_coll_han_topo_lvl_to_str.exit.loopexit.split.loop.exit257, label %.lr.ph, !llvm.loop !9
 
 mca_coll_han_topo_lvl_to_str.exit.loopexit.split.loop.exit257: ; preds = %203
-  %208 = getelementptr inbounds i8, ptr %204, i64 8
+  %208 = getelementptr inbounds nuw i8, ptr %204, i64 8
   %209 = load ptr, ptr %208, align 8
   br label %mca_coll_han_topo_lvl_to_str.exit
 
@@ -636,14 +636,14 @@ mca_coll_han_topo_lvl_to_str.exit195.thread:      ; preds = %mca_coll_han_topo_l
   br i1 %exitcond.i193, label %mca_coll_han_topo_lvl_to_str.exit195, label %213, !llvm.loop !9
 
 213:                                              ; preds = %.lr.ph209
-  %214 = getelementptr inbounds [4 x %struct.mca_base_var_enum_value_t], ptr @level_enumerator, i64 0, i64 %indvars.iv.next.i192
+  %214 = getelementptr inbounds nuw [4 x %struct.mca_base_var_enum_value_t], ptr @level_enumerator, i64 0, i64 %indvars.iv.next.i192
   %215 = load i32, ptr %214, align 16
   %216 = zext i32 %215 to i64
   %217 = icmp eq i64 %indvars.iv242, %216
   br i1 %217, label %mca_coll_han_topo_lvl_to_str.exit195.split.loop.exit, label %.lr.ph209, !llvm.loop !9
 
 mca_coll_han_topo_lvl_to_str.exit195.split.loop.exit: ; preds = %213
-  %218 = getelementptr inbounds i8, ptr %214, i64 8
+  %218 = getelementptr inbounds nuw i8, ptr %214, i64 8
   %219 = load ptr, ptr %218, align 8
   br label %mca_coll_han_topo_lvl_to_str.exit195
 
@@ -663,7 +663,7 @@ mca_coll_han_topo_lvl_to_str.exit195.split.us:    ; preds = %mca_coll_han_topo_l
   %221 = sext i32 %.0147213.us to i64
   %222 = getelementptr inbounds i8, ptr %14, i64 %221
   %223 = sub nsw i64 256, %221
-  %224 = getelementptr inbounds [7 x %struct.ompi_coll_han_components], ptr @ompi_coll_han_available_components, i64 0, i64 %indvars.iv238, i32 1
+  %224 = getelementptr inbounds nuw [7 x %struct.ompi_coll_han_components], ptr @ompi_coll_han_available_components, i64 0, i64 %indvars.iv238, i32 1
   %225 = load ptr, ptr %224, align 8
   %226 = trunc nuw nsw i64 %indvars.iv238 to i32
   %227 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %222, i64 noundef %223, ptr noundef nonnull @.str.52, i32 noundef %226, ptr noundef %225) #11
@@ -678,7 +678,7 @@ mca_coll_han_topo_lvl_to_str.exit195.split:       ; preds = %mca_coll_han_topo_l
   %229 = sext i32 %.0147213266 to i64
   %230 = getelementptr inbounds i8, ptr %14, i64 %229
   %231 = sub nsw i64 256, %229
-  %232 = getelementptr inbounds [7 x %struct.ompi_coll_han_components], ptr @ompi_coll_han_available_components, i64 0, i64 %indvars.iv234265, i32 1
+  %232 = getelementptr inbounds nuw [7 x %struct.ompi_coll_han_components], ptr @ompi_coll_han_available_components, i64 0, i64 %indvars.iv234265, i32 1
   %233 = load ptr, ptr %232, align 8
   %234 = trunc nuw nsw i64 %indvars.iv234265 to i32
   %235 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %230, i64 noundef %231, ptr noundef nonnull @.str.52, i32 noundef %234, ptr noundef %233) #11
@@ -688,7 +688,7 @@ mca_coll_han_topo_lvl_to_str.exit195.split:       ; preds = %mca_coll_han_topo_l
   br i1 %237, label %.split216.us, label %mca_coll_han_topo_lvl_to_str.exit195.split
 
 .split216.us:                                     ; preds = %mca_coll_han_topo_lvl_to_str.exit195.split.us, %mca_coll_han_topo_lvl_to_str.exit195.split
-  %238 = getelementptr inbounds [22 x [3 x i32]], ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 680), i64 0, i64 %indvars.iv246, i64 %indvars.iv242
+  %238 = getelementptr inbounds nuw [22 x [3 x i32]], ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 680), i64 0, i64 %indvars.iv246, i64 %indvars.iv242
   %239 = call i32 @mca_base_component_var_register(ptr noundef nonnull @mca_coll_han_component, ptr noundef nonnull %13, ptr noundef nonnull %14, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 8, i32 noundef 1, ptr noundef nonnull %238) #11
   %indvars.iv.next243 = add nuw nsw i64 %indvars.iv242, 1
   %exitcond245.not = icmp eq i64 %indvars.iv.next243, 3
@@ -754,13 +754,13 @@ define ptr @mca_coll_han_topo_lvl_to_str(i32 noundef %0) local_unnamed_addr #2 {
   br i1 %exitcond, label %._crit_edge, label %3, !llvm.loop !9
 
 3:                                                ; preds = %.lr.ph
-  %4 = getelementptr inbounds [4 x %struct.mca_base_var_enum_value_t], ptr @level_enumerator, i64 0, i64 %indvars.iv.next
+  %4 = getelementptr inbounds nuw [4 x %struct.mca_base_var_enum_value_t], ptr @level_enumerator, i64 0, i64 %indvars.iv.next
   %5 = load i32, ptr %4, align 16
   %6 = icmp eq i32 %0, %5
   br i1 %6, label %._crit_edge10, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge10:                                    ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load ptr, ptr %7, align 8
   br label %._crit_edge
 
@@ -775,7 +775,7 @@ define range(i32 4, 3) i32 @mca_coll_han_topo_lvl_name_to_id(ptr nocapture nound
 
 2:                                                ; preds = %1, %7
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %7 ]
-  %3 = getelementptr inbounds [4 x %struct.mca_base_var_enum_value_t], ptr @level_enumerator, i64 0, i64 %indvars.iv, i32 1
+  %3 = getelementptr inbounds nuw [4 x %struct.mca_base_var_enum_value_t], ptr @level_enumerator, i64 0, i64 %indvars.iv, i32 1
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %4) #12
   %6 = icmp eq i32 %5, 0

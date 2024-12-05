@@ -37,7 +37,7 @@ entry:
   %call2 = tail call noundef ptr @_ZNK5folly16EventBaseManager12getEventBaseEv(ptr noundef nonnull align 8 dereferenceable(112) %call)
   tail call void @_ZN5folly18AsyncSignalHandlerC2EPNS_9EventBaseE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef %call2)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen13SignalHandlerE, i64 16), ptr %this, align 8
-  %server_ = getelementptr inbounds i8, ptr %this, i64 64
+  %server_ = getelementptr inbounds nuw i8, ptr %this, i64 64
   store ptr %server, ptr %server_, align 8
   ret void
 }
@@ -52,7 +52,7 @@ declare void @_ZN5folly18AsyncSignalHandlerC2EPNS_9EventBaseE(ptr noundef nonnul
 define void @_ZN8proxygen13SignalHandler7installERKSt6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %signals) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %signals, align 8
-  %_M_finish.i = getelementptr inbounds i8, ptr %signals, i64 8
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %signals, i64 8
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not4 = icmp eq ptr %0, %1
   br i1 %cmp.i.not4, label %for.end, label %for.body
@@ -61,7 +61,7 @@ for.body:                                         ; preds = %entry, %for.body
   %__begin1.sroa.0.05 = phi ptr [ %incdec.ptr.i, %for.body ], [ %0, %entry ]
   %2 = load i32, ptr %__begin1.sroa.0.05, align 4
   tail call void @_ZN5folly18AsyncSignalHandler21registerSignalHandlerEi(ptr noundef nonnull align 8 dereferenceable(64) %this, i32 noundef %2)
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.05, i64 4
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.05, i64 4
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %1
   br i1 %cmp.i.not, label %for.end, label %for.body
 
@@ -74,7 +74,7 @@ declare void @_ZN5folly18AsyncSignalHandler21registerSignalHandlerEi(ptr noundef
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN8proxygen13SignalHandler14signalReceivedEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, i32 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %server_ = getelementptr inbounds i8, ptr %this, i64 64
+  %server_ = getelementptr inbounds nuw i8, ptr %this, i64 64
   %1 = load ptr, ptr %server_, align 8
   invoke void @_ZN8proxygen10HTTPServer4stopEv(ptr noundef nonnull align 8 dereferenceable(88) %1)
           to label %invoke.cont unwind label %terminate.lpad

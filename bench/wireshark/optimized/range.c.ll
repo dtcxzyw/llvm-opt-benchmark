@@ -63,7 +63,7 @@ define range(i32 0, 3) i32 @range_convert_str_work(ptr noundef %0, ptr noundef w
   br i1 %.not143, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %17 = getelementptr inbounds i8, ptr %.0104, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %.0104, i64 4
   br label %106
 
 18:                                               ; preds = %15, %15
@@ -91,7 +91,7 @@ define range(i32 0, 3) i32 @range_convert_str_work(ptr noundef %0, ptr noundef w
   br i1 %29, label %.loopexit121.thread, label %34
 
 .loopexit121.thread:                              ; preds = %28
-  %30 = getelementptr inbounds i8, ptr %.1105, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %.1105, i64 4
   %31 = load i32, ptr %.1105, align 4
   %32 = zext i32 %31 to i64
   %33 = getelementptr [1 x %struct.range_admin_tag], ptr %30, i64 0, i64 %32
@@ -139,7 +139,7 @@ define range(i32 0, 3) i32 @range_convert_str_work(ptr noundef %0, ptr noundef w
 50:                                               ; preds = %49, %44
   %51 = phi i32 [ %3, %49 ], [ %45, %44 ]
   %52 = load ptr, ptr %6, align 8
-  %53 = getelementptr inbounds i8, ptr %.1105, i64 4
+  %53 = getelementptr inbounds nuw i8, ptr %.1105, i64 4
   %54 = load i32, ptr %.1105, align 4
   %55 = zext i32 %54 to i64
   %56 = getelementptr [1 x %struct.range_admin_tag], ptr %53, i64 0, i64 %55
@@ -258,11 +258,11 @@ define range(i32 0, 3) i32 @range_convert_str_work(ptr noundef %0, ptr noundef w
   br label %118
 
 96:                                               ; preds = %57, %57
-  %97 = getelementptr inbounds i8, ptr %.1105, i64 4
+  %97 = getelementptr inbounds nuw i8, ptr %.1105, i64 4
   %98 = zext i32 %54 to i64
   %99 = getelementptr [1 x %struct.range_admin_tag], ptr %97, i64 0, i64 %98
   %100 = load i32, ptr %99, align 4
-  %101 = getelementptr inbounds i8, ptr %99, i64 4
+  %101 = getelementptr inbounds nuw i8, ptr %99, i64 4
   store i32 %100, ptr %101, align 4
   br label %.loopexit
 
@@ -286,7 +286,7 @@ define range(i32 0, 3) i32 @range_convert_str_work(ptr noundef %0, ptr noundef w
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %114 ]
   %108 = getelementptr [1 x %struct.range_admin_tag], ptr %17, i64 0, i64 %indvars.iv
   %109 = load i32, ptr %108, align 4
-  %110 = getelementptr inbounds i8, ptr %108, i64 4
+  %110 = getelementptr inbounds nuw i8, ptr %108, i64 4
   %111 = load i32, ptr %110, align 4
   %112 = icmp ugt i32 %109, %111
   br i1 %112, label %113, label %114
@@ -328,7 +328,7 @@ define range(i32 0, 2) i32 @value_is_in_range(ptr noundef readonly %0, i32 nound
   br i1 %.not, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %2
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %0, align 4
   %.not18 = icmp eq i32 %4, 0
   br i1 %.not18, label %.loopexit, label %.lr.ph.preheader
@@ -345,7 +345,7 @@ define range(i32 0, 2) i32 @value_is_in_range(ptr noundef readonly %0, i32 nound
   br i1 %.not13, label %10, label %7
 
 7:                                                ; preds = %.lr.ph
-  %8 = getelementptr inbounds i8, ptr %5, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %9 = load i32, ptr %8, align 4
   %.not14 = icmp ugt i32 %1, %9
   br i1 %.not14, label %10, label %.loopexit
@@ -376,7 +376,7 @@ define range(i32 0, 2) i32 @range_add_value(ptr noundef %0, ptr noundef %1, i32 
   br i1 %.not53, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %7 = getelementptr inbounds i8, ptr %5, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %wide.trip.count = zext i32 %6 to i64
   br label %8
 
@@ -388,7 +388,7 @@ define range(i32 0, 2) i32 @range_add_value(ptr noundef %0, ptr noundef %1, i32 
   br i1 %.not38, label %14, label %11
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %9, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %13 = load i32, ptr %12, align 4
   %.not39 = icmp ugt i32 %2, %13
   br i1 %.not39, label %14, label %.loopexit
@@ -403,14 +403,14 @@ define range(i32 0, 2) i32 @range_add_value(ptr noundef %0, ptr noundef %1, i32 
   br label %.loopexit
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds i8, ptr %9, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %20 = load i32, ptr %19, align 4
   %21 = add i32 %20, 1
   %22 = icmp eq i32 %2, %21
   br i1 %22, label %23, label %25
 
 23:                                               ; preds = %18
-  %24 = getelementptr inbounds i8, ptr %9, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 %2, ptr %24, align 4
   br label %.loopexit
 
@@ -438,7 +438,7 @@ define range(i32 0, 2) i32 @range_add_value(ptr noundef %0, ptr noundef %1, i32 
   %34 = getelementptr i8, ptr %31, i64 8
   %35 = getelementptr i8, ptr %34, i64 %.idx
   store i32 %2, ptr %35, align 4
-  %36 = getelementptr inbounds i8, ptr %31, i64 4
+  %36 = getelementptr inbounds nuw i8, ptr %31, i64 4
   %37 = getelementptr [1 x %struct.range_admin_tag], ptr %36, i64 0, i64 %.0.lcssa
   store i32 %2, ptr %37, align 4
   br label %.loopexit
@@ -464,7 +464,7 @@ define range(i32 0, 2) i32 @range_remove_value(ptr noundef %0, ptr noundef %1, i
   br i1 %.not73, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %7 = getelementptr inbounds i8, ptr %5, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %wide.trip.count = zext i32 %6 to i64
   br label %8
 
@@ -476,14 +476,14 @@ define range(i32 0, 2) i32 @range_remove_value(ptr noundef %0, ptr noundef %1, i
   br i1 %11, label %12, label %16
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %9, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %14 = load i32, ptr %13, align 4
   %15 = icmp ult i32 %2, %14
   br i1 %15, label %.loopexit, label %16
 
 16:                                               ; preds = %12, %8
   %17 = icmp eq i32 %2, %10
-  %18 = getelementptr inbounds i8, ptr %9, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %19 = load i32, ptr %18, align 4
   %20 = icmp eq i32 %2, %19
   br i1 %17, label %21, label %51
@@ -505,8 +505,8 @@ define range(i32 0, 2) i32 @range_remove_value(ptr noundef %0, ptr noundef %1, i
   br i1 %.not74, label %._crit_edge, label %.lr.ph72
 
 .lr.ph72:                                         ; preds = %22
-  %31 = getelementptr inbounds i8, ptr %28, i64 4
-  %32 = getelementptr inbounds i8, ptr %27, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 4
+  %32 = getelementptr inbounds nuw i8, ptr %27, i64 4
   %33 = getelementptr i8, ptr %28, i64 8
   %34 = and i64 %indvars.iv, 4294967295
   %35 = zext i32 %29 to i64
@@ -527,7 +527,7 @@ define range(i32 0, 2) i32 @range_remove_value(ptr noundef %0, ptr noundef %1, i
   %.idx = shl nuw nsw i64 %indvars.iv84, 3
   %43 = getelementptr i8, ptr %33, i64 %.idx
   %44 = load i32, ptr %43, align 4
-  %45 = getelementptr inbounds i8, ptr %42, i64 4
+  %45 = getelementptr inbounds nuw i8, ptr %42, i64 4
   store i32 %44, ptr %45, align 4
   %46 = add i32 %.04971, 1
   br label %47
@@ -552,7 +552,7 @@ define range(i32 0, 2) i32 @range_remove_value(ptr noundef %0, ptr noundef %1, i
   br i1 %20, label %52, label %55
 
 52:                                               ; preds = %51
-  %53 = getelementptr inbounds i8, ptr %9, i64 4
+  %53 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %54 = add i32 %2, -1
   store i32 %54, ptr %53, align 4
   br label %.loopexit
@@ -581,12 +581,12 @@ define range(i32 0, 2) i32 @ranges_are_equal(ptr noundef readonly %0, ptr nounde
   br i1 %.not, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %0, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.not26 = icmp eq i32 %6, 0
   br i1 %.not26, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %9 = getelementptr inbounds i8, ptr %1, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %wide.trip.count = zext i32 %6 to i64
   br label %11
 
@@ -605,9 +605,9 @@ define range(i32 0, 2) i32 @ranges_are_equal(ptr noundef readonly %0, ptr nounde
   br i1 %.not19, label %16, label %.loopexit
 
 16:                                               ; preds = %11
-  %17 = getelementptr inbounds i8, ptr %12, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %18 = load i32, ptr %17, align 4
-  %19 = getelementptr inbounds i8, ptr %14, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %20 = load i32, ptr %19, align 4
   %.not20 = icmp eq i32 %18, %20
   br i1 %.not20, label %10, label %.loopexit
@@ -630,7 +630,7 @@ define void @range_foreach(ptr noundef readonly %0, ptr noundef readonly %1, ptr
   br i1 %.not21, label %.loopexit, label %.lr.ph20
 
 .lr.ph20:                                         ; preds = %.preheader
-  %7 = getelementptr inbounds i8, ptr %0, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
   br label %8
 
 8:                                                ; preds = %.lr.ph20, %._crit_edge
@@ -638,7 +638,7 @@ define void @range_foreach(ptr noundef readonly %0, ptr noundef readonly %1, ptr
   %indvars.iv = phi i64 [ 0, %.lr.ph20 ], [ %indvars.iv.next, %._crit_edge ]
   %10 = getelementptr [1 x %struct.range_admin_tag], ptr %7, i64 0, i64 %indvars.iv
   %11 = load i32, ptr %10, align 4
-  %12 = getelementptr inbounds i8, ptr %10, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %13 = load i32, ptr %12, align 4
   %.not17 = icmp ugt i32 %11, %13
   br i1 %.not17, label %._crit_edge, label %.lr.ph
@@ -678,7 +678,7 @@ define ptr @range_convert_range(ptr noundef %0, ptr noundef readonly %1) local_u
   br i1 %.not27, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %5 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   br label %6
 
 6:                                                ; preds = %.lr.ph, %14
@@ -686,7 +686,7 @@ define ptr @range_convert_range(ptr noundef %0, ptr noundef readonly %1) local_u
   %.not2325 = phi ptr [ @.str, %.lr.ph ], [ @.str.2, %14 ]
   %7 = getelementptr [1 x %struct.range_admin_tag], ptr %5, i64 0, i64 %indvars.iv
   %8 = load i32, ptr %7, align 4
-  %9 = getelementptr inbounds i8, ptr %7, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %8, %10
   br i1 %11, label %12, label %13

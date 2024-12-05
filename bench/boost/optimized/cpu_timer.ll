@@ -67,7 +67,7 @@ define void @_ZN5boost5timer6formatERKNS0_9cpu_timesEsRKNSt7__cxx1112basic_strin
           to label %_ZNSt9basic_iosIcSt11char_traitsIcEE10exceptionsESt12_Ios_Iostate.exit unwind label %63
 
 _ZNSt9basic_iosIcSt11char_traitsIcEE10exceptionsESt12_Ios_Iostate.exit: ; preds = %4
-  %13 = getelementptr inbounds i8, ptr %5, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %.val = load ptr, ptr %3, align 8
   invoke fastcc void @_ZN12_GLOBAL__N_19show_timeERKN5boost5timer9cpu_timesERSoRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEs(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr %.val, i16 noundef signext %2)
           to label %14 unwind label %63
@@ -127,12 +127,12 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 _ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv.exit: ; preds = %37, %22
   %39 = load ptr, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, align 8
   store ptr %39, ptr %5, align 8, !tbaa !3
-  %40 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 64), align 8
+  %40 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 64), align 8
   %41 = getelementptr i8, ptr %39, i64 -24
   %42 = load i64, ptr %41, align 8
   %43 = getelementptr inbounds i8, ptr %5, i64 %42
   store ptr %40, ptr %43, align 8, !tbaa !3
-  %44 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 72), align 8
+  %44 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 72), align 8
   store ptr %44, ptr %13, align 8, !tbaa !3
   %45 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %45, align 8, !tbaa !3
@@ -159,16 +159,16 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = 
   store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %45, align 8, !tbaa !3
   %55 = getelementptr inbounds nuw i8, ptr %5, i64 80
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %55) #16
-  %56 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 16), align 8
+  %56 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 16), align 8
   store ptr %56, ptr %5, align 8, !tbaa !3
-  %57 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
+  %57 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %58 = getelementptr i8, ptr %56, i64 -24
   %59 = load i64, ptr %58, align 8
   %60 = getelementptr inbounds i8, ptr %5, i64 %59
   store ptr %57, ptr %60, align 8, !tbaa !3
   %61 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %61, align 8, !tbaa !33
-  %62 = getelementptr inbounds i8, ptr %5, i64 128
+  %62 = getelementptr inbounds nuw i8, ptr %5, i64 128
   call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %62) #16
   call void @llvm.lifetime.end.p0(i64 392, ptr nonnull %5) #16
   ret void
@@ -221,7 +221,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_19show_timeERKN5boost5timer9cpu_tim
   %27 = fdiv double %26, 1.000000e+09
   %28 = sitofp i64 %24 to double
   %29 = fdiv double %28, 1.000000e+09
-  %invariant.gep = getelementptr inbounds i8, ptr %1, i64 8
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %1, i64 8
   %invariant.gep9 = getelementptr i8, ptr %1, i64 16
   %30 = fpext double %27 to x86_fp80
   %31 = fcmp ogt x86_fp80 %30, 0xK3FF583126E978D4FDF3B
@@ -246,7 +246,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_19show_timeERKN5boost5timer9cpu_tim
   ret void
 
 39:                                               ; preds = %36
-  %40 = getelementptr inbounds i8, ptr %.0, i64 1
+  %40 = getelementptr inbounds nuw i8, ptr %.0, i64 1
   %41 = load i8, ptr %40, align 1, !tbaa !28
   %.not48 = icmp eq i8 %41, 0
   br i1 %.not48, label %44, label %42
@@ -583,9 +583,9 @@ define void @_ZN5boost5timer9cpu_timer6resumeEv(ptr nocapture noundef nonnull al
 
 5:                                                ; preds = %1
   %.sroa.0.0.copyload = load i64, ptr %0, align 8, !tbaa !49
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !49
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !49
   store i8 0, ptr %2, align 8, !tbaa !45
   tail call fastcc void @_ZN12_GLOBAL__N_113get_cpu_timesERN5boost5timer9cpu_timesE(ptr noundef nonnull align 8 dereferenceable(25) %0)

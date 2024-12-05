@@ -114,7 +114,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @dissect_manolito(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.25) #2
   %7 = load i32, ptr @proto_manolito, align 4
@@ -146,7 +146,7 @@ define internal noundef i32 @dissect_manolito(ptr noundef %0, ptr noundef %1, pt
   br i1 %28, label %.sink.split, label %.preheader
 
 .preheader:                                       ; preds = %24
-  %29 = getelementptr inbounds i8, ptr %1, i64 408
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %30
 
 30:                                               ; preds = %.preheader, %84

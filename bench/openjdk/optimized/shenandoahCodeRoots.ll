@@ -109,9 +109,9 @@ $_ZTV39ShenandoahEvacuateUpdateRootClosureBaseILb0ELb1EE = comdat any
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN38ClaimMetadataVisitingOopIterateClosure8do_klassEP5Klass(ptr noundef nonnull align 8 dereferenceable(20) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 152
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i32, ptr %5, align 8
   tail call void @_ZN15ClassLoaderData7oops_doEP10OopClosureib(ptr noundef nonnull align 8 dereferenceable(160) %4, ptr noundef nonnull align 8 dereferenceable(20) %0, i32 noundef %6, i1 noundef zeroext false) #7
   ret void
@@ -119,7 +119,7 @@ define linkonce_odr hidden void @_ZN38ClaimMetadataVisitingOopIterateClosure8do_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN38ClaimMetadataVisitingOopIterateClosure6do_cldEP15ClassLoaderData(ptr noundef nonnull align 8 dereferenceable(20) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   tail call void @_ZN15ClassLoaderData7oops_doEP10OopClosureib(ptr noundef nonnull align 8 dereferenceable(160) %1, ptr noundef nonnull %0, i32 noundef %4, i1 noundef zeroext false) #7
   ret void
@@ -184,7 +184,7 @@ _ZN19ShenandoahCodeRoots29use_nmethod_barriers_for_markEv.exit: ; preds = %0
 
 _ZN19ShenandoahCodeRoots29use_nmethod_barriers_for_markEv.exit.thread: ; preds = %0, %_ZN19ShenandoahCodeRoots29use_nmethod_barriers_for_markEv.exit
   %4 = load ptr, ptr @_ZN10BarrierSet12_barrier_setE, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %6 = load ptr, ptr %5, align 8
   tail call void @_ZN17BarrierSetNMethod16arm_all_nmethodsEv(ptr noundef nonnull align 8 dereferenceable(12) %6) #7
   br label %7
@@ -198,7 +198,7 @@ declare void @_ZN17BarrierSetNMethod16arm_all_nmethodsEv(ptr noundef nonnull ali
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN19ShenandoahCodeRoots21arm_nmethods_for_evacEv() local_unnamed_addr #0 align 2 {
   %1 = load ptr, ptr @_ZN10BarrierSet12_barrier_setE, align 8
-  %2 = getelementptr inbounds i8, ptr %1, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %3 = load ptr, ptr %2, align 8
   tail call void @_ZN17BarrierSetNMethod16arm_all_nmethodsEv(ptr noundef nonnull align 8 dereferenceable(12) %3) #7
   ret void
@@ -216,25 +216,25 @@ _ZN19ShenandoahCodeRoots29use_nmethod_barriers_for_markEv.exit: ; preds = %0
   br i1 %4, label %_ZN19ShenandoahCodeRoots29use_nmethod_barriers_for_markEv.exit.thread, label %18
 
 _ZN19ShenandoahCodeRoots29use_nmethod_barriers_for_markEv.exit.thread: ; preds = %0, %_ZN19ShenandoahCodeRoots29use_nmethod_barriers_for_markEv.exit
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr @.str, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = tail call noundef i32 @_ZN4GCId20current_or_undefinedEv() #7
   store i32 %7, ptr %6, align 8
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV28ShenandoahDisarmNMethodsTask, i64 16), ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV30ShenandoahDisarmNMethodClosure, i64 16), ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %10 = load ptr, ptr @_ZN10BarrierSet12_barrier_setE, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %12 = load ptr, ptr %11, align 8
   store ptr %12, ptr %9, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %14 = load ptr, ptr @_ZN19ShenandoahCodeRoots14_nmethod_tableE, align 8
   call void @_ZN35ShenandoahConcurrentNMethodIteratorC1EP22ShenandoahNMethodTable(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef %14) #7
   call void @_ZN35ShenandoahConcurrentNMethodIterator17nmethods_do_beginEv(ptr noundef nonnull align 8 dereferenceable(16) %13) #7
   %15 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 504
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 504
   %17 = load ptr, ptr %16, align 8
   call void @_ZN13WorkerThreads8run_taskEP10WorkerTask(ptr noundef nonnull align 8 dereferenceable(120) %17, ptr noundef nonnull %1) #7
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV28ShenandoahDisarmNMethodsTask, i64 16), ptr %1, align 8
@@ -250,26 +250,26 @@ declare void @_ZN13WorkerThreads8run_taskEP10WorkerTask(ptr noundef nonnull alig
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN19ShenandoahCodeRoots6unlinkEP13WorkerThreadsb(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.ShenandoahUnlinkTask, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @.str.8, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %6 = tail call noundef i32 @_ZN4GCId20current_or_undefinedEv() #7
   store i32 %6, ptr %5, align 8
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV20ShenandoahUnlinkTask, i64 16), ptr %3, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %8 = zext i1 %1 to i8
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV30ShenandoahNMethodUnlinkClosure, i64 16), ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i8 %8, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %11 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   store ptr %11, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %3, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %13 = load ptr, ptr @_ZN10BarrierSet12_barrier_setE, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %15 = load ptr, ptr %14, align 8
   store ptr %15, ptr %12, align 8
-  %16 = getelementptr inbounds i8, ptr %3, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %17 = load ptr, ptr @_ZN19ShenandoahCodeRoots14_nmethod_tableE, align 8
   call void @_ZN35ShenandoahConcurrentNMethodIteratorC1EP22ShenandoahNMethodTable(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef %17) #7
   call void @_ZN35ShenandoahConcurrentNMethodIterator17nmethods_do_beginEv(ptr noundef nonnull align 8 dereferenceable(16) %16) #7
@@ -458,7 +458,7 @@ define linkonce_odr hidden void @_ZN28ShenandoahDisarmNMethodsTask4workEj(ptr no
   %3 = alloca %class.ShenandoahParallelWorkerSession, align 8
   call void @_ZN23ShenandoahWorkerSessionC2Ej(ptr noundef nonnull align 8 dereferenceable(40) %3, i32 noundef %1) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 19, i1 false)
-  %4 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 1769), align 1
+  %4 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 1769), align 1
   %5 = icmp eq i8 %4, 0
   br i1 %5, label %_ZN31ShenandoahParallelWorkerSessionC2Ej.exit, label %6
 
@@ -468,8 +468,8 @@ define linkonce_odr hidden void @_ZN28ShenandoahDisarmNMethodsTask4workEj(ptr no
   br label %_ZN31ShenandoahParallelWorkerSessionC2Ej.exit
 
 _ZN31ShenandoahParallelWorkerSessionC2Ej.exit:    ; preds = %2, %6
-  %8 = getelementptr inbounds i8, ptr %0, i64 40
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   call void @_ZN35ShenandoahConcurrentNMethodIterator11nmethods_doEP14NMethodClosure(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull %9) #7
   call void @_ZN31ShenandoahParallelWorkerSessionD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #7
   ret void
@@ -479,7 +479,7 @@ declare noundef i32 @_ZN4GCId20current_or_undefinedEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN30ShenandoahDisarmNMethodClosure10do_nmethodEP7nmethod(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call void @_ZN17BarrierSetNMethod6disarmEP7nmethod(ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef %1) #7
   ret void
@@ -500,8 +500,8 @@ declare void @_ZN35ShenandoahConcurrentNMethodIterator15nmethods_do_endEv(ptr no
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN20ShenandoahUnlinkTask4workEj(ptr noundef nonnull align 8 dereferenceable(72) %0, i32 noundef %1) unnamed_addr #0 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 56
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN35ShenandoahConcurrentNMethodIterator11nmethods_doEP14NMethodClosure(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %4) #7
   ret void
 }
@@ -509,10 +509,10 @@ define linkonce_odr hidden void @_ZN20ShenandoahUnlinkTask4workEj(ptr noundef no
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN30ShenandoahNMethodUnlinkClosure10do_nmethodEP7nmethod(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca %class.ShenandoahEvacuateUpdateRootClosureBase, align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 112
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noundef zeroext i1 @_ZN7nmethod12is_unloadingEv(ptr noundef nonnull align 8 dereferenceable(214) %1) #7
-  %7 = getelementptr inbounds i8, ptr %5, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %8, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(112) %7) #7
@@ -521,13 +521,13 @@ define linkonce_odr hidden void @_ZN30ShenandoahNMethodUnlinkClosure10do_nmethod
 _ZN25ShenandoahReentrantLockerD2Ev.exit:          ; preds = %2
   tail call void @_ZN7nmethod6unlinkEv(ptr noundef nonnull align 8 dereferenceable(214) %1) #7
   %10 = load ptr, ptr %7, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
   tail call void %12(ptr noundef nonnull align 8 dereferenceable(112) %7) #7
   br label %97
 
 13:                                               ; preds = %2
-  %14 = getelementptr inbounds i8, ptr %0, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %15 = load ptr, ptr %14, align 8
   %16 = tail call noundef zeroext i1 @_ZN17BarrierSetNMethod8is_armedEP7nmethod(ptr noundef nonnull align 8 dereferenceable(12) %15, ptr noundef nonnull %1) #7
   br i1 %16, label %17, label %_ZN25ShenandoahReentrantLockerD2Ev.exit16
@@ -536,8 +536,8 @@ _ZN25ShenandoahReentrantLockerD2Ev.exit:          ; preds = %2
   %18 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %19 = load ptr, ptr %18, align 8
   %20 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 2448
-  %22 = getelementptr inbounds i8, ptr %19, i64 41
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 2448
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 41
   %23 = load i8, ptr %22, align 1
   %24 = add i8 %23, 1
   store i8 %24, ptr %22, align 1
@@ -549,7 +549,7 @@ _ZN25ShenandoahReentrantLockerD2Ev.exit:          ; preds = %2
   br label %_ZN22ShenandoahEvacOOMScopeC2Ev.exit
 
 27:                                               ; preds = %17
-  %28 = getelementptr inbounds i8, ptr %19, i64 42
+  %28 = getelementptr inbounds nuw i8, ptr %19, i64 42
   %29 = load i8, ptr %28, align 2
   %30 = trunc i8 %29 to i1
   br i1 %30, label %_ZN22ShenandoahEvacOOMScopeC2Ev.exit, label %31
@@ -570,30 +570,30 @@ _ZN25ShenandoahReentrantLockerD2Ev.exit:          ; preds = %2
 
 _ZN22ShenandoahEvacOOMScopeC2Ev.exit:             ; preds = %26, %27, %31, %36
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
-  %37 = getelementptr inbounds i8, ptr %3, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr null, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %3, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 3, ptr %38, align 8
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV39ShenandoahEvacuateUpdateRootClosureBaseILb0ELb1EE, i64 16), ptr %3, align 8
-  %39 = getelementptr inbounds i8, ptr %3, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %40 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   store ptr %40, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %3, i64 32
+  %41 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %42 = load ptr, ptr %18, align 8
   store ptr %42, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %5, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %44 = load i32, ptr %43, align 8
   %45 = icmp sgt i32 %44, 0
   br i1 %45, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN22ShenandoahEvacOOMScopeC2Ev.exit
-  %46 = getelementptr inbounds i8, ptr %5, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %47
 
 47:                                               ; preds = %47, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %47 ]
   %48 = load ptr, ptr %46, align 8
-  %49 = getelementptr inbounds ptr, ptr %48, i64 %indvars.iv.i.i
+  %49 = getelementptr inbounds nuw ptr, ptr %48, i64 %indvars.iv.i.i
   %50 = load ptr, ptr %49, align 8
   %51 = load ptr, ptr %3, align 8
   %52 = load ptr, ptr %51, align 8
@@ -606,14 +606,14 @@ _ZN22ShenandoahEvacOOMScopeC2Ev.exit:             ; preds = %26, %27, %31, %36
 
 ._crit_edge.i.i:                                  ; preds = %47, %_ZN22ShenandoahEvacOOMScopeC2Ev.exit
   %56 = load ptr, ptr %5, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 40
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 40
   %58 = load i32, ptr %57, align 8
   %59 = sext i32 %58 to i64
   %60 = getelementptr inbounds i8, ptr %56, i64 %59
-  %61 = getelementptr inbounds i8, ptr %56, i64 180
+  %61 = getelementptr inbounds nuw i8, ptr %56, i64 180
   %62 = load i16, ptr %61, align 4
   %63 = zext i16 %62 to i64
-  %64 = getelementptr inbounds i8, ptr %60, i64 %63
+  %64 = getelementptr inbounds nuw i8, ptr %60, i64 %63
   %.not18.i.i = icmp eq i16 %62, 0
   br i1 %.not18.i.i, label %._crit_edge17.i.i, label %.lr.ph16.i.i
 
@@ -631,12 +631,12 @@ _ZN22ShenandoahEvacOOMScopeC2Ev.exit:             ; preds = %26, %27, %31, %36
   br label %70
 
 70:                                               ; preds = %67, %.lr.ph16.i.i
-  %71 = getelementptr inbounds i8, ptr %.014.i.i, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %.014.i.i, i64 8
   %72 = icmp ult ptr %71, %64
   br i1 %72, label %.lr.ph16.i.i, label %._crit_edge17.i.i, !llvm.loop !9
 
 ._crit_edge17.i.i:                                ; preds = %70, %._crit_edge.i.i
-  %73 = getelementptr inbounds i8, ptr %5, i64 20
+  %73 = getelementptr inbounds nuw i8, ptr %5, i64 20
   %74 = load i8, ptr %73, align 4
   %75 = trunc i8 %74 to i1
   br i1 %75, label %76, label %_ZN17ShenandoahNMethod21heal_nmethod_metadataEPS_.exit
@@ -658,25 +658,25 @@ _ZN17ShenandoahNMethod21heal_nmethod_metadataEPS_.exit: ; preds = %._crit_edge17
   br i1 %82, label %_ZN25ShenandoahReentrantLockerD2Ev.exit16, label %83
 
 83:                                               ; preds = %_ZN17ShenandoahNMethod21heal_nmethod_metadataEPS_.exit
-  %84 = getelementptr inbounds i8, ptr %79, i64 2448
+  %84 = getelementptr inbounds nuw i8, ptr %79, i64 2448
   call void @_ZN24ShenandoahEvacOOMHandler17unregister_threadEP6Thread(ptr noundef nonnull align 8 dereferenceable(80) %84, ptr noundef nonnull %19) #7
   br label %_ZN25ShenandoahReentrantLockerD2Ev.exit16
 
 _ZN25ShenandoahReentrantLockerD2Ev.exit16:        ; preds = %83, %_ZN17ShenandoahNMethod21heal_nmethod_metadataEPS_.exit, %13
   %85 = load ptr, ptr %7, align 8
-  %86 = getelementptr inbounds i8, ptr %85, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 8
   %87 = load ptr, ptr %86, align 8
   call void %87(ptr noundef nonnull align 8 dereferenceable(112) %7) #7
-  %88 = getelementptr inbounds i8, ptr %5, i64 136
+  %88 = getelementptr inbounds nuw i8, ptr %5, i64 136
   %89 = load ptr, ptr %88, align 8
   %90 = load ptr, ptr %89, align 8
   call void %90(ptr noundef nonnull align 8 dereferenceable(112) %88) #7
-  %91 = getelementptr inbounds i8, ptr %0, i64 8
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %92 = load i8, ptr %91, align 8
   %93 = trunc i8 %92 to i1
   call void @_ZN7nmethod21unload_nmethod_cachesEb(ptr noundef nonnull align 8 dereferenceable(214) %1, i1 noundef zeroext %93) #7
   %94 = load ptr, ptr %88, align 8
-  %95 = getelementptr inbounds i8, ptr %94, i64 8
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 8
   %96 = load ptr, ptr %95, align 8
   call void %96(ptr noundef nonnull align 8 dereferenceable(112) %88) #7
   br label %97
@@ -713,15 +713,15 @@ define linkonce_odr hidden void @_ZN39ShenandoahEvacuateUpdateRootClosureBaseILb
   br i1 %4, label %_ZN39ShenandoahEvacuateUpdateRootClosureBaseILb0ELb1EE11do_oop_workIP7oopDescEEvPT_.exit, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 2440
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 2440
   %9 = load ptr, ptr %8, align 8
   %10 = ptrtoint ptr %3 to i64
-  %11 = getelementptr inbounds i8, ptr %9, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %12 = load i64, ptr %11, align 8
   %13 = lshr i64 %10, %12
-  %14 = getelementptr inbounds i8, ptr %9, i64 80
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 80
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 %13
   %17 = load i8, ptr %16, align 1
@@ -741,7 +741,7 @@ define linkonce_odr hidden void @_ZN39ShenandoahEvacuateUpdateRootClosureBaseILb
   br i1 %25, label %26, label %30
 
 26:                                               ; preds = %19
-  %27 = getelementptr inbounds i8, ptr %0, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %28 = load ptr, ptr %27, align 8
   %29 = tail call noundef ptr @_ZN14ShenandoahHeap15evacuate_objectEP7oopDescP6Thread(ptr noundef nonnull align 8 dereferenceable(2657) %7, ptr noundef nonnull %3, ptr noundef %28) #7
   br label %30
@@ -770,14 +770,14 @@ define linkonce_odr hidden void @_ZN39ShenandoahEvacuateUpdateRootClosureBaseILb
   %11 = shl i64 %8, %10
   %12 = add i64 %11, %7
   %13 = inttoptr i64 %12 to ptr
-  %14 = getelementptr inbounds i8, ptr %0, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 2440
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 2440
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load i64, ptr %18, align 8
   %20 = lshr i64 %12, %19
-  %21 = getelementptr inbounds i8, ptr %17, i64 80
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 80
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds i8, ptr %22, i64 %20
   %24 = load i8, ptr %23, align 1
@@ -797,7 +797,7 @@ define linkonce_odr hidden void @_ZN39ShenandoahEvacuateUpdateRootClosureBaseILb
   br i1 %32, label %33, label %37
 
 33:                                               ; preds = %26
-  %34 = getelementptr inbounds i8, ptr %0, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %35 = load ptr, ptr %34, align 8
   %36 = tail call noundef ptr @_ZN14ShenandoahHeap15evacuate_objectEP7oopDescP6Thread(ptr noundef nonnull align 8 dereferenceable(2657) %15, ptr noundef nonnull %13, ptr noundef %35) #7
   %.pre.i = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8

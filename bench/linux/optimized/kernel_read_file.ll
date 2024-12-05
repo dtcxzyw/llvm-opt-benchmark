@@ -104,14 +104,14 @@ define dso_local i64 @kernel_read_file(ptr noundef %0, i64 noundef %1, ptr nocap
 
 14:                                               ; preds = %9, %6
   store i64 0, ptr %7, align 8, !annotation !5
-  %15 = getelementptr inbounds i8, ptr %0, i64 168
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %16 = load ptr, ptr %15, align 8
   %17 = load i16, ptr %16, align 8
   %18 = icmp slt i16 %17, -28672
   br i1 %18, label %19, label %.loopexit9
 
 19:                                               ; preds = %14
-  %20 = getelementptr inbounds i8, ptr %16, i64 336
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 336
   %21 = load volatile i32, ptr %20, align 4
   %22 = icmp slt i32 %21, 1
   br i1 %22, label %.lr.ph, label %.loopexit9, !prof !6
@@ -119,7 +119,7 @@ define dso_local i64 @kernel_read_file(ptr noundef %0, i64 noundef %1, ptr nocap
 .lr.ph:                                           ; preds = %19, %29
   %23 = phi i32 [ %30, %29 ], [ %21, %19 ]
   %24 = add i32 %23, -1
-  %25 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %20, i32 %24, ptr elementtype(i32) %20, i32 %23) #7, !srcloc !7
+  %25 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %20, i32 %24, ptr nonnull elementtype(i32) %20, i32 %23) #7, !srcloc !7
   %26 = extractvalue { i8, i32 } %25, 0
   %27 = icmp ult i8 %26, 2
   tail call void @llvm.assume(i1 %27)
@@ -133,7 +133,7 @@ define dso_local i64 @kernel_read_file(ptr noundef %0, i64 noundef %1, ptr nocap
 
 32:                                               ; preds = %.lr.ph
   %33 = load ptr, ptr %15, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 80
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 80
   %35 = load i64, ptr %34, align 8
   %36 = icmp slt i64 %35, 1
   br i1 %36, label %92, label %37
@@ -241,8 +241,8 @@ define dso_local i64 @kernel_read_file(ptr noundef %0, i64 noundef %1, ptr nocap
 
 96:                                               ; preds = %92
   %97 = load ptr, ptr %15, align 8
-  %98 = getelementptr inbounds i8, ptr %97, i64 336
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %98, ptr elementtype(i32) %98) #7, !srcloc !14
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 336
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %98, ptr nonnull elementtype(i32) %98) #7, !srcloc !14
   br label %99
 
 99:                                               ; preds = %96, %92
@@ -331,12 +331,12 @@ define dso_local i64 @kernel_read_file_from_path_initns(ptr noundef %0, i64 noun
 12:                                               ; preds = %9
   tail call void @_raw_spin_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @init_task, i64 2056)) #7
   %13 = load ptr, ptr getelementptr inbounds (i8, ptr @init_task, i64 1848), align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 4
-  tail call void @_raw_spin_lock(ptr noundef %14) #7
-  %15 = getelementptr inbounds i8, ptr %13, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef align 8 dereferenceable(16) %15, i64 16, i1 false)
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
+  tail call void @_raw_spin_lock(ptr noundef nonnull %14) #7
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %15, i64 16, i1 false)
   call void @path_get(ptr noundef nonnull %7) #7
-  call void @_raw_spin_unlock(ptr noundef %14) #7
+  call void @_raw_spin_unlock(ptr noundef nonnull %14) #7
   call void @_raw_spin_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @init_task, i64 2056)) #7
   %16 = call ptr @file_open_root(ptr noundef nonnull %7, ptr noundef nonnull %0, i32 noundef 0, i16 noundef zeroext 0) #7
   call void @path_put(ptr noundef nonnull %7) #7
@@ -373,7 +373,7 @@ define dso_local i64 @kernel_read_file_from_fd(i32 noundef %0, i64 noundef %1, p
   br i1 %10, label %18, label %11
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %9, i64 20
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 20
   %13 = load i32, ptr %12, align 4
   %14 = and i32 %13, 1
   %15 = icmp eq i32 %14, 0

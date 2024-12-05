@@ -115,7 +115,7 @@ define noundef i32 @dscal_k(i64 noundef %0, i64 noundef %1, i64 noundef %2, doub
 
 78:                                               ; preds = %78, %75
   %79 = phi i64 [ %83, %78 ], [ 0, %75 ]
-  %80 = getelementptr inbounds double, ptr %4, i64 %79
+  %80 = getelementptr inbounds nuw double, ptr %4, i64 %79
   %81 = load <8 x double>, ptr %80, align 1, !tbaa !13
   %82 = fmul <8 x double> %77, %81
   store <8 x double> %82, ptr %80, align 1, !tbaa !13

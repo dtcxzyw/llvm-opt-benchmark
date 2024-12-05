@@ -126,8 +126,8 @@ define void @dlasdq_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
   %indvars.iv301 = phi i64 [ %indvars.iv.next302, %.lr.ph.split.us ], [ 1, %.lr.ph ]
-  %79 = getelementptr inbounds double, ptr %25, i64 %indvars.iv301
-  %80 = getelementptr inbounds double, ptr %26, i64 %indvars.iv301
+  %79 = getelementptr inbounds nuw double, ptr %25, i64 %indvars.iv301
+  %80 = getelementptr inbounds nuw double, ptr %26, i64 %indvars.iv301
   call void @dlartg_(ptr noundef nonnull %79, ptr noundef nonnull %80, ptr noundef nonnull %19, ptr noundef nonnull %20, ptr noundef nonnull %18)
   %81 = load double, ptr %18, align 8
   store double %81, ptr %79, align 8
@@ -141,7 +141,7 @@ define void @dlasdq_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %87 = load double, ptr %83, align 8
   %88 = fmul double %86, %87
   store double %88, ptr %83, align 8
-  %89 = getelementptr inbounds double, ptr %36, i64 %indvars.iv301
+  %89 = getelementptr inbounds nuw double, ptr %36, i64 %indvars.iv301
   store double %86, ptr %89, align 8
   %90 = load i32, ptr %2, align 4
   %91 = trunc nuw nsw i64 %indvars.iv301 to i32
@@ -154,8 +154,8 @@ define void @dlasdq_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ 1, %.lr.ph ]
-  %95 = getelementptr inbounds double, ptr %25, i64 %indvars.iv
-  %96 = getelementptr inbounds double, ptr %26, i64 %indvars.iv
+  %95 = getelementptr inbounds nuw double, ptr %25, i64 %indvars.iv
+  %96 = getelementptr inbounds nuw double, ptr %26, i64 %indvars.iv
   call void @dlartg_(ptr noundef nonnull %95, ptr noundef nonnull %96, ptr noundef nonnull %19, ptr noundef nonnull %20, ptr noundef nonnull %18)
   %97 = load double, ptr %18, align 8
   store double %97, ptr %95, align 8
@@ -230,8 +230,8 @@ define void @dlasdq_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 
 .lr.ph280.split.us:                               ; preds = %.lr.ph280, %.lr.ph280.split.us
   %indvars.iv311 = phi i64 [ %indvars.iv.next312, %.lr.ph280.split.us ], [ 1, %.lr.ph280 ]
-  %135 = getelementptr inbounds double, ptr %25, i64 %indvars.iv311
-  %136 = getelementptr inbounds double, ptr %26, i64 %indvars.iv311
+  %135 = getelementptr inbounds nuw double, ptr %25, i64 %indvars.iv311
+  %136 = getelementptr inbounds nuw double, ptr %26, i64 %indvars.iv311
   call void @dlartg_(ptr noundef nonnull %135, ptr noundef nonnull %136, ptr noundef nonnull %19, ptr noundef nonnull %20, ptr noundef nonnull %18)
   %137 = load double, ptr %18, align 8
   store double %137, ptr %135, align 8
@@ -245,7 +245,7 @@ define void @dlasdq_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %143 = load double, ptr %139, align 8
   %144 = fmul double %142, %143
   store double %144, ptr %139, align 8
-  %145 = getelementptr inbounds double, ptr %36, i64 %indvars.iv311
+  %145 = getelementptr inbounds nuw double, ptr %36, i64 %indvars.iv311
   store double %142, ptr %145, align 8
   %146 = load i32, ptr %2, align 4
   %147 = trunc nuw nsw i64 %indvars.iv311 to i32
@@ -258,8 +258,8 @@ define void @dlasdq_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 
 .lr.ph280.split:                                  ; preds = %.lr.ph280, %.lr.ph280.split
   %indvars.iv306 = phi i64 [ %indvars.iv.next307, %.lr.ph280.split ], [ 1, %.lr.ph280 ]
-  %151 = getelementptr inbounds double, ptr %25, i64 %indvars.iv306
-  %152 = getelementptr inbounds double, ptr %26, i64 %indvars.iv306
+  %151 = getelementptr inbounds nuw double, ptr %25, i64 %indvars.iv306
+  %152 = getelementptr inbounds nuw double, ptr %26, i64 %indvars.iv306
   call void @dlartg_(ptr noundef nonnull %151, ptr noundef nonnull %152, ptr noundef nonnull %19, ptr noundef nonnull %20, ptr noundef nonnull %18)
   %153 = load double, ptr %18, align 8
   store double %153, ptr %151, align 8
@@ -367,7 +367,7 @@ define void @dlasdq_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 .lr.ph296:                                        ; preds = %.lr.ph296.preheader, %239
   %indvars.iv322 = phi i64 [ 1, %.lr.ph296.preheader ], [ %indvars.iv.next323, %239 ]
   %indvars.iv316 = phi i64 [ 2, %.lr.ph296.preheader ], [ %indvars.iv.next317, %239 ]
-  %205 = getelementptr inbounds double, ptr %25, i64 %indvars.iv322
+  %205 = getelementptr inbounds nuw double, ptr %25, i64 %indvars.iv322
   %206 = load double, ptr %205, align 8
   %207 = load i32, ptr %2, align 4
   %indvars.iv.next323 = add nuw nsw i64 %indvars.iv322, 1
@@ -384,7 +384,7 @@ define void @dlasdq_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %indvars.iv318 = phi i64 [ %indvars.iv316, %.lr.ph288.preheader ], [ %indvars.iv.next319, %.lr.ph288 ]
   %.0247286 = phi double [ %206, %.lr.ph288.preheader ], [ %.1, %.lr.ph288 ]
   %.0248285 = phi i32 [ %209, %.lr.ph288.preheader ], [ %.1249, %.lr.ph288 ]
-  %211 = getelementptr inbounds double, ptr %25, i64 %indvars.iv318
+  %211 = getelementptr inbounds nuw double, ptr %25, i64 %indvars.iv318
   %212 = load double, ptr %211, align 8
   %213 = fcmp olt double %212, %.0247286
   %214 = trunc nuw i64 %indvars.iv318 to i32

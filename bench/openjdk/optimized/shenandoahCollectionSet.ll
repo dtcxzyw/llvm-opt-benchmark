@@ -50,26 +50,26 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN23ShenandoahCollectionSetC2EP14ShenandoahHeap13ReservedSpacePc(ptr noundef nonnull align 8 dereferenceable(256) initializes((0, 120)) %0, ptr noundef %1, ptr nocapture noundef readonly byval(%class.ReservedSpace) align 8 %2, ptr noundef %3) unnamed_addr #1 align 2 {
   %5 = alloca %class.ThreadCritical, align 1
-  %6 = getelementptr inbounds i8, ptr %1, i64 544
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 544
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i64, ptr @_ZN20ShenandoahHeapRegion20RegionSizeBytesShiftE, align 8
   store i64 %9, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef nonnull align 8 dereferenceable(56) %2, i64 56, i1 false)
-  %11 = getelementptr inbounds i8, ptr %0, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %12 = load ptr, ptr %10, align 8
   %13 = ptrtoint ptr %3 to i64
   %14 = lshr i64 %13, %9
   %15 = getelementptr inbounds i8, ptr %12, i64 %14
   store ptr %15, ptr %11, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 80
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %12, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 88
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr %1, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 96
-  %19 = getelementptr inbounds i8, ptr %0, i64 184
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 184
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %18, i8 0, i64 24, i1 false)
   store volatile i64 0, ptr %19, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
@@ -88,7 +88,7 @@ define hidden void @_ZN23ShenandoahCollectionSetC2EP14ShenandoahHeap13ReservedSp
 _ZN10MemTracker26record_virtual_memory_typeEPv8MEMFLAGS.exit: ; preds = %4, %23
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
   %24 = load i64, ptr @_ZN6OSInfo13_vm_page_sizeE, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 56
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %26 = load i8, ptr %25, align 8
   %27 = trunc i8 %26 to i1
   br i1 %27, label %43, label %28
@@ -128,24 +128,24 @@ declare void @_ZN2os21commit_memory_or_exitEPcmbPKc(ptr noundef, i64 noundef, i1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN23ShenandoahCollectionSet10add_regionEP20ShenandoahHeapRegion(ptr nocapture noundef nonnull align 8 dereferenceable(256) %0, ptr noundef nonnull %1) local_unnamed_addr #1 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 72
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = load ptr, ptr %3, align 8
   %5 = load i64, ptr %1, align 8
   %6 = getelementptr inbounds i8, ptr %4, i64 %5
   store i8 1, ptr %6, align 1
-  %7 = getelementptr inbounds i8, ptr %0, i64 112
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %8 = load i64, ptr %7, align 8
   %9 = add i64 %8, 1
   store i64 %9, ptr %7, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %13 = load ptr, ptr %12, align 8
   %14 = ptrtoint ptr %13 to i64
   %15 = ptrtoint ptr %11 to i64
-  %16 = getelementptr inbounds i8, ptr %1, i64 72
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %17 = load volatile i64, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 96
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %19 = load i64, ptr %18, align 8
   %20 = shl i64 %17, 3
   %21 = add i64 %20, %15
@@ -157,7 +157,7 @@ define hidden void @_ZN23ShenandoahCollectionSet10add_regionEP20ShenandoahHeapRe
   %26 = ptrtoint ptr %25 to i64
   %27 = ptrtoint ptr %24 to i64
   %28 = sub i64 %26, %27
-  %29 = getelementptr inbounds i8, ptr %0, i64 104
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %30 = load i64, ptr %29, align 8
   %31 = add i64 %28, %30
   store i64 %31, ptr %29, align 8
@@ -169,12 +169,12 @@ declare void @_ZN20ShenandoahHeapRegion9make_csetEv(ptr noundef nonnull align 8 
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define hidden void @_ZN23ShenandoahCollectionSet5clearEv(ptr noundef nonnull align 8 dereferenceable(256) initializes((96, 120)) %0) local_unnamed_addr #3 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 72
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %4 = load i64, ptr %0, align 8
   tail call void @llvm.memset.p0.i64(ptr align 1 %3, i8 0, i64 %4, i1 false)
-  %5 = getelementptr inbounds i8, ptr %0, i64 96
-  %6 = getelementptr inbounds i8, ptr %0, i64 184
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 184
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   store volatile i64 0, ptr %6, align 8
   ret void
@@ -182,17 +182,17 @@ define hidden void @_ZN23ShenandoahCollectionSet5clearEv(ptr noundef nonnull ali
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN23ShenandoahCollectionSet10claim_nextEv(ptr noundef nonnull align 8 dereferenceable(256) %0) local_unnamed_addr #1 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 88
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 544
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 544
   %5 = load i64, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 184
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %7 = load volatile i64, ptr %6, align 8
   %8 = icmp ult i64 %7, %5
   br i1 %8, label %.lr.ph, label %_ZNK14ShenandoahHeap10get_regionEm.exit
 
 .lr.ph:                                           ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %0, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
   br label %10
 
 10:                                               ; preds = %.lr.ph, %31
@@ -212,13 +212,13 @@ define hidden noundef ptr @_ZN23ShenandoahCollectionSet10claim_nextEv(ptr nounde
 
 19:                                               ; preds = %15
   %20 = load ptr, ptr %2, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 544
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 544
   %22 = load i64, ptr %21, align 8
   %23 = icmp ult i64 %.01319, %22
   br i1 %23, label %24, label %_ZNK14ShenandoahHeap10get_regionEm.exit
 
 24:                                               ; preds = %19
-  %25 = getelementptr inbounds i8, ptr %20, i64 552
+  %25 = getelementptr inbounds nuw i8, ptr %20, i64 552
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds ptr, ptr %26, i64 %.01319
   %28 = load ptr, ptr %27, align 8
@@ -242,17 +242,17 @@ _ZNK14ShenandoahHeap10get_regionEm.exit:          ; preds = %31, %1, %24, %19
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define hidden noundef ptr @_ZN23ShenandoahCollectionSet4nextEv(ptr noundef nonnull align 8 dereferenceable(256) %0) local_unnamed_addr #4 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 88
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 544
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 544
   %5 = load i64, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 184
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %7 = load volatile i64, ptr %6, align 8
   %8 = icmp ult i64 %7, %5
   br i1 %8, label %.lr.ph, label %_ZNK14ShenandoahHeap10get_regionEm.exit
 
 .lr.ph:                                           ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %0, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %10 = load ptr, ptr %9, align 8
   br label %11
 
@@ -271,7 +271,7 @@ define hidden noundef ptr @_ZN23ShenandoahCollectionSet4nextEv(ptr noundef nonnu
   br i1 %18, label %19, label %_ZNK14ShenandoahHeap10get_regionEm.exit
 
 19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %3, i64 552
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 552
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds ptr, ptr %21, i64 %.09
   %23 = load ptr, ptr %22, align 8
@@ -288,18 +288,18 @@ _ZNK14ShenandoahHeap10get_regionEm.exit:          ; preds = %24, %1, %19, %16
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK23ShenandoahCollectionSet8print_onEP12outputStream(ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %0, ptr noundef nonnull %1) local_unnamed_addr #1 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 112
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load i64, ptr %3, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.5, i64 noundef %4) #9
-  %5 = getelementptr inbounds i8, ptr %0, i64 88
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 544
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 544
   %8 = load i64, ptr %7, align 8
   %.not = icmp eq i64 %8, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
   br label %10
 
 10:                                               ; preds = %.lr.ph, %20
@@ -312,7 +312,7 @@ define hidden void @_ZNK23ShenandoahCollectionSet8print_onEP12outputStream(ptr n
   br i1 %15, label %_ZNK14ShenandoahHeap10get_regionEm.exit, label %20
 
 _ZNK14ShenandoahHeap10get_regionEm.exit:          ; preds = %10
-  %16 = getelementptr inbounds i8, ptr %11, i64 552
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 552
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds ptr, ptr %17, i64 %.06
   %19 = load ptr, ptr %18, align 8
@@ -323,7 +323,7 @@ _ZNK14ShenandoahHeap10get_regionEm.exit:          ; preds = %10
 20:                                               ; preds = %10, %_ZNK14ShenandoahHeap10get_regionEm.exit
   %21 = phi ptr [ %11, %10 ], [ %.pre, %_ZNK14ShenandoahHeap10get_regionEm.exit ]
   %22 = add nuw i64 %.06, 1
-  %23 = getelementptr inbounds i8, ptr %21, i64 544
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 544
   %24 = load i64, ptr %23, align 8
   %25 = icmp ult i64 %22, %24
   br i1 %25, label %10, label %._crit_edge, !llvm.loop !10

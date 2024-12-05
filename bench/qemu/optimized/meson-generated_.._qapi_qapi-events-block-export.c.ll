@@ -65,7 +65,7 @@ if.else:                                          ; preds = %qobject_check_type.
   br i1 %tobool8.not, label %if.end, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.else
-  %refcnt.i = getelementptr inbounds i8, ptr %2, i64 8
+  %refcnt.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %3 = load i64, ptr %refcnt.i, align 8
   %tobool1.not.i = icmp eq i64 %3, 0
   br i1 %tobool1.not.i, label %if.else.i14, label %land.lhs.true.i12
@@ -91,7 +91,7 @@ if.end:                                           ; preds = %if.then5.i, %land.l
   br i1 %tobool11.not, label %qobject_unref_impl.exit24, label %lor.lhs.false.i16
 
 lor.lhs.false.i16:                                ; preds = %if.end
-  %refcnt.i17 = getelementptr inbounds i8, ptr %call, i64 8
+  %refcnt.i17 = getelementptr inbounds nuw i8, ptr %call, i64 8
   %4 = load i64, ptr %refcnt.i17, align 8
   %tobool1.not.i18 = icmp eq i64 %4, 0
   br i1 %tobool1.not.i18, label %if.else.i23, label %land.lhs.true.i19

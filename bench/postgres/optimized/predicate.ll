@@ -131,7 +131,7 @@ define dso_local void @CheckPointPredicate() local_unnamed_addr #0 {
   br label %29
 
 10:                                               ; preds = %0
-  %11 = getelementptr inbounds i8, ptr %4, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %12 = load i32, ptr %11, align 4
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %24, label %13
@@ -215,9 +215,9 @@ define dso_local void @InitPredicateLocks() local_unnamed_addr #0 {
   %9 = sext i32 %8 to i64
   %10 = tail call i64 @add_size(i64 noundef %7, i64 noundef %9) #12
   %11 = tail call i64 @mul_size(i64 noundef %5, i64 noundef %10) #12
-  %12 = getelementptr inbounds i8, ptr %2, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i64 16, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %2, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i64 32, ptr %13, align 8
   store i64 16, ptr %2, align 8
   %14 = call ptr @ShmemInitHash(ptr noundef nonnull @.str.1, i64 noundef %11, i64 noundef %11, ptr noundef nonnull %2, i32 noundef 8233) #12
@@ -243,7 +243,7 @@ define dso_local void @InitPredicateLocks() local_unnamed_addr #0 {
   store ptr %26, ptr @ScratchPartitionLock, align 8
   store i64 16, ptr %12, align 8
   store i64 56, ptr %13, align 8
-  %27 = getelementptr inbounds i8, ptr %2, i64 48
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store ptr @predicatelock_hash, ptr %27, align 8
   store i64 16, ptr %2, align 8
   %28 = shl i64 %11, 1
@@ -262,26 +262,26 @@ define dso_local void @InitPredicateLocks() local_unnamed_addr #0 {
 
 38:                                               ; preds = %19
   store ptr %35, ptr %35, align 8
-  %39 = getelementptr inbounds i8, ptr %35, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store ptr %35, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %35, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %35, i64 16
   store ptr %40, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %35, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %35, i64 24
   store ptr %40, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %35, i64 32
+  %42 = getelementptr inbounds nuw i8, ptr %35, i64 32
   store i32 0, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %35, i64 36
+  %43 = getelementptr inbounds nuw i8, ptr %35, i64 36
   store i32 0, ptr %43, align 4
-  %44 = getelementptr inbounds i8, ptr %35, i64 40
+  %44 = getelementptr inbounds nuw i8, ptr %35, i64 40
   store i32 0, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %35, i64 48
+  %45 = getelementptr inbounds nuw i8, ptr %35, i64 48
   store i64 1, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %35, i64 56
+  %46 = getelementptr inbounds nuw i8, ptr %35, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %46, i8 0, i64 16, i1 false)
   %47 = call i64 @mul_size(i64 noundef %34, i64 noundef 168) #12
   %48 = call ptr @ShmemAlloc(i64 noundef %47) #12
   %49 = load ptr, ptr @PredXact, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 80
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 80
   store ptr %48, ptr %50, align 8
   call void @llvm.memset.p0.i64(ptr align 8 %48, i8 0, i64 %47, i1 false)
   %51 = icmp sgt i32 %32, 0
@@ -291,15 +291,15 @@ define dso_local void @InitPredicateLocks() local_unnamed_addr #0 {
   %52 = phi ptr [ %57, %dlist_push_tail.exit ], [ %49, %38 ]
   %53 = phi i64 [ %69, %dlist_push_tail.exit ], [ 0, %38 ]
   %.02428 = phi i32 [ %68, %dlist_push_tail.exit ], [ 0, %38 ]
-  %54 = getelementptr inbounds i8, ptr %52, i64 80
+  %54 = getelementptr inbounds nuw i8, ptr %52, i64 80
   %55 = load ptr, ptr %54, align 8
   %56 = getelementptr %struct.SERIALIZABLEXACT, ptr %55, i64 %53, i32 9
   call void @LWLockInitialize(ptr noundef %56, i32 noundef 76) #12
   %57 = load ptr, ptr @PredXact, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 80
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 80
   %59 = load ptr, ptr %58, align 8
   %60 = getelementptr %struct.SERIALIZABLEXACT, ptr %59, i64 %53, i32 8
-  %61 = getelementptr inbounds i8, ptr %57, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %62 = load ptr, ptr %61, align 8
   %63 = icmp eq ptr %62, null
   br i1 %63, label %64, label %dlist_push_tail.exit
@@ -310,11 +310,11 @@ define dso_local void @InitPredicateLocks() local_unnamed_addr #0 {
   br label %dlist_push_tail.exit
 
 dlist_push_tail.exit:                             ; preds = %.lr.ph, %64
-  %65 = getelementptr inbounds i8, ptr %60, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %60, i64 8
   store ptr %57, ptr %65, align 8
   %66 = load ptr, ptr %57, align 8
   store ptr %66, ptr %60, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
   store ptr %60, ptr %67, align 8
   store ptr %60, ptr %57, align 8
   %68 = add i32 %.02428, 1
@@ -324,7 +324,7 @@ dlist_push_tail.exit:                             ; preds = %.lr.ph, %64
 
 ._crit_edge:                                      ; preds = %dlist_push_tail.exit, %38
   %71 = phi ptr [ %49, %38 ], [ %57, %dlist_push_tail.exit ]
-  %72 = getelementptr inbounds i8, ptr %71, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %73 = load ptr, ptr %72, align 8
   %74 = icmp eq ptr %73, null
   %75 = icmp eq ptr %73, %71
@@ -332,16 +332,16 @@ dlist_push_tail.exit:                             ; preds = %.lr.ph, %64
   br i1 %spec.select.i.i, label %CreatePredXact.exit, label %76
 
 76:                                               ; preds = %._crit_edge
-  %77 = getelementptr inbounds i8, ptr %73, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %73, i64 8
   %78 = load ptr, ptr %77, align 8
   %79 = load ptr, ptr %73, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
   store ptr %78, ptr %80, align 8
   %81 = load ptr, ptr %73, align 8
   store ptr %81, ptr %78, align 8
   %82 = getelementptr i8, ptr %73, i64 -96
-  %83 = getelementptr inbounds i8, ptr %71, i64 16
-  %84 = getelementptr inbounds i8, ptr %71, i64 24
+  %83 = getelementptr inbounds nuw i8, ptr %71, i64 16
+  %84 = getelementptr inbounds nuw i8, ptr %71, i64 24
   %85 = load ptr, ptr %84, align 8
   %86 = icmp eq ptr %85, null
   br i1 %86, label %87, label %dlist_push_tail.exit.i
@@ -355,7 +355,7 @@ dlist_push_tail.exit.i:                           ; preds = %87, %76
   store ptr %83, ptr %77, align 8
   %88 = load ptr, ptr %83, align 8
   store ptr %88, ptr %73, align 8
-  %89 = getelementptr inbounds i8, ptr %88, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 8
   store ptr %73, ptr %89, align 8
   store ptr %73, ptr %83, align 8
   %.pre32.pre = load ptr, ptr @PredXact, align 8
@@ -364,67 +364,67 @@ dlist_push_tail.exit.i:                           ; preds = %87, %76
 CreatePredXact.exit:                              ; preds = %._crit_edge, %dlist_push_tail.exit.i
   %.pre32 = phi ptr [ %.pre32.pre, %dlist_push_tail.exit.i ], [ %71, %._crit_edge ]
   %.0.i = phi ptr [ %82, %dlist_push_tail.exit.i ], [ null, %._crit_edge ]
-  %90 = getelementptr inbounds i8, ptr %71, i64 72
+  %90 = getelementptr inbounds nuw i8, ptr %71, i64 72
   store ptr %.0.i, ptr %90, align 8
   store i32 -1, ptr %.0.i, align 8
   %91 = load ptr, ptr %90, align 8
-  %92 = getelementptr inbounds i8, ptr %91, i64 4
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 4
   store i32 0, ptr %92, align 4
   %93 = load ptr, ptr %90, align 8
-  %94 = getelementptr inbounds i8, ptr %93, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 8
   store i64 0, ptr %94, align 8
   %95 = load ptr, ptr %90, align 8
-  %96 = getelementptr inbounds i8, ptr %95, i64 16
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 16
   store i64 0, ptr %96, align 8
   %97 = load ptr, ptr %90, align 8
-  %98 = getelementptr inbounds i8, ptr %97, i64 24
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 24
   store i64 0, ptr %98, align 8
   %99 = load ptr, ptr %90, align 8
-  %100 = getelementptr inbounds i8, ptr %99, i64 32
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 32
   store ptr %100, ptr %100, align 8
-  %101 = getelementptr inbounds i8, ptr %99, i64 40
+  %101 = getelementptr inbounds nuw i8, ptr %99, i64 40
   store ptr %100, ptr %101, align 8
   %102 = load ptr, ptr %90, align 8
-  %103 = getelementptr inbounds i8, ptr %102, i64 48
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 48
   store ptr %103, ptr %103, align 8
-  %104 = getelementptr inbounds i8, ptr %102, i64 56
+  %104 = getelementptr inbounds nuw i8, ptr %102, i64 56
   store ptr %103, ptr %104, align 8
   %105 = load ptr, ptr %90, align 8
-  %106 = getelementptr inbounds i8, ptr %105, i64 64
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 64
   store ptr %106, ptr %106, align 8
-  %107 = getelementptr inbounds i8, ptr %105, i64 72
+  %107 = getelementptr inbounds nuw i8, ptr %105, i64 72
   store ptr %106, ptr %107, align 8
   %108 = load ptr, ptr %90, align 8
-  %109 = getelementptr inbounds i8, ptr %108, i64 80
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %109, i8 0, i64 16, i1 false)
   %110 = load ptr, ptr %90, align 8
-  %111 = getelementptr inbounds i8, ptr %110, i64 128
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 128
   store ptr %111, ptr %111, align 8
-  %112 = getelementptr inbounds i8, ptr %110, i64 136
+  %112 = getelementptr inbounds nuw i8, ptr %110, i64 136
   store ptr %111, ptr %112, align 8
   %113 = load ptr, ptr %90, align 8
-  %114 = getelementptr inbounds i8, ptr %113, i64 144
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 144
   store i32 0, ptr %114, align 8
   %115 = load ptr, ptr %90, align 8
-  %116 = getelementptr inbounds i8, ptr %115, i64 148
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 148
   store i32 0, ptr %116, align 4
   %117 = load ptr, ptr %90, align 8
-  %118 = getelementptr inbounds i8, ptr %117, i64 152
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 152
   store i32 0, ptr %118, align 8
   %119 = load ptr, ptr %90, align 8
-  %120 = getelementptr inbounds i8, ptr %119, i64 156
+  %120 = getelementptr inbounds nuw i8, ptr %119, i64 156
   store i32 1, ptr %120, align 4
   %121 = load ptr, ptr %90, align 8
-  %122 = getelementptr inbounds i8, ptr %121, i64 160
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 160
   store i32 0, ptr %122, align 8
   %123 = load ptr, ptr %90, align 8
-  %124 = getelementptr inbounds i8, ptr %123, i64 164
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 164
   store i32 -1, ptr %124, align 4
   br label %125
 
 125:                                              ; preds = %CreatePredXact.exit, %19
   %126 = phi ptr [ %.pre32, %CreatePredXact.exit ], [ %35, %19 ]
-  %127 = getelementptr inbounds i8, ptr %126, i64 72
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 72
   %128 = load ptr, ptr %127, align 8
   store ptr %128, ptr @OldCommittedSxact, align 8
   store i64 4, ptr %12, align 8
@@ -440,19 +440,19 @@ CreatePredXact.exit:                              ; preds = %._crit_edge, %dlist
 
 134:                                              ; preds = %125
   store ptr %131, ptr %131, align 8
-  %135 = getelementptr inbounds i8, ptr %131, i64 8
+  %135 = getelementptr inbounds nuw i8, ptr %131, i64 8
   store ptr %131, ptr %135, align 8
   %136 = call i64 @mul_size(i64 noundef %130, i64 noundef 48) #12
   %137 = call ptr @ShmemAlloc(i64 noundef %136) #12
   %138 = load ptr, ptr @RWConflictPool, align 8
-  %139 = getelementptr inbounds i8, ptr %138, i64 16
+  %139 = getelementptr inbounds nuw i8, ptr %138, i64 16
   store ptr %137, ptr %139, align 8
   call void @llvm.memset.p0.i64(ptr align 8 %137, i8 0, i64 %136, i1 false)
   %140 = icmp sgt i32 %32, 0
   br i1 %140, label %.lr.ph31, label %.loopexit
 
 .lr.ph31:                                         ; preds = %134
-  %141 = getelementptr inbounds i8, ptr %138, i64 8
+  %141 = getelementptr inbounds nuw i8, ptr %138, i64 8
   br label %142
 
 142:                                              ; preds = %.lr.ph31, %dlist_push_tail.exit27
@@ -470,11 +470,11 @@ CreatePredXact.exit:                              ; preds = %._crit_edge, %dlist
   br label %dlist_push_tail.exit27
 
 dlist_push_tail.exit27:                           ; preds = %142, %148
-  %149 = getelementptr inbounds i8, ptr %145, i64 8
+  %149 = getelementptr inbounds nuw i8, ptr %145, i64 8
   store ptr %138, ptr %149, align 8
   %150 = load ptr, ptr %138, align 8
   store ptr %150, ptr %145, align 8
-  %151 = getelementptr inbounds i8, ptr %150, i64 8
+  %151 = getelementptr inbounds nuw i8, ptr %150, i64 8
   store ptr %145, ptr %151, align 8
   store ptr %145, ptr %138, align 8
   %152 = add i32 %.029, 1
@@ -491,7 +491,7 @@ dlist_push_tail.exit27:                           ; preds = %142, %148
 
 158:                                              ; preds = %.loopexit
   store ptr %155, ptr %155, align 8
-  %159 = getelementptr inbounds i8, ptr %155, i64 8
+  %159 = getelementptr inbounds nuw i8, ptr %155, i64 8
   store ptr %155, ptr %159, align 8
   br label %160
 
@@ -512,9 +512,9 @@ dlist_push_tail.exit27:                           ; preds = %142, %148
   %168 = call zeroext i1 @LWLockAcquire(ptr noundef %167, i32 noundef 0) #12
   %169 = load ptr, ptr @serialControl, align 8
   store i32 -1, ptr %169, align 4
-  %170 = getelementptr inbounds i8, ptr %169, i64 4
+  %170 = getelementptr inbounds nuw i8, ptr %169, i64 4
   store i32 0, ptr %170, align 4
-  %171 = getelementptr inbounds i8, ptr %169, i64 8
+  %171 = getelementptr inbounds nuw i8, ptr %169, i64 8
   store i32 0, ptr %171, align 4
   %172 = load ptr, ptr @MainLWLockArray, align 8
   %173 = getelementptr i8, ptr %172, i64 6656
@@ -541,7 +541,7 @@ define internal i32 @predicatelock_hash(ptr nocapture noundef readonly %0, i64 %
   %3 = load ptr, ptr @PredicateLockTargetHash, align 8
   %4 = load ptr, ptr %0, align 8
   %5 = tail call i32 @get_hash_value(ptr noundef %3, ptr noundef %4) #12
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = ptrtoint ptr %7 to i64
   %9 = trunc i64 %8 to i32
@@ -630,11 +630,11 @@ define dso_local ptr @GetPredicateLockStatusData() local_unnamed_addr #0 {
   %15 = ashr exact i64 %sext, 32
   %16 = ashr exact i64 %sext, 28
   %17 = tail call ptr @palloc(i64 noundef %16) #12
-  %18 = getelementptr inbounds i8, ptr %2, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %17, ptr %18, align 8
   %19 = mul nsw i64 %15, 168
   %20 = tail call ptr @palloc(i64 noundef %19) #12
-  %21 = getelementptr inbounds i8, ptr %2, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %20, ptr %21, align 8
   %22 = load ptr, ptr @PredicateLockHash, align 8
   call void @hash_seq_init(ptr noundef nonnull %1, ptr noundef %22) #12
@@ -652,7 +652,7 @@ define dso_local ptr @GetPredicateLockStatusData() local_unnamed_addr #0 {
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %27, ptr noundef nonnull align 8 dereferenceable(16) %28, i64 16, i1 false)
   %29 = load ptr, ptr %21, align 8
   %30 = getelementptr %struct.SERIALIZABLEXACT, ptr %29, i64 %26
-  %31 = getelementptr inbounds i8, ptr %24, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %32 = load ptr, ptr %31, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %30, ptr align 8 %32, i64 168, i1 true)
   %33 = add i32 %.01923, 1
@@ -697,8 +697,8 @@ define dso_local i32 @GetSafeSnapshotBlockingPids(i32 noundef %0, ptr nocapture 
   %5 = getelementptr i8, ptr %4, i64 3584
   %6 = tail call zeroext i1 @LWLockAcquire(ptr noundef %5, i32 noundef 1) #12
   %7 = load ptr, ptr @PredXact, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 16
-  %9 = getelementptr inbounds i8, ptr %7, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %10 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %10, null
   %.not283950 = icmp eq ptr %10, %8
@@ -713,7 +713,7 @@ define dso_local i32 @GetSafeSnapshotBlockingPids(i32 noundef %0, ptr nocapture 
   br i1 %13, label %17, label %14
 
 14:                                               ; preds = %.lr.ph
-  %15 = getelementptr inbounds i8, ptr %.sroa.0.040, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %.sroa.0.040, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not28 = icmp eq ptr %16, %8
   br i1 %.not28, label %.thread, label %.lr.ph, !llvm.loop !11
@@ -750,7 +750,7 @@ define dso_local i32 @GetSafeSnapshotBlockingPids(i32 noundef %0, ptr nocapture 
   %.sroa.0.142 = phi ptr [ %26, %.lr.ph44.preheader ], [ %35, %33 ]
   %28 = getelementptr i8, ptr %.sroa.0.142, i64 16
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 160
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 160
   %31 = load i32, ptr %30, align 8
   %32 = getelementptr i32, ptr %1, i64 %indvars.iv
   store i32 %31, ptr %32, align 4
@@ -759,7 +759,7 @@ define dso_local i32 @GetSafeSnapshotBlockingPids(i32 noundef %0, ptr nocapture 
 
 33:                                               ; preds = %.lr.ph44
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %34 = getelementptr inbounds i8, ptr %.sroa.0.142, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %.sroa.0.142, i64 8
   %35 = load ptr, ptr %34, align 8
   %.not32 = icmp eq ptr %35, %24
   br i1 %.not32, label %.thread.loopexit.split.loop.exit, label %.lr.ph44, !llvm.loop !12
@@ -813,12 +813,12 @@ define dso_local ptr @GetSerializableTransactionSnapshot(ptr noundef %0) local_u
   %21 = getelementptr i8, ptr %20, i64 3584
   %22 = tail call zeroext i1 @LWLockAcquire(ptr noundef %21, i32 noundef 0) #12
   %23 = load ptr, ptr @MySerializableXact, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 156
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 156
   %25 = load i32, ptr %24, align 4
   %26 = or i32 %25, 64
   store i32 %26, ptr %24, align 4
-  %27 = getelementptr inbounds i8, ptr %23, i64 128
-  %28 = getelementptr inbounds i8, ptr %23, i64 136
+  %27 = getelementptr inbounds nuw i8, ptr %23, i64 128
+  %28 = getelementptr inbounds nuw i8, ptr %23, i64 136
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq ptr %29, null
   %31 = icmp eq ptr %29, %27
@@ -827,7 +827,7 @@ define dso_local ptr @GetSerializableTransactionSnapshot(ptr noundef %0) local_u
 
 .lr.ph.i:                                         ; preds = %.lr.ph9.i, %37
   %32 = phi ptr [ %43, %37 ], [ %23, %.lr.ph9.i ]
-  %33 = getelementptr inbounds i8, ptr %32, i64 156
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 156
   %34 = load i32, ptr %33, align 4
   %35 = and i32 %34, 256
   %36 = icmp eq i32 %35, 0
@@ -842,8 +842,8 @@ define dso_local ptr @GetSerializableTransactionSnapshot(ptr noundef %0) local_u
   %41 = getelementptr i8, ptr %40, i64 3584
   %42 = tail call zeroext i1 @LWLockAcquire(ptr noundef %41, i32 noundef 0) #12
   %43 = load ptr, ptr @MySerializableXact, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 128
-  %45 = getelementptr inbounds i8, ptr %43, i64 136
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 128
+  %45 = getelementptr inbounds nuw i8, ptr %43, i64 136
   %46 = load ptr, ptr %45, align 8
   %47 = icmp eq ptr %46, null
   %48 = icmp eq ptr %46, %44
@@ -851,14 +851,14 @@ define dso_local ptr @GetSerializableTransactionSnapshot(ptr noundef %0) local_u
   br i1 %spec.select.i.i, label %..critedge.loopexit_crit_edge.i, label %.lr.ph.i, !llvm.loop !13
 
 ..critedge.loopexit_crit_edge.i:                  ; preds = %37
-  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds i8, ptr %43, i64 156
+  %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %43, i64 156
   %.pre.pre.i = load i32, ptr %.phi.trans.insert.phi.trans.insert.i, align 4
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %.lr.ph.i, %..critedge.loopexit_crit_edge.i, %.lr.ph9.i
   %49 = phi i32 [ %26, %.lr.ph9.i ], [ %.pre.pre.i, %..critedge.loopexit_crit_edge.i ], [ %34, %.lr.ph.i ]
   %.lcssa.i = phi ptr [ %23, %.lr.ph9.i ], [ %43, %..critedge.loopexit_crit_edge.i ], [ %32, %.lr.ph.i ]
-  %50 = getelementptr inbounds i8, ptr %.lcssa.i, i64 156
+  %50 = getelementptr inbounds nuw i8, ptr %.lcssa.i, i64 156
   %51 = and i32 %49, -65
   store i32 %51, ptr %50, align 4
   %52 = and i32 %49, 256
@@ -930,9 +930,9 @@ define internal fastcc ptr @GetSerializableTransactionSnapshotInt(ptr noundef %0
 
 9:                                                ; preds = %3
   %10 = load ptr, ptr @MyProc, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 68
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 68
   %12 = load i32, ptr %11, align 4
-  %13 = getelementptr inbounds i8, ptr %10, i64 72
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 72
   %14 = load i32, ptr %13, align 4
   br label %15
 
@@ -941,7 +941,7 @@ define internal fastcc ptr @GetSerializableTransactionSnapshotInt(ptr noundef %0
   %17 = getelementptr i8, ptr %16, i64 3584
   %18 = tail call zeroext i1 @LWLockAcquire(ptr noundef %17, i32 noundef 0) #12
   %19 = load ptr, ptr @PredXact, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, null
   %23 = icmp eq ptr %21, %19
@@ -952,13 +952,13 @@ define internal fastcc ptr @GetSerializableTransactionSnapshotInt(ptr noundef %0
   %25 = getelementptr i8, ptr %21, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = load ptr, ptr %21, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store ptr %26, ptr %28, align 8
   %29 = load ptr, ptr %21, align 8
   store ptr %29, ptr %26, align 8
   %30 = getelementptr i8, ptr %21, i64 -96
-  %31 = getelementptr inbounds i8, ptr %19, i64 16
-  %32 = getelementptr inbounds i8, ptr %19, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %33 = load ptr, ptr %32, align 8
   %34 = icmp eq ptr %33, null
   br i1 %34, label %35, label %CreatePredXact.exit
@@ -972,7 +972,7 @@ CreatePredXact.exit:                              ; preds = %24, %35
   store ptr %31, ptr %25, align 8
   %36 = load ptr, ptr %31, align 8
   store ptr %36, ptr %21, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   store ptr %21, ptr %37, align 8
   store ptr %21, ptr %31, align 8
   %.not = icmp eq ptr %30, null
@@ -986,7 +986,7 @@ CreatePredXact.exit.thread:                       ; preds = %15, %CreatePredXact
   %41 = getelementptr i8, ptr %40, i64 3712
   %42 = tail call zeroext i1 @LWLockAcquire(ptr noundef %41, i32 noundef 0) #12
   %43 = load ptr, ptr @FinishedSerializableTransactions, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %45 = load ptr, ptr %44, align 8
   %46 = icmp eq ptr %45, null
   %47 = icmp eq ptr %45, %43
@@ -995,10 +995,10 @@ CreatePredXact.exit.thread:                       ; preds = %15, %CreatePredXact
 
 48:                                               ; preds = %CreatePredXact.exit.thread
   %49 = getelementptr i8, ptr %45, i64 -80
-  %50 = getelementptr inbounds i8, ptr %45, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %51 = load ptr, ptr %50, align 8
   %52 = load ptr, ptr %45, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
   store ptr %51, ptr %53, align 8
   %54 = load ptr, ptr %45, align 8
   store ptr %54, ptr %51, align 8
@@ -1033,7 +1033,7 @@ CreatePredXact.exit.thread:                       ; preds = %15, %CreatePredXact
   %71 = zext i16 %70 to i64
   %72 = and i64 %69, %71
   %73 = load ptr, ptr @SerialSlruCtlData, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i64 56
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 56
   %75 = load ptr, ptr %74, align 8
   %76 = getelementptr %union.LWLockPadded, ptr %75, i64 %72
   %77 = load ptr, ptr @MainLWLockArray, align 8
@@ -1045,7 +1045,7 @@ CreatePredXact.exit.thread:                       ; preds = %15, %CreatePredXact
   br i1 %82, label %83, label %87
 
 83:                                               ; preds = %66
-  %84 = getelementptr inbounds i8, ptr %80, i64 8
+  %84 = getelementptr inbounds nuw i8, ptr %80, i64 8
   %85 = load i32, ptr %84, align 4
   %86 = lshr i32 %85, 10
   br label %SerialPagePrecedesLogically.exit.i.i
@@ -1072,7 +1072,7 @@ SerialPagePrecedesLogically.exit.i.i:             ; preds = %95, %87, %83
   %.022.i.i = phi i1 [ true, %83 ], [ false, %87 ], [ %97, %95 ]
   %.023.i.i = zext nneg i32 %.023.in.i.i to i64
   %98 = load ptr, ptr @serialControl, align 8
-  %99 = getelementptr inbounds i8, ptr %98, i64 4
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 4
   %100 = load i32, ptr %99, align 4
   %.not.i.i = icmp eq i32 %100, 0
   br i1 %.not.i.i, label %103, label %101
@@ -1087,7 +1087,7 @@ SerialPagePrecedesLogically.exit.i.i:             ; preds = %95, %87, %83
 
 103:                                              ; preds = %._crit_edge30.i.i, %SerialPagePrecedesLogically.exit.i.i
   %104 = phi ptr [ %.pre.i.i, %._crit_edge30.i.i ], [ %98, %SerialPagePrecedesLogically.exit.i.i ]
-  %105 = getelementptr inbounds i8, ptr %104, i64 4
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 4
   store i32 %56, ptr %105, align 4
   br label %106
 
@@ -1123,7 +1123,7 @@ SerialPagePrecedesLogically.exit.i.i:             ; preds = %95, %87, %83
 SerialAdd.exit.i:                                 ; preds = %.critedge.i.i, %._crit_edge.i.i
   %.0.i.i = phi i32 [ %115, %._crit_edge.i.i ], [ %117, %.critedge.i.i ]
   %118 = load ptr, ptr @SerialSlruCtlData, align 8
-  %119 = getelementptr inbounds i8, ptr %118, i64 8
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 8
   %120 = load ptr, ptr %119, align 8
   %121 = sext i32 %.0.i.i to i64
   %122 = getelementptr ptr, ptr %120, i64 %121
@@ -1133,7 +1133,7 @@ SerialAdd.exit.i:                                 ; preds = %.critedge.i.i, %._c
   %126 = getelementptr i8, ptr %123, i64 %125
   store i64 %67, ptr %126, align 8
   %127 = load ptr, ptr @SerialSlruCtlData, align 8
-  %128 = getelementptr inbounds i8, ptr %127, i64 24
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 24
   %129 = load ptr, ptr %128, align 8
   %130 = getelementptr i8, ptr %129, i64 %121
   store i8 1, ptr %130, align 1
@@ -1162,7 +1162,7 @@ SummarizeOldestCommittedSxact.exit:               ; preds = %CreatePredXact.exit
   br label %149
 
 138:                                              ; preds = %.critedge
-  %139 = getelementptr inbounds i8, ptr %0, i64 4
+  %139 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %140 = load i32, ptr %139, align 4
   %141 = tail call zeroext i1 @ProcArrayInstallImportedXmin(i32 noundef %140, ptr noundef nonnull %1) #12
   br i1 %141, label %149, label %142
@@ -1188,7 +1188,7 @@ SummarizeOldestCommittedSxact.exit:               ; preds = %CreatePredXact.exit
   br i1 %151, label %152, label %169
 
 152:                                              ; preds = %149
-  %153 = getelementptr inbounds i8, ptr %.pre, i64 40
+  %153 = getelementptr inbounds nuw i8, ptr %.pre, i64 40
   %154 = load i32, ptr %153, align 8
   %155 = icmp eq i32 %154, 0
   br i1 %155, label %156, label %169
@@ -1196,11 +1196,11 @@ SummarizeOldestCommittedSxact.exit:               ; preds = %CreatePredXact.exit
 156:                                              ; preds = %152
   %157 = load ptr, ptr %25, align 8
   %158 = load ptr, ptr %21, align 8
-  %159 = getelementptr inbounds i8, ptr %158, i64 8
+  %159 = getelementptr inbounds nuw i8, ptr %158, i64 8
   store ptr %157, ptr %159, align 8
   %160 = load ptr, ptr %21, align 8
   store ptr %160, ptr %157, align 8
-  %161 = getelementptr inbounds i8, ptr %.pre, i64 8
+  %161 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
   %162 = load ptr, ptr %161, align 8
   %163 = icmp eq ptr %162, null
   br i1 %163, label %164, label %ReleasePredXact.exit
@@ -1214,7 +1214,7 @@ ReleasePredXact.exit:                             ; preds = %156, %164
   store ptr %.pre, ptr %25, align 8
   %165 = load ptr, ptr %.pre, align 8
   store ptr %165, ptr %21, align 8
-  %166 = getelementptr inbounds i8, ptr %165, i64 8
+  %166 = getelementptr inbounds nuw i8, ptr %165, i64 8
   store ptr %21, ptr %166, align 8
   store ptr %21, ptr %.pre, align 8
   %167 = load ptr, ptr @MainLWLockArray, align 8
@@ -1226,7 +1226,7 @@ ReleasePredXact.exit:                             ; preds = %156, %164
   store i32 %12, ptr %30, align 8
   %.sroa.2.0..sroa_idx = getelementptr i8, ptr %21, i64 -92
   store i32 %14, ptr %.sroa.2.0..sroa_idx, align 4
-  %170 = getelementptr inbounds i8, ptr %.pre, i64 48
+  %170 = getelementptr inbounds nuw i8, ptr %.pre, i64 48
   %171 = load i64, ptr %170, align 8
   %172 = getelementptr i8, ptr %21, i64 -72
   store i64 %171, ptr %172, align 8
@@ -1249,7 +1249,7 @@ ReleasePredXact.exit:                             ; preds = %156, %164
   store i32 %180, ptr %181, align 8
   %182 = getelementptr i8, ptr %21, i64 52
   store i32 0, ptr %182, align 4
-  %183 = getelementptr inbounds i8, ptr %.048, i64 4
+  %183 = getelementptr inbounds nuw i8, ptr %.048, i64 4
   %184 = load i32, ptr %183, align 4
   %185 = getelementptr i8, ptr %21, i64 56
   store i32 %184, ptr %185, align 8
@@ -1274,8 +1274,8 @@ ReleasePredXact.exit:                             ; preds = %156, %164
 196:                                              ; preds = %169
   store i32 32, ptr %193, align 4
   %197 = load ptr, ptr @PredXact, align 8
-  %198 = getelementptr inbounds i8, ptr %197, i64 16
-  %199 = getelementptr inbounds i8, ptr %197, i64 24
+  %198 = getelementptr inbounds nuw i8, ptr %197, i64 16
+  %199 = getelementptr inbounds nuw i8, ptr %197, i64 24
   %200 = load ptr, ptr %199, align 8
   %.not52 = icmp eq ptr %200, null
   %.not536971 = icmp eq ptr %200, %198
@@ -1293,7 +1293,7 @@ ReleasePredXact.exit:                             ; preds = %156, %164
 
 205:                                              ; preds = %.lr.ph
   %206 = load ptr, ptr @RWConflictPool, align 8
-  %207 = getelementptr inbounds i8, ptr %206, i64 8
+  %207 = getelementptr inbounds nuw i8, ptr %206, i64 8
   %208 = load ptr, ptr %207, align 8
   %209 = icmp eq ptr %208, null
   %210 = icmp eq ptr %208, %206
@@ -1310,16 +1310,16 @@ ReleasePredXact.exit:                             ; preds = %156, %164
   unreachable
 
 216:                                              ; preds = %205
-  %217 = getelementptr inbounds i8, ptr %208, i64 8
+  %217 = getelementptr inbounds nuw i8, ptr %208, i64 8
   %218 = load ptr, ptr %217, align 8
   %219 = load ptr, ptr %208, align 8
-  %220 = getelementptr inbounds i8, ptr %219, i64 8
+  %220 = getelementptr inbounds nuw i8, ptr %219, i64 8
   store ptr %218, ptr %220, align 8
   %221 = load ptr, ptr %208, align 8
   store ptr %221, ptr %218, align 8
-  %222 = getelementptr inbounds i8, ptr %208, i64 32
+  %222 = getelementptr inbounds nuw i8, ptr %208, i64 32
   store ptr %201, ptr %222, align 8
-  %223 = getelementptr inbounds i8, ptr %208, i64 40
+  %223 = getelementptr inbounds nuw i8, ptr %208, i64 40
   store ptr %30, ptr %223, align 8
   %224 = getelementptr i8, ptr %.sroa.0.070, i64 32
   %225 = getelementptr i8, ptr %.sroa.0.070, i64 40
@@ -1336,7 +1336,7 @@ dlist_push_tail.exit.i62:                         ; preds = %228, %216
   store ptr %224, ptr %217, align 8
   %229 = load ptr, ptr %224, align 8
   store ptr %229, ptr %208, align 8
-  %230 = getelementptr inbounds i8, ptr %229, i64 8
+  %230 = getelementptr inbounds nuw i8, ptr %229, i64 8
   store ptr %208, ptr %230, align 8
   store ptr %208, ptr %224, align 8
   %231 = load ptr, ptr %179, align 8
@@ -1349,18 +1349,18 @@ dlist_push_tail.exit.i62:                         ; preds = %228, %216
   br label %SetPossibleUnsafeConflict.exit
 
 SetPossibleUnsafeConflict.exit:                   ; preds = %dlist_push_tail.exit.i62, %233
-  %234 = getelementptr inbounds i8, ptr %208, i64 16
-  %235 = getelementptr inbounds i8, ptr %208, i64 24
+  %234 = getelementptr inbounds nuw i8, ptr %208, i64 16
+  %235 = getelementptr inbounds nuw i8, ptr %208, i64 24
   store ptr %178, ptr %235, align 8
   %236 = load ptr, ptr %178, align 8
   store ptr %236, ptr %234, align 8
-  %237 = getelementptr inbounds i8, ptr %236, i64 8
+  %237 = getelementptr inbounds nuw i8, ptr %236, i64 8
   store ptr %234, ptr %237, align 8
   store ptr %234, ptr %178, align 8
   br label %238
 
 238:                                              ; preds = %.lr.ph, %SetPossibleUnsafeConflict.exit
-  %239 = getelementptr inbounds i8, ptr %.sroa.0.070, i64 8
+  %239 = getelementptr inbounds nuw i8, ptr %.sroa.0.070, i64 8
   %240 = load ptr, ptr %239, align 8
   %.not53 = icmp eq ptr %240, %198
   br i1 %.not53, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !16
@@ -1380,11 +1380,11 @@ SetPossibleUnsafeConflict.exit:                   ; preds = %dlist_push_tail.exi
 244:                                              ; preds = %._crit_edge
   %245 = load ptr, ptr %25, align 8
   %246 = load ptr, ptr %21, align 8
-  %247 = getelementptr inbounds i8, ptr %246, i64 8
+  %247 = getelementptr inbounds nuw i8, ptr %246, i64 8
   store ptr %245, ptr %247, align 8
   %248 = load ptr, ptr %21, align 8
   store ptr %248, ptr %245, align 8
-  %249 = getelementptr inbounds i8, ptr %.pre73, i64 8
+  %249 = getelementptr inbounds nuw i8, ptr %.pre73, i64 8
   %250 = load ptr, ptr %249, align 8
   %251 = icmp eq ptr %250, null
   br i1 %251, label %252, label %ReleasePredXact.exit64
@@ -1398,7 +1398,7 @@ ReleasePredXact.exit64:                           ; preds = %244, %252
   store ptr %.pre73, ptr %25, align 8
   %253 = load ptr, ptr %.pre73, align 8
   store ptr %253, ptr %21, align 8
-  %254 = getelementptr inbounds i8, ptr %253, i64 8
+  %254 = getelementptr inbounds nuw i8, ptr %253, i64 8
   store ptr %21, ptr %254, align 8
   store ptr %21, ptr %.pre73, align 8
   %255 = load ptr, ptr @MainLWLockArray, align 8
@@ -1408,7 +1408,7 @@ ReleasePredXact.exit64:                           ; preds = %244, %252
 
 257:                                              ; preds = %169
   %258 = load ptr, ptr @PredXact, align 8
-  %259 = getelementptr inbounds i8, ptr %258, i64 40
+  %259 = getelementptr inbounds nuw i8, ptr %258, i64 40
   %260 = load i32, ptr %259, align 8
   %261 = add i32 %260, 1
   store i32 %261, ptr %259, align 8
@@ -1416,7 +1416,7 @@ ReleasePredXact.exit64:                           ; preds = %244, %252
 
 262:                                              ; preds = %._crit_edge, %257
   %263 = phi ptr [ %.pre73, %._crit_edge ], [ %258, %257 ]
-  %264 = getelementptr inbounds i8, ptr %263, i64 32
+  %264 = getelementptr inbounds nuw i8, ptr %263, i64 32
   %265 = load i32, ptr %264, align 8
   %.not54 = icmp eq i32 %265, 0
   %266 = load i32, ptr %183, align 4
@@ -1424,7 +1424,7 @@ ReleasePredXact.exit64:                           ; preds = %244, %252
 
 267:                                              ; preds = %262
   store i32 %266, ptr %264, align 8
-  %268 = getelementptr inbounds i8, ptr %263, i64 36
+  %268 = getelementptr inbounds nuw i8, ptr %263, i64 36
   store i32 1, ptr %268, align 4
   %269 = load i32, ptr %183, align 4
   %270 = load ptr, ptr @MainLWLockArray, align 8
@@ -1435,16 +1435,16 @@ ReleasePredXact.exit64:                           ; preds = %244, %252
 
 273:                                              ; preds = %267
   %274 = load ptr, ptr @serialControl, align 8
-  %275 = getelementptr inbounds i8, ptr %274, i64 8
+  %275 = getelementptr inbounds nuw i8, ptr %274, i64 8
   store i32 0, ptr %275, align 4
-  %276 = getelementptr inbounds i8, ptr %274, i64 4
+  %276 = getelementptr inbounds nuw i8, ptr %274, i64 4
   store i32 0, ptr %276, align 4
   br label %SerialSetActiveSerXmin.exit
 
 277:                                              ; preds = %267
   %278 = tail call zeroext i1 @RecoveryInProgress() #12
   %279 = load ptr, ptr @serialControl, align 8
-  %280 = getelementptr inbounds i8, ptr %279, i64 8
+  %280 = getelementptr inbounds nuw i8, ptr %279, i64 8
   br i1 %278, label %281, label %288
 
 281:                                              ; preds = %277
@@ -1462,7 +1462,7 @@ ReleasePredXact.exit64:                           ; preds = %244, %252
 
 285:                                              ; preds = %._crit_edge.i, %281
   %286 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %279, %281 ]
-  %287 = getelementptr inbounds i8, ptr %286, i64 8
+  %287 = getelementptr inbounds nuw i8, ptr %286, i64 8
   store i32 %269, ptr %287, align 4
   br label %SerialSetActiveSerXmin.exit
 
@@ -1481,7 +1481,7 @@ SerialSetActiveSerXmin.exit:                      ; preds = %273, %283, %285, %2
   br i1 %292, label %293, label %297
 
 293:                                              ; preds = %291
-  %294 = getelementptr inbounds i8, ptr %263, i64 36
+  %294 = getelementptr inbounds nuw i8, ptr %263, i64 36
   %295 = load i32, ptr %294, align 4
   %296 = add i32 %295, 1
   store i32 %296, ptr %294, align 4
@@ -1494,9 +1494,9 @@ SerialSetActiveSerXmin.exit:                      ; preds = %273, %283, %285, %2
   %299 = getelementptr i8, ptr %298, i64 3584
   tail call void @LWLockRelease(ptr noundef %299) #12
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %4)
-  %300 = getelementptr inbounds i8, ptr %4, i64 32
+  %300 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i64 16, ptr %300, align 8
-  %301 = getelementptr inbounds i8, ptr %4, i64 40
+  %301 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i64 24, ptr %301, align 8
   %302 = load i32, ptr @max_predicate_locks_per_xact, align 4
   %303 = sext i32 %302 to i64
@@ -1554,13 +1554,13 @@ define dso_local void @RegisterPredicateLockingXid(i32 noundef %0) local_unnamed
   %8 = getelementptr i8, ptr %7, i64 3584
   %9 = tail call zeroext i1 @LWLockAcquire(ptr noundef %8, i32 noundef 0) #12
   %10 = load ptr, ptr @MySerializableXact, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 144
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 144
   store i32 %0, ptr %11, align 8
   store i32 %0, ptr %2, align 4
   %12 = load ptr, ptr @SerializableXidHash, align 8
   %13 = call ptr @hash_search(ptr noundef %12, ptr noundef nonnull %2, i32 noundef 1, ptr noundef nonnull %3) #12
   %14 = load ptr, ptr @MySerializableXact, align 8
-  %15 = getelementptr inbounds i8, ptr %13, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %14, ptr %15, align 8
   %16 = load ptr, ptr @MainLWLockArray, align 8
   %17 = getelementptr i8, ptr %16, i64 3584
@@ -1574,16 +1574,16 @@ define dso_local void @RegisterPredicateLockingXid(i32 noundef %0) local_unnamed
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i1 @PageIsPredicateLocked(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.PREDICATELOCKTARGETTAG, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   store i32 %5, ptr %3, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 72
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %7 = load i32, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 %7, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %3, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %1, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %3, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 0, ptr %10, align 4
   %11 = load ptr, ptr @PredicateLockTargetHash, align 8
   %12 = call i32 @get_hash_value(ptr noundef %11, ptr noundef nonnull %3) #12
@@ -1617,7 +1617,7 @@ define dso_local void @PredicateLockRelation(ptr nocapture noundef readonly %0, 
   ]
 
 8:                                                ; preds = %6, %6
-  %9 = getelementptr inbounds i8, ptr %4, i64 156
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 156
   %10 = load i32, ptr %9, align 4
   %11 = and i32 %10, 128
   %.not.i = icmp eq i32 %11, 0
@@ -1628,28 +1628,28 @@ define dso_local void @PredicateLockRelation(ptr nocapture noundef readonly %0, 
   br label %SerializationNeededForRead.exit.thread
 
 13:                                               ; preds = %8
-  %14 = getelementptr inbounds i8, ptr %0, i64 72
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %15 = load i32, ptr %14, align 8
   %16 = icmp ult i32 %15, 12000
   br i1 %16, label %SerializationNeededForRead.exit.thread, label %SerializationNeededForRead.exit
 
 SerializationNeededForRead.exit:                  ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %0, i64 56
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 114
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 114
   %20 = load i8, ptr %19, align 2
   %.not = icmp eq i8 %20, 116
   br i1 %.not, label %SerializationNeededForRead.exit.thread, label %21
 
 21:                                               ; preds = %SerializationNeededForRead.exit
-  %22 = getelementptr inbounds i8, ptr %0, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %23 = load i32, ptr %22, align 4
   store i32 %23, ptr %3, align 4
-  %24 = getelementptr inbounds i8, ptr %3, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 %15, ptr %24, align 4
-  %25 = getelementptr inbounds i8, ptr %3, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 -1, ptr %25, align 4
-  %26 = getelementptr inbounds i8, ptr %3, i64 12
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 0, ptr %26, align 4
   call fastcc void @PredicateLockAcquire(ptr noundef %3)
   br label %SerializationNeededForRead.exit.thread
@@ -1673,7 +1673,7 @@ define internal fastcc void @PredicateLockAcquire(ptr noundef nonnull %0) unname
   br i1 %.not.i, label %PredicateLockExists.exit.thread, label %PredicateLockExists.exit
 
 PredicateLockExists.exit:                         ; preds = %1
-  %11 = getelementptr inbounds i8, ptr %10, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load i8, ptr %11, align 4
   %13 = trunc i8 %12 to i1
   br i1 %13, label %164, label %PredicateLockExists.exit.thread
@@ -1681,9 +1681,9 @@ PredicateLockExists.exit:                         ; preds = %1
 PredicateLockExists.exit.thread:                  ; preds = %1, %PredicateLockExists.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %7, ptr noundef nonnull readonly align 4 dereferenceable(16) %0, i64 16, i1 false)
-  %14 = getelementptr inbounds i8, ptr %7, i64 8
-  %15 = getelementptr inbounds i8, ptr %7, i64 12
-  %16 = getelementptr inbounds i8, ptr %7, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 12
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 4
   br label %PredicateLockExists.exit.i
 
 PredicateLockExists.exit.i:                       ; preds = %PredicateLockExists.exit.i.backedge, %PredicateLockExists.exit.thread
@@ -1717,7 +1717,7 @@ PredicateLockExists.exit.i:                       ; preds = %PredicateLockExists
   br i1 %.not.i2.i, label %PredicateLockExists.exit.i.backedge, label %27
 
 27:                                               ; preds = %24
-  %28 = getelementptr inbounds i8, ptr %26, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %29 = load i8, ptr %28, align 4
   %30 = trunc i8 %29 to i1
   br i1 %30, label %CoarserLockCovers.exit.thread, label %PredicateLockExists.exit.i.backedge
@@ -1735,14 +1735,14 @@ CoarserLockCovers.exit.thread:                    ; preds = %27
   %33 = call i32 @get_hash_value(ptr noundef %32, ptr noundef nonnull %0) #12
   %34 = load ptr, ptr @LocalPredicateLockHash, align 8
   %35 = call ptr @hash_search_with_hash_value(ptr noundef %34, ptr noundef nonnull %0, i32 noundef %33, i32 noundef 1, ptr noundef nonnull %8) #12
-  %36 = getelementptr inbounds i8, ptr %35, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
   store i8 1, ptr %36, align 4
   %37 = load i8, ptr %8, align 1
   %38 = trunc i8 %37 to i1
   br i1 %38, label %41, label %39
 
 39:                                               ; preds = %31
-  %40 = getelementptr inbounds i8, ptr %35, i64 20
+  %40 = getelementptr inbounds nuw i8, ptr %35, i64 20
   store i32 0, ptr %40, align 4
   br label %41
 
@@ -1753,9 +1753,9 @@ CoarserLockCovers.exit.thread:                    ; preds = %27
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(16) %0, i64 16, i1 false)
-  %43 = getelementptr inbounds i8, ptr %4, i64 8
-  %44 = getelementptr inbounds i8, ptr %4, i64 12
-  %45 = getelementptr inbounds i8, ptr %4, i64 4
+  %43 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %4, i64 12
+  %45 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %.pre = load i32, ptr %44, align 4
   br label %.outer
 
@@ -1796,14 +1796,14 @@ CoarserLockCovers.exit.thread:                    ; preds = %27
   br i1 %58, label %62, label %59
 
 59:                                               ; preds = %54
-  %60 = getelementptr inbounds i8, ptr %56, i64 16
+  %60 = getelementptr inbounds nuw i8, ptr %56, i64 16
   store i8 0, ptr %60, align 4
-  %61 = getelementptr inbounds i8, ptr %56, i64 20
+  %61 = getelementptr inbounds nuw i8, ptr %56, i64 20
   store i32 1, ptr %61, align 4
   br label %66
 
 62:                                               ; preds = %54
-  %63 = getelementptr inbounds i8, ptr %56, i64 20
+  %63 = getelementptr inbounds nuw i8, ptr %56, i64 20
   %64 = load i32, ptr %63, align 4
   %65 = add i32 %64, 1
   store i32 %65, ptr %63, align 4
@@ -1859,7 +1859,7 @@ CheckAndPromotePredicateLockRequest.exit.thread:  ; preds = %GetParentPredicateL
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
-  %82 = getelementptr inbounds i8, ptr %0, i64 12
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %83 = load i32, ptr %82, align 4
   %.not.not = icmp eq i32 %83, 0
   br i1 %.not.not, label %84, label %164
@@ -1875,13 +1875,13 @@ CheckAndPromotePredicateLockRequest.exit.thread:  ; preds = %GetParentPredicateL
   br i1 %89, label %90, label %93
 
 90:                                               ; preds = %84
-  %91 = getelementptr inbounds i8, ptr %88, i64 112
+  %91 = getelementptr inbounds nuw i8, ptr %88, i64 112
   %92 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %91, i32 noundef 0) #12
   br label %93
 
 93:                                               ; preds = %90, %84
-  %94 = getelementptr inbounds i8, ptr %88, i64 64
-  %95 = getelementptr inbounds i8, ptr %88, i64 72
+  %94 = getelementptr inbounds nuw i8, ptr %88, i64 64
+  %95 = getelementptr inbounds nuw i8, ptr %88, i64 72
   %96 = load ptr, ptr %95, align 8
   %.not.i15 = icmp eq ptr %96, null
   %.not252933.i = icmp eq ptr %96, %94
@@ -1889,17 +1889,17 @@ CheckAndPromotePredicateLockRequest.exit.thread:  ; preds = %GetParentPredicateL
   br i1 %.not2529.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %93
-  %97 = getelementptr inbounds i8, ptr %3, i64 4
-  %98 = getelementptr inbounds i8, ptr %0, i64 4
-  %99 = getelementptr inbounds i8, ptr %3, i64 12
-  %100 = getelementptr inbounds i8, ptr %0, i64 8
-  %101 = getelementptr inbounds i8, ptr %3, i64 8
-  %102 = getelementptr inbounds i8, ptr %2, i64 8
+  %97 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %99 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %101 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %102 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %103
 
 103:                                              ; preds = %158, %.lr.ph.i
   %.sroa.0.030.i = phi ptr [ %96, %.lr.ph.i ], [ %.sroa.6.032.i, %158 ]
-  %.sroa.6.0.in31.i = getelementptr inbounds i8, ptr %.sroa.0.030.i, i64 8
+  %.sroa.6.0.in31.i = getelementptr inbounds nuw i8, ptr %.sroa.0.030.i, i64 8
   %.sroa.6.032.i = load ptr, ptr %.sroa.6.0.in31.i, align 8
   %104 = getelementptr i8, ptr %.sroa.0.030.i, i64 -32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %104, i64 16, i1 false)
@@ -1949,7 +1949,7 @@ CheckAndPromotePredicateLockRequest.exit.thread:  ; preds = %GetParentPredicateL
   %132 = call zeroext i1 @LWLockAcquire(ptr noundef %131, i32 noundef 0) #12
   %133 = load ptr, ptr %.sroa.6.0.in31.i, align 8
   %134 = load ptr, ptr %.sroa.0.030.i, align 8
-  %135 = getelementptr inbounds i8, ptr %134, i64 8
+  %135 = getelementptr inbounds nuw i8, ptr %134, i64 8
   store ptr %133, ptr %135, align 8
   %136 = load ptr, ptr %.sroa.0.030.i, align 8
   store ptr %136, ptr %133, align 8
@@ -1957,7 +1957,7 @@ CheckAndPromotePredicateLockRequest.exit.thread:  ; preds = %GetParentPredicateL
   %138 = getelementptr i8, ptr %.sroa.0.030.i, i64 -8
   %139 = load ptr, ptr %138, align 8
   %140 = load ptr, ptr %137, align 8
-  %141 = getelementptr inbounds i8, ptr %140, i64 8
+  %141 = getelementptr inbounds nuw i8, ptr %140, i64 8
   store ptr %139, ptr %141, align 8
   %142 = load ptr, ptr %137, align 8
   store ptr %142, ptr %139, align 8
@@ -1968,8 +1968,8 @@ CheckAndPromotePredicateLockRequest.exit.thread:  ; preds = %GetParentPredicateL
   %147 = shl i32 %146, 4
   %148 = xor i32 %147, %126
   %149 = call ptr @hash_search_with_hash_value(ptr noundef %143, ptr noundef nonnull %2, i32 noundef %148, i32 noundef 2, ptr noundef null) #12
-  %150 = getelementptr inbounds i8, ptr %105, i64 16
-  %151 = getelementptr inbounds i8, ptr %105, i64 24
+  %150 = getelementptr inbounds nuw i8, ptr %105, i64 16
+  %151 = getelementptr inbounds nuw i8, ptr %105, i64 24
   %152 = load ptr, ptr %151, align 8
   %153 = icmp eq ptr %152, null
   %154 = icmp eq ptr %152, %150
@@ -1995,7 +1995,7 @@ RemoveTargetIfNoLongerUsed.exit.i:                ; preds = %155, %124
   br i1 %159, label %160, label %DeleteChildTargetLocks.exit
 
 160:                                              ; preds = %._crit_edge.i
-  %161 = getelementptr inbounds i8, ptr %88, i64 112
+  %161 = getelementptr inbounds nuw i8, ptr %88, i64 112
   call void @LWLockRelease(ptr noundef nonnull %161) #12
   br label %DeleteChildTargetLocks.exit
 
@@ -2026,7 +2026,7 @@ define dso_local void @PredicateLockPage(ptr nocapture noundef readonly %0, i32 
   ]
 
 9:                                                ; preds = %7, %7
-  %10 = getelementptr inbounds i8, ptr %5, i64 156
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 156
   %11 = load i32, ptr %10, align 4
   %12 = and i32 %11, 128
   %.not.i = icmp eq i32 %12, 0
@@ -2037,28 +2037,28 @@ define dso_local void @PredicateLockPage(ptr nocapture noundef readonly %0, i32 
   br label %SerializationNeededForRead.exit.thread
 
 14:                                               ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %0, i64 72
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %16 = load i32, ptr %15, align 8
   %17 = icmp ult i32 %16, 12000
   br i1 %17, label %SerializationNeededForRead.exit.thread, label %SerializationNeededForRead.exit
 
 SerializationNeededForRead.exit:                  ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %0, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 114
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 114
   %21 = load i8, ptr %20, align 2
   %.not = icmp eq i8 %21, 116
   br i1 %.not, label %SerializationNeededForRead.exit.thread, label %22
 
 22:                                               ; preds = %SerializationNeededForRead.exit
-  %23 = getelementptr inbounds i8, ptr %0, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %24 = load i32, ptr %23, align 4
   store i32 %24, ptr %4, align 4
-  %25 = getelementptr inbounds i8, ptr %4, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %16, ptr %25, align 4
-  %26 = getelementptr inbounds i8, ptr %4, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %1, ptr %26, align 4
-  %27 = getelementptr inbounds i8, ptr %4, i64 12
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 0, ptr %27, align 4
   call fastcc void @PredicateLockAcquire(ptr noundef %4)
   br label %SerializationNeededForRead.exit.thread
@@ -2082,7 +2082,7 @@ define dso_local void @PredicateLockTID(ptr nocapture noundef readonly %0, ptr n
   ]
 
 10:                                               ; preds = %8, %8
-  %11 = getelementptr inbounds i8, ptr %6, i64 156
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 156
   %12 = load i32, ptr %11, align 4
   %13 = and i32 %12, 128
   %.not.i = icmp eq i32 %13, 0
@@ -2093,21 +2093,21 @@ define dso_local void @PredicateLockTID(ptr nocapture noundef readonly %0, ptr n
   br label %SerializationNeededForRead.exit.thread
 
 15:                                               ; preds = %10
-  %16 = getelementptr inbounds i8, ptr %0, i64 72
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %17 = load i32, ptr %16, align 8
   %18 = icmp ult i32 %17, 12000
   br i1 %18, label %SerializationNeededForRead.exit.thread, label %SerializationNeededForRead.exit
 
 SerializationNeededForRead.exit:                  ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %0, i64 56
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 114
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 114
   %22 = load i8, ptr %21, align 2
   %.not = icmp eq i8 %22, 116
   br i1 %.not, label %SerializationNeededForRead.exit.thread, label %23
 
 23:                                               ; preds = %SerializationNeededForRead.exit
-  %24 = getelementptr inbounds i8, ptr %0, i64 320
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, null
   br i1 %26, label %27, label %29
@@ -2122,14 +2122,14 @@ SerializationNeededForRead.exit:                  ; preds = %15
 
 29:                                               ; preds = %._crit_edge, %23
   %30 = phi i32 [ %.pre, %._crit_edge ], [ %17, %23 ]
-  %31 = getelementptr inbounds i8, ptr %0, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %32 = load i32, ptr %31, align 4
   store i32 %32, ptr %5, align 4
-  %33 = getelementptr inbounds i8, ptr %5, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %30, ptr %33, align 4
-  %34 = getelementptr inbounds i8, ptr %5, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 -1, ptr %34, align 4
-  %35 = getelementptr inbounds i8, ptr %5, i64 12
+  %35 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 0, ptr %35, align 4
   %36 = load ptr, ptr @LocalPredicateLockHash, align 8
   %37 = call ptr @hash_search(ptr noundef %36, ptr noundef nonnull %5, i32 noundef 0, ptr noundef null) #12
@@ -2137,7 +2137,7 @@ SerializationNeededForRead.exit:                  ; preds = %15
   br i1 %.not.i11, label %PredicateLockExists.exit.thread, label %PredicateLockExists.exit
 
 PredicateLockExists.exit:                         ; preds = %29
-  %38 = getelementptr inbounds i8, ptr %37, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %39 = load i8, ptr %38, align 4
   %40 = trunc i8 %39 to i1
   br i1 %40, label %SerializationNeededForRead.exit.thread, label %PredicateLockExists.exit.thread
@@ -2181,35 +2181,35 @@ define dso_local void @TransferPredicateLocksToHeapRelation(ptr nocapture nounde
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   %8 = load ptr, ptr @PredXact, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %10 = load i32, ptr %9, align 8
   %.not.i = icmp eq i32 %10, 0
   br i1 %.not.i, label %DropAllPredicateLocksFromTable.exit, label %11
 
 11:                                               ; preds = %1
-  %12 = getelementptr inbounds i8, ptr %0, i64 72
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %13 = load i32, ptr %12, align 8
   %14 = icmp ult i32 %13, 12000
   br i1 %14, label %DropAllPredicateLocksFromTable.exit, label %PredicateLockingNeededForRelation.exit.i
 
 PredicateLockingNeededForRelation.exit.i:         ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %0, i64 56
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 114
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 114
   %18 = load i8, ptr %17, align 2
   %.not73.i = icmp eq i8 %18, 116
   br i1 %.not73.i, label %DropAllPredicateLocksFromTable.exit, label %19
 
 19:                                               ; preds = %PredicateLockingNeededForRelation.exit.i
-  %20 = getelementptr inbounds i8, ptr %0, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %21 = load i32, ptr %20, align 4
-  %22 = getelementptr inbounds i8, ptr %0, i64 320
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %23 = load ptr, ptr %22, align 8
   %.not67.i = icmp eq ptr %23, null
   br i1 %.not67.i, label %27, label %24
 
 24:                                               ; preds = %19
-  %25 = getelementptr inbounds i8, ptr %23, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %26 = load i32, ptr %25, align 4
   br label %27
 
@@ -2246,10 +2246,10 @@ PredicateLockingNeededForRelation.exit.i:         ; preds = %11
   br i1 %.not647686.i, label %.outer._crit_edge.i, label %.lr.ph.lr.ph.i
 
 .lr.ph.lr.ph.i:                                   ; preds = %36
-  %45 = getelementptr inbounds i8, ptr %6, i64 4
-  %46 = getelementptr inbounds i8, ptr %6, i64 8
-  %47 = getelementptr inbounds i8, ptr %6, i64 12
-  %48 = getelementptr inbounds i8, ptr %7, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %46 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %6, i64 12
+  %48 = getelementptr inbounds nuw i8, ptr %7, i64 8
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.outer.i, %.lr.ph.lr.ph.i
@@ -2260,7 +2260,7 @@ PredicateLockingNeededForRelation.exit.i:         ; preds = %11
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %.backedge.us.i
   %50 = phi ptr [ %61, %.backedge.us.i ], [ %49, %.lr.ph.i ]
-  %51 = getelementptr inbounds i8, ptr %50, i64 4
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 4
   %52 = load i32, ptr %51, align 4
   %.not65.us.i = icmp eq i32 %52, %13
   br i1 %.not65.us.i, label %53, label %.backedge.us.i
@@ -2271,13 +2271,13 @@ PredicateLockingNeededForRelation.exit.i:         ; preds = %11
   br i1 %.not66.us.i, label %55, label %.backedge.us.i
 
 55:                                               ; preds = %53
-  %56 = getelementptr inbounds i8, ptr %50, i64 12
+  %56 = getelementptr inbounds nuw i8, ptr %50, i64 12
   %57 = load i32, ptr %56, align 4
   %.not68.us.i = icmp eq i32 %57, 0
   br i1 %.not68.us.i, label %58, label %.critedge.i
 
 58:                                               ; preds = %55
-  %59 = getelementptr inbounds i8, ptr %50, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %60 = load i32, ptr %59, align 8
   %.not69.not.us.i = icmp eq i32 %60, -1
   br i1 %.not69.not.us.i, label %.backedge.us.i, label %.critedge.i
@@ -2289,7 +2289,7 @@ PredicateLockingNeededForRelation.exit.i:         ; preds = %11
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.backedge.i
   %62 = phi ptr [ %65, %.backedge.i ], [ %49, %.lr.ph.i ]
-  %63 = getelementptr inbounds i8, ptr %62, i64 4
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 4
   %64 = load i32, ptr %63, align 4
   %.not65.i = icmp eq i32 %64, %13
   br i1 %.not65.i, label %66, label %.backedge.i
@@ -2323,17 +2323,17 @@ PredicateLockingNeededForRelation.exit.i:         ; preds = %11
   br i1 %75, label %79, label %76
 
 76:                                               ; preds = %69
-  %77 = getelementptr inbounds i8, ptr %73, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %73, i64 16
   store ptr %77, ptr %77, align 8
-  %78 = getelementptr inbounds i8, ptr %73, i64 24
+  %78 = getelementptr inbounds nuw i8, ptr %73, i64 24
   store ptr %77, ptr %78, align 8
   br label %79
 
 79:                                               ; preds = %76, %69, %.critedge.i
   %.158.i = phi i32 [ %71, %69 ], [ %71, %76 ], [ %.057.ph87.i, %.critedge.i ]
   %.1.i = phi ptr [ %73, %69 ], [ %73, %76 ], [ %.0.ph88.i, %.critedge.i ]
-  %80 = getelementptr inbounds i8, ptr %.us-phi.i, i64 16
-  %81 = getelementptr inbounds i8, ptr %.us-phi.i, i64 24
+  %80 = getelementptr inbounds nuw i8, ptr %.us-phi.i, i64 16
+  %81 = getelementptr inbounds nuw i8, ptr %.us-phi.i, i64 24
   %82 = load ptr, ptr %81, align 8
   %.not70.i = icmp eq ptr %82, null
   %.not718090.i = icmp eq ptr %82, %80
@@ -2341,13 +2341,13 @@ PredicateLockingNeededForRelation.exit.i:         ; preds = %11
   br i1 %.not7180.i, label %.outer.i, label %.lr.ph84.i
 
 .lr.ph84.i:                                       ; preds = %79
-  %83 = getelementptr inbounds i8, ptr %.1.i, i64 16
-  %84 = getelementptr inbounds i8, ptr %.1.i, i64 24
+  %83 = getelementptr inbounds nuw i8, ptr %.1.i, i64 16
+  %84 = getelementptr inbounds nuw i8, ptr %.1.i, i64 24
   br label %85
 
 85:                                               ; preds = %131, %.lr.ph84.i
   %.sroa.0.081.i = phi ptr [ %82, %.lr.ph84.i ], [ %.sroa.6.082.i, %131 ]
-  %.sroa.6.082.in.i = getelementptr inbounds i8, ptr %.sroa.0.081.i, i64 8
+  %.sroa.6.082.in.i = getelementptr inbounds nuw i8, ptr %.sroa.0.081.i, i64 8
   %.sroa.6.082.i = load ptr, ptr %.sroa.6.082.in.i, align 8
   %86 = getelementptr i8, ptr %.sroa.0.081.i, i64 -16
   %87 = getelementptr i8, ptr %.sroa.0.081.i, i64 32
@@ -2358,7 +2358,7 @@ PredicateLockingNeededForRelation.exit.i:         ; preds = %11
   %92 = getelementptr i8, ptr %.sroa.0.081.i, i64 24
   %93 = load ptr, ptr %92, align 8
   %94 = load ptr, ptr %91, align 8
-  %95 = getelementptr inbounds i8, ptr %94, i64 8
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 8
   store ptr %93, ptr %95, align 8
   %96 = load ptr, ptr %91, align 8
   store ptr %96, ptr %93, align 8
@@ -2377,7 +2377,7 @@ PredicateLockingNeededForRelation.exit.i:         ; preds = %11
   br i1 %106, label %126, label %107
 
 107:                                              ; preds = %85
-  %108 = getelementptr inbounds i8, ptr %104, i64 16
+  %108 = getelementptr inbounds nuw i8, ptr %104, i64 16
   %109 = load ptr, ptr %84, align 8
   %110 = icmp eq ptr %109, null
   br i1 %110, label %111, label %dlist_push_tail.exit.i
@@ -2388,17 +2388,17 @@ PredicateLockingNeededForRelation.exit.i:         ; preds = %11
   br label %dlist_push_tail.exit.i
 
 dlist_push_tail.exit.i:                           ; preds = %111, %107
-  %112 = getelementptr inbounds i8, ptr %104, i64 24
+  %112 = getelementptr inbounds nuw i8, ptr %104, i64 24
   store ptr %83, ptr %112, align 8
   %113 = load ptr, ptr %83, align 8
   store ptr %113, ptr %108, align 8
-  %114 = getelementptr inbounds i8, ptr %113, i64 8
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 8
   store ptr %108, ptr %114, align 8
   store ptr %108, ptr %83, align 8
   %115 = load ptr, ptr %48, align 8
-  %116 = getelementptr inbounds i8, ptr %115, i64 64
-  %117 = getelementptr inbounds i8, ptr %104, i64 32
-  %118 = getelementptr inbounds i8, ptr %115, i64 72
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 64
+  %117 = getelementptr inbounds nuw i8, ptr %104, i64 32
+  %118 = getelementptr inbounds nuw i8, ptr %115, i64 72
   %119 = load ptr, ptr %118, align 8
   %120 = icmp eq ptr %119, null
   br i1 %120, label %121, label %dlist_push_tail.exit72.i
@@ -2409,19 +2409,19 @@ dlist_push_tail.exit.i:                           ; preds = %111, %107
   br label %dlist_push_tail.exit72.i
 
 dlist_push_tail.exit72.i:                         ; preds = %121, %dlist_push_tail.exit.i
-  %122 = getelementptr inbounds i8, ptr %104, i64 40
+  %122 = getelementptr inbounds nuw i8, ptr %104, i64 40
   store ptr %116, ptr %122, align 8
   %123 = load ptr, ptr %116, align 8
   store ptr %123, ptr %117, align 8
-  %124 = getelementptr inbounds i8, ptr %123, i64 8
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 8
   store ptr %117, ptr %124, align 8
   store ptr %117, ptr %116, align 8
-  %125 = getelementptr inbounds i8, ptr %104, i64 48
+  %125 = getelementptr inbounds nuw i8, ptr %104, i64 48
   store i64 %88, ptr %125, align 8
   br label %131
 
 126:                                              ; preds = %85
-  %127 = getelementptr inbounds i8, ptr %104, i64 48
+  %127 = getelementptr inbounds nuw i8, ptr %104, i64 48
   %128 = load i64, ptr %127, align 8
   %129 = icmp ult i64 %128, %88
   br i1 %129, label %130, label %131
@@ -2479,27 +2479,27 @@ DropAllPredicateLocksFromTable.exit:              ; preds = %1, %11, %PredicateL
 ; Function Attrs: nounwind uwtable
 define dso_local void @PredicateLockPageSplit(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr @PredXact, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load i32, ptr %5, align 8
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %PredicateLockingNeededForRelation.exit.thread, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 72
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %9 = load i32, ptr %8, align 8
   %10 = icmp ult i32 %9, 12000
   br i1 %10, label %PredicateLockingNeededForRelation.exit.thread, label %PredicateLockingNeededForRelation.exit
 
 PredicateLockingNeededForRelation.exit:           ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %0, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 114
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 114
   %14 = load i8, ptr %13, align 2
   %.not51 = icmp eq i8 %14, 116
   br i1 %.not51, label %PredicateLockingNeededForRelation.exit.thread, label %15
 
 15:                                               ; preds = %PredicateLockingNeededForRelation.exit
-  %16 = getelementptr inbounds i8, ptr %0, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %17 = load i32, ptr %16, align 4
   %18 = load ptr, ptr @MainLWLockArray, align 8
   %19 = getelementptr i8, ptr %18, i64 3840
@@ -2540,10 +2540,10 @@ define internal fastcc noundef zeroext i1 @TransferPredicateLocksToNewTarget(i64
   %11 = alloca i8, align 1
   %12 = alloca %struct.PREDICATELOCKTAG, align 8
   store i64 %0, ptr %9, align 8
-  %13 = getelementptr inbounds i8, ptr %9, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 %1, ptr %13, align 8
   store i64 %2, ptr %10, align 8
-  %14 = getelementptr inbounds i8, ptr %10, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 %3, ptr %14, align 8
   %15 = load ptr, ptr @PredicateLockTargetHash, align 8
   %16 = call i32 @get_hash_value(ptr noundef %15, ptr noundef nonnull %9) #12
@@ -2612,9 +2612,9 @@ define internal fastcc noundef zeroext i1 @TransferPredicateLocksToNewTarget(i64
   br i1 %55, label %59, label %56
 
 56:                                               ; preds = %53
-  %57 = getelementptr inbounds i8, ptr %52, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %52, i64 16
   store ptr %57, ptr %57, align 8
-  %58 = getelementptr inbounds i8, ptr %52, i64 24
+  %58 = getelementptr inbounds nuw i8, ptr %52, i64 24
   store ptr %57, ptr %58, align 8
   br label %59
 
@@ -2623,8 +2623,8 @@ define internal fastcc noundef zeroext i1 @TransferPredicateLocksToNewTarget(i64
   %60 = load ptr, ptr @MainLWLockArray, align 8
   %61 = getelementptr i8, ptr %60, i64 3584
   %62 = call zeroext i1 @LWLockAcquire(ptr noundef %61, i32 noundef 0) #12
-  %63 = getelementptr inbounds i8, ptr %49, i64 16
-  %64 = getelementptr inbounds i8, ptr %49, i64 24
+  %63 = getelementptr inbounds nuw i8, ptr %49, i64 16
+  %64 = getelementptr inbounds nuw i8, ptr %49, i64 24
   %65 = load ptr, ptr %64, align 8
   %.not72 = icmp eq ptr %65, null
   %.not737882 = icmp eq ptr %65, %63
@@ -2632,14 +2632,14 @@ define internal fastcc noundef zeroext i1 @TransferPredicateLocksToNewTarget(i64
   br i1 %.not7378, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %59
-  %66 = getelementptr inbounds i8, ptr %12, i64 8
-  %67 = getelementptr inbounds i8, ptr %52, i64 16
-  %68 = getelementptr inbounds i8, ptr %52, i64 24
+  %66 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %52, i64 16
+  %68 = getelementptr inbounds nuw i8, ptr %52, i64 24
   br label %69
 
 69:                                               ; preds = %.lr.ph, %162
   %.sroa.0.079 = phi ptr [ %65, %.lr.ph ], [ %.sroa.6.081, %162 ]
-  %.sroa.6.0.in80 = getelementptr inbounds i8, ptr %.sroa.0.079, i64 8
+  %.sroa.6.0.in80 = getelementptr inbounds nuw i8, ptr %.sroa.0.079, i64 8
   %.sroa.6.081 = load ptr, ptr %.sroa.6.0.in80, align 8
   %70 = getelementptr i8, ptr %.sroa.0.079, i64 32
   %71 = load i64, ptr %70, align 8
@@ -2654,13 +2654,13 @@ define internal fastcc noundef zeroext i1 @TransferPredicateLocksToNewTarget(i64
   %77 = getelementptr i8, ptr %.sroa.0.079, i64 24
   %78 = load ptr, ptr %77, align 8
   %79 = load ptr, ptr %76, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
   store ptr %78, ptr %80, align 8
   %81 = load ptr, ptr %76, align 8
   store ptr %81, ptr %78, align 8
   %82 = load ptr, ptr %.sroa.6.0.in80, align 8
   %83 = load ptr, ptr %.sroa.0.079, align 8
-  %84 = getelementptr inbounds i8, ptr %83, i64 8
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 8
   store ptr %82, ptr %84, align 8
   %85 = load ptr, ptr %.sroa.0.079, align 8
   store ptr %85, ptr %82, align 8
@@ -2701,20 +2701,20 @@ define internal fastcc noundef zeroext i1 @TransferPredicateLocksToNewTarget(i64
 
 .lr.ph.i:                                         ; preds = %101, %.lr.ph.i
   %.sroa.0.015.i = phi ptr [ %.sroa.6.0.i, %.lr.ph.i ], [ %107, %101 ]
-  %.sroa.6.0.in.i = getelementptr inbounds i8, ptr %.sroa.0.015.i, i64 8
+  %.sroa.6.0.in.i = getelementptr inbounds nuw i8, ptr %.sroa.0.015.i, i64 8
   %.sroa.6.0.i = load ptr, ptr %.sroa.6.0.in.i, align 8
   %108 = getelementptr i8, ptr %.sroa.0.015.i, i64 -16
   %109 = getelementptr i8, ptr %.sroa.0.015.i, i64 16
   %110 = getelementptr i8, ptr %.sroa.0.015.i, i64 24
   %111 = load ptr, ptr %110, align 8
   %112 = load ptr, ptr %109, align 8
-  %113 = getelementptr inbounds i8, ptr %112, i64 8
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 8
   store ptr %111, ptr %113, align 8
   %114 = load ptr, ptr %109, align 8
   store ptr %114, ptr %111, align 8
   %115 = load ptr, ptr %.sroa.6.0.in.i, align 8
   %116 = load ptr, ptr %.sroa.0.015.i, align 8
-  %117 = getelementptr inbounds i8, ptr %116, i64 8
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 8
   store ptr %115, ptr %117, align 8
   %118 = load ptr, ptr %.sroa.0.015.i, align 8
   store ptr %118, ptr %115, align 8
@@ -2754,7 +2754,7 @@ DeleteLockTarget.exit:                            ; preds = %._crit_edge.i, %132
   br i1 %137, label %157, label %138
 
 138:                                              ; preds = %135
-  %139 = getelementptr inbounds i8, ptr %100, i64 16
+  %139 = getelementptr inbounds nuw i8, ptr %100, i64 16
   %140 = load ptr, ptr %68, align 8
   %141 = icmp eq ptr %140, null
   br i1 %141, label %142, label %dlist_push_tail.exit
@@ -2765,17 +2765,17 @@ DeleteLockTarget.exit:                            ; preds = %._crit_edge.i, %132
   br label %dlist_push_tail.exit
 
 dlist_push_tail.exit:                             ; preds = %138, %142
-  %143 = getelementptr inbounds i8, ptr %100, i64 24
+  %143 = getelementptr inbounds nuw i8, ptr %100, i64 24
   store ptr %67, ptr %143, align 8
   %144 = load ptr, ptr %67, align 8
   store ptr %144, ptr %139, align 8
-  %145 = getelementptr inbounds i8, ptr %144, i64 8
+  %145 = getelementptr inbounds nuw i8, ptr %144, i64 8
   store ptr %139, ptr %145, align 8
   store ptr %139, ptr %67, align 8
   %146 = load ptr, ptr %66, align 8
-  %147 = getelementptr inbounds i8, ptr %146, i64 64
-  %148 = getelementptr inbounds i8, ptr %100, i64 32
-  %149 = getelementptr inbounds i8, ptr %146, i64 72
+  %147 = getelementptr inbounds nuw i8, ptr %146, i64 64
+  %148 = getelementptr inbounds nuw i8, ptr %100, i64 32
+  %149 = getelementptr inbounds nuw i8, ptr %146, i64 72
   %150 = load ptr, ptr %149, align 8
   %151 = icmp eq ptr %150, null
   br i1 %151, label %152, label %dlist_push_tail.exit75
@@ -2786,19 +2786,19 @@ dlist_push_tail.exit:                             ; preds = %138, %142
   br label %dlist_push_tail.exit75
 
 dlist_push_tail.exit75:                           ; preds = %dlist_push_tail.exit, %152
-  %153 = getelementptr inbounds i8, ptr %100, i64 40
+  %153 = getelementptr inbounds nuw i8, ptr %100, i64 40
   store ptr %147, ptr %153, align 8
   %154 = load ptr, ptr %147, align 8
   store ptr %154, ptr %148, align 8
-  %155 = getelementptr inbounds i8, ptr %154, i64 8
+  %155 = getelementptr inbounds nuw i8, ptr %154, i64 8
   store ptr %148, ptr %155, align 8
   store ptr %148, ptr %147, align 8
-  %156 = getelementptr inbounds i8, ptr %100, i64 48
+  %156 = getelementptr inbounds nuw i8, ptr %100, i64 48
   store i64 %71, ptr %156, align 8
   br label %162
 
 157:                                              ; preds = %135
-  %158 = getelementptr inbounds i8, ptr %100, i64 48
+  %158 = getelementptr inbounds nuw i8, ptr %100, i64 48
   %159 = load i64, ptr %158, align 8
   %160 = icmp ult i64 %159, %71
   br i1 %160, label %161, label %162
@@ -2867,27 +2867,27 @@ RemoveTargetIfNoLongerUsed.exit:                  ; preds = %169, %165, %50, %47
 ; Function Attrs: nounwind uwtable
 define dso_local void @PredicateLockPageCombine(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr @PredXact, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load i32, ptr %5, align 8
   %.not.i = icmp eq i32 %6, 0
   br i1 %.not.i, label %PredicateLockPageSplit.exit, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 72
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %9 = load i32, ptr %8, align 8
   %10 = icmp ult i32 %9, 12000
   br i1 %10, label %PredicateLockPageSplit.exit, label %PredicateLockingNeededForRelation.exit.i
 
 PredicateLockingNeededForRelation.exit.i:         ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %0, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 114
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 114
   %14 = load i8, ptr %13, align 2
   %.not51.i = icmp eq i8 %14, 116
   br i1 %.not51.i, label %PredicateLockPageSplit.exit, label %15
 
 15:                                               ; preds = %PredicateLockingNeededForRelation.exit.i
-  %16 = getelementptr inbounds i8, ptr %0, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %17 = load i32, ptr %16, align 4
   %18 = load ptr, ptr @MainLWLockArray, align 8
   %19 = getelementptr i8, ptr %18, i64 3840
@@ -2963,7 +2963,7 @@ define dso_local void @ReleasePredicateLocks(i1 noundef zeroext %0, i1 noundef z
 
 19:                                               ; preds = %15
   %20 = load ptr, ptr @MySerializableXact, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 156
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 156
   %22 = load i32, ptr %21, align 4
   %23 = and i32 %22, 2048
   %.not76 = icmp eq i32 %23, 0
@@ -2992,7 +2992,7 @@ define dso_local void @ReleasePredicateLocks(i1 noundef zeroext %0, i1 noundef z
   br label %31
 
 31:                                               ; preds = %30, %27
-  %32 = getelementptr inbounds i8, ptr %.pre151, i64 156
+  %32 = getelementptr inbounds nuw i8, ptr %.pre151, i64 156
   %33 = load i32, ptr %32, align 4
   %34 = and i32 %33, 2048
   %.not77 = icmp eq i32 %34, 0
@@ -3020,15 +3020,15 @@ define dso_local void @ReleasePredicateLocks(i1 noundef zeroext %0, i1 noundef z
 42:                                               ; preds = %._crit_edge149, %40, %25
   %43 = phi ptr [ %.pre151, %40 ], [ %.pre151, %25 ], [ %.pre150, %._crit_edge149 ]
   %.068 = phi i1 [ true, %40 ], [ false, %25 ], [ false, %._crit_edge149 ]
-  %44 = getelementptr inbounds i8, ptr %43, i64 156
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 156
   %45 = load i32, ptr %44, align 4
   %46 = and i32 %45, 32
   %.not78 = icmp eq i32 %46, 0
   %47 = load ptr, ptr @TransamVariables, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %49 = load i64, ptr %48, align 8
   %50 = trunc i64 %49 to i32
-  %51 = getelementptr inbounds i8, ptr %43, i64 148
+  %51 = getelementptr inbounds nuw i8, ptr %43, i64 148
   store i32 %50, ptr %51, align 4
   br i1 %.0.shrunk, label %52, label %62
 
@@ -3036,11 +3036,11 @@ define dso_local void @ReleasePredicateLocks(i1 noundef zeroext %0, i1 noundef z
   %53 = or i32 %45, 1
   store i32 %53, ptr %44, align 4
   %54 = load ptr, ptr @PredXact, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 48
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 48
   %56 = load i64, ptr %55, align 8
   %57 = add i64 %56, 1
   store i64 %57, ptr %55, align 8
-  %58 = getelementptr inbounds i8, ptr %43, i64 16
+  %58 = getelementptr inbounds nuw i8, ptr %43, i64 16
   store i64 %57, ptr %58, align 8
   %.b7579 = load i1, ptr @MyXactDidWrite, align 1
   br i1 %.b7579, label %65, label %59
@@ -3065,7 +3065,7 @@ define dso_local void @ReleasePredicateLocks(i1 noundef zeroext %0, i1 noundef z
 
 66:                                               ; preds = %65
   %67 = load ptr, ptr @PredXact, align 8
-  %68 = getelementptr inbounds i8, ptr %67, i64 40
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 40
   %69 = load i32, ptr %68, align 8
   %70 = add i32 %69, -1
   store i32 %70, ptr %68, align 8
@@ -3073,15 +3073,15 @@ define dso_local void @ReleasePredicateLocks(i1 noundef zeroext %0, i1 noundef z
   br i1 %71, label %72, label %.loopexit123
 
 72:                                               ; preds = %66
-  %73 = getelementptr inbounds i8, ptr %67, i64 48
+  %73 = getelementptr inbounds nuw i8, ptr %67, i64 48
   %74 = load i64, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %67, i64 56
+  %75 = getelementptr inbounds nuw i8, ptr %67, i64 56
   store i64 %74, ptr %75, align 8
   br label %.loopexit123
 
 76:                                               ; preds = %65
-  %77 = getelementptr inbounds i8, ptr %43, i64 128
-  %78 = getelementptr inbounds i8, ptr %43, i64 136
+  %77 = getelementptr inbounds nuw i8, ptr %43, i64 128
+  %78 = getelementptr inbounds nuw i8, ptr %43, i64 136
   %79 = load ptr, ptr %78, align 8
   %.not80 = icmp eq ptr %79, null
   %.not81124160 = icmp eq ptr %79, %77
@@ -3090,23 +3090,23 @@ define dso_local void @ReleasePredicateLocks(i1 noundef zeroext %0, i1 noundef z
 
 .lr.ph:                                           ; preds = %76, %ReleaseRWConflict.exit
   %.sroa.0.0125 = phi ptr [ %.sroa.24.0, %ReleaseRWConflict.exit ], [ %79, %76 ]
-  %.sroa.24.0.in = getelementptr inbounds i8, ptr %.sroa.0.0125, i64 8
+  %.sroa.24.0.in = getelementptr inbounds nuw i8, ptr %.sroa.0.0125, i64 8
   %.sroa.24.0 = load ptr, ptr %.sroa.24.0.in, align 8
   %80 = getelementptr i8, ptr %.sroa.0.0125, i64 -16
   %81 = load ptr, ptr %.sroa.0.0125, align 8
-  %82 = getelementptr inbounds i8, ptr %81, i64 8
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 8
   store ptr %.sroa.24.0, ptr %82, align 8
   %83 = load ptr, ptr %.sroa.0.0125, align 8
   store ptr %83, ptr %.sroa.24.0, align 8
   %84 = getelementptr i8, ptr %.sroa.0.0125, i64 -8
   %85 = load ptr, ptr %84, align 8
   %86 = load ptr, ptr %80, align 8
-  %87 = getelementptr inbounds i8, ptr %86, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 8
   store ptr %85, ptr %87, align 8
   %88 = load ptr, ptr %80, align 8
   store ptr %88, ptr %85, align 8
   %89 = load ptr, ptr @RWConflictPool, align 8
-  %90 = getelementptr inbounds i8, ptr %89, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 8
   %91 = load ptr, ptr %90, align 8
   %92 = icmp eq ptr %91, null
   br i1 %92, label %93, label %ReleaseRWConflict.exit
@@ -3120,7 +3120,7 @@ ReleaseRWConflict.exit:                           ; preds = %.lr.ph, %93
   store ptr %89, ptr %84, align 8
   %94 = load ptr, ptr %89, align 8
   store ptr %94, ptr %80, align 8
-  %95 = getelementptr inbounds i8, ptr %94, i64 8
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 8
   store ptr %80, ptr %95, align 8
   store ptr %80, ptr %89, align 8
   %.not81 = icmp eq ptr %.sroa.24.0, %77
@@ -3135,22 +3135,22 @@ ReleaseRWConflict.exit:                           ; preds = %.lr.ph, %93
   br i1 %.0.shrunk, label %96, label %103
 
 96:                                               ; preds = %.loopexit123
-  %97 = getelementptr inbounds i8, ptr %.pre, i64 156
+  %97 = getelementptr inbounds nuw i8, ptr %.pre, i64 156
   %98 = load i32, ptr %97, align 4
   %99 = and i32 %98, 1056
   %or.cond.not = icmp eq i32 %99, 1024
   br i1 %or.cond.not, label %100, label %103
 
 100:                                              ; preds = %96
-  %101 = getelementptr inbounds i8, ptr %.pre, i64 24
+  %101 = getelementptr inbounds nuw i8, ptr %.pre, i64 24
   store i64 2, ptr %101, align 8
   %102 = or i32 %98, 16
   store i32 %102, ptr %97, align 4
   br label %103
 
 103:                                              ; preds = %100, %96, %.loopexit123
-  %104 = getelementptr inbounds i8, ptr %.pre, i64 32
-  %105 = getelementptr inbounds i8, ptr %.pre, i64 40
+  %104 = getelementptr inbounds nuw i8, ptr %.pre, i64 32
+  %105 = getelementptr inbounds nuw i8, ptr %.pre, i64 40
   %106 = load ptr, ptr %105, align 8
   %.not84 = icmp eq ptr %106, null
   %.not85128161 = icmp eq ptr %106, %104
@@ -3159,22 +3159,22 @@ ReleaseRWConflict.exit:                           ; preds = %.lr.ph, %93
 
 .lr.ph132:                                        ; preds = %103, %157
   %.sroa.0.1129 = phi ptr [ %.sroa.24.1131, %157 ], [ %106, %103 ]
-  %.sroa.24.1.in130 = getelementptr inbounds i8, ptr %.sroa.0.1129, i64 8
+  %.sroa.24.1.in130 = getelementptr inbounds nuw i8, ptr %.sroa.0.1129, i64 8
   %.sroa.24.1131 = load ptr, ptr %.sroa.24.1.in130, align 8
   br i1 %.0.shrunk, label %107, label %.critedge
 
 107:                                              ; preds = %.lr.ph132
   %108 = load ptr, ptr @MySerializableXact, align 8
-  %109 = getelementptr inbounds i8, ptr %108, i64 156
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 156
   %110 = load i32, ptr %109, align 4
   %111 = and i32 %110, 32
   %.not99 = icmp eq i32 %111, 0
   br i1 %.not99, label %112, label %128
 
 112:                                              ; preds = %107
-  %113 = getelementptr inbounds i8, ptr %.sroa.0.1129, i64 40
+  %113 = getelementptr inbounds nuw i8, ptr %.sroa.0.1129, i64 40
   %114 = load ptr, ptr %113, align 8
-  %115 = getelementptr inbounds i8, ptr %114, i64 156
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 156
   %116 = load i32, ptr %115, align 4
   %117 = and i32 %116, 1
   %.not100 = icmp eq i32 %117, 0
@@ -3183,18 +3183,18 @@ ReleaseRWConflict.exit:                           ; preds = %.lr.ph, %93
 118:                                              ; preds = %112
   %119 = and i32 %110, 16
   %120 = icmp eq i32 %119, 0
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %114, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %114, i64 8
   %.pre153 = load i64, ptr %.phi.trans.insert, align 8
   br i1 %120, label %._crit_edge152, label %121
 
 121:                                              ; preds = %118
-  %122 = getelementptr inbounds i8, ptr %108, i64 24
+  %122 = getelementptr inbounds nuw i8, ptr %108, i64 24
   %123 = load i64, ptr %122, align 8
   %124 = icmp ult i64 %.pre153, %123
   br i1 %124, label %._crit_edge152, label %126
 
 ._crit_edge152:                                   ; preds = %118, %121
-  %125 = getelementptr inbounds i8, ptr %108, i64 24
+  %125 = getelementptr inbounds nuw i8, ptr %108, i64 24
   store i64 %.pre153, ptr %125, align 8
   br label %126
 
@@ -3204,40 +3204,40 @@ ReleaseRWConflict.exit:                           ; preds = %.lr.ph, %93
   br label %128
 
 128:                                              ; preds = %107, %112, %126
-  %129 = getelementptr inbounds i8, ptr %.sroa.0.1129, i64 40
+  %129 = getelementptr inbounds nuw i8, ptr %.sroa.0.1129, i64 40
   %130 = load ptr, ptr %129, align 8
-  %131 = getelementptr inbounds i8, ptr %130, i64 156
+  %131 = getelementptr inbounds nuw i8, ptr %130, i64 156
   %132 = load i32, ptr %131, align 4
   %133 = and i32 %132, 1
   %.not101 = icmp eq i32 %133, 0
   br i1 %.not101, label %134, label %.critedge
 
 134:                                              ; preds = %128
-  %135 = getelementptr inbounds i8, ptr %130, i64 24
+  %135 = getelementptr inbounds nuw i8, ptr %130, i64 24
   %136 = load i64, ptr %135, align 8
   %137 = load ptr, ptr @PredXact, align 8
-  %138 = getelementptr inbounds i8, ptr %137, i64 48
+  %138 = getelementptr inbounds nuw i8, ptr %137, i64 48
   %139 = load i64, ptr %138, align 8
   %.not102 = icmp ult i64 %136, %139
   br i1 %.not102, label %157, label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph132, %134, %128
-  %140 = getelementptr inbounds i8, ptr %.sroa.0.1129, i64 16
-  %141 = getelementptr inbounds i8, ptr %.sroa.0.1129, i64 24
+  %140 = getelementptr inbounds nuw i8, ptr %.sroa.0.1129, i64 16
+  %141 = getelementptr inbounds nuw i8, ptr %.sroa.0.1129, i64 24
   %142 = load ptr, ptr %141, align 8
   %143 = load ptr, ptr %140, align 8
-  %144 = getelementptr inbounds i8, ptr %143, i64 8
+  %144 = getelementptr inbounds nuw i8, ptr %143, i64 8
   store ptr %142, ptr %144, align 8
   %145 = load ptr, ptr %140, align 8
   store ptr %145, ptr %142, align 8
   %146 = load ptr, ptr %.sroa.24.1.in130, align 8
   %147 = load ptr, ptr %.sroa.0.1129, align 8
-  %148 = getelementptr inbounds i8, ptr %147, i64 8
+  %148 = getelementptr inbounds nuw i8, ptr %147, i64 8
   store ptr %146, ptr %148, align 8
   %149 = load ptr, ptr %.sroa.0.1129, align 8
   store ptr %149, ptr %146, align 8
   %150 = load ptr, ptr @RWConflictPool, align 8
-  %151 = getelementptr inbounds i8, ptr %150, i64 8
+  %151 = getelementptr inbounds nuw i8, ptr %150, i64 8
   %152 = load ptr, ptr %151, align 8
   %153 = icmp eq ptr %152, null
   br i1 %153, label %154, label %ReleaseRWConflict.exit112
@@ -3251,7 +3251,7 @@ ReleaseRWConflict.exit112:                        ; preds = %.critedge, %154
   store ptr %150, ptr %.sroa.24.1.in130, align 8
   %155 = load ptr, ptr %150, align 8
   store ptr %155, ptr %.sroa.0.1129, align 8
-  %156 = getelementptr inbounds i8, ptr %155, i64 8
+  %156 = getelementptr inbounds nuw i8, ptr %155, i64 8
   store ptr %.sroa.0.1129, ptr %156, align 8
   store ptr %.sroa.0.1129, ptr %150, align 8
   br label %157
@@ -3266,8 +3266,8 @@ ReleaseRWConflict.exit112:                        ; preds = %.critedge, %154
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %103
   %158 = phi ptr [ %.pre154, %._crit_edge.loopexit ], [ %.pre, %103 ]
-  %159 = getelementptr inbounds i8, ptr %158, i64 48
-  %160 = getelementptr inbounds i8, ptr %158, i64 56
+  %159 = getelementptr inbounds nuw i8, ptr %158, i64 48
+  %160 = getelementptr inbounds nuw i8, ptr %158, i64 56
   %161 = load ptr, ptr %160, align 8
   %.not86 = icmp eq ptr %161, null
   %.not87135162 = icmp eq ptr %161, %159
@@ -3284,7 +3284,7 @@ ReleaseRWConflict.exit112:                        ; preds = %.critedge, %154
 163:                                              ; preds = %.lr.ph139
   %164 = getelementptr i8, ptr %.sroa.0.2136, i64 16
   %165 = load ptr, ptr %164, align 8
-  %166 = getelementptr inbounds i8, ptr %165, i64 156
+  %166 = getelementptr inbounds nuw i8, ptr %165, i64 156
   %167 = load i32, ptr %166, align 4
   %168 = and i32 %167, 33
   %or.cond105 = icmp eq i32 %168, 0
@@ -3292,19 +3292,19 @@ ReleaseRWConflict.exit112:                        ; preds = %.critedge, %154
 
 169:                                              ; preds = %163, %.lr.ph139
   %170 = load ptr, ptr %.sroa.0.2136, align 8
-  %171 = getelementptr inbounds i8, ptr %170, i64 8
+  %171 = getelementptr inbounds nuw i8, ptr %170, i64 8
   store ptr %.sroa.24.2137, ptr %171, align 8
   %172 = load ptr, ptr %.sroa.0.2136, align 8
   store ptr %172, ptr %.sroa.24.2137, align 8
   %173 = getelementptr i8, ptr %.sroa.0.2136, i64 -8
   %174 = load ptr, ptr %173, align 8
   %175 = load ptr, ptr %162, align 8
-  %176 = getelementptr inbounds i8, ptr %175, i64 8
+  %176 = getelementptr inbounds nuw i8, ptr %175, i64 8
   store ptr %174, ptr %176, align 8
   %177 = load ptr, ptr %162, align 8
   store ptr %177, ptr %174, align 8
   %178 = load ptr, ptr @RWConflictPool, align 8
-  %179 = getelementptr inbounds i8, ptr %178, i64 8
+  %179 = getelementptr inbounds nuw i8, ptr %178, i64 8
   %180 = load ptr, ptr %179, align 8
   %181 = icmp eq ptr %180, null
   br i1 %181, label %182, label %ReleaseRWConflict.exit113
@@ -3318,7 +3318,7 @@ ReleaseRWConflict.exit113:                        ; preds = %169, %182
   store ptr %178, ptr %173, align 8
   %183 = load ptr, ptr %178, align 8
   store ptr %183, ptr %162, align 8
-  %184 = getelementptr inbounds i8, ptr %183, i64 8
+  %184 = getelementptr inbounds nuw i8, ptr %183, i64 8
   store ptr %162, ptr %184, align 8
   store ptr %162, ptr %178, align 8
   br label %185
@@ -3336,8 +3336,8 @@ ReleaseRWConflict.exit113:                        ; preds = %169, %182
   br i1 %.not78, label %186, label %.loopexit
 
 186:                                              ; preds = %._crit_edge140
-  %187 = getelementptr inbounds i8, ptr %.pre155.pre157, i64 128
-  %188 = getelementptr inbounds i8, ptr %.pre155.pre157, i64 136
+  %187 = getelementptr inbounds nuw i8, ptr %.pre155.pre157, i64 128
+  %188 = getelementptr inbounds nuw i8, ptr %.pre155.pre157, i64 136
   %189 = load ptr, ptr %188, align 8
   %.not88 = icmp eq ptr %189, null
   %.not89143163 = icmp eq ptr %189, %187
@@ -3346,9 +3346,9 @@ ReleaseRWConflict.exit113:                        ; preds = %169, %182
 
 .lr.ph148:                                        ; preds = %186, %260
   %.sroa.0.3144 = phi ptr [ %.sroa.24.3146, %260 ], [ %189, %186 ]
-  %.sroa.24.3.in145 = getelementptr inbounds i8, ptr %.sroa.0.3144, i64 8
+  %.sroa.24.3.in145 = getelementptr inbounds nuw i8, ptr %.sroa.0.3144, i64 8
   %.sroa.24.3146 = load ptr, ptr %.sroa.24.3.in145, align 8
-  %190 = getelementptr inbounds i8, ptr %.sroa.0.3144, i64 40
+  %190 = getelementptr inbounds nuw i8, ptr %.sroa.0.3144, i64 40
   %191 = load ptr, ptr %190, align 8
   br i1 %.0.shrunk, label %192, label %226
 
@@ -3358,27 +3358,27 @@ ReleaseRWConflict.exit113:                        ; preds = %169, %182
 
 193:                                              ; preds = %192
   %194 = load ptr, ptr @MySerializableXact, align 8
-  %195 = getelementptr inbounds i8, ptr %194, i64 156
+  %195 = getelementptr inbounds nuw i8, ptr %194, i64 156
   %196 = load i32, ptr %195, align 4
   %197 = and i32 %196, 16
   %.not91 = icmp eq i32 %197, 0
   br i1 %.not91, label %226, label %198
 
 198:                                              ; preds = %193
-  %199 = getelementptr inbounds i8, ptr %194, i64 24
+  %199 = getelementptr inbounds nuw i8, ptr %194, i64 24
   %200 = load i64, ptr %199, align 8
-  %201 = getelementptr inbounds i8, ptr %191, i64 24
+  %201 = getelementptr inbounds nuw i8, ptr %191, i64 24
   %202 = load i64, ptr %201, align 8
   %.not92 = icmp ugt i64 %200, %202
   br i1 %.not92, label %226, label %203
 
 203:                                              ; preds = %198
-  %204 = getelementptr inbounds i8, ptr %191, i64 156
+  %204 = getelementptr inbounds nuw i8, ptr %191, i64 156
   %205 = load i32, ptr %204, align 4
   %206 = or i32 %205, 256
   store i32 %206, ptr %204, align 4
-  %207 = getelementptr inbounds i8, ptr %191, i64 128
-  %208 = getelementptr inbounds i8, ptr %191, i64 136
+  %207 = getelementptr inbounds nuw i8, ptr %191, i64 128
+  %208 = getelementptr inbounds nuw i8, ptr %191, i64 136
   %209 = load ptr, ptr %208, align 8
   %.not.i114 = icmp eq ptr %209, null
   %.not91012.i = icmp eq ptr %209, %207
@@ -3387,23 +3387,23 @@ ReleaseRWConflict.exit113:                        ; preds = %169, %182
 
 .lr.ph.i:                                         ; preds = %203, %ReleaseRWConflict.exit.i
   %.sroa.0.011.i = phi ptr [ %.sroa.6.0.i, %ReleaseRWConflict.exit.i ], [ %209, %203 ]
-  %.sroa.6.0.in.i = getelementptr inbounds i8, ptr %.sroa.0.011.i, i64 8
+  %.sroa.6.0.in.i = getelementptr inbounds nuw i8, ptr %.sroa.0.011.i, i64 8
   %.sroa.6.0.i = load ptr, ptr %.sroa.6.0.in.i, align 8
   %210 = getelementptr i8, ptr %.sroa.0.011.i, i64 -16
   %211 = load ptr, ptr %.sroa.0.011.i, align 8
-  %212 = getelementptr inbounds i8, ptr %211, i64 8
+  %212 = getelementptr inbounds nuw i8, ptr %211, i64 8
   store ptr %.sroa.6.0.i, ptr %212, align 8
   %213 = load ptr, ptr %.sroa.0.011.i, align 8
   store ptr %213, ptr %.sroa.6.0.i, align 8
   %214 = getelementptr i8, ptr %.sroa.0.011.i, i64 -8
   %215 = load ptr, ptr %214, align 8
   %216 = load ptr, ptr %210, align 8
-  %217 = getelementptr inbounds i8, ptr %216, i64 8
+  %217 = getelementptr inbounds nuw i8, ptr %216, i64 8
   store ptr %215, ptr %217, align 8
   %218 = load ptr, ptr %210, align 8
   store ptr %218, ptr %215, align 8
   %219 = load ptr, ptr @RWConflictPool, align 8
-  %220 = getelementptr inbounds i8, ptr %219, i64 8
+  %220 = getelementptr inbounds nuw i8, ptr %219, i64 8
   %221 = load ptr, ptr %220, align 8
   %222 = icmp eq ptr %221, null
   br i1 %222, label %223, label %ReleaseRWConflict.exit.i
@@ -3417,29 +3417,29 @@ ReleaseRWConflict.exit.i:                         ; preds = %223, %.lr.ph.i
   store ptr %219, ptr %214, align 8
   %224 = load ptr, ptr %219, align 8
   store ptr %224, ptr %210, align 8
-  %225 = getelementptr inbounds i8, ptr %224, i64 8
+  %225 = getelementptr inbounds nuw i8, ptr %224, i64 8
   store ptr %210, ptr %225, align 8
   store ptr %210, ptr %219, align 8
   %.not9.i = icmp eq ptr %.sroa.6.0.i, %207
   br i1 %.not9.i, label %FlagSxactUnsafe.exit, label %.lr.ph.i, !llvm.loop !29
 
 226:                                              ; preds = %198, %193, %192, %.lr.ph148
-  %227 = getelementptr inbounds i8, ptr %.sroa.0.3144, i64 16
-  %228 = getelementptr inbounds i8, ptr %.sroa.0.3144, i64 24
+  %227 = getelementptr inbounds nuw i8, ptr %.sroa.0.3144, i64 16
+  %228 = getelementptr inbounds nuw i8, ptr %.sroa.0.3144, i64 24
   %229 = load ptr, ptr %228, align 8
   %230 = load ptr, ptr %227, align 8
-  %231 = getelementptr inbounds i8, ptr %230, i64 8
+  %231 = getelementptr inbounds nuw i8, ptr %230, i64 8
   store ptr %229, ptr %231, align 8
   %232 = load ptr, ptr %227, align 8
   store ptr %232, ptr %229, align 8
   %233 = load ptr, ptr %.sroa.24.3.in145, align 8
   %234 = load ptr, ptr %.sroa.0.3144, align 8
-  %235 = getelementptr inbounds i8, ptr %234, i64 8
+  %235 = getelementptr inbounds nuw i8, ptr %234, i64 8
   store ptr %233, ptr %235, align 8
   %236 = load ptr, ptr %.sroa.0.3144, align 8
   store ptr %236, ptr %233, align 8
   %237 = load ptr, ptr @RWConflictPool, align 8
-  %238 = getelementptr inbounds i8, ptr %237, i64 8
+  %238 = getelementptr inbounds nuw i8, ptr %237, i64 8
   %239 = load ptr, ptr %238, align 8
   %240 = icmp eq ptr %239, null
   br i1 %240, label %241, label %ReleaseRWConflict.exit115
@@ -3453,11 +3453,11 @@ ReleaseRWConflict.exit115:                        ; preds = %226, %241
   store ptr %237, ptr %.sroa.24.3.in145, align 8
   %242 = load ptr, ptr %237, align 8
   store ptr %242, ptr %.sroa.0.3144, align 8
-  %243 = getelementptr inbounds i8, ptr %242, i64 8
+  %243 = getelementptr inbounds nuw i8, ptr %242, i64 8
   store ptr %.sroa.0.3144, ptr %243, align 8
   store ptr %.sroa.0.3144, ptr %237, align 8
-  %244 = getelementptr inbounds i8, ptr %191, i64 128
-  %245 = getelementptr inbounds i8, ptr %191, i64 136
+  %244 = getelementptr inbounds nuw i8, ptr %191, i64 128
+  %245 = getelementptr inbounds nuw i8, ptr %191, i64 136
   %246 = load ptr, ptr %245, align 8
   %247 = icmp eq ptr %246, null
   %248 = icmp eq ptr %246, %244
@@ -3465,14 +3465,14 @@ ReleaseRWConflict.exit115:                        ; preds = %226, %241
   br i1 %spec.select.i, label %249, label %FlagSxactUnsafe.exit
 
 249:                                              ; preds = %ReleaseRWConflict.exit115
-  %250 = getelementptr inbounds i8, ptr %191, i64 156
+  %250 = getelementptr inbounds nuw i8, ptr %191, i64 156
   %251 = load i32, ptr %250, align 4
   %252 = or i32 %251, 128
   store i32 %252, ptr %250, align 4
   br label %FlagSxactUnsafe.exit
 
 FlagSxactUnsafe.exit:                             ; preds = %ReleaseRWConflict.exit.i, %203, %ReleaseRWConflict.exit115, %249
-  %253 = getelementptr inbounds i8, ptr %191, i64 156
+  %253 = getelementptr inbounds nuw i8, ptr %191, i64 156
   %254 = load i32, ptr %253, align 4
   %255 = and i32 %254, 64
   %.not93 = icmp eq i32 %255, 0
@@ -3482,7 +3482,7 @@ FlagSxactUnsafe.exit:                             ; preds = %ReleaseRWConflict.e
   br i1 %or.cond, label %260, label %257
 
 257:                                              ; preds = %FlagSxactUnsafe.exit
-  %258 = getelementptr inbounds i8, ptr %191, i64 164
+  %258 = getelementptr inbounds nuw i8, ptr %191, i64 164
   %259 = load i32, ptr %258, align 4
   tail call void @ProcSendSignal(i32 noundef %259) #12
   br label %260
@@ -3500,23 +3500,23 @@ FlagSxactUnsafe.exit:                             ; preds = %ReleaseRWConflict.e
   br i1 %.068, label %265, label %261
 
 261:                                              ; preds = %.loopexit
-  %262 = getelementptr inbounds i8, ptr %.pre155, i64 156
+  %262 = getelementptr inbounds nuw i8, ptr %.pre155, i64 156
   %263 = load i32, ptr %262, align 4
   %264 = and i32 %263, 2048
   %.not96 = icmp eq i32 %264, 0
   br i1 %.not96, label %265, label %341
 
 265:                                              ; preds = %261, %.loopexit
-  %266 = getelementptr inbounds i8, ptr %.pre155, i64 152
+  %266 = getelementptr inbounds nuw i8, ptr %.pre155, i64 152
   %267 = load i32, ptr %266, align 8
   %268 = load ptr, ptr @PredXact, align 8
-  %269 = getelementptr inbounds i8, ptr %268, i64 32
+  %269 = getelementptr inbounds nuw i8, ptr %268, i64 32
   %270 = load i32, ptr %269, align 8
   %271 = icmp eq i32 %267, %270
   br i1 %271, label %272, label %341
 
 272:                                              ; preds = %265
-  %273 = getelementptr inbounds i8, ptr %268, i64 36
+  %273 = getelementptr inbounds nuw i8, ptr %268, i64 36
   %274 = load i32, ptr %273, align 4
   %275 = add i32 %274, -1
   store i32 %275, ptr %273, align 4
@@ -3526,8 +3526,8 @@ FlagSxactUnsafe.exit:                             ; preds = %ReleaseRWConflict.e
 277:                                              ; preds = %272
   store i32 0, ptr %269, align 8
   store i32 0, ptr %273, align 4
-  %278 = getelementptr inbounds i8, ptr %268, i64 16
-  %279 = getelementptr inbounds i8, ptr %268, i64 24
+  %278 = getelementptr inbounds nuw i8, ptr %268, i64 16
+  %279 = getelementptr inbounds nuw i8, ptr %268, i64 24
   %280 = load ptr, ptr %279, align 8
   %.not.i116 = icmp eq ptr %280, null
   %.not131924.i = icmp eq ptr %280, %278
@@ -3559,7 +3559,7 @@ FlagSxactUnsafe.exit:                             ; preds = %ReleaseRWConflict.e
   br i1 %or.cond18.i, label %314, label %291
 
 291:                                              ; preds = %.lr.ph.i117
-  %292 = getelementptr inbounds i8, ptr %285, i64 32
+  %292 = getelementptr inbounds nuw i8, ptr %285, i64 32
   %293 = load i32, ptr %292, align 8
   %.not17.i = icmp eq i32 %293, 0
   br i1 %.not17.i, label %298, label %294
@@ -3577,21 +3577,21 @@ FlagSxactUnsafe.exit:                             ; preds = %ReleaseRWConflict.e
   %300 = phi ptr [ %.pre.i, %294 ], [ %286, %291 ]
   %301 = getelementptr i8, ptr %.sroa.0.020.i, i64 56
   %302 = load i32, ptr %301, align 8
-  %303 = getelementptr inbounds i8, ptr %299, i64 32
+  %303 = getelementptr inbounds nuw i8, ptr %299, i64 32
   store i32 %302, ptr %303, align 8
-  %304 = getelementptr inbounds i8, ptr %299, i64 36
+  %304 = getelementptr inbounds nuw i8, ptr %299, i64 36
   store i32 1, ptr %304, align 4
   br label %314
 
 305:                                              ; preds = %294
   %306 = load i32, ptr %295, align 8
-  %307 = getelementptr inbounds i8, ptr %.pre22.i, i64 32
+  %307 = getelementptr inbounds nuw i8, ptr %.pre22.i, i64 32
   %308 = load i32, ptr %307, align 8
   %309 = icmp eq i32 %306, %308
   br i1 %309, label %310, label %314
 
 310:                                              ; preds = %305
-  %311 = getelementptr inbounds i8, ptr %.pre22.i, i64 36
+  %311 = getelementptr inbounds nuw i8, ptr %.pre22.i, i64 36
   %312 = load i32, ptr %311, align 4
   %313 = add i32 %312, 1
   store i32 %313, ptr %311, align 4
@@ -3601,13 +3601,13 @@ FlagSxactUnsafe.exit:                             ; preds = %ReleaseRWConflict.e
   %315 = phi ptr [ %284, %.lr.ph.i117 ], [ %.pre22.i, %305 ], [ %.pre22.i, %310 ], [ %299, %298 ]
   %316 = phi ptr [ %285, %.lr.ph.i117 ], [ %.pre22.i, %305 ], [ %.pre22.i, %310 ], [ %299, %298 ]
   %317 = phi ptr [ %286, %.lr.ph.i117 ], [ %.pre.i, %305 ], [ %.pre.i, %310 ], [ %300, %298 ]
-  %318 = getelementptr inbounds i8, ptr %.sroa.0.020.i, i64 8
+  %318 = getelementptr inbounds nuw i8, ptr %.sroa.0.020.i, i64 8
   %319 = load ptr, ptr %318, align 8
   %.not13.i = icmp eq ptr %319, %278
   br i1 %.not13.i, label %._crit_edge.i, label %.lr.ph.i117, !llvm.loop !31
 
 ._crit_edge.i:                                    ; preds = %314
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %315, i64 32
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %315, i64 32
   %.pre23.i = load i32, ptr %.phi.trans.insert.i, align 8
   %320 = load ptr, ptr @MainLWLockArray, align 8
   %321 = getelementptr i8, ptr %320, i64 6656
@@ -3617,16 +3617,16 @@ FlagSxactUnsafe.exit:                             ; preds = %ReleaseRWConflict.e
 
 323:                                              ; preds = %._crit_edge.i, %._crit_edge.thread.i
   %324 = load ptr, ptr @serialControl, align 8
-  %325 = getelementptr inbounds i8, ptr %324, i64 8
+  %325 = getelementptr inbounds nuw i8, ptr %324, i64 8
   store i32 0, ptr %325, align 4
-  %326 = getelementptr inbounds i8, ptr %324, i64 4
+  %326 = getelementptr inbounds nuw i8, ptr %324, i64 4
   store i32 0, ptr %326, align 4
   br label %SetNewSxactGlobalXmin.exit
 
 327:                                              ; preds = %._crit_edge.i
   %328 = tail call zeroext i1 @RecoveryInProgress() #12
   %329 = load ptr, ptr @serialControl, align 8
-  %330 = getelementptr inbounds i8, ptr %329, i64 8
+  %330 = getelementptr inbounds nuw i8, ptr %329, i64 8
   br i1 %328, label %331, label %338
 
 331:                                              ; preds = %327
@@ -3644,7 +3644,7 @@ FlagSxactUnsafe.exit:                             ; preds = %ReleaseRWConflict.e
 
 335:                                              ; preds = %._crit_edge.i.i, %331
   %336 = phi ptr [ %.pre.i.i, %._crit_edge.i.i ], [ %329, %331 ]
-  %337 = getelementptr inbounds i8, ptr %336, i64 8
+  %337 = getelementptr inbounds nuw i8, ptr %336, i64 8
   store i32 %.pre23.i, ptr %337, align 4
   br label %SetNewSxactGlobalXmin.exit
 
@@ -3671,8 +3671,8 @@ SetNewSxactGlobalXmin.exit:                       ; preds = %323, %333, %335, %3
 347:                                              ; preds = %341
   %348 = load ptr, ptr @FinishedSerializableTransactions, align 8
   %349 = load ptr, ptr @MySerializableXact, align 8
-  %350 = getelementptr inbounds i8, ptr %349, i64 80
-  %351 = getelementptr inbounds i8, ptr %348, i64 8
+  %350 = getelementptr inbounds nuw i8, ptr %349, i64 80
+  %351 = getelementptr inbounds nuw i8, ptr %348, i64 8
   %352 = load ptr, ptr %351, align 8
   %353 = icmp eq ptr %352, null
   br i1 %353, label %354, label %dlist_push_tail.exit
@@ -3683,11 +3683,11 @@ SetNewSxactGlobalXmin.exit:                       ; preds = %323, %333, %335, %3
   br label %dlist_push_tail.exit
 
 dlist_push_tail.exit:                             ; preds = %347, %354
-  %355 = getelementptr inbounds i8, ptr %349, i64 88
+  %355 = getelementptr inbounds nuw i8, ptr %349, i64 88
   store ptr %348, ptr %355, align 8
   %356 = load ptr, ptr %348, align 8
   store ptr %356, ptr %350, align 8
-  %357 = getelementptr inbounds i8, ptr %356, i64 8
+  %357 = getelementptr inbounds nuw i8, ptr %356, i64 8
   store ptr %350, ptr %357, align 8
   store ptr %350, ptr %348, align 8
   br label %363
@@ -3721,7 +3721,7 @@ dlist_push_tail.exit:                             ; preds = %347, %354
   %371 = getelementptr i8, ptr %370, i64 3584
   %372 = tail call zeroext i1 @LWLockAcquire(ptr noundef %371, i32 noundef 1) #12
   %373 = load ptr, ptr @FinishedSerializableTransactions, align 8
-  %374 = getelementptr inbounds i8, ptr %373, i64 8
+  %374 = getelementptr inbounds nuw i8, ptr %373, i64 8
   %375 = load ptr, ptr %374, align 8
   %.not.i118 = icmp eq ptr %375, null
   %.not394965.i = icmp eq ptr %375, %373
@@ -3730,11 +3730,11 @@ dlist_push_tail.exit:                             ; preds = %347, %354
 
 .lr.ph.i119:                                      ; preds = %366, %416
   %.sroa.0.050.i = phi ptr [ %.sroa.12.052.i, %416 ], [ %375, %366 ]
-  %.sroa.12.0.in51.i = getelementptr inbounds i8, ptr %.sroa.0.050.i, i64 8
+  %.sroa.12.0.in51.i = getelementptr inbounds nuw i8, ptr %.sroa.0.050.i, i64 8
   %.sroa.12.052.i = load ptr, ptr %.sroa.12.0.in51.i, align 8
   %376 = getelementptr i8, ptr %.sroa.0.050.i, i64 -80
   %377 = load ptr, ptr @PredXact, align 8
-  %378 = getelementptr inbounds i8, ptr %377, i64 32
+  %378 = getelementptr inbounds nuw i8, ptr %377, i64 32
   %379 = load i32, ptr %378, align 8
   %.not40.i = icmp eq i32 %379, 0
   br i1 %.not40.i, label %384, label %380
@@ -3751,7 +3751,7 @@ dlist_push_tail.exit:                             ; preds = %347, %354
   tail call void @LWLockRelease(ptr noundef %386) #12
   %387 = load ptr, ptr %.sroa.12.0.in51.i, align 8
   %388 = load ptr, ptr %.sroa.0.050.i, align 8
-  %389 = getelementptr inbounds i8, ptr %388, i64 8
+  %389 = getelementptr inbounds nuw i8, ptr %388, i64 8
   store ptr %387, ptr %389, align 8
   %390 = load ptr, ptr %.sroa.0.050.i, align 8
   store ptr %390, ptr %387, align 8
@@ -3763,13 +3763,13 @@ dlist_push_tail.exit:                             ; preds = %347, %354
   %392 = getelementptr i8, ptr %.sroa.0.050.i, i64 -64
   %393 = load i64, ptr %392, align 8
   %394 = load ptr, ptr @PredXact, align 8
-  %395 = getelementptr inbounds i8, ptr %394, i64 64
+  %395 = getelementptr inbounds nuw i8, ptr %394, i64 64
   %396 = load i64, ptr %395, align 8
   %397 = icmp ugt i64 %393, %396
   br i1 %397, label %398, label %._crit_edge.i120
 
 398:                                              ; preds = %391
-  %399 = getelementptr inbounds i8, ptr %394, i64 56
+  %399 = getelementptr inbounds nuw i8, ptr %394, i64 56
   %400 = load i64, ptr %399, align 8
   %.not41.i = icmp ugt i64 %393, %400
   br i1 %.not41.i, label %._crit_edge.i120, label %401
@@ -3787,7 +3787,7 @@ dlist_push_tail.exit:                             ; preds = %347, %354
 407:                                              ; preds = %401
   %408 = load ptr, ptr %.sroa.12.0.in51.i, align 8
   %409 = load ptr, ptr %.sroa.0.050.i, align 8
-  %410 = getelementptr inbounds i8, ptr %409, i64 8
+  %410 = getelementptr inbounds nuw i8, ptr %409, i64 8
   store ptr %408, ptr %410, align 8
   %411 = load ptr, ptr %.sroa.0.050.i, align 8
   store ptr %411, ptr %408, align 8
@@ -3798,7 +3798,7 @@ dlist_push_tail.exit:                             ; preds = %347, %354
   tail call fastcc void @ReleaseOneSerializableXact(ptr noundef %376, i1 noundef zeroext %.not45.i, i1 noundef zeroext false)
   %413 = load i64, ptr %392, align 8
   %414 = load ptr, ptr @PredXact, align 8
-  %415 = getelementptr inbounds i8, ptr %414, i64 64
+  %415 = getelementptr inbounds nuw i8, ptr %414, i64 64
   store i64 %413, ptr %415, align 8
   br label %416
 
@@ -3817,8 +3817,8 @@ dlist_push_tail.exit:                             ; preds = %347, %354
   %423 = getelementptr i8, ptr %422, i64 3840
   %424 = tail call zeroext i1 @LWLockAcquire(ptr noundef %423, i32 noundef 1) #12
   %425 = load ptr, ptr @OldCommittedSxact, align 8
-  %426 = getelementptr inbounds i8, ptr %425, i64 64
-  %427 = getelementptr inbounds i8, ptr %425, i64 72
+  %426 = getelementptr inbounds nuw i8, ptr %425, i64 64
+  %427 = getelementptr inbounds nuw i8, ptr %425, i64 72
   %428 = load ptr, ptr %427, align 8
   %.not42.i = icmp eq ptr %428, null
   %.not435764.i = icmp eq ptr %428, %426
@@ -3826,12 +3826,12 @@ dlist_push_tail.exit:                             ; preds = %347, %354
   br i1 %.not4357.i, label %ClearOldPredicateLocks.exit, label %.lr.ph62.i
 
 .lr.ph62.i:                                       ; preds = %._crit_edge.i120
-  %429 = getelementptr inbounds i8, ptr %3, i64 8
+  %429 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %430
 
 430:                                              ; preds = %477, %.lr.ph62.i
   %.sroa.0.158.i = phi ptr [ %428, %.lr.ph62.i ], [ %.sroa.12.160.i, %477 ]
-  %.sroa.12.1.in59.i = getelementptr inbounds i8, ptr %.sroa.0.158.i, i64 8
+  %.sroa.12.1.in59.i = getelementptr inbounds nuw i8, ptr %.sroa.0.158.i, i64 8
   %.sroa.12.160.i = load ptr, ptr %.sroa.12.1.in59.i, align 8
   %431 = load ptr, ptr @MainLWLockArray, align 8
   %432 = getelementptr i8, ptr %431, i64 3584
@@ -3839,7 +3839,7 @@ dlist_push_tail.exit:                             ; preds = %347, %354
   %434 = getelementptr i8, ptr %.sroa.0.158.i, i64 16
   %435 = load i64, ptr %434, align 8
   %436 = load ptr, ptr @PredXact, align 8
-  %437 = getelementptr inbounds i8, ptr %436, i64 56
+  %437 = getelementptr inbounds nuw i8, ptr %436, i64 56
   %438 = load i64, ptr %437, align 8
   %.not44.i = icmp ugt i64 %435, %438
   %439 = load ptr, ptr @MainLWLockArray, align 8
@@ -3864,13 +3864,13 @@ dlist_push_tail.exit:                             ; preds = %347, %354
   %453 = getelementptr i8, ptr %.sroa.0.158.i, i64 -8
   %454 = load ptr, ptr %453, align 8
   %455 = load ptr, ptr %452, align 8
-  %456 = getelementptr inbounds i8, ptr %455, i64 8
+  %456 = getelementptr inbounds nuw i8, ptr %455, i64 8
   store ptr %454, ptr %456, align 8
   %457 = load ptr, ptr %452, align 8
   store ptr %457, ptr %454, align 8
   %458 = load ptr, ptr %.sroa.12.1.in59.i, align 8
   %459 = load ptr, ptr %.sroa.0.158.i, align 8
-  %460 = getelementptr inbounds i8, ptr %459, i64 8
+  %460 = getelementptr inbounds nuw i8, ptr %459, i64 8
   store ptr %458, ptr %460, align 8
   %461 = load ptr, ptr %.sroa.0.158.i, align 8
   store ptr %461, ptr %458, align 8
@@ -3881,8 +3881,8 @@ dlist_push_tail.exit:                             ; preds = %347, %354
   %466 = shl i32 %465, 4
   %467 = xor i32 %466, %445
   %468 = call ptr @hash_search_with_hash_value(ptr noundef %462, ptr noundef nonnull %3, i32 noundef %467, i32 noundef 2, ptr noundef null) #12
-  %469 = getelementptr inbounds i8, ptr %443, i64 16
-  %470 = getelementptr inbounds i8, ptr %443, i64 24
+  %469 = getelementptr inbounds nuw i8, ptr %443, i64 16
+  %470 = getelementptr inbounds nuw i8, ptr %443, i64 24
   %471 = load ptr, ptr %470, align 8
   %472 = icmp eq ptr %471, null
   %473 = icmp eq ptr %471, %469
@@ -3949,13 +3949,13 @@ define internal fastcc void @ReleaseOneSerializableXact(ptr noundef %0, i1 nound
   br i1 %11, label %12, label %15
 
 12:                                               ; preds = %3
-  %13 = getelementptr inbounds i8, ptr %0, i64 112
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %14 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %13, i32 noundef 0) #12
   br label %15
 
 15:                                               ; preds = %12, %3
-  %16 = getelementptr inbounds i8, ptr %0, i64 64
-  %17 = getelementptr inbounds i8, ptr %0, i64 72
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %18 = load ptr, ptr %17, align 8
   %.not = icmp eq ptr %18, null
   %.not657897 = icmp eq ptr %18, %16
@@ -3963,10 +3963,10 @@ define internal fastcc void @ReleaseOneSerializableXact(ptr noundef %0, i1 nound
   br i1 %.not6578, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %15
-  %.sroa.18.0.in76 = getelementptr inbounds i8, ptr %18, i64 8
+  %.sroa.18.0.in76 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %.sroa.18.077 = load ptr, ptr %.sroa.18.0.in76, align 8
-  %19 = getelementptr inbounds i8, ptr %5, i64 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br i1 %2, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %RemoveTargetIfNoLongerUsed.exit.us
@@ -3988,7 +3988,7 @@ define internal fastcc void @ReleaseOneSerializableXact(ptr noundef %0, i1 nound
   %32 = getelementptr i8, ptr %.sroa.0.079.us, i64 -8
   %33 = load ptr, ptr %32, align 8
   %34 = load ptr, ptr %31, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store ptr %33, ptr %35, align 8
   %36 = load ptr, ptr %31, align 8
   store ptr %36, ptr %33, align 8
@@ -4016,9 +4016,9 @@ define internal fastcc void @ReleaseOneSerializableXact(ptr noundef %0, i1 nound
   br i1 %53, label %76, label %54
 
 54:                                               ; preds = %51
-  %55 = getelementptr inbounds i8, ptr %22, i64 16
-  %56 = getelementptr inbounds i8, ptr %50, i64 16
-  %57 = getelementptr inbounds i8, ptr %22, i64 24
+  %55 = getelementptr inbounds nuw i8, ptr %22, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %50, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %58 = load ptr, ptr %57, align 8
   %59 = icmp eq ptr %58, null
   br i1 %59, label %60, label %dlist_push_tail.exit.us
@@ -4029,17 +4029,17 @@ define internal fastcc void @ReleaseOneSerializableXact(ptr noundef %0, i1 nound
   br label %dlist_push_tail.exit.us
 
 dlist_push_tail.exit.us:                          ; preds = %60, %54
-  %61 = getelementptr inbounds i8, ptr %50, i64 24
+  %61 = getelementptr inbounds nuw i8, ptr %50, i64 24
   store ptr %55, ptr %61, align 8
   %62 = load ptr, ptr %55, align 8
   store ptr %62, ptr %56, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
   store ptr %56, ptr %63, align 8
   store ptr %56, ptr %55, align 8
   %64 = load ptr, ptr @OldCommittedSxact, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 64
-  %66 = getelementptr inbounds i8, ptr %50, i64 32
-  %67 = getelementptr inbounds i8, ptr %64, i64 72
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 64
+  %66 = getelementptr inbounds nuw i8, ptr %50, i64 32
+  %67 = getelementptr inbounds nuw i8, ptr %64, i64 72
   %68 = load ptr, ptr %67, align 8
   %69 = icmp eq ptr %68, null
   br i1 %69, label %70, label %dlist_push_tail.exit74.us
@@ -4050,20 +4050,20 @@ dlist_push_tail.exit.us:                          ; preds = %60, %54
   br label %dlist_push_tail.exit74.us
 
 dlist_push_tail.exit74.us:                        ; preds = %70, %dlist_push_tail.exit.us
-  %71 = getelementptr inbounds i8, ptr %50, i64 40
+  %71 = getelementptr inbounds nuw i8, ptr %50, i64 40
   store ptr %65, ptr %71, align 8
   %72 = load ptr, ptr %65, align 8
   store ptr %72, ptr %66, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 8
   store ptr %66, ptr %73, align 8
   store ptr %66, ptr %65, align 8
   %74 = load i64, ptr %20, align 8
-  %75 = getelementptr inbounds i8, ptr %50, i64 48
+  %75 = getelementptr inbounds nuw i8, ptr %50, i64 48
   store i64 %74, ptr %75, align 8
   br label %RemoveTargetIfNoLongerUsed.exit.us
 
 76:                                               ; preds = %51
-  %77 = getelementptr inbounds i8, ptr %50, i64 48
+  %77 = getelementptr inbounds nuw i8, ptr %50, i64 48
   %78 = load i64, ptr %77, align 8
   %79 = load i64, ptr %20, align 8
   %80 = icmp ult i64 %78, %79
@@ -4075,7 +4075,7 @@ dlist_push_tail.exit74.us:                        ; preds = %70, %dlist_push_tai
 
 RemoveTargetIfNoLongerUsed.exit.us:               ; preds = %81, %76, %dlist_push_tail.exit74.us
   call void @LWLockRelease(ptr noundef %29) #12
-  %.sroa.18.0.in.us = getelementptr inbounds i8, ptr %.sroa.18.080.us, i64 8
+  %.sroa.18.0.in.us = getelementptr inbounds nuw i8, ptr %.sroa.18.080.us, i64 8
   %.sroa.18.0.us = load ptr, ptr %.sroa.18.0.in.us, align 8
   %.not65.us = icmp eq ptr %.sroa.18.080.us, %16
   br i1 %.not65.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !34
@@ -4099,7 +4099,7 @@ RemoveTargetIfNoLongerUsed.exit.us:               ; preds = %81, %76, %dlist_pus
   %93 = getelementptr i8, ptr %.sroa.0.079, i64 -8
   %94 = load ptr, ptr %93, align 8
   %95 = load ptr, ptr %92, align 8
-  %96 = getelementptr inbounds i8, ptr %95, i64 8
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 8
   store ptr %94, ptr %96, align 8
   %97 = load ptr, ptr %92, align 8
   store ptr %97, ptr %94, align 8
@@ -4110,8 +4110,8 @@ RemoveTargetIfNoLongerUsed.exit.us:               ; preds = %81, %76, %dlist_pus
   %102 = shl i32 %101, 4
   %103 = xor i32 %102, %85
   %104 = call ptr @hash_search_with_hash_value(ptr noundef %98, ptr noundef nonnull %5, i32 noundef %103, i32 noundef 2, ptr noundef null) #12
-  %105 = getelementptr inbounds i8, ptr %83, i64 16
-  %106 = getelementptr inbounds i8, ptr %83, i64 24
+  %105 = getelementptr inbounds nuw i8, ptr %83, i64 16
+  %106 = getelementptr inbounds nuw i8, ptr %83, i64 24
   %107 = load ptr, ptr %106, align 8
   %108 = icmp eq ptr %107, null
   %109 = icmp eq ptr %107, %105
@@ -4134,7 +4134,7 @@ RemoveTargetIfNoLongerUsed.exit.us:               ; preds = %81, %76, %dlist_pus
 
 RemoveTargetIfNoLongerUsed.exit:                  ; preds = %114, %.lr.ph.split
   call void @LWLockRelease(ptr noundef %90) #12
-  %.sroa.18.0.in = getelementptr inbounds i8, ptr %.sroa.18.080, i64 8
+  %.sroa.18.0.in = getelementptr inbounds nuw i8, ptr %.sroa.18.080, i64 8
   %.sroa.18.0 = load ptr, ptr %.sroa.18.0.in, align 8
   %.not65 = icmp eq ptr %.sroa.18.080, %16
   br i1 %.not65, label %._crit_edge, label %.lr.ph.split, !llvm.loop !34
@@ -4146,7 +4146,7 @@ RemoveTargetIfNoLongerUsed.exit:                  ; preds = %114, %.lr.ph.split
   br i1 %117, label %118, label %120
 
 118:                                              ; preds = %._crit_edge
-  %119 = getelementptr inbounds i8, ptr %0, i64 112
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 112
   call void @LWLockRelease(ptr noundef nonnull %119) #12
   br label %120
 
@@ -4154,7 +4154,7 @@ RemoveTargetIfNoLongerUsed.exit:                  ; preds = %114, %.lr.ph.split
   %121 = load ptr, ptr @MainLWLockArray, align 8
   %122 = getelementptr i8, ptr %121, i64 3840
   call void @LWLockRelease(ptr noundef %122) #12
-  %123 = getelementptr inbounds i8, ptr %0, i64 144
+  %123 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %124 = load i32, ptr %123, align 8
   store i32 %124, ptr %4, align 4
   %125 = load ptr, ptr @MainLWLockArray, align 8
@@ -4163,8 +4163,8 @@ RemoveTargetIfNoLongerUsed.exit:                  ; preds = %114, %.lr.ph.split
   br i1 %1, label %.loopexit, label %128
 
 128:                                              ; preds = %120
-  %129 = getelementptr inbounds i8, ptr %0, i64 32
-  %130 = getelementptr inbounds i8, ptr %0, i64 40
+  %129 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %130 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %131 = load ptr, ptr %130, align 8
   %.not66 = icmp eq ptr %131, null
   %.not678399 = icmp eq ptr %131, %129
@@ -4173,36 +4173,36 @@ RemoveTargetIfNoLongerUsed.exit:                  ; preds = %114, %.lr.ph.split
 
 .lr.ph88:                                         ; preds = %128, %ReleaseRWConflict.exit
   %.sroa.0.184 = phi ptr [ %.sroa.18.186, %ReleaseRWConflict.exit ], [ %131, %128 ]
-  %.sroa.18.1.in85 = getelementptr inbounds i8, ptr %.sroa.0.184, i64 8
+  %.sroa.18.1.in85 = getelementptr inbounds nuw i8, ptr %.sroa.0.184, i64 8
   %.sroa.18.186 = load ptr, ptr %.sroa.18.1.in85, align 8
   br i1 %2, label %132, label %138
 
 132:                                              ; preds = %.lr.ph88
-  %133 = getelementptr inbounds i8, ptr %.sroa.0.184, i64 40
+  %133 = getelementptr inbounds nuw i8, ptr %.sroa.0.184, i64 40
   %134 = load ptr, ptr %133, align 8
-  %135 = getelementptr inbounds i8, ptr %134, i64 156
+  %135 = getelementptr inbounds nuw i8, ptr %134, i64 156
   %136 = load i32, ptr %135, align 4
   %137 = or i32 %136, 512
   store i32 %137, ptr %135, align 4
   br label %138
 
 138:                                              ; preds = %132, %.lr.ph88
-  %139 = getelementptr inbounds i8, ptr %.sroa.0.184, i64 16
-  %140 = getelementptr inbounds i8, ptr %.sroa.0.184, i64 24
+  %139 = getelementptr inbounds nuw i8, ptr %.sroa.0.184, i64 16
+  %140 = getelementptr inbounds nuw i8, ptr %.sroa.0.184, i64 24
   %141 = load ptr, ptr %140, align 8
   %142 = load ptr, ptr %139, align 8
-  %143 = getelementptr inbounds i8, ptr %142, i64 8
+  %143 = getelementptr inbounds nuw i8, ptr %142, i64 8
   store ptr %141, ptr %143, align 8
   %144 = load ptr, ptr %139, align 8
   store ptr %144, ptr %141, align 8
   %145 = load ptr, ptr %.sroa.18.1.in85, align 8
   %146 = load ptr, ptr %.sroa.0.184, align 8
-  %147 = getelementptr inbounds i8, ptr %146, i64 8
+  %147 = getelementptr inbounds nuw i8, ptr %146, i64 8
   store ptr %145, ptr %147, align 8
   %148 = load ptr, ptr %.sroa.0.184, align 8
   store ptr %148, ptr %145, align 8
   %149 = load ptr, ptr @RWConflictPool, align 8
-  %150 = getelementptr inbounds i8, ptr %149, i64 8
+  %150 = getelementptr inbounds nuw i8, ptr %149, i64 8
   %151 = load ptr, ptr %150, align 8
   %152 = icmp eq ptr %151, null
   br i1 %152, label %153, label %ReleaseRWConflict.exit
@@ -4216,15 +4216,15 @@ ReleaseRWConflict.exit:                           ; preds = %138, %153
   store ptr %149, ptr %.sroa.18.1.in85, align 8
   %154 = load ptr, ptr %149, align 8
   store ptr %154, ptr %.sroa.0.184, align 8
-  %155 = getelementptr inbounds i8, ptr %154, i64 8
+  %155 = getelementptr inbounds nuw i8, ptr %154, i64 8
   store ptr %.sroa.0.184, ptr %155, align 8
   store ptr %.sroa.0.184, ptr %149, align 8
   %.not67 = icmp eq ptr %.sroa.18.186, %129
   br i1 %.not67, label %.loopexit, label %.lr.ph88, !llvm.loop !35
 
 .loopexit:                                        ; preds = %ReleaseRWConflict.exit, %128, %120
-  %156 = getelementptr inbounds i8, ptr %0, i64 48
-  %157 = getelementptr inbounds i8, ptr %0, i64 56
+  %156 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %157 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %158 = load ptr, ptr %157, align 8
   %.not68 = icmp eq ptr %158, null
   %.not6991100 = icmp eq ptr %158, %156
@@ -4241,7 +4241,7 @@ ReleaseRWConflict.exit:                           ; preds = %138, %153
 160:                                              ; preds = %.lr.ph95
   %161 = getelementptr i8, ptr %.sroa.0.292, i64 16
   %162 = load ptr, ptr %161, align 8
-  %163 = getelementptr inbounds i8, ptr %162, i64 156
+  %163 = getelementptr inbounds nuw i8, ptr %162, i64 156
   %164 = load i32, ptr %163, align 4
   %165 = or i32 %164, 1024
   store i32 %165, ptr %163, align 4
@@ -4251,19 +4251,19 @@ ReleaseRWConflict.exit:                           ; preds = %138, %153
 166:                                              ; preds = %160, %.lr.ph95
   %167 = phi ptr [ %.pre, %160 ], [ %.sroa.18.293, %.lr.ph95 ]
   %168 = load ptr, ptr %.sroa.0.292, align 8
-  %169 = getelementptr inbounds i8, ptr %168, i64 8
+  %169 = getelementptr inbounds nuw i8, ptr %168, i64 8
   store ptr %167, ptr %169, align 8
   %170 = load ptr, ptr %.sroa.0.292, align 8
   store ptr %170, ptr %167, align 8
   %171 = getelementptr i8, ptr %.sroa.0.292, i64 -8
   %172 = load ptr, ptr %171, align 8
   %173 = load ptr, ptr %159, align 8
-  %174 = getelementptr inbounds i8, ptr %173, i64 8
+  %174 = getelementptr inbounds nuw i8, ptr %173, i64 8
   store ptr %172, ptr %174, align 8
   %175 = load ptr, ptr %159, align 8
   store ptr %175, ptr %172, align 8
   %176 = load ptr, ptr @RWConflictPool, align 8
-  %177 = getelementptr inbounds i8, ptr %176, i64 8
+  %177 = getelementptr inbounds nuw i8, ptr %176, i64 8
   %178 = load ptr, ptr %177, align 8
   %179 = icmp eq ptr %178, null
   br i1 %179, label %180, label %ReleaseRWConflict.exit75
@@ -4277,7 +4277,7 @@ ReleaseRWConflict.exit75:                         ; preds = %166, %180
   store ptr %176, ptr %171, align 8
   %181 = load ptr, ptr %176, align 8
   store ptr %181, ptr %159, align 8
-  %182 = getelementptr inbounds i8, ptr %181, i64 8
+  %182 = getelementptr inbounds nuw i8, ptr %181, i64 8
   store ptr %159, ptr %182, align 8
   store ptr %159, ptr %176, align 8
   %.not69 = icmp eq ptr %.sroa.18.293, %156
@@ -4296,16 +4296,16 @@ ReleaseRWConflict.exit75:                         ; preds = %166, %180
   br label %187
 
 187:                                              ; preds = %184, %183
-  %188 = getelementptr inbounds i8, ptr %0, i64 96
-  %189 = getelementptr inbounds i8, ptr %0, i64 104
+  %188 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %189 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %190 = load ptr, ptr %189, align 8
   %191 = load ptr, ptr %188, align 8
-  %192 = getelementptr inbounds i8, ptr %191, i64 8
+  %192 = getelementptr inbounds nuw i8, ptr %191, i64 8
   store ptr %190, ptr %192, align 8
   %193 = load ptr, ptr %188, align 8
   store ptr %193, ptr %190, align 8
   %194 = load ptr, ptr @PredXact, align 8
-  %195 = getelementptr inbounds i8, ptr %194, i64 8
+  %195 = getelementptr inbounds nuw i8, ptr %194, i64 8
   %196 = load ptr, ptr %195, align 8
   %197 = icmp eq ptr %196, null
   br i1 %197, label %198, label %ReleasePredXact.exit
@@ -4319,7 +4319,7 @@ ReleasePredXact.exit:                             ; preds = %187, %198
   store ptr %194, ptr %189, align 8
   %199 = load ptr, ptr %194, align 8
   store ptr %199, ptr %188, align 8
-  %200 = getelementptr inbounds i8, ptr %199, i64 8
+  %200 = getelementptr inbounds nuw i8, ptr %199, i64 8
   store ptr %188, ptr %200, align 8
   store ptr %188, ptr %194, align 8
   br label %201
@@ -4345,7 +4345,7 @@ define dso_local noundef zeroext i1 @CheckForSerializableConflictOutNeeded(ptr n
   ]
 
 7:                                                ; preds = %5, %5
-  %8 = getelementptr inbounds i8, ptr %3, i64 156
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 156
   %9 = load i32, ptr %8, align 4
   %10 = and i32 %9, 128
   %.not.i = icmp eq i32 %10, 0
@@ -4356,15 +4356,15 @@ define dso_local noundef zeroext i1 @CheckForSerializableConflictOutNeeded(ptr n
   br label %SerializationNeededForRead.exit.thread
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %0, i64 72
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %14 = load i32, ptr %13, align 8
   %15 = icmp ult i32 %14, 12000
   br i1 %15, label %SerializationNeededForRead.exit.thread, label %SerializationNeededForRead.exit
 
 SerializationNeededForRead.exit:                  ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %0, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 114
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 114
   %19 = load i8, ptr %18, align 2
   %.not5 = icmp eq i8 %19, 116
   br i1 %.not5, label %SerializationNeededForRead.exit.thread, label %20
@@ -4406,7 +4406,7 @@ define dso_local void @CheckForSerializableConflictOut(ptr nocapture noundef rea
   ]
 
 9:                                                ; preds = %7, %7
-  %10 = getelementptr inbounds i8, ptr %5, i64 156
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 156
   %11 = load i32, ptr %10, align 4
   %12 = and i32 %11, 128
   %.not.i = icmp eq i32 %12, 0
@@ -4417,15 +4417,15 @@ define dso_local void @CheckForSerializableConflictOut(ptr nocapture noundef rea
   br label %SerializationNeededForRead.exit.thread
 
 14:                                               ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %0, i64 72
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %16 = load i32, ptr %15, align 8
   %17 = icmp ult i32 %16, 12000
   br i1 %17, label %SerializationNeededForRead.exit.thread, label %SerializationNeededForRead.exit
 
 SerializationNeededForRead.exit:                  ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %0, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 114
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 114
   %21 = load i8, ptr %20, align 2
   %.not43 = icmp eq i8 %21, 116
   br i1 %.not43, label %SerializationNeededForRead.exit.thread, label %22
@@ -4465,9 +4465,9 @@ SerializationNeededForRead.exit:                  ; preds = %14
   %41 = getelementptr i8, ptr %40, i64 6656
   %42 = call zeroext i1 @LWLockAcquire(ptr noundef %41, i32 noundef 1) #12
   %43 = load ptr, ptr @serialControl, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 4
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 4
   %45 = load i32, ptr %44, align 4
-  %46 = getelementptr inbounds i8, ptr %43, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %47 = load i32, ptr %46, align 4
   %48 = load ptr, ptr @MainLWLockArray, align 8
   %49 = getelementptr i8, ptr %48, i64 6656
@@ -4488,7 +4488,7 @@ SerialGetMinConflictCommitSeqNo.exit:             ; preds = %52
   %55 = lshr i64 %54, 10
   %56 = call i32 @SimpleLruReadPage_ReadOnly(ptr noundef nonnull @SerialSlruCtlData, i64 noundef %55, i32 noundef %1) #12
   %57 = load ptr, ptr @SerialSlruCtlData, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %59 = load ptr, ptr %58, align 8
   %60 = sext i32 %56 to i64
   %61 = getelementptr ptr, ptr %59, i64 %60
@@ -4500,7 +4500,7 @@ SerialGetMinConflictCommitSeqNo.exit:             ; preds = %52
   %67 = load i16, ptr getelementptr inbounds (i8, ptr @SerialSlruCtlData, i64 8), align 8
   %68 = zext i16 %67 to i64
   %69 = and i64 %55, %68
-  %70 = getelementptr inbounds i8, ptr %57, i64 56
+  %70 = getelementptr inbounds nuw i8, ptr %57, i64 56
   %71 = load ptr, ptr %70, align 8
   %72 = getelementptr %union.LWLockPadded, ptr %71, i64 %69
   call void @LWLockRelease(ptr noundef %72) #12
@@ -4511,20 +4511,20 @@ SerialGetMinConflictCommitSeqNo.exit:             ; preds = %52
 
 SerialGetMinConflictCommitSeqNo.exit._crit_edge:  ; preds = %SerialGetMinConflictCommitSeqNo.exit
   %.pre = load ptr, ptr @MySerializableXact, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 156
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 156
   %.pre44 = load i32, ptr %.phi.trans.insert, align 4
   br label %87
 
 73:                                               ; preds = %SerialGetMinConflictCommitSeqNo.exit
   %74 = load ptr, ptr @MySerializableXact, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 156
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 156
   %76 = load i32, ptr %75, align 4
   %77 = and i32 %76, 32
   %.not30 = icmp eq i32 %77, 0
   br i1 %.not30, label %81, label %78
 
 78:                                               ; preds = %73
-  %79 = getelementptr inbounds i8, ptr %74, i64 24
+  %79 = getelementptr inbounds nuw i8, ptr %74, i64 24
   %80 = load i64, ptr %79, align 8
   %.not31 = icmp ugt i64 %66, %80
   br i1 %.not31, label %87, label %81
@@ -4542,14 +4542,14 @@ SerialGetMinConflictCommitSeqNo.exit._crit_edge:  ; preds = %SerialGetMinConflic
 87:                                               ; preds = %SerialGetMinConflictCommitSeqNo.exit._crit_edge, %78
   %88 = phi i32 [ %.pre44, %SerialGetMinConflictCommitSeqNo.exit._crit_edge ], [ %76, %78 ]
   %89 = phi ptr [ %.pre, %SerialGetMinConflictCommitSeqNo.exit._crit_edge ], [ %74, %78 ]
-  %90 = getelementptr inbounds i8, ptr %89, i64 156
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 156
   %91 = and i32 %88, 512
   %.not32 = icmp eq i32 %91, 0
   br i1 %.not32, label %92, label %98
 
 92:                                               ; preds = %87
-  %93 = getelementptr inbounds i8, ptr %89, i64 48
-  %94 = getelementptr inbounds i8, ptr %89, i64 56
+  %93 = getelementptr inbounds nuw i8, ptr %89, i64 48
+  %94 = getelementptr inbounds nuw i8, ptr %89, i64 56
   %95 = load ptr, ptr %94, align 8
   %96 = icmp eq ptr %95, null
   %97 = icmp eq ptr %95, %93
@@ -4578,14 +4578,14 @@ SerialGetMinConflictCommitSeqNo.exit.thread:      ; preds = %50, %52, %39, %Seri
   br label %SerializationNeededForRead.exit.thread
 
 108:                                              ; preds = %33
-  %109 = getelementptr inbounds i8, ptr %38, i64 8
+  %109 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %110 = load ptr, ptr %109, align 8
   %111 = load ptr, ptr @MySerializableXact, align 8
   %112 = icmp eq ptr %110, %111
   br i1 %112, label %117, label %113
 
 113:                                              ; preds = %108
-  %114 = getelementptr inbounds i8, ptr %110, i64 156
+  %114 = getelementptr inbounds nuw i8, ptr %110, i64 156
   %115 = load i32, ptr %114, align 4
   %116 = and i32 %115, 8
   %.not33 = icmp eq i32 %116, 0
@@ -4629,7 +4629,7 @@ SerialGetMinConflictCommitSeqNo.exit.thread:      ; preds = %50, %52, %39, %Seri
   unreachable
 
 136:                                              ; preds = %120
-  %137 = getelementptr inbounds i8, ptr %111, i64 156
+  %137 = getelementptr inbounds nuw i8, ptr %111, i64 156
   %138 = load i32, ptr %137, align 4
   %139 = and i32 %138, 32
   %.not35 = icmp eq i32 %139, 0
@@ -4644,9 +4644,9 @@ SerialGetMinConflictCommitSeqNo.exit.thread:      ; preds = %50, %52, %39, %Seri
   br i1 %.not37, label %149, label %143
 
 143:                                              ; preds = %141
-  %144 = getelementptr inbounds i8, ptr %111, i64 24
+  %144 = getelementptr inbounds nuw i8, ptr %111, i64 24
   %145 = load i64, ptr %144, align 8
-  %146 = getelementptr inbounds i8, ptr %110, i64 24
+  %146 = getelementptr inbounds nuw i8, ptr %110, i64 24
   %147 = load i64, ptr %146, align 8
   %148 = icmp ult i64 %145, %147
   br i1 %148, label %149, label %152
@@ -4694,21 +4694,21 @@ declare i32 @GetTopTransactionIdIfAny() local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef zeroext i1 @XidIsConcurrent(i32 noundef %0) unnamed_addr #5 {
   %2 = tail call ptr @GetTransactionSnapshot() #12
-  %3 = getelementptr inbounds i8, ptr %2, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = tail call zeroext i1 @TransactionIdPrecedes(i32 noundef %0, i32 noundef %4) #12
   br i1 %5, label %pg_lfind32.exit, label %6
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %2, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %8 = load i32, ptr %7, align 8
   %9 = tail call zeroext i1 @TransactionIdFollowsOrEquals(i32 noundef %0, i32 noundef %8) #12
   br i1 %9, label %pg_lfind32.exit, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %2, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %2, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %14 = load i32, ptr %13, align 8
   %15 = insertelement <4 x i32> poison, i32 %0, i64 0
   %16 = shufflevector <4 x i32> %15, <4 x i32> poison, <4 x i32> zeroinitializer
@@ -4783,22 +4783,22 @@ pg_lfind32.exit:                                  ; preds = %.lr.ph.i, %.lr.ph45
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define internal fastcc noundef zeroext i1 @RWConflictExists(ptr noundef readonly %0, ptr noundef readonly %1) unnamed_addr #6 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 156
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 156
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, 8
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %6, label %.loopexit
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %1, i64 156
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 156
   %8 = load i32, ptr %7, align 4
   %9 = and i32 %8, 8
   %.not14 = icmp eq i32 %9, 0
   br i1 %.not14, label %10, label %.loopexit
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
-  %12 = getelementptr inbounds i8, ptr %0, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   %15 = icmp eq ptr %13, %11
@@ -4806,8 +4806,8 @@ define internal fastcc noundef zeroext i1 @RWConflictExists(ptr noundef readonly
   br i1 %spec.select.i, label %.loopexit, label %16
 
 16:                                               ; preds = %10
-  %17 = getelementptr inbounds i8, ptr %1, i64 48
-  %18 = getelementptr inbounds i8, ptr %1, i64 56
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
   %21 = icmp eq ptr %19, %17
@@ -4816,13 +4816,13 @@ define internal fastcc noundef zeroext i1 @RWConflictExists(ptr noundef readonly
 
 .lr.ph:                                           ; preds = %16, %25
   %.sroa.0.019 = phi ptr [ %27, %25 ], [ %13, %16 ]
-  %22 = getelementptr inbounds i8, ptr %.sroa.0.019, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %.sroa.0.019, i64 40
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, %1
   br i1 %24, label %.loopexit, label %25
 
 25:                                               ; preds = %.lr.ph
-  %26 = getelementptr inbounds i8, ptr %.sroa.0.019, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %.sroa.0.019, i64 8
   %27 = load ptr, ptr %26, align 8
   %.not16 = icmp eq ptr %27, %11
   br i1 %.not16, label %.loopexit, label %.lr.ph, !llvm.loop !39
@@ -4834,7 +4834,7 @@ define internal fastcc noundef zeroext i1 @RWConflictExists(ptr noundef readonly
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @FlagRWConflict(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 156
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 156
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, 1
   %.not.i = icmp eq i32 %5, 0
@@ -4847,8 +4847,8 @@ define internal fastcc void @FlagRWConflict(ptr noundef %0, ptr noundef %1) unna
   br i1 %or.cond98.i, label %8, label %.thread77.i
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %1, i64 32
-  %10 = getelementptr inbounds i8, ptr %1, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %11 = load ptr, ptr %10, align 8
   %.not53.i = icmp eq ptr %11, null
   %.not548186.i = icmp eq ptr %11, %9
@@ -4856,17 +4856,17 @@ define internal fastcc void @FlagRWConflict(ptr noundef %0, ptr noundef %1) unna
   br i1 %.not5481.i, label %.critedge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %0, i64 156
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
-  %14 = getelementptr inbounds i8, ptr %1, i64 16
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 156
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br i1 %.not.i, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %34
   %.sroa.016.082.us.i = phi ptr [ %36, %34 ], [ %11, %.lr.ph.i ]
-  %16 = getelementptr inbounds i8, ptr %.sroa.016.082.us.i, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %.sroa.016.082.us.i, i64 40
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 156
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 156
   %19 = load i32, ptr %18, align 4
   %20 = and i32 %19, 2
   %.not55.us.i = icmp eq i32 %20, 0
@@ -4879,7 +4879,7 @@ define internal fastcc void @FlagRWConflict(ptr noundef %0, ptr noundef %1) unna
   br i1 %.not56.us.i, label %28, label %24
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds i8, ptr %17, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %26 = load i64, ptr %25, align 8
   %27 = load i64, ptr %13, align 8
   %.not57.us.i = icmp ugt i64 %26, %27
@@ -4891,23 +4891,23 @@ define internal fastcc void @FlagRWConflict(ptr noundef %0, ptr noundef %1) unna
   br i1 %.not60.us.i, label %.thread77.i, label %30
 
 30:                                               ; preds = %28
-  %31 = getelementptr inbounds i8, ptr %17, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %32 = load i64, ptr %31, align 8
   %33 = load i64, ptr %15, align 8
   %.not61.us.i = icmp ugt i64 %32, %33
   br i1 %.not61.us.i, label %34, label %.thread77.i
 
 34:                                               ; preds = %30, %24, %.lr.ph.split.us.i
-  %35 = getelementptr inbounds i8, ptr %.sroa.016.082.us.i, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %.sroa.016.082.us.i, i64 8
   %36 = load ptr, ptr %35, align 8
   %.not54.us.i = icmp eq ptr %36, %9
   br i1 %.not54.us.i, label %.critedge.i, label %.lr.ph.split.us.i, !llvm.loop !40
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %52
   %.sroa.016.082.i = phi ptr [ %54, %52 ], [ %11, %.lr.ph.i ]
-  %37 = getelementptr inbounds i8, ptr %.sroa.016.082.i, i64 40
+  %37 = getelementptr inbounds nuw i8, ptr %.sroa.016.082.i, i64 40
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 156
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 156
   %40 = load i32, ptr %39, align 4
   %41 = and i32 %40, 2
   %.not55.i = icmp eq i32 %41, 0
@@ -4917,7 +4917,7 @@ define internal fastcc void @FlagRWConflict(ptr noundef %0, ptr noundef %1) unna
   %43 = load i32, ptr %12, align 4
   %44 = and i32 %43, 1
   %.not56.i = icmp eq i32 %44, 0
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %38, i64 8
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %38, i64 8
   %.pre.i = load i64, ptr %.phi.trans.insert.i, align 8
   br i1 %.not56.i, label %._crit_edge.i, label %45
 
@@ -4942,7 +4942,7 @@ define internal fastcc void @FlagRWConflict(ptr noundef %0, ptr noundef %1) unna
   br i1 %.not61.i, label %52, label %.thread77.i
 
 52:                                               ; preds = %50, %._crit_edge.i, %45, %.lr.ph.split.i
-  %53 = getelementptr inbounds i8, ptr %.sroa.016.082.i, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %.sroa.016.082.i, i64 8
   %54 = load ptr, ptr %53, align 8
   %.not54.i = icmp eq ptr %54, %9
   br i1 %.not54.i, label %.critedge.i, label %.lr.ph.split.i, !llvm.loop !40
@@ -4953,7 +4953,7 @@ define internal fastcc void @FlagRWConflict(ptr noundef %0, ptr noundef %1) unna
   br i1 %.not62.i, label %OnConflict_CheckForSerializationFailure.exit, label %56
 
 56:                                               ; preds = %.critedge.i
-  %57 = getelementptr inbounds i8, ptr %0, i64 156
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 156
   %58 = load i32, ptr %57, align 4
   %59 = and i32 %58, 32
   %.not63.i = icmp eq i32 %59, 0
@@ -4965,8 +4965,8 @@ define internal fastcc void @FlagRWConflict(ptr noundef %0, ptr noundef %1) unna
   br i1 %.not64.i, label %62, label %.thread77.i
 
 62:                                               ; preds = %60
-  %63 = getelementptr inbounds i8, ptr %0, i64 48
-  %64 = getelementptr inbounds i8, ptr %0, i64 56
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %65 = load ptr, ptr %64, align 8
   %.not65.i = icmp eq ptr %65, null
   %.not668387.i = icmp eq ptr %65, %63
@@ -4974,14 +4974,14 @@ define internal fastcc void @FlagRWConflict(ptr noundef %0, ptr noundef %1) unna
   br i1 %.not6683.i, label %OnConflict_CheckForSerializationFailure.exit, label %.lr.ph85.i
 
 .lr.ph85.i:                                       ; preds = %62
-  %66 = getelementptr inbounds i8, ptr %1, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %67
 
 67:                                               ; preds = %85, %.lr.ph85.i
   %.sroa.0.084.i = phi ptr [ %65, %.lr.ph85.i ], [ %87, %85 ]
   %68 = getelementptr i8, ptr %.sroa.0.084.i, i64 16
   %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %69, i64 156
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 156
   %71 = load i32, ptr %70, align 4
   %72 = and i32 %71, 8
   %.not67.i = icmp eq i32 %72, 0
@@ -4993,7 +4993,7 @@ define internal fastcc void @FlagRWConflict(ptr noundef %0, ptr noundef %1) unna
   br i1 %.not68.i, label %79, label %75
 
 75:                                               ; preds = %73
-  %76 = getelementptr inbounds i8, ptr %69, i64 16
+  %76 = getelementptr inbounds nuw i8, ptr %69, i64 16
   %77 = load i64, ptr %76, align 8
   %78 = load i64, ptr %66, align 8
   %.not69.i = icmp ult i64 %77, %78
@@ -5005,14 +5005,14 @@ define internal fastcc void @FlagRWConflict(ptr noundef %0, ptr noundef %1) unna
   br i1 %.not70.i, label %.thread77.i, label %81
 
 81:                                               ; preds = %79
-  %82 = getelementptr inbounds i8, ptr %69, i64 24
+  %82 = getelementptr inbounds nuw i8, ptr %69, i64 24
   %83 = load i64, ptr %82, align 8
   %84 = load i64, ptr %66, align 8
   %.not71.i = icmp ult i64 %83, %84
   br i1 %.not71.i, label %85, label %.thread77.i
 
 85:                                               ; preds = %81, %75, %67
-  %86 = getelementptr inbounds i8, ptr %.sroa.0.084.i, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %.sroa.0.084.i, i64 8
   %87 = load ptr, ptr %86, align 8
   %.not66.i = icmp eq ptr %87, %63
   br i1 %.not66.i, label %OnConflict_CheckForSerializationFailure.exit, label %67, !llvm.loop !41
@@ -5048,7 +5048,7 @@ define internal fastcc void @FlagRWConflict(ptr noundef %0, ptr noundef %1) unna
   tail call void @llvm.assume(i1 %103)
   %104 = tail call i32 @errcode(i32 noundef 16777220) #12
   %105 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.12) #12
-  %106 = getelementptr inbounds i8, ptr %1, i64 144
+  %106 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %107 = load i32, ptr %106, align 8
   %108 = tail call i32 (ptr, ...) @errdetail_internal(ptr noundef nonnull @.str.34, i32 noundef %107) #12
   %109 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.14) #12
@@ -5076,7 +5076,7 @@ OnConflict_CheckForSerializationFailure.exit:     ; preds = %85, %.critedge.i, %
   br i1 %118, label %119, label %123
 
 119:                                              ; preds = %117
-  %120 = getelementptr inbounds i8, ptr %0, i64 156
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 156
   %121 = load i32, ptr %120, align 4
   %122 = or i32 %121, 1024
   store i32 %122, ptr %120, align 4
@@ -5084,7 +5084,7 @@ OnConflict_CheckForSerializationFailure.exit:     ; preds = %85, %.critedge.i, %
 
 123:                                              ; preds = %117
   %124 = load ptr, ptr @RWConflictPool, align 8
-  %125 = getelementptr inbounds i8, ptr %124, i64 8
+  %125 = getelementptr inbounds nuw i8, ptr %124, i64 8
   %126 = load ptr, ptr %125, align 8
   %127 = icmp eq ptr %126, null
   %128 = icmp eq ptr %126, %124
@@ -5101,19 +5101,19 @@ OnConflict_CheckForSerializationFailure.exit:     ; preds = %85, %.critedge.i, %
   unreachable
 
 134:                                              ; preds = %123
-  %135 = getelementptr inbounds i8, ptr %126, i64 8
+  %135 = getelementptr inbounds nuw i8, ptr %126, i64 8
   %136 = load ptr, ptr %135, align 8
   %137 = load ptr, ptr %126, align 8
-  %138 = getelementptr inbounds i8, ptr %137, i64 8
+  %138 = getelementptr inbounds nuw i8, ptr %137, i64 8
   store ptr %136, ptr %138, align 8
   %139 = load ptr, ptr %126, align 8
   store ptr %139, ptr %136, align 8
-  %140 = getelementptr inbounds i8, ptr %126, i64 32
+  %140 = getelementptr inbounds nuw i8, ptr %126, i64 32
   store ptr %0, ptr %140, align 8
-  %141 = getelementptr inbounds i8, ptr %126, i64 40
+  %141 = getelementptr inbounds nuw i8, ptr %126, i64 40
   store ptr %1, ptr %141, align 8
-  %142 = getelementptr inbounds i8, ptr %0, i64 32
-  %143 = getelementptr inbounds i8, ptr %0, i64 40
+  %142 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %143 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %144 = load ptr, ptr %143, align 8
   %145 = icmp eq ptr %144, null
   br i1 %145, label %146, label %dlist_push_tail.exit.i
@@ -5127,11 +5127,11 @@ dlist_push_tail.exit.i:                           ; preds = %146, %134
   store ptr %142, ptr %135, align 8
   %147 = load ptr, ptr %142, align 8
   store ptr %147, ptr %126, align 8
-  %148 = getelementptr inbounds i8, ptr %147, i64 8
+  %148 = getelementptr inbounds nuw i8, ptr %147, i64 8
   store ptr %126, ptr %148, align 8
   store ptr %126, ptr %142, align 8
-  %149 = getelementptr inbounds i8, ptr %1, i64 48
-  %150 = getelementptr inbounds i8, ptr %1, i64 56
+  %149 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %150 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %151 = load ptr, ptr %150, align 8
   %152 = icmp eq ptr %151, null
   br i1 %152, label %153, label %SetRWConflict.exit
@@ -5142,12 +5142,12 @@ dlist_push_tail.exit.i:                           ; preds = %146, %134
   br label %SetRWConflict.exit
 
 SetRWConflict.exit:                               ; preds = %dlist_push_tail.exit.i, %153
-  %154 = getelementptr inbounds i8, ptr %126, i64 16
-  %155 = getelementptr inbounds i8, ptr %126, i64 24
+  %154 = getelementptr inbounds nuw i8, ptr %126, i64 16
+  %155 = getelementptr inbounds nuw i8, ptr %126, i64 24
   store ptr %149, ptr %155, align 8
   %156 = load ptr, ptr %149, align 8
   store ptr %156, ptr %154, align 8
-  %157 = getelementptr inbounds i8, ptr %156, i64 8
+  %157 = getelementptr inbounds nuw i8, ptr %156, i64 8
   store ptr %154, ptr %157, align 8
   store ptr %154, ptr %149, align 8
   br label %158
@@ -5164,21 +5164,21 @@ define dso_local void @CheckForSerializableConflictIn(ptr nocapture noundef read
   br i1 %6, label %SerializationNeededForWrite.exit.thread, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 72
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %9 = load i32, ptr %8, align 8
   %10 = icmp ult i32 %9, 12000
   br i1 %10, label %SerializationNeededForWrite.exit.thread, label %SerializationNeededForWrite.exit
 
 SerializationNeededForWrite.exit:                 ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %0, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 114
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 114
   %14 = load i8, ptr %13, align 2
   %.not17 = icmp eq i8 %14, 116
   br i1 %.not17, label %SerializationNeededForWrite.exit.thread, label %15
 
 15:                                               ; preds = %SerializationNeededForWrite.exit
-  %16 = getelementptr inbounds i8, ptr %5, i64 156
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 156
   %17 = load i32, ptr %16, align 4
   %18 = and i32 %17, 8
   %.not = icmp eq i32 %18, 0
@@ -5200,10 +5200,10 @@ SerializationNeededForWrite.exit:                 ; preds = %7
   br i1 %.not12, label %39, label %26
 
 26:                                               ; preds = %25
-  %27 = getelementptr inbounds i8, ptr %0, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %28 = load i32, ptr %27, align 4
   store i32 %28, ptr %4, align 4
-  %29 = getelementptr inbounds i8, ptr %4, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %9, ptr %29, align 4
   %.val = load i16, ptr %1, align 2
   %30 = getelementptr i8, ptr %1, i64 2
@@ -5212,12 +5212,12 @@ SerializationNeededForWrite.exit:                 ; preds = %7
   %32 = shl nuw i32 %31, 16
   %33 = zext i16 %.val14 to i32
   %34 = or disjoint i32 %32, %33
-  %35 = getelementptr inbounds i8, ptr %4, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %34, ptr %35, align 4
   %36 = getelementptr i8, ptr %1, i64 4
   %.val15 = load i16, ptr %36, align 2
   %37 = zext i16 %.val15 to i32
-  %38 = getelementptr inbounds i8, ptr %4, i64 12
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 %37, ptr %38, align 4
   call fastcc void @CheckTargetForConflictsIn(ptr noundef %4)
   %.pre18.pre = load i32, ptr %8, align 8
@@ -5229,14 +5229,14 @@ SerializationNeededForWrite.exit:                 ; preds = %7
   br i1 %.not13, label %46, label %40
 
 40:                                               ; preds = %39
-  %41 = getelementptr inbounds i8, ptr %0, i64 4
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %42 = load i32, ptr %41, align 4
   store i32 %42, ptr %4, align 4
-  %43 = getelementptr inbounds i8, ptr %4, i64 4
+  %43 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %.pre18, ptr %43, align 4
-  %44 = getelementptr inbounds i8, ptr %4, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %2, ptr %44, align 4
-  %45 = getelementptr inbounds i8, ptr %4, i64 12
+  %45 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 0, ptr %45, align 4
   call fastcc void @CheckTargetForConflictsIn(ptr noundef %4)
   %.pre = load i32, ptr %8, align 8
@@ -5244,14 +5244,14 @@ SerializationNeededForWrite.exit:                 ; preds = %7
 
 46:                                               ; preds = %40, %39
   %47 = phi i32 [ %.pre, %40 ], [ %.pre18, %39 ]
-  %48 = getelementptr inbounds i8, ptr %0, i64 4
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %49 = load i32, ptr %48, align 4
   store i32 %49, ptr %4, align 4
-  %50 = getelementptr inbounds i8, ptr %4, i64 4
+  %50 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %47, ptr %50, align 4
-  %51 = getelementptr inbounds i8, ptr %4, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 -1, ptr %51, align 4
-  %52 = getelementptr inbounds i8, ptr %4, i64 12
+  %52 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 0, ptr %52, align 4
   call fastcc void @CheckTargetForConflictsIn(ptr noundef %4)
   br label %SerializationNeededForWrite.exit.thread
@@ -5284,8 +5284,8 @@ define internal fastcc void @CheckTargetForConflictsIn(ptr noundef nonnull %0) u
   %15 = load ptr, ptr @MainLWLockArray, align 8
   %16 = getelementptr i8, ptr %15, i64 3584
   %17 = tail call zeroext i1 @LWLockAcquire(ptr noundef %16, i32 noundef 1) #12
-  %18 = getelementptr inbounds i8, ptr %12, i64 16
-  %19 = getelementptr inbounds i8, ptr %12, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %20 = load ptr, ptr %19, align 8
   %.not48 = icmp eq ptr %20, null
   %.not497377 = icmp eq ptr %20, %18
@@ -5293,13 +5293,13 @@ define internal fastcc void @CheckTargetForConflictsIn(ptr noundef nonnull %0) u
   br i1 %.not4973, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %14
-  %21 = getelementptr inbounds i8, ptr %0, i64 12
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 12
   br label %22
 
 22:                                               ; preds = %.lr.ph, %RWConflictExists.exit
   %.04375 = phi ptr [ null, %.lr.ph ], [ %.1, %RWConflictExists.exit ]
   %.sroa.0.074 = phi ptr [ %20, %.lr.ph ], [ %.sroa.6.076, %RWConflictExists.exit ]
-  %.sroa.6.076.in = getelementptr inbounds i8, ptr %.sroa.0.074, i64 8
+  %.sroa.6.076.in = getelementptr inbounds nuw i8, ptr %.sroa.0.074, i64 8
   %.sroa.6.076 = load ptr, ptr %.sroa.6.076.in, align 8
   %23 = getelementptr i8, ptr %.sroa.0.074, i64 -16
   %24 = getelementptr i8, ptr %.sroa.0.074, i64 -8
@@ -5323,7 +5323,7 @@ define internal fastcc void @CheckTargetForConflictsIn(ptr noundef nonnull %0) u
   br label %RWConflictExists.exit
 
 34:                                               ; preds = %22
-  %35 = getelementptr inbounds i8, ptr %25, i64 156
+  %35 = getelementptr inbounds nuw i8, ptr %25, i64 156
   %36 = load i32, ptr %35, align 4
   %37 = and i32 %36, 8
   %.not53 = icmp eq i32 %37, 0
@@ -5336,9 +5336,9 @@ define internal fastcc void @CheckTargetForConflictsIn(ptr noundef nonnull %0) u
 
 40:                                               ; preds = %38
   %41 = tail call ptr @GetTransactionSnapshot() #12
-  %42 = getelementptr inbounds i8, ptr %41, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 4
   %43 = load i32, ptr %42, align 4
-  %44 = getelementptr inbounds i8, ptr %25, i64 148
+  %44 = getelementptr inbounds nuw i8, ptr %25, i64 148
   %45 = load i32, ptr %44, align 4
   %46 = tail call zeroext i1 @TransactionIdPrecedes(i32 noundef %43, i32 noundef %45) #12
   br i1 %46, label %._crit_edge78, label %RWConflictExists.exit
@@ -5356,15 +5356,15 @@ define internal fastcc void @CheckTargetForConflictsIn(ptr noundef nonnull %0) u
   br i1 %.not.i, label %51, label %.loopexit70
 
 51:                                               ; preds = %47
-  %52 = getelementptr inbounds i8, ptr %49, i64 156
+  %52 = getelementptr inbounds nuw i8, ptr %49, i64 156
   %53 = load i32, ptr %52, align 4
   %54 = and i32 %53, 8
   %.not14.i = icmp eq i32 %54, 0
   br i1 %.not14.i, label %55, label %.loopexit70
 
 55:                                               ; preds = %51
-  %56 = getelementptr inbounds i8, ptr %25, i64 32
-  %57 = getelementptr inbounds i8, ptr %25, i64 40
+  %56 = getelementptr inbounds nuw i8, ptr %25, i64 32
+  %57 = getelementptr inbounds nuw i8, ptr %25, i64 40
   %58 = load ptr, ptr %57, align 8
   %59 = icmp eq ptr %58, null
   %60 = icmp eq ptr %58, %56
@@ -5372,8 +5372,8 @@ define internal fastcc void @CheckTargetForConflictsIn(ptr noundef nonnull %0) u
   br i1 %spec.select.i.i, label %.loopexit70, label %61
 
 61:                                               ; preds = %55
-  %62 = getelementptr inbounds i8, ptr %49, i64 48
-  %63 = getelementptr inbounds i8, ptr %49, i64 56
+  %62 = getelementptr inbounds nuw i8, ptr %49, i64 48
+  %63 = getelementptr inbounds nuw i8, ptr %49, i64 56
   %64 = load ptr, ptr %63, align 8
   %65 = icmp eq ptr %64, null
   %66 = icmp eq ptr %64, %62
@@ -5382,13 +5382,13 @@ define internal fastcc void @CheckTargetForConflictsIn(ptr noundef nonnull %0) u
 
 .lr.ph.i:                                         ; preds = %61, %70
   %.sroa.0.019.i = phi ptr [ %72, %70 ], [ %58, %61 ]
-  %67 = getelementptr inbounds i8, ptr %.sroa.0.019.i, i64 40
+  %67 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i, i64 40
   %68 = load ptr, ptr %67, align 8
   %69 = icmp eq ptr %68, %49
   br i1 %69, label %RWConflictExists.exit, label %70
 
 70:                                               ; preds = %.lr.ph.i
-  %71 = getelementptr inbounds i8, ptr %.sroa.0.019.i, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i, i64 8
   %72 = load ptr, ptr %71, align 8
   %.not16.i = icmp eq ptr %72, %56
   br i1 %.not16.i, label %.loopexit70, label %.lr.ph.i, !llvm.loop !39
@@ -5412,9 +5412,9 @@ define internal fastcc void @CheckTargetForConflictsIn(ptr noundef nonnull %0) u
 
 82:                                               ; preds = %80
   %83 = tail call ptr @GetTransactionSnapshot() #12
-  %84 = getelementptr inbounds i8, ptr %83, i64 4
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 4
   %85 = load i32, ptr %84, align 4
-  %86 = getelementptr inbounds i8, ptr %25, i64 148
+  %86 = getelementptr inbounds nuw i8, ptr %25, i64 148
   %87 = load i32, ptr %86, align 4
   %88 = tail call zeroext i1 @TransactionIdPrecedes(i32 noundef %85, i32 noundef %87) #12
   br i1 %88, label %._crit_edge80, label %RWConflictExists.exit66
@@ -5431,15 +5431,15 @@ define internal fastcc void @CheckTargetForConflictsIn(ptr noundef nonnull %0) u
   br i1 %.not.i58, label %93, label %.loopexit
 
 93:                                               ; preds = %89
-  %94 = getelementptr inbounds i8, ptr %91, i64 156
+  %94 = getelementptr inbounds nuw i8, ptr %91, i64 156
   %95 = load i32, ptr %94, align 4
   %96 = and i32 %95, 8
   %.not14.i60 = icmp eq i32 %96, 0
   br i1 %.not14.i60, label %97, label %.loopexit
 
 97:                                               ; preds = %93
-  %98 = getelementptr inbounds i8, ptr %25, i64 32
-  %99 = getelementptr inbounds i8, ptr %25, i64 40
+  %98 = getelementptr inbounds nuw i8, ptr %25, i64 32
+  %99 = getelementptr inbounds nuw i8, ptr %25, i64 40
   %100 = load ptr, ptr %99, align 8
   %101 = icmp eq ptr %100, null
   %102 = icmp eq ptr %100, %98
@@ -5447,8 +5447,8 @@ define internal fastcc void @CheckTargetForConflictsIn(ptr noundef nonnull %0) u
   br i1 %spec.select.i.i61, label %.loopexit, label %103
 
 103:                                              ; preds = %97
-  %104 = getelementptr inbounds i8, ptr %91, i64 48
-  %105 = getelementptr inbounds i8, ptr %91, i64 56
+  %104 = getelementptr inbounds nuw i8, ptr %91, i64 48
+  %105 = getelementptr inbounds nuw i8, ptr %91, i64 56
   %106 = load ptr, ptr %105, align 8
   %107 = icmp eq ptr %106, null
   %108 = icmp eq ptr %106, %104
@@ -5457,13 +5457,13 @@ define internal fastcc void @CheckTargetForConflictsIn(ptr noundef nonnull %0) u
 
 .lr.ph.i63:                                       ; preds = %103, %112
   %.sroa.0.019.i64 = phi ptr [ %114, %112 ], [ %100, %103 ]
-  %109 = getelementptr inbounds i8, ptr %.sroa.0.019.i64, i64 40
+  %109 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i64, i64 40
   %110 = load ptr, ptr %109, align 8
   %111 = icmp eq ptr %110, %91
   br i1 %111, label %RWConflictExists.exit66, label %112
 
 112:                                              ; preds = %.lr.ph.i63
-  %113 = getelementptr inbounds i8, ptr %.sroa.0.019.i64, i64 8
+  %113 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i64, i64 8
   %114 = load ptr, ptr %113, align 8
   %.not16.i65 = icmp eq ptr %114, %98
   br i1 %.not16.i65, label %.loopexit, label %.lr.ph.i63, !llvm.loop !39
@@ -5504,7 +5504,7 @@ RWConflictExists.exit:                            ; preds = %.lr.ph.i, %33, %30,
 
 127:                                              ; preds = %122
   %128 = load ptr, ptr @MySerializableXact, align 8
-  %129 = getelementptr inbounds i8, ptr %128, i64 112
+  %129 = getelementptr inbounds nuw i8, ptr %128, i64 112
   %130 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %129, i32 noundef 0) #12
   br label %131
 
@@ -5513,7 +5513,7 @@ RWConflictExists.exit:                            ; preds = %.lr.ph.i, %33, %30,
   %133 = load ptr, ptr @MainLWLockArray, align 8
   %134 = getelementptr i8, ptr %133, i64 3584
   %135 = tail call zeroext i1 @LWLockAcquire(ptr noundef %134, i32 noundef 0) #12
-  %136 = getelementptr inbounds i8, ptr %2, i64 8
+  %136 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %137 = load ptr, ptr %136, align 8
   %138 = ptrtoint ptr %137 to i64
   %139 = trunc i64 %138 to i32
@@ -5525,19 +5525,19 @@ RWConflictExists.exit:                            ; preds = %.lr.ph.i, %33, %30,
   br i1 %.not51, label %166, label %144
 
 144:                                              ; preds = %131
-  %145 = getelementptr inbounds i8, ptr %.043.lcssa, i64 16
-  %146 = getelementptr inbounds i8, ptr %.043.lcssa, i64 24
+  %145 = getelementptr inbounds nuw i8, ptr %.043.lcssa, i64 16
+  %146 = getelementptr inbounds nuw i8, ptr %.043.lcssa, i64 24
   %147 = load ptr, ptr %146, align 8
   %148 = load ptr, ptr %145, align 8
-  %149 = getelementptr inbounds i8, ptr %148, i64 8
+  %149 = getelementptr inbounds nuw i8, ptr %148, i64 8
   store ptr %147, ptr %149, align 8
   %150 = load ptr, ptr %145, align 8
   store ptr %150, ptr %147, align 8
-  %151 = getelementptr inbounds i8, ptr %.043.lcssa, i64 32
-  %152 = getelementptr inbounds i8, ptr %.043.lcssa, i64 40
+  %151 = getelementptr inbounds nuw i8, ptr %.043.lcssa, i64 32
+  %152 = getelementptr inbounds nuw i8, ptr %.043.lcssa, i64 40
   %153 = load ptr, ptr %152, align 8
   %154 = load ptr, ptr %151, align 8
-  %155 = getelementptr inbounds i8, ptr %154, i64 8
+  %155 = getelementptr inbounds nuw i8, ptr %154, i64 8
   store ptr %153, ptr %155, align 8
   %156 = load ptr, ptr %151, align 8
   store ptr %156, ptr %153, align 8
@@ -5569,7 +5569,7 @@ RemoveTargetIfNoLongerUsed.exit:                  ; preds = %144, %162
 
 170:                                              ; preds = %166
   %171 = load ptr, ptr @MySerializableXact, align 8
-  %172 = getelementptr inbounds i8, ptr %171, i64 112
+  %172 = getelementptr inbounds nuw i8, ptr %171, i64 112
   call void @LWLockRelease(ptr noundef nonnull %172) #12
   br label %173
 
@@ -5593,7 +5593,7 @@ RemoveTargetIfNoLongerUsed.exit:                  ; preds = %144, %162
 define dso_local void @CheckTableForSerializableConflictIn(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca %struct.HASH_SEQ_STATUS, align 8
   %3 = load ptr, ptr @PredXact, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %5 = load i32, ptr %4, align 8
   %.not = icmp eq i32 %5, 0
   %6 = load ptr, ptr @MySerializableXact, align 8
@@ -5602,22 +5602,22 @@ define dso_local void @CheckTableForSerializableConflictIn(ptr nocapture noundef
   br i1 %or.cond, label %SerializationNeededForWrite.exit.thread, label %8
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %0, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %10 = load i32, ptr %9, align 8
   %11 = icmp ult i32 %10, 12000
   br i1 %11, label %SerializationNeededForWrite.exit.thread, label %SerializationNeededForWrite.exit
 
 SerializationNeededForWrite.exit:                 ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %0, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 114
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 114
   %15 = load i8, ptr %14, align 2
   %.not36 = icmp eq i8 %15, 116
   br i1 %.not36, label %SerializationNeededForWrite.exit.thread, label %16
 
 16:                                               ; preds = %SerializationNeededForWrite.exit
   store i1 true, ptr @MyXactDidWrite, align 1
-  %17 = getelementptr inbounds i8, ptr %0, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %18 = load i32, ptr %17, align 4
   %19 = load ptr, ptr @MainLWLockArray, align 8
   %20 = getelementptr i8, ptr %19, i64 3840
@@ -5646,7 +5646,7 @@ SerializationNeededForWrite.exit:                 ; preds = %8
 
 .lr.ph45:                                         ; preds = %27, %.backedge
   %33 = phi ptr [ %36, %.backedge ], [ %32, %27 ]
-  %34 = getelementptr inbounds i8, ptr %33, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 4
   %35 = load i32, ptr %34, align 4
   %.not27 = icmp eq i32 %35, %10
   br i1 %.not27, label %37, label %.backedge
@@ -5662,8 +5662,8 @@ SerializationNeededForWrite.exit:                 ; preds = %8
   br i1 %.not28, label %39, label %.backedge
 
 39:                                               ; preds = %37
-  %40 = getelementptr inbounds i8, ptr %33, i64 16
-  %41 = getelementptr inbounds i8, ptr %33, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %33, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %33, i64 24
   %42 = load ptr, ptr %41, align 8
   %.not29 = icmp eq ptr %42, null
   %.not304152 = icmp eq ptr %42, %40
@@ -5677,7 +5677,7 @@ SerializationNeededForWrite.exit:                 ; preds = %8
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %RWConflictExists.exit
   %43 = phi ptr [ %72, %RWConflictExists.exit ], [ %.pre51, %.lr.ph.preheader ]
   %.sroa.0.042 = phi ptr [ %.sroa.6.043, %RWConflictExists.exit ], [ %42, %.lr.ph.preheader ]
-  %.sroa.6.043.in = getelementptr inbounds i8, ptr %.sroa.0.042, i64 8
+  %.sroa.6.043.in = getelementptr inbounds nuw i8, ptr %.sroa.0.042, i64 8
   %.sroa.6.043 = load ptr, ptr %.sroa.6.043.in, align 8
   %44 = getelementptr i8, ptr %.sroa.0.042, i64 -8
   %45 = load ptr, ptr %44, align 8
@@ -5685,22 +5685,22 @@ SerializationNeededForWrite.exit:                 ; preds = %8
   br i1 %.not31, label %RWConflictExists.exit, label %46
 
 46:                                               ; preds = %.lr.ph
-  %47 = getelementptr inbounds i8, ptr %45, i64 156
+  %47 = getelementptr inbounds nuw i8, ptr %45, i64 156
   %48 = load i32, ptr %47, align 4
   %49 = and i32 %48, 8
   %.not.i = icmp eq i32 %49, 0
   br i1 %.not.i, label %50, label %.loopexit
 
 50:                                               ; preds = %46
-  %51 = getelementptr inbounds i8, ptr %43, i64 156
+  %51 = getelementptr inbounds nuw i8, ptr %43, i64 156
   %52 = load i32, ptr %51, align 4
   %53 = and i32 %52, 8
   %.not14.i = icmp eq i32 %53, 0
   br i1 %.not14.i, label %54, label %.loopexit
 
 54:                                               ; preds = %50
-  %55 = getelementptr inbounds i8, ptr %45, i64 32
-  %56 = getelementptr inbounds i8, ptr %45, i64 40
+  %55 = getelementptr inbounds nuw i8, ptr %45, i64 32
+  %56 = getelementptr inbounds nuw i8, ptr %45, i64 40
   %57 = load ptr, ptr %56, align 8
   %58 = icmp eq ptr %57, null
   %59 = icmp eq ptr %57, %55
@@ -5708,8 +5708,8 @@ SerializationNeededForWrite.exit:                 ; preds = %8
   br i1 %spec.select.i.i, label %.loopexit, label %60
 
 60:                                               ; preds = %54
-  %61 = getelementptr inbounds i8, ptr %43, i64 48
-  %62 = getelementptr inbounds i8, ptr %43, i64 56
+  %61 = getelementptr inbounds nuw i8, ptr %43, i64 48
+  %62 = getelementptr inbounds nuw i8, ptr %43, i64 56
   %63 = load ptr, ptr %62, align 8
   %64 = icmp eq ptr %63, null
   %65 = icmp eq ptr %63, %61
@@ -5718,13 +5718,13 @@ SerializationNeededForWrite.exit:                 ; preds = %8
 
 .lr.ph.i:                                         ; preds = %60, %69
   %.sroa.0.019.i = phi ptr [ %71, %69 ], [ %57, %60 ]
-  %66 = getelementptr inbounds i8, ptr %.sroa.0.019.i, i64 40
+  %66 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i, i64 40
   %67 = load ptr, ptr %66, align 8
   %68 = icmp eq ptr %67, %43
   br i1 %68, label %RWConflictExists.exit, label %69
 
 69:                                               ; preds = %.lr.ph.i
-  %70 = getelementptr inbounds i8, ptr %.sroa.0.019.i, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i, i64 8
   %71 = load ptr, ptr %70, align 8
   %.not16.i = icmp eq ptr %71, %55
   br i1 %.not16.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !39
@@ -5776,7 +5776,7 @@ define dso_local void @PreCommit_CheckForSerializationFailure() local_unnamed_ad
   %5 = getelementptr i8, ptr %4, i64 3584
   %6 = tail call zeroext i1 @LWLockAcquire(ptr noundef %5, i32 noundef 0) #12
   %7 = load ptr, ptr @MySerializableXact, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 156
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 156
   %9 = load i32, ptr %8, align 4
   %10 = and i32 %9, 2056
   %or.cond = icmp eq i32 %10, 8
@@ -5796,8 +5796,8 @@ define dso_local void @PreCommit_CheckForSerializationFailure() local_unnamed_ad
   unreachable
 
 19:                                               ; preds = %3
-  %20 = getelementptr inbounds i8, ptr %7, i64 48
-  %21 = getelementptr inbounds i8, ptr %7, i64 56
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %22 = load ptr, ptr %21, align 8
   %.not24 = icmp eq ptr %22, null
   %.not254043 = icmp eq ptr %22, %20
@@ -5808,15 +5808,15 @@ define dso_local void @PreCommit_CheckForSerializationFailure() local_unnamed_ad
   %.sroa.014.041 = phi ptr [ %55, %.loopexit ], [ %22, %19 ]
   %23 = getelementptr i8, ptr %.sroa.014.041, i64 16
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 156
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 156
   %26 = load i32, ptr %25, align 4
   %27 = and i32 %26, 9
   %or.cond34 = icmp eq i32 %27, 0
   br i1 %or.cond34, label %28, label %.loopexit
 
 28:                                               ; preds = %.lr.ph42
-  %29 = getelementptr inbounds i8, ptr %24, i64 48
-  %30 = getelementptr inbounds i8, ptr %24, i64 56
+  %29 = getelementptr inbounds nuw i8, ptr %24, i64 48
+  %30 = getelementptr inbounds nuw i8, ptr %24, i64 56
   %31 = load ptr, ptr %30, align 8
   %.not28 = icmp eq ptr %31, null
   %.not293844 = icmp eq ptr %31, %29
@@ -5831,7 +5831,7 @@ define dso_local void @PreCommit_CheckForSerializationFailure() local_unnamed_ad
   br i1 %34, label %39, label %35
 
 35:                                               ; preds = %.lr.ph
-  %36 = getelementptr inbounds i8, ptr %33, i64 156
+  %36 = getelementptr inbounds nuw i8, ptr %33, i64 156
   %37 = load i32, ptr %36, align 4
   %38 = and i32 %37, 41
   %or.cond37 = icmp eq i32 %38, 0
@@ -5861,24 +5861,24 @@ define dso_local void @PreCommit_CheckForSerializationFailure() local_unnamed_ad
   br label %.loopexit
 
 51:                                               ; preds = %35
-  %52 = getelementptr inbounds i8, ptr %.sroa.0.039, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %.sroa.0.039, i64 8
   %53 = load ptr, ptr %52, align 8
   %.not29 = icmp eq ptr %53, %29
   br i1 %.not29, label %.loopexit, label %.lr.ph, !llvm.loop !47
 
 .loopexit:                                        ; preds = %51, %28, %.lr.ph42, %49
-  %54 = getelementptr inbounds i8, ptr %.sroa.014.041, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %.sroa.014.041, i64 8
   %55 = load ptr, ptr %54, align 8
   %.not25 = icmp eq ptr %55, %20
   br i1 %.not25, label %._crit_edge, label %.lr.ph42, !llvm.loop !48
 
 ._crit_edge:                                      ; preds = %.loopexit, %19
   %56 = load ptr, ptr @PredXact, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 48
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 48
   %58 = load i64, ptr %57, align 8
   %59 = add i64 %58, 1
   store i64 %59, ptr %57, align 8
-  %60 = getelementptr inbounds i8, ptr %7, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %59, ptr %60, align 8
   %61 = load i32, ptr %8, align 4
   %62 = or i32 %61, 2
@@ -5896,25 +5896,25 @@ define dso_local void @PreCommit_CheckForSerializationFailure() local_unnamed_ad
 define dso_local void @AtPrepare_PredicateLocks() local_unnamed_addr #0 {
   %1 = alloca %struct.TwoPhasePredicateRecord, align 4
   %2 = load ptr, ptr @MySerializableXact, align 8
-  %3 = getelementptr inbounds i8, ptr %1, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = icmp eq ptr %2, null
   br i1 %4, label %23, label %5
 
 5:                                                ; preds = %0
   store i32 0, ptr %1, align 4
-  %6 = getelementptr inbounds i8, ptr %2, i64 152
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 152
   %7 = load i32, ptr %6, align 8
   store i32 %7, ptr %3, align 4
-  %8 = getelementptr inbounds i8, ptr %2, i64 156
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 156
   %9 = load i32, ptr %8, align 4
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %9, ptr %10, align 4
   call void @RegisterTwoPhaseRecord(i8 noundef zeroext 4, i16 noundef zeroext 0, ptr noundef nonnull %1, i32 noundef 24) #12
   %11 = load ptr, ptr @MainLWLockArray, align 8
   %12 = getelementptr i8, ptr %11, i64 3840
   %13 = call zeroext i1 @LWLockAcquire(ptr noundef %12, i32 noundef 1) #12
-  %14 = getelementptr inbounds i8, ptr %2, i64 64
-  %15 = getelementptr inbounds i8, ptr %2, i64 72
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
   %.not111214 = icmp eq ptr %16, %14
@@ -5928,7 +5928,7 @@ define dso_local void @AtPrepare_PredicateLocks() local_unnamed_addr #0 {
   %18 = load ptr, ptr %17, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %18, i64 16, i1 false)
   call void @RegisterTwoPhaseRecord(i8 noundef zeroext 4, i16 noundef zeroext 0, ptr noundef nonnull %1, i32 noundef 24) #12
-  %19 = getelementptr inbounds i8, ptr %.sroa.0.013, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %.sroa.0.013, i64 8
   %20 = load ptr, ptr %19, align 8
   %.not11 = icmp eq ptr %20, %14
   br i1 %.not11, label %._crit_edge, label %.lr.ph, !llvm.loop !49
@@ -5952,9 +5952,9 @@ define dso_local void @PostPrepare_PredicateLocks(i32 noundef %0) local_unnamed_
   br i1 %3, label %8, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %2, i64 160
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 160
   store i32 0, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 164
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 164
   store i32 -1, ptr %6, align 4
   %7 = load ptr, ptr @LocalPredicateLockHash, align 8
   tail call void @hash_destroy(ptr noundef %7) #12
@@ -5985,7 +5985,7 @@ define dso_local void @PredicateLockTwoPhaseFinish(i32 noundef %0, i1 noundef ze
   br i1 %11, label %15, label %12
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %8, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %14 = load ptr, ptr %13, align 8
   store ptr %14, ptr @MySerializableXact, align 8
   store i1 true, ptr @MyXactDidWrite, align 1
@@ -6012,7 +6012,7 @@ define dso_local void @predicatelock_twophase_recover(i32 noundef %0, i16 nounde
   %11 = getelementptr i8, ptr %10, i64 3584
   %12 = tail call zeroext i1 @LWLockAcquire(ptr noundef %11, i32 noundef 0) #12
   %13 = load ptr, ptr @PredXact, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   %17 = icmp eq ptr %15, %13
@@ -6020,16 +6020,16 @@ define dso_local void @predicatelock_twophase_recover(i32 noundef %0, i16 nounde
   br i1 %spec.select.i.i, label %CreatePredXact.exit.thread, label %18
 
 18:                                               ; preds = %9
-  %19 = getelementptr inbounds i8, ptr %15, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = load ptr, ptr %15, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store ptr %20, ptr %22, align 8
   %23 = load ptr, ptr %15, align 8
   store ptr %23, ptr %20, align 8
   %24 = getelementptr i8, ptr %15, i64 -96
-  %25 = getelementptr inbounds i8, ptr %13, i64 16
-  %26 = getelementptr inbounds i8, ptr %13, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, null
   br i1 %28, label %29, label %CreatePredXact.exit
@@ -6043,7 +6043,7 @@ CreatePredXact.exit:                              ; preds = %18, %29
   store ptr %25, ptr %19, align 8
   %30 = load ptr, ptr %25, align 8
   store ptr %30, ptr %15, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store ptr %15, ptr %31, align 8
   store ptr %15, ptr %25, align 8
   %.not = icmp eq ptr %24, null
@@ -6058,7 +6058,7 @@ CreatePredXact.exit.thread:                       ; preds = %9, %CreatePredXact.
   unreachable
 
 35:                                               ; preds = %CreatePredXact.exit
-  %36 = getelementptr inbounds i8, ptr %2, i64 4
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 -1, ptr %24, align 8
   %37 = getelementptr i8, ptr %15, i64 -92
   store i32 %0, ptr %37, align 4
@@ -6089,7 +6089,7 @@ CreatePredXact.exit.thread:                       ; preds = %9, %CreatePredXact.
   %50 = load i32, ptr %36, align 4
   %51 = getelementptr i8, ptr %15, i64 56
   store i32 %50, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %2, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %53 = load i32, ptr %52, align 4
   %54 = getelementptr i8, ptr %15, i64 60
   store i32 %53, ptr %54, align 4
@@ -6098,7 +6098,7 @@ CreatePredXact.exit.thread:                       ; preds = %9, %CreatePredXact.
   br i1 %.not43, label %56, label %60
 
 56:                                               ; preds = %35
-  %57 = getelementptr inbounds i8, ptr %13, i64 40
+  %57 = getelementptr inbounds nuw i8, ptr %13, i64 40
   %58 = load i32, ptr %57, align 8
   %59 = add i32 %58, 1
   store i32 %59, ptr %57, align 8
@@ -6120,10 +6120,10 @@ CreatePredXact.exit.thread:                       ; preds = %9, %CreatePredXact.
   store i32 %0, ptr %5, align 4
   %67 = load ptr, ptr @SerializableXidHash, align 8
   %68 = call ptr @hash_search(ptr noundef %67, ptr noundef nonnull %5, i32 noundef 1, ptr noundef nonnull %6) #12
-  %69 = getelementptr inbounds i8, ptr %68, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
   store ptr %24, ptr %69, align 8
   %70 = load ptr, ptr @PredXact, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 32
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 32
   %72 = load i32, ptr %71, align 8
   %.not44 = icmp eq i32 %72, 0
   br i1 %.not44, label %76, label %73
@@ -6137,9 +6137,9 @@ CreatePredXact.exit.thread:                       ; preds = %9, %CreatePredXact.
 76:                                               ; preds = %73, %60
   %77 = phi ptr [ %.pre47, %73 ], [ %70, %60 ]
   %78 = load i32, ptr %51, align 8
-  %79 = getelementptr inbounds i8, ptr %77, i64 32
+  %79 = getelementptr inbounds nuw i8, ptr %77, i64 32
   store i32 %78, ptr %79, align 8
-  %80 = getelementptr inbounds i8, ptr %77, i64 36
+  %80 = getelementptr inbounds nuw i8, ptr %77, i64 36
   store i32 1, ptr %80, align 4
   %81 = load i32, ptr %51, align 8
   %82 = load ptr, ptr @MainLWLockArray, align 8
@@ -6150,16 +6150,16 @@ CreatePredXact.exit.thread:                       ; preds = %9, %CreatePredXact.
 
 85:                                               ; preds = %76
   %86 = load ptr, ptr @serialControl, align 8
-  %87 = getelementptr inbounds i8, ptr %86, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 8
   store i32 0, ptr %87, align 4
-  %88 = getelementptr inbounds i8, ptr %86, i64 4
+  %88 = getelementptr inbounds nuw i8, ptr %86, i64 4
   store i32 0, ptr %88, align 4
   br label %SerialSetActiveSerXmin.exit
 
 89:                                               ; preds = %76
   %90 = call zeroext i1 @RecoveryInProgress() #12
   %91 = load ptr, ptr @serialControl, align 8
-  %92 = getelementptr inbounds i8, ptr %91, i64 8
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 8
   br i1 %90, label %93, label %100
 
 93:                                               ; preds = %89
@@ -6177,7 +6177,7 @@ CreatePredXact.exit.thread:                       ; preds = %9, %CreatePredXact.
 
 97:                                               ; preds = %._crit_edge.i, %93
   %98 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %91, %93 ]
-  %99 = getelementptr inbounds i8, ptr %98, i64 8
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 8
   store i32 %81, ptr %99, align 4
   br label %SerialSetActiveSerXmin.exit
 
@@ -6193,13 +6193,13 @@ SerialSetActiveSerXmin.exit:                      ; preds = %85, %95, %97, %100
 
 103:                                              ; preds = %73
   %104 = load i32, ptr %51, align 8
-  %105 = getelementptr inbounds i8, ptr %.pre47, i64 32
+  %105 = getelementptr inbounds nuw i8, ptr %.pre47, i64 32
   %106 = load i32, ptr %105, align 8
   %107 = icmp eq i32 %104, %106
   br i1 %107, label %108, label %112
 
 108:                                              ; preds = %103
-  %109 = getelementptr inbounds i8, ptr %.pre47, i64 36
+  %109 = getelementptr inbounds nuw i8, ptr %.pre47, i64 36
   %110 = load i32, ptr %109, align 4
   %111 = add i32 %110, 1
   store i32 %111, ptr %109, align 4
@@ -6212,7 +6212,7 @@ SerialSetActiveSerXmin.exit:                      ; preds = %85, %95, %97, %100
   br label %128
 
 115:                                              ; preds = %4
-  %116 = getelementptr inbounds i8, ptr %2, i64 4
+  %116 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %117 = load ptr, ptr @PredicateLockTargetHash, align 8
   %118 = tail call i32 @get_hash_value(ptr noundef %117, ptr noundef nonnull %116) #12
   %119 = load ptr, ptr @MainLWLockArray, align 8
@@ -6224,7 +6224,7 @@ SerialSetActiveSerXmin.exit:                      ; preds = %85, %95, %97, %100
   %124 = load ptr, ptr @MainLWLockArray, align 8
   %125 = getelementptr i8, ptr %124, i64 3584
   call void @LWLockRelease(ptr noundef %125) #12
-  %126 = getelementptr inbounds i8, ptr %123, i64 8
+  %126 = getelementptr inbounds nuw i8, ptr %123, i64 8
   %127 = load ptr, ptr %126, align 8
   call fastcc void @CreatePredicateLock(ptr noundef nonnull %116, i32 noundef %118, ptr noundef %127)
   br label %128
@@ -6250,7 +6250,7 @@ define internal fastcc void @CreatePredicateLock(ptr noundef %0, i32 noundef %1,
   br i1 %13, label %14, label %17
 
 14:                                               ; preds = %3
-  %15 = getelementptr inbounds i8, ptr %2, i64 112
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 112
   %16 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %15, i32 noundef 0) #12
   br label %17
 
@@ -6276,15 +6276,15 @@ define internal fastcc void @CreatePredicateLock(ptr noundef %0, i32 noundef %1,
   br i1 %28, label %32, label %29
 
 29:                                               ; preds = %26
-  %30 = getelementptr inbounds i8, ptr %20, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %20, i64 16
   store ptr %30, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %20, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store ptr %30, ptr %31, align 8
   br label %32
 
 32:                                               ; preds = %29, %26
   store ptr %20, ptr %4, align 8
-  %33 = getelementptr inbounds i8, ptr %4, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %2, ptr %33, align 8
   %34 = load ptr, ptr @PredicateLockHash, align 8
   %35 = ptrtoint ptr %2 to i64
@@ -6310,9 +6310,9 @@ define internal fastcc void @CreatePredicateLock(ptr noundef %0, i32 noundef %1,
   br i1 %47, label %68, label %48
 
 48:                                               ; preds = %45
-  %49 = getelementptr inbounds i8, ptr %20, i64 16
-  %50 = getelementptr inbounds i8, ptr %39, i64 16
-  %51 = getelementptr inbounds i8, ptr %20, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %20, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %39, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %52 = load ptr, ptr %51, align 8
   %53 = icmp eq ptr %52, null
   br i1 %53, label %54, label %dlist_push_tail.exit
@@ -6323,16 +6323,16 @@ define internal fastcc void @CreatePredicateLock(ptr noundef %0, i32 noundef %1,
   br label %dlist_push_tail.exit
 
 dlist_push_tail.exit:                             ; preds = %48, %54
-  %55 = getelementptr inbounds i8, ptr %39, i64 24
+  %55 = getelementptr inbounds nuw i8, ptr %39, i64 24
   store ptr %49, ptr %55, align 8
   %56 = load ptr, ptr %49, align 8
   store ptr %56, ptr %50, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
   store ptr %50, ptr %57, align 8
   store ptr %50, ptr %49, align 8
-  %58 = getelementptr inbounds i8, ptr %2, i64 64
-  %59 = getelementptr inbounds i8, ptr %39, i64 32
-  %60 = getelementptr inbounds i8, ptr %2, i64 72
+  %58 = getelementptr inbounds nuw i8, ptr %2, i64 64
+  %59 = getelementptr inbounds nuw i8, ptr %39, i64 32
+  %60 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %61 = load ptr, ptr %60, align 8
   %62 = icmp eq ptr %61, null
   br i1 %62, label %63, label %dlist_push_tail.exit19
@@ -6343,14 +6343,14 @@ dlist_push_tail.exit:                             ; preds = %48, %54
   br label %dlist_push_tail.exit19
 
 dlist_push_tail.exit19:                           ; preds = %dlist_push_tail.exit, %63
-  %64 = getelementptr inbounds i8, ptr %39, i64 40
+  %64 = getelementptr inbounds nuw i8, ptr %39, i64 40
   store ptr %58, ptr %64, align 8
   %65 = load ptr, ptr %58, align 8
   store ptr %65, ptr %59, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
   store ptr %59, ptr %66, align 8
   store ptr %59, ptr %58, align 8
-  %67 = getelementptr inbounds i8, ptr %39, i64 48
+  %67 = getelementptr inbounds nuw i8, ptr %39, i64 48
   store i64 -1, ptr %67, align 8
   br label %68
 
@@ -6360,7 +6360,7 @@ dlist_push_tail.exit19:                           ; preds = %dlist_push_tail.exi
   br i1 %69, label %70, label %72
 
 70:                                               ; preds = %68
-  %71 = getelementptr inbounds i8, ptr %2, i64 112
+  %71 = getelementptr inbounds nuw i8, ptr %2, i64 112
   call void @LWLockRelease(ptr noundef nonnull %71) #12
   br label %72
 
@@ -6386,9 +6386,9 @@ define dso_local void @AttachSerializableXact(ptr noundef %0) local_unnamed_addr
 
 3:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %2)
-  %4 = getelementptr inbounds i8, ptr %2, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i64 16, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i64 24, ptr %5, align 8
   %6 = load i32, ptr @max_predicate_locks_per_xact, align 4
   %7 = sext i32 %6 to i64
@@ -6415,16 +6415,16 @@ declare zeroext i1 @ProcArrayInstallImportedXmin(i32 noundef, ptr noundef) local
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc void @ReleasePredXact(ptr noundef %0) unnamed_addr #8 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 96
-  %3 = getelementptr inbounds i8, ptr %0, i64 104
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %2, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %4, ptr %6, align 8
   %7 = load ptr, ptr %2, align 8
   store ptr %7, ptr %4, align 8
   %8 = load ptr, ptr @PredXact, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %dlist_push_tail.exit
@@ -6438,7 +6438,7 @@ dlist_push_tail.exit:                             ; preds = %1, %12
   store ptr %8, ptr %3, align 8
   %13 = load ptr, ptr %8, align 8
   store ptr %13, ptr %2, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %2, ptr %14, align 8
   store ptr %2, ptr %8, align 8
   ret void
@@ -6452,9 +6452,9 @@ declare i32 @SimpleLruReadPage(ptr noundef, i64 noundef, i1 noundef zeroext, i32
 define internal fastcc void @DecrementParentLocks(ptr nocapture noundef nonnull readonly %0) unnamed_addr #0 {
   %2 = alloca %struct.PREDICATELOCKTARGETTAG, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) %0, i64 16, i1 false)
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
-  %4 = getelementptr inbounds i8, ptr %2, i64 12
-  %5 = getelementptr inbounds i8, ptr %2, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %1
@@ -6490,7 +6490,7 @@ define internal fastcc void @DecrementParentLocks(ptr nocapture noundef nonnull 
   br i1 %18, label %.backedge.backedge, label %19
 
 19:                                               ; preds = %13
-  %20 = getelementptr inbounds i8, ptr %17, i64 20
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 20
   %21 = load i32, ptr %20, align 4
   %22 = add i32 %21, -1
   %spec.select = call i32 @llvm.smax.i32(i32 %22, i32 0)
@@ -6502,7 +6502,7 @@ define internal fastcc void @DecrementParentLocks(ptr nocapture noundef nonnull 
   br label %.backedge, !llvm.loop !50
 
 24:                                               ; preds = %19
-  %25 = getelementptr inbounds i8, ptr %17, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %26 = load i8, ptr %25, align 4
   %27 = trunc i8 %26 to i1
   br i1 %27, label %.backedge.backedge, label %28

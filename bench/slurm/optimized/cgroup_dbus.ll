@@ -84,7 +84,7 @@ define range(i32 -1, 1) i32 @cgroup_dbus_attach_to_scope(i32 noundef %0, ptr nou
   br i1 %.not18, label %36, label %32
 
 32:                                               ; preds = %29
-  %33 = getelementptr inbounds i8, ptr %20, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %34 = load ptr, ptr %33, align 8
   %35 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.cgroup_dbus_attach_to_scope, ptr noundef %34) #5
   call void @dbus_error_free(ptr noundef nonnull %20) #5
@@ -145,20 +145,20 @@ define range(i32 -1, 1) i32 @cgroup_dbus_attach_to_scope(i32 noundef %0, ptr nou
   store i32 1, ptr %14, align 4
   store i64 -1, ptr %15, align 8
   store i8 40, ptr %13, align 1
-  %50 = getelementptr inbounds i8, ptr %13, i64 1
+  %50 = getelementptr inbounds nuw i8, ptr %13, i64 1
   store i8 115, ptr %50, align 1
-  %51 = getelementptr inbounds i8, ptr %13, i64 2
+  %51 = getelementptr inbounds nuw i8, ptr %13, i64 2
   store i8 118, ptr %51, align 1
-  %52 = getelementptr inbounds i8, ptr %13, i64 3
+  %52 = getelementptr inbounds nuw i8, ptr %13, i64 3
   store i8 41, ptr %52, align 1
-  %53 = getelementptr inbounds i8, ptr %13, i64 4
+  %53 = getelementptr inbounds nuw i8, ptr %13, i64 4
   store i8 0, ptr %53, align 1
   %54 = call i32 @dbus_message_iter_open_container(ptr noundef nonnull %18, i32 noundef 97, ptr noundef nonnull %13, ptr noundef nonnull %6) #5
   %.not.i = icmp eq i32 %54, 0
   br i1 %.not.i, label %112, label %55
 
 55:                                               ; preds = %49
-  %56 = getelementptr inbounds i8, ptr %6, i64 72
+  %56 = getelementptr inbounds nuw i8, ptr %6, i64 72
   %57 = call i32 @dbus_message_iter_open_container(ptr noundef nonnull %6, i32 noundef 114, ptr noundef null, ptr noundef nonnull %56) #5
   %.not5.i = icmp eq i32 %57, 0
   br i1 %.not5.i, label %109, label %58
@@ -169,7 +169,7 @@ define range(i32 -1, 1) i32 @cgroup_dbus_attach_to_scope(i32 noundef %0, ptr nou
   br i1 %.not6.i, label %109, label %60
 
 60:                                               ; preds = %58
-  %61 = getelementptr inbounds i8, ptr %6, i64 144
+  %61 = getelementptr inbounds nuw i8, ptr %6, i64 144
   %62 = call i32 @dbus_message_iter_open_container(ptr noundef nonnull %56, i32 noundef 118, ptr noundef nonnull %10, ptr noundef nonnull %61) #5
   %.not7.i = icmp eq i32 %62, 0
   br i1 %.not7.i, label %109, label %63
@@ -177,8 +177,8 @@ define range(i32 -1, 1) i32 @cgroup_dbus_attach_to_scope(i32 noundef %0, ptr nou
 63:                                               ; preds = %60
   %64 = load i8, ptr %10, align 1
   %65 = sext i8 %64 to i32
-  %66 = getelementptr inbounds i8, ptr %10, i64 1
-  %67 = getelementptr inbounds i8, ptr %6, i64 216
+  %66 = getelementptr inbounds nuw i8, ptr %10, i64 1
+  %67 = getelementptr inbounds nuw i8, ptr %6, i64 216
   %68 = call i32 @dbus_message_iter_open_container(ptr noundef nonnull %61, i32 noundef %65, ptr noundef nonnull %66, ptr noundef nonnull %67) #5
   %.not8.i = icmp eq i32 %68, 0
   br i1 %.not8.i, label %109, label %69
@@ -275,8 +275,8 @@ define range(i32 -1, 1) i32 @cgroup_dbus_attach_to_scope(i32 noundef %0, ptr nou
   br i1 %.not25.i, label %109, label %115
 
 109:                                              ; preds = %107, %105, %103, %99, %97, %95, %93, %91, %89, %85, %83, %81, %79, %77, %75, %73, %69, %63, %60, %58, %55
-  %110 = getelementptr inbounds i8, ptr %6, i64 144
-  %111 = getelementptr inbounds i8, ptr %6, i64 216
+  %110 = getelementptr inbounds nuw i8, ptr %6, i64 144
+  %111 = getelementptr inbounds nuw i8, ptr %6, i64 216
   call void @dbus_message_iter_abandon_container_if_open(ptr noundef nonnull %110, ptr noundef nonnull %111) #5
   call void @dbus_message_iter_abandon_container_if_open(ptr noundef nonnull %56, ptr noundef nonnull %110) #5
   call void @dbus_message_iter_abandon_container_if_open(ptr noundef nonnull %6, ptr noundef nonnull %56) #5
@@ -315,21 +315,21 @@ define range(i32 -1, 1) i32 @cgroup_dbus_attach_to_scope(i32 noundef %0, ptr nou
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %4, i8 0, i64 72, i1 false)
   store i8 40, ptr %3, align 1
-  %116 = getelementptr inbounds i8, ptr %3, i64 1
+  %116 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 115, ptr %116, align 1
-  %117 = getelementptr inbounds i8, ptr %3, i64 2
+  %117 = getelementptr inbounds nuw i8, ptr %3, i64 2
   store i8 97, ptr %117, align 1
-  %118 = getelementptr inbounds i8, ptr %3, i64 3
+  %118 = getelementptr inbounds nuw i8, ptr %3, i64 3
   store i8 40, ptr %118, align 1
-  %119 = getelementptr inbounds i8, ptr %3, i64 4
+  %119 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i8 115, ptr %119, align 1
-  %120 = getelementptr inbounds i8, ptr %3, i64 5
+  %120 = getelementptr inbounds nuw i8, ptr %3, i64 5
   store i8 118, ptr %120, align 1
-  %121 = getelementptr inbounds i8, ptr %3, i64 6
+  %121 = getelementptr inbounds nuw i8, ptr %3, i64 6
   store i8 41, ptr %121, align 1
-  %122 = getelementptr inbounds i8, ptr %3, i64 7
+  %122 = getelementptr inbounds nuw i8, ptr %3, i64 7
   store i8 41, ptr %122, align 1
-  %123 = getelementptr inbounds i8, ptr %3, i64 8
+  %123 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i8 0, ptr %123, align 1
   %124 = call i32 @dbus_message_iter_open_container(ptr noundef nonnull %18, i32 noundef 97, ptr noundef nonnull %3, ptr noundef nonnull %4) #5
   %.not.i28 = icmp eq i32 %124, 0

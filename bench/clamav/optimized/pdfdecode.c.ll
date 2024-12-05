@@ -96,7 +96,7 @@ define range(i64 0, 4294967296) i64 @pdf_decodestream(ptr noundef %0, ptr nounde
   br i1 %or.cond5, label %23, label %28
 
 23:                                               ; preds = %19
-  %24 = getelementptr inbounds i8, ptr %1, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %25 = load i32, ptr %24, align 8
   %26 = lshr i32 %25, 8
   %27 = and i32 %25, 255
@@ -118,11 +118,11 @@ define range(i64 0, 4294967296) i64 @pdf_decodestream(ptr noundef %0, ptr nounde
   %.not69 = icmp ne i32 %5, 0
   %spec.select = zext i1 %.not69 to i32
   store i32 %spec.select, ptr %29, align 8
-  %32 = getelementptr inbounds i8, ptr %29, i64 4
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 4
   store i32 0, ptr %32, align 4
   %33 = zext i32 %4 to i64
   %34 = tail call ptr @cli_max_malloc(i64 noundef %33) #10
-  %35 = getelementptr inbounds i8, ptr %29, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %29, i64 16
   store ptr %34, ptr %35, align 8
   %.not70 = icmp eq ptr %34, null
   br i1 %.not70, label %.thread277, label %36
@@ -133,21 +133,21 @@ define range(i64 0, 4294967296) i64 @pdf_decodestream(ptr noundef %0, ptr nounde
 
 36:                                               ; preds = %31
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %34, ptr nonnull align 1 %3, i64 %33, i1 false)
-  %37 = getelementptr inbounds i8, ptr %29, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store i32 %4, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %1, i64 28
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %39 = load i32, ptr %38, align 4
   %40 = zext i32 %39 to i64
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1, i64 noundef %40) #10
   store i32 0, ptr %7, align 4
-  %41 = getelementptr inbounds i8, ptr %0, i64 12
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %42 = load i32, ptr %41, align 4
   %43 = and i32 %42, 524288
   %.not.i = icmp eq i32 %43, 0
   br i1 %.not.i, label %58, label %44
 
 44:                                               ; preds = %36
-  %45 = getelementptr inbounds i8, ptr %1, i64 20
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %46 = load i32, ptr %45, align 4
   %47 = and i32 %46, 4096
   %.not125.i = icmp eq i32 %47, 0
@@ -165,7 +165,7 @@ define range(i64 0, 4294967296) i64 @pdf_decodestream(ptr noundef %0, ptr nounde
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14)
   store i64 %33, ptr %14, align 8
   %51 = tail call i32 @get_enc_method(ptr noundef nonnull %0, ptr noundef nonnull %1) #10
-  %52 = getelementptr inbounds i8, ptr %1, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %53 = load i32, ptr %52, align 8
   %54 = call ptr @decrypt_any(ptr noundef nonnull %0, i32 noundef %53, ptr noundef nonnull %34, ptr noundef nonnull %14, i32 noundef %51) #10
   %.not41.i.i = icmp eq ptr %54, null
@@ -196,29 +196,29 @@ filter_decrypt.exit.thread.i:                     ; preds = %50
   br i1 %.not293.i, label %.loopexit.ithread-pre-split, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %58
-  %62 = getelementptr inbounds i8, ptr %1, i64 32
-  %63 = getelementptr inbounds i8, ptr %0, i64 80
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %.not123.i.i = icmp eq ptr %2, null
-  %64 = getelementptr inbounds i8, ptr %10, i64 8
-  %65 = getelementptr inbounds i8, ptr %10, i64 16
-  %66 = getelementptr inbounds i8, ptr %10, i64 24
-  %67 = getelementptr inbounds i8, ptr %10, i64 40
-  %68 = getelementptr inbounds i8, ptr %10, i64 32
-  %69 = getelementptr inbounds i8, ptr %1, i64 16
-  %70 = getelementptr inbounds i8, ptr %0, i64 32
-  %71 = getelementptr inbounds i8, ptr %0, i64 40
-  %72 = getelementptr inbounds i8, ptr %1, i64 20
-  %73 = getelementptr inbounds i8, ptr %13, i64 8
-  %74 = getelementptr inbounds i8, ptr %13, i64 24
-  %75 = getelementptr inbounds i8, ptr %13, i64 32
-  %76 = getelementptr inbounds i8, ptr %13, i64 48
+  %64 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  %67 = getelementptr inbounds nuw i8, ptr %10, i64 40
+  %68 = getelementptr inbounds nuw i8, ptr %10, i64 32
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %72 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %73 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %13, i64 24
+  %75 = getelementptr inbounds nuw i8, ptr %13, i64 32
+  %76 = getelementptr inbounds nuw i8, ptr %13, i64 48
   br label %77
 
 77:                                               ; preds = %575, %.lr.ph.i
   %78 = phi i32 [ %59, %.lr.ph.i ], [ %568, %575 ]
   %79 = phi ptr [ %60, %.lr.ph.i ], [ %566, %575 ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %575 ]
-  %80 = getelementptr inbounds [64 x i32], ptr %62, i64 0, i64 %indvars.iv.i
+  %80 = getelementptr inbounds nuw [64 x i32], ptr %62, i64 0, i64 %indvars.iv.i
   %81 = load i32, ptr %80, align 4
   switch i32 %81, label %565 [
     i32 4, label %82
@@ -268,7 +268,7 @@ filter_decrypt.exit.thread.i:                     ; preds = %50
   %.084124.i.i = phi i32 [ %.286.i.i, %158 ], [ 0, %93 ]
   %.087123.i.i = phi ptr [ %.188.i.i, %158 ], [ %86, %93 ]
   %94 = add i32 %.080126.i.i, -1
-  %95 = getelementptr inbounds i8, ptr %.082125.i.i, i64 1
+  %95 = getelementptr inbounds nuw i8, ptr %.082125.i.i, i64 1
   %96 = load i8, ptr %.082125.i.i, align 1
   %97 = zext i8 %96 to i32
   %98 = icmp eq i8 %96, 126
@@ -299,18 +299,18 @@ filter_decrypt.exit.thread.i:                     ; preds = %50
 111:                                              ; preds = %105
   %112 = lshr i64 %108, 24
   %113 = trunc i64 %112 to i8
-  %114 = getelementptr inbounds i8, ptr %.087123.i.i, i64 1
+  %114 = getelementptr inbounds nuw i8, ptr %.087123.i.i, i64 1
   store i8 %113, ptr %.087123.i.i, align 1
   %115 = lshr i64 %108, 16
   %116 = trunc i64 %115 to i8
-  %117 = getelementptr inbounds i8, ptr %.087123.i.i, i64 2
+  %117 = getelementptr inbounds nuw i8, ptr %.087123.i.i, i64 2
   store i8 %116, ptr %114, align 1
   %118 = lshr i64 %108, 8
   %119 = trunc i64 %118 to i8
-  %120 = getelementptr inbounds i8, ptr %.087123.i.i, i64 3
+  %120 = getelementptr inbounds nuw i8, ptr %.087123.i.i, i64 3
   store i8 %119, ptr %117, align 1
   %121 = trunc i64 %108 to i8
-  %122 = getelementptr inbounds i8, ptr %.087123.i.i, i64 4
+  %122 = getelementptr inbounds nuw i8, ptr %.087123.i.i, i64 4
   store i8 %121, ptr %120, align 1
   %123 = add i32 %.084124.i.i, 4
   br label %158
@@ -330,7 +330,7 @@ filter_decrypt.exit.thread.i:                     ; preds = %50
   br label %163
 
 127:                                              ; preds = %125
-  %128 = getelementptr inbounds i8, ptr %.087123.i.i, i64 4
+  %128 = getelementptr inbounds nuw i8, ptr %.087123.i.i, i64 4
   %129 = add i32 %.084124.i.i, 4
   store i32 0, ptr %.087123.i.i, align 1
   br label %158
@@ -381,7 +381,7 @@ filter_decrypt.exit.thread.i:                     ; preds = %50
   %142 = sub nsw i64 24, %141
   %143 = lshr i64 %.3.i.i, %142
   %144 = trunc i64 %143 to i8
-  %145 = getelementptr inbounds i8, ptr %.289133.i.i, i64 1
+  %145 = getelementptr inbounds nuw i8, ptr %.289133.i.i, i64 1
   store i8 %144, ptr %.289133.i.i, align 1
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond159.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
@@ -395,7 +395,7 @@ filter_decrypt.exit.thread.i:                     ; preds = %50
   %148 = tail call ptr @__ctype_b_loc() #12
   %149 = load ptr, ptr %148, align 8
   %150 = zext nneg i32 %.074.i.i to i64
-  %151 = getelementptr inbounds i16, ptr %149, i64 %150
+  %151 = getelementptr inbounds nuw i16, ptr %149, i64 %150
   %152 = load i16, ptr %151, align 2
   %153 = and i16 %152, 8192
   %.not96.i.i = icmp eq i16 %153, 0
@@ -468,7 +468,7 @@ filter_decrypt.exit.thread.i:                     ; preds = %50
   %.09371.i.i = phi i32 [ %.194.i.i, %242 ], [ 0, %.preheader.i141.i ]
   %175 = add nuw i32 %.08174.i.i, 1
   %176 = zext i32 %.08174.i.i to i64
-  %177 = getelementptr inbounds i8, ptr %79, i64 %176
+  %177 = getelementptr inbounds nuw i8, ptr %79, i64 %176
   %178 = load i8, ptr %177, align 1
   %179 = zext i8 %178 to i32
   %180 = icmp sgt i8 %178, -1
@@ -513,9 +513,9 @@ filter_decrypt.exit.thread.i:                     ; preds = %50
   %.190.i.i = phi i32 [ %.08972.i.i, %189 ], [ %194, %197 ]
   %.185.i.i = phi ptr [ %.08473.i.i, %189 ], [ %198, %197 ]
   %201 = zext i32 %.09371.i.i to i64
-  %202 = getelementptr inbounds i8, ptr %.185.i.i, i64 %201
+  %202 = getelementptr inbounds nuw i8, ptr %.185.i.i, i64 %201
   %203 = zext i32 %175 to i64
-  %204 = getelementptr inbounds i8, ptr %79, i64 %203
+  %204 = getelementptr inbounds nuw i8, ptr %79, i64 %203
   %205 = zext nneg i32 %182 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %202, ptr noundef nonnull align 1 dereferenceable(1) %204, i64 %205, i1 false)
   br label %242
@@ -570,9 +570,9 @@ filter_decrypt.exit.thread.i:                     ; preds = %50
   %.392.i.i = phi i32 [ %.08972.i.i, %216 ], [ %223, %227 ]
   %.387.i.i = phi ptr [ %.08473.i.i, %216 ], [ %228, %227 ]
   %231 = zext i32 %.09371.i.i to i64
-  %232 = getelementptr inbounds i8, ptr %.387.i.i, i64 %231
+  %232 = getelementptr inbounds nuw i8, ptr %.387.i.i, i64 %231
   %233 = zext i32 %175 to i64
-  %234 = getelementptr inbounds i8, ptr %79, i64 %233
+  %234 = getelementptr inbounds nuw i8, ptr %79, i64 %233
   %235 = load i8, ptr %234, align 1
   %236 = zext nneg i32 %217 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %232, i8 %235, i64 %236, i1 false)
@@ -654,7 +654,7 @@ filter_decrypt.exit.thread.i:                     ; preds = %50
   br i1 %257, label %258, label %261
 
 258:                                              ; preds = %255
-  %259 = getelementptr inbounds i8, ptr %79, i64 1
+  %259 = getelementptr inbounds nuw i8, ptr %79, i64 1
   %260 = add i32 %78, -1
   call void @pdfobj_flag(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef 7) #10
   %.not.i151.i = icmp eq i32 %260, 0
@@ -720,7 +720,7 @@ filter_decrypt.exit.thread.i:                     ; preds = %50
 276:                                              ; preds = %275, %.lr.ph.i.i.i, %.lr.ph.i.i.i
   %.1.i.i.i = phi i32 [ 0, %275 ], [ 1, %.lr.ph.i.i.i ], [ 1, %.lr.ph.i.i.i ]
   %277 = add nuw i32 %.0812.i.i.i, 1
-  %278 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 1
+  %278 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 1
   %exitcond.not.i.i.i = icmp eq i32 %277, %.080.i.i
   br i1 %exitcond.not.i.i.i, label %decode_nextlinestart.exit.i.i, label %.lr.ph.i.i.i
 
@@ -798,7 +798,7 @@ decode_nextlinestart.exit.thread.i.i:             ; preds = %275, %decode_nextli
 
 305:                                              ; preds = %302
   %306 = zext i32 %.08445.i.i to i64
-  %307 = getelementptr inbounds i8, ptr %303, i64 %306
+  %307 = getelementptr inbounds nuw i8, ptr %303, i64 %306
   store ptr %307, ptr %74, align 8
   store i32 262144, ptr %75, align 8
   %308 = add i32 %.08644.i.i, 262144
@@ -965,7 +965,7 @@ filter_flatedecode.exit.i:                        ; preds = %.thread14.i.i, %.th
   %.03347.i.i = phi i32 [ %.1.i.i, %381 ], [ 0, %.preheader.i153.i ]
   %.03446.i.i = phi i32 [ %382, %381 ], [ 0, %.preheader.i153.i ]
   %368 = zext i32 %.03446.i.i to i64
-  %369 = getelementptr inbounds i8, ptr %79, i64 %368
+  %369 = getelementptr inbounds nuw i8, ptr %79, i64 %368
   %370 = load i8, ptr %369, align 1
   switch i8 %370, label %371 [
     i8 32, label %381
@@ -974,7 +974,7 @@ filter_flatedecode.exit.i:                        ; preds = %.thread14.i.i, %.th
 
 371:                                              ; preds = %.lr.ph.i155.i
   %372 = zext i32 %.03347.i.i to i64
-  %373 = getelementptr inbounds i8, ptr %364, i64 %372
+  %373 = getelementptr inbounds nuw i8, ptr %364, i64 %372
   %374 = call i32 @cli_hex2str_to(ptr noundef nonnull %369, ptr noundef nonnull %373, i64 noundef 2) #10
   %375 = icmp eq i32 %374, -1
   br i1 %375, label %376, label %379
@@ -1045,7 +1045,7 @@ filter_flatedecode.exit.i:                        ; preds = %.thread14.i.i, %.th
 .lr.ph.i158.i:                                    ; preds = %.preheader.i157.i, %419
   %.045.i.i = phi ptr [ %.0.i159.i, %419 ], [ %.042.i.i, %.preheader.i157.i ]
   %.144.i.i = phi i32 [ %.2.i.i, %419 ], [ 2, %.preheader.i157.i ]
-  %397 = getelementptr inbounds i8, ptr %.045.i.i, i64 24
+  %397 = getelementptr inbounds nuw i8, ptr %.045.i.i, i64 24
   %398 = load i32, ptr %397, align 8
   %399 = icmp eq i32 %398, 1
   br i1 %399, label %400, label %419
@@ -1057,7 +1057,7 @@ filter_flatedecode.exit.i:                        ; preds = %.thread14.i.i, %.th
   br i1 %.not37.i.i, label %403, label %407
 
 403:                                              ; preds = %400
-  %404 = getelementptr inbounds i8, ptr %.045.i.i, i64 8
+  %404 = getelementptr inbounds nuw i8, ptr %.045.i.i, i64 8
   %405 = load ptr, ptr %404, align 8
   %.not38.i.i = icmp eq ptr %405, null
   br i1 %.not38.i.i, label %419, label %406
@@ -1072,7 +1072,7 @@ filter_flatedecode.exit.i:                        ; preds = %.thread14.i.i, %.th
   br i1 %.not39.i.i, label %409, label %419
 
 409:                                              ; preds = %407
-  %410 = getelementptr inbounds i8, ptr %.045.i.i, i64 8
+  %410 = getelementptr inbounds nuw i8, ptr %.045.i.i, i64 8
   %411 = load ptr, ptr %410, align 8
   %.not40.i.i = icmp eq ptr %411, null
   br i1 %.not40.i.i, label %413, label %412
@@ -1092,7 +1092,7 @@ filter_flatedecode.exit.i:                        ; preds = %.thread14.i.i, %.th
 
 419:                                              ; preds = %413, %407, %406, %403, %.lr.ph.i158.i
   %.2.i.i = phi i32 [ %.144.i.i, %407 ], [ %418, %413 ], [ %.144.i.i, %406 ], [ %.144.i.i, %403 ], [ %.144.i.i, %.lr.ph.i158.i ]
-  %420 = getelementptr inbounds i8, ptr %.045.i.i, i64 40
+  %420 = getelementptr inbounds nuw i8, ptr %.045.i.i, i64 40
   %.0.i159.i = load ptr, ptr %420, align 8
   %.not36.i.i = icmp eq ptr %.0.i159.i, null
   br i1 %.not36.i.i, label %.loopexit.i160.i, label %.lr.ph.i158.i
@@ -1134,9 +1134,9 @@ filter_decrypt.exit164.i:                         ; preds = %424, %423
   br i1 %.not.i165.i, label %438, label %432
 
 432:                                              ; preds = %430
-  %433 = getelementptr inbounds i8, ptr %431, i64 120
+  %433 = getelementptr inbounds nuw i8, ptr %431, i64 120
   %434 = load ptr, ptr %433, align 8
-  %435 = getelementptr inbounds i8, ptr %434, i64 24
+  %435 = getelementptr inbounds nuw i8, ptr %434, i64 24
   %436 = load i32, ptr %435, align 4
   %437 = and i32 %436, 1024
   %.not122.i.i = icmp eq i32 %437, 0
@@ -1153,7 +1153,7 @@ filter_decrypt.exit164.i:                         ; preds = %424, %423
 .lr.ph.i167.i:                                    ; preds = %.preheader.i166.i, %452
   %.093183.i.i = phi ptr [ %.093.i.i, %452 ], [ %.093180.i.i, %.preheader.i166.i ]
   %.1100182.i.i = phi i32 [ %.2101.i.i, %452 ], [ 1, %.preheader.i166.i ]
-  %439 = getelementptr inbounds i8, ptr %.093183.i.i, i64 24
+  %439 = getelementptr inbounds nuw i8, ptr %.093183.i.i, i64 24
   %440 = load i32, ptr %439, align 8
   %441 = icmp eq i32 %440, 1
   br i1 %441, label %442, label %452
@@ -1165,7 +1165,7 @@ filter_decrypt.exit164.i:                         ; preds = %424, %423
   br i1 %.not135.i.i, label %445, label %452
 
 445:                                              ; preds = %442
-  %446 = getelementptr inbounds i8, ptr %.093183.i.i, i64 8
+  %446 = getelementptr inbounds nuw i8, ptr %.093183.i.i, i64 8
   %447 = load ptr, ptr %446, align 8
   %.not136.i.i = icmp eq ptr %447, null
   br i1 %.not136.i.i, label %452, label %448
@@ -1181,7 +1181,7 @@ filter_decrypt.exit164.i:                         ; preds = %424, %423
 
 452:                                              ; preds = %448, %445, %442, %.lr.ph.i167.i
   %.2101.i.i = phi i32 [ %.1100182.i.i, %442 ], [ %.1100182.i.i, %445 ], [ %.1100182.i.i, %.lr.ph.i167.i ], [ %spec.select.i190.i, %448 ]
-  %453 = getelementptr inbounds i8, ptr %.093183.i.i, i64 40
+  %453 = getelementptr inbounds nuw i8, ptr %.093183.i.i, i64 40
   %.093.i.i = load ptr, ptr %453, align 8
   %.not124.i.i = icmp eq ptr %.093.i.i, null
   br i1 %.not124.i.i, label %.loopexit.loopexit.i.i, label %.lr.ph.i167.i
@@ -1197,7 +1197,7 @@ filter_decrypt.exit164.i:                         ; preds = %424, %423
   br i1 %456, label %457, label %460
 
 457:                                              ; preds = %.loopexit.i168.i
-  %458 = getelementptr inbounds i8, ptr %79, i64 1
+  %458 = getelementptr inbounds nuw i8, ptr %79, i64 1
   %459 = add i32 %78, -1
   call void @pdfobj_flag(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef 7) #10
   %.not125.i.i = icmp eq i32 %459, 0
@@ -1270,7 +1270,7 @@ filter_decrypt.exit164.i:                         ; preds = %424, %423
 477:                                              ; preds = %476, %.lr.ph.i.i180.i, %.lr.ph.i.i180.i
   %.1.i.i184.i = phi i32 [ 0, %476 ], [ 1, %.lr.ph.i.i180.i ], [ 1, %.lr.ph.i.i180.i ]
   %478 = add nuw i32 %.0812.i.i182.i, 1
-  %479 = getelementptr inbounds i8, ptr %.0911.i.i183.i, i64 1
+  %479 = getelementptr inbounds nuw i8, ptr %.0911.i.i183.i, i64 1
   %exitcond.not.i.i185.i = icmp eq i32 %478, %.0102.i.i
   br i1 %exitcond.not.i.i185.i, label %decode_nextlinestart.exit.i186.i, label %.lr.ph.i.i180.i
 
@@ -1348,7 +1348,7 @@ decode_nextlinestart.exit.thread.i187.i:          ; preds = %476, %decode_nextli
 
 506:                                              ; preds = %503
   %507 = zext i32 %.0106185.i.i to i64
-  %508 = getelementptr inbounds i8, ptr %504, i64 %507
+  %508 = getelementptr inbounds nuw i8, ptr %504, i64 %507
   store ptr %508, ptr %65, align 8
   store i32 262144, ptr %66, align 8
   %509 = add i32 %.0108184.i.i, 262144
@@ -1580,7 +1580,7 @@ filter_ascii85decode.exit.i:                      ; preds = %filter_ascii85decod
   br i1 %or.cond381, label %594, label %584
 
 584:                                              ; preds = %.loopexit.i
-  %585 = getelementptr inbounds i8, ptr %0, i64 80
+  %585 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %586 = load ptr, ptr %585, align 8
   %587 = load i32, ptr %37, align 8
   %588 = zext i32 %587 to i64
@@ -1608,14 +1608,14 @@ filter_ascii85decode.exit.i:                      ; preds = %filter_ascii85decod
   br i1 %597, label %598, label %pdf_decodestream_internal.exit
 
 598:                                              ; preds = %595
-  %599 = getelementptr inbounds i8, ptr %0, i64 8
+  %599 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %600 = load i32, ptr %599, align 8
   %601 = load ptr, ptr %35, align 8
-  %602 = getelementptr inbounds i8, ptr %8, i64 24
+  %602 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr %601, ptr %602, align 8
   %603 = load i32, ptr %37, align 8
   %604 = zext i32 %603 to i64
-  %605 = getelementptr inbounds i8, ptr %8, i64 32
+  %605 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store i64 %604, ptr %605, align 8
   store ptr null, ptr %35, align 8
   store i32 0, ptr %37, align 8
@@ -1657,7 +1657,7 @@ pdf_decodestream_internal.exit:                   ; preds = %pdf_decodestream_in
 
 617:                                              ; preds = %.thread, %615
   %.0109.i77275 = phi i64 [ 0, %.thread ], [ %.1110.i, %615 ]
-  %618 = getelementptr inbounds i8, ptr %0, i64 80
+  %618 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %619 = load ptr, ptr %618, align 8
   %620 = call i32 @cli_checklimits(ptr noundef nonnull @.str.2, ptr noundef %619, i64 noundef %33, i64 noundef 0, i64 noundef 0) #10
   %.not71 = icmp eq i32 %620, 0

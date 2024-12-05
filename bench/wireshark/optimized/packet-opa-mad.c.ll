@@ -4464,21 +4464,21 @@ define internal i32 @dissect_opa_mad(ptr noundef %0, ptr noundef %1, ptr noundef
   %8 = alloca %struct._RMPP, align 4
   %9 = alloca i32, align 4
   store i32 0, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %1, i64 360
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 360
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i32 @proto_is_frame_protocol(ptr noundef %11, ptr noundef nonnull @.str.2248) #6
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load ptr, ptr %13, align 8
   tail call void @col_set_str(ptr noundef %14, i32 noundef 34, ptr noundef nonnull @.str.2249) #6
   %15 = load ptr, ptr %13, align 8
   tail call void @col_clear_fence(ptr noundef %15, i32 noundef 25) #6
-  %16 = getelementptr inbounds i8, ptr %1, i64 284
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %17 = load i32, ptr %16, align 4
   %switch = icmp ult i32 %17, 2
   br i1 %switch, label %25, label %18
 
 18:                                               ; preds = %4
-  %19 = getelementptr inbounds i8, ptr %1, i64 288
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %20 = load i32, ptr %19, align 8
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %25, label %22
@@ -4508,7 +4508,7 @@ define internal i32 @dissect_opa_mad(ptr noundef %0, ptr noundef %1, ptr noundef
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %8)
   call fastcc void @parse_MAD_Common(ptr noundef %2, ptr noundef nonnull %1, ptr noundef %0, ptr noundef nonnull %9, ptr noundef %7)
   %34 = load ptr, ptr @global_mad_vendor_class, align 8
-  %35 = getelementptr inbounds i8, ptr %7, i64 1
+  %35 = getelementptr inbounds nuw i8, ptr %7, i64 1
   %36 = load i8, ptr %35, align 1
   %37 = zext i8 %36 to i32
   %38 = tail call i32 @value_is_in_range(ptr noundef %34, i32 noundef %37) #6
@@ -4529,7 +4529,7 @@ define internal i32 @dissect_opa_mad(ptr noundef %0, ptr noundef %1, ptr noundef
 44:                                               ; preds = %42, %39, %33
   %45 = load i32, ptr @pref_parse_on_mad_status_error, align 4
   %46 = icmp eq i32 %45, 0
-  %47 = getelementptr inbounds i8, ptr %7, i64 4
+  %47 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %48 = load i16, ptr %47, align 4
   %49 = icmp ne i16 %48, 0
   %or.cond.i = select i1 %46, i1 %49, i1 false
@@ -4541,7 +4541,7 @@ define internal i32 @dissect_opa_mad(ptr noundef %0, ptr noundef %1, ptr noundef
   %52 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %51, ptr noundef %0, i32 noundef %.pre, i32 noundef -1, i32 noundef 0) #6
   %53 = load ptr, ptr %13, align 8
   tail call void @col_append_str(ptr noundef %53, i32 noundef 25, ptr noundef nonnull @.str.2250) #6
-  %54 = getelementptr inbounds i8, ptr %7, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %55 = load i16, ptr %54, align 8
   %56 = zext i16 %55 to i32
   %57 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef null, ptr noundef nonnull @ei_opa_mad_no_attribute_dissector, ptr noundef nonnull @.str.2251, i32 noundef %56) #6
@@ -4567,7 +4567,7 @@ parse_VENDOR_MANAGEMENT.exit:                     ; preds = %42, %.sink.split.i
   call fastcc void @parse_MAD_Common(ptr noundef %2, ptr noundef nonnull %1, ptr noundef %0, ptr noundef nonnull %9, ptr noundef %6)
   %63 = load i32, ptr @pref_parse_on_mad_status_error, align 4
   %64 = icmp eq i32 %63, 0
-  %65 = getelementptr inbounds i8, ptr %6, i64 4
+  %65 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %66 = load i16, ptr %65, align 4
   %67 = icmp ne i16 %66, 0
   %or.cond.i68 = select i1 %64, i1 %67, i1 false
@@ -4579,7 +4579,7 @@ parse_VENDOR_MANAGEMENT.exit:                     ; preds = %42, %.sink.split.i
   %70 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %69, ptr noundef %0, i32 noundef %.pre70, i32 noundef -1, i32 noundef 0) #6
   %71 = load ptr, ptr %13, align 8
   tail call void @col_append_str(ptr noundef %71, i32 noundef 25, ptr noundef nonnull @.str.2265) #6
-  %72 = getelementptr inbounds i8, ptr %6, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %73 = load i16, ptr %72, align 8
   %74 = zext i16 %73 to i32
   %75 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef null, ptr noundef nonnull @ei_opa_mad_no_attribute_dissector, ptr noundef nonnull @.str.2251, i32 noundef %74) #6
@@ -4601,7 +4601,7 @@ parse_APPLICATION_MANAGEMENT.exit:                ; preds = %62, %68
   call fastcc void @parse_MAD_Common(ptr noundef %2, ptr noundef nonnull %1, ptr noundef %0, ptr noundef nonnull %9, ptr noundef %5)
   %81 = load i32, ptr @pref_parse_on_mad_status_error, align 4
   %82 = icmp eq i32 %81, 0
-  %83 = getelementptr inbounds i8, ptr %5, i64 4
+  %83 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %84 = load i16, ptr %83, align 4
   %85 = icmp ne i16 %84, 0
   %or.cond.i69 = select i1 %82, i1 %85, i1 false
@@ -4613,7 +4613,7 @@ parse_APPLICATION_MANAGEMENT.exit:                ; preds = %62, %68
   %88 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %87, ptr noundef %0, i32 noundef %.pre71, i32 noundef -1, i32 noundef 0) #6
   %89 = load ptr, ptr %13, align 8
   tail call void @col_append_str(ptr noundef %89, i32 noundef 25, ptr noundef nonnull @.str.2266) #6
-  %90 = getelementptr inbounds i8, ptr %5, i64 16
+  %90 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %91 = load i16, ptr %90, align 8
   %92 = zext i16 %91 to i32
   %93 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef null, ptr noundef nonnull @ei_opa_mad_no_attribute_dissector, ptr noundef nonnull @.str.2251, i32 noundef %92) #6
@@ -4762,15 +4762,15 @@ define internal fastcc void @parse_SUBN_LID_ROUTED(ptr noundef %0, ptr noundef %
   %13 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %12, ptr noundef %2, i32 noundef %7, i32 noundef 8, i32 noundef 0) #6
   %14 = add i32 %7, 8
   store i32 %14, ptr %6, align 4
-  %15 = getelementptr inbounds i8, ptr %5, i64 3
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 3
   %.val = load i8, ptr %15, align 1
   %16 = zext i8 %.val to i32
   %17 = tail call ptr @val_to_str_const(i32 noundef %16, ptr noundef nonnull @SUBM_Methods, ptr noundef nonnull @.str.2267) #6
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %9, ptr noundef nonnull @.str.2257, ptr noundef %17) #6
-  %18 = getelementptr inbounds i8, ptr %1, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %19 = load ptr, ptr %18, align 8
   tail call void @col_append_str(ptr noundef %19, i32 noundef 25, ptr noundef %17) #6
-  %20 = getelementptr inbounds i8, ptr %5, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %.val26 = load i16, ptr %20, align 8
   %21 = zext i16 %.val26 to i32
   %22 = tail call ptr @val_to_str_const(i32 noundef %21, ptr noundef nonnull @SUBM_Attributes, ptr noundef nonnull @.str.2273) #6
@@ -4781,7 +4781,7 @@ define internal fastcc void @parse_SUBN_LID_ROUTED(ptr noundef %0, ptr noundef %
   store i32 %14, ptr %3, align 4
   %25 = load i32, ptr @pref_parse_on_mad_status_error, align 4
   %26 = icmp eq i32 %25, 0
-  %27 = getelementptr inbounds i8, ptr %5, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %28 = load i16, ptr %27, align 4
   %29 = icmp ne i16 %28, 0
   %or.cond = select i1 %26, i1 %29, i1 false
@@ -4830,15 +4830,15 @@ define internal fastcc void @parse_SUBN_DIRECTED_ROUTE(ptr noundef %0, ptr nound
   %12 = load i32, ptr @hf_opa_sm_m_key, align 4
   %13 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %12, ptr noundef %2, i32 noundef %7, i32 noundef 8, i32 noundef 0) #6
   %14 = add i32 %7, 8
-  %15 = getelementptr inbounds i8, ptr %5, i64 3
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 3
   %.val = load i8, ptr %15, align 1
   %16 = zext i8 %.val to i32
   %17 = tail call ptr @val_to_str_const(i32 noundef %16, ptr noundef nonnull @SUBM_Methods, ptr noundef nonnull @.str.2267) #6
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %9, ptr noundef nonnull @.str.2257, ptr noundef %17) #6
-  %18 = getelementptr inbounds i8, ptr %1, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %19 = load ptr, ptr %18, align 8
   tail call void @col_append_str(ptr noundef %19, i32 noundef 25, ptr noundef %17) #6
-  %20 = getelementptr inbounds i8, ptr %5, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %.val35 = load i16, ptr %20, align 8
   %21 = zext i16 %.val35 to i32
   %22 = tail call ptr @val_to_str_const(i32 noundef %21, ptr noundef nonnull @SUBM_Attributes, ptr noundef nonnull @.str.2273) #6
@@ -4868,7 +4868,7 @@ define internal fastcc void @parse_SUBN_DIRECTED_ROUTE(ptr noundef %0, ptr nound
   br i1 %.not, label %41, label %48
 
 41:                                               ; preds = %4
-  %42 = getelementptr inbounds i8, ptr %5, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %43 = load i16, ptr %42, align 4
   %44 = and i16 %43, 32767
   %.not33 = icmp eq i16 %44, 0
@@ -4911,7 +4911,7 @@ define internal fastcc void @parse_SUBNADMN(ptr noundef %0, ptr noundef %1, ptr 
   %6 = alloca i32, align 4
   %7 = alloca %struct._MAD, align 8
   %8 = alloca %struct._RMPP, align 4
-  %9 = getelementptr inbounds i8, ptr %1, i64 360
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 360
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 @proto_is_frame_protocol(ptr noundef %10, ptr noundef nonnull @.str.2248) #6
   call fastcc void @parse_MAD_Common(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %7)
@@ -4941,15 +4941,15 @@ define internal fastcc void @parse_SUBNADMN(ptr noundef %0, ptr noundef %1, ptr 
   %32 = load i32, ptr @hf_opa_sa_component_mask, align 4
   %33 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %32, ptr noundef %2, i32 noundef %30, i32 noundef 8, i32 noundef 0) #6
   %34 = add i32 %14, 20
-  %35 = getelementptr inbounds i8, ptr %7, i64 3
+  %35 = getelementptr inbounds nuw i8, ptr %7, i64 3
   %.val.i = load i8, ptr %35, align 1
   %36 = zext i8 %.val.i to i32
   %37 = tail call ptr @val_to_str_const(i32 noundef %36, ptr noundef nonnull @SUBA_Methods, ptr noundef nonnull @.str.2341) #6
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %16, ptr noundef nonnull @.str.2257, ptr noundef %37) #6
-  %38 = getelementptr inbounds i8, ptr %1, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %39 = load ptr, ptr %38, align 8
   tail call void @col_append_str(ptr noundef %39, i32 noundef 25, ptr noundef %37) #6
-  %40 = getelementptr inbounds i8, ptr %7, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %.val40.i = load i16, ptr %40, align 8
   %41 = zext i16 %.val40.i to i32
   %42 = tail call ptr @val_to_str_const(i32 noundef %41, ptr noundef nonnull @SUBA_Attributes, ptr noundef nonnull @.str.2339) #6
@@ -4960,11 +4960,11 @@ define internal fastcc void @parse_SUBNADMN(ptr noundef %0, ptr noundef %1, ptr 
   store i32 %34, ptr %3, align 4
   %45 = load i32, ptr @pref_parse_on_mad_status_error, align 4
   %46 = icmp eq i32 %45, 0
-  %47 = getelementptr inbounds i8, ptr %7, i64 4
+  %47 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %48 = load i16, ptr %47, align 4
   %49 = icmp ne i16 %48, 0
   %or.cond = select i1 %46, i1 %49, i1 false
-  %50 = getelementptr inbounds i8, ptr %8, i64 1
+  %50 = getelementptr inbounds nuw i8, ptr %8, i64 1
   %51 = load i8, ptr %50, align 1
   %52 = icmp eq i8 %51, 2
   %or.cond7 = select i1 %or.cond, i1 true, i1 %52
@@ -4982,7 +4982,7 @@ define internal fastcc void @parse_SUBNADMN(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %or.cond9, label %59, label %89
 
 59:                                               ; preds = %55
-  %60 = getelementptr inbounds i8, ptr %8, i64 2
+  %60 = getelementptr inbounds nuw i8, ptr %8, i64 2
   %61 = load i8, ptr %60, align 2
   %62 = zext i8 %61 to i32
   %63 = and i32 %62, 1
@@ -4995,10 +4995,10 @@ define internal fastcc void @parse_SUBNADMN(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %or.cond130, label %89, label %67
 
 67:                                               ; preds = %59
-  %68 = getelementptr inbounds i8, ptr %7, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %69 = load i64, ptr %68, align 8
   %70 = trunc i64 %69 to i32
-  %71 = getelementptr inbounds i8, ptr %8, i64 4
+  %71 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %72 = load i32, ptr %71, align 4
   %73 = add i32 %72, -1
   %74 = and i8 %61, 4
@@ -5006,7 +5006,7 @@ define internal fastcc void @parse_SUBNADMN(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %.not70, label %79, label %75
 
 75:                                               ; preds = %67
-  %76 = getelementptr inbounds i8, ptr %8, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %77 = load i32, ptr %76, align 4
   %78 = add i32 %77, -20
   br label %81
@@ -5045,8 +5045,8 @@ define internal fastcc void @parse_SUBNADMN(ptr noundef %0, ptr noundef %1, ptr 
 .lr.ph.split.split.preheader:                     ; preds = %92
   %96 = zext i16 %23 to i32
   %97 = shl nuw nsw i32 %96, 3
-  %98 = getelementptr inbounds i8, ptr %8, i64 8
-  %99 = getelementptr inbounds i8, ptr %8, i64 4
+  %98 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %99 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %.pre = load i32, ptr %3, align 4
   %100 = zext i16 %.val40.i to i32
   %101 = icmp eq i8 %51, 1
@@ -6418,7 +6418,7 @@ parse_NodeDescription.exit:                       ; preds = %.lr.ph5.i, %.lr.ph5
 define internal fastcc void @parse_PERFADMN(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
   %5 = alloca %struct._MAD, align 8
   %6 = alloca %struct._RMPP, align 4
-  %7 = getelementptr inbounds i8, ptr %1, i64 360
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 360
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 @proto_is_frame_protocol(ptr noundef %8, ptr noundef nonnull @.str.2248) #6
   call fastcc void @parse_MAD_Common(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %5)
@@ -6448,15 +6448,15 @@ define internal fastcc void @parse_PERFADMN(ptr noundef %0, ptr noundef %1, ptr 
   %30 = load i32, ptr @hf_opa_pa_component_mask, align 4
   %31 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %30, ptr noundef %2, i32 noundef %28, i32 noundef 8, i32 noundef 0) #6
   %32 = add i32 %12, 20
-  %33 = getelementptr inbounds i8, ptr %5, i64 3
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 3
   %.val.i = load i8, ptr %33, align 1
   %34 = zext i8 %.val.i to i32
   %35 = tail call ptr @val_to_str_const(i32 noundef %34, ptr noundef nonnull @PA_Methods, ptr noundef nonnull @.str.2401) #6
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %14, ptr noundef nonnull @.str.2257, ptr noundef %35) #6
-  %36 = getelementptr inbounds i8, ptr %1, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %37 = load ptr, ptr %36, align 8
   tail call void @col_append_str(ptr noundef %37, i32 noundef 25, ptr noundef %35) #6
-  %38 = getelementptr inbounds i8, ptr %5, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %.val40.i = load i16, ptr %38, align 8
   %39 = zext i16 %.val40.i to i32
   %40 = tail call ptr @val_to_str_const(i32 noundef %39, ptr noundef nonnull @PA_Attributes, ptr noundef nonnull @.str.2407) #6
@@ -6467,11 +6467,11 @@ define internal fastcc void @parse_PERFADMN(ptr noundef %0, ptr noundef %1, ptr 
   store i32 %32, ptr %3, align 4
   %43 = load i32, ptr @pref_parse_on_mad_status_error, align 4
   %44 = icmp eq i32 %43, 0
-  %45 = getelementptr inbounds i8, ptr %5, i64 4
+  %45 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %46 = load i16, ptr %45, align 4
   %47 = icmp ne i16 %46, 0
   %or.cond = select i1 %44, i1 %47, i1 false
-  %48 = getelementptr inbounds i8, ptr %6, i64 1
+  %48 = getelementptr inbounds nuw i8, ptr %6, i64 1
   %49 = load i8, ptr %48, align 1
   %50 = icmp eq i8 %49, 2
   %or.cond7 = select i1 %or.cond, i1 true, i1 %50
@@ -6489,7 +6489,7 @@ define internal fastcc void @parse_PERFADMN(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %or.cond9, label %57, label %87
 
 57:                                               ; preds = %53
-  %58 = getelementptr inbounds i8, ptr %6, i64 2
+  %58 = getelementptr inbounds nuw i8, ptr %6, i64 2
   %59 = load i8, ptr %58, align 2
   %60 = zext i8 %59 to i32
   %61 = and i32 %60, 1
@@ -6502,10 +6502,10 @@ define internal fastcc void @parse_PERFADMN(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %or.cond60, label %87, label %65
 
 65:                                               ; preds = %57
-  %66 = getelementptr inbounds i8, ptr %5, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %67 = load i64, ptr %66, align 8
   %68 = trunc i64 %67 to i32
-  %69 = getelementptr inbounds i8, ptr %6, i64 4
+  %69 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %70 = load i32, ptr %69, align 4
   %71 = add i32 %70, -1
   %72 = and i8 %59, 4
@@ -6513,7 +6513,7 @@ define internal fastcc void @parse_PERFADMN(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %.not54, label %77, label %73
 
 73:                                               ; preds = %65
-  %74 = getelementptr inbounds i8, ptr %6, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %75 = load i32, ptr %74, align 4
   %76 = add i32 %75, -20
   br label %79
@@ -6537,7 +6537,7 @@ define internal fastcc void @parse_PERFADMN(ptr noundef %0, ptr noundef %1, ptr 
 
 87:                                               ; preds = %86, %57, %53
   %.0 = phi ptr [ %84, %86 ], [ %2, %57 ], [ %2, %53 ]
-  %88 = getelementptr inbounds i8, ptr %6, i64 4
+  %88 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %.val58 = load i32, ptr %88, align 4
   %89 = call fastcc i32 @parse_PA_Attribute(ptr noundef %0, ptr noundef %.0, ptr noundef %3, ptr noundef %5, i8 %49, i32 %.val58, i16 %21)
   %.not56 = icmp eq i32 %89, 0
@@ -6569,15 +6569,15 @@ define internal fastcc void @parse_PERF(ptr noundef %0, ptr noundef %1, ptr noun
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %6, ptr noundef %2, i32 noundef %7, i32 noundef -1, i32 noundef 0) #6
   %9 = load i32, ptr @ett_pm, align 4
   %10 = tail call ptr @proto_item_add_subtree(ptr noundef %8, i32 noundef %9) #6
-  %11 = getelementptr inbounds i8, ptr %5, i64 3
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 3
   %.val = load i8, ptr %11, align 1
   %12 = zext i8 %.val to i32
   %13 = tail call ptr @val_to_str_const(i32 noundef %12, ptr noundef nonnull @PM_Methods, ptr noundef nonnull @.str.2401) #6
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %8, ptr noundef nonnull @.str.2257, ptr noundef %13) #6
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load ptr, ptr %14, align 8
   tail call void @col_append_str(ptr noundef %15, i32 noundef 25, ptr noundef %13) #6
-  %16 = getelementptr inbounds i8, ptr %5, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %.val25 = load i16, ptr %16, align 8
   %17 = zext i16 %.val25 to i32
   %18 = tail call ptr @val_to_str_const(i32 noundef %17, ptr noundef nonnull @PM_Attributes, ptr noundef nonnull @.str.2407) #6
@@ -6587,7 +6587,7 @@ define internal fastcc void @parse_PERF(ptr noundef %0, ptr noundef %1, ptr noun
   tail call void @col_append_str(ptr noundef %20, i32 noundef 25, ptr noundef %19) #6
   %21 = load i32, ptr @pref_parse_on_mad_status_error, align 4
   %22 = icmp eq i32 %21, 0
-  %23 = getelementptr inbounds i8, ptr %5, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %24 = load i16, ptr %23, align 4
   %25 = icmp ne i16 %24, 0
   %or.cond = select i1 %22, i1 %25, i1 false
@@ -6855,7 +6855,7 @@ define internal fastcc void @parse_PERF(ptr noundef %0, ptr noundef %1, ptr noun
   br label %parse_PM_Attribute.exit
 
 222:                                              ; preds = %31
-  %223 = getelementptr inbounds i8, ptr %5, i64 20
+  %223 = getelementptr inbounds nuw i8, ptr %5, i64 20
   %224 = load i32, ptr %223, align 4
   %225 = lshr i32 %224, 24
   %.not.i24.i = icmp eq ptr %10, null
@@ -7063,7 +7063,7 @@ define internal fastcc void @parse_PERF(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %exitcond.not.i.i, label %parse_PM_Attribute.exit, label %.lr.ph222.i.i, !llvm.loop !19
 
 377:                                              ; preds = %31
-  %378 = getelementptr inbounds i8, ptr %5, i64 20
+  %378 = getelementptr inbounds nuw i8, ptr %5, i64 20
   %379 = load i32, ptr %378, align 4
   %380 = lshr i32 %379, 24
   %.not.i29.i = icmp eq ptr %10, null
@@ -7222,7 +7222,7 @@ define internal fastcc void @parse_PERF(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %exitcond.not.i36.i, label %parse_PM_Attribute.exit, label %.lr.ph155.i.i, !llvm.loop !22
 
 482:                                              ; preds = %31
-  %483 = getelementptr inbounds i8, ptr %5, i64 20
+  %483 = getelementptr inbounds nuw i8, ptr %5, i64 20
   %484 = load i32, ptr %483, align 4
   %485 = lshr i32 %484, 24
   %.not.i37.i = icmp eq ptr %10, null
@@ -7469,7 +7469,7 @@ define internal fastcc void @parse_PERF(ptr noundef %0, ptr noundef %1, ptr noun
 
 switch.lookup:                                    ; preds = %650
   %675 = zext nneg i8 %672 to i64
-  %switch.gep = getelementptr inbounds [8 x ptr], ptr @switch.table.parse_PERF, i64 0, i64 %675
+  %switch.gep = getelementptr inbounds nuw [8 x ptr], ptr @switch.table.parse_PERF, i64 0, i64 %675
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %676
 
@@ -7505,7 +7505,7 @@ define internal fastcc void @parse_UNKNOWN_MANAGEMENT(ptr noundef %0, ptr nounde
   call fastcc void @parse_MAD_Common(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %5)
   %6 = load i32, ptr @pref_parse_on_mad_status_error, align 4
   %7 = icmp eq i32 %6, 0
-  %8 = getelementptr inbounds i8, ptr %5, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %9 = load i16, ptr %8, align 4
   %10 = icmp ne i16 %9, 0
   %or.cond = select i1 %7, i1 %10, i1 false
@@ -7515,10 +7515,10 @@ define internal fastcc void @parse_UNKNOWN_MANAGEMENT(ptr noundef %0, ptr nounde
   %12 = load i32, ptr @hf_opa_unknown, align 4
   %13 = load i32, ptr %3, align 4
   %14 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %12, ptr noundef %2, i32 noundef %13, i32 noundef -1, i32 noundef 0) #6
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load ptr, ptr %15, align 8
   tail call void @col_append_str(ptr noundef %16, i32 noundef 25, ptr noundef nonnull @.str.2471) #6
-  %17 = getelementptr inbounds i8, ptr %5, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %18 = load i16, ptr %17, align 8
   %19 = zext i16 %18 to i32
   %20 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef null, ptr noundef nonnull @ei_opa_mad_no_attribute_dissector, ptr noundef nonnull @.str.2251, i32 noundef %19) #6
@@ -7560,19 +7560,19 @@ define internal fastcc void @parse_MAD_Common(ptr noundef %0, ptr noundef %1, pt
   %15 = load i32, ptr @hf_opa_mad_mgmt_class, align 4
   %16 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %15, ptr noundef %2, i32 noundef %14, i32 noundef 1, i32 noundef 0) #6
   %17 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %14) #6
-  %18 = getelementptr inbounds i8, ptr %4, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 1
   store i8 %17, ptr %18, align 1
   %19 = add i32 %6, 2
   %20 = load i32, ptr @hf_opa_mad_class_version, align 4
   %21 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %20, ptr noundef %2, i32 noundef %19, i32 noundef 1, i32 noundef 0) #6
   %22 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %19) #6
-  %23 = getelementptr inbounds i8, ptr %4, i64 2
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 2
   store i8 %22, ptr %23, align 2
   %24 = add i32 %6, 3
   %25 = load i32, ptr @hf_opa_mad_method, align 4
   %26 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %25, ptr noundef %2, i32 noundef %24, i32 noundef 1, i32 noundef 0) #6
   %27 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %24) #6
-  %28 = getelementptr inbounds i8, ptr %4, i64 3
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 3
   store i8 %27, ptr %28, align 1
   %29 = add i32 %6, 4
   %30 = load i8, ptr %18, align 1
@@ -7585,7 +7585,7 @@ define internal fastcc void @parse_MAD_Common(ptr noundef %0, ptr noundef %1, pt
   %35 = load i32, ptr @hf_opa_mad_status_DR_status, align 4
   %36 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %35, ptr noundef %2, i32 noundef %29, i32 noundef 2, i32 noundef 0) #6
   %37 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %2, i32 noundef %29) #6
-  %38 = getelementptr inbounds i8, ptr %4, i64 4
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i16 %37, ptr %38, align 4
   %39 = add i32 %6, 6
   %40 = and i16 %37, 32767
@@ -7605,13 +7605,13 @@ define internal fastcc void @parse_MAD_Common(ptr noundef %0, ptr noundef %1, pt
   %48 = load i32, ptr @hf_opa_mad_status_DR_Hop_Pointer, align 4
   %49 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %48, ptr noundef %2, i32 noundef %39, i32 noundef 1, i32 noundef 0) #6
   %50 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %39) #6
-  %51 = getelementptr inbounds i8, ptr %4, i64 6
+  %51 = getelementptr inbounds nuw i8, ptr %4, i64 6
   store i8 %50, ptr %51, align 2
   %52 = add i32 %6, 7
   %53 = load i32, ptr @hf_opa_mad_status_DR_Hop_Count, align 4
   %54 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %53, ptr noundef %2, i32 noundef %52, i32 noundef 1, i32 noundef 0) #6
   %55 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %52) #6
-  %56 = getelementptr inbounds i8, ptr %4, i64 7
+  %56 = getelementptr inbounds nuw i8, ptr %4, i64 7
   store i8 %55, ptr %56, align 1
   br label %72
 
@@ -7620,7 +7620,7 @@ define internal fastcc void @parse_MAD_Common(ptr noundef %0, ptr noundef %1, pt
   %59 = load i32, ptr @ett_mad_status, align 4
   %60 = tail call ptr @proto_tree_add_bitmask(ptr noundef %10, ptr noundef %2, i32 noundef %29, i32 noundef %58, i32 noundef %59, ptr noundef nonnull @_mad_status, i32 noundef 0) #6
   %61 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %2, i32 noundef %29) #6
-  %62 = getelementptr inbounds i8, ptr %4, i64 4
+  %62 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i16 %61, ptr %62, align 4
   %63 = add i32 %6, 6
   %.not = icmp eq i16 %61, 0
@@ -7644,20 +7644,20 @@ define internal fastcc void @parse_MAD_Common(ptr noundef %0, ptr noundef %1, pt
   %73 = load i32, ptr @hf_opa_mad_transaction_id, align 4
   %74 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %73, ptr noundef %2, i32 noundef %storemerge, i32 noundef 8, i32 noundef 0) #6
   %75 = tail call i64 @tvb_get_ntoh64(ptr noundef %2, i32 noundef %storemerge) #6
-  %76 = getelementptr inbounds i8, ptr %4, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %75, ptr %76, align 8
   %77 = add i32 %6, 16
   %78 = load i32, ptr @hf_opa_mad_attribute_id, align 4
   %79 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %78, ptr noundef %2, i32 noundef %77, i32 noundef 2, i32 noundef 0) #6
   %80 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %2, i32 noundef %77) #6
-  %81 = getelementptr inbounds i8, ptr %4, i64 16
+  %81 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i16 %80, ptr %81, align 8
   %82 = add i32 %6, 18
   %83 = load i32, ptr @hf_opa_reserved16, align 4
   %84 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %83, ptr noundef %2, i32 noundef %82, i32 noundef 2, i32 noundef 0) #6
   %85 = add i32 %6, 20
   %86 = tail call i32 @tvb_get_ntohl(ptr noundef %2, i32 noundef %85) #6
-  %87 = getelementptr inbounds i8, ptr %4, i64 20
+  %87 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i32 %86, ptr %87, align 4
   %88 = tail call fastcc i32 @parse_MAD_AttributeModifier(ptr noundef %10, ptr noundef %2, i32 %85, ptr noundef %4)
   store i32 %88, ptr %3, align 4
@@ -7681,7 +7681,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_RMPP(ptr noundef %0, ptr nound
   %17 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %11, i32 noundef %16, ptr noundef %2, i32 noundef %15, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %6) #6
   %18 = load i32, ptr %6, align 4
   %19 = trunc i32 %18 to i8
-  %20 = getelementptr inbounds i8, ptr %4, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 1
   store i8 %19, ptr %20, align 1
   %21 = add i32 %7, 2
   %22 = load i32, ptr @hf_opa_rmpp_r_resp_time, align 4
@@ -7693,14 +7693,14 @@ define internal fastcc range(i32 0, 2) i32 @parse_RMPP(ptr noundef %0, ptr nound
   %28 = load i32, ptr @hf_opa_rmpp_flags_active, align 4
   %29 = call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %28, ptr noundef %2, i32 noundef %21, i32 noundef 1, i32 noundef 0) #6
   %30 = call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %21) #6
-  %31 = getelementptr inbounds i8, ptr %4, i64 2
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 2
   store i8 %30, ptr %31, align 2
   %32 = add i32 %7, 3
   %33 = load i32, ptr @hf_opa_rmpp_status, align 4
   %34 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %11, i32 noundef %33, ptr noundef %2, i32 noundef %32, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %6) #6
   %35 = load i32, ptr %6, align 4
   %36 = trunc i32 %35 to i8
-  %37 = getelementptr inbounds i8, ptr %4, i64 3
+  %37 = getelementptr inbounds nuw i8, ptr %4, i64 3
   store i8 %36, ptr %37, align 1
   %38 = add i32 %7, 4
   %39 = load i8, ptr %31, align 2
@@ -7727,7 +7727,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_RMPP(ptr noundef %0, ptr nound
 49:                                               ; preds = %43, %42
   %.sink = phi ptr [ %48, %43 ], [ @.str.2255, %42 ]
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %17, ptr noundef nonnull @.str.2257, ptr noundef %.sink) #6
-  %50 = getelementptr inbounds i8, ptr %4, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 0, ptr %50, align 4
   %51 = load i8, ptr %20, align 1
   switch i8 %51, label %85 [
@@ -7750,7 +7750,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_RMPP(ptr noundef %0, ptr nound
   %59 = load i32, ptr @hf_opa_rmpp_segment_number, align 4
   %60 = call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %59, ptr noundef %2, i32 noundef %38, i32 noundef 4, i32 noundef 0) #6
   %61 = call i32 @tvb_get_ntohl(ptr noundef %2, i32 noundef %38) #6
-  %62 = getelementptr inbounds i8, ptr %4, i64 4
+  %62 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %61, ptr %62, align 4
   %63 = load i32, ptr @pref_attempt_rmpp_defragment, align 4
   %.not94 = icmp eq i32 %63, 0
@@ -7818,7 +7818,7 @@ define internal fastcc noundef i32 @parse_MAD_AttributeModifier(ptr noundef %0, 
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %4, ptr noundef %1, i32 noundef %.0.val, i32 noundef 4, i32 noundef 0) #6
   %6 = load i32, ptr @ett_mad_attributemod, align 4
   %7 = tail call ptr @proto_item_add_subtree(ptr noundef %5, i32 noundef %6) #6
-  %8 = getelementptr inbounds i8, ptr %2, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %60 [
     i8 1, label %10
@@ -7829,7 +7829,7 @@ define internal fastcc noundef i32 @parse_MAD_AttributeModifier(ptr noundef %0, 
   ]
 
 10:                                               ; preds = %3, %3
-  %11 = getelementptr inbounds i8, ptr %2, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %12 = load i16, ptr %11, align 8
   switch i16 %12, label %34 [
     i16 1, label %13
@@ -7866,7 +7866,7 @@ define internal fastcc noundef i32 @parse_MAD_AttributeModifier(ptr noundef %0, 
   ]
 
 13:                                               ; preds = %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10
-  %14 = getelementptr inbounds i8, ptr %2, i64 20
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %15 = load i32, ptr %14, align 4
   %.not66 = icmp eq i32 %15, 0
   br i1 %.not66, label %60, label %16
@@ -7933,7 +7933,7 @@ define internal fastcc noundef i32 @parse_MAD_AttributeModifier(ptr noundef %0, 
   br label %60
 
 34:                                               ; preds = %10
-  %35 = getelementptr inbounds i8, ptr %2, i64 20
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %36 = load i32, ptr %35, align 4
   %.not67 = icmp eq i32 %36, 0
   br i1 %.not67, label %60, label %37
@@ -7943,7 +7943,7 @@ define internal fastcc noundef i32 @parse_MAD_AttributeModifier(ptr noundef %0, 
   br label %60
 
 39:                                               ; preds = %3
-  %40 = getelementptr inbounds i8, ptr %2, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %41 = load i16, ptr %40, align 8
   switch i16 %41, label %50 [
     i16 1, label %42
@@ -7954,7 +7954,7 @@ define internal fastcc noundef i32 @parse_MAD_AttributeModifier(ptr noundef %0, 
   ]
 
 42:                                               ; preds = %39
-  %43 = getelementptr inbounds i8, ptr %2, i64 20
+  %43 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %44 = load i32, ptr %43, align 4
   %.not64 = icmp eq i32 %44, 0
   br i1 %.not64, label %60, label %45
@@ -7969,7 +7969,7 @@ define internal fastcc noundef i32 @parse_MAD_AttributeModifier(ptr noundef %0, 
   br label %60
 
 50:                                               ; preds = %39
-  %51 = getelementptr inbounds i8, ptr %2, i64 20
+  %51 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %52 = load i32, ptr %51, align 4
   %.not65 = icmp eq i32 %52, 0
   br i1 %.not65, label %60, label %53
@@ -7979,7 +7979,7 @@ define internal fastcc noundef i32 @parse_MAD_AttributeModifier(ptr noundef %0, 
   br label %60
 
 55:                                               ; preds = %3, %3
-  %56 = getelementptr inbounds i8, ptr %2, i64 20
+  %56 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %57 = load i32, ptr %56, align 4
   %.not = icmp eq i32 %57, 0
   br i1 %.not, label %60, label %58
@@ -8007,7 +8007,7 @@ declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) local_unnamed_add
 define internal fastcc range(i32 0, 2) i32 @parse_SUBM_Attribute(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = load i32, ptr %2, align 4
-  %7 = getelementptr inbounds i8, ptr %3, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %8 = load i16, ptr %7, align 8
   %9 = icmp eq i16 %8, 128
   br i1 %9, label %10, label %65
@@ -8018,7 +8018,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_SUBM_Attribute(ptr noundef %0,
   br i1 %.not.i, label %parse_Aggregate.exit, label %11
 
 11:                                               ; preds = %10
-  %12 = getelementptr inbounds i8, ptr %3, i64 20
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 20
   %13 = load i32, ptr %12, align 4
   %14 = and i32 %13, 255
   %.not58.i = icmp eq i32 %14, 0
@@ -8026,7 +8026,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_SUBM_Attribute(ptr noundef %0,
 
 .lr.ph.i:                                         ; preds = %11
   %15 = add nsw i32 %14, -1
-  %16 = getelementptr inbounds i8, ptr %3, i64 3
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 3
   br label %17
 
 17:                                               ; preds = %63, %.lr.ph.i
@@ -8180,7 +8180,7 @@ define internal fastcc range(i32 0, 2) i32 @call_SUBM_Parser(ptr noundef %0, ptr
   br i1 %.not.i, label %parse_NodeDescription.exit, label %14
 
 14:                                               ; preds = %13
-  %15 = getelementptr inbounds i8, ptr %3, i64 3
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 3
   %16 = load i8, ptr %15, align 1
   switch i8 %16, label %17 [
     i8 1, label %parse_NodeDescription.exit
@@ -8247,7 +8247,7 @@ define internal fastcc range(i32 0, 2) i32 @call_SUBM_Parser(ptr noundef %0, ptr
   br i1 %.not.i144, label %parse_NodeDescription.exit, label %44
 
 44:                                               ; preds = %43
-  %45 = getelementptr inbounds i8, ptr %3, i64 3
+  %45 = getelementptr inbounds nuw i8, ptr %3, i64 3
   %46 = load i8, ptr %45, align 1
   switch i8 %46, label %47 [
     i8 1, label %parse_NodeDescription.exit
@@ -8255,7 +8255,7 @@ define internal fastcc range(i32 0, 2) i32 @call_SUBM_Parser(ptr noundef %0, ptr
   ]
 
 47:                                               ; preds = %44
-  %48 = getelementptr inbounds i8, ptr %3, i64 20
+  %48 = getelementptr inbounds nuw i8, ptr %3, i64 20
   %49 = load i32, ptr %48, align 4
   %50 = lshr i32 %49, 24
   %51 = and i32 %49, 255
@@ -8291,7 +8291,7 @@ define internal fastcc range(i32 0, 2) i32 @call_SUBM_Parser(ptr noundef %0, ptr
   br i1 %.not.i146, label %parse_NodeDescription.exit, label %69
 
 69:                                               ; preds = %68
-  %70 = getelementptr inbounds i8, ptr %3, i64 3
+  %70 = getelementptr inbounds nuw i8, ptr %3, i64 3
   %71 = load i8, ptr %70, align 1
   switch i8 %71, label %72 [
     i8 1, label %parse_NodeDescription.exit
@@ -8299,7 +8299,7 @@ define internal fastcc range(i32 0, 2) i32 @call_SUBM_Parser(ptr noundef %0, ptr
   ]
 
 72:                                               ; preds = %69
-  %73 = getelementptr inbounds i8, ptr %3, i64 20
+  %73 = getelementptr inbounds nuw i8, ptr %3, i64 20
   %74 = load i32, ptr %73, align 4
   %75 = lshr i32 %74, 19
   %76 = and i32 %75, 4095
@@ -8349,7 +8349,7 @@ define internal fastcc range(i32 0, 2) i32 @call_SUBM_Parser(ptr noundef %0, ptr
   br i1 %.not.i148, label %parse_NodeDescription.exit, label %100
 
 100:                                              ; preds = %99
-  %101 = getelementptr inbounds i8, ptr %3, i64 3
+  %101 = getelementptr inbounds nuw i8, ptr %3, i64 3
   %102 = load i8, ptr %101, align 1
   switch i8 %102, label %103 [
     i8 1, label %parse_NodeDescription.exit
@@ -8357,7 +8357,7 @@ define internal fastcc range(i32 0, 2) i32 @call_SUBM_Parser(ptr noundef %0, ptr
   ]
 
 103:                                              ; preds = %100
-  %104 = getelementptr inbounds i8, ptr %3, i64 20
+  %104 = getelementptr inbounds nuw i8, ptr %3, i64 20
   %105 = load i32, ptr %104, align 4
   %106 = lshr i32 %105, 24
   %107 = and i32 %105, 255
@@ -8411,7 +8411,7 @@ define internal fastcc range(i32 0, 2) i32 @call_SUBM_Parser(ptr noundef %0, ptr
   br i1 %.not.i152, label %parse_NodeDescription.exit, label %131
 
 131:                                              ; preds = %130
-  %132 = getelementptr inbounds i8, ptr %3, i64 3
+  %132 = getelementptr inbounds nuw i8, ptr %3, i64 3
   %133 = load i8, ptr %132, align 1
   switch i8 %133, label %134 [
     i8 1, label %parse_NodeDescription.exit
@@ -8482,7 +8482,7 @@ define internal fastcc range(i32 0, 2) i32 @call_SUBM_Parser(ptr noundef %0, ptr
   br i1 %.not.i154, label %parse_NodeDescription.exit, label %180
 
 180:                                              ; preds = %179
-  %181 = getelementptr inbounds i8, ptr %3, i64 3
+  %181 = getelementptr inbounds nuw i8, ptr %3, i64 3
   %182 = load i8, ptr %181, align 1
   switch i8 %182, label %183 [
     i8 1, label %parse_NodeDescription.exit
@@ -8570,7 +8570,7 @@ define internal fastcc i32 @parse_ClassPortInfo(ptr noundef %0, ptr noundef %1, 
   br i1 %.not, label %92, label %4
 
 4:                                                ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %2, i64 3
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 3
   %6 = load i8, ptr %5, align 1
   switch i8 %6, label %7 [
     i8 1, label %92
@@ -8938,7 +8938,7 @@ define internal fastcc i32 @parse_NodeInfo(ptr noundef %0, ptr noundef %1, i32 %
   br i1 %.not, label %51, label %4
 
 4:                                                ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %2, i64 3
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 3
   %6 = load i8, ptr %5, align 1
   switch i8 %6, label %7 [
     i8 1, label %51
@@ -9002,7 +9002,7 @@ define internal fastcc i32 @parse_SwitchInfo(ptr noundef %0, ptr noundef %1, i32
   br i1 %.not, label %101, label %4
 
 4:                                                ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %2, i64 3
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 3
   %6 = load i8, ptr %5, align 1
   switch i8 %6, label %7 [
     i8 1, label %101
@@ -9114,7 +9114,7 @@ define internal fastcc i32 @parse_SwitchInfo(ptr noundef %0, ptr noundef %1, i32
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @parse_PortInfo(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #0 {
   %5 = load i32, ptr %2, align 4
-  %6 = getelementptr inbounds i8, ptr %3, i64 1
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %7 = load i8, ptr %6, align 1
   %8 = icmp eq i8 %7, 3
   br i1 %8, label %9, label %13
@@ -9126,7 +9126,7 @@ define internal fastcc i32 @parse_PortInfo(ptr noundef %0, ptr noundef %1, ptr n
   br label %18
 
 13:                                               ; preds = %4
-  %14 = getelementptr inbounds i8, ptr %3, i64 20
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 20
   %15 = load i32, ptr %14, align 4
   %16 = lshr i32 %15, 24
   %17 = and i32 %15, 255
@@ -9139,7 +9139,7 @@ define internal fastcc i32 @parse_PortInfo(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %.not, label %23, label %19
 
 19:                                               ; preds = %18
-  %20 = getelementptr inbounds i8, ptr %3, i64 3
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 3
   %21 = load i8, ptr %20, align 1
   switch i8 %21, label %.preheader [
     i8 1, label %23
@@ -9596,7 +9596,7 @@ define internal fastcc i32 @parse_P_KeyTable(ptr noundef %0, ptr noundef %1, i32
   br i1 %.not, label %.loopexit, label %4
 
 4:                                                ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %2, i64 3
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 3
   %6 = load i8, ptr %5, align 1
   switch i8 %6, label %7 [
     i8 1, label %.loopexit
@@ -9604,7 +9604,7 @@ define internal fastcc i32 @parse_P_KeyTable(ptr noundef %0, ptr noundef %1, i32
   ]
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %2, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %9 = load i8, ptr %8, align 1
   %10 = icmp eq i8 %9, 3
   br i1 %10, label %11, label %15
@@ -9616,7 +9616,7 @@ define internal fastcc i32 @parse_P_KeyTable(ptr noundef %0, ptr noundef %1, i32
   br label %20
 
 15:                                               ; preds = %7
-  %16 = getelementptr inbounds i8, ptr %2, i64 20
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %17 = load i32, ptr %16, align 4
   %18 = lshr i32 %17, 24
   %19 = and i32 %17, 2047
@@ -9671,7 +9671,7 @@ define internal fastcc i32 @parse_SLtoSCMappingTable(ptr noundef %0, ptr noundef
   br i1 %.not, label %.loopexit, label %4
 
 4:                                                ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %2, i64 3
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 3
   %6 = load i8, ptr %5, align 1
   switch i8 %6, label %7 [
     i8 1, label %.loopexit
@@ -9710,7 +9710,7 @@ define internal fastcc i32 @parse_VLArbitrationTable(ptr noundef %0, ptr noundef
   br i1 %.not, label %.loopexit2, label %4
 
 4:                                                ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %2, i64 3
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 3
   %6 = load i8, ptr %5, align 1
   switch i8 %6, label %7 [
     i8 1, label %.loopexit2
@@ -9718,7 +9718,7 @@ define internal fastcc i32 @parse_VLArbitrationTable(ptr noundef %0, ptr noundef
   ]
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %2, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %9 = load i8, ptr %8, align 1
   %10 = icmp eq i8 %9, 3
   br i1 %10, label %11, label %18
@@ -9733,7 +9733,7 @@ define internal fastcc i32 @parse_VLArbitrationTable(ptr noundef %0, ptr noundef
   br label %25
 
 18:                                               ; preds = %7
-  %19 = getelementptr inbounds i8, ptr %2, i64 20
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %20 = load i32, ptr %19, align 4
   %21 = lshr i32 %20, 24
   %22 = lshr i32 %20, 16
@@ -9838,7 +9838,7 @@ define internal fastcc i32 @parse_LinearForwardingTable(ptr noundef %0, ptr noun
   br i1 %.not, label %.loopexit, label %4
 
 4:                                                ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %2, i64 3
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 3
   %6 = load i8, ptr %5, align 1
   switch i8 %6, label %7 [
     i8 1, label %.loopexit
@@ -9846,7 +9846,7 @@ define internal fastcc i32 @parse_LinearForwardingTable(ptr noundef %0, ptr noun
   ]
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %2, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %9 = load i8, ptr %8, align 1
   %10 = icmp eq i8 %9, 3
   br i1 %10, label %11, label %14
@@ -9857,7 +9857,7 @@ define internal fastcc i32 @parse_LinearForwardingTable(ptr noundef %0, ptr noun
   br label %18
 
 14:                                               ; preds = %7
-  %15 = getelementptr inbounds i8, ptr %2, i64 20
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %16 = load i32, ptr %15, align 4
   %17 = lshr i32 %16, 24
   br label %18
@@ -9909,7 +9909,7 @@ define internal fastcc i32 @parse_MulticastForwardingTable(ptr noundef %0, ptr n
   br i1 %.not, label %.loopexit, label %4
 
 4:                                                ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %2, i64 3
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 3
   %6 = load i8, ptr %5, align 1
   switch i8 %6, label %7 [
     i8 1, label %.loopexit
@@ -9917,7 +9917,7 @@ define internal fastcc i32 @parse_MulticastForwardingTable(ptr noundef %0, ptr n
   ]
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %2, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %9 = load i8, ptr %8, align 1
   %10 = icmp eq i8 %9, 3
   br i1 %10, label %11, label %15
@@ -9929,7 +9929,7 @@ define internal fastcc i32 @parse_MulticastForwardingTable(ptr noundef %0, ptr n
   br label %22
 
 15:                                               ; preds = %7
-  %16 = getelementptr inbounds i8, ptr %2, i64 20
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %17 = load i32, ptr %16, align 4
   %18 = lshr i32 %17, 24
   %19 = lshr i32 %17, 22
@@ -9985,7 +9985,7 @@ define internal fastcc i32 @parse_SMInfo(ptr noundef %0, ptr noundef %1, i32 %.0
   br i1 %.not, label %33, label %4
 
 4:                                                ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %2, i64 3
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 3
   %6 = load i8, ptr %5, align 1
   switch i8 %6, label %7 [
     i8 1, label %33
@@ -10031,7 +10031,7 @@ define internal fastcc i32 @parse_SCtoSCMappingTable(ptr noundef %0, ptr noundef
   br i1 %.not, label %.loopexit, label %4
 
 4:                                                ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %2, i64 3
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 3
   %6 = load i8, ptr %5, align 1
   switch i8 %6, label %7 [
     i8 1, label %.loopexit
@@ -10039,7 +10039,7 @@ define internal fastcc i32 @parse_SCtoSCMappingTable(ptr noundef %0, ptr noundef
   ]
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %2, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %9 = load i8, ptr %8, align 1
   %10 = icmp eq i8 %9, 3
   br i1 %10, label %11, label %18
@@ -10054,7 +10054,7 @@ define internal fastcc i32 @parse_SCtoSCMappingTable(ptr noundef %0, ptr noundef
   br label %27
 
 18:                                               ; preds = %7
-  %19 = getelementptr inbounds i8, ptr %2, i64 20
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %20 = load i32, ptr %19, align 4
   %.fr6 = freeze i32 %20
   %21 = lshr i32 %.fr6, 24
@@ -10147,7 +10147,7 @@ define internal fastcc i32 @parse_SCtoSLMappingTable(ptr noundef %0, ptr noundef
   br i1 %.not, label %.loopexit, label %4
 
 4:                                                ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %2, i64 3
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 3
   %6 = load i8, ptr %5, align 1
   switch i8 %6, label %7 [
     i8 1, label %.loopexit
@@ -10186,7 +10186,7 @@ define internal fastcc i32 @parse_SCtoVLxMappingTable(ptr noundef %0, ptr nounde
   br i1 %.not, label %.loopexit, label %4
 
 4:                                                ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %2, i64 3
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 3
   %6 = load i8, ptr %5, align 1
   switch i8 %6, label %7 [
     i8 1, label %.loopexit
@@ -10194,7 +10194,7 @@ define internal fastcc i32 @parse_SCtoVLxMappingTable(ptr noundef %0, ptr nounde
   ]
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %2, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %9 = load i8, ptr %8, align 1
   %10 = icmp eq i8 %9, 3
   br i1 %10, label %11, label %15
@@ -10206,7 +10206,7 @@ define internal fastcc i32 @parse_SCtoVLxMappingTable(ptr noundef %0, ptr nounde
   br label %20
 
 15:                                               ; preds = %7
-  %16 = getelementptr inbounds i8, ptr %2, i64 20
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %17 = load i32, ptr %16, align 4
   %18 = lshr i32 %17, 24
   %19 = and i32 %17, 255
@@ -10216,7 +10216,7 @@ define internal fastcc i32 @parse_SCtoVLxMappingTable(ptr noundef %0, ptr nounde
   %SM_SC_VLx.sink = phi ptr [ @SM_SC_VLx, %15 ], [ @SA_SC_VLx, %11 ]
   %.043 = phi i32 [ %19, %15 ], [ %14, %11 ]
   %.042 = phi i32 [ %18, %15 ], [ 1, %11 ]
-  %21 = getelementptr inbounds i8, ptr %2, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %22 = load i16, ptr %21, align 8
   %23 = zext i16 %22 to i32
   %24 = tail call ptr @val_to_str_const(i32 noundef %23, ptr noundef nonnull %SM_SC_VLx.sink, ptr noundef nonnull @.str.2322) #6
@@ -10267,7 +10267,7 @@ define internal fastcc i32 @parse_PortGroupForwardingTable(ptr noundef %0, ptr n
   br i1 %.not, label %.loopexit, label %4
 
 4:                                                ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %2, i64 3
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 3
   %6 = load i8, ptr %5, align 1
   switch i8 %6, label %7 [
     i8 1, label %.loopexit
@@ -10275,7 +10275,7 @@ define internal fastcc i32 @parse_PortGroupForwardingTable(ptr noundef %0, ptr n
   ]
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %2, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %9 = load i8, ptr %8, align 1
   %10 = icmp eq i8 %9, 3
   br i1 %10, label %11, label %14
@@ -10286,7 +10286,7 @@ define internal fastcc i32 @parse_PortGroupForwardingTable(ptr noundef %0, ptr n
   br label %18
 
 14:                                               ; preds = %7
-  %15 = getelementptr inbounds i8, ptr %2, i64 20
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %16 = load i32, ptr %15, align 4
   %17 = lshr i32 %16, 24
   br label %18
@@ -10338,7 +10338,7 @@ define internal fastcc i32 @parse_PortGroupTable(ptr noundef %0, ptr noundef %1,
   br i1 %.not, label %.loopexit, label %4
 
 4:                                                ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %2, i64 3
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 3
   %6 = load i8, ptr %5, align 1
   switch i8 %6, label %7 [
     i8 1, label %.loopexit
@@ -10346,7 +10346,7 @@ define internal fastcc i32 @parse_PortGroupTable(ptr noundef %0, ptr noundef %1,
   ]
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %2, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %9 = load i8, ptr %8, align 1
   %10 = icmp eq i8 %9, 3
   br i1 %10, label %11, label %16
@@ -10359,7 +10359,7 @@ define internal fastcc i32 @parse_PortGroupTable(ptr noundef %0, ptr noundef %1,
   br label %23
 
 16:                                               ; preds = %7
-  %17 = getelementptr inbounds i8, ptr %2, i64 20
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %18 = load i32, ptr %17, align 4
   %19 = lshr i32 %18, 24
   %20 = lshr i32 %18, 22
@@ -10415,7 +10415,7 @@ define internal fastcc i32 @parse_BufferControlTable(ptr noundef %0, ptr noundef
   br i1 %.not, label %.loopexit, label %4
 
 4:                                                ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %2, i64 3
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 3
   %6 = load i8, ptr %5, align 1
   switch i8 %6, label %7 [
     i8 1, label %.loopexit
@@ -10423,7 +10423,7 @@ define internal fastcc i32 @parse_BufferControlTable(ptr noundef %0, ptr noundef
   ]
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %2, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %9 = load i8, ptr %8, align 1
   %10 = icmp eq i8 %9, 3
   br i1 %10, label %.thread, label %15
@@ -10436,7 +10436,7 @@ define internal fastcc i32 @parse_BufferControlTable(ptr noundef %0, ptr noundef
   br label %.lr.ph.preheader
 
 15:                                               ; preds = %7
-  %16 = getelementptr inbounds i8, ptr %2, i64 20
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %17 = load i32, ptr %16, align 4
   %18 = lshr i32 %17, 24
   %19 = and i32 %17, 255
@@ -10498,7 +10498,7 @@ define internal fastcc i32 @parse_CongestionInfo(ptr noundef %0, ptr noundef %1,
   br i1 %.not, label %21, label %4
 
 4:                                                ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %2, i64 3
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 3
   %6 = load i8, ptr %5, align 1
   switch i8 %6, label %7 [
     i8 1, label %21
@@ -10532,7 +10532,7 @@ define internal fastcc i32 @parse_SwitchCongestionSetting(ptr noundef %0, ptr no
   br i1 %.not, label %43, label %4
 
 4:                                                ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %2, i64 3
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 3
   %6 = load i8, ptr %5, align 1
   switch i8 %6, label %7 [
     i8 1, label %43
@@ -10588,7 +10588,7 @@ define internal fastcc i32 @parse_SwitchPortCongestionSetting(ptr noundef %0, pt
   br i1 %.not, label %.loopexit, label %4
 
 4:                                                ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %2, i64 3
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 3
   %6 = load i8, ptr %5, align 1
   switch i8 %6, label %7 [
     i8 1, label %.loopexit
@@ -10596,7 +10596,7 @@ define internal fastcc i32 @parse_SwitchPortCongestionSetting(ptr noundef %0, pt
   ]
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %2, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %9 = load i8, ptr %8, align 1
   %10 = icmp eq i8 %9, 3
   br i1 %10, label %11, label %15
@@ -10608,7 +10608,7 @@ define internal fastcc i32 @parse_SwitchPortCongestionSetting(ptr noundef %0, pt
   br label %20
 
 15:                                               ; preds = %7
-  %16 = getelementptr inbounds i8, ptr %2, i64 20
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %17 = load i32, ptr %16, align 4
   %18 = lshr i32 %17, 24
   %19 = and i32 %17, 255
@@ -10661,7 +10661,7 @@ define internal fastcc i32 @parse_HFICongestionSetting(ptr noundef %0, ptr nound
   br i1 %.not, label %.loopexit, label %4
 
 4:                                                ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %2, i64 3
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 3
   %6 = load i8, ptr %5, align 1
   switch i8 %6, label %7 [
     i8 1, label %.loopexit
@@ -10720,7 +10720,7 @@ define internal fastcc i32 @parse_HFICongestionControlTable(ptr noundef %0, ptr 
   br i1 %.not, label %.loopexit, label %4
 
 4:                                                ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %2, i64 3
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 3
   %6 = load i8, ptr %5, align 1
   switch i8 %6, label %7 [
     i8 1, label %.loopexit
@@ -10728,7 +10728,7 @@ define internal fastcc i32 @parse_HFICongestionControlTable(ptr noundef %0, ptr 
   ]
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %2, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %9 = load i8, ptr %8, align 1
   %10 = icmp eq i8 %9, 3
   br i1 %10, label %11, label %15
@@ -10740,7 +10740,7 @@ define internal fastcc i32 @parse_HFICongestionControlTable(ptr noundef %0, ptr 
   br label %20
 
 15:                                               ; preds = %7
-  %16 = getelementptr inbounds i8, ptr %2, i64 20
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %17 = load i32, ptr %16, align 4
   %18 = lshr i32 %17, 24
   %19 = and i32 %17, 255
@@ -10811,7 +10811,7 @@ define internal fastcc void @parse_InformInfo(ptr noundef %0, ptr noundef %1, i3
   br i1 %.not, label %51, label %4
 
 4:                                                ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %2, i64 3
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 3
   %6 = load i8, ptr %5, align 1
   switch i8 %6, label %7 [
     i8 1, label %51
@@ -10880,7 +10880,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_PA_Attribute(ptr noundef %0, p
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = load i32, ptr %2, align 4
-  %9 = getelementptr inbounds i8, ptr %3, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %10 = load i16, ptr %9, align 8
   switch i16 %10, label %1551 [
     i16 1, label %11
@@ -10928,7 +10928,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_PA_Attribute(ptr noundef %0, p
   br i1 %or.cond, label %21, label %parse_GetGroupList.exit
 
 21:                                               ; preds = %19
-  %22 = getelementptr inbounds i8, ptr %3, i64 3
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 3
   %23 = load i8, ptr %22, align 1
   switch i8 %23, label %parse_GetGroupList.exit [
     i8 -127, label %24
@@ -10982,7 +10982,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_PA_Attribute(ptr noundef %0, p
   br i1 %or.cond63, label %46, label %parse_GetGroupList.exit
 
 46:                                               ; preds = %43
-  %47 = getelementptr inbounds i8, ptr %3, i64 3
+  %47 = getelementptr inbounds nuw i8, ptr %3, i64 3
   %48 = load i8, ptr %47, align 1
   switch i8 %48, label %.preheader.i [
     i8 1, label %49
@@ -11433,7 +11433,7 @@ parse_Image.exit305.i:                            ; preds = %78, %.lr.ph.i83
   br i1 %or.cond65, label %403, label %parse_GetGroupConfig.exit
 
 403:                                              ; preds = %400
-  %404 = getelementptr inbounds i8, ptr %3, i64 3
+  %404 = getelementptr inbounds nuw i8, ptr %3, i64 3
   %405 = load i8, ptr %404, align 1
   switch i8 %405, label %parse_GetGroupConfig.exit [
     i8 1, label %406
@@ -11578,7 +11578,7 @@ parse_GetGroupConfig.exit:                        ; preds = %parse_Image.exit59.
 
 parse_Image.exit.i:                               ; preds = %494, %468
   %.0.i.i = phi i32 [ %503, %494 ], [ %493, %468 ]
-  %504 = getelementptr inbounds i8, ptr %3, i64 3
+  %504 = getelementptr inbounds nuw i8, ptr %3, i64 3
   %505 = load i8, ptr %504, align 1
   switch i8 %505, label %601 [
     i8 -127, label %506
@@ -11936,7 +11936,7 @@ parse_Image.exit.i:                               ; preds = %494, %468
   br i1 %or.cond67, label %805, label %parse_GetFocusPorts.exit
 
 805:                                              ; preds = %802
-  %806 = getelementptr inbounds i8, ptr %3, i64 3
+  %806 = getelementptr inbounds nuw i8, ptr %3, i64 3
   %807 = load i8, ptr %806, align 1
   switch i8 %807, label %parse_GetFocusPorts.exit [
     i8 1, label %808
@@ -12263,7 +12263,7 @@ parse_Image.exit.i124:                            ; preds = %1020, %1015
   br i1 %or.cond68, label %1052, label %parse_GetGroupList.exit
 
 1052:                                             ; preds = %1050
-  %1053 = getelementptr inbounds i8, ptr %3, i64 3
+  %1053 = getelementptr inbounds nuw i8, ptr %3, i64 3
   %1054 = load i8, ptr %1053, align 1
   switch i8 %1054, label %parse_GetGroupList.exit [
     i8 -127, label %1055
@@ -12317,7 +12317,7 @@ parse_Image.exit.i124:                            ; preds = %1020, %1015
   br i1 %or.cond70, label %1077, label %parse_GetGroupList.exit
 
 1077:                                             ; preds = %1074
-  %1078 = getelementptr inbounds i8, ptr %3, i64 3
+  %1078 = getelementptr inbounds nuw i8, ptr %3, i64 3
   %1079 = load i8, ptr %1078, align 1
   switch i8 %1079, label %.preheader.i140 [
     i8 1, label %1083
@@ -12574,7 +12574,7 @@ parse_Image.exit163.i:                            ; preds = %1118, %.lr.ph.i141
   br i1 %or.cond72, label %1268, label %parse_GetVFConfig.exit
 
 1268:                                             ; preds = %1265
-  %1269 = getelementptr inbounds i8, ptr %3, i64 3
+  %1269 = getelementptr inbounds nuw i8, ptr %3, i64 3
   %1270 = load i8, ptr %1269, align 1
   switch i8 %1270, label %parse_GetVFConfig.exit [
     i8 1, label %1271
@@ -12723,7 +12723,7 @@ parse_GetVFConfig.exit:                           ; preds = %parse_Image.exit60.
 
 parse_Image.exit.i155:                            ; preds = %1363, %1334
   %.0.i.i156 = phi i32 [ %1372, %1363 ], [ %1362, %1334 ]
-  %1373 = getelementptr inbounds i8, ptr %3, i64 3
+  %1373 = getelementptr inbounds nuw i8, ptr %3, i64 3
   %1374 = load i8, ptr %1373, align 1
   switch i8 %1374, label %1418 [
     i8 -127, label %1375
@@ -12838,7 +12838,7 @@ parse_Image.exit.i155:                            ; preds = %1363, %1334
   br i1 %or.cond74, label %1459, label %parse_GetGroupList.exit
 
 1459:                                             ; preds = %1456
-  %1460 = getelementptr inbounds i8, ptr %3, i64 3
+  %1460 = getelementptr inbounds nuw i8, ptr %3, i64 3
   %1461 = load i8, ptr %1460, align 1
   switch i8 %1461, label %parse_GetGroupList.exit [
     i8 1, label %1462
@@ -12981,15 +12981,15 @@ define internal fastcc ptr @opa_format_port_select_mask(ptr noundef %0, i32 noun
   store i64 %6, ptr %3, align 16
   %7 = add i32 %1, 8
   %8 = tail call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef %7) #6
-  %9 = getelementptr inbounds i8, ptr %3, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %8, ptr %9, align 8
   %10 = add i32 %1, 16
   %11 = tail call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef %10) #6
-  %12 = getelementptr inbounds i8, ptr %3, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 %11, ptr %12, align 16
   %13 = add i32 %1, 24
   %14 = tail call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef %13) #6
-  %15 = getelementptr inbounds i8, ptr %3, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %14, ptr %15, align 8
   %16 = tail call ptr @wmem_packet_scope() #6
   %17 = tail call noalias ptr @wmem_strbuf_new(ptr noundef %16, ptr noundef nonnull @.str.2067) #6

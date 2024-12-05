@@ -22,8 +22,8 @@ $_ZNK4LIEF5MachO18ChainedBindingInfo4typeEv = comdat any
 define void @_ZN4LIEF5MachO18ChainedBindingInfoC2EOS1_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(88) %1) unnamed_addr #0 align 2 {
   tail call void @_ZN4LIEF5MachO11BindingInfoC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %1)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF5MachO18ChainedBindingInfoE, i64 16), ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 64
-  %4 = getelementptr inbounds i8, ptr %1, i64 64
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   ret void
 }
@@ -37,23 +37,23 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define void @_ZN4LIEF5MachO18ChainedBindingInfoC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(88) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN4LIEF5MachO11BindingInfoC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %1)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF5MachO18ChainedBindingInfoE, i64 16), ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 64
-  %4 = getelementptr inbounds i8, ptr %1, i64 64
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %5 = load i32, ptr %4, align 8
   store i32 %5, ptr %3, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 68
-  %7 = getelementptr inbounds i8, ptr %1, i64 68
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 68
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %8 = load i32, ptr %7, align 4
   store i32 %8, ptr %6, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 72
-  %10 = getelementptr inbounds i8, ptr %1, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %11 = load i32, ptr %10, align 8
   store i32 %11, ptr %9, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 76
-  %13 = getelementptr inbounds i8, ptr %1, i64 76
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 76
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 76
   %14 = load i32, ptr %13, align 4
   store i32 %14, ptr %12, align 4
-  %15 = getelementptr inbounds i8, ptr %0, i64 80
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr null, ptr %15, align 8
   switch i32 %14, label %54 [
     i32 2, label %16
@@ -69,7 +69,7 @@ define void @_ZN4LIEF5MachO18ChainedBindingInfoC2ERKS1_(ptr noundef nonnull alig
           to label %18 unwind label %22
 
 18:                                               ; preds = %16
-  %19 = getelementptr inbounds i8, ptr %1, i64 80
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %20 = load ptr, ptr %19, align 8
   %21 = load i64, ptr %20, align 8
   store i64 %21, ptr %17, align 8
@@ -86,7 +86,7 @@ define void @_ZN4LIEF5MachO18ChainedBindingInfoC2ERKS1_(ptr noundef nonnull alig
           to label %26 unwind label %22
 
 26:                                               ; preds = %24
-  %27 = getelementptr inbounds i8, ptr %1, i64 80
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %28 = load ptr, ptr %27, align 8
   %29 = load i64, ptr %28, align 8
   store i64 %29, ptr %25, align 8
@@ -97,7 +97,7 @@ define void @_ZN4LIEF5MachO18ChainedBindingInfoC2ERKS1_(ptr noundef nonnull alig
           to label %32 unwind label %22
 
 32:                                               ; preds = %30
-  %33 = getelementptr inbounds i8, ptr %1, i64 80
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %34 = load ptr, ptr %33, align 8
   %35 = load i64, ptr %34, align 8
   store i64 %35, ptr %31, align 8
@@ -108,7 +108,7 @@ define void @_ZN4LIEF5MachO18ChainedBindingInfoC2ERKS1_(ptr noundef nonnull alig
           to label %38 unwind label %22
 
 38:                                               ; preds = %36
-  %39 = getelementptr inbounds i8, ptr %1, i64 80
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %40 = load ptr, ptr %39, align 8
   %41 = load i64, ptr %40, align 8
   store i64 %41, ptr %37, align 8
@@ -119,7 +119,7 @@ define void @_ZN4LIEF5MachO18ChainedBindingInfoC2ERKS1_(ptr noundef nonnull alig
           to label %44 unwind label %22
 
 44:                                               ; preds = %42
-  %45 = getelementptr inbounds i8, ptr %1, i64 80
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %46 = load ptr, ptr %45, align 8
   %47 = load i32, ptr %46, align 4
   store i32 %47, ptr %43, align 4
@@ -130,7 +130,7 @@ define void @_ZN4LIEF5MachO18ChainedBindingInfoC2ERKS1_(ptr noundef nonnull alig
           to label %50 unwind label %22
 
 50:                                               ; preds = %48
-  %51 = getelementptr inbounds i8, ptr %1, i64 80
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %52 = load ptr, ptr %51, align 8
   %53 = load i64, ptr %52, align 8
   store i64 %53, ptr %49, align 8
@@ -156,7 +156,7 @@ declare void @_ZN4LIEF5MachO11BindingInfoD2Ev(ptr noundef nonnull align 8 derefe
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN4LIEF5MachO18ChainedBindingInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF5MachO18ChainedBindingInfoE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 76
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %3 = load i32, ptr %2, align 4
   switch i32 %3, label %_ZN4LIEF5MachO18ChainedBindingInfo5clearEv.exit [
     i32 2, label %4
@@ -168,37 +168,37 @@ define void @_ZN4LIEF5MachO18ChainedBindingInfoD2Ev(ptr noundef nonnull align 8 
   ]
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 80
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %_ZN4LIEF5MachO18ChainedBindingInfo5clearEv.exit, label %.sink.split.i
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %0, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %_ZN4LIEF5MachO18ChainedBindingInfo5clearEv.exit, label %.sink.split.i
 
 12:                                               ; preds = %1
-  %13 = getelementptr inbounds i8, ptr %0, i64 80
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %_ZN4LIEF5MachO18ChainedBindingInfo5clearEv.exit, label %.sink.split.i
 
 16:                                               ; preds = %1
-  %17 = getelementptr inbounds i8, ptr %0, i64 80
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
   br i1 %19, label %_ZN4LIEF5MachO18ChainedBindingInfo5clearEv.exit, label %.sink.split.i
 
 20:                                               ; preds = %1
-  %21 = getelementptr inbounds i8, ptr %0, i64 80
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, null
   br i1 %23, label %_ZN4LIEF5MachO18ChainedBindingInfo5clearEv.exit, label %.sink.split.i
 
 24:                                               ; preds = %1
-  %25 = getelementptr inbounds i8, ptr %0, i64 80
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, null
   br i1 %27, label %_ZN4LIEF5MachO18ChainedBindingInfo5clearEv.exit, label %.sink.split.i
@@ -216,7 +216,7 @@ _ZN4LIEF5MachO18ChainedBindingInfo5clearEv.exit:  ; preds = %1, %4, %8, %12, %16
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN4LIEF5MachO18ChainedBindingInfo5clearEv(ptr nocapture noundef nonnull align 8 dereferenceable(88) %0) local_unnamed_addr #5 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 76
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %3 = load i32, ptr %2, align 4
   switch i32 %3, label %28 [
     i32 2, label %4
@@ -228,37 +228,37 @@ define void @_ZN4LIEF5MachO18ChainedBindingInfo5clearEv(ptr nocapture noundef no
   ]
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 80
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %28, label %.sink.split
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %0, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %28, label %.sink.split
 
 12:                                               ; preds = %1
-  %13 = getelementptr inbounds i8, ptr %0, i64 80
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %28, label %.sink.split
 
 16:                                               ; preds = %1
-  %17 = getelementptr inbounds i8, ptr %0, i64 80
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
   br i1 %19, label %28, label %.sink.split
 
 20:                                               ; preds = %1
-  %21 = getelementptr inbounds i8, ptr %0, i64 80
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, null
   br i1 %23, label %28, label %.sink.split
 
 24:                                               ; preds = %1
-  %25 = getelementptr inbounds i8, ptr %0, i64 80
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, null
   br i1 %27, label %28, label %.sink.split
@@ -288,10 +288,10 @@ define void @_ZN4LIEF5MachO18ChainedBindingInfoC2ENS0_19DYLD_CHAINED_FORMATEb(pt
   %4 = zext i1 %2 to i8
   tail call void @_ZN4LIEF5MachO11BindingInfoC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF5MachO18ChainedBindingInfoE, i64 16), ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 %1, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 72
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   store i8 %4, ptr %7, align 8
   ret void
@@ -302,26 +302,26 @@ declare void @_ZN4LIEF5MachO11BindingInfoC2Ev(ptr noundef nonnull align 8 derefe
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull align 8 dereferenceable(88) ptr @_ZN4LIEF5MachO18ChainedBindingInfoaSES1_(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr noundef nonnull %1) local_unnamed_addr #0 align 2 {
   tail call void @_ZN4LIEF5MachO11BindingInfo4swapERS1_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(88) %1)
-  %3 = getelementptr inbounds i8, ptr %0, i64 64
-  %4 = getelementptr inbounds i8, ptr %1, i64 64
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %5 = load i32, ptr %3, align 8
   %6 = load i32, ptr %4, align 4
   store i32 %6, ptr %3, align 8
   store i32 %5, ptr %4, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 68
-  %8 = getelementptr inbounds i8, ptr %1, i64 68
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 68
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %9 = load i32, ptr %7, align 4
   %10 = load i32, ptr %8, align 4
   store i32 %10, ptr %7, align 4
   store i32 %9, ptr %8, align 4
-  %11 = getelementptr inbounds i8, ptr %0, i64 72
-  %12 = getelementptr inbounds i8, ptr %1, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %13 = load i32, ptr %11, align 8
   %14 = load i32, ptr %12, align 4
   store i32 %14, ptr %11, align 8
   store i32 %13, ptr %12, align 4
-  %15 = getelementptr inbounds i8, ptr %0, i64 76
-  %16 = getelementptr inbounds i8, ptr %1, i64 76
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 76
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 76
   %17 = load i32, ptr %15, align 4
   %18 = load i32, ptr %16, align 4
   store i32 %18, ptr %15, align 4
@@ -332,26 +332,26 @@ define noundef nonnull align 8 dereferenceable(88) ptr @_ZN4LIEF5MachO18ChainedB
 ; Function Attrs: mustprogress uwtable
 define void @_ZN4LIEF5MachO18ChainedBindingInfo4swapERS1_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(88) %1) local_unnamed_addr #0 align 2 {
   tail call void @_ZN4LIEF5MachO11BindingInfo4swapERS1_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %1)
-  %3 = getelementptr inbounds i8, ptr %0, i64 64
-  %4 = getelementptr inbounds i8, ptr %1, i64 64
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %5 = load i32, ptr %3, align 8
   %6 = load i32, ptr %4, align 8
   store i32 %6, ptr %3, align 8
   store i32 %5, ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 68
-  %8 = getelementptr inbounds i8, ptr %1, i64 68
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 68
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %9 = load i32, ptr %7, align 4
   %10 = load i32, ptr %8, align 4
   store i32 %10, ptr %7, align 4
   store i32 %9, ptr %8, align 4
-  %11 = getelementptr inbounds i8, ptr %0, i64 72
-  %12 = getelementptr inbounds i8, ptr %1, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %13 = load i32, ptr %11, align 8
   %14 = load i32, ptr %12, align 8
   store i32 %14, ptr %11, align 8
   store i32 %13, ptr %12, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 76
-  %16 = getelementptr inbounds i8, ptr %1, i64 76
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 76
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 76
   %17 = load i32, ptr %15, align 4
   %18 = load i32, ptr %16, align 4
   store i32 %18, ptr %15, align 4
@@ -364,7 +364,7 @@ declare void @_ZN4LIEF5MachO11BindingInfo4swapERS1_(ptr noundef nonnull align 8 
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK4LIEF5MachO18ChainedBindingInfo6acceptERNS_7VisitorE(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 1016
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 1016
   %5 = load ptr, ptr %4, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(88) %0)
   ret void
@@ -372,9 +372,9 @@ define void @_ZNK4LIEF5MachO18ChainedBindingInfo6acceptERNS_7VisitorE(ptr nounde
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i64 @_ZNK4LIEF5MachO18ChainedBindingInfo7addressEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #7 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load i64, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 72
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = load i32, ptr %4, align 8
   %6 = zext i32 %5 to i64
   %7 = add i64 %3, %6
@@ -383,18 +383,18 @@ define noundef i64 @_ZNK4LIEF5MachO18ChainedBindingInfo7addressEv(ptr nocapture 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN4LIEF5MachO18ChainedBindingInfo7addressEm(ptr nocapture noundef nonnull align 8 dereferenceable(88) initializes((72, 76)) %0, i64 noundef %1) unnamed_addr #8 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 56
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load i64, ptr %3, align 8
   %5 = sub i64 %1, %4
   %6 = trunc i64 %5 to i32
-  %7 = getelementptr inbounds i8, ptr %0, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 %6, ptr %7, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define noundef i64 @_ZNK4LIEF5MachO18ChainedBindingInfo20sign_extended_addendEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 76
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %3 = load i32, ptr %2, align 4
   switch i32 %3, label %23 [
     i32 5, label %19
@@ -404,19 +404,19 @@ define noundef i64 @_ZNK4LIEF5MachO18ChainedBindingInfo20sign_extended_addendEv(
   ]
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 80
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef i64 @_ZN4LIEF5MachO7details20sign_extended_addendERKNS1_28dyld_chained_ptr_arm64e_bindE(ptr noundef nonnull align 8 dereferenceable(8) %6)
   br label %23
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %0, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %10 = load ptr, ptr %9, align 8
   %11 = tail call noundef i64 @_ZN4LIEF5MachO7details20sign_extended_addendERKNS1_30dyld_chained_ptr_arm64e_bind24E(ptr noundef nonnull align 8 dereferenceable(8) %10)
   br label %23
 
 12:                                               ; preds = %1
-  %13 = getelementptr inbounds i8, ptr %0, i64 80
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %14 = load ptr, ptr %13, align 8
   %15 = load i32, ptr %14, align 4
   %16 = lshr i32 %15, 20
@@ -425,7 +425,7 @@ define noundef i64 @_ZNK4LIEF5MachO18ChainedBindingInfo20sign_extended_addendEv(
   br label %23
 
 19:                                               ; preds = %1
-  %20 = getelementptr inbounds i8, ptr %0, i64 80
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %21 = load ptr, ptr %20, align 8
   %22 = tail call noundef i64 @_ZN4LIEF5MachO7details20sign_extended_addendERKNS1_24dyld_chained_ptr_64_bindE(ptr noundef nonnull align 8 dereferenceable(8) %21)
   br label %23
@@ -443,7 +443,7 @@ declare noundef i64 @_ZN4LIEF5MachO7details20sign_extended_addendERKNS1_24dyld_c
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN4LIEF5MachO18ChainedBindingInfo3setERKNS0_7details28dyld_chained_ptr_arm64e_bindE(ptr nocapture noundef nonnull align 8 dereferenceable(88) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 76
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %4 = load i32, ptr %3, align 4
   switch i32 %4, label %_ZN4LIEF5MachO18ChainedBindingInfo5clearEv.exit [
     i32 2, label %5
@@ -455,37 +455,37 @@ define void @_ZN4LIEF5MachO18ChainedBindingInfo3setERKNS0_7details28dyld_chained
   ]
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 80
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %_ZN4LIEF5MachO18ChainedBindingInfo5clearEv.exit, label %.sink.split.i
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %0, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %_ZN4LIEF5MachO18ChainedBindingInfo5clearEv.exit, label %.sink.split.i
 
 13:                                               ; preds = %2
-  %14 = getelementptr inbounds i8, ptr %0, i64 80
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %_ZN4LIEF5MachO18ChainedBindingInfo5clearEv.exit, label %.sink.split.i
 
 17:                                               ; preds = %2
-  %18 = getelementptr inbounds i8, ptr %0, i64 80
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
   br i1 %20, label %_ZN4LIEF5MachO18ChainedBindingInfo5clearEv.exit, label %.sink.split.i
 
 21:                                               ; preds = %2
-  %22 = getelementptr inbounds i8, ptr %0, i64 80
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, null
   br i1 %24, label %_ZN4LIEF5MachO18ChainedBindingInfo5clearEv.exit, label %.sink.split.i
 
 25:                                               ; preds = %2
-  %26 = getelementptr inbounds i8, ptr %0, i64 80
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, null
   br i1 %28, label %_ZN4LIEF5MachO18ChainedBindingInfo5clearEv.exit, label %.sink.split.i
@@ -500,14 +500,14 @@ _ZN4LIEF5MachO18ChainedBindingInfo5clearEv.exit:  ; preds = %2, %5, %9, %13, %17
   %29 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #10
   %30 = load i64, ptr %1, align 8
   store i64 %30, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 80
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %29, ptr %31, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN4LIEF5MachO18ChainedBindingInfo3setERKNS0_7details33dyld_chained_ptr_arm64e_auth_bindE(ptr nocapture noundef nonnull align 8 dereferenceable(88) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 76
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %4 = load i32, ptr %3, align 4
   switch i32 %4, label %_ZN4LIEF5MachO18ChainedBindingInfo5clearEv.exit [
     i32 2, label %5
@@ -519,37 +519,37 @@ define void @_ZN4LIEF5MachO18ChainedBindingInfo3setERKNS0_7details33dyld_chained
   ]
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 80
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %_ZN4LIEF5MachO18ChainedBindingInfo5clearEv.exit, label %.sink.split.i
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %0, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %_ZN4LIEF5MachO18ChainedBindingInfo5clearEv.exit, label %.sink.split.i
 
 13:                                               ; preds = %2
-  %14 = getelementptr inbounds i8, ptr %0, i64 80
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %_ZN4LIEF5MachO18ChainedBindingInfo5clearEv.exit, label %.sink.split.i
 
 17:                                               ; preds = %2
-  %18 = getelementptr inbounds i8, ptr %0, i64 80
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
   br i1 %20, label %_ZN4LIEF5MachO18ChainedBindingInfo5clearEv.exit, label %.sink.split.i
 
 21:                                               ; preds = %2
-  %22 = getelementptr inbounds i8, ptr %0, i64 80
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, null
   br i1 %24, label %_ZN4LIEF5MachO18ChainedBindingInfo5clearEv.exit, label %.sink.split.i
 
 25:                                               ; preds = %2
-  %26 = getelementptr inbounds i8, ptr %0, i64 80
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, null
   br i1 %28, label %_ZN4LIEF5MachO18ChainedBindingInfo5clearEv.exit, label %.sink.split.i
@@ -564,14 +564,14 @@ _ZN4LIEF5MachO18ChainedBindingInfo5clearEv.exit:  ; preds = %2, %5, %9, %13, %17
   %29 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #10
   %30 = load i64, ptr %1, align 8
   store i64 %30, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 80
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %29, ptr %31, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN4LIEF5MachO18ChainedBindingInfo3setERKNS0_7details30dyld_chained_ptr_arm64e_bind24E(ptr nocapture noundef nonnull align 8 dereferenceable(88) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 76
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %4 = load i32, ptr %3, align 4
   switch i32 %4, label %_ZN4LIEF5MachO18ChainedBindingInfo5clearEv.exit [
     i32 2, label %5
@@ -583,37 +583,37 @@ define void @_ZN4LIEF5MachO18ChainedBindingInfo3setERKNS0_7details30dyld_chained
   ]
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 80
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %_ZN4LIEF5MachO18ChainedBindingInfo5clearEv.exit, label %.sink.split.i
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %0, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %_ZN4LIEF5MachO18ChainedBindingInfo5clearEv.exit, label %.sink.split.i
 
 13:                                               ; preds = %2
-  %14 = getelementptr inbounds i8, ptr %0, i64 80
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %_ZN4LIEF5MachO18ChainedBindingInfo5clearEv.exit, label %.sink.split.i
 
 17:                                               ; preds = %2
-  %18 = getelementptr inbounds i8, ptr %0, i64 80
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
   br i1 %20, label %_ZN4LIEF5MachO18ChainedBindingInfo5clearEv.exit, label %.sink.split.i
 
 21:                                               ; preds = %2
-  %22 = getelementptr inbounds i8, ptr %0, i64 80
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, null
   br i1 %24, label %_ZN4LIEF5MachO18ChainedBindingInfo5clearEv.exit, label %.sink.split.i
 
 25:                                               ; preds = %2
-  %26 = getelementptr inbounds i8, ptr %0, i64 80
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, null
   br i1 %28, label %_ZN4LIEF5MachO18ChainedBindingInfo5clearEv.exit, label %.sink.split.i
@@ -628,14 +628,14 @@ _ZN4LIEF5MachO18ChainedBindingInfo5clearEv.exit:  ; preds = %2, %5, %9, %13, %17
   %29 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #10
   %30 = load i64, ptr %1, align 8
   store i64 %30, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 80
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %29, ptr %31, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN4LIEF5MachO18ChainedBindingInfo3setERKNS0_7details35dyld_chained_ptr_arm64e_auth_bind24E(ptr nocapture noundef nonnull align 8 dereferenceable(88) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 76
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %4 = load i32, ptr %3, align 4
   switch i32 %4, label %_ZN4LIEF5MachO18ChainedBindingInfo5clearEv.exit [
     i32 2, label %5
@@ -647,37 +647,37 @@ define void @_ZN4LIEF5MachO18ChainedBindingInfo3setERKNS0_7details35dyld_chained
   ]
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 80
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %_ZN4LIEF5MachO18ChainedBindingInfo5clearEv.exit, label %.sink.split.i
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %0, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %_ZN4LIEF5MachO18ChainedBindingInfo5clearEv.exit, label %.sink.split.i
 
 13:                                               ; preds = %2
-  %14 = getelementptr inbounds i8, ptr %0, i64 80
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %_ZN4LIEF5MachO18ChainedBindingInfo5clearEv.exit, label %.sink.split.i
 
 17:                                               ; preds = %2
-  %18 = getelementptr inbounds i8, ptr %0, i64 80
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
   br i1 %20, label %_ZN4LIEF5MachO18ChainedBindingInfo5clearEv.exit, label %.sink.split.i
 
 21:                                               ; preds = %2
-  %22 = getelementptr inbounds i8, ptr %0, i64 80
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, null
   br i1 %24, label %_ZN4LIEF5MachO18ChainedBindingInfo5clearEv.exit, label %.sink.split.i
 
 25:                                               ; preds = %2
-  %26 = getelementptr inbounds i8, ptr %0, i64 80
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, null
   br i1 %28, label %_ZN4LIEF5MachO18ChainedBindingInfo5clearEv.exit, label %.sink.split.i
@@ -692,14 +692,14 @@ _ZN4LIEF5MachO18ChainedBindingInfo5clearEv.exit:  ; preds = %2, %5, %9, %13, %17
   %29 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #10
   %30 = load i64, ptr %1, align 8
   store i64 %30, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 80
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %29, ptr %31, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN4LIEF5MachO18ChainedBindingInfo3setERKNS0_7details24dyld_chained_ptr_64_bindE(ptr nocapture noundef nonnull align 8 dereferenceable(88) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 76
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %4 = load i32, ptr %3, align 4
   switch i32 %4, label %_ZN4LIEF5MachO18ChainedBindingInfo5clearEv.exit [
     i32 2, label %5
@@ -711,37 +711,37 @@ define void @_ZN4LIEF5MachO18ChainedBindingInfo3setERKNS0_7details24dyld_chained
   ]
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 80
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %_ZN4LIEF5MachO18ChainedBindingInfo5clearEv.exit, label %.sink.split.i
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %0, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %_ZN4LIEF5MachO18ChainedBindingInfo5clearEv.exit, label %.sink.split.i
 
 13:                                               ; preds = %2
-  %14 = getelementptr inbounds i8, ptr %0, i64 80
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %_ZN4LIEF5MachO18ChainedBindingInfo5clearEv.exit, label %.sink.split.i
 
 17:                                               ; preds = %2
-  %18 = getelementptr inbounds i8, ptr %0, i64 80
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
   br i1 %20, label %_ZN4LIEF5MachO18ChainedBindingInfo5clearEv.exit, label %.sink.split.i
 
 21:                                               ; preds = %2
-  %22 = getelementptr inbounds i8, ptr %0, i64 80
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, null
   br i1 %24, label %_ZN4LIEF5MachO18ChainedBindingInfo5clearEv.exit, label %.sink.split.i
 
 25:                                               ; preds = %2
-  %26 = getelementptr inbounds i8, ptr %0, i64 80
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, null
   br i1 %28, label %_ZN4LIEF5MachO18ChainedBindingInfo5clearEv.exit, label %.sink.split.i
@@ -756,14 +756,14 @@ _ZN4LIEF5MachO18ChainedBindingInfo5clearEv.exit:  ; preds = %2, %5, %9, %13, %17
   %29 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #10
   %30 = load i64, ptr %1, align 8
   store i64 %30, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 80
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %29, ptr %31, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN4LIEF5MachO18ChainedBindingInfo3setERKNS0_7details24dyld_chained_ptr_32_bindE(ptr nocapture noundef nonnull align 8 dereferenceable(88) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 76
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %4 = load i32, ptr %3, align 4
   switch i32 %4, label %_ZN4LIEF5MachO18ChainedBindingInfo5clearEv.exit [
     i32 2, label %5
@@ -775,37 +775,37 @@ define void @_ZN4LIEF5MachO18ChainedBindingInfo3setERKNS0_7details24dyld_chained
   ]
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 80
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %_ZN4LIEF5MachO18ChainedBindingInfo5clearEv.exit, label %.sink.split.i
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %0, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %_ZN4LIEF5MachO18ChainedBindingInfo5clearEv.exit, label %.sink.split.i
 
 13:                                               ; preds = %2
-  %14 = getelementptr inbounds i8, ptr %0, i64 80
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %_ZN4LIEF5MachO18ChainedBindingInfo5clearEv.exit, label %.sink.split.i
 
 17:                                               ; preds = %2
-  %18 = getelementptr inbounds i8, ptr %0, i64 80
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
   br i1 %20, label %_ZN4LIEF5MachO18ChainedBindingInfo5clearEv.exit, label %.sink.split.i
 
 21:                                               ; preds = %2
-  %22 = getelementptr inbounds i8, ptr %0, i64 80
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, null
   br i1 %24, label %_ZN4LIEF5MachO18ChainedBindingInfo5clearEv.exit, label %.sink.split.i
 
 25:                                               ; preds = %2
-  %26 = getelementptr inbounds i8, ptr %0, i64 80
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, null
   br i1 %28, label %_ZN4LIEF5MachO18ChainedBindingInfo5clearEv.exit, label %.sink.split.i
@@ -820,7 +820,7 @@ _ZN4LIEF5MachO18ChainedBindingInfo5clearEv.exit:  ; preds = %2, %5, %9, %13, %17
   %29 = tail call noalias noundef nonnull dereferenceable(4) ptr @_Znwm(i64 noundef 4) #10
   %30 = load i32, ptr %1, align 4
   store i32 %30, ptr %29, align 4
-  %31 = getelementptr inbounds i8, ptr %0, i64 80
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %29, ptr %31, align 8
   ret void
 }

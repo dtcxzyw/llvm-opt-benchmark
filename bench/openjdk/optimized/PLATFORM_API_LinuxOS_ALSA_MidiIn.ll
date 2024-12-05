@@ -105,7 +105,7 @@ define hidden noalias noundef ptr @MIDI_IN_GetMessage(ptr noundef %0) local_unna
   br i1 %.not45, label %.loopexit, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
   %.not46 = icmp eq ptr %8, null
   br i1 %.not46, label %.loopexit, label %.preheader
@@ -162,32 +162,32 @@ define hidden noalias noundef ptr @MIDI_IN_GetMessage(ptr noundef %0) local_unna
   %26 = icmp eq i8 %23, 6
   %27 = select i1 %26, i32 144, i32 128
   %28 = select i1 %25, i32 160, i32 %27
-  %29 = getelementptr inbounds i8, ptr %2, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %30 = load i8, ptr %29, align 4
   %31 = zext i8 %30 to i32
   %32 = or i32 %28, %31
-  %33 = getelementptr inbounds i8, ptr %2, i64 17
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 17
   %34 = load i8, ptr %33, align 1
   %35 = zext i8 %34 to i32
-  %36 = getelementptr inbounds i8, ptr %2, i64 18
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 18
   %37 = load i8, ptr %36, align 2
   %38 = zext i8 %37 to i32
   %39 = shl nuw nsw i32 %35, 8
   %40 = or disjoint i32 %39, %32
   %41 = shl nuw nsw i32 %38, 16
   %42 = or disjoint i32 %40, %41
-  %43 = getelementptr inbounds i8, ptr %21, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store i32 %42, ptr %43, align 8
   br label %139
 
 44:                                               ; preds = %22
-  %45 = getelementptr inbounds i8, ptr %2, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %46 = load i8, ptr %45, align 4
   %47 = or i8 %46, -80
   %48 = zext i8 %47 to i32
-  %49 = getelementptr inbounds i8, ptr %2, i64 20
+  %49 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %50 = load i32, ptr %49, align 4
-  %51 = getelementptr inbounds i8, ptr %2, i64 24
+  %51 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %52 = load i32, ptr %51, align 4
   %53 = shl i32 %50, 8
   %54 = and i32 %53, 65280
@@ -195,32 +195,32 @@ define hidden noalias noundef ptr @MIDI_IN_GetMessage(ptr noundef %0) local_unna
   %56 = shl i32 %52, 16
   %57 = and i32 %56, 16711680
   %58 = or disjoint i32 %55, %57
-  %59 = getelementptr inbounds i8, ptr %21, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store i32 %58, ptr %59, align 8
   br label %139
 
 60:                                               ; preds = %22, %22
   %61 = icmp eq i8 %23, 11
   %62 = select i1 %61, i32 192, i32 208
-  %63 = getelementptr inbounds i8, ptr %2, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %64 = load i8, ptr %63, align 4
   %65 = zext i8 %64 to i32
   %66 = or i32 %62, %65
-  %67 = getelementptr inbounds i8, ptr %2, i64 24
+  %67 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %68 = load i32, ptr %67, align 4
   %69 = shl i32 %68, 8
   %70 = and i32 %69, 65280
   %71 = or disjoint i32 %66, %70
-  %72 = getelementptr inbounds i8, ptr %21, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store i32 %71, ptr %72, align 8
   br label %139
 
 73:                                               ; preds = %22
-  %74 = getelementptr inbounds i8, ptr %2, i64 16
+  %74 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %75 = load i8, ptr %74, align 4
   %76 = or i8 %75, -32
   %77 = zext i8 %76 to i32
-  %78 = getelementptr inbounds i8, ptr %2, i64 24
+  %78 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %79 = load i32, ptr %78, align 4
   %80 = shl i32 %79, 8
   %81 = and i32 %80, 32512
@@ -228,20 +228,20 @@ define hidden noalias noundef ptr @MIDI_IN_GetMessage(ptr noundef %0) local_unna
   %83 = shl i32 %79, 9
   %84 = and i32 %83, 8323072
   %85 = or disjoint i32 %82, %84
-  %86 = getelementptr inbounds i8, ptr %21, i64 16
+  %86 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store i32 %85, ptr %86, align 8
   br label %139
 
 87:                                               ; preds = %22
-  %88 = getelementptr inbounds i8, ptr %21, i64 12
+  %88 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 1, ptr %88, align 4
-  %89 = getelementptr inbounds i8, ptr %2, i64 16
+  %89 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %90 = load i32, ptr %89, align 4
-  %91 = getelementptr inbounds i8, ptr %21, i64 16
+  %91 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store i32 %90, ptr %91, align 8
   %92 = zext i32 %90 to i64
   %93 = call noalias ptr @malloc(i64 noundef %92) #10
-  %94 = getelementptr inbounds i8, ptr %21, i64 24
+  %94 = getelementptr inbounds nuw i8, ptr %21, i64 24
   store ptr %93, ptr %94, align 8
   %95 = icmp eq ptr %93, null
   br i1 %95, label %96, label %97
@@ -251,23 +251,23 @@ define hidden noalias noundef ptr @MIDI_IN_GetMessage(ptr noundef %0) local_unna
   br label %.loopexit
 
 97:                                               ; preds = %87
-  %98 = getelementptr inbounds i8, ptr %2, i64 20
+  %98 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %99 = load ptr, ptr %98, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %93, ptr align 1 %99, i64 %92, i1 false)
   br label %139
 
 100:                                              ; preds = %22
-  %101 = getelementptr inbounds i8, ptr %2, i64 24
+  %101 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %102 = load i32, ptr %101, align 4
   %103 = shl i32 %102, 8
   %104 = and i32 %103, 32512
   %105 = or disjoint i32 %104, 241
-  %106 = getelementptr inbounds i8, ptr %21, i64 16
+  %106 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store i32 %105, ptr %106, align 8
   br label %139
 
 107:                                              ; preds = %22
-  %108 = getelementptr inbounds i8, ptr %2, i64 24
+  %108 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %109 = load i32, ptr %108, align 4
   %110 = shl i32 %109, 8
   %111 = and i32 %110, 32512
@@ -275,52 +275,52 @@ define hidden noalias noundef ptr @MIDI_IN_GetMessage(ptr noundef %0) local_unna
   %113 = and i32 %112, 8323072
   %114 = or disjoint i32 %113, %111
   %115 = or disjoint i32 %114, 242
-  %116 = getelementptr inbounds i8, ptr %21, i64 16
+  %116 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store i32 %115, ptr %116, align 8
   br label %139
 
 117:                                              ; preds = %22
-  %118 = getelementptr inbounds i8, ptr %2, i64 24
+  %118 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %119 = load i32, ptr %118, align 4
   %120 = shl i32 %119, 8
   %121 = and i32 %120, 32512
   %122 = or disjoint i32 %121, 243
-  %123 = getelementptr inbounds i8, ptr %21, i64 16
+  %123 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store i32 %122, ptr %123, align 8
   br label %139
 
 124:                                              ; preds = %22
-  %125 = getelementptr inbounds i8, ptr %21, i64 16
+  %125 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store i32 246, ptr %125, align 8
   br label %139
 
 126:                                              ; preds = %22
-  %127 = getelementptr inbounds i8, ptr %21, i64 16
+  %127 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store i32 248, ptr %127, align 8
   br label %139
 
 128:                                              ; preds = %22
-  %129 = getelementptr inbounds i8, ptr %21, i64 16
+  %129 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store i32 250, ptr %129, align 8
   br label %139
 
 130:                                              ; preds = %22
-  %131 = getelementptr inbounds i8, ptr %21, i64 16
+  %131 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store i32 251, ptr %131, align 8
   br label %139
 
 132:                                              ; preds = %22
-  %133 = getelementptr inbounds i8, ptr %21, i64 16
+  %133 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store i32 252, ptr %133, align 8
   br label %139
 
 134:                                              ; preds = %22
-  %135 = getelementptr inbounds i8, ptr %21, i64 16
+  %135 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store i32 254, ptr %135, align 8
   br label %139
 
 136:                                              ; preds = %22
-  %137 = getelementptr inbounds i8, ptr %21, i64 16
+  %137 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store i32 255, ptr %137, align 8
   br label %139
 
@@ -360,13 +360,13 @@ define hidden void @MIDI_IN_ReleaseMessage(ptr nocapture noundef readnone %0, pt
   br i1 %.not, label %12, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %1, i64 12
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %5 = load i32, ptr %4, align 4
   %6 = icmp eq i32 %5, 1
   br i1 %6, label %7, label %11
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %1, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %9 = load ptr, ptr %8, align 8
   %.not6 = icmp eq ptr %9, null
   br i1 %.not6, label %11, label %10

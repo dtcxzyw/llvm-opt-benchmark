@@ -2563,7 +2563,7 @@ $_ZN9LogPrefixILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = c
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZN7JVMFlag10set_originE13JVMFlagOrigin(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %1, 1
   %6 = select i1 %5, i32 131072, i32 0
@@ -2576,7 +2576,7 @@ define hidden void @_ZN7JVMFlag10set_originE13JVMFlagOrigin(ptr nocapture nounde
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZNK7JVMFlag21is_constant_in_binaryEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) local_unnamed_addr #1 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 256
   %5 = icmp ne i32 %4, 0
@@ -2585,7 +2585,7 @@ define hidden noundef zeroext i1 @_ZNK7JVMFlag21is_constant_in_binaryEv(ptr noca
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @_ZNK7JVMFlag11is_unlockerEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) local_unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(26) @.str) #12
   %5 = icmp eq i32 %4, 0
@@ -2606,7 +2606,7 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @_ZNK7JVMFlag11is_unlockedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) local_unnamed_addr #4 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 64
   %.not = icmp eq i32 %4, 0
@@ -2634,7 +2634,7 @@ define hidden noundef zeroext i1 @_ZNK7JVMFlag11is_unlockedEv(ptr nocapture noun
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZN7JVMFlag16clear_diagnosticEv(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, -65
   store i32 %4, ptr %2, align 8
@@ -2643,7 +2643,7 @@ define hidden void @_ZN7JVMFlag16clear_diagnosticEv(ptr nocapture noundef nonnul
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZN7JVMFlag18clear_experimentalEv(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, -129
   store i32 %4, ptr %2, align 8
@@ -2652,7 +2652,7 @@ define hidden void @_ZN7JVMFlag18clear_experimentalEv(ptr nocapture noundef nonn
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZN7JVMFlag11set_productEv(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = or i32 %3, 16
   store i32 %4, ptr %2, align 8
@@ -2662,7 +2662,7 @@ define hidden void @_ZN7JVMFlag11set_productEv(ptr nocapture noundef nonnull ali
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef range(i32 0, 4) i32 @_ZNK7JVMFlag18get_locked_messageEPci(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef initializes((0, 1)) %1, i32 noundef %2) local_unnamed_addr #5 align 2 {
   store i8 0, ptr %1, align 1
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 64
   %.not = icmp eq i32 %6, 0
@@ -2675,7 +2675,7 @@ _ZNK7JVMFlag11is_unlockedEv.exit:                 ; preds = %3
 
 9:                                                ; preds = %_ZNK7JVMFlag11is_unlockedEv.exit
   %10 = sext i32 %2 to i64
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %1, i64 noundef %10, ptr noundef nonnull @.str.5, ptr noundef %12, ptr noundef %12) #13
   br label %29
@@ -2692,7 +2692,7 @@ _ZNK7JVMFlag11is_unlockedEv.exit11:               ; preds = %.thread
 
 17:                                               ; preds = %_ZNK7JVMFlag11is_unlockedEv.exit11
   %18 = sext i32 %2 to i64
-  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = tail call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %1, i64 noundef %18, ptr noundef nonnull @.str.6, ptr noundef %20, ptr noundef %20) #13
   br label %29
@@ -2704,7 +2704,7 @@ _ZNK7JVMFlag11is_unlockedEv.exit11:               ; preds = %.thread
 
 24:                                               ; preds = %22
   %25 = sext i32 %2 to i64
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load ptr, ptr %26, align 8
   %28 = tail call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %1, i64 noundef %25, ptr noundef nonnull @.str.7, ptr noundef %27) #13
   br label %29
@@ -2718,7 +2718,7 @@ declare i32 @jio_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unna
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK7JVMFlag8print_onEP12outputStreambb(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1, i1 zeroext %2, i1 noundef zeroext %3) local_unnamed_addr #5 align 2 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i32, ptr %5, align 8
   %7 = and i32 %6, 256
   %.not68 = icmp eq i32 %7, 0
@@ -2729,7 +2729,7 @@ define hidden void @_ZNK7JVMFlag8print_onEP12outputStreambb(ptr noundef nonnull 
 
 9:                                                ; preds = %8
   %10 = tail call noundef i32 @_ZN12outputStream7fill_toEi(ptr noundef nonnull align 8 dereferenceable(56) %1, i32 noundef 0) #13
-  %11 = getelementptr inbounds i8, ptr %0, i64 20
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %12 = load i32, ptr %11, align 4
   %13 = icmp ult i32 %12, 10
   br i1 %13, label %switch.lookup, label %14
@@ -2742,10 +2742,10 @@ define hidden void @_ZNK7JVMFlag8print_onEP12outputStreambb(ptr noundef nonnull 
 
 switch.lookup:                                    ; preds = %9
   %16 = zext nneg i32 %12 to i64
-  %switch.gep = getelementptr inbounds [10 x ptr], ptr @switch.table._ZNK7JVMFlag11type_stringEv, i64 0, i64 %16
+  %switch.gep = getelementptr inbounds nuw [10 x ptr], ptr @switch.table._ZNK7JVMFlag11type_stringEv, i64 0, i64 %16
   %switch.load = load ptr, ptr %switch.gep, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.8, i32 noundef 9, ptr noundef nonnull %switch.load) #13
-  %17 = getelementptr inbounds i8, ptr %1, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %18 = load i32, ptr %17, align 8
   %19 = icmp ult i32 %18, 10
   br i1 %19, label %20, label %22
@@ -2759,7 +2759,7 @@ switch.lookup:                                    ; preds = %9
   br label %_ZL11fill_to_posP12outputStreamj.exit
 
 _ZL11fill_to_posP12outputStreamj.exit:            ; preds = %20, %22
-  %23 = getelementptr inbounds i8, ptr %0, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load ptr, ptr %23, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.9, ptr noundef %24) #13
   %25 = load i32, ptr %17, align 8
@@ -2876,7 +2876,7 @@ _ZL11fill_to_posP12outputStreamj.exit54:          ; preds = %32, %34
   %72 = trunc i64 %71 to i32
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.18, i32 noundef %72, ptr noundef nonnull %.070) #13
   tail call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %1) #13
-  %73 = getelementptr inbounds i8, ptr %68, i64 1
+  %73 = getelementptr inbounds nuw i8, ptr %68, i64 1
   tail call fastcc void @_ZL11fill_to_posP12outputStreamj(ptr noundef nonnull %1, i32 noundef 10)
   %74 = load ptr, ptr %23, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.9, ptr noundef %74) #13
@@ -2980,7 +2980,7 @@ _ZNK7JVMFlag12print_originEP12outputStreamj.exit: ; preds = %_ZL11fill_to_posP12
   br label %.sink.split
 
 101:                                              ; preds = %8
-  %102 = getelementptr inbounds i8, ptr %0, i64 20
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %103 = load i32, ptr %102, align 4
   switch i32 %103, label %104 [
     i32 9, label %146
@@ -3002,10 +3002,10 @@ _ZNK7JVMFlag12print_originEP12outputStreamj.exit: ; preds = %_ZL11fill_to_posP12
 
 switch.lookup71:                                  ; preds = %104
   %110 = zext nneg i32 %106 to i64
-  %switch.gep72 = getelementptr inbounds [10 x ptr], ptr @switch.table._ZNK7JVMFlag11type_stringEv, i64 0, i64 %110
+  %switch.gep72 = getelementptr inbounds nuw [10 x ptr], ptr @switch.table._ZNK7JVMFlag11type_stringEv, i64 0, i64 %110
   %switch.load73 = load ptr, ptr %switch.gep72, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.8, i32 noundef 9, ptr noundef nonnull %switch.load73) #13
-  %111 = getelementptr inbounds i8, ptr %1, i64 16
+  %111 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %112 = load i32, ptr %111, align 8
   %113 = icmp ult i32 %112, 10
   br i1 %113, label %114, label %116
@@ -3019,7 +3019,7 @@ switch.lookup71:                                  ; preds = %104
   br label %_ZL11fill_to_posP12outputStreamj.exit60
 
 _ZL11fill_to_posP12outputStreamj.exit60:          ; preds = %114, %116
-  %117 = getelementptr inbounds i8, ptr %0, i64 8
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %118 = load ptr, ptr %117, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.9, ptr noundef %118) #13
   %119 = load i32, ptr %111, align 8
@@ -3131,7 +3131,7 @@ declare void @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferen
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNK7JVMFlag11type_stringEv(ptr noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #5 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 20
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %3 = load i32, ptr %2, align 4
   %4 = icmp ult i32 %3, 10
   br i1 %4, label %switch.lookup, label %5
@@ -3144,14 +3144,14 @@ define linkonce_odr hidden noundef ptr @_ZNK7JVMFlag11type_stringEv(ptr noundef 
 
 switch.lookup:                                    ; preds = %1
   %7 = zext nneg i32 %3 to i64
-  %switch.gep = getelementptr inbounds [10 x ptr], ptr @switch.table._ZNK7JVMFlag11type_stringEv, i64 0, i64 %7
+  %switch.gep = getelementptr inbounds nuw [10 x ptr], ptr @switch.table._ZNK7JVMFlag11type_stringEv, i64 0, i64 %7
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZL11fill_to_posP12outputStreamj(ptr noundef %0, i32 noundef range(i32 10, 159) %1) unnamed_addr #5 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = icmp ult i32 %4, %1
   br i1 %5, label %6, label %8
@@ -3176,7 +3176,7 @@ declare void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK7JVMFlag10print_kindEP12outputStreamj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #5 align 2 {
   %4 = alloca [64 x i8], align 16
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i32, ptr %5, align 8
   %7 = and i32 %6, -131088
   %.not = icmp eq i32 %7, 0
@@ -3192,7 +3192,7 @@ define hidden void @_ZNK7JVMFlag10print_kindEP12outputStreamj(ptr nocapture noun
   %12 = phi ptr [ @__const._ZNK7JVMFlag10print_kindEP12outputStreamj.data, %8 ], [ %28, %27 ]
   %.027 = phi i1 [ true, %8 ], [ %.2, %27 ]
   %.01826 = phi i64 [ 1, %8 ], [ %.220, %27 ]
-  %.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %12, i64 8
+  %.sroa.21.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
   %.sroa.21.0.copyload = load ptr, ptr %.sroa.21.0..sroa_idx, align 8
   %13 = load i32, ptr %5, align 8
   %14 = and i32 %13, %11
@@ -3222,7 +3222,7 @@ define hidden void @_ZNK7JVMFlag10print_kindEP12outputStreamj(ptr nocapture noun
   %.220 = phi i64 [ %26, %21 ], [ %.01826, %10 ]
   %.2 = phi i1 [ false, %21 ], [ %.027, %10 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %28 = getelementptr inbounds [12 x %struct.Data], ptr @__const._ZNK7JVMFlag10print_kindEP12outputStreamj.data, i64 0, i64 %indvars.iv.next
+  %28 = getelementptr inbounds nuw [12 x %struct.Data], ptr @__const._ZNK7JVMFlag10print_kindEP12outputStreamj.data, i64 0, i64 %indvars.iv.next
   %29 = load i32, ptr %28, align 16
   %exitcond = icmp eq i64 %indvars.iv.next, 11
   br i1 %exitcond, label %30, label %10, !llvm.loop !8
@@ -3241,7 +3241,7 @@ define hidden void @_ZNK7JVMFlag10print_kindEP12outputStreamj(ptr nocapture noun
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK7JVMFlag12print_originEP12outputStreamj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef nonnull %1, i32 noundef %2) local_unnamed_addr #5 align 2 {
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.33) #13
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 15
   switch i32 %6, label %17 [
@@ -3303,7 +3303,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK7JVMFlag13print_as_flagEP12outputStream(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef %1) local_unnamed_addr #5 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 20
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %4 = load i32, ptr %3, align 4
   switch i32 %4, label %46 [
     i32 0, label %5
@@ -3321,13 +3321,13 @@ define hidden void @_ZNK7JVMFlag13print_as_flagEP12outputStream(ptr nocapture no
   %7 = load i8, ptr %6, align 1
   %8 = trunc i8 %7 to i1
   %.str.47..str.48 = select i1 %8, ptr @.str.47, ptr @.str.48
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.46, ptr noundef nonnull %.str.47..str.48, ptr noundef %10) #13
   br label %.loopexit
 
 11:                                               ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %0, align 8
   %15 = load i32, ptr %14, align 4
@@ -3335,7 +3335,7 @@ define hidden void @_ZNK7JVMFlag13print_as_flagEP12outputStream(ptr nocapture no
   br label %.loopexit
 
 16:                                               ; preds = %2
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load ptr, ptr %17, align 8
   %19 = load ptr, ptr %0, align 8
   %20 = load i32, ptr %19, align 4
@@ -3343,7 +3343,7 @@ define hidden void @_ZNK7JVMFlag13print_as_flagEP12outputStream(ptr nocapture no
   br label %.loopexit
 
 21:                                               ; preds = %2
-  %22 = getelementptr inbounds i8, ptr %0, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = load ptr, ptr %0, align 8
   %25 = load i64, ptr %24, align 8
@@ -3351,7 +3351,7 @@ define hidden void @_ZNK7JVMFlag13print_as_flagEP12outputStream(ptr nocapture no
   br label %.loopexit
 
 26:                                               ; preds = %2
-  %27 = getelementptr inbounds i8, ptr %0, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %28 = load ptr, ptr %27, align 8
   %29 = load ptr, ptr %0, align 8
   %30 = load i64, ptr %29, align 8
@@ -3359,7 +3359,7 @@ define hidden void @_ZNK7JVMFlag13print_as_flagEP12outputStream(ptr nocapture no
   br label %.loopexit
 
 31:                                               ; preds = %2
-  %32 = getelementptr inbounds i8, ptr %0, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %33 = load ptr, ptr %32, align 8
   %34 = load ptr, ptr %0, align 8
   %35 = load i64, ptr %34, align 8
@@ -3367,7 +3367,7 @@ define hidden void @_ZNK7JVMFlag13print_as_flagEP12outputStream(ptr nocapture no
   br label %.loopexit
 
 36:                                               ; preds = %2
-  %37 = getelementptr inbounds i8, ptr %0, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %38 = load ptr, ptr %37, align 8
   %39 = load ptr, ptr %0, align 8
   %40 = load i64, ptr %39, align 8
@@ -3375,7 +3375,7 @@ define hidden void @_ZNK7JVMFlag13print_as_flagEP12outputStream(ptr nocapture no
   br label %.loopexit
 
 41:                                               ; preds = %2
-  %42 = getelementptr inbounds i8, ptr %0, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %43 = load ptr, ptr %42, align 8
   %44 = load ptr, ptr %0, align 8
   %45 = load double, ptr %44, align 8
@@ -3388,7 +3388,7 @@ define hidden void @_ZNK7JVMFlag13print_as_flagEP12outputStream(ptr nocapture no
   br i1 %spec.select.i, label %48, label %60
 
 48:                                               ; preds = %46
-  %49 = getelementptr inbounds i8, ptr %0, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %50 = load ptr, ptr %49, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.54, ptr noundef %50) #13
   %51 = load ptr, ptr %0, align 8
@@ -3415,7 +3415,7 @@ define hidden void @_ZNK7JVMFlag13print_as_flagEP12outputStream(ptr nocapture no
   br label %58
 
 58:                                               ; preds = %54, %56
-  %59 = getelementptr inbounds i8, ptr %.0, i64 1
+  %59 = getelementptr inbounds nuw i8, ptr %.0, i64 1
   br label %.preheader, !llvm.loop !9
 
 60:                                               ; preds = %46
@@ -3438,7 +3438,7 @@ define hidden noundef ptr @_ZN7JVMFlag9find_flagEPKcmbb(ptr noundef %0, i64 noun
   br i1 %.not, label %28, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load i32, ptr %7, align 8
   %9 = and i32 %8, 256
   %.not13 = icmp eq i32 %9, 0
@@ -3469,7 +3469,7 @@ _ZNK7JVMFlag11is_unlockedEv.exit:                 ; preds = %17
   br i1 %20, label %_ZNK7JVMFlag11is_unlockedEv.exit.thread, label %21
 
 21:                                               ; preds = %14, %_ZNK7JVMFlag11is_unlockedEv.exit
-  %22 = getelementptr inbounds i8, ptr %5, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull dereferenceable(26) @.str) #12
   %25 = icmp eq i32 %24, 0
@@ -3493,7 +3493,7 @@ declare noundef ptr @_ZN13JVMFlagLookup4findEPKcm(ptr noundef, i64 noundef) loca
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN7JVMFlag11fuzzy_matchEPKcmb(ptr noundef %0, i64 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #5 align 2 {
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL9flagTable, i64 8), align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL9flagTable, i64 8), align 8
   %.not25 = icmp eq ptr %4, null
   br i1 %.not25, label %._crit_edge.thread, label %.lr.ph
 
@@ -3507,8 +3507,8 @@ define hidden noundef ptr @_ZN7JVMFlag11fuzzy_matchEPKcmb(ptr noundef %0, i64 no
   %8 = fcmp ogt double %7, %.01727
   %.120 = select i1 %8, ptr %.028, ptr %.01926
   %.1 = select i1 %8, double %7, double %.01727
-  %9 = getelementptr inbounds i8, ptr %.028, i64 24
-  %10 = getelementptr inbounds i8, ptr %.028, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %.028, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %.028, i64 32
   %11 = load ptr, ptr %10, align 8
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
@@ -3520,7 +3520,7 @@ define hidden noundef ptr @_ZN7JVMFlag11fuzzy_matchEPKcmb(ptr noundef %0, i64 no
   br i1 %14, label %._crit_edge.thread, label %15
 
 15:                                               ; preds = %._crit_edge
-  %16 = getelementptr inbounds i8, ptr %.120, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %.120, i64 16
   %17 = load i32, ptr %16, align 8
   %18 = and i32 %17, 64
   %.not.i = icmp eq i32 %18, 0
@@ -3542,7 +3542,7 @@ _ZNK7JVMFlag11is_unlockedEv.exit:                 ; preds = %22
   br i1 %25, label %_ZNK7JVMFlag11is_unlockedEv.exit.thread, label %26
 
 26:                                               ; preds = %19, %_ZNK7JVMFlag11is_unlockedEv.exit
-  %27 = getelementptr inbounds i8, ptr %.120, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %.120, i64 8
   %28 = load ptr, ptr %27, align 8
   %29 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %28, ptr noundef nonnull dereferenceable(26) @.str) #12
   %30 = icmp eq i32 %29, 0
@@ -3649,7 +3649,7 @@ define hidden void @_ZN7JVMFlag13printSetFlagsEP12outputStream(ptr noundef %0) l
   %.022 = phi i64 [ %16, %15 ], [ 0, %.lr.ph24.preheader ]
   %9 = getelementptr inbounds ptr, ptr %5, i64 %.022
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 15
   %.not = icmp eq i32 %13, 0
@@ -3679,10 +3679,10 @@ declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef i32 @_ZL13compare_flagsPKvS0_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %1, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %8) #12
   ret i32 %9
@@ -3729,7 +3729,7 @@ define hidden void @_ZN7JVMFlag10printFlagsEP12outputStreambbb(ptr noundef nonnu
   %.03651.us = phi i64 [ %25, %24 ], [ 0, %.lr.ph53 ]
   %12 = getelementptr inbounds ptr, ptr %8, i64 %.03651.us
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load i32, ptr %14, align 8
   %16 = and i32 %15, 64
   %.not.i.us = icmp eq i32 %16, 0
@@ -3763,7 +3763,7 @@ _ZNK7JVMFlag11is_unlockedEv.exit.thread.us:       ; preds = %_ZNK7JVMFlag11is_un
   %.03651 = phi i64 [ %42, %41 ], [ 0, %.lr.ph53 ]
   %26 = getelementptr inbounds ptr, ptr %8, i64 %.03651
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %29 = load i32, ptr %28, align 8
   %30 = and i32 %29, 64
   %.not.i = icmp eq i32 %30, 0
@@ -3805,7 +3805,7 @@ _ZNK7JVMFlag11is_unlockedEv.exit.thread:          ; preds = %34, %31, %_ZNK7JVMF
 .lr.ph56:                                         ; preds = %.preheader, %57
   %.055 = phi i64 [ %58, %57 ], [ 0, %.preheader ]
   %43 = getelementptr inbounds [1224 x %class.JVMFlag], ptr @_ZL9flagTable, i64 0, i64 %.055
-  %44 = getelementptr inbounds i8, ptr %43, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %45 = load i32, ptr %44, align 8
   %46 = and i32 %45, 64
   %.not.i40 = icmp eq i32 %46, 0

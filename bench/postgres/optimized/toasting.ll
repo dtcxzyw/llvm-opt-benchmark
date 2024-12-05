@@ -50,9 +50,9 @@ define dso_local void @NewRelationCreateToastTable(i32 noundef %0, i64 noundef %
 define dso_local void @BootstrapToastTable(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call ptr @makeRangeVar(ptr noundef null, ptr noundef %0, i32 noundef -1) #5
   %5 = tail call ptr @table_openrv(ptr noundef %4, i32 noundef 8) #5
-  %6 = getelementptr inbounds i8, ptr %5, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 115
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 115
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %10 [
     i8 114, label %13
@@ -102,11 +102,11 @@ define internal fastcc noundef zeroext i1 @create_toast_table(ptr noundef %0, i3
   %12 = alloca [2 x i16], align 2
   %13 = alloca %struct.ObjectAddress, align 4
   %14 = alloca %struct.ObjectAddress, align 4
-  %15 = getelementptr inbounds i8, ptr %0, i64 72
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %16 = load i32, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 56
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 108
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 108
   %20 = load i32, ptr %19, align 4
   %.not = icmp eq i32 %20, 0
   br i1 %.not, label %21, label %needs_toast_table.exit.thread
@@ -117,13 +117,13 @@ define internal fastcc noundef zeroext i1 @create_toast_table(ptr noundef %0, i3
   br i1 %23, label %43, label %24
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds i8, ptr %18, i64 115
+  %25 = getelementptr inbounds nuw i8, ptr %18, i64 115
   %26 = load i8, ptr %25, align 1
   %27 = icmp eq i8 %26, 112
   br i1 %27, label %needs_toast_table.exit.thread, label %28
 
 28:                                               ; preds = %24
-  %29 = getelementptr inbounds i8, ptr %18, i64 113
+  %29 = getelementptr inbounds nuw i8, ptr %18, i64 113
   %30 = load i8, ptr %29, align 1
   %31 = trunc i8 %30 to i1
   %32 = load i32, ptr @Mode, align 4
@@ -139,9 +139,9 @@ define internal fastcc noundef zeroext i1 @create_toast_table(ptr noundef %0, i3
   br i1 %or.cond4.not.i, label %needs_toast_table.exit.thread, label %needs_toast_table.exit
 
 needs_toast_table.exit:                           ; preds = %34
-  %38 = getelementptr inbounds i8, ptr %0, i64 312
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 304
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 304
   %41 = load ptr, ptr %40, align 8
   %42 = tail call zeroext i1 %41(ptr noundef nonnull %0) #5
   br i1 %42, label %45, label %needs_toast_table.exit.thread
@@ -170,20 +170,20 @@ needs_toast_table.exit:                           ; preds = %34
   call void @TupleDescInitEntry(ptr noundef %53, i16 noundef signext 1, ptr noundef nonnull @.str.6, i32 noundef 26, i32 noundef -1, i32 noundef 0) #5
   call void @TupleDescInitEntry(ptr noundef %53, i16 noundef signext 2, ptr noundef nonnull @.str.7, i32 noundef 23, i32 noundef -1, i32 noundef 0) #5
   call void @TupleDescInitEntry(ptr noundef %53, i16 noundef signext 3, ptr noundef nonnull @.str.8, i32 noundef 17, i32 noundef -1, i32 noundef 0) #5
-  %54 = getelementptr inbounds i8, ptr %53, i64 112
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 112
   store i8 112, ptr %54, align 8
   %55 = getelementptr i8, ptr %53, i64 216
   store i8 112, ptr %55, align 8
   %56 = getelementptr i8, ptr %53, i64 320
   store i8 112, ptr %56, align 8
-  %57 = getelementptr inbounds i8, ptr %53, i64 113
+  %57 = getelementptr inbounds nuw i8, ptr %53, i64 113
   store i8 0, ptr %57, align 1
   %58 = getelementptr i8, ptr %53, i64 217
   store i8 0, ptr %58, align 1
   %59 = getelementptr i8, ptr %53, i64 321
   store i8 0, ptr %59, align 1
   %60 = load ptr, ptr %17, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 68
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 68
   %62 = load i32, ptr %61, align 4
   %63 = call zeroext i1 @isTempOrTempToastNamespace(i32 noundef %62) #5
   br i1 %63, label %64, label %66
@@ -195,10 +195,10 @@ needs_toast_table.exit:                           ; preds = %34
 66:                                               ; preds = %50, %64
   %.080 = phi i32 [ %65, %64 ], [ 99, %50 ]
   %67 = load ptr, ptr %17, align 8
-  %68 = getelementptr inbounds i8, ptr %67, i64 113
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 113
   %69 = load i8, ptr %68, align 1
   %70 = trunc i8 %69 to i1
-  %71 = getelementptr inbounds i8, ptr %67, i64 115
+  %71 = getelementptr inbounds nuw i8, ptr %67, i64 115
   %72 = load i8, ptr %71, align 1
   switch i8 %72, label %77 [
     i8 114, label %73
@@ -209,69 +209,69 @@ needs_toast_table.exit:                           ; preds = %34
   ]
 
 73:                                               ; preds = %66, %66, %66, %66, %66
-  %74 = getelementptr inbounds i8, ptr %67, i64 88
+  %74 = getelementptr inbounds nuw i8, ptr %67, i64 88
   %75 = load i32, ptr %74, align 4
   %76 = icmp eq i32 %75, 0
   br label %77
 
 77:                                               ; preds = %66, %73
   %78 = phi i1 [ %76, %73 ], [ false, %66 ]
-  %79 = getelementptr inbounds i8, ptr %67, i64 92
+  %79 = getelementptr inbounds nuw i8, ptr %67, i64 92
   %80 = load i32, ptr %79, align 4
-  %81 = getelementptr inbounds i8, ptr %67, i64 80
+  %81 = getelementptr inbounds nuw i8, ptr %67, i64 80
   %82 = load i32, ptr %81, align 4
-  %83 = getelementptr inbounds i8, ptr %0, i64 312
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %84 = load ptr, ptr %83, align 8
-  %85 = getelementptr inbounds i8, ptr %84, i64 312
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 312
   %86 = load ptr, ptr %85, align 8
   %87 = call i32 %86(ptr noundef nonnull %0) #5
   %88 = load ptr, ptr %17, align 8
-  %89 = getelementptr inbounds i8, ptr %88, i64 114
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 114
   %90 = load i8, ptr %89, align 2
   %91 = call i32 @heap_create_with_catalog(ptr noundef nonnull %8, i32 noundef %.080, i32 noundef %80, i32 noundef %1, i32 noundef 0, i32 noundef 0, i32 noundef %82, i32 noundef %87, ptr noundef nonnull %53, ptr noundef null, i8 noundef signext 116, i8 noundef signext %90, i1 noundef zeroext %70, i1 noundef zeroext %78, i32 noundef 0, i64 noundef %3, i1 noundef zeroext false, i1 noundef zeroext true, i1 noundef zeroext true, i32 noundef %6, ptr noundef null) #5
   call void @CommandCounterIncrement() #5
   %92 = call ptr @table_open(i32 noundef %91, i32 noundef 5) #5
   %93 = call noundef ptr @palloc0(i64 noundef 192) #5
   store i32 365, ptr %93, align 4
-  %94 = getelementptr inbounds i8, ptr %93, i64 4
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 4
   store i32 2, ptr %94, align 4
-  %95 = getelementptr inbounds i8, ptr %93, i64 8
+  %95 = getelementptr inbounds nuw i8, ptr %93, i64 8
   store i32 2, ptr %95, align 8
-  %96 = getelementptr inbounds i8, ptr %93, i64 12
+  %96 = getelementptr inbounds nuw i8, ptr %93, i64 12
   store i16 1, ptr %96, align 4
   %97 = getelementptr i8, ptr %93, i64 14
   store i16 2, ptr %97, align 2
-  %98 = getelementptr inbounds i8, ptr %93, i64 80
-  %99 = getelementptr inbounds i8, ptr %93, i64 160
+  %98 = getelementptr inbounds nuw i8, ptr %93, i64 80
+  %99 = getelementptr inbounds nuw i8, ptr %93, i64 160
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %98, i8 0, i64 56, i1 false)
   store i8 1, ptr %99, align 8
-  %100 = getelementptr inbounds i8, ptr %93, i64 161
+  %100 = getelementptr inbounds nuw i8, ptr %93, i64 161
   store i8 0, ptr %100, align 1
-  %101 = getelementptr inbounds i8, ptr %93, i64 162
+  %101 = getelementptr inbounds nuw i8, ptr %93, i64 162
   store i8 1, ptr %101, align 2
-  %102 = getelementptr inbounds i8, ptr %93, i64 163
-  %103 = getelementptr inbounds i8, ptr %93, i64 168
+  %102 = getelementptr inbounds nuw i8, ptr %93, i64 163
+  %103 = getelementptr inbounds nuw i8, ptr %93, i64 168
   store i32 0, ptr %103, align 8
-  %104 = getelementptr inbounds i8, ptr %93, i64 172
+  %104 = getelementptr inbounds nuw i8, ptr %93, i64 172
   store i32 0, ptr %102, align 1
   store i32 403, ptr %104, align 4
-  %105 = getelementptr inbounds i8, ptr %93, i64 176
+  %105 = getelementptr inbounds nuw i8, ptr %93, i64 176
   store ptr null, ptr %105, align 8
   %106 = load ptr, ptr @CurrentMemoryContext, align 8
-  %107 = getelementptr inbounds i8, ptr %93, i64 184
+  %107 = getelementptr inbounds nuw i8, ptr %93, i64 184
   store ptr %106, ptr %107, align 8
   store i32 0, ptr %10, align 4
-  %108 = getelementptr inbounds i8, ptr %10, i64 4
+  %108 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store i32 0, ptr %108, align 4
   store i32 1981, ptr %11, align 4
-  %109 = getelementptr inbounds i8, ptr %11, i64 4
+  %109 = getelementptr inbounds nuw i8, ptr %11, i64 4
   store i32 1978, ptr %109, align 4
   store i16 0, ptr %12, align 2
-  %110 = getelementptr inbounds i8, ptr %12, i64 2
+  %110 = getelementptr inbounds nuw i8, ptr %12, i64 2
   store i16 0, ptr %110, align 2
   %111 = call ptr @list_make2_impl(i32 noundef 1, ptr nonnull @.str.6, ptr nonnull @.str.7) #5
   %112 = load ptr, ptr %17, align 8
-  %113 = getelementptr inbounds i8, ptr %112, i64 92
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 92
   %114 = load i32, ptr %113, align 4
   %115 = call i32 @index_create(ptr noundef %92, ptr noundef nonnull %9, i32 noundef %2, i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %93, ptr noundef %111, i32 noundef 403, i32 noundef %114, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef null, ptr noundef nonnull %12, i64 noundef 0, i16 noundef zeroext 1, i16 noundef zeroext 0, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef null) #5
   call void @table_close(ptr noundef %92, i32 noundef 0) #5
@@ -289,20 +289,20 @@ needs_toast_table.exit:                           ; preds = %34
   unreachable
 
 122:                                              ; preds = %77
-  %123 = getelementptr inbounds i8, ptr %118, i64 16
+  %123 = getelementptr inbounds nuw i8, ptr %118, i64 16
   %124 = load ptr, ptr %123, align 8
-  %125 = getelementptr inbounds i8, ptr %124, i64 22
+  %125 = getelementptr inbounds nuw i8, ptr %124, i64 22
   %126 = load i8, ptr %125, align 2
   %127 = zext i8 %126 to i64
   %128 = getelementptr i8, ptr %124, i64 %127
-  %129 = getelementptr inbounds i8, ptr %128, i64 108
+  %129 = getelementptr inbounds nuw i8, ptr %128, i64 108
   store i32 %91, ptr %129, align 4
   %130 = load i32, ptr @Mode, align 4
   %131 = icmp eq i32 %130, 0
   br i1 %131, label %134, label %132
 
 132:                                              ; preds = %122
-  %133 = getelementptr inbounds i8, ptr %118, i64 4
+  %133 = getelementptr inbounds nuw i8, ptr %118, i64 4
   call void @CatalogTupleUpdate(ptr noundef %116, ptr noundef nonnull %133, ptr noundef nonnull %118) #5
   br label %135
 
@@ -319,14 +319,14 @@ needs_toast_table.exit:                           ; preds = %34
 
 138:                                              ; preds = %135
   store i32 1259, ptr %13, align 4
-  %139 = getelementptr inbounds i8, ptr %13, i64 4
+  %139 = getelementptr inbounds nuw i8, ptr %13, i64 4
   store i32 %16, ptr %139, align 4
-  %140 = getelementptr inbounds i8, ptr %13, i64 8
+  %140 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i32 0, ptr %140, align 4
   store i32 1259, ptr %14, align 4
-  %141 = getelementptr inbounds i8, ptr %14, i64 4
+  %141 = getelementptr inbounds nuw i8, ptr %14, i64 4
   store i32 %91, ptr %141, align 4
-  %142 = getelementptr inbounds i8, ptr %14, i64 8
+  %142 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i32 0, ptr %142, align 4
   call void @recordDependencyOn(ptr noundef nonnull %14, ptr noundef nonnull %13, i32 noundef 105) #5
   br label %143

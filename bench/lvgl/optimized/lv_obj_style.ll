@@ -3784,13 +3784,13 @@ define internal fastcc range(i32 0, 2) i32 @get_prop_core(ptr nocapture noundef 
   br label %.lr.ph113.split
 
 .lr.ph113.split.us:                               ; preds = %.lr.ph113
-  %invariant.gep = getelementptr inbounds i8, ptr %17, i64 8
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %17, i64 8
   %wide.trip.count = zext nneg i16 %13 to i64
   br label %18
 
 18:                                               ; preds = %.thread.us, %.lr.ph113.split.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %.thread.us ], [ 0, %.lr.ph113.split.us ]
-  %gep = getelementptr inbounds %struct._lv_obj_style_t, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw %struct._lv_obj_style_t, ptr %invariant.gep, i64 %indvars.iv
   %19 = load i32, ptr %gep, align 8
   %20 = and i32 %19, 33554432
   %21 = icmp eq i32 %20, 0

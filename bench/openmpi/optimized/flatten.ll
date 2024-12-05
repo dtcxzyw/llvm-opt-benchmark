@@ -49,16 +49,16 @@ define ptr @ADIOI_Flatten_datatype(ptr noundef %0) local_unnamed_addr #0 {
   %.0 = phi i64 [ %17, %16 ], [ 1, %14 ]
   %19 = call ptr @ADIOI_Malloc_fn(i64 noundef 56, i32 noundef 16, ptr noundef nonnull @.str) #6
   store ptr %0, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 16
-  %21 = getelementptr inbounds i8, ptr %19, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, i8 0, i64 16, i1 false)
-  %22 = getelementptr inbounds i8, ptr %19, i64 32
-  %23 = getelementptr inbounds i8, ptr %19, i64 48
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %19, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %22, i8 -1, i64 16, i1 false)
   store i32 1, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %19, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i64 %.0, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %19, i64 52
+  %25 = getelementptr inbounds nuw i8, ptr %19, i64 52
   store i32 0, ptr %25, align 4
   %26 = shl nsw i64 %.0, 1
   %27 = call ptr @ADIOI_Calloc_fn(i64 noundef %26, i64 noundef 8, i32 noundef 26, ptr noundef nonnull @.str) #6
@@ -74,7 +74,7 @@ define ptr @ADIOI_Flatten_datatype(ptr noundef %0) local_unnamed_addr #0 {
 31:                                               ; preds = %18
   %32 = call i32 @PMPI_Type_size_x(ptr noundef %0, ptr noundef %27) #6
   %33 = load ptr, ptr %5, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 24
   %35 = load ptr, ptr %34, align 8
   store i64 0, ptr %35, align 8
   br label %40
@@ -84,7 +84,7 @@ define ptr @ADIOI_Flatten_datatype(ptr noundef %0) local_unnamed_addr #0 {
   call void @ADIOI_Flatten(ptr noundef %0, ptr noundef nonnull %19, i64 noundef 0, ptr noundef nonnull %2)
   %37 = load i64, ptr %2, align 8
   %38 = load ptr, ptr %5, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   store i64 %37, ptr %39, align 8
   call void @ADIOI_Optimize_flattened(ptr noundef %38)
   br label %40
@@ -108,7 +108,7 @@ define noundef i32 @ADIOI_Flattened_type_copy(ptr nocapture readnone %0, i32 %1,
   br i1 %.not, label %11, label %7
 
 7:                                                ; preds = %6
-  %8 = getelementptr inbounds i8, ptr %3, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %9 = load i32, ptr %8, align 8
   %10 = add nsw i32 %9, 1
   store i32 %10, ptr %8, align 8
@@ -122,7 +122,7 @@ define noundef i32 @ADIOI_Flattened_type_copy(ptr nocapture readnone %0, i32 %1,
 
 ; Function Attrs: nounwind uwtable
 define noundef i32 @ADIOI_Flattened_type_delete(ptr nocapture readnone %0, i32 %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %2, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %6 = load i32, ptr %5, align 8
   %7 = add nsw i32 %6, -1
   store i32 %7, ptr %5, align 8
@@ -130,7 +130,7 @@ define noundef i32 @ADIOI_Flattened_type_delete(ptr nocapture readnone %0, i32 %
   br i1 %8, label %9, label %12
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %2, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %11 = load ptr, ptr %10, align 8
   tail call void @ADIOI_Free_fn(ptr noundef %11, i32 noundef 1251, ptr noundef nonnull @.str) #6
   tail call void @ADIOI_Free_fn(ptr noundef nonnull %2, i32 noundef 1252, ptr noundef nonnull @.str) #6
@@ -221,7 +221,7 @@ define i64 @ADIOI_Count_contiguous_blocks(ptr noundef %0, ptr noundef %1) local_
 
 49:                                               ; preds = %2
   %50 = load i32, ptr %19, align 4
-  %51 = getelementptr inbounds i8, ptr %19, i64 4
+  %51 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %52 = sext i32 %50 to i64
   %53 = getelementptr i32, ptr %19, i64 %52
   %54 = getelementptr i8, ptr %53, i64 4
@@ -242,12 +242,12 @@ define i64 @ADIOI_Count_contiguous_blocks(ptr noundef %0, ptr noundef %1) local_
   br label %.loopexit
 
 69:                                               ; preds = %2
-  %70 = getelementptr inbounds i8, ptr %19, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %71 = load i32, ptr %70, align 4
   %72 = load i32, ptr %19, align 4
-  %73 = getelementptr inbounds i8, ptr %19, i64 4
+  %73 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %74 = load i32, ptr %73, align 4
-  %75 = getelementptr inbounds i8, ptr %19, i64 12
+  %75 = getelementptr inbounds nuw i8, ptr %19, i64 12
   %76 = sext i32 %71 to i64
   %77 = getelementptr i32, ptr %19, i64 %76
   %78 = getelementptr i8, ptr %77, i64 12
@@ -338,7 +338,7 @@ define i64 @ADIOI_Count_contiguous_blocks(ptr noundef %0, ptr noundef %1) local_
 
 136:                                              ; preds = %130
   %137 = sub nsw i64 %.pre226, %125
-  %138 = getelementptr inbounds i8, ptr %19, i64 4
+  %138 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %139 = load i32, ptr %138, align 4
   %140 = mul nsw i32 %139, %121
   %141 = sext i32 %140 to i64
@@ -384,7 +384,7 @@ define i64 @ADIOI_Count_contiguous_blocks(ptr noundef %0, ptr noundef %1) local_
 
 168:                                              ; preds = %162
   %169 = sub nsw i64 %.pre225, %157
-  %170 = getelementptr inbounds i8, ptr %19, i64 4
+  %170 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %171 = load i32, ptr %170, align 4
   %172 = add nsw i32 %171, -1
   %173 = sext i32 %172 to i64
@@ -406,7 +406,7 @@ define i64 @ADIOI_Count_contiguous_blocks(ptr noundef %0, ptr noundef %1) local_
   %181 = phi i64 [ %175, %.lr.ph210 ], [ %187, %180 ]
   %.4208 = phi i64 [ %178, %.lr.ph210 ], [ %186, %180 ]
   %indvars.iv.next217 = add nuw nsw i64 %indvars.iv216, 1
-  %182 = getelementptr inbounds i32, ptr %19, i64 %indvars.iv.next217
+  %182 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv.next217
   %183 = load i32, ptr %182, align 4
   %184 = sext i32 %183 to i64
   %185 = mul nsw i64 %169, %184
@@ -445,7 +445,7 @@ define i64 @ADIOI_Count_contiguous_blocks(ptr noundef %0, ptr noundef %1) local_
 
 204:                                              ; preds = %198
   %205 = sub nsw i64 %.pre224, %193
-  %206 = getelementptr inbounds i8, ptr %19, i64 4
+  %206 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %207 = load i32, ptr %206, align 4
   %208 = add nsw i32 %207, -1
   %209 = sext i32 %208 to i64
@@ -466,7 +466,7 @@ define i64 @ADIOI_Count_contiguous_blocks(ptr noundef %0, ptr noundef %1) local_
 
 221:                                              ; preds = %2, %2
   %222 = load i32, ptr %19, align 4
-  %invariant.gep = getelementptr inbounds i8, ptr %19, i64 4
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %19, i64 4
   %223 = icmp sgt i32 %222, 0
   br i1 %223, label %.lr.ph.preheader, label %.loopexit
 
@@ -477,7 +477,7 @@ define i64 @ADIOI_Count_contiguous_blocks(ptr noundef %0, ptr noundef %1) local_
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.thread236
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.thread236 ]
   %.6206 = phi i64 [ 0, %.lr.ph.preheader ], [ %.8, %.thread236 ]
-  %224 = getelementptr inbounds ptr, ptr %29, i64 %indvars.iv
+  %224 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv
   %225 = load ptr, ptr %224, align 8
   %226 = call i32 @PMPI_Type_get_envelope(ptr noundef %225, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %4) #6
   %227 = load ptr, ptr %224, align 8
@@ -500,7 +500,7 @@ define i64 @ADIOI_Count_contiguous_blocks(ptr noundef %0, ptr noundef %1) local_
 
 238:                                              ; preds = %233
   %239 = sub nsw i64 %.pre, %228
-  %gep = getelementptr inbounds i32, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %indvars.iv
   %240 = load i32, ptr %gep, align 4
   %241 = add nsw i32 %240, -1
   %242 = sext i32 %241 to i64
@@ -557,7 +557,7 @@ define i64 @ADIOI_Count_contiguous_blocks(ptr noundef %0, ptr noundef %1) local_
 
 .lr.ph213:                                        ; preds = %.loopexit, %272
   %indvars.iv221 = phi i64 [ %indvars.iv.next222, %272 ], [ 0, %.loopexit ]
-  %266 = getelementptr inbounds ptr, ptr %29, i64 %indvars.iv221
+  %266 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv221
   %267 = load ptr, ptr %266, align 8
   %268 = call i32 @PMPI_Type_get_envelope(ptr noundef %267, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %4) #6
   %269 = load i32, ptr %4, align 4
@@ -658,7 +658,7 @@ define void @ADIOI_Flatten(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr n
 
 50:                                               ; preds = %4
   %51 = load i32, ptr %24, align 4
-  %52 = getelementptr inbounds i8, ptr %24, i64 4
+  %52 = getelementptr inbounds nuw i8, ptr %24, i64 4
   %53 = sext i32 %51 to i64
   %54 = getelementptr i32, ptr %24, i64 %53
   %55 = getelementptr i8, ptr %54, i64 4
@@ -679,12 +679,12 @@ define void @ADIOI_Flatten(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr n
   br label %.loopexit941
 
 69:                                               ; preds = %4
-  %70 = getelementptr inbounds i8, ptr %24, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %71 = load i32, ptr %70, align 4
   %72 = load i32, ptr %24, align 4
-  %73 = getelementptr inbounds i8, ptr %24, i64 4
+  %73 = getelementptr inbounds nuw i8, ptr %24, i64 4
   %74 = load i32, ptr %73, align 4
-  %75 = getelementptr inbounds i8, ptr %24, i64 12
+  %75 = getelementptr inbounds nuw i8, ptr %24, i64 12
   %76 = sext i32 %71 to i64
   %77 = getelementptr i32, ptr %24, i64 %76
   %78 = getelementptr i8, ptr %77, i64 12
@@ -733,13 +733,13 @@ define void @ADIOI_Flatten(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr n
 .thread:                                          ; preds = %96, %107
   %sext929 = shl i64 %102, 32
   %110 = ashr exact i64 %sext929, 32
-  %111 = getelementptr inbounds i8, ptr %1, i64 8
+  %111 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %112 = load i64, ptr %111, align 8
   %.not.i = icmp sgt i64 %112, %110
   br i1 %.not.i, label %.flatlist_node_grow.exit_crit_edge, label %113
 
 .flatlist_node_grow.exit_crit_edge:               ; preds = %.thread
-  %.phi.trans.insert1230 = getelementptr inbounds i8, ptr %1, i64 24
+  %.phi.trans.insert1230 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.pre1231 = load ptr, ptr %.phi.trans.insert1230, align 8
   br label %flatlist_node_grow.exit
 
@@ -757,11 +757,11 @@ define void @ADIOI_Flatten(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr n
   br i1 %.not20.i, label %132, label %123
 
 123:                                              ; preds = %113
-  %124 = getelementptr inbounds i8, ptr %1, i64 16
+  %124 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %125 = load ptr, ptr %124, align 8
   %126 = shl i64 %122, 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %119, ptr align 8 %125, i64 %126, i1 false)
-  %127 = getelementptr inbounds i8, ptr %1, i64 24
+  %127 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %128 = load ptr, ptr %127, align 8
   %129 = load i64, ptr %111, align 8
   %130 = shl i64 %129, 3
@@ -771,9 +771,9 @@ define void @ADIOI_Flatten(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr n
   br label %132
 
 132:                                              ; preds = %123, %113
-  %133 = getelementptr inbounds i8, ptr %1, i64 16
+  %133 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr %119, ptr %133, align 8
-  %134 = getelementptr inbounds i8, ptr %1, i64 24
+  %134 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store ptr %121, ptr %134, align 8
   store i64 %120, ptr %111, align 8
   br label %flatlist_node_grow.exit
@@ -786,7 +786,7 @@ flatlist_node_grow.exit:                          ; preds = %.flatlist_node_grow
   %138 = call i32 @PMPI_Type_size_x(ptr noundef %137, ptr noundef nonnull %14) #6
   %139 = load i64, ptr %14, align 8
   %140 = mul nsw i64 %139, %98
-  %141 = getelementptr inbounds i8, ptr %1, i64 16
+  %141 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %142 = load ptr, ptr %141, align 8
   %143 = getelementptr inbounds i64, ptr %142, i64 %102
   store i64 %140, ptr %143, align 8
@@ -804,8 +804,8 @@ flatlist_node_grow.exit:                          ; preds = %.flatlist_node_grow
 
 .preheader.lr.ph:                                 ; preds = %146
   %151 = icmp sgt i64 %147, 0
-  %152 = getelementptr inbounds i8, ptr %1, i64 24
-  %153 = getelementptr inbounds i8, ptr %1, i64 16
+  %152 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %153 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge1124
@@ -868,21 +868,21 @@ flatlist_node_grow.exit:                          ; preds = %.flatlist_node_grow
   br i1 %181, label %.thread1237, label %257
 
 .thread1237:                                      ; preds = %168, %179
-  %182 = getelementptr inbounds i8, ptr %24, i64 4
+  %182 = getelementptr inbounds nuw i8, ptr %24, i64 4
   %183 = load i32, ptr %182, align 4
   %184 = sext i32 %183 to i64
-  %185 = getelementptr inbounds i8, ptr %24, i64 8
+  %185 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %186 = load i32, ptr %185, align 4
   %187 = sext i32 %186 to i64
   %sext927 = shl i64 %174, 32
   %188 = ashr exact i64 %sext927, 32
-  %189 = getelementptr inbounds i8, ptr %1, i64 8
+  %189 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %190 = load i64, ptr %189, align 8
   %.not.i874 = icmp sgt i64 %190, %188
   br i1 %.not.i874, label %.flatlist_node_grow.exit876_crit_edge, label %191
 
 .flatlist_node_grow.exit876_crit_edge:            ; preds = %.thread1237
-  %.phi.trans.insert1226 = getelementptr inbounds i8, ptr %1, i64 24
+  %.phi.trans.insert1226 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.pre1227 = load ptr, ptr %.phi.trans.insert1226, align 8
   br label %flatlist_node_grow.exit876
 
@@ -900,11 +900,11 @@ flatlist_node_grow.exit:                          ; preds = %.flatlist_node_grow
   br i1 %.not20.i875, label %210, label %201
 
 201:                                              ; preds = %191
-  %202 = getelementptr inbounds i8, ptr %1, i64 16
+  %202 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %203 = load ptr, ptr %202, align 8
   %204 = shl i64 %200, 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %197, ptr align 8 %203, i64 %204, i1 false)
-  %205 = getelementptr inbounds i8, ptr %1, i64 24
+  %205 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %206 = load ptr, ptr %205, align 8
   %207 = load i64, ptr %189, align 8
   %208 = shl i64 %207, 3
@@ -914,23 +914,23 @@ flatlist_node_grow.exit:                          ; preds = %.flatlist_node_grow
   br label %210
 
 210:                                              ; preds = %201, %191
-  %211 = getelementptr inbounds i8, ptr %1, i64 16
+  %211 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr %197, ptr %211, align 8
-  %212 = getelementptr inbounds i8, ptr %1, i64 24
+  %212 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store ptr %199, ptr %212, align 8
   store i64 %198, ptr %189, align 8
   br label %flatlist_node_grow.exit876
 
 flatlist_node_grow.exit876:                       ; preds = %.flatlist_node_grow.exit876_crit_edge, %210
   %213 = phi ptr [ %.pre1227, %.flatlist_node_grow.exit876_crit_edge ], [ %199, %210 ]
-  %214 = getelementptr inbounds i8, ptr %1, i64 24
+  %214 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %215 = getelementptr inbounds i64, ptr %213, i64 %174
   store i64 %2, ptr %215, align 8
   %216 = load ptr, ptr %34, align 8
   %217 = call i32 @PMPI_Type_size_x(ptr noundef %216, ptr noundef nonnull %14) #6
   %218 = load i64, ptr %14, align 8
   %219 = mul nsw i64 %218, %184
-  %220 = getelementptr inbounds i8, ptr %1, i64 16
+  %220 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %221 = load ptr, ptr %220, align 8
   %222 = getelementptr inbounds i64, ptr %221, i64 %174
   store i64 %219, ptr %222, align 8
@@ -1007,9 +1007,9 @@ flatlist_node_grow.exit879:                       ; preds = %.lr.ph1118.flatlist
   br label %.loopexit941
 
 257:                                              ; preds = %179
-  %258 = getelementptr inbounds i8, ptr %24, i64 4
+  %258 = getelementptr inbounds nuw i8, ptr %24, i64 4
   %259 = load i32, ptr %258, align 4
-  %260 = getelementptr inbounds i8, ptr %24, i64 8
+  %260 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %261 = load i32, ptr %260, align 4
   %262 = sext i32 %261 to i64
   %263 = sub i64 %.pre1225, %174
@@ -1020,8 +1020,8 @@ flatlist_node_grow.exit879:                       ; preds = %.lr.ph1118.flatlist
 
 .preheader935.lr.ph:                              ; preds = %257
   %267 = icmp sgt i64 %263, 0
-  %268 = getelementptr inbounds i8, ptr %1, i64 24
-  %269 = getelementptr inbounds i8, ptr %1, i64 16
+  %268 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %269 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br i1 %267, label %.preheader935.us, label %._crit_edge1102
 
 .preheader935.us:                                 ; preds = %.preheader935.lr.ph, %._crit_edge1098.us
@@ -1068,8 +1068,8 @@ flatlist_node_grow.exit879:                       ; preds = %.lr.ph1118.flatlist
 
 .preheader934.lr.ph:                              ; preds = %._crit_edge1102
   %286 = icmp sgt i64 %.pre-phi, 0
-  %287 = getelementptr inbounds i8, ptr %1, i64 24
-  %288 = getelementptr inbounds i8, ptr %1, i64 16
+  %287 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %288 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br i1 %286, label %.preheader934.us, label %._crit_edge1112
 
 .preheader934.us:                                 ; preds = %.preheader934.lr.ph, %._crit_edge1108.us
@@ -1132,18 +1132,18 @@ flatlist_node_grow.exit879:                       ; preds = %.lr.ph1118.flatlist
   br i1 %317, label %.thread1238, label %389
 
 .thread1238:                                      ; preds = %304, %315
-  %318 = getelementptr inbounds i8, ptr %24, i64 4
+  %318 = getelementptr inbounds nuw i8, ptr %24, i64 4
   %319 = load i32, ptr %318, align 4
   %320 = sext i32 %319 to i64
   %sext925 = shl i64 %310, 32
   %321 = ashr exact i64 %sext925, 32
-  %322 = getelementptr inbounds i8, ptr %1, i64 8
+  %322 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %323 = load i64, ptr %322, align 8
   %.not.i880 = icmp sgt i64 %323, %321
   br i1 %.not.i880, label %.flatlist_node_grow.exit882_crit_edge, label %324
 
 .flatlist_node_grow.exit882_crit_edge:            ; preds = %.thread1238
-  %.phi.trans.insert1222 = getelementptr inbounds i8, ptr %1, i64 24
+  %.phi.trans.insert1222 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.pre1223 = load ptr, ptr %.phi.trans.insert1222, align 8
   br label %flatlist_node_grow.exit882
 
@@ -1161,11 +1161,11 @@ flatlist_node_grow.exit879:                       ; preds = %.lr.ph1118.flatlist
   br i1 %.not20.i881, label %343, label %334
 
 334:                                              ; preds = %324
-  %335 = getelementptr inbounds i8, ptr %1, i64 16
+  %335 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %336 = load ptr, ptr %335, align 8
   %337 = shl i64 %333, 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %330, ptr align 8 %336, i64 %337, i1 false)
-  %338 = getelementptr inbounds i8, ptr %1, i64 24
+  %338 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %339 = load ptr, ptr %338, align 8
   %340 = load i64, ptr %322, align 8
   %341 = shl i64 %340, 3
@@ -1175,23 +1175,23 @@ flatlist_node_grow.exit879:                       ; preds = %.lr.ph1118.flatlist
   br label %343
 
 343:                                              ; preds = %334, %324
-  %344 = getelementptr inbounds i8, ptr %1, i64 16
+  %344 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr %330, ptr %344, align 8
-  %345 = getelementptr inbounds i8, ptr %1, i64 24
+  %345 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store ptr %332, ptr %345, align 8
   store i64 %331, ptr %322, align 8
   br label %flatlist_node_grow.exit882
 
 flatlist_node_grow.exit882:                       ; preds = %.flatlist_node_grow.exit882_crit_edge, %343
   %346 = phi ptr [ %.pre1223, %.flatlist_node_grow.exit882_crit_edge ], [ %332, %343 ]
-  %347 = getelementptr inbounds i8, ptr %1, i64 24
+  %347 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %348 = getelementptr inbounds i64, ptr %346, i64 %310
   store i64 %2, ptr %348, align 8
   %349 = load ptr, ptr %34, align 8
   %350 = call i32 @PMPI_Type_size_x(ptr noundef %349, ptr noundef nonnull %14) #6
   %351 = load i64, ptr %14, align 8
   %352 = mul nsw i64 %351, %320
-  %353 = getelementptr inbounds i8, ptr %1, i64 16
+  %353 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %354 = load ptr, ptr %353, align 8
   %355 = getelementptr inbounds i64, ptr %354, i64 %310
   store i64 %352, ptr %355, align 8
@@ -1267,7 +1267,7 @@ flatlist_node_grow.exit885:                       ; preds = %.lr.ph1092.flatlist
   br label %.loopexit941
 
 389:                                              ; preds = %315
-  %390 = getelementptr inbounds i8, ptr %24, i64 4
+  %390 = getelementptr inbounds nuw i8, ptr %24, i64 4
   %391 = load i32, ptr %390, align 4
   %392 = sub i64 %.pre1220, %310
   %393 = load ptr, ptr %34, align 8
@@ -1277,8 +1277,8 @@ flatlist_node_grow.exit885:                       ; preds = %.lr.ph1092.flatlist
 
 .preheader937.lr.ph:                              ; preds = %389
   %396 = icmp sgt i64 %392, 0
-  %397 = getelementptr inbounds i8, ptr %1, i64 24
-  %398 = getelementptr inbounds i8, ptr %1, i64 16
+  %397 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %398 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br i1 %396, label %.preheader937.us, label %._crit_edge1076
 
 .preheader937.us:                                 ; preds = %.preheader937.lr.ph, %._crit_edge1072.us
@@ -1325,9 +1325,9 @@ flatlist_node_grow.exit885:                       ; preds = %.lr.ph1092.flatlist
 
 .preheader936.lr.ph:                              ; preds = %._crit_edge1076
   %415 = icmp sgt i64 %.pre-phi1234, 0
-  %416 = getelementptr inbounds i8, ptr %1, i64 8
-  %417 = getelementptr inbounds i8, ptr %1, i64 16
-  %418 = getelementptr inbounds i8, ptr %1, i64 24
+  %416 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %417 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %418 = getelementptr inbounds nuw i8, ptr %1, i64 24
   br i1 %415, label %.preheader936.us, label %._crit_edge1086
 
 .preheader936.us:                                 ; preds = %.preheader936.lr.ph, %._crit_edge1082.us
@@ -1447,8 +1447,8 @@ flatlist_node_grow.exit888.us:                    ; preds = %.flatlist_node_grow
 .lr.ph1066:                                       ; preds = %.preheader938
   %478 = add nuw nsw i64 %455, 1
   %479 = sub i64 %478, %461
-  %480 = getelementptr inbounds i8, ptr %1, i64 24
-  %481 = getelementptr inbounds i8, ptr %1, i64 16
+  %480 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %481 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %482 = getelementptr i32, ptr %24, i64 %479
   br label %483
 
@@ -1493,15 +1493,15 @@ flatlist_node_grow.exit888.us:                    ; preds = %.flatlist_node_grow
 
 506:                                              ; preds = %466
   %507 = sub i64 %.pre1218, %461
-  %508 = getelementptr inbounds i8, ptr %24, i64 4
+  %508 = getelementptr inbounds nuw i8, ptr %24, i64 4
   %509 = load i32, ptr %508, align 4
   %510 = icmp sgt i32 %509, 1
   br i1 %510, label %.preheader942.lr.ph, label %.preheader940
 
 .preheader942.lr.ph:                              ; preds = %506
   %511 = icmp sgt i64 %507, 0
-  %512 = getelementptr inbounds i8, ptr %1, i64 16
-  %513 = getelementptr inbounds i8, ptr %1, i64 24
+  %512 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %513 = getelementptr inbounds nuw i8, ptr %1, i64 24
   br label %.preheader942
 
 .preheader942:                                    ; preds = %.preheader942.lr.ph, %._crit_edge1034
@@ -1519,9 +1519,9 @@ flatlist_node_grow.exit888.us:                    ; preds = %.flatlist_node_grow
 
 .lr.ph1063:                                       ; preds = %.preheader940
   %516 = icmp sgt i64 %507, 0
-  %517 = getelementptr inbounds i8, ptr %1, i64 16
+  %517 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %518 = getelementptr i8, ptr %invariant.gep1058, i64 4
-  %519 = getelementptr inbounds i8, ptr %1, i64 24
+  %519 = getelementptr inbounds nuw i8, ptr %1, i64 24
   br label %545
 
 .lr.ph1033:                                       ; preds = %.preheader942, %539
@@ -1633,7 +1633,7 @@ flatlist_node_grow.exit888.us:                    ; preds = %.flatlist_node_grow
 ._crit_edge1044:                                  ; preds = %571
   store i64 %.15810, ptr %3, align 8
   %572 = add nuw nsw i64 %.97901062, 1
-  %573 = getelementptr inbounds i32, ptr %24, i64 %572
+  %573 = getelementptr inbounds nuw i32, ptr %24, i64 %572
   %574 = load i32, ptr %573, align 4
   %575 = icmp slt i32 %574, 2
   br i1 %575, label %.loopexit, label %.preheader939.us
@@ -1717,7 +1717,7 @@ flatlist_node_grow.exit888.us:                    ; preds = %.flatlist_node_grow
   br label %.sink.split
 
 617:                                              ; preds = %614
-  %618 = getelementptr inbounds i8, ptr %24, i64 8
+  %618 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %619 = load i32, ptr %618, align 4
   %620 = sext i32 %619 to i64
   %621 = load i64, ptr %16, align 8
@@ -1742,10 +1742,10 @@ flatlist_node_grow.exit888.us:                    ; preds = %.flatlist_node_grow
   br i1 %628, label %.lr.ph1027, label %._crit_edge1028
 
 .lr.ph1027:                                       ; preds = %.preheader943
-  %629 = getelementptr inbounds i8, ptr %24, i64 4
-  %630 = getelementptr inbounds i8, ptr %1, i64 8
-  %631 = getelementptr inbounds i8, ptr %1, i64 16
-  %632 = getelementptr inbounds i8, ptr %1, i64 24
+  %629 = getelementptr inbounds nuw i8, ptr %24, i64 4
+  %630 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %631 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %632 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %invariant.gep1264 = getelementptr i8, ptr %24, i64 8
   br label %633
 
@@ -1878,16 +1878,16 @@ flatlist_node_grow.exit894:                       ; preds = %.flatlist_node_grow
 
 696:                                              ; preds = %624
   %697 = sub i64 %625, %609
-  %698 = getelementptr inbounds i8, ptr %24, i64 4
+  %698 = getelementptr inbounds nuw i8, ptr %24, i64 4
   %699 = load i32, ptr %698, align 4
   %700 = icmp sgt i32 %699, 1
   br i1 %700, label %.preheader945.lr.ph, label %._crit_edge1006
 
 .preheader945.lr.ph:                              ; preds = %696
   %701 = icmp sgt i64 %697, 0
-  %702 = getelementptr inbounds i8, ptr %1, i64 8
-  %703 = getelementptr inbounds i8, ptr %1, i64 16
-  %704 = getelementptr inbounds i8, ptr %1, i64 24
+  %702 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %703 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %704 = getelementptr inbounds nuw i8, ptr %1, i64 24
   br i1 %701, label %.preheader945.us, label %._crit_edge1006
 
 .preheader945.us:                                 ; preds = %.preheader945.lr.ph, %._crit_edge1002.us
@@ -1985,9 +1985,9 @@ flatlist_node_grow.exit897.us:                    ; preds = %.flatlist_node_grow
 
 .preheader944.lr.ph:                              ; preds = %._crit_edge1006
   %747 = icmp sgt i64 %.pre-phi1236, 0
-  %748 = getelementptr inbounds i8, ptr %1, i64 8
-  %749 = getelementptr inbounds i8, ptr %1, i64 16
-  %750 = getelementptr inbounds i8, ptr %1, i64 24
+  %748 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %749 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %750 = getelementptr inbounds nuw i8, ptr %1, i64 24
   br i1 %747, label %.preheader944.lr.ph.split.us, label %._crit_edge1017
 
 .preheader944.lr.ph.split.us:                     ; preds = %.preheader944.lr.ph
@@ -1996,9 +1996,9 @@ flatlist_node_grow.exit897.us:                    ; preds = %.flatlist_node_grow
 .preheader944.us.us:                              ; preds = %.preheader944.lr.ph.split.us, %._crit_edge1012.split.us.us.us
   %.127931016.us.us = phi i64 [ %792, %._crit_edge1012.split.us.us.us ], [ 1, %.preheader944.lr.ph.split.us ]
   %.211015.us.us = phi i64 [ %791, %._crit_edge1012.split.us.us.us ], [ %.19.lcssa, %.preheader944.lr.ph.split.us ]
-  %751 = getelementptr inbounds i32, ptr %24, i64 %.127931016.us.us
-  %752 = getelementptr inbounds i8, ptr %751, i64 8
-  %753 = getelementptr inbounds i8, ptr %751, i64 4
+  %751 = getelementptr inbounds nuw i32, ptr %24, i64 %.127931016.us.us
+  %752 = getelementptr inbounds nuw i8, ptr %751, i64 8
+  %753 = getelementptr inbounds nuw i8, ptr %751, i64 4
   br label %754
 
 754:                                              ; preds = %flatlist_node_grow.exit903.us.us.us, %.preheader944.us.us
@@ -2077,7 +2077,7 @@ flatlist_node_grow.exit903.us.us.us:              ; preds = %.flatlist_node_grow
 .preheader944.us:                                 ; preds = %.preheader944.lr.ph.split.us, %._crit_edge1012.split.us1021
   %.127931016.us = phi i64 [ %830, %._crit_edge1012.split.us1021 ], [ 1, %.preheader944.lr.ph.split.us ]
   %.211015.us = phi i64 [ %829, %._crit_edge1012.split.us1021 ], [ %.19.lcssa, %.preheader944.lr.ph.split.us ]
-  %793 = getelementptr inbounds i64, ptr %29, i64 %.127931016.us
+  %793 = getelementptr inbounds nuw i64, ptr %29, i64 %.127931016.us
   %794 = getelementptr i8, ptr %793, i64 -8
   br label %795
 
@@ -2188,9 +2188,9 @@ flatlist_node_grow.exit900.us:                    ; preds = %.flatlist_node_grow
   br i1 %850, label %.lr.ph996, label %._crit_edge997
 
 .lr.ph996:                                        ; preds = %.thread1244
-  %851 = getelementptr inbounds i8, ptr %1, i64 8
-  %852 = getelementptr inbounds i8, ptr %1, i64 16
-  %853 = getelementptr inbounds i8, ptr %1, i64 24
+  %851 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %852 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %853 = getelementptr inbounds nuw i8, ptr %1, i64 24
   br label %854
 
 854:                                              ; preds = %.lr.ph996, %893
@@ -2276,15 +2276,15 @@ flatlist_node_grow.exit906:                       ; preds = %.flatlist_node_grow
   %896 = sub i64 %.pre1211, %837
   %897 = load ptr, ptr %34, align 8
   %898 = call i32 @PMPI_Type_get_extent(ptr noundef %897, ptr noundef nonnull %15, ptr noundef nonnull %16) #6
-  %899 = getelementptr inbounds i8, ptr %24, i64 4
+  %899 = getelementptr inbounds nuw i8, ptr %24, i64 4
   %900 = load i32, ptr %899, align 4
   %901 = icmp sgt i32 %900, 1
   br i1 %901, label %.preheader950.lr.ph, label %.preheader948
 
 .preheader950.lr.ph:                              ; preds = %895
   %902 = icmp sgt i64 %896, 0
-  %903 = getelementptr inbounds i8, ptr %1, i64 16
-  %904 = getelementptr inbounds i8, ptr %1, i64 24
+  %903 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %904 = getelementptr inbounds nuw i8, ptr %1, i64 24
   br i1 %902, label %.preheader950.us, label %.preheader948
 
 .preheader950.us:                                 ; preds = %.preheader950.lr.ph, %._crit_edge.us970
@@ -2341,8 +2341,8 @@ flatlist_node_grow.exit906:                       ; preds = %.flatlist_node_grow
 
 .lr.ph992:                                        ; preds = %.preheader948
   %930 = icmp sgt i64 %896, 0
-  %931 = getelementptr inbounds i8, ptr %1, i64 16
-  %932 = getelementptr inbounds i8, ptr %1, i64 24
+  %931 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %932 = getelementptr inbounds nuw i8, ptr %1, i64 24
   br label %934
 
 .loopexit947:                                     ; preds = %._crit_edge981.us, %._crit_edge, %._crit_edge.thread
@@ -2360,7 +2360,7 @@ flatlist_node_grow.exit906:                       ; preds = %.flatlist_node_grow
   br i1 %930, label %.lr.ph976, label %._crit_edge.thread
 
 .lr.ph976:                                        ; preds = %934
-  %935 = getelementptr inbounds i64, ptr %29, i64 %.15991
+  %935 = getelementptr inbounds nuw i64, ptr %29, i64 %.15991
   %936 = getelementptr i8, ptr %935, i64 -8
   br label %937
 
@@ -2404,7 +2404,7 @@ flatlist_node_grow.exit906:                       ; preds = %.flatlist_node_grow
 ._crit_edge:                                      ; preds = %958
   store i64 %.28, ptr %3, align 8
   %959 = add nuw nsw i64 %.15991, 1
-  %960 = getelementptr inbounds i32, ptr %24, i64 %959
+  %960 = getelementptr inbounds nuw i32, ptr %24, i64 %959
   %961 = load i32, ptr %960, align 4
   %962 = icmp slt i32 %961, 2
   br i1 %962, label %.loopexit947, label %.preheader946.us
@@ -2461,22 +2461,22 @@ flatlist_node_grow.exit906:                       ; preds = %.flatlist_node_grow
 
 987:                                              ; preds = %4, %4
   %988 = load i32, ptr %24, align 4
-  %invariant.gep = getelementptr inbounds i8, ptr %24, i64 4
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %24, i64 4
   %989 = icmp sgt i32 %988, 0
   br i1 %989, label %.lr.ph, label %.loopexit941
 
 .lr.ph:                                           ; preds = %987
-  %990 = getelementptr inbounds i8, ptr %1, i64 24
-  %991 = getelementptr inbounds i8, ptr %1, i64 16
-  %992 = getelementptr inbounds i8, ptr %1, i64 8
-  %993 = getelementptr inbounds i8, ptr %1, i64 32
-  %994 = getelementptr inbounds i8, ptr %1, i64 40
+  %990 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %991 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %992 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %993 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %994 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %wide.trip.count = zext nneg i32 %988 to i64
   br label %995
 
 995:                                              ; preds = %.lr.ph, %1084
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %1084 ]
-  %996 = getelementptr inbounds ptr, ptr %34, i64 %indvars.iv
+  %996 = getelementptr inbounds nuw ptr, ptr %34, i64 %indvars.iv
   %997 = load ptr, ptr %996, align 8
   %998 = call i32 @PMPI_Type_get_envelope(ptr noundef %997, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %6) #6
   %999 = load ptr, ptr %996, align 8
@@ -2491,7 +2491,7 @@ flatlist_node_grow.exit906:                       ; preds = %.flatlist_node_grow
 
 1005:                                             ; preds = %995
   %1006 = load ptr, ptr %996, align 8
-  %1007 = getelementptr inbounds i64, ptr %29, i64 %indvars.iv
+  %1007 = getelementptr inbounds nuw i64, ptr %29, i64 %indvars.iv
   %1008 = load i64, ptr %1007, align 8
   %1009 = add nsw i64 %1008, %2
   call void @ADIOI_Flatten(ptr noundef %1006, ptr noundef %1, i64 noundef %1009, ptr noundef nonnull %3)
@@ -2500,7 +2500,7 @@ flatlist_node_grow.exit906:                       ; preds = %.flatlist_node_grow
   br i1 %1010, label %.thread1249, label %1060
 
 .thread1249:                                      ; preds = %995, %1005
-  %gep961 = getelementptr inbounds i32, ptr %invariant.gep, i64 %indvars.iv
+  %gep961 = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %indvars.iv
   %1011 = load i32, ptr %gep961, align 4
   %1012 = icmp sgt i32 %1011, 0
   br i1 %1012, label %1017, label %1013
@@ -2557,7 +2557,7 @@ flatlist_node_grow.exit906:                       ; preds = %.flatlist_node_grow
 
 flatlist_node_grow.exit909:                       ; preds = %.flatlist_node_grow.exit909_crit_edge, %1038
   %1039 = phi ptr [ %.pre1210, %.flatlist_node_grow.exit909_crit_edge ], [ %1029, %1038 ]
-  %1040 = getelementptr inbounds i64, ptr %29, i64 %indvars.iv
+  %1040 = getelementptr inbounds nuw i64, ptr %29, i64 %indvars.iv
   %1041 = load i64, ptr %1040, align 8
   %1042 = add nsw i64 %1041, %2
   %1043 = getelementptr inbounds i64, ptr %1039, i64 %1000
@@ -2596,7 +2596,7 @@ flatlist_node_grow.exit909:                       ; preds = %.flatlist_node_grow
   %1061 = sub i64 %.pre1209, %1000
   %1062 = load ptr, ptr %996, align 8
   %1063 = call i32 @PMPI_Type_get_extent(ptr noundef %1062, ptr noundef nonnull %15, ptr noundef nonnull %16) #6
-  %gep = getelementptr inbounds i32, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %indvars.iv
   %1064 = load i32, ptr %gep, align 4
   %1065 = icmp sgt i32 %1064, 1
   %1066 = icmp sgt i64 %1061, 0
@@ -2647,13 +2647,13 @@ flatlist_node_grow.exit909:                       ; preds = %.flatlist_node_grow
 
 1085:                                             ; preds = %4
   %1086 = load i64, ptr %3, align 8
-  %1087 = getelementptr inbounds i8, ptr %1, i64 32
+  %1087 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %1088 = load i64, ptr %1087, align 8
   %1089 = icmp eq i64 %1088, -1
   br i1 %1089, label %1090, label %1106
 
 1090:                                             ; preds = %1085
-  %1091 = getelementptr inbounds i8, ptr %1, i64 40
+  %1091 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %1092 = load i64, ptr %1091, align 8
   %1093 = icmp eq i64 %1092, -1
   br i1 %1093, label %1094, label %1106
@@ -2663,11 +2663,11 @@ flatlist_node_grow.exit909:                       ; preds = %.flatlist_node_grow
   call fastcc void @flatlist_node_grow(ptr noundef nonnull %1, i32 noundef %1095)
   %1096 = load i64, ptr %29, align 8
   %1097 = add nsw i64 %1096, %2
-  %1098 = getelementptr inbounds i8, ptr %1, i64 24
+  %1098 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %1099 = load ptr, ptr %1098, align 8
   %1100 = getelementptr inbounds i64, ptr %1099, i64 %1086
   store i64 %1097, ptr %1100, align 8
-  %1101 = getelementptr inbounds i8, ptr %1, i64 16
+  %1101 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %1102 = load ptr, ptr %1101, align 8
   %1103 = getelementptr inbounds i64, ptr %1102, i64 %1086
   store i64 0, ptr %1103, align 8
@@ -2708,13 +2708,13 @@ flatlist_node_grow.exit909:                       ; preds = %.flatlist_node_grow
   %1123 = load i64, ptr %3, align 8
   %sext = shl i64 %1123, 32
   %1124 = ashr exact i64 %sext, 32
-  %1125 = getelementptr inbounds i8, ptr %1, i64 8
+  %1125 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %1126 = load i64, ptr %1125, align 8
   %.not.i910 = icmp sgt i64 %1126, %1124
   br i1 %.not.i910, label %.flatlist_node_grow.exit912_crit_edge, label %1127
 
 .flatlist_node_grow.exit912_crit_edge:            ; preds = %1122
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 24
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br label %flatlist_node_grow.exit912
 
@@ -2732,11 +2732,11 @@ flatlist_node_grow.exit909:                       ; preds = %.flatlist_node_grow
   br i1 %.not20.i911, label %1146, label %1137
 
 1137:                                             ; preds = %1127
-  %1138 = getelementptr inbounds i8, ptr %1, i64 16
+  %1138 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %1139 = load ptr, ptr %1138, align 8
   %1140 = shl i64 %1136, 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %1133, ptr align 8 %1139, i64 %1140, i1 false)
-  %1141 = getelementptr inbounds i8, ptr %1, i64 24
+  %1141 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %1142 = load ptr, ptr %1141, align 8
   %1143 = load i64, ptr %1125, align 8
   %1144 = shl i64 %1143, 3
@@ -2746,9 +2746,9 @@ flatlist_node_grow.exit909:                       ; preds = %.flatlist_node_grow
   br label %1146
 
 1146:                                             ; preds = %1137, %1127
-  %1147 = getelementptr inbounds i8, ptr %1, i64 16
+  %1147 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr %1133, ptr %1147, align 8
-  %1148 = getelementptr inbounds i8, ptr %1, i64 24
+  %1148 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store ptr %1135, ptr %1148, align 8
   store i64 %1134, ptr %1125, align 8
   br label %flatlist_node_grow.exit912
@@ -2760,7 +2760,7 @@ flatlist_node_grow.exit912:                       ; preds = %.flatlist_node_grow
   %1151 = load ptr, ptr %34, align 8
   %1152 = call i32 @PMPI_Type_size_x(ptr noundef %1151, ptr noundef nonnull %14) #6
   %1153 = load i64, ptr %14, align 8
-  %1154 = getelementptr inbounds i8, ptr %1, i64 16
+  %1154 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %1155 = load ptr, ptr %1154, align 8
   %1156 = getelementptr inbounds i64, ptr %1155, i64 %1123
   store i64 %1153, ptr %1156, align 8
@@ -2775,7 +2775,7 @@ flatlist_node_grow.exit912:                       ; preds = %.flatlist_node_grow
   br i1 %1161, label %1162, label %1166
 
 1162:                                             ; preds = %1159
-  %1163 = getelementptr inbounds i8, ptr %1, i64 40
+  %1163 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %1164 = load i64, ptr %1163, align 8
   %1165 = icmp eq i64 %1164, -1
   %or.cond19 = or i1 %1110, %1165
@@ -2788,13 +2788,13 @@ flatlist_node_grow.exit912:                       ; preds = %.flatlist_node_grow
   %1168 = load i64, ptr %3, align 8
   %sext916 = shl i64 %1168, 32
   %1169 = ashr exact i64 %sext916, 32
-  %1170 = getelementptr inbounds i8, ptr %1, i64 8
+  %1170 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %1171 = load i64, ptr %1170, align 8
   %.not.i913 = icmp sgt i64 %1171, %1169
   br i1 %.not.i913, label %.flatlist_node_grow.exit915_crit_edge, label %1172
 
 .flatlist_node_grow.exit915_crit_edge:            ; preds = %1167
-  %.phi.trans.insert1207 = getelementptr inbounds i8, ptr %1, i64 24
+  %.phi.trans.insert1207 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.pre1208 = load ptr, ptr %.phi.trans.insert1207, align 8
   br label %flatlist_node_grow.exit915
 
@@ -2812,11 +2812,11 @@ flatlist_node_grow.exit912:                       ; preds = %.flatlist_node_grow
   br i1 %.not20.i914, label %1191, label %1182
 
 1182:                                             ; preds = %1172
-  %1183 = getelementptr inbounds i8, ptr %1, i64 16
+  %1183 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %1184 = load ptr, ptr %1183, align 8
   %1185 = shl i64 %1181, 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %1178, ptr align 8 %1184, i64 %1185, i1 false)
-  %1186 = getelementptr inbounds i8, ptr %1, i64 24
+  %1186 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %1187 = load ptr, ptr %1186, align 8
   %1188 = load i64, ptr %1170, align 8
   %1189 = shl i64 %1188, 3
@@ -2826,9 +2826,9 @@ flatlist_node_grow.exit912:                       ; preds = %.flatlist_node_grow
   br label %1191
 
 1191:                                             ; preds = %1182, %1172
-  %1192 = getelementptr inbounds i8, ptr %1, i64 16
+  %1192 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr %1178, ptr %1192, align 8
-  %1193 = getelementptr inbounds i8, ptr %1, i64 24
+  %1193 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store ptr %1180, ptr %1193, align 8
   store i64 %1179, ptr %1170, align 8
   br label %flatlist_node_grow.exit915
@@ -2837,17 +2837,17 @@ flatlist_node_grow.exit915:                       ; preds = %.flatlist_node_grow
   %1194 = phi ptr [ %.pre1208, %.flatlist_node_grow.exit915_crit_edge ], [ %1180, %1191 ]
   %1195 = load i64, ptr %29, align 8
   %1196 = add nsw i64 %1195, %.0
-  %1197 = getelementptr inbounds i8, ptr %29, i64 8
+  %1197 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %1198 = load i64, ptr %1197, align 8
   %1199 = add nsw i64 %1196, %1198
   %1200 = getelementptr inbounds i64, ptr %1194, i64 %1168
   store i64 %1199, ptr %1200, align 8
-  %1201 = getelementptr inbounds i8, ptr %1, i64 16
+  %1201 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %1202 = load ptr, ptr %1201, align 8
   %1203 = getelementptr inbounds i64, ptr %1202, i64 %1168
   store i64 0, ptr %1203, align 8
   %1204 = load i64, ptr %3, align 8
-  %1205 = getelementptr inbounds i8, ptr %1, i64 40
+  %1205 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store i64 %1204, ptr %1205, align 8
   %1206 = add nsw i64 %1204, 1
   br label %1209
@@ -2872,7 +2872,7 @@ flatlist_node_grow.exit915:                       ; preds = %.flatlist_node_grow
 
 .lr.ph1132:                                       ; preds = %.loopexit941, %1221
   %.171130 = phi i64 [ %1222, %1221 ], [ 0, %.loopexit941 ]
-  %1215 = getelementptr inbounds ptr, ptr %34, i64 %.171130
+  %1215 = getelementptr inbounds nuw ptr, ptr %34, i64 %.171130
   %1216 = load ptr, ptr %1215, align 8
   %1217 = call i32 @PMPI_Type_get_envelope(ptr noundef %1216, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %6) #6
   %1218 = load i32, ptr %6, align 4
@@ -2899,17 +2899,17 @@ flatlist_node_grow.exit915:                       ; preds = %.flatlist_node_grow
 
 ; Function Attrs: nounwind uwtable
 define void @ADIOI_Optimize_flattened(ptr nocapture noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %4 = icmp sgt i64 %3, 0
   br i1 %4, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
   %5 = add nsw i64 %3, -1
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 52
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 52
   br label %10
 
 10:                                               ; preds = %.lr.ph, %59
@@ -2920,18 +2920,18 @@ define void @ADIOI_Optimize_flattened(ptr nocapture noundef %0) local_unnamed_ad
   br i1 %11, label %12, label %._crit_edge95
 
 ._crit_edge95:                                    ; preds = %10
-  %.phi.trans.insert = getelementptr inbounds i64, ptr %8, i64 %indvars.iv
+  %.phi.trans.insert = getelementptr inbounds nuw i64, ptr %8, i64 %indvars.iv
   %.pre = load i64, ptr %.phi.trans.insert, align 8
   br label %22
 
 12:                                               ; preds = %10
   %13 = load ptr, ptr %6, align 8
-  %14 = getelementptr inbounds i64, ptr %13, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw i64, ptr %13, i64 %indvars.iv
   %15 = load i64, ptr %14, align 8
-  %16 = getelementptr inbounds i64, ptr %8, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw i64, ptr %8, i64 %indvars.iv
   %17 = load i64, ptr %16, align 8
   %18 = add nsw i64 %17, %15
-  %19 = getelementptr inbounds i8, ptr %14, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %20 = load i64, ptr %19, align 8
   %.not = icmp ne i64 %18, %20
   %21 = zext i1 %.not to i32
@@ -2941,13 +2941,13 @@ define void @ADIOI_Optimize_flattened(ptr nocapture noundef %0) local_unnamed_ad
 22:                                               ; preds = %._crit_edge95, %12
   %23 = phi i64 [ %.pre, %._crit_edge95 ], [ %17, %12 ]
   %.174 = phi i32 [ %.07382, %._crit_edge95 ], [ %spec.select, %12 ]
-  %24 = getelementptr inbounds i64, ptr %8, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw i64, ptr %8, i64 %indvars.iv
   %25 = icmp sgt i64 %23, 0
   br i1 %25, label %26, label %thread-pre-split
 
 26:                                               ; preds = %22
   %27 = load ptr, ptr %6, align 8
-  %28 = getelementptr inbounds i64, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw i64, ptr %27, i64 %indvars.iv
   %29 = load i64, ptr %28, align 8
   %30 = icmp slt i64 %29, 0
   br i1 %30, label %31, label %thread-pre-split.thread
@@ -2974,7 +2974,7 @@ thread-pre-split.thread:                          ; preds = %26, %thread-pre-spl
   %40 = sext i32 %.07183 to i64
   %41 = getelementptr inbounds i64, ptr %39, i64 %40
   %42 = load i64, ptr %41, align 8
-  %43 = getelementptr inbounds i64, ptr %39, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw i64, ptr %39, i64 %indvars.iv
   %44 = load i64, ptr %43, align 8
   %45 = icmp sgt i64 %42, %44
   br i1 %45, label %46, label %49
@@ -3019,11 +3019,11 @@ thread-pre-split.thread:                          ; preds = %26, %thread-pre-spl
   %64 = sext i32 %63 to i64
   %65 = tail call ptr @ADIOI_Calloc_fn(i64 noundef %64, i64 noundef 8, i32 noundef 1206, ptr noundef nonnull @.str) #6
   %66 = getelementptr inbounds i64, ptr %65, i64 %60
-  %67 = getelementptr inbounds i8, ptr %0, i64 16
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %68 = load ptr, ptr %67, align 8
   %69 = load i64, ptr %68, align 8
   store i64 %69, ptr %65, align 8
-  %70 = getelementptr inbounds i8, ptr %0, i64 24
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %71 = load ptr, ptr %70, align 8
   %72 = load i64, ptr %71, align 8
   store i64 %72, ptr %66, align 8
@@ -3035,20 +3035,20 @@ thread-pre-split.thread:                          ; preds = %26, %thread-pre-spl
   %indvars.iv92 = phi i64 [ %indvars.iv.next93, %100 ], [ 0, %62 ]
   %.286 = phi i32 [ %.3, %100 ], [ 0, %62 ]
   %75 = load ptr, ptr %70, align 8
-  %76 = getelementptr inbounds i64, ptr %75, i64 %indvars.iv92
+  %76 = getelementptr inbounds nuw i64, ptr %75, i64 %indvars.iv92
   %77 = load i64, ptr %76, align 8
   %78 = load ptr, ptr %67, align 8
-  %79 = getelementptr inbounds i64, ptr %78, i64 %indvars.iv92
+  %79 = getelementptr inbounds nuw i64, ptr %78, i64 %indvars.iv92
   %80 = load i64, ptr %79, align 8
   %81 = add nsw i64 %80, %77
   %indvars.iv.next93 = add nuw nsw i64 %indvars.iv92, 1
-  %82 = getelementptr inbounds i64, ptr %75, i64 %indvars.iv.next93
+  %82 = getelementptr inbounds nuw i64, ptr %75, i64 %indvars.iv.next93
   %83 = load i64, ptr %82, align 8
   %84 = icmp eq i64 %81, %83
   br i1 %84, label %85, label %92
 
 85:                                               ; preds = %.lr.ph89
-  %86 = getelementptr inbounds i64, ptr %78, i64 %indvars.iv.next93
+  %86 = getelementptr inbounds nuw i64, ptr %78, i64 %indvars.iv.next93
   %87 = load i64, ptr %86, align 8
   %88 = sext i32 %.286 to i64
   %89 = getelementptr inbounds i64, ptr %65, i64 %88
@@ -3063,7 +3063,7 @@ thread-pre-split.thread:                          ; preds = %26, %thread-pre-spl
   %95 = getelementptr inbounds i64, ptr %66, i64 %94
   store i64 %83, ptr %95, align 8
   %96 = load ptr, ptr %67, align 8
-  %97 = getelementptr inbounds i64, ptr %96, i64 %indvars.iv.next93
+  %97 = getelementptr inbounds nuw i64, ptr %96, i64 %indvars.iv.next93
   %98 = load i64, ptr %97, align 8
   %99 = getelementptr inbounds i64, ptr %65, i64 %94
   store i64 %98, ptr %99, align 8
@@ -3105,7 +3105,7 @@ declare i32 @ADIO_Type_create_darray(i32 noundef, i32 noundef, i32 noundef, ptr 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @flatlist_node_grow(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = sext i32 %1 to i64
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %.not = icmp sgt i64 %5, %3
   br i1 %.not, label %28, label %6
@@ -3124,11 +3124,11 @@ define internal fastcc void @flatlist_node_grow(ptr nocapture noundef %0, i32 no
   br i1 %.not20, label %25, label %16
 
 16:                                               ; preds = %6
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load ptr, ptr %17, align 8
   %19 = shl i64 %15, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %12, ptr align 8 %18, i64 %19, i1 false)
-  %20 = getelementptr inbounds i8, ptr %0, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %21 = load ptr, ptr %20, align 8
   %22 = load i64, ptr %4, align 8
   %23 = shl i64 %22, 3
@@ -3138,9 +3138,9 @@ define internal fastcc void @flatlist_node_grow(ptr nocapture noundef %0, i32 no
   br label %25
 
 25:                                               ; preds = %16, %6
-  %26 = getelementptr inbounds i8, ptr %0, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %12, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %14, ptr %27, align 8
   store i64 %13, ptr %4, align 8
   br label %28

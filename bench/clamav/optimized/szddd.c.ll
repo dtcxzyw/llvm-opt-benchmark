@@ -17,7 +17,7 @@ define ptr @mspack_create_szdd_decompressor(ptr noundef %0) local_unnamed_addr #
   br i1 %.not17, label %15, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %spec.select, i64 56
+  %5 = getelementptr inbounds nuw i8, ptr %spec.select, i64 56
   %6 = load ptr, ptr %5, align 8
   %7 = tail call ptr %6(ptr noundef %spec.select, i64 noundef 56) #5
   %.not18 = icmp eq ptr %7, null
@@ -25,17 +25,17 @@ define ptr @mspack_create_szdd_decompressor(ptr noundef %0) local_unnamed_addr #
 
 8:                                                ; preds = %4
   store ptr @szddd_open, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %7, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr @szddd_close, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %7, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr @szddd_extract, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %7, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr @szddd_decompress, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %7, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr @szddd_error, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %7, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store ptr %spec.select, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %7, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 48
   store i32 0, ptr %14, align 8
   br label %15
 
@@ -53,11 +53,11 @@ define internal ptr @szddd_open(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %.not, label %56, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %6, align 8
   %8 = tail call ptr %7(ptr noundef nonnull %6, ptr noundef %1, i32 noundef 0) #5
-  %9 = getelementptr inbounds i8, ptr %6, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %10 = load ptr, ptr %9, align 8
   %11 = tail call ptr %10(ptr noundef nonnull %6, i64 noundef 32) #5
   %12 = icmp ne ptr %8, null
@@ -66,10 +66,10 @@ define internal ptr @szddd_open(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %or.cond, label %14, label %43
 
 14:                                               ; preds = %4
-  %15 = getelementptr inbounds i8, ptr %11, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store ptr %8, ptr %15, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  %16 = getelementptr inbounds i8, ptr %6, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = call i32 %17(ptr noundef nonnull %8, ptr noundef nonnull %3, i32 noundef 8) #5
   %.not.i = icmp eq i32 %18, 8
@@ -93,11 +93,11 @@ define internal ptr @szddd_open(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %.not15.i, label %26, label %szddd_read_headers.exit
 
 26:                                               ; preds = %24
-  %27 = getelementptr inbounds i8, ptr %3, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %28 = load i8, ptr %27, align 1
-  %29 = getelementptr inbounds i8, ptr %11, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i8 %28, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %3, i64 2
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 2
   %31 = load i32, ptr %30, align 2
   br label %.sink.split.i
 
@@ -114,7 +114,7 @@ define internal ptr @szddd_open(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %.not13.i, label %37, label %szddd_read_headers.exit
 
 37:                                               ; preds = %34
-  %38 = getelementptr inbounds i8, ptr %11, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i8 0, ptr %38, align 8
   %39 = load i32, ptr %3, align 4
   br label %.sink.split.i
@@ -122,14 +122,14 @@ define internal ptr @szddd_open(ptr noundef %0, ptr noundef %1) #0 {
 .sink.split.i:                                    ; preds = %37, %26
   %.sink17.i = phi i32 [ %31, %26 ], [ %39, %37 ]
   %40 = zext i32 %.sink17.i to i64
-  %41 = getelementptr inbounds i8, ptr %11, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 %40, ptr %41, align 8
   br label %szddd_read_headers.exit
 
 szddd_read_headers.exit:                          ; preds = %14, %21, %24, %32, %34, %.sink.split.i
   %.0.i = phi i32 [ 3, %14 ], [ 3, %21 ], [ 8, %24 ], [ 3, %34 ], [ 7, %32 ], [ 0, %.sink.split.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  %42 = getelementptr inbounds i8, ptr %0, i64 48
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 %.0.i, ptr %42, align 8
   br label %47
 
@@ -137,12 +137,12 @@ szddd_read_headers.exit:                          ; preds = %14, %21, %24, %32, 
   br i1 %12, label %46, label %44
 
 44:                                               ; preds = %43
-  %45 = getelementptr inbounds i8, ptr %0, i64 48
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 2, ptr %45, align 8
   br label %46
 
 46:                                               ; preds = %44, %43
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 48
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 48
   br i1 %13, label %._crit_edge, label %.thread
 
 ._crit_edge:                                      ; preds = %46
@@ -162,13 +162,13 @@ szddd_read_headers.exit:                          ; preds = %14, %21, %24, %32, 
   br i1 %12, label %50, label %53
 
 50:                                               ; preds = %49
-  %51 = getelementptr inbounds i8, ptr %6, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %52 = load ptr, ptr %51, align 8
   call void %52(ptr noundef nonnull %8) #5
   br label %53
 
 53:                                               ; preds = %50, %49
-  %54 = getelementptr inbounds i8, ptr %6, i64 64
+  %54 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %55 = load ptr, ptr %54, align 8
   call void %55(ptr noundef %11) #5
   br label %56
@@ -184,22 +184,22 @@ define internal void @szddd_close(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %.not, label %15, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
   %.not10 = icmp eq ptr %5, null
   br i1 %.not10, label %15, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %5, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load ptr, ptr %9, align 8
   tail call void %8(ptr noundef %10) #5
   %11 = load ptr, ptr %4, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 64
   %13 = load ptr, ptr %12, align 8
   tail call void %13(ptr noundef %1) #5
-  %14 = getelementptr inbounds i8, ptr %0, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 0, ptr %14, align 8
   br label %15
 
@@ -217,26 +217,26 @@ define internal i32 @szddd_extract(ptr noundef %0, ptr noundef readonly %1, ptr 
   br i1 %.not26, label %5, label %7
 
 5:                                                ; preds = %4
-  %6 = getelementptr inbounds i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 1, ptr %6, align 8
   br label %34
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr %1, align 8
   %13 = icmp eq i32 %12, 0
   %14 = select i1 %13, i64 14, i64 12
-  %15 = getelementptr inbounds i8, ptr %9, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %16 = load ptr, ptr %15, align 8
   %17 = tail call i32 %16(ptr noundef %11, i64 noundef %14, i32 noundef 0) #5
   %.not27 = icmp eq i32 %17, 0
   br i1 %.not27, label %20, label %18
 
 18:                                               ; preds = %7
-  %19 = getelementptr inbounds i8, ptr %0, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 5, ptr %19, align 8
   br label %34
 
@@ -247,7 +247,7 @@ define internal i32 @szddd_extract(ptr noundef %0, ptr noundef readonly %1, ptr 
   br i1 %.not28, label %23, label %25
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds i8, ptr %0, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 2, ptr %24, align 8
   br label %34
 
@@ -256,9 +256,9 @@ define internal i32 @szddd_extract(ptr noundef %0, ptr noundef readonly %1, ptr 
   %27 = icmp eq i32 %26, 0
   %28 = select i1 %27, i32 0, i32 2
   %29 = tail call i32 @lzss_decompress(ptr noundef nonnull %9, ptr noundef %11, ptr noundef nonnull %22, i32 noundef 2048, i32 noundef %28) #5
-  %30 = getelementptr inbounds i8, ptr %0, i64 48
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 %29, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %9, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %32 = load ptr, ptr %31, align 8
   tail call void %32(ptr noundef nonnull %22) #5
   %33 = load i32, ptr %30, align 8
@@ -280,26 +280,26 @@ define internal i32 @szddd_decompress(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %.not14, label %6, label %9
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %0, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load i32, ptr %7, align 8
   br label %45
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %5, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = load i32, ptr %5, align 8
   %15 = icmp eq i32 %14, 0
   %16 = select i1 %15, i64 14, i64 12
-  %17 = getelementptr inbounds i8, ptr %11, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %18 = load ptr, ptr %17, align 8
   %19 = tail call i32 %18(ptr noundef %13, i64 noundef %16, i32 noundef 0) #5
   %.not27.i = icmp eq i32 %19, 0
   br i1 %.not27.i, label %22, label %20
 
 20:                                               ; preds = %9
-  %21 = getelementptr inbounds i8, ptr %0, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 5, ptr %21, align 8
   br label %szddd_extract.exit
 
@@ -310,7 +310,7 @@ define internal i32 @szddd_decompress(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %.not28.i, label %25, label %27
 
 25:                                               ; preds = %22
-  %26 = getelementptr inbounds i8, ptr %0, i64 48
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 2, ptr %26, align 8
   br label %szddd_extract.exit
 
@@ -319,9 +319,9 @@ define internal i32 @szddd_decompress(ptr noundef %0, ptr noundef %1, ptr nounde
   %29 = icmp eq i32 %28, 0
   %30 = select i1 %29, i32 0, i32 2
   %31 = tail call i32 @lzss_decompress(ptr noundef nonnull %11, ptr noundef %13, ptr noundef nonnull %24, i32 noundef 2048, i32 noundef %30) #5
-  %32 = getelementptr inbounds i8, ptr %0, i64 48
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 %31, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %11, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %34 = load ptr, ptr %33, align 8
   tail call void %34(ptr noundef nonnull %24) #5
   %35 = load i32, ptr %32, align 8
@@ -334,18 +334,18 @@ szddd_extract.exit:                               ; preds = %27, %25, %20
   br i1 %.not10.i, label %szddd_close.exit, label %37
 
 37:                                               ; preds = %szddd_extract.exit
-  %38 = getelementptr inbounds i8, ptr %36, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %39 = load ptr, ptr %38, align 8
   %40 = load ptr, ptr %12, align 8
   tail call void %39(ptr noundef %40) #5
   %41 = load ptr, ptr %10, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 64
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 64
   %43 = load ptr, ptr %42, align 8
   tail call void %43(ptr noundef nonnull %5) #5
   br label %szddd_close.exit
 
 szddd_close.exit:                                 ; preds = %szddd_extract.exit, %37
-  %44 = getelementptr inbounds i8, ptr %0, i64 48
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 %.0.i, ptr %44, align 8
   br label %45
 
@@ -360,7 +360,7 @@ define internal i32 @szddd_error(ptr noundef readonly %0) #2 {
   br i1 %.not, label %5, label %2
 
 2:                                                ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i32, ptr %3, align 8
   br label %5
 
@@ -375,9 +375,9 @@ define void @mspack_destroy_szdd_decompressor(ptr noundef %0) local_unnamed_addr
   br i1 %.not, label %7, label %2
 
 2:                                                ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %6 = load ptr, ptr %5, align 8
   tail call void %6(ptr noundef nonnull %0) #5
   br label %7

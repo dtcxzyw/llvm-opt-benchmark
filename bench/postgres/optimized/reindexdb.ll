@@ -293,15 +293,15 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   unreachable
 
 67:                                               ; preds = %60
-  %68 = getelementptr inbounds i8, ptr %4, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %.088, ptr %68, align 8
-  %69 = getelementptr inbounds i8, ptr %4, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %.086, ptr %69, align 8
-  %70 = getelementptr inbounds i8, ptr %4, i64 24
+  %70 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %.084, ptr %70, align 8
-  %71 = getelementptr inbounds i8, ptr %4, i64 32
+  %71 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i32 %.080, ptr %71, align 8
-  %72 = getelementptr inbounds i8, ptr %4, i64 40
+  %72 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store ptr null, ptr %72, align 8
   call void @setup_cancel_handler(ptr noundef null) #10
   br i1 %.076, label %73, label %92
@@ -600,7 +600,7 @@ define internal fastcc void @reindex_all_databases(ptr noundef nonnull %0, ptr n
   br i1 %12, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %0, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br i1 %3, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
@@ -725,12 +725,12 @@ define internal fastcc void @reindex_one_database(ptr noundef nonnull %0, i32 no
   tail call void @ParallelSlotsAdoptConn(ptr noundef %40, ptr noundef %12) #10
   %41 = load ptr, ptr %.068, align 8
   %42 = zext nneg i32 %.067 to i64
-  %switch.gep = getelementptr inbounds [5 x ptr], ptr @switch.table.reindex_one_database, i64 0, i64 %42
+  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table.reindex_one_database, i64 0, i64 %42
   br label %43
 
 43:                                               ; preds = %run_reindex_command.exit, %38
   %.166 = phi ptr [ %41, %38 ], [ %88, %run_reindex_command.exit ]
-  %44 = getelementptr inbounds i8, ptr %.166, i64 9
+  %44 = getelementptr inbounds nuw i8, ptr %.166, i64 9
   %45 = load volatile i32, ptr @CancelRequested, align 4
   %.not79 = icmp eq i32 %45, 0
   br i1 %.not79, label %46, label %.loopexit
@@ -741,9 +741,9 @@ define internal fastcc void @reindex_one_database(ptr noundef nonnull %0, i32 no
   br i1 %.not80, label %.loopexit, label %48
 
 48:                                               ; preds = %46
-  %49 = getelementptr inbounds i8, ptr %47, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %47, i64 16
   store ptr @TableCommandResultHandler, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %47, i64 24
+  %50 = getelementptr inbounds nuw i8, ptr %47, i64 24
   store ptr null, ptr %50, align 8
   %51 = load ptr, ptr %47, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
@@ -925,7 +925,7 @@ define internal fastcc ptr @get_parallel_object_list(ptr noundef %0, i32 noundef
 .lr.ph:                                           ; preds = %7, %10
   %.02531 = phi ptr [ %.025, %10 ], [ %.02528, %7 ]
   %.02430 = phi i1 [ true, %10 ], [ false, %7 ]
-  %8 = getelementptr inbounds i8, ptr %.02531, i64 9
+  %8 = getelementptr inbounds nuw i8, ptr %.02531, i64 9
   br i1 %.02430, label %9, label %10
 
 9:                                                ; preds = %.lr.ph

@@ -71,10 +71,10 @@ define noundef i32 @position(ptr nocapture noundef readnone %0) local_unnamed_ad
 ; Function Attrs: nounwind uwtable
 define hidden void @update(ptr noundef %0) local_unnamed_addr #1 {
   %2 = alloca ptr, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 280
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %4 = load ptr, ptr %3, align 8, !tbaa !6
   %5 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !13
-  %6 = getelementptr inbounds i8, ptr %5, i64 2080
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 2080
   %7 = load ptr, ptr %6, align 16, !tbaa !23
   %8 = tail call i32 @dt_ioppr_get_iop_order_list_kind(ptr noundef %7) #9
   %9 = icmp eq i32 %8, 0
@@ -82,7 +82,7 @@ define hidden void @update(ptr noundef %0) local_unnamed_addr #1 {
 
 10:                                               ; preds = %1
   %11 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !13
-  %12 = getelementptr inbounds i8, ptr %11, i64 2080
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 2080
   %13 = load ptr, ptr %12, align 16, !tbaa !23
   %14 = tail call ptr @dt_ioppr_serialize_text_iop_order_list(ptr noundef %13) #9
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #9
@@ -221,15 +221,15 @@ declare ptr @dt_iop_order_string(i32 noundef) local_unnamed_addr #4
 ; Function Attrs: nounwind uwtable
 define void @gui_init(ptr noundef initializes((280, 288), (416, 424), (476, 480)) %0) local_unnamed_addr #1 {
   %2 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #12
-  %3 = getelementptr inbounds i8, ptr %0, i64 280
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 280
   store ptr %2, ptr %3, align 8, !tbaa !6
   %4 = tail call ptr @gtk_box_new(i32 noundef 0, i32 noundef 0) #9
-  %5 = getelementptr inbounds i8, ptr %0, i64 416
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 416
   store ptr %4, ptr %5, align 8, !tbaa !50
-  %6 = getelementptr inbounds i8, ptr %0, i64 476
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 476
   store i32 1, ptr %6, align 4, !tbaa !51
   store i32 -1, ptr %2, align 8, !tbaa !48
-  %7 = getelementptr inbounds i8, ptr %2, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr null, ptr %7, align 8, !tbaa !52
   %8 = load i32, ptr getelementptr inbounds (i8, ptr @darktable, i64 3120), align 8, !tbaa !53
   %9 = and i32 %8, 2
@@ -320,7 +320,7 @@ define internal void @_image_loaded_callback(ptr nocapture readnone %0, ptr noun
 
 ; Function Attrs: nounwind uwtable
 define void @gui_cleanup(ptr noundef %0) local_unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 280
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %3 = load ptr, ptr %2, align 8, !tbaa !6
   tail call void @free(ptr noundef %3) #9
   store ptr null, ptr %2, align 8, !tbaa !6
@@ -388,7 +388,7 @@ declare void @dt_control_signal_disconnect(ptr noundef, ptr noundef, ptr noundef
 
 ; Function Attrs: nounwind uwtable
 define void @gui_reset(ptr noundef %0) local_unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 280
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %3 = load ptr, ptr %2, align 8, !tbaa !6
   %4 = tail call ptr @dt_ioppr_get_iop_order_list_version(i32 noundef 2) #9
   %5 = icmp eq ptr %4, null
@@ -396,7 +396,7 @@ define void @gui_reset(ptr noundef %0) local_unnamed_addr #1 {
 
 6:                                                ; preds = %1
   %7 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !13
-  %8 = getelementptr inbounds i8, ptr %7, i64 1544
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 1544
   %9 = load i32, ptr %8, align 8, !tbaa !55
   tail call void @dt_ioppr_change_iop_order(ptr noundef %7, i32 noundef %9, ptr noundef nonnull %4) #9
   %10 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !13
@@ -425,14 +425,14 @@ define void @init_presets(ptr noundef initializes((472, 476)) %0) local_unnamed_
   %2 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #9
   store i64 0, ptr %2, align 8, !tbaa !56
-  %3 = getelementptr inbounds i8, ptr %0, i64 472
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 472
   store i32 1, ptr %3, align 8, !tbaa !57
   %4 = tail call i32 @dt_is_display_referred() #9
   %5 = tail call ptr @dt_ioppr_get_iop_order_list_version(i32 noundef 1) #9
   %6 = call ptr @dt_ioppr_serialize_iop_order_list(ptr noundef %5, ptr noundef nonnull %2) #9
   %7 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.11, i32 noundef 5) #9
-  %8 = getelementptr inbounds i8, ptr %0, i64 288
-  %9 = getelementptr inbounds i8, ptr %0, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 288
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %10 = load ptr, ptr %9, align 8, !tbaa !58
   %11 = call i32 (...) %10() #9
   %12 = load i64, ptr %2, align 8, !tbaa !56
@@ -483,7 +483,7 @@ define noundef range(i32 0, 2) i32 @set_params(ptr noundef %0, ptr noundef %1, i
 
 9:                                                ; preds = %5
   %10 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !13
-  %11 = getelementptr inbounds i8, ptr %10, i64 1544
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 1544
   %12 = load i32, ptr %11, align 8, !tbaa !55
   tail call void @dt_ioppr_change_iop_order(ptr noundef %10, i32 noundef %12, ptr noundef nonnull %7) #9
   %13 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !13
@@ -503,7 +503,7 @@ define ptr @get_params(ptr nocapture noundef readnone %0, ptr nocapture noundef 
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9
   store i64 0, ptr %3, align 8, !tbaa !56
   %4 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !13
-  %5 = getelementptr inbounds i8, ptr %4, i64 2080
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 2080
   %6 = load ptr, ptr %5, align 16, !tbaa !23
   %7 = call ptr @dt_ioppr_serialize_iop_order_list(ptr noundef %6, ptr noundef nonnull %3) #9
   %8 = load i64, ptr %3, align 8, !tbaa !56

@@ -77,7 +77,7 @@ define void @_ZN14EndpointDialogC2ER7QWidgetR11CaptureFile(ptr noundef nonnull a
   %15 = alloca %"class.QMetaObject::Connection", align 8
   tail call void @_ZN18TrafficTableDialogC2ER7QWidgetR11CaptureFileRK7QString(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(24) @_ZL11table_name_)
   store ptr getelementptr inbounds (i8, ptr @_ZTV14EndpointDialog, i64 16), ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTV14EndpointDialog, i64 544), ptr %16, align 8
   %17 = invoke noundef ptr @_ZNK18TrafficTableDialog11trafficListEv(ptr noundef nonnull align 8 dereferenceable(152) %0)
           to label %18 unwind label %79
@@ -85,11 +85,11 @@ define void @_ZN14EndpointDialogC2ER7QWidgetR11CaptureFile(ptr noundef nonnull a
 18:                                               ; preds = %3
   %19 = load ptr, ptr @_ZL11table_name_, align 8
   store ptr %19, ptr %10, align 8
-  %20 = getelementptr inbounds i8, ptr %10, i64 8
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL11table_name_, i64 8), align 8
+  %20 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL11table_name_, i64 8), align 8
   store ptr %21, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %10, i64 16
-  %23 = load i64, ptr getelementptr inbounds (i8, ptr @_ZL11table_name_, i64 16), align 8
+  %22 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %23 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL11table_name_, i64 16), align 8
   store i64 %23, ptr %22, align 8
   %.not.i.i.i = icmp eq ptr %19, null
   br i1 %.not.i.i.i, label %_ZN7QStringC2ERKS_.exit, label %24
@@ -124,11 +124,11 @@ _ZN7QStringD2Ev.exit:                             ; preds = %26, %_ZN17QArrayDat
 32:                                               ; preds = %_ZN7QStringD2Ev.exit
   %33 = load ptr, ptr @_ZL11table_name_, align 8
   store ptr %33, ptr %11, align 8
-  %34 = getelementptr inbounds i8, ptr %11, i64 8
-  %35 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL11table_name_, i64 8), align 8
+  %34 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %35 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL11table_name_, i64 8), align 8
   store ptr %35, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %11, i64 16
-  %37 = load i64, ptr getelementptr inbounds (i8, ptr @_ZL11table_name_, i64 16), align 8
+  %36 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %37 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL11table_name_, i64 16), align 8
   store i64 %37, ptr %36, align 8
   %.not.i.i.i22 = icmp eq ptr %33, null
   br i1 %.not.i.i.i22, label %_ZN7QStringC2ERKS_.exit23, label %38
@@ -195,21 +195,21 @@ _ZN7QStringD2Ev.exit31:                           ; preds = %50, %_ZN17QArrayDat
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
   store i64 ptrtoint (ptr @_ZN10TrafficTab12filterActionE7QStringN12FilterAction6ActionENS1_10ActionTypeE to i64), ptr %8, align 8, !noalias !4
-  %.fca.1.gep14.i = getelementptr inbounds i8, ptr %8, i64 8
+  %.fca.1.gep14.i = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 0, ptr %.fca.1.gep14.i, align 8, !noalias !4
   store i64 ptrtoint (ptr @_ZN18TrafficTableDialog12filterActionE7QStringN12FilterAction6ActionENS1_10ActionTypeE to i64), ptr %9, align 8, !noalias !4
-  %.fca.1.gep.i = getelementptr inbounds i8, ptr %9, i64 8
+  %.fca.1.gep.i = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 0, ptr %.fca.1.gep.i, align 8, !noalias !4
   %57 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #10
           to label %.noexc unwind label %79
 
 .noexc:                                           ; preds = %56
   store i32 1, ptr %57, align 4, !noalias !4
-  %58 = getelementptr inbounds i8, ptr %57, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
   store ptr @_ZN9QtPrivate11QSlotObjectIM18TrafficTableDialogFv7QStringN12FilterAction6ActionENS3_10ActionTypeEENS_4ListIJS2_S4_S5_EEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb, ptr %58, align 8, !noalias !4
-  %59 = getelementptr inbounds i8, ptr %57, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %57, i64 16
   store i64 ptrtoint (ptr @_ZN18TrafficTableDialog12filterActionE7QStringN12FilterAction6ActionENS1_10ActionTypeE to i64), ptr %59, align 8, !noalias !4
-  %.repack7.i.i = getelementptr inbounds i8, ptr %57, i64 24
+  %.repack7.i.i = getelementptr inbounds nuw i8, ptr %57, i64 24
   store i64 0, ptr %.repack7.i.i, align 8, !noalias !4
   invoke void @_ZN7QObject11connectImplEPKS_PPvS1_S3_PN9QtPrivate15QSlotObjectBaseEN2Qt14ConnectionTypeEPKiPK11QMetaObject(ptr dead_on_unwind nonnull writable sret(%"class.QMetaObject::Connection") align 8 %13, ptr noundef %55, ptr noundef nonnull %8, ptr noundef nonnull %0, ptr noundef nonnull %9, ptr noundef nonnull %57, i32 noundef 0, ptr noundef null, ptr noundef nonnull @_ZN10TrafficTab16staticMetaObjectE)
           to label %60 unwind label %79
@@ -229,21 +229,21 @@ _ZN7QStringD2Ev.exit31:                           ; preds = %50, %_ZN17QArrayDat
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   store i64 ptrtoint (ptr @_ZN7QTabBar14currentChangedEi to i64), ptr %6, align 8, !noalias !7
-  %.fca.1.gep12.i = getelementptr inbounds i8, ptr %6, i64 8
+  %.fca.1.gep12.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 0, ptr %.fca.1.gep12.i, align 8, !noalias !7
   store i64 ptrtoint (ptr @_ZN14EndpointDialog10tabChangedEi to i64), ptr %7, align 8, !noalias !7
-  %.fca.1.gep.i34 = getelementptr inbounds i8, ptr %7, i64 8
+  %.fca.1.gep.i34 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 0, ptr %.fca.1.gep.i34, align 8, !noalias !7
   %65 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #10
           to label %.noexc36 unwind label %79
 
 .noexc36:                                         ; preds = %64
   store i32 1, ptr %65, align 4, !noalias !7
-  %66 = getelementptr inbounds i8, ptr %65, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
   store ptr @_ZN9QtPrivate11QSlotObjectIM14EndpointDialogFviENS_4ListIJiEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb, ptr %66, align 8, !noalias !7
-  %67 = getelementptr inbounds i8, ptr %65, i64 16
+  %67 = getelementptr inbounds nuw i8, ptr %65, i64 16
   store i64 ptrtoint (ptr @_ZN14EndpointDialog10tabChangedEi to i64), ptr %67, align 8, !noalias !7
-  %.repack7.i.i35 = getelementptr inbounds i8, ptr %65, i64 24
+  %.repack7.i.i35 = getelementptr inbounds nuw i8, ptr %65, i64 24
   store i64 0, ptr %.repack7.i.i35, align 8, !noalias !7
   invoke void @_ZN7QObject11connectImplEPKS_PPvS1_S3_PN9QtPrivate15QSlotObjectBaseEN2Qt14ConnectionTypeEPKiPK11QMetaObject(ptr dead_on_unwind nonnull writable sret(%"class.QMetaObject::Connection") align 8 %14, ptr noundef %63, ptr noundef nonnull %6, ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef nonnull %65, i32 noundef 0, ptr noundef null, ptr noundef nonnull @_ZN7QTabBar16staticMetaObjectE)
           to label %68 unwind label %79
@@ -259,21 +259,21 @@ _ZN7QStringD2Ev.exit31:                           ; preds = %50, %_ZN17QArrayDat
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   store i64 ptrtoint (ptr @_ZN10TrafficTab14tabDataChangedEi to i64), ptr %4, align 8, !noalias !10
-  %.fca.1.gep12.i41 = getelementptr inbounds i8, ptr %4, i64 8
+  %.fca.1.gep12.i41 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 0, ptr %.fca.1.gep12.i41, align 8, !noalias !10
   store i64 ptrtoint (ptr @_ZN14EndpointDialog10tabChangedEi to i64), ptr %5, align 8, !noalias !10
-  %.fca.1.gep.i42 = getelementptr inbounds i8, ptr %5, i64 8
+  %.fca.1.gep.i42 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %.fca.1.gep.i42, align 8, !noalias !10
   %71 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #10
           to label %.noexc44 unwind label %79
 
 .noexc44:                                         ; preds = %70
   store i32 1, ptr %71, align 4, !noalias !10
-  %72 = getelementptr inbounds i8, ptr %71, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
   store ptr @_ZN9QtPrivate11QSlotObjectIM14EndpointDialogFviENS_4ListIJiEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb, ptr %72, align 8, !noalias !10
-  %73 = getelementptr inbounds i8, ptr %71, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %71, i64 16
   store i64 ptrtoint (ptr @_ZN14EndpointDialog10tabChangedEi to i64), ptr %73, align 8, !noalias !10
-  %.repack7.i.i43 = getelementptr inbounds i8, ptr %71, i64 24
+  %.repack7.i.i43 = getelementptr inbounds nuw i8, ptr %71, i64 24
   store i64 0, ptr %.repack7.i.i43, align 8, !noalias !10
   invoke void @_ZN7QObject11connectImplEPKS_PPvS1_S3_PN9QtPrivate15QSlotObjectBaseEN2Qt14ConnectionTypeEPKiPK11QMetaObject(ptr dead_on_unwind nonnull writable sret(%"class.QMetaObject::Connection") align 8 %15, ptr noundef %69, ptr noundef nonnull %4, ptr noundef nonnull %0, ptr noundef nonnull %5, ptr noundef nonnull %71, i32 noundef 0, ptr noundef null, ptr noundef nonnull @_ZN10TrafficTab16staticMetaObjectE)
           to label %74 unwind label %79
@@ -283,7 +283,7 @@ _ZN7QStringD2Ev.exit31:                           ; preds = %50, %_ZN17QArrayDat
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #9
   %75 = load ptr, ptr %0, align 8
-  %76 = getelementptr inbounds i8, ptr %75, i64 464
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 464
   %77 = load ptr, ptr %76, align 8
   invoke void %77(ptr noundef nonnull align 8 dereferenceable(133) %0)
           to label %78 unwind label %79
@@ -371,12 +371,12 @@ define internal noundef nonnull ptr @_ZL11createModeli7QString(i32 noundef %0, p
   %4 = tail call noalias noundef nonnull dereferenceable(120) ptr @_Znwm(i64 noundef 120) #10
   %5 = load ptr, ptr %1, align 8
   store ptr %5, ptr %3, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   store ptr %8, ptr %6, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 16
-  %10 = getelementptr inbounds i8, ptr %1, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %11 = load i64, ptr %10, align 8
   store i64 %11, ptr %9, align 8
   %.not.i.i.i = icmp eq ptr %5, null
@@ -494,12 +494,12 @@ define void @_Z19init_endpoint_tableP11register_ctPKc(ptr noundef %0, ptr nounde
   call void @_ZN7QString8fromUtf8E14QByteArrayView(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %3, i64 9, ptr nonnull @.str.1)
   %6 = load ptr, ptr %3, align 8
   store ptr %6, ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %9 = load ptr, ptr %8, align 8
   store ptr %9, ptr %7, align 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 16
-  %11 = getelementptr inbounds i8, ptr %3, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %12 = load i64, ptr %11, align 8
   store i64 %12, ptr %10, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
@@ -590,9 +590,9 @@ define linkonce_odr void @_ZN9QtPrivate11QSlotObjectIM18TrafficTableDialogFv7QSt
   br label %59
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.unpack12 = load i64, ptr %11, align 8
-  %.elt13 = getelementptr inbounds i8, ptr %1, i64 24
+  %.elt13 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.unpack14 = load i64, ptr %.elt13, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   %12 = getelementptr inbounds i8, ptr %2, i64 %.unpack14
@@ -617,12 +617,12 @@ define linkonce_odr void @_ZN9QtPrivate11QSlotObjectIM18TrafficTableDialogFv7QSt
   %24 = load ptr, ptr %23, align 8
   %25 = load ptr, ptr %24, align 8
   store ptr %25, ptr %6, align 8
-  %26 = getelementptr inbounds i8, ptr %6, i64 8
-  %27 = getelementptr inbounds i8, ptr %24, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %28 = load ptr, ptr %27, align 8
   store ptr %28, ptr %26, align 8
-  %29 = getelementptr inbounds i8, ptr %6, i64 16
-  %30 = getelementptr inbounds i8, ptr %24, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %31 = load i64, ptr %30, align 8
   store i64 %31, ptr %29, align 8
   %.not.i.i.i.i.i = icmp eq ptr %25, null
@@ -683,11 +683,11 @@ _ZN9QtPrivate15FunctionPointerIM18TrafficTableDialogFv7QStringN12FilterAction6Ac
 
 51:                                               ; preds = %5
   %.unpack = load i64, ptr %3, align 8
-  %.elt7 = getelementptr inbounds i8, ptr %3, i64 8
+  %.elt7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.unpack8 = load i64, ptr %.elt7, align 8
-  %52 = getelementptr inbounds i8, ptr %1, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.unpack9 = load i64, ptr %52, align 8
-  %.elt10 = getelementptr inbounds i8, ptr %1, i64 24
+  %.elt10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.unpack11 = load i64, ptr %.elt10, align 8
   %53 = icmp eq i64 %.unpack, %.unpack9
   %54 = icmp eq i64 %.unpack, 0
@@ -719,9 +719,9 @@ define linkonce_odr void @_ZN9QtPrivate11QSlotObjectIM14EndpointDialogFviENS_4Li
   br label %32
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %1, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.unpack12 = load i64, ptr %10, align 8
-  %.elt13 = getelementptr inbounds i8, ptr %1, i64 24
+  %.elt13 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.unpack14 = load i64, ptr %.elt13, align 8
   %11 = getelementptr inbounds i8, ptr %2, i64 %.unpack14
   %12 = and i64 %.unpack12, 1
@@ -749,11 +749,11 @@ _ZN9QtPrivate15FunctionPointerIM14EndpointDialogFviEE4callINS_4ListIJiEEEvEEvS3_
 
 24:                                               ; preds = %5
   %.unpack = load i64, ptr %3, align 8
-  %.elt7 = getelementptr inbounds i8, ptr %3, i64 8
+  %.elt7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.unpack8 = load i64, ptr %.elt7, align 8
-  %25 = getelementptr inbounds i8, ptr %1, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.unpack9 = load i64, ptr %25, align 8
-  %.elt10 = getelementptr inbounds i8, ptr %1, i64 24
+  %.elt10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.unpack11 = load i64, ptr %.elt10, align 8
   %26 = icmp eq i64 %.unpack, %.unpack9
   %27 = icmp eq i64 %.unpack, 0

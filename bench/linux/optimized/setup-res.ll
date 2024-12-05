@@ -53,18 +53,18 @@ define dso_local void @pci_update_resource(ptr noundef %0, i32 noundef %1) local
   store i16 0, ptr %4, align 2, !annotation !5
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #6
   store i32 0, ptr %5, align 4, !annotation !5
-  %8 = getelementptr inbounds i8, ptr %0, i64 920
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 920
   %9 = sext i32 %1 to i64
   %10 = getelementptr %struct.resource, ptr %8, i64 %9
   %11 = tail call ptr @pci_resource_name(ptr noundef %0, i32 noundef %1) #6
-  %12 = getelementptr inbounds i8, ptr %0, i64 1689
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 1689
   %13 = load i40, ptr %12, align 1
   %14 = and i40 %13, 8388608
   %15 = icmp eq i40 %14, 0
   br i1 %15, label %16, label %101
 
 16:                                               ; preds = %7
-  %17 = getelementptr inbounds i8, ptr %10, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %18 = load i64, ptr %17, align 8
   %19 = icmp ne i64 %18, 0
   %20 = and i64 %18, 536870928
@@ -73,7 +73,7 @@ define dso_local void @pci_update_resource(ptr noundef %0, i32 noundef %1) local
   br i1 %22, label %23, label %101
 
 23:                                               ; preds = %16
-  %24 = getelementptr inbounds i8, ptr %0, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %25 = load ptr, ptr %24, align 8
   call void @pcibios_resource_to_bus(ptr noundef %25, ptr noundef nonnull %3, ptr noundef %10) #6
   %26 = load i64, ptr %3, align 8
@@ -118,7 +118,7 @@ define dso_local void @pci_update_resource(ptr noundef %0, i32 noundef %1) local
   br i1 %50, label %101, label %51
 
 51:                                               ; preds = %47, %.thread
-  %52 = getelementptr inbounds i8, ptr %0, i64 104
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %53 = load i8, ptr %52, align 8
   %54 = zext i8 %53 to i32
   %55 = or i64 %44, %45
@@ -134,7 +134,7 @@ define dso_local void @pci_update_resource(ptr noundef %0, i32 noundef %1) local
   br i1 %62, label %.thread4, label %63
 
 63:                                               ; preds = %56
-  %64 = getelementptr inbounds i8, ptr %0, i64 157
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 157
   %65 = load i24, ptr %64, align 1
   %66 = and i24 %65, 8192
   %67 = icmp eq i24 %66, 0
@@ -158,8 +158,8 @@ define dso_local void @pci_update_resource(ptr noundef %0, i32 noundef %1) local
   br i1 %79, label %82, label %80
 
 80:                                               ; preds = %.thread4
-  %81 = getelementptr inbounds i8, ptr %0, i64 184
-  call void (ptr, ptr, ...) @_dev_err(ptr noundef %81, ptr noundef nonnull @.str.14, ptr noundef %11, i32 noundef %60, i32 noundef %76) #7
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %81, ptr noundef nonnull @.str.14, ptr noundef %11, i32 noundef %60, i32 noundef %76) #7
   br label %82
 
 82:                                               ; preds = %80, %.thread4
@@ -180,8 +180,8 @@ define dso_local void @pci_update_resource(ptr noundef %0, i32 noundef %1) local
   br i1 %94, label %97, label %95
 
 95:                                               ; preds = %86
-  %96 = getelementptr inbounds i8, ptr %0, i64 184
-  call void (ptr, ptr, ...) @_dev_err(ptr noundef %96, ptr noundef nonnull @.str.15, ptr noundef %11, i32 noundef %89, i32 noundef %93) #7
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %96, ptr noundef nonnull @.str.15, ptr noundef %11, i32 noundef %89, i32 noundef %93) #7
   br label %97
 
 97:                                               ; preds = %95, %86, %82
@@ -204,19 +204,19 @@ define dso_local void @pci_update_resource(ptr noundef %0, i32 noundef %1) local
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -22, 1) i32 @pci_claim_resource(ptr noundef %0, i32 noundef %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 920
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 920
   %4 = sext i32 %1 to i64
   %5 = getelementptr [11 x %struct.resource], ptr %3, i64 0, i64 %4
   %6 = tail call ptr @pci_resource_name(ptr noundef %0, i32 noundef %1) #6
-  %7 = getelementptr inbounds i8, ptr %5, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %8 = load i64, ptr %7, align 8
   %9 = and i64 %8, 536870912
   %10 = icmp eq i64 %9, 0
   br i1 %10, label %13, label %11
 
 11:                                               ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %0, i64 184
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %12, ptr noundef nonnull @.str, ptr noundef %6, ptr noundef %5) #7
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %12, ptr noundef nonnull @.str, ptr noundef %6, ptr noundef %5) #7
   br label %32
 
 13:                                               ; preds = %2
@@ -230,8 +230,8 @@ define dso_local noundef range(i32 -22, 1) i32 @pci_claim_resource(ptr noundef %
   br i1 %18, label %19, label %23
 
 19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %0, i64 184
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %20, ptr noundef nonnull @.str.1, ptr noundef %6, ptr noundef %5) #7
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %20, ptr noundef nonnull @.str.1, ptr noundef %6, ptr noundef %5) #7
   %21 = load i64, ptr %7, align 8
   %22 = or i64 %21, 536870912
   store i64 %22, ptr %7, align 8
@@ -243,10 +243,10 @@ define dso_local noundef range(i32 -22, 1) i32 @pci_claim_resource(ptr noundef %
   br i1 %25, label %32, label %26
 
 26:                                               ; preds = %23
-  %27 = getelementptr inbounds i8, ptr %0, i64 184
-  %28 = getelementptr inbounds i8, ptr %24, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %28 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %29 = load ptr, ptr %28, align 8
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %27, ptr noundef nonnull @.str.2, ptr noundef %6, ptr noundef %5, ptr noundef %29, ptr noundef nonnull %24) #7
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %27, ptr noundef nonnull @.str.2, ptr noundef %6, ptr noundef %5, ptr noundef %29, ptr noundef nonnull %24) #7
   %30 = load i64, ptr %7, align 8
   %31 = or i64 %30, 536870912
   store i64 %31, ptr %7, align 8
@@ -300,11 +300,11 @@ define weak dso_local i64 @pcibios_align_resource(ptr noundef %0, ptr noundef %1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local range(i32 -22, 1) i32 @pci_assign_resource(ptr noundef %0, i32 noundef %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 920
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 920
   %4 = sext i32 %1 to i64
   %5 = getelementptr %struct.resource, ptr %3, i64 %4
   %6 = tail call ptr @pci_resource_name(ptr noundef %0, i32 noundef %1) #6
-  %7 = getelementptr inbounds i8, ptr %5, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %8 = load i64, ptr %7, align 8
   %9 = and i64 %8, 16
   %10 = icmp eq i64 %9, 0
@@ -313,7 +313,7 @@ define dso_local range(i32 -22, 1) i32 @pci_assign_resource(ptr noundef %0, i32 
 11:                                               ; preds = %2
   %12 = or i64 %8, 536870912
   store i64 %12, ptr %7, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 68
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %14 = load i32, ptr %13, align 4
   %15 = and i32 %14, -256
   %16 = icmp eq i32 %15, 395008
@@ -333,12 +333,12 @@ define dso_local range(i32 -22, 1) i32 @pci_assign_resource(ptr noundef %0, i32 
   br i1 %23, label %24, label %26
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds i8, ptr %0, i64 184
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %25, ptr noundef nonnull @.str.3, ptr noundef %6, ptr noundef %5) #7
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %25, ptr noundef nonnull @.str.3, ptr noundef %6, ptr noundef %5) #7
   br label %44
 
 26:                                               ; preds = %21
-  %27 = getelementptr inbounds i8, ptr %5, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %28 = load i64, ptr %27, align 8
   %29 = load i64, ptr %5, align 8
   %30 = add i64 %28, 1
@@ -348,22 +348,22 @@ define dso_local range(i32 -22, 1) i32 @pci_assign_resource(ptr noundef %0, i32 
   br i1 %33, label %34, label %.thread
 
 34:                                               ; preds = %26
-  %35 = getelementptr inbounds i8, ptr %0, i64 184
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %35, ptr noundef nonnull @.str.4, ptr noundef %6, ptr noundef %5) #7
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %35, ptr noundef nonnull @.str.4, ptr noundef %6, ptr noundef %5) #7
   %36 = tail call fastcc i32 @pci_revert_fw_address(ptr noundef %5, ptr noundef %0, i32 noundef %1, i64 noundef %31), !range !6
   %37 = icmp slt i32 %36, 0
   br i1 %37, label %38, label %.thread
 
 38:                                               ; preds = %34
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %35, ptr noundef nonnull @.str.5, ptr noundef %6, ptr noundef %5) #7
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %35, ptr noundef nonnull @.str.5, ptr noundef %6, ptr noundef %5) #7
   br label %44
 
 .thread:                                          ; preds = %26, %34
   %39 = load i64, ptr %7, align 8
   %40 = and i64 %39, -537395201
   store i64 %40, ptr %7, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 184
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %41, ptr noundef nonnull @.str.6, ptr noundef %6, ptr noundef %5) #7
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %41, ptr noundef nonnull @.str.6, ptr noundef %6, ptr noundef %5) #7
   %42 = icmp slt i32 %1, 7
   br i1 %42, label %43, label %44
 
@@ -378,12 +378,12 @@ define dso_local range(i32 -22, 1) i32 @pci_assign_resource(ptr noundef %0, i32 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i32 @_pci_assign_resource(ptr noundef %0, i32 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #0 align 16 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 920
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 920
   %8 = sext i32 %1 to i64
   %9 = getelementptr %struct.resource, ptr %7, i64 %8
-  %10 = getelementptr inbounds i8, ptr %9, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
   br label %11
 
 11:                                               ; preds = %37, %4
@@ -426,15 +426,15 @@ define internal fastcc i32 @_pci_assign_resource(ptr noundef %0, i32 noundef %1,
 
 .thread3:                                         ; preds = %27, %30
   %33 = phi i32 [ %31, %30 ], [ %28, %27 ]
-  %34 = getelementptr inbounds i8, ptr %12, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %35 = load ptr, ptr %34, align 8
   %36 = icmp eq ptr %35, null
   br i1 %36, label %.thread, label %37
 
 37:                                               ; preds = %.thread3
-  %38 = getelementptr inbounds i8, ptr %12, i64 56
+  %38 = getelementptr inbounds nuw i8, ptr %12, i64 56
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 1689
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 1689
   %41 = load i40, ptr %40, align 1
   %42 = and i40 %41, 1
   %43 = icmp eq i40 %42, 0
@@ -454,13 +454,13 @@ define internal fastcc noundef range(i32 -16, 1) i32 @pci_revert_fw_address(ptr 
 
 8:                                                ; preds = %4
   %9 = load i64, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load i64, ptr %10, align 8
   store i64 %6, ptr %0, align 8
   %12 = add i64 %3, -1
   %13 = add i64 %12, %6
   store i64 %13, ptr %10, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %15 = load i64, ptr %14, align 8
   %16 = and i64 %15, -536870913
   store i64 %16, ptr %14, align 8
@@ -469,15 +469,15 @@ define internal fastcc noundef range(i32 -16, 1) i32 @pci_revert_fw_address(ptr 
   br i1 %18, label %19, label %34
 
 19:                                               ; preds = %8
-  %20 = getelementptr inbounds i8, ptr %1, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, null
   br i1 %24, label %29, label %25
 
 25:                                               ; preds = %19
-  %26 = getelementptr inbounds i8, ptr %21, i64 56
+  %26 = getelementptr inbounds nuw i8, ptr %21, i64 56
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, null
   br i1 %28, label %29, label %44
@@ -491,16 +491,16 @@ define internal fastcc noundef range(i32 -16, 1) i32 @pci_revert_fw_address(ptr 
 
 34:                                               ; preds = %29, %8
   %35 = phi ptr [ %17, %8 ], [ %33, %29 ]
-  %36 = getelementptr inbounds i8, ptr %1, i64 184
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %36, ptr noundef nonnull @.str.16, ptr noundef %5, ptr noundef %0) #7
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 184
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %36, ptr noundef nonnull @.str.16, ptr noundef %5, ptr noundef %0) #7
   %37 = tail call ptr @request_resource_conflict(ptr noundef nonnull %35, ptr noundef %0) #6
   %38 = icmp eq ptr %37, null
   br i1 %38, label %44, label %39
 
 39:                                               ; preds = %34
-  %40 = getelementptr inbounds i8, ptr %37, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %41 = load ptr, ptr %40, align 8
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %36, ptr noundef nonnull @.str.17, ptr noundef %5, ptr noundef %0, ptr noundef %41, ptr noundef nonnull %37) #7
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %36, ptr noundef nonnull @.str.17, ptr noundef %5, ptr noundef %0, ptr noundef %41, ptr noundef nonnull %37) #7
   store i64 %9, ptr %0, align 8
   store i64 %11, ptr %10, align 8
   %42 = load i64, ptr %14, align 8
@@ -515,11 +515,11 @@ define internal fastcc noundef range(i32 -16, 1) i32 @pci_revert_fw_address(ptr 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @pci_reassign_resource(ptr noundef %0, i32 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 align 16 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 920
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 920
   %6 = sext i32 %1 to i64
   %7 = getelementptr %struct.resource, ptr %5, i64 %6
   %8 = tail call ptr @pci_resource_name(ptr noundef %0, i32 noundef %1) #6
-  %9 = getelementptr inbounds i8, ptr %7, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %10 = load i64, ptr %9, align 8
   %11 = and i64 %10, 16
   %12 = icmp eq i64 %11, 0
@@ -528,18 +528,18 @@ define dso_local i32 @pci_reassign_resource(ptr noundef %0, i32 noundef %1, i64 
 13:                                               ; preds = %4
   %14 = or i64 %10, 536870912
   store i64 %14, ptr %9, align 8
-  %15 = getelementptr inbounds i8, ptr %7, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
   br i1 %17, label %18, label %20
 
 18:                                               ; preds = %13
-  %19 = getelementptr inbounds i8, ptr %0, i64 184
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %19, ptr noundef nonnull @.str.7, ptr noundef %8, ptr noundef %7) #7
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %19, ptr noundef nonnull @.str.7, ptr noundef %8, ptr noundef %7) #7
   br label %37
 
 20:                                               ; preds = %13
-  %21 = getelementptr inbounds i8, ptr %7, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %22 = load i64, ptr %21, align 8
   %23 = load i64, ptr %7, align 8
   %24 = add i64 %2, 1
@@ -551,16 +551,16 @@ define dso_local i32 @pci_reassign_resource(ptr noundef %0, i32 noundef %1, i64 
 
 29:                                               ; preds = %20
   store i64 %10, ptr %9, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 184
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %30, ptr noundef nonnull @.str.8, ptr noundef %8, ptr noundef %7, i64 noundef %2) #7
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %30, ptr noundef nonnull @.str.8, ptr noundef %8, ptr noundef %7, i64 noundef %2) #7
   br label %37
 
 31:                                               ; preds = %20
   %32 = load i64, ptr %9, align 8
   %33 = and i64 %32, -537395201
   store i64 %33, ptr %9, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 184
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %34, ptr noundef nonnull @.str.9, ptr noundef %8, ptr noundef %7, i64 noundef %2) #7
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %34, ptr noundef nonnull @.str.9, ptr noundef %8, ptr noundef %7, i64 noundef %2) #7
   %35 = icmp slt i32 %1, 7
   br i1 %35, label %36, label %37
 
@@ -575,26 +575,26 @@ define dso_local i32 @pci_reassign_resource(ptr noundef %0, i32 noundef %1, i64 
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @pci_release_resource(ptr noundef %0, i32 noundef %1) #4 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 920
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 920
   %4 = sext i32 %1 to i64
   %5 = getelementptr %struct.resource, ptr %3, i64 %4
   %6 = tail call ptr @pci_resource_name(ptr noundef %0, i32 noundef %1) #6
-  %7 = getelementptr inbounds i8, ptr %0, i64 184
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %7, ptr noundef nonnull @.str.10, ptr noundef %6, ptr noundef %5) #7
-  %8 = getelementptr inbounds i8, ptr %5, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %7, ptr noundef nonnull @.str.10, ptr noundef %6, ptr noundef %5) #7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %20, label %11
 
 11:                                               ; preds = %2
   %12 = tail call i32 @release_resource(ptr noundef %5) #6
-  %13 = getelementptr inbounds i8, ptr %5, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %14 = load i64, ptr %13, align 8
   %15 = load i64, ptr %5, align 8
   %16 = sub i64 %14, %15
   store i64 %16, ptr %13, align 8
   store i64 0, ptr %5, align 8
-  %17 = getelementptr inbounds i8, ptr %5, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %18 = load i64, ptr %17, align 8
   %19 = or i64 %18, 536870912
   store i64 %19, ptr %17, align 8
@@ -610,21 +610,21 @@ declare dso_local i32 @release_resource(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @pci_resize_resource(ptr noundef %0, i32 noundef %1, i32 noundef %2) #0 align 16 {
   %4 = alloca i16, align 2
-  %5 = getelementptr inbounds i8, ptr %0, i64 920
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 920
   %6 = sext i32 %1 to i64
   %7 = getelementptr %struct.resource, ptr %5, i64 %6
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4) #6
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = tail call ptr @pci_find_host_bridge(ptr noundef %9) #6
-  %11 = getelementptr inbounds i8, ptr %10, i64 832
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 832
   %12 = load i16, ptr %11, align 64
   %13 = and i16 %12, 1024
   %14 = icmp eq i16 %13, 0
   br i1 %14, label %15, label %64
 
 15:                                               ; preds = %3
-  %16 = getelementptr inbounds i8, ptr %7, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %17 = load i64, ptr %16, align 8
   %18 = and i64 %17, 536870912
   %19 = icmp eq i64 %18, 0
@@ -668,10 +668,10 @@ define dso_local i32 @pci_resize_resource(ptr noundef %0, i32 noundef %1, i32 no
   %44 = shl nsw i64 -1, %43
   %45 = xor i64 %44, -1
   %46 = add i64 %41, %45
-  %47 = getelementptr inbounds i8, ptr %7, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %46, ptr %47, align 8
   %48 = load ptr, ptr %8, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 56
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 56
   %50 = load ptr, ptr %49, align 8
   %51 = icmp eq ptr %50, null
   br i1 %51, label %64, label %52
@@ -724,7 +724,7 @@ define dso_local noundef range(i32 -22, 1) i32 @pci_enable_resources(ptr noundef
   store i16 0, ptr %3, align 2, !annotation !5
   %4 = call i32 @pci_read_config_word(ptr noundef %0, i32 noundef 4, ptr noundef nonnull %3) #6
   %5 = load i16, ptr %3, align 2
-  %6 = getelementptr inbounds i8, ptr %0, i64 920
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 920
   br label %7
 
 7:                                                ; preds = %50, %2
@@ -742,7 +742,7 @@ define dso_local noundef range(i32 -22, 1) i32 @pci_enable_resources(ptr noundef
 
 16:                                               ; preds = %11
   %17 = call ptr @pci_resource_name(ptr noundef %0, i32 noundef %12) #6
-  %18 = getelementptr inbounds i8, ptr %9, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %19 = load i64, ptr %18, align 8
   %20 = and i64 %19, 768
   %21 = icmp eq i64 %20, 0
@@ -761,19 +761,19 @@ define dso_local noundef range(i32 -22, 1) i32 @pci_enable_resources(ptr noundef
   br i1 %29, label %32, label %30
 
 30:                                               ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %0, i64 184
-  call void (ptr, ptr, ...) @_dev_err(ptr noundef %31, ptr noundef nonnull @.str.11, ptr noundef %17, ptr noundef nonnull %9) #7
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %31, ptr noundef nonnull @.str.11, ptr noundef %17, ptr noundef nonnull %9) #7
   br label %62
 
 32:                                               ; preds = %27
-  %33 = getelementptr inbounds i8, ptr %9, i64 40
+  %33 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %34 = load ptr, ptr %33, align 8
   %35 = icmp eq ptr %34, null
   br i1 %35, label %36, label %38
 
 36:                                               ; preds = %32
-  %37 = getelementptr inbounds i8, ptr %0, i64 184
-  call void (ptr, ptr, ...) @_dev_err(ptr noundef %37, ptr noundef nonnull @.str.12, ptr noundef %17, ptr noundef nonnull %9) #7
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %37, ptr noundef nonnull @.str.12, ptr noundef %17, ptr noundef nonnull %9) #7
   br label %62
 
 38:                                               ; preds = %32
@@ -811,8 +811,8 @@ define dso_local noundef range(i32 -22, 1) i32 @pci_enable_resources(ptr noundef
 56:                                               ; preds = %53
   %57 = zext i16 %5 to i32
   %58 = zext i16 %54 to i32
-  %59 = getelementptr inbounds i8, ptr %0, i64 184
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %59, ptr noundef nonnull @.str.13, i32 noundef %57, i32 noundef %58) #7
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %59, ptr noundef nonnull @.str.13, i32 noundef %57, i32 noundef %58) #7
   %60 = load i16, ptr %3, align 2
   %61 = call i32 @pci_write_config_word(ptr noundef %0, i32 noundef 4, i16 noundef zeroext %60) #6
   br label %62

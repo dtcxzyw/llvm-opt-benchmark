@@ -60,7 +60,7 @@ define hidden void @_ZN15WorkerDataArrayImE10WDAPrinter7summaryEP12outputStreamm
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN15WorkerDataArrayIdE10WDAPrinter7detailsEPKS0_P12outputStream(ptr nocapture noundef readonly %0, ptr noundef nonnull %1) local_unnamed_addr #1 align 2 {
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8) #3
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -68,7 +68,7 @@ define hidden void @_ZN15WorkerDataArrayIdE10WDAPrinter7detailsEPKS0_P12outputSt
 .lr.ph:                                           ; preds = %2, %12
   %indvars.iv = phi i64 [ %indvars.iv.next, %12 ], [ 0, %2 ]
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds double, ptr %5, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv
   %7 = load double, ptr %6, align 8
   %8 = fcmp une double %7, -1.000000e+00
   br i1 %8, label %9, label %11
@@ -99,7 +99,7 @@ declare void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN15WorkerDataArrayImE10WDAPrinter7detailsEPKS0_P12outputStream(ptr nocapture noundef readonly %0, ptr noundef nonnull %1) local_unnamed_addr #1 align 2 {
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8) #3
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %.not12 = icmp eq i32 %4, 0
   br i1 %.not12, label %._crit_edge, label %.lr.ph
@@ -107,7 +107,7 @@ define hidden void @_ZN15WorkerDataArrayImE10WDAPrinter7detailsEPKS0_P12outputSt
 .lr.ph:                                           ; preds = %2, %10
   %indvars.iv = phi i64 [ %indvars.iv.next, %10 ], [ 0, %2 ]
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i64, ptr %5, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv
   %7 = load i64, ptr %6, align 8
   %.not = icmp eq i64 %7, -1
   br i1 %.not, label %9, label %8

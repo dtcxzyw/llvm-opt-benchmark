@@ -20,9 +20,9 @@ declare noundef ptr @_Z9type2name9BasicType(i8 noundef zeroext) local_unnamed_ad
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef ptr @_Z21ci_card_table_addressv() local_unnamed_addr #2 {
   %1 = load ptr, ptr @_ZN10BarrierSet12_barrier_setE, align 8
-  %2 = getelementptr inbounds i8, ptr %1, i64 72
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %5 = load ptr, ptr %4, align 8
   ret ptr %5
 }

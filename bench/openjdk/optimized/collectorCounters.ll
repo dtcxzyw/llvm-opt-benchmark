@@ -32,27 +32,27 @@ define hidden void @_ZN17CollectorCountersC2EPKci(ptr nocapture noundef nonnull 
   %8 = load ptr, ptr %4, align 8
   %9 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 800
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 800
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %12, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %12, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %12, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %20 = load i64, ptr %19, align 8
   %21 = call noundef ptr @_ZN15PerfDataManager10name_spaceEPKci(ptr noundef nonnull @.str, i32 noundef %2) #6
   %22 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %21) #7
   %23 = add i64 %22, 1
   %24 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %23, i8 noundef zeroext 5, i32 noundef 0) #6
-  %25 = getelementptr inbounds i8, ptr %0, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %24, ptr %25, align 8
   %26 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %24, ptr noundef nonnull dereferenceable(1) %21) #6
   %27 = load ptr, ptr %25, align 8
   %28 = call noundef ptr @_ZN15PerfDataManager12counter_nameEPKcS1_(ptr noundef %27, ptr noundef nonnull @.str.4) #6
   %29 = call noundef ptr @_ZN15PerfDataManager22create_string_constantE9CounterNSPKcS2_P10JavaThread(i32 noundef 5, ptr noundef %28, ptr noundef %1, ptr noundef %8) #6
-  %30 = getelementptr inbounds i8, ptr %8, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %31 = load ptr, ptr %30, align 8
   %.not = icmp eq ptr %31, null
   br i1 %.not, label %32, label %54
@@ -70,7 +70,7 @@ define hidden void @_ZN17CollectorCountersC2EPKci(ptr nocapture noundef nonnull 
   %38 = load ptr, ptr %25, align 8
   %39 = call noundef ptr @_ZN15PerfDataManager12counter_nameEPKcS1_(ptr noundef %38, ptr noundef nonnull @.str.6) #6
   %40 = call noundef ptr @_ZN15PerfDataManager19create_long_counterE9CounterNSPKcN8PerfData5UnitsElP10JavaThread(i32 noundef 5, ptr noundef %39, i32 noundef 3, i64 noundef 0, ptr noundef nonnull %8) #6
-  %41 = getelementptr inbounds i8, ptr %0, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %40, ptr %41, align 8
   %42 = load ptr, ptr %30, align 8
   %.not23 = icmp eq ptr %42, null
@@ -80,7 +80,7 @@ define hidden void @_ZN17CollectorCountersC2EPKci(ptr nocapture noundef nonnull 
   %44 = load ptr, ptr %25, align 8
   %45 = call noundef ptr @_ZN15PerfDataManager12counter_nameEPKcS1_(ptr noundef %44, ptr noundef nonnull @.str.7) #6
   %46 = call noundef ptr @_ZN15PerfDataManager20create_long_variableE9CounterNSPKcN8PerfData5UnitsElP10JavaThread(i32 noundef 5, ptr noundef %45, i32 noundef 3, i64 noundef 0, ptr noundef nonnull %8) #6
-  %47 = getelementptr inbounds i8, ptr %0, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %46, ptr %47, align 8
   %48 = load ptr, ptr %30, align 8
   %.not24 = icmp eq ptr %48, null
@@ -90,7 +90,7 @@ define hidden void @_ZN17CollectorCountersC2EPKci(ptr nocapture noundef nonnull 
   %50 = load ptr, ptr %25, align 8
   %51 = call noundef ptr @_ZN15PerfDataManager12counter_nameEPKcS1_(ptr noundef %50, ptr noundef nonnull @.str.8) #6
   %52 = call noundef ptr @_ZN15PerfDataManager20create_long_variableE9CounterNSPKcN8PerfData5UnitsElP10JavaThread(i32 noundef 5, ptr noundef %51, i32 noundef 3, i64 noundef 0, ptr noundef nonnull %8) #6
-  %53 = getelementptr inbounds i8, ptr %0, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %52, ptr %53, align 8
   br label %54
 
@@ -144,7 +144,7 @@ declare void @_ZN13ExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN17CollectorCountersD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   tail call void @_Z8FreeHeapPv(ptr noundef %3) #6
   ret void
@@ -154,13 +154,13 @@ declare void @_Z8FreeHeapPv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN19TraceCollectorStatsC2EP17CollectorCounters(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8), (16, 17), (24, 32)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %1, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 0, ptr %6, align 8
   store i64 0, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %4, ptr %7, align 8
   %8 = load i8, ptr @UsePerfData, align 1
   %9 = trunc i8 %8 to i1
@@ -175,14 +175,14 @@ define hidden void @_ZN19TraceCollectorStatsC2EP17CollectorCounters(ptr noundef 
 
 _ZN13PerfTraceTimeC2EP15PerfLongCounter.exit.i:   ; preds = %11, %2
   %12 = phi i8 [ %8, %2 ], [ %.pre.i, %11 ]
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %5, ptr %13, align 8
   %14 = trunc i8 %12 to i1
   %or.cond.not.i = and i1 %10, %14
   br i1 %or.cond.not.i, label %15, label %_ZN19PerfTraceTimedEventC2EP15PerfLongCounterS1_.exit
 
 15:                                               ; preds = %_ZN13PerfTraceTimeC2EP15PerfLongCounter.exit.i
-  %16 = getelementptr inbounds i8, ptr %5, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %17 = load ptr, ptr %16, align 8
   %18 = load i64, ptr %17, align 8
   %19 = add nsw i64 %18, 1
@@ -192,16 +192,16 @@ _ZN13PerfTraceTimeC2EP15PerfLongCounter.exit.i:   ; preds = %11, %2
 
 _ZN19PerfTraceTimedEventC2EP15PerfLongCounterS1_.exit: ; preds = %_ZN13PerfTraceTimeC2EP15PerfLongCounter.exit.i, %15
   %20 = phi i8 [ %12, %_ZN13PerfTraceTimeC2EP15PerfLongCounter.exit.i ], [ %.pre, %15 ]
-  %21 = getelementptr inbounds i8, ptr %0, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %1, ptr %21, align 8
   %22 = trunc i8 %20 to i1
   br i1 %22, label %23, label %29
 
 23:                                               ; preds = %_ZN19PerfTraceTimedEventC2EP15PerfLongCounterS1_.exit
-  %24 = getelementptr inbounds i8, ptr %1, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %25 = load ptr, ptr %24, align 8
   %26 = tail call noundef i64 @_ZN2os15elapsed_counterEv() #6
-  %27 = getelementptr inbounds i8, ptr %25, i64 40
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 40
   %28 = load ptr, ptr %27, align 8
   store i64 %26, ptr %28, align 8
   br label %29
@@ -219,12 +219,12 @@ define hidden void @_ZN19TraceCollectorStatsD2Ev(ptr noundef nonnull align 8 der
   br i1 %3, label %4, label %12
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noundef i64 @_ZN2os15elapsed_counterEv() #6
-  %10 = getelementptr inbounds i8, ptr %8, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %11 = load ptr, ptr %10, align 8
   store i64 %9, ptr %11, align 8
   %.pre = load i8, ptr @UsePerfData, align 1
@@ -236,17 +236,17 @@ define hidden void @_ZN19TraceCollectorStatsD2Ev(ptr noundef nonnull align 8 der
   br i1 %14, label %15, label %_ZN19PerfTraceTimedEventD2Ev.exit
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = load i8, ptr %16, align 8
   %18 = trunc i8 %17 to i1
   br i1 %18, label %19, label %_ZN19PerfTraceTimedEventD2Ev.exit
 
 19:                                               ; preds = %15
   tail call void @_ZN12elapsedTimer4stopEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #6
-  %20 = getelementptr inbounds i8, ptr %0, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %21 = load ptr, ptr %20, align 8
   %22 = load i64, ptr %0, align 8
-  %23 = getelementptr inbounds i8, ptr %21, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 40
   %24 = load ptr, ptr %23, align 8
   %25 = load i64, ptr %24, align 8
   %26 = add nsw i64 %25, %22

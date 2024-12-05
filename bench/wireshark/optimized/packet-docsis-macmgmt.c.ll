@@ -2932,44 +2932,44 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_macmgmt(ptr noundef %0, ptr noundef initializes((112, 160), (208, 256)) %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca i32, align 4
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void @col_set_str(ptr noundef %7, i32 noundef 34, ptr noundef nonnull @.str.1671) #6
   %8 = load ptr, ptr %6, align 8
   tail call void @col_clear(ptr noundef %8, i32 noundef 25) #6
-  %9 = getelementptr inbounds i8, ptr %1, i64 112
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %10 = tail call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef 6, i32 noundef 6) #6
   store i32 1, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 116
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 116
   store i32 6, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %1, i64 120
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 120
   store ptr %10, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 128
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 128
   store ptr null, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 208
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 208
   store i32 1, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 212
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 212
   store i32 6, ptr %15, align 4
-  %16 = getelementptr inbounds i8, ptr %1, i64 216
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 216
   store ptr %10, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 224
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 224
   store ptr null, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %1, i64 136
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %19 = tail call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef 0, i32 noundef 6) #6
   store i32 1, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 140
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 140
   store i32 6, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %1, i64 144
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 144
   store ptr %19, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 152
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 152
   store ptr null, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 232
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 232
   store i32 1, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %1, i64 236
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 236
   store i32 6, ptr %24, align 4
-  %25 = getelementptr inbounds i8, ptr %1, i64 240
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 240
   store ptr %19, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %1, i64 248
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 248
   store ptr null, ptr %26, align 8
   %27 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 17) #6
   %28 = zext i8 %27 to i32
@@ -3051,7 +3051,7 @@ define internal i32 @dissect_macmgmt(ptr noundef %0, ptr noundef initializes((11
   %76 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %75, ptr noundef %0, i32 noundef 17, i32 noundef 1, i32 noundef 0) #6
   %77 = load i32, ptr @hf_docsis_mgt_type, align 4
   %78 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %77, ptr noundef %0, i32 noundef 18, i32 noundef 1, i32 noundef 0) #6
-  %79 = getelementptr inbounds i8, ptr %1, i64 408
+  %79 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %80 = load ptr, ptr %79, align 8
   %81 = load i32, ptr @proto_docsis_mgmt, align 4
   %82 = zext i8 %27 to i64
@@ -3153,7 +3153,7 @@ define internal i32 @dissect_rba(ptr noundef %0, ptr nocapture noundef readonly 
   br i1 %33, label %.lr.ph, label %._crit_edge, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
-  %34 = getelementptr inbounds i8, ptr %1, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %35 = load ptr, ptr %34, align 8
   %36 = load i32, ptr %5, align 4
   %37 = load i32, ptr %6, align 4
@@ -3329,7 +3329,7 @@ declare ptr @create_dissector_handle(ptr noundef, i32 noundef) local_unnamed_add
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_sync(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 25, ptr noundef nonnull @.str.1681) #6
   %7 = load i32, ptr @proto_docsis_sync, align 4
@@ -3361,7 +3361,7 @@ define internal i32 @dissect_rngreq(ptr noundef %0, ptr noundef %1, ptr noundef 
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #6
   %8 = load i32, ptr @ett_docsis_rngreq, align 4
   %9 = tail call ptr @proto_item_add_subtree(ptr noundef %7, i32 noundef %8) #6
-  %10 = getelementptr inbounds i8, ptr %1, i64 408
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr @proto_docsis_mgmt, align 4
   %13 = tail call ptr @p_get_proto_data(ptr noundef %11, ptr noundef %1, i32 noundef %12, i32 noundef 0) #6
@@ -3388,7 +3388,7 @@ define internal i32 @dissect_rngreq(ptr noundef %0, ptr noundef %1, ptr noundef 
   %23 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %9, i32 noundef %22, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %5) #6
   %24 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %24, 0
-  %25 = getelementptr inbounds i8, ptr %1, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8
   br i1 %.not, label %28, label %27
 
@@ -3426,7 +3426,7 @@ define internal i32 @dissect_rngrsp(ptr noundef %0, ptr noundef %1, ptr noundef 
   %17 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %13, i32 noundef %16, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %9) #6
   %18 = load i32, ptr %9, align 4
   %.not = icmp eq i32 %18, 0
-  %19 = getelementptr inbounds i8, ptr %1, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = load i32, ptr %8, align 4
   br i1 %.not, label %24, label %22
@@ -3735,7 +3735,7 @@ define internal i32 @dissect_regreq(ptr noundef %0, ptr noundef %1, ptr noundef 
   %9 = tail call ptr @proto_item_add_subtree(ptr noundef %7, i32 noundef %8) #6
   %10 = load i32, ptr @hf_docsis_regreq_sid, align 4
   %11 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %9, i32 noundef %10, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %5) #6
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = load i32, ptr %5, align 4
   call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %13, i32 noundef 25, ptr noundef nonnull @.str.1695, i32 noundef %14) #6
@@ -3758,7 +3758,7 @@ define internal i32 @dissect_regrsp(ptr noundef %0, ptr noundef %1, ptr noundef 
   %12 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %10, i32 noundef %11, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %5) #6
   %13 = load i32, ptr @hf_docsis_regrsp_response, align 4
   %14 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %10, i32 noundef %13, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %6) #6
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = load i32, ptr %5, align 4
   %18 = load i32, ptr %6, align 4
@@ -3780,7 +3780,7 @@ define internal i32 @dissect_uccreq(ptr noundef %0, ptr nocapture noundef readon
   %9 = tail call ptr @proto_item_add_subtree(ptr noundef %7, i32 noundef %8) #6
   %10 = load i32, ptr @hf_docsis_mgt_upstream_chid, align 4
   %11 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %9, i32 noundef %10, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %5) #6
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = load i32, ptr %5, align 4
   %15 = call i32 @llvm.usub.sat.i32(i32 %14, i32 1)
@@ -3798,7 +3798,7 @@ define internal i32 @dissect_uccrsp(ptr noundef %0, ptr nocapture noundef readon
   %9 = tail call ptr @proto_item_add_subtree(ptr noundef %7, i32 noundef %8) #6
   %10 = load i32, ptr @hf_docsis_mgt_upstream_chid, align 4
   %11 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %9, i32 noundef %10, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %5) #6
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = load i32, ptr %5, align 4
   %15 = call i32 @llvm.usub.sat.i32(i32 %14, i32 1)
@@ -3816,7 +3816,7 @@ define internal i32 @dissect_bpkmreq(ptr noundef %0, ptr noundef %1, ptr noundef
   %9 = tail call ptr @proto_item_add_subtree(ptr noundef %7, i32 noundef %8) #6
   %10 = load i32, ptr @hf_docsis_bpkm_code, align 4
   %11 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %9, i32 noundef %10, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %5) #6
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = load i32, ptr %5, align 4
   %15 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @code_field_vals, ptr noundef nonnull @.str.1697) #6
@@ -3845,7 +3845,7 @@ define internal i32 @dissect_bpkmrsp(ptr noundef %0, ptr noundef %1, ptr noundef
   %9 = tail call ptr @proto_item_add_subtree(ptr noundef %7, i32 noundef %8) #6
   %10 = load i32, ptr @hf_docsis_bpkm_code, align 4
   %11 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %9, i32 noundef %10, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %5) #6
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = load i32, ptr %5, align 4
   %15 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @code_field_vals, ptr noundef nonnull @.str.1702) #6
@@ -3877,7 +3877,7 @@ define internal i32 @dissect_regack(ptr noundef %0, ptr noundef %1, ptr noundef 
   %12 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %10, i32 noundef %11, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %5) #6
   %13 = load i32, ptr @hf_docsis_regack_response, align 4
   %14 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %10, i32 noundef %13, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %6) #6
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = load i32, ptr %5, align 4
   %18 = load i32, ptr %6, align 4
@@ -3907,7 +3907,7 @@ define internal i32 @dissect_dsareq(ptr noundef %0, ptr noundef %1, ptr noundef 
   %9 = tail call ptr @proto_item_add_subtree(ptr noundef %7, i32 noundef %8) #6
   %10 = load i32, ptr @hf_docsis_mgt_tranid, align 4
   %11 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %9, i32 noundef %10, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %5) #6
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = load i32, ptr %5, align 4
   call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %13, i32 noundef 25, ptr noundef nonnull @.str.1704, i32 noundef %14) #6
@@ -3930,7 +3930,7 @@ define internal i32 @dissect_dsarsp(ptr noundef %0, ptr noundef %1, ptr noundef 
   %12 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %10, i32 noundef %11, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %5) #6
   %13 = load i32, ptr @hf_docsis_dsarsp_response, align 4
   %14 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %10, i32 noundef %13, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %6) #6
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = load i32, ptr %5, align 4
   %18 = load i32, ptr %6, align 4
@@ -3955,7 +3955,7 @@ define internal i32 @dissect_dsaack(ptr noundef %0, ptr noundef %1, ptr noundef 
   %12 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %10, i32 noundef %11, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %5) #6
   %13 = load i32, ptr @hf_docsis_dsaack_response, align 4
   %14 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %10, i32 noundef %13, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %6) #6
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = load i32, ptr %5, align 4
   %18 = load i32, ptr %6, align 4
@@ -3977,7 +3977,7 @@ define internal i32 @dissect_dscreq(ptr noundef %0, ptr noundef %1, ptr noundef 
   %9 = tail call ptr @proto_item_add_subtree(ptr noundef %7, i32 noundef %8) #6
   %10 = load i32, ptr @hf_docsis_mgt_tranid, align 4
   %11 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %9, i32 noundef %10, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %5) #6
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = load i32, ptr %5, align 4
   call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %13, i32 noundef 25, ptr noundef nonnull @.str.1707, i32 noundef %14) #6
@@ -4000,7 +4000,7 @@ define internal i32 @dissect_dscrsp(ptr noundef %0, ptr noundef %1, ptr noundef 
   %12 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %10, i32 noundef %11, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %5) #6
   %13 = load i32, ptr @hf_docsis_dscrsp_response, align 4
   %14 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %10, i32 noundef %13, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %6) #6
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = load i32, ptr %5, align 4
   %18 = load i32, ptr %6, align 4
@@ -4025,7 +4025,7 @@ define internal i32 @dissect_dscack(ptr noundef %0, ptr noundef %1, ptr noundef 
   %12 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %10, i32 noundef %11, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %5) #6
   %13 = load i32, ptr @hf_docsis_dscack_response, align 4
   %14 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %10, i32 noundef %13, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %6) #6
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = load i32, ptr %5, align 4
   %18 = load i32, ptr %6, align 4
@@ -4047,7 +4047,7 @@ define internal i32 @dissect_dsdreq(ptr noundef %0, ptr noundef %1, ptr noundef 
   %9 = tail call ptr @proto_item_add_subtree(ptr noundef %7, i32 noundef %8) #6
   %10 = load i32, ptr @hf_docsis_mgt_tranid, align 4
   %11 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %9, i32 noundef %10, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %5) #6
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = load i32, ptr %5, align 4
   call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %13, i32 noundef 25, ptr noundef nonnull @.str.1710, i32 noundef %14) #6
@@ -4076,7 +4076,7 @@ define internal i32 @dissect_dsdrsp(ptr noundef %0, ptr nocapture noundef readon
   %14 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %10, i32 noundef %13, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %6) #6
   %15 = load i32, ptr @hf_docsis_dsdrsp_rsvd, align 4
   %16 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %15, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #6
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8
   %19 = load i32, ptr %5, align 4
   %20 = load i32, ptr %6, align 4
@@ -4094,7 +4094,7 @@ define internal i32 @dissect_dccreq(ptr noundef %0, ptr noundef %1, ptr noundef 
   %8 = alloca ptr, align 8
   %9 = alloca i32, align 4
   %10 = alloca ptr, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8
   tail call void @col_set_str(ptr noundef %12, i32 noundef 25, ptr noundef nonnull @.str.1712) #6
   %13 = load i32, ptr @proto_docsis_dccreq, align 4
@@ -4499,7 +4499,7 @@ define internal i32 @dissect_dccrsp(ptr noundef %0, ptr noundef %1, ptr noundef 
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8
   tail call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.1713) #6
   %11 = load i32, ptr @proto_docsis_dccrsp, align 4
@@ -4658,7 +4658,7 @@ dissect_dccrsp_cm_jump_time.exit:                 ; preds = %72, %37
 define internal i32 @dissect_dccack(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void @col_set_str(ptr noundef %8, i32 noundef 25, ptr noundef nonnull @.str.1714) #6
   %9 = load i32, ptr @proto_docsis_dccack, align 4
@@ -4755,7 +4755,7 @@ define internal i32 @dissect_intrngreq(ptr noundef %0, ptr nocapture noundef rea
   %9 = tail call ptr @proto_item_add_subtree(ptr noundef %7, i32 noundef %8) #6
   %10 = load i32, ptr @hf_docsis_intrngreq_sid, align 4
   %11 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %9, i32 noundef %10, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %5) #6
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = load i32, ptr %5, align 4
   call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %13, i32 noundef 25, ptr noundef nonnull @.str.1715, i32 noundef %14) #6
@@ -4781,7 +4781,7 @@ define internal i32 @dissect_dcd(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %14 = alloca ptr, align 8
   %15 = alloca i32, align 4
   %16 = alloca ptr, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8
   tail call void @col_set_str(ptr noundef %18, i32 noundef 25, ptr noundef nonnull @.str.1716) #6
   %19 = load i32, ptr @proto_docsis_dcd, align 4
@@ -5434,7 +5434,7 @@ define internal i32 @dissect_mdd(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %26 = alloca ptr, align 8
   %27 = alloca i32, align 4
   %28 = alloca ptr, align 8
-  %29 = getelementptr inbounds i8, ptr %1, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %30 = load ptr, ptr %29, align 8
   tail call void @col_set_str(ptr noundef %30, i32 noundef 25, ptr noundef nonnull @.str.1717) #6
   %31 = load i32, ptr @proto_docsis_mdd, align 4
@@ -5704,7 +5704,7 @@ dissect_mdd_ds_service_group.exit:                ; preds = %.loopexit.i, %112
 
 switch.lookup:                                    ; preds = %.lr.ph.i143
   %170 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table.dissect_mdd, i64 0, i64 %170
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.dissect_mdd, i64 0, i64 %170
   %switch.load = load ptr, ptr %switch.gep, align 8
   %171 = load i32, ptr %switch.load, align 4
   %172 = call ptr @proto_tree_add_item(ptr noundef %159, i32 noundef %171, ptr noundef %0, i32 noundef %165, i32 noundef 1, i32 noundef 0) #6
@@ -6414,7 +6414,7 @@ dissect_mdd_full_duplex_descriptor.exit:          ; preds = %.loopexit.i159, %43
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_bintrngreq(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #6
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = zext i8 %5 to i32
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.1729, i32 noundef %8, i32 noundef %8) #6
@@ -6460,7 +6460,7 @@ define internal i32 @dissect_dbcreq(ptr noundef %0, ptr noundef %1, ptr noundef 
   %15 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %11, i32 noundef %14, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %6) #6
   %16 = load i32, ptr @hf_docsis_dbcreq_fragment_sequence_number, align 4
   %17 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %11, i32 noundef %16, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %7) #6
-  %18 = getelementptr inbounds i8, ptr %1, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = load i32, ptr %5, align 4
   call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %19, i32 noundef 25, ptr noundef nonnull @.str.1730, i32 noundef %20) #6
@@ -6471,7 +6471,7 @@ define internal i32 @dissect_dbcreq(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %23, label %24, label %47
 
 24:                                               ; preds = %4
-  %25 = getelementptr inbounds i8, ptr %1, i64 272
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 272
   store i32 1, ptr %25, align 8
   %26 = load i32, ptr %5, align 4
   %27 = add i32 %26, 603979776
@@ -6528,7 +6528,7 @@ define internal i32 @dissect_dbcrsp(ptr noundef %0, ptr noundef %1, ptr noundef 
   %12 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %10, i32 noundef %11, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %5) #6
   %13 = load i32, ptr @hf_docsis_dbcrsp_conf_code, align 4
   %14 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %10, i32 noundef %13, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %6) #6
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = load i32, ptr %5, align 4
   %18 = load i32, ptr %6, align 4
@@ -6544,7 +6544,7 @@ define internal i32 @dissect_dbcrsp(ptr noundef %0, ptr noundef %1, ptr noundef 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_dbcack(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 0) #6
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = zext i16 %5 to i32
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.1732, i32 noundef %8) #6
@@ -6573,7 +6573,7 @@ define internal i32 @dissect_dpvreq(ptr noundef %0, ptr nocapture noundef readon
   %12 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %10, i32 noundef %11, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %5) #6
   %13 = load i32, ptr @hf_docsis_mgt_down_chid, align 4
   %14 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %10, i32 noundef %13, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %6) #6
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = load i32, ptr %5, align 4
   %18 = load i32, ptr %6, align 4
@@ -6608,7 +6608,7 @@ define internal i32 @dissect_dpvrsp(ptr noundef %0, ptr nocapture noundef readon
   %12 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %10, i32 noundef %11, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %5) #6
   %13 = load i32, ptr @hf_docsis_mgt_down_chid, align 4
   %14 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %10, i32 noundef %13, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %6) #6
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = load i32, ptr %5, align 4
   %18 = load i32, ptr %6, align 4
@@ -6644,7 +6644,7 @@ define internal i32 @dissect_cmstatus(ptr noundef %0, ptr noundef %1, ptr nounde
   %13 = tail call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %12) #6
   %14 = load i32, ptr @hf_docsis_mgt_tranid, align 4
   %15 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %13, i32 noundef %14, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %9) #6
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = load i32, ptr %9, align 4
   call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.1735, i32 noundef %18) #6
@@ -6655,7 +6655,7 @@ define internal i32 @dissect_cmstatus(ptr noundef %0, ptr noundef %1, ptr nounde
 
 switch.lookup:                                    ; preds = %4
   %21 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [27 x ptr], ptr @switch.table.dissect_cmstatusack, i64 0, i64 %21
+  %switch.gep = getelementptr inbounds nuw [27 x ptr], ptr @switch.table.dissect_cmstatusack, i64 0, i64 %21
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %dissect_cmstatus_common.exit
 
@@ -6886,7 +6886,7 @@ define internal i32 @dissect_cmstatusack(ptr noundef %0, ptr nocapture noundef r
   %9 = tail call ptr @proto_item_add_subtree(ptr noundef %7, i32 noundef %8) #6
   %10 = load i32, ptr @hf_docsis_mgt_tranid, align 4
   %11 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %9, i32 noundef %10, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %5) #6
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = load i32, ptr %5, align 4
   call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %13, i32 noundef 25, ptr noundef nonnull @.str.1737, i32 noundef %14) #6
@@ -6897,7 +6897,7 @@ define internal i32 @dissect_cmstatusack(ptr noundef %0, ptr nocapture noundef r
 
 switch.lookup:                                    ; preds = %4
   %17 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [27 x ptr], ptr @switch.table.dissect_cmstatusack, i64 0, i64 %17
+  %switch.gep = getelementptr inbounds nuw [27 x ptr], ptr @switch.table.dissect_cmstatusack, i64 0, i64 %17
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %dissect_cmstatus_common.exit
 
@@ -6918,7 +6918,7 @@ define internal i32 @dissect_cmctrlreq(ptr noundef %0, ptr noundef %1, ptr nound
   %9 = tail call ptr @proto_item_add_subtree(ptr noundef %7, i32 noundef %8) #6
   %10 = load i32, ptr @hf_docsis_mgt_tranid, align 4
   %11 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %9, i32 noundef %10, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %5) #6
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = load i32, ptr %5, align 4
   call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %13, i32 noundef 25, ptr noundef nonnull @.str.1738, i32 noundef %14) #6
@@ -6937,7 +6937,7 @@ define internal i32 @dissect_cmctrlrsp(ptr noundef %0, ptr noundef %1, ptr nound
   %9 = tail call ptr @proto_item_add_subtree(ptr noundef %7, i32 noundef %8) #6
   %10 = load i32, ptr @hf_docsis_mgt_tranid, align 4
   %11 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %9, i32 noundef %10, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %5) #6
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = load i32, ptr %5, align 4
   call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %13, i32 noundef 25, ptr noundef nonnull @.str.1739, i32 noundef %14) #6
@@ -6949,7 +6949,7 @@ define internal i32 @dissect_cmctrlrsp(ptr noundef %0, ptr noundef %1, ptr nound
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_regreqmp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 25, ptr noundef nonnull @.str.1740) #6
   %7 = load i32, ptr @proto_docsis_regreqmp, align 4
@@ -6974,7 +6974,7 @@ define internal i32 @dissect_regrspmp(ptr noundef %0, ptr noundef %1, ptr nounde
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void @col_set_str(ptr noundef %9, i32 noundef 25, ptr noundef nonnull @.str.1741) #6
   %10 = load ptr, ptr %8, align 8
@@ -7001,7 +7001,7 @@ define internal i32 @dissect_regrspmp(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %27, label %28, label %51
 
 28:                                               ; preds = %4
-  %29 = getelementptr inbounds i8, ptr %1, i64 272
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 272
   store i32 1, ptr %29, align 8
   %30 = load i32, ptr %5, align 4
   %31 = add i32 %30, 117440512
@@ -7060,7 +7060,7 @@ define internal i32 @dissect_emreq(ptr noundef %0, ptr nocapture noundef readonl
   %14 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %10, i32 noundef %13, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %6) #6
   %15 = load i32, ptr @hf_docsis_emreq_reserved, align 4
   %16 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %15, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #6
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8
   %19 = load i32, ptr %5, align 4
   %20 = load i32, ptr %6, align 4
@@ -7086,7 +7086,7 @@ define internal i32 @dissect_emrsp(ptr noundef %0, ptr noundef %1, ptr noundef %
   %15 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %11, i32 noundef %14, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %7) #6
   %16 = load i32, ptr @hf_docsis_emrsp_reserved, align 4
   %17 = call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %16, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #6
-  %18 = getelementptr inbounds i8, ptr %1, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = load i32, ptr %6, align 4
   %21 = load i32, ptr %7, align 4
@@ -7170,7 +7170,7 @@ define internal i32 @dissect_ocd(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %15 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %13, i32 noundef %14, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %8) #6
   %16 = load i32, ptr @hf_docsis_ocd_ccc, align 4
   %17 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %13, i32 noundef %16, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %9) #6
-  %18 = getelementptr inbounds i8, ptr %1, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = load i32, ptr %8, align 4
   %21 = load i32, ptr %9, align 4
@@ -7405,7 +7405,7 @@ define internal i32 @dissect_dpd(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %19 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %15, i32 noundef %18, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %10) #6
   %20 = load i32, ptr @hf_docsis_dpd_ccc, align 4
   %21 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %15, i32 noundef %20, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %11) #6
-  %22 = getelementptr inbounds i8, ptr %1, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = load i32, ptr %9, align 4
   %25 = load i32, ptr %10, align 4
@@ -7616,7 +7616,7 @@ define internal i32 @dissect_optreq(ptr noundef %0, ptr noundef %1, ptr noundef 
   %20 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %14, i32 noundef %19, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %9) #6
   %21 = load i32, ptr @hf_docsis_optreq_opcode, align 4
   %22 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %14, i32 noundef %21, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %10) #6
-  %23 = getelementptr inbounds i8, ptr %1, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %24 = load ptr, ptr %23, align 8
   %25 = load i32, ptr %8, align 4
   %26 = load i32, ptr %9, align 4
@@ -7928,7 +7928,7 @@ define internal i32 @dissect_optrsp(ptr noundef %0, ptr noundef %1, ptr noundef 
   %20 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %14, i32 noundef %19, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %9) #6
   %21 = load i32, ptr @hf_docsis_optrsp_status, align 4
   %22 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %14, i32 noundef %21, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %10) #6
-  %23 = getelementptr inbounds i8, ptr %1, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %24 = load ptr, ptr %23, align 8
   %25 = load i32, ptr %8, align 4
   %26 = load i32, ptr %9, align 4
@@ -8120,7 +8120,7 @@ define internal i32 @dissect_optack(ptr noundef %0, ptr nocapture noundef readon
   %14 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %10, i32 noundef %13, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %5) #6
   %15 = load i32, ptr @hf_docsis_optack_prof_id, align 4
   %16 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %10, i32 noundef %15, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %6) #6
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8
   %19 = load i32, ptr %5, align 4
   %20 = load i32, ptr %6, align 4
@@ -8146,7 +8146,7 @@ define internal i32 @dissect_ext_rngreq(ptr noundef %0, ptr nocapture noundef re
   %15 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %11, i32 noundef %14, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %6) #6
   %16 = load i32, ptr @hf_docsis_mgt_upstream_chid, align 4
   %17 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %11, i32 noundef %16, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %7) #6
-  %18 = getelementptr inbounds i8, ptr %1, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = load i32, ptr %5, align 4
   %21 = load i32, ptr %6, align 4
@@ -8210,7 +8210,7 @@ define internal fastcc i32 @dissect_any_ucd(ptr noundef %0, ptr noundef %1, ptr 
   %22 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %21, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #6
   %23 = load i32, ptr %9, align 4
   %.not = icmp eq i32 %23, 0
-  %24 = getelementptr inbounds i8, ptr %1, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %25 = load ptr, ptr %24, align 8
   br i1 %.not, label %28, label %26
 
@@ -9250,7 +9250,7 @@ define internal fastcc i32 @dissect_any_map(ptr noundef %0, ptr noundef %1, ptr 
 42:                                               ; preds = %30, %25
   %43 = load i32, ptr %6, align 4
   %.not = icmp eq i32 %43, 0
-  %44 = getelementptr inbounds i8, ptr %1, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %45 = load ptr, ptr %44, align 8
   br i1 %.not, label %50, label %46
 
@@ -9345,7 +9345,7 @@ declare ptr @p_get_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @dissect_multipart(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 5, 56) %3, i32 noundef %4, i32 noundef range(i32 3, 6) %5) unnamed_addr #0 {
-  %7 = getelementptr inbounds i8, ptr %1, i64 408
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %8 = load ptr, ptr %7, align 8
   %9 = load i32, ptr @proto_docsis_mgmt, align 4
   %10 = tail call ptr @p_get_proto_data(ptr noundef %8, ptr noundef %1, i32 noundef %9, i32 noundef 0) #6
@@ -9373,39 +9373,39 @@ define internal fastcc ptr @dissect_multipart(ptr noundef %0, ptr noundef %1, pt
   %24 = and i32 %19, 15
   %25 = lshr i32 %19, 4
   %26 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %5) #6
-  %27 = getelementptr inbounds i8, ptr %1, i64 208
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 208
   %28 = load i32, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %1, i64 212
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 212
   %30 = load i32, ptr %29, align 4
-  %31 = getelementptr inbounds i8, ptr %1, i64 216
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 216
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %1, i64 232
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %34 = load i32, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %1, i64 236
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 236
   %36 = load i32, ptr %35, align 4
-  %37 = getelementptr inbounds i8, ptr %1, i64 240
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 240
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %1, i64 112
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %40 = load i32, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %1, i64 116
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 116
   %42 = load i32, ptr %41, align 4
-  %43 = getelementptr inbounds i8, ptr %1, i64 120
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %44 = load ptr, ptr %43, align 8
   store i32 %40, ptr %27, align 8
   store i32 %42, ptr %29, align 4
   store ptr %44, ptr %31, align 8
-  %45 = getelementptr inbounds i8, ptr %1, i64 224
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 224
   store ptr null, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %1, i64 136
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %47 = load i32, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %1, i64 140
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 140
   %49 = load i32, ptr %48, align 4
-  %50 = getelementptr inbounds i8, ptr %1, i64 144
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %51 = load ptr, ptr %50, align 8
   store i32 %47, ptr %33, align 8
   store i32 %49, ptr %35, align 4
   store ptr %51, ptr %37, align 8
-  %52 = getelementptr inbounds i8, ptr %1, i64 248
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 248
   store ptr null, ptr %52, align 8
   %53 = icmp ne i32 %24, %25
   %54 = zext i1 %53 to i32

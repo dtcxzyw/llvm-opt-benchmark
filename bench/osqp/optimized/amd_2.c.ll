@@ -10,7 +10,7 @@ define void @amd_l2(i64 noundef %0, ptr noundef %1, ptr nocapture noundef %2, pt
 
 16:                                               ; preds = %15
   %17 = load double, ptr %13, align 8
-  %18 = getelementptr inbounds i8, ptr %13, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %19 = load double, ptr %18, align 8
   %20 = fcmp oeq double %19, 0.000000e+00
   %21 = fcmp olt double %17, 0.000000e+00
@@ -39,21 +39,21 @@ define void @amd_l2(i64 noundef %0, ptr noundef %1, ptr nocapture noundef %2, pt
 
 .lr.ph:                                           ; preds = %28, %.lr.ph
   %.08841040 = phi i64 [ %41, %.lr.ph ], [ 0, %28 ]
-  %32 = getelementptr inbounds i64, ptr %8, i64 %.08841040
+  %32 = getelementptr inbounds nuw i64, ptr %8, i64 %.08841040
   store i64 -1, ptr %32, align 8
-  %33 = getelementptr inbounds i64, ptr %9, i64 %.08841040
+  %33 = getelementptr inbounds nuw i64, ptr %9, i64 %.08841040
   store i64 -1, ptr %33, align 8
-  %34 = getelementptr inbounds i64, ptr %7, i64 %.08841040
+  %34 = getelementptr inbounds nuw i64, ptr %7, i64 %.08841040
   store i64 -1, ptr %34, align 8
-  %35 = getelementptr inbounds i64, ptr %6, i64 %.08841040
+  %35 = getelementptr inbounds nuw i64, ptr %6, i64 %.08841040
   store i64 1, ptr %35, align 8
-  %36 = getelementptr inbounds i64, ptr %12, i64 %.08841040
+  %36 = getelementptr inbounds nuw i64, ptr %12, i64 %.08841040
   store i64 1, ptr %36, align 8
-  %37 = getelementptr inbounds i64, ptr %10, i64 %.08841040
+  %37 = getelementptr inbounds nuw i64, ptr %10, i64 %.08841040
   store i64 0, ptr %37, align 8
-  %38 = getelementptr inbounds i64, ptr %3, i64 %.08841040
+  %38 = getelementptr inbounds nuw i64, ptr %3, i64 %.08841040
   %39 = load i64, ptr %38, align 8
-  %40 = getelementptr inbounds i64, ptr %11, i64 %.08841040
+  %40 = getelementptr inbounds nuw i64, ptr %11, i64 %.08841040
   store i64 %39, ptr %40, align 8
   %41 = add nuw nsw i64 %.08841040, 1
   %exitcond.not = icmp eq i64 %41, %0
@@ -65,7 +65,7 @@ define void @amd_l2(i64 noundef %0, ptr noundef %1, ptr nocapture noundef %2, pt
 
 .lr.ph.i:                                         ; preds = %._crit_edge, %46
   %.013.i = phi i64 [ %47, %46 ], [ 0, %._crit_edge ]
-  %43 = getelementptr inbounds i64, ptr %12, i64 %.013.i
+  %43 = getelementptr inbounds nuw i64, ptr %12, i64 %.013.i
   %44 = load i64, ptr %43, align 8
   %.not12.i = icmp eq i64 %44, 0
   br i1 %.not12.i, label %46, label %45
@@ -94,18 +94,18 @@ define void @amd_l2(i64 noundef %0, ptr noundef %1, ptr nocapture noundef %2, pt
   %.08731043 = phi i64 [ %.1874, %73 ], [ 0, %46 ]
   %.18851042 = phi i64 [ %74, %73 ], [ 0, %46 ]
   %.08951041 = phi i64 [ %.1896, %73 ], [ 0, %46 ]
-  %50 = getelementptr inbounds i64, ptr %11, i64 %.18851042
+  %50 = getelementptr inbounds nuw i64, ptr %11, i64 %.18851042
   %51 = load i64, ptr %50, align 8
   %52 = icmp eq i64 %51, 0
   br i1 %52, label %53, label %58
 
 53:                                               ; preds = %.lr.ph1044
-  %54 = getelementptr inbounds i64, ptr %10, i64 %.18851042
+  %54 = getelementptr inbounds nuw i64, ptr %10, i64 %.18851042
   store i64 -3, ptr %54, align 8
   %55 = add nsw i64 %.08951041, 1
-  %56 = getelementptr inbounds i64, ptr %1, i64 %.18851042
+  %56 = getelementptr inbounds nuw i64, ptr %1, i64 %.18851042
   store i64 -1, ptr %56, align 8
-  %57 = getelementptr inbounds i64, ptr %12, i64 %.18851042
+  %57 = getelementptr inbounds nuw i64, ptr %12, i64 %.18851042
   store i64 0, ptr %57, align 8
   br label %73
 
@@ -115,12 +115,12 @@ define void @amd_l2(i64 noundef %0, ptr noundef %1, ptr nocapture noundef %2, pt
 
 60:                                               ; preds = %58
   %61 = add nsw i64 %.08731043, 1
-  %62 = getelementptr inbounds i64, ptr %6, i64 %.18851042
+  %62 = getelementptr inbounds nuw i64, ptr %6, i64 %.18851042
   store i64 0, ptr %62, align 8
-  %63 = getelementptr inbounds i64, ptr %10, i64 %.18851042
+  %63 = getelementptr inbounds nuw i64, ptr %10, i64 %.18851042
   store i64 -1, ptr %63, align 8
   %64 = add nsw i64 %.08951041, 1
-  %65 = getelementptr inbounds i64, ptr %1, i64 %.18851042
+  %65 = getelementptr inbounds nuw i64, ptr %1, i64 %.18851042
   store i64 -1, ptr %65, align 8
   br label %73
 
@@ -136,7 +136,7 @@ define void @amd_l2(i64 noundef %0, ptr noundef %1, ptr nocapture noundef %2, pt
   br label %71
 
 71:                                               ; preds = %69, %66
-  %72 = getelementptr inbounds i64, ptr %7, i64 %.18851042
+  %72 = getelementptr inbounds nuw i64, ptr %7, i64 %.18851042
   store i64 %68, ptr %72, align 8
   store i64 %.18851042, ptr %67, align 8
   br label %73
@@ -365,13 +365,13 @@ define void @amd_l2(i64 noundef %0, ptr noundef %1, ptr nocapture noundef %2, pt
 
 .lr.ph1056:                                       ; preds = %163, %172
   %.09101054 = phi i64 [ %173, %172 ], [ 0, %163 ]
-  %165 = getelementptr inbounds i64, ptr %1, i64 %.09101054
+  %165 = getelementptr inbounds nuw i64, ptr %1, i64 %.09101054
   %166 = load i64, ptr %165, align 8
   %167 = icmp sgt i64 %166, -1
   br i1 %167, label %168, label %172
 
 168:                                              ; preds = %.lr.ph1056
-  %169 = getelementptr inbounds i64, ptr %2, i64 %166
+  %169 = getelementptr inbounds nuw i64, ptr %2, i64 %166
   %170 = load i64, ptr %169, align 8
   store i64 %170, ptr %165, align 8
   %171 = sub nuw nsw i64 -2, %.09101054
@@ -399,12 +399,12 @@ define void @amd_l2(i64 noundef %0, ptr noundef %1, ptr nocapture noundef %2, pt
   br i1 %178, label %179, label %.loopexit1028
 
 179:                                              ; preds = %.lr.ph1069
-  %180 = getelementptr inbounds i64, ptr %1, i64 %177
+  %180 = getelementptr inbounds nuw i64, ptr %1, i64 %177
   %181 = load i64, ptr %180, align 8
   %182 = getelementptr inbounds i64, ptr %2, i64 %.08191067
   store i64 %181, ptr %182, align 8
   store i64 %.08191067, ptr %180, align 8
-  %183 = getelementptr inbounds i64, ptr %3, i64 %177
+  %183 = getelementptr inbounds nuw i64, ptr %3, i64 %177
   %184 = load i64, ptr %183, align 8
   %.28211057 = add nsw i64 %.08191067, 1
   %.not9691058 = icmp slt i64 %184, 2
@@ -554,7 +554,7 @@ define void @amd_l2(i64 noundef %0, ptr noundef %1, ptr nocapture noundef %2, pt
 
 .lr.ph.i999:                                      ; preds = %.loopexit1037, %232
   %.013.i1000 = phi i64 [ %233, %232 ], [ 0, %.loopexit1037 ]
-  %229 = getelementptr inbounds i64, ptr %12, i64 %.013.i1000
+  %229 = getelementptr inbounds nuw i64, ptr %12, i64 %.013.i1000
   %230 = load i64, ptr %229, align 8
   %.not12.i1001 = icmp eq i64 %230, 0
   br i1 %.not12.i1001, label %232, label %231
@@ -817,7 +817,7 @@ clear_flag.exit1003:                              ; preds = %232, %.loopexit1037
   br label %345
 
 341:                                              ; preds = %324
-  %342 = getelementptr inbounds i64, ptr %8, i64 %335
+  %342 = getelementptr inbounds nuw i64, ptr %8, i64 %335
   %343 = load i64, ptr %342, align 8
   %344 = getelementptr inbounds i64, ptr %7, i64 %263
   store i64 %343, ptr %344, align 8
@@ -851,7 +851,7 @@ clear_flag.exit1003:                              ; preds = %232, %.loopexit1037
 
 .lr.ph.i1008:                                     ; preds = %._crit_edge1157, %354
   %.013.i1009 = phi i64 [ %355, %354 ], [ 0, %._crit_edge1157 ]
-  %351 = getelementptr inbounds i64, ptr %12, i64 %.013.i1009
+  %351 = getelementptr inbounds nuw i64, ptr %12, i64 %.013.i1009
   %352 = load i64, ptr %351, align 8
   %.not12.i1010 = icmp eq i64 %352, 0
   br i1 %.not12.i1010, label %354, label %353
@@ -1174,19 +1174,19 @@ select.unfold:                                    ; preds = %403
   %492 = fadd double %485, %490
   %493 = fmul double %492, 5.000000e-01
   %494 = fadd double %493, %.0851.lcssa
-  %495 = getelementptr inbounds i8, ptr %14, i64 72
+  %495 = getelementptr inbounds nuw i8, ptr %14, i64 72
   store double %486, ptr %495, align 8
-  %496 = getelementptr inbounds i8, ptr %14, i64 80
+  %496 = getelementptr inbounds nuw i8, ptr %14, i64 80
   store double %487, ptr %496, align 8
-  %497 = getelementptr inbounds i8, ptr %14, i64 88
+  %497 = getelementptr inbounds nuw i8, ptr %14, i64 88
   store double %494, ptr %497, align 8
-  %498 = getelementptr inbounds i8, ptr %14, i64 96
+  %498 = getelementptr inbounds nuw i8, ptr %14, i64 96
   store double %491, ptr %498, align 8
-  %499 = getelementptr inbounds i8, ptr %14, i64 48
+  %499 = getelementptr inbounds nuw i8, ptr %14, i64 48
   store double %480, ptr %499, align 8
-  %500 = getelementptr inbounds i8, ptr %14, i64 104
+  %500 = getelementptr inbounds nuw i8, ptr %14, i64 104
   store double %482, ptr %500, align 8
-  %501 = getelementptr inbounds i8, ptr %14, i64 64
+  %501 = getelementptr inbounds nuw i8, ptr %14, i64 64
   store double %.0867.lcssa, ptr %501, align 8
   store double 0.000000e+00, ptr %14, align 8
   br label %502
@@ -1196,7 +1196,7 @@ select.unfold:                                    ; preds = %403
 
 .lr.ph1222:                                       ; preds = %502, %.lr.ph1222
   %.48881220 = phi i64 [ %506, %.lr.ph1222 ], [ 0, %502 ]
-  %503 = getelementptr inbounds i64, ptr %1, i64 %.48881220
+  %503 = getelementptr inbounds nuw i64, ptr %1, i64 %.48881220
   %504 = load i64, ptr %503, align 8
   %505 = sub i64 -2, %504
   store i64 %505, ptr %503, align 8
@@ -1206,7 +1206,7 @@ select.unfold:                                    ; preds = %403
 
 .lr.ph1224:                                       ; preds = %.lr.ph1222, %.lr.ph1224
   %.58891223 = phi i64 [ %510, %.lr.ph1224 ], [ 0, %.lr.ph1222 ]
-  %507 = getelementptr inbounds i64, ptr %10, i64 %.58891223
+  %507 = getelementptr inbounds nuw i64, ptr %10, i64 %.58891223
   %508 = load i64, ptr %507, align 8
   %509 = sub i64 -2, %508
   store i64 %509, ptr %507, align 8
@@ -1216,13 +1216,13 @@ select.unfold:                                    ; preds = %403
 
 .lr.ph1232:                                       ; preds = %.lr.ph1224, %.loopexit
   %.68901230 = phi i64 [ %531, %.loopexit ], [ 0, %.lr.ph1224 ]
-  %511 = getelementptr inbounds i64, ptr %6, i64 %.68901230
+  %511 = getelementptr inbounds nuw i64, ptr %6, i64 %.68901230
   %512 = load i64, ptr %511, align 8
   %513 = icmp eq i64 %512, 0
   br i1 %513, label %514, label %.loopexit
 
 514:                                              ; preds = %.lr.ph1232
-  %515 = getelementptr inbounds i64, ptr %1, i64 %.68901230
+  %515 = getelementptr inbounds nuw i64, ptr %1, i64 %.68901230
   %516 = load i64, ptr %515, align 8
   %517 = icmp eq i64 %516, -1
   br i1 %517, label %.loopexit, label %.preheader1025
@@ -1271,9 +1271,9 @@ select.unfold:                                    ; preds = %403
 
 .lr.ph1236:                                       ; preds = %._crit_edge1233, %.lr.ph1236
   %.09181234 = phi i64 [ %534, %.lr.ph1236 ], [ 0, %._crit_edge1233 ]
-  %532 = getelementptr inbounds i64, ptr %9, i64 %.09181234
+  %532 = getelementptr inbounds nuw i64, ptr %9, i64 %.09181234
   store i64 -1, ptr %532, align 8
-  %533 = getelementptr inbounds i64, ptr %7, i64 %.09181234
+  %533 = getelementptr inbounds nuw i64, ptr %7, i64 %.09181234
   store i64 -1, ptr %533, align 8
   %534 = add nuw nsw i64 %.09181234, 1
   %exitcond1276.not = icmp eq i64 %534, %0
@@ -1281,7 +1281,7 @@ select.unfold:                                    ; preds = %403
 
 .lr.ph1238:                                       ; preds = %.lr.ph1236, %539
   %.18781237 = phi i64 [ %540, %539 ], [ 0, %.lr.ph1236 ]
-  %535 = getelementptr inbounds i64, ptr %12, i64 %.18781237
+  %535 = getelementptr inbounds nuw i64, ptr %12, i64 %.18781237
   %536 = load i64, ptr %535, align 8
   %.not958 = icmp eq i64 %536, -1
   br i1 %.not958, label %539, label %537
@@ -1299,7 +1299,7 @@ select.unfold:                                    ; preds = %403
 .lr.ph1241:                                       ; preds = %539, %544
   %.59001240 = phi i64 [ %548, %544 ], [ 0, %539 ]
   %.19191239 = phi i64 [ %549, %544 ], [ 0, %539 ]
-  %541 = getelementptr inbounds i64, ptr %9, i64 %.19191239
+  %541 = getelementptr inbounds nuw i64, ptr %9, i64 %.19191239
   %542 = load i64, ptr %541, align 8
   %543 = icmp eq i64 %542, -1
   br i1 %543, label %.lr.ph1249.preheader, label %544
@@ -1321,13 +1321,13 @@ select.unfold:                                    ; preds = %403
 .lr.ph1249:                                       ; preds = %.lr.ph1249.preheader, %564
   %.78911247 = phi i64 [ %565, %564 ], [ 0, %.lr.ph1249.preheader ]
   %.69011246 = phi i64 [ %.7902, %564 ], [ %.69011246.ph, %.lr.ph1249.preheader ]
-  %550 = getelementptr inbounds i64, ptr %6, i64 %.78911247
+  %550 = getelementptr inbounds nuw i64, ptr %6, i64 %.78911247
   %551 = load i64, ptr %550, align 8
   %552 = icmp eq i64 %551, 0
   br i1 %552, label %553, label %564
 
 553:                                              ; preds = %.lr.ph1249
-  %554 = getelementptr inbounds i64, ptr %1, i64 %.78911247
+  %554 = getelementptr inbounds nuw i64, ptr %1, i64 %.78911247
   %555 = load i64, ptr %554, align 8
   %.not957 = icmp eq i64 %555, -1
   br i1 %.not957, label %561, label %556
@@ -1335,7 +1335,7 @@ select.unfold:                                    ; preds = %403
 556:                                              ; preds = %553
   %557 = getelementptr inbounds i64, ptr %7, i64 %555
   %558 = load i64, ptr %557, align 8
-  %559 = getelementptr inbounds i64, ptr %7, i64 %.78911247
+  %559 = getelementptr inbounds nuw i64, ptr %7, i64 %.78911247
   store i64 %558, ptr %559, align 8
   %560 = add nsw i64 %558, 1
   store i64 %560, ptr %557, align 8
@@ -1343,7 +1343,7 @@ select.unfold:                                    ; preds = %403
 
 561:                                              ; preds = %553
   %562 = add nsw i64 %.69011246, 1
-  %563 = getelementptr inbounds i64, ptr %7, i64 %.78911247
+  %563 = getelementptr inbounds nuw i64, ptr %7, i64 %.78911247
   store i64 %.69011246, ptr %563, align 8
   br label %564
 
@@ -1355,7 +1355,7 @@ select.unfold:                                    ; preds = %403
 
 .lr.ph1251:                                       ; preds = %564, %.lr.ph1251
   %.88921250 = phi i64 [ %569, %.lr.ph1251 ], [ 0, %564 ]
-  %566 = getelementptr inbounds i64, ptr %7, i64 %.88921250
+  %566 = getelementptr inbounds nuw i64, ptr %7, i64 %.88921250
   %567 = load i64, ptr %566, align 8
   %568 = getelementptr inbounds i64, ptr %8, i64 %567
   store i64 %.88921250, ptr %568, align 8

@@ -18,7 +18,7 @@ $_ZN7rocksdb18SharedCleanablePtr4Impl12UnrefWrapperEPvS2_ = comdat any
 define void @_ZN7rocksdb9CleanableC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 8), (24, 32)) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr null, ptr %this, align 8
-  %next = getelementptr inbounds i8, ptr %this, i64 24
+  %next = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr null, ptr %next, align 8
   ret void
 }
@@ -31,15 +31,15 @@ entry:
   br i1 %cmp.not.i, label %invoke.cont, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %arg1.i = getelementptr inbounds i8, ptr %this, i64 8
+  %arg1.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load ptr, ptr %arg1.i, align 8
-  %arg2.i = getelementptr inbounds i8, ptr %this, i64 16
+  %arg2.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load ptr, ptr %arg2.i, align 8
   invoke void %0(ptr noundef %1, ptr noundef %2)
           to label %.noexc unwind label %terminate.lpad.loopexit.split-lp
 
 .noexc:                                           ; preds = %if.then.i
-  %next.i = getelementptr inbounds i8, ptr %this, i64 24
+  %next.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %3 = load ptr, ptr %next.i, align 8
   %cmp7.not6.i = icmp eq ptr %3, null
   br i1 %cmp7.not6.i, label %invoke.cont, label %for.body.i
@@ -47,15 +47,15 @@ if.then.i:                                        ; preds = %entry
 for.body.i:                                       ; preds = %.noexc, %.noexc1
   %c.07.i = phi ptr [ %7, %.noexc1 ], [ %3, %.noexc ]
   %4 = load ptr, ptr %c.07.i, align 8
-  %arg19.i = getelementptr inbounds i8, ptr %c.07.i, i64 8
+  %arg19.i = getelementptr inbounds nuw i8, ptr %c.07.i, i64 8
   %5 = load ptr, ptr %arg19.i, align 8
-  %arg210.i = getelementptr inbounds i8, ptr %c.07.i, i64 16
+  %arg210.i = getelementptr inbounds nuw i8, ptr %c.07.i, i64 16
   %6 = load ptr, ptr %arg210.i, align 8
   invoke void %4(ptr noundef %5, ptr noundef %6)
           to label %.noexc1 unwind label %terminate.lpad.loopexit
 
 .noexc1:                                          ; preds = %for.body.i
-  %next12.i = getelementptr inbounds i8, ptr %c.07.i, i64 24
+  %next12.i = getelementptr inbounds nuw i8, ptr %c.07.i, i64 24
   %7 = load ptr, ptr %next12.i, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %c.07.i) #12
   %cmp7.not.i = icmp eq ptr %7, null
@@ -100,7 +100,7 @@ define void @_ZN7rocksdb9CleanableC2EOS0_(ptr nocapture noundef nonnull writeonl
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %other, i64 32, i1 false)
   store ptr null, ptr %other, align 8
-  %next.i = getelementptr inbounds i8, ptr %other, i64 24
+  %next.i = getelementptr inbounds nuw i8, ptr %other, i64 24
   store ptr null, ptr %next.i, align 8
   ret void
 }
@@ -110,7 +110,7 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZN7rocksdb9CleanableaSE
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %other, i64 32, i1 false)
   store ptr null, ptr %other, align 8
-  %next = getelementptr inbounds i8, ptr %other, i64 24
+  %next = getelementptr inbounds nuw i8, ptr %other, i64 24
   store ptr null, ptr %next, align 8
   ret ptr %this
 }
@@ -126,9 +126,9 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %arg1 = getelementptr inbounds i8, ptr %this, i64 8
+  %arg1 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load ptr, ptr %arg1, align 8
-  %arg2 = getelementptr inbounds i8, ptr %this, i64 16
+  %arg2 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load ptr, ptr %arg2, align 8
   %3 = load ptr, ptr %other, align 8
   %cmp.i = icmp eq ptr %3, null
@@ -136,9 +136,9 @@ if.end:                                           ; preds = %entry
 
 if.else.i:                                        ; preds = %if.end
   %call.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #15
-  %next.i = getelementptr inbounds i8, ptr %other, i64 24
+  %next.i = getelementptr inbounds nuw i8, ptr %other, i64 24
   %4 = load ptr, ptr %next.i, align 8
-  %next4.i = getelementptr inbounds i8, ptr %call.i, i64 24
+  %next4.i = getelementptr inbounds nuw i8, ptr %call.i, i64 24
   store ptr %4, ptr %next4.i, align 8
   store ptr %call.i, ptr %next.i, align 8
   br label %_ZN7rocksdb9Cleanable15RegisterCleanupEPFvPvS1_ES1_S1_.exit
@@ -146,24 +146,24 @@ if.else.i:                                        ; preds = %if.end
 _ZN7rocksdb9Cleanable15RegisterCleanupEPFvPvS1_ES1_S1_.exit: ; preds = %if.end, %if.else.i
   %c.0.i = phi ptr [ %call.i, %if.else.i ], [ %other, %if.end ]
   store ptr %0, ptr %c.0.i, align 8
-  %arg18.i = getelementptr inbounds i8, ptr %c.0.i, i64 8
+  %arg18.i = getelementptr inbounds nuw i8, ptr %c.0.i, i64 8
   store ptr %1, ptr %arg18.i, align 8
-  %arg29.i = getelementptr inbounds i8, ptr %c.0.i, i64 16
+  %arg29.i = getelementptr inbounds nuw i8, ptr %c.0.i, i64 16
   store ptr %2, ptr %arg29.i, align 8
-  %next = getelementptr inbounds i8, ptr %this, i64 24
+  %next = getelementptr inbounds nuw i8, ptr %this, i64 24
   %5 = load ptr, ptr %next, align 8
   %cmp4.not11 = icmp eq ptr %5, null
   br i1 %cmp4.not11, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %_ZN7rocksdb9Cleanable15RegisterCleanupEPFvPvS1_ES1_S1_.exit
-  %next.i10 = getelementptr inbounds i8, ptr %other, i64 24
-  %arg16.i = getelementptr inbounds i8, ptr %other, i64 8
-  %arg28.i = getelementptr inbounds i8, ptr %other, i64 16
+  %next.i10 = getelementptr inbounds nuw i8, ptr %other, i64 24
+  %arg16.i = getelementptr inbounds nuw i8, ptr %other, i64 8
+  %arg28.i = getelementptr inbounds nuw i8, ptr %other, i64 16
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %_ZN7rocksdb9Cleanable15RegisterCleanupEPNS0_7CleanupE.exit
   %c.012 = phi ptr [ %5, %while.body.lr.ph ], [ %6, %_ZN7rocksdb9Cleanable15RegisterCleanupEPNS0_7CleanupE.exit ]
-  %next6 = getelementptr inbounds i8, ptr %c.012, i64 24
+  %next6 = getelementptr inbounds nuw i8, ptr %c.012, i64 24
   %6 = load ptr, ptr %next6, align 8
   %7 = load ptr, ptr %other, align 8
   %cmp.i8 = icmp eq ptr %7, null
@@ -172,10 +172,10 @@ while.body:                                       ; preds = %while.body.lr.ph, %
 if.then.i:                                        ; preds = %while.body
   %8 = load ptr, ptr %c.012, align 8
   store ptr %8, ptr %other, align 8
-  %arg1.i = getelementptr inbounds i8, ptr %c.012, i64 8
+  %arg1.i = getelementptr inbounds nuw i8, ptr %c.012, i64 8
   %9 = load ptr, ptr %arg1.i, align 8
   store ptr %9, ptr %arg16.i, align 8
-  %arg2.i = getelementptr inbounds i8, ptr %c.012, i64 16
+  %arg2.i = getelementptr inbounds nuw i8, ptr %c.012, i64 16
   %10 = load ptr, ptr %arg2.i, align 8
   store ptr %10, ptr %arg28.i, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %c.012) #12
@@ -209,9 +209,9 @@ entry:
 
 if.else:                                          ; preds = %entry
   %call = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #15
-  %next = getelementptr inbounds i8, ptr %this, i64 24
+  %next = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load ptr, ptr %next, align 8
-  %next4 = getelementptr inbounds i8, ptr %call, i64 24
+  %next4 = getelementptr inbounds nuw i8, ptr %call, i64 24
   store ptr %1, ptr %next4, align 8
   store ptr %call, ptr %next, align 8
   br label %if.end
@@ -219,9 +219,9 @@ if.else:                                          ; preds = %entry
 if.end:                                           ; preds = %entry, %if.else
   %c.0 = phi ptr [ %call, %if.else ], [ %this, %entry ]
   store ptr %func, ptr %c.0, align 8
-  %arg18 = getelementptr inbounds i8, ptr %c.0, i64 8
+  %arg18 = getelementptr inbounds nuw i8, ptr %c.0, i64 8
   store ptr %arg1, ptr %arg18, align 8
-  %arg29 = getelementptr inbounds i8, ptr %c.0, i64 16
+  %arg29 = getelementptr inbounds nuw i8, ptr %c.0, i64 16
   store ptr %arg2, ptr %arg29, align 8
   ret void
 }
@@ -236,21 +236,21 @@ entry:
 if.then:                                          ; preds = %entry
   %1 = load ptr, ptr %c, align 8
   store ptr %1, ptr %this, align 8
-  %arg1 = getelementptr inbounds i8, ptr %c, i64 8
+  %arg1 = getelementptr inbounds nuw i8, ptr %c, i64 8
   %2 = load ptr, ptr %arg1, align 8
-  %arg16 = getelementptr inbounds i8, ptr %this, i64 8
+  %arg16 = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %2, ptr %arg16, align 8
-  %arg2 = getelementptr inbounds i8, ptr %c, i64 16
+  %arg2 = getelementptr inbounds nuw i8, ptr %c, i64 16
   %3 = load ptr, ptr %arg2, align 8
-  %arg28 = getelementptr inbounds i8, ptr %this, i64 16
+  %arg28 = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %3, ptr %arg28, align 8
   tail call void @_ZdlPv(ptr noundef %c) #12
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %next = getelementptr inbounds i8, ptr %this, i64 24
+  %next = getelementptr inbounds nuw i8, ptr %this, i64 24
   %4 = load ptr, ptr %next, align 8
-  %next10 = getelementptr inbounds i8, ptr %c, i64 24
+  %next10 = getelementptr inbounds nuw i8, ptr %c, i64 24
   store ptr %4, ptr %next10, align 8
   store ptr %c, ptr %next, align 8
   br label %if.end
@@ -273,7 +273,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %ref_count.i = getelementptr inbounds i8, ptr %0, i64 32
+  %ref_count.i = getelementptr inbounds nuw i8, ptr %0, i64 32
   %1 = atomicrmw sub ptr %ref_count.i, i32 1 monotonic, align 4
   %cmp.not.i = icmp eq i32 %1, 1
   br i1 %cmp.not.i, label %delete.notnull.i, label %_ZN7rocksdb18SharedCleanablePtr4Impl5UnrefEv.exit
@@ -284,15 +284,15 @@ delete.notnull.i:                                 ; preds = %if.then
   br i1 %cmp.not.i.i.i.i, label %_ZN7rocksdb18SharedCleanablePtr4ImplD2Ev.exit.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %delete.notnull.i
-  %arg1.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %arg1.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %arg1.i.i.i.i, align 8
-  %arg2.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 16
+  %arg2.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %arg2.i.i.i.i, align 8
   invoke void %2(ptr noundef %3, ptr noundef %4)
           to label %.noexc.i.i.i unwind label %terminate.lpad.loopexit.split-lp.i.i.i
 
 .noexc.i.i.i:                                     ; preds = %if.then.i.i.i.i
-  %next.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 24
+  %next.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %next.i.i.i.i, align 8
   %cmp7.not6.i.i.i.i = icmp eq ptr %5, null
   br i1 %cmp7.not6.i.i.i.i, label %_ZN7rocksdb18SharedCleanablePtr4ImplD2Ev.exit.i, label %for.body.i.i.i.i
@@ -300,15 +300,15 @@ if.then.i.i.i.i:                                  ; preds = %delete.notnull.i
 for.body.i.i.i.i:                                 ; preds = %.noexc.i.i.i, %.noexc1.i.i.i
   %c.07.i.i.i.i = phi ptr [ %9, %.noexc1.i.i.i ], [ %5, %.noexc.i.i.i ]
   %6 = load ptr, ptr %c.07.i.i.i.i, align 8
-  %arg19.i.i.i.i = getelementptr inbounds i8, ptr %c.07.i.i.i.i, i64 8
+  %arg19.i.i.i.i = getelementptr inbounds nuw i8, ptr %c.07.i.i.i.i, i64 8
   %7 = load ptr, ptr %arg19.i.i.i.i, align 8
-  %arg210.i.i.i.i = getelementptr inbounds i8, ptr %c.07.i.i.i.i, i64 16
+  %arg210.i.i.i.i = getelementptr inbounds nuw i8, ptr %c.07.i.i.i.i, i64 16
   %8 = load ptr, ptr %arg210.i.i.i.i, align 8
   invoke void %6(ptr noundef %7, ptr noundef %8)
           to label %.noexc1.i.i.i unwind label %terminate.lpad.loopexit.i.i.i
 
 .noexc1.i.i.i:                                    ; preds = %for.body.i.i.i.i
-  %next12.i.i.i.i = getelementptr inbounds i8, ptr %c.07.i.i.i.i, i64 24
+  %next12.i.i.i.i = getelementptr inbounds nuw i8, ptr %c.07.i.i.i.i, i64 24
   %9 = load ptr, ptr %next12.i.i.i.i, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %c.07.i.i.i.i) #12
   %cmp7.not.i.i.i.i = icmp eq ptr %9, null
@@ -350,7 +350,7 @@ entry:
   br i1 %tobool.not.i, label %_ZN7rocksdb18SharedCleanablePtr5ResetEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %ref_count.i.i = getelementptr inbounds i8, ptr %0, i64 32
+  %ref_count.i.i = getelementptr inbounds nuw i8, ptr %0, i64 32
   %1 = atomicrmw sub ptr %ref_count.i.i, i32 1 monotonic, align 4
   %cmp.not.i.i = icmp eq i32 %1, 1
   br i1 %cmp.not.i.i, label %delete.notnull.i.i, label %_ZN7rocksdb18SharedCleanablePtr4Impl5UnrefEv.exit.i
@@ -361,15 +361,15 @@ delete.notnull.i.i:                               ; preds = %if.then.i
   br i1 %cmp.not.i.i.i.i.i, label %_ZN7rocksdb18SharedCleanablePtr4ImplD2Ev.exit.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %delete.notnull.i.i
-  %arg1.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %arg1.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %arg1.i.i.i.i.i, align 8
-  %arg2.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 16
+  %arg2.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %arg2.i.i.i.i.i, align 8
   invoke void %2(ptr noundef %3, ptr noundef %4)
           to label %.noexc.i.i.i.i unwind label %terminate.lpad.loopexit.split-lp.i.i.i.i
 
 .noexc.i.i.i.i:                                   ; preds = %if.then.i.i.i.i.i
-  %next.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 24
+  %next.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %next.i.i.i.i.i, align 8
   %cmp7.not6.i.i.i.i.i = icmp eq ptr %5, null
   br i1 %cmp7.not6.i.i.i.i.i, label %_ZN7rocksdb18SharedCleanablePtr4ImplD2Ev.exit.i.i, label %for.body.i.i.i.i.i
@@ -377,15 +377,15 @@ if.then.i.i.i.i.i:                                ; preds = %delete.notnull.i.i
 for.body.i.i.i.i.i:                               ; preds = %.noexc.i.i.i.i, %.noexc1.i.i.i.i
   %c.07.i.i.i.i.i = phi ptr [ %9, %.noexc1.i.i.i.i ], [ %5, %.noexc.i.i.i.i ]
   %6 = load ptr, ptr %c.07.i.i.i.i.i, align 8
-  %arg19.i.i.i.i.i = getelementptr inbounds i8, ptr %c.07.i.i.i.i.i, i64 8
+  %arg19.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %c.07.i.i.i.i.i, i64 8
   %7 = load ptr, ptr %arg19.i.i.i.i.i, align 8
-  %arg210.i.i.i.i.i = getelementptr inbounds i8, ptr %c.07.i.i.i.i.i, i64 16
+  %arg210.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %c.07.i.i.i.i.i, i64 16
   %8 = load ptr, ptr %arg210.i.i.i.i.i, align 8
   invoke void %6(ptr noundef %7, ptr noundef %8)
           to label %.noexc1.i.i.i.i unwind label %terminate.lpad.loopexit.i.i.i.i
 
 .noexc1.i.i.i.i:                                  ; preds = %for.body.i.i.i.i.i
-  %next12.i.i.i.i.i = getelementptr inbounds i8, ptr %c.07.i.i.i.i.i, i64 24
+  %next12.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %c.07.i.i.i.i.i, i64 24
   %9 = load ptr, ptr %next12.i.i.i.i.i, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %c.07.i.i.i.i.i) #12
   %cmp7.not.i.i.i.i.i = icmp eq ptr %9, null
@@ -417,7 +417,7 @@ _ZN7rocksdb18SharedCleanablePtr4Impl5UnrefEv.exit.i: ; preds = %_ZN7rocksdb18Sha
 
 _ZN7rocksdb18SharedCleanablePtr5ResetEv.exit:     ; preds = %entry, %_ZN7rocksdb18SharedCleanablePtr4Impl5UnrefEv.exit.i
   %call = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #15
-  %ref_count.i = getelementptr inbounds i8, ptr %call, i64 32
+  %ref_count.i = getelementptr inbounds nuw i8, ptr %call, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %call, i8 0, i64 40, i1 false)
   store i32 1, ptr %ref_count.i, align 4
   store ptr %call, ptr %this, align 8
@@ -441,7 +441,7 @@ _ZN7rocksdb18SharedCleanablePtr5ResetEv.exit.i:   ; preds = %entry
   br i1 %tobool.not.i, label %_ZN7rocksdb18SharedCleanablePtraSERKS0_.exit, label %if.then4.i
 
 if.then4.i:                                       ; preds = %_ZN7rocksdb18SharedCleanablePtr5ResetEv.exit.i
-  %ref_count.i.i = getelementptr inbounds i8, ptr %0, i64 32
+  %ref_count.i.i = getelementptr inbounds nuw i8, ptr %0, i64 32
   %1 = atomicrmw add ptr %ref_count.i.i, i32 1 monotonic, align 4
   br label %_ZN7rocksdb18SharedCleanablePtraSERKS0_.exit
 
@@ -461,7 +461,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool.not.i, label %_ZN7rocksdb18SharedCleanablePtr5ResetEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then
-  %ref_count.i.i = getelementptr inbounds i8, ptr %0, i64 32
+  %ref_count.i.i = getelementptr inbounds nuw i8, ptr %0, i64 32
   %1 = atomicrmw sub ptr %ref_count.i.i, i32 1 monotonic, align 4
   %cmp.not.i.i = icmp eq i32 %1, 1
   br i1 %cmp.not.i.i, label %delete.notnull.i.i, label %_ZN7rocksdb18SharedCleanablePtr4Impl5UnrefEv.exit.i
@@ -472,15 +472,15 @@ delete.notnull.i.i:                               ; preds = %if.then.i
   br i1 %cmp.not.i.i.i.i.i, label %_ZN7rocksdb18SharedCleanablePtr4ImplD2Ev.exit.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %delete.notnull.i.i
-  %arg1.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %arg1.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %arg1.i.i.i.i.i, align 8
-  %arg2.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 16
+  %arg2.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %arg2.i.i.i.i.i, align 8
   invoke void %2(ptr noundef %3, ptr noundef %4)
           to label %.noexc.i.i.i.i unwind label %terminate.lpad.loopexit.split-lp.i.i.i.i
 
 .noexc.i.i.i.i:                                   ; preds = %if.then.i.i.i.i.i
-  %next.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 24
+  %next.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %next.i.i.i.i.i, align 8
   %cmp7.not6.i.i.i.i.i = icmp eq ptr %5, null
   br i1 %cmp7.not6.i.i.i.i.i, label %_ZN7rocksdb18SharedCleanablePtr4ImplD2Ev.exit.i.i, label %for.body.i.i.i.i.i
@@ -488,15 +488,15 @@ if.then.i.i.i.i.i:                                ; preds = %delete.notnull.i.i
 for.body.i.i.i.i.i:                               ; preds = %.noexc.i.i.i.i, %.noexc1.i.i.i.i
   %c.07.i.i.i.i.i = phi ptr [ %9, %.noexc1.i.i.i.i ], [ %5, %.noexc.i.i.i.i ]
   %6 = load ptr, ptr %c.07.i.i.i.i.i, align 8
-  %arg19.i.i.i.i.i = getelementptr inbounds i8, ptr %c.07.i.i.i.i.i, i64 8
+  %arg19.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %c.07.i.i.i.i.i, i64 8
   %7 = load ptr, ptr %arg19.i.i.i.i.i, align 8
-  %arg210.i.i.i.i.i = getelementptr inbounds i8, ptr %c.07.i.i.i.i.i, i64 16
+  %arg210.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %c.07.i.i.i.i.i, i64 16
   %8 = load ptr, ptr %arg210.i.i.i.i.i, align 8
   invoke void %6(ptr noundef %7, ptr noundef %8)
           to label %.noexc1.i.i.i.i unwind label %terminate.lpad.loopexit.i.i.i.i
 
 .noexc1.i.i.i.i:                                  ; preds = %for.body.i.i.i.i.i
-  %next12.i.i.i.i.i = getelementptr inbounds i8, ptr %c.07.i.i.i.i.i, i64 24
+  %next12.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %c.07.i.i.i.i.i, i64 24
   %9 = load ptr, ptr %next12.i.i.i.i.i, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %c.07.i.i.i.i.i) #12
   %cmp7.not.i.i.i.i.i = icmp eq ptr %9, null
@@ -533,7 +533,7 @@ _ZN7rocksdb18SharedCleanablePtr5ResetEv.exit:     ; preds = %if.then, %_ZN7rocks
   br i1 %tobool.not, label %if.end6, label %if.then4
 
 if.then4:                                         ; preds = %_ZN7rocksdb18SharedCleanablePtr5ResetEv.exit
-  %ref_count.i = getelementptr inbounds i8, ptr %11, i64 32
+  %ref_count.i = getelementptr inbounds nuw i8, ptr %11, i64 32
   %12 = atomicrmw add ptr %ref_count.i, i32 1 monotonic, align 4
   br label %if.end6
 
@@ -559,7 +559,7 @@ entry:
   br i1 %tobool.not.i, label %invoke.cont, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %ref_count.i.i = getelementptr inbounds i8, ptr %0, i64 32
+  %ref_count.i.i = getelementptr inbounds nuw i8, ptr %0, i64 32
   %1 = atomicrmw sub ptr %ref_count.i.i, i32 1 monotonic, align 4
   %cmp.not.i.i = icmp eq i32 %1, 1
   br i1 %cmp.not.i.i, label %delete.notnull.i.i, label %_ZN7rocksdb18SharedCleanablePtr4Impl5UnrefEv.exit.i
@@ -570,15 +570,15 @@ delete.notnull.i.i:                               ; preds = %if.then.i
   br i1 %cmp.not.i.i.i.i.i, label %_ZN7rocksdb18SharedCleanablePtr4ImplD2Ev.exit.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %delete.notnull.i.i
-  %arg1.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %arg1.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %arg1.i.i.i.i.i, align 8
-  %arg2.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 16
+  %arg2.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %arg2.i.i.i.i.i, align 8
   invoke void %2(ptr noundef %3, ptr noundef %4)
           to label %.noexc.i.i.i.i unwind label %terminate.lpad.loopexit.split-lp.i.i.i.i
 
 .noexc.i.i.i.i:                                   ; preds = %if.then.i.i.i.i.i
-  %next.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 24
+  %next.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %next.i.i.i.i.i, align 8
   %cmp7.not6.i.i.i.i.i = icmp eq ptr %5, null
   br i1 %cmp7.not6.i.i.i.i.i, label %_ZN7rocksdb18SharedCleanablePtr4ImplD2Ev.exit.i.i, label %for.body.i.i.i.i.i
@@ -586,15 +586,15 @@ if.then.i.i.i.i.i:                                ; preds = %delete.notnull.i.i
 for.body.i.i.i.i.i:                               ; preds = %.noexc.i.i.i.i, %.noexc1.i.i.i.i
   %c.07.i.i.i.i.i = phi ptr [ %9, %.noexc1.i.i.i.i ], [ %5, %.noexc.i.i.i.i ]
   %6 = load ptr, ptr %c.07.i.i.i.i.i, align 8
-  %arg19.i.i.i.i.i = getelementptr inbounds i8, ptr %c.07.i.i.i.i.i, i64 8
+  %arg19.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %c.07.i.i.i.i.i, i64 8
   %7 = load ptr, ptr %arg19.i.i.i.i.i, align 8
-  %arg210.i.i.i.i.i = getelementptr inbounds i8, ptr %c.07.i.i.i.i.i, i64 16
+  %arg210.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %c.07.i.i.i.i.i, i64 16
   %8 = load ptr, ptr %arg210.i.i.i.i.i, align 8
   invoke void %6(ptr noundef %7, ptr noundef %8)
           to label %.noexc1.i.i.i.i unwind label %terminate.lpad.loopexit.i.i.i.i
 
 .noexc1.i.i.i.i:                                  ; preds = %for.body.i.i.i.i.i
-  %next12.i.i.i.i.i = getelementptr inbounds i8, ptr %c.07.i.i.i.i.i, i64 24
+  %next12.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %c.07.i.i.i.i.i, i64 24
   %9 = load ptr, ptr %next12.i.i.i.i.i, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %c.07.i.i.i.i.i) #12
   %cmp7.not.i.i.i.i.i = icmp eq ptr %9, null
@@ -639,7 +639,7 @@ entry:
   br i1 %tobool.not.i, label %invoke.cont, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %ref_count.i.i = getelementptr inbounds i8, ptr %0, i64 32
+  %ref_count.i.i = getelementptr inbounds nuw i8, ptr %0, i64 32
   %1 = atomicrmw sub ptr %ref_count.i.i, i32 1 monotonic, align 4
   %cmp.not.i.i = icmp eq i32 %1, 1
   br i1 %cmp.not.i.i, label %delete.notnull.i.i, label %_ZN7rocksdb18SharedCleanablePtr4Impl5UnrefEv.exit.i
@@ -650,15 +650,15 @@ delete.notnull.i.i:                               ; preds = %if.then.i
   br i1 %cmp.not.i.i.i.i.i, label %_ZN7rocksdb18SharedCleanablePtr4ImplD2Ev.exit.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %delete.notnull.i.i
-  %arg1.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %arg1.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %arg1.i.i.i.i.i, align 8
-  %arg2.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 16
+  %arg2.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %arg2.i.i.i.i.i, align 8
   invoke void %2(ptr noundef %3, ptr noundef %4)
           to label %.noexc.i.i.i.i unwind label %terminate.lpad.loopexit.split-lp.i.i.i.i
 
 .noexc.i.i.i.i:                                   ; preds = %if.then.i.i.i.i.i
-  %next.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 24
+  %next.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %next.i.i.i.i.i, align 8
   %cmp7.not6.i.i.i.i.i = icmp eq ptr %5, null
   br i1 %cmp7.not6.i.i.i.i.i, label %_ZN7rocksdb18SharedCleanablePtr4ImplD2Ev.exit.i.i, label %for.body.i.i.i.i.i
@@ -666,15 +666,15 @@ if.then.i.i.i.i.i:                                ; preds = %delete.notnull.i.i
 for.body.i.i.i.i.i:                               ; preds = %.noexc.i.i.i.i, %.noexc1.i.i.i.i
   %c.07.i.i.i.i.i = phi ptr [ %9, %.noexc1.i.i.i.i ], [ %5, %.noexc.i.i.i.i ]
   %6 = load ptr, ptr %c.07.i.i.i.i.i, align 8
-  %arg19.i.i.i.i.i = getelementptr inbounds i8, ptr %c.07.i.i.i.i.i, i64 8
+  %arg19.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %c.07.i.i.i.i.i, i64 8
   %7 = load ptr, ptr %arg19.i.i.i.i.i, align 8
-  %arg210.i.i.i.i.i = getelementptr inbounds i8, ptr %c.07.i.i.i.i.i, i64 16
+  %arg210.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %c.07.i.i.i.i.i, i64 16
   %8 = load ptr, ptr %arg210.i.i.i.i.i, align 8
   invoke void %6(ptr noundef %7, ptr noundef %8)
           to label %.noexc1.i.i.i.i unwind label %terminate.lpad.loopexit.i.i.i.i
 
 .noexc1.i.i.i.i:                                  ; preds = %for.body.i.i.i.i.i
-  %next12.i.i.i.i.i = getelementptr inbounds i8, ptr %c.07.i.i.i.i.i, i64 24
+  %next12.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %c.07.i.i.i.i.i, i64 24
   %9 = load ptr, ptr %next12.i.i.i.i.i, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %c.07.i.i.i.i.i) #12
   %cmp7.not.i.i.i.i.i = icmp eq ptr %9, null
@@ -737,7 +737,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %ref_count.i = getelementptr inbounds i8, ptr %0, i64 32
+  %ref_count.i = getelementptr inbounds nuw i8, ptr %0, i64 32
   %1 = atomicrmw add ptr %ref_count.i, i32 1 monotonic, align 4
   %2 = load ptr, ptr %this, align 8
   %3 = load ptr, ptr %target, align 8
@@ -746,9 +746,9 @@ if.then:                                          ; preds = %entry
 
 if.else.i:                                        ; preds = %if.then
   %call.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #15
-  %next.i = getelementptr inbounds i8, ptr %target, i64 24
+  %next.i = getelementptr inbounds nuw i8, ptr %target, i64 24
   %4 = load ptr, ptr %next.i, align 8
-  %next4.i = getelementptr inbounds i8, ptr %call.i, i64 24
+  %next4.i = getelementptr inbounds nuw i8, ptr %call.i, i64 24
   store ptr %4, ptr %next4.i, align 8
   store ptr %call.i, ptr %next.i, align 8
   br label %_ZN7rocksdb9Cleanable15RegisterCleanupEPFvPvS1_ES1_S1_.exit
@@ -756,9 +756,9 @@ if.else.i:                                        ; preds = %if.then
 _ZN7rocksdb9Cleanable15RegisterCleanupEPFvPvS1_ES1_S1_.exit: ; preds = %if.then, %if.else.i
   %c.0.i = phi ptr [ %call.i, %if.else.i ], [ %target, %if.then ]
   store ptr @_ZN7rocksdb18SharedCleanablePtr4Impl12UnrefWrapperEPvS2_, ptr %c.0.i, align 8
-  %arg18.i = getelementptr inbounds i8, ptr %c.0.i, i64 8
+  %arg18.i = getelementptr inbounds nuw i8, ptr %c.0.i, i64 8
   store ptr %2, ptr %arg18.i, align 8
-  %arg29.i = getelementptr inbounds i8, ptr %c.0.i, i64 16
+  %arg29.i = getelementptr inbounds nuw i8, ptr %c.0.i, i64 16
   store ptr null, ptr %arg29.i, align 8
   br label %if.end
 
@@ -769,7 +769,7 @@ if.end:                                           ; preds = %_ZN7rocksdb9Cleanab
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7rocksdb18SharedCleanablePtr4Impl12UnrefWrapperEPvS2_(ptr noundef %arg1, ptr noundef %0) #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %ref_count.i = getelementptr inbounds i8, ptr %arg1, i64 32
+  %ref_count.i = getelementptr inbounds nuw i8, ptr %arg1, i64 32
   %1 = atomicrmw sub ptr %ref_count.i, i32 1 monotonic, align 4
   %cmp.not.i = icmp eq i32 %1, 1
   br i1 %cmp.not.i, label %delete.notnull.i, label %_ZN7rocksdb18SharedCleanablePtr4Impl5UnrefEv.exit
@@ -780,15 +780,15 @@ delete.notnull.i:                                 ; preds = %entry
   br i1 %cmp.not.i.i.i.i, label %_ZN7rocksdb18SharedCleanablePtr4ImplD2Ev.exit.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %delete.notnull.i
-  %arg1.i.i.i.i = getelementptr inbounds i8, ptr %arg1, i64 8
+  %arg1.i.i.i.i = getelementptr inbounds nuw i8, ptr %arg1, i64 8
   %3 = load ptr, ptr %arg1.i.i.i.i, align 8
-  %arg2.i.i.i.i = getelementptr inbounds i8, ptr %arg1, i64 16
+  %arg2.i.i.i.i = getelementptr inbounds nuw i8, ptr %arg1, i64 16
   %4 = load ptr, ptr %arg2.i.i.i.i, align 8
   invoke void %2(ptr noundef %3, ptr noundef %4)
           to label %.noexc.i.i.i unwind label %terminate.lpad.loopexit.split-lp.i.i.i
 
 .noexc.i.i.i:                                     ; preds = %if.then.i.i.i.i
-  %next.i.i.i.i = getelementptr inbounds i8, ptr %arg1, i64 24
+  %next.i.i.i.i = getelementptr inbounds nuw i8, ptr %arg1, i64 24
   %5 = load ptr, ptr %next.i.i.i.i, align 8
   %cmp7.not6.i.i.i.i = icmp eq ptr %5, null
   br i1 %cmp7.not6.i.i.i.i, label %_ZN7rocksdb18SharedCleanablePtr4ImplD2Ev.exit.i, label %for.body.i.i.i.i
@@ -796,15 +796,15 @@ if.then.i.i.i.i:                                  ; preds = %delete.notnull.i
 for.body.i.i.i.i:                                 ; preds = %.noexc.i.i.i, %.noexc1.i.i.i
   %c.07.i.i.i.i = phi ptr [ %9, %.noexc1.i.i.i ], [ %5, %.noexc.i.i.i ]
   %6 = load ptr, ptr %c.07.i.i.i.i, align 8
-  %arg19.i.i.i.i = getelementptr inbounds i8, ptr %c.07.i.i.i.i, i64 8
+  %arg19.i.i.i.i = getelementptr inbounds nuw i8, ptr %c.07.i.i.i.i, i64 8
   %7 = load ptr, ptr %arg19.i.i.i.i, align 8
-  %arg210.i.i.i.i = getelementptr inbounds i8, ptr %c.07.i.i.i.i, i64 16
+  %arg210.i.i.i.i = getelementptr inbounds nuw i8, ptr %c.07.i.i.i.i, i64 16
   %8 = load ptr, ptr %arg210.i.i.i.i, align 8
   invoke void %6(ptr noundef %7, ptr noundef %8)
           to label %.noexc1.i.i.i unwind label %terminate.lpad.loopexit.i.i.i
 
 .noexc1.i.i.i:                                    ; preds = %for.body.i.i.i.i
-  %next12.i.i.i.i = getelementptr inbounds i8, ptr %c.07.i.i.i.i, i64 24
+  %next12.i.i.i.i = getelementptr inbounds nuw i8, ptr %c.07.i.i.i.i, i64 24
   %9 = load ptr, ptr %next12.i.i.i.i, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %c.07.i.i.i.i) #12
   %cmp7.not.i.i.i.i = icmp eq ptr %9, null
@@ -848,9 +848,9 @@ if.then:                                          ; preds = %entry
 
 if.else.i:                                        ; preds = %if.then
   %call.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #15
-  %next.i = getelementptr inbounds i8, ptr %target, i64 24
+  %next.i = getelementptr inbounds nuw i8, ptr %target, i64 24
   %2 = load ptr, ptr %next.i, align 8
-  %next4.i = getelementptr inbounds i8, ptr %call.i, i64 24
+  %next4.i = getelementptr inbounds nuw i8, ptr %call.i, i64 24
   store ptr %2, ptr %next4.i, align 8
   store ptr %call.i, ptr %next.i, align 8
   br label %_ZN7rocksdb9Cleanable15RegisterCleanupEPFvPvS1_ES1_S1_.exit
@@ -858,9 +858,9 @@ if.else.i:                                        ; preds = %if.then
 _ZN7rocksdb9Cleanable15RegisterCleanupEPFvPvS1_ES1_S1_.exit: ; preds = %if.then, %if.else.i
   %c.0.i = phi ptr [ %call.i, %if.else.i ], [ %target, %if.then ]
   store ptr @_ZN7rocksdb18SharedCleanablePtr4Impl12UnrefWrapperEPvS2_, ptr %c.0.i, align 8
-  %arg18.i = getelementptr inbounds i8, ptr %c.0.i, i64 8
+  %arg18.i = getelementptr inbounds nuw i8, ptr %c.0.i, i64 8
   store ptr %0, ptr %arg18.i, align 8
-  %arg29.i = getelementptr inbounds i8, ptr %c.0.i, i64 16
+  %arg29.i = getelementptr inbounds nuw i8, ptr %c.0.i, i64 16
   store ptr null, ptr %arg29.i, align 8
   store ptr null, ptr %this, align 8
   br label %if.end

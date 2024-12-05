@@ -22,16 +22,16 @@ define i64 @Java_sun_font_SunLayoutEngine_createFace(ptr noundef %0, ptr nocaptu
 
 7:                                                ; preds = %4
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 1752
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 1752
   %10 = load ptr, ptr %9, align 8
   %11 = call noundef i32 %10(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %5)
   %12 = load ptr, ptr %5, align 8
   store ptr %12, ptr %6, align 8
   %13 = load ptr, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 1808
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 1808
   %15 = load ptr, ptr %14, align 8
   %16 = call noundef ptr %15(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %2)
-  %17 = getelementptr inbounds i8, ptr %6, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %16, ptr %17, align 8
   %.not11 = icmp eq ptr %16, null
   br i1 %.not11, label %18, label %19
@@ -67,7 +67,7 @@ define internal noundef ptr @_ZL15reference_tableP9hb_face_tjPv(ptr nocapture re
 6:                                                ; preds = %3
   %7 = load ptr, ptr %2, align 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %10 = load ptr, ptr %9, align 8
   %11 = call noundef i32 %10(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %4, i32 noundef 65537)
   %12 = load ptr, ptr %4, align 8
@@ -75,7 +75,7 @@ define internal noundef ptr @_ZL15reference_tableP9hb_face_tjPv(ptr nocapture re
   br i1 %13, label %35, label %14
 
 14:                                               ; preds = %6
-  %15 = getelementptr inbounds i8, ptr %2, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = load ptr, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 8), align 8
   %18 = call noundef ptr (ptr, ptr, ptr, ...) @_ZN7JNIEnv_16CallObjectMethodEP8_jobjectP10_jmethodIDz(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef %16, ptr noundef %17, i32 noundef %1)
@@ -85,7 +85,7 @@ define internal noundef ptr @_ZL15reference_tableP9hb_face_tjPv(ptr nocapture re
 20:                                               ; preds = %14
   %21 = load ptr, ptr %4, align 8
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 1368
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 1368
   %24 = load ptr, ptr %23, align 8
   %25 = call noundef i32 %24(ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull %18)
   %26 = sext i32 %25 to i64
@@ -96,7 +96,7 @@ define internal noundef ptr @_ZL15reference_tableP9hb_face_tjPv(ptr nocapture re
 29:                                               ; preds = %20
   %30 = load ptr, ptr %4, align 8
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 1600
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 1600
   %33 = load ptr, ptr %32, align 8
   call void %33(ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef nonnull %18, i32 noundef 0, i32 noundef %25, ptr noundef nonnull %27)
   %34 = call ptr @hb_blob_create(ptr noundef nonnull %27, i32 noundef %25, i32 noundef 2, ptr noundef nonnull %27, ptr noundef nonnull @free)
@@ -112,14 +112,14 @@ define internal void @_ZL15cleanupFontInfoPv(ptr nocapture noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %6 = load ptr, ptr %5, align 8
   %7 = call noundef i32 %6(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull %2, i32 noundef 65537)
   %8 = load ptr, ptr %2, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %8, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 1816
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 1816
   %13 = load ptr, ptr %12, align 8
   call void %13(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %10)
   call void @free(ptr noundef %0) #8
@@ -163,9 +163,9 @@ define hidden ptr @hb_jdk_font_create(ptr noundef %0, ptr noundef %1, ptr nocapt
 _ZL19_hb_jdk_font_createP9hb_face_tP18JDKFontInfo_StructPFvPvE.exit: ; preds = %3, %6
   %8 = phi ptr [ %7, %6 ], [ %5, %3 ]
   tail call void @hb_font_set_funcs(ptr noundef %4, ptr noundef %8, ptr noundef %1, ptr noundef nonnull @_ZL11_do_nothingv)
-  %9 = getelementptr inbounds i8, ptr %1, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %10 = load float, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 52
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %12 = load float, ptr %11, align 4
   %13 = fmul float %10, %12
   %14 = fmul float %13, 6.553600e+04
@@ -179,7 +179,7 @@ define linkonce_odr hidden noundef ptr @_ZN7JNIEnv_16CallObjectMethodEP8_jobject
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %4)
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 280
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 280
   %7 = load ptr, ptr %6, align 8
   %8 = call noundef ptr %7(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %4)
   call void @llvm.va_end.p0(ptr nonnull %4)
@@ -215,13 +215,13 @@ declare void @hb_font_funcs_set_nominal_glyph_func(ptr noundef, ptr noundef, ptr
 ; Function Attrs: mustprogress uwtable
 define internal noundef range(i32 0, 2) i32 @_ZL24hb_jdk_get_nominal_glyphP9hb_font_tPvjPjS1_(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef initializes((0, 4)) %3, ptr nocapture readnone %4) #0 {
   %6 = load ptr, ptr %1, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 24), align 8
   %10 = tail call noundef i32 (ptr, ptr, ptr, ...) @_ZN7JNIEnv_13CallIntMethodEP8_jobjectP10_jmethodIDz(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %8, ptr noundef %9, i32 noundef %2)
   store i32 %10, ptr %3, align 4
   %11 = load ptr, ptr %6, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 120
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 120
   %13 = load ptr, ptr %12, align 8
   %14 = tail call noundef ptr %13(ptr noundef nonnull align 8 dereferenceable(8) %6)
   %.not = icmp eq ptr %14, null
@@ -229,7 +229,7 @@ define internal noundef range(i32 0, 2) i32 @_ZL24hb_jdk_get_nominal_glyphP9hb_f
 
 15:                                               ; preds = %5
   %16 = load ptr, ptr %6, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 136
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 136
   %18 = load ptr, ptr %17, align 8
   tail call void %18(ptr noundef nonnull align 8 dereferenceable(8) %6)
   br label %19
@@ -255,13 +255,13 @@ declare void @hb_font_funcs_set_variation_glyph_func(ptr noundef, ptr noundef, p
 ; Function Attrs: mustprogress uwtable
 define internal noundef range(i32 0, 2) i32 @_ZL26hb_jdk_get_variation_glyphP9hb_font_tPvjjPjS1_(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef initializes((0, 4)) %4, ptr nocapture readnone %5) #0 {
   %7 = load ptr, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 32), align 8
   %11 = tail call noundef i32 (ptr, ptr, ptr, ...) @_ZN7JNIEnv_13CallIntMethodEP8_jobjectP10_jmethodIDz(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %9, ptr noundef %10, i32 noundef %2, i32 noundef %3)
   store i32 %11, ptr %4, align 4
   %12 = load ptr, ptr %7, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 120
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 120
   %14 = load ptr, ptr %13, align 8
   %15 = tail call noundef ptr %14(ptr noundef nonnull align 8 dereferenceable(8) %7)
   %.not = icmp eq ptr %15, null
@@ -269,7 +269,7 @@ define internal noundef range(i32 0, 2) i32 @_ZL26hb_jdk_get_variation_glyphP9hb
 
 16:                                               ; preds = %6
   %17 = load ptr, ptr %7, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 136
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 136
   %19 = load ptr, ptr %18, align 8
   tail call void %19(ptr noundef nonnull align 8 dereferenceable(8) %7)
   br label %20
@@ -300,7 +300,7 @@ define internal noundef i32 @_ZL26hb_jdk_get_glyph_h_advanceP9hb_font_tPvjS1_(pt
 
 7:                                                ; preds = %4
   %8 = load ptr, ptr %1, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 48), align 8
   %12 = tail call noundef ptr (ptr, ptr, ptr, ...) @_ZN7JNIEnv_16CallObjectMethodEP8_jobjectP10_jmethodIDz(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %10, ptr noundef %11, i32 noundef %2)
@@ -310,14 +310,14 @@ define internal noundef i32 @_ZL26hb_jdk_get_glyph_h_advanceP9hb_font_tPvjS1_(pt
 14:                                               ; preds = %7
   %15 = load ptr, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 152), align 8
   %16 = load ptr, ptr %8, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 816
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 816
   %18 = load ptr, ptr %17, align 8
   %19 = tail call noundef float %18(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull %12, ptr noundef %15)
-  %20 = getelementptr inbounds i8, ptr %1, i64 52
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %21 = load float, ptr %20, align 4
   %22 = fmul float %19, %21
   %23 = load ptr, ptr %8, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 184
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 184
   %25 = load ptr, ptr %24, align 8
   tail call void %25(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull %12)
   %26 = fmul float %22, 6.553600e+04
@@ -339,7 +339,7 @@ define internal noundef i32 @_ZL26hb_jdk_get_glyph_v_advanceP9hb_font_tPvjS1_(pt
 
 7:                                                ; preds = %4
   %8 = load ptr, ptr %1, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 48), align 8
   %12 = tail call noundef ptr (ptr, ptr, ptr, ...) @_ZN7JNIEnv_16CallObjectMethodEP8_jobjectP10_jmethodIDz(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %10, ptr noundef %11, i32 noundef %2)
@@ -349,11 +349,11 @@ define internal noundef i32 @_ZL26hb_jdk_get_glyph_v_advanceP9hb_font_tPvjS1_(pt
 14:                                               ; preds = %7
   %15 = load ptr, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 160), align 8
   %16 = load ptr, ptr %8, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 816
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 816
   %18 = load ptr, ptr %17, align 8
   %19 = tail call noundef float %18(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull %12, ptr noundef %15)
   %20 = load ptr, ptr %8, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 184
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 184
   %22 = load ptr, ptr %21, align 8
   tail call void %22(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull %12)
   %23 = fmul float %19, 6.553600e+04
@@ -415,7 +415,7 @@ define internal noundef i32 @_ZL30hb_jdk_get_glyph_contour_pointP9hb_font_tPvjjP
 
 11:                                               ; preds = %7
   %12 = load ptr, ptr %1, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 56), align 8
   %16 = tail call noundef ptr (ptr, ptr, ptr, ...) @_ZN7JNIEnv_16CallObjectMethodEP8_jobjectP10_jmethodIDz(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef %14, ptr noundef %15, i32 noundef %2, i32 noundef %3)
@@ -430,7 +430,7 @@ define internal noundef i32 @_ZL30hb_jdk_get_glyph_contour_pointP9hb_font_tPvjjP
 19:                                               ; preds = %11
   %20 = load ptr, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 152), align 8
   %21 = load ptr, ptr %12, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 816
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 816
   %23 = load ptr, ptr %22, align 8
   %24 = tail call noundef float %23(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull %16, ptr noundef %20)
   %25 = fmul float %24, 6.553600e+04
@@ -438,14 +438,14 @@ define internal noundef i32 @_ZL30hb_jdk_get_glyph_contour_pointP9hb_font_tPvjjP
   store i32 %26, ptr %4, align 4
   %27 = load ptr, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 160), align 8
   %28 = load ptr, ptr %12, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 816
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 816
   %30 = load ptr, ptr %29, align 8
   %31 = tail call noundef float %30(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull %16, ptr noundef %27)
   %32 = fmul float %31, 6.553600e+04
   %33 = fptoui float %32 to i32
   store i32 %33, ptr %5, align 4
   %34 = load ptr, ptr %12, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 184
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 184
   %36 = load ptr, ptr %35, align 8
   tail call void %36(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull %16)
   br label %37
@@ -475,7 +475,7 @@ define linkonce_odr hidden noundef i32 @_ZN7JNIEnv_13CallIntMethodEP8_jobjectP10
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %4)
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 400
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 400
   %7 = load ptr, ptr %6, align 8
   %8 = call noundef i32 %7(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %4)
   call void @llvm.va_end.p0(ptr nonnull %4)

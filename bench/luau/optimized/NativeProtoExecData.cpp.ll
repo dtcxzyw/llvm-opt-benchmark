@@ -32,7 +32,7 @@ _ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit:
   %4 = add nuw nsw i64 %3, 32
   %5 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %4) #7, !noalias !5
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %5, i8 0, i64 %4, i1 false), !noalias !5
-  %6 = getelementptr inbounds i8, ptr %5, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
   store ptr %6, ptr %0, align 8
   ret void

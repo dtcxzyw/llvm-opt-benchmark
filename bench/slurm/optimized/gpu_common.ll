@@ -161,7 +161,7 @@ define void @gpu_common_get_nearest_freq(ptr noundef %0, i32 noundef %1, ptr nou
 33:                                               ; preds = %32
   %34 = add i32 %1, -1
   %35 = zext i32 %34 to i64
-  %36 = getelementptr inbounds i32, ptr %2, i64 %35
+  %36 = getelementptr inbounds nuw i32, ptr %2, i64 %35
   %37 = load i32, ptr %36, align 4
   store i32 %37, ptr %0, align 4
   %38 = tail call i32 @slurm_get_log_level() #8
@@ -177,7 +177,7 @@ define void @gpu_common_get_nearest_freq(ptr noundef %0, i32 noundef %1, ptr nou
   %43 = add i32 %1, -1
   %44 = lshr i32 %43, 1
   %45 = zext nneg i32 %44 to i64
-  %46 = getelementptr inbounds i32, ptr %2, i64 %45
+  %46 = getelementptr inbounds nuw i32, ptr %2, i64 %45
   %47 = load i32, ptr %46, align 4
   store i32 %47, ptr %0, align 4
   %48 = tail call i32 @slurm_get_log_level() #8
@@ -194,7 +194,7 @@ define void @gpu_common_get_nearest_freq(ptr noundef %0, i32 noundef %1, ptr nou
   br i1 %53, label %57, label %54
 
 54:                                               ; preds = %52
-  %55 = getelementptr inbounds i8, ptr %2, i64 4
+  %55 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %56 = load i32, ptr %55, align 4
   br label %57
 
@@ -262,7 +262,7 @@ define void @gpu_common_get_nearest_freq(ptr noundef %0, i32 noundef %1, ptr nou
 85:                                               ; preds = %71
   %86 = add i32 %1, -1
   %87 = zext i32 %86 to i64
-  %88 = getelementptr inbounds i32, ptr %2, i64 %87
+  %88 = getelementptr inbounds nuw i32, ptr %2, i64 %87
   %89 = load i32, ptr %88, align 4
   %90 = icmp ult i32 %72, %89
   br i1 %90, label %91, label %.preheader.preheader
@@ -316,13 +316,13 @@ define void @gpu_common_get_nearest_freq(ptr noundef %0, i32 noundef %1, ptr nou
 
 109:                                              ; preds = %102
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %110 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv.next
+  %110 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.next
   %111 = load i32, ptr %110, align 4
   %112 = icmp ugt i32 %72, %111
   br i1 %112, label %113, label %.preheader, !llvm.loop !6
 
 113:                                              ; preds = %109
-  %114 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv
+  %114 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
   %115 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %116 = and i64 %115, 64
   %.not66 = icmp eq i64 %116, 0
@@ -378,7 +378,7 @@ define void @gpu_common_print_freqs(ptr nocapture noundef readonly %0, i32 nound
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %9 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
   %10 = load i32, ptr %9, align 4
   %11 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void (i32, ptr, ...) @slurm_log_var(i32 noundef %2, ptr noundef nonnull @.str.22, i32 noundef %4, ptr noundef nonnull @.str.19, i32 noundef %10, i32 noundef %11) #8
@@ -392,21 +392,21 @@ define void @gpu_common_print_freqs(ptr nocapture noundef readonly %0, i32 nound
   %15 = lshr i32 %14, 1
   %16 = load i32, ptr %0, align 4
   tail call void (i32, ptr, ...) @slurm_log_var(i32 noundef %2, ptr noundef nonnull @.str.23, i32 noundef %4, ptr noundef nonnull @.str.19, i32 noundef %16) #8
-  %17 = getelementptr inbounds i8, ptr %0, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %18 = load i32, ptr %17, align 4
   tail call void (i32, ptr, ...) @slurm_log_var(i32 noundef %2, ptr noundef nonnull @.str.24, i32 noundef %4, ptr noundef nonnull @.str.19, i32 noundef %18) #8
   tail call void (i32, ptr, ...) @slurm_log_var(i32 noundef %2, ptr noundef nonnull @.str.25, i32 noundef %4, ptr noundef nonnull @.str.19) #8
   %19 = zext nneg i32 %15 to i64
-  %20 = getelementptr inbounds i32, ptr %0, i64 %19
+  %20 = getelementptr inbounds nuw i32, ptr %0, i64 %19
   %21 = load i32, ptr %20, align 4
   tail call void (i32, ptr, ...) @slurm_log_var(i32 noundef %2, ptr noundef nonnull @.str.22, i32 noundef %4, ptr noundef nonnull @.str.19, i32 noundef %21, i32 noundef %15) #8
   tail call void (i32, ptr, ...) @slurm_log_var(i32 noundef %2, ptr noundef nonnull @.str.25, i32 noundef %4, ptr noundef nonnull @.str.19) #8
   %22 = zext i32 %13 to i64
-  %23 = getelementptr inbounds i32, ptr %0, i64 %22
+  %23 = getelementptr inbounds nuw i32, ptr %0, i64 %22
   %24 = load i32, ptr %23, align 4
   tail call void (i32, ptr, ...) @slurm_log_var(i32 noundef %2, ptr noundef nonnull @.str.22, i32 noundef %4, ptr noundef nonnull @.str.19, i32 noundef %24, i32 noundef %13) #8
   %25 = zext i32 %14 to i64
-  %26 = getelementptr inbounds i32, ptr %0, i64 %25
+  %26 = getelementptr inbounds nuw i32, ptr %0, i64 %25
   %27 = load i32, ptr %26, align 4
   tail call void (i32, ptr, ...) @slurm_log_var(i32 noundef %2, ptr noundef nonnull @.str.22, i32 noundef %4, ptr noundef nonnull @.str.19, i32 noundef %27, i32 noundef %14) #8
   br label %.loopexit
@@ -424,7 +424,7 @@ define void @gpu_common_underscorify_tolower(ptr nocapture noundef %0) local_unn
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %1 ]
   %3 = phi i8 [ %10, %.lr.ph ], [ %2, %1 ]
-  %4 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %5 = sext i8 %3 to i32
   %6 = tail call i32 @tolower(i32 noundef %5) #9
   %7 = trunc i32 %6 to i8
@@ -433,7 +433,7 @@ define void @gpu_common_underscorify_tolower(ptr nocapture noundef %0) local_unn
   %spec.select = select i1 %8, i8 95, i8 %7
   store i8 %spec.select, ptr %4, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %9 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.next
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.next
   %10 = load i8, ptr %9, align 1
   %.not = icmp eq i8 %10, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
@@ -550,7 +550,7 @@ define internal fastcc void @_parse_gpu_freq2(ptr noundef %0, ptr nocapture noun
 
 15:                                               ; preds = %.lr.ph
   store i8 0, ptr %14, align 1
-  %16 = getelementptr inbounds i8, ptr %14, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 1
   %17 = call i32 @slurm_xstrcasecmp(ptr noundef nonnull %.034, ptr noundef nonnull @.str.27) #8
   %.not30 = icmp eq i32 %17, 0
   br i1 %.not30, label %18, label %27

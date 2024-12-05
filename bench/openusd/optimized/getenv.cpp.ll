@@ -150,7 +150,7 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__12TfGetenvBoolER
   %10 = call i32 @tolower(i32 noundef %9) #11
   %11 = trunc i32 %10 to i8
   store i8 %11, ptr %.sroa.06.010, align 1
-  %12 = getelementptr inbounds i8, ptr %.sroa.06.010, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %.sroa.06.010, i64 1
   %.not = icmp eq ptr %12, %7
   br i1 %.not, label %._crit_edge, label %.lr.ph
 

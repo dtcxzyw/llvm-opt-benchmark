@@ -5,11 +5,11 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define void @jinit_lossless_compressor(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
   %5 = tail call ptr %4(ptr noundef %0, i32 noundef 0, i64 noundef 152) #5
-  %6 = getelementptr inbounds i8, ptr %0, i64 488
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 488
   store ptr %5, ptr %6, align 8
   store ptr @start_pass_lossless, ptr %5, align 8
   ret void
@@ -17,17 +17,17 @@ define void @jinit_lossless_compressor(ptr noundef %0) local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal void @start_pass_lossless(ptr noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 488
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 424
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %5 = load i32, ptr %4, align 8
   %.not = icmp eq i32 %5, 0
   %spec.select = select i1 %.not, ptr @noscale, ptr @simple_downscale
-  %6 = getelementptr inbounds i8, ptr %3, i64 144
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 144
   store ptr %spec.select, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 280
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %8 = load i32, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 360
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %10 = load i32, ptr %9, align 8
   %11 = urem i32 %8, %10
   %.not17 = icmp eq i32 %11, 0
@@ -35,15 +35,15 @@ define internal void @start_pass_lossless(ptr noundef %0) #0 {
 
 12:                                               ; preds = %1
   %13 = load ptr, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 40
   store i32 129, ptr %14, align 8
   %15 = load i32, ptr %7, align 8
   %16 = load ptr, ptr %0, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 44
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 44
   store i32 %15, ptr %17, align 4
   %18 = load i32, ptr %9, align 8
   %19 = load ptr, ptr %0, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 48
   store i32 %18, ptr %20, align 4
   %21 = load ptr, ptr %0, align 8
   %22 = load ptr, ptr %21, align 8
@@ -51,7 +51,7 @@ define internal void @start_pass_lossless(ptr noundef %0) #0 {
   br label %23
 
 23:                                               ; preds = %12, %1
-  %24 = getelementptr inbounds i8, ptr %0, i64 76
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %25 = load i32, ptr %24, align 4
   %26 = icmp sgt i32 %25, 0
   br i1 %26, label %.lr.ph, label %._crit_edge
@@ -62,11 +62,11 @@ define internal void @start_pass_lossless(ptr noundef %0) #0 {
   %28 = load i32, ptr %7, align 8
   %29 = load i32, ptr %9, align 8
   %30 = udiv i32 %28, %29
-  %31 = getelementptr inbounds i8, ptr %27, i64 104
-  %32 = getelementptr inbounds [10 x i32], ptr %31, i64 0, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw i8, ptr %27, i64 104
+  %32 = getelementptr inbounds nuw [10 x i32], ptr %31, i64 0, i64 %indvars.iv
   store i32 %30, ptr %32, align 4
-  %33 = getelementptr inbounds i8, ptr %27, i64 24
-  %34 = getelementptr inbounds [10 x ptr], ptr %33, i64 0, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw i8, ptr %27, i64 24
+  %34 = getelementptr inbounds nuw [10 x ptr], ptr %33, i64 0, i64 %indvars.iv
   store ptr @jpeg_difference_first_row, ptr %34, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %35 = load i32, ptr %24, align 4
@@ -80,20 +80,20 @@ define internal void @start_pass_lossless(ptr noundef %0) #0 {
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @simple_downscale(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, i32 noundef %3) #1 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 424
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 424
   br label %6
 
 6:                                                ; preds = %6, %4
   %.04 = phi ptr [ %1, %4 ], [ %7, %6 ]
   %.03 = phi ptr [ %2, %4 ], [ %13, %6 ]
   %.0 = phi i32 [ %3, %4 ], [ %14, %6 ]
-  %7 = getelementptr inbounds i8, ptr %.04, i64 1
+  %7 = getelementptr inbounds nuw i8, ptr %.04, i64 1
   %8 = load i8, ptr %.04, align 1
   %9 = zext i8 %8 to i32
   %10 = load i32, ptr %5, align 8
   %11 = lshr i32 %9, %10
   %12 = trunc nuw i32 %11 to i8
-  %13 = getelementptr inbounds i8, ptr %.03, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %.03, i64 1
   store i8 %12, ptr %.03, align 1
   %14 = add i32 %.0, -1
   %.not = icmp eq i32 %14, 0
@@ -115,13 +115,13 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @jpeg_difference_first_row(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((0, 4)) %4, i32 noundef %5) #4 {
-  %7 = getelementptr inbounds i8, ptr %0, i64 488
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %8 = load ptr, ptr %7, align 8
   %9 = load i8, ptr %2, align 1
   %10 = zext i8 %9 to i32
-  %11 = getelementptr inbounds i8, ptr %0, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %12 = load i32, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 424
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %14 = load i32, ptr %13, align 8
   %15 = xor i32 %14, -1
   %16 = add i32 %12, %15
@@ -137,8 +137,8 @@ define internal void @jpeg_difference_first_row(ptr nocapture noundef readonly %
   %.pn43 = phi ptr [ %.0, %.lr.ph ], [ %2, %6 ]
   %.03242 = phi i32 [ %21, %.lr.ph ], [ %10, %6 ]
   %.pn3941 = phi ptr [ %.034, %.lr.ph ], [ %4, %6 ]
-  %.034 = getelementptr inbounds i8, ptr %.pn3941, i64 4
-  %.0 = getelementptr inbounds i8, ptr %.pn43, i64 1
+  %.034 = getelementptr inbounds nuw i8, ptr %.pn3941, i64 4
+  %.0 = getelementptr inbounds nuw i8, ptr %.pn43, i64 1
   %20 = load i8, ptr %.0, align 1
   %21 = zext i8 %20 to i32
   %22 = sub nsw i32 %21, %.03242
@@ -148,13 +148,13 @@ define internal void @jpeg_difference_first_row(ptr nocapture noundef readonly %
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
-  %24 = getelementptr inbounds i8, ptr %0, i64 280
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %25 = load i32, ptr %24, align 8
   %.not37 = icmp eq i32 %25, 0
   br i1 %.not37, label %42, label %26
 
 26:                                               ; preds = %._crit_edge
-  %27 = getelementptr inbounds i8, ptr %8, i64 104
+  %27 = getelementptr inbounds nuw i8, ptr %8, i64 104
   %28 = sext i32 %1 to i64
   %29 = getelementptr inbounds [10 x i32], ptr %27, i64 0, i64 %28
   %30 = load i32, ptr %29, align 4
@@ -166,19 +166,19 @@ define internal void @jpeg_difference_first_row(ptr nocapture noundef readonly %
 .critedge:                                        ; preds = %26
   %33 = load ptr, ptr %7, align 8
   %34 = load i32, ptr %24, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 360
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %36 = load i32, ptr %35, align 8
   %37 = udiv i32 %34, %36
-  %38 = getelementptr inbounds i8, ptr %33, i64 104
+  %38 = getelementptr inbounds nuw i8, ptr %33, i64 104
   %39 = getelementptr inbounds [10 x i32], ptr %38, i64 0, i64 %28
   store i32 %37, ptr %39, align 4
-  %40 = getelementptr inbounds i8, ptr %33, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %33, i64 24
   %41 = getelementptr inbounds [10 x ptr], ptr %40, i64 0, i64 %28
   store ptr @jpeg_difference_first_row, ptr %41, align 8
   br label %73
 
 42:                                               ; preds = %._crit_edge, %26
-  %43 = getelementptr inbounds i8, ptr %0, i64 412
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 412
   %44 = load i32, ptr %43, align 4
   switch i32 %44, label %73 [
     i32 1, label %45
@@ -191,49 +191,49 @@ define internal void @jpeg_difference_first_row(ptr nocapture noundef readonly %
   ]
 
 45:                                               ; preds = %42
-  %46 = getelementptr inbounds i8, ptr %8, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %47 = sext i32 %1 to i64
   %48 = getelementptr inbounds [10 x ptr], ptr %46, i64 0, i64 %47
   store ptr @jpeg_difference1, ptr %48, align 8
   br label %73
 
 49:                                               ; preds = %42
-  %50 = getelementptr inbounds i8, ptr %8, i64 24
+  %50 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %51 = sext i32 %1 to i64
   %52 = getelementptr inbounds [10 x ptr], ptr %50, i64 0, i64 %51
   store ptr @jpeg_difference2, ptr %52, align 8
   br label %73
 
 53:                                               ; preds = %42
-  %54 = getelementptr inbounds i8, ptr %8, i64 24
+  %54 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %55 = sext i32 %1 to i64
   %56 = getelementptr inbounds [10 x ptr], ptr %54, i64 0, i64 %55
   store ptr @jpeg_difference3, ptr %56, align 8
   br label %73
 
 57:                                               ; preds = %42
-  %58 = getelementptr inbounds i8, ptr %8, i64 24
+  %58 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %59 = sext i32 %1 to i64
   %60 = getelementptr inbounds [10 x ptr], ptr %58, i64 0, i64 %59
   store ptr @jpeg_difference4, ptr %60, align 8
   br label %73
 
 61:                                               ; preds = %42
-  %62 = getelementptr inbounds i8, ptr %8, i64 24
+  %62 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %63 = sext i32 %1 to i64
   %64 = getelementptr inbounds [10 x ptr], ptr %62, i64 0, i64 %63
   store ptr @jpeg_difference5, ptr %64, align 8
   br label %73
 
 65:                                               ; preds = %42
-  %66 = getelementptr inbounds i8, ptr %8, i64 24
+  %66 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %67 = sext i32 %1 to i64
   %68 = getelementptr inbounds [10 x ptr], ptr %66, i64 0, i64 %67
   store ptr @jpeg_difference6, ptr %68, align 8
   br label %73
 
 69:                                               ; preds = %42
-  %70 = getelementptr inbounds i8, ptr %8, i64 24
+  %70 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %71 = sext i32 %1 to i64
   %72 = getelementptr inbounds [10 x ptr], ptr %70, i64 0, i64 %71
   store ptr @jpeg_difference7, ptr %72, align 8
@@ -245,7 +245,7 @@ define internal void @jpeg_difference_first_row(ptr nocapture noundef readonly %
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @jpeg_difference1(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef writeonly initializes((0, 4)) %4, i32 noundef %5) #4 {
-  %7 = getelementptr inbounds i8, ptr %0, i64 488
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %8 = load ptr, ptr %7, align 8
   %9 = load i8, ptr %2, align 1
   %10 = zext i8 %9 to i32
@@ -262,8 +262,8 @@ define internal void @jpeg_difference1(ptr nocapture noundef readonly %0, i32 no
   %.pn24 = phi ptr [ %.0, %.lr.ph ], [ %2, %6 ]
   %.01523 = phi i32 [ %17, %.lr.ph ], [ %10, %6 ]
   %.pn2022 = phi ptr [ %.016, %.lr.ph ], [ %4, %6 ]
-  %.016 = getelementptr inbounds i8, ptr %.pn2022, i64 4
-  %.0 = getelementptr inbounds i8, ptr %.pn24, i64 1
+  %.016 = getelementptr inbounds nuw i8, ptr %.pn2022, i64 4
+  %.0 = getelementptr inbounds nuw i8, ptr %.pn24, i64 1
   %16 = load i8, ptr %.0, align 1
   %17 = zext i8 %16 to i32
   %18 = sub nsw i32 %17, %.01523
@@ -273,13 +273,13 @@ define internal void @jpeg_difference1(ptr nocapture noundef readonly %0, i32 no
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
-  %20 = getelementptr inbounds i8, ptr %0, i64 280
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %21 = load i32, ptr %20, align 8
   %.not19 = icmp eq i32 %21, 0
   br i1 %.not19, label %39, label %22
 
 22:                                               ; preds = %._crit_edge
-  %23 = getelementptr inbounds i8, ptr %8, i64 104
+  %23 = getelementptr inbounds nuw i8, ptr %8, i64 104
   %24 = sext i32 %1 to i64
   %25 = getelementptr inbounds [10 x i32], ptr %23, i64 0, i64 %24
   %26 = load i32, ptr %25, align 4
@@ -291,13 +291,13 @@ define internal void @jpeg_difference1(ptr nocapture noundef readonly %0, i32 no
 29:                                               ; preds = %22
   %30 = load ptr, ptr %7, align 8
   %31 = load i32, ptr %20, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 360
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %33 = load i32, ptr %32, align 8
   %34 = udiv i32 %31, %33
-  %35 = getelementptr inbounds i8, ptr %30, i64 104
+  %35 = getelementptr inbounds nuw i8, ptr %30, i64 104
   %36 = getelementptr inbounds [10 x i32], ptr %35, i64 0, i64 %24
   store i32 %34, ptr %36, align 4
-  %37 = getelementptr inbounds i8, ptr %30, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %30, i64 24
   %38 = getelementptr inbounds [10 x ptr], ptr %37, i64 0, i64 %24
   store ptr @jpeg_difference_first_row, ptr %38, align 8
   br label %39
@@ -308,7 +308,7 @@ define internal void @jpeg_difference1(ptr nocapture noundef readonly %0, i32 no
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @jpeg_difference2(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef writeonly initializes((0, 4)) %4, i32 noundef %5) #4 {
-  %7 = getelementptr inbounds i8, ptr %0, i64 488
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %8 = load ptr, ptr %7, align 8
   %9 = load i8, ptr %3, align 1
   %10 = zext i8 %9 to i32
@@ -325,9 +325,9 @@ define internal void @jpeg_difference2(ptr nocapture noundef readonly %0, i32 no
   %.pn2530 = phi ptr [ %.0, %.lr.ph ], [ %2, %6 ]
   %.pn29 = phi ptr [ %.019, %.lr.ph ], [ %3, %6 ]
   %.pn2628 = phi ptr [ %.021, %.lr.ph ], [ %4, %6 ]
-  %.021 = getelementptr inbounds i8, ptr %.pn2628, i64 4
-  %.0 = getelementptr inbounds i8, ptr %.pn2530, i64 1
-  %.019 = getelementptr inbounds i8, ptr %.pn29, i64 1
+  %.021 = getelementptr inbounds nuw i8, ptr %.pn2628, i64 4
+  %.0 = getelementptr inbounds nuw i8, ptr %.pn2530, i64 1
+  %.019 = getelementptr inbounds nuw i8, ptr %.pn29, i64 1
   %16 = load i8, ptr %.019, align 1
   %17 = zext i8 %16 to i32
   %18 = load i8, ptr %.0, align 1
@@ -339,13 +339,13 @@ define internal void @jpeg_difference2(ptr nocapture noundef readonly %0, i32 no
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
-  %22 = getelementptr inbounds i8, ptr %0, i64 280
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %23 = load i32, ptr %22, align 8
   %.not24 = icmp eq i32 %23, 0
   br i1 %.not24, label %41, label %24
 
 24:                                               ; preds = %._crit_edge
-  %25 = getelementptr inbounds i8, ptr %8, i64 104
+  %25 = getelementptr inbounds nuw i8, ptr %8, i64 104
   %26 = sext i32 %1 to i64
   %27 = getelementptr inbounds [10 x i32], ptr %25, i64 0, i64 %26
   %28 = load i32, ptr %27, align 4
@@ -357,13 +357,13 @@ define internal void @jpeg_difference2(ptr nocapture noundef readonly %0, i32 no
 31:                                               ; preds = %24
   %32 = load ptr, ptr %7, align 8
   %33 = load i32, ptr %22, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 360
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %35 = load i32, ptr %34, align 8
   %36 = udiv i32 %33, %35
-  %37 = getelementptr inbounds i8, ptr %32, i64 104
+  %37 = getelementptr inbounds nuw i8, ptr %32, i64 104
   %38 = getelementptr inbounds [10 x i32], ptr %37, i64 0, i64 %26
   store i32 %36, ptr %38, align 4
-  %39 = getelementptr inbounds i8, ptr %32, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %32, i64 24
   %40 = getelementptr inbounds [10 x ptr], ptr %39, i64 0, i64 %26
   store ptr @jpeg_difference_first_row, ptr %40, align 8
   br label %41
@@ -374,7 +374,7 @@ define internal void @jpeg_difference2(ptr nocapture noundef readonly %0, i32 no
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @jpeg_difference3(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef writeonly initializes((0, 4)) %4, i32 noundef %5) #4 {
-  %7 = getelementptr inbounds i8, ptr %0, i64 488
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %8 = load ptr, ptr %7, align 8
   %9 = load i8, ptr %3, align 1
   %10 = zext i8 %9 to i32
@@ -392,9 +392,9 @@ define internal void @jpeg_difference3(ptr nocapture noundef readonly %0, i32 no
   %.01830 = phi i32 [ %17, %.lr.ph ], [ %10, %6 ]
   %.pn29 = phi ptr [ %.019, %.lr.ph ], [ %3, %6 ]
   %.pn2628 = phi ptr [ %.021, %.lr.ph ], [ %4, %6 ]
-  %.021 = getelementptr inbounds i8, ptr %.pn2628, i64 4
-  %.0 = getelementptr inbounds i8, ptr %.pn2531, i64 1
-  %.019 = getelementptr inbounds i8, ptr %.pn29, i64 1
+  %.021 = getelementptr inbounds nuw i8, ptr %.pn2628, i64 4
+  %.0 = getelementptr inbounds nuw i8, ptr %.pn2531, i64 1
+  %.019 = getelementptr inbounds nuw i8, ptr %.pn29, i64 1
   %16 = load i8, ptr %.019, align 1
   %17 = zext i8 %16 to i32
   %18 = load i8, ptr %.0, align 1
@@ -406,13 +406,13 @@ define internal void @jpeg_difference3(ptr nocapture noundef readonly %0, i32 no
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
-  %22 = getelementptr inbounds i8, ptr %0, i64 280
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %23 = load i32, ptr %22, align 8
   %.not24 = icmp eq i32 %23, 0
   br i1 %.not24, label %41, label %24
 
 24:                                               ; preds = %._crit_edge
-  %25 = getelementptr inbounds i8, ptr %8, i64 104
+  %25 = getelementptr inbounds nuw i8, ptr %8, i64 104
   %26 = sext i32 %1 to i64
   %27 = getelementptr inbounds [10 x i32], ptr %25, i64 0, i64 %26
   %28 = load i32, ptr %27, align 4
@@ -424,13 +424,13 @@ define internal void @jpeg_difference3(ptr nocapture noundef readonly %0, i32 no
 31:                                               ; preds = %24
   %32 = load ptr, ptr %7, align 8
   %33 = load i32, ptr %22, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 360
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %35 = load i32, ptr %34, align 8
   %36 = udiv i32 %33, %35
-  %37 = getelementptr inbounds i8, ptr %32, i64 104
+  %37 = getelementptr inbounds nuw i8, ptr %32, i64 104
   %38 = getelementptr inbounds [10 x i32], ptr %37, i64 0, i64 %26
   store i32 %36, ptr %38, align 4
-  %39 = getelementptr inbounds i8, ptr %32, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %32, i64 24
   %40 = getelementptr inbounds [10 x ptr], ptr %39, i64 0, i64 %26
   store ptr @jpeg_difference_first_row, ptr %40, align 8
   br label %41
@@ -441,7 +441,7 @@ define internal void @jpeg_difference3(ptr nocapture noundef readonly %0, i32 no
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @jpeg_difference4(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef writeonly initializes((0, 4)) %4, i32 noundef %5) #4 {
-  %7 = getelementptr inbounds i8, ptr %0, i64 488
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %8 = load ptr, ptr %7, align 8
   %9 = load i8, ptr %3, align 1
   %10 = zext i8 %9 to i32
@@ -460,9 +460,9 @@ define internal void @jpeg_difference4(ptr nocapture noundef readonly %0, i32 no
   %.pn34 = phi ptr [ %.021, %.lr.ph ], [ %3, %6 ]
   %.02233 = phi i32 [ %19, %.lr.ph ], [ %12, %6 ]
   %.pn2832 = phi ptr [ %.023, %.lr.ph ], [ %4, %6 ]
-  %.023 = getelementptr inbounds i8, ptr %.pn2832, i64 4
-  %.0 = getelementptr inbounds i8, ptr %.pn2736, i64 1
-  %.021 = getelementptr inbounds i8, ptr %.pn34, i64 1
+  %.023 = getelementptr inbounds nuw i8, ptr %.pn2832, i64 4
+  %.0 = getelementptr inbounds nuw i8, ptr %.pn2736, i64 1
+  %.021 = getelementptr inbounds nuw i8, ptr %.pn34, i64 1
   %16 = load i8, ptr %.021, align 1
   %17 = zext i8 %16 to i32
   %18 = load i8, ptr %.0, align 1
@@ -476,13 +476,13 @@ define internal void @jpeg_difference4(ptr nocapture noundef readonly %0, i32 no
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
-  %23 = getelementptr inbounds i8, ptr %0, i64 280
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %24 = load i32, ptr %23, align 8
   %.not26 = icmp eq i32 %24, 0
   br i1 %.not26, label %42, label %25
 
 25:                                               ; preds = %._crit_edge
-  %26 = getelementptr inbounds i8, ptr %8, i64 104
+  %26 = getelementptr inbounds nuw i8, ptr %8, i64 104
   %27 = sext i32 %1 to i64
   %28 = getelementptr inbounds [10 x i32], ptr %26, i64 0, i64 %27
   %29 = load i32, ptr %28, align 4
@@ -494,13 +494,13 @@ define internal void @jpeg_difference4(ptr nocapture noundef readonly %0, i32 no
 32:                                               ; preds = %25
   %33 = load ptr, ptr %7, align 8
   %34 = load i32, ptr %23, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 360
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %36 = load i32, ptr %35, align 8
   %37 = udiv i32 %34, %36
-  %38 = getelementptr inbounds i8, ptr %33, i64 104
+  %38 = getelementptr inbounds nuw i8, ptr %33, i64 104
   %39 = getelementptr inbounds [10 x i32], ptr %38, i64 0, i64 %27
   store i32 %37, ptr %39, align 4
-  %40 = getelementptr inbounds i8, ptr %33, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %33, i64 24
   %41 = getelementptr inbounds [10 x ptr], ptr %40, i64 0, i64 %27
   store ptr @jpeg_difference_first_row, ptr %41, align 8
   br label %42
@@ -511,7 +511,7 @@ define internal void @jpeg_difference4(ptr nocapture noundef readonly %0, i32 no
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @jpeg_difference5(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef writeonly initializes((0, 4)) %4, i32 noundef %5) #4 {
-  %7 = getelementptr inbounds i8, ptr %0, i64 488
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %8 = load ptr, ptr %7, align 8
   %9 = load i8, ptr %3, align 1
   %10 = zext i8 %9 to i32
@@ -530,9 +530,9 @@ define internal void @jpeg_difference5(ptr nocapture noundef readonly %0, i32 no
   %.pn33 = phi ptr [ %.021, %.lr.ph ], [ %3, %6 ]
   %.02232 = phi i32 [ %19, %.lr.ph ], [ %12, %6 ]
   %.pn2831 = phi ptr [ %.023, %.lr.ph ], [ %4, %6 ]
-  %.023 = getelementptr inbounds i8, ptr %.pn2831, i64 4
-  %.0 = getelementptr inbounds i8, ptr %.pn2735, i64 1
-  %.021 = getelementptr inbounds i8, ptr %.pn33, i64 1
+  %.023 = getelementptr inbounds nuw i8, ptr %.pn2831, i64 4
+  %.0 = getelementptr inbounds nuw i8, ptr %.pn2735, i64 1
+  %.021 = getelementptr inbounds nuw i8, ptr %.pn33, i64 1
   %16 = load i8, ptr %.021, align 1
   %17 = zext i8 %16 to i32
   %18 = load i8, ptr %.0, align 1
@@ -547,13 +547,13 @@ define internal void @jpeg_difference5(ptr nocapture noundef readonly %0, i32 no
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
-  %25 = getelementptr inbounds i8, ptr %0, i64 280
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %26 = load i32, ptr %25, align 8
   %.not26 = icmp eq i32 %26, 0
   br i1 %.not26, label %44, label %27
 
 27:                                               ; preds = %._crit_edge
-  %28 = getelementptr inbounds i8, ptr %8, i64 104
+  %28 = getelementptr inbounds nuw i8, ptr %8, i64 104
   %29 = sext i32 %1 to i64
   %30 = getelementptr inbounds [10 x i32], ptr %28, i64 0, i64 %29
   %31 = load i32, ptr %30, align 4
@@ -565,13 +565,13 @@ define internal void @jpeg_difference5(ptr nocapture noundef readonly %0, i32 no
 34:                                               ; preds = %27
   %35 = load ptr, ptr %7, align 8
   %36 = load i32, ptr %25, align 8
-  %37 = getelementptr inbounds i8, ptr %0, i64 360
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %38 = load i32, ptr %37, align 8
   %39 = udiv i32 %36, %38
-  %40 = getelementptr inbounds i8, ptr %35, i64 104
+  %40 = getelementptr inbounds nuw i8, ptr %35, i64 104
   %41 = getelementptr inbounds [10 x i32], ptr %40, i64 0, i64 %29
   store i32 %39, ptr %41, align 4
-  %42 = getelementptr inbounds i8, ptr %35, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %43 = getelementptr inbounds [10 x ptr], ptr %42, i64 0, i64 %29
   store ptr @jpeg_difference_first_row, ptr %43, align 8
   br label %44
@@ -582,7 +582,7 @@ define internal void @jpeg_difference5(ptr nocapture noundef readonly %0, i32 no
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @jpeg_difference6(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef writeonly initializes((0, 4)) %4, i32 noundef %5) #4 {
-  %7 = getelementptr inbounds i8, ptr %0, i64 488
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %8 = load ptr, ptr %7, align 8
   %9 = load i8, ptr %3, align 1
   %10 = zext i8 %9 to i32
@@ -601,9 +601,9 @@ define internal void @jpeg_difference6(ptr nocapture noundef readonly %0, i32 no
   %.pn34 = phi ptr [ %.021, %.lr.ph ], [ %3, %6 ]
   %.02233 = phi i32 [ %19, %.lr.ph ], [ %12, %6 ]
   %.pn2832 = phi ptr [ %.023, %.lr.ph ], [ %4, %6 ]
-  %.023 = getelementptr inbounds i8, ptr %.pn2832, i64 4
-  %.0 = getelementptr inbounds i8, ptr %.pn2736, i64 1
-  %.021 = getelementptr inbounds i8, ptr %.pn34, i64 1
+  %.023 = getelementptr inbounds nuw i8, ptr %.pn2832, i64 4
+  %.0 = getelementptr inbounds nuw i8, ptr %.pn2736, i64 1
+  %.021 = getelementptr inbounds nuw i8, ptr %.pn34, i64 1
   %16 = load i8, ptr %.021, align 1
   %17 = zext i8 %16 to i32
   %18 = load i8, ptr %.0, align 1
@@ -618,13 +618,13 @@ define internal void @jpeg_difference6(ptr nocapture noundef readonly %0, i32 no
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
-  %25 = getelementptr inbounds i8, ptr %0, i64 280
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %26 = load i32, ptr %25, align 8
   %.not26 = icmp eq i32 %26, 0
   br i1 %.not26, label %44, label %27
 
 27:                                               ; preds = %._crit_edge
-  %28 = getelementptr inbounds i8, ptr %8, i64 104
+  %28 = getelementptr inbounds nuw i8, ptr %8, i64 104
   %29 = sext i32 %1 to i64
   %30 = getelementptr inbounds [10 x i32], ptr %28, i64 0, i64 %29
   %31 = load i32, ptr %30, align 4
@@ -636,13 +636,13 @@ define internal void @jpeg_difference6(ptr nocapture noundef readonly %0, i32 no
 34:                                               ; preds = %27
   %35 = load ptr, ptr %7, align 8
   %36 = load i32, ptr %25, align 8
-  %37 = getelementptr inbounds i8, ptr %0, i64 360
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %38 = load i32, ptr %37, align 8
   %39 = udiv i32 %36, %38
-  %40 = getelementptr inbounds i8, ptr %35, i64 104
+  %40 = getelementptr inbounds nuw i8, ptr %35, i64 104
   %41 = getelementptr inbounds [10 x i32], ptr %40, i64 0, i64 %29
   store i32 %39, ptr %41, align 4
-  %42 = getelementptr inbounds i8, ptr %35, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %43 = getelementptr inbounds [10 x ptr], ptr %42, i64 0, i64 %29
   store ptr @jpeg_difference_first_row, ptr %43, align 8
   br label %44
@@ -653,7 +653,7 @@ define internal void @jpeg_difference6(ptr nocapture noundef readonly %0, i32 no
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @jpeg_difference7(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef writeonly initializes((0, 4)) %4, i32 noundef %5) #4 {
-  %7 = getelementptr inbounds i8, ptr %0, i64 488
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %8 = load ptr, ptr %7, align 8
   %9 = load i8, ptr %3, align 1
   %10 = zext i8 %9 to i32
@@ -671,9 +671,9 @@ define internal void @jpeg_difference7(ptr nocapture noundef readonly %0, i32 no
   %.pn31 = phi ptr [ %.020, %.lr.ph ], [ %3, %6 ]
   %.02130 = phi i32 [ %18, %.lr.ph ], [ %12, %6 ]
   %.pn2729 = phi ptr [ %.022, %.lr.ph ], [ %4, %6 ]
-  %.022 = getelementptr inbounds i8, ptr %.pn2729, i64 4
-  %.0 = getelementptr inbounds i8, ptr %.pn2632, i64 1
-  %.020 = getelementptr inbounds i8, ptr %.pn31, i64 1
+  %.022 = getelementptr inbounds nuw i8, ptr %.pn2729, i64 4
+  %.0 = getelementptr inbounds nuw i8, ptr %.pn2632, i64 1
+  %.020 = getelementptr inbounds nuw i8, ptr %.pn31, i64 1
   %16 = load i8, ptr %.020, align 1
   %17 = load i8, ptr %.0, align 1
   %18 = zext i8 %17 to i32
@@ -687,13 +687,13 @@ define internal void @jpeg_difference7(ptr nocapture noundef readonly %0, i32 no
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
-  %24 = getelementptr inbounds i8, ptr %0, i64 280
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %25 = load i32, ptr %24, align 8
   %.not25 = icmp eq i32 %25, 0
   br i1 %.not25, label %43, label %26
 
 26:                                               ; preds = %._crit_edge
-  %27 = getelementptr inbounds i8, ptr %8, i64 104
+  %27 = getelementptr inbounds nuw i8, ptr %8, i64 104
   %28 = sext i32 %1 to i64
   %29 = getelementptr inbounds [10 x i32], ptr %27, i64 0, i64 %28
   %30 = load i32, ptr %29, align 4
@@ -705,13 +705,13 @@ define internal void @jpeg_difference7(ptr nocapture noundef readonly %0, i32 no
 33:                                               ; preds = %26
   %34 = load ptr, ptr %7, align 8
   %35 = load i32, ptr %24, align 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 360
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %37 = load i32, ptr %36, align 8
   %38 = udiv i32 %35, %37
-  %39 = getelementptr inbounds i8, ptr %34, i64 104
+  %39 = getelementptr inbounds nuw i8, ptr %34, i64 104
   %40 = getelementptr inbounds [10 x i32], ptr %39, i64 0, i64 %28
   store i32 %38, ptr %40, align 4
-  %41 = getelementptr inbounds i8, ptr %34, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %34, i64 24
   %42 = getelementptr inbounds [10 x ptr], ptr %41, i64 0, i64 %28
   store ptr @jpeg_difference_first_row, ptr %42, align 8
   br label %43

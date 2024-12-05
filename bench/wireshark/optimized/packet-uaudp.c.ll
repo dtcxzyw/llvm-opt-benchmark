@@ -163,14 +163,14 @@ define internal i32 @dissect_uaudp(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %.not, label %addresses_equal.exit30, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %1, i64 208
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 208
   %8 = load i32, ptr %7, align 8
   %9 = load i32, ptr @cs_address.0, align 8
   %10 = icmp eq i32 %8, %9
   br i1 %10, label %11, label %addresses_equal.exit
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %1, i64 212
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 212
   %13 = load i32, ptr %12, align 4
   %14 = load i32, ptr @cs_address.1, align 4
   %15 = icmp eq i32 %13, %14
@@ -181,7 +181,7 @@ define internal i32 @dissect_uaudp(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %17, label %49, label %18
 
 18:                                               ; preds = %16
-  %19 = getelementptr inbounds i8, ptr %1, i64 216
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 216
   %20 = load ptr, ptr %19, align 8
   %21 = load ptr, ptr @cs_address.2, align 8
   %22 = sext i32 %13 to i64
@@ -190,13 +190,13 @@ define internal i32 @dissect_uaudp(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %23, label %49, label %addresses_equal.exit
 
 addresses_equal.exit:                             ; preds = %18, %11, %6
-  %24 = getelementptr inbounds i8, ptr %1, i64 232
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %25 = load i32, ptr %24, align 8
   %26 = icmp eq i32 %25, %9
   br i1 %26, label %27, label %addresses_equal.exit30
 
 27:                                               ; preds = %addresses_equal.exit
-  %28 = getelementptr inbounds i8, ptr %1, i64 236
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 236
   %29 = load i32, ptr %28, align 4
   %30 = load i32, ptr @cs_address.1, align 4
   %31 = icmp eq i32 %29, %30
@@ -207,7 +207,7 @@ addresses_equal.exit:                             ; preds = %18, %11, %6
   br i1 %33, label %49, label %34
 
 34:                                               ; preds = %32
-  %35 = getelementptr inbounds i8, ptr %1, i64 240
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 240
   %36 = load ptr, ptr %35, align 8
   %37 = load ptr, ptr @cs_address.2, align 8
   %38 = sext i32 %29 to i64
@@ -217,7 +217,7 @@ addresses_equal.exit:                             ; preds = %18, %11, %6
 
 addresses_equal.exit30:                           ; preds = %34, %27, %addresses_equal.exit, %4
   %40 = load ptr, ptr @ua_udp_range, align 8
-  %41 = getelementptr inbounds i8, ptr %1, i64 284
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %42 = load i32, ptr %41, align 4
   %43 = tail call i32 @value_is_in_range(ptr noundef %40, i32 noundef %42) #3
   %.not26 = icmp eq i32 %43, 0
@@ -225,7 +225,7 @@ addresses_equal.exit30:                           ; preds = %34, %27, %addresses
 
 44:                                               ; preds = %addresses_equal.exit30
   %45 = load ptr, ptr @ua_udp_range, align 8
-  %46 = getelementptr inbounds i8, ptr %1, i64 288
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %47 = load i32, ptr %46, align 8
   %48 = tail call i32 @value_is_in_range(ptr noundef %45, i32 noundef %47) #3
   %.not27 = icmp eq i32 %48, 0
@@ -355,7 +355,7 @@ declare void @dissector_add_uint_range_with_preference(ptr noundef, ptr noundef,
 define internal fastcc void @_dissect_uaudp(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 3) %3) unnamed_addr #1 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void @col_set_str(ptr noundef %8, i32 noundef 34, ptr noundef nonnull @.str.52) #3
   %9 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #3

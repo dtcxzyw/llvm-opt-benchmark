@@ -40,22 +40,22 @@ $_ZTI16btSoftBodySolver = comdat any
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN23btDefaultSoftBodySolverC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((0, 21), (28, 36), (40, 49)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  %m_numberOfPositionIterations.i = getelementptr inbounds i8, ptr %this, i64 8
-  %m_timeScale.i = getelementptr inbounds i8, ptr %this, i64 16
+  %m_numberOfPositionIterations.i = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %m_timeScale.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store float 1.000000e+00, ptr %m_timeScale.i, align 8
-  %m_numberOfVelocityIterations.i = getelementptr inbounds i8, ptr %this, i64 12
+  %m_numberOfVelocityIterations.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   store i32 0, ptr %m_numberOfVelocityIterations.i, align 4
   store i32 5, ptr %m_numberOfPositionIterations.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV23btDefaultSoftBodySolver, i64 16), ptr %this, align 8
-  %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %m_ownsMemory.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   store i8 1, ptr %m_ownsMemory.i.i, align 8
-  %m_data.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %m_data.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr null, ptr %m_data.i.i, align 8
-  %m_size.i.i = getelementptr inbounds i8, ptr %this, i64 28
+  %m_size.i.i = getelementptr inbounds nuw i8, ptr %this, i64 28
   store i32 0, ptr %m_size.i.i, align 4
-  %m_capacity.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %m_capacity.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   store i32 0, ptr %m_capacity.i.i, align 8
-  %m_updateSolverConstants = getelementptr inbounds i8, ptr %this, i64 20
+  %m_updateSolverConstants = getelementptr inbounds nuw i8, ptr %this, i64 20
   store i8 1, ptr %m_updateSolverConstants, align 4
   ret void
 }
@@ -66,13 +66,13 @@ declare i32 @__gxx_personality_v0(...)
 define dso_local void @_ZN23btDefaultSoftBodySolverD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV23btDefaultSoftBodySolver, i64 16), ptr %this, align 8
-  %m_data.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %m_data.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %m_data.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_ZN20btAlignedObjectArrayIP10btSoftBodyED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %m_ownsMemory.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %m_ownsMemory.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %1 = load i8, ptr %m_ownsMemory.i.i.i, align 8
   %tobool2.i.i.i = trunc i8 %1 to i1
   br i1 %tobool2.i.i.i, label %if.then3.i.i.i, label %_ZN20btAlignedObjectArrayIP10btSoftBodyED2Ev.exit
@@ -89,12 +89,12 @@ terminate.lpad.i:                                 ; preds = %if.then3.i.i.i
   unreachable
 
 _ZN20btAlignedObjectArrayIP10btSoftBodyED2Ev.exit: ; preds = %entry, %if.then.i.i.i, %if.then3.i.i.i
-  %m_size.i.i.i = getelementptr inbounds i8, ptr %this, i64 28
-  %m_ownsMemory.i1.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %m_size.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 28
+  %m_ownsMemory.i1.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   store i8 1, ptr %m_ownsMemory.i1.i.i, align 8
   store ptr null, ptr %m_data.i.i.i, align 8
   store i32 0, ptr %m_size.i.i.i, align 4
-  %m_capacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %m_capacity.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   store i32 0, ptr %m_capacity.i.i.i, align 8
   ret void
 }
@@ -103,13 +103,13 @@ _ZN20btAlignedObjectArrayIP10btSoftBodyED2Ev.exit: ; preds = %entry, %if.then.i.
 define dso_local void @_ZN23btDefaultSoftBodySolverD0Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV23btDefaultSoftBodySolver, i64 16), ptr %this, align 8
-  %m_data.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %m_data.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %m_data.i.i.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i.i, label %_ZN23btDefaultSoftBodySolverD2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %m_ownsMemory.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %m_ownsMemory.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %1 = load i8, ptr %m_ownsMemory.i.i.i.i, align 8
   %tobool2.i.i.i.i = trunc i8 %1 to i1
   br i1 %tobool2.i.i.i.i, label %if.then3.i.i.i.i, label %_ZN23btDefaultSoftBodySolverD2Ev.exit
@@ -142,15 +142,15 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN23btDefaultSoftBodySolver8optimizeER20btAlignedObjectArrayIP10btSoftBodyEb(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %softBodies, i1 zeroext %forceUpdate) unnamed_addr #4 align 2 {
 entry:
-  %m_size.i.i = getelementptr inbounds i8, ptr %softBodies, i64 4
+  %m_size.i.i = getelementptr inbounds nuw i8, ptr %softBodies, i64 4
   %0 = load i32, ptr %m_size.i.i, align 4
-  %m_size.i.i.i = getelementptr inbounds i8, ptr %this, i64 28
+  %m_size.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 28
   %1 = load i32, ptr %m_size.i.i.i, align 4
   %cmp3.i.i = icmp sgt i32 %0, %1
   br i1 %cmp3.i.i, label %if.then4.i.i, label %_ZN20btAlignedObjectArrayIP10btSoftBodyE6resizeEiRKS1_.exit.i
 
 if.then4.i.i:                                     ; preds = %entry
-  %m_capacity.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %m_capacity.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %2 = load i32, ptr %m_capacity.i.i.i.i, align 8
   %cmp.i.i.i = icmp slt i32 %2, %0
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %for.body8.lr.ph.i.i
@@ -173,15 +173,15 @@ _ZN20btAlignedObjectArrayIP10btSoftBodyE8allocateEi.exit.i.i.i: ; preds = %if.th
   br i1 %cmp4.i.i.i.i, label %for.body.lr.ph.i.i.i.i, label %_ZNK20btAlignedObjectArrayIP10btSoftBodyE4copyEiiPS1_.exit.i.i.i
 
 for.body.lr.ph.i.i.i.i:                           ; preds = %_ZN20btAlignedObjectArrayIP10btSoftBodyE8allocateEi.exit.i.i.i
-  %m_data.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %m_data.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %wide.trip.count.i.i.i.i = zext nneg i32 %3 to i64
   br label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %for.body.lr.ph.i.i.i.i
   %indvars.iv.i.i.i.i = phi i64 [ 0, %for.body.lr.ph.i.i.i.i ], [ %indvars.iv.next.i.i.i.i, %for.body.i.i.i.i ]
-  %arrayidx.i.i.i.i = getelementptr inbounds ptr, ptr %retval.0.i.i.i.i, i64 %indvars.iv.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw ptr, ptr %retval.0.i.i.i.i, i64 %indvars.iv.i.i.i.i
   %4 = load ptr, ptr %m_data.i.i.i.i, align 8
-  %arrayidx3.i.i.i.i = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv.i.i.i.i
+  %arrayidx3.i.i.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv.i.i.i.i
   %5 = load ptr, ptr %arrayidx3.i.i.i.i, align 8
   store ptr %5, ptr %arrayidx.i.i.i.i, align 8
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
@@ -189,13 +189,13 @@ for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %
   br i1 %exitcond.not.i.i.i.i, label %_ZNK20btAlignedObjectArrayIP10btSoftBodyE4copyEiiPS1_.exit.i.i.i, label %for.body.i.i.i.i, !llvm.loop !5
 
 _ZNK20btAlignedObjectArrayIP10btSoftBodyE4copyEiiPS1_.exit.i.i.i: ; preds = %for.body.i.i.i.i, %_ZN20btAlignedObjectArrayIP10btSoftBodyE8allocateEi.exit.i.i.i
-  %m_data.i5.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %m_data.i5.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %6 = load ptr, ptr %m_data.i5.i.i.i, align 8
   %tobool.not.i6.i.i.i = icmp eq ptr %6, null
   br i1 %tobool.not.i6.i.i.i, label %if.end.i.i, label %if.then.i7.i.i.i
 
 if.then.i7.i.i.i:                                 ; preds = %_ZNK20btAlignedObjectArrayIP10btSoftBodyE4copyEiiPS1_.exit.i.i.i
-  %m_ownsMemory.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %m_ownsMemory.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %7 = load i8, ptr %m_ownsMemory.i.i.i.i, align 8
   %tobool2.i.i.i.i = trunc i8 %7 to i1
   br i1 %tobool2.i.i.i.i, label %if.then3.i.i.i.i, label %if.end.i.i
@@ -205,14 +205,14 @@ if.then3.i.i.i.i:                                 ; preds = %if.then.i7.i.i.i
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then3.i.i.i.i, %if.then.i7.i.i.i, %_ZNK20btAlignedObjectArrayIP10btSoftBodyE4copyEiiPS1_.exit.i.i.i
-  %m_ownsMemory.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %m_ownsMemory.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   store i8 1, ptr %m_ownsMemory.i.i.i, align 8
   store ptr %retval.0.i.i.i.i, ptr %m_data.i5.i.i.i, align 8
   store i32 %0, ptr %m_capacity.i.i.i.i, align 8
   br label %for.body8.lr.ph.i.i
 
 for.body8.lr.ph.i.i:                              ; preds = %if.end.i.i, %if.then4.i.i
-  %m_data9.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %m_data9.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %8 = sext i32 %1 to i64
   %wide.trip.count.i.i = sext i32 %0 to i64
   br label %for.body8.i.i
@@ -228,21 +228,21 @@ for.body8.i.i:                                    ; preds = %for.body8.i.i, %for
 
 _ZN20btAlignedObjectArrayIP10btSoftBodyE6resizeEiRKS1_.exit.i: ; preds = %for.body8.i.i, %entry
   store i32 %0, ptr %m_size.i.i.i, align 4
-  %m_data.i = getelementptr inbounds i8, ptr %this, i64 40
+  %m_data.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %10 = load ptr, ptr %m_data.i, align 8
   %cmp4.i.i = icmp sgt i32 %0, 0
   br i1 %cmp4.i.i, label %for.body.lr.ph.i.i, label %_ZN20btAlignedObjectArrayIP10btSoftBodyE13copyFromArrayERKS2_.exit
 
 for.body.lr.ph.i.i:                               ; preds = %_ZN20btAlignedObjectArrayIP10btSoftBodyE6resizeEiRKS1_.exit.i
-  %m_data.i.i = getelementptr inbounds i8, ptr %softBodies, i64 16
+  %m_data.i.i = getelementptr inbounds nuw i8, ptr %softBodies, i64 16
   %wide.trip.count.i3.i = zext nneg i32 %0 to i64
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.lr.ph.i.i
   %indvars.iv.i4.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %indvars.iv.next.i5.i, %for.body.i.i ]
-  %arrayidx.i.i = getelementptr inbounds ptr, ptr %10, i64 %indvars.iv.i4.i
+  %arrayidx.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv.i4.i
   %11 = load ptr, ptr %m_data.i.i, align 8
-  %arrayidx3.i.i = getelementptr inbounds ptr, ptr %11, i64 %indvars.iv.i4.i
+  %arrayidx3.i.i = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv.i4.i
   %12 = load ptr, ptr %arrayidx3.i.i, align 8
   store ptr %12, ptr %arrayidx.i.i, align 8
   %indvars.iv.next.i5.i = add nuw nsw i64 %indvars.iv.i4.i, 1
@@ -256,22 +256,22 @@ _ZN20btAlignedObjectArrayIP10btSoftBodyE13copyFromArrayERKS2_.exit: ; preds = %f
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN23btDefaultSoftBodySolver16updateSoftBodiesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this) unnamed_addr #4 align 2 {
 entry:
-  %m_size.i = getelementptr inbounds i8, ptr %this, i64 28
+  %m_size.i = getelementptr inbounds nuw i8, ptr %this, i64 28
   %0 = load i32, ptr %m_size.i, align 4
   %cmp4 = icmp sgt i32 %0, 0
   br i1 %cmp4, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %m_data.i = getelementptr inbounds i8, ptr %this, i64 40
+  %m_data.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %1 = phi i32 [ %0, %for.body.lr.ph ], [ %5, %for.inc ]
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %2 = load ptr, ptr %m_data.i, align 8
-  %arrayidx.i = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
   %3 = load ptr, ptr %arrayidx.i, align 8
-  %m_activationState1.i.i = getelementptr inbounds i8, ptr %3, i64 240
+  %m_activationState1.i.i = getelementptr inbounds nuw i8, ptr %3, i64 240
   %4 = load i32, ptr %m_activationState1.i.i, align 8
   switch i32 %4, label %if.then [
     i32 6, label %for.inc
@@ -306,22 +306,22 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN23btDefaultSoftBodySolver16solveConstraintsEf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, float %solverdt) unnamed_addr #4 align 2 {
 entry:
-  %m_size.i = getelementptr inbounds i8, ptr %this, i64 28
+  %m_size.i = getelementptr inbounds nuw i8, ptr %this, i64 28
   %0 = load i32, ptr %m_size.i, align 4
   %cmp4 = icmp sgt i32 %0, 0
   br i1 %cmp4, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %m_data.i = getelementptr inbounds i8, ptr %this, i64 40
+  %m_data.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %1 = phi i32 [ %0, %for.body.lr.ph ], [ %5, %for.inc ]
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %2 = load ptr, ptr %m_data.i, align 8
-  %arrayidx.i = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
   %3 = load ptr, ptr %arrayidx.i, align 8
-  %m_activationState1.i.i = getelementptr inbounds i8, ptr %3, i64 240
+  %m_activationState1.i.i = getelementptr inbounds nuw i8, ptr %3, i64 240
   %4 = load i32, ptr %m_activationState1.i.i, align 8
   switch i32 %4, label %if.then [
     i32 6, label %for.inc
@@ -351,32 +351,32 @@ declare void @_ZN10btSoftBody16solveConstraintsEv(ptr noundef nonnull align 8 de
 define dso_local void @_ZN23btDefaultSoftBodySolver26copySoftBodyToVertexBufferEPK10btSoftBodyP24btVertexBufferDescriptor(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %softBody, ptr noundef %vertexBuffer) unnamed_addr #4 align 2 {
 entry:
   %vtable = load ptr, ptr %vertexBuffer, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 32
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(28) %vertexBuffer)
   %cmp = icmp eq i32 %call, 0
   br i1 %cmp, label %if.then, label %if.end55
 
 if.then:                                          ; preds = %entry
-  %m_size.i = getelementptr inbounds i8, ptr %softBody, i64 932
+  %m_size.i = getelementptr inbounds nuw i8, ptr %softBody, i64 932
   %1 = load i32, ptr %m_size.i, align 4
   %vtable3 = load ptr, ptr %vertexBuffer, align 8
-  %vfn4 = getelementptr inbounds i8, ptr %vtable3, i64 72
+  %vfn4 = getelementptr inbounds nuw i8, ptr %vtable3, i64 72
   %2 = load ptr, ptr %vfn4, align 8
   %call5 = tail call noundef ptr %2(ptr noundef nonnull align 8 dereferenceable(40) %vertexBuffer)
   %vtable6 = load ptr, ptr %vertexBuffer, align 8
-  %vfn7 = getelementptr inbounds i8, ptr %vtable6, i64 16
+  %vfn7 = getelementptr inbounds nuw i8, ptr %vtable6, i64 16
   %3 = load ptr, ptr %vfn7, align 8
   %call8 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(28) %vertexBuffer)
   br i1 %call8, label %if.then9, label %if.end
 
 if.then9:                                         ; preds = %if.then
   %vtable10 = load ptr, ptr %vertexBuffer, align 8
-  %vfn11 = getelementptr inbounds i8, ptr %vtable10, i64 40
+  %vfn11 = getelementptr inbounds nuw i8, ptr %vtable10, i64 40
   %4 = load ptr, ptr %vfn11, align 8
   %call12 = tail call noundef i32 %4(ptr noundef nonnull align 8 dereferenceable(28) %vertexBuffer)
   %vtable13 = load ptr, ptr %vertexBuffer, align 8
-  %vfn14 = getelementptr inbounds i8, ptr %vtable13, i64 48
+  %vfn14 = getelementptr inbounds nuw i8, ptr %vtable13, i64 48
   %5 = load ptr, ptr %vfn14, align 8
   %call15 = tail call noundef i32 %5(ptr noundef nonnull align 8 dereferenceable(28) %vertexBuffer)
   %cmp1629 = icmp sgt i32 %1, 0
@@ -385,7 +385,7 @@ if.then9:                                         ; preds = %if.then
 for.body.lr.ph:                                   ; preds = %if.then9
   %idx.ext = sext i32 %call12 to i64
   %add.ptr = getelementptr inbounds float, ptr %call5, i64 %idx.ext
-  %m_data.i = getelementptr inbounds i8, ptr %softBody, i64 944
+  %m_data.i = getelementptr inbounds nuw i8, ptr %softBody, i64 944
   %idx.ext24 = sext i32 %call15 to i64
   %wide.trip.count = zext nneg i32 %1 to i64
   br label %for.body
@@ -394,16 +394,16 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
   %vertexPointer.031 = phi ptr [ %add.ptr, %for.body.lr.ph ], [ %add.ptr25, %for.body ]
   %6 = load ptr, ptr %m_data.i, align 8
-  %m_x = getelementptr inbounds %"struct.btSoftBody::Node", ptr %6, i64 %indvars.iv, i32 1
+  %m_x = getelementptr inbounds nuw %"struct.btSoftBody::Node", ptr %6, i64 %indvars.iv, i32 1
   %position.sroa.0.0.copyload = load float, ptr %m_x, align 8
-  %position.sroa.2.0.m_x.sroa_idx = getelementptr inbounds i8, ptr %m_x, i64 4
+  %position.sroa.2.0.m_x.sroa_idx = getelementptr inbounds nuw i8, ptr %m_x, i64 4
   %position.sroa.2.0.copyload = load float, ptr %position.sroa.2.0.m_x.sroa_idx, align 4
-  %position.sroa.3.0.m_x.sroa_idx = getelementptr inbounds i8, ptr %m_x, i64 8
+  %position.sroa.3.0.m_x.sroa_idx = getelementptr inbounds nuw i8, ptr %m_x, i64 8
   %position.sroa.3.0.copyload = load float, ptr %position.sroa.3.0.m_x.sroa_idx, align 8
   store float %position.sroa.0.0.copyload, ptr %vertexPointer.031, align 4
-  %add.ptr21 = getelementptr inbounds i8, ptr %vertexPointer.031, i64 4
+  %add.ptr21 = getelementptr inbounds nuw i8, ptr %vertexPointer.031, i64 4
   store float %position.sroa.2.0.copyload, ptr %add.ptr21, align 4
-  %add.ptr23 = getelementptr inbounds i8, ptr %vertexPointer.031, i64 8
+  %add.ptr23 = getelementptr inbounds nuw i8, ptr %vertexPointer.031, i64 8
   store float %position.sroa.3.0.copyload, ptr %add.ptr23, align 4
   %add.ptr25 = getelementptr inbounds float, ptr %vertexPointer.031, i64 %idx.ext24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -412,18 +412,18 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 if.end:                                           ; preds = %for.body, %if.then9, %if.then
   %vtable26 = load ptr, ptr %vertexBuffer, align 8
-  %vfn27 = getelementptr inbounds i8, ptr %vtable26, i64 24
+  %vfn27 = getelementptr inbounds nuw i8, ptr %vtable26, i64 24
   %7 = load ptr, ptr %vfn27, align 8
   %call28 = tail call noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(28) %vertexBuffer)
   br i1 %call28, label %if.then29, label %if.end55
 
 if.then29:                                        ; preds = %if.end
   %vtable30 = load ptr, ptr %vertexBuffer, align 8
-  %vfn31 = getelementptr inbounds i8, ptr %vtable30, i64 56
+  %vfn31 = getelementptr inbounds nuw i8, ptr %vtable30, i64 56
   %8 = load ptr, ptr %vfn31, align 8
   %call32 = tail call noundef i32 %8(ptr noundef nonnull align 8 dereferenceable(28) %vertexBuffer)
   %vtable33 = load ptr, ptr %vertexBuffer, align 8
-  %vfn34 = getelementptr inbounds i8, ptr %vtable33, i64 64
+  %vfn34 = getelementptr inbounds nuw i8, ptr %vtable33, i64 64
   %9 = load ptr, ptr %vfn34, align 8
   %call35 = tail call noundef i32 %9(ptr noundef nonnull align 8 dereferenceable(28) %vertexBuffer)
   %cmp4032 = icmp sgt i32 %1, 0
@@ -432,7 +432,7 @@ if.then29:                                        ; preds = %if.end
 for.body41.lr.ph:                                 ; preds = %if.then29
   %idx.ext36 = sext i32 %call32 to i64
   %add.ptr37 = getelementptr inbounds float, ptr %call5, i64 %idx.ext36
-  %m_data.i24 = getelementptr inbounds i8, ptr %softBody, i64 944
+  %m_data.i24 = getelementptr inbounds nuw i8, ptr %softBody, i64 944
   %idx.ext49 = sext i32 %call35 to i64
   %wide.trip.count39 = zext nneg i32 %1 to i64
   br label %for.body41
@@ -441,16 +441,16 @@ for.body41:                                       ; preds = %for.body41.lr.ph, %
   %indvars.iv36 = phi i64 [ 0, %for.body41.lr.ph ], [ %indvars.iv.next37, %for.body41 ]
   %normalPointer.033 = phi ptr [ %add.ptr37, %for.body41.lr.ph ], [ %add.ptr50, %for.body41 ]
   %10 = load ptr, ptr %m_data.i24, align 8
-  %m_n = getelementptr inbounds %"struct.btSoftBody::Node", ptr %10, i64 %indvars.iv36, i32 6
+  %m_n = getelementptr inbounds nuw %"struct.btSoftBody::Node", ptr %10, i64 %indvars.iv36, i32 6
   %normal.sroa.0.0.copyload = load float, ptr %m_n, align 8
-  %normal.sroa.2.0.m_n.sroa_idx = getelementptr inbounds i8, ptr %m_n, i64 4
+  %normal.sroa.2.0.m_n.sroa_idx = getelementptr inbounds nuw i8, ptr %m_n, i64 4
   %normal.sroa.2.0.copyload = load float, ptr %normal.sroa.2.0.m_n.sroa_idx, align 4
-  %normal.sroa.3.0.m_n.sroa_idx = getelementptr inbounds i8, ptr %m_n, i64 8
+  %normal.sroa.3.0.m_n.sroa_idx = getelementptr inbounds nuw i8, ptr %m_n, i64 8
   %normal.sroa.3.0.copyload = load float, ptr %normal.sroa.3.0.m_n.sroa_idx, align 8
   store float %normal.sroa.0.0.copyload, ptr %normalPointer.033, align 4
-  %add.ptr46 = getelementptr inbounds i8, ptr %normalPointer.033, i64 4
+  %add.ptr46 = getelementptr inbounds nuw i8, ptr %normalPointer.033, i64 4
   store float %normal.sroa.2.0.copyload, ptr %add.ptr46, align 4
-  %add.ptr48 = getelementptr inbounds i8, ptr %normalPointer.033, i64 8
+  %add.ptr48 = getelementptr inbounds nuw i8, ptr %normalPointer.033, i64 8
   store float %normal.sroa.3.0.copyload, ptr %add.ptr48, align 4
   %add.ptr50 = getelementptr inbounds float, ptr %normalPointer.033, i64 %idx.ext49
   %indvars.iv.next37 = add nuw nsw i64 %indvars.iv36, 1
@@ -482,22 +482,22 @@ declare void @_ZN10btSoftBody23defaultCollisionHandlerEPK24btCollisionObjectWrap
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN23btDefaultSoftBodySolver13predictMotionEf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, float noundef %timeStep) unnamed_addr #4 align 2 {
 entry:
-  %m_size.i = getelementptr inbounds i8, ptr %this, i64 28
+  %m_size.i = getelementptr inbounds nuw i8, ptr %this, i64 28
   %0 = load i32, ptr %m_size.i, align 4
   %cmp4 = icmp sgt i32 %0, 0
   br i1 %cmp4, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %m_data.i = getelementptr inbounds i8, ptr %this, i64 40
+  %m_data.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %1 = phi i32 [ %0, %for.body.lr.ph ], [ %5, %for.inc ]
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %2 = load ptr, ptr %m_data.i, align 8
-  %arrayidx.i = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
   %3 = load ptr, ptr %arrayidx.i, align 8
-  %m_activationState1.i.i = getelementptr inbounds i8, ptr %3, i64 240
+  %m_activationState1.i.i = getelementptr inbounds nuw i8, ptr %3, i64 240
   %4 = load i32, ptr %m_activationState1.i.i, align 8
   switch i32 %4, label %if.then [
     i32 6, label %for.inc
@@ -532,7 +532,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN16btSoftBodySolver29setNumberOfPositionIterationsEi(ptr noundef nonnull align 8 dereferenceable(20) %this, i32 noundef %iterations) unnamed_addr #1 comdat align 2 {
 entry:
-  %m_numberOfPositionIterations = getelementptr inbounds i8, ptr %this, i64 8
+  %m_numberOfPositionIterations = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %iterations, ptr %m_numberOfPositionIterations, align 8
   ret void
 }
@@ -540,7 +540,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i32 @_ZN16btSoftBodySolver29getNumberOfPositionIterationsEv(ptr noundef nonnull align 8 dereferenceable(20) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  %m_numberOfPositionIterations = getelementptr inbounds i8, ptr %this, i64 8
+  %m_numberOfPositionIterations = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %m_numberOfPositionIterations, align 8
   ret i32 %0
 }
@@ -548,7 +548,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN16btSoftBodySolver29setNumberOfVelocityIterationsEi(ptr noundef nonnull align 8 dereferenceable(20) %this, i32 noundef %iterations) unnamed_addr #1 comdat align 2 {
 entry:
-  %m_numberOfVelocityIterations = getelementptr inbounds i8, ptr %this, i64 12
+  %m_numberOfVelocityIterations = getelementptr inbounds nuw i8, ptr %this, i64 12
   store i32 %iterations, ptr %m_numberOfVelocityIterations, align 4
   ret void
 }
@@ -556,7 +556,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i32 @_ZN16btSoftBodySolver29getNumberOfVelocityIterationsEv(ptr noundef nonnull align 8 dereferenceable(20) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  %m_numberOfVelocityIterations = getelementptr inbounds i8, ptr %this, i64 12
+  %m_numberOfVelocityIterations = getelementptr inbounds nuw i8, ptr %this, i64 12
   %0 = load i32, ptr %m_numberOfVelocityIterations, align 4
   ret i32 %0
 }

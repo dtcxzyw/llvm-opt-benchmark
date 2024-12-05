@@ -19,13 +19,13 @@ define dso_local void @arch_stack_walk(ptr nocapture noundef readonly %0, ptr no
   br i1 %6, label %15, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %3, i64 128
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 128
   %9 = load i64, ptr %8, align 8
   %10 = tail call zeroext i1 %0(ptr noundef %1, i64 noundef %9) #7
   br i1 %10, label %11, label %.loopexit
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %3, i64 152
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %13 = load i64, ptr %12, align 8
   %14 = inttoptr i64 %13 to ptr
   br label %25
@@ -41,7 +41,7 @@ define dso_local void @arch_stack_walk(ptr nocapture noundef readonly %0, ptr no
   br label %25
 
 21:                                               ; preds = %15
-  %22 = getelementptr inbounds i8, ptr %2, i64 2840
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 2840
   %23 = load i64, ptr %22, align 8
   %24 = inttoptr i64 %23 to ptr
   br label %25
@@ -103,7 +103,7 @@ define dso_local noundef range(i32 -22, 1) i32 @arch_stack_walk_reliable(ptr noc
   br label %14
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %2, i64 2840
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 2840
   %12 = load i64, ptr %11, align 8
   %13 = inttoptr i64 %12 to ptr
   br label %14
@@ -112,7 +112,7 @@ define dso_local noundef range(i32 -22, 1) i32 @arch_stack_walk_reliable(ptr noc
   %15 = phi ptr [ %9, %8 ], [ %13, %10 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %4, i8 0, i64 112, i1 false), !annotation !7
   call void @__unwind_start(ptr noundef nonnull %4, ptr noundef %2, ptr noundef null, ptr noundef %15) #7
-  %16 = getelementptr inbounds i8, ptr %4, i64 64
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %17 = load i32, ptr %4, align 8
   %18 = icmp eq i32 %17, 0
   %19 = load i8, ptr %16, align 8, !range !11
@@ -121,7 +121,7 @@ define dso_local noundef range(i32 -22, 1) i32 @arch_stack_walk_reliable(ptr noc
   br i1 %21, label %.loopexit3, label %22
 
 22:                                               ; preds = %14
-  %23 = getelementptr inbounds i8, ptr %4, i64 96
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 96
   br label %24
 
 24:                                               ; preds = %37, %22
@@ -130,7 +130,7 @@ define dso_local noundef range(i32 -22, 1) i32 @arch_stack_walk_reliable(ptr noc
   br i1 %26, label %32, label %27
 
 27:                                               ; preds = %24
-  %28 = getelementptr inbounds i8, ptr %25, i64 136
+  %28 = getelementptr inbounds nuw i8, ptr %25, i64 136
   %29 = load i64, ptr %28, align 8
   %30 = and i64 %29, 3
   %31 = icmp eq i64 %30, 0
@@ -168,15 +168,15 @@ define dso_local noundef range(i32 -22, 1) i32 @arch_stack_walk_reliable(ptr noc
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @arch_stack_walk_user(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %5 = load i64, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 128
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 128
   %7 = load i64, ptr %6, align 8
   %8 = tail call zeroext i1 %0(ptr noundef %1, i64 noundef %7) #7
   br i1 %8, label %9, label %.thread2
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %2, i64 152
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 152
   br label %11
 
 11:                                               ; preds = %48, %9
@@ -188,7 +188,7 @@ define dso_local void @arch_stack_walk_user(ptr nocapture noundef readonly %0, p
 14:                                               ; preds = %11
   %15 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #8, !srcloc !6
   %16 = inttoptr i64 %15 to ptr
-  %17 = getelementptr inbounds i8, ptr %16, i64 2628
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 2628
   %18 = load i32, ptr %17, align 4
   %19 = add i32 %18, 1
   store i32 %19, ptr %17, align 4
@@ -206,8 +206,8 @@ define dso_local void @arch_stack_walk_user(ptr nocapture noundef readonly %0, p
 
 28:                                               ; preds = %14
   %29 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %30 = getelementptr inbounds i8, ptr %12, i64 8
-  %31 = tail call { ptr, i64, i64 } asm sideeffect "call __get_user_nocheck_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr %30, i64 8, i64 %29) #7, !srcloc !15
+  %30 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %31 = tail call { ptr, i64, i64 } asm sideeffect "call __get_user_nocheck_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %30, i64 8, i64 %29) #7, !srcloc !15
   %32 = extractvalue { ptr, i64, i64 } %31, 0
   %33 = extractvalue { ptr, i64, i64 } %31, 1
   %34 = extractvalue { ptr, i64, i64 } %31, 2

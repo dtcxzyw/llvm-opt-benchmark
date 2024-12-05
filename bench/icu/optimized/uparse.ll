@@ -23,7 +23,7 @@ while.cond:                                       ; preds = %while.body, %entry
   ]
 
 while.body:                                       ; preds = %while.cond, %while.cond, %while.cond, %while.cond
-  %incdec.ptr = getelementptr inbounds i8, ptr %s.addr.0, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %s.addr.0, i64 1
   br label %while.cond, !llvm.loop !4
 
 while.end:                                        ; preds = %while.cond
@@ -94,7 +94,7 @@ lor.lhs.false7:                                   ; preds = %if.end5
   ]
 
 land.lhs.true:                                    ; preds = %lor.lhs.false7
-  %arrayidx = getelementptr inbounds i8, ptr %filename, i64 1
+  %arrayidx = getelementptr inbounds nuw i8, ptr %filename, i64 1
   %2 = load i8, ptr %arrayidx, align 1
   %cmp13 = icmp eq i8 %2, 0
   br i1 %cmp13, label %if.then14, label %if.else
@@ -133,7 +133,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   br i1 %cmp8.i, label %land.rhs.i.preheader, label %while.cond.i.i.preheader
 
 land.rhs.i.preheader:                             ; preds = %while.body
-  %strchr.i = getelementptr inbounds i8, ptr %line, i64 %strlen.i
+  %strchr.i = getelementptr inbounds nuw i8, ptr %line, i64 %strlen.i
   br label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %land.rhs.i.preheader, %while.body.i
@@ -167,12 +167,12 @@ while.cond.i.i:                                   ; preds = %while.cond.i.i.preh
   ]
 
 while.body.i.i:                                   ; preds = %while.cond.i.i, %while.cond.i.i, %while.cond.i.i, %while.cond.i.i
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %s.addr.0.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %s.addr.0.i.i, i64 1
   br label %while.cond.i.i, !llvm.loop !4
 
 while.cond.i6.i:                                  ; preds = %while.cond.i.i, %while.cond.i6.i.backedge
   %s.addr.0.i.pn.i = phi ptr [ %s.addr.0.i7.i, %while.cond.i6.i.backedge ], [ %s.addr.0.i.i, %while.cond.i.i ]
-  %s.addr.0.i7.i = getelementptr inbounds i8, ptr %s.addr.0.i.pn.i, i64 1
+  %s.addr.0.i7.i = getelementptr inbounds nuw i8, ptr %s.addr.0.i.pn.i, i64 1
   %6 = load i8, ptr %s.addr.0.i7.i, align 1
   switch i8 %6, label %_ZL15getMissingLimitPKc.exit [
     i8 32, label %while.cond.i6.i.backedge
@@ -186,7 +186,7 @@ while.cond.i6.i.backedge:                         ; preds = %while.cond.i6.i, %w
   br label %while.cond.i6.i, !llvm.loop !4
 
 land.lhs.true4.i:                                 ; preds = %while.cond.i6.i
-  %add.ptr5.i = getelementptr inbounds i8, ptr %s.addr.0.i.pn.i, i64 2
+  %add.ptr5.i = getelementptr inbounds nuw i8, ptr %s.addr.0.i.pn.i, i64 2
   br label %while.cond.i11.i
 
 while.cond.i11.i:                                 ; preds = %while.body.i13.i, %land.lhs.true4.i
@@ -200,7 +200,7 @@ while.cond.i11.i:                                 ; preds = %while.body.i13.i, %
   ]
 
 while.body.i13.i:                                 ; preds = %while.cond.i11.i, %while.cond.i11.i, %while.cond.i11.i, %while.cond.i11.i
-  %incdec.ptr.i14.i = getelementptr inbounds i8, ptr %s.addr.0.i12.i, i64 1
+  %incdec.ptr.i14.i = getelementptr inbounds nuw i8, ptr %s.addr.0.i12.i, i64 1
   br label %while.cond.i11.i, !llvm.loop !4
 
 u_skipWhitespace.exit15.i:                        ; preds = %while.cond.i11.i
@@ -209,7 +209,7 @@ u_skipWhitespace.exit15.i:                        ; preds = %while.cond.i11.i
   br i1 %cmp8.i52, label %land.lhs.true9.i, label %_ZL15getMissingLimitPKc.exit
 
 land.lhs.true9.i:                                 ; preds = %u_skipWhitespace.exit15.i
-  %add.ptr10.i = getelementptr inbounds i8, ptr %s.addr.0.i12.i, i64 7
+  %add.ptr10.i = getelementptr inbounds nuw i8, ptr %s.addr.0.i12.i, i64 7
   br label %while.cond.i16.i
 
 while.cond.i16.i:                                 ; preds = %while.body.i18.i, %land.lhs.true9.i
@@ -224,12 +224,12 @@ while.cond.i16.i:                                 ; preds = %while.body.i18.i, %
   ]
 
 while.body.i18.i:                                 ; preds = %while.cond.i16.i, %while.cond.i16.i, %while.cond.i16.i, %while.cond.i16.i
-  %incdec.ptr.i19.i = getelementptr inbounds i8, ptr %s.addr.0.i17.i, i64 1
+  %incdec.ptr.i19.i = getelementptr inbounds nuw i8, ptr %s.addr.0.i17.i, i64 1
   br label %while.cond.i16.i, !llvm.loop !4
 
 while.cond.i21.i:                                 ; preds = %while.cond.i16.i, %while.cond.i21.i.backedge
   %s.addr.0.i17.pn.i = phi ptr [ %s.addr.0.i22.i, %while.cond.i21.i.backedge ], [ %s.addr.0.i17.i, %while.cond.i16.i ]
-  %s.addr.0.i22.i = getelementptr inbounds i8, ptr %s.addr.0.i17.pn.i, i64 1
+  %s.addr.0.i22.i = getelementptr inbounds nuw i8, ptr %s.addr.0.i17.pn.i, i64 1
   %9 = load i8, ptr %s.addr.0.i22.i, align 1
   switch i8 %9, label %_ZL15getMissingLimitPKc.exit [
     i8 32, label %while.cond.i21.i.backedge
@@ -308,7 +308,7 @@ while.cond.i:                                     ; preds = %while.cond.i.prehea
   ]
 
 while.body.i53:                                   ; preds = %while.cond.i, %while.cond.i, %while.cond.i, %while.cond.i
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %s.addr.0.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %s.addr.0.i, i64 1
   br label %while.cond.i, !llvm.loop !4
 
 while.cond68.preheader:                           ; preds = %while.cond.i, %for.inc
@@ -322,13 +322,13 @@ while.cond68:                                     ; preds = %while.cond68, %whil
   %cmp71.not = icmp eq i8 %14, %delimiter
   %cmp74.not = icmp eq i8 %14, 0
   %or.cond50 = or i1 %cmp71.not, %cmp74.not
-  %incdec.ptr77 = getelementptr inbounds i8, ptr %limit.1, i64 1
+  %incdec.ptr77 = getelementptr inbounds nuw i8, ptr %limit.1, i64 1
   br i1 %or.cond50, label %while.end78, label %while.cond68, !llvm.loop !9
 
 while.end78:                                      ; preds = %while.cond68
-  %arrayidx79 = getelementptr inbounds [2 x ptr], ptr %fields, i64 %indvars.iv
+  %arrayidx79 = getelementptr inbounds nuw [2 x ptr], ptr %fields, i64 %indvars.iv
   store ptr %start.068, ptr %arrayidx79, align 8
-  %arrayidx83 = getelementptr inbounds i8, ptr %arrayidx79, i64 8
+  %arrayidx83 = getelementptr inbounds nuw i8, ptr %arrayidx79, i64 8
   store ptr %limit.1, ptr %arrayidx83, align 8
   %15 = load i8, ptr %limit.1, align 1
   %cmp85.not = icmp eq i8 %15, 0
@@ -421,7 +421,7 @@ while.cond.i:                                     ; preds = %while.body.i, %for.
   ]
 
 while.body.i:                                     ; preds = %while.cond.i, %while.cond.i, %while.cond.i, %while.cond.i
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %s.addr.0.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %s.addr.0.i, i64 1
   br label %while.cond.i, !llvm.loop !4
 
 if.end13:                                         ; preds = %while.cond.i
@@ -457,7 +457,7 @@ if.end38:                                         ; preds = %land.lhs.true32, %l
 if.then40:                                        ; preds = %if.end38
   %inc = add nuw nsw i32 %count.0.ph, 1
   %idxprom = zext nneg i32 %count.0.ph to i64
-  %arrayidx = getelementptr inbounds i32, ptr %dest, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw i32, ptr %dest, i64 %idxprom
   store i32 %conv15, ptr %arrayidx, align 4
   br label %for.cond.outer, !llvm.loop !11
 
@@ -532,7 +532,7 @@ while.cond.i:                                     ; preds = %while.body.i, %for.
   ]
 
 while.body.i:                                     ; preds = %while.cond.i, %while.cond.i, %while.cond.i, %while.cond.i
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %s.addr.0.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %s.addr.0.i, i64 1
   br label %while.cond.i, !llvm.loop !4
 
 if.then15:                                        ; preds = %while.cond.i, %while.cond.i
@@ -669,7 +669,7 @@ while.cond.i:                                     ; preds = %if.end, %while.body
   ]
 
 while.body.i:                                     ; preds = %while.cond.i, %while.cond.i, %while.cond.i, %while.cond.i
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %s.addr.0.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %s.addr.0.i, i64 1
   br label %while.cond.i, !llvm.loop !4
 
 u_skipWhitespace.exit:                            ; preds = %while.cond.i
@@ -702,11 +702,11 @@ while.cond.i27:                                   ; preds = %while.body.i29, %if
   ]
 
 while.body.i29:                                   ; preds = %while.cond.i27, %while.cond.i27, %while.cond.i27, %while.cond.i27
-  %incdec.ptr.i30 = getelementptr inbounds i8, ptr %s.addr.0.i28, i64 1
+  %incdec.ptr.i30 = getelementptr inbounds nuw i8, ptr %s.addr.0.i28, i64 1
   br label %while.cond.i27, !llvm.loop !4
 
 lor.lhs.false16:                                  ; preds = %while.cond.i27
-  %arrayidx = getelementptr inbounds i8, ptr %s.addr.0.i28, i64 1
+  %arrayidx = getelementptr inbounds nuw i8, ptr %s.addr.0.i28, i64 1
   %4 = load i8, ptr %arrayidx, align 1
   %cmp18.not = icmp eq i8 %4, 46
   br i1 %cmp18.not, label %if.end20, label %if.then19
@@ -716,7 +716,7 @@ if.then19:                                        ; preds = %while.cond.i27, %lo
   br label %return
 
 if.end20:                                         ; preds = %lor.lhs.false16
-  %add.ptr = getelementptr inbounds i8, ptr %s.addr.0.i28, i64 2
+  %add.ptr = getelementptr inbounds nuw i8, ptr %s.addr.0.i28, i64 2
   br label %while.cond.i32
 
 while.cond.i32:                                   ; preds = %while.body.i34, %if.end20
@@ -730,7 +730,7 @@ while.cond.i32:                                   ; preds = %while.body.i34, %if
   ]
 
 while.body.i34:                                   ; preds = %while.cond.i32, %while.cond.i32, %while.cond.i32, %while.cond.i32
-  %incdec.ptr.i35 = getelementptr inbounds i8, ptr %s.addr.0.i33, i64 1
+  %incdec.ptr.i35 = getelementptr inbounds nuw i8, ptr %s.addr.0.i33, i64 1
   br label %while.cond.i32, !llvm.loop !4
 
 u_skipWhitespace.exit36:                          ; preds = %while.cond.i32
@@ -794,7 +794,7 @@ while.cond.i:                                     ; preds = %while.body.i, %if.t
   ]
 
 while.body.i:                                     ; preds = %while.cond.i, %while.cond.i, %while.cond.i, %while.cond.i
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %s.addr.0.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %s.addr.0.i, i64 1
   br label %while.cond.i, !llvm.loop !4
 
 if.then5:                                         ; preds = %while.cond.i
@@ -840,13 +840,13 @@ while.body:                                       ; preds = %while.body.preheade
 if.then4:                                         ; preds = %while.body
   %1 = load i32, ptr %value, align 4
   %conv5 = trunc i32 %1 to i8
-  %arrayidx = getelementptr inbounds i8, ptr %dest, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw i8, ptr %dest, i64 %indvars.iv
   store i8 %conv5, ptr %arrayidx, align 1
   br label %if.end6
 
 if.end6:                                          ; preds = %if.then4, %while.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %add.ptr7 = getelementptr inbounds i8, ptr %read.012, i64 2
+  %add.ptr7 = getelementptr inbounds nuw i8, ptr %read.012, i64 2
   %cmp1 = icmp ult ptr %add.ptr7, %add.ptr
   br i1 %cmp1, label %while.body, label %while.end.loopexit, !llvm.loop !13
 

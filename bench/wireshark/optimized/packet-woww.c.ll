@@ -7282,7 +7282,7 @@ define internal i32 @dissect_woww(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %10, label %.loopexit61, label %11
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8
   tail call void @col_set_str(ptr noundef %13, i32 noundef 34, ptr noundef nonnull @.str.1617) #4
   %14 = load ptr, ptr %12, align 8
@@ -7300,38 +7300,38 @@ define internal i32 @dissect_woww(ptr noundef %0, ptr noundef %1, ptr noundef %2
   tail call void @conversation_add_proto_data(ptr noundef nonnull %15, i32 noundef %22, ptr noundef %21) #4
   %23 = tail call ptr @wmem_file_scope() #4
   %24 = tail call noalias ptr @wmem_map_new(ptr noundef %23, ptr noundef nonnull @g_int64_hash, ptr noundef nonnull @g_int64_equal) #4
-  %25 = getelementptr inbounds i8, ptr %21, i64 80
+  %25 = getelementptr inbounds nuw i8, ptr %21, i64 80
   store ptr %24, ptr %25, align 8
   %26 = tail call ptr @wmem_file_scope() #4
   %27 = tail call noalias ptr @wmem_map_new(ptr noundef %26, ptr noundef nonnull @g_int64_hash, ptr noundef nonnull @g_int64_equal) #4
-  %28 = getelementptr inbounds i8, ptr %21, i64 88
+  %28 = getelementptr inbounds nuw i8, ptr %21, i64 88
   store ptr %27, ptr %28, align 8
   br label %29
 
 29:                                               ; preds = %19, %11
   %.044 = phi ptr [ %21, %19 ], [ %17, %11 ]
-  %30 = getelementptr inbounds i8, ptr %1, i64 284
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %31 = load i32, ptr %30, align 4
-  %32 = getelementptr inbounds i8, ptr %1, i64 288
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %33 = load i32, ptr %32, align 8
   %34 = icmp ult i32 %31, %33
   %.048 = select i1 %34, i8 4, i8 6
   %.046.v = select i1 %34, i64 112, i64 96
-  %.046 = getelementptr inbounds i8, ptr %.044, i64 %.046.v
+  %.046 = getelementptr inbounds nuw i8, ptr %.044, i64 %.046.v
   %35 = load i32, ptr @proto_woww, align 4
   %36 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %35, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #4
   %37 = load i32, ptr @ett_woww, align 4
   %38 = tail call ptr @proto_item_add_subtree(ptr noundef %36, i32 noundef %37) #4
   %39 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
-  %40 = getelementptr inbounds i8, ptr %1, i64 20
-  %41 = getelementptr inbounds i8, ptr %.044, i64 80
-  %42 = getelementptr inbounds i8, ptr %.046, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %41 = getelementptr inbounds nuw i8, ptr %.044, i64 80
+  %42 = getelementptr inbounds nuw i8, ptr %.046, i64 8
   %43 = zext nneg i8 %.048 to i16
   %wide.trip.count.i = zext nneg i8 %.048 to i64
-  %44 = getelementptr inbounds i8, ptr %.046, i64 4
-  %45 = getelementptr inbounds i8, ptr %.044, i64 88
-  %46 = getelementptr inbounds i8, ptr %.044, i64 40
-  %47 = getelementptr inbounds i8, ptr %.046, i64 1
+  %44 = getelementptr inbounds nuw i8, ptr %.046, i64 4
+  %45 = getelementptr inbounds nuw i8, ptr %.044, i64 88
+  %46 = getelementptr inbounds nuw i8, ptr %.044, i64 40
+  %47 = getelementptr inbounds nuw i8, ptr %.046, i64 1
   %48 = zext nneg i8 %.048 to i32
   br label %49
 
@@ -7437,7 +7437,7 @@ session_key_is_fully_deduced.exit92.i:            ; preds = %84
   %93 = load i8, ptr %47, align 1
   store i8 %93, ptr %92, align 1
   %94 = load i8, ptr %.046, align 8
-  %95 = getelementptr inbounds i8, ptr %92, i64 1
+  %95 = getelementptr inbounds nuw i8, ptr %92, i64 1
   store i8 %94, ptr %95, align 1
   %96 = call ptr @wmem_file_scope() #4
   %97 = call noalias ptr @wmem_alloc0(ptr noundef %96, i64 noundef 8) #4
@@ -7510,7 +7510,7 @@ session_key_is_fully_deduced.exit92.i:            ; preds = %84
 
 147:                                              ; preds = %146
   store i64 0, ptr %42, align 8
-  %148 = getelementptr inbounds i8, ptr %72, i64 1
+  %148 = getelementptr inbounds nuw i8, ptr %72, i64 1
   %149 = load ptr, ptr %45, align 8
   %150 = call ptr @wmem_map_remove(ptr noundef %149, ptr noundef nonnull %5) #4
   br label %151
@@ -11735,9 +11735,9 @@ add_cstring.exit5275:                             ; preds = %2190, %2185
   br label %.loopexit
 
 2224:                                             ; preds = %6
-  %2225 = getelementptr inbounds i8, ptr %5, i64 284
+  %2225 = getelementptr inbounds nuw i8, ptr %5, i64 284
   %2226 = load i32, ptr %2225, align 4
-  %2227 = getelementptr inbounds i8, ptr %5, i64 288
+  %2227 = getelementptr inbounds nuw i8, ptr %5, i64 288
   %2228 = load i32, ptr %2227, align 8
   %2229 = icmp ult i32 %2226, %2228
   %2230 = load i32, ptr @hf_woww_auctioneer, align 4
@@ -11750,9 +11750,9 @@ add_cstring.exit5275:                             ; preds = %2190, %2185
   br label %.loopexit
 
 2235:                                             ; preds = %6
-  %2236 = getelementptr inbounds i8, ptr %5, i64 284
+  %2236 = getelementptr inbounds nuw i8, ptr %5, i64 284
   %2237 = load i32, ptr %2236, align 4
-  %2238 = getelementptr inbounds i8, ptr %5, i64 288
+  %2238 = getelementptr inbounds nuw i8, ptr %5, i64 288
   %2239 = load i32, ptr %2238, align 8
   %2240 = icmp ult i32 %2237, %2239
   br i1 %2240, label %2241, label %.loopexit
@@ -11804,9 +11804,9 @@ add_cstring.exit5275:                             ; preds = %2190, %2185
   br i1 %2269, label %.lr.ph5665, label %.loopexit, !llvm.loop !17
 
 2270:                                             ; preds = %6
-  %2271 = getelementptr inbounds i8, ptr %5, i64 284
+  %2271 = getelementptr inbounds nuw i8, ptr %5, i64 284
   %2272 = load i32, ptr %2271, align 4
-  %2273 = getelementptr inbounds i8, ptr %5, i64 288
+  %2273 = getelementptr inbounds nuw i8, ptr %5, i64 288
   %2274 = load i32, ptr %2273, align 8
   %2275 = icmp ult i32 %2272, %2274
   br i1 %2275, label %2276, label %.loopexit
@@ -11819,9 +11819,9 @@ add_cstring.exit5275:                             ; preds = %2190, %2185
   br label %.loopexit
 
 2281:                                             ; preds = %6
-  %2282 = getelementptr inbounds i8, ptr %5, i64 284
+  %2282 = getelementptr inbounds nuw i8, ptr %5, i64 284
   %2283 = load i32, ptr %2282, align 4
-  %2284 = getelementptr inbounds i8, ptr %5, i64 288
+  %2284 = getelementptr inbounds nuw i8, ptr %5, i64 288
   %2285 = load i32, ptr %2284, align 8
   %2286 = icmp ult i32 %2283, %2285
   br i1 %2286, label %2287, label %.loopexit
@@ -11832,9 +11832,9 @@ add_cstring.exit5275:                             ; preds = %2190, %2185
   br label %.loopexit
 
 2290:                                             ; preds = %6
-  %2291 = getelementptr inbounds i8, ptr %5, i64 284
+  %2291 = getelementptr inbounds nuw i8, ptr %5, i64 284
   %2292 = load i32, ptr %2291, align 4
-  %2293 = getelementptr inbounds i8, ptr %5, i64 288
+  %2293 = getelementptr inbounds nuw i8, ptr %5, i64 288
   %2294 = load i32, ptr %2293, align 8
   %2295 = icmp ult i32 %2292, %2294
   br i1 %2295, label %2296, label %.loopexit
@@ -11863,9 +11863,9 @@ add_cstring.exit5275:                             ; preds = %2190, %2185
   br label %.loopexit
 
 2314:                                             ; preds = %6
-  %2315 = getelementptr inbounds i8, ptr %5, i64 284
+  %2315 = getelementptr inbounds nuw i8, ptr %5, i64 284
   %2316 = load i32, ptr %2315, align 4
-  %2317 = getelementptr inbounds i8, ptr %5, i64 288
+  %2317 = getelementptr inbounds nuw i8, ptr %5, i64 288
   %2318 = load i32, ptr %2317, align 8
   %2319 = icmp ult i32 %2316, %2318
   %2320 = load i32, ptr @hf_woww_guid, align 4
@@ -11906,9 +11906,9 @@ add_cstring.exit5275:                             ; preds = %2190, %2185
   br label %.loopexit
 
 2353:                                             ; preds = %6
-  %2354 = getelementptr inbounds i8, ptr %5, i64 284
+  %2354 = getelementptr inbounds nuw i8, ptr %5, i64 284
   %2355 = load i32, ptr %2354, align 4
-  %2356 = getelementptr inbounds i8, ptr %5, i64 288
+  %2356 = getelementptr inbounds nuw i8, ptr %5, i64 288
   %2357 = load i32, ptr %2356, align 8
   %2358 = icmp ult i32 %2355, %2357
   %2359 = load i32, ptr @hf_woww_npc, align 4
@@ -11965,9 +11965,9 @@ add_cstring.exit5279:                             ; preds = %2382, %2377
   br i1 %2391, label %.lr.ph5658, label %.loopexit, !llvm.loop !18
 
 2392:                                             ; preds = %6
-  %2393 = getelementptr inbounds i8, ptr %5, i64 284
+  %2393 = getelementptr inbounds nuw i8, ptr %5, i64 284
   %2394 = load i32, ptr %2393, align 4
-  %2395 = getelementptr inbounds i8, ptr %5, i64 288
+  %2395 = getelementptr inbounds nuw i8, ptr %5, i64 288
   %2396 = load i32, ptr %2395, align 8
   %2397 = icmp ult i32 %2394, %2396
   br i1 %2397, label %2398, label %.loopexit
@@ -11978,9 +11978,9 @@ add_cstring.exit5279:                             ; preds = %2382, %2377
   br label %.loopexit
 
 2401:                                             ; preds = %6
-  %2402 = getelementptr inbounds i8, ptr %5, i64 284
+  %2402 = getelementptr inbounds nuw i8, ptr %5, i64 284
   %2403 = load i32, ptr %2402, align 4
-  %2404 = getelementptr inbounds i8, ptr %5, i64 288
+  %2404 = getelementptr inbounds nuw i8, ptr %5, i64 288
   %2405 = load i32, ptr %2404, align 8
   %2406 = icmp ult i32 %2403, %2405
   br i1 %2406, label %2407, label %2414
@@ -12002,9 +12002,9 @@ add_cstring.exit5279:                             ; preds = %2382, %2377
   br label %.loopexit
 
 2419:                                             ; preds = %6
-  %2420 = getelementptr inbounds i8, ptr %5, i64 284
+  %2420 = getelementptr inbounds nuw i8, ptr %5, i64 284
   %2421 = load i32, ptr %2420, align 4
-  %2422 = getelementptr inbounds i8, ptr %5, i64 288
+  %2422 = getelementptr inbounds nuw i8, ptr %5, i64 288
   %2423 = load i32, ptr %2422, align 8
   %2424 = icmp ult i32 %2421, %2423
   br i1 %2424, label %2425, label %2486
@@ -12191,9 +12191,9 @@ add_cstring.exit5279:                             ; preds = %2382, %2377
   br label %.loopexit
 
 2547:                                             ; preds = %6
-  %2548 = getelementptr inbounds i8, ptr %5, i64 284
+  %2548 = getelementptr inbounds nuw i8, ptr %5, i64 284
   %2549 = load i32, ptr %2548, align 4
-  %2550 = getelementptr inbounds i8, ptr %5, i64 288
+  %2550 = getelementptr inbounds nuw i8, ptr %5, i64 288
   %2551 = load i32, ptr %2550, align 8
   %2552 = icmp ult i32 %2549, %2551
   br i1 %2552, label %2553, label %.loopexit
@@ -12290,9 +12290,9 @@ add_cstring.exit5279:                             ; preds = %2382, %2377
   br label %.loopexit
 
 2614:                                             ; preds = %6
-  %2615 = getelementptr inbounds i8, ptr %5, i64 284
+  %2615 = getelementptr inbounds nuw i8, ptr %5, i64 284
   %2616 = load i32, ptr %2615, align 4
-  %2617 = getelementptr inbounds i8, ptr %5, i64 288
+  %2617 = getelementptr inbounds nuw i8, ptr %5, i64 288
   %2618 = load i32, ptr %2617, align 8
   %2619 = icmp ult i32 %2616, %2618
   br i1 %2619, label %2620, label %2681
@@ -12479,9 +12479,9 @@ add_cstring.exit5279:                             ; preds = %2382, %2377
   br label %.loopexit
 
 2742:                                             ; preds = %6
-  %2743 = getelementptr inbounds i8, ptr %5, i64 284
+  %2743 = getelementptr inbounds nuw i8, ptr %5, i64 284
   %2744 = load i32, ptr %2743, align 4
-  %2745 = getelementptr inbounds i8, ptr %5, i64 288
+  %2745 = getelementptr inbounds nuw i8, ptr %5, i64 288
   %2746 = load i32, ptr %2745, align 8
   %2747 = icmp ult i32 %2744, %2746
   br i1 %2747, label %2748, label %2809
@@ -12668,9 +12668,9 @@ add_cstring.exit5279:                             ; preds = %2382, %2377
   br label %.loopexit
 
 2870:                                             ; preds = %6
-  %2871 = getelementptr inbounds i8, ptr %5, i64 284
+  %2871 = getelementptr inbounds nuw i8, ptr %5, i64 284
   %2872 = load i32, ptr %2871, align 4
-  %2873 = getelementptr inbounds i8, ptr %5, i64 288
+  %2873 = getelementptr inbounds nuw i8, ptr %5, i64 288
   %2874 = load i32, ptr %2873, align 8
   %2875 = icmp ult i32 %2872, %2874
   br i1 %2875, label %2876, label %2937
@@ -12857,9 +12857,9 @@ add_cstring.exit5279:                             ; preds = %2382, %2377
   br label %.loopexit
 
 2998:                                             ; preds = %6
-  %2999 = getelementptr inbounds i8, ptr %5, i64 284
+  %2999 = getelementptr inbounds nuw i8, ptr %5, i64 284
   %3000 = load i32, ptr %2999, align 4
-  %3001 = getelementptr inbounds i8, ptr %5, i64 288
+  %3001 = getelementptr inbounds nuw i8, ptr %5, i64 288
   %3002 = load i32, ptr %3001, align 8
   %3003 = icmp ult i32 %3000, %3002
   br i1 %3003, label %3004, label %3065
@@ -13046,9 +13046,9 @@ add_cstring.exit5279:                             ; preds = %2382, %2377
   br label %.loopexit
 
 3126:                                             ; preds = %6
-  %3127 = getelementptr inbounds i8, ptr %5, i64 284
+  %3127 = getelementptr inbounds nuw i8, ptr %5, i64 284
   %3128 = load i32, ptr %3127, align 4
-  %3129 = getelementptr inbounds i8, ptr %5, i64 288
+  %3129 = getelementptr inbounds nuw i8, ptr %5, i64 288
   %3130 = load i32, ptr %3129, align 8
   %3131 = icmp ult i32 %3128, %3130
   br i1 %3131, label %3132, label %3193
@@ -13235,9 +13235,9 @@ add_cstring.exit5279:                             ; preds = %2382, %2377
   br label %.loopexit
 
 3254:                                             ; preds = %6
-  %3255 = getelementptr inbounds i8, ptr %5, i64 284
+  %3255 = getelementptr inbounds nuw i8, ptr %5, i64 284
   %3256 = load i32, ptr %3255, align 4
-  %3257 = getelementptr inbounds i8, ptr %5, i64 288
+  %3257 = getelementptr inbounds nuw i8, ptr %5, i64 288
   %3258 = load i32, ptr %3257, align 8
   %3259 = icmp ult i32 %3256, %3258
   br i1 %3259, label %3260, label %3321
@@ -13424,9 +13424,9 @@ add_cstring.exit5279:                             ; preds = %2382, %2377
   br label %.loopexit
 
 3382:                                             ; preds = %6
-  %3383 = getelementptr inbounds i8, ptr %5, i64 284
+  %3383 = getelementptr inbounds nuw i8, ptr %5, i64 284
   %3384 = load i32, ptr %3383, align 4
-  %3385 = getelementptr inbounds i8, ptr %5, i64 288
+  %3385 = getelementptr inbounds nuw i8, ptr %5, i64 288
   %3386 = load i32, ptr %3385, align 8
   %3387 = icmp ult i32 %3384, %3386
   br i1 %3387, label %3388, label %3449
@@ -13613,9 +13613,9 @@ add_cstring.exit5279:                             ; preds = %2382, %2377
   br label %.loopexit
 
 3510:                                             ; preds = %6
-  %3511 = getelementptr inbounds i8, ptr %5, i64 284
+  %3511 = getelementptr inbounds nuw i8, ptr %5, i64 284
   %3512 = load i32, ptr %3511, align 4
-  %3513 = getelementptr inbounds i8, ptr %5, i64 288
+  %3513 = getelementptr inbounds nuw i8, ptr %5, i64 288
   %3514 = load i32, ptr %3513, align 8
   %3515 = icmp ult i32 %3512, %3514
   br i1 %3515, label %3516, label %3577
@@ -13802,9 +13802,9 @@ add_cstring.exit5279:                             ; preds = %2382, %2377
   br label %.loopexit
 
 3638:                                             ; preds = %6
-  %3639 = getelementptr inbounds i8, ptr %5, i64 284
+  %3639 = getelementptr inbounds nuw i8, ptr %5, i64 284
   %3640 = load i32, ptr %3639, align 4
-  %3641 = getelementptr inbounds i8, ptr %5, i64 288
+  %3641 = getelementptr inbounds nuw i8, ptr %5, i64 288
   %3642 = load i32, ptr %3641, align 8
   %3643 = icmp ult i32 %3640, %3642
   br i1 %3643, label %3644, label %3705
@@ -13991,9 +13991,9 @@ add_cstring.exit5279:                             ; preds = %2382, %2377
   br label %.loopexit
 
 3766:                                             ; preds = %6
-  %3767 = getelementptr inbounds i8, ptr %5, i64 284
+  %3767 = getelementptr inbounds nuw i8, ptr %5, i64 284
   %3768 = load i32, ptr %3767, align 4
-  %3769 = getelementptr inbounds i8, ptr %5, i64 288
+  %3769 = getelementptr inbounds nuw i8, ptr %5, i64 288
   %3770 = load i32, ptr %3769, align 8
   %3771 = icmp ult i32 %3768, %3770
   br i1 %3771, label %3772, label %3833
@@ -14180,9 +14180,9 @@ add_cstring.exit5279:                             ; preds = %2382, %2377
   br label %.loopexit
 
 3894:                                             ; preds = %6
-  %3895 = getelementptr inbounds i8, ptr %5, i64 284
+  %3895 = getelementptr inbounds nuw i8, ptr %5, i64 284
   %3896 = load i32, ptr %3895, align 4
-  %3897 = getelementptr inbounds i8, ptr %5, i64 288
+  %3897 = getelementptr inbounds nuw i8, ptr %5, i64 288
   %3898 = load i32, ptr %3897, align 8
   %3899 = icmp ult i32 %3896, %3898
   br i1 %3899, label %3900, label %3961
@@ -14369,9 +14369,9 @@ add_cstring.exit5279:                             ; preds = %2382, %2377
   br label %.loopexit
 
 4022:                                             ; preds = %6
-  %4023 = getelementptr inbounds i8, ptr %5, i64 284
+  %4023 = getelementptr inbounds nuw i8, ptr %5, i64 284
   %4024 = load i32, ptr %4023, align 4
-  %4025 = getelementptr inbounds i8, ptr %5, i64 288
+  %4025 = getelementptr inbounds nuw i8, ptr %5, i64 288
   %4026 = load i32, ptr %4025, align 8
   %4027 = icmp ult i32 %4024, %4026
   br i1 %4027, label %4028, label %4089
@@ -14558,9 +14558,9 @@ add_cstring.exit5279:                             ; preds = %2382, %2377
   br label %.loopexit
 
 4150:                                             ; preds = %6
-  %4151 = getelementptr inbounds i8, ptr %5, i64 284
+  %4151 = getelementptr inbounds nuw i8, ptr %5, i64 284
   %4152 = load i32, ptr %4151, align 4
-  %4153 = getelementptr inbounds i8, ptr %5, i64 288
+  %4153 = getelementptr inbounds nuw i8, ptr %5, i64 288
   %4154 = load i32, ptr %4153, align 8
   %4155 = icmp ult i32 %4152, %4154
   br i1 %4155, label %4156, label %4217
@@ -14747,9 +14747,9 @@ add_cstring.exit5279:                             ; preds = %2382, %2377
   br label %.loopexit
 
 4278:                                             ; preds = %6
-  %4279 = getelementptr inbounds i8, ptr %5, i64 284
+  %4279 = getelementptr inbounds nuw i8, ptr %5, i64 284
   %4280 = load i32, ptr %4279, align 4
-  %4281 = getelementptr inbounds i8, ptr %5, i64 288
+  %4281 = getelementptr inbounds nuw i8, ptr %5, i64 288
   %4282 = load i32, ptr %4281, align 8
   %4283 = icmp ult i32 %4280, %4282
   br i1 %4283, label %4284, label %4345
@@ -14936,9 +14936,9 @@ add_cstring.exit5279:                             ; preds = %2382, %2377
   br label %.loopexit
 
 4406:                                             ; preds = %6
-  %4407 = getelementptr inbounds i8, ptr %5, i64 284
+  %4407 = getelementptr inbounds nuw i8, ptr %5, i64 284
   %4408 = load i32, ptr %4407, align 4
-  %4409 = getelementptr inbounds i8, ptr %5, i64 288
+  %4409 = getelementptr inbounds nuw i8, ptr %5, i64 288
   %4410 = load i32, ptr %4409, align 8
   %4411 = icmp ult i32 %4408, %4410
   br i1 %4411, label %4412, label %4473
@@ -15125,9 +15125,9 @@ add_cstring.exit5279:                             ; preds = %2382, %2377
   br label %.loopexit
 
 4534:                                             ; preds = %6
-  %4535 = getelementptr inbounds i8, ptr %5, i64 284
+  %4535 = getelementptr inbounds nuw i8, ptr %5, i64 284
   %4536 = load i32, ptr %4535, align 4
-  %4537 = getelementptr inbounds i8, ptr %5, i64 288
+  %4537 = getelementptr inbounds nuw i8, ptr %5, i64 288
   %4538 = load i32, ptr %4537, align 8
   %4539 = icmp ult i32 %4536, %4538
   br i1 %4539, label %4540, label %4601
@@ -15314,9 +15314,9 @@ add_cstring.exit5279:                             ; preds = %2382, %2377
   br label %.loopexit
 
 4662:                                             ; preds = %6
-  %4663 = getelementptr inbounds i8, ptr %5, i64 284
+  %4663 = getelementptr inbounds nuw i8, ptr %5, i64 284
   %4664 = load i32, ptr %4663, align 4
-  %4665 = getelementptr inbounds i8, ptr %5, i64 288
+  %4665 = getelementptr inbounds nuw i8, ptr %5, i64 288
   %4666 = load i32, ptr %4665, align 8
   %4667 = icmp ult i32 %4664, %4666
   br i1 %4667, label %4668, label %4729
@@ -15503,9 +15503,9 @@ add_cstring.exit5279:                             ; preds = %2382, %2377
   br label %.loopexit
 
 4790:                                             ; preds = %6
-  %4791 = getelementptr inbounds i8, ptr %5, i64 284
+  %4791 = getelementptr inbounds nuw i8, ptr %5, i64 284
   %4792 = load i32, ptr %4791, align 4
-  %4793 = getelementptr inbounds i8, ptr %5, i64 288
+  %4793 = getelementptr inbounds nuw i8, ptr %5, i64 288
   %4794 = load i32, ptr %4793, align 8
   %4795 = icmp ult i32 %4792, %4794
   br i1 %4795, label %4796, label %4857
@@ -15692,9 +15692,9 @@ add_cstring.exit5279:                             ; preds = %2382, %2377
   br label %.loopexit
 
 4918:                                             ; preds = %6
-  %4919 = getelementptr inbounds i8, ptr %5, i64 284
+  %4919 = getelementptr inbounds nuw i8, ptr %5, i64 284
   %4920 = load i32, ptr %4919, align 4
-  %4921 = getelementptr inbounds i8, ptr %5, i64 288
+  %4921 = getelementptr inbounds nuw i8, ptr %5, i64 288
   %4922 = load i32, ptr %4921, align 8
   %4923 = icmp ult i32 %4920, %4922
   br i1 %4923, label %4924, label %4985
@@ -15881,9 +15881,9 @@ add_cstring.exit5279:                             ; preds = %2382, %2377
   br label %.loopexit
 
 5046:                                             ; preds = %6
-  %5047 = getelementptr inbounds i8, ptr %5, i64 284
+  %5047 = getelementptr inbounds nuw i8, ptr %5, i64 284
   %5048 = load i32, ptr %5047, align 4
-  %5049 = getelementptr inbounds i8, ptr %5, i64 288
+  %5049 = getelementptr inbounds nuw i8, ptr %5, i64 288
   %5050 = load i32, ptr %5049, align 8
   %5051 = icmp ult i32 %5048, %5050
   br i1 %5051, label %5052, label %5113
@@ -16070,9 +16070,9 @@ add_cstring.exit5279:                             ; preds = %2382, %2377
   br label %.loopexit
 
 5174:                                             ; preds = %6
-  %5175 = getelementptr inbounds i8, ptr %5, i64 284
+  %5175 = getelementptr inbounds nuw i8, ptr %5, i64 284
   %5176 = load i32, ptr %5175, align 4
-  %5177 = getelementptr inbounds i8, ptr %5, i64 288
+  %5177 = getelementptr inbounds nuw i8, ptr %5, i64 288
   %5178 = load i32, ptr %5177, align 8
   %5179 = icmp ult i32 %5176, %5178
   tail call fastcc void @add_packed_guid(ptr noundef %82, ptr noundef nonnull %5)
@@ -16176,9 +16176,9 @@ add_cstring.exit5279:                             ; preds = %2382, %2377
   br label %.loopexit
 
 5246:                                             ; preds = %6
-  %5247 = getelementptr inbounds i8, ptr %5, i64 284
+  %5247 = getelementptr inbounds nuw i8, ptr %5, i64 284
   %5248 = load i32, ptr %5247, align 4
-  %5249 = getelementptr inbounds i8, ptr %5, i64 288
+  %5249 = getelementptr inbounds nuw i8, ptr %5, i64 288
   %5250 = load i32, ptr %5249, align 8
   %5251 = icmp ult i32 %5248, %5250
   br i1 %5251, label %5252, label %.loopexit
@@ -16292,9 +16292,9 @@ add_cstring.exit5279:                             ; preds = %2382, %2377
   br label %.loopexit
 
 5322:                                             ; preds = %6
-  %5323 = getelementptr inbounds i8, ptr %5, i64 284
+  %5323 = getelementptr inbounds nuw i8, ptr %5, i64 284
   %5324 = load i32, ptr %5323, align 4
-  %5325 = getelementptr inbounds i8, ptr %5, i64 288
+  %5325 = getelementptr inbounds nuw i8, ptr %5, i64 288
   %5326 = load i32, ptr %5325, align 8
   %5327 = icmp ult i32 %5324, %5326
   br i1 %5327, label %5328, label %.loopexit
@@ -16357,9 +16357,9 @@ add_cstring.exit5279:                             ; preds = %2382, %2377
   br i1 %5364, label %.lr.ph5655, label %.loopexit, !llvm.loop !20
 
 5365:                                             ; preds = %6
-  %5366 = getelementptr inbounds i8, ptr %5, i64 284
+  %5366 = getelementptr inbounds nuw i8, ptr %5, i64 284
   %5367 = load i32, ptr %5366, align 4
-  %5368 = getelementptr inbounds i8, ptr %5, i64 288
+  %5368 = getelementptr inbounds nuw i8, ptr %5, i64 288
   %5369 = load i32, ptr %5368, align 8
   %5370 = icmp ult i32 %5367, %5369
   br i1 %5370, label %5371, label %.loopexit
@@ -16377,9 +16377,9 @@ add_cstring.exit5279:                             ; preds = %2382, %2377
   br label %.loopexit
 
 5379:                                             ; preds = %6
-  %5380 = getelementptr inbounds i8, ptr %5, i64 284
+  %5380 = getelementptr inbounds nuw i8, ptr %5, i64 284
   %5381 = load i32, ptr %5380, align 4
-  %5382 = getelementptr inbounds i8, ptr %5, i64 288
+  %5382 = getelementptr inbounds nuw i8, ptr %5, i64 288
   %5383 = load i32, ptr %5382, align 8
   %5384 = icmp ult i32 %5381, %5383
   %5385 = tail call i32 @ptvcursor_current_offset(ptr noundef %82) #4
@@ -16405,9 +16405,9 @@ add_cstring.exit5279:                             ; preds = %2382, %2377
   br label %.loopexit
 
 5396:                                             ; preds = %6
-  %5397 = getelementptr inbounds i8, ptr %5, i64 284
+  %5397 = getelementptr inbounds nuw i8, ptr %5, i64 284
   %5398 = load i32, ptr %5397, align 4
-  %5399 = getelementptr inbounds i8, ptr %5, i64 288
+  %5399 = getelementptr inbounds nuw i8, ptr %5, i64 288
   %5400 = load i32, ptr %5399, align 8
   %5401 = icmp ult i32 %5398, %5400
   br i1 %5401, label %5402, label %5420
@@ -16457,9 +16457,9 @@ add_cstring.exit5279:                             ; preds = %2382, %2377
   br label %.loopexit
 
 5427:                                             ; preds = %6
-  %5428 = getelementptr inbounds i8, ptr %5, i64 284
+  %5428 = getelementptr inbounds nuw i8, ptr %5, i64 284
   %5429 = load i32, ptr %5428, align 4
-  %5430 = getelementptr inbounds i8, ptr %5, i64 288
+  %5430 = getelementptr inbounds nuw i8, ptr %5, i64 288
   %5431 = load i32, ptr %5430, align 8
   %5432 = icmp ult i32 %5429, %5431
   %5433 = load i32, ptr @hf_woww_minimum, align 4
@@ -16476,9 +16476,9 @@ add_cstring.exit5279:                             ; preds = %2382, %2377
   br label %.loopexit
 
 5442:                                             ; preds = %6
-  %5443 = getelementptr inbounds i8, ptr %5, i64 284
+  %5443 = getelementptr inbounds nuw i8, ptr %5, i64 284
   %5444 = load i32, ptr %5443, align 4
-  %5445 = getelementptr inbounds i8, ptr %5, i64 288
+  %5445 = getelementptr inbounds nuw i8, ptr %5, i64 288
   %5446 = load i32, ptr %5445, align 8
   %5447 = icmp ult i32 %5444, %5446
   br i1 %5447, label %5448, label %5451
@@ -16509,9 +16509,9 @@ add_cstring.exit5279:                             ; preds = %2382, %2377
   br label %.loopexit
 
 5467:                                             ; preds = %6
-  %5468 = getelementptr inbounds i8, ptr %5, i64 284
+  %5468 = getelementptr inbounds nuw i8, ptr %5, i64 284
   %5469 = load i32, ptr %5468, align 4
-  %5470 = getelementptr inbounds i8, ptr %5, i64 288
+  %5470 = getelementptr inbounds nuw i8, ptr %5, i64 288
   %5471 = load i32, ptr %5470, align 8
   %5472 = icmp ult i32 %5469, %5471
   %5473 = load i32, ptr @hf_woww_wiping_npc, align 4

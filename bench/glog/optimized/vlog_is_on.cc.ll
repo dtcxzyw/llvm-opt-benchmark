@@ -121,7 +121,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit.preheader: ; preds = %2
   br i1 %9, label %17, label %11
 
 11:                                               ; preds = %10
-  %12 = getelementptr inbounds i8, ptr %.04654, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %.04654, i64 32
   %13 = load i32, ptr %12, align 8
   br label %17
 
@@ -134,7 +134,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit.preheader: ; preds = %2
 17:                                               ; preds = %11, %10
   %.141 = phi i8 [ %.04052, %10 ], [ 1, %11 ]
   %.1 = phi i32 [ %.053, %10 ], [ %13, %11 ]
-  %18 = getelementptr inbounds i8, ptr %.04654, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %.04654, i64 32
   store i32 %1, ptr %18, align 8
   br label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
 
@@ -148,14 +148,14 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit.preheader: ; preds = %2
   br i1 %23, label %24, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
 
 24:                                               ; preds = %20
-  %25 = getelementptr inbounds i8, ptr %.04654, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %.04654, i64 32
   %26 = load i32, ptr %25, align 8
   br label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %17, %24, %20, %19
   %.242 = phi i8 [ %.141, %17 ], [ %.04052, %19 ], [ 1, %24 ], [ %.04052, %20 ]
   %.2 = phi i32 [ %.1, %17 ], [ %.053, %19 ], [ %26, %24 ], [ %.053, %20 ]
-  %27 = getelementptr inbounds i8, ptr %.04654, i64 40
+  %27 = getelementptr inbounds nuw i8, ptr %.04654, i64 40
   %.046 = load ptr, ptr %27, align 8
   %.not = icmp eq ptr %.046, null
   br i1 %.not, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit._crit_edge, label %.lr.ph, !llvm.loop !7
@@ -175,10 +175,10 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit._crit_edge.thread: ; preds = %_ZNSt10loc
           to label %32 unwind label %14
 
 32:                                               ; preds = %30
-  %33 = getelementptr inbounds i8, ptr %29, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %29, i64 32
   store i32 %1, ptr %33, align 8
   %34 = load ptr, ptr @_ZN6googleL12vmodule_listE, align 8
-  %35 = getelementptr inbounds i8, ptr %29, i64 40
+  %35 = getelementptr inbounds nuw i8, ptr %29, i64 40
   store ptr %34, ptr %35, align 8
   store ptr %29, ptr @_ZN6googleL12vmodule_listE, align 8
   %.04356 = load ptr, ptr @_ZN6googleL16cached_site_listE, align 8
@@ -188,22 +188,22 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit._crit_edge.thread: ; preds = %_ZNSt10loc
 .lr.ph60:                                         ; preds = %32, %46
   %.04359 = phi ptr [ %.043, %46 ], [ %.04356, %32 ]
   %.04458 = phi ptr [ %.145, %46 ], [ @_ZN6googleL16cached_site_listE, %32 ]
-  %36 = getelementptr inbounds i8, ptr %.04359, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %.04359, i64 8
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %.04359, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %.04359, i64 16
   %39 = load i64, ptr %38, align 8
   %40 = tail call noundef zeroext i1 @_ZN6google24glog_internal_namespace_12SafeFNMatch_EPKcmS2_m(ptr noundef %0, i64 noundef %4, ptr noundef %37, i64 noundef %39)
   br i1 %40, label %41, label %44
 
 41:                                               ; preds = %.lr.ph60
   store ptr %33, ptr %.04359, align 8
-  %42 = getelementptr inbounds i8, ptr %.04359, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %.04359, i64 24
   %43 = load ptr, ptr %42, align 8
   store ptr %43, ptr %.04458, align 8
   br label %46
 
 44:                                               ; preds = %.lr.ph60
-  %45 = getelementptr inbounds i8, ptr %.04359, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %.04359, i64 24
   %.043.pre = load ptr, ptr %45, align 8
   br label %46
 
@@ -312,13 +312,13 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %4
 
 26:                                               ; preds = %24
   %27 = load i32, ptr %7, align 4
-  %28 = getelementptr inbounds i8, ptr %23, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %23, i64 32
   store i32 %27, ptr %28, align 8
   %.not32.i = icmp eq ptr %.025.i, null
   br i1 %.not32.i, label %35, label %29
 
 29:                                               ; preds = %26
-  %30 = getelementptr inbounds i8, ptr %.023.i, i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %.023.i, i64 40
   store ptr %23, ptr %30, align 8
   br label %35
 
@@ -339,7 +339,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %4
   %.2.i = phi ptr [ %.023.i, %19 ], [ %23, %29 ], [ %23, %26 ]
   %36 = call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %14, i32 noundef 44) #11
   %37 = icmp eq ptr %36, null
-  %38 = getelementptr inbounds i8, ptr %36, i64 1
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #12
   br i1 %37, label %39, label %13
 
@@ -351,7 +351,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %4
 
 40:                                               ; preds = %39
   %41 = load ptr, ptr @_ZN6googleL12vmodule_listE, align 8
-  %42 = getelementptr inbounds i8, ptr %.124.i, i64 40
+  %42 = getelementptr inbounds nuw i8, ptr %.124.i, i64 40
   store ptr %41, ptr %42, align 8
   store ptr %.126.i, ptr @_ZN6googleL12vmodule_listE, align 8
   br label %_ZN6googleL16VLOG2InitializerEv.exit
@@ -373,7 +373,7 @@ _ZN6googleL16VLOG2InitializerEv.exit:             ; preds = %39, %40
   %46 = load i32, ptr %45, align 4
   %47 = call noundef ptr @strrchr(ptr noundef nonnull dereferenceable(1) %2, i32 noundef 47) #11
   %.not = icmp eq ptr %47, null
-  %48 = getelementptr inbounds i8, ptr %47, i64 1
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 1
   %49 = select i1 %.not, ptr %2, ptr %48
   %50 = call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %49, i32 noundef 46) #11
   %.not43 = icmp eq ptr %50, null
@@ -417,11 +417,11 @@ _ZN6googleL16VLOG2InitializerEv.exit:             ; preds = %39, %40
   br i1 %68, label %69, label %71
 
 69:                                               ; preds = %.lr.ph
-  %70 = getelementptr inbounds i8, ptr %.050, i64 32
+  %70 = getelementptr inbounds nuw i8, ptr %.050, i64 32
   br label %.loopexit
 
 71:                                               ; preds = %.lr.ph
-  %72 = getelementptr inbounds i8, ptr %.050, i64 40
+  %72 = getelementptr inbounds nuw i8, ptr %.050, i64 40
   %.0 = load ptr, ptr %72, align 8
   %.not44 = icmp eq ptr %.0, null
   br i1 %.not44, label %.loopexit, label %.lr.ph, !llvm.loop !9
@@ -436,17 +436,17 @@ _ZN6googleL16VLOG2InitializerEv.exit:             ; preds = %39, %40
   br i1 %74, label %75, label %82
 
 75:                                               ; preds = %73
-  %76 = getelementptr inbounds i8, ptr %0, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %77 = load ptr, ptr %76, align 8
   %.not45 = icmp eq ptr %77, null
   br i1 %.not45, label %78, label %82
 
 78:                                               ; preds = %75
   store ptr %49, ptr %76, align 8
-  %79 = getelementptr inbounds i8, ptr %0, i64 16
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.038, ptr %79, align 8
   %80 = load ptr, ptr @_ZN6googleL16cached_site_listE, align 8
-  %81 = getelementptr inbounds i8, ptr %0, i64 24
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %80, ptr %81, align 8
   store ptr %0, ptr @_ZN6googleL16cached_site_listE, align 8
   br label %82

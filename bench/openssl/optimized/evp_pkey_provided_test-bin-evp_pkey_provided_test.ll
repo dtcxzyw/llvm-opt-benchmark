@@ -376,16 +376,16 @@ entry:
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %tmp7.i)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %tmp8.i)
   %call.i = tail call noalias ptr @CRYPTO_malloc(i64 noundef 200, ptr noundef nonnull @.str, i32 noundef 1711) #6
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %call.i, i64 40
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %call.i, i64 40
   call void @OSSL_PARAM_construct_utf8_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp.i, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.15, i64 noundef 0) #6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %call.i, ptr noundef nonnull align 8 dereferenceable(40) %tmp.i, i64 40, i1 false)
-  %incdec.ptr1.i = getelementptr inbounds i8, ptr %call.i, i64 80
+  %incdec.ptr1.i = getelementptr inbounds nuw i8, ptr %call.i, i64 80
   call void @OSSL_PARAM_construct_octet_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp2.i, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.17, i64 noundef 4) #6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %incdec.ptr.i, ptr noundef nonnull align 8 dereferenceable(40) %tmp2.i, i64 40, i1 false)
-  %incdec.ptr4.i = getelementptr inbounds i8, ptr %call.i, i64 120
+  %incdec.ptr4.i = getelementptr inbounds nuw i8, ptr %call.i, i64 120
   call void @OSSL_PARAM_construct_octet_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp5.i, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.16, i64 noundef 6) #6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %incdec.ptr1.i, ptr noundef nonnull align 8 dereferenceable(40) %tmp5.i, i64 40, i1 false)
-  %incdec.ptr6.i = getelementptr inbounds i8, ptr %call.i, i64 160
+  %incdec.ptr6.i = getelementptr inbounds nuw i8, ptr %call.i, i64 160
   call void @OSSL_PARAM_construct_utf8_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp7.i, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.31, i64 noundef 0) #6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %incdec.ptr4.i, ptr noundef nonnull align 8 dereferenceable(40) %tmp7.i, i64 40, i1 false)
   call void @OSSL_PARAM_construct_end(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp8.i) #6
@@ -757,7 +757,7 @@ for.body:                                         ; preds = %err, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %err ]
   %arrayidx35 = phi ptr [ %arrayidx, %for.inc ], [ %fromdata_params, %err ]
   %ret.233 = phi i32 [ %ret.3, %for.inc ], [ %ret.0, %err ]
-  %arrayidx87 = getelementptr inbounds [8 x i64], ptr @test_fromdata_rsa.key_numbers, i64 0, i64 %indvars.iv
+  %arrayidx87 = getelementptr inbounds nuw [8 x i64], ptr @test_fromdata_rsa.key_numbers, i64 0, i64 %indvars.iv
   %12 = load i64, ptr %arrayidx87, align 8
   %call88 = call i32 @BN_set_word(ptr noundef %call1, i64 noundef %12) #6
   %cmp89 = icmp ne i32 %call88, 0
@@ -788,7 +788,7 @@ if.then105:                                       ; preds = %lor.lhs.false102, %
 for.inc:                                          ; preds = %lor.lhs.false102, %if.then105
   %ret.3 = phi i32 [ %ret.233, %lor.lhs.false102 ], [ 0, %if.then105 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %arrayidx = getelementptr inbounds [9 x %struct.ossl_param_st], ptr %fromdata_params, i64 0, i64 %indvars.iv.next
+  %arrayidx = getelementptr inbounds nuw [9 x %struct.ossl_param_st], ptr %fromdata_params, i64 0, i64 %indvars.iv.next
   %16 = load ptr, ptr %arrayidx, align 8
   %cmp84.not = icmp eq ptr %16, null
   br i1 %cmp84.not, label %for.end, label %for.body, !llvm.loop !8
@@ -2282,12 +2282,12 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(120) %ed25519_fromdata_params, ptr noundef nonnull align 16 dereferenceable(120) @__const.test_fromdata_ecx.ed25519_fromdata_params, i64 120, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(120) %ed448_fromdata_params, ptr noundef nonnull align 16 dereferenceable(120) @__const.test_fromdata_ecx.ed448_fromdata_params, i64 120, i1 false)
   %and = and i32 %tst, 3
-  %fromdata_params.0.sroa.gep44 = getelementptr inbounds i8, ptr %x25519_fromdata_params, i64 80
-  %fromdata_params.0.sroa.gep49 = getelementptr inbounds i8, ptr %x25519_fromdata_params, i64 40
-  %fromdata_params.0.sroa.gep54 = getelementptr inbounds i8, ptr %x25519_fromdata_params, i64 16
-  %fromdata_params.0.sroa.gep59 = getelementptr inbounds i8, ptr %x25519_fromdata_params, i64 24
-  %fromdata_params.0.sroa.gep69 = getelementptr inbounds i8, ptr %x25519_fromdata_params, i64 56
-  %fromdata_params.0.sroa.gep74 = getelementptr inbounds i8, ptr %x25519_fromdata_params, i64 64
+  %fromdata_params.0.sroa.gep44 = getelementptr inbounds nuw i8, ptr %x25519_fromdata_params, i64 80
+  %fromdata_params.0.sroa.gep49 = getelementptr inbounds nuw i8, ptr %x25519_fromdata_params, i64 40
+  %fromdata_params.0.sroa.gep54 = getelementptr inbounds nuw i8, ptr %x25519_fromdata_params, i64 16
+  %fromdata_params.0.sroa.gep59 = getelementptr inbounds nuw i8, ptr %x25519_fromdata_params, i64 24
+  %fromdata_params.0.sroa.gep69 = getelementptr inbounds nuw i8, ptr %x25519_fromdata_params, i64 56
+  %fromdata_params.0.sroa.gep74 = getelementptr inbounds nuw i8, ptr %x25519_fromdata_params, i64 64
   switch i32 %and, label %default.unreachable81 [
     i32 0, label %sw.epilog
     i32 1, label %sw.bb1
@@ -2296,30 +2296,30 @@ entry:
   ]
 
 sw.bb1:                                           ; preds = %entry
-  %fromdata_params.0.sroa.gep73 = getelementptr inbounds i8, ptr %x448_fromdata_params, i64 64
-  %fromdata_params.0.sroa.gep68 = getelementptr inbounds i8, ptr %x448_fromdata_params, i64 56
-  %fromdata_params.0.sroa.gep58 = getelementptr inbounds i8, ptr %x448_fromdata_params, i64 24
-  %fromdata_params.0.sroa.gep53 = getelementptr inbounds i8, ptr %x448_fromdata_params, i64 16
-  %fromdata_params.0.sroa.gep48 = getelementptr inbounds i8, ptr %x448_fromdata_params, i64 40
-  %fromdata_params.0.sroa.gep43 = getelementptr inbounds i8, ptr %x448_fromdata_params, i64 80
+  %fromdata_params.0.sroa.gep73 = getelementptr inbounds nuw i8, ptr %x448_fromdata_params, i64 64
+  %fromdata_params.0.sroa.gep68 = getelementptr inbounds nuw i8, ptr %x448_fromdata_params, i64 56
+  %fromdata_params.0.sroa.gep58 = getelementptr inbounds nuw i8, ptr %x448_fromdata_params, i64 24
+  %fromdata_params.0.sroa.gep53 = getelementptr inbounds nuw i8, ptr %x448_fromdata_params, i64 16
+  %fromdata_params.0.sroa.gep48 = getelementptr inbounds nuw i8, ptr %x448_fromdata_params, i64 40
+  %fromdata_params.0.sroa.gep43 = getelementptr inbounds nuw i8, ptr %x448_fromdata_params, i64 80
   br label %sw.epilog
 
 sw.bb3:                                           ; preds = %entry
-  %fromdata_params.0.sroa.gep72 = getelementptr inbounds i8, ptr %ed25519_fromdata_params, i64 64
-  %fromdata_params.0.sroa.gep67 = getelementptr inbounds i8, ptr %ed25519_fromdata_params, i64 56
-  %fromdata_params.0.sroa.gep57 = getelementptr inbounds i8, ptr %ed25519_fromdata_params, i64 24
-  %fromdata_params.0.sroa.gep52 = getelementptr inbounds i8, ptr %ed25519_fromdata_params, i64 16
-  %fromdata_params.0.sroa.gep47 = getelementptr inbounds i8, ptr %ed25519_fromdata_params, i64 40
-  %fromdata_params.0.sroa.gep42 = getelementptr inbounds i8, ptr %ed25519_fromdata_params, i64 80
+  %fromdata_params.0.sroa.gep72 = getelementptr inbounds nuw i8, ptr %ed25519_fromdata_params, i64 64
+  %fromdata_params.0.sroa.gep67 = getelementptr inbounds nuw i8, ptr %ed25519_fromdata_params, i64 56
+  %fromdata_params.0.sroa.gep57 = getelementptr inbounds nuw i8, ptr %ed25519_fromdata_params, i64 24
+  %fromdata_params.0.sroa.gep52 = getelementptr inbounds nuw i8, ptr %ed25519_fromdata_params, i64 16
+  %fromdata_params.0.sroa.gep47 = getelementptr inbounds nuw i8, ptr %ed25519_fromdata_params, i64 40
+  %fromdata_params.0.sroa.gep42 = getelementptr inbounds nuw i8, ptr %ed25519_fromdata_params, i64 80
   br label %sw.epilog
 
 sw.bb5:                                           ; preds = %entry
-  %fromdata_params.0.sroa.gep71 = getelementptr inbounds i8, ptr %ed448_fromdata_params, i64 64
-  %fromdata_params.0.sroa.gep66 = getelementptr inbounds i8, ptr %ed448_fromdata_params, i64 56
-  %fromdata_params.0.sroa.gep56 = getelementptr inbounds i8, ptr %ed448_fromdata_params, i64 24
-  %fromdata_params.0.sroa.gep51 = getelementptr inbounds i8, ptr %ed448_fromdata_params, i64 16
-  %fromdata_params.0.sroa.gep46 = getelementptr inbounds i8, ptr %ed448_fromdata_params, i64 40
-  %fromdata_params.0.sroa.gep = getelementptr inbounds i8, ptr %ed448_fromdata_params, i64 80
+  %fromdata_params.0.sroa.gep71 = getelementptr inbounds nuw i8, ptr %ed448_fromdata_params, i64 64
+  %fromdata_params.0.sroa.gep66 = getelementptr inbounds nuw i8, ptr %ed448_fromdata_params, i64 56
+  %fromdata_params.0.sroa.gep56 = getelementptr inbounds nuw i8, ptr %ed448_fromdata_params, i64 24
+  %fromdata_params.0.sroa.gep51 = getelementptr inbounds nuw i8, ptr %ed448_fromdata_params, i64 16
+  %fromdata_params.0.sroa.gep46 = getelementptr inbounds nuw i8, ptr %ed448_fromdata_params, i64 40
+  %fromdata_params.0.sroa.gep = getelementptr inbounds nuw i8, ptr %ed448_fromdata_params, i64 80
   br label %sw.epilog
 
 default.unreachable81:                            ; preds = %entry
@@ -2352,7 +2352,7 @@ if.else:                                          ; preds = %if.end
 
 if.then10:                                        ; preds = %if.else
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params, ptr noundef nonnull align 16 dereferenceable(40) %fromdata_params.0, i64 40, i1 false)
-  %arrayidx12 = getelementptr inbounds i8, ptr %params, i64 40
+  %arrayidx12 = getelementptr inbounds nuw i8, ptr %params, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %arrayidx12, ptr noundef nonnull align 16 dereferenceable(40) %fromdata_params.0.sroa.phi, i64 40, i1 false)
   br label %if.end16
 
@@ -2673,7 +2673,7 @@ lor.lhs.false43:                                  ; preds = %if.end39
   br i1 %tobool46.not, label %err, label %while.cond.preheader
 
 while.cond.preheader:                             ; preds = %lor.lhs.false43
-  %add.ptr = getelementptr inbounds i8, ptr %out_pub, i64 1
+  %add.ptr = getelementptr inbounds nuw i8, ptr %out_pub, i64 1
   %.pre = load ptr, ptr %pk, align 8
   %call5050 = call i32 @EVP_PKEY_get_bits(ptr noundef %.pre) #6
   %call5151 = call i32 @test_int_eq(ptr noundef nonnull @.str, i32 noundef 1263, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.148, i32 noundef %call5050, i32 noundef 256) #6
@@ -3409,7 +3409,7 @@ sw.default:                                       ; preds = %entry
 
 switch.lookup:                                    ; preds = %entry
   %1 = zext nneg i32 %type to i64
-  %switch.gep = getelementptr inbounds [6 x ptr], ptr @switch.table.compare_with_file, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table.compare_with_file, i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   %call = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %filename, i64 noundef 80, ptr noundef nonnull @.str.102, ptr noundef %alg, ptr noundef nonnull %switch.load) #6
   %2 = load ptr, ptr @datadir, align 8
@@ -3492,14 +3492,14 @@ if.then5.i:                                       ; preds = %if.end.i
   br label %if.end6.i
 
 if.end6.i:                                        ; preds = %if.then5.i, %if.end.i
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %writ.012.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %writ.012.i, i64 1
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.end6.i, %if.then.i
   %slen.2 = phi i64 [ %dec.i, %if.then.i ], [ %slen.1, %if.end6.i ]
   %writ.1.i = phi ptr [ %writ.012.i, %if.then.i ], [ %incdec.ptr.i, %if.end6.i ]
   %dec7.i = add i64 %i.010.i, -1
-  %incdec.ptr8.i = getelementptr inbounds i8, ptr %curr.011.i, i64 1
+  %incdec.ptr8.i = getelementptr inbounds nuw i8, ptr %curr.011.i, i64 1
   %cmp.not.i = icmp eq i64 %dec7.i, 0
   br i1 %cmp.not.i, label %stripcr.exit, label %for.body.i, !llvm.loop !15
 
@@ -3532,13 +3532,13 @@ if.then5.i18:                                     ; preds = %if.end.i16
   br label %if.end6.i19
 
 if.end6.i19:                                      ; preds = %if.then5.i18, %if.end.i16
-  %incdec.ptr.i20 = getelementptr inbounds i8, ptr %writ.012.i12, i64 1
+  %incdec.ptr.i20 = getelementptr inbounds nuw i8, ptr %writ.012.i12, i64 1
   br label %for.inc.i21
 
 for.inc.i21:                                      ; preds = %if.end6.i19, %if.then.i26
   %writ.1.i22 = phi ptr [ %writ.012.i12, %if.then.i26 ], [ %incdec.ptr.i20, %if.end6.i19 ]
   %dec7.i23 = add i64 %i.010.i14, -1
-  %incdec.ptr8.i24 = getelementptr inbounds i8, ptr %curr.011.i13, i64 1
+  %incdec.ptr8.i24 = getelementptr inbounds nuw i8, ptr %curr.011.i13, i64 1
   %cmp.not.i25 = icmp eq i64 %dec7.i23, 0
   br i1 %cmp.not.i25, label %if.end42, label %for.body.i11, !llvm.loop !15
 
@@ -3595,13 +3595,13 @@ sw.default:                                       ; preds = %entry
 
 switch.lookup:                                    ; preds = %entry
   %1 = zext nneg i32 %type to i64
-  %switch.gep = getelementptr inbounds [6 x ptr], ptr @switch.table.test_print_key_type_using_encoder, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table.test_print_key_type_using_encoder, i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   %2 = zext nneg i32 %type to i64
-  %switch.gep19 = getelementptr inbounds [6 x i32], ptr @switch.table.test_print_key_type_using_encoder.2, i64 0, i64 %2
+  %switch.gep19 = getelementptr inbounds nuw [6 x i32], ptr @switch.table.test_print_key_type_using_encoder.2, i64 0, i64 %2
   %switch.load20 = load i32, ptr %switch.gep19, align 4
   %3 = zext nneg i32 %type to i64
-  %switch.gep21 = getelementptr inbounds [6 x ptr], ptr @switch.table.test_print_key_type_using_encoder.3, i64 0, i64 %3
+  %switch.gep21 = getelementptr inbounds nuw [6 x ptr], ptr @switch.table.test_print_key_type_using_encoder.3, i64 0, i64 %3
   %switch.load22 = load ptr, ptr %switch.gep21, align 8
   %call7 = tail call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 262, ptr noundef nonnull @.str.76, ptr noundef %call1) #6
   %tobool.not = icmp eq i32 %call7, 0

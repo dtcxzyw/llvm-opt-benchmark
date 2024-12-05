@@ -139,7 +139,7 @@ define dso_local ptr @ECPGstruct_member_dup(ptr noundef readonly %0) local_unnam
 .lr.ph:                                           ; preds = %1, %ECPGmake_struct_member.exit
   %.02247 = phi ptr [ %102, %ECPGmake_struct_member.exit ], [ %0, %1 ]
   %.03346 = phi ptr [ %.1, %ECPGmake_struct_member.exit ], [ null, %1 ]
-  %2 = getelementptr inbounds i8, ptr %.02247, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %.02247, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load i32, ptr %3, align 8
   switch i32 %4, label %74 [
@@ -149,11 +149,11 @@ define dso_local ptr @ECPGstruct_member_dup(ptr noundef readonly %0) local_unnam
   ]
 
 5:                                                ; preds = %.lr.ph, %.lr.ph
-  %6 = getelementptr inbounds i8, ptr %3, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = tail call noalias dereferenceable_or_null(2) ptr @strdup(ptr noundef nonnull @.str.1) #11
   %13 = icmp eq ptr %12, null
@@ -174,11 +174,11 @@ mm_strdup.exit27:                                 ; preds = %5
 
 ECPGmake_simple_type.exit26:                      ; preds = %mm_strdup.exit27
   store i32 %4, ptr %15, align 8
-  %18 = getelementptr inbounds i8, ptr %15, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr null, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %15, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store ptr %12, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %15, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %20, i8 0, i64 20, i1 false)
   %21 = tail call noalias ptr @strdup(ptr noundef readonly %9) #11
   %22 = icmp eq ptr %21, null
@@ -191,13 +191,13 @@ ECPGmake_simple_type.exit26:                      ; preds = %mm_strdup.exit27
 mm_strdup.exit:                                   ; preds = %ECPGmake_simple_type.exit26
   store ptr %21, ptr %18, align 8
   %24 = tail call ptr @ECPGstruct_member_dup(ptr noundef %7)
-  %25 = getelementptr inbounds i8, ptr %15, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %15, i64 32
   store ptr %24, ptr %25, align 8
   store ptr %11, ptr %20, align 8
   br label %86
 
 26:                                               ; preds = %.lr.ph
-  %27 = getelementptr inbounds i8, ptr %3, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %28 = load ptr, ptr %27, align 8
   %29 = load i32, ptr %28, align 8
   %30 = and i32 %29, -2
@@ -205,11 +205,11 @@ mm_strdup.exit:                                   ; preds = %ECPGmake_simple_typ
   br i1 %switch, label %31, label %52
 
 31:                                               ; preds = %26
-  %32 = getelementptr inbounds i8, ptr %28, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %28, i64 32
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %28, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %28, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %37 = load ptr, ptr %36, align 8
   %38 = tail call noalias dereferenceable_or_null(2) ptr @strdup(ptr noundef nonnull @.str.1) #11
   %39 = icmp eq ptr %38, null
@@ -230,11 +230,11 @@ mm_strdup.exit31:                                 ; preds = %31
 
 ECPGmake_simple_type.exit30:                      ; preds = %mm_strdup.exit31
   store i32 %29, ptr %41, align 8
-  %44 = getelementptr inbounds i8, ptr %41, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %41, i64 8
   store ptr null, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %41, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %41, i64 16
   store ptr %38, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %41, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %41, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %46, i8 0, i64 20, i1 false)
   %47 = tail call noalias ptr @strdup(ptr noundef readonly %35) #11
   %48 = icmp eq ptr %47, null
@@ -247,15 +247,15 @@ ECPGmake_simple_type.exit30:                      ; preds = %mm_strdup.exit31
 mm_strdup.exit28:                                 ; preds = %ECPGmake_simple_type.exit30
   store ptr %47, ptr %44, align 8
   %50 = tail call ptr @ECPGstruct_member_dup(ptr noundef %33)
-  %51 = getelementptr inbounds i8, ptr %41, i64 32
+  %51 = getelementptr inbounds nuw i8, ptr %41, i64 32
   store ptr %50, ptr %51, align 8
   store ptr %37, ptr %46, align 8
   br label %86
 
 52:                                               ; preds = %26
-  %53 = getelementptr inbounds i8, ptr %28, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %28, i64 40
+  %55 = getelementptr inbounds nuw i8, ptr %28, i64 40
   %56 = load i32, ptr %55, align 8
   %57 = tail call noalias dereferenceable_or_null(48) ptr @malloc(i64 noundef 48) #9
   %58 = icmp eq ptr %57, null
@@ -267,16 +267,16 @@ mm_strdup.exit28:                                 ; preds = %ECPGmake_simple_typ
 
 ECPGmake_simple_type.exit:                        ; preds = %52
   store i32 %29, ptr %57, align 8
-  %60 = getelementptr inbounds i8, ptr %57, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %57, i64 8
   store ptr null, ptr %60, align 8
-  %61 = getelementptr inbounds i8, ptr %57, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %57, i64 16
   store ptr %54, ptr %61, align 8
-  %62 = getelementptr inbounds i8, ptr %57, i64 24
-  %63 = getelementptr inbounds i8, ptr %57, i64 40
+  %62 = getelementptr inbounds nuw i8, ptr %57, i64 24
+  %63 = getelementptr inbounds nuw i8, ptr %57, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %62, i8 0, i64 16, i1 false)
   store i32 %56, ptr %63, align 8
   %64 = load ptr, ptr %2, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 16
   %66 = load ptr, ptr %65, align 8
   %67 = tail call noalias dereferenceable_or_null(48) ptr @malloc(i64 noundef 48) #9
   %68 = icmp eq ptr %67, null
@@ -288,20 +288,20 @@ ECPGmake_simple_type.exit:                        ; preds = %52
 
 ECPGmake_array_type.exit:                         ; preds = %ECPGmake_simple_type.exit
   store i32 21, ptr %67, align 8
-  %70 = getelementptr inbounds i8, ptr %67, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %67, i64 8
   store ptr null, ptr %70, align 8
-  %71 = getelementptr inbounds i8, ptr %67, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %67, i64 16
   store ptr %66, ptr %71, align 8
-  %72 = getelementptr inbounds i8, ptr %67, i64 24
-  %73 = getelementptr inbounds i8, ptr %67, i64 32
+  %72 = getelementptr inbounds nuw i8, ptr %67, i64 24
+  %73 = getelementptr inbounds nuw i8, ptr %67, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %72, i8 0, i64 20, i1 false)
   store ptr %57, ptr %73, align 8
   br label %86
 
 74:                                               ; preds = %.lr.ph
-  %75 = getelementptr inbounds i8, ptr %3, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds i8, ptr %3, i64 40
+  %77 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %78 = load i32, ptr %77, align 8
   %79 = tail call noalias dereferenceable_or_null(48) ptr @malloc(i64 noundef 48) #9
   %80 = icmp eq ptr %79, null
@@ -313,12 +313,12 @@ ECPGmake_array_type.exit:                         ; preds = %ECPGmake_simple_typ
 
 ECPGmake_simple_type.exit24:                      ; preds = %74
   store i32 %4, ptr %79, align 8
-  %82 = getelementptr inbounds i8, ptr %79, i64 8
+  %82 = getelementptr inbounds nuw i8, ptr %79, i64 8
   store ptr null, ptr %82, align 8
-  %83 = getelementptr inbounds i8, ptr %79, i64 16
+  %83 = getelementptr inbounds nuw i8, ptr %79, i64 16
   store ptr %76, ptr %83, align 8
-  %84 = getelementptr inbounds i8, ptr %79, i64 24
-  %85 = getelementptr inbounds i8, ptr %79, i64 40
+  %84 = getelementptr inbounds nuw i8, ptr %79, i64 24
+  %85 = getelementptr inbounds nuw i8, ptr %79, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %84, i8 0, i64 16, i1 false)
   store i32 %78, ptr %85, align 8
   br label %86
@@ -345,9 +345,9 @@ mm_alloc.exit.i:                                  ; preds = %86
 
 mm_strdup.exit.i:                                 ; preds = %mm_alloc.exit.i
   store ptr %91, ptr %88, align 8
-  %94 = getelementptr inbounds i8, ptr %88, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %88, i64 8
   store ptr %.0, ptr %94, align 8
-  %95 = getelementptr inbounds i8, ptr %88, i64 16
+  %95 = getelementptr inbounds nuw i8, ptr %88, i64 16
   store ptr null, ptr %95, align 8
   br label %96
 
@@ -357,19 +357,19 @@ mm_strdup.exit.i:                                 ; preds = %mm_alloc.exit.i
   br i1 %.not.i, label %ECPGmake_struct_member.exit, label %97
 
 97:                                               ; preds = %96
-  %98 = getelementptr inbounds i8, ptr %.0.i, i64 16
+  %98 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   %99 = load ptr, ptr %98, align 8
   %.not15.i = icmp eq ptr %99, null
   br i1 %.not15.i, label %.critedge.i, label %96, !llvm.loop !5
 
 .critedge.i:                                      ; preds = %97
-  %100 = getelementptr inbounds i8, ptr %.0.i, i64 16
+  %100 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   store ptr %88, ptr %100, align 8
   br label %ECPGmake_struct_member.exit
 
 ECPGmake_struct_member.exit:                      ; preds = %96, %.critedge.i
   %.1 = phi ptr [ %.03346, %.critedge.i ], [ %88, %96 ]
-  %101 = getelementptr inbounds i8, ptr %.02247, i64 16
+  %101 = getelementptr inbounds nuw i8, ptr %.02247, i64 16
   %102 = load ptr, ptr %101, align 8
   %.not = icmp eq ptr %102, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
@@ -400,9 +400,9 @@ mm_strdup.exit:                                   ; preds = %4
 
 ECPGmake_simple_type.exit:                        ; preds = %mm_strdup.exit
   store i32 %1, ptr %8, align 8
-  %11 = getelementptr inbounds i8, ptr %8, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %5, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %8, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 40
   store i32 0, ptr %12, align 8
   %13 = tail call noalias ptr @strdup(ptr noundef readonly %2) #11
   %14 = icmp eq ptr %13, null
@@ -413,11 +413,11 @@ ECPGmake_simple_type.exit:                        ; preds = %mm_strdup.exit
   unreachable
 
 mm_strdup.exit7:                                  ; preds = %ECPGmake_simple_type.exit
-  %16 = getelementptr inbounds i8, ptr %8, i64 24
-  %17 = getelementptr inbounds i8, ptr %8, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %13, ptr %17, align 8
   %18 = tail call ptr @ECPGstruct_member_dup(ptr noundef %0)
-  %19 = getelementptr inbounds i8, ptr %8, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store ptr %18, ptr %19, align 8
   store ptr %3, ptr %16, align 8
   ret ptr %8
@@ -435,12 +435,12 @@ define dso_local noalias nonnull ptr @ECPGmake_array_type(ptr noundef %0, ptr no
 
 ECPGmake_simple_type.exit:                        ; preds = %2
   store i32 21, ptr %3, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr null, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %1, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 24
-  %9 = getelementptr inbounds i8, ptr %3, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %8, i8 0, i64 20, i1 false)
   store ptr %0, ptr %9, align 8
   ret ptr %3
@@ -458,12 +458,12 @@ define dso_local noalias nonnull ptr @ECPGmake_simple_type(i32 noundef %0, ptr n
 
 mm_alloc.exit:                                    ; preds = %3
   store i32 %0, ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr null, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %1, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 24
-  %10 = getelementptr inbounds i8, ptr %4, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   store i32 %2, ptr %10, align 8
   ret ptr %4
@@ -490,9 +490,9 @@ mm_alloc.exit:                                    ; preds = %3
 
 mm_strdup.exit:                                   ; preds = %mm_alloc.exit
   store ptr %7, ptr %4, align 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %1, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr null, ptr %11, align 8
   %12 = load ptr, ptr %2, align 8
   br label %13
@@ -503,13 +503,13 @@ mm_strdup.exit:                                   ; preds = %mm_alloc.exit
   br i1 %.not, label %.critedge16, label %14
 
 14:                                               ; preds = %13
-  %15 = getelementptr inbounds i8, ptr %.0, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   %16 = load ptr, ptr %15, align 8
   %.not15 = icmp eq ptr %16, null
   br i1 %.not15, label %.critedge, label %13, !llvm.loop !5
 
 .critedge:                                        ; preds = %14
-  %17 = getelementptr inbounds i8, ptr %.0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   store ptr %4, ptr %17, align 8
   br label %18
 
@@ -548,7 +548,7 @@ define dso_local void @ECPGdump_a_type(ptr noundef %0, ptr noundef %1, ptr nocap
 mm_strdup.exit:                                   ; preds = %17
   %21 = tail call ptr @find_variable(ptr noundef nonnull %18) #11
   tail call void @free(ptr noundef nonnull %18) #11
-  %22 = getelementptr inbounds i8, ptr %21, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = load i32, ptr %23, align 8
   %25 = load i32, ptr %2, align 8
@@ -556,10 +556,10 @@ mm_strdup.exit:                                   ; preds = %17
   br i1 %.not198, label %26, label %35
 
 26:                                               ; preds = %mm_strdup.exit
-  %27 = getelementptr inbounds i8, ptr %23, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %28 = load ptr, ptr %27, align 8
   %.not199 = icmp eq ptr %28, null
-  %29 = getelementptr inbounds i8, ptr %2, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %30 = load ptr, ptr %29, align 8
   %.not202 = icmp eq ptr %30, null
   br i1 %.not199, label %32, label %31
@@ -580,7 +580,7 @@ mm_strdup.exit:                                   ; preds = %17
   br label %39
 
 .thread249:                                       ; preds = %32, %33
-  %36 = getelementptr inbounds i8, ptr %21, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %37 = load i32, ptr %36, align 8
   %.not206 = icmp eq i32 %37, %3
   br i1 %.not206, label %39, label %38
@@ -614,7 +614,7 @@ mm_strdup.exit:                                   ; preds = %17
 mm_strdup.exit239:                                ; preds = %46
   %50 = tail call ptr @find_variable(ptr noundef nonnull %47) #11
   tail call void @free(ptr noundef nonnull %47) #11
-  %51 = getelementptr inbounds i8, ptr %50, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %52 = load ptr, ptr %51, align 8
   %53 = load i32, ptr %52, align 8
   %54 = load i32, ptr %5, align 8
@@ -622,10 +622,10 @@ mm_strdup.exit239:                                ; preds = %46
   br i1 %.not207, label %55, label %64
 
 55:                                               ; preds = %mm_strdup.exit239
-  %56 = getelementptr inbounds i8, ptr %52, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %57 = load ptr, ptr %56, align 8
   %.not208 = icmp eq ptr %57, null
-  %58 = getelementptr inbounds i8, ptr %5, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %59 = load ptr, ptr %58, align 8
   %.not211 = icmp eq ptr %59, null
   br i1 %.not208, label %61, label %60
@@ -646,7 +646,7 @@ mm_strdup.exit239:                                ; preds = %46
   br label %thread-pre-split
 
 .thread251:                                       ; preds = %61, %62
-  %65 = getelementptr inbounds i8, ptr %50, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %66 = load i32, ptr %65, align 8
   %.not215 = icmp eq i32 %66, %6
   br i1 %.not215, label %thread-pre-split, label %67
@@ -685,7 +685,7 @@ thread-pre-split:                                 ; preds = %64, %67, %.thread25
   unreachable
 
 74:                                               ; preds = %71, %71, %70
-  %75 = getelementptr inbounds i8, ptr %2, i64 32
+  %75 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %76 = load ptr, ptr %75, align 8
   %77 = load i32, ptr %76, align 8
   switch i32 %77, label %90 [
@@ -700,7 +700,7 @@ thread-pre-split:                                 ; preds = %64, %67, %.thread25
   br label %204
 
 79:                                               ; preds = %74, %74
-  %80 = getelementptr inbounds i8, ptr %2, i64 16
+  %80 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %81 = load ptr, ptr %80, align 8
   br i1 %.not226, label %88, label %82
 
@@ -710,7 +710,7 @@ thread-pre-split:                                 ; preds = %64, %67, %.thread25
   br i1 %84, label %88, label %85
 
 85:                                               ; preds = %82
-  %86 = getelementptr inbounds i8, ptr %5, i64 32
+  %86 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %87 = load ptr, ptr %86, align 8
   br label %88
 
@@ -738,11 +738,11 @@ thread-pre-split:                                 ; preds = %64, %67, %.thread25
 93:                                               ; preds = %92, %92, %.thread252, %90
   %94 = phi i32 [ %77, %92 ], [ %77, %92 ], [ %.pre276, %.thread252 ], [ %77, %90 ]
   %95 = phi ptr [ %76, %92 ], [ %76, %92 ], [ %.pre, %.thread252 ], [ %76, %90 ]
-  %96 = getelementptr inbounds i8, ptr %95, i64 16
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 16
   %97 = load ptr, ptr %96, align 8
-  %98 = getelementptr inbounds i8, ptr %2, i64 16
+  %98 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %99 = load ptr, ptr %98, align 8
-  %100 = getelementptr inbounds i8, ptr %95, i64 40
+  %100 = getelementptr inbounds nuw i8, ptr %95, i64 40
   %101 = load i32, ptr %100, align 8
   tail call fastcc void @ECPGdump_a_simple(ptr noundef %0, ptr noundef %1, i32 noundef %94, ptr noundef %97, ptr noundef %99, ptr noundef %10, ptr noundef %7, i32 noundef %101)
   br i1 %.not226, label %204, label %102
@@ -762,19 +762,19 @@ thread-pre-split:                                 ; preds = %64, %67, %.thread25
   unreachable
 
 mm_strdup.exit240:                                ; preds = %105
-  %109 = getelementptr inbounds i8, ptr %5, i64 16
+  %109 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %110 = load ptr, ptr %109, align 8
   tail call fastcc void @ECPGdump_a_simple(ptr noundef %0, ptr noundef %4, i32 noundef 29, ptr noundef %110, ptr noundef nonnull %106, ptr noundef null, ptr noundef %8, i32 noundef 0)
   tail call void @free(ptr noundef nonnull %106) #11
   br label %204
 
 111:                                              ; preds = %102
-  %112 = getelementptr inbounds i8, ptr %5, i64 32
+  %112 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %113 = load ptr, ptr %112, align 8
   %114 = load i32, ptr %113, align 8
-  %115 = getelementptr inbounds i8, ptr %113, i64 16
+  %115 = getelementptr inbounds nuw i8, ptr %113, i64 16
   %116 = load ptr, ptr %115, align 8
-  %117 = getelementptr inbounds i8, ptr %5, i64 16
+  %117 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %118 = load ptr, ptr %117, align 8
   tail call fastcc void @ECPGdump_a_simple(ptr noundef %0, ptr noundef %4, i32 noundef %114, ptr noundef %116, ptr noundef %118, ptr noundef null, ptr noundef %8, i32 noundef 0)
   br label %204
@@ -867,7 +867,7 @@ sub_0:                                            ; preds = %141, %.thread257
   br i1 %.not, label %.tail, label %.thread253
 
 .tail:                                            ; preds = %sub_0
-  %143 = getelementptr inbounds i8, ptr %9, i64 1
+  %143 = getelementptr inbounds nuw i8, ptr %9, i64 1
   %144 = load i8, ptr %143, align 1
   %145 = icmp eq i8 %144, 0
   br i1 %145, label %.thread255, label %.thread253
@@ -894,7 +894,7 @@ sub_0262:                                         ; preds = %.thread255, %.threa
   br i1 %.not273, label %sub_1263, label %.tail261
 
 sub_1263:                                         ; preds = %sub_0262
-  %149 = getelementptr inbounds i8, ptr %9, i64 1
+  %149 = getelementptr inbounds nuw i8, ptr %9, i64 1
   %150 = load i8, ptr %149, align 1
   %151 = icmp eq i8 %150, 0
   %152 = select i1 %151, ptr %135, ptr %9
@@ -903,7 +903,7 @@ sub_1263:                                         ; preds = %sub_0262
 .tail261:                                         ; preds = %sub_1263, %sub_0262, %147
   %153 = phi ptr [ %135, %147 ], [ %9, %sub_0262 ], [ %152, %sub_1263 ]
   %154 = load i32, ptr %5, align 8
-  %.in260 = getelementptr inbounds i8, ptr %5, i64 16
+  %.in260 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %155 = load ptr, ptr %.in260, align 8
   tail call fastcc void @ECPGdump_a_simple(ptr noundef %0, ptr noundef %4, i32 noundef %154, ptr noundef %155, ptr noundef nonnull %153, ptr noundef %11, ptr noundef %8, i32 noundef 0)
   br label %156
@@ -949,7 +949,7 @@ mm_strdup.exit246:                                ; preds = %mm_strdup.exit245
 167:                                              ; preds = %164
   tail call fastcc void @ECPGdump_a_simple(ptr noundef %0, ptr noundef %1, i32 noundef 24, ptr noundef null, ptr noundef nonnull %158, ptr noundef null, ptr noundef %7, i32 noundef 0)
   %168 = load i32, ptr %5, align 8
-  %169 = getelementptr inbounds i8, ptr %5, i64 16
+  %169 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %170 = load ptr, ptr %169, align 8
   tail call fastcc void @ECPGdump_a_simple(ptr noundef %0, ptr noundef %4, i32 noundef %168, ptr noundef %170, ptr noundef nonnull %161, ptr noundef null, ptr noundef %8, i32 noundef 0)
   br label %171
@@ -996,7 +996,7 @@ mm_strdup.exit248:                                ; preds = %mm_strdup.exit247
   unreachable
 
 182:                                              ; preds = %179, %mm_strdup.exit248
-  %183 = getelementptr inbounds i8, ptr %2, i64 16
+  %183 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %184 = load ptr, ptr %183, align 8
   %.not232 = icmp eq ptr %9, null
   br i1 %.not232, label %189, label %sub_0266
@@ -1007,7 +1007,7 @@ sub_0266:                                         ; preds = %182
   br i1 %.not274, label %.tail265, label %.tail265.thread
 
 .tail265:                                         ; preds = %sub_0266
-  %186 = getelementptr inbounds i8, ptr %9, i64 1
+  %186 = getelementptr inbounds nuw i8, ptr %9, i64 1
   %187 = load i8, ptr %186, align 1
   %188 = icmp eq i8 %187, 0
   br i1 %188, label %189, label %.tail265.thread
@@ -1017,14 +1017,14 @@ sub_0266:                                         ; preds = %182
 
 .tail265.thread:                                  ; preds = %sub_0266, %.tail265, %189
   %190 = phi ptr [ %173, %189 ], [ %9, %.tail265 ], [ %9, %sub_0266 ]
-  %191 = getelementptr inbounds i8, ptr %2, i64 40
+  %191 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %192 = load i32, ptr %191, align 8
   tail call fastcc void @ECPGdump_a_simple(ptr noundef %0, ptr noundef %1, i32 noundef %69, ptr noundef %184, ptr noundef nonnull %190, ptr noundef %10, ptr noundef %7, i32 noundef %192)
   br i1 %.not230, label %203, label %193
 
 193:                                              ; preds = %.tail265.thread
   %194 = load i32, ptr %5, align 8
-  %195 = getelementptr inbounds i8, ptr %5, i64 16
+  %195 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %196 = load ptr, ptr %195, align 8
   br i1 %.not232, label %201, label %sub_0270
 
@@ -1034,7 +1034,7 @@ sub_0270:                                         ; preds = %193
   br i1 %.not275, label %.tail269, label %.tail269.thread
 
 .tail269:                                         ; preds = %sub_0270
-  %198 = getelementptr inbounds i8, ptr %9, i64 1
+  %198 = getelementptr inbounds nuw i8, ptr %9, i64 1
   %199 = load i8, ptr %198, align 1
   %200 = icmp eq i8 %199, 0
   br i1 %200, label %201, label %.tail269.thread
@@ -1128,28 +1128,28 @@ mm_alloc.exit75:                                  ; preds = %24
   %40 = select i1 %21, ptr @.str.37, ptr %7
   %.str.79..str.8085 = select i1 %39, ptr @.str.79, ptr @.str.80
   %41 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %28, ptr noundef nonnull %.str.79..str.8085, ptr noundef nonnull %40, ptr noundef %2) #11
-  %42 = getelementptr inbounds i8, ptr %5, i64 32
+  %42 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %43 = load ptr, ptr %42, align 8
   br label %44
 
 44:                                               ; preds = %mm_alloc.exit75, %36, %37
   %.062 = phi ptr [ %43, %37 ], [ null, %36 ], [ @struct_no_indicator, %mm_alloc.exit75 ]
   %.0 = phi ptr [ %28, %37 ], [ %7, %36 ], [ %7, %mm_alloc.exit75 ]
-  %45 = getelementptr inbounds i8, ptr %4, i64 32
+  %45 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.06380 = load ptr, ptr %45, align 8
   %.not7381 = icmp eq ptr %.06380, null
   br i1 %.not7381, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %44
-  %46 = getelementptr inbounds i8, ptr %4, i64 24
-  %47 = getelementptr inbounds i8, ptr %5, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %5, i64 24
   br label %48
 
 48:                                               ; preds = %.lr.ph, %67
   %.06383 = phi ptr [ %.06380, %.lr.ph ], [ %.063, %67 ]
   %.182 = phi ptr [ %.062, %.lr.ph ], [ %.2, %67 ]
   %49 = load ptr, ptr %.06383, align 8
-  %50 = getelementptr inbounds i8, ptr %.06383, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %.06383, i64 8
   %51 = load ptr, ptr %50, align 8
   %.not = icmp eq ptr %.182, null
   br i1 %.not, label %.thread77, label %53
@@ -1161,7 +1161,7 @@ mm_alloc.exit75:                                  ; preds = %24
 
 53:                                               ; preds = %48
   %54 = load ptr, ptr %.182, align 8
-  %55 = getelementptr inbounds i8, ptr %.182, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %.182, i64 8
   %56 = load ptr, ptr %55, align 8
   %57 = load ptr, ptr %46, align 8
   %58 = load ptr, ptr %47, align 8
@@ -1170,13 +1170,13 @@ mm_alloc.exit75:                                  ; preds = %24
   br i1 %.not79, label %67, label %59
 
 59:                                               ; preds = %53
-  %60 = getelementptr inbounds i8, ptr %.182, i64 16
+  %60 = getelementptr inbounds nuw i8, ptr %.182, i64 16
   %61 = load ptr, ptr %60, align 8
   %62 = icmp eq ptr %61, null
   br i1 %62, label %63, label %67
 
 63:                                               ; preds = %59
-  %64 = getelementptr inbounds i8, ptr %.06383, i64 16
+  %64 = getelementptr inbounds nuw i8, ptr %.06383, i64 16
   %65 = load ptr, ptr %64, align 8
   %.not74 = icmp eq ptr %65, null
   br i1 %.not74, label %67, label %66
@@ -1187,7 +1187,7 @@ mm_alloc.exit75:                                  ; preds = %24
 
 67:                                               ; preds = %.thread77, %53, %66, %63, %59
   %.2 = phi ptr [ @struct_no_indicator, %66 ], [ null, %63 ], [ %61, %59 ], [ @struct_no_indicator, %53 ], [ null, %.thread77 ]
-  %68 = getelementptr inbounds i8, ptr %.06383, i64 16
+  %68 = getelementptr inbounds nuw i8, ptr %.06383, i64 16
   %.063 = load ptr, ptr %68, align 8
   %.not73 = icmp eq ptr %.063, null
   br i1 %.not73, label %._crit_edge, label %48, !llvm.loop !8
@@ -1296,7 +1296,7 @@ sub_0:                                            ; preds = %36
   br i1 %.not169, label %sub_1, label %.tail
 
 sub_1:                                            ; preds = %sub_0
-  %39 = getelementptr inbounds i8, ptr %4, i64 1
+  %39 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %40 = load i8, ptr %39, align 1
   %41 = icmp ne i8 %40, 0
   br label %.tail
@@ -1351,7 +1351,7 @@ sub_0147:                                         ; preds = %60
   br i1 %.not, label %.tail146, label %.tail146.thread
 
 .tail146:                                         ; preds = %sub_0147
-  %63 = getelementptr inbounds i8, ptr %3, i64 1
+  %63 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %64 = load i8, ptr %63, align 1
   %65 = icmp eq i8 %64, 0
   br i1 %65, label %66, label %.tail146.thread
@@ -1366,7 +1366,7 @@ sub_0151:                                         ; preds = %66
   br i1 %.not166, label %sub_1152, label %.tail150
 
 sub_1152:                                         ; preds = %sub_0151
-  %69 = getelementptr inbounds i8, ptr %4, i64 1
+  %69 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %70 = load i8, ptr %69, align 1
   %71 = icmp ne i8 %70, 0
   br label %.tail150
@@ -1394,7 +1394,7 @@ sub_0155:                                         ; preds = %74
   br i1 %.not167, label %sub_0159.thread, label %.tail158
 
 sub_0159.thread:                                  ; preds = %sub_0155
-  %78 = getelementptr inbounds i8, ptr %3, i64 1
+  %78 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %79 = load i8, ptr %78, align 1
   %80 = icmp eq i8 %79, 0
   %81 = select i1 %80, ptr @.str.44, ptr @.str.43
@@ -1413,7 +1413,7 @@ sub_0159:                                         ; preds = %82, %74
 
 sub_1160:                                         ; preds = %sub_0159.thread, %sub_0159
   %.0176 = phi ptr [ %81, %sub_0159.thread ], [ @.str.43, %sub_0159 ]
-  %86 = getelementptr inbounds i8, ptr %3, i64 1
+  %86 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %87 = load i8, ptr %86, align 1
   %88 = icmp eq i8 %87, 0
   %89 = select i1 %88, ptr @.str.1, ptr %3
@@ -1469,7 +1469,7 @@ sub_0163:                                         ; preds = %114
   br i1 %.not170, label %sub_1164, label %.tail162
 
 sub_1164:                                         ; preds = %sub_0163
-  %117 = getelementptr inbounds i8, ptr %4, i64 1
+  %117 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %118 = load i8, ptr %117, align 1
   %119 = icmp ne i8 %118, 0
   br label %.tail162
@@ -1531,7 +1531,7 @@ switch.hole_check:                                ; preds = %137
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %140 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [32 x ptr], ptr @switch.table.ECPGdump_a_simple.1, i64 0, i64 %140
+  %switch.gep = getelementptr inbounds nuw [32 x ptr], ptr @switch.table.ECPGdump_a_simple.1, i64 0, i64 %140
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %get_type.exit
 
@@ -1556,7 +1556,7 @@ switch.hole_check183:                             ; preds = %142
 
 switch.lookup184:                                 ; preds = %switch.hole_check183
   %145 = zext nneg i32 %switch.tableidx182 to i64
-  %switch.gep187 = getelementptr inbounds [32 x ptr], ptr @switch.table.ECPGdump_a_simple.1, i64 0, i64 %145
+  %switch.gep187 = getelementptr inbounds nuw [32 x ptr], ptr @switch.table.ECPGdump_a_simple.1, i64 0, i64 %145
   %switch.load188 = load ptr, ptr %switch.gep187, align 8
   br label %get_type.exit145
 
@@ -1581,11 +1581,11 @@ define dso_local void @ECPGfree_struct_member(ptr noundef %0) local_unnamed_addr
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %.07 = phi ptr [ %3, %.lr.ph ], [ %0, %1 ]
-  %2 = getelementptr inbounds i8, ptr %.07, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %.07, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %.07, align 8
   tail call void @free(ptr noundef %4) #11
-  %5 = getelementptr inbounds i8, ptr %.07, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %.07, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @free(ptr noundef %6) #11
   tail call void @free(ptr noundef nonnull %.07) #11
@@ -1613,7 +1613,7 @@ define dso_local void @ECPGfree_type(ptr nocapture noundef %0) local_unnamed_add
   ]
 
 5:                                                ; preds = %4
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8
   %8 = load i32, ptr %7, align 8
   switch i32 %8, label %19 [
@@ -1628,18 +1628,18 @@ define dso_local void @ECPGfree_type(ptr nocapture noundef %0) local_unnamed_add
   br label %ECPGfree_struct_member.exit24
 
 10:                                               ; preds = %5, %5
-  %11 = getelementptr inbounds i8, ptr %7, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %12 = load ptr, ptr %11, align 8
   %.not6.i = icmp eq ptr %12, null
   br i1 %.not6.i, label %ECPGfree_struct_member.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %10, %.lr.ph.i
   %.07.i = phi ptr [ %14, %.lr.ph.i ], [ %12, %10 ]
-  %13 = getelementptr inbounds i8, ptr %.07.i, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %.07.i, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %.07.i, align 8
   tail call void @free(ptr noundef %15) #11
-  %16 = getelementptr inbounds i8, ptr %.07.i, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
   %17 = load ptr, ptr %16, align 8
   tail call void @free(ptr noundef %17) #11
   tail call void @free(ptr noundef nonnull %.07.i) #11
@@ -1676,18 +1676,18 @@ ECPGfree_struct_member.exit:                      ; preds = %ECPGfree_struct_mem
   br label %ECPGfree_struct_member.exit24
 
 24:                                               ; preds = %4, %4
-  %25 = getelementptr inbounds i8, ptr %0, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %26 = load ptr, ptr %25, align 8
   %.not6.i20 = icmp eq ptr %26, null
   br i1 %.not6.i20, label %ECPGfree_struct_member.exit24, label %.lr.ph.i21
 
 .lr.ph.i21:                                       ; preds = %24, %.lr.ph.i21
   %.07.i22 = phi ptr [ %28, %.lr.ph.i21 ], [ %26, %24 ]
-  %27 = getelementptr inbounds i8, ptr %.07.i22, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %.07.i22, i64 16
   %28 = load ptr, ptr %27, align 8
   %29 = load ptr, ptr %.07.i22, align 8
   tail call void @free(ptr noundef %29) #11
-  %30 = getelementptr inbounds i8, ptr %.07.i22, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %.07.i22, i64 8
   %31 = load ptr, ptr %30, align 8
   tail call void @free(ptr noundef %31) #11
   tail call void @free(ptr noundef nonnull %.07.i22) #11
@@ -1720,7 +1720,7 @@ switch.hole_check:                                ; preds = %1
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %4 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [17 x ptr], ptr @switch.table.get_dtype, i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw [17 x ptr], ptr @switch.table.get_dtype, i64 0, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %5
 

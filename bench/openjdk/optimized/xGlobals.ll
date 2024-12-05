@@ -43,7 +43,7 @@ define hidden noundef nonnull ptr @_Z20XGlobalPhaseToStringv() local_unnamed_add
 
 switch.lookup:                                    ; preds = %0
   %3 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._Z20XGlobalPhaseToStringv, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._Z20XGlobalPhaseToStringv, i64 0, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 

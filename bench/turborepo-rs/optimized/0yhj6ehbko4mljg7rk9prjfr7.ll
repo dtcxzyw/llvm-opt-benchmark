@@ -13,21 +13,21 @@ define void @_RINvMsi_NtCs68wO5nsWeTG_5alloc3vecINtB6_3VecNtNtB8_6string6StringE
   %6 = alloca [8 x i8], align 8
   %7 = alloca [24 x i8], align 8
   %8 = alloca [24 x i8], align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %10 = load i64, ptr %9, align 8, !alias.scope !4, !noalias !11, !noundef !13
   %11 = icmp eq i64 %10, 0
   br i1 %11, label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtB4_6option6OptionNtNtCs68wO5nsWeTG_5alloc6string6StringEECsff1zCjKRl2o_13turborepo_env.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %.sroa.42.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
-  %12 = getelementptr inbounds i8, ptr %3, i64 16
-  %.sroa.46.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %3, i64 24
-  %13 = getelementptr inbounds i8, ptr %4, i64 8
-  %14 = getelementptr inbounds i8, ptr %4, i64 32
-  %15 = getelementptr inbounds i8, ptr %4, i64 16
-  %16 = getelementptr inbounds i8, ptr %4, i64 24
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.42.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %.sroa.46.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %19
 
 19:                                               ; preds = %.lr.ph, %32
@@ -114,15 +114,15 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtB4_6option6OptionNtNtCs68wO5ns
 define void @_RINvMsi_NtCs68wO5nsWeTG_5alloc3vecINtB6_3VecNtNtB8_6string6StringE16extend_desugaredINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters3map3MapINtNtNtNtCsapf13pIxsjn_3std11collections4hash3map4IterBG_BG_ENCNvMCsff1zCjKRl2o_13turborepo_envNtB3c_22EnvironmentVariableMap18to_secret_hashable0EEB3c_(ptr noalias noundef align 8 dereferenceable(24) %0, ptr noalias nocapture noundef align 8 dereferenceable(40) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [24 x i8], align 8
   %4 = alloca [24 x i8], align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %6 = load i64, ptr %5, align 8, !alias.scope !32, !noalias !39, !noundef !13
   %7 = icmp eq i64 %6, 0
   br i1 %7, label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtB4_6option6OptionNtNtCs68wO5nsWeTG_5alloc6string6StringEECsff1zCjKRl2o_13turborepo_env.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %1, i64 40
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %11
 
 11:                                               ; preds = %.lr.ph, %24
@@ -189,14 +189,14 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtB4_6option6OptionNtNtCs68wO5ns
 define void @_RINvMsi_NtCs68wO5nsWeTG_5alloc3vecINtB6_3VecNtNtB8_6string6StringE16extend_desugaredINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters6cloned6ClonedINtNtNtNtCsapf13pIxsjn_3std11collections4hash3map4KeysBG_BG_EEECsff1zCjKRl2o_13turborepo_env(ptr noalias noundef align 8 dereferenceable(24) %0, ptr noalias nocapture noundef align 8 dereferenceable(40) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [24 x i8], align 8
   %4 = alloca [24 x i8], align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %6 = load i64, ptr %5, align 8, !alias.scope !49, !noalias !56, !noundef !13
   %7 = icmp eq i64 %6, 0
   br i1 %7, label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtB4_6option6OptionNtNtCs68wO5nsWeTG_5alloc6string6StringEECsff1zCjKRl2o_13turborepo_env.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %10
 
 10:                                               ; preds = %.lr.ph, %22
@@ -307,7 +307,7 @@ define void @_RNvXNtNtCs68wO5nsWeTG_5alloc3vec21spec_from_iter_nestedINtB4_3VecN
   %11 = alloca [24 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !74)
-  %12 = getelementptr inbounds i8, ptr %1, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %13 = load i64, ptr %12, align 8, !alias.scope !77, !noalias !82, !noundef !13
   %14 = icmp eq i64 %13, 0
   br i1 %14, label %_RNvXs0_NtNtNtCs1LoaDTb72WA_4core4iter8adapters3mapINtB5_3MapINtNtNtNtCsapf13pIxsjn_3std11collections4hash3map4IterNtNtCs68wO5nsWeTG_5alloc6string6StringB1O_ENCNvMCsff1zCjKRl2o_13turborepo_envNtB2A_22EnvironmentVariableMap11to_hashable0ENtNtNtB9_6traits8iterator8Iterator4nextB2A_.exit.thread, label %15
@@ -330,20 +330,20 @@ _RNvXs0_NtNtNtCs1LoaDTb72WA_4core4iter8adapters3mapINtB5_3MapINtNtNtNtCsapf13pIx
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !84
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3), !noalias !84
   store ptr %6, ptr %3, align 8, !noalias !84
-  %.sroa.42.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.42.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @_RNvXsR_NtCs1LoaDTb72WA_4core3fmtRNtNtCs68wO5nsWeTG_5alloc6string6StringNtB5_7Display3fmtCs5g6BnGVOFtV_12regex_syntax, ptr %.sroa.42.0..sroa_idx.i.i.i, align 8, !noalias !84
-  %22 = getelementptr inbounds i8, ptr %3, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %5, ptr %22, align 8, !noalias !84
-  %.sroa.46.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %3, i64 24
+  %.sroa.46.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr @_RNvXsR_NtCs1LoaDTb72WA_4core3fmtRNtNtCs68wO5nsWeTG_5alloc6string6StringNtB5_7Display3fmtCs5g6BnGVOFtV_12regex_syntax, ptr %.sroa.46.0..sroa_idx.i.i.i, align 8, !noalias !84
   store ptr @anon.4ec265261aa2c4186d0098c17e5db520.84.llvm.14677917400488395388, ptr %4, align 8, !noalias !84
-  %23 = getelementptr inbounds i8, ptr %4, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 2, ptr %23, align 8, !noalias !84
-  %24 = getelementptr inbounds i8, ptr %4, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr null, ptr %24, align 8, !noalias !84
-  %25 = getelementptr inbounds i8, ptr %4, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %3, ptr %25, align 8, !noalias !84
-  %26 = getelementptr inbounds i8, ptr %4, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 2, ptr %26, align 8, !noalias !84
   call void @_RINvMNtCs1LoaDTb72WA_4core6optionINtB3_6OptionReE11map_or_elseNtNtCs68wO5nsWeTG_5alloc6string6StringNCNvNtB12_3fmt6format0NvYeNtNtB12_6borrow7ToOwned8to_ownedECsff1zCjKRl2o_13turborepo_env.llvm.14677917400488395388(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %10, ptr noalias noundef readonly align 1 null, i64 undef, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %4)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4), !noalias !84
@@ -356,9 +356,9 @@ _RNvXs0_NtNtNtCs1LoaDTb72WA_4core4iter8adapters3mapINtB5_3MapINtNtNtNtCsapf13pIx
 
 _RNvXs0_NtNtNtCs1LoaDTb72WA_4core4iter8adapters3mapINtB5_3MapINtNtNtNtCsapf13pIxsjn_3std11collections4hash3map4IterNtNtCs68wO5nsWeTG_5alloc6string6StringB1O_ENCNvMCsff1zCjKRl2o_13turborepo_envNtB2A_22EnvironmentVariableMap11to_hashable0ENtNtNtB9_6traits8iterator8Iterator4nextB2A_.exit.thread: ; preds = %15, %2, %_RNvXs0_NtNtNtCs1LoaDTb72WA_4core4iter8adapters3mapINtB5_3MapINtNtNtNtCsapf13pIxsjn_3std11collections4hash3map4IterNtNtCs68wO5nsWeTG_5alloc6string6StringB1O_ENCNvMCsff1zCjKRl2o_13turborepo_envNtB2A_22EnvironmentVariableMap11to_hashable0ENtNtNtB9_6traits8iterator8Iterator4nextB2A_.exit
   store i64 0, ptr %0, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr inttoptr (i64 8 to ptr), ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %29, align 8
   br label %30
 
@@ -385,9 +385,9 @@ _RNvXs0_NtNtNtCs1LoaDTb72WA_4core4iter8adapters3mapINtB5_3MapINtNtNtNtCsapf13pIx
 35:                                               ; preds = %33
   %36 = load i64, ptr %7, align 8, !range !93, !noundef !13
   %trunc = trunc nuw i64 %36 to i1
-  %37 = getelementptr inbounds i8, ptr %7, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %38 = load i64, ptr %37, align 8, !range !94, !noundef !13
-  %39 = getelementptr inbounds i8, ptr %7, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %7, i64 16
   br i1 %trunc, label %42, label %40
 
 40:                                               ; preds = %35
@@ -395,9 +395,9 @@ _RNvXs0_NtNtNtCs1LoaDTb72WA_4core4iter8adapters3mapINtB5_3MapINtNtNtNtCsapf13pIx
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %41, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)
   store i64 %38, ptr %11, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %11, i64 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %41, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %11, i64 16
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i64 1, ptr %.sroa.6.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8)
@@ -443,7 +443,7 @@ define void @_RNvXNtNtCs68wO5nsWeTG_5alloc3vec21spec_from_iter_nestedINtB4_3VecN
   %6 = alloca [24 x i8], align 8
   %7 = alloca [24 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
-  %8 = getelementptr inbounds i8, ptr %1, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %9 = load i64, ptr %8, align 8, !alias.scope !95, !noalias !102, !noundef !13
   %10 = icmp eq i64 %9, 0
   br i1 %10, label %_RNvXs0_NtNtNtCs1LoaDTb72WA_4core4iter8adapters3mapINtB5_3MapINtNtNtNtCsapf13pIxsjn_3std11collections4hash3map4IterNtNtCs68wO5nsWeTG_5alloc6string6StringB1O_ENCNvMCsff1zCjKRl2o_13turborepo_envNtB2A_22EnvironmentVariableMap18to_secret_hashable0ENtNtNtB9_6traits8iterator8Iterator4nextB2A_.exit.thread, label %11
@@ -459,7 +459,7 @@ define void @_RNvXNtNtCs68wO5nsWeTG_5alloc3vec21spec_from_iter_nestedINtB4_3VecN
 _RNvXs0_NtNtNtCs1LoaDTb72WA_4core4iter8adapters3mapINtB5_3MapINtNtNtNtCsapf13pIxsjn_3std11collections4hash3map4IterNtNtCs68wO5nsWeTG_5alloc6string6StringB1O_ENCNvMCsff1zCjKRl2o_13turborepo_envNtB2A_22EnvironmentVariableMap18to_secret_hashable0ENtNtNtB9_6traits8iterator8Iterator4nextB2A_.exit: ; preds = %11
   %16 = getelementptr inbounds i8, ptr %12, i64 -48
   %17 = getelementptr inbounds i8, ptr %12, i64 -24
-  %18 = getelementptr inbounds i8, ptr %1, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 40
   call void @_RNCNvMCsff1zCjKRl2o_13turborepo_envNtB4_22EnvironmentVariableMap18to_secret_hashable0B4_.llvm.14677917400488395388(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %6, ptr noalias noundef nonnull align 1 %18, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %16, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %17)
   %.pr = load i64, ptr %6, align 8
   %19 = icmp eq i64 %.pr, -9223372036854775808
@@ -467,9 +467,9 @@ _RNvXs0_NtNtNtCs1LoaDTb72WA_4core4iter8adapters3mapINtB5_3MapINtNtNtNtCsapf13pIx
 
 _RNvXs0_NtNtNtCs1LoaDTb72WA_4core4iter8adapters3mapINtB5_3MapINtNtNtNtCsapf13pIxsjn_3std11collections4hash3map4IterNtNtCs68wO5nsWeTG_5alloc6string6StringB1O_ENCNvMCsff1zCjKRl2o_13turborepo_envNtB2A_22EnvironmentVariableMap18to_secret_hashable0ENtNtNtB9_6traits8iterator8Iterator4nextB2A_.exit.thread: ; preds = %11, %2, %_RNvXs0_NtNtNtCs1LoaDTb72WA_4core4iter8adapters3mapINtB5_3MapINtNtNtNtCsapf13pIxsjn_3std11collections4hash3map4IterNtNtCs68wO5nsWeTG_5alloc6string6StringB1O_ENCNvMCsff1zCjKRl2o_13turborepo_envNtB2A_22EnvironmentVariableMap18to_secret_hashable0ENtNtNtB9_6traits8iterator8Iterator4nextB2A_.exit
   store i64 0, ptr %0, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr inttoptr (i64 8 to ptr), ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %21, align 8
   br label %22
 
@@ -496,9 +496,9 @@ _RNvXs0_NtNtNtCs1LoaDTb72WA_4core4iter8adapters3mapINtB5_3MapINtNtNtNtCsapf13pIx
 27:                                               ; preds = %25
   %28 = load i64, ptr %3, align 8, !range !93, !noundef !13
   %trunc = trunc nuw i64 %28 to i1
-  %29 = getelementptr inbounds i8, ptr %3, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %30 = load i64, ptr %29, align 8, !range !94, !noundef !13
-  %31 = getelementptr inbounds i8, ptr %3, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 16
   br i1 %trunc, label %34, label %32
 
 32:                                               ; preds = %27
@@ -506,9 +506,9 @@ _RNvXs0_NtNtNtCs1LoaDTb72WA_4core4iter8adapters3mapINtB5_3MapINtNtNtNtCsapf13pIx
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %33, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   store i64 %30, ptr %7, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %33, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 16
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 1, ptr %.sroa.6.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
@@ -554,7 +554,7 @@ define void @_RNvXNtNtCs68wO5nsWeTG_5alloc3vec21spec_from_iter_nestedINtB4_3VecN
   %6 = alloca [24 x i8], align 8
   %7 = alloca [24 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
-  %8 = getelementptr inbounds i8, ptr %1, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %9 = load i64, ptr %8, align 8, !alias.scope !104, !noalias !111, !noundef !13
   %10 = icmp eq i64 %9, 0
   br i1 %10, label %_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters6clonedINtB4_6ClonedINtNtNtNtCsapf13pIxsjn_3std11collections4hash3map4KeysNtNtCs68wO5nsWeTG_5alloc6string6StringB1T_EENtNtNtB8_6traits8iterator8Iterator4nextCsff1zCjKRl2o_13turborepo_env.exit.thread, label %11
@@ -576,9 +576,9 @@ _RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters6clonedINtB4_6ClonedINtNtNtNtCsapf
 
 _RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters6clonedINtB4_6ClonedINtNtNtNtCsapf13pIxsjn_3std11collections4hash3map4KeysNtNtCs68wO5nsWeTG_5alloc6string6StringB1T_EENtNtNtB8_6traits8iterator8Iterator4nextCsff1zCjKRl2o_13turborepo_env.exit.thread: ; preds = %11, %2, %_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters6clonedINtB4_6ClonedINtNtNtNtCsapf13pIxsjn_3std11collections4hash3map4KeysNtNtCs68wO5nsWeTG_5alloc6string6StringB1T_EENtNtNtB8_6traits8iterator8Iterator4nextCsff1zCjKRl2o_13turborepo_env.exit
   store i64 0, ptr %0, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr inttoptr (i64 8 to ptr), ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %19, align 8
   br label %20
 
@@ -605,9 +605,9 @@ _RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters6clonedINtB4_6ClonedINtNtNtNtCsapf
 26:                                               ; preds = %23
   %27 = load i64, ptr %3, align 8, !range !93, !noundef !13
   %trunc = trunc nuw i64 %27 to i1
-  %28 = getelementptr inbounds i8, ptr %3, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %29 = load i64, ptr %28, align 8, !range !94, !noundef !13
-  %30 = getelementptr inbounds i8, ptr %3, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 16
   br i1 %trunc, label %33, label %31
 
 31:                                               ; preds = %26
@@ -615,9 +615,9 @@ _RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters6clonedINtB4_6ClonedINtNtNtNtCsapf
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   store i64 %29, ptr %7, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %32, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 16
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 1, ptr %.sroa.6.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
@@ -662,18 +662,18 @@ define void @_RNvXs8_NtCs68wO5nsWeTG_5alloc5sliceINtNtB7_3vec3VecNtNtB7_6string6
   call void @_RNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVecNtNtB7_6string6StringE15try_allocate_inCsgrIngBG6lgl_14regex_automata(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %3, i64 noundef %1, i1 noundef zeroext false)
   %4 = load i64, ptr %3, align 8, !range !93, !noundef !13
   %trunc = trunc nuw i64 %4 to i1
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load i64, ptr %5, align 8, !range !94, !noundef !13
-  %7 = getelementptr inbounds i8, ptr %3, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   br i1 %trunc, label %12, label %8
 
 8:                                                ; preds = %2
   %9 = load ptr, ptr %7, align 8, !nonnull !13, !noundef !13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   store i64 %6, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %9, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %11, align 8
   ret void
 
@@ -685,9 +685,9 @@ define void @_RNvXs8_NtCs68wO5nsWeTG_5alloc5sliceINtNtB7_3vec3VecNtNtB7_6string6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define { ptr, i64 } @_RNvXs8_NtCs68wO5nsWeTG_5alloc5sliceINtNtB7_3vec3VecNtNtB7_6string6StringEINtNtNtNtCs1LoaDTb72WA_4core5slice4sort6stable8BufGuardBN_E19as_uninit_slice_mutCsff1zCjKRl2o_13turborepo_env(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !nonnull !13, !noundef !13
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !noundef !13
   %6 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %3, i64 %5
   %7 = load i64, ptr %0, align 8, !noundef !13

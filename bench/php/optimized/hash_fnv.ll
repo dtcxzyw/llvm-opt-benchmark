@@ -33,7 +33,7 @@ define void @PHP_FNV132Update(ptr nocapture noundef %0, ptr noundef readonly %1,
   %.021.i = phi i32 [ %11, %.lr.ph22.i ], [ %4, %3 ]
   %.01420.i = phi ptr [ %8, %.lr.ph22.i ], [ %1, %3 ]
   %7 = mul i32 %.021.i, 16777619
-  %8 = getelementptr inbounds i8, ptr %.01420.i, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %.01420.i, i64 1
   %9 = load i8, ptr %.01420.i, align 1
   %10 = zext i8 %9 to i32
   %11 = xor i32 %7, %10
@@ -53,9 +53,9 @@ define void @PHP_FNV132Final(ptr nocapture noundef writeonly %0, ptr nocapture n
 3:                                                ; preds = %2, %3
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %3 ]
   %4 = sub nuw nsw i64 3, %indvars.iv
-  %5 = getelementptr inbounds i8, ptr %1, i64 %4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 %4
   %6 = load i8, ptr %5, align 1
-  %7 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   store i8 %6, ptr %7, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -81,7 +81,7 @@ define void @PHP_FNV1a32Update(ptr nocapture noundef %0, ptr noundef readonly %1
 .lr.ph.i:                                         ; preds = %3, %.lr.ph.i
   %.219.i = phi i32 [ %11, %.lr.ph.i ], [ %4, %3 ]
   %.11518.i = phi ptr [ %7, %.lr.ph.i ], [ %1, %3 ]
-  %7 = getelementptr inbounds i8, ptr %.11518.i, i64 1
+  %7 = getelementptr inbounds nuw i8, ptr %.11518.i, i64 1
   %8 = load i8, ptr %.11518.i, align 1
   %9 = zext i8 %8 to i32
   %10 = xor i32 %.219.i, %9
@@ -112,7 +112,7 @@ define void @PHP_FNV164Update(ptr nocapture noundef %0, ptr noundef readonly %1,
   %.021.i = phi i64 [ %11, %.lr.ph22.i ], [ %4, %3 ]
   %.01420.i = phi ptr [ %8, %.lr.ph22.i ], [ %1, %3 ]
   %7 = mul i64 %.021.i, 1099511628211
-  %8 = getelementptr inbounds i8, ptr %.01420.i, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %.01420.i, i64 1
   %9 = load i8, ptr %.01420.i, align 1
   %10 = zext i8 %9 to i64
   %11 = xor i64 %7, %10
@@ -132,9 +132,9 @@ define void @PHP_FNV164Final(ptr nocapture noundef writeonly %0, ptr nocapture n
 3:                                                ; preds = %2, %3
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %3 ]
   %4 = sub nuw nsw i64 7, %indvars.iv
-  %5 = getelementptr inbounds i8, ptr %1, i64 %4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 %4
   %6 = load i8, ptr %5, align 1
-  %7 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   store i8 %6, ptr %7, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
@@ -154,7 +154,7 @@ define void @PHP_FNV1a64Update(ptr nocapture noundef %0, ptr noundef readonly %1
 .lr.ph.i:                                         ; preds = %3, %.lr.ph.i
   %.219.i = phi i64 [ %11, %.lr.ph.i ], [ %4, %3 ]
   %.11518.i = phi ptr [ %7, %.lr.ph.i ], [ %1, %3 ]
-  %7 = getelementptr inbounds i8, ptr %.11518.i, i64 1
+  %7 = getelementptr inbounds nuw i8, ptr %.11518.i, i64 1
   %8 = load i8, ptr %.11518.i, align 1
   %9 = zext i8 %8 to i64
   %10 = xor i64 %.219.i, %9

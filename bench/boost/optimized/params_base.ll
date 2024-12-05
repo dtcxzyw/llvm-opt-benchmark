@@ -126,7 +126,7 @@ define void @_ZNK5boost4urls11params_base8iteratordeEv(ptr dead_on_unwind noalia
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #15
   %.sroa.03.0.copyload = load i24, ptr %3, align 4
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #15
-  %11 = getelementptr inbounds i8, ptr %6, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %11, i8 0, i64 16, i1 false)
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost4urls12string_token22implementation_defined13return_stringE, i64 16), ptr %6, align 8, !tbaa !16
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -173,7 +173,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %.sroa.0.0.copyload = load i24, ptr %3, align 4
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #15
-  %28 = getelementptr inbounds i8, ptr %8, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %8, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %28, i8 0, i64 16, i1 false)
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost4urls12string_token22implementation_defined13return_stringE, i64 16), ptr %8, align 8, !tbaa !16
   %29 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -638,16 +638,16 @@ define void @_ZNK5boost4urls11params_base9find_implENS0_6detail16params_iter_imp
   br i1 %22, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader7
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %13, i64 8
-  %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %13, i64 16
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %13, i64 16
   br label %23
 
 .preheader:                                       ; preds = %6
   br i1 %22, label %._crit_edge, label %.lr.ph8
 
 .lr.ph8:                                          ; preds = %.preheader
-  %.sroa.2.0..sroa_idx.i2 = getelementptr inbounds i8, ptr %15, i64 8
-  %.sroa.3.0..sroa_idx.i4 = getelementptr inbounds i8, ptr %15, i64 16
+  %.sroa.2.0..sroa_idx.i2 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %.sroa.3.0..sroa_idx.i4 = getelementptr inbounds nuw i8, ptr %15, i64 16
   br label %30
 
 23:                                               ; preds = %.lr.ph, %26
@@ -757,13 +757,13 @@ define void @_ZNK5boost4urls11params_base14find_last_implENS0_6detail16params_it
   br i1 %17, label %.preheader, label %.preheader7
 
 .preheader7:                                      ; preds = %6
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %13, i64 8
-  %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %13, i64 16
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %13, i64 16
   br label %20
 
 .preheader:                                       ; preds = %6
-  %.sroa.2.0..sroa_idx.i2 = getelementptr inbounds i8, ptr %15, i64 8
-  %.sroa.3.0..sroa_idx.i4 = getelementptr inbounds i8, ptr %15, i64 16
+  %.sroa.2.0..sroa_idx.i2 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %.sroa.3.0..sroa_idx.i4 = getelementptr inbounds nuw i8, ptr %15, i64 16
   br label %29
 
 20:                                               ; preds = %.preheader7, %25
@@ -1016,7 +1016,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost4urls7grammar11ci_is_equ
   %36 = load i8, ptr %35, align 1, !tbaa !30
   %.not.i.i = icmp eq i8 %36, 37
   %storemerge.v.i.i = select i1 %.not.i.i, i64 3, i64 1
-  %storemerge.i.i = getelementptr inbounds i8, ptr %35, i64 %storemerge.v.i.i
+  %storemerge.i.i = getelementptr inbounds nuw i8, ptr %35, i64 %storemerge.v.i.i
   store ptr %storemerge.i.i, ptr %11, align 8, !tbaa !95
   %37 = icmp eq ptr %34, %15
   br i1 %37, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !102
@@ -1076,7 +1076,7 @@ _ZN5boost4urls7grammar6detail11ci_is_equalINS_4core17basic_string_viewIcEENS0_11
   %65 = load i8, ptr %64, align 1, !tbaa !30
   %.not.i.i9 = icmp eq i8 %65, 37
   %storemerge.v.i.i10 = select i1 %.not.i.i9, i64 3, i64 1
-  %storemerge.i.i11 = getelementptr inbounds i8, ptr %64, i64 %storemerge.v.i.i10
+  %storemerge.i.i11 = getelementptr inbounds nuw i8, ptr %64, i64 %storemerge.v.i.i10
   store ptr %storemerge.i.i11, ptr %42, align 8, !tbaa !95
   %66 = getelementptr inbounds nuw i8, ptr %.01114.i, i64 1
   %67 = icmp eq ptr %storemerge.i.i11, %47

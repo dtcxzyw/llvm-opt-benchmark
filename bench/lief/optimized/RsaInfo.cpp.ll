@@ -29,9 +29,9 @@ define void @_ZN4LIEF2PE7RsaInfoC2EPv(ptr nocapture noundef nonnull writeonly al
   %3 = tail call noalias noundef nonnull dereferenceable(336) ptr @_Znwm(i64 noundef 336) #12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(336) %3, i8 0, i64 336, i1 false)
   tail call void @mbedtls_rsa_init(ptr noundef nonnull %3)
-  %4 = getelementptr inbounds i8, ptr %1, i64 328
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %5 = load i32, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 332
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 332
   %7 = load i32, ptr %6, align 4
   %8 = tail call i32 @mbedtls_rsa_set_padding(ptr noundef nonnull %3, i32 noundef %5, i32 noundef %7)
   %9 = tail call i32 @mbedtls_rsa_copy(ptr noundef nonnull %3, ptr noundef %1)
@@ -64,9 +64,9 @@ define void @_ZN4LIEF2PE7RsaInfoC2ERKS1_(ptr nocapture noundef nonnull writeonly
   %5 = tail call noalias noundef nonnull dereferenceable(336) ptr @_Znwm(i64 noundef 336) #12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(336) %5, i8 0, i64 336, i1 false)
   tail call void @mbedtls_rsa_init(ptr noundef nonnull %5)
-  %6 = getelementptr inbounds i8, ptr %3, i64 328
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 328
   %7 = load i32, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 332
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 332
   %9 = load i32, ptr %8, align 4
   %10 = tail call i32 @mbedtls_rsa_set_padding(ptr noundef nonnull %5, i32 noundef %7, i32 noundef %9)
   %11 = tail call i32 @mbedtls_rsa_copy(ptr noundef nonnull %5, ptr noundef nonnull %3)
@@ -133,7 +133,7 @@ declare i32 @mbedtls_rsa_check_privkey(ptr noundef) local_unnamed_addr #4
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK4LIEF2PE7RsaInfo1NEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = tail call i64 @mbedtls_mpi_size(ptr noundef nonnull %4)
   %6 = icmp slt i64 %5, 0
   br i1 %6, label %.noexc, label %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i
@@ -154,10 +154,10 @@ _ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIhSaI
   %7 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %5) #12
   store ptr %7, ptr %0, align 8
   %8 = getelementptr i8, ptr %7, i64 %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %8, ptr %9, align 8
   store i8 0, ptr %7, align 1
-  %10 = getelementptr inbounds i8, ptr %7, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 1
   %11 = add nsw i64 %5, -1
   %12 = icmp eq i64 %11, 0
   br i1 %12, label %thread-pre-split, label %13
@@ -169,7 +169,7 @@ _ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIhSaI
 thread-pre-split:                                 ; preds = %13, %.noexc7, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i
   %14 = phi ptr [ null, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i ], [ %7, %.noexc7 ], [ %7, %13 ]
   %.0.i.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i ], [ %10, %.noexc7 ], [ %8, %13 ]
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.0.i.i.i.i.i, ptr %15, align 8
   %16 = ptrtoint ptr %.0.i.i.i.i.i to i64
   %17 = ptrtoint ptr %14 to i64
@@ -203,7 +203,7 @@ declare i32 @mbedtls_mpi_write_binary(ptr noundef, ptr noundef, i64 noundef) loc
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK4LIEF2PE7RsaInfo1EEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %5 = tail call i64 @mbedtls_mpi_size(ptr noundef nonnull %4)
   %6 = icmp slt i64 %5, 0
   br i1 %6, label %.noexc, label %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i
@@ -224,10 +224,10 @@ _ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIhSaI
   %7 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %5) #12
   store ptr %7, ptr %0, align 8
   %8 = getelementptr i8, ptr %7, i64 %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %8, ptr %9, align 8
   store i8 0, ptr %7, align 1
-  %10 = getelementptr inbounds i8, ptr %7, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 1
   %11 = add nsw i64 %5, -1
   %12 = icmp eq i64 %11, 0
   br i1 %12, label %thread-pre-split, label %13
@@ -239,7 +239,7 @@ _ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIhSaI
 thread-pre-split:                                 ; preds = %13, %.noexc7, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i
   %14 = phi ptr [ null, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i ], [ %7, %.noexc7 ], [ %7, %13 ]
   %.0.i.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i ], [ %10, %.noexc7 ], [ %8, %13 ]
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.0.i.i.i.i.i, ptr %15, align 8
   %16 = ptrtoint ptr %.0.i.i.i.i.i to i64
   %17 = ptrtoint ptr %14 to i64
@@ -267,7 +267,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %22, %20
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK4LIEF2PE7RsaInfo1DEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %5 = tail call i64 @mbedtls_mpi_size(ptr noundef nonnull %4)
   %6 = icmp slt i64 %5, 0
   br i1 %6, label %.noexc, label %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i
@@ -288,10 +288,10 @@ _ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIhSaI
   %7 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %5) #12
   store ptr %7, ptr %0, align 8
   %8 = getelementptr i8, ptr %7, i64 %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %8, ptr %9, align 8
   store i8 0, ptr %7, align 1
-  %10 = getelementptr inbounds i8, ptr %7, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 1
   %11 = add nsw i64 %5, -1
   %12 = icmp eq i64 %11, 0
   br i1 %12, label %thread-pre-split, label %13
@@ -303,7 +303,7 @@ _ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIhSaI
 thread-pre-split:                                 ; preds = %13, %.noexc7, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i
   %14 = phi ptr [ null, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i ], [ %7, %.noexc7 ], [ %7, %13 ]
   %.0.i.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i ], [ %10, %.noexc7 ], [ %8, %13 ]
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.0.i.i.i.i.i, ptr %15, align 8
   %16 = ptrtoint ptr %.0.i.i.i.i.i to i64
   %17 = ptrtoint ptr %14 to i64
@@ -331,7 +331,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %22, %20
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK4LIEF2PE7RsaInfo1PEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 88
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 88
   %5 = tail call i64 @mbedtls_mpi_size(ptr noundef nonnull %4)
   %6 = icmp slt i64 %5, 0
   br i1 %6, label %.noexc, label %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i
@@ -352,10 +352,10 @@ _ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIhSaI
   %7 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %5) #12
   store ptr %7, ptr %0, align 8
   %8 = getelementptr i8, ptr %7, i64 %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %8, ptr %9, align 8
   store i8 0, ptr %7, align 1
-  %10 = getelementptr inbounds i8, ptr %7, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 1
   %11 = add nsw i64 %5, -1
   %12 = icmp eq i64 %11, 0
   br i1 %12, label %thread-pre-split, label %13
@@ -367,7 +367,7 @@ _ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIhSaI
 thread-pre-split:                                 ; preds = %13, %.noexc7, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i
   %14 = phi ptr [ null, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i ], [ %7, %.noexc7 ], [ %7, %13 ]
   %.0.i.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i ], [ %10, %.noexc7 ], [ %8, %13 ]
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.0.i.i.i.i.i, ptr %15, align 8
   %16 = ptrtoint ptr %.0.i.i.i.i.i to i64
   %17 = ptrtoint ptr %14 to i64
@@ -395,7 +395,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %22, %20
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK4LIEF2PE7RsaInfo1QEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 112
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 112
   %5 = tail call i64 @mbedtls_mpi_size(ptr noundef nonnull %4)
   %6 = icmp slt i64 %5, 0
   br i1 %6, label %.noexc, label %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i
@@ -416,10 +416,10 @@ _ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIhSaI
   %7 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %5) #12
   store ptr %7, ptr %0, align 8
   %8 = getelementptr i8, ptr %7, i64 %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %8, ptr %9, align 8
   store i8 0, ptr %7, align 1
-  %10 = getelementptr inbounds i8, ptr %7, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 1
   %11 = add nsw i64 %5, -1
   %12 = icmp eq i64 %11, 0
   br i1 %12, label %thread-pre-split, label %13
@@ -431,7 +431,7 @@ _ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIhSaI
 thread-pre-split:                                 ; preds = %13, %.noexc7, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i
   %14 = phi ptr [ null, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i ], [ %7, %.noexc7 ], [ %7, %13 ]
   %.0.i.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i ], [ %10, %.noexc7 ], [ %8, %13 ]
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.0.i.i.i.i.i, ptr %15, align 8
   %16 = ptrtoint ptr %.0.i.i.i.i.i to i64
   %17 = ptrtoint ptr %14 to i64

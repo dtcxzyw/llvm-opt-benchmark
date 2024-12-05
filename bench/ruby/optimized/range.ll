@@ -129,11 +129,11 @@ define internal fastcc void @range_init(i64 noundef %0, i64 noundef %1, i64 noun
   br i1 %.not.i.i, label %20, label %18
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds i8, ptr %15, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 16
   br label %RSTRUCT_CONST_PTR.exit.i
 
 20:                                               ; preds = %14
-  %21 = getelementptr inbounds i8, ptr %15, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %22 = load ptr, ptr %21, align 8
   br label %RSTRUCT_CONST_PTR.exit.i
 
@@ -158,11 +158,11 @@ internal_RSTRUCT_SET.exit:                        ; preds = %RSTRUCT_CONST_PTR.e
   br i1 %.not.i.i15, label %33, label %31
 
 31:                                               ; preds = %internal_RSTRUCT_SET.exit
-  %32 = getelementptr inbounds i8, ptr %15, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %15, i64 16
   br label %RSTRUCT_CONST_PTR.exit.i16
 
 33:                                               ; preds = %internal_RSTRUCT_SET.exit
-  %34 = getelementptr inbounds i8, ptr %15, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %35 = load ptr, ptr %34, align 8
   br label %RSTRUCT_CONST_PTR.exit.i16
 
@@ -186,11 +186,11 @@ internal_RSTRUCT_SET.exit18:                      ; preds = %RSTRUCT_CONST_PTR.e
   br i1 %.not.i.i19, label %45, label %43
 
 43:                                               ; preds = %internal_RSTRUCT_SET.exit18
-  %44 = getelementptr inbounds i8, ptr %15, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %15, i64 16
   br label %RSTRUCT_CONST_PTR.exit.i20
 
 45:                                               ; preds = %internal_RSTRUCT_SET.exit18
-  %46 = getelementptr inbounds i8, ptr %15, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %47 = load ptr, ptr %46, align 8
   br label %RSTRUCT_CONST_PTR.exit.i20
 
@@ -216,7 +216,7 @@ internal_RSTRUCT_SET.exit22:                      ; preds = %RSTRUCT_CONST_PTR.e
   br i1 %57, label %60, label %58
 
 58:                                               ; preds = %internal_RSTRUCT_SET.exit22
-  %59 = getelementptr inbounds i8, ptr %15, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %15, i64 8
   br label %rb_class_of.exit
 
 60:                                               ; preds = %internal_RSTRUCT_SET.exit22
@@ -267,7 +267,7 @@ define dso_local range(i32 0, 21) i32 @rb_range_values(i64 noundef %0, ptr nocap
 
 7:                                                ; preds = %4
   %8 = inttoptr i64 %0 to ptr
-  %9 = getelementptr inbounds i8, ptr %8, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load i64, ptr %9, align 8
   %11 = load i64, ptr %8, align 8
   %12 = and i64 %11, 1040384
@@ -629,11 +629,11 @@ define internal i64 @range_dumper(i64 noundef %0) #0 {
   br i1 %.not.i.i.i, label %10, label %8
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %5, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
   br label %RANGE_EXCL.exit
 
 10:                                               ; preds = %1
-  %11 = getelementptr inbounds i8, ptr %5, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %12 = load ptr, ptr %11, align 8
   br label %RANGE_EXCL.exit
 
@@ -643,7 +643,7 @@ RANGE_EXCL.exit:                                  ; preds = %8, %10
   %14 = load i64, ptr %13, align 8
   %15 = tail call i64 @rb_ivar_set(i64 noundef %3, i64 noundef %4, i64 noundef %14) #10
   %16 = load i64, ptr @id_beg, align 8
-  %17 = getelementptr inbounds i8, ptr %5, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %18 = load i64, ptr %17, align 8
   %19 = tail call i64 @rb_ivar_set(i64 noundef %3, i64 noundef %16, i64 noundef %18) #10
   %20 = load i64, ptr @id_end, align 8
@@ -653,7 +653,7 @@ RANGE_EXCL.exit:                                  ; preds = %8, %10
   br i1 %.not.i.i.i7, label %23, label %RANGE_END.exit
 
 23:                                               ; preds = %RANGE_EXCL.exit
-  %24 = getelementptr inbounds i8, ptr %5, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %25 = load ptr, ptr %24, align 8
   br label %RANGE_END.exit
 
@@ -681,7 +681,7 @@ define internal range(i64 1, -7) i64 @range_loader(i64 noundef returned %0, i64 
   br i1 %11, label %12, label %.critedge
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %8, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %14 = load i64, ptr %13, align 8
   %15 = load i64, ptr @rb_cObject, align 8
   %.not = icmp eq i64 %14, %15
@@ -719,11 +719,11 @@ rb_check_frozen_inline.exit.i:                    ; preds = %22
   br i1 %.not.i.i.i.i, label %32, label %30
 
 30:                                               ; preds = %rb_check_frozen_inline.exit.i
-  %31 = getelementptr inbounds i8, ptr %23, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %23, i64 16
   br label %RANGE_EXCL.exit.i
 
 32:                                               ; preds = %rb_check_frozen_inline.exit.i
-  %33 = getelementptr inbounds i8, ptr %23, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %23, i64 24
   %34 = load ptr, ptr %33, align 8
   br label %RANGE_EXCL.exit.i
 
@@ -794,11 +794,11 @@ rb_check_frozen_inline.exit.i:                    ; preds = %12
   br i1 %.not.i.i.i.i, label %22, label %20
 
 20:                                               ; preds = %rb_check_frozen_inline.exit.i
-  %21 = getelementptr inbounds i8, ptr %13, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %13, i64 16
   br label %RANGE_EXCL.exit.i
 
 22:                                               ; preds = %rb_check_frozen_inline.exit.i
-  %23 = getelementptr inbounds i8, ptr %13, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %24 = load ptr, ptr %23, align 8
   br label %RANGE_EXCL.exit.i
 
@@ -853,11 +853,11 @@ rb_check_frozen_inline.exit.i:                    ; preds = %7
   br i1 %.not.i.i.i.i, label %17, label %15
 
 15:                                               ; preds = %rb_check_frozen_inline.exit.i
-  %16 = getelementptr inbounds i8, ptr %8, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 16
   br label %RANGE_EXCL.exit.i
 
 17:                                               ; preds = %rb_check_frozen_inline.exit.i
-  %18 = getelementptr inbounds i8, ptr %8, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %19 = load ptr, ptr %18, align 8
   br label %RANGE_EXCL.exit.i
 
@@ -901,7 +901,7 @@ define internal i64 @range_eq(i64 noundef %0, i64 noundef %1) #0 {
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 0, 21) i64 @range_eqq(i64 noundef %0, i64 noundef %1) #0 {
   %3 = inttoptr i64 %0 to ptr
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load i64, ptr %4, align 8
   %6 = load i64, ptr %3, align 8
   %7 = and i64 %6, 1040384
@@ -909,7 +909,7 @@ define internal range(i64 0, 21) i64 @range_eqq(i64 noundef %0, i64 noundef %1) 
   br i1 %.not.i.i.i, label %8, label %RANGE_END.exit
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %3, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %10 = load ptr, ptr %9, align 8
   br label %RANGE_END.exit
 
@@ -941,7 +941,7 @@ r_less.exit.i._crit_edge:                         ; preds = %r_less.exit.i
   br i1 %.not.i.i.i.i, label %22, label %RANGE_EXCL.exit.i
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %3, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %24 = load ptr, ptr %23, align 8
   br label %RANGE_EXCL.exit.i
 
@@ -1002,11 +1002,11 @@ define internal range(i64 1, 0) i64 @range_hash(i64 noundef %0) #0 {
   br i1 %.not.i.i.i, label %7, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   br label %RANGE_EXCL.exit
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %2, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %9 = load ptr, ptr %8, align 8
   br label %RANGE_EXCL.exit
 
@@ -1018,7 +1018,7 @@ RANGE_EXCL.exit:                                  ; preds = %5, %7
   %13 = icmp ne i64 %12, 0
   %14 = zext i1 %13 to i64
   %15 = tail call i64 @rb_hash_start(i64 noundef %14) #10
-  %16 = getelementptr inbounds i8, ptr %2, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %17 = load i64, ptr %16, align 8
   %18 = tail call i64 @rb_hash(i64 noundef %17) #10
   %19 = and i64 %18, 1
@@ -1041,7 +1041,7 @@ rb_num2long_inline.exit:                          ; preds = %20, %22
   br i1 %.not.i.i.i12, label %26, label %RANGE_END.exit
 
 26:                                               ; preds = %rb_num2long_inline.exit
-  %27 = getelementptr inbounds i8, ptr %2, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %28 = load ptr, ptr %27, align 8
   br label %RANGE_END.exit
 
@@ -1070,7 +1070,7 @@ rb_num2long_inline.exit16:                        ; preds = %33, %35
   br i1 %.not.i.i.i17, label %39, label %RANGE_EXCL.exit19
 
 39:                                               ; preds = %rb_num2long_inline.exit16
-  %40 = getelementptr inbounds i8, ptr %2, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %41 = load ptr, ptr %40, align 8
   br label %RANGE_EXCL.exit19
 
@@ -1108,7 +1108,7 @@ define internal i64 @range_each(i64 noundef %0) #0 {
 
 7:                                                ; preds = %1
   %8 = inttoptr i64 %0 to ptr
-  %9 = getelementptr inbounds i8, ptr %8, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load i64, ptr %9, align 8
   %11 = load i64, ptr %8, align 8
   %12 = and i64 %11, 1040384
@@ -1116,7 +1116,7 @@ define internal i64 @range_each(i64 noundef %0) #0 {
   br i1 %.not.i.i.i, label %13, label %RANGE_END.exit
 
 13:                                               ; preds = %7
-  %14 = getelementptr inbounds i8, ptr %8, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %15 = load ptr, ptr %14, align 8
   br label %RANGE_END.exit
 
@@ -1146,7 +1146,7 @@ RANGE_END.exit:                                   ; preds = %7, %13
   br i1 %.not.i.i.i, label %26, label %RANGE_EXCL.exit.i
 
 26:                                               ; preds = %24
-  %27 = getelementptr inbounds i8, ptr %8, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %28 = load ptr, ptr %27, align 8
   br label %RANGE_EXCL.exit.i
 
@@ -1311,7 +1311,7 @@ rb_long2num_inline.exit:                          ; preds = %86
   br i1 %.not.i.i.i86, label %103, label %RANGE_EXCL.exit
 
 103:                                              ; preds = %100
-  %104 = getelementptr inbounds i8, ptr %8, i64 24
+  %104 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %105 = load ptr, ptr %104, align 8
   br label %RANGE_EXCL.exit
 
@@ -1409,7 +1409,7 @@ RB_SYMBOL_P.exit88.thread:                        ; preds = %133, %RB_SYMBOL_P.e
   br i1 %.not.i.i.i89, label %152, label %RANGE_EXCL.exit91
 
 152:                                              ; preds = %RB_SYMBOL_P.exit88.thread
-  %153 = getelementptr inbounds i8, ptr %8, i64 24
+  %153 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %154 = load ptr, ptr %153, align 8
   br label %RANGE_EXCL.exit91
 
@@ -1439,7 +1439,7 @@ RB_SYMBOL_P.exit.thread106:                       ; preds = %136, %123, %RB_SYMB
   br i1 %.not.i.i.i92, label %168, label %RANGE_EXCL.exit94
 
 168:                                              ; preds = %165
-  %169 = getelementptr inbounds i8, ptr %8, i64 24
+  %169 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %170 = load ptr, ptr %169, align 8
   br label %RANGE_EXCL.exit94
 
@@ -1550,7 +1550,7 @@ range_each_fixnum_loop.exit:                      ; preds = %.lr.ph.i, %.lr.ph, 
 define internal i64 @range_step(i32 noundef %0, ptr noundef %1, i64 noundef %2) #0 {
   %4 = alloca [2 x i64], align 16
   %5 = inttoptr i64 %2 to ptr
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load i64, ptr %6, align 8
   %8 = load i64, ptr %5, align 8
   %9 = and i64 %8, 1040384
@@ -1558,7 +1558,7 @@ define internal i64 @range_step(i32 noundef %0, ptr noundef %1, i64 noundef %2) 
   br i1 %.not.i.i.i, label %10, label %RANGE_END.exit
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %5, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %12 = load ptr, ptr %11, align 8
   br label %RANGE_END.exit
 
@@ -1636,7 +1636,7 @@ rb_check_arity.exit:                              ; preds = %RANGE_END.exit
   br i1 %.not.i.i.i120, label %45, label %RANGE_EXCL.exit
 
 45:                                               ; preds = %40
-  %46 = getelementptr inbounds i8, ptr %5, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %47 = load ptr, ptr %46, align 8
   br label %RANGE_EXCL.exit
 
@@ -1665,7 +1665,7 @@ RANGE_EXCL.exit:                                  ; preds = %40, %45
   %.0106 = phi i64 [ %19, %18 ], [ %.1107, %.thread ]
   %60 = tail call fastcc i64 @check_step_domain(i64 noundef %.0106)
   store i64 3, ptr %4, align 16
-  %61 = getelementptr inbounds i8, ptr %4, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %60, ptr %61, align 8
   %62 = and i64 %7, 1
   %.not149 = icmp eq i64 %62, 0
@@ -1720,7 +1720,7 @@ rb_long2num_inline.exit:                          ; preds = %70
   br i1 %.not.i.i.i123, label %89, label %RANGE_EXCL.exit125
 
 89:                                               ; preds = %84
-  %90 = getelementptr inbounds i8, ptr %5, i64 24
+  %90 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %91 = load ptr, ptr %90, align 8
   br label %RANGE_EXCL.exit125
 
@@ -1822,7 +1822,7 @@ RB_SYMBOL_P.exit129.thread:                       ; preds = %120, %RB_SYMBOL_P.e
   br i1 %.not.i.i.i130, label %140, label %RANGE_EXCL.exit132
 
 140:                                              ; preds = %RB_SYMBOL_P.exit129.thread
-  %141 = getelementptr inbounds i8, ptr %5, i64 24
+  %141 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %142 = load ptr, ptr %141, align 8
   br label %RANGE_EXCL.exit132
 
@@ -1844,7 +1844,7 @@ RB_SYMBOL_P.exit.thread144:                       ; preds = %123, %110, %RB_SYMB
   br i1 %.not.i.i.i133, label %152, label %RANGE_EXCL.exit135
 
 152:                                              ; preds = %RB_SYMBOL_P.exit.thread144
-  %153 = getelementptr inbounds i8, ptr %5, i64 24
+  %153 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %154 = load ptr, ptr %153, align 8
   br label %RANGE_EXCL.exit135
 
@@ -1882,7 +1882,7 @@ RANGE_EXCL.exit135:                               ; preds = %RB_SYMBOL_P.exit.th
   br i1 %.not.i.i.i136, label %173, label %RANGE_EXCL.exit138
 
 173:                                              ; preds = %170
-  %174 = getelementptr inbounds i8, ptr %5, i64 24
+  %174 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %175 = load ptr, ptr %174, align 8
   br label %RANGE_EXCL.exit138
 
@@ -1950,7 +1950,7 @@ RANGE_EXCL.exit138.split:                         ; preds = %RANGE_EXCL.exit138
   br i1 %.not.i.i.i139, label %210, label %RANGE_EXCL.exit141
 
 210:                                              ; preds = %207
-  %211 = getelementptr inbounds i8, ptr %5, i64 24
+  %211 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %212 = load ptr, ptr %211, align 8
   br label %RANGE_EXCL.exit141
 
@@ -2041,7 +2041,7 @@ define internal i64 @range_reverse_each(i64 noundef %0) #0 {
 
 7:                                                ; preds = %1
   %8 = inttoptr i64 %0 to ptr
-  %9 = getelementptr inbounds i8, ptr %8, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load i64, ptr %9, align 8
   %11 = load i64, ptr %8, align 8
   %12 = and i64 %11, 1040384
@@ -2308,7 +2308,7 @@ range_reverse_each_fixnum_section.exit:           ; preds = %.lr.ph.i, %116, %.l
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @range_bsearch(i64 noundef %0) #0 {
   %2 = inttoptr i64 %0 to ptr
-  %3 = getelementptr inbounds i8, ptr %2, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load i64, ptr %3, align 8
   %5 = load i64, ptr %2, align 8
   %6 = and i64 %5, 1040384
@@ -2316,7 +2316,7 @@ define internal i64 @range_bsearch(i64 noundef %0) #0 {
   br i1 %.not.i.i.i, label %7, label %RANGE_END.exit
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %2, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %9 = load ptr, ptr %8, align 8
   br label %RANGE_END.exit
 
@@ -2351,7 +2351,7 @@ RANGE_END.exit:                                   ; preds = %1, %7
   br i1 %.not.i.i.i300, label %27, label %RANGE_EXCL.exit
 
 27:                                               ; preds = %24
-  %28 = getelementptr inbounds i8, ptr %2, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %29 = load ptr, ptr %28, align 8
   br label %RANGE_EXCL.exit
 
@@ -2514,7 +2514,7 @@ RB_FLOAT_TYPE_P.exit.thread:                      ; preds = %RB_FLOAT_TYPE_P.exi
 
 106:                                              ; preds = %95
   %107 = inttoptr i64 %96 to ptr
-  %108 = getelementptr inbounds i8, ptr %107, i64 16
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 16
   %109 = load double, ptr %108, align 8
   br label %rb_float_value_inline.exit
 
@@ -2549,7 +2549,7 @@ rb_float_value_inline.exit:                       ; preds = %106, %100, %99, %RB
 
 128:                                              ; preds = %117
   %129 = inttoptr i64 %118 to ptr
-  %130 = getelementptr inbounds i8, ptr %129, i64 16
+  %130 = getelementptr inbounds nuw i8, ptr %129, i64 16
   %131 = load double, ptr %130, align 8
   br label %rb_float_value_inline.exit308
 
@@ -2577,7 +2577,7 @@ rb_float_value_inline.exit308:                    ; preds = %128, %122, %121, %r
   br i1 %.not.i.i.i309, label %146, label %RANGE_EXCL.exit311
 
 146:                                              ; preds = %143
-  %147 = getelementptr inbounds i8, ptr %2, i64 24
+  %147 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %148 = load ptr, ptr %147, align 8
   br label %RANGE_EXCL.exit311
 
@@ -2824,7 +2824,7 @@ is_integer_p.exit326.thread:                      ; preds = %rbimpl_intern_const
   br i1 %.not.i.i.i327, label %248, label %RANGE_EXCL.exit329
 
 248:                                              ; preds = %245
-  %249 = getelementptr inbounds i8, ptr %2, i64 24
+  %249 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %250 = load ptr, ptr %249, align 8
   br label %RANGE_EXCL.exit329
 
@@ -3298,7 +3298,7 @@ is_integer_p.exit353.thread386:                   ; preds = %rbimpl_intern_const
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
 define internal i64 @range_begin(i64 noundef %0) #3 {
   %2 = inttoptr i64 %0 to ptr
-  %3 = getelementptr inbounds i8, ptr %2, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load i64, ptr %3, align 8
   ret i64 %4
 }
@@ -3312,11 +3312,11 @@ define internal i64 @range_end(i64 noundef %0) #3 {
   br i1 %.not.i.i.i, label %7, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   br label %RANGE_END.exit
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %2, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %9 = load ptr, ptr %8, align 8
   br label %RANGE_END.exit
 
@@ -3332,7 +3332,7 @@ define internal i64 @range_first(i32 noundef %0, ptr noundef %1, i64 noundef %2)
   %4 = alloca i64, align 8
   %5 = alloca [2 x i64], align 16
   %6 = inttoptr i64 %2 to ptr
-  %7 = getelementptr inbounds i8, ptr %6, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i64, ptr %7, align 8
   %9 = icmp eq i64 %8, 4
   br i1 %9, label %10, label %12
@@ -3365,7 +3365,7 @@ define internal i64 @range_first(i32 noundef %0, ptr noundef %1, i64 noundef %2)
 rb_num2long_inline.exit:                          ; preds = %18, %20
   %.0.i = phi i64 [ %19, %18 ], [ %21, %20 ]
   %22 = call i64 @rb_ary_new_capa(i64 noundef %.0.i) #10
-  %23 = getelementptr inbounds i8, ptr %5, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %22, ptr %23, align 8
   %24 = ptrtoint ptr %5 to i64
   %25 = call i64 @rb_block_call(i64 noundef %2, i64 noundef 3041, i32 noundef 0, ptr noundef null, ptr noundef nonnull @first_i, i64 noundef %24) #10
@@ -3387,11 +3387,11 @@ define internal i64 @range_last(i32 noundef %0, ptr noundef %1, i64 noundef %2) 
   br i1 %.not.i.i.i, label %10, label %8
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %5, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
   br label %RANGE_END.exit
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %5, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %12 = load ptr, ptr %11, align 8
   br label %RANGE_END.exit
 
@@ -3415,11 +3415,11 @@ RANGE_END.exit:                                   ; preds = %8, %10
   br i1 %.not.i.i.i, label %23, label %21
 
 21:                                               ; preds = %20
-  %22 = getelementptr inbounds i8, ptr %5, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 16
   br label %RANGE_END.exit16
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds i8, ptr %5, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %25 = load ptr, ptr %24, align 8
   br label %RANGE_END.exit16
 
@@ -3430,12 +3430,12 @@ RANGE_END.exit16:                                 ; preds = %21, %23
   br label %115
 
 28:                                               ; preds = %18
-  %29 = getelementptr inbounds i8, ptr %5, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %30 = load i64, ptr %29, align 8
   br i1 %.not.i.i.i, label %31, label %RANGE_END.exit19
 
 31:                                               ; preds = %28
-  %32 = getelementptr inbounds i8, ptr %5, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %33 = load ptr, ptr %32, align 8
   br label %RANGE_END.exit19
 
@@ -3631,7 +3631,7 @@ rb_integer_type_p.exit.thread26:                  ; preds = %47, %37, %rb_intege
 define internal i64 @range_min(i32 noundef %0, ptr noundef %1, i64 noundef %2) #0 {
   %4 = alloca i64, align 8
   %5 = inttoptr i64 %2 to ptr
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load i64, ptr %6, align 8
   %8 = icmp eq i64 %7, 4
   br i1 %8, label %9, label %11
@@ -3653,7 +3653,7 @@ define internal i64 @range_min(i32 noundef %0, ptr noundef %1, i64 noundef %2) #
   br i1 %.not.i.i.i, label %16, label %RANGE_END.exit
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %5, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %18 = load ptr, ptr %17, align 8
   br label %RANGE_END.exit
 
@@ -3689,7 +3689,7 @@ RANGE_END.exit:                                   ; preds = %13, %16
   br i1 %.not.i.i.i68, label %33, label %RANGE_END.exit70
 
 33:                                               ; preds = %29
-  %34 = getelementptr inbounds i8, ptr %5, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %35 = load ptr, ptr %34, align 8
   br label %RANGE_END.exit70
 
@@ -3824,7 +3824,7 @@ RB_FLOAT_TYPE_P.exit.thread77:                    ; preds = %53, %57, %66, %71, 
   br i1 %.not.i.i.i73, label %109, label %RANGE_EXCL.exit
 
 109:                                              ; preds = %106
-  %110 = getelementptr inbounds i8, ptr %5, i64 24
+  %110 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %111 = load ptr, ptr %110, align 8
   br label %RANGE_EXCL.exit
 
@@ -3854,11 +3854,11 @@ define internal i64 @range_max(i32 noundef %0, ptr noundef %1, i64 noundef %2) #
   br i1 %.not.i.i.i, label %10, label %8
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %5, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
   br label %RANGE_END.exit
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %5, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %12 = load ptr, ptr %11, align 8
   br label %RANGE_END.exit
 
@@ -3886,11 +3886,11 @@ RANGE_END.exit:                                   ; preds = %8, %10
   br i1 %.not.i.i.i71, label %25, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds i8, ptr %5, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 16
   br label %RANGE_END.exit73
 
 25:                                               ; preds = %20
-  %26 = getelementptr inbounds i8, ptr %5, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %27 = load ptr, ptr %26, align 8
   br label %RANGE_END.exit73
 
@@ -3907,7 +3907,7 @@ RANGE_END.exit73:                                 ; preds = %23, %25
   unreachable
 
 33:                                               ; preds = %RANGE_END.exit73
-  %34 = getelementptr inbounds i8, ptr %5, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %35 = load i64, ptr %34, align 8
   %36 = tail call i32 @rb_block_given_p() #10
   %.not66 = icmp eq i32 %36, 0
@@ -3920,7 +3920,7 @@ RANGE_END.exit73:                                 ; preds = %23, %25
   br i1 %.not.i.i.i74, label %40, label %RANGE_EXCL.exit
 
 40:                                               ; preds = %37
-  %41 = getelementptr inbounds i8, ptr %5, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %42 = load ptr, ptr %41, align 8
   br label %RANGE_EXCL.exit
 
@@ -3985,7 +3985,7 @@ RANGE_EXCL.exit:                                  ; preds = %37, %40
   ]
 
 rb_class_of.exit:                                 ; preds = %70
-  %74 = getelementptr inbounds i8, ptr %71, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %.0.i = load i64, ptr %74, align 8
   %75 = load i64, ptr @rb_cString, align 8
   %76 = icmp eq i64 %.0.i, %75
@@ -4078,7 +4078,7 @@ RB_FLOAT_TYPE_P.exit.thread90:                    ; preds = %70, %rb_class_of.ex
   br i1 %.not.i.i.i79, label %124, label %RANGE_EXCL.exit81
 
 124:                                              ; preds = %.thread95
-  %125 = getelementptr inbounds i8, ptr %5, i64 24
+  %125 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %126 = load ptr, ptr %125, align 8
   br label %RANGE_EXCL.exit81
 
@@ -4193,7 +4193,7 @@ define internal i64 @range_minmax(i64 noundef %0) #0 {
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @range_size(i64 noundef %0) #0 {
   %2 = inttoptr i64 %0 to ptr
-  %3 = getelementptr inbounds i8, ptr %2, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load i64, ptr %3, align 8
   %5 = load i64, ptr %2, align 8
   %6 = and i64 %5, 1040384
@@ -4201,7 +4201,7 @@ define internal i64 @range_size(i64 noundef %0) #0 {
   br i1 %.not.i.i.i, label %7, label %RANGE_END.exit
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %2, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %9 = load ptr, ptr %8, align 8
   br label %RANGE_END.exit
 
@@ -4227,7 +4227,7 @@ RANGE_END.exit:                                   ; preds = %1, %7
   br i1 %.not.i.i.i13, label %20, label %RANGE_EXCL.exit
 
 20:                                               ; preds = %17
-  %21 = getelementptr inbounds i8, ptr %2, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %22 = load ptr, ptr %21, align 8
   br label %RANGE_EXCL.exit
 
@@ -4277,11 +4277,11 @@ define internal i64 @range_to_a(i64 noundef %0) #0 {
   br i1 %.not.i.i.i, label %7, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   br label %RANGE_END.exit
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %2, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %9 = load ptr, ptr %8, align 8
   br label %RANGE_END.exit
 
@@ -4305,7 +4305,7 @@ RANGE_END.exit:                                   ; preds = %5, %7
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @range_to_s(i64 noundef %0) #0 {
   %2 = inttoptr i64 %0 to ptr
-  %3 = getelementptr inbounds i8, ptr %2, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load i64, ptr %3, align 8
   %5 = tail call i64 @rb_obj_as_string(i64 noundef %4) #10
   %6 = load i64, ptr %2, align 8
@@ -4314,7 +4314,7 @@ define internal i64 @range_to_s(i64 noundef %0) #0 {
   br i1 %.not.i.i.i, label %8, label %RANGE_END.exit
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %2, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %10 = load ptr, ptr %9, align 8
   br label %RANGE_END.exit
 
@@ -4330,7 +4330,7 @@ RANGE_END.exit:                                   ; preds = %1, %8
   br i1 %.not.i.i.i8, label %17, label %RANGE_EXCL.exit
 
 17:                                               ; preds = %RANGE_END.exit
-  %18 = getelementptr inbounds i8, ptr %2, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %19 = load ptr, ptr %18, align 8
   br label %RANGE_EXCL.exit
 
@@ -4361,11 +4361,11 @@ define internal range(i64 0, 21) i64 @range_exclude_end_p(i64 noundef %0) #3 {
   br i1 %.not.i.i.i, label %7, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   br label %RANGE_EXCL.exit
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %2, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %9 = load ptr, ptr %8, align 8
   br label %RANGE_EXCL.exit
 
@@ -4384,7 +4384,7 @@ define internal i64 @range_include(i64 noundef %0, i64 noundef %1) #0 {
   %3 = alloca i64, align 8
   store i64 %1, ptr %3, align 8
   %4 = inttoptr i64 %0 to ptr
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load i64, ptr %5, align 8
   %7 = load i64, ptr %4, align 8
   %8 = and i64 %7, 1040384
@@ -4392,7 +4392,7 @@ define internal i64 @range_include(i64 noundef %0, i64 noundef %1) #0 {
   br i1 %.not.i.i.i.i, label %9, label %RANGE_END.exit.i
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %4, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %11 = load ptr, ptr %10, align 8
   br label %RANGE_END.exit.i
 
@@ -4507,7 +4507,7 @@ r_less.exit.i.i:                                  ; preds = %56
   br i1 %.not.i.i.i.i.i, label %64, label %RANGE_EXCL.exit.i.i
 
 64:                                               ; preds = %61
-  %65 = getelementptr inbounds i8, ptr %4, i64 24
+  %65 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %66 = load ptr, ptr %65, align 8
   br label %RANGE_EXCL.exit.i.i
 
@@ -4545,7 +4545,7 @@ r_less.exit.thread.i.i:                           ; preds = %r_less.exit10.i.i, 
   br i1 %.not.i.i.i31.i, label %81, label %RANGE_EXCL.exit.i
 
 81:                                               ; preds = %78
-  %82 = getelementptr inbounds i8, ptr %4, i64 24
+  %82 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %83 = load ptr, ptr %82, align 8
   br label %RANGE_EXCL.exit.i
 
@@ -4577,7 +4577,7 @@ range_include_internal.exit.thread:               ; preds = %RANGE_EXCL.exit.i.i
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 0, 21) i64 @range_cover(i64 noundef %0, i64 noundef %1) #0 {
   %3 = inttoptr i64 %0 to ptr
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load i64, ptr %4, align 8
   %6 = load i64, ptr %3, align 8
   %7 = and i64 %6, 1040384
@@ -4585,7 +4585,7 @@ define internal range(i64 0, 21) i64 @range_cover(i64 noundef %0, i64 noundef %1
   br i1 %.not.i.i.i, label %8, label %RANGE_END.exit
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %3, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %10 = load ptr, ptr %9, align 8
   br label %RANGE_END.exit
 
@@ -4600,7 +4600,7 @@ RANGE_END.exit:                                   ; preds = %2, %8
 
 15:                                               ; preds = %RANGE_END.exit
   %16 = inttoptr i64 %1 to ptr
-  %17 = getelementptr inbounds i8, ptr %16, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = load i64, ptr %17, align 8
   %19 = load i64, ptr %16, align 8
   %20 = and i64 %19, 1040384
@@ -4608,7 +4608,7 @@ RANGE_END.exit:                                   ; preds = %2, %8
   br i1 %.not.i.i.i.i, label %21, label %RANGE_END.exit.i
 
 21:                                               ; preds = %15
-  %22 = getelementptr inbounds i8, ptr %16, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %23 = load ptr, ptr %22, align 8
   br label %RANGE_END.exit.i
 
@@ -4653,7 +4653,7 @@ r_less.exit.i:                                    ; preds = %37, %34
   br i1 %.not.i.i.i38.i, label %41, label %RANGE_EXCL.exit.i
 
 41:                                               ; preds = %r_less.exit.i
-  %42 = getelementptr inbounds i8, ptr %16, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %43 = load ptr, ptr %42, align 8
   br label %RANGE_EXCL.exit.i
 
@@ -4687,7 +4687,7 @@ r_less.exit.i.i:                                  ; preds = %51
   br i1 %.not.i.i.i.i.i, label %59, label %RANGE_EXCL.exit.i.i
 
 59:                                               ; preds = %56
-  %60 = getelementptr inbounds i8, ptr %3, i64 24
+  %60 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %61 = load ptr, ptr %60, align 8
   br label %RANGE_EXCL.exit.i.i
 
@@ -4739,7 +4739,7 @@ r_less.exit42.i:                                  ; preds = %r_less.exit42.sink.
   br i1 %.not.i.i.i43.i, label %80, label %RANGE_EXCL.exit45.i
 
 80:                                               ; preds = %r_less.exit42.i
-  %81 = getelementptr inbounds i8, ptr %3, i64 24
+  %81 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %82 = load ptr, ptr %81, align 8
   br label %RANGE_EXCL.exit45.i
 
@@ -4755,7 +4755,7 @@ RANGE_EXCL.exit45.i:                              ; preds = %r_less.exit42.i, %8
   br i1 %.not.i.i.i46.i, label %89, label %RANGE_EXCL.exit48.i
 
 89:                                               ; preds = %RANGE_EXCL.exit45.i
-  %90 = getelementptr inbounds i8, ptr %16, i64 24
+  %90 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %91 = load ptr, ptr %90, align 8
   br label %RANGE_EXCL.exit48.i
 
@@ -4776,7 +4776,7 @@ RANGE_EXCL.exit48.i:                              ; preds = %89, %RANGE_EXCL.exi
   br i1 %.not.i.i.i43.i, label %100, label %RANGE_EXCL.exit51.i
 
 100:                                              ; preds = %99
-  %101 = getelementptr inbounds i8, ptr %3, i64 24
+  %101 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %102 = load ptr, ptr %101, align 8
   br label %RANGE_EXCL.exit51.i
 
@@ -4832,7 +4832,7 @@ r_less.exit.i13:                                  ; preds = %118
   br i1 %.not.i.i.i.i15, label %126, label %RANGE_EXCL.exit.i16
 
 126:                                              ; preds = %123
-  %127 = getelementptr inbounds i8, ptr %3, i64 24
+  %127 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %128 = load ptr, ptr %127, align 8
   br label %RANGE_EXCL.exit.i16
 
@@ -4884,7 +4884,7 @@ define internal i64 @range_count(i32 noundef %0, ptr noundef %1, i64 noundef %2)
 
 10:                                               ; preds = %6
   %11 = inttoptr i64 %2 to ptr
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load i64, ptr %12, align 8
   %14 = load i64, ptr %11, align 8
   %15 = and i64 %14, 1040384
@@ -4892,7 +4892,7 @@ define internal i64 @range_count(i32 noundef %0, ptr noundef %1, i64 noundef %2)
   br i1 %.not.i.i.i, label %16, label %RANGE_END.exit
 
 16:                                               ; preds = %10
-  %17 = getelementptr inbounds i8, ptr %11, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %18 = load ptr, ptr %17, align 8
   br label %RANGE_END.exit
 
@@ -4978,7 +4978,7 @@ define internal range(i64 0, 21) i64 @range_overlap(i64 noundef %0, i64 noundef 
 
 9:                                                ; preds = %2
   %10 = inttoptr i64 %0 to ptr
-  %11 = getelementptr inbounds i8, ptr %10, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load i64, ptr %11, align 8
   %13 = load i64, ptr %10, align 8
   %14 = and i64 %13, 1040384
@@ -5000,7 +5000,7 @@ RANGE_EXCL.exit:                                  ; preds = %9, %16
   %22 = and i64 %21, -5
   %23 = icmp ne i64 %22, 0
   %24 = inttoptr i64 %1 to ptr
-  %25 = getelementptr inbounds i8, ptr %24, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load i64, ptr %25, align 8
   %27 = load i64, ptr %24, align 8
   %28 = and i64 %27, 1040384
@@ -5120,7 +5120,7 @@ define internal fastcc i64 @rb_class_of(i64 noundef %0) unnamed_addr #3 {
 
 6:                                                ; preds = %1
   %7 = inttoptr i64 %0 to ptr
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   br label %17
 
 9:                                                ; preds = %1
@@ -5209,10 +5209,10 @@ define internal range(i64 0, 21) i64 @recursive_equal(i64 noundef %0, i64 nounde
 
 4:                                                ; preds = %3
   %5 = inttoptr i64 %0 to ptr
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %1 to ptr
-  %9 = getelementptr inbounds i8, ptr %8, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load i64, ptr %9, align 8
   %11 = tail call i64 @rb_equal(i64 noundef %7, i64 noundef %10) #10
   %.not8 = icmp eq i64 %11, 0
@@ -5225,7 +5225,7 @@ define internal range(i64 0, 21) i64 @recursive_equal(i64 noundef %0, i64 nounde
   br i1 %.not.i.i.i, label %15, label %RANGE_END.exit
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %5, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %17 = load ptr, ptr %16, align 8
   br label %RANGE_END.exit
 
@@ -5239,7 +5239,7 @@ RANGE_END.exit:                                   ; preds = %12, %15
   br i1 %.not.i.i.i10, label %22, label %RANGE_END.exit12
 
 22:                                               ; preds = %RANGE_END.exit
-  %23 = getelementptr inbounds i8, ptr %8, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %24 = load ptr, ptr %23, align 8
   br label %RANGE_END.exit12
 
@@ -5258,7 +5258,7 @@ RANGE_END.exit12:                                 ; preds = %RANGE_END.exit, %22
   br i1 %.not.i.i.i13, label %31, label %RANGE_EXCL.exit
 
 31:                                               ; preds = %28
-  %32 = getelementptr inbounds i8, ptr %5, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %33 = load ptr, ptr %32, align 8
   br label %RANGE_EXCL.exit
 
@@ -5274,7 +5274,7 @@ RANGE_EXCL.exit:                                  ; preds = %28, %31
   br i1 %.not.i.i.i15, label %40, label %RANGE_EXCL.exit17
 
 40:                                               ; preds = %RANGE_EXCL.exit
-  %41 = getelementptr inbounds i8, ptr %8, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %42 = load ptr, ptr %41, align 8
   br label %RANGE_EXCL.exit17
 
@@ -5319,10 +5319,10 @@ define internal range(i64 0, 21) i64 @recursive_eql(i64 noundef %0, i64 noundef 
 
 4:                                                ; preds = %3
   %5 = inttoptr i64 %0 to ptr
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %1 to ptr
-  %9 = getelementptr inbounds i8, ptr %8, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load i64, ptr %9, align 8
   %11 = tail call i32 @rb_eql(i64 noundef %7, i64 noundef %10) #10
   %.not8 = icmp eq i32 %11, 0
@@ -5335,7 +5335,7 @@ define internal range(i64 0, 21) i64 @recursive_eql(i64 noundef %0, i64 noundef 
   br i1 %.not.i.i.i, label %15, label %RANGE_END.exit
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %5, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %17 = load ptr, ptr %16, align 8
   br label %RANGE_END.exit
 
@@ -5349,7 +5349,7 @@ RANGE_END.exit:                                   ; preds = %12, %15
   br i1 %.not.i.i.i10, label %22, label %RANGE_END.exit12
 
 22:                                               ; preds = %RANGE_END.exit
-  %23 = getelementptr inbounds i8, ptr %8, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %24 = load ptr, ptr %23, align 8
   br label %RANGE_END.exit12
 
@@ -5368,7 +5368,7 @@ RANGE_END.exit12:                                 ; preds = %RANGE_END.exit, %22
   br i1 %.not.i.i.i13, label %31, label %RANGE_EXCL.exit
 
 31:                                               ; preds = %28
-  %32 = getelementptr inbounds i8, ptr %5, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %33 = load ptr, ptr %32, align 8
   br label %RANGE_EXCL.exit
 
@@ -5384,7 +5384,7 @@ RANGE_EXCL.exit:                                  ; preds = %28, %31
   br i1 %.not.i.i.i15, label %40, label %RANGE_EXCL.exit17
 
 40:                                               ; preds = %RANGE_EXCL.exit
-  %41 = getelementptr inbounds i8, ptr %8, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %42 = load ptr, ptr %41, align 8
   br label %RANGE_EXCL.exit17
 
@@ -5457,11 +5457,11 @@ define internal fastcc noundef i64 @range_each_fixnum_loop(i64 noundef %0, i64 n
   br i1 %.not.i.i.i, label %10, label %8
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %5, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
   br label %RANGE_EXCL.exit
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %5, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %12 = load ptr, ptr %11, align 8
   br label %RANGE_EXCL.exit
 
@@ -5555,7 +5555,7 @@ declare ptr @rb_obj_classname(i64 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @range_each_func(i64 noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) unnamed_addr #0 {
   %4 = inttoptr i64 %0 to ptr
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load i64, ptr %5, align 8
   %7 = load i64, ptr %4, align 8
   %8 = and i64 %7, 1040384
@@ -5643,7 +5643,7 @@ declare i64 @rb_arith_seq_new(i64 noundef, i64 noundef, i32 noundef, ptr noundef
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @range_step_size(i64 noundef %0, i64 noundef %1, i64 %2) #0 {
   %4 = inttoptr i64 %0 to ptr
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load i64, ptr %5, align 8
   %7 = load i64, ptr %4, align 8
   %8 = and i64 %7, 1040384
@@ -5651,7 +5651,7 @@ define internal i64 @range_step_size(i64 noundef %0, i64 noundef %1, i64 %2) #0 
   br i1 %.not.i.i.i, label %9, label %RANGE_END.exit
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %4, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %11 = load ptr, ptr %10, align 8
   br label %RANGE_END.exit
 
@@ -5670,11 +5670,11 @@ RANGE_END.exit:                                   ; preds = %3, %9
   br i1 %.not.i.i, label %20, label %18
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds i8, ptr %15, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 16
   br label %RARRAY_AREF.exit
 
 20:                                               ; preds = %14
-  %21 = getelementptr inbounds i8, ptr %15, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %22 = load ptr, ptr %21, align 8
   br label %RARRAY_AREF.exit
 
@@ -5704,7 +5704,7 @@ RARRAY_AREF.exit:                                 ; preds = %18, %20
   br i1 %.not.i.i.i15, label %34, label %RANGE_EXCL.exit
 
 34:                                               ; preds = %31
-  %35 = getelementptr inbounds i8, ptr %4, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %36 = load ptr, ptr %35, align 8
   br label %RANGE_EXCL.exit
 
@@ -6064,11 +6064,11 @@ define internal i64 @inspect_range(i64 noundef %0, i64 %1, i32 noundef %2) #0 {
   br i1 %.not.i.i.i, label %10, label %8
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %4, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
   br label %RANGE_EXCL.exit
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %4, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %12 = load ptr, ptr %11, align 8
   br label %RANGE_EXCL.exit
 
@@ -6083,7 +6083,7 @@ RANGE_EXCL.exit:                                  ; preds = %8, %10
   br label %.thread
 
 18:                                               ; preds = %3
-  %19 = getelementptr inbounds i8, ptr %4, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %20 = load i64, ptr %19, align 8
   %21 = icmp eq i64 %20, 4
   br i1 %21, label %22, label %31
@@ -6095,7 +6095,7 @@ RANGE_EXCL.exit:                                  ; preds = %8, %10
   br i1 %.not.i.i.i17, label %25, label %RANGE_END.exit
 
 25:                                               ; preds = %22
-  %26 = getelementptr inbounds i8, ptr %4, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %27 = load ptr, ptr %26, align 8
   br label %RANGE_END.exit
 
@@ -6123,7 +6123,7 @@ RANGE_END.exit:                                   ; preds = %22, %25
   br i1 %.not.i.i.i19, label %39, label %RANGE_EXCL.exit21
 
 39:                                               ; preds = %36
-  %40 = getelementptr inbounds i8, ptr %4, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %41 = load ptr, ptr %40, align 8
   br label %RANGE_EXCL.exit21
 
@@ -6146,7 +6146,7 @@ RANGE_EXCL.exit21:                                ; preds = %36, %39
   br i1 %.not.i.i.i22, label %50, label %RANGE_END.exit24
 
 50:                                               ; preds = %49
-  %51 = getelementptr inbounds i8, ptr %4, i64 24
+  %51 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %52 = load ptr, ptr %51, align 8
   br label %RANGE_END.exit24
 
@@ -6162,7 +6162,7 @@ RANGE_EXCL.exit21._crit_edge:                     ; preds = %RANGE_EXCL.exit21, 
   br i1 %.not.i.i.i25, label %56, label %59
 
 56:                                               ; preds = %RANGE_EXCL.exit21._crit_edge
-  %57 = getelementptr inbounds i8, ptr %4, i64 24
+  %57 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %58 = load ptr, ptr %57, align 8
   br label %59
 

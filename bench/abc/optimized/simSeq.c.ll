@@ -12,9 +12,9 @@ define ptr @Sim_SimulateSeqRandom(ptr noundef %0, i32 noundef %1, i32 noundef %2
   %6 = mul nsw i32 %2, %1
   %7 = tail call ptr @Sim_UtilInfoAlloc(i32 noundef %.val48.val, i32 noundef %6, i32 noundef 0) #3
   %8 = tail call ptr @Abc_AigConst1(ptr noundef %0) #3
-  %9 = getelementptr inbounds i8, ptr %7, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %8, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %12 = load i32, ptr %11, align 8
   %13 = sext i32 %12 to i64
   %14 = getelementptr inbounds ptr, ptr %10, i64 %13
@@ -28,7 +28,7 @@ define ptr @Sim_SimulateSeqRandom(ptr noundef %0, i32 noundef %1, i32 noundef %2
   br i1 %18, label %.lr.ph, label %.critedge.preheader
 
 .critedge.preheader:                              ; preds = %.lr.ph, %3
-  %19 = getelementptr inbounds i8, ptr %0, i64 80
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr i8, ptr %20, i64 4
   %.val61 = load i32, ptr %21, align 4
@@ -40,10 +40,10 @@ define ptr @Sim_SimulateSeqRandom(ptr noundef %0, i32 noundef %1, i32 noundef %2
   %.val4960 = phi ptr [ %.val49, %.lr.ph ], [ %.val4957, %3 ]
   %23 = getelementptr i8, ptr %.val4960, i64 8
   %.val50.val = load ptr, ptr %23, align 8
-  %24 = getelementptr inbounds ptr, ptr %.val50.val, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw ptr, ptr %.val50.val, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8
   %26 = load ptr, ptr %9, align 8
-  %27 = getelementptr inbounds i8, ptr %25, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %28 = load i32, ptr %27, align 8
   %29 = sext i32 %28 to i64
   %30 = getelementptr inbounds ptr, ptr %26, i64 %29
@@ -70,7 +70,7 @@ define ptr @Sim_SimulateSeqRandom(ptr noundef %0, i32 noundef %1, i32 noundef %2
   %37 = phi ptr [ %54, %.critedge ], [ %20, %.critedge.preheader ]
   %38 = getelementptr i8, ptr %37, i64 8
   %.val51.val = load ptr, ptr %38, align 8
-  %39 = getelementptr inbounds ptr, ptr %.val51.val, i64 %indvars.iv67
+  %39 = getelementptr inbounds nuw ptr, ptr %.val51.val, i64 %indvars.iv67
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr i8, ptr %40, i64 20
   %.val52 = load i32, ptr %41, align 4
@@ -83,7 +83,7 @@ define ptr @Sim_SimulateSeqRandom(ptr noundef %0, i32 noundef %1, i32 noundef %2
   %.val53 = load ptr, ptr %44, align 8
   %magicptr = ptrtoint ptr %.val53 to i64
   %45 = load ptr, ptr %9, align 8
-  %46 = getelementptr inbounds i8, ptr %40, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %47 = load i32, ptr %46, align 8
   %48 = sext i32 %47 to i64
   %49 = getelementptr inbounds ptr, ptr %45, i64 %48
@@ -137,7 +137,7 @@ declare void @Sim_UtilSetRandom(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @Sim_SimulateSeqFrame(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr i8, ptr %7, i64 4
   %.val4049 = load i32, ptr %8, align 4
@@ -165,7 +165,7 @@ define internal fastcc void @Sim_SimulateSeqFrame(ptr noundef %0, ptr nocapture 
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
   %17 = getelementptr i8, ptr %16, i64 8
   %.val43.val = load ptr, ptr %17, align 8
-  %18 = getelementptr inbounds ptr, ptr %.val43.val, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw ptr, ptr %.val43.val, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
   br i1 %20, label %25, label %21
@@ -196,7 +196,7 @@ define internal fastcc void @Sim_SimulateSeqFrame(ptr noundef %0, ptr nocapture 
   %.val4554 = phi ptr [ %.val4551, %.lr.ph55 ], [ %.val45, %.critedge ]
   %30 = getelementptr i8, ptr %.val4554, i64 8
   %.val46.val = load ptr, ptr %30, align 8
-  %31 = getelementptr inbounds ptr, ptr %.val46.val, i64 %indvars.iv60
+  %31 = getelementptr inbounds nuw ptr, ptr %.val46.val, i64 %indvars.iv60
   %32 = load ptr, ptr %31, align 8
   tail call void @Sim_UtilTransferNodeOne(ptr noundef %32, ptr noundef %0, i32 noundef %3, i32 noundef %14, i32 noundef 0) #3
   %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
@@ -212,7 +212,7 @@ define internal fastcc void @Sim_SimulateSeqFrame(ptr noundef %0, ptr nocapture 
   br i1 %.not, label %.critedge4, label %.preheader
 
 .preheader:                                       ; preds = %.critedge2
-  %36 = getelementptr inbounds i8, ptr %1, i64 80
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %37 = load ptr, ptr %36, align 8
   %38 = getelementptr i8, ptr %37, i64 4
   %.val56 = load i32, ptr %38, align 4
@@ -228,7 +228,7 @@ define internal fastcc void @Sim_SimulateSeqFrame(ptr noundef %0, ptr nocapture 
   %indvars.iv63 = phi i64 [ 0, %.lr.ph58 ], [ %indvars.iv.next64, %49 ]
   %43 = getelementptr i8, ptr %42, i64 8
   %.val41.val = load ptr, ptr %43, align 8
-  %44 = getelementptr inbounds ptr, ptr %.val41.val, i64 %indvars.iv63
+  %44 = getelementptr inbounds nuw ptr, ptr %.val41.val, i64 %indvars.iv63
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr i8, ptr %45, i64 20
   %.val42 = load i32, ptr %46, align 4
@@ -262,9 +262,9 @@ define ptr @Sim_SimulateSeqModel(ptr noundef %0, i32 noundef %1, ptr nocapture n
   %.val50.val = load i32, ptr %5, align 4
   %6 = tail call ptr @Sim_UtilInfoAlloc(i32 noundef %.val50.val, i32 noundef %1, i32 noundef 0) #3
   %7 = tail call ptr @Abc_AigConst1(ptr noundef %0) #3
-  %8 = getelementptr inbounds i8, ptr %6, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %7, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %11 = load i32, ptr %10, align 8
   %12 = sext i32 %11 to i64
   %13 = getelementptr inbounds ptr, ptr %9, i64 %12
@@ -288,10 +288,10 @@ define ptr @Sim_SimulateSeqModel(ptr noundef %0, i32 noundef %1, ptr nocapture n
   %.val5264.us = phi ptr [ %.val5261, %.lr.ph.us.preheader ], [ %.val52.us, %._crit_edge.us ]
   %19 = getelementptr i8, ptr %.val5264.us, i64 8
   %.val53.val.us = load ptr, ptr %19, align 8
-  %20 = getelementptr inbounds ptr, ptr %.val53.val.us, i64 %indvars.iv73
+  %20 = getelementptr inbounds nuw ptr, ptr %.val53.val.us, i64 %indvars.iv73
   %21 = load ptr, ptr %20, align 8
   %22 = load ptr, ptr %8, align 8
-  %23 = getelementptr inbounds i8, ptr %21, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %24 = load i32, ptr %23, align 8
   %25 = sext i32 %24 to i64
   %26 = getelementptr inbounds ptr, ptr %22, i64 %25
@@ -312,7 +312,7 @@ define ptr @Sim_SimulateSeqModel(ptr noundef %0, i32 noundef %1, ptr nocapture n
   %36 = load i32, ptr %35, align 4
   %.not49.us = icmp ne i32 %36, 0
   %37 = sext i1 %.not49.us to i32
-  %38 = getelementptr inbounds i32, ptr %27, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv
   store i32 %37, ptr %38, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -328,7 +328,7 @@ define ptr @Sim_SimulateSeqModel(ptr noundef %0, i32 noundef %1, ptr nocapture n
   br i1 %41, label %.lr.ph.us, label %.critedge.preheader, !llvm.loop !12
 
 .critedge.preheader:                              ; preds = %._crit_edge.us, %3
-  %42 = getelementptr inbounds i8, ptr %0, i64 80
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr i8, ptr %43, i64 4
   %.val67 = load i32, ptr %44, align 4
@@ -348,7 +348,7 @@ define ptr @Sim_SimulateSeqModel(ptr noundef %0, i32 noundef %1, ptr nocapture n
   %48 = phi ptr [ %71, %.critedge ], [ %43, %.critedge.preheader ]
   %49 = getelementptr i8, ptr %48, i64 8
   %.val54.val = load ptr, ptr %49, align 8
-  %50 = getelementptr inbounds ptr, ptr %.val54.val, i64 %indvars.iv76
+  %50 = getelementptr inbounds nuw ptr, ptr %.val54.val, i64 %indvars.iv76
   %51 = load ptr, ptr %50, align 8
   %52 = getelementptr i8, ptr %51, i64 20
   %.val55 = load i32, ptr %52, align 4
@@ -358,7 +358,7 @@ define ptr @Sim_SimulateSeqModel(ptr noundef %0, i32 noundef %1, ptr nocapture n
 
 54:                                               ; preds = %.lr.ph
   %55 = load ptr, ptr %8, align 8
-  %56 = getelementptr inbounds i8, ptr %51, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %57 = load i32, ptr %56, align 8
   %58 = sext i32 %57 to i64
   %59 = getelementptr inbounds ptr, ptr %55, i64 %58

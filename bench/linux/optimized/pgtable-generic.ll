@@ -123,7 +123,7 @@ define dso_local void @pmd_clear_bad(ptr noundef %0) local_unnamed_addr #0 align
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i64 @ptep_clear_flush(ptr nocapture noundef readonly %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #2 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i64 asm sideeffect "xchgq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %2, i64 0, ptr elementtype(i64) %2) #6, !srcloc !6
   %7 = and i64 %6, 1
@@ -136,7 +136,7 @@ define dso_local i64 @ptep_clear_flush(ptr nocapture noundef readonly %0, i64 no
   br i1 %11, label %19, label %12
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %5, i64 1168
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 1168
   %14 = load volatile i32, ptr %13, align 4
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %19, label %16

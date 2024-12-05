@@ -30,19 +30,19 @@ define i32 @Lzma2Dec_AllocateProbs(ptr noundef %0, i8 noundef zeroext %1, ptr no
   %16 = phi i32 [ %14, %9 ], [ -1, %7 ]
   store i8 4, ptr %4, align 1
   %17 = trunc i32 %16 to i8
-  %18 = getelementptr inbounds i8, ptr %4, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 1
   store i8 %17, ptr %18, align 1
   %19 = lshr i32 %16, 8
   %20 = trunc i32 %19 to i8
-  %21 = getelementptr inbounds i8, ptr %4, i64 2
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 2
   store i8 %20, ptr %21, align 1
   %22 = lshr i32 %16, 16
   %23 = trunc i32 %22 to i8
-  %24 = getelementptr inbounds i8, ptr %4, i64 3
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 3
   store i8 %23, ptr %24, align 1
   %25 = lshr i32 %16, 24
   %26 = trunc nuw i32 %25 to i8
-  %27 = getelementptr inbounds i8, ptr %4, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i8 %26, ptr %27, align 1
   %28 = call i32 @LzmaDec_AllocateProbs(ptr noundef %0, ptr noundef nonnull %4, i32 noundef 5, ptr noundef %2) #4
   br label %Lzma2Dec_GetOldProps.exit
@@ -77,19 +77,19 @@ define i32 @Lzma2Dec_Allocate(ptr noundef %0, i8 noundef zeroext %1, ptr noundef
   %16 = phi i32 [ %14, %9 ], [ -1, %7 ]
   store i8 4, ptr %4, align 1
   %17 = trunc i32 %16 to i8
-  %18 = getelementptr inbounds i8, ptr %4, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 1
   store i8 %17, ptr %18, align 1
   %19 = lshr i32 %16, 8
   %20 = trunc i32 %19 to i8
-  %21 = getelementptr inbounds i8, ptr %4, i64 2
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 2
   store i8 %20, ptr %21, align 1
   %22 = lshr i32 %16, 16
   %23 = trunc i32 %22 to i8
-  %24 = getelementptr inbounds i8, ptr %4, i64 3
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 3
   store i8 %23, ptr %24, align 1
   %25 = lshr i32 %16, 24
   %26 = trunc nuw i32 %25 to i8
-  %27 = getelementptr inbounds i8, ptr %4, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i8 %26, ptr %27, align 1
   %28 = call i32 @LzmaDec_Allocate(ptr noundef %0, ptr noundef nonnull %4, i32 noundef 5, ptr noundef %2) #4
   br label %Lzma2Dec_GetOldProps.exit
@@ -103,13 +103,13 @@ declare i32 @LzmaDec_Allocate(ptr noundef, ptr noundef, i32 noundef, ptr noundef
 
 ; Function Attrs: nounwind uwtable
 define void @Lzma2Dec_Init(ptr noundef initializes((144, 148), (152, 164)) %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 144
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i32 0, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 152
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store i32 1, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 156
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 156
   store i32 1, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 160
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store i32 1, ptr %5, align 8
   tail call void @LzmaDec_Init(ptr noundef %0) #4
   ret void
@@ -123,26 +123,26 @@ define i32 @Lzma2Dec_DecodeToDic(ptr noundef %0, i64 noundef %1, ptr noundef %2,
   %8 = load i64, ptr %3, align 8
   store i64 0, ptr %3, align 8
   store i32 0, ptr %5, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 144
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %10 = load i32, ptr %9, align 8
   %.not119 = icmp eq i32 %10, 8
   br i1 %.not119, label %.loopexit.sink.split, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %0, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %12 = icmp eq i32 %4, 0
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 4
-  %15 = getelementptr inbounds i8, ptr %0, i64 160
-  %16 = getelementptr inbounds i8, ptr %0, i64 136
-  %17 = getelementptr inbounds i8, ptr %0, i64 148
-  %18 = getelementptr inbounds i8, ptr %0, i64 140
-  %19 = getelementptr inbounds i8, ptr %0, i64 152
-  %20 = getelementptr inbounds i8, ptr %0, i64 156
-  %21 = getelementptr inbounds i8, ptr %0, i64 24
-  %22 = getelementptr inbounds i8, ptr %0, i64 68
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %0, i64 64
-  %23 = getelementptr inbounds i8, ptr %0, i64 12
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 148
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 140
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 156
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 68
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 12
   br label %24
 
 24:                                               ; preds = %.lr.ph, %.backedge
@@ -170,7 +170,7 @@ define i32 @Lzma2Dec_DecodeToDic(ptr noundef %0, i64 noundef %1, ptr noundef %2,
 35:                                               ; preds = %32
   %36 = add i64 %33, 1
   store i64 %36, ptr %3, align 8
-  %37 = getelementptr inbounds i8, ptr %.093120, i64 1
+  %37 = getelementptr inbounds nuw i8, ptr %.093120, i64 1
   %38 = load i8, ptr %.093120, align 1
   %39 = load i32, ptr %9, align 8
   switch i32 %39, label %Lzma2Dec_UpdateState.exit [
@@ -510,9 +510,9 @@ define i32 @Lzma2Dec_DecodeToBuf(ptr noundef %0, ptr nocapture noundef writeonly
   %10 = load i64, ptr %4, align 8
   store i64 0, ptr %2, align 8
   store i64 0, ptr %4, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 48
-  %12 = getelementptr inbounds i8, ptr %0, i64 56
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %14
 
 14:                                               ; preds = %34, %7
@@ -576,14 +576,14 @@ define i32 @Lzma2Decode(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2
   %10 = alloca [5 x i8], align 1
   %11 = load i64, ptr %1, align 8
   %12 = load i64, ptr %3, align 8
-  %13 = getelementptr inbounds i8, ptr %9, i64 24
-  %14 = getelementptr inbounds i8, ptr %9, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i64 0, ptr %14, align 8
   store i64 0, ptr %3, align 8
   store i64 0, ptr %1, align 8
   store i32 0, ptr %6, align 4
   store ptr %0, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %9, i64 56
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 56
   store i64 %11, ptr %15, align 8
   %16 = zext i8 %4 to i32
   %17 = icmp ugt i8 %4, 40
@@ -605,19 +605,19 @@ define i32 @Lzma2Decode(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2
   %27 = phi i32 [ %25, %20 ], [ -1, %18 ]
   store i8 4, ptr %10, align 1
   %28 = trunc i32 %27 to i8
-  %29 = getelementptr inbounds i8, ptr %10, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %10, i64 1
   store i8 %28, ptr %29, align 1
   %30 = lshr i32 %27, 8
   %31 = trunc i32 %30 to i8
-  %32 = getelementptr inbounds i8, ptr %10, i64 2
+  %32 = getelementptr inbounds nuw i8, ptr %10, i64 2
   store i8 %31, ptr %32, align 1
   %33 = lshr i32 %27, 16
   %34 = trunc i32 %33 to i8
-  %35 = getelementptr inbounds i8, ptr %10, i64 3
+  %35 = getelementptr inbounds nuw i8, ptr %10, i64 3
   store i8 %34, ptr %35, align 1
   %36 = lshr i32 %27, 24
   %37 = trunc nuw i32 %36 to i8
-  %38 = getelementptr inbounds i8, ptr %10, i64 4
+  %38 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store i8 %37, ptr %38, align 1
   %39 = call i32 @LzmaDec_AllocateProbs(ptr noundef nonnull %9, ptr noundef nonnull %10, i32 noundef 5, ptr noundef %7) #4
   %.not29 = icmp eq i32 %39, 0
@@ -626,7 +626,7 @@ define i32 @Lzma2Decode(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2
 40:                                               ; preds = %26
   store i64 %12, ptr %3, align 8
   %41 = call i32 @Lzma2Dec_DecodeToDic(ptr noundef nonnull %9, i64 noundef %11, ptr noundef %2, ptr noundef nonnull %3, i32 noundef %5, ptr noundef nonnull %6)
-  %42 = getelementptr inbounds i8, ptr %9, i64 48
+  %42 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %43 = load i64, ptr %42, align 8
   store i64 %43, ptr %1, align 8
   %44 = icmp eq i32 %41, 0

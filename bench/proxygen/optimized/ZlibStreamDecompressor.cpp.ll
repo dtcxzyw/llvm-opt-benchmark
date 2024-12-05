@@ -60,15 +60,15 @@ $_ZTIN8proxygen18StreamDecompressorE = comdat any
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8proxygen22ZlibStreamDecompressor4initENS_15CompressionTypeE(ptr noundef nonnull align 8 dereferenceable(148) initializes((8, 12), (32, 44), (48, 68), (96, 120), (144, 148)) %this, i32 noundef %type) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %type_11 = getelementptr inbounds i8, ptr %this, i64 8
+  %type_11 = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %type, ptr %type_11, align 8
-  %status_ = getelementptr inbounds i8, ptr %this, i64 144
+  %status_ = getelementptr inbounds nuw i8, ptr %this, i64 144
   store i32 0, ptr %status_, align 8
-  %zlibStream_ = getelementptr inbounds i8, ptr %this, i64 32
-  %zalloc = getelementptr inbounds i8, ptr %this, i64 96
-  %total_in = getelementptr inbounds i8, ptr %this, i64 48
+  %zlibStream_ = getelementptr inbounds nuw i8, ptr %this, i64 32
+  %zalloc = getelementptr inbounds nuw i8, ptr %this, i64 96
+  %total_in = getelementptr inbounds nuw i8, ptr %this, i64 48
   store ptr null, ptr %zlibStream_, align 8
-  %avail_in = getelementptr inbounds i8, ptr %this, i64 40
+  %avail_in = getelementptr inbounds nuw i8, ptr %this, i64 40
   store i32 0, ptr %avail_in, align 8
   %cmp44 = icmp eq i32 %type, 2
   %cond = select i1 %cmp44, i32 31, i32 15
@@ -91,19 +91,19 @@ declare i32 @inflateInit2_(ptr noundef, i32 noundef, ptr noundef, i32 noundef) l
 define void @_ZN8proxygen22ZlibStreamDecompressorC2ENS_15CompressionTypeEmm(ptr noundef nonnull align 8 dereferenceable(148) initializes((0, 12), (16, 44), (48, 68), (96, 120), (144, 148)) %this, i32 noundef %type, i64 noundef %zlib_decompressor_buffer_growth, i64 noundef %zlib_decompressor_buffer_minsize) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen22ZlibStreamDecompressorE, i64 16), ptr %this, align 8
-  %type_ = getelementptr inbounds i8, ptr %this, i64 8
-  %decompressor_buffer_growth_ = getelementptr inbounds i8, ptr %this, i64 16
+  %type_ = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %decompressor_buffer_growth_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i64 %zlib_decompressor_buffer_growth, ptr %decompressor_buffer_growth_, align 8
-  %decompressor_buffer_minsize_ = getelementptr inbounds i8, ptr %this, i64 24
+  %decompressor_buffer_minsize_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i64 %zlib_decompressor_buffer_minsize, ptr %decompressor_buffer_minsize_, align 8
-  %status_ = getelementptr inbounds i8, ptr %this, i64 144
+  %status_ = getelementptr inbounds nuw i8, ptr %this, i64 144
   store i32 %type, ptr %type_, align 8
   store i32 0, ptr %status_, align 8
-  %zlibStream_.i = getelementptr inbounds i8, ptr %this, i64 32
-  %zalloc.i = getelementptr inbounds i8, ptr %this, i64 96
-  %total_in.i = getelementptr inbounds i8, ptr %this, i64 48
+  %zlibStream_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
+  %zalloc.i = getelementptr inbounds nuw i8, ptr %this, i64 96
+  %total_in.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   store ptr null, ptr %zlibStream_.i, align 8
-  %avail_in.i = getelementptr inbounds i8, ptr %this, i64 40
+  %avail_in.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store i32 0, ptr %avail_in.i, align 8
   %cmp44.i = icmp eq i32 %type, 2
   %cond.i = select i1 %cmp44.i, i32 31, i32 15
@@ -118,18 +118,18 @@ entry:
 define void @_ZN8proxygen22ZlibStreamDecompressorD2Ev(ptr noundef nonnull align 8 dereferenceable(148) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen22ZlibStreamDecompressorE, i64 16), ptr %this, align 8
-  %type_ = getelementptr inbounds i8, ptr %this, i64 8
+  %type_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %type_, align 8
   %cmp.not = icmp eq i32 %0, 0
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %zlibStream_ = getelementptr inbounds i8, ptr %this, i64 32
+  %zlibStream_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %call = invoke i32 @inflateEnd(ptr noundef nonnull %zlibStream_)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %if.then
-  %status_ = getelementptr inbounds i8, ptr %this, i64 144
+  %status_ = getelementptr inbounds nuw i8, ptr %this, i64 144
   store i32 %call, ptr %status_, align 8
   br label %if.end
 
@@ -176,24 +176,24 @@ entry:
   %appender = alloca %"class.folly::io::Appender", align 8
   %ref.tmp35 = alloca %"class.google::LogMessage", align 8
   %ref.tmp90 = alloca %"class.google::LogMessage", align 8
-  %decompressor_buffer_growth_ = getelementptr inbounds i8, ptr %this, i64 16
+  %decompressor_buffer_growth_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i64, ptr %decompressor_buffer_growth_, align 8
   call void @_ZN5folly5IOBuf6createEm(ptr nonnull sret(%"class.std::unique_ptr") align 8 %out, i64 noundef %0)
   %1 = load ptr, ptr %out, align 8
   %2 = load i64, ptr %decompressor_buffer_growth_, align 8
   store ptr %1, ptr %appender, align 8
-  %crtBuf_.i = getelementptr inbounds i8, ptr %appender, i64 8
-  %prev_.i.i = getelementptr inbounds i8, ptr %1, i64 40
+  %crtBuf_.i = getelementptr inbounds nuw i8, ptr %appender, i64 8
+  %prev_.i.i = getelementptr inbounds nuw i8, ptr %1, i64 40
   %3 = load ptr, ptr %prev_.i.i, align 8
   store ptr %3, ptr %crtBuf_.i, align 8
-  %growth_.i = getelementptr inbounds i8, ptr %appender, i64 16
+  %growth_.i = getelementptr inbounds nuw i8, ptr %appender, i64 16
   store i64 %2, ptr %growth_.i, align 8
-  %status_ = getelementptr inbounds i8, ptr %this, i64 144
-  %decompressor_buffer_minsize_ = getelementptr inbounds i8, ptr %this, i64 24
-  %zlibStream_ = getelementptr inbounds i8, ptr %this, i64 32
-  %avail_in = getelementptr inbounds i8, ptr %this, i64 40
-  %next_out = getelementptr inbounds i8, ptr %this, i64 56
-  %avail_out = getelementptr inbounds i8, ptr %this, i64 64
+  %status_ = getelementptr inbounds nuw i8, ptr %this, i64 144
+  %decompressor_buffer_minsize_ = getelementptr inbounds nuw i8, ptr %this, i64 24
+  %zlibStream_ = getelementptr inbounds nuw i8, ptr %this, i64 32
+  %avail_in = getelementptr inbounds nuw i8, ptr %this, i64 40
+  %next_out = getelementptr inbounds nuw i8, ptr %this, i64 56
+  %avail_out = getelementptr inbounds nuw i8, ptr %this, i64 64
   br label %while.cond
 
 while.cond:                                       ; preds = %invoke.cont105, %entry
@@ -214,7 +214,7 @@ lpad.loopexit.split-lp:                           ; preds = %if.then33, %if.then
   br label %ehcleanup
 
 if.then:                                          ; preds = %while.cond
-  %next_.i = getelementptr inbounds i8, ptr %crtBuf.0, i64 32
+  %next_.i = getelementptr inbounds nuw i8, ptr %crtBuf.0, i64 32
   %5 = load ptr, ptr %next_.i, align 8
   %cmp29 = icmp eq ptr %5, %in
   br i1 %cmp29, label %cleanup.thread, label %if.end31
@@ -253,21 +253,21 @@ if.end42:                                         ; preds = %if.end31
 invoke.cont77:                                    ; preds = %if.end42
   %9 = load i64, ptr %crtBuf.1, align 8
   %sub = sub i64 %9, %offset.1
-  %data_.i = getelementptr inbounds i8, ptr %crtBuf.1, i64 8
+  %data_.i = getelementptr inbounds nuw i8, ptr %crtBuf.1, i64 8
   %10 = load ptr, ptr %data_.i, align 8
   %add.ptr = getelementptr inbounds i8, ptr %10, i64 %offset.1
   store ptr %add.ptr, ptr %zlibStream_, align 8
   %conv = trunc i64 %sub to i32
   store i32 %conv, ptr %avail_in, align 8
   %11 = load ptr, ptr %crtBuf_.i, align 8
-  %data_.i.i = getelementptr inbounds i8, ptr %11, i64 8
+  %data_.i.i = getelementptr inbounds nuw i8, ptr %11, i64 8
   %12 = load ptr, ptr %data_.i.i, align 8
   %13 = load i64, ptr %11, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %12, i64 %13
   store ptr %add.ptr.i.i, ptr %next_out, align 8
-  %buf_.i.i.i = getelementptr inbounds i8, ptr %11, i64 24
+  %buf_.i.i.i = getelementptr inbounds nuw i8, ptr %11, i64 24
   %14 = load ptr, ptr %buf_.i.i.i, align 8
-  %capacity_.i.i.i = getelementptr inbounds i8, ptr %11, i64 16
+  %capacity_.i.i.i = getelementptr inbounds nuw i8, ptr %11, i64 16
   %15 = load i64, ptr %capacity_.i.i.i, align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %14, i64 %15
   %16 = load ptr, ptr %data_.i.i, align 8
@@ -312,12 +312,12 @@ lpad92:                                           ; preds = %invoke.cont95, %inv
 invoke.cont105:                                   ; preds = %invoke.cont82
   %20 = load i32, ptr %avail_in, align 8
   %21 = load ptr, ptr %crtBuf_.i, align 8
-  %buf_.i.i.i14 = getelementptr inbounds i8, ptr %21, i64 24
+  %buf_.i.i.i14 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %22 = load ptr, ptr %buf_.i.i.i14, align 8
-  %capacity_.i.i.i15 = getelementptr inbounds i8, ptr %21, i64 16
+  %capacity_.i.i.i15 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load i64, ptr %capacity_.i.i.i15, align 8
   %add.ptr.i.i.i16 = getelementptr inbounds i8, ptr %22, i64 %23
-  %data_.i.i.i17 = getelementptr inbounds i8, ptr %21, i64 8
+  %data_.i.i.i17 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %24 = load ptr, ptr %data_.i.i.i17, align 8
   %25 = load i64, ptr %21, align 8
   %add.ptr.i1.i.i18 = getelementptr inbounds i8, ptr %24, i64 %25
@@ -371,14 +371,14 @@ declare void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereference
 define linkonce_odr void @_ZN5folly2io8Appender6ensureEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %n) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::unique_ptr", align 8
-  %crtBuf_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %crtBuf_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %crtBuf_.i, align 8
-  %buf_.i.i.i = getelementptr inbounds i8, ptr %0, i64 24
+  %buf_.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   %1 = load ptr, ptr %buf_.i.i.i, align 8
-  %capacity_.i.i.i = getelementptr inbounds i8, ptr %0, i64 16
+  %capacity_.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %2 = load i64, ptr %capacity_.i.i.i, align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %1, i64 %2
-  %data_.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %data_.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %data_.i.i.i, align 8
   %4 = load i64, ptr %0, align 8
   %add.ptr.i1.i.i = getelementptr inbounds i8, ptr %3, i64 %4
@@ -389,7 +389,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %growth_ = getelementptr inbounds i8, ptr %this, i64 16
+  %growth_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %5 = load i64, ptr %growth_, align 8
   %cmp2 = icmp eq i64 %5, 0
   br i1 %cmp2, label %if.then3, label %if.end4
@@ -417,7 +417,7 @@ _ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i: ; preds = %invoke.cont
 
 _ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit: ; preds = %invoke.cont, %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i
   %8 = load ptr, ptr %this, align 8
-  %prev_.i = getelementptr inbounds i8, ptr %8, i64 40
+  %prev_.i = getelementptr inbounds nuw i8, ptr %8, i64 40
   %9 = load ptr, ptr %prev_.i, align 8
   store ptr %9, ptr %crtBuf_.i, align 8
   br label %return
@@ -458,7 +458,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef zeroext i1 @_ZN8proxygen22ZlibStreamDecompressor8hasErrorEv(ptr noundef nonnull align 8 dereferenceable(148) %this) unnamed_addr #2 comdat align 2 {
 entry:
-  %status_ = getelementptr inbounds i8, ptr %this, i64 144
+  %status_ = getelementptr inbounds nuw i8, ptr %this, i64 144
   %0 = load i32, ptr %status_, align 8
   %spec.select = icmp ugt i32 %0, 1
   ret i1 %spec.select
@@ -467,7 +467,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef zeroext i1 @_ZN8proxygen22ZlibStreamDecompressor8finishedEv(ptr noundef nonnull align 8 dereferenceable(148) %this) unnamed_addr #2 comdat align 2 {
 entry:
-  %status_ = getelementptr inbounds i8, ptr %this, i64 144
+  %status_ = getelementptr inbounds nuw i8, ptr %this, i64 144
   %0 = load i32, ptr %status_, align 8
   %cmp = icmp eq i32 %0, 1
   ret i1 %cmp

@@ -704,7 +704,7 @@ define internal noundef zeroext i16 @gmr1_ie_rr_pos_display(ptr noundef %0, ptr 
   %8 = load i32, ptr @hf_rr_pos_display_flag, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %8, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #7
   %10 = tail call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef %3, i32 noundef 11) #7
-  %11 = getelementptr inbounds i8, ptr %2, i64 408
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %12 = load ptr, ptr %11, align 8
   %13 = tail call noalias ptr @wmem_alloc(ptr noundef %12, i64 noundef 11) #7
   %.pre = load i8, ptr %10, align 1
@@ -1186,7 +1186,7 @@ define internal i32 @dissect_gmr1_ccch(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %7, label %61, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8
   tail call void @col_append_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.385) #7
   %11 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #7

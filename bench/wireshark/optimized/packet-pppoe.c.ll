@@ -337,7 +337,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_pppoed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca ptr, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void @col_set_str(ptr noundef %7, i32 noundef 34, ptr noundef nonnull @.str.109) #5
   %8 = load ptr, ptr %6, align 8
@@ -387,7 +387,7 @@ define internal i32 @dissect_pppoed(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %.not193.i, label %dissect_pppoe_tags.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %32
-  %39 = getelementptr inbounds i8, ptr %1, i64 408
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %40
 
 40:                                               ; preds = %dissect_pppoe_subtags_dslf.exit.i, %.lr.ph.i
@@ -900,7 +900,7 @@ switch.lookup:                                    ; preds = %318
   %341 = lshr i32 %340, 1
   %342 = and i32 %341, 3
   %343 = zext nneg i32 %342 to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.dissect_pppoed, i64 0, i64 %343
+  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.dissect_pppoed, i64 0, i64 %343
   %switch.load = load ptr, ptr %switch.gep, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %339, ptr noundef nonnull %switch.load) #5
   %344 = load i32, ptr @hf_pppoed_tag_metrics_max_drate, align 4
@@ -1113,7 +1113,7 @@ define hidden void @proto_register_pppoes() local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_pppoes(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.119) #5
   %7 = load ptr, ptr %5, align 8

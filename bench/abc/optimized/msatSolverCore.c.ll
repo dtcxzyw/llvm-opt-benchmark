@@ -17,9 +17,9 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define noundef i32 @Msat_SolverAddVar(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 96
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %4 = load i32, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 100
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %6 = load i32, ptr %5, align 4
   %7 = icmp eq i32 %4, %6
   br i1 %7, label %8, label %10
@@ -32,7 +32,7 @@ define noundef i32 @Msat_SolverAddVar(ptr noundef %0, i32 noundef %1) local_unna
 
 10:                                               ; preds = %8, %2
   %11 = phi i32 [ %.pre, %8 ], [ %4, %2 ]
-  %12 = getelementptr inbounds i8, ptr %0, i64 144
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %13 = load ptr, ptr %12, align 8
   %14 = sext i32 %11 to i64
   %15 = getelementptr inbounds i32, ptr %13, i64 %14
@@ -54,7 +54,7 @@ define i32 @Msat_SolverAddClause(ptr noundef %0, ptr noundef %1) local_unnamed_a
   br i1 %.not, label %9, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   call void @Msat_ClauseVecPush(ptr noundef %8, ptr noundef nonnull %5) #8
   br label %9
@@ -69,7 +69,7 @@ declare void @Msat_ClauseVecPush(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
 define double @Msat_SolverProgressEstimate(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 96
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load i32, ptr %2, align 8
   %4 = sitofp i32 %3 to double
   %5 = fdiv double 1.000000e+00, %4
@@ -77,8 +77,8 @@ define double @Msat_SolverProgressEstimate(ptr nocapture noundef readonly %0) lo
   br i1 %6, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 104
-  %8 = getelementptr inbounds i8, ptr %0, i64 144
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 144
   br label %9
 
 9:                                                ; preds = %.lr.ph, %21
@@ -86,14 +86,14 @@ define double @Msat_SolverProgressEstimate(ptr nocapture noundef readonly %0) lo
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %21 ]
   %.01113 = phi double [ 0.000000e+00, %.lr.ph ], [ %.1, %21 ]
   %11 = load ptr, ptr %7, align 8
-  %12 = getelementptr inbounds i32, ptr %11, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
   %13 = load i32, ptr %12, align 4
   %.not = icmp eq i32 %13, -1
   br i1 %.not, label %21, label %14
 
 14:                                               ; preds = %9
   %15 = load ptr, ptr %8, align 8
-  %16 = getelementptr inbounds i32, ptr %15, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv
   %17 = load i32, ptr %16, align 4
   %18 = sitofp i32 %17 to double
   %19 = tail call double @pow(double noundef %5, double noundef %18) #8
@@ -125,32 +125,32 @@ declare double @pow(double noundef, double noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define void @Msat_SolverPrintStats(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 96
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load i32, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 @Msat_ClauseVecReadSize(ptr noundef %5) #8
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 @Msat_ClauseVecReadSize(ptr noundef %8) #8
   %10 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %3, i32 noundef %6, i32 noundef %9)
-  %11 = getelementptr inbounds i8, ptr %0, i64 256
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %12 = load i64, ptr %11, align 8
   %13 = trunc i64 %12 to i32
   %14 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %13)
-  %15 = getelementptr inbounds i8, ptr %0, i64 288
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %16 = load i64, ptr %15, align 8
   %17 = trunc i64 %16 to i32
   %18 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %17)
-  %19 = getelementptr inbounds i8, ptr %0, i64 264
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %20 = load i64, ptr %19, align 8
   %21 = trunc i64 %20 to i32
   %22 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %21)
-  %23 = getelementptr inbounds i8, ptr %0, i64 272
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %24 = load i64, ptr %23, align 8
   %25 = trunc i64 %24 to i32
   %26 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, i32 noundef %25)
-  %27 = getelementptr inbounds i8, ptr %0, i64 280
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %28 = load i64, ptr %27, align 8
   %29 = trunc i64 %28 to i32
   %30 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef %29)
@@ -176,7 +176,7 @@ define i32 @Msat_SolverSolve(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32
 10:                                               ; preds = %4
   %11 = load i64, ptr %6, align 8
   %.neg55 = mul i64 %11, -1000000
-  %12 = getelementptr inbounds i8, ptr %6, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %13 = load i64, ptr %12, align 8
   %.neg = sdiv i64 %13, -1000
   %.neg56 = add i64 %.neg, %.neg55
@@ -205,7 +205,7 @@ Abc_Clock.exit:                                   ; preds = %4, %10
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %18
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %18 ]
-  %19 = getelementptr inbounds i32, ptr %16, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv
   %20 = load i32, ptr %19, align 4
   %21 = call i32 @Msat_SolverAssume(ptr noundef %0, i32 noundef %20) #8
   %.not51 = icmp eq i32 %21, 0
@@ -217,7 +217,7 @@ Abc_Clock.exit:                                   ; preds = %4, %10
   br i1 %.not52, label %18, label %24
 
 24:                                               ; preds = %22, %.lr.ph
-  %25 = getelementptr inbounds i8, ptr %0, i64 88
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %26 = load ptr, ptr %25, align 8
   call void @Msat_QueueClear(ptr noundef %26) #8
   call void @Msat_SolverCancelUntil(ptr noundef %0, i32 noundef 0) #8
@@ -225,27 +225,27 @@ Abc_Clock.exit:                                   ; preds = %4, %10
 
 .loopexit:                                        ; preds = %18, %14, %Abc_Clock.exit
   %27 = call i32 @Msat_SolverReadDecisionLevel(ptr noundef %0) #8
-  %28 = getelementptr inbounds i8, ptr %0, i64 152
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store i32 %27, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %30 = load ptr, ptr %29, align 8
   %31 = call i32 @Msat_ClauseVecReadSize(ptr noundef %30) #8
-  %32 = getelementptr inbounds i8, ptr %0, i64 312
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 312
   store i32 %31, ptr %32, align 8
   %33 = load ptr, ptr %29, align 8
   %34 = call i32 @Msat_ClauseVecReadSize(ptr noundef %33) #8
   %35 = sdiv i32 %34, 3
   %36 = sitofp i32 %35 to double
-  %37 = getelementptr inbounds i8, ptr %0, i64 288
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %38 = load i64, ptr %37, align 8
   %39 = trunc i64 %38 to i32
-  %40 = getelementptr inbounds i8, ptr %0, i64 324
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 324
   store i32 %39, ptr %40, align 4
-  %41 = getelementptr inbounds i8, ptr %0, i64 168
-  %42 = getelementptr inbounds i8, ptr %0, i64 176
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %43 = icmp sgt i32 %2, 0
   %44 = icmp sgt i32 %3, 0
-  %45 = getelementptr inbounds i8, ptr %5, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %46 = zext nneg i32 %3 to i64
   %47 = mul nuw nsw i64 %46, 1000000
   br i1 %44, label %.split.us, label %.split

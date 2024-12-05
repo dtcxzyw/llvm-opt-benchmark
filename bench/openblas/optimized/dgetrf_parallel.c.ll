@@ -38,14 +38,14 @@ define i32 @dgetrf_parallel(ptr noundef %0, ptr nocapture readnone %1, ptr nound
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %16) #6
   call void @llvm.lifetime.start.p0(i64 32768, ptr nonnull %17) #6
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %18) #6
-  %19 = getelementptr inbounds i8, ptr %0, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %20 = load i64, ptr %19, align 8, !tbaa !3
-  %21 = getelementptr inbounds i8, ptr %0, i64 56
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %22 = load i64, ptr %21, align 8, !tbaa !9
   %23 = load ptr, ptr %0, align 8, !tbaa !10
-  %24 = getelementptr inbounds i8, ptr %0, i64 72
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %25 = load i64, ptr %24, align 8, !tbaa !11
-  %26 = getelementptr inbounds i8, ptr %0, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %27 = load ptr, ptr %26, align 8, !tbaa !12
   %28 = icmp eq ptr %2, null
   br i1 %28, label %38, label %29
@@ -53,7 +53,7 @@ define i32 @dgetrf_parallel(ptr noundef %0, ptr nocapture readnone %1, ptr nound
 29:                                               ; preds = %6
   %30 = load i64, ptr %2, align 8, !tbaa !13
   %31 = sub nsw i64 %20, %30
-  %32 = getelementptr inbounds i8, ptr %2, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %33 = load i64, ptr %32, align 8, !tbaa !13
   %34 = sub nsw i64 %33, %30
   %35 = add nsw i64 %25, 1
@@ -72,9 +72,9 @@ define i32 @dgetrf_parallel(ptr noundef %0, ptr nocapture readnone %1, ptr nound
   br i1 %45, label %.loopexit, label %46
 
 46:                                               ; preds = %38
-  %47 = getelementptr inbounds i8, ptr %12, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store ptr %27, ptr %47, align 8, !tbaa !12
-  %48 = getelementptr inbounds i8, ptr %12, i64 72
+  %48 = getelementptr inbounds nuw i8, ptr %12, i64 72
   store i64 %25, ptr %48, align 8, !tbaa !11
   %49 = tail call i64 @llvm.umin.i64(i64 %42, i64 %41)
   %50 = lshr i64 %49, 1
@@ -92,27 +92,27 @@ define i32 @dgetrf_parallel(ptr noundef %0, ptr nocapture readnone %1, ptr nound
   %58 = tail call i64 @llvm.umin.i64(i64 %49, i64 %53)
   store i64 %40, ptr %11, align 16, !tbaa !13
   %59 = add nsw i64 %58, %40
-  %60 = getelementptr inbounds i8, ptr %11, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 %59, ptr %60, align 8, !tbaa !13
   %61 = call i32 @dgetrf_parallel(ptr noundef nonnull %0, ptr poison, ptr noundef nonnull %11, ptr noundef %3, ptr noundef %4, i64 poison)
-  %62 = getelementptr inbounds i8, ptr %12, i64 104
+  %62 = getelementptr inbounds nuw i8, ptr %12, i64 104
   store ptr %17, ptr %62, align 8, !tbaa !14
   %63 = call i32 @dtrsm_iltucopy(i64 noundef %58, i64 noundef %58, ptr noundef %39, i64 noundef %25, i64 noundef 0, ptr noundef %4) #6
   %64 = mul nuw nsw i64 %58, %58
-  %65 = getelementptr inbounds double, ptr %4, i64 %64
+  %65 = getelementptr inbounds nuw double, ptr %4, i64 %64
   %66 = ptrtoint ptr %65 to i64
   %67 = add i64 %66, 16383
   %68 = and i64 %67, -16384
   %69 = inttoptr i64 %68 to ptr
-  %70 = getelementptr inbounds i8, ptr %0, i64 112
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %71 = add i64 %25, 1
-  %72 = getelementptr inbounds i8, ptr %12, i64 8
-  %73 = getelementptr inbounds i8, ptr %12, i64 24
-  %74 = getelementptr inbounds i8, ptr %12, i64 48
-  %75 = getelementptr inbounds i8, ptr %12, i64 56
-  %76 = getelementptr inbounds i8, ptr %12, i64 64
-  %77 = getelementptr inbounds i8, ptr %12, i64 80
-  %78 = getelementptr inbounds i8, ptr %12, i64 112
+  %72 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  %74 = getelementptr inbounds nuw i8, ptr %12, i64 48
+  %75 = getelementptr inbounds nuw i8, ptr %12, i64 56
+  %76 = getelementptr inbounds nuw i8, ptr %12, i64 64
+  %77 = getelementptr inbounds nuw i8, ptr %12, i64 80
+  %78 = getelementptr inbounds nuw i8, ptr %12, i64 112
   br label %82
 
 79:                                               ; preds = %304
@@ -217,7 +217,7 @@ define i32 @dgetrf_parallel(ptr noundef %0, ptr nocapture readnone %1, ptr nound
 
 151:                                              ; preds = %147
   %152 = and i64 %144, 4294967295
-  %153 = getelementptr inbounds [0 x i32], ptr @blas_quick_divide_table, i64 0, i64 %152
+  %153 = getelementptr inbounds nuw [0 x i32], ptr @blas_quick_divide_table, i64 0, i64 %152
   %154 = load i32, ptr %153, align 4, !tbaa !21
   %155 = call { i32, i32 } asm sideeffect "mull $0", "={dx},={ax},0,1,~{dirflag},~{fpsr},~{flags}"(i32 %154, i32 %150) #6, !srcloc !23
   %156 = extractvalue { i32, i32 } %155, 0
@@ -240,11 +240,11 @@ define i32 @dgetrf_parallel(ptr noundef %0, ptr nocapture readnone %1, ptr nound
   %163 = call i64 @llvm.umin.i64(i64 %140, i64 %161)
   %164 = select i1 %162, i64 %140, i64 %163
   %165 = sub nsw i64 %140, %164
-  %166 = getelementptr inbounds [17 x i64], ptr %16, i64 0, i64 %138
+  %166 = getelementptr inbounds nuw [17 x i64], ptr %16, i64 0, i64 %138
   %167 = load i64, ptr %166, align 8, !tbaa !13
   %168 = add nsw i64 %164, %167
   %169 = add nuw nsw i64 %138, 1
-  %170 = getelementptr inbounds [17 x i64], ptr %16, i64 0, i64 %169
+  %170 = getelementptr inbounds nuw [17 x i64], ptr %16, i64 0, i64 %169
   store i64 %168, ptr %170, align 8, !tbaa !13
   %171 = add i64 %139, %137
   %172 = add i64 %171, %159
@@ -254,7 +254,7 @@ define i32 @dgetrf_parallel(ptr noundef %0, ptr nocapture readnone %1, ptr nound
 
 174:                                              ; preds = %158
   %175 = and i64 %.pre-phi43, 4294967295
-  %176 = getelementptr inbounds [0 x i32], ptr @blas_quick_divide_table, i64 0, i64 %175
+  %176 = getelementptr inbounds nuw [0 x i32], ptr @blas_quick_divide_table, i64 0, i64 %175
   %177 = load i32, ptr %176, align 4, !tbaa !21
   %178 = call { i32, i32 } asm sideeffect "mull $0", "={dx},={ax},0,1,~{dirflag},~{fpsr},~{flags}"(i32 %177, i32 %173) #6, !srcloc !23
   %179 = extractvalue { i32, i32 } %178, 0
@@ -272,10 +272,10 @@ define i32 @dgetrf_parallel(ptr noundef %0, ptr nocapture readnone %1, ptr nound
   %186 = select i1 %185, i1 true, i1 %183
   %187 = select i1 %186, i64 %139, i64 %184
   %188 = sub nsw i64 %139, %187
-  %189 = getelementptr inbounds [17 x i64], ptr %15, i64 0, i64 %138
+  %189 = getelementptr inbounds nuw [17 x i64], ptr %15, i64 0, i64 %138
   %190 = load i64, ptr %189, align 8, !tbaa !13
   %191 = add nsw i64 %187, %190
-  %192 = getelementptr inbounds [17 x i64], ptr %15, i64 0, i64 %169
+  %192 = getelementptr inbounds nuw [17 x i64], ptr %15, i64 0, i64 %169
   store i64 %191, ptr %192, align 8, !tbaa !13
   br label %239
 
@@ -288,7 +288,7 @@ define i32 @dgetrf_parallel(ptr noundef %0, ptr nocapture readnone %1, ptr nound
 
 197:                                              ; preds = %193
   %198 = and i64 %144, 4294967295
-  %199 = getelementptr inbounds [0 x i32], ptr @blas_quick_divide_table, i64 0, i64 %198
+  %199 = getelementptr inbounds nuw [0 x i32], ptr @blas_quick_divide_table, i64 0, i64 %198
   %200 = load i32, ptr %199, align 4, !tbaa !21
   %201 = call { i32, i32 } asm sideeffect "mull $0", "={dx},={ax},0,1,~{dirflag},~{fpsr},~{flags}"(i32 %200, i32 %196) #6, !srcloc !23
   %202 = extractvalue { i32, i32 } %201, 0
@@ -311,11 +311,11 @@ define i32 @dgetrf_parallel(ptr noundef %0, ptr nocapture readnone %1, ptr nound
   %209 = call i64 @llvm.smin.i64(i64 %139, i64 %207)
   %210 = select i1 %208, i64 %139, i64 %209
   %211 = sub nsw i64 %139, %210
-  %212 = getelementptr inbounds [17 x i64], ptr %15, i64 0, i64 %138
+  %212 = getelementptr inbounds nuw [17 x i64], ptr %15, i64 0, i64 %138
   %213 = load i64, ptr %212, align 8, !tbaa !13
   %214 = add nsw i64 %210, %213
   %215 = add nuw nsw i64 %138, 1
-  %216 = getelementptr inbounds [17 x i64], ptr %15, i64 0, i64 %215
+  %216 = getelementptr inbounds nuw [17 x i64], ptr %15, i64 0, i64 %215
   store i64 %214, ptr %216, align 8, !tbaa !13
   %217 = add i64 %140, %137
   %218 = add i64 %217, %205
@@ -325,7 +325,7 @@ define i32 @dgetrf_parallel(ptr noundef %0, ptr nocapture readnone %1, ptr nound
 
 220:                                              ; preds = %204
   %221 = and i64 %.pre-phi, 4294967295
-  %222 = getelementptr inbounds [0 x i32], ptr @blas_quick_divide_table, i64 0, i64 %221
+  %222 = getelementptr inbounds nuw [0 x i32], ptr @blas_quick_divide_table, i64 0, i64 %221
   %223 = load i32, ptr %222, align 4, !tbaa !21
   %224 = call { i32, i32 } asm sideeffect "mull $0", "={dx},={ax},0,1,~{dirflag},~{fpsr},~{flags}"(i32 %223, i32 %219) #6, !srcloc !23
   %225 = extractvalue { i32, i32 } %224, 0
@@ -343,10 +343,10 @@ define i32 @dgetrf_parallel(ptr noundef %0, ptr nocapture readnone %1, ptr nound
   %232 = select i1 %231, i1 true, i1 %229
   %233 = select i1 %232, i64 %140, i64 %230
   %234 = sub nsw i64 %140, %233
-  %235 = getelementptr inbounds [17 x i64], ptr %16, i64 0, i64 %138
+  %235 = getelementptr inbounds nuw [17 x i64], ptr %16, i64 0, i64 %138
   %236 = load i64, ptr %235, align 8, !tbaa !13
   %237 = add nsw i64 %233, %236
-  %238 = getelementptr inbounds [17 x i64], ptr %16, i64 0, i64 %215
+  %238 = getelementptr inbounds nuw [17 x i64], ptr %16, i64 0, i64 %215
   store i64 %237, ptr %238, align 8, !tbaa !13
   br label %239
 
@@ -354,24 +354,24 @@ define i32 @dgetrf_parallel(ptr noundef %0, ptr nocapture readnone %1, ptr nound
   %.pre-phi41 = phi i64 [ %215, %226 ], [ %169, %180 ]
   %240 = phi i64 [ %234, %226 ], [ %165, %180 ]
   %241 = phi i64 [ %211, %226 ], [ %188, %180 ]
-  %242 = getelementptr inbounds [16 x %struct.blas_queue], ptr %14, i64 0, i64 %138
-  %243 = getelementptr inbounds i8, ptr %242, i64 160
+  %242 = getelementptr inbounds nuw [16 x %struct.blas_queue], ptr %14, i64 0, i64 %138
+  %243 = getelementptr inbounds nuw i8, ptr %242, i64 160
   store i32 3, ptr %243, align 8, !tbaa !24
   store ptr @inner_advanced_thread, ptr %242, align 8, !tbaa !26
-  %244 = getelementptr inbounds i8, ptr %242, i64 24
+  %244 = getelementptr inbounds nuw i8, ptr %242, i64 24
   store ptr %12, ptr %244, align 8, !tbaa !27
-  %245 = getelementptr inbounds [17 x i64], ptr %15, i64 0, i64 %138
-  %246 = getelementptr inbounds i8, ptr %242, i64 32
+  %245 = getelementptr inbounds nuw [17 x i64], ptr %15, i64 0, i64 %138
+  %246 = getelementptr inbounds nuw i8, ptr %242, i64 32
   store ptr %245, ptr %246, align 8, !tbaa !28
-  %247 = getelementptr inbounds i8, ptr %242, i64 40
+  %247 = getelementptr inbounds nuw i8, ptr %242, i64 40
   store ptr %16, ptr %247, align 8, !tbaa !29
-  %248 = getelementptr inbounds i8, ptr %242, i64 48
-  %249 = getelementptr inbounds [16 x %struct.blas_queue], ptr %14, i64 0, i64 %.pre-phi41
-  %250 = getelementptr inbounds i8, ptr %242, i64 64
+  %248 = getelementptr inbounds nuw i8, ptr %242, i64 48
+  %249 = getelementptr inbounds nuw [16 x %struct.blas_queue], ptr %14, i64 0, i64 %.pre-phi41
+  %250 = getelementptr inbounds nuw i8, ptr %242, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %248, i8 0, i64 16, i1 false)
   store ptr %249, ptr %250, align 8, !tbaa !30
   %251 = shl nsw i64 %138, 3
-  %252 = getelementptr inbounds [128 x i64], ptr %18, i64 0, i64 %251
+  %252 = getelementptr inbounds nuw [128 x i64], ptr %18, i64 0, i64 %251
   store atomic volatile i64 1, ptr %252 monotonic, align 64
   %253 = icmp sgt i64 %240, 0
   br i1 %253, label %.preheader, label %254, !llvm.loop !31
@@ -406,7 +406,7 @@ define i32 @dgetrf_parallel(ptr noundef %0, ptr nocapture readnone %1, ptr nound
   store i64 %268, ptr %11, align 16, !tbaa !13
   %269 = add nsw i64 %267, %268
   store i64 %269, ptr %60, align 8, !tbaa !13
-  %270 = getelementptr inbounds [16 x %struct.blas_queue], ptr %14, i64 0, i64 %138, i32 8
+  %270 = getelementptr inbounds nuw [16 x %struct.blas_queue], ptr %14, i64 0, i64 %138, i32 8
   store ptr null, ptr %270, align 8, !tbaa !30
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !36
   %271 = call i32 @exec_blas_async(i64 noundef 0, ptr noundef nonnull %14) #6
@@ -558,24 +558,24 @@ declare i32 @exec_blas_async_wait(i64 noundef, ptr noundef) local_unnamed_addr #
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @inner_advanced_thread(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4, i64 noundef %5) #0 {
   %7 = alloca [2 x ptr], align 16
-  %8 = getelementptr inbounds i8, ptr %0, i64 104
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %9 = load ptr, ptr %8, align 8, !tbaa !14
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #6
-  %10 = getelementptr inbounds i8, ptr %0, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %11 = load i64, ptr %10, align 8, !tbaa !19
-  %12 = getelementptr inbounds i8, ptr %0, i64 72
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %13 = load i64, ptr %12, align 8, !tbaa !11
-  %14 = getelementptr inbounds i8, ptr %0, i64 80
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %15 = load i64, ptr %14, align 8, !tbaa !20
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !17
   %18 = getelementptr double, ptr %17, i64 %11
   %19 = mul nsw i64 %13, %11
   %20 = getelementptr inbounds double, ptr %17, i64 %19
   %21 = getelementptr double, ptr %18, i64 %19
-  %22 = getelementptr inbounds i8, ptr %0, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %23 = load ptr, ptr %22, align 8, !tbaa !12
-  %24 = getelementptr inbounds i8, ptr %0, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %25 = load ptr, ptr %24, align 8, !tbaa !18
   %26 = load ptr, ptr %0, align 8, !tbaa !10
   %27 = icmp eq ptr %26, null
@@ -584,7 +584,7 @@ define internal noundef i32 @inner_advanced_thread(ptr nocapture noundef readonl
 28:                                               ; preds = %6
   %29 = tail call i32 @dtrsm_iltucopy(i64 noundef %11, i64 noundef %11, ptr noundef %17, i64 noundef %13, i64 noundef 0, ptr noundef %4) #6
   %30 = mul nsw i64 %11, %11
-  %31 = getelementptr inbounds double, ptr %4, i64 %30
+  %31 = getelementptr inbounds nuw double, ptr %4, i64 %30
   %32 = ptrtoint ptr %31 to i64
   %33 = add i64 %32, 16383
   %34 = and i64 %33, -16384
@@ -594,7 +594,7 @@ define internal noundef i32 @inner_advanced_thread(ptr nocapture noundef readonl
 36:                                               ; preds = %28, %6
   %37 = phi ptr [ %35, %28 ], [ %4, %6 ]
   %38 = phi ptr [ %4, %28 ], [ %26, %6 ]
-  %39 = getelementptr inbounds i8, ptr %1, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %40 = load i64, ptr %39, align 8, !tbaa !13
   %41 = load i64, ptr %1, align 8, !tbaa !13
   %42 = sub nsw i64 %40, %41
@@ -612,13 +612,13 @@ define internal noundef i32 @inner_advanced_thread(ptr nocapture noundef readonl
   %52 = sdiv i64 %51, 2
   %.idx = mul i64 %52, 6144
   %53 = getelementptr inbounds i8, ptr %37, i64 %.idx
-  %54 = getelementptr inbounds i8, ptr %7, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %53, ptr %54, align 8, !tbaa !42
   %55 = icmp slt i64 %44, %46
   br i1 %55, label %56, label %.loopexit24
 
 56:                                               ; preds = %36
-  %57 = getelementptr inbounds i8, ptr %0, i64 112
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %58 = getelementptr inbounds %struct.job_t, ptr %9, i64 %5
   %59 = add nsw i64 %15, 1
   %60 = add nsw i64 %15, %11
@@ -644,12 +644,12 @@ define internal noundef i32 @inner_advanced_thread(ptr nocapture noundef readonl
   br i1 %71, label %72, label %.loopexit22
 
 72:                                               ; preds = %.loopexit23
-  %73 = getelementptr inbounds [2 x ptr], ptr %7, i64 0, i64 %65
+  %73 = getelementptr inbounds nuw [2 x ptr], ptr %7, i64 0, i64 %65
   br label %84
 
 74:                                               ; preds = %80, %67
   %75 = phi i64 [ 0, %67 ], [ %81, %80 ]
-  %76 = getelementptr inbounds [16 x [16 x i64]], ptr %58, i64 0, i64 %75, i64 %68
+  %76 = getelementptr inbounds nuw [16 x [16 x i64]], ptr %58, i64 0, i64 %75, i64 %68
   br label %77
 
 77:                                               ; preds = %77, %74
@@ -685,7 +685,7 @@ define internal noundef i32 @inner_advanced_thread(ptr nocapture noundef readonl
   %99 = sub nsw i64 %11, %98
   %100 = tail call i64 @llvm.smin.i64(i64 %99, i64 192)
   %101 = mul nuw nsw i64 %98, %11
-  %102 = getelementptr inbounds double, ptr %38, i64 %101
+  %102 = getelementptr inbounds nuw double, ptr %38, i64 %101
   %103 = getelementptr double, ptr %92, i64 %98
   %104 = tail call i32 @dtrsm_kernel_LT(i64 noundef %100, i64 noundef %87, i64 noundef %11, double noundef -1.000000e+00, ptr noundef %102, ptr noundef %96, ptr noundef %103, i64 noundef %13, i64 noundef %98) #6
   %105 = add nuw nsw i64 %98, 192
@@ -705,14 +705,14 @@ define internal noundef i32 @inner_advanced_thread(ptr nocapture noundef readonl
 
 111:                                              ; preds = %.loopexit22
   %112 = shl nsw i64 %65, 3
-  %113 = getelementptr inbounds [2 x ptr], ptr %7, i64 0, i64 %65
+  %113 = getelementptr inbounds nuw [2 x ptr], ptr %7, i64 0, i64 %65
   %.pre26 = load ptr, ptr %113, align 8, !tbaa !42
   %114 = ptrtoint ptr %.pre26 to i64
   br label %115
 
 115:                                              ; preds = %115, %111
   %116 = phi i64 [ 0, %111 ], [ %118, %115 ]
-  %117 = getelementptr inbounds [16 x [16 x i64]], ptr %58, i64 0, i64 %116, i64 %112
+  %117 = getelementptr inbounds nuw [16 x [16 x i64]], ptr %58, i64 0, i64 %116, i64 %112
   store atomic volatile i64 %114, ptr %117 monotonic, align 8
   %118 = add nuw nsw i64 %116, 1
   %119 = load i64, ptr %57, align 8, !tbaa !15
@@ -747,17 +747,17 @@ define internal noundef i32 @inner_advanced_thread(ptr nocapture noundef readonl
   br i1 %130, label %131, label %..loopexit19_crit_edge
 
 ..loopexit19_crit_edge:                           ; preds = %.thread, %129
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 112
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 112
   %.pre27 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !15
   br label %.loopexit19
 
 131:                                              ; preds = %129
-  %132 = getelementptr inbounds i8, ptr %0, i64 112
+  %132 = getelementptr inbounds nuw i8, ptr %0, i64 112
   br label %138
 
 .loopexit19:                                      ; preds = %216, %..loopexit19_crit_edge
   %133 = phi i64 [ %.pre27, %..loopexit19_crit_edge ], [ %212, %216 ]
-  %134 = getelementptr inbounds i8, ptr %0, i64 112
+  %134 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %135 = icmp sgt i64 %133, 0
   br i1 %135, label %136, label %.loopexit
 
@@ -891,7 +891,7 @@ define internal noundef i32 @inner_advanced_thread(ptr nocapture noundef readonl
 219:                                              ; preds = %226, %217
   %220 = phi i1 [ true, %217 ], [ false, %226 ]
   %221 = phi i64 [ 0, %217 ], [ 8, %226 ]
-  %222 = getelementptr inbounds [16 x [16 x i64]], ptr %137, i64 0, i64 %218, i64 %221
+  %222 = getelementptr inbounds nuw [16 x [16 x i64]], ptr %137, i64 0, i64 %218, i64 %221
   br label %223
 
 223:                                              ; preds = %223, %219
@@ -918,18 +918,18 @@ declare i32 @exec_blas_async(i64 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @inner_basic_thread(ptr nocapture noundef nonnull readonly %0, i64 %.0.val, i64 %.8.val, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load i64, ptr %4, align 8, !tbaa !3
-  %6 = getelementptr inbounds i8, ptr %0, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %7 = load i64, ptr %6, align 8, !tbaa !19
-  %8 = getelementptr inbounds i8, ptr %0, i64 72
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %9 = load i64, ptr %8, align 8, !tbaa !11
-  %10 = getelementptr inbounds i8, ptr %0, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %11 = load i64, ptr %10, align 8, !tbaa !20
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !17
   %14 = getelementptr double, ptr %13, i64 %7
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load ptr, ptr %15, align 8, !tbaa !12
   %17 = mul nsw i64 %9, %7
   %18 = getelementptr double, ptr %14, i64 %17
@@ -945,7 +945,7 @@ define internal fastcc void @inner_basic_thread(ptr nocapture noundef nonnull re
 26:                                               ; preds = %3
   %27 = tail call i32 @dtrsm_iltucopy(i64 noundef %7, i64 noundef %7, ptr noundef %13, i64 noundef %9, i64 noundef 0, ptr noundef %2) #6
   %28 = mul nsw i64 %7, %7
-  %29 = getelementptr inbounds double, ptr %2, i64 %28
+  %29 = getelementptr inbounds nuw double, ptr %2, i64 %28
   %30 = ptrtoint ptr %29 to i64
   %31 = add i64 %30, 16383
   %32 = and i64 %31, -16384
@@ -997,7 +997,7 @@ define internal fastcc void @inner_basic_thread(ptr nocapture noundef nonnull re
   %63 = sub nsw i64 %7, %62
   %64 = tail call i64 @llvm.smin.i64(i64 %63, i64 192)
   %65 = mul nuw nsw i64 %62, %7
-  %66 = getelementptr inbounds double, ptr %36, i64 %65
+  %66 = getelementptr inbounds nuw double, ptr %36, i64 %65
   %gep = getelementptr double, ptr %57, i64 %62
   %67 = tail call i32 @dtrsm_kernel_LT(i64 noundef %64, i64 noundef %52, i64 noundef %7, double noundef -1.000000e+00, ptr noundef %66, ptr noundef %60, ptr noundef %gep, i64 noundef %9, i64 noundef %62) #6
   %68 = add nuw nsw i64 %62, 192
@@ -1022,7 +1022,7 @@ define internal fastcc void @inner_basic_thread(ptr nocapture noundef nonnull re
   %76 = phi i64 [ 0, %73 ], [ %82, %75 ]
   %77 = sub nsw i64 %5, %76
   %78 = tail call i64 @llvm.smin.i64(i64 %77, i64 192)
-  %79 = getelementptr inbounds double, ptr %14, i64 %76
+  %79 = getelementptr inbounds nuw double, ptr %14, i64 %76
   %80 = tail call i32 @dgemm_itcopy(i64 noundef %7, i64 noundef %78, ptr noundef %79, i64 noundef %9, ptr noundef %1) #6
   %gep6 = getelementptr double, ptr %invariant.gep5, i64 %76
   %81 = tail call i32 @dgemm_kernel(i64 noundef %78, i64 noundef %47, i64 noundef %7, double noundef -1.000000e+00, ptr noundef %1, ptr noundef %35, ptr noundef %gep6, i64 noundef %9) #6

@@ -63,7 +63,7 @@ entry:
   br i1 %cmp.not, label %lor.lhs.false, label %if.then
 
 lor.lhs.false:                                    ; preds = %entry
-  %value = getelementptr inbounds i8, ptr %a, i64 8
+  %value = getelementptr inbounds nuw i8, ptr %a, i64 8
   %1 = load ptr, ptr %value, align 8
   %cmp1 = icmp eq ptr %1, null
   br i1 %cmp1, label %if.then, label %if.end
@@ -116,14 +116,14 @@ entry:
   store ptr %a, ptr %a.addr, align 8
   %conv = trunc i64 %num to i32
   store i32 %conv, ptr %atmp, align 8
-  %oct2 = getelementptr inbounds i8, ptr %atmp, i64 8
+  %oct2 = getelementptr inbounds nuw i8, ptr %atmp, i64 8
   store ptr %oct, ptr %oct2, align 8
-  %data1.i = getelementptr inbounds i8, ptr %oct, i64 8
+  %data1.i = getelementptr inbounds nuw i8, ptr %oct, i64 8
   store ptr %data, ptr %data1.i, align 8
-  %type.i = getelementptr inbounds i8, ptr %oct, i64 4
+  %type.i = getelementptr inbounds nuw i8, ptr %oct, i64 4
   store i32 4, ptr %type.i, align 4
   store i32 %len, ptr %oct, align 8
-  %flags.i = getelementptr inbounds i8, ptr %oct, i64 16
+  %flags.i = getelementptr inbounds nuw i8, ptr %oct, i64 16
   store i64 0, ptr %flags.i, align 8
   %call3 = call ptr @ASN1_TYPE_pack_sequence(ptr noundef nonnull @asn1_int_oct_it.local_it, ptr noundef nonnull %atmp, ptr noundef nonnull %a.addr) #4
   %tobool.not = icmp ne ptr %call3, null
@@ -141,7 +141,7 @@ entry:
   br i1 %cmp.not, label %lor.lhs.false, label %err
 
 lor.lhs.false:                                    ; preds = %entry
-  %value = getelementptr inbounds i8, ptr %a, i64 8
+  %value = getelementptr inbounds nuw i8, ptr %a, i64 8
   %1 = load ptr, ptr %value, align 8
   %cmp1 = icmp eq ptr %1, null
   br i1 %cmp1, label %err, label %if.end
@@ -152,7 +152,7 @@ if.end:                                           ; preds = %lor.lhs.false
   br i1 %cmp3, label %err, label %if.end5
 
 if.end5:                                          ; preds = %if.end
-  %oct = getelementptr inbounds i8, ptr %call2, i64 8
+  %oct = getelementptr inbounds nuw i8, ptr %call2, i64 8
   %2 = load ptr, ptr %oct, align 8
   %3 = load i32, ptr %call2, align 8
   %call.i = tail call i32 @ASN1_STRING_length(ptr noundef %2) #4
@@ -205,15 +205,15 @@ entry:
   %oct = alloca %struct.asn1_string_st, align 8
   store ptr %a, ptr %a.addr, align 8
   %conv = trunc i64 %num to i32
-  %num1 = getelementptr inbounds i8, ptr %atmp, i64 8
+  %num1 = getelementptr inbounds nuw i8, ptr %atmp, i64 8
   store i32 %conv, ptr %num1, align 8
   store ptr %oct, ptr %atmp, align 8
-  %data1.i = getelementptr inbounds i8, ptr %oct, i64 8
+  %data1.i = getelementptr inbounds nuw i8, ptr %oct, i64 8
   store ptr %data, ptr %data1.i, align 8
-  %type.i = getelementptr inbounds i8, ptr %oct, i64 4
+  %type.i = getelementptr inbounds nuw i8, ptr %oct, i64 4
   store i32 4, ptr %type.i, align 4
   store i32 %len, ptr %oct, align 8
-  %flags.i = getelementptr inbounds i8, ptr %oct, i64 16
+  %flags.i = getelementptr inbounds nuw i8, ptr %oct, i64 16
   store i64 0, ptr %flags.i, align 8
   %call3 = call ptr @ASN1_TYPE_pack_sequence(ptr noundef nonnull @asn1_oct_int_it.local_it, ptr noundef nonnull %atmp, ptr noundef nonnull %a.addr) #4
   %tobool.not = icmp ne ptr %call3, null
@@ -229,7 +229,7 @@ entry:
   br i1 %cmp.not, label %lor.lhs.false, label %err
 
 lor.lhs.false:                                    ; preds = %entry
-  %value = getelementptr inbounds i8, ptr %a, i64 8
+  %value = getelementptr inbounds nuw i8, ptr %a, i64 8
   %1 = load ptr, ptr %value, align 8
   %cmp1 = icmp eq ptr %1, null
   br i1 %cmp1, label %err, label %if.end
@@ -241,7 +241,7 @@ if.end:                                           ; preds = %lor.lhs.false
 
 if.end5:                                          ; preds = %if.end
   %2 = load ptr, ptr %call2, align 8
-  %num6 = getelementptr inbounds i8, ptr %call2, i64 8
+  %num6 = getelementptr inbounds nuw i8, ptr %call2, i64 8
   %3 = load i32, ptr %num6, align 8
   %call.i = tail call i32 @ASN1_STRING_length(ptr noundef %2) #4
   %cmp.not.i = icmp eq ptr %num, null

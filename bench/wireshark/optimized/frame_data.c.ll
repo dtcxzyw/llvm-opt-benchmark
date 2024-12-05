@@ -20,7 +20,7 @@ define hidden void @frame_delta_abs_time(ptr noundef %0, ptr noundef %1, i32 nou
   br i1 %.not8, label %.thread, label %7
 
 7:                                                ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %1, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 56
   tail call void @nstime_delta(ptr noundef %3, ptr noundef nonnull %8, ptr noundef nonnull %6) #5
   br label %9
 
@@ -78,11 +78,11 @@ define range(i32 -1, 2) i32 @frame_data_compare(ptr noundef %0, ptr noundef %1, 
   ]
 
 11:                                               ; preds = %9, %9, %9, %9, %9, %9, %9
-  %12 = getelementptr inbounds i8, ptr %1, i64 50
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 50
   %13 = load i16, ptr %12, align 2
   %14 = and i16 %13, 32
   %.not96 = icmp eq i16 %14, 0
-  %15 = getelementptr inbounds i8, ptr %2, i64 50
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 50
   %16 = load i16, ptr %15, align 2
   %17 = and i16 %16, 32
   %.not99 = icmp eq i16 %17, 0
@@ -95,9 +95,9 @@ define range(i32 -1, 2) i32 @frame_data_compare(ptr noundef %0, ptr noundef %1, 
   br i1 %.not99, label %20, label %118
 
 20:                                               ; preds = %18, %19
-  %21 = getelementptr inbounds i8, ptr %1, i64 56
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %22 = load i64, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %2, i64 56
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %24 = load i64, ptr %23, align 8
   %25 = icmp slt i64 %22, %24
   br i1 %25, label %118, label %26
@@ -107,9 +107,9 @@ define range(i32 -1, 2) i32 @frame_data_compare(ptr noundef %0, ptr noundef %1, 
   br i1 %27, label %118, label %28
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds i8, ptr %1, i64 64
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %30 = load i32, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %2, i64 64
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %32 = load i32, ptr %31, align 8
   %33 = icmp slt i32 %30, %32
   br i1 %33, label %118, label %34
@@ -142,11 +142,11 @@ define range(i32 -1, 2) i32 @frame_data_compare(ptr noundef %0, ptr noundef %1, 
   br label %118
 
 49:                                               ; preds = %4, %4, %4, %4, %4, %4
-  %50 = getelementptr inbounds i8, ptr %1, i64 50
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 50
   %51 = load i16, ptr %50, align 2
   %52 = and i16 %51, 32
   %.not = icmp eq i16 %52, 0
-  %53 = getelementptr inbounds i8, ptr %2, i64 50
+  %53 = getelementptr inbounds nuw i8, ptr %2, i64 50
   %54 = load i16, ptr %53, align 2
   %55 = and i16 %54, 32
   %.not95 = icmp eq i16 %55, 0
@@ -159,9 +159,9 @@ define range(i32 -1, 2) i32 @frame_data_compare(ptr noundef %0, ptr noundef %1, 
   br i1 %.not95, label %58, label %118
 
 58:                                               ; preds = %56, %57
-  %59 = getelementptr inbounds i8, ptr %1, i64 56
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %60 = load i64, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %2, i64 56
+  %61 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %62 = load i64, ptr %61, align 8
   %63 = icmp slt i64 %60, %62
   br i1 %63, label %118, label %64
@@ -171,9 +171,9 @@ define range(i32 -1, 2) i32 @frame_data_compare(ptr noundef %0, ptr noundef %1, 
   br i1 %65, label %118, label %66
 
 66:                                               ; preds = %64
-  %67 = getelementptr inbounds i8, ptr %1, i64 64
+  %67 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %68 = load i32, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %2, i64 64
+  %69 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %70 = load i32, ptr %69, align 8
   %71 = icmp slt i32 %68, %70
   br i1 %71, label %118, label %72
@@ -206,9 +206,9 @@ define range(i32 -1, 2) i32 @frame_data_compare(ptr noundef %0, ptr noundef %1, 
   br label %118
 
 87:                                               ; preds = %4
-  %88 = getelementptr inbounds i8, ptr %1, i64 4
+  %88 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %89 = load i32, ptr %88, align 4
-  %90 = getelementptr inbounds i8, ptr %2, i64 4
+  %90 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %91 = load i32, ptr %90, align 4
   %92 = icmp ult i32 %89, %91
   br i1 %92, label %118, label %93
@@ -229,9 +229,9 @@ define range(i32 -1, 2) i32 @frame_data_compare(ptr noundef %0, ptr noundef %1, 
   br label %118
 
 102:                                              ; preds = %4
-  %103 = getelementptr inbounds i8, ptr %1, i64 12
+  %103 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %104 = load i32, ptr %103, align 4
-  %105 = getelementptr inbounds i8, ptr %2, i64 12
+  %105 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %106 = load i32, ptr %105, align 4
   %107 = icmp ult i32 %104, %106
   br i1 %107, label %118, label %108
@@ -266,7 +266,7 @@ declare i32 @timestamp_get_type() local_unnamed_addr #1
 define internal fastcc range(i32 -1, 2) i32 @frame_data_time_delta_rel_compare(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct.nstime_t, align 8
   %5 = alloca %struct.nstime_t, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 88
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %7 = load i32, ptr %6, align 8
   %.not.i = icmp eq i32 %7, 0
   br i1 %.not.i, label %.thread.i, label %8
@@ -277,7 +277,7 @@ define internal fastcc range(i32 -1, 2) i32 @frame_data_time_delta_rel_compare(p
   br i1 %.not8.i, label %.thread.i, label %10
 
 10:                                               ; preds = %8
-  %11 = getelementptr inbounds i8, ptr %1, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 56
   call void @nstime_delta(ptr noundef nonnull %4, ptr noundef nonnull %11, ptr noundef nonnull %9) #5
   br label %frame_delta_abs_time.exit
 
@@ -286,7 +286,7 @@ define internal fastcc range(i32 -1, 2) i32 @frame_data_time_delta_rel_compare(p
   br label %frame_delta_abs_time.exit
 
 frame_delta_abs_time.exit:                        ; preds = %10, %.thread.i
-  %12 = getelementptr inbounds i8, ptr %2, i64 88
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %13 = load i32, ptr %12, align 8
   %.not.i22 = icmp eq i32 %13, 0
   br i1 %.not.i22, label %.thread.i24, label %14
@@ -297,7 +297,7 @@ frame_delta_abs_time.exit:                        ; preds = %10, %.thread.i
   br i1 %.not8.i23, label %.thread.i24, label %16
 
 16:                                               ; preds = %14
-  %17 = getelementptr inbounds i8, ptr %2, i64 56
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 56
   call void @nstime_delta(ptr noundef nonnull %5, ptr noundef nonnull %17, ptr noundef nonnull %15) #5
   br label %frame_delta_abs_time.exit25
 
@@ -306,11 +306,11 @@ frame_delta_abs_time.exit:                        ; preds = %10, %.thread.i
   br label %frame_delta_abs_time.exit25
 
 frame_delta_abs_time.exit25:                      ; preds = %16, %.thread.i24
-  %18 = getelementptr inbounds i8, ptr %1, i64 50
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 50
   %19 = load i16, ptr %18, align 2
   %20 = and i16 %19, 32
   %.not = icmp eq i16 %20, 0
-  %21 = getelementptr inbounds i8, ptr %2, i64 50
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 50
   %22 = load i16, ptr %21, align 2
   %23 = and i16 %22, 32
   %.not21 = icmp eq i16 %23, 0
@@ -333,9 +333,9 @@ frame_delta_abs_time.exit25:                      ; preds = %16, %.thread.i24
   br i1 %31, label %47, label %32
 
 32:                                               ; preds = %30
-  %33 = getelementptr inbounds i8, ptr %4, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %34 = load i32, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %5, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %36 = load i32, ptr %35, align 8
   %37 = icmp slt i32 %34, %36
   br i1 %37, label %47, label %38
@@ -375,7 +375,7 @@ define internal fastcc range(i32 -1, 2) i32 @frame_data_time_delta_compare(ptr n
   br i1 %.not8.i, label %.thread.i, label %10
 
 10:                                               ; preds = %8
-  %11 = getelementptr inbounds i8, ptr %1, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 56
   call void @nstime_delta(ptr noundef nonnull %4, ptr noundef nonnull %11, ptr noundef nonnull %9) #5
   br label %frame_delta_abs_time.exit
 
@@ -395,7 +395,7 @@ frame_delta_abs_time.exit:                        ; preds = %10, %.thread.i
   br i1 %.not8.i23, label %.thread.i24, label %16
 
 16:                                               ; preds = %14
-  %17 = getelementptr inbounds i8, ptr %2, i64 56
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 56
   call void @nstime_delta(ptr noundef nonnull %5, ptr noundef nonnull %17, ptr noundef nonnull %15) #5
   br label %frame_delta_abs_time.exit25
 
@@ -404,11 +404,11 @@ frame_delta_abs_time.exit:                        ; preds = %10, %.thread.i
   br label %frame_delta_abs_time.exit25
 
 frame_delta_abs_time.exit25:                      ; preds = %16, %.thread.i24
-  %18 = getelementptr inbounds i8, ptr %1, i64 50
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 50
   %19 = load i16, ptr %18, align 2
   %20 = and i16 %19, 32
   %.not = icmp eq i16 %20, 0
-  %21 = getelementptr inbounds i8, ptr %2, i64 50
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 50
   %22 = load i16, ptr %21, align 2
   %23 = and i16 %22, 32
   %.not21 = icmp eq i16 %23, 0
@@ -431,9 +431,9 @@ frame_delta_abs_time.exit25:                      ; preds = %16, %.thread.i24
   br i1 %31, label %47, label %32
 
 32:                                               ; preds = %30
-  %33 = getelementptr inbounds i8, ptr %4, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %34 = load i32, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %5, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %36 = load i32, ptr %35, align 8
   %37 = icmp slt i32 %34, %36
   br i1 %37, label %47, label %38
@@ -462,7 +462,7 @@ frame_delta_abs_time.exit25:                      ; preds = %16, %.thread.i24
 define internal fastcc range(i32 -1, 2) i32 @frame_data_time_delta_dis_compare(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct.nstime_t, align 8
   %5 = alloca %struct.nstime_t, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 92
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 92
   %7 = load i32, ptr %6, align 4
   %.not.i = icmp eq i32 %7, 0
   br i1 %.not.i, label %.thread.i, label %8
@@ -473,7 +473,7 @@ define internal fastcc range(i32 -1, 2) i32 @frame_data_time_delta_dis_compare(p
   br i1 %.not8.i, label %.thread.i, label %10
 
 10:                                               ; preds = %8
-  %11 = getelementptr inbounds i8, ptr %1, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 56
   call void @nstime_delta(ptr noundef nonnull %4, ptr noundef nonnull %11, ptr noundef nonnull %9) #5
   br label %frame_delta_abs_time.exit
 
@@ -482,7 +482,7 @@ define internal fastcc range(i32 -1, 2) i32 @frame_data_time_delta_dis_compare(p
   br label %frame_delta_abs_time.exit
 
 frame_delta_abs_time.exit:                        ; preds = %10, %.thread.i
-  %12 = getelementptr inbounds i8, ptr %2, i64 92
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 92
   %13 = load i32, ptr %12, align 4
   %.not.i22 = icmp eq i32 %13, 0
   br i1 %.not.i22, label %.thread.i24, label %14
@@ -493,7 +493,7 @@ frame_delta_abs_time.exit:                        ; preds = %10, %.thread.i
   br i1 %.not8.i23, label %.thread.i24, label %16
 
 16:                                               ; preds = %14
-  %17 = getelementptr inbounds i8, ptr %2, i64 56
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 56
   call void @nstime_delta(ptr noundef nonnull %5, ptr noundef nonnull %17, ptr noundef nonnull %15) #5
   br label %frame_delta_abs_time.exit25
 
@@ -502,11 +502,11 @@ frame_delta_abs_time.exit:                        ; preds = %10, %.thread.i
   br label %frame_delta_abs_time.exit25
 
 frame_delta_abs_time.exit25:                      ; preds = %16, %.thread.i24
-  %18 = getelementptr inbounds i8, ptr %1, i64 50
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 50
   %19 = load i16, ptr %18, align 2
   %20 = and i16 %19, 32
   %.not = icmp eq i16 %20, 0
-  %21 = getelementptr inbounds i8, ptr %2, i64 50
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 50
   %22 = load i16, ptr %21, align 2
   %23 = and i16 %22, 32
   %.not21 = icmp eq i16 %23, 0
@@ -529,9 +529,9 @@ frame_delta_abs_time.exit25:                      ; preds = %16, %.thread.i24
   br i1 %31, label %47, label %32
 
 32:                                               ; preds = %30
-  %33 = getelementptr inbounds i8, ptr %4, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %34 = load i32, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %5, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %36 = load i32, ptr %35, align 8
   %37 = icmp slt i32 %34, %36
   br i1 %37, label %47, label %38
@@ -560,22 +560,22 @@ declare void @g_log(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_ad
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @frame_data_init(ptr nocapture noundef initializes((0, 4), (16, 50), (56, 84), (88, 97)) %0, i32 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #2 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr null, ptr %6, align 8
   store i32 %1, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %3, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i16 0, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 50
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 50
   %10 = load i16, ptr %9, align 2
   %11 = and i16 %10, -4
   %12 = or disjoint i16 %11, 1
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr null, ptr %13, align 8
   %14 = and i16 %12, -127
   store i16 %14, ptr %9, align 2
-  %15 = getelementptr inbounds i8, ptr %2, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %16 = load i32, ptr %15, align 4
   %17 = trunc i32 %16 to i16
   %18 = shl i16 %17, 7
@@ -583,7 +583,7 @@ define void @frame_data_init(ptr nocapture noundef initializes((0, 4), (16, 50),
   %20 = and i16 %12, -255
   %21 = or disjoint i16 %19, %20
   store i16 %21, ptr %9, align 2
-  %22 = getelementptr inbounds i8, ptr %0, i64 96
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i8 0, ptr %22, align 8
   %23 = load i32, ptr %2, align 8
   switch i32 %23, label %74 [
@@ -596,54 +596,54 @@ define void @frame_data_init(ptr nocapture noundef initializes((0, 4), (16, 50),
   ]
 
 24:                                               ; preds = %5
-  %25 = getelementptr inbounds i8, ptr %2, i64 64
-  %26 = getelementptr inbounds i8, ptr %2, i64 68
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 64
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 68
   %27 = load i32, ptr %26, align 4
-  %28 = getelementptr inbounds i8, ptr %0, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %27, ptr %28, align 4
   %29 = add i32 %27, %4
-  %30 = getelementptr inbounds i8, ptr %0, i64 12
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %29, ptr %30, align 4
   %31 = load i32, ptr %25, align 8
   br label %.sink.split
 
 32:                                               ; preds = %5, %5
-  %33 = getelementptr inbounds i8, ptr %2, i64 68
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 68
   %34 = load i32, ptr %33, align 4
-  %35 = getelementptr inbounds i8, ptr %0, i64 4
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %34, ptr %35, align 4
   %36 = add i32 %34, %4
-  %37 = getelementptr inbounds i8, ptr %0, i64 12
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %36, ptr %37, align 4
   %38 = load i32, ptr %33, align 4
   br label %.sink.split
 
 39:                                               ; preds = %5
-  %40 = getelementptr inbounds i8, ptr %2, i64 96
+  %40 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %41 = load i32, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %0, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %41, ptr %42, align 4
   %43 = add i32 %41, %4
-  %44 = getelementptr inbounds i8, ptr %0, i64 12
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %43, ptr %44, align 4
-  %45 = getelementptr inbounds i8, ptr %2, i64 100
+  %45 = getelementptr inbounds nuw i8, ptr %2, i64 100
   %46 = load i32, ptr %45, align 4
   br label %.sink.split
 
 47:                                               ; preds = %5
-  %48 = getelementptr inbounds i8, ptr %2, i64 64
+  %48 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %49 = load i32, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %0, i64 4
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %49, ptr %50, align 4
   %51 = add i32 %49, %4
-  %52 = getelementptr inbounds i8, ptr %0, i64 12
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %51, ptr %52, align 4
   %53 = load i32, ptr %48, align 8
   br label %.sink.split
 
 54:                                               ; preds = %5
-  %55 = getelementptr inbounds i8, ptr %2, i64 64
-  %56 = getelementptr inbounds i8, ptr %2, i64 68
+  %55 = getelementptr inbounds nuw i8, ptr %2, i64 64
+  %56 = getelementptr inbounds nuw i8, ptr %2, i64 68
   %57 = load i32, ptr %56, align 4
   %cond = icmp eq i32 %57, 10949
   %58 = load i32, ptr %55, align 8
@@ -651,34 +651,34 @@ define void @frame_data_init(ptr nocapture noundef initializes((0, 4), (16, 50),
 
 59:                                               ; preds = %54
   %60 = add i32 %58, -4
-  %61 = getelementptr inbounds i8, ptr %0, i64 4
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %60, ptr %61, align 4
   %62 = load i32, ptr %55, align 8
   %63 = add i32 %4, -4
   %64 = add i32 %63, %62
-  %65 = getelementptr inbounds i8, ptr %0, i64 12
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %64, ptr %65, align 4
   %66 = load i32, ptr %55, align 8
   %67 = add i32 %66, -4
   br label %.sink.split
 
 68:                                               ; preds = %54
-  %69 = getelementptr inbounds i8, ptr %0, i64 4
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %58, ptr %69, align 4
   %70 = add i32 %58, %4
-  %71 = getelementptr inbounds i8, ptr %0, i64 12
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %70, ptr %71, align 4
   %72 = load i32, ptr %55, align 8
   br label %.sink.split
 
 .sink.split:                                      ; preds = %24, %32, %39, %47, %68, %59
   %.sink = phi i32 [ %67, %59 ], [ %72, %68 ], [ %53, %47 ], [ %46, %39 ], [ %38, %32 ], [ %31, %24 ]
-  %73 = getelementptr inbounds i8, ptr %0, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.sink, ptr %73, align 8
   br label %74
 
 74:                                               ; preds = %.sink.split, %5
-  %75 = getelementptr inbounds i8, ptr %2, i64 32
+  %75 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %76 = load i32, ptr %75, align 8
   %77 = trunc i32 %76 to i16
   %78 = shl i16 %77, 10
@@ -686,20 +686,20 @@ define void @frame_data_init(ptr nocapture noundef initializes((0, 4), (16, 50),
   %80 = and i16 %21, -15487
   %81 = or disjoint i16 %79, %80
   store i16 %81, ptr %9, align 2
-  %82 = getelementptr inbounds i8, ptr %0, i64 56
-  %83 = getelementptr inbounds i8, ptr %2, i64 16
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %83 = getelementptr inbounds nuw i8, ptr %2, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %82, ptr noundef nonnull align 8 dereferenceable(16) %83, i64 16, i1 false)
   %84 = and i16 %81, -895
   store i16 %84, ptr %9, align 2
-  %85 = getelementptr inbounds i8, ptr %0, i64 40
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr null, ptr %85, align 8
-  %86 = getelementptr inbounds i8, ptr %0, i64 72
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i64 0, ptr %86, align 8
-  %87 = getelementptr inbounds i8, ptr %0, i64 80
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 0, ptr %87, align 8
-  %88 = getelementptr inbounds i8, ptr %0, i64 88
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i32 0, ptr %88, align 8
-  %89 = getelementptr inbounds i8, ptr %0, i64 92
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 92
   store i32 0, ptr %89, align 4
   ret void
 }
@@ -710,7 +710,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: nounwind uwtable
 define void @frame_data_set_before_dissect(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr noundef readonly %3) local_unnamed_addr #0 {
   %5 = alloca %struct.nstime_t, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 50
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 50
   %7 = load i16, ptr %6, align 2
   %8 = and i16 %7, 128
   %.not = icmp eq i16 %8, 0
@@ -748,8 +748,8 @@ define void @frame_data_set_before_dissect(ptr noundef %0, ptr nocapture noundef
 
 21:                                               ; preds = %20, %16
   %22 = phi ptr [ %0, %20 ], [ %17, %16 ]
-  %23 = getelementptr inbounds i8, ptr %0, i64 56
-  %24 = getelementptr inbounds i8, ptr %22, i64 56
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 56
   call void @nstime_delta(ptr noundef nonnull %5, ptr noundef nonnull %23, ptr noundef nonnull %24) #5
   %25 = load i64, ptr %1, align 8
   %sext = shl i64 %25, 32
@@ -763,9 +763,9 @@ define void @frame_data_set_before_dissect(ptr noundef %0, ptr nocapture noundef
   br i1 %30, label %31, label %38
 
 31:                                               ; preds = %29
-  %32 = getelementptr inbounds i8, ptr %1, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %33 = load i32, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %5, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %35 = load i32, ptr %34, align 8
   %36 = icmp slt i32 %33, %35
   br i1 %36, label %37, label %38
@@ -785,7 +785,7 @@ define void @frame_data_set_before_dissect(ptr noundef %0, ptr nocapture noundef
 
 42:                                               ; preds = %38, %40
   %43 = phi i32 [ %41, %40 ], [ 0, %38 ]
-  %44 = getelementptr inbounds i8, ptr %0, i64 88
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i32 %43, ptr %44, align 8
   %.not28 = icmp eq ptr %3, null
   br i1 %.not28, label %47, label %45
@@ -796,7 +796,7 @@ define void @frame_data_set_before_dissect(ptr noundef %0, ptr nocapture noundef
 
 47:                                               ; preds = %42, %45
   %48 = phi i32 [ %46, %45 ], [ 0, %42 ]
-  %49 = getelementptr inbounds i8, ptr %0, i64 92
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 92
   store i32 %48, ptr %49, align 4
   br label %50
 
@@ -806,11 +806,11 @@ define void @frame_data_set_before_dissect(ptr noundef %0, ptr nocapture noundef
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @frame_data_set_after_dissect(ptr nocapture noundef initializes((12, 16)) %0, ptr nocapture noundef %1) local_unnamed_addr #2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 50
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 50
   %4 = load i16, ptr %3, align 2
   %5 = and i16 %4, 32
   %.not = icmp eq i16 %5, 0
-  %6 = getelementptr inbounds i8, ptr %0, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = load i32, ptr %6, align 4
   br i1 %.not, label %8, label %11
 
@@ -822,20 +822,20 @@ define void @frame_data_set_after_dissect(ptr nocapture noundef initializes((12,
 11:                                               ; preds = %2, %8
   %.sink9 = phi i32 [ %10, %8 ], [ %7, %2 ]
   store i32 %.sink9, ptr %1, align 4
-  %12 = getelementptr inbounds i8, ptr %0, i64 12
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %.sink9, ptr %12, align 4
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define void @frame_data_reset(ptr nocapture noundef initializes((48, 50)) %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 50
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 50
   %3 = load i16, ptr %2, align 2
   %4 = and i16 %3, -9
   store i16 %4, ptr %2, align 2
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i16 0, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %9, label %8
@@ -846,7 +846,7 @@ define void @frame_data_reset(ptr nocapture noundef initializes((48, 50)) %0) lo
   br label %9
 
 9:                                                ; preds = %8, %1
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load ptr, ptr %10, align 8
   %.not9 = icmp eq ptr %11, null
   br i1 %.not9, label %13, label %12
@@ -866,7 +866,7 @@ declare void @g_hash_table_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @frame_data_destroy(ptr nocapture noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %4
@@ -877,7 +877,7 @@ define void @frame_data_destroy(ptr nocapture noundef %0) local_unnamed_addr #0 
   br label %5
 
 5:                                                ; preds = %4, %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8
   %.not7 = icmp eq ptr %7, null
   br i1 %.not7, label %9, label %8

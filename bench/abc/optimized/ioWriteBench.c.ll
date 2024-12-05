@@ -32,7 +32,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @Io_WriteBench(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 4
   %.val24.i = load i32, ptr %5, align 4
@@ -40,7 +40,7 @@ define range(i32 0, 2) i32 @Io_WriteBench(ptr nocapture noundef readonly %0, ptr
   br i1 %6, label %.lr.ph26.i, label %.loopexit
 
 .lr.ph26.i:                                       ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %8
 
 8:                                                ; preds = %.critedge2.i, %.lr.ph26.i
@@ -48,7 +48,7 @@ define range(i32 0, 2) i32 @Io_WriteBench(ptr nocapture noundef readonly %0, ptr
   %9 = phi ptr [ %4, %.lr.ph26.i ], [ %21, %.critedge2.i ]
   %10 = getelementptr i8, ptr %9, i64 8
   %.val19.val.i = load ptr, ptr %10, align 8
-  %11 = getelementptr inbounds ptr, ptr %.val19.val.i, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw ptr, ptr %.val19.val.i, i64 %indvars.iv.i
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
   br i1 %13, label %.critedge2.i, label %14
@@ -70,7 +70,7 @@ define range(i32 0, 2) i32 @Io_WriteBench(ptr nocapture noundef readonly %0, ptr
   ]
 
 19:                                               ; preds = %.lr.ph.i
-  %20 = getelementptr inbounds i8, ptr %.01522.i, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %.01522.i, i64 1
   br label %.lr.ph.i, !llvm.loop !4
 
 .critedge2.i:                                     ; preds = %.lr.ph.i, %14, %8
@@ -98,7 +98,7 @@ Io_WriteBenchCheckNames.exit:                     ; preds = %.lr.ph.i, %.lr.ph.i
   br label %207
 
 32:                                               ; preds = %.loopexit
-  %33 = getelementptr inbounds i8, ptr %0, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %34 = load ptr, ptr %33, align 8
   %35 = tail call ptr (...) @Extra_TimeStamp() #6
   %36 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %27, ptr noundef nonnull @.str.3, ptr noundef %34, ptr noundef %35) #6
@@ -122,7 +122,7 @@ Io_WriteBenchCheckNames.exit:                     ; preds = %.lr.ph.i, %.lr.ph.i
   %.val4570.i = phi ptr [ %.val45.i, %.lr.ph.i14 ], [ %.val4567.i, %32 ]
   %43 = getelementptr i8, ptr %.val4570.i, i64 8
   %.val46.val.i = load ptr, ptr %43, align 8
-  %44 = getelementptr inbounds ptr, ptr %.val46.val.i, i64 %indvars.iv.i15
+  %44 = getelementptr inbounds nuw ptr, ptr %.val46.val.i, i64 %indvars.iv.i15
   %45 = load ptr, ptr %44, align 8
   %.val47.i = load ptr, ptr %45, align 8
   %46 = getelementptr i8, ptr %45, i64 48
@@ -146,7 +146,7 @@ Io_WriteBenchCheckNames.exit:                     ; preds = %.lr.ph.i, %.lr.ph.i
   br i1 %56, label %.lr.ph.i14, label %.critedge.preheader.i, !llvm.loop !7
 
 .critedge2.preheader.i:                           ; preds = %.critedge.i, %.critedge.preheader.i
-  %57 = getelementptr inbounds i8, ptr %0, i64 80
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr i8, ptr %58, i64 4
   %.val76.i = load i32, ptr %59, align 4
@@ -158,7 +158,7 @@ Io_WriteBenchCheckNames.exit:                     ; preds = %.lr.ph.i, %.lr.ph.i
   %.val5374.i = phi ptr [ %.val53.i, %.critedge.i ], [ %.val5371.i, %.critedge.preheader.i ]
   %61 = getelementptr i8, ptr %.val5374.i, i64 8
   %.val54.val.i = load ptr, ptr %61, align 8
-  %62 = getelementptr inbounds ptr, ptr %.val54.val.i, i64 %indvars.iv85.i
+  %62 = getelementptr inbounds nuw ptr, ptr %.val54.val.i, i64 %indvars.iv85.i
   %63 = load ptr, ptr %62, align 8
   %.val55.i = load ptr, ptr %63, align 8
   %64 = getelementptr i8, ptr %63, i64 32
@@ -186,7 +186,7 @@ Io_WriteBenchCheckNames.exit:                     ; preds = %.lr.ph.i, %.lr.ph.i
   %indvars.iv88.i = phi i64 [ %indvars.iv.next89.i, %.critedge2.i12 ], [ 0, %.critedge2.preheader.i ]
   %76 = getelementptr i8, ptr %75, i64 8
   %.val61.val.i = load ptr, ptr %76, align 8
-  %77 = getelementptr inbounds ptr, ptr %.val61.val.i, i64 %indvars.iv88.i
+  %77 = getelementptr inbounds nuw ptr, ptr %.val61.val.i, i64 %indvars.iv88.i
   %78 = load ptr, ptr %77, align 8
   %79 = getelementptr i8, ptr %78, i64 20
   %.val62.i = load i32, ptr %79, align 4
@@ -275,7 +275,7 @@ Io_WriteBenchCheckNames.exit:                     ; preds = %.lr.ph.i, %.lr.ph.i
   %120 = phi ptr [ %116, %.lr.ph82.i ], [ %199, %Io_WriteBenchOneNode.exit.i ]
   %121 = getelementptr i8, ptr %120, i64 8
   %.val44.val.i = load ptr, ptr %121, align 8
-  %122 = getelementptr inbounds ptr, ptr %.val44.val.i, i64 %indvars.iv91.i
+  %122 = getelementptr inbounds nuw ptr, ptr %.val44.val.i, i64 %indvars.iv91.i
   %123 = load ptr, ptr %122, align 8
   %124 = icmp eq ptr %123, null
   br i1 %124, label %Io_WriteBenchOneNode.exit.i, label %125
@@ -460,7 +460,7 @@ declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @Io_WriteBenchLut(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 4
   %.val24.i = load i32, ptr %5, align 4
@@ -468,7 +468,7 @@ define range(i32 0, 2) i32 @Io_WriteBenchLut(ptr nocapture noundef readonly %0, 
   br i1 %6, label %.lr.ph26.i, label %.loopexit
 
 .lr.ph26.i:                                       ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %8
 
 8:                                                ; preds = %.critedge2.i, %.lr.ph26.i
@@ -476,7 +476,7 @@ define range(i32 0, 2) i32 @Io_WriteBenchLut(ptr nocapture noundef readonly %0, 
   %9 = phi ptr [ %4, %.lr.ph26.i ], [ %21, %.critedge2.i ]
   %10 = getelementptr i8, ptr %9, i64 8
   %.val19.val.i = load ptr, ptr %10, align 8
-  %11 = getelementptr inbounds ptr, ptr %.val19.val.i, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw ptr, ptr %.val19.val.i, i64 %indvars.iv.i
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
   br i1 %13, label %.critedge2.i, label %14
@@ -498,7 +498,7 @@ define range(i32 0, 2) i32 @Io_WriteBenchLut(ptr nocapture noundef readonly %0, 
   ]
 
 19:                                               ; preds = %.lr.ph.i
-  %20 = getelementptr inbounds i8, ptr %.01522.i, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %.01522.i, i64 1
   br label %.lr.ph.i, !llvm.loop !4
 
 .critedge2.i:                                     ; preds = %.lr.ph.i, %14, %8
@@ -526,7 +526,7 @@ Io_WriteBenchCheckNames.exit:                     ; preds = %.lr.ph.i, %.lr.ph.i
   br label %244
 
 32:                                               ; preds = %.loopexit
-  %33 = getelementptr inbounds i8, ptr %0, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %34 = load ptr, ptr %33, align 8
   %35 = tail call ptr (...) @Extra_TimeStamp() #6
   %36 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %27, ptr noundef nonnull @.str.3, ptr noundef %34, ptr noundef %35) #6
@@ -550,7 +550,7 @@ Io_WriteBenchCheckNames.exit:                     ; preds = %.lr.ph.i, %.lr.ph.i
   %.val4773.i = phi ptr [ %.val47.i, %.lr.ph.i14 ], [ %.val4770.i, %32 ]
   %43 = getelementptr i8, ptr %.val4773.i, i64 8
   %.val48.val.i = load ptr, ptr %43, align 8
-  %44 = getelementptr inbounds ptr, ptr %.val48.val.i, i64 %indvars.iv.i15
+  %44 = getelementptr inbounds nuw ptr, ptr %.val48.val.i, i64 %indvars.iv.i15
   %45 = load ptr, ptr %44, align 8
   %.val49.i = load ptr, ptr %45, align 8
   %46 = getelementptr i8, ptr %45, i64 48
@@ -574,7 +574,7 @@ Io_WriteBenchCheckNames.exit:                     ; preds = %.lr.ph.i, %.lr.ph.i
   br i1 %56, label %.lr.ph.i14, label %.critedge.preheader.i, !llvm.loop !11
 
 .critedge2.preheader.i:                           ; preds = %.critedge.i, %.critedge.preheader.i
-  %57 = getelementptr inbounds i8, ptr %0, i64 80
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr i8, ptr %58, i64 4
   %.val79.i = load i32, ptr %59, align 4
@@ -586,7 +586,7 @@ Io_WriteBenchCheckNames.exit:                     ; preds = %.lr.ph.i, %.lr.ph.i
   %.val5577.i = phi ptr [ %.val55.i, %.critedge.i ], [ %.val5574.i, %.critedge.preheader.i ]
   %61 = getelementptr i8, ptr %.val5577.i, i64 8
   %.val56.val.i = load ptr, ptr %61, align 8
-  %62 = getelementptr inbounds ptr, ptr %.val56.val.i, i64 %indvars.iv88.i
+  %62 = getelementptr inbounds nuw ptr, ptr %.val56.val.i, i64 %indvars.iv88.i
   %63 = load ptr, ptr %62, align 8
   %.val57.i = load ptr, ptr %63, align 8
   %64 = getelementptr i8, ptr %63, i64 32
@@ -614,7 +614,7 @@ Io_WriteBenchCheckNames.exit:                     ; preds = %.lr.ph.i, %.lr.ph.i
   %indvars.iv91.i = phi i64 [ %indvars.iv.next92.i, %.critedge2.i12 ], [ 0, %.critedge2.preheader.i ]
   %76 = getelementptr i8, ptr %75, i64 8
   %.val63.val.i = load ptr, ptr %76, align 8
-  %77 = getelementptr inbounds ptr, ptr %.val63.val.i, i64 %indvars.iv91.i
+  %77 = getelementptr inbounds nuw ptr, ptr %.val63.val.i, i64 %indvars.iv91.i
   %78 = load ptr, ptr %77, align 8
   %79 = getelementptr i8, ptr %78, i64 20
   %.val64.i = load i32, ptr %79, align 4
@@ -684,11 +684,11 @@ Io_WriteBenchCheckNames.exit:                     ; preds = %.lr.ph.i, %.lr.ph.i
 
 .critedge4.i:                                     ; preds = %.critedge2.i12, %.critedge2.preheader.i
   %113 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #7
-  %114 = getelementptr inbounds i8, ptr %113, i64 4
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 4
   store i32 0, ptr %114, align 4
   store i32 10000, ptr %113, align 8
   %115 = tail call noalias dereferenceable_or_null(40000) ptr @malloc(i64 noundef 40000) #7
-  %116 = getelementptr inbounds i8, ptr %113, i64 8
+  %116 = getelementptr inbounds nuw i8, ptr %113, i64 8
   store ptr %115, ptr %116, align 8
   %117 = load ptr, ptr @stdout, align 8
   %.val65.i = load ptr, ptr %3, align 8
@@ -710,7 +710,7 @@ Io_WriteBenchCheckNames.exit:                     ; preds = %.lr.ph.i, %.lr.ph.i
   %124 = phi ptr [ %120, %.lr.ph85.i ], [ %234, %Io_WriteBenchLutOneNode.exit.i ]
   %125 = getelementptr i8, ptr %124, i64 8
   %.val46.val.i = load ptr, ptr %125, align 8
-  %126 = getelementptr inbounds ptr, ptr %.val46.val.i, i64 %indvars.iv94.i
+  %126 = getelementptr inbounds nuw ptr, ptr %.val46.val.i, i64 %indvars.iv94.i
   %127 = load ptr, ptr %126, align 8
   %128 = icmp eq ptr %127, null
   br i1 %128, label %Io_WriteBenchLutOneNode.exit.i, label %129
@@ -740,9 +740,9 @@ Extra_ProgressBarUpdate.exit.i:                   ; preds = %137, %133
   %139 = getelementptr i8, ptr %127, i64 28
   %.val52.i.i = load i32, ptr %139, align 4
   %140 = load ptr, ptr %127, align 8
-  %141 = getelementptr inbounds i8, ptr %140, i64 256
+  %141 = getelementptr inbounds nuw i8, ptr %140, i64 256
   %142 = load ptr, ptr %141, align 8
-  %143 = getelementptr inbounds i8, ptr %127, i64 56
+  %143 = getelementptr inbounds nuw i8, ptr %127, i64 56
   %144 = load ptr, ptr %143, align 8
   %145 = ptrtoint ptr %144 to i64
   %146 = and i64 %145, -2
@@ -774,7 +774,7 @@ select.unfold.preheader.i.i.i:                    ; preds = %152
 select.unfold.i.i.i:                              ; preds = %select.unfold.i.i.i, %select.unfold.preheader.i.i.i
   %indvars.iv.i.i.i = phi i64 [ %157, %select.unfold.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %select.unfold.i.i.i ]
   %indvars.iv.next.i.i.i = add nsw i64 %indvars.iv.i.i.i, -1
-  %158 = getelementptr inbounds i32, ptr %148, i64 %indvars.iv.next.i.i.i
+  %158 = getelementptr inbounds nuw i32, ptr %148, i64 %indvars.iv.next.i.i.i
   %159 = load i32, ptr %158, align 4
   %160 = xor i32 %159, -1
   store i32 %160, ptr %158, align 4
@@ -796,7 +796,7 @@ select.unfold.i56.i.i:                            ; preds = %166, %Extra_TruthNo
 
 166:                                              ; preds = %select.unfold.i56.i.i
   %167 = add nsw i64 %indvars.iv.i57.i.i, -1
-  %168 = getelementptr inbounds i32, ptr %148, i64 %167
+  %168 = getelementptr inbounds nuw i32, ptr %148, i64 %167
   %169 = load i32, ptr %168, align 4
   %.not.i.i.i = icmp eq i32 %169, 0
   br i1 %.not.i.i.i, label %select.unfold.i56.i.i, label %select.unfold.i59.i.i, !llvm.loop !15
@@ -825,7 +825,7 @@ select.unfold.i59.i.i:                            ; preds = %166, %180
 
 180:                                              ; preds = %select.unfold.i59.i.i
   %181 = add nsw i64 %indvars.iv.i60.i.i, -1
-  %182 = getelementptr inbounds i32, ptr %148, i64 %181
+  %182 = getelementptr inbounds nuw i32, ptr %148, i64 %181
   %183 = load i32, ptr %182, align 4
   %.not.i62.i.i = icmp eq i32 %183, -1
   br i1 %.not.i62.i.i, label %select.unfold.i59.i.i, label %192, !llvm.loop !16
@@ -903,7 +903,7 @@ Extra_TruthIsConst1.exit.i.i:                     ; preds = %select.unfold.i59.i
   %.val53.val.i.i = load ptr, ptr %220, align 8
   %221 = getelementptr i8, ptr %.val53.val.i.i, i64 8
   %.val53.val.val.i.i = load ptr, ptr %221, align 8
-  %222 = getelementptr inbounds i32, ptr %.val54.i.i, i64 %indvars.iv.i.i
+  %222 = getelementptr inbounds nuw i32, ptr %.val54.i.i, i64 %indvars.iv.i.i
   %223 = load i32, ptr %222, align 4
   %224 = sext i32 %223 to i64
   %225 = getelementptr inbounds ptr, ptr %.val53.val.val.i.i, i64 %224

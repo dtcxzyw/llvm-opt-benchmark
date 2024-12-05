@@ -603,7 +603,7 @@ define internal i32 @dissect_arp(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
   store i32 0, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8
   tail call void @col_set_str(ptr noundef %13, i32 noundef 34, ptr noundef nonnull @.str.254) #9
   %14 = load ptr, ptr %12, align 8
@@ -724,7 +724,7 @@ define internal i32 @dissect_arp(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 69:                                               ; preds = %64
   %70 = call i32 @tvb_get_ipv4(ptr noundef %0, i32 noundef %54) #9
-  %71 = getelementptr inbounds i8, ptr %1, i64 408
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %72 = load ptr, ptr %71, align 8
   %73 = call ptr @tvb_memdup(ptr noundef %72, ptr noundef %0, i32 noundef 8, i64 noundef 6) #9
   %74 = load i8, ptr %73, align 1
@@ -882,7 +882,7 @@ thread-pre-split401:                              ; preds = %123, %119, %126
 
 131:                                              ; preds = %.thread
   %132 = load ptr, ptr %12, align 8
-  %133 = getelementptr inbounds i8, ptr %1, i64 408
+  %133 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %134 = load ptr, ptr %133, align 8
   %135 = load i32, ptr %9, align 4
   %136 = load i32, ptr %7, align 4
@@ -919,7 +919,7 @@ thread-pre-split401:                              ; preds = %123, %119, %126
 
 150:                                              ; preds = %.thread
   %151 = load ptr, ptr %12, align 8
-  %152 = getelementptr inbounds i8, ptr %1, i64 408
+  %152 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %153 = load ptr, ptr %152, align 8
   %154 = load i32, ptr %9, align 4
   %155 = load i32, ptr %7, align 4
@@ -940,7 +940,7 @@ thread-pre-split401:                              ; preds = %123, %119, %126
 
 163:                                              ; preds = %.thread, %.thread, %.thread
   %164 = load ptr, ptr %12, align 8
-  %165 = getelementptr inbounds i8, ptr %1, i64 408
+  %165 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %166 = load ptr, ptr %165, align 8
   %167 = load i32, ptr %8, align 4
   %168 = icmp eq i32 %167, 0
@@ -990,7 +990,7 @@ tvb_arphrdaddr_to_str.exit389:                    ; preds = %163, %tvb_arphrdadd
 
 185:                                              ; preds = %.thread, %.thread
   %186 = load ptr, ptr %12, align 8
-  %187 = getelementptr inbounds i8, ptr %1, i64 408
+  %187 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %188 = load ptr, ptr %187, align 8
   %189 = load i32, ptr %8, align 4
   %190 = icmp eq i32 %189, 0
@@ -1034,11 +1034,11 @@ tvb_arphrdaddr_to_str.exit393:                    ; preds = %185, %195, %197
 
 210:                                              ; preds = %206
   store i32 2, ptr %6, align 8
-  %211 = getelementptr inbounds i8, ptr %6, i64 4
+  %211 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 4, ptr %211, align 4
-  %212 = getelementptr inbounds i8, ptr %6, i64 8
+  %212 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %204, ptr %212, align 8
-  %213 = getelementptr inbounds i8, ptr %6, i64 16
+  %213 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr null, ptr %213, align 8
   %214 = call ptr @address_to_str(ptr noundef %199, ptr noundef nonnull %6) #9
   br label %tvb_arpproaddr_to_str.exit
@@ -1051,11 +1051,11 @@ tvb_arphrdaddr_to_str.exit393:                    ; preds = %185, %195, %197
 
 218:                                              ; preds = %215
   store i32 10, ptr %6, align 8
-  %219 = getelementptr inbounds i8, ptr %6, i64 4
+  %219 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 7, ptr %219, align 4
-  %220 = getelementptr inbounds i8, ptr %6, i64 8
+  %220 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %204, ptr %220, align 8
-  %221 = getelementptr inbounds i8, ptr %6, i64 16
+  %221 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr null, ptr %221, align 8
   %222 = call ptr @address_to_str(ptr noundef %199, ptr noundef nonnull %6) #9
   br label %tvb_arpproaddr_to_str.exit
@@ -1077,7 +1077,7 @@ tvb_arpproaddr_to_str.exit:                       ; preds = %tvb_arphrdaddr_to_s
 
 227:                                              ; preds = %.thread
   %228 = load ptr, ptr %12, align 8
-  %229 = getelementptr inbounds i8, ptr %1, i64 408
+  %229 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %230 = load ptr, ptr %229, align 8
   %231 = load i32, ptr %8, align 4
   %232 = call ptr @tvb_arphrdaddr_to_str(ptr noundef %230, ptr noundef %0, i32 noundef 8, i32 noundef %231, i16 noundef zeroext %15)
@@ -1096,7 +1096,7 @@ tvb_arpproaddr_to_str.exit:                       ; preds = %tvb_arphrdaddr_to_s
 
 240:                                              ; preds = %.thread
   %241 = load ptr, ptr %12, align 8
-  %242 = getelementptr inbounds i8, ptr %1, i64 408
+  %242 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %243 = load ptr, ptr %242, align 8
   %244 = load i32, ptr %8, align 4
   %245 = call ptr @tvb_arphrdaddr_to_str(ptr noundef %243, ptr noundef %0, i32 noundef 8, i32 noundef %244, i16 noundef zeroext %15)
@@ -1110,7 +1110,7 @@ tvb_arpproaddr_to_str.exit:                       ; preds = %tvb_arphrdaddr_to_s
 
 251:                                              ; preds = %.thread
   %252 = load ptr, ptr %12, align 8
-  %253 = getelementptr inbounds i8, ptr %1, i64 408
+  %253 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %254 = load ptr, ptr %253, align 8
   %255 = load i32, ptr %8, align 4
   %256 = call ptr @tvb_arphrdaddr_to_str(ptr noundef %254, ptr noundef %0, i32 noundef 8, i32 noundef %255, i16 noundef zeroext %15)
@@ -1124,7 +1124,7 @@ tvb_arpproaddr_to_str.exit:                       ; preds = %tvb_arphrdaddr_to_s
 
 262:                                              ; preds = %.thread
   %263 = load ptr, ptr %12, align 8
-  %264 = getelementptr inbounds i8, ptr %1, i64 408
+  %264 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %265 = load ptr, ptr %264, align 8
   %266 = load i32, ptr %8, align 4
   %267 = call ptr @tvb_arphrdaddr_to_str(ptr noundef %265, ptr noundef %0, i32 noundef 8, i32 noundef %266, i16 noundef zeroext %15)
@@ -1138,7 +1138,7 @@ tvb_arpproaddr_to_str.exit:                       ; preds = %tvb_arphrdaddr_to_s
 
 273:                                              ; preds = %.thread
   %274 = load ptr, ptr %12, align 8
-  %275 = getelementptr inbounds i8, ptr %1, i64 408
+  %275 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %276 = load ptr, ptr %275, align 8
   %277 = load i32, ptr %8, align 4
   %278 = call ptr @tvb_arphrdaddr_to_str(ptr noundef %276, ptr noundef %0, i32 noundef 8, i32 noundef %277, i16 noundef zeroext %15)
@@ -1152,7 +1152,7 @@ tvb_arpproaddr_to_str.exit:                       ; preds = %tvb_arphrdaddr_to_s
 
 284:                                              ; preds = %.thread
   %285 = load ptr, ptr %12, align 8
-  %286 = getelementptr inbounds i8, ptr %1, i64 408
+  %286 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %287 = load ptr, ptr %286, align 8
   %288 = load i32, ptr %8, align 4
   %289 = call ptr @tvb_arphrdaddr_to_str(ptr noundef %287, ptr noundef %0, i32 noundef 8, i32 noundef %288, i16 noundef zeroext %15)
@@ -1166,7 +1166,7 @@ tvb_arpproaddr_to_str.exit:                       ; preds = %tvb_arphrdaddr_to_s
 
 295:                                              ; preds = %.thread
   %296 = load ptr, ptr %12, align 8
-  %297 = getelementptr inbounds i8, ptr %1, i64 408
+  %297 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %298 = load ptr, ptr %297, align 8
   %299 = load i32, ptr %8, align 4
   %300 = call ptr @tvb_arphrdaddr_to_str(ptr noundef %298, ptr noundef %0, i32 noundef 8, i32 noundef %299, i16 noundef zeroext %15)
@@ -1180,7 +1180,7 @@ tvb_arpproaddr_to_str.exit:                       ; preds = %tvb_arphrdaddr_to_s
 
 306:                                              ; preds = %.thread
   %307 = load ptr, ptr %12, align 8
-  %308 = getelementptr inbounds i8, ptr %1, i64 408
+  %308 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %309 = load ptr, ptr %308, align 8
   %310 = load i32, ptr %8, align 4
   %311 = call ptr @tvb_arphrdaddr_to_str(ptr noundef %309, ptr noundef %0, i32 noundef 8, i32 noundef %310, i16 noundef zeroext %15)
@@ -1194,7 +1194,7 @@ tvb_arpproaddr_to_str.exit:                       ; preds = %tvb_arphrdaddr_to_s
 
 317:                                              ; preds = %.thread
   %318 = load ptr, ptr %12, align 8
-  %319 = getelementptr inbounds i8, ptr %1, i64 408
+  %319 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %320 = load ptr, ptr %319, align 8
   %321 = load i32, ptr %8, align 4
   %322 = call ptr @tvb_arphrdaddr_to_str(ptr noundef %320, ptr noundef %0, i32 noundef 8, i32 noundef %321, i16 noundef zeroext %15)
@@ -1208,7 +1208,7 @@ tvb_arpproaddr_to_str.exit:                       ; preds = %tvb_arphrdaddr_to_s
 
 328:                                              ; preds = %.thread
   %329 = load ptr, ptr %12, align 8
-  %330 = getelementptr inbounds i8, ptr %1, i64 408
+  %330 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %331 = load ptr, ptr %330, align 8
   %332 = load i32, ptr %8, align 4
   %333 = call ptr @tvb_arphrdaddr_to_str(ptr noundef %331, ptr noundef %0, i32 noundef 8, i32 noundef %332, i16 noundef zeroext %15)
@@ -1222,7 +1222,7 @@ tvb_arpproaddr_to_str.exit:                       ; preds = %tvb_arphrdaddr_to_s
 
 339:                                              ; preds = %.thread
   %340 = load ptr, ptr %12, align 8
-  %341 = getelementptr inbounds i8, ptr %1, i64 408
+  %341 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %342 = load ptr, ptr %341, align 8
   %343 = load i32, ptr %8, align 4
   %344 = call ptr @tvb_arphrdaddr_to_str(ptr noundef %342, ptr noundef %0, i32 noundef 8, i32 noundef %343, i16 noundef zeroext %15)
@@ -1236,7 +1236,7 @@ tvb_arpproaddr_to_str.exit:                       ; preds = %tvb_arphrdaddr_to_s
 
 350:                                              ; preds = %.thread
   %351 = load ptr, ptr %12, align 8
-  %352 = getelementptr inbounds i8, ptr %1, i64 408
+  %352 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %353 = load ptr, ptr %352, align 8
   %354 = load i32, ptr %8, align 4
   %355 = call ptr @tvb_arphrdaddr_to_str(ptr noundef %353, ptr noundef %0, i32 noundef 8, i32 noundef %354, i16 noundef zeroext %15)
@@ -1250,7 +1250,7 @@ tvb_arpproaddr_to_str.exit:                       ; preds = %tvb_arphrdaddr_to_s
 
 361:                                              ; preds = %.thread
   %362 = load ptr, ptr %12, align 8
-  %363 = getelementptr inbounds i8, ptr %1, i64 408
+  %363 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %364 = load ptr, ptr %363, align 8
   %365 = load i32, ptr %8, align 4
   %366 = call ptr @tvb_arphrdaddr_to_str(ptr noundef %364, ptr noundef %0, i32 noundef 8, i32 noundef %365, i16 noundef zeroext %15)
@@ -1264,7 +1264,7 @@ tvb_arpproaddr_to_str.exit:                       ; preds = %tvb_arphrdaddr_to_s
 
 372:                                              ; preds = %.thread
   %373 = load ptr, ptr %12, align 8
-  %374 = getelementptr inbounds i8, ptr %1, i64 408
+  %374 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %375 = load ptr, ptr %374, align 8
   %376 = load i32, ptr %8, align 4
   %377 = call ptr @tvb_arphrdaddr_to_str(ptr noundef %375, ptr noundef %0, i32 noundef 8, i32 noundef %376, i16 noundef zeroext %15)
@@ -1333,13 +1333,13 @@ tvb_arpproaddr_to_str.exit:                       ; preds = %tvb_arphrdaddr_to_s
   br i1 %.not.i, label %proto_item_set_generated.exit, label %404
 
 404:                                              ; preds = %401
-  %405 = getelementptr inbounds i8, ptr %403, i64 32
+  %405 = getelementptr inbounds nuw i8, ptr %403, i64 32
   %406 = load ptr, ptr %405, align 8
   %.not5.i = icmp eq ptr %406, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %407
 
 407:                                              ; preds = %404
-  %408 = getelementptr inbounds i8, ptr %406, i64 28
+  %408 = getelementptr inbounds nuw i8, ptr %406, i64 28
   %409 = load i32, ptr %408, align 4
   %410 = or i32 %409, 2
   store i32 %410, ptr %408, align 4
@@ -1355,13 +1355,13 @@ proto_item_set_generated.exit:                    ; preds = %407, %404, %401, %4
   br i1 %.not.i394, label %proto_item_set_generated.exit396, label %414
 
 414:                                              ; preds = %411
-  %415 = getelementptr inbounds i8, ptr %413, i64 32
+  %415 = getelementptr inbounds nuw i8, ptr %413, i64 32
   %416 = load ptr, ptr %415, align 8
   %.not5.i395 = icmp eq ptr %416, null
   br i1 %.not5.i395, label %proto_item_set_generated.exit396, label %417
 
 417:                                              ; preds = %414
-  %418 = getelementptr inbounds i8, ptr %416, i64 28
+  %418 = getelementptr inbounds nuw i8, ptr %416, i64 28
   %419 = load i32, ptr %418, align 4
   %420 = or i32 %419, 2
   store i32 %420, ptr %418, align 4
@@ -1377,13 +1377,13 @@ proto_item_set_generated.exit396:                 ; preds = %417, %414, %411, %p
   br i1 %.not.i397, label %proto_item_set_generated.exit399, label %424
 
 424:                                              ; preds = %421
-  %425 = getelementptr inbounds i8, ptr %423, i64 32
+  %425 = getelementptr inbounds nuw i8, ptr %423, i64 32
   %426 = load ptr, ptr %425, align 8
   %.not5.i398 = icmp eq ptr %426, null
   br i1 %.not5.i398, label %proto_item_set_generated.exit399, label %427
 
 427:                                              ; preds = %424
-  %428 = getelementptr inbounds i8, ptr %426, i64 28
+  %428 = getelementptr inbounds nuw i8, ptr %426, i64 28
   %429 = load i32, ptr %428, align 4
   %430 = or i32 %429, 2
   store i32 %430, ptr %428, align 4
@@ -1487,15 +1487,15 @@ proto_item_set_generated.exit399:                 ; preds = %427, %424, %421, %p
 
 484:                                              ; preds = %483
   %485 = load ptr, ptr %12, align 8
-  %486 = getelementptr inbounds i8, ptr %1, i64 408
+  %486 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %487 = load ptr, ptr %486, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   store i32 2, ptr %5, align 8
-  %488 = getelementptr inbounds i8, ptr %5, i64 4
+  %488 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 4, ptr %488, align 4
-  %489 = getelementptr inbounds i8, ptr %5, i64 8
+  %489 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %11, ptr %489, align 8
-  %490 = getelementptr inbounds i8, ptr %5, i64 16
+  %490 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr null, ptr %490, align 8
   %491 = call ptr @address_to_str(ptr noundef %487, ptr noundef nonnull %5) #9
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
@@ -1545,7 +1545,7 @@ define internal i32 @dissect_atmarp(ptr noundef %0, ptr noundef %1, ptr noundef 
   %34 = zext i8 %23 to i32
   %35 = add nuw nsw i32 %33, %34
   tail call void @tvb_set_reported_length(ptr noundef %0, i32 noundef %35) #9
-  %36 = getelementptr inbounds i8, ptr %1, i64 408
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %37 = load ptr, ptr %36, align 8
   %38 = and i32 %10, 63
   %39 = icmp eq i32 %38, 0
@@ -1598,11 +1598,11 @@ atmarpsubaddr_to_str.exit:                        ; preds = %49, %46, %atmarpnum
 
 60:                                               ; preds = %56
   store i32 2, ptr %6, align 8
-  %61 = getelementptr inbounds i8, ptr %6, i64 4
+  %61 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 4, ptr %61, align 4
-  %62 = getelementptr inbounds i8, ptr %6, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %54, ptr %62, align 8
-  %63 = getelementptr inbounds i8, ptr %6, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr null, ptr %63, align 8
   %64 = call ptr @address_to_str(ptr noundef %52, ptr noundef nonnull %6) #9
   br label %tvb_arpproaddr_to_str.exit
@@ -1615,11 +1615,11 @@ atmarpsubaddr_to_str.exit:                        ; preds = %49, %46, %atmarpnum
 
 68:                                               ; preds = %65
   store i32 10, ptr %6, align 8
-  %69 = getelementptr inbounds i8, ptr %6, i64 4
+  %69 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 7, ptr %69, align 4
-  %70 = getelementptr inbounds i8, ptr %6, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %54, ptr %70, align 8
-  %71 = getelementptr inbounds i8, ptr %6, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr null, ptr %71, align 8
   %72 = call ptr @address_to_str(ptr noundef %52, ptr noundef nonnull %6) #9
   br label %tvb_arpproaddr_to_str.exit
@@ -1683,11 +1683,11 @@ atmarpsubaddr_to_str.exit337:                     ; preds = %87, %84, %atmarpnum
 
 98:                                               ; preds = %94
   store i32 2, ptr %5, align 8
-  %99 = getelementptr inbounds i8, ptr %5, i64 4
+  %99 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 4, ptr %99, align 4
-  %100 = getelementptr inbounds i8, ptr %5, i64 8
+  %100 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %92, ptr %100, align 8
-  %101 = getelementptr inbounds i8, ptr %5, i64 16
+  %101 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr null, ptr %101, align 8
   %102 = call ptr @address_to_str(ptr noundef %90, ptr noundef nonnull %5) #9
   br label %tvb_arpproaddr_to_str.exit342
@@ -1700,11 +1700,11 @@ atmarpsubaddr_to_str.exit337:                     ; preds = %87, %84, %atmarpnum
 
 106:                                              ; preds = %103
   store i32 10, ptr %5, align 8
-  %107 = getelementptr inbounds i8, ptr %5, i64 4
+  %107 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 7, ptr %107, align 4
-  %108 = getelementptr inbounds i8, ptr %5, i64 8
+  %108 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %92, ptr %108, align 8
-  %109 = getelementptr inbounds i8, ptr %5, i64 16
+  %109 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr null, ptr %109, align 8
   %110 = call ptr @address_to_str(ptr noundef %90, ptr noundef nonnull %5) #9
   br label %tvb_arpproaddr_to_str.exit342
@@ -1747,7 +1747,7 @@ tvb_arpproaddr_to_str.exit342:                    ; preds = %atmarpsubaddr_to_st
   br label %122
 
 .thread:                                          ; preds = %tvb_arpproaddr_to_str.exit342
-  %117 = getelementptr inbounds i8, ptr %1, i64 8
+  %117 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %118 = load ptr, ptr %117, align 8
   call void @col_set_str(ptr noundef %118, i32 noundef 34, ptr noundef nonnull @.str.25) #9
   %119 = load ptr, ptr %117, align 8
@@ -1759,7 +1759,7 @@ tvb_arpproaddr_to_str.exit342:                    ; preds = %atmarpsubaddr_to_st
 
 122:                                              ; preds = %tvb_arpproaddr_to_str.exit342, %116, %115, %114
   %.str.258.sink = phi ptr [ @.str.258, %116 ], [ @.str.296, %115 ], [ @.str.295, %114 ], [ @.str.193, %tvb_arpproaddr_to_str.exit342 ]
-  %123 = getelementptr inbounds i8, ptr %1, i64 8
+  %123 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %124 = load ptr, ptr %123, align 8
   call void @col_set_str(ptr noundef %124, i32 noundef 34, ptr noundef nonnull %.str.258.sink) #9
   switch i16 %15, label %217 [
@@ -1787,13 +1787,13 @@ tvb_arpproaddr_to_str.exit342:                    ; preds = %atmarpsubaddr_to_st
   ]
 
 125:                                              ; preds = %122
-  %126 = getelementptr inbounds i8, ptr %1, i64 8
+  %126 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %127 = load ptr, ptr %126, align 8
   call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %127, i32 noundef 25, ptr noundef nonnull @.str.262, ptr noundef %.0.i.i341, ptr noundef %.0.i.i) #9
   br label %220
 
 128:                                              ; preds = %122
-  %129 = getelementptr inbounds i8, ptr %1, i64 8
+  %129 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %130 = load ptr, ptr %129, align 8
   %.not321 = icmp eq ptr %.0295, null
   %131 = select i1 %.not321, ptr @.str.299, ptr @.str.298
@@ -1802,7 +1802,7 @@ tvb_arpproaddr_to_str.exit342:                    ; preds = %atmarpsubaddr_to_st
   br label %220
 
 133:                                              ; preds = %122
-  %134 = getelementptr inbounds i8, ptr %1, i64 8
+  %134 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %135 = load ptr, ptr %134, align 8
   %.not319 = icmp eq ptr %.0296, null
   %136 = select i1 %.not319, ptr @.str.299, ptr @.str.298
@@ -1814,7 +1814,7 @@ tvb_arpproaddr_to_str.exit342:                    ; preds = %atmarpsubaddr_to_st
   br label %220
 
 140:                                              ; preds = %122
-  %141 = getelementptr inbounds i8, ptr %1, i64 8
+  %141 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %142 = load ptr, ptr %141, align 8
   %.not318 = icmp eq ptr %.0295, null
   %143 = select i1 %.not318, ptr @.str.299, ptr @.str.298
@@ -1823,13 +1823,13 @@ tvb_arpproaddr_to_str.exit342:                    ; preds = %atmarpsubaddr_to_st
   br label %220
 
 145:                                              ; preds = %122
-  %146 = getelementptr inbounds i8, ptr %1, i64 8
+  %146 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %147 = load ptr, ptr %146, align 8
   call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %147, i32 noundef 25, ptr noundef nonnull @.str.302, ptr noundef %.0.i.i) #9
   br label %220
 
 148:                                              ; preds = %122
-  %149 = getelementptr inbounds i8, ptr %1, i64 8
+  %149 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %150 = load ptr, ptr %149, align 8
   %.not317 = icmp eq ptr %.0295, null
   %151 = select i1 %.not317, ptr @.str.299, ptr @.str.298
@@ -1838,7 +1838,7 @@ tvb_arpproaddr_to_str.exit342:                    ; preds = %atmarpsubaddr_to_st
   br label %220
 
 153:                                              ; preds = %122
-  %154 = getelementptr inbounds i8, ptr %1, i64 8
+  %154 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %155 = load ptr, ptr %154, align 8
   %.not316 = icmp eq ptr %.0295, null
   %156 = select i1 %.not316, ptr @.str.299, ptr @.str.298
@@ -1847,7 +1847,7 @@ tvb_arpproaddr_to_str.exit342:                    ; preds = %atmarpsubaddr_to_st
   br label %220
 
 158:                                              ; preds = %122
-  %159 = getelementptr inbounds i8, ptr %1, i64 8
+  %159 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %160 = load ptr, ptr %159, align 8
   %.not315 = icmp eq ptr %.0295, null
   %161 = select i1 %.not315, ptr @.str.299, ptr @.str.298
@@ -1856,7 +1856,7 @@ tvb_arpproaddr_to_str.exit342:                    ; preds = %atmarpsubaddr_to_st
   br label %220
 
 163:                                              ; preds = %122
-  %164 = getelementptr inbounds i8, ptr %1, i64 8
+  %164 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %165 = load ptr, ptr %164, align 8
   %.not314 = icmp eq ptr %.0295, null
   %166 = select i1 %.not314, ptr @.str.299, ptr @.str.298
@@ -1865,7 +1865,7 @@ tvb_arpproaddr_to_str.exit342:                    ; preds = %atmarpsubaddr_to_st
   br label %220
 
 168:                                              ; preds = %122
-  %169 = getelementptr inbounds i8, ptr %1, i64 8
+  %169 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %170 = load ptr, ptr %169, align 8
   %.not313 = icmp eq ptr %.0295, null
   %171 = select i1 %.not313, ptr @.str.299, ptr @.str.298
@@ -1874,7 +1874,7 @@ tvb_arpproaddr_to_str.exit342:                    ; preds = %atmarpsubaddr_to_st
   br label %220
 
 173:                                              ; preds = %122
-  %174 = getelementptr inbounds i8, ptr %1, i64 8
+  %174 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %175 = load ptr, ptr %174, align 8
   %.not312 = icmp eq ptr %.0295, null
   %176 = select i1 %.not312, ptr @.str.299, ptr @.str.298
@@ -1883,7 +1883,7 @@ tvb_arpproaddr_to_str.exit342:                    ; preds = %atmarpsubaddr_to_st
   br label %220
 
 178:                                              ; preds = %122
-  %179 = getelementptr inbounds i8, ptr %1, i64 8
+  %179 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %180 = load ptr, ptr %179, align 8
   %.not311 = icmp eq ptr %.0295, null
   %181 = select i1 %.not311, ptr @.str.299, ptr @.str.298
@@ -1892,7 +1892,7 @@ tvb_arpproaddr_to_str.exit342:                    ; preds = %atmarpsubaddr_to_st
   br label %220
 
 183:                                              ; preds = %122
-  %184 = getelementptr inbounds i8, ptr %1, i64 8
+  %184 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %185 = load ptr, ptr %184, align 8
   %.not310 = icmp eq ptr %.0295, null
   %186 = select i1 %.not310, ptr @.str.299, ptr @.str.298
@@ -1901,7 +1901,7 @@ tvb_arpproaddr_to_str.exit342:                    ; preds = %atmarpsubaddr_to_st
   br label %220
 
 188:                                              ; preds = %122
-  %189 = getelementptr inbounds i8, ptr %1, i64 8
+  %189 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %190 = load ptr, ptr %189, align 8
   %.not309 = icmp eq ptr %.0295, null
   %191 = select i1 %.not309, ptr @.str.299, ptr @.str.298
@@ -1910,7 +1910,7 @@ tvb_arpproaddr_to_str.exit342:                    ; preds = %atmarpsubaddr_to_st
   br label %220
 
 193:                                              ; preds = %122
-  %194 = getelementptr inbounds i8, ptr %1, i64 8
+  %194 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %195 = load ptr, ptr %194, align 8
   %.not308 = icmp eq ptr %.0295, null
   %196 = select i1 %.not308, ptr @.str.299, ptr @.str.298
@@ -1919,7 +1919,7 @@ tvb_arpproaddr_to_str.exit342:                    ; preds = %atmarpsubaddr_to_st
   br label %220
 
 198:                                              ; preds = %122
-  %199 = getelementptr inbounds i8, ptr %1, i64 8
+  %199 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %200 = load ptr, ptr %199, align 8
   %.not307 = icmp eq ptr %.0295, null
   %201 = select i1 %.not307, ptr @.str.299, ptr @.str.298
@@ -1928,7 +1928,7 @@ tvb_arpproaddr_to_str.exit342:                    ; preds = %atmarpsubaddr_to_st
   br label %220
 
 203:                                              ; preds = %122
-  %204 = getelementptr inbounds i8, ptr %1, i64 8
+  %204 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %205 = load ptr, ptr %204, align 8
   %.not306 = icmp eq ptr %.0295, null
   %206 = select i1 %.not306, ptr @.str.299, ptr @.str.298
@@ -1937,25 +1937,25 @@ tvb_arpproaddr_to_str.exit342:                    ; preds = %atmarpsubaddr_to_st
   br label %220
 
 208:                                              ; preds = %122
-  %209 = getelementptr inbounds i8, ptr %1, i64 8
+  %209 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %210 = load ptr, ptr %209, align 8
   call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %210, i32 noundef 25, ptr noundef nonnull @.str.281, i32 noundef 24) #9
   br label %220
 
 211:                                              ; preds = %122
-  %212 = getelementptr inbounds i8, ptr %1, i64 8
+  %212 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %213 = load ptr, ptr %212, align 8
   call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %213, i32 noundef 25, ptr noundef nonnull @.str.282, i32 noundef 25) #9
   br label %220
 
 214:                                              ; preds = %122, %122
-  %215 = getelementptr inbounds i8, ptr %1, i64 8
+  %215 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %216 = load ptr, ptr %215, align 8
   call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %216, i32 noundef 25, ptr noundef nonnull @.str.283, i32 noundef %113) #9
   br label %220
 
 217:                                              ; preds = %122
-  %218 = getelementptr inbounds i8, ptr %1, i64 8
+  %218 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %219 = load ptr, ptr %218, align 8
   call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %219, i32 noundef 25, ptr noundef nonnull @.str.316, i32 noundef %113) #9
   br label %220
@@ -2182,13 +2182,13 @@ define internal i32 @dissect_ax25arp(ptr noundef %0, ptr noundef %1, ptr noundef
 
 request_seen.exit:                                ; preds = %4, %18, %20, %25, %29, %28
   %.str.257.sink = phi ptr [ @.str.257, %29 ], [ @.str.255, %28 ], [ @.str.254, %25 ], [ @.str.254, %20 ], [ @.str.254, %18 ], [ @.str.254, %4 ]
-  %30 = getelementptr inbounds i8, ptr %1, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %31 = load ptr, ptr %30, align 8
   tail call void @col_set_str(ptr noundef %31, i32 noundef 34, ptr noundef nonnull %.str.257.sink) #9
   %32 = add nuw nsw i32 %12, 8
   %33 = add nuw nsw i32 %32, %13
   %34 = add nuw nsw i32 %33, %12
-  %35 = getelementptr inbounds i8, ptr %1, i64 408
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %36 = load ptr, ptr %35, align 8
   %37 = zext i8 %10 to i64
   %38 = tail call ptr @tvb_memdup(ptr noundef %36, ptr noundef %0, i32 noundef %32, i64 noundef %37) #9
@@ -2212,11 +2212,11 @@ request_seen.exit:                                ; preds = %4, %18, %20, %25, %
 
 47:                                               ; preds = %44
   store i32 10, ptr %6, align 8
-  %48 = getelementptr inbounds i8, ptr %6, i64 4
+  %48 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 7, ptr %48, align 4
-  %49 = getelementptr inbounds i8, ptr %6, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %38, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %6, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr null, ptr %50, align 8
   %51 = call ptr @address_to_str(ptr noundef %36, ptr noundef nonnull %6) #9
   br label %67
@@ -2234,11 +2234,11 @@ tvb_arpproaddr_to_str.exit:                       ; preds = %request_seen.exit
 
 56:                                               ; preds = %40
   store i32 2, ptr %6, align 8
-  %57 = getelementptr inbounds i8, ptr %6, i64 4
+  %57 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 4, ptr %57, align 4
-  %58 = getelementptr inbounds i8, ptr %6, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %38, ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %6, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr null, ptr %59, align 8
   %60 = call ptr @address_to_str(ptr noundef %36, ptr noundef nonnull %6) #9
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
@@ -2246,11 +2246,11 @@ tvb_arpproaddr_to_str.exit:                       ; preds = %request_seen.exit
   %62 = call ptr @tvb_memdup(ptr noundef %61, ptr noundef %0, i32 noundef %34, i64 noundef %37) #9
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   store i32 2, ptr %5, align 8
-  %63 = getelementptr inbounds i8, ptr %5, i64 4
+  %63 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 4, ptr %63, align 4
-  %64 = getelementptr inbounds i8, ptr %5, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %62, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %5, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr null, ptr %65, align 8
   %66 = call ptr @address_to_str(ptr noundef %61, ptr noundef nonnull %5) #9
   br label %tvb_arpproaddr_to_str.exit187
@@ -2268,11 +2268,11 @@ tvb_arpproaddr_to_str.exit:                       ; preds = %request_seen.exit
 
 72:                                               ; preds = %67
   store i32 10, ptr %5, align 8
-  %73 = getelementptr inbounds i8, ptr %5, i64 4
+  %73 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 7, ptr %73, align 4
-  %74 = getelementptr inbounds i8, ptr %5, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %69, ptr %74, align 8
-  %75 = getelementptr inbounds i8, ptr %5, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr null, ptr %75, align 8
   %76 = call ptr @address_to_str(ptr noundef %68, ptr noundef nonnull %5) #9
   br label %tvb_arpproaddr_to_str.exit187
@@ -2312,7 +2312,7 @@ tvb_arpproaddr_to_str.exit187:                    ; preds = %tvb_arpproaddr_to_s
   ]
 
 88:                                               ; preds = %86
-  %89 = getelementptr inbounds i8, ptr %1, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %90 = load ptr, ptr %89, align 8
   br i1 %.not176, label %92, label %91
 
@@ -2325,7 +2325,7 @@ tvb_arpproaddr_to_str.exit187:                    ; preds = %tvb_arpproaddr_to_s
   br label %154
 
 93:                                               ; preds = %86
-  %94 = getelementptr inbounds i8, ptr %1, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %95 = load ptr, ptr %94, align 8
   br i1 %.not176, label %97, label %96
 
@@ -2360,7 +2360,7 @@ tvb_arphrdaddr_to_str.exit:                       ; preds = %97, %104, %106
   br label %154
 
 108:                                              ; preds = %86, %86
-  %109 = getelementptr inbounds i8, ptr %1, i64 8
+  %109 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %110 = load ptr, ptr %109, align 8
   %111 = load ptr, ptr %35, align 8
   %112 = icmp eq i8 %9, 0
@@ -2393,7 +2393,7 @@ tvb_arphrdaddr_to_str.exit195:                    ; preds = %108, %117, %121
   br label %154
 
 125:                                              ; preds = %86
-  %126 = getelementptr inbounds i8, ptr %1, i64 8
+  %126 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %127 = load ptr, ptr %126, align 8
   %128 = load ptr, ptr %35, align 8
   %129 = icmp eq i8 %9, 0
@@ -2421,7 +2421,7 @@ tvb_arphrdaddr_to_str.exit199:                    ; preds = %125, %134, %136
   br label %154
 
 138:                                              ; preds = %86
-  %139 = getelementptr inbounds i8, ptr %1, i64 8
+  %139 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %140 = load ptr, ptr %139, align 8
   %141 = load ptr, ptr %35, align 8
   %142 = icmp eq i8 %9, 0
@@ -2449,7 +2449,7 @@ tvb_arphrdaddr_to_str.exit203:                    ; preds = %138, %147, %149
   br label %154
 
 151:                                              ; preds = %86
-  %152 = getelementptr inbounds i8, ptr %1, i64 8
+  %152 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %153 = load ptr, ptr %152, align 8
   call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %153, i32 noundef 25, ptr noundef nonnull @.str.284, i32 noundef %17) #9
   br label %154
@@ -2595,7 +2595,7 @@ define internal range(i32 0, 2) i32 @address_equal_func(ptr noundef readnone %0,
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal i32 @duplicate_result_hash_func(ptr nocapture noundef readonly %0) #3 {
   %2 = load i32, ptr %0, align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = add i32 %4, %2
   ret i32 %5
@@ -2707,14 +2707,14 @@ define internal fastcc range(i32 0, 2) i32 @check_for_duplicate_addresses(ptr no
   %12 = alloca %struct._address, align 8
   %13 = alloca %struct._address, align 8
   store i32 %4, ptr %9, align 4
-  %14 = getelementptr inbounds i8, ptr %0, i64 20
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %15 = load i32, ptr %14, align 4
   store i32 %15, ptr %10, align 8
-  %16 = getelementptr inbounds i8, ptr %10, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store i32 %4, ptr %16, align 4
-  %17 = getelementptr inbounds i8, ptr %0, i64 80
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 50
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 50
   %20 = load i16, ptr %19, align 2
   %21 = and i16 %20, 8
   %.not = icmp eq i16 %21, 0
@@ -2730,7 +2730,7 @@ define internal fastcc range(i32 0, 2) i32 @check_for_duplicate_addresses(ptr no
 
 27:                                               ; preds = %22
   %28 = load i32, ptr %14, align 4
-  %29 = getelementptr inbounds i8, ptr %26, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %30 = load i32, ptr %29, align 8
   %31 = icmp ugt i32 %28, %30
   br i1 %31, label %32, label %.thread
@@ -2742,9 +2742,9 @@ define internal fastcc range(i32 0, 2) i32 @check_for_duplicate_addresses(ptr no
 
 34:                                               ; preds = %32
   store i32 %28, ptr %29, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %36 = load i64, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %26, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %26, i64 16
   store i64 %36, ptr %37, align 8
   br label %.thread
 
@@ -2767,11 +2767,11 @@ define internal fastcc range(i32 0, 2) i32 @check_for_duplicate_addresses(ptr no
   %49 = tail call noalias ptr @wmem_alloc(ptr noundef %48, i64 noundef 24) #9
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %49, ptr noundef nonnull align 1 dereferenceable(6) %3, i64 6, i1 false)
   %50 = load i32, ptr %14, align 4
-  %51 = getelementptr inbounds i8, ptr %49, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %49, i64 8
   store i32 %50, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %0, i64 24
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %53 = load i64, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %49, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %49, i64 16
   store i64 %53, ptr %54, align 8
   %55 = load ptr, ptr @address_hash_table, align 8
   %56 = tail call ptr @wmem_map_insert(ptr noundef %55, ptr noundef nonnull %25, ptr noundef %49) #9
@@ -2787,29 +2787,29 @@ define internal fastcc range(i32 0, 2) i32 @check_for_duplicate_addresses(ptr no
   %61 = phi i32 [ %46, %.thread53 ], [ 1, %57 ]
   %.055 = phi ptr [ %42, %.thread53 ], [ %59, %57 ]
   store i32 1, ptr %12, align 8
-  %62 = getelementptr inbounds i8, ptr %12, i64 4
+  %62 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store i32 6, ptr %62, align 4
-  %63 = getelementptr inbounds i8, ptr %12, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %3, ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %12, i64 16
+  %64 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store ptr null, ptr %64, align 8
   store i32 1, ptr %13, align 8
-  %65 = getelementptr inbounds i8, ptr %13, i64 4
+  %65 = getelementptr inbounds nuw i8, ptr %13, i64 4
   store i32 6, ptr %65, align 4
-  %66 = getelementptr inbounds i8, ptr %13, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %.055, ptr %66, align 8
-  %67 = getelementptr inbounds i8, ptr %13, i64 16
+  %67 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr null, ptr %67, align 8
   %68 = load i32, ptr @ett_arp_duplicate_address, align 4
-  %69 = getelementptr inbounds i8, ptr %0, i64 408
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %70 = load ptr, ptr %69, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
   store i32 2, ptr %8, align 8
-  %71 = getelementptr inbounds i8, ptr %8, i64 4
+  %71 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 4, ptr %71, align 4
-  %72 = getelementptr inbounds i8, ptr %8, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %9, ptr %72, align 8
-  %73 = getelementptr inbounds i8, ptr %8, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr null, ptr %73, align 8
   %74 = call ptr @address_to_str(ptr noundef %70, ptr noundef nonnull %8) #9
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
@@ -2817,7 +2817,7 @@ define internal fastcc range(i32 0, 2) i32 @check_for_duplicate_addresses(ptr no
   %76 = call ptr @address_to_str(ptr noundef %75, ptr noundef nonnull %12) #9
   %77 = load ptr, ptr %69, align 8
   %78 = call ptr @address_to_str(ptr noundef %77, ptr noundef nonnull %13) #9
-  %79 = getelementptr inbounds i8, ptr %.055, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %.055, i64 8
   %80 = load i32, ptr %79, align 8
   %81 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1, ptr noundef %2, i32 noundef 0, i32 noundef 0, i32 noundef %68, ptr noundef nonnull %11, ptr noundef nonnull @.str.292, ptr noundef %74, ptr noundef %76, ptr noundef %78, i32 noundef %80) #9
   %82 = load ptr, ptr %11, align 8
@@ -2825,13 +2825,13 @@ define internal fastcc range(i32 0, 2) i32 @check_for_duplicate_addresses(ptr no
   br i1 %.not.i, label %proto_item_set_generated.exit, label %83
 
 83:                                               ; preds = %60
-  %84 = getelementptr inbounds i8, ptr %82, i64 32
+  %84 = getelementptr inbounds nuw i8, ptr %82, i64 32
   %85 = load ptr, ptr %84, align 8
   %.not5.i = icmp eq ptr %85, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %86
 
 86:                                               ; preds = %83
-  %87 = getelementptr inbounds i8, ptr %85, i64 28
+  %87 = getelementptr inbounds nuw i8, ptr %85, i64 28
   %88 = load i32, ptr %87, align 4
   %89 = or i32 %88, 2
   store i32 %89, ptr %87, align 4
@@ -2846,13 +2846,13 @@ proto_item_set_generated.exit:                    ; preds = %60, %83, %86
   br i1 %.not.i46, label %proto_item_set_generated.exit48, label %93
 
 93:                                               ; preds = %proto_item_set_generated.exit
-  %94 = getelementptr inbounds i8, ptr %92, i64 32
+  %94 = getelementptr inbounds nuw i8, ptr %92, i64 32
   %95 = load ptr, ptr %94, align 8
   %.not5.i47 = icmp eq ptr %95, null
   br i1 %.not5.i47, label %proto_item_set_generated.exit48, label %96
 
 96:                                               ; preds = %93
-  %97 = getelementptr inbounds i8, ptr %95, i64 28
+  %97 = getelementptr inbounds nuw i8, ptr %95, i64 28
   %98 = load i32, ptr %97, align 4
   %99 = or i32 %98, 2
   store i32 %99, ptr %97, align 4
@@ -2862,19 +2862,19 @@ proto_item_set_generated.exit48:                  ; preds = %proto_item_set_gene
   %100 = load ptr, ptr %69, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   store i32 2, ptr %7, align 8
-  %101 = getelementptr inbounds i8, ptr %7, i64 4
+  %101 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 4, ptr %101, align 4
-  %102 = getelementptr inbounds i8, ptr %7, i64 8
+  %102 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %9, ptr %102, align 8
-  %103 = getelementptr inbounds i8, ptr %7, i64 16
+  %103 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr null, ptr %103, align 8
   %104 = call ptr @address_to_str(ptr noundef %100, ptr noundef nonnull %7) #9
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   %105 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %0, ptr noundef %92, ptr noundef nonnull @ei_seq_arp_dup_ip, ptr noundef nonnull @.str.293, ptr noundef %104) #9
   %106 = load i32, ptr @hf_arp_duplicate_ip_address_seconds_since_earlier_frame, align 4
-  %107 = getelementptr inbounds i8, ptr %0, i64 24
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %108 = load i64, ptr %107, align 8
-  %109 = getelementptr inbounds i8, ptr %.055, i64 16
+  %109 = getelementptr inbounds nuw i8, ptr %.055, i64 16
   %110 = load i64, ptr %109, align 8
   %111 = sub i64 %108, %110
   %112 = trunc i64 %111 to i32
@@ -2883,13 +2883,13 @@ proto_item_set_generated.exit48:                  ; preds = %proto_item_set_gene
   br i1 %.not.i49, label %proto_item_set_generated.exit51, label %114
 
 114:                                              ; preds = %proto_item_set_generated.exit48
-  %115 = getelementptr inbounds i8, ptr %113, i64 32
+  %115 = getelementptr inbounds nuw i8, ptr %113, i64 32
   %116 = load ptr, ptr %115, align 8
   %.not5.i50 = icmp eq ptr %116, null
   br i1 %.not5.i50, label %proto_item_set_generated.exit51, label %117
 
 117:                                              ; preds = %114
-  %118 = getelementptr inbounds i8, ptr %116, i64 28
+  %118 = getelementptr inbounds nuw i8, ptr %116, i64 28
   %119 = load i32, ptr %118, align 4
   %120 = or i32 %119, 2
   store i32 %120, ptr %118, align 4
@@ -2930,11 +2930,11 @@ define internal fastcc ptr @tvb_arpproaddr_to_str(ptr noundef %0, ptr noundef %1
 
 14:                                               ; preds = %10
   store i32 2, ptr %6, align 8
-  %15 = getelementptr inbounds i8, ptr %6, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 4, ptr %15, align 4
-  %16 = getelementptr inbounds i8, ptr %6, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %8, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %6, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr null, ptr %17, align 8
   %18 = call ptr @address_to_str(ptr noundef %0, ptr noundef nonnull %6) #9
   br label %arpproaddr_to_str.exit
@@ -2947,11 +2947,11 @@ define internal fastcc ptr @tvb_arpproaddr_to_str(ptr noundef %0, ptr noundef %1
 
 22:                                               ; preds = %19
   store i32 10, ptr %6, align 8
-  %23 = getelementptr inbounds i8, ptr %6, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 7, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %6, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %8, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %6, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr null, ptr %25, align 8
   %26 = call ptr @address_to_str(ptr noundef %0, ptr noundef nonnull %6) #9
   br label %arpproaddr_to_str.exit
@@ -2988,12 +2988,12 @@ define internal fastcc void @check_for_storm_count(ptr noundef %0, ptr noundef %
   br i1 %.not20, label %36, label %40
 
 11:                                               ; preds = %3
-  %12 = getelementptr inbounds i8, ptr %1, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %13 = load i64, ptr %12, align 8
   %14 = load i64, ptr @time_at_start_of_count, align 8
   %15 = sub i64 %13, %14
   %16 = trunc i64 %15 to i32
-  %17 = getelementptr inbounds i8, ptr %1, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %18 = load i32, ptr %17, align 8
   %19 = load i32, ptr getelementptr inbounds (i8, ptr @time_at_start_of_count, i64 8), align 8
   %20 = sub i32 %18, %19

@@ -673,7 +673,7 @@ lv_arc_set_value.exit:                            ; preds = %217
 
 ._crit_edge.i:                                    ; preds = %336
   %.val.pre.i = load i32, ptr %3, align 8
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %3, i64 4
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %3, i64 4
   %.val42.pre.i = load i32, ptr %.phi.trans.insert.i, align 4
   br label %lv_arc_draw.exit
 
@@ -799,7 +799,7 @@ define void @lv_arc_set_start_angle(ptr noundef %0, float noundef %1) local_unna
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #7
   %34 = load i32, ptr %7, align 4, !tbaa !26
   %.val.i = load i32, ptr %6, align 4
-  %35 = getelementptr inbounds i8, ptr %6, i64 4
+  %35 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %.val6.i = load i32, ptr %35, align 4
   call fastcc void @get_knob_area(ptr noundef nonnull %0, i32 %.val.i, i32 %.val6.i, i32 noundef %34, ptr noundef %8)
   %36 = tail call fastcc i32 @knob_get_extra_size(ptr noundef nonnull %0)
@@ -822,7 +822,7 @@ inv_knob_area.exit:                               ; preds = %33, %38
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #7
   %39 = load i32, ptr %4, align 4, !tbaa !26
   %.val.i41 = load i32, ptr %3, align 4
-  %40 = getelementptr inbounds i8, ptr %3, i64 4
+  %40 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %.val6.i42 = load i32, ptr %40, align 4
   call fastcc void @get_knob_area(ptr noundef nonnull %0, i32 %.val.i41, i32 %.val6.i42, i32 noundef %39, ptr noundef %5)
   %41 = call fastcc i32 @knob_get_extra_size(ptr noundef nonnull %0)
@@ -955,7 +955,7 @@ define void @lv_arc_set_end_angle(ptr noundef %0, float noundef %1) local_unname
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #7
   %34 = load i32, ptr %7, align 4, !tbaa !26
   %.val.i = load i32, ptr %6, align 4
-  %35 = getelementptr inbounds i8, ptr %6, i64 4
+  %35 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %.val6.i = load i32, ptr %35, align 4
   call fastcc void @get_knob_area(ptr noundef nonnull %0, i32 %.val.i, i32 %.val6.i, i32 noundef %34, ptr noundef %8)
   %36 = tail call fastcc i32 @knob_get_extra_size(ptr noundef nonnull %0)
@@ -978,7 +978,7 @@ inv_knob_area.exit:                               ; preds = %33, %38
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #7
   %39 = load i32, ptr %4, align 4, !tbaa !26
   %.val.i41 = load i32, ptr %3, align 4
-  %40 = getelementptr inbounds i8, ptr %3, i64 4
+  %40 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %.val6.i42 = load i32, ptr %40, align 4
   call fastcc void @get_knob_area(ptr noundef nonnull %0, i32 %.val.i41, i32 %.val6.i42, i32 noundef %39, ptr noundef %5)
   %41 = call fastcc i32 @knob_get_extra_size(ptr noundef nonnull %0)

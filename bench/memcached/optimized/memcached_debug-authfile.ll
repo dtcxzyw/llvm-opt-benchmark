@@ -32,7 +32,7 @@ if.then3:                                         ; preds = %if.else
   br label %return
 
 if.end5:                                          ; preds = %if.else
-  %st_size = getelementptr inbounds i8, ptr %sb, i64 48
+  %st_size = getelementptr inbounds nuw i8, ptr %sb, i64 48
   %0 = load i64, ptr %st_size, align 8
   %add = add nsw i64 %0, 1
   %call6 = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %add) #9
@@ -45,7 +45,7 @@ if.end5:                                          ; preds = %if.else
   br i1 %cmp13.not55, label %while.end, label %for.cond.preheader
 
 while.cond:                                       ; preds = %if.end67
-  %incdec.ptr = getelementptr inbounds i8, ptr %entry_cur.057, i64 32
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %entry_cur.057, i64 32
   %sub.ptr.rhs.cast = ptrtoint ptr %arrayidx69 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %cond = tail call i64 @llvm.smin.i64(i64 %sub.ptr.sub, i64 256)
@@ -58,14 +58,14 @@ for.cond.preheader:                               ; preds = %if.end5, %while.con
   %used.058 = phi i32 [ %inc63, %while.cond ], [ 0, %if.end5 ]
   %entry_cur.057 = phi ptr [ %incdec.ptr, %while.cond ], [ %auth_entries, %if.end5 ]
   %auth_cur.056 = phi ptr [ %arrayidx69, %while.cond ], [ %call6, %if.end5 ]
-  %ulen = getelementptr inbounds i8, ptr %entry_cur.057, i64 8
-  %pass = getelementptr inbounds i8, ptr %entry_cur.057, i64 16
+  %ulen = getelementptr inbounds nuw i8, ptr %entry_cur.057, i64 8
+  %pass = getelementptr inbounds nuw i8, ptr %entry_cur.057, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %for.body.backedge, %for.cond.preheader
   %indvars.iv = phi i64 [ 0, %for.cond.preheader ], [ %indvars.iv.be, %for.body.backedge ]
   %tobool17.not = phi i1 [ true, %for.cond.preheader ], [ %tobool17.not.be, %for.body.backedge ]
-  %arrayidx = getelementptr inbounds i8, ptr %auth_cur.056, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw i8, ptr %auth_cur.056, i64 %indvars.iv
   %1 = load i8, ptr %arrayidx, align 1
   br i1 %tobool17.not, label %if.then18, label %if.else36
 
@@ -78,8 +78,7 @@ if.then18:                                        ; preds = %for.body
 if.then29:                                        ; preds = %if.then18
   store ptr %auth_cur.056, ptr %entry_cur.057, align 8
   store i64 %indvars.iv, ptr %ulen, align 8
-  %2 = add nuw nsw i64 %indvars.iv, 1
-  %arrayidx33 = getelementptr inbounds i8, ptr %auth_cur.056, i64 %2
+  %arrayidx33 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 1
   store ptr %arrayidx33, ptr %pass, align 8
   br label %for.inc
 
@@ -91,12 +90,12 @@ if.else36:                                        ; preds = %for.body
   ]
 
 for.end.thread40:                                 ; preds = %if.else36, %if.else36, %if.else36
-  %3 = load i64, ptr %ulen, align 8
-  %add56.neg = xor i64 %3, -1
+  %2 = load i64, ptr %ulen, align 8
+  %add56.neg = xor i64 %2, -1
   %sub = add i64 %indvars.iv, %add56.neg
-  %plen = getelementptr inbounds i8, ptr %entry_cur.057, i64 24
+  %plen = getelementptr inbounds nuw i8, ptr %entry_cur.057, i64 24
   store i64 %sub, ptr %plen, align 8
-  %4 = and i64 %indvars.iv, 4294967295
+  %3 = and i64 %indvars.iv, 4294967295
   br label %if.end62
 
 for.inc:                                          ; preds = %if.else36, %if.then29
@@ -105,14 +104,14 @@ for.inc:                                          ; preds = %if.else36, %if.then
   br i1 %exitcond.not, label %if.end62, label %for.body.backedge
 
 for.body.backedge:                                ; preds = %for.inc, %for.inc.thread
-  %indvars.iv.be = phi i64 [ %indvars.iv.next, %for.inc ], [ %indvars.iv.next68, %for.inc.thread ]
+  %indvars.iv.be = phi i64 [ %indvars.iv.next, %for.inc ], [ %indvars.iv.next67, %for.inc.thread ]
   %tobool17.not.be = phi i1 [ false, %for.inc ], [ true, %for.inc.thread ]
   br label %for.body, !llvm.loop !7
 
 for.inc.thread:                                   ; preds = %if.then18
-  %indvars.iv.next68 = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not69 = icmp eq i64 %indvars.iv.next68, 256
-  br i1 %exitcond.not69, label %if.then60, label %for.body.backedge
+  %indvars.iv.next67 = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not68 = icmp eq i64 %indvars.iv.next67, 256
+  br i1 %exitcond.not68, label %if.then60, label %for.body.backedge
 
 if.then60:                                        ; preds = %for.inc.thread, %if.then18
   %call61 = tail call i32 @fclose(ptr noundef nonnull %call)
@@ -120,25 +119,25 @@ if.then60:                                        ; preds = %for.inc.thread, %if
   br label %return
 
 if.end62:                                         ; preds = %for.inc, %for.end.thread40
-  %x.047 = phi i64 [ %4, %for.end.thread40 ], [ 256, %for.inc ]
+  %x.047 = phi i64 [ %3, %for.end.thread40 ], [ 256, %for.inc ]
   %inc63 = add nuw nsw i32 %used.058, 1
   %cmp64 = icmp eq i32 %inc63, 8
   br i1 %cmp64, label %while.end, label %if.end67
 
 if.end67:                                         ; preds = %if.end62
-  %arrayidx69 = getelementptr inbounds i8, ptr %auth_cur.056, i64 %x.047
-  %5 = load i8, ptr %arrayidx69, align 1
-  %cmp71 = icmp eq i8 %5, 0
+  %arrayidx69 = getelementptr inbounds nuw i8, ptr %auth_cur.056, i64 %x.047
+  %4 = load i8, ptr %arrayidx69, align 1
+  %cmp71 = icmp eq i8 %4, 0
   br i1 %cmp71, label %while.end, label %while.cond
 
 while.end:                                        ; preds = %while.cond, %if.end62, %if.end67, %if.end5
   %used.1 = phi i32 [ 0, %if.end5 ], [ %inc63, %if.end67 ], [ 8, %if.end62 ], [ %inc63, %while.cond ]
-  %6 = load ptr, ptr @main_auth_data, align 8
-  %cmp76.not = icmp eq ptr %6, null
+  %5 = load ptr, ptr @main_auth_data, align 8
+  %cmp76.not = icmp eq ptr %5, null
   br i1 %cmp76.not, label %if.end79, label %if.then78
 
 if.then78:                                        ; preds = %while.end
-  tail call void @free(ptr noundef nonnull %6) #8
+  tail call void @free(ptr noundef nonnull %5) #8
   br label %if.end79
 
 if.end79:                                         ; preds = %if.then78, %while.end
@@ -188,14 +187,14 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %entry ]
-  %arrayidx = getelementptr inbounds [8 x %struct.auth_entry], ptr @main_auth_entries, i64 0, i64 %indvars.iv
-  %ulen2 = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %arrayidx = getelementptr inbounds nuw [8 x %struct.auth_entry], ptr @main_auth_entries, i64 0, i64 %indvars.iv
+  %ulen2 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %1 = load i64, ptr %ulen2, align 8
   %cmp3 = icmp eq i64 %call, %1
   br i1 %cmp3, label %land.lhs.true, label %for.inc
 
 land.lhs.true:                                    ; preds = %for.body
-  %plen4 = getelementptr inbounds i8, ptr %arrayidx, i64 24
+  %plen4 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 24
   %2 = load i64, ptr %plen4, align 8
   %cmp5 = icmp eq i64 %call1, %2
   br i1 %cmp5, label %land.lhs.true6, label %for.inc
@@ -206,7 +205,7 @@ land.lhs.true6:                                   ; preds = %land.lhs.true
   br i1 %call9, label %land.lhs.true10, label %for.inc
 
 land.lhs.true10:                                  ; preds = %land.lhs.true6
-  %pass11 = getelementptr inbounds i8, ptr %arrayidx, i64 16
+  %pass11 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 16
   %4 = load ptr, ptr %pass11, align 16
   %5 = load i64, ptr %plen4, align 8
   %call13 = tail call zeroext i1 @safe_memcmp(ptr noundef %pass, ptr noundef %4, i64 noundef %5) #8

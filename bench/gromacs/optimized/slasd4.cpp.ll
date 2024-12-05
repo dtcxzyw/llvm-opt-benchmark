@@ -68,7 +68,7 @@ define void @slasd4_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
 
 .lr.ph1522:                                       ; preds = %.lr.ph1522.preheader, %.lr.ph1522
   %indvars.iv1685 = phi i64 [ 1, %.lr.ph1522.preheader ], [ %indvars.iv.next1686, %.lr.ph1522 ]
-  %48 = getelementptr inbounds float, ptr %20, i64 %indvars.iv1685
+  %48 = getelementptr inbounds nuw float, ptr %20, i64 %indvars.iv1685
   %49 = load float, ptr %48, align 4
   %50 = load i32, ptr %0, align 4
   %51 = sext i32 %50 to i64
@@ -76,7 +76,7 @@ define void @slasd4_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %53 = load float, ptr %52, align 4
   %54 = fadd float %49, %53
   %55 = fadd float %45, %54
-  %56 = getelementptr inbounds float, ptr %17, i64 %indvars.iv1685
+  %56 = getelementptr inbounds nuw float, ptr %17, i64 %indvars.iv1685
   store float %55, ptr %56, align 4
   %57 = load float, ptr %48, align 4
   %58 = load i32, ptr %0, align 4
@@ -85,7 +85,7 @@ define void @slasd4_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %61 = load float, ptr %60, align 4
   %62 = fsub float %57, %61
   %63 = fsub float %62, %45
-  %64 = getelementptr inbounds float, ptr %18, i64 %indvars.iv1685
+  %64 = getelementptr inbounds nuw float, ptr %18, i64 %indvars.iv1685
   store float %63, ptr %64, align 4
   %indvars.iv.next1686 = add nuw nsw i64 %indvars.iv1685, 1
   %exitcond1689.not = icmp eq i64 %indvars.iv.next1686, %wide.trip.count1688
@@ -104,12 +104,12 @@ define void @slasd4_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
 .lr.ph1528:                                       ; preds = %.lr.ph1528.preheader, %.lr.ph1528
   %indvars.iv1690 = phi i64 [ 1, %.lr.ph1528.preheader ], [ %indvars.iv.next1691, %.lr.ph1528 ]
   %.012811526 = phi float [ 0.000000e+00, %.lr.ph1528.preheader ], [ %75, %.lr.ph1528 ]
-  %66 = getelementptr inbounds float, ptr %19, i64 %indvars.iv1690
+  %66 = getelementptr inbounds nuw float, ptr %19, i64 %indvars.iv1690
   %67 = load float, ptr %66, align 4
   %68 = fmul float %67, %67
-  %69 = getelementptr inbounds float, ptr %18, i64 %indvars.iv1690
+  %69 = getelementptr inbounds nuw float, ptr %18, i64 %indvars.iv1690
   %70 = load float, ptr %69, align 4
-  %71 = getelementptr inbounds float, ptr %17, i64 %indvars.iv1690
+  %71 = getelementptr inbounds nuw float, ptr %17, i64 %indvars.iv1690
   %72 = load float, ptr %71, align 4
   %73 = fmul float %70, %72
   %74 = fdiv float %68, %73
@@ -301,7 +301,7 @@ define void @slasd4_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
 
 .lr.ph1534:                                       ; preds = %.lr.ph1534.preheader, %.lr.ph1534
   %indvars.iv1695 = phi i64 [ 1, %.lr.ph1534.preheader ], [ %indvars.iv.next1696, %.lr.ph1534 ]
-  %222 = getelementptr inbounds float, ptr %20, i64 %indvars.iv1695
+  %222 = getelementptr inbounds nuw float, ptr %20, i64 %indvars.iv1695
   %223 = load float, ptr %222, align 4
   %224 = load i32, ptr %1, align 4
   %225 = sext i32 %224 to i64
@@ -309,7 +309,7 @@ define void @slasd4_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %227 = load float, ptr %226, align 4
   %228 = fsub float %223, %227
   %229 = fsub float %228, %214
-  %230 = getelementptr inbounds float, ptr %18, i64 %indvars.iv1695
+  %230 = getelementptr inbounds nuw float, ptr %18, i64 %indvars.iv1695
   store float %229, ptr %230, align 4
   %231 = load float, ptr %222, align 4
   %232 = load i32, ptr %1, align 4
@@ -318,7 +318,7 @@ define void @slasd4_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %235 = load float, ptr %234, align 4
   %236 = fadd float %231, %235
   %237 = fadd float %214, %236
-  %238 = getelementptr inbounds float, ptr %17, i64 %indvars.iv1695
+  %238 = getelementptr inbounds nuw float, ptr %17, i64 %indvars.iv1695
   store float %237, ptr %238, align 4
   %indvars.iv.next1696 = add nuw nsw i64 %indvars.iv1695, 1
   %exitcond1699.not = icmp eq i64 %indvars.iv.next1696, %wide.trip.count1698
@@ -329,11 +329,11 @@ define void @slasd4_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %.01539 = phi float [ 0.000000e+00, %.lr.ph1540.preheader ], [ %249, %.lr.ph1540 ]
   %.012641538 = phi float [ 0.000000e+00, %.lr.ph1540.preheader ], [ %248, %.lr.ph1540 ]
   %.112821537 = phi float [ 0.000000e+00, %.lr.ph1540.preheader ], [ %247, %.lr.ph1540 ]
-  %239 = getelementptr inbounds float, ptr %19, i64 %indvars.iv1700
+  %239 = getelementptr inbounds nuw float, ptr %19, i64 %indvars.iv1700
   %240 = load float, ptr %239, align 4
-  %241 = getelementptr inbounds float, ptr %18, i64 %indvars.iv1700
+  %241 = getelementptr inbounds nuw float, ptr %18, i64 %indvars.iv1700
   %242 = load float, ptr %241, align 4
-  %243 = getelementptr inbounds float, ptr %17, i64 %indvars.iv1700
+  %243 = getelementptr inbounds nuw float, ptr %17, i64 %indvars.iv1700
   %244 = load float, ptr %243, align 4
   %245 = fmul float %242, %244
   %246 = fdiv float %240, %245
@@ -479,11 +479,11 @@ define void @slasd4_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
 
 .lr.ph1548:                                       ; preds = %.lr.ph1548.preheader, %.lr.ph1548
   %indvars.iv1705 = phi i64 [ 1, %.lr.ph1548.preheader ], [ %indvars.iv.next1706, %.lr.ph1548 ]
-  %357 = getelementptr inbounds float, ptr %18, i64 %indvars.iv1705
+  %357 = getelementptr inbounds nuw float, ptr %18, i64 %indvars.iv1705
   %358 = load float, ptr %357, align 4
   %359 = fsub float %358, %354
   store float %359, ptr %357, align 4
-  %360 = getelementptr inbounds float, ptr %17, i64 %indvars.iv1705
+  %360 = getelementptr inbounds nuw float, ptr %17, i64 %indvars.iv1705
   %361 = load float, ptr %360, align 4
   %362 = fadd float %354, %361
   store float %362, ptr %360, align 4
@@ -506,11 +506,11 @@ define void @slasd4_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %.11554 = phi float [ 0.000000e+00, %.lr.ph1556.preheader ], [ %375, %.lr.ph1556 ]
   %.112651553 = phi float [ 0.000000e+00, %.lr.ph1556.preheader ], [ %374, %.lr.ph1556 ]
   %.212831552 = phi float [ 0.000000e+00, %.lr.ph1556.preheader ], [ %373, %.lr.ph1556 ]
-  %365 = getelementptr inbounds float, ptr %19, i64 %indvars.iv1710
+  %365 = getelementptr inbounds nuw float, ptr %19, i64 %indvars.iv1710
   %366 = load float, ptr %365, align 4
-  %367 = getelementptr inbounds float, ptr %17, i64 %indvars.iv1710
+  %367 = getelementptr inbounds nuw float, ptr %17, i64 %indvars.iv1710
   %368 = load float, ptr %367, align 4
-  %369 = getelementptr inbounds float, ptr %18, i64 %indvars.iv1710
+  %369 = getelementptr inbounds nuw float, ptr %18, i64 %indvars.iv1710
   %370 = load float, ptr %369, align 4
   %371 = fmul float %368, %370
   %372 = fdiv float %366, %371
@@ -653,11 +653,11 @@ define void @slasd4_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
 
 .lr.ph1564:                                       ; preds = %.lr.ph1564.preheader, %.lr.ph1564
   %indvars.iv1715 = phi i64 [ 1, %.lr.ph1564.preheader ], [ %indvars.iv.next1716, %.lr.ph1564 ]
-  %471 = getelementptr inbounds float, ptr %18, i64 %indvars.iv1715
+  %471 = getelementptr inbounds nuw float, ptr %18, i64 %indvars.iv1715
   %472 = load float, ptr %471, align 4
   %473 = fsub float %472, %468
   store float %473, ptr %471, align 4
-  %474 = getelementptr inbounds float, ptr %17, i64 %indvars.iv1715
+  %474 = getelementptr inbounds nuw float, ptr %17, i64 %indvars.iv1715
   %475 = load float, ptr %474, align 4
   %476 = fadd float %468, %475
   store float %476, ptr %474, align 4
@@ -676,11 +676,11 @@ define void @slasd4_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %.31570 = phi float [ %489, %.lr.ph1572 ], [ 0.000000e+00, %._crit_edge1565 ]
   %.312671569 = phi float [ %488, %.lr.ph1572 ], [ 0.000000e+00, %._crit_edge1565 ]
   %.312841568 = phi float [ %487, %.lr.ph1572 ], [ 0.000000e+00, %._crit_edge1565 ]
-  %479 = getelementptr inbounds float, ptr %19, i64 %indvars.iv1720
+  %479 = getelementptr inbounds nuw float, ptr %19, i64 %indvars.iv1720
   %480 = load float, ptr %479, align 4
-  %481 = getelementptr inbounds float, ptr %17, i64 %indvars.iv1720
+  %481 = getelementptr inbounds nuw float, ptr %17, i64 %indvars.iv1720
   %482 = load float, ptr %481, align 4
-  %483 = getelementptr inbounds float, ptr %18, i64 %indvars.iv1720
+  %483 = getelementptr inbounds nuw float, ptr %18, i64 %indvars.iv1720
   %484 = load float, ptr %483, align 4
   %485 = fmul float %482, %484
   %486 = fdiv float %480, %485
@@ -759,7 +759,7 @@ define void @slasd4_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %536 = getelementptr inbounds float, ptr %20, i64 %indvars.iv
+  %536 = getelementptr inbounds nuw float, ptr %20, i64 %indvars.iv
   %537 = load float, ptr %536, align 4
   %538 = load i32, ptr %1, align 4
   %539 = sext i32 %538 to i64
@@ -767,7 +767,7 @@ define void @slasd4_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %541 = load float, ptr %540, align 4
   %542 = fadd float %537, %541
   %543 = fadd float %533, %542
-  %544 = getelementptr inbounds float, ptr %17, i64 %indvars.iv
+  %544 = getelementptr inbounds nuw float, ptr %17, i64 %indvars.iv
   store float %543, ptr %544, align 4
   %545 = load float, ptr %536, align 4
   %546 = load i32, ptr %1, align 4
@@ -776,7 +776,7 @@ define void @slasd4_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %549 = load float, ptr %548, align 4
   %550 = fsub float %545, %549
   %551 = fsub float %550, %533
-  %552 = getelementptr inbounds float, ptr %18, i64 %indvars.iv
+  %552 = getelementptr inbounds nuw float, ptr %18, i64 %indvars.iv
   store float %551, ptr %552, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -794,12 +794,12 @@ define void @slasd4_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
 .lr.ph1413:                                       ; preds = %.lr.ph1413.preheader, %.lr.ph1413
   %indvars.iv1633 = phi i64 [ 1, %.lr.ph1413.preheader ], [ %indvars.iv.next1634, %.lr.ph1413 ]
   %.412851411 = phi float [ 0.000000e+00, %.lr.ph1413.preheader ], [ %563, %.lr.ph1413 ]
-  %554 = getelementptr inbounds float, ptr %19, i64 %indvars.iv1633
+  %554 = getelementptr inbounds nuw float, ptr %19, i64 %indvars.iv1633
   %555 = load float, ptr %554, align 4
   %556 = fmul float %555, %555
-  %557 = getelementptr inbounds float, ptr %17, i64 %indvars.iv1633
+  %557 = getelementptr inbounds nuw float, ptr %17, i64 %indvars.iv1633
   %558 = load float, ptr %557, align 4
-  %559 = getelementptr inbounds float, ptr %18, i64 %indvars.iv1633
+  %559 = getelementptr inbounds nuw float, ptr %18, i64 %indvars.iv1633
   %560 = load float, ptr %559, align 4
   %561 = fmul float %558, %560
   %562 = fdiv float %556, %561
@@ -971,7 +971,7 @@ define void @slasd4_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
 
 .lr.ph1425:                                       ; preds = %.lr.ph1425.preheader, %.lr.ph1425
   %indvars.iv1641 = phi i64 [ 1, %.lr.ph1425.preheader ], [ %indvars.iv.next1642, %.lr.ph1425 ]
-  %677 = getelementptr inbounds float, ptr %20, i64 %indvars.iv1641
+  %677 = getelementptr inbounds nuw float, ptr %20, i64 %indvars.iv1641
   %678 = load float, ptr %677, align 4
   %679 = load i32, ptr %1, align 4
   %680 = sext i32 %679 to i64
@@ -979,7 +979,7 @@ define void @slasd4_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %682 = load float, ptr %681, align 4
   %683 = fadd float %678, %682
   %684 = fadd float %669, %683
-  %685 = getelementptr inbounds float, ptr %17, i64 %indvars.iv1641
+  %685 = getelementptr inbounds nuw float, ptr %17, i64 %indvars.iv1641
   store float %684, ptr %685, align 4
   %686 = load float, ptr %677, align 4
   %687 = load i32, ptr %1, align 4
@@ -988,7 +988,7 @@ define void @slasd4_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %690 = load float, ptr %689, align 4
   %691 = fsub float %686, %690
   %692 = fsub float %691, %669
-  %693 = getelementptr inbounds float, ptr %18, i64 %indvars.iv1641
+  %693 = getelementptr inbounds nuw float, ptr %18, i64 %indvars.iv1641
   store float %692, ptr %693, align 4
   %indvars.iv.next1642 = add nuw nsw i64 %indvars.iv1641, 1
   %exitcond1645.not = icmp eq i64 %indvars.iv.next1642, %wide.trip.count1644
@@ -1020,18 +1020,18 @@ define void @slasd4_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
 
 .lr.ph1429:                                       ; preds = %.lr.ph1429.preheader, %.lr.ph1429
   %indvars.iv1646 = phi i64 [ 1, %.lr.ph1429.preheader ], [ %indvars.iv.next1647, %.lr.ph1429 ]
-  %706 = getelementptr inbounds float, ptr %20, i64 %indvars.iv1646
+  %706 = getelementptr inbounds nuw float, ptr %20, i64 %indvars.iv1646
   %707 = load float, ptr %706, align 4
   %708 = load float, ptr %521, align 4
   %709 = fadd float %707, %708
   %710 = fadd float %699, %709
-  %711 = getelementptr inbounds float, ptr %17, i64 %indvars.iv1646
+  %711 = getelementptr inbounds nuw float, ptr %17, i64 %indvars.iv1646
   store float %710, ptr %711, align 4
   %712 = load float, ptr %706, align 4
   %713 = load float, ptr %521, align 4
   %714 = fsub float %712, %713
   %715 = fsub float %714, %699
-  %716 = getelementptr inbounds float, ptr %18, i64 %indvars.iv1646
+  %716 = getelementptr inbounds nuw float, ptr %18, i64 %indvars.iv1646
   store float %715, ptr %716, align 4
   %indvars.iv.next1647 = add nuw nsw i64 %indvars.iv1646, 1
   %exitcond1650.not = icmp eq i64 %indvars.iv.next1647, %wide.trip.count1649
@@ -1056,11 +1056,11 @@ define void @slasd4_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %.41434 = phi float [ 0.000000e+00, %.lr.ph1436.preheader ], [ %729, %.lr.ph1436 ]
   %.412681433 = phi float [ 0.000000e+00, %.lr.ph1436.preheader ], [ %728, %.lr.ph1436 ]
   %.512861432 = phi float [ 0.000000e+00, %.lr.ph1436.preheader ], [ %727, %.lr.ph1436 ]
-  %719 = getelementptr inbounds float, ptr %19, i64 %indvars.iv1651
+  %719 = getelementptr inbounds nuw float, ptr %19, i64 %indvars.iv1651
   %720 = load float, ptr %719, align 4
-  %721 = getelementptr inbounds float, ptr %17, i64 %indvars.iv1651
+  %721 = getelementptr inbounds nuw float, ptr %17, i64 %indvars.iv1651
   %722 = load float, ptr %721, align 4
-  %723 = getelementptr inbounds float, ptr %18, i64 %indvars.iv1651
+  %723 = getelementptr inbounds nuw float, ptr %18, i64 %indvars.iv1651
   %724 = load float, ptr %723, align 4
   %725 = fmul float %722, %724
   %726 = fdiv float %720, %725
@@ -1377,15 +1377,15 @@ define void @slasd4_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
 
 937:                                              ; preds = %910, %912, %916
   %.sink = phi float [ %911, %910 ], [ %915, %912 ], [ %936, %916 ]
-  %938 = getelementptr inbounds i8, ptr %13, i64 8
+  %938 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store float %.sink, ptr %938, align 4
   %939 = fmul float %758, %758
-  %940 = getelementptr inbounds i8, ptr %13, i64 4
+  %940 = getelementptr inbounds nuw i8, ptr %13, i64 4
   store float %939, ptr %940, align 4
   store float %882, ptr %12, align 4
-  %941 = getelementptr inbounds i8, ptr %12, i64 4
+  %941 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store float %763, ptr %941, align 4
-  %942 = getelementptr inbounds i8, ptr %12, i64 8
+  %942 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store float %888, ptr %942, align 4
   call void @slaed6_(ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull %10, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %11, ptr noundef nonnull %14, ptr noundef nonnull %8)
   %943 = load i32, ptr %8, align 4
@@ -1480,11 +1480,11 @@ define void @slasd4_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
 
 .lr.ph1455:                                       ; preds = %.lr.ph1455.preheader, %.lr.ph1455
   %indvars.iv1659 = phi i64 [ 1, %.lr.ph1455.preheader ], [ %indvars.iv.next1660, %.lr.ph1455 ]
-  %987 = getelementptr inbounds float, ptr %17, i64 %indvars.iv1659
+  %987 = getelementptr inbounds nuw float, ptr %17, i64 %indvars.iv1659
   %988 = load float, ptr %987, align 4
   %989 = fadd float %981, %988
   store float %989, ptr %987, align 4
-  %990 = getelementptr inbounds float, ptr %18, i64 %indvars.iv1659
+  %990 = getelementptr inbounds nuw float, ptr %18, i64 %indvars.iv1659
   %991 = load float, ptr %990, align 4
   %992 = fsub float %991, %981
   store float %992, ptr %990, align 4
@@ -1497,11 +1497,11 @@ define void @slasd4_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %.61460 = phi float [ 0.000000e+00, %.lr.ph1461.preheader ], [ %1003, %.lr.ph1461 ]
   %.512691459 = phi float [ 0.000000e+00, %.lr.ph1461.preheader ], [ %1002, %.lr.ph1461 ]
   %.612871458 = phi float [ 0.000000e+00, %.lr.ph1461.preheader ], [ %1001, %.lr.ph1461 ]
-  %993 = getelementptr inbounds float, ptr %19, i64 %indvars.iv1664
+  %993 = getelementptr inbounds nuw float, ptr %19, i64 %indvars.iv1664
   %994 = load float, ptr %993, align 4
-  %995 = getelementptr inbounds float, ptr %17, i64 %indvars.iv1664
+  %995 = getelementptr inbounds nuw float, ptr %17, i64 %indvars.iv1664
   %996 = load float, ptr %995, align 4
-  %997 = getelementptr inbounds float, ptr %18, i64 %indvars.iv1664
+  %997 = getelementptr inbounds nuw float, ptr %18, i64 %indvars.iv1664
   %998 = load float, ptr %997, align 4
   %999 = fmul float %996, %998
   %1000 = fdiv float %994, %999
@@ -1631,13 +1631,13 @@ define void @slasd4_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %1070 = sext i32 %718 to i64
   %1071 = getelementptr inbounds float, ptr %17, i64 %1070
   %1072 = getelementptr inbounds float, ptr %18, i64 %1070
-  %1073 = getelementptr inbounds i8, ptr %13, i64 8
+  %1073 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %1074 = getelementptr inbounds float, ptr %19, i64 %1067
   %1075 = getelementptr inbounds float, ptr %20, i64 %1067
   %1076 = getelementptr inbounds float, ptr %20, i64 %1070
   %1077 = getelementptr inbounds float, ptr %19, i64 %1070
-  %1078 = getelementptr inbounds i8, ptr %12, i64 4
-  %1079 = getelementptr inbounds i8, ptr %12, i64 8
+  %1078 = getelementptr inbounds nuw i8, ptr %12, i64 4
+  %1079 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %1080 = fneg float %528
   %wide.trip.count1680 = zext nneg i32 %.01302 to i64
   br label %1081
@@ -1993,11 +1993,11 @@ define void @slasd4_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
 
 .lr.ph1480:                                       ; preds = %.lr.ph1480.preheader, %.lr.ph1480
   %indvars.iv1672 = phi i64 [ 1, %.lr.ph1480.preheader ], [ %indvars.iv.next1673, %.lr.ph1480 ]
-  %1297 = getelementptr inbounds float, ptr %17, i64 %indvars.iv1672
+  %1297 = getelementptr inbounds nuw float, ptr %17, i64 %indvars.iv1672
   %1298 = load float, ptr %1297, align 4
   %1299 = fadd float %1292, %1298
   store float %1299, ptr %1297, align 4
-  %1300 = getelementptr inbounds float, ptr %18, i64 %indvars.iv1672
+  %1300 = getelementptr inbounds nuw float, ptr %18, i64 %indvars.iv1672
   %1301 = load float, ptr %1300, align 4
   %1302 = fsub float %1301, %1292
   store float %1302, ptr %1300, align 4
@@ -2014,11 +2014,11 @@ define void @slasd4_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %.91486 = phi float [ %1314, %.lr.ph1488 ], [ 0.000000e+00, %._crit_edge1481 ]
   %.912731485 = phi float [ %1313, %.lr.ph1488 ], [ 0.000000e+00, %._crit_edge1481 ]
   %.812891484 = phi float [ %1312, %.lr.ph1488 ], [ 0.000000e+00, %._crit_edge1481 ]
-  %1304 = getelementptr inbounds float, ptr %19, i64 %indvars.iv1677
+  %1304 = getelementptr inbounds nuw float, ptr %19, i64 %indvars.iv1677
   %1305 = load float, ptr %1304, align 4
-  %1306 = getelementptr inbounds float, ptr %17, i64 %indvars.iv1677
+  %1306 = getelementptr inbounds nuw float, ptr %17, i64 %indvars.iv1677
   %1307 = load float, ptr %1306, align 4
-  %1308 = getelementptr inbounds float, ptr %18, i64 %indvars.iv1677
+  %1308 = getelementptr inbounds nuw float, ptr %18, i64 %indvars.iv1677
   %1309 = load float, ptr %1308, align 4
   %1310 = fmul float %1307, %1309
   %1311 = fdiv float %1305, %1310

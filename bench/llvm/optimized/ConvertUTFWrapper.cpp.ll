@@ -116,10 +116,10 @@ define dso_local noundef zeroext i1 @_ZN4llvm22ConvertCodePointToUTF8EjRPc(i32 n
   %5 = alloca ptr, align 8
   store i32 %0, ptr %3, align 4
   store ptr %3, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %7 = load ptr, ptr %1, align 8
   store ptr %7, ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %9 = call noundef i32 @_ZN4llvm18ConvertUTF32toUTF8EPPKjS1_PPhS3_NS_15ConversionFlagsE(ptr noundef nonnull %4, ptr noundef nonnull %6, ptr noundef nonnull %5, ptr noundef nonnull %8, i32 noundef 0) #13
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %10, label %12
@@ -152,7 +152,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm21hasUTF16ByteOrderMarkENS_8ArrayRe
 
 .thread.sink.split:                               ; preds = %4, %6
   %.sink4 = phi i8 [ -1, %6 ], [ -2, %4 ]
-  %7 = getelementptr inbounds i8, ptr %0, i64 1
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %8 = load i8, ptr %7, align 1
   %9 = icmp eq i8 %8, %.sink4
   br label %.thread
@@ -196,7 +196,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm24convertUTF16ToUTF8StringENS_8Arra
   %18 = load i16, ptr %.sroa.018.030, align 2
   %rev.i = call noundef i16 @llvm.bswap.i16(i16 %18)
   store i16 %rev.i, ptr %.sroa.018.030, align 2
-  %19 = getelementptr inbounds i8, ptr %.sroa.018.030, i64 2
+  %19 = getelementptr inbounds nuw i8, ptr %.sroa.018.030, i64 2
   %.not28 = icmp eq ptr %19, %17
   br i1 %.not28, label %._crit_edge.loopexit, label %.lr.ph
 
@@ -224,7 +224,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm24convertUTF16ToUTF8StringENS_8Arra
   br i1 %29, label %30, label %32
 
 30:                                               ; preds = %26
-  %31 = getelementptr inbounds i8, ptr %28, i64 2
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 2
   store ptr %31, ptr %4, align 8
   br label %32
 
@@ -332,7 +332,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm24convertUTF32ToUTF8StringENS_8Arra
   %18 = load i32, ptr %.sroa.018.030, align 4
   %19 = call noundef i32 @llvm.bswap.i32(i32 %18)
   store i32 %19, ptr %.sroa.018.030, align 4
-  %20 = getelementptr inbounds i8, ptr %.sroa.018.030, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %.sroa.018.030, i64 4
   %.not28 = icmp eq ptr %20, %17
   br i1 %.not28, label %._crit_edge.loopexit, label %.lr.ph
 
@@ -360,7 +360,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm24convertUTF32ToUTF8StringENS_8Arra
   br i1 %30, label %31, label %33
 
 31:                                               ; preds = %27
-  %32 = getelementptr inbounds i8, ptr %29, i64 4
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 4
   store ptr %32, ptr %4, align 8
   br label %33
 
@@ -432,7 +432,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm24convertUTF8ToUTF16StringENS_9Stri
   br i1 %.not.i.i.i, label %11, label %_ZN4llvm23SmallVectorTemplateBaseItLb1EE9push_backEt.exit
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %2, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 24
   tail call void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull %12, i64 noundef %9, i64 noundef 2) #13
   br label %_ZN4llvm23SmallVectorTemplateBaseItLb1EE9push_backEt.exit
 
@@ -483,7 +483,7 @@ _ZN4llvm23SmallVectorTemplateBaseItLb1EE9push_backEt.exit: ; preds = %7, %11
   br i1 %.not.i.i.i13, label %40, label %_ZN4llvm23SmallVectorTemplateBaseItLb1EE9push_backEt.exit14
 
 40:                                               ; preds = %30
-  %41 = getelementptr inbounds i8, ptr %2, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %2, i64 24
   call void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull %41, i64 noundef %38, i64 noundef 2) #13
   br label %_ZN4llvm23SmallVectorTemplateBaseItLb1EE9push_backEt.exit14
 
@@ -770,7 +770,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPtS0_SaItEET0_T_S3_S2_RT1_.exit56: ; pr
 _ZNSt12_Vector_baseItSaItEE13_M_deallocateEPtm.exit: ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPtS0_SaItEET0_T_S3_S2_RT1_.exit56, %66
   store ptr %57, ptr %0, align 8
   store ptr %65, ptr %12, align 8
-  %68 = getelementptr inbounds i16, ptr %57, i64 %53
+  %68 = getelementptr inbounds nuw i16, ptr %57, i64 %53
   store ptr %68, ptr %10, align 8
   br label %_ZSt4copyIPKtN9__gnu_cxx17__normal_iteratorIPtSt6vectorItSaItEEEEET0_T_SA_S9_.exit51
 
@@ -936,7 +936,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPjS0_SaIjEET0_T_S3_S2_RT1_.exit56: ; pr
 _ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit: ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPjS0_SaIjEET0_T_S3_S2_RT1_.exit56, %66
   store ptr %57, ptr %0, align 8
   store ptr %65, ptr %12, align 8
-  %68 = getelementptr inbounds i32, ptr %57, i64 %53
+  %68 = getelementptr inbounds nuw i32, ptr %57, i64 %53
   store ptr %68, ptr %10, align 8
   br label %_ZSt4copyIPKjN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEET0_T_SA_S9_.exit51
 
@@ -971,7 +971,7 @@ define linkonce_odr hidden void @_ZN4llvm15SmallVectorImplItE10resizeImplILb0EEE
   br i1 %12, label %13, label %_ZN4llvm15SmallVectorImplItE7reserveEm.exit
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %0, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %14, i64 noundef %1, i64 noundef 2) #13
   br label %_ZN4llvm15SmallVectorImplItE7reserveEm.exit
 

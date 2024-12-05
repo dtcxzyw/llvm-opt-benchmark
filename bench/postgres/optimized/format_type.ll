@@ -35,18 +35,18 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @format_type(ptr nocapture noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 28
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 1, ptr %6, align 4
   br label %22
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load i64, ptr %8, align 8
   %10 = trunc i64 %9 to i32
   %11 = getelementptr i8, ptr %0, i64 56
@@ -129,25 +129,25 @@ define dso_local ptr @format_type_extended(i32 noundef %0, i32 noundef %1, i16 n
   unreachable
 
 24:                                               ; preds = %.split79
-  %25 = getelementptr inbounds i8, ptr %13, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 22
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 22
   %28 = load i8, ptr %27, align 2
   %29 = zext i8 %28 to i64
   %30 = getelementptr i8, ptr %26, i64 %29
-  %31 = getelementptr inbounds i8, ptr %30, i64 92
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 92
   %32 = load i32, ptr %31, align 4
   %.not91 = icmp eq i32 %32, 0
   br i1 %.not91, label %60, label %33
 
 33:                                               ; preds = %24
-  %34 = getelementptr inbounds i8, ptr %30, i64 88
+  %34 = getelementptr inbounds nuw i8, ptr %30, i64 88
   %35 = load i32, ptr %34, align 4
   %36 = icmp eq i32 %35, 6179
   br i1 %36, label %37, label %60
 
 37:                                               ; preds = %33
-  %38 = getelementptr inbounds i8, ptr %30, i64 129
+  %38 = getelementptr inbounds nuw i8, ptr %30, i64 129
   %39 = load i8, ptr %38, align 1
   %.not92 = icmp eq i8 %39, 112
   br i1 %.not92, label %60, label %40
@@ -182,9 +182,9 @@ define dso_local ptr @format_type_extended(i32 noundef %0, i32 noundef %1, i16 n
   unreachable
 
 53:                                               ; preds = %40
-  %54 = getelementptr inbounds i8, ptr %42, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 22
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 22
   %57 = load i8, ptr %56, align 2
   %58 = zext i8 %57 to i64
   %59 = getelementptr i8, ptr %55, i64 %58
@@ -224,7 +224,7 @@ define dso_local ptr @format_type_extended(i32 noundef %0, i32 noundef %1, i16 n
   br i1 %65, label %67, label %71
 
 67:                                               ; preds = %66
-  %68 = getelementptr inbounds i8, ptr %.078, i64 120
+  %68 = getelementptr inbounds nuw i8, ptr %.078, i64 120
   %69 = load i32, ptr %68, align 4
   %70 = tail call fastcc ptr @printTypmod(ptr noundef nonnull @.str.5, i32 noundef %1, i32 noundef %69)
   br label %152
@@ -244,7 +244,7 @@ define dso_local ptr @format_type_extended(i32 noundef %0, i32 noundef %1, i16 n
   br i1 %65, label %77, label %81
 
 77:                                               ; preds = %76
-  %78 = getelementptr inbounds i8, ptr %.078, i64 120
+  %78 = getelementptr inbounds nuw i8, ptr %.078, i64 120
   %79 = load i32, ptr %78, align 4
   %80 = tail call fastcc ptr @printTypmod(ptr noundef nonnull @.str.7, i32 noundef %1, i32 noundef %79)
   br label %152
@@ -280,7 +280,7 @@ define dso_local ptr @format_type_extended(i32 noundef %0, i32 noundef %1, i16 n
   br i1 %65, label %95, label %99
 
 95:                                               ; preds = %94
-  %96 = getelementptr inbounds i8, ptr %.078, i64 120
+  %96 = getelementptr inbounds nuw i8, ptr %.078, i64 120
   %97 = load i32, ptr %96, align 4
   %98 = tail call fastcc ptr @printTypmod(ptr noundef nonnull @.str.13, i32 noundef %1, i32 noundef %97)
   br label %152
@@ -293,7 +293,7 @@ define dso_local ptr @format_type_extended(i32 noundef %0, i32 noundef %1, i16 n
   br i1 %65, label %102, label %106
 
 102:                                              ; preds = %101
-  %103 = getelementptr inbounds i8, ptr %.078, i64 120
+  %103 = getelementptr inbounds nuw i8, ptr %.078, i64 120
   %104 = load i32, ptr %103, align 4
   %105 = tail call fastcc ptr @printTypmod(ptr noundef nonnull @.str.14, i32 noundef %1, i32 noundef %104)
   br label %152
@@ -306,7 +306,7 @@ define dso_local ptr @format_type_extended(i32 noundef %0, i32 noundef %1, i16 n
   br i1 %65, label %109, label %113
 
 109:                                              ; preds = %108
-  %110 = getelementptr inbounds i8, ptr %.078, i64 120
+  %110 = getelementptr inbounds nuw i8, ptr %.078, i64 120
   %111 = load i32, ptr %110, align 4
   %112 = tail call fastcc ptr @printTypmod(ptr noundef nonnull @.str.15, i32 noundef %1, i32 noundef %111)
   br label %152
@@ -319,7 +319,7 @@ define dso_local ptr @format_type_extended(i32 noundef %0, i32 noundef %1, i16 n
   br i1 %65, label %116, label %120
 
 116:                                              ; preds = %115
-  %117 = getelementptr inbounds i8, ptr %.078, i64 120
+  %117 = getelementptr inbounds nuw i8, ptr %.078, i64 120
   %118 = load i32, ptr %117, align 4
   %119 = tail call fastcc ptr @printTypmod(ptr noundef nonnull @.str.15, i32 noundef %1, i32 noundef %118)
   br label %152
@@ -332,7 +332,7 @@ define dso_local ptr @format_type_extended(i32 noundef %0, i32 noundef %1, i16 n
   br i1 %65, label %123, label %127
 
 123:                                              ; preds = %122
-  %124 = getelementptr inbounds i8, ptr %.078, i64 120
+  %124 = getelementptr inbounds nuw i8, ptr %.078, i64 120
   %125 = load i32, ptr %124, align 4
   %126 = tail call fastcc ptr @printTypmod(ptr noundef nonnull @.str.18, i32 noundef %1, i32 noundef %125)
   br label %152
@@ -345,7 +345,7 @@ define dso_local ptr @format_type_extended(i32 noundef %0, i32 noundef %1, i16 n
   br i1 %65, label %130, label %134
 
 130:                                              ; preds = %129
-  %131 = getelementptr inbounds i8, ptr %.078, i64 120
+  %131 = getelementptr inbounds nuw i8, ptr %.078, i64 120
   %132 = load i32, ptr %131, align 4
   %133 = tail call fastcc ptr @printTypmod(ptr noundef nonnull @.str.18, i32 noundef %1, i32 noundef %132)
   br label %152
@@ -358,7 +358,7 @@ define dso_local ptr @format_type_extended(i32 noundef %0, i32 noundef %1, i16 n
   br i1 %65, label %137, label %141
 
 137:                                              ; preds = %136
-  %138 = getelementptr inbounds i8, ptr %.078, i64 120
+  %138 = getelementptr inbounds nuw i8, ptr %.078, i64 120
   %139 = load i32, ptr %138, align 4
   %140 = tail call fastcc ptr @printTypmod(ptr noundef nonnull @.str.21, i32 noundef %1, i32 noundef %139)
   br label %152
@@ -371,7 +371,7 @@ define dso_local ptr @format_type_extended(i32 noundef %0, i32 noundef %1, i16 n
   br i1 %65, label %144, label %148
 
 144:                                              ; preds = %143
-  %145 = getelementptr inbounds i8, ptr %.078, i64 120
+  %145 = getelementptr inbounds nuw i8, ptr %.078, i64 120
   %146 = load i32, ptr %145, align 4
   %147 = tail call fastcc ptr @printTypmod(ptr noundef nonnull @.str.22, i32 noundef %1, i32 noundef %146)
   br label %152
@@ -399,19 +399,19 @@ define dso_local ptr @format_type_extended(i32 noundef %0, i32 noundef %1, i16 n
   br i1 %157, label %162, label %158
 
 158:                                              ; preds = %156, %.thread
-  %159 = getelementptr inbounds i8, ptr %.078, i64 68
+  %159 = getelementptr inbounds nuw i8, ptr %.078, i64 68
   %160 = load i32, ptr %159, align 4
   %161 = tail call ptr @get_namespace_name_or_temp(i32 noundef %160) #7
   br label %162
 
 162:                                              ; preds = %156, %158
   %.073 = phi ptr [ %161, %158 ], [ null, %156 ]
-  %163 = getelementptr inbounds i8, ptr %.078, i64 4
+  %163 = getelementptr inbounds nuw i8, ptr %.078, i64 4
   %164 = tail call ptr @quote_qualified_identifier(ptr noundef %.073, ptr noundef nonnull %163) #7
   br i1 %65, label %165, label %printTypmod.exit
 
 165:                                              ; preds = %162
-  %166 = getelementptr inbounds i8, ptr %.078, i64 120
+  %166 = getelementptr inbounds nuw i8, ptr %.078, i64 120
   %167 = load i32, ptr %166, align 4
   %168 = icmp eq i32 %167, 0
   br i1 %168, label %169, label %171
@@ -552,10 +552,10 @@ declare i32 @numeric_maximum_size(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @oidvectortypes(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load i32, ptr %5, align 4
   %7 = mul i32 %6, 20
   %8 = or disjoint i32 %7, 1
@@ -567,7 +567,7 @@ define dso_local i64 @oidvectortypes(ptr nocapture noundef readonly %0) local_un
 
 .lr.ph:                                           ; preds = %1
   %12 = add nsw i64 %9, -1
-  %13 = getelementptr inbounds i8, ptr %4, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %wide.trip.count = zext nneg i32 %6 to i64
   br label %14
 

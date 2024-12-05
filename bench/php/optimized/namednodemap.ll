@@ -36,7 +36,7 @@ define hidden i32 @php_dom_get_namednodemap_length(ptr nocapture noundef readonl
   br i1 %.not, label %.loopexit, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %2, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %5 = load i32, ptr %4, align 8
   switch i32 %5, label %11 [
     i32 12, label %6
@@ -44,7 +44,7 @@ define hidden i32 @php_dom_get_namednodemap_length(ptr nocapture noundef readonl
   ]
 
 6:                                                ; preds = %3, %3
-  %7 = getelementptr inbounds i8, ptr %2, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %8 = load ptr, ptr %7, align 8
   %.not26 = icmp eq ptr %8, null
   br i1 %.not26, label %.loopexit, label %9
@@ -60,7 +60,7 @@ define hidden i32 @php_dom_get_namednodemap_length(ptr nocapture noundef readonl
   br i1 %.not23, label %.loopexit, label %14
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %13, i64 88
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 88
   %16 = load ptr, ptr %15, align 8
   %.not24 = icmp eq ptr %16, null
   br i1 %.not24, label %.loopexit, label %.preheader
@@ -68,7 +68,7 @@ define hidden i32 @php_dom_get_namednodemap_length(ptr nocapture noundef readonl
 .preheader:                                       ; preds = %14, %.preheader
   %.1 = phi i32 [ %19, %.preheader ], [ 1, %14 ]
   %.0 = phi ptr [ %18, %.preheader ], [ %16, %14 ]
-  %17 = getelementptr inbounds i8, ptr %.0, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %.0, i64 48
   %18 = load ptr, ptr %17, align 8
   %.not25 = icmp eq ptr %18, null
   %19 = add nuw nsw i32 %.1, 1
@@ -90,7 +90,7 @@ define hidden noundef i32 @dom_namednodemap_length_read(ptr nocapture noundef re
   br i1 %.not.i, label %php_dom_get_namednodemap_length.exit, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %3, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %6 = load i32, ptr %5, align 8
   switch i32 %6, label %12 [
     i32 12, label %7
@@ -98,7 +98,7 @@ define hidden noundef i32 @dom_namednodemap_length_read(ptr nocapture noundef re
   ]
 
 7:                                                ; preds = %4, %4
-  %8 = getelementptr inbounds i8, ptr %3, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %9 = load ptr, ptr %8, align 8
   %.not26.i = icmp eq ptr %9, null
   br i1 %.not26.i, label %php_dom_get_namednodemap_length.exit, label %10
@@ -114,7 +114,7 @@ define hidden noundef i32 @dom_namednodemap_length_read(ptr nocapture noundef re
   br i1 %.not23.i, label %php_dom_get_namednodemap_length.exit, label %15
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %14, i64 88
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 88
   %17 = load ptr, ptr %16, align 8
   %.not24.i = icmp eq ptr %17, null
   br i1 %.not24.i, label %php_dom_get_namednodemap_length.exit, label %.preheader.i
@@ -122,7 +122,7 @@ define hidden noundef i32 @dom_namednodemap_length_read(ptr nocapture noundef re
 .preheader.i:                                     ; preds = %15, %.preheader.i
   %.1.i = phi i32 [ %20, %.preheader.i ], [ 1, %15 ]
   %.0.i = phi ptr [ %19, %.preheader.i ], [ %17, %15 ]
-  %18 = getelementptr inbounds i8, ptr %.0.i, i64 48
+  %18 = getelementptr inbounds nuw i8, ptr %.0.i, i64 48
   %19 = load ptr, ptr %18, align 8
   %.not25.i = icmp eq ptr %19, null
   %20 = add nuw nsw i32 %.1.i, 1
@@ -132,7 +132,7 @@ php_dom_get_namednodemap_length.exit:             ; preds = %.preheader.i, %2, %
   %.015.i = phi i32 [ 0, %2 ], [ %11, %10 ], [ 0, %7 ], [ 0, %15 ], [ 0, %12 ], [ %.1.i, %.preheader.i ]
   %21 = sext i32 %.015.i to i64
   store i64 %21, ptr %1, align 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 4, ptr %22, align 8
   ret i32 0
 }
@@ -143,7 +143,7 @@ define hidden ptr @php_dom_named_node_map_get_named_item(ptr noundef readonly %0
   br i1 %.not, label %25, label %4
 
 4:                                                ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i32, ptr %5, align 8
   switch i32 %6, label %20 [
     i32 12, label %7
@@ -151,7 +151,7 @@ define hidden ptr @php_dom_named_node_map_get_named_item(ptr noundef readonly %0
   ]
 
 7:                                                ; preds = %4, %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
   %.not25 = icmp eq ptr %9, null
   br i1 %.not25, label %25, label %10
@@ -166,9 +166,9 @@ define hidden ptr @php_dom_named_node_map_get_named_item(ptr noundef readonly %0
 
 13:                                               ; preds = %10
   %14 = load ptr, ptr %12, align 8
-  %15 = getelementptr inbounds i8, ptr %12, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %12, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %18 = load ptr, ptr %17, align 8
   %19 = tail call ptr @create_notation(ptr noundef %14, ptr noundef %16, ptr noundef %18) #3
   br label %25
@@ -200,7 +200,7 @@ define hidden void @php_dom_named_node_map_get_named_item_into_zval(ptr noundef 
   br i1 %.not.i, label %php_dom_named_node_map_get_named_item.exit.thread, label %4
 
 4:                                                ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i32, ptr %5, align 8
   switch i32 %6, label %20 [
     i32 12, label %7
@@ -208,7 +208,7 @@ define hidden void @php_dom_named_node_map_get_named_item_into_zval(ptr noundef 
   ]
 
 7:                                                ; preds = %4, %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
   %.not25.i = icmp eq ptr %9, null
   br i1 %.not25.i, label %php_dom_named_node_map_get_named_item.exit.thread, label %10
@@ -222,9 +222,9 @@ define hidden void @php_dom_named_node_map_get_named_item_into_zval(ptr noundef 
 
 13:                                               ; preds = %10
   %14 = load ptr, ptr %12, align 8
-  %15 = getelementptr inbounds i8, ptr %12, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %12, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %18 = load ptr, ptr %17, align 8
   %19 = tail call ptr @create_notation(ptr noundef %14, ptr noundef %16, ptr noundef %18) #3
   br label %php_dom_named_node_map_get_named_item.exit
@@ -250,7 +250,7 @@ php_dom_named_node_map_get_named_item.exit:       ; preds = %10, %13, %23
   br label %29
 
 php_dom_named_node_map_get_named_item.exit.thread: ; preds = %3, %20, %7, %php_dom_named_node_map_get_named_item.exit
-  %28 = getelementptr inbounds i8, ptr %2, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 1, ptr %28, align 8
   br label %29
 
@@ -264,7 +264,7 @@ declare zeroext i1 @php_dom_create_object(ptr noundef, ptr noundef, ptr noundef)
 define hidden void @zim_DOMNamedNodeMap_getNamedItem(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca ptr, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 44
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4
   %7 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %6, ptr noundef nonnull @.str, ptr noundef nonnull %4, ptr noundef nonnull %3) #3
   %8 = icmp eq i32 %7, -1
@@ -277,7 +277,7 @@ define hidden void @zim_DOMNamedNodeMap_getNamedItem(ptr nocapture noundef reado
   br label %18
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 -24
   %16 = load ptr, ptr %15, align 8
@@ -300,7 +300,7 @@ define hidden ptr @php_dom_named_node_map_get_item(ptr noundef readonly %0, i64 
   br i1 %.not, label %.loopexit, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8
   switch i32 %5, label %16 [
     i32 12, label %6
@@ -308,7 +308,7 @@ define hidden ptr @php_dom_named_node_map_get_item(ptr noundef readonly %0, i64 
   ]
 
 6:                                                ; preds = %3, %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load ptr, ptr %7, align 8
   %.not25 = icmp eq ptr %8, null
   br i1 %.not25, label %.loopexit, label %9
@@ -333,7 +333,7 @@ define hidden ptr @php_dom_named_node_map_get_item(ptr noundef readonly %0, i64 
   br i1 %.not24, label %.loopexit, label %19
 
 19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %18, i64 88
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 88
   %.01826 = load ptr, ptr %20, align 8
   %21 = icmp sgt i64 %1, 0
   %22 = icmp ne ptr %.01826, null
@@ -344,7 +344,7 @@ define hidden ptr @php_dom_named_node_map_get_item(ptr noundef readonly %0, i64 
   %.01828 = phi ptr [ %.018, %.lr.ph ], [ %.01826, %19 ]
   %.027 = phi i64 [ %24, %.lr.ph ], [ 0, %19 ]
   %24 = add nuw nsw i64 %.027, 1
-  %25 = getelementptr inbounds i8, ptr %.01828, i64 48
+  %25 = getelementptr inbounds nuw i8, ptr %.01828, i64 48
   %.018 = load ptr, ptr %25, align 8
   %26 = icmp slt i64 %24, %1
   %27 = icmp ne ptr %.018, null
@@ -366,7 +366,7 @@ define hidden void @php_dom_named_node_map_get_item_into_zval(ptr noundef readon
   br i1 %.not.i, label %php_dom_named_node_map_get_item.exit.thread, label %4
 
 4:                                                ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i32, ptr %5, align 8
   switch i32 %6, label %17 [
     i32 12, label %7
@@ -374,7 +374,7 @@ define hidden void @php_dom_named_node_map_get_item_into_zval(ptr noundef readon
   ]
 
 7:                                                ; preds = %4, %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
   %.not25.i = icmp eq ptr %9, null
   br i1 %.not25.i, label %php_dom_named_node_map_get_item.exit.thread, label %10
@@ -399,7 +399,7 @@ define hidden void @php_dom_named_node_map_get_item_into_zval(ptr noundef readon
   br i1 %.not24.i, label %php_dom_named_node_map_get_item.exit.thread, label %20
 
 20:                                               ; preds = %17
-  %21 = getelementptr inbounds i8, ptr %19, i64 88
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 88
   %.01826.i = load ptr, ptr %21, align 8
   %22 = icmp sgt i64 %1, 0
   %23 = icmp ne ptr %.01826.i, null
@@ -410,7 +410,7 @@ define hidden void @php_dom_named_node_map_get_item_into_zval(ptr noundef readon
   %.01828.i = phi ptr [ %.018.i, %.lr.ph.i ], [ %.01826.i, %20 ]
   %.027.i = phi i64 [ %25, %.lr.ph.i ], [ 0, %20 ]
   %25 = add nuw nsw i64 %.027.i, 1
-  %26 = getelementptr inbounds i8, ptr %.01828.i, i64 48
+  %26 = getelementptr inbounds nuw i8, ptr %.01828.i, i64 48
   %.018.i = load ptr, ptr %26, align 8
   %27 = icmp slt i64 %25, %1
   %28 = icmp ne ptr %.018.i, null
@@ -428,7 +428,7 @@ php_dom_named_node_map_get_item.exit:             ; preds = %.lr.ph.i, %13, %15,
   br label %34
 
 php_dom_named_node_map_get_item.exit.thread:      ; preds = %3, %17, %7, %php_dom_named_node_map_get_item.exit
-  %33 = getelementptr inbounds i8, ptr %2, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 1, ptr %33, align 8
   br label %34
 
@@ -439,15 +439,15 @@ php_dom_named_node_map_get_item.exit.thread:      ; preds = %3, %17, %7, %php_do
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_DOMNamedNodeMap_item(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
-  %5 = getelementptr inbounds i8, ptr %0, i64 44
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4
   %cond = icmp eq i32 %6, 1
   br i1 %cond, label %7, label %.thread82
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 80
-  %9 = getelementptr inbounds i8, ptr %0, i64 88
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %10 = load i8, ptr %9, align 8
   %11 = icmp eq i8 %10, 4
   br i1 %11, label %.thread72, label %13
@@ -514,7 +514,7 @@ define hidden void @zim_DOMNamedNodeMap_getNamedItemNS(ptr nocapture noundef rea
   %6 = alloca ptr, align 8
   store i64 0, ptr %3, align 8
   store i64 0, ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 44
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %8 = load i32, ptr %7, align 4
   %9 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %8, ptr noundef nonnull @.str.2, ptr noundef nonnull %5, ptr noundef nonnull %4, ptr noundef nonnull %6, ptr noundef nonnull %3) #3
   %10 = icmp eq i32 %9, -1
@@ -527,7 +527,7 @@ define hidden void @zim_DOMNamedNodeMap_getNamedItemNS(ptr nocapture noundef rea
   br label %49
 
 14:                                               ; preds = %2
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 -24
   %18 = load ptr, ptr %17, align 8
@@ -535,7 +535,7 @@ define hidden void @zim_DOMNamedNodeMap_getNamedItemNS(ptr nocapture noundef rea
   br i1 %.not, label %.thread, label %19
 
 19:                                               ; preds = %14
-  %20 = getelementptr inbounds i8, ptr %18, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %21 = load i32, ptr %20, align 8
   switch i32 %21, label %37 [
     i32 12, label %22
@@ -543,7 +543,7 @@ define hidden void @zim_DOMNamedNodeMap_getNamedItemNS(ptr nocapture noundef rea
   ]
 
 22:                                               ; preds = %19, %19
-  %23 = getelementptr inbounds i8, ptr %18, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %18, i64 32
   %24 = load ptr, ptr %23, align 8
   %.not29 = icmp eq ptr %24, null
   br i1 %.not29, label %.thread, label %25
@@ -560,9 +560,9 @@ define hidden void @zim_DOMNamedNodeMap_getNamedItemNS(ptr nocapture noundef rea
 
 30:                                               ; preds = %29
   %31 = load ptr, ptr %28, align 8
-  %32 = getelementptr inbounds i8, ptr %28, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %28, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %35 = load ptr, ptr %34, align 8
   %36 = call ptr @create_notation(ptr noundef %31, ptr noundef %33, ptr noundef %35) #3
   br label %44
@@ -590,7 +590,7 @@ define hidden void @zim_DOMNamedNodeMap_getNamedItemNS(ptr nocapture noundef rea
   br label %49
 
 .thread:                                          ; preds = %14, %37, %22, %29, %44
-  %48 = getelementptr inbounds i8, ptr %1, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 1, ptr %48, align 8
   br label %49
 
@@ -602,7 +602,7 @@ declare ptr @xmlHasNsProp(ptr noundef, ptr noundef, ptr noundef) local_unnamed_a
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_DOMNamedNodeMap_count(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 44
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %.critedge, label %5
@@ -615,7 +615,7 @@ define hidden void @zim_DOMNamedNodeMap_count(ptr nocapture noundef readonly %0,
   br label %31
 
 .critedge:                                        ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 -24
   %11 = load ptr, ptr %10, align 8
@@ -623,7 +623,7 @@ define hidden void @zim_DOMNamedNodeMap_count(ptr nocapture noundef readonly %0,
   br i1 %.not.i, label %php_dom_get_namednodemap_length.exit, label %12
 
 12:                                               ; preds = %.critedge
-  %13 = getelementptr inbounds i8, ptr %11, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %14 = load i32, ptr %13, align 8
   switch i32 %14, label %20 [
     i32 12, label %15
@@ -631,7 +631,7 @@ define hidden void @zim_DOMNamedNodeMap_count(ptr nocapture noundef readonly %0,
   ]
 
 15:                                               ; preds = %12, %12
-  %16 = getelementptr inbounds i8, ptr %11, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %17 = load ptr, ptr %16, align 8
   %.not26.i = icmp eq ptr %17, null
   br i1 %.not26.i, label %php_dom_get_namednodemap_length.exit, label %18
@@ -647,7 +647,7 @@ define hidden void @zim_DOMNamedNodeMap_count(ptr nocapture noundef readonly %0,
   br i1 %.not23.i, label %php_dom_get_namednodemap_length.exit, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds i8, ptr %22, i64 88
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 88
   %25 = load ptr, ptr %24, align 8
   %.not24.i = icmp eq ptr %25, null
   br i1 %.not24.i, label %php_dom_get_namednodemap_length.exit, label %.preheader.i
@@ -655,7 +655,7 @@ define hidden void @zim_DOMNamedNodeMap_count(ptr nocapture noundef readonly %0,
 .preheader.i:                                     ; preds = %23, %.preheader.i
   %.1.i = phi i32 [ %28, %.preheader.i ], [ 1, %23 ]
   %.0.i = phi ptr [ %27, %.preheader.i ], [ %25, %23 ]
-  %26 = getelementptr inbounds i8, ptr %.0.i, i64 48
+  %26 = getelementptr inbounds nuw i8, ptr %.0.i, i64 48
   %27 = load ptr, ptr %26, align 8
   %.not25.i = icmp eq ptr %27, null
   %28 = add nuw nsw i32 %.1.i, 1
@@ -665,7 +665,7 @@ php_dom_get_namednodemap_length.exit:             ; preds = %.preheader.i, %.cri
   %.015.i = phi i32 [ 0, %.critedge ], [ %19, %18 ], [ 0, %15 ], [ 0, %23 ], [ 0, %20 ], [ %.1.i, %.preheader.i ]
   %29 = sext i32 %.015.i to i64
   store i64 %29, ptr %1, align 8
-  %30 = getelementptr inbounds i8, ptr %1, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 4, ptr %30, align 8
   br label %31
 
@@ -677,7 +677,7 @@ declare void @zend_wrong_parameters_none_error() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_DOMNamedNodeMap_getIterator(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 44
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %.critedge, label %5
@@ -687,7 +687,7 @@ define hidden void @zim_DOMNamedNodeMap_getIterator(ptr noundef %0, ptr noundef 
   br label %8
 
 .critedge:                                        ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = tail call i32 @zend_create_internal_iterator_zval(ptr noundef %1, ptr noundef nonnull %6) #3
   br label %8
 

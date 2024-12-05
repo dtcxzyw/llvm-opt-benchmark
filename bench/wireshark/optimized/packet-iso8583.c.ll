@@ -212,16 +212,16 @@ define hidden void @proto_register_iso8583() local_unnamed_addr #0 {
 2:                                                ; preds = %0, %2
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %2 ]
   %3 = getelementptr [128 x %struct.hf_register_info], ptr @proto_register_iso8583.hf_data, i64 0, i64 %indvars.iv
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store i32 -1, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 60
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 60
   store i32 0, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %3, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i32 0, ptr %7, align 16
-  %8 = getelementptr inbounds i8, ptr %3, i64 68
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 68
   store i32 -1, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %3, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 72
   store ptr null, ptr %9, align 8
   %10 = getelementptr [128 x i32], ptr @iso8583_data_bit, i64 0, i64 %indvars.iv
   store ptr %10, ptr %3, align 16
@@ -232,20 +232,20 @@ define hidden void @proto_register_iso8583() local_unnamed_addr #0 {
   store ptr %13, ptr %4, align 8
   %14 = tail call ptr @wmem_epan_scope() #6
   %15 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %14, ptr noundef nonnull @.str.120, i32 noundef %12) #6
-  %16 = getelementptr inbounds i8, ptr %3, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %15, ptr %16, align 16
   %.not = icmp eq i64 %indvars.iv, 0
   %spec.select = select i1 %.not, i32 2, i32 26
   %spec.select28 = select i1 %.not, i32 8, i32 0
-  %17 = getelementptr inbounds i8, ptr %3, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i32 %spec.select, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %3, i64 28
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 28
   store i32 %spec.select28, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %3, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %20 = getelementptr [128 x ptr], ptr @proto_register_iso8583.hf_data_blurb, i64 0, i64 %indvars.iv
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %19, i8 0, i64 16, i1 false)
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %3, i64 48
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store ptr %21, ptr %22, align 16
   %exitcond.not = icmp eq i64 %indvars.iv.next, 128
   br i1 %exitcond.not, label %23, label %2, !llvm.loop !4
@@ -327,7 +327,7 @@ define internal i32 @dissect_iso8583_msg(ptr noundef %0, ptr noundef %1, ptr nou
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %8, i8 0, i64 24, i1 false)
   %10 = tail call i32 @tvb_reported_length(ptr noundef %0) #6
   %11 = icmp ult i32 %10, 22
-  %indvars.iv.i.sroa.gep165 = getelementptr inbounds i8, ptr %8, i64 8
+  %indvars.iv.i.sroa.gep165 = getelementptr inbounds nuw i8, ptr %8, i64 8
   br i1 %11, label %dissect_databits.exit, label %12
 
 12:                                               ; preds = %4
@@ -336,14 +336,14 @@ define internal i32 @dissect_iso8583_msg(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %14, label %15, label %19
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %1, i64 408
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %17 = load ptr, ptr %16, align 8
   %18 = tail call ptr @tvb_get_string_enc(ptr noundef %17, ptr noundef %0, i32 noundef 2, i32 noundef 4, i32 noundef 0) #6
   br label %40
 
 19:                                               ; preds = %12
   %20 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef nonnull %7, i32 noundef 2, i64 noundef 2) #6
-  %21 = getelementptr inbounds i8, ptr %1, i64 408
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %22 = load ptr, ptr %21, align 8
   %23 = call noalias ptr @wmem_alloc(ptr noundef %22, i64 noundef 5) #6
   br label %.lr.ph.i
@@ -417,14 +417,14 @@ isnum_str.exit.thread174:                         ; preds = %53, %isnum_str.exit
   br i1 %56, label %57, label %61
 
 57:                                               ; preds = %isnum_str.exit.thread174
-  %58 = getelementptr inbounds i8, ptr %1, i64 408
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %59 = load ptr, ptr %58, align 8
   %60 = call ptr @tvb_get_string_enc(ptr noundef %59, ptr noundef %0, i32 noundef 6, i32 noundef 16, i32 noundef 0) #6
   br label %82
 
 61:                                               ; preds = %isnum_str.exit.thread174
   %62 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef nonnull %7, i32 noundef 6, i64 noundef 8) #6
-  %63 = getelementptr inbounds i8, ptr %1, i64 408
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %64 = load ptr, ptr %63, align 8
   %65 = call noalias ptr @wmem_alloc(ptr noundef %64, i64 noundef 9) #6
   br label %.lr.ph.i124
@@ -505,7 +505,7 @@ ishex_str.exit.thread179:                         ; preds = %95, %ishex_str.exit
 99:                                               ; preds = %ishex_str.exit.thread179, %98
   %storemerge = phi ptr [ @iso_1993, %98 ], [ @iso_1987, %ishex_str.exit.thread179 ]
   store ptr %storemerge, ptr @data_array, align 8
-  %100 = getelementptr inbounds i8, ptr %1, i64 8
+  %100 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %101 = load ptr, ptr %100, align 8
   call void @col_clear(ptr noundef %101, i32 noundef 34) #6
   %102 = load ptr, ptr %100, align 8
@@ -553,7 +553,7 @@ ishex_str.exit.thread179:                         ; preds = %95, %ishex_str.exit
 133:                                              ; preds = %131, %129
   %.0114 = phi i32 [ 6, %129 ], [ 4, %131 ]
   %134 = load i32, ptr %9, align 4
-  %135 = getelementptr inbounds i8, ptr %1, i64 408
+  %135 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %136 = load ptr, ptr @g_ascii_table, align 8
   br label %138
 
@@ -789,7 +789,7 @@ ishex_str.exit149.thread:                         ; preds = %226, %231, %ishex_s
   br i1 %241, label %.lr.ph.i152, label %._crit_edge.i
 
 .lr.ph.i152:                                      ; preds = %.preheader.i
-  %242 = getelementptr inbounds i8, ptr %5, i64 1
+  %242 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %.not110.i.i = icmp eq ptr %118, null
   %wide.trip.count.i = zext nneg i32 %240 to i64
   br label %243
@@ -820,13 +820,13 @@ ishex_str.exit149.thread:                         ; preds = %226, %231, %ishex_s
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   %253 = load ptr, ptr @data_array, align 8
   %254 = getelementptr %struct.iso_type, ptr %253, i64 %indvars.iv.i153
-  %255 = getelementptr inbounds i8, ptr %254, i64 8
+  %255 = getelementptr inbounds nuw i8, ptr %254, i64 8
   %256 = load i32, ptr %255, align 4
   %257 = icmp eq i32 %256, 0
   br i1 %257, label %258, label %261
 
 258:                                              ; preds = %252
-  %259 = getelementptr inbounds i8, ptr %254, i64 4
+  %259 = getelementptr inbounds nuw i8, ptr %254, i64 4
   %260 = load i32, ptr %259, align 4
   store i32 %260, ptr %6, align 4
   br label %298
@@ -919,7 +919,7 @@ thread-pre-split.i.i:                             ; preds = %267
   %300 = phi ptr [ %.pre.i.i, %._crit_edge118.i.i ], [ %253, %261 ]
   %301 = phi i32 [ %299, %._crit_edge118.i.i ], [ %256, %261 ]
   %302 = getelementptr %struct.iso_type, ptr %300, i64 %indvars.iv.i153
-  %303 = getelementptr inbounds i8, ptr %302, i64 4
+  %303 = getelementptr inbounds nuw i8, ptr %302, i64 4
   %304 = load i32, ptr %303, align 4
   %305 = icmp ugt i32 %301, %304
   br i1 %305, label %.thread.i, label %306

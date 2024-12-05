@@ -151,13 +151,13 @@ $_ZTIN14VrmlTranslator10KeywordMap4ElemE = comdat any
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN14VrmlTranslator10UTF8BufferD2Ev(ptr noundef nonnull align 8 dereferenceable(49) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN14VrmlTranslator6BufferE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
   br i1 %4, label %_ZN14VrmlTranslator6Buffer5CloseEv.exit.i, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8
   %.not.i.i = icmp eq ptr %7, null
   br i1 %.not.i.i, label %_ZN14VrmlTranslator6Buffer5CloseEv.exit.i, label %8
@@ -168,7 +168,7 @@ define linkonce_odr void @_ZN14VrmlTranslator10UTF8BufferD2Ev(ptr noundef nonnul
   br label %_ZN14VrmlTranslator6Buffer5CloseEv.exit.i
 
 _ZN14VrmlTranslator6Buffer5CloseEv.exit.i:        ; preds = %8, %5, %1
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   %.not.i = icmp eq ptr %11, null
   br i1 %.not.i, label %_ZN14VrmlTranslator6BufferD2Ev.exit, label %12
@@ -185,13 +185,13 @@ _ZN14VrmlTranslator6BufferD2Ev.exit:              ; preds = %_ZN14VrmlTranslator
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN14VrmlTranslator10UTF8BufferD0Ev(ptr noundef nonnull align 8 dereferenceable(49) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN14VrmlTranslator6BufferE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
   br i1 %4, label %_ZN14VrmlTranslator6Buffer5CloseEv.exit.i.i, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8
   %.not.i.i.i = icmp eq ptr %7, null
   br i1 %.not.i.i.i, label %_ZN14VrmlTranslator6Buffer5CloseEv.exit.i.i, label %8
@@ -202,7 +202,7 @@ define linkonce_odr void @_ZN14VrmlTranslator10UTF8BufferD0Ev(ptr noundef nonnul
   br label %_ZN14VrmlTranslator6Buffer5CloseEv.exit.i.i
 
 _ZN14VrmlTranslator6Buffer5CloseEv.exit.i.i:      ; preds = %8, %5, %1
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   %.not.i.i = icmp eq ptr %11, null
   br i1 %.not.i.i, label %_ZN14VrmlTranslator10UTF8BufferD2Ev.exit, label %12
@@ -218,13 +218,13 @@ _ZN14VrmlTranslator10UTF8BufferD2Ev.exit:         ; preds = %_ZN14VrmlTranslator
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define void @_ZN14VrmlTranslator6Buffer5CloseEv(ptr nocapture noundef nonnull align 8 dereferenceable(49) %0) unnamed_addr #1 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
   br i1 %4, label %10, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %10, label %8
@@ -316,15 +316,15 @@ define noundef range(i32 0, 2097152) i32 @_ZN14VrmlTranslator10UTF8Buffer4ReadEv
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZN14VrmlTranslator6Buffer4PeekEv(ptr noundef nonnull align 8 dereferenceable(49) %0) unnamed_addr #2 align 2 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef i32 %4(ptr noundef nonnull align 8 dereferenceable(49) %0)
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noundef i32 %8(ptr noundef nonnull align 8 dereferenceable(49) %0)
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 56
   %12 = load ptr, ptr %11, align 8
   tail call void %12(ptr noundef nonnull align 8 dereferenceable(49) %0, i32 noundef %5)
   ret i32 %9
@@ -339,11 +339,11 @@ define noundef nonnull ptr @_ZN14VrmlTranslator6Buffer9GetStringEii(ptr noundef 
   %8 = select i1 %6, i64 -1, i64 %7
   %9 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %8) #21
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %12 = load ptr, ptr %11, align 8
   %13 = tail call noundef i32 %12(ptr noundef nonnull align 8 dereferenceable(49) %0)
   %14 = load ptr, ptr %0, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 56
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 56
   %16 = load ptr, ptr %15, align 8
   tail call void %16(ptr noundef nonnull align 8 dereferenceable(49) %0, i32 noundef %1)
   %17 = icmp sgt i32 %4, 0
@@ -352,10 +352,10 @@ define noundef nonnull ptr @_ZN14VrmlTranslator6Buffer9GetStringEii(ptr noundef 
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %3 ]
   %18 = load ptr, ptr %0, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %20 = load ptr, ptr %19, align 8
   %21 = tail call noundef i32 %20(ptr noundef nonnull align 8 dereferenceable(49) %0)
-  %22 = getelementptr inbounds i32, ptr %9, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv
   store i32 %21, ptr %22, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %5
@@ -363,7 +363,7 @@ define noundef nonnull ptr @_ZN14VrmlTranslator6Buffer9GetStringEii(ptr noundef 
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %23 = load ptr, ptr %0, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 56
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 56
   %25 = load ptr, ptr %24, align 8
   tail call void %25(ptr noundef nonnull align 8 dereferenceable(49) %0, i32 noundef %13)
   ret ptr %9
@@ -371,9 +371,9 @@ define noundef nonnull ptr @_ZN14VrmlTranslator6Buffer9GetStringEii(ptr noundef 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i32 @_ZN14VrmlTranslator6Buffer6GetPosEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %0) unnamed_addr #3 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i32, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 20
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %5 = load i32, ptr %4, align 4
   %6 = add nsw i32 %5, %3
   ret i32 %6
@@ -382,10 +382,10 @@ define noundef i32 @_ZN14VrmlTranslator6Buffer6GetPosEv(ptr nocapture noundef no
 ; Function Attrs: mustprogress uwtable
 define void @_ZN14VrmlTranslator6Buffer6SetPosEi(ptr nocapture noundef nonnull align 8 dereferenceable(49) %0, i32 noundef %1) unnamed_addr #2 align 2 {
   %3 = alloca [50 x i8], align 16
-  %4 = getelementptr inbounds i8, ptr %0, i64 28
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %5 = load i32, ptr %4, align 4
   %.not = icmp slt i32 %1, %5
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8
   %.not12 = icmp eq ptr %7, null
   %or.cond = select i1 %.not, i1 true, i1 %.not12
@@ -400,9 +400,9 @@ _ZN14VrmlTranslator6Buffer7CanSeekEv.exit:        ; preds = %2
   br i1 %or.cond22, label %.critedge, label %.preheader
 
 .preheader:                                       ; preds = %_ZN14VrmlTranslator6Buffer7CanSeekEv.exit
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre = load i32, ptr %12, align 8
   br label %13
 
@@ -478,13 +478,13 @@ _ZN14VrmlTranslator6Buffer19ReadNextStreamChunkEv.exit: ; preds = %28
   unreachable
 
 46:                                               ; preds = %.critedge
-  %47 = getelementptr inbounds i8, ptr %0, i64 20
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %48 = load i32, ptr %47, align 4
   %.not15 = icmp slt i32 %1, %48
   br i1 %.not15, label %56, label %49
 
 49:                                               ; preds = %46
-  %50 = getelementptr inbounds i8, ptr %0, i64 24
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %51 = load i32, ptr %50, align 8
   %52 = add nsw i32 %51, %48
   %53 = icmp slt i32 %1, %52
@@ -502,15 +502,15 @@ _ZN14VrmlTranslator6Buffer19ReadNextStreamChunkEv.exit: ; preds = %28
 58:                                               ; preds = %56
   %59 = zext nneg i32 %1 to i64
   %60 = tail call i32 @fseek(ptr noundef nonnull %57, i64 noundef %59, i32 noundef 0)
-  %61 = getelementptr inbounds i8, ptr %0, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %0, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %64 = load i32, ptr %63, align 8
   %65 = sext i32 %64 to i64
   %66 = load ptr, ptr %6, align 8
   %67 = tail call i64 @fread(ptr noundef %62, i64 noundef 1, i64 noundef %65, ptr noundef %66)
   %68 = trunc i64 %67 to i32
-  %69 = getelementptr inbounds i8, ptr %0, i64 24
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %68, ptr %69, align 8
   store i32 %1, ptr %47, align 4
   br label %72
@@ -521,7 +521,7 @@ _ZN14VrmlTranslator6Buffer19ReadNextStreamChunkEv.exit: ; preds = %28
 
 72:                                               ; preds = %58, %70, %54
   %.sink = phi i32 [ 0, %58 ], [ %71, %70 ], [ %55, %54 ]
-  %73 = getelementptr inbounds i8, ptr %0, i64 32
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 %.sink, ptr %73, align 8
   ret void
 }
@@ -535,37 +535,37 @@ define void @_ZN14VrmlTranslator6BufferD0Ev(ptr noundef nonnull align 8 derefere
 
 ; Function Attrs: mustprogress uwtable
 define noundef range(i32 0, 65537) i32 @_ZN14VrmlTranslator6Buffer4ReadEv(ptr noundef nonnull align 8 dereferenceable(49) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i32, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8
   %6 = icmp slt i32 %3, %5
   br i1 %6, label %_ZN14VrmlTranslator6Buffer19ReadNextStreamChunkEv.exit.thread.sink.split, label %7
 
 7:                                                ; preds = %1
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %10 = load ptr, ptr %9, align 8
   %11 = tail call noundef i32 %10(ptr noundef nonnull align 8 dereferenceable(49) %0)
-  %12 = getelementptr inbounds i8, ptr %0, i64 28
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %13 = load i32, ptr %12, align 4
   %14 = icmp slt i32 %11, %13
   br i1 %14, label %15, label %24
 
 15:                                               ; preds = %7
   %16 = load ptr, ptr %0, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 48
   %18 = load ptr, ptr %17, align 8
   %19 = tail call noundef i32 %18(ptr noundef nonnull align 8 dereferenceable(49) %0)
   %20 = load ptr, ptr %0, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 56
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 56
   %22 = load ptr, ptr %21, align 8
   tail call void %22(ptr noundef nonnull align 8 dereferenceable(49) %0, i32 noundef %19)
   %23 = load i32, ptr %2, align 8
   br label %_ZN14VrmlTranslator6Buffer19ReadNextStreamChunkEv.exit.thread.sink.split
 
 24:                                               ; preds = %7
-  %25 = getelementptr inbounds i8, ptr %0, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %26 = load ptr, ptr %25, align 8
   %.not = icmp eq ptr %26, null
   br i1 %.not, label %_ZN14VrmlTranslator6Buffer19ReadNextStreamChunkEv.exit.thread, label %_ZN14VrmlTranslator6Buffer7CanSeekEv.exit
@@ -576,7 +576,7 @@ _ZN14VrmlTranslator6Buffer7CanSeekEv.exit:        ; preds = %24
   br i1 %.not5, label %28, label %_ZN14VrmlTranslator6Buffer19ReadNextStreamChunkEv.exit.thread
 
 28:                                               ; preds = %_ZN14VrmlTranslator6Buffer7CanSeekEv.exit
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load i32, ptr %29, align 8
   %31 = load i32, ptr %4, align 8
   %32 = sub nsw i32 %30, %31
@@ -584,7 +584,7 @@ _ZN14VrmlTranslator6Buffer7CanSeekEv.exit:        ; preds = %24
   br i1 %33, label %34, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %28
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %0, i64 8
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre12.i = load ptr, ptr %.phi.trans.insert.i, align 8
   br label %45
 
@@ -593,7 +593,7 @@ _ZN14VrmlTranslator6Buffer7CanSeekEv.exit:        ; preds = %24
   store i32 %35, ptr %29, align 8
   %36 = sext i32 %35 to i64
   %37 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %36) #21
-  %38 = getelementptr inbounds i8, ptr %0, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %39 = load ptr, ptr %38, align 8
   %40 = sext i32 %31 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %37, ptr align 1 %39, i64 %40, i1 false)
@@ -633,7 +633,7 @@ _ZN14VrmlTranslator6Buffer7CanSeekEv.exit:        ; preds = %24
 
 _ZN14VrmlTranslator6Buffer19ReadNextStreamChunkEv.exit.thread.sink.split: ; preds = %1, %15, %55
   %.sink10 = phi i32 [ %58, %55 ], [ %23, %15 ], [ %3, %1 ]
-  %.sink.in = getelementptr inbounds i8, ptr %0, i64 8
+  %.sink.in = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sink = load ptr, ptr %.sink.in, align 8
   %59 = add nsw i32 %.sink10, 1
   store i32 %59, ptr %2, align 8
@@ -726,13 +726,13 @@ define noalias noundef ptr @_Z24coco_string_create_upperPKw(ptr noundef readonly
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %10 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
   %11 = load i32, ptr %10, align 4
   %12 = add i32 %11, -97
   %or.cond = icmp ult i32 %12, 26
   %13 = add nsw i32 %11, -32
   %spec.select = select i1 %or.cond, i32 %13, i32 %11
-  %14 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv
   store i32 %spec.select, ptr %14, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -774,7 +774,7 @@ define noalias noundef ptr @_Z24coco_string_create_lowerPKw(ptr noundef readonly
   %or.cond.i = icmp ult i32 %12, 26
   %13 = or disjoint i32 %11, 32
   %spec.select.i = select i1 %or.cond.i, i32 %13, i32 %11
-  %14 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv.i
   store i32 %spec.select.i, ptr %14, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %6
@@ -820,7 +820,7 @@ define noalias noundef ptr @_Z24coco_string_create_lowerPKwii(ptr noundef readon
   %or.cond = icmp ult i32 %13, 26
   %14 = or disjoint i32 %12, 32
   %spec.select = select i1 %or.cond, i32 %14, i32 %12
-  %15 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv
   store i32 %spec.select, ptr %15, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %6
@@ -1098,7 +1098,7 @@ define noundef range(i32 0, -2147483648) i32 @_Z16coco_string_hashPKw(ptr nounde
   %.0814 = phi ptr [ %6, %.lr.ph ], [ %0, %.preheader ]
   %4 = mul nsw i32 %.015, 7
   %5 = xor i32 %4, %3
-  %6 = getelementptr inbounds i8, ptr %.0814, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %.0814, i64 4
   %7 = load i32, ptr %6, align 4
   %.not12 = icmp eq i32 %7, 0
   br i1 %.not12, label %._crit_edge, label %.lr.ph, !llvm.loop !10
@@ -1141,10 +1141,10 @@ define noalias noundef nonnull ptr @_Z18coco_string_createPKc(ptr noundef readon
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %10 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %11 = load i8, ptr %10, align 1
   %12 = sext i8 %11 to i32
-  %13 = getelementptr inbounds i32, ptr %8, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
   store i32 %12, ptr %13, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1154,8 +1154,8 @@ define noalias noundef nonnull ptr @_Z18coco_string_createPKc(ptr noundef readon
   %14 = phi ptr [ %2, %.thread.thread ], [ %8, %.thread ], [ %8, %.lr.ph ]
   %.0121621 = phi i64 [ 0, %.thread.thread ], [ %.fr17, %.thread ], [ %.fr17, %.lr.ph ]
   %sext22 = shl i64 %.0121621, 32
-  %15 = ashr exact i64 %sext22, 32
-  %16 = getelementptr inbounds i32, ptr %14, i64 %15
+  %15 = ashr exact i64 %sext22, 30
+  %16 = getelementptr inbounds i8, ptr %14, i64 %15
   store i32 0, ptr %16, align 4
   ret ptr %14
 }
@@ -1187,10 +1187,10 @@ _Z18coco_string_lengthPKw.exit:                   ; preds = %1, %2
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %9 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
   %10 = load i32, ptr %9, align 4
   %11 = trunc i32 %10 to i8
-  %12 = getelementptr inbounds i8, ptr %7, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv
   store i8 %11, ptr %12, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1226,7 +1226,7 @@ define void @_ZN14VrmlTranslator5TokenC2Ev(ptr nocapture noundef nonnull writeon
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN14VrmlTranslator5TokenD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %_Z18coco_string_deleteRPw.exit, label %5
@@ -1244,9 +1244,9 @@ _Z18coco_string_deleteRPw.exit:                   ; preds = %1, %5
 define void @_ZN14VrmlTranslator6BufferC2EP8_IO_FILEb(ptr noundef nonnull align 8 dereferenceable(49) initializes((0, 32), (40, 49)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #2 align 2 {
   %4 = zext i1 %2 to i8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN14VrmlTranslator6BufferE, i64 16), ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %1, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i8 %4, ptr %6, align 8
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %.thread, label %_ZN14VrmlTranslator6Buffer7CanSeekEv.exit
@@ -1257,11 +1257,11 @@ _ZN14VrmlTranslator6Buffer7CanSeekEv.exit:        ; preds = %3
   br i1 %.not, label %.thread, label %11
 
 .thread:                                          ; preds = %_ZN14VrmlTranslator6Buffer7CanSeekEv.exit, %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 20
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 0, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 28
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 0, ptr %10, align 4
   br label %21
 
@@ -1269,15 +1269,15 @@ _ZN14VrmlTranslator6Buffer7CanSeekEv.exit:        ; preds = %3
   %12 = tail call i32 @fseek(ptr noundef nonnull %1, i64 noundef 0, i32 noundef 2)
   %13 = tail call i64 @ftell(ptr noundef nonnull %1)
   %14 = trunc i64 %13 to i32
-  %15 = getelementptr inbounds i8, ptr %0, i64 28
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %14, ptr %15, align 4
   %16 = tail call i32 @fseek(ptr noundef nonnull %1, i64 noundef 0, i32 noundef 0)
   %17 = load i32, ptr %15, align 4
   %.fr = freeze i32 %17
   %spec.select = tail call i32 @llvm.smin.i32(i32 %.fr, i32 65536)
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %spec.select, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 20
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 2147483647, ptr %19, align 4
   %20 = icmp sgt i32 %.fr, 0
   %spec.select12 = select i1 %20, i32 %spec.select, i32 1024
@@ -1287,20 +1287,20 @@ _ZN14VrmlTranslator6Buffer7CanSeekEv.exit:        ; preds = %3
   %22 = phi i32 [ 0, %.thread ], [ %spec.select, %11 ]
   %23 = phi i32 [ 0, %.thread ], [ %.fr, %11 ]
   %24 = phi i32 [ 1024, %.thread ], [ %spec.select12, %11 ]
-  %25 = getelementptr inbounds i8, ptr %0, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %24, ptr %25, align 8
   %26 = zext nneg i32 %24 to i64
   %27 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %26) #21
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %27, ptr %28, align 8
   %29 = icmp sgt i32 %23, 0
   br i1 %29, label %30, label %36
 
 30:                                               ; preds = %21
-  %31 = getelementptr inbounds i8, ptr %0, i64 28
-  %32 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %33 = load ptr, ptr %0, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 56
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 56
   %35 = load ptr, ptr %34, align 8
   tail call void %35(ptr noundef nonnull align 8 dereferenceable(49) %0, i32 noundef 0)
   %.pre = load i32, ptr %32, align 8
@@ -1308,7 +1308,7 @@ _ZN14VrmlTranslator6Buffer7CanSeekEv.exit:        ; preds = %3
   br label %38
 
 36:                                               ; preds = %21
-  %37 = getelementptr inbounds i8, ptr %0, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 0, ptr %37, align 8
   br label %38
 
@@ -1330,7 +1330,7 @@ _ZN14VrmlTranslator6Buffer7CanSeekEv.exit8:       ; preds = %42
 
 45:                                               ; preds = %_ZN14VrmlTranslator6Buffer7CanSeekEv.exit8
   %46 = load ptr, ptr %0, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %48 = load ptr, ptr %47, align 8
   tail call void %48(ptr noundef nonnull align 8 dereferenceable(49) %0)
   br label %_ZN14VrmlTranslator6Buffer7CanSeekEv.exit8.thread
@@ -1341,7 +1341,7 @@ _ZN14VrmlTranslator6Buffer7CanSeekEv.exit8.thread: ; preds = %42, %45, %_ZN14Vrm
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define noundef zeroext i1 @_ZN14VrmlTranslator6Buffer7CanSeekEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %0) local_unnamed_addr #1 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %7, label %4
@@ -1365,39 +1365,39 @@ declare noundef i64 @ftell(ptr nocapture noundef) local_unnamed_addr #12
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN14VrmlTranslator6BufferC2EPS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(49) initializes((0, 36), (40, 49)) %0, ptr nocapture noundef %1) unnamed_addr #13 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN14VrmlTranslator6BufferE, i64 16), ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %4, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load i32, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %7, ptr %8, align 8
   store ptr null, ptr %3, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 20
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %10 = load i32, ptr %9, align 4
-  %11 = getelementptr inbounds i8, ptr %0, i64 20
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %10, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %1, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %13 = load i32, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %13, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 28
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %16 = load i32, ptr %15, align 4
-  %17 = getelementptr inbounds i8, ptr %0, i64 28
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %16, ptr %17, align 4
-  %18 = getelementptr inbounds i8, ptr %1, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %19 = load i32, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 %19, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %22, ptr %23, align 8
   store ptr null, ptr %21, align 8
-  %24 = getelementptr inbounds i8, ptr %1, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %25 = load i8, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 48
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %27 = and i8 %25, 1
   store i8 %27, ptr %26, align 8
   ret void
@@ -1408,20 +1408,20 @@ define void @_ZN14VrmlTranslator6BufferC2EPKhi(ptr nocapture noundef nonnull wri
   store ptr getelementptr inbounds (i8, ptr @_ZTVN14VrmlTranslator6BufferE, i64 16), ptr %0, align 8
   %4 = sext i32 %2 to i64
   %5 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %4) #21
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %5, ptr %6, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %5, ptr align 1 %1, i64 %4, i1 false)
-  %7 = getelementptr inbounds i8, ptr %0, i64 20
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 0, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %2, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %2, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 28
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %2, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 0, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr null, ptr %12, align 8
   ret void
 }
@@ -1432,13 +1432,13 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN14VrmlTranslator6BufferD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(49) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN14VrmlTranslator6BufferE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
   br i1 %4, label %_ZN14VrmlTranslator6Buffer5CloseEv.exit, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8
   %.not.i = icmp eq ptr %7, null
   br i1 %.not.i, label %_ZN14VrmlTranslator6Buffer5CloseEv.exit, label %8
@@ -1449,7 +1449,7 @@ define void @_ZN14VrmlTranslator6BufferD2Ev(ptr nocapture noundef nonnull align 
   br label %_ZN14VrmlTranslator6Buffer5CloseEv.exit
 
 _ZN14VrmlTranslator6Buffer5CloseEv.exit:          ; preds = %8, %5, %1
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %13, label %12
@@ -1473,16 +1473,16 @@ declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
 define noundef range(i32 0, -2147483648) i32 @_ZN14VrmlTranslator6Buffer19ReadNextStreamChunkEv(ptr nocapture noundef nonnull align 8 dereferenceable(49) %0) local_unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8
   %6 = sub nsw i32 %3, %5
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %8, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %1
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre12 = load ptr, ptr %.phi.trans.insert, align 8
   br label %19
 
@@ -1491,7 +1491,7 @@ define noundef range(i32 0, -2147483648) i32 @_ZN14VrmlTranslator6Buffer19ReadNe
   store i32 %9, ptr %2, align 8
   %10 = sext i32 %9 to i64
   %11 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %10) #21
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = sext i32 %5 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %11, ptr align 1 %13, i64 %14, i1 false)
@@ -1515,7 +1515,7 @@ define noundef range(i32 0, -2147483648) i32 @_ZN14VrmlTranslator6Buffer19ReadNe
   %22 = sext i32 %20 to i64
   %23 = getelementptr inbounds i8, ptr %21, i64 %22
   %24 = sext i32 %.08 to i64
-  %25 = getelementptr inbounds i8, ptr %0, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %26 = load ptr, ptr %25, align 8
   %27 = tail call i64 @fread(ptr noundef %23, i64 noundef 1, i64 noundef %24, ptr noundef %26)
   %28 = trunc i64 %27 to i32
@@ -1526,7 +1526,7 @@ define noundef range(i32 0, -2147483648) i32 @_ZN14VrmlTranslator6Buffer19ReadNe
   %31 = load i32, ptr %4, align 8
   %32 = add nsw i32 %31, %28
   store i32 %32, ptr %4, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 28
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %32, ptr %33, align 4
   br label %34
 
@@ -1548,19 +1548,19 @@ declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr 
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN14VrmlTranslator7ScannerC2EPKhi(ptr noundef nonnull align 8 dereferenceable(160) initializes((56, 80)) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr getelementptr inbounds (i8, ptr @_ZTVN14VrmlTranslator11StartStatesE, i64 16), ptr %4, align 8
   %5 = tail call noalias noundef nonnull dereferenceable(1024) ptr @_Znam(i64 noundef 1024) #21
-  %6 = getelementptr inbounds i8, ptr %0, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %5, ptr %6, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %5, i8 0, i64 1024, i1 false)
-  %7 = getelementptr inbounds i8, ptr %0, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr getelementptr inbounds (i8, ptr @_ZTVN14VrmlTranslator10KeywordMapE, i64 16), ptr %7, align 8
   %8 = invoke noalias noundef nonnull dereferenceable(1024) ptr @_Znam(i64 noundef 1024) #21
           to label %9 unwind label %16
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %0, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %8, ptr %10, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %8, i8 0, i64 1024, i1 false)
   %11 = invoke noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #21
@@ -1571,7 +1571,7 @@ define void @_ZN14VrmlTranslator7ScannerC2EPKhi(ptr noundef nonnull align 8 dere
           to label %13 unwind label %20
 
 13:                                               ; preds = %12
-  %14 = getelementptr inbounds i8, ptr %0, i64 152
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store ptr %11, ptr %14, align 8
   invoke void @_ZN14VrmlTranslator7Scanner4InitEv(ptr noundef nonnull align 8 dereferenceable(160) %0)
           to label %15 unwind label %18
@@ -1612,22 +1612,22 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #5
 ; Function Attrs: mustprogress uwtable
 define void @_ZN14VrmlTranslator7Scanner4InitEv(ptr noundef nonnull align 8 dereferenceable(160) initializes((32, 33), (36, 48)) %0) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 .critedge:
-  %1 = getelementptr inbounds i8, ptr %0, i64 32
+  %1 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i8 10, ptr %1, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 36
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 0, ptr %2, align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 44
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i32 85, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 85, ptr %4, align 8
   %5 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
   store i32 33, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 1, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 264
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 264
   %11 = load ptr, ptr %10, align 8
   store ptr %11, ptr %7, align 8
   store ptr %5, ptr %10, align 8
@@ -1638,11 +1638,11 @@ define void @_ZN14VrmlTranslator7Scanner4InitEv(ptr noundef nonnull align 8 dere
   %13 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
   %14 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %14, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %13, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 4
   store i32 1, ptr %15, align 4
-  %16 = getelementptr inbounds i8, ptr %13, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %17 = load ptr, ptr %8, align 8
-  %18 = getelementptr inbounds ptr, ptr %17, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8
   store ptr %19, ptr %16, align 8
   store ptr %13, ptr %18, align 8
@@ -1655,11 +1655,11 @@ define void @_ZN14VrmlTranslator7Scanner4InitEv(ptr noundef nonnull align 8 dere
   %20 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
   %21 = trunc nuw nsw i64 %indvars.iv79 to i32
   store i32 %21, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %20, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 4
   store i32 1, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %20, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %24 = load ptr, ptr %8, align 8
-  %25 = getelementptr inbounds ptr, ptr %24, i64 %indvars.iv79
+  %25 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv79
   %26 = load ptr, ptr %25, align 8
   store ptr %26, ptr %23, align 8
   store ptr %20, ptr %25, align 8
@@ -1670,11 +1670,11 @@ define void @_ZN14VrmlTranslator7Scanner4InitEv(ptr noundef nonnull align 8 dere
 .critedge45:                                      ; preds = %.preheader70
   %27 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
   store i32 47, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 4
   store i32 1, ptr %28, align 4
-  %29 = getelementptr inbounds i8, ptr %27, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %30 = load ptr, ptr %8, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 376
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 376
   %32 = load ptr, ptr %31, align 8
   store ptr %32, ptr %29, align 8
   store ptr %27, ptr %31, align 8
@@ -1685,11 +1685,11 @@ define void @_ZN14VrmlTranslator7Scanner4InitEv(ptr noundef nonnull align 8 dere
   %34 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
   %35 = trunc nuw nsw i64 %indvars.iv83 to i32
   store i32 %35, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %34, i64 4
+  %36 = getelementptr inbounds nuw i8, ptr %34, i64 4
   store i32 1, ptr %36, align 4
-  %37 = getelementptr inbounds i8, ptr %34, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %38 = load ptr, ptr %8, align 8
-  %39 = getelementptr inbounds ptr, ptr %38, i64 %indvars.iv83
+  %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv83
   %40 = load ptr, ptr %39, align 8
   store ptr %40, ptr %37, align 8
   store ptr %34, ptr %39, align 8
@@ -1702,11 +1702,11 @@ define void @_ZN14VrmlTranslator7Scanner4InitEv(ptr noundef nonnull align 8 dere
   %41 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
   %42 = trunc nuw nsw i64 %indvars.iv87 to i32
   store i32 %42, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %41, i64 4
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 4
   store i32 1, ptr %43, align 4
-  %44 = getelementptr inbounds i8, ptr %41, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %45 = load ptr, ptr %8, align 8
-  %46 = getelementptr inbounds ptr, ptr %45, i64 %indvars.iv87
+  %46 = getelementptr inbounds nuw ptr, ptr %45, i64 %indvars.iv87
   %47 = load ptr, ptr %46, align 8
   store ptr %47, ptr %44, align 8
   store ptr %41, ptr %46, align 8
@@ -1719,11 +1719,11 @@ define void @_ZN14VrmlTranslator7Scanner4InitEv(ptr noundef nonnull align 8 dere
   %48 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
   %49 = trunc nuw nsw i64 %indvars.iv91 to i32
   store i32 %49, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %48, i64 4
+  %50 = getelementptr inbounds nuw i8, ptr %48, i64 4
   store i32 1, ptr %50, align 4
-  %51 = getelementptr inbounds i8, ptr %48, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %52 = load ptr, ptr %8, align 8
-  %53 = getelementptr inbounds ptr, ptr %52, i64 %indvars.iv91
+  %53 = getelementptr inbounds nuw ptr, ptr %52, i64 %indvars.iv91
   %54 = load ptr, ptr %53, align 8
   store ptr %54, ptr %51, align 8
   store ptr %48, ptr %53, align 8
@@ -1734,21 +1734,21 @@ define void @_ZN14VrmlTranslator7Scanner4InitEv(ptr noundef nonnull align 8 dere
 .critedge47:                                      ; preds = %.preheader68
   %55 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
   store i32 124, ptr %55, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 4
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 4
   store i32 1, ptr %56, align 4
-  %57 = getelementptr inbounds i8, ptr %55, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %58 = load ptr, ptr %8, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 992
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 992
   %60 = load ptr, ptr %59, align 8
   store ptr %60, ptr %57, align 8
   store ptr %55, ptr %59, align 8
   %61 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
   store i32 126, ptr %61, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 4
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 4
   store i32 1, ptr %62, align 4
-  %63 = getelementptr inbounds i8, ptr %61, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %64 = load ptr, ptr %8, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 1008
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 1008
   %66 = load ptr, ptr %65, align 8
   store ptr %66, ptr %63, align 8
   store ptr %61, ptr %65, align 8
@@ -1758,13 +1758,13 @@ define void @_ZN14VrmlTranslator7Scanner4InitEv(ptr noundef nonnull align 8 dere
   %.976 = phi i32 [ 128, %.critedge47 ], [ %76, %67 ]
   %68 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
   store i32 %.976, ptr %68, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 4
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 4
   store i32 1, ptr %69, align 4
-  %70 = getelementptr inbounds i8, ptr %68, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %71 = and i32 %.976, 127
   %72 = load ptr, ptr %8, align 8
   %73 = zext nneg i32 %71 to i64
-  %74 = getelementptr inbounds ptr, ptr %72, i64 %73
+  %74 = getelementptr inbounds nuw ptr, ptr %72, i64 %73
   %75 = load ptr, ptr %74, align 8
   store ptr %75, ptr %70, align 8
   store ptr %68, ptr %74, align 8
@@ -1777,11 +1777,11 @@ define void @_ZN14VrmlTranslator7Scanner4InitEv(ptr noundef nonnull align 8 dere
   %77 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
   %78 = trunc nuw nsw i64 %indvars.iv96 to i32
   store i32 %78, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %77, i64 4
+  %79 = getelementptr inbounds nuw i8, ptr %77, i64 4
   store i32 35, ptr %79, align 4
-  %80 = getelementptr inbounds i8, ptr %77, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %77, i64 8
   %81 = load ptr, ptr %8, align 8
-  %82 = getelementptr inbounds ptr, ptr %81, i64 %indvars.iv96
+  %82 = getelementptr inbounds nuw ptr, ptr %81, i64 %indvars.iv96
   %83 = load ptr, ptr %82, align 8
   store ptr %83, ptr %80, align 8
   store ptr %77, ptr %82, align 8
@@ -1792,134 +1792,134 @@ define void @_ZN14VrmlTranslator7Scanner4InitEv(ptr noundef nonnull align 8 dere
 84:                                               ; preds = %.preheader
   %85 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
   store i32 48, ptr %85, align 8
-  %86 = getelementptr inbounds i8, ptr %85, i64 4
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 4
   store i32 36, ptr %86, align 4
-  %87 = getelementptr inbounds i8, ptr %85, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %85, i64 8
   %88 = load ptr, ptr %8, align 8
-  %89 = getelementptr inbounds i8, ptr %88, i64 384
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 384
   %90 = load ptr, ptr %89, align 8
   store ptr %90, ptr %87, align 8
   store ptr %85, ptr %89, align 8
   %91 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
   store i32 43, ptr %91, align 8
-  %92 = getelementptr inbounds i8, ptr %91, i64 4
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 4
   store i32 37, ptr %92, align 4
-  %93 = getelementptr inbounds i8, ptr %91, i64 8
+  %93 = getelementptr inbounds nuw i8, ptr %91, i64 8
   %94 = load ptr, ptr %8, align 8
-  %95 = getelementptr inbounds i8, ptr %94, i64 344
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 344
   %96 = load ptr, ptr %95, align 8
   store ptr %96, ptr %93, align 8
   store ptr %91, ptr %95, align 8
   %97 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
   store i32 45, ptr %97, align 8
-  %98 = getelementptr inbounds i8, ptr %97, i64 4
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 4
   store i32 37, ptr %98, align 4
-  %99 = getelementptr inbounds i8, ptr %97, i64 8
+  %99 = getelementptr inbounds nuw i8, ptr %97, i64 8
   %100 = load ptr, ptr %8, align 8
-  %101 = getelementptr inbounds i8, ptr %100, i64 360
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 360
   %102 = load ptr, ptr %101, align 8
   store ptr %102, ptr %99, align 8
   store ptr %97, ptr %101, align 8
   %103 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
   store i32 46, ptr %103, align 8
-  %104 = getelementptr inbounds i8, ptr %103, i64 4
+  %104 = getelementptr inbounds nuw i8, ptr %103, i64 4
   store i32 51, ptr %104, align 4
-  %105 = getelementptr inbounds i8, ptr %103, i64 8
+  %105 = getelementptr inbounds nuw i8, ptr %103, i64 8
   %106 = load ptr, ptr %8, align 8
-  %107 = getelementptr inbounds i8, ptr %106, i64 368
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 368
   %108 = load ptr, ptr %107, align 8
   store ptr %108, ptr %105, align 8
   store ptr %103, ptr %107, align 8
   %109 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
   store i32 34, ptr %109, align 8
-  %110 = getelementptr inbounds i8, ptr %109, i64 4
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 4
   store i32 16, ptr %110, align 4
-  %111 = getelementptr inbounds i8, ptr %109, i64 8
+  %111 = getelementptr inbounds nuw i8, ptr %109, i64 8
   %112 = load ptr, ptr %8, align 8
-  %113 = getelementptr inbounds i8, ptr %112, i64 272
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 272
   %114 = load ptr, ptr %113, align 8
   store ptr %114, ptr %111, align 8
   store ptr %109, ptr %113, align 8
   %115 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
   store i32 86, ptr %115, align 8
-  %116 = getelementptr inbounds i8, ptr %115, i64 4
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 4
   store i32 38, ptr %116, align 4
-  %117 = getelementptr inbounds i8, ptr %115, i64 8
+  %117 = getelementptr inbounds nuw i8, ptr %115, i64 8
   %118 = load ptr, ptr %8, align 8
-  %119 = getelementptr inbounds i8, ptr %118, i64 688
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 688
   %120 = load ptr, ptr %119, align 8
   store ptr %120, ptr %117, align 8
   store ptr %115, ptr %119, align 8
   %121 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
   store i32 35, ptr %121, align 8
-  %122 = getelementptr inbounds i8, ptr %121, i64 4
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 4
   store i32 45, ptr %122, align 4
-  %123 = getelementptr inbounds i8, ptr %121, i64 8
+  %123 = getelementptr inbounds nuw i8, ptr %121, i64 8
   %124 = load ptr, ptr %8, align 8
-  %125 = getelementptr inbounds i8, ptr %124, i64 280
+  %125 = getelementptr inbounds nuw i8, ptr %124, i64 280
   %126 = load ptr, ptr %125, align 8
   store ptr %126, ptr %123, align 8
   store ptr %121, ptr %125, align 8
   %127 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
   store i32 91, ptr %127, align 8
-  %128 = getelementptr inbounds i8, ptr %127, i64 4
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 4
   store i32 46, ptr %128, align 4
-  %129 = getelementptr inbounds i8, ptr %127, i64 8
+  %129 = getelementptr inbounds nuw i8, ptr %127, i64 8
   %130 = load ptr, ptr %8, align 8
-  %131 = getelementptr inbounds i8, ptr %130, i64 728
+  %131 = getelementptr inbounds nuw i8, ptr %130, i64 728
   %132 = load ptr, ptr %131, align 8
   store ptr %132, ptr %129, align 8
   store ptr %127, ptr %131, align 8
   %133 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
   store i32 93, ptr %133, align 8
-  %134 = getelementptr inbounds i8, ptr %133, i64 4
+  %134 = getelementptr inbounds nuw i8, ptr %133, i64 4
   store i32 47, ptr %134, align 4
-  %135 = getelementptr inbounds i8, ptr %133, i64 8
+  %135 = getelementptr inbounds nuw i8, ptr %133, i64 8
   %136 = load ptr, ptr %8, align 8
-  %137 = getelementptr inbounds i8, ptr %136, i64 744
+  %137 = getelementptr inbounds nuw i8, ptr %136, i64 744
   %138 = load ptr, ptr %137, align 8
   store ptr %138, ptr %135, align 8
   store ptr %133, ptr %137, align 8
   %139 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
   store i32 123, ptr %139, align 8
-  %140 = getelementptr inbounds i8, ptr %139, i64 4
+  %140 = getelementptr inbounds nuw i8, ptr %139, i64 4
   store i32 48, ptr %140, align 4
-  %141 = getelementptr inbounds i8, ptr %139, i64 8
+  %141 = getelementptr inbounds nuw i8, ptr %139, i64 8
   %142 = load ptr, ptr %8, align 8
-  %143 = getelementptr inbounds i8, ptr %142, i64 984
+  %143 = getelementptr inbounds nuw i8, ptr %142, i64 984
   %144 = load ptr, ptr %143, align 8
   store ptr %144, ptr %141, align 8
   store ptr %139, ptr %143, align 8
   %145 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
   store i32 125, ptr %145, align 8
-  %146 = getelementptr inbounds i8, ptr %145, i64 4
+  %146 = getelementptr inbounds nuw i8, ptr %145, i64 4
   store i32 49, ptr %146, align 4
-  %147 = getelementptr inbounds i8, ptr %145, i64 8
+  %147 = getelementptr inbounds nuw i8, ptr %145, i64 8
   %148 = load ptr, ptr %8, align 8
-  %149 = getelementptr inbounds i8, ptr %148, i64 1000
+  %149 = getelementptr inbounds nuw i8, ptr %148, i64 1000
   %150 = load ptr, ptr %149, align 8
   store ptr %150, ptr %147, align 8
   store ptr %145, ptr %149, align 8
   %151 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
   store i32 44, ptr %151, align 8
-  %152 = getelementptr inbounds i8, ptr %151, i64 4
+  %152 = getelementptr inbounds nuw i8, ptr %151, i64 4
   store i32 50, ptr %152, align 4
-  %153 = getelementptr inbounds i8, ptr %151, i64 8
+  %153 = getelementptr inbounds nuw i8, ptr %151, i64 8
   %154 = load ptr, ptr %8, align 8
-  %155 = getelementptr inbounds i8, ptr %154, i64 352
+  %155 = getelementptr inbounds nuw i8, ptr %154, i64 352
   %156 = load ptr, ptr %155, align 8
   store ptr %156, ptr %153, align 8
   store ptr %151, ptr %155, align 8
   %157 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
   store i32 65536, ptr %157, align 8
-  %158 = getelementptr inbounds i8, ptr %157, i64 4
+  %158 = getelementptr inbounds nuw i8, ptr %157, i64 4
   store i32 -1, ptr %158, align 4
-  %159 = getelementptr inbounds i8, ptr %157, i64 8
+  %159 = getelementptr inbounds nuw i8, ptr %157, i64 8
   %160 = load ptr, ptr %8, align 8
   %161 = load ptr, ptr %160, align 8
   store ptr %161, ptr %159, align 8
   store ptr %157, ptr %160, align 8
-  %162 = getelementptr inbounds i8, ptr %0, i64 72
+  %162 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %162, ptr noundef nonnull @.str.3, i32 noundef 8)
   tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %162, ptr noundef nonnull @.str.4, i32 noundef 9)
   tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %162, ptr noundef nonnull @.str.5, i32 noundef 10)
@@ -1991,42 +1991,42 @@ define void @_ZN14VrmlTranslator7Scanner4InitEv(ptr noundef nonnull align 8 dere
   tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %162, ptr noundef nonnull @.str.71, i32 noundef 82)
   tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %162, ptr noundef nonnull @.str.72, i32 noundef 83)
   tail call void @_ZN14VrmlTranslator10KeywordMap3setEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %162, ptr noundef nonnull @.str.73, i32 noundef 84)
-  %163 = getelementptr inbounds i8, ptr %0, i64 104
+  %163 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i32 128, ptr %163, align 8
   %164 = tail call noalias noundef nonnull dereferenceable(512) ptr @_Znam(i64 noundef 512) #21
-  %165 = getelementptr inbounds i8, ptr %0, i64 96
+  %165 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %164, ptr %165, align 8
   %166 = tail call noalias dereferenceable_or_null(65544) ptr @malloc(i64 noundef 65544) #25
-  %167 = getelementptr inbounds i8, ptr %0, i64 8
+  %167 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %166, ptr %167, align 8
   store ptr %166, ptr %0, align 8
-  %168 = getelementptr inbounds i8, ptr %166, i64 65536
-  %169 = getelementptr inbounds i8, ptr %0, i64 24
+  %168 = getelementptr inbounds nuw i8, ptr %166, i64 65536
+  %169 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %168, ptr %169, align 8
   store ptr null, ptr %168, align 8
-  %170 = getelementptr inbounds i8, ptr %0, i64 16
+  %170 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %166, ptr %170, align 8
-  %171 = getelementptr inbounds i8, ptr %0, i64 132
+  %171 = getelementptr inbounds nuw i8, ptr %0, i64 132
   store i32 -1, ptr %171, align 4
-  %172 = getelementptr inbounds i8, ptr %0, i64 136
+  %172 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store i32 1, ptr %172, align 8
-  %173 = getelementptr inbounds i8, ptr %0, i64 140
+  %173 = getelementptr inbounds nuw i8, ptr %0, i64 140
   store i32 0, ptr %173, align 4
-  %174 = getelementptr inbounds i8, ptr %0, i64 144
+  %174 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i32 0, ptr %174, align 8
-  %175 = getelementptr inbounds i8, ptr %0, i64 152
+  %175 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %176 = load ptr, ptr %175, align 8
   %177 = load ptr, ptr %176, align 8
-  %178 = getelementptr inbounds i8, ptr %177, i64 48
+  %178 = getelementptr inbounds nuw i8, ptr %177, i64 48
   %179 = load ptr, ptr %178, align 8
   %180 = tail call noundef i32 %179(ptr noundef nonnull align 8 dereferenceable(49) %176)
   store i32 %180, ptr %171, align 4
   %181 = load ptr, ptr %175, align 8
   %182 = load ptr, ptr %181, align 8
-  %183 = getelementptr inbounds i8, ptr %182, i64 24
+  %183 = getelementptr inbounds nuw i8, ptr %182, i64 24
   %184 = load ptr, ptr %183, align 8
   %185 = tail call noundef i32 %184(ptr noundef nonnull align 8 dereferenceable(49) %181)
-  %186 = getelementptr inbounds i8, ptr %0, i64 128
+  %186 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i32 %185, ptr %186, align 8
   %187 = load i32, ptr %173, align 4
   %188 = add nsw i32 %187, 1
@@ -2037,7 +2037,7 @@ define void @_ZN14VrmlTranslator7Scanner4InitEv(ptr noundef nonnull align 8 dere
 190:                                              ; preds = %84
   %191 = load ptr, ptr %175, align 8
   %192 = load ptr, ptr %191, align 8
-  %193 = getelementptr inbounds i8, ptr %192, i64 32
+  %193 = getelementptr inbounds nuw i8, ptr %192, i64 32
   %194 = load ptr, ptr %193, align 8
   %195 = tail call noundef i32 %194(ptr noundef nonnull align 8 dereferenceable(49) %191)
   %.not.i = icmp eq i32 %195, 10
@@ -2085,13 +2085,13 @@ _ZN14VrmlTranslator7Scanner6NextChEv.exit:        ; preds = %199, %204
 213:                                              ; preds = %208
   %214 = load ptr, ptr %175, align 8
   %215 = load ptr, ptr %214, align 8
-  %216 = getelementptr inbounds i8, ptr %215, i64 48
+  %216 = getelementptr inbounds nuw i8, ptr %215, i64 48
   %217 = load ptr, ptr %216, align 8
   %218 = tail call noundef i32 %217(ptr noundef nonnull align 8 dereferenceable(49) %214)
   store i32 %218, ptr %171, align 4
   %219 = load ptr, ptr %175, align 8
   %220 = load ptr, ptr %219, align 8
-  %221 = getelementptr inbounds i8, ptr %220, i64 24
+  %221 = getelementptr inbounds nuw i8, ptr %220, i64 24
   %222 = load ptr, ptr %221, align 8
   %223 = tail call noundef i32 %222(ptr noundef nonnull align 8 dereferenceable(49) %219)
   store i32 %223, ptr %186, align 8
@@ -2104,7 +2104,7 @@ _ZN14VrmlTranslator7Scanner6NextChEv.exit:        ; preds = %199, %204
 227:                                              ; preds = %213
   %228 = load ptr, ptr %175, align 8
   %229 = load ptr, ptr %228, align 8
-  %230 = getelementptr inbounds i8, ptr %229, i64 32
+  %230 = getelementptr inbounds nuw i8, ptr %229, i64 32
   %231 = load ptr, ptr %230, align 8
   %232 = tail call noundef i32 %231(ptr noundef nonnull align 8 dereferenceable(49) %228)
   %.not.i54 = icmp eq i32 %232, 10
@@ -2155,13 +2155,13 @@ _ZN14VrmlTranslator7Scanner6NextChEv.exit57:      ; preds = %_ZN14VrmlTranslator
 251:                                              ; preds = %_ZN14VrmlTranslator7Scanner6NextChEv.exit57
   %252 = load ptr, ptr %175, align 8
   %253 = load ptr, ptr %252, align 8
-  %254 = getelementptr inbounds i8, ptr %253, i64 48
+  %254 = getelementptr inbounds nuw i8, ptr %253, i64 48
   %255 = load ptr, ptr %254, align 8
   %256 = tail call noundef i32 %255(ptr noundef nonnull align 8 dereferenceable(49) %252)
   store i32 %256, ptr %171, align 4
   %257 = load ptr, ptr %175, align 8
   %258 = load ptr, ptr %257, align 8
-  %259 = getelementptr inbounds i8, ptr %258, i64 24
+  %259 = getelementptr inbounds nuw i8, ptr %258, i64 24
   %260 = load ptr, ptr %259, align 8
   %261 = tail call noundef i32 %260(ptr noundef nonnull align 8 dereferenceable(49) %257)
   store i32 %261, ptr %186, align 8
@@ -2174,7 +2174,7 @@ _ZN14VrmlTranslator7Scanner6NextChEv.exit57:      ; preds = %_ZN14VrmlTranslator
 265:                                              ; preds = %251
   %266 = load ptr, ptr %175, align 8
   %267 = load ptr, ptr %266, align 8
-  %268 = getelementptr inbounds i8, ptr %267, i64 32
+  %268 = getelementptr inbounds nuw i8, ptr %267, i64 32
   %269 = load ptr, ptr %268, align 8
   %270 = tail call noundef i32 %269(ptr noundef nonnull align 8 dereferenceable(49) %266)
   %.not.i58 = icmp eq i32 %270, 10
@@ -2220,46 +2220,46 @@ _ZN14VrmlTranslator7Scanner6NextChEv.exit61:      ; preds = %248, %274, %279
 287:                                              ; preds = %_ZN14VrmlTranslator7Scanner6NextChEv.exit61
   %288 = load ptr, ptr %175, align 8
   %289 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #21
-  %290 = getelementptr inbounds i8, ptr %288, i64 8
+  %290 = getelementptr inbounds nuw i8, ptr %288, i64 8
   %291 = load ptr, ptr %290, align 8
-  %292 = getelementptr inbounds i8, ptr %289, i64 8
+  %292 = getelementptr inbounds nuw i8, ptr %289, i64 8
   store ptr %291, ptr %292, align 8
-  %293 = getelementptr inbounds i8, ptr %288, i64 16
+  %293 = getelementptr inbounds nuw i8, ptr %288, i64 16
   %294 = load i32, ptr %293, align 8
-  %295 = getelementptr inbounds i8, ptr %289, i64 16
+  %295 = getelementptr inbounds nuw i8, ptr %289, i64 16
   store i32 %294, ptr %295, align 8
   store ptr null, ptr %290, align 8
-  %296 = getelementptr inbounds i8, ptr %288, i64 20
+  %296 = getelementptr inbounds nuw i8, ptr %288, i64 20
   %297 = load i32, ptr %296, align 4
-  %298 = getelementptr inbounds i8, ptr %289, i64 20
+  %298 = getelementptr inbounds nuw i8, ptr %289, i64 20
   store i32 %297, ptr %298, align 4
-  %299 = getelementptr inbounds i8, ptr %288, i64 24
+  %299 = getelementptr inbounds nuw i8, ptr %288, i64 24
   %300 = load i32, ptr %299, align 8
-  %301 = getelementptr inbounds i8, ptr %289, i64 24
+  %301 = getelementptr inbounds nuw i8, ptr %289, i64 24
   store i32 %300, ptr %301, align 8
-  %302 = getelementptr inbounds i8, ptr %288, i64 28
+  %302 = getelementptr inbounds nuw i8, ptr %288, i64 28
   %303 = load i32, ptr %302, align 4
-  %304 = getelementptr inbounds i8, ptr %289, i64 28
+  %304 = getelementptr inbounds nuw i8, ptr %289, i64 28
   store i32 %303, ptr %304, align 4
-  %305 = getelementptr inbounds i8, ptr %288, i64 32
+  %305 = getelementptr inbounds nuw i8, ptr %288, i64 32
   %306 = load i32, ptr %305, align 8
-  %307 = getelementptr inbounds i8, ptr %289, i64 32
+  %307 = getelementptr inbounds nuw i8, ptr %289, i64 32
   store i32 %306, ptr %307, align 8
-  %308 = getelementptr inbounds i8, ptr %288, i64 40
+  %308 = getelementptr inbounds nuw i8, ptr %288, i64 40
   %309 = load ptr, ptr %308, align 8
-  %310 = getelementptr inbounds i8, ptr %289, i64 40
+  %310 = getelementptr inbounds nuw i8, ptr %289, i64 40
   store ptr %309, ptr %310, align 8
   store ptr null, ptr %308, align 8
-  %311 = getelementptr inbounds i8, ptr %288, i64 48
+  %311 = getelementptr inbounds nuw i8, ptr %288, i64 48
   %312 = load i8, ptr %311, align 8
-  %313 = getelementptr inbounds i8, ptr %289, i64 48
+  %313 = getelementptr inbounds nuw i8, ptr %289, i64 48
   %314 = and i8 %312, 1
   store i8 %314, ptr %313, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN14VrmlTranslator10UTF8BufferE, i64 16), ptr %289, align 8
   store ptr %289, ptr %175, align 8
   store i32 0, ptr %173, align 4
   %315 = load ptr, ptr %288, align 8
-  %316 = getelementptr inbounds i8, ptr %315, i64 8
+  %316 = getelementptr inbounds nuw i8, ptr %315, i64 8
   %317 = load ptr, ptr %316, align 8
   tail call void %317(ptr noundef nonnull align 8 dereferenceable(49) %288) #22
   %318 = load i32, ptr %174, align 8
@@ -2277,13 +2277,13 @@ _ZN14VrmlTranslator7Scanner6NextChEv.exit61:      ; preds = %248, %274, %279
 324:                                              ; preds = %287
   %325 = load ptr, ptr %175, align 8
   %326 = load ptr, ptr %325, align 8
-  %327 = getelementptr inbounds i8, ptr %326, i64 48
+  %327 = getelementptr inbounds nuw i8, ptr %326, i64 48
   %328 = load ptr, ptr %327, align 8
   %329 = tail call noundef i32 %328(ptr noundef nonnull align 8 dereferenceable(49) %325)
   store i32 %329, ptr %171, align 4
   %330 = load ptr, ptr %175, align 8
   %331 = load ptr, ptr %330, align 8
-  %332 = getelementptr inbounds i8, ptr %331, i64 24
+  %332 = getelementptr inbounds nuw i8, ptr %331, i64 24
   %333 = load ptr, ptr %332, align 8
   %334 = tail call noundef i32 %333(ptr noundef nonnull align 8 dereferenceable(49) %330)
   store i32 %334, ptr %186, align 8
@@ -2296,7 +2296,7 @@ _ZN14VrmlTranslator7Scanner6NextChEv.exit61:      ; preds = %248, %274, %279
 338:                                              ; preds = %324
   %339 = load ptr, ptr %175, align 8
   %340 = load ptr, ptr %339, align 8
-  %341 = getelementptr inbounds i8, ptr %340, i64 32
+  %341 = getelementptr inbounds nuw i8, ptr %340, i64 32
   %342 = load ptr, ptr %341, align 8
   %343 = tail call noundef i32 %342(ptr noundef nonnull align 8 dereferenceable(49) %339)
   %.not.i62 = icmp eq i32 %343, 10
@@ -2328,17 +2328,17 @@ _ZN14VrmlTranslator7Scanner6NextChEv.exit61:      ; preds = %248, %274, %279
 
 _ZN14VrmlTranslator7Scanner6NextChEv.exit65:      ; preds = %352, %347, %320, %_ZN14VrmlTranslator7Scanner6NextChEv.exit
   %355 = load ptr, ptr %170, align 8
-  %356 = getelementptr inbounds i8, ptr %355, i64 32
+  %356 = getelementptr inbounds nuw i8, ptr %355, i64 32
   %357 = load ptr, ptr %169, align 8
   %.not.i66 = icmp ult ptr %356, %357
   br i1 %.not.i66, label %_ZN14VrmlTranslator7Scanner11CreateTokenEv.exit, label %358
 
 358:                                              ; preds = %_ZN14VrmlTranslator7Scanner6NextChEv.exit65
   %359 = load ptr, ptr %0, align 8
-  %360 = getelementptr inbounds i8, ptr %0, i64 112
+  %360 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %361 = load ptr, ptr %360, align 8
   %362 = icmp ult ptr %361, %359
-  %363 = getelementptr inbounds i8, ptr %359, i64 65536
+  %363 = getelementptr inbounds nuw i8, ptr %359, i64 65536
   %364 = icmp ugt ptr %361, %363
   %or.cond10.i.i = select i1 %362, i1 true, i1 %364
   br i1 %or.cond10.i.i, label %.critedge.i.i, label %_ZN14VrmlTranslator7Scanner15CreateHeapBlockEv.exit.i
@@ -2351,7 +2351,7 @@ _ZN14VrmlTranslator7Scanner6NextChEv.exit65:      ; preds = %352, %347, %320, %_
   store ptr %367, ptr %0, align 8
   %368 = load ptr, ptr %360, align 8
   %369 = icmp ult ptr %368, %367
-  %370 = getelementptr inbounds i8, ptr %367, i64 65536
+  %370 = getelementptr inbounds nuw i8, ptr %367, i64 65536
   %371 = icmp ugt ptr %368, %370
   %or.cond.i.i = select i1 %369, i1 true, i1 %371
   br i1 %or.cond.i.i, label %.critedge.i.i, label %_ZN14VrmlTranslator7Scanner15CreateHeapBlockEv.exit.loopexit.i, !llvm.loop !20
@@ -2364,7 +2364,7 @@ _ZN14VrmlTranslator7Scanner15CreateHeapBlockEv.exit.i: ; preds = %_ZN14VrmlTrans
   %372 = phi ptr [ %.pre.i67, %_ZN14VrmlTranslator7Scanner15CreateHeapBlockEv.exit.loopexit.i ], [ %357, %358 ]
   %373 = tail call noalias dereferenceable_or_null(65544) ptr @malloc(i64 noundef 65544) #25
   store ptr %373, ptr %372, align 8
-  %374 = getelementptr inbounds i8, ptr %373, i64 65536
+  %374 = getelementptr inbounds nuw i8, ptr %373, i64 65536
   store ptr %374, ptr %169, align 8
   store ptr null, ptr %374, align 8
   store ptr %373, ptr %167, align 8
@@ -2372,13 +2372,13 @@ _ZN14VrmlTranslator7Scanner15CreateHeapBlockEv.exit.i: ; preds = %_ZN14VrmlTrans
 
 _ZN14VrmlTranslator7Scanner11CreateTokenEv.exit:  ; preds = %_ZN14VrmlTranslator7Scanner6NextChEv.exit65, %_ZN14VrmlTranslator7Scanner15CreateHeapBlockEv.exit.i
   %375 = phi ptr [ %373, %_ZN14VrmlTranslator7Scanner15CreateHeapBlockEv.exit.i ], [ %355, %_ZN14VrmlTranslator7Scanner6NextChEv.exit65 ]
-  %376 = getelementptr inbounds i8, ptr %375, i64 32
+  %376 = getelementptr inbounds nuw i8, ptr %375, i64 32
   store ptr %376, ptr %170, align 8
-  %377 = getelementptr inbounds i8, ptr %375, i64 16
+  %377 = getelementptr inbounds nuw i8, ptr %375, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %377, i8 0, i64 16, i1 false)
-  %378 = getelementptr inbounds i8, ptr %0, i64 112
+  %378 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr %375, ptr %378, align 8
-  %379 = getelementptr inbounds i8, ptr %0, i64 120
+  %379 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr %375, ptr %379, align 8
   ret void
 }
@@ -2386,23 +2386,23 @@ _ZN14VrmlTranslator7Scanner11CreateTokenEv.exit:  ; preds = %_ZN14VrmlTranslator
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN14VrmlTranslator10KeywordMapD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN14VrmlTranslator10KeywordMapE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %3
 
 3:                                                ; preds = %1, %._crit_edge
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %._crit_edge ]
   %4 = load ptr, ptr %2, align 8
-  %5 = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
   %6 = load ptr, ptr %5, align 8
   %.not9 = icmp eq ptr %6, null
   br i1 %.not9, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %.0710 = phi ptr [ %8, %.lr.ph ], [ %6, %3 ]
-  %7 = getelementptr inbounds i8, ptr %.0710, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %.0710, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %.0710, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(32) %.0710) #22
   %.not = icmp eq ptr %8, null
@@ -2429,20 +2429,20 @@ define linkonce_odr void @_ZN14VrmlTranslator10KeywordMapD2Ev(ptr noundef nonnul
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN14VrmlTranslator11StartStatesD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN14VrmlTranslator11StartStatesE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %3
 
 3:                                                ; preds = %1, %._crit_edge
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %._crit_edge ]
   %4 = load ptr, ptr %2, align 8
-  %5 = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
   %6 = load ptr, ptr %5, align 8
   %.not9 = icmp eq ptr %6, null
   br i1 %.not9, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %.0710 = phi ptr [ %8, %.lr.ph ], [ %6, %3 ]
-  %7 = getelementptr inbounds i8, ptr %.0710, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %.0710, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %.0710) #20
   %.not = icmp eq ptr %8, null
@@ -2472,20 +2472,20 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN14VrmlTranslator11StartStatesD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN14VrmlTranslator11StartStatesE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %3
 
 3:                                                ; preds = %._crit_edge.i, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %._crit_edge.i ]
   %4 = load ptr, ptr %2, align 8
-  %5 = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv.i
+  %5 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv.i
   %6 = load ptr, ptr %5, align 8
   %.not9.i = icmp eq ptr %6, null
   br i1 %.not9.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3, %.lr.ph.i
   %.0710.i = phi ptr [ %8, %.lr.ph.i ], [ %6, %3 ]
-  %7 = getelementptr inbounds i8, ptr %.0710.i, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %.0710.i, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %.0710.i) #20
   %.not.i = icmp eq ptr %8, null
@@ -2513,23 +2513,23 @@ _ZN14VrmlTranslator11StartStatesD2Ev.exit:        ; preds = %9, %12
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN14VrmlTranslator10KeywordMapD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN14VrmlTranslator10KeywordMapE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %3
 
 3:                                                ; preds = %._crit_edge.i, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %._crit_edge.i ]
   %4 = load ptr, ptr %2, align 8
-  %5 = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv.i
+  %5 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv.i
   %6 = load ptr, ptr %5, align 8
   %.not9.i = icmp eq ptr %6, null
   br i1 %.not9.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3, %.lr.ph.i
   %.0710.i = phi ptr [ %8, %.lr.ph.i ], [ %6, %3 ]
-  %7 = getelementptr inbounds i8, ptr %.0710.i, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %.0710.i, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %.0710.i, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(32) %.0710.i) #22
   %.not.i = icmp eq ptr %8, null
@@ -2557,19 +2557,19 @@ _ZN14VrmlTranslator10KeywordMapD2Ev.exit:         ; preds = %12, %15
 ; Function Attrs: mustprogress uwtable
 define void @_ZN14VrmlTranslator7ScannerC2EPKw(ptr noundef nonnull align 8 dereferenceable(160) initializes((56, 80)) %0, ptr noundef readonly %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca [50 x i8], align 16
-  %4 = getelementptr inbounds i8, ptr %0, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr getelementptr inbounds (i8, ptr @_ZTVN14VrmlTranslator11StartStatesE, i64 16), ptr %4, align 8
   %5 = tail call noalias noundef nonnull dereferenceable(1024) ptr @_Znam(i64 noundef 1024) #21
-  %6 = getelementptr inbounds i8, ptr %0, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %5, ptr %6, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %5, i8 0, i64 1024, i1 false)
-  %7 = getelementptr inbounds i8, ptr %0, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr getelementptr inbounds (i8, ptr @_ZTVN14VrmlTranslator10KeywordMapE, i64 16), ptr %7, align 8
   %8 = invoke noalias noundef nonnull dereferenceable(1024) ptr @_Znam(i64 noundef 1024) #21
           to label %9 unwind label %28
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %0, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %8, ptr %10, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %8, i8 0, i64 1024, i1 false)
   %.not.i.i = icmp eq ptr %1, null
@@ -2597,10 +2597,10 @@ _Z18coco_string_lengthPKw.exit.i:                 ; preds = %11, %9
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %18 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.i
   %19 = load i32, ptr %18, align 4
   %20 = trunc i32 %19 to i8
-  %21 = getelementptr inbounds i8, ptr %16, i64 %indvars.iv.i
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 %indvars.iv.i
   store i8 %20, ptr %21, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -2642,7 +2642,7 @@ _Z18coco_string_deleteRPc.exit9:                  ; preds = %.loopexit
           to label %34 unwind label %37
 
 34:                                               ; preds = %33
-  %35 = getelementptr inbounds i8, ptr %0, i64 152
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store ptr %32, ptr %35, align 8
   invoke void @_ZN14VrmlTranslator7Scanner4InitEv(ptr noundef nonnull align 8 dereferenceable(160) %0)
           to label %36 unwind label %30
@@ -2675,19 +2675,19 @@ declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN14VrmlTranslator7ScannerC2EP8_IO_FILE(ptr noundef nonnull align 8 dereferenceable(160) initializes((56, 80)) %0, ptr noundef %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 56
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr getelementptr inbounds (i8, ptr @_ZTVN14VrmlTranslator11StartStatesE, i64 16), ptr %3, align 8
   %4 = tail call noalias noundef nonnull dereferenceable(1024) ptr @_Znam(i64 noundef 1024) #21
-  %5 = getelementptr inbounds i8, ptr %0, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %4, ptr %5, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %4, i8 0, i64 1024, i1 false)
-  %6 = getelementptr inbounds i8, ptr %0, i64 72
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr getelementptr inbounds (i8, ptr @_ZTVN14VrmlTranslator10KeywordMapE, i64 16), ptr %6, align 8
   %7 = invoke noalias noundef nonnull dereferenceable(1024) ptr @_Znam(i64 noundef 1024) #21
           to label %8 unwind label %15
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %7, ptr %9, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %7, i8 0, i64 1024, i1 false)
   %10 = invoke noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #21
@@ -2698,7 +2698,7 @@ define void @_ZN14VrmlTranslator7ScannerC2EP8_IO_FILE(ptr noundef nonnull align 
           to label %12 unwind label %19
 
 12:                                               ; preds = %11
-  %13 = getelementptr inbounds i8, ptr %0, i64 152
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store ptr %10, ptr %13, align 8
   invoke void @_ZN14VrmlTranslator7Scanner4InitEv(ptr noundef nonnull align 8 dereferenceable(160) %0)
           to label %14 unwind label %17
@@ -2741,7 +2741,7 @@ define void @_ZN14VrmlTranslator7ScannerD2Ev(ptr nocapture noundef nonnull align
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %3 = phi ptr [ %5, %.lr.ph ], [ %2, %1 ]
-  %4 = getelementptr inbounds i8, ptr %3, i64 65536
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 65536
   %5 = load ptr, ptr %4, align 8
   tail call void @free(ptr noundef nonnull %3) #22
   store ptr %5, ptr %0, align 8
@@ -2749,7 +2749,7 @@ define void @_ZN14VrmlTranslator7ScannerD2Ev(ptr nocapture noundef nonnull align
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 96
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %10, label %9
@@ -2759,38 +2759,38 @@ define void @_ZN14VrmlTranslator7ScannerD2Ev(ptr nocapture noundef nonnull align
   br label %10
 
 10:                                               ; preds = %9, %._crit_edge
-  %11 = getelementptr inbounds i8, ptr %0, i64 152
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
   br i1 %13, label %18, label %14
 
 14:                                               ; preds = %10
   %15 = load ptr, ptr %12, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(49) %12) #22
   br label %18
 
 18:                                               ; preds = %14, %10
-  %19 = getelementptr inbounds i8, ptr %0, i64 72
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr getelementptr inbounds (i8, ptr @_ZTVN14VrmlTranslator10KeywordMapE, i64 16), ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 80
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 80
   br label %21
 
 21:                                               ; preds = %._crit_edge.i, %18
   %indvars.iv.i = phi i64 [ 0, %18 ], [ %indvars.iv.next.i, %._crit_edge.i ]
   %22 = load ptr, ptr %20, align 8
-  %23 = getelementptr inbounds ptr, ptr %22, i64 %indvars.iv.i
+  %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv.i
   %24 = load ptr, ptr %23, align 8
   %.not9.i = icmp eq ptr %24, null
   br i1 %.not9.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %21, %.lr.ph.i
   %.0710.i = phi ptr [ %26, %.lr.ph.i ], [ %24, %21 ]
-  %25 = getelementptr inbounds i8, ptr %.0710.i, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %.0710.i, i64 24
   %26 = load ptr, ptr %25, align 8
   %27 = load ptr, ptr %.0710.i, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load ptr, ptr %28, align 8
   tail call void %29(ptr noundef nonnull align 8 dereferenceable(32) %.0710.i) #22
   %.not.i = icmp eq ptr %26, null
@@ -2811,22 +2811,22 @@ define void @_ZN14VrmlTranslator7ScannerD2Ev(ptr nocapture noundef nonnull align
   br label %_ZN14VrmlTranslator10KeywordMapD2Ev.exit
 
 _ZN14VrmlTranslator10KeywordMapD2Ev.exit:         ; preds = %30, %33
-  %34 = getelementptr inbounds i8, ptr %0, i64 56
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr getelementptr inbounds (i8, ptr @_ZTVN14VrmlTranslator11StartStatesE, i64 16), ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 64
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 64
   br label %36
 
 36:                                               ; preds = %._crit_edge.i11, %_ZN14VrmlTranslator10KeywordMapD2Ev.exit
   %indvars.iv.i6 = phi i64 [ 0, %_ZN14VrmlTranslator10KeywordMapD2Ev.exit ], [ %indvars.iv.next.i12, %._crit_edge.i11 ]
   %37 = load ptr, ptr %35, align 8
-  %38 = getelementptr inbounds ptr, ptr %37, i64 %indvars.iv.i6
+  %38 = getelementptr inbounds nuw ptr, ptr %37, i64 %indvars.iv.i6
   %39 = load ptr, ptr %38, align 8
   %.not9.i7 = icmp eq ptr %39, null
   br i1 %.not9.i7, label %._crit_edge.i11, label %.lr.ph.i8
 
 .lr.ph.i8:                                        ; preds = %36, %.lr.ph.i8
   %.0710.i9 = phi ptr [ %41, %.lr.ph.i8 ], [ %39, %36 ]
-  %40 = getelementptr inbounds i8, ptr %.0710.i9, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %.0710.i9, i64 8
   %41 = load ptr, ptr %40, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %.0710.i9) #20
   %.not.i10 = icmp eq ptr %41, null
@@ -2882,11 +2882,11 @@ _Z18coco_string_createPKw.exit.i:                 ; preds = %5, %3
   %15 = tail call ptr @wcsncpy(ptr noundef nonnull %13, ptr noundef %1, i64 noundef %.011.i.i) #22
   %16 = getelementptr inbounds i32, ptr %13, i64 %.011.i.i
   store i32 0, ptr %16, align 4
-  %17 = getelementptr inbounds i8, ptr %4, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %13, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %4, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 %2, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %4, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr null, ptr %19, align 8
   br i1 %.not.i.i, label %_Z16coco_string_hashPKw.exit, label %.preheader.i
 
@@ -2901,7 +2901,7 @@ _Z18coco_string_createPKw.exit.i:                 ; preds = %5, %3
   %.0814.i = phi ptr [ %24, %.lr.ph.i ], [ %1, %.preheader.i ]
   %22 = mul nsw i32 %.015.i, 7
   %23 = xor i32 %22, %21
-  %24 = getelementptr inbounds i8, ptr %.0814.i, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %.0814.i, i64 4
   %25 = load i32, ptr %24, align 4
   %.not12.i = icmp eq i32 %25, 0
   br i1 %.not12.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !10
@@ -2915,9 +2915,9 @@ _Z18coco_string_createPKw.exit.i:                 ; preds = %5, %3
 
 _Z16coco_string_hashPKw.exit:                     ; preds = %14, %._crit_edge.i
   %.09.i = phi i64 [ %27, %._crit_edge.i ], [ 0, %14 ]
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds ptr, ptr %29, i64 %.09.i
+  %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %.09.i
   %31 = load ptr, ptr %30, align 8
   store ptr %31, ptr %19, align 8
   store ptr %4, ptr %30, align 8
@@ -2935,38 +2935,38 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN14VrmlTranslator7Scanner6NextChEv(ptr nocapture noundef nonnull align 8 dereferenceable(160) initializes((128, 132)) %0) local_unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 144
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %5, label %11
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load i8, ptr %6, align 8
   %8 = zext i8 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %0, i64 128
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i32 %8, ptr %9, align 8
   %10 = add nsw i32 %3, -1
   store i32 %10, ptr %2, align 8
   br label %49
 
 11:                                               ; preds = %1
-  %12 = getelementptr inbounds i8, ptr %0, i64 152
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 48
   %16 = load ptr, ptr %15, align 8
   %17 = tail call noundef i32 %16(ptr noundef nonnull align 8 dereferenceable(49) %13)
-  %18 = getelementptr inbounds i8, ptr %0, i64 132
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 132
   store i32 %17, ptr %18, align 4
   %19 = load ptr, ptr %12, align 8
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %22 = load ptr, ptr %21, align 8
   %23 = tail call noundef i32 %22(ptr noundef nonnull align 8 dereferenceable(49) %19)
-  %24 = getelementptr inbounds i8, ptr %0, i64 128
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i32 %23, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 140
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %26 = load i32, ptr %25, align 4
   %27 = add nsw i32 %26, 1
   store i32 %27, ptr %25, align 4
@@ -2976,7 +2976,7 @@ define void @_ZN14VrmlTranslator7Scanner6NextChEv(ptr nocapture noundef nonnull 
 29:                                               ; preds = %11
   %30 = load ptr, ptr %12, align 8
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 32
   %33 = load ptr, ptr %32, align 8
   %34 = tail call noundef i32 %33(ptr noundef nonnull align 8 dereferenceable(49) %30)
   %.not = icmp eq i32 %34, 10
@@ -2987,7 +2987,7 @@ define void @_ZN14VrmlTranslator7Scanner6NextChEv(ptr nocapture noundef nonnull 
   br label %39
 
 35:                                               ; preds = %29
-  %36 = getelementptr inbounds i8, ptr %0, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %37 = load i8, ptr %36, align 8
   %38 = zext i8 %37 to i32
   store i32 %38, ptr %24, align 8
@@ -2995,14 +2995,14 @@ define void @_ZN14VrmlTranslator7Scanner6NextChEv(ptr nocapture noundef nonnull 
 
 39:                                               ; preds = %._crit_edge, %35, %11
   %40 = phi i32 [ %.pre, %._crit_edge ], [ %38, %35 ], [ %23, %11 ]
-  %41 = getelementptr inbounds i8, ptr %0, i64 32
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %42 = load i8, ptr %41, align 8
   %43 = zext i8 %42 to i32
   %44 = icmp eq i32 %40, %43
   br i1 %44, label %45, label %49
 
 45:                                               ; preds = %39
-  %46 = getelementptr inbounds i8, ptr %0, i64 136
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %47 = load i32, ptr %46, align 8
   %48 = add nsw i32 %47, 1
   store i32 %48, ptr %46, align 8
@@ -3015,20 +3015,20 @@ define void @_ZN14VrmlTranslator7Scanner6NextChEv(ptr nocapture noundef nonnull 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef ptr @_ZN14VrmlTranslator7Scanner11CreateTokenEv(ptr nocapture noundef nonnull align 8 dereferenceable(160) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 32
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %.not = icmp ult ptr %4, %6
   br i1 %.not, label %25, label %7
 
 7:                                                ; preds = %1
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 112
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %10 = load ptr, ptr %9, align 8
   %11 = icmp ult ptr %10, %8
-  %12 = getelementptr inbounds i8, ptr %8, i64 65536
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 65536
   %13 = icmp ugt ptr %10, %12
   %or.cond10.i = select i1 %11, i1 true, i1 %13
   br i1 %or.cond10.i, label %.critedge.i, label %_ZN14VrmlTranslator7Scanner15CreateHeapBlockEv.exit
@@ -3041,7 +3041,7 @@ define noundef ptr @_ZN14VrmlTranslator7Scanner11CreateTokenEv(ptr nocapture nou
   store ptr %16, ptr %0, align 8
   %17 = load ptr, ptr %9, align 8
   %18 = icmp ult ptr %17, %16
-  %19 = getelementptr inbounds i8, ptr %16, i64 65536
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 65536
   %20 = icmp ugt ptr %17, %19
   %or.cond.i = select i1 %18, i1 true, i1 %20
   br i1 %or.cond.i, label %.critedge.i, label %_ZN14VrmlTranslator7Scanner15CreateHeapBlockEv.exit.loopexit, !llvm.loop !20
@@ -3054,18 +3054,18 @@ _ZN14VrmlTranslator7Scanner15CreateHeapBlockEv.exit: ; preds = %_ZN14VrmlTransla
   %21 = phi ptr [ %.pre, %_ZN14VrmlTranslator7Scanner15CreateHeapBlockEv.exit.loopexit ], [ %6, %7 ]
   %22 = tail call noalias dereferenceable_or_null(65544) ptr @malloc(i64 noundef 65544) #25
   store ptr %22, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 65536
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 65536
   store ptr %23, ptr %5, align 8
   store ptr null, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %22, ptr %24, align 8
   br label %25
 
 25:                                               ; preds = %_ZN14VrmlTranslator7Scanner15CreateHeapBlockEv.exit, %1
   %26 = phi ptr [ %22, %_ZN14VrmlTranslator7Scanner15CreateHeapBlockEv.exit ], [ %3, %1 ]
-  %27 = getelementptr inbounds i8, ptr %26, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 32
   store ptr %27, ptr %2, align 8
-  %28 = getelementptr inbounds i8, ptr %26, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %28, i8 0, i64 16, i1 false)
   ret ptr %26
 }
@@ -3073,7 +3073,7 @@ _ZN14VrmlTranslator7Scanner15CreateHeapBlockEv.exit: ; preds = %_ZN14VrmlTransla
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN14VrmlTranslator10KeywordMap4ElemD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN14VrmlTranslator10KeywordMap4ElemE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %_Z18coco_string_deleteRPw.exit, label %5
@@ -3090,7 +3090,7 @@ _Z18coco_string_deleteRPw.exit:                   ; preds = %1, %5
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN14VrmlTranslator10KeywordMap4ElemD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN14VrmlTranslator10KeywordMap4ElemE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %_ZN14VrmlTranslator10KeywordMap4ElemD2Ev.exit, label %5
@@ -3106,15 +3106,15 @@ _ZN14VrmlTranslator10KeywordMap4ElemD2Ev.exit:    ; preds = %1, %5
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN14VrmlTranslator7Scanner5AddChEv(ptr nocapture noundef nonnull align 8 dereferenceable(160) %0) local_unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 108
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %3 = load i32, ptr %2, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 104
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %5 = load i32, ptr %4, align 8
   %.not = icmp slt i32 %3, %5
   br i1 %.not, label %._crit_edge, label %6
 
 ._crit_edge:                                      ; preds = %1
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 96
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 96
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br label %20
 
@@ -3126,7 +3126,7 @@ define void @_ZN14VrmlTranslator7Scanner5AddChEv(ptr nocapture noundef nonnull a
   %10 = shl nsw i64 %8, 2
   %11 = select i1 %9, i64 -1, i64 %10
   %12 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %11) #21
-  %13 = getelementptr inbounds i8, ptr %0, i64 96
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %14 = load ptr, ptr %13, align 8
   %15 = sext i32 %3 to i64
   %16 = shl nsw i64 %15, 2
@@ -3147,20 +3147,20 @@ define void @_ZN14VrmlTranslator7Scanner5AddChEv(ptr nocapture noundef nonnull a
 20:                                               ; preds = %._crit_edge, %19
   %21 = phi i32 [ %3, %._crit_edge ], [ %.pre4, %19 ]
   %22 = phi ptr [ %.pre, %._crit_edge ], [ %12, %19 ]
-  %23 = getelementptr inbounds i8, ptr %0, i64 128
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %24 = load i32, ptr %23, align 8
   %25 = add nsw i32 %21, 1
   store i32 %25, ptr %2, align 4
   %26 = sext i32 %21 to i64
   %27 = getelementptr inbounds i32, ptr %22, i64 %26
   store i32 %24, ptr %27, align 4
-  %28 = getelementptr inbounds i8, ptr %0, i64 144
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %29 = load i32, ptr %28, align 8
   %30 = icmp sgt i32 %29, 0
   br i1 %30, label %31, label %36
 
 31:                                               ; preds = %20
-  %32 = getelementptr inbounds i8, ptr %0, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %33 = load i8, ptr %32, align 8
   %34 = zext i8 %33 to i32
   store i32 %34, ptr %23, align 8
@@ -3169,21 +3169,21 @@ define void @_ZN14VrmlTranslator7Scanner5AddChEv(ptr nocapture noundef nonnull a
   br label %_ZN14VrmlTranslator7Scanner6NextChEv.exit
 
 36:                                               ; preds = %20
-  %37 = getelementptr inbounds i8, ptr %0, i64 152
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %38 = load ptr, ptr %37, align 8
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 48
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 48
   %41 = load ptr, ptr %40, align 8
   %42 = tail call noundef i32 %41(ptr noundef nonnull align 8 dereferenceable(49) %38)
-  %43 = getelementptr inbounds i8, ptr %0, i64 132
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 132
   store i32 %42, ptr %43, align 4
   %44 = load ptr, ptr %37, align 8
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 24
   %47 = load ptr, ptr %46, align 8
   %48 = tail call noundef i32 %47(ptr noundef nonnull align 8 dereferenceable(49) %44)
   store i32 %48, ptr %23, align 8
-  %49 = getelementptr inbounds i8, ptr %0, i64 140
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %50 = load i32, ptr %49, align 4
   %51 = add nsw i32 %50, 1
   store i32 %51, ptr %49, align 4
@@ -3193,7 +3193,7 @@ define void @_ZN14VrmlTranslator7Scanner5AddChEv(ptr nocapture noundef nonnull a
 53:                                               ; preds = %36
   %54 = load ptr, ptr %37, align 8
   %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 32
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 32
   %57 = load ptr, ptr %56, align 8
   %58 = tail call noundef i32 %57(ptr noundef nonnull align 8 dereferenceable(49) %54)
   %.not.i = icmp eq i32 %58, 10
@@ -3204,7 +3204,7 @@ define void @_ZN14VrmlTranslator7Scanner5AddChEv(ptr nocapture noundef nonnull a
   br label %63
 
 59:                                               ; preds = %53
-  %60 = getelementptr inbounds i8, ptr %0, i64 32
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %61 = load i8, ptr %60, align 8
   %62 = zext i8 %61 to i32
   store i32 %62, ptr %23, align 8
@@ -3212,14 +3212,14 @@ define void @_ZN14VrmlTranslator7Scanner5AddChEv(ptr nocapture noundef nonnull a
 
 63:                                               ; preds = %59, %._crit_edge.i, %36
   %64 = phi i32 [ %.pre.i, %._crit_edge.i ], [ %62, %59 ], [ %48, %36 ]
-  %65 = getelementptr inbounds i8, ptr %0, i64 32
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %66 = load i8, ptr %65, align 8
   %67 = zext i8 %66 to i32
   %68 = icmp eq i32 %64, %67
   br i1 %68, label %69, label %_ZN14VrmlTranslator7Scanner6NextChEv.exit
 
 69:                                               ; preds = %63
-  %70 = getelementptr inbounds i8, ptr %0, i64 136
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %71 = load i32, ptr %70, align 8
   %72 = add nsw i32 %71, 1
   store i32 %72, ptr %70, align 8
@@ -3232,40 +3232,40 @@ _ZN14VrmlTranslator7Scanner6NextChEv.exit:        ; preds = %31, %63, %69
 
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN14VrmlTranslator7Scanner8Comment0Ev(ptr nocapture noundef nonnull align 8 dereferenceable(160) initializes((128, 132)) %0) local_unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 136
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %3 = load i32, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 144
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %5 = load i32, ptr %4, align 8
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %7, label %13
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load i8, ptr %8, align 8
   %10 = zext i8 %9 to i32
-  %11 = getelementptr inbounds i8, ptr %0, i64 128
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i32 %10, ptr %11, align 8
   %12 = add nsw i32 %5, -1
   store i32 %12, ptr %4, align 8
   br label %_ZN14VrmlTranslator7Scanner6NextChEv.exit
 
 13:                                               ; preds = %1
-  %14 = getelementptr inbounds i8, ptr %0, i64 152
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %15 = load ptr, ptr %14, align 8
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 48
   %18 = load ptr, ptr %17, align 8
   %19 = tail call noundef i32 %18(ptr noundef nonnull align 8 dereferenceable(49) %15)
-  %20 = getelementptr inbounds i8, ptr %0, i64 132
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 132
   store i32 %19, ptr %20, align 4
   %21 = load ptr, ptr %14, align 8
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %24 = load ptr, ptr %23, align 8
   %25 = tail call noundef i32 %24(ptr noundef nonnull align 8 dereferenceable(49) %21)
-  %26 = getelementptr inbounds i8, ptr %0, i64 128
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i32 %25, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 140
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %28 = load i32, ptr %27, align 4
   %29 = add nsw i32 %28, 1
   store i32 %29, ptr %27, align 4
@@ -3275,7 +3275,7 @@ define noundef zeroext i1 @_ZN14VrmlTranslator7Scanner8Comment0Ev(ptr nocapture 
 31:                                               ; preds = %13
   %32 = load ptr, ptr %14, align 8
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 32
   %35 = load ptr, ptr %34, align 8
   %36 = tail call noundef i32 %35(ptr noundef nonnull align 8 dereferenceable(49) %32)
   %.not.i = icmp eq i32 %36, 10
@@ -3286,7 +3286,7 @@ define noundef zeroext i1 @_ZN14VrmlTranslator7Scanner8Comment0Ev(ptr nocapture 
   br label %41
 
 37:                                               ; preds = %31
-  %38 = getelementptr inbounds i8, ptr %0, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %39 = load i8, ptr %38, align 8
   %40 = zext i8 %39 to i32
   store i32 %40, ptr %26, align 8
@@ -3294,7 +3294,7 @@ define noundef zeroext i1 @_ZN14VrmlTranslator7Scanner8Comment0Ev(ptr nocapture 
 
 41:                                               ; preds = %37, %._crit_edge.i, %13
   %42 = phi i32 [ %.pre.i, %._crit_edge.i ], [ %40, %37 ], [ %25, %13 ]
-  %43 = getelementptr inbounds i8, ptr %0, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %44 = load i8, ptr %43, align 8
   %45 = zext i8 %44 to i32
   %46 = icmp eq i32 %42, %45
@@ -3310,15 +3310,15 @@ define noundef zeroext i1 @_ZN14VrmlTranslator7Scanner8Comment0Ev(ptr nocapture 
 _ZN14VrmlTranslator7Scanner6NextChEv.exit:        ; preds = %7, %41, %47
   %50 = phi i8 [ %9, %7 ], [ %44, %41 ], [ %44, %47 ]
   %51 = phi i32 [ %10, %7 ], [ %42, %41 ], [ %42, %47 ]
-  %52 = getelementptr inbounds i8, ptr %0, i64 128
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %53 = icmp eq i32 %51, 10
   br i1 %53, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN14VrmlTranslator7Scanner6NextChEv.exit
-  %54 = getelementptr inbounds i8, ptr %0, i64 152
-  %55 = getelementptr inbounds i8, ptr %0, i64 132
-  %56 = getelementptr inbounds i8, ptr %0, i64 140
-  %57 = getelementptr inbounds i8, ptr %0, i64 32
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 132
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 140
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %101
 
 ._crit_edge:                                      ; preds = %_ZN14VrmlTranslator7Scanner6NextChEv.exit14, %_ZN14VrmlTranslator7Scanner6NextChEv.exit
@@ -3337,21 +3337,21 @@ _ZN14VrmlTranslator7Scanner6NextChEv.exit:        ; preds = %7, %41, %47
   br label %_ZN14VrmlTranslator7Scanner6NextChEv.exit10
 
 65:                                               ; preds = %._crit_edge
-  %66 = getelementptr inbounds i8, ptr %0, i64 152
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %67 = load ptr, ptr %66, align 8
   %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 48
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 48
   %70 = load ptr, ptr %69, align 8
   %71 = tail call noundef i32 %70(ptr noundef nonnull align 8 dereferenceable(49) %67)
-  %72 = getelementptr inbounds i8, ptr %0, i64 132
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 132
   store i32 %71, ptr %72, align 4
   %73 = load ptr, ptr %66, align 8
   %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 24
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 24
   %76 = load ptr, ptr %75, align 8
   %77 = tail call noundef i32 %76(ptr noundef nonnull align 8 dereferenceable(49) %73)
   store i32 %77, ptr %52, align 8
-  %78 = getelementptr inbounds i8, ptr %0, i64 140
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %79 = load i32, ptr %78, align 4
   %80 = add nsw i32 %79, 1
   store i32 %80, ptr %78, align 4
@@ -3361,7 +3361,7 @@ _ZN14VrmlTranslator7Scanner6NextChEv.exit:        ; preds = %7, %41, %47
 82:                                               ; preds = %65
   %83 = load ptr, ptr %66, align 8
   %84 = load ptr, ptr %83, align 8
-  %85 = getelementptr inbounds i8, ptr %84, i64 32
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 32
   %86 = load ptr, ptr %85, align 8
   %87 = tail call noundef i32 %86(ptr noundef nonnull align 8 dereferenceable(49) %83)
   %.not.i7 = icmp eq i32 %87, 10
@@ -3372,7 +3372,7 @@ _ZN14VrmlTranslator7Scanner6NextChEv.exit:        ; preds = %7, %41, %47
   br label %92
 
 88:                                               ; preds = %82
-  %89 = getelementptr inbounds i8, ptr %0, i64 32
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %90 = load i8, ptr %89, align 8
   %91 = zext i8 %90 to i32
   store i32 %91, ptr %52, align 8
@@ -3380,7 +3380,7 @@ _ZN14VrmlTranslator7Scanner6NextChEv.exit:        ; preds = %7, %41, %47
 
 92:                                               ; preds = %88, %._crit_edge.i8, %65
   %93 = phi i32 [ %.pre.i9, %._crit_edge.i8 ], [ %91, %88 ], [ %77, %65 ]
-  %94 = getelementptr inbounds i8, ptr %0, i64 32
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %95 = load i8, ptr %94, align 8
   %96 = zext i8 %95 to i32
   %97 = icmp eq i32 %93, %96
@@ -3414,13 +3414,13 @@ _ZN14VrmlTranslator7Scanner6NextChEv.exit:        ; preds = %7, %41, %47
 111:                                              ; preds = %105
   %112 = load ptr, ptr %54, align 8
   %113 = load ptr, ptr %112, align 8
-  %114 = getelementptr inbounds i8, ptr %113, i64 48
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 48
   %115 = load ptr, ptr %114, align 8
   %116 = tail call noundef i32 %115(ptr noundef nonnull align 8 dereferenceable(49) %112)
   store i32 %116, ptr %55, align 4
   %117 = load ptr, ptr %54, align 8
   %118 = load ptr, ptr %117, align 8
-  %119 = getelementptr inbounds i8, ptr %118, i64 24
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 24
   %120 = load ptr, ptr %119, align 8
   %121 = tail call noundef i32 %120(ptr noundef nonnull align 8 dereferenceable(49) %117)
   store i32 %121, ptr %52, align 8
@@ -3433,7 +3433,7 @@ _ZN14VrmlTranslator7Scanner6NextChEv.exit:        ; preds = %7, %41, %47
 125:                                              ; preds = %111
   %126 = load ptr, ptr %54, align 8
   %127 = load ptr, ptr %126, align 8
-  %128 = getelementptr inbounds i8, ptr %127, i64 32
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 32
   %129 = load ptr, ptr %128, align 8
   %130 = tail call noundef i32 %129(ptr noundef nonnull align 8 dereferenceable(49) %126)
   %.not.i11 = icmp eq i32 %130, 10
@@ -3477,10 +3477,10 @@ _ZN14VrmlTranslator7Scanner6NextChEv.exit10:      ; preds = %101, %98, %92, %62
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN14VrmlTranslator7Scanner15CreateHeapBlockEv(ptr nocapture noundef nonnull align 8 dereferenceable(160) %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 112
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
   %5 = icmp ult ptr %4, %2
-  %6 = getelementptr inbounds i8, ptr %2, i64 65536
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 65536
   %7 = icmp ugt ptr %4, %6
   %or.cond10 = select i1 %5, i1 true, i1 %7
   br i1 %or.cond10, label %.critedge, label %._crit_edge
@@ -3493,37 +3493,37 @@ define void @_ZN14VrmlTranslator7Scanner15CreateHeapBlockEv(ptr nocapture nounde
   store ptr %10, ptr %0, align 8
   %11 = load ptr, ptr %3, align 8
   %12 = icmp ult ptr %11, %10
-  %13 = getelementptr inbounds i8, ptr %10, i64 65536
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 65536
   %14 = icmp ugt ptr %11, %13
   %or.cond = select i1 %12, i1 true, i1 %14
   br i1 %or.cond, label %.critedge, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %.critedge, %1
   %15 = tail call noalias dereferenceable_or_null(65544) ptr @malloc(i64 noundef 65544) #25
-  %16 = getelementptr inbounds i8, ptr %0, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %17 = load ptr, ptr %16, align 8
   store ptr %15, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %15, i64 65536
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 65536
   store ptr %18, ptr %16, align 8
   store ptr null, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %15, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %15, ptr %20, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN14VrmlTranslator7Scanner9AppendValEPNS_5TokenE(ptr nocapture noundef nonnull align 8 dereferenceable(160) %0, ptr nocapture noundef %1) local_unnamed_addr #2 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 108
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %4 = load i32, ptr %3, align 4
   %5 = shl i32 %4, 2
   %6 = add i32 %5, 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = sext i32 %6 to i64
   %10 = getelementptr inbounds i8, ptr %8, i64 %9
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load ptr, ptr %11, align 8
   %.not = icmp ult ptr %10, %12
   br i1 %.not, label %35, label %13
@@ -3540,10 +3540,10 @@ define void @_ZN14VrmlTranslator7Scanner9AppendValEPNS_5TokenE(ptr nocapture nou
 
 17:                                               ; preds = %13
   %18 = load ptr, ptr %0, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 112
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %20 = load ptr, ptr %19, align 8
   %21 = icmp ult ptr %20, %18
-  %22 = getelementptr inbounds i8, ptr %18, i64 65536
+  %22 = getelementptr inbounds nuw i8, ptr %18, i64 65536
   %23 = icmp ugt ptr %20, %22
   %or.cond10.i = select i1 %21, i1 true, i1 %23
   br i1 %or.cond10.i, label %.critedge.i, label %_ZN14VrmlTranslator7Scanner15CreateHeapBlockEv.exit
@@ -3556,7 +3556,7 @@ define void @_ZN14VrmlTranslator7Scanner9AppendValEPNS_5TokenE(ptr nocapture nou
   store ptr %26, ptr %0, align 8
   %27 = load ptr, ptr %19, align 8
   %28 = icmp ult ptr %27, %26
-  %29 = getelementptr inbounds i8, ptr %26, i64 65536
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 65536
   %30 = icmp ugt ptr %27, %29
   %or.cond.i = select i1 %28, i1 true, i1 %30
   br i1 %or.cond.i, label %.critedge.i, label %_ZN14VrmlTranslator7Scanner15CreateHeapBlockEv.exit.loopexit, !llvm.loop !20
@@ -3569,23 +3569,23 @@ _ZN14VrmlTranslator7Scanner15CreateHeapBlockEv.exit: ; preds = %_ZN14VrmlTransla
   %31 = phi ptr [ %.pre, %_ZN14VrmlTranslator7Scanner15CreateHeapBlockEv.exit.loopexit ], [ %12, %17 ]
   %32 = tail call noalias dereferenceable_or_null(65544) ptr @malloc(i64 noundef 65544) #25
   store ptr %32, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 65536
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 65536
   store ptr %33, ptr %11, align 8
   store ptr null, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %32, ptr %34, align 8
   store ptr %32, ptr %7, align 8
   br label %35
 
 35:                                               ; preds = %_ZN14VrmlTranslator7Scanner15CreateHeapBlockEv.exit, %2
   %36 = phi ptr [ %32, %_ZN14VrmlTranslator7Scanner15CreateHeapBlockEv.exit ], [ %8, %2 ]
-  %37 = getelementptr inbounds i8, ptr %1, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr %36, ptr %37, align 8
   %38 = load ptr, ptr %7, align 8
   %39 = getelementptr inbounds i8, ptr %38, i64 %9
   store ptr %39, ptr %7, align 8
   %40 = load ptr, ptr %37, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 96
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %42 = load ptr, ptr %41, align 8
   %43 = load i32, ptr %3, align 4
   %44 = sext i32 %43 to i64
@@ -3600,13 +3600,13 @@ _ZN14VrmlTranslator7Scanner15CreateHeapBlockEv.exit: ; preds = %_ZN14VrmlTransla
 
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_ZN14VrmlTranslator7Scanner9NextTokenEv(ptr noundef nonnull align 8 dereferenceable(160) %0) local_unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 128
-  %3 = getelementptr inbounds i8, ptr %0, i64 144
-  %4 = getelementptr inbounds i8, ptr %0, i64 152
-  %5 = getelementptr inbounds i8, ptr %0, i64 132
-  %6 = getelementptr inbounds i8, ptr %0, i64 140
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
-  %8 = getelementptr inbounds i8, ptr %0, i64 136
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 132
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 140
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 136
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %47, %1
@@ -3643,13 +3643,13 @@ _ZN14VrmlTranslator7Scanner6NextChEv.exit.backedge: ; preds = %12, %39, %44
 16:                                               ; preds = %.critedge
   %17 = load ptr, ptr %4, align 8
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 48
   %20 = load ptr, ptr %19, align 8
   %21 = tail call noundef i32 %20(ptr noundef nonnull align 8 dereferenceable(49) %17)
   store i32 %21, ptr %5, align 4
   %22 = load ptr, ptr %4, align 8
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 24
   %25 = load ptr, ptr %24, align 8
   %26 = tail call noundef i32 %25(ptr noundef nonnull align 8 dereferenceable(49) %22)
   store i32 %26, ptr %2, align 8
@@ -3662,7 +3662,7 @@ _ZN14VrmlTranslator7Scanner6NextChEv.exit.backedge: ; preds = %12, %39, %44
 30:                                               ; preds = %16
   %31 = load ptr, ptr %4, align 8
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 32
   %34 = load ptr, ptr %33, align 8
   %35 = tail call noundef i32 %34(ptr noundef nonnull align 8 dereferenceable(49) %31)
   %.not.i = icmp eq i32 %35, 10
@@ -3697,20 +3697,20 @@ _ZN14VrmlTranslator7Scanner6NextChEv.exit.backedge: ; preds = %12, %39, %44
   br i1 %48, label %tailrecurse, label %.loopexit
 
 .loopexit:                                        ; preds = %47, %_ZN14VrmlTranslator7Scanner6NextChEv.exit
-  %49 = getelementptr inbounds i8, ptr %0, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 32
-  %52 = getelementptr inbounds i8, ptr %0, i64 24
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 32
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %53 = load ptr, ptr %52, align 8
   %.not.i229 = icmp ult ptr %51, %53
   br i1 %.not.i229, label %_ZN14VrmlTranslator7Scanner11CreateTokenEv.exit, label %54
 
 54:                                               ; preds = %.loopexit
   %55 = load ptr, ptr %0, align 8
-  %56 = getelementptr inbounds i8, ptr %0, i64 112
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %57 = load ptr, ptr %56, align 8
   %58 = icmp ult ptr %57, %55
-  %59 = getelementptr inbounds i8, ptr %55, i64 65536
+  %59 = getelementptr inbounds nuw i8, ptr %55, i64 65536
   %60 = icmp ugt ptr %57, %59
   %or.cond10.i.i = select i1 %58, i1 true, i1 %60
   br i1 %or.cond10.i.i, label %.critedge.i.i, label %_ZN14VrmlTranslator7Scanner15CreateHeapBlockEv.exit.i
@@ -3723,7 +3723,7 @@ _ZN14VrmlTranslator7Scanner6NextChEv.exit.backedge: ; preds = %12, %39, %44
   store ptr %63, ptr %0, align 8
   %64 = load ptr, ptr %56, align 8
   %65 = icmp ult ptr %64, %63
-  %66 = getelementptr inbounds i8, ptr %63, i64 65536
+  %66 = getelementptr inbounds nuw i8, ptr %63, i64 65536
   %67 = icmp ugt ptr %64, %66
   %or.cond.i.i = select i1 %65, i1 true, i1 %67
   br i1 %or.cond.i.i, label %.critedge.i.i, label %_ZN14VrmlTranslator7Scanner15CreateHeapBlockEv.exit.loopexit.i, !llvm.loop !20
@@ -3736,38 +3736,38 @@ _ZN14VrmlTranslator7Scanner15CreateHeapBlockEv.exit.i: ; preds = %_ZN14VrmlTrans
   %68 = phi ptr [ %.pre.i230, %_ZN14VrmlTranslator7Scanner15CreateHeapBlockEv.exit.loopexit.i ], [ %53, %54 ]
   %69 = tail call noalias dereferenceable_or_null(65544) ptr @malloc(i64 noundef 65544) #25
   store ptr %69, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %69, i64 65536
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 65536
   store ptr %70, ptr %52, align 8
   store ptr null, ptr %70, align 8
-  %71 = getelementptr inbounds i8, ptr %0, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %69, ptr %71, align 8
   br label %_ZN14VrmlTranslator7Scanner11CreateTokenEv.exit
 
 _ZN14VrmlTranslator7Scanner11CreateTokenEv.exit:  ; preds = %.loopexit, %_ZN14VrmlTranslator7Scanner15CreateHeapBlockEv.exit.i
   %72 = phi ptr [ %69, %_ZN14VrmlTranslator7Scanner15CreateHeapBlockEv.exit.i ], [ %50, %.loopexit ]
-  %73 = getelementptr inbounds i8, ptr %72, i64 32
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 32
   store ptr %73, ptr %49, align 8
-  %74 = getelementptr inbounds i8, ptr %72, i64 16
+  %74 = getelementptr inbounds nuw i8, ptr %72, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %74, i8 0, i64 16, i1 false)
-  %75 = getelementptr inbounds i8, ptr %0, i64 88
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr %72, ptr %75, align 8
   %76 = load i32, ptr %5, align 4
-  %77 = getelementptr inbounds i8, ptr %72, i64 4
+  %77 = getelementptr inbounds nuw i8, ptr %72, i64 4
   store i32 %76, ptr %77, align 4
   %78 = load i32, ptr %6, align 4
   %79 = load ptr, ptr %75, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
   store i32 %78, ptr %80, align 8
   %81 = load i32, ptr %8, align 8
   %82 = load ptr, ptr %75, align 8
-  %83 = getelementptr inbounds i8, ptr %82, i64 12
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 12
   store i32 %81, ptr %83, align 4
   %84 = load i32, ptr %2, align 8
-  %85 = getelementptr inbounds i8, ptr %0, i64 64
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %86 = load ptr, ptr %85, align 8
   %87 = and i32 %84, 127
   %88 = zext nneg i32 %87 to i64
-  %89 = getelementptr inbounds ptr, ptr %86, i64 %88
+  %89 = getelementptr inbounds nuw ptr, ptr %86, i64 %88
   %.09.i = load ptr, ptr %89, align 8
   %cond10.i = icmp eq ptr %.09.i, null
   br i1 %cond10.i, label %_ZN14VrmlTranslator11StartStates5stateEi.exit.thread, label %.lr.ph.i
@@ -3779,21 +3779,21 @@ _ZN14VrmlTranslator7Scanner11CreateTokenEv.exit:  ; preds = %.loopexit, %_ZN14Vr
   br i1 %.not7.i, label %_ZN14VrmlTranslator11StartStates5stateEi.exit, label %91
 
 91:                                               ; preds = %.lr.ph.i
-  %92 = getelementptr inbounds i8, ptr %.011.i, i64 8
+  %92 = getelementptr inbounds nuw i8, ptr %.011.i, i64 8
   %.0.i = load ptr, ptr %92, align 8
   %cond.i = icmp eq ptr %.0.i, null
   br i1 %cond.i, label %_ZN14VrmlTranslator11StartStates5stateEi.exit.thread, label %.lr.ph.i, !llvm.loop !28
 
 _ZN14VrmlTranslator11StartStates5stateEi.exit.thread: ; preds = %91, %_ZN14VrmlTranslator7Scanner11CreateTokenEv.exit
-  %93 = getelementptr inbounds i8, ptr %0, i64 108
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 108
   store i32 0, ptr %93, align 4
   tail call void @_ZN14VrmlTranslator7Scanner5AddChEv(ptr noundef nonnull align 8 dereferenceable(160) %0)
   br label %117
 
 _ZN14VrmlTranslator11StartStates5stateEi.exit:    ; preds = %.lr.ph.i
-  %94 = getelementptr inbounds i8, ptr %.011.i, i64 4
+  %94 = getelementptr inbounds nuw i8, ptr %.011.i, i64 4
   %95 = load i32, ptr %94, align 4
-  %96 = getelementptr inbounds i8, ptr %0, i64 108
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 108
   store i32 0, ptr %96, align 4
   tail call void @_ZN14VrmlTranslator7Scanner5AddChEv(ptr noundef nonnull align 8 dereferenceable(160) %0)
   switch i32 %95, label %668 [
@@ -3867,8 +3867,8 @@ _ZN14VrmlTranslator11StartStates5stateEi.exit:    ; preds = %.lr.ph.i
   br label %.preheader344
 
 .preheader344:                                    ; preds = %.preheader344.sink.split, %_ZN14VrmlTranslator11StartStates5stateEi.exit
-  %99 = getelementptr inbounds i8, ptr %0, i64 104
-  %100 = getelementptr inbounds i8, ptr %0, i64 96
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %.pre397 = load i32, ptr %2, align 8
   br label %_ZN14VrmlTranslator7Scanner5AddChEv.exit253
 
@@ -3927,20 +3927,20 @@ _ZN14VrmlTranslator11StartStates5stateEi.exit:    ; preds = %.lr.ph.i
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.sink.split, %_ZN14VrmlTranslator11StartStates5stateEi.exit
-  %111 = getelementptr inbounds i8, ptr %0, i64 104
-  %112 = getelementptr inbounds i8, ptr %0, i64 96
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %.pre399 = load i32, ptr %2, align 8
   br label %_ZN14VrmlTranslator7Scanner5AddChEv.exit
 
 113:                                              ; preds = %_ZN14VrmlTranslator11StartStates5stateEi.exit
-  %114 = getelementptr inbounds i8, ptr %0, i64 36
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %115 = load i32, ptr %114, align 4
   %116 = load ptr, ptr %75, align 8
   store i32 %115, ptr %116, align 8
   br label %668
 
 117:                                              ; preds = %_ZN14VrmlTranslator11StartStates5stateEi.exit.thread, %_ZN14VrmlTranslator11StartStates5stateEi.exit
-  %118 = getelementptr inbounds i8, ptr %0, i64 40
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %119 = load i32, ptr %118, align 8
   %120 = load ptr, ptr %75, align 8
   store i32 %119, ptr %120, align 8
@@ -4044,13 +4044,13 @@ _ZN14VrmlTranslator7Scanner5AddChEv.exit.backedge: ; preds = %155, %182, %187
 159:                                              ; preds = %146
   %160 = load ptr, ptr %4, align 8
   %161 = load ptr, ptr %160, align 8
-  %162 = getelementptr inbounds i8, ptr %161, i64 48
+  %162 = getelementptr inbounds nuw i8, ptr %161, i64 48
   %163 = load ptr, ptr %162, align 8
   %164 = tail call noundef i32 %163(ptr noundef nonnull align 8 dereferenceable(49) %160)
   store i32 %164, ptr %5, align 4
   %165 = load ptr, ptr %4, align 8
   %166 = load ptr, ptr %165, align 8
-  %167 = getelementptr inbounds i8, ptr %166, i64 24
+  %167 = getelementptr inbounds nuw i8, ptr %166, i64 24
   %168 = load ptr, ptr %167, align 8
   %169 = tail call noundef i32 %168(ptr noundef nonnull align 8 dereferenceable(49) %165)
   store i32 %169, ptr %2, align 8
@@ -4063,7 +4063,7 @@ _ZN14VrmlTranslator7Scanner5AddChEv.exit.backedge: ; preds = %155, %182, %187
 173:                                              ; preds = %159
   %174 = load ptr, ptr %4, align 8
   %175 = load ptr, ptr %174, align 8
-  %176 = getelementptr inbounds i8, ptr %175, i64 32
+  %176 = getelementptr inbounds nuw i8, ptr %175, i64 32
   %177 = load ptr, ptr %176, align 8
   %178 = tail call noundef i32 %177(ptr noundef nonnull align 8 dereferenceable(49) %174)
   %.not.i.i = icmp eq i32 %178, 10
@@ -4112,7 +4112,7 @@ _ZN14VrmlTranslator7Scanner5AddChEv.exit.backedge: ; preds = %155, %182, %187
   store i32 0, ptr %202, align 4
   %203 = load ptr, ptr %75, align 8
   %204 = load i32, ptr %203, align 8
-  %205 = getelementptr inbounds i8, ptr %0, i64 80
+  %205 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %206 = load ptr, ptr %205, align 8
   %207 = load i32, ptr %199, align 4
   %.not1213.i.i = icmp eq i32 %207, 0
@@ -4124,7 +4124,7 @@ _ZN14VrmlTranslator7Scanner5AddChEv.exit.backedge: ; preds = %155, %182, %187
   %.0814.i.i = phi ptr [ %211, %.lr.ph.i.i ], [ %199, %190 ]
   %209 = mul nsw i32 %.015.i.i, 7
   %210 = xor i32 %209, %208
-  %211 = getelementptr inbounds i8, ptr %.0814.i.i, i64 4
+  %211 = getelementptr inbounds nuw i8, ptr %.0814.i.i, i64 4
   %212 = load i32, ptr %211, align 4
   %.not12.i.i = icmp eq i32 %212, 0
   br i1 %.not12.i.i, label %._crit_edge.i.i236, label %.lr.ph.i.i, !llvm.loop !10
@@ -4134,27 +4134,27 @@ _ZN14VrmlTranslator7Scanner5AddChEv.exit.backedge: ; preds = %155, %182, %187
   %spec.select.i.i = tail call i32 @llvm.abs.i32(i32 %.0.lcssa.i.i, i1 true)
   %213 = and i32 %spec.select.i.i, 127
   %214 = zext nneg i32 %213 to i64
-  %215 = getelementptr inbounds ptr, ptr %206, i64 %214
+  %215 = getelementptr inbounds nuw ptr, ptr %206, i64 %214
   %.09.i237 = load ptr, ptr %215, align 8
   %cond10.i238 = icmp eq ptr %.09.i237, null
   br i1 %cond10.i238, label %_Z18coco_string_deleteRPw.exit, label %.lr.ph.i239
 
 .lr.ph.i239:                                      ; preds = %._crit_edge.i.i236, %220
   %.011.i240 = phi ptr [ %.0.i241, %220 ], [ %.09.i237, %._crit_edge.i.i236 ]
-  %216 = getelementptr inbounds i8, ptr %.011.i240, i64 8
+  %216 = getelementptr inbounds nuw i8, ptr %.011.i240, i64 8
   %217 = load ptr, ptr %216, align 8
   %218 = tail call i32 @wcscmp(ptr noundef readonly %217, ptr noundef nonnull readonly %199) #24
   %219 = icmp eq i32 %218, 0
   br i1 %219, label %.critedge.i243, label %220
 
 220:                                              ; preds = %.lr.ph.i239
-  %221 = getelementptr inbounds i8, ptr %.011.i240, i64 24
+  %221 = getelementptr inbounds nuw i8, ptr %.011.i240, i64 24
   %.0.i241 = load ptr, ptr %221, align 8
   %cond.i242 = icmp eq ptr %.0.i241, null
   br i1 %cond.i242, label %_Z18coco_string_deleteRPw.exit, label %.lr.ph.i239, !llvm.loop !29
 
 .critedge.i243:                                   ; preds = %.lr.ph.i239
-  %222 = getelementptr inbounds i8, ptr %.011.i240, i64 16
+  %222 = getelementptr inbounds nuw i8, ptr %.011.i240, i64 16
   %223 = load i32, ptr %222, align 8
   br label %_Z18coco_string_deleteRPw.exit
 
@@ -4188,7 +4188,7 @@ switch.early.test:                                ; preds = %225
   ]
 
 228:                                              ; preds = %switch.early.test
-  %229 = getelementptr inbounds i8, ptr %0, i64 40
+  %229 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %230 = load i32, ptr %229, align 8
   %231 = load ptr, ptr %75, align 8
   store i32 %230, ptr %231, align 8
@@ -4233,7 +4233,7 @@ switch.early.test322:                             ; preds = %.preheader338
   br i1 %or.cond136, label %.preheader340.sink.split, label %239
 
 239:                                              ; preds = %236
-  %240 = getelementptr inbounds i8, ptr %0, i64 40
+  %240 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %241 = load i32, ptr %240, align 8
   %242 = load ptr, ptr %75, align 8
   store i32 %241, ptr %242, align 8
@@ -4279,7 +4279,7 @@ switch.early.test322:                             ; preds = %.preheader338
   br label %257
 
 253:                                              ; preds = %251
-  %254 = getelementptr inbounds i8, ptr %0, i64 40
+  %254 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %255 = load i32, ptr %254, align 8
   %256 = load ptr, ptr %75, align 8
   store i32 %255, ptr %256, align 8
@@ -4292,7 +4292,7 @@ switch.early.test322:                             ; preds = %.preheader338
   br i1 %or.cond139, label %.preheader339.sink.split, label %260
 
 260:                                              ; preds = %257
-  %261 = getelementptr inbounds i8, ptr %0, i64 40
+  %261 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %262 = load i32, ptr %261, align 8
   %263 = load ptr, ptr %75, align 8
   store i32 %262, ptr %263, align 8
@@ -4350,7 +4350,7 @@ switch.early.test322:                             ; preds = %.preheader338
   br label %281
 
 277:                                              ; preds = %275
-  %278 = getelementptr inbounds i8, ptr %0, i64 40
+  %278 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %279 = load i32, ptr %278, align 8
   %280 = load ptr, ptr %75, align 8
   store i32 %279, ptr %280, align 8
@@ -4363,7 +4363,7 @@ switch.early.test322:                             ; preds = %.preheader338
   br i1 %or.cond143, label %.preheader341.sink.split, label %284
 
 284:                                              ; preds = %281
-  %285 = getelementptr inbounds i8, ptr %0, i64 40
+  %285 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %286 = load i32, ptr %285, align 8
   %287 = load ptr, ptr %75, align 8
   store i32 %286, ptr %287, align 8
@@ -4402,7 +4402,7 @@ switch.early.test322:                             ; preds = %.preheader338
   br label %300
 
 296:                                              ; preds = %294
-  %297 = getelementptr inbounds i8, ptr %0, i64 40
+  %297 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %298 = load i32, ptr %297, align 8
   %299 = load ptr, ptr %75, align 8
   store i32 %298, ptr %299, align 8
@@ -4415,7 +4415,7 @@ switch.early.test322:                             ; preds = %.preheader338
   br i1 %or.cond146, label %.preheader343.sink.split, label %303
 
 303:                                              ; preds = %300
-  %304 = getelementptr inbounds i8, ptr %0, i64 40
+  %304 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %305 = load i32, ptr %304, align 8
   %306 = load ptr, ptr %75, align 8
   store i32 %305, ptr %306, align 8
@@ -4512,13 +4512,13 @@ _ZN14VrmlTranslator7Scanner5AddChEv.exit253.backedge: ; preds = %340, %367, %372
 344:                                              ; preds = %331
   %345 = load ptr, ptr %4, align 8
   %346 = load ptr, ptr %345, align 8
-  %347 = getelementptr inbounds i8, ptr %346, i64 48
+  %347 = getelementptr inbounds nuw i8, ptr %346, i64 48
   %348 = load ptr, ptr %347, align 8
   %349 = tail call noundef i32 %348(ptr noundef nonnull align 8 dereferenceable(49) %345)
   store i32 %349, ptr %5, align 4
   %350 = load ptr, ptr %4, align 8
   %351 = load ptr, ptr %350, align 8
-  %352 = getelementptr inbounds i8, ptr %351, i64 24
+  %352 = getelementptr inbounds nuw i8, ptr %351, i64 24
   %353 = load ptr, ptr %352, align 8
   %354 = tail call noundef i32 %353(ptr noundef nonnull align 8 dereferenceable(49) %350)
   store i32 %354, ptr %2, align 8
@@ -4531,7 +4531,7 @@ _ZN14VrmlTranslator7Scanner5AddChEv.exit253.backedge: ; preds = %340, %367, %372
 358:                                              ; preds = %344
   %359 = load ptr, ptr %4, align 8
   %360 = load ptr, ptr %359, align 8
-  %361 = getelementptr inbounds i8, ptr %360, i64 32
+  %361 = getelementptr inbounds nuw i8, ptr %360, i64 32
   %362 = load ptr, ptr %361, align 8
   %363 = tail call noundef i32 %362(ptr noundef nonnull align 8 dereferenceable(49) %359)
   %.not.i.i247 = icmp eq i32 %363, 10
@@ -4568,7 +4568,7 @@ _ZN14VrmlTranslator7Scanner5AddChEv.exit253.backedge: ; preds = %340, %367, %372
   ]
 
 376:                                              ; preds = %375
-  %377 = getelementptr inbounds i8, ptr %0, i64 40
+  %377 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %378 = load i32, ptr %377, align 8
   %379 = load ptr, ptr %75, align 8
   store i32 %378, ptr %379, align 8
@@ -4602,7 +4602,7 @@ switch.early.test323:                             ; preds = %380
   br label %388
 
 384:                                              ; preds = %switch.early.test323
-  %385 = getelementptr inbounds i8, ptr %0, i64 40
+  %385 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %386 = load i32, ptr %385, align 8
   %387 = load ptr, ptr %75, align 8
   store i32 %386, ptr %387, align 8
@@ -4660,7 +4660,7 @@ switch.early.test324:                             ; preds = %397
   br label %569
 
 400:                                              ; preds = %switch.early.test324
-  %401 = getelementptr inbounds i8, ptr %0, i64 40
+  %401 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %402 = load i32, ptr %401, align 8
   %403 = load ptr, ptr %75, align 8
   store i32 %402, ptr %403, align 8
@@ -4694,7 +4694,7 @@ switch.early.test325:                             ; preds = %404
   br label %412
 
 408:                                              ; preds = %switch.early.test325
-  %409 = getelementptr inbounds i8, ptr %0, i64 40
+  %409 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %410 = load i32, ptr %409, align 8
   %411 = load ptr, ptr %75, align 8
   store i32 %410, ptr %411, align 8
@@ -4728,7 +4728,7 @@ switch.early.test326:                             ; preds = %412
   br label %420
 
 416:                                              ; preds = %switch.early.test326
-  %417 = getelementptr inbounds i8, ptr %0, i64 40
+  %417 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %418 = load i32, ptr %417, align 8
   %419 = load ptr, ptr %75, align 8
   store i32 %418, ptr %419, align 8
@@ -4762,7 +4762,7 @@ switch.early.test327:                             ; preds = %420
   br label %428
 
 424:                                              ; preds = %switch.early.test327
-  %425 = getelementptr inbounds i8, ptr %0, i64 40
+  %425 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %426 = load i32, ptr %425, align 8
   %427 = load ptr, ptr %75, align 8
   store i32 %426, ptr %427, align 8
@@ -4792,7 +4792,7 @@ switch.early.test328:                             ; preds = %428
   ]
 
 431:                                              ; preds = %switch.early.test328
-  %432 = getelementptr inbounds i8, ptr %0, i64 40
+  %432 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %433 = load i32, ptr %432, align 8
   %434 = load ptr, ptr %75, align 8
   store i32 %433, ptr %434, align 8
@@ -4826,7 +4826,7 @@ switch.early.test329:                             ; preds = %435
   br label %443
 
 439:                                              ; preds = %switch.early.test329
-  %440 = getelementptr inbounds i8, ptr %0, i64 40
+  %440 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %441 = load i32, ptr %440, align 8
   %442 = load ptr, ptr %75, align 8
   store i32 %441, ptr %442, align 8
@@ -4860,7 +4860,7 @@ switch.early.test330:                             ; preds = %443
   br label %451
 
 447:                                              ; preds = %switch.early.test330
-  %448 = getelementptr inbounds i8, ptr %0, i64 40
+  %448 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %449 = load i32, ptr %448, align 8
   %450 = load ptr, ptr %75, align 8
   store i32 %449, ptr %450, align 8
@@ -4894,7 +4894,7 @@ switch.early.test331:                             ; preds = %451
   br label %459
 
 455:                                              ; preds = %switch.early.test331
-  %456 = getelementptr inbounds i8, ptr %0, i64 40
+  %456 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %457 = load i32, ptr %456, align 8
   %458 = load ptr, ptr %75, align 8
   store i32 %457, ptr %458, align 8
@@ -4928,7 +4928,7 @@ switch.early.test332:                             ; preds = %459
   br label %467
 
 463:                                              ; preds = %switch.early.test332
-  %464 = getelementptr inbounds i8, ptr %0, i64 40
+  %464 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %465 = load i32, ptr %464, align 8
   %466 = load ptr, ptr %75, align 8
   store i32 %465, ptr %466, align 8
@@ -4962,7 +4962,7 @@ switch.early.test333:                             ; preds = %467
   br label %475
 
 471:                                              ; preds = %switch.early.test333
-  %472 = getelementptr inbounds i8, ptr %0, i64 40
+  %472 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %473 = load i32, ptr %472, align 8
   %474 = load ptr, ptr %75, align 8
   store i32 %473, ptr %474, align 8
@@ -4996,7 +4996,7 @@ switch.early.test334:                             ; preds = %475
   br label %483
 
 479:                                              ; preds = %switch.early.test334
-  %480 = getelementptr inbounds i8, ptr %0, i64 40
+  %480 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %481 = load i32, ptr %480, align 8
   %482 = load ptr, ptr %75, align 8
   store i32 %481, ptr %482, align 8
@@ -5030,7 +5030,7 @@ switch.early.test335:                             ; preds = %483
   br label %491
 
 487:                                              ; preds = %switch.early.test335
-  %488 = getelementptr inbounds i8, ptr %0, i64 40
+  %488 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %489 = load i32, ptr %488, align 8
   %490 = load ptr, ptr %75, align 8
   store i32 %489, ptr %490, align 8
@@ -5060,7 +5060,7 @@ switch.early.test336:                             ; preds = %491
   ]
 
 494:                                              ; preds = %switch.early.test336
-  %495 = getelementptr inbounds i8, ptr %0, i64 40
+  %495 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %496 = load i32, ptr %495, align 8
   %497 = load ptr, ptr %75, align 8
   store i32 %496, ptr %497, align 8
@@ -5090,7 +5090,7 @@ switch.early.test336:                             ; preds = %491
   br label %510
 
 506:                                              ; preds = %502
-  %507 = getelementptr inbounds i8, ptr %0, i64 40
+  %507 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %508 = load i32, ptr %507, align 8
   %509 = load ptr, ptr %75, align 8
   store i32 %508, ptr %509, align 8
@@ -5166,7 +5166,7 @@ switch.early.test336:                             ; preds = %491
   br label %236
 
 529:                                              ; preds = %526
-  %530 = getelementptr inbounds i8, ptr %0, i64 40
+  %530 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %531 = load i32, ptr %530, align 8
   %532 = load ptr, ptr %75, align 8
   store i32 %531, ptr %532, align 8
@@ -5225,11 +5225,11 @@ switch.early.test336:                             ; preds = %491
 _Z18coco_string_deleteRPw.exit254:                ; preds = %544
   %547 = load ptr, ptr %75, align 8
   store i32 1, ptr %547, align 8
-  %548 = getelementptr inbounds i8, ptr %0, i64 96
+  %548 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %549 = load ptr, ptr %548, align 8
   %550 = load i32, ptr %96, align 4
   %551 = tail call noundef ptr @_Z18coco_string_createPKwii(ptr noundef %549, i32 noundef 0, i32 noundef %550)
-  %552 = getelementptr inbounds i8, ptr %0, i64 72
+  %552 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %553 = load ptr, ptr %75, align 8
   %554 = load i32, ptr %553, align 8
   %555 = tail call noundef i32 @_ZN14VrmlTranslator10KeywordMap3getEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %552, ptr noundef nonnull %551, i32 noundef %554)
@@ -5281,7 +5281,7 @@ _Z18coco_string_deleteRPw.exit254:                ; preds = %544
   br label %435
 
 565:                                              ; preds = %561
-  %566 = getelementptr inbounds i8, ptr %0, i64 40
+  %566 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %567 = load i32, ptr %566, align 8
   %568 = load ptr, ptr %75, align 8
   store i32 %567, ptr %568, align 8
@@ -5343,7 +5343,7 @@ switch.early.test337:                             ; preds = %569
   ]
 
 582:                                              ; preds = %581
-  %583 = getelementptr inbounds i8, ptr %0, i64 40
+  %583 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %584 = load i32, ptr %583, align 8
   %585 = load ptr, ptr %75, align 8
   store i32 %584, ptr %585, align 8
@@ -5370,7 +5370,7 @@ switch.early.test337:                             ; preds = %569
   ]
 
 593:                                              ; preds = %592
-  %594 = getelementptr inbounds i8, ptr %0, i64 40
+  %594 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %595 = load i32, ptr %594, align 8
   %596 = load ptr, ptr %75, align 8
   store i32 %595, ptr %596, align 8
@@ -5420,11 +5420,11 @@ switch.early.test337:                             ; preds = %569
 _Z18coco_string_deleteRPw.exit255:                ; preds = %607
   %610 = load ptr, ptr %75, align 8
   store i32 1, ptr %610, align 8
-  %611 = getelementptr inbounds i8, ptr %0, i64 96
+  %611 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %612 = load ptr, ptr %611, align 8
   %613 = load i32, ptr %96, align 4
   %614 = tail call noundef ptr @_Z18coco_string_createPKwii(ptr noundef %612, i32 noundef 0, i32 noundef %613)
-  %615 = getelementptr inbounds i8, ptr %0, i64 72
+  %615 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %616 = load ptr, ptr %75, align 8
   %617 = load i32, ptr %616, align 8
   %618 = tail call noundef i32 @_ZN14VrmlTranslator10KeywordMap3getEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %615, ptr noundef nonnull %614, i32 noundef %617)
@@ -5477,11 +5477,11 @@ _Z18coco_string_deleteRPw.exit255:                ; preds = %607
 _Z18coco_string_deleteRPw.exit256:                ; preds = %630
   %633 = load ptr, ptr %75, align 8
   store i32 1, ptr %633, align 8
-  %634 = getelementptr inbounds i8, ptr %0, i64 96
+  %634 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %635 = load ptr, ptr %634, align 8
   %636 = load i32, ptr %96, align 4
   %637 = tail call noundef ptr @_Z18coco_string_createPKwii(ptr noundef %635, i32 noundef 0, i32 noundef %636)
-  %638 = getelementptr inbounds i8, ptr %0, i64 72
+  %638 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %639 = load ptr, ptr %75, align 8
   %640 = load i32, ptr %639, align 8
   %641 = tail call noundef i32 @_ZN14VrmlTranslator10KeywordMap3getEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %638, ptr noundef nonnull %637, i32 noundef %640)
@@ -5501,7 +5501,7 @@ _Z18coco_string_deleteRPw.exit256:                ; preds = %630
   br label %500
 
 647:                                              ; preds = %643
-  %648 = getelementptr inbounds i8, ptr %0, i64 40
+  %648 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %649 = load i32, ptr %648, align 8
   %650 = load ptr, ptr %75, align 8
   store i32 %649, ptr %650, align 8
@@ -5557,7 +5557,7 @@ _Z18coco_string_deleteRPw.exit256:                ; preds = %630
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef i32 @_ZN14VrmlTranslator10KeywordMap3getEPKwi(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 comdat align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %_Z16coco_string_hashPKw.exit, label %.preheader.i
@@ -5573,7 +5573,7 @@ define linkonce_odr noundef i32 @_ZN14VrmlTranslator10KeywordMap3getEPKwi(ptr no
   %.0814.i = phi ptr [ %10, %.lr.ph.i ], [ %1, %.preheader.i ]
   %8 = mul nsw i32 %.015.i, 7
   %9 = xor i32 %8, %7
-  %10 = getelementptr inbounds i8, ptr %.0814.i, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %.0814.i, i64 4
   %11 = load i32, ptr %10, align 4
   %.not12.i = icmp eq i32 %11, 0
   br i1 %.not12.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !10
@@ -5587,27 +5587,27 @@ define linkonce_odr noundef i32 @_ZN14VrmlTranslator10KeywordMap3getEPKwi(ptr no
 
 _Z16coco_string_hashPKw.exit:                     ; preds = %3, %._crit_edge.i
   %.09.i = phi i64 [ %13, %._crit_edge.i ], [ 0, %3 ]
-  %14 = getelementptr inbounds ptr, ptr %5, i64 %.09.i
+  %14 = getelementptr inbounds nuw ptr, ptr %5, i64 %.09.i
   %.09 = load ptr, ptr %14, align 8
   %cond10 = icmp eq ptr %.09, null
   br i1 %cond10, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_Z16coco_string_hashPKw.exit, %19
   %.011 = phi ptr [ %.0, %19 ], [ %.09, %_Z16coco_string_hashPKw.exit ]
-  %15 = getelementptr inbounds i8, ptr %.011, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %.011, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = tail call i32 @wcscmp(ptr noundef readonly %16, ptr noundef readonly %1) #24
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %.critedge, label %19
 
 19:                                               ; preds = %.lr.ph
-  %20 = getelementptr inbounds i8, ptr %.011, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %.011, i64 24
   %.0 = load ptr, ptr %20, align 8
   %cond = icmp eq ptr %.0, null
   br i1 %cond, label %.loopexit, label %.lr.ph, !llvm.loop !29
 
 .critedge:                                        ; preds = %.lr.ph
-  %21 = getelementptr inbounds i8, ptr %.011, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %.011, i64 16
   %22 = load i32, ptr %21, align 8
   br label %.loopexit
 
@@ -5618,9 +5618,9 @@ _Z16coco_string_hashPKw.exit:                     ; preds = %3, %._crit_edge.i
 
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_ZN14VrmlTranslator7Scanner4ScanEv(ptr noundef nonnull align 8 dereferenceable(160) %0) local_unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 112
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %9
@@ -5632,19 +5632,19 @@ define noundef ptr @_ZN14VrmlTranslator7Scanner4ScanEv(ptr noundef nonnull align
 9:                                                ; preds = %1, %7
   %.sink3 = phi ptr [ %8, %7 ], [ %5, %1 ]
   store ptr %.sink3, ptr %2, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 120
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr %.sink3, ptr %10, align 8
   ret ptr %.sink3
 }
 
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_ZN14VrmlTranslator7Scanner4PeekEv(ptr noundef nonnull align 8 dereferenceable(160) %0) local_unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 120
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
-  %7 = getelementptr inbounds i8, ptr %0, i64 44
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 44
   br i1 %6, label %.preheader, label %.preheader1
 
 .preheader1:                                      ; preds = %1
@@ -5654,7 +5654,7 @@ define noundef ptr @_ZN14VrmlTranslator7Scanner4PeekEv(ptr noundef nonnull align
 .preheader:                                       ; preds = %1, %.preheader
   %9 = tail call noundef ptr @_ZN14VrmlTranslator7Scanner9NextTokenEv(ptr noundef nonnull align 8 dereferenceable(160) %0)
   %10 = load ptr, ptr %2, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store ptr %9, ptr %11, align 8
   store ptr %9, ptr %2, align 8
   %12 = load i32, ptr %9, align 8
@@ -5664,7 +5664,7 @@ define noundef ptr @_ZN14VrmlTranslator7Scanner4PeekEv(ptr noundef nonnull align
 
 15:                                               ; preds = %.preheader1, %15
   %16 = phi ptr [ %3, %.preheader1 ], [ %18, %15 ]
-  %17 = getelementptr inbounds i8, ptr %16, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %18 = load ptr, ptr %17, align 8
   store ptr %18, ptr %2, align 8
   %19 = load i32, ptr %18, align 8
@@ -5678,9 +5678,9 @@ define noundef ptr @_ZN14VrmlTranslator7Scanner4PeekEv(ptr noundef nonnull align
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN14VrmlTranslator7Scanner9ResetPeekEv(ptr nocapture noundef nonnull align 8 dereferenceable(160) initializes((120, 128)) %0) local_unnamed_addr #13 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 112
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 120
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr %3, ptr %4, align 8
   ret void
 }

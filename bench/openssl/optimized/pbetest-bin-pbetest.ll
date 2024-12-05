@@ -77,7 +77,7 @@ if.end6:                                          ; preds = %if.end
   br i1 %tobool10.not, label %err, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end6
-  %parameter = getelementptr inbounds i8, ptr %call2, i64 8
+  %parameter = getelementptr inbounds nuw i8, ptr %call2, i64 8
   %0 = load ptr, ptr %parameter, align 8
   %call11 = tail call i32 @PKCS5_PBE_keyivgen(ptr noundef %call, ptr noundef nonnull @pbe_password, i32 noundef 19, ptr noundef %0, ptr noundef %cipher, ptr noundef %md, i32 noundef 1) #2
   %cmp12 = icmp ne i32 %call11, 0

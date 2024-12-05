@@ -425,33 +425,33 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 16777216) i32 @get_aircraft_24_bit_address_from_nsap(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 208
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %3 = load i32, ptr %2, align 8
   %4 = tail call i32 @get_osi_address_type() #5
   %.not = icmp eq i32 %3, %4
   br i1 %.not, label %5, label %83
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 232
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %7 = load i32, ptr %6, align 8
   %8 = tail call i32 @get_osi_address_type() #5
   %.not31 = icmp eq i32 %7, %8
   br i1 %.not31, label %9, label %83
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %0, i64 212
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 212
   %11 = load i32, ptr %10, align 4
   %.not32 = icmp eq i32 %11, 20
   br i1 %.not32, label %12, label %83
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %0, i64 236
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %14 = load i32, ptr %13, align 4
   %.not33 = icmp eq i32 %14, 20
   br i1 %.not33, label %15, label %83
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %0, i64 216
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %17 = load ptr, ptr %16, align 8
   %18 = load i8, ptr %17, align 1
   %19 = zext i8 %18 to i32
@@ -492,7 +492,7 @@ define hidden range(i32 0, 16777216) i32 @get_aircraft_24_bit_address_from_nsap(
 
 49:                                               ; preds = %15, %35
   %.0 = phi i32 [ %48, %35 ], [ 0, %15 ]
-  %50 = getelementptr inbounds i8, ptr %0, i64 240
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %51 = load ptr, ptr %50, align 8
   %52 = load i8, ptr %51, align 1
   %53 = zext i8 %52 to i32
@@ -540,33 +540,33 @@ declare i32 @get_osi_address_type() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 3) i32 @check_heur_msg_type(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 208
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %3 = load i32, ptr %2, align 8
   %4 = tail call i32 @get_osi_address_type() #5
   %.not = icmp eq i32 %3, %4
   br i1 %.not, label %5, label %54
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 232
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %7 = load i32, ptr %6, align 8
   %8 = tail call i32 @get_osi_address_type() #5
   %.not25 = icmp eq i32 %7, %8
   br i1 %.not25, label %9, label %54
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %0, i64 212
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 212
   %11 = load i32, ptr %10, align 4
   %.not26 = icmp eq i32 %11, 20
   br i1 %.not26, label %12, label %54
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %0, i64 236
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %14 = load i32, ptr %13, align 4
   %.not27 = icmp eq i32 %14, 20
   br i1 %.not27, label %15, label %54
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %0, i64 216
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %17 = load ptr, ptr %16, align 8
   %18 = load i8, ptr %17, align 1
   %19 = zext i8 %18 to i32
@@ -588,7 +588,7 @@ define hidden range(i32 0, 3) i32 @check_heur_msg_type(ptr nocapture noundef rea
   %34 = or disjoint i32 %30, %.masked
   %or.cond = icmp eq i32 %34, 1191192385
   %spec.select = select i1 %or.cond, i32 1, i32 2
-  %35 = getelementptr inbounds i8, ptr %0, i64 240
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %36 = load ptr, ptr %35, align 8
   %37 = load i8, ptr %36, align 1
   %38 = zext i8 %37 to i32
@@ -625,9 +625,9 @@ define hidden ptr @get_atn_conversation_tree() local_unnamed_addr #2 {
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @find_atn_conversation(ptr nocapture noundef readonly %0, i16 noundef zeroext %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %.lr.ph.preheader.i, label %add_address_to_hash.exit
@@ -652,9 +652,9 @@ define hidden ptr @find_atn_conversation(ptr nocapture noundef readonly %0, i16 
 
 add_address_to_hash.exit:                         ; preds = %.lr.ph.i, %3
   %.011.lcssa.i = phi i32 [ 0, %3 ], [ %15, %.lr.ph.i ]
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %2, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %19 = load i32, ptr %18, align 4
   %20 = icmp sgt i32 %19, 0
   br i1 %20, label %.lr.ph.preheader.i10, label %add_address_to_hash.exit17
@@ -693,9 +693,9 @@ declare ptr @wmem_tree_lookup32(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef ptr @create_atn_conversation(ptr nocapture noundef readonly %0, i16 noundef zeroext %1, ptr nocapture noundef readonly %2, ptr noundef %3) local_unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %8 = load i32, ptr %7, align 4
   %9 = icmp sgt i32 %8, 0
   br i1 %9, label %.lr.ph.preheader.i, label %add_address_to_hash.exit
@@ -723,9 +723,9 @@ add_address_to_hash.exit:                         ; preds = %.lr.ph.i, %4
   %17 = shl i32 %.011.lcssa.i, 16
   %18 = zext i16 %1 to i32
   %19 = or disjoint i32 %17, %18
-  %20 = getelementptr inbounds i8, ptr %2, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %2, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %23 = load i32, ptr %22, align 4
   %24 = icmp sgt i32 %23, 0
   br i1 %24, label %.lr.ph.preheader.i14, label %add_address_to_hash.exit21
@@ -1034,7 +1034,7 @@ define internal i32 @dissect_atn_ulcs_T_pdv_list_presentation_data_values_arbitr
   %6 = alloca %struct._asn1_ctx_t, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %10 = load ptr, ptr %9, align 8
   store ptr null, ptr %7, align 8
   %11 = call i32 @dissect_per_bit_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef -1, i32 noundef -1, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef nonnull %7, ptr noundef null) #5
@@ -1064,11 +1064,11 @@ define internal i32 @dissect_atn_ulcs_T_pdv_list_presentation_data_values_arbitr
   br label %86
 
 24:                                               ; preds = %13
-  %25 = getelementptr inbounds i8, ptr %10, i64 382
+  %25 = getelementptr inbounds nuw i8, ptr %10, i64 382
   %26 = load i16, ptr %25, align 2
-  %27 = getelementptr inbounds i8, ptr %10, i64 240
+  %27 = getelementptr inbounds nuw i8, ptr %10, i64 240
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %10, i64 236
+  %29 = getelementptr inbounds nuw i8, ptr %10, i64 236
   %30 = load i32, ptr %29, align 4
   %31 = icmp sgt i32 %30, 0
   br i1 %31, label %.lr.ph.preheader.i.i, label %add_address_to_hash.exit.i
@@ -1093,9 +1093,9 @@ define internal i32 @dissect_atn_ulcs_T_pdv_list_presentation_data_values_arbitr
 
 add_address_to_hash.exit.i:                       ; preds = %.lr.ph.i.i, %24
   %.011.lcssa.i.i = phi i32 [ 0, %24 ], [ %38, %.lr.ph.i.i ]
-  %39 = getelementptr inbounds i8, ptr %10, i64 216
+  %39 = getelementptr inbounds nuw i8, ptr %10, i64 216
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %10, i64 212
+  %41 = getelementptr inbounds nuw i8, ptr %10, i64 212
   %42 = load i32, ptr %41, align 4
   %43 = icmp sgt i32 %42, 0
   br i1 %43, label %.lr.ph.preheader.i10.i, label %find_atn_conversation.exit
@@ -1188,23 +1188,23 @@ declare i32 @dissector_try_heuristic(ptr noundef, ptr noundef, ptr noundef, ptr 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_atn_ulcs_AARQ_apdu(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 382
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 382
   %9 = load i16, ptr %8, align 2
   %.not = icmp eq i16 %9, 0
   br i1 %.not, label %create_atn_conversation.exit.thread, label %10
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %7, i64 380
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 380
   %12 = load i16, ptr %11, align 4
   %.not43 = icmp eq i16 %12, 0
   br i1 %.not43, label %13, label %create_atn_conversation.exit
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %7, i64 240
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 240
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %7, i64 236
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 236
   %17 = load i32, ptr %16, align 4
   %18 = icmp sgt i32 %17, 0
   br i1 %18, label %.lr.ph.preheader.i.i, label %add_address_to_hash.exit.i
@@ -1229,9 +1229,9 @@ define internal i32 @dissect_atn_ulcs_AARQ_apdu(ptr noundef %0, i32 noundef %1, 
 
 add_address_to_hash.exit.i:                       ; preds = %.lr.ph.i.i, %13
   %.011.lcssa.i.i = phi i32 [ 0, %13 ], [ %25, %.lr.ph.i.i ]
-  %26 = getelementptr inbounds i8, ptr %7, i64 216
+  %26 = getelementptr inbounds nuw i8, ptr %7, i64 216
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %7, i64 212
+  %28 = getelementptr inbounds nuw i8, ptr %7, i64 212
   %29 = load i32, ptr %28, align 4
   %30 = icmp sgt i32 %29, 0
   br i1 %30, label %.lr.ph.preheader.i10.i, label %find_atn_conversation.exit
@@ -1344,15 +1344,15 @@ create_atn_conversation.exit:                     ; preds = %76, %add_address_to
 
 create_atn_conversation.exit.thread:              ; preds = %5, %create_atn_conversation.exit
   %.099 = phi ptr [ %.0.ph, %create_atn_conversation.exit ], [ null, %5 ]
-  %78 = getelementptr inbounds i8, ptr %7, i64 380
+  %78 = getelementptr inbounds nuw i8, ptr %7, i64 380
   %79 = load i16, ptr %78, align 4
   %.not46 = icmp eq i16 %79, 0
   br i1 %.not46, label %create_atn_conversation.exit96, label %80
 
 80:                                               ; preds = %create_atn_conversation.exit.thread
-  %81 = getelementptr inbounds i8, ptr %7, i64 216
+  %81 = getelementptr inbounds nuw i8, ptr %7, i64 216
   %82 = load ptr, ptr %81, align 8
-  %83 = getelementptr inbounds i8, ptr %7, i64 212
+  %83 = getelementptr inbounds nuw i8, ptr %7, i64 212
   %84 = load i32, ptr %83, align 4
   %85 = icmp sgt i32 %84, 0
   br i1 %85, label %.lr.ph.preheader.i.i68, label %add_address_to_hash.exit.i58
@@ -1377,9 +1377,9 @@ create_atn_conversation.exit.thread:              ; preds = %5, %create_atn_conv
 
 add_address_to_hash.exit.i58:                     ; preds = %.lr.ph.i.i70, %80
   %.011.lcssa.i.i59 = phi i32 [ 0, %80 ], [ %92, %.lr.ph.i.i70 ]
-  %93 = getelementptr inbounds i8, ptr %7, i64 240
+  %93 = getelementptr inbounds nuw i8, ptr %7, i64 240
   %94 = load ptr, ptr %93, align 8
-  %95 = getelementptr inbounds i8, ptr %7, i64 236
+  %95 = getelementptr inbounds nuw i8, ptr %7, i64 236
   %96 = load i32, ptr %95, align 4
   %97 = icmp sgt i32 %96, 0
   br i1 %97, label %.lr.ph.preheader.i10.i61, label %find_atn_conversation.exit75
@@ -1510,7 +1510,7 @@ create_atn_conversation.exit96:                   ; preds = %143, %add_address_t
 
 157:                                              ; preds = %154
   store i64 0, ptr %.039, align 8
-  %158 = getelementptr inbounds i8, ptr %.039, i64 8
+  %158 = getelementptr inbounds nuw i8, ptr %.039, i64 8
   store ptr %.1, ptr %158, align 8
   store i32 1, ptr %.039, align 8
   br label %159
@@ -1521,7 +1521,7 @@ create_atn_conversation.exit96:                   ; preds = %143, %add_address_t
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_atn_ulcs_AARE_apdu(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 @get_aircraft_24_bit_address_from_nsap(ptr noundef %7)
   %9 = load ptr, ptr @aarq_data_tree, align 8
@@ -1530,21 +1530,21 @@ define internal i32 @dissect_atn_ulcs_AARE_apdu(ptr noundef %0, i32 noundef %1, 
   br i1 %.not, label %213, label %11
 
 11:                                               ; preds = %5
-  %12 = getelementptr inbounds i8, ptr %7, i64 382
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 382
   %13 = load i16, ptr %12, align 2
   %.not42 = icmp eq i16 %13, 0
   br i1 %.not42, label %create_atn_conversation.exit95, label %14
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %7, i64 380
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 380
   %16 = load i16, ptr %15, align 4
   %.not43 = icmp eq i16 %16, 0
   br i1 %.not43, label %17, label %create_atn_conversation.exit
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %7, i64 240
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 240
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %7, i64 236
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 236
   %21 = load i32, ptr %20, align 4
   %22 = icmp sgt i32 %21, 0
   br i1 %22, label %.lr.ph.preheader.i.i, label %add_address_to_hash.exit.i
@@ -1569,9 +1569,9 @@ define internal i32 @dissect_atn_ulcs_AARE_apdu(ptr noundef %0, i32 noundef %1, 
 
 add_address_to_hash.exit.i:                       ; preds = %.lr.ph.i.i, %17
   %.011.lcssa.i.i = phi i32 [ 0, %17 ], [ %29, %.lr.ph.i.i ]
-  %30 = getelementptr inbounds i8, ptr %7, i64 216
+  %30 = getelementptr inbounds nuw i8, ptr %7, i64 216
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %7, i64 212
+  %32 = getelementptr inbounds nuw i8, ptr %7, i64 212
   %33 = load i32, ptr %32, align 4
   %34 = icmp sgt i32 %33, 0
   br i1 %34, label %.lr.ph.preheader.i10.i, label %find_atn_conversation.exit
@@ -1608,7 +1608,7 @@ find_atn_conversation.exit:                       ; preds = %.lr.ph.i12.i, %add_
 
 49:                                               ; preds = %find_atn_conversation.exit
   %50 = load i16, ptr %12, align 2
-  %51 = getelementptr inbounds i8, ptr %10, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %52 = load ptr, ptr %51, align 8
   %53 = load ptr, ptr %18, align 8
   %54 = load i32, ptr %20, align 4
@@ -1686,9 +1686,9 @@ create_atn_conversation.exit:                     ; preds = %80, %add_address_to
   br i1 %.not46, label %create_atn_conversation.exit95, label %84
 
 84:                                               ; preds = %82
-  %85 = getelementptr inbounds i8, ptr %7, i64 216
+  %85 = getelementptr inbounds nuw i8, ptr %7, i64 216
   %86 = load ptr, ptr %85, align 8
-  %87 = getelementptr inbounds i8, ptr %7, i64 212
+  %87 = getelementptr inbounds nuw i8, ptr %7, i64 212
   %88 = load i32, ptr %87, align 4
   %89 = icmp sgt i32 %88, 0
   br i1 %89, label %.lr.ph.preheader.i.i67, label %add_address_to_hash.exit.i57
@@ -1713,9 +1713,9 @@ create_atn_conversation.exit:                     ; preds = %80, %add_address_to
 
 add_address_to_hash.exit.i57:                     ; preds = %.lr.ph.i.i69, %84
   %.011.lcssa.i.i58 = phi i32 [ 0, %84 ], [ %96, %.lr.ph.i.i69 ]
-  %97 = getelementptr inbounds i8, ptr %7, i64 240
+  %97 = getelementptr inbounds nuw i8, ptr %7, i64 240
   %98 = load ptr, ptr %97, align 8
-  %99 = getelementptr inbounds i8, ptr %7, i64 236
+  %99 = getelementptr inbounds nuw i8, ptr %7, i64 236
   %100 = load i32, ptr %99, align 4
   %101 = icmp sgt i32 %100, 0
   br i1 %101, label %.lr.ph.preheader.i10.i60, label %find_atn_conversation.exit74
@@ -1748,7 +1748,7 @@ find_atn_conversation.exit74:                     ; preds = %.lr.ph.i12.i62, %ad
   %114 = load ptr, ptr @atn_conversation_tree, align 8
   %115 = tail call ptr @wmem_tree_lookup32(ptr noundef %114, i32 noundef %113) #5
   %.not47 = icmp eq ptr %115, null
-  %116 = getelementptr inbounds i8, ptr %10, i64 8
+  %116 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %117 = load ptr, ptr %116, align 8
   br i1 %.not47, label %149, label %118
 
@@ -2116,25 +2116,25 @@ declare i32 @dissect_per_null(ptr noundef, i32 noundef, ptr noundef, ptr noundef
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_atn_ulcs_AE_qualifier_form2(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca i32, align 4
-  %7 = getelementptr inbounds i8, ptr %2, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %8 = load ptr, ptr %7, align 8
   store i32 0, ptr %6, align 4
   %9 = call i32 @dissect_per_integer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef nonnull %6) #5
-  %10 = getelementptr inbounds i8, ptr %8, i64 382
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 382
   %11 = load i16, ptr %10, align 2
   %.not = icmp eq i16 %11, 0
   br i1 %.not, label %.thread, label %12
 
 12:                                               ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %8, i64 380
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 380
   %14 = load i16, ptr %13, align 4
   %.not18 = icmp eq i16 %14, 0
   br i1 %.not18, label %15, label %.thread53
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %8, i64 240
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 240
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %8, i64 236
+  %18 = getelementptr inbounds nuw i8, ptr %8, i64 236
   %19 = load i32, ptr %18, align 4
   %20 = icmp sgt i32 %19, 0
   br i1 %20, label %.lr.ph.preheader.i.i, label %add_address_to_hash.exit.i
@@ -2159,9 +2159,9 @@ define internal i32 @dissect_atn_ulcs_AE_qualifier_form2(ptr noundef %0, i32 nou
 
 add_address_to_hash.exit.i:                       ; preds = %.lr.ph.i.i, %15
   %.011.lcssa.i.i = phi i32 [ 0, %15 ], [ %27, %.lr.ph.i.i ]
-  %28 = getelementptr inbounds i8, ptr %8, i64 216
+  %28 = getelementptr inbounds nuw i8, ptr %8, i64 216
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %8, i64 212
+  %30 = getelementptr inbounds nuw i8, ptr %8, i64 212
   %31 = load i32, ptr %30, align 4
   %32 = icmp sgt i32 %31, 0
   br i1 %32, label %.lr.ph.preheader.i10.i, label %.loopexit
@@ -2199,15 +2199,15 @@ add_address_to_hash.exit.i:                       ; preds = %.lr.ph.i.i, %15
 
 .thread:                                          ; preds = %5, %.loopexit
   %.042 = phi ptr [ %46, %.loopexit ], [ null, %5 ]
-  %48 = getelementptr inbounds i8, ptr %8, i64 380
+  %48 = getelementptr inbounds nuw i8, ptr %8, i64 380
   %49 = load i16, ptr %48, align 4
   %.not20 = icmp eq i16 %49, 0
   br i1 %.not20, label %82, label %50
 
 50:                                               ; preds = %.thread
-  %51 = getelementptr inbounds i8, ptr %8, i64 216
+  %51 = getelementptr inbounds nuw i8, ptr %8, i64 216
   %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %8, i64 212
+  %53 = getelementptr inbounds nuw i8, ptr %8, i64 212
   %54 = load i32, ptr %53, align 4
   %55 = icmp sgt i32 %54, 0
   br i1 %55, label %.lr.ph.preheader.i.i32, label %add_address_to_hash.exit.i22
@@ -2232,9 +2232,9 @@ add_address_to_hash.exit.i:                       ; preds = %.lr.ph.i.i, %15
 
 add_address_to_hash.exit.i22:                     ; preds = %.lr.ph.i.i34, %50
   %.011.lcssa.i.i23 = phi i32 [ 0, %50 ], [ %62, %.lr.ph.i.i34 ]
-  %63 = getelementptr inbounds i8, ptr %8, i64 240
+  %63 = getelementptr inbounds nuw i8, ptr %8, i64 240
   %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %8, i64 236
+  %65 = getelementptr inbounds nuw i8, ptr %8, i64 236
   %66 = load i32, ptr %65, align 4
   %67 = icmp sgt i32 %66, 0
   br i1 %67, label %.lr.ph.preheader.i10.i25, label %find_atn_conversation.exit39
@@ -2320,7 +2320,7 @@ define internal i32 @dissect_atn_ulcs_OBJECT_IDENTIFIER(ptr noundef %0, i32 noun
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_atn_ulcs_T_other_mechanism_value(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, i32 %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 @call_ber_oid_callback(ptr noundef null, ptr noundef %0, i32 noundef %1, ptr noundef %7, ptr noundef %3, ptr noundef null) #5
   %9 = load ptr, ptr %6, align 8
@@ -2347,9 +2347,9 @@ define internal i32 @dissect_atn_ulcs_INTEGER(ptr noundef %0, i32 noundef %1, pt
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_atn_ulcs_T_data_value_descriptor(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %7 = tail call i32 @dissect_per_octet_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef -1, i32 noundef -1, i32 noundef 0, ptr noundef nonnull %6) #5
-  %8 = getelementptr inbounds i8, ptr %2, i64 60
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 60
   store i8 1, ptr %8, align 4
   ret i32 %7
 }
@@ -2378,7 +2378,7 @@ define internal i32 @dissect_atn_ulcs_T_externalt_encoding_arbitrary(ptr noundef
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   store ptr null, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = call i32 @dissect_per_bit_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef -1, i32 noundef -1, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef nonnull %6, ptr noundef null) #5
   %11 = load ptr, ptr %6, align 8
@@ -2386,21 +2386,21 @@ define internal i32 @dissect_atn_ulcs_T_externalt_encoding_arbitrary(ptr noundef
   br i1 %.not, label %148, label %12
 
 12:                                               ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %9, i64 382
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 382
   %14 = load i16, ptr %13, align 2
   %.not30 = icmp eq i16 %14, 0
   br i1 %.not30, label %50, label %15
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %9, i64 380
+  %16 = getelementptr inbounds nuw i8, ptr %9, i64 380
   %17 = load i16, ptr %16, align 4
   %.not31 = icmp eq i16 %17, 0
   br i1 %.not31, label %18, label %50
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %9, i64 240
+  %19 = getelementptr inbounds nuw i8, ptr %9, i64 240
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %9, i64 236
+  %21 = getelementptr inbounds nuw i8, ptr %9, i64 236
   %22 = load i32, ptr %21, align 4
   %23 = icmp sgt i32 %22, 0
   br i1 %23, label %.lr.ph.preheader.i.i, label %add_address_to_hash.exit.i
@@ -2425,9 +2425,9 @@ define internal i32 @dissect_atn_ulcs_T_externalt_encoding_arbitrary(ptr noundef
 
 add_address_to_hash.exit.i:                       ; preds = %.lr.ph.i.i, %18
   %.011.lcssa.i.i = phi i32 [ 0, %18 ], [ %30, %.lr.ph.i.i ]
-  %31 = getelementptr inbounds i8, ptr %9, i64 216
+  %31 = getelementptr inbounds nuw i8, ptr %9, i64 216
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %9, i64 212
+  %33 = getelementptr inbounds nuw i8, ptr %9, i64 212
   %34 = load i32, ptr %33, align 4
   %35 = icmp sgt i32 %34, 0
   br i1 %35, label %.lr.ph.preheader.i10.i, label %find_atn_conversation.exit
@@ -2463,7 +2463,7 @@ find_atn_conversation.exit:                       ; preds = %.lr.ph.i12.i, %add_
 
 50:                                               ; preds = %find_atn_conversation.exit, %15, %12
   %.0 = phi ptr [ null, %15 ], [ %49, %find_atn_conversation.exit ], [ null, %12 ]
-  %51 = getelementptr inbounds i8, ptr %9, i64 380
+  %51 = getelementptr inbounds nuw i8, ptr %9, i64 380
   %52 = load i16, ptr %51, align 4
   %.not32 = icmp eq i16 %52, 0
   br i1 %.not32, label %.thread, label %53
@@ -2474,9 +2474,9 @@ find_atn_conversation.exit:                       ; preds = %.lr.ph.i12.i, %add_
   br i1 %.not33, label %55, label %.thread80
 
 55:                                               ; preds = %53
-  %56 = getelementptr inbounds i8, ptr %9, i64 216
+  %56 = getelementptr inbounds nuw i8, ptr %9, i64 216
   %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %9, i64 212
+  %58 = getelementptr inbounds nuw i8, ptr %9, i64 212
   %59 = load i32, ptr %58, align 4
   %60 = icmp sgt i32 %59, 0
   br i1 %60, label %.lr.ph.preheader.i.i47, label %add_address_to_hash.exit.i37
@@ -2501,9 +2501,9 @@ find_atn_conversation.exit:                       ; preds = %.lr.ph.i12.i, %add_
 
 add_address_to_hash.exit.i37:                     ; preds = %.lr.ph.i.i49, %55
   %.011.lcssa.i.i38 = phi i32 [ 0, %55 ], [ %67, %.lr.ph.i.i49 ]
-  %68 = getelementptr inbounds i8, ptr %9, i64 240
+  %68 = getelementptr inbounds nuw i8, ptr %9, i64 240
   %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %9, i64 236
+  %70 = getelementptr inbounds nuw i8, ptr %9, i64 236
   %71 = load i32, ptr %70, align 4
   %72 = icmp sgt i32 %71, 0
   br i1 %72, label %.lr.ph.preheader.i10.i40, label %.loopexit
@@ -2546,9 +2546,9 @@ add_address_to_hash.exit.i37:                     ; preds = %.lr.ph.i.i49, %55
 
 .thread80:                                        ; preds = %53, %87
   %88 = phi i16 [ %.pr, %87 ], [ %52, %53 ]
-  %89 = getelementptr inbounds i8, ptr %9, i64 216
+  %89 = getelementptr inbounds nuw i8, ptr %9, i64 216
   %90 = load ptr, ptr %89, align 8
-  %91 = getelementptr inbounds i8, ptr %9, i64 212
+  %91 = getelementptr inbounds nuw i8, ptr %9, i64 212
   %92 = load i32, ptr %91, align 4
   %93 = icmp sgt i32 %92, 0
   br i1 %93, label %.lr.ph.preheader.i.i65, label %add_address_to_hash.exit.i55
@@ -2573,9 +2573,9 @@ add_address_to_hash.exit.i37:                     ; preds = %.lr.ph.i.i49, %55
 
 add_address_to_hash.exit.i55:                     ; preds = %.lr.ph.i.i67, %.thread80
   %.011.lcssa.i.i56 = phi i32 [ 0, %.thread80 ], [ %100, %.lr.ph.i.i67 ]
-  %101 = getelementptr inbounds i8, ptr %9, i64 240
+  %101 = getelementptr inbounds nuw i8, ptr %9, i64 240
   %102 = load ptr, ptr %101, align 8
-  %103 = getelementptr inbounds i8, ptr %9, i64 236
+  %103 = getelementptr inbounds nuw i8, ptr %9, i64 236
   %104 = load i32, ptr %103, align 4
   %105 = icmp sgt i32 %104, 0
   br i1 %105, label %.lr.ph.preheader.i10.i58, label %find_atn_conversation.exit72

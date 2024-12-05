@@ -580,15 +580,15 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -2147483648, 2) i32 @catalan_UTF_8_stem(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 12
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %5, i64 4
   store i32 %3, ptr %6, align 4
   %7 = load ptr, ptr %4, align 8
   store i32 %3, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i32, ptr %8, align 8
   %10 = tail call i32 @out_grouping_U(ptr noundef %0, ptr noundef nonnull @g_v, i32 noundef 97, i32 noundef 252, i32 noundef 1) #2
   %11 = icmp slt i32 %10, 0
@@ -629,11 +629,11 @@ define hidden range(i32 -2147483648, 2) i32 @catalan_UTF_8_stem(ptr noundef %0) 
   br label %r_mark_regions.exit
 
 r_mark_regions.exit:                              ; preds = %1, %12, %17, %24, %29
-  %33 = getelementptr inbounds i8, ptr %0, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %9, ptr %33, align 8
   %34 = load i32, ptr %2, align 4
   store i32 %34, ptr %8, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %34, ptr %35, align 8
   %36 = add i32 %34, -1
   %.not.i = icmp sgt i32 %36, %9
@@ -663,7 +663,7 @@ r_mark_regions.exit:                              ; preds = %1, %12, %17, %24, %
 
 49:                                               ; preds = %47
   %50 = load i32, ptr %8, align 8
-  %51 = getelementptr inbounds i8, ptr %0, i64 20
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %50, ptr %51, align 4
   %.val24.i = load ptr, ptr %4, align 8
   %52 = getelementptr i8, ptr %.val24.i, i64 4
@@ -686,7 +686,7 @@ r_mark_regions.exit:                              ; preds = %1, %12, %17, %24, %
 
 59:                                               ; preds = %56
   %60 = load i32, ptr %8, align 8
-  %61 = getelementptr inbounds i8, ptr %0, i64 20
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %60, ptr %61, align 4
   switch i32 %58, label %r_standard_suffix.exit [
     i32 1, label %62
@@ -763,7 +763,7 @@ r_mark_regions.exit:                              ; preds = %1, %12, %17, %24, %
 
 87:                                               ; preds = %84
   %88 = load i32, ptr %8, align 8
-  %89 = getelementptr inbounds i8, ptr %0, i64 20
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %88, ptr %89, align 4
   switch i32 %86, label %r_standard_suffix.exit [
     i32 1, label %90
@@ -803,7 +803,7 @@ r_standard_suffix.exit:                           ; preds = %87, %92, %96, %95, 
 
 101:                                              ; preds = %r_standard_suffix.exit
   %102 = load i32, ptr %8, align 8
-  %103 = getelementptr inbounds i8, ptr %0, i64 20
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %102, ptr %103, align 4
   switch i32 %100, label %114 [
     i32 1, label %104
@@ -838,7 +838,7 @@ r_standard_suffix.exit:                           ; preds = %87, %92, %96, %95, 
   %115 = load i32, ptr %2, align 4
   %116 = load i32, ptr %33, align 8
   store i32 %116, ptr %8, align 8
-  %117 = getelementptr inbounds i8, ptr %0, i64 20
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 20
   br label %118
 
 118:                                              ; preds = %161, %114

@@ -115,13 +115,13 @@ sub_0:                                            ; preds = %27, %30
   br i1 %.not, label %sub_1, label %.tail.thread
 
 sub_1:                                            ; preds = %sub_0
-  %34 = getelementptr inbounds i8, ptr %32, i64 1
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 1
   %35 = load i8, ptr %34, align 1
   %.not1 = icmp eq i8 %35, 103
   br i1 %.not1, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_1
-  %36 = getelementptr inbounds i8, ptr %32, i64 2
+  %36 = getelementptr inbounds nuw i8, ptr %32, i64 2
   %37 = load i8, ptr %36, align 1
   %38 = icmp eq i8 %37, 97
   %39 = load i8, ptr getelementptr inbounds (i8, ptr @boot_params, i64 15), align 1
@@ -192,7 +192,7 @@ define internal fastcc void @early_serial_init(ptr noundef %0) unnamed_addr #0 s
   ]
 
 .tail:                                            ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %6, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 1
   %9 = load i8, ptr %8, align 1
   %10 = icmp eq i8 %9, 120
   br i1 %10, label %11, label %.tail.thread
@@ -255,7 +255,7 @@ define internal fastcc void @early_serial_init(ptr noundef %0) unnamed_addr #0 s
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @early_console_register(ptr noundef %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #3 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 74
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 74
   %4 = load i16, ptr %3, align 2
   %5 = icmp eq i16 %4, -1
   br i1 %5, label %8, label %6
@@ -267,7 +267,7 @@ define internal fastcc void @early_console_register(ptr noundef %0, i32 noundef 
 8:                                                ; preds = %2
   store ptr %0, ptr @early_console, align 8
   %9 = icmp eq i32 %1, 0
-  %10 = getelementptr inbounds i8, ptr %0, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %11 = load i16, ptr %10, align 8
   %12 = and i16 %11, -9
   %13 = select i1 %9, i16 8, i16 0

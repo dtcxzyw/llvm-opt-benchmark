@@ -26,7 +26,7 @@ tailrecurse:                                      ; preds = %9, %1
   br i1 %3, label %4, label %.loopexit
 
 4:                                                ; preds = %tailrecurse
-  %5 = getelementptr inbounds i8, ptr %.tr, i64 1
+  %5 = getelementptr inbounds nuw i8, ptr %.tr, i64 1
   %6 = load i8, ptr %5, align 1
   switch i8 %6, label %49 [
     i8 18, label %7
@@ -38,7 +38,7 @@ tailrecurse:                                      ; preds = %9, %1
   br label %.loopexit
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %.tr, i64 2
+  %10 = getelementptr inbounds nuw i8, ptr %.tr, i64 2
   %.sroa.0.0.copyload = load ptr, ptr %10, align 1
   %11 = load i8, ptr %.sroa.0.0.copyload, align 1
   %12 = icmp eq i8 %11, 1
@@ -69,7 +69,7 @@ tailrecurse:                                      ; preds = %9, %1
   br i1 %27, label %28, label %37
 
 28:                                               ; preds = %21
-  %29 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 1
   %30 = load i8, ptr %29, align 1
   %31 = icmp eq i8 %30, 1
   %32 = and i8 %30, -2
@@ -129,7 +129,7 @@ define internal fastcc noundef ptr @toast_fetch_datum(ptr nocapture noundef read
   br i1 %3, label %4, label %8
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 1
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %6 = load i8, ptr %5, align 1
   %7 = icmp eq i8 %6, 18
   br i1 %7, label %11, label %8
@@ -142,13 +142,13 @@ define internal fastcc noundef ptr @toast_fetch_datum(ptr nocapture noundef read
   unreachable
 
 11:                                               ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %0, i64 2
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %.sroa.0.0.copyload = load i32, ptr %12, align 1
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 6
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 6
   %.sroa.2.0.copyload = load i32, ptr %.sroa.2.0..sroa_idx, align 1
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 10
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 10
   %.sroa.4.0.copyload = load i32, ptr %.sroa.4.0..sroa_idx, align 1
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 14
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 14
   %.sroa.5.0.copyload = load i32, ptr %.sroa.5.0..sroa_idx, align 1
   %13 = and i32 %.sroa.2.0.copyload, 1073741823
   %14 = add nuw nsw i32 %13, 4
@@ -165,9 +165,9 @@ define internal fastcc noundef ptr @toast_fetch_datum(ptr nocapture noundef read
 
 22:                                               ; preds = %11
   %23 = tail call ptr @table_open(i32 noundef %.sroa.5.0.copyload, i32 noundef 1) #6
-  %24 = getelementptr inbounds i8, ptr %23, i64 312
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 312
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 320
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 320
   %27 = load ptr, ptr %26, align 8
   tail call void %27(ptr noundef %23, i32 noundef %.sroa.4.0.copyload, i32 noundef range(i32 0, 1073741824) %13, i32 noundef 0, i32 noundef range(i32 -1073741822, -2147483648) %13, ptr noundef nonnull %16) #6
   tail call void @table_close(ptr noundef %23, i32 noundef 1) #6
@@ -195,7 +195,7 @@ define dso_local ptr @detoast_attr(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %3, label %4, label %82
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 1
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %6 = load i8, ptr %5, align 1
   switch i8 %6, label %77 [
     i8 18, label %7
@@ -210,7 +210,7 @@ define dso_local ptr @detoast_attr(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %11, label %12, label %toast_decompress_datum.exit57
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %8, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %14 = load i32, ptr %13, align 4
   %15 = lshr i32 %14, 30
   switch i32 %15, label %20 [
@@ -239,7 +239,7 @@ toast_decompress_datum.exit:                      ; preds = %16, %18
   br label %toast_decompress_datum.exit57
 
 23:                                               ; preds = %4
-  %24 = getelementptr inbounds i8, ptr %0, i64 2
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %.sroa.0.0.copyload = load ptr, ptr %24, align 1
   %25 = tail call ptr @detoast_attr(ptr noundef %.sroa.0.0.copyload)
   %26 = icmp eq ptr %25, %.sroa.0.0.copyload
@@ -252,7 +252,7 @@ toast_decompress_datum.exit:                      ; preds = %16, %18
   br i1 %30, label %31, label %40
 
 31:                                               ; preds = %27
-  %32 = getelementptr inbounds i8, ptr %25, i64 1
+  %32 = getelementptr inbounds nuw i8, ptr %25, i64 1
   %33 = load i8, ptr %32, align 1
   %34 = icmp eq i8 %33, 1
   %35 = and i8 %33, -2
@@ -291,7 +291,7 @@ toast_decompress_datum.exit:                      ; preds = %16, %18
   br i1 %55, label %56, label %65
 
 56:                                               ; preds = %50
-  %57 = getelementptr inbounds i8, ptr %25, i64 1
+  %57 = getelementptr inbounds nuw i8, ptr %25, i64 1
   %58 = load i8, ptr %57, align 1
   %59 = icmp eq i8 %58, 1
   %60 = and i8 %58, -2
@@ -342,7 +342,7 @@ toast_decompress_datum.exit:                      ; preds = %16, %18
   br i1 %85, label %86, label %97
 
 86:                                               ; preds = %82
-  %87 = getelementptr inbounds i8, ptr %0, i64 4
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %88 = load i32, ptr %87, align 4
   %89 = lshr i32 %88, 30
   switch i32 %89, label %94 [
@@ -380,8 +380,8 @@ toast_decompress_datum.exit:                      ; preds = %16, %18
   %105 = trunc nuw nsw i64 %103 to i32
   %106 = shl nuw nsw i32 %105, 2
   store i32 %106, ptr %104, align 4
-  %107 = getelementptr inbounds i8, ptr %104, i64 4
-  %108 = getelementptr inbounds i8, ptr %0, i64 1
+  %107 = getelementptr inbounds nuw i8, ptr %104, i64 4
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %107, ptr nonnull align 1 %108, i64 %102, i1 false)
   br label %toast_decompress_datum.exit57
 
@@ -426,7 +426,7 @@ define dso_local noundef ptr @detoast_attr_slice(ptr noundef %0, i32 noundef %1,
   br i1 %15, label %16, label %.loopexit
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %.tr95, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %.tr95, i64 1
   %18 = load i8, ptr %17, align 1
   switch i8 %18, label %.split103 [
     i8 18, label %.split
@@ -434,9 +434,9 @@ define dso_local noundef ptr @detoast_attr_slice(ptr noundef %0, i32 noundef %1,
   ]
 
 .split:                                           ; preds = %16
-  %19 = getelementptr inbounds i8, ptr %.tr95, i64 2
+  %19 = getelementptr inbounds nuw i8, ptr %.tr95, i64 2
   %.sroa.07.0.copyload = load i32, ptr %19, align 1
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %.tr95, i64 6
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.tr95, i64 6
   %.sroa.2.0.copyload = load i32, ptr %.sroa.2.0..sroa_idx, align 1
   %20 = and i32 %.sroa.2.0.copyload, 1073741823
   %21 = add i32 %.sroa.07.0.copyload, -4
@@ -469,7 +469,7 @@ define dso_local noundef ptr @detoast_attr_slice(ptr noundef %0, i32 noundef %1,
   br label %.loopexit
 
 tailrecurse:                                      ; preds = %16
-  %35 = getelementptr inbounds i8, ptr %.tr95, i64 2
+  %35 = getelementptr inbounds nuw i8, ptr %.tr95, i64 2
   %.sroa.0.0.copyload = load ptr, ptr %35, align 1
   br label %.lr.ph.split
 
@@ -491,7 +491,7 @@ tailrecurse:                                      ; preds = %16
 
 43:                                               ; preds = %.loopexit
   %44 = icmp sgt i32 %.079, -1
-  %45 = getelementptr inbounds i8, ptr %.061, i64 4
+  %45 = getelementptr inbounds nuw i8, ptr %.061, i64 4
   %46 = load i32, ptr %45, align 4
   br i1 %44, label %47, label %66
 
@@ -611,13 +611,13 @@ toast_decompress_datum_slice.exit:                ; preds = %70, %68, %61, %59, 
 94:                                               ; preds = %89, %87
   %.1 = phi i32 [ 0, %87 ], [ %spec.select, %89 ]
   %.058 = phi i64 [ 0, %87 ], [ %93, %89 ]
-  %95 = getelementptr inbounds i8, ptr %.162, i64 %88
+  %95 = getelementptr inbounds nuw i8, ptr %.162, i64 %88
   %96 = add i32 %.1, 4
   %97 = sext i32 %96 to i64
   %98 = tail call ptr @palloc(i64 noundef %97) #6
   %99 = shl i32 %96, 2
   store i32 %99, ptr %98, align 4
-  %100 = getelementptr inbounds i8, ptr %98, i64 4
+  %100 = getelementptr inbounds nuw i8, ptr %98, i64 4
   %101 = getelementptr i8, ptr %95, i64 %.058
   %102 = sext i32 %.1 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %100, ptr align 1 %101, i64 %102, i1 false)
@@ -647,7 +647,7 @@ define internal fastcc noundef ptr @toast_fetch_datum_slice(ptr nocapture nounde
   br i1 %5, label %6, label %10
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 1
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %8 = load i8, ptr %7, align 1
   %9 = icmp eq i8 %8, 18
   br i1 %9, label %13, label %10
@@ -660,13 +660,13 @@ define internal fastcc noundef ptr @toast_fetch_datum_slice(ptr nocapture nounde
   unreachable
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %0, i64 2
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %.sroa.0.0.copyload = load i32, ptr %14, align 1
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 6
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 6
   %.sroa.3.0.copyload = load i32, ptr %.sroa.3.0..sroa_idx, align 1
-  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 10
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 10
   %.sroa.6.0.copyload = load i32, ptr %.sroa.6.0..sroa_idx, align 1
-  %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 14
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 14
   %.sroa.7.0.copyload = load i32, ptr %.sroa.7.0..sroa_idx, align 1
   %15 = and i32 %.sroa.3.0.copyload, 1073741823
   %.not = icmp samesign ult i32 %1, %15
@@ -696,9 +696,9 @@ define internal fastcc noundef ptr @toast_fetch_datum_slice(ptr nocapture nounde
 
 29:                                               ; preds = %13
   %30 = tail call ptr @table_open(i32 noundef %.sroa.7.0.copyload, i32 noundef 1) #6
-  %31 = getelementptr inbounds i8, ptr %30, i64 312
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 312
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 320
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 320
   %34 = load ptr, ptr %33, align 8
   tail call void %34(ptr noundef %30, i32 noundef %.sroa.6.0.copyload, i32 noundef range(i32 0, 1073741824) %15, i32 noundef range(i32 0, 1073741823) %spec.select36, i32 noundef range(i32 -1073741822, -2147483648) %.2, ptr noundef nonnull %25) #6
   tail call void @table_close(ptr noundef %30, i32 noundef 1) #6
@@ -720,7 +720,7 @@ define dso_local i64 @toast_raw_datum_size(i64 noundef %0) local_unnamed_addr #0
 .lr.ph:                                           ; preds = %1, %tailrecurse
   %5 = phi ptr [ %.sroa.0.0.copyload, %tailrecurse ], [ %2, %1 ]
   %.tr31 = phi i64 [ %12, %tailrecurse ], [ %0, %1 ]
-  %6 = getelementptr inbounds i8, ptr %5, i64 1
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %7 = load i8, ptr %6, align 1
   switch i8 %7, label %15 [
     i8 18, label %8
@@ -728,13 +728,13 @@ define dso_local i64 @toast_raw_datum_size(i64 noundef %0) local_unnamed_addr #0
   ]
 
 8:                                                ; preds = %.lr.ph
-  %9 = getelementptr inbounds i8, ptr %5, i64 2
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 2
   %.sroa.02.0.copyload = load i32, ptr %9, align 1
   %10 = sext i32 %.sroa.02.0.copyload to i64
   br label %39
 
 tailrecurse:                                      ; preds = %.lr.ph
-  %11 = getelementptr inbounds i8, ptr %5, i64 2
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 2
   %.sroa.0.0.copyload = load ptr, ptr %11, align 1
   %12 = ptrtoint ptr %.sroa.0.0.copyload to i64
   %13 = load i8, ptr %.sroa.0.0.copyload, align 1
@@ -760,7 +760,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %1
   br i1 %23, label %24, label %30
 
 24:                                               ; preds = %tailrecurse._crit_edge
-  %25 = getelementptr inbounds i8, ptr %.lcssa26, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %.lcssa26, i64 4
   %26 = load i32, ptr %25, align 4
   %27 = and i32 %26, 1073741823
   %28 = add nuw nsw i32 %27, 4
@@ -800,7 +800,7 @@ define dso_local i64 @toast_datum_size(i64 noundef %0) local_unnamed_addr #0 {
 .lr.ph:                                           ; preds = %1, %tailrecurse
   %5 = phi ptr [ %.sroa.0.0.copyload, %tailrecurse ], [ %2, %1 ]
   %.tr28 = phi i64 [ %12, %tailrecurse ], [ %0, %1 ]
-  %6 = getelementptr inbounds i8, ptr %5, i64 1
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %7 = load i8, ptr %6, align 1
   switch i8 %7, label %15 [
     i8 18, label %8
@@ -808,14 +808,14 @@ define dso_local i64 @toast_datum_size(i64 noundef %0) local_unnamed_addr #0 {
   ]
 
 8:                                                ; preds = %.lr.ph
-  %.sroa.1.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 6
+  %.sroa.1.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 6
   %.sroa.1.0.copyload = load i32, ptr %.sroa.1.0..sroa_idx, align 1
   %9 = and i32 %.sroa.1.0.copyload, 1073741823
   %10 = zext nneg i32 %9 to i64
   br label %30
 
 tailrecurse:                                      ; preds = %.lr.ph
-  %11 = getelementptr inbounds i8, ptr %5, i64 2
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 2
   %.sroa.0.0.copyload = load ptr, ptr %11, align 1
   %12 = ptrtoint ptr %.sroa.0.0.copyload to i64
   %13 = load i8, ptr %.sroa.0.0.copyload, align 1

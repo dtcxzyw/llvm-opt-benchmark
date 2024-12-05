@@ -32,7 +32,7 @@ define hidden i32 @ir_patch(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr 
 
 15:                                               ; preds = %13, %10
   %.2 = phi i32 [ %14, %13 ], [ %.1, %10 ]
-  %16 = getelementptr inbounds i8, ptr %.0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %17 = add i32 %.016, -1
   %.not19 = icmp eq i32 %17, 0
   br i1 %.not19, label %.loopexit, label %10
@@ -59,7 +59,7 @@ define hidden i32 @ir_patch(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr 
   br i1 %27, label %28, label %40
 
 28:                                               ; preds = %24
-  %29 = getelementptr inbounds i8, ptr %.02657.i, i64 2
+  %29 = getelementptr inbounds nuw i8, ptr %.02657.i, i64 2
   %30 = load i32, ptr %29, align 1
   %31 = sext i32 %30 to i64
   %32 = getelementptr inbounds i8, ptr %.02657.i, i64 %31
@@ -67,7 +67,7 @@ define hidden i32 @ir_patch(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr 
   br i1 %33, label %34, label %40
 
 34:                                               ; preds = %28
-  %35 = getelementptr inbounds i8, ptr %.02657.i, i64 6
+  %35 = getelementptr inbounds nuw i8, ptr %.02657.i, i64 6
   %36 = ptrtoint ptr %35 to i64
   %37 = sub i64 %23, %36
   %38 = trunc i64 %37 to i32
@@ -81,7 +81,7 @@ define hidden i32 @ir_patch(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr 
   br i1 %42, label %43, label %55
 
 43:                                               ; preds = %40
-  %44 = getelementptr inbounds i8, ptr %.02657.i, i64 1
+  %44 = getelementptr inbounds nuw i8, ptr %.02657.i, i64 1
   %45 = load i32, ptr %44, align 1
   %46 = sext i32 %45 to i64
   %47 = getelementptr inbounds i8, ptr %.02657.i, i64 %46
@@ -89,7 +89,7 @@ define hidden i32 @ir_patch(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr 
   br i1 %48, label %49, label %55
 
 49:                                               ; preds = %43
-  %50 = getelementptr inbounds i8, ptr %.02657.i, i64 5
+  %50 = getelementptr inbounds nuw i8, ptr %.02657.i, i64 5
   %51 = ptrtoint ptr %50 to i64
   %52 = sub i64 %23, %51
   %53 = trunc i64 %52 to i32
@@ -108,7 +108,7 @@ define hidden i32 @ir_patch(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr 
   %.047.i.i.ph.ph.ph = phi i32 [ %68, %63 ], [ 0, %55 ]
   %.045.i.i.ph.ph.ph = phi i32 [ %64, %63 ], [ 0, %55 ]
   %.pn = phi i64 [ %67, %63 ], [ %56, %55 ]
-  %.0.i.i.ph.ph.ph.in.in = getelementptr inbounds [256 x i8], ptr @_asm_x86_inslen.map_op1, i64 0, i64 %.pn
+  %.0.i.i.ph.ph.ph.in.in = getelementptr inbounds nuw [256 x i8], ptr @_asm_x86_inslen.map_op1, i64 0, i64 %.pn
   br label %.outer.outer
 
 .outer.outer:                                     ; preds = %.outer.outer.outer, %101
@@ -147,21 +147,21 @@ define hidden i32 @ir_patch(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr 
 
 63:                                               ; preds = %58
   %64 = or i32 %.045.i.i.ph.ph.ph, %.0.i.i.ph
-  %65 = getelementptr inbounds i8, ptr %.050.i.i.ph, i64 1
+  %65 = getelementptr inbounds nuw i8, ptr %.050.i.i.ph, i64 1
   %66 = load i8, ptr %65, align 1
   %67 = zext i8 %66 to i64
   %68 = add i32 %.047.i.i.ph.ph, 1
   br label %.outer.outer.outer
 
 69:                                               ; preds = %58
-  %70 = getelementptr inbounds i8, ptr %.050.i.i.ph, i64 1
+  %70 = getelementptr inbounds nuw i8, ptr %.050.i.i.ph, i64 1
   %71 = load i8, ptr %70, align 1
   %72 = zext i8 %71 to i64
-  %73 = getelementptr inbounds [256 x i8], ptr @_asm_x86_inslen.map_op2, i64 0, i64 %72
+  %73 = getelementptr inbounds nuw [256 x i8], ptr @_asm_x86_inslen.map_op2, i64 0, i64 %72
   br label %.outer
 
 74:                                               ; preds = %58
-  %75 = getelementptr inbounds i8, ptr %.050.i.i.ph, i64 1
+  %75 = getelementptr inbounds nuw i8, ptr %.050.i.i.ph, i64 1
   br label %.loopexit56.i.i
 
 76:                                               ; preds = %58
@@ -176,7 +176,7 @@ define hidden i32 @ir_patch(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr 
   br label %_asm_x86_inslen.exit.i
 
 81:                                               ; preds = %58
-  %82 = getelementptr inbounds i8, ptr %.050.i.i.ph, i64 1
+  %82 = getelementptr inbounds nuw i8, ptr %.050.i.i.ph, i64 1
   %83 = load i8, ptr %82, align 1
   %84 = and i8 %83, 56
   %.not.i.i = icmp eq i8 %84, 0
@@ -195,7 +195,7 @@ define hidden i32 @ir_patch(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr 
   br i1 %90, label %91, label %101
 
 91:                                               ; preds = %89
-  %92 = getelementptr inbounds i8, ptr %.050.i.i.ph, i64 1
+  %92 = getelementptr inbounds nuw i8, ptr %.050.i.i.ph, i64 1
   %93 = load i8, ptr %92, align 1
   %94 = and i8 %93, 31
   %95 = add i32 %.047.i.i.ph.ph, 1
@@ -204,7 +204,7 @@ define hidden i32 @ir_patch(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr 
 
 97:                                               ; preds = %91
   %98 = zext nneg i8 %94 to i32
-  %99 = getelementptr inbounds i8, ptr %.050.i.i.ph, i64 3
+  %99 = getelementptr inbounds nuw i8, ptr %.050.i.i.ph, i64 3
   %100 = add i32 %.047.i.i.ph.ph, 3
   br label %.loopexit56.i.i
 
@@ -212,10 +212,10 @@ define hidden i32 @ir_patch(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr 
   %.353.i.i = phi ptr [ %92, %91 ], [ %.050.i.i.ph, %89 ]
   %.4.i.i = phi i32 [ %95, %91 ], [ %.047.i.i.ph.ph, %89 ]
   %102 = add i32 %.4.i.i, 1
-  %103 = getelementptr inbounds i8, ptr %.353.i.i, i64 2
+  %103 = getelementptr inbounds nuw i8, ptr %.353.i.i, i64 2
   %104 = load i8, ptr %103, align 1
   %105 = zext i8 %104 to i64
-  %106 = getelementptr inbounds [256 x i8], ptr @_asm_x86_inslen.map_op2, i64 0, i64 %105
+  %106 = getelementptr inbounds nuw [256 x i8], ptr @_asm_x86_inslen.map_op2, i64 0, i64 %105
   br label %.outer.outer
 
 107:                                              ; preds = %58
@@ -229,7 +229,7 @@ define hidden i32 @ir_patch(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr 
   %.2.i.i = phi i32 [ %.0.i.i.ph, %107 ], [ %98, %97 ], [ %spec.store.select.i.i, %85 ], [ %.0.i.i.ph, %74 ], [ 2, %81 ], [ %.0.i.i.ph, %58 ]
   %110 = and i32 %.2.i.i, 15
   %111 = add i32 %110, %.3.i.i
-  %112 = getelementptr inbounds i8, ptr %.252.i.i, i64 1
+  %112 = getelementptr inbounds nuw i8, ptr %.252.i.i, i64 1
   %113 = load i8, ptr %112, align 1
   %114 = zext i8 %113 to i32
   %115 = lshr i32 %114, 6
@@ -272,7 +272,7 @@ default.unreachable:                              ; preds = %.loopexit56.i.i
   br i1 %130, label %131, label %_asm_x86_inslen.exit.i
 
 131:                                              ; preds = %128
-  %132 = getelementptr inbounds i8, ptr %.252.i.i, i64 2
+  %132 = getelementptr inbounds nuw i8, ptr %.252.i.i, i64 2
   %133 = load i8, ptr %132, align 1
   %134 = and i8 %133, 7
   %135 = icmp eq i8 %134, 5
@@ -283,7 +283,7 @@ default.unreachable:                              ; preds = %.loopexit56.i.i
 _asm_x86_inslen.exit.i:                           ; preds = %131, %128, %125, %119, %.loopexit56.i.i, %.loopexit.i.i, %59
   %.054.i.i = phi i32 [ %120, %119 ], [ %80, %.loopexit.i.i ], [ %62, %59 ], [ %111, %.loopexit56.i.i ], [ %129, %128 ], [ %.5.i.i, %125 ], [ %spec.select.i.i, %131 ]
   %137 = zext i32 %.054.i.i to i64
-  %138 = getelementptr inbounds i8, ptr %.02657.i, i64 %137
+  %138 = getelementptr inbounds nuw i8, ptr %.02657.i, i64 %137
   %139 = icmp ult ptr %138, %19
   br i1 %139, label %24, label %._crit_edge.i
 

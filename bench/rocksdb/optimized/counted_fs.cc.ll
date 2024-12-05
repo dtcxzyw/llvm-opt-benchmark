@@ -358,7 +358,7 @@ define void @_ZNK7rocksdb14FileOpCounters13PrintCountersB5cxx11Ev(ptr noalias sr
 entry:
   %ss = alloca %"class.std::__cxx11::basic_stringstream", align 8
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss)
-  %add.ptr = getelementptr inbounds i8, ptr %ss, i64 16
+  %add.ptr = getelementptr inbounds nuw i8, ptr %ss, i64 16
   %call = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr, ptr noundef nonnull @.str)
           to label %invoke.cont unwind label %lpad
 
@@ -376,7 +376,7 @@ invoke.cont5:                                     ; preds = %invoke.cont3
           to label %invoke.cont8 unwind label %lpad
 
 invoke.cont8:                                     ; preds = %invoke.cont5
-  %deletes = getelementptr inbounds i8, ptr %this, i64 8
+  %deletes = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load atomic i32, ptr %deletes monotonic, align 8
   %call12 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call9, i32 noundef %1)
           to label %invoke.cont11 unwind label %lpad
@@ -390,7 +390,7 @@ invoke.cont13:                                    ; preds = %invoke.cont11
           to label %invoke.cont16 unwind label %lpad
 
 invoke.cont16:                                    ; preds = %invoke.cont13
-  %renames = getelementptr inbounds i8, ptr %this, i64 12
+  %renames = getelementptr inbounds nuw i8, ptr %this, i64 12
   %2 = load atomic i32, ptr %renames monotonic, align 4
   %call20 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call17, i32 noundef %2)
           to label %invoke.cont19 unwind label %lpad
@@ -404,7 +404,7 @@ invoke.cont21:                                    ; preds = %invoke.cont19
           to label %invoke.cont24 unwind label %lpad
 
 invoke.cont24:                                    ; preds = %invoke.cont21
-  %flushes = getelementptr inbounds i8, ptr %this, i64 16
+  %flushes = getelementptr inbounds nuw i8, ptr %this, i64 16
   %3 = load atomic i32, ptr %flushes monotonic, align 8
   %call28 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call25, i32 noundef %3)
           to label %invoke.cont27 unwind label %lpad
@@ -418,7 +418,7 @@ invoke.cont29:                                    ; preds = %invoke.cont27
           to label %invoke.cont32 unwind label %lpad
 
 invoke.cont32:                                    ; preds = %invoke.cont29
-  %syncs = getelementptr inbounds i8, ptr %this, i64 20
+  %syncs = getelementptr inbounds nuw i8, ptr %this, i64 20
   %4 = load atomic i32, ptr %syncs monotonic, align 4
   %call36 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call33, i32 noundef %4)
           to label %invoke.cont35 unwind label %lpad
@@ -432,7 +432,7 @@ invoke.cont37:                                    ; preds = %invoke.cont35
           to label %invoke.cont40 unwind label %lpad
 
 invoke.cont40:                                    ; preds = %invoke.cont37
-  %fsyncs = getelementptr inbounds i8, ptr %this, i64 28
+  %fsyncs = getelementptr inbounds nuw i8, ptr %this, i64 28
   %5 = load atomic i32, ptr %fsyncs monotonic, align 4
   %call44 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call41, i32 noundef %5)
           to label %invoke.cont43 unwind label %lpad
@@ -446,7 +446,7 @@ invoke.cont45:                                    ; preds = %invoke.cont43
           to label %invoke.cont48 unwind label %lpad
 
 invoke.cont48:                                    ; preds = %invoke.cont45
-  %dsyncs = getelementptr inbounds i8, ptr %this, i64 24
+  %dsyncs = getelementptr inbounds nuw i8, ptr %this, i64 24
   %6 = load atomic i32, ptr %dsyncs monotonic, align 8
   %call52 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call49, i32 noundef %6)
           to label %invoke.cont51 unwind label %lpad
@@ -460,7 +460,7 @@ invoke.cont53:                                    ; preds = %invoke.cont51
           to label %invoke.cont56 unwind label %lpad
 
 invoke.cont56:                                    ; preds = %invoke.cont53
-  %closes = getelementptr inbounds i8, ptr %this, i64 4
+  %closes = getelementptr inbounds nuw i8, ptr %this, i64 4
   %7 = load atomic i32, ptr %closes monotonic, align 4
   %call60 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call57, i32 noundef %7)
           to label %invoke.cont59 unwind label %lpad
@@ -474,7 +474,7 @@ invoke.cont61:                                    ; preds = %invoke.cont59
           to label %invoke.cont64 unwind label %lpad
 
 invoke.cont64:                                    ; preds = %invoke.cont61
-  %dir_opens = getelementptr inbounds i8, ptr %this, i64 32
+  %dir_opens = getelementptr inbounds nuw i8, ptr %this, i64 32
   %8 = load atomic i32, ptr %dir_opens monotonic, align 8
   %call68 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call65, i32 noundef %8)
           to label %invoke.cont67 unwind label %lpad
@@ -488,7 +488,7 @@ invoke.cont69:                                    ; preds = %invoke.cont67
           to label %invoke.cont72 unwind label %lpad
 
 invoke.cont72:                                    ; preds = %invoke.cont69
-  %dir_closes = getelementptr inbounds i8, ptr %this, i64 36
+  %dir_closes = getelementptr inbounds nuw i8, ptr %this, i64 36
   %9 = load atomic i32, ptr %dir_closes monotonic, align 4
   %call76 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call73, i32 noundef %9)
           to label %invoke.cont75 unwind label %lpad
@@ -502,7 +502,7 @@ invoke.cont77:                                    ; preds = %invoke.cont75
           to label %invoke.cont80 unwind label %lpad
 
 invoke.cont80:                                    ; preds = %invoke.cont77
-  %reads = getelementptr inbounds i8, ptr %this, i64 40
+  %reads = getelementptr inbounds nuw i8, ptr %this, i64 40
   %10 = load atomic i32, ptr %reads monotonic, align 8
   %call84 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call81, i32 noundef %10)
           to label %invoke.cont83 unwind label %lpad
@@ -516,7 +516,7 @@ invoke.cont85:                                    ; preds = %invoke.cont83
           to label %invoke.cont88 unwind label %lpad
 
 invoke.cont88:                                    ; preds = %invoke.cont85
-  %writes = getelementptr inbounds i8, ptr %this, i64 56
+  %writes = getelementptr inbounds nuw i8, ptr %this, i64 56
   %11 = load atomic i32, ptr %writes monotonic, align 8
   %call93 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call89, i32 noundef %11)
           to label %invoke.cont92 unwind label %lpad
@@ -530,7 +530,7 @@ invoke.cont94:                                    ; preds = %invoke.cont92
           to label %invoke.cont97 unwind label %lpad
 
 invoke.cont97:                                    ; preds = %invoke.cont94
-  %bytes = getelementptr inbounds i8, ptr %this, i64 48
+  %bytes = getelementptr inbounds nuw i8, ptr %this, i64 48
   %12 = load atomic i64, ptr %bytes monotonic, align 8
   %call102 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call98, i64 noundef %12)
           to label %invoke.cont101 unwind label %lpad
@@ -544,7 +544,7 @@ invoke.cont103:                                   ; preds = %invoke.cont101
           to label %invoke.cont106 unwind label %lpad
 
 invoke.cont106:                                   ; preds = %invoke.cont103
-  %bytes109 = getelementptr inbounds i8, ptr %this, i64 64
+  %bytes109 = getelementptr inbounds nuw i8, ptr %this, i64 64
   %13 = load atomic i64, ptr %bytes109 monotonic, align 8
   %call112 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call107, i64 noundef %13)
           to label %invoke.cont111 unwind label %lpad
@@ -592,12 +592,12 @@ define void @_ZN7rocksdb17CountedFileSystemC2ERKSt10shared_ptrINS_10FileSystemEE
 invoke.cont:
   tail call void @_ZN7rocksdb17FileSystemWrapperC2ERKSt10shared_ptrINS_10FileSystemEE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(16) %base)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb17CountedFileSystemE, i64 16), ptr %this, align 8
-  %counters_ = getelementptr inbounds i8, ptr %this, i64 48
-  %bytes.i.i = getelementptr inbounds i8, ptr %this, i64 96
+  %counters_ = getelementptr inbounds nuw i8, ptr %this, i64 48
+  %bytes.i.i = getelementptr inbounds nuw i8, ptr %this, i64 96
   store i64 0, ptr %bytes.i.i, align 8
-  %writes.i = getelementptr inbounds i8, ptr %this, i64 104
+  %writes.i = getelementptr inbounds nuw i8, ptr %this, i64 104
   store i32 0, ptr %writes.i, align 8
-  %bytes.i1.i = getelementptr inbounds i8, ptr %this, i64 112
+  %bytes.i1.i = getelementptr inbounds nuw i8, ptr %this, i64 112
   store i64 0, ptr %bytes.i1.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %counters_, i8 0, i64 44, i1 false)
   ret void
@@ -610,10 +610,10 @@ define void @_ZN7rocksdb17CountedFileSystem17NewSequentialFileERKNSt7__cxx1112ba
 entry:
   %base = alloca %"class.std::unique_ptr.7", align 8
   store ptr null, ptr %base, align 8
-  %target_.i = getelementptr inbounds i8, ptr %this, i64 32
+  %target_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %target_.i, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 168
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 168
   %1 = load ptr, ptr %vfn, align 8
   invoke void %1(ptr sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %f, ptr noundef nonnull align 8 dereferenceable(146) %options, ptr noundef nonnull %base, ptr noundef %dbg)
           to label %invoke.cont4 unwind label %lpad
@@ -624,21 +624,21 @@ invoke.cont4:                                     ; preds = %entry
   br i1 %cmp.i, label %if.then, label %nrvo.skipdtor
 
 if.then:                                          ; preds = %invoke.cont4
-  %counters_ = getelementptr inbounds i8, ptr %this, i64 48
+  %counters_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   %3 = atomicrmw add ptr %counters_, i32 1 seq_cst, align 4
   %call8 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #12
           to label %invoke.cont10 unwind label %lpad3
 
 invoke.cont10:                                    ; preds = %if.then
   %4 = load ptr, ptr %base, align 8
-  %target_.i.i.i = getelementptr inbounds i8, ptr %call8, i64 8
+  %target_.i.i.i = getelementptr inbounds nuw i8, ptr %call8, i64 8
   store ptr %4, ptr %target_.i.i.i, align 8
-  %guard_.i.i = getelementptr inbounds i8, ptr %call8, i64 16
+  %guard_.i.i = getelementptr inbounds nuw i8, ptr %call8, i64 16
   %.cast = ptrtoint ptr %4 to i64
   store i64 %.cast, ptr %guard_.i.i, align 8
   store ptr null, ptr %base, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb12_GLOBAL__N_121CountedSequentialFileE, i64 16), ptr %call8, align 8
-  %fs_.i = getelementptr inbounds i8, ptr %call8, i64 24
+  %fs_.i = getelementptr inbounds nuw i8, ptr %call8, i64 24
   store ptr %this, ptr %fs_.i, align 8
   %5 = load ptr, ptr %r, align 8
   store ptr %call8, ptr %r, align 8
@@ -647,7 +647,7 @@ invoke.cont10:                                    ; preds = %if.then
 
 _ZNKSt14default_deleteIN7rocksdb16FSSequentialFileEEclEPS1_.exit.i.i: ; preds = %invoke.cont10
   %vtable.i.i.i = load ptr, ptr %5, align 8
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
+  %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 8
   %6 = load ptr, ptr %vfn.i.i.i, align 8
   call void %6(ptr noundef nonnull align 8 dereferenceable(8) %5) #11
   br label %nrvo.skipdtor
@@ -660,7 +660,7 @@ lpad:                                             ; preds = %entry
 lpad3:                                            ; preds = %if.then
   %8 = landingpad { ptr, i32 }
           cleanup
-  %state_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %state_.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   %9 = load ptr, ptr %state_.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %9, null
   br i1 %cmp.not.i.i.i, label %_ZN7rocksdb8IOStatusD2Ev.exit, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i
@@ -672,7 +672,7 @@ nrvo.skipdtor:                                    ; preds = %_ZNKSt14default_del
 
 _ZNKSt14default_deleteIN7rocksdb16FSSequentialFileEEclEPS1_.exit.i: ; preds = %nrvo.skipdtor
   %vtable.i.i = load ptr, ptr %10, align 8
-  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
+  %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 8
   %11 = load ptr, ptr %vfn.i.i, align 8
   call void %11(ptr noundef nonnull align 8 dereferenceable(8) %10) #11
   br label %_ZNSt10unique_ptrIN7rocksdb16FSSequentialFileESt14default_deleteIS1_EED2Ev.exit
@@ -696,7 +696,7 @@ ehcleanup11:                                      ; preds = %_ZN7rocksdb8IOStatu
 
 _ZNKSt14default_deleteIN7rocksdb16FSSequentialFileEEclEPS1_.exit.i4: ; preds = %ehcleanup11
   %vtable.i.i5 = load ptr, ptr %12, align 8
-  %vfn.i.i6 = getelementptr inbounds i8, ptr %vtable.i.i5, i64 8
+  %vfn.i.i6 = getelementptr inbounds nuw i8, ptr %vtable.i.i5, i64 8
   %13 = load ptr, ptr %vfn.i.i6, align 8
   call void %13(ptr noundef nonnull align 8 dereferenceable(8) %12) #11
   br label %_ZNSt10unique_ptrIN7rocksdb16FSSequentialFileESt14default_deleteIS1_EED2Ev.exit7
@@ -716,10 +716,10 @@ define void @_ZN7rocksdb17CountedFileSystem19NewRandomAccessFileERKNSt7__cxx1112
 entry:
   %base = alloca %"class.std::unique_ptr.20", align 8
   store ptr null, ptr %base, align 8
-  %target_.i = getelementptr inbounds i8, ptr %this, i64 32
+  %target_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %target_.i, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 176
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 176
   %1 = load ptr, ptr %vfn, align 8
   invoke void %1(ptr sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %f, ptr noundef nonnull align 8 dereferenceable(146) %options, ptr noundef nonnull %base, ptr noundef %dbg)
           to label %invoke.cont4 unwind label %lpad
@@ -730,23 +730,23 @@ invoke.cont4:                                     ; preds = %entry
   br i1 %cmp.i, label %if.then, label %nrvo.skipdtor
 
 if.then:                                          ; preds = %invoke.cont4
-  %counters_ = getelementptr inbounds i8, ptr %this, i64 48
+  %counters_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   %3 = atomicrmw add ptr %counters_, i32 1 seq_cst, align 4
   %call8 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #12
           to label %invoke.cont10 unwind label %lpad3
 
 invoke.cont10:                                    ; preds = %if.then
   %4 = load ptr, ptr %base, align 8
-  %guard_.i.i.i = getelementptr inbounds i8, ptr %call8, i64 8
+  %guard_.i.i.i = getelementptr inbounds nuw i8, ptr %call8, i64 8
   store ptr null, ptr %guard_.i.i.i, align 8
-  %target_.i.i.i = getelementptr inbounds i8, ptr %call8, i64 16
+  %target_.i.i.i = getelementptr inbounds nuw i8, ptr %call8, i64 16
   store ptr %4, ptr %target_.i.i.i, align 8
-  %guard_.i.i = getelementptr inbounds i8, ptr %call8, i64 24
+  %guard_.i.i = getelementptr inbounds nuw i8, ptr %call8, i64 24
   %5 = ptrtoint ptr %4 to i64
   store i64 %5, ptr %guard_.i.i, align 8
   store ptr null, ptr %base, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb12_GLOBAL__N_123CountedRandomAccessFileE, i64 16), ptr %call8, align 8
-  %fs_.i = getelementptr inbounds i8, ptr %call8, i64 32
+  %fs_.i = getelementptr inbounds nuw i8, ptr %call8, i64 32
   store ptr %this, ptr %fs_.i, align 8
   %6 = load ptr, ptr %r, align 8
   store ptr %call8, ptr %r, align 8
@@ -755,7 +755,7 @@ invoke.cont10:                                    ; preds = %if.then
 
 _ZNKSt14default_deleteIN7rocksdb18FSRandomAccessFileEEclEPS1_.exit.i.i: ; preds = %invoke.cont10
   %vtable.i.i.i = load ptr, ptr %6, align 8
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
+  %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 8
   %7 = load ptr, ptr %vfn.i.i.i, align 8
   call void %7(ptr noundef nonnull align 8 dereferenceable(8) %6) #11
   br label %nrvo.skipdtor
@@ -768,7 +768,7 @@ lpad:                                             ; preds = %entry
 lpad3:                                            ; preds = %if.then
   %9 = landingpad { ptr, i32 }
           cleanup
-  %state_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %state_.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   %10 = load ptr, ptr %state_.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %10, null
   br i1 %cmp.not.i.i.i, label %_ZN7rocksdb8IOStatusD2Ev.exit, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i
@@ -780,7 +780,7 @@ nrvo.skipdtor:                                    ; preds = %_ZNKSt14default_del
 
 _ZNKSt14default_deleteIN7rocksdb18FSRandomAccessFileEEclEPS1_.exit.i: ; preds = %nrvo.skipdtor
   %vtable.i.i = load ptr, ptr %11, align 8
-  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
+  %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 8
   %12 = load ptr, ptr %vfn.i.i, align 8
   call void %12(ptr noundef nonnull align 8 dereferenceable(8) %11) #11
   br label %_ZNSt10unique_ptrIN7rocksdb18FSRandomAccessFileESt14default_deleteIS1_EED2Ev.exit
@@ -804,7 +804,7 @@ ehcleanup11:                                      ; preds = %_ZN7rocksdb8IOStatu
 
 _ZNKSt14default_deleteIN7rocksdb18FSRandomAccessFileEEclEPS1_.exit.i4: ; preds = %ehcleanup11
   %vtable.i.i5 = load ptr, ptr %13, align 8
-  %vfn.i.i6 = getelementptr inbounds i8, ptr %vtable.i.i5, i64 8
+  %vfn.i.i6 = getelementptr inbounds nuw i8, ptr %vtable.i.i5, i64 8
   %14 = load ptr, ptr %vfn.i.i6, align 8
   call void %14(ptr noundef nonnull align 8 dereferenceable(8) %13) #11
   br label %_ZNSt10unique_ptrIN7rocksdb18FSRandomAccessFileESt14default_deleteIS1_EED2Ev.exit7
@@ -818,10 +818,10 @@ define void @_ZN7rocksdb17CountedFileSystem15NewWritableFileERKNSt7__cxx1112basi
 entry:
   %base = alloca %"class.std::unique_ptr.28", align 8
   store ptr null, ptr %base, align 8
-  %target_.i = getelementptr inbounds i8, ptr %this, i64 32
+  %target_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %target_.i, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 184
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 184
   %1 = load ptr, ptr %vfn, align 8
   invoke void %1(ptr sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %f, ptr noundef nonnull align 8 dereferenceable(146) %options, ptr noundef nonnull %base, ptr noundef %dbg)
           to label %invoke.cont4 unwind label %lpad
@@ -832,29 +832,29 @@ invoke.cont4:                                     ; preds = %entry
   br i1 %cmp.i, label %if.then, label %nrvo.skipdtor
 
 if.then:                                          ; preds = %invoke.cont4
-  %counters_ = getelementptr inbounds i8, ptr %this, i64 48
+  %counters_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   %3 = atomicrmw add ptr %counters_, i32 1 seq_cst, align 4
   %call8 = invoke noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #12
           to label %invoke.cont10 unwind label %lpad3
 
 invoke.cont10:                                    ; preds = %if.then
   %4 = load ptr, ptr %base, align 8
-  %last_preallocated_block_.i.i.i.i = getelementptr inbounds i8, ptr %call8, i64 8
-  %io_priority_.i.i.i.i = getelementptr inbounds i8, ptr %call8, i64 24
+  %last_preallocated_block_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call8, i64 8
+  %io_priority_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call8, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %last_preallocated_block_.i.i.i.i, i8 0, i64 16, i1 false)
   store i32 4, ptr %io_priority_.i.i.i.i, align 8
-  %write_hint_.i.i.i.i = getelementptr inbounds i8, ptr %call8, i64 28
+  %write_hint_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call8, i64 28
   store i32 0, ptr %write_hint_.i.i.i.i, align 4
-  %strict_bytes_per_sync_.i.i.i.i = getelementptr inbounds i8, ptr %call8, i64 32
+  %strict_bytes_per_sync_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call8, i64 32
   store i8 0, ptr %strict_bytes_per_sync_.i.i.i.i, align 8
-  %target_.i.i.i = getelementptr inbounds i8, ptr %call8, i64 40
+  %target_.i.i.i = getelementptr inbounds nuw i8, ptr %call8, i64 40
   store ptr %4, ptr %target_.i.i.i, align 8
-  %guard_.i.i = getelementptr inbounds i8, ptr %call8, i64 48
+  %guard_.i.i = getelementptr inbounds nuw i8, ptr %call8, i64 48
   %5 = ptrtoint ptr %4 to i64
   store i64 %5, ptr %guard_.i.i, align 8
   store ptr null, ptr %base, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb12_GLOBAL__N_119CountedWritableFileE, i64 16), ptr %call8, align 8
-  %fs_.i = getelementptr inbounds i8, ptr %call8, i64 56
+  %fs_.i = getelementptr inbounds nuw i8, ptr %call8, i64 56
   store ptr %this, ptr %fs_.i, align 8
   %6 = load ptr, ptr %r, align 8
   store ptr %call8, ptr %r, align 8
@@ -863,7 +863,7 @@ invoke.cont10:                                    ; preds = %if.then
 
 _ZNKSt14default_deleteIN7rocksdb14FSWritableFileEEclEPS1_.exit.i.i: ; preds = %invoke.cont10
   %vtable.i.i.i = load ptr, ptr %6, align 8
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
+  %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 8
   %7 = load ptr, ptr %vfn.i.i.i, align 8
   call void %7(ptr noundef nonnull align 8 dereferenceable(33) %6) #11
   br label %nrvo.skipdtor
@@ -876,7 +876,7 @@ lpad:                                             ; preds = %entry
 lpad3:                                            ; preds = %if.then
   %9 = landingpad { ptr, i32 }
           cleanup
-  %state_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %state_.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   %10 = load ptr, ptr %state_.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %10, null
   br i1 %cmp.not.i.i.i, label %_ZN7rocksdb8IOStatusD2Ev.exit, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i
@@ -888,7 +888,7 @@ nrvo.skipdtor:                                    ; preds = %_ZNKSt14default_del
 
 _ZNKSt14default_deleteIN7rocksdb14FSWritableFileEEclEPS1_.exit.i: ; preds = %nrvo.skipdtor
   %vtable.i.i = load ptr, ptr %11, align 8
-  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
+  %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 8
   %12 = load ptr, ptr %vfn.i.i, align 8
   call void %12(ptr noundef nonnull align 8 dereferenceable(33) %11) #11
   br label %_ZNSt10unique_ptrIN7rocksdb14FSWritableFileESt14default_deleteIS1_EED2Ev.exit
@@ -912,7 +912,7 @@ ehcleanup11:                                      ; preds = %_ZN7rocksdb8IOStatu
 
 _ZNKSt14default_deleteIN7rocksdb14FSWritableFileEEclEPS1_.exit.i4: ; preds = %ehcleanup11
   %vtable.i.i5 = load ptr, ptr %13, align 8
-  %vfn.i.i6 = getelementptr inbounds i8, ptr %vtable.i.i5, i64 8
+  %vfn.i.i6 = getelementptr inbounds nuw i8, ptr %vtable.i.i5, i64 8
   %14 = load ptr, ptr %vfn.i.i6, align 8
   call void %14(ptr noundef nonnull align 8 dereferenceable(33) %13) #11
   br label %_ZNSt10unique_ptrIN7rocksdb14FSWritableFileESt14default_deleteIS1_EED2Ev.exit7
@@ -926,10 +926,10 @@ define void @_ZN7rocksdb17CountedFileSystem18ReopenWritableFileERKNSt7__cxx1112b
 entry:
   %base = alloca %"class.std::unique_ptr.28", align 8
   store ptr null, ptr %base, align 8
-  %target_.i = getelementptr inbounds i8, ptr %this, i64 32
+  %target_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %target_.i, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 192
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 192
   %1 = load ptr, ptr %vfn, align 8
   invoke void %1(ptr sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %fname, ptr noundef nonnull align 8 dereferenceable(146) %options, ptr noundef nonnull %base, ptr noundef %dbg)
           to label %invoke.cont4 unwind label %lpad
@@ -940,29 +940,29 @@ invoke.cont4:                                     ; preds = %entry
   br i1 %cmp.i, label %if.then, label %nrvo.skipdtor
 
 if.then:                                          ; preds = %invoke.cont4
-  %counters_ = getelementptr inbounds i8, ptr %this, i64 48
+  %counters_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   %3 = atomicrmw add ptr %counters_, i32 1 seq_cst, align 4
   %call8 = invoke noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #12
           to label %invoke.cont10 unwind label %lpad3
 
 invoke.cont10:                                    ; preds = %if.then
   %4 = load ptr, ptr %base, align 8
-  %last_preallocated_block_.i.i.i.i = getelementptr inbounds i8, ptr %call8, i64 8
-  %io_priority_.i.i.i.i = getelementptr inbounds i8, ptr %call8, i64 24
+  %last_preallocated_block_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call8, i64 8
+  %io_priority_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call8, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %last_preallocated_block_.i.i.i.i, i8 0, i64 16, i1 false)
   store i32 4, ptr %io_priority_.i.i.i.i, align 8
-  %write_hint_.i.i.i.i = getelementptr inbounds i8, ptr %call8, i64 28
+  %write_hint_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call8, i64 28
   store i32 0, ptr %write_hint_.i.i.i.i, align 4
-  %strict_bytes_per_sync_.i.i.i.i = getelementptr inbounds i8, ptr %call8, i64 32
+  %strict_bytes_per_sync_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call8, i64 32
   store i8 0, ptr %strict_bytes_per_sync_.i.i.i.i, align 8
-  %target_.i.i.i = getelementptr inbounds i8, ptr %call8, i64 40
+  %target_.i.i.i = getelementptr inbounds nuw i8, ptr %call8, i64 40
   store ptr %4, ptr %target_.i.i.i, align 8
-  %guard_.i.i = getelementptr inbounds i8, ptr %call8, i64 48
+  %guard_.i.i = getelementptr inbounds nuw i8, ptr %call8, i64 48
   %5 = ptrtoint ptr %4 to i64
   store i64 %5, ptr %guard_.i.i, align 8
   store ptr null, ptr %base, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb12_GLOBAL__N_119CountedWritableFileE, i64 16), ptr %call8, align 8
-  %fs_.i = getelementptr inbounds i8, ptr %call8, i64 56
+  %fs_.i = getelementptr inbounds nuw i8, ptr %call8, i64 56
   store ptr %this, ptr %fs_.i, align 8
   %6 = load ptr, ptr %result, align 8
   store ptr %call8, ptr %result, align 8
@@ -971,7 +971,7 @@ invoke.cont10:                                    ; preds = %if.then
 
 _ZNKSt14default_deleteIN7rocksdb14FSWritableFileEEclEPS1_.exit.i.i: ; preds = %invoke.cont10
   %vtable.i.i.i = load ptr, ptr %6, align 8
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
+  %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 8
   %7 = load ptr, ptr %vfn.i.i.i, align 8
   call void %7(ptr noundef nonnull align 8 dereferenceable(33) %6) #11
   br label %nrvo.skipdtor
@@ -984,7 +984,7 @@ lpad:                                             ; preds = %entry
 lpad3:                                            ; preds = %if.then
   %9 = landingpad { ptr, i32 }
           cleanup
-  %state_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %state_.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   %10 = load ptr, ptr %state_.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %10, null
   br i1 %cmp.not.i.i.i, label %_ZN7rocksdb8IOStatusD2Ev.exit, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i
@@ -996,7 +996,7 @@ nrvo.skipdtor:                                    ; preds = %_ZNKSt14default_del
 
 _ZNKSt14default_deleteIN7rocksdb14FSWritableFileEEclEPS1_.exit.i: ; preds = %nrvo.skipdtor
   %vtable.i.i = load ptr, ptr %11, align 8
-  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
+  %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 8
   %12 = load ptr, ptr %vfn.i.i, align 8
   call void %12(ptr noundef nonnull align 8 dereferenceable(33) %11) #11
   br label %_ZNSt10unique_ptrIN7rocksdb14FSWritableFileESt14default_deleteIS1_EED2Ev.exit
@@ -1020,7 +1020,7 @@ ehcleanup11:                                      ; preds = %_ZN7rocksdb8IOStatu
 
 _ZNKSt14default_deleteIN7rocksdb14FSWritableFileEEclEPS1_.exit.i4: ; preds = %ehcleanup11
   %vtable.i.i5 = load ptr, ptr %13, align 8
-  %vfn.i.i6 = getelementptr inbounds i8, ptr %vtable.i.i5, i64 8
+  %vfn.i.i6 = getelementptr inbounds nuw i8, ptr %vtable.i.i5, i64 8
   %14 = load ptr, ptr %vfn.i.i6, align 8
   call void %14(ptr noundef nonnull align 8 dereferenceable(33) %13) #11
   br label %_ZNSt10unique_ptrIN7rocksdb14FSWritableFileESt14default_deleteIS1_EED2Ev.exit7
@@ -1034,10 +1034,10 @@ define void @_ZN7rocksdb17CountedFileSystem17ReuseWritableFileERKNSt7__cxx1112ba
 entry:
   %base = alloca %"class.std::unique_ptr.28", align 8
   store ptr null, ptr %base, align 8
-  %target_.i = getelementptr inbounds i8, ptr %this, i64 32
+  %target_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %target_.i, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 200
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 200
   %1 = load ptr, ptr %vfn, align 8
   invoke void %1(ptr sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %fname, ptr noundef nonnull align 8 dereferenceable(32) %old_fname, ptr noundef nonnull align 8 dereferenceable(146) %options, ptr noundef nonnull %base, ptr noundef %dbg)
           to label %invoke.cont4 unwind label %lpad
@@ -1048,29 +1048,29 @@ invoke.cont4:                                     ; preds = %entry
   br i1 %cmp.i, label %if.then, label %nrvo.skipdtor
 
 if.then:                                          ; preds = %invoke.cont4
-  %counters_ = getelementptr inbounds i8, ptr %this, i64 48
+  %counters_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   %3 = atomicrmw add ptr %counters_, i32 1 seq_cst, align 4
   %call8 = invoke noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #12
           to label %invoke.cont10 unwind label %lpad3
 
 invoke.cont10:                                    ; preds = %if.then
   %4 = load ptr, ptr %base, align 8
-  %last_preallocated_block_.i.i.i.i = getelementptr inbounds i8, ptr %call8, i64 8
-  %io_priority_.i.i.i.i = getelementptr inbounds i8, ptr %call8, i64 24
+  %last_preallocated_block_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call8, i64 8
+  %io_priority_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call8, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %last_preallocated_block_.i.i.i.i, i8 0, i64 16, i1 false)
   store i32 4, ptr %io_priority_.i.i.i.i, align 8
-  %write_hint_.i.i.i.i = getelementptr inbounds i8, ptr %call8, i64 28
+  %write_hint_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call8, i64 28
   store i32 0, ptr %write_hint_.i.i.i.i, align 4
-  %strict_bytes_per_sync_.i.i.i.i = getelementptr inbounds i8, ptr %call8, i64 32
+  %strict_bytes_per_sync_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call8, i64 32
   store i8 0, ptr %strict_bytes_per_sync_.i.i.i.i, align 8
-  %target_.i.i.i = getelementptr inbounds i8, ptr %call8, i64 40
+  %target_.i.i.i = getelementptr inbounds nuw i8, ptr %call8, i64 40
   store ptr %4, ptr %target_.i.i.i, align 8
-  %guard_.i.i = getelementptr inbounds i8, ptr %call8, i64 48
+  %guard_.i.i = getelementptr inbounds nuw i8, ptr %call8, i64 48
   %5 = ptrtoint ptr %4 to i64
   store i64 %5, ptr %guard_.i.i, align 8
   store ptr null, ptr %base, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb12_GLOBAL__N_119CountedWritableFileE, i64 16), ptr %call8, align 8
-  %fs_.i = getelementptr inbounds i8, ptr %call8, i64 56
+  %fs_.i = getelementptr inbounds nuw i8, ptr %call8, i64 56
   store ptr %this, ptr %fs_.i, align 8
   %6 = load ptr, ptr %result, align 8
   store ptr %call8, ptr %result, align 8
@@ -1079,7 +1079,7 @@ invoke.cont10:                                    ; preds = %if.then
 
 _ZNKSt14default_deleteIN7rocksdb14FSWritableFileEEclEPS1_.exit.i.i: ; preds = %invoke.cont10
   %vtable.i.i.i = load ptr, ptr %6, align 8
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
+  %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 8
   %7 = load ptr, ptr %vfn.i.i.i, align 8
   call void %7(ptr noundef nonnull align 8 dereferenceable(33) %6) #11
   br label %nrvo.skipdtor
@@ -1092,7 +1092,7 @@ lpad:                                             ; preds = %entry
 lpad3:                                            ; preds = %if.then
   %9 = landingpad { ptr, i32 }
           cleanup
-  %state_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %state_.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   %10 = load ptr, ptr %state_.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %10, null
   br i1 %cmp.not.i.i.i, label %_ZN7rocksdb8IOStatusD2Ev.exit, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i
@@ -1104,7 +1104,7 @@ nrvo.skipdtor:                                    ; preds = %_ZNKSt14default_del
 
 _ZNKSt14default_deleteIN7rocksdb14FSWritableFileEEclEPS1_.exit.i: ; preds = %nrvo.skipdtor
   %vtable.i.i = load ptr, ptr %11, align 8
-  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
+  %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 8
   %12 = load ptr, ptr %vfn.i.i, align 8
   call void %12(ptr noundef nonnull align 8 dereferenceable(33) %11) #11
   br label %_ZNSt10unique_ptrIN7rocksdb14FSWritableFileESt14default_deleteIS1_EED2Ev.exit
@@ -1128,7 +1128,7 @@ ehcleanup11:                                      ; preds = %_ZN7rocksdb8IOStatu
 
 _ZNKSt14default_deleteIN7rocksdb14FSWritableFileEEclEPS1_.exit.i4: ; preds = %ehcleanup11
   %vtable.i.i5 = load ptr, ptr %13, align 8
-  %vfn.i.i6 = getelementptr inbounds i8, ptr %vtable.i.i5, i64 8
+  %vfn.i.i6 = getelementptr inbounds nuw i8, ptr %vtable.i.i5, i64 8
   %14 = load ptr, ptr %vfn.i.i6, align 8
   call void %14(ptr noundef nonnull align 8 dereferenceable(33) %13) #11
   br label %_ZNSt10unique_ptrIN7rocksdb14FSWritableFileESt14default_deleteIS1_EED2Ev.exit7
@@ -1142,10 +1142,10 @@ define void @_ZN7rocksdb17CountedFileSystem15NewRandomRWFileERKNSt7__cxx1112basi
 entry:
   %base = alloca %"class.std::unique_ptr.36", align 8
   store ptr null, ptr %base, align 8
-  %target_.i = getelementptr inbounds i8, ptr %this, i64 32
+  %target_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %target_.i, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 208
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 208
   %1 = load ptr, ptr %vfn, align 8
   invoke void %1(ptr sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(146) %options, ptr noundef nonnull %base, ptr noundef %dbg)
           to label %invoke.cont4 unwind label %lpad
@@ -1156,21 +1156,21 @@ invoke.cont4:                                     ; preds = %entry
   br i1 %cmp.i, label %if.then, label %nrvo.skipdtor
 
 if.then:                                          ; preds = %invoke.cont4
-  %counters_ = getelementptr inbounds i8, ptr %this, i64 48
+  %counters_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   %3 = atomicrmw add ptr %counters_, i32 1 seq_cst, align 4
   %call8 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #12
           to label %invoke.cont10 unwind label %lpad3
 
 invoke.cont10:                                    ; preds = %if.then
   %4 = load ptr, ptr %base, align 8
-  %target_.i.i.i = getelementptr inbounds i8, ptr %call8, i64 8
+  %target_.i.i.i = getelementptr inbounds nuw i8, ptr %call8, i64 8
   store ptr %4, ptr %target_.i.i.i, align 8
-  %guard_.i.i = getelementptr inbounds i8, ptr %call8, i64 16
+  %guard_.i.i = getelementptr inbounds nuw i8, ptr %call8, i64 16
   %.cast = ptrtoint ptr %4 to i64
   store i64 %.cast, ptr %guard_.i.i, align 8
   store ptr null, ptr %base, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb12_GLOBAL__N_119CountedRandomRWFileE, i64 16), ptr %call8, align 8
-  %fs_.i = getelementptr inbounds i8, ptr %call8, i64 24
+  %fs_.i = getelementptr inbounds nuw i8, ptr %call8, i64 24
   store ptr %this, ptr %fs_.i, align 8
   %5 = load ptr, ptr %result, align 8
   store ptr %call8, ptr %result, align 8
@@ -1179,7 +1179,7 @@ invoke.cont10:                                    ; preds = %if.then
 
 _ZNKSt14default_deleteIN7rocksdb14FSRandomRWFileEEclEPS1_.exit.i.i: ; preds = %invoke.cont10
   %vtable.i.i.i = load ptr, ptr %5, align 8
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
+  %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 8
   %6 = load ptr, ptr %vfn.i.i.i, align 8
   call void %6(ptr noundef nonnull align 8 dereferenceable(8) %5) #11
   br label %nrvo.skipdtor
@@ -1192,7 +1192,7 @@ lpad:                                             ; preds = %entry
 lpad3:                                            ; preds = %if.then
   %8 = landingpad { ptr, i32 }
           cleanup
-  %state_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %state_.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   %9 = load ptr, ptr %state_.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %9, null
   br i1 %cmp.not.i.i.i, label %_ZN7rocksdb8IOStatusD2Ev.exit, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i
@@ -1204,7 +1204,7 @@ nrvo.skipdtor:                                    ; preds = %_ZNKSt14default_del
 
 _ZNKSt14default_deleteIN7rocksdb14FSRandomRWFileEEclEPS1_.exit.i: ; preds = %nrvo.skipdtor
   %vtable.i.i = load ptr, ptr %10, align 8
-  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
+  %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 8
   %11 = load ptr, ptr %vfn.i.i, align 8
   call void %11(ptr noundef nonnull align 8 dereferenceable(8) %10) #11
   br label %_ZNSt10unique_ptrIN7rocksdb14FSRandomRWFileESt14default_deleteIS1_EED2Ev.exit
@@ -1228,7 +1228,7 @@ ehcleanup11:                                      ; preds = %_ZN7rocksdb8IOStatu
 
 _ZNKSt14default_deleteIN7rocksdb14FSRandomRWFileEEclEPS1_.exit.i4: ; preds = %ehcleanup11
   %vtable.i.i5 = load ptr, ptr %12, align 8
-  %vfn.i.i6 = getelementptr inbounds i8, ptr %vtable.i.i5, i64 8
+  %vfn.i.i6 = getelementptr inbounds nuw i8, ptr %vtable.i.i5, i64 8
   %13 = load ptr, ptr %vfn.i.i6, align 8
   call void %13(ptr noundef nonnull align 8 dereferenceable(8) %12) #11
   br label %_ZNSt10unique_ptrIN7rocksdb14FSRandomRWFileESt14default_deleteIS1_EED2Ev.exit7
@@ -1242,10 +1242,10 @@ define void @_ZN7rocksdb17CountedFileSystem12NewDirectoryERKNSt7__cxx1112basic_s
 entry:
   %base = alloca %"class.std::unique_ptr.44", align 8
   store ptr null, ptr %base, align 8
-  %target_.i = getelementptr inbounds i8, ptr %this, i64 32
+  %target_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %target_.i, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 224
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 224
   %1 = load ptr, ptr %vfn, align 8
   invoke void %1(ptr sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef nonnull %base, ptr noundef %dbg)
           to label %invoke.cont4 unwind label %lpad
@@ -1256,25 +1256,25 @@ invoke.cont4:                                     ; preds = %entry
   br i1 %cmp.i, label %if.then, label %nrvo.skipdtor
 
 if.then:                                          ; preds = %invoke.cont4
-  %counters_ = getelementptr inbounds i8, ptr %this, i64 48
+  %counters_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   %3 = atomicrmw add ptr %counters_, i32 1 seq_cst, align 4
-  %dir_opens = getelementptr inbounds i8, ptr %this, i64 80
+  %dir_opens = getelementptr inbounds nuw i8, ptr %this, i64 80
   %4 = atomicrmw add ptr %dir_opens, i32 1 seq_cst, align 4
   %call10 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #12
           to label %invoke.cont12 unwind label %lpad3
 
 invoke.cont12:                                    ; preds = %if.then
-  %guard_.i.i = getelementptr inbounds i8, ptr %call10, i64 8
+  %guard_.i.i = getelementptr inbounds nuw i8, ptr %call10, i64 8
   %5 = load i64, ptr %base, align 8
   store i64 %5, ptr %guard_.i.i, align 8
   store ptr null, ptr %base, align 8
   %.cast = inttoptr i64 %5 to ptr
-  %target_.i.i = getelementptr inbounds i8, ptr %call10, i64 16
+  %target_.i.i = getelementptr inbounds nuw i8, ptr %call10, i64 16
   store ptr %.cast, ptr %target_.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb12_GLOBAL__N_116CountedDirectoryE, i64 16), ptr %call10, align 8
-  %fs_.i = getelementptr inbounds i8, ptr %call10, i64 24
+  %fs_.i = getelementptr inbounds nuw i8, ptr %call10, i64 24
   store ptr %this, ptr %fs_.i, align 8
-  %closed_.i = getelementptr inbounds i8, ptr %call10, i64 32
+  %closed_.i = getelementptr inbounds nuw i8, ptr %call10, i64 32
   store i8 0, ptr %closed_.i, align 8
   %6 = load ptr, ptr %result, align 8
   store ptr %call10, ptr %result, align 8
@@ -1283,7 +1283,7 @@ invoke.cont12:                                    ; preds = %if.then
 
 _ZNKSt14default_deleteIN7rocksdb11FSDirectoryEEclEPS1_.exit.i.i: ; preds = %invoke.cont12
   %vtable.i.i.i = load ptr, ptr %6, align 8
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
+  %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 8
   %7 = load ptr, ptr %vfn.i.i.i, align 8
   call void %7(ptr noundef nonnull align 8 dereferenceable(8) %6) #11
   br label %nrvo.skipdtor
@@ -1296,7 +1296,7 @@ lpad:                                             ; preds = %entry
 lpad3:                                            ; preds = %if.then
   %9 = landingpad { ptr, i32 }
           cleanup
-  %state_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %state_.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   %10 = load ptr, ptr %state_.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %10, null
   br i1 %cmp.not.i.i.i, label %_ZN7rocksdb8IOStatusD2Ev.exit, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i
@@ -1308,7 +1308,7 @@ nrvo.skipdtor:                                    ; preds = %_ZNKSt14default_del
 
 _ZNKSt14default_deleteIN7rocksdb11FSDirectoryEEclEPS1_.exit.i: ; preds = %nrvo.skipdtor
   %vtable.i.i = load ptr, ptr %11, align 8
-  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
+  %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 8
   %12 = load ptr, ptr %vfn.i.i, align 8
   call void %12(ptr noundef nonnull align 8 dereferenceable(8) %11) #11
   br label %_ZNSt10unique_ptrIN7rocksdb11FSDirectoryESt14default_deleteIS1_EED2Ev.exit
@@ -1332,7 +1332,7 @@ ehcleanup13:                                      ; preds = %_ZN7rocksdb8IOStatu
 
 _ZNKSt14default_deleteIN7rocksdb11FSDirectoryEEclEPS1_.exit.i4: ; preds = %ehcleanup13
   %vtable.i.i5 = load ptr, ptr %13, align 8
-  %vfn.i.i6 = getelementptr inbounds i8, ptr %vtable.i.i5, i64 8
+  %vfn.i.i6 = getelementptr inbounds nuw i8, ptr %vtable.i.i5, i64 8
   %14 = load ptr, ptr %vfn.i.i6, align 8
   call void %14(ptr noundef nonnull align 8 dereferenceable(8) %13) #11
   br label %_ZNSt10unique_ptrIN7rocksdb11FSDirectoryESt14default_deleteIS1_EED2Ev.exit7
@@ -1345,13 +1345,13 @@ _ZNSt10unique_ptrIN7rocksdb11FSDirectoryESt14default_deleteIS1_EED2Ev.exit7: ; p
 define linkonce_odr void @_ZN7rocksdb17CountedFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb17FileSystemWrapperE, i64 16), ptr %this, align 8
-  %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %_M_refcount.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i.i, label %_ZN7rocksdb17FileSystemWrapperD2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1 = load atomic i64, ptr %_M_use_count.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i = icmp eq i64 %1, 4294967297
   %2 = trunc i64 %1 to i32
@@ -1359,10 +1359,10 @@ if.then.i.i.i.i:                                  ; preds = %entry
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
+  %_M_weak_count.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i, align 4
   %vtable.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
+  %vfn.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i, i64 16
   %3 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #11
   br label %if.end8.sink.split.i.i.i.i.i
@@ -1388,10 +1388,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.els
 
 if.then7.i.i.i.i.i:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i, i64 16
+  %vfn.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #11
-  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
+  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 12
   %7 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i.i = icmp eq i8 %7, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
@@ -1413,7 +1413,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %if
 
 if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i, i64 24
+  %vfn3.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable2.i.i.i.i.i.i.i, i64 24
   %10 = load ptr, ptr %vfn3.i.i.i.i.i.i.i, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %0) #11
   br label %_ZN7rocksdb17FileSystemWrapperD2Ev.exit
@@ -1427,13 +1427,13 @@ _ZN7rocksdb17FileSystemWrapperD2Ev.exit:          ; preds = %entry, %_ZN9__gnu_c
 define linkonce_odr void @_ZN7rocksdb17CountedFileSystemD0Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb17FileSystemWrapperE, i64 16), ptr %this, align 8
-  %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %_M_refcount.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %_M_refcount.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i.i.i, label %_ZN7rocksdb17CountedFileSystemD2Ev.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %entry
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1 = load atomic i64, ptr %_M_use_count.i.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i.i = icmp eq i64 %1, 4294967297
   %2 = trunc i64 %1 to i32
@@ -1441,10 +1441,10 @@ if.then.i.i.i.i.i:                                ; preds = %entry
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i.i, align 4
   %vtable.i.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
+  %vfn.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %3 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #11
   br label %if.end8.sink.split.i.i.i.i.i.i
@@ -1470,10 +1470,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.e
 
 if.then7.i.i.i.i.i.i:                             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i, i64 16
+  %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i.i.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #11
-  %_M_weak_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
+  %_M_weak_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 12
   %7 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %7, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i
@@ -1495,7 +1495,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i: ; preds = %
 
 if.end8.sink.split.i.i.i.i.i.i:                   ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i.i, i64 24
+  %vfn3.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable2.i.i.i.i.i.i.i.i, i64 24
   %10 = load ptr, ptr %vfn3.i.i.i.i.i.i.i.i, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %0) #11
   br label %_ZN7rocksdb17CountedFileSystemD2Ev.exit
@@ -1559,7 +1559,7 @@ entry:
   br i1 %cmp.i, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %counters_.i = getelementptr inbounds i8, ptr %this, i64 48
+  %counters_.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   br label %return
 
 if.else:                                          ; preds = %entry
@@ -1569,7 +1569,7 @@ if.else:                                          ; preds = %entry
 
 if.else.i:                                        ; preds = %if.else
   %vtable.i = load ptr, ptr %this, align 8
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 136
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 136
   %0 = load ptr, ptr %vfn.i, align 8
   %call2.i = tail call noundef ptr %0(ptr noundef nonnull align 8 dereferenceable(32) %this)
   %cmp3.not.i = icmp eq ptr %call2.i, null
@@ -1577,7 +1577,7 @@ if.else.i:                                        ; preds = %if.else
 
 if.then4.i:                                       ; preds = %if.else.i
   %vtable5.i = load ptr, ptr %call2.i, align 8
-  %vfn6.i = getelementptr inbounds i8, ptr %vtable5.i, i64 56
+  %vfn6.i = getelementptr inbounds nuw i8, ptr %vtable5.i, i64 56
   %1 = load ptr, ptr %vfn6.i, align 8
   %call7.i = tail call noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(32) %call2.i, ptr noundef nonnull align 8 dereferenceable(32) %name)
   br label %return
@@ -1610,7 +1610,7 @@ define linkonce_odr void @_ZNK7rocksdb12Customizable5GetIdB5cxx11Ev(ptr noalias 
 entry:
   %ref.tmp = alloca %"class.std::allocator", align 1
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 112
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 112
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef ptr %0(ptr noundef nonnull align 8 dereferenceable(32) %this)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #11
@@ -1667,7 +1667,7 @@ entry:
 
 if.else:                                          ; preds = %entry
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 112
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 112
   %0 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef ptr %0(ptr noundef nonnull align 8 dereferenceable(32) %this)
   %call.i = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef %call2) #11
@@ -1676,7 +1676,7 @@ if.else:                                          ; preds = %entry
 
 if.else5:                                         ; preds = %if.else
   %vtable6 = load ptr, ptr %this, align 8
-  %vfn7 = getelementptr inbounds i8, ptr %vtable6, i64 144
+  %vfn7 = getelementptr inbounds nuw i8, ptr %vtable6, i64 144
   %1 = load ptr, ptr %vfn7, align 8
   %call8 = tail call noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(32) %this)
   %cmp.not = icmp eq ptr %call8, null
@@ -1698,7 +1698,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef ptr @_ZNK7rocksdb17FileSystemWrapper5InnerEv(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  %target_ = getelementptr inbounds i8, ptr %this, i64 32
+  %target_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %target_, align 8
   ret ptr %0
 }
@@ -1712,7 +1712,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7rocksdb10FileSystem15RegisterDbPathsERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %state_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %state_.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i, align 8, !alias.scope !4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 6, i1 false), !alias.scope !4
   ret void
@@ -1721,7 +1721,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7rocksdb10FileSystem17UnregisterDbPathsERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %state_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %state_.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i, align 8, !alias.scope !7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 6, i1 false), !alias.scope !7
   ret void
@@ -1730,10 +1730,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7rocksdb17FileSystemWrapper25NewMemoryMappedFileBufferERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10unique_ptrINS_22MemoryMappedFileBufferESt14default_deleteISA_EE(ptr noalias sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(32) %fname, ptr noundef %result) unnamed_addr #0 comdat align 2 {
 entry:
-  %target_ = getelementptr inbounds i8, ptr %this, i64 32
+  %target_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %target_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 216
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 216
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %fname, ptr noundef %result)
   ret void
@@ -1742,10 +1742,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7rocksdb17FileSystemWrapper10FileExistsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_9IOOptionsEPNS_14IODebugContextE(ptr noalias sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(32) %f, ptr noundef nonnull align 8 dereferenceable(83) %io_opts, ptr noundef %dbg) unnamed_addr #0 comdat align 2 {
 entry:
-  %target_ = getelementptr inbounds i8, ptr %this, i64 32
+  %target_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %target_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 232
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 232
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %f, ptr noundef nonnull align 8 dereferenceable(83) %io_opts, ptr noundef %dbg)
   ret void
@@ -1754,10 +1754,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7rocksdb17FileSystemWrapper11GetChildrenERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_9IOOptionsEPSt6vectorIS6_SaIS6_EEPNS_14IODebugContextE(ptr noalias sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(32) %dir, ptr noundef nonnull align 8 dereferenceable(83) %io_opts, ptr noundef %r, ptr noundef %dbg) unnamed_addr #0 comdat align 2 {
 entry:
-  %target_ = getelementptr inbounds i8, ptr %this, i64 32
+  %target_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %target_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 240
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 240
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %dir, ptr noundef nonnull align 8 dereferenceable(83) %io_opts, ptr noundef %r, ptr noundef %dbg)
   ret void
@@ -1766,10 +1766,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7rocksdb17FileSystemWrapper25GetChildrenFileAttributesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_9IOOptionsEPSt6vectorINS_3Env14FileAttributesESaISE_EEPNS_14IODebugContextE(ptr noalias sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(32) %dir, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %result, ptr noundef %dbg) unnamed_addr #0 comdat align 2 {
 entry:
-  %target_ = getelementptr inbounds i8, ptr %this, i64 32
+  %target_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %target_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 248
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 248
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %dir, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %result, ptr noundef %dbg)
   ret void
@@ -1778,10 +1778,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7rocksdb17CountedFileSystem10DeleteFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_9IOOptionsEPNS_14IODebugContextE(ptr noalias sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef nonnull align 8 dereferenceable(32) %fname, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %dbg) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  %target_.i = getelementptr inbounds i8, ptr %this, i64 32
+  %target_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %target_.i, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 256
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 256
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %fname, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %dbg)
   %2 = load i8, ptr %agg.result, align 8
@@ -1789,7 +1789,7 @@ invoke.cont:
   br i1 %cmp.i, label %if.then, label %nrvo.skipdtor
 
 if.then:                                          ; preds = %invoke.cont
-  %deletes = getelementptr inbounds i8, ptr %this, i64 56
+  %deletes = getelementptr inbounds nuw i8, ptr %this, i64 56
   %3 = atomicrmw add ptr %deletes, i32 1 seq_cst, align 4
   br label %nrvo.skipdtor
 
@@ -1800,10 +1800,10 @@ nrvo.skipdtor:                                    ; preds = %invoke.cont, %if.th
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7rocksdb17FileSystemWrapper8TruncateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmRKNS_9IOOptionsEPNS_14IODebugContextE(ptr noalias sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(32) %fname, i64 noundef %size, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %dbg) unnamed_addr #0 comdat align 2 {
 entry:
-  %target_ = getelementptr inbounds i8, ptr %this, i64 32
+  %target_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %target_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 264
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 264
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %fname, i64 noundef %size, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %dbg)
   ret void
@@ -1812,10 +1812,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7rocksdb17FileSystemWrapper9CreateDirERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_9IOOptionsEPNS_14IODebugContextE(ptr noalias sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(32) %d, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %dbg) unnamed_addr #0 comdat align 2 {
 entry:
-  %target_ = getelementptr inbounds i8, ptr %this, i64 32
+  %target_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %target_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 272
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 272
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %d, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %dbg)
   ret void
@@ -1824,10 +1824,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7rocksdb17FileSystemWrapper18CreateDirIfMissingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_9IOOptionsEPNS_14IODebugContextE(ptr noalias sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(32) %d, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %dbg) unnamed_addr #0 comdat align 2 {
 entry:
-  %target_ = getelementptr inbounds i8, ptr %this, i64 32
+  %target_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %target_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 280
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 280
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %d, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %dbg)
   ret void
@@ -1836,10 +1836,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7rocksdb17FileSystemWrapper9DeleteDirERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_9IOOptionsEPNS_14IODebugContextE(ptr noalias sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(32) %d, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %dbg) unnamed_addr #0 comdat align 2 {
 entry:
-  %target_ = getelementptr inbounds i8, ptr %this, i64 32
+  %target_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %target_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 288
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 288
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %d, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %dbg)
   ret void
@@ -1848,10 +1848,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7rocksdb17FileSystemWrapper11GetFileSizeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_9IOOptionsEPmPNS_14IODebugContextE(ptr noalias sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(32) %f, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %s, ptr noundef %dbg) unnamed_addr #0 comdat align 2 {
 entry:
-  %target_ = getelementptr inbounds i8, ptr %this, i64 32
+  %target_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %target_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 296
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 296
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %f, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %s, ptr noundef %dbg)
   ret void
@@ -1860,10 +1860,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7rocksdb17FileSystemWrapper23GetFileModificationTimeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_9IOOptionsEPmPNS_14IODebugContextE(ptr noalias sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(32) %fname, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %file_mtime, ptr noundef %dbg) unnamed_addr #0 comdat align 2 {
 entry:
-  %target_ = getelementptr inbounds i8, ptr %this, i64 32
+  %target_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %target_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 304
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 304
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %fname, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %file_mtime, ptr noundef %dbg)
   ret void
@@ -1872,10 +1872,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7rocksdb17CountedFileSystem10RenameFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_RKNS_9IOOptionsEPNS_14IODebugContextE(ptr noalias sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef nonnull align 8 dereferenceable(32) %s, ptr noundef nonnull align 8 dereferenceable(32) %t, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %dbg) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  %target_.i = getelementptr inbounds i8, ptr %this, i64 32
+  %target_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %target_.i, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 312
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 312
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %s, ptr noundef nonnull align 8 dereferenceable(32) %t, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %dbg)
   %2 = load i8, ptr %agg.result, align 8
@@ -1883,7 +1883,7 @@ invoke.cont:
   br i1 %cmp.i, label %if.then, label %nrvo.skipdtor
 
 if.then:                                          ; preds = %invoke.cont
-  %renames = getelementptr inbounds i8, ptr %this, i64 60
+  %renames = getelementptr inbounds nuw i8, ptr %this, i64 60
   %3 = atomicrmw add ptr %renames, i32 1 seq_cst, align 4
   br label %nrvo.skipdtor
 
@@ -1894,10 +1894,10 @@ nrvo.skipdtor:                                    ; preds = %invoke.cont, %if.th
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7rocksdb17FileSystemWrapper8LinkFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_RKNS_9IOOptionsEPNS_14IODebugContextE(ptr noalias sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(32) %s, ptr noundef nonnull align 8 dereferenceable(32) %t, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %dbg) unnamed_addr #0 comdat align 2 {
 entry:
-  %target_ = getelementptr inbounds i8, ptr %this, i64 32
+  %target_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %target_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 320
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 320
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %s, ptr noundef nonnull align 8 dereferenceable(32) %t, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %dbg)
   ret void
@@ -1906,10 +1906,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7rocksdb17FileSystemWrapper12NumFileLinksERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_9IOOptionsEPmPNS_14IODebugContextE(ptr noalias sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(32) %fname, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %count, ptr noundef %dbg) unnamed_addr #0 comdat align 2 {
 entry:
-  %target_ = getelementptr inbounds i8, ptr %this, i64 32
+  %target_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %target_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 328
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 328
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %fname, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %count, ptr noundef %dbg)
   ret void
@@ -1918,10 +1918,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7rocksdb17FileSystemWrapper12AreFilesSameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_RKNS_9IOOptionsEPbPNS_14IODebugContextE(ptr noalias sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(32) %first, ptr noundef nonnull align 8 dereferenceable(32) %second, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %res, ptr noundef %dbg) unnamed_addr #0 comdat align 2 {
 entry:
-  %target_ = getelementptr inbounds i8, ptr %this, i64 32
+  %target_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %target_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 336
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 336
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %first, ptr noundef nonnull align 8 dereferenceable(32) %second, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %res, ptr noundef %dbg)
   ret void
@@ -1930,10 +1930,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7rocksdb17FileSystemWrapper8LockFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_9IOOptionsEPPNS_8FileLockEPNS_14IODebugContextE(ptr noalias sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(32) %f, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %l, ptr noundef %dbg) unnamed_addr #0 comdat align 2 {
 entry:
-  %target_ = getelementptr inbounds i8, ptr %this, i64 32
+  %target_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %target_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 344
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 344
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %f, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %l, ptr noundef %dbg)
   ret void
@@ -1942,10 +1942,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7rocksdb17FileSystemWrapper10UnlockFileEPNS_8FileLockERKNS_9IOOptionsEPNS_14IODebugContextE(ptr noalias sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %l, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %dbg) unnamed_addr #0 comdat align 2 {
 entry:
-  %target_ = getelementptr inbounds i8, ptr %this, i64 32
+  %target_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %target_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 352
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 352
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %l, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %dbg)
   ret void
@@ -1954,10 +1954,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7rocksdb17FileSystemWrapper16GetTestDirectoryERKNS_9IOOptionsEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_14IODebugContextE(ptr noalias sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %path, ptr noundef %dbg) unnamed_addr #0 comdat align 2 {
 entry:
-  %target_ = getelementptr inbounds i8, ptr %this, i64 32
+  %target_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %target_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 360
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 360
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %path, ptr noundef %dbg)
   ret void
@@ -1966,10 +1966,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7rocksdb17FileSystemWrapper9NewLoggerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_9IOOptionsEPSt10shared_ptrINS_6LoggerEEPNS_14IODebugContextE(ptr noalias sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(32) %fname, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %result, ptr noundef %dbg) unnamed_addr #0 comdat align 2 {
 entry:
-  %target_ = getelementptr inbounds i8, ptr %this, i64 32
+  %target_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %target_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 368
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 368
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %fname, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %result, ptr noundef %dbg)
   ret void
@@ -1978,10 +1978,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7rocksdb17FileSystemWrapper15GetAbsolutePathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_9IOOptionsEPS6_PNS_14IODebugContextE(ptr noalias sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(32) %db_path, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %output_path, ptr noundef %dbg) unnamed_addr #0 comdat align 2 {
 entry:
-  %target_ = getelementptr inbounds i8, ptr %this, i64 32
+  %target_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %target_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 376
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 376
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %db_path, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %output_path, ptr noundef %dbg)
   ret void
@@ -1990,10 +1990,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK7rocksdb17FileSystemWrapper19SanitizeFileOptionsEPNS_11FileOptionsE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %opts) unnamed_addr #0 comdat align 2 {
 entry:
-  %target_ = getelementptr inbounds i8, ptr %this, i64 32
+  %target_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %target_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 384
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 384
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %opts)
   ret void
@@ -2002,10 +2002,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK7rocksdb17FileSystemWrapper18OptimizeForLogReadERKNS_11FileOptionsE(ptr noalias sret(%"struct.rocksdb::FileOptions") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(146) %file_options) unnamed_addr #0 comdat align 2 {
 entry:
-  %target_ = getelementptr inbounds i8, ptr %this, i64 32
+  %target_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %target_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 392
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 392
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr sret(%"struct.rocksdb::FileOptions") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(146) %file_options)
   ret void
@@ -2014,10 +2014,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK7rocksdb17FileSystemWrapper23OptimizeForManifestReadERKNS_11FileOptionsE(ptr noalias sret(%"struct.rocksdb::FileOptions") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(146) %file_options) unnamed_addr #0 comdat align 2 {
 entry:
-  %target_ = getelementptr inbounds i8, ptr %this, i64 32
+  %target_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %target_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 400
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 400
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr sret(%"struct.rocksdb::FileOptions") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(146) %file_options)
   ret void
@@ -2026,10 +2026,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK7rocksdb17FileSystemWrapper19OptimizeForLogWriteERKNS_11FileOptionsERKNS_9DBOptionsE(ptr noalias sret(%"struct.rocksdb::FileOptions") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(146) %file_options, ptr noundef nonnull align 8 dereferenceable(688) %db_options) unnamed_addr #0 comdat align 2 {
 entry:
-  %target_ = getelementptr inbounds i8, ptr %this, i64 32
+  %target_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %target_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 408
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 408
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr sret(%"struct.rocksdb::FileOptions") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(146) %file_options, ptr noundef nonnull align 8 dereferenceable(688) %db_options)
   ret void
@@ -2038,10 +2038,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK7rocksdb17FileSystemWrapper24OptimizeForManifestWriteERKNS_11FileOptionsE(ptr noalias sret(%"struct.rocksdb::FileOptions") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(146) %file_options) unnamed_addr #0 comdat align 2 {
 entry:
-  %target_ = getelementptr inbounds i8, ptr %this, i64 32
+  %target_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %target_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 416
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 416
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr sret(%"struct.rocksdb::FileOptions") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(146) %file_options)
   ret void
@@ -2050,10 +2050,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK7rocksdb17FileSystemWrapper31OptimizeForCompactionTableWriteERKNS_11FileOptionsERKNS_18ImmutableDBOptionsE(ptr noalias sret(%"struct.rocksdb::FileOptions") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(146) %file_options, ptr noundef nonnull align 1 %immutable_ops) unnamed_addr #0 comdat align 2 {
 entry:
-  %target_ = getelementptr inbounds i8, ptr %this, i64 32
+  %target_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %target_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 424
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 424
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr sret(%"struct.rocksdb::FileOptions") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(146) %file_options, ptr noundef nonnull align 1 %immutable_ops)
   ret void
@@ -2062,10 +2062,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK7rocksdb17FileSystemWrapper30OptimizeForCompactionTableReadERKNS_11FileOptionsERKNS_18ImmutableDBOptionsE(ptr noalias sret(%"struct.rocksdb::FileOptions") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(146) %file_options, ptr noundef nonnull align 1 %db_options) unnamed_addr #0 comdat align 2 {
 entry:
-  %target_ = getelementptr inbounds i8, ptr %this, i64 32
+  %target_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %target_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 432
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 432
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr sret(%"struct.rocksdb::FileOptions") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(146) %file_options, ptr noundef nonnull align 1 %db_options)
   ret void
@@ -2074,10 +2074,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK7rocksdb17FileSystemWrapper23OptimizeForBlobFileReadERKNS_11FileOptionsERKNS_18ImmutableDBOptionsE(ptr noalias sret(%"struct.rocksdb::FileOptions") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(146) %file_options, ptr noundef nonnull align 1 %db_options) unnamed_addr #0 comdat align 2 {
 entry:
-  %target_ = getelementptr inbounds i8, ptr %this, i64 32
+  %target_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %target_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 440
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 440
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr sret(%"struct.rocksdb::FileOptions") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(146) %file_options, ptr noundef nonnull align 1 %db_options)
   ret void
@@ -2086,10 +2086,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7rocksdb17FileSystemWrapper12GetFreeSpaceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_9IOOptionsEPmPNS_14IODebugContextE(ptr noalias sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(32) %path, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %diskfree, ptr noundef %dbg) unnamed_addr #0 comdat align 2 {
 entry:
-  %target_ = getelementptr inbounds i8, ptr %this, i64 32
+  %target_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %target_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 448
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 448
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %path, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %diskfree, ptr noundef %dbg)
   ret void
@@ -2098,10 +2098,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7rocksdb17FileSystemWrapper11IsDirectoryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_9IOOptionsEPbPNS_14IODebugContextE(ptr noalias sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(32) %path, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %is_dir, ptr noundef %dbg) unnamed_addr #0 comdat align 2 {
 entry:
-  %target_ = getelementptr inbounds i8, ptr %this, i64 32
+  %target_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %target_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 456
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 456
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %path, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %is_dir, ptr noundef %dbg)
   ret void
@@ -2110,10 +2110,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7rocksdb17FileSystemWrapper4PollERSt6vectorIPvSaIS2_EEm(ptr noalias sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 1 %io_handles, i64 noundef %min_completions) unnamed_addr #0 comdat align 2 {
 entry:
-  %target_ = getelementptr inbounds i8, ptr %this, i64 32
+  %target_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %target_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 464
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 464
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 1 %io_handles, i64 noundef %min_completions)
   ret void
@@ -2122,10 +2122,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7rocksdb17FileSystemWrapper7AbortIOERSt6vectorIPvSaIS2_EE(ptr noalias sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 1 %io_handles) unnamed_addr #0 comdat align 2 {
 entry:
-  %target_ = getelementptr inbounds i8, ptr %this, i64 32
+  %target_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %target_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 472
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 472
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 1 %io_handles)
   ret void
@@ -2134,10 +2134,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7rocksdb17FileSystemWrapper12SupportedOpsERl(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(8) %supported_ops) unnamed_addr #0 comdat align 2 {
 entry:
-  %target_ = getelementptr inbounds i8, ptr %this, i64 32
+  %target_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %target_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 480
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 480
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %supported_ops)
   ret void
@@ -2165,19 +2165,19 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
 define internal void @_ZN7rocksdb12_GLOBAL__N_121CountedSequentialFileD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb12_GLOBAL__N_121CountedSequentialFileE, i64 16), ptr %this, align 8
-  %fs_ = getelementptr inbounds i8, ptr %this, i64 24
+  %fs_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %fs_, align 8
-  %closes = getelementptr inbounds i8, ptr %0, i64 52
+  %closes = getelementptr inbounds nuw i8, ptr %0, i64 52
   %1 = atomicrmw add ptr %closes, i32 1 seq_cst, align 4
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb28FSSequentialFileOwnerWrapperE, i64 16), ptr %this, align 8
-  %guard_.i = getelementptr inbounds i8, ptr %this, i64 16
+  %guard_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load ptr, ptr %guard_.i, align 8
   %cmp.not.i.i = icmp eq ptr %2, null
   br i1 %cmp.not.i.i, label %_ZN7rocksdb28FSSequentialFileOwnerWrapperD2Ev.exit, label %_ZNKSt14default_deleteIN7rocksdb16FSSequentialFileEEclEPS1_.exit.i.i
 
 _ZNKSt14default_deleteIN7rocksdb16FSSequentialFileEEclEPS1_.exit.i.i: ; preds = %entry
   %vtable.i.i.i = load ptr, ptr %2, align 8
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
+  %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 8
   %3 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(8) %2) #11
   br label %_ZN7rocksdb28FSSequentialFileOwnerWrapperD2Ev.exit
@@ -2191,19 +2191,19 @@ _ZN7rocksdb28FSSequentialFileOwnerWrapperD2Ev.exit: ; preds = %entry, %_ZNKSt14d
 define internal void @_ZN7rocksdb12_GLOBAL__N_121CountedSequentialFileD0Ev(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb12_GLOBAL__N_121CountedSequentialFileE, i64 16), ptr %this, align 8
-  %fs_.i = getelementptr inbounds i8, ptr %this, i64 24
+  %fs_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %fs_.i, align 8
-  %closes.i = getelementptr inbounds i8, ptr %0, i64 52
+  %closes.i = getelementptr inbounds nuw i8, ptr %0, i64 52
   %1 = atomicrmw add ptr %closes.i, i32 1 seq_cst, align 4
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb28FSSequentialFileOwnerWrapperE, i64 16), ptr %this, align 8
-  %guard_.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %guard_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load ptr, ptr %guard_.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %2, null
   br i1 %cmp.not.i.i.i, label %_ZN7rocksdb12_GLOBAL__N_121CountedSequentialFileD2Ev.exit, label %_ZNKSt14default_deleteIN7rocksdb16FSSequentialFileEEclEPS1_.exit.i.i.i
 
 _ZNKSt14default_deleteIN7rocksdb16FSSequentialFileEEclEPS1_.exit.i.i.i: ; preds = %entry
   %vtable.i.i.i.i = load ptr, ptr %2, align 8
-  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 8
+  %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 8
   %3 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(8) %2) #11
   br label %_ZN7rocksdb12_GLOBAL__N_121CountedSequentialFileD2Ev.exit
@@ -2216,29 +2216,29 @@ _ZN7rocksdb12_GLOBAL__N_121CountedSequentialFileD2Ev.exit: ; preds = %entry, %_Z
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN7rocksdb12_GLOBAL__N_121CountedSequentialFile4ReadEmRKNS_9IOOptionsEPNS_5SliceEPcPNS_14IODebugContextE(ptr noalias sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i64 noundef %n, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %result, ptr noundef %scratch, ptr noundef %dbg) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %target_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %target_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %target_.i, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %n, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %result, ptr noundef %scratch, ptr noundef %dbg)
-  %fs_ = getelementptr inbounds i8, ptr %this, i64 24
+  %fs_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %2 = load ptr, ptr %fs_, align 8
-  %size_.i = getelementptr inbounds i8, ptr %result, i64 8
+  %size_.i = getelementptr inbounds nuw i8, ptr %result, i64 8
   %3 = load i64, ptr %size_.i, align 8
   %4 = load i8, ptr %agg.result, align 8
   %cmp.i.i = icmp eq i8 %4, 3
   br i1 %cmp.i.i, label %nrvo.skipdtor, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %reads = getelementptr inbounds i8, ptr %2, i64 88
+  %reads = getelementptr inbounds nuw i8, ptr %2, i64 88
   %5 = atomicrmw add ptr %reads, i32 1 monotonic, align 4
   %.pr.i = load i8, ptr %agg.result, align 8
   %cmp.i10.i = icmp eq i8 %.pr.i, 0
   br i1 %cmp.i10.i, label %monotonic.i17.i, label %nrvo.skipdtor
 
 monotonic.i17.i:                                  ; preds = %if.end.i
-  %bytes.i = getelementptr inbounds i8, ptr %2, i64 96
+  %bytes.i = getelementptr inbounds nuw i8, ptr %2, i64 96
   %6 = atomicrmw add ptr %bytes.i, i64 %3 monotonic, align 8
   br label %nrvo.skipdtor
 
@@ -2249,10 +2249,10 @@ nrvo.skipdtor:                                    ; preds = %monotonic.i17.i, %i
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7rocksdb23FSSequentialFileWrapper4SkipEm(ptr noalias sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %this, i64 noundef %n) unnamed_addr #0 comdat align 2 {
 entry:
-  %target_ = getelementptr inbounds i8, ptr %this, i64 8
+  %target_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %target_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 24
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %n)
   ret void
@@ -2261,10 +2261,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZNK7rocksdb23FSSequentialFileWrapper13use_direct_ioEv(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  %target_ = getelementptr inbounds i8, ptr %this, i64 8
+  %target_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %target_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 32
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(8) %0)
   ret i1 %call
@@ -2273,10 +2273,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef i64 @_ZNK7rocksdb23FSSequentialFileWrapper26GetRequiredBufferAlignmentEv(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  %target_ = getelementptr inbounds i8, ptr %this, i64 8
+  %target_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %target_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 40
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(8) %0)
   ret i64 %call
@@ -2285,10 +2285,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7rocksdb23FSSequentialFileWrapper15InvalidateCacheEmm(ptr noalias sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %this, i64 noundef %offset, i64 noundef %length) unnamed_addr #0 comdat align 2 {
 entry:
-  %target_ = getelementptr inbounds i8, ptr %this, i64 8
+  %target_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %target_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 48
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %offset, i64 noundef %length)
   ret void
@@ -2297,29 +2297,29 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN7rocksdb12_GLOBAL__N_121CountedSequentialFile14PositionedReadEmmRKNS_9IOOptionsEPNS_5SliceEPcPNS_14IODebugContextE(ptr noalias sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i64 noundef %offset, i64 noundef %n, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %result, ptr noundef %scratch, ptr noundef %dbg) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %target_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %target_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %target_.i, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 56
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 56
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %offset, i64 noundef %n, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %result, ptr noundef %scratch, ptr noundef %dbg)
-  %fs_ = getelementptr inbounds i8, ptr %this, i64 24
+  %fs_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %2 = load ptr, ptr %fs_, align 8
-  %size_.i = getelementptr inbounds i8, ptr %result, i64 8
+  %size_.i = getelementptr inbounds nuw i8, ptr %result, i64 8
   %3 = load i64, ptr %size_.i, align 8
   %4 = load i8, ptr %agg.result, align 8
   %cmp.i.i = icmp eq i8 %4, 3
   br i1 %cmp.i.i, label %nrvo.skipdtor, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %reads = getelementptr inbounds i8, ptr %2, i64 88
+  %reads = getelementptr inbounds nuw i8, ptr %2, i64 88
   %5 = atomicrmw add ptr %reads, i32 1 monotonic, align 4
   %.pr.i = load i8, ptr %agg.result, align 8
   %cmp.i10.i = icmp eq i8 %.pr.i, 0
   br i1 %cmp.i10.i, label %monotonic.i17.i, label %nrvo.skipdtor
 
 monotonic.i17.i:                                  ; preds = %if.end.i
-  %bytes.i = getelementptr inbounds i8, ptr %2, i64 96
+  %bytes.i = getelementptr inbounds nuw i8, ptr %2, i64 96
   %6 = atomicrmw add ptr %bytes.i, i64 %3 monotonic, align 8
   br label %nrvo.skipdtor
 
@@ -2330,10 +2330,10 @@ nrvo.skipdtor:                                    ; preds = %monotonic.i17.i, %i
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i8 @_ZNK7rocksdb23FSSequentialFileWrapper14GetTemperatureEv(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  %target_ = getelementptr inbounds i8, ptr %this, i64 8
+  %target_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %target_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 64
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call noundef zeroext i8 %1(ptr noundef nonnull align 8 dereferenceable(8) %0)
   ret i8 %call
@@ -2343,14 +2343,14 @@ entry:
 define linkonce_odr void @_ZN7rocksdb28FSSequentialFileOwnerWrapperD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb28FSSequentialFileOwnerWrapperE, i64 16), ptr %this, align 8
-  %guard_ = getelementptr inbounds i8, ptr %this, i64 16
+  %guard_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %guard_, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN7rocksdb16FSSequentialFileESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN7rocksdb16FSSequentialFileEEclEPS1_.exit.i
 
 _ZNKSt14default_deleteIN7rocksdb16FSSequentialFileEEclEPS1_.exit.i: ; preds = %entry
   %vtable.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
+  %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 8
   %1 = load ptr, ptr %vfn.i.i, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0) #11
   br label %_ZNSt10unique_ptrIN7rocksdb16FSSequentialFileESt14default_deleteIS1_EED2Ev.exit
@@ -2364,14 +2364,14 @@ _ZNSt10unique_ptrIN7rocksdb16FSSequentialFileESt14default_deleteIS1_EED2Ev.exit:
 define linkonce_odr void @_ZN7rocksdb28FSSequentialFileOwnerWrapperD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb28FSSequentialFileOwnerWrapperE, i64 16), ptr %this, align 8
-  %guard_.i = getelementptr inbounds i8, ptr %this, i64 16
+  %guard_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %guard_.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %_ZN7rocksdb28FSSequentialFileOwnerWrapperD2Ev.exit, label %_ZNKSt14default_deleteIN7rocksdb16FSSequentialFileEEclEPS1_.exit.i.i
 
 _ZNKSt14default_deleteIN7rocksdb16FSSequentialFileEEclEPS1_.exit.i.i: ; preds = %entry
   %vtable.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
+  %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 8
   %1 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0) #11
   br label %_ZN7rocksdb28FSSequentialFileOwnerWrapperD2Ev.exit
@@ -2384,10 +2384,10 @@ _ZN7rocksdb28FSSequentialFileOwnerWrapperD2Ev.exit: ; preds = %entry, %_ZNKSt14d
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7rocksdb23FSSequentialFileWrapper4ReadEmRKNS_9IOOptionsEPNS_5SliceEPcPNS_14IODebugContextE(ptr noalias sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %this, i64 noundef %n, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %result, ptr noundef %scratch, ptr noundef %dbg) unnamed_addr #0 comdat align 2 {
 entry:
-  %target_ = getelementptr inbounds i8, ptr %this, i64 8
+  %target_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %target_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %n, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %result, ptr noundef %scratch, ptr noundef %dbg)
   ret void
@@ -2396,10 +2396,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7rocksdb23FSSequentialFileWrapper14PositionedReadEmmRKNS_9IOOptionsEPNS_5SliceEPcPNS_14IODebugContextE(ptr noalias sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %this, i64 noundef %offset, i64 noundef %n, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %result, ptr noundef %scratch, ptr noundef %dbg) unnamed_addr #0 comdat align 2 {
 entry:
-  %target_ = getelementptr inbounds i8, ptr %this, i64 8
+  %target_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %target_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 56
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 56
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %offset, i64 noundef %n, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %result, ptr noundef %scratch, ptr noundef %dbg)
   ret void
@@ -2415,19 +2415,19 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
 define internal void @_ZN7rocksdb12_GLOBAL__N_123CountedRandomAccessFileD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb12_GLOBAL__N_123CountedRandomAccessFileE, i64 16), ptr %this, align 8
-  %fs_ = getelementptr inbounds i8, ptr %this, i64 32
+  %fs_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %fs_, align 8
-  %closes = getelementptr inbounds i8, ptr %0, i64 52
+  %closes = getelementptr inbounds nuw i8, ptr %0, i64 52
   %1 = atomicrmw add ptr %closes, i32 1 seq_cst, align 4
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb30FSRandomAccessFileOwnerWrapperE, i64 16), ptr %this, align 8
-  %guard_.i = getelementptr inbounds i8, ptr %this, i64 24
+  %guard_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %2 = load ptr, ptr %guard_.i, align 8
   %cmp.not.i.i = icmp eq ptr %2, null
   br i1 %cmp.not.i.i, label %_ZNSt10unique_ptrIN7rocksdb18FSRandomAccessFileESt14default_deleteIS1_EED2Ev.exit.i, label %_ZNKSt14default_deleteIN7rocksdb18FSRandomAccessFileEEclEPS1_.exit.i.i
 
 _ZNKSt14default_deleteIN7rocksdb18FSRandomAccessFileEEclEPS1_.exit.i.i: ; preds = %entry
   %vtable.i.i.i = load ptr, ptr %2, align 8
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
+  %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 8
   %3 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(8) %2) #11
   br label %_ZNSt10unique_ptrIN7rocksdb18FSRandomAccessFileESt14default_deleteIS1_EED2Ev.exit.i
@@ -2435,14 +2435,14 @@ _ZNKSt14default_deleteIN7rocksdb18FSRandomAccessFileEEclEPS1_.exit.i.i: ; preds 
 _ZNSt10unique_ptrIN7rocksdb18FSRandomAccessFileESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN7rocksdb18FSRandomAccessFileEEclEPS1_.exit.i.i, %entry
   store ptr null, ptr %guard_.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb25FSRandomAccessFileWrapperE, i64 16), ptr %this, align 8
-  %guard_.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %guard_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %4 = load ptr, ptr %guard_.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %4, null
   br i1 %cmp.not.i.i.i, label %_ZN7rocksdb30FSRandomAccessFileOwnerWrapperD2Ev.exit, label %_ZNKSt14default_deleteIN7rocksdb18FSRandomAccessFileEEclEPS1_.exit.i.i.i
 
 _ZNKSt14default_deleteIN7rocksdb18FSRandomAccessFileEEclEPS1_.exit.i.i.i: ; preds = %_ZNSt10unique_ptrIN7rocksdb18FSRandomAccessFileESt14default_deleteIS1_EED2Ev.exit.i
   %vtable.i.i.i.i = load ptr, ptr %4, align 8
-  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 8
+  %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 8
   %5 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(8) %4) #11
   br label %_ZN7rocksdb30FSRandomAccessFileOwnerWrapperD2Ev.exit
@@ -2456,19 +2456,19 @@ _ZN7rocksdb30FSRandomAccessFileOwnerWrapperD2Ev.exit: ; preds = %_ZNSt10unique_p
 define internal void @_ZN7rocksdb12_GLOBAL__N_123CountedRandomAccessFileD0Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb12_GLOBAL__N_123CountedRandomAccessFileE, i64 16), ptr %this, align 8
-  %fs_.i = getelementptr inbounds i8, ptr %this, i64 32
+  %fs_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %fs_.i, align 8
-  %closes.i = getelementptr inbounds i8, ptr %0, i64 52
+  %closes.i = getelementptr inbounds nuw i8, ptr %0, i64 52
   %1 = atomicrmw add ptr %closes.i, i32 1 seq_cst, align 4
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb30FSRandomAccessFileOwnerWrapperE, i64 16), ptr %this, align 8
-  %guard_.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %guard_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %2 = load ptr, ptr %guard_.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %2, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10unique_ptrIN7rocksdb18FSRandomAccessFileESt14default_deleteIS1_EED2Ev.exit.i.i, label %_ZNKSt14default_deleteIN7rocksdb18FSRandomAccessFileEEclEPS1_.exit.i.i.i
 
 _ZNKSt14default_deleteIN7rocksdb18FSRandomAccessFileEEclEPS1_.exit.i.i.i: ; preds = %entry
   %vtable.i.i.i.i = load ptr, ptr %2, align 8
-  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 8
+  %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 8
   %3 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(8) %2) #11
   br label %_ZNSt10unique_ptrIN7rocksdb18FSRandomAccessFileESt14default_deleteIS1_EED2Ev.exit.i.i
@@ -2476,14 +2476,14 @@ _ZNKSt14default_deleteIN7rocksdb18FSRandomAccessFileEEclEPS1_.exit.i.i.i: ; pred
 _ZNSt10unique_ptrIN7rocksdb18FSRandomAccessFileESt14default_deleteIS1_EED2Ev.exit.i.i: ; preds = %_ZNKSt14default_deleteIN7rocksdb18FSRandomAccessFileEEclEPS1_.exit.i.i.i, %entry
   store ptr null, ptr %guard_.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb25FSRandomAccessFileWrapperE, i64 16), ptr %this, align 8
-  %guard_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %guard_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %4 = load ptr, ptr %guard_.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %4, null
   br i1 %cmp.not.i.i.i.i, label %_ZN7rocksdb12_GLOBAL__N_123CountedRandomAccessFileD2Ev.exit, label %_ZNKSt14default_deleteIN7rocksdb18FSRandomAccessFileEEclEPS1_.exit.i.i.i.i
 
 _ZNKSt14default_deleteIN7rocksdb18FSRandomAccessFileEEclEPS1_.exit.i.i.i.i: ; preds = %_ZNSt10unique_ptrIN7rocksdb18FSRandomAccessFileESt14default_deleteIS1_EED2Ev.exit.i.i
   %vtable.i.i.i.i.i = load ptr, ptr %4, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 8
+  %vfn.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i, i64 8
   %5 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(8) %4) #11
   br label %_ZN7rocksdb12_GLOBAL__N_123CountedRandomAccessFileD2Ev.exit
@@ -2496,29 +2496,29 @@ _ZN7rocksdb12_GLOBAL__N_123CountedRandomAccessFileD2Ev.exit: ; preds = %_ZNSt10u
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZNK7rocksdb12_GLOBAL__N_123CountedRandomAccessFile4ReadEmmRKNS_9IOOptionsEPNS_5SliceEPcPNS_14IODebugContextE(ptr noalias sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, i64 noundef %offset, i64 noundef %n, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %result, ptr noundef %scratch, ptr noundef %dbg) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %target_.i = getelementptr inbounds i8, ptr %this, i64 16
+  %target_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %target_.i, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %offset, i64 noundef %n, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %result, ptr noundef %scratch, ptr noundef %dbg)
-  %fs_ = getelementptr inbounds i8, ptr %this, i64 32
+  %fs_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %2 = load ptr, ptr %fs_, align 8
-  %size_.i = getelementptr inbounds i8, ptr %result, i64 8
+  %size_.i = getelementptr inbounds nuw i8, ptr %result, i64 8
   %3 = load i64, ptr %size_.i, align 8
   %4 = load i8, ptr %agg.result, align 8
   %cmp.i.i = icmp eq i8 %4, 3
   br i1 %cmp.i.i, label %nrvo.skipdtor, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %reads = getelementptr inbounds i8, ptr %2, i64 88
+  %reads = getelementptr inbounds nuw i8, ptr %2, i64 88
   %5 = atomicrmw add ptr %reads, i32 1 monotonic, align 4
   %.pr.i = load i8, ptr %agg.result, align 8
   %cmp.i10.i = icmp eq i8 %.pr.i, 0
   br i1 %cmp.i10.i, label %monotonic.i17.i, label %nrvo.skipdtor
 
 monotonic.i17.i:                                  ; preds = %if.end.i
-  %bytes.i = getelementptr inbounds i8, ptr %2, i64 96
+  %bytes.i = getelementptr inbounds nuw i8, ptr %2, i64 96
   %6 = atomicrmw add ptr %bytes.i, i64 %3 monotonic, align 8
   br label %nrvo.skipdtor
 
@@ -2529,10 +2529,10 @@ nrvo.skipdtor:                                    ; preds = %monotonic.i17.i, %i
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7rocksdb25FSRandomAccessFileWrapper8PrefetchEmmRKNS_9IOOptionsEPNS_14IODebugContextE(ptr noalias sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %offset, i64 noundef %n, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %dbg) unnamed_addr #0 comdat align 2 {
 entry:
-  %target_ = getelementptr inbounds i8, ptr %this, i64 16
+  %target_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %target_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 24
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %offset, i64 noundef %n, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %dbg)
   ret void
@@ -2541,39 +2541,39 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN7rocksdb12_GLOBAL__N_123CountedRandomAccessFile9MultiReadEPNS_13FSReadRequestEmRKNS_9IOOptionsEPNS_14IODebugContextE(ptr noalias sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %reqs, i64 noundef %num_reqs, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %dbg) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %target_.i = getelementptr inbounds i8, ptr %this, i64 16
+  %target_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %target_.i, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 32
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %reqs, i64 noundef %num_reqs, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %dbg)
   %cmp7.not = icmp eq i64 %num_reqs, 0
   br i1 %cmp7.not, label %nrvo.skipdtor, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %fs_ = getelementptr inbounds i8, ptr %this, i64 32
+  %fs_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %r.08 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
   %2 = load ptr, ptr %fs_, align 8
   %arrayidx = getelementptr inbounds %"struct.rocksdb::FSReadRequest", ptr %reqs, i64 %r.08
-  %status = getelementptr inbounds i8, ptr %arrayidx, i64 40
-  %size_.i = getelementptr inbounds i8, ptr %arrayidx, i64 32
+  %status = getelementptr inbounds nuw i8, ptr %arrayidx, i64 40
+  %size_.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 32
   %3 = load i64, ptr %size_.i, align 8
   %4 = load i8, ptr %status, align 8
   %cmp.i.i = icmp eq i8 %4, 3
   br i1 %cmp.i.i, label %for.inc, label %if.end.i
 
 if.end.i:                                         ; preds = %for.body
-  %reads = getelementptr inbounds i8, ptr %2, i64 88
+  %reads = getelementptr inbounds nuw i8, ptr %2, i64 88
   %5 = atomicrmw add ptr %reads, i32 1 monotonic, align 4
   %.pr.i = load i8, ptr %status, align 8
   %cmp.i10.i = icmp eq i8 %.pr.i, 0
   br i1 %cmp.i10.i, label %monotonic.i17.i, label %for.inc
 
 monotonic.i17.i:                                  ; preds = %if.end.i
-  %bytes.i = getelementptr inbounds i8, ptr %2, i64 96
+  %bytes.i = getelementptr inbounds nuw i8, ptr %2, i64 96
   %6 = atomicrmw add ptr %bytes.i, i64 %3 monotonic, align 8
   br label %for.inc
 
@@ -2589,10 +2589,10 @@ nrvo.skipdtor:                                    ; preds = %for.inc, %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef i64 @_ZNK7rocksdb25FSRandomAccessFileWrapper11GetUniqueIdEPcm(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %id, i64 noundef %max_size) unnamed_addr #0 comdat align 2 {
 entry:
-  %target_ = getelementptr inbounds i8, ptr %this, i64 16
+  %target_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %target_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 40
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %id, i64 noundef %max_size)
   ret i64 %call
@@ -2601,10 +2601,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7rocksdb25FSRandomAccessFileWrapper4HintENS_18FSRandomAccessFile13AccessPatternE(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %pattern) unnamed_addr #0 comdat align 2 {
 entry:
-  %target_ = getelementptr inbounds i8, ptr %this, i64 16
+  %target_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %target_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 48
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %pattern)
   ret void
@@ -2613,10 +2613,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZNK7rocksdb25FSRandomAccessFileWrapper13use_direct_ioEv(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  %target_ = getelementptr inbounds i8, ptr %this, i64 16
+  %target_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %target_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 56
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 56
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(8) %0)
   ret i1 %call
@@ -2625,10 +2625,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef i64 @_ZNK7rocksdb25FSRandomAccessFileWrapper26GetRequiredBufferAlignmentEv(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  %target_ = getelementptr inbounds i8, ptr %this, i64 16
+  %target_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %target_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 64
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(8) %0)
   ret i64 %call
@@ -2637,10 +2637,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7rocksdb25FSRandomAccessFileWrapper15InvalidateCacheEmm(ptr noalias sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %offset, i64 noundef %length) unnamed_addr #0 comdat align 2 {
 entry:
-  %target_ = getelementptr inbounds i8, ptr %this, i64 16
+  %target_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %target_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 72
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 72
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %offset, i64 noundef %length)
   ret void
@@ -2650,11 +2650,11 @@ entry:
 define linkonce_odr void @_ZN7rocksdb25FSRandomAccessFileWrapper9ReadAsyncERNS_13FSReadRequestERKNS_9IOOptionsESt8functionIFvRKS1_PvEES9_PS9_PS6_IFvS9_EEPNS_14IODebugContextE(ptr noalias sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(96) %req, ptr noundef nonnull align 8 dereferenceable(83) %opts, ptr noundef %cb, ptr noundef %cb_arg, ptr noundef %io_handle, ptr noundef %del_fn, ptr noundef %dbg) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::function", align 8
-  %target_.i = getelementptr inbounds i8, ptr %this, i64 16
+  %target_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %target_.i, align 8
-  %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
-  %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
-  %_M_manager.i.i.i = getelementptr inbounds i8, ptr %cb, i64 16
+  %_M_manager.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 16
+  %_M_invoker.i = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 24
+  %_M_manager.i.i.i = getelementptr inbounds nuw i8, ptr %cb, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i8 0, i64 32, i1 false)
   %1 = load ptr, ptr %_M_manager.i.i.i, align 8
   %tobool.not.i.i.not.i = icmp eq ptr %1, null
@@ -2665,7 +2665,7 @@ if.then.i:                                        ; preds = %entry
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %if.then.i
-  %_M_invoker4.i = getelementptr inbounds i8, ptr %cb, i64 24
+  %_M_invoker4.i = getelementptr inbounds nuw i8, ptr %cb, i64 24
   %2 = load ptr, ptr %_M_invoker4.i, align 8
   store ptr %2, ptr %_M_invoker.i, align 8
   %3 = load ptr, ptr %_M_manager.i.i.i, align 8
@@ -2696,7 +2696,7 @@ common.resume:                                    ; preds = %if.then.i.i9, %lpad
 
 _ZNSt8functionIFvRKN7rocksdb13FSReadRequestEPvEEC2ERKS6_.exit: ; preds = %entry, %invoke.cont.i
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 80
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 80
   %8 = load ptr, ptr %vfn, align 8
   invoke void %8(ptr sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(96) %req, ptr noundef nonnull align 8 dereferenceable(83) %opts, ptr noundef nonnull %agg.tmp, ptr noundef %cb_arg, ptr noundef %io_handle, ptr noundef %del_fn, ptr noundef %dbg)
           to label %invoke.cont unwind label %lpad
@@ -2742,10 +2742,10 @@ terminate.lpad.i.i11:                             ; preds = %if.then.i.i9
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i8 @_ZNK7rocksdb25FSRandomAccessFileWrapper14GetTemperatureEv(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  %target_ = getelementptr inbounds i8, ptr %this, i64 16
+  %target_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %target_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 88
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 88
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call noundef zeroext i8 %1(ptr noundef nonnull align 8 dereferenceable(8) %0)
   ret i8 %call
@@ -2755,14 +2755,14 @@ entry:
 define linkonce_odr void @_ZN7rocksdb30FSRandomAccessFileOwnerWrapperD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb30FSRandomAccessFileOwnerWrapperE, i64 16), ptr %this, align 8
-  %guard_ = getelementptr inbounds i8, ptr %this, i64 24
+  %guard_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %guard_, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN7rocksdb18FSRandomAccessFileESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN7rocksdb18FSRandomAccessFileEEclEPS1_.exit.i
 
 _ZNKSt14default_deleteIN7rocksdb18FSRandomAccessFileEEclEPS1_.exit.i: ; preds = %entry
   %vtable.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
+  %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 8
   %1 = load ptr, ptr %vfn.i.i, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0) #11
   br label %_ZNSt10unique_ptrIN7rocksdb18FSRandomAccessFileESt14default_deleteIS1_EED2Ev.exit
@@ -2770,14 +2770,14 @@ _ZNKSt14default_deleteIN7rocksdb18FSRandomAccessFileEEclEPS1_.exit.i: ; preds = 
 _ZNSt10unique_ptrIN7rocksdb18FSRandomAccessFileESt14default_deleteIS1_EED2Ev.exit: ; preds = %entry, %_ZNKSt14default_deleteIN7rocksdb18FSRandomAccessFileEEclEPS1_.exit.i
   store ptr null, ptr %guard_, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb25FSRandomAccessFileWrapperE, i64 16), ptr %this, align 8
-  %guard_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %guard_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load ptr, ptr %guard_.i, align 8
   %cmp.not.i.i = icmp eq ptr %2, null
   br i1 %cmp.not.i.i, label %_ZN7rocksdb25FSRandomAccessFileWrapperD2Ev.exit, label %_ZNKSt14default_deleteIN7rocksdb18FSRandomAccessFileEEclEPS1_.exit.i.i
 
 _ZNKSt14default_deleteIN7rocksdb18FSRandomAccessFileEEclEPS1_.exit.i.i: ; preds = %_ZNSt10unique_ptrIN7rocksdb18FSRandomAccessFileESt14default_deleteIS1_EED2Ev.exit
   %vtable.i.i.i = load ptr, ptr %2, align 8
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
+  %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 8
   %3 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(8) %2) #11
   br label %_ZN7rocksdb25FSRandomAccessFileWrapperD2Ev.exit
@@ -2791,14 +2791,14 @@ _ZN7rocksdb25FSRandomAccessFileWrapperD2Ev.exit:  ; preds = %_ZNSt10unique_ptrIN
 define linkonce_odr void @_ZN7rocksdb30FSRandomAccessFileOwnerWrapperD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb30FSRandomAccessFileOwnerWrapperE, i64 16), ptr %this, align 8
-  %guard_.i = getelementptr inbounds i8, ptr %this, i64 24
+  %guard_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %guard_.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %_ZNSt10unique_ptrIN7rocksdb18FSRandomAccessFileESt14default_deleteIS1_EED2Ev.exit.i, label %_ZNKSt14default_deleteIN7rocksdb18FSRandomAccessFileEEclEPS1_.exit.i.i
 
 _ZNKSt14default_deleteIN7rocksdb18FSRandomAccessFileEEclEPS1_.exit.i.i: ; preds = %entry
   %vtable.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
+  %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 8
   %1 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0) #11
   br label %_ZNSt10unique_ptrIN7rocksdb18FSRandomAccessFileESt14default_deleteIS1_EED2Ev.exit.i
@@ -2806,14 +2806,14 @@ _ZNKSt14default_deleteIN7rocksdb18FSRandomAccessFileEEclEPS1_.exit.i.i: ; preds 
 _ZNSt10unique_ptrIN7rocksdb18FSRandomAccessFileESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN7rocksdb18FSRandomAccessFileEEclEPS1_.exit.i.i, %entry
   store ptr null, ptr %guard_.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb25FSRandomAccessFileWrapperE, i64 16), ptr %this, align 8
-  %guard_.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %guard_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load ptr, ptr %guard_.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %2, null
   br i1 %cmp.not.i.i.i, label %_ZN7rocksdb30FSRandomAccessFileOwnerWrapperD2Ev.exit, label %_ZNKSt14default_deleteIN7rocksdb18FSRandomAccessFileEEclEPS1_.exit.i.i.i
 
 _ZNKSt14default_deleteIN7rocksdb18FSRandomAccessFileEEclEPS1_.exit.i.i.i: ; preds = %_ZNSt10unique_ptrIN7rocksdb18FSRandomAccessFileESt14default_deleteIS1_EED2Ev.exit.i
   %vtable.i.i.i.i = load ptr, ptr %2, align 8
-  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 8
+  %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 8
   %3 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(8) %2) #11
   br label %_ZN7rocksdb30FSRandomAccessFileOwnerWrapperD2Ev.exit
@@ -2826,10 +2826,10 @@ _ZN7rocksdb30FSRandomAccessFileOwnerWrapperD2Ev.exit: ; preds = %_ZNSt10unique_p
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK7rocksdb25FSRandomAccessFileWrapper4ReadEmmRKNS_9IOOptionsEPNS_5SliceEPcPNS_14IODebugContextE(ptr noalias sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %offset, i64 noundef %n, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %result, ptr noundef %scratch, ptr noundef %dbg) unnamed_addr #0 comdat align 2 {
 entry:
-  %target_ = getelementptr inbounds i8, ptr %this, i64 16
+  %target_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %target_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %offset, i64 noundef %n, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %result, ptr noundef %scratch, ptr noundef %dbg)
   ret void
@@ -2838,10 +2838,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7rocksdb25FSRandomAccessFileWrapper9MultiReadEPNS_13FSReadRequestEmRKNS_9IOOptionsEPNS_14IODebugContextE(ptr noalias sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %reqs, i64 noundef %num_reqs, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %dbg) unnamed_addr #0 comdat align 2 {
 entry:
-  %target_ = getelementptr inbounds i8, ptr %this, i64 16
+  %target_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %target_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 32
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %reqs, i64 noundef %num_reqs, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %dbg)
   ret void
@@ -2851,14 +2851,14 @@ entry:
 define linkonce_odr void @_ZN7rocksdb25FSRandomAccessFileWrapperD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb25FSRandomAccessFileWrapperE, i64 16), ptr %this, align 8
-  %guard_ = getelementptr inbounds i8, ptr %this, i64 8
+  %guard_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %guard_, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN7rocksdb18FSRandomAccessFileESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN7rocksdb18FSRandomAccessFileEEclEPS1_.exit.i
 
 _ZNKSt14default_deleteIN7rocksdb18FSRandomAccessFileEEclEPS1_.exit.i: ; preds = %entry
   %vtable.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
+  %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 8
   %1 = load ptr, ptr %vfn.i.i, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0) #11
   br label %_ZNSt10unique_ptrIN7rocksdb18FSRandomAccessFileESt14default_deleteIS1_EED2Ev.exit
@@ -2872,14 +2872,14 @@ _ZNSt10unique_ptrIN7rocksdb18FSRandomAccessFileESt14default_deleteIS1_EED2Ev.exi
 define linkonce_odr void @_ZN7rocksdb25FSRandomAccessFileWrapperD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb25FSRandomAccessFileWrapperE, i64 16), ptr %this, align 8
-  %guard_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %guard_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %guard_.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %_ZN7rocksdb25FSRandomAccessFileWrapperD2Ev.exit, label %_ZNKSt14default_deleteIN7rocksdb18FSRandomAccessFileEEclEPS1_.exit.i.i
 
 _ZNKSt14default_deleteIN7rocksdb18FSRandomAccessFileEEclEPS1_.exit.i.i: ; preds = %entry
   %vtable.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
+  %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 8
   %1 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0) #11
   br label %_ZN7rocksdb25FSRandomAccessFileWrapperD2Ev.exit
@@ -2893,14 +2893,14 @@ _ZN7rocksdb25FSRandomAccessFileWrapperD2Ev.exit:  ; preds = %entry, %_ZNKSt14def
 define internal void @_ZN7rocksdb12_GLOBAL__N_119CountedWritableFileD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb26FSWritableFileOwnerWrapperE, i64 16), ptr %this, align 8
-  %guard_.i = getelementptr inbounds i8, ptr %this, i64 48
+  %guard_.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %guard_.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %_ZN7rocksdb26FSWritableFileOwnerWrapperD2Ev.exit, label %_ZNKSt14default_deleteIN7rocksdb14FSWritableFileEEclEPS1_.exit.i.i
 
 _ZNKSt14default_deleteIN7rocksdb14FSWritableFileEEclEPS1_.exit.i.i: ; preds = %entry
   %vtable.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
+  %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 8
   %1 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(33) %0) #11
   br label %_ZN7rocksdb26FSWritableFileOwnerWrapperD2Ev.exit
@@ -2914,14 +2914,14 @@ _ZN7rocksdb26FSWritableFileOwnerWrapperD2Ev.exit: ; preds = %entry, %_ZNKSt14def
 define internal void @_ZN7rocksdb12_GLOBAL__N_119CountedWritableFileD0Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb26FSWritableFileOwnerWrapperE, i64 16), ptr %this, align 8
-  %guard_.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %guard_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %guard_.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i, label %_ZN7rocksdb12_GLOBAL__N_119CountedWritableFileD2Ev.exit, label %_ZNKSt14default_deleteIN7rocksdb14FSWritableFileEEclEPS1_.exit.i.i.i
 
 _ZNKSt14default_deleteIN7rocksdb14FSWritableFileEEclEPS1_.exit.i.i.i: ; preds = %entry
   %vtable.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 8
+  %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 8
   %1 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(33) %0) #11
   br label %_ZN7rocksdb12_GLOBAL__N_119CountedWritableFileD2Ev.exit
@@ -2934,29 +2934,29 @@ _ZN7rocksdb12_GLOBAL__N_119CountedWritableFileD2Ev.exit: ; preds = %entry, %_ZNK
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN7rocksdb12_GLOBAL__N_119CountedWritableFile6AppendERKNS_5SliceERKNS_9IOOptionsEPNS_14IODebugContextE(ptr noalias sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(16) %data, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %dbg) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %target_.i = getelementptr inbounds i8, ptr %this, i64 40
+  %target_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %target_.i, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef nonnull align 8 dereferenceable(16) %data, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %dbg)
-  %fs_ = getelementptr inbounds i8, ptr %this, i64 56
+  %fs_ = getelementptr inbounds nuw i8, ptr %this, i64 56
   %2 = load ptr, ptr %fs_, align 8
-  %size_.i = getelementptr inbounds i8, ptr %data, i64 8
+  %size_.i = getelementptr inbounds nuw i8, ptr %data, i64 8
   %3 = load i64, ptr %size_.i, align 8
   %4 = load i8, ptr %agg.result, align 8
   %cmp.i.i = icmp eq i8 %4, 3
   br i1 %cmp.i.i, label %nrvo.skipdtor, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %writes = getelementptr inbounds i8, ptr %2, i64 104
+  %writes = getelementptr inbounds nuw i8, ptr %2, i64 104
   %5 = atomicrmw add ptr %writes, i32 1 monotonic, align 4
   %.pr.i = load i8, ptr %agg.result, align 8
   %cmp.i10.i = icmp eq i8 %.pr.i, 0
   br i1 %cmp.i10.i, label %monotonic.i17.i, label %nrvo.skipdtor
 
 monotonic.i17.i:                                  ; preds = %if.end.i
-  %bytes.i = getelementptr inbounds i8, ptr %2, i64 112
+  %bytes.i = getelementptr inbounds nuw i8, ptr %2, i64 112
   %6 = atomicrmw add ptr %bytes.i, i64 %3 monotonic, align 8
   br label %nrvo.skipdtor
 
@@ -2967,29 +2967,29 @@ nrvo.skipdtor:                                    ; preds = %monotonic.i17.i, %i
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN7rocksdb12_GLOBAL__N_119CountedWritableFile6AppendERKNS_5SliceERKNS_9IOOptionsERKNS_20DataVerificationInfoEPNS_14IODebugContextE(ptr noalias sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(16) %data, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef nonnull align 8 dereferenceable(16) %info, ptr noundef %dbg) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %target_.i = getelementptr inbounds i8, ptr %this, i64 40
+  %target_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %target_.i, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 24
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef nonnull align 8 dereferenceable(16) %data, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef nonnull align 8 dereferenceable(16) %info, ptr noundef %dbg)
-  %fs_ = getelementptr inbounds i8, ptr %this, i64 56
+  %fs_ = getelementptr inbounds nuw i8, ptr %this, i64 56
   %2 = load ptr, ptr %fs_, align 8
-  %size_.i = getelementptr inbounds i8, ptr %data, i64 8
+  %size_.i = getelementptr inbounds nuw i8, ptr %data, i64 8
   %3 = load i64, ptr %size_.i, align 8
   %4 = load i8, ptr %agg.result, align 8
   %cmp.i.i = icmp eq i8 %4, 3
   br i1 %cmp.i.i, label %nrvo.skipdtor, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %writes = getelementptr inbounds i8, ptr %2, i64 104
+  %writes = getelementptr inbounds nuw i8, ptr %2, i64 104
   %5 = atomicrmw add ptr %writes, i32 1 monotonic, align 4
   %.pr.i = load i8, ptr %agg.result, align 8
   %cmp.i10.i = icmp eq i8 %.pr.i, 0
   br i1 %cmp.i10.i, label %monotonic.i17.i, label %nrvo.skipdtor
 
 monotonic.i17.i:                                  ; preds = %if.end.i
-  %bytes.i = getelementptr inbounds i8, ptr %2, i64 112
+  %bytes.i = getelementptr inbounds nuw i8, ptr %2, i64 112
   %6 = atomicrmw add ptr %bytes.i, i64 %3 monotonic, align 8
   br label %nrvo.skipdtor
 
@@ -3000,29 +3000,29 @@ nrvo.skipdtor:                                    ; preds = %monotonic.i17.i, %i
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN7rocksdb12_GLOBAL__N_119CountedWritableFile16PositionedAppendERKNS_5SliceEmRKNS_9IOOptionsEPNS_14IODebugContextE(ptr noalias sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(16) %data, i64 noundef %offset, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %dbg) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %target_.i = getelementptr inbounds i8, ptr %this, i64 40
+  %target_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %target_.i, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 32
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef nonnull align 8 dereferenceable(16) %data, i64 noundef %offset, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %dbg)
-  %fs_ = getelementptr inbounds i8, ptr %this, i64 56
+  %fs_ = getelementptr inbounds nuw i8, ptr %this, i64 56
   %2 = load ptr, ptr %fs_, align 8
-  %size_.i = getelementptr inbounds i8, ptr %data, i64 8
+  %size_.i = getelementptr inbounds nuw i8, ptr %data, i64 8
   %3 = load i64, ptr %size_.i, align 8
   %4 = load i8, ptr %agg.result, align 8
   %cmp.i.i = icmp eq i8 %4, 3
   br i1 %cmp.i.i, label %nrvo.skipdtor, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %writes = getelementptr inbounds i8, ptr %2, i64 104
+  %writes = getelementptr inbounds nuw i8, ptr %2, i64 104
   %5 = atomicrmw add ptr %writes, i32 1 monotonic, align 4
   %.pr.i = load i8, ptr %agg.result, align 8
   %cmp.i10.i = icmp eq i8 %.pr.i, 0
   br i1 %cmp.i10.i, label %monotonic.i17.i, label %nrvo.skipdtor
 
 monotonic.i17.i:                                  ; preds = %if.end.i
-  %bytes.i = getelementptr inbounds i8, ptr %2, i64 112
+  %bytes.i = getelementptr inbounds nuw i8, ptr %2, i64 112
   %6 = atomicrmw add ptr %bytes.i, i64 %3 monotonic, align 8
   br label %nrvo.skipdtor
 
@@ -3033,29 +3033,29 @@ nrvo.skipdtor:                                    ; preds = %monotonic.i17.i, %i
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN7rocksdb12_GLOBAL__N_119CountedWritableFile16PositionedAppendERKNS_5SliceEmRKNS_9IOOptionsERKNS_20DataVerificationInfoEPNS_14IODebugContextE(ptr noalias sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(16) %data, i64 noundef %offset, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef nonnull align 8 dereferenceable(16) %info, ptr noundef %dbg) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %target_.i = getelementptr inbounds i8, ptr %this, i64 40
+  %target_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %target_.i, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 40
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef nonnull align 8 dereferenceable(16) %data, i64 noundef %offset, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef nonnull align 8 dereferenceable(16) %info, ptr noundef %dbg)
-  %fs_ = getelementptr inbounds i8, ptr %this, i64 56
+  %fs_ = getelementptr inbounds nuw i8, ptr %this, i64 56
   %2 = load ptr, ptr %fs_, align 8
-  %size_.i = getelementptr inbounds i8, ptr %data, i64 8
+  %size_.i = getelementptr inbounds nuw i8, ptr %data, i64 8
   %3 = load i64, ptr %size_.i, align 8
   %4 = load i8, ptr %agg.result, align 8
   %cmp.i.i = icmp eq i8 %4, 3
   br i1 %cmp.i.i, label %nrvo.skipdtor, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %writes = getelementptr inbounds i8, ptr %2, i64 104
+  %writes = getelementptr inbounds nuw i8, ptr %2, i64 104
   %5 = atomicrmw add ptr %writes, i32 1 monotonic, align 4
   %.pr.i = load i8, ptr %agg.result, align 8
   %cmp.i10.i = icmp eq i8 %.pr.i, 0
   br i1 %cmp.i10.i, label %monotonic.i17.i, label %nrvo.skipdtor
 
 monotonic.i17.i:                                  ; preds = %if.end.i
-  %bytes.i = getelementptr inbounds i8, ptr %2, i64 112
+  %bytes.i = getelementptr inbounds nuw i8, ptr %2, i64 112
   %6 = atomicrmw add ptr %bytes.i, i64 %3 monotonic, align 8
   br label %nrvo.skipdtor
 
@@ -3066,10 +3066,10 @@ nrvo.skipdtor:                                    ; preds = %monotonic.i17.i, %i
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7rocksdb21FSWritableFileWrapper8TruncateEmRKNS_9IOOptionsEPNS_14IODebugContextE(ptr noalias sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %this, i64 noundef %size, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %dbg) unnamed_addr #0 comdat align 2 {
 entry:
-  %target_ = getelementptr inbounds i8, ptr %this, i64 40
+  %target_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %target_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 48
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(33) %0, i64 noundef %size, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %dbg)
   ret void
@@ -3078,10 +3078,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN7rocksdb12_GLOBAL__N_119CountedWritableFile5CloseERKNS_9IOOptionsEPNS_14IODebugContextE(ptr noalias sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %dbg) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  %target_.i = getelementptr inbounds i8, ptr %this, i64 40
+  %target_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %target_.i, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 56
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 56
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %dbg)
   %2 = load i8, ptr %agg.result, align 8
@@ -3089,9 +3089,9 @@ invoke.cont:
   br i1 %cmp.i, label %if.then, label %nrvo.skipdtor
 
 if.then:                                          ; preds = %invoke.cont
-  %fs_ = getelementptr inbounds i8, ptr %this, i64 56
+  %fs_ = getelementptr inbounds nuw i8, ptr %this, i64 56
   %3 = load ptr, ptr %fs_, align 8
-  %closes = getelementptr inbounds i8, ptr %3, i64 52
+  %closes = getelementptr inbounds nuw i8, ptr %3, i64 52
   %4 = atomicrmw add ptr %closes, i32 1 seq_cst, align 4
   br label %nrvo.skipdtor
 
@@ -3102,10 +3102,10 @@ nrvo.skipdtor:                                    ; preds = %invoke.cont, %if.th
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN7rocksdb12_GLOBAL__N_119CountedWritableFile5FlushERKNS_9IOOptionsEPNS_14IODebugContextE(ptr noalias sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %dbg) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  %target_.i = getelementptr inbounds i8, ptr %this, i64 40
+  %target_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %target_.i, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 64
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %dbg)
   %2 = load i8, ptr %agg.result, align 8
@@ -3113,9 +3113,9 @@ invoke.cont:
   br i1 %cmp.i, label %if.then, label %nrvo.skipdtor
 
 if.then:                                          ; preds = %invoke.cont
-  %fs_ = getelementptr inbounds i8, ptr %this, i64 56
+  %fs_ = getelementptr inbounds nuw i8, ptr %this, i64 56
   %3 = load ptr, ptr %fs_, align 8
-  %flushes = getelementptr inbounds i8, ptr %3, i64 64
+  %flushes = getelementptr inbounds nuw i8, ptr %3, i64 64
   %4 = atomicrmw add ptr %flushes, i32 1 seq_cst, align 4
   br label %nrvo.skipdtor
 
@@ -3126,10 +3126,10 @@ nrvo.skipdtor:                                    ; preds = %invoke.cont, %if.th
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN7rocksdb12_GLOBAL__N_119CountedWritableFile4SyncERKNS_9IOOptionsEPNS_14IODebugContextE(ptr noalias sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %dbg) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  %target_.i = getelementptr inbounds i8, ptr %this, i64 40
+  %target_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %target_.i, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 72
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 72
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %dbg)
   %2 = load i8, ptr %agg.result, align 8
@@ -3137,9 +3137,9 @@ invoke.cont:
   br i1 %cmp.i, label %if.then, label %nrvo.skipdtor
 
 if.then:                                          ; preds = %invoke.cont
-  %fs_ = getelementptr inbounds i8, ptr %this, i64 56
+  %fs_ = getelementptr inbounds nuw i8, ptr %this, i64 56
   %3 = load ptr, ptr %fs_, align 8
-  %syncs = getelementptr inbounds i8, ptr %3, i64 68
+  %syncs = getelementptr inbounds nuw i8, ptr %3, i64 68
   %4 = atomicrmw add ptr %syncs, i32 1 seq_cst, align 4
   br label %nrvo.skipdtor
 
@@ -3150,10 +3150,10 @@ nrvo.skipdtor:                                    ; preds = %invoke.cont, %if.th
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN7rocksdb12_GLOBAL__N_119CountedWritableFile5FsyncERKNS_9IOOptionsEPNS_14IODebugContextE(ptr noalias sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %dbg) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  %target_.i = getelementptr inbounds i8, ptr %this, i64 40
+  %target_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %target_.i, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 80
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 80
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %dbg)
   %2 = load i8, ptr %agg.result, align 8
@@ -3161,9 +3161,9 @@ invoke.cont:
   br i1 %cmp.i, label %if.then, label %nrvo.skipdtor
 
 if.then:                                          ; preds = %invoke.cont
-  %fs_ = getelementptr inbounds i8, ptr %this, i64 56
+  %fs_ = getelementptr inbounds nuw i8, ptr %this, i64 56
   %3 = load ptr, ptr %fs_, align 8
-  %fsyncs = getelementptr inbounds i8, ptr %3, i64 76
+  %fsyncs = getelementptr inbounds nuw i8, ptr %3, i64 76
   %4 = atomicrmw add ptr %fsyncs, i32 1 seq_cst, align 4
   br label %nrvo.skipdtor
 
@@ -3174,10 +3174,10 @@ nrvo.skipdtor:                                    ; preds = %invoke.cont, %if.th
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZNK7rocksdb21FSWritableFileWrapper16IsSyncThreadSafeEv(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  %target_ = getelementptr inbounds i8, ptr %this, i64 40
+  %target_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %target_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 88
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 88
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(33) %0)
   ret i1 %call
@@ -3186,10 +3186,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZNK7rocksdb21FSWritableFileWrapper13use_direct_ioEv(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  %target_ = getelementptr inbounds i8, ptr %this, i64 40
+  %target_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %target_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 96
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 96
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(33) %0)
   ret i1 %call
@@ -3198,10 +3198,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef i64 @_ZNK7rocksdb21FSWritableFileWrapper26GetRequiredBufferAlignmentEv(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  %target_ = getelementptr inbounds i8, ptr %this, i64 40
+  %target_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %target_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 104
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 104
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(33) %0)
   ret i64 %call
@@ -3210,10 +3210,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7rocksdb21FSWritableFileWrapper20SetWriteLifeTimeHintENS_3Env17WriteLifeTimeHintE(ptr noundef nonnull align 8 dereferenceable(48) %this, i32 noundef %hint) unnamed_addr #0 comdat align 2 {
 entry:
-  %target_ = getelementptr inbounds i8, ptr %this, i64 40
+  %target_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %target_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 112
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 112
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(33) %0, i32 noundef %hint)
   ret void
@@ -3222,7 +3222,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7rocksdb14FSWritableFile13SetIOPriorityENS_3Env10IOPriorityE(ptr noundef nonnull align 8 dereferenceable(33) %this, i32 noundef %pri) unnamed_addr #5 comdat align 2 {
 entry:
-  %io_priority_ = getelementptr inbounds i8, ptr %this, i64 24
+  %io_priority_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i32 %pri, ptr %io_priority_, align 8
   ret void
 }
@@ -3230,7 +3230,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef i32 @_ZN7rocksdb14FSWritableFile13GetIOPriorityEv(ptr noundef nonnull align 8 dereferenceable(33) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  %io_priority_ = getelementptr inbounds i8, ptr %this, i64 24
+  %io_priority_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i32, ptr %io_priority_, align 8
   ret i32 %0
 }
@@ -3238,10 +3238,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef i32 @_ZN7rocksdb21FSWritableFileWrapper20GetWriteLifeTimeHintEv(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  %target_ = getelementptr inbounds i8, ptr %this, i64 40
+  %target_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %target_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 136
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 136
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(33) %0)
   ret i32 %call
@@ -3250,10 +3250,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef i64 @_ZN7rocksdb21FSWritableFileWrapper11GetFileSizeERKNS_9IOOptionsEPNS_14IODebugContextE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %dbg) unnamed_addr #0 comdat align 2 {
 entry:
-  %target_ = getelementptr inbounds i8, ptr %this, i64 40
+  %target_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %target_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 144
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 144
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %dbg)
   ret i64 %call
@@ -3262,10 +3262,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7rocksdb21FSWritableFileWrapper25SetPreallocationBlockSizeEm(ptr noundef nonnull align 8 dereferenceable(48) %this, i64 noundef %size) unnamed_addr #0 comdat align 2 {
 entry:
-  %target_ = getelementptr inbounds i8, ptr %this, i64 40
+  %target_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %target_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 152
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 152
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(33) %0, i64 noundef %size)
   ret void
@@ -3274,10 +3274,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7rocksdb21FSWritableFileWrapper22GetPreallocationStatusEPmS1_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %block_size, ptr noundef %last_allocated_block) unnamed_addr #0 comdat align 2 {
 entry:
-  %target_ = getelementptr inbounds i8, ptr %this, i64 40
+  %target_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %target_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 160
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 160
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef %block_size, ptr noundef %last_allocated_block)
   ret void
@@ -3286,10 +3286,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef i64 @_ZNK7rocksdb21FSWritableFileWrapper11GetUniqueIdEPcm(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %id, i64 noundef %max_size) unnamed_addr #0 comdat align 2 {
 entry:
-  %target_ = getelementptr inbounds i8, ptr %this, i64 40
+  %target_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %target_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 168
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 168
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef %id, i64 noundef %max_size)
   ret i64 %call
@@ -3298,10 +3298,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7rocksdb21FSWritableFileWrapper15InvalidateCacheEmm(ptr noalias sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %this, i64 noundef %offset, i64 noundef %length) unnamed_addr #0 comdat align 2 {
 entry:
-  %target_ = getelementptr inbounds i8, ptr %this, i64 40
+  %target_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %target_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 176
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 176
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(33) %0, i64 noundef %offset, i64 noundef %length)
   ret void
@@ -3310,10 +3310,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN7rocksdb12_GLOBAL__N_119CountedWritableFile9RangeSyncEmmRKNS_9IOOptionsEPNS_14IODebugContextE(ptr noalias sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, i64 noundef %offset, i64 noundef %nbytes, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %dbg) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  %target_.i = getelementptr inbounds i8, ptr %this, i64 40
+  %target_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %target_.i, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 184
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 184
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(33) %0, i64 noundef %offset, i64 noundef %nbytes, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %dbg)
   %2 = load i8, ptr %agg.result, align 8
@@ -3321,9 +3321,9 @@ invoke.cont:
   br i1 %cmp.i, label %if.then, label %nrvo.skipdtor
 
 if.then:                                          ; preds = %invoke.cont
-  %fs_ = getelementptr inbounds i8, ptr %this, i64 56
+  %fs_ = getelementptr inbounds nuw i8, ptr %this, i64 56
   %3 = load ptr, ptr %fs_, align 8
-  %syncs = getelementptr inbounds i8, ptr %3, i64 68
+  %syncs = getelementptr inbounds nuw i8, ptr %3, i64 68
   %4 = atomicrmw add ptr %syncs, i32 1 seq_cst, align 4
   br label %nrvo.skipdtor
 
@@ -3334,10 +3334,10 @@ nrvo.skipdtor:                                    ; preds = %invoke.cont, %if.th
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7rocksdb21FSWritableFileWrapper12PrepareWriteEmmRKNS_9IOOptionsEPNS_14IODebugContextE(ptr noundef nonnull align 8 dereferenceable(48) %this, i64 noundef %offset, i64 noundef %len, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %dbg) unnamed_addr #0 comdat align 2 {
 entry:
-  %target_ = getelementptr inbounds i8, ptr %this, i64 40
+  %target_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %target_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 192
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 192
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(33) %0, i64 noundef %offset, i64 noundef %len, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %dbg)
   ret void
@@ -3346,10 +3346,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7rocksdb21FSWritableFileWrapper8AllocateEmmRKNS_9IOOptionsEPNS_14IODebugContextE(ptr noalias sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %this, i64 noundef %offset, i64 noundef %len, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %dbg) unnamed_addr #0 comdat align 2 {
 entry:
-  %target_ = getelementptr inbounds i8, ptr %this, i64 40
+  %target_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %target_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 200
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 200
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(33) %0, i64 noundef %offset, i64 noundef %len, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %dbg)
   ret void
@@ -3359,14 +3359,14 @@ entry:
 define linkonce_odr void @_ZN7rocksdb26FSWritableFileOwnerWrapperD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb26FSWritableFileOwnerWrapperE, i64 16), ptr %this, align 8
-  %guard_ = getelementptr inbounds i8, ptr %this, i64 48
+  %guard_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %guard_, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN7rocksdb14FSWritableFileESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN7rocksdb14FSWritableFileEEclEPS1_.exit.i
 
 _ZNKSt14default_deleteIN7rocksdb14FSWritableFileEEclEPS1_.exit.i: ; preds = %entry
   %vtable.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
+  %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 8
   %1 = load ptr, ptr %vfn.i.i, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(33) %0) #11
   br label %_ZNSt10unique_ptrIN7rocksdb14FSWritableFileESt14default_deleteIS1_EED2Ev.exit
@@ -3380,14 +3380,14 @@ _ZNSt10unique_ptrIN7rocksdb14FSWritableFileESt14default_deleteIS1_EED2Ev.exit: ;
 define linkonce_odr void @_ZN7rocksdb26FSWritableFileOwnerWrapperD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb26FSWritableFileOwnerWrapperE, i64 16), ptr %this, align 8
-  %guard_.i = getelementptr inbounds i8, ptr %this, i64 48
+  %guard_.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %guard_.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %_ZN7rocksdb26FSWritableFileOwnerWrapperD2Ev.exit, label %_ZNKSt14default_deleteIN7rocksdb14FSWritableFileEEclEPS1_.exit.i.i
 
 _ZNKSt14default_deleteIN7rocksdb14FSWritableFileEEclEPS1_.exit.i.i: ; preds = %entry
   %vtable.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
+  %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 8
   %1 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(33) %0) #11
   br label %_ZN7rocksdb26FSWritableFileOwnerWrapperD2Ev.exit
@@ -3400,10 +3400,10 @@ _ZN7rocksdb26FSWritableFileOwnerWrapperD2Ev.exit: ; preds = %entry, %_ZNKSt14def
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7rocksdb21FSWritableFileWrapper6AppendERKNS_5SliceERKNS_9IOOptionsEPNS_14IODebugContextE(ptr noalias sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(16) %data, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %dbg) unnamed_addr #0 comdat align 2 {
 entry:
-  %target_ = getelementptr inbounds i8, ptr %this, i64 40
+  %target_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %target_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef nonnull align 8 dereferenceable(16) %data, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %dbg)
   ret void
@@ -3412,10 +3412,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7rocksdb21FSWritableFileWrapper6AppendERKNS_5SliceERKNS_9IOOptionsERKNS_20DataVerificationInfoEPNS_14IODebugContextE(ptr noalias sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(16) %data, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef nonnull align 8 dereferenceable(16) %verification_info, ptr noundef %dbg) unnamed_addr #0 comdat align 2 {
 entry:
-  %target_ = getelementptr inbounds i8, ptr %this, i64 40
+  %target_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %target_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 24
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef nonnull align 8 dereferenceable(16) %data, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef nonnull align 8 dereferenceable(16) %verification_info, ptr noundef %dbg)
   ret void
@@ -3424,10 +3424,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7rocksdb21FSWritableFileWrapper16PositionedAppendERKNS_5SliceEmRKNS_9IOOptionsEPNS_14IODebugContextE(ptr noalias sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(16) %data, i64 noundef %offset, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %dbg) unnamed_addr #0 comdat align 2 {
 entry:
-  %target_ = getelementptr inbounds i8, ptr %this, i64 40
+  %target_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %target_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 32
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef nonnull align 8 dereferenceable(16) %data, i64 noundef %offset, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %dbg)
   ret void
@@ -3436,10 +3436,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7rocksdb21FSWritableFileWrapper16PositionedAppendERKNS_5SliceEmRKNS_9IOOptionsERKNS_20DataVerificationInfoEPNS_14IODebugContextE(ptr noalias sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(16) %data, i64 noundef %offset, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef nonnull align 8 dereferenceable(16) %verification_info, ptr noundef %dbg) unnamed_addr #0 comdat align 2 {
 entry:
-  %target_ = getelementptr inbounds i8, ptr %this, i64 40
+  %target_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %target_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 40
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef nonnull align 8 dereferenceable(16) %data, i64 noundef %offset, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef nonnull align 8 dereferenceable(16) %verification_info, ptr noundef %dbg)
   ret void
@@ -3448,10 +3448,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7rocksdb21FSWritableFileWrapper5CloseERKNS_9IOOptionsEPNS_14IODebugContextE(ptr noalias sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %dbg) unnamed_addr #0 comdat align 2 {
 entry:
-  %target_ = getelementptr inbounds i8, ptr %this, i64 40
+  %target_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %target_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 56
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 56
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %dbg)
   ret void
@@ -3460,10 +3460,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7rocksdb21FSWritableFileWrapper5FlushERKNS_9IOOptionsEPNS_14IODebugContextE(ptr noalias sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %dbg) unnamed_addr #0 comdat align 2 {
 entry:
-  %target_ = getelementptr inbounds i8, ptr %this, i64 40
+  %target_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %target_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 64
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %dbg)
   ret void
@@ -3472,10 +3472,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7rocksdb21FSWritableFileWrapper4SyncERKNS_9IOOptionsEPNS_14IODebugContextE(ptr noalias sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %dbg) unnamed_addr #0 comdat align 2 {
 entry:
-  %target_ = getelementptr inbounds i8, ptr %this, i64 40
+  %target_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %target_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 72
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 72
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %dbg)
   ret void
@@ -3484,10 +3484,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7rocksdb21FSWritableFileWrapper5FsyncERKNS_9IOOptionsEPNS_14IODebugContextE(ptr noalias sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %dbg) unnamed_addr #0 comdat align 2 {
 entry:
-  %target_ = getelementptr inbounds i8, ptr %this, i64 40
+  %target_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %target_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 80
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 80
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %dbg)
   ret void
@@ -3496,10 +3496,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7rocksdb21FSWritableFileWrapper9RangeSyncEmmRKNS_9IOOptionsEPNS_14IODebugContextE(ptr noalias sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %this, i64 noundef %offset, i64 noundef %nbytes, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %dbg) unnamed_addr #0 comdat align 2 {
 entry:
-  %target_ = getelementptr inbounds i8, ptr %this, i64 40
+  %target_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %target_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 184
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 184
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(33) %0, i64 noundef %offset, i64 noundef %nbytes, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %dbg)
   ret void
@@ -3509,14 +3509,14 @@ entry:
 define internal void @_ZN7rocksdb12_GLOBAL__N_119CountedRandomRWFileD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb26FSRandomRWFileOwnerWrapperE, i64 16), ptr %this, align 8
-  %guard_.i = getelementptr inbounds i8, ptr %this, i64 16
+  %guard_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %guard_.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %_ZN7rocksdb26FSRandomRWFileOwnerWrapperD2Ev.exit, label %_ZNKSt14default_deleteIN7rocksdb14FSRandomRWFileEEclEPS1_.exit.i.i
 
 _ZNKSt14default_deleteIN7rocksdb14FSRandomRWFileEEclEPS1_.exit.i.i: ; preds = %entry
   %vtable.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
+  %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 8
   %1 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0) #11
   br label %_ZN7rocksdb26FSRandomRWFileOwnerWrapperD2Ev.exit
@@ -3530,14 +3530,14 @@ _ZN7rocksdb26FSRandomRWFileOwnerWrapperD2Ev.exit: ; preds = %entry, %_ZNKSt14def
 define internal void @_ZN7rocksdb12_GLOBAL__N_119CountedRandomRWFileD0Ev(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb26FSRandomRWFileOwnerWrapperE, i64 16), ptr %this, align 8
-  %guard_.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %guard_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %guard_.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i, label %_ZN7rocksdb12_GLOBAL__N_119CountedRandomRWFileD2Ev.exit, label %_ZNKSt14default_deleteIN7rocksdb14FSRandomRWFileEEclEPS1_.exit.i.i.i
 
 _ZNKSt14default_deleteIN7rocksdb14FSRandomRWFileEEclEPS1_.exit.i.i.i: ; preds = %entry
   %vtable.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 8
+  %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 8
   %1 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0) #11
   br label %_ZN7rocksdb12_GLOBAL__N_119CountedRandomRWFileD2Ev.exit
@@ -3550,10 +3550,10 @@ _ZN7rocksdb12_GLOBAL__N_119CountedRandomRWFileD2Ev.exit: ; preds = %entry, %_ZNK
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZNK7rocksdb21FSRandomRWFileWrapper13use_direct_ioEv(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  %target_ = getelementptr inbounds i8, ptr %this, i64 8
+  %target_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %target_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(8) %0)
   ret i1 %call
@@ -3562,10 +3562,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef i64 @_ZNK7rocksdb21FSRandomRWFileWrapper26GetRequiredBufferAlignmentEv(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  %target_ = getelementptr inbounds i8, ptr %this, i64 8
+  %target_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %target_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 24
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(8) %0)
   ret i64 %call
@@ -3574,29 +3574,29 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN7rocksdb12_GLOBAL__N_119CountedRandomRWFile5WriteEmRKNS_5SliceERKNS_9IOOptionsEPNS_14IODebugContextE(ptr noalias sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i64 noundef %offset, ptr noundef nonnull align 8 dereferenceable(16) %data, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %dbg) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %target_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %target_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %target_.i, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 32
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %offset, ptr noundef nonnull align 8 dereferenceable(16) %data, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %dbg)
-  %fs_ = getelementptr inbounds i8, ptr %this, i64 24
+  %fs_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %2 = load ptr, ptr %fs_, align 8
-  %size_.i = getelementptr inbounds i8, ptr %data, i64 8
+  %size_.i = getelementptr inbounds nuw i8, ptr %data, i64 8
   %3 = load i64, ptr %size_.i, align 8
   %4 = load i8, ptr %agg.result, align 8
   %cmp.i.i = icmp eq i8 %4, 3
   br i1 %cmp.i.i, label %nrvo.skipdtor, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %writes = getelementptr inbounds i8, ptr %2, i64 104
+  %writes = getelementptr inbounds nuw i8, ptr %2, i64 104
   %5 = atomicrmw add ptr %writes, i32 1 monotonic, align 4
   %.pr.i = load i8, ptr %agg.result, align 8
   %cmp.i10.i = icmp eq i8 %.pr.i, 0
   br i1 %cmp.i10.i, label %monotonic.i17.i, label %nrvo.skipdtor
 
 monotonic.i17.i:                                  ; preds = %if.end.i
-  %bytes.i = getelementptr inbounds i8, ptr %2, i64 112
+  %bytes.i = getelementptr inbounds nuw i8, ptr %2, i64 112
   %6 = atomicrmw add ptr %bytes.i, i64 %3 monotonic, align 8
   br label %nrvo.skipdtor
 
@@ -3607,29 +3607,29 @@ nrvo.skipdtor:                                    ; preds = %monotonic.i17.i, %i
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZNK7rocksdb12_GLOBAL__N_119CountedRandomRWFile4ReadEmmRKNS_9IOOptionsEPNS_5SliceEPcPNS_14IODebugContextE(ptr noalias sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i64 noundef %offset, i64 noundef %n, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %result, ptr noundef %scratch, ptr noundef %dbg) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %target_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %target_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %target_.i, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 40
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %offset, i64 noundef %n, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %result, ptr noundef %scratch, ptr noundef %dbg)
-  %fs_ = getelementptr inbounds i8, ptr %this, i64 24
+  %fs_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %2 = load ptr, ptr %fs_, align 8
-  %size_.i = getelementptr inbounds i8, ptr %result, i64 8
+  %size_.i = getelementptr inbounds nuw i8, ptr %result, i64 8
   %3 = load i64, ptr %size_.i, align 8
   %4 = load i8, ptr %agg.result, align 8
   %cmp.i.i = icmp eq i8 %4, 3
   br i1 %cmp.i.i, label %nrvo.skipdtor, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %reads = getelementptr inbounds i8, ptr %2, i64 88
+  %reads = getelementptr inbounds nuw i8, ptr %2, i64 88
   %5 = atomicrmw add ptr %reads, i32 1 monotonic, align 4
   %.pr.i = load i8, ptr %agg.result, align 8
   %cmp.i10.i = icmp eq i8 %.pr.i, 0
   br i1 %cmp.i10.i, label %monotonic.i17.i, label %nrvo.skipdtor
 
 monotonic.i17.i:                                  ; preds = %if.end.i
-  %bytes.i = getelementptr inbounds i8, ptr %2, i64 96
+  %bytes.i = getelementptr inbounds nuw i8, ptr %2, i64 96
   %6 = atomicrmw add ptr %bytes.i, i64 %3 monotonic, align 8
   br label %nrvo.skipdtor
 
@@ -3640,10 +3640,10 @@ nrvo.skipdtor:                                    ; preds = %monotonic.i17.i, %i
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN7rocksdb12_GLOBAL__N_119CountedRandomRWFile5FlushERKNS_9IOOptionsEPNS_14IODebugContextE(ptr noalias sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %dbg) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  %target_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %target_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %target_.i, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 48
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %dbg)
   %2 = load i8, ptr %agg.result, align 8
@@ -3651,9 +3651,9 @@ invoke.cont:
   br i1 %cmp.i, label %if.then, label %nrvo.skipdtor
 
 if.then:                                          ; preds = %invoke.cont
-  %fs_ = getelementptr inbounds i8, ptr %this, i64 24
+  %fs_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %3 = load ptr, ptr %fs_, align 8
-  %flushes = getelementptr inbounds i8, ptr %3, i64 64
+  %flushes = getelementptr inbounds nuw i8, ptr %3, i64 64
   %4 = atomicrmw add ptr %flushes, i32 1 seq_cst, align 4
   br label %nrvo.skipdtor
 
@@ -3664,10 +3664,10 @@ nrvo.skipdtor:                                    ; preds = %invoke.cont, %if.th
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN7rocksdb12_GLOBAL__N_119CountedRandomRWFile4SyncERKNS_9IOOptionsEPNS_14IODebugContextE(ptr noalias sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %dbg) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  %target_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %target_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %target_.i, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 56
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 56
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %dbg)
   %2 = load i8, ptr %agg.result, align 8
@@ -3675,9 +3675,9 @@ invoke.cont:
   br i1 %cmp.i, label %if.then, label %nrvo.skipdtor
 
 if.then:                                          ; preds = %invoke.cont
-  %fs_ = getelementptr inbounds i8, ptr %this, i64 24
+  %fs_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %3 = load ptr, ptr %fs_, align 8
-  %syncs = getelementptr inbounds i8, ptr %3, i64 68
+  %syncs = getelementptr inbounds nuw i8, ptr %3, i64 68
   %4 = atomicrmw add ptr %syncs, i32 1 seq_cst, align 4
   br label %nrvo.skipdtor
 
@@ -3688,10 +3688,10 @@ nrvo.skipdtor:                                    ; preds = %invoke.cont, %if.th
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN7rocksdb12_GLOBAL__N_119CountedRandomRWFile5FsyncERKNS_9IOOptionsEPNS_14IODebugContextE(ptr noalias sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %dbg) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  %target_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %target_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %target_.i, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 64
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %dbg)
   %2 = load i8, ptr %agg.result, align 8
@@ -3699,9 +3699,9 @@ invoke.cont:
   br i1 %cmp.i, label %if.then, label %nrvo.skipdtor
 
 if.then:                                          ; preds = %invoke.cont
-  %fs_ = getelementptr inbounds i8, ptr %this, i64 24
+  %fs_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %3 = load ptr, ptr %fs_, align 8
-  %fsyncs = getelementptr inbounds i8, ptr %3, i64 76
+  %fsyncs = getelementptr inbounds nuw i8, ptr %3, i64 76
   %4 = atomicrmw add ptr %fsyncs, i32 1 seq_cst, align 4
   br label %nrvo.skipdtor
 
@@ -3712,10 +3712,10 @@ nrvo.skipdtor:                                    ; preds = %invoke.cont, %if.th
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN7rocksdb12_GLOBAL__N_119CountedRandomRWFile5CloseERKNS_9IOOptionsEPNS_14IODebugContextE(ptr noalias sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %dbg) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  %target_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %target_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %target_.i, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 72
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 72
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %dbg)
   %2 = load i8, ptr %agg.result, align 8
@@ -3723,9 +3723,9 @@ invoke.cont:
   br i1 %cmp.i, label %if.then, label %nrvo.skipdtor
 
 if.then:                                          ; preds = %invoke.cont
-  %fs_ = getelementptr inbounds i8, ptr %this, i64 24
+  %fs_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %3 = load ptr, ptr %fs_, align 8
-  %closes = getelementptr inbounds i8, ptr %3, i64 52
+  %closes = getelementptr inbounds nuw i8, ptr %3, i64 52
   %4 = atomicrmw add ptr %closes, i32 1 seq_cst, align 4
   br label %nrvo.skipdtor
 
@@ -3736,10 +3736,10 @@ nrvo.skipdtor:                                    ; preds = %invoke.cont, %if.th
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i8 @_ZNK7rocksdb21FSRandomRWFileWrapper14GetTemperatureEv(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  %target_ = getelementptr inbounds i8, ptr %this, i64 8
+  %target_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %target_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 80
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 80
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call noundef zeroext i8 %1(ptr noundef nonnull align 8 dereferenceable(8) %0)
   ret i8 %call
@@ -3749,14 +3749,14 @@ entry:
 define linkonce_odr void @_ZN7rocksdb26FSRandomRWFileOwnerWrapperD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb26FSRandomRWFileOwnerWrapperE, i64 16), ptr %this, align 8
-  %guard_ = getelementptr inbounds i8, ptr %this, i64 16
+  %guard_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %guard_, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN7rocksdb14FSRandomRWFileESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN7rocksdb14FSRandomRWFileEEclEPS1_.exit.i
 
 _ZNKSt14default_deleteIN7rocksdb14FSRandomRWFileEEclEPS1_.exit.i: ; preds = %entry
   %vtable.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
+  %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 8
   %1 = load ptr, ptr %vfn.i.i, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0) #11
   br label %_ZNSt10unique_ptrIN7rocksdb14FSRandomRWFileESt14default_deleteIS1_EED2Ev.exit
@@ -3770,14 +3770,14 @@ _ZNSt10unique_ptrIN7rocksdb14FSRandomRWFileESt14default_deleteIS1_EED2Ev.exit: ;
 define linkonce_odr void @_ZN7rocksdb26FSRandomRWFileOwnerWrapperD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb26FSRandomRWFileOwnerWrapperE, i64 16), ptr %this, align 8
-  %guard_.i = getelementptr inbounds i8, ptr %this, i64 16
+  %guard_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %guard_.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %_ZN7rocksdb26FSRandomRWFileOwnerWrapperD2Ev.exit, label %_ZNKSt14default_deleteIN7rocksdb14FSRandomRWFileEEclEPS1_.exit.i.i
 
 _ZNKSt14default_deleteIN7rocksdb14FSRandomRWFileEEclEPS1_.exit.i.i: ; preds = %entry
   %vtable.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
+  %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 8
   %1 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0) #11
   br label %_ZN7rocksdb26FSRandomRWFileOwnerWrapperD2Ev.exit
@@ -3790,10 +3790,10 @@ _ZN7rocksdb26FSRandomRWFileOwnerWrapperD2Ev.exit: ; preds = %entry, %_ZNKSt14def
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7rocksdb21FSRandomRWFileWrapper5WriteEmRKNS_5SliceERKNS_9IOOptionsEPNS_14IODebugContextE(ptr noalias sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %this, i64 noundef %offset, ptr noundef nonnull align 8 dereferenceable(16) %data, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %dbg) unnamed_addr #0 comdat align 2 {
 entry:
-  %target_ = getelementptr inbounds i8, ptr %this, i64 8
+  %target_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %target_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 32
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %offset, ptr noundef nonnull align 8 dereferenceable(16) %data, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %dbg)
   ret void
@@ -3802,10 +3802,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK7rocksdb21FSRandomRWFileWrapper4ReadEmmRKNS_9IOOptionsEPNS_5SliceEPcPNS_14IODebugContextE(ptr noalias sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %this, i64 noundef %offset, i64 noundef %n, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %result, ptr noundef %scratch, ptr noundef %dbg) unnamed_addr #0 comdat align 2 {
 entry:
-  %target_ = getelementptr inbounds i8, ptr %this, i64 8
+  %target_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %target_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 40
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %offset, i64 noundef %n, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %result, ptr noundef %scratch, ptr noundef %dbg)
   ret void
@@ -3814,10 +3814,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7rocksdb21FSRandomRWFileWrapper5FlushERKNS_9IOOptionsEPNS_14IODebugContextE(ptr noalias sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %dbg) unnamed_addr #0 comdat align 2 {
 entry:
-  %target_ = getelementptr inbounds i8, ptr %this, i64 8
+  %target_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %target_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 48
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %dbg)
   ret void
@@ -3826,10 +3826,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7rocksdb21FSRandomRWFileWrapper4SyncERKNS_9IOOptionsEPNS_14IODebugContextE(ptr noalias sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %dbg) unnamed_addr #0 comdat align 2 {
 entry:
-  %target_ = getelementptr inbounds i8, ptr %this, i64 8
+  %target_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %target_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 56
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 56
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %dbg)
   ret void
@@ -3838,10 +3838,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7rocksdb21FSRandomRWFileWrapper5FsyncERKNS_9IOOptionsEPNS_14IODebugContextE(ptr noalias sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %dbg) unnamed_addr #0 comdat align 2 {
 entry:
-  %target_ = getelementptr inbounds i8, ptr %this, i64 8
+  %target_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %target_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 64
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %dbg)
   ret void
@@ -3850,10 +3850,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7rocksdb21FSRandomRWFileWrapper5CloseERKNS_9IOOptionsEPNS_14IODebugContextE(ptr noalias sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %dbg) unnamed_addr #0 comdat align 2 {
 entry:
-  %target_ = getelementptr inbounds i8, ptr %this, i64 8
+  %target_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %target_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 72
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 72
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %dbg)
   ret void
@@ -3863,31 +3863,31 @@ entry:
 define internal void @_ZN7rocksdb12_GLOBAL__N_116CountedDirectoryD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(33) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb12_GLOBAL__N_116CountedDirectoryE, i64 16), ptr %this, align 8
-  %closed_ = getelementptr inbounds i8, ptr %this, i64 32
+  %closed_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load i8, ptr %closed_, align 8
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %fs_ = getelementptr inbounds i8, ptr %this, i64 24
+  %fs_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load ptr, ptr %fs_, align 8
-  %closes = getelementptr inbounds i8, ptr %1, i64 52
+  %closes = getelementptr inbounds nuw i8, ptr %1, i64 52
   %2 = atomicrmw add ptr %closes, i32 1 seq_cst, align 4
   %3 = load ptr, ptr %fs_, align 8
-  %dir_closes = getelementptr inbounds i8, ptr %3, i64 84
+  %dir_closes = getelementptr inbounds nuw i8, ptr %3, i64 84
   %4 = atomicrmw add ptr %dir_closes, i32 1 seq_cst, align 4
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb18FSDirectoryWrapperE, i64 16), ptr %this, align 8
-  %guard_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %guard_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %5 = load ptr, ptr %guard_.i, align 8
   %cmp.not.i.i = icmp eq ptr %5, null
   br i1 %cmp.not.i.i, label %_ZN7rocksdb18FSDirectoryWrapperD2Ev.exit, label %_ZNKSt14default_deleteIN7rocksdb11FSDirectoryEEclEPS1_.exit.i.i
 
 _ZNKSt14default_deleteIN7rocksdb11FSDirectoryEEclEPS1_.exit.i.i: ; preds = %if.end
   %vtable.i.i.i = load ptr, ptr %5, align 8
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
+  %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 8
   %6 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(8) %5) #11
   br label %_ZN7rocksdb18FSDirectoryWrapperD2Ev.exit
@@ -3901,31 +3901,31 @@ _ZN7rocksdb18FSDirectoryWrapperD2Ev.exit:         ; preds = %if.end, %_ZNKSt14de
 define internal void @_ZN7rocksdb12_GLOBAL__N_116CountedDirectoryD0Ev(ptr noundef nonnull align 8 dereferenceable(33) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb12_GLOBAL__N_116CountedDirectoryE, i64 16), ptr %this, align 8
-  %closed_.i = getelementptr inbounds i8, ptr %this, i64 32
+  %closed_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load i8, ptr %closed_.i, align 8
   %tobool.i = trunc i8 %0 to i1
   br i1 %tobool.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %fs_.i = getelementptr inbounds i8, ptr %this, i64 24
+  %fs_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load ptr, ptr %fs_.i, align 8
-  %closes.i = getelementptr inbounds i8, ptr %1, i64 52
+  %closes.i = getelementptr inbounds nuw i8, ptr %1, i64 52
   %2 = atomicrmw add ptr %closes.i, i32 1 seq_cst, align 4
   %3 = load ptr, ptr %fs_.i, align 8
-  %dir_closes.i = getelementptr inbounds i8, ptr %3, i64 84
+  %dir_closes.i = getelementptr inbounds nuw i8, ptr %3, i64 84
   %4 = atomicrmw add ptr %dir_closes.i, i32 1 seq_cst, align 4
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %entry
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb18FSDirectoryWrapperE, i64 16), ptr %this, align 8
-  %guard_.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %guard_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %5 = load ptr, ptr %guard_.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %5, null
   br i1 %cmp.not.i.i.i, label %_ZN7rocksdb12_GLOBAL__N_116CountedDirectoryD2Ev.exit, label %_ZNKSt14default_deleteIN7rocksdb11FSDirectoryEEclEPS1_.exit.i.i.i
 
 _ZNKSt14default_deleteIN7rocksdb11FSDirectoryEEclEPS1_.exit.i.i.i: ; preds = %if.end.i
   %vtable.i.i.i.i = load ptr, ptr %5, align 8
-  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 8
+  %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 8
   %6 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(8) %5) #11
   br label %_ZN7rocksdb12_GLOBAL__N_116CountedDirectoryD2Ev.exit
@@ -3938,10 +3938,10 @@ _ZN7rocksdb12_GLOBAL__N_116CountedDirectoryD2Ev.exit: ; preds = %if.end.i, %_ZNK
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN7rocksdb12_GLOBAL__N_116CountedDirectory5FsyncERKNS_9IOOptionsEPNS_14IODebugContextE(ptr noalias sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(33) %this, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %dbg) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  %target_.i = getelementptr inbounds i8, ptr %this, i64 16
+  %target_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %target_.i, align 8, !noalias !12
   %vtable.i = load ptr, ptr %0, align 8, !noalias !12
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 16
   %1 = load ptr, ptr %vfn.i, align 8, !noalias !12
   tail call void %1(ptr sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %dbg)
   %2 = load i8, ptr %agg.result, align 8
@@ -3949,9 +3949,9 @@ invoke.cont:
   br i1 %cmp.i, label %if.then, label %nrvo.skipdtor
 
 if.then:                                          ; preds = %invoke.cont
-  %fs_ = getelementptr inbounds i8, ptr %this, i64 24
+  %fs_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %3 = load ptr, ptr %fs_, align 8
-  %dsyncs = getelementptr inbounds i8, ptr %3, i64 72
+  %dsyncs = getelementptr inbounds nuw i8, ptr %3, i64 72
   %4 = atomicrmw add ptr %dsyncs, i32 1 seq_cst, align 4
   br label %nrvo.skipdtor
 
@@ -3962,10 +3962,10 @@ nrvo.skipdtor:                                    ; preds = %invoke.cont, %if.th
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN7rocksdb12_GLOBAL__N_116CountedDirectory19FsyncWithDirOptionsERKNS_9IOOptionsEPNS_14IODebugContextERKNS_15DirFsyncOptionsE(ptr noalias sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(33) %this, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %dbg, ptr noundef nonnull align 8 dereferenceable(40) %dir_options) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  %target_.i = getelementptr inbounds i8, ptr %this, i64 16
+  %target_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %target_.i, align 8, !noalias !15
   %vtable.i = load ptr, ptr %0, align 8, !noalias !15
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 24
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 24
   %1 = load ptr, ptr %vfn.i, align 8, !noalias !15
   tail call void %1(ptr sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %dbg, ptr noundef nonnull align 8 dereferenceable(40) %dir_options)
   %2 = load i8, ptr %agg.result, align 8
@@ -3973,9 +3973,9 @@ invoke.cont:
   br i1 %cmp.i, label %if.then, label %nrvo.skipdtor
 
 if.then:                                          ; preds = %invoke.cont
-  %fs_ = getelementptr inbounds i8, ptr %this, i64 24
+  %fs_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %3 = load ptr, ptr %fs_, align 8
-  %dsyncs = getelementptr inbounds i8, ptr %3, i64 72
+  %dsyncs = getelementptr inbounds nuw i8, ptr %3, i64 72
   %4 = atomicrmw add ptr %dsyncs, i32 1 seq_cst, align 4
   br label %nrvo.skipdtor
 
@@ -3986,10 +3986,10 @@ nrvo.skipdtor:                                    ; preds = %invoke.cont, %if.th
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN7rocksdb12_GLOBAL__N_116CountedDirectory5CloseERKNS_9IOOptionsEPNS_14IODebugContextE(ptr noalias sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(33) %this, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %dbg) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  %target_.i = getelementptr inbounds i8, ptr %this, i64 16
+  %target_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %target_.i, align 8, !noalias !18
   %vtable.i = load ptr, ptr %0, align 8, !noalias !18
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 32
   %1 = load ptr, ptr %vfn.i, align 8, !noalias !18
   tail call void %1(ptr sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %dbg)
   %2 = load i8, ptr %agg.result, align 8
@@ -3997,14 +3997,14 @@ invoke.cont:
   br i1 %cmp.i, label %if.then, label %nrvo.skipdtor
 
 if.then:                                          ; preds = %invoke.cont
-  %fs_ = getelementptr inbounds i8, ptr %this, i64 24
+  %fs_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %3 = load ptr, ptr %fs_, align 8
-  %closes = getelementptr inbounds i8, ptr %3, i64 52
+  %closes = getelementptr inbounds nuw i8, ptr %3, i64 52
   %4 = atomicrmw add ptr %closes, i32 1 seq_cst, align 4
   %5 = load ptr, ptr %fs_, align 8
-  %dir_closes = getelementptr inbounds i8, ptr %5, i64 84
+  %dir_closes = getelementptr inbounds nuw i8, ptr %5, i64 84
   %6 = atomicrmw add ptr %dir_closes, i32 1 seq_cst, align 4
-  %closed_ = getelementptr inbounds i8, ptr %this, i64 32
+  %closed_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   store i8 1, ptr %closed_, align 8
   br label %nrvo.skipdtor
 
@@ -4015,10 +4015,10 @@ nrvo.skipdtor:                                    ; preds = %invoke.cont, %if.th
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef i64 @_ZNK7rocksdb18FSDirectoryWrapper11GetUniqueIdEPcm(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %id, i64 noundef %max_size) unnamed_addr #0 comdat align 2 {
 entry:
-  %target_ = getelementptr inbounds i8, ptr %this, i64 16
+  %target_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %target_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 40
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %id, i64 noundef %max_size)
   ret i64 %call
@@ -4028,14 +4028,14 @@ entry:
 define linkonce_odr void @_ZN7rocksdb18FSDirectoryWrapperD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb18FSDirectoryWrapperE, i64 16), ptr %this, align 8
-  %guard_ = getelementptr inbounds i8, ptr %this, i64 8
+  %guard_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %guard_, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN7rocksdb11FSDirectoryESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN7rocksdb11FSDirectoryEEclEPS1_.exit.i
 
 _ZNKSt14default_deleteIN7rocksdb11FSDirectoryEEclEPS1_.exit.i: ; preds = %entry
   %vtable.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
+  %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 8
   %1 = load ptr, ptr %vfn.i.i, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0) #11
   br label %_ZNSt10unique_ptrIN7rocksdb11FSDirectoryESt14default_deleteIS1_EED2Ev.exit
@@ -4049,14 +4049,14 @@ _ZNSt10unique_ptrIN7rocksdb11FSDirectoryESt14default_deleteIS1_EED2Ev.exit: ; pr
 define linkonce_odr void @_ZN7rocksdb18FSDirectoryWrapperD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb18FSDirectoryWrapperE, i64 16), ptr %this, align 8
-  %guard_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %guard_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %guard_.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %_ZN7rocksdb18FSDirectoryWrapperD2Ev.exit, label %_ZNKSt14default_deleteIN7rocksdb11FSDirectoryEEclEPS1_.exit.i.i
 
 _ZNKSt14default_deleteIN7rocksdb11FSDirectoryEEclEPS1_.exit.i.i: ; preds = %entry
   %vtable.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
+  %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 8
   %1 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0) #11
   br label %_ZN7rocksdb18FSDirectoryWrapperD2Ev.exit
@@ -4069,10 +4069,10 @@ _ZN7rocksdb18FSDirectoryWrapperD2Ev.exit:         ; preds = %entry, %_ZNKSt14def
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7rocksdb18FSDirectoryWrapper5FsyncERKNS_9IOOptionsEPNS_14IODebugContextE(ptr noalias sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %dbg) unnamed_addr #0 comdat align 2 {
 entry:
-  %target_ = getelementptr inbounds i8, ptr %this, i64 16
+  %target_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %target_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %dbg)
   ret void
@@ -4081,10 +4081,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7rocksdb18FSDirectoryWrapper19FsyncWithDirOptionsERKNS_9IOOptionsEPNS_14IODebugContextERKNS_15DirFsyncOptionsE(ptr noalias sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %dbg, ptr noundef nonnull align 8 dereferenceable(40) %dir_fsync_options) unnamed_addr #0 comdat align 2 {
 entry:
-  %target_ = getelementptr inbounds i8, ptr %this, i64 16
+  %target_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %target_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 24
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %dbg, ptr noundef nonnull align 8 dereferenceable(40) %dir_fsync_options)
   ret void
@@ -4093,10 +4093,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7rocksdb18FSDirectoryWrapper5CloseERKNS_9IOOptionsEPNS_14IODebugContextE(ptr noalias sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %dbg) unnamed_addr #0 comdat align 2 {
 entry:
-  %target_ = getelementptr inbounds i8, ptr %this, i64 16
+  %target_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %target_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 32
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(83) %options, ptr noundef %dbg)
   ret void

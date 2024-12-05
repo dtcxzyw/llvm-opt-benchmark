@@ -184,7 +184,7 @@ define internal i64 @rb_digest_s_hexencode(i64 %0, i64 noundef %1) #0 {
   %8 = load i64, ptr %7, align 8, !noalias !6
   %9 = and i64 %8, 8192
   %.not.i.i.i = icmp eq i64 %9, 0
-  %10 = getelementptr inbounds i8, ptr %7, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 24
   br i1 %.not.i.i.i, label %RSTRING_PTR.exit.i, label %11
 
 11:                                               ; preds = %2
@@ -193,7 +193,7 @@ define internal i64 @rb_digest_s_hexencode(i64 %0, i64 noundef %1) #0 {
 
 RSTRING_PTR.exit.i:                               ; preds = %11, %2
   %.sroa.2.0.i.i = phi ptr [ %.sroa.2.0.copyload.i.i, %11 ], [ %10, %2 ]
-  %12 = getelementptr inbounds i8, ptr %7, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %13 = load i64, ptr %12, align 8
   %14 = icmp ugt i64 %13, 4611686018427387903
   br i1 %14, label %15, label %17
@@ -210,7 +210,7 @@ RSTRING_PTR.exit.i:                               ; preds = %11, %2
   %21 = load i64, ptr %20, align 8, !noalias !10
   %22 = and i64 %21, 8192
   %.not.i.i19.i = icmp eq i64 %22, 0
-  %23 = getelementptr inbounds i8, ptr %20, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 24
   br i1 %.not.i.i19.i, label %RSTRING_PTR.exit22.i, label %24
 
 24:                                               ; preds = %17
@@ -224,22 +224,22 @@ RSTRING_PTR.exit22.i:                             ; preds = %24, %17
 
 .lr.ph.i:                                         ; preds = %RSTRING_PTR.exit22.i, %.lr.ph.i
   %.023.i = phi i64 [ %40, %.lr.ph.i ], [ 0, %RSTRING_PTR.exit22.i ]
-  %25 = getelementptr inbounds i8, ptr %.sroa.2.0.i.i, i64 %.023.i
+  %25 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.i.i, i64 %.023.i
   %26 = load i8, ptr %25, align 1
   %27 = zext i8 %26 to i32
   %28 = lshr i32 %27, 4
   %29 = zext nneg i32 %28 to i64
-  %30 = getelementptr inbounds [16 x i8], ptr @hexencode_str_new.hex, i64 0, i64 %29
+  %30 = getelementptr inbounds nuw [16 x i8], ptr @hexencode_str_new.hex, i64 0, i64 %29
   %31 = load i8, ptr %30, align 1
   %32 = shl nuw nsw i64 %.023.i, 1
-  %33 = getelementptr inbounds i8, ptr %.sroa.2.0.i21.i, i64 %32
+  %33 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.i21.i, i64 %32
   store i8 %31, ptr %33, align 1
   %34 = and i32 %27, 15
   %35 = zext nneg i32 %34 to i64
-  %36 = getelementptr inbounds [16 x i8], ptr @hexencode_str_new.hex, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw [16 x i8], ptr @hexencode_str_new.hex, i64 0, i64 %35
   %37 = load i8, ptr %36, align 1
   %38 = or disjoint i64 %32, 1
-  %39 = getelementptr inbounds i8, ptr %.sroa.2.0.i21.i, i64 %38
+  %39 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.i21.i, i64 %38
   store i8 %37, ptr %39, align 1
   %40 = add nuw nsw i64 %.023.i, 1
   %exitcond.not.i = icmp eq i64 %40, %13
@@ -287,7 +287,7 @@ define internal i64 @rb_digest_instance_digest_length(i64 noundef %0) #0 {
   %4 = call i64 @rb_string_value(ptr noundef nonnull %2) #9
   %5 = load i64, ptr %2, align 8
   %6 = inttoptr i64 %5 to ptr
-  %7 = getelementptr inbounds i8, ptr %6, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i64, ptr %7, align 8
   %9 = add i64 %8, 4611686018427387904
   %or.cond.i = icmp sgt i64 %9, -1
@@ -343,11 +343,11 @@ define internal range(i64 0, 21) i64 @rb_digest_instance_equal(i64 noundef %0, i
   %18 = call i64 @rb_string_value(ptr noundef nonnull %4) #9
   %19 = load i64, ptr %3, align 8
   %20 = inttoptr i64 %19 to ptr
-  %21 = getelementptr inbounds i8, ptr %20, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = load i64, ptr %21, align 8
   %23 = load i64, ptr %4, align 8
   %24 = inttoptr i64 %23 to ptr
-  %25 = getelementptr inbounds i8, ptr %24, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load i64, ptr %25, align 8
   %27 = icmp eq i64 %22, %26
   br i1 %27, label %28, label %31
@@ -465,7 +465,7 @@ define internal i64 @rb_digest_instance_hexdigest(i32 noundef %0, ptr noundef %1
   %27 = load i64, ptr %26, align 8, !noalias !16
   %28 = and i64 %27, 8192
   %.not.i.i.i = icmp eq i64 %28, 0
-  %29 = getelementptr inbounds i8, ptr %26, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 24
   br i1 %.not.i.i.i, label %RSTRING_PTR.exit.i, label %30
 
 30:                                               ; preds = %23
@@ -474,7 +474,7 @@ define internal i64 @rb_digest_instance_hexdigest(i32 noundef %0, ptr noundef %1
 
 RSTRING_PTR.exit.i:                               ; preds = %30, %23
   %.sroa.2.0.i.i = phi ptr [ %.sroa.2.0.copyload.i.i, %30 ], [ %29, %23 ]
-  %31 = getelementptr inbounds i8, ptr %26, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %32 = load i64, ptr %31, align 8
   %33 = icmp ugt i64 %32, 4611686018427387903
   br i1 %33, label %34, label %36
@@ -491,7 +491,7 @@ RSTRING_PTR.exit.i:                               ; preds = %30, %23
   %40 = load i64, ptr %39, align 8, !noalias !19
   %41 = and i64 %40, 8192
   %.not.i.i19.i = icmp eq i64 %41, 0
-  %42 = getelementptr inbounds i8, ptr %39, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %39, i64 24
   br i1 %.not.i.i19.i, label %RSTRING_PTR.exit22.i, label %43
 
 43:                                               ; preds = %36
@@ -505,22 +505,22 @@ RSTRING_PTR.exit22.i:                             ; preds = %43, %36
 
 .lr.ph.i:                                         ; preds = %RSTRING_PTR.exit22.i, %.lr.ph.i
   %.023.i = phi i64 [ %59, %.lr.ph.i ], [ 0, %RSTRING_PTR.exit22.i ]
-  %44 = getelementptr inbounds i8, ptr %.sroa.2.0.i.i, i64 %.023.i
+  %44 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.i.i, i64 %.023.i
   %45 = load i8, ptr %44, align 1
   %46 = zext i8 %45 to i32
   %47 = lshr i32 %46, 4
   %48 = zext nneg i32 %47 to i64
-  %49 = getelementptr inbounds [16 x i8], ptr @hexencode_str_new.hex, i64 0, i64 %48
+  %49 = getelementptr inbounds nuw [16 x i8], ptr @hexencode_str_new.hex, i64 0, i64 %48
   %50 = load i8, ptr %49, align 1
   %51 = shl nuw nsw i64 %.023.i, 1
-  %52 = getelementptr inbounds i8, ptr %.sroa.2.0.i21.i, i64 %51
+  %52 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.i21.i, i64 %51
   store i8 %50, ptr %52, align 1
   %53 = and i32 %46, 15
   %54 = zext nneg i32 %53 to i64
-  %55 = getelementptr inbounds [16 x i8], ptr @hexencode_str_new.hex, i64 0, i64 %54
+  %55 = getelementptr inbounds nuw [16 x i8], ptr @hexencode_str_new.hex, i64 0, i64 %54
   %56 = load i8, ptr %55, align 1
   %57 = or disjoint i64 %51, 1
-  %58 = getelementptr inbounds i8, ptr %.sroa.2.0.i21.i, i64 %57
+  %58 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.i21.i, i64 %57
   store i8 %56, ptr %58, align 1
   %59 = add nuw nsw i64 %.023.i, 1
   %exitcond.not.i = icmp eq i64 %59, %32
@@ -553,7 +553,7 @@ define internal i64 @rb_digest_instance_hexdigest_bang(i64 noundef %0) #0 {
   %11 = load i64, ptr %10, align 8, !noalias !22
   %12 = and i64 %11, 8192
   %.not.i.i.i = icmp eq i64 %12, 0
-  %13 = getelementptr inbounds i8, ptr %10, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 24
   br i1 %.not.i.i.i, label %RSTRING_PTR.exit.i, label %14
 
 14:                                               ; preds = %1
@@ -562,7 +562,7 @@ define internal i64 @rb_digest_instance_hexdigest_bang(i64 noundef %0) #0 {
 
 RSTRING_PTR.exit.i:                               ; preds = %14, %1
   %.sroa.2.0.i.i = phi ptr [ %.sroa.2.0.copyload.i.i, %14 ], [ %13, %1 ]
-  %15 = getelementptr inbounds i8, ptr %10, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %16 = load i64, ptr %15, align 8
   %17 = icmp ugt i64 %16, 4611686018427387903
   br i1 %17, label %18, label %20
@@ -579,7 +579,7 @@ RSTRING_PTR.exit.i:                               ; preds = %14, %1
   %24 = load i64, ptr %23, align 8, !noalias !25
   %25 = and i64 %24, 8192
   %.not.i.i19.i = icmp eq i64 %25, 0
-  %26 = getelementptr inbounds i8, ptr %23, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 24
   br i1 %.not.i.i19.i, label %RSTRING_PTR.exit22.i, label %27
 
 27:                                               ; preds = %20
@@ -593,22 +593,22 @@ RSTRING_PTR.exit22.i:                             ; preds = %27, %20
 
 .lr.ph.i:                                         ; preds = %RSTRING_PTR.exit22.i, %.lr.ph.i
   %.023.i = phi i64 [ %43, %.lr.ph.i ], [ 0, %RSTRING_PTR.exit22.i ]
-  %28 = getelementptr inbounds i8, ptr %.sroa.2.0.i.i, i64 %.023.i
+  %28 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.i.i, i64 %.023.i
   %29 = load i8, ptr %28, align 1
   %30 = zext i8 %29 to i32
   %31 = lshr i32 %30, 4
   %32 = zext nneg i32 %31 to i64
-  %33 = getelementptr inbounds [16 x i8], ptr @hexencode_str_new.hex, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw [16 x i8], ptr @hexencode_str_new.hex, i64 0, i64 %32
   %34 = load i8, ptr %33, align 1
   %35 = shl nuw nsw i64 %.023.i, 1
-  %36 = getelementptr inbounds i8, ptr %.sroa.2.0.i21.i, i64 %35
+  %36 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.i21.i, i64 %35
   store i8 %34, ptr %36, align 1
   %37 = and i32 %30, 15
   %38 = zext nneg i32 %37 to i64
-  %39 = getelementptr inbounds [16 x i8], ptr @hexencode_str_new.hex, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw [16 x i8], ptr @hexencode_str_new.hex, i64 0, i64 %38
   %40 = load i8, ptr %39, align 1
   %41 = or disjoint i64 %35, 1
-  %42 = getelementptr inbounds i8, ptr %.sroa.2.0.i21.i, i64 %41
+  %42 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.i21.i, i64 %41
   store i8 %40, ptr %42, align 1
   %43 = add nuw nsw i64 %.023.i, 1
   %exitcond.not.i = icmp eq i64 %43, %16
@@ -662,7 +662,7 @@ define internal i64 @rb_digest_class_s_digest(i32 noundef %0, ptr noundef %1, i6
   unreachable
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load i64, ptr %1, align 8
   store i64 %11, ptr %4, align 8
   %12 = add nsw i32 %0, -1
@@ -693,7 +693,7 @@ define internal i64 @rb_digest_class_s_hexdigest(i32 noundef %0, ptr noundef %1,
   %11 = load i64, ptr %10, align 8, !noalias !28
   %12 = and i64 %11, 8192
   %.not.i.i.i = icmp eq i64 %12, 0
-  %13 = getelementptr inbounds i8, ptr %10, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 24
   br i1 %.not.i.i.i, label %RSTRING_PTR.exit.i, label %14
 
 14:                                               ; preds = %3
@@ -702,7 +702,7 @@ define internal i64 @rb_digest_class_s_hexdigest(i32 noundef %0, ptr noundef %1,
 
 RSTRING_PTR.exit.i:                               ; preds = %14, %3
   %.sroa.2.0.i.i = phi ptr [ %.sroa.2.0.copyload.i.i, %14 ], [ %13, %3 ]
-  %15 = getelementptr inbounds i8, ptr %10, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %16 = load i64, ptr %15, align 8
   %17 = icmp ugt i64 %16, 4611686018427387903
   br i1 %17, label %18, label %20
@@ -719,7 +719,7 @@ RSTRING_PTR.exit.i:                               ; preds = %14, %3
   %24 = load i64, ptr %23, align 8, !noalias !31
   %25 = and i64 %24, 8192
   %.not.i.i19.i = icmp eq i64 %25, 0
-  %26 = getelementptr inbounds i8, ptr %23, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 24
   br i1 %.not.i.i19.i, label %RSTRING_PTR.exit22.i, label %27
 
 27:                                               ; preds = %20
@@ -733,22 +733,22 @@ RSTRING_PTR.exit22.i:                             ; preds = %27, %20
 
 .lr.ph.i:                                         ; preds = %RSTRING_PTR.exit22.i, %.lr.ph.i
   %.023.i = phi i64 [ %43, %.lr.ph.i ], [ 0, %RSTRING_PTR.exit22.i ]
-  %28 = getelementptr inbounds i8, ptr %.sroa.2.0.i.i, i64 %.023.i
+  %28 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.i.i, i64 %.023.i
   %29 = load i8, ptr %28, align 1
   %30 = zext i8 %29 to i32
   %31 = lshr i32 %30, 4
   %32 = zext nneg i32 %31 to i64
-  %33 = getelementptr inbounds [16 x i8], ptr @hexencode_str_new.hex, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw [16 x i8], ptr @hexencode_str_new.hex, i64 0, i64 %32
   %34 = load i8, ptr %33, align 1
   %35 = shl nuw nsw i64 %.023.i, 1
-  %36 = getelementptr inbounds i8, ptr %.sroa.2.0.i21.i, i64 %35
+  %36 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.i21.i, i64 %35
   store i8 %34, ptr %36, align 1
   %37 = and i32 %30, 15
   %38 = zext nneg i32 %37 to i64
-  %39 = getelementptr inbounds [16 x i8], ptr @hexencode_str_new.hex, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw [16 x i8], ptr @hexencode_str_new.hex, i64 0, i64 %38
   %40 = load i8, ptr %39, align 1
   %41 = or disjoint i64 %35, 1
-  %42 = getelementptr inbounds i8, ptr %.sroa.2.0.i21.i, i64 %41
+  %42 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.i21.i, i64 %41
   store i8 %40, ptr %42, align 1
   %43 = add nuw nsw i64 %.023.i, 1
   %exitcond.not.i = icmp eq i64 %43, %16
@@ -779,11 +779,11 @@ define internal i64 @rb_digest_base_alloc(i64 noundef %0) #0 {
 
 6:                                                ; preds = %1
   %7 = tail call fastcc ptr @get_digest_base_metadata(i64 noundef %0)
-  %8 = getelementptr inbounds i8, ptr %7, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %9 = load i64, ptr %8, align 8
   %10 = tail call i64 @rb_data_typed_object_zalloc(i64 noundef %0, i64 noundef %9, ptr noundef nonnull @digest_type) #9
   %11 = inttoptr i64 %10 to ptr
-  %12 = getelementptr inbounds i8, ptr %11, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr i8, ptr %7, i64 32
   %.val = load ptr, ptr %14, align 8
@@ -842,7 +842,7 @@ rb_check_frozen_inline.exit:                      ; preds = %9
 22:                                               ; preds = %rb_check_frozen_inline.exit
   %23 = tail call ptr @rb_check_typeddata(i64 noundef %1, ptr noundef nonnull @digest_type) #9
   %24 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @digest_type) #9
-  %25 = getelementptr inbounds i8, ptr %17, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %26 = load i64, ptr %25, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %24, ptr align 1 %23, i64 %26, i1 false)
   br label %27
@@ -880,14 +880,14 @@ define internal noundef i64 @rb_digest_base_update(i64 noundef returned %0, i64 
   %6 = tail call fastcc nonnull ptr @get_digest_base_metadata(i64 noundef %5)
   %7 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @digest_type) #9
   %8 = call i64 @rb_string_value(ptr noundef nonnull %3) #9
-  %9 = getelementptr inbounds i8, ptr %6, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %10 = load ptr, ptr %9, align 8
   %11 = load i64, ptr %3, align 8
   %12 = inttoptr i64 %11 to ptr
   %13 = load i64, ptr %12, align 8, !noalias !34
   %14 = and i64 %13, 8192
   %.not.i.i = icmp eq i64 %14, 0
-  %15 = getelementptr inbounds i8, ptr %12, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 24
   br i1 %.not.i.i, label %RSTRING_PTR.exit, label %16
 
 16:                                               ; preds = %2
@@ -896,7 +896,7 @@ define internal noundef i64 @rb_digest_base_update(i64 noundef returned %0, i64 
 
 RSTRING_PTR.exit:                                 ; preds = %2, %16
   %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %16 ], [ %15, %2 ]
-  %17 = getelementptr inbounds i8, ptr %12, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %18 = load i64, ptr %17, align 8
   call void %10(ptr noundef %7, ptr noundef %.sroa.2.0.i, i64 noundef %18) #9
   store ptr %3, ptr %4, align 8
@@ -911,16 +911,16 @@ define internal i64 @rb_digest_base_finish(i64 noundef %0) #0 {
   %2 = tail call i64 @rb_obj_class(i64 noundef %0) #9
   %3 = tail call fastcc nonnull ptr @get_digest_base_metadata(i64 noundef %2)
   %4 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @digest_type) #9
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = tail call i64 @rb_str_new(ptr noundef null, i64 noundef %6) #9, !callees !38
-  %8 = getelementptr inbounds i8, ptr %3, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %9 = load ptr, ptr %8, align 8
   %10 = inttoptr i64 %7 to ptr
   %11 = load i64, ptr %10, align 8, !noalias !39
   %12 = and i64 %11, 8192
   %.not.i.i = icmp eq i64 %12, 0
-  %13 = getelementptr inbounds i8, ptr %10, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 24
   br i1 %.not.i.i, label %RSTRING_PTR.exit, label %14
 
 14:                                               ; preds = %1
@@ -949,7 +949,7 @@ algo_init.exit:                                   ; preds = %RSTRING_PTR.exit
 define internal i64 @rb_digest_base_digest_length(i64 noundef %0) #0 {
   %2 = tail call i64 @rb_obj_class(i64 noundef %0) #9
   %3 = tail call fastcc nonnull ptr @get_digest_base_metadata(i64 noundef %2)
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = icmp ult i64 %5, 4611686018427387904
   br i1 %6, label %7, label %10
@@ -972,7 +972,7 @@ rb_ull2num_inline.exit:                           ; preds = %7, %10
 define internal i64 @rb_digest_base_block_length(i64 noundef %0) #0 {
   %2 = tail call i64 @rb_obj_class(i64 noundef %0) #9
   %3 = tail call fastcc nonnull ptr @get_digest_base_metadata(i64 noundef %2)
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load i64, ptr %4, align 8
   %6 = icmp ult i64 %5, 4611686018427387904
   br i1 %6, label %7, label %10
@@ -1083,7 +1083,7 @@ define internal fastcc nonnull ptr @get_digest_base_metadata(i64 noundef %0) unn
   br i1 %20, label %21, label %.critedge
 
 21:                                               ; preds = %16
-  %22 = getelementptr inbounds i8, ptr %17, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %23 = load i64, ptr %22, align 8
   %24 = add i64 %23, -1
   %25 = icmp ult i64 %24, 3
@@ -1103,7 +1103,7 @@ define internal fastcc nonnull ptr @get_digest_base_metadata(i64 noundef %0) unn
   unreachable
 
 rb_data_object_get.exit:                          ; preds = %21
-  %30 = getelementptr inbounds i8, ptr %17, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %17, i64 32
   %31 = load ptr, ptr %30, align 8
   %.not38 = icmp eq ptr %31, null
   br i1 %.not38, label %.critedge, label %32

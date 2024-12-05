@@ -159,11 +159,11 @@ if.else:                                          ; preds = %if.end11
 
 if.then17:                                        ; preds = %if.else
   call void @llvm.lifetime.start.p0(i64 240, ptr nonnull %v.i)
-  %stackArray.i.i = getelementptr inbounds i8, ptr %v.i, i64 16
+  %stackArray.i.i = getelementptr inbounds nuw i8, ptr %v.i, i64 16
   store ptr %stackArray.i.i, ptr %v.i, align 16
-  %capacity.i.i = getelementptr inbounds i8, ptr %v.i, i64 8
+  %capacity.i.i = getelementptr inbounds nuw i8, ptr %v.i, i64 8
   store i32 7, ptr %capacity.i.i, align 8
-  %needToRelease.i.i = getelementptr inbounds i8, ptr %v.i, i64 12
+  %needToRelease.i.i = getelementptr inbounds nuw i8, ptr %v.i, i64 12
   store i8 0, ptr %needToRelease.i.i, align 4
   %cmp3.i = icmp samesign ugt i32 %itemSize, 224
   br i1 %cmp3.i, label %if.then.i.i, label %if.end.i
@@ -231,7 +231,7 @@ if.end.i:                                         ; preds = %invoke.cont6.i, %if
 for.body.i.i:                                     ; preds = %for.inc.i.i, %if.end.i
   %indvars.iv.i.i = phi i64 [ 1, %if.end.i ], [ %indvars.iv.next.i.i, %for.inc.i.i ]
   %8 = mul nuw nsw i64 %indvars.iv.i.i, %7
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %array, i64 %8
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %array, i64 %8
   %cmp119.i.i.i = icmp samesign ugt i64 %indvars.iv.i.i, 8
   %9 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   br i1 %cmp119.i.i.i, label %while.body.i.i.i, label %while.body10.preheader.i.i.i
@@ -317,9 +317,9 @@ uprv_stableBinarySearch_75.exit.i.i:              ; preds = %if.end22.i.i.i, %wh
 if.then4.i.i:                                     ; preds = %uprv_stableBinarySearch_75.exit.i.i
   %mul5.i.i = mul nsw i32 %insertionPoint.0.i.i, %itemSize
   %idx.ext6.i.i = zext nneg i32 %mul5.i.i to i64
-  %add.ptr7.i.i = getelementptr inbounds i8, ptr %array, i64 %idx.ext6.i.i
+  %add.ptr7.i.i = getelementptr inbounds nuw i8, ptr %array, i64 %idx.ext6.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %add.ptr.i.i, i64 %7, i1 false)
-  %add.ptr10.i.i = getelementptr inbounds i8, ptr %add.ptr7.i.i, i64 %7
+  %add.ptr10.i.i = getelementptr inbounds nuw i8, ptr %add.ptr7.i.i, i64 %7
   %sub.i.i = sub nsw i32 %9, %insertionPoint.0.i.i
   %conv11.i.i = sext i32 %sub.i.i to i64
   %mul13.i.i = mul nsw i64 %conv11.i.i, %7
@@ -355,11 +355,11 @@ _ZL13insertionSortPciiPFiPKvS1_S1_ES1_P10UErrorCode.exit: ; preds = %cleanup.i, 
 
 if.else18:                                        ; preds = %if.else
   call void @llvm.lifetime.start.p0(i64 464, ptr nonnull %xw.i)
-  %stackArray.i.i21 = getelementptr inbounds i8, ptr %xw.i, i64 16
+  %stackArray.i.i21 = getelementptr inbounds nuw i8, ptr %xw.i, i64 16
   store ptr %stackArray.i.i21, ptr %xw.i, align 16
-  %capacity.i.i22 = getelementptr inbounds i8, ptr %xw.i, i64 8
+  %capacity.i.i22 = getelementptr inbounds nuw i8, ptr %xw.i, i64 8
   store i32 14, ptr %capacity.i.i22, align 8
-  %needToRelease.i.i23 = getelementptr inbounds i8, ptr %xw.i, i64 12
+  %needToRelease.i.i23 = getelementptr inbounds nuw i8, ptr %xw.i, i64 12
   store i8 0, ptr %needToRelease.i.i23, align 4
   %mul.i = shl nuw nsw i32 %2, 1
   %cmp2.i = icmp samesign ugt i32 %itemSize, 224
@@ -404,7 +404,7 @@ lpad.i25:                                         ; preds = %if.end.i24, %if.the
 if.end.i24:                                       ; preds = %invoke.cont5.i, %if.else18
   %21 = phi ptr [ %call.i5.i, %invoke.cont5.i ], [ %stackArray.i.i21, %if.else18 ]
   %idx.ext.i = zext nneg i32 %2 to i64
-  %add.ptr.i = getelementptr inbounds %struct.max_align_t, ptr %21, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw %struct.max_align_t, ptr %21, i64 %idx.ext.i
   invoke fastcc void @_ZL12subQuickSortPciiiPFiPKvS1_S1_ES1_PvS4_(ptr noundef %array, i32 noundef 0, i32 noundef range(i32 9, -2147483648) %length, i32 noundef range(i32 1, -2147483648) %itemSize, ptr noundef nonnull %cmp, ptr noundef %context, ptr noundef nonnull %21, ptr noundef nonnull %add.ptr.i)
           to label %cleanup.i26 unwind label %lpad.i25
 
@@ -438,7 +438,7 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6icu_7515MaybeStackArrayI11max_align_tLi7EED2Ev(ptr noundef nonnull align 16 dereferenceable(240) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %needToRelease.i = getelementptr inbounds i8, ptr %this, i64 12
+  %needToRelease.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %0 = load i8, ptr %needToRelease.i, align 4
   %tobool.not.i = icmp eq i8 %0, 0
   br i1 %tobool.not.i, label %invoke.cont, label %if.then.i
@@ -511,7 +511,7 @@ for.body.lr.ph.i:                                 ; preds = %if.then
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
   %indvars.iv.i = phi i64 [ 1, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.inc.i ]
   %1 = mul nuw nsw i64 %indvars.iv.i, %conv4
-  %add.ptr.i = getelementptr inbounds i8, ptr %add.ptr, i64 %1
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 %1
   %cmp119.i.i = icmp samesign ugt i64 %indvars.iv.i, 8
   %2 = trunc nuw nsw i64 %indvars.iv.i to i32
   br i1 %cmp119.i.i, label %while.body.i.i, label %while.body10.preheader.i.i
@@ -591,9 +591,9 @@ uprv_stableBinarySearch_75.exit.i:                ; preds = %if.end22.i.i, %whil
 if.then4.i:                                       ; preds = %uprv_stableBinarySearch_75.exit.i
   %mul5.i = mul nsw i32 %insertionPoint.0.i, %itemSize
   %idx.ext6.i = zext nneg i32 %mul5.i to i64
-  %add.ptr7.i = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.ext6.i
+  %add.ptr7.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 %idx.ext6.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %px, ptr noundef nonnull align 1 dereferenceable(1) %add.ptr.i, i64 %conv4, i1 false)
-  %add.ptr10.i = getelementptr inbounds i8, ptr %add.ptr7.i, i64 %conv4
+  %add.ptr10.i = getelementptr inbounds nuw i8, ptr %add.ptr7.i, i64 %conv4
   %sub.i = sub nsw i32 %2, %insertionPoint.0.i
   %conv11.i = sext i32 %sub.i to i64
   %mul13.i = mul nsw i64 %conv11.i, %conv4
@@ -715,7 +715,7 @@ do.end73:                                         ; preds = %do.cond70, %for.inc
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6icu_7515MaybeStackArrayI11max_align_tLi14EED2Ev(ptr noundef nonnull align 16 dereferenceable(464) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %needToRelease.i = getelementptr inbounds i8, ptr %this, i64 12
+  %needToRelease.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %0 = load i8, ptr %needToRelease.i, align 4
   %tobool.not.i = icmp eq i8 %0, 0
   br i1 %tobool.not.i, label %invoke.cont, label %if.then.i

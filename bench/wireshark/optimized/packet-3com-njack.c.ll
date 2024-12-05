@@ -250,7 +250,7 @@ declare ptr @_try_val_to_str_ext_init(i32 noundef, ptr noundef) #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @dissect_njack(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
   %4 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 5) #2
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.45) #2
   %7 = load ptr, ptr %5, align 8

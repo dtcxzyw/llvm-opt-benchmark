@@ -9,21 +9,21 @@ define ptr @cs_transpose(ptr noundef readonly %0, i32 noundef %1) local_unnamed_
   br i1 %.not, label %89, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, -1
   br i1 %6, label %7, label %89
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %9 = load i32, ptr %8, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load i32, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %17 = load ptr, ptr %16, align 8
   %18 = sext i32 %11 to i64
   %19 = getelementptr inbounds i32, ptr %13, i64 %18
@@ -40,11 +40,11 @@ define ptr @cs_transpose(ptr noundef readonly %0, i32 noundef %1) local_unnamed_
   br i1 %or.cond, label %29, label %.sink.split
 
 29:                                               ; preds = %7
-  %30 = getelementptr inbounds i8, ptr %25, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %25, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %25, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %25, i64 32
   %35 = load ptr, ptr %34, align 8
   %.fr = freeze ptr %35
   %36 = load i32, ptr %19, align 4
@@ -53,7 +53,7 @@ define ptr @cs_transpose(ptr noundef readonly %0, i32 noundef %1) local_unnamed_
 
 .lr.ph:                                           ; preds = %29, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %29 ]
-  %38 = getelementptr inbounds i32, ptr %15, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv
   %39 = load i32, ptr %38, align 4
   %40 = sext i32 %39 to i64
   %41 = getelementptr inbounds i32, ptr %26, i64 %40
@@ -81,7 +81,7 @@ define ptr @cs_transpose(ptr noundef readonly %0, i32 noundef %1) local_unnamed_
   %49 = phi i32 [ %55, %.loopexit.us ], [ %.pre84, %.lr.ph66 ]
   %indvars.iv79 = phi i64 [ %indvars.iv.next80, %.loopexit.us ], [ 0, %.lr.ph66 ]
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
-  %50 = getelementptr inbounds i32, ptr %13, i64 %indvars.iv.next80
+  %50 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv.next80
   %51 = load i32, ptr %50, align 4
   %52 = icmp slt i32 %49, %51
   br i1 %52, label %.lr.ph63.us.preheader, label %.loopexit.us
@@ -123,7 +123,7 @@ define ptr @cs_transpose(ptr noundef readonly %0, i32 noundef %1) local_unnamed_
   %68 = phi i32 [ %67, %.loopexit ], [ %.pre84, %.lr.ph66 ]
   %indvars.iv73 = phi i64 [ %indvars.iv.next74, %.loopexit ], [ 0, %.lr.ph66 ]
   %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
-  %69 = getelementptr inbounds i32, ptr %13, i64 %indvars.iv.next74
+  %69 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv.next74
   %70 = load i32, ptr %69, align 4
   %71 = icmp slt i32 %68, %70
   br i1 %71, label %.lr.ph63.preheader, label %.loopexit

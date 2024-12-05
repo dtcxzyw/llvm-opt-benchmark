@@ -10,11 +10,11 @@ entry:
   %cmp = icmp eq ptr %call, inttoptr (i64 -1 to ptr)
   %spec.store.select = select i1 %cmp, ptr null, ptr %call
   store ptr %spec.store.select, ptr %region, align 8
-  %aligned2 = getelementptr inbounds i8, ptr %region, i64 8
+  %aligned2 = getelementptr inbounds nuw i8, ptr %region, i64 8
   store ptr %spec.store.select, ptr %aligned2, align 8
   %tobool.not = icmp eq ptr %spec.store.select, null
   %cond = select i1 %tobool.not, i64 0, i64 %size
-  %size3 = getelementptr inbounds i8, ptr %region, i64 16
+  %size3 = getelementptr inbounds nuw i8, ptr %region, i64 16
   store i64 %cond, ptr %size3, align 8
   ret ptr %spec.store.select
 }
@@ -30,7 +30,7 @@ entry:
   br i1 %tobool.not, label %if.end4, label %if.then
 
 if.then:                                          ; preds = %entry
-  %size = getelementptr inbounds i8, ptr %region, i64 16
+  %size = getelementptr inbounds nuw i8, ptr %region, i64 16
   %1 = load i64, ptr %size, align 8
   %call = tail call i32 @munmap(ptr noundef nonnull %0, i64 noundef %1) #4
   %tobool2.not = icmp eq i32 %call, 0
@@ -63,7 +63,7 @@ entry:
   br i1 %tobool.not.i, label %if.end4.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %size.i = getelementptr inbounds i8, ptr %local, i64 16
+  %size.i = getelementptr inbounds nuw i8, ptr %local, i64 16
   %1 = load i64, ptr %size.i, align 8
   %call.i = tail call i32 @munmap(ptr noundef nonnull %0, i64 noundef %1) #4
   %tobool2.not.i = icmp eq i32 %call.i, 0

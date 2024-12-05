@@ -175,13 +175,13 @@ define dso_local void @_ZN7V3EmitC12emitcInlinesEv() #3 align 2 personality ptr 
 
 17:                                               ; preds = %0, %14
   %18 = load ptr, ptr @v3Global, align 8
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr null, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %2, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i8 0, ptr %20, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV12EmitCInlines, i64 16), ptr %2, align 8
   %21 = load ptr, ptr %18, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 288
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 288
   %23 = load ptr, ptr %22, align 8
   call void %23(ptr noundef nonnull align 8 dereferenceable(152) %18, ptr noundef nonnull align 8 dereferenceable(24) %2)
   ret void
@@ -363,7 +363,7 @@ declare noundef i32 @_ZNK9V3Options13debugSrcLevelERKNSt7__cxx1112basic_stringIc
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZNK9V3Options9availableEv(ptr noundef nonnull align 8 dereferenceable(1560) %0) #4 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1558
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1558
   %3 = load i8, ptr %2, align 2
   %4 = trunc i8 %3 to i1
   ret i1 %4
@@ -778,7 +778,7 @@ define linkonce_odr dso_local void @_ZN12EmitCInlines5visitEP10AstDumpCtl(ptr no
   br i1 %4, label %5, label %6
 
 5:                                                ; preds = %2
-  store i8 1, ptr getelementptr inbounds (i8, ptr @v3Global, i64 28), align 4
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @v3Global, i64 28), align 4
   br label %6
 
 6:                                                ; preds = %5, %2
@@ -1056,14 +1056,14 @@ declare void @_ZN14VNVisitorConst5visitEP12AstNodeDType(ptr noundef nonnull alig
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN12EmitCInlines5visitEP15AstNodeDistBiop(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 {
-  store i8 1, ptr getelementptr inbounds (i8, ptr @v3Global, i64 33), align 1
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @v3Global, i64 33), align 1
   tail call void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(8) %0)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN12EmitCInlines5visitEP16AstNodeDistTriop(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 {
-  store i8 1, ptr getelementptr inbounds (i8, ptr @v3Global, i64 33), align 1
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @v3Global, i64 33), align 1
   tail call void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(8) %0)
   ret void
 }
@@ -1451,7 +1451,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZNK9V3Options7savableEv(ptr noundef nonnull align 8 dereferenceable(1560) %0) #4 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 761
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 761
   %3 = load i8, ptr %2, align 1
   %4 = trunc i8 %3 to i1
   ret i1 %4

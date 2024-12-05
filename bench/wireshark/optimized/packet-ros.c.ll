@@ -265,11 +265,11 @@ define hidden i32 @call_ros_oid_callback(ptr noundef %0, ptr noundef %1, i32 nou
   br i1 %.not45.i, label %24, label %15
 
 15:                                               ; preds = %14
-  %16 = getelementptr inbounds i8, ptr %13, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = load i32, ptr %17, align 4
   %19 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %4, i32 noundef %18, ptr noundef %8, i32 noundef 0, i32 noundef -1, i32 noundef 0) #5
-  %20 = getelementptr inbounds i8, ptr %13, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %21 = load ptr, ptr %20, align 8
   %22 = load i32, ptr %21, align 4
   %23 = tail call ptr @proto_item_add_subtree(ptr noundef %19, i32 noundef %22) #5
@@ -277,11 +277,11 @@ define hidden i32 @call_ros_oid_callback(ptr noundef %0, ptr noundef %1, i32 nou
 
 24:                                               ; preds = %15, %14
   %.0.i = phi ptr [ %23, %15 ], [ null, %14 ]
-  %25 = getelementptr inbounds i8, ptr %3, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = load ptr, ptr %13, align 8
   tail call void @col_set_str(ptr noundef %26, i32 noundef 34, ptr noundef %27) #5
-  %28 = getelementptr inbounds i8, ptr %5, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %29 = load i32, ptr %28, align 4
   %30 = and i32 %29, 251658240
   %31 = icmp eq i32 %30, 16777216
@@ -290,7 +290,7 @@ define hidden i32 @call_ros_oid_callback(ptr noundef %0, ptr noundef %1, i32 nou
   %34 = icmp eq i32 %33, 805306368
   %..i = select i1 %34, i32 -2, i32 -1
   %.039.i = select i1 %31, i32 %..i, i32 %32
-  %35 = getelementptr inbounds i8, ptr %13, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %36 = load ptr, ptr %35, align 8
   switch i32 %33, label %ros_try_string.exit.thread [
     i32 268435456, label %37
@@ -299,13 +299,13 @@ define hidden i32 @call_ros_oid_callback(ptr noundef %0, ptr noundef %1, i32 nou
   ]
 
 37:                                               ; preds = %24
-  %38 = getelementptr inbounds i8, ptr %13, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %39 = load ptr, ptr %38, align 8
   %.not.i.i = icmp eq ptr %39, null
   br i1 %.not.i.i, label %ros_try_string.exit.thread, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %37
-  %40 = getelementptr inbounds i8, ptr %39, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %41 = load ptr, ptr %40, align 8
   %.not1115.i.i = icmp eq ptr %41, inttoptr (i64 -1 to ptr)
   br i1 %.not1115.i.i, label %ros_try_string.exit.thread, label %.lr.ph.i.preheader.i
@@ -329,13 +329,13 @@ define hidden i32 @call_ros_oid_callback(ptr noundef %0, ptr noundef %1, i32 nou
   br i1 %.not11.i.i, label %ros_try_string.exit.thread, label %.lr.ph.i.i, !llvm.loop !4
 
 49:                                               ; preds = %24
-  %50 = getelementptr inbounds i8, ptr %13, i64 32
+  %50 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %51 = load ptr, ptr %50, align 8
   %.not.i48.i = icmp eq ptr %51, null
   br i1 %.not.i48.i, label %ros_try_string.exit.thread, label %.preheader.i49.i
 
 .preheader.i49.i:                                 ; preds = %49
-  %52 = getelementptr inbounds i8, ptr %51, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %53 = load ptr, ptr %52, align 8
   %.not1115.i50.i = icmp eq ptr %53, inttoptr (i64 -1 to ptr)
   br i1 %.not1115.i50.i, label %ros_try_string.exit.thread, label %.lr.ph.i51.i
@@ -347,7 +347,7 @@ define hidden i32 @call_ros_oid_callback(ptr noundef %0, ptr noundef %1, i32 nou
   br i1 %55, label %56, label %59
 
 56:                                               ; preds = %.lr.ph.i51.i
-  %57 = getelementptr inbounds i8, ptr %.0816.i52.i, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %.0816.i52.i, i64 16
   %58 = load ptr, ptr %57, align 8
   br label %ros_lookup_opr_dissector.exit.i
 
@@ -359,13 +359,13 @@ define hidden i32 @call_ros_oid_callback(ptr noundef %0, ptr noundef %1, i32 nou
   br i1 %.not11.i53.i, label %ros_try_string.exit.thread, label %.lr.ph.i51.i, !llvm.loop !4
 
 63:                                               ; preds = %24
-  %64 = getelementptr inbounds i8, ptr %13, i64 48
+  %64 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %65 = load ptr, ptr %64, align 8
   %.not.i56.i = icmp eq ptr %65, null
   br i1 %.not.i56.i, label %ros_lookup_err_dissector.exit.i, label %.preheader.i57.i
 
 .preheader.i57.i:                                 ; preds = %63
-  %66 = getelementptr inbounds i8, ptr %65, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %67 = load ptr, ptr %66, align 8
   %.not910.i.i = icmp eq ptr %67, inttoptr (i64 -1 to ptr)
   br i1 %.not910.i.i, label %ros_lookup_err_dissector.exit.i, label %.lr.ph.i58.preheader.i
@@ -390,7 +390,7 @@ define hidden i32 @call_ros_oid_callback(ptr noundef %0, ptr noundef %1, i32 nou
 
 ros_lookup_err_dissector.exit.i:                  ; preds = %.lr.ph.i58.i, %.lr.ph.i, %.lr.ph.i58.preheader.i, %.preheader.i57.i, %63
   %.06.i.i = phi ptr [ null, %63 ], [ null, %.preheader.i57.i ], [ %67, %.lr.ph.i58.preheader.i ], [ null, %.lr.ph.i ], [ %71, %.lr.ph.i58.i ]
-  %75 = getelementptr inbounds i8, ptr %13, i64 40
+  %75 = getelementptr inbounds nuw i8, ptr %13, i64 40
   %76 = load ptr, ptr %75, align 8
   br label %ros_lookup_opr_dissector.exit.i
 
@@ -505,7 +505,7 @@ define internal i32 @dissect_ros(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %7, label %45, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %6, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store ptr %3, ptr %9, align 8
   store ptr %2, ptr @top_tree, align 8
   %10 = call nonnull ptr @find_or_create_conversation(ptr noundef %1) #5
@@ -519,7 +519,7 @@ define internal i32 @dissect_ros(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %16 = call noalias ptr @wmem_alloc0(ptr noundef %15, i64 noundef 16) #5
   %17 = call ptr @wmem_file_scope() #5
   %18 = call noalias ptr @wmem_map_new(ptr noundef %17, ptr noundef nonnull @ros_info_hash_matched, ptr noundef nonnull @ros_info_equal_matched) #5
-  %19 = getelementptr inbounds i8, ptr %16, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %18, ptr %19, align 8
   %20 = call ptr @wmem_file_scope() #5
   %21 = call noalias ptr @wmem_map_new(ptr noundef %20, ptr noundef nonnull @ros_info_hash_unmatched, ptr noundef nonnull @ros_info_equal_unmatched) #5
@@ -534,7 +534,7 @@ define internal i32 @dissect_ros(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   store ptr %25, ptr %5, align 8
   %26 = load i32, ptr @ett_ros, align 4
   %27 = call ptr @proto_item_add_subtree(ptr noundef %25, i32 noundef %26) #5
-  %28 = getelementptr inbounds i8, ptr %1, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %29 = load ptr, ptr %28, align 8
   call void @col_set_str(ptr noundef %29, i32 noundef 34, ptr noundef nonnull @.str.75) #5
   %30 = load ptr, ptr %28, align 8
@@ -644,9 +644,9 @@ define internal i32 @dissect_ros_ReturnError(i1 noundef zeroext %0, ptr noundef 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_ros_T_reject(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %3, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   tail call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.83) #5
   %11 = load i32, ptr @ett_ros_Reject, align 4
@@ -656,7 +656,7 @@ define internal i32 @dissect_ros_T_reject(i1 noundef zeroext %0, ptr noundef %1,
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_ros_T_bind_invoke(i1 zeroext %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4, i32 %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %3, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %8 = load ptr, ptr %7, align 8
   %9 = load i32, ptr @ett_ros_bind_result, align 4
   %10 = tail call ptr @proto_tree_add_subtree(ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef -1, i32 noundef %9, ptr noundef null, ptr noundef nonnull @.str.9) #5
@@ -664,21 +664,21 @@ define internal i32 @dissect_ros_T_bind_invoke(i1 zeroext %0, ptr noundef %1, i3
   br i1 %.not, label %24, label %11
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %8, i64 2
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 2
   %13 = load i8, ptr %12, align 2
   %.not17 = icmp eq i8 %13, 0
   br i1 %.not17, label %24, label %14
 
 14:                                               ; preds = %11
   %15 = zext i8 %13 to i32
-  %16 = getelementptr inbounds i8, ptr %3, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = tail call ptr @find_oid_by_pres_ctx_id(ptr noundef %17, i32 noundef %15) #5
   %.not18 = icmp eq ptr %18, null
   br i1 %.not18, label %24, label %19
 
 19:                                               ; preds = %14
-  %20 = getelementptr inbounds i8, ptr %8, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 285212672, ptr %20, align 4
   %21 = load ptr, ptr %16, align 8
   %22 = load ptr, ptr @top_tree, align 8
@@ -692,7 +692,7 @@ define internal i32 @dissect_ros_T_bind_invoke(i1 zeroext %0, ptr noundef %1, i3
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_ros_T_bind_result(i1 zeroext %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4, i32 %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %3, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %8 = load ptr, ptr %7, align 8
   %9 = load i32, ptr @ett_ros_bind_result, align 4
   %10 = tail call ptr @proto_tree_add_subtree(ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef -1, i32 noundef %9, ptr noundef null, ptr noundef nonnull @.str.10) #5
@@ -700,21 +700,21 @@ define internal i32 @dissect_ros_T_bind_result(i1 zeroext %0, ptr noundef %1, i3
   br i1 %.not, label %24, label %11
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %8, i64 2
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 2
   %13 = load i8, ptr %12, align 2
   %.not17 = icmp eq i8 %13, 0
   br i1 %.not17, label %24, label %14
 
 14:                                               ; preds = %11
   %15 = zext i8 %13 to i32
-  %16 = getelementptr inbounds i8, ptr %3, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = tail call ptr @find_oid_by_pres_ctx_id(ptr noundef %17, i32 noundef %15) #5
   %.not18 = icmp eq ptr %18, null
   br i1 %.not18, label %24, label %19
 
 19:                                               ; preds = %14
-  %20 = getelementptr inbounds i8, ptr %8, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 553648128, ptr %20, align 4
   %21 = load ptr, ptr %16, align 8
   %22 = load ptr, ptr @top_tree, align 8
@@ -728,7 +728,7 @@ define internal i32 @dissect_ros_T_bind_result(i1 zeroext %0, ptr noundef %1, i3
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_ros_T_bind_error(i1 zeroext %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4, i32 %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %3, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %8 = load ptr, ptr %7, align 8
   %9 = load i32, ptr @ett_ros_bind_error, align 4
   %10 = tail call ptr @proto_tree_add_subtree(ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef -1, i32 noundef %9, ptr noundef null, ptr noundef nonnull @.str.11) #5
@@ -736,21 +736,21 @@ define internal i32 @dissect_ros_T_bind_error(i1 zeroext %0, ptr noundef %1, i32
   br i1 %.not, label %24, label %11
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %8, i64 2
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 2
   %13 = load i8, ptr %12, align 2
   %.not17 = icmp eq i8 %13, 0
   br i1 %.not17, label %24, label %14
 
 14:                                               ; preds = %11
   %15 = zext i8 %13 to i32
-  %16 = getelementptr inbounds i8, ptr %3, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = tail call ptr @find_oid_by_pres_ctx_id(ptr noundef %17, i32 noundef %15) #5
   %.not18 = icmp eq ptr %18, null
   br i1 %.not18, label %24, label %19
 
 19:                                               ; preds = %14
-  %20 = getelementptr inbounds i8, ptr %8, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 822083584, ptr %20, align 4
   %21 = load ptr, ptr %16, align 8
   %22 = load ptr, ptr @top_tree, align 8
@@ -764,7 +764,7 @@ define internal i32 @dissect_ros_T_bind_error(i1 zeroext %0, ptr noundef %1, i32
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_ros_T_unbind_invoke(i1 zeroext %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4, i32 %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %3, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %8 = load ptr, ptr %7, align 8
   %9 = load i32, ptr @ett_ros_unbind_invoke, align 4
   %10 = tail call ptr @proto_tree_add_subtree(ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef -1, i32 noundef %9, ptr noundef null, ptr noundef nonnull @.str.12) #5
@@ -772,21 +772,21 @@ define internal i32 @dissect_ros_T_unbind_invoke(i1 zeroext %0, ptr noundef %1, 
   br i1 %.not, label %24, label %11
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %8, i64 2
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 2
   %13 = load i8, ptr %12, align 2
   %.not17 = icmp eq i8 %13, 0
   br i1 %.not17, label %24, label %14
 
 14:                                               ; preds = %11
   %15 = zext i8 %13 to i32
-  %16 = getelementptr inbounds i8, ptr %3, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = tail call ptr @find_oid_by_pres_ctx_id(ptr noundef %17, i32 noundef %15) #5
   %.not18 = icmp eq ptr %18, null
   br i1 %.not18, label %24, label %19
 
 19:                                               ; preds = %14
-  %20 = getelementptr inbounds i8, ptr %8, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 301989888, ptr %20, align 4
   %21 = load ptr, ptr %16, align 8
   %22 = load ptr, ptr @top_tree, align 8
@@ -800,7 +800,7 @@ define internal i32 @dissect_ros_T_unbind_invoke(i1 zeroext %0, ptr noundef %1, 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_ros_T_unbind_result(i1 zeroext %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4, i32 %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %3, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %8 = load ptr, ptr %7, align 8
   %9 = load i32, ptr @ett_ros_unbind_result, align 4
   %10 = tail call ptr @proto_tree_add_subtree(ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef -1, i32 noundef %9, ptr noundef null, ptr noundef nonnull @.str.13) #5
@@ -808,21 +808,21 @@ define internal i32 @dissect_ros_T_unbind_result(i1 zeroext %0, ptr noundef %1, 
   br i1 %.not, label %24, label %11
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %8, i64 2
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 2
   %13 = load i8, ptr %12, align 2
   %.not17 = icmp eq i8 %13, 0
   br i1 %.not17, label %24, label %14
 
 14:                                               ; preds = %11
   %15 = zext i8 %13 to i32
-  %16 = getelementptr inbounds i8, ptr %3, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = tail call ptr @find_oid_by_pres_ctx_id(ptr noundef %17, i32 noundef %15) #5
   %.not18 = icmp eq ptr %18, null
   br i1 %.not18, label %24, label %19
 
 19:                                               ; preds = %14
-  %20 = getelementptr inbounds i8, ptr %8, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 570425344, ptr %20, align 4
   %21 = load ptr, ptr %16, align 8
   %22 = load ptr, ptr @top_tree, align 8
@@ -836,7 +836,7 @@ define internal i32 @dissect_ros_T_unbind_result(i1 zeroext %0, ptr noundef %1, 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_ros_T_unbind_error(i1 zeroext %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4, i32 %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %3, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %8 = load ptr, ptr %7, align 8
   %9 = load i32, ptr @ett_ros_unbind_error, align 4
   %10 = tail call ptr @proto_tree_add_subtree(ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef -1, i32 noundef %9, ptr noundef null, ptr noundef nonnull @.str.14) #5
@@ -844,21 +844,21 @@ define internal i32 @dissect_ros_T_unbind_error(i1 zeroext %0, ptr noundef %1, i
   br i1 %.not, label %24, label %11
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %8, i64 2
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 2
   %13 = load i8, ptr %12, align 2
   %.not17 = icmp eq i8 %13, 0
   br i1 %.not17, label %24, label %14
 
 14:                                               ; preds = %11
   %15 = zext i8 %13 to i32
-  %16 = getelementptr inbounds i8, ptr %3, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = tail call ptr @find_oid_by_pres_ctx_id(ptr noundef %17, i32 noundef %15) #5
   %.not18 = icmp eq ptr %18, null
   br i1 %.not18, label %24, label %19
 
 19:                                               ; preds = %14
-  %20 = getelementptr inbounds i8, ptr %8, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 838860800, ptr %20, align 4
   %21 = load ptr, ptr %16, align 8
   %22 = load ptr, ptr @top_tree, align 8
@@ -886,11 +886,11 @@ define internal i32 @dissect_ros_OperationCode(i1 noundef zeroext %0, ptr nounde
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_ros_T_argument(i1 zeroext %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4, i32 %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %3, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %8 = load ptr, ptr %7, align 8
   %9 = load i32, ptr @ett_ros_invoke_argument, align 4
   %10 = tail call ptr @proto_tree_add_subtree(ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef -1, i32 noundef %9, ptr noundef null, ptr noundef nonnull @.str.81) #5
-  %11 = getelementptr inbounds i8, ptr %3, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr @invokeid, align 4
   tail call fastcc void @ros_match_call_response(ptr noundef %1, ptr noundef %12, ptr noundef %10, i32 noundef %13, i32 noundef 1)
@@ -898,7 +898,7 @@ define internal i32 @dissect_ros_T_argument(i1 zeroext %0, ptr noundef %1, i32 n
   br i1 %.not, label %28, label %14
 
 14:                                               ; preds = %6
-  %15 = getelementptr inbounds i8, ptr %8, i64 2
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 2
   %16 = load i8, ptr %15, align 2
   %.not21 = icmp eq i8 %16, 0
   br i1 %.not21, label %28, label %17
@@ -911,7 +911,7 @@ define internal i32 @dissect_ros_T_argument(i1 zeroext %0, ptr noundef %1, i32 n
   br i1 %.not22, label %28, label %21
 
 21:                                               ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %8, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %23 = load i32, ptr @opcode, align 4
   %24 = or i32 %23, 318767104
   store i32 %24, ptr %22, align 4
@@ -942,18 +942,18 @@ define internal fastcc void @ros_match_call_response(ptr noundef %0, ptr noundef
   br i1 %13, label %proto_item_set_generated.exit, label %14
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %6, i64 28
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 28
   store i32 %3, ptr %15, align 4
   store i32 %4, ptr %6, align 8
   %.not = icmp eq i32 %4, 0
-  %16 = getelementptr inbounds i8, ptr %6, i64 24
-  %17 = getelementptr inbounds i8, ptr %12, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 8
   br i1 %.not, label %18, label %.thread
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds i8, ptr %6, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 0, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %1, i64 20
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %21 = load i32, ptr %20, align 4
   store i32 %21, ptr %16, align 8
   %22 = load ptr, ptr %17, align 8
@@ -962,9 +962,9 @@ define internal fastcc void @ros_match_call_response(ptr noundef %0, ptr noundef
   br i1 %.not66, label %48, label %29
 
 .thread:                                          ; preds = %14
-  %24 = getelementptr inbounds i8, ptr %1, i64 20
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %25 = load i32, ptr %24, align 4
-  %26 = getelementptr inbounds i8, ptr %6, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 %25, ptr %26, align 4
   store i32 0, ptr %16, align 8
   %27 = load ptr, ptr %17, align 8
@@ -997,15 +997,15 @@ define internal fastcc void @ros_match_call_response(ptr noundef %0, ptr noundef
 
 39:                                               ; preds = %34, %.critedge
   %.1 = phi ptr [ %33, %34 ], [ %38, %.critedge ]
-  %40 = getelementptr inbounds i8, ptr %.1, i64 28
+  %40 = getelementptr inbounds nuw i8, ptr %.1, i64 28
   store i32 %3, ptr %40, align 4
   %41 = load i32, ptr %24, align 4
-  %42 = getelementptr inbounds i8, ptr %.1, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %.1, i64 4
   store i32 %41, ptr %42, align 4
-  %43 = getelementptr inbounds i8, ptr %.1, i64 8
-  %44 = getelementptr inbounds i8, ptr %1, i64 24
+  %43 = getelementptr inbounds nuw i8, ptr %.1, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %43, ptr noundef nonnull align 8 dereferenceable(16) %44, i64 16, i1 false)
-  %45 = getelementptr inbounds i8, ptr %.1, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %.1, i64 24
   store i32 0, ptr %45, align 8
   store i32 1, ptr %.1, align 8
   %46 = load ptr, ptr %12, align 8
@@ -1020,7 +1020,7 @@ define internal fastcc void @ros_match_call_response(ptr noundef %0, ptr noundef
   br i1 %.not67, label %proto_item_set_generated.exit, label %51
 
 51:                                               ; preds = %48
-  %52 = getelementptr inbounds i8, ptr %50, i64 24
+  %52 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %53 = load i32, ptr %52, align 8
   %.not68 = icmp eq i32 %53, 0
   br i1 %.not68, label %54, label %thread-pre-split
@@ -1047,20 +1047,20 @@ thread-pre-split:                                 ; preds = %54, %51
 
 62:                                               ; preds = %60
   %63 = load i32, ptr @hf_ros_response_in, align 4
-  %64 = getelementptr inbounds i8, ptr %.058.ph, i64 24
+  %64 = getelementptr inbounds nuw i8, ptr %.058.ph, i64 24
   %65 = load i32, ptr %64, align 8
   %66 = call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %63, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %65) #5
   %.not.i = icmp eq ptr %66, null
   br i1 %.not.i, label %proto_item_set_generated.exit, label %67
 
 67:                                               ; preds = %62
-  %68 = getelementptr inbounds i8, ptr %66, i64 32
+  %68 = getelementptr inbounds nuw i8, ptr %66, i64 32
   %69 = load ptr, ptr %68, align 8
   %.not5.i = icmp eq ptr %69, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %70
 
 70:                                               ; preds = %67
-  %71 = getelementptr inbounds i8, ptr %69, i64 28
+  %71 = getelementptr inbounds nuw i8, ptr %69, i64 28
   %72 = load i32, ptr %71, align 4
   %73 = or i32 %72, 2
   store i32 %73, ptr %71, align 4
@@ -1068,28 +1068,28 @@ thread-pre-split:                                 ; preds = %54, %51
 
 74:                                               ; preds = %60
   %75 = load i32, ptr @hf_ros_response_to, align 4
-  %76 = getelementptr inbounds i8, ptr %.058.ph, i64 4
+  %76 = getelementptr inbounds nuw i8, ptr %.058.ph, i64 4
   %77 = load i32, ptr %76, align 4
   %78 = call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %75, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %77) #5
   %.not.i72 = icmp eq ptr %78, null
   br i1 %.not.i72, label %proto_item_set_generated.exit74, label %79
 
 79:                                               ; preds = %74
-  %80 = getelementptr inbounds i8, ptr %78, i64 32
+  %80 = getelementptr inbounds nuw i8, ptr %78, i64 32
   %81 = load ptr, ptr %80, align 8
   %.not5.i73 = icmp eq ptr %81, null
   br i1 %.not5.i73, label %proto_item_set_generated.exit74, label %82
 
 82:                                               ; preds = %79
-  %83 = getelementptr inbounds i8, ptr %81, i64 28
+  %83 = getelementptr inbounds nuw i8, ptr %81, i64 28
   %84 = load i32, ptr %83, align 4
   %85 = or i32 %84, 2
   store i32 %85, ptr %83, align 4
   br label %proto_item_set_generated.exit74
 
 proto_item_set_generated.exit74:                  ; preds = %74, %79, %82
-  %86 = getelementptr inbounds i8, ptr %1, i64 24
-  %87 = getelementptr inbounds i8, ptr %.058.ph, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %87 = getelementptr inbounds nuw i8, ptr %.058.ph, i64 8
   call void @nstime_delta(ptr noundef nonnull %7, ptr noundef nonnull %86, ptr noundef nonnull %87) #5
   %88 = load i32, ptr @hf_ros_time, align 4
   %89 = call ptr @proto_tree_add_time(ptr noundef %2, i32 noundef %88, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %7) #5
@@ -1097,13 +1097,13 @@ proto_item_set_generated.exit74:                  ; preds = %74, %79, %82
   br i1 %.not.i75, label %proto_item_set_generated.exit, label %90
 
 90:                                               ; preds = %proto_item_set_generated.exit74
-  %91 = getelementptr inbounds i8, ptr %89, i64 32
+  %91 = getelementptr inbounds nuw i8, ptr %89, i64 32
   %92 = load ptr, ptr %91, align 8
   %.not5.i76 = icmp eq ptr %92, null
   br i1 %.not5.i76, label %proto_item_set_generated.exit, label %93
 
 93:                                               ; preds = %90
-  %94 = getelementptr inbounds i8, ptr %92, i64 28
+  %94 = getelementptr inbounds nuw i8, ptr %92, i64 28
   %95 = load i32, ptr %94, align 4
   %96 = or i32 %95, 2
   store i32 %96, ptr %94, align 4
@@ -1143,11 +1143,11 @@ define internal i32 @dissect_ros_T_result(i1 noundef zeroext %0, ptr noundef %1,
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_ros_OperationResult(i1 zeroext %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4, i32 %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %3, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %8 = load ptr, ptr %7, align 8
   %9 = load i32, ptr @ett_ros_return_result, align 4
   %10 = tail call ptr @proto_tree_add_subtree(ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef -1, i32 noundef %9, ptr noundef null, ptr noundef nonnull @.str.82) #5
-  %11 = getelementptr inbounds i8, ptr %3, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr @invokeid, align 4
   tail call fastcc void @ros_match_call_response(ptr noundef %1, ptr noundef %12, ptr noundef %10, i32 noundef %13, i32 noundef 0)
@@ -1155,7 +1155,7 @@ define internal i32 @dissect_ros_OperationResult(i1 zeroext %0, ptr noundef %1, 
   br i1 %.not, label %28, label %14
 
 14:                                               ; preds = %6
-  %15 = getelementptr inbounds i8, ptr %8, i64 2
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 2
   %16 = load i8, ptr %15, align 2
   %.not21 = icmp eq i8 %16, 0
   br i1 %.not21, label %28, label %17
@@ -1168,7 +1168,7 @@ define internal i32 @dissect_ros_OperationResult(i1 zeroext %0, ptr noundef %1, 
   br i1 %.not22, label %28, label %21
 
 21:                                               ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %8, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %23 = load i32, ptr @opcode, align 4
   %24 = or i32 %23, 587202560
   store i32 %24, ptr %22, align 4
@@ -1190,11 +1190,11 @@ define internal i32 @dissect_ros_ErrorCode(i1 noundef zeroext %0, ptr noundef %1
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_ros_T_parameter(i1 zeroext %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4, i32 %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %3, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %8 = load ptr, ptr %7, align 8
   %9 = load i32, ptr @ett_ros_return_result, align 4
   %10 = tail call ptr @proto_tree_add_subtree(ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef -1, i32 noundef %9, ptr noundef null, ptr noundef nonnull @.str.82) #5
-  %11 = getelementptr inbounds i8, ptr %3, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr @invokeid, align 4
   tail call fastcc void @ros_match_call_response(ptr noundef %1, ptr noundef %12, ptr noundef %10, i32 noundef %13, i32 noundef 0)
@@ -1202,7 +1202,7 @@ define internal i32 @dissect_ros_T_parameter(i1 zeroext %0, ptr noundef %1, i32 
   br i1 %.not, label %28, label %14
 
 14:                                               ; preds = %6
-  %15 = getelementptr inbounds i8, ptr %8, i64 2
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 2
   %16 = load i8, ptr %15, align 2
   %.not21 = icmp eq i8 %16, 0
   br i1 %.not21, label %28, label %17
@@ -1215,7 +1215,7 @@ define internal i32 @dissect_ros_T_parameter(i1 zeroext %0, ptr noundef %1, i32 
   br i1 %.not22, label %28, label %21
 
 21:                                               ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %8, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %23 = load i32, ptr @opcode, align 4
   %24 = or i32 %23, 855638016
   store i32 %24, ptr %22, align 4
@@ -1240,9 +1240,9 @@ define internal i32 @dissect_ros_T_problem(i1 zeroext %0, ptr noundef %1, i32 no
 define internal i32 @dissect_ros_GeneralProblem(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = call i32 @dissect_ber_integer(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7) #5
-  %9 = getelementptr inbounds i8, ptr %3, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr %7, align 4
   %14 = call ptr @val_to_str(i32 noundef %13, ptr noundef nonnull @ros_GeneralProblem_vals, ptr noundef nonnull @.str.85) #5
@@ -1254,9 +1254,9 @@ define internal i32 @dissect_ros_GeneralProblem(i1 noundef zeroext %0, ptr nound
 define internal i32 @dissect_ros_InvokeProblem(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = call i32 @dissect_ber_integer(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7) #5
-  %9 = getelementptr inbounds i8, ptr %3, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr %7, align 4
   %14 = call ptr @val_to_str(i32 noundef %13, ptr noundef nonnull @ros_InvokeProblem_vals, ptr noundef nonnull @.str.86) #5
@@ -1268,9 +1268,9 @@ define internal i32 @dissect_ros_InvokeProblem(i1 noundef zeroext %0, ptr nounde
 define internal i32 @dissect_ros_ReturnResultProblem(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = call i32 @dissect_ber_integer(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7) #5
-  %9 = getelementptr inbounds i8, ptr %3, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr %7, align 4
   %14 = call ptr @val_to_str(i32 noundef %13, ptr noundef nonnull @ros_ReturnResultProblem_vals, ptr noundef nonnull @.str.87) #5
@@ -1282,9 +1282,9 @@ define internal i32 @dissect_ros_ReturnResultProblem(i1 noundef zeroext %0, ptr 
 define internal i32 @dissect_ros_ReturnErrorProblem(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = call i32 @dissect_ber_integer(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7) #5
-  %9 = getelementptr inbounds i8, ptr %3, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr %7, align 4
   %14 = call ptr @val_to_str(i32 noundef %13, ptr noundef nonnull @ros_ReturnErrorProblem_vals, ptr noundef nonnull @.str.88) #5
@@ -1310,20 +1310,20 @@ declare noalias ptr @wmem_alloc0(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal i32 @ros_info_hash_matched(ptr nocapture noundef readonly %0) #4 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 28
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %3 = load i32, ptr %2, align 4
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal range(i32 0, 2) i32 @ros_info_equal_matched(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %8, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %7 = load i32, ptr %6, align 4
   %.not10 = icmp eq i32 %7, 0
   %.not11 = icmp eq i32 %4, %7
@@ -1331,9 +1331,9 @@ define internal range(i32 0, 2) i32 @ros_info_equal_matched(ptr nocapture nounde
   br i1 %or.cond, label %8, label %15
 
 8:                                                ; preds = %5, %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %10 = load i32, ptr %9, align 4
-  %11 = getelementptr inbounds i8, ptr %1, i64 28
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %12 = load i32, ptr %11, align 4
   %13 = icmp eq i32 %10, %12
   %14 = zext i1 %13 to i32
@@ -1346,16 +1346,16 @@ define internal range(i32 0, 2) i32 @ros_info_equal_matched(ptr nocapture nounde
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal i32 @ros_info_hash_unmatched(ptr nocapture noundef readonly %0) #4 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 28
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %3 = load i32, ptr %2, align 4
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal range(i32 0, 2) i32 @ros_info_equal_unmatched(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 28
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %1, i64 28
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %6 = load i32, ptr %5, align 4
   %7 = icmp eq i32 %4, %6
   %8 = zext i1 %7 to i32

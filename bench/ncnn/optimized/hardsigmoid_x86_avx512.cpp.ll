@@ -86,7 +86,7 @@ define hidden noundef i32 @_ZNK4ncnn22HardSigmoid_x86_avx51215forward_inplaceERN
   %42 = tail call fast noundef <16 x float> @llvm.x86.avx512.max.ps.512(<16 x float> %41, <16 x float> zeroinitializer, i32 4)
   %43 = tail call fast noundef <16 x float> @llvm.x86.avx512.min.ps.512(<16 x float> %42, <16 x float> splat (float 1.000000e+00), i32 4)
   store <16 x float> %43, ptr %.0239268, align 1
-  %44 = getelementptr inbounds i8, ptr %.0239268, i64 64
+  %44 = getelementptr inbounds nuw i8, ptr %.0239268, i64 64
   %45 = add nuw nsw i32 %.0240267, 16
   %46 = or disjoint i32 %45, 15
   %47 = icmp slt i32 %46, %16
@@ -112,7 +112,7 @@ define hidden noundef i32 @_ZNK4ncnn22HardSigmoid_x86_avx51215forward_inplaceERN
   %57 = tail call fast noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> %56, <8 x float> zeroinitializer)
   %58 = tail call fast noundef <8 x float> @llvm.x86.avx.min.ps.256(<8 x float> %57, <8 x float> splat (float 1.000000e+00))
   store <8 x float> %58, ptr %.1271, align 1
-  %59 = getelementptr inbounds i8, ptr %.1271, i64 32
+  %59 = getelementptr inbounds nuw i8, ptr %.1271, i64 32
   %60 = add nuw nsw i32 %.1241270, 8
   %61 = or disjoint i32 %60, 7
   %62 = icmp slt i32 %61, %16
@@ -138,7 +138,7 @@ define hidden noundef i32 @_ZNK4ncnn22HardSigmoid_x86_avx51215forward_inplaceERN
   %72 = tail call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> %71, <4 x float> zeroinitializer)
   %73 = tail call fast noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> %72, <4 x float> splat (float 1.000000e+00))
   store <4 x float> %73, ptr %.2276, align 16
-  %74 = getelementptr inbounds i8, ptr %.2276, i64 16
+  %74 = getelementptr inbounds nuw i8, ptr %.2276, i64 16
   %75 = add nuw nsw i32 %.2242275, 4
   %76 = or disjoint i32 %75, 3
   %77 = icmp slt i32 %76, %16
@@ -167,7 +167,7 @@ define hidden noundef i32 @_ZNK4ncnn22HardSigmoid_x86_avx51215forward_inplaceERN
 89:                                               ; preds = %81, %.lr.ph282, %84
   %.sink = phi float [ %88, %84 ], [ 0.000000e+00, %.lr.ph282 ], [ 1.000000e+00, %81 ]
   store float %.sink, ptr %.3281, align 4
-  %90 = getelementptr inbounds i8, ptr %.3281, i64 4
+  %90 = getelementptr inbounds nuw i8, ptr %.3281, i64 4
   %91 = add nuw nsw i32 %.3243280, 1
   %exitcond.not = icmp eq i32 %91, %16
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph282, !llvm.loop !8

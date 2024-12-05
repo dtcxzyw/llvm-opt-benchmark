@@ -21,9 +21,9 @@ define void @_ZN8WasmEdge4MMapC2ERKNSt10filesystem7__cxx114pathE(ptr nocapture n
 .noexc:                                           ; preds = %2
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3), !noalias !4
   store ptr inttoptr (i64 -1 to ptr), ptr %4, align 8, !noalias !4
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 -1, ptr %5, align 8, !noalias !4
-  %6 = getelementptr inbounds i8, ptr %4, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 0, ptr %6, align 8, !noalias !4
   %7 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(40) %1) #13, !noalias !4
   %8 = invoke i32 (ptr, i32, ...) @open(ptr noundef %7, i32 noundef 0)
@@ -51,7 +51,7 @@ define void @_ZN8WasmEdge4MMapC2ERKNSt10filesystem7__cxx114pathE(ptr nocapture n
   unreachable
 
 thread-pre-split:                                 ; preds = %11
-  %17 = getelementptr inbounds i8, ptr %3, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %18 = load i64, ptr %17, align 8, !noalias !4
   store i64 %18, ptr %6, align 8, !noalias !4
   %19 = tail call ptr @mmap(ptr noundef null, i64 noundef %18, i32 noundef 1, i32 noundef 1, i32 noundef %8, i64 noundef 0) #13, !noalias !4
@@ -121,13 +121,13 @@ define void @_ZN8WasmEdge4MMapD2Ev(ptr nocapture noundef nonnull align 8 derefer
   br i1 %.not.i.i.i, label %9, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = load i64, ptr %6, align 8
   %8 = tail call i32 @munmap(ptr noundef %4, i64 noundef %7) #13
   br label %9
 
 9:                                                ; preds = %5, %3
-  %10 = getelementptr inbounds i8, ptr %2, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %11 = load i32, ptr %10, align 8
   %12 = icmp sgt i32 %11, -1
   br i1 %12, label %13, label %_ZNSt10unique_ptrIN8WasmEdge12_GLOBAL__N_19ImplementESt14default_deleteIS2_EED2Ev.exit

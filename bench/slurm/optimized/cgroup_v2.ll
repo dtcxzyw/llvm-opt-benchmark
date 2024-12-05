@@ -269,7 +269,7 @@ define range(i32 -1, 1) i32 @init() local_unnamed_addr #0 {
   %26 = call ptr @xstrchr(ptr noundef %21, i32 noundef 58) #15
   store ptr %26, ptr %8, align 8
   %.not10.i.i = icmp eq ptr %26, null
-  %27 = getelementptr inbounds i8, ptr %26, i64 2
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 2
   %28 = load ptr, ptr %7, align 8
   %29 = load i64, ptr %10, align 8
   %30 = getelementptr inbounds i8, ptr %28, i64 %29
@@ -413,12 +413,12 @@ _set_int_cg_ns.exit:                              ; preds = %47, %49
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   %84 = load ptr, ptr @conf, align 8
-  %85 = getelementptr inbounds i8, ptr %84, i64 4368
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 4368
   %86 = load ptr, ptr %85, align 8
   store ptr %86, ptr %5, align 16
-  %87 = getelementptr inbounds i8, ptr %5, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @.str.102, ptr %87, align 8
-  %88 = getelementptr inbounds i8, ptr %5, i64 16
+  %88 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr null, ptr %88, align 16
   %89 = call i32 @fork() #15
   %90 = icmp slt i32 %89, 0
@@ -484,7 +484,7 @@ _set_int_cg_ns.exit:                              ; preds = %47, %49
 
 117:                                              ; preds = %115, %112, %.thread.i.i, %108
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
-  %118 = getelementptr inbounds i8, ptr %4, i64 16
+  %118 = getelementptr inbounds nuw i8, ptr %4, i64 16
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %118, ptr noundef nonnull @.str.97, ptr noundef %68, ptr noundef nonnull @.str.106) #15
   %119 = load ptr, ptr %118, align 8
   %120 = call fastcc i32 @_init_new_scope(ptr noundef %119)
@@ -745,7 +745,7 @@ define internal void @_free_task_cg_info(ptr noundef %0) #0 {
 
 3:                                                ; preds = %1
   tail call void @common_cgroup_destroy(ptr noundef nonnull %0) #15
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   tail call void @free_ebpf_prog(ptr noundef nonnull %4) #15
   call void @slurm_xfree(ptr noundef nonnull %2) #15
   br label %5
@@ -843,7 +843,7 @@ define range(i32 -1, 1) i32 @cgroup_p_initialize(i32 noundef %0) local_unnamed_a
   br i1 %.not, label %8, label %12
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds [5 x ptr], ptr @ctl_names, i64 0, i64 %6
+  %9 = getelementptr inbounds nuw [5 x ptr], ptr @ctl_names, i64 0, i64 %6
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.8, ptr noundef %10) #15
   br label %27
@@ -862,7 +862,7 @@ define range(i32 -1, 1) i32 @cgroup_p_initialize(i32 noundef %0) local_unnamed_a
   br i1 %.not6, label %19, label %25
 
 19:                                               ; preds = %14
-  %20 = getelementptr inbounds [5 x ptr], ptr @ctl_names, i64 0, i64 %6
+  %20 = getelementptr inbounds nuw [5 x ptr], ptr @ctl_names, i64 0, i64 %6
   %21 = load ptr, ptr %20, align 8
   %22 = load ptr, ptr @stepd_scope_path, align 8
   %23 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.9, ptr noundef %21, ptr noundef %22) #15
@@ -940,7 +940,7 @@ define internal fastcc range(i32 -1, 1) i32 @_get_controllers(ptr noundef %0, pt
 
 26:                                               ; preds = %.preheader, %33
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %33 ]
-  %27 = getelementptr inbounds [5 x ptr], ptr @ctl_names, i64 0, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [5 x ptr], ptr @ctl_names, i64 0, i64 %indvars.iv
   %28 = load ptr, ptr %27, align 8
   %29 = call i32 @xstrcmp(ptr noundef %28, ptr noundef nonnull @.str.2) #15
   %.not28 = icmp eq i32 %29, 0
@@ -989,7 +989,7 @@ switch.early.test:                                ; preds = %35
   br i1 %.not27, label %40, label %44
 
 40:                                               ; preds = %38
-  %41 = getelementptr inbounds [5 x ptr], ptr @ctl_names, i64 0, i64 %indvars.iv38
+  %41 = getelementptr inbounds nuw [5 x ptr], ptr @ctl_names, i64 0, i64 %indvars.iv38
   %42 = load ptr, ptr %41, align 8
   %43 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.128, ptr noundef %42) #15
   br label %44
@@ -1030,7 +1030,7 @@ define range(i32 -1, 1) i32 @cgroup_p_step_create(i32 noundef %0, ptr noundef %1
 
 6:                                                ; preds = %2
   %7 = zext i32 %0 to i64
-  %8 = getelementptr inbounds [5 x ptr], ptr @ctl_names, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw [5 x ptr], ptr @ctl_names, i64 0, i64 %7
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.10, ptr noundef %9) #15
   br label %77
@@ -1039,7 +1039,7 @@ define range(i32 -1, 1) i32 @cgroup_p_step_create(i32 noundef %0, ptr noundef %1
   %12 = load i16, ptr @step_active_cnt, align 2
   %13 = add i16 %12, 1
   store i16 %13, ptr @step_active_cnt, align 2
-  %14 = getelementptr inbounds i8, ptr %1, i64 112
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %15 = load i32, ptr %14, align 8
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.11, i32 noundef %15) #15
   %16 = load ptr, ptr %3, align 8
@@ -1145,7 +1145,7 @@ define range(i32 -1, 1) i32 @cgroup_p_step_create(i32 noundef %0, ptr noundef %1
 
 67:                                               ; preds = %63
   call void @slurm_xfree(ptr noundef nonnull %3) #15
-  %68 = getelementptr inbounds i8, ptr %1, i64 664
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 664
   %69 = load i32, ptr %68, align 8
   %70 = call i32 @common_cgroup_move_process(ptr noundef nonnull getelementptr inbounds (i8, ptr @int_cg, i64 200), i32 noundef %69) #15
   %.not23 = icmp eq i32 %70, 0
@@ -1194,7 +1194,7 @@ define internal fastcc range(i32 -1, 1) i32 @_enable_subtree_control(ptr noundef
   br i1 %.not, label %38, label %7
 
 7:                                                ; preds = %5
-  %8 = getelementptr inbounds [5 x ptr], ptr @ctl_names, i64 0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [5 x ptr], ptr @ctl_names, i64 0, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.130, ptr noundef %9) #15
   %10 = load ptr, ptr %4, align 8
@@ -1283,7 +1283,7 @@ define range(i32 -1, 1) i32 @cgroup_p_step_addto(i32 noundef %0, ptr nocapture n
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %12
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %12 ]
   %.0911 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1, %12 ]
-  %6 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %7 = load i32, ptr %6, align 4
   %8 = icmp eq i32 %7, %4
   br i1 %8, label %12, label %9
@@ -1360,7 +1360,7 @@ define range(i32 -1, 1) i32 @cgroup_p_task_addto(i32 %0, ptr nocapture readnone 
   %29 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 72, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.49, i32 noundef 1948, ptr noundef nonnull @__func__.cgroup_p_task_addto) #15
   store ptr %29, ptr %6, align 8
   %30 = load i32, ptr %5, align 4
-  %31 = getelementptr inbounds i8, ptr %29, i64 40
+  %31 = getelementptr inbounds nuw i8, ptr %29, i64 40
   store i32 %30, ptr %31, align 8
   %32 = load i32, ptr @task_special_id, align 4
   %33 = icmp eq i32 %30, %32
@@ -1429,7 +1429,7 @@ define range(i32 -1, 1) i32 @cgroup_p_task_addto(i32 %0, ptr nocapture readnone 
 
 62:                                               ; preds = %49
   %63 = load ptr, ptr %6, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 48
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 48
   call void @init_ebpf_prog(ptr noundef nonnull %64) #15
   %65 = load ptr, ptr @task_list, align 8
   %66 = load ptr, ptr %6, align 8
@@ -1445,7 +1445,7 @@ define range(i32 -1, 1) i32 @cgroup_p_task_addto(i32 %0, ptr nocapture readnone 
 
 69:                                               ; preds = %.critedge
   %70 = load ptr, ptr %6, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 16
   %72 = load ptr, ptr %71, align 8
   %73 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.63, i32 noundef %2, ptr noundef %72) #15
   br label %74
@@ -1470,7 +1470,7 @@ define range(i32 -1, 1) i32 @cgroup_p_task_addto(i32 %0, ptr nocapture readnone 
 define noundef i32 @cgroup_p_step_get_pids(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.foreach_pid_array_t, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = call i32 @common_cgroup_get_pids(ptr noundef nonnull getelementptr inbounds (i8, ptr @int_cg, i64 200), ptr noundef nonnull %4, ptr noundef nonnull %3) #15
   %6 = load ptr, ptr @task_list, align 8
   %7 = call i32 @list_for_each(ptr noundef %6, ptr noundef nonnull @_get_task_pids, ptr noundef nonnull %3) #15
@@ -1495,7 +1495,7 @@ define internal noundef i32 @_get_task_pids(ptr noundef %0, ptr noundef %1) #0 {
   store ptr null, ptr %3, align 8
   store i32 0, ptr %4, align 4
   %5 = call i32 @common_cgroup_get_pids(ptr noundef %0, ptr noundef nonnull %3, ptr noundef nonnull %4) #15
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %25, label %8
@@ -1599,7 +1599,7 @@ define i32 @cgroup_p_step_destroy(i32 noundef %0) local_unnamed_addr #0 {
 
 18:                                               ; preds = %15
   %19 = zext i32 %0 to i64
-  %20 = getelementptr inbounds [5 x ptr], ptr @ctl_names, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw [5 x ptr], ptr @ctl_names, i64 0, i64 %19
   %21 = load ptr, ptr %20, align 8
   %22 = load i16, ptr @step_active_cnt, align 2
   %23 = zext i16 %22 to i32
@@ -1613,7 +1613,7 @@ define i32 @cgroup_p_step_destroy(i32 noundef %0) local_unnamed_addr #0 {
 
 26:                                               ; preds = %24
   %27 = zext i32 %0 to i64
-  %28 = getelementptr inbounds [5 x ptr], ptr @ctl_names, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw [5 x ptr], ptr @ctl_names, i64 0, i64 %27
   %29 = load ptr, ptr %28, align 8
   %30 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.10, ptr noundef %29) #15
   br label %145
@@ -1622,7 +1622,7 @@ define i32 @cgroup_p_step_destroy(i32 noundef %0) local_unnamed_addr #0 {
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, i8 0, i64 40, i1 false)
   %32 = load ptr, ptr @slurm_cgroup_conf, align 8
   %33 = tail call ptr @xstrdup(ptr noundef %32) #15
-  %34 = getelementptr inbounds i8, ptr %7, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %33, ptr %34, align 8
   %35 = tail call i32 @getpid() #15
   %36 = call i32 @common_cgroup_move_process(ptr noundef nonnull %7, i32 noundef %35) #15
@@ -1711,7 +1711,7 @@ define i32 @cgroup_p_step_destroy(i32 noundef %0) local_unnamed_addr #0 {
 
 73:                                               ; preds = %66
   store i32 %62, ptr %6, align 4
-  %74 = getelementptr inbounds i8, ptr %6, i64 4
+  %74 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i16 1, ptr %74, align 4
   %75 = call i32 @poll(ptr noundef nonnull %6, i64 noundef 1, i32 noundef 1000) #15
   %76 = icmp slt i32 %75, 0
@@ -1916,7 +1916,7 @@ define noundef zeroext i1 @cgroup_p_has_pid(i32 noundef %0) local_unnamed_addr #
 
 13:                                               ; preds = %13, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %13 ]
-  %14 = getelementptr inbounds i32, ptr %11, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
   %15 = load i32, ptr %14, align 4
   %16 = icmp eq i32 %15, %12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1964,7 +1964,7 @@ define internal range(i32 0, 2) i32 @_find_pid_task(ptr noundef %0, ptr nocaptur
 
 11:                                               ; preds = %.lr.ph, %10
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %10 ]
-  %12 = getelementptr inbounds i32, ptr %9, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv
   %13 = load i32, ptr %12, align 4
   %14 = icmp eq i32 %13, %5
   br i1 %14, label %._crit_edge, label %10
@@ -2004,14 +2004,14 @@ define i32 @cgroup_p_constrain_set(i32 noundef %0, i32 noundef %1, ptr noundef %
   ]
 
 11:                                               ; preds = %10
-  %12 = getelementptr inbounds i8, ptr %2, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %13 = load ptr, ptr %12, align 8
   %.not65 = icmp eq ptr %13, null
   br i1 %.not65, label %18, label %14
 
 14:                                               ; preds = %11
   %15 = zext i32 %spec.store.select1 to i64
-  %16 = getelementptr inbounds [9 x %struct.xcgroup_t], ptr @int_cg, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw [9 x %struct.xcgroup_t], ptr @int_cg, i64 0, i64 %15
   %17 = tail call i32 @common_cgroup_set_param(ptr noundef nonnull %16, ptr noundef nonnull @.str.34, ptr noundef nonnull %13) #15
   %.not66 = icmp ne i32 %17, 0
   %spec.select = sext i1 %.not66 to i32
@@ -2019,28 +2019,28 @@ define i32 @cgroup_p_constrain_set(i32 noundef %0, i32 noundef %1, ptr noundef %
 
 18:                                               ; preds = %14, %11
   %.1 = phi i32 [ 0, %11 ], [ %spec.select, %14 ]
-  %19 = getelementptr inbounds i8, ptr %2, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %20 = load ptr, ptr %19, align 8
   %.not67 = icmp eq ptr %20, null
   br i1 %.not67, label %91, label %21
 
 21:                                               ; preds = %18
   %22 = zext i32 %spec.store.select1 to i64
-  %23 = getelementptr inbounds [9 x %struct.xcgroup_t], ptr @int_cg, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw [9 x %struct.xcgroup_t], ptr @int_cg, i64 0, i64 %22
   %24 = tail call i32 @common_cgroup_set_param(ptr noundef nonnull %23, ptr noundef nonnull @.str.35, ptr noundef nonnull %20) #15
   %.not68 = icmp eq i32 %24, 0
   %spec.select69 = select i1 %.not68, i32 %.1, i32 -1
   br label %91
 
 25:                                               ; preds = %10
-  %26 = getelementptr inbounds i8, ptr %2, i64 64
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %27 = load i64, ptr %26, align 8
   %.not59 = icmp eq i64 %27, -2
   br i1 %.not59, label %32, label %28
 
 28:                                               ; preds = %25
   %29 = zext i32 %spec.store.select1 to i64
-  %30 = getelementptr inbounds [9 x %struct.xcgroup_t], ptr @int_cg, i64 0, i64 %29
+  %30 = getelementptr inbounds nuw [9 x %struct.xcgroup_t], ptr @int_cg, i64 0, i64 %29
   %31 = tail call i32 @common_cgroup_set_uint64_param(ptr noundef nonnull %30, ptr noundef nonnull @.str.36, i64 noundef %27) #15
   %.not60 = icmp ne i32 %31, 0
   %spec.select70 = sext i1 %.not60 to i32
@@ -2048,14 +2048,14 @@ define i32 @cgroup_p_constrain_set(i32 noundef %0, i32 noundef %1, ptr noundef %
 
 32:                                               ; preds = %28, %25
   %.2 = phi i32 [ 0, %25 ], [ %spec.select70, %28 ]
-  %33 = getelementptr inbounds i8, ptr %2, i64 72
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %34 = load i64, ptr %33, align 8
   %.not61 = icmp eq i64 %34, -2
   br i1 %.not61, label %39, label %35
 
 35:                                               ; preds = %32
   %36 = zext i32 %spec.store.select1 to i64
-  %37 = getelementptr inbounds [9 x %struct.xcgroup_t], ptr @int_cg, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw [9 x %struct.xcgroup_t], ptr @int_cg, i64 0, i64 %36
   %38 = tail call i32 @common_cgroup_set_uint64_param(ptr noundef nonnull %37, ptr noundef nonnull @.str.37, i64 noundef %34) #15
   %.not62 = icmp eq i32 %38, 0
   %spec.select71 = select i1 %.not62, i32 %.2, i32 -1
@@ -2063,14 +2063,14 @@ define i32 @cgroup_p_constrain_set(i32 noundef %0, i32 noundef %1, ptr noundef %
 
 39:                                               ; preds = %35, %32
   %.3 = phi i32 [ %.2, %32 ], [ %spec.select71, %35 ]
-  %40 = getelementptr inbounds i8, ptr %2, i64 80
+  %40 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %41 = load i64, ptr %40, align 8
   %.not63 = icmp eq i64 %41, -2
   br i1 %.not63, label %91, label %42
 
 42:                                               ; preds = %39
   %43 = zext i32 %spec.store.select1 to i64
-  %44 = getelementptr inbounds [9 x %struct.xcgroup_t], ptr @int_cg, i64 0, i64 %43
+  %44 = getelementptr inbounds nuw [9 x %struct.xcgroup_t], ptr @int_cg, i64 0, i64 %43
   %45 = load i64, ptr %26, align 8
   %46 = sub i64 %41, %45
   %47 = tail call i32 @common_cgroup_set_uint64_param(ptr noundef nonnull %44, ptr noundef nonnull @.str.38, i64 noundef %46) #15
@@ -2087,12 +2087,12 @@ define i32 @cgroup_p_constrain_set(i32 noundef %0, i32 noundef %1, ptr noundef %
 
 49:                                               ; preds = %48, %48
   %50 = zext nneg i32 %spec.store.select1 to i64
-  %51 = getelementptr inbounds [9 x %struct.bpf_program], ptr @p, i64 0, i64 %50
+  %51 = getelementptr inbounds nuw [9 x %struct.bpf_program], ptr @p, i64 0, i64 %50
   br label %64
 
 52:                                               ; preds = %48
   %53 = load ptr, ptr @task_list, align 8
-  %54 = getelementptr inbounds i8, ptr %2, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %55 = tail call ptr @list_find_first(ptr noundef %53, ptr noundef nonnull @_find_task_cg_info, ptr noundef nonnull %54) #15
   %.not55 = icmp eq ptr %55, null
   br i1 %.not55, label %56, label %59
@@ -2103,7 +2103,7 @@ define i32 @cgroup_p_constrain_set(i32 noundef %0, i32 noundef %1, ptr noundef %
   br label %91
 
 59:                                               ; preds = %52
-  %60 = getelementptr inbounds i8, ptr %55, i64 48
+  %60 = getelementptr inbounds nuw i8, ptr %55, i64 48
   br label %64
 
 61:                                               ; preds = %48
@@ -2113,10 +2113,10 @@ define i32 @cgroup_p_constrain_set(i32 noundef %0, i32 noundef %1, ptr noundef %
 
 64:                                               ; preds = %59, %49
   %.044.ph = phi ptr [ %51, %49 ], [ %60, %59 ]
-  %65 = getelementptr inbounds i8, ptr %2, i64 52
+  %65 = getelementptr inbounds nuw i8, ptr %2, i64 52
   %66 = tail call ptr @gres_device_id2str(ptr noundef nonnull %65) #15
   store ptr %66, ptr %4, align 8
-  %67 = getelementptr inbounds i8, ptr %2, i64 48
+  %67 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %68 = load i8, ptr %67, align 8
   %69 = trunc i8 %68 to i1
   %70 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
@@ -2147,14 +2147,14 @@ define i32 @cgroup_p_constrain_set(i32 noundef %0, i32 noundef %1, ptr noundef %
 
 80:                                               ; preds = %.sink.split, %77, %76, %73, %72
   call void @slurm_xfree(ptr noundef nonnull %4) #15
-  %81 = getelementptr inbounds i8, ptr %2, i64 60
+  %81 = getelementptr inbounds nuw i8, ptr %2, i64 60
   %82 = load i32, ptr %81, align 4
   %switch.selectcmp = icmp eq i32 %82, 2
   %switch.select = select i1 %switch.selectcmp, i32 2, i32 -2
   %switch.selectcmp73 = icmp eq i32 %82, 1
   %switch.select74 = select i1 %switch.selectcmp73, i32 1, i32 %switch.select
   %83 = load i32, ptr %65, align 4
-  %84 = getelementptr inbounds i8, ptr %2, i64 56
+  %84 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %85 = load i32, ptr %84, align 4
   %86 = load i8, ptr %67, align 8
   %87 = trunc i8 %86 to i1
@@ -2175,7 +2175,7 @@ declare i32 @common_cgroup_set_uint64_param(ptr noundef, ptr noundef, i64 nounde
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal range(i32 0, 2) i32 @_find_task_cg_info(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 {
   %3 = load i32, ptr %1, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, %3
   %. = zext i1 %6 to i32
@@ -2210,8 +2210,8 @@ define i32 @cgroup_p_constrain_apply(i32 noundef %0, i32 noundef %1, i32 noundef
 
 .thread:                                          ; preds = %9, %9
   %10 = zext nneg i32 %spec.store.select2 to i64
-  %11 = getelementptr inbounds [9 x %struct.bpf_program], ptr @p, i64 0, i64 %10
-  %12 = getelementptr inbounds [9 x %struct.xcgroup_t], ptr @int_cg, i64 0, i64 %10, i32 2
+  %11 = getelementptr inbounds nuw [9 x %struct.bpf_program], ptr @p, i64 0, i64 %10
+  %12 = getelementptr inbounds nuw [9 x %struct.xcgroup_t], ptr @int_cg, i64 0, i64 %10, i32 2
   br label %24
 
 13:                                               ; preds = %9
@@ -2226,8 +2226,8 @@ define i32 @cgroup_p_constrain_apply(i32 noundef %0, i32 noundef %1, i32 noundef
   br label %44
 
 19:                                               ; preds = %13
-  %20 = getelementptr inbounds i8, ptr %15, i64 48
-  %21 = getelementptr inbounds i8, ptr %15, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %15, i64 16
   br label %24
 
 22:                                               ; preds = %9
@@ -2315,9 +2315,9 @@ define noundef ptr @cgroup_p_constrain_get(i32 noundef %0, i32 noundef %1) local
   %11 = icmp eq i32 %spec.store.select2, 8
   %spec.store.select1 = select i1 %11, i32 0, i32 %spec.store.select2
   %12 = zext i32 %spec.store.select1 to i64
-  %13 = getelementptr inbounds [9 x %struct.xcgroup_t], ptr @int_cg, i64 0, i64 %12
-  %14 = getelementptr inbounds i8, ptr %7, i64 16
-  %15 = getelementptr inbounds i8, ptr %7, i64 32
+  %13 = getelementptr inbounds nuw [9 x %struct.xcgroup_t], ptr @int_cg, i64 0, i64 %12
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %16 = tail call i32 @common_cgroup_get_param(ptr noundef nonnull %13, ptr noundef nonnull @.str.34, ptr noundef nonnull %14, ptr noundef nonnull %15) #15
   %.not = icmp eq i32 %16, 0
   br i1 %.not, label %17, label %51
@@ -2340,8 +2340,8 @@ define noundef ptr @cgroup_p_constrain_get(i32 noundef %0, i32 noundef %1) local
   br i1 %.not40, label %25, label %51
 
 25:                                               ; preds = %23, %20, %17
-  %26 = getelementptr inbounds i8, ptr %7, i64 24
-  %27 = getelementptr inbounds i8, ptr %7, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %28 = tail call i32 @common_cgroup_get_param(ptr noundef nonnull %13, ptr noundef nonnull @.str.35, ptr noundef nonnull %26, ptr noundef nonnull %27) #15
   %.not41 = icmp eq i32 %28, 0
   br i1 %.not41, label %29, label %51
@@ -2641,17 +2641,17 @@ _get_swap_events.exit:                            ; preds = %67, %75
 85:                                               ; preds = %76, %79, %82
   %86 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 40, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.49, i32 noundef 1919, ptr noundef nonnull @__func__.cgroup_p_step_stop_oom_mgr) #15
   %87 = load i64, ptr %8, align 8
-  %88 = getelementptr inbounds i8, ptr %86, i64 16
+  %88 = getelementptr inbounds nuw i8, ptr %86, i64 16
   store i64 %87, ptr %88, align 8
   %89 = load i64, ptr %10, align 8
-  %90 = getelementptr inbounds i8, ptr %86, i64 24
+  %90 = getelementptr inbounds nuw i8, ptr %86, i64 24
   store i64 %89, ptr %90, align 8
   %91 = load i64, ptr %9, align 8
-  %92 = getelementptr inbounds i8, ptr %86, i64 32
+  %92 = getelementptr inbounds nuw i8, ptr %86, i64 32
   store i64 %91, ptr %92, align 8
   store i64 %91, ptr %86, align 8
   %93 = load i64, ptr %11, align 8
-  %94 = getelementptr inbounds i8, ptr %86, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %86, i64 8
   store i64 %93, ptr %94, align 8
   br label %95
 
@@ -2694,7 +2694,7 @@ declare i32 @list_delete_first(ptr noundef, ptr noundef, ptr noundef) local_unna
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @_find_purge_task_special(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8
   %5 = load i32, ptr %1, align 4
   %6 = icmp eq i32 %4, %5
@@ -2717,7 +2717,7 @@ define internal range(i32 0, 2) i32 @_find_purge_task_special(ptr noundef %0, pt
   br i1 %14, label %15, label %18
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = load ptr, ptr %16, align 8
   tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.159, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._find_purge_task_special, ptr noundef %17) #15
   br label %18
@@ -2878,11 +2878,11 @@ define noundef ptr @cgroup_p_task_get_acct_data(i32 noundef %0) local_unnamed_ad
 74:                                               ; preds = %63, %64, %67, %68, %69, %72, %55
   %75 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 40, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.49, i32 noundef 2070, ptr noundef nonnull @__func__.cgroup_p_task_get_acct_data) #15
   store i64 -2, ptr %75, align 8
-  %76 = getelementptr inbounds i8, ptr %75, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
   store i64 -2, ptr %76, align 8
-  %77 = getelementptr inbounds i8, ptr %75, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %75, i64 16
   store i64 -2, ptr %77, align 8
-  %78 = getelementptr inbounds i8, ptr %75, i64 24
+  %78 = getelementptr inbounds nuw i8, ptr %75, i64 24
   store i64 -2, ptr %78, align 8
   %79 = load ptr, ptr %3, align 8
   %.not36 = icmp eq ptr %79, null
@@ -3018,7 +3018,7 @@ define internal fastcc ptr @_get_self_cg_path() unnamed_addr #0 {
   %7 = load ptr, ptr %1, align 8
   %8 = call ptr @xstrchr(ptr noundef %7, i32 noundef 58) #15
   %.not10 = icmp eq ptr %8, null
-  %9 = getelementptr inbounds i8, ptr %8, i64 2
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 2
   %10 = load ptr, ptr %1, align 8
   %11 = load i64, ptr %3, align 8
   %12 = getelementptr inbounds i8, ptr %10, i64 %11
@@ -3378,7 +3378,7 @@ define internal noundef i32 @_rmdir_task(ptr noundef %0, ptr nocapture readnone 
   br i1 %9, label %10, label %13
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
   tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.146, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._rmdir_task, ptr noundef %12) #15
   br label %13

@@ -851,23 +851,23 @@ define dso_local ptr @kstrdup_quotable(ptr noundef readonly %0, i32 noundef %1) 
   %3 = alloca [10 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %3) #17
   store i8 12, ptr %3, align 1
-  %4 = getelementptr inbounds i8, ptr %3, i64 1
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 10, ptr %4, align 1
-  %5 = getelementptr inbounds i8, ptr %3, i64 2
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 2
   store i8 13, ptr %5, align 1
-  %6 = getelementptr inbounds i8, ptr %3, i64 3
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 3
   store i8 9, ptr %6, align 1
-  %7 = getelementptr inbounds i8, ptr %3, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i8 11, ptr %7, align 1
-  %8 = getelementptr inbounds i8, ptr %3, i64 5
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 5
   store i8 7, ptr %8, align 1
-  %9 = getelementptr inbounds i8, ptr %3, i64 6
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 6
   store i8 27, ptr %9, align 1
-  %10 = getelementptr inbounds i8, ptr %3, i64 7
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 7
   store i8 92, ptr %10, align 1
-  %11 = getelementptr inbounds i8, ptr %3, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i8 34, ptr %11, align 1
-  %12 = getelementptr inbounds i8, ptr %3, i64 9
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 9
   store i8 0, ptr %12, align 1
   %13 = icmp eq ptr %0, null
   br i1 %13, label %119, label %14
@@ -1379,7 +1379,7 @@ define dso_local ptr @devm_kasprintf_strarray(ptr noundef %0, ptr noundef %1, i6
 
 .thread5:                                         ; preds = %28, %13
   store ptr %11, ptr %4, align 8
-  %31 = getelementptr inbounds i8, ptr %4, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %2, ptr %31, align 8
   tail call void @devres_add(ptr noundef %0, ptr noundef nonnull %4) #17
   %32 = load ptr, ptr %4, align 8
@@ -1396,7 +1396,7 @@ declare dso_local noalias ptr @__devres_alloc_node(ptr noundef, i64 noundef, i32
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @devm_kfree_strarray(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #4 align 16 {
   %3 = load ptr, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = icmp eq ptr %3, null
   br i1 %6, label %16, label %7

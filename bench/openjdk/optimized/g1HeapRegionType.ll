@@ -58,7 +58,7 @@ switch.hole_check:                                ; preds = %1
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %6 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds [9 x ptr], ptr @switch.table._ZNK16G1HeapRegionType7get_strEv, i64 0, i64 %6
+  %switch.gep = getelementptr inbounds nuw [9 x ptr], ptr @switch.table._ZNK16G1HeapRegionType7get_strEv, i64 0, i64 %6
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -86,7 +86,7 @@ switch.hole_check:                                ; preds = %1
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %6 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds [9 x ptr], ptr @switch.table._ZNK16G1HeapRegionType13get_short_strEv, i64 0, i64 %6
+  %switch.gep = getelementptr inbounds nuw [9 x ptr], ptr @switch.table._ZNK16G1HeapRegionType13get_short_strEv, i64 0, i64 %6
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -111,7 +111,7 @@ switch.hole_check:                                ; preds = %1
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %6 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds [9 x i32], ptr @switch.table._ZN16G1HeapRegionType14get_trace_typeEv, i64 0, i64 %6
+  %switch.gep = getelementptr inbounds nuw [9 x i32], ptr @switch.table._ZN16G1HeapRegionType14get_trace_typeEv, i64 0, i64 %6
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }

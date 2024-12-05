@@ -413,12 +413,12 @@ define void @"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$c
 define void @"_ZN4core4iter6traits8iterator8Iterator9partition6extend28_$u7b$$u7b$closure$u7d$$u7d$17h12fa2257d0181c01E"(ptr align 8 %0, ptr align 8 %1, ptr align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { ptr, ptr }, align 8
   store ptr %1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %2, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = call zeroext i1 @"_ZN22cranelift_codegen_meta8gen_inst15gen_common_isle28_$u7b$$u7b$closure$u7d$$u7d$17h3a350f8d1ca0b04dE"(ptr nonnull align 1 %6, ptr nonnull align 8 %4)
   %.sink.in.idx = select i1 %7, i64 0, i64 8
-  %.sink.in = getelementptr inbounds i8, ptr %0, i64 %.sink.in.idx
+  %.sink.in = getelementptr inbounds nuw i8, ptr %0, i64 %.sink.in.idx
   %.sink = load ptr, ptr %.sink.in, align 8, !nonnull !3, !align !5, !noundef !3
   %8 = load ptr, ptr %4, align 8, !nonnull !3, !align !5, !noundef !3
   %9 = load ptr, ptr %5, align 8, !nonnull !3, !align !5, !noundef !3

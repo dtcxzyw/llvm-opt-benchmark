@@ -41,7 +41,7 @@ define dso_local i32 @lzma_stream_buffer_decode(ptr noundef %0, i32 noundef %1, 
 
 23:                                               ; preds = %20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %10, i8 0, i64 72, i1 false)
-  %24 = getelementptr inbounds i8, ptr %10, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 -1, ptr %24, align 8
   %25 = load i64, ptr %0, align 8
   %26 = call i32 @lzma_stream_decoder_init(ptr noundef nonnull %10, ptr noundef %2, i64 noundef %25, i32 noundef %1) #3
@@ -51,7 +51,7 @@ define dso_local i32 @lzma_stream_buffer_decode(ptr noundef %0, i32 noundef %1, 
 28:                                               ; preds = %23
   %29 = load i64, ptr %4, align 8
   %30 = load i64, ptr %7, align 8
-  %31 = getelementptr inbounds i8, ptr %10, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %32 = load ptr, ptr %31, align 8
   %33 = load ptr, ptr %10, align 8
   %34 = call i32 %32(ptr noundef %33, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, i64 noundef %5, ptr noundef %6, ptr noundef nonnull %7, i64 noundef %8, i32 noundef 3) #3
@@ -73,7 +73,7 @@ define dso_local i32 @lzma_stream_buffer_decode(ptr noundef %0, i32 noundef %1, 
   br label %45
 
 40:                                               ; preds = %36
-  %41 = getelementptr inbounds i8, ptr %10, i64 56
+  %41 = getelementptr inbounds nuw i8, ptr %10, i64 56
   %42 = load ptr, ptr %41, align 8
   %43 = load ptr, ptr %10, align 8
   %44 = call i32 %42(ptr noundef %43, ptr noundef nonnull %0, ptr noundef nonnull %11, i64 noundef 0) #3

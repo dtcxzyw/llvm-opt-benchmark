@@ -214,14 +214,14 @@ define internal i32 @dissect_lapsat(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %6, label %187, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void @col_set_str(ptr noundef %9, i32 noundef 34, ptr noundef nonnull @.str.77) #3
   %10 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #3
   %11 = lshr i8 %10, 2
   %12 = and i8 %11, 3
   %13 = and i8 %10, 2
-  %14 = getelementptr inbounds i8, ptr %1, i64 348
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 348
   %15 = load i32, ptr %14, align 4
   switch i32 %15, label %20 [
     i32 1, label %16
@@ -262,7 +262,7 @@ define internal i32 @dissect_lapsat(ptr noundef %0, ptr noundef %1, ptr noundef 
   %38 = tail call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %37, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #3
   %39 = load i32, ptr @hf_lapsat_addr_lfi, align 4
   %40 = tail call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %39, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #3
-  %41 = getelementptr inbounds i8, ptr %1, i64 408
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %42 = load ptr, ptr %41, align 8
   %43 = tail call noalias ptr @wmem_alloc(ptr noundef %42, i64 noundef 80) #3
   %44 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 1) #3
@@ -465,7 +465,7 @@ dissect_control.exit:                             ; preds = %80, %103, %107, %.s
   br i1 %148, label %149, label %179
 
 149:                                              ; preds = %146
-  %150 = getelementptr inbounds i8, ptr %1, i64 272
+  %150 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %151 = load i32, ptr %150, align 8
   %152 = lshr i8 %10, 4
   %.lobit111 = and i8 %152, 1
@@ -484,9 +484,9 @@ dissect_control.exit:                             ; preds = %80, %103, %107, %.s
   br i1 %.not112, label %174, label %163
 
 163:                                              ; preds = %149
-  %164 = getelementptr inbounds i8, ptr %1, i64 20
+  %164 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %165 = load i32, ptr %164, align 4
-  %166 = getelementptr inbounds i8, ptr %161, i64 40
+  %166 = getelementptr inbounds nuw i8, ptr %161, i64 40
   %167 = load i32, ptr %166, align 8
   %168 = icmp eq i32 %165, %167
   br i1 %168, label %169, label %174

@@ -220,7 +220,7 @@ sub_0:                                            ; preds = %if.then45
   br i1 %.not, label %sub_1, label %if.end49.tail
 
 sub_1:                                            ; preds = %sub_0
-  %3 = getelementptr inbounds i8, ptr %keyfile.0, i64 1
+  %3 = getelementptr inbounds nuw i8, ptr %keyfile.0, i64 1
   %4 = load i8, ptr %3, align 1
   %5 = icmp eq i8 %4, 0
   %6 = select i1 %5, ptr null, ptr %keyfile.0
@@ -245,7 +245,7 @@ if.end59:                                         ; preds = %if.end55
 
 land.lhs.true:                                    ; preds = %if.end59
   %9 = load ptr, ptr %call56, align 8
-  %challenge62 = getelementptr inbounds i8, ptr %9, i64 8
+  %challenge62 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %10 = load ptr, ptr %challenge62, align 8
   %call63 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %challenge.0) #4
   %conv = trunc i64 %call63 to i32

@@ -24,11 +24,11 @@ define internal void @opal_pointer_array_construct(ptr noundef initializes((16, 
   br label %5
 
 5:                                                ; preds = %4, %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr @opal_mutex_t_class, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store volatile i32 1, ptr %7, align 8
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_mutex_t_class, i64 40), align 8
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_mutex_t_class, i64 40), align 8
   %9 = load ptr, ptr %8, align 8
   %.not6.i = icmp eq ptr %9, null
   br i1 %.not6.i, label %opal_obj_run_constructors.exit, label %.lr.ph.i
@@ -37,30 +37,30 @@ define internal void @opal_pointer_array_construct(ptr noundef initializes((16, 
   %10 = phi ptr [ %12, %.lr.ph.i ], [ %9, %5 ]
   %.07.i = phi ptr [ %11, %.lr.ph.i ], [ %8, %5 ]
   tail call void %10(ptr noundef nonnull %6) #8
-  %11 = getelementptr inbounds i8, ptr %.07.i, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
   %12 = load ptr, ptr %11, align 8
   %.not.i = icmp eq ptr %12, null
   br i1 %.not.i, label %opal_obj_run_constructors.exit, label %.lr.ph.i, !llvm.loop !4
 
 opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %5
-  %13 = getelementptr inbounds i8, ptr %0, i64 80
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 0, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 84
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 84
   store i32 0, ptr %14, align 4
-  %15 = getelementptr inbounds i8, ptr %0, i64 88
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i32 0, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 92
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 92
   store i32 2147483647, ptr %16, align 4
-  %17 = getelementptr inbounds i8, ptr %0, i64 96
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i32 8, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 104
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, i8 0, i64 16, i1 false)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @opal_pointer_array_destruct(ptr noundef initializes((88, 92)) %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 104
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %4
@@ -71,7 +71,7 @@ define internal void @opal_pointer_array_destruct(ptr noundef initializes((88, 9
   br label %5
 
 5:                                                ; preds = %4, %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 112
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %7 = load ptr, ptr %6, align 8
   %.not9 = icmp eq ptr %7, null
   br i1 %.not9, label %9, label %8
@@ -82,11 +82,11 @@ define internal void @opal_pointer_array_destruct(ptr noundef initializes((88, 9
   br label %9
 
 9:                                                ; preds = %8, %5
-  %10 = getelementptr inbounds i8, ptr %0, i64 88
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i32 0, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 48
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %14, align 8
   %.not6.i = icmp eq ptr %15, null
@@ -96,7 +96,7 @@ define internal void @opal_pointer_array_destruct(ptr noundef initializes((88, 9
   %16 = phi ptr [ %18, %.lr.ph.i ], [ %15, %9 ]
   %.07.i = phi ptr [ %17, %.lr.ph.i ], [ %14, %9 ]
   tail call void %16(ptr noundef nonnull %11) #8
-  %17 = getelementptr inbounds i8, ptr %.07.i, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
   %18 = load ptr, ptr %17, align 8
   %.not.i = icmp eq ptr %18, null
   br i1 %.not.i, label %opal_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !6
@@ -113,19 +113,19 @@ define range(i32 -5, 1) i32 @opal_pointer_array_init(ptr noundef writeonly %0, i
   br i1 %or.cond, label %29, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 92
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 92
   store i32 %2, ptr %8, align 4
   %9 = icmp eq i32 %3, 0
   %10 = select i1 %9, i32 8, i32 %3
-  %11 = getelementptr inbounds i8, ptr %0, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i32 %10, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 80
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 0, ptr %12, align 8
   %13 = icmp sgt i32 %1, 0
   %14 = select i1 %13, i32 %1, i32 %3
   %15 = sext i32 %14 to i64
   %16 = tail call noalias ptr @calloc(i64 noundef %15, i64 noundef 8) #9
-  %17 = getelementptr inbounds i8, ptr %0, i64 112
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr %16, ptr %17, align 8
   %18 = icmp eq ptr %16, null
   br i1 %18, label %29, label %19
@@ -134,7 +134,7 @@ define range(i32 -5, 1) i32 @opal_pointer_array_init(ptr noundef writeonly %0, i
   %20 = add nsw i64 %15, 63
   %21 = lshr i64 %20, 6
   %22 = tail call noalias ptr @calloc(i64 noundef %21, i64 noundef 8) #9
-  %23 = getelementptr inbounds i8, ptr %0, i64 104
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr %22, ptr %23, align 8
   %24 = icmp eq ptr %22, null
   br i1 %24, label %25, label %26
@@ -145,9 +145,9 @@ define range(i32 -5, 1) i32 @opal_pointer_array_init(ptr noundef writeonly %0, i
   br label %29
 
 26:                                               ; preds = %19
-  %27 = getelementptr inbounds i8, ptr %0, i64 84
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 84
   store i32 %14, ptr %27, align 4
-  %28 = getelementptr inbounds i8, ptr %0, i64 88
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i32 %14, ptr %28, align 8
   br label %29
 
@@ -164,7 +164,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define i32 @opal_pointer_array_add(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 88
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %4 = load i32, ptr %3, align 8
   %5 = add nsw i32 %4, 1
   %6 = load i8, ptr @opal_uses_threads, align 1
@@ -172,12 +172,12 @@ define i32 @opal_pointer_array_add(ptr noundef %0, ptr noundef %1) local_unnamed
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %9) #8
   br label %11
 
 11:                                               ; preds = %2, %8
-  %12 = getelementptr inbounds i8, ptr %0, i64 84
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %13 = load i32, ptr %12, align 4
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %15, label %20
@@ -192,9 +192,9 @@ define i32 @opal_pointer_array_add(ptr noundef %0, ptr noundef %1) local_unnamed
   br i1 %19, label %.sink.split, label %79
 
 20:                                               ; preds = %15, %11
-  %21 = getelementptr inbounds i8, ptr %0, i64 80
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %22 = load i32, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 112
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %24 = load ptr, ptr %23, align 8
   %25 = sext i32 %22 to i64
   %26 = getelementptr inbounds ptr, ptr %24, i64 %25
@@ -206,10 +206,10 @@ define i32 @opal_pointer_array_add(ptr noundef %0, ptr noundef %1) local_unnamed
   %30 = and i32 %22, 63
   %31 = zext nneg i32 %30 to i64
   %32 = shl nuw i64 1, %31
-  %33 = getelementptr inbounds i8, ptr %0, i64 104
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %34 = load ptr, ptr %33, align 8
   %35 = zext nneg i32 %29 to i64
-  %36 = getelementptr inbounds i64, ptr %34, i64 %35
+  %36 = getelementptr inbounds nuw i64, ptr %34, i64 %35
   %37 = load i64, ptr %36, align 8
   %38 = or i64 %37, %32
   store i64 %38, ptr %36, align 8
@@ -224,7 +224,7 @@ define i32 @opal_pointer_array_add(ptr noundef %0, ptr noundef %1) local_unnamed
 42:                                               ; preds = %42, %.preheader
   %.059 = phi i32 [ %47, %42 ], [ %29, %.preheader ]
   %43 = zext i32 %.059 to i64
-  %44 = getelementptr inbounds i64, ptr %41, i64 %43
+  %44 = getelementptr inbounds nuw i64, ptr %41, i64 %43
   %45 = load i64, ptr %44, align 8
   %46 = icmp eq i64 %45, -1
   %47 = add i32 %.059, 1
@@ -280,7 +280,7 @@ define i32 @opal_pointer_array_add(ptr noundef %0, ptr noundef %1) local_unnamed
 
 .sink.split:                                      ; preds = %74, %17
   %.053.ph = phi i32 [ -2, %17 ], [ %22, %74 ]
-  %77 = getelementptr inbounds i8, ptr %0, i64 32
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %78 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %77) #8
   br label %79
 
@@ -291,13 +291,13 @@ define i32 @opal_pointer_array_add(ptr noundef %0, ptr noundef %1) local_unnamed
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef zeroext i1 @grow_table(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 96
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %4 = load i32, ptr %3, align 8
   %.fr46 = freeze i32 %4
   %5 = add i32 %.fr46, %1
   %6 = srem i32 %5, %.fr46
   %7 = sub nsw i32 %5, %6
-  %8 = getelementptr inbounds i8, ptr %0, i64 92
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %9 = load i32, ptr %8, align 4
   %.not = icmp slt i32 %7, %9
   br i1 %.not, label %11, label %10
@@ -308,7 +308,7 @@ define internal fastcc noundef zeroext i1 @grow_table(ptr nocapture noundef %0, 
 
 11:                                               ; preds = %10, %2
   %.039 = phi i32 [ %9, %10 ], [ %7, %2 ]
-  %12 = getelementptr inbounds i8, ptr %0, i64 112
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %13 = load ptr, ptr %12, align 8
   %14 = sext i32 %.039 to i64
   %15 = shl nsw i64 %14, 3
@@ -317,10 +317,10 @@ define internal fastcc noundef zeroext i1 @grow_table(ptr nocapture noundef %0, 
   br i1 %17, label %53, label %18
 
 18:                                               ; preds = %11
-  %19 = getelementptr inbounds i8, ptr %0, i64 88
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %20 = load i32, ptr %19, align 8
   %21 = sub i32 %.039, %20
-  %22 = getelementptr inbounds i8, ptr %0, i64 84
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %23 = load i32, ptr %22, align 4
   %24 = add nsw i32 %21, %23
   store i32 %24, ptr %22, align 4
@@ -358,7 +358,7 @@ define internal fastcc noundef zeroext i1 @grow_table(ptr nocapture noundef %0, 
   br i1 %.not48, label %.loopexit, label %37
 
 37:                                               ; preds = %._crit_edge
-  %38 = getelementptr inbounds i8, ptr %0, i64 104
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %39 = load ptr, ptr %38, align 8
   %sext = shl i64 %31, 32
   %40 = ashr exact i64 %sext, 29
@@ -412,12 +412,12 @@ define range(i32 -1, 1) i32 @opal_pointer_array_set_item(ptr noundef %0, i32 nou
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %9) #8
   br label %11
 
 11:                                               ; preds = %5, %8
-  %12 = getelementptr inbounds i8, ptr %0, i64 88
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %13 = load i32, ptr %12, align 8
   %.not = icmp sgt i32 %13, %1
   br i1 %.not, label %19, label %14
@@ -433,10 +433,10 @@ define range(i32 -1, 1) i32 @opal_pointer_array_set_item(ptr noundef %0, i32 nou
 
 19:                                               ; preds = %14, %11
   %20 = icmp eq ptr %2, null
-  %21 = getelementptr inbounds i8, ptr %0, i64 112
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %22 = load ptr, ptr %21, align 8
   %23 = zext nneg i32 %1 to i64
-  %24 = getelementptr inbounds ptr, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw ptr, ptr %22, i64 %23
   %25 = load ptr, ptr %24, align 8
   %.not77 = icmp eq ptr %25, null
   br i1 %20, label %26, label %46
@@ -445,7 +445,7 @@ define range(i32 -1, 1) i32 @opal_pointer_array_set_item(ptr noundef %0, i32 nou
   br i1 %.not77, label %100, label %27
 
 27:                                               ; preds = %26
-  %28 = getelementptr inbounds i8, ptr %0, i64 80
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %29 = load i32, ptr %28, align 8
   %30 = icmp slt i32 %1, %29
   br i1 %30, label %31, label %32
@@ -455,7 +455,7 @@ define range(i32 -1, 1) i32 @opal_pointer_array_set_item(ptr noundef %0, i32 nou
   br label %32
 
 32:                                               ; preds = %31, %27
-  %33 = getelementptr inbounds i8, ptr %0, i64 84
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %34 = load i32, ptr %33, align 4
   %35 = add nsw i32 %34, 1
   store i32 %35, ptr %33, align 4
@@ -463,10 +463,10 @@ define range(i32 -1, 1) i32 @opal_pointer_array_set_item(ptr noundef %0, i32 nou
   %37 = and i32 %1, 63
   %38 = zext nneg i32 %37 to i64
   %39 = shl nuw i64 1, %38
-  %40 = getelementptr inbounds i8, ptr %0, i64 104
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %41 = load ptr, ptr %40, align 8
   %42 = zext nneg i32 %36 to i64
-  %43 = getelementptr inbounds i64, ptr %41, i64 %42
+  %43 = getelementptr inbounds nuw i64, ptr %41, i64 %42
   %44 = load i64, ptr %43, align 8
   %45 = xor i64 %44, %39
   store i64 %45, ptr %43, align 8
@@ -476,7 +476,7 @@ define range(i32 -1, 1) i32 @opal_pointer_array_set_item(ptr noundef %0, i32 nou
   br i1 %.not77, label %47, label %100
 
 47:                                               ; preds = %46
-  %48 = getelementptr inbounds i8, ptr %0, i64 84
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %49 = load i32, ptr %48, align 4
   %50 = add nsw i32 %49, -1
   store i32 %50, ptr %48, align 4
@@ -484,14 +484,14 @@ define range(i32 -1, 1) i32 @opal_pointer_array_set_item(ptr noundef %0, i32 nou
   %52 = and i32 %1, 63
   %53 = zext nneg i32 %52 to i64
   %54 = shl nuw i64 1, %53
-  %55 = getelementptr inbounds i8, ptr %0, i64 104
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %56 = load ptr, ptr %55, align 8
   %57 = zext nneg i32 %51 to i64
-  %58 = getelementptr inbounds i64, ptr %56, i64 %57
+  %58 = getelementptr inbounds nuw i64, ptr %56, i64 %57
   %59 = load i64, ptr %58, align 8
   %60 = or i64 %59, %54
   store i64 %60, ptr %58, align 8
-  %61 = getelementptr inbounds i8, ptr %0, i64 80
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %62 = load i32, ptr %61, align 8
   %63 = icmp eq i32 %1, %62
   br i1 %63, label %64, label %100
@@ -513,7 +513,7 @@ define range(i32 -1, 1) i32 @opal_pointer_array_set_item(ptr noundef %0, i32 nou
 70:                                               ; preds = %70, %.preheader
   %.073 = phi i32 [ %75, %70 ], [ %51, %.preheader ]
   %71 = zext i32 %.073 to i64
-  %72 = getelementptr inbounds i64, ptr %67, i64 %71
+  %72 = getelementptr inbounds nuw i64, ptr %67, i64 %71
   %73 = load i64, ptr %72, align 8
   %74 = icmp eq i64 %73, -1
   %75 = add i32 %.073, 1
@@ -558,9 +558,9 @@ define range(i32 -1, 1) i32 @opal_pointer_array_set_item(ptr noundef %0, i32 nou
   br label %100
 
 100:                                              ; preds = %68, %76, %47, %46, %26, %32
-  %101 = getelementptr inbounds i8, ptr %0, i64 112
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %102 = load ptr, ptr %101, align 8
-  %103 = getelementptr inbounds ptr, ptr %102, i64 %23
+  %103 = getelementptr inbounds nuw ptr, ptr %102, i64 %23
   store ptr %2, ptr %103, align 8
   %104 = load i8, ptr @opal_uses_threads, align 1
   %105 = trunc i8 %104 to i1
@@ -568,7 +568,7 @@ define range(i32 -1, 1) i32 @opal_pointer_array_set_item(ptr noundef %0, i32 nou
 
 .sink.split:                                      ; preds = %100, %16
   %.067.ph = phi i32 [ -1, %16 ], [ 0, %100 ]
-  %106 = getelementptr inbounds i8, ptr %0, i64 32
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %107 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %106) #8
   br label %108
 
@@ -584,18 +584,18 @@ define noundef zeroext i1 @opal_pointer_array_test_and_set_item(ptr noundef %0, 
   br i1 %5, label %6, label %9
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %7) #8
   br label %9
 
 9:                                                ; preds = %3, %6
-  %10 = getelementptr inbounds i8, ptr %0, i64 88
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %11 = load i32, ptr %10, align 8
   %12 = icmp slt i32 %1, %11
   br i1 %12, label %13, label %22
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %0, i64 112
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %15 = load ptr, ptr %14, align 8
   %16 = sext i32 %1 to i64
   %17 = getelementptr inbounds ptr, ptr %15, i64 %16
@@ -613,7 +613,7 @@ define noundef zeroext i1 @opal_pointer_array_test_and_set_item(ptr noundef %0, 
   br i1 %23, label %..thread_crit_edge, label %24
 
 ..thread_crit_edge:                               ; preds = %22
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 112
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 112
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   %.pre71 = sext i32 %1 to i64
   br label %.thread
@@ -628,7 +628,7 @@ define noundef zeroext i1 @opal_pointer_array_test_and_set_item(ptr noundef %0, 
   %27 = phi ptr [ %.pre, %..thread_crit_edge ], [ %15, %13 ]
   %28 = getelementptr inbounds ptr, ptr %27, i64 %.pre-phi
   store ptr %2, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 84
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %30 = load i32, ptr %29, align 4
   %31 = add nsw i32 %30, -1
   store i32 %31, ptr %29, align 4
@@ -636,10 +636,10 @@ define noundef zeroext i1 @opal_pointer_array_test_and_set_item(ptr noundef %0, 
   %33 = and i32 %1, 63
   %34 = zext nneg i32 %33 to i64
   %35 = shl nuw i64 1, %34
-  %36 = getelementptr inbounds i8, ptr %0, i64 104
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %37 = load ptr, ptr %36, align 8
   %38 = zext nneg i32 %32 to i64
-  %39 = getelementptr inbounds i64, ptr %37, i64 %38
+  %39 = getelementptr inbounds nuw i64, ptr %37, i64 %38
   %40 = load i64, ptr %39, align 8
   %41 = or i64 %40, %35
   store i64 %41, ptr %39, align 8
@@ -648,7 +648,7 @@ define noundef zeroext i1 @opal_pointer_array_test_and_set_item(ptr noundef %0, 
   br i1 %43, label %44, label %79
 
 44:                                               ; preds = %.thread
-  %45 = getelementptr inbounds i8, ptr %0, i64 80
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %46 = load i32, ptr %45, align 8
   %47 = icmp eq i32 %1, %46
   br i1 %47, label %.preheader, label %82
@@ -660,7 +660,7 @@ define noundef zeroext i1 @opal_pointer_array_test_and_set_item(ptr noundef %0, 
 49:                                               ; preds = %49, %.preheader
   %.064 = phi i32 [ %54, %49 ], [ %32, %.preheader ]
   %50 = zext i32 %.064 to i64
-  %51 = getelementptr inbounds i64, ptr %48, i64 %50
+  %51 = getelementptr inbounds nuw i64, ptr %48, i64 %50
   %52 = load i64, ptr %51, align 8
   %53 = icmp eq i64 %52, -1
   %54 = add i32 %.064, 1
@@ -706,7 +706,7 @@ define noundef zeroext i1 @opal_pointer_array_test_and_set_item(ptr noundef %0, 
 
 79:                                               ; preds = %.thread
   %80 = load i32, ptr %10, align 8
-  %81 = getelementptr inbounds i8, ptr %0, i64 80
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 %80, ptr %81, align 8
   br label %82
 
@@ -717,7 +717,7 @@ define noundef zeroext i1 @opal_pointer_array_test_and_set_item(ptr noundef %0, 
 
 .sink.split:                                      ; preds = %82, %24, %19
   %.058.ph = phi i1 [ false, %19 ], [ false, %24 ], [ true, %82 ]
-  %85 = getelementptr inbounds i8, ptr %0, i64 32
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %86 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %85) #8
   br label %87
 
@@ -733,12 +733,12 @@ define range(i32 -1, 1) i32 @opal_pointer_array_set_size(ptr noundef %0, i32 nou
   br i1 %4, label %5, label %8
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %6) #8
   br label %8
 
 8:                                                ; preds = %2, %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 88
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %10 = load i32, ptr %9, align 8
   %11 = icmp sgt i32 %1, %10
   br i1 %11, label %12, label %._crit_edge
@@ -763,7 +763,7 @@ define range(i32 -1, 1) i32 @opal_pointer_array_set_size(ptr noundef %0, i32 nou
 
 .sink.split:                                      ; preds = %16, %14
   %.0.ph = phi i32 [ -1, %14 ], [ 0, %16 ]
-  %19 = getelementptr inbounds i8, ptr %0, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %20 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %19) #8
   br label %21
 

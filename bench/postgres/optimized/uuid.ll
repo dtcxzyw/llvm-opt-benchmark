@@ -22,18 +22,18 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @uuid_in(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca [3 x i8], align 2
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
   %5 = inttoptr i64 %4 to ptr
   %6 = tail call ptr @palloc(i64 noundef 16) #12
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %2)
   %9 = load i8, ptr %5, align 1
   %10 = icmp eq i8 %9, 123
   %spec.select.idx.i = zext i1 %10 to i64
   %spec.select.i = getelementptr i8, ptr %5, i64 %spec.select.idx.i
-  %11 = getelementptr inbounds i8, ptr %2, i64 2
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 2
   br label %12
 
 12:                                               ; preds = %46, %1
@@ -135,7 +135,7 @@ declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @uuid_out(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @palloc(i64 noundef 37) #12
@@ -185,7 +185,7 @@ define dso_local i64 @uuid_out(ptr nocapture noundef readonly %0) local_unnamed_
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @uuid_recv(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @palloc(i64 noundef 16) #12
@@ -203,7 +203,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @uuid_send(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca %struct.StringInfoData, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
   %5 = inttoptr i64 %4 to ptr
   call void @pq_begintypsend(ptr noundef nonnull %2) #12
@@ -221,7 +221,7 @@ declare ptr @pq_endtypsend(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local range(i64 0, 2) i64 @uuid_lt(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = getelementptr i8, ptr %0, i64 48
@@ -235,7 +235,7 @@ define dso_local range(i64 0, 2) i64 @uuid_lt(ptr nocapture noundef readonly %0)
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local range(i64 0, 2) i64 @uuid_le(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = getelementptr i8, ptr %0, i64 48
@@ -249,7 +249,7 @@ define dso_local range(i64 0, 2) i64 @uuid_le(ptr nocapture noundef readonly %0)
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local range(i64 0, 2) i64 @uuid_eq(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = getelementptr i8, ptr %0, i64 48
@@ -263,7 +263,7 @@ define dso_local range(i64 0, 2) i64 @uuid_eq(ptr nocapture noundef readonly %0)
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local range(i64 0, 2) i64 @uuid_ge(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = getelementptr i8, ptr %0, i64 48
@@ -277,7 +277,7 @@ define dso_local range(i64 0, 2) i64 @uuid_ge(ptr nocapture noundef readonly %0)
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local range(i64 0, 2) i64 @uuid_gt(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = getelementptr i8, ptr %0, i64 48
@@ -291,7 +291,7 @@ define dso_local range(i64 0, 2) i64 @uuid_gt(ptr nocapture noundef readonly %0)
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local range(i64 0, 2) i64 @uuid_ne(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = getelementptr i8, ptr %0, i64 48
@@ -305,7 +305,7 @@ define dso_local range(i64 0, 2) i64 @uuid_ne(ptr nocapture noundef readonly %0)
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local range(i64 -2147483648, 2147483648) i64 @uuid_cmp(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = getelementptr i8, ptr %0, i64 48
@@ -318,14 +318,14 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @uuid_cmp(ptr nocapture 
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @uuid_sortsupport(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = getelementptr inbounds i8, ptr %4, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr @uuid_fast_cmp, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr null, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %8 = load i8, ptr %7, align 8
   %9 = trunc i8 %8 to i1
   br i1 %9, label %10, label %19
@@ -336,17 +336,17 @@ define dso_local noundef i64 @uuid_sortsupport(ptr nocapture noundef readonly %0
   store ptr %11, ptr @CurrentMemoryContext, align 8
   %13 = tail call ptr @palloc(i64 noundef 56) #12
   store i64 0, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i8 1, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %13, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 16
   tail call void @initHyperLogLog(ptr noundef nonnull %15, i8 noundef zeroext 10) #12
   store ptr %13, ptr %6, align 8
   store ptr @ssup_datum_unsigned_cmp, ptr %5, align 8
-  %16 = getelementptr inbounds i8, ptr %4, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store ptr @uuid_abbrev_convert, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %4, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store ptr @uuid_abbrev_abort, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %4, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 56
   store ptr @uuid_fast_cmp, ptr %18, align 8
   store ptr %12, ptr @CurrentMemoryContext, align 8
   br label %19
@@ -369,14 +369,14 @@ declare i32 @ssup_datum_unsigned_cmp(i64 noundef, i64 noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
 define internal i64 @uuid_abbrev_convert(i64 noundef %0, ptr nocapture noundef readonly %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = inttoptr i64 %0 to ptr
   %.0.copyload = load i64, ptr %5, align 1
   %6 = load i64, ptr %4, align 8
   %7 = add i64 %6, 1
   store i64 %7, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %9 = load i8, ptr %8, align 8
   %10 = trunc i8 %9 to i1
   br i1 %10, label %11, label %17
@@ -385,7 +385,7 @@ define internal i64 @uuid_abbrev_convert(i64 noundef %0, ptr nocapture noundef r
   %12 = lshr i64 %.0.copyload, 32
   %13 = xor i64 %12, %.0.copyload
   %14 = trunc i64 %13 to i32
-  %15 = getelementptr inbounds i8, ptr %4, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %16 = tail call i32 @hash_bytes_uint32(i32 noundef %14) #12
   tail call void @addHyperLogLog(ptr noundef nonnull %15, i32 noundef %16) #12
   br label %17
@@ -397,7 +397,7 @@ define internal i64 @uuid_abbrev_convert(i64 noundef %0, ptr nocapture noundef r
 
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i1 @uuid_abbrev_abort(i32 noundef %0, ptr nocapture noundef readonly %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = icmp slt i32 %0, 10000
   br i1 %5, label %49, label %6
@@ -408,13 +408,13 @@ define internal noundef zeroext i1 @uuid_abbrev_abort(i32 noundef %0, ptr nocapt
   br i1 %8, label %49, label %9
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %11 = load i8, ptr %10, align 8
   %12 = trunc i8 %11 to i1
   br i1 %12, label %13, label %49
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %4, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %15 = tail call double @estimateHyperLogLog(ptr noundef nonnull %14) #12
   %16 = fcmp ogt double %15, 1.000000e+05
   br i1 %16, label %17, label %26
@@ -484,7 +484,7 @@ define internal noundef zeroext i1 @uuid_abbrev_abort(i32 noundef %0, ptr nocapt
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 0, 4294967296) i64 @uuid_hash(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call i32 @hash_bytes(ptr noundef %4, i32 noundef 16) #12
@@ -494,7 +494,7 @@ define dso_local range(i64 0, 4294967296) i64 @uuid_hash(ptr nocapture noundef r
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @uuid_hash_extended(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = getelementptr i8, ptr %0, i64 48

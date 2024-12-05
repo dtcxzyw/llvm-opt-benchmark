@@ -608,38 +608,38 @@ define range(i32 -1, 1) i32 @H5_trace_args(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %.not1741, label %.loopexit1624, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %.preheader1623
-  %8 = getelementptr inbounds i8, ptr %2, i64 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 16
-  %10 = getelementptr inbounds i8, ptr %2, i64 4
-  %11 = getelementptr inbounds i8, ptr %5, i64 4
-  %12 = getelementptr inbounds i8, ptr %5, i64 5
-  %13 = getelementptr inbounds i8, ptr %5, i64 6
-  %14 = getelementptr inbounds i8, ptr %5, i64 7
-  %15 = getelementptr inbounds i8, ptr %5, i64 1032
-  %16 = getelementptr inbounds i8, ptr %5, i64 1033
-  %17 = getelementptr inbounds i8, ptr %5, i64 1040
-  %18 = getelementptr inbounds i8, ptr %5, i64 1048
-  %19 = getelementptr inbounds i8, ptr %5, i64 1056
-  %20 = getelementptr inbounds i8, ptr %5, i64 1064
-  %21 = getelementptr inbounds i8, ptr %5, i64 1072
-  %22 = getelementptr inbounds i8, ptr %5, i64 1080
-  %23 = getelementptr inbounds i8, ptr %5, i64 1088
-  %24 = getelementptr inbounds i8, ptr %5, i64 1096
-  %25 = getelementptr inbounds i8, ptr %5, i64 1104
-  %26 = getelementptr inbounds i8, ptr %5, i64 1112
-  %27 = getelementptr inbounds i8, ptr %5, i64 1120
-  %28 = getelementptr inbounds i8, ptr %5, i64 1128
-  %29 = getelementptr inbounds i8, ptr %5, i64 1136
-  %30 = getelementptr inbounds i8, ptr %5, i64 1144
-  %31 = getelementptr inbounds i8, ptr %5, i64 1152
-  %32 = getelementptr inbounds i8, ptr %5, i64 1160
-  %33 = getelementptr inbounds i8, ptr %5, i64 1168
-  %34 = getelementptr inbounds i8, ptr %5, i64 1176
-  %35 = getelementptr inbounds i8, ptr %5, i64 1184
-  %36 = getelementptr inbounds i8, ptr %5, i64 1188
-  %37 = getelementptr inbounds i8, ptr %5, i64 1192
-  %38 = getelementptr inbounds i8, ptr %5, i64 1200
-  %39 = getelementptr inbounds i8, ptr %5, i64 1208
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 5
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 6
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 7
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 1032
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 1033
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 1040
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 1048
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 1056
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 1064
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 1072
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 1080
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 1088
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 1096
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 1104
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 1112
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 1120
+  %28 = getelementptr inbounds nuw i8, ptr %5, i64 1128
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 1136
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 1144
+  %31 = getelementptr inbounds nuw i8, ptr %5, i64 1152
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 1160
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 1168
+  %34 = getelementptr inbounds nuw i8, ptr %5, i64 1176
+  %35 = getelementptr inbounds nuw i8, ptr %5, i64 1184
+  %36 = getelementptr inbounds nuw i8, ptr %5, i64 1188
+  %37 = getelementptr inbounds nuw i8, ptr %5, i64 1192
+  %38 = getelementptr inbounds nuw i8, ptr %5, i64 1200
+  %39 = getelementptr inbounds nuw i8, ptr %5, i64 1208
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %H5_trace_args_close_degree.exit1619
@@ -659,28 +659,28 @@ define range(i32 -1, 1) i32 @H5_trace_args(ptr noundef %0, ptr noundef %1, ptr n
 
 43:                                               ; preds = %41
   %44 = add nuw nsw i32 %.01403, 1
-  %45 = getelementptr inbounds i8, ptr %.1, i64 1
+  %45 = getelementptr inbounds nuw i8, ptr %.1, i64 1
   %.pr = load i8, ptr %45, align 1
   br label %41
 
 46:                                               ; preds = %41
-  %47 = getelementptr inbounds i8, ptr %.1, i64 1
+  %47 = getelementptr inbounds nuw i8, ptr %.1, i64 1
   %48 = load i8, ptr %47, align 1
   %49 = icmp eq i8 %48, 97
   br i1 %49, label %50, label %56
 
 50:                                               ; preds = %46
-  %51 = getelementptr inbounds i8, ptr %.1, i64 2
+  %51 = getelementptr inbounds nuw i8, ptr %.1, i64 2
   %52 = call i64 @strtol(ptr noundef nonnull %51, ptr noundef nonnull %4, i32 noundef 10) #9
   %53 = trunc i64 %52 to i32
   %54 = load ptr, ptr %4, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 1
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 1
   br label %.loopexit
 
 56:                                               ; preds = %46
   %57 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.1, i32 noundef 93) #10
   store ptr %57, ptr %4, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 1
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 1
   br label %.loopexit
 
 .loopexit:                                        ; preds = %41, %50, %56
@@ -765,7 +765,7 @@ define range(i32 -1, 1) i32 @H5_trace_args(ptr noundef %0, ptr noundef %1, ptr n
 
 95:                                               ; preds = %92
   %96 = zext nneg i32 %.01404 to i64
-  %97 = getelementptr inbounds [16 x i64], ptr %3, i64 0, i64 %96
+  %97 = getelementptr inbounds nuw [16 x i64], ptr %3, i64 0, i64 %96
   %98 = load i64, ptr %97, align 8
   %99 = icmp sgt i64 %98, -1
   br i1 %99, label %100, label %H5_trace_args_close_degree.exit1619
@@ -777,7 +777,7 @@ define range(i32 -1, 1) i32 @H5_trace_args(ptr noundef %0, ptr noundef %1, ptr n
 
 .lr.ph1737:                                       ; preds = %100, %110
   %.114061735 = phi i64 [ %111, %110 ], [ 0, %100 ]
-  %102 = getelementptr inbounds i64, ptr %89, i64 %.114061735
+  %102 = getelementptr inbounds nuw i64, ptr %89, i64 %.114061735
   %103 = load i64, ptr %102, align 8
   %104 = icmp eq i64 %103, -1
   %.not1606 = icmp eq i64 %.114061735, 0
@@ -802,7 +802,7 @@ define range(i32 -1, 1) i32 @H5_trace_args(ptr noundef %0, ptr noundef %1, ptr n
   br label %H5_trace_args_close_degree.exit1619
 
 113:                                              ; preds = %90
-  %114 = getelementptr inbounds i8, ptr %.2, i64 1
+  %114 = getelementptr inbounds nuw i8, ptr %.2, i64 1
   %115 = load i8, ptr %114, align 1
   %116 = icmp eq i8 %115, 115
   %117 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef nonnull %89) #9
@@ -812,7 +812,7 @@ define range(i32 -1, 1) i32 @H5_trace_args(ptr noundef %0, ptr noundef %1, ptr n
 
 119:                                              ; preds = %113
   %120 = zext nneg i32 %.01404 to i64
-  %121 = getelementptr inbounds [16 x i64], ptr %3, i64 0, i64 %120
+  %121 = getelementptr inbounds nuw [16 x i64], ptr %3, i64 0, i64 %120
   %122 = load i64, ptr %121, align 8
   %123 = icmp sgt i64 %122, -1
   br i1 %123, label %124, label %H5_trace_args_close_degree.exit1619
@@ -826,7 +826,7 @@ define range(i32 -1, 1) i32 @H5_trace_args(ptr noundef %0, ptr noundef %1, ptr n
   %.214071731 = phi i64 [ %130, %.lr.ph1733 ], [ 0, %124 ]
   %.not1604 = icmp eq i64 %.214071731, 0
   %126 = select i1 %.not1604, ptr @.str.2, ptr @.str.1
-  %127 = getelementptr inbounds i64, ptr %89, i64 %.214071731
+  %127 = getelementptr inbounds nuw i64, ptr %89, i64 %.214071731
   %128 = load i64, ptr %127, align 8
   %129 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %0, ptr noundef nonnull @.str.8, ptr noundef nonnull %126, i64 noundef %128) #9
   %130 = add nuw nsw i64 %.214071731, 1
@@ -838,7 +838,7 @@ define range(i32 -1, 1) i32 @H5_trace_args(ptr noundef %0, ptr noundef %1, ptr n
   br label %H5_trace_args_close_degree.exit1619
 
 132:                                              ; preds = %90
-  %133 = getelementptr inbounds i8, ptr %.2, i64 1
+  %133 = getelementptr inbounds nuw i8, ptr %.2, i64 1
   %134 = load i8, ptr %133, align 1
   %135 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef nonnull %89) #9
   switch i8 %134, label %H5_trace_args_close_degree.exit1619 [
@@ -852,7 +852,7 @@ define range(i32 -1, 1) i32 @H5_trace_args(ptr noundef %0, ptr noundef %1, ptr n
 
 138:                                              ; preds = %136
   %139 = zext nneg i32 %.01404 to i64
-  %140 = getelementptr inbounds [16 x i64], ptr %3, i64 0, i64 %139
+  %140 = getelementptr inbounds nuw [16 x i64], ptr %3, i64 0, i64 %139
   %141 = load i64, ptr %140, align 8
   %142 = icmp sgt i64 %141, -1
   br i1 %142, label %143, label %H5_trace_args_close_degree.exit1619
@@ -866,7 +866,7 @@ define range(i32 -1, 1) i32 @H5_trace_args(ptr noundef %0, ptr noundef %1, ptr n
   %.31727 = phi i64 [ %149, %.lr.ph1729 ], [ 0, %143 ]
   %.not1603 = icmp eq i64 %.31727, 0
   %145 = select i1 %.not1603, ptr @.str.2, ptr @.str.1
-  %146 = getelementptr inbounds i32, ptr %89, i64 %.31727
+  %146 = getelementptr inbounds nuw i32, ptr %89, i64 %.31727
   %147 = load i32, ptr %146, align 4
   %148 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %0, ptr noundef nonnull @.str.9, ptr noundef nonnull %145, i32 noundef %147) #9
   %149 = add nuw nsw i64 %.31727, 1
@@ -883,7 +883,7 @@ define range(i32 -1, 1) i32 @H5_trace_args(ptr noundef %0, ptr noundef %1, ptr n
 
 153:                                              ; preds = %151
   %154 = zext nneg i32 %.01404 to i64
-  %155 = getelementptr inbounds [16 x i64], ptr %3, i64 0, i64 %154
+  %155 = getelementptr inbounds nuw [16 x i64], ptr %3, i64 0, i64 %154
   %156 = load i64, ptr %155, align 8
   %157 = icmp sgt i64 %156, -1
   br i1 %157, label %158, label %H5_trace_args_close_degree.exit1619
@@ -897,7 +897,7 @@ define range(i32 -1, 1) i32 @H5_trace_args(ptr noundef %0, ptr noundef %1, ptr n
   %.41723 = phi i64 [ %164, %.lr.ph1725 ], [ 0, %158 ]
   %.not1602 = icmp eq i64 %.41723, 0
   %160 = select i1 %.not1602, ptr @.str.2, ptr @.str.1
-  %161 = getelementptr inbounds i32, ptr %89, i64 %.41723
+  %161 = getelementptr inbounds nuw i32, ptr %89, i64 %.41723
   %162 = load i32, ptr %161, align 4
   %163 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %0, ptr noundef nonnull @.str.10, ptr noundef nonnull %160, i32 noundef %162) #9
   %164 = add nuw nsw i64 %.41723, 1
@@ -921,7 +921,7 @@ define range(i32 -1, 1) i32 @H5_trace_args(ptr noundef %0, ptr noundef %1, ptr n
   br label %H5_trace_args_close_degree.exit1619
 
 171:                                              ; preds = %90
-  %172 = getelementptr inbounds i8, ptr %.2, i64 1
+  %172 = getelementptr inbounds nuw i8, ptr %.2, i64 1
   %173 = load i8, ptr %172, align 1
   %174 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef nonnull %89) #9
   switch i8 %173, label %H5_trace_args_close_degree.exit1619 [
@@ -935,7 +935,7 @@ define range(i32 -1, 1) i32 @H5_trace_args(ptr noundef %0, ptr noundef %1, ptr n
 
 177:                                              ; preds = %175
   %178 = zext nneg i32 %.01404 to i64
-  %179 = getelementptr inbounds [16 x i64], ptr %3, i64 0, i64 %178
+  %179 = getelementptr inbounds nuw [16 x i64], ptr %3, i64 0, i64 %178
   %180 = load i64, ptr %179, align 8
   %181 = icmp sgt i64 %180, -1
   br i1 %181, label %182, label %H5_trace_args_close_degree.exit1619
@@ -949,7 +949,7 @@ define range(i32 -1, 1) i32 @H5_trace_args(ptr noundef %0, ptr noundef %1, ptr n
   %.51719 = phi i64 [ %188, %.lr.ph1721 ], [ 0, %182 ]
   %.not1600 = icmp eq i64 %.51719, 0
   %184 = select i1 %.not1600, ptr @.str.2, ptr @.str.1
-  %185 = getelementptr inbounds i64, ptr %89, i64 %.51719
+  %185 = getelementptr inbounds nuw i64, ptr %89, i64 %.51719
   %186 = load i64, ptr %185, align 8
   %187 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %0, ptr noundef nonnull @.str.6, ptr noundef nonnull %184, i64 noundef %186) #9
   %188 = add nuw nsw i64 %.51719, 1
@@ -966,7 +966,7 @@ define range(i32 -1, 1) i32 @H5_trace_args(ptr noundef %0, ptr noundef %1, ptr n
 
 192:                                              ; preds = %190
   %193 = zext nneg i32 %.01404 to i64
-  %194 = getelementptr inbounds [16 x i64], ptr %3, i64 0, i64 %193
+  %194 = getelementptr inbounds nuw [16 x i64], ptr %3, i64 0, i64 %193
   %195 = load i64, ptr %194, align 8
   %196 = icmp sgt i64 %195, -1
   br i1 %196, label %197, label %H5_trace_args_close_degree.exit1619
@@ -980,7 +980,7 @@ define range(i32 -1, 1) i32 @H5_trace_args(ptr noundef %0, ptr noundef %1, ptr n
   %.61715 = phi i64 [ %203, %.lr.ph1717 ], [ 0, %197 ]
   %.not1599 = icmp eq i64 %.61715, 0
   %199 = select i1 %.not1599, ptr @.str.2, ptr @.str.1
-  %200 = getelementptr inbounds i64, ptr %89, i64 %.61715
+  %200 = getelementptr inbounds nuw i64, ptr %89, i64 %.61715
   %201 = load i64, ptr %200, align 8
   %202 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %0, ptr noundef nonnull @.str.12, ptr noundef nonnull %199, i64 noundef %201) #9
   %203 = add nuw nsw i64 %.61715, 1
@@ -998,7 +998,7 @@ define range(i32 -1, 1) i32 @H5_trace_args(ptr noundef %0, ptr noundef %1, ptr n
 
 208:                                              ; preds = %205
   %209 = zext nneg i32 %.01404 to i64
-  %210 = getelementptr inbounds [16 x i64], ptr %3, i64 0, i64 %209
+  %210 = getelementptr inbounds nuw [16 x i64], ptr %3, i64 0, i64 %209
   %211 = load i64, ptr %210, align 8
   %212 = icmp sgt i64 %211, -1
   br i1 %212, label %213, label %H5_trace_args_close_degree.exit1619
@@ -1010,7 +1010,7 @@ define range(i32 -1, 1) i32 @H5_trace_args(ptr noundef %0, ptr noundef %1, ptr n
 
 .lr.ph1713:                                       ; preds = %213, %222
   %.71711 = phi i64 [ %223, %222 ], [ 0, %213 ]
-  %215 = getelementptr inbounds ptr, ptr %89, i64 %.71711
+  %215 = getelementptr inbounds nuw ptr, ptr %89, i64 %.71711
   %216 = load ptr, ptr %215, align 8
   %.not1596 = icmp eq ptr %216, null
   %.not1597 = icmp eq i64 %.71711, 0
@@ -1041,7 +1041,7 @@ define range(i32 -1, 1) i32 @H5_trace_args(ptr noundef %0, ptr noundef %1, ptr n
 
 228:                                              ; preds = %225
   %229 = zext nneg i32 %.01404 to i64
-  %230 = getelementptr inbounds [16 x i64], ptr %3, i64 0, i64 %229
+  %230 = getelementptr inbounds nuw [16 x i64], ptr %3, i64 0, i64 %229
   %231 = load i64, ptr %230, align 8
   %232 = icmp sgt i64 %231, -1
   br i1 %232, label %233, label %H5_trace_args_close_degree.exit1619
@@ -1055,7 +1055,7 @@ define range(i32 -1, 1) i32 @H5_trace_args(ptr noundef %0, ptr noundef %1, ptr n
   %.81707 = phi i64 [ %239, %.lr.ph1709 ], [ 0, %233 ]
   %.not1595 = icmp eq i64 %.81707, 0
   %235 = select i1 %.not1595, ptr @.str.2, ptr @.str.1
-  %236 = getelementptr inbounds i64, ptr %89, i64 %.81707
+  %236 = getelementptr inbounds nuw i64, ptr %89, i64 %.81707
   %237 = load i64, ptr %236, align 8
   %238 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %0, ptr noundef nonnull @.str.15, ptr noundef nonnull %235, i64 noundef %237) #9
   %239 = add nuw nsw i64 %.81707, 1
@@ -1067,7 +1067,7 @@ define range(i32 -1, 1) i32 @H5_trace_args(ptr noundef %0, ptr noundef %1, ptr n
   br label %H5_trace_args_close_degree.exit1619
 
 241:                                              ; preds = %90
-  %242 = getelementptr inbounds i8, ptr %.2, i64 1
+  %242 = getelementptr inbounds nuw i8, ptr %.2, i64 1
   %243 = load i8, ptr %242, align 1
   %244 = icmp eq i8 %243, 115
   %245 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef nonnull %89) #9
@@ -1077,7 +1077,7 @@ define range(i32 -1, 1) i32 @H5_trace_args(ptr noundef %0, ptr noundef %1, ptr n
 
 247:                                              ; preds = %241
   %248 = zext nneg i32 %.01404 to i64
-  %249 = getelementptr inbounds [16 x i64], ptr %3, i64 0, i64 %248
+  %249 = getelementptr inbounds nuw [16 x i64], ptr %3, i64 0, i64 %248
   %250 = load i64, ptr %249, align 8
   %251 = icmp sgt i64 %250, -1
   br i1 %251, label %252, label %H5_trace_args_close_degree.exit1619
@@ -1091,7 +1091,7 @@ define range(i32 -1, 1) i32 @H5_trace_args(ptr noundef %0, ptr noundef %1, ptr n
   %.91706 = phi i64 [ %258, %.lr.ph ], [ 0, %252 ]
   %.not1594 = icmp eq i64 %.91706, 0
   %254 = select i1 %.not1594, ptr @.str.2, ptr @.str.1
-  %255 = getelementptr inbounds i64, ptr %89, i64 %.91706
+  %255 = getelementptr inbounds nuw i64, ptr %89, i64 %.91706
   %256 = load i64, ptr %255, align 8
   %257 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %0, ptr noundef nonnull @.str.16, ptr noundef nonnull %254, i64 noundef %256) #9
   %258 = add nuw nsw i64 %.91706, 1
@@ -1181,7 +1181,7 @@ define range(i32 -1, 1) i32 @H5_trace_args(ptr noundef %0, ptr noundef %1, ptr n
   br label %H5_trace_args_close_degree.exit1619
 
 284:                                              ; preds = %264
-  %285 = getelementptr inbounds i8, ptr %.2, i64 1
+  %285 = getelementptr inbounds nuw i8, ptr %.2, i64 1
   %286 = load i8, ptr %285, align 1
   switch i8 %286, label %325 [
     i8 105, label %287
@@ -1194,11 +1194,11 @@ define range(i32 -1, 1) i32 @H5_trace_args(ptr noundef %0, ptr noundef %1, ptr n
   %289 = getelementptr i8, ptr %288, i64 24
   store ptr %289, ptr %8, align 8
   %.sroa.0339.0.copyload = load i8, ptr %288, align 8
-  %.sroa.2341.0..sroa_idx = getelementptr inbounds i8, ptr %288, i64 4
+  %.sroa.2341.0..sroa_idx = getelementptr inbounds nuw i8, ptr %288, i64 4
   %.sroa.2341.0.copyload = load i32, ptr %.sroa.2341.0..sroa_idx, align 4
-  %.sroa.3342.0..sroa_idx = getelementptr inbounds i8, ptr %288, i64 8
+  %.sroa.3342.0..sroa_idx = getelementptr inbounds nuw i8, ptr %288, i64 8
   %.sroa.3342.0.copyload = load i32, ptr %.sroa.3342.0..sroa_idx, align 8
-  %.sroa.4344.0..sroa_idx = getelementptr inbounds i8, ptr %288, i64 16
+  %.sroa.4344.0..sroa_idx = getelementptr inbounds nuw i8, ptr %288, i64 16
   %.sroa.4344.0.copyload = load i64, ptr %.sroa.4344.0..sroa_idx, align 8
   %290 = call i32 @H5RS_acat(ptr noundef %0, ptr noundef nonnull @.str.20) #9
   %291 = trunc i8 %.sroa.0339.0.copyload to i1
@@ -1292,7 +1292,7 @@ define range(i32 -1, 1) i32 @H5_trace_args(ptr noundef %0, ptr noundef %1, ptr n
   br label %H5_trace_args_close_degree.exit1619
 
 343:                                              ; preds = %264
-  %344 = getelementptr inbounds i8, ptr %.2, i64 1
+  %344 = getelementptr inbounds nuw i8, ptr %.2, i64 1
   %345 = load i8, ptr %344, align 1
   switch i8 %345, label %466 [
     i8 99, label %346
@@ -1471,11 +1471,11 @@ define range(i32 -1, 1) i32 @H5_trace_args(ptr noundef %0, ptr noundef %1, ptr n
 456:                                              ; preds = %453, %448
   %457 = phi ptr [ %451, %448 ], [ %454, %453 ]
   %.sroa.0331.0.copyload = load i32, ptr %457, align 4
-  %.sroa.2332.0..sroa_idx = getelementptr inbounds i8, ptr %457, i64 4
+  %.sroa.2332.0..sroa_idx = getelementptr inbounds nuw i8, ptr %457, i64 4
   %.sroa.2332.0.copyload = load i8, ptr %.sroa.2332.0..sroa_idx, align 4
-  %.sroa.3333.0..sroa_idx = getelementptr inbounds i8, ptr %457, i64 5
+  %.sroa.3333.0..sroa_idx = getelementptr inbounds nuw i8, ptr %457, i64 5
   %.sroa.3333.0.copyload = load i8, ptr %.sroa.3333.0..sroa_idx, align 1
-  %.sroa.4335.0..sroa_idx = getelementptr inbounds i8, ptr %457, i64 8
+  %.sroa.4335.0..sroa_idx = getelementptr inbounds nuw i8, ptr %457, i64 8
   %.sroa.4335.0.copyload = load i32, ptr %.sroa.4335.0..sroa_idx, align 4
   %458 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %0, ptr noundef nonnull @.str.24, i32 noundef %.sroa.0331.0.copyload) #9
   %459 = trunc i8 %.sroa.2332.0.copyload to i1
@@ -1520,7 +1520,7 @@ define range(i32 -1, 1) i32 @H5_trace_args(ptr noundef %0, ptr noundef %1, ptr n
   br label %H5_trace_args_close_degree.exit1619
 
 484:                                              ; preds = %264
-  %485 = getelementptr inbounds i8, ptr %.2, i64 1
+  %485 = getelementptr inbounds nuw i8, ptr %.2, i64 1
   %486 = load i8, ptr %485, align 1
   switch i8 %486, label %962 [
     i8 97, label %487
@@ -1940,17 +1940,17 @@ define range(i32 -1, 1) i32 @H5_trace_args(ptr noundef %0, ptr noundef %1, ptr n
   %690 = getelementptr i8, ptr %689, i64 56
   store ptr %690, ptr %8, align 8
   %.sroa.0307.0.copyload = load ptr, ptr %689, align 8
-  %.sroa.2308.0..sroa_idx = getelementptr inbounds i8, ptr %689, i64 8
+  %.sroa.2308.0..sroa_idx = getelementptr inbounds nuw i8, ptr %689, i64 8
   %.sroa.2308.0.copyload = load ptr, ptr %.sroa.2308.0..sroa_idx, align 8
-  %.sroa.3309.0..sroa_idx = getelementptr inbounds i8, ptr %689, i64 16
+  %.sroa.3309.0..sroa_idx = getelementptr inbounds nuw i8, ptr %689, i64 16
   %.sroa.3309.0.copyload = load ptr, ptr %.sroa.3309.0..sroa_idx, align 8
-  %.sroa.4310.0..sroa_idx = getelementptr inbounds i8, ptr %689, i64 24
+  %.sroa.4310.0..sroa_idx = getelementptr inbounds nuw i8, ptr %689, i64 24
   %.sroa.4310.0.copyload = load ptr, ptr %.sroa.4310.0..sroa_idx, align 8
-  %.sroa.5311.0..sroa_idx = getelementptr inbounds i8, ptr %689, i64 32
+  %.sroa.5311.0..sroa_idx = getelementptr inbounds nuw i8, ptr %689, i64 32
   %.sroa.5311.0.copyload = load ptr, ptr %.sroa.5311.0..sroa_idx, align 8
-  %.sroa.6312.0..sroa_idx = getelementptr inbounds i8, ptr %689, i64 40
+  %.sroa.6312.0..sroa_idx = getelementptr inbounds nuw i8, ptr %689, i64 40
   %.sroa.6312.0.copyload = load ptr, ptr %.sroa.6312.0..sroa_idx, align 8
-  %.sroa.7313.0..sroa_idx = getelementptr inbounds i8, ptr %689, i64 48
+  %.sroa.7313.0..sroa_idx = getelementptr inbounds nuw i8, ptr %689, i64 48
   %.sroa.7313.0.copyload = load ptr, ptr %.sroa.7313.0..sroa_idx, align 8
   %691 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %0, ptr noundef nonnull @.str.70, ptr noundef %.sroa.0307.0.copyload) #9
   %692 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %0, ptr noundef nonnull @.str.71, ptr noundef %.sroa.2308.0.copyload) #9
@@ -2522,7 +2522,7 @@ define range(i32 -1, 1) i32 @H5_trace_args(ptr noundef %0, ptr noundef %1, ptr n
   br label %H5_trace_args_close_degree.exit1619
 
 984:                                              ; preds = %264
-  %985 = getelementptr inbounds i8, ptr %.2, i64 1
+  %985 = getelementptr inbounds nuw i8, ptr %.2, i64 1
   %986 = load i8, ptr %985, align 1
   switch i8 %986, label %1129 [
     i8 97, label %987
@@ -2796,7 +2796,7 @@ define range(i32 -1, 1) i32 @H5_trace_args(ptr noundef %0, ptr noundef %1, ptr n
   br label %.loopexit1624
 
 1132:                                             ; preds = %264
-  %1133 = getelementptr inbounds i8, ptr %.2, i64 1
+  %1133 = getelementptr inbounds nuw i8, ptr %.2, i64 1
   %1134 = load i8, ptr %1133, align 1
   switch i8 %1134, label %1332 [
     i8 67, label %1135
@@ -2814,11 +2814,11 @@ define range(i32 -1, 1) i32 @H5_trace_args(ptr noundef %0, ptr noundef %1, ptr n
   %1136 = load ptr, ptr %8, align 8
   %1137 = getelementptr i8, ptr %1136, i64 336
   store ptr %1137, ptr %8, align 8
-  %.sroa.1.0..sroa_idx = getelementptr inbounds i8, ptr %1136, i64 8
+  %.sroa.1.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1136, i64 8
   %.sroa.1.0.copyload = load ptr, ptr %.sroa.1.0..sroa_idx, align 8
-  %.sroa.2262.0..sroa_idx = getelementptr inbounds i8, ptr %1136, i64 16
+  %.sroa.2262.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1136, i64 16
   %.sroa.2262.0.copyload = load i64, ptr %.sroa.2262.0..sroa_idx, align 8
-  %.sroa.3263.0..sroa_idx = getelementptr inbounds i8, ptr %1136, i64 24
+  %.sroa.3263.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1136, i64 24
   %.sroa.3263.0.copyload = load i32, ptr %.sroa.3263.0..sroa_idx, align 8
   %1138 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %0, ptr noundef nonnull @.str.128, ptr noundef %.sroa.1.0.copyload, i64 noundef %.sroa.2262.0.copyload) #9
   switch i32 %.sroa.3263.0.copyload, label %1147 [
@@ -2983,23 +2983,23 @@ H5_trace_args_close_degree.exit:                  ; preds = %1139, %1141, %1143,
   %1218 = getelementptr i8, ptr %1217, i64 80
   store ptr %1218, ptr %8, align 8
   %.sroa.0249.0.copyload = load i32, ptr %1217, align 8
-  %.sroa.2250.0..sroa_idx = getelementptr inbounds i8, ptr %1217, i64 8
+  %.sroa.2250.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1217, i64 8
   %.sroa.2250.0.copyload = load i64, ptr %.sroa.2250.0..sroa_idx, align 8
-  %.sroa.3251.0..sroa_idx = getelementptr inbounds i8, ptr %1217, i64 16
+  %.sroa.3251.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1217, i64 16
   %.sroa.3251.0.copyload = load i64, ptr %.sroa.3251.0..sroa_idx, align 8
-  %.sroa.4252.0..sroa_idx = getelementptr inbounds i8, ptr %1217, i64 24
+  %.sroa.4252.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1217, i64 24
   %.sroa.4252.0.copyload = load i32, ptr %.sroa.4252.0..sroa_idx, align 8
-  %.sroa.5254.0..sroa_idx = getelementptr inbounds i8, ptr %1217, i64 32
+  %.sroa.5254.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1217, i64 32
   %.sroa.5254.0.copyload = load i64, ptr %.sroa.5254.0..sroa_idx, align 8
-  %.sroa.6255.0..sroa_idx = getelementptr inbounds i8, ptr %1217, i64 40
+  %.sroa.6255.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1217, i64 40
   %.sroa.6255.0.copyload = load i64, ptr %.sroa.6255.0..sroa_idx, align 8
-  %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %1217, i64 48
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1217, i64 48
   %.sroa.7.0.copyload = load i32, ptr %.sroa.7.0..sroa_idx, align 8
-  %.sroa.8256.0..sroa_idx = getelementptr inbounds i8, ptr %1217, i64 56
+  %.sroa.8256.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1217, i64 56
   %.sroa.8256.0.copyload = load i64, ptr %.sroa.8256.0..sroa_idx, align 8
-  %.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %1217, i64 64
+  %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1217, i64 64
   %.sroa.9.0.copyload = load i64, ptr %.sroa.9.0..sroa_idx, align 8
-  %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %1217, i64 72
+  %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1217, i64 72
   %.sroa.10.0.copyload = load i64, ptr %.sroa.10.0..sroa_idx, align 8
   %1219 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %0, ptr noundef nonnull @.str.134, i32 noundef %.sroa.0249.0.copyload, i64 noundef %.sroa.2250.0.copyload, i64 noundef %.sroa.3251.0.copyload) #9
   %1220 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %0, ptr noundef nonnull @.str.135, i32 noundef %.sroa.4252.0.copyload, i64 noundef %.sroa.5254.0.copyload, i64 noundef %.sroa.6255.0.copyload) #9
@@ -3237,7 +3237,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1139, %1141, %1143,
   br label %.loopexit1624
 
 1335:                                             ; preds = %264
-  %1336 = getelementptr inbounds i8, ptr %.2, i64 1
+  %1336 = getelementptr inbounds nuw i8, ptr %.2, i64 1
   %1337 = load i8, ptr %1336, align 1
   switch i8 %1337, label %1422 [
     i8 105, label %1338
@@ -3276,11 +3276,11 @@ H5_trace_args_close_degree.exit:                  ; preds = %1139, %1141, %1143,
   %1355 = getelementptr i8, ptr %1354, i64 32
   store ptr %1355, ptr %8, align 8
   %.sroa.0.0.copyload = load i32, ptr %1354, align 8
-  %.sroa.3239.0..sroa_idx = getelementptr inbounds i8, ptr %1354, i64 8
+  %.sroa.3239.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1354, i64 8
   %.sroa.3239.0.copyload = load i64, ptr %.sroa.3239.0..sroa_idx, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %1354, i64 16
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1354, i64 16
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %1354, i64 24
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1354, i64 24
   %.sroa.5.0.copyload = load i8, ptr %.sroa.5.0..sroa_idx, align 8
   %1356 = call i32 @H5RS_acat(ptr noundef %0, ptr noundef nonnull @.str.20) #9
   switch i32 %.sroa.0.0.copyload, label %1365 [
@@ -3450,12 +3450,12 @@ H5_trace_args_close_degree.exit:                  ; preds = %1139, %1141, %1143,
 
 1442:                                             ; preds = %1436
   %1443 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %0, ptr noundef nonnull @.str.18, i64 noundef %1438) #9
-  %1444 = getelementptr inbounds [16 x i64], ptr %3, i64 0, i64 %indvars.iv1826
+  %1444 = getelementptr inbounds nuw [16 x i64], ptr %3, i64 0, i64 %indvars.iv1826
   store i64 %1438, ptr %1444, align 8
   br label %H5_trace_args_close_degree.exit1619
 
 1445:                                             ; preds = %264
-  %1446 = getelementptr inbounds i8, ptr %.2, i64 1
+  %1446 = getelementptr inbounds nuw i8, ptr %.2, i64 1
   %1447 = load i8, ptr %1446, align 1
   switch i8 %1447, label %1479 [
     i8 99, label %1448
@@ -3510,7 +3510,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1139, %1141, %1143,
   %1475 = phi ptr [ %1469, %1466 ], [ %1472, %1471 ]
   %1476 = load i64, ptr %1475, align 8
   %1477 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %0, ptr noundef nonnull @.str.32, i64 noundef %1476) #9
-  %1478 = getelementptr inbounds [16 x i64], ptr %3, i64 0, i64 %indvars.iv1826
+  %1478 = getelementptr inbounds nuw [16 x i64], ptr %3, i64 0, i64 %indvars.iv1826
   store i64 %1476, ptr %1478, align 8
   br label %H5_trace_args_close_degree.exit1619
 
@@ -4019,7 +4019,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1139, %1141, %1143,
 1748:                                             ; preds = %1745
   %1749 = call i32 @H5S_get_simple_extent_ndims(ptr noundef nonnull %1744) #9
   %1750 = sext i32 %1749 to i64
-  %1751 = getelementptr inbounds [16 x i64], ptr %3, i64 0, i64 %indvars.iv1826
+  %1751 = getelementptr inbounds nuw [16 x i64], ptr %3, i64 0, i64 %indvars.iv1826
   store i64 %1750, ptr %1751, align 8
   br label %H5_trace_args_close_degree.exit1619
 
@@ -4080,7 +4080,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1139, %1141, %1143,
   br label %H5_trace_args_close_degree.exit1619
 
 1780:                                             ; preds = %264
-  %1781 = getelementptr inbounds i8, ptr %.2, i64 1
+  %1781 = getelementptr inbounds nuw i8, ptr %.2, i64 1
   %1782 = load i8, ptr %1781, align 1
   switch i8 %1782, label %1999 [
     i8 68, label %1783
@@ -4324,7 +4324,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1139, %1141, %1143,
   %1908 = load i32, ptr %1907, align 4
   %1909 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %0, ptr noundef nonnull @.str.250, i32 noundef %1908) #9
   %1910 = sext i32 %1908 to i64
-  %1911 = getelementptr inbounds [16 x i64], ptr %3, i64 0, i64 %indvars.iv1826
+  %1911 = getelementptr inbounds nuw [16 x i64], ptr %3, i64 0, i64 %indvars.iv1826
   store i64 %1910, ptr %1911, align 8
   br label %H5_trace_args_close_degree.exit1619
 
@@ -4502,7 +4502,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1139, %1141, %1143,
   %1995 = load i32, ptr %1994, align 4
   %1996 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %0, ptr noundef nonnull @.str.270, i32 noundef %1995) #9
   %1997 = zext i32 %1995 to i64
-  %1998 = getelementptr inbounds [16 x i64], ptr %3, i64 0, i64 %indvars.iv1826
+  %1998 = getelementptr inbounds nuw [16 x i64], ptr %3, i64 0, i64 %indvars.iv1826
   store i64 %1997, ptr %1998, align 8
   br label %H5_trace_args_close_degree.exit1619
 
@@ -4537,7 +4537,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1139, %1141, %1143,
 
 2015:                                             ; preds = %2013, %2015
   %indvars.iv = phi i64 [ 0, %2013 ], [ %indvars.iv.next, %2015 ]
-  %2016 = getelementptr inbounds [16 x i8], ptr %6, i64 0, i64 %indvars.iv
+  %2016 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 0, i64 %indvars.iv
   %2017 = load i8, ptr %2016, align 1
   %2018 = zext i8 %2017 to i32
   %2019 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %0, ptr noundef nonnull @.str.272, i32 noundef %2018) #9
@@ -4546,7 +4546,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1139, %1141, %1143,
   br i1 %exitcond1825.not, label %H5_trace_args_close_degree.exit1619, label %2015
 
 2020:                                             ; preds = %264
-  %2021 = getelementptr inbounds i8, ptr %.2, i64 1
+  %2021 = getelementptr inbounds nuw i8, ptr %.2, i64 1
   %2022 = load i8, ptr %2021, align 1
   switch i8 %2022, label %2095 [
     i8 105, label %2023
@@ -4691,7 +4691,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1139, %1141, %1143,
   br label %.loopexit1624
 
 2098:                                             ; preds = %264
-  %2099 = getelementptr inbounds i8, ptr %.2, i64 1
+  %2099 = getelementptr inbounds nuw i8, ptr %.2, i64 1
   %2100 = load i8, ptr %2099, align 1
   switch i8 %2100, label %.loopexit1624 [
     i8 97, label %2101
@@ -4850,7 +4850,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1139, %1141, %1143,
   br label %H5_trace_args_close_degree.exit1619
 
 2181:                                             ; preds = %264
-  %2182 = getelementptr inbounds i8, ptr %.2, i64 1
+  %2182 = getelementptr inbounds nuw i8, ptr %.2, i64 1
   %2183 = load i8, ptr %2182, align 1
   switch i8 %2183, label %2258 [
     i8 105, label %2184
@@ -5040,7 +5040,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1139, %1141, %1143,
   br label %H5_trace_args_close_degree.exit1619
 
 2283:                                             ; preds = %264
-  %2284 = getelementptr inbounds i8, ptr %.2, i64 1
+  %2284 = getelementptr inbounds nuw i8, ptr %.2, i64 1
   %2285 = load i8, ptr %2284, align 1
   switch i8 %2285, label %2451 [
     i8 99, label %2286
@@ -5337,7 +5337,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1139, %1141, %1143,
   br label %.loopexit1624
 
 2454:                                             ; preds = %264
-  %2455 = getelementptr inbounds i8, ptr %.2, i64 1
+  %2455 = getelementptr inbounds nuw i8, ptr %.2, i64 1
   %2456 = load i8, ptr %2455, align 1
   switch i8 %2456, label %2507 [
     i8 100, label %2457
@@ -5450,7 +5450,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1139, %1141, %1143,
   br label %.loopexit1624
 
 2510:                                             ; preds = %264
-  %2511 = getelementptr inbounds i8, ptr %.2, i64 1
+  %2511 = getelementptr inbounds nuw i8, ptr %.2, i64 1
   %2512 = load i8, ptr %2511, align 1
   switch i8 %2512, label %2604 [
     i8 99, label %2513
@@ -5695,7 +5695,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1139, %1141, %1143,
   br label %H5_trace_args_close_degree.exit1619
 
 2629:                                             ; preds = %264
-  %2630 = getelementptr inbounds i8, ptr %.2, i64 1
+  %2630 = getelementptr inbounds nuw i8, ptr %.2, i64 1
   %2631 = load i8, ptr %2630, align 1
   switch i8 %2631, label %2899 [
     i8 99, label %2632
@@ -6260,7 +6260,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1139, %1141, %1143,
   br label %.loopexit1624
 
 2902:                                             ; preds = %264
-  %2903 = getelementptr inbounds i8, ptr %.2, i64 1
+  %2903 = getelementptr inbounds nuw i8, ptr %.2, i64 1
   %2904 = load i8, ptr %2903, align 1
   switch i8 %2904, label %2937 [
     i8 108, label %2905
@@ -6290,7 +6290,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1139, %1141, %1143,
   %2917 = phi ptr [ %2911, %2908 ], [ %2914, %2913 ]
   %2918 = load i64, ptr %2917, align 8
   %2919 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %0, ptr noundef nonnull @.str.18, i64 noundef %2918) #9
-  %2920 = getelementptr inbounds [16 x i64], ptr %3, i64 0, i64 %indvars.iv1826
+  %2920 = getelementptr inbounds nuw [16 x i64], ptr %3, i64 0, i64 %indvars.iv1826
   store i64 %2918, ptr %2920, align 8
   br label %H5_trace_args_close_degree.exit1619
 
@@ -6317,7 +6317,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1139, %1141, %1143,
   %2933 = phi ptr [ %2927, %2924 ], [ %2930, %2929 ]
   %2934 = load i64, ptr %2933, align 8
   %2935 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %0, ptr noundef nonnull @.str.366, i64 noundef %2934) #9
-  %2936 = getelementptr inbounds [16 x i64], ptr %3, i64 0, i64 %indvars.iv1826
+  %2936 = getelementptr inbounds nuw [16 x i64], ptr %3, i64 0, i64 %indvars.iv1826
   store i64 %2934, ptr %2936, align 8
   br label %H5_trace_args_close_degree.exit1619
 
@@ -6327,7 +6327,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1139, %1141, %1143,
   br label %.loopexit1624
 
 2940:                                             ; preds = %264
-  %2941 = getelementptr inbounds i8, ptr %.2, i64 1
+  %2941 = getelementptr inbounds nuw i8, ptr %.2, i64 1
   %2942 = load i8, ptr %2941, align 1
   switch i8 %2942, label %3708 [
     i8 97, label %2943
@@ -7950,12 +7950,12 @@ H5_trace_args_close_degree.exit:                  ; preds = %1139, %1141, %1143,
   %3741 = phi ptr [ %3735, %3732 ], [ %3738, %3737 ]
   %3742 = load i64, ptr %3741, align 8
   %3743 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %0, ptr noundef nonnull @.str.499, i64 noundef %3742) #9
-  %3744 = getelementptr inbounds [16 x i64], ptr %3, i64 0, i64 %indvars.iv1826
+  %3744 = getelementptr inbounds nuw [16 x i64], ptr %3, i64 0, i64 %indvars.iv1826
   store i64 %3742, ptr %3744, align 8
   br label %H5_trace_args_close_degree.exit1619
 
 3745:                                             ; preds = %264
-  %3746 = getelementptr inbounds i8, ptr %.2, i64 1
+  %3746 = getelementptr inbounds nuw i8, ptr %.2, i64 1
   %3747 = load i8, ptr %3746, align 1
   switch i8 %3747, label %3869 [
     i8 97, label %3748
@@ -8189,7 +8189,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1139, %1141, %1143,
   %3865 = phi ptr [ %3859, %3856 ], [ %3862, %3861 ]
   %3866 = load i64, ptr %3865, align 8
   %3867 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %0, ptr noundef nonnull @.str.512, i64 noundef %3866) #9
-  %3868 = getelementptr inbounds [16 x i64], ptr %3, i64 0, i64 %indvars.iv1826
+  %3868 = getelementptr inbounds nuw [16 x i64], ptr %3, i64 0, i64 %indvars.iv1826
   store i64 %3866, ptr %3868, align 8
   br label %H5_trace_args_close_degree.exit1619
 
@@ -8218,7 +8218,7 @@ H5_trace_args_close_degree.exit:                  ; preds = %1139, %1141, %1143,
   br i1 %.not1592, label %3889, label %3884
 
 3884:                                             ; preds = %3876
-  %3885 = getelementptr inbounds i8, ptr %.2, i64 1
+  %3885 = getelementptr inbounds nuw i8, ptr %.2, i64 1
   %3886 = load i8, ptr %3885, align 1
   %3887 = sext i8 %3886 to i32
   %3888 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %0, ptr noundef nonnull @.str.515, i32 noundef %3877, i32 noundef %3887) #9
@@ -8239,7 +8239,7 @@ H5_trace_args_close_degree.exit1619:              ; preds = %2015, %241, %171, %
   %3897 = and i16 %3896, 256
   %.not1607 = icmp eq i16 %3897, 0
   %3898 = select i1 %.not1607, i64 1, i64 2
-  %3899 = getelementptr inbounds i8, ptr %.2, i64 %3898
+  %3899 = getelementptr inbounds nuw i8, ptr %.2, i64 %3898
   %3900 = load i8, ptr %3899, align 1
   %.not = icmp eq i8 %3900, 0
   br i1 %.not, label %.loopexit1624, label %.preheader
@@ -8419,9 +8419,9 @@ define double @H5_trace(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2,
 48:                                               ; preds = %45
   %49 = call i32 @H5_timer_get_times(ptr noundef nonnull byval(%struct.H5_timer_t) align 8 %5, ptr noundef nonnull %6) #9
   %50 = call i32 @H5_timer_get_times(ptr noundef nonnull byval(%struct.H5_timer_t) align 8 @H5_trace.running_timer, ptr noundef nonnull %7) #9
-  %51 = getelementptr inbounds i8, ptr %6, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %52 = load double, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %7, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %54 = load double, ptr %53, align 8
   %55 = fsub double %52, %54
   %56 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 320, ptr noundef nonnull @.str.517, double noundef %55) #9
@@ -8472,9 +8472,9 @@ define double @H5_trace(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2,
 80:                                               ; preds = %77
   %81 = call i32 @H5_timer_get_times(ptr noundef nonnull byval(%struct.H5_timer_t) align 8 %5, ptr noundef nonnull %6) #9
   %82 = call i32 @H5_timer_get_times(ptr noundef nonnull byval(%struct.H5_timer_t) align 8 @H5_trace.running_timer, ptr noundef nonnull %7) #9
-  %83 = getelementptr inbounds i8, ptr %6, i64 16
+  %83 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %84 = load double, ptr %83, align 8
-  %85 = getelementptr inbounds i8, ptr %7, i64 16
+  %85 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %86 = load double, ptr %85, align 8
   %87 = fsub double %84, %86
   %88 = call i32 (ptr, ptr, ...) @H5RS_asprintf_cat(ptr noundef %40, ptr noundef nonnull @.str.522, double noundef %87) #9
@@ -8514,9 +8514,9 @@ define double @H5_trace(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2,
 104:                                              ; preds = %101
   %105 = call i32 @H5_timer_get_times(ptr noundef nonnull byval(%struct.H5_timer_t) align 8 %5, ptr noundef nonnull %6) #9
   %106 = call i32 @H5_timer_get_times(ptr noundef nonnull byval(%struct.H5_timer_t) align 8 @H5_trace.running_timer, ptr noundef nonnull %7) #9
-  %107 = getelementptr inbounds i8, ptr %6, i64 16
+  %107 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %108 = load double, ptr %107, align 8
-  %109 = getelementptr inbounds i8, ptr %7, i64 16
+  %109 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %110 = load double, ptr %109, align 8
   %111 = fsub double %108, %110
   %112 = load double, ptr %0, align 8
@@ -8543,7 +8543,7 @@ define double @H5_trace(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2,
   br i1 %124, label %125, label %128
 
 125:                                              ; preds = %117
-  %126 = getelementptr inbounds i8, ptr %6, i64 16
+  %126 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %127 = load double, ptr %126, align 8
   br label %128
 

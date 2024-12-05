@@ -32,15 +32,15 @@ define hidden noundef ptr @pj_healpix(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %6, label %13, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %5, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @.str, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %5, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr @_ZL11des_healpix, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 360
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 360
   store i32 1, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 380
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 380
   store i32 4, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %5, i64 384
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 384
   store i32 1, ptr %12, align 8
   br label %13
 
@@ -60,27 +60,27 @@ define hidden noundef ptr @_Z36pj_projection_specific_setup_healpixP8PJconsts(pt
   br label %50
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 88
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr %2, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 152
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store ptr @_ZL26pj_healpix_data_destructorP8PJconstsi, ptr %8, align 8
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef %9, ptr noundef %11, ptr noundef nonnull @.str.1)
   %13 = bitcast i64 %12 to double
   %14 = fmul double %13, 0x400921FB54442D18
   %15 = fdiv double %14, 1.800000e+02
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store double %15, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 216
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %18 = load double, ptr %17, align 8
   %19 = fcmp une double %18, 0.000000e+00
   br i1 %19, label %20, label %47
 
 20:                                               ; preds = %6
   %21 = tail call noundef ptr @_Z10pj_authsetd(double noundef %18)
-  %22 = getelementptr inbounds i8, ptr %2, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %21, ptr %22, align 8
   %23 = icmp eq ptr %21, null
   br i1 %23, label %24, label %31
@@ -91,7 +91,7 @@ define hidden noundef ptr @_Z36pj_projection_specific_setup_healpixP8PJconsts(pt
   br i1 %26, label %_ZL26pj_healpix_data_destructorP8PJconstsi.exit, label %27
 
 27:                                               ; preds = %24
-  %28 = getelementptr inbounds i8, ptr %25, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %29 = load ptr, ptr %28, align 8
   tail call void @free(ptr noundef %29) #11
   br label %_ZL26pj_healpix_data_destructorP8PJconstsi.exit
@@ -101,14 +101,14 @@ _ZL26pj_healpix_data_destructorP8PJconstsi.exit:  ; preds = %24, %27
   br label %50
 
 31:                                               ; preds = %20
-  %32 = getelementptr inbounds i8, ptr %0, i64 208
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %33 = load double, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 256
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %35 = load double, ptr %34, align 8
   %36 = tail call noundef double @_Z7pj_qsfnddd(double noundef 1.000000e+00, double noundef %33, double noundef %35)
-  %37 = getelementptr inbounds i8, ptr %2, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store double %36, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 168
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %39 = load double, ptr %38, align 8
   %40 = fmul double %36, 5.000000e-01
   %41 = tail call double @sqrt(double noundef %40) #11
@@ -116,16 +116,16 @@ _ZL26pj_healpix_data_destructorP8PJconstsi.exit:  ; preds = %24, %27
   store double %42, ptr %38, align 8
   %43 = load double, ptr %17, align 8
   %44 = tail call noundef i32 @_Z24pj_calc_ellipsoid_paramsP8PJconstsdd(ptr noundef nonnull %0, double noundef %42, double noundef %43)
-  %45 = getelementptr inbounds i8, ptr %0, i64 104
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr @_ZL17e_healpix_forward5PJ_LPP8PJconsts, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %0, i64 112
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr @_ZL17e_healpix_inverse5PJ_XYP8PJconsts, ptr %46, align 8
   br label %50
 
 47:                                               ; preds = %6
-  %48 = getelementptr inbounds i8, ptr %0, i64 104
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr @_ZL17s_healpix_forward5PJ_LPP8PJconsts, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %0, i64 112
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr @_ZL17s_healpix_inverse5PJ_XYP8PJconsts, ptr %49, align 8
   br label %50
 
@@ -147,13 +147,13 @@ define internal noundef ptr @_ZL26pj_healpix_data_destructorP8PJconstsi(ptr noun
   br i1 %3, label %12, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 88
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.sink.split, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %6, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %10 = load ptr, ptr %9, align 8
   tail call void @free(ptr noundef %10) #11
   br label %.sink.split
@@ -180,16 +180,16 @@ declare noundef i32 @_Z24pj_calc_ellipsoid_paramsP8PJconstsdd(ptr noundef, doubl
 
 ; Function Attrs: mustprogress uwtable
 define internal { double, double } @_ZL17e_healpix_forward5PJ_LPP8PJconsts(double %0, double %1, ptr nocapture noundef readonly %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 88
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %5 = load ptr, ptr %4, align 8
   %6 = tail call double @sin(double noundef %1) #11
-  %7 = getelementptr inbounds i8, ptr %2, i64 208
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 208
   %8 = load double, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 216
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 216
   %10 = load double, ptr %9, align 8
   %11 = fsub double 1.000000e+00, %10
   %12 = tail call noundef double @_Z7pj_qsfnddd(double noundef %6, double noundef %8, double noundef %11)
-  %13 = getelementptr inbounds i8, ptr %5, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %14 = load double, ptr %13, align 8
   %15 = fdiv double %12, %14
   %16 = tail call double @llvm.fabs.f64(double %15)
@@ -242,7 +242,7 @@ _ZL8auth_latP8PJconstsdi.exit:                    ; preds = %3, %18
 _ZL14healpix_sphere5PJ_LP.exit:                   ; preds = %28, %30
   %.sroa.014.0.i = phi double [ %0, %28 ], [ %43, %30 ]
   %.sroa.3.0.i = phi double [ %29, %28 ], [ %50, %30 ]
-  %51 = getelementptr inbounds i8, ptr %24, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %52 = load double, ptr %51, align 8
   %53 = fneg double %52
   %54 = tail call double @cos(double noundef %53) #11
@@ -261,9 +261,9 @@ _ZL14healpix_sphere5PJ_LP.exit:                   ; preds = %28, %30
 
 ; Function Attrs: mustprogress uwtable
 define internal { double, double } @_ZL17e_healpix_inverse5PJ_XYP8PJconsts(double %0, double %1, ptr nocapture noundef readonly %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 88
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load double, ptr %6, align 8
   %8 = tail call double @cos(double noundef %7) #11
   %9 = tail call double @sin(double noundef %7) #11
@@ -278,13 +278,13 @@ define internal { double, double } @_ZL17e_healpix_inverse5PJ_XYP8PJconsts(doubl
 
 .preheader26.i:                                   ; preds = %24, %3
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %24 ], [ 0, %3 ]
-  %17 = getelementptr inbounds [2 x double], ptr @__const._ZL8in_imageddiii.healpixVertsJit, i64 %indvars.iv.i.i
+  %17 = getelementptr inbounds nuw [2 x double], ptr @__const._ZL8in_imageddiii.healpixVertsJit, i64 %indvars.iv.i.i
   %18 = load double, ptr %17, align 16
   %19 = fcmp oeq double %12, %18
   br i1 %19, label %20, label %24
 
 20:                                               ; preds = %.preheader26.i
-  %21 = getelementptr inbounds i8, ptr %17, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %22 = load double, ptr %21, align 8
   %23 = fcmp oeq double %16, %22
   br i1 %23, label %_ZL8in_imageddiii.exit.thread, label %24
@@ -299,9 +299,9 @@ define internal { double, double } @_ZL17e_healpix_inverse5PJ_XYP8PJconsts(doubl
   %.sroa.09.057.i.i = phi double [ %26, %53 ], [ 0xC00921FB54442D1A, %24 ]
   %.sroa.7.056.i.i = phi double [ %28, %53 ], [ 0x3FE921FB54442D18, %24 ]
   %.04855.i.i = phi i32 [ %.149.i.i, %53 ], [ 0, %24 ]
-  %25 = getelementptr inbounds [2 x double], ptr @__const._ZL8in_imageddiii.healpixVertsJit, i64 %indvars.iv60.i.i
+  %25 = getelementptr inbounds nuw [2 x double], ptr @__const._ZL8in_imageddiii.healpixVertsJit, i64 %indvars.iv60.i.i
   %26 = load double, ptr %25, align 16
-  %27 = getelementptr inbounds i8, ptr %25, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %28 = load double, ptr %27, align 8
   %29 = fcmp olt double %.sroa.7.056.i.i, %28
   %30 = select i1 %29, double %.sroa.7.056.i.i, double %28
@@ -408,7 +408,7 @@ _ZL30healpix_spherhealpix_e_inverse5PJ_XY.exit:   ; preds = %60, %66, %88
   %.sroa.016.0.i = phi double [ %12, %60 ], [ %79, %66 ], [ 0xC00921FB54442D18, %88 ]
   %.sroa.4.0.i = phi double [ %63, %60 ], [ %87, %66 ], [ %93, %88 ]
   %94 = load ptr, ptr %4, align 8
-  %95 = getelementptr inbounds i8, ptr %94, i64 24
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 24
   %96 = load ptr, ptr %95, align 8
   %97 = tail call noundef double @_Z10pj_authlatdPd(double noundef %.sroa.4.0.i, ptr noundef %96)
   br label %98
@@ -423,7 +423,7 @@ _ZL30healpix_spherhealpix_e_inverse5PJ_XY.exit:   ; preds = %60, %66, %88
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
 define internal { double, double } @_ZL17s_healpix_forward5PJ_LPP8PJconsts(double %0, double %1, ptr nocapture noundef readonly %2) #4 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 88
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %5 = load ptr, ptr %4, align 8
   %6 = tail call double @llvm.fabs.f64(double %1)
   %7 = fcmp ugt double %6, 0x3FE759EDD04F68DE
@@ -460,7 +460,7 @@ define internal { double, double } @_ZL17s_healpix_forward5PJ_LPP8PJconsts(doubl
 _ZL14healpix_sphere5PJ_LP.exit:                   ; preds = %9, %11
   %.sroa.014.0.i = phi double [ %0, %9 ], [ %24, %11 ]
   %.sroa.3.0.i = phi double [ %10, %9 ], [ %31, %11 ]
-  %32 = getelementptr inbounds i8, ptr %5, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %33 = load double, ptr %32, align 8
   %34 = fneg double %33
   %35 = tail call double @cos(double noundef %34) #11
@@ -479,9 +479,9 @@ _ZL14healpix_sphere5PJ_LP.exit:                   ; preds = %9, %11
 
 ; Function Attrs: mustprogress uwtable
 define internal { double, double } @_ZL17s_healpix_inverse5PJ_XYP8PJconsts(double %0, double %1, ptr nocapture noundef readonly %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 88
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load double, ptr %6, align 8
   %8 = tail call double @cos(double noundef %7) #11
   %9 = tail call double @sin(double noundef %7) #11
@@ -496,13 +496,13 @@ define internal { double, double } @_ZL17s_healpix_inverse5PJ_XYP8PJconsts(doubl
 
 .preheader26.i:                                   ; preds = %24, %3
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %24 ], [ 0, %3 ]
-  %17 = getelementptr inbounds [2 x double], ptr @__const._ZL8in_imageddiii.healpixVertsJit, i64 %indvars.iv.i.i
+  %17 = getelementptr inbounds nuw [2 x double], ptr @__const._ZL8in_imageddiii.healpixVertsJit, i64 %indvars.iv.i.i
   %18 = load double, ptr %17, align 16
   %19 = fcmp oeq double %12, %18
   br i1 %19, label %20, label %24
 
 20:                                               ; preds = %.preheader26.i
-  %21 = getelementptr inbounds i8, ptr %17, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %22 = load double, ptr %21, align 8
   %23 = fcmp oeq double %16, %22
   br i1 %23, label %_ZL8in_imageddiii.exit.thread, label %24
@@ -517,9 +517,9 @@ define internal { double, double } @_ZL17s_healpix_inverse5PJ_XYP8PJconsts(doubl
   %.sroa.09.057.i.i = phi double [ %26, %53 ], [ 0xC00921FB54442D1A, %24 ]
   %.sroa.7.056.i.i = phi double [ %28, %53 ], [ 0x3FE921FB54442D18, %24 ]
   %.04855.i.i = phi i32 [ %.149.i.i, %53 ], [ 0, %24 ]
-  %25 = getelementptr inbounds [2 x double], ptr @__const._ZL8in_imageddiii.healpixVertsJit, i64 %indvars.iv60.i.i
+  %25 = getelementptr inbounds nuw [2 x double], ptr @__const._ZL8in_imageddiii.healpixVertsJit, i64 %indvars.iv60.i.i
   %26 = load double, ptr %25, align 16
-  %27 = getelementptr inbounds i8, ptr %25, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %28 = load double, ptr %27, align 8
   %29 = fcmp olt double %.sroa.7.056.i.i, %28
   %30 = select i1 %29, double %.sroa.7.056.i.i, double %28
@@ -645,15 +645,15 @@ define hidden noundef ptr @pj_rhealpix(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %6, label %13, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %5, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @.str.2, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %5, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr @_ZL12des_rhealpix, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 360
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 360
   store i32 1, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 380
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 380
   store i32 4, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %5, i64 384
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 384
   store i32 1, ptr %12, align 8
   br label %13
 
@@ -673,12 +673,12 @@ define hidden noundef ptr @_Z37pj_projection_specific_setup_rhealpixP8PJconsts(p
   br label %67
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 88
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr %2, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 152
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store ptr @_ZL26pj_healpix_data_destructorP8PJconstsi, ptr %8, align 8
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef %9, ptr noundef %11, ptr noundef nonnull @.str.3)
   %.sroa.01.0.extract.trunc = trunc i64 %12 to i32
@@ -687,7 +687,7 @@ define hidden noundef ptr @_Z37pj_projection_specific_setup_rhealpixP8PJconsts(p
   %14 = load ptr, ptr %10, align 8
   %15 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef %13, ptr noundef %14, ptr noundef nonnull @.str.4)
   %.sroa.0.0.extract.trunc = trunc i64 %15 to i32
-  %16 = getelementptr inbounds i8, ptr %2, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %.sroa.0.0.extract.trunc, ptr %16, align 4
   %17 = load i32, ptr %2, align 8
   %or.cond = icmp ugt i32 %17, 3
@@ -700,7 +700,7 @@ define hidden noundef ptr @_Z37pj_projection_specific_setup_rhealpixP8PJconsts(p
   br i1 %20, label %_ZL26pj_healpix_data_destructorP8PJconstsi.exit, label %21
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %19, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %23 = load ptr, ptr %22, align 8
   tail call void @free(ptr noundef %23) #11
   br label %_ZL26pj_healpix_data_destructorP8PJconstsi.exit
@@ -720,7 +720,7 @@ _ZL26pj_healpix_data_destructorP8PJconstsi.exit:  ; preds = %18, %21
   br i1 %28, label %_ZL26pj_healpix_data_destructorP8PJconstsi.exit46, label %29
 
 29:                                               ; preds = %26
-  %30 = getelementptr inbounds i8, ptr %27, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %31 = load ptr, ptr %30, align 8
   tail call void @free(ptr noundef %31) #11
   br label %_ZL26pj_healpix_data_destructorP8PJconstsi.exit46
@@ -730,14 +730,14 @@ _ZL26pj_healpix_data_destructorP8PJconstsi.exit46: ; preds = %26, %29
   br label %67
 
 33:                                               ; preds = %25
-  %34 = getelementptr inbounds i8, ptr %0, i64 216
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %35 = load double, ptr %34, align 8
   %36 = fcmp une double %35, 0.000000e+00
   br i1 %36, label %37, label %64
 
 37:                                               ; preds = %33
   %38 = tail call noundef ptr @_Z10pj_authsetd(double noundef %35)
-  %39 = getelementptr inbounds i8, ptr %2, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %38, ptr %39, align 8
   %40 = icmp eq ptr %38, null
   br i1 %40, label %41, label %48
@@ -748,7 +748,7 @@ _ZL26pj_healpix_data_destructorP8PJconstsi.exit46: ; preds = %26, %29
   br i1 %43, label %_ZL26pj_healpix_data_destructorP8PJconstsi.exit49, label %44
 
 44:                                               ; preds = %41
-  %45 = getelementptr inbounds i8, ptr %42, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %42, i64 24
   %46 = load ptr, ptr %45, align 8
   tail call void @free(ptr noundef %46) #11
   br label %_ZL26pj_healpix_data_destructorP8PJconstsi.exit49
@@ -758,32 +758,32 @@ _ZL26pj_healpix_data_destructorP8PJconstsi.exit49: ; preds = %41, %44
   br label %67
 
 48:                                               ; preds = %37
-  %49 = getelementptr inbounds i8, ptr %0, i64 208
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %50 = load double, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %0, i64 256
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %52 = load double, ptr %51, align 8
   %53 = tail call noundef double @_Z7pj_qsfnddd(double noundef 1.000000e+00, double noundef %50, double noundef %52)
-  %54 = getelementptr inbounds i8, ptr %2, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store double %53, ptr %54, align 8
-  %55 = getelementptr inbounds i8, ptr %0, i64 168
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %56 = load double, ptr %55, align 8
   %57 = fmul double %53, 5.000000e-01
   %58 = tail call double @sqrt(double noundef %57) #11
   %59 = fmul double %56, %58
   store double %59, ptr %55, align 8
   %60 = fdiv double 1.000000e+00, %59
-  %61 = getelementptr inbounds i8, ptr %0, i64 184
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 184
   store double %60, ptr %61, align 8
-  %62 = getelementptr inbounds i8, ptr %0, i64 104
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr @_ZL18e_rhealpix_forward5PJ_LPP8PJconsts, ptr %62, align 8
-  %63 = getelementptr inbounds i8, ptr %0, i64 112
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr @_ZL18e_rhealpix_inverse5PJ_XYP8PJconsts, ptr %63, align 8
   br label %67
 
 64:                                               ; preds = %33
-  %65 = getelementptr inbounds i8, ptr %0, i64 104
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr @_ZL18s_rhealpix_forward5PJ_LPP8PJconsts, ptr %65, align 8
-  %66 = getelementptr inbounds i8, ptr %0, i64 112
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr @_ZL18s_rhealpix_inverse5PJ_XYP8PJconsts, ptr %66, align 8
   br label %67
 
@@ -798,16 +798,16 @@ declare void @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef, ptr noundef, ...) l
 define internal { double, double } @_ZL18e_rhealpix_forward5PJ_LPP8PJconsts(double %0, double %1, ptr nocapture noundef readonly %2) #0 {
   %.sroa.051.i = alloca double, align 16
   %.sroa.252.i = alloca double, align 8
-  %4 = getelementptr inbounds i8, ptr %2, i64 88
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %5 = load ptr, ptr %4, align 8
   %6 = tail call double @sin(double noundef %1) #11
-  %7 = getelementptr inbounds i8, ptr %2, i64 208
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 208
   %8 = load double, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 216
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 216
   %10 = load double, ptr %9, align 8
   %11 = fsub double 1.000000e+00, %10
   %12 = tail call noundef double @_Z7pj_qsfnddd(double noundef %6, double noundef %8, double noundef %11)
-  %13 = getelementptr inbounds i8, ptr %5, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %14 = load double, ptr %13, align 8
   %15 = fdiv double %12, %14
   %16 = tail call double @llvm.fabs.f64(double %15)
@@ -860,7 +860,7 @@ _ZL14healpix_sphere5PJ_LP.exit:                   ; preds = %27, %29
   %.sroa.014.0.i = phi double [ %0, %27 ], [ %42, %29 ]
   %.sroa.3.0.i = phi double [ %28, %27 ], [ %49, %29 ]
   %50 = load i32, ptr %5, align 8
-  %51 = getelementptr inbounds i8, ptr %5, i64 4
+  %51 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %52 = load i32, ptr %51, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.051.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.252.i)
@@ -958,7 +958,7 @@ _ZL10vector_subPKdS0_Pd.exit.critedge.i:          ; preds = %80, %79, %78, %77, 
   %.0.i23.sink.i = phi i64 [ 0, %73 ], [ 6, %72 ], [ 5, %71 ], [ 4, %70 ], [ 3, %69 ], [ 2, %68 ], [ 1, %66 ], [ 0, %80 ], [ 6, %79 ], [ 5, %78 ], [ 4, %77 ], [ 3, %76 ], [ 2, %75 ], [ 1, %74 ]
   %81 = phi i32 [ %50, %73 ], [ %50, %72 ], [ %50, %71 ], [ %50, %70 ], [ %50, %69 ], [ %50, %68 ], [ %50, %66 ], [ %52, %80 ], [ %52, %79 ], [ %52, %78 ], [ %52, %77 ], [ %52, %76 ], [ %52, %75 ], [ %52, %74 ]
   %82 = phi double [ 0x3FF921FB54442D18, %73 ], [ 0x3FF921FB54442D18, %72 ], [ 0x3FF921FB54442D18, %71 ], [ 0x3FF921FB54442D18, %70 ], [ 0x3FF921FB54442D18, %69 ], [ 0x3FF921FB54442D18, %68 ], [ 0x3FF921FB54442D18, %66 ], [ 0xBFF921FB54442D18, %80 ], [ 0xBFF921FB54442D18, %79 ], [ 0xBFF921FB54442D18, %78 ], [ 0xBFF921FB54442D18, %77 ], [ 0xBFF921FB54442D18, %76 ], [ 0xBFF921FB54442D18, %75 ], [ 0xBFF921FB54442D18, %74 ]
-  %83 = getelementptr inbounds [7 x [2 x [2 x double]]], ptr @_ZL3rot, i64 0, i64 %.0.i23.sink.i
+  %83 = getelementptr inbounds nuw [7 x [2 x [2 x double]]], ptr @_ZL3rot, i64 0, i64 %.0.i23.sink.i
   %84 = fsub double %.sroa.014.0.i, %.sroa.19.0.ph.i
   %85 = fsub double %.sroa.3.0.i, %.0.i.i
   br label %86
@@ -974,7 +974,7 @@ _ZL10vector_subPKdS0_Pd.exit.critedge.i:          ; preds = %80, %79, %78, %77, 
   %indvars.iv.i27.sroa.phi.sroa.speculated.i = phi double [ %84, %86 ], [ %85, %88 ]
   %indvars.iv.i27.i = phi i64 [ 0, %86 ], [ 1, %88 ]
   %90 = phi double [ 0.000000e+00, %86 ], [ %93, %88 ]
-  %91 = getelementptr inbounds [2 x double], ptr %83, i64 %indvars.iv18.i.i, i64 %indvars.iv.i27.i
+  %91 = getelementptr inbounds nuw [2 x double], ptr %83, i64 %indvars.iv18.i.i, i64 %indvars.iv.i27.i
   %92 = load double, ptr %91, align 8
   %93 = tail call double @llvm.fmuladd.f64(double %92, double %indvars.iv.i27.sroa.phi.sroa.speculated.i, double %90)
   br i1 %89, label %88, label %94, !llvm.loop !7
@@ -1004,10 +1004,10 @@ _ZL12combine_capsddiii.exit:                      ; preds = %54, %_ZL11dot_produ
 
 ; Function Attrs: mustprogress uwtable
 define internal { double, double } @_ZL18e_rhealpix_inverse5PJ_XYP8PJconsts(double %0, double %1, ptr nocapture noundef readonly %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 88
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %5 = load ptr, ptr %4, align 8
   %6 = load i32, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %8 = load i32, ptr %7, align 4
   %9 = tail call fastcc noundef i32 @_ZL8in_imageddiii(double noundef %0, double noundef %1, i32 noundef 1, i32 noundef %6, i32 noundef %8)
   %10 = icmp eq i32 %9, 0
@@ -1073,7 +1073,7 @@ _ZL30healpix_spherhealpix_e_inverse5PJ_XY.exit:   ; preds = %19, %25, %47
   %.sroa.016.0.i = phi double [ %15, %19 ], [ %38, %25 ], [ 0xC00921FB54442D18, %47 ]
   %.sroa.4.0.i = phi double [ %22, %19 ], [ %46, %25 ], [ %52, %47 ]
   %53 = load ptr, ptr %4, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 24
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 24
   %55 = load ptr, ptr %54, align 8
   %56 = tail call noundef double @_Z10pj_authlatdPd(double noundef %.sroa.4.0.i, ptr noundef %55)
   br label %57
@@ -1090,7 +1090,7 @@ _ZL30healpix_spherhealpix_e_inverse5PJ_XY.exit:   ; preds = %19, %25, %47
 define internal { double, double } @_ZL18s_rhealpix_forward5PJ_LPP8PJconsts(double %0, double %1, ptr nocapture noundef readonly %2) #5 {
   %.sroa.051.i = alloca double, align 16
   %.sroa.252.i = alloca double, align 8
-  %4 = getelementptr inbounds i8, ptr %2, i64 88
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %5 = load ptr, ptr %4, align 8
   %6 = tail call double @llvm.fabs.f64(double %1)
   %7 = fcmp ugt double %6, 0x3FE759EDD04F68DE
@@ -1128,7 +1128,7 @@ _ZL14healpix_sphere5PJ_LP.exit:                   ; preds = %9, %11
   %.sroa.014.0.i = phi double [ %0, %9 ], [ %24, %11 ]
   %.sroa.3.0.i = phi double [ %10, %9 ], [ %31, %11 ]
   %32 = load i32, ptr %5, align 8
-  %33 = getelementptr inbounds i8, ptr %5, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %34 = load i32, ptr %33, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.051.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.252.i)
@@ -1226,7 +1226,7 @@ _ZL10vector_subPKdS0_Pd.exit.critedge.i:          ; preds = %62, %61, %60, %59, 
   %.0.i23.sink.i = phi i64 [ 0, %55 ], [ 6, %54 ], [ 5, %53 ], [ 4, %52 ], [ 3, %51 ], [ 2, %50 ], [ 1, %48 ], [ 0, %62 ], [ 6, %61 ], [ 5, %60 ], [ 4, %59 ], [ 3, %58 ], [ 2, %57 ], [ 1, %56 ]
   %63 = phi i32 [ %32, %55 ], [ %32, %54 ], [ %32, %53 ], [ %32, %52 ], [ %32, %51 ], [ %32, %50 ], [ %32, %48 ], [ %34, %62 ], [ %34, %61 ], [ %34, %60 ], [ %34, %59 ], [ %34, %58 ], [ %34, %57 ], [ %34, %56 ]
   %64 = phi double [ 0x3FF921FB54442D18, %55 ], [ 0x3FF921FB54442D18, %54 ], [ 0x3FF921FB54442D18, %53 ], [ 0x3FF921FB54442D18, %52 ], [ 0x3FF921FB54442D18, %51 ], [ 0x3FF921FB54442D18, %50 ], [ 0x3FF921FB54442D18, %48 ], [ 0xBFF921FB54442D18, %62 ], [ 0xBFF921FB54442D18, %61 ], [ 0xBFF921FB54442D18, %60 ], [ 0xBFF921FB54442D18, %59 ], [ 0xBFF921FB54442D18, %58 ], [ 0xBFF921FB54442D18, %57 ], [ 0xBFF921FB54442D18, %56 ]
-  %65 = getelementptr inbounds [7 x [2 x [2 x double]]], ptr @_ZL3rot, i64 0, i64 %.0.i23.sink.i
+  %65 = getelementptr inbounds nuw [7 x [2 x [2 x double]]], ptr @_ZL3rot, i64 0, i64 %.0.i23.sink.i
   %66 = fsub double %.sroa.014.0.i, %.sroa.19.0.ph.i
   %67 = fsub double %.sroa.3.0.i, %.0.i.i
   br label %68
@@ -1242,7 +1242,7 @@ _ZL10vector_subPKdS0_Pd.exit.critedge.i:          ; preds = %62, %61, %60, %59, 
   %indvars.iv.i27.sroa.phi.sroa.speculated.i = phi double [ %66, %68 ], [ %67, %70 ]
   %indvars.iv.i27.i = phi i64 [ 0, %68 ], [ 1, %70 ]
   %72 = phi double [ 0.000000e+00, %68 ], [ %75, %70 ]
-  %73 = getelementptr inbounds [2 x double], ptr %65, i64 %indvars.iv18.i.i, i64 %indvars.iv.i27.i
+  %73 = getelementptr inbounds nuw [2 x double], ptr %65, i64 %indvars.iv18.i.i, i64 %indvars.iv.i27.i
   %74 = load double, ptr %73, align 8
   %75 = tail call double @llvm.fmuladd.f64(double %74, double %indvars.iv.i27.sroa.phi.sroa.speculated.i, double %72)
   br i1 %71, label %70, label %76, !llvm.loop !7
@@ -1272,10 +1272,10 @@ _ZL12combine_capsddiii.exit:                      ; preds = %36, %_ZL11dot_produ
 
 ; Function Attrs: mustprogress uwtable
 define internal { double, double } @_ZL18s_rhealpix_inverse5PJ_XYP8PJconsts(double %0, double %1, ptr nocapture noundef readonly %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 88
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %5 = load ptr, ptr %4, align 8
   %6 = load i32, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %8 = load i32, ptr %7, align 4
   %9 = tail call fastcc noundef i32 @_ZL8in_imageddiii(double noundef %0, double noundef %1, i32 noundef 1, i32 noundef %6, i32 noundef %8)
   %10 = icmp eq i32 %9, 0
@@ -1376,13 +1376,13 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL8in_imageddiii(double nou
 
 .preheader26:                                     ; preds = %5, %15
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %15 ], [ 0, %5 ]
-  %8 = getelementptr inbounds [2 x double], ptr @__const._ZL8in_imageddiii.healpixVertsJit, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw [2 x double], ptr @__const._ZL8in_imageddiii.healpixVertsJit, i64 %indvars.iv.i
   %9 = load double, ptr %8, align 16
   %10 = fcmp oeq double %0, %9
   br i1 %10, label %11, label %15
 
 11:                                               ; preds = %.preheader26
-  %12 = getelementptr inbounds i8, ptr %8, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %13 = load double, ptr %12, align 8
   %14 = fcmp oeq double %1, %13
   br i1 %14, label %_ZL6pnpolyiPA2_ddd.exit, label %15
@@ -1397,9 +1397,9 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL8in_imageddiii(double nou
   %.sroa.09.057.i = phi double [ %17, %44 ], [ 0xC00921FB54442D1A, %15 ]
   %.sroa.7.056.i = phi double [ %19, %44 ], [ 0x3FE921FB54442D18, %15 ]
   %.04855.i = phi i32 [ %.149.i, %44 ], [ 0, %15 ]
-  %16 = getelementptr inbounds [2 x double], ptr @__const._ZL8in_imageddiii.healpixVertsJit, i64 %indvars.iv60.i
+  %16 = getelementptr inbounds nuw [2 x double], ptr @__const._ZL8in_imageddiii.healpixVertsJit, i64 %indvars.iv60.i
   %17 = load double, ptr %16, align 16
-  %18 = getelementptr inbounds i8, ptr %16, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %19 = load double, ptr %18, align 8
   %20 = fcmp olt double %.sroa.7.056.i, %19
   %21 = select i1 %20, double %.sroa.7.056.i, double %19
@@ -1450,75 +1450,75 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL8in_imageddiii(double nou
 
 47:                                               ; preds = %5
   store double 0xC00921FB54442D1A, ptr %6, align 16
-  %48 = getelementptr inbounds i8, ptr %6, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store double 0x3FE921FB54442D21, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %6, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %50 = sitofp i32 %3 to double
   %51 = tail call double @llvm.fmuladd.f64(double %50, double 0x3FF921FB54442D18, double 0xC00921FB54442D18)
   %52 = fadd double %51, -1.000000e-15
   store double %52, ptr %49, align 16
-  %53 = getelementptr inbounds i8, ptr %6, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store double 0x3FE921FB54442D21, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %6, i64 32
+  %54 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store double %52, ptr %54, align 16
-  %55 = getelementptr inbounds i8, ptr %6, i64 40
+  %55 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store double 0x4002D97C7F3321D4, ptr %55, align 8
-  %56 = getelementptr inbounds i8, ptr %6, i64 48
+  %56 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %57 = fadd double %50, 1.000000e+00
   %58 = tail call double @llvm.fmuladd.f64(double %57, double 0x3FF921FB54442D18, double 0xC00921FB54442D18)
   %59 = fadd double %58, 1.000000e-15
   store double %59, ptr %56, align 16
-  %60 = getelementptr inbounds i8, ptr %6, i64 56
+  %60 = getelementptr inbounds nuw i8, ptr %6, i64 56
   store double 0x4002D97C7F3321D4, ptr %60, align 8
-  %61 = getelementptr inbounds i8, ptr %6, i64 64
+  %61 = getelementptr inbounds nuw i8, ptr %6, i64 64
   store double %59, ptr %61, align 16
-  %62 = getelementptr inbounds i8, ptr %6, i64 72
+  %62 = getelementptr inbounds nuw i8, ptr %6, i64 72
   store double 0x3FE921FB54442D21, ptr %62, align 8
-  %63 = getelementptr inbounds i8, ptr %6, i64 80
+  %63 = getelementptr inbounds nuw i8, ptr %6, i64 80
   store double 0x400921FB54442D1A, ptr %63, align 16
-  %64 = getelementptr inbounds i8, ptr %6, i64 88
+  %64 = getelementptr inbounds nuw i8, ptr %6, i64 88
   store double 0x3FE921FB54442D21, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %6, i64 96
+  %65 = getelementptr inbounds nuw i8, ptr %6, i64 96
   store double 0x400921FB54442D1A, ptr %65, align 16
-  %66 = getelementptr inbounds i8, ptr %6, i64 104
+  %66 = getelementptr inbounds nuw i8, ptr %6, i64 104
   store double 0xBFE921FB54442D21, ptr %66, align 8
-  %67 = getelementptr inbounds i8, ptr %6, i64 112
+  %67 = getelementptr inbounds nuw i8, ptr %6, i64 112
   %68 = sitofp i32 %4 to double
   %69 = fadd double %68, 1.000000e+00
   %70 = tail call double @llvm.fmuladd.f64(double %69, double 0x3FF921FB54442D18, double 0xC00921FB54442D18)
   %71 = fadd double %70, 1.000000e-15
   store double %71, ptr %67, align 16
-  %72 = getelementptr inbounds i8, ptr %6, i64 120
+  %72 = getelementptr inbounds nuw i8, ptr %6, i64 120
   store double 0xBFE921FB54442D21, ptr %72, align 8
-  %73 = getelementptr inbounds i8, ptr %6, i64 128
+  %73 = getelementptr inbounds nuw i8, ptr %6, i64 128
   store double %71, ptr %73, align 16
-  %74 = getelementptr inbounds i8, ptr %6, i64 136
+  %74 = getelementptr inbounds nuw i8, ptr %6, i64 136
   store double 0xC002D97C7F3321D4, ptr %74, align 8
-  %75 = getelementptr inbounds i8, ptr %6, i64 144
+  %75 = getelementptr inbounds nuw i8, ptr %6, i64 144
   %76 = tail call double @llvm.fmuladd.f64(double %68, double 0x3FF921FB54442D18, double 0xC00921FB54442D18)
   %77 = fadd double %76, -1.000000e-15
   store double %77, ptr %75, align 16
-  %78 = getelementptr inbounds i8, ptr %6, i64 152
+  %78 = getelementptr inbounds nuw i8, ptr %6, i64 152
   store double 0xC002D97C7F3321D4, ptr %78, align 8
-  %79 = getelementptr inbounds i8, ptr %6, i64 160
+  %79 = getelementptr inbounds nuw i8, ptr %6, i64 160
   store double %77, ptr %79, align 16
-  %80 = getelementptr inbounds i8, ptr %6, i64 168
+  %80 = getelementptr inbounds nuw i8, ptr %6, i64 168
   store double 0xBFE921FB54442D21, ptr %80, align 8
-  %81 = getelementptr inbounds i8, ptr %6, i64 176
+  %81 = getelementptr inbounds nuw i8, ptr %6, i64 176
   store double 0xC00921FB54442D1A, ptr %81, align 16
-  %82 = getelementptr inbounds i8, ptr %6, i64 184
+  %82 = getelementptr inbounds nuw i8, ptr %6, i64 184
   store double 0xBFE921FB54442D21, ptr %82, align 8
   br label %83
 
 83:                                               ; preds = %91, %47
   %indvars.iv.i13 = phi i64 [ 0, %47 ], [ %indvars.iv.next.i14, %91 ]
-  %84 = getelementptr inbounds [2 x double], ptr %6, i64 %indvars.iv.i13
+  %84 = getelementptr inbounds nuw [2 x double], ptr %6, i64 %indvars.iv.i13
   %85 = load double, ptr %84, align 16
   %86 = fcmp oeq double %0, %85
   br i1 %86, label %87, label %91
 
 87:                                               ; preds = %83
-  %88 = getelementptr inbounds i8, ptr %84, i64 8
+  %88 = getelementptr inbounds nuw i8, ptr %84, i64 8
   %89 = load double, ptr %88, align 8
   %90 = fcmp oeq double %1, %89
   br i1 %90, label %_ZL6pnpolyiPA2_ddd.exit, label %91
@@ -1533,9 +1533,9 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL8in_imageddiii(double nou
   %.sroa.09.057.i17 = phi double [ %93, %120 ], [ 0xC00921FB54442D1A, %91 ]
   %.sroa.7.056.i18 = phi double [ %95, %120 ], [ 0x3FE921FB54442D21, %91 ]
   %.04855.i19 = phi i32 [ %.149.i20, %120 ], [ 0, %91 ]
-  %92 = getelementptr inbounds [2 x double], ptr %6, i64 %indvars.iv60.i16
+  %92 = getelementptr inbounds nuw [2 x double], ptr %6, i64 %indvars.iv60.i16
   %93 = load double, ptr %92, align 16
-  %94 = getelementptr inbounds i8, ptr %92, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %92, i64 8
   %95 = load double, ptr %94, align 8
   %96 = fcmp olt double %.sroa.7.056.i18, %95
   %97 = select i1 %96, double %.sroa.7.056.i18, double %95
@@ -1866,7 +1866,7 @@ _ZL10vector_subPKdS0_Pd.exit.critedge:            ; preds = %121, %120, %119, %1
   %123 = phi double [ 0x3FF921FB54442D18, %99 ], [ 0x3FF921FB54442D18, %98 ], [ 0x3FF921FB54442D18, %97 ], [ 0x3FF921FB54442D18, %96 ], [ 0x3FF921FB54442D18, %95 ], [ 0x3FF921FB54442D18, %94 ], [ 0x3FF921FB54442D18, %92 ], [ 0xBFF921FB54442D18, %106 ], [ 0xBFF921FB54442D18, %105 ], [ 0xBFF921FB54442D18, %104 ], [ 0xBFF921FB54442D18, %103 ], [ 0xBFF921FB54442D18, %102 ], [ 0xBFF921FB54442D18, %101 ], [ 0xBFF921FB54442D18, %100 ], [ 0x3FF921FB54442D18, %113 ], [ 0x3FF921FB54442D18, %112 ], [ 0x3FF921FB54442D18, %111 ], [ 0x3FF921FB54442D18, %110 ], [ 0x3FF921FB54442D18, %109 ], [ 0x3FF921FB54442D18, %108 ], [ 0x3FF921FB54442D18, %107 ], [ 0xBFF921FB54442D18, %121 ], [ 0xBFF921FB54442D18, %120 ], [ 0xBFF921FB54442D18, %119 ], [ 0xBFF921FB54442D18, %118 ], [ 0xBFF921FB54442D18, %117 ], [ 0xBFF921FB54442D18, %116 ], [ 0xBFF921FB54442D18, %114 ]
   %.sroa.28.0.ph77 = phi double [ %.0.i, %99 ], [ %.0.i, %98 ], [ %.0.i, %97 ], [ %.0.i, %96 ], [ %.0.i, %95 ], [ %.0.i, %94 ], [ %.0.i, %92 ], [ %.0.i, %106 ], [ %.0.i, %105 ], [ %.0.i, %104 ], [ %.0.i, %103 ], [ %.0.i, %102 ], [ %.0.i, %101 ], [ %.0.i, %100 ], [ 0x3FF921FB54442D18, %113 ], [ 0x3FF921FB54442D18, %112 ], [ 0x3FF921FB54442D18, %111 ], [ 0x3FF921FB54442D18, %110 ], [ 0x3FF921FB54442D18, %109 ], [ 0x3FF921FB54442D18, %108 ], [ 0x3FF921FB54442D18, %107 ], [ 0xBFF921FB54442D18, %121 ], [ 0xBFF921FB54442D18, %120 ], [ 0xBFF921FB54442D18, %119 ], [ 0xBFF921FB54442D18, %118 ], [ 0xBFF921FB54442D18, %117 ], [ 0xBFF921FB54442D18, %116 ], [ 0xBFF921FB54442D18, %114 ]
   %.sroa.19.0.ph75 = phi double [ %.sroa.19.0.ph, %99 ], [ %.sroa.19.0.ph, %98 ], [ %.sroa.19.0.ph, %97 ], [ %.sroa.19.0.ph, %96 ], [ %.sroa.19.0.ph, %95 ], [ %.sroa.19.0.ph, %94 ], [ %.sroa.19.0.ph, %92 ], [ %.sroa.19.0.ph, %106 ], [ %.sroa.19.0.ph, %105 ], [ %.sroa.19.0.ph, %104 ], [ %.sroa.19.0.ph, %103 ], [ %.sroa.19.0.ph, %102 ], [ %.sroa.19.0.ph, %101 ], [ %.sroa.19.0.ph, %100 ], [ %25, %113 ], [ %25, %112 ], [ %25, %111 ], [ %25, %110 ], [ %25, %109 ], [ %25, %108 ], [ %25, %107 ], [ %59, %121 ], [ %59, %120 ], [ %59, %119 ], [ %59, %118 ], [ %59, %117 ], [ %59, %116 ], [ %59, %114 ]
-  %124 = getelementptr inbounds [7 x [2 x [2 x double]]], ptr @_ZL3rot, i64 0, i64 %.0.i23.sink
+  %124 = getelementptr inbounds nuw [7 x [2 x [2 x double]]], ptr @_ZL3rot, i64 0, i64 %.0.i23.sink
   %125 = fsub double %0, %.sroa.19.0.ph75
   %126 = fsub double %1, %.sroa.28.0.ph77
   br label %127
@@ -1882,7 +1882,7 @@ _ZL10vector_subPKdS0_Pd.exit.critedge:            ; preds = %121, %120, %119, %1
   %indvars.iv.i27.sroa.phi.sroa.speculated = phi double [ %125, %127 ], [ %126, %129 ]
   %indvars.iv.i27 = phi i64 [ 0, %127 ], [ 1, %129 ]
   %131 = phi double [ 0.000000e+00, %127 ], [ %134, %129 ]
-  %132 = getelementptr inbounds [2 x double], ptr %124, i64 %indvars.iv18.i, i64 %indvars.iv.i27
+  %132 = getelementptr inbounds nuw [2 x double], ptr %124, i64 %indvars.iv18.i, i64 %indvars.iv.i27
   %133 = load double, ptr %132, align 8
   %134 = tail call double @llvm.fmuladd.f64(double %133, double %indvars.iv.i27.sroa.phi.sroa.speculated, double %131)
   br i1 %130, label %129, label %135, !llvm.loop !7

@@ -29,9 +29,9 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define hidden void @_ZN19TableRateStatisticsC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #0 align 2 {
   store volatile i64 0, ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store volatile i64 0, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, i8 0, i64 48, i1 false)
   ret void
 }
@@ -62,7 +62,7 @@ define hidden void @_ZN19TableRateStatistics6removeEv(ptr noundef nonnull align 
   br i1 %2, label %3, label %6
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 1, ptr nonnull %4) #8, !srcloc !6
   br label %6
 
@@ -73,20 +73,20 @@ define hidden void @_ZN19TableRateStatistics6removeEv(ptr noundef nonnull align 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN19TableRateStatistics5stampEv(ptr noundef nonnull align 8 dereferenceable(64) initializes((40, 48), (56, 64)) %0) local_unnamed_addr #2 align 2 {
   %2 = tail call noundef i64 @_ZN2os13javaTimeNanosEv() #8
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %4, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 %7, ptr %8, align 8
   %9 = load volatile i64, ptr %0, align 8
   store i64 %9, ptr %3, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load volatile i64, ptr %10, align 8
   store i64 %11, ptr %6, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load i64, ptr %12, align 8
   %14 = icmp eq i64 %13, 0
   %15 = add nsw i64 %2, -1000000000
@@ -95,7 +95,7 @@ define hidden void @_ZN19TableRateStatistics5stampEv(ptr noundef nonnull align 8
   %17 = sitofp i64 %16 to float
   %18 = fpext float %17 to double
   %19 = fdiv double %18, 1.000000e+09
-  %20 = getelementptr inbounds i8, ptr %0, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store double %19, ptr %20, align 8
   store i64 %2, ptr %12, align 8
   ret void
@@ -105,14 +105,14 @@ declare noundef i64 @_ZN2os13javaTimeNanosEv() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef float @_ZN19TableRateStatistics12get_add_rateEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0) local_unnamed_addr #4 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = uitofp i64 %3 to double
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load i64, ptr %5, align 8
   %7 = uitofp i64 %6 to double
   %8 = fsub double %4, %7
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load double, ptr %9, align 8
   %11 = fdiv double %8, %10
   %12 = fptrunc double %11 to float
@@ -121,13 +121,13 @@ define hidden noundef float @_ZN19TableRateStatistics12get_add_rateEv(ptr nocapt
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef float @_ZN19TableRateStatistics15get_remove_rateEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0) local_unnamed_addr #4 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i64, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load i64, ptr %4, align 8
   %6 = sub i64 %3, %5
   %7 = uitofp i64 %6 to float
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load double, ptr %8, align 8
   %10 = fptrunc double %9 to float
   %11 = fdiv float %7, %10
@@ -136,7 +136,7 @@ define hidden noundef float @_ZN19TableRateStatistics15get_remove_rateEv(ptr noc
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN15TableStatisticsC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((0, 44), (48, 96)) %0) unnamed_addr #5 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %0, i8 0, i64 44, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, i8 0, i64 48, i1 false)
   ret void
@@ -145,27 +145,27 @@ define hidden void @_ZN15TableStatisticsC2Ev(ptr nocapture noundef nonnull write
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN15TableStatisticsC2E9NumberSeqmmm(ptr nocapture noundef nonnull align 8 dereferenceable(96) initializes((0, 44), (48, 96)) %0, ptr noundef nonnull %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #2 align 2 {
   store i64 %2, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
-  %10 = getelementptr inbounds i8, ptr %0, i64 36
-  %11 = getelementptr inbounds i8, ptr %0, i64 40
-  %12 = getelementptr inbounds i8, ptr %0, i64 48
-  %13 = getelementptr inbounds i8, ptr %0, i64 56
-  %14 = getelementptr inbounds i8, ptr %0, i64 64
-  %15 = getelementptr inbounds i8, ptr %0, i64 72
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %6, i8 0, i64 36, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %12, i8 0, i64 48, i1 false)
   %17 = load i32, ptr %16, align 8
   %18 = sext i32 %17 to i64
   store i64 %18, ptr %6, align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %20 = load double, ptr %19, align 8
   %21 = fptoui double %20 to i64
   store i64 %21, ptr %7, align 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 64
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %23 = load double, ptr %22, align 8
   %24 = fptoui double %23 to i64
   store i64 %24, ptr %8, align 8
@@ -207,7 +207,7 @@ define hidden void @_ZN15TableStatisticsC2E9NumberSeqmmm(ptr nocapture noundef n
 
 46:                                               ; preds = %41, %44
   %47 = phi i64 [ %45, %44 ], [ 0, %41 ]
-  %48 = getelementptr inbounds i8, ptr %0, i64 80
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i64 %47, ptr %48, align 8
   ret void
 }
@@ -221,35 +221,35 @@ declare noundef double @_ZNK6AbsSeq2sdEv(ptr noundef nonnull align 8 dereference
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN15TableStatisticsC2ER19TableRateStatistics9NumberSeqmmm(ptr nocapture noundef nonnull align 8 dereferenceable(96) initializes((0, 44), (48, 96)) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr nocapture noundef readonly %2, i64 noundef %3, i64 noundef %4, i64 noundef %5) unnamed_addr #2 align 2 {
   %7 = alloca %class.NumberSeq, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef nonnull align 8 dereferenceable(48) %9, i64 48, i1 false)
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV9NumberSeq, i64 16), ptr %7, align 8
-  %10 = getelementptr inbounds i8, ptr %7, i64 56
-  %11 = getelementptr inbounds i8, ptr %2, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %11, i64 16, i1 false)
   store i64 %3, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
-  %14 = getelementptr inbounds i8, ptr %0, i64 24
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
-  %16 = getelementptr inbounds i8, ptr %0, i64 36
-  %17 = getelementptr inbounds i8, ptr %0, i64 40
-  %18 = getelementptr inbounds i8, ptr %0, i64 48
-  %19 = getelementptr inbounds i8, ptr %0, i64 56
-  %20 = getelementptr inbounds i8, ptr %0, i64 64
-  %21 = getelementptr inbounds i8, ptr %0, i64 72
-  %22 = getelementptr inbounds i8, ptr %0, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %22, i8 0, i64 12, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %18, i8 0, i64 48, i1 false)
   %23 = load i32, ptr %8, align 8
   %24 = sext i32 %23 to i64
   store i64 %24, ptr %12, align 8
-  %25 = getelementptr inbounds i8, ptr %7, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %26 = load double, ptr %25, align 8
   %27 = fptoui double %26 to i64
   store i64 %27, ptr %13, align 8
-  %28 = getelementptr inbounds i8, ptr %7, i64 64
+  %28 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %29 = load double, ptr %28, align 8
   %30 = fptoui double %29 to i64
   store i64 %30, ptr %14, align 8
@@ -291,27 +291,27 @@ define hidden void @_ZN15TableStatisticsC2ER19TableRateStatistics9NumberSeqmmm(p
 
 _ZN15TableStatisticsC2E9NumberSeqmmm.exit:        ; preds = %47, %50
   %52 = phi i64 [ %51, %50 ], [ 0, %47 ]
-  %53 = getelementptr inbounds i8, ptr %0, i64 80
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i64 %52, ptr %53, align 8
   %54 = call noundef zeroext i1 @_ZN3Jfr12is_recordingEv() #8
   br i1 %54, label %55, label %89
 
 55:                                               ; preds = %_ZN15TableStatisticsC2E9NumberSeqmmm.exit
   %56 = call noundef i64 @_ZN2os13javaTimeNanosEv() #8
-  %57 = getelementptr inbounds i8, ptr %1, i64 32
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %58 = load i64, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %1, i64 40
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store i64 %58, ptr %59, align 8
-  %60 = getelementptr inbounds i8, ptr %1, i64 48
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %61 = load i64, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %1, i64 56
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 56
   store i64 %61, ptr %62, align 8
   %63 = load volatile i64, ptr %1, align 8
   store i64 %63, ptr %57, align 8
-  %64 = getelementptr inbounds i8, ptr %1, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %65 = load volatile i64, ptr %64, align 8
   store i64 %65, ptr %60, align 8
-  %66 = getelementptr inbounds i8, ptr %1, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %67 = load i64, ptr %66, align 8
   %68 = icmp eq i64 %67, 0
   %69 = add nsw i64 %56, -1000000000
@@ -320,7 +320,7 @@ _ZN15TableStatisticsC2E9NumberSeqmmm.exit:        ; preds = %47, %50
   %71 = sitofp i64 %70 to float
   %72 = fpext float %71 to double
   %73 = fdiv double %72, 1.000000e+09
-  %74 = getelementptr inbounds i8, ptr %1, i64 24
+  %74 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store double %73, ptr %74, align 8
   store i64 %56, ptr %66, align 8
   %75 = uitofp i64 %63 to double
@@ -328,7 +328,7 @@ _ZN15TableStatisticsC2E9NumberSeqmmm.exit:        ; preds = %47, %50
   %77 = fsub double %75, %76
   %78 = fdiv double %77, %73
   %79 = fptrunc double %78 to float
-  %80 = getelementptr inbounds i8, ptr %0, i64 88
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store float %79, ptr %80, align 8
   %81 = load i64, ptr %60, align 8
   %82 = load i64, ptr %62, align 8
@@ -337,7 +337,7 @@ _ZN15TableStatisticsC2E9NumberSeqmmm.exit:        ; preds = %47, %50
   %85 = load double, ptr %74, align 8
   %86 = fptrunc double %85 to float
   %87 = fdiv float %84, %86
-  %88 = getelementptr inbounds i8, ptr %0, i64 92
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 92
   store float %87, ptr %88, align 4
   br label %89
 
@@ -353,18 +353,18 @@ define hidden void @_ZN15TableStatisticsD2Ev(ptr nocapture nonnull readnone alig
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN15TableStatistics5printEP12outputStreamPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, ptr noundef nonnull %1, ptr noundef %2) local_unnamed_addr #2 align 2 {
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str, ptr noundef %2) #8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 72
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %9 = load i64, ptr %8, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.4, i64 noundef %5, i64 noundef %7, i64 noundef %9) #8
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load i64, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %13 = load i64, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 80
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %15 = load i64, ptr %14, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.5, i64 noundef %11, i64 noundef %13, i64 noundef %15) #8
   %16 = load i64, ptr %0, align 8
@@ -388,22 +388,22 @@ define hidden void @_ZN15TableStatistics5printEP12outputStreamPKc(ptr nocapture 
   br label %26
 
 26:                                               ; preds = %24, %3
-  %27 = getelementptr inbounds i8, ptr %0, i64 64
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %28 = load i64, ptr %27, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i64 noundef %28) #8
-  %29 = getelementptr inbounds i8, ptr %0, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %30 = load float, ptr %29, align 8
   %31 = fpext float %30 to double
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.9, double noundef %31) #8
-  %32 = getelementptr inbounds i8, ptr %0, i64 36
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %33 = load float, ptr %32, align 4
   %34 = fpext float %33 to double
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.10, double noundef %34) #8
-  %35 = getelementptr inbounds i8, ptr %0, i64 40
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %36 = load float, ptr %35, align 8
   %37 = fpext float %36 to double
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.11, double noundef %37) #8
-  %38 = getelementptr inbounds i8, ptr %0, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %39 = load i64, ptr %38, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.12, i64 noundef %39) #8
   ret void

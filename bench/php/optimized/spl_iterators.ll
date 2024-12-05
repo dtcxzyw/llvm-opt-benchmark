@@ -335,7 +335,7 @@ define internal fastcc void @spl_recursive_it_it_construct(ptr nocapture noundef
   %8 = alloca %struct._zval_struct, align 8
   %9 = alloca %struct._zval_struct, align 8
   %10 = alloca i64, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %cond.not = icmp eq i32 %2, 0
   br i1 %cond.not, label %72, label %12
 
@@ -343,7 +343,7 @@ define internal fastcc void @spl_recursive_it_it_construct(ptr nocapture noundef
   store i64 16, ptr %10, align 8
   store i64 1, ptr %5, align 8
   store i64 8, ptr %6, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 44
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %14 = load i32, ptr %13, align 4
   %15 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %14, ptr noundef nonnull @.str.25, ptr noundef nonnull %4, ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %5) #10
   %16 = icmp eq i32 %15, -1
@@ -358,7 +358,7 @@ define internal fastcc void @spl_recursive_it_it_construct(ptr nocapture noundef
 20:                                               ; preds = %12
   %21 = load ptr, ptr %4, align 8
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %24 = load ptr, ptr %23, align 8
   %25 = load ptr, ptr @zend_ce_aggregate, align 8
   %26 = icmp eq ptr %24, %25
@@ -371,14 +371,14 @@ define internal fastcc void @spl_recursive_it_it_construct(ptr nocapture noundef
 
 ..critedge_crit_edge:                             ; preds = %27
   %.pre3 = load ptr, ptr %.pre, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre3, i64 16
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre3, i64 16
   %.pre4 = load ptr, ptr %.phi.trans.insert, align 8
   br label %.critedge
 
 .critedge:                                        ; preds = %..critedge_crit_edge, %20
   %29 = phi ptr [ %24, %20 ], [ %.pre4, %..critedge_crit_edge ]
   %30 = phi ptr [ %22, %20 ], [ %.pre3, %..critedge_crit_edge ]
-  %31 = getelementptr inbounds i8, ptr %29, i64 368
+  %31 = getelementptr inbounds nuw i8, ptr %29, i64 368
   %32 = load ptr, ptr %31, align 8
   %33 = call ptr @zend_call_method(ptr noundef nonnull %30, ptr noundef %29, ptr noundef %32, ptr noundef nonnull @.str.35, i64 noundef 11, ptr noundef nonnull %8, i32 noundef 0, ptr noundef null, ptr noundef null) #10
   %34 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
@@ -386,14 +386,14 @@ define internal fastcc void @spl_recursive_it_it_construct(ptr nocapture noundef
   br i1 %.not24.i, label %35, label %53
 
 35:                                               ; preds = %.critedge
-  %36 = getelementptr inbounds i8, ptr %8, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %37 = load i8, ptr %36, align 8
   %.not25.i = icmp eq i8 %37, 8
   br i1 %.not25.i, label %38, label %46
 
 38:                                               ; preds = %35
   %39 = load ptr, ptr %8, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %41 = load ptr, ptr %40, align 8
   %42 = load ptr, ptr @zend_ce_traversable, align 8
   %43 = icmp eq ptr %41, %42
@@ -405,9 +405,9 @@ define internal fastcc void @spl_recursive_it_it_construct(ptr nocapture noundef
 
 46:                                               ; preds = %44, %35
   %47 = load ptr, ptr @spl_ce_LogicException, align 8
-  %48 = getelementptr inbounds i8, ptr %29, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 24
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 24
   %51 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %47, i64 noundef 0, ptr noundef nonnull @.str.36, ptr noundef nonnull %50) #10
   call void @zval_ptr_dtor(ptr noundef nonnull %8) #10
   %.pre5 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
@@ -424,7 +424,7 @@ spl_get_iterator_from_aggregate.exit:             ; preds = %44, %38
   br label %62
 
 55:                                               ; preds = %27
-  %56 = getelementptr inbounds i8, ptr %.pre, i64 9
+  %56 = getelementptr inbounds nuw i8, ptr %.pre, i64 9
   %57 = load i8, ptr %56, align 1
   %58 = icmp ne i8 %57, 0
   call void @llvm.assume(i1 %58)
@@ -439,11 +439,11 @@ spl_get_iterator_from_aggregate.exit:             ; preds = %44, %38
   %63 = phi ptr [ %8, %spl_get_iterator_from_aggregate.exit ], [ %.pre6, %55 ]
   %64 = load i64, ptr %10, align 8
   store i64 %64, ptr %9, align 8
-  %65 = getelementptr inbounds i8, ptr %9, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 4, ptr %65, align 8
   %66 = load ptr, ptr @spl_ce_RecursiveCachingIterator, align 8
   %67 = call i32 @object_init_ex(ptr noundef nonnull %7, ptr noundef %66) #10
-  %68 = getelementptr inbounds i8, ptr %66, i64 256
+  %68 = getelementptr inbounds nuw i8, ptr %66, i64 256
   %69 = load ptr, ptr %68, align 8
   %70 = load ptr, ptr %7, align 8
   call void @zend_call_known_instance_method_with_2_params(ptr noundef %69, ptr noundef %70, ptr noundef null, ptr noundef %63, ptr noundef nonnull %9) #10
@@ -456,7 +456,7 @@ spl_get_iterator_from_aggregate.exit:             ; preds = %44, %38
 72:                                               ; preds = %3
   store i64 0, ptr %5, align 8
   store i64 0, ptr %6, align 8
-  %73 = getelementptr inbounds i8, ptr %0, i64 44
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %74 = load i32, ptr %73, align 4
   %75 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %74, ptr noundef nonnull @.str.26, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6) #10
   %76 = icmp eq i32 %75, -1
@@ -471,7 +471,7 @@ spl_get_iterator_from_aggregate.exit:             ; preds = %44, %38
 80:                                               ; preds = %72
   %81 = load ptr, ptr %4, align 8
   %82 = load ptr, ptr %81, align 8
-  %83 = getelementptr inbounds i8, ptr %82, i64 16
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 16
   %84 = load ptr, ptr %83, align 8
   %85 = load ptr, ptr @zend_ce_aggregate, align 8
   %86 = icmp eq ptr %84, %85
@@ -484,14 +484,14 @@ spl_get_iterator_from_aggregate.exit:             ; preds = %44, %38
 
 ..critedge2_crit_edge:                            ; preds = %87
   %.pre8 = load ptr, ptr %.pre7, align 8
-  %.phi.trans.insert9 = getelementptr inbounds i8, ptr %.pre8, i64 16
+  %.phi.trans.insert9 = getelementptr inbounds nuw i8, ptr %.pre8, i64 16
   %.pre10 = load ptr, ptr %.phi.trans.insert9, align 8
   br label %.critedge2
 
 .critedge2:                                       ; preds = %..critedge2_crit_edge, %80
   %89 = phi ptr [ %84, %80 ], [ %.pre10, %..critedge2_crit_edge ]
   %90 = phi ptr [ %82, %80 ], [ %.pre8, %..critedge2_crit_edge ]
-  %91 = getelementptr inbounds i8, ptr %89, i64 368
+  %91 = getelementptr inbounds nuw i8, ptr %89, i64 368
   %92 = load ptr, ptr %91, align 8
   %93 = call ptr @zend_call_method(ptr noundef nonnull %90, ptr noundef %89, ptr noundef %92, ptr noundef nonnull @.str.35, i64 noundef 11, ptr noundef nonnull %8, i32 noundef 0, ptr noundef null, ptr noundef null) #10
   %94 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
@@ -499,14 +499,14 @@ spl_get_iterator_from_aggregate.exit:             ; preds = %44, %38
   br i1 %.not24.i174, label %95, label %113
 
 95:                                               ; preds = %.critedge2
-  %96 = getelementptr inbounds i8, ptr %8, i64 8
+  %96 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %97 = load i8, ptr %96, align 8
   %.not25.i176 = icmp eq i8 %97, 8
   br i1 %.not25.i176, label %98, label %106
 
 98:                                               ; preds = %95
   %99 = load ptr, ptr %8, align 8
-  %100 = getelementptr inbounds i8, ptr %99, i64 16
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 16
   %101 = load ptr, ptr %100, align 8
   %102 = load ptr, ptr @zend_ce_traversable, align 8
   %103 = icmp eq ptr %101, %102
@@ -518,9 +518,9 @@ spl_get_iterator_from_aggregate.exit:             ; preds = %44, %38
 
 106:                                              ; preds = %104, %95
   %107 = load ptr, ptr @spl_ce_LogicException, align 8
-  %108 = getelementptr inbounds i8, ptr %89, i64 8
+  %108 = getelementptr inbounds nuw i8, ptr %89, i64 8
   %109 = load ptr, ptr %108, align 8
-  %110 = getelementptr inbounds i8, ptr %109, i64 24
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 24
   %111 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %107, i64 noundef 0, ptr noundef nonnull @.str.36, ptr noundef nonnull %110) #10
   call void @zval_ptr_dtor(ptr noundef nonnull %8) #10
   %.pre11 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
@@ -537,7 +537,7 @@ spl_get_iterator_from_aggregate.exit177:          ; preds = %104, %98
   br label %122
 
 115:                                              ; preds = %87
-  %116 = getelementptr inbounds i8, ptr %.pre7, i64 9
+  %116 = getelementptr inbounds nuw i8, ptr %.pre7, i64 9
   %117 = load i8, ptr %116, align 1
   %118 = icmp ne i8 %117, 0
   call void @llvm.assume(i1 %118)
@@ -551,7 +551,7 @@ spl_get_iterator_from_aggregate.exit177:          ; preds = %104, %98
 122:                                              ; preds = %spl_get_iterator_from_aggregate.exit177, %115, %62
   %123 = phi ptr [ %8, %spl_get_iterator_from_aggregate.exit177 ], [ %.pre12, %115 ], [ %7, %62 ]
   %124 = load ptr, ptr %123, align 8
-  %125 = getelementptr inbounds i8, ptr %124, i64 16
+  %125 = getelementptr inbounds nuw i8, ptr %124, i64 16
   %126 = load ptr, ptr %125, align 8
   %127 = load ptr, ptr @spl_ce_RecursiveIterator, align 8
   %128 = icmp eq ptr %126, %127
@@ -595,127 +595,127 @@ spl_get_iterator_from_aggregate.exit177:          ; preds = %104, %98
   %148 = getelementptr inbounds i8, ptr %137, i64 -128
   store i8 0, ptr %148, align 8
   %149 = load ptr, ptr %11, align 8
-  %150 = getelementptr inbounds i8, ptr %149, i64 16
+  %150 = getelementptr inbounds nuw i8, ptr %149, i64 16
   %151 = load ptr, ptr %150, align 8
   %152 = getelementptr inbounds i8, ptr %137, i64 -64
   store ptr %151, ptr %152, align 8
-  %153 = getelementptr inbounds i8, ptr %151, i64 64
+  %153 = getelementptr inbounds nuw i8, ptr %151, i64 64
   %154 = call ptr @zend_hash_str_find(ptr noundef nonnull %153, ptr noundef nonnull @.str.28, i64 noundef 14) #10
   %.not160 = icmp ne ptr %154, null
   call void @llvm.assume(i1 %.not160)
   %155 = load ptr, ptr %154, align 8, !nonnull !4, !noundef !4
   %156 = getelementptr inbounds i8, ptr %137, i64 -120
   store ptr %155, ptr %156, align 8
-  %157 = getelementptr inbounds i8, ptr %155, i64 16
+  %157 = getelementptr inbounds nuw i8, ptr %155, i64 16
   %158 = load ptr, ptr %157, align 8
   %159 = icmp eq ptr %158, %1
   %spec.store.select = select i1 %159, ptr null, ptr %155
   store ptr %spec.store.select, ptr %156, align 8
   %160 = load ptr, ptr %152, align 8
-  %161 = getelementptr inbounds i8, ptr %160, i64 64
+  %161 = getelementptr inbounds nuw i8, ptr %160, i64 64
   %162 = call ptr @zend_hash_str_find(ptr noundef nonnull %161, ptr noundef nonnull @.str.29, i64 noundef 12) #10
   %.not161 = icmp ne ptr %162, null
   call void @llvm.assume(i1 %.not161)
   %163 = load ptr, ptr %162, align 8, !nonnull !4, !noundef !4
   %164 = getelementptr inbounds i8, ptr %137, i64 -112
   store ptr %163, ptr %164, align 8
-  %165 = getelementptr inbounds i8, ptr %163, i64 16
+  %165 = getelementptr inbounds nuw i8, ptr %163, i64 16
   %166 = load ptr, ptr %165, align 8
   %167 = icmp eq ptr %166, %1
   %spec.store.select171 = select i1 %167, ptr null, ptr %163
   store ptr %spec.store.select171, ptr %164, align 8
   %168 = load ptr, ptr %152, align 8
-  %169 = getelementptr inbounds i8, ptr %168, i64 64
+  %169 = getelementptr inbounds nuw i8, ptr %168, i64 64
   %170 = call ptr @zend_hash_str_find(ptr noundef nonnull %169, ptr noundef nonnull @.str.30, i64 noundef 15) #10
   %.not162 = icmp ne ptr %170, null
   call void @llvm.assume(i1 %.not162)
   %171 = load ptr, ptr %170, align 8, !nonnull !4, !noundef !4
   %172 = getelementptr inbounds i8, ptr %137, i64 -104
   store ptr %171, ptr %172, align 8
-  %173 = getelementptr inbounds i8, ptr %171, i64 16
+  %173 = getelementptr inbounds nuw i8, ptr %171, i64 16
   %174 = load ptr, ptr %173, align 8
   %175 = icmp eq ptr %174, %1
   %spec.store.select168 = select i1 %175, ptr null, ptr %171
   store ptr %spec.store.select168, ptr %172, align 8
   %176 = load ptr, ptr %152, align 8
-  %177 = getelementptr inbounds i8, ptr %176, i64 64
+  %177 = getelementptr inbounds nuw i8, ptr %176, i64 64
   %178 = call ptr @zend_hash_str_find(ptr noundef nonnull %177, ptr noundef nonnull @.str.31, i64 noundef 15) #10
   %.not163 = icmp ne ptr %178, null
   call void @llvm.assume(i1 %.not163)
   %179 = load ptr, ptr %178, align 8, !nonnull !4, !noundef !4
   %180 = getelementptr inbounds i8, ptr %137, i64 -96
   store ptr %179, ptr %180, align 8
-  %181 = getelementptr inbounds i8, ptr %179, i64 16
+  %181 = getelementptr inbounds nuw i8, ptr %179, i64 16
   %182 = load ptr, ptr %181, align 8
   %183 = icmp eq ptr %182, %1
   %spec.store.select173 = select i1 %183, ptr null, ptr %179
   store ptr %spec.store.select173, ptr %180, align 8
   %184 = load ptr, ptr %152, align 8
-  %185 = getelementptr inbounds i8, ptr %184, i64 64
+  %185 = getelementptr inbounds nuw i8, ptr %184, i64 64
   %186 = call ptr @zend_hash_str_find(ptr noundef nonnull %185, ptr noundef nonnull @.str.32, i64 noundef 13) #10
   %.not164 = icmp ne ptr %186, null
   call void @llvm.assume(i1 %.not164)
   %187 = load ptr, ptr %186, align 8, !nonnull !4, !noundef !4
   %188 = getelementptr inbounds i8, ptr %137, i64 -88
   store ptr %187, ptr %188, align 8
-  %189 = getelementptr inbounds i8, ptr %187, i64 16
+  %189 = getelementptr inbounds nuw i8, ptr %187, i64 16
   %190 = load ptr, ptr %189, align 8
   %191 = icmp eq ptr %190, %1
   %spec.store.select169 = select i1 %191, ptr null, ptr %187
   store ptr %spec.store.select169, ptr %188, align 8
   %192 = load ptr, ptr %152, align 8
-  %193 = getelementptr inbounds i8, ptr %192, i64 64
+  %193 = getelementptr inbounds nuw i8, ptr %192, i64 64
   %194 = call ptr @zend_hash_str_find(ptr noundef nonnull %193, ptr noundef nonnull @.str.33, i64 noundef 11) #10
   %.not165 = icmp ne ptr %194, null
   call void @llvm.assume(i1 %.not165)
   %195 = load ptr, ptr %194, align 8, !nonnull !4, !noundef !4
   %196 = getelementptr inbounds i8, ptr %137, i64 -80
   store ptr %195, ptr %196, align 8
-  %197 = getelementptr inbounds i8, ptr %195, i64 16
+  %197 = getelementptr inbounds nuw i8, ptr %195, i64 16
   %198 = load ptr, ptr %197, align 8
   %199 = icmp eq ptr %198, %1
   %spec.store.select172 = select i1 %199, ptr null, ptr %195
   store ptr %spec.store.select172, ptr %196, align 8
   %200 = load ptr, ptr %152, align 8
-  %201 = getelementptr inbounds i8, ptr %200, i64 64
+  %201 = getelementptr inbounds nuw i8, ptr %200, i64 64
   %202 = call ptr @zend_hash_str_find(ptr noundef nonnull %201, ptr noundef nonnull @.str.34, i64 noundef 11) #10
   %.not166 = icmp ne ptr %202, null
   call void @llvm.assume(i1 %.not166)
   %203 = load ptr, ptr %202, align 8, !nonnull !4, !noundef !4
   %204 = getelementptr inbounds i8, ptr %137, i64 -72
   store ptr %203, ptr %204, align 8
-  %205 = getelementptr inbounds i8, ptr %203, i64 16
+  %205 = getelementptr inbounds nuw i8, ptr %203, i64 16
   %206 = load ptr, ptr %205, align 8
   %207 = icmp eq ptr %206, %1
   %spec.store.select170 = select i1 %207, ptr null, ptr %203
   store ptr %spec.store.select170, ptr %204, align 8
   %208 = load ptr, ptr %4, align 8
   %209 = load ptr, ptr %208, align 8
-  %210 = getelementptr inbounds i8, ptr %209, i64 16
+  %210 = getelementptr inbounds nuw i8, ptr %209, i64 16
   %211 = load ptr, ptr %210, align 8
-  %212 = getelementptr inbounds i8, ptr %211, i64 392
+  %212 = getelementptr inbounds nuw i8, ptr %211, i64 392
   %213 = load ptr, ptr %212, align 8
   %214 = call ptr %213(ptr noundef %211, ptr noundef nonnull %208, i32 noundef 0) #10
   %215 = load ptr, ptr %138, align 8
   store ptr %214, ptr %215, align 8
   %216 = load ptr, ptr %138, align 8
-  %217 = getelementptr inbounds i8, ptr %216, i64 8
+  %217 = getelementptr inbounds nuw i8, ptr %216, i64 8
   %218 = load ptr, ptr %4, align 8
   %219 = load ptr, ptr %218, align 8
   store ptr %219, ptr %217, align 8
-  %220 = getelementptr inbounds i8, ptr %216, i64 16
+  %220 = getelementptr inbounds nuw i8, ptr %216, i64 16
   store i32 776, ptr %220, align 8
   %221 = load ptr, ptr %138, align 8
-  %222 = getelementptr inbounds i8, ptr %221, i64 24
+  %222 = getelementptr inbounds nuw i8, ptr %221, i64 24
   store ptr %211, ptr %222, align 8
   %223 = load ptr, ptr %138, align 8
-  %224 = getelementptr inbounds i8, ptr %223, i64 32
+  %224 = getelementptr inbounds nuw i8, ptr %223, i64 32
   store i32 4, ptr %224, align 8
   %225 = load ptr, ptr %138, align 8
-  %226 = getelementptr inbounds i8, ptr %225, i64 40
+  %226 = getelementptr inbounds nuw i8, ptr %225, i64 40
   store ptr null, ptr %226, align 8
   %227 = load ptr, ptr %138, align 8
-  %228 = getelementptr inbounds i8, ptr %227, i64 48
+  %228 = getelementptr inbounds nuw i8, ptr %227, i64 48
   store ptr null, ptr %228, align 8
   %229 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not167 = icmp eq ptr %229, null
@@ -730,7 +730,7 @@ spl_get_iterator_from_aggregate.exit177:          ; preds = %104, %98
   %232 = phi i32 [ %242, %.lr.ph ], [ %230, %.preheader ]
   %233 = load ptr, ptr %138, align 8
   %234 = zext nneg i32 %232 to i64
-  %235 = getelementptr inbounds %struct._spl_sub_iterator, ptr %233, i64 %234
+  %235 = getelementptr inbounds nuw %struct._spl_sub_iterator, ptr %233, i64 %234
   %236 = load ptr, ptr %235, align 8
   call void @zend_iterator_dtor(ptr noundef %236) #10
   %237 = load ptr, ptr %138, align 8
@@ -756,7 +756,7 @@ spl_get_iterator_from_aggregate.exit177:          ; preds = %104, %98
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_RecursiveIteratorIterator_rewind(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 44
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %.critedge, label %5
@@ -769,7 +769,7 @@ define hidden void @zim_RecursiveIteratorIterator_rewind(ptr nocapture noundef r
   br label %11
 
 .critedge:                                        ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 -152
   tail call fastcc void @spl_recursive_it_rewind_ex(ptr noundef nonnull %10, ptr noundef nonnull %8)
@@ -795,14 +795,14 @@ define internal fastcc void @spl_recursive_it_rewind_ex(ptr noundef %0, ptr noca
   br label %60
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 8
   %.not4451 = icmp eq i32 %7, 0
   br i1 %.not4451, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %0, i64 72
-  %9 = getelementptr inbounds i8, ptr %0, i64 88
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 88
   br label %10
 
 10:                                               ; preds = %.lr.ph, %32
@@ -829,7 +829,7 @@ define internal fastcc void @spl_recursive_it_rewind_ex(ptr noundef %0, ptr noca
   br i1 %.not49, label %28, label %24
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds i8, ptr %23, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %26 = load ptr, ptr %25, align 8
   %27 = load ptr, ptr @spl_ce_RecursiveIteratorIterator, align 8
   %.not50 = icmp eq ptr %26, %27
@@ -854,13 +854,13 @@ define internal fastcc void @spl_recursive_it_rewind_ex(ptr noundef %0, ptr noca
   %34 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %3, %5 ]
   %35 = tail call dereferenceable_or_null(56) ptr @_erealloc(ptr noundef %34, i64 noundef 56) #11
   store ptr %35, ptr %0, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 32
   store i32 4, ptr %36, align 8
   %37 = load ptr, ptr %0, align 8
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 72
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 72
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 40
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 40
   %42 = load ptr, ptr %41, align 8
   %.not45 = icmp eq ptr %42, null
   br i1 %.not45, label %44, label %43
@@ -875,26 +875,26 @@ define internal fastcc void @spl_recursive_it_rewind_ex(ptr noundef %0, ptr noca
   br i1 %.not46, label %46, label %58
 
 46:                                               ; preds = %44
-  %47 = getelementptr inbounds i8, ptr %0, i64 32
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %48 = load ptr, ptr %47, align 8
   %.not47 = icmp eq ptr %48, null
   br i1 %.not47, label %58, label %49
 
 49:                                               ; preds = %46
-  %50 = getelementptr inbounds i8, ptr %0, i64 24
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %51 = load i8, ptr %50, align 8
   %52 = trunc i8 %51 to i1
   br i1 %52, label %58, label %53
 
 53:                                               ; preds = %49
   %54 = load ptr, ptr %1, align 8
-  %55 = getelementptr inbounds i8, ptr %0, i64 88
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %56 = load ptr, ptr %55, align 8
   %57 = tail call ptr @zend_call_method(ptr noundef %54, ptr noundef %56, ptr noundef nonnull %47, ptr noundef nonnull @.str.37, i64 noundef 14, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef null) #10
   br label %58
 
 58:                                               ; preds = %53, %49, %46, %44
-  %59 = getelementptr inbounds i8, ptr %0, i64 24
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i8 1, ptr %59, align 8
   tail call fastcc void @spl_recursive_it_move_forward_ex(ptr noundef nonnull %0, ptr noundef %1)
   br label %60
@@ -905,10 +905,10 @@ define internal fastcc void @spl_recursive_it_rewind_ex(ptr noundef %0, ptr noca
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_RecursiveIteratorIterator_valid(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 -152
-  %6 = getelementptr inbounds i8, ptr %0, i64 44
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %7 = load i32, ptr %6, align 4
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %.critedge, label %8
@@ -943,11 +943,11 @@ define hidden void @zim_RecursiveIteratorIterator_valid(ptr nocapture noundef re
 .lr.ph.i:                                         ; preds = %16, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ %15, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %16 ]
   %18 = load ptr, ptr %5, align 8
-  %19 = getelementptr inbounds %struct._spl_sub_iterator, ptr %18, i64 %indvars.iv.i
+  %19 = getelementptr inbounds nuw %struct._spl_sub_iterator, ptr %18, i64 %indvars.iv.i
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 72
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 72
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load ptr, ptr %23, align 8
   %25 = tail call i32 %24(ptr noundef %20) #10
   %26 = icmp eq i32 %25, 0
@@ -979,7 +979,7 @@ define hidden void @zim_RecursiveIteratorIterator_valid(ptr nocapture noundef re
 
 spl_recursive_it_valid_ex.exit:                   ; preds = %.lr.ph.i, %.critedge, %38
   %40 = phi i32 [ 2, %38 ], [ 2, %.critedge ], [ 3, %.lr.ph.i ]
-  %41 = getelementptr inbounds i8, ptr %1, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %40, ptr %41, align 8
   br label %42
 
@@ -989,9 +989,9 @@ spl_recursive_it_valid_ex.exit:                   ; preds = %.lr.ph.i, %.critedg
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_RecursiveIteratorIterator_key(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 44
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %.critedge, label %7
@@ -1019,9 +1019,9 @@ define hidden void @zim_RecursiveIteratorIterator_key(ptr nocapture noundef read
   %16 = sext i32 %15 to i64
   %17 = getelementptr inbounds %struct._spl_sub_iterator, ptr %11, i64 %16
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 72
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 72
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %22 = load ptr, ptr %21, align 8
   %.not12 = icmp eq ptr %22, null
   br i1 %.not12, label %24, label %23
@@ -1031,7 +1031,7 @@ define hidden void @zim_RecursiveIteratorIterator_key(ptr nocapture noundef read
   br label %26
 
 24:                                               ; preds = %13
-  %25 = getelementptr inbounds i8, ptr %1, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 1, ptr %25, align 8
   br label %26
 
@@ -1043,9 +1043,9 @@ declare void @zend_throw_error(ptr noundef, ptr noundef, ...) local_unnamed_addr
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_RecursiveIteratorIterator_current(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 44
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %.critedge, label %7
@@ -1073,16 +1073,16 @@ define hidden void @zim_RecursiveIteratorIterator_current(ptr nocapture noundef 
   %16 = sext i32 %15 to i64
   %17 = getelementptr inbounds %struct._spl_sub_iterator, ptr %11, i64 %16
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 72
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 72
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = load ptr, ptr %21, align 8
   %23 = tail call ptr %22(ptr noundef %18) #10
   %.not31 = icmp eq ptr %23, null
   br i1 %.not31, label %46, label %24
 
 24:                                               ; preds = %13
-  %25 = getelementptr inbounds i8, ptr %23, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %26 = load i32, ptr %25, align 8
   %27 = and i32 %26, 65280
   %.not32 = icmp eq i32 %27, 0
@@ -1095,8 +1095,8 @@ define hidden void @zim_RecursiveIteratorIterator_current(ptr nocapture noundef 
 
 31:                                               ; preds = %28
   %32 = load ptr, ptr %23, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 8
-  %34 = getelementptr inbounds i8, ptr %32, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %35 = load i32, ptr %34, align 8
   %36 = and i32 %35, 65280
   %.not33 = icmp eq i32 %36, 0
@@ -1117,10 +1117,10 @@ define hidden void @zim_RecursiveIteratorIterator_current(ptr nocapture noundef 
 41:                                               ; preds = %.sink.split, %24, %31
   %.0 = phi ptr [ %33, %31 ], [ %23, %24 ], [ %.sink.in, %.sink.split ]
   %42 = load ptr, ptr %.0, align 8
-  %43 = getelementptr inbounds i8, ptr %.0, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %44 = load i32, ptr %43, align 8
   store ptr %42, ptr %1, align 8
-  %45 = getelementptr inbounds i8, ptr %1, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %44, ptr %45, align 8
   br label %46
 
@@ -1130,7 +1130,7 @@ define hidden void @zim_RecursiveIteratorIterator_current(ptr nocapture noundef 
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_RecursiveIteratorIterator_next(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 44
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %.critedge, label %5
@@ -1143,7 +1143,7 @@ define hidden void @zim_RecursiveIteratorIterator_next(ptr nocapture noundef rea
   br label %11
 
 .critedge:                                        ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 -152
   tail call fastcc void @spl_recursive_it_move_forward_ex(ptr noundef nonnull %10, ptr noundef nonnull %8)
@@ -1167,23 +1167,23 @@ define internal fastcc void @spl_recursive_it_move_forward_ex(ptr noundef %0, pt
   br label %.loopexit
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not208238 = icmp eq ptr %10, null
   br i1 %.not208238, label %.preheader.lr.ph, label %.loopexit
 
 .preheader.lr.ph:                                 ; preds = %8
-  %11 = getelementptr inbounds i8, ptr %0, i64 56
-  %12 = getelementptr inbounds i8, ptr %0, i64 88
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
-  %14 = getelementptr inbounds i8, ptr %4, i64 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 12
-  %16 = getelementptr inbounds i8, ptr %0, i64 64
-  %17 = getelementptr inbounds i8, ptr %0, i64 48
-  %18 = getelementptr inbounds i8, ptr %3, i64 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 20
-  %20 = getelementptr inbounds i8, ptr %0, i64 72
-  %21 = getelementptr inbounds i8, ptr %5, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.backedge, %.preheader.lr.ph
@@ -1192,7 +1192,7 @@ define internal fastcc void @spl_recursive_it_move_forward_ex(ptr noundef %0, pt
   %24 = sext i32 %23 to i64
   %25 = getelementptr inbounds %struct._spl_sub_iterator, ptr %22, i64 %24
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %25, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 32
   %28 = load i32, ptr %27, align 8
   switch i32 %28, label %259 [
     i32 0, label %29
@@ -1203,9 +1203,9 @@ define internal fastcc void @spl_recursive_it_move_forward_ex(ptr noundef %0, pt
   ]
 
 29:                                               ; preds = %.preheader
-  %30 = getelementptr inbounds i8, ptr %26, i64 72
+  %30 = getelementptr inbounds nuw i8, ptr %26, i64 72
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 32
   %33 = load ptr, ptr %32, align 8
   call void %33(ptr noundef %26) #10
   %34 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
@@ -1223,9 +1223,9 @@ define internal fastcc void @spl_recursive_it_move_forward_ex(ptr noundef %0, pt
   br label %39
 
 39:                                               ; preds = %29, %38, %.preheader
-  %40 = getelementptr inbounds i8, ptr %26, i64 72
+  %40 = getelementptr inbounds nuw i8, ptr %26, i64 72
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %43 = load ptr, ptr %42, align 8
   %44 = call i32 %43(ptr noundef %26) #10
   %45 = icmp eq i32 %44, -1
@@ -1255,11 +1255,11 @@ define internal fastcc void @spl_recursive_it_move_forward_ex(ptr noundef %0, pt
   %58 = load i32, ptr %9, align 8
   %59 = sext i32 %58 to i64
   %60 = getelementptr inbounds %struct._spl_sub_iterator, ptr %57, i64 %59
-  %61 = getelementptr inbounds i8, ptr %60, i64 24
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 24
   %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %60, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %60, i64 40
+  %65 = getelementptr inbounds nuw i8, ptr %60, i64 40
   %66 = call ptr @zend_call_method(ptr noundef %64, ptr noundef %62, ptr noundef nonnull %65, ptr noundef nonnull @.str.2, i64 noundef 11, ptr noundef nonnull %3, i32 noundef 0, ptr noundef null, ptr noundef null) #10
   br label %67
 
@@ -1344,7 +1344,7 @@ define internal fastcc void @spl_recursive_it_move_forward_ex(ptr noundef %0, pt
   br label %.preheader.backedge
 
 107:                                              ; preds = %80, %100, %88, %78
-  %108 = getelementptr inbounds i8, ptr %0, i64 80
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %109 = load ptr, ptr %108, align 8
   %.not226 = icmp eq ptr %109, null
   br i1 %.not226, label %114, label %110
@@ -1376,7 +1376,7 @@ define internal fastcc void @spl_recursive_it_move_forward_ex(ptr noundef %0, pt
   br label %.loopexit
 
 124:                                              ; preds = %.preheader
-  %125 = getelementptr inbounds i8, ptr %0, i64 80
+  %125 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %126 = load ptr, ptr %125, align 8
   %.not218 = icmp eq ptr %126, null
   %.pre248 = load i32, ptr %15, align 4
@@ -1427,11 +1427,11 @@ define internal fastcc void @spl_recursive_it_move_forward_ex(ptr noundef %0, pt
   br label %157
 
 150:                                              ; preds = %144
-  %151 = getelementptr inbounds i8, ptr %25, i64 24
+  %151 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %152 = load ptr, ptr %151, align 8
-  %153 = getelementptr inbounds i8, ptr %25, i64 8
+  %153 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %154 = load ptr, ptr %153, align 8
-  %155 = getelementptr inbounds i8, ptr %25, i64 48
+  %155 = getelementptr inbounds nuw i8, ptr %25, i64 48
   %156 = call ptr @zend_call_method(ptr noundef %154, ptr noundef %152, ptr noundef nonnull %155, ptr noundef nonnull @.str.3, i64 noundef 11, ptr noundef nonnull %4, i32 noundef 0, ptr noundef null, ptr noundef null) #10
   br label %157
 
@@ -1463,7 +1463,7 @@ define internal fastcc void @spl_recursive_it_move_forward_ex(ptr noundef %0, pt
 
 169:                                              ; preds = %167
   %170 = load ptr, ptr %4, align 8
-  %171 = getelementptr inbounds i8, ptr %170, i64 16
+  %171 = getelementptr inbounds nuw i8, ptr %170, i64 16
   %172 = load ptr, ptr %171, align 8
   %.not212 = icmp eq ptr %172, null
   br i1 %.not212, label %178, label %173
@@ -1501,7 +1501,7 @@ define internal fastcc void @spl_recursive_it_move_forward_ex(ptr noundef %0, pt
   %192 = mul nsw i64 %191, 56
   %193 = call ptr @_erealloc(ptr noundef %187, i64 noundef %192) #11
   store ptr %193, ptr %0, align 8
-  %194 = getelementptr inbounds i8, ptr %172, i64 392
+  %194 = getelementptr inbounds nuw i8, ptr %172, i64 392
   %195 = load ptr, ptr %194, align 8
   %196 = call ptr %195(ptr noundef nonnull %172, ptr noundef nonnull %4, i32 noundef 0) #10
   %197 = load ptr, ptr %0, align 8
@@ -1511,7 +1511,7 @@ define internal fastcc void @spl_recursive_it_move_forward_ex(ptr noundef %0, pt
   %201 = load ptr, ptr %4, align 8
   %202 = load i32, ptr %14, align 8
   store ptr %201, ptr %200, align 8
-  %203 = getelementptr inbounds i8, ptr %200, i64 8
+  %203 = getelementptr inbounds nuw i8, ptr %200, i64 8
   store i32 %202, ptr %203, align 8
   %204 = load ptr, ptr %0, align 8
   %205 = load i32, ptr %9, align 8
@@ -1544,7 +1544,7 @@ define internal fastcc void @spl_recursive_it_move_forward_ex(ptr noundef %0, pt
 224:                                              ; preds = %218
   %225 = getelementptr i8, ptr %220, i64 -16
   %226 = load ptr, ptr %225, align 8
-  %227 = getelementptr inbounds %struct._spl_sub_iterator, ptr %.pre, i64 %219, i32 4
+  %227 = getelementptr inbounds nuw %struct._spl_sub_iterator, ptr %.pre, i64 %219, i32 4
   store ptr %226, ptr %227, align 8
   %228 = load ptr, ptr %0, align 8
   %229 = load i32, ptr %9, align 8
@@ -1568,9 +1568,9 @@ define internal fastcc void @spl_recursive_it_move_forward_ex(ptr noundef %0, pt
   br label %242
 
 242:                                              ; preds = %235, %224
-  %243 = getelementptr inbounds i8, ptr %196, i64 72
+  %243 = getelementptr inbounds nuw i8, ptr %196, i64 72
   %244 = load ptr, ptr %243, align 8
-  %245 = getelementptr inbounds i8, ptr %244, i64 40
+  %245 = getelementptr inbounds nuw i8, ptr %244, i64 40
   %246 = load ptr, ptr %245, align 8
   %.not213 = icmp eq ptr %246, null
   br i1 %.not213, label %248, label %247
@@ -1638,13 +1638,13 @@ define internal fastcc void @spl_recursive_it_move_forward_ex(ptr noundef %0, pt
 276:                                              ; preds = %273
   %277 = load ptr, ptr %0, align 8
   %278 = zext nneg i32 %274 to i64
-  %279 = getelementptr inbounds %struct._spl_sub_iterator, ptr %277, i64 %278, i32 1
+  %279 = getelementptr inbounds nuw %struct._spl_sub_iterator, ptr %277, i64 %278, i32 1
   %280 = load ptr, ptr %279, align 8
-  %281 = getelementptr inbounds i8, ptr %279, i64 8
+  %281 = getelementptr inbounds nuw i8, ptr %279, i64 8
   %282 = load i32, ptr %281, align 8
   store ptr %280, ptr %5, align 8
   store i32 %282, ptr %21, align 8
-  %283 = getelementptr inbounds %struct._spl_sub_iterator, ptr %277, i64 %278, i32 1, i32 1
+  %283 = getelementptr inbounds nuw %struct._spl_sub_iterator, ptr %277, i64 %278, i32 1, i32 1
   store i32 0, ptr %283, align 8
   call void @zval_ptr_dtor(ptr noundef nonnull %5) #10
   call void @zend_iterator_dtor(ptr noundef %26) #10
@@ -1667,7 +1667,7 @@ define internal fastcc void @spl_recursive_it_move_forward_ex(ptr noundef %0, pt
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_RecursiveIteratorIterator_getDepth(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 44
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %.critedge, label %5
@@ -1680,13 +1680,13 @@ define hidden void @zim_RecursiveIteratorIterator_getDepth(ptr nocapture noundef
   br label %14
 
 .critedge:                                        ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 -144
   %11 = load i32, ptr %10, align 8
   %12 = sext i32 %11 to i64
   store i64 %12, ptr %1, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 4, ptr %13, align 8
   br label %14
 
@@ -1698,11 +1698,11 @@ define hidden void @zim_RecursiveIteratorIterator_getDepth(ptr nocapture noundef
 define hidden void @zim_RecursiveIteratorIterator_getSubIterator(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
   %3 = alloca i64, align 8
   %4 = alloca i8, align 1
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 -152
   store i8 1, ptr %4, align 1
-  %8 = getelementptr inbounds i8, ptr %0, i64 44
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %9 = load i32, ptr %8, align 4
   %10 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %9, ptr noundef nonnull @.str.1, ptr noundef nonnull %3, ptr noundef nonnull %4) #10
   %11 = icmp eq i32 %10, -1
@@ -1739,7 +1739,7 @@ define hidden void @zim_RecursiveIteratorIterator_getSubIterator(ptr nocapture n
   br i1 %29, label %30, label %32
 
 30:                                               ; preds = %25, %22
-  %31 = getelementptr inbounds i8, ptr %1, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 1, ptr %31, align 8
   br label %61
 
@@ -1758,7 +1758,7 @@ define hidden void @zim_RecursiveIteratorIterator_getSubIterator(ptr nocapture n
 
 38:                                               ; preds = %32
   %39 = getelementptr inbounds %struct._spl_sub_iterator, ptr %34, i64 %33, i32 1
-  %40 = getelementptr inbounds i8, ptr %39, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %41 = load i32, ptr %40, align 8
   %42 = and i32 %41, 65280
   %.not29 = icmp eq i32 %42, 0
@@ -1771,8 +1771,8 @@ define hidden void @zim_RecursiveIteratorIterator_getSubIterator(ptr nocapture n
 
 46:                                               ; preds = %43
   %47 = load ptr, ptr %39, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 8
-  %49 = getelementptr inbounds i8, ptr %47, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %50 = load i32, ptr %49, align 8
   %51 = and i32 %50, 65280
   %.not30 = icmp eq i32 %51, 0
@@ -1793,10 +1793,10 @@ define hidden void @zim_RecursiveIteratorIterator_getSubIterator(ptr nocapture n
 56:                                               ; preds = %.sink.split, %38, %46
   %.0 = phi ptr [ %48, %46 ], [ %39, %38 ], [ %.sink.in, %.sink.split ]
   %57 = load ptr, ptr %.0, align 8
-  %58 = getelementptr inbounds i8, ptr %.0, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %59 = load i32, ptr %58, align 8
   store ptr %57, ptr %1, align 8
-  %60 = getelementptr inbounds i8, ptr %1, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %59, ptr %60, align 8
   br label %61
 
@@ -1808,9 +1808,9 @@ declare i32 @zend_parse_parameters(i32 noundef, ptr noundef, ...) local_unnamed_
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_RecursiveIteratorIterator_getInnerIterator(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 44
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %.critedge, label %7
@@ -1840,7 +1840,7 @@ define hidden void @zim_RecursiveIteratorIterator_getInnerIterator(ptr nocapture
   %17 = load i32, ptr %16, align 8
   %18 = sext i32 %17 to i64
   %19 = getelementptr inbounds %struct._spl_sub_iterator, ptr %11, i64 %18, i32 1
-  %20 = getelementptr inbounds i8, ptr %19, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load i32, ptr %20, align 8
   %22 = and i32 %21, 65280
   %.not27 = icmp eq i32 %22, 0
@@ -1853,8 +1853,8 @@ define hidden void @zim_RecursiveIteratorIterator_getInnerIterator(ptr nocapture
 
 26:                                               ; preds = %23
   %27 = load ptr, ptr %19, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 8
-  %29 = getelementptr inbounds i8, ptr %27, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %30 = load i32, ptr %29, align 8
   %31 = and i32 %30, 65280
   %.not28 = icmp eq i32 %31, 0
@@ -1875,10 +1875,10 @@ define hidden void @zim_RecursiveIteratorIterator_getInnerIterator(ptr nocapture
 36:                                               ; preds = %.sink.split, %15, %26
   %.0 = phi ptr [ %28, %26 ], [ %19, %15 ], [ %.sink.in, %.sink.split ]
   %37 = load ptr, ptr %.0, align 8
-  %38 = getelementptr inbounds i8, ptr %.0, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %39 = load i32, ptr %38, align 8
   store ptr %37, ptr %1, align 8
-  %40 = getelementptr inbounds i8, ptr %1, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %39, ptr %40, align 8
   br label %41
 
@@ -1888,7 +1888,7 @@ define hidden void @zim_RecursiveIteratorIterator_getInnerIterator(ptr nocapture
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_RecursiveIteratorIterator_beginIteration(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 44
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %.critedge, label %5
@@ -1906,7 +1906,7 @@ define hidden void @zim_RecursiveIteratorIterator_beginIteration(ptr nocapture n
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_RecursiveIteratorIterator_endIteration(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 44
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %.critedge, label %5
@@ -1924,9 +1924,9 @@ define hidden void @zim_RecursiveIteratorIterator_endIteration(ptr nocapture nou
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_RecursiveIteratorIterator_callHasChildren(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 44
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %.critedge, label %7
@@ -1945,7 +1945,7 @@ define hidden void @zim_RecursiveIteratorIterator_callHasChildren(ptr nocapture 
   br i1 %.not26, label %12, label %14
 
 12:                                               ; preds = %.critedge
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %13, align 8
   br label %35
 
@@ -1954,24 +1954,24 @@ define hidden void @zim_RecursiveIteratorIterator_callHasChildren(ptr nocapture 
   %16 = load i32, ptr %15, align 8
   %17 = sext i32 %16 to i64
   %18 = getelementptr inbounds %struct._spl_sub_iterator, ptr %11, i64 %17
-  %19 = getelementptr inbounds i8, ptr %18, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load i8, ptr %19, align 8
   %21 = icmp eq i8 %20, 0
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %14
-  %23 = getelementptr inbounds i8, ptr %1, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %23, align 8
   br label %35
 
 24:                                               ; preds = %14
-  %25 = getelementptr inbounds i8, ptr %18, i64 8
-  %26 = getelementptr inbounds i8, ptr %18, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %27 = load ptr, ptr %26, align 8
   %28 = load ptr, ptr %25, align 8
-  %29 = getelementptr inbounds i8, ptr %18, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %18, i64 40
   %30 = tail call ptr @zend_call_method(ptr noundef %28, ptr noundef %27, ptr noundef nonnull %29, ptr noundef nonnull @.str.2, i64 noundef 11, ptr noundef %1, i32 noundef 0, ptr noundef null, ptr noundef null) #10
-  %31 = getelementptr inbounds i8, ptr %1, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %32 = load i8, ptr %31, align 8
   %33 = icmp eq i8 %32, 0
   br i1 %33, label %34, label %35
@@ -1986,9 +1986,9 @@ define hidden void @zim_RecursiveIteratorIterator_callHasChildren(ptr nocapture 
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_RecursiveIteratorIterator_callGetChildren(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 44
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %.critedge, label %7
@@ -2015,24 +2015,24 @@ define hidden void @zim_RecursiveIteratorIterator_callGetChildren(ptr nocapture 
   %15 = load i32, ptr %14, align 8
   %16 = sext i32 %15 to i64
   %17 = getelementptr inbounds %struct._spl_sub_iterator, ptr %11, i64 %16
-  %18 = getelementptr inbounds i8, ptr %17, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load i8, ptr %18, align 8
   %20 = icmp eq i8 %19, 0
   br i1 %20, label %21, label %23
 
 21:                                               ; preds = %13
-  %22 = getelementptr inbounds i8, ptr %1, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 1, ptr %22, align 8
   br label %34
 
 23:                                               ; preds = %13
-  %24 = getelementptr inbounds i8, ptr %17, i64 8
-  %25 = getelementptr inbounds i8, ptr %17, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %26 = load ptr, ptr %25, align 8
   %27 = load ptr, ptr %24, align 8
-  %28 = getelementptr inbounds i8, ptr %17, i64 48
+  %28 = getelementptr inbounds nuw i8, ptr %17, i64 48
   %29 = tail call ptr @zend_call_method(ptr noundef %27, ptr noundef %26, ptr noundef nonnull %28, ptr noundef nonnull @.str.3, i64 noundef 11, ptr noundef %1, i32 noundef 0, ptr noundef null, ptr noundef null) #10
-  %30 = getelementptr inbounds i8, ptr %1, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %31 = load i8, ptr %30, align 8
   %32 = icmp eq i8 %31, 0
   br i1 %32, label %33, label %34
@@ -2047,7 +2047,7 @@ define hidden void @zim_RecursiveIteratorIterator_callGetChildren(ptr nocapture 
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_RecursiveIteratorIterator_beginChildren(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 44
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %.critedge, label %5
@@ -2065,7 +2065,7 @@ define hidden void @zim_RecursiveIteratorIterator_beginChildren(ptr nocapture no
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_RecursiveIteratorIterator_endChildren(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 44
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %.critedge, label %5
@@ -2083,7 +2083,7 @@ define hidden void @zim_RecursiveIteratorIterator_endChildren(ptr nocapture noun
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_RecursiveIteratorIterator_nextElement(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 44
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %.critedge, label %5
@@ -2102,10 +2102,10 @@ define hidden void @zim_RecursiveIteratorIterator_nextElement(ptr nocapture noun
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_RecursiveIteratorIterator_setMaxDepth(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
   %3 = alloca i64, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
   store i64 -1, ptr %3, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 44
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %7 = load i32, ptr %6, align 4
   %8 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %7, ptr noundef nonnull @.str.4, ptr noundef nonnull %3) #10
   %9 = icmp eq i32 %8, -1
@@ -2144,7 +2144,7 @@ declare void @zend_argument_value_error(i32 noundef, ptr noundef, ...) local_unn
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_RecursiveIteratorIterator_getMaxDepth(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 44
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %.critedge, label %5
@@ -2157,7 +2157,7 @@ define hidden void @zim_RecursiveIteratorIterator_getMaxDepth(ptr nocapture noun
   br label %18
 
 .critedge:                                        ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 -132
   %11 = load i32, ptr %10, align 4
@@ -2165,14 +2165,14 @@ define hidden void @zim_RecursiveIteratorIterator_getMaxDepth(ptr nocapture noun
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %.critedge
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %14, align 8
   br label %18
 
 15:                                               ; preds = %.critedge
   %16 = sext i32 %11 to i64
   store i64 %16, ptr %1, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 4, ptr %17, align 8
   br label %18
 
@@ -2191,9 +2191,9 @@ define hidden void @zim_RecursiveTreeIterator___construct(ptr nocapture noundef 
 define hidden void @zim_RecursiveTreeIterator_setPrefixPart(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
   %3 = alloca i64, align 8
   %4 = alloca ptr, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 44
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %8 = load i32, ptr %7, align 4
   %9 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %8, ptr noundef nonnull @.str.6, ptr noundef nonnull %3, ptr noundef nonnull %4) #10
   %10 = icmp eq i32 %9, -1
@@ -2219,9 +2219,9 @@ define hidden void @zim_RecursiveTreeIterator_setPrefixPart(ptr nocapture nounde
 
 19:                                               ; preds = %14
   %20 = getelementptr inbounds i8, ptr %6, i64 -56
-  %21 = getelementptr inbounds [6 x ptr], ptr %20, i64 0, i64 %15
+  %21 = getelementptr inbounds nuw [6 x ptr], ptr %20, i64 0, i64 %15
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 4
   %24 = load i32, ptr %23, align 4
   %25 = and i32 %24, 64
   %.not = icmp eq i32 %25, 0
@@ -2251,7 +2251,7 @@ define hidden void @zim_RecursiveTreeIterator_setPrefixPart(ptr nocapture nounde
 
 35:                                               ; preds = %26, %34, %33, %19
   %36 = load ptr, ptr %4, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 4
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 4
   %38 = load i32, ptr %37, align 4
   %39 = and i32 %38, 64
   %.not19 = icmp eq i32 %39, 0
@@ -2275,10 +2275,10 @@ define hidden void @zim_RecursiveTreeIterator_setPrefixPart(ptr nocapture nounde
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_RecursiveTreeIterator_getPrefix(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 -152
-  %6 = getelementptr inbounds i8, ptr %0, i64 44
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %7 = load i32, ptr %6, align 4
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %.critedge, label %8
@@ -2305,12 +2305,12 @@ define hidden void @zim_RecursiveTreeIterator_getPrefix(ptr nocapture noundef re
 15:                                               ; preds = %.critedge
   %16 = tail call fastcc ptr @spl_recursive_tree_iterator_get_prefix(ptr noundef nonnull %5)
   store ptr %16, ptr %1, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %18 = load i32, ptr %17, align 4
   %19 = and i32 %18, 64
   %.not10 = icmp eq i32 %19, 0
   %20 = select i1 %.not10, i32 262, i32 6
-  %21 = getelementptr inbounds i8, ptr %1, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %20, ptr %21, align 8
   br label %22
 
@@ -2323,40 +2323,40 @@ define internal fastcc ptr @spl_recursive_tree_iterator_get_prefix(ptr nocapture
   %2 = alloca %struct.smart_str, align 8
   %3 = alloca %struct._zval_struct, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
-  %4 = getelementptr inbounds i8, ptr %0, i64 96
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 24
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load i64, ptr %7, align 8
   call void @smart_str_erealloc(ptr noundef nonnull %2, i64 noundef %8) #10
   %9 = load ptr, ptr %2, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 24
-  %11 = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %12 = load i64, ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %10, i64 %12
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %13, ptr nonnull align 1 %6, i64 %8, i1 false)
   %14 = load ptr, ptr %2, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store i64 %8, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load i32, ptr %16, align 8
   %18 = icmp sgt i32 %17, 0
   br i1 %18, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
-  %19 = getelementptr inbounds i8, ptr %3, i64 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 104
-  %21 = getelementptr inbounds i8, ptr %2, i64 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 112
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 112
   br label %23
 
 23:                                               ; preds = %.lr.ph, %69
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %69 ]
   %24 = load ptr, ptr %0, align 8
-  %25 = getelementptr inbounds %struct._spl_sub_iterator, ptr %24, i64 %indvars.iv
-  %26 = getelementptr inbounds i8, ptr %25, i64 8
+  %25 = getelementptr inbounds nuw %struct._spl_sub_iterator, ptr %24, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %25, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %29 = load ptr, ptr %28, align 8
   %30 = call ptr @zend_call_method(ptr noundef %27, ptr noundef %29, ptr noundef null, ptr noundef nonnull @.str.42, i64 noundef 7, ptr noundef nonnull %3, i32 noundef 0, ptr noundef null, ptr noundef null) #10
   %31 = load i8, ptr %19, align 8
@@ -2367,15 +2367,15 @@ define internal fastcc ptr @spl_recursive_tree_iterator_get_prefix(ptr nocapture
 
 32:                                               ; preds = %23
   %33 = load ptr, ptr %20, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 24
-  %35 = getelementptr inbounds i8, ptr %33, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %36 = load i64, ptr %35, align 8
   %37 = load ptr, ptr %2, align 8
   %.not227 = icmp eq ptr %37, null
   br i1 %.not227, label %43, label %38
 
 38:                                               ; preds = %32
-  %39 = getelementptr inbounds i8, ptr %37, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %40 = load i64, ptr %39, align 8
   %41 = add i64 %40, %36
   %42 = load i64, ptr %21, align 8
@@ -2386,7 +2386,7 @@ define internal fastcc ptr @spl_recursive_tree_iterator_get_prefix(ptr nocapture
   %.0198 = phi i64 [ %36, %32 ], [ %41, %38 ]
   call void @smart_str_erealloc(ptr noundef nonnull %2, i64 noundef %.0198) #10
   %.pre = load ptr, ptr %2, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 16
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 16
   %.pre231 = load i64, ptr %.phi.trans.insert, align 8
   br label %44
 
@@ -2394,22 +2394,22 @@ define internal fastcc ptr @spl_recursive_tree_iterator_get_prefix(ptr nocapture
   %45 = phi i64 [ %.pre231, %43 ], [ %40, %38 ]
   %46 = phi ptr [ %.pre, %43 ], [ %37, %38 ]
   %.1199 = phi i64 [ %.0198, %43 ], [ %41, %38 ]
-  %47 = getelementptr inbounds i8, ptr %46, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 24
   %48 = getelementptr inbounds i8, ptr %47, i64 %45
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %48, ptr nonnull align 1 %34, i64 %36, i1 false)
   br label %66
 
 49:                                               ; preds = %23
   %50 = load ptr, ptr %22, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 24
-  %52 = getelementptr inbounds i8, ptr %50, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 24
+  %52 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %53 = load i64, ptr %52, align 8
   %54 = load ptr, ptr %2, align 8
   %.not225 = icmp eq ptr %54, null
   br i1 %.not225, label %60, label %55
 
 55:                                               ; preds = %49
-  %56 = getelementptr inbounds i8, ptr %54, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %57 = load i64, ptr %56, align 8
   %58 = add i64 %57, %53
   %59 = load i64, ptr %21, align 8
@@ -2420,7 +2420,7 @@ define internal fastcc ptr @spl_recursive_tree_iterator_get_prefix(ptr nocapture
   %.0196 = phi i64 [ %53, %49 ], [ %58, %55 ]
   call void @smart_str_erealloc(ptr noundef nonnull %2, i64 noundef %.0196) #10
   %.pre232 = load ptr, ptr %2, align 8
-  %.phi.trans.insert233 = getelementptr inbounds i8, ptr %.pre232, i64 16
+  %.phi.trans.insert233 = getelementptr inbounds nuw i8, ptr %.pre232, i64 16
   %.pre234 = load i64, ptr %.phi.trans.insert233, align 8
   br label %61
 
@@ -2428,7 +2428,7 @@ define internal fastcc ptr @spl_recursive_tree_iterator_get_prefix(ptr nocapture
   %62 = phi i64 [ %.pre234, %60 ], [ %57, %55 ]
   %63 = phi ptr [ %.pre232, %60 ], [ %54, %55 ]
   %.1197 = phi i64 [ %.0196, %60 ], [ %58, %55 ]
-  %64 = getelementptr inbounds i8, ptr %63, i64 24
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 24
   %65 = getelementptr inbounds i8, ptr %64, i64 %62
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %65, ptr nonnull align 1 %51, i64 %53, i1 false)
   br label %66
@@ -2436,7 +2436,7 @@ define internal fastcc ptr @spl_recursive_tree_iterator_get_prefix(ptr nocapture
 66:                                               ; preds = %61, %44
   %.1197.sink = phi i64 [ %.1197, %61 ], [ %.1199, %44 ]
   %67 = load ptr, ptr %2, align 8
-  %68 = getelementptr inbounds i8, ptr %67, i64 16
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 16
   store i64 %.1197.sink, ptr %68, align 8
   call void @zval_ptr_dtor(ptr noundef nonnull %3) #10
   br label %69
@@ -2455,13 +2455,13 @@ define internal fastcc ptr @spl_recursive_tree_iterator_get_prefix(ptr nocapture
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %1
   %.0.lcssa = phi i64 [ 0, %1 ], [ %73, %._crit_edge.loopexit ]
   %74 = load ptr, ptr %0, align 8
-  %75 = getelementptr inbounds %struct._spl_sub_iterator, ptr %74, i64 %.0.lcssa
-  %76 = getelementptr inbounds i8, ptr %75, i64 8
+  %75 = getelementptr inbounds nuw %struct._spl_sub_iterator, ptr %74, i64 %.0.lcssa
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
   %77 = load ptr, ptr %76, align 8
-  %78 = getelementptr inbounds i8, ptr %75, i64 24
+  %78 = getelementptr inbounds nuw i8, ptr %75, i64 24
   %79 = load ptr, ptr %78, align 8
   %80 = call ptr @zend_call_method(ptr noundef %77, ptr noundef %79, ptr noundef null, ptr noundef nonnull @.str.42, i64 noundef 7, ptr noundef nonnull %3, i32 noundef 0, ptr noundef null, ptr noundef null) #10
-  %81 = getelementptr inbounds i8, ptr %3, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %82 = load i8, ptr %81, align 8
   switch i8 %82, label %102 [
     i8 0, label %124
@@ -2469,20 +2469,20 @@ define internal fastcc ptr @spl_recursive_tree_iterator_get_prefix(ptr nocapture
   ]
 
 83:                                               ; preds = %._crit_edge
-  %84 = getelementptr inbounds i8, ptr %0, i64 120
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %85 = load ptr, ptr %84, align 8
-  %86 = getelementptr inbounds i8, ptr %85, i64 24
-  %87 = getelementptr inbounds i8, ptr %85, i64 16
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 24
+  %87 = getelementptr inbounds nuw i8, ptr %85, i64 16
   %88 = load i64, ptr %87, align 8
   %89 = load ptr, ptr %2, align 8
   %.not219 = icmp eq ptr %89, null
   br i1 %.not219, label %96, label %90
 
 90:                                               ; preds = %83
-  %91 = getelementptr inbounds i8, ptr %89, i64 16
+  %91 = getelementptr inbounds nuw i8, ptr %89, i64 16
   %92 = load i64, ptr %91, align 8
   %93 = add i64 %92, %88
-  %94 = getelementptr inbounds i8, ptr %2, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %95 = load i64, ptr %94, align 8
   %.not220 = icmp ult i64 %93, %95
   br i1 %.not220, label %97, label %96
@@ -2491,7 +2491,7 @@ define internal fastcc ptr @spl_recursive_tree_iterator_get_prefix(ptr nocapture
   %.0194 = phi i64 [ %88, %83 ], [ %93, %90 ]
   call void @smart_str_erealloc(ptr noundef nonnull %2, i64 noundef %.0194) #10
   %.pre235 = load ptr, ptr %2, align 8
-  %.phi.trans.insert236 = getelementptr inbounds i8, ptr %.pre235, i64 16
+  %.phi.trans.insert236 = getelementptr inbounds nuw i8, ptr %.pre235, i64 16
   %.pre237 = load i64, ptr %.phi.trans.insert236, align 8
   br label %97
 
@@ -2499,26 +2499,26 @@ define internal fastcc ptr @spl_recursive_tree_iterator_get_prefix(ptr nocapture
   %98 = phi i64 [ %.pre237, %96 ], [ %92, %90 ]
   %99 = phi ptr [ %.pre235, %96 ], [ %89, %90 ]
   %.1195 = phi i64 [ %.0194, %96 ], [ %93, %90 ]
-  %100 = getelementptr inbounds i8, ptr %99, i64 24
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 24
   %101 = getelementptr inbounds i8, ptr %100, i64 %98
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %101, ptr nonnull align 1 %86, i64 %88, i1 false)
   br label %121
 
 102:                                              ; preds = %._crit_edge
-  %103 = getelementptr inbounds i8, ptr %0, i64 128
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %104 = load ptr, ptr %103, align 8
-  %105 = getelementptr inbounds i8, ptr %104, i64 24
-  %106 = getelementptr inbounds i8, ptr %104, i64 16
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 24
+  %106 = getelementptr inbounds nuw i8, ptr %104, i64 16
   %107 = load i64, ptr %106, align 8
   %108 = load ptr, ptr %2, align 8
   %.not217 = icmp eq ptr %108, null
   br i1 %.not217, label %115, label %109
 
 109:                                              ; preds = %102
-  %110 = getelementptr inbounds i8, ptr %108, i64 16
+  %110 = getelementptr inbounds nuw i8, ptr %108, i64 16
   %111 = load i64, ptr %110, align 8
   %112 = add i64 %111, %107
-  %113 = getelementptr inbounds i8, ptr %2, i64 8
+  %113 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %114 = load i64, ptr %113, align 8
   %.not218 = icmp ult i64 %112, %114
   br i1 %.not218, label %116, label %115
@@ -2527,7 +2527,7 @@ define internal fastcc ptr @spl_recursive_tree_iterator_get_prefix(ptr nocapture
   %.0192 = phi i64 [ %107, %102 ], [ %112, %109 ]
   call void @smart_str_erealloc(ptr noundef nonnull %2, i64 noundef %.0192) #10
   %.pre238 = load ptr, ptr %2, align 8
-  %.phi.trans.insert239 = getelementptr inbounds i8, ptr %.pre238, i64 16
+  %.phi.trans.insert239 = getelementptr inbounds nuw i8, ptr %.pre238, i64 16
   %.pre240 = load i64, ptr %.phi.trans.insert239, align 8
   br label %116
 
@@ -2535,7 +2535,7 @@ define internal fastcc ptr @spl_recursive_tree_iterator_get_prefix(ptr nocapture
   %117 = phi i64 [ %.pre240, %115 ], [ %111, %109 ]
   %118 = phi ptr [ %.pre238, %115 ], [ %108, %109 ]
   %.1193 = phi i64 [ %.0192, %115 ], [ %112, %109 ]
-  %119 = getelementptr inbounds i8, ptr %118, i64 24
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 24
   %120 = getelementptr inbounds i8, ptr %119, i64 %117
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %120, ptr nonnull align 1 %105, i64 %107, i1 false)
   br label %121
@@ -2543,25 +2543,25 @@ define internal fastcc ptr @spl_recursive_tree_iterator_get_prefix(ptr nocapture
 121:                                              ; preds = %116, %97
   %.1193.sink = phi i64 [ %.1193, %116 ], [ %.1195, %97 ]
   %122 = load ptr, ptr %2, align 8
-  %123 = getelementptr inbounds i8, ptr %122, i64 16
+  %123 = getelementptr inbounds nuw i8, ptr %122, i64 16
   store i64 %.1193.sink, ptr %123, align 8
   call void @zval_ptr_dtor(ptr noundef nonnull %3) #10
   br label %124
 
 124:                                              ; preds = %._crit_edge, %121
-  %125 = getelementptr inbounds i8, ptr %0, i64 136
+  %125 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %126 = load ptr, ptr %125, align 8
-  %127 = getelementptr inbounds i8, ptr %126, i64 16
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 16
   %128 = load i64, ptr %127, align 8
   %129 = load ptr, ptr %2, align 8
   %.not221 = icmp eq ptr %129, null
   br i1 %.not221, label %136, label %130
 
 130:                                              ; preds = %124
-  %131 = getelementptr inbounds i8, ptr %129, i64 16
+  %131 = getelementptr inbounds nuw i8, ptr %129, i64 16
   %132 = load i64, ptr %131, align 8
   %133 = add i64 %132, %128
-  %134 = getelementptr inbounds i8, ptr %2, i64 8
+  %134 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %135 = load i64, ptr %134, align 8
   %.not222 = icmp ult i64 %133, %135
   br i1 %.not222, label %137, label %136
@@ -2570,7 +2570,7 @@ define internal fastcc ptr @spl_recursive_tree_iterator_get_prefix(ptr nocapture
   %.0191 = phi i64 [ %128, %124 ], [ %133, %130 ]
   call void @smart_str_erealloc(ptr noundef nonnull %2, i64 noundef %.0191) #10
   %.pre241 = load ptr, ptr %2, align 8
-  %.phi.trans.insert242 = getelementptr inbounds i8, ptr %.pre241, i64 16
+  %.phi.trans.insert242 = getelementptr inbounds nuw i8, ptr %.pre241, i64 16
   %.pre243 = load i64, ptr %.phi.trans.insert242, align 8
   br label %137
 
@@ -2578,14 +2578,14 @@ define internal fastcc ptr @spl_recursive_tree_iterator_get_prefix(ptr nocapture
   %138 = phi i64 [ %.pre243, %136 ], [ %132, %130 ]
   %139 = phi ptr [ %.pre241, %136 ], [ %129, %130 ]
   %.1 = phi i64 [ %.0191, %136 ], [ %133, %130 ]
-  %140 = getelementptr inbounds i8, ptr %126, i64 24
-  %141 = getelementptr inbounds i8, ptr %139, i64 24
+  %140 = getelementptr inbounds nuw i8, ptr %126, i64 24
+  %141 = getelementptr inbounds nuw i8, ptr %139, i64 24
   %142 = getelementptr inbounds i8, ptr %141, i64 %138
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %142, ptr nonnull align 1 %140, i64 %128, i1 false)
   %143 = load ptr, ptr %2, align 8
-  %144 = getelementptr inbounds i8, ptr %143, i64 16
+  %144 = getelementptr inbounds nuw i8, ptr %143, i64 16
   store i64 %.1, ptr %144, align 8
-  %145 = getelementptr inbounds i8, ptr %143, i64 24
+  %145 = getelementptr inbounds nuw i8, ptr %143, i64 24
   %146 = getelementptr inbounds [1 x i8], ptr %145, i64 0, i64 %.1
   store i8 0, ptr %146, align 1
   %147 = load ptr, ptr %2, align 8
@@ -2595,9 +2595,9 @@ define internal fastcc ptr @spl_recursive_tree_iterator_get_prefix(ptr nocapture
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_RecursiveTreeIterator_setPostfix(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
   %3 = alloca ptr, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 44
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %7 = load i32, ptr %6, align 4
   %8 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %7, ptr noundef nonnull @.str.8, ptr noundef nonnull %3) #10
   %9 = icmp eq i32 %8, -1
@@ -2612,7 +2612,7 @@ define hidden void @zim_RecursiveTreeIterator_setPostfix(ptr nocapture noundef r
 13:                                               ; preds = %2
   %14 = getelementptr inbounds i8, ptr %5, i64 -8
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %17 = load i32, ptr %16, align 4
   %18 = and i32 %17, 64
   %.not = icmp eq i32 %18, 0
@@ -2642,7 +2642,7 @@ define hidden void @zim_RecursiveTreeIterator_setPostfix(ptr nocapture noundef r
 
 28:                                               ; preds = %19, %27, %26, %13
   %29 = load ptr, ptr %3, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 4
   %31 = load i32, ptr %30, align 4
   %32 = and i32 %31, 64
   %.not18 = icmp eq i32 %32, 0
@@ -2664,9 +2664,9 @@ define hidden void @zim_RecursiveTreeIterator_setPostfix(ptr nocapture noundef r
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_RecursiveTreeIterator_getEntry(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 44
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %.critedge, label %7
@@ -2697,24 +2697,24 @@ define hidden void @zim_RecursiveTreeIterator_getEntry(ptr nocapture noundef rea
   %17 = sext i32 %.val15 to i64
   %18 = getelementptr inbounds %struct._spl_sub_iterator, ptr %11, i64 %17
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 72
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 72
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load ptr, ptr %22, align 8
   %24 = tail call ptr %23(ptr noundef %19) #10
   %.not.i = icmp eq ptr %24, null
   br i1 %.not.i, label %spl_recursive_tree_iterator_get_entry.exit.thread19, label %25
 
 25:                                               ; preds = %15
-  %26 = getelementptr inbounds i8, ptr %24, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %27 = load i8, ptr %26, align 8
   %28 = icmp eq i8 %27, 10
   br i1 %28, label %29, label %32
 
 29:                                               ; preds = %25
   %30 = load ptr, ptr %24, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 8
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %30, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %30, i64 16
   %.pre.i = load i8, ptr %.phi.trans.insert.i, align 8
   br label %32
 
@@ -2728,13 +2728,13 @@ define hidden void @zim_RecursiveTreeIterator_getEntry(ptr nocapture noundef rea
 
 34:                                               ; preds = %32
   %35 = load ptr, ptr @zend_known_strings, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 376
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 376
   %37 = load ptr, ptr %36, align 8
   br label %spl_recursive_tree_iterator_get_entry.exit
 
 38:                                               ; preds = %32
   %39 = load ptr, ptr %.0.i, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 4
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 4
   %41 = load i32, ptr %40, align 4
   %42 = and i32 %41, 64
   %.not23.i = icmp eq i32 %42, 0
@@ -2756,19 +2756,19 @@ spl_recursive_tree_iterator_get_entry.exit:       ; preds = %34, %46
   br i1 %.not13, label %spl_recursive_tree_iterator_get_entry.exit.thread19, label %spl_recursive_tree_iterator_get_entry.exit.thread
 
 spl_recursive_tree_iterator_get_entry.exit.thread19: ; preds = %15, %spl_recursive_tree_iterator_get_entry.exit
-  %48 = getelementptr inbounds i8, ptr %1, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 1, ptr %48, align 8
   br label %54
 
 spl_recursive_tree_iterator_get_entry.exit.thread: ; preds = %38, %43, %spl_recursive_tree_iterator_get_entry.exit
   %.020.i18 = phi ptr [ %.020.i, %spl_recursive_tree_iterator_get_entry.exit ], [ %39, %43 ], [ %39, %38 ]
   store ptr %.020.i18, ptr %1, align 8
-  %49 = getelementptr inbounds i8, ptr %.020.i18, i64 4
+  %49 = getelementptr inbounds nuw i8, ptr %.020.i18, i64 4
   %50 = load i32, ptr %49, align 4
   %51 = and i32 %50, 64
   %.not14 = icmp eq i32 %51, 0
   %52 = select i1 %.not14, i32 262, i32 6
-  %53 = getelementptr inbounds i8, ptr %1, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %52, ptr %53, align 8
   br label %54
 
@@ -2778,9 +2778,9 @@ spl_recursive_tree_iterator_get_entry.exit.thread: ; preds = %38, %43, %spl_recu
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_RecursiveTreeIterator_getPostfix(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 44
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %.critedge, label %7
@@ -2808,7 +2808,7 @@ define hidden void @zim_RecursiveTreeIterator_getPostfix(ptr nocapture noundef r
 15:                                               ; preds = %.critedge
   %16 = getelementptr i8, ptr %4, i64 -8
   %.val = load ptr, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %.val, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %.val, i64 4
   %18 = load i32, ptr %17, align 4
   %19 = and i32 %18, 64
   %.not.i = icmp eq i32 %19, 0
@@ -2826,7 +2826,7 @@ spl_recursive_tree_iterator_get_postfix.exit:     ; preds = %15, %20
   %24 = and i32 %23, 64
   %.not10 = icmp eq i32 %24, 0
   %25 = select i1 %.not10, i32 262, i32 6
-  %26 = getelementptr inbounds i8, ptr %1, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %25, ptr %26, align 8
   br label %27
 
@@ -2836,10 +2836,10 @@ spl_recursive_tree_iterator_get_postfix.exit:     ; preds = %15, %20
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_RecursiveTreeIterator_current(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 -152
-  %6 = getelementptr inbounds i8, ptr %0, i64 44
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %7 = load i32, ptr %6, align 4
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %.critedge, label %8
@@ -2873,9 +2873,9 @@ define hidden void @zim_RecursiveTreeIterator_current(ptr nocapture noundef read
   %20 = sext i32 %.val92 to i64
   %21 = getelementptr inbounds %struct._spl_sub_iterator, ptr %11, i64 %20
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 72
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 72
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load ptr, ptr %25, align 8
   %27 = tail call ptr %26(ptr noundef %22) #10
   %.not.i = icmp eq ptr %27, null
@@ -2885,7 +2885,7 @@ define hidden void @zim_RecursiveTreeIterator_current(ptr nocapture noundef read
   br i1 %.not.i, label %51, label %29
 
 29:                                               ; preds = %28
-  %30 = getelementptr inbounds i8, ptr %27, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %31 = load i32, ptr %30, align 8
   %32 = and i32 %31, 65280
   %.not90 = icmp eq i32 %32, 0
@@ -2898,8 +2898,8 @@ define hidden void @zim_RecursiveTreeIterator_current(ptr nocapture noundef read
 
 36:                                               ; preds = %33
   %37 = load ptr, ptr %27, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 8
-  %39 = getelementptr inbounds i8, ptr %37, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %40 = load i32, ptr %39, align 8
   %41 = and i32 %40, 65280
   %.not91 = icmp eq i32 %41, 0
@@ -2920,15 +2920,15 @@ define hidden void @zim_RecursiveTreeIterator_current(ptr nocapture noundef read
 46:                                               ; preds = %.sink.split, %29, %36
   %.0 = phi ptr [ %38, %36 ], [ %27, %29 ], [ %.sink.in, %.sink.split ]
   %47 = load ptr, ptr %.0, align 8
-  %48 = getelementptr inbounds i8, ptr %.0, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %49 = load i32, ptr %48, align 8
   store ptr %47, ptr %1, align 8
-  %50 = getelementptr inbounds i8, ptr %1, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %49, ptr %50, align 8
   br label %135
 
 51:                                               ; preds = %28
-  %52 = getelementptr inbounds i8, ptr %1, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 1, ptr %52, align 8
   br label %135
 
@@ -2936,15 +2936,15 @@ define hidden void @zim_RecursiveTreeIterator_current(ptr nocapture noundef read
   br i1 %.not.i, label %spl_recursive_tree_iterator_get_entry.exit.thread98, label %54
 
 54:                                               ; preds = %53
-  %55 = getelementptr inbounds i8, ptr %27, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %56 = load i8, ptr %55, align 8
   %57 = icmp eq i8 %56, 10
   br i1 %57, label %58, label %61
 
 58:                                               ; preds = %54
   %59 = load ptr, ptr %27, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 8
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %59, i64 16
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %59, i64 16
   %.pre.i = load i8, ptr %.phi.trans.insert.i, align 8
   br label %61
 
@@ -2958,13 +2958,13 @@ define hidden void @zim_RecursiveTreeIterator_current(ptr nocapture noundef read
 
 63:                                               ; preds = %61
   %64 = load ptr, ptr @zend_known_strings, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 376
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 376
   %66 = load ptr, ptr %65, align 8
   br label %spl_recursive_tree_iterator_get_entry.exit
 
 67:                                               ; preds = %61
   %68 = load ptr, ptr %.0.i, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 4
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 4
   %70 = load i32, ptr %69, align 4
   %71 = and i32 %70, 64
   %.not23.i = icmp eq i32 %71, 0
@@ -2986,7 +2986,7 @@ spl_recursive_tree_iterator_get_entry.exit:       ; preds = %63, %75
   br i1 %.not82, label %spl_recursive_tree_iterator_get_entry.exit.thread98, label %spl_recursive_tree_iterator_get_entry.exit.thread
 
 spl_recursive_tree_iterator_get_entry.exit.thread98: ; preds = %53, %spl_recursive_tree_iterator_get_entry.exit
-  %77 = getelementptr inbounds i8, ptr %1, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 1, ptr %77, align 8
   br label %135
 
@@ -2995,7 +2995,7 @@ spl_recursive_tree_iterator_get_entry.exit.thread: ; preds = %67, %72, %spl_recu
   %78 = tail call fastcc ptr @spl_recursive_tree_iterator_get_prefix(ptr noundef nonnull %5)
   %79 = getelementptr i8, ptr %4, i64 -8
   %.val93 = load ptr, ptr %79, align 8
-  %80 = getelementptr inbounds i8, ptr %.val93, i64 4
+  %80 = getelementptr inbounds nuw i8, ptr %.val93, i64 4
   %81 = load i32, ptr %80, align 4
   %82 = and i32 %81, 64
   %.not.i94 = icmp eq i32 %82, 0
@@ -3008,17 +3008,17 @@ spl_recursive_tree_iterator_get_entry.exit.thread: ; preds = %67, %72, %spl_recu
   br label %spl_recursive_tree_iterator_get_postfix.exit
 
 spl_recursive_tree_iterator_get_postfix.exit:     ; preds = %spl_recursive_tree_iterator_get_entry.exit.thread, %83
-  %86 = getelementptr inbounds i8, ptr %78, i64 24
-  %87 = getelementptr inbounds i8, ptr %78, i64 16
+  %86 = getelementptr inbounds nuw i8, ptr %78, i64 24
+  %87 = getelementptr inbounds nuw i8, ptr %78, i64 16
   %88 = load i64, ptr %87, align 8
-  %89 = getelementptr inbounds i8, ptr %.020.i97, i64 24
-  %90 = getelementptr inbounds i8, ptr %.020.i97, i64 16
+  %89 = getelementptr inbounds nuw i8, ptr %.020.i97, i64 24
+  %90 = getelementptr inbounds nuw i8, ptr %.020.i97, i64 16
   %91 = load i64, ptr %90, align 8
-  %92 = getelementptr inbounds i8, ptr %.val93, i64 24
-  %93 = getelementptr inbounds i8, ptr %.val93, i64 16
+  %92 = getelementptr inbounds nuw i8, ptr %.val93, i64 24
+  %93 = getelementptr inbounds nuw i8, ptr %.val93, i64 16
   %94 = load i64, ptr %93, align 8
   %95 = tail call ptr @zend_string_concat3(ptr noundef nonnull %86, i64 noundef %88, ptr noundef nonnull %89, i64 noundef %91, ptr noundef nonnull %92, i64 noundef %94) #10
-  %96 = getelementptr inbounds i8, ptr %.020.i97, i64 4
+  %96 = getelementptr inbounds nuw i8, ptr %.020.i97, i64 4
   %97 = load i32, ptr %96, align 4
   %98 = and i32 %97, 64
   %.not83 = icmp eq i32 %98, 0
@@ -3047,7 +3047,7 @@ spl_recursive_tree_iterator_get_postfix.exit:     ; preds = %spl_recursive_tree_
   br label %108
 
 108:                                              ; preds = %99, %107, %106, %spl_recursive_tree_iterator_get_postfix.exit
-  %109 = getelementptr inbounds i8, ptr %78, i64 4
+  %109 = getelementptr inbounds nuw i8, ptr %78, i64 4
   %110 = load i32, ptr %109, align 4
   %111 = and i32 %110, 64
   %.not85 = icmp eq i32 %111, 0
@@ -3105,7 +3105,7 @@ spl_recursive_tree_iterator_get_postfix.exit:     ; preds = %spl_recursive_tree_
 
 133:                                              ; preds = %124, %132, %131, %121
   store ptr %95, ptr %1, align 8
-  %134 = getelementptr inbounds i8, ptr %1, i64 8
+  %134 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 262, ptr %134, align 8
   br label %135
 
@@ -3118,10 +3118,10 @@ declare ptr @zend_string_concat3(ptr noundef, i64 noundef, ptr noundef, i64 noun
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_RecursiveTreeIterator_key(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
   %3 = alloca %struct._zval_struct, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 -152
-  %7 = getelementptr inbounds i8, ptr %0, i64 44
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %8 = load i32, ptr %7, align 4
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %.critedge, label %9
@@ -3148,9 +3148,9 @@ define hidden void @zim_RecursiveTreeIterator_key(ptr nocapture noundef readonly
   %17 = sext i32 %16 to i64
   %18 = getelementptr inbounds %struct._spl_sub_iterator, ptr %12, i64 %17
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 72
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 72
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %23 = load ptr, ptr %22, align 8
   %.not69 = icmp eq ptr %23, null
   br i1 %.not69, label %25, label %24
@@ -3160,7 +3160,7 @@ define hidden void @zim_RecursiveTreeIterator_key(ptr nocapture noundef readonly
   br label %27
 
 25:                                               ; preds = %14
-  %26 = getelementptr inbounds i8, ptr %3, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 1, ptr %26, align 8
   br label %27
 
@@ -3173,22 +3173,22 @@ define hidden void @zim_RecursiveTreeIterator_key(ptr nocapture noundef readonly
 
 31:                                               ; preds = %27
   %32 = load ptr, ptr %3, align 8
-  %33 = getelementptr inbounds i8, ptr %3, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %34 = load i32, ptr %33, align 8
   store ptr %32, ptr %1, align 8
-  %35 = getelementptr inbounds i8, ptr %1, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %34, ptr %35, align 8
   br label %109
 
 36:                                               ; preds = %27
-  %37 = getelementptr inbounds i8, ptr %3, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %38 = load i8, ptr %37, align 8
   %39 = icmp eq i8 %38, 6
   br i1 %39, label %40, label %48
 
 40:                                               ; preds = %36
   %41 = load ptr, ptr %3, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 4
   %43 = load i32, ptr %42, align 4
   %44 = and i32 %43, 64
   %.not71 = icmp eq i32 %44, 0
@@ -3209,7 +3209,7 @@ define hidden void @zim_RecursiveTreeIterator_key(ptr nocapture noundef readonly
   %52 = call fastcc ptr @spl_recursive_tree_iterator_get_prefix(ptr noundef nonnull %6)
   %53 = getelementptr i8, ptr %5, i64 -8
   %.val = load ptr, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %.val, i64 4
+  %54 = getelementptr inbounds nuw i8, ptr %.val, i64 4
   %55 = load i32, ptr %54, align 4
   %56 = and i32 %55, 64
   %.not.i = icmp eq i32 %56, 0
@@ -3222,17 +3222,17 @@ define hidden void @zim_RecursiveTreeIterator_key(ptr nocapture noundef readonly
   br label %spl_recursive_tree_iterator_get_postfix.exit
 
 spl_recursive_tree_iterator_get_postfix.exit:     ; preds = %50, %57
-  %60 = getelementptr inbounds i8, ptr %52, i64 24
-  %61 = getelementptr inbounds i8, ptr %52, i64 16
+  %60 = getelementptr inbounds nuw i8, ptr %52, i64 24
+  %61 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %62 = load i64, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %51, i64 24
-  %64 = getelementptr inbounds i8, ptr %51, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %51, i64 24
+  %64 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %65 = load i64, ptr %64, align 8
-  %66 = getelementptr inbounds i8, ptr %.val, i64 24
-  %67 = getelementptr inbounds i8, ptr %.val, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %.val, i64 24
+  %67 = getelementptr inbounds nuw i8, ptr %.val, i64 16
   %68 = load i64, ptr %67, align 8
   %69 = call ptr @zend_string_concat3(ptr noundef nonnull %60, i64 noundef %62, ptr noundef nonnull %63, i64 noundef %65, ptr noundef nonnull %66, i64 noundef %68) #10
-  %70 = getelementptr inbounds i8, ptr %51, i64 4
+  %70 = getelementptr inbounds nuw i8, ptr %51, i64 4
   %71 = load i32, ptr %70, align 4
   %72 = and i32 %71, 64
   %.not72 = icmp eq i32 %72, 0
@@ -3261,7 +3261,7 @@ spl_recursive_tree_iterator_get_postfix.exit:     ; preds = %50, %57
   br label %82
 
 82:                                               ; preds = %73, %81, %80, %spl_recursive_tree_iterator_get_postfix.exit
-  %83 = getelementptr inbounds i8, ptr %52, i64 4
+  %83 = getelementptr inbounds nuw i8, ptr %52, i64 4
   %84 = load i32, ptr %83, align 4
   %85 = and i32 %84, 64
   %.not74 = icmp eq i32 %85, 0
@@ -3320,7 +3320,7 @@ spl_recursive_tree_iterator_get_postfix.exit:     ; preds = %50, %57
 107:                                              ; preds = %98, %106, %105, %95
   call void @zval_ptr_dtor(ptr noundef nonnull %3) #10
   store ptr %69, ptr %1, align 8
-  %108 = getelementptr inbounds i8, ptr %1, i64 8
+  %108 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 262, ptr %108, align 8
   br label %109
 
@@ -3336,7 +3336,7 @@ define hidden void @zim_FilterIterator___construct(ptr nocapture noundef readonl
   %4 = load ptr, ptr @spl_ce_FilterIterator, align 8
   %5 = load ptr, ptr @zend_ce_iterator, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 -136
   %9 = getelementptr inbounds i8, ptr %7, i64 -56
@@ -3346,14 +3346,14 @@ define hidden void @zim_FilterIterator___construct(ptr nocapture noundef readonl
 
 11:                                               ; preds = %2
   %12 = load ptr, ptr @spl_ce_BadMethodCallException, align 8
-  %13 = getelementptr inbounds i8, ptr %4, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = tail call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %12, i64 noundef 0, ptr noundef nonnull @.str.43, ptr noundef nonnull %15) #10
   br label %spl_dual_it_construct.exit
 
 17:                                               ; preds = %2
-  %18 = getelementptr inbounds i8, ptr %0, i64 44
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %19 = load i32, ptr %18, align 4
   %20 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %19, ptr noundef nonnull @.str.22, ptr noundef nonnull %3, ptr noundef %5) #10
   %21 = icmp eq i32 %20, -1
@@ -3362,7 +3362,7 @@ define hidden void @zim_FilterIterator___construct(ptr nocapture noundef readonl
 22:                                               ; preds = %17
   store i32 0, ptr %9, align 8
   %23 = load ptr, ptr %3, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 9
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 9
   %25 = load i8, ptr %24, align 1
   %26 = icmp ne i8 %25, 0
   call void @llvm.assume(i1 %26)
@@ -3376,14 +3376,14 @@ define hidden void @zim_FilterIterator___construct(ptr nocapture noundef readonl
   %32 = getelementptr inbounds i8, ptr %7, i64 -128
   store i32 776, ptr %32, align 8
   %33 = load ptr, ptr %30, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds i8, ptr %7, i64 -120
   store ptr %35, ptr %36, align 8
   %37 = load ptr, ptr %30, align 8
   %38 = getelementptr inbounds i8, ptr %7, i64 -112
   store ptr %37, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %35, i64 392
+  %39 = getelementptr inbounds nuw i8, ptr %35, i64 392
   %40 = load ptr, ptr %39, align 8
   %41 = call ptr %40(ptr noundef %35, ptr noundef nonnull %30, i32 noundef 0) #10
   %42 = getelementptr inbounds i8, ptr %7, i64 -104
@@ -3405,7 +3405,7 @@ define internal fastcc void @spl_dual_it_construct(ptr nocapture noundef readonl
   %10 = alloca ptr, align 8
   %11 = alloca i64, align 8
   %12 = alloca %struct._zend_fcall_info, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 -136
   %16 = getelementptr inbounds i8, ptr %14, i64 -56
@@ -3415,9 +3415,9 @@ define internal fastcc void @spl_dual_it_construct(ptr nocapture noundef readonl
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr @spl_ce_BadMethodCallException, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %23 = tail call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %19, i64 noundef 0, ptr noundef nonnull @.str.43, ptr noundef nonnull %22) #10
   br label %210
 
@@ -3439,7 +3439,7 @@ define internal fastcc void @spl_dual_it_construct(ptr nocapture noundef readonl
   store i64 0, ptr %26, align 8
   %27 = getelementptr inbounds i8, ptr %14, i64 -40
   store i64 -1, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 44
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %29 = load i32, ptr %28, align 4
   %30 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %29, ptr noundef nonnull @.str.44, ptr noundef nonnull %5, ptr noundef %2, ptr noundef nonnull %26, ptr noundef nonnull %27) #10
   %31 = icmp eq i32 %30, -1
@@ -3465,7 +3465,7 @@ define internal fastcc void @spl_dual_it_construct(ptr nocapture noundef readonl
 
 40:                                               ; preds = %24, %24
   store i64 1, ptr %8, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 44
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %42 = load i32, ptr %41, align 4
   %43 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %42, ptr noundef nonnull @.str.46, ptr noundef nonnull %5, ptr noundef %2, ptr noundef nonnull %8) #10
   %44 = icmp eq i32 %43, -1
@@ -3505,7 +3505,7 @@ define internal fastcc void @spl_dual_it_construct(ptr nocapture noundef readonl
 
 67:                                               ; preds = %24
   store ptr null, ptr %9, align 8
-  %68 = getelementptr inbounds i8, ptr %0, i64 44
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %69 = load i32, ptr %68, align 4
   %70 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %69, ptr noundef nonnull @.str.47, ptr noundef nonnull %5, ptr noundef %2, ptr noundef nonnull %9) #10
   %71 = icmp eq i32 %70, -1
@@ -3514,7 +3514,7 @@ define internal fastcc void @spl_dual_it_construct(ptr nocapture noundef readonl
 72:                                               ; preds = %67
   %73 = load ptr, ptr %5, align 8
   %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 16
   %76 = load ptr, ptr %75, align 8
   %77 = load ptr, ptr @zend_ce_iterator, align 8
   %78 = icmp eq ptr %76, %77
@@ -3543,7 +3543,7 @@ define internal fastcc void @spl_dual_it_construct(ptr nocapture noundef readonl
   br i1 %88, label %.critedge2, label %91
 
 .critedge2:                                       ; preds = %85, %87
-  %89 = getelementptr inbounds i8, ptr %84, i64 392
+  %89 = getelementptr inbounds nuw i8, ptr %84, i64 392
   %90 = load ptr, ptr %89, align 8
   %.not126 = icmp eq ptr %90, null
   br i1 %.not126, label %91, label %94
@@ -3571,7 +3571,7 @@ define internal fastcc void @spl_dual_it_construct(ptr nocapture noundef readonl
   br i1 %102, label %210, label %.thread
 
 103:                                              ; preds = %24
-  %104 = getelementptr inbounds i8, ptr %0, i64 44
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %105 = load i32, ptr %104, align 4
   %.not123 = icmp eq i32 %105, 0
   br i1 %.not123, label %.critedge130, label %106
@@ -3587,10 +3587,10 @@ define internal fastcc void @spl_dual_it_construct(ptr nocapture noundef readonl
   %109 = tail call i32 @object_init_ex(ptr noundef nonnull %107, ptr noundef %108) #10
   %110 = load ptr, ptr %107, align 8
   %111 = load ptr, ptr @spl_ce_ArrayIterator, align 8
-  %112 = getelementptr inbounds i8, ptr %111, i64 256
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 256
   %113 = tail call ptr @zend_call_method(ptr noundef %110, ptr noundef %111, ptr noundef nonnull %112, ptr noundef nonnull @.str.49, i64 noundef 11, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef null) #10
   %114 = load ptr, ptr @spl_ce_ArrayIterator, align 8
-  %115 = getelementptr inbounds i8, ptr %114, i64 392
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 392
   %116 = load ptr, ptr %115, align 8
   %117 = tail call ptr %116(ptr noundef %114, ptr noundef nonnull %107, i32 noundef 0) #10
   %118 = getelementptr inbounds i8, ptr %14, i64 -32
@@ -3601,7 +3601,7 @@ define internal fastcc void @spl_dual_it_construct(ptr nocapture noundef readonl
   store i64 0, ptr %11, align 8
   %120 = getelementptr inbounds i8, ptr %14, i64 -48
   %121 = getelementptr inbounds i8, ptr %14, i64 -40
-  %122 = getelementptr inbounds i8, ptr %0, i64 44
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 44
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %120, i8 0, i64 16, i1 false)
   %123 = load i32, ptr %122, align 4
   %124 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %123, ptr noundef nonnull @.str.50, ptr noundef nonnull %5, ptr noundef %2, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %120, ptr noundef nonnull %121) #10
@@ -3635,7 +3635,7 @@ define internal fastcc void @spl_dual_it_construct(ptr nocapture noundef readonl
   %139 = getelementptr inbounds i8, ptr %14, i64 -16
   store i32 %138, ptr %139, align 8
   %140 = load ptr, ptr %10, align 8
-  %141 = getelementptr inbounds i8, ptr %140, i64 4
+  %141 = getelementptr inbounds nuw i8, ptr %140, i64 4
   %142 = load i32, ptr %141, align 4
   %143 = and i32 %142, 64
   %.not122 = icmp eq i32 %143, 0
@@ -3656,7 +3656,7 @@ define internal fastcc void @spl_dual_it_construct(ptr nocapture noundef readonl
   br label %184
 
 150:                                              ; preds = %24, %24
-  %151 = getelementptr inbounds i8, ptr %0, i64 44
+  %151 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %152 = load i32, ptr %151, align 4
   %153 = getelementptr inbounds i8, ptr %14, i64 -48
   %154 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %152, ptr noundef nonnull @.str.51, ptr noundef nonnull %5, ptr noundef %2, ptr noundef nonnull %12, ptr noundef nonnull %153) #10
@@ -3672,7 +3672,7 @@ define internal fastcc void @spl_dual_it_construct(ptr nocapture noundef readonl
   %160 = call noalias ptr @_emalloc_256() #10
   %161 = load ptr, ptr %153, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %160, ptr noundef nonnull align 8 dereferenceable(240) %161, i64 240, i1 false)
-  %162 = getelementptr inbounds i8, ptr %161, i64 8
+  %162 = getelementptr inbounds nuw i8, ptr %161, i64 8
   store ptr null, ptr %162, align 8
   store ptr %160, ptr %153, align 8
   br label %163
@@ -3702,7 +3702,7 @@ define internal fastcc void @spl_dual_it_construct(ptr nocapture noundef readonl
   br label %184
 
 175:                                              ; preds = %24
-  %176 = getelementptr inbounds i8, ptr %0, i64 44
+  %176 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %177 = load i32, ptr %176, align 4
   %178 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %177, ptr noundef nonnull @.str.22, ptr noundef nonnull %5, ptr noundef %2) #10
   %179 = icmp eq i32 %178, -1
@@ -3711,7 +3711,7 @@ define internal fastcc void @spl_dual_it_construct(ptr nocapture noundef readonl
 .thread:                                          ; preds = %.critedge4
   store ptr %6, ptr %5, align 8
   %180 = load ptr, ptr %6, align 8
-  %181 = getelementptr inbounds i8, ptr %180, i64 16
+  %181 = getelementptr inbounds nuw i8, ptr %180, i64 16
   %182 = load ptr, ptr %181, align 8
   store i32 4, ptr %16, align 8
   store ptr %180, ptr %15, align 8
@@ -3723,7 +3723,7 @@ define internal fastcc void @spl_dual_it_construct(ptr nocapture noundef readonl
   %.0110.ph = phi ptr [ null, %36 ], [ null, %59 ], [ %.1, %97 ], [ %76, %79 ], [ %76, %72 ], [ null, %147 ], [ null, %169 ], [ null, %172 ], [ null, %175 ]
   store i32 %3, ptr %16, align 8
   %185 = load ptr, ptr %5, align 8
-  %186 = getelementptr inbounds i8, ptr %185, i64 9
+  %186 = getelementptr inbounds nuw i8, ptr %185, i64 9
   %187 = load i8, ptr %186, align 1
   %188 = icmp ne i8 %187, 0
   call void @llvm.assume(i1 %188)
@@ -3741,7 +3741,7 @@ define internal fastcc void @spl_dual_it_construct(ptr nocapture noundef readonl
 
 196:                                              ; preds = %184
   %197 = load ptr, ptr %192, align 8
-  %198 = getelementptr inbounds i8, ptr %197, i64 16
+  %198 = getelementptr inbounds nuw i8, ptr %197, i64 16
   %199 = load ptr, ptr %198, align 8
   br label %200
 
@@ -3753,7 +3753,7 @@ define internal fastcc void @spl_dual_it_construct(ptr nocapture noundef readonl
   %204 = load ptr, ptr %201, align 8
   %205 = getelementptr inbounds i8, ptr %14, i64 -112
   store ptr %204, ptr %205, align 8
-  %206 = getelementptr inbounds i8, ptr %202, i64 392
+  %206 = getelementptr inbounds nuw i8, ptr %202, i64 392
   %207 = load ptr, ptr %206, align 8
   %208 = call ptr %207(ptr noundef %202, ptr noundef nonnull %201, i32 noundef 0) #10
   %209 = getelementptr inbounds i8, ptr %14, i64 -104
@@ -3774,7 +3774,7 @@ define hidden void @zim_CallbackFilterIterator___construct(ptr nocapture noundef
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_IteratorIterator_getInnerIterator(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 44
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %.critedge, label %5
@@ -3787,7 +3787,7 @@ define hidden void @zim_IteratorIterator_getInnerIterator(ptr nocapture noundef 
   br label %44
 
 .critedge:                                        ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 -136
   %11 = getelementptr inbounds i8, ptr %9, i64 -56
@@ -3821,8 +3821,8 @@ define hidden void @zim_IteratorIterator_getInnerIterator(ptr nocapture noundef 
 
 27:                                               ; preds = %24
   %28 = load ptr, ptr %10, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 8
-  %30 = getelementptr inbounds i8, ptr %28, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %31 = load i32, ptr %30, align 8
   %32 = and i32 %31, 65280
   %.not29 = icmp eq i32 %32, 0
@@ -3843,15 +3843,15 @@ define hidden void @zim_IteratorIterator_getInnerIterator(ptr nocapture noundef 
 37:                                               ; preds = %.sink.split, %21, %27
   %.0 = phi ptr [ %29, %27 ], [ %10, %21 ], [ %.sink.in, %.sink.split ]
   %38 = load ptr, ptr %.0, align 8
-  %39 = getelementptr inbounds i8, ptr %.0, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %40 = load i32, ptr %39, align 8
   store ptr %38, ptr %1, align 8
-  %41 = getelementptr inbounds i8, ptr %1, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %40, ptr %41, align 8
   br label %44
 
 42:                                               ; preds = %17
-  %43 = getelementptr inbounds i8, ptr %1, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 1, ptr %43, align 8
   br label %44
 
@@ -3861,7 +3861,7 @@ define hidden void @zim_IteratorIterator_getInnerIterator(ptr nocapture noundef 
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_IteratorIterator_rewind(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 44
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %.critedge, label %5
@@ -3874,7 +3874,7 @@ define hidden void @zim_IteratorIterator_rewind(ptr nocapture noundef readonly %
   br label %spl_dual_it_fetch.exit
 
 .critedge:                                        ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 -136
   %11 = getelementptr inbounds i8, ptr %9, i64 -56
@@ -3899,9 +3899,9 @@ define hidden void @zim_IteratorIterator_rewind(ptr nocapture noundef readonly %
   br i1 %.not.i, label %spl_dual_it_rewind.exit, label %21
 
 21:                                               ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %20, i64 72
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 72
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 40
   %25 = load ptr, ptr %24, align 8
   %.not7.i = icmp eq ptr %25, null
   br i1 %.not7.i, label %spl_dual_it_rewind.exit, label %26
@@ -3917,9 +3917,9 @@ spl_dual_it_rewind.exit:                          ; preds = %17, %21, %26
   br i1 %.not.i.i, label %spl_dual_it_fetch.exit, label %spl_dual_it_valid.exit.i
 
 spl_dual_it_valid.exit.i:                         ; preds = %spl_dual_it_rewind.exit
-  %27 = getelementptr inbounds i8, ptr %.val.i, i64 72
+  %27 = getelementptr inbounds nuw i8, ptr %.val.i, i64 72
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load ptr, ptr %29, align 8
   %31 = tail call i32 %30(ptr noundef nonnull %.val.i) #10
   %32 = icmp eq i32 %31, 0
@@ -3927,9 +3927,9 @@ spl_dual_it_valid.exit.i:                         ; preds = %spl_dual_it_rewind.
 
 33:                                               ; preds = %spl_dual_it_valid.exit.i
   %34 = load ptr, ptr %19, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 72
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 72
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = load ptr, ptr %37, align 8
   %39 = tail call ptr %38(ptr noundef %34) #10
   %.not29.i = icmp eq ptr %39, null
@@ -3938,7 +3938,7 @@ spl_dual_it_valid.exit.i:                         ; preds = %spl_dual_it_rewind.
 40:                                               ; preds = %33
   %41 = getelementptr inbounds i8, ptr %9, i64 -96
   %42 = load ptr, ptr %39, align 8
-  %43 = getelementptr inbounds i8, ptr %39, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %44 = load i32, ptr %43, align 8
   store ptr %42, ptr %41, align 8
   %45 = getelementptr inbounds i8, ptr %9, i64 -88
@@ -3955,9 +3955,9 @@ spl_dual_it_valid.exit.i:                         ; preds = %spl_dual_it_rewind.
 
 50:                                               ; preds = %47, %40, %33
   %51 = load ptr, ptr %19, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 72
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 72
   %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 24
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 24
   %55 = load ptr, ptr %54, align 8
   %.not31.i = icmp eq ptr %55, null
   %56 = getelementptr inbounds i8, ptr %9, i64 -80
@@ -4001,32 +4001,32 @@ define internal fastcc void @spl_dual_it_fetch(ptr noundef %0, i32 noundef range
   br i1 %.not.i, label %spl_dual_it_valid.exit.thread, label %spl_dual_it_valid.exit
 
 spl_dual_it_valid.exit:                           ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %.val, i64 72
+  %5 = getelementptr inbounds nuw i8, ptr %.val, i64 72
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 %8(ptr noundef nonnull %.val) #10
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %11, label %spl_dual_it_valid.exit.thread
 
 11:                                               ; preds = %spl_dual_it_valid.exit, %2
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 72
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 72
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = tail call ptr %17(ptr noundef %13) #10
   %.not29 = icmp eq ptr %18, null
   br i1 %.not29, label %29, label %19
 
 19:                                               ; preds = %11
-  %20 = getelementptr inbounds i8, ptr %0, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %21 = load ptr, ptr %18, align 8
-  %22 = getelementptr inbounds i8, ptr %18, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %23 = load i32, ptr %22, align 8
   store ptr %21, ptr %20, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 %23, ptr %24, align 8
   %25 = and i32 %23, 65280
   %.not30 = icmp eq i32 %25, 0
@@ -4040,12 +4040,12 @@ spl_dual_it_valid.exit:                           ; preds = %3
 
 29:                                               ; preds = %26, %19, %11
   %30 = load ptr, ptr %12, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 72
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 72
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 24
   %34 = load ptr, ptr %33, align 8
   %.not31 = icmp eq ptr %34, null
-  %35 = getelementptr inbounds i8, ptr %0, i64 56
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 56
   br i1 %.not31, label %39, label %36
 
 36:                                               ; preds = %29
@@ -4059,14 +4059,14 @@ spl_dual_it_valid.exit:                           ; preds = %3
   br label %.sink.split
 
 39:                                               ; preds = %29
-  %40 = getelementptr inbounds i8, ptr %0, i64 72
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %41 = load i64, ptr %40, align 8
   store i64 %41, ptr %35, align 8
   br label %.sink.split
 
 .sink.split:                                      ; preds = %39, %38
   %.sink = phi i32 [ 0, %38 ], [ 4, %39 ]
-  %42 = getelementptr inbounds i8, ptr %0, i64 64
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 %.sink, ptr %42, align 8
   br label %spl_dual_it_valid.exit.thread
 
@@ -4076,7 +4076,7 @@ spl_dual_it_valid.exit.thread:                    ; preds = %36, %.sink.split, %
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_IteratorIterator_valid(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 44
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %.critedge, label %5
@@ -4089,7 +4089,7 @@ define hidden void @zim_IteratorIterator_valid(ptr nocapture noundef readonly %0
   br label %21
 
 .critedge:                                        ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 -56
   %11 = load i32, ptr %10, align 8
@@ -4108,7 +4108,7 @@ define hidden void @zim_IteratorIterator_valid(ptr nocapture noundef readonly %0
   %18 = load i8, ptr %17, align 8
   %.not7 = icmp eq i8 %18, 0
   %19 = select i1 %.not7, i32 2, i32 3
-  %20 = getelementptr inbounds i8, ptr %1, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %19, ptr %20, align 8
   br label %21
 
@@ -4118,7 +4118,7 @@ define hidden void @zim_IteratorIterator_valid(ptr nocapture noundef readonly %0
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_IteratorIterator_key(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 44
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %.critedge, label %5
@@ -4131,7 +4131,7 @@ define hidden void @zim_IteratorIterator_key(ptr nocapture noundef readonly %0, 
   br label %43
 
 .critedge:                                        ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 -56
   %11 = load i32, ptr %10, align 8
@@ -4165,8 +4165,8 @@ define hidden void @zim_IteratorIterator_key(ptr nocapture noundef readonly %0, 
 
 26:                                               ; preds = %23
   %27 = load ptr, ptr %17, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 8
-  %29 = getelementptr inbounds i8, ptr %27, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %30 = load i32, ptr %29, align 8
   %31 = and i32 %30, 65280
   %.not29 = icmp eq i32 %31, 0
@@ -4187,15 +4187,15 @@ define hidden void @zim_IteratorIterator_key(ptr nocapture noundef readonly %0, 
 36:                                               ; preds = %.sink.split, %20, %26
   %.0 = phi ptr [ %28, %26 ], [ %17, %20 ], [ %.sink.in, %.sink.split ]
   %37 = load ptr, ptr %.0, align 8
-  %38 = getelementptr inbounds i8, ptr %.0, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %39 = load i32, ptr %38, align 8
   store ptr %37, ptr %1, align 8
-  %40 = getelementptr inbounds i8, ptr %1, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %39, ptr %40, align 8
   br label %43
 
 41:                                               ; preds = %16
-  %42 = getelementptr inbounds i8, ptr %1, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 1, ptr %42, align 8
   br label %43
 
@@ -4205,7 +4205,7 @@ define hidden void @zim_IteratorIterator_key(ptr nocapture noundef readonly %0, 
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_IteratorIterator_current(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 44
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %.critedge, label %5
@@ -4218,7 +4218,7 @@ define hidden void @zim_IteratorIterator_current(ptr nocapture noundef readonly 
   br label %43
 
 .critedge:                                        ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 -56
   %11 = load i32, ptr %10, align 8
@@ -4252,8 +4252,8 @@ define hidden void @zim_IteratorIterator_current(ptr nocapture noundef readonly 
 
 26:                                               ; preds = %23
   %27 = load ptr, ptr %17, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 8
-  %29 = getelementptr inbounds i8, ptr %27, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %30 = load i32, ptr %29, align 8
   %31 = and i32 %30, 65280
   %.not29 = icmp eq i32 %31, 0
@@ -4274,15 +4274,15 @@ define hidden void @zim_IteratorIterator_current(ptr nocapture noundef readonly 
 36:                                               ; preds = %.sink.split, %20, %26
   %.0 = phi ptr [ %28, %26 ], [ %17, %20 ], [ %.sink.in, %.sink.split ]
   %37 = load ptr, ptr %.0, align 8
-  %38 = getelementptr inbounds i8, ptr %.0, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %39 = load i32, ptr %38, align 8
   store ptr %37, ptr %1, align 8
-  %40 = getelementptr inbounds i8, ptr %1, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %39, ptr %40, align 8
   br label %43
 
 41:                                               ; preds = %16
-  %42 = getelementptr inbounds i8, ptr %1, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 1, ptr %42, align 8
   br label %43
 
@@ -4292,7 +4292,7 @@ define hidden void @zim_IteratorIterator_current(ptr nocapture noundef readonly 
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_IteratorIterator_next(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 44
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %.critedge, label %5
@@ -4305,7 +4305,7 @@ define hidden void @zim_IteratorIterator_next(ptr nocapture noundef readonly %0,
   br label %spl_dual_it_fetch.exit
 
 .critedge:                                        ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 -56
   %11 = load i32, ptr %10, align 8
@@ -4324,9 +4324,9 @@ define hidden void @zim_IteratorIterator_next(ptr nocapture noundef readonly %0,
   tail call fastcc void @spl_dual_it_free(ptr noundef nonnull %17)
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %9, i64 -104
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
-  %18 = getelementptr inbounds i8, ptr %.pre.i, i64 72
+  %18 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 72
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 32
   %21 = load ptr, ptr %20, align 8
   tail call void %21(ptr noundef %.pre.i) #10
   %22 = getelementptr inbounds i8, ptr %9, i64 -64
@@ -4339,9 +4339,9 @@ define hidden void @zim_IteratorIterator_next(ptr nocapture noundef readonly %0,
   br i1 %.not.i.i, label %spl_dual_it_fetch.exit, label %spl_dual_it_valid.exit.i
 
 spl_dual_it_valid.exit.i:                         ; preds = %16
-  %25 = getelementptr inbounds i8, ptr %.val.i, i64 72
+  %25 = getelementptr inbounds nuw i8, ptr %.val.i, i64 72
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load ptr, ptr %27, align 8
   %29 = tail call i32 %28(ptr noundef nonnull %.val.i) #10
   %30 = icmp eq i32 %29, 0
@@ -4349,9 +4349,9 @@ spl_dual_it_valid.exit.i:                         ; preds = %16
 
 31:                                               ; preds = %spl_dual_it_valid.exit.i
   %32 = load ptr, ptr %.phi.trans.insert.i, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 72
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 72
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load ptr, ptr %35, align 8
   %37 = tail call ptr %36(ptr noundef %32) #10
   %.not29.i = icmp eq ptr %37, null
@@ -4360,7 +4360,7 @@ spl_dual_it_valid.exit.i:                         ; preds = %16
 38:                                               ; preds = %31
   %39 = getelementptr inbounds i8, ptr %9, i64 -96
   %40 = load ptr, ptr %37, align 8
-  %41 = getelementptr inbounds i8, ptr %37, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %42 = load i32, ptr %41, align 8
   store ptr %40, ptr %39, align 8
   %43 = getelementptr inbounds i8, ptr %9, i64 -88
@@ -4377,9 +4377,9 @@ spl_dual_it_valid.exit.i:                         ; preds = %16
 
 48:                                               ; preds = %45, %38, %31
   %49 = load ptr, ptr %.phi.trans.insert.i, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 72
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 72
   %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 24
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 24
   %53 = load ptr, ptr %52, align 8
   %.not31.i = icmp eq ptr %53, null
   %54 = getelementptr inbounds i8, ptr %9, i64 -80
@@ -4412,8 +4412,8 @@ spl_dual_it_fetch.exit:                           ; preds = %55, %.sink.split.i,
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_FilterIterator_rewind(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
-  %4 = getelementptr inbounds i8, ptr %0, i64 44
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %.critedge, label %6
@@ -4450,9 +4450,9 @@ define hidden void @zim_FilterIterator_rewind(ptr nocapture noundef readonly %0,
   br i1 %.not.i.i, label %spl_filter_it_rewind.exit, label %21
 
 21:                                               ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %20, i64 72
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 72
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 40
   %25 = load ptr, ptr %24, align 8
   %.not7.i.i = icmp eq ptr %25, null
   br i1 %.not7.i.i, label %spl_filter_it_rewind.exit, label %26
@@ -4471,8 +4471,8 @@ spl_filter_it_rewind.exit:                        ; preds = %17, %21, %26
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_FilterIterator_next(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
-  %4 = getelementptr inbounds i8, ptr %0, i64 44
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %.critedge, label %6
@@ -4503,9 +4503,9 @@ define hidden void @zim_FilterIterator_next(ptr nocapture noundef readonly %0, p
   tail call fastcc void @spl_dual_it_free(ptr noundef nonnull %17)
   %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %9, i64 -104
   %.pre.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8
-  %18 = getelementptr inbounds i8, ptr %.pre.i.i, i64 72
+  %18 = getelementptr inbounds nuw i8, ptr %.pre.i.i, i64 72
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 32
   %21 = load ptr, ptr %20, align 8
   tail call void %21(ptr noundef %.pre.i.i) #10
   %22 = getelementptr inbounds i8, ptr %9, i64 -64
@@ -4533,7 +4533,7 @@ define hidden void @zim_RecursiveFilterIterator___construct(ptr nocapture nounde
   %4 = load ptr, ptr @spl_ce_RecursiveFilterIterator, align 8
   %5 = load ptr, ptr @spl_ce_RecursiveIterator, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 -136
   %9 = getelementptr inbounds i8, ptr %7, i64 -56
@@ -4543,14 +4543,14 @@ define hidden void @zim_RecursiveFilterIterator___construct(ptr nocapture nounde
 
 11:                                               ; preds = %2
   %12 = load ptr, ptr @spl_ce_BadMethodCallException, align 8
-  %13 = getelementptr inbounds i8, ptr %4, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = tail call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %12, i64 noundef 0, ptr noundef nonnull @.str.43, ptr noundef nonnull %15) #10
   br label %spl_dual_it_construct.exit
 
 17:                                               ; preds = %2
-  %18 = getelementptr inbounds i8, ptr %0, i64 44
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %19 = load i32, ptr %18, align 4
   %20 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %19, ptr noundef nonnull @.str.22, ptr noundef nonnull %3, ptr noundef %5) #10
   %21 = icmp eq i32 %20, -1
@@ -4559,7 +4559,7 @@ define hidden void @zim_RecursiveFilterIterator___construct(ptr nocapture nounde
 22:                                               ; preds = %17
   store i32 0, ptr %9, align 8
   %23 = load ptr, ptr %3, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 9
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 9
   %25 = load i8, ptr %24, align 1
   %26 = icmp ne i8 %25, 0
   call void @llvm.assume(i1 %26)
@@ -4573,14 +4573,14 @@ define hidden void @zim_RecursiveFilterIterator___construct(ptr nocapture nounde
   %32 = getelementptr inbounds i8, ptr %7, i64 -128
   store i32 776, ptr %32, align 8
   %33 = load ptr, ptr %30, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds i8, ptr %7, i64 -120
   store ptr %35, ptr %36, align 8
   %37 = load ptr, ptr %30, align 8
   %38 = getelementptr inbounds i8, ptr %7, i64 -112
   store ptr %37, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %35, i64 392
+  %39 = getelementptr inbounds nuw i8, ptr %35, i64 392
   %40 = load ptr, ptr %39, align 8
   %41 = call ptr %40(ptr noundef %35, ptr noundef nonnull %30, i32 noundef 0) #10
   %42 = getelementptr inbounds i8, ptr %7, i64 -104
@@ -4594,7 +4594,7 @@ spl_dual_it_construct.exit:                       ; preds = %11, %17, %22
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_RecursiveFilterIterator_hasChildren(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 44
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %.critedge, label %5
@@ -4607,7 +4607,7 @@ define hidden void @zim_RecursiveFilterIterator_hasChildren(ptr nocapture nounde
   br label %22
 
 .critedge:                                        ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 -56
   %11 = load i32, ptr %10, align 8
@@ -4636,8 +4636,8 @@ define hidden void @zim_RecursiveFilterIterator_hasChildren(ptr nocapture nounde
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_RecursiveFilterIterator_getChildren(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
   %3 = alloca %struct._zval_struct, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
-  %5 = getelementptr inbounds i8, ptr %0, i64 44
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %.critedge, label %7
@@ -4671,7 +4671,7 @@ define hidden void @zim_RecursiveFilterIterator_getChildren(ptr nocapture nounde
   %22 = call ptr @zend_call_method(ptr noundef %19, ptr noundef %21, ptr noundef null, ptr noundef nonnull @.str.3, i64 noundef 11, ptr noundef nonnull %3, i32 noundef 0, ptr noundef null, ptr noundef null) #10
   %23 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not15 = icmp ne ptr %23, null
-  %24 = getelementptr inbounds i8, ptr %3, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %25 = load i8, ptr %24, align 8
   %.not16 = icmp eq i8 %25, 0
   %or.cond = select i1 %.not15, i1 true, i1 %.not16
@@ -4679,13 +4679,13 @@ define hidden void @zim_RecursiveFilterIterator_getChildren(ptr nocapture nounde
 
 26:                                               ; preds = %17
   %27 = load ptr, ptr %4, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %29 = load ptr, ptr %28, align 8
   %30 = call i32 @object_init_ex(ptr noundef %1, ptr noundef %29) #10
-  %31 = getelementptr inbounds i8, ptr %29, i64 256
+  %31 = getelementptr inbounds nuw i8, ptr %29, i64 256
   %32 = load ptr, ptr %31, align 8
   %33 = load ptr, ptr %1, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %35 = load ptr, ptr %34, align 8
   call void @zend_call_known_function(ptr noundef %32, ptr noundef %33, ptr noundef %35, ptr noundef null, i32 noundef 1, ptr noundef nonnull %3, ptr noundef null) #10
   br label %36
@@ -4702,8 +4702,8 @@ define hidden void @zim_RecursiveFilterIterator_getChildren(ptr nocapture nounde
 define hidden void @zim_RecursiveCallbackFilterIterator_getChildren(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = alloca %struct._zval_struct, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
-  %6 = getelementptr inbounds i8, ptr %0, i64 44
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %7 = load i32, ptr %6, align 4
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %.critedge, label %8
@@ -4737,7 +4737,7 @@ define hidden void @zim_RecursiveCallbackFilterIterator_getChildren(ptr nocaptur
   %23 = call ptr @zend_call_method(ptr noundef %20, ptr noundef %22, ptr noundef null, ptr noundef nonnull @.str.3, i64 noundef 11, ptr noundef nonnull %3, i32 noundef 0, ptr noundef null, ptr noundef null) #10
   %24 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not16 = icmp ne ptr %24, null
-  %25 = getelementptr inbounds i8, ptr %3, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %26 = load i8, ptr %25, align 8
   %.not17 = icmp eq i8 %26, 0
   %or.cond = select i1 %.not16, i1 true, i1 %.not17
@@ -4747,10 +4747,10 @@ define hidden void @zim_RecursiveCallbackFilterIterator_getChildren(ptr nocaptur
   %28 = getelementptr inbounds i8, ptr %11, i64 -48
   call void @zend_get_callable_zval_from_fcc(ptr noundef nonnull %28, ptr noundef nonnull %4) #10
   %29 = load ptr, ptr %5, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %31 = load ptr, ptr %30, align 8
   %32 = call i32 @object_init_ex(ptr noundef %1, ptr noundef %31) #10
-  %33 = getelementptr inbounds i8, ptr %31, i64 256
+  %33 = getelementptr inbounds nuw i8, ptr %31, i64 256
   %34 = load ptr, ptr %33, align 8
   %35 = load ptr, ptr %1, align 8
   call void @zend_call_known_instance_method_with_2_params(ptr noundef %34, ptr noundef %35, ptr noundef null, ptr noundef nonnull %3, ptr noundef nonnull %4) #10
@@ -4770,7 +4770,7 @@ declare void @zend_get_callable_zval_from_fcc(ptr noundef, ptr noundef) local_un
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @spl_instantiate_arg_ex2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3) unnamed_addr #0 {
   %5 = tail call i32 @object_init_ex(ptr noundef %1, ptr noundef %0) #10
-  %6 = getelementptr inbounds i8, ptr %0, i64 256
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %1, align 8
   tail call void @zend_call_known_instance_method_with_2_params(ptr noundef %7, ptr noundef %8, ptr noundef null, ptr noundef %2, ptr noundef nonnull %3) #10
@@ -4783,7 +4783,7 @@ define hidden void @zim_ParentIterator___construct(ptr nocapture noundef readonl
   %4 = load ptr, ptr @spl_ce_ParentIterator, align 8
   %5 = load ptr, ptr @spl_ce_RecursiveIterator, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 -136
   %9 = getelementptr inbounds i8, ptr %7, i64 -56
@@ -4793,14 +4793,14 @@ define hidden void @zim_ParentIterator___construct(ptr nocapture noundef readonl
 
 11:                                               ; preds = %2
   %12 = load ptr, ptr @spl_ce_BadMethodCallException, align 8
-  %13 = getelementptr inbounds i8, ptr %4, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = tail call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %12, i64 noundef 0, ptr noundef nonnull @.str.43, ptr noundef nonnull %15) #10
   br label %spl_dual_it_construct.exit
 
 17:                                               ; preds = %2
-  %18 = getelementptr inbounds i8, ptr %0, i64 44
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %19 = load i32, ptr %18, align 4
   %20 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %19, ptr noundef nonnull @.str.22, ptr noundef nonnull %3, ptr noundef %5) #10
   %21 = icmp eq i32 %20, -1
@@ -4809,7 +4809,7 @@ define hidden void @zim_ParentIterator___construct(ptr nocapture noundef readonl
 22:                                               ; preds = %17
   store i32 0, ptr %9, align 8
   %23 = load ptr, ptr %3, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 9
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 9
   %25 = load i8, ptr %24, align 1
   %26 = icmp ne i8 %25, 0
   call void @llvm.assume(i1 %26)
@@ -4823,14 +4823,14 @@ define hidden void @zim_ParentIterator___construct(ptr nocapture noundef readonl
   %32 = getelementptr inbounds i8, ptr %7, i64 -128
   store i32 776, ptr %32, align 8
   %33 = load ptr, ptr %30, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds i8, ptr %7, i64 -120
   store ptr %35, ptr %36, align 8
   %37 = load ptr, ptr %30, align 8
   %38 = getelementptr inbounds i8, ptr %7, i64 -112
   store ptr %37, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %35, i64 392
+  %39 = getelementptr inbounds nuw i8, ptr %35, i64 392
   %40 = load ptr, ptr %39, align 8
   %41 = call ptr %40(ptr noundef %35, ptr noundef nonnull %30, i32 noundef 0) #10
   %42 = getelementptr inbounds i8, ptr %7, i64 -104
@@ -4853,7 +4853,7 @@ define hidden void @zim_RegexIterator___construct(ptr nocapture noundef readonly
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_CallbackFilterIterator_accept(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
   %3 = alloca [3 x %struct._zval_struct], align 16
-  %4 = getelementptr inbounds i8, ptr %0, i64 44
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %.critedge, label %6
@@ -4866,7 +4866,7 @@ define hidden void @zim_CallbackFilterIterator_accept(ptr nocapture noundef read
   br label %91
 
 .critedge:                                        ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %10, i64 -136
   %12 = getelementptr inbounds i8, ptr %10, i64 -56
@@ -4895,7 +4895,7 @@ define hidden void @zim_CallbackFilterIterator_accept(ptr nocapture noundef read
   br i1 %26, label %27, label %29
 
 27:                                               ; preds = %23, %18
-  %28 = getelementptr inbounds i8, ptr %1, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %28, align 8
   br label %91
 
@@ -4904,24 +4904,24 @@ define hidden void @zim_CallbackFilterIterator_accept(ptr nocapture noundef read
   %31 = load ptr, ptr %19, align 8
   %32 = load i32, ptr %20, align 8
   store ptr %31, ptr %3, align 16
-  %33 = getelementptr inbounds i8, ptr %3, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %32, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %3, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %35 = load ptr, ptr %30, align 8
   %36 = load i32, ptr %24, align 8
   store ptr %35, ptr %34, align 16
-  %37 = getelementptr inbounds i8, ptr %3, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i32 %36, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %3, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %39 = load ptr, ptr %11, align 8
   %40 = getelementptr inbounds i8, ptr %10, i64 -128
   %41 = load i32, ptr %40, align 8
   store ptr %39, ptr %38, align 16
-  %42 = getelementptr inbounds i8, ptr %3, i64 40
+  %42 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i32 %41, ptr %42, align 8
   %43 = getelementptr inbounds i8, ptr %10, i64 -48
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 4
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 4
   %46 = load i32, ptr %45, align 4
   %47 = and i32 %46, 262144
   %.not86 = icmp eq i32 %47, 0
@@ -4931,9 +4931,9 @@ define hidden void @zim_CallbackFilterIterator_accept(ptr nocapture noundef read
   %49 = tail call noalias ptr @_emalloc_256() #10
   %50 = load ptr, ptr %43, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %49, ptr noundef nonnull align 8 dereferenceable(240) %50, i64 240, i1 false)
-  %51 = getelementptr inbounds i8, ptr %49, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 4
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 4
   %54 = load i32, ptr %53, align 4
   %55 = and i32 %54, 64
   %.not87 = icmp eq i32 %55, 0
@@ -4952,7 +4952,7 @@ define hidden void @zim_CallbackFilterIterator_accept(ptr nocapture noundef read
   %62 = getelementptr inbounds i8, ptr %10, i64 -32
   %63 = load ptr, ptr %62, align 8
   call void @zend_call_known_function(ptr noundef nonnull %.0, ptr noundef %61, ptr noundef %63, ptr noundef %1, i32 noundef 3, ptr noundef nonnull %3, ptr noundef null) #10
-  %64 = getelementptr inbounds i8, ptr %1, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %65 = load i8, ptr %64, align 8
   switch i8 %65, label %91 [
     i8 0, label %66
@@ -4970,9 +4970,9 @@ define hidden void @zim_CallbackFilterIterator_accept(ptr nocapture noundef read
   br i1 %70, label %71, label %76
 
 71:                                               ; preds = %67
-  %72 = getelementptr inbounds i8, ptr %68, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %73 = load ptr, ptr %72, align 8
-  %74 = getelementptr inbounds i8, ptr %68, i64 16
+  %74 = getelementptr inbounds nuw i8, ptr %68, i64 16
   %75 = load i32, ptr %74, align 8
   store ptr %73, ptr %1, align 8
   store i32 %75, ptr %64, align 8
@@ -4980,7 +4980,7 @@ define hidden void @zim_CallbackFilterIterator_accept(ptr nocapture noundef read
   br label %91
 
 76:                                               ; preds = %67
-  %77 = getelementptr inbounds i8, ptr %1, i64 9
+  %77 = getelementptr inbounds nuw i8, ptr %1, i64 9
   %78 = load i8, ptr %77, align 1
   %79 = icmp ne i8 %78, 0
   call void @llvm.assume(i1 %79)
@@ -4989,9 +4989,9 @@ define hidden void @zim_CallbackFilterIterator_accept(ptr nocapture noundef read
   %81 = add i32 %69, -1
   store i32 %81, ptr %68, align 4
   %82 = load ptr, ptr %1, align 8
-  %83 = getelementptr inbounds i8, ptr %82, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %84 = load ptr, ptr %83, align 8
-  %85 = getelementptr inbounds i8, ptr %82, i64 16
+  %85 = getelementptr inbounds nuw i8, ptr %82, i64 16
   %86 = load i32, ptr %85, align 8
   store ptr %84, ptr %1, align 8
   store i32 %86, ptr %64, align 8
@@ -5015,8 +5015,8 @@ define hidden void @zim_RegexIterator_accept(ptr nocapture noundef readonly %0, 
   %4 = alloca %struct._zval_struct, align 8
   %5 = alloca %struct._zval_struct, align 8
   store i64 0, ptr %3, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
-  %7 = getelementptr inbounds i8, ptr %0, i64 44
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %8 = load i32, ptr %7, align 4
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %.critedge, label %9
@@ -5050,7 +5050,7 @@ define hidden void @zim_RegexIterator_accept(ptr nocapture noundef readonly %0, 
   br i1 %23, label %24, label %26
 
 24:                                               ; preds = %19
-  %25 = getelementptr inbounds i8, ptr %1, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %25, align 8
   br label %176
 
@@ -5070,7 +5070,7 @@ define hidden void @zim_RegexIterator_accept(ptr nocapture noundef readonly %0, 
 
 35:                                               ; preds = %30
   %36 = load ptr, ptr %31, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 4
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 4
   %38 = load i32, ptr %37, align 4
   %39 = and i32 %38, 64
   %.not126 = icmp eq i32 %39, 0
@@ -5093,13 +5093,13 @@ define hidden void @zim_RegexIterator_accept(ptr nocapture noundef readonly %0, 
   ]
 
 46:                                               ; preds = %45
-  %47 = getelementptr inbounds i8, ptr %1, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %47, align 8
   br label %176
 
 48:                                               ; preds = %45
   %49 = load ptr, ptr %20, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 4
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 4
   %51 = load i32, ptr %50, align 4
   %52 = and i32 %51, 64
   %.not125 = icmp eq i32 %52, 0
@@ -5142,19 +5142,19 @@ define hidden void @zim_RegexIterator_accept(ptr nocapture noundef readonly %0, 
   br i1 %.not136, label %68, label %70
 
 68:                                               ; preds = %63
-  %69 = getelementptr inbounds i8, ptr %1, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %69, align 8
   br label %176
 
 70:                                               ; preds = %63
-  %71 = getelementptr inbounds i8, ptr %.0121, i64 24
-  %72 = getelementptr inbounds i8, ptr %.0121, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %.0121, i64 24
+  %72 = getelementptr inbounds nuw i8, ptr %.0121, i64 16
   %73 = load i64, ptr %72, align 8
   %74 = tail call ptr @php_pcre_mctx() #10
   %75 = tail call i32 @php_pcre2_match(ptr noundef %66, ptr noundef nonnull %71, i64 noundef %73, i64 noundef 0, i32 noundef 0, ptr noundef nonnull %67, ptr noundef %74) #10
   %76 = icmp sgt i32 %75, -1
   %77 = select i1 %76, i32 3, i32 2
-  %78 = getelementptr inbounds i8, ptr %1, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %77, ptr %78, align 8
   tail call void @php_pcre_free_match_data(ptr noundef nonnull %67) #10
   br label %159
@@ -5172,7 +5172,7 @@ define hidden void @zim_RegexIterator_accept(ptr nocapture noundef readonly %0, 
   %86 = load i64, ptr %4, align 8
   %87 = icmp sgt i64 %86, 0
   %88 = select i1 %87, i32 3, i32 2
-  %89 = getelementptr inbounds i8, ptr %1, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %88, ptr %89, align 8
   br label %159
 
@@ -5185,29 +5185,29 @@ define hidden void @zim_RegexIterator_accept(ptr nocapture noundef readonly %0, 
   %94 = load i64, ptr %93, align 8
   tail call void @php_pcre_split_impl(ptr noundef %92, ptr noundef %.0121, ptr noundef nonnull %20, i64 noundef -1, i64 noundef %94) #10
   %95 = load ptr, ptr %20, align 8
-  %96 = getelementptr inbounds i8, ptr %95, i64 28
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 28
   %97 = load i32, ptr %96, align 4
   %98 = zext i32 %97 to i64
   store i64 %98, ptr %3, align 8
   %.inv = icmp ult i32 %97, 2
   %99 = select i1 %.inv, i32 2, i32 3
-  %100 = getelementptr inbounds i8, ptr %1, i64 8
+  %100 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %99, ptr %100, align 8
   br label %159
 
 101:                                              ; preds = %60
-  %102 = getelementptr inbounds i8, ptr %12, i64 16
+  %102 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %103 = load ptr, ptr %102, align 8
   %104 = load ptr, ptr %6, align 8
   %105 = call ptr @zend_read_property(ptr noundef %103, ptr noundef %104, ptr noundef nonnull @.str.9, i64 noundef 11, i1 noundef zeroext true, ptr noundef nonnull %5) #10
-  %106 = getelementptr inbounds i8, ptr %105, i64 8
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 8
   %107 = load i8, ptr %106, align 8
   %108 = icmp eq i8 %107, 6
   br i1 %108, label %109, label %117
 
 109:                                              ; preds = %101
   %110 = load ptr, ptr %105, align 8
-  %111 = getelementptr inbounds i8, ptr %110, i64 4
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 4
   %112 = load i32, ptr %111, align 4
   %113 = and i32 %112, 64
   %.not128 = icmp eq i32 %113, 0
@@ -5234,8 +5234,8 @@ define hidden void @zim_RegexIterator_accept(ptr nocapture noundef readonly %0, 
   %.0142 = phi ptr [ %118, %117 ], [ %110, %109 ], [ %110, %114 ]
   %122 = getelementptr inbounds i8, ptr %12, i64 -32
   %123 = load ptr, ptr %122, align 8
-  %124 = getelementptr inbounds i8, ptr %.0121, i64 24
-  %125 = getelementptr inbounds i8, ptr %.0121, i64 16
+  %124 = getelementptr inbounds nuw i8, ptr %.0121, i64 24
+  %125 = getelementptr inbounds nuw i8, ptr %.0121, i64 16
   %126 = load i64, ptr %125, align 8
   %127 = call ptr @php_pcre_replace_impl(ptr noundef %123, ptr noundef %.0121, ptr noundef nonnull %124, i64 noundef %126, ptr noundef nonnull %.0142, i64 noundef -1, ptr noundef nonnull %3) #10
   %128 = load i64, ptr %27, align 8
@@ -5247,7 +5247,7 @@ define hidden void @zim_RegexIterator_accept(ptr nocapture noundef readonly %0, 
   %131 = getelementptr inbounds i8, ptr %12, i64 -80
   call void @zval_ptr_dtor(ptr noundef nonnull %131) #10
   store ptr %127, ptr %131, align 8
-  %132 = getelementptr inbounds i8, ptr %127, i64 4
+  %132 = getelementptr inbounds nuw i8, ptr %127, i64 4
   %133 = load i32, ptr %132, align 4
   %134 = and i32 %133, 64
   %.not132 = icmp eq i32 %134, 0
@@ -5259,7 +5259,7 @@ define hidden void @zim_RegexIterator_accept(ptr nocapture noundef readonly %0, 
 137:                                              ; preds = %.thread
   call void @zval_ptr_dtor(ptr noundef nonnull %20) #10
   store ptr %127, ptr %20, align 8
-  %138 = getelementptr inbounds i8, ptr %127, i64 4
+  %138 = getelementptr inbounds nuw i8, ptr %127, i64 4
   %139 = load i32, ptr %138, align 4
   %140 = and i32 %139, 64
   %.not131 = icmp eq i32 %140, 0
@@ -5268,7 +5268,7 @@ define hidden void @zim_RegexIterator_accept(ptr nocapture noundef readonly %0, 
   br label %142
 
 142:                                              ; preds = %137, %130
-  %143 = getelementptr inbounds i8, ptr %.0142, i64 4
+  %143 = getelementptr inbounds nuw i8, ptr %.0142, i64 4
   %144 = load i32, ptr %143, align 4
   %145 = and i32 %144, 64
   %.not133 = icmp eq i32 %145, 0
@@ -5300,7 +5300,7 @@ define hidden void @zim_RegexIterator_accept(ptr nocapture noundef readonly %0, 
   %156 = load i64, ptr %3, align 8
   %.not135 = icmp eq i64 %156, 0
   %157 = select i1 %.not135, i32 2, i32 3
-  %158 = getelementptr inbounds i8, ptr %1, i64 8
+  %158 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %157, ptr %158, align 8
   br label %159
 
@@ -5311,7 +5311,7 @@ define hidden void @zim_RegexIterator_accept(ptr nocapture noundef readonly %0, 
   br i1 %.not137, label %166, label %162
 
 162:                                              ; preds = %159
-  %163 = getelementptr inbounds i8, ptr %1, i64 8
+  %163 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %164 = load i8, ptr %163, align 8
   %.not138 = icmp eq i8 %164, 3
   %165 = select i1 %.not138, i32 2, i32 3
@@ -5319,7 +5319,7 @@ define hidden void @zim_RegexIterator_accept(ptr nocapture noundef readonly %0, 
   br label %166
 
 166:                                              ; preds = %162, %159
-  %167 = getelementptr inbounds i8, ptr %.0121, i64 4
+  %167 = getelementptr inbounds nuw i8, ptr %.0121, i64 4
   %168 = load i32, ptr %167, align 4
   %169 = and i32 %168, 64
   %.not139 = icmp eq i32 %169, 0
@@ -5362,7 +5362,7 @@ declare ptr @php_pcre_replace_impl(ptr noundef, ptr noundef, ptr noundef, i64 no
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_RegexIterator_getRegex(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 44
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %.critedge, label %5
@@ -5375,7 +5375,7 @@ define hidden void @zim_RegexIterator_getRegex(ptr nocapture noundef readonly %0
   br label %28
 
 .critedge:                                        ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 -56
   %11 = load i32, ptr %10, align 8
@@ -5393,14 +5393,14 @@ define hidden void @zim_RegexIterator_getRegex(ptr nocapture noundef readonly %0
   %17 = getelementptr inbounds i8, ptr %9, i64 -24
   %18 = load ptr, ptr %17, align 8
   store ptr %18, ptr %1, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %20 = load i32, ptr %19, align 4
   %21 = and i32 %20, 64
   %.not13 = icmp eq i32 %21, 0
   br i1 %.not13, label %24, label %22
 
 22:                                               ; preds = %16
-  %23 = getelementptr inbounds i8, ptr %1, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 6, ptr %23, align 8
   br label %28
 
@@ -5408,7 +5408,7 @@ define hidden void @zim_RegexIterator_getRegex(ptr nocapture noundef readonly %0
   %25 = load i32, ptr %18, align 4
   %26 = add i32 %25, 1
   store i32 %26, ptr %18, align 4
-  %27 = getelementptr inbounds i8, ptr %1, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 262, ptr %27, align 8
   br label %28
 
@@ -5418,7 +5418,7 @@ define hidden void @zim_RegexIterator_getRegex(ptr nocapture noundef readonly %0
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_RegexIterator_getMode(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 44
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %.critedge, label %5
@@ -5431,7 +5431,7 @@ define hidden void @zim_RegexIterator_getMode(ptr nocapture noundef readonly %0,
   br label %21
 
 .critedge:                                        ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 -56
   %11 = load i32, ptr %10, align 8
@@ -5450,7 +5450,7 @@ define hidden void @zim_RegexIterator_getMode(ptr nocapture noundef readonly %0,
   %18 = load i32, ptr %17, align 8
   %19 = zext i32 %18 to i64
   store i64 %19, ptr %1, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 4, ptr %20, align 8
   br label %21
 
@@ -5461,8 +5461,8 @@ define hidden void @zim_RegexIterator_getMode(ptr nocapture noundef readonly %0,
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_RegexIterator_setMode(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
   %3 = alloca i64, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
-  %5 = getelementptr inbounds i8, ptr %0, i64 44
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4
   %7 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %6, ptr noundef nonnull @.str.10, ptr noundef nonnull %3) #10
   %8 = icmp eq i32 %7, -1
@@ -5512,7 +5512,7 @@ define hidden void @zim_RegexIterator_setMode(ptr nocapture noundef readonly %0,
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_RegexIterator_getFlags(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 44
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %.critedge, label %5
@@ -5525,7 +5525,7 @@ define hidden void @zim_RegexIterator_getFlags(ptr nocapture noundef readonly %0
   br label %20
 
 .critedge:                                        ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 -56
   %11 = load i32, ptr %10, align 8
@@ -5543,7 +5543,7 @@ define hidden void @zim_RegexIterator_getFlags(ptr nocapture noundef readonly %0
   %17 = getelementptr inbounds i8, ptr %9, i64 -48
   %18 = load i64, ptr %17, align 8
   store i64 %18, ptr %1, align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 4, ptr %19, align 8
   br label %20
 
@@ -5554,7 +5554,7 @@ define hidden void @zim_RegexIterator_getFlags(ptr nocapture noundef readonly %0
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_RegexIterator_setFlags(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
   %3 = alloca i64, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 44
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
   %6 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %5, ptr noundef nonnull @.str.10, ptr noundef nonnull %3) #10
   %7 = icmp eq i32 %6, -1
@@ -5567,7 +5567,7 @@ define hidden void @zim_RegexIterator_setFlags(ptr nocapture noundef readonly %0
   br label %23
 
 11:                                               ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 -56
   %15 = load i32, ptr %14, align 8
@@ -5593,7 +5593,7 @@ define hidden void @zim_RegexIterator_setFlags(ptr nocapture noundef readonly %0
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_RegexIterator_getPregFlags(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 44
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %.critedge, label %5
@@ -5606,7 +5606,7 @@ define hidden void @zim_RegexIterator_getPregFlags(ptr nocapture noundef readonl
   br label %20
 
 .critedge:                                        ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 -56
   %11 = load i32, ptr %10, align 8
@@ -5624,7 +5624,7 @@ define hidden void @zim_RegexIterator_getPregFlags(ptr nocapture noundef readonl
   %17 = getelementptr inbounds i8, ptr %9, i64 -40
   %18 = load i64, ptr %17, align 8
   store i64 %18, ptr %1, align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 4, ptr %19, align 8
   br label %20
 
@@ -5635,7 +5635,7 @@ define hidden void @zim_RegexIterator_getPregFlags(ptr nocapture noundef readonl
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_RegexIterator_setPregFlags(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
   %3 = alloca i64, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 44
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
   %6 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %5, ptr noundef nonnull @.str.10, ptr noundef nonnull %3) #10
   %7 = icmp eq i32 %6, -1
@@ -5648,7 +5648,7 @@ define hidden void @zim_RegexIterator_setPregFlags(ptr nocapture noundef readonl
   br label %23
 
 11:                                               ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 -56
   %15 = load i32, ptr %14, align 8
@@ -5684,8 +5684,8 @@ define hidden void @zim_RecursiveRegexIterator___construct(ptr nocapture noundef
 define hidden void @zim_RecursiveRegexIterator_getChildren(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = alloca [5 x %struct._zval_struct], align 16
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
-  %6 = getelementptr inbounds i8, ptr %0, i64 44
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %7 = load i32, ptr %6, align 4
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %.critedge, label %8
@@ -5723,10 +5723,10 @@ define hidden void @zim_RecursiveRegexIterator_getChildren(ptr nocapture noundef
 
 25:                                               ; preds = %18
   %26 = load ptr, ptr %3, align 8
-  %27 = getelementptr inbounds i8, ptr %3, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %28 = load i32, ptr %27, align 8
   store ptr %26, ptr %4, align 16
-  %29 = getelementptr inbounds i8, ptr %4, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %28, ptr %29, align 8
   %30 = and i32 %28, 65280
   %.not41 = icmp eq i32 %30, 0
@@ -5739,12 +5739,12 @@ define hidden void @zim_RecursiveRegexIterator_getChildren(ptr nocapture noundef
   br label %34
 
 34:                                               ; preds = %31, %25
-  %35 = getelementptr inbounds i8, ptr %4, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %36 = getelementptr inbounds i8, ptr %11, i64 -48
   %37 = getelementptr inbounds i8, ptr %11, i64 -24
   %38 = load ptr, ptr %37, align 8
   store ptr %38, ptr %35, align 16
-  %39 = getelementptr inbounds i8, ptr %38, i64 4
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 4
   %40 = load i32, ptr %39, align 4
   %41 = and i32 %40, 64
   %.not42 = icmp eq i32 %41, 0
@@ -5758,34 +5758,34 @@ define hidden void @zim_RecursiveRegexIterator_getChildren(ptr nocapture noundef
 
 45:                                               ; preds = %34, %42
   %.sink = phi i32 [ 262, %42 ], [ 6, %34 ]
-  %46 = getelementptr inbounds i8, ptr %4, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i32 %.sink, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %4, i64 32
+  %47 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %48 = getelementptr inbounds i8, ptr %11, i64 -16
   %49 = load i32, ptr %48, align 8
   %50 = zext i32 %49 to i64
   store i64 %50, ptr %47, align 16
-  %51 = getelementptr inbounds i8, ptr %4, i64 40
+  %51 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i32 4, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %4, i64 48
+  %52 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %53 = load i64, ptr %36, align 8
   store i64 %53, ptr %52, align 16
-  %54 = getelementptr inbounds i8, ptr %4, i64 56
+  %54 = getelementptr inbounds nuw i8, ptr %4, i64 56
   store i32 4, ptr %54, align 8
-  %55 = getelementptr inbounds i8, ptr %4, i64 64
+  %55 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %56 = getelementptr inbounds i8, ptr %11, i64 -40
   %57 = load i64, ptr %56, align 8
   store i64 %57, ptr %55, align 16
-  %58 = getelementptr inbounds i8, ptr %4, i64 72
+  %58 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store i32 4, ptr %58, align 8
   %59 = load ptr, ptr %5, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 16
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %61 = load ptr, ptr %60, align 8
   %62 = call i32 @object_init_ex(ptr noundef %1, ptr noundef %61) #10
-  %63 = getelementptr inbounds i8, ptr %61, i64 256
+  %63 = getelementptr inbounds nuw i8, ptr %61, i64 256
   %64 = load ptr, ptr %63, align 8
   %65 = load ptr, ptr %1, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 16
   %67 = load ptr, ptr %66, align 8
   call void @zend_call_known_function(ptr noundef %64, ptr noundef %65, ptr noundef %67, ptr noundef null, i32 noundef 5, ptr noundef nonnull %4, ptr noundef null) #10
   call void @zval_ptr_dtor(ptr noundef nonnull %4) #10
@@ -5802,7 +5802,7 @@ define hidden void @zim_RecursiveRegexIterator_getChildren(ptr nocapture noundef
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_RecursiveRegexIterator_accept(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 44
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %.critedge, label %5
@@ -5815,7 +5815,7 @@ define hidden void @zim_RecursiveRegexIterator_accept(ptr nocapture noundef read
   br label %31
 
 .critedge:                                        ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 -56
   %11 = load i32, ptr %10, align 8
@@ -5838,18 +5838,18 @@ define hidden void @zim_RecursiveRegexIterator_accept(ptr nocapture noundef read
   ]
 
 19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %1, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %20, align 8
   br label %31
 
 21:                                               ; preds = %16
   %22 = getelementptr inbounds i8, ptr %9, i64 -96
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 28
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 28
   %25 = load i32, ptr %24, align 4
   %.not20 = icmp eq i32 %25, 0
   %26 = select i1 %.not20, i32 2, i32 3
-  %27 = getelementptr inbounds i8, ptr %1, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %26, ptr %27, align 8
   br label %31
 
@@ -5872,7 +5872,7 @@ define hidden void @zim_LimitIterator___construct(ptr nocapture noundef readonly
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_LimitIterator_rewind(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 44
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %.critedge, label %5
@@ -5885,7 +5885,7 @@ define hidden void @zim_LimitIterator_rewind(ptr nocapture noundef readonly %0, 
   br label %29
 
 .critedge:                                        ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 -136
   %11 = getelementptr inbounds i8, ptr %9, i64 -56
@@ -5910,9 +5910,9 @@ define hidden void @zim_LimitIterator_rewind(ptr nocapture noundef readonly %0, 
   br i1 %.not.i, label %spl_dual_it_rewind.exit, label %21
 
 21:                                               ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %20, i64 72
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 72
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 40
   %25 = load ptr, ptr %24, align 8
   %.not7.i = icmp eq ptr %25, null
   br i1 %.not7.i, label %spl_dual_it_rewind.exit, label %26
@@ -5935,7 +5935,7 @@ spl_dual_it_rewind.exit:                          ; preds = %17, %21, %26
 define internal fastcc void @spl_limit_it_seek(ptr noundef %0, i64 noundef %1) unnamed_addr #0 {
   %3 = alloca %struct._zval_struct, align 8
   tail call fastcc void @spl_dual_it_free(ptr noundef %0)
-  %4 = getelementptr inbounds i8, ptr %0, i64 88
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %5 = load i64, ptr %4, align 8
   %6 = icmp slt i64 %1, %5
   br i1 %6, label %7, label %10
@@ -5946,7 +5946,7 @@ define internal fastcc void @spl_limit_it_seek(ptr noundef %0, i64 noundef %1) u
   br label %spl_dual_it_fetch.exit
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %0, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %12 = load i64, ptr %11, align 8
   %13 = add nsw i64 %12, %5
   %.not = icmp slt i64 %1, %13
@@ -5960,7 +5960,7 @@ define internal fastcc void @spl_limit_it_seek(ptr noundef %0, i64 noundef %1) u
   br label %spl_dual_it_fetch.exit
 
 17:                                               ; preds = %10
-  %18 = getelementptr inbounds i8, ptr %0, i64 72
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %19 = load i64, ptr %18, align 8
   %.not52 = icmp eq i64 %1, %19
   br i1 %.not52, label %spl_dual_it_rewind.exit.thread, label %21
@@ -5970,7 +5970,7 @@ spl_dual_it_rewind.exit.thread:                   ; preds = %17
   br label %.critedge2
 
 21:                                               ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %0, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %23 = load ptr, ptr %22, align 8
   %24 = load ptr, ptr @spl_ce_SeekableIterator, align 8
   %25 = icmp eq ptr %23, %24
@@ -5982,7 +5982,7 @@ spl_dual_it_rewind.exit.thread:                   ; preds = %17
 
 .critedge:                                        ; preds = %21, %26
   store i64 %1, ptr %3, align 8
-  %28 = getelementptr inbounds i8, ptr %3, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 4, ptr %28, align 8
   tail call fastcc void @spl_dual_it_free(ptr noundef nonnull %0)
   %29 = load ptr, ptr %0, align 8
@@ -6011,9 +6011,9 @@ spl_dual_it_rewind.exit.thread:                   ; preds = %17
   br i1 %.not.i.i, label %spl_dual_it_fetch.exit, label %spl_limit_it_valid.exit
 
 spl_limit_it_valid.exit:                          ; preds = %38
-  %40 = getelementptr inbounds i8, ptr %.val.i, i64 72
+  %40 = getelementptr inbounds nuw i8, ptr %.val.i, i64 72
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %43 = load ptr, ptr %42, align 8
   %44 = call i32 %43(ptr noundef nonnull %.val.i) #10
   %45 = icmp eq i32 %44, 0
@@ -6031,15 +6031,15 @@ spl_limit_it_valid.exit:                          ; preds = %38
 49:                                               ; preds = %47
   tail call fastcc void @spl_dual_it_free(ptr noundef nonnull %0)
   store i64 0, ptr %18, align 8
-  %50 = getelementptr inbounds i8, ptr %0, i64 32
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %51 = load ptr, ptr %50, align 8
   %.not.i55 = icmp eq ptr %51, null
   br i1 %.not.i55, label %spl_dual_it_rewind.exit, label %52
 
 52:                                               ; preds = %49
-  %53 = getelementptr inbounds i8, ptr %51, i64 72
+  %53 = getelementptr inbounds nuw i8, ptr %51, i64 72
   %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 40
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 40
   %56 = load ptr, ptr %55, align 8
   %.not7.i = icmp eq ptr %56, null
   br i1 %.not7.i, label %spl_dual_it_rewind.exit, label %57
@@ -6061,9 +6061,9 @@ spl_dual_it_rewind.exit:                          ; preds = %57, %52, %49, %47
   br i1 %.not.i56, label %spl_dual_it_fetch.exit, label %spl_dual_it_valid.exit
 
 spl_dual_it_valid.exit:                           ; preds = %.lr.ph
-  %61 = getelementptr inbounds i8, ptr %.val, i64 72
+  %61 = getelementptr inbounds nuw i8, ptr %.val, i64 72
   %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %64 = load ptr, ptr %63, align 8
   %65 = tail call i32 %64(ptr noundef nonnull %.val) #10
   %66 = icmp eq i32 %65, 0
@@ -6072,9 +6072,9 @@ spl_dual_it_valid.exit:                           ; preds = %.lr.ph
 67:                                               ; preds = %spl_dual_it_valid.exit
   tail call fastcc void @spl_dual_it_free(ptr noundef nonnull %0)
   %.pre.i = load ptr, ptr %59, align 8
-  %68 = getelementptr inbounds i8, ptr %.pre.i, i64 72
+  %68 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 72
   %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %69, i64 32
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 32
   %71 = load ptr, ptr %70, align 8
   tail call void %71(ptr noundef %.pre.i) #10
   %72 = load i64, ptr %18, align 8
@@ -6090,9 +6090,9 @@ spl_dual_it_valid.exit:                           ; preds = %.lr.ph
   br i1 %.not.i58, label %spl_dual_it_fetch.exit, label %spl_dual_it_valid.exit60
 
 spl_dual_it_valid.exit60:                         ; preds = %.critedge2
-  %75 = getelementptr inbounds i8, ptr %.val54.pr, i64 72
+  %75 = getelementptr inbounds nuw i8, ptr %.val54.pr, i64 72
   %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 8
   %78 = load ptr, ptr %77, align 8
   %79 = tail call i32 %78(ptr noundef nonnull %.val54.pr) #10
   %80 = icmp eq i32 %79, 0
@@ -6105,9 +6105,9 @@ spl_dual_it_valid.exit60:                         ; preds = %.critedge2
   br i1 %.not.i.i62, label %spl_dual_it_fetch.exit, label %spl_dual_it_valid.exit.i
 
 spl_dual_it_valid.exit.i:                         ; preds = %81
-  %82 = getelementptr inbounds i8, ptr %.val.i61, i64 72
+  %82 = getelementptr inbounds nuw i8, ptr %.val.i61, i64 72
   %83 = load ptr, ptr %82, align 8
-  %84 = getelementptr inbounds i8, ptr %83, i64 8
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 8
   %85 = load ptr, ptr %84, align 8
   %86 = tail call i32 %85(ptr noundef nonnull %.val.i61) #10
   %87 = icmp eq i32 %86, 0
@@ -6115,21 +6115,21 @@ spl_dual_it_valid.exit.i:                         ; preds = %81
 
 88:                                               ; preds = %spl_dual_it_valid.exit.i
   %89 = load ptr, ptr %.ph, align 8
-  %90 = getelementptr inbounds i8, ptr %89, i64 72
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 72
   %91 = load ptr, ptr %90, align 8
-  %92 = getelementptr inbounds i8, ptr %91, i64 16
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 16
   %93 = load ptr, ptr %92, align 8
   %94 = tail call ptr %93(ptr noundef %89) #10
   %.not29.i = icmp eq ptr %94, null
   br i1 %.not29.i, label %105, label %95
 
 95:                                               ; preds = %88
-  %96 = getelementptr inbounds i8, ptr %0, i64 40
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %97 = load ptr, ptr %94, align 8
-  %98 = getelementptr inbounds i8, ptr %94, i64 8
+  %98 = getelementptr inbounds nuw i8, ptr %94, i64 8
   %99 = load i32, ptr %98, align 8
   store ptr %97, ptr %96, align 8
-  %100 = getelementptr inbounds i8, ptr %0, i64 48
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 %99, ptr %100, align 8
   %101 = and i32 %99, 65280
   %.not30.i = icmp eq i32 %101, 0
@@ -6143,12 +6143,12 @@ spl_dual_it_valid.exit.i:                         ; preds = %81
 
 105:                                              ; preds = %102, %95, %88
   %106 = load ptr, ptr %.ph, align 8
-  %107 = getelementptr inbounds i8, ptr %106, i64 72
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 72
   %108 = load ptr, ptr %107, align 8
-  %109 = getelementptr inbounds i8, ptr %108, i64 24
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 24
   %110 = load ptr, ptr %109, align 8
   %.not31.i = icmp eq ptr %110, null
-  %111 = getelementptr inbounds i8, ptr %0, i64 56
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 56
   br i1 %.not31.i, label %115, label %112
 
 112:                                              ; preds = %105
@@ -6168,7 +6168,7 @@ spl_dual_it_valid.exit.i:                         ; preds = %81
 
 .sink.split.i:                                    ; preds = %115, %114
   %.sink.i = phi i32 [ 0, %114 ], [ 4, %115 ]
-  %117 = getelementptr inbounds i8, ptr %0, i64 64
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 %.sink.i, ptr %117, align 8
   br label %spl_dual_it_fetch.exit
 
@@ -6178,7 +6178,7 @@ spl_dual_it_fetch.exit:                           ; preds = %.lr.ph, %112, %.sin
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_LimitIterator_valid(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 44
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %.critedge, label %5
@@ -6191,7 +6191,7 @@ define hidden void @zim_LimitIterator_valid(ptr nocapture noundef readonly %0, p
   br label %34
 
 .critedge:                                        ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 -56
   %11 = load i32, ptr %10, align 8
@@ -6229,7 +6229,7 @@ define hidden void @zim_LimitIterator_valid(ptr nocapture noundef readonly %0, p
 
 31:                                               ; preds = %27, %20
   %32 = phi i32 [ 2, %20 ], [ %30, %27 ]
-  %33 = getelementptr inbounds i8, ptr %1, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %32, ptr %33, align 8
   br label %34
 
@@ -6239,7 +6239,7 @@ define hidden void @zim_LimitIterator_valid(ptr nocapture noundef readonly %0, p
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_LimitIterator_next(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 44
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %.critedge, label %5
@@ -6252,7 +6252,7 @@ define hidden void @zim_LimitIterator_next(ptr nocapture noundef readonly %0, pt
   br label %spl_dual_it_fetch.exit
 
 .critedge:                                        ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 -136
   %11 = getelementptr inbounds i8, ptr %9, i64 -56
@@ -6271,9 +6271,9 @@ define hidden void @zim_LimitIterator_next(ptr nocapture noundef readonly %0, pt
   tail call fastcc void @spl_dual_it_free(ptr noundef nonnull %10)
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %9, i64 -104
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
-  %18 = getelementptr inbounds i8, ptr %.pre.i, i64 72
+  %18 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 72
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 32
   %21 = load ptr, ptr %20, align 8
   tail call void %21(ptr noundef %.pre.i) #10
   %22 = getelementptr inbounds i8, ptr %9, i64 -64
@@ -6299,9 +6299,9 @@ define hidden void @zim_LimitIterator_next(ptr nocapture noundef readonly %0, pt
   br i1 %.not.i.i, label %spl_dual_it_fetch.exit, label %spl_dual_it_valid.exit.i
 
 spl_dual_it_valid.exit.i:                         ; preds = %33
-  %34 = getelementptr inbounds i8, ptr %.val.i, i64 72
+  %34 = getelementptr inbounds nuw i8, ptr %.val.i, i64 72
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %37 = load ptr, ptr %36, align 8
   %38 = tail call i32 %37(ptr noundef nonnull %.val.i) #10
   %39 = icmp eq i32 %38, 0
@@ -6309,9 +6309,9 @@ spl_dual_it_valid.exit.i:                         ; preds = %33
 
 40:                                               ; preds = %spl_dual_it_valid.exit.i
   %41 = load ptr, ptr %.phi.trans.insert.i, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 72
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 72
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %45 = load ptr, ptr %44, align 8
   %46 = tail call ptr %45(ptr noundef %41) #10
   %.not29.i = icmp eq ptr %46, null
@@ -6320,7 +6320,7 @@ spl_dual_it_valid.exit.i:                         ; preds = %33
 47:                                               ; preds = %40
   %48 = getelementptr inbounds i8, ptr %9, i64 -96
   %49 = load ptr, ptr %46, align 8
-  %50 = getelementptr inbounds i8, ptr %46, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %51 = load i32, ptr %50, align 8
   store ptr %49, ptr %48, align 8
   %52 = getelementptr inbounds i8, ptr %9, i64 -88
@@ -6337,9 +6337,9 @@ spl_dual_it_valid.exit.i:                         ; preds = %33
 
 57:                                               ; preds = %54, %47, %40
   %58 = load ptr, ptr %.phi.trans.insert.i, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 72
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 72
   %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 24
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 24
   %62 = load ptr, ptr %61, align 8
   %.not31.i = icmp eq ptr %62, null
   %63 = getelementptr inbounds i8, ptr %9, i64 -80
@@ -6373,7 +6373,7 @@ spl_dual_it_fetch.exit:                           ; preds = %64, %.sink.split.i,
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_LimitIterator_seek(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
   %3 = alloca i64, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 44
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
   %6 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %5, ptr noundef nonnull @.str.10, ptr noundef nonnull %3) #10
   %7 = icmp eq i32 %6, -1
@@ -6386,7 +6386,7 @@ define hidden void @zim_LimitIterator_seek(ptr nocapture noundef readonly %0, pt
   br label %26
 
 11:                                               ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 -56
   %15 = load i32, ptr %14, align 8
@@ -6407,7 +6407,7 @@ define hidden void @zim_LimitIterator_seek(ptr nocapture noundef readonly %0, pt
   %23 = getelementptr inbounds i8, ptr %13, i64 -64
   %24 = load i64, ptr %23, align 8
   store i64 %24, ptr %1, align 8
-  %25 = getelementptr inbounds i8, ptr %1, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 4, ptr %25, align 8
   br label %26
 
@@ -6417,7 +6417,7 @@ define hidden void @zim_LimitIterator_seek(ptr nocapture noundef readonly %0, pt
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_LimitIterator_getPosition(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 44
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %.critedge, label %5
@@ -6430,7 +6430,7 @@ define hidden void @zim_LimitIterator_getPosition(ptr nocapture noundef readonly
   br label %20
 
 .critedge:                                        ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 -56
   %11 = load i32, ptr %10, align 8
@@ -6448,7 +6448,7 @@ define hidden void @zim_LimitIterator_getPosition(ptr nocapture noundef readonly
   %17 = getelementptr inbounds i8, ptr %9, i64 -64
   %18 = load i64, ptr %17, align 8
   store i64 %18, ptr %1, align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 4, ptr %19, align 8
   br label %20
 
@@ -6466,7 +6466,7 @@ define hidden void @zim_CachingIterator___construct(ptr nocapture noundef readon
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_CachingIterator_rewind(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 44
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %.critedge, label %5
@@ -6479,7 +6479,7 @@ define hidden void @zim_CachingIterator_rewind(ptr nocapture noundef readonly %0
   br label %29
 
 .critedge:                                        ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 -136
   %11 = getelementptr inbounds i8, ptr %9, i64 -56
@@ -6504,9 +6504,9 @@ define hidden void @zim_CachingIterator_rewind(ptr nocapture noundef readonly %0
   br i1 %.not.i.i, label %spl_caching_it_rewind.exit, label %21
 
 21:                                               ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %20, i64 72
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 72
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 40
   %25 = load ptr, ptr %24, align 8
   %.not7.i.i = icmp eq ptr %25, null
   br i1 %.not7.i.i, label %spl_caching_it_rewind.exit, label %26
@@ -6528,7 +6528,7 @@ spl_caching_it_rewind.exit:                       ; preds = %17, %21, %26
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_CachingIterator_valid(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 44
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %.critedge, label %5
@@ -6541,7 +6541,7 @@ define hidden void @zim_CachingIterator_valid(ptr nocapture noundef readonly %0,
   br label %21
 
 .critedge:                                        ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 -56
   %11 = load i32, ptr %10, align 8
@@ -6561,7 +6561,7 @@ define hidden void @zim_CachingIterator_valid(ptr nocapture noundef readonly %0,
   %18 = and i64 %.val, 65536
   %.not6 = icmp eq i64 %18, 0
   %19 = select i1 %.not6, i32 2, i32 3
-  %20 = getelementptr inbounds i8, ptr %1, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %19, ptr %20, align 8
   br label %21
 
@@ -6571,7 +6571,7 @@ define hidden void @zim_CachingIterator_valid(ptr nocapture noundef readonly %0,
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_CachingIterator_next(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 44
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %.critedge, label %5
@@ -6584,7 +6584,7 @@ define hidden void @zim_CachingIterator_next(ptr nocapture noundef readonly %0, 
   br label %18
 
 .critedge:                                        ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 -56
   %11 = load i32, ptr %10, align 8
@@ -6619,9 +6619,9 @@ define internal fastcc void @spl_caching_it_next(ptr noundef %0) unnamed_addr #0
   br i1 %.not.i.i, label %spl_dual_it_fetch.exit.thread, label %spl_dual_it_valid.exit.i
 
 spl_dual_it_valid.exit.i:                         ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %.val.i, i64 72
+  %6 = getelementptr inbounds nuw i8, ptr %.val.i, i64 72
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef nonnull %.val.i) #10
   %11 = icmp eq i32 %10, 0
@@ -6629,21 +6629,21 @@ spl_dual_it_valid.exit.i:                         ; preds = %1
 
 12:                                               ; preds = %spl_dual_it_valid.exit.i
   %13 = load ptr, ptr %5, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 72
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 72
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = tail call ptr %17(ptr noundef %13) #10
   %.not29.i = icmp eq ptr %18, null
   br i1 %.not29.i, label %29, label %19
 
 19:                                               ; preds = %12
-  %20 = getelementptr inbounds i8, ptr %0, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %21 = load ptr, ptr %18, align 8
-  %22 = getelementptr inbounds i8, ptr %18, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %23 = load i32, ptr %22, align 8
   store ptr %21, ptr %20, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 %23, ptr %24, align 8
   %25 = and i32 %23, 65280
   %.not30.i = icmp eq i32 %25, 0
@@ -6657,12 +6657,12 @@ spl_dual_it_valid.exit.i:                         ; preds = %1
 
 29:                                               ; preds = %26, %19, %12
   %30 = load ptr, ptr %5, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 72
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 72
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 24
   %34 = load ptr, ptr %33, align 8
   %.not31.i = icmp eq ptr %34, null
-  %35 = getelementptr inbounds i8, ptr %0, i64 56
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 56
   br i1 %.not31.i, label %39, label %36
 
 36:                                               ; preds = %29
@@ -6676,21 +6676,21 @@ spl_dual_it_valid.exit.i:                         ; preds = %1
   br label %spl_dual_it_fetch.exit
 
 39:                                               ; preds = %29
-  %40 = getelementptr inbounds i8, ptr %0, i64 72
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %41 = load i64, ptr %40, align 8
   store i64 %41, ptr %35, align 8
   br label %spl_dual_it_fetch.exit
 
 spl_dual_it_fetch.exit:                           ; preds = %38, %39
   %.sink.i = phi i32 [ 0, %38 ], [ 4, %39 ]
-  %42 = getelementptr inbounds i8, ptr %0, i64 64
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 %.sink.i, ptr %42, align 8
   %.pre = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %43 = icmp eq ptr %.pre, null
   br i1 %43, label %spl_dual_it_fetch.exit.thread72, label %spl_dual_it_fetch.exit.thread
 
 spl_dual_it_fetch.exit.thread72:                  ; preds = %36, %spl_dual_it_fetch.exit
-  %44 = getelementptr inbounds i8, ptr %0, i64 88
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %45 = load i64, ptr %44, align 8
   %46 = or i64 %45, 65536
   store i64 %46, ptr %44, align 8
@@ -6699,33 +6699,33 @@ spl_dual_it_fetch.exit.thread72:                  ; preds = %36, %spl_dual_it_fe
   br i1 %.not, label %60, label %48
 
 48:                                               ; preds = %spl_dual_it_fetch.exit.thread72
-  %49 = getelementptr inbounds i8, ptr %0, i64 40
-  %50 = getelementptr inbounds i8, ptr %0, i64 48
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %51 = load i8, ptr %50, align 8
   %52 = icmp eq i8 %51, 10
   br i1 %52, label %53, label %56
 
 53:                                               ; preds = %48
   %54 = load ptr, ptr %49, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
   br label %56
 
 56:                                               ; preds = %48, %53
   %.0 = phi ptr [ %55, %53 ], [ %49, %48 ]
-  %57 = getelementptr inbounds i8, ptr %0, i64 120
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %58 = load ptr, ptr %57, align 8
   %59 = tail call i32 @array_set_zval_key(ptr noundef %58, ptr noundef nonnull %35, ptr noundef nonnull %.0) #10
   br label %60
 
 60:                                               ; preds = %56, %spl_dual_it_fetch.exit.thread72
-  %61 = getelementptr inbounds i8, ptr %0, i64 80
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %62 = load i32, ptr %61, align 8
   %63 = icmp eq i32 %62, 3
   br i1 %63, label %64, label %96
 
 64:                                               ; preds = %60
   %65 = load ptr, ptr %0, align 8
-  %66 = getelementptr inbounds i8, ptr %0, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %67 = load ptr, ptr %66, align 8
   %68 = call ptr @zend_call_method(ptr noundef %65, ptr noundef %67, ptr noundef null, ptr noundef nonnull @.str.2, i64 noundef 11, ptr noundef nonnull %2, i32 noundef 0, ptr noundef null, ptr noundef null) #10
   %69 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
@@ -6771,10 +6771,10 @@ spl_dual_it_fetch.exit.thread72:                  ; preds = %36, %spl_dual_it_fe
   %86 = load i64, ptr %44, align 8
   %87 = and i64 %86, 65535
   store i64 %87, ptr %4, align 8
-  %88 = getelementptr inbounds i8, ptr %4, i64 8
+  %88 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 4, ptr %88, align 8
   %89 = load ptr, ptr @spl_ce_RecursiveCachingIterator, align 8
-  %90 = getelementptr inbounds i8, ptr %0, i64 104
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 104
   call fastcc void @spl_instantiate_arg_ex2(ptr noundef %89, ptr noundef nonnull %90, ptr noundef nonnull %3, ptr noundef %4)
   call void @zval_ptr_dtor(ptr noundef nonnull %3) #10
   br label %91
@@ -6807,14 +6807,14 @@ spl_dual_it_fetch.exit.thread72:                  ; preds = %36, %spl_dual_it_fe
   br i1 %.not68, label %115, label %101
 
 101:                                              ; preds = %99
-  %102 = getelementptr inbounds i8, ptr %0, i64 8
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %103 = load i8, ptr %102, align 8
   %104 = icmp eq i8 %103, 6
   br i1 %104, label %105, label %113
 
 105:                                              ; preds = %101
   %106 = load ptr, ptr %0, align 8
-  %107 = getelementptr inbounds i8, ptr %106, i64 4
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 4
   %108 = load i32, ptr %107, align 4
   %109 = and i32 %108, 64
   %.not70 = icmp eq i32 %109, 0
@@ -6831,15 +6831,15 @@ spl_dual_it_fetch.exit.thread72:                  ; preds = %36, %spl_dual_it_fe
   br label %.sink.split74
 
 115:                                              ; preds = %99
-  %116 = getelementptr inbounds i8, ptr %0, i64 40
-  %117 = getelementptr inbounds i8, ptr %0, i64 48
+  %116 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %118 = load i8, ptr %117, align 8
   %119 = icmp eq i8 %118, 6
   br i1 %119, label %120, label %128
 
 120:                                              ; preds = %115
   %121 = load ptr, ptr %116, align 8
-  %122 = getelementptr inbounds i8, ptr %121, i64 4
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 4
   %123 = load i32, ptr %122, align 4
   %124 = and i32 %123, 64
   %.not69 = icmp eq i32 %124, 0
@@ -6857,7 +6857,7 @@ spl_dual_it_fetch.exit.thread72:                  ; preds = %36, %spl_dual_it_fe
 
 .sink.split74:                                    ; preds = %128, %125, %120, %113, %110, %105
   %.sink = phi ptr [ %114, %113 ], [ %106, %110 ], [ %106, %105 ], [ %129, %128 ], [ %121, %125 ], [ %121, %120 ]
-  %130 = getelementptr inbounds i8, ptr %0, i64 96
+  %130 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %.sink, ptr %130, align 8
   br label %131
 
@@ -6871,19 +6871,19 @@ spl_dual_it_fetch.exit.thread72:                  ; preds = %36, %spl_dual_it_fe
   br label %spl_dual_it_next.exit
 
 134:                                              ; preds = %131
-  %135 = getelementptr inbounds i8, ptr %132, i64 72
+  %135 = getelementptr inbounds nuw i8, ptr %132, i64 72
   %136 = load ptr, ptr %135, align 8
-  %137 = getelementptr inbounds i8, ptr %136, i64 32
+  %137 = getelementptr inbounds nuw i8, ptr %136, i64 32
   %138 = load ptr, ptr %137, align 8
   call void %138(ptr noundef nonnull %132) #10
-  %139 = getelementptr inbounds i8, ptr %0, i64 72
+  %139 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %140 = load i64, ptr %139, align 8
   %141 = add nsw i64 %140, 1
   store i64 %141, ptr %139, align 8
   br label %spl_dual_it_next.exit
 
 spl_dual_it_fetch.exit.thread:                    ; preds = %1, %spl_dual_it_valid.exit.i, %spl_dual_it_fetch.exit
-  %142 = getelementptr inbounds i8, ptr %0, i64 88
+  %142 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %143 = load i64, ptr %142, align 8
   %144 = and i64 %143, -65537
   store i64 %144, ptr %142, align 8
@@ -6895,7 +6895,7 @@ spl_dual_it_next.exit:                            ; preds = %134, %133, %93, %70
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_CachingIterator_hasNext(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 44
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %.critedge, label %5
@@ -6908,7 +6908,7 @@ define hidden void @zim_CachingIterator_hasNext(ptr nocapture noundef readonly %
   br label %26
 
 .critedge:                                        ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 -56
   %11 = load i32, ptr %10, align 8
@@ -6929,9 +6929,9 @@ define hidden void @zim_CachingIterator_hasNext(ptr nocapture noundef readonly %
   br i1 %.not.i.i, label %spl_caching_it_has_next.exit.thread, label %spl_caching_it_has_next.exit
 
 spl_caching_it_has_next.exit:                     ; preds = %16
-  %18 = getelementptr inbounds i8, ptr %.val, i64 72
+  %18 = getelementptr inbounds nuw i8, ptr %.val, i64 72
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load ptr, ptr %20, align 8
   %22 = tail call i32 %21(ptr noundef nonnull %.val) #10
   %.fr = freeze i32 %22
@@ -6941,7 +6941,7 @@ spl_caching_it_has_next.exit:                     ; preds = %16
 
 spl_caching_it_has_next.exit.thread:              ; preds = %spl_caching_it_has_next.exit, %16
   %24 = phi i32 [ 2, %16 ], [ %spec.select, %spl_caching_it_has_next.exit ]
-  %25 = getelementptr inbounds i8, ptr %1, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %24, ptr %25, align 8
   br label %26
 
@@ -6951,7 +6951,7 @@ spl_caching_it_has_next.exit.thread:              ; preds = %spl_caching_it_has_
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_CachingIterator___toString(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 44
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %.critedge, label %5
@@ -6964,7 +6964,7 @@ define hidden void @zim_CachingIterator___toString(ptr nocapture noundef readonl
   br label %78
 
 .critedge:                                        ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 -56
   %11 = load i32, ptr %10, align 8
@@ -6987,11 +6987,11 @@ define hidden void @zim_CachingIterator___toString(ptr nocapture noundef readonl
 
 20:                                               ; preds = %16
   %21 = load ptr, ptr @spl_ce_BadMethodCallException, align 8
-  %22 = getelementptr inbounds i8, ptr %9, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %27 = tail call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %21, i64 noundef 0, ptr noundef nonnull @.str.13, ptr noundef nonnull %26) #10
   %28 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %29 = icmp ne ptr %28, null
@@ -7009,7 +7009,7 @@ define hidden void @zim_CachingIterator___toString(ptr nocapture noundef readonl
   %35 = getelementptr inbounds i8, ptr %9, i64 -72
   %36 = load i32, ptr %35, align 8
   store ptr %34, ptr %1, align 8
-  %37 = getelementptr inbounds i8, ptr %1, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %36, ptr %37, align 8
   %38 = and i32 %36, 65280
   %.not57 = icmp eq i32 %38, 0
@@ -7043,7 +7043,7 @@ define hidden void @zim_CachingIterator___toString(ptr nocapture noundef readonl
   %51 = getelementptr inbounds i8, ptr %9, i64 -88
   %52 = load i32, ptr %51, align 8
   store ptr %50, ptr %1, align 8
-  %53 = getelementptr inbounds i8, ptr %1, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %52, ptr %53, align 8
   %54 = and i32 %52, 65280
   %.not55 = icmp eq i32 %54, 0
@@ -7074,14 +7074,14 @@ define hidden void @zim_CachingIterator___toString(ptr nocapture noundef readonl
 
 65:                                               ; preds = %62
   store ptr %64, ptr %1, align 8
-  %66 = getelementptr inbounds i8, ptr %64, i64 4
+  %66 = getelementptr inbounds nuw i8, ptr %64, i64 4
   %67 = load i32, ptr %66, align 4
   %68 = and i32 %67, 64
   %.not54 = icmp eq i32 %68, 0
   br i1 %.not54, label %71, label %69
 
 69:                                               ; preds = %65
-  %70 = getelementptr inbounds i8, ptr %1, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 6, ptr %70, align 8
   br label %78
 
@@ -7089,14 +7089,14 @@ define hidden void @zim_CachingIterator___toString(ptr nocapture noundef readonl
   %72 = load i32, ptr %64, align 4
   %73 = add i32 %72, 1
   store i32 %73, ptr %64, align 4
-  %74 = getelementptr inbounds i8, ptr %1, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 262, ptr %74, align 8
   br label %78
 
 75:                                               ; preds = %62
   %76 = load ptr, ptr @zend_empty_string, align 8
   store ptr %76, ptr %1, align 8
-  %77 = getelementptr inbounds i8, ptr %1, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 6, ptr %77, align 8
   br label %78
 
@@ -7113,7 +7113,7 @@ define hidden void @zim_CachingIterator_offsetSet(ptr nocapture noundef readonly
   %3 = alloca i64, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 44
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %7 = load i32, ptr %6, align 4
   %8 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %7, ptr noundef nonnull @.str.14, ptr noundef nonnull %4, ptr noundef nonnull %5) #10
   %9 = icmp eq i32 %8, -1
@@ -7126,7 +7126,7 @@ define hidden void @zim_CachingIterator_offsetSet(ptr nocapture noundef readonly
   br label %67
 
 13:                                               ; preds = %2
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 -56
   %17 = load i32, ptr %16, align 8
@@ -7149,11 +7149,11 @@ define hidden void @zim_CachingIterator_offsetSet(ptr nocapture noundef readonly
 
 26:                                               ; preds = %22
   %27 = load ptr, ptr @spl_ce_BadMethodCallException, align 8
-  %28 = getelementptr inbounds i8, ptr %15, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 24
   %33 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %27, i64 noundef 0, ptr noundef nonnull @.str.15, ptr noundef nonnull %32) #10
   %34 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %35 = icmp ne ptr %34, null
@@ -7162,7 +7162,7 @@ define hidden void @zim_CachingIterator_offsetSet(ptr nocapture noundef readonly
 
 36:                                               ; preds = %22
   %37 = load ptr, ptr %5, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 9
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 9
   %39 = load i8, ptr %38, align 1
   %.not29 = icmp eq i8 %39, 0
   br i1 %.not29, label %44, label %40
@@ -7180,8 +7180,8 @@ define hidden void @zim_CachingIterator_offsetSet(ptr nocapture noundef readonly
   %46 = getelementptr inbounds i8, ptr %15, i64 -16
   %47 = load ptr, ptr %46, align 8
   %48 = load ptr, ptr %4, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 24
-  %50 = getelementptr inbounds i8, ptr %48, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 24
+  %50 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %51 = load i64, ptr %50, align 8
   %52 = load i8, ptr %49, align 1
   %53 = icmp sgt i8 %52, 57
@@ -7196,7 +7196,7 @@ define hidden void @zim_CachingIterator_offsetSet(ptr nocapture noundef readonly
   br i1 %.not30, label %57, label %.critedge
 
 57:                                               ; preds = %56
-  %58 = getelementptr inbounds i8, ptr %48, i64 25
+  %58 = getelementptr inbounds nuw i8, ptr %48, i64 25
   %59 = load i8, ptr %58, align 1
   %60 = add i8 %59, -58
   %or.cond = icmp ult i8 %60, -10
@@ -7223,7 +7223,7 @@ define hidden void @zim_CachingIterator_offsetSet(ptr nocapture noundef readonly
 define hidden void @zim_CachingIterator_offsetGet(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
   %3 = alloca i64, align 8
   %4 = alloca ptr, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 44
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4
   %7 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %6, ptr noundef nonnull @.str.8, ptr noundef nonnull %4) #10
   %8 = icmp eq i32 %7, -1
@@ -7236,7 +7236,7 @@ define hidden void @zim_CachingIterator_offsetGet(ptr nocapture noundef readonly
   br label %84
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 -56
   %16 = load i32, ptr %15, align 8
@@ -7259,11 +7259,11 @@ define hidden void @zim_CachingIterator_offsetGet(ptr nocapture noundef readonly
 
 25:                                               ; preds = %21
   %26 = load ptr, ptr @spl_ce_BadMethodCallException, align 8
-  %27 = getelementptr inbounds i8, ptr %14, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 24
   %32 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %26, i64 noundef 0, ptr noundef nonnull @.str.15, ptr noundef nonnull %31) #10
   %33 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %34 = icmp ne ptr %33, null
@@ -7274,8 +7274,8 @@ define hidden void @zim_CachingIterator_offsetGet(ptr nocapture noundef readonly
   %36 = getelementptr inbounds i8, ptr %14, i64 -16
   %37 = load ptr, ptr %36, align 8
   %38 = load ptr, ptr %4, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 24
-  %40 = getelementptr inbounds i8, ptr %38, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %41 = load i64, ptr %40, align 8
   %42 = load i8, ptr %39, align 1
   %43 = icmp sgt i8 %42, 57
@@ -7290,7 +7290,7 @@ define hidden void @zim_CachingIterator_offsetGet(ptr nocapture noundef readonly
   br i1 %.not48, label %47, label %.critedge
 
 47:                                               ; preds = %46
-  %48 = getelementptr inbounds i8, ptr %38, i64 25
+  %48 = getelementptr inbounds nuw i8, ptr %38, i64 25
   %49 = load i8, ptr %48, align 1
   %50 = add i8 %49, -58
   %or.cond = icmp ult i8 %50, -10
@@ -7316,12 +7316,12 @@ define hidden void @zim_CachingIterator_offsetGet(ptr nocapture noundef readonly
 
 59:                                               ; preds = %57
   %60 = load ptr, ptr %4, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 24
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 24
   call void (i32, ptr, ...) @zend_error(i32 noundef 2, ptr noundef nonnull @.str.16, ptr noundef nonnull %61) #10
   br label %84
 
 62:                                               ; preds = %57
-  %63 = getelementptr inbounds i8, ptr %.044, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %.044, i64 8
   %64 = load i32, ptr %63, align 8
   %65 = and i32 %64, 65280
   %.not49 = icmp eq i32 %65, 0
@@ -7334,8 +7334,8 @@ define hidden void @zim_CachingIterator_offsetGet(ptr nocapture noundef readonly
 
 69:                                               ; preds = %66
   %70 = load ptr, ptr %.044, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 8
-  %72 = getelementptr inbounds i8, ptr %70, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %70, i64 16
   %73 = load i32, ptr %72, align 8
   %74 = and i32 %73, 65280
   %.not50 = icmp eq i32 %74, 0
@@ -7356,10 +7356,10 @@ define hidden void @zim_CachingIterator_offsetGet(ptr nocapture noundef readonly
 79:                                               ; preds = %.sink.split, %62, %69
   %.045 = phi ptr [ %71, %69 ], [ %.044, %62 ], [ %.sink.in, %.sink.split ]
   %80 = load ptr, ptr %.045, align 8
-  %81 = getelementptr inbounds i8, ptr %.045, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %.045, i64 8
   %82 = load i32, ptr %81, align 8
   store ptr %80, ptr %1, align 8
-  %83 = getelementptr inbounds i8, ptr %1, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %82, ptr %83, align 8
   br label %84
 
@@ -7373,7 +7373,7 @@ declare void @zend_error(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 define hidden void @zim_CachingIterator_offsetUnset(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
   %3 = alloca i64, align 8
   %4 = alloca ptr, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 -56
   %8 = load i32, ptr %7, align 8
@@ -7388,7 +7388,7 @@ define hidden void @zim_CachingIterator_offsetUnset(ptr nocapture noundef readon
   br label %58
 
 13:                                               ; preds = %2
-  %14 = getelementptr inbounds i8, ptr %0, i64 44
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %15 = load i32, ptr %14, align 4
   %16 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %15, ptr noundef nonnull @.str.8, ptr noundef nonnull %4) #10
   %17 = icmp eq i32 %16, -1
@@ -7410,11 +7410,11 @@ define hidden void @zim_CachingIterator_offsetUnset(ptr nocapture noundef readon
 25:                                               ; preds = %21
   %26 = load ptr, ptr @spl_ce_BadMethodCallException, align 8
   %27 = load ptr, ptr %5, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 24
   %33 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %26, i64 noundef 0, ptr noundef nonnull @.str.15, ptr noundef nonnull %32) #10
   %34 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %35 = icmp ne ptr %34, null
@@ -7425,8 +7425,8 @@ define hidden void @zim_CachingIterator_offsetUnset(ptr nocapture noundef readon
   %37 = getelementptr inbounds i8, ptr %6, i64 -16
   %38 = load ptr, ptr %37, align 8
   %39 = load ptr, ptr %4, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 24
-  %41 = getelementptr inbounds i8, ptr %39, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %42 = load i64, ptr %41, align 8
   %43 = load i8, ptr %40, align 1
   %44 = icmp sgt i8 %43, 57
@@ -7441,7 +7441,7 @@ define hidden void @zim_CachingIterator_offsetUnset(ptr nocapture noundef readon
   br i1 %.not24, label %48, label %.critedge
 
 48:                                               ; preds = %47
-  %49 = getelementptr inbounds i8, ptr %39, i64 25
+  %49 = getelementptr inbounds nuw i8, ptr %39, i64 25
   %50 = load i8, ptr %49, align 1
   %51 = add i8 %50, -58
   %or.cond = icmp ult i8 %51, -10
@@ -7468,7 +7468,7 @@ define hidden void @zim_CachingIterator_offsetUnset(ptr nocapture noundef readon
 define hidden void @zim_CachingIterator_offsetExists(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
   %3 = alloca i64, align 8
   %4 = alloca ptr, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 44
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4
   %7 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %6, ptr noundef nonnull @.str.8, ptr noundef nonnull %4) #10
   %8 = icmp eq i32 %7, -1
@@ -7481,7 +7481,7 @@ define hidden void @zim_CachingIterator_offsetExists(ptr nocapture noundef reado
   br label %60
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 -56
   %16 = load i32, ptr %15, align 8
@@ -7504,11 +7504,11 @@ define hidden void @zim_CachingIterator_offsetExists(ptr nocapture noundef reado
 
 25:                                               ; preds = %21
   %26 = load ptr, ptr @spl_ce_BadMethodCallException, align 8
-  %27 = getelementptr inbounds i8, ptr %14, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 24
   %32 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %26, i64 noundef 0, ptr noundef nonnull @.str.15, ptr noundef nonnull %31) #10
   %33 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %34 = icmp ne ptr %33, null
@@ -7519,8 +7519,8 @@ define hidden void @zim_CachingIterator_offsetExists(ptr nocapture noundef reado
   %36 = getelementptr inbounds i8, ptr %14, i64 -16
   %37 = load ptr, ptr %36, align 8
   %38 = load ptr, ptr %4, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 24
-  %40 = getelementptr inbounds i8, ptr %38, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %41 = load i64, ptr %40, align 8
   %42 = load i8, ptr %39, align 1
   %43 = icmp sgt i8 %42, 57
@@ -7535,7 +7535,7 @@ define hidden void @zim_CachingIterator_offsetExists(ptr nocapture noundef reado
   br i1 %.not31, label %47, label %.critedge
 
 47:                                               ; preds = %46
-  %48 = getelementptr inbounds i8, ptr %38, i64 25
+  %48 = getelementptr inbounds nuw i8, ptr %38, i64 25
   %49 = load i8, ptr %48, align 1
   %50 = add i8 %49, -58
   %or.cond = icmp ult i8 %50, -10
@@ -7558,7 +7558,7 @@ define hidden void @zim_CachingIterator_offsetExists(ptr nocapture noundef reado
   %.028.in = phi ptr [ %55, %53 ], [ %56, %.critedge ]
   %.028.not = icmp eq ptr %.028.in, null
   %58 = select i1 %.028.not, i32 2, i32 3
-  %59 = getelementptr inbounds i8, ptr %1, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %58, ptr %59, align 8
   br label %60
 
@@ -7568,7 +7568,7 @@ define hidden void @zim_CachingIterator_offsetExists(ptr nocapture noundef reado
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_CachingIterator_getCache(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 44
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %.critedge, label %5
@@ -7581,7 +7581,7 @@ define hidden void @zim_CachingIterator_getCache(ptr nocapture noundef readonly 
   br label %40
 
 .critedge:                                        ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 -56
   %11 = load i32, ptr %10, align 8
@@ -7604,11 +7604,11 @@ define hidden void @zim_CachingIterator_getCache(ptr nocapture noundef readonly 
 
 20:                                               ; preds = %16
   %21 = load ptr, ptr @spl_ce_BadMethodCallException, align 8
-  %22 = getelementptr inbounds i8, ptr %9, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %27 = tail call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %21, i64 noundef 0, ptr noundef nonnull @.str.15, ptr noundef nonnull %26) #10
   %28 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %29 = icmp ne ptr %28, null
@@ -7621,7 +7621,7 @@ define hidden void @zim_CachingIterator_getCache(ptr nocapture noundef readonly 
   %33 = getelementptr inbounds i8, ptr %9, i64 -8
   %34 = load i32, ptr %33, align 8
   store ptr %32, ptr %1, align 8
-  %35 = getelementptr inbounds i8, ptr %1, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %34, ptr %35, align 8
   %36 = and i32 %34, 65280
   %.not17 = icmp eq i32 %36, 0
@@ -7639,7 +7639,7 @@ define hidden void @zim_CachingIterator_getCache(ptr nocapture noundef readonly 
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_CachingIterator_getFlags(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 44
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %.critedge, label %5
@@ -7652,7 +7652,7 @@ define hidden void @zim_CachingIterator_getFlags(ptr nocapture noundef readonly 
   br label %20
 
 .critedge:                                        ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 -56
   %11 = load i32, ptr %10, align 8
@@ -7670,7 +7670,7 @@ define hidden void @zim_CachingIterator_getFlags(ptr nocapture noundef readonly 
   %17 = getelementptr inbounds i8, ptr %9, i64 -48
   %18 = load i64, ptr %17, align 8
   store i64 %18, ptr %1, align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 4, ptr %19, align 8
   br label %20
 
@@ -7681,7 +7681,7 @@ define hidden void @zim_CachingIterator_getFlags(ptr nocapture noundef readonly 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_CachingIterator_setFlags(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
   %3 = alloca i64, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 44
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
   %6 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %5, ptr noundef nonnull @.str.10, ptr noundef nonnull %3) #10
   %7 = icmp eq i32 %6, -1
@@ -7694,7 +7694,7 @@ define hidden void @zim_CachingIterator_setFlags(ptr nocapture noundef readonly 
   br label %68
 
 11:                                               ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 -56
   %15 = load i32, ptr %14, align 8
@@ -7798,7 +7798,7 @@ declare void @zend_hash_clean(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_CachingIterator_count(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 44
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %.critedge, label %5
@@ -7811,7 +7811,7 @@ define hidden void @zim_CachingIterator_count(ptr nocapture noundef readonly %0,
   br label %37
 
 .critedge:                                        ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 -56
   %11 = load i32, ptr %10, align 8
@@ -7834,11 +7834,11 @@ define hidden void @zim_CachingIterator_count(ptr nocapture noundef readonly %0,
 
 20:                                               ; preds = %16
   %21 = load ptr, ptr @spl_ce_BadMethodCallException, align 8
-  %22 = getelementptr inbounds i8, ptr %9, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %27 = tail call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %21, i64 noundef 0, ptr noundef nonnull @.str.15, ptr noundef nonnull %26) #10
   %28 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %29 = icmp ne ptr %28, null
@@ -7848,11 +7848,11 @@ define hidden void @zim_CachingIterator_count(ptr nocapture noundef readonly %0,
 30:                                               ; preds = %16
   %31 = getelementptr inbounds i8, ptr %9, i64 -16
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 28
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 28
   %34 = load i32, ptr %33, align 4
   %35 = zext i32 %34 to i64
   store i64 %35, ptr %1, align 8
-  %36 = getelementptr inbounds i8, ptr %1, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 4, ptr %36, align 8
   br label %37
 
@@ -7870,7 +7870,7 @@ define hidden void @zim_RecursiveCachingIterator___construct(ptr nocapture nound
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_RecursiveCachingIterator_hasChildren(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 44
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %.critedge, label %5
@@ -7883,7 +7883,7 @@ define hidden void @zim_RecursiveCachingIterator_hasChildren(ptr nocapture nound
   br label %21
 
 .critedge:                                        ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 -56
   %11 = load i32, ptr %10, align 8
@@ -7902,7 +7902,7 @@ define hidden void @zim_RecursiveCachingIterator_hasChildren(ptr nocapture nound
   %18 = load i8, ptr %17, align 8
   %.not7 = icmp eq i8 %18, 0
   %19 = select i1 %.not7, i32 2, i32 3
-  %20 = getelementptr inbounds i8, ptr %1, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %19, ptr %20, align 8
   br label %21
 
@@ -7912,7 +7912,7 @@ define hidden void @zim_RecursiveCachingIterator_hasChildren(ptr nocapture nound
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_RecursiveCachingIterator_getChildren(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 44
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %.critedge, label %5
@@ -7925,7 +7925,7 @@ define hidden void @zim_RecursiveCachingIterator_getChildren(ptr nocapture nound
   br label %43
 
 .critedge:                                        ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 -56
   %11 = load i32, ptr %10, align 8
@@ -7959,8 +7959,8 @@ define hidden void @zim_RecursiveCachingIterator_getChildren(ptr nocapture nound
 
 26:                                               ; preds = %23
   %27 = load ptr, ptr %17, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 8
-  %29 = getelementptr inbounds i8, ptr %27, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %30 = load i32, ptr %29, align 8
   %31 = and i32 %30, 65280
   %.not30 = icmp eq i32 %31, 0
@@ -7981,15 +7981,15 @@ define hidden void @zim_RecursiveCachingIterator_getChildren(ptr nocapture nound
 36:                                               ; preds = %.sink.split, %20, %26
   %.0 = phi ptr [ %28, %26 ], [ %17, %20 ], [ %.sink.in, %.sink.split ]
   %37 = load ptr, ptr %.0, align 8
-  %38 = getelementptr inbounds i8, ptr %.0, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %39 = load i32, ptr %38, align 8
   store ptr %37, ptr %1, align 8
-  %40 = getelementptr inbounds i8, ptr %1, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %39, ptr %40, align 8
   br label %43
 
 41:                                               ; preds = %16
-  %42 = getelementptr inbounds i8, ptr %1, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 1, ptr %42, align 8
   br label %43
 
@@ -8011,7 +8011,7 @@ define hidden void @zim_NoRewindIterator___construct(ptr nocapture noundef reado
   %4 = load ptr, ptr @spl_ce_NoRewindIterator, align 8
   %5 = load ptr, ptr @zend_ce_iterator, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 -136
   %9 = getelementptr inbounds i8, ptr %7, i64 -56
@@ -8021,14 +8021,14 @@ define hidden void @zim_NoRewindIterator___construct(ptr nocapture noundef reado
 
 11:                                               ; preds = %2
   %12 = load ptr, ptr @spl_ce_BadMethodCallException, align 8
-  %13 = getelementptr inbounds i8, ptr %4, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = tail call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %12, i64 noundef 0, ptr noundef nonnull @.str.43, ptr noundef nonnull %15) #10
   br label %spl_dual_it_construct.exit
 
 17:                                               ; preds = %2
-  %18 = getelementptr inbounds i8, ptr %0, i64 44
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %19 = load i32, ptr %18, align 4
   %20 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %19, ptr noundef nonnull @.str.22, ptr noundef nonnull %3, ptr noundef %5) #10
   %21 = icmp eq i32 %20, -1
@@ -8037,7 +8037,7 @@ define hidden void @zim_NoRewindIterator___construct(ptr nocapture noundef reado
 22:                                               ; preds = %17
   store i32 5, ptr %9, align 8
   %23 = load ptr, ptr %3, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 9
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 9
   %25 = load i8, ptr %24, align 1
   %26 = icmp ne i8 %25, 0
   call void @llvm.assume(i1 %26)
@@ -8051,14 +8051,14 @@ define hidden void @zim_NoRewindIterator___construct(ptr nocapture noundef reado
   %32 = getelementptr inbounds i8, ptr %7, i64 -128
   store i32 776, ptr %32, align 8
   %33 = load ptr, ptr %30, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds i8, ptr %7, i64 -120
   store ptr %35, ptr %36, align 8
   %37 = load ptr, ptr %30, align 8
   %38 = getelementptr inbounds i8, ptr %7, i64 -112
   store ptr %37, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %35, i64 392
+  %39 = getelementptr inbounds nuw i8, ptr %35, i64 392
   %40 = load ptr, ptr %39, align 8
   %41 = call ptr %40(ptr noundef %35, ptr noundef nonnull %30, i32 noundef 0) #10
   %42 = getelementptr inbounds i8, ptr %7, i64 -104
@@ -8072,7 +8072,7 @@ spl_dual_it_construct.exit:                       ; preds = %11, %17, %22
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_NoRewindIterator_rewind(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 44
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %.critedge, label %5
@@ -8090,7 +8090,7 @@ define hidden void @zim_NoRewindIterator_rewind(ptr nocapture noundef readonly %
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_NoRewindIterator_valid(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 44
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %.critedge, label %5
@@ -8103,7 +8103,7 @@ define hidden void @zim_NoRewindIterator_valid(ptr nocapture noundef readonly %0
   br label %27
 
 .critedge:                                        ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 -56
   %11 = load i32, ptr %10, align 8
@@ -8120,14 +8120,14 @@ define hidden void @zim_NoRewindIterator_valid(ptr nocapture noundef readonly %0
 16:                                               ; preds = %.critedge
   %17 = getelementptr inbounds i8, ptr %9, i64 -104
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 72
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 72
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8
   %23 = tail call i32 %22(ptr noundef %18) #10
   %24 = icmp eq i32 %23, 0
   %25 = select i1 %24, i32 3, i32 2
-  %26 = getelementptr inbounds i8, ptr %1, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %25, ptr %26, align 8
   br label %27
 
@@ -8137,7 +8137,7 @@ define hidden void @zim_NoRewindIterator_valid(ptr nocapture noundef readonly %0
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_NoRewindIterator_key(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 44
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %.critedge, label %5
@@ -8150,7 +8150,7 @@ define hidden void @zim_NoRewindIterator_key(ptr nocapture noundef readonly %0, 
   br label %26
 
 .critedge:                                        ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 -56
   %11 = load i32, ptr %10, align 8
@@ -8167,9 +8167,9 @@ define hidden void @zim_NoRewindIterator_key(ptr nocapture noundef readonly %0, 
 16:                                               ; preds = %.critedge
   %17 = getelementptr inbounds i8, ptr %9, i64 -104
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 72
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 72
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %22 = load ptr, ptr %21, align 8
   %.not9 = icmp eq ptr %22, null
   br i1 %.not9, label %24, label %23
@@ -8179,7 +8179,7 @@ define hidden void @zim_NoRewindIterator_key(ptr nocapture noundef readonly %0, 
   br label %26
 
 24:                                               ; preds = %16
-  %25 = getelementptr inbounds i8, ptr %1, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 1, ptr %25, align 8
   br label %26
 
@@ -8189,7 +8189,7 @@ define hidden void @zim_NoRewindIterator_key(ptr nocapture noundef readonly %0, 
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_NoRewindIterator_current(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 44
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %.critedge, label %5
@@ -8202,7 +8202,7 @@ define hidden void @zim_NoRewindIterator_current(ptr nocapture noundef readonly 
   br label %46
 
 .critedge:                                        ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 -56
   %11 = load i32, ptr %10, align 8
@@ -8219,16 +8219,16 @@ define hidden void @zim_NoRewindIterator_current(ptr nocapture noundef readonly 
 16:                                               ; preds = %.critedge
   %17 = getelementptr inbounds i8, ptr %9, i64 -104
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 72
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 72
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = load ptr, ptr %21, align 8
   %23 = tail call ptr %22(ptr noundef %18) #10
   %.not28 = icmp eq ptr %23, null
   br i1 %.not28, label %46, label %24
 
 24:                                               ; preds = %16
-  %25 = getelementptr inbounds i8, ptr %23, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %26 = load i32, ptr %25, align 8
   %27 = and i32 %26, 65280
   %.not29 = icmp eq i32 %27, 0
@@ -8241,8 +8241,8 @@ define hidden void @zim_NoRewindIterator_current(ptr nocapture noundef readonly 
 
 31:                                               ; preds = %28
   %32 = load ptr, ptr %23, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 8
-  %34 = getelementptr inbounds i8, ptr %32, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %35 = load i32, ptr %34, align 8
   %36 = and i32 %35, 65280
   %.not30 = icmp eq i32 %36, 0
@@ -8263,10 +8263,10 @@ define hidden void @zim_NoRewindIterator_current(ptr nocapture noundef readonly 
 41:                                               ; preds = %.sink.split, %24, %31
   %.0 = phi ptr [ %33, %31 ], [ %23, %24 ], [ %.sink.in, %.sink.split ]
   %42 = load ptr, ptr %.0, align 8
-  %43 = getelementptr inbounds i8, ptr %.0, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %44 = load i32, ptr %43, align 8
   store ptr %42, ptr %1, align 8
-  %45 = getelementptr inbounds i8, ptr %1, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %44, ptr %45, align 8
   br label %46
 
@@ -8276,7 +8276,7 @@ define hidden void @zim_NoRewindIterator_current(ptr nocapture noundef readonly 
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_NoRewindIterator_next(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 44
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %.critedge, label %5
@@ -8289,7 +8289,7 @@ define hidden void @zim_NoRewindIterator_next(ptr nocapture noundef readonly %0,
   br label %23
 
 .critedge:                                        ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 -56
   %11 = load i32, ptr %10, align 8
@@ -8306,9 +8306,9 @@ define hidden void @zim_NoRewindIterator_next(ptr nocapture noundef readonly %0,
 16:                                               ; preds = %.critedge
   %17 = getelementptr inbounds i8, ptr %9, i64 -104
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 72
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 72
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 32
   %22 = load ptr, ptr %21, align 8
   tail call void %22(ptr noundef %18) #10
   br label %23
@@ -8323,7 +8323,7 @@ define hidden void @zim_InfiniteIterator___construct(ptr nocapture noundef reado
   %4 = load ptr, ptr @spl_ce_InfiniteIterator, align 8
   %5 = load ptr, ptr @zend_ce_iterator, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 -136
   %9 = getelementptr inbounds i8, ptr %7, i64 -56
@@ -8333,14 +8333,14 @@ define hidden void @zim_InfiniteIterator___construct(ptr nocapture noundef reado
 
 11:                                               ; preds = %2
   %12 = load ptr, ptr @spl_ce_BadMethodCallException, align 8
-  %13 = getelementptr inbounds i8, ptr %4, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = tail call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %12, i64 noundef 0, ptr noundef nonnull @.str.43, ptr noundef nonnull %15) #10
   br label %spl_dual_it_construct.exit
 
 17:                                               ; preds = %2
-  %18 = getelementptr inbounds i8, ptr %0, i64 44
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %19 = load i32, ptr %18, align 4
   %20 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %19, ptr noundef nonnull @.str.22, ptr noundef nonnull %3, ptr noundef %5) #10
   %21 = icmp eq i32 %20, -1
@@ -8349,7 +8349,7 @@ define hidden void @zim_InfiniteIterator___construct(ptr nocapture noundef reado
 22:                                               ; preds = %17
   store i32 6, ptr %9, align 8
   %23 = load ptr, ptr %3, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 9
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 9
   %25 = load i8, ptr %24, align 1
   %26 = icmp ne i8 %25, 0
   call void @llvm.assume(i1 %26)
@@ -8363,14 +8363,14 @@ define hidden void @zim_InfiniteIterator___construct(ptr nocapture noundef reado
   %32 = getelementptr inbounds i8, ptr %7, i64 -128
   store i32 776, ptr %32, align 8
   %33 = load ptr, ptr %30, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds i8, ptr %7, i64 -120
   store ptr %35, ptr %36, align 8
   %37 = load ptr, ptr %30, align 8
   %38 = getelementptr inbounds i8, ptr %7, i64 -112
   store ptr %37, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %35, i64 392
+  %39 = getelementptr inbounds nuw i8, ptr %35, i64 392
   %40 = load ptr, ptr %39, align 8
   %41 = call ptr %40(ptr noundef %35, ptr noundef nonnull %30, i32 noundef 0) #10
   %42 = getelementptr inbounds i8, ptr %7, i64 -104
@@ -8384,7 +8384,7 @@ spl_dual_it_construct.exit:                       ; preds = %11, %17, %22
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_InfiniteIterator_next(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 44
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %.critedge, label %5
@@ -8397,7 +8397,7 @@ define hidden void @zim_InfiniteIterator_next(ptr nocapture noundef readonly %0,
   br label %spl_dual_it_valid.exit15.thread
 
 .critedge:                                        ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 -136
   %11 = getelementptr inbounds i8, ptr %9, i64 -56
@@ -8416,9 +8416,9 @@ define hidden void @zim_InfiniteIterator_next(ptr nocapture noundef readonly %0,
   tail call fastcc void @spl_dual_it_free(ptr noundef nonnull %10)
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %9, i64 -104
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
-  %18 = getelementptr inbounds i8, ptr %.pre.i, i64 72
+  %18 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 72
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 32
   %21 = load ptr, ptr %20, align 8
   tail call void %21(ptr noundef %.pre.i) #10
   %22 = getelementptr inbounds i8, ptr %9, i64 -64
@@ -8430,9 +8430,9 @@ define hidden void @zim_InfiniteIterator_next(ptr nocapture noundef readonly %0,
   br i1 %.not.i, label %spl_dual_it_valid.exit.thread, label %spl_dual_it_valid.exit
 
 spl_dual_it_valid.exit:                           ; preds = %17
-  %25 = getelementptr inbounds i8, ptr %.val, i64 72
+  %25 = getelementptr inbounds nuw i8, ptr %.val, i64 72
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load ptr, ptr %27, align 8
   %29 = tail call i32 %28(ptr noundef nonnull %.val) #10
   %30 = icmp eq i32 %29, 0
@@ -8441,9 +8441,9 @@ spl_dual_it_valid.exit:                           ; preds = %17
 31:                                               ; preds = %spl_dual_it_valid.exit
   tail call fastcc void @spl_dual_it_free(ptr noundef nonnull %10)
   %32 = load ptr, ptr %.phi.trans.insert.i, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 72
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 72
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load ptr, ptr %35, align 8
   %37 = tail call ptr %36(ptr noundef %32) #10
   %.not29.i = icmp eq ptr %37, null
@@ -8452,7 +8452,7 @@ spl_dual_it_valid.exit:                           ; preds = %17
 38:                                               ; preds = %31
   %39 = getelementptr inbounds i8, ptr %9, i64 -96
   %40 = load ptr, ptr %37, align 8
-  %41 = getelementptr inbounds i8, ptr %37, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %42 = load i32, ptr %41, align 8
   store ptr %40, ptr %39, align 8
   %43 = getelementptr inbounds i8, ptr %9, i64 -88
@@ -8469,9 +8469,9 @@ spl_dual_it_valid.exit:                           ; preds = %17
 
 48:                                               ; preds = %45, %38, %31
   %49 = load ptr, ptr %.phi.trans.insert.i, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 72
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 72
   %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 24
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 24
   %53 = load ptr, ptr %52, align 8
   %.not31.i = icmp eq ptr %53, null
   %54 = getelementptr inbounds i8, ptr %9, i64 -80
@@ -8506,9 +8506,9 @@ spl_dual_it_valid.exit.thread:                    ; preds = %17, %spl_dual_it_va
   br i1 %.not.i12, label %spl_dual_it_valid.exit15.thread, label %62
 
 62:                                               ; preds = %spl_dual_it_valid.exit.thread
-  %63 = getelementptr inbounds i8, ptr %61, i64 72
+  %63 = getelementptr inbounds nuw i8, ptr %61, i64 72
   %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 40
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 40
   %66 = load ptr, ptr %65, align 8
   %.not7.i = icmp eq ptr %66, null
   br i1 %.not7.i, label %spl_dual_it_valid.exit15, label %spl_dual_it_rewind.exit
@@ -8521,9 +8521,9 @@ spl_dual_it_rewind.exit:                          ; preds = %62
 
 spl_dual_it_valid.exit15:                         ; preds = %62, %spl_dual_it_rewind.exit
   %.val10.pr32 = phi ptr [ %.val10.pr.pre, %spl_dual_it_rewind.exit ], [ %61, %62 ]
-  %67 = getelementptr inbounds i8, ptr %.val10.pr32, i64 72
+  %67 = getelementptr inbounds nuw i8, ptr %.val10.pr32, i64 72
   %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %70 = load ptr, ptr %69, align 8
   %71 = tail call i32 %70(ptr noundef nonnull %.val10.pr32) #10
   %72 = icmp eq i32 %71, 0
@@ -8532,9 +8532,9 @@ spl_dual_it_valid.exit15:                         ; preds = %62, %spl_dual_it_re
 73:                                               ; preds = %spl_dual_it_valid.exit15
   tail call fastcc void @spl_dual_it_free(ptr noundef nonnull %10)
   %74 = load ptr, ptr %.phi.trans.insert.i, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 72
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 72
   %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 16
   %78 = load ptr, ptr %77, align 8
   %79 = tail call ptr %78(ptr noundef %74) #10
   %.not29.i16 = icmp eq ptr %79, null
@@ -8543,7 +8543,7 @@ spl_dual_it_valid.exit15:                         ; preds = %62, %spl_dual_it_re
 80:                                               ; preds = %73
   %81 = getelementptr inbounds i8, ptr %9, i64 -96
   %82 = load ptr, ptr %79, align 8
-  %83 = getelementptr inbounds i8, ptr %79, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %79, i64 8
   %84 = load i32, ptr %83, align 8
   store ptr %82, ptr %81, align 8
   %85 = getelementptr inbounds i8, ptr %9, i64 -88
@@ -8560,9 +8560,9 @@ spl_dual_it_valid.exit15:                         ; preds = %62, %spl_dual_it_re
 
 90:                                               ; preds = %87, %80, %73
   %91 = load ptr, ptr %.phi.trans.insert.i, align 8
-  %92 = getelementptr inbounds i8, ptr %91, i64 72
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 72
   %93 = load ptr, ptr %92, align 8
-  %94 = getelementptr inbounds i8, ptr %93, i64 24
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 24
   %95 = load ptr, ptr %94, align 8
   %.not31.i18 = icmp eq ptr %95, null
   %96 = getelementptr inbounds i8, ptr %9, i64 -80
@@ -8595,7 +8595,7 @@ spl_dual_it_valid.exit15.thread:                  ; preds = %.sink.split.i20, %9
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_EmptyIterator_rewind(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 44
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %.critedge, label %5
@@ -8613,7 +8613,7 @@ define hidden void @zim_EmptyIterator_rewind(ptr nocapture noundef readonly %0, 
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_EmptyIterator_valid(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 44
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %.critedge, label %5
@@ -8626,7 +8626,7 @@ define hidden void @zim_EmptyIterator_valid(ptr nocapture noundef readonly %0, p
   br label %9
 
 .critedge:                                        ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %8, align 8
   br label %9
 
@@ -8636,7 +8636,7 @@ define hidden void @zim_EmptyIterator_valid(ptr nocapture noundef readonly %0, p
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_EmptyIterator_key(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 44
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %.critedge, label %5
@@ -8659,7 +8659,7 @@ define hidden void @zim_EmptyIterator_key(ptr nocapture noundef readonly %0, ptr
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_EmptyIterator_current(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 44
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %.critedge, label %5
@@ -8682,7 +8682,7 @@ define hidden void @zim_EmptyIterator_current(ptr nocapture noundef readonly %0,
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_EmptyIterator_next(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 44
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %.critedge, label %5
@@ -8701,7 +8701,7 @@ define hidden void @zim_EmptyIterator_next(ptr nocapture noundef readonly %0, pt
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -1, 1) i32 @spl_append_it_next_iterator(ptr noundef %0) local_unnamed_addr #0 {
   tail call fastcc void @spl_dual_it_free(ptr noundef %0)
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i8, ptr %2, align 8
   %4 = icmp eq i8 %3, 0
   br i1 %4, label %10, label %5
@@ -8709,9 +8709,9 @@ define hidden range(i32 -1, 1) i32 @spl_append_it_next_iterator(ptr noundef %0) 
 5:                                                ; preds = %1
   tail call void @zval_ptr_dtor(ptr noundef nonnull %0) #10
   store i32 0, ptr %2, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr null, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %10, label %9
@@ -8722,11 +8722,11 @@ define hidden range(i32 -1, 1) i32 @spl_append_it_next_iterator(ptr noundef %0) 
   br label %10
 
 10:                                               ; preds = %5, %9, %1
-  %11 = getelementptr inbounds i8, ptr %0, i64 104
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 72
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 72
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = tail call i32 %16(ptr noundef %12) #10
   %18 = icmp eq i32 %17, 0
@@ -8734,13 +8734,13 @@ define hidden range(i32 -1, 1) i32 @spl_append_it_next_iterator(ptr noundef %0) 
 
 19:                                               ; preds = %10
   %20 = load ptr, ptr %11, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 72
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 72
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %24 = load ptr, ptr %23, align 8
   %25 = tail call ptr %24(ptr noundef %20) #10
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %25, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %28 = load i32, ptr %27, align 8
   store ptr %26, ptr %0, align 8
   store i32 %28, ptr %2, align 8
@@ -8756,26 +8756,26 @@ define hidden range(i32 -1, 1) i32 @spl_append_it_next_iterator(ptr noundef %0) 
 
 33:                                               ; preds = %19, %30
   %34 = load ptr, ptr %25, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %0, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %36, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %36, i64 392
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 392
   %39 = load ptr, ptr %38, align 8
   %40 = tail call ptr %39(ptr noundef %36, ptr noundef nonnull %25, i32 noundef 0) #10
-  %41 = getelementptr inbounds i8, ptr %0, i64 32
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %40, ptr %41, align 8
   tail call fastcc void @spl_dual_it_free(ptr noundef nonnull %0)
-  %42 = getelementptr inbounds i8, ptr %0, i64 72
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i64 0, ptr %42, align 8
   %43 = load ptr, ptr %41, align 8
   %.not.i = icmp eq ptr %43, null
   br i1 %.not.i, label %spl_dual_it_rewind.exit, label %44
 
 44:                                               ; preds = %33
-  %45 = getelementptr inbounds i8, ptr %43, i64 72
+  %45 = getelementptr inbounds nuw i8, ptr %43, i64 72
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 40
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 40
   %48 = load ptr, ptr %47, align 8
   %.not7.i = icmp eq ptr %48, null
   br i1 %.not7.i, label %spl_dual_it_rewind.exit, label %49
@@ -8791,15 +8791,15 @@ spl_dual_it_rewind.exit:                          ; preds = %49, %44, %33, %10
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @spl_dual_it_free(ptr noundef %0) unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %10, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %3, i64 72
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %8 = load ptr, ptr %7, align 8
   %.not32 = icmp eq ptr %8, null
   br i1 %.not32, label %10, label %9
@@ -8809,44 +8809,44 @@ define internal fastcc void @spl_dual_it_free(ptr noundef %0) unnamed_addr #0 {
   br label %10
 
 10:                                               ; preds = %9, %4, %1
-  %11 = getelementptr inbounds i8, ptr %0, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %12 = load i8, ptr %11, align 8
   %.not33 = icmp eq i8 %12, 0
   br i1 %.not33, label %15, label %13
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %0, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @zval_ptr_dtor(ptr noundef nonnull %14) #10
   store i32 0, ptr %11, align 8
   br label %15
 
 15:                                               ; preds = %13, %10
-  %16 = getelementptr inbounds i8, ptr %0, i64 64
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %17 = load i8, ptr %16, align 8
   %.not34 = icmp eq i8 %17, 0
   br i1 %.not34, label %20, label %18
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %0, i64 56
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @zval_ptr_dtor(ptr noundef nonnull %19) #10
   store i32 0, ptr %16, align 8
   br label %20
 
 20:                                               ; preds = %18, %15
-  %21 = getelementptr inbounds i8, ptr %0, i64 80
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %22 = load i32, ptr %21, align 8
   %23 = and i32 %22, -2
   %switch = icmp eq i32 %23, 2
   br i1 %switch, label %24, label %46
 
 24:                                               ; preds = %20
-  %25 = getelementptr inbounds i8, ptr %0, i64 96
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %26 = load ptr, ptr %25, align 8
   %.not35 = icmp eq ptr %26, null
   br i1 %.not35, label %41, label %27
 
 27:                                               ; preds = %24
-  %28 = getelementptr inbounds i8, ptr %26, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 4
   %29 = load i32, ptr %28, align 4
   %30 = and i32 %29, 64
   %.not36 = icmp eq i32 %30, 0
@@ -8879,13 +8879,13 @@ define internal fastcc void @spl_dual_it_free(ptr noundef %0) unnamed_addr #0 {
   br label %41
 
 41:                                               ; preds = %40, %24
-  %42 = getelementptr inbounds i8, ptr %0, i64 112
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %43 = load i8, ptr %42, align 8
   %.not38 = icmp eq i8 %43, 0
   br i1 %.not38, label %46, label %44
 
 44:                                               ; preds = %41
-  %45 = getelementptr inbounds i8, ptr %0, i64 104
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 104
   tail call void @zval_ptr_dtor(ptr noundef nonnull %45) #10
   store i32 0, ptr %42, align 8
   br label %46
@@ -8907,7 +8907,7 @@ define hidden void @zim_AppendIterator___construct(ptr nocapture noundef readonl
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_AppendIterator_append(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
   %3 = alloca ptr, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 44
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
   %6 = load ptr, ptr @zend_ce_iterator, align 8
   %7 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %5, ptr noundef nonnull @.str.22, ptr noundef nonnull %3, ptr noundef %6) #10
@@ -8921,7 +8921,7 @@ define hidden void @zim_AppendIterator_append(ptr nocapture noundef readonly %0,
   br label %74
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 -136
   %16 = getelementptr inbounds i8, ptr %14, i64 -56
@@ -8940,9 +8940,9 @@ define hidden void @zim_AppendIterator_append(ptr nocapture noundef readonly %0,
   %23 = getelementptr inbounds i8, ptr %14, i64 -48
   %24 = getelementptr inbounds i8, ptr %14, i64 -32
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 72
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 72
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load ptr, ptr %28, align 8
   %30 = call i32 %29(ptr noundef %25) #10
   %31 = icmp eq i32 %30, 0
@@ -8955,9 +8955,9 @@ define hidden void @zim_AppendIterator_append(ptr nocapture noundef readonly %0,
   br i1 %.not.i, label %spl_dual_it_valid.exit.thread, label %spl_dual_it_valid.exit
 
 spl_dual_it_valid.exit:                           ; preds = %32
-  %34 = getelementptr inbounds i8, ptr %.val24, i64 72
+  %34 = getelementptr inbounds nuw i8, ptr %.val24, i64 72
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %37 = load ptr, ptr %36, align 8
   %38 = call i32 %37(ptr noundef nonnull %.val24) #10
   %.not = icmp eq i32 %38, 0
@@ -8967,9 +8967,9 @@ spl_dual_it_valid.exit.thread:                    ; preds = %32, %spl_dual_it_va
   %39 = load ptr, ptr %3, align 8
   call void @spl_array_iterator_append(ptr noundef nonnull %23, ptr noundef %39) #10
   %40 = load ptr, ptr %24, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 72
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 72
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 32
   %44 = load ptr, ptr %43, align 8
   call void %44(ptr noundef %40) #10
   br label %47
@@ -8986,9 +8986,9 @@ spl_dual_it_valid.exit.thread:                    ; preds = %32, %spl_dual_it_va
   br i1 %.not20, label %55, label %spl_dual_it_valid.exit27
 
 spl_dual_it_valid.exit27:                         ; preds = %47
-  %50 = getelementptr inbounds i8, ptr %49, i64 72
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 72
   %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %53 = load ptr, ptr %52, align 8
   %54 = call i32 %53(ptr noundef nonnull %49) #10
   %.not21 = icmp eq i32 %54, 0
@@ -8996,9 +8996,9 @@ spl_dual_it_valid.exit27:                         ; preds = %47
 
 55:                                               ; preds = %spl_dual_it_valid.exit27, %47
   %56 = load ptr, ptr %24, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 72
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 72
   %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %60 = load ptr, ptr %59, align 8
   %61 = call i32 %60(ptr noundef %56) #10
   %.not22 = icmp eq i32 %61, 0
@@ -9006,9 +9006,9 @@ spl_dual_it_valid.exit27:                         ; preds = %47
 
 62:                                               ; preds = %55
   %63 = load ptr, ptr %24, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 72
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 72
   %65 = load ptr, ptr %64, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 40
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 40
   %67 = load ptr, ptr %66, align 8
   call void %67(ptr noundef %63) #10
   br label %.preheader
@@ -9037,7 +9037,7 @@ declare void @spl_array_iterator_append(ptr noundef, ptr noundef) local_unnamed_
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @spl_append_it_fetch(ptr noundef %0) unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 32
-  %3 = getelementptr inbounds i8, ptr %0, i64 104
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   br label %4
 
 4:                                                ; preds = %spl_dual_it_valid.exit.thread, %1
@@ -9046,9 +9046,9 @@ define internal fastcc void @spl_append_it_fetch(ptr noundef %0) unnamed_addr #0
   br i1 %.not.i, label %spl_dual_it_valid.exit.thread, label %spl_dual_it_valid.exit
 
 spl_dual_it_valid.exit:                           ; preds = %4
-  %5 = getelementptr inbounds i8, ptr %.val, i64 72
+  %5 = getelementptr inbounds nuw i8, ptr %.val, i64 72
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 %8(ptr noundef nonnull %.val) #10
   %.not = icmp eq i32 %9, 0
@@ -9056,9 +9056,9 @@ spl_dual_it_valid.exit:                           ; preds = %4
 
 spl_dual_it_valid.exit.thread:                    ; preds = %4, %spl_dual_it_valid.exit
   %10 = load ptr, ptr %3, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 72
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr noundef %10) #10
   %15 = tail call i32 @spl_append_it_next_iterator(ptr noundef nonnull %0)
@@ -9068,21 +9068,21 @@ spl_dual_it_valid.exit.thread:                    ; preds = %4, %spl_dual_it_val
 16:                                               ; preds = %spl_dual_it_valid.exit
   tail call fastcc void @spl_dual_it_free(ptr noundef nonnull %0)
   %17 = load ptr, ptr %2, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 72
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 72
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = load ptr, ptr %20, align 8
   %22 = tail call ptr %21(ptr noundef %17) #10
   %.not29.i = icmp eq ptr %22, null
   br i1 %.not29.i, label %33, label %23
 
 23:                                               ; preds = %16
-  %24 = getelementptr inbounds i8, ptr %0, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %25 = load ptr, ptr %22, align 8
-  %26 = getelementptr inbounds i8, ptr %22, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %27 = load i32, ptr %26, align 8
   store ptr %25, ptr %24, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 48
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 %27, ptr %28, align 8
   %29 = and i32 %27, 65280
   %.not30.i = icmp eq i32 %29, 0
@@ -9096,12 +9096,12 @@ spl_dual_it_valid.exit.thread:                    ; preds = %4, %spl_dual_it_val
 
 33:                                               ; preds = %30, %23, %16
   %34 = load ptr, ptr %2, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 72
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 72
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 24
   %38 = load ptr, ptr %37, align 8
   %.not31.i = icmp eq ptr %38, null
-  %39 = getelementptr inbounds i8, ptr %0, i64 56
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 56
   br i1 %.not31.i, label %43, label %40
 
 40:                                               ; preds = %33
@@ -9115,14 +9115,14 @@ spl_dual_it_valid.exit.thread:                    ; preds = %4, %spl_dual_it_val
   br label %.sink.split.i
 
 43:                                               ; preds = %33
-  %44 = getelementptr inbounds i8, ptr %0, i64 72
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %45 = load i64, ptr %44, align 8
   store i64 %45, ptr %39, align 8
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %43, %42
   %.sink.i = phi i32 [ 0, %42 ], [ 4, %43 ]
-  %46 = getelementptr inbounds i8, ptr %0, i64 64
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 %.sink.i, ptr %46, align 8
   br label %spl_dual_it_fetch.exit
 
@@ -9132,7 +9132,7 @@ spl_dual_it_fetch.exit:                           ; preds = %spl_dual_it_valid.e
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_AppendIterator_current(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 44
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %.critedge, label %5
@@ -9145,7 +9145,7 @@ define hidden void @zim_AppendIterator_current(ptr nocapture noundef readonly %0
   br label %82
 
 .critedge:                                        ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 -56
   %11 = load i32, ptr %10, align 8
@@ -9168,9 +9168,9 @@ define hidden void @zim_AppendIterator_current(ptr nocapture noundef readonly %0
   br i1 %.not.i.i, label %spl_dual_it_fetch.exit, label %spl_dual_it_valid.exit.i
 
 spl_dual_it_valid.exit.i:                         ; preds = %16
-  %19 = getelementptr inbounds i8, ptr %.val.i, i64 72
+  %19 = getelementptr inbounds nuw i8, ptr %.val.i, i64 72
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8
   %23 = tail call i32 %22(ptr noundef nonnull %.val.i) #10
   %24 = icmp eq i32 %23, 0
@@ -9178,9 +9178,9 @@ spl_dual_it_valid.exit.i:                         ; preds = %16
 
 25:                                               ; preds = %spl_dual_it_valid.exit.i
   %26 = load ptr, ptr %18, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 72
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 72
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %30 = load ptr, ptr %29, align 8
   %31 = tail call ptr %30(ptr noundef %26) #10
   %.not29.i = icmp eq ptr %31, null
@@ -9189,7 +9189,7 @@ spl_dual_it_valid.exit.i:                         ; preds = %16
 32:                                               ; preds = %25
   %33 = getelementptr inbounds i8, ptr %9, i64 -96
   %34 = load ptr, ptr %31, align 8
-  %35 = getelementptr inbounds i8, ptr %31, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %36 = load i32, ptr %35, align 8
   store ptr %34, ptr %33, align 8
   %37 = getelementptr inbounds i8, ptr %9, i64 -88
@@ -9206,9 +9206,9 @@ spl_dual_it_valid.exit.i:                         ; preds = %16
 
 42:                                               ; preds = %39, %32, %25
   %43 = load ptr, ptr %18, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 72
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 72
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 24
   %47 = load ptr, ptr %46, align 8
   %.not31.i = icmp eq ptr %47, null
   %48 = getelementptr inbounds i8, ptr %9, i64 -80
@@ -9256,8 +9256,8 @@ spl_dual_it_fetch.exit:                           ; preds = %49, %.sink.split.i,
 
 65:                                               ; preds = %62
   %66 = load ptr, ptr %56, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 8
-  %68 = getelementptr inbounds i8, ptr %66, i64 16
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %66, i64 16
   %69 = load i32, ptr %68, align 8
   %70 = and i32 %69, 65280
   %.not30 = icmp eq i32 %70, 0
@@ -9278,15 +9278,15 @@ spl_dual_it_fetch.exit:                           ; preds = %49, %.sink.split.i,
 75:                                               ; preds = %.sink.split, %59, %65
   %.0 = phi ptr [ %67, %65 ], [ %56, %59 ], [ %.sink.in, %.sink.split ]
   %76 = load ptr, ptr %.0, align 8
-  %77 = getelementptr inbounds i8, ptr %.0, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %78 = load i32, ptr %77, align 8
   store ptr %76, ptr %1, align 8
-  %79 = getelementptr inbounds i8, ptr %1, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %78, ptr %79, align 8
   br label %82
 
 80:                                               ; preds = %spl_dual_it_fetch.exit
-  %81 = getelementptr inbounds i8, ptr %1, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 1, ptr %81, align 8
   br label %82
 
@@ -9296,7 +9296,7 @@ spl_dual_it_fetch.exit:                           ; preds = %49, %.sink.split.i,
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_AppendIterator_rewind(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 44
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %.critedge, label %5
@@ -9309,7 +9309,7 @@ define hidden void @zim_AppendIterator_rewind(ptr nocapture noundef readonly %0,
   br label %27
 
 .critedge:                                        ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 -136
   %11 = getelementptr inbounds i8, ptr %9, i64 -56
@@ -9327,9 +9327,9 @@ define hidden void @zim_AppendIterator_rewind(ptr nocapture noundef readonly %0,
 17:                                               ; preds = %.critedge
   %18 = getelementptr inbounds i8, ptr %9, i64 -32
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 72
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 72
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 40
   %23 = load ptr, ptr %22, align 8
   tail call void %23(ptr noundef %19) #10
   %24 = tail call i32 @spl_append_it_next_iterator(ptr noundef nonnull %10)
@@ -9346,7 +9346,7 @@ define hidden void @zim_AppendIterator_rewind(ptr nocapture noundef readonly %0,
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_AppendIterator_valid(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 44
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %.critedge, label %5
@@ -9359,7 +9359,7 @@ define hidden void @zim_AppendIterator_valid(ptr nocapture noundef readonly %0, 
   br label %21
 
 .critedge:                                        ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 -56
   %11 = load i32, ptr %10, align 8
@@ -9378,7 +9378,7 @@ define hidden void @zim_AppendIterator_valid(ptr nocapture noundef readonly %0, 
   %18 = load i8, ptr %17, align 8
   %.not7 = icmp eq i8 %18, 0
   %19 = select i1 %.not7, i32 2, i32 3
-  %20 = getelementptr inbounds i8, ptr %1, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %19, ptr %20, align 8
   br label %21
 
@@ -9388,7 +9388,7 @@ define hidden void @zim_AppendIterator_valid(ptr nocapture noundef readonly %0, 
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_AppendIterator_next(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 44
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %.critedge, label %5
@@ -9401,7 +9401,7 @@ define hidden void @zim_AppendIterator_next(ptr nocapture noundef readonly %0, p
   br label %33
 
 .critedge:                                        ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 -136
   %11 = getelementptr inbounds i8, ptr %9, i64 -56
@@ -9423,9 +9423,9 @@ define hidden void @zim_AppendIterator_next(ptr nocapture noundef readonly %0, p
   br i1 %.not.i.i, label %spl_append_it_next.exit, label %spl_dual_it_valid.exit.i
 
 spl_dual_it_valid.exit.i:                         ; preds = %17
-  %19 = getelementptr inbounds i8, ptr %.val.i, i64 72
+  %19 = getelementptr inbounds nuw i8, ptr %.val.i, i64 72
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8
   %23 = tail call i32 %22(ptr noundef nonnull %.val.i) #10
   %24 = icmp eq i32 %23, 0
@@ -9434,9 +9434,9 @@ spl_dual_it_valid.exit.i:                         ; preds = %17
 25:                                               ; preds = %spl_dual_it_valid.exit.i
   tail call fastcc void @spl_dual_it_free(ptr noundef nonnull %10)
   %.pre.i.i = load ptr, ptr %18, align 8
-  %26 = getelementptr inbounds i8, ptr %.pre.i.i, i64 72
+  %26 = getelementptr inbounds nuw i8, ptr %.pre.i.i, i64 72
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 32
   %29 = load ptr, ptr %28, align 8
   tail call void %29(ptr noundef %.pre.i.i) #10
   %30 = getelementptr inbounds i8, ptr %9, i64 -64
@@ -9455,7 +9455,7 @@ spl_append_it_next.exit:                          ; preds = %17, %spl_dual_it_va
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_AppendIterator_getIteratorIndex(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 44
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %.critedge, label %5
@@ -9468,7 +9468,7 @@ define hidden void @zim_AppendIterator_getIteratorIndex(ptr nocapture noundef re
   br label %18
 
 .critedge:                                        ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 -56
   %11 = load i32, ptr %10, align 8
@@ -9495,7 +9495,7 @@ declare void @spl_array_iterator_key(ptr noundef, ptr noundef) local_unnamed_add
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_AppendIterator_getArrayIterator(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 44
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %.critedge, label %5
@@ -9508,7 +9508,7 @@ define hidden void @zim_AppendIterator_getArrayIterator(ptr nocapture noundef re
   br label %39
 
 .critedge:                                        ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 -56
   %11 = load i32, ptr %10, align 8
@@ -9537,8 +9537,8 @@ define hidden void @zim_AppendIterator_getArrayIterator(ptr nocapture noundef re
 
 24:                                               ; preds = %21
   %25 = load ptr, ptr %17, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 8
-  %27 = getelementptr inbounds i8, ptr %25, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %28 = load i32, ptr %27, align 8
   %29 = and i32 %28, 65280
   %.not26 = icmp eq i32 %29, 0
@@ -9559,10 +9559,10 @@ define hidden void @zim_AppendIterator_getArrayIterator(ptr nocapture noundef re
 34:                                               ; preds = %.sink.split, %16, %24
   %.0 = phi ptr [ %26, %24 ], [ %17, %16 ], [ %.sink.in, %.sink.split ]
   %35 = load ptr, ptr %.0, align 8
-  %36 = getelementptr inbounds i8, ptr %.0, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %37 = load i32, ptr %36, align 8
   store ptr %35, ptr %1, align 8
-  %38 = getelementptr inbounds i8, ptr %1, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %37, ptr %38, align 8
   br label %39
 
@@ -9573,9 +9573,9 @@ define hidden void @zim_AppendIterator_getArrayIterator(ptr nocapture noundef re
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @spl_iterator_apply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 392
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 392
   %8 = load ptr, ptr %7, align 8
   %9 = tail call ptr %8(ptr noundef %6, ptr noundef nonnull %0, i32 noundef 0) #10
   %10 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
@@ -9583,11 +9583,11 @@ define range(i32 -1, 1) i32 @spl_iterator_apply(ptr noundef %0, ptr nocapture no
   br i1 %.not, label %11, label %.loopexit
 
 11:                                               ; preds = %3
-  %12 = getelementptr inbounds i8, ptr %9, i64 80
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 80
   store i64 0, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %9, i64 72
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 72
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 40
   %16 = load ptr, ptr %15, align 8
   %.not19 = icmp eq ptr %16, null
   br i1 %.not19, label %.preheader, label %17
@@ -9603,7 +9603,7 @@ define range(i32 -1, 1) i32 @spl_iterator_apply(ptr noundef %0, ptr nocapture no
 
 19:                                               ; preds = %.preheader, %30
   %20 = load ptr, ptr %13, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8
   %23 = tail call i32 %22(ptr noundef nonnull %9) #10
   %24 = icmp eq i32 %23, 0
@@ -9625,7 +9625,7 @@ define range(i32 -1, 1) i32 @spl_iterator_apply(ptr noundef %0, ptr nocapture no
   %32 = add i64 %31, 1
   store i64 %32, ptr %12, align 8
   %33 = load ptr, ptr %13, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 32
   %35 = load ptr, ptr %34, align 8
   tail call void %35(ptr noundef nonnull %9) #10
   %36 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
@@ -9652,7 +9652,7 @@ define range(i32 -1, 1) i32 @spl_iterator_apply(ptr noundef %0, ptr nocapture no
 define hidden void @zif_iterator_to_array(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i8, align 1
   store i8 1, ptr %3, align 1
-  %4 = getelementptr inbounds i8, ptr %0, i64 44
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
   %6 = add i32 %5, -3
   %or.cond = icmp ult i32 %6, -2
@@ -9663,7 +9663,7 @@ define hidden void @zif_iterator_to_array(ptr noundef %0, ptr noundef %1) local_
   br label %.thread135
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %10 = tail call zeroext i1 @zend_is_iterable(ptr noundef nonnull %9) #10
   br i1 %10, label %11, label %.thread135
 
@@ -9672,7 +9672,7 @@ define hidden void @zif_iterator_to_array(ptr noundef %0, ptr noundef %1) local_
   br i1 %12, label %.thread126, label %13
 
 13:                                               ; preds = %11
-  %14 = getelementptr inbounds i8, ptr %0, i64 104
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %15 = load i8, ptr %14, align 8
   switch i8 %15, label %17 [
     i8 3, label %.thread122
@@ -9688,7 +9688,7 @@ define hidden void @zif_iterator_to_array(ptr noundef %0, ptr noundef %1) local_
   br label %.thread126
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %0, i64 96
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %19 = call zeroext i1 @zend_parse_arg_bool_slow(ptr noundef nonnull %18, ptr noundef nonnull %3, i32 noundef 2) #10
   %.fr = freeze i1 %19
   br i1 %.fr, label %.thread126, label %.thread135
@@ -9702,7 +9702,7 @@ define hidden void @zif_iterator_to_array(ptr noundef %0, ptr noundef %1) local_
   br label %43
 
 .thread126:                                       ; preds = %17, %.thread122, %11
-  %20 = getelementptr inbounds i8, ptr %0, i64 88
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %21 = load i8, ptr %20, align 8
   %22 = icmp eq i8 %21, 7
   br i1 %22, label %23, label %36
@@ -9711,7 +9711,7 @@ define hidden void @zif_iterator_to_array(ptr noundef %0, ptr noundef %1) local_
   %24 = load i8, ptr %3, align 1
   %25 = trunc i8 %24 to i1
   %26 = load ptr, ptr %9, align 8
-  %27 = getelementptr inbounds i8, ptr %1, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br i1 %25, label %28, label %34
 
 28:                                               ; preds = %23
@@ -9737,7 +9737,7 @@ define hidden void @zif_iterator_to_array(ptr noundef %0, ptr noundef %1) local_
 36:                                               ; preds = %.thread126
   %37 = call ptr @_zend_new_array_0() #10
   store ptr %37, ptr %1, align 8
-  %38 = getelementptr inbounds i8, ptr %1, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 775, ptr %38, align 8
   %39 = load i8, ptr %3, align 1
   %40 = trunc i8 %39 to i1
@@ -9760,9 +9760,9 @@ declare ptr @_zend_new_array_0() local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 3) i32 @spl_iterator_to_array_apply(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
   %3 = alloca %struct._zval_struct, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 72
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = tail call ptr %7(ptr noundef %0) #10
   %9 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
@@ -9773,7 +9773,7 @@ define internal range(i32 0, 3) i32 @spl_iterator_to_array_apply(ptr noundef %0,
 
 11:                                               ; preds = %2
   %12 = load ptr, ptr %4, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %14 = load ptr, ptr %13, align 8
   %.not20 = icmp eq ptr %14, null
   br i1 %.not20, label %20, label %15
@@ -9791,7 +9791,7 @@ define internal range(i32 0, 3) i32 @spl_iterator_to_array_apply(ptr noundef %0,
   br label %30
 
 20:                                               ; preds = %11
-  %21 = getelementptr inbounds i8, ptr %8, i64 9
+  %21 = getelementptr inbounds nuw i8, ptr %8, i64 9
   %22 = load i8, ptr %21, align 1
   %.not21 = icmp eq i8 %22, 0
   br i1 %.not21, label %27, label %23
@@ -9815,9 +9815,9 @@ define internal range(i32 0, 3) i32 @spl_iterator_to_array_apply(ptr noundef %0,
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 3) i32 @spl_iterator_to_values_apply(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 72
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = tail call ptr %6(ptr noundef %0) #10
   %8 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
@@ -9827,7 +9827,7 @@ define internal range(i32 0, 3) i32 @spl_iterator_to_values_apply(ptr noundef %0
   br i1 %or.cond, label %20, label %10
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %7, i64 9
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 9
   %12 = load i8, ptr %11, align 1
   %.not14 = icmp eq i8 %12, 0
   br i1 %.not14, label %17, label %13
@@ -9851,7 +9851,7 @@ define internal range(i32 0, 3) i32 @spl_iterator_to_values_apply(ptr noundef %0
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zif_iterator_count(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 44
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %cond = icmp eq i32 %4, 1
   br i1 %cond, label %6, label %5
@@ -9861,7 +9861,7 @@ define hidden void @zif_iterator_count(ptr noundef %0, ptr nocapture noundef wri
   br label %9
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %8 = tail call zeroext i1 @zend_is_iterable(ptr noundef nonnull %7) #10
   br i1 %8, label %10, label %9
 
@@ -9874,22 +9874,22 @@ define hidden void @zif_iterator_count(ptr noundef %0, ptr nocapture noundef wri
   br label %spl_iterator_apply.exit.thread
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %0, i64 88
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %12 = load i8, ptr %11, align 8
   %13 = icmp eq i8 %12, 7
   %14 = load ptr, ptr %7, align 8
   br i1 %13, label %15, label %19
 
 15:                                               ; preds = %10
-  %16 = getelementptr inbounds i8, ptr %14, i64 28
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 28
   %17 = load i32, ptr %16, align 4
   %18 = zext i32 %17 to i64
   br label %51
 
 19:                                               ; preds = %10
-  %20 = getelementptr inbounds i8, ptr %14, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 392
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 392
   %23 = load ptr, ptr %22, align 8
   %24 = tail call ptr %23(ptr noundef %21, ptr noundef nonnull %7, i32 noundef 0) #10
   %25 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
@@ -9897,11 +9897,11 @@ define hidden void @zif_iterator_count(ptr noundef %0, ptr nocapture noundef wri
   br i1 %.not.i, label %26, label %.loopexit.i
 
 26:                                               ; preds = %19
-  %27 = getelementptr inbounds i8, ptr %24, i64 80
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 80
   store i64 0, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %24, i64 72
+  %28 = getelementptr inbounds nuw i8, ptr %24, i64 72
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 40
   %31 = load ptr, ptr %30, align 8
   %.not19.i = icmp eq ptr %31, null
   br i1 %.not19.i, label %.preheader, label %32
@@ -9918,7 +9918,7 @@ define hidden void @zif_iterator_count(ptr noundef %0, ptr nocapture noundef wri
 34:                                               ; preds = %.preheader, %43
   %.2 = phi i64 [ %44, %43 ], [ 0, %.preheader ]
   %35 = load ptr, ptr %28, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %37 = load ptr, ptr %36, align 8
   %38 = tail call i32 %37(ptr noundef nonnull %24) #10
   %39 = icmp eq i32 %38, 0
@@ -9937,7 +9937,7 @@ define hidden void @zif_iterator_count(ptr noundef %0, ptr nocapture noundef wri
   %46 = add i64 %45, 1
   store i64 %46, ptr %27, align 8
   %47 = load ptr, ptr %28, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 32
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 32
   %49 = load ptr, ptr %48, align 8
   tail call void %49(ptr noundef nonnull %24) #10
   %50 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
@@ -9958,7 +9958,7 @@ spl_iterator_apply.exit:                          ; preds = %34, %43, %41, %32, 
 51:                                               ; preds = %spl_iterator_apply.exit, %15
   %.0 = phi i64 [ %18, %15 ], [ %.1, %spl_iterator_apply.exit ]
   store i64 %.0, ptr %1, align 8
-  %52 = getelementptr inbounds i8, ptr %1, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 4, ptr %52, align 8
   br label %spl_iterator_apply.exit.thread
 
@@ -9970,12 +9970,12 @@ spl_iterator_apply.exit.thread:                   ; preds = %spl_iterator_apply.
 define hidden void @zif_iterator_apply(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = alloca %struct.spl_iterator_apply_info, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 44
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4
   %7 = load ptr, ptr @zend_ce_traversable, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 16
-  %9 = getelementptr inbounds i8, ptr %4, i64 80
-  %10 = getelementptr inbounds i8, ptr %4, i64 72
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %11 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %6, ptr noundef nonnull @.str.24, ptr noundef nonnull %4, ptr noundef %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10) #10
   %12 = icmp eq i32 %11, -1
   br i1 %12, label %13, label %16
@@ -9987,13 +9987,13 @@ define hidden void @zif_iterator_apply(ptr nocapture noundef readonly %0, ptr no
   br label %spl_iterator_apply.exit.thread
 
 16:                                               ; preds = %2
-  %17 = getelementptr inbounds i8, ptr %4, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 0, ptr %17, align 8
   %18 = load ptr, ptr %4, align 8
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 392
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 392
   %23 = load ptr, ptr %22, align 8
   %24 = call ptr %23(ptr noundef %21, ptr noundef nonnull %18, i32 noundef 0) #10
   %25 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
@@ -10001,11 +10001,11 @@ define hidden void @zif_iterator_apply(ptr nocapture noundef readonly %0, ptr no
   br i1 %.not.i, label %26, label %.loopexit.i
 
 26:                                               ; preds = %16
-  %27 = getelementptr inbounds i8, ptr %24, i64 80
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 80
   store i64 0, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %24, i64 72
+  %28 = getelementptr inbounds nuw i8, ptr %24, i64 72
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 40
   %31 = load ptr, ptr %30, align 8
   %.not19.i = icmp eq ptr %31, null
   br i1 %.not19.i, label %34, label %32
@@ -10017,12 +10017,12 @@ define hidden void @zif_iterator_apply(ptr nocapture noundef readonly %0, ptr no
   br i1 %.not20.i, label %34, label %spl_iterator_apply.exit
 
 34:                                               ; preds = %32, %26
-  %35 = getelementptr inbounds i8, ptr %4, i64 40
+  %35 = getelementptr inbounds nuw i8, ptr %4, i64 40
   br label %36
 
 36:                                               ; preds = %49, %34
   %37 = load ptr, ptr %28, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %39 = load ptr, ptr %38, align 8
   %40 = call i32 %39(ptr noundef nonnull %24) #10
   %41 = icmp eq i32 %40, 0
@@ -10052,7 +10052,7 @@ define hidden void @zif_iterator_apply(ptr nocapture noundef readonly %0, ptr no
   %51 = add i64 %50, 1
   store i64 %51, ptr %27, align 8
   %52 = load ptr, ptr %28, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 32
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 32
   %54 = load ptr, ptr %53, align 8
   call void %54(ptr noundef nonnull %24) #10
   %55 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
@@ -10072,7 +10072,7 @@ spl_iterator_apply.exit:                          ; preds = %36, %43, %49, %32, 
 56:                                               ; preds = %spl_iterator_apply.exit
   %57 = load i64, ptr %17, align 8
   store i64 %57, ptr %1, align 8
-  %58 = getelementptr inbounds i8, ptr %1, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 4, ptr %58, align 8
   br label %spl_iterator_apply.exit.thread
 
@@ -10159,11 +10159,11 @@ define hidden noundef i32 @zm_startup_spl_iterators(i32 noundef %0, i32 noundef 
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %74, i8 0, i64 512, i1 false)
   %76 = load ptr, ptr @zend_string_init_interned, align 8
   %77 = tail call ptr %76(ptr noundef nonnull @.str.58, i64 noundef 17, i1 noundef zeroext true) #10
-  %78 = getelementptr inbounds i8, ptr %74, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %74, i64 8
   store ptr %77, ptr %78, align 8
-  %79 = getelementptr inbounds i8, ptr %74, i64 360
+  %79 = getelementptr inbounds nuw i8, ptr %74, i64 360
   store ptr @std_object_handlers, ptr %79, align 8
-  %80 = getelementptr inbounds i8, ptr %74, i64 496
+  %80 = getelementptr inbounds nuw i8, ptr %74, i64 496
   store ptr @class_RecursiveIterator_methods, ptr %80, align 8
   %81 = call ptr @zend_register_internal_interface(ptr noundef nonnull %74) #10
   call void (ptr, i32, ...) @zend_class_implements(ptr noundef %81, i32 noundef 1, ptr noundef %75) #10
@@ -10174,11 +10174,11 @@ define hidden noundef i32 @zm_startup_spl_iterators(i32 noundef %0, i32 noundef 
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %73, i8 0, i64 512, i1 false)
   %83 = load ptr, ptr @zend_string_init_interned, align 8
   %84 = call ptr %83(ptr noundef nonnull @.str.61, i64 noundef 13, i1 noundef zeroext true) #10
-  %85 = getelementptr inbounds i8, ptr %73, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %73, i64 8
   store ptr %84, ptr %85, align 8
-  %86 = getelementptr inbounds i8, ptr %73, i64 360
+  %86 = getelementptr inbounds nuw i8, ptr %73, i64 360
   store ptr @std_object_handlers, ptr %86, align 8
-  %87 = getelementptr inbounds i8, ptr %73, i64 496
+  %87 = getelementptr inbounds nuw i8, ptr %73, i64 496
   store ptr @class_OuterIterator_methods, ptr %87, align 8
   %88 = call ptr @zend_register_internal_interface(ptr noundef nonnull %73) #10
   call void (ptr, i32, ...) @zend_class_implements(ptr noundef %88, i32 noundef 1, ptr noundef %82) #10
@@ -10196,24 +10196,24 @@ define hidden noundef i32 @zm_startup_spl_iterators(i32 noundef %0, i32 noundef 
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %64, i8 0, i64 512, i1 false)
   %89 = load ptr, ptr @zend_string_init_interned, align 8
   %90 = call ptr %89(ptr noundef nonnull @.str.64, i64 noundef 25, i1 noundef zeroext true) #10
-  %91 = getelementptr inbounds i8, ptr %64, i64 8
+  %91 = getelementptr inbounds nuw i8, ptr %64, i64 8
   store ptr %90, ptr %91, align 8
-  %92 = getelementptr inbounds i8, ptr %64, i64 360
+  %92 = getelementptr inbounds nuw i8, ptr %64, i64 360
   store ptr @std_object_handlers, ptr %92, align 8
-  %93 = getelementptr inbounds i8, ptr %64, i64 496
+  %93 = getelementptr inbounds nuw i8, ptr %64, i64 496
   store ptr @class_RecursiveIteratorIterator_methods, ptr %93, align 8
   %94 = call ptr @zend_register_internal_class_ex(ptr noundef nonnull %64, ptr noundef null) #10
   call void (ptr, i32, ...) @zend_class_implements(ptr noundef %94, i32 noundef 1, ptr noundef %88) #10
   store i64 0, ptr %65, align 8
-  %95 = getelementptr inbounds i8, ptr %65, i64 8
+  %95 = getelementptr inbounds nuw i8, ptr %65, i64 8
   store i32 4, ptr %95, align 8
   %96 = load ptr, ptr @zend_string_init_interned, align 8
   %97 = call ptr %96(ptr noundef nonnull @.str.65, i64 noundef 11, i1 noundef zeroext true) #10
   store ptr null, ptr %66, align 8
-  %98 = getelementptr inbounds i8, ptr %66, i64 8
+  %98 = getelementptr inbounds nuw i8, ptr %66, i64 8
   store i32 16, ptr %98, align 8
   %99 = call ptr @zend_declare_typed_class_constant(ptr noundef %94, ptr noundef %97, ptr noundef nonnull %65, i32 noundef 1, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %66) #10
-  %100 = getelementptr inbounds i8, ptr %97, i64 4
+  %100 = getelementptr inbounds nuw i8, ptr %97, i64 4
   %101 = load i32, ptr %100, align 4
   %102 = and i32 %101, 64
   %.not.i = icmp eq i32 %102, 0
@@ -10243,15 +10243,15 @@ define hidden noundef i32 @zm_startup_spl_iterators(i32 noundef %0, i32 noundef 
 
 112:                                              ; preds = %111, %110, %103, %2
   store i64 1, ptr %67, align 8
-  %113 = getelementptr inbounds i8, ptr %67, i64 8
+  %113 = getelementptr inbounds nuw i8, ptr %67, i64 8
   store i32 4, ptr %113, align 8
   %114 = load ptr, ptr @zend_string_init_interned, align 8
   %115 = call ptr %114(ptr noundef nonnull @.str.66, i64 noundef 10, i1 noundef zeroext true) #10
   store ptr null, ptr %68, align 8
-  %116 = getelementptr inbounds i8, ptr %68, i64 8
+  %116 = getelementptr inbounds nuw i8, ptr %68, i64 8
   store i32 16, ptr %116, align 8
   %117 = call ptr @zend_declare_typed_class_constant(ptr noundef %94, ptr noundef %115, ptr noundef nonnull %67, i32 noundef 1, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %68) #10
-  %118 = getelementptr inbounds i8, ptr %115, i64 4
+  %118 = getelementptr inbounds nuw i8, ptr %115, i64 4
   %119 = load i32, ptr %118, align 4
   %120 = and i32 %119, 64
   %.not59.i = icmp eq i32 %120, 0
@@ -10281,15 +10281,15 @@ define hidden noundef i32 @zm_startup_spl_iterators(i32 noundef %0, i32 noundef 
 
 130:                                              ; preds = %129, %128, %121, %112
   store i64 2, ptr %69, align 8
-  %131 = getelementptr inbounds i8, ptr %69, i64 8
+  %131 = getelementptr inbounds nuw i8, ptr %69, i64 8
   store i32 4, ptr %131, align 8
   %132 = load ptr, ptr @zend_string_init_interned, align 8
   %133 = call ptr %132(ptr noundef nonnull @.str.67, i64 noundef 11, i1 noundef zeroext true) #10
   store ptr null, ptr %70, align 8
-  %134 = getelementptr inbounds i8, ptr %70, i64 8
+  %134 = getelementptr inbounds nuw i8, ptr %70, i64 8
   store i32 16, ptr %134, align 8
   %135 = call ptr @zend_declare_typed_class_constant(ptr noundef %94, ptr noundef %133, ptr noundef nonnull %69, i32 noundef 1, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %70) #10
-  %136 = getelementptr inbounds i8, ptr %133, i64 4
+  %136 = getelementptr inbounds nuw i8, ptr %133, i64 4
   %137 = load i32, ptr %136, align 4
   %138 = and i32 %137, 64
   %.not61.i = icmp eq i32 %138, 0
@@ -10319,15 +10319,15 @@ define hidden noundef i32 @zm_startup_spl_iterators(i32 noundef %0, i32 noundef 
 
 148:                                              ; preds = %147, %146, %139, %130
   store i64 16, ptr %71, align 8
-  %149 = getelementptr inbounds i8, ptr %71, i64 8
+  %149 = getelementptr inbounds nuw i8, ptr %71, i64 8
   store i32 4, ptr %149, align 8
   %150 = load ptr, ptr @zend_string_init_interned, align 8
   %151 = call ptr %150(ptr noundef nonnull @.str.68, i64 noundef 15, i1 noundef zeroext true) #10
   store ptr null, ptr %72, align 8
-  %152 = getelementptr inbounds i8, ptr %72, i64 8
+  %152 = getelementptr inbounds nuw i8, ptr %72, i64 8
   store i32 16, ptr %152, align 8
   %153 = call ptr @zend_declare_typed_class_constant(ptr noundef %94, ptr noundef %151, ptr noundef nonnull %71, i32 noundef 1, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %72) #10
-  %154 = getelementptr inbounds i8, ptr %151, i64 4
+  %154 = getelementptr inbounds nuw i8, ptr %151, i64 4
   %155 = load i32, ptr %154, align 4
   %156 = and i32 %155, 64
   %.not63.i = icmp eq i32 %156, 0
@@ -10366,11 +10366,11 @@ register_class_RecursiveIteratorIterator.exit:    ; preds = %148, %157, %164, %1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %71)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %72)
   store ptr %94, ptr @spl_ce_RecursiveIteratorIterator, align 8
-  %166 = getelementptr inbounds i8, ptr %94, i64 384
+  %166 = getelementptr inbounds nuw i8, ptr %94, i64 384
   store ptr @spl_RecursiveIteratorIterator_new, ptr %166, align 8
-  %167 = getelementptr inbounds i8, ptr %94, i64 360
+  %167 = getelementptr inbounds nuw i8, ptr %94, i64 360
   store ptr @spl_handlers_rec_it_it, ptr %167, align 8
-  %168 = getelementptr inbounds i8, ptr %94, i64 392
+  %168 = getelementptr inbounds nuw i8, ptr %94, i64 392
   store ptr @spl_recursive_it_get_iterator, ptr %168, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) @spl_handlers_rec_it_it, ptr noundef nonnull align 8 dereferenceable(200) @std_object_handlers, i64 200, i1 false)
   store i32 152, ptr @spl_handlers_rec_it_it, align 8
@@ -10389,119 +10389,119 @@ register_class_RecursiveIteratorIterator.exit:    ; preds = %148, %157, %164, %1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %63, i8 0, i64 512, i1 false)
   %170 = load ptr, ptr @zend_string_init_interned, align 8
   %171 = call ptr %170(ptr noundef nonnull @.str.98, i64 noundef 16, i1 noundef zeroext true) #10
-  %172 = getelementptr inbounds i8, ptr %63, i64 8
+  %172 = getelementptr inbounds nuw i8, ptr %63, i64 8
   store ptr %171, ptr %172, align 8
-  %173 = getelementptr inbounds i8, ptr %63, i64 360
+  %173 = getelementptr inbounds nuw i8, ptr %63, i64 360
   store ptr @std_object_handlers, ptr %173, align 8
-  %174 = getelementptr inbounds i8, ptr %63, i64 496
+  %174 = getelementptr inbounds nuw i8, ptr %63, i64 496
   store ptr @class_IteratorIterator_methods, ptr %174, align 8
   %175 = call ptr @zend_register_internal_class_ex(ptr noundef nonnull %63, ptr noundef null) #10
   call void (ptr, i32, ...) @zend_class_implements(ptr noundef %175, i32 noundef 1, ptr noundef %169) #10
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %63)
   store ptr %175, ptr @spl_ce_IteratorIterator, align 8
-  %176 = getelementptr inbounds i8, ptr %175, i64 384
+  %176 = getelementptr inbounds nuw i8, ptr %175, i64 384
   store ptr @spl_dual_it_new, ptr %176, align 8
-  %177 = getelementptr inbounds i8, ptr %175, i64 360
+  %177 = getelementptr inbounds nuw i8, ptr %175, i64 360
   store ptr @spl_handlers_dual_it, ptr %177, align 8
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %62)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %62, i8 0, i64 512, i1 false)
   %178 = load ptr, ptr @zend_string_init_interned, align 8
   %179 = call ptr %178(ptr noundef nonnull @.str.100, i64 noundef 14, i1 noundef zeroext true) #10
-  %180 = getelementptr inbounds i8, ptr %62, i64 8
+  %180 = getelementptr inbounds nuw i8, ptr %62, i64 8
   store ptr %179, ptr %180, align 8
-  %181 = getelementptr inbounds i8, ptr %62, i64 360
+  %181 = getelementptr inbounds nuw i8, ptr %62, i64 360
   store ptr @std_object_handlers, ptr %181, align 8
-  %182 = getelementptr inbounds i8, ptr %62, i64 496
+  %182 = getelementptr inbounds nuw i8, ptr %62, i64 496
   store ptr @class_FilterIterator_methods, ptr %182, align 8
   %183 = call ptr @zend_register_internal_class_ex(ptr noundef nonnull %62, ptr noundef %175) #10
-  %184 = getelementptr inbounds i8, ptr %183, i64 28
+  %184 = getelementptr inbounds nuw i8, ptr %183, i64 28
   %185 = load i32, ptr %184, align 4
   %186 = or i32 %185, 64
   store i32 %186, ptr %184, align 4
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %62)
   store ptr %183, ptr @spl_ce_FilterIterator, align 8
-  %187 = getelementptr inbounds i8, ptr %183, i64 384
+  %187 = getelementptr inbounds nuw i8, ptr %183, i64 384
   store ptr @spl_dual_it_new, ptr %187, align 8
   %188 = load ptr, ptr @spl_ce_RecursiveIterator, align 8
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %61)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %61, i8 0, i64 512, i1 false)
   %189 = load ptr, ptr @zend_string_init_interned, align 8
   %190 = call ptr %189(ptr noundef nonnull @.str.101, i64 noundef 23, i1 noundef zeroext true) #10
-  %191 = getelementptr inbounds i8, ptr %61, i64 8
+  %191 = getelementptr inbounds nuw i8, ptr %61, i64 8
   store ptr %190, ptr %191, align 8
-  %192 = getelementptr inbounds i8, ptr %61, i64 360
+  %192 = getelementptr inbounds nuw i8, ptr %61, i64 360
   store ptr @std_object_handlers, ptr %192, align 8
-  %193 = getelementptr inbounds i8, ptr %61, i64 496
+  %193 = getelementptr inbounds nuw i8, ptr %61, i64 496
   store ptr @class_RecursiveFilterIterator_methods, ptr %193, align 8
   %194 = call ptr @zend_register_internal_class_ex(ptr noundef nonnull %61, ptr noundef %183) #10
-  %195 = getelementptr inbounds i8, ptr %194, i64 28
+  %195 = getelementptr inbounds nuw i8, ptr %194, i64 28
   %196 = load i32, ptr %195, align 4
   %197 = or i32 %196, 64
   store i32 %197, ptr %195, align 4
   call void (ptr, i32, ...) @zend_class_implements(ptr noundef %194, i32 noundef 1, ptr noundef %188) #10
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %61)
   store ptr %194, ptr @spl_ce_RecursiveFilterIterator, align 8
-  %198 = getelementptr inbounds i8, ptr %194, i64 384
+  %198 = getelementptr inbounds nuw i8, ptr %194, i64 384
   store ptr @spl_dual_it_new, ptr %198, align 8
   %199 = load ptr, ptr @spl_ce_FilterIterator, align 8
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %60)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %60, i8 0, i64 512, i1 false)
   %200 = load ptr, ptr @zend_string_init_interned, align 8
   %201 = call ptr %200(ptr noundef nonnull @.str.102, i64 noundef 22, i1 noundef zeroext true) #10
-  %202 = getelementptr inbounds i8, ptr %60, i64 8
+  %202 = getelementptr inbounds nuw i8, ptr %60, i64 8
   store ptr %201, ptr %202, align 8
-  %203 = getelementptr inbounds i8, ptr %60, i64 360
+  %203 = getelementptr inbounds nuw i8, ptr %60, i64 360
   store ptr @std_object_handlers, ptr %203, align 8
-  %204 = getelementptr inbounds i8, ptr %60, i64 496
+  %204 = getelementptr inbounds nuw i8, ptr %60, i64 496
   store ptr @class_CallbackFilterIterator_methods, ptr %204, align 8
   %205 = call ptr @zend_register_internal_class_ex(ptr noundef nonnull %60, ptr noundef %199) #10
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %60)
   store ptr %205, ptr @spl_ce_CallbackFilterIterator, align 8
-  %206 = getelementptr inbounds i8, ptr %205, i64 384
+  %206 = getelementptr inbounds nuw i8, ptr %205, i64 384
   store ptr @spl_dual_it_new, ptr %206, align 8
   %207 = load ptr, ptr @spl_ce_RecursiveIterator, align 8
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %59)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %59, i8 0, i64 512, i1 false)
   %208 = load ptr, ptr @zend_string_init_interned, align 8
   %209 = call ptr %208(ptr noundef nonnull @.str.104, i64 noundef 31, i1 noundef zeroext true) #10
-  %210 = getelementptr inbounds i8, ptr %59, i64 8
+  %210 = getelementptr inbounds nuw i8, ptr %59, i64 8
   store ptr %209, ptr %210, align 8
-  %211 = getelementptr inbounds i8, ptr %59, i64 360
+  %211 = getelementptr inbounds nuw i8, ptr %59, i64 360
   store ptr @std_object_handlers, ptr %211, align 8
-  %212 = getelementptr inbounds i8, ptr %59, i64 496
+  %212 = getelementptr inbounds nuw i8, ptr %59, i64 496
   store ptr @class_RecursiveCallbackFilterIterator_methods, ptr %212, align 8
   %213 = call ptr @zend_register_internal_class_ex(ptr noundef nonnull %59, ptr noundef %205) #10
   call void (ptr, i32, ...) @zend_class_implements(ptr noundef %213, i32 noundef 1, ptr noundef %207) #10
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %59)
   store ptr %213, ptr @spl_ce_RecursiveCallbackFilterIterator, align 8
-  %214 = getelementptr inbounds i8, ptr %213, i64 384
+  %214 = getelementptr inbounds nuw i8, ptr %213, i64 384
   store ptr @spl_dual_it_new, ptr %214, align 8
   %215 = load ptr, ptr @spl_ce_RecursiveFilterIterator, align 8
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %58)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %58, i8 0, i64 512, i1 false)
   %216 = load ptr, ptr @zend_string_init_interned, align 8
   %217 = call ptr %216(ptr noundef nonnull @.str.105, i64 noundef 14, i1 noundef zeroext true) #10
-  %218 = getelementptr inbounds i8, ptr %58, i64 8
+  %218 = getelementptr inbounds nuw i8, ptr %58, i64 8
   store ptr %217, ptr %218, align 8
-  %219 = getelementptr inbounds i8, ptr %58, i64 360
+  %219 = getelementptr inbounds nuw i8, ptr %58, i64 360
   store ptr @std_object_handlers, ptr %219, align 8
-  %220 = getelementptr inbounds i8, ptr %58, i64 496
+  %220 = getelementptr inbounds nuw i8, ptr %58, i64 496
   store ptr @class_ParentIterator_methods, ptr %220, align 8
   %221 = call ptr @zend_register_internal_class_ex(ptr noundef nonnull %58, ptr noundef %215) #10
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %58)
   store ptr %221, ptr @spl_ce_ParentIterator, align 8
-  %222 = getelementptr inbounds i8, ptr %221, i64 384
+  %222 = getelementptr inbounds nuw i8, ptr %221, i64 384
   store ptr @spl_dual_it_new, ptr %222, align 8
   %223 = load ptr, ptr @zend_ce_iterator, align 8
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %57)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %57, i8 0, i64 512, i1 false)
   %224 = load ptr, ptr @zend_string_init_interned, align 8
   %225 = call ptr %224(ptr noundef nonnull @.str.106, i64 noundef 16, i1 noundef zeroext true) #10
-  %226 = getelementptr inbounds i8, ptr %57, i64 8
+  %226 = getelementptr inbounds nuw i8, ptr %57, i64 8
   store ptr %225, ptr %226, align 8
-  %227 = getelementptr inbounds i8, ptr %57, i64 360
+  %227 = getelementptr inbounds nuw i8, ptr %57, i64 360
   store ptr @std_object_handlers, ptr %227, align 8
-  %228 = getelementptr inbounds i8, ptr %57, i64 496
+  %228 = getelementptr inbounds nuw i8, ptr %57, i64 496
   store ptr @class_SeekableIterator_methods, ptr %228, align 8
   %229 = call ptr @zend_register_internal_interface(ptr noundef nonnull %57) #10
   call void (ptr, i32, ...) @zend_class_implements(ptr noundef %229, i32 noundef 1, ptr noundef %223) #10
@@ -10512,16 +10512,16 @@ register_class_RecursiveIteratorIterator.exit:    ; preds = %148, %157, %164, %1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %56, i8 0, i64 512, i1 false)
   %231 = load ptr, ptr @zend_string_init_interned, align 8
   %232 = call ptr %231(ptr noundef nonnull @.str.108, i64 noundef 13, i1 noundef zeroext true) #10
-  %233 = getelementptr inbounds i8, ptr %56, i64 8
+  %233 = getelementptr inbounds nuw i8, ptr %56, i64 8
   store ptr %232, ptr %233, align 8
-  %234 = getelementptr inbounds i8, ptr %56, i64 360
+  %234 = getelementptr inbounds nuw i8, ptr %56, i64 360
   store ptr @std_object_handlers, ptr %234, align 8
-  %235 = getelementptr inbounds i8, ptr %56, i64 496
+  %235 = getelementptr inbounds nuw i8, ptr %56, i64 496
   store ptr @class_LimitIterator_methods, ptr %235, align 8
   %236 = call ptr @zend_register_internal_class_ex(ptr noundef nonnull %56, ptr noundef %230) #10
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %56)
   store ptr %236, ptr @spl_ce_LimitIterator, align 8
-  %237 = getelementptr inbounds i8, ptr %236, i64 384
+  %237 = getelementptr inbounds nuw i8, ptr %236, i64 384
   store ptr @spl_dual_it_new, ptr %237, align 8
   %238 = load ptr, ptr @spl_ce_IteratorIterator, align 8
   %239 = load ptr, ptr @zend_ce_arrayaccess, align 8
@@ -10543,24 +10543,24 @@ register_class_RecursiveIteratorIterator.exit:    ; preds = %148, %157, %164, %1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %43, i8 0, i64 512, i1 false)
   %242 = load ptr, ptr @zend_string_init_interned, align 8
   %243 = call ptr %242(ptr noundef nonnull @.str.111, i64 noundef 15, i1 noundef zeroext true) #10
-  %244 = getelementptr inbounds i8, ptr %43, i64 8
+  %244 = getelementptr inbounds nuw i8, ptr %43, i64 8
   store ptr %243, ptr %244, align 8
-  %245 = getelementptr inbounds i8, ptr %43, i64 360
+  %245 = getelementptr inbounds nuw i8, ptr %43, i64 360
   store ptr @std_object_handlers, ptr %245, align 8
-  %246 = getelementptr inbounds i8, ptr %43, i64 496
+  %246 = getelementptr inbounds nuw i8, ptr %43, i64 496
   store ptr @class_CachingIterator_methods, ptr %246, align 8
   %247 = call ptr @zend_register_internal_class_ex(ptr noundef nonnull %43, ptr noundef %238) #10
   call void (ptr, i32, ...) @zend_class_implements(ptr noundef %247, i32 noundef 3, ptr noundef %239, ptr noundef %240, ptr noundef %241) #10
   store i64 1, ptr %44, align 8
-  %248 = getelementptr inbounds i8, ptr %44, i64 8
+  %248 = getelementptr inbounds nuw i8, ptr %44, i64 8
   store i32 4, ptr %248, align 8
   %249 = load ptr, ptr @zend_string_init_interned, align 8
   %250 = call ptr %249(ptr noundef nonnull @.str.112, i64 noundef 13, i1 noundef zeroext true) #10
   store ptr null, ptr %45, align 8
-  %251 = getelementptr inbounds i8, ptr %45, i64 8
+  %251 = getelementptr inbounds nuw i8, ptr %45, i64 8
   store i32 16, ptr %251, align 8
   %252 = call ptr @zend_declare_typed_class_constant(ptr noundef %247, ptr noundef %250, ptr noundef nonnull %44, i32 noundef 1, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %45) #10
-  %253 = getelementptr inbounds i8, ptr %250, i64 4
+  %253 = getelementptr inbounds nuw i8, ptr %250, i64 4
   %254 = load i32, ptr %253, align 4
   %255 = and i32 %254, 64
   %.not.i1 = icmp eq i32 %255, 0
@@ -10590,15 +10590,15 @@ register_class_RecursiveIteratorIterator.exit:    ; preds = %148, %157, %164, %1
 
 265:                                              ; preds = %264, %263, %256, %register_class_RecursiveIteratorIterator.exit
   store i64 16, ptr %46, align 8
-  %266 = getelementptr inbounds i8, ptr %46, i64 8
+  %266 = getelementptr inbounds nuw i8, ptr %46, i64 8
   store i32 4, ptr %266, align 8
   %267 = load ptr, ptr @zend_string_init_interned, align 8
   %268 = call ptr %267(ptr noundef nonnull @.str.68, i64 noundef 15, i1 noundef zeroext true) #10
   store ptr null, ptr %47, align 8
-  %269 = getelementptr inbounds i8, ptr %47, i64 8
+  %269 = getelementptr inbounds nuw i8, ptr %47, i64 8
   store i32 16, ptr %269, align 8
   %270 = call ptr @zend_declare_typed_class_constant(ptr noundef %247, ptr noundef %268, ptr noundef nonnull %46, i32 noundef 1, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %47) #10
-  %271 = getelementptr inbounds i8, ptr %268, i64 4
+  %271 = getelementptr inbounds nuw i8, ptr %268, i64 4
   %272 = load i32, ptr %271, align 4
   %273 = and i32 %272, 64
   %.not90.i = icmp eq i32 %273, 0
@@ -10628,15 +10628,15 @@ register_class_RecursiveIteratorIterator.exit:    ; preds = %148, %157, %164, %1
 
 283:                                              ; preds = %282, %281, %274, %265
   store i64 2, ptr %48, align 8
-  %284 = getelementptr inbounds i8, ptr %48, i64 8
+  %284 = getelementptr inbounds nuw i8, ptr %48, i64 8
   store i32 4, ptr %284, align 8
   %285 = load ptr, ptr @zend_string_init_interned, align 8
   %286 = call ptr %285(ptr noundef nonnull @.str.113, i64 noundef 16, i1 noundef zeroext true) #10
   store ptr null, ptr %49, align 8
-  %287 = getelementptr inbounds i8, ptr %49, i64 8
+  %287 = getelementptr inbounds nuw i8, ptr %49, i64 8
   store i32 16, ptr %287, align 8
   %288 = call ptr @zend_declare_typed_class_constant(ptr noundef %247, ptr noundef %286, ptr noundef nonnull %48, i32 noundef 1, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %49) #10
-  %289 = getelementptr inbounds i8, ptr %286, i64 4
+  %289 = getelementptr inbounds nuw i8, ptr %286, i64 4
   %290 = load i32, ptr %289, align 4
   %291 = and i32 %290, 64
   %.not92.i = icmp eq i32 %291, 0
@@ -10666,15 +10666,15 @@ register_class_RecursiveIteratorIterator.exit:    ; preds = %148, %157, %164, %1
 
 301:                                              ; preds = %300, %299, %292, %283
   store i64 4, ptr %50, align 8
-  %302 = getelementptr inbounds i8, ptr %50, i64 8
+  %302 = getelementptr inbounds nuw i8, ptr %50, i64 8
   store i32 4, ptr %302, align 8
   %303 = load ptr, ptr @zend_string_init_interned, align 8
   %304 = call ptr %303(ptr noundef nonnull @.str.114, i64 noundef 20, i1 noundef zeroext true) #10
   store ptr null, ptr %51, align 8
-  %305 = getelementptr inbounds i8, ptr %51, i64 8
+  %305 = getelementptr inbounds nuw i8, ptr %51, i64 8
   store i32 16, ptr %305, align 8
   %306 = call ptr @zend_declare_typed_class_constant(ptr noundef %247, ptr noundef %304, ptr noundef nonnull %50, i32 noundef 1, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %51) #10
-  %307 = getelementptr inbounds i8, ptr %304, i64 4
+  %307 = getelementptr inbounds nuw i8, ptr %304, i64 4
   %308 = load i32, ptr %307, align 4
   %309 = and i32 %308, 64
   %.not94.i = icmp eq i32 %309, 0
@@ -10704,15 +10704,15 @@ register_class_RecursiveIteratorIterator.exit:    ; preds = %148, %157, %164, %1
 
 319:                                              ; preds = %318, %317, %310, %301
   store i64 8, ptr %52, align 8
-  %320 = getelementptr inbounds i8, ptr %52, i64 8
+  %320 = getelementptr inbounds nuw i8, ptr %52, i64 8
   store i32 4, ptr %320, align 8
   %321 = load ptr, ptr @zend_string_init_interned, align 8
   %322 = call ptr %321(ptr noundef nonnull @.str.115, i64 noundef 18, i1 noundef zeroext true) #10
   store ptr null, ptr %53, align 8
-  %323 = getelementptr inbounds i8, ptr %53, i64 8
+  %323 = getelementptr inbounds nuw i8, ptr %53, i64 8
   store i32 16, ptr %323, align 8
   %324 = call ptr @zend_declare_typed_class_constant(ptr noundef %247, ptr noundef %322, ptr noundef nonnull %52, i32 noundef 1, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %53) #10
-  %325 = getelementptr inbounds i8, ptr %322, i64 4
+  %325 = getelementptr inbounds nuw i8, ptr %322, i64 4
   %326 = load i32, ptr %325, align 4
   %327 = and i32 %326, 64
   %.not96.i = icmp eq i32 %327, 0
@@ -10742,15 +10742,15 @@ register_class_RecursiveIteratorIterator.exit:    ; preds = %148, %157, %164, %1
 
 337:                                              ; preds = %336, %335, %328, %319
   store i64 256, ptr %54, align 8
-  %338 = getelementptr inbounds i8, ptr %54, i64 8
+  %338 = getelementptr inbounds nuw i8, ptr %54, i64 8
   store i32 4, ptr %338, align 8
   %339 = load ptr, ptr @zend_string_init_interned, align 8
   %340 = call ptr %339(ptr noundef nonnull @.str.116, i64 noundef 10, i1 noundef zeroext true) #10
   store ptr null, ptr %55, align 8
-  %341 = getelementptr inbounds i8, ptr %55, i64 8
+  %341 = getelementptr inbounds nuw i8, ptr %55, i64 8
   store i32 16, ptr %341, align 8
   %342 = call ptr @zend_declare_typed_class_constant(ptr noundef %247, ptr noundef %340, ptr noundef nonnull %54, i32 noundef 1, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %55) #10
-  %343 = getelementptr inbounds i8, ptr %340, i64 4
+  %343 = getelementptr inbounds nuw i8, ptr %340, i64 4
   %344 = load i32, ptr %343, align 4
   %345 = and i32 %344, 64
   %.not98.i = icmp eq i32 %345, 0
@@ -10793,72 +10793,72 @@ register_class_CachingIterator.exit:              ; preds = %337, %346, %353, %3
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %54)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %55)
   store ptr %247, ptr @spl_ce_CachingIterator, align 8
-  %355 = getelementptr inbounds i8, ptr %247, i64 384
+  %355 = getelementptr inbounds nuw i8, ptr %247, i64 384
   store ptr @spl_dual_it_new, ptr %355, align 8
   %356 = load ptr, ptr @spl_ce_RecursiveIterator, align 8
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %42)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %42, i8 0, i64 512, i1 false)
   %357 = load ptr, ptr @zend_string_init_interned, align 8
   %358 = call ptr %357(ptr noundef nonnull @.str.129, i64 noundef 24, i1 noundef zeroext true) #10
-  %359 = getelementptr inbounds i8, ptr %42, i64 8
+  %359 = getelementptr inbounds nuw i8, ptr %42, i64 8
   store ptr %358, ptr %359, align 8
-  %360 = getelementptr inbounds i8, ptr %42, i64 360
+  %360 = getelementptr inbounds nuw i8, ptr %42, i64 360
   store ptr @std_object_handlers, ptr %360, align 8
-  %361 = getelementptr inbounds i8, ptr %42, i64 496
+  %361 = getelementptr inbounds nuw i8, ptr %42, i64 496
   store ptr @class_RecursiveCachingIterator_methods, ptr %361, align 8
   %362 = call ptr @zend_register_internal_class_ex(ptr noundef nonnull %42, ptr noundef %247) #10
   call void (ptr, i32, ...) @zend_class_implements(ptr noundef %362, i32 noundef 1, ptr noundef %356) #10
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %42)
   store ptr %362, ptr @spl_ce_RecursiveCachingIterator, align 8
-  %363 = getelementptr inbounds i8, ptr %362, i64 384
+  %363 = getelementptr inbounds nuw i8, ptr %362, i64 384
   store ptr @spl_dual_it_new, ptr %363, align 8
   %364 = load ptr, ptr @spl_ce_IteratorIterator, align 8
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %41)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %41, i8 0, i64 512, i1 false)
   %365 = load ptr, ptr @zend_string_init_interned, align 8
   %366 = call ptr %365(ptr noundef nonnull @.str.131, i64 noundef 16, i1 noundef zeroext true) #10
-  %367 = getelementptr inbounds i8, ptr %41, i64 8
+  %367 = getelementptr inbounds nuw i8, ptr %41, i64 8
   store ptr %366, ptr %367, align 8
-  %368 = getelementptr inbounds i8, ptr %41, i64 360
+  %368 = getelementptr inbounds nuw i8, ptr %41, i64 360
   store ptr @std_object_handlers, ptr %368, align 8
-  %369 = getelementptr inbounds i8, ptr %41, i64 496
+  %369 = getelementptr inbounds nuw i8, ptr %41, i64 496
   store ptr @class_NoRewindIterator_methods, ptr %369, align 8
   %370 = call ptr @zend_register_internal_class_ex(ptr noundef nonnull %41, ptr noundef %364) #10
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %41)
   store ptr %370, ptr @spl_ce_NoRewindIterator, align 8
-  %371 = getelementptr inbounds i8, ptr %370, i64 384
+  %371 = getelementptr inbounds nuw i8, ptr %370, i64 384
   store ptr @spl_dual_it_new, ptr %371, align 8
   %372 = load ptr, ptr @spl_ce_IteratorIterator, align 8
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %40)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %40, i8 0, i64 512, i1 false)
   %373 = load ptr, ptr @zend_string_init_interned, align 8
   %374 = call ptr %373(ptr noundef nonnull @.str.132, i64 noundef 14, i1 noundef zeroext true) #10
-  %375 = getelementptr inbounds i8, ptr %40, i64 8
+  %375 = getelementptr inbounds nuw i8, ptr %40, i64 8
   store ptr %374, ptr %375, align 8
-  %376 = getelementptr inbounds i8, ptr %40, i64 360
+  %376 = getelementptr inbounds nuw i8, ptr %40, i64 360
   store ptr @std_object_handlers, ptr %376, align 8
-  %377 = getelementptr inbounds i8, ptr %40, i64 496
+  %377 = getelementptr inbounds nuw i8, ptr %40, i64 496
   store ptr @class_AppendIterator_methods, ptr %377, align 8
   %378 = call ptr @zend_register_internal_class_ex(ptr noundef nonnull %40, ptr noundef %372) #10
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %40)
   store ptr %378, ptr @spl_ce_AppendIterator, align 8
-  %379 = getelementptr inbounds i8, ptr %378, i64 384
+  %379 = getelementptr inbounds nuw i8, ptr %378, i64 384
   store ptr @spl_dual_it_new, ptr %379, align 8
   %380 = load ptr, ptr @spl_ce_IteratorIterator, align 8
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %39)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %39, i8 0, i64 512, i1 false)
   %381 = load ptr, ptr @zend_string_init_interned, align 8
   %382 = call ptr %381(ptr noundef nonnull @.str.137, i64 noundef 16, i1 noundef zeroext true) #10
-  %383 = getelementptr inbounds i8, ptr %39, i64 8
+  %383 = getelementptr inbounds nuw i8, ptr %39, i64 8
   store ptr %382, ptr %383, align 8
-  %384 = getelementptr inbounds i8, ptr %39, i64 360
+  %384 = getelementptr inbounds nuw i8, ptr %39, i64 360
   store ptr @std_object_handlers, ptr %384, align 8
-  %385 = getelementptr inbounds i8, ptr %39, i64 496
+  %385 = getelementptr inbounds nuw i8, ptr %39, i64 496
   store ptr @class_InfiniteIterator_methods, ptr %385, align 8
   %386 = call ptr @zend_register_internal_class_ex(ptr noundef nonnull %39, ptr noundef %380) #10
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %39)
   store ptr %386, ptr @spl_ce_InfiniteIterator, align 8
-  %387 = getelementptr inbounds i8, ptr %386, i64 384
+  %387 = getelementptr inbounds nuw i8, ptr %386, i64 384
   store ptr @spl_dual_it_new, ptr %387, align 8
   %388 = load ptr, ptr @spl_ce_FilterIterator, align 8
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %22)
@@ -10881,23 +10881,23 @@ register_class_CachingIterator.exit:              ; preds = %337, %346, %353, %3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %22, i8 0, i64 512, i1 false)
   %389 = load ptr, ptr @zend_string_init_interned, align 8
   %390 = call ptr %389(ptr noundef nonnull @.str.138, i64 noundef 13, i1 noundef zeroext true) #10
-  %391 = getelementptr inbounds i8, ptr %22, i64 8
+  %391 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr %390, ptr %391, align 8
-  %392 = getelementptr inbounds i8, ptr %22, i64 360
+  %392 = getelementptr inbounds nuw i8, ptr %22, i64 360
   store ptr @std_object_handlers, ptr %392, align 8
-  %393 = getelementptr inbounds i8, ptr %22, i64 496
+  %393 = getelementptr inbounds nuw i8, ptr %22, i64 496
   store ptr @class_RegexIterator_methods, ptr %393, align 8
   %394 = call ptr @zend_register_internal_class_ex(ptr noundef nonnull %22, ptr noundef %388) #10
   store i64 1, ptr %23, align 8
-  %395 = getelementptr inbounds i8, ptr %23, i64 8
+  %395 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store i32 4, ptr %395, align 8
   %396 = load ptr, ptr @zend_string_init_interned, align 8
   %397 = call ptr %396(ptr noundef nonnull @.str.139, i64 noundef 7, i1 noundef zeroext true) #10
   store ptr null, ptr %24, align 8
-  %398 = getelementptr inbounds i8, ptr %24, i64 8
+  %398 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i32 16, ptr %398, align 8
   %399 = call ptr @zend_declare_typed_class_constant(ptr noundef %394, ptr noundef %397, ptr noundef nonnull %23, i32 noundef 1, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %24) #10
-  %400 = getelementptr inbounds i8, ptr %397, i64 4
+  %400 = getelementptr inbounds nuw i8, ptr %397, i64 4
   %401 = load i32, ptr %400, align 4
   %402 = and i32 %401, 64
   %.not.i2 = icmp eq i32 %402, 0
@@ -10927,15 +10927,15 @@ register_class_CachingIterator.exit:              ; preds = %337, %346, %353, %3
 
 412:                                              ; preds = %411, %410, %403, %register_class_CachingIterator.exit
   store i64 2, ptr %25, align 8
-  %413 = getelementptr inbounds i8, ptr %25, i64 8
+  %413 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store i32 4, ptr %413, align 8
   %414 = load ptr, ptr @zend_string_init_interned, align 8
   %415 = call ptr %414(ptr noundef nonnull @.str.140, i64 noundef 12, i1 noundef zeroext true) #10
   store ptr null, ptr %26, align 8
-  %416 = getelementptr inbounds i8, ptr %26, i64 8
+  %416 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store i32 16, ptr %416, align 8
   %417 = call ptr @zend_declare_typed_class_constant(ptr noundef %394, ptr noundef %415, ptr noundef nonnull %25, i32 noundef 1, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %26) #10
-  %418 = getelementptr inbounds i8, ptr %415, i64 4
+  %418 = getelementptr inbounds nuw i8, ptr %415, i64 4
   %419 = load i32, ptr %418, align 4
   %420 = and i32 %419, 64
   %.not166.i = icmp eq i32 %420, 0
@@ -10965,15 +10965,15 @@ register_class_CachingIterator.exit:              ; preds = %337, %346, %353, %3
 
 430:                                              ; preds = %429, %428, %421, %412
   store i64 0, ptr %27, align 8
-  %431 = getelementptr inbounds i8, ptr %27, i64 8
+  %431 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store i32 4, ptr %431, align 8
   %432 = load ptr, ptr @zend_string_init_interned, align 8
   %433 = call ptr %432(ptr noundef nonnull @.str.141, i64 noundef 5, i1 noundef zeroext true) #10
   store ptr null, ptr %28, align 8
-  %434 = getelementptr inbounds i8, ptr %28, i64 8
+  %434 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store i32 16, ptr %434, align 8
   %435 = call ptr @zend_declare_typed_class_constant(ptr noundef %394, ptr noundef %433, ptr noundef nonnull %27, i32 noundef 1, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %28) #10
-  %436 = getelementptr inbounds i8, ptr %433, i64 4
+  %436 = getelementptr inbounds nuw i8, ptr %433, i64 4
   %437 = load i32, ptr %436, align 4
   %438 = and i32 %437, 64
   %.not168.i = icmp eq i32 %438, 0
@@ -11003,15 +11003,15 @@ register_class_CachingIterator.exit:              ; preds = %337, %346, %353, %3
 
 448:                                              ; preds = %447, %446, %439, %430
   store i64 1, ptr %29, align 8
-  %449 = getelementptr inbounds i8, ptr %29, i64 8
+  %449 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store i32 4, ptr %449, align 8
   %450 = load ptr, ptr @zend_string_init_interned, align 8
   %451 = call ptr %450(ptr noundef nonnull @.str.142, i64 noundef 9, i1 noundef zeroext true) #10
   store ptr null, ptr %30, align 8
-  %452 = getelementptr inbounds i8, ptr %30, i64 8
+  %452 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store i32 16, ptr %452, align 8
   %453 = call ptr @zend_declare_typed_class_constant(ptr noundef %394, ptr noundef %451, ptr noundef nonnull %29, i32 noundef 1, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %30) #10
-  %454 = getelementptr inbounds i8, ptr %451, i64 4
+  %454 = getelementptr inbounds nuw i8, ptr %451, i64 4
   %455 = load i32, ptr %454, align 4
   %456 = and i32 %455, 64
   %.not170.i = icmp eq i32 %456, 0
@@ -11041,15 +11041,15 @@ register_class_CachingIterator.exit:              ; preds = %337, %346, %353, %3
 
 466:                                              ; preds = %465, %464, %457, %448
   store i64 2, ptr %31, align 8
-  %467 = getelementptr inbounds i8, ptr %31, i64 8
+  %467 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store i32 4, ptr %467, align 8
   %468 = load ptr, ptr @zend_string_init_interned, align 8
   %469 = call ptr %468(ptr noundef nonnull @.str.143, i64 noundef 11, i1 noundef zeroext true) #10
   store ptr null, ptr %32, align 8
-  %470 = getelementptr inbounds i8, ptr %32, i64 8
+  %470 = getelementptr inbounds nuw i8, ptr %32, i64 8
   store i32 16, ptr %470, align 8
   %471 = call ptr @zend_declare_typed_class_constant(ptr noundef %394, ptr noundef %469, ptr noundef nonnull %31, i32 noundef 1, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %32) #10
-  %472 = getelementptr inbounds i8, ptr %469, i64 4
+  %472 = getelementptr inbounds nuw i8, ptr %469, i64 4
   %473 = load i32, ptr %472, align 4
   %474 = and i32 %473, 64
   %.not172.i = icmp eq i32 %474, 0
@@ -11079,15 +11079,15 @@ register_class_CachingIterator.exit:              ; preds = %337, %346, %353, %3
 
 484:                                              ; preds = %483, %482, %475, %466
   store i64 3, ptr %33, align 8
-  %485 = getelementptr inbounds i8, ptr %33, i64 8
+  %485 = getelementptr inbounds nuw i8, ptr %33, i64 8
   store i32 4, ptr %485, align 8
   %486 = load ptr, ptr @zend_string_init_interned, align 8
   %487 = call ptr %486(ptr noundef nonnull @.str.144, i64 noundef 5, i1 noundef zeroext true) #10
   store ptr null, ptr %34, align 8
-  %488 = getelementptr inbounds i8, ptr %34, i64 8
+  %488 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store i32 16, ptr %488, align 8
   %489 = call ptr @zend_declare_typed_class_constant(ptr noundef %394, ptr noundef %487, ptr noundef nonnull %33, i32 noundef 1, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %34) #10
-  %490 = getelementptr inbounds i8, ptr %487, i64 4
+  %490 = getelementptr inbounds nuw i8, ptr %487, i64 4
   %491 = load i32, ptr %490, align 4
   %492 = and i32 %491, 64
   %.not174.i = icmp eq i32 %492, 0
@@ -11117,15 +11117,15 @@ register_class_CachingIterator.exit:              ; preds = %337, %346, %353, %3
 
 502:                                              ; preds = %501, %500, %493, %484
   store i64 4, ptr %35, align 8
-  %503 = getelementptr inbounds i8, ptr %35, i64 8
+  %503 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store i32 4, ptr %503, align 8
   %504 = load ptr, ptr @zend_string_init_interned, align 8
   %505 = call ptr %504(ptr noundef nonnull @.str.145, i64 noundef 7, i1 noundef zeroext true) #10
   store ptr null, ptr %36, align 8
-  %506 = getelementptr inbounds i8, ptr %36, i64 8
+  %506 = getelementptr inbounds nuw i8, ptr %36, i64 8
   store i32 16, ptr %506, align 8
   %507 = call ptr @zend_declare_typed_class_constant(ptr noundef %394, ptr noundef %505, ptr noundef nonnull %35, i32 noundef 1, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %36) #10
-  %508 = getelementptr inbounds i8, ptr %505, i64 4
+  %508 = getelementptr inbounds nuw i8, ptr %505, i64 4
   %509 = load i32, ptr %508, align 4
   %510 = and i32 %509, 64
   %.not176.i = icmp eq i32 %510, 0
@@ -11154,22 +11154,22 @@ register_class_CachingIterator.exit:              ; preds = %337, %346, %353, %3
   br label %520
 
 520:                                              ; preds = %519, %518, %511, %502
-  %521 = getelementptr inbounds i8, ptr %37, i64 8
+  %521 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store i32 1, ptr %521, align 8
   %522 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #12
   store i32 1, ptr %522, align 4
-  %523 = getelementptr inbounds i8, ptr %522, i64 4
+  %523 = getelementptr inbounds nuw i8, ptr %522, i64 4
   store i32 150, ptr %523, align 4
-  %524 = getelementptr inbounds i8, ptr %522, i64 8
+  %524 = getelementptr inbounds nuw i8, ptr %522, i64 8
   store i64 0, ptr %524, align 8
-  %525 = getelementptr inbounds i8, ptr %522, i64 16
+  %525 = getelementptr inbounds nuw i8, ptr %522, i64 16
   store i64 11, ptr %525, align 8
-  %526 = getelementptr inbounds i8, ptr %522, i64 24
+  %526 = getelementptr inbounds nuw i8, ptr %522, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %526, ptr noundef nonnull align 1 dereferenceable(11) @.str.9, i64 11, i1 false)
-  %527 = getelementptr inbounds i8, ptr %522, i64 35
+  %527 = getelementptr inbounds nuw i8, ptr %522, i64 35
   store i8 0, ptr %527, align 1
   store ptr null, ptr %38, align 8
-  %528 = getelementptr inbounds i8, ptr %38, i64 8
+  %528 = getelementptr inbounds nuw i8, ptr %38, i64 8
   store i32 66, ptr %528, align 8
   %529 = call ptr @zend_declare_typed_property(ptr noundef %394, ptr noundef nonnull %522, ptr noundef nonnull %37, i32 noundef 1, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %38) #10
   %530 = load i32, ptr %523, align 4
@@ -11218,35 +11218,35 @@ register_class_RegexIterator.exit:                ; preds = %520, %532, %539, %5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %37)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %38)
   store ptr %394, ptr @spl_ce_RegexIterator, align 8
-  %541 = getelementptr inbounds i8, ptr %394, i64 384
+  %541 = getelementptr inbounds nuw i8, ptr %394, i64 384
   store ptr @spl_dual_it_new, ptr %541, align 8
   %542 = load ptr, ptr @spl_ce_RecursiveIterator, align 8
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %21)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %21, i8 0, i64 512, i1 false)
   %543 = load ptr, ptr @zend_string_init_interned, align 8
   %544 = call ptr %543(ptr noundef nonnull @.str.154, i64 noundef 22, i1 noundef zeroext true) #10
-  %545 = getelementptr inbounds i8, ptr %21, i64 8
+  %545 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store ptr %544, ptr %545, align 8
-  %546 = getelementptr inbounds i8, ptr %21, i64 360
+  %546 = getelementptr inbounds nuw i8, ptr %21, i64 360
   store ptr @std_object_handlers, ptr %546, align 8
-  %547 = getelementptr inbounds i8, ptr %21, i64 496
+  %547 = getelementptr inbounds nuw i8, ptr %21, i64 496
   store ptr @class_RecursiveRegexIterator_methods, ptr %547, align 8
   %548 = call ptr @zend_register_internal_class_ex(ptr noundef nonnull %21, ptr noundef %394) #10
   call void (ptr, i32, ...) @zend_class_implements(ptr noundef %548, i32 noundef 1, ptr noundef %542) #10
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %21)
   store ptr %548, ptr @spl_ce_RecursiveRegexIterator, align 8
-  %549 = getelementptr inbounds i8, ptr %548, i64 384
+  %549 = getelementptr inbounds nuw i8, ptr %548, i64 384
   store ptr @spl_dual_it_new, ptr %549, align 8
   %550 = load ptr, ptr @zend_ce_iterator, align 8
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %20)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %20, i8 0, i64 512, i1 false)
   %551 = load ptr, ptr @zend_string_init_interned, align 8
   %552 = call ptr %551(ptr noundef nonnull @.str.156, i64 noundef 13, i1 noundef zeroext true) #10
-  %553 = getelementptr inbounds i8, ptr %20, i64 8
+  %553 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store ptr %552, ptr %553, align 8
-  %554 = getelementptr inbounds i8, ptr %20, i64 360
+  %554 = getelementptr inbounds nuw i8, ptr %20, i64 360
   store ptr @std_object_handlers, ptr %554, align 8
-  %555 = getelementptr inbounds i8, ptr %20, i64 496
+  %555 = getelementptr inbounds nuw i8, ptr %20, i64 496
   store ptr @class_EmptyIterator_methods, ptr %555, align 8
   %556 = call ptr @zend_register_internal_class_ex(ptr noundef nonnull %20, ptr noundef null) #10
   call void (ptr, i32, ...) @zend_class_implements(ptr noundef %556, i32 noundef 1, ptr noundef %550) #10
@@ -11273,23 +11273,23 @@ register_class_RegexIterator.exit:                ; preds = %520, %532, %539, %5
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %3, i8 0, i64 512, i1 false)
   %558 = load ptr, ptr @zend_string_init_interned, align 8
   %559 = call ptr %558(ptr noundef nonnull @.str.157, i64 noundef 21, i1 noundef zeroext true) #10
-  %560 = getelementptr inbounds i8, ptr %3, i64 8
+  %560 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %559, ptr %560, align 8
-  %561 = getelementptr inbounds i8, ptr %3, i64 360
+  %561 = getelementptr inbounds nuw i8, ptr %3, i64 360
   store ptr @std_object_handlers, ptr %561, align 8
-  %562 = getelementptr inbounds i8, ptr %3, i64 496
+  %562 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store ptr @class_RecursiveTreeIterator_methods, ptr %562, align 8
   %563 = call ptr @zend_register_internal_class_ex(ptr noundef nonnull %3, ptr noundef %557) #10
   store i64 4, ptr %4, align 8
-  %564 = getelementptr inbounds i8, ptr %4, i64 8
+  %564 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 4, ptr %564, align 8
   %565 = load ptr, ptr @zend_string_init_interned, align 8
   %566 = call ptr %565(ptr noundef nonnull @.str.158, i64 noundef 14, i1 noundef zeroext true) #10
   store ptr null, ptr %5, align 8
-  %567 = getelementptr inbounds i8, ptr %5, i64 8
+  %567 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 16, ptr %567, align 8
   %568 = call ptr @zend_declare_typed_class_constant(ptr noundef %563, ptr noundef %566, ptr noundef nonnull %4, i32 noundef 1, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %5) #10
-  %569 = getelementptr inbounds i8, ptr %566, i64 4
+  %569 = getelementptr inbounds nuw i8, ptr %566, i64 4
   %570 = load i32, ptr %569, align 4
   %571 = and i32 %570, 64
   %.not.i3 = icmp eq i32 %571, 0
@@ -11319,15 +11319,15 @@ register_class_RegexIterator.exit:                ; preds = %520, %532, %539, %5
 
 581:                                              ; preds = %580, %579, %572, %register_class_RegexIterator.exit
   store i64 8, ptr %6, align 8
-  %582 = getelementptr inbounds i8, ptr %6, i64 8
+  %582 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 4, ptr %582, align 8
   %583 = load ptr, ptr @zend_string_init_interned, align 8
   %584 = call ptr %583(ptr noundef nonnull @.str.159, i64 noundef 10, i1 noundef zeroext true) #10
   store ptr null, ptr %7, align 8
-  %585 = getelementptr inbounds i8, ptr %7, i64 8
+  %585 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 16, ptr %585, align 8
   %586 = call ptr @zend_declare_typed_class_constant(ptr noundef %563, ptr noundef %584, ptr noundef nonnull %6, i32 noundef 1, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %7) #10
-  %587 = getelementptr inbounds i8, ptr %584, i64 4
+  %587 = getelementptr inbounds nuw i8, ptr %584, i64 4
   %588 = load i32, ptr %587, align 4
   %589 = and i32 %588, 64
   %.not114.i = icmp eq i32 %589, 0
@@ -11357,15 +11357,15 @@ register_class_RegexIterator.exit:                ; preds = %520, %532, %539, %5
 
 599:                                              ; preds = %598, %597, %590, %581
   store i64 0, ptr %8, align 8
-  %600 = getelementptr inbounds i8, ptr %8, i64 8
+  %600 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 4, ptr %600, align 8
   %601 = load ptr, ptr @zend_string_init_interned, align 8
   %602 = call ptr %601(ptr noundef nonnull @.str.160, i64 noundef 11, i1 noundef zeroext true) #10
   store ptr null, ptr %9, align 8
-  %603 = getelementptr inbounds i8, ptr %9, i64 8
+  %603 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 16, ptr %603, align 8
   %604 = call ptr @zend_declare_typed_class_constant(ptr noundef %563, ptr noundef %602, ptr noundef nonnull %8, i32 noundef 1, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %9) #10
-  %605 = getelementptr inbounds i8, ptr %602, i64 4
+  %605 = getelementptr inbounds nuw i8, ptr %602, i64 4
   %606 = load i32, ptr %605, align 4
   %607 = and i32 %606, 64
   %.not116.i = icmp eq i32 %607, 0
@@ -11395,15 +11395,15 @@ register_class_RegexIterator.exit:                ; preds = %520, %532, %539, %5
 
 617:                                              ; preds = %616, %615, %608, %599
   store i64 1, ptr %10, align 8
-  %618 = getelementptr inbounds i8, ptr %10, i64 8
+  %618 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i32 4, ptr %618, align 8
   %619 = load ptr, ptr @zend_string_init_interned, align 8
   %620 = call ptr %619(ptr noundef nonnull @.str.161, i64 noundef 19, i1 noundef zeroext true) #10
   store ptr null, ptr %11, align 8
-  %621 = getelementptr inbounds i8, ptr %11, i64 8
+  %621 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i32 16, ptr %621, align 8
   %622 = call ptr @zend_declare_typed_class_constant(ptr noundef %563, ptr noundef %620, ptr noundef nonnull %10, i32 noundef 1, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %11) #10
-  %623 = getelementptr inbounds i8, ptr %620, i64 4
+  %623 = getelementptr inbounds nuw i8, ptr %620, i64 4
   %624 = load i32, ptr %623, align 4
   %625 = and i32 %624, 64
   %.not118.i = icmp eq i32 %625, 0
@@ -11433,15 +11433,15 @@ register_class_RegexIterator.exit:                ; preds = %520, %532, %539, %5
 
 635:                                              ; preds = %634, %633, %626, %617
   store i64 2, ptr %12, align 8
-  %636 = getelementptr inbounds i8, ptr %12, i64 8
+  %636 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i32 4, ptr %636, align 8
   %637 = load ptr, ptr @zend_string_init_interned, align 8
   %638 = call ptr %637(ptr noundef nonnull @.str.162, i64 noundef 15, i1 noundef zeroext true) #10
   store ptr null, ptr %13, align 8
-  %639 = getelementptr inbounds i8, ptr %13, i64 8
+  %639 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i32 16, ptr %639, align 8
   %640 = call ptr @zend_declare_typed_class_constant(ptr noundef %563, ptr noundef %638, ptr noundef nonnull %12, i32 noundef 1, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %13) #10
-  %641 = getelementptr inbounds i8, ptr %638, i64 4
+  %641 = getelementptr inbounds nuw i8, ptr %638, i64 4
   %642 = load i32, ptr %641, align 4
   %643 = and i32 %642, 64
   %.not120.i = icmp eq i32 %643, 0
@@ -11471,15 +11471,15 @@ register_class_RegexIterator.exit:                ; preds = %520, %532, %539, %5
 
 653:                                              ; preds = %652, %651, %644, %635
   store i64 3, ptr %14, align 8
-  %654 = getelementptr inbounds i8, ptr %14, i64 8
+  %654 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i32 4, ptr %654, align 8
   %655 = load ptr, ptr @zend_string_init_interned, align 8
   %656 = call ptr %655(ptr noundef nonnull @.str.163, i64 noundef 19, i1 noundef zeroext true) #10
   store ptr null, ptr %15, align 8
-  %657 = getelementptr inbounds i8, ptr %15, i64 8
+  %657 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i32 16, ptr %657, align 8
   %658 = call ptr @zend_declare_typed_class_constant(ptr noundef %563, ptr noundef %656, ptr noundef nonnull %14, i32 noundef 1, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %15) #10
-  %659 = getelementptr inbounds i8, ptr %656, i64 4
+  %659 = getelementptr inbounds nuw i8, ptr %656, i64 4
   %660 = load i32, ptr %659, align 4
   %661 = and i32 %660, 64
   %.not122.i = icmp eq i32 %661, 0
@@ -11509,15 +11509,15 @@ register_class_RegexIterator.exit:                ; preds = %520, %532, %539, %5
 
 671:                                              ; preds = %670, %669, %662, %653
   store i64 4, ptr %16, align 8
-  %672 = getelementptr inbounds i8, ptr %16, i64 8
+  %672 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i32 4, ptr %672, align 8
   %673 = load ptr, ptr @zend_string_init_interned, align 8
   %674 = call ptr %673(ptr noundef nonnull @.str.164, i64 noundef 15, i1 noundef zeroext true) #10
   store ptr null, ptr %17, align 8
-  %675 = getelementptr inbounds i8, ptr %17, i64 8
+  %675 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i32 16, ptr %675, align 8
   %676 = call ptr @zend_declare_typed_class_constant(ptr noundef %563, ptr noundef %674, ptr noundef nonnull %16, i32 noundef 1, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %17) #10
-  %677 = getelementptr inbounds i8, ptr %674, i64 4
+  %677 = getelementptr inbounds nuw i8, ptr %674, i64 4
   %678 = load i32, ptr %677, align 4
   %679 = and i32 %678, 64
   %.not124.i = icmp eq i32 %679, 0
@@ -11547,15 +11547,15 @@ register_class_RegexIterator.exit:                ; preds = %520, %532, %539, %5
 
 689:                                              ; preds = %688, %687, %680, %671
   store i64 5, ptr %18, align 8
-  %690 = getelementptr inbounds i8, ptr %18, i64 8
+  %690 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i32 4, ptr %690, align 8
   %691 = load ptr, ptr @zend_string_init_interned, align 8
   %692 = call ptr %691(ptr noundef nonnull @.str.165, i64 noundef 12, i1 noundef zeroext true) #10
   store ptr null, ptr %19, align 8
-  %693 = getelementptr inbounds i8, ptr %19, i64 8
+  %693 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i32 16, ptr %693, align 8
   %694 = call ptr @zend_declare_typed_class_constant(ptr noundef %563, ptr noundef %692, ptr noundef nonnull %18, i32 noundef 1, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %19) #10
-  %695 = getelementptr inbounds i8, ptr %692, i64 4
+  %695 = getelementptr inbounds nuw i8, ptr %692, i64 4
   %696 = load i32, ptr %695, align 4
   %697 = and i32 %696, 64
   %.not126.i = icmp eq i32 %697, 0
@@ -11602,16 +11602,16 @@ register_class_RecursiveTreeIterator.exit:        ; preds = %689, %698, %705, %7
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %19)
   store ptr %563, ptr @spl_ce_RecursiveTreeIterator, align 8
-  %707 = getelementptr inbounds i8, ptr %563, i64 384
+  %707 = getelementptr inbounds nuw i8, ptr %563, i64 384
   store ptr @spl_RecursiveTreeIterator_new, ptr %707, align 8
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef nonnull ptr @spl_RecursiveIteratorIterator_new(ptr noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i32, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 28
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %5 = load i32, ptr %4, align 4
   %6 = lshr i32 %5, 11
   %.lobit.i = and i32 %6, 1
@@ -11622,7 +11622,7 @@ define internal noundef nonnull ptr @spl_RecursiveIteratorIterator_new(ptr nound
   %11 = add nsw i64 %10, 208
   %12 = tail call noalias ptr @_emalloc(i64 noundef %11) #12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(152) %12, i8 0, i64 152, i1 false)
-  %13 = getelementptr inbounds i8, ptr %12, i64 152
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 152
   tail call void @zend_object_std_init(ptr noundef nonnull %13, ptr noundef nonnull %0) #10
   tail call void @object_properties_init(ptr noundef nonnull %13, ptr noundef nonnull %0) #10
   ret ptr %13
@@ -11651,15 +11651,15 @@ define internal noundef ptr @spl_recursive_it_get_iterator(ptr nocapture readnon
 11:                                               ; preds = %5
   %12 = tail call noalias ptr @_emalloc_96() #10
   tail call void @zend_iterator_init(ptr noundef %12) #10
-  %13 = getelementptr inbounds i8, ptr %12, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 56
   %14 = load ptr, ptr %1, align 8
   %15 = load i32, ptr %14, align 4
   %16 = add i32 %15, 1
   store i32 %16, ptr %14, align 4
   store ptr %14, ptr %13, align 8
-  %17 = getelementptr inbounds i8, ptr %12, i64 64
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 64
   store i32 776, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %12, i64 72
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 72
   store ptr @spl_recursive_it_iterator_funcs, ptr %18, align 8
   br label %19
 
@@ -11680,11 +11680,11 @@ define internal ptr @spl_recursive_it_get_method(ptr noundef %0, ptr noundef %1,
   br i1 %.not, label %7, label %13
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %4, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.97, ptr noundef nonnull %12) #10
   br label %35
 
@@ -11699,9 +11699,9 @@ define internal ptr @spl_recursive_it_get_method(ptr noundef %0, ptr noundef %1,
 
 19:                                               ; preds = %13
   %20 = load ptr, ptr %17, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 64
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 64
   %24 = tail call ptr @zend_hash_find(ptr noundef nonnull %23, ptr noundef %1) #10
   %.not33 = icmp eq ptr %24, null
   br i1 %.not33, label %25, label %32
@@ -11709,9 +11709,9 @@ define internal ptr @spl_recursive_it_get_method(ptr noundef %0, ptr noundef %1,
 25:                                               ; preds = %19
   %26 = load ptr, ptr %17, align 8
   store ptr %26, ptr %0, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 112
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 112
   %30 = load ptr, ptr %29, align 8
   %31 = tail call ptr %30(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2) #10
   br label %35
@@ -11744,7 +11744,7 @@ define internal void @spl_RecursiveIteratorIterator_free_storage(ptr noundef %0)
   %7 = phi i32 [ %17, %.lr.ph ], [ %5, %.preheader ]
   %8 = load ptr, ptr %2, align 8
   %9 = zext nneg i32 %7 to i64
-  %10 = getelementptr inbounds %struct._spl_sub_iterator, ptr %8, i64 %9
+  %10 = getelementptr inbounds nuw %struct._spl_sub_iterator, ptr %8, i64 %9
   %11 = load ptr, ptr %10, align 8
   tail call void @zend_iterator_dtor(ptr noundef %11) #10
   %12 = load ptr, ptr %2, align 8
@@ -11775,13 +11775,13 @@ define internal void @spl_RecursiveIteratorIterator_free_storage(ptr noundef %0)
 
 22:                                               ; preds = %20, %38
   %.046 = phi i64 [ 0, %20 ], [ %39, %38 ]
-  %23 = getelementptr inbounds [6 x ptr], ptr %21, i64 0, i64 %.046
+  %23 = getelementptr inbounds nuw [6 x ptr], ptr %21, i64 0, i64 %.046
   %24 = load ptr, ptr %23, align 8
   %.not43 = icmp eq ptr %24, null
   br i1 %.not43, label %38, label %25
 
 25:                                               ; preds = %22
-  %26 = getelementptr inbounds i8, ptr %24, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 4
   %27 = load i32, ptr %26, align 4
   %28 = and i32 %27, 64
   %.not44 = icmp eq i32 %28, 0
@@ -11821,7 +11821,7 @@ define internal void @spl_RecursiveIteratorIterator_free_storage(ptr noundef %0)
   br i1 %.not40, label %56, label %43
 
 43:                                               ; preds = %40
-  %44 = getelementptr inbounds i8, ptr %42, i64 4
+  %44 = getelementptr inbounds nuw i8, ptr %42, i64 4
   %45 = load i32, ptr %44, align 4
   %46 = and i32 %45, 64
   %.not41 = icmp eq i32 %46, 0
@@ -11868,7 +11868,7 @@ define internal ptr @spl_RecursiveIteratorIterator_get_gc(ptr noundef %0, ptr no
   br i1 %.not4042, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %9 = getelementptr inbounds i8, ptr %5, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.pre46.pre = load ptr, ptr %5, align 8
   br label %10
 
@@ -11876,9 +11876,9 @@ define internal ptr @spl_RecursiveIteratorIterator_get_gc(ptr noundef %0, ptr no
   %.pre46 = phi ptr [ %.pre46.pre, %.lr.ph ], [ %39, %35 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %35 ]
   %11 = load ptr, ptr %4, align 8
-  %12 = getelementptr inbounds %struct._spl_sub_iterator, ptr %11, i64 %indvars.iv, i32 1
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
-  %14 = getelementptr inbounds i8, ptr %12, i64 9
+  %12 = getelementptr inbounds nuw %struct._spl_sub_iterator, ptr %11, i64 %indvars.iv, i32 1
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 9
   %15 = load i8, ptr %14, align 1
   %.not41 = icmp eq i8 %15, 0
   br i1 %.not41, label %27, label %16
@@ -11898,10 +11898,10 @@ define internal ptr @spl_RecursiveIteratorIterator_get_gc(ptr noundef %0, ptr no
   %22 = load ptr, ptr %12, align 8
   %23 = load i32, ptr %13, align 8
   store ptr %22, ptr %21, align 8
-  %24 = getelementptr inbounds i8, ptr %21, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i32 %23, ptr %24, align 8
   %25 = load ptr, ptr %5, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   store ptr %26, ptr %5, align 8
   %.pre45 = load ptr, ptr %4, align 8
   br label %27
@@ -11909,7 +11909,7 @@ define internal ptr @spl_RecursiveIteratorIterator_get_gc(ptr noundef %0, ptr no
 27:                                               ; preds = %20, %10
   %28 = phi ptr [ %26, %20 ], [ %.pre46, %10 ]
   %29 = phi ptr [ %.pre45, %20 ], [ %11, %10 ]
-  %30 = getelementptr inbounds %struct._spl_sub_iterator, ptr %29, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw %struct._spl_sub_iterator, ptr %29, i64 %indvars.iv
   %31 = load ptr, ptr %30, align 8
   %32 = load ptr, ptr %9, align 8
   %33 = icmp eq ptr %28, %32
@@ -11923,10 +11923,10 @@ define internal ptr @spl_RecursiveIteratorIterator_get_gc(ptr noundef %0, ptr no
 35:                                               ; preds = %34, %27
   %36 = phi ptr [ %.pre47, %34 ], [ %28, %27 ]
   store ptr %31, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   store i32 776, ptr %37, align 8
   %38 = load ptr, ptr %5, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
   store ptr %39, ptr %5, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %40 = load i32, ptr %7, align 8
@@ -11935,7 +11935,7 @@ define internal ptr @spl_RecursiveIteratorIterator_get_gc(ptr noundef %0, ptr no
   br i1 %.not40.not, label %10, label %.loopexit
 
 .loopexit:                                        ; preds = %35, %.preheader, %3
-  %42 = getelementptr inbounds i8, ptr %5, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %43 = load ptr, ptr %42, align 8
   store ptr %43, ptr %1, align 8
   %44 = load ptr, ptr %5, align 8
@@ -11964,16 +11964,16 @@ define internal ptr @spl_dual_it_get_method(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %.not28, label %27, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %9, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 64
   %12 = tail call ptr @zend_hash_find(ptr noundef nonnull %11, ptr noundef %1) #10
   %.not29 = icmp eq ptr %12, null
   br i1 %.not29, label %13, label %24
 
 13:                                               ; preds = %10
   %14 = load ptr, ptr %5, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 112
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 112
   %18 = load ptr, ptr %17, align 8
   %.not30 = icmp eq ptr %18, null
   br i1 %.not30, label %27, label %19
@@ -11981,7 +11981,7 @@ define internal ptr @spl_dual_it_get_method(ptr noundef %0, ptr noundef %1, ptr 
 19:                                               ; preds = %13
   store ptr %14, ptr %0, align 8
   %20 = load ptr, ptr %15, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 112
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 112
   %22 = load ptr, ptr %21, align 8
   %23 = tail call ptr %22(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2) #10
   br label %27
@@ -12075,7 +12075,7 @@ define internal void @spl_dual_it_free_storage(ptr noundef %0) #0 {
   br i1 %.not61, label %47, label %37
 
 37:                                               ; preds = %34
-  %38 = getelementptr inbounds i8, ptr %36, i64 4
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 4
   %39 = load i32, ptr %38, align 4
   %40 = and i32 %39, 64
   %.not62 = icmp eq i32 %40, 0
@@ -12126,7 +12126,7 @@ define internal void @spl_dual_it_free_storage(ptr noundef %0) #0 {
   br label %68
 
 62:                                               ; preds = %56
-  %63 = getelementptr inbounds i8, ptr %55, i64 4
+  %63 = getelementptr inbounds nuw i8, ptr %55, i64 4
   %64 = load i32, ptr %63, align 4
   %65 = and i32 %64, -1008
   %66 = icmp eq i32 %65, 0
@@ -12157,7 +12157,7 @@ define internal void @spl_dual_it_free_storage(ptr noundef %0) #0 {
   br label %83
 
 77:                                               ; preds = %71
-  %78 = getelementptr inbounds i8, ptr %70, i64 4
+  %78 = getelementptr inbounds nuw i8, ptr %70, i64 4
   %79 = load i32, ptr %78, align 4
   %80 = and i32 %79, -1008
   %81 = icmp eq i32 %80, 0
@@ -12187,7 +12187,7 @@ define internal ptr @spl_dual_it_get_gc(ptr noundef %0, ptr nocapture noundef wr
 
 8:                                                ; preds = %3
   %9 = load ptr, ptr %5, align 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %9, %11
   br i1 %12, label %13, label %14
@@ -12200,10 +12200,10 @@ define internal ptr @spl_dual_it_get_gc(ptr noundef %0, ptr nocapture noundef wr
 14:                                               ; preds = %13, %8
   %15 = phi ptr [ %.pre, %13 ], [ %9, %8 ]
   store ptr %7, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i32 776, ptr %16, align 8
   %17 = load ptr, ptr %5, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store ptr %18, ptr %5, align 8
   br label %19
 
@@ -12217,7 +12217,7 @@ define internal ptr @spl_dual_it_get_gc(ptr noundef %0, ptr nocapture noundef wr
 
 24:                                               ; preds = %19
   %25 = load ptr, ptr %5, align 8
-  %26 = getelementptr inbounds i8, ptr %5, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %25, %27
   br i1 %28, label %29, label %30
@@ -12232,10 +12232,10 @@ define internal ptr @spl_dual_it_get_gc(ptr noundef %0, ptr nocapture noundef wr
   %32 = load ptr, ptr %20, align 8
   %33 = load i32, ptr %21, align 8
   store ptr %32, ptr %31, align 8
-  %34 = getelementptr inbounds i8, ptr %31, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store i32 %33, ptr %34, align 8
   %35 = load ptr, ptr %5, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
   store ptr %36, ptr %5, align 8
   br label %37
 
@@ -12249,7 +12249,7 @@ define internal ptr @spl_dual_it_get_gc(ptr noundef %0, ptr nocapture noundef wr
 
 42:                                               ; preds = %37
   %43 = load ptr, ptr %5, align 8
-  %44 = getelementptr inbounds i8, ptr %5, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %45 = load ptr, ptr %44, align 8
   %46 = icmp eq ptr %43, %45
   br i1 %46, label %47, label %48
@@ -12264,10 +12264,10 @@ define internal ptr @spl_dual_it_get_gc(ptr noundef %0, ptr nocapture noundef wr
   %50 = load ptr, ptr %38, align 8
   %51 = load i32, ptr %39, align 8
   store ptr %50, ptr %49, align 8
-  %52 = getelementptr inbounds i8, ptr %49, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %49, i64 8
   store i32 %51, ptr %52, align 8
   %53 = load ptr, ptr %5, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 16
   store ptr %54, ptr %5, align 8
   br label %55
 
@@ -12280,7 +12280,7 @@ define internal ptr @spl_dual_it_get_gc(ptr noundef %0, ptr nocapture noundef wr
 
 59:                                               ; preds = %55
   %60 = load ptr, ptr %5, align 8
-  %61 = getelementptr inbounds i8, ptr %5, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %62 = load ptr, ptr %61, align 8
   %63 = icmp eq ptr %60, %62
   br i1 %63, label %64, label %65
@@ -12295,10 +12295,10 @@ define internal ptr @spl_dual_it_get_gc(ptr noundef %0, ptr nocapture noundef wr
   %67 = load ptr, ptr %4, align 8
   %68 = load i32, ptr %56, align 8
   store ptr %67, ptr %66, align 8
-  %69 = getelementptr inbounds i8, ptr %66, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %66, i64 8
   store i32 %68, ptr %69, align 8
   %70 = load ptr, ptr %5, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 16
   store ptr %71, ptr %5, align 8
   br label %72
 
@@ -12318,7 +12318,7 @@ define internal ptr @spl_dual_it_get_gc(ptr noundef %0, ptr nocapture noundef wr
   %77 = getelementptr inbounds i8, ptr %0, i64 -32
   %78 = load ptr, ptr %77, align 8
   %79 = load ptr, ptr %5, align 8
-  %80 = getelementptr inbounds i8, ptr %5, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %81 = load ptr, ptr %80, align 8
   %82 = icmp eq ptr %79, %81
   br i1 %82, label %83, label %84
@@ -12331,10 +12331,10 @@ define internal ptr @spl_dual_it_get_gc(ptr noundef %0, ptr nocapture noundef wr
 84:                                               ; preds = %83, %75
   %85 = phi ptr [ %.pre164, %83 ], [ %79, %75 ]
   store ptr %78, ptr %85, align 8
-  %86 = getelementptr inbounds i8, ptr %85, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 8
   store i32 776, ptr %86, align 8
   %87 = load ptr, ptr %5, align 8
-  %88 = getelementptr inbounds i8, ptr %87, i64 16
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 16
   store ptr %88, ptr %5, align 8
   %89 = getelementptr inbounds i8, ptr %0, i64 -40
   %90 = load i8, ptr %89, align 8
@@ -12374,7 +12374,7 @@ define internal ptr @spl_dual_it_get_gc(ptr noundef %0, ptr nocapture noundef wr
 
 107:                                              ; preds = %102
   %108 = load ptr, ptr %5, align 8
-  %109 = getelementptr inbounds i8, ptr %5, i64 8
+  %109 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %110 = load ptr, ptr %109, align 8
   %111 = icmp eq ptr %108, %110
   br i1 %111, label %112, label %113
@@ -12389,10 +12389,10 @@ define internal ptr @spl_dual_it_get_gc(ptr noundef %0, ptr nocapture noundef wr
   %115 = load ptr, ptr %103, align 8
   %116 = load i32, ptr %104, align 8
   store ptr %115, ptr %114, align 8
-  %117 = getelementptr inbounds i8, ptr %114, i64 8
+  %117 = getelementptr inbounds nuw i8, ptr %114, i64 8
   store i32 %116, ptr %117, align 8
   %118 = load ptr, ptr %5, align 8
-  %119 = getelementptr inbounds i8, ptr %118, i64 16
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 16
   store ptr %119, ptr %5, align 8
   br label %120
 
@@ -12406,7 +12406,7 @@ define internal ptr @spl_dual_it_get_gc(ptr noundef %0, ptr nocapture noundef wr
 
 125:                                              ; preds = %120
   %126 = load ptr, ptr %5, align 8
-  %127 = getelementptr inbounds i8, ptr %5, i64 8
+  %127 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %128 = load ptr, ptr %127, align 8
   %129 = icmp eq ptr %126, %128
   br i1 %129, label %130, label %131
@@ -12437,7 +12437,7 @@ define internal ptr @spl_dual_it_get_gc(ptr noundef %0, ptr nocapture noundef wr
 
 141:                                              ; preds = %138
   %142 = load ptr, ptr %5, align 8
-  %143 = getelementptr inbounds i8, ptr %5, i64 8
+  %143 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %144 = load ptr, ptr %143, align 8
   %145 = icmp eq ptr %142, %144
   br i1 %145, label %146, label %147
@@ -12450,10 +12450,10 @@ define internal ptr @spl_dual_it_get_gc(ptr noundef %0, ptr nocapture noundef wr
 147:                                              ; preds = %146, %141
   %148 = phi ptr [ %.pre168, %146 ], [ %142, %141 ]
   store ptr %140, ptr %148, align 8
-  %149 = getelementptr inbounds i8, ptr %148, i64 8
+  %149 = getelementptr inbounds nuw i8, ptr %148, i64 8
   store i32 776, ptr %149, align 8
   %150 = load ptr, ptr %5, align 8
-  %151 = getelementptr inbounds i8, ptr %150, i64 16
+  %151 = getelementptr inbounds nuw i8, ptr %150, i64 16
   store ptr %151, ptr %5, align 8
   br label %152
 
@@ -12465,7 +12465,7 @@ define internal ptr @spl_dual_it_get_gc(ptr noundef %0, ptr nocapture noundef wr
 
 155:                                              ; preds = %152
   %156 = load ptr, ptr %5, align 8
-  %157 = getelementptr inbounds i8, ptr %5, i64 8
+  %157 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %158 = load ptr, ptr %157, align 8
   %159 = icmp eq ptr %156, %158
   br i1 %159, label %160, label %161
@@ -12483,15 +12483,15 @@ define internal ptr @spl_dual_it_get_gc(ptr noundef %0, ptr nocapture noundef wr
 .sink.split:                                      ; preds = %98, %131, %161
   %.sink172 = phi ptr [ %162, %161 ], [ %132, %131 ], [ %99, %98 ]
   %.sink = phi i32 [ 776, %161 ], [ %134, %131 ], [ %101, %98 ]
-  %163 = getelementptr inbounds i8, ptr %.sink172, i64 8
+  %163 = getelementptr inbounds nuw i8, ptr %.sink172, i64 8
   store i32 %.sink, ptr %163, align 8
   %164 = load ptr, ptr %5, align 8
-  %165 = getelementptr inbounds i8, ptr %164, i64 16
+  %165 = getelementptr inbounds nuw i8, ptr %164, i64 16
   store ptr %165, ptr %5, align 8
   br label %166
 
 166:                                              ; preds = %.sink.split, %135, %152, %120, %84, %91, %72
-  %167 = getelementptr inbounds i8, ptr %5, i64 16
+  %167 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %168 = load ptr, ptr %167, align 8
   store ptr %168, ptr %1, align 8
   %169 = load ptr, ptr %5, align 8
@@ -12507,9 +12507,9 @@ define internal ptr @spl_dual_it_get_gc(ptr noundef %0, ptr nocapture noundef wr
 
 ; Function Attrs: nounwind uwtable
 define internal noundef nonnull ptr @spl_dual_it_new(ptr noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i32, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 28
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %5 = load i32, ptr %4, align 4
   %6 = lshr i32 %5, 11
   %.lobit = and i32 %6, 1
@@ -12520,9 +12520,9 @@ define internal noundef nonnull ptr @spl_dual_it_new(ptr noundef %0) #0 {
   %11 = add nsw i64 %10, 192
   %12 = tail call noalias ptr @_emalloc(i64 noundef %11) #12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(136) %12, i8 0, i64 136, i1 false)
-  %13 = getelementptr inbounds i8, ptr %12, i64 80
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 80
   store i32 -1, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %12, i64 136
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 136
   tail call void @zend_object_std_init(ptr noundef nonnull %14, ptr noundef %0) #10
   tail call void @object_properties_init(ptr noundef nonnull %14, ptr noundef %0) #10
   ret ptr %14
@@ -12536,7 +12536,7 @@ define internal noundef nonnull ptr @spl_RecursiveTreeIterator_new(ptr noundef %
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 1) i32 @spl_get_iterator_from_aggregate(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 368
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 368
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr @zend_call_method(ptr noundef %2, ptr noundef %1, ptr noundef %5, ptr noundef nonnull @.str.35, i64 noundef 11, ptr noundef nonnull %0, i32 noundef 0, ptr noundef null, ptr noundef null) #10
   %7 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
@@ -12544,14 +12544,14 @@ define internal fastcc range(i32 -1, 1) i32 @spl_get_iterator_from_aggregate(ptr
   br i1 %.not24, label %8, label %.critedge
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i8, ptr %9, align 8
   %.not25 = icmp eq i8 %10, 8
   br i1 %.not25, label %11, label %19
 
 11:                                               ; preds = %8
   %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr @zend_ce_traversable, align 8
   %16 = icmp eq ptr %14, %15
@@ -12563,9 +12563,9 @@ define internal fastcc range(i32 -1, 1) i32 @spl_get_iterator_from_aggregate(ptr
 
 19:                                               ; preds = %17, %8
   %20 = load ptr, ptr @spl_ce_LogicException, align 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %24 = tail call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %20, i64 noundef 0, ptr noundef nonnull @.str.36, ptr noundef nonnull %23) #10
   tail call void @zval_ptr_dtor(ptr noundef nonnull %0) #10
   br label %.critedge
@@ -12626,20 +12626,20 @@ define internal fastcc void @spl_filter_it_fetch(ptr nocapture noundef readonly 
   br i1 %.not.i.i17, label %spl_dual_it_fetch.exit.thread, label %spl_dual_it_valid.exit.i.lr.ph
 
 spl_dual_it_valid.exit.i.lr.ph:                   ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %1, i64 40
-  %6 = getelementptr inbounds i8, ptr %1, i64 48
-  %7 = getelementptr inbounds i8, ptr %1, i64 56
-  %8 = getelementptr inbounds i8, ptr %1, i64 72
-  %9 = getelementptr inbounds i8, ptr %1, i64 64
-  %10 = getelementptr inbounds i8, ptr %1, i64 152
-  %11 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 152
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %spl_dual_it_valid.exit.i
 
 spl_dual_it_valid.exit.i:                         ; preds = %spl_dual_it_valid.exit.i.lr.ph, %53
   %.val.i18 = phi ptr [ %.val.i16, %spl_dual_it_valid.exit.i.lr.ph ], [ %.val.i, %53 ]
-  %12 = getelementptr inbounds i8, ptr %.val.i18, i64 72
+  %12 = getelementptr inbounds nuw i8, ptr %.val.i18, i64 72
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = call i32 %15(ptr noundef nonnull %.val.i18) #10
   %17 = icmp eq i32 %16, 0
@@ -12647,9 +12647,9 @@ spl_dual_it_valid.exit.i:                         ; preds = %spl_dual_it_valid.e
 
 18:                                               ; preds = %spl_dual_it_valid.exit.i
   %19 = load ptr, ptr %4, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 72
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 72
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load ptr, ptr %22, align 8
   %24 = call ptr %23(ptr noundef %19) #10
   %.not29.i = icmp eq ptr %24, null
@@ -12657,7 +12657,7 @@ spl_dual_it_valid.exit.i:                         ; preds = %spl_dual_it_valid.e
 
 25:                                               ; preds = %18
   %26 = load ptr, ptr %24, align 8
-  %27 = getelementptr inbounds i8, ptr %24, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %28 = load i32, ptr %27, align 8
   store ptr %26, ptr %5, align 8
   store i32 %28, ptr %6, align 8
@@ -12673,9 +12673,9 @@ spl_dual_it_valid.exit.i:                         ; preds = %spl_dual_it_valid.e
 
 33:                                               ; preds = %30, %25, %18
   %34 = load ptr, ptr %4, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 72
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 72
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 24
   %38 = load ptr, ptr %37, align 8
   %.not31.i = icmp eq ptr %38, null
   br i1 %.not31.i, label %42, label %39
@@ -12726,9 +12726,9 @@ spl_dual_it_fetch.exit.thread19:                  ; preds = %39, %spl_dual_it_fe
 
 53:                                               ; preds = %49, %52
   %54 = load ptr, ptr %4, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 72
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 72
   %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 32
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 32
   %58 = load ptr, ptr %57, align 8
   call void %58(ptr noundef %54) #10
   call fastcc void @spl_dual_it_free(ptr noundef nonnull %1)
@@ -12786,9 +12786,9 @@ declare ptr @zend_declare_typed_class_constant(ptr noundef, ptr noundef, ptr nou
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef nonnull ptr @spl_RecursiveIteratorIterator_new_ex(ptr noundef %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i32, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 28
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %6 = load i32, ptr %5, align 4
   %7 = lshr i32 %6, 11
   %.lobit = and i32 %7, 1
@@ -12804,73 +12804,73 @@ define internal fastcc noundef nonnull ptr @spl_RecursiveIteratorIterator_new_ex
 
 14:                                               ; preds = %2
   %15 = load ptr, ptr @zend_empty_string, align 8
-  %16 = getelementptr inbounds i8, ptr %13, i64 96
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 96
   store ptr %15, ptr %16, align 8
   %17 = tail call noalias ptr @_emalloc_32() #10
   store i32 1, ptr %17, align 4
-  %18 = getelementptr inbounds i8, ptr %17, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 4
   store i32 22, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %17, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i64 0, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %17, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store i64 2, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %17, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 24
   store i16 8316, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %17, i64 26
+  %22 = getelementptr inbounds nuw i8, ptr %17, i64 26
   store i8 0, ptr %22, align 1
-  %23 = getelementptr inbounds i8, ptr %13, i64 104
+  %23 = getelementptr inbounds nuw i8, ptr %13, i64 104
   store ptr %17, ptr %23, align 8
   %24 = tail call noalias ptr @_emalloc_32() #10
   store i32 1, ptr %24, align 4
-  %25 = getelementptr inbounds i8, ptr %24, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 4
   store i32 22, ptr %25, align 4
-  %26 = getelementptr inbounds i8, ptr %24, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i64 0, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %24, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 16
   store i64 2, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %24, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %24, i64 24
   store i16 8224, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %24, i64 26
+  %29 = getelementptr inbounds nuw i8, ptr %24, i64 26
   store i8 0, ptr %29, align 1
-  %30 = getelementptr inbounds i8, ptr %13, i64 112
+  %30 = getelementptr inbounds nuw i8, ptr %13, i64 112
   store ptr %24, ptr %30, align 8
   %31 = tail call noalias ptr @_emalloc_32() #10
   store i32 1, ptr %31, align 4
-  %32 = getelementptr inbounds i8, ptr %31, i64 4
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 4
   store i32 22, ptr %32, align 4
-  %33 = getelementptr inbounds i8, ptr %31, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store i64 0, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %31, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %31, i64 16
   store i64 2, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %31, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %31, i64 24
   store i16 11644, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %31, i64 26
+  %36 = getelementptr inbounds nuw i8, ptr %31, i64 26
   store i8 0, ptr %36, align 1
-  %37 = getelementptr inbounds i8, ptr %13, i64 120
+  %37 = getelementptr inbounds nuw i8, ptr %13, i64 120
   store ptr %31, ptr %37, align 8
   %38 = tail call noalias ptr @_emalloc_32() #10
   store i32 1, ptr %38, align 4
-  %39 = getelementptr inbounds i8, ptr %38, i64 4
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 4
   store i32 22, ptr %39, align 4
-  %40 = getelementptr inbounds i8, ptr %38, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %38, i64 8
   store i64 0, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %38, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %38, i64 16
   store i64 2, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %38, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %38, i64 24
   store i16 11612, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %38, i64 26
+  %43 = getelementptr inbounds nuw i8, ptr %38, i64 26
   store i8 0, ptr %43, align 1
-  %44 = getelementptr inbounds i8, ptr %13, i64 128
+  %44 = getelementptr inbounds nuw i8, ptr %13, i64 128
   store ptr %38, ptr %44, align 8
   %45 = load ptr, ptr @zend_empty_string, align 8
-  %46 = getelementptr inbounds i8, ptr %13, i64 136
+  %46 = getelementptr inbounds nuw i8, ptr %13, i64 136
   store ptr %45, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %13, i64 144
+  %47 = getelementptr inbounds nuw i8, ptr %13, i64 144
   store ptr %45, ptr %47, align 8
   br label %48
 
 48:                                               ; preds = %14, %2
-  %49 = getelementptr inbounds i8, ptr %13, i64 152
+  %49 = getelementptr inbounds nuw i8, ptr %13, i64 152
   tail call void @zend_object_std_init(ptr noundef nonnull %49, ptr noundef nonnull %0) #10
   tail call void @object_properties_init(ptr noundef nonnull %49, ptr noundef nonnull %0) #10
   ret ptr %49
@@ -12894,7 +12894,7 @@ declare void @zend_iterator_init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @spl_recursive_it_dtor(ptr noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 -152
   %5 = load ptr, ptr %4, align 8
@@ -12911,8 +12911,8 @@ define internal void @spl_recursive_it_dtor(ptr noundef %0) #0 {
   %9 = phi i32 [ %24, %22 ], [ %7, %.preheader ]
   %10 = load ptr, ptr %4, align 8
   %11 = zext nneg i32 %9 to i64
-  %12 = getelementptr inbounds %struct._spl_sub_iterator, ptr %10, i64 %11
-  %13 = getelementptr inbounds i8, ptr %12, i64 16
+  %12 = getelementptr inbounds nuw %struct._spl_sub_iterator, ptr %10, i64 %11
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load i8, ptr %13, align 8
   %15 = icmp eq i8 %14, 0
   br i1 %15, label %22, label %16
@@ -12953,7 +12953,7 @@ define internal void @spl_recursive_it_dtor(ptr noundef %0) #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @spl_recursive_it_valid(ptr nocapture noundef readonly %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 -152
   %5 = load ptr, ptr %4, align 8
@@ -12978,11 +12978,11 @@ define internal range(i32 -1, 1) i32 @spl_recursive_it_valid(ptr nocapture nound
 .lr.ph.i:                                         ; preds = %10, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ %9, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %10 ]
   %12 = load ptr, ptr %4, align 8
-  %13 = getelementptr inbounds %struct._spl_sub_iterator, ptr %12, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw %struct._spl_sub_iterator, ptr %12, i64 %indvars.iv.i
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 72
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 72
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8
   %19 = tail call i32 %18(ptr noundef %14) #10
   %20 = icmp eq i32 %19, 0
@@ -13019,7 +13019,7 @@ spl_recursive_it_valid_ex.exit:                   ; preds = %.lr.ph.i, %1, %32
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @spl_recursive_it_get_current_data(ptr nocapture noundef readonly %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 -152
   %5 = load ptr, ptr %4, align 8
@@ -13028,9 +13028,9 @@ define internal ptr @spl_recursive_it_get_current_data(ptr nocapture noundef rea
   %8 = sext i32 %7 to i64
   %9 = getelementptr inbounds %struct._spl_sub_iterator, ptr %5, i64 %8
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 72
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = tail call ptr %14(ptr noundef %10) #10
   ret ptr %15
@@ -13038,7 +13038,7 @@ define internal ptr @spl_recursive_it_get_current_data(ptr nocapture noundef rea
 
 ; Function Attrs: nounwind uwtable
 define internal void @spl_recursive_it_get_current_key(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 56
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 -152
   %6 = load ptr, ptr %5, align 8
@@ -13047,9 +13047,9 @@ define internal void @spl_recursive_it_get_current_key(ptr nocapture noundef rea
   %9 = sext i32 %8 to i64
   %10 = getelementptr inbounds %struct._spl_sub_iterator, ptr %6, i64 %9
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 72
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 72
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = load ptr, ptr %14, align 8
   %.not = icmp eq ptr %15, null
   br i1 %.not, label %17, label %16
@@ -13059,10 +13059,10 @@ define internal void @spl_recursive_it_get_current_key(ptr nocapture noundef rea
   br label %21
 
 17:                                               ; preds = %2
-  %18 = getelementptr inbounds i8, ptr %0, i64 80
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %19 = load i64, ptr %18, align 8
   store i64 %19, ptr %1, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 4, ptr %20, align 8
   br label %21
 
@@ -13072,7 +13072,7 @@ define internal void @spl_recursive_it_get_current_key(ptr nocapture noundef rea
 
 ; Function Attrs: nounwind uwtable
 define internal void @spl_recursive_it_move_forward(ptr nocapture noundef readonly %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 -152
   tail call fastcc void @spl_recursive_it_move_forward_ex(ptr noundef nonnull %4, ptr noundef nonnull %2)
@@ -13081,7 +13081,7 @@ define internal void @spl_recursive_it_move_forward(ptr nocapture noundef readon
 
 ; Function Attrs: nounwind uwtable
 define internal void @spl_recursive_it_rewind(ptr nocapture noundef readonly %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 -152
   tail call fastcc void @spl_recursive_it_rewind_ex(ptr noundef nonnull %4, ptr noundef nonnull %2)

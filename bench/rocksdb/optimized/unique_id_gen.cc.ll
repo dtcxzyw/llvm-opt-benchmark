@@ -48,7 +48,7 @@ if.end.i.i.i:
   %e.i = alloca %"struct.rocksdb::(anonymous namespace)::Entropy", align 8
   %call.i = tail call noundef ptr @_ZN7rocksdb3Env7DefaultEv()
   call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %e.i)
-  %0 = getelementptr inbounds i8, ptr %e.i, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %e.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %0, i8 0, i64 160, i1 false)
   store i64 34360459264, ptr %e.i, align 8
   call void @llvm.lifetime.start.p0(i64 5000, ptr nonnull %r.i.i.i)
@@ -61,7 +61,7 @@ for.body.i.i.i:                                   ; preds = %invoke.cont.i.i.i, 
           to label %invoke.cont.i.i.i unwind label %lpad.i.i.i
 
 invoke.cont.i.i.i:                                ; preds = %for.body.i.i.i
-  %__begin2.0.ptr2.i.i.i = getelementptr inbounds i8, ptr %0, i64 %__begin2.0.idx1.i.i.i
+  %__begin2.0.ptr2.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 %__begin2.0.idx1.i.i.i
   store i32 %call.i4.i.i.i, ptr %__begin2.0.ptr2.i.i.i, align 4
   %__begin2.0.add.i.i.i = add nuw nsw i64 %__begin2.0.idx1.i.i.i, 4
   %cmp.not.i.i.i = icmp eq i64 %__begin2.0.add.i.i.i, 24
@@ -99,12 +99,12 @@ invoke.cont.i5.i.i:                               ; preds = %for.end.i.i.i
   call void @llvm.lifetime.end.p0(i64 5000, ptr nonnull %r.i.i.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp9.i.i.i)
-  %et2.i.i = getelementptr inbounds i8, ptr %e.i, i64 32
+  %et2.i.i = getelementptr inbounds nuw i8, ptr %e.i, i64 32
   %vtable.i.i.i = load ptr, ptr %call.i, align 8
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 472
+  %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 472
   %6 = load ptr, ptr %vfn.i.i.i, align 8
   call void %6(ptr nonnull sret(%"class.rocksdb::Status") align 8 %ref.tmp.i.i.i, ptr noundef nonnull align 8 dereferenceable(72) %call.i, ptr noundef nonnull align 8 dereferenceable(96) %et2.i.i, i64 noundef 64)
-  %state_.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i, i64 8
+  %state_.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i.i, i64 8
   %7 = load ptr, ptr %state_.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %7, null
   br i1 %cmp.not.i.i.i.i.i, label %invoke.cont14.i.i.i, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i.i.i
@@ -116,20 +116,20 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
 invoke.cont14.i.i.i:                              ; preds = %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i.i.i, %invoke.cont.i5.i.i
   store ptr null, ptr %state_.i.i.i.i, align 8
   %call4.i.i.i = call noundef i64 @_ZN7rocksdb4port12GetProcessIDEv()
-  %process_id.i.i.i = getelementptr inbounds i8, ptr %e.i, i64 96
+  %process_id.i.i.i = getelementptr inbounds nuw i8, ptr %e.i, i64 96
   store i64 %call4.i.i.i, ptr %process_id.i.i.i, align 8
   %vtable6.i.i.i = load ptr, ptr %call.i, align 8
-  %vfn7.i.i.i = getelementptr inbounds i8, ptr %vtable6.i.i.i, i64 648
+  %vfn7.i.i.i = getelementptr inbounds nuw i8, ptr %vtable6.i.i.i, i64 648
   %8 = load ptr, ptr %vfn7.i.i.i, align 8
   %call8.i.i.i = call noundef i64 %8(ptr noundef nonnull align 8 dereferenceable(72) %call.i)
-  %thread_id.i.i.i = getelementptr inbounds i8, ptr %e.i, i64 104
+  %thread_id.i.i.i = getelementptr inbounds nuw i8, ptr %e.i, i64 104
   store i64 %call8.i.i.i, ptr %thread_id.i.i.i, align 8
-  %unix_time.i.i.i = getelementptr inbounds i8, ptr %e.i, i64 112
+  %unix_time.i.i.i = getelementptr inbounds nuw i8, ptr %e.i, i64 112
   %vtable11.i.i.i = load ptr, ptr %call.i, align 8
-  %vfn12.i.i.i = getelementptr inbounds i8, ptr %vtable11.i.i.i, i64 488
+  %vfn12.i.i.i = getelementptr inbounds nuw i8, ptr %vtable11.i.i.i, i64 488
   %9 = load ptr, ptr %vfn12.i.i.i, align 8
   call void %9(ptr nonnull sret(%"class.rocksdb::Status") align 8 %ref.tmp9.i.i.i, ptr noundef nonnull align 8 dereferenceable(72) %call.i, ptr noundef nonnull %unix_time.i.i.i)
-  %state_.i6.i.i.i = getelementptr inbounds i8, ptr %ref.tmp9.i.i.i, i64 8
+  %state_.i6.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp9.i.i.i, i64 8
   %10 = load ptr, ptr %state_.i6.i.i.i, align 8
   %cmp.not.i.i7.i.i.i = icmp eq ptr %10, null
   br i1 %cmp.not.i.i7.i.i.i, label %_ZN7rocksdb12_GLOBAL__N_122EntropyTrackEnvDetails8PopulateERKNS0_23GenerateRawUniqueIdOptsE.exit.i.i, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i8.i.i.i
@@ -141,14 +141,14 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
 _ZN7rocksdb12_GLOBAL__N_122EntropyTrackEnvDetails8PopulateERKNS0_23GenerateRawUniqueIdOptsE.exit.i.i: ; preds = %invoke.cont14.i.i.i, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i8.i.i.i
   store ptr null, ptr %state_.i6.i.i.i, align 8
   %vtable16.i.i.i = load ptr, ptr %call.i, align 8
-  %vfn17.i.i.i = getelementptr inbounds i8, ptr %vtable16.i.i.i, i64 448
+  %vfn17.i.i.i = getelementptr inbounds nuw i8, ptr %vtable16.i.i.i, i64 448
   %11 = load ptr, ptr %vfn17.i.i.i, align 8
   %call18.i.i.i = call noundef i64 %11(ptr noundef nonnull align 8 dereferenceable(72) %call.i)
-  %nano_time.i.i.i = getelementptr inbounds i8, ptr %e.i, i64 120
+  %nano_time.i.i.i = getelementptr inbounds nuw i8, ptr %e.i, i64 120
   store i64 %call18.i.i.i, ptr %nano_time.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp9.i.i.i)
-  %et3.i.i = getelementptr inbounds i8, ptr %e.i, i64 128
+  %et3.i.i = getelementptr inbounds nuw i8, ptr %e.i, i64 128
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %s.i.i.i)
   br i1 %exclude_port_uuid, label %_ZN7rocksdb12_GLOBAL__N_123GenerateRawUniqueIdImplEPmS1_RKNS0_23GenerateRawUniqueIdOptsE.exit, label %if.end.i7.i.i
 
@@ -188,11 +188,11 @@ _ZN7rocksdb12_GLOBAL__N_123GenerateRawUniqueIdImplEPmS1_RKNS0_23GenerateRawUniqu
 define void @_ZN7rocksdb25SemiStructuredUniqueIdGen5ResetEv(ptr noundef nonnull align 8 dereferenceable(32) initializes((24, 32)) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noundef i64 @_ZN7rocksdb4port12GetProcessIDEv()
-  %saved_process_id_ = getelementptr inbounds i8, ptr %this, i64 24
+  %saved_process_id_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i64 %call, ptr %saved_process_id_, align 8
-  %base_lower_ = getelementptr inbounds i8, ptr %this, i64 8
+  %base_lower_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZN7rocksdb19GenerateRawUniqueIdEPmS0_b(ptr noundef nonnull %this, ptr noundef nonnull %base_lower_, i1 noundef zeroext false)
-  %counter_ = getelementptr inbounds i8, ptr %this, i64 16
+  %counter_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   store atomic i64 0, ptr %counter_ seq_cst, align 8
   ret void
 }
@@ -203,15 +203,15 @@ declare noundef i64 @_ZN7rocksdb4port12GetProcessIDEv() local_unnamed_addr #1
 define void @_ZN7rocksdb25SemiStructuredUniqueIdGen12GenerateNextEPmS1_(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %upper, ptr noundef %lower) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noundef i64 @_ZN7rocksdb4port12GetProcessIDEv()
-  %saved_process_id_ = getelementptr inbounds i8, ptr %this, i64 24
+  %saved_process_id_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i64, ptr %saved_process_id_, align 8
   %cmp = icmp eq i64 %call, %0
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %base_lower_ = getelementptr inbounds i8, ptr %this, i64 8
+  %base_lower_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i64, ptr %base_lower_, align 8
-  %counter_ = getelementptr inbounds i8, ptr %this, i64 16
+  %counter_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = atomicrmw add ptr %counter_, i64 1 seq_cst, align 8
   %xor = xor i64 %2, %1
   store i64 %xor, ptr %lower, align 8
@@ -236,14 +236,14 @@ entry:
   %0 = load i64, ptr %a, align 8
   store atomic i64 %0, ptr %this seq_cst, align 64
   %1 = load i64, ptr %b, align 8
-  %arrayidx.i.i4 = getelementptr inbounds i8, ptr %this, i64 8
+  %arrayidx.i.i4 = getelementptr inbounds nuw i8, ptr %this, i64 8
   store atomic i64 %1, ptr %arrayidx.i.i4 seq_cst, align 8
   call void @_ZN7rocksdb19GenerateRawUniqueIdEPmS0_b(ptr noundef nonnull %a, ptr noundef nonnull %b, i1 noundef zeroext false)
   %2 = load i64, ptr %a, align 8
-  %arrayidx.i.i.c = getelementptr inbounds i8, ptr %this, i64 16
+  %arrayidx.i.i.c = getelementptr inbounds nuw i8, ptr %this, i64 16
   store atomic i64 %2, ptr %arrayidx.i.i.c seq_cst, align 16
   %3 = load i64, ptr %b, align 8
-  %arrayidx.i.i4.c = getelementptr inbounds i8, ptr %this, i64 24
+  %arrayidx.i.i4.c = getelementptr inbounds nuw i8, ptr %this, i64 24
   store atomic i64 %3, ptr %arrayidx.i.i4.c seq_cst, align 8
   ret void
 }
@@ -256,7 +256,7 @@ entry:
   %0 = tail call i64 @llvm.x86.rdtsc()
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %a.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %b.i)
-  %counter_.i = getelementptr inbounds i8, ptr %this, i64 32
+  %counter_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %1 = atomicrmw add ptr %counter_.i, i64 1 monotonic, align 8
   store i64 %1, ptr %a.i, align 8
   store i64 %0, ptr %b.i, align 8
@@ -266,13 +266,13 @@ entry:
 for.body.i:                                       ; preds = %for.body.i, %entry
   %cmp.i = phi i1 [ true, %entry ], [ false, %for.body.i ]
   %i.017.i = phi i64 [ 0, %entry ], [ 2, %for.body.i ]
-  %arrayidx.i.i.i = getelementptr inbounds [4 x %"struct.std::atomic"], ptr %this, i64 0, i64 %i.017.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [4 x %"struct.std::atomic"], ptr %this, i64 0, i64 %i.017.i
   %2 = load atomic i64, ptr %arrayidx.i.i.i monotonic, align 16
   %3 = load i64, ptr %a.i, align 8
   %xor.i = xor i64 %3, %2
   store i64 %xor.i, ptr %a.i, align 8
   %add.i = or disjoint i64 %i.017.i, 1
-  %arrayidx.i.i15.i = getelementptr inbounds [4 x %"struct.std::atomic"], ptr %this, i64 0, i64 %add.i
+  %arrayidx.i.i15.i = getelementptr inbounds nuw [4 x %"struct.std::atomic"], ptr %this, i64 0, i64 %add.i
   %4 = load atomic i64, ptr %arrayidx.i.i15.i monotonic, align 8
   %5 = load i64, ptr %b.i, align 8
   %xor9.i = xor i64 %5, %4
@@ -286,7 +286,7 @@ _ZN7rocksdb24UnpredictableUniqueIdGen23GenerateNextWithEntropyEPmS1_m.exit: ; pr
   %7 = load i64, ptr %b.i, align 8
   store i64 %7, ptr %upper, align 8
   %and.i = and i64 %1, 3
-  %arrayidx.i.i16.i = getelementptr inbounds [4 x %"struct.std::atomic"], ptr %this, i64 0, i64 %and.i
+  %arrayidx.i.i16.i = getelementptr inbounds nuw [4 x %"struct.std::atomic"], ptr %this, i64 0, i64 %and.i
   %8 = atomicrmw add ptr %arrayidx.i.i16.i, i64 %6 monotonic, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %a.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %b.i)
@@ -301,7 +301,7 @@ define void @_ZN7rocksdb24UnpredictableUniqueIdGen23GenerateNextWithEntropyEPmS1
 entry:
   %a = alloca i64, align 8
   %b = alloca i64, align 8
-  %counter_ = getelementptr inbounds i8, ptr %this, i64 32
+  %counter_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = atomicrmw add ptr %counter_, i64 1 monotonic, align 8
   store i64 %0, ptr %a, align 8
   store i64 %extra_entropy, ptr %b, align 8
@@ -311,13 +311,13 @@ entry:
 for.body:                                         ; preds = %entry, %for.body
   %cmp = phi i1 [ true, %entry ], [ false, %for.body ]
   %i.017 = phi i64 [ 0, %entry ], [ 2, %for.body ]
-  %arrayidx.i.i = getelementptr inbounds [4 x %"struct.std::atomic"], ptr %this, i64 0, i64 %i.017
+  %arrayidx.i.i = getelementptr inbounds nuw [4 x %"struct.std::atomic"], ptr %this, i64 0, i64 %i.017
   %1 = load atomic i64, ptr %arrayidx.i.i monotonic, align 16
   %2 = load i64, ptr %a, align 8
   %xor = xor i64 %2, %1
   store i64 %xor, ptr %a, align 8
   %add = or disjoint i64 %i.017, 1
-  %arrayidx.i.i15 = getelementptr inbounds [4 x %"struct.std::atomic"], ptr %this, i64 0, i64 %add
+  %arrayidx.i.i15 = getelementptr inbounds nuw [4 x %"struct.std::atomic"], ptr %this, i64 0, i64 %add
   %3 = load atomic i64, ptr %arrayidx.i.i15 monotonic, align 8
   %4 = load i64, ptr %b, align 8
   %xor9 = xor i64 %4, %3
@@ -331,7 +331,7 @@ for.end:                                          ; preds = %for.body
   %6 = load i64, ptr %b, align 8
   store i64 %6, ptr %upper, align 8
   %and = and i64 %0, 3
-  %arrayidx.i.i16 = getelementptr inbounds [4 x %"struct.std::atomic"], ptr %this, i64 0, i64 %and
+  %arrayidx.i.i16 = getelementptr inbounds nuw [4 x %"struct.std::atomic"], ptr %this, i64 0, i64 %and
   %7 = atomicrmw add ptr %arrayidx.i.i16, i64 %5 monotonic, align 8
   ret void
 }

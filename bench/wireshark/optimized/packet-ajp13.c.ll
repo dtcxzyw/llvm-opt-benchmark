@@ -353,7 +353,7 @@ define internal i32 @dissect_ajp13_tcp_pdu(ptr noundef %0, ptr noundef %1, ptr n
   %9 = tail call ptr @wmem_file_scope() #2
   %10 = tail call noalias ptr @wmem_alloc(ptr noundef %9, i64 noundef 8) #2
   store i32 0, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %10, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store i32 0, ptr %11, align 4
   %12 = load i32, ptr @proto_ajp13, align 4
   tail call void @conversation_add_proto_data(ptr noundef nonnull %5, i32 noundef %12, ptr noundef nonnull %10) #2
@@ -381,7 +381,7 @@ define internal i32 @dissect_ajp13_tcp_pdu(ptr noundef %0, ptr noundef %1, ptr n
 
 23:                                               ; preds = %17, %13
   %.0 = phi ptr [ %16, %13 ], [ %19, %17 ]
-  %24 = getelementptr inbounds i8, ptr %1, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %25 = load ptr, ptr %24, align 8
   tail call void @col_clear(ptr noundef %25, i32 noundef 25) #2
   %26 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 0) #2
@@ -394,7 +394,7 @@ define internal i32 @dissect_ajp13_tcp_pdu(ptr noundef %0, ptr noundef %1, ptr n
   %30 = load i32, ptr %.0, align 4
   %.not55 = icmp eq i32 %30, 0
   %31 = load ptr, ptr %24, align 8
-  %32 = getelementptr inbounds i8, ptr %5, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %33 = load i32, ptr %32, align 8
   br i1 %.not55, label %34, label %35
 
@@ -412,7 +412,7 @@ define internal i32 @dissect_ajp13_tcp_pdu(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %36, label %38, label %41
 
 38:                                               ; preds = %.critedge
-  %39 = getelementptr inbounds i8, ptr %5, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %40 = load i32, ptr %39, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %37, i32 noundef 25, ptr noundef nonnull @.str.200, i32 noundef %40) #2
   br label %42
@@ -514,7 +514,7 @@ define internal i32 @dissect_ajp13_tcp_pdu(ptr noundef %0, ptr noundef %1, ptr n
   br label %92
 
 92:                                               ; preds = %89, %84
-  %93 = getelementptr inbounds i8, ptr %1, i64 408
+  %93 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %94 = load ptr, ptr %93, align 8
   %95 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 6) #2
   %96 = add i16 %95, 1
@@ -880,7 +880,7 @@ define internal i32 @dissect_ajp13_tcp_pdu(ptr noundef %0, ptr noundef %1, ptr n
   br label %325
 
 325:                                              ; preds = %322, %318
-  %326 = getelementptr inbounds i8, ptr %1, i64 408
+  %326 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %327 = load ptr, ptr %326, align 8
   %328 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 7) #2
   %329 = add i16 %328, 1

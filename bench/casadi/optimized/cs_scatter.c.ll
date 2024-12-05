@@ -9,7 +9,7 @@ define i32 @cs_scatter(ptr noundef readonly %0, i32 noundef %1, double noundef %
   br i1 %.not, label %.loopexit, label %9
 
 9:                                                ; preds = %8
-  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = load i32, ptr %10, align 8
   %12 = icmp eq i32 %11, -1
   %13 = icmp ne ptr %3, null
@@ -19,19 +19,19 @@ define i32 @cs_scatter(ptr noundef readonly %0, i32 noundef %1, double noundef %
   br i1 %or.cond3, label %15, label %.loopexit
 
 15:                                               ; preds = %9
-  %16 = getelementptr inbounds i8, ptr %6, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %17 = load i32, ptr %16, align 8
   %18 = icmp eq i32 %17, -1
   br i1 %18, label %19, label %.loopexit
 
 19:                                               ; preds = %15
-  %20 = getelementptr inbounds i8, ptr %0, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %6, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %27 = load ptr, ptr %26, align 8
   %28 = sext i32 %1 to i64
   %29 = getelementptr inbounds i32, ptr %21, i64 %28

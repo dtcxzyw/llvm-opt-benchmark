@@ -9,9 +9,9 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define void @_ZN12typst_timing8Recorder3new17h3940f356cbe7d6c7E(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr, {} }, i64 }, i64 }) align 8 dereferenceable(32) initializes((0, 32)) %0) unnamed_addr #0 {
   store i64 0, ptr %0, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx, i8 0, i64 16, i1 false)
   ret void
 }
@@ -34,7 +34,7 @@ define void @_ZN12typst_timing11TimingScope3new17h1be44dc8a74a73c5E(ptr noalias 
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %13 = tail call noundef nonnull ptr @_ZN3std6thread7current17h580cbb69a134ac8aE()
   store ptr %13, ptr %5, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load i64, ptr %14, align 8, !range !6, !noundef !5
   %16 = atomicrmw sub ptr %13, i64 1 release, align 8, !noalias !7
   %17 = icmp eq i64 %16, 1
@@ -91,31 +91,31 @@ define void @_ZN12typst_timing11TimingScope3new17h1be44dc8a74a73c5E(ptr noalias 
   %36 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12typst_timing8RECORDER17h6ed4ca6ab20e5b55E, i64 16), align 8, !alias.scope !16, !noalias !19, !nonnull !5, !noundef !5
   %37 = getelementptr inbounds { { { { i64, i32, [1 x i32] } } }, { ptr, i64 }, i64, i64, i64, i8, [7 x i8] }, ptr %36, i64 %35
   store i64 %11, ptr %37, align 8
-  %.sroa.4.0..sroa_idx7 = getelementptr inbounds i8, ptr %37, i64 8
+  %.sroa.4.0..sroa_idx7 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store i32 %12, ptr %.sroa.4.0..sroa_idx7, align 8
-  %.sroa.59.0..sroa_idx = getelementptr inbounds i8, ptr %37, i64 16
+  %.sroa.59.0..sroa_idx = getelementptr inbounds nuw i8, ptr %37, i64 16
   store ptr %1, ptr %.sroa.59.0..sroa_idx, align 8
-  %.sroa.6.0..sroa_idx10 = getelementptr inbounds i8, ptr %37, i64 24
+  %.sroa.6.0..sroa_idx10 = getelementptr inbounds nuw i8, ptr %37, i64 24
   store i64 %2, ptr %.sroa.6.0..sroa_idx10, align 8
-  %.sroa.7.0..sroa_idx11 = getelementptr inbounds i8, ptr %37, i64 32
+  %.sroa.7.0..sroa_idx11 = getelementptr inbounds nuw i8, ptr %37, i64 32
   store i64 %15, ptr %.sroa.7.0..sroa_idx11, align 8
-  %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %37, i64 40
+  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %37, i64 40
   store i64 %23, ptr %.sroa.8.0..sroa_idx, align 8
-  %.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %37, i64 48
+  %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %37, i64 48
   store i64 %3, ptr %.sroa.9.0..sroa_idx, align 8
-  %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %37, i64 56
+  %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %37, i64 56
   store i8 0, ptr %.sroa.10.0..sroa_idx, align 8
   %38 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN12typst_timing8RECORDER17h6ed4ca6ab20e5b55E, i64 24), align 8, !alias.scope !16, !noalias !19, !noundef !5
   %39 = add i64 %38, 1
   store i64 %39, ptr getelementptr inbounds (i8, ptr @_ZN12typst_timing8RECORDER17h6ed4ca6ab20e5b55E, i64 24), align 8, !alias.scope !16, !noalias !19
   store ptr %1, ptr %0, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %2, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %15, ptr %.sroa.5.0..sroa_idx, align 8
-  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %3, ptr %.sroa.6.0..sroa_idx, align 8
-  %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %23, ptr %.sroa.7.0..sroa_idx, align 8
   %40 = cmpxchg ptr @_ZN12typst_timing8RECORDER17h6ed4ca6ab20e5b55E, i8 1, i8 0 release monotonic, align 1
   %41 = extractvalue { i8, i1 } %40, 1

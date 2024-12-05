@@ -91,7 +91,7 @@ define dso_local noundef ptr @unicode_normalize(i32 noundef %0, ptr nocapture no
   br i1 %.not.i, label %get_canonical_class.exit, label %38
 
 38:                                               ; preds = %.lr.ph118
-  %39 = getelementptr inbounds i8, ptr %37, i64 4
+  %39 = getelementptr inbounds nuw i8, ptr %37, i64 4
   %40 = load i8, ptr %39, align 4
   br label %get_canonical_class.exit
 
@@ -105,7 +105,7 @@ get_canonical_class.exit:                         ; preds = %.lr.ph118, %38
   br i1 %.not.i88, label %get_canonical_class.exit90.thread, label %get_canonical_class.exit90
 
 get_canonical_class.exit90:                       ; preds = %get_canonical_class.exit
-  %42 = getelementptr inbounds i8, ptr %41, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 4
   %43 = load i8, ptr %42, align 4
   %44 = icmp ne i8 %.0.i, 0
   %45 = icmp ne i8 %43, 0
@@ -163,7 +163,7 @@ get_canonical_class.exit90.thread:                ; preds = %get_canonical_class
   br i1 %.not.i91, label %get_canonical_class.exit93, label %60
 
 60:                                               ; preds = %.lr.ph126
-  %61 = getelementptr inbounds i8, ptr %59, i64 4
+  %61 = getelementptr inbounds nuw i8, ptr %59, i64 4
   %62 = load i8, ptr %61, align 4
   br label %get_canonical_class.exit93
 
@@ -212,14 +212,14 @@ get_canonical_class.exit93:                       ; preds = %.lr.ph126, %60
 83:                                               ; preds = %.preheader136, %102
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %102 ], [ 0, %.preheader136 ]
   %84 = getelementptr [6775 x %struct.pg_unicode_decomposition], ptr @UnicodeDecompMain, i64 0, i64 %indvars.iv.i
-  %85 = getelementptr inbounds i8, ptr %84, i64 5
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 5
   %86 = load i8, ptr %85, align 1
   %87 = and i8 %86, -65
   %or.cond46.i = icmp eq i8 %87, 2
   br i1 %or.cond46.i, label %88, label %102
 
 88:                                               ; preds = %83
-  %89 = getelementptr inbounds i8, ptr %84, i64 6
+  %89 = getelementptr inbounds nuw i8, ptr %84, i64 6
   %90 = load i16, ptr %89, align 2
   %91 = zext i16 %90 to i64
   %92 = getelementptr [5098 x i32], ptr @UnicodeDecomp_codepoints, i64 0, i64 %91
@@ -313,7 +313,7 @@ define internal fastcc i32 @get_decomposed_size(i32 noundef %0, i1 noundef zeroe
   br i1 %9, label %.loopexit, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %8, i64 5
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 5
   %12 = load i8, ptr %11, align 1
   %13 = zext i8 %12 to i32
   %14 = and i32 %13, 31
@@ -329,7 +329,7 @@ define internal fastcc i32 @get_decomposed_size(i32 noundef %0, i1 noundef zeroe
 18:                                               ; preds = %16
   %19 = and i32 %13, 64
   %.not.i = icmp eq i32 %19, 0
-  %20 = getelementptr inbounds i8, ptr %8, i64 6
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 6
   %21 = load i16, ptr %20, align 2
   br i1 %.not.i, label %24, label %22
 
@@ -416,7 +416,7 @@ define internal fastcc void @decompose_code(i32 noundef %0, i1 noundef zeroext %
   br i1 %29, label %38, label %30
 
 30:                                               ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %28, i64 5
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 5
   %32 = load i8, ptr %31, align 1
   %33 = zext i8 %32 to i32
   %34 = and i32 %33, 31
@@ -437,7 +437,7 @@ define internal fastcc void @decompose_code(i32 noundef %0, i1 noundef zeroext %
 41:                                               ; preds = %36
   %42 = and i32 %33, 64
   %.not.i = icmp eq i32 %42, 0
-  %43 = getelementptr inbounds i8, ptr %28, i64 6
+  %43 = getelementptr inbounds nuw i8, ptr %28, i64 6
   %44 = load i16, ptr %43, align 2
   br i1 %.not.i, label %47, label %45
 

@@ -125,8 +125,8 @@ define noundef zeroext i1 @_ZN3g2o7csparse7CSparse3amdERKNS1_10SparseViewERN5Eig
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %26, %.lr.ph.i.i.i.i.i.i.i.i
   %.011.i.i.i.i.i.i.i.i = phi i64 [ %38, %.lr.ph.i.i.i.i.i.i.i.i ], [ 0, %26 ]
-  %35 = getelementptr inbounds i32, ptr %31, i64 %.011.i.i.i.i.i.i.i.i
-  %36 = getelementptr inbounds i32, ptr %25, i64 %.011.i.i.i.i.i.i.i.i
+  %35 = getelementptr inbounds nuw i32, ptr %31, i64 %.011.i.i.i.i.i.i.i.i
+  %36 = getelementptr inbounds nuw i32, ptr %25, i64 %.011.i.i.i.i.i.i.i.i
   %37 = load <2 x i64>, ptr %36, align 1
   store <2 x i64> %37, ptr %35, align 16
   %38 = add nuw nsw i64 %.011.i.i.i.i.i.i.i.i, 4

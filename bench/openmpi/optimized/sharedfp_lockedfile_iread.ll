@@ -30,7 +30,7 @@ target triple = "x86_64-pc-linux-gnu"
 define i32 @mca_sharedfp_lockedfile_iread(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca i64, align 8
   store i64 0, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 168
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %12
@@ -59,7 +59,7 @@ define i32 @mca_sharedfp_lockedfile_iread(ptr noundef %0, ptr noundef %1, i32 no
   %20 = phi ptr [ %.pre, %17 ], [ %8, %12 ]
   %21 = trunc i64 %15 to i32
   %22 = call i32 @mca_sharedfp_lockedfile_request_position(ptr noundef %20, i32 noundef %21, ptr noundef nonnull %6) #4
-  %23 = getelementptr inbounds i8, ptr %0, i64 256
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %24 = load i64, ptr %23, align 8
   %25 = load i64, ptr %6, align 8
   %26 = udiv i64 %25, %24
@@ -100,7 +100,7 @@ define i32 @mca_sharedfp_lockedfile_read_ordered_begin(ptr noundef %0, ptr nound
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   store i64 0, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 168
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %13
@@ -108,10 +108,10 @@ define i32 @mca_sharedfp_lockedfile_read_ordered_begin(ptr noundef %0, ptr nound
 11:                                               ; preds = %4
   %12 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
   tail call void (i32, ptr, ...) @opal_output(i32 noundef %12, ptr noundef nonnull @.str.3) #4
-  br label %96
+  br label %95
 
 13:                                               ; preds = %4
-  %14 = getelementptr inbounds i8, ptr %0, i64 160
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %15 = load i8, ptr %14, align 8
   %16 = trunc i8 %15 to i1
   br i1 %16, label %17, label %19
@@ -119,7 +119,7 @@ define i32 @mca_sharedfp_lockedfile_read_ordered_begin(ptr noundef %0, ptr nound
 17:                                               ; preds = %13
   %18 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
   tail call void (i32, ptr, ...) @opal_output(i32 noundef %18, ptr noundef nonnull @.str.4) #4
-  br label %96
+  br label %95
 
 19:                                               ; preds = %13
   %20 = getelementptr i8, ptr %3, i64 24
@@ -127,7 +127,7 @@ define i32 @mca_sharedfp_lockedfile_read_ordered_begin(ptr noundef %0, ptr nound
   %21 = sext i32 %2 to i64
   %22 = mul i64 %.val, %21
   store i64 %22, ptr %5, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr i8, ptr %24, i64 220
   %.val72 = load i32, ptr %25, align 4
@@ -143,19 +143,19 @@ define i32 @mca_sharedfp_lockedfile_read_ordered_begin(ptr noundef %0, ptr nound
   %31 = shl nsw i64 %30, 3
   %32 = tail call noalias ptr @malloc(i64 noundef %31) #5
   %33 = icmp eq ptr %32, null
-  br i1 %33, label %96, label %34
+  br i1 %33, label %95, label %34
 
 34:                                               ; preds = %29, %19
   %.058 = phi ptr [ %32, %29 ], [ null, %19 ]
-  %35 = getelementptr inbounds i8, ptr %24, i64 328
+  %35 = getelementptr inbounds nuw i8, ptr %24, i64 328
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 144
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 144
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %36, i64 152
+  %39 = getelementptr inbounds nuw i8, ptr %36, i64 152
   %40 = load ptr, ptr %39, align 8
   %41 = call i32 %38(ptr noundef nonnull %5, i32 noundef 1, ptr noundef nonnull @ompi_mpi_long_long_int, ptr noundef %.058, i32 noundef 1, ptr noundef nonnull @ompi_mpi_long_long_int, i32 noundef 0, ptr noundef nonnull %24, ptr noundef %40) #4
   %.not = icmp eq i32 %41, 0
-  br i1 %.not, label %42, label %94
+  br i1 %.not, label %42, label %93
 
 42:                                               ; preds = %34
   br i1 %28, label %.preheader, label %.loopexit
@@ -173,7 +173,7 @@ define i32 @mca_sharedfp_lockedfile_read_ordered_begin(ptr noundef %0, ptr nound
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
   %indvars.iv82 = phi i64 [ %indvars.iv.next83, %.lr.ph.split.us ], [ 0, %.lr.ph ]
   %.05974.us = phi i64 [ %48, %.lr.ph.split.us ], [ 0, %.lr.ph ]
-  %46 = getelementptr inbounds i64, ptr %.058, i64 %indvars.iv82
+  %46 = getelementptr inbounds nuw i64, ptr %.058, i64 %indvars.iv82
   %47 = load i64, ptr %46, align 8
   %48 = add nsw i64 %47, %.05974.us
   %indvars.iv.next83 = add nuw nsw i64 %indvars.iv82, 1
@@ -184,7 +184,7 @@ define i32 @mca_sharedfp_lockedfile_read_ordered_begin(ptr noundef %0, ptr nound
   %49 = phi i32 [ %56, %55 ], [ 1, %.lr.ph ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %55 ], [ 0, %.lr.ph ]
   %.05974 = phi i64 [ %52, %55 ], [ 0, %.lr.ph ]
-  %50 = getelementptr inbounds i64, ptr %.058, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw i64, ptr %.058, i64 %indvars.iv
   %51 = load i64, ptr %50, align 8
   %52 = add nsw i64 %51, %.05974
   %.not70 = icmp eq i32 %49, 0
@@ -207,7 +207,7 @@ define i32 @mca_sharedfp_lockedfile_read_ordered_begin(ptr noundef %0, ptr nound
   %57 = trunc i64 %.059.lcssa to i32
   %58 = call i32 @mca_sharedfp_lockedfile_request_position(ptr noundef nonnull %9, i32 noundef %57, ptr noundef nonnull %7) #4
   %.not66 = icmp eq i32 %58, 0
-  br i1 %.not66, label %59, label %94
+  br i1 %.not66, label %59, label %93
 
 59:                                               ; preds = %._crit_edge
   %60 = load i32, ptr @mca_sharedfp_lockedfile_verbose, align 4
@@ -230,64 +230,65 @@ define i32 @mca_sharedfp_lockedfile_read_ordered_begin(ptr noundef %0, ptr nound
 
 .lr.ph78.preheader:                               ; preds = %64
   %wide.trip.count90 = zext nneg i32 %.val73.val to i64
+  %load_initial = load i64, ptr %.058, align 8
   br label %.lr.ph78
 
 .lr.ph78:                                         ; preds = %.lr.ph78.preheader, %.lr.ph78
-  %69 = phi i64 [ %67, %.lr.ph78.preheader ], [ %72, %.lr.ph78 ]
+  %store_forwarded = phi i64 [ %load_initial, %.lr.ph78.preheader ], [ %71, %.lr.ph78 ]
   %indvars.iv87 = phi i64 [ 1, %.lr.ph78.preheader ], [ %indvars.iv.next88, %.lr.ph78 ]
-  %70 = getelementptr inbounds i64, ptr %.058, i64 %indvars.iv87
-  %71 = load i64, ptr %70, align 8
-  %72 = add nsw i64 %71, %69
-  store i64 %72, ptr %70, align 8
+  %69 = getelementptr i64, ptr %.058, i64 %indvars.iv87
+  %70 = load i64, ptr %69, align 8
+  %71 = add nsw i64 %70, %store_forwarded
+  store i64 %71, ptr %69, align 8
   %indvars.iv.next88 = add nuw nsw i64 %indvars.iv87, 1
   %exitcond91.not = icmp eq i64 %indvars.iv.next88, %wide.trip.count90
   br i1 %exitcond91.not, label %.loopexit, label %.lr.ph78, !llvm.loop !8
 
 .loopexit:                                        ; preds = %.lr.ph78, %64, %42
-  %73 = load ptr, ptr %23, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i64 328
-  %75 = load ptr, ptr %74, align 8
-  %76 = getelementptr inbounds i8, ptr %75, i64 240
-  %77 = load ptr, ptr %76, align 8
-  %78 = getelementptr inbounds i8, ptr %75, i64 248
-  %79 = load ptr, ptr %78, align 8
-  %80 = call i32 %77(ptr noundef %.058, i32 noundef 1, ptr noundef nonnull @ompi_mpi_long_long_int, ptr noundef nonnull %6, i32 noundef 1, ptr noundef nonnull @ompi_mpi_long_long_int, i32 noundef 0, ptr noundef %73, ptr noundef %79) #4
-  %.not68 = icmp eq i32 %80, 0
-  br i1 %.not68, label %81, label %94
+  %72 = load ptr, ptr %23, align 8
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 328
+  %74 = load ptr, ptr %73, align 8
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 240
+  %76 = load ptr, ptr %75, align 8
+  %77 = getelementptr inbounds nuw i8, ptr %74, i64 248
+  %78 = load ptr, ptr %77, align 8
+  %79 = call i32 %76(ptr noundef %.058, i32 noundef 1, ptr noundef nonnull @ompi_mpi_long_long_int, ptr noundef nonnull %6, i32 noundef 1, ptr noundef nonnull @ompi_mpi_long_long_int, i32 noundef 0, ptr noundef %72, ptr noundef %78) #4
+  %.not68 = icmp eq i32 %79, 0
+  br i1 %.not68, label %80, label %93
 
-81:                                               ; preds = %.loopexit
-  %82 = load i64, ptr %6, align 8
-  %83 = load i64, ptr %5, align 8
-  %84 = sub nsw i64 %82, %83
-  %85 = getelementptr inbounds i8, ptr %0, i64 256
-  %86 = load i64, ptr %85, align 8
-  %87 = udiv i64 %84, %86
-  %88 = load i32, ptr @mca_sharedfp_lockedfile_verbose, align 4
-  %.not69 = icmp eq i32 %88, 0
-  br i1 %.not69, label %91, label %89
+80:                                               ; preds = %.loopexit
+  %81 = load i64, ptr %6, align 8
+  %82 = load i64, ptr %5, align 8
+  %83 = sub nsw i64 %81, %82
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %85 = load i64, ptr %84, align 8
+  %86 = udiv i64 %83, %85
+  %87 = load i32, ptr @mca_sharedfp_lockedfile_verbose, align 4
+  %.not69 = icmp eq i32 %87, 0
+  br i1 %.not69, label %90, label %88
 
-89:                                               ; preds = %81
-  %90 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
-  call void (i32, ptr, ...) @opal_output(i32 noundef %90, ptr noundef nonnull @.str.7, i64 noundef %87) #4
-  br label %91
+88:                                               ; preds = %80
+  %89 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
+  call void (i32, ptr, ...) @opal_output(i32 noundef %89, ptr noundef nonnull @.str.7, i64 noundef %86) #4
+  br label %90
 
-91:                                               ; preds = %89, %81
-  %92 = getelementptr inbounds i8, ptr %0, i64 152
-  %93 = call i32 @mca_common_ompio_file_iread_at_all(ptr noundef nonnull %0, i64 noundef %87, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef nonnull %92) #4
+90:                                               ; preds = %88, %80
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %92 = call i32 @mca_common_ompio_file_iread_at_all(ptr noundef nonnull %0, i64 noundef %86, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef nonnull %91) #4
   store i8 1, ptr %14, align 8
-  br label %94
+  br label %93
 
-94:                                               ; preds = %.loopexit, %._crit_edge, %34, %91
-  %.057 = phi i32 [ %41, %34 ], [ %58, %._crit_edge ], [ %80, %.loopexit ], [ %93, %91 ]
+93:                                               ; preds = %.loopexit, %._crit_edge, %34, %90
+  %.057 = phi i32 [ %41, %34 ], [ %58, %._crit_edge ], [ %79, %.loopexit ], [ %92, %90 ]
   %.not71 = icmp eq ptr %.058, null
-  br i1 %.not71, label %96, label %95
+  br i1 %.not71, label %95, label %94
 
-95:                                               ; preds = %94
+94:                                               ; preds = %93
   call void @free(ptr noundef nonnull %.058) #4
-  br label %96
+  br label %95
 
-96:                                               ; preds = %94, %95, %29, %17, %11
-  %.056 = phi i32 [ -1, %11 ], [ 7, %17 ], [ -2, %29 ], [ %.057, %95 ], [ %.057, %94 ]
+95:                                               ; preds = %93, %94, %29, %17, %11
+  %.056 = phi i32 [ -1, %11 ], [ 7, %17 ], [ -2, %29 ], [ %.057, %94 ], [ %.057, %93 ]
   ret i32 %.056
 }
 
@@ -302,9 +303,9 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define i32 @mca_sharedfp_lockedfile_read_ordered_end(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_request_functions, i64 32), align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 152
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %6 = tail call i32 %4(ptr noundef nonnull %5, ptr noundef %2) #4
-  %7 = getelementptr inbounds i8, ptr %0, i64 160
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store i8 0, ptr %7, align 8
   ret i32 %6
 }

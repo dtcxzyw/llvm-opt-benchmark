@@ -27,22 +27,22 @@ define hidden void @_ZN13GlobalCounter17write_synchronizeEv() local_unnamed_addr
   %4 = alloca %"class.NonJavaThread::Iterator", align 8
   %5 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 2, ptr nonnull getelementptr inbounds (i8, ptr @_ZN13GlobalCounter15_global_counterE, i64 128)) #5, !srcloc !6
   %6 = add i64 %5, 2
-  %7 = getelementptr inbounds i8, ptr %3, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %8 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %9 = load ptr, ptr %8, align 8
   call void @_ZN17ThreadsListHandleC1EP6Thread(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef %9) #5
-  %10 = getelementptr inbounds i8, ptr %3, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i32 0, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %3, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %14 = load i32, ptr %13, align 4
   %.not.i11.not = icmp eq i32 %14, 0
   br i1 %.not.i11.not, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.lr.ph
 
 _ZN28JavaThreadIteratorWithHandle4nextEv.exit.lr.ph: ; preds = %0
-  %15 = getelementptr inbounds i8, ptr %2, i64 16
-  %16 = getelementptr inbounds i8, ptr %2, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 24
   br label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit
 
 _ZN28JavaThreadIteratorWithHandle4nextEv.exit:    ; preds = %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.lr.ph, %_ZN13GlobalCounter18CounterThreadCheck9do_threadEP6Thread.exit
@@ -50,10 +50,10 @@ _ZN28JavaThreadIteratorWithHandle4nextEv.exit:    ; preds = %_ZN28JavaThreadIter
   %18 = phi i32 [ 0, %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.lr.ph ], [ %47, %_ZN13GlobalCounter18CounterThreadCheck9do_threadEP6Thread.exit ]
   %19 = add nuw i32 %18, 1
   store i32 %19, ptr %10, align 8
-  %20 = getelementptr inbounds i8, ptr %17, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %21 = load ptr, ptr %20, align 8
   %22 = zext i32 %18 to i64
-  %23 = getelementptr inbounds ptr, ptr %21, i64 %22
+  %23 = getelementptr inbounds nuw ptr, ptr %21, i64 %22
   %24 = load ptr, ptr %23, align 8
   %.not = icmp eq ptr %24, null
   br i1 %.not, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread, label %30
@@ -61,20 +61,20 @@ _ZN28JavaThreadIteratorWithHandle4nextEv.exit:    ; preds = %_ZN28JavaThreadIter
 _ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread: ; preds = %_ZN28JavaThreadIteratorWithHandle4nextEv.exit, %_ZN13GlobalCounter18CounterThreadCheck9do_threadEP6Thread.exit, %0
   call void @_ZN17ThreadsListHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #5
   call void @_ZN13NonJavaThread8IteratorC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #5
-  %25 = getelementptr inbounds i8, ptr %4, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, null
   br i1 %27, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread
-  %28 = getelementptr inbounds i8, ptr %1, i64 16
-  %29 = getelementptr inbounds i8, ptr %1, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 24
   br label %51
 
 30:                                               ; preds = %_ZN28JavaThreadIteratorWithHandle4nextEv.exit
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2)
   call void @_ZN9SpinYieldC1Ejjj(ptr noundef nonnull align 8 dereferenceable(36) %2, i32 noundef 4096, i32 noundef 64, i32 noundef 1000) #5
-  %31 = getelementptr inbounds i8, ptr %24, i64 424
+  %31 = getelementptr inbounds nuw i8, ptr %24, i64 424
   %32 = load volatile i64, ptr %31, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !7
   %33 = and i64 %32, 1
@@ -114,7 +114,7 @@ _ZN13GlobalCounter18CounterThreadCheck9do_threadEP6Thread.exit: ; preds = %.lr.p
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2)
   %47 = load i32, ptr %10, align 8
   %48 = load ptr, ptr %11, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 4
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 4
   %50 = load i32, ptr %49, align 4
   %.not.i = icmp ult i32 %47, %50
   br i1 %.not.i, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread, !llvm.loop !10
@@ -127,7 +127,7 @@ _ZN13GlobalCounter18CounterThreadCheck9do_threadEP6Thread.exit: ; preds = %.lr.p
   %52 = phi ptr [ %26, %.lr.ph ], [ %69, %_ZN13GlobalCounter18CounterThreadCheck9do_threadEP6Thread.exit7 ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %1)
   call void @_ZN9SpinYieldC1Ejjj(ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef 4096, i32 noundef 64, i32 noundef 1000) #5
-  %53 = getelementptr inbounds i8, ptr %52, i64 424
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 424
   %54 = load volatile i64, ptr %53, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !7
   %55 = and i64 %54, 1

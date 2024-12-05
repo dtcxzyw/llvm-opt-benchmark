@@ -9,7 +9,7 @@ define ptr @cs_add(ptr noundef %0, ptr noundef %1, double noundef %2, double nou
   br i1 %.not, label %80, label %5
 
 5:                                                ; preds = %4
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, -1
   %9 = icmp ne ptr %1, null
@@ -17,41 +17,41 @@ define ptr @cs_add(ptr noundef %0, ptr noundef %1, double noundef %2, double nou
   br i1 %or.cond, label %10, label %80
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %1, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %12 = load i32, ptr %11, align 8
   %13 = icmp eq i32 %12, -1
   br i1 %13, label %14, label %80
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %0, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %16 = load i32, ptr %15, align 4
-  %17 = getelementptr inbounds i8, ptr %1, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %18 = load i32, ptr %17, align 4
   %.not91 = icmp eq i32 %16, %18
   br i1 %.not91, label %19, label %80
 
 19:                                               ; preds = %14
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = load i32, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %23 = load i32, ptr %22, align 8
   %.not92 = icmp eq i32 %21, %23
   br i1 %.not92, label %24, label %80
 
 24:                                               ; preds = %19
-  %25 = getelementptr inbounds i8, ptr %0, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %26 = load ptr, ptr %25, align 8
   %27 = sext i32 %21 to i64
   %28 = getelementptr inbounds i32, ptr %26, i64 %27
   %29 = load i32, ptr %28, align 4
-  %30 = getelementptr inbounds i8, ptr %1, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %1, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds i32, ptr %31, i64 %27
   %35 = load i32, ptr %34, align 4
   %36 = tail call ptr @cs_calloc(i32 noundef %16, i64 noundef 4) #2
-  %37 = getelementptr inbounds i8, ptr %0, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %38 = load ptr, ptr %37, align 8
   %39 = icmp ne ptr %38, null
   %40 = icmp ne ptr %33, null
@@ -76,11 +76,11 @@ define ptr @cs_add(ptr noundef %0, ptr noundef %1, double noundef %2, double nou
   br i1 %or.cond94, label %.sink.split, label %52
 
 52:                                               ; preds = %45
-  %53 = getelementptr inbounds i8, ptr %48, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %48, i64 24
+  %55 = getelementptr inbounds nuw i8, ptr %48, i64 24
   %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %48, i64 32
+  %57 = getelementptr inbounds nuw i8, ptr %48, i64 32
   %58 = load ptr, ptr %57, align 8
   %59 = icmp sgt i32 %21, 0
   br i1 %59, label %.lr.ph101, label %._crit_edge
@@ -92,7 +92,7 @@ define ptr @cs_add(ptr noundef %0, ptr noundef %1, double noundef %2, double nou
 .lr.ph101.split.us:                               ; preds = %.lr.ph101, %.loopexit.us
   %indvars.iv111 = phi i64 [ %indvars.iv.next112, %.loopexit.us ], [ 0, %.lr.ph101 ]
   %.08399.us = phi i32 [ %63, %.loopexit.us ], [ 0, %.lr.ph101 ]
-  %60 = getelementptr inbounds i32, ptr %54, i64 %indvars.iv111
+  %60 = getelementptr inbounds nuw i32, ptr %54, i64 %indvars.iv111
   store i32 %.08399.us, ptr %60, align 4
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
   %indvars113 = trunc i64 %indvars.iv.next112 to i32
@@ -128,7 +128,7 @@ define ptr @cs_add(ptr noundef %0, ptr noundef %1, double noundef %2, double nou
 .lr.ph101.split:                                  ; preds = %.lr.ph101, %.lr.ph101.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph101.split ], [ 0, %.lr.ph101 ]
   %.08399 = phi i32 [ %76, %.lr.ph101.split ], [ 0, %.lr.ph101 ]
-  %73 = getelementptr inbounds i32, ptr %54, i64 %indvars.iv
+  %73 = getelementptr inbounds nuw i32, ptr %54, i64 %indvars.iv
   store i32 %.08399, ptr %73, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %indvars = trunc i64 %indvars.iv.next to i32

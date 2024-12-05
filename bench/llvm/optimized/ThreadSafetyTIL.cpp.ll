@@ -45,7 +45,7 @@ define dso_local { ptr, i64 } @_ZN5clang12threadSafety3til20getUnaryOpcodeString
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i8 %0 to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN5clang12threadSafety3til20getUnaryOpcodeStringENS1_15TIL_UnaryOpcodeE, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN5clang12threadSafety3til20getUnaryOpcodeStringENS1_15TIL_UnaryOpcodeE, i64 0, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -64,10 +64,10 @@ define dso_local { ptr, i64 } @_ZN5clang12threadSafety3til21getBinaryOpcodeStrin
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i8 %0 to i64
-  %switch.gep = getelementptr inbounds [17 x ptr], ptr @switch.table._ZN5clang12threadSafety3til21getBinaryOpcodeStringENS1_16TIL_BinaryOpcodeE, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw [17 x ptr], ptr @switch.table._ZN5clang12threadSafety3til21getBinaryOpcodeStringENS1_16TIL_BinaryOpcodeE, i64 0, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   %4 = zext nneg i8 %0 to i64
-  %switch.gep3 = getelementptr inbounds [17 x i64], ptr @switch.table._ZN5clang12threadSafety3til21getBinaryOpcodeStringENS1_16TIL_BinaryOpcodeE.1, i64 0, i64 %4
+  %switch.gep3 = getelementptr inbounds nuw [17 x i64], ptr @switch.table._ZN5clang12threadSafety3til21getBinaryOpcodeStringENS1_16TIL_BinaryOpcodeE.1, i64 0, i64 %4
   %switch.load4 = load i64, ptr %switch.gep3, align 8
   br label %5
 
@@ -84,7 +84,7 @@ define dso_local noundef ptr @_ZN5clang12threadSafety3til6Future5forceEv(ptr nou
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 1, ptr %2, align 8
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noundef ptr %5(ptr noundef nonnull align 8 dereferenceable(40) %0) #9
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -136,7 +136,7 @@ define dso_local noundef i32 @_ZN5clang12threadSafety3til10BasicBlock14addPredec
   br label %25
 
 25:                                               ; preds = %.lr.ph, %18
-  %26 = getelementptr inbounds i8, ptr %.018, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %.018, i64 8
   %.not = icmp eq ptr %26, %15
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -475,7 +475,7 @@ _ZN5clang12threadSafety3til12MemRegionRef9allocateTIPNS1_5SExprEEEPT_m.exit.i: ;
   br label %_ZN5clang12threadSafety3til11SimpleArrayIPNS1_5SExprEE7reserveEmNS1_12MemRegionRefE.exit
 
 _ZN5clang12threadSafety3til11SimpleArrayIPNS1_5SExprEE7reserveEmNS1_12MemRegionRefE.exit: ; preds = %_ZN5clang12threadSafety3til12MemRegionRef9allocateTIPNS1_5SExprEEEPT_m.exit.i, %38, %35
-  %62 = getelementptr inbounds i8, ptr %.023, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %.023, i64 8
   %.not = icmp eq ptr %62, %33
   br i1 %.not, label %._crit_edge, label %35
 
@@ -655,7 +655,7 @@ _ZN5clang12threadSafety3til22simplifyToCanonicalValEPNS1_5SExprE.exit: ; preds =
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %26
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %26 ]
   %27 = load ptr, ptr %3, align 8
-  %28 = getelementptr inbounds ptr, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8
   br label %.backedge
 
@@ -740,7 +740,7 @@ define dso_local noundef i32 @_ZN5clang12threadSafety3til10BasicBlock14renumberI
   store ptr %0, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 %.023, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %.01822, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.01822, i64 8
   %.not = icmp eq ptr %12, %7
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -763,7 +763,7 @@ define dso_local noundef i32 @_ZN5clang12threadSafety3til10BasicBlock14renumberI
   store ptr %0, ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 4
   store i32 %.126, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %.01925, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %.01925, i64 8
   %.not20 = icmp eq ptr %22, %17
   br i1 %.not20, label %._crit_edge29, label %.lr.ph28
 
@@ -804,7 +804,7 @@ define dso_local noundef i32 @_ZN5clang12threadSafety3til10BasicBlock15topologic
   %.sink = phi i64 [ 24, %11 ], [ 16, %6 ]
   %.sroa.5.0.i.i.ph = phi i64 [ 2, %11 ], [ 1, %6 ]
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 %.sink
-  %13 = getelementptr inbounds ptr, ptr %12, i64 %.sroa.5.0.i.i.ph
+  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %.sroa.5.0.i.i.ph
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -812,7 +812,7 @@ define dso_local noundef i32 @_ZN5clang12threadSafety3til10BasicBlock15topologic
   %.01519 = phi ptr [ %16, %.lr.ph ], [ %12, %.lr.ph.preheader ]
   %14 = load ptr, ptr %.01519, align 8
   %15 = tail call noundef i32 @_ZN5clang12threadSafety3til10BasicBlock15topologicalSortERNS1_11SimpleArrayIPS2_EEj(ptr noundef nonnull align 8 dereferenceable(152) %14, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %.01420)
-  %16 = getelementptr inbounds i8, ptr %.01519, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %.01519, i64 8
   %.not16 = icmp eq ptr %16, %13
   br i1 %.not16, label %._crit_edge.loopexit, label %.lr.ph
 
@@ -830,7 +830,7 @@ define dso_local noundef i32 @_ZN5clang12threadSafety3til10BasicBlock15topologic
   store i32 %21, ptr %4, align 8
   %22 = load ptr, ptr %1, align 8
   %23 = zext nneg i32 %20 to i64
-  %24 = getelementptr inbounds ptr, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw ptr, ptr %22, i64 %23
   store ptr %0, ptr %24, align 8
   br label %25
 
@@ -873,7 +873,7 @@ define dso_local noundef i32 @_ZN5clang12threadSafety3til10BasicBlock20topologic
   %.01722 = phi ptr [ %20, %.lr.ph ], [ %14, %12 ]
   %18 = load ptr, ptr %.01722, align 8
   %19 = tail call noundef i32 @_ZN5clang12threadSafety3til10BasicBlock20topologicalFinalSortERNS1_11SimpleArrayIPS2_EEj(ptr noundef nonnull align 8 dereferenceable(152) %18, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %.123)
-  %20 = getelementptr inbounds i8, ptr %.01722, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %.01722, i64 8
   %.not20 = icmp eq ptr %20, %17
   br i1 %.not20, label %._crit_edge, label %.lr.ph
 
@@ -887,7 +887,7 @@ define dso_local noundef i32 @_ZN5clang12threadSafety3til10BasicBlock20topologic
   store i32 %25, ptr %4, align 8
   %26 = load ptr, ptr %1, align 8
   %27 = zext nneg i32 %23 to i64
-  %28 = getelementptr inbounds ptr, ptr %26, i64 %27
+  %28 = getelementptr inbounds nuw ptr, ptr %26, i64 %27
   store ptr %0, ptr %28, align 8
   br label %29
 
@@ -960,7 +960,7 @@ define dso_local void @_ZN5clang12threadSafety3til10BasicBlock16computeDominator
 
 .loopexit:                                        ; preds = %30, %.preheader, %15, %10
   %.119 = phi ptr [ %.01828, %10 ], [ %11, %15 ], [ %.01828, %.preheader ], [ %.3, %30 ]
-  %31 = getelementptr inbounds i8, ptr %.02027, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %.02027, i64 8
   %.not = icmp eq ptr %31, %6
   br i1 %.not, label %._crit_edge, label %10
 
@@ -990,7 +990,7 @@ define dso_local void @_ZN5clang12threadSafety3til10BasicBlock20computePostDomin
   %.sink = phi i64 [ 24, %5 ], [ 16, %1 ]
   %.sroa.5.0.i.i.ph = phi i64 [ 2, %5 ], [ 1, %1 ]
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink
-  %7 = getelementptr inbounds ptr, ptr %6, i64 %.sroa.5.0.i.i.ph
+  %7 = getelementptr inbounds nuw ptr, ptr %6, i64 %.sroa.5.0.i.i.ph
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load i32, ptr %8, align 8
   %10 = and i32 %9, 2147483647
@@ -1044,7 +1044,7 @@ define dso_local void @_ZN5clang12threadSafety3til10BasicBlock20computePostDomin
 
 .loopexit:                                        ; preds = %31, %.preheader, %16, %11
   %.119 = phi ptr [ %.01829, %11 ], [ %12, %16 ], [ %.01829, %.preheader ], [ %.3, %31 ]
-  %32 = getelementptr inbounds i8, ptr %.02028, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %.02028, i64 8
   %.not = icmp eq ptr %32, %7
   br i1 %.not, label %._crit_edge, label %11
 
@@ -1088,7 +1088,7 @@ define dso_local void @_ZN5clang12threadSafety3til4SCFG14renumberInstrsEv(ptr no
   store ptr %7, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 4
   store i32 %.023.i, ptr %16, align 4
-  %17 = getelementptr inbounds i8, ptr %.01822.i, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %.01822.i, i64 8
   %.not.i = icmp eq ptr %17, %12
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
 
@@ -1111,7 +1111,7 @@ define dso_local void @_ZN5clang12threadSafety3til4SCFG14renumberInstrsEv(ptr no
   store ptr %7, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 4
   store i32 %.126.i, ptr %26, align 4
-  %27 = getelementptr inbounds i8, ptr %.01925.i, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %.01925.i, i64 8
   %.not20.i = icmp eq ptr %27, %22
   br i1 %.not20.i, label %_ZN5clang12threadSafety3til10BasicBlock14renumberInstrsEj.exit, label %.lr.ph28.i
 
@@ -1124,7 +1124,7 @@ _ZN5clang12threadSafety3til10BasicBlock14renumberInstrsEj.exit: ; preds = %.lr.p
   store ptr %7, ptr %31, align 8
   %32 = getelementptr inbounds nuw i8, ptr %29, i64 4
   store i32 %.1.lcssa.i, ptr %32, align 4
-  %33 = getelementptr inbounds i8, ptr %.0811, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %.0811, i64 8
   %.not = icmp eq ptr %33, %6
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -1159,12 +1159,12 @@ define dso_local void @_ZN5clang12threadSafety3til4SCFG17computeNormalFormEv(ptr
   %indvars.iv = phi i64 [ %12, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %13 = sub nuw nsw i64 %indvars.iv, %12
   %14 = load ptr, ptr %4, align 8
-  %15 = getelementptr inbounds ptr, ptr %14, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds ptr, ptr %14, i64 %13
+  %17 = getelementptr inbounds nuw ptr, ptr %14, i64 %13
   store ptr %16, ptr %17, align 8
   %18 = load ptr, ptr %4, align 8
-  %19 = getelementptr inbounds ptr, ptr %18, i64 %13
+  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %13
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 32
   %22 = load i32, ptr %21, align 8
@@ -1259,7 +1259,7 @@ define dso_local void @_ZN5clang12threadSafety3til4SCFG17computeNormalFormEv(ptr
 
 .loopexit.i:                                      ; preds = %62, %.preheader.i, %47, %42
   %.119.i = phi ptr [ %.01828.i, %42 ], [ %43, %47 ], [ %.01828.i, %.preheader.i ], [ %.3.i, %62 ]
-  %63 = getelementptr inbounds i8, ptr %.02027.i, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %.02027.i, i64 8
   %.not.i = icmp eq ptr %63, %38
   br i1 %.not.i, label %_ZN5clang12threadSafety3til10BasicBlock16computeDominatorEv.exit, label %42
 
@@ -1269,7 +1269,7 @@ _ZN5clang12threadSafety3til10BasicBlock16computeDominatorEv.exit: ; preds = %.lo
   store ptr %.018.lcssa.i, ptr %64, align 8
   %65 = getelementptr inbounds nuw i8, ptr %33, i64 124
   store i32 1, ptr %65, align 4
-  %66 = getelementptr inbounds i8, ptr %.03472, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %.03472, i64 8
   %.not37 = icmp eq ptr %66, %32
   br i1 %.not37, label %._crit_edge75, label %.lr.ph74
 
@@ -1304,7 +1304,7 @@ _ZN5clang12threadSafety3til10BasicBlock16computeDominatorEv.exit: ; preds = %.lo
   store ptr %73, ptr %81, align 8
   %82 = getelementptr inbounds nuw i8, ptr %79, i64 4
   store i32 %.023.i.i, ptr %82, align 4
-  %83 = getelementptr inbounds i8, ptr %.01822.i.i, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %.01822.i.i, i64 8
   %.not.i.i = icmp eq ptr %83, %78
   br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
@@ -1327,7 +1327,7 @@ _ZN5clang12threadSafety3til10BasicBlock16computeDominatorEv.exit: ; preds = %.lo
   store ptr %73, ptr %91, align 8
   %92 = getelementptr inbounds nuw i8, ptr %89, i64 4
   store i32 %.126.i.i, ptr %92, align 4
-  %93 = getelementptr inbounds i8, ptr %.01925.i.i, i64 8
+  %93 = getelementptr inbounds nuw i8, ptr %.01925.i.i, i64 8
   %.not20.i.i = icmp eq ptr %93, %88
   br i1 %.not20.i.i, label %_ZN5clang12threadSafety3til10BasicBlock14renumberInstrsEj.exit.i, label %.lr.ph28.i.i
 
@@ -1340,7 +1340,7 @@ _ZN5clang12threadSafety3til10BasicBlock14renumberInstrsEj.exit.i: ; preds = %.lr
   store ptr %73, ptr %97, align 8
   %98 = getelementptr inbounds nuw i8, ptr %95, i64 4
   store i32 %.1.lcssa.i.i, ptr %98, align 4
-  %99 = getelementptr inbounds i8, ptr %.0811.i, i64 8
+  %99 = getelementptr inbounds nuw i8, ptr %.0811.i, i64 8
   %.not.i40 = icmp eq ptr %99, %72
   br i1 %.not.i40, label %_ZN5clang12threadSafety3til4SCFG14renumberInstrsEv.exit, label %.lr.ph.i39
 
@@ -1373,7 +1373,7 @@ _ZN5clang12threadSafety3til4SCFG14renumberInstrsEv.exit: ; preds = %_ZN5clang12t
   %.sink.i = phi i64 [ 24, %106 ], [ 16, %.lr.ph78 ]
   %.sroa.5.0.i.i.ph.i = phi i64 [ 2, %106 ], [ 1, %.lr.ph78 ]
   %107 = getelementptr inbounds nuw i8, ptr %104, i64 %.sink.i
-  %108 = getelementptr inbounds ptr, ptr %107, i64 %.sroa.5.0.i.i.ph.i
+  %108 = getelementptr inbounds nuw ptr, ptr %107, i64 %.sroa.5.0.i.i.ph.i
   %109 = getelementptr inbounds nuw i8, ptr %102, i64 32
   %110 = load i32, ptr %109, align 8
   %111 = and i32 %110, 2147483647
@@ -1427,7 +1427,7 @@ _ZN5clang12threadSafety3til4SCFG14renumberInstrsEv.exit: ; preds = %_ZN5clang12t
 
 .loopexit.i42:                                    ; preds = %132, %.preheader.i46, %117, %112
   %.119.i43 = phi ptr [ %.01829.i, %112 ], [ %113, %117 ], [ %.01829.i, %.preheader.i46 ], [ %.3.i48, %132 ]
-  %133 = getelementptr inbounds i8, ptr %.02028.i, i64 8
+  %133 = getelementptr inbounds nuw i8, ptr %.02028.i, i64 8
   %.not.i44 = icmp eq ptr %133, %108
   br i1 %.not.i44, label %_ZN5clang12threadSafety3til10BasicBlock20computePostDominatorEv.exit, label %112
 
@@ -1437,17 +1437,17 @@ _ZN5clang12threadSafety3til10BasicBlock20computePostDominatorEv.exit: ; preds = 
   store ptr %.018.lcssa.i45, ptr %134, align 8
   %135 = getelementptr inbounds nuw i8, ptr %102, i64 140
   store i32 1, ptr %135, align 4
-  %136 = getelementptr inbounds i8, ptr %102, i64 128
+  %136 = getelementptr inbounds nuw i8, ptr %102, i64 128
   %137 = load ptr, ptr %136, align 8
   %.not.i51 = icmp eq ptr %137, null
   br i1 %.not.i51, label %_ZL15computeNodeSizePN5clang12threadSafety3til10BasicBlockEMS2_NS2_12TopologyNodeE.exit, label %138
 
 138:                                              ; preds = %_ZN5clang12threadSafety3til10BasicBlock20computePostDominatorEv.exit
-  %139 = getelementptr inbounds i8, ptr %102, i64 120
-  %140 = getelementptr inbounds i8, ptr %137, i64 124
+  %139 = getelementptr inbounds nuw i8, ptr %102, i64 120
+  %140 = getelementptr inbounds nuw i8, ptr %137, i64 124
   %141 = load i32, ptr %140, align 4
   store i32 %141, ptr %139, align 8
-  %142 = getelementptr inbounds i8, ptr %102, i64 124
+  %142 = getelementptr inbounds nuw i8, ptr %102, i64 124
   %143 = load i32, ptr %142, align 4
   %144 = add nsw i32 %143, %141
   store i32 %144, ptr %140, align 4
@@ -1467,14 +1467,14 @@ _ZL15computeNodeSizePN5clang12threadSafety3til10BasicBlockEMS2_NS2_12TopologyNod
 .lr.ph83:                                         ; preds = %._crit_edge79, %_ZL15computeNodeSizePN5clang12threadSafety3til10BasicBlockEMS2_NS2_12TopologyNodeE.exit54
   %.03581 = phi ptr [ %164, %_ZL15computeNodeSizePN5clang12threadSafety3til10BasicBlockEMS2_NS2_12TopologyNodeE.exit54 ], [ %.pre95, %._crit_edge79 ]
   %146 = load ptr, ptr %.03581, align 8
-  %147 = getelementptr inbounds i8, ptr %146, i64 128
+  %147 = getelementptr inbounds nuw i8, ptr %146, i64 128
   %148 = load ptr, ptr %147, align 8
   %.not.i52 = icmp eq ptr %148, null
   br i1 %.not.i52, label %_ZL13computeNodeIDPN5clang12threadSafety3til10BasicBlockEMS2_NS2_12TopologyNodeE.exit, label %149
 
 149:                                              ; preds = %.lr.ph83
-  %150 = getelementptr inbounds i8, ptr %146, i64 120
-  %151 = getelementptr inbounds i8, ptr %148, i64 120
+  %150 = getelementptr inbounds nuw i8, ptr %146, i64 120
+  %151 = getelementptr inbounds nuw i8, ptr %148, i64 120
   %152 = load i32, ptr %151, align 8
   %153 = load i32, ptr %150, align 8
   %154 = add nsw i32 %153, %152
@@ -1482,24 +1482,24 @@ _ZL15computeNodeSizePN5clang12threadSafety3til10BasicBlockEMS2_NS2_12TopologyNod
   br label %_ZL13computeNodeIDPN5clang12threadSafety3til10BasicBlockEMS2_NS2_12TopologyNodeE.exit
 
 _ZL13computeNodeIDPN5clang12threadSafety3til10BasicBlockEMS2_NS2_12TopologyNodeE.exit: ; preds = %.lr.ph83, %149
-  %155 = getelementptr inbounds i8, ptr %146, i64 144
+  %155 = getelementptr inbounds nuw i8, ptr %146, i64 144
   %156 = load ptr, ptr %155, align 8
   %.not.i53 = icmp eq ptr %156, null
   br i1 %.not.i53, label %_ZL15computeNodeSizePN5clang12threadSafety3til10BasicBlockEMS2_NS2_12TopologyNodeE.exit54, label %157
 
 157:                                              ; preds = %_ZL13computeNodeIDPN5clang12threadSafety3til10BasicBlockEMS2_NS2_12TopologyNodeE.exit
-  %158 = getelementptr inbounds i8, ptr %146, i64 136
-  %159 = getelementptr inbounds i8, ptr %156, i64 140
+  %158 = getelementptr inbounds nuw i8, ptr %146, i64 136
+  %159 = getelementptr inbounds nuw i8, ptr %156, i64 140
   %160 = load i32, ptr %159, align 4
   store i32 %160, ptr %158, align 8
-  %161 = getelementptr inbounds i8, ptr %146, i64 140
+  %161 = getelementptr inbounds nuw i8, ptr %146, i64 140
   %162 = load i32, ptr %161, align 4
   %163 = add nsw i32 %162, %160
   store i32 %163, ptr %159, align 4
   br label %_ZL15computeNodeSizePN5clang12threadSafety3til10BasicBlockEMS2_NS2_12TopologyNodeE.exit54
 
 _ZL15computeNodeSizePN5clang12threadSafety3til10BasicBlockEMS2_NS2_12TopologyNodeE.exit54: ; preds = %_ZL13computeNodeIDPN5clang12threadSafety3til10BasicBlockEMS2_NS2_12TopologyNodeE.exit, %157
-  %164 = getelementptr inbounds i8, ptr %.03581, i64 8
+  %164 = getelementptr inbounds nuw i8, ptr %.03581, i64 8
   %.not38 = icmp eq ptr %164, %145
   br i1 %.not38, label %._crit_edge84, label %.lr.ph83
 
@@ -1517,14 +1517,14 @@ _ZL15computeNodeSizePN5clang12threadSafety3til10BasicBlockEMS2_NS2_12TopologyNod
   %.sroa.057.086 = phi ptr [ %166, %_ZL13computeNodeIDPN5clang12threadSafety3til10BasicBlockEMS2_NS2_12TopologyNodeE.exit56 ], [ %165, %.lr.ph88.preheader ]
   %166 = getelementptr inbounds i8, ptr %.sroa.057.086, i64 -8
   %167 = load ptr, ptr %166, align 8
-  %168 = getelementptr inbounds i8, ptr %167, i64 144
+  %168 = getelementptr inbounds nuw i8, ptr %167, i64 144
   %169 = load ptr, ptr %168, align 8
   %.not.i55 = icmp eq ptr %169, null
   br i1 %.not.i55, label %_ZL13computeNodeIDPN5clang12threadSafety3til10BasicBlockEMS2_NS2_12TopologyNodeE.exit56, label %170
 
 170:                                              ; preds = %.lr.ph88
-  %171 = getelementptr inbounds i8, ptr %167, i64 136
-  %172 = getelementptr inbounds i8, ptr %169, i64 136
+  %171 = getelementptr inbounds nuw i8, ptr %167, i64 136
+  %172 = getelementptr inbounds nuw i8, ptr %169, i64 136
   %173 = load i32, ptr %172, align 8
   %174 = load i32, ptr %171, align 8
   %175 = add nsw i32 %174, %173
@@ -1558,7 +1558,7 @@ define linkonce_odr hidden noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplIN
   br i1 %.not.i.i.i, label %16, label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPvmELb1EE9push_backES3_.exit
 
 16:                                               ; preds = %10
-  %17 = getelementptr inbounds i8, ptr %0, i64 80
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull %17, i64 noundef %14, i64 noundef 16) #9
   br label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPvmELb1EE9push_backES3_.exit
 
@@ -1567,7 +1567,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPvmELb1EE9push_backES3_.exit: ; preds 
   %19 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %12) #9
   %20 = getelementptr inbounds %"struct.std::pair", ptr %18, i64 %19
   store ptr %11, ptr %20, align 1
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %20, i64 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %20, i64 8
   store i64 %8, ptr %.sroa.2.0..sroa_idx.i, align 1
   %21 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %12) #9
   %22 = add i64 %21, 1
@@ -1613,7 +1613,7 @@ define linkonce_odr hidden void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAlloc
   br i1 %.not.i.i.i, label %12, label %_ZN4llvm23SmallVectorTemplateBaseIPvLb1EE9push_backES1_.exit
 
 12:                                               ; preds = %1
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %13, i64 noundef %10, i64 noundef 8) #9
   br label %_ZN4llvm23SmallVectorTemplateBaseIPvLb1EE9push_backES1_.exit
 
@@ -1627,7 +1627,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPvLb1EE9push_backES1_.exit: ; preds = %1, %12
   %19 = add i64 %18, 1
   tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %2, i64 noundef %19) #9
   store ptr %8, ptr %0, align 8
-  %20 = getelementptr inbounds i8, ptr %8, i64 %7
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 %7
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %20, ptr %21, align 8
   ret void

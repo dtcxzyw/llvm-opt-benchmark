@@ -64,11 +64,11 @@ define dso_local ptr @drm_gem_fb_get_obj(ptr nocapture noundef readonly %0, i32 
 8:                                                ; preds = %2
   store i1 true, ptr @drm_gem_fb_get_obj.__already_done, align 1
   tail call void asm sideeffect "394: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 394b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 394) #7, !srcloc !6
-  %9 = getelementptr inbounds i8, ptr %3, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = tail call ptr @dev_driver_string(ptr noundef %10) #7
   %12 = load ptr, ptr %9, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 80
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 80
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %.thread
@@ -90,7 +90,7 @@ define dso_local ptr @drm_gem_fb_get_obj(ptr nocapture noundef readonly %0, i32 
   br i1 %5, label %20, label %38
 
 20:                                               ; preds = %19
-  %21 = getelementptr inbounds i8, ptr %0, i64 160
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %22 = getelementptr [4 x ptr], ptr %21, i64 0, i64 %4
   %23 = load ptr, ptr %22, align 8
   %24 = icmp ne ptr %23, null
@@ -101,11 +101,11 @@ define dso_local ptr @drm_gem_fb_get_obj(ptr nocapture noundef readonly %0, i32 
 27:                                               ; preds = %20
   store i1 true, ptr @drm_gem_fb_get_obj.__already_done.3, align 1
   tail call void asm sideeffect "398: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 398b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 398) #7, !srcloc !11
-  %28 = getelementptr inbounds i8, ptr %3, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %29 = load ptr, ptr %28, align 8
   %30 = tail call ptr @dev_driver_string(ptr noundef %29) #7
   %31 = load ptr, ptr %28, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 80
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 80
   %33 = load ptr, ptr %32, align 8
   %34 = icmp eq ptr %33, null
   br i1 %34, label %35, label %.thread2
@@ -142,15 +142,15 @@ declare dso_local ptr @dev_driver_string(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @drm_gem_fb_destroy(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 72
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 5
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 5
   %5 = load i8, ptr %4, align 1
   %6 = icmp eq i8 %5, 0
   br i1 %6, label %.loopexit, label %7
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 160
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 160
   br label %9
 
 9:                                                ; preds = %.thread, %7
@@ -181,7 +181,7 @@ define dso_local void @drm_gem_fb_destroy(ptr noundef %0) #0 align 16 {
 .thread:                                          ; preds = %17, %19, %20, %9
   %21 = add nuw nsw i64 %10, 1
   %22 = load ptr, ptr %2, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 5
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 5
   %24 = load i8, ptr %23, align 1
   %25 = zext i8 %24 to i64
   %26 = icmp samesign ult i64 %21, %25
@@ -201,7 +201,7 @@ declare dso_local void @kfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @drm_gem_fb_create_handle(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 160
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 @drm_gem_handle_create(ptr noundef %1, ptr noundef %5, ptr noundef %2) #7
   ret i32 %6
@@ -223,7 +223,7 @@ define dso_local i32 @drm_gem_fb_init_with_funcs(ptr noundef %0, ptr noundef %1,
   br i1 %10, label %14, label %11
 
 11:                                               ; preds = %9
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8
   br label %14
 
@@ -233,11 +233,11 @@ define dso_local i32 @drm_gem_fb_init_with_funcs(ptr noundef %0, ptr noundef %1,
   br label %.loopexit
 
 16:                                               ; preds = %5
-  %17 = getelementptr inbounds i8, ptr %0, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 176
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 176
   %20 = load i32, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 104
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %22 = load i32, ptr %21, align 8
   %23 = and i32 %20, 16
   %24 = and i32 %23, %22
@@ -245,21 +245,21 @@ define dso_local i32 @drm_gem_fb_init_with_funcs(ptr noundef %0, ptr noundef %1,
   br i1 %25, label %26, label %34
 
 26:                                               ; preds = %16
-  %27 = getelementptr inbounds i8, ptr %0, i64 800
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 800
   %28 = load ptr, ptr %27, align 8
   %29 = icmp eq ptr %28, null
   br i1 %29, label %48, label %30
 
 30:                                               ; preds = %26
-  %31 = getelementptr inbounds i8, ptr %28, i64 40
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 40
   %32 = load ptr, ptr %31, align 8
   %33 = icmp eq ptr %32, null
   br i1 %33, label %48, label %34
 
 34:                                               ; preds = %30, %16
-  %35 = getelementptr inbounds i8, ptr %3, i64 12
+  %35 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %36 = load i32, ptr %35, align 4
-  %37 = getelementptr inbounds i8, ptr %3, i64 72
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %38 = load i64, ptr %37, align 8
   %39 = tail call zeroext i1 @drm_any_plane_has_format(ptr noundef %0, i32 noundef %36, i64 noundef %38) #7
   br i1 %39, label %48, label %40
@@ -269,19 +269,19 @@ define dso_local i32 @drm_gem_fb_init_with_funcs(ptr noundef %0, ptr noundef %1,
   br i1 %41, label %45, label %42
 
 42:                                               ; preds = %40
-  %43 = getelementptr inbounds i8, ptr %0, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %44 = load ptr, ptr %43, align 8
   br label %45
 
 45:                                               ; preds = %42, %40
   %46 = phi ptr [ %44, %42 ], [ null, %40 ]
   %47 = load i64, ptr %37, align 8
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %46, i32 noundef 2, ptr noundef nonnull @.str.6, ptr noundef %35, i64 noundef %47) #7
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %46, i32 noundef 2, ptr noundef nonnull @.str.6, ptr noundef nonnull %35, i64 noundef %47) #7
   br label %.loopexit
 
 48:                                               ; preds = %34, %30, %26
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %6, i8 0, i64 32, i1 false), !annotation !21
-  %49 = getelementptr inbounds i8, ptr %7, i64 5
+  %49 = getelementptr inbounds nuw i8, ptr %7, i64 5
   %50 = load i8, ptr %49, align 1
   %51 = icmp eq i8 %50, 0
   br i1 %51, label %.thread18, label %52
@@ -291,15 +291,15 @@ define dso_local i32 @drm_gem_fb_init_with_funcs(ptr noundef %0, ptr noundef %1,
   br label %123
 
 52:                                               ; preds = %48
-  %53 = getelementptr inbounds i8, ptr %3, i64 4
-  %54 = getelementptr inbounds i8, ptr %7, i64 18
-  %55 = getelementptr inbounds i8, ptr %3, i64 8
-  %56 = getelementptr inbounds i8, ptr %7, i64 19
-  %57 = getelementptr inbounds i8, ptr %3, i64 20
-  %58 = getelementptr inbounds i8, ptr %3, i64 36
-  %59 = getelementptr inbounds i8, ptr %3, i64 52
+  %53 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %54 = getelementptr inbounds nuw i8, ptr %7, i64 18
+  %55 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %7, i64 19
+  %57 = getelementptr inbounds nuw i8, ptr %3, i64 20
+  %58 = getelementptr inbounds nuw i8, ptr %3, i64 36
+  %59 = getelementptr inbounds nuw i8, ptr %3, i64 52
   %60 = icmp eq ptr %0, null
-  %61 = getelementptr inbounds i8, ptr %0, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %62
 
 62:                                               ; preds = %113, %52
@@ -354,7 +354,7 @@ define dso_local i32 @drm_gem_fb_init_with_funcs(ptr noundef %0, ptr noundef %1,
   %95 = trunc i64 %92 to i32
   %96 = add i32 %90, %95
   %97 = add i32 %96, %94
-  %98 = getelementptr inbounds i8, ptr %77, i64 216
+  %98 = getelementptr inbounds nuw i8, ptr %77, i64 216
   %99 = load i64, ptr %98, align 8
   %100 = zext i32 %97 to i64
   %101 = icmp ult i64 %99, %100
@@ -397,10 +397,10 @@ define dso_local i32 @drm_gem_fb_init_with_funcs(ptr noundef %0, ptr noundef %1,
 118:                                              ; preds = %113
   %119 = trunc i64 %114 to i32
   tail call void @drm_helper_mode_fill_fb_struct(ptr noundef %0, ptr noundef %1, ptr noundef %3) #7
-  %120 = getelementptr inbounds i8, ptr %1, i64 160
+  %120 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %121 = shl nuw nsw i64 %114, 3
   %122 = and i64 %121, 34359738360
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %120, ptr nonnull align 16 %6, i64 %122, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %120, ptr nonnull align 16 %6, i64 %122, i1 false)
   br label %123
 
 123:                                              ; preds = %.thread18, %118
@@ -414,7 +414,7 @@ define dso_local i32 @drm_gem_fb_init_with_funcs(ptr noundef %0, ptr noundef %1,
   br i1 %128, label %132, label %129
 
 129:                                              ; preds = %127
-  %130 = getelementptr inbounds i8, ptr %0, i64 8
+  %130 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %131 = load ptr, ptr %130, align 8
   br label %132
 
@@ -558,9 +558,9 @@ define dso_local ptr @drm_gem_fb_create_with_dirty(ptr noundef %0, ptr noundef %
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @drm_gem_fb_vmap(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 72
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 5
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 5
   %7 = load i8, ptr %6, align 1
   %8 = icmp eq i8 %7, 0
   br i1 %8, label %.loopexit, label %.preheader
@@ -581,7 +581,7 @@ define dso_local i32 @drm_gem_fb_vmap(ptr nocapture noundef readonly %0, ptr nou
 17:                                               ; preds = %13
   %18 = add nuw nsw i64 %9, 1
   %19 = load ptr, ptr %4, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 5
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 5
   %21 = load i8, ptr %20, align 1
   %22 = zext i8 %21 to i64
   %23 = icmp samesign ult i64 %18, %22
@@ -594,7 +594,7 @@ define dso_local i32 @drm_gem_fb_vmap(ptr nocapture noundef readonly %0, ptr nou
   br i1 %brmerge, label %.loopexit, label %26
 
 26:                                               ; preds = %.loopexit8
-  %27 = getelementptr inbounds i8, ptr %0, i64 104
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 104
   br label %28
 
 28:                                               ; preds = %39, %26
@@ -617,7 +617,7 @@ define dso_local i32 @drm_gem_fb_vmap(ptr nocapture noundef readonly %0, ptr nou
 39:                                               ; preds = %34, %28
   %40 = add nuw nsw i64 %29, 1
   %41 = load ptr, ptr %4, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 5
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 5
   %43 = load i8, ptr %42, align 1
   %44 = zext i8 %43 to i64
   %45 = icmp samesign ult i64 %40, %44
@@ -663,9 +663,9 @@ declare dso_local void @drm_gem_vunmap_unlocked(ptr noundef, ptr noundef) local_
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @drm_gem_fb_vunmap(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 72
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 5
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 5
   %6 = load i8, ptr %5, align 1
   %7 = icmp eq i8 %6, 0
   br i1 %7, label %.loopexit, label %.split
@@ -704,9 +704,9 @@ define dso_local void @drm_gem_fb_vunmap(ptr nocapture noundef readonly %0, ptr 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @drm_gem_fb_begin_cpu_access(ptr nocapture noundef readonly %0, i32 noundef %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 72
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 5
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 5
   %6 = load i8, ptr %5, align 1
   %7 = icmp eq i8 %6, 0
   br i1 %7, label %.loopexit, label %.preheader
@@ -718,7 +718,7 @@ define dso_local i32 @drm_gem_fb_begin_cpu_access(ptr nocapture noundef readonly
   br i1 %10, label %26, label %11
 
 11:                                               ; preds = %.preheader
-  %12 = getelementptr inbounds i8, ptr %9, i64 240
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 240
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %19, label %15
@@ -732,7 +732,7 @@ define dso_local i32 @drm_gem_fb_begin_cpu_access(ptr nocapture noundef readonly
 19:                                               ; preds = %15, %11
   %20 = add nuw nsw i32 %8, 1
   %21 = load ptr, ptr %3, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 5
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 5
   %23 = load i8, ptr %22, align 1
   %24 = zext i8 %23 to i32
   %25 = icmp samesign ult i32 %20, %24
@@ -751,7 +751,7 @@ define dso_local i32 @drm_gem_fb_begin_cpu_access(ptr nocapture noundef readonly
   br i1 %31, label %48, label %32
 
 32:                                               ; preds = %.split1
-  %33 = getelementptr inbounds i8, ptr %30, i64 240
+  %33 = getelementptr inbounds nuw i8, ptr %30, i64 240
   %34 = load ptr, ptr %33, align 8
   %35 = icmp eq ptr %34, null
   br i1 %35, label %48, label %36
@@ -768,7 +768,7 @@ define dso_local i32 @drm_gem_fb_begin_cpu_access(ptr nocapture noundef readonly
   br i1 %42, label %46, label %43
 
 43:                                               ; preds = %40
-  %44 = getelementptr inbounds i8, ptr %41, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %45 = load ptr, ptr %44, align 8
   br label %46
 
@@ -791,9 +791,9 @@ declare dso_local i32 @dma_buf_begin_cpu_access(ptr noundef, i32 noundef) local_
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @drm_gem_fb_end_cpu_access(ptr nocapture noundef readonly %0, i32 noundef %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 72
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 5
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 5
   %6 = load i8, ptr %5, align 1
   %7 = icmp eq i8 %6, 0
   br i1 %7, label %.loopexit, label %.split
@@ -810,7 +810,7 @@ define dso_local void @drm_gem_fb_end_cpu_access(ptr nocapture noundef readonly 
   br i1 %11, label %28, label %12
 
 12:                                               ; preds = %.split1
-  %13 = getelementptr inbounds i8, ptr %10, i64 240
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 240
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %28, label %16
@@ -827,7 +827,7 @@ define dso_local void @drm_gem_fb_end_cpu_access(ptr nocapture noundef readonly 
   br i1 %22, label %26, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds i8, ptr %21, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %25 = load ptr, ptr %24, align 8
   br label %26
 
@@ -846,13 +846,13 @@ define dso_local void @drm_gem_fb_end_cpu_access(ptr nocapture noundef readonly 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local range(i32 -22, 1) i32 @drm_gem_fb_afbc_init(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 160
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 160
   %5 = tail call ptr @drm_get_format_info(ptr noundef %0, ptr noundef %1) #7
   %6 = icmp eq ptr %5, null
   br i1 %6, label %.thread3, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %1, i64 72
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %9 = load i64, ptr %8, align 8
   %10 = and i64 %9, 15
   switch i64 %10, label %12 [
@@ -868,7 +868,7 @@ define dso_local range(i32 -22, 1) i32 @drm_gem_fb_afbc_init(ptr noundef %0, ptr
   br i1 %13, label %17, label %14
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load ptr, ptr %15, align 8
   br label %17
 
@@ -880,9 +880,9 @@ define dso_local range(i32 -22, 1) i32 @drm_gem_fb_afbc_init(ptr noundef %0, ptr
 19:                                               ; preds = %11, %7
   %20 = phi i32 [ 32, %11 ], [ 16, %7 ]
   %21 = phi i32 [ 8, %11 ], [ 16, %7 ]
-  %22 = getelementptr inbounds i8, ptr %2, i64 192
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 192
   store i32 %20, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %2, i64 196
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 196
   store i32 %21, ptr %23, align 4
   %24 = load i64, ptr %8, align 8
   %25 = and i64 %24, 256
@@ -892,25 +892,25 @@ define dso_local range(i32 -22, 1) i32 @drm_gem_fb_afbc_init(ptr noundef %0, ptr
   %29 = select i1 %26, i32 %20, i32 %27
   %30 = select i1 %26, i32 %21, i32 %28
   %31 = select i1 %26, i32 63, i32 4095
-  %32 = getelementptr inbounds i8, ptr %1, i64 4
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %33 = load i32, ptr %32, align 4
   %34 = add i32 %33, -1
   %35 = add i32 %34, %29
   %36 = sub nsw i32 0, %29
   %37 = and i32 %35, %36
-  %38 = getelementptr inbounds i8, ptr %2, i64 200
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 200
   store i32 %37, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %1, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %40 = load i32, ptr %39, align 8
   %41 = add nsw i32 %30, -1
   %42 = add i32 %41, %40
   %43 = sub nsw i32 0, %30
   %44 = and i32 %42, %43
-  %45 = getelementptr inbounds i8, ptr %2, i64 204
+  %45 = getelementptr inbounds nuw i8, ptr %2, i64 204
   store i32 %44, ptr %45, align 4
-  %46 = getelementptr inbounds i8, ptr %1, i64 52
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %47 = load i32, ptr %46, align 4
-  %48 = getelementptr inbounds i8, ptr %2, i64 208
+  %48 = getelementptr inbounds nuw i8, ptr %2, i64 208
   store i32 %47, ptr %48, align 8
   %49 = tail call ptr @drm_get_format_info(ptr noundef %0, ptr noundef %1) #7
   %50 = load i32, ptr %49, align 4
@@ -936,7 +936,7 @@ define dso_local range(i32 -22, 1) i32 @drm_gem_fb_afbc_init(ptr noundef %0, ptr
   br i1 %57, label %61, label %58
 
 58:                                               ; preds = %56
-  %59 = getelementptr inbounds i8, ptr %0, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %60 = load ptr, ptr %59, align 8
   br label %61
 
@@ -955,7 +955,7 @@ define dso_local range(i32 -22, 1) i32 @drm_gem_fb_afbc_init(ptr noundef %0, ptr
   %69 = add nuw nsw i32 %68, %31
   %70 = xor i32 %31, -1
   %71 = and i32 %69, %70
-  %72 = getelementptr inbounds i8, ptr %2, i64 212
+  %72 = getelementptr inbounds nuw i8, ptr %2, i64 212
   %73 = shl i32 %63, 5
   %74 = and i32 %73, 536870880
   %75 = add nuw nsw i32 %74, 127
@@ -964,7 +964,7 @@ define dso_local range(i32 -22, 1) i32 @drm_gem_fb_afbc_init(ptr noundef %0, ptr
   %78 = add i32 %71, %77
   store i32 %78, ptr %72, align 4
   %79 = load ptr, ptr %4, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 216
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 216
   %81 = load i64, ptr %80, align 8
   %82 = zext i32 %78 to i64
   %83 = icmp ult i64 %81, %82

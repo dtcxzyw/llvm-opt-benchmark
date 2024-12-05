@@ -164,10 +164,10 @@ define i32 @proctrack_p_create(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %3, label %9
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 664
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 664
   %5 = load i32, ptr %4, align 8
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds i8, ptr %0, i64 688
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 688
   store i64 %6, ptr %7, align 8
   %8 = tail call i32 @cgroup_g_step_addto(i32 noundef 0, ptr noundef nonnull %4, i32 noundef 1) #7
   br label %9
@@ -246,7 +246,7 @@ define i32 @proctrack_p_signal(i64 noundef %0, i32 noundef %1) local_unnamed_add
   %21 = phi i32 [ %15, %.lr.ph.split.us.preheader ], [ %42, %41 ]
   %indvars.iv27 = phi i64 [ 0, %.lr.ph.split.us.preheader ], [ %indvars.iv.next28, %41 ]
   %22 = load ptr, ptr %3, align 8
-  %23 = getelementptr inbounds i32, ptr %22, i64 %indvars.iv27
+  %23 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv27
   %24 = load i32, ptr %23, align 4
   %25 = icmp eq i32 %24, %20
   br i1 %25, label %41, label %26
@@ -260,7 +260,7 @@ define i32 @proctrack_p_signal(i64 noundef %0, i32 noundef %1) local_unnamed_add
 30:                                               ; preds = %26
   %31 = icmp eq i32 %27, 1
   %32 = load ptr, ptr %3, align 8
-  %33 = getelementptr inbounds i32, ptr %32, i64 %indvars.iv27
+  %33 = getelementptr inbounds nuw i32, ptr %32, i64 %indvars.iv27
   %34 = load i32, ptr %33, align 4
   %35 = select i1 %31, ptr @.str.8, ptr @.str.9
   call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.7, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.proctrack_p_signal, i32 noundef %34, ptr noundef nonnull %35, i32 noundef 9) #7
@@ -268,7 +268,7 @@ define i32 @proctrack_p_signal(i64 noundef %0, i32 noundef %1) local_unnamed_add
 
 36:                                               ; preds = %30, %26
   %37 = load ptr, ptr %3, align 8
-  %38 = getelementptr inbounds i32, ptr %37, i64 %indvars.iv27
+  %38 = getelementptr inbounds nuw i32, ptr %37, i64 %indvars.iv27
   %39 = load i32, ptr %38, align 4
   %40 = call i32 @kill(i32 noundef %39, i32 noundef 9) #7
   %.pre = load i32, ptr %4, align 4
@@ -284,7 +284,7 @@ define i32 @proctrack_p_signal(i64 noundef %0, i32 noundef %1) local_unnamed_add
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %67
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %67 ]
   %45 = load ptr, ptr %3, align 8
-  %46 = getelementptr inbounds i32, ptr %45, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw i32, ptr %45, i64 %indvars.iv
   %47 = load i32, ptr %46, align 4
   %48 = icmp eq i32 %47, %19
   br i1 %48, label %67, label %49
@@ -304,7 +304,7 @@ define i32 @proctrack_p_signal(i64 noundef %0, i32 noundef %1) local_unnamed_add
 
 57:                                               ; preds = %54
   %58 = load ptr, ptr %3, align 8
-  %59 = getelementptr inbounds i32, ptr %58, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw i32, ptr %58, i64 %indvars.iv
   %60 = load i32, ptr %59, align 4
   %61 = select i1 %53, ptr @.str.8, ptr @.str.9
   call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.7, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.proctrack_p_signal, i32 noundef %60, ptr noundef nonnull %61, i32 noundef %1) #7
@@ -312,7 +312,7 @@ define i32 @proctrack_p_signal(i64 noundef %0, i32 noundef %1) local_unnamed_add
 
 62:                                               ; preds = %57, %54
   %63 = load ptr, ptr %3, align 8
-  %64 = getelementptr inbounds i32, ptr %63, i64 %indvars.iv
+  %64 = getelementptr inbounds nuw i32, ptr %63, i64 %indvars.iv
   %65 = load i32, ptr %64, align 4
   %66 = call i32 @kill(i32 noundef %65, i32 noundef %1) #7
   br label %67

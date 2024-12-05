@@ -23,13 +23,13 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define void @PQinsert(ptr noundef initializes((32, 48)) %0, ptr noundef %1, double noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %1, ptr %4, align 8
   tail call void @ref(ptr noundef %1) #13
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load double, ptr %5, align 8
   %7 = fadd double %2, %6
-  %8 = getelementptr inbounds i8, ptr %0, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store double %7, ptr %8, align 8
   %9 = load ptr, ptr @PQhash, align 8
   %10 = load double, ptr @ymin, align 8
@@ -67,7 +67,7 @@ define void @PQinsert(ptr noundef initializes((32, 48)) %0, ptr noundef %1, doub
 PQbucket.exit:                                    ; preds = %24, %27
   %28 = sext i32 %.0.i to i64
   %29 = getelementptr inbounds %struct.Halfedge, ptr %9, i64 %28
-  %30 = getelementptr inbounds i8, ptr %29, i64 48
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 48
   %31 = load ptr, ptr %30, align 8
   %.not25 = icmp eq ptr %31, null
   br i1 %.not25, label %.critedge, label %.lr.ph
@@ -75,7 +75,7 @@ PQbucket.exit:                                    ; preds = %24, %27
 .lr.ph:                                           ; preds = %PQbucket.exit, %.critedge2
   %32 = phi ptr [ %45, %.critedge2 ], [ %31, %PQbucket.exit ]
   %.026 = phi ptr [ %32, %.critedge2 ], [ %29, %PQbucket.exit ]
-  %33 = getelementptr inbounds i8, ptr %32, i64 40
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 40
   %34 = load double, ptr %33, align 8
   %35 = fcmp ogt double %7, %34
   br i1 %35, label %.critedge2, label %36
@@ -86,14 +86,14 @@ PQbucket.exit:                                    ; preds = %24, %27
 
 38:                                               ; preds = %36
   %39 = load double, ptr %1, align 8
-  %40 = getelementptr inbounds i8, ptr %32, i64 32
+  %40 = getelementptr inbounds nuw i8, ptr %32, i64 32
   %41 = load ptr, ptr %40, align 8
   %42 = load double, ptr %41, align 8
   %43 = fcmp ogt double %39, %42
   br i1 %43, label %.critedge2, label %.critedge
 
 .critedge2:                                       ; preds = %.lr.ph, %38
-  %44 = getelementptr inbounds i8, ptr %32, i64 48
+  %44 = getelementptr inbounds nuw i8, ptr %32, i64 48
   %45 = load ptr, ptr %44, align 8
   %.not = icmp eq ptr %45, null
   br i1 %.not, label %.critedge, label %.lr.ph
@@ -101,8 +101,8 @@ PQbucket.exit:                                    ; preds = %24, %27
 .critedge:                                        ; preds = %38, %36, %.critedge2, %PQbucket.exit
   %.0.lcssa = phi ptr [ %29, %PQbucket.exit ], [ %32, %.critedge2 ], [ %.026, %36 ], [ %.026, %38 ]
   %.lcssa = phi ptr [ null, %PQbucket.exit ], [ null, %.critedge2 ], [ %32, %36 ], [ %32, %38 ]
-  %46 = getelementptr inbounds i8, ptr %.0.lcssa, i64 48
-  %47 = getelementptr inbounds i8, ptr %0, i64 48
+  %46 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 48
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %.lcssa, ptr %47, align 8
   store ptr %0, ptr %46, align 8
   %48 = load i32, ptr @PQcount, align 4
@@ -115,7 +115,7 @@ declare void @ref(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @PQdelete(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %37, label %4
@@ -163,14 +163,14 @@ PQbucket.exit:                                    ; preds = %21, %24
 
 27:                                               ; preds = %27, %PQbucket.exit
   %.0 = phi ptr [ %26, %PQbucket.exit ], [ %29, %27 ]
-  %28 = getelementptr inbounds i8, ptr %.0, i64 48
+  %28 = getelementptr inbounds nuw i8, ptr %.0, i64 48
   %29 = load ptr, ptr %28, align 8
   %.not11 = icmp eq ptr %29, %0
   br i1 %.not11, label %30, label %27
 
 30:                                               ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %.0, i64 48
-  %32 = getelementptr inbounds i8, ptr %0, i64 48
+  %31 = getelementptr inbounds nuw i8, ptr %.0, i64 48
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %33 = load ptr, ptr %32, align 8
   store ptr %33, ptr %31, align 8
   %34 = load i32, ptr @PQcount, align 4
@@ -219,10 +219,10 @@ define { double, double } @PQ_min() local_unnamed_addr #3 {
 
 10:                                               ; preds = %._crit_edge, %0
   %.lcssa = phi ptr [ %7, %._crit_edge ], [ %4, %0 ]
-  %11 = getelementptr inbounds i8, ptr %.lcssa, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 32
   %12 = load ptr, ptr %11, align 8
   %13 = load double, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %.lcssa, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 40
   %15 = load double, ptr %14, align 8
   %.fca.0.insert = insertvalue { double, double } poison, double %13, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %15, 1
@@ -236,7 +236,7 @@ define ptr @PQextractmin() local_unnamed_addr #4 {
   %3 = sext i32 %2 to i64
   %4 = getelementptr inbounds %struct.Halfedge, ptr %1, i64 %3, i32 7
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %7 = load ptr, ptr %6, align 8
   store ptr %7, ptr %4, align 8
   %8 = load i32, ptr @PQcount, align 4
@@ -308,7 +308,7 @@ gv_calloc.exit:                                   ; preds = %10
 
 21:                                               ; preds = %.lr.ph, %21
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %21 ]
-  %22 = getelementptr inbounds %struct.Halfedge, ptr %19, i64 %indvars.iv, i32 7
+  %22 = getelementptr inbounds nuw %struct.Halfedge, ptr %19, i64 %indvars.iv, i32 7
   store ptr null, ptr %22, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -329,7 +329,7 @@ define void @PQdump() local_unnamed_addr #7 {
   %3 = trunc nuw nsw i64 %indvars.iv to i32
   %4 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %3)
   %5 = load ptr, ptr @PQhash, align 8
-  %6 = getelementptr inbounds %struct.Halfedge, ptr %5, i64 %indvars.iv, i32 7
+  %6 = getelementptr inbounds nuw %struct.Halfedge, ptr %5, i64 %indvars.iv, i32 7
   %.07 = load ptr, ptr %6, align 8
   %.not8 = icmp eq ptr %.07, null
   br i1 %.not8, label %._crit_edge, label %.lr.ph
@@ -337,25 +337,25 @@ define void @PQdump() local_unnamed_addr #7 {
 .lr.ph:                                           ; preds = %.lr.ph12, %PQdumphe.exit
   %.09 = phi ptr [ %.0, %PQdumphe.exit ], [ %.07, %.lr.ph12 ]
   %7 = load ptr, ptr %.09, align 8
-  %8 = getelementptr inbounds i8, ptr %.09, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %.09, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %.09, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %.09, i64 16
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 56
   %13 = load i32, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %.09, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %.09, i64 24
   %15 = load i32, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %.09, i64 28
+  %16 = getelementptr inbounds nuw i8, ptr %.09, i64 28
   %17 = load i8, ptr %16, align 4
   %18 = sext i8 %17 to i32
   %19 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, ptr noundef nonnull %.09, ptr noundef %7, ptr noundef %9, i32 noundef %13, i32 noundef %15, i32 noundef %18)
-  %20 = getelementptr inbounds i8, ptr %.09, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %.09, i64 32
   %21 = load ptr, ptr %20, align 8
   %.not.i = icmp eq ptr %21, null
   br i1 %.not.i, label %26, label %22
 
 22:                                               ; preds = %.lr.ph
-  %23 = getelementptr inbounds i8, ptr %21, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %24 = load i64, ptr %23, align 8
   %25 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, i64 noundef %24)
   br label %PQdumphe.exit
@@ -365,10 +365,10 @@ define void @PQdump() local_unnamed_addr #7 {
   br label %PQdumphe.exit
 
 PQdumphe.exit:                                    ; preds = %22, %26
-  %28 = getelementptr inbounds i8, ptr %.09, i64 40
+  %28 = getelementptr inbounds nuw i8, ptr %.09, i64 40
   %29 = load double, ptr %28, align 8
   %30 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, double noundef %29)
-  %31 = getelementptr inbounds i8, ptr %.09, i64 48
+  %31 = getelementptr inbounds nuw i8, ptr %.09, i64 48
   %.0 = load ptr, ptr %31, align 8
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %._crit_edge, label %.lr.ph

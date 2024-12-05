@@ -90,7 +90,7 @@ if.end22:                                         ; preds = %while.end, %entry
   br i1 %tobool23.not, label %if.then34, label %do.body25
 
 do.body25:                                        ; preds = %if.end22
-  %pool_next = getelementptr inbounds i8, ptr %11, i64 24
+  %pool_next = getelementptr inbounds nuw i8, ptr %11, i64 24
   %12 = load ptr, ptr %pool_next, align 8
   store ptr %12, ptr %1, align 8
   store ptr null, ptr %pool_next, align 8
@@ -109,11 +109,11 @@ if.then34:                                        ; preds = %if.end22
 if.end36:                                         ; preds = %do.body25, %if.then34
   %co.1 = phi ptr [ %11, %do.body25 ], [ %call35, %if.then34 ]
   store ptr %entry1, ptr %co.1, align 8
-  %entry_arg = getelementptr inbounds i8, ptr %co.1, i64 8
+  %entry_arg = getelementptr inbounds nuw i8, ptr %co.1, i64 8
   store ptr %opaque, ptr %entry_arg, align 8
-  %co_queue_wakeup = getelementptr inbounds i8, ptr %co.1, i64 64
+  %co_queue_wakeup = getelementptr inbounds nuw i8, ptr %co.1, i64 64
   store ptr null, ptr %co_queue_wakeup, align 8
-  %sqh_last = getelementptr inbounds i8, ptr %co.1, i64 72
+  %sqh_last = getelementptr inbounds nuw i8, ptr %co.1, i64 72
   store ptr %co_queue_wakeup, ptr %sqh_last, align 8
   ret ptr %co.1
 }
@@ -134,10 +134,10 @@ entry:
 
 land.rhs:                                         ; preds = %entry, %land.rhs
   %co.07 = phi ptr [ %3, %land.rhs ], [ %2, %entry ]
-  %pool_next = getelementptr inbounds i8, ptr %co.07, i64 24
+  %pool_next = getelementptr inbounds nuw i8, ptr %co.07, i64 24
   %3 = load ptr, ptr %pool_next, align 8
   %4 = load ptr, ptr %1, align 8
-  %pool_next2 = getelementptr inbounds i8, ptr %4, i64 24
+  %pool_next2 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %5 = load ptr, ptr %pool_next2, align 8
   store ptr %5, ptr %1, align 8
   store ptr null, ptr %pool_next2, align 8
@@ -162,10 +162,10 @@ entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %pending = alloca %struct.anon.5, align 8
   store ptr null, ptr %pending, align 8
-  %sqh_last = getelementptr inbounds i8, ptr %pending, i64 8
+  %sqh_last = getelementptr inbounds nuw i8, ptr %pending, i64 8
   store ptr %pending, ptr %sqh_last, align 8
   %call = call ptr @qemu_coroutine_self() #10
-  %co_queue_next = getelementptr inbounds i8, ptr %co, i64 56
+  %co_queue_next = getelementptr inbounds nuw i8, ptr %co, i64 56
   store ptr null, ptr %co_queue_next, align 8
   %0 = load ptr, ptr %sqh_last, align 8
   store ptr %co, ptr %0, align 8
@@ -175,8 +175,8 @@ entry:
   br i1 %cmp.not40, label %while.end58, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %tv_usec.i.i36 = getelementptr inbounds i8, ptr %_now.i.i23, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i36 = getelementptr inbounds nuw i8, ptr %_now.i.i23, i64 8
   %2 = call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @co_tls_alloc_pool_size)
   %3 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @co_tls_alloc_pool)
   br label %while.body
@@ -184,10 +184,10 @@ while.body.lr.ph:                                 ; preds = %entry
 while.body:                                       ; preds = %while.body.lr.ph, %sw.epilog
   %4 = phi ptr [ %1, %while.body.lr.ph ], [ %47, %sw.epilog ]
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !11
-  %scheduled12 = getelementptr inbounds i8, ptr %4, i64 48
+  %scheduled12 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %5 = load atomic i64, ptr %scheduled12 monotonic, align 8
   %6 = load ptr, ptr %pending, align 8
-  %co_queue_next15 = getelementptr inbounds i8, ptr %6, i64 56
+  %co_queue_next15 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %7 = load ptr, ptr %co_queue_next15, align 8
   store ptr %7, ptr %pending, align 8
   %cmp18 = icmp eq ptr %7, null
@@ -199,7 +199,7 @@ if.then:                                          ; preds = %while.body
 
 if.end:                                           ; preds = %if.then, %while.body
   store ptr null, ptr %co_queue_next15, align 8
-  %entry_arg = getelementptr inbounds i8, ptr %4, i64 8
+  %entry_arg = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load ptr, ptr %entry_arg, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %9 = load i32, ptr @trace_events_enabled_count, align 4
@@ -245,7 +245,7 @@ if.then24:                                        ; preds = %trace_qemu_aio_coro
   unreachable
 
 if.end26:                                         ; preds = %trace_qemu_aio_coroutine_enter.exit
-  %caller = getelementptr inbounds i8, ptr %4, i64 16
+  %caller = getelementptr inbounds nuw i8, ptr %4, i64 16
   %17 = load ptr, ptr %caller, align 8
   %tobool27.not = icmp eq ptr %17, null
   br i1 %tobool27.not, label %if.end30, label %if.then28
@@ -258,19 +258,19 @@ if.then28:                                        ; preds = %if.end26
 
 if.end30:                                         ; preds = %if.end26
   store ptr %call, ptr %caller, align 8
-  %ctx32 = getelementptr inbounds i8, ptr %4, i64 40
+  %ctx32 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store ptr %ctx, ptr %ctx32, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !12
   fence release
   %call33 = call i32 @qemu_coroutine_switch(ptr noundef %call, ptr noundef nonnull %4, i32 noundef 3) #10
-  %co_queue_wakeup = getelementptr inbounds i8, ptr %4, i64 64
+  %co_queue_wakeup = getelementptr inbounds nuw i8, ptr %4, i64 64
   %20 = load ptr, ptr %co_queue_wakeup, align 8
   %cmp36 = icmp eq ptr %20, null
   br i1 %cmp36, label %do.end53, label %if.then37
 
 if.then37:                                        ; preds = %if.end30
   %21 = load ptr, ptr %pending, align 8
-  %sqh_last40 = getelementptr inbounds i8, ptr %4, i64 72
+  %sqh_last40 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %22 = load ptr, ptr %sqh_last40, align 8
   store ptr %21, ptr %22, align 8
   %23 = load ptr, ptr %co_queue_wakeup, align 8
@@ -286,7 +286,7 @@ do.end53:                                         ; preds = %if.end30, %if.then3
   ]
 
 sw.bb54:                                          ; preds = %do.end53
-  %locks_held = getelementptr inbounds i8, ptr %4, i64 32
+  %locks_held = getelementptr inbounds nuw i8, ptr %4, i64 32
   %24 = load i64, ptr %locks_held, align 8
   %tobool55.not = icmp eq i64 %24, 0
   br i1 %tobool55.not, label %if.end57, label %if.else
@@ -337,7 +337,7 @@ trace_qemu_coroutine_terminate.exit:              ; preds = %if.end57, %land.lhs
   br i1 %cmp.i, label %do.body2.preheader.i, label %if.end.i
 
 do.body2.preheader.i:                             ; preds = %trace_qemu_coroutine_terminate.exit
-  %pool_next.i = getelementptr inbounds i8, ptr %4, i64 24
+  %pool_next.i = getelementptr inbounds nuw i8, ptr %4, i64 24
   %33 = ptrtoint ptr %4 to i64
   br label %do.body2.i
 
@@ -371,7 +371,7 @@ do.body27.i:                                      ; preds = %if.end.i
   %43 = load ptr, ptr %ptr.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ptr.i.i)
   %44 = load ptr, ptr %43, align 8
-  %pool_next29.i = getelementptr inbounds i8, ptr %4, i64 24
+  %pool_next29.i = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %44, ptr %pool_next29.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ptr.i7.i)
   store ptr %3, ptr %ptr.i7.i, align 8
@@ -429,7 +429,7 @@ declare ptr @qemu_get_current_aio_context() local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qemu_coroutine_enter_if_inactive(ptr noundef %co) local_unnamed_addr #0 {
 entry:
-  %caller.i = getelementptr inbounds i8, ptr %co, i64 16
+  %caller.i = getelementptr inbounds nuw i8, ptr %co, i64 16
   %0 = load ptr, ptr %caller.i, align 8
   %tobool.i.not = icmp eq ptr %0, null
   br i1 %tobool.i.not, label %if.then, label %if.end
@@ -446,7 +446,7 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local zeroext i1 @qemu_coroutine_entered(ptr nocapture noundef readonly %co) local_unnamed_addr #5 {
 entry:
-  %caller = getelementptr inbounds i8, ptr %co, i64 16
+  %caller = getelementptr inbounds nuw i8, ptr %co, i64 16
   %0 = load ptr, ptr %caller, align 8
   %tobool = icmp ne ptr %0, null
   ret i1 %tobool
@@ -457,7 +457,7 @@ define dso_local void @qemu_coroutine_yield() #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %call = tail call ptr @qemu_coroutine_self() #10
-  %caller = getelementptr inbounds i8, ptr %call, i64 16
+  %caller = getelementptr inbounds nuw i8, ptr %call, i64 16
   %0 = load ptr, ptr %caller, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %1 = load i32, ptr @trace_events_enabled_count, align 4
@@ -482,7 +482,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #10
   %call10.i.i = tail call i32 @qemu_get_thread_id() #10
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.9, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef nonnull %call, ptr noundef %0) #10
   br label %trace_qemu_coroutine_yield.exit
@@ -511,7 +511,7 @@ if.end:                                           ; preds = %trace_qemu_coroutin
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local ptr @qemu_coroutine_get_aio_context(ptr nocapture noundef readonly %co) local_unnamed_addr #5 {
 entry:
-  %ctx = getelementptr inbounds i8, ptr %co, i64 40
+  %ctx = getelementptr inbounds nuw i8, ptr %co, i64 40
   %0 = load ptr, ptr %ctx, align 8
   ret ptr %0
 }

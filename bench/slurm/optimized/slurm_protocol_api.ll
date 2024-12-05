@@ -277,7 +277,7 @@ define void @convert_num_unit2(double noundef %0, ptr nocapture noundef writeonl
   %50 = fcmp oeq double %.2, %49
   %51 = sext i32 %2 to i64
   %52 = zext nneg i32 %spec.store.select to i64
-  %53 = getelementptr inbounds i8, ptr @.str.68, i64 %52
+  %53 = getelementptr inbounds nuw i8, ptr @.str.68, i64 %52
   %54 = load i8, ptr %53, align 1
   %55 = sext i8 %54 to i32
   br i1 %50, label %56, label %58
@@ -325,7 +325,7 @@ define i32 @revert_num_unit(ptr noundef readonly %0) #1 {
 
 13:                                               ; preds = %10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %14 = getelementptr inbounds i8, ptr @.str.72, i64 %indvars.iv.next
+  %14 = getelementptr inbounds nuw i8, ptr @.str.72, i64 %indvars.iv.next
   %15 = load i8, ptr %14, align 1
   %exitcond = icmp eq i64 %indvars.iv.next, 6
   br i1 %exitcond, label %.split.loop.exit24, label %10, !llvm.loop !11
@@ -451,8 +451,8 @@ define ptr @slurm_get_tres_weight_array(ptr noundef %0, i32 noundef %1, i1 nound
   br i1 %.not1428, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %15
-  %20 = getelementptr inbounds i8, ptr %4, i64 40
-  %21 = getelementptr inbounds i8, ptr %4, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 32
   br label %22
 
 22:                                               ; preds = %.lr.ph, %81
@@ -654,7 +654,7 @@ define ptr @slurm_get_tmp_fs(ptr noundef %0) local_unnamed_addr #2 {
 3:                                                ; preds = %1
   %4 = tail call ptr @slurm_conf_lock() #21
   %.not6 = icmp eq ptr %0, null
-  %5 = getelementptr inbounds i8, ptr %4, i64 1448
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 1448
   %6 = load ptr, ptr %5, align 8
   br i1 %.not6, label %7, label %9
 
@@ -689,13 +689,13 @@ define zeroext i16 @slurm_get_track_wckey() local_unnamed_addr #2 {
   br i1 %.not, label %5, label %2
 
 2:                                                ; preds = %0
-  %3 = getelementptr inbounds i8, ptr %1, i64 154
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 154
   %4 = load i16, ptr %3, align 2
   br label %12
 
 5:                                                ; preds = %0
   %6 = tail call ptr @slurm_conf_lock() #21
-  %7 = getelementptr inbounds i8, ptr %6, i64 244
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 244
   %8 = load i32, ptr %7, align 4
   %9 = trunc i32 %8 to i16
   %10 = lshr i16 %9, 5
@@ -715,7 +715,7 @@ define zeroext i1 @slurm_with_slurmdbd() local_unnamed_addr #2 {
 
 1:                                                ; preds = %0
   %2 = tail call ptr @slurm_conf_lock() #21
-  %3 = getelementptr inbounds i8, ptr %2, i64 72
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 @xstrcasecmp(ptr noundef %4, ptr noundef nonnull @.str.5) #21
   %.not = icmp eq i32 %5, 0
@@ -779,7 +779,7 @@ define range(i32 0, -2147483648) i32 @slurm_get_auth_ttl() local_unnamed_addr #7
   br i1 %.not5, label %10, label %7
 
 7:                                                ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %6, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %9 = tail call i32 @atoi(ptr nocapture noundef nonnull %8) #22
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %9, i32 0)
   br label %10
@@ -808,7 +808,7 @@ define ptr @slurm_get_acct_gather_interconnect_type() local_unnamed_addr #2 {
 
 2:                                                ; preds = %0
   %3 = tail call ptr @slurm_conf_lock() #21
-  %4 = getelementptr inbounds i8, ptr %3, i64 112
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 112
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr @xstrdup(ptr noundef %5) #21
   tail call void @slurm_conf_unlock() #21
@@ -827,7 +827,7 @@ define ptr @slurm_get_ext_sensors_type() local_unnamed_addr #2 {
 
 2:                                                ; preds = %0
   %3 = tail call ptr @slurm_conf_lock() #21
-  %4 = getelementptr inbounds i8, ptr %3, i64 344
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 344
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr @xstrdup(ptr noundef %5) #21
   tail call void @slurm_conf_unlock() #21
@@ -846,7 +846,7 @@ define zeroext i16 @slurm_get_ext_sensors_freq() local_unnamed_addr #2 {
 
 2:                                                ; preds = %0
   %3 = tail call ptr @slurm_conf_lock() #21
-  %4 = getelementptr inbounds i8, ptr %3, i64 352
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 352
   %5 = load i16, ptr %4, align 8
   tail call void @slurm_conf_unlock() #21
   br label %6
@@ -864,7 +864,7 @@ define ptr @slurm_get_gpu_freq_def() local_unnamed_addr #2 {
 
 2:                                                ; preds = %0
   %3 = tail call ptr @slurm_conf_lock() #21
-  %4 = getelementptr inbounds i8, ptr %3, i64 408
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 408
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr @xstrdup(ptr noundef %5) #21
   tail call void @slurm_conf_unlock() #21
@@ -883,7 +883,7 @@ define ptr @slurm_get_preempt_type() local_unnamed_addr #2 {
 
 2:                                                ; preds = %0
   %3 = tail call ptr @slurm_conf_lock() #21
-  %4 = getelementptr inbounds i8, ptr %3, i64 808
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 808
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr @xstrdup(ptr noundef %5) #21
   tail call void @slurm_conf_unlock() #21
@@ -902,7 +902,7 @@ define ptr @slurm_get_select_type() local_unnamed_addr #2 {
 
 2:                                                ; preds = %0
   %3 = tail call ptr @slurm_conf_lock() #21
-  %4 = getelementptr inbounds i8, ptr %3, i64 1104
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 1104
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr @xstrdup(ptr noundef %5) #21
   tail call void @slurm_conf_unlock() #21
@@ -921,7 +921,7 @@ define ptr @slurm_get_srun_port_range() local_unnamed_addr #2 {
 
 2:                                                ; preds = %0
   %3 = tail call ptr @slurm_conf_lock() #21
-  %4 = getelementptr inbounds i8, ptr %3, i64 1320
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 1320
   %5 = load ptr, ptr %4, align 8
   tail call void @slurm_conf_unlock() #21
   br label %6
@@ -1054,15 +1054,15 @@ define i32 @slurm_open_controller_conn_spec(i32 noundef %0, ptr noundef %1) loca
   br i1 %.not, label %13, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %1, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = tail call zeroext i1 @slurm_addr_is_unspec(ptr noundef nonnull %5) #21
   br i1 %6, label %7, label %28
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %1, i64 160
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %9 = load i32, ptr %8, align 8
   %10 = trunc i32 %9 to i16
-  %11 = getelementptr inbounds i8, ptr %1, i64 152
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %12 = load ptr, ptr %11, align 8
   tail call void @slurm_set_addr(ptr noundef nonnull %5, i16 noundef zeroext %10, ptr noundef %12) #21
   br label %28
@@ -1091,10 +1091,10 @@ define i32 @slurm_open_controller_conn_spec(i32 noundef %0, ptr noundef %1) loca
   br i1 %.not27, label %_remap_slurmctld_errno.exit.thread, label %23
 
 23:                                               ; preds = %21
-  %24 = getelementptr inbounds i8, ptr %14, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %25 = load ptr, ptr %24, align 8
   %26 = zext nneg i32 %0 to i64
-  %27 = getelementptr inbounds %struct.sockaddr_storage, ptr %25, i64 %26
+  %27 = getelementptr inbounds nuw %struct.sockaddr_storage, ptr %25, i64 %26
   %.not28 = icmp eq ptr %25, null
   br i1 %.not28, label %_remap_slurmctld_errno.exit.thread, label %28
 
@@ -1145,7 +1145,7 @@ _remap_slurmctld_errno.exit:                      ; preds = %38, %switch.lookup,
 41:                                               ; preds = %_remap_slurmctld_errno.exit.thread, %_remap_slurmctld_errno.exit
   %.036 = phi i32 [ -1, %_remap_slurmctld_errno.exit.thread ], [ %29, %_remap_slurmctld_errno.exit ]
   %.11935 = phi ptr [ %14, %_remap_slurmctld_errno.exit.thread ], [ %.018, %_remap_slurmctld_errno.exit ]
-  %42 = getelementptr inbounds i8, ptr %.11935, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %.11935, i64 8
   tail call void @slurm_xfree(ptr noundef nonnull %42) #21
   call void @slurm_xfree(ptr noundef nonnull %3) #21
   br label %_slurm_api_free_comm_config.exit
@@ -1167,13 +1167,13 @@ declare void @slurm_set_addr(ptr noundef, i16 noundef zeroext, ptr noundef) loca
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @_slurm_api_get_comm_config() unnamed_addr #2 {
   %1 = tail call ptr @slurm_conf_lock() #21
-  %2 = getelementptr inbounds i8, ptr %1, i64 256
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 256
   %3 = load i32, ptr %2, align 8
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %9, label %4
 
 4:                                                ; preds = %0
-  %5 = getelementptr inbounds i8, ptr %1, i64 248
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 248
   %6 = load ptr, ptr %5, align 8
   %.not27 = icmp eq ptr %6, null
   br i1 %.not27, label %9, label %7
@@ -1188,7 +1188,7 @@ define internal fastcc ptr @_slurm_api_get_comm_config() unnamed_addr #2 {
   br label %52
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %1, i64 1216
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 1216
   %13 = load i32, ptr %12, align 8
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %15, label %17
@@ -1213,7 +1213,7 @@ define internal fastcc ptr @_slurm_api_get_comm_config() unnamed_addr #2 {
   %30 = load i32, ptr %2, align 8
   %31 = zext i32 %30 to i64
   %32 = tail call ptr @slurm_xcalloc(i64 noundef %31, i64 noundef 128, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 152, ptr noundef nonnull @__func__._slurm_api_get_comm_config) #21
-  %33 = getelementptr inbounds i8, ptr %29, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store ptr %32, ptr %33, align 8
   %34 = load i32, ptr %2, align 8
   store i32 %34, ptr %29, align 8
@@ -1224,14 +1224,14 @@ define internal fastcc ptr @_slurm_api_get_comm_config() unnamed_addr #2 {
   %35 = phi i32 [ %43, %42 ], [ %34, %17 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %42 ], [ 0, %17 ]
   %36 = load ptr, ptr %5, align 8
-  %37 = getelementptr inbounds ptr, ptr %36, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv
   %38 = load ptr, ptr %37, align 8
   %.not30 = icmp eq ptr %38, null
   br i1 %.not30, label %42, label %39
 
 39:                                               ; preds = %.lr.ph
   %40 = load ptr, ptr %33, align 8
-  %41 = getelementptr inbounds %struct.sockaddr_storage, ptr %40, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw %struct.sockaddr_storage, ptr %40, i64 %indvars.iv
   tail call void @slurm_set_addr(ptr noundef %41, i16 noundef zeroext %28, ptr noundef nonnull %38) #21
   %.pre = load i32, ptr %29, align 8
   br label %42
@@ -1244,15 +1244,15 @@ define internal fastcc ptr @_slurm_api_get_comm_config() unnamed_addr #2 {
   br i1 %45, label %.lr.ph, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %42, %17
-  %46 = getelementptr inbounds i8, ptr %1, i64 1184
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 1184
   %47 = load ptr, ptr %46, align 8
   %.not29 = icmp eq ptr %47, null
   br i1 %.not29, label %52, label %48
 
 48:                                               ; preds = %._crit_edge
-  %49 = getelementptr inbounds i8, ptr %29, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %29, i64 16
   store i8 1, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %29, i64 24
+  %50 = getelementptr inbounds nuw i8, ptr %29, i64 24
   %51 = load ptr, ptr %46, align 8
   tail call void @slurm_set_addr(ptr noundef nonnull %50, i16 noundef zeroext %28, ptr noundef %51) #21
   br label %52
@@ -1328,7 +1328,7 @@ _unpack_msg_uid.exit:                             ; preds = %17, %20, %23
   br label %125
 
 32:                                               ; preds = %14
-  %33 = getelementptr inbounds i8, ptr %4, i64 12
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %34 = load i16, ptr %33, align 4
   %.not45 = icmp eq i16 %34, 0
   br i1 %.not45, label %45, label %35
@@ -1346,7 +1346,7 @@ _unpack_msg_uid.exit:                             ; preds = %17, %20, %23
   %39 = phi ptr [ %37, %36 ], [ %11, %35 ]
   %40 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.12, ptr noundef nonnull @__func__.slurm_unpack_received_msg, ptr noundef %39) #21
   store i16 0, ptr %33, align 4
-  %41 = getelementptr inbounds i8, ptr %4, i64 208
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 208
   %42 = load ptr, ptr %41, align 8
   %.not47 = icmp eq ptr %42, null
   br i1 %.not47, label %44, label %43
@@ -1360,7 +1360,7 @@ _unpack_msg_uid.exit:                             ; preds = %17, %20, %23
   br label %45
 
 45:                                               ; preds = %44, %32
-  %46 = getelementptr inbounds i8, ptr %4, i64 56
+  %46 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %47 = load i16, ptr %46, align 8
   %.not48 = icmp eq i16 %47, 0
   br i1 %.not48, label %56, label %48
@@ -1379,12 +1379,12 @@ _unpack_msg_uid.exit:                             ; preds = %17, %20, %23
   %53 = phi ptr [ %51, %50 ], [ %49, %48 ]
   %54 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.13, ptr noundef nonnull @__func__.slurm_unpack_received_msg, ptr noundef %53) #21
   store i16 0, ptr %46, align 8
-  %55 = getelementptr inbounds i8, ptr %4, i64 64
+  %55 = getelementptr inbounds nuw i8, ptr %4, i64 64
   call void @slurm_xfree(ptr noundef nonnull %55) #21
   br label %56
 
 56:                                               ; preds = %52, %45
-  %57 = getelementptr inbounds i8, ptr %4, i64 2
+  %57 = getelementptr inbounds nuw i8, ptr %4, i64 2
   %58 = load i16, ptr %57, align 2
   %59 = and i16 %58, 64
   %.not50 = icmp eq i16 %59, 0
@@ -1410,7 +1410,7 @@ _unpack_msg_uid.exit:                             ; preds = %17, %20, %23
 
 69:                                               ; preds = %67, %63
   %70 = phi ptr [ %68, %67 ], [ %66, %63 ]
-  %71 = getelementptr inbounds i8, ptr %4, i64 4
+  %71 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %72 = load i16, ptr %71, align 4
   %73 = call ptr @rpc_num2string(i16 noundef zeroext %72) #21
   %74 = call ptr @slurm_strerror(i32 noundef %65) #21
@@ -1419,7 +1419,7 @@ _unpack_msg_uid.exit:                             ; preds = %17, %20, %23
 
 76:                                               ; preds = %60
   %77 = call i32 @auth_index(ptr noundef nonnull %62) #21
-  %78 = getelementptr inbounds i8, ptr %0, i64 136
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store i32 %77, ptr %78, align 8
   %79 = load i16, ptr %57, align 2
   %80 = and i16 %79, 1
@@ -1452,7 +1452,7 @@ _unpack_msg_uid.exit:                             ; preds = %17, %20, %23
 
 91:                                               ; preds = %89, %87
   %92 = phi ptr [ %90, %89 ], [ %88, %87 ]
-  %93 = getelementptr inbounds i8, ptr %4, i64 4
+  %93 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %94 = load i16, ptr %93, align 4
   %95 = call ptr @rpc_num2string(i16 noundef zeroext %94) #21
   %96 = call ptr @slurm_strerror(i32 noundef %86) #21
@@ -1461,10 +1461,10 @@ _unpack_msg_uid.exit:                             ; preds = %17, %20, %23
   br label %125
 
 98:                                               ; preds = %85
-  %99 = getelementptr inbounds i8, ptr %0, i64 140
-  %100 = getelementptr inbounds i8, ptr %0, i64 144
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 140
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 144
   call void @auth_g_get_ids(ptr noundef nonnull %62, ptr noundef nonnull %99, ptr noundef nonnull %100) #21
-  %101 = getelementptr inbounds i8, ptr %0, i64 148
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 148
   store i8 1, ptr %101, align 4
   %.pre = load i16, ptr %57, align 2
   br label %102
@@ -1473,21 +1473,21 @@ _unpack_msg_uid.exit:                             ; preds = %17, %20, %23
   %103 = phi i16 [ %58, %56 ], [ %.pre, %98 ]
   %.042 = phi ptr [ null, %56 ], [ %62, %98 ]
   %104 = load i16, ptr %4, align 8
-  %105 = getelementptr inbounds i8, ptr %0, i64 206
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 206
   store i16 %104, ptr %105, align 2
-  %106 = getelementptr inbounds i8, ptr %4, i64 4
+  %106 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %107 = load i16, ptr %106, align 4
-  %108 = getelementptr inbounds i8, ptr %0, i64 204
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 204
   store i16 %107, ptr %108, align 4
-  %109 = getelementptr inbounds i8, ptr %0, i64 200
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 200
   store i16 %103, ptr %109, align 8
-  %110 = getelementptr inbounds i8, ptr %2, i64 20
+  %110 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %111 = load i32, ptr %110, align 4
-  %112 = getelementptr inbounds i8, ptr %0, i64 160
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store i32 %111, ptr %112, align 8
-  %113 = getelementptr inbounds i8, ptr %4, i64 8
+  %113 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %114 = load i32, ptr %113, align 8
-  %115 = getelementptr inbounds i8, ptr %2, i64 16
+  %115 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %116 = load i32, ptr %115, align 8
   %117 = sub i32 %116, %111
   %.not56 = icmp eq i32 %114, %117
@@ -1508,20 +1508,20 @@ _unpack_msg_uid.exit:                             ; preds = %17, %20, %23
   br label %125
 
 123:                                              ; preds = %120
-  %124 = getelementptr inbounds i8, ptr %0, i64 128
+  %124 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store ptr %.042, ptr %124, align 8
   br label %125
 
 125:                                              ; preds = %10, %123, %122, %91, %69, %27
   %.not60 = phi i1 [ false, %27 ], [ false, %122 ], [ true, %123 ], [ false, %91 ], [ false, %69 ], [ false, %10 ]
   %.0 = phi i32 [ 1005, %27 ], [ 5003, %122 ], [ 0, %123 ], [ 1007, %91 ], [ 5003, %69 ], [ 1003, %10 ]
-  %126 = getelementptr inbounds i8, ptr %4, i64 16
+  %126 = getelementptr inbounds nuw i8, ptr %4, i64 16
   call void @destroy_forward(ptr noundef nonnull %126) #21
   call void @slurm_seterrno(i32 noundef %.0) #21
   br i1 %.not60, label %137, label %127
 
 127:                                              ; preds = %125
-  %128 = getelementptr inbounds i8, ptr %0, i64 128
+  %128 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store ptr null, ptr %128, align 8
   %129 = load ptr, ptr %5, align 8
   %.not61 = icmp eq ptr %129, null
@@ -1592,7 +1592,7 @@ define internal fastcc ptr @_global_auth_key() unnamed_addr #2 {
 
 10:                                               ; preds = %1
   %11 = tail call ptr @slurm_conf_lock() #21
-  %12 = getelementptr inbounds i8, ptr %11, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 56
   %13 = load ptr, ptr %12, align 8
   %.not6 = icmp eq ptr %13, null
   br i1 %.not6, label %19, label %14
@@ -1635,7 +1635,7 @@ define internal fastcc i32 @_check_hash(ptr nocapture noundef readonly %0, ptr n
   %8 = alloca i16, align 2
   store ptr null, ptr %5, align 8
   store i32 0, ptr %6, align 4
-  %9 = getelementptr inbounds i8, ptr %1, i64 2
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %10 = load i16, ptr %9, align 2
   %11 = and i16 %10, 64
   %.not = icmp eq i16 %11, 0
@@ -1663,7 +1663,7 @@ define internal fastcc i32 @_check_hash(ptr nocapture noundef readonly %0, ptr n
   br label %25
 
 25:                                               ; preds = %15, %12
-  %26 = getelementptr inbounds i8, ptr %2, i64 136
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 136
   %27 = load i32, ptr %26, align 8
   %28 = tail call zeroext i1 @slurm_get_plugin_hash_enable(i32 noundef %27) #21
   br i1 %28, label %29, label %96
@@ -1693,7 +1693,7 @@ define internal fastcc i32 @_check_hash(ptr nocapture noundef readonly %0, ptr n
   br i1 %41, label %42, label %64
 
 42:                                               ; preds = %38
-  %43 = getelementptr inbounds i8, ptr %2, i64 204
+  %43 = getelementptr inbounds nuw i8, ptr %2, i64 204
   %44 = load i16, ptr %43, align 4
   %45 = call zeroext i16 @htons(i16 noundef zeroext %44) #23
   %.sroa.2.0.extract.shift = lshr i16 %45, 8
@@ -1707,7 +1707,7 @@ define internal fastcc i32 @_check_hash(ptr nocapture noundef readonly %0, ptr n
 
 50:                                               ; preds = %42
   %.sroa.0.0.extract.trunc = zext i16 %45 to i32
-  %51 = getelementptr inbounds i8, ptr %39, i64 1
+  %51 = getelementptr inbounds nuw i8, ptr %39, i64 1
   %52 = load i8, ptr %51, align 1
   %53 = sext i8 %52 to i32
   %sext = shl i32 %.sroa.0.0.extract.trunc, 24
@@ -1716,7 +1716,7 @@ define internal fastcc i32 @_check_hash(ptr nocapture noundef readonly %0, ptr n
   br i1 %55, label %56, label %95
 
 56:                                               ; preds = %50
-  %57 = getelementptr inbounds i8, ptr %39, i64 2
+  %57 = getelementptr inbounds nuw i8, ptr %39, i64 2
   %58 = load i8, ptr %57, align 1
   %59 = sext i8 %58 to i32
   %sext26 = shl nuw i32 %.sroa.2.0.extract.trunc, 24
@@ -1725,25 +1725,25 @@ define internal fastcc i32 @_check_hash(ptr nocapture noundef readonly %0, ptr n
   br i1 %61, label %62, label %95
 
 62:                                               ; preds = %56
-  %63 = getelementptr inbounds i8, ptr %2, i64 202
+  %63 = getelementptr inbounds nuw i8, ptr %2, i64 202
   store i8 1, ptr %63, align 2
   br label %95
 
 64:                                               ; preds = %38
-  %65 = getelementptr inbounds i8, ptr %1, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %66 = load i32, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %7, i64 1
+  %67 = getelementptr inbounds nuw i8, ptr %7, i64 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(33) %67, i8 0, i64 32, i1 false)
-  %68 = getelementptr inbounds i8, ptr %2, i64 204
+  %68 = getelementptr inbounds nuw i8, ptr %2, i64 204
   %69 = load i16, ptr %68, align 4
   %70 = call zeroext i16 @htons(i16 noundef zeroext %69) #23
   store i16 %70, ptr %8, align 2
-  %71 = getelementptr inbounds i8, ptr %0, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds i8, ptr %0, i64 20
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %74 = load i32, ptr %73, align 4
   %75 = zext i32 %74 to i64
-  %76 = getelementptr inbounds i8, ptr %72, i64 %75
+  %76 = getelementptr inbounds nuw i8, ptr %72, i64 %75
   store i8 %40, ptr %7, align 1
   %77 = call i32 @hash_g_compute(ptr noundef %76, i32 noundef %66, ptr noundef nonnull %8, i32 noundef 2, ptr noundef nonnull %7) #21
   %78 = add nsw i32 %77, 1
@@ -1753,8 +1753,8 @@ define internal fastcc i32 @_check_hash(ptr nocapture noundef readonly %0, ptr n
 
 80:                                               ; preds = %64
   %81 = load ptr, ptr %5, align 8
-  %82 = getelementptr inbounds i8, ptr %81, i64 1
-  %83 = getelementptr inbounds i8, ptr %7, i64 1
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 1
+  %83 = getelementptr inbounds nuw i8, ptr %7, i64 1
   %84 = sext i32 %77 to i64
   %bcmp = call i32 @bcmp(ptr nonnull %82, ptr nonnull %83, i64 %84)
   %.not24 = icmp eq i32 %bcmp, 0
@@ -1762,7 +1762,7 @@ define internal fastcc i32 @_check_hash(ptr nocapture noundef readonly %0, ptr n
 
 85:                                               ; preds = %80
   %86 = load i8, ptr %7, align 1
-  %87 = getelementptr inbounds i8, ptr %2, i64 202
+  %87 = getelementptr inbounds nuw i8, ptr %2, i64 202
   store i8 %86, ptr %87, align 2
   br label %88
 
@@ -1808,11 +1808,11 @@ define noundef i32 @slurm_receive_msg(i32 noundef %0, ptr noundef %1, i32 nounde
   %6 = alloca %struct.persist_msg_t, align 8
   store ptr null, ptr %4, align 8
   store i64 0, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 200
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 200
   %8 = load i16, ptr %7, align 8
   %9 = trunc i16 %8 to i8
   %10 = lshr i8 %9, 2
-  %11 = getelementptr inbounds i8, ptr %1, i64 176
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %12 = load ptr, ptr %11, align 8
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %36, label %13
@@ -1836,7 +1836,7 @@ define noundef i32 @slurm_receive_msg(i32 noundef %0, ptr noundef %1, i32 nounde
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %1, i64 168
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 168
   store ptr %14, ptr %23, align 8
   br label %25
 
@@ -1855,18 +1855,18 @@ define noundef i32 @slurm_receive_msg(i32 noundef %0, ptr noundef %1, i32 nounde
   br label %82
 
 29:                                               ; preds = %25
-  %30 = getelementptr inbounds i8, ptr %6, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %31 = load i16, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %1, i64 204
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 204
   store i16 %31, ptr %32, align 4
-  %33 = getelementptr inbounds i8, ptr %6, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %1, i64 192
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 192
   store ptr %34, ptr %35, align 8
   br label %82
 
 36:                                               ; preds = %3
-  %37 = getelementptr inbounds i8, ptr %1, i64 184
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 184
   store i32 %0, ptr %37, align 8
   %38 = icmp slt i32 %2, 1
   %39 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 720), align 8
@@ -1941,7 +1941,7 @@ define noundef i32 @slurm_receive_msg(i32 noundef %0, ptr noundef %1, i32 nounde
   br i1 %76, label %77, label %79
 
 77:                                               ; preds = %70
-  %78 = getelementptr inbounds i8, ptr %1, i64 168
+  %78 = getelementptr inbounds nuw i8, ptr %1, i64 168
   store ptr %74, ptr %78, align 8
   br label %81
 
@@ -2003,7 +2003,7 @@ define ptr @slurm_receive_msgs(i32 noundef %0, i32 noundef %1, i32 noundef %2) l
 13:                                               ; preds = %11, %3
   %14 = phi ptr [ %12, %11 ], [ null, %3 ]
   call void @slurm_msg_t_init(ptr noundef nonnull %7) #21
-  %15 = getelementptr inbounds i8, ptr %7, i64 184
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 184
   store i32 %0, ptr %15, align 8
   %16 = icmp slt i32 %2, 1
   %17 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 720), align 8
@@ -2163,13 +2163,13 @@ _unpack_msg_uid.exit:                             ; preds = %81, %84, %87
   br i1 %.not113, label %.thread138, label %.thread138.sink.split
 
 96:                                               ; preds = %78
-  %97 = getelementptr inbounds i8, ptr %6, i64 12
+  %97 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %98 = load i16, ptr %97, align 4
   %.not95 = icmp eq i16 %98, 0
   br i1 %.not95, label %105, label %99
 
 99:                                               ; preds = %96
-  %100 = getelementptr inbounds i8, ptr %6, i64 208
+  %100 = getelementptr inbounds nuw i8, ptr %6, i64 208
   %101 = load ptr, ptr %100, align 8
   %.not96 = icmp eq ptr %101, null
   br i1 %.not96, label %102, label %104
@@ -2186,7 +2186,7 @@ _unpack_msg_uid.exit:                             ; preds = %81, %84, %87
 
 105:                                              ; preds = %104, %96
   %.174 = phi ptr [ %.2, %104 ], [ null, %96 ]
-  %106 = getelementptr inbounds i8, ptr %6, i64 56
+  %106 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %107 = load i16, ptr %106, align 8
   %.not97 = icmp eq i16 %107, 0
   br i1 %.not97, label %114, label %108
@@ -2206,7 +2206,7 @@ _unpack_msg_uid.exit:                             ; preds = %81, %84, %87
   br label %114
 
 114:                                              ; preds = %111, %105
-  %115 = getelementptr inbounds i8, ptr %6, i64 2
+  %115 = getelementptr inbounds nuw i8, ptr %6, i64 2
   %116 = load i16, ptr %115, align 2
   %117 = and i16 %116, 64
   %.not99 = icmp eq i16 %117, 0
@@ -2236,7 +2236,7 @@ _unpack_msg_uid.exit:                             ; preds = %81, %84, %87
 
 128:                                              ; preds = %118
   %129 = call i32 @auth_index(ptr noundef nonnull %120) #21
-  %130 = getelementptr inbounds i8, ptr %7, i64 136
+  %130 = getelementptr inbounds nuw i8, ptr %7, i64 136
   store i32 %129, ptr %130, align 8
   %131 = load i16, ptr %115, align 2
   %132 = and i16 %131, 1
@@ -2269,7 +2269,7 @@ _unpack_msg_uid.exit:                             ; preds = %81, %84, %87
 
 143:                                              ; preds = %141, %139
   %144 = phi ptr [ %142, %141 ], [ %140, %139 ]
-  %145 = getelementptr inbounds i8, ptr %6, i64 4
+  %145 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %146 = load i16, ptr %145, align 4
   %147 = call ptr @rpc_num2string(i16 noundef zeroext %146) #21
   %148 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.27, ptr noundef nonnull @__func__.slurm_receive_msgs, ptr noundef %144, ptr noundef %147) #21
@@ -2278,10 +2278,10 @@ _unpack_msg_uid.exit:                             ; preds = %81, %84, %87
   br i1 %.not106, label %178, label %.sink.split
 
 149:                                              ; preds = %137
-  %150 = getelementptr inbounds i8, ptr %7, i64 140
-  %151 = getelementptr inbounds i8, ptr %7, i64 144
+  %150 = getelementptr inbounds nuw i8, ptr %7, i64 140
+  %151 = getelementptr inbounds nuw i8, ptr %7, i64 144
   call void @auth_g_get_ids(ptr noundef nonnull %120, ptr noundef nonnull %150, ptr noundef nonnull %151) #21
-  %152 = getelementptr inbounds i8, ptr %7, i64 148
+  %152 = getelementptr inbounds nuw i8, ptr %7, i64 148
   store i8 1, ptr %152, align 4
   %.pre = load i16, ptr %115, align 2
   br label %153
@@ -2290,19 +2290,19 @@ _unpack_msg_uid.exit:                             ; preds = %81, %84, %87
   %154 = phi i16 [ %116, %114 ], [ %.pre, %149 ]
   %.075 = phi ptr [ null, %114 ], [ %120, %149 ]
   %155 = load i16, ptr %6, align 8
-  %156 = getelementptr inbounds i8, ptr %7, i64 206
+  %156 = getelementptr inbounds nuw i8, ptr %7, i64 206
   store i16 %155, ptr %156, align 2
-  %157 = getelementptr inbounds i8, ptr %6, i64 4
+  %157 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %158 = load i16, ptr %157, align 4
-  %159 = getelementptr inbounds i8, ptr %7, i64 204
+  %159 = getelementptr inbounds nuw i8, ptr %7, i64 204
   store i16 %158, ptr %159, align 4
-  %160 = getelementptr inbounds i8, ptr %7, i64 200
+  %160 = getelementptr inbounds nuw i8, ptr %7, i64 200
   store i16 %154, ptr %160, align 8
-  %161 = getelementptr inbounds i8, ptr %6, i64 8
+  %161 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %162 = load i32, ptr %161, align 8
-  %163 = getelementptr inbounds i8, ptr %74, i64 16
+  %163 = getelementptr inbounds nuw i8, ptr %74, i64 16
   %164 = load i32, ptr %163, align 8
-  %165 = getelementptr inbounds i8, ptr %74, i64 20
+  %165 = getelementptr inbounds nuw i8, ptr %74, i64 20
   %166 = load i32, ptr %165, align 4
   %167 = sub i32 %164, %166
   %.not107 = icmp eq i32 %162, %167
@@ -2323,7 +2323,7 @@ _unpack_msg_uid.exit:                             ; preds = %81, %84, %87
   br label %.sink.split
 
 173:                                              ; preds = %61
-  %174 = getelementptr inbounds i8, ptr %6, i64 16
+  %174 = getelementptr inbounds nuw i8, ptr %6, i64 16
   call void @forward_init(ptr noundef nonnull %174) #21
   %175 = tail call ptr @__errno_location() #23
   %176 = load i32, ptr %175, align 4
@@ -2338,7 +2338,7 @@ _unpack_msg_uid.exit:                             ; preds = %81, %84, %87
 
 .thread138:                                       ; preds = %.thread138.sink.split, %91, %77
   %.076.ph.ph = phi i32 [ 1003, %77 ], [ 1005, %91 ], [ %.076.ph.ph.ph, %.thread138.sink.split ]
-  %177 = getelementptr inbounds i8, ptr %6, i64 16
+  %177 = getelementptr inbounds nuw i8, ptr %6, i64 16
   call void @destroy_forward(ptr noundef nonnull %177) #21
   br label %.thread131
 
@@ -2349,17 +2349,17 @@ _unpack_msg_uid.exit:                             ; preds = %81, %84, %87
 
 178:                                              ; preds = %.sink.split, %125, %143
   %.076.ph = phi i32 [ 1007, %143 ], [ 5003, %125 ], [ %.076.ph.ph148, %.sink.split ]
-  %179 = getelementptr inbounds i8, ptr %6, i64 16
+  %179 = getelementptr inbounds nuw i8, ptr %6, i64 16
   call void @destroy_forward(ptr noundef nonnull %179) #21
   %.not117 = icmp eq ptr %.174, null
   br i1 %.not117, label %.thread131, label %180
 
 180:                                              ; preds = %178
   %181 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 24, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 1281, ptr noundef nonnull @__func__.slurm_receive_msgs) #21
-  %182 = getelementptr inbounds i8, ptr %181, i64 4
+  %182 = getelementptr inbounds nuw i8, ptr %181, i64 4
   store i32 %.076.ph, ptr %182, align 4
   store i16 9001, ptr %181, align 8
-  %183 = getelementptr inbounds i8, ptr %181, i64 16
+  %183 = getelementptr inbounds nuw i8, ptr %181, i64 16
   store ptr null, ptr %183, align 8
   call void @list_push(ptr noundef nonnull %.174, ptr noundef nonnull %181) #21
   br label %.thread131
@@ -2386,7 +2386,7 @@ _unpack_msg_uid.exit:                             ; preds = %81, %84, %87
 192:                                              ; preds = %170
   call void @auth_g_destroy(ptr noundef %.075) #21
   call void @free_buf(ptr noundef nonnull %74) #21
-  %193 = getelementptr inbounds i8, ptr %6, i64 16
+  %193 = getelementptr inbounds nuw i8, ptr %6, i64 16
   call void @destroy_forward(ptr noundef nonnull %193) #21
   %.not116 = icmp eq ptr %.174, null
   br i1 %.not116, label %.thread142, label %195
@@ -2398,16 +2398,16 @@ _unpack_msg_uid.exit:                             ; preds = %81, %84, %87
 195:                                              ; preds = %.thread142, %192
   %.4 = phi ptr [ %.174, %192 ], [ %194, %.thread142 ]
   %196 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 24, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 1298, ptr noundef nonnull @__func__.slurm_receive_msgs) #21
-  %197 = getelementptr inbounds i8, ptr %196, i64 4
+  %197 = getelementptr inbounds nuw i8, ptr %196, i64 4
   store i32 0, ptr %197, align 4
-  %198 = getelementptr inbounds i8, ptr %196, i64 8
+  %198 = getelementptr inbounds nuw i8, ptr %196, i64 8
   store ptr null, ptr %198, align 8
-  %199 = getelementptr inbounds i8, ptr %7, i64 204
+  %199 = getelementptr inbounds nuw i8, ptr %7, i64 204
   %200 = load i16, ptr %199, align 4
   store i16 %200, ptr %196, align 8
-  %201 = getelementptr inbounds i8, ptr %7, i64 192
+  %201 = getelementptr inbounds nuw i8, ptr %7, i64 192
   %202 = load ptr, ptr %201, align 8
-  %203 = getelementptr inbounds i8, ptr %196, i64 16
+  %203 = getelementptr inbounds nuw i8, ptr %196, i64 16
   store ptr %202, ptr %203, align 8
   call void @list_push(ptr noundef %.4, ptr noundef nonnull %196) #21
   br label %204
@@ -2454,7 +2454,7 @@ define ptr @slurm_receive_resp_msgs(i32 noundef %0, i32 noundef %1, i32 noundef 
 13:                                               ; preds = %11, %3
   %14 = phi ptr [ %12, %11 ], [ null, %3 ]
   call void @slurm_msg_t_init(ptr noundef nonnull %7) #21
-  %15 = getelementptr inbounds i8, ptr %7, i64 184
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 184
   store i32 %0, ptr %15, align 8
   %16 = icmp slt i32 %2, 1
   %17 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 720), align 8
@@ -2596,13 +2596,13 @@ define ptr @slurm_receive_resp_msgs(i32 noundef %0, i32 noundef %1, i32 noundef 
   br i1 %.not92, label %.thread117, label %.thread117.sink.split
 
 89:                                               ; preds = %78
-  %90 = getelementptr inbounds i8, ptr %6, i64 12
+  %90 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %91 = load i16, ptr %90, align 4
   %.not80 = icmp eq i16 %91, 0
   br i1 %.not80, label %98, label %92
 
 92:                                               ; preds = %89
-  %93 = getelementptr inbounds i8, ptr %6, i64 208
+  %93 = getelementptr inbounds nuw i8, ptr %6, i64 208
   %94 = load ptr, ptr %93, align 8
   %.not81 = icmp eq ptr %94, null
   br i1 %.not81, label %95, label %97
@@ -2619,7 +2619,7 @@ define ptr @slurm_receive_resp_msgs(i32 noundef %0, i32 noundef %1, i32 noundef 
 
 98:                                               ; preds = %97, %89
   %.160 = phi ptr [ %.2, %97 ], [ null, %89 ]
-  %99 = getelementptr inbounds i8, ptr %6, i64 56
+  %99 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %100 = load i16, ptr %99, align 8
   %.not82 = icmp eq i16 %100, 0
   br i1 %.not82, label %107, label %101
@@ -2639,7 +2639,7 @@ define ptr @slurm_receive_resp_msgs(i32 noundef %0, i32 noundef %1, i32 noundef 
   br label %107
 
 107:                                              ; preds = %104, %98
-  %108 = getelementptr inbounds i8, ptr %6, i64 2
+  %108 = getelementptr inbounds nuw i8, ptr %6, i64 2
   %109 = load i16, ptr %108, align 2
   %110 = and i16 %109, 64
   %.not84 = icmp eq i16 %110, 0
@@ -2675,19 +2675,19 @@ define ptr @slurm_receive_resp_msgs(i32 noundef %0, i32 noundef %1, i32 noundef 
 122:                                              ; preds = %107, %121
   %123 = phi i16 [ %109, %107 ], [ %.pre, %121 ]
   %124 = load i16, ptr %6, align 8
-  %125 = getelementptr inbounds i8, ptr %7, i64 206
+  %125 = getelementptr inbounds nuw i8, ptr %7, i64 206
   store i16 %124, ptr %125, align 2
-  %126 = getelementptr inbounds i8, ptr %6, i64 4
+  %126 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %127 = load i16, ptr %126, align 4
-  %128 = getelementptr inbounds i8, ptr %7, i64 204
+  %128 = getelementptr inbounds nuw i8, ptr %7, i64 204
   store i16 %127, ptr %128, align 4
-  %129 = getelementptr inbounds i8, ptr %7, i64 200
+  %129 = getelementptr inbounds nuw i8, ptr %7, i64 200
   store i16 %123, ptr %129, align 8
-  %130 = getelementptr inbounds i8, ptr %6, i64 8
+  %130 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %131 = load i32, ptr %130, align 8
-  %132 = getelementptr inbounds i8, ptr %74, i64 16
+  %132 = getelementptr inbounds nuw i8, ptr %74, i64 16
   %133 = load i32, ptr %132, align 8
-  %134 = getelementptr inbounds i8, ptr %74, i64 20
+  %134 = getelementptr inbounds nuw i8, ptr %74, i64 20
   %135 = load i32, ptr %134, align 4
   %136 = sub i32 %133, %135
   %137 = icmp ugt i32 %131, %136
@@ -2699,7 +2699,7 @@ define ptr @slurm_receive_resp_msgs(i32 noundef %0, i32 noundef %1, i32 noundef 
   br i1 %.not88, label %159, label %.sink.split
 
 140:                                              ; preds = %61
-  %141 = getelementptr inbounds i8, ptr %6, i64 16
+  %141 = getelementptr inbounds nuw i8, ptr %6, i64 16
   call void @forward_init(ptr noundef nonnull %141) #21
   %142 = tail call ptr @__errno_location() #23
   %143 = load i32, ptr %142, align 4
@@ -2714,7 +2714,7 @@ define ptr @slurm_receive_resp_msgs(i32 noundef %0, i32 noundef %1, i32 noundef 
 
 .thread117:                                       ; preds = %.thread117.sink.split, %84, %77
   %.061.ph.ph = phi i32 [ 1003, %77 ], [ 1005, %84 ], [ %.061.ph.ph.ph, %.thread117.sink.split ]
-  %144 = getelementptr inbounds i8, ptr %6, i64 16
+  %144 = getelementptr inbounds nuw i8, ptr %6, i64 16
   call void @destroy_forward(ptr noundef nonnull %144) #21
   br label %.thread110
 
@@ -2723,17 +2723,17 @@ define ptr @slurm_receive_resp_msgs(i32 noundef %0, i32 noundef %1, i32 noundef 
   br label %145
 
 145:                                              ; preds = %.sink.split, %118
-  %146 = getelementptr inbounds i8, ptr %6, i64 16
+  %146 = getelementptr inbounds nuw i8, ptr %6, i64 16
   call void @destroy_forward(ptr noundef nonnull %146) #21
   %.not96 = icmp eq ptr %.160, null
   br i1 %.not96, label %.thread110, label %147
 
 147:                                              ; preds = %145
   %148 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 24, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 1460, ptr noundef nonnull @__func__.slurm_receive_resp_msgs) #21
-  %149 = getelementptr inbounds i8, ptr %148, i64 4
+  %149 = getelementptr inbounds nuw i8, ptr %148, i64 4
   store i32 5003, ptr %149, align 4
   store i16 9001, ptr %148, align 8
-  %150 = getelementptr inbounds i8, ptr %148, i64 16
+  %150 = getelementptr inbounds nuw i8, ptr %148, i64 16
   store ptr null, ptr %150, align 8
   call void @list_push(ptr noundef nonnull %.160, ptr noundef nonnull %148) #21
   br label %.thread110
@@ -2759,7 +2759,7 @@ define ptr @slurm_receive_resp_msgs(i32 noundef %0, i32 noundef %1, i32 noundef 
 
 159:                                              ; preds = %138
   call void @free_buf(ptr noundef nonnull %74) #21
-  %160 = getelementptr inbounds i8, ptr %6, i64 16
+  %160 = getelementptr inbounds nuw i8, ptr %6, i64 16
   call void @destroy_forward(ptr noundef nonnull %160) #21
   %.not95 = icmp eq ptr %.160, null
   br i1 %.not95, label %.thread121, label %162
@@ -2771,16 +2771,16 @@ define ptr @slurm_receive_resp_msgs(i32 noundef %0, i32 noundef %1, i32 noundef 
 162:                                              ; preds = %.thread121, %159
   %.4 = phi ptr [ %.160, %159 ], [ %161, %.thread121 ]
   %163 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 24, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 1476, ptr noundef nonnull @__func__.slurm_receive_resp_msgs) #21
-  %164 = getelementptr inbounds i8, ptr %163, i64 4
+  %164 = getelementptr inbounds nuw i8, ptr %163, i64 4
   store i32 0, ptr %164, align 4
-  %165 = getelementptr inbounds i8, ptr %163, i64 8
+  %165 = getelementptr inbounds nuw i8, ptr %163, i64 8
   store ptr null, ptr %165, align 8
-  %166 = getelementptr inbounds i8, ptr %7, i64 204
+  %166 = getelementptr inbounds nuw i8, ptr %7, i64 204
   %167 = load i16, ptr %166, align 4
   store i16 %167, ptr %163, align 8
-  %168 = getelementptr inbounds i8, ptr %7, i64 192
+  %168 = getelementptr inbounds nuw i8, ptr %7, i64 192
   %169 = load ptr, ptr %168, align 8
-  %170 = getelementptr inbounds i8, ptr %163, i64 16
+  %170 = getelementptr inbounds nuw i8, ptr %163, i64 16
   store ptr %169, ptr %170, align 8
   call void @list_push(ptr noundef %.4, ptr noundef nonnull %163) #21
   br label %171
@@ -2815,7 +2815,7 @@ define i32 @slurm_receive_msg_and_forward(i32 noundef %0, ptr nocapture noundef 
 
 12:                                               ; preds = %10, %3
   %13 = phi ptr [ %11, %10 ], [ null, %3 ]
-  %14 = getelementptr inbounds i8, ptr %2, i64 250
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 250
   %15 = load i16, ptr %14, align 2
   %.not97 = icmp eq i16 %15, -2
   br i1 %.not97, label %17, label %16
@@ -2825,13 +2825,13 @@ define i32 @slurm_receive_msg_and_forward(i32 noundef %0, ptr nocapture noundef 
   br label %17
 
 17:                                               ; preds = %16, %12
-  %18 = getelementptr inbounds i8, ptr %2, i64 184
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 184
   store i32 %0, ptr %18, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %2, ptr noundef nonnull align 8 dereferenceable(128) %1, i64 128, i1 false)
-  %19 = getelementptr inbounds i8, ptr %2, i64 280
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 280
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %19, ptr noundef nonnull align 8 dereferenceable(128) %1, i64 128, i1 false)
   %20 = tail call ptr @list_create(ptr noundef nonnull @destroy_data_info) #21
-  %21 = getelementptr inbounds i8, ptr %2, i64 408
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 408
   store ptr %20, ptr %21, align 8
   %22 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 720), align 8
   %23 = zext i16 %22 to i32
@@ -2841,7 +2841,7 @@ define i32 @slurm_receive_msg_and_forward(i32 noundef %0, ptr nocapture noundef 
   br i1 %26, label %27, label %31
 
 27:                                               ; preds = %17
-  %28 = getelementptr inbounds i8, ptr %6, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %6, i64 16
   call void @forward_init(ptr noundef nonnull %28) #21
   %29 = tail call ptr @__errno_location() #23
   %30 = load i32, ptr %29, align 4
@@ -2921,7 +2921,7 @@ _unpack_msg_uid.exit:                             ; preds = %49, %52, %55
   br label %241
 
 65:                                               ; preds = %46
-  %66 = getelementptr inbounds i8, ptr %6, i64 12
+  %66 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %67 = load i16, ptr %66, align 4
   %.not99 = icmp eq i16 %67, 0
   br i1 %.not99, label %78, label %68
@@ -2939,7 +2939,7 @@ _unpack_msg_uid.exit:                             ; preds = %49, %52, %55
   %72 = phi ptr [ %70, %69 ], [ %13, %68 ]
   %73 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.12, ptr noundef nonnull @__func__.slurm_receive_msg_and_forward, ptr noundef %72) #21
   store i16 0, ptr %66, align 4
-  %74 = getelementptr inbounds i8, ptr %6, i64 208
+  %74 = getelementptr inbounds nuw i8, ptr %6, i64 208
   %75 = load ptr, ptr %74, align 8
   %.not101 = icmp eq ptr %75, null
   br i1 %.not101, label %77, label %76
@@ -2953,7 +2953,7 @@ _unpack_msg_uid.exit:                             ; preds = %49, %52, %55
   br label %78
 
 78:                                               ; preds = %77, %65
-  %79 = getelementptr inbounds i8, ptr %6, i64 80
+  %79 = getelementptr inbounds nuw i8, ptr %6, i64 80
   %80 = call zeroext i1 @slurm_addr_is_unspec(ptr noundef nonnull %79) #21
   br i1 %80, label %82, label %81
 
@@ -2966,7 +2966,7 @@ _unpack_msg_uid.exit:                             ; preds = %49, %52, %55
   br label %83
 
 83:                                               ; preds = %82, %81
-  %84 = getelementptr inbounds i8, ptr %6, i64 56
+  %84 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %85 = load i16, ptr %84, align 8
   %.not102 = icmp eq i16 %85, 0
   br i1 %.not102, label %175, label %86
@@ -2991,9 +2991,9 @@ _unpack_msg_uid.exit:                             ; preds = %49, %52, %55
 
 96:                                               ; preds = %86, %89, %92
   %97 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 128, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 1617, ptr noundef nonnull @__func__.slurm_receive_msg_and_forward) #21
-  %98 = getelementptr inbounds i8, ptr %2, i64 272
+  %98 = getelementptr inbounds nuw i8, ptr %2, i64 272
   store ptr %97, ptr %98, align 8
-  %99 = getelementptr inbounds i8, ptr %97, i64 24
+  %99 = getelementptr inbounds nuw i8, ptr %97, i64 24
   %100 = call i32 @pthread_mutex_init(ptr noundef nonnull %99, ptr noundef null) #21
   %.not104 = icmp eq i32 %100, 0
   br i1 %.not104, label %103, label %101
@@ -3006,7 +3006,7 @@ _unpack_msg_uid.exit:                             ; preds = %49, %52, %55
 
 103:                                              ; preds = %96
   %104 = load ptr, ptr %98, align 8
-  %105 = getelementptr inbounds i8, ptr %104, i64 64
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 64
   %106 = call i32 @pthread_cond_init(ptr noundef nonnull %105, ptr noundef null) #21
   %.not105 = icmp eq i32 %106, 0
   br i1 %.not105, label %109, label %107
@@ -3018,45 +3018,45 @@ _unpack_msg_uid.exit:                             ; preds = %49, %52, %55
   unreachable
 
 109:                                              ; preds = %103
-  %110 = getelementptr inbounds i8, ptr %41, i64 16
+  %110 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %111 = load i32, ptr %110, align 8
-  %112 = getelementptr inbounds i8, ptr %41, i64 20
+  %112 = getelementptr inbounds nuw i8, ptr %41, i64 20
   %113 = load i32, ptr %112, align 4
   %114 = sub i32 %111, %113
   %115 = load ptr, ptr %98, align 8
-  %116 = getelementptr inbounds i8, ptr %115, i64 16
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 16
   store i32 %114, ptr %116, align 8
   %117 = load ptr, ptr %98, align 8
-  %118 = getelementptr inbounds i8, ptr %117, i64 16
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 16
   %119 = load i32, ptr %118, align 8
   %120 = sext i32 %119 to i64
   %121 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %120, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 1623, ptr noundef nonnull @__func__.slurm_receive_msg_and_forward) #21
   %122 = load ptr, ptr %98, align 8
-  %123 = getelementptr inbounds i8, ptr %122, i64 8
+  %123 = getelementptr inbounds nuw i8, ptr %122, i64 8
   store ptr %121, ptr %123, align 8
   %124 = load ptr, ptr %98, align 8
-  %125 = getelementptr inbounds i8, ptr %124, i64 8
+  %125 = getelementptr inbounds nuw i8, ptr %124, i64 8
   %126 = load ptr, ptr %125, align 8
-  %127 = getelementptr inbounds i8, ptr %41, i64 8
+  %127 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %128 = load ptr, ptr %127, align 8
   %129 = load i32, ptr %112, align 4
   %130 = zext i32 %129 to i64
-  %131 = getelementptr inbounds i8, ptr %128, i64 %130
-  %132 = getelementptr inbounds i8, ptr %124, i64 16
+  %131 = getelementptr inbounds nuw i8, ptr %128, i64 %130
+  %132 = getelementptr inbounds nuw i8, ptr %124, i64 16
   %133 = load i32, ptr %132, align 8
   %134 = sext i32 %133 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %126, ptr align 1 %131, i64 %134, i1 false)
   %135 = load ptr, ptr %21, align 8
   %136 = load ptr, ptr %98, align 8
-  %137 = getelementptr inbounds i8, ptr %136, i64 112
+  %137 = getelementptr inbounds nuw i8, ptr %136, i64 112
   store ptr %135, ptr %137, align 8
-  %138 = getelementptr inbounds i8, ptr %6, i64 72
+  %138 = getelementptr inbounds nuw i8, ptr %6, i64 72
   %139 = load i32, ptr %138, align 8
   %140 = load ptr, ptr %98, align 8
-  %141 = getelementptr inbounds i8, ptr %140, i64 120
+  %141 = getelementptr inbounds nuw i8, ptr %140, i64 120
   store i32 %139, ptr %141, align 8
   %142 = load ptr, ptr %98, align 8
-  %143 = getelementptr inbounds i8, ptr %142, i64 120
+  %143 = getelementptr inbounds nuw i8, ptr %142, i64 120
   %144 = load i32, ptr %143, align 8
   %.not106 = icmp eq i32 %144, 0
   br i1 %.not106, label %145, label %147
@@ -3070,7 +3070,7 @@ _unpack_msg_uid.exit:                             ; preds = %49, %52, %55
 147:                                              ; preds = %145, %109
   %148 = phi ptr [ %.pre, %145 ], [ %142, %109 ]
   %149 = load i16, ptr %84, align 8
-  %150 = getelementptr inbounds i8, ptr %148, i64 20
+  %150 = getelementptr inbounds nuw i8, ptr %148, i64 20
   store i16 %149, ptr %150, align 4
   %151 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %152 = and i64 %151, 1024
@@ -3085,10 +3085,10 @@ _unpack_msg_uid.exit:                             ; preds = %49, %52, %55
 156:                                              ; preds = %153
   %157 = load ptr, ptr %7, align 8
   %158 = load ptr, ptr %98, align 8
-  %159 = getelementptr inbounds i8, ptr %158, i64 20
+  %159 = getelementptr inbounds nuw i8, ptr %158, i64 20
   %160 = load i16, ptr %159, align 4
   %161 = zext i16 %160 to i32
-  %162 = getelementptr inbounds i8, ptr %158, i64 120
+  %162 = getelementptr inbounds nuw i8, ptr %158, i64 120
   %163 = load i32, ptr %162, align 8
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.35, ptr noundef nonnull @__func__.slurm_receive_msg_and_forward, ptr noundef %157, i32 noundef %161, i32 noundef %163) #21
   br label %164
@@ -3115,7 +3115,7 @@ _unpack_msg_uid.exit:                             ; preds = %49, %52, %55
   br label %175
 
 175:                                              ; preds = %164, %172, %83
-  %176 = getelementptr inbounds i8, ptr %6, i64 2
+  %176 = getelementptr inbounds nuw i8, ptr %6, i64 2
   %177 = load i16, ptr %176, align 2
   %178 = and i16 %177, 64
   %.not109 = icmp eq i16 %178, 0
@@ -3139,7 +3139,7 @@ _unpack_msg_uid.exit:                             ; preds = %49, %52, %55
 
 186:                                              ; preds = %184, %182
   %187 = phi ptr [ %185, %184 ], [ %183, %182 ]
-  %188 = getelementptr inbounds i8, ptr %6, i64 4
+  %188 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %189 = load i16, ptr %188, align 4
   %190 = call ptr @rpc_num2string(i16 noundef zeroext %189) #21
   %191 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.37, ptr noundef nonnull @__func__.slurm_receive_msg_and_forward, ptr noundef %187, ptr noundef %190) #21
@@ -3152,7 +3152,7 @@ _unpack_msg_uid.exit:                             ; preds = %49, %52, %55
 
 193:                                              ; preds = %179
   %194 = call i32 @auth_index(ptr noundef nonnull %181) #21
-  %195 = getelementptr inbounds i8, ptr %2, i64 136
+  %195 = getelementptr inbounds nuw i8, ptr %2, i64 136
   store i32 %194, ptr %195, align 8
   %196 = load i16, ptr %176, align 2
   %197 = and i16 %196, 1
@@ -3185,7 +3185,7 @@ _unpack_msg_uid.exit:                             ; preds = %49, %52, %55
 
 208:                                              ; preds = %206, %204
   %209 = phi ptr [ %207, %206 ], [ %205, %204 ]
-  %210 = getelementptr inbounds i8, ptr %6, i64 4
+  %210 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %211 = load i16, ptr %210, align 4
   %212 = call ptr @rpc_num2string(i16 noundef zeroext %211) #21
   %213 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.27, ptr noundef nonnull @__func__.slurm_receive_msg_and_forward, ptr noundef %209, ptr noundef %212) #21
@@ -3198,10 +3198,10 @@ _unpack_msg_uid.exit:                             ; preds = %49, %52, %55
   br label %241
 
 215:                                              ; preds = %202
-  %216 = getelementptr inbounds i8, ptr %2, i64 140
-  %217 = getelementptr inbounds i8, ptr %2, i64 144
+  %216 = getelementptr inbounds nuw i8, ptr %2, i64 140
+  %217 = getelementptr inbounds nuw i8, ptr %2, i64 144
   call void @auth_g_get_ids(ptr noundef nonnull %181, ptr noundef nonnull %216, ptr noundef nonnull %217) #21
-  %218 = getelementptr inbounds i8, ptr %2, i64 148
+  %218 = getelementptr inbounds nuw i8, ptr %2, i64 148
   store i8 1, ptr %218, align 4
   %.pre127 = load i16, ptr %176, align 2
   br label %219
@@ -3210,19 +3210,19 @@ _unpack_msg_uid.exit:                             ; preds = %49, %52, %55
   %220 = phi i16 [ %177, %175 ], [ %.pre127, %215 ]
   %.089 = phi ptr [ null, %175 ], [ %181, %215 ]
   %221 = load i16, ptr %6, align 8
-  %222 = getelementptr inbounds i8, ptr %2, i64 206
+  %222 = getelementptr inbounds nuw i8, ptr %2, i64 206
   store i16 %221, ptr %222, align 2
-  %223 = getelementptr inbounds i8, ptr %6, i64 4
+  %223 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %224 = load i16, ptr %223, align 4
-  %225 = getelementptr inbounds i8, ptr %2, i64 204
+  %225 = getelementptr inbounds nuw i8, ptr %2, i64 204
   store i16 %224, ptr %225, align 4
-  %226 = getelementptr inbounds i8, ptr %2, i64 200
+  %226 = getelementptr inbounds nuw i8, ptr %2, i64 200
   store i16 %220, ptr %226, align 8
-  %227 = getelementptr inbounds i8, ptr %6, i64 8
+  %227 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %228 = load i32, ptr %227, align 8
-  %229 = getelementptr inbounds i8, ptr %41, i64 16
+  %229 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %230 = load i32, ptr %229, align 8
-  %231 = getelementptr inbounds i8, ptr %41, i64 20
+  %231 = getelementptr inbounds nuw i8, ptr %41, i64 20
   %232 = load i32, ptr %231, align 4
   %233 = sub i32 %230, %232
   %.not117 = icmp eq i32 %228, %233
@@ -3244,25 +3244,25 @@ _unpack_msg_uid.exit:                             ; preds = %49, %52, %55
   br label %241
 
 239:                                              ; preds = %236
-  %240 = getelementptr inbounds i8, ptr %2, i64 128
+  %240 = getelementptr inbounds nuw i8, ptr %2, i64 128
   store ptr %.089, ptr %240, align 8
   call void @free_buf(ptr noundef nonnull %41) #21
   br label %241
 
 241:                                              ; preds = %239, %238, %208, %214, %186, %192, %59, %64, %44, %45, %27
   %.0 = phi i32 [ %30, %27 ], [ 1003, %45 ], [ 1003, %44 ], [ 1005, %64 ], [ 1005, %59 ], [ 5003, %192 ], [ 5003, %186 ], [ 1007, %214 ], [ 1007, %208 ], [ 5003, %238 ], [ 0, %239 ]
-  %242 = getelementptr inbounds i8, ptr %6, i64 16
+  %242 = getelementptr inbounds nuw i8, ptr %6, i64 16
   call void @destroy_forward(ptr noundef nonnull %242) #21
   call void @slurm_seterrno(i32 noundef %.0) #21
   %.not125 = icmp eq i32 %.0, 0
   br i1 %.not125, label %255, label %243
 
 243:                                              ; preds = %241
-  %244 = getelementptr inbounds i8, ptr %2, i64 204
+  %244 = getelementptr inbounds nuw i8, ptr %2, i64 204
   store i16 9001, ptr %244, align 4
-  %245 = getelementptr inbounds i8, ptr %2, i64 128
+  %245 = getelementptr inbounds nuw i8, ptr %2, i64 128
   store ptr null, ptr %245, align 8
-  %246 = getelementptr inbounds i8, ptr %2, i64 192
+  %246 = getelementptr inbounds nuw i8, ptr %2, i64 192
   store ptr null, ptr %246, align 8
   %247 = load ptr, ptr %7, align 8
   %.not126 = icmp eq ptr %247, null
@@ -3303,7 +3303,7 @@ define range(i32 -1, 1) i32 @slurm_buffers_pack_msg(ptr noundef %0, ptr nocaptur
   %6 = alloca %struct.slurm_hash_t, align 1
   %7 = tail call i64 @time(ptr noundef null) #21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(33) %6, i8 0, i64 33, i1 false)
-  %8 = getelementptr inbounds i8, ptr %0, i64 156
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 156
   %9 = load i8, ptr %8, align 4
   %10 = trunc i8 %9 to i1
   br i1 %10, label %12, label %11
@@ -3314,7 +3314,7 @@ define range(i32 -1, 1) i32 @slurm_buffers_pack_msg(ptr noundef %0, ptr nocaptur
 
 12:                                               ; preds = %3
   %13 = tail call ptr @init_buf(i32 noundef 16384) #21
-  %14 = getelementptr inbounds i8, ptr %1, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr %13, ptr %14, align 8
   %15 = tail call i32 @pack_msg(ptr noundef nonnull %0, ptr noundef %13) #21
   %16 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
@@ -3324,16 +3324,16 @@ define range(i32 -1, 1) i32 @slurm_buffers_pack_msg(ptr noundef %0, ptr nocaptur
 
 18:                                               ; preds = %12
   %19 = load ptr, ptr %14, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %19, i64 20
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 20
   %23 = load i32, ptr %22, align 4
   %24 = zext i32 %23 to i64
   tail call void (ptr, i64, i64, i64, ptr, ...) @_log_flag_hex(ptr noundef %21, i64 noundef %24, i64 noundef -1, i64 noundef -1, ptr noundef nonnull @.str.39, ptr noundef nonnull @__func__.slurm_buffers_pack_msg) #21
   br label %25
 
 25:                                               ; preds = %12, %18
-  %26 = getelementptr inbounds i8, ptr %0, i64 200
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %27 = load i16, ptr %26, align 8
   %28 = and i16 %27, 64
   %.not74 = icmp eq i16 %28, 0
@@ -3342,17 +3342,17 @@ define range(i32 -1, 1) i32 @slurm_buffers_pack_msg(ptr noundef %0, ptr nocaptur
 29:                                               ; preds = %25
   %30 = load ptr, ptr %14, align 8
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4)
-  %31 = getelementptr inbounds i8, ptr %0, i64 136
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %32 = load i32, ptr %31, align 8
   %33 = tail call zeroext i1 @slurm_get_plugin_hash_enable(i32 noundef %32) #21
   br i1 %33, label %34, label %_compute_hash.exit.thread
 
 34:                                               ; preds = %29
-  %35 = getelementptr inbounds i8, ptr %0, i64 204
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 204
   %36 = load i16, ptr %35, align 4
   %37 = tail call zeroext i16 @htons(i16 noundef zeroext %36) #23
   store i16 %37, ptr %4, align 2
-  %38 = getelementptr inbounds i8, ptr %0, i64 202
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 202
   %39 = load i8, ptr %38, align 2
   %.not.i = icmp eq i8 %39, 0
   br i1 %.not.i, label %_compute_hash.exit, label %thread-pre-split.i
@@ -3363,7 +3363,7 @@ thread-pre-split.i:                               ; preds = %34
   br i1 %40, label %.thread.i, label %_compute_hash.exit
 
 .thread.i:                                        ; preds = %thread-pre-split.i
-  %41 = getelementptr inbounds i8, ptr %6, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %6, i64 1
   store i16 %37, ptr %41, align 1
   br label %_compute_hash.exit.thread
 
@@ -3373,9 +3373,9 @@ _compute_hash.exit.thread:                        ; preds = %29, %.thread.i
   br label %57
 
 _compute_hash.exit:                               ; preds = %34, %thread-pre-split.i
-  %42 = getelementptr inbounds i8, ptr %30, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %30, i64 20
+  %44 = getelementptr inbounds nuw i8, ptr %30, i64 20
   %45 = load i32, ptr %44, align 4
   %46 = call i32 @hash_g_compute(ptr noundef %43, i32 noundef %45, ptr noundef nonnull %4, i32 noundef 2, ptr noundef nonnull %6) #21
   %.fr.i = freeze i32 %46
@@ -3419,7 +3419,7 @@ _compute_hash.exit:                               ; preds = %34, %thread-pre-spl
   %63 = and i16 %62, 1
   %.not76 = icmp eq i16 %63, 0
   %64 = load i32, ptr %31, align 8
-  %65 = getelementptr inbounds i8, ptr %0, i64 152
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 152
   br i1 %.not76, label %68, label %66
 
 66:                                               ; preds = %61
@@ -3439,20 +3439,20 @@ _compute_hash.exit:                               ; preds = %34, %thread-pre-spl
 72:                                               ; preds = %.sink.split, %25
   %.066 = phi ptr [ null, %25 ], [ %71, %.sink.split ]
   %.0 = phi i32 [ 0, %25 ], [ %.014.i89, %.sink.split ]
-  %73 = getelementptr inbounds i8, ptr %0, i64 250
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 250
   %74 = load i16, ptr %73, align 2
   %.not78 = icmp eq i16 %74, -2
   br i1 %.not78, label %78, label %75
 
 75:                                               ; preds = %72
-  %76 = getelementptr inbounds i8, ptr %0, i64 208
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 208
   call void @forward_init(ptr noundef nonnull %76) #21
-  %77 = getelementptr inbounds i8, ptr %0, i64 408
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 408
   store ptr null, ptr %77, align 8
   br label %78
 
 78:                                               ; preds = %75, %72
-  %79 = getelementptr inbounds i8, ptr %0, i64 268
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 268
   %80 = load i16, ptr %79, align 4
   %.not79 = icmp eq i16 %80, 0
   br i1 %.not79, label %81, label %83
@@ -3488,9 +3488,9 @@ _compute_hash.exit:                               ; preds = %34, %thread-pre-spl
   %94 = load i16, ptr %26, align 8
   %95 = and i16 %94, 1
   %.not81 = icmp eq i16 %95, 0
-  %96 = getelementptr inbounds i8, ptr %0, i64 136
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %97 = load i32, ptr %96, align 8
-  %98 = getelementptr inbounds i8, ptr %0, i64 152
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 152
   br i1 %.not81, label %101, label %99
 
 99:                                               ; preds = %93
@@ -3513,7 +3513,7 @@ _compute_hash.exit:                               ; preds = %34, %thread-pre-spl
   br i1 %106, label %107, label %115
 
 107:                                              ; preds = %105
-  %108 = getelementptr inbounds i8, ptr %0, i64 204
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 204
   %109 = load i16, ptr %108, align 4
   %110 = call ptr @rpc_num2string(i16 noundef zeroext %109) #21
   %111 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.42, ptr noundef nonnull @__func__.slurm_buffers_pack_msg, ptr noundef %110) #21
@@ -3532,7 +3532,7 @@ _compute_hash.exit:                               ; preds = %34, %thread-pre-spl
 
 115:                                              ; preds = %105
   %116 = call ptr @init_buf(i32 noundef 16384) #21
-  %117 = getelementptr inbounds i8, ptr %1, i64 8
+  %117 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %116, ptr %117, align 8
   %118 = load i16, ptr %5, align 8
   %119 = call i32 @auth_g_pack(ptr noundef nonnull %.1, ptr noundef %116, i16 noundef zeroext %118) #21
@@ -3540,7 +3540,7 @@ _compute_hash.exit:                               ; preds = %34, %thread-pre-spl
   br i1 %.not82, label %131, label %120
 
 120:                                              ; preds = %115
-  %121 = getelementptr inbounds i8, ptr %5, i64 4
+  %121 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %122 = load i16, ptr %121, align 4
   %123 = call ptr @rpc_num2string(i16 noundef zeroext %122) #21
   %124 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.43, ptr noundef nonnull @__func__.slurm_buffers_pack_msg, ptr noundef %123) #21
@@ -3577,9 +3577,9 @@ _compute_hash.exit:                               ; preds = %34, %thread-pre-spl
 
 134:                                              ; preds = %131
   %135 = load ptr, ptr %117, align 8
-  %136 = getelementptr inbounds i8, ptr %135, i64 8
+  %136 = getelementptr inbounds nuw i8, ptr %135, i64 8
   %137 = load ptr, ptr %136, align 8
-  %138 = getelementptr inbounds i8, ptr %135, i64 20
+  %138 = getelementptr inbounds nuw i8, ptr %135, i64 20
   %139 = load i32, ptr %138, align 4
   %140 = zext i32 %139 to i64
   call void (ptr, i64, i64, i64, ptr, ...) @_log_flag_hex(ptr noundef %137, i64 noundef %140, i64 noundef -1, i64 noundef -1, ptr noundef nonnull @.str.44, ptr noundef nonnull @__func__.slurm_buffers_pack_msg) #21
@@ -3587,7 +3587,7 @@ _compute_hash.exit:                               ; preds = %34, %thread-pre-spl
 
 141:                                              ; preds = %134, %131, %85
   %142 = load ptr, ptr %14, align 8
-  %143 = getelementptr inbounds i8, ptr %142, i64 20
+  %143 = getelementptr inbounds nuw i8, ptr %142, i64 20
   %144 = load i32, ptr %143, align 4
   call void @update_header(ptr noundef nonnull %5, i32 noundef %144) #21
   %145 = call ptr @init_buf(i32 noundef 16384) #21
@@ -3600,9 +3600,9 @@ _compute_hash.exit:                               ; preds = %34, %thread-pre-spl
 
 148:                                              ; preds = %141
   %149 = load ptr, ptr %1, align 8
-  %150 = getelementptr inbounds i8, ptr %149, i64 8
+  %150 = getelementptr inbounds nuw i8, ptr %149, i64 8
   %151 = load ptr, ptr %150, align 8
-  %152 = getelementptr inbounds i8, ptr %149, i64 20
+  %152 = getelementptr inbounds nuw i8, ptr %149, i64 20
   %153 = load i32, ptr %152, align 4
   %154 = zext i32 %153 to i64
   call void (ptr, i64, i64, i64, ptr, ...) @_log_flag_hex(ptr noundef %151, i64 noundef %154, i64 noundef -1, i64 noundef -1, ptr noundef nonnull @.str.45, ptr noundef nonnull @__func__.slurm_buffers_pack_msg) #21
@@ -3642,7 +3642,7 @@ define i32 @slurm_send_node_msg(i32 noundef %0, ptr noundef %1) local_unnamed_ad
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
-  %7 = getelementptr inbounds i8, ptr %1, i64 176
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %42, label %9
@@ -3650,13 +3650,13 @@ define i32 @slurm_send_node_msg(i32 noundef %0, ptr noundef %1) local_unnamed_ad
 9:                                                ; preds = %2
   store ptr null, ptr %5, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
-  %10 = getelementptr inbounds i8, ptr %1, i64 204
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 204
   %11 = load i16, ptr %10, align 4
-  %12 = getelementptr inbounds i8, ptr %4, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i16 %11, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 192
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %4, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %14, ptr %15, align 8
   %16 = call ptr @slurm_persist_msg_pack(ptr noundef nonnull %8, ptr noundef nonnull %4) #21
   %.not39 = icmp eq ptr %16, null
@@ -3743,14 +3743,14 @@ define i32 @slurm_send_node_msg(i32 noundef %0, ptr noundef %1) local_unnamed_ad
   br i1 %56, label %57, label %73
 
 57:                                               ; preds = %54
-  %58 = getelementptr inbounds i8, ptr %1, i64 204
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 204
   %59 = load i16, ptr %58, align 4
   %60 = call ptr @rpc_num2string(i16 noundef zeroext %59) #21
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.48, ptr noundef nonnull @__func__.slurm_send_node_msg, ptr noundef %60) #21
   br label %73
 
 61:                                               ; preds = %48
-  %62 = getelementptr inbounds i8, ptr %1, i64 204
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 204
   %63 = load i16, ptr %62, align 4
   %64 = call ptr @rpc_num2string(i16 noundef zeroext %63) #21
   %65 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.49, ptr noundef nonnull @__func__.slurm_send_node_msg, i32 noundef %0, ptr noundef %64) #21
@@ -3759,7 +3759,7 @@ define i32 @slurm_send_node_msg(i32 noundef %0, ptr noundef %1) local_unnamed_ad
 66:                                               ; preds = %48
   %67 = call ptr @fd_resolve_path(i32 noundef %0) #21
   store ptr %67, ptr %6, align 8
-  %68 = getelementptr inbounds i8, ptr %1, i64 204
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 204
   %69 = load i16, ptr %68, align 4
   %70 = call ptr @rpc_num2string(i16 noundef zeroext %69) #21
   %71 = call ptr @slurm_strerror(i32 noundef %50) #21
@@ -3779,7 +3779,7 @@ define i32 @slurm_send_node_msg(i32 noundef %0, ptr noundef %1) local_unnamed_ad
 
 76:                                               ; preds = %75, %73
   store ptr null, ptr %3, align 8
-  %77 = getelementptr inbounds i8, ptr %3, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %78 = load ptr, ptr %77, align 8
   %.not37 = icmp eq ptr %78, null
   br i1 %.not37, label %80, label %79
@@ -3790,7 +3790,7 @@ define i32 @slurm_send_node_msg(i32 noundef %0, ptr noundef %1) local_unnamed_ad
 
 80:                                               ; preds = %79, %76
   store ptr null, ptr %77, align 8
-  %81 = getelementptr inbounds i8, ptr %3, i64 16
+  %81 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %82 = load ptr, ptr %81, align 8
   %.not38 = icmp eq ptr %82, null
   br i1 %.not38, label %84, label %83
@@ -3842,7 +3842,7 @@ define void @slurm_get_ip_str(ptr noundef %0, ptr noundef %1, i32 noundef %2) lo
   %5 = icmp eq i16 %4, 10
   %. = select i1 %5, i64 8, i64 4
   %.10 = select i1 %5, i32 10, i32 2
-  %6 = getelementptr inbounds i8, ptr %0, i64 %.
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 %.
   %7 = tail call ptr @inet_ntop(i32 noundef %.10, ptr noundef nonnull %6, ptr noundef %1, i32 noundef %2) #21
   ret void
 }
@@ -3888,7 +3888,7 @@ define void @slurm_pack_addr_array(ptr noundef %0, i32 noundef %1, ptr noundef %
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %4 = getelementptr inbounds %struct.sockaddr_storage, ptr %0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw %struct.sockaddr_storage, ptr %0, i64 %indvars.iv
   tail call void @slurm_pack_addr(ptr noundef %4, ptr noundef %2) #21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -3936,7 +3936,7 @@ define range(i32 -1, 1) i32 @slurm_unpack_addr_array(ptr nocapture noundef write
 
 .lr.ph:                                           ; preds = %11, %13
   %indvars.iv = phi i64 [ %indvars.iv.next, %13 ], [ 0, %11 ]
-  %17 = getelementptr inbounds %struct.sockaddr_storage, ptr %10, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw %struct.sockaddr_storage, ptr %10, i64 %indvars.iv
   %18 = tail call i32 @slurm_unpack_addr_no_alloc(ptr noundef nonnull %17, ptr noundef %2) #21
   %.not19 = icmp eq i32 %18, 0
   br i1 %.not19, label %13, label %.loopexit
@@ -3964,66 +3964,66 @@ declare i32 @slurm_unpack_addr_no_alloc(ptr noundef, ptr noundef) local_unnamed_
 define void @response_init(ptr noundef %0, ptr nocapture noundef readonly %1, i16 noundef zeroext %2, ptr noundef %3) local_unnamed_addr #2 {
   tail call void @slurm_msg_t_init(ptr noundef %0) #21
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(128) %1, i64 128, i1 false)
-  %5 = getelementptr inbounds i8, ptr %1, i64 136
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %6 = load i32, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 136
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store i32 %6, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 176
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 176
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store ptr %9, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 192
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store ptr %3, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 200
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 200
   %13 = load i16, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 200
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 200
   store i16 %13, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 208
-  %16 = getelementptr inbounds i8, ptr %1, i64 208
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 208
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 208
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %15, ptr noundef nonnull align 8 dereferenceable(64) %16, i64 64, i1 false)
-  %17 = getelementptr inbounds i8, ptr %1, i64 272
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 272
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 272
   store ptr %18, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 202
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 202
   %21 = load i8, ptr %20, align 2
-  %22 = getelementptr inbounds i8, ptr %0, i64 202
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 202
   store i8 %21, ptr %22, align 2
-  %23 = getelementptr inbounds i8, ptr %0, i64 204
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 204
   store i16 %2, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %1, i64 206
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 206
   %25 = load i16, ptr %24, align 2
-  %26 = getelementptr inbounds i8, ptr %0, i64 206
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 206
   store i16 %25, ptr %26, align 2
-  %27 = getelementptr inbounds i8, ptr %1, i64 408
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 408
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 408
   store ptr %28, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 280
-  %31 = getelementptr inbounds i8, ptr %1, i64 280
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 280
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 280
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %30, ptr noundef nonnull align 8 dereferenceable(128) %31, i64 128, i1 false)
-  %32 = getelementptr inbounds i8, ptr %1, i64 148
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 148
   %33 = load i8, ptr %32, align 4
   %34 = trunc i8 %33 to i1
   br i1 %34, label %38, label %35
 
 35:                                               ; preds = %4
-  %36 = getelementptr inbounds i8, ptr %0, i64 152
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store i32 99, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %0, i64 156
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 156
   store i8 1, ptr %37, align 4
   br label %47
 
 38:                                               ; preds = %4
-  %39 = getelementptr inbounds i8, ptr %1, i64 140
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 140
   %40 = load i32, ptr %39, align 4
   %41 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1152), align 8
   %.not = icmp eq i32 %40, %41
   %42 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1168), align 8
   %.not32 = icmp eq i32 %40, %42
   %or.cond = select i1 %.not, i1 true, i1 %.not32
-  %43 = getelementptr inbounds i8, ptr %0, i64 152
-  %44 = getelementptr inbounds i8, ptr %0, i64 156
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 156
   br i1 %or.cond, label %46, label %45
 
 45:                                               ; preds = %38
@@ -4044,9 +4044,9 @@ define void @response_init(ptr noundef %0, ptr nocapture noundef readonly %1, i1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @slurm_msg_set_r_uid(ptr nocapture noundef writeonly initializes((152, 157)) %0, i32 noundef %1) local_unnamed_addr #13 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 152
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store i32 %1, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 156
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 156
   store i8 1, ptr %4, align 4
   ret void
 }
@@ -4055,7 +4055,7 @@ define void @slurm_msg_set_r_uid(ptr nocapture noundef writeonly initializes((15
 define i32 @slurm_send_rc_msg(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = alloca %struct.slurm_msg, align 8
   %4 = alloca %struct.return_code_msg, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 184
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %6 = load i32, ptr %5, align 8
   %7 = icmp slt i32 %6, 0
   br i1 %7, label %8, label %9
@@ -4068,65 +4068,65 @@ define i32 @slurm_send_rc_msg(ptr nocapture noundef readonly %0, i32 noundef %1)
   store i32 %1, ptr %4, align 4
   call void @slurm_msg_t_init(ptr noundef nonnull %3) #21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %3, ptr noundef nonnull readonly align 8 dereferenceable(128) %0, i64 128, i1 false)
-  %10 = getelementptr inbounds i8, ptr %0, i64 136
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %11 = load i32, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %3, i64 136
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 136
   store i32 %11, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 176
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %3, i64 176
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 176
   store ptr %14, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %3, i64 192
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 192
   store ptr %4, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 200
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %18 = load i16, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %3, i64 200
-  %20 = getelementptr inbounds i8, ptr %3, i64 208
-  %21 = getelementptr inbounds i8, ptr %0, i64 208
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 200
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 208
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 208
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %20, ptr noundef nonnull readonly align 8 dereferenceable(64) %21, i64 64, i1 false)
-  %22 = getelementptr inbounds i8, ptr %0, i64 272
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %3, i64 272
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 272
   store ptr %23, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 202
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 202
   %26 = load i8, ptr %25, align 2
-  %27 = getelementptr inbounds i8, ptr %3, i64 202
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 202
   store i8 %26, ptr %27, align 2
-  %28 = getelementptr inbounds i8, ptr %3, i64 204
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 204
   store i16 8001, ptr %28, align 4
-  %29 = getelementptr inbounds i8, ptr %0, i64 206
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 206
   %30 = load i16, ptr %29, align 2
-  %31 = getelementptr inbounds i8, ptr %3, i64 206
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 206
   store i16 %30, ptr %31, align 2
-  %32 = getelementptr inbounds i8, ptr %0, i64 408
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %3, i64 408
+  %34 = getelementptr inbounds nuw i8, ptr %3, i64 408
   store ptr %33, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %3, i64 280
-  %36 = getelementptr inbounds i8, ptr %0, i64 280
+  %35 = getelementptr inbounds nuw i8, ptr %3, i64 280
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 280
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %35, ptr noundef nonnull readonly align 8 dereferenceable(128) %36, i64 128, i1 false)
-  %37 = getelementptr inbounds i8, ptr %0, i64 148
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 148
   %38 = load i8, ptr %37, align 4
   %39 = trunc i8 %38 to i1
   br i1 %39, label %43, label %40
 
 40:                                               ; preds = %9
-  %41 = getelementptr inbounds i8, ptr %3, i64 152
+  %41 = getelementptr inbounds nuw i8, ptr %3, i64 152
   store i32 99, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %3, i64 156
+  %42 = getelementptr inbounds nuw i8, ptr %3, i64 156
   store i8 1, ptr %42, align 4
   br label %response_init.exit
 
 43:                                               ; preds = %9
-  %44 = getelementptr inbounds i8, ptr %0, i64 140
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %45 = load i32, ptr %44, align 4
   %46 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1152), align 8
   %.not.i = icmp eq i32 %45, %46
   %47 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1168), align 8
   %.not32.i = icmp eq i32 %45, %47
   %or.cond.i = select i1 %.not.i, i1 true, i1 %.not32.i
-  %48 = getelementptr inbounds i8, ptr %3, i64 152
-  %49 = getelementptr inbounds i8, ptr %3, i64 156
+  %48 = getelementptr inbounds nuw i8, ptr %3, i64 152
+  %49 = getelementptr inbounds nuw i8, ptr %3, i64 156
   br i1 %or.cond.i, label %51, label %50
 
 50:                                               ; preds = %43
@@ -4155,7 +4155,7 @@ response_init.exit:                               ; preds = %40, %50, %51
 define i32 @slurm_send_rc_err_msg(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #2 {
   %4 = alloca %struct.slurm_msg, align 8
   %5 = alloca %struct.return_code2_msg, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 184
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %7 = load i32, ptr %6, align 8
   %8 = icmp slt i32 %7, 0
   br i1 %8, label %9, label %10
@@ -4166,69 +4166,69 @@ define i32 @slurm_send_rc_err_msg(ptr nocapture noundef readonly %0, i32 noundef
 
 10:                                               ; preds = %3
   store i32 %1, ptr %5, align 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %2, ptr %11, align 8
   call void @slurm_msg_t_init(ptr noundef nonnull %4) #21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %4, ptr noundef nonnull readonly align 8 dereferenceable(128) %0, i64 128, i1 false)
-  %12 = getelementptr inbounds i8, ptr %0, i64 136
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %13 = load i32, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %4, i64 136
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 136
   store i32 %13, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 176
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %4, i64 176
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 176
   store ptr %16, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %4, i64 192
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 192
   store ptr %5, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 200
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %20 = load i16, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %4, i64 200
-  %22 = getelementptr inbounds i8, ptr %4, i64 208
-  %23 = getelementptr inbounds i8, ptr %0, i64 208
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 200
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 208
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 208
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %22, ptr noundef nonnull readonly align 8 dereferenceable(64) %23, i64 64, i1 false)
-  %24 = getelementptr inbounds i8, ptr %0, i64 272
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %4, i64 272
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 272
   store ptr %25, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 202
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 202
   %28 = load i8, ptr %27, align 2
-  %29 = getelementptr inbounds i8, ptr %4, i64 202
+  %29 = getelementptr inbounds nuw i8, ptr %4, i64 202
   store i8 %28, ptr %29, align 2
-  %30 = getelementptr inbounds i8, ptr %4, i64 204
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 204
   store i16 8002, ptr %30, align 4
-  %31 = getelementptr inbounds i8, ptr %0, i64 206
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 206
   %32 = load i16, ptr %31, align 2
-  %33 = getelementptr inbounds i8, ptr %4, i64 206
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 206
   store i16 %32, ptr %33, align 2
-  %34 = getelementptr inbounds i8, ptr %0, i64 408
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %4, i64 408
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 408
   store ptr %35, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %4, i64 280
-  %38 = getelementptr inbounds i8, ptr %0, i64 280
+  %37 = getelementptr inbounds nuw i8, ptr %4, i64 280
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 280
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %37, ptr noundef nonnull readonly align 8 dereferenceable(128) %38, i64 128, i1 false)
-  %39 = getelementptr inbounds i8, ptr %0, i64 148
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 148
   %40 = load i8, ptr %39, align 4
   %41 = trunc i8 %40 to i1
   br i1 %41, label %45, label %42
 
 42:                                               ; preds = %10
-  %43 = getelementptr inbounds i8, ptr %4, i64 152
+  %43 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store i32 99, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %4, i64 156
+  %44 = getelementptr inbounds nuw i8, ptr %4, i64 156
   store i8 1, ptr %44, align 4
   br label %response_init.exit
 
 45:                                               ; preds = %10
-  %46 = getelementptr inbounds i8, ptr %0, i64 140
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %47 = load i32, ptr %46, align 4
   %48 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1152), align 8
   %.not.i = icmp eq i32 %47, %48
   %49 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1168), align 8
   %.not32.i = icmp eq i32 %47, %49
   %or.cond.i = select i1 %.not.i, i1 true, i1 %.not32.i
-  %50 = getelementptr inbounds i8, ptr %4, i64 152
-  %51 = getelementptr inbounds i8, ptr %4, i64 156
+  %50 = getelementptr inbounds nuw i8, ptr %4, i64 152
+  %51 = getelementptr inbounds nuw i8, ptr %4, i64 156
   br i1 %or.cond.i, label %53, label %52
 
 52:                                               ; preds = %45
@@ -4257,7 +4257,7 @@ response_init.exit:                               ; preds = %42, %52, %53
 define i32 @slurm_send_reroute_msg(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = alloca %struct.slurm_msg, align 8
   %4 = alloca %struct.reroute_msg_t, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 184
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %6 = load i32, ptr %5, align 8
   %7 = icmp slt i32 %6, 0
   br i1 %7, label %8, label %9
@@ -4270,65 +4270,65 @@ define i32 @slurm_send_reroute_msg(ptr nocapture noundef readonly %0, ptr nounde
   store ptr %1, ptr %4, align 8
   call void @slurm_msg_t_init(ptr noundef nonnull %3) #21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %3, ptr noundef nonnull readonly align 8 dereferenceable(128) %0, i64 128, i1 false)
-  %10 = getelementptr inbounds i8, ptr %0, i64 136
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %11 = load i32, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %3, i64 136
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 136
   store i32 %11, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 176
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %3, i64 176
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 176
   store ptr %14, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %3, i64 192
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 192
   store ptr %4, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 200
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %18 = load i16, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %3, i64 200
-  %20 = getelementptr inbounds i8, ptr %3, i64 208
-  %21 = getelementptr inbounds i8, ptr %0, i64 208
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 200
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 208
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 208
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %20, ptr noundef nonnull readonly align 8 dereferenceable(64) %21, i64 64, i1 false)
-  %22 = getelementptr inbounds i8, ptr %0, i64 272
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %3, i64 272
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 272
   store ptr %23, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 202
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 202
   %26 = load i8, ptr %25, align 2
-  %27 = getelementptr inbounds i8, ptr %3, i64 202
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 202
   store i8 %26, ptr %27, align 2
-  %28 = getelementptr inbounds i8, ptr %3, i64 204
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 204
   store i16 8003, ptr %28, align 4
-  %29 = getelementptr inbounds i8, ptr %0, i64 206
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 206
   %30 = load i16, ptr %29, align 2
-  %31 = getelementptr inbounds i8, ptr %3, i64 206
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 206
   store i16 %30, ptr %31, align 2
-  %32 = getelementptr inbounds i8, ptr %0, i64 408
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %3, i64 408
+  %34 = getelementptr inbounds nuw i8, ptr %3, i64 408
   store ptr %33, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %3, i64 280
-  %36 = getelementptr inbounds i8, ptr %0, i64 280
+  %35 = getelementptr inbounds nuw i8, ptr %3, i64 280
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 280
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %35, ptr noundef nonnull readonly align 8 dereferenceable(128) %36, i64 128, i1 false)
-  %37 = getelementptr inbounds i8, ptr %0, i64 148
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 148
   %38 = load i8, ptr %37, align 4
   %39 = trunc i8 %38 to i1
   br i1 %39, label %43, label %40
 
 40:                                               ; preds = %9
-  %41 = getelementptr inbounds i8, ptr %3, i64 152
+  %41 = getelementptr inbounds nuw i8, ptr %3, i64 152
   store i32 99, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %3, i64 156
+  %42 = getelementptr inbounds nuw i8, ptr %3, i64 156
   store i8 1, ptr %42, align 4
   br label %response_init.exit
 
 43:                                               ; preds = %9
-  %44 = getelementptr inbounds i8, ptr %0, i64 140
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %45 = load i32, ptr %44, align 4
   %46 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1152), align 8
   %.not.i = icmp eq i32 %45, %46
   %47 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1168), align 8
   %.not32.i = icmp eq i32 %45, %47
   %or.cond.i = select i1 %.not.i, i1 true, i1 %.not32.i
-  %48 = getelementptr inbounds i8, ptr %3, i64 152
-  %49 = getelementptr inbounds i8, ptr %3, i64 156
+  %48 = getelementptr inbounds nuw i8, ptr %3, i64 152
+  %49 = getelementptr inbounds nuw i8, ptr %3, i64 156
   br i1 %or.cond.i, label %51, label %50
 
 50:                                               ; preds = %43
@@ -4356,15 +4356,15 @@ response_init.exit:                               ; preds = %40, %50, %51
 ; Function Attrs: nounwind uwtable
 define noundef i32 @slurm_send_recv_msg(i32 noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #2 {
   tail call void @slurm_msg_t_init(ptr noundef %2) #21
-  %5 = getelementptr inbounds i8, ptr %1, i64 176
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %11, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %6, i64 60
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 60
   %9 = load i32, ptr %8, align 4
-  %10 = getelementptr inbounds i8, ptr %2, i64 176
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 176
   store ptr %6, ptr %10, align 8
   br label %11
 
@@ -4386,22 +4386,22 @@ define noundef i32 @slurm_send_recv_msg(i32 noundef %0, ptr noundef %1, ptr noun
 ; Function Attrs: nounwind uwtable
 define noundef i32 @slurm_send_recv_controller_msg(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 {
   %4 = tail call i64 @time(ptr noundef null) #21
-  %5 = getelementptr inbounds i8, ptr %0, i64 208
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 208
   tail call void @forward_init(ptr noundef nonnull %5) #21
-  %6 = getelementptr inbounds i8, ptr %0, i64 408
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 408
   store ptr null, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 272
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 272
   store ptr null, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 152
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store i32 -1, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 156
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 156
   store i8 1, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 200
-  %11 = getelementptr inbounds i8, ptr %0, i64 176
-  %12 = getelementptr inbounds i8, ptr %1, i64 176
-  %13 = getelementptr inbounds i8, ptr %1, i64 128
-  %14 = getelementptr inbounds i8, ptr %1, i64 204
-  %15 = getelementptr inbounds i8, ptr %1, i64 192
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 176
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 128
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 204
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 192
   br label %.outer
 
 .outer:                                           ; preds = %117, %3
@@ -4422,11 +4422,11 @@ define noundef i32 @slurm_send_recv_controller_msg(ptr noundef %0, ptr noundef %
 
 21:                                               ; preds = %18, %16
   %22 = tail call ptr @slurm_conf_lock() #21
-  %23 = getelementptr inbounds i8, ptr %22, i64 256
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 256
   %24 = load i32, ptr %23, align 8
   %.fr89 = freeze i32 %24
   %25 = icmp ugt i32 %.fr89, 1
-  %26 = getelementptr inbounds i8, ptr %22, i64 1242
+  %26 = getelementptr inbounds nuw i8, ptr %22, i64 1242
   %27 = load i16, ptr %26, align 2
   tail call void @slurm_conf_unlock() #21
   %28 = tail call fastcc i32 @_open_controller(ptr noundef nonnull @slurm_send_recv_controller_msg.index, ptr noundef %.0)
@@ -4447,7 +4447,7 @@ define noundef i32 @slurm_send_recv_controller_msg(ptr noundef %0, ptr noundef %
   br i1 %.not.i.i.us, label %38, label %35
 
 35:                                               ; preds = %.lr.ph.split.us
-  %36 = getelementptr inbounds i8, ptr %34, i64 60
+  %36 = getelementptr inbounds nuw i8, ptr %34, i64 60
   %37 = load i32, ptr %36, align 4
   store ptr %34, ptr %12, align 8
   br label %38
@@ -4492,7 +4492,7 @@ _send_and_recv_msg.exit.us:                       ; preds = %44, %slurm_send_rec
   br i1 %.not.i.i.us79, label %53, label %50
 
 50:                                               ; preds = %.lr.ph.split.split.us
-  %51 = getelementptr inbounds i8, ptr %49, i64 60
+  %51 = getelementptr inbounds nuw i8, ptr %49, i64 60
   %52 = load i32, ptr %51, align 4
   store ptr %49, ptr %12, align 8
   br label %53
@@ -4592,7 +4592,7 @@ _send_and_recv_msg.exit.us84:                     ; preds = %59, %slurm_send_rec
   br i1 %.not.i.i, label %97, label %94
 
 94:                                               ; preds = %.lr.ph.split.split
-  %95 = getelementptr inbounds i8, ptr %93, i64 60
+  %95 = getelementptr inbounds nuw i8, ptr %93, i64 60
   %96 = load i32, ptr %95, align 4
   store ptr %93, ptr %12, align 8
   br label %97
@@ -4733,15 +4733,15 @@ define internal fastcc range(i32 -1, -2147483648) i32 @_open_controller(ptr noca
   br i1 %.not1729, label %._crit_edge13.thread, label %.lr.ph12.split.preheader
 
 .lr.ph12.split.preheader:                         ; preds = %.thread27
-  %10 = getelementptr inbounds i8, ptr %1, i64 24
-  %11 = getelementptr inbounds i8, ptr %1, i64 160
-  %12 = getelementptr inbounds i8, ptr %1, i64 152
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 160
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 152
   br label %.lr.ph12.split
 
 .lr.ph12.split.us.preheader:                      ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %6, i64 16
-  %14 = getelementptr inbounds i8, ptr %6, i64 8
-  %15 = getelementptr inbounds i8, ptr %6, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 24
   br label %.lr.ph12.split.us
 
 .lr.ph12.split.us:                                ; preds = %.lr.ph12.split.us.preheader, %53
@@ -4902,7 +4902,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @_open_controller(ptr noca
 .loopexit36:                                      ; preds = %53, %7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr %6, ptr %4, align 8
-  %87 = getelementptr inbounds i8, ptr %6, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %6, i64 8
   tail call void @slurm_xfree(ptr noundef nonnull %87) #21
   call void @slurm_xfree(ptr noundef nonnull %4) #21
   br label %_slurm_api_free_comm_config.exit
@@ -4944,7 +4944,7 @@ declare i32 @slurmdb_setup_cluster_rec(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define noundef i32 @slurm_send_recv_node_msg(ptr noundef %0, ptr noundef initializes((128, 136)) %1, i32 noundef %2) local_unnamed_addr #2 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 128
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 128
   store ptr null, ptr %4, align 8
   %5 = tail call i32 @slurm_open_stream(ptr noundef %0, i1 noundef zeroext false) #21
   %6 = icmp slt i32 %5, 0
@@ -4967,15 +4967,15 @@ define noundef i32 @slurm_send_recv_node_msg(ptr noundef %0, ptr noundef initial
 
 14:                                               ; preds = %3
   tail call void @slurm_msg_t_init(ptr noundef nonnull %1) #21
-  %15 = getelementptr inbounds i8, ptr %0, i64 176
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %16 = load ptr, ptr %15, align 8
   %.not.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i, label %21, label %17
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %16, i64 60
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 60
   %19 = load i32, ptr %18, align 4
-  %20 = getelementptr inbounds i8, ptr %1, i64 176
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 176
   store ptr %16, ptr %20, align 8
   br label %21
 
@@ -5014,9 +5014,9 @@ define range(i32 -1, 1) i32 @slurm_send_only_controller_msg(ptr noundef %0, ptr 
 
 6:                                                ; preds = %2
   %7 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1152), align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 152
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store i32 %7, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 156
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 156
   store i8 1, ptr %9, align 4
   %10 = tail call i32 @slurm_send_node_msg(i32 noundef %4, ptr noundef %0)
   %11 = icmp slt i32 %10, 0
@@ -5131,7 +5131,7 @@ define range(i32 -1, 1) i32 @slurm_send_only_node_msg(ptr noundef %0) local_unna
   br label %34
 
 34:                                               ; preds = %33, %30, %27, %25
-  %35 = getelementptr inbounds i8, ptr %2, i64 4
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %36
 
 36:                                               ; preds = %41, %34
@@ -5212,7 +5212,7 @@ define range(i32 -1, 1) i32 @slurm_send_only_node_msg(ptr noundef %0) local_unna
   br label %108
 
 73:                                               ; preds = %36
-  %74 = getelementptr inbounds i8, ptr %2, i64 6
+  %74 = getelementptr inbounds nuw i8, ptr %2, i64 6
   %75 = load i16, ptr %74, align 2
   %76 = and i16 %75, 8
   %.not25 = icmp eq i16 %76, 0
@@ -5520,11 +5520,11 @@ define ptr @slurm_send_addr_recv_msgs(ptr noundef %0, ptr noundef %1, i32 nounde
   br label %118
 
 63:                                               ; preds = %.preheader
-  %64 = getelementptr inbounds i8, ptr %0, i64 408
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 408
   store ptr null, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %0, i64 272
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 272
   store ptr null, ptr %65, align 8
-  %66 = getelementptr inbounds i8, ptr %0, i64 264
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %67 = load i32, ptr %66, align 8
   %.not.i = icmp eq i32 %67, 0
   br i1 %.not.i, label %68, label %72
@@ -5550,7 +5550,7 @@ _send_and_recv_msgs.exit.thread:                  ; preds = %72
   br label %105
 
 76:                                               ; preds = %72
-  %77 = getelementptr inbounds i8, ptr %0, i64 248
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %78 = load i16, ptr %77, align 8
   %.not28.i = icmp eq i16 %78, 0
   br i1 %.not28.i, label %_send_and_recv_msgs.exit, label %79
@@ -5571,7 +5571,7 @@ _send_and_recv_msgs.exit.thread:                  ; preds = %72
   %87 = phi i32 [ %85, %82 ], [ %80, %79 ]
   %88 = zext i16 %78 to i32
   %89 = add nuw nsw i32 %88, 1
-  %90 = getelementptr inbounds i8, ptr %0, i64 268
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 268
   %91 = load i16, ptr %90, align 4
   %.not29.i = icmp eq i16 %91, 0
   br i1 %.not29.i, label %92, label %.thread.i
@@ -5621,7 +5621,7 @@ _send_and_recv_msgs.exit:                         ; preds = %76, %97
 
 .lr.ph:                                           ; preds = %108, %116
   %111 = phi ptr [ %117, %116 ], [ %110, %108 ]
-  %112 = getelementptr inbounds i8, ptr %111, i64 8
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 8
   %113 = load ptr, ptr %112, align 8
   %.not45 = icmp eq ptr %113, null
   br i1 %.not45, label %114, label %116
@@ -5663,11 +5663,11 @@ declare void @list_iterator_destroy(ptr noundef) local_unnamed_addr #3
 define range(i32 -1, 1) i32 @slurm_send_recv_rc_msg_only_one(ptr noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = alloca %struct.slurm_msg, align 8
   call void @slurm_msg_t_init(ptr noundef nonnull %4) #21
-  %5 = getelementptr inbounds i8, ptr %0, i64 208
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 208
   call void @forward_init(ptr noundef nonnull %5) #21
-  %6 = getelementptr inbounds i8, ptr %0, i64 408
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 408
   store ptr null, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 272
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 272
   store ptr null, ptr %7, align 8
   %8 = call i32 @slurm_open_stream(ptr noundef %0, i1 noundef zeroext false) #21
   %9 = icmp slt i32 %8, 0
@@ -5690,15 +5690,15 @@ define range(i32 -1, 1) i32 @slurm_send_recv_rc_msg_only_one(ptr noundef %0, ptr
 
 17:                                               ; preds = %3
   call void @slurm_msg_t_init(ptr noundef nonnull %4) #21
-  %18 = getelementptr inbounds i8, ptr %0, i64 176
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %19 = load ptr, ptr %18, align 8
   %.not.i.i = icmp eq ptr %19, null
   br i1 %.not.i.i, label %24, label %20
 
 20:                                               ; preds = %17
-  %21 = getelementptr inbounds i8, ptr %19, i64 60
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 60
   %22 = load i32, ptr %21, align 4
-  %23 = getelementptr inbounds i8, ptr %4, i64 176
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 176
   store ptr %19, ptr %23, align 8
   br label %24
 
@@ -5727,7 +5727,7 @@ _send_and_recv_msg.exit:                          ; preds = %slurm_send_recv_msg
   br i1 %.0.i.i, label %33, label %48
 
 33:                                               ; preds = %_send_and_recv_msg.exit
-  %34 = getelementptr inbounds i8, ptr %4, i64 128
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 128
   %35 = load ptr, ptr %34, align 8
   %.not13 = icmp eq ptr %35, null
   br i1 %.not13, label %37, label %36
@@ -5737,10 +5737,10 @@ _send_and_recv_msg.exit:                          ; preds = %slurm_send_recv_msg
   br label %37
 
 37:                                               ; preds = %36, %33
-  %38 = getelementptr inbounds i8, ptr %4, i64 204
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 204
   %39 = load i16, ptr %38, align 4
   %40 = zext i16 %39 to i32
-  %41 = getelementptr inbounds i8, ptr %4, i64 192
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 192
   %42 = load ptr, ptr %41, align 8
   %43 = call i32 @slurm_get_return_code(i32 noundef %40, ptr noundef %42) #21
   store i32 %43, ptr %1, align 4
@@ -5767,10 +5767,10 @@ define range(i32 -1, 1) i32 @slurm_send_recv_controller_rc_msg(ptr noundef %0, p
   br i1 %.not, label %6, label %17
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %4, i64 204
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 204
   %8 = load i16, ptr %7, align 4
   %9 = zext i16 %8 to i32
-  %10 = getelementptr inbounds i8, ptr %4, i64 192
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 192
   %11 = load ptr, ptr %10, align 8
   %12 = call i32 @slurm_get_return_code(i32 noundef %9, ptr noundef %11) #21
   store i32 %12, ptr %1, align 4
@@ -5791,7 +5791,7 @@ define void @slurm_free_msg_members(ptr noundef %0) local_unnamed_addr #2 {
   br i1 %.not, label %21, label %2
 
 2:                                                ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 128
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %4 = load ptr, ptr %3, align 8
   %.not14 = icmp eq ptr %4, null
   br i1 %.not14, label %6, label %5
@@ -5801,7 +5801,7 @@ define void @slurm_free_msg_members(ptr noundef %0) local_unnamed_addr #2 {
   br label %6
 
 6:                                                ; preds = %2, %5
-  %7 = getelementptr inbounds i8, ptr %0, i64 168
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %8 = load ptr, ptr %7, align 8
   %.not15 = icmp eq ptr %8, null
   br i1 %.not15, label %10, label %9
@@ -5812,13 +5812,13 @@ define void @slurm_free_msg_members(ptr noundef %0) local_unnamed_addr #2 {
 
 10:                                               ; preds = %9, %6
   store ptr null, ptr %7, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 204
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 204
   %12 = load i16, ptr %11, align 4
   %13 = zext i16 %12 to i32
-  %14 = getelementptr inbounds i8, ptr %0, i64 192
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i32 @slurm_free_msg_data(i32 noundef %13, ptr noundef %15) #21
-  %17 = getelementptr inbounds i8, ptr %0, i64 408
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %18 = load ptr, ptr %17, align 8
   %.not16 = icmp eq ptr %18, null
   br i1 %.not16, label %20, label %19
@@ -5843,7 +5843,7 @@ define void @slurm_free_msg(ptr noundef %0) local_unnamed_addr #2 {
   br i1 %.not, label %21, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 128
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %5 = load ptr, ptr %4, align 8
   %.not14.i = icmp eq ptr %5, null
   br i1 %.not14.i, label %7, label %6
@@ -5853,7 +5853,7 @@ define void @slurm_free_msg(ptr noundef %0) local_unnamed_addr #2 {
   br label %7
 
 7:                                                ; preds = %6, %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 168
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %9 = load ptr, ptr %8, align 8
   %.not15.i = icmp eq ptr %9, null
   br i1 %.not15.i, label %11, label %10
@@ -5864,13 +5864,13 @@ define void @slurm_free_msg(ptr noundef %0) local_unnamed_addr #2 {
 
 11:                                               ; preds = %10, %7
   store ptr null, ptr %8, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 204
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 204
   %13 = load i16, ptr %12, align 4
   %14 = zext i16 %13 to i32
-  %15 = getelementptr inbounds i8, ptr %0, i64 192
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %16 = load ptr, ptr %15, align 8
   %17 = tail call i32 @slurm_free_msg_data(i32 noundef %14, ptr noundef %16) #21
-  %18 = getelementptr inbounds i8, ptr %0, i64 408
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %19 = load ptr, ptr %18, align 8
   %.not16.i = icmp eq ptr %19, null
   br i1 %.not16.i, label %slurm_free_msg_members.exit, label %20
@@ -5936,17 +5936,17 @@ define i32 @slurm_forward_data(ptr noundef %0, ptr noundef %1, i32 noundef %2, p
 
 14:                                               ; preds = %4, %9, %12
   store ptr %1, ptr %6, align 8
-  %15 = getelementptr inbounds i8, ptr %6, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %2, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %6, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %3, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %5, i64 152
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 152
   store i32 -1, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %5, i64 156
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 156
   store i8 1, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %5, i64 204
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 204
   store i16 5029, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %5, i64 192
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 192
   store ptr %6, ptr %20, align 8
   %21 = load ptr, ptr %0, align 8
   %22 = call ptr @slurm_send_recv_msgs(ptr noundef %21, ptr noundef nonnull %5, i32 noundef 0)
@@ -5969,7 +5969,7 @@ define i32 @slurm_forward_data(ptr noundef %0, ptr noundef %1, i32 noundef %2, p
   %.02849.us = phi i32 [ %.028.mux.us, %.lr.ph.split.us ], [ 0, %.lr.ph ]
   %28 = load i16, ptr %27, align 8
   %29 = zext i16 %28 to i32
-  %30 = getelementptr inbounds i8, ptr %27, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %31 = load ptr, ptr %30, align 8
   %32 = call i32 @slurm_get_return_code(i32 noundef %29, ptr noundef %31) #21
   %.not38.us = icmp eq i32 %32, 0
@@ -5985,7 +5985,7 @@ define i32 @slurm_forward_data(ptr noundef %0, ptr noundef %1, i32 noundef %2, p
   %.02849 = phi i32 [ %.129, %47 ], [ 0, %.lr.ph ]
   %35 = load i16, ptr %34, align 8
   %36 = zext i16 %35 to i32
-  %37 = getelementptr inbounds i8, ptr %34, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %38 = load ptr, ptr %37, align 8
   %39 = call i32 @slurm_get_return_code(i32 noundef %36, ptr noundef %38) #21
   %.not38 = icmp eq i32 %39, 0
@@ -5993,7 +5993,7 @@ define i32 @slurm_forward_data(ptr noundef %0, ptr noundef %1, i32 noundef %2, p
 
 40:                                               ; preds = %.lr.ph.split
   %.not39 = icmp eq ptr %.02750, null
-  %41 = getelementptr inbounds i8, ptr %34, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %42 = load ptr, ptr %41, align 8
   br i1 %.not39, label %43, label %45
 
@@ -6099,9 +6099,9 @@ define range(i32 -1, 1) i32 @slurm_associations_get_shares(ptr noundef %0, ptr n
   %4 = alloca %struct.slurm_msg, align 8
   call void @slurm_msg_t_init(ptr noundef nonnull %3) #21
   call void @slurm_msg_t_init(ptr noundef nonnull %4) #21
-  %5 = getelementptr inbounds i8, ptr %3, i64 204
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 204
   store i16 2022, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %3, i64 192
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 192
   store ptr %0, ptr %6, align 8
   %7 = load ptr, ptr @working_cluster_rec, align 8
   %8 = call i32 @slurm_send_recv_controller_msg(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef %7)
@@ -6109,7 +6109,7 @@ define range(i32 -1, 1) i32 @slurm_associations_get_shares(ptr noundef %0, ptr n
   br i1 %9, label %23, label %10
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %4, i64 204
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 204
   %12 = load i16, ptr %11, align 4
   switch i16 %12, label %21 [
     i16 2023, label %13
@@ -6117,12 +6117,12 @@ define range(i32 -1, 1) i32 @slurm_associations_get_shares(ptr noundef %0, ptr n
   ]
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %4, i64 192
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 192
   %15 = load ptr, ptr %14, align 8
   br label %22
 
 16:                                               ; preds = %10
-  %17 = getelementptr inbounds i8, ptr %4, i64 192
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 192
   %18 = load ptr, ptr %17, align 8
   %19 = load i32, ptr %18, align 4
   call void @slurm_free_return_code_msg(ptr noundef nonnull %18) #21

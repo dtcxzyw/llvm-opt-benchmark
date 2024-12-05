@@ -18,16 +18,16 @@ target triple = "x86_64-pc-linux-gnu"
 define hidden void @_ZN4LIEF3ELF22init_c_dynamic_entriesEP12Elf_Binary_tPNS0_6BinaryE(ptr nocapture noundef initializes((136, 144)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::vector.79", align 8
   %4 = alloca %"class.std::vector.79", align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 176
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %6 = load ptr, ptr %5, align 8, !noalias !4
-  %7 = getelementptr inbounds i8, ptr %1, i64 184
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 184
   %8 = load ptr, ptr %7, align 8
   %9 = ptrtoint ptr %8 to i64
   %10 = ptrtoint ptr %6 to i64
   %reass.sub = sub i64 %9, %10
   %11 = add i64 %reass.sub, 8
   %12 = tail call noalias ptr @malloc(i64 noundef %11) #7
-  %13 = getelementptr inbounds i8, ptr %0, i64 136
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store ptr %12, ptr %13, align 8
   %14 = load ptr, ptr %7, align 8
   %15 = load ptr, ptr %5, align 8
@@ -39,7 +39,7 @@ _ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_3ELF12DynamicEntryESt14defau
   %.094 = phi i64 [ %127, %_ZNSt6vectorIN4LIEF3ELF17DynamicEntryFlags4FLAGESaIS3_EED2Ev.exit ], [ 0, %2 ]
   %17 = getelementptr inbounds %"class.std::unique_ptr.84", ptr %16, i64 %.094
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load i64, ptr %19, align 8
   switch i64 %20, label %113 [
     i64 1, label %21
@@ -56,13 +56,13 @@ _ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_3ELF12DynamicEntryESt14defau
 21:                                               ; preds = %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_3ELF12DynamicEntryESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEixEm.exit
   %22 = call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #7
   store i64 1, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %18, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %24 = load i64, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %22, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store i64 %24, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %18, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %27 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %26) #8
-  %28 = getelementptr inbounds i8, ptr %22, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %22, i64 16
   store ptr %27, ptr %28, align 8
   %29 = load ptr, ptr %13, align 8
   %30 = getelementptr inbounds ptr, ptr %29, i64 %.094
@@ -72,13 +72,13 @@ _ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_3ELF12DynamicEntryESt14defau
 31:                                               ; preds = %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_3ELF12DynamicEntryESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEixEm.exit
   %32 = call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #7
   store i64 14, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %18, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %34 = load i64, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %32, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %32, i64 8
   store i64 %34, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %18, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %37 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %36) #8
-  %38 = getelementptr inbounds i8, ptr %32, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %32, i64 16
   store ptr %37, ptr %38, align 8
   %39 = load ptr, ptr %13, align 8
   %40 = getelementptr inbounds ptr, ptr %39, i64 %.094
@@ -88,13 +88,13 @@ _ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_3ELF12DynamicEntryESt14defau
 41:                                               ; preds = %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_3ELF12DynamicEntryESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEixEm.exit
   %42 = call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #7
   store i64 15, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %18, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %44 = load i64, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %42, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %42, i64 8
   store i64 %44, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %18, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %47 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %46) #8
-  %48 = getelementptr inbounds i8, ptr %42, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %42, i64 16
   store ptr %47, ptr %48, align 8
   %49 = load ptr, ptr %13, align 8
   %50 = getelementptr inbounds ptr, ptr %49, i64 %.094
@@ -104,13 +104,13 @@ _ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_3ELF12DynamicEntryESt14defau
 51:                                               ; preds = %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_3ELF12DynamicEntryESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEixEm.exit
   %52 = call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #7
   store i64 29, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %18, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %54 = load i64, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %52, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %52, i64 8
   store i64 %54, ptr %55, align 8
-  %56 = getelementptr inbounds i8, ptr %18, i64 24
+  %56 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %57 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %56) #8
-  %58 = getelementptr inbounds i8, ptr %52, i64 16
+  %58 = getelementptr inbounds nuw i8, ptr %52, i64 16
   store ptr %57, ptr %58, align 8
   %59 = load ptr, ptr %13, align 8
   %60 = getelementptr inbounds ptr, ptr %59, i64 %.094
@@ -120,12 +120,12 @@ _ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_3ELF12DynamicEntryESt14defau
 61:                                               ; preds = %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_3ELF12DynamicEntryESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEixEm.exit, %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_3ELF12DynamicEntryESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEixEm.exit, %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_3ELF12DynamicEntryESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEixEm.exit
   %62 = call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #7
   store i64 %20, ptr %62, align 8
-  %63 = getelementptr inbounds i8, ptr %18, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %64 = load i64, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %62, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %62, i64 8
   store i64 %64, ptr %65, align 8
-  %66 = getelementptr inbounds i8, ptr %18, i64 24
-  %67 = getelementptr inbounds i8, ptr %18, i64 32
+  %66 = getelementptr inbounds nuw i8, ptr %18, i64 24
+  %67 = getelementptr inbounds nuw i8, ptr %18, i64 32
   %68 = load ptr, ptr %67, align 8
   %69 = load ptr, ptr %66, align 8
   %70 = ptrtoint ptr %68 to i64
@@ -133,7 +133,7 @@ _ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_3ELF12DynamicEntryESt14defau
   %72 = add i64 %70, 8
   %73 = sub i64 %72, %71
   %74 = call noalias ptr @malloc(i64 noundef %73) #7
-  %75 = getelementptr inbounds i8, ptr %62, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %62, i64 16
   store ptr %74, ptr %75, align 8
   %76 = load ptr, ptr %67, align 8
   %77 = load ptr, ptr %66, align 8
@@ -175,9 +175,9 @@ _ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_3ELF12DynamicEntryESt14defau
 95:                                               ; preds = %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_3ELF12DynamicEntryESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEixEm.exit
   %96 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #7
   store i64 30, ptr %96, align 8
-  %97 = getelementptr inbounds i8, ptr %18, i64 16
+  %97 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %98 = load i64, ptr %97, align 8
-  %99 = getelementptr inbounds i8, ptr %96, i64 8
+  %99 = getelementptr inbounds nuw i8, ptr %96, i64 8
   store i64 %98, ptr %99, align 8
   call void @_ZNK4LIEF3ELF17DynamicEntryFlags5flagsEv(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.79") align 8 %3, ptr noundef nonnull align 8 dereferenceable(24) %18)
   %100 = load ptr, ptr %13, align 8
@@ -194,9 +194,9 @@ _ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_3ELF12DynamicEntryESt14defau
 104:                                              ; preds = %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_3ELF12DynamicEntryESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEixEm.exit
   %105 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #7
   store i64 1879048187, ptr %105, align 8
-  %106 = getelementptr inbounds i8, ptr %18, i64 16
+  %106 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %107 = load i64, ptr %106, align 8
-  %108 = getelementptr inbounds i8, ptr %105, i64 8
+  %108 = getelementptr inbounds nuw i8, ptr %105, i64 8
   store i64 %107, ptr %108, align 8
   call void @_ZNK4LIEF3ELF17DynamicEntryFlags5flagsEv(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.79") align 8 %4, ptr noundef nonnull align 8 dereferenceable(24) %18)
   %109 = load ptr, ptr %13, align 8
@@ -220,12 +220,12 @@ _ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_3ELF12DynamicEntryESt14defau
   %119 = getelementptr inbounds ptr, ptr %118, i64 %.094
   %120 = load ptr, ptr %119, align 8
   store i64 %117, ptr %120, align 8
-  %121 = getelementptr inbounds i8, ptr %18, i64 16
+  %121 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %122 = load i64, ptr %121, align 8
   %123 = load ptr, ptr %13, align 8
   %124 = getelementptr inbounds ptr, ptr %123, i64 %.094
   %125 = load ptr, ptr %124, align 8
-  %126 = getelementptr inbounds i8, ptr %125, i64 8
+  %126 = getelementptr inbounds nuw i8, ptr %125, i64 8
   store i64 %122, ptr %126, align 8
   br label %_ZNSt6vectorIN4LIEF3ELF17DynamicEntryFlags4FLAGESaIS3_EED2Ev.exit
 
@@ -262,7 +262,7 @@ declare void @_ZNK4LIEF3ELF17DynamicEntryFlags5flagsEv(ptr dead_on_unwind writab
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN4LIEF3ELF23destroy_dynamic_entriesEP12Elf_Binary_t(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 136
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
   %.not27 = icmp eq ptr %4, null
@@ -279,7 +279,7 @@ define hidden void @_ZN4LIEF3ELF23destroy_dynamic_entriesEP12Elf_Binary_t(ptr no
   ]
 
 7:                                                ; preds = %.lr.ph, %.lr.ph, %.lr.ph
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   tail call void @free(ptr noundef %9) #8
   br label %10

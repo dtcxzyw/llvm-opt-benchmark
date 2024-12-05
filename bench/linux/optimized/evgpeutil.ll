@@ -30,7 +30,7 @@ define dso_local i32 @acpi_ev_walk_gpe_list(ptr nocapture noundef readonly %0, p
 
 8:                                                ; preds = %13, %.preheader
   %9 = phi ptr [ %11, %13 ], [ %7, %.preheader ]
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %19, label %13
@@ -46,7 +46,7 @@ define dso_local i32 @acpi_ev_walk_gpe_list(ptr nocapture noundef readonly %0, p
   br label %.loopexit
 
 19:                                               ; preds = %8
-  %20 = getelementptr inbounds i8, ptr %7, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, null
   br i1 %22, label %.loopexit, label %.preheader, !llvm.loop !8
@@ -72,10 +72,10 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
 define dso_local noundef range(i32 0, 16392) i32 @acpi_ev_get_gpe_device(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) local_unnamed_addr #3 align 16 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 60
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %5 = load i16, ptr %4, align 4
   %6 = zext i16 %5 to i32
-  %7 = getelementptr inbounds i8, ptr %2, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %8 = load i32, ptr %7, align 4
   %9 = add i32 %8, %6
   store i32 %9, ptr %7, align 4
@@ -85,18 +85,18 @@ define dso_local noundef range(i32 0, 16392) i32 @acpi_ev_get_gpe_device(ptr noc
 
 12:                                               ; preds = %3
   %13 = load ptr, ptr %1, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 9
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 9
   %15 = load i8, ptr %14, align 1
   %16 = icmp eq i8 %15, 6
   br i1 %16, label %17, label %19
 
 17:                                               ; preds = %12
-  %18 = getelementptr inbounds i8, ptr %2, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %13, ptr %18, align 8
   br label %19
 
 19:                                               ; preds = %17, %12
-  %20 = getelementptr inbounds i8, ptr %2, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 0, ptr %20, align 8
   br label %21
 
@@ -114,7 +114,7 @@ define dso_local i32 @acpi_ev_get_gpe_xrupt_block(i32 noundef %0, ptr nocapture 
 
 .preheader6:                                      ; preds = %2, %11
   %6 = phi ptr [ %13, %11 ], [ %4, %2 ]
-  %7 = getelementptr inbounds i8, ptr %6, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %8, %0
   br i1 %9, label %10, label %11
@@ -124,7 +124,7 @@ define dso_local i32 @acpi_ev_get_gpe_xrupt_block(i32 noundef %0, ptr nocapture 
   br label %45
 
 11:                                               ; preds = %.preheader6
-  %12 = getelementptr inbounds i8, ptr %6, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %.loopexit, label %.preheader6, !llvm.loop !9
@@ -144,7 +144,7 @@ define dso_local i32 @acpi_ev_get_gpe_xrupt_block(i32 noundef %0, ptr nocapture 
   br i1 %21, label %45, label %22
 
 22:                                               ; preds = %.loopexit
-  %23 = getelementptr inbounds i8, ptr %20, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 %0, ptr %23, align 8
   %24 = load ptr, ptr @acpi_gbl_gpe_lock, align 8
   %25 = call i64 @acpi_os_acquire_lock(ptr noundef %24) #5
@@ -154,13 +154,13 @@ define dso_local i32 @acpi_ev_get_gpe_xrupt_block(i32 noundef %0, ptr nocapture 
 
 .preheader:                                       ; preds = %22, %.preheader
   %28 = phi ptr [ %30, %.preheader ], [ %26, %22 ]
-  %29 = getelementptr inbounds i8, ptr %28, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load ptr, ptr %29, align 8
   %31 = icmp eq ptr %30, null
   br i1 %31, label %32, label %.preheader, !llvm.loop !12
 
 32:                                               ; preds = %.preheader
-  %33 = getelementptr inbounds i8, ptr %28, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store ptr %20, ptr %33, align 8
   store ptr %28, ptr %20, align 8
   br label %35
@@ -206,7 +206,7 @@ declare dso_local void @acpi_exception(ptr noundef, i32 noundef, i32 noundef, pt
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @acpi_ev_delete_gpe_xrupt(ptr noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8
   %4 = load i16, ptr getelementptr inbounds (i8, ptr @acpi_gbl_FADT, i64 46), align 1
   %5 = zext i16 %4 to i32
@@ -214,7 +214,7 @@ define dso_local i32 @acpi_ev_delete_gpe_xrupt(ptr noundef %0) local_unnamed_add
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr null, ptr %8, align 8
   br label %26
 
@@ -228,9 +228,9 @@ define dso_local i32 @acpi_ev_delete_gpe_xrupt(ptr noundef %0) local_unnamed_add
   %14 = tail call i64 @acpi_os_acquire_lock(ptr noundef %13) #5
   %15 = load ptr, ptr %0, align 8
   %16 = icmp eq ptr %15, null
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %15, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %20 = select i1 %16, ptr @acpi_gbl_gpe_xrupt_list_head, ptr %19
   store ptr %18, ptr %20, align 8
   %21 = icmp eq ptr %18, null
@@ -257,13 +257,13 @@ declare dso_local i32 @acpi_os_remove_interrupt_handler(i32 noundef, ptr noundef
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @acpi_ev_delete_gpe_handlers(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %.loopexit3, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %1, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 40
   br label %9
 
 9:                                                ; preds = %33, %7
@@ -276,7 +276,7 @@ define dso_local noundef i32 @acpi_ev_delete_gpe_handlers(ptr nocapture noundef 
   %13 = load ptr, ptr %8, align 8
   %14 = getelementptr i8, ptr %13, i64 %.idx
   %15 = getelementptr %struct.acpi_gpe_event_info, ptr %14, i64 %12
-  %16 = getelementptr inbounds i8, ptr %15, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %17 = load i8, ptr %16, align 8
   %18 = and i8 %17, 7
   switch i8 %18, label %30 [
@@ -297,7 +297,7 @@ define dso_local noundef i32 @acpi_ev_delete_gpe_handlers(ptr nocapture noundef 
 
 .preheader:                                       ; preds = %21, %.preheader
   %24 = phi ptr [ %26, %.preheader ], [ %22, %21 ]
-  %25 = getelementptr inbounds i8, ptr %24, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load ptr, ptr %25, align 8
   tail call void @kfree(ptr noundef nonnull %24) #5
   %27 = icmp eq ptr %26, null

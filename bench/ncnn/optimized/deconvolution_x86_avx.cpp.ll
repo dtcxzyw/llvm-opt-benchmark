@@ -70,7 +70,7 @@ define linkonce_odr hidden void @_ZN4ncnn13DeconvolutionD2Ev(ptr noundef nonnull
 
 12:                                               ; preds = %8
   %13 = load ptr, ptr %10, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = load ptr, ptr %14, align 8
   invoke void %15(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef %11)
           to label %18 unwind label %24
@@ -116,7 +116,7 @@ define linkonce_odr hidden void @_ZN4ncnn13DeconvolutionD2Ev(ptr noundef nonnull
 
 34:                                               ; preds = %30
   %35 = load ptr, ptr %32, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %37 = load ptr, ptr %36, align 8
   invoke void %37(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef %33)
           to label %40 unwind label %46
@@ -162,7 +162,7 @@ define linkonce_odr hidden void @_ZN4ncnn13DeconvolutionD2Ev(ptr noundef nonnull
 
 56:                                               ; preds = %52
   %57 = load ptr, ptr %54, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 24
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 24
   %59 = load ptr, ptr %58, align 8
   invoke void %59(ptr noundef nonnull align 8 dereferenceable(8) %54, ptr noundef %55)
           to label %62 unwind label %65
@@ -235,7 +235,7 @@ define hidden noundef i32 @_ZN4ncnn21Deconvolution_x86_avx15create_pipelineERKNS
   %23 = tail call noundef ptr @_ZN4ncnn16create_layer_cpuEi(i32 noundef 26)
   call void @_ZN4ncnn9ParamDictC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3)
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load ptr, ptr %25, align 8
   %27 = invoke noundef i32 %26(ptr noundef nonnull align 8 dereferenceable(208) %23, ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %87 unwind label %28
@@ -255,7 +255,7 @@ define hidden noundef i32 @_ZN4ncnn21Deconvolution_x86_avx15create_pipelineERKNS
 
 34:                                               ; preds = %30
   %35 = load ptr, ptr %31, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %37 = load ptr, ptr %36, align 8
   %38 = invoke noundef i32 %37(ptr noundef nonnull align 8 dereferenceable(208) %31, ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %87 unwind label %39
@@ -275,14 +275,14 @@ define hidden noundef i32 @_ZN4ncnn21Deconvolution_x86_avx15create_pipelineERKNS
 
 45:                                               ; preds = %41
   %46 = load ptr, ptr %21, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 4
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 4
   %48 = load float, ptr %47, align 4
   invoke void @_ZN4ncnn9ParamDict3setEif(ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 1, float noundef nofpclass(nan inf) %48)
           to label %49 unwind label %54
 
 49:                                               ; preds = %45
   %50 = load ptr, ptr %42, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %52 = load ptr, ptr %51, align 8
   %53 = invoke noundef i32 %52(ptr noundef nonnull align 8 dereferenceable(208) %42, ptr noundef nonnull align 8 dereferenceable(16) %5)
           to label %87 unwind label %54
@@ -296,7 +296,7 @@ define hidden noundef i32 @_ZN4ncnn21Deconvolution_x86_avx15create_pipelineERKNS
   %57 = tail call noundef ptr @_ZN4ncnn16create_layer_cpuEi(i32 noundef 30)
   call void @_ZN4ncnn9ParamDictC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
   %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 16
   %60 = load ptr, ptr %59, align 8
   %61 = invoke noundef i32 %60(ptr noundef nonnull align 8 dereferenceable(208) %57, ptr noundef nonnull align 8 dereferenceable(16) %6)
           to label %87 unwind label %62
@@ -310,7 +310,7 @@ define hidden noundef i32 @_ZN4ncnn21Deconvolution_x86_avx15create_pipelineERKNS
   %65 = tail call noundef ptr @_ZN4ncnn16create_layer_cpuEi(i32 noundef 71)
   call void @_ZN4ncnn9ParamDictC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %7)
   %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 16
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 16
   %68 = load ptr, ptr %67, align 8
   %69 = invoke noundef i32 %68(ptr noundef nonnull align 8 dereferenceable(208) %65, ptr noundef nonnull align 8 dereferenceable(16) %7)
           to label %87 unwind label %70
@@ -330,14 +330,14 @@ define hidden noundef i32 @_ZN4ncnn21Deconvolution_x86_avx15create_pipelineERKNS
 
 76:                                               ; preds = %72
   %77 = load ptr, ptr %21, align 8
-  %78 = getelementptr inbounds i8, ptr %77, i64 4
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 4
   %79 = load float, ptr %78, align 4
   invoke void @_ZN4ncnn9ParamDict3setEif(ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 1, float noundef nofpclass(nan inf) %79)
           to label %80 unwind label %85
 
 80:                                               ; preds = %76
   %81 = load ptr, ptr %73, align 8
-  %82 = getelementptr inbounds i8, ptr %81, i64 16
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 16
   %83 = load ptr, ptr %82, align 8
   %84 = invoke noundef i32 %83(ptr noundef nonnull align 8 dereferenceable(208) %73, ptr noundef nonnull align 8 dereferenceable(16) %8)
           to label %87 unwind label %85
@@ -352,7 +352,7 @@ define hidden noundef i32 @_ZN4ncnn21Deconvolution_x86_avx15create_pipelineERKNS
   %.033.ph.i = phi ptr [ %23, %22 ], [ %31, %34 ], [ %42, %49 ], [ %57, %56 ], [ %65, %64 ], [ %73, %80 ]
   call void @_ZN4ncnn9ParamDictD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink.i) #14
   %88 = load ptr, ptr %.033.ph.i, align 8
-  %89 = getelementptr inbounds i8, ptr %88, i64 32
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 32
   %90 = load ptr, ptr %89, align 8
   %91 = call noundef i32 %90(ptr noundef nonnull align 8 dereferenceable(208) %.033.ph.i, ptr noundef nonnull align 8 dereferenceable(64) %1)
   br label %_ZL23create_activation_layeriRKN4ncnn3MatERKNS_6OptionE.exit
@@ -469,7 +469,7 @@ _ZL23create_activation_layeriRKN4ncnn3MatERKNS_6OptionE.exit: ; preds = %18, %87
 140:                                              ; preds = %139
   %141 = load ptr, ptr %127, align 8
   %142 = load ptr, ptr %141, align 8
-  %143 = getelementptr inbounds i8, ptr %142, i64 16
+  %143 = getelementptr inbounds nuw i8, ptr %142, i64 16
   %144 = load ptr, ptr %143, align 8
   %145 = invoke noundef i32 %144(ptr noundef nonnull align 8 dereferenceable(208) %141, ptr noundef nonnull align 8 dereferenceable(16) %9)
           to label %146 unwind label %197
@@ -565,10 +565,10 @@ _ZL23create_activation_layeriRKN4ncnn3MatERKNS_6OptionE.exit: ; preds = %18, %87
   %189 = mul nsw i64 %indvars.iv536, %188
   %190 = mul i64 %189, %185
   %191 = getelementptr inbounds i8, ptr %187, i64 %190
-  %192 = getelementptr inbounds float, ptr %191, i64 %indvars.iv528
+  %192 = getelementptr inbounds nuw float, ptr %191, i64 %indvars.iv528
   %193 = load float, ptr %192, align 4
   store float %193, ptr %.2285472.us, align 4
-  %194 = getelementptr inbounds i8, ptr %.2285472.us, i64 4
+  %194 = getelementptr inbounds nuw i8, ptr %.2285472.us, i64 4
   %indvars.iv.next523 = add nuw nsw i64 %indvars.iv522, 1
   %exitcond527.not = icmp eq i64 %indvars.iv.next523, %168
   br i1 %exitcond527.not, label %178, label %179, !llvm.loop !6
@@ -630,7 +630,7 @@ _ZL23create_activation_layeriRKN4ncnn3MatERKNS_6OptionE.exit: ; preds = %18, %87
 
 216:                                              ; preds = %212
   %217 = load ptr, ptr %214, align 8
-  %218 = getelementptr inbounds i8, ptr %217, i64 24
+  %218 = getelementptr inbounds nuw i8, ptr %217, i64 24
   %219 = load ptr, ptr %218, align 8
   invoke void %219(ptr noundef nonnull align 8 dereferenceable(8) %214, ptr noundef %215)
           to label %222 unwind label %236
@@ -692,7 +692,7 @@ _ZL23create_activation_layeriRKN4ncnn3MatERKNS_6OptionE.exit: ; preds = %18, %87
 
 247:                                              ; preds = %244
   %248 = load ptr, ptr %245, align 8
-  %249 = getelementptr inbounds i8, ptr %248, i64 24
+  %249 = getelementptr inbounds nuw i8, ptr %248, i64 24
   %250 = load ptr, ptr %249, align 8
   invoke void %250(ptr noundef nonnull align 8 dereferenceable(8) %245, ptr noundef %246)
           to label %.thread unwind label %333
@@ -734,7 +734,7 @@ _ZL23create_activation_layeriRKN4ncnn3MatERKNS_6OptionE.exit: ; preds = %18, %87
 
 265:                                              ; preds = %.thread
   %266 = load ptr, ptr %264, align 8
-  %267 = getelementptr inbounds i8, ptr %266, i64 24
+  %267 = getelementptr inbounds nuw i8, ptr %266, i64 24
   %268 = load ptr, ptr %267, align 8
   %269 = invoke noundef i32 %268(ptr noundef nonnull align 8 dereferenceable(208) %264, ptr noundef nonnull align 8 dereferenceable(8) %13)
           to label %270 unwind label %335
@@ -743,13 +743,13 @@ _ZL23create_activation_layeriRKN4ncnn3MatERKNS_6OptionE.exit: ; preds = %18, %87
   call void @_ZN4ncnn20ModelBinFromMatArrayD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #14
   %271 = load ptr, ptr %127, align 8
   %272 = load ptr, ptr %271, align 8
-  %273 = getelementptr inbounds i8, ptr %272, i64 32
+  %273 = getelementptr inbounds nuw i8, ptr %272, i64 32
   %274 = load ptr, ptr %273, align 8
   %275 = invoke noundef i32 %274(ptr noundef nonnull align 8 dereferenceable(208) %271, ptr noundef nonnull align 8 dereferenceable(64) %1)
           to label %.preheader.preheader unwind label %333
 
 .preheader.preheader:                             ; preds = %270
-  %276 = getelementptr inbounds i8, ptr %12, i64 8
+  %276 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %277 = load ptr, ptr %276, align 8
   %.not435 = icmp eq ptr %277, null
   br i1 %.not435, label %291, label %278
@@ -760,7 +760,7 @@ _ZL23create_activation_layeriRKN4ncnn3MatERKNS_6OptionE.exit: ; preds = %18, %87
   br i1 %280, label %281, label %291
 
 281:                                              ; preds = %278
-  %282 = getelementptr inbounds i8, ptr %12, i64 32
+  %282 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %283 = load ptr, ptr %282, align 16
   %.not436 = icmp eq ptr %283, null
   %284 = load ptr, ptr %12, align 16
@@ -768,7 +768,7 @@ _ZL23create_activation_layeriRKN4ncnn3MatERKNS_6OptionE.exit: ; preds = %18, %87
 
 285:                                              ; preds = %281
   %286 = load ptr, ptr %283, align 8
-  %287 = getelementptr inbounds i8, ptr %286, i64 24
+  %287 = getelementptr inbounds nuw i8, ptr %286, i64 24
   %288 = load ptr, ptr %287, align 8
   invoke void %288(ptr noundef nonnull align 8 dereferenceable(8) %283, ptr noundef %284)
           to label %291 unwind label %295
@@ -782,8 +782,8 @@ _ZL23create_activation_layeriRKN4ncnn3MatERKNS_6OptionE.exit: ; preds = %18, %87
   br label %291
 
 291:                                              ; preds = %285, %290, %289, %278, %.preheader.preheader
-  %292 = getelementptr inbounds i8, ptr %12, i64 40
-  %293 = getelementptr inbounds i8, ptr %12, i64 64
+  %292 = getelementptr inbounds nuw i8, ptr %12, i64 40
+  %293 = getelementptr inbounds nuw i8, ptr %12, i64 64
   store i64 0, ptr %293, align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(28) %12, i8 0, i64 28, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %292, i8 0, i64 20, i1 false)
@@ -811,7 +811,7 @@ _ZL23create_activation_layeriRKN4ncnn3MatERKNS_6OptionE.exit: ; preds = %18, %87
 
 304:                                              ; preds = %301
   %305 = load ptr, ptr %302, align 8
-  %306 = getelementptr inbounds i8, ptr %305, i64 24
+  %306 = getelementptr inbounds nuw i8, ptr %305, i64 24
   %307 = load ptr, ptr %306, align 8
   invoke void %307(ptr noundef nonnull align 8 dereferenceable(8) %302, ptr noundef %303)
           to label %310 unwind label %311
@@ -852,7 +852,7 @@ _ZL23create_activation_layeriRKN4ncnn3MatERKNS_6OptionE.exit: ; preds = %18, %87
 
 321:                                              ; preds = %317
   %322 = load ptr, ptr %319, align 8
-  %323 = getelementptr inbounds i8, ptr %322, i64 24
+  %323 = getelementptr inbounds nuw i8, ptr %322, i64 24
   %324 = load ptr, ptr %323, align 8
   invoke void %324(ptr noundef nonnull align 8 dereferenceable(8) %319, ptr noundef %320)
           to label %327 unwind label %330
@@ -893,7 +893,7 @@ _ZL23create_activation_layeriRKN4ncnn3MatERKNS_6OptionE.exit: ; preds = %18, %87
 
 337:                                              ; preds = %335, %333
   %.pn424 = phi { ptr, i32 } [ %334, %333 ], [ %336, %335 ]
-  %338 = getelementptr inbounds i8, ptr %12, i64 8
+  %338 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %339 = load ptr, ptr %338, align 8
   %.not426 = icmp eq ptr %339, null
   br i1 %.not426, label %.loopexit.loopexit, label %340
@@ -904,7 +904,7 @@ _ZL23create_activation_layeriRKN4ncnn3MatERKNS_6OptionE.exit: ; preds = %18, %87
   br i1 %342, label %343, label %.loopexit.loopexit
 
 343:                                              ; preds = %340
-  %344 = getelementptr inbounds i8, ptr %12, i64 32
+  %344 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %345 = load ptr, ptr %344, align 16
   %.not427 = icmp eq ptr %345, null
   %346 = load ptr, ptr %12, align 16
@@ -912,7 +912,7 @@ _ZL23create_activation_layeriRKN4ncnn3MatERKNS_6OptionE.exit: ; preds = %18, %87
 
 347:                                              ; preds = %343
   %348 = load ptr, ptr %345, align 8
-  %349 = getelementptr inbounds i8, ptr %348, i64 24
+  %349 = getelementptr inbounds nuw i8, ptr %348, i64 24
   %350 = load ptr, ptr %349, align 8
   invoke void %350(ptr noundef nonnull align 8 dereferenceable(8) %345, ptr noundef %346)
           to label %.loopexit.loopexit unwind label %355
@@ -926,8 +926,8 @@ _ZL23create_activation_layeriRKN4ncnn3MatERKNS_6OptionE.exit: ; preds = %18, %87
   br label %.loopexit.loopexit
 
 .loopexit.loopexit:                               ; preds = %347, %352, %351, %340, %337
-  %353 = getelementptr inbounds i8, ptr %12, i64 40
-  %354 = getelementptr inbounds i8, ptr %12, i64 64
+  %353 = getelementptr inbounds nuw i8, ptr %12, i64 40
+  %354 = getelementptr inbounds nuw i8, ptr %12, i64 64
   store i64 0, ptr %354, align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(28) %12, i8 0, i64 28, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %353, i8 0, i64 20, i1 false)
@@ -959,7 +959,7 @@ _ZL23create_activation_layeriRKN4ncnn3MatERKNS_6OptionE.exit: ; preds = %18, %87
 
 365:                                              ; preds = %362
   %366 = load ptr, ptr %363, align 8
-  %367 = getelementptr inbounds i8, ptr %366, i64 24
+  %367 = getelementptr inbounds nuw i8, ptr %366, i64 24
   %368 = load ptr, ptr %367, align 8
   invoke void %368(ptr noundef nonnull align 8 dereferenceable(8) %363, ptr noundef %364)
           to label %371 unwind label %372
@@ -1022,23 +1022,23 @@ _ZL23create_activation_layeriRKN4ncnn3MatERKNS_6OptionE.exit: ; preds = %18, %87
   %.0277455.us = phi i32 [ %399, %._crit_edge.us ], [ 0, %.preheader451.us.preheader ]
   %.0278454.us = phi ptr [ %397, %._crit_edge.us ], [ %389, %.preheader451.us.preheader ]
   %.0279453.us = phi ptr [ %398, %._crit_edge.us ], [ %390, %.preheader451.us.preheader ]
-  br label %391
+  %391 = getelementptr float, ptr %.0279453.us, i64 %387
+  br label %392
 
-391:                                              ; preds = %.preheader451.us, %391
-  %indvars.iv = phi i64 [ 0, %.preheader451.us ], [ %indvars.iv.next, %391 ]
-  %392 = getelementptr inbounds float, ptr %.0278454.us, i64 %indvars.iv
-  %393 = load float, ptr %392, align 4
-  %394 = xor i64 %indvars.iv, -1
-  %395 = add nsw i64 %387, %394
-  %396 = getelementptr inbounds float, ptr %.0279453.us, i64 %395
-  store float %393, ptr %396, align 4
+392:                                              ; preds = %.preheader451.us, %392
+  %indvars.iv = phi i64 [ 0, %.preheader451.us ], [ %indvars.iv.next, %392 ]
+  %393 = getelementptr inbounds nuw float, ptr %.0278454.us, i64 %indvars.iv
+  %394 = load float, ptr %393, align 4
+  %395 = xor i64 %indvars.iv, -1
+  %396 = getelementptr float, ptr %391, i64 %395
+  store float %394, ptr %396, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %391, !llvm.loop !10
+  br i1 %exitcond.not, label %._crit_edge.us, label %392, !llvm.loop !10
 
-._crit_edge.us:                                   ; preds = %391
-  %397 = getelementptr inbounds float, ptr %.0278454.us, i64 %387
-  %398 = getelementptr inbounds float, ptr %.0279453.us, i64 %387
+._crit_edge.us:                                   ; preds = %392
+  %397 = getelementptr inbounds nuw float, ptr %.0278454.us, i64 %387
+  %398 = getelementptr inbounds nuw float, ptr %.0279453.us, i64 %387
   %399 = add nuw nsw i32 %.0277455.us, 1
   %400 = load i32, ptr %102, align 8
   %401 = mul nsw i32 %400, %104
@@ -1137,10 +1137,10 @@ _ZL23create_activation_layeriRKN4ncnn3MatERKNS_6OptionE.exit: ; preds = %18, %87
   %443 = mul nsw i64 %449, %442
   %444 = mul i64 %443, %439
   %445 = getelementptr inbounds i8, ptr %441, i64 %444
-  %446 = getelementptr inbounds float, ptr %445, i64 %indvars.iv511
+  %446 = getelementptr inbounds nuw float, ptr %445, i64 %indvars.iv511
   %447 = load float, ptr %446, align 4
   store float %447, ptr %.3457.us, align 4
-  %448 = getelementptr inbounds i8, ptr %.3457.us, i64 4
+  %448 = getelementptr inbounds nuw i8, ptr %.3457.us, i64 4
   %indvars.iv.next501 = add nuw nsw i64 %indvars.iv500, 1
   %exitcond504.not = icmp eq i64 %indvars.iv.next501, %412
   br i1 %exitcond504.not, label %432, label %433, !llvm.loop !14
@@ -1201,7 +1201,7 @@ _ZL23create_activation_layeriRKN4ncnn3MatERKNS_6OptionE.exit: ; preds = %18, %87
 
 466:                                              ; preds = %462
   %467 = load ptr, ptr %464, align 8
-  %468 = getelementptr inbounds i8, ptr %467, i64 24
+  %468 = getelementptr inbounds nuw i8, ptr %467, i64 24
   %469 = load ptr, ptr %468, align 8
   invoke void %469(ptr noundef nonnull align 8 dereferenceable(8) %464, ptr noundef %465)
           to label %472 unwind label %476
@@ -1244,7 +1244,7 @@ _ZL23create_activation_layeriRKN4ncnn3MatERKNS_6OptionE.exit: ; preds = %18, %87
 
 485:                                              ; preds = %482
   %486 = load ptr, ptr %483, align 8
-  %487 = getelementptr inbounds i8, ptr %486, i64 24
+  %487 = getelementptr inbounds nuw i8, ptr %486, i64 24
   %488 = load ptr, ptr %487, align 8
   invoke void %488(ptr noundef nonnull align 8 dereferenceable(8) %483, ptr noundef %484)
           to label %491 unwind label %492
@@ -1284,7 +1284,7 @@ _ZL23create_activation_layeriRKN4ncnn3MatERKNS_6OptionE.exit: ; preds = %18, %87
 
 502:                                              ; preds = %498
   %503 = load ptr, ptr %500, align 8
-  %504 = getelementptr inbounds i8, ptr %503, i64 24
+  %504 = getelementptr inbounds nuw i8, ptr %503, i64 24
   %505 = load ptr, ptr %504, align 8
   invoke void %505(ptr noundef nonnull align 8 dereferenceable(8) %500, ptr noundef %501)
           to label %508 unwind label %511
@@ -1331,7 +1331,7 @@ _ZL23create_activation_layeriRKN4ncnn3MatERKNS_6OptionE.exit: ; preds = %18, %87
 
 522:                                              ; preds = %519
   %523 = load ptr, ptr %520, align 8
-  %524 = getelementptr inbounds i8, ptr %523, i64 24
+  %524 = getelementptr inbounds nuw i8, ptr %523, i64 24
   %525 = load ptr, ptr %524, align 8
   invoke void %525(ptr noundef nonnull align 8 dereferenceable(8) %520, ptr noundef %521)
           to label %common.resume unwind label %528
@@ -1377,7 +1377,7 @@ _ZL23create_activation_layeriRKN4ncnn3MatERKNS_6OptionE.exit: ; preds = %18, %87
 
 545:                                              ; preds = %541
   %546 = load ptr, ptr %543, align 8
-  %547 = getelementptr inbounds i8, ptr %546, i64 24
+  %547 = getelementptr inbounds nuw i8, ptr %546, i64 24
   %548 = load ptr, ptr %547, align 8
   call void %548(ptr noundef nonnull align 8 dereferenceable(8) %543, ptr noundef %544)
   br label %551
@@ -1431,7 +1431,7 @@ define hidden noundef i32 @_ZN4ncnn21Deconvolution_x86_avx16destroy_pipelineERKN
 
 5:                                                ; preds = %2
   %6 = load ptr, ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noundef i32 %8(ptr noundef nonnull align 8 dereferenceable(208) %4, ptr noundef nonnull align 8 dereferenceable(64) %1)
   %10 = load ptr, ptr %3, align 8
@@ -1440,7 +1440,7 @@ define hidden noundef i32 @_ZN4ncnn21Deconvolution_x86_avx16destroy_pipelineERKN
 
 12:                                               ; preds = %5
   %13 = load ptr, ptr %10, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8
   tail call void %15(ptr noundef nonnull align 8 dereferenceable(208) %10) #14
   br label %16
@@ -1457,7 +1457,7 @@ define hidden noundef i32 @_ZN4ncnn21Deconvolution_x86_avx16destroy_pipelineERKN
 
 20:                                               ; preds = %17
   %21 = load ptr, ptr %19, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 40
   %23 = load ptr, ptr %22, align 8
   %24 = tail call noundef i32 %23(ptr noundef nonnull align 8 dereferenceable(208) %19, ptr noundef nonnull align 8 dereferenceable(64) %1)
   %25 = load ptr, ptr %18, align 8
@@ -1466,7 +1466,7 @@ define hidden noundef i32 @_ZN4ncnn21Deconvolution_x86_avx16destroy_pipelineERKN
 
 27:                                               ; preds = %20
   %28 = load ptr, ptr %25, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load ptr, ptr %29, align 8
   tail call void %30(ptr noundef nonnull align 8 dereferenceable(208) %25) #14
   br label %31
@@ -1621,7 +1621,7 @@ define hidden noundef i32 @_ZNK4ncnn21Deconvolution_x86_avx7forwardERKNS_3MatERS
 
 109:                                              ; preds = %106
   %110 = load ptr, ptr %107, align 8
-  %111 = getelementptr inbounds i8, ptr %110, i64 24
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 24
   %112 = load ptr, ptr %111, align 8
   invoke void %112(ptr noundef nonnull align 8 dereferenceable(8) %107, ptr noundef %108)
           to label %.thread unwind label %94
@@ -1767,7 +1767,7 @@ define hidden noundef i32 @_ZNK4ncnn21Deconvolution_x86_avx7forwardERKNS_3MatERS
   %195 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %196 = load ptr, ptr %195, align 8
   %197 = load ptr, ptr %196, align 8
-  %198 = getelementptr inbounds i8, ptr %197, i64 56
+  %198 = getelementptr inbounds nuw i8, ptr %197, i64 56
   %199 = load ptr, ptr %198, align 8
   %200 = invoke noundef i32 %199(ptr noundef nonnull align 8 dereferenceable(208) %196, ptr noundef nonnull align 8 dereferenceable(72) %6, ptr noundef nonnull align 8 dereferenceable(72) %7, ptr noundef nonnull align 8 dereferenceable(64) %8)
           to label %201 unwind label %202
@@ -1866,7 +1866,7 @@ define hidden noundef i32 @_ZNK4ncnn21Deconvolution_x86_avx7forwardERKNS_3MatERS
 
 260:                                              ; preds = %249
   %.idx1496 = shl nsw i64 %indvars.iv1467, 5
-  %261 = getelementptr inbounds i8, ptr %247, i64 %.idx1496
+  %261 = getelementptr inbounds nuw i8, ptr %247, i64 %.idx1496
   %262 = load <8 x float>, ptr %261, align 1
   %263 = trunc i64 %spec.select to i32
   %264 = mul i32 %231, %263
@@ -1877,7 +1877,7 @@ define hidden noundef i32 @_ZNK4ncnn21Deconvolution_x86_avx7forwardERKNS_3MatERS
   %.06141282 = phi ptr [ %266, %.lr.ph1283 ], [ %237, %260 ]
   %.06151281 = phi i32 [ %267, %.lr.ph1283 ], [ 0, %260 ]
   store <8 x float> %262, ptr %.06141282, align 1
-  %266 = getelementptr inbounds i8, ptr %.06141282, i64 32
+  %266 = getelementptr inbounds nuw i8, ptr %.06141282, i64 32
   %267 = add nuw nsw i32 %.06151281, 1
   %exitcond1464.not = icmp eq i32 %267, %264
   br i1 %exitcond1464.not, label %.loopexit1233, label %.lr.ph1283, !llvm.loop !17
@@ -1936,7 +1936,7 @@ define hidden noundef i32 @_ZNK4ncnn21Deconvolution_x86_avx7forwardERKNS_3MatERS
   %291 = shl nsw i32 %290, 3
   %292 = sext i32 %291 to i64
   %293 = getelementptr inbounds float, ptr %.16451288.us.us.us, i64 %292
-  %294 = getelementptr inbounds i8, ptr %.36511287.us.us.us, i64 32
+  %294 = getelementptr inbounds nuw i8, ptr %.36511287.us.us.us, i64 32
   %295 = add nuw nsw i32 %.06421289.us.us.us, 1
   %exitcond1465.not = icmp eq i32 %295, %10
   br i1 %exitcond1465.not, label %._crit_edge.us1297.us.us, label %286, !llvm.loop !18
@@ -2040,7 +2040,7 @@ define hidden noundef i32 @_ZNK4ncnn21Deconvolution_x86_avx7forwardERKNS_3MatERS
 
 354:                                              ; preds = %343
   %.idx = shl nsw i64 %indvars.iv1475, 4
-  %355 = getelementptr inbounds i8, ptr %341, i64 %.idx
+  %355 = getelementptr inbounds nuw i8, ptr %341, i64 %.idx
   %356 = load <4 x float>, ptr %355, align 1
   %357 = trunc i64 %spec.select868 to i32
   %358 = mul i32 %325, %357
@@ -2051,7 +2051,7 @@ define hidden noundef i32 @_ZNK4ncnn21Deconvolution_x86_avx7forwardERKNS_3MatERS
   %.06041319 = phi ptr [ %360, %.lr.ph1321 ], [ %331, %354 ]
   %.06051318 = phi i32 [ %361, %.lr.ph1321 ], [ 0, %354 ]
   store <4 x float> %356, ptr %.06041319, align 1
-  %360 = getelementptr inbounds i8, ptr %.06041319, i64 16
+  %360 = getelementptr inbounds nuw i8, ptr %.06041319, i64 16
   %361 = add nuw nsw i32 %.06051318, 1
   %exitcond1472.not = icmp eq i32 %361, %358
   br i1 %exitcond1472.not, label %.loopexit1229, label %.lr.ph1321, !llvm.loop !23
@@ -2110,7 +2110,7 @@ define hidden noundef i32 @_ZNK4ncnn21Deconvolution_x86_avx7forwardERKNS_3MatERS
   %385 = shl nsw i32 %384, 2
   %386 = sext i32 %385 to i64
   %387 = getelementptr inbounds float, ptr %.16321326.us.us.us, i64 %386
-  %388 = getelementptr inbounds i8, ptr %.36381325.us.us.us, i64 16
+  %388 = getelementptr inbounds nuw i8, ptr %.36381325.us.us.us, i64 16
   %389 = add nuw nsw i32 %.06291327.us.us.us, 1
   %exitcond1473.not = icmp eq i32 %389, %10
   br i1 %exitcond1473.not, label %._crit_edge1329.us.us.us, label %380, !llvm.loop !24
@@ -2205,7 +2205,7 @@ define hidden noundef i32 @_ZNK4ncnn21Deconvolution_x86_avx7forwardERKNS_3MatERS
   br i1 %442, label %.critedge6, label %443
 
 443:                                              ; preds = %437
-  %444 = getelementptr inbounds float, ptr %435, i64 %indvars.iv1483
+  %444 = getelementptr inbounds nuw float, ptr %435, i64 %indvars.iv1483
   %445 = load float, ptr %444, align 4
   br label %.critedge6
 
@@ -2230,7 +2230,7 @@ define hidden noundef i32 @_ZNK4ncnn21Deconvolution_x86_avx7forwardERKNS_3MatERS
 .lr.ph1364:                                       ; preds = %.critedge6, %.lr.ph1364
   %.01363 = phi ptr [ %455, %.lr.ph1364 ], [ %425, %.critedge6 ]
   %.06001362 = phi i32 [ %456, %.lr.ph1364 ], [ 0, %.critedge6 ]
-  %455 = getelementptr inbounds i8, ptr %.01363, i64 4
+  %455 = getelementptr inbounds nuw i8, ptr %.01363, i64 4
   store float %446, ptr %.01363, align 4
   %456 = add nuw nsw i32 %.06001362, 1
   %exitcond1480.not = icmp eq i32 %456, %448
@@ -2277,7 +2277,7 @@ define hidden noundef i32 @_ZNK4ncnn21Deconvolution_x86_avx7forwardERKNS_3MatERS
   %473 = load i32, ptr %32, align 4
   %474 = sext i32 %473 to i64
   %475 = getelementptr inbounds float, ptr %.16211366.us.us.us, i64 %474
-  %476 = getelementptr inbounds i8, ptr %.36271365.us.us.us, i64 4
+  %476 = getelementptr inbounds nuw i8, ptr %.36271365.us.us.us, i64 4
   %477 = add nuw nsw i32 %.06181367.us.us.us, 1
   %exitcond1481.not = icmp eq i32 %477, %10
   br i1 %exitcond1481.not, label %._crit_edge1369.us.us.us, label %469, !llvm.loop !30
@@ -2319,7 +2319,7 @@ define hidden noundef i32 @_ZNK4ncnn21Deconvolution_x86_avx7forwardERKNS_3MatERS
 
 489:                                              ; preds = %.loopexit
   %490 = load ptr, ptr %488, align 8
-  %491 = getelementptr inbounds i8, ptr %490, i64 72
+  %491 = getelementptr inbounds nuw i8, ptr %490, i64 72
   %492 = load ptr, ptr %491, align 8
   %493 = invoke noundef i32 %492(ptr noundef nonnull align 8 dereferenceable(208) %488, ptr noundef nonnull align 8 dereferenceable(72) %5, ptr noundef nonnull align 8 dereferenceable(64) %3)
           to label %494 unwind label %202
@@ -2342,7 +2342,7 @@ define hidden noundef i32 @_ZNK4ncnn21Deconvolution_x86_avx7forwardERKNS_3MatERS
 
 502:                                              ; preds = %499
   %503 = load ptr, ptr %500, align 8
-  %504 = getelementptr inbounds i8, ptr %503, i64 24
+  %504 = getelementptr inbounds nuw i8, ptr %503, i64 24
   %505 = load ptr, ptr %504, align 8
   invoke void %505(ptr noundef nonnull align 8 dereferenceable(8) %500, ptr noundef %501)
           to label %508 unwind label %510
@@ -2383,7 +2383,7 @@ define hidden noundef i32 @_ZNK4ncnn21Deconvolution_x86_avx7forwardERKNS_3MatERS
 
 519:                                              ; preds = %516
   %520 = load ptr, ptr %517, align 8
-  %521 = getelementptr inbounds i8, ptr %520, i64 24
+  %521 = getelementptr inbounds nuw i8, ptr %520, i64 24
   %522 = load ptr, ptr %521, align 8
   invoke void %522(ptr noundef nonnull align 8 dereferenceable(8) %517, ptr noundef %518)
           to label %525 unwind label %526
@@ -2422,7 +2422,7 @@ define hidden noundef i32 @_ZNK4ncnn21Deconvolution_x86_avx7forwardERKNS_3MatERS
 
 535:                                              ; preds = %532
   %536 = load ptr, ptr %533, align 8
-  %537 = getelementptr inbounds i8, ptr %536, i64 24
+  %537 = getelementptr inbounds nuw i8, ptr %536, i64 24
   %538 = load ptr, ptr %537, align 8
   invoke void %538(ptr noundef nonnull align 8 dereferenceable(8) %533, ptr noundef %534)
           to label %541 unwind label %543
@@ -2463,7 +2463,7 @@ define hidden noundef i32 @_ZNK4ncnn21Deconvolution_x86_avx7forwardERKNS_3MatERS
 
 552:                                              ; preds = %549
   %553 = load ptr, ptr %550, align 8
-  %554 = getelementptr inbounds i8, ptr %553, i64 24
+  %554 = getelementptr inbounds nuw i8, ptr %553, i64 24
   %555 = load ptr, ptr %554, align 8
   invoke void %555(ptr noundef nonnull align 8 dereferenceable(8) %550, ptr noundef %551)
           to label %558 unwind label %559
@@ -2548,7 +2548,7 @@ define hidden noundef i32 @_ZNK4ncnn21Deconvolution_x86_avx7forwardERKNS_3MatERS
 .preheader9.lr.ph.i:                              ; preds = %.lr.ph.split.i
   %592 = icmp sgt i32 %590, 0
   %.idx.i = shl nsw i64 %indvars.iv74.i, 5
-  %593 = getelementptr inbounds i8, ptr %.val, i64 %.idx.i
+  %593 = getelementptr inbounds nuw i8, ptr %.val, i64 %.idx.i
   %594 = icmp sgt i32 %589, 0
   br i1 %592, label %.preheader9.us.preheader.i, label %._crit_edge42.i
 
@@ -2596,7 +2596,7 @@ define hidden noundef i32 @_ZNK4ncnn21Deconvolution_x86_avx7forwardERKNS_3MatERS
   %607 = load float, ptr %606, align 4
   %608 = insertelement <8 x float> poison, float %607, i64 0
   %609 = shufflevector <8 x float> %608, <8 x float> poison, <8 x i32> zeroinitializer
-  %610 = getelementptr inbounds i8, ptr %606, i64 4
+  %610 = getelementptr inbounds nuw i8, ptr %606, i64 4
   %611 = load float, ptr %610, align 4
   %612 = insertelement <8 x float> poison, float %611, i64 0
   %613 = shufflevector <8 x float> %612, <8 x float> poison, <8 x i32> zeroinitializer
@@ -2760,7 +2760,7 @@ define hidden noundef i32 @_ZNK4ncnn21Deconvolution_x86_avx7forwardERKNS_3MatERS
   %760 = load float, ptr %759, align 4
   %761 = insertelement <8 x float> poison, float %760, i64 0
   %762 = shufflevector <8 x float> %761, <8 x float> poison, <8 x i32> zeroinitializer
-  %763 = getelementptr inbounds i8, ptr %759, i64 4
+  %763 = getelementptr inbounds nuw i8, ptr %759, i64 4
   %764 = load float, ptr %763, align 4
   %765 = insertelement <8 x float> poison, float %764, i64 0
   %766 = shufflevector <8 x float> %765, <8 x float> poison, <8 x i32> zeroinitializer
@@ -2786,7 +2786,7 @@ define hidden noundef i32 @_ZNK4ncnn21Deconvolution_x86_avx7forwardERKNS_3MatERS
 780:                                              ; preds = %778, %769, %758, %725, %619, %605, %._crit_edge21.us.i
   %.01128.us.i = phi nsz <8 x float> [ %618, %605 ], [ %724, %619 ], [ %757, %725 ], [ %768, %758 ], [ %777, %769 ], [ %779, %778 ], [ %.11347.lcssa.us.i, %._crit_edge21.us.i ]
   store <8 x float> %.01128.us.i, ptr %.135.us.i, align 1
-  %781 = getelementptr inbounds i8, ptr %.135.us.i, i64 32
+  %781 = getelementptr inbounds nuw i8, ptr %.135.us.i, i64 32
   %782 = add nuw nsw i32 %.0112636.us.i, 1
   %exitcond72.not.i = icmp eq i32 %782, %590
   br i1 %exitcond72.not.i, label %._crit_edge.us.i, label %601, !llvm.loop !35
@@ -2865,50 +2865,50 @@ define hidden noundef i32 @_ZNK4ncnn21Deconvolution_x86_avx7forwardERKNS_3MatERS
   %816 = load float, ptr %813, align 1
   %817 = insertelement <8 x float> poison, float %816, i64 0
   %818 = shufflevector <8 x float> %817, <8 x float> poison, <8 x i32> zeroinitializer
-  %819 = getelementptr inbounds i8, ptr %813, i64 4
+  %819 = getelementptr inbounds nuw i8, ptr %813, i64 4
   %820 = load float, ptr %819, align 1
   %821 = insertelement <8 x float> poison, float %820, i64 0
   %822 = shufflevector <8 x float> %821, <8 x float> poison, <8 x i32> zeroinitializer
-  %823 = getelementptr inbounds i8, ptr %813, i64 8
+  %823 = getelementptr inbounds nuw i8, ptr %813, i64 8
   %824 = load float, ptr %823, align 1
   %825 = insertelement <8 x float> poison, float %824, i64 0
   %826 = shufflevector <8 x float> %825, <8 x float> poison, <8 x i32> zeroinitializer
-  %827 = getelementptr inbounds i8, ptr %813, i64 12
+  %827 = getelementptr inbounds nuw i8, ptr %813, i64 12
   %828 = load float, ptr %827, align 1
   %829 = insertelement <8 x float> poison, float %828, i64 0
   %830 = shufflevector <8 x float> %829, <8 x float> poison, <8 x i32> zeroinitializer
-  %831 = getelementptr inbounds i8, ptr %813, i64 16
+  %831 = getelementptr inbounds nuw i8, ptr %813, i64 16
   %832 = load float, ptr %831, align 1
   %833 = insertelement <8 x float> poison, float %832, i64 0
   %834 = shufflevector <8 x float> %833, <8 x float> poison, <8 x i32> zeroinitializer
-  %835 = getelementptr inbounds i8, ptr %813, i64 20
+  %835 = getelementptr inbounds nuw i8, ptr %813, i64 20
   %836 = load float, ptr %835, align 1
   %837 = insertelement <8 x float> poison, float %836, i64 0
   %838 = shufflevector <8 x float> %837, <8 x float> poison, <8 x i32> zeroinitializer
-  %839 = getelementptr inbounds i8, ptr %813, i64 24
+  %839 = getelementptr inbounds nuw i8, ptr %813, i64 24
   %840 = load float, ptr %839, align 1
   %841 = insertelement <8 x float> poison, float %840, i64 0
   %842 = shufflevector <8 x float> %841, <8 x float> poison, <8 x i32> zeroinitializer
-  %843 = getelementptr inbounds i8, ptr %813, i64 28
+  %843 = getelementptr inbounds nuw i8, ptr %813, i64 28
   %844 = load float, ptr %843, align 1
   %845 = insertelement <8 x float> poison, float %844, i64 0
   %846 = shufflevector <8 x float> %845, <8 x float> poison, <8 x i32> zeroinitializer
   %847 = and i64 %815, 4294967232
-  %848 = getelementptr inbounds float, ptr %.0112517.us.us.us.i, i64 %847
+  %848 = getelementptr inbounds nuw float, ptr %.0112517.us.us.us.i, i64 %847
   %849 = load <8 x float>, ptr %848, align 32
-  %850 = getelementptr inbounds i8, ptr %848, i64 32
+  %850 = getelementptr inbounds nuw i8, ptr %848, i64 32
   %851 = load <8 x float>, ptr %850, align 32
-  %852 = getelementptr inbounds i8, ptr %848, i64 64
+  %852 = getelementptr inbounds nuw i8, ptr %848, i64 64
   %853 = load <8 x float>, ptr %852, align 32
-  %854 = getelementptr inbounds i8, ptr %848, i64 96
+  %854 = getelementptr inbounds nuw i8, ptr %848, i64 96
   %855 = load <8 x float>, ptr %854, align 32
-  %856 = getelementptr inbounds i8, ptr %848, i64 128
+  %856 = getelementptr inbounds nuw i8, ptr %848, i64 128
   %857 = load <8 x float>, ptr %856, align 32
-  %858 = getelementptr inbounds i8, ptr %848, i64 160
+  %858 = getelementptr inbounds nuw i8, ptr %848, i64 160
   %859 = load <8 x float>, ptr %858, align 32
-  %860 = getelementptr inbounds i8, ptr %848, i64 192
+  %860 = getelementptr inbounds nuw i8, ptr %848, i64 192
   %861 = load <8 x float>, ptr %860, align 32
-  %862 = getelementptr inbounds i8, ptr %848, i64 224
+  %862 = getelementptr inbounds nuw i8, ptr %848, i64 224
   %863 = load <8 x float>, ptr %862, align 32
   %864 = fmul fast <8 x float> %849, %818
   %865 = fadd fast <8 x float> %864, %.410.us.us.us.us.i
@@ -3024,7 +3024,7 @@ _ZN4ncnnL23deconvolution_pack8_avxERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6OptionE.e
 .preheader9.lr.ph.i892:                           ; preds = %.lr.ph.split.i885
   %918 = icmp sgt i32 %916, 0
   %.idx.i893 = shl nsw i64 %indvars.iv74.i886, 5
-  %919 = getelementptr inbounds i8, ptr %.val871, i64 %.idx.i893
+  %919 = getelementptr inbounds nuw i8, ptr %.val871, i64 %.idx.i893
   %920 = icmp sgt i32 %915, 0
   br i1 %918, label %.preheader9.us.preheader.i894, label %._crit_edge42.i887
 
@@ -3072,7 +3072,7 @@ _ZN4ncnnL23deconvolution_pack8_avxERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6OptionE.e
   %933 = load float, ptr %932, align 4
   %934 = insertelement <8 x float> poison, float %933, i64 0
   %935 = shufflevector <8 x float> %934, <8 x float> poison, <8 x i32> zeroinitializer
-  %936 = getelementptr inbounds i8, ptr %932, i64 4
+  %936 = getelementptr inbounds nuw i8, ptr %932, i64 4
   %937 = load float, ptr %936, align 4
   %938 = insertelement <8 x float> poison, float %937, i64 0
   %939 = shufflevector <8 x float> %938, <8 x float> poison, <8 x i32> zeroinitializer
@@ -3236,7 +3236,7 @@ _ZN4ncnnL23deconvolution_pack8_avxERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6OptionE.e
   %1086 = load float, ptr %1085, align 4
   %1087 = insertelement <8 x float> poison, float %1086, i64 0
   %1088 = shufflevector <8 x float> %1087, <8 x float> poison, <8 x i32> zeroinitializer
-  %1089 = getelementptr inbounds i8, ptr %1085, i64 4
+  %1089 = getelementptr inbounds nuw i8, ptr %1085, i64 4
   %1090 = load float, ptr %1089, align 4
   %1091 = insertelement <8 x float> poison, float %1090, i64 0
   %1092 = shufflevector <8 x float> %1091, <8 x float> poison, <8 x i32> zeroinitializer
@@ -3262,7 +3262,7 @@ _ZN4ncnnL23deconvolution_pack8_avxERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6OptionE.e
 1106:                                             ; preds = %1104, %1095, %1084, %1051, %945, %931, %._crit_edge21.us.i898
   %.01044.us.i = phi nsz <8 x float> [ %944, %931 ], [ %1050, %945 ], [ %1083, %1051 ], [ %1094, %1084 ], [ %1103, %1095 ], [ %1105, %1104 ], [ %.11250.lcssa.us.i, %._crit_edge21.us.i898 ]
   store <8 x float> %.01044.us.i, ptr %.135.us.i897, align 1
-  %1107 = getelementptr inbounds i8, ptr %.135.us.i897, i64 32
+  %1107 = getelementptr inbounds nuw i8, ptr %.135.us.i897, i64 32
   %1108 = add nuw nsw i32 %.0104236.us.i, 1
   %exitcond72.not.i899 = icmp eq i32 %1108, %916
   br i1 %exitcond72.not.i899, label %._crit_edge.us.i900, label %927, !llvm.loop !41
@@ -3341,26 +3341,26 @@ _ZN4ncnnL23deconvolution_pack8_avxERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6OptionE.e
   %1142 = load float, ptr %1139, align 1
   %1143 = insertelement <8 x float> poison, float %1142, i64 0
   %1144 = shufflevector <8 x float> %1143, <8 x float> poison, <8 x i32> zeroinitializer
-  %1145 = getelementptr inbounds i8, ptr %1139, i64 4
+  %1145 = getelementptr inbounds nuw i8, ptr %1139, i64 4
   %1146 = load float, ptr %1145, align 1
   %1147 = insertelement <8 x float> poison, float %1146, i64 0
   %1148 = shufflevector <8 x float> %1147, <8 x float> poison, <8 x i32> zeroinitializer
-  %1149 = getelementptr inbounds i8, ptr %1139, i64 8
+  %1149 = getelementptr inbounds nuw i8, ptr %1139, i64 8
   %1150 = load float, ptr %1149, align 1
   %1151 = insertelement <8 x float> poison, float %1150, i64 0
   %1152 = shufflevector <8 x float> %1151, <8 x float> poison, <8 x i32> zeroinitializer
-  %1153 = getelementptr inbounds i8, ptr %1139, i64 12
+  %1153 = getelementptr inbounds nuw i8, ptr %1139, i64 12
   %1154 = load float, ptr %1153, align 1
   %1155 = insertelement <8 x float> poison, float %1154, i64 0
   %1156 = shufflevector <8 x float> %1155, <8 x float> poison, <8 x i32> zeroinitializer
   %1157 = and i64 %1141, 4294967264
-  %1158 = getelementptr inbounds float, ptr %.0104117.us.us.us.i, i64 %1157
+  %1158 = getelementptr inbounds nuw float, ptr %.0104117.us.us.us.i, i64 %1157
   %1159 = load <8 x float>, ptr %1158, align 32
-  %1160 = getelementptr inbounds i8, ptr %1158, i64 32
+  %1160 = getelementptr inbounds nuw i8, ptr %1158, i64 32
   %1161 = load <8 x float>, ptr %1160, align 32
-  %1162 = getelementptr inbounds i8, ptr %1158, i64 64
+  %1162 = getelementptr inbounds nuw i8, ptr %1158, i64 64
   %1163 = load <8 x float>, ptr %1162, align 32
-  %1164 = getelementptr inbounds i8, ptr %1158, i64 96
+  %1164 = getelementptr inbounds nuw i8, ptr %1158, i64 96
   %1165 = load <8 x float>, ptr %1164, align 32
   %1166 = fmul fast <8 x float> %1159, %1144
   %1167 = fadd fast <8 x float> %1166, %.410.us.us.us.us.i925
@@ -3468,7 +3468,7 @@ _ZN4ncnnL26deconvolution_pack4to8_avxERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6Option
 .preheader9.lr.ph.i945:                           ; preds = %.lr.ph.split.i938
   %1212 = icmp sgt i32 %1210, 0
   %.idx.i946 = shl nsw i64 %indvars.iv74.i939, 4
-  %1213 = getelementptr inbounds i8, ptr %.val872, i64 %.idx.i946
+  %1213 = getelementptr inbounds nuw i8, ptr %.val872, i64 %.idx.i946
   %1214 = icmp sgt i32 %1209, 0
   br i1 %1212, label %.preheader9.us.preheader.i947, label %._crit_edge42.i940
 
@@ -3516,7 +3516,7 @@ _ZN4ncnnL26deconvolution_pack4to8_avxERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6Option
   %1227 = load float, ptr %1226, align 4
   %1228 = insertelement <4 x float> poison, float %1227, i64 0
   %1229 = shufflevector <4 x float> %1228, <4 x float> poison, <4 x i32> zeroinitializer
-  %1230 = getelementptr inbounds i8, ptr %1226, i64 4
+  %1230 = getelementptr inbounds nuw i8, ptr %1226, i64 4
   %1231 = load float, ptr %1230, align 4
   %1232 = insertelement <4 x float> poison, float %1231, i64 0
   %1233 = shufflevector <4 x float> %1232, <4 x float> poison, <4 x i32> zeroinitializer
@@ -3676,7 +3676,7 @@ _ZN4ncnnL26deconvolution_pack4to8_avxERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6Option
   %1377 = load float, ptr %1376, align 4
   %1378 = insertelement <4 x float> poison, float %1377, i64 0
   %1379 = shufflevector <4 x float> %1378, <4 x float> poison, <4 x i32> zeroinitializer
-  %1380 = getelementptr inbounds i8, ptr %1376, i64 4
+  %1380 = getelementptr inbounds nuw i8, ptr %1376, i64 4
   %1381 = load float, ptr %1380, align 4
   %1382 = insertelement <4 x float> poison, float %1381, i64 0
   %1383 = shufflevector <4 x float> %1382, <4 x float> poison, <4 x i32> zeroinitializer
@@ -3702,7 +3702,7 @@ _ZN4ncnnL26deconvolution_pack4to8_avxERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6Option
 1397:                                             ; preds = %1395, %1386, %1375, %1341, %1239, %1225, %._crit_edge21.us.i950
   %.0.us.i = phi nsz <4 x float> [ %1238, %1225 ], [ %1340, %1239 ], [ %1374, %1341 ], [ %1385, %1375 ], [ %1394, %1386 ], [ %1396, %1395 ], [ %.11081.lcssa.us.i, %._crit_edge21.us.i950 ]
   store <4 x float> %.0.us.i, ptr %.138.us.i, align 1
-  %1398 = getelementptr inbounds i8, ptr %.138.us.i, i64 16
+  %1398 = getelementptr inbounds nuw i8, ptr %.138.us.i, i64 16
   %1399 = add nuw nsw i32 %.086835.us.i, 1
   %exitcond72.not.i951 = icmp eq i32 %1399, %1210
   br i1 %exitcond72.not.i951, label %._crit_edge.us.i952, label %1221, !llvm.loop !47
@@ -3781,50 +3781,50 @@ _ZN4ncnnL26deconvolution_pack4to8_avxERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6Option
   %1433 = load float, ptr %1430, align 1
   %1434 = insertelement <4 x float> poison, float %1433, i64 0
   %1435 = shufflevector <4 x float> %1434, <4 x float> poison, <4 x i32> zeroinitializer
-  %1436 = getelementptr inbounds i8, ptr %1430, i64 4
+  %1436 = getelementptr inbounds nuw i8, ptr %1430, i64 4
   %1437 = load float, ptr %1436, align 1
   %1438 = insertelement <4 x float> poison, float %1437, i64 0
   %1439 = shufflevector <4 x float> %1438, <4 x float> poison, <4 x i32> zeroinitializer
-  %1440 = getelementptr inbounds i8, ptr %1430, i64 8
+  %1440 = getelementptr inbounds nuw i8, ptr %1430, i64 8
   %1441 = load float, ptr %1440, align 1
   %1442 = insertelement <4 x float> poison, float %1441, i64 0
   %1443 = shufflevector <4 x float> %1442, <4 x float> poison, <4 x i32> zeroinitializer
-  %1444 = getelementptr inbounds i8, ptr %1430, i64 12
+  %1444 = getelementptr inbounds nuw i8, ptr %1430, i64 12
   %1445 = load float, ptr %1444, align 1
   %1446 = insertelement <4 x float> poison, float %1445, i64 0
   %1447 = shufflevector <4 x float> %1446, <4 x float> poison, <4 x i32> zeroinitializer
-  %1448 = getelementptr inbounds i8, ptr %1430, i64 16
+  %1448 = getelementptr inbounds nuw i8, ptr %1430, i64 16
   %1449 = load float, ptr %1448, align 1
   %1450 = insertelement <4 x float> poison, float %1449, i64 0
   %1451 = shufflevector <4 x float> %1450, <4 x float> poison, <4 x i32> zeroinitializer
-  %1452 = getelementptr inbounds i8, ptr %1430, i64 20
+  %1452 = getelementptr inbounds nuw i8, ptr %1430, i64 20
   %1453 = load float, ptr %1452, align 1
   %1454 = insertelement <4 x float> poison, float %1453, i64 0
   %1455 = shufflevector <4 x float> %1454, <4 x float> poison, <4 x i32> zeroinitializer
-  %1456 = getelementptr inbounds i8, ptr %1430, i64 24
+  %1456 = getelementptr inbounds nuw i8, ptr %1430, i64 24
   %1457 = load float, ptr %1456, align 1
   %1458 = insertelement <4 x float> poison, float %1457, i64 0
   %1459 = shufflevector <4 x float> %1458, <4 x float> poison, <4 x i32> zeroinitializer
-  %1460 = getelementptr inbounds i8, ptr %1430, i64 28
+  %1460 = getelementptr inbounds nuw i8, ptr %1430, i64 28
   %1461 = load float, ptr %1460, align 1
   %1462 = insertelement <4 x float> poison, float %1461, i64 0
   %1463 = shufflevector <4 x float> %1462, <4 x float> poison, <4 x i32> zeroinitializer
   %1464 = and i64 %1432, 4294967264
-  %1465 = getelementptr inbounds float, ptr %.086717.us.us.us.i, i64 %1464
+  %1465 = getelementptr inbounds nuw float, ptr %.086717.us.us.us.i, i64 %1464
   %1466 = load <4 x float>, ptr %1465, align 16
-  %1467 = getelementptr inbounds i8, ptr %1465, i64 16
+  %1467 = getelementptr inbounds nuw i8, ptr %1465, i64 16
   %1468 = load <4 x float>, ptr %1467, align 16
-  %1469 = getelementptr inbounds i8, ptr %1465, i64 32
+  %1469 = getelementptr inbounds nuw i8, ptr %1465, i64 32
   %1470 = load <4 x float>, ptr %1469, align 16
-  %1471 = getelementptr inbounds i8, ptr %1465, i64 48
+  %1471 = getelementptr inbounds nuw i8, ptr %1465, i64 48
   %1472 = load <4 x float>, ptr %1471, align 16
-  %1473 = getelementptr inbounds i8, ptr %1465, i64 64
+  %1473 = getelementptr inbounds nuw i8, ptr %1465, i64 64
   %1474 = load <4 x float>, ptr %1473, align 16
-  %1475 = getelementptr inbounds i8, ptr %1465, i64 80
+  %1475 = getelementptr inbounds nuw i8, ptr %1465, i64 80
   %1476 = load <4 x float>, ptr %1475, align 16
-  %1477 = getelementptr inbounds i8, ptr %1465, i64 96
+  %1477 = getelementptr inbounds nuw i8, ptr %1465, i64 96
   %1478 = load <4 x float>, ptr %1477, align 16
-  %1479 = getelementptr inbounds i8, ptr %1465, i64 112
+  %1479 = getelementptr inbounds nuw i8, ptr %1465, i64 112
   %1480 = load <4 x float>, ptr %1479, align 16
   %1481 = fmul fast <4 x float> %1466, %1435
   %1482 = fadd fast <4 x float> %1481, %.410.us.us.us.us.i977
@@ -3940,7 +3940,7 @@ _ZN4ncnnL26deconvolution_pack8to4_avxERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6Option
 .preheader.lr.ph.i:                               ; preds = %.lr.ph.split.i987
   %1535 = icmp sgt i32 %1533, 0
   %.idx.i990 = shl nsw i64 %indvars.iv72.i, 5
-  %1536 = getelementptr inbounds i8, ptr %.val873, i64 %.idx.i990
+  %1536 = getelementptr inbounds nuw i8, ptr %.val873, i64 %.idx.i990
   %1537 = icmp sgt i32 %1532, 0
   br i1 %1535, label %.preheader.us.preheader.i, label %._crit_edge40.i
 
@@ -3988,7 +3988,7 @@ _ZN4ncnnL26deconvolution_pack8to4_avxERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6Option
   %1550 = load float, ptr %1549, align 4
   %1551 = insertelement <8 x float> poison, float %1550, i64 0
   %1552 = shufflevector <8 x float> %1551, <8 x float> poison, <8 x i32> zeroinitializer
-  %1553 = getelementptr inbounds i8, ptr %1549, i64 4
+  %1553 = getelementptr inbounds nuw i8, ptr %1549, i64 4
   %1554 = load float, ptr %1553, align 4
   %1555 = insertelement <8 x float> poison, float %1554, i64 0
   %1556 = shufflevector <8 x float> %1555, <8 x float> poison, <8 x i32> zeroinitializer
@@ -4152,7 +4152,7 @@ _ZN4ncnnL26deconvolution_pack8to4_avxERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6Option
   %1703 = load float, ptr %1702, align 4
   %1704 = insertelement <8 x float> poison, float %1703, i64 0
   %1705 = shufflevector <8 x float> %1704, <8 x float> poison, <8 x i32> zeroinitializer
-  %1706 = getelementptr inbounds i8, ptr %1702, i64 4
+  %1706 = getelementptr inbounds nuw i8, ptr %1702, i64 4
   %1707 = load float, ptr %1706, align 4
   %1708 = insertelement <8 x float> poison, float %1707, i64 0
   %1709 = shufflevector <8 x float> %1708, <8 x float> poison, <8 x i32> zeroinitializer
@@ -4178,7 +4178,7 @@ _ZN4ncnnL26deconvolution_pack8to4_avxERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6Option
 1723:                                             ; preds = %1721, %1712, %1701, %1668, %1562, %1548, %._crit_edge20.us.i
   %.0989.us.i = phi nsz <8 x float> [ %1561, %1548 ], [ %1667, %1562 ], [ %1700, %1668 ], [ %1711, %1701 ], [ %1720, %1712 ], [ %1722, %1721 ], [ %.11186.lcssa.us.i, %._crit_edge20.us.i ]
   store <8 x float> %.0989.us.i, ptr %.133.us.i, align 1
-  %1724 = getelementptr inbounds i8, ptr %.133.us.i, i64 32
+  %1724 = getelementptr inbounds nuw i8, ptr %.133.us.i, i64 32
   %1725 = add nuw nsw i32 %.098734.us.i, 1
   %exitcond70.not.i = icmp eq i32 %1725, %1533
   br i1 %exitcond70.not.i, label %._crit_edge.us.i991, label %1544, !llvm.loop !53
@@ -4264,7 +4264,7 @@ _ZN4ncnnL26deconvolution_pack8to4_avxERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6Option
   %1763 = shufflevector <8 x float> %1762, <8 x float> poison, <8 x i32> zeroinitializer
   %1764 = shl i64 %1761, 3
   %1765 = and i64 %1764, 4294967288
-  %1766 = getelementptr inbounds float, ptr %.098616.us.us.us.i, i64 %1765
+  %1766 = getelementptr inbounds nuw float, ptr %.098616.us.us.us.i, i64 %1765
   %1767 = load <8 x float>, ptr %1766, align 32
   %1768 = fmul fast <8 x float> %1763, %1767
   %1769 = fadd fast <8 x float> %1768, %.49.us.us.us.us.i
@@ -4358,7 +4358,7 @@ _ZN4ncnnL26deconvolution_pack1to8_avxERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6Option
 
 .preheader13.lr.ph.i:                             ; preds = %.lr.ph.split.i1014
   %1804 = icmp sgt i32 %1802, 0
-  %1805 = getelementptr inbounds float, ptr %.val874, i64 %indvars.iv78.i
+  %1805 = getelementptr inbounds nuw float, ptr %.val874, i64 %indvars.iv78.i
   %1806 = icmp sgt i32 %1801, 0
   br i1 %1804, label %.preheader13.us.preheader.i, label %._crit_edge46.i
 
@@ -4413,7 +4413,7 @@ _ZN4ncnnL26deconvolution_pack1to8_avxERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6Option
 1826:                                             ; preds = %._crit_edge25.us.i
   %1827 = load ptr, ptr %1785, align 8
   %1828 = load float, ptr %1827, align 4
-  %1829 = getelementptr inbounds i8, ptr %1827, i64 4
+  %1829 = getelementptr inbounds nuw i8, ptr %1827, i64 4
   %1830 = load float, ptr %1829, align 4
   %1831 = fneg fast float %1830
   %1832 = fdiv fast float %1831, %1828
@@ -4454,7 +4454,7 @@ _ZN4ncnnL26deconvolution_pack1to8_avxERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6Option
 1855:                                             ; preds = %._crit_edge25.us.i
   %1856 = load ptr, ptr %1785, align 8
   %1857 = load float, ptr %1856, align 4
-  %1858 = getelementptr inbounds i8, ptr %1856, i64 4
+  %1858 = getelementptr inbounds nuw i8, ptr %1856, i64 4
   %1859 = load float, ptr %1858, align 4
   %1860 = fcmp fast olt float %1825, %1857
   %.08.us.i = select nsz i1 %1860, float %1857, float %1825
@@ -4479,7 +4479,7 @@ _ZN4ncnnL26deconvolution_pack1to8_avxERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6Option
 1871:                                             ; preds = %1869, %1863, %1862, %1855, %1848, %1842, %1838, %1834, %1826, %._crit_edge25.us.i
   %.19.us.i = phi nsz float [ %1825, %._crit_edge25.us.i ], [ %1825, %1834 ], [ %1841, %1838 ], [ %1847, %1842 ], [ %1854, %1848 ], [ %1859, %1862 ], [ %.08.us.i, %1855 ], [ %1868, %1863 ], [ %1870, %1869 ], [ 0.000000e+00, %1826 ]
   store float %.19.us.i, ptr %.142.us.i, align 4
-  %1872 = getelementptr inbounds i8, ptr %.142.us.i, i64 4
+  %1872 = getelementptr inbounds nuw i8, ptr %.142.us.i, i64 4
   %1873 = add nuw nsw i32 %.022939.us.i, 1
   %exitcond76.not.i1017 = icmp eq i32 %1873, %1802
   br i1 %exitcond76.not.i1017, label %._crit_edge.us.i1018, label %1813, !llvm.loop !59
@@ -4557,7 +4557,7 @@ _ZN4ncnnL26deconvolution_pack1to8_avxERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6Option
   %1906 = load <8 x float>, ptr %1904, align 32
   %1907 = shl i64 %1905, 3
   %1908 = and i64 %1907, 4294967288
-  %1909 = getelementptr inbounds float, ptr %.022721.us.us.us.i, i64 %1908
+  %1909 = getelementptr inbounds nuw float, ptr %.022721.us.us.us.i, i64 %1908
   %1910 = load <8 x float>, ptr %1909, align 32
   %1911 = fmul fast <8 x float> %1910, %1906
   %1912 = fadd fast <8 x float> %1911, %.314.us.us.us.us.i
@@ -4658,7 +4658,7 @@ _ZN4ncnnL26deconvolution_pack8to1_avxERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6Option
 .preheader9.lr.ph.i1045:                          ; preds = %.lr.ph.split.i1038
   %1950 = icmp sgt i32 %1948, 0
   %.idx.i1046 = shl nsw i64 %indvars.iv74.i1039, 4
-  %1951 = getelementptr inbounds i8, ptr %.val875, i64 %.idx.i1046
+  %1951 = getelementptr inbounds nuw i8, ptr %.val875, i64 %.idx.i1046
   %1952 = icmp sgt i32 %1947, 0
   br i1 %1950, label %.preheader9.us.preheader.i1047, label %._crit_edge42.i1040
 
@@ -4706,7 +4706,7 @@ _ZN4ncnnL26deconvolution_pack8to1_avxERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6Option
   %1965 = load float, ptr %1964, align 4
   %1966 = insertelement <4 x float> poison, float %1965, i64 0
   %1967 = shufflevector <4 x float> %1966, <4 x float> poison, <4 x i32> zeroinitializer
-  %1968 = getelementptr inbounds i8, ptr %1964, i64 4
+  %1968 = getelementptr inbounds nuw i8, ptr %1964, i64 4
   %1969 = load float, ptr %1968, align 4
   %1970 = insertelement <4 x float> poison, float %1969, i64 0
   %1971 = shufflevector <4 x float> %1970, <4 x float> poison, <4 x i32> zeroinitializer
@@ -4866,7 +4866,7 @@ _ZN4ncnnL26deconvolution_pack8to1_avxERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6Option
   %2115 = load float, ptr %2114, align 4
   %2116 = insertelement <4 x float> poison, float %2115, i64 0
   %2117 = shufflevector <4 x float> %2116, <4 x float> poison, <4 x i32> zeroinitializer
-  %2118 = getelementptr inbounds i8, ptr %2114, i64 4
+  %2118 = getelementptr inbounds nuw i8, ptr %2114, i64 4
   %2119 = load float, ptr %2118, align 4
   %2120 = insertelement <4 x float> poison, float %2119, i64 0
   %2121 = shufflevector <4 x float> %2120, <4 x float> poison, <4 x i32> zeroinitializer
@@ -4892,7 +4892,7 @@ _ZN4ncnnL26deconvolution_pack8to1_avxERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6Option
 2135:                                             ; preds = %2133, %2124, %2113, %2079, %1977, %1963, %._crit_edge21.us.i1051
   %.0.us.i1052 = phi nsz <4 x float> [ %1976, %1963 ], [ %2078, %1977 ], [ %2112, %2079 ], [ %2123, %2113 ], [ %2132, %2124 ], [ %2134, %2133 ], [ %.11001.lcssa.us.i, %._crit_edge21.us.i1051 ]
   store <4 x float> %.0.us.i1052, ptr %.138.us.i1050, align 1
-  %2136 = getelementptr inbounds i8, ptr %.138.us.i1050, i64 16
+  %2136 = getelementptr inbounds nuw i8, ptr %.138.us.i1050, i64 16
   %2137 = add nuw nsw i32 %.080035.us.i, 1
   %exitcond72.not.i1053 = icmp eq i32 %2137, %1948
   br i1 %exitcond72.not.i1053, label %._crit_edge.us.i1054, label %1959, !llvm.loop !65
@@ -4971,26 +4971,26 @@ _ZN4ncnnL26deconvolution_pack8to1_avxERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6Option
   %2171 = load float, ptr %2168, align 1
   %2172 = insertelement <4 x float> poison, float %2171, i64 0
   %2173 = shufflevector <4 x float> %2172, <4 x float> poison, <4 x i32> zeroinitializer
-  %2174 = getelementptr inbounds i8, ptr %2168, i64 4
+  %2174 = getelementptr inbounds nuw i8, ptr %2168, i64 4
   %2175 = load float, ptr %2174, align 1
   %2176 = insertelement <4 x float> poison, float %2175, i64 0
   %2177 = shufflevector <4 x float> %2176, <4 x float> poison, <4 x i32> zeroinitializer
-  %2178 = getelementptr inbounds i8, ptr %2168, i64 8
+  %2178 = getelementptr inbounds nuw i8, ptr %2168, i64 8
   %2179 = load float, ptr %2178, align 1
   %2180 = insertelement <4 x float> poison, float %2179, i64 0
   %2181 = shufflevector <4 x float> %2180, <4 x float> poison, <4 x i32> zeroinitializer
-  %2182 = getelementptr inbounds i8, ptr %2168, i64 12
+  %2182 = getelementptr inbounds nuw i8, ptr %2168, i64 12
   %2183 = load float, ptr %2182, align 1
   %2184 = insertelement <4 x float> poison, float %2183, i64 0
   %2185 = shufflevector <4 x float> %2184, <4 x float> poison, <4 x i32> zeroinitializer
   %2186 = and i64 %2170, 4294967280
-  %2187 = getelementptr inbounds float, ptr %.079917.us.us.us.i, i64 %2186
+  %2187 = getelementptr inbounds nuw float, ptr %.079917.us.us.us.i, i64 %2186
   %2188 = load <4 x float>, ptr %2187, align 16
-  %2189 = getelementptr inbounds i8, ptr %2187, i64 16
+  %2189 = getelementptr inbounds nuw i8, ptr %2187, i64 16
   %2190 = load <4 x float>, ptr %2189, align 16
-  %2191 = getelementptr inbounds i8, ptr %2187, i64 32
+  %2191 = getelementptr inbounds nuw i8, ptr %2187, i64 32
   %2192 = load <4 x float>, ptr %2191, align 16
-  %2193 = getelementptr inbounds i8, ptr %2187, i64 48
+  %2193 = getelementptr inbounds nuw i8, ptr %2187, i64 48
   %2194 = load <4 x float>, ptr %2193, align 16
   %2195 = fmul fast <4 x float> %2188, %2173
   %2196 = fadd fast <4 x float> %2195, %.410.us.us.us.us.i1079
@@ -5097,7 +5097,7 @@ _ZN4ncnnL23deconvolution_pack4_sseERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6OptionE.e
 .preheader.lr.ph.i1099:                           ; preds = %.lr.ph.split.i1092
   %2240 = icmp sgt i32 %2238, 0
   %.idx.i1100 = shl nsw i64 %indvars.iv72.i1093, 4
-  %2241 = getelementptr inbounds i8, ptr %.val876, i64 %.idx.i1100
+  %2241 = getelementptr inbounds nuw i8, ptr %.val876, i64 %.idx.i1100
   %2242 = icmp sgt i32 %2237, 0
   br i1 %2240, label %.preheader.us.preheader.i1101, label %._crit_edge40.i1094
 
@@ -5145,7 +5145,7 @@ _ZN4ncnnL23deconvolution_pack4_sseERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6OptionE.e
   %2255 = load float, ptr %2254, align 4
   %2256 = insertelement <4 x float> poison, float %2255, i64 0
   %2257 = shufflevector <4 x float> %2256, <4 x float> poison, <4 x i32> zeroinitializer
-  %2258 = getelementptr inbounds i8, ptr %2254, i64 4
+  %2258 = getelementptr inbounds nuw i8, ptr %2254, i64 4
   %2259 = load float, ptr %2258, align 4
   %2260 = insertelement <4 x float> poison, float %2259, i64 0
   %2261 = shufflevector <4 x float> %2260, <4 x float> poison, <4 x i32> zeroinitializer
@@ -5305,7 +5305,7 @@ _ZN4ncnnL23deconvolution_pack4_sseERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6OptionE.e
   %2405 = load float, ptr %2404, align 4
   %2406 = insertelement <4 x float> poison, float %2405, i64 0
   %2407 = shufflevector <4 x float> %2406, <4 x float> poison, <4 x i32> zeroinitializer
-  %2408 = getelementptr inbounds i8, ptr %2404, i64 4
+  %2408 = getelementptr inbounds nuw i8, ptr %2404, i64 4
   %2409 = load float, ptr %2408, align 4
   %2410 = insertelement <4 x float> poison, float %2409, i64 0
   %2411 = shufflevector <4 x float> %2410, <4 x float> poison, <4 x i32> zeroinitializer
@@ -5331,7 +5331,7 @@ _ZN4ncnnL23deconvolution_pack4_sseERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6OptionE.e
 2425:                                             ; preds = %2423, %2414, %2403, %2369, %2267, %2253, %._crit_edge20.us.i1104
   %.0.us.i1105 = phi nsz <4 x float> [ %2266, %2253 ], [ %2368, %2267 ], [ %2402, %2369 ], [ %2413, %2403 ], [ %2422, %2414 ], [ %2424, %2423 ], [ %.1941.lcssa.us.i, %._crit_edge20.us.i1104 ]
   store <4 x float> %.0.us.i1105, ptr %.136.us.i, align 1
-  %2426 = getelementptr inbounds i8, ptr %.136.us.i, i64 16
+  %2426 = getelementptr inbounds nuw i8, ptr %.136.us.i, i64 16
   %2427 = add nuw nsw i32 %.075033.us.i, 1
   %exitcond70.not.i1106 = icmp eq i32 %2427, %2238
   br i1 %exitcond70.not.i1106, label %._crit_edge.us.i1107, label %2249, !llvm.loop !71
@@ -5417,7 +5417,7 @@ _ZN4ncnnL23deconvolution_pack4_sseERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6OptionE.e
   %2465 = shufflevector <4 x float> %2464, <4 x float> poison, <4 x i32> zeroinitializer
   %2466 = shl i64 %2463, 2
   %2467 = and i64 %2466, 4294967292
-  %2468 = getelementptr inbounds float, ptr %.074916.us.us.us.i, i64 %2467
+  %2468 = getelementptr inbounds nuw float, ptr %.074916.us.us.us.i, i64 %2467
   %2469 = load <4 x float>, ptr %2468, align 16
   %2470 = fmul fast <4 x float> %2465, %2469
   %2471 = fadd fast <4 x float> %2470, %.49.us.us.us.us.i1132
@@ -5510,7 +5510,7 @@ _ZN4ncnnL26deconvolution_pack1to4_sseERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6Option
 
 .preheader13.lr.ph.i1152:                         ; preds = %.lr.ph.split.i1145
   %2505 = icmp sgt i32 %2503, 0
-  %2506 = getelementptr inbounds float, ptr %.val877, i64 %indvars.iv78.i1146
+  %2506 = getelementptr inbounds nuw float, ptr %.val877, i64 %indvars.iv78.i1146
   %2507 = icmp sgt i32 %2502, 0
   br i1 %2505, label %.preheader13.us.preheader.i1153, label %._crit_edge46.i1147
 
@@ -5562,7 +5562,7 @@ _ZN4ncnnL26deconvolution_pack1to4_sseERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6Option
 2524:                                             ; preds = %._crit_edge25.us.i1157
   %2525 = load ptr, ptr %2486, align 8
   %2526 = load float, ptr %2525, align 4
-  %2527 = getelementptr inbounds i8, ptr %2525, i64 4
+  %2527 = getelementptr inbounds nuw i8, ptr %2525, i64 4
   %2528 = load float, ptr %2527, align 4
   %2529 = fneg fast float %2528
   %2530 = fdiv fast float %2529, %2526
@@ -5603,7 +5603,7 @@ _ZN4ncnnL26deconvolution_pack1to4_sseERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6Option
 2553:                                             ; preds = %._crit_edge25.us.i1157
   %2554 = load ptr, ptr %2486, align 8
   %2555 = load float, ptr %2554, align 4
-  %2556 = getelementptr inbounds i8, ptr %2554, i64 4
+  %2556 = getelementptr inbounds nuw i8, ptr %2554, i64 4
   %2557 = load float, ptr %2556, align 4
   %2558 = fcmp fast olt float %2523, %2555
   %.08.us.i1164 = select nsz i1 %2558, float %2555, float %2523
@@ -5628,7 +5628,7 @@ _ZN4ncnnL26deconvolution_pack1to4_sseERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6Option
 2569:                                             ; preds = %2567, %2561, %2560, %2553, %2546, %2540, %2536, %2532, %2524, %._crit_edge25.us.i1157
   %.19.us.i1158 = phi nsz float [ %2523, %._crit_edge25.us.i1157 ], [ %2523, %2532 ], [ %2539, %2536 ], [ %2545, %2540 ], [ %2552, %2546 ], [ %2557, %2560 ], [ %.08.us.i1164, %2553 ], [ %2566, %2561 ], [ %2568, %2567 ], [ 0.000000e+00, %2524 ]
   store float %.19.us.i1158, ptr %.142.us.i1156, align 4
-  %2570 = getelementptr inbounds i8, ptr %.142.us.i1156, i64 4
+  %2570 = getelementptr inbounds nuw i8, ptr %.142.us.i1156, i64 4
   %2571 = add nuw nsw i32 %.022339.us.i, 1
   %exitcond76.not.i1159 = icmp eq i32 %2571, %2503
   br i1 %exitcond76.not.i1159, label %._crit_edge.us.i1160, label %2514, !llvm.loop !77
@@ -5706,7 +5706,7 @@ _ZN4ncnnL26deconvolution_pack1to4_sseERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6Option
   %2604 = load <4 x float>, ptr %2602, align 16
   %2605 = shl i64 %2603, 2
   %2606 = and i64 %2605, 4294967292
-  %2607 = getelementptr inbounds float, ptr %.022121.us.us.us.i, i64 %2606
+  %2607 = getelementptr inbounds nuw float, ptr %.022121.us.us.us.i, i64 %2606
   %2608 = load <4 x float>, ptr %2607, align 16
   %2609 = fmul fast <4 x float> %2608, %2604
   %2610 = fadd fast <4 x float> %2609, %.314.us.us.us.us.i1183
@@ -5809,7 +5809,7 @@ _ZN4ncnnL26deconvolution_pack4to1_sseERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6Option
 
 2650:                                             ; preds = %2648
   %2651 = load ptr, ptr %2622, align 8
-  %2652 = getelementptr inbounds float, ptr %2651, i64 %indvars.iv1461
+  %2652 = getelementptr inbounds nuw float, ptr %2651, i64 %indvars.iv1461
   %2653 = load float, ptr %2652, align 4
   br label %2654
 
@@ -5838,7 +5838,7 @@ _ZN4ncnnL26deconvolution_pack4to1_sseERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6Option
 2662:                                             ; preds = %._crit_edge1258.us
   %2663 = load ptr, ptr %2629, align 8
   %2664 = load float, ptr %2663, align 4
-  %2665 = getelementptr inbounds i8, ptr %2663, i64 4
+  %2665 = getelementptr inbounds nuw i8, ptr %2663, i64 4
   %2666 = load float, ptr %2665, align 4
   %2667 = fneg fast float %2666
   %2668 = fdiv fast float %2667, %2664
@@ -5879,7 +5879,7 @@ _ZN4ncnnL26deconvolution_pack4to1_sseERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6Option
 2691:                                             ; preds = %._crit_edge1258.us
   %2692 = load ptr, ptr %2629, align 8
   %2693 = load float, ptr %2692, align 4
-  %2694 = getelementptr inbounds i8, ptr %2692, i64 4
+  %2694 = getelementptr inbounds nuw i8, ptr %2692, i64 4
   %2695 = load float, ptr %2694, align 4
   %2696 = fcmp fast olt float %.1.lcssa.us, %2693
   %.11198.us = select nsz i1 %2696, float %2693, float %.1.lcssa.us
@@ -5903,7 +5903,7 @@ _ZN4ncnnL26deconvolution_pack4to1_sseERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6Option
 
 2707:                                             ; preds = %2705, %2699, %2698, %2691, %2684, %2678, %2674, %2670, %2662, %._crit_edge1258.us
   %.01197.us = phi nsz float [ %.1.lcssa.us, %._crit_edge1258.us ], [ %.1.lcssa.us, %2670 ], [ %2677, %2674 ], [ %2683, %2678 ], [ %2690, %2684 ], [ %2695, %2698 ], [ %.11198.us, %2691 ], [ %2704, %2699 ], [ %2706, %2705 ], [ 0.000000e+00, %2662 ]
-  %2708 = getelementptr inbounds float, ptr %.06161268.us, i64 %indvars.iv1455
+  %2708 = getelementptr inbounds nuw float, ptr %.06161268.us, i64 %indvars.iv1455
   store float %.01197.us, ptr %2708, align 4
   %indvars.iv.next1456 = add nuw nsw i64 %indvars.iv1455, 1
   %exitcond1459.not = icmp eq i64 %indvars.iv.next1456, %wide.trip.count1458
@@ -5966,41 +5966,41 @@ _ZN4ncnnL26deconvolution_pack4to1_sseERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6Option
   %2736 = mul i64 %2718, %2735
   %2737 = getelementptr inbounds i8, ptr %2726, i64 %2736
   %2738 = mul nuw nsw i64 %indvars.iv1445, %2725
-  br label %2739
+  %2739 = getelementptr inbounds nuw float, ptr %.06081254.us.us.us, i64 %2738
+  br label %2740
 
-2739:                                             ; preds = %2756, %.lr.ph.us.us.us.us
+2740:                                             ; preds = %2756, %.lr.ph.us.us.us.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %2756 ], [ 0, %.lr.ph.us.us.us.us ]
   %.41247.us.us.us.us = phi float [ %.5.us.us.us.us, %2756 ], [ %.21249.us.us.us.us, %.lr.ph.us.us.us.us ]
-  %2740 = trunc i64 %indvars.iv to i32
-  %2741 = mul i32 %2720, %2740
-  %2742 = add i32 %2722, %2741
-  %2743 = icmp slt i32 %2742, 0
-  br i1 %2743, label %2756, label %2744
+  %2741 = trunc i64 %indvars.iv to i32
+  %2742 = mul i32 %2720, %2741
+  %2743 = add i32 %2722, %2742
+  %2744 = icmp slt i32 %2743, 0
+  br i1 %2744, label %2756, label %2745
 
-2744:                                             ; preds = %2739
-  %2745 = srem i32 %2742, %2723
-  %2746 = sdiv i32 %2742, %2723
-  %.not832.us.us.us.us = icmp eq i32 %2745, 0
-  %.not833.us.us.us.us = icmp slt i32 %2746, %2632
+2745:                                             ; preds = %2740
+  %2746 = srem i32 %2743, %2723
+  %2747 = sdiv i32 %2743, %2723
+  %.not832.us.us.us.us = icmp eq i32 %2746, 0
+  %.not833.us.us.us.us = icmp slt i32 %2747, %2632
   %or.cond1619 = select i1 %.not832.us.us.us.us, i1 %.not833.us.us.us.us, i1 false
-  br i1 %or.cond1619, label %2747, label %2756
+  br i1 %or.cond1619, label %2748, label %2756
 
-2747:                                             ; preds = %2744
-  %2748 = sext i32 %2746 to i64
-  %2749 = getelementptr inbounds float, ptr %2737, i64 %2748
-  %2750 = load float, ptr %2749, align 4
-  %2751 = add nuw nsw i64 %2738, %indvars.iv
-  %2752 = getelementptr inbounds float, ptr %.06081254.us.us.us, i64 %2751
+2748:                                             ; preds = %2745
+  %2749 = sext i32 %2747 to i64
+  %2750 = getelementptr inbounds float, ptr %2737, i64 %2749
+  %2751 = load float, ptr %2750, align 4
+  %2752 = getelementptr inbounds nuw float, ptr %2739, i64 %indvars.iv
   %2753 = load float, ptr %2752, align 4
-  %2754 = fmul fast float %2753, %2750
+  %2754 = fmul fast float %2753, %2751
   %2755 = fadd fast float %2754, %.41247.us.us.us.us
   br label %2756
 
-2756:                                             ; preds = %2747, %2744, %2739
-  %.5.us.us.us.us = phi nsz float [ %.41247.us.us.us.us, %2739 ], [ %.41247.us.us.us.us, %2744 ], [ %2755, %2747 ]
+2756:                                             ; preds = %2748, %2745, %2740
+  %.5.us.us.us.us = phi nsz float [ %.41247.us.us.us.us, %2740 ], [ %.41247.us.us.us.us, %2745 ], [ %2755, %2748 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %2725
-  br i1 %exitcond.not, label %..loopexit1236_crit_edge.us.us.us.us, label %2739, !llvm.loop !84
+  br i1 %exitcond.not, label %..loopexit1236_crit_edge.us.us.us.us, label %2740, !llvm.loop !84
 
 ..loopexit1236_crit_edge.us.us.us.us:             ; preds = %2756, %2732, %2727
   %.3.us.us.us.us = phi nsz float [ %.21249.us.us.us.us, %2727 ], [ %.21249.us.us.us.us, %2732 ], [ %.5.us.us.us.us, %2756 ]
@@ -6015,7 +6015,7 @@ _ZN4ncnnL26deconvolution_pack4to1_sseERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6Option
   br i1 %exitcond1454.not, label %._crit_edge1258.us, label %.lr.ph1251.us.us.us, !llvm.loop !86
 
 ._crit_edge.us:                                   ; preds = %2707
-  %2758 = getelementptr inbounds float, ptr %.06161268.us, i64 %2640
+  %2758 = getelementptr inbounds nuw float, ptr %.06161268.us, i64 %2640
   %2759 = add nuw nsw i32 %.06111269.us, 1
   %exitcond1460.not = icmp eq i32 %2759, %2636
   br i1 %exitcond1460.not, label %._crit_edge1270.loopexit, label %.preheader1237.us, !llvm.loop !87
@@ -6070,7 +6070,7 @@ _ZN4ncnnL26deconvolution_pack4to1_sseERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6Option
 
 2781:                                             ; preds = %2778
   %2782 = load ptr, ptr %2779, align 8
-  %2783 = getelementptr inbounds i8, ptr %2782, i64 24
+  %2783 = getelementptr inbounds nuw i8, ptr %2782, i64 24
   %2784 = load ptr, ptr %2783, align 8
   invoke void %2784(ptr noundef nonnull align 8 dereferenceable(8) %2779, ptr noundef %2780)
           to label %2787 unwind label %2788
@@ -6112,7 +6112,7 @@ _ZN4ncnnL26deconvolution_pack4to1_sseERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKNS_6Option
 
 2799:                                             ; preds = %2796
   %2800 = load ptr, ptr %2797, align 8
-  %2801 = getelementptr inbounds i8, ptr %2800, i64 24
+  %2801 = getelementptr inbounds nuw i8, ptr %2800, i64 24
   %2802 = load ptr, ptr %2801, align 8
   invoke void %2802(ptr noundef nonnull align 8 dereferenceable(8) %2797, ptr noundef %2798)
           to label %2805 unwind label %2806
@@ -6150,18 +6150,18 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn21Deconvolution_x86_avx7f
   %9 = alloca [2 x %"class.ncnn::Mat"], align 16
   %10 = alloca %"class.ncnn::ModelBinFromMatArray", align 8
   %11 = load ptr, ptr %1, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 72
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 72
   %13 = load ptr, ptr %2, align 8
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 56
   %15 = load i32, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %17 = load i32, ptr %16, align 8
   %18 = mul i32 %17, %15
-  %19 = getelementptr inbounds i8, ptr %11, i64 116
+  %19 = getelementptr inbounds nuw i8, ptr %11, i64 116
   %20 = load i32, ptr %19, align 4
-  %21 = getelementptr inbounds i8, ptr %11, i64 120
+  %21 = getelementptr inbounds nuw i8, ptr %11, i64 120
   %22 = load i32, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %11, i64 124
+  %23 = getelementptr inbounds nuw i8, ptr %11, i64 124
   %24 = load i32, ptr %23, align 4
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -6270,15 +6270,15 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn21Deconvolution_x86_avx7f
   %87 = mul nuw nsw i64 %86, %82
   %88 = add nuw nsw i64 %indvars.iv280, %84
   %89 = mul nuw nsw i64 %88, %82
-  %invariant.gep = getelementptr inbounds float, ptr %77, i64 %87
-  %invariant.gep290 = getelementptr inbounds float, ptr %66, i64 %89
+  %invariant.gep = getelementptr inbounds nuw float, ptr %77, i64 %87
+  %invariant.gep290 = getelementptr inbounds nuw float, ptr %66, i64 %89
   br label %90
 
 90:                                               ; preds = %90, %.preheader.us.us.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %90 ], [ 0, %.preheader.us.us.us ]
-  %gep = getelementptr inbounds float, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw float, ptr %invariant.gep, i64 %indvars.iv
   %91 = load float, ptr %gep, align 4
-  %gep291 = getelementptr inbounds float, ptr %invariant.gep290, i64 %indvars.iv
+  %gep291 = getelementptr inbounds nuw float, ptr %invariant.gep290, i64 %indvars.iv
   store float %91, ptr %gep291, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %82
@@ -6315,7 +6315,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn21Deconvolution_x86_avx7f
 
 104:                                              ; preds = %.critedge265
   %105 = load ptr, ptr %1, align 8
-  %106 = getelementptr inbounds i8, ptr %105, i64 144
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 144
   invoke void @_ZN4ncnn7flattenERKNS_3MatERS0_RKNS_6OptionE(ptr noundef nonnull align 8 dereferenceable(72) %106, ptr noundef nonnull align 8 dereferenceable(72) %7, ptr noundef nonnull align 8 dereferenceable(64) %3)
           to label %107 unwind label %116
 
@@ -6464,14 +6464,14 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn21Deconvolution_x86_avx7f
 
 176:                                              ; preds = %174
   %177 = load ptr, ptr %126, align 8
-  %178 = getelementptr inbounds i8, ptr %177, i64 16
+  %178 = getelementptr inbounds nuw i8, ptr %177, i64 16
   %179 = load ptr, ptr %178, align 8
   %180 = invoke noundef i32 %179(ptr noundef nonnull align 8 dereferenceable(208) %126, ptr noundef nonnull align 8 dereferenceable(16) %8)
           to label %.preheader unwind label %291
 
 .preheader:                                       ; preds = %176, %.preheader
   %.idx = phi i64 [ %.add, %.preheader ], [ 0, %176 ]
-  %.ptr = getelementptr inbounds i8, ptr %9, i64 %.idx
+  %.ptr = getelementptr inbounds nuw i8, ptr %9, i64 %.idx
   %181 = getelementptr inbounds nuw i8, ptr %.ptr, i64 32
   %182 = getelementptr inbounds nuw i8, ptr %.ptr, i64 64
   store i64 0, ptr %182, align 8
@@ -6482,7 +6482,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn21Deconvolution_x86_avx7f
   br i1 %183, label %184, label %.preheader
 
 184:                                              ; preds = %.preheader
-  %185 = getelementptr inbounds i8, ptr %9, i64 144
+  %185 = getelementptr inbounds nuw i8, ptr %9, i64 144
   %186 = load ptr, ptr %50, align 8
   %.not227 = icmp eq ptr %186, null
   br i1 %.not227, label %189, label %187
@@ -6511,7 +6511,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn21Deconvolution_x86_avx7f
 
 199:                                              ; preds = %195
   %200 = load ptr, ptr %197, align 8
-  %201 = getelementptr inbounds i8, ptr %200, i64 24
+  %201 = getelementptr inbounds nuw i8, ptr %200, i64 24
   %202 = load ptr, ptr %201, align 8
   invoke void %202(ptr noundef nonnull align 8 dereferenceable(8) %197, ptr noundef %198)
           to label %205 unwind label %293
@@ -6556,7 +6556,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn21Deconvolution_x86_avx7f
   store i32 %224, ptr %212, align 8
   %225 = load i64, ptr %59, align 8
   store i64 %225, ptr %213, align 16
-  %226 = getelementptr inbounds i8, ptr %9, i64 72
+  %226 = getelementptr inbounds nuw i8, ptr %9, i64 72
   %227 = load ptr, ptr %92, align 8
   %.not231 = icmp eq ptr %227, null
   br i1 %.not231, label %230, label %228
@@ -6566,7 +6566,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn21Deconvolution_x86_avx7f
   br label %230
 
 230:                                              ; preds = %228, %205
-  %231 = getelementptr inbounds i8, ptr %9, i64 80
+  %231 = getelementptr inbounds nuw i8, ptr %9, i64 80
   %232 = load ptr, ptr %231, align 16
   %.not232 = icmp eq ptr %232, null
   br i1 %.not232, label %246, label %233
@@ -6577,7 +6577,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn21Deconvolution_x86_avx7f
   br i1 %235, label %236, label %246
 
 236:                                              ; preds = %233
-  %237 = getelementptr inbounds i8, ptr %9, i64 104
+  %237 = getelementptr inbounds nuw i8, ptr %9, i64 104
   %238 = load ptr, ptr %237, align 8
   %.not233 = icmp eq ptr %238, null
   %239 = load ptr, ptr %226, align 8
@@ -6585,7 +6585,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn21Deconvolution_x86_avx7f
 
 240:                                              ; preds = %236
   %241 = load ptr, ptr %238, align 8
-  %242 = getelementptr inbounds i8, ptr %241, i64 24
+  %242 = getelementptr inbounds nuw i8, ptr %241, i64 24
   %243 = load ptr, ptr %242, align 8
   invoke void %243(ptr noundef nonnull align 8 dereferenceable(8) %238, ptr noundef %239)
           to label %246 unwind label %293
@@ -6599,14 +6599,14 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn21Deconvolution_x86_avx7f
   br label %246
 
 246:                                              ; preds = %240, %245, %244, %233, %230
-  %247 = getelementptr inbounds i8, ptr %9, i64 88
-  %248 = getelementptr inbounds i8, ptr %9, i64 96
-  %249 = getelementptr inbounds i8, ptr %9, i64 112
-  %250 = getelementptr inbounds i8, ptr %9, i64 116
-  %251 = getelementptr inbounds i8, ptr %9, i64 120
-  %252 = getelementptr inbounds i8, ptr %9, i64 124
-  %253 = getelementptr inbounds i8, ptr %9, i64 128
-  %254 = getelementptr inbounds i8, ptr %9, i64 136
+  %247 = getelementptr inbounds nuw i8, ptr %9, i64 88
+  %248 = getelementptr inbounds nuw i8, ptr %9, i64 96
+  %249 = getelementptr inbounds nuw i8, ptr %9, i64 112
+  %250 = getelementptr inbounds nuw i8, ptr %9, i64 116
+  %251 = getelementptr inbounds nuw i8, ptr %9, i64 120
+  %252 = getelementptr inbounds nuw i8, ptr %9, i64 124
+  %253 = getelementptr inbounds nuw i8, ptr %9, i64 128
+  %254 = getelementptr inbounds nuw i8, ptr %9, i64 136
   %255 = load ptr, ptr %7, align 8
   store ptr %255, ptr %226, align 8
   %256 = load ptr, ptr %92, align 8
@@ -6616,7 +6616,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn21Deconvolution_x86_avx7f
   %258 = load i32, ptr %94, align 8
   store i32 %258, ptr %248, align 16
   %259 = load ptr, ptr %95, align 8
-  %260 = getelementptr inbounds i8, ptr %9, i64 104
+  %260 = getelementptr inbounds nuw i8, ptr %9, i64 104
   store ptr %259, ptr %260, align 8
   %261 = load i32, ptr %96, align 8
   store i32 %261, ptr %249, align 16
@@ -6635,7 +6635,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn21Deconvolution_x86_avx7f
 
 267:                                              ; preds = %246
   %268 = load ptr, ptr %126, align 8
-  %269 = getelementptr inbounds i8, ptr %268, i64 24
+  %269 = getelementptr inbounds nuw i8, ptr %268, i64 24
   %270 = load ptr, ptr %269, align 8
   %271 = invoke noundef i32 %270(ptr noundef nonnull align 8 dereferenceable(208) %126, ptr noundef nonnull align 8 dereferenceable(8) %10)
           to label %272 unwind label %295
@@ -6643,28 +6643,28 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn21Deconvolution_x86_avx7f
 272:                                              ; preds = %267
   call void @_ZN4ncnn20ModelBinFromMatArrayD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #14
   %273 = load ptr, ptr %126, align 8
-  %274 = getelementptr inbounds i8, ptr %273, i64 32
+  %274 = getelementptr inbounds nuw i8, ptr %273, i64 32
   %275 = load ptr, ptr %274, align 8
   %276 = invoke noundef i32 %275(ptr noundef nonnull align 8 dereferenceable(208) %126, ptr noundef nonnull align 8 dereferenceable(64) %3)
           to label %277 unwind label %293
 
 277:                                              ; preds = %272
   %278 = load ptr, ptr %126, align 8
-  %279 = getelementptr inbounds i8, ptr %278, i64 56
+  %279 = getelementptr inbounds nuw i8, ptr %278, i64 56
   %280 = load ptr, ptr %279, align 8
   %281 = invoke noundef i32 %280(ptr noundef nonnull align 8 dereferenceable(208) %126, ptr noundef nonnull align 8 dereferenceable(72) %11, ptr noundef nonnull align 8 dereferenceable(72) %13, ptr noundef nonnull align 8 dereferenceable(64) %3)
           to label %282 unwind label %293
 
 282:                                              ; preds = %277
   %283 = load ptr, ptr %126, align 8
-  %284 = getelementptr inbounds i8, ptr %283, i64 40
+  %284 = getelementptr inbounds nuw i8, ptr %283, i64 40
   %285 = load ptr, ptr %284, align 8
   %286 = invoke noundef i32 %285(ptr noundef nonnull align 8 dereferenceable(208) %126, ptr noundef nonnull align 8 dereferenceable(64) %3)
           to label %287 unwind label %293
 
 287:                                              ; preds = %282
   %288 = load ptr, ptr %126, align 8
-  %289 = getelementptr inbounds i8, ptr %288, i64 8
+  %289 = getelementptr inbounds nuw i8, ptr %288, i64 8
   %290 = load ptr, ptr %289, align 8
   call void %290(ptr noundef nonnull align 8 dereferenceable(208) %126) #14
   br label %297
@@ -6707,7 +6707,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn21Deconvolution_x86_avx7f
 
 309:                                              ; preds = %305
   %310 = load ptr, ptr %307, align 8
-  %311 = getelementptr inbounds i8, ptr %310, i64 24
+  %311 = getelementptr inbounds nuw i8, ptr %310, i64 24
   %312 = load ptr, ptr %311, align 8
   invoke void %312(ptr noundef nonnull align 8 dereferenceable(8) %307, ptr noundef %308)
           to label %315 unwind label %319
@@ -6766,7 +6766,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn21Deconvolution_x86_avx7f
 
 336:                                              ; preds = %332
   %337 = load ptr, ptr %334, align 8
-  %338 = getelementptr inbounds i8, ptr %337, i64 24
+  %338 = getelementptr inbounds nuw i8, ptr %337, i64 24
   %339 = load ptr, ptr %338, align 8
   invoke void %339(ptr noundef nonnull align 8 dereferenceable(8) %334, ptr noundef %335)
           to label %342 unwind label %346
@@ -6819,7 +6819,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn21Deconvolution_x86_avx7f
 
 356:                                              ; preds = %353
   %357 = load ptr, ptr %354, align 8
-  %358 = getelementptr inbounds i8, ptr %357, i64 24
+  %358 = getelementptr inbounds nuw i8, ptr %357, i64 24
   %359 = load ptr, ptr %358, align 8
   invoke void %359(ptr noundef nonnull align 8 dereferenceable(8) %354, ptr noundef %355)
           to label %362 unwind label %363
@@ -6864,7 +6864,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn21Deconvolution_x86_avx7f
 
 374:                                              ; preds = %371
   %375 = load ptr, ptr %372, align 8
-  %376 = getelementptr inbounds i8, ptr %375, i64 24
+  %376 = getelementptr inbounds nuw i8, ptr %375, i64 24
   %377 = load ptr, ptr %376, align 8
   invoke void %377(ptr noundef nonnull align 8 dereferenceable(8) %372, ptr noundef %373)
           to label %380 unwind label %381
@@ -6909,7 +6909,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn21Deconvolution_x86_avx7f
 
 391:                                              ; preds = %388
   %392 = load ptr, ptr %389, align 8
-  %393 = getelementptr inbounds i8, ptr %392, i64 24
+  %393 = getelementptr inbounds nuw i8, ptr %392, i64 24
   %394 = load ptr, ptr %393, align 8
   invoke void %394(ptr noundef nonnull align 8 dereferenceable(8) %389, ptr noundef %390)
           to label %397 unwind label %398
@@ -6954,7 +6954,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn21Deconvolution_x86_avx7f
 
 409:                                              ; preds = %406
   %410 = load ptr, ptr %407, align 8
-  %411 = getelementptr inbounds i8, ptr %410, i64 24
+  %411 = getelementptr inbounds nuw i8, ptr %410, i64 24
   %412 = load ptr, ptr %411, align 8
   invoke void %412(ptr noundef nonnull align 8 dereferenceable(8) %407, ptr noundef %408)
           to label %415 unwind label %416
@@ -6999,7 +6999,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn21Deconvolution_x86_avx7f
 
 426:                                              ; preds = %423
   %427 = load ptr, ptr %424, align 8
-  %428 = getelementptr inbounds i8, ptr %427, i64 24
+  %428 = getelementptr inbounds nuw i8, ptr %427, i64 24
   %429 = load ptr, ptr %428, align 8
   invoke void %429(ptr noundef nonnull align 8 dereferenceable(8) %424, ptr noundef %425)
           to label %432 unwind label %433
@@ -7041,7 +7041,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn21Deconvolution_x86_avx7f
 
 444:                                              ; preds = %441
   %445 = load ptr, ptr %442, align 8
-  %446 = getelementptr inbounds i8, ptr %445, i64 24
+  %446 = getelementptr inbounds nuw i8, ptr %445, i64 24
   %447 = load ptr, ptr %446, align 8
   invoke void %447(ptr noundef nonnull align 8 dereferenceable(8) %442, ptr noundef %443)
           to label %450 unwind label %451
@@ -7094,7 +7094,7 @@ define linkonce_odr hidden void @_ZN4ncnn21Deconvolution_x86_avxD2Ev(ptr noundef
 
 12:                                               ; preds = %8
   %13 = load ptr, ptr %10, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = load ptr, ptr %14, align 8
   invoke void %15(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef %11)
           to label %18 unwind label %21
@@ -7147,7 +7147,7 @@ define linkonce_odr hidden void @_ZN4ncnn21Deconvolution_x86_avxD0Ev(ptr noundef
 
 12:                                               ; preds = %8
   %13 = load ptr, ptr %10, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = load ptr, ptr %14, align 8
   invoke void %15(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef %11)
           to label %_ZN4ncnn21Deconvolution_x86_avxD2Ev.exit unwind label %18

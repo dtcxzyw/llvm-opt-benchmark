@@ -374,7 +374,7 @@ define hidden range(i32 0, 2) i32 @PBE_decrypt_data(ptr noundef %0, ptr noundef 
   br label %107
 
 29:                                               ; preds = %23
-  %30 = getelementptr inbounds i8, ptr %2, i64 408
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %31 = load ptr, ptr %30, align 8
   %32 = zext nneg i32 %.084 to i64
   %33 = tail call noalias ptr @wmem_alloc(ptr noundef %31, i64 noundef %32) #8
@@ -504,7 +504,7 @@ define hidden range(i32 0, 2) i32 @PBE_decrypt_data(ptr noundef %0, ptr noundef 
   %.not100 = icmp eq ptr %99, null
   %100 = select i1 %.not100, ptr %0, ptr %99
   call void (ptr, ptr, ...) @g_string_printf(ptr noundef %97, ptr noundef nonnull @.str.9, ptr noundef %100) #8
-  %101 = getelementptr inbounds i8, ptr %3, i64 16
+  %101 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %102 = load ptr, ptr %101, align 8
   %103 = load ptr, ptr %97, align 8
   call void @add_new_data_source(ptr noundef %102, ptr noundef %96, ptr noundef %103) #8
@@ -539,12 +539,12 @@ define internal fastcc range(i32 0, 2) i32 @generate_key_or_iv(ptr nocapture nou
   %15 = alloca ptr, align 8
   store ptr null, ptr %9, align 8
   %16 = tail call i32 @tvb_captured_length(ptr noundef %2) #8
-  %17 = getelementptr inbounds i8, ptr %0, i64 408
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %18 = load ptr, ptr %17, align 8
   %19 = sext i32 %16 to i64
   %20 = tail call ptr @tvb_memdup(ptr noundef %18, ptr noundef %2, i32 noundef 0, i64 noundef %19) #8
   %21 = icmp eq ptr %4, null
-  %indvars.iv95.sroa.gep103 = getelementptr inbounds i8, ptr %12, i64 64
+  %indvars.iv95.sroa.gep103 = getelementptr inbounds nuw i8, ptr %12, i64 64
   br i1 %21, label %.preheader70.preheader, label %22
 
 22:                                               ; preds = %7
@@ -1164,9 +1164,9 @@ define internal i32 @dissect_pkcs12_SafeBag(i1 noundef zeroext %0, ptr noundef %
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_pkcs12_T_bagId(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #1 {
   %7 = tail call i32 @dissect_ber_object_identifier_str(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull @object_identifier_id) #8
-  %8 = getelementptr inbounds i8, ptr %3, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 408
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 408
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr @object_identifier_id, align 8
   %13 = tail call ptr @oid_resolved_from_string(ptr noundef %11, ptr noundef %12) #8
@@ -1183,7 +1183,7 @@ define internal i32 @dissect_pkcs12_T_bagValue(i1 zeroext %0, ptr noundef %1, i3
   br i1 %.not, label %12, label %8
 
 8:                                                ; preds = %6
-  %9 = getelementptr inbounds i8, ptr %3, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 @call_ber_oid_callback(ptr noundef nonnull %7, ptr noundef %1, i32 noundef %2, ptr noundef %10, ptr noundef %4, ptr noundef null) #8
   br label %12
@@ -1214,9 +1214,9 @@ define internal i32 @dissect_pkcs12_PKCS12Attribute(i1 noundef zeroext %0, ptr n
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_pkcs12_T_attrId(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #1 {
   %7 = tail call i32 @dissect_ber_object_identifier_str(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull @object_identifier_id) #8
-  %8 = getelementptr inbounds i8, ptr %3, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 408
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 408
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr @object_identifier_id, align 8
   %13 = tail call ptr @oid_resolved_from_string(ptr noundef %11, ptr noundef %12) #8
@@ -1240,7 +1240,7 @@ define internal i32 @dissect_pkcs12_T_attrValues_item(i1 zeroext %0, ptr noundef
   br i1 %.not, label %12, label %8
 
 8:                                                ; preds = %6
-  %9 = getelementptr inbounds i8, ptr %3, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 @call_ber_oid_callback(ptr noundef nonnull %7, ptr noundef %1, i32 noundef %2, ptr noundef %10, ptr noundef %4, ptr noundef null) #8
   br label %12
@@ -1322,9 +1322,9 @@ define internal i32 @dissect_pkcs12_EncryptedData(i1 noundef zeroext %0, ptr nou
   call void @dissector_change_string(ptr noundef nonnull @.str.180, ptr noundef %11, ptr noundef %10) #8
   %12 = load ptr, ptr @object_identifier_id, align 8
   %13 = load ptr, ptr %7, align 8
-  %14 = getelementptr inbounds i8, ptr %3, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %3, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %17 = load ptr, ptr %16, align 8
   %18 = call i32 @PBE_decrypt_data(ptr noundef %12, ptr noundef %13, ptr noundef %15, ptr noundef %3, ptr noundef %17)
   %19 = load ptr, ptr @object_identifier_id, align 8
@@ -1345,9 +1345,9 @@ define internal i32 @dissect_PrivateKeyInfo_PDU(ptr noundef %0, ptr noundef %1, 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_pkcs12_T_certId(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #1 {
   %7 = tail call i32 @dissect_ber_object_identifier_str(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull @object_identifier_id) #8
-  %8 = getelementptr inbounds i8, ptr %3, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 408
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 408
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr @object_identifier_id, align 8
   %13 = tail call ptr @oid_resolved_from_string(ptr noundef %11, ptr noundef %12) #8
@@ -1364,7 +1364,7 @@ define internal i32 @dissect_pkcs12_T_certValue(i1 zeroext %0, ptr noundef %1, i
   br i1 %.not, label %12, label %8
 
 8:                                                ; preds = %6
-  %9 = getelementptr inbounds i8, ptr %3, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 @call_ber_oid_callback(ptr noundef nonnull %7, ptr noundef %1, i32 noundef %2, ptr noundef %10, ptr noundef %4, ptr noundef null) #8
   br label %12
@@ -1377,9 +1377,9 @@ define internal i32 @dissect_pkcs12_T_certValue(i1 zeroext %0, ptr noundef %1, i
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_pkcs12_T_secretTypeId(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #1 {
   %7 = tail call i32 @dissect_ber_object_identifier_str(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull @object_identifier_id) #8
-  %8 = getelementptr inbounds i8, ptr %3, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 408
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 408
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr @object_identifier_id, align 8
   %13 = tail call ptr @oid_resolved_from_string(ptr noundef %11, ptr noundef %12) #8
@@ -1396,7 +1396,7 @@ define internal i32 @dissect_pkcs12_T_secretValue(i1 zeroext %0, ptr noundef %1,
   br i1 %.not, label %12, label %8
 
 8:                                                ; preds = %6
-  %9 = getelementptr inbounds i8, ptr %3, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 @call_ber_oid_callback(ptr noundef nonnull %7, ptr noundef %1, i32 noundef %2, ptr noundef %10, ptr noundef %4, ptr noundef null) #8
   br label %12
@@ -1409,9 +1409,9 @@ define internal i32 @dissect_pkcs12_T_secretValue(i1 zeroext %0, ptr noundef %1,
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_pkcs12_T_crlId(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #1 {
   %7 = tail call i32 @dissect_ber_object_identifier_str(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull @object_identifier_id) #8
-  %8 = getelementptr inbounds i8, ptr %3, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 408
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 408
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr @object_identifier_id, align 8
   %13 = tail call ptr @oid_resolved_from_string(ptr noundef %11, ptr noundef %12) #8
@@ -1428,7 +1428,7 @@ define internal i32 @dissect_pkcs12_T_crlValue(i1 zeroext %0, ptr noundef %1, i3
   br i1 %.not, label %12, label %8
 
 8:                                                ; preds = %6
-  %9 = getelementptr inbounds i8, ptr %3, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 @call_ber_oid_callback(ptr noundef nonnull %7, ptr noundef %1, i32 noundef %2, ptr noundef %10, ptr noundef %4, ptr noundef null) #8
   br label %12

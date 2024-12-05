@@ -37,11 +37,11 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @php_random_xoshiro256starstar_seed256(ptr nocapture noundef writeonly initializes((0, 32)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #0 {
   store i64 %1, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %2, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %3, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %4, ptr %8, align 8
   ret void
 }
@@ -85,18 +85,18 @@ define void @php_random_xoshiro256starstar_seed64(ptr nocapture noundef writeonl
   %37 = lshr i64 %36, 31
   %38 = xor i64 %37, %36
   store i64 %11, ptr %0, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %20, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %29, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %38, ptr %41, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal { i64, i64 } @generate(ptr nocapture noundef %0) #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %4 = mul i64 %3, 5
   %5 = mul i64 %3, 640
@@ -105,10 +105,10 @@ define internal { i64, i64 } @generate(ptr nocapture noundef %0) #1 {
   %8 = mul i64 %7, 9
   %9 = shl i64 %3, 17
   %10 = load i64, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load i64, ptr %11, align 8
   %13 = xor i64 %12, %10
-  %14 = getelementptr inbounds i8, ptr %0, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %15 = load i64, ptr %14, align 8
   %16 = xor i64 %15, %3
   %17 = xor i64 %13, %3
@@ -133,15 +133,15 @@ define internal i64 @range(ptr noundef %0, i64 noundef %1, i64 noundef %2) #2 {
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i1 @serialize(ptr noundef %0, ptr noundef %1) #2 {
   %3 = alloca %struct._zval_struct, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %5
 
 5:                                                ; preds = %2, %5
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %5 ]
-  %6 = getelementptr inbounds [4 x i64], ptr %0, i64 0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [4 x i64], ptr %0, i64 0, i64 %indvars.iv
   %7 = call ptr @php_random_bin2hex_le(ptr noundef %6, i64 noundef 8) #7
   store ptr %7, ptr %3, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %9 = load i32, ptr %8, align 4
   %10 = and i32 %9, 64
   %.not = icmp eq i32 %10, 0
@@ -158,7 +158,7 @@ define internal noundef zeroext i1 @serialize(ptr noundef %0, ptr noundef %1) #2
 
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i1 @unserialize(ptr noundef %0, ptr noundef %1) #2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 28
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 4
   br i1 %.not, label %.preheader, label %.loopexit
@@ -175,20 +175,20 @@ define internal noundef zeroext i1 @unserialize(ptr noundef %0, ptr noundef %1) 
   br i1 %.not16, label %.loopexit, label %7
 
 7:                                                ; preds = %.preheader
-  %8 = getelementptr inbounds i8, ptr %6, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %9 = load i8, ptr %8, align 8
   %.not17 = icmp eq i8 %9, 6
   br i1 %.not17, label %10, label %.loopexit
 
 10:                                               ; preds = %7
   %11 = load ptr, ptr %6, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load i64, ptr %12, align 8
   %.not18 = icmp eq i64 %13, 16
   br i1 %.not18, label %14, label %.loopexit
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds [4 x i64], ptr %0, i64 0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [4 x i64], ptr %0, i64 0, i64 %indvars.iv
   %16 = tail call zeroext i1 @php_random_hex2bin_le(ptr noundef nonnull %11, ptr noundef %15) #7
   br i1 %16, label %5, label %.loopexit
 
@@ -199,9 +199,9 @@ define internal noundef zeroext i1 @unserialize(ptr noundef %0, ptr noundef %1) 
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @php_random_xoshiro256starstar_jump(ptr nocapture noundef %0) local_unnamed_addr #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.promoted.i = load i64, ptr %0, align 8
   %.promoted39.i = load i64, ptr %2, align 8
   %.promoted40.i = load i64, ptr %3, align 8
@@ -218,7 +218,7 @@ define void @php_random_xoshiro256starstar_jump(ptr nocapture noundef %0) local_
   %6 = phi i64 [ %.promoted39.i, %1 ], [ %27, %31 ]
   %7 = phi i64 [ %.promoted40.i, %1 ], [ %29, %31 ]
   %8 = phi i64 [ %.promoted41.i, %1 ], [ %30, %31 ]
-  %9 = getelementptr inbounds i64, ptr @php_random_xoshiro256starstar_jump.jmp, i64 %indvars.iv54.i
+  %9 = getelementptr inbounds nuw i64, ptr @php_random_xoshiro256starstar_jump.jmp, i64 %indvars.iv54.i
   %10 = load i64, ptr %9, align 8
   br label %11
 
@@ -275,9 +275,9 @@ jump.exit:                                        ; preds = %31
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @php_random_xoshiro256starstar_jump_long(ptr nocapture noundef %0) local_unnamed_addr #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.promoted.i = load i64, ptr %0, align 8
   %.promoted39.i = load i64, ptr %2, align 8
   %.promoted40.i = load i64, ptr %3, align 8
@@ -294,7 +294,7 @@ define void @php_random_xoshiro256starstar_jump_long(ptr nocapture noundef %0) l
   %6 = phi i64 [ %.promoted39.i, %1 ], [ %27, %31 ]
   %7 = phi i64 [ %.promoted40.i, %1 ], [ %29, %31 ]
   %8 = phi i64 [ %.promoted41.i, %1 ], [ %30, %31 ]
-  %9 = getelementptr inbounds i64, ptr @php_random_xoshiro256starstar_jump_long.jmp, i64 %indvars.iv54.i
+  %9 = getelementptr inbounds nuw i64, ptr @php_random_xoshiro256starstar_jump_long.jmp, i64 %indvars.iv54.i
   %10 = load i64, ptr %9, align 8
   br label %11
 
@@ -351,7 +351,7 @@ jump.exit:                                        ; preds = %31
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_Random_Engine_Xoshiro256StarStar_jump(ptr nocapture noundef readonly %0, ptr nocapture noundef readnone %1) local_unnamed_addr #2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 44
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %6, label %5
@@ -361,13 +361,13 @@ define hidden void @zim_Random_Engine_Xoshiro256StarStar_jump(ptr nocapture noun
   br label %39
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load ptr, ptr %7, align 8
   %.sroa.1.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 -8
   %.sroa.1.0.copyload = load ptr, ptr %.sroa.1.0..sroa_idx, align 8
-  %9 = getelementptr inbounds i8, ptr %.sroa.1.0.copyload, i64 8
-  %10 = getelementptr inbounds i8, ptr %.sroa.1.0.copyload, i64 16
-  %11 = getelementptr inbounds i8, ptr %.sroa.1.0.copyload, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %.sroa.1.0.copyload, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.1.0.copyload, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %.sroa.1.0.copyload, i64 24
   %.promoted.i.i = load i64, ptr %.sroa.1.0.copyload, align 8
   %.promoted39.i.i = load i64, ptr %9, align 8
   %.promoted40.i.i = load i64, ptr %10, align 8
@@ -384,7 +384,7 @@ define hidden void @zim_Random_Engine_Xoshiro256StarStar_jump(ptr nocapture noun
   %13 = phi i64 [ %.promoted39.i.i, %6 ], [ %34, %38 ]
   %14 = phi i64 [ %.promoted40.i.i, %6 ], [ %36, %38 ]
   %15 = phi i64 [ %.promoted41.i.i, %6 ], [ %37, %38 ]
-  %16 = getelementptr inbounds i64, ptr @php_random_xoshiro256starstar_jump.jmp, i64 %indvars.iv54.i.i
+  %16 = getelementptr inbounds nuw i64, ptr @php_random_xoshiro256starstar_jump.jmp, i64 %indvars.iv54.i.i
   %17 = load i64, ptr %16, align 8
   br label %18
 
@@ -446,7 +446,7 @@ declare void @zend_wrong_parameters_none_error() local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_Random_Engine_Xoshiro256StarStar_jumpLong(ptr nocapture noundef readonly %0, ptr nocapture noundef readnone %1) local_unnamed_addr #2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 44
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %6, label %5
@@ -456,13 +456,13 @@ define hidden void @zim_Random_Engine_Xoshiro256StarStar_jumpLong(ptr nocapture 
   br label %39
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load ptr, ptr %7, align 8
   %.sroa.1.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 -8
   %.sroa.1.0.copyload = load ptr, ptr %.sroa.1.0..sroa_idx, align 8
-  %9 = getelementptr inbounds i8, ptr %.sroa.1.0.copyload, i64 8
-  %10 = getelementptr inbounds i8, ptr %.sroa.1.0.copyload, i64 16
-  %11 = getelementptr inbounds i8, ptr %.sroa.1.0.copyload, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %.sroa.1.0.copyload, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.1.0.copyload, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %.sroa.1.0.copyload, i64 24
   %.promoted.i.i = load i64, ptr %.sroa.1.0.copyload, align 8
   %.promoted39.i.i = load i64, ptr %9, align 8
   %.promoted40.i.i = load i64, ptr %10, align 8
@@ -479,7 +479,7 @@ define hidden void @zim_Random_Engine_Xoshiro256StarStar_jumpLong(ptr nocapture 
   %13 = phi i64 [ %.promoted39.i.i, %6 ], [ %34, %38 ]
   %14 = phi i64 [ %.promoted40.i.i, %6 ], [ %36, %38 ]
   %15 = phi i64 [ %.promoted41.i.i, %6 ], [ %37, %38 ]
-  %16 = getelementptr inbounds i64, ptr @php_random_xoshiro256starstar_jump_long.jmp, i64 %indvars.iv54.i.i
+  %16 = getelementptr inbounds nuw i64, ptr @php_random_xoshiro256starstar_jump_long.jmp, i64 %indvars.iv54.i.i
   %17 = load i64, ptr %16, align 8
   br label %18
 
@@ -543,13 +543,13 @@ define hidden void @zim_Random_Engine_Xoshiro256StarStar___construct(ptr noundef
   %4 = alloca i64, align 8
   %5 = alloca [4 x i64], align 16
   %6 = alloca [4 x i64], align 16
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load ptr, ptr %7, align 8
   %.sroa.1.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 -8
   %.sroa.1.0.copyload = load ptr, ptr %.sroa.1.0..sroa_idx, align 8
   store ptr null, ptr %3, align 8
   store i64 0, ptr %4, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 44
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %10 = load i32, ptr %9, align 4
   %11 = icmp ugt i32 %10, 1
   br i1 %11, label %12, label %13
@@ -563,8 +563,8 @@ define hidden void @zim_Random_Engine_Xoshiro256StarStar___construct(ptr noundef
   br i1 %14, label %.thread112, label %15
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %0, i64 80
-  %17 = getelementptr inbounds i8, ptr %0, i64 88
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %18 = load i8, ptr %17, align 8
   switch i8 %18, label %21 [
     i8 6, label %19
@@ -591,9 +591,9 @@ define hidden void @zim_Random_Engine_Xoshiro256StarStar___construct(ptr noundef
   br label %126
 
 .thread112:                                       ; preds = %15, %13
-  %23 = getelementptr inbounds i8, ptr %5, i64 8
-  %24 = getelementptr inbounds i8, ptr %5, i64 16
-  %25 = getelementptr inbounds i8, ptr %5, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 24
   br label %26
 
 26:                                               ; preds = %.thread112, %34
@@ -625,11 +625,11 @@ define hidden void @zim_Random_Engine_Xoshiro256StarStar___construct(ptr noundef
 
 .critedge:                                        ; preds = %34
   store i64 %35, ptr %.sroa.1.0.copyload, align 8
-  %43 = getelementptr inbounds i8, ptr %.sroa.1.0.copyload, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %.sroa.1.0.copyload, i64 8
   store i64 %37, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %.sroa.1.0.copyload, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %.sroa.1.0.copyload, i64 16
   store i64 %39, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %.sroa.1.0.copyload, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %.sroa.1.0.copyload, i64 24
   store i64 %41, ptr %45, align 8
   br label %126
 
@@ -643,18 +643,18 @@ define hidden void @zim_Random_Engine_Xoshiro256StarStar___construct(ptr noundef
   br i1 %.not85, label %.thread145.thread, label %47
 
 47:                                               ; preds = %.thread145
-  %48 = getelementptr inbounds i8, ptr %46, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %49 = load i64, ptr %48, align 8
   %50 = icmp eq i64 %49, 32
   br i1 %50, label %.preheader, label %83
 
 .preheader:                                       ; preds = %47
-  %51 = getelementptr inbounds i8, ptr %46, i64 24
+  %51 = getelementptr inbounds nuw i8, ptr %46, i64 24
   br label %52
 
 52:                                               ; preds = %.preheader, %64
   %indvars.iv160 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next161, %64 ]
-  %53 = getelementptr inbounds [4 x i64], ptr %6, i64 0, i64 %indvars.iv160
+  %53 = getelementptr inbounds nuw [4 x i64], ptr %6, i64 0, i64 %indvars.iv160
   %54 = shl nuw nsw i64 %indvars.iv160, 3
   br label %55
 
@@ -662,7 +662,7 @@ define hidden void @zim_Random_Engine_Xoshiro256StarStar___construct(ptr noundef
   %indvars.iv = phi i64 [ 0, %52 ], [ %indvars.iv.next, %55 ]
   %56 = phi i64 [ 0, %52 ], [ %63, %55 ]
   %57 = add nuw nsw i64 %indvars.iv, %54
-  %58 = getelementptr inbounds [1 x i8], ptr %51, i64 0, i64 %57
+  %58 = getelementptr inbounds nuw [1 x i8], ptr %51, i64 0, i64 %57
   %59 = load i8, ptr %58, align 1
   %60 = zext i8 %59 to i64
   %61 = shl nuw nsw i64 %indvars.iv, 3
@@ -681,15 +681,15 @@ define hidden void @zim_Random_Engine_Xoshiro256StarStar___construct(ptr noundef
 65:                                               ; preds = %64
   %66 = load i64, ptr %6, align 16
   %67 = icmp eq i64 %66, 0
-  %68 = getelementptr inbounds i8, ptr %6, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %69 = load i64, ptr %68, align 8
   %70 = icmp eq i64 %69, 0
   %or.cond8 = select i1 %67, i1 %70, i1 false
-  %71 = getelementptr inbounds i8, ptr %6, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %72 = load i64, ptr %71, align 16
   %73 = icmp eq i64 %72, 0
   %or.cond11 = select i1 %or.cond8, i1 %73, i1 false
-  %74 = getelementptr inbounds i8, ptr %6, i64 24
+  %74 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %75 = load i64, ptr %74, align 8
   %76 = icmp eq i64 %75, 0
   %or.cond92 = select i1 %or.cond11, i1 %76, i1 false
@@ -704,11 +704,11 @@ define hidden void @zim_Random_Engine_Xoshiro256StarStar___construct(ptr noundef
 
 .critedge89:                                      ; preds = %65
   store i64 %66, ptr %.sroa.1.0.copyload, align 8
-  %80 = getelementptr inbounds i8, ptr %.sroa.1.0.copyload, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %.sroa.1.0.copyload, i64 8
   store i64 %69, ptr %80, align 8
-  %81 = getelementptr inbounds i8, ptr %.sroa.1.0.copyload, i64 16
+  %81 = getelementptr inbounds nuw i8, ptr %.sroa.1.0.copyload, i64 16
   store i64 %72, ptr %81, align 8
-  %82 = getelementptr inbounds i8, ptr %.sroa.1.0.copyload, i64 24
+  %82 = getelementptr inbounds nuw i8, ptr %.sroa.1.0.copyload, i64 24
   store i64 %75, ptr %82, align 8
   br label %126
 
@@ -759,11 +759,11 @@ define hidden void @zim_Random_Engine_Xoshiro256StarStar___construct(ptr noundef
   %121 = lshr i64 %120, 31
   %122 = xor i64 %121, %120
   store i64 %95, ptr %.sroa.1.0.copyload, align 8
-  %123 = getelementptr inbounds i8, ptr %.sroa.1.0.copyload, i64 8
+  %123 = getelementptr inbounds nuw i8, ptr %.sroa.1.0.copyload, i64 8
   store i64 %104, ptr %123, align 8
-  %124 = getelementptr inbounds i8, ptr %.sroa.1.0.copyload, i64 16
+  %124 = getelementptr inbounds nuw i8, ptr %.sroa.1.0.copyload, i64 16
   store i64 %113, ptr %124, align 8
-  %125 = getelementptr inbounds i8, ptr %.sroa.1.0.copyload, i64 24
+  %125 = getelementptr inbounds nuw i8, ptr %.sroa.1.0.copyload, i64 24
   store i64 %122, ptr %125, align 8
   br label %126
 

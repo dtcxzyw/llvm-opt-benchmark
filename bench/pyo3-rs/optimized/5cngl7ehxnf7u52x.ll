@@ -50,7 +50,7 @@ define hidden void @_ZN17pyo3_build_config31_add_extension_module_link_args17h17
   %13 = alloca [48 x i8], align 8
   %14 = alloca [8 x i8], align 8
   store ptr %1, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = tail call zeroext i1 @"_ZN81_$LT$target_lexicon..targets..OperatingSystem$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1d13bbb2c9307eeeE"(ptr nonnull align 2 %15, ptr nonnull align 2 @anon.965bca594b54ec786d317de168aead3f.3)
   br i1 %16, label %27, label %17
 
@@ -66,7 +66,7 @@ common.resume:                                    ; preds = %75, %63, %47, %35, 
   br i1 %.not.i, label %19, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hd9dce8a8b69bb270E.exit"
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %10, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %10, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %20, i64 32, i1 false)
   invoke void @_ZN4core6result13unwrap_failed17h82b551e0ff2b2176E(ptr nonnull align 1 @anon.965bca594b54ec786d317de168aead3f.0, i64 43, ptr nonnull align 1 %3, ptr nonnull align 8 @anon.965bca594b54ec786d317de168aead3f.2, ptr nonnull align 8 @anon.965bca594b54ec786d317de168aead3f.6) #7
           to label %23 unwind label %21
@@ -94,13 +94,13 @@ common.resume:                                    ; preds = %75, %63, %47, %35, 
 
 27:                                               ; preds = %2
   store ptr @anon.965bca594b54ec786d317de168aead3f.15, ptr %13, align 8
-  %28 = getelementptr inbounds i8, ptr %13, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i64 1, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %13, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %13, i64 32
   store ptr null, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %13, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr inttoptr (i64 8 to ptr), ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %13, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %13, i64 24
   store i64 0, ptr %31, align 8
   %32 = call ptr @"_ZN57_$LT$std..io..stdio..Stdout$u20$as$u20$std..io..Write$GT$9write_fmt17h9adfa13aed132c69E"(ptr nonnull align 8 %14, ptr nonnull align 8 %13)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -130,13 +130,13 @@ common.resume:                                    ; preds = %75, %63, %47, %35, 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h57d81f5629619e28E.exit3": ; preds = %27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   store ptr @anon.965bca594b54ec786d317de168aead3f.18, ptr %12, align 8
-  %40 = getelementptr inbounds i8, ptr %12, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i64 1, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %12, i64 32
+  %41 = getelementptr inbounds nuw i8, ptr %12, i64 32
   store ptr null, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %12, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store ptr inttoptr (i64 8 to ptr), ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %12, i64 24
+  %43 = getelementptr inbounds nuw i8, ptr %12, i64 24
   store i64 0, ptr %43, align 8
   %44 = call ptr @"_ZN57_$LT$std..io..stdio..Stdout$u20$as$u20$std..io..Write$GT$9write_fmt17h9adfa13aed132c69E"(ptr nonnull align 8 %14, ptr nonnull align 8 %12)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -179,13 +179,13 @@ common.resume:                                    ; preds = %75, %63, %47, %35, 
 
 55:                                               ; preds = %54
   store ptr @anon.965bca594b54ec786d317de168aead3f.8, ptr %9, align 8
-  %56 = getelementptr inbounds i8, ptr %9, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 1, ptr %56, align 8
-  %57 = getelementptr inbounds i8, ptr %9, i64 32
+  %57 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store ptr null, ptr %57, align 8
-  %58 = getelementptr inbounds i8, ptr %9, i64 16
+  %58 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr inttoptr (i64 8 to ptr), ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %9, i64 24
+  %59 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i64 0, ptr %59, align 8
   %60 = call ptr @"_ZN57_$LT$std..io..stdio..Stdout$u20$as$u20$std..io..Write$GT$9write_fmt17h9adfa13aed132c69E"(ptr nonnull align 8 %14, ptr nonnull align 8 %9)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
@@ -215,13 +215,13 @@ common.resume:                                    ; preds = %75, %63, %47, %35, 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h57d81f5629619e28E.exit": ; preds = %55
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   store ptr @anon.965bca594b54ec786d317de168aead3f.12, ptr %8, align 8
-  %68 = getelementptr inbounds i8, ptr %8, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 1, ptr %68, align 8
-  %69 = getelementptr inbounds i8, ptr %8, i64 32
+  %69 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store ptr null, ptr %69, align 8
-  %70 = getelementptr inbounds i8, ptr %8, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr inttoptr (i64 8 to ptr), ptr %70, align 8
-  %71 = getelementptr inbounds i8, ptr %8, i64 24
+  %71 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i64 0, ptr %71, align 8
   %72 = call ptr @"_ZN57_$LT$std..io..stdio..Stdout$u20$as$u20$std..io..Write$GT$9write_fmt17h9adfa13aed132c69E"(ptr nonnull align 8 %14, ptr nonnull align 8 %8)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
@@ -313,9 +313,9 @@ define hidden void @"_ZN17pyo3_build_config3get28_$u7b$$u7b$closure$u7d$$u7d$17h
 
 20:                                               ; preds = %26, %17
   store ptr @anon.965bca594b54ec786d317de168aead3f.22, ptr %3, align 8
-  %21 = getelementptr inbounds i8, ptr %3, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 209, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %3, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 0, ptr %22, align 8
   invoke void @_ZN17pyo3_build_config5impl_17InterpreterConfig11from_reader17heb02580bdb8d5f2eE(ptr nonnull sret([160 x i8]) align 8 %4, ptr nonnull align 8 %3)
           to label %38 unwind label %27
@@ -513,8 +513,8 @@ define hidden { i32, i32 } @"_ZN17pyo3_build_config19rustc_minor_version28_$u7b$
   br i1 %.not, label %23, label %22
 
 22:                                               ; preds = %20
-  %.sroa.216.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 8
-  %.sroa.224.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 8
+  %.sroa.216.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %.sroa.224.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.224.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.216.0..sroa_idx, i64 48, i1 false)
   store i64 %21, ptr %7, align 8
   invoke void @"_ZN4core3ptr42drop_in_place$LT$std..process..Command$GT$17h4c56a69e023a9e9dE"(ptr nonnull align 8 %5)
@@ -536,7 +536,7 @@ define hidden { i32, i32 } @"_ZN17pyo3_build_config19rustc_minor_version28_$u7b$
 
 27:                                               ; preds = %22
   %28 = load ptr, ptr %.sroa.224.0..sroa_idx, align 8
-  %29 = getelementptr inbounds i8, ptr %7, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %30 = load i64, ptr %29, align 8
   invoke void @_ZN4core3str8converts9from_utf817h4407e85196e28f50E(ptr nonnull sret([24 x i8]) align 8 %4, ptr align 1 %28, i64 %30)
           to label %31 unwind label %25
@@ -544,9 +544,9 @@ define hidden { i32, i32 } @"_ZN17pyo3_build_config19rustc_minor_version28_$u7b$
 31:                                               ; preds = %27
   %32 = load i64, ptr %4, align 8
   %33 = icmp ne i64 %32, 0
-  %34 = getelementptr inbounds i8, ptr %4, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %4, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %37 = load i64, ptr %36, align 8
   %38 = icmp eq ptr %35, null
   %39 = select i1 %33, i1 true, i1 %38
@@ -561,14 +561,14 @@ define hidden { i32, i32 } @"_ZN17pyo3_build_config19rustc_minor_version28_$u7b$
   br label %14
 
 42:                                               ; preds = %40
-  %.sroa.327.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 16
+  %.sroa.327.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.327.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 48, i1 false)
   store i64 0, ptr %3, align 8
-  %.sroa.226.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.226.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %37, ptr %.sroa.226.0..sroa_idx, align 8
-  %.sroa.428.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 64
+  %.sroa.428.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i8 1, ptr %.sroa.428.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 65
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 65
   store i8 0, ptr %.sroa.5.0..sroa_idx, align 1
   %43 = invoke { ptr, i64 } @"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17hd3821e053edf3496E"(ptr nonnull align 8 %3)
           to label %44 unwind label %25
@@ -577,7 +577,7 @@ define hidden { i32, i32 } @"_ZN17pyo3_build_config19rustc_minor_version28_$u7b$
   %45 = extractvalue { ptr, i64 } %43, 0
   %46 = extractvalue { ptr, i64 } %43, 1
   store ptr %45, ptr %2, align 8
-  %47 = getelementptr inbounds i8, ptr %2, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %46, ptr %47, align 8
   %48 = invoke zeroext i1 @"_ZN70_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h51cb232e3ae2541eE"(ptr nonnull align 8 %2, ptr nonnull align 8 @anon.965bca594b54ec786d317de168aead3f.32)
           to label %49 unwind label %25

@@ -11,11 +11,11 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @rb_str_new_parser_string(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i64 @rb_enc_str_new(ptr noundef %3, i64 noundef %5, ptr noundef %7) #10
   ret i64 %8
@@ -25,12 +25,12 @@ declare i64 @rb_enc_str_new(ptr noundef, i64 noundef, ptr noundef) local_unnamed
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @rb_node_integer_literal_val(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 44
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
   %6 = tail call i64 @rb_cstr_to_inum(ptr noundef %3, i32 noundef %5, i32 noundef 0) #10
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load i32, ptr %7, align 8
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %11, label %9
@@ -128,7 +128,7 @@ rb_float_value_inline.exit:                       ; preds = %13, %14
   br label %rb_float_new_inline.exit
 
 43:                                               ; preds = %35
-  %44 = getelementptr inbounds i8, ptr %36, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %45 = load i64, ptr %44, align 8
   %46 = tail call fastcc i64 @negative_numeric(i64 noundef %45)
   store i64 %46, ptr %44, align 8
@@ -143,7 +143,7 @@ rb_float_value_inline.exit:                       ; preds = %13, %14
   br label %rb_float_new_inline.exit
 
 52:                                               ; preds = %35
-  %53 = getelementptr inbounds i8, ptr %36, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %54 = load i64, ptr %53, align 8
   %55 = tail call fastcc i64 @negative_numeric(i64 noundef %54)
   store i64 %55, ptr %53, align 8
@@ -158,7 +158,7 @@ rb_float_value_inline.exit:                       ; preds = %13, %14
   br label %rb_obj_write.exit
 
 rb_obj_write.exit:                                ; preds = %52, %60
-  %61 = getelementptr inbounds i8, ptr %36, i64 24
+  %61 = getelementptr inbounds nuw i8, ptr %36, i64 24
   %62 = load i64, ptr %61, align 8
   %63 = tail call fastcc i64 @negative_numeric(i64 noundef %62)
   store i64 %63, ptr %61, align 8
@@ -173,7 +173,7 @@ rb_obj_write.exit:                                ; preds = %52, %60
   br label %rb_float_new_inline.exit
 
 rb_float_value_inline.exit26:                     ; preds = %35
-  %69 = getelementptr inbounds i8, ptr %36, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %70 = load double, ptr %69, align 8
   %71 = fneg double %70
   %72 = bitcast double %71 to i64
@@ -214,10 +214,10 @@ rb_float_new_inline.exit:                         ; preds = %84, %82, %78, %68, 
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @rb_node_float_literal_val(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = tail call double @strtod(ptr nocapture noundef %3, ptr noundef null) #10
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load i32, ptr %5, align 8
   %.not = icmp eq i32 %6, 0
   %7 = fneg double %4
@@ -258,14 +258,14 @@ declare double @strtod(ptr noundef readonly, ptr nocapture noundef) local_unname
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @rb_node_rational_literal_val(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 44
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i32, ptr %6, align 8
   %8 = tail call fastcc i64 @rational_value(ptr noundef %3, i32 noundef %5, i32 noundef %7)
-  %9 = getelementptr inbounds i8, ptr %0, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load i32, ptr %9, align 8
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %13, label %11
@@ -314,7 +314,7 @@ define internal fastcc i64 @rational_value(ptr nocapture noundef readonly %0, i3
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @rb_node_imaginary_literal_val(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 52
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %3 = load i32, ptr %2, align 4
   switch i32 %3, label %36 [
     i32 0, label %4
@@ -323,15 +323,15 @@ define dso_local i64 @rb_node_imaginary_literal_val(ptr nocapture noundef readon
   ]
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 44
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %8 = load i32, ptr %7, align 4
   %9 = tail call i64 @rb_cstr_to_inum(ptr noundef %6, i32 noundef %8, i32 noundef 0) #10
   br label %rb_float_new_inline.exit
 
 10:                                               ; preds = %1
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load ptr, ptr %11, align 8
   %13 = tail call double @strtod(ptr nocapture noundef %12, ptr noundef null) #10
   %14 = bitcast double %13 to i64
@@ -361,11 +361,11 @@ define dso_local i64 @rb_node_imaginary_literal_val(ptr nocapture noundef readon
   br label %rb_float_new_inline.exit
 
 28:                                               ; preds = %1
-  %29 = getelementptr inbounds i8, ptr %0, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 44
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %32 = load i32, ptr %31, align 4
-  %33 = getelementptr inbounds i8, ptr %0, i64 48
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %34 = load i32, ptr %33, align 8
   %35 = tail call fastcc i64 @rational_value(ptr noundef %30, i32 noundef %32, i32 noundef %34)
   br label %rb_float_new_inline.exit
@@ -377,7 +377,7 @@ define dso_local i64 @rb_node_imaginary_literal_val(ptr nocapture noundef readon
 rb_float_new_inline.exit:                         ; preds = %26, %24, %20, %28, %4
   %.0 = phi i64 [ %35, %28 ], [ %9, %4 ], [ %27, %26 ], [ %23, %20 ], [ -9223372036854775806, %24 ]
   %37 = tail call i64 @rb_complex_raw(i64 noundef 1, i64 noundef %.0) #10
-  %38 = getelementptr inbounds i8, ptr %0, i64 40
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %39 = load i32, ptr %38, align 8
   %.not = icmp eq i32 %39, 0
   br i1 %.not, label %42, label %40
@@ -398,13 +398,13 @@ declare i64 @rb_complex_raw(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @rb_node_str_string_val(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i64 @rb_enc_str_new(ptr noundef %5, i64 noundef %7, ptr noundef %9) #10
   ret i64 %10
@@ -412,13 +412,13 @@ define dso_local i64 @rb_node_str_string_val(ptr nocapture noundef readonly %0) 
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @rb_node_sym_string_val(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i64 @rb_intern3(ptr noundef %5, i64 noundef %7, ptr noundef %9) #10
   %11 = tail call i64 @rb_id2sym(i64 noundef %10) #10
@@ -431,17 +431,17 @@ declare i64 @rb_intern3(ptr noundef, i64 noundef, ptr noundef) local_unnamed_add
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @rb_node_dstr_string_val(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %12, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %3, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i64 @rb_enc_str_new(ptr noundef %6, i64 noundef %8, ptr noundef %10) #10
   br label %12
@@ -453,13 +453,13 @@ define dso_local i64 @rb_node_dstr_string_val(ptr nocapture noundef readonly %0)
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @rb_node_dregx_string_val(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i64 @rb_enc_str_new(ptr noundef %5, i64 noundef %7, ptr noundef %9) #10
   ret i64 %10
@@ -467,16 +467,16 @@ define dso_local i64 @rb_node_dregx_string_val(ptr nocapture noundef readonly %0
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @rb_node_regx_string_val(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i64 @rb_enc_str_new(ptr noundef %5, i64 noundef %7, ptr noundef %9) #10
-  %11 = getelementptr inbounds i8, ptr %0, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %12 = load i32, ptr %11, align 8
   %13 = tail call i64 @rb_reg_compile(i64 noundef %10, i32 noundef %12, ptr noundef null, i32 noundef 0) #10
   ret i64 %13
@@ -486,7 +486,7 @@ declare i64 @rb_reg_compile(i64 noundef, i32 noundef, ptr noundef, i32 noundef) 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local range(i64 1, 0) i64 @rb_node_line_lineno_val(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = sext i32 %3 to i64
   %5 = shl nsw i64 %4, 1
@@ -496,13 +496,13 @@ define dso_local range(i64 1, 0) i64 @rb_node_line_lineno_val(ptr nocapture noun
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @rb_node_file_path_val(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i64 @rb_enc_str_new(ptr noundef %5, i64 noundef %7, ptr noundef %9) #10
   ret i64 %10
@@ -510,7 +510,7 @@ define dso_local i64 @rb_node_file_path_val(ptr nocapture noundef readonly %0) l
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @rb_node_encoding_val(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i64 @rb_enc_from_encoding(ptr noundef %3) #10
   ret i64 %4
@@ -535,7 +535,7 @@ define dso_local i64 @rb_node_const_decl_val(ptr nocapture noundef readonly %0) 
   br label %.preheader.preheader
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load i64, ptr %8, align 8
   %.not = icmp eq i64 %9, 0
   br i1 %.not, label %20, label %10
@@ -546,7 +546,7 @@ define dso_local i64 @rb_node_const_decl_val(ptr nocapture noundef readonly %0) 
 
 12:                                               ; preds = %1
   %13 = tail call i64 @rb_str_new_static(ptr noundef nonnull @.str.1, i64 noundef 2) #10
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %15 = load i64, ptr %14, align 8
   %16 = tail call i64 @rb_id2str(i64 noundef %15) #10
   %17 = tail call i64 @rb_str_append(i64 noundef %13, i64 noundef %16) #10
@@ -558,7 +558,7 @@ define dso_local i64 @rb_node_const_decl_val(ptr nocapture noundef readonly %0) 
   unreachable
 
 20:                                               ; preds = %7
-  %21 = getelementptr inbounds i8, ptr %0, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %22 = load ptr, ptr %21, align 8
   %23 = tail call i64 @rb_ary_new() #10
   %.not27 = icmp eq ptr %22, null
@@ -582,23 +582,23 @@ define dso_local i64 @rb_node_const_decl_val(ptr nocapture noundef readonly %0) 
   ]
 
 28:                                               ; preds = %.preheader
-  %29 = getelementptr inbounds i8, ptr %.135, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %.135, i64 40
   %30 = load i64, ptr %29, align 8
   %31 = tail call i64 @rb_id2str(i64 noundef %30) #10
   %32 = tail call i64 @rb_ary_push(i64 noundef %24, i64 noundef %31) #10
-  %33 = getelementptr inbounds i8, ptr %.135, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %.135, i64 32
   %34 = load ptr, ptr %33, align 8
   %.not28 = icmp eq ptr %34, null
   br i1 %.not28, label %.critedge30, label %.preheader, !llvm.loop !7
 
 35:                                               ; preds = %.preheader
-  %36 = getelementptr inbounds i8, ptr %.135, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %.135, i64 32
   %37 = load i64, ptr %36, align 8
   %38 = tail call i64 @rb_id2str(i64 noundef %37) #10
   br label %46
 
 39:                                               ; preds = %.preheader
-  %40 = getelementptr inbounds i8, ptr %.135, i64 32
+  %40 = getelementptr inbounds nuw i8, ptr %.135, i64 32
   %41 = load i64, ptr %40, align 8
   %42 = tail call i64 @rb_id2str(i64 noundef %41) #10
   %43 = tail call i64 @rb_ary_push(i64 noundef %24, i64 noundef %42) #10

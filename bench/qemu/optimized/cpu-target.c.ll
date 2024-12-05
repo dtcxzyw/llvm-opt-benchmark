@@ -48,7 +48,7 @@ define dso_local noundef zeroext i1 @cpu_exec_realizefn(ptr noundef %cpu, ptr no
 entry:
   %call.i = tail call ptr @object_get_class(ptr noundef %cpu) #18
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 64, ptr noundef nonnull @__func__.CPU_GET_CLASS) #18
-  %cc = getelementptr inbounds i8, ptr %cpu, i64 160
+  %cc = getelementptr inbounds nuw i8, ptr %cpu, i64 160
   store ptr %call1.i, ptr %cc, align 16
   %call1 = tail call zeroext i1 @accel_cpu_common_realize(ptr noundef %cpu, ptr noundef %errp) #18
   br i1 %call1, label %if.end, label %return
@@ -63,7 +63,7 @@ if.end:                                           ; preds = %entry
 lor.lhs.false:                                    ; preds = %if.end
   %call.i7 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %cpu, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #18
   %call5 = tail call ptr @qdev_get_vmsd(ptr noundef %call.i7) #18
-  %unmigratable = getelementptr inbounds i8, ptr %call5, i64 8
+  %unmigratable = getelementptr inbounds nuw i8, ptr %call5, i64 8
   %0 = load i8, ptr %unmigratable, align 8
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %return, label %if.else
@@ -112,7 +112,7 @@ declare ptr @object_class_property_add_bool(ptr noundef, ptr noundef, ptr nounde
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal zeroext i1 @cpu_get_start_powered_off(ptr nocapture noundef readonly %obj, ptr nocapture readnone %errp) #3 {
 entry:
-  %start_powered_off = getelementptr inbounds i8, ptr %obj, i64 204
+  %start_powered_off = getelementptr inbounds nuw i8, ptr %obj, i64 204
   %0 = load i8, ptr %start_powered_off, align 4
   %tobool = trunc i8 %0 to i1
   ret i1 %tobool
@@ -122,7 +122,7 @@ entry:
 define internal void @cpu_set_start_powered_off(ptr nocapture noundef writeonly initializes((204, 205)) %obj, i1 noundef zeroext %value, ptr nocapture readnone %errp) #4 {
 entry:
   %frombool = zext i1 %value to i8
-  %start_powered_off = getelementptr inbounds i8, ptr %obj, i64 204
+  %start_powered_off = getelementptr inbounds nuw i8, ptr %obj, i64 204
   store i8 %frombool, ptr %start_powered_off, align 4
   ret void
 }
@@ -130,9 +130,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
 define dso_local void @cpu_exec_initfn(ptr nocapture noundef writeonly initializes((520, 524), (528, 536)) %cpu) local_unnamed_addr #4 {
 entry:
-  %as = getelementptr inbounds i8, ptr %cpu, i64 528
+  %as = getelementptr inbounds nuw i8, ptr %cpu, i64 528
   store ptr null, ptr %as, align 16
-  %num_ases = getelementptr inbounds i8, ptr %cpu, i64 520
+  %num_ases = getelementptr inbounds nuw i8, ptr %cpu, i64 520
   store i32 0, ptr %num_ases, align 8
   ret void
 }
@@ -165,7 +165,7 @@ if.then3:                                         ; preds = %if.end
 if.end5:                                          ; preds = %if.end
   %call6 = tail call ptr @object_class_get_name(ptr noundef nonnull %call2) #18
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef nonnull %call2, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 64, ptr noundef nonnull @__func__.CPU_CLASS) #18
-  %parse_features = getelementptr inbounds i8, ptr %call.i, i64 184
+  %parse_features = getelementptr inbounds nuw i8, ptr %call.i, i64 184
   %2 = load ptr, ptr %parse_features, align 8
   %arrayidx8 = getelementptr i8, ptr %call, i64 8
   %3 = load ptr, ptr %arrayidx8, align 8
@@ -215,14 +215,14 @@ declare void @mmap_unlock() local_unnamed_addr #1
 define dso_local void @cpu_single_step(ptr nocapture noundef %cpu, i32 noundef %enabled) local_unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %singlestep_enabled = getelementptr inbounds i8, ptr %cpu, i64 220
+  %singlestep_enabled = getelementptr inbounds nuw i8, ptr %cpu, i64 220
   %0 = load i32, ptr %singlestep_enabled, align 4
   %cmp.not = icmp eq i32 %0, %enabled
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   store i32 %enabled, ptr %singlestep_enabled, align 4
-  %cpu_index = getelementptr inbounds i8, ptr %cpu, i64 712
+  %cpu_index = getelementptr inbounds nuw i8, ptr %cpu, i64 712
   %1 = load i32, ptr %cpu_index, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %2 = load i32, ptr @trace_events_enabled_count, align 4
@@ -247,7 +247,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #18
   %call10.i.i = tail call i32 @qemu_get_thread_id() #18
   %6 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.15, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, i32 noundef %1, i32 noundef %enabled) #18
   br label %trace_breakpoint_singlestep.exit
@@ -300,10 +300,10 @@ if.end13:                                         ; preds = %if.then, %if.then8,
   call void @llvm.va_end.p0(ptr nonnull %ap2)
   call void @llvm.va_end.p0(ptr nonnull %ap)
   call void @replay_finish() #18
-  %sa_mask = getelementptr inbounds i8, ptr %act, i64 8
+  %sa_mask = getelementptr inbounds nuw i8, ptr %act, i64 8
   %call16 = call i32 @sigfillset(ptr noundef nonnull %sa_mask) #18
   store ptr null, ptr %act, align 8
-  %sa_flags = getelementptr inbounds i8, ptr %act, i64 136
+  %sa_flags = getelementptr inbounds nuw i8, ptr %act, i64 136
   store i32 0, ptr %sa_flags, align 8
   %call17 = call i32 @sigaction(i32 noundef 6, ptr noundef nonnull %act, ptr noundef null) #18
   call void @abort() #19

@@ -28,14 +28,14 @@ $_ZTI7b2Shape = comdat any
 define void @_ZN12b2ChainShapeD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(44) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV12b2ChainShape, i64 16), ptr %this, align 8
-  %m_vertices.i = getelementptr inbounds i8, ptr %this, i64 16
+  %m_vertices.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_vertices.i, align 8
   invoke void @_Z14b2Free_DefaultPv(ptr noundef %0)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
   store ptr null, ptr %m_vertices.i, align 8
-  %m_count.i = getelementptr inbounds i8, ptr %this, i64 24
+  %m_count.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i32 0, ptr %m_count.i, align 8
   ret void
 
@@ -50,11 +50,11 @@ terminate.lpad:                                   ; preds = %entry
 ; Function Attrs: mustprogress uwtable
 define void @_ZN12b2ChainShape5ClearEv(ptr nocapture noundef nonnull align 8 dereferenceable(44) initializes((24, 28)) %this) local_unnamed_addr #1 align 2 {
 entry:
-  %m_vertices = getelementptr inbounds i8, ptr %this, i64 16
+  %m_vertices = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_vertices, align 8
   tail call void @_Z14b2Free_DefaultPv(ptr noundef %0)
   store ptr null, ptr %m_vertices, align 8
-  %m_count = getelementptr inbounds i8, ptr %this, i64 24
+  %m_count = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i32 0, ptr %m_count, align 8
   ret void
 }
@@ -92,17 +92,17 @@ entry:
 
 for.cond.preheader:                               ; preds = %entry
   %add = add nuw nsw i32 %count, 1
-  %m_count = getelementptr inbounds i8, ptr %this, i64 24
+  %m_count = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i32 %add, ptr %m_count, align 8
   %mul = shl i32 %add, 3
   %call.i = tail call noundef ptr @_Z15b2Alloc_Defaulti(i32 noundef %mul)
-  %m_vertices = getelementptr inbounds i8, ptr %this, i64 16
+  %m_vertices = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %call.i, ptr %m_vertices, align 8
   %conv8 = zext nneg i32 %count to i64
   %mul9 = shl nuw nsw i64 %conv8, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %call.i, ptr align 4 %vertices, i64 %mul9, i1 false)
   %0 = load ptr, ptr %m_vertices, align 8
-  %arrayidx14 = getelementptr inbounds %struct.b2Vec2, ptr %0, i64 %conv8
+  %arrayidx14 = getelementptr inbounds nuw %struct.b2Vec2, ptr %0, i64 %conv8
   %1 = load i64, ptr %0, align 4
   store i64 %1, ptr %arrayidx14, align 4
   %2 = load ptr, ptr %m_vertices, align 8
@@ -110,11 +110,11 @@ for.cond.preheader:                               ; preds = %entry
   %4 = sext i32 %3 to i64
   %5 = getelementptr %struct.b2Vec2, ptr %2, i64 %4
   %arrayidx19 = getelementptr i8, ptr %5, i64 -16
-  %m_prevVertex = getelementptr inbounds i8, ptr %this, i64 28
+  %m_prevVertex = getelementptr inbounds nuw i8, ptr %this, i64 28
   %6 = load i64, ptr %arrayidx19, align 4
   store i64 %6, ptr %m_prevVertex, align 4
-  %arrayidx21 = getelementptr inbounds i8, ptr %2, i64 8
-  %m_nextVertex = getelementptr inbounds i8, ptr %this, i64 36
+  %arrayidx21 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %m_nextVertex = getelementptr inbounds nuw i8, ptr %this, i64 36
   %7 = load i64, ptr %arrayidx21, align 4
   store i64 %7, ptr %m_nextVertex, align 4
   br label %return
@@ -129,20 +129,20 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress uwtable
 define void @_ZN12b2ChainShape11CreateChainEPK6b2Vec2iRS1_S3_(ptr nocapture noundef nonnull align 8 dereferenceable(44) initializes((16, 44)) %this, ptr nocapture noundef readonly %vertices, i32 noundef %count, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %prevVertex, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %nextVertex) local_unnamed_addr #1 align 2 {
 entry:
-  %m_count = getelementptr inbounds i8, ptr %this, i64 24
+  %m_count = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i32 %count, ptr %m_count, align 8
   %mul = shl i32 %count, 3
   %call.i = tail call noundef ptr @_Z15b2Alloc_Defaulti(i32 noundef %mul)
-  %m_vertices = getelementptr inbounds i8, ptr %this, i64 16
+  %m_vertices = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %call.i, ptr %m_vertices, align 8
   %0 = load i32, ptr %m_count, align 8
   %conv5 = sext i32 %0 to i64
   %mul6 = shl nsw i64 %conv5, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %call.i, ptr align 4 %vertices, i64 %mul6, i1 false)
-  %m_prevVertex = getelementptr inbounds i8, ptr %this, i64 28
+  %m_prevVertex = getelementptr inbounds nuw i8, ptr %this, i64 28
   %1 = load i64, ptr %prevVertex, align 4
   store i64 %1, ptr %m_prevVertex, align 4
-  %m_nextVertex = getelementptr inbounds i8, ptr %this, i64 36
+  %m_nextVertex = getelementptr inbounds nuw i8, ptr %this, i64 36
   %2 = load i64, ptr %nextVertex, align 4
   store i64 %2, ptr %m_nextVertex, align 4
   ret void
@@ -153,20 +153,20 @@ define noundef ptr @_ZNK12b2ChainShape5CloneEP16b2BlockAllocator(ptr nocapture n
 entry:
   %call = tail call noundef ptr @_ZN16b2BlockAllocator8AllocateEi(ptr noundef nonnull align 8 dereferenceable(128) %allocator, i32 noundef 48)
   store ptr getelementptr inbounds (i8, ptr @_ZTV12b2ChainShape, i64 16), ptr %call, align 8
-  %m_type.i = getelementptr inbounds i8, ptr %call, i64 8
+  %m_type.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   store i32 3, ptr %m_type.i, align 8
-  %m_radius.i = getelementptr inbounds i8, ptr %call, i64 12
+  %m_radius.i = getelementptr inbounds nuw i8, ptr %call, i64 12
   store float 0x3F847AE140000000, ptr %m_radius.i, align 4
-  %m_vertices.i = getelementptr inbounds i8, ptr %call, i64 16
+  %m_vertices.i = getelementptr inbounds nuw i8, ptr %call, i64 16
   store ptr null, ptr %m_vertices.i, align 8
-  %m_count.i = getelementptr inbounds i8, ptr %call, i64 24
+  %m_count.i = getelementptr inbounds nuw i8, ptr %call, i64 24
   store i32 0, ptr %m_count.i, align 8
-  %m_vertices = getelementptr inbounds i8, ptr %this, i64 16
+  %m_vertices = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_vertices, align 8
-  %m_count = getelementptr inbounds i8, ptr %this, i64 24
+  %m_count = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load i32, ptr %m_count, align 8
-  %m_prevVertex = getelementptr inbounds i8, ptr %this, i64 28
-  %m_nextVertex = getelementptr inbounds i8, ptr %this, i64 36
+  %m_prevVertex = getelementptr inbounds nuw i8, ptr %this, i64 28
+  %m_nextVertex = getelementptr inbounds nuw i8, ptr %this, i64 36
   store i32 %1, ptr %m_count.i, align 8
   %mul.i = shl i32 %1, 3
   %call.i.i = tail call noundef ptr @_Z15b2Alloc_Defaulti(i32 noundef %mul.i)
@@ -175,10 +175,10 @@ entry:
   %conv5.i = sext i32 %2 to i64
   %mul6.i = shl nsw i64 %conv5.i, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %call.i.i, ptr readonly align 4 %0, i64 %mul6.i, i1 false)
-  %m_prevVertex.i = getelementptr inbounds i8, ptr %call, i64 28
+  %m_prevVertex.i = getelementptr inbounds nuw i8, ptr %call, i64 28
   %3 = load i64, ptr %m_prevVertex, align 4
   store i64 %3, ptr %m_prevVertex.i, align 4
-  %m_nextVertex.i = getelementptr inbounds i8, ptr %call, i64 36
+  %m_nextVertex.i = getelementptr inbounds nuw i8, ptr %call, i64 36
   %4 = load i64, ptr %m_nextVertex, align 4
   store i64 %4, ptr %m_nextVertex.i, align 4
   ret ptr %call
@@ -189,7 +189,7 @@ declare noundef ptr @_ZN16b2BlockAllocator8AllocateEi(ptr noundef nonnull align 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef range(i32 -2147483648, 2147483647) i32 @_ZNK12b2ChainShape13GetChildCountEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %this) unnamed_addr #7 align 2 {
 entry:
-  %m_count = getelementptr inbounds i8, ptr %this, i64 24
+  %m_count = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i32, ptr %m_count, align 8
   %sub = add nsw i32 %0, -1
   ret i32 %sub
@@ -198,48 +198,48 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @_ZNK12b2ChainShape12GetChildEdgeEP11b2EdgeShapei(ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %this, ptr nocapture noundef writeonly initializes((8, 49)) %edge, i32 noundef %index) local_unnamed_addr #8 align 2 {
 entry:
-  %m_type = getelementptr inbounds i8, ptr %edge, i64 8
+  %m_type = getelementptr inbounds nuw i8, ptr %edge, i64 8
   store i32 1, ptr %m_type, align 8
-  %m_radius = getelementptr inbounds i8, ptr %this, i64 12
+  %m_radius = getelementptr inbounds nuw i8, ptr %this, i64 12
   %0 = load float, ptr %m_radius, align 4
-  %m_radius2 = getelementptr inbounds i8, ptr %edge, i64 12
+  %m_radius2 = getelementptr inbounds nuw i8, ptr %edge, i64 12
   store float %0, ptr %m_radius2, align 4
-  %m_vertices = getelementptr inbounds i8, ptr %this, i64 16
+  %m_vertices = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %m_vertices, align 8
   %idxprom = sext i32 %index to i64
   %arrayidx = getelementptr inbounds %struct.b2Vec2, ptr %1, i64 %idxprom
-  %m_vertex1 = getelementptr inbounds i8, ptr %edge, i64 16
+  %m_vertex1 = getelementptr inbounds nuw i8, ptr %edge, i64 16
   %2 = load i64, ptr %arrayidx, align 4
   store i64 %2, ptr %m_vertex1, align 8
   %3 = load ptr, ptr %m_vertices, align 8
   %4 = getelementptr %struct.b2Vec2, ptr %3, i64 %idxprom
   %arrayidx6 = getelementptr i8, ptr %4, i64 8
-  %m_vertex2 = getelementptr inbounds i8, ptr %edge, i64 24
+  %m_vertex2 = getelementptr inbounds nuw i8, ptr %edge, i64 24
   %5 = load i64, ptr %arrayidx6, align 4
   store i64 %5, ptr %m_vertex2, align 8
-  %m_oneSided = getelementptr inbounds i8, ptr %edge, i64 48
+  %m_oneSided = getelementptr inbounds nuw i8, ptr %edge, i64 48
   store i8 1, ptr %m_oneSided, align 8
   %cmp = icmp sgt i32 %index, 0
   %6 = load ptr, ptr %m_vertices, align 8
   %7 = zext nneg i32 %index to i64
   %8 = getelementptr %struct.b2Vec2, ptr %6, i64 %7
   %arrayidx9 = getelementptr i8, ptr %8, i64 -8
-  %m_prevVertex = getelementptr inbounds i8, ptr %this, i64 28
+  %m_prevVertex = getelementptr inbounds nuw i8, ptr %this, i64 28
   %.sink.in = select i1 %cmp, ptr %arrayidx9, ptr %m_prevVertex
   %.sink = load i64, ptr %.sink.in, align 4
-  %9 = getelementptr inbounds i8, ptr %edge, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %edge, i64 32
   store i64 %.sink, ptr %9, align 8
-  %m_count = getelementptr inbounds i8, ptr %this, i64 24
+  %m_count = getelementptr inbounds nuw i8, ptr %this, i64 24
   %10 = load i32, ptr %m_count, align 8
   %sub11 = add nsw i32 %10, -2
   %cmp12 = icmp slt i32 %index, %sub11
   %11 = load ptr, ptr %m_vertices, align 8
   %12 = getelementptr %struct.b2Vec2, ptr %11, i64 %idxprom
   %arrayidx17 = getelementptr i8, ptr %12, i64 16
-  %m_nextVertex = getelementptr inbounds i8, ptr %this, i64 36
+  %m_nextVertex = getelementptr inbounds nuw i8, ptr %this, i64 36
   %.sink14.in = select i1 %cmp12, ptr %arrayidx17, ptr %m_nextVertex
   %.sink14 = load i64, ptr %.sink14.in, align 4
-  %13 = getelementptr inbounds i8, ptr %edge, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %edge, i64 40
   store i64 %.sink14, ptr %13, align 8
   ret void
 }
@@ -255,27 +255,27 @@ define noundef zeroext i1 @_ZNK12b2ChainShape7RayCastEP15b2RayCastOutputRK14b2Ra
 entry:
   %edgeShape = alloca %class.b2EdgeShape, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV11b2EdgeShape, i64 16), ptr %edgeShape, align 8
-  %m_type.i = getelementptr inbounds i8, ptr %edgeShape, i64 8
+  %m_type.i = getelementptr inbounds nuw i8, ptr %edgeShape, i64 8
   store i32 1, ptr %m_type.i, align 8
-  %m_radius.i = getelementptr inbounds i8, ptr %edgeShape, i64 12
+  %m_radius.i = getelementptr inbounds nuw i8, ptr %edgeShape, i64 12
   store float 0x3F847AE140000000, ptr %m_radius.i, align 4
-  %m_vertex02.i = getelementptr inbounds i8, ptr %edgeShape, i64 32
+  %m_vertex02.i = getelementptr inbounds nuw i8, ptr %edgeShape, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %m_vertex02.i, i8 0, i64 17, i1 false)
   %add = add nsw i32 %childIndex, 1
-  %m_count = getelementptr inbounds i8, ptr %this, i64 24
+  %m_count = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i32, ptr %m_count, align 8
   %cmp = icmp eq i32 %add, %0
   %spec.store.select = select i1 %cmp, i32 0, i32 %add
-  %m_vertices = getelementptr inbounds i8, ptr %this, i64 16
+  %m_vertices = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %m_vertices, align 8
   %idxprom = sext i32 %childIndex to i64
   %arrayidx = getelementptr inbounds %struct.b2Vec2, ptr %1, i64 %idxprom
-  %m_vertex1 = getelementptr inbounds i8, ptr %edgeShape, i64 16
+  %m_vertex1 = getelementptr inbounds nuw i8, ptr %edgeShape, i64 16
   %2 = load i64, ptr %arrayidx, align 4
   store i64 %2, ptr %m_vertex1, align 8
   %idxprom3 = sext i32 %spec.store.select to i64
   %arrayidx4 = getelementptr inbounds %struct.b2Vec2, ptr %1, i64 %idxprom3
-  %m_vertex2 = getelementptr inbounds i8, ptr %edgeShape, i64 24
+  %m_vertex2 = getelementptr inbounds nuw i8, ptr %edgeShape, i64 24
   %3 = load i64, ptr %arrayidx4, align 4
   store i64 %3, ptr %m_vertex2, align 8
   %call = call noundef zeroext i1 @_ZNK11b2EdgeShape7RayCastEP15b2RayCastOutputRK14b2RayCastInputRK11b2Transformi(ptr noundef nonnull align 8 dereferenceable(49) %edgeShape, ptr noundef %output, ptr noundef nonnull align 4 dereferenceable(20) %input, ptr noundef nonnull align 4 dereferenceable(16) %xf, i32 noundef 0)
@@ -288,20 +288,20 @@ declare noundef zeroext i1 @_ZNK11b2EdgeShape7RayCastEP15b2RayCastOutputRK14b2Ra
 define void @_ZNK12b2ChainShape11ComputeAABBEP6b2AABBRK11b2Transformi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %this, ptr nocapture noundef writeonly initializes((0, 16)) %aabb, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %xf, i32 noundef %childIndex) unnamed_addr #10 align 2 {
 entry:
   %add = add nsw i32 %childIndex, 1
-  %m_count = getelementptr inbounds i8, ptr %this, i64 24
+  %m_count = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i32, ptr %m_count, align 8
   %cmp = icmp eq i32 %add, %0
   %spec.store.select = select i1 %cmp, i32 0, i32 %add
-  %m_vertices = getelementptr inbounds i8, ptr %this, i64 16
+  %m_vertices = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %m_vertices, align 8
   %idxprom = sext i32 %childIndex to i64
   %arrayidx = getelementptr inbounds %struct.b2Vec2, ptr %1, i64 %idxprom
-  %q.i = getelementptr inbounds i8, ptr %xf, i64 8
-  %c.i = getelementptr inbounds i8, ptr %xf, i64 12
+  %q.i = getelementptr inbounds nuw i8, ptr %xf, i64 8
+  %c.i = getelementptr inbounds nuw i8, ptr %xf, i64 12
   %2 = load float, ptr %c.i, align 4
   %3 = load float, ptr %arrayidx, align 4
   %4 = load float, ptr %q.i, align 4
-  %y.i = getelementptr inbounds i8, ptr %arrayidx, i64 4
+  %y.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 4
   %5 = load float, ptr %y.i, align 4
   %6 = fneg float %5
   %neg.i = fmul float %4, %6
@@ -310,13 +310,13 @@ entry:
   %add.i = fadd float %8, %7
   %mul12.i = fmul float %2, %5
   %9 = tail call float @llvm.fmuladd.f32(float %4, float %3, float %mul12.i)
-  %y14.i = getelementptr inbounds i8, ptr %xf, i64 4
+  %y14.i = getelementptr inbounds nuw i8, ptr %xf, i64 4
   %10 = load float, ptr %y14.i, align 4
   %add15.i = fadd float %9, %10
   %idxprom3 = sext i32 %spec.store.select to i64
   %arrayidx4 = getelementptr inbounds %struct.b2Vec2, ptr %1, i64 %idxprom3
   %11 = load float, ptr %arrayidx4, align 4
-  %y.i7 = getelementptr inbounds i8, ptr %arrayidx4, i64 4
+  %y.i7 = getelementptr inbounds nuw i8, ptr %arrayidx4, i64 4
   %12 = load float, ptr %y.i7, align 4
   %13 = fneg float %12
   %neg.i8 = fmul float %4, %13
@@ -333,7 +333,7 @@ entry:
   %cond.i.i19 = select i1 %cmp.i.i18, float %add.i, float %add.i9
   %cmp.i3.i22 = fcmp ogt float %add15.i, %add15.i12
   %cond.i4.i23 = select i1 %cmp.i3.i22, float %add15.i, float %add15.i12
-  %m_radius = getelementptr inbounds i8, ptr %this, i64 12
+  %m_radius = getelementptr inbounds nuw i8, ptr %this, i64 12
   %16 = load float, ptr %m_radius, align 4
   %sub.i = fsub float %cond.i.i, %16
   %sub3.i = fsub float %cond.i4.i, %16
@@ -344,7 +344,7 @@ entry:
   %add3.i = fadd float %16, %cond.i4.i23
   %retval.sroa.0.0.vec.insert.i34 = insertelement <2 x float> poison, float %add.i31, i64 0
   %retval.sroa.0.4.vec.insert.i35 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i34, float %add3.i, i64 1
-  %upperBound = getelementptr inbounds i8, ptr %aabb, i64 8
+  %upperBound = getelementptr inbounds nuw i8, ptr %aabb, i64 8
   store <2 x float> %retval.sroa.0.4.vec.insert.i35, ptr %upperBound, align 4
   ret void
 }

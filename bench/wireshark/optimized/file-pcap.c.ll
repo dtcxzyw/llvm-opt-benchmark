@@ -246,12 +246,12 @@ define internal i32 @dissect_pcap(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %61, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %29
-  %62 = getelementptr inbounds i8, ptr %13, i64 8
-  %63 = getelementptr inbounds i8, ptr %1, i64 20
-  %64 = getelementptr inbounds i8, ptr %1, i64 24
-  %65 = getelementptr inbounds i8, ptr %17, i64 48
-  %66 = getelementptr inbounds i8, ptr %17, i64 16
-  %67 = getelementptr inbounds i8, ptr %17, i64 40
+  %62 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %65 = getelementptr inbounds nuw i8, ptr %17, i64 48
+  %66 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %67 = getelementptr inbounds nuw i8, ptr %17, i64 40
   br label %68
 
 68:                                               ; preds = %.lr.ph, %163
@@ -392,35 +392,35 @@ define internal i32 @dissect_pcap(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 130:                                              ; preds = %129
   %.0..0..0..0.9 = load volatile ptr, ptr %14, align 8
-  %131 = getelementptr inbounds i8, ptr %.0..0..0..0.9, i64 8
+  %131 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.9, i64 8
   %132 = load volatile i64, ptr %131, align 8
   %133 = icmp eq i64 %132, 1
   br i1 %133, label %150, label %134
 
 134:                                              ; preds = %130
   %.0..0..0..0.10 = load volatile ptr, ptr %14, align 8
-  %135 = getelementptr inbounds i8, ptr %.0..0..0..0.10, i64 8
+  %135 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.10, i64 8
   %136 = load volatile i64, ptr %135, align 8
   %137 = icmp eq i64 %136, 4
   br i1 %137, label %150, label %138
 
 138:                                              ; preds = %134
   %.0..0..0..0.11 = load volatile ptr, ptr %14, align 8
-  %139 = getelementptr inbounds i8, ptr %.0..0..0..0.11, i64 8
+  %139 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.11, i64 8
   %140 = load volatile i64, ptr %139, align 8
   %141 = icmp eq i64 %140, 3
   br i1 %141, label %150, label %142
 
 142:                                              ; preds = %138
   %.0..0..0..0.12 = load volatile ptr, ptr %14, align 8
-  %143 = getelementptr inbounds i8, ptr %.0..0..0..0.12, i64 8
+  %143 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.12, i64 8
   %144 = load volatile i64, ptr %143, align 8
   %145 = icmp eq i64 %144, 2
   br i1 %145, label %150, label %146
 
 146:                                              ; preds = %142
   %.0..0..0..0.13 = load volatile ptr, ptr %14, align 8
-  %147 = getelementptr inbounds i8, ptr %.0..0..0..0.13, i64 8
+  %147 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.13, i64 8
   %148 = load volatile i64, ptr %147, align 8
   %149 = icmp eq i64 %148, 7
   br i1 %149, label %150, label %156
@@ -430,10 +430,10 @@ define internal i32 @dissect_pcap(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %151 = or i32 %.0..0..0..0.5, 1
   store volatile i32 %151, ptr %15, align 4
   %.0..0..0..0.14 = load volatile ptr, ptr %14, align 8
-  %152 = getelementptr inbounds i8, ptr %.0..0..0..0.14, i64 8
+  %152 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.14, i64 8
   %153 = load volatile i64, ptr %152, align 8
   %.0..0..0..0.15 = load volatile ptr, ptr %14, align 8
-  %154 = getelementptr inbounds i8, ptr %.0..0..0..0.15, i64 16
+  %154 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.15, i64 16
   %155 = load volatile ptr, ptr %154, align 8
   call void @show_exception(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %109, i64 noundef %153, ptr noundef %155) #5
   br label %156

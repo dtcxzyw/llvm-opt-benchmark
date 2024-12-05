@@ -168,7 +168,7 @@ define void @_ZN8proxygen19ServerListGenerator15attachEventBaseEPN5folly9EventBa
 entry:
   %ref.tmp3 = alloca %"class.google::LogMessageFatal", align 8
   %ref.tmp15 = alloca %"class.google::LogMessageFatal", align 8
-  %eventBase_ = getelementptr inbounds i8, ptr %this, i64 8
+  %eventBase_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %eventBase_, align 8
   %tobool.not.not = icmp eq ptr %0, null
   br i1 %tobool.not.not, label %cleanup.done, label %cond.false
@@ -193,14 +193,14 @@ lpad:                                             ; preds = %invoke.cont, %cond.
   unreachable
 
 cleanup.done:                                     ; preds = %entry
-  %loopThread_.i = getelementptr inbounds i8, ptr %base, i64 64
+  %loopThread_.i = getelementptr inbounds nuw i8, ptr %base, i64 64
   %2 = load atomic i64, ptr %loopThread_.i monotonic, align 8
   %call.i.i = tail call i64 @pthread_self() #14
   %cmp.i.i = icmp eq i64 %2, %call.i.i
   br i1 %cmp.i.i, label %cleanup.done26, label %_ZNK5folly9EventBase19isInEventBaseThreadEv.exit
 
 _ZNK5folly9EventBase19isInEventBaseThreadEv.exit: ; preds = %cleanup.done
-  %strictLoopThread_.i = getelementptr inbounds i8, ptr %base, i64 57
+  %strictLoopThread_.i = getelementptr inbounds nuw i8, ptr %base, i64 57
   %3 = load i8, ptr %strictLoopThread_.i, align 1
   %tobool.i = trunc i8 %3 to i1
   %cmp.i2.i = icmp ne i64 %2, 0
@@ -246,20 +246,20 @@ declare void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 derefe
 define void @_ZN8proxygen19ServerListGenerator15detachEventBaseEv(ptr nocapture noundef nonnull align 8 dereferenceable(20) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp3 = alloca %"class.google::LogMessageFatal", align 8
-  %eventBase_ = getelementptr inbounds i8, ptr %this, i64 8
+  %eventBase_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %eventBase_, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %cleanup.done, label %lor.rhs
 
 lor.rhs:                                          ; preds = %entry
-  %loopThread_.i = getelementptr inbounds i8, ptr %0, i64 64
+  %loopThread_.i = getelementptr inbounds nuw i8, ptr %0, i64 64
   %1 = load atomic i64, ptr %loopThread_.i monotonic, align 8
   %call.i.i = tail call i64 @pthread_self() #14
   %cmp.i.i = icmp eq i64 %1, %call.i.i
   br i1 %cmp.i.i, label %cleanup.done, label %lor.end
 
 lor.end:                                          ; preds = %lor.rhs
-  %strictLoopThread_.i = getelementptr inbounds i8, ptr %0, i64 57
+  %strictLoopThread_.i = getelementptr inbounds nuw i8, ptr %0, i64 57
   %2 = load i8, ptr %strictLoopThread_.i, align 1
   %tobool.i = trunc i8 %2 to i1
   %cmp.i2.i = icmp ne i64 %1, 0
@@ -298,22 +298,22 @@ invoke.cont:
   %ref.tmp = alloca %"class.google::LogMessageFatal", align 8
   %agg.tmp24 = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   call void @_ZN5folly9EventBaseC1Eb(ptr noundef nonnull align 16 dereferenceable(568) %eventBase, i1 noundef zeroext true)
-  %gen_.i.i = getelementptr inbounds i8, ptr %callback, i64 8
+  %gen_.i.i = getelementptr inbounds nuw i8, ptr %callback, i64 8
   store ptr null, ptr %gen_.i.i, align 8
-  %takeOwnershipOfGenerator_.i.i = getelementptr inbounds i8, ptr %callback, i64 16
+  %takeOwnershipOfGenerator_.i.i = getelementptr inbounds nuw i8, ptr %callback, i64 16
   store i8 0, ptr %takeOwnershipOfGenerator_.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen18ServerListCallbackE, i64 16), ptr %callback, align 8
-  %status.i = getelementptr inbounds i8, ptr %callback, i64 20
+  %status.i = getelementptr inbounds nuw i8, ptr %callback, i64 20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %status.i, i8 0, i64 36, i1 false)
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %0 = load ptr, ptr %vfn, align 8
   invoke void %0(ptr noundef nonnull align 8 dereferenceable(20) %this, ptr noundef nonnull %eventBase)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
   %vtable5 = load ptr, ptr %this, align 8
-  %vfn6 = getelementptr inbounds i8, ptr %vtable5, i64 32
+  %vfn6 = getelementptr inbounds nuw i8, ptr %vtable5, i64 32
   %1 = load ptr, ptr %vfn6, align 8
   invoke void %1(ptr noundef nonnull align 8 dereferenceable(20) %this, ptr noundef nonnull %callback, i64 %timeout.coerce)
           to label %invoke.cont7 unwind label %lpad2
@@ -324,7 +324,7 @@ invoke.cont7:                                     ; preds = %invoke.cont3
 
 invoke.cont8:                                     ; preds = %invoke.cont7
   %vtable9 = load ptr, ptr %this, align 8
-  %vfn10 = getelementptr inbounds i8, ptr %vtable9, i64 24
+  %vfn10 = getelementptr inbounds nuw i8, ptr %vtable9, i64 24
   %2 = load ptr, ptr %vfn10, align 8
   invoke void %2(ptr noundef nonnull align 8 dereferenceable(20) %this)
           to label %invoke.cont11 unwind label %lpad2
@@ -335,7 +335,7 @@ invoke.cont11:                                    ; preds = %invoke.cont8
   br i1 %cmp.not, label %if.end28, label %if.then
 
 if.then:                                          ; preds = %invoke.cont11
-  %errorPtr = getelementptr inbounds i8, ptr %callback, i64 48
+  %errorPtr = getelementptr inbounds nuw i8, ptr %callback, i64 48
   %4 = load ptr, ptr %errorPtr, align 8
   %tobool.i.not = icmp eq ptr %4, null
   br i1 %tobool.i.not, label %if.then13, label %_ZNSt15__exception_ptr13exception_ptrC2ERKS0_.exit
@@ -392,18 +392,18 @@ if.then.i4:                                       ; preds = %lpad26
   br label %ehcleanup
 
 if.end28:                                         ; preds = %invoke.cont11
-  %servers = getelementptr inbounds i8, ptr %callback, i64 24
+  %servers = getelementptr inbounds nuw i8, ptr %callback, i64 24
   %9 = load ptr, ptr %results, align 8
-  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %results, i64 8
+  %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %results, i64 8
   %10 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %results, i64 16
+  %_M_end_of_storage.i.i.i = getelementptr inbounds nuw i8, ptr %results, i64 16
   %11 = load ptr, ptr %_M_end_of_storage.i.i.i, align 8
   %12 = load ptr, ptr %servers, align 8
   store ptr %12, ptr %results, align 8
-  %_M_finish.i2.i.i = getelementptr inbounds i8, ptr %callback, i64 32
+  %_M_finish.i2.i.i = getelementptr inbounds nuw i8, ptr %callback, i64 32
   %13 = load ptr, ptr %_M_finish.i2.i.i, align 8
   store ptr %13, ptr %_M_finish.i.i.i, align 8
-  %_M_end_of_storage.i4.i.i = getelementptr inbounds i8, ptr %callback, i64 40
+  %_M_end_of_storage.i4.i.i = getelementptr inbounds nuw i8, ptr %callback, i64 40
   %14 = load ptr, ptr %_M_end_of_storage.i4.i.i, align 8
   store ptr %14, ptr %_M_end_of_storage.i.i.i, align 8
   store ptr %9, ptr %servers, align 8
@@ -431,7 +431,7 @@ declare void @_ZSt17rethrow_exceptionNSt15__exception_ptr13exception_ptrE(ptr no
 define linkonce_odr void @_ZN8proxygen18ServerListCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen18ServerListCallbackE, i64 16), ptr %this, align 8
-  %errorPtr = getelementptr inbounds i8, ptr %this, i64 48
+  %errorPtr = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %errorPtr, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit, label %if.then.i
@@ -441,9 +441,9 @@ if.then.i:                                        ; preds = %entry
   br label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit
 
 _ZNSt15__exception_ptr13exception_ptrD2Ev.exit:   ; preds = %entry, %if.then.i
-  %servers = getelementptr inbounds i8, ptr %this, i64 24
+  %servers = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load ptr, ptr %servers, align 8
-  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 32
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %2 = load ptr, ptr %_M_finish.i, align 8
   %cmp.not3.i.i.i.i = icmp eq ptr %1, %2
   br i1 %cmp.not3.i.i.i.i, label %invoke.cont.i, label %for.body.i.i.i.i
@@ -451,7 +451,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit:   ; preds = %entry, %if.then.i
 for.body.i.i.i.i:                                 ; preds = %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit, %for.body.i.i.i.i
   %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %1, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ]
   tail call void @_ZN8proxygen19ServerListGenerator12ServerConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(140) %__first.addr.04.i.i.i.i) #15
-  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 144
+  %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i, i64 144
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %2
   br i1 %cmp.not.i.i.i.i, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !4
 
@@ -470,14 +470,14 @@ if.then.i.i.i:                                    ; preds = %invoke.cont.i
 
 _ZNSt6vectorIN8proxygen19ServerListGenerator12ServerConfigESaIS2_EED2Ev.exit: ; preds = %invoke.cont.i, %if.then.i.i.i
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen19ServerListGenerator8CallbackE, i64 16), ptr %this, align 8
-  %gen_.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %gen_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %4 = load ptr, ptr %gen_.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i, label %_ZN8proxygen19ServerListGenerator8CallbackD2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZNSt6vectorIN8proxygen19ServerListGenerator12ServerConfigESaIS2_EED2Ev.exit
   %vtable.i.i = load ptr, ptr %4, align 8
-  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 16
+  %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 16
   %5 = load ptr, ptr %vfn.i.i, align 8
   invoke void %5(ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %.noexc.i unwind label %terminate.lpad.i
@@ -555,24 +555,24 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8proxygen18ServerListCallback21onServerListAvailableEOSt6vectorINS_19ServerListGenerator12ServerConfigESaIS3_EE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(24) %results) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %servers = getelementptr inbounds i8, ptr %this, i64 24
+  %servers = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %servers, align 8
-  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %1 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %_M_end_of_storage.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %2 = load ptr, ptr %_M_end_of_storage.i.i.i, align 8
   %3 = load ptr, ptr %results, align 8
   store ptr %3, ptr %servers, align 8
-  %_M_finish.i2.i.i = getelementptr inbounds i8, ptr %results, i64 8
+  %_M_finish.i2.i.i = getelementptr inbounds nuw i8, ptr %results, i64 8
   %4 = load ptr, ptr %_M_finish.i2.i.i, align 8
   store ptr %4, ptr %_M_finish.i.i.i, align 8
-  %_M_end_of_storage.i4.i.i = getelementptr inbounds i8, ptr %results, i64 16
+  %_M_end_of_storage.i4.i.i = getelementptr inbounds nuw i8, ptr %results, i64 16
   %5 = load ptr, ptr %_M_end_of_storage.i4.i.i, align 8
   store ptr %5, ptr %_M_end_of_storage.i.i.i, align 8
   store ptr %0, ptr %results, align 8
   store ptr %1, ptr %_M_finish.i2.i.i, align 8
   store ptr %2, ptr %_M_end_of_storage.i4.i.i, align 8
-  %status = getelementptr inbounds i8, ptr %this, i64 20
+  %status = getelementptr inbounds nuw i8, ptr %this, i64 20
   store i32 1, ptr %status, align 4
   ret void
 }
@@ -581,7 +581,7 @@ entry:
 define linkonce_odr void @_ZN8proxygen18ServerListCallback17onServerListErrorENSt15__exception_ptr13exception_ptrE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef %error) unnamed_addr #4 comdat align 2 {
 entry:
   %ref.tmp.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
-  %errorPtr = getelementptr inbounds i8, ptr %this, i64 48
+  %errorPtr = getelementptr inbounds nuw i8, ptr %this, i64 48
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   %0 = load ptr, ptr %error, align 8
   store ptr %0, ptr %ref.tmp.i, align 8
@@ -607,7 +607,7 @@ if.then.i2.i:                                     ; preds = %_ZNSt15__exception_
 
 _ZNSt15__exception_ptr13exception_ptraSERKS0_.exit: ; preds = %_ZNSt15__exception_ptr13exception_ptrC2ERKS0_.exit.i, %if.then.i2.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
-  %status = getelementptr inbounds i8, ptr %this, i64 20
+  %status = getelementptr inbounds nuw i8, ptr %this, i64 20
   store i32 2, ptr %status, align 4
   ret void
 }
@@ -615,7 +615,7 @@ _ZNSt15__exception_ptr13exception_ptraSERKS0_.exit: ; preds = %_ZNSt15__exceptio
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8proxygen18ServerListCallback26serverListRequestCancelledEv(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  %status = getelementptr inbounds i8, ptr %this, i64 20
+  %status = getelementptr inbounds nuw i8, ptr %this, i64 20
   store i32 3, ptr %status, align 4
   ret void
 }
@@ -624,14 +624,14 @@ entry:
 define linkonce_odr void @_ZN8proxygen19ServerListGenerator8CallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(17) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen19ServerListGenerator8CallbackE, i64 16), ptr %this, align 8
-  %gen_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %gen_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %gen_.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %invoke.cont, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   %vtable.i = load ptr, ptr %0, align 8
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 16
   %1 = load ptr, ptr %vfn.i, align 8
   invoke void %1(ptr noundef nonnull align 8 dereferenceable(8) %0)
           to label %.noexc unwind label %terminate.lpad
@@ -663,7 +663,7 @@ define linkonce_odr void @_ZN8proxygen19ServerListGenerator8Callback14resetGener
 entry:
   %ref.tmp8 = alloca %"class.google::LogMessageFatal", align 8
   %frombool = zext i1 %takeOwnership to i8
-  %gen_ = getelementptr inbounds i8, ptr %this, i64 8
+  %gen_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %gen_, align 8
   %cmp = icmp eq ptr %0, null
   %cmp2 = icmp eq ptr %g, null
@@ -710,7 +710,7 @@ cleanup.done:                                     ; preds = %if.end
   br i1 %cmp2, label %land.lhs.true22, label %if.end26
 
 land.lhs.true22:                                  ; preds = %cleanup.done
-  %takeOwnershipOfGenerator_ = getelementptr inbounds i8, ptr %this, i64 16
+  %takeOwnershipOfGenerator_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %3 = load i8, ptr %takeOwnershipOfGenerator_, align 8
   %tobool23 = trunc i8 %3 to i1
   %tobool23.not = xor i1 %tobool23, true
@@ -719,14 +719,14 @@ land.lhs.true22:                                  ; preds = %cleanup.done
 
 delete.notnull:                                   ; preds = %land.lhs.true22
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 8
   %4 = load ptr, ptr %vfn, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
   br label %if.end26
 
 if.end26:                                         ; preds = %land.lhs.true22, %delete.notnull, %cleanup.done
   store ptr %g, ptr %gen_, align 8
-  %takeOwnershipOfGenerator_29 = getelementptr inbounds i8, ptr %this, i64 16
+  %takeOwnershipOfGenerator_29 = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i8 %frombool, ptr %takeOwnershipOfGenerator_29, align 8
   br label %return
 
@@ -751,8 +751,8 @@ declare void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef no
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8proxygen19ServerListGenerator12ServerConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(140) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %properties = getelementptr inbounds i8, ptr %this, i64 88
-  %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
+  %properties = getelementptr inbounds nuw i8, ptr %this, i64 88
+  %_M_parent.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 104
   %0 = load ptr, ptr %_M_parent.i.i.i.i, align 8
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %properties, ptr noundef %0)
           to label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev.exit unwind label %terminate.lpad.i.i
@@ -765,16 +765,16 @@ terminate.lpad.i.i:                               ; preds = %entry
   unreachable
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev.exit: ; preds = %entry
-  %altAddresses = getelementptr inbounds i8, ptr %this, i64 64
+  %altAddresses = getelementptr inbounds nuw i8, ptr %this, i64 64
   %3 = load ptr, ptr %altAddresses, align 8
-  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 72
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %4 = load ptr, ptr %_M_finish.i, align 8
   %cmp.not3.i.i.i.i = icmp eq ptr %3, %4
   br i1 %cmp.not3.i.i.i.i, label %invoke.cont.i, label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev.exit, %_ZSt8_DestroyIN5folly13SocketAddressEEvPT_.exit.i.i.i.i
   %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %_ZSt8_DestroyIN5folly13SocketAddressEEvPT_.exit.i.i.i.i ], [ %3, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev.exit ]
-  %external_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 26
+  %external_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i, i64 26
   %5 = load i8, ptr %external_.i.i.i.i.i.i, align 2
   %tobool.i.i.i.i.i.i = trunc i8 %5 to i1
   br i1 %tobool.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %_ZSt8_DestroyIN5folly13SocketAddressEEvPT_.exit.i.i.i.i
@@ -789,7 +789,7 @@ delete.notnull.i.i.i.i.i.i.i:                     ; preds = %if.then.i.i.i.i.i.i
   br label %_ZSt8_DestroyIN5folly13SocketAddressEEvPT_.exit.i.i.i.i
 
 _ZSt8_DestroyIN5folly13SocketAddressEEvPT_.exit.i.i.i.i: ; preds = %delete.notnull.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i, %for.body.i.i.i.i
-  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 32
+  %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i, i64 32
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %4
   br i1 %cmp.not.i.i.i.i, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !6
 
@@ -807,13 +807,13 @@ if.then.i.i.i:                                    ; preds = %invoke.cont.i
   br label %_ZNSt6vectorIN5folly13SocketAddressESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN5folly13SocketAddressESaIS1_EED2Ev.exit: ; preds = %invoke.cont.i, %if.then.i.i.i
-  %external_.i = getelementptr inbounds i8, ptr %this, i64 58
+  %external_.i = getelementptr inbounds nuw i8, ptr %this, i64 58
   %8 = load i8, ptr %external_.i, align 2
   %tobool.i = trunc i8 %8 to i1
   br i1 %tobool.i, label %if.then.i, label %_ZN5folly13SocketAddressD2Ev.exit
 
 if.then.i:                                        ; preds = %_ZNSt6vectorIN5folly13SocketAddressESaIS1_EED2Ev.exit
-  %address = getelementptr inbounds i8, ptr %this, i64 32
+  %address = getelementptr inbounds nuw i8, ptr %this, i64 32
   %9 = load ptr, ptr %address, align 8
   %isnull.i.i = icmp eq ptr %9, null
   br i1 %isnull.i.i, label %_ZN5folly13SocketAddressD2Ev.exit, label %delete.notnull.i.i
@@ -838,13 +838,13 @@ entry:
 
 while.body:                                       ; preds = %entry, %while.body
   %__x.addr.05 = phi ptr [ %1, %while.body ], [ %__x, %entry ]
-  %_M_right.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 24
+  %_M_right.i = getelementptr inbounds nuw i8, ptr %__x.addr.05, i64 24
   %0 = load ptr, ptr %_M_right.i, align 8
   tail call void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %0)
-  %_M_left.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 16
+  %_M_left.i = getelementptr inbounds nuw i8, ptr %__x.addr.05, i64 16
   %1 = load ptr, ptr %_M_left.i, align 8
-  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 32
-  %second.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 64
+  %_M_storage.i.i.i = getelementptr inbounds nuw i8, ptr %__x.addr.05, i64 32
+  %second.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__x.addr.05, i64 64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i.i) #15
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %_M_storage.i.i.i) #15
   tail call void @_ZdlPv(ptr noundef nonnull %__x.addr.05) #17

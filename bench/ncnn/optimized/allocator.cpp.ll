@@ -389,7 +389,7 @@ define hidden noundef ptr @_ZN4ncnn13PoolAllocator10fastMallocEm(ptr nocapture n
   %32 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #15
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
   store i64 %13, ptr %33, align 8
-  %.sroa.223.0..sroa_idx = getelementptr inbounds i8, ptr %32, i64 24
+  %.sroa.223.0..sroa_idx = getelementptr inbounds nuw i8, ptr %32, i64 24
   store ptr %21, ptr %.sroa.223.0..sroa_idx, align 8
   tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef nonnull align 8 dereferenceable(24) %31) #16
   %34 = getelementptr inbounds nuw i8, ptr %30, i64 136
@@ -495,7 +495,7 @@ define hidden noundef ptr @_ZN4ncnn13PoolAllocator10fastMallocEm(ptr nocapture n
   %81 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #15
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 16
   store i64 %1, ptr %82, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %81, i64 24
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %81, i64 24
   store ptr %75, ptr %.sroa.2.0..sroa_idx, align 8
   call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %81, ptr noundef nonnull align 8 dereferenceable(24) %80) #16
   %83 = getelementptr inbounds nuw i8, ptr %79, i64 136
@@ -553,7 +553,7 @@ define hidden void @_ZN4ncnn13PoolAllocator8fastFreeEPv(ptr nocapture noundef no
   %27 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #15
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
   store i64 %16, ptr %28, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %27, i64 24
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 24
   store ptr %1, ptr %.sroa.2.0..sroa_idx, align 8
   tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull align 8 dereferenceable(24) %26) #16
   %29 = getelementptr inbounds nuw i8, ptr %25, i64 112
@@ -889,7 +889,7 @@ define hidden noundef ptr @_ZN4ncnn21UnlockedPoolAllocator10fastMallocEm(ptr noc
   %23 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #15
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   store i64 %9, ptr %24, align 8
-  %.sroa.223.0..sroa_idx = getelementptr inbounds i8, ptr %23, i64 24
+  %.sroa.223.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 24
   store ptr %17, ptr %.sroa.223.0..sroa_idx, align 8
   tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(24) %22) #16
   br label %63
@@ -983,7 +983,7 @@ define hidden noundef ptr @_ZN4ncnn21UnlockedPoolAllocator10fastMallocEm(ptr noc
   %61 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #15
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 16
   store i64 %1, ptr %62, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %61, i64 24
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %61, i64 24
   store ptr %58, ptr %.sroa.2.0..sroa_idx, align 8
   call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %61, ptr noundef nonnull align 8 dereferenceable(24) %60) #16
   br label %63
@@ -1031,7 +1031,7 @@ define hidden void @_ZN4ncnn21UnlockedPoolAllocator8fastFreeEPv(ptr nocapture no
   %19 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #15
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store i64 %13, ptr %20, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %19, i64 24
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 24
   store ptr %1, ptr %.sroa.2.0..sroa_idx, align 8
   tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(24) %18) #16
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 32

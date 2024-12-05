@@ -14,7 +14,7 @@ define void @jpeg_mem_src_tj(ptr noundef %0, ptr noundef %1, i64 noundef %2) loc
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store i32 42, ptr %8, align 8
   %9 = load ptr, ptr %0, align 8
   %10 = load ptr, ptr %9, align 8
@@ -22,13 +22,13 @@ define void @jpeg_mem_src_tj(ptr noundef %0, ptr noundef %1, i64 noundef %2) loc
   br label %11
 
 11:                                               ; preds = %3, %6
-  %12 = getelementptr inbounds i8, ptr %0, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %15, label %20
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr %17, align 8
   %19 = tail call ptr %18(ptr noundef nonnull %0, i32 noundef 0, i64 noundef 56) #3
@@ -36,14 +36,14 @@ define void @jpeg_mem_src_tj(ptr noundef %0, ptr noundef %1, i64 noundef %2) loc
   br label %28
 
 20:                                               ; preds = %11
-  %21 = getelementptr inbounds i8, ptr %13, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %22 = load ptr, ptr %21, align 8
   %.not = icmp eq ptr %22, @init_mem_source
   br i1 %.not, label %28, label %23
 
 23:                                               ; preds = %20
   %24 = load ptr, ptr %0, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 40
   store i32 23, ptr %25, align 8
   %26 = load ptr, ptr %0, align 8
   %27 = load ptr, ptr %26, align 8
@@ -53,17 +53,17 @@ define void @jpeg_mem_src_tj(ptr noundef %0, ptr noundef %1, i64 noundef %2) loc
 
 28:                                               ; preds = %20, %23, %15
   %29 = phi ptr [ %13, %20 ], [ %.pre, %23 ], [ %19, %15 ]
-  %30 = getelementptr inbounds i8, ptr %29, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
   store ptr @init_mem_source, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %29, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %29, i64 24
   store ptr @fill_mem_input_buffer, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %29, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 32
   store ptr @skip_input_data, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %29, i64 40
+  %33 = getelementptr inbounds nuw i8, ptr %29, i64 40
   store ptr @jpeg_resync_to_restart, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %29, i64 48
+  %34 = getelementptr inbounds nuw i8, ptr %29, i64 48
   store ptr @term_source, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %29, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store i64 %2, ptr %35, align 8
   store ptr %1, ptr %29, align 8
   ret void
@@ -77,36 +77,36 @@ define internal void @init_mem_source(ptr nocapture readnone %0) #1 {
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @fill_mem_input_buffer(ptr noundef %0) #0 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i32 120, ptr %3, align 8
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void %6(ptr noundef nonnull %0, i32 noundef -1) #3
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load ptr, ptr %7, align 8
   store ptr @fill_mem_input_buffer.mybuffer, ptr %8, align 8
   %9 = load ptr, ptr %7, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 2, ptr %10, align 8
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @skip_input_data(ptr noundef %0, i64 noundef %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = icmp sgt i64 %1, 0
   br i1 %5, label %.preheader, label %20
 
 .preheader:                                       ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %7 = load i64, ptr %6, align 8
   %8 = icmp sgt i64 %1, %7
   br i1 %8, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  %9 = getelementptr inbounds i8, ptr %4, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 24
   br label %10
 
 10:                                               ; preds = %.lr.ph, %10

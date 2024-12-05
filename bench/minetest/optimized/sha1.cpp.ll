@@ -22,7 +22,7 @@ while.body:                                       ; preds = %entry, %while.body
   %conv = zext i8 %0 to i32
   %call = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %conv)
   %dec = add nsw i32 %l.addr.05, -1
-  %incdec.ptr = getelementptr inbounds i8, ptr %c.addr.04, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %c.addr.04, i64 1
   %cmp = icmp ugt i32 %l.addr.05, 1
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !7
 
@@ -51,14 +51,14 @@ entry:
   store i8 %conv, ptr %byte, align 1, !tbaa !4
   %shr1 = lshr i32 %num, 16
   %conv2 = trunc i32 %shr1 to i8
-  %arrayidx3 = getelementptr inbounds i8, ptr %byte, i64 1
+  %arrayidx3 = getelementptr inbounds nuw i8, ptr %byte, i64 1
   store i8 %conv2, ptr %arrayidx3, align 1, !tbaa !4
   %shr4 = lshr i32 %num, 8
   %conv5 = trunc i32 %shr4 to i8
-  %arrayidx6 = getelementptr inbounds i8, ptr %byte, i64 2
+  %arrayidx6 = getelementptr inbounds nuw i8, ptr %byte, i64 2
   store i8 %conv5, ptr %arrayidx6, align 1, !tbaa !4
   %conv7 = trunc i32 %num to i8
-  %arrayidx8 = getelementptr inbounds i8, ptr %byte, i64 3
+  %arrayidx8 = getelementptr inbounds nuw i8, ptr %byte, i64 3
   store i8 %conv7, ptr %arrayidx8, align 1, !tbaa !4
   ret void
 }
@@ -67,11 +67,11 @@ entry:
 define dso_local void @_ZN4SHA1C2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(92) initializes((0, 20), (84, 92)) %this) unnamed_addr #3 align 2 {
 entry:
   store <4 x i32> <i32 1732584193, i32 -271733879, i32 -1732584194, i32 271733878>, ptr %this, align 4, !tbaa !9
-  %H4 = getelementptr inbounds i8, ptr %this, i64 16
+  %H4 = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i32 -1009589776, ptr %H4, align 4, !tbaa !11
-  %unprocessedBytes = getelementptr inbounds i8, ptr %this, i64 84
+  %unprocessedBytes = getelementptr inbounds nuw i8, ptr %this, i64 84
   store i32 0, ptr %unprocessedBytes, align 4, !tbaa !13
-  %size = getelementptr inbounds i8, ptr %this, i64 88
+  %size = getelementptr inbounds nuw i8, ptr %this, i64 88
   store i32 0, ptr %size, align 4, !tbaa !14
   ret void
 }
@@ -95,332 +95,332 @@ for.body28.preheader:
   %W = alloca [80 x i32], align 16
   call void @llvm.lifetime.start.p0(i64 320, ptr nonnull %W) #9
   %0 = load i32, ptr %this, align 4, !tbaa !15
-  %H1 = getelementptr inbounds i8, ptr %this, i64 4
+  %H1 = getelementptr inbounds nuw i8, ptr %this, i64 4
   %1 = load i32, ptr %H1, align 4, !tbaa !16
-  %H2 = getelementptr inbounds i8, ptr %this, i64 8
+  %H2 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load i32, ptr %H2, align 4, !tbaa !17
-  %H3 = getelementptr inbounds i8, ptr %this, i64 12
+  %H3 = getelementptr inbounds nuw i8, ptr %this, i64 12
   %3 = load i32, ptr %H3, align 4, !tbaa !18
-  %H4 = getelementptr inbounds i8, ptr %this, i64 16
+  %H4 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %4 = load i32, ptr %H4, align 4, !tbaa !11
-  %bytes = getelementptr inbounds i8, ptr %this, i64 20
+  %bytes = getelementptr inbounds nuw i8, ptr %this, i64 20
   %5 = load i8, ptr %bytes, align 4, !tbaa !4
   %conv = zext i8 %5 to i32
   %shl = shl nuw i32 %conv, 24
-  %arrayidx5 = getelementptr inbounds i8, ptr %this, i64 21
+  %arrayidx5 = getelementptr inbounds nuw i8, ptr %this, i64 21
   %6 = load i8, ptr %arrayidx5, align 1, !tbaa !4
   %conv6 = zext i8 %6 to i32
   %shl7 = shl nuw nsw i32 %conv6, 16
   %add8 = or disjoint i32 %shl7, %shl
-  %arrayidx13 = getelementptr inbounds i8, ptr %this, i64 22
+  %arrayidx13 = getelementptr inbounds nuw i8, ptr %this, i64 22
   %7 = load i8, ptr %arrayidx13, align 2, !tbaa !4
   %conv14 = zext i8 %7 to i32
   %shl15 = shl nuw nsw i32 %conv14, 8
   %add16 = or disjoint i32 %add8, %shl15
-  %arrayidx21 = getelementptr inbounds i8, ptr %this, i64 23
+  %arrayidx21 = getelementptr inbounds nuw i8, ptr %this, i64 23
   %8 = load i8, ptr %arrayidx21, align 1, !tbaa !4
   %conv22 = zext i8 %8 to i32
   %add23 = or disjoint i32 %add16, %conv22
   store i32 %add23, ptr %W, align 16, !tbaa !9
-  %arrayidx.1 = getelementptr inbounds i8, ptr %this, i64 24
+  %arrayidx.1 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %9 = load i8, ptr %arrayidx.1, align 4, !tbaa !4
   %conv.1 = zext i8 %9 to i32
   %shl.1 = shl nuw i32 %conv.1, 24
-  %arrayidx5.1 = getelementptr inbounds i8, ptr %this, i64 25
+  %arrayidx5.1 = getelementptr inbounds nuw i8, ptr %this, i64 25
   %10 = load i8, ptr %arrayidx5.1, align 1, !tbaa !4
   %conv6.1 = zext i8 %10 to i32
   %shl7.1 = shl nuw nsw i32 %conv6.1, 16
   %add8.1 = or disjoint i32 %shl7.1, %shl.1
-  %arrayidx13.1 = getelementptr inbounds i8, ptr %this, i64 26
+  %arrayidx13.1 = getelementptr inbounds nuw i8, ptr %this, i64 26
   %11 = load i8, ptr %arrayidx13.1, align 2, !tbaa !4
   %conv14.1 = zext i8 %11 to i32
   %shl15.1 = shl nuw nsw i32 %conv14.1, 8
   %add16.1 = or disjoint i32 %add8.1, %shl15.1
-  %arrayidx21.1 = getelementptr inbounds i8, ptr %this, i64 27
+  %arrayidx21.1 = getelementptr inbounds nuw i8, ptr %this, i64 27
   %12 = load i8, ptr %arrayidx21.1, align 1, !tbaa !4
   %conv22.1 = zext i8 %12 to i32
   %add23.1 = or disjoint i32 %add16.1, %conv22.1
-  %arrayidx25.1 = getelementptr inbounds i8, ptr %W, i64 4
+  %arrayidx25.1 = getelementptr inbounds nuw i8, ptr %W, i64 4
   store i32 %add23.1, ptr %arrayidx25.1, align 4, !tbaa !9
-  %arrayidx.2 = getelementptr inbounds i8, ptr %this, i64 28
+  %arrayidx.2 = getelementptr inbounds nuw i8, ptr %this, i64 28
   %13 = load i8, ptr %arrayidx.2, align 4, !tbaa !4
   %conv.2 = zext i8 %13 to i32
   %shl.2 = shl nuw i32 %conv.2, 24
-  %arrayidx5.2 = getelementptr inbounds i8, ptr %this, i64 29
+  %arrayidx5.2 = getelementptr inbounds nuw i8, ptr %this, i64 29
   %14 = load i8, ptr %arrayidx5.2, align 1, !tbaa !4
   %conv6.2 = zext i8 %14 to i32
   %shl7.2 = shl nuw nsw i32 %conv6.2, 16
   %add8.2 = or disjoint i32 %shl7.2, %shl.2
-  %arrayidx13.2 = getelementptr inbounds i8, ptr %this, i64 30
+  %arrayidx13.2 = getelementptr inbounds nuw i8, ptr %this, i64 30
   %15 = load i8, ptr %arrayidx13.2, align 2, !tbaa !4
   %conv14.2 = zext i8 %15 to i32
   %shl15.2 = shl nuw nsw i32 %conv14.2, 8
   %add16.2 = or disjoint i32 %add8.2, %shl15.2
-  %arrayidx21.2 = getelementptr inbounds i8, ptr %this, i64 31
+  %arrayidx21.2 = getelementptr inbounds nuw i8, ptr %this, i64 31
   %16 = load i8, ptr %arrayidx21.2, align 1, !tbaa !4
   %conv22.2 = zext i8 %16 to i32
   %add23.2 = or disjoint i32 %add16.2, %conv22.2
-  %arrayidx25.2 = getelementptr inbounds i8, ptr %W, i64 8
+  %arrayidx25.2 = getelementptr inbounds nuw i8, ptr %W, i64 8
   store i32 %add23.2, ptr %arrayidx25.2, align 8, !tbaa !9
-  %arrayidx.3 = getelementptr inbounds i8, ptr %this, i64 32
+  %arrayidx.3 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %17 = load i8, ptr %arrayidx.3, align 4, !tbaa !4
   %conv.3 = zext i8 %17 to i32
   %shl.3 = shl nuw i32 %conv.3, 24
-  %arrayidx5.3 = getelementptr inbounds i8, ptr %this, i64 33
+  %arrayidx5.3 = getelementptr inbounds nuw i8, ptr %this, i64 33
   %18 = load i8, ptr %arrayidx5.3, align 1, !tbaa !4
   %conv6.3 = zext i8 %18 to i32
   %shl7.3 = shl nuw nsw i32 %conv6.3, 16
   %add8.3 = or disjoint i32 %shl7.3, %shl.3
-  %arrayidx13.3 = getelementptr inbounds i8, ptr %this, i64 34
+  %arrayidx13.3 = getelementptr inbounds nuw i8, ptr %this, i64 34
   %19 = load i8, ptr %arrayidx13.3, align 2, !tbaa !4
   %conv14.3 = zext i8 %19 to i32
   %shl15.3 = shl nuw nsw i32 %conv14.3, 8
   %add16.3 = or disjoint i32 %add8.3, %shl15.3
-  %arrayidx21.3 = getelementptr inbounds i8, ptr %this, i64 35
+  %arrayidx21.3 = getelementptr inbounds nuw i8, ptr %this, i64 35
   %20 = load i8, ptr %arrayidx21.3, align 1, !tbaa !4
   %conv22.3 = zext i8 %20 to i32
   %add23.3 = or disjoint i32 %add16.3, %conv22.3
-  %arrayidx25.3 = getelementptr inbounds i8, ptr %W, i64 12
+  %arrayidx25.3 = getelementptr inbounds nuw i8, ptr %W, i64 12
   store i32 %add23.3, ptr %arrayidx25.3, align 4, !tbaa !9
-  %arrayidx.4 = getelementptr inbounds i8, ptr %this, i64 36
+  %arrayidx.4 = getelementptr inbounds nuw i8, ptr %this, i64 36
   %21 = load i8, ptr %arrayidx.4, align 4, !tbaa !4
   %conv.4 = zext i8 %21 to i32
   %shl.4 = shl nuw i32 %conv.4, 24
-  %arrayidx5.4 = getelementptr inbounds i8, ptr %this, i64 37
+  %arrayidx5.4 = getelementptr inbounds nuw i8, ptr %this, i64 37
   %22 = load i8, ptr %arrayidx5.4, align 1, !tbaa !4
   %conv6.4 = zext i8 %22 to i32
   %shl7.4 = shl nuw nsw i32 %conv6.4, 16
   %add8.4 = or disjoint i32 %shl7.4, %shl.4
-  %arrayidx13.4 = getelementptr inbounds i8, ptr %this, i64 38
+  %arrayidx13.4 = getelementptr inbounds nuw i8, ptr %this, i64 38
   %23 = load i8, ptr %arrayidx13.4, align 2, !tbaa !4
   %conv14.4 = zext i8 %23 to i32
   %shl15.4 = shl nuw nsw i32 %conv14.4, 8
   %add16.4 = or disjoint i32 %add8.4, %shl15.4
-  %arrayidx21.4 = getelementptr inbounds i8, ptr %this, i64 39
+  %arrayidx21.4 = getelementptr inbounds nuw i8, ptr %this, i64 39
   %24 = load i8, ptr %arrayidx21.4, align 1, !tbaa !4
   %conv22.4 = zext i8 %24 to i32
   %add23.4 = or disjoint i32 %add16.4, %conv22.4
-  %arrayidx25.4 = getelementptr inbounds i8, ptr %W, i64 16
+  %arrayidx25.4 = getelementptr inbounds nuw i8, ptr %W, i64 16
   store i32 %add23.4, ptr %arrayidx25.4, align 16, !tbaa !9
-  %arrayidx.5 = getelementptr inbounds i8, ptr %this, i64 40
+  %arrayidx.5 = getelementptr inbounds nuw i8, ptr %this, i64 40
   %25 = load i8, ptr %arrayidx.5, align 4, !tbaa !4
   %conv.5 = zext i8 %25 to i32
   %shl.5 = shl nuw i32 %conv.5, 24
-  %arrayidx5.5 = getelementptr inbounds i8, ptr %this, i64 41
+  %arrayidx5.5 = getelementptr inbounds nuw i8, ptr %this, i64 41
   %26 = load i8, ptr %arrayidx5.5, align 1, !tbaa !4
   %conv6.5 = zext i8 %26 to i32
   %shl7.5 = shl nuw nsw i32 %conv6.5, 16
   %add8.5 = or disjoint i32 %shl7.5, %shl.5
-  %arrayidx13.5 = getelementptr inbounds i8, ptr %this, i64 42
+  %arrayidx13.5 = getelementptr inbounds nuw i8, ptr %this, i64 42
   %27 = load i8, ptr %arrayidx13.5, align 2, !tbaa !4
   %conv14.5 = zext i8 %27 to i32
   %shl15.5 = shl nuw nsw i32 %conv14.5, 8
   %add16.5 = or disjoint i32 %add8.5, %shl15.5
-  %arrayidx21.5 = getelementptr inbounds i8, ptr %this, i64 43
+  %arrayidx21.5 = getelementptr inbounds nuw i8, ptr %this, i64 43
   %28 = load i8, ptr %arrayidx21.5, align 1, !tbaa !4
   %conv22.5 = zext i8 %28 to i32
   %add23.5 = or disjoint i32 %add16.5, %conv22.5
-  %arrayidx25.5 = getelementptr inbounds i8, ptr %W, i64 20
+  %arrayidx25.5 = getelementptr inbounds nuw i8, ptr %W, i64 20
   store i32 %add23.5, ptr %arrayidx25.5, align 4, !tbaa !9
-  %arrayidx.6 = getelementptr inbounds i8, ptr %this, i64 44
+  %arrayidx.6 = getelementptr inbounds nuw i8, ptr %this, i64 44
   %29 = load i8, ptr %arrayidx.6, align 4, !tbaa !4
   %conv.6 = zext i8 %29 to i32
   %shl.6 = shl nuw i32 %conv.6, 24
-  %arrayidx5.6 = getelementptr inbounds i8, ptr %this, i64 45
+  %arrayidx5.6 = getelementptr inbounds nuw i8, ptr %this, i64 45
   %30 = load i8, ptr %arrayidx5.6, align 1, !tbaa !4
   %conv6.6 = zext i8 %30 to i32
   %shl7.6 = shl nuw nsw i32 %conv6.6, 16
   %add8.6 = or disjoint i32 %shl7.6, %shl.6
-  %arrayidx13.6 = getelementptr inbounds i8, ptr %this, i64 46
+  %arrayidx13.6 = getelementptr inbounds nuw i8, ptr %this, i64 46
   %31 = load i8, ptr %arrayidx13.6, align 2, !tbaa !4
   %conv14.6 = zext i8 %31 to i32
   %shl15.6 = shl nuw nsw i32 %conv14.6, 8
   %add16.6 = or disjoint i32 %add8.6, %shl15.6
-  %arrayidx21.6 = getelementptr inbounds i8, ptr %this, i64 47
+  %arrayidx21.6 = getelementptr inbounds nuw i8, ptr %this, i64 47
   %32 = load i8, ptr %arrayidx21.6, align 1, !tbaa !4
   %conv22.6 = zext i8 %32 to i32
   %add23.6 = or disjoint i32 %add16.6, %conv22.6
-  %arrayidx25.6 = getelementptr inbounds i8, ptr %W, i64 24
+  %arrayidx25.6 = getelementptr inbounds nuw i8, ptr %W, i64 24
   store i32 %add23.6, ptr %arrayidx25.6, align 8, !tbaa !9
-  %arrayidx.7 = getelementptr inbounds i8, ptr %this, i64 48
+  %arrayidx.7 = getelementptr inbounds nuw i8, ptr %this, i64 48
   %33 = load i8, ptr %arrayidx.7, align 4, !tbaa !4
   %conv.7 = zext i8 %33 to i32
   %shl.7 = shl nuw i32 %conv.7, 24
-  %arrayidx5.7 = getelementptr inbounds i8, ptr %this, i64 49
+  %arrayidx5.7 = getelementptr inbounds nuw i8, ptr %this, i64 49
   %34 = load i8, ptr %arrayidx5.7, align 1, !tbaa !4
   %conv6.7 = zext i8 %34 to i32
   %shl7.7 = shl nuw nsw i32 %conv6.7, 16
   %add8.7 = or disjoint i32 %shl7.7, %shl.7
-  %arrayidx13.7 = getelementptr inbounds i8, ptr %this, i64 50
+  %arrayidx13.7 = getelementptr inbounds nuw i8, ptr %this, i64 50
   %35 = load i8, ptr %arrayidx13.7, align 2, !tbaa !4
   %conv14.7 = zext i8 %35 to i32
   %shl15.7 = shl nuw nsw i32 %conv14.7, 8
   %add16.7 = or disjoint i32 %add8.7, %shl15.7
-  %arrayidx21.7 = getelementptr inbounds i8, ptr %this, i64 51
+  %arrayidx21.7 = getelementptr inbounds nuw i8, ptr %this, i64 51
   %36 = load i8, ptr %arrayidx21.7, align 1, !tbaa !4
   %conv22.7 = zext i8 %36 to i32
   %add23.7 = or disjoint i32 %add16.7, %conv22.7
-  %arrayidx25.7 = getelementptr inbounds i8, ptr %W, i64 28
+  %arrayidx25.7 = getelementptr inbounds nuw i8, ptr %W, i64 28
   store i32 %add23.7, ptr %arrayidx25.7, align 4, !tbaa !9
-  %arrayidx.8 = getelementptr inbounds i8, ptr %this, i64 52
+  %arrayidx.8 = getelementptr inbounds nuw i8, ptr %this, i64 52
   %37 = load i8, ptr %arrayidx.8, align 4, !tbaa !4
   %conv.8 = zext i8 %37 to i32
   %shl.8 = shl nuw i32 %conv.8, 24
-  %arrayidx5.8 = getelementptr inbounds i8, ptr %this, i64 53
+  %arrayidx5.8 = getelementptr inbounds nuw i8, ptr %this, i64 53
   %38 = load i8, ptr %arrayidx5.8, align 1, !tbaa !4
   %conv6.8 = zext i8 %38 to i32
   %shl7.8 = shl nuw nsw i32 %conv6.8, 16
   %add8.8 = or disjoint i32 %shl7.8, %shl.8
-  %arrayidx13.8 = getelementptr inbounds i8, ptr %this, i64 54
+  %arrayidx13.8 = getelementptr inbounds nuw i8, ptr %this, i64 54
   %39 = load i8, ptr %arrayidx13.8, align 2, !tbaa !4
   %conv14.8 = zext i8 %39 to i32
   %shl15.8 = shl nuw nsw i32 %conv14.8, 8
   %add16.8 = or disjoint i32 %add8.8, %shl15.8
-  %arrayidx21.8 = getelementptr inbounds i8, ptr %this, i64 55
+  %arrayidx21.8 = getelementptr inbounds nuw i8, ptr %this, i64 55
   %40 = load i8, ptr %arrayidx21.8, align 1, !tbaa !4
   %conv22.8 = zext i8 %40 to i32
   %add23.8 = or disjoint i32 %add16.8, %conv22.8
-  %arrayidx25.8 = getelementptr inbounds i8, ptr %W, i64 32
+  %arrayidx25.8 = getelementptr inbounds nuw i8, ptr %W, i64 32
   store i32 %add23.8, ptr %arrayidx25.8, align 16, !tbaa !9
-  %arrayidx.9 = getelementptr inbounds i8, ptr %this, i64 56
+  %arrayidx.9 = getelementptr inbounds nuw i8, ptr %this, i64 56
   %41 = load i8, ptr %arrayidx.9, align 4, !tbaa !4
   %conv.9 = zext i8 %41 to i32
   %shl.9 = shl nuw i32 %conv.9, 24
-  %arrayidx5.9 = getelementptr inbounds i8, ptr %this, i64 57
+  %arrayidx5.9 = getelementptr inbounds nuw i8, ptr %this, i64 57
   %42 = load i8, ptr %arrayidx5.9, align 1, !tbaa !4
   %conv6.9 = zext i8 %42 to i32
   %shl7.9 = shl nuw nsw i32 %conv6.9, 16
   %add8.9 = or disjoint i32 %shl7.9, %shl.9
-  %arrayidx13.9 = getelementptr inbounds i8, ptr %this, i64 58
+  %arrayidx13.9 = getelementptr inbounds nuw i8, ptr %this, i64 58
   %43 = load i8, ptr %arrayidx13.9, align 2, !tbaa !4
   %conv14.9 = zext i8 %43 to i32
   %shl15.9 = shl nuw nsw i32 %conv14.9, 8
   %add16.9 = or disjoint i32 %add8.9, %shl15.9
-  %arrayidx21.9 = getelementptr inbounds i8, ptr %this, i64 59
+  %arrayidx21.9 = getelementptr inbounds nuw i8, ptr %this, i64 59
   %44 = load i8, ptr %arrayidx21.9, align 1, !tbaa !4
   %conv22.9 = zext i8 %44 to i32
   %add23.9 = or disjoint i32 %add16.9, %conv22.9
-  %arrayidx25.9 = getelementptr inbounds i8, ptr %W, i64 36
+  %arrayidx25.9 = getelementptr inbounds nuw i8, ptr %W, i64 36
   store i32 %add23.9, ptr %arrayidx25.9, align 4, !tbaa !9
-  %arrayidx.10 = getelementptr inbounds i8, ptr %this, i64 60
+  %arrayidx.10 = getelementptr inbounds nuw i8, ptr %this, i64 60
   %45 = load i8, ptr %arrayidx.10, align 4, !tbaa !4
   %conv.10 = zext i8 %45 to i32
   %shl.10 = shl nuw i32 %conv.10, 24
-  %arrayidx5.10 = getelementptr inbounds i8, ptr %this, i64 61
+  %arrayidx5.10 = getelementptr inbounds nuw i8, ptr %this, i64 61
   %46 = load i8, ptr %arrayidx5.10, align 1, !tbaa !4
   %conv6.10 = zext i8 %46 to i32
   %shl7.10 = shl nuw nsw i32 %conv6.10, 16
   %add8.10 = or disjoint i32 %shl7.10, %shl.10
-  %arrayidx13.10 = getelementptr inbounds i8, ptr %this, i64 62
+  %arrayidx13.10 = getelementptr inbounds nuw i8, ptr %this, i64 62
   %47 = load i8, ptr %arrayidx13.10, align 2, !tbaa !4
   %conv14.10 = zext i8 %47 to i32
   %shl15.10 = shl nuw nsw i32 %conv14.10, 8
   %add16.10 = or disjoint i32 %add8.10, %shl15.10
-  %arrayidx21.10 = getelementptr inbounds i8, ptr %this, i64 63
+  %arrayidx21.10 = getelementptr inbounds nuw i8, ptr %this, i64 63
   %48 = load i8, ptr %arrayidx21.10, align 1, !tbaa !4
   %conv22.10 = zext i8 %48 to i32
   %add23.10 = or disjoint i32 %add16.10, %conv22.10
-  %arrayidx25.10 = getelementptr inbounds i8, ptr %W, i64 40
+  %arrayidx25.10 = getelementptr inbounds nuw i8, ptr %W, i64 40
   store i32 %add23.10, ptr %arrayidx25.10, align 8, !tbaa !9
-  %arrayidx.11 = getelementptr inbounds i8, ptr %this, i64 64
+  %arrayidx.11 = getelementptr inbounds nuw i8, ptr %this, i64 64
   %49 = load i8, ptr %arrayidx.11, align 4, !tbaa !4
   %conv.11 = zext i8 %49 to i32
   %shl.11 = shl nuw i32 %conv.11, 24
-  %arrayidx5.11 = getelementptr inbounds i8, ptr %this, i64 65
+  %arrayidx5.11 = getelementptr inbounds nuw i8, ptr %this, i64 65
   %50 = load i8, ptr %arrayidx5.11, align 1, !tbaa !4
   %conv6.11 = zext i8 %50 to i32
   %shl7.11 = shl nuw nsw i32 %conv6.11, 16
   %add8.11 = or disjoint i32 %shl7.11, %shl.11
-  %arrayidx13.11 = getelementptr inbounds i8, ptr %this, i64 66
+  %arrayidx13.11 = getelementptr inbounds nuw i8, ptr %this, i64 66
   %51 = load i8, ptr %arrayidx13.11, align 2, !tbaa !4
   %conv14.11 = zext i8 %51 to i32
   %shl15.11 = shl nuw nsw i32 %conv14.11, 8
   %add16.11 = or disjoint i32 %add8.11, %shl15.11
-  %arrayidx21.11 = getelementptr inbounds i8, ptr %this, i64 67
+  %arrayidx21.11 = getelementptr inbounds nuw i8, ptr %this, i64 67
   %52 = load i8, ptr %arrayidx21.11, align 1, !tbaa !4
   %conv22.11 = zext i8 %52 to i32
   %add23.11 = or disjoint i32 %add16.11, %conv22.11
-  %arrayidx25.11 = getelementptr inbounds i8, ptr %W, i64 44
+  %arrayidx25.11 = getelementptr inbounds nuw i8, ptr %W, i64 44
   store i32 %add23.11, ptr %arrayidx25.11, align 4, !tbaa !9
-  %arrayidx.12 = getelementptr inbounds i8, ptr %this, i64 68
+  %arrayidx.12 = getelementptr inbounds nuw i8, ptr %this, i64 68
   %53 = load i8, ptr %arrayidx.12, align 4, !tbaa !4
   %conv.12 = zext i8 %53 to i32
   %shl.12 = shl nuw i32 %conv.12, 24
-  %arrayidx5.12 = getelementptr inbounds i8, ptr %this, i64 69
+  %arrayidx5.12 = getelementptr inbounds nuw i8, ptr %this, i64 69
   %54 = load i8, ptr %arrayidx5.12, align 1, !tbaa !4
   %conv6.12 = zext i8 %54 to i32
   %shl7.12 = shl nuw nsw i32 %conv6.12, 16
   %add8.12 = or disjoint i32 %shl7.12, %shl.12
-  %arrayidx13.12 = getelementptr inbounds i8, ptr %this, i64 70
+  %arrayidx13.12 = getelementptr inbounds nuw i8, ptr %this, i64 70
   %55 = load i8, ptr %arrayidx13.12, align 2, !tbaa !4
   %conv14.12 = zext i8 %55 to i32
   %shl15.12 = shl nuw nsw i32 %conv14.12, 8
   %add16.12 = or disjoint i32 %add8.12, %shl15.12
-  %arrayidx21.12 = getelementptr inbounds i8, ptr %this, i64 71
+  %arrayidx21.12 = getelementptr inbounds nuw i8, ptr %this, i64 71
   %56 = load i8, ptr %arrayidx21.12, align 1, !tbaa !4
   %conv22.12 = zext i8 %56 to i32
   %add23.12 = or disjoint i32 %add16.12, %conv22.12
-  %arrayidx25.12 = getelementptr inbounds i8, ptr %W, i64 48
+  %arrayidx25.12 = getelementptr inbounds nuw i8, ptr %W, i64 48
   store i32 %add23.12, ptr %arrayidx25.12, align 16, !tbaa !9
-  %arrayidx.13 = getelementptr inbounds i8, ptr %this, i64 72
+  %arrayidx.13 = getelementptr inbounds nuw i8, ptr %this, i64 72
   %57 = load i8, ptr %arrayidx.13, align 4, !tbaa !4
   %conv.13 = zext i8 %57 to i32
   %shl.13 = shl nuw i32 %conv.13, 24
-  %arrayidx5.13 = getelementptr inbounds i8, ptr %this, i64 73
+  %arrayidx5.13 = getelementptr inbounds nuw i8, ptr %this, i64 73
   %58 = load i8, ptr %arrayidx5.13, align 1, !tbaa !4
   %conv6.13 = zext i8 %58 to i32
   %shl7.13 = shl nuw nsw i32 %conv6.13, 16
   %add8.13 = or disjoint i32 %shl7.13, %shl.13
-  %arrayidx13.13 = getelementptr inbounds i8, ptr %this, i64 74
+  %arrayidx13.13 = getelementptr inbounds nuw i8, ptr %this, i64 74
   %59 = load i8, ptr %arrayidx13.13, align 2, !tbaa !4
   %conv14.13 = zext i8 %59 to i32
   %shl15.13 = shl nuw nsw i32 %conv14.13, 8
   %add16.13 = or disjoint i32 %add8.13, %shl15.13
-  %arrayidx21.13 = getelementptr inbounds i8, ptr %this, i64 75
+  %arrayidx21.13 = getelementptr inbounds nuw i8, ptr %this, i64 75
   %60 = load i8, ptr %arrayidx21.13, align 1, !tbaa !4
   %conv22.13 = zext i8 %60 to i32
   %add23.13 = or disjoint i32 %add16.13, %conv22.13
-  %arrayidx25.13 = getelementptr inbounds i8, ptr %W, i64 52
+  %arrayidx25.13 = getelementptr inbounds nuw i8, ptr %W, i64 52
   store i32 %add23.13, ptr %arrayidx25.13, align 4, !tbaa !9
-  %arrayidx.14 = getelementptr inbounds i8, ptr %this, i64 76
+  %arrayidx.14 = getelementptr inbounds nuw i8, ptr %this, i64 76
   %61 = load i8, ptr %arrayidx.14, align 4, !tbaa !4
   %conv.14 = zext i8 %61 to i32
   %shl.14 = shl nuw i32 %conv.14, 24
-  %arrayidx5.14 = getelementptr inbounds i8, ptr %this, i64 77
+  %arrayidx5.14 = getelementptr inbounds nuw i8, ptr %this, i64 77
   %62 = load i8, ptr %arrayidx5.14, align 1, !tbaa !4
   %conv6.14 = zext i8 %62 to i32
   %shl7.14 = shl nuw nsw i32 %conv6.14, 16
   %add8.14 = or disjoint i32 %shl7.14, %shl.14
-  %arrayidx13.14 = getelementptr inbounds i8, ptr %this, i64 78
+  %arrayidx13.14 = getelementptr inbounds nuw i8, ptr %this, i64 78
   %63 = load i8, ptr %arrayidx13.14, align 2, !tbaa !4
   %conv14.14 = zext i8 %63 to i32
   %shl15.14 = shl nuw nsw i32 %conv14.14, 8
   %add16.14 = or disjoint i32 %add8.14, %shl15.14
-  %arrayidx21.14 = getelementptr inbounds i8, ptr %this, i64 79
+  %arrayidx21.14 = getelementptr inbounds nuw i8, ptr %this, i64 79
   %64 = load i8, ptr %arrayidx21.14, align 1, !tbaa !4
   %conv22.14 = zext i8 %64 to i32
   %add23.14 = or disjoint i32 %add16.14, %conv22.14
-  %arrayidx25.14 = getelementptr inbounds i8, ptr %W, i64 56
+  %arrayidx25.14 = getelementptr inbounds nuw i8, ptr %W, i64 56
   store i32 %add23.14, ptr %arrayidx25.14, align 8, !tbaa !9
-  %arrayidx.15 = getelementptr inbounds i8, ptr %this, i64 80
+  %arrayidx.15 = getelementptr inbounds nuw i8, ptr %this, i64 80
   %65 = load i8, ptr %arrayidx.15, align 4, !tbaa !4
   %conv.15 = zext i8 %65 to i32
   %shl.15 = shl nuw i32 %conv.15, 24
-  %arrayidx5.15 = getelementptr inbounds i8, ptr %this, i64 81
+  %arrayidx5.15 = getelementptr inbounds nuw i8, ptr %this, i64 81
   %66 = load i8, ptr %arrayidx5.15, align 1, !tbaa !4
   %conv6.15 = zext i8 %66 to i32
   %shl7.15 = shl nuw nsw i32 %conv6.15, 16
   %add8.15 = or disjoint i32 %shl7.15, %shl.15
-  %arrayidx13.15 = getelementptr inbounds i8, ptr %this, i64 82
+  %arrayidx13.15 = getelementptr inbounds nuw i8, ptr %this, i64 82
   %67 = load i8, ptr %arrayidx13.15, align 2, !tbaa !4
   %conv14.15 = zext i8 %67 to i32
   %shl15.15 = shl nuw nsw i32 %conv14.15, 8
   %add16.15 = or disjoint i32 %add8.15, %shl15.15
-  %arrayidx21.15 = getelementptr inbounds i8, ptr %this, i64 83
+  %arrayidx21.15 = getelementptr inbounds nuw i8, ptr %this, i64 83
   %68 = load i8, ptr %arrayidx21.15, align 1, !tbaa !4
   %conv22.15 = zext i8 %68 to i32
   %add23.15 = or disjoint i32 %add16.15, %conv22.15
-  %arrayidx25.15 = getelementptr inbounds i8, ptr %W, i64 60
+  %arrayidx25.15 = getelementptr inbounds nuw i8, ptr %W, i64 60
   store i32 %add23.15, ptr %arrayidx25.15, align 4, !tbaa !9
   br label %for.body28
 
@@ -442,7 +442,7 @@ for.body28:                                       ; preds = %for.body28, %for.bo
   %76 = load i32, ptr %arrayidx40, align 4, !tbaa !9
   %xor41 = xor i32 %xor37, %76
   %or.i = tail call i32 @llvm.fshl.i32(i32 %xor41, i32 %xor41, i32 1)
-  %arrayidx43 = getelementptr inbounds [80 x i32], ptr %W, i64 0, i64 %indvars.iv
+  %arrayidx43 = getelementptr inbounds nuw [80 x i32], ptr %W, i64 0, i64 %indvars.iv
   store i32 %or.i, ptr %arrayidx43, align 4, !tbaa !9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 80
@@ -494,7 +494,7 @@ if.end68:                                         ; preds = %if.else64, %if.then
   %K.0 = phi i32 [ 1518500249, %if.then ], [ 1859775393, %if.then53 ], [ -1894007588, %if.then58 ], [ -899497514, %if.else64 ]
   %f.0 = phi i32 [ %or, %if.then ], [ %xor55, %if.then53 ], [ %or63, %if.then58 ], [ %xor66, %if.else64 ]
   %or.i134 = tail call i32 @llvm.fshl.i32(i32 %a.0141, i32 %a.0141, i32 5)
-  %arrayidx73 = getelementptr inbounds [80 x i32], ptr %W, i64 0, i64 %indvars.iv157
+  %arrayidx73 = getelementptr inbounds nuw [80 x i32], ptr %W, i64 0, i64 %indvars.iv157
   %77 = load i32, ptr %arrayidx73, align 4, !tbaa !9
   %add70 = add i32 %or.i134, %e.0145
   %add71 = add i32 %add70, %K.0
@@ -516,7 +516,7 @@ for.end79:                                        ; preds = %if.end68
   store i32 %add87, ptr %H3, align 4, !tbaa !18
   %add89 = add i32 %d.0144, %4
   store i32 %add89, ptr %H4, align 4, !tbaa !11
-  %unprocessedBytes = getelementptr inbounds i8, ptr %this, i64 84
+  %unprocessedBytes = getelementptr inbounds nuw i8, ptr %this, i64 84
   store i32 0, ptr %unprocessedBytes, align 4, !tbaa !13
   call void @llvm.lifetime.end.p0(i64 320, ptr nonnull %W) #9
   ret void
@@ -525,7 +525,7 @@ for.end79:                                        ; preds = %if.end68
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local void @_ZN4SHA18addBytesEPKcj(ptr nocapture noundef nonnull align 4 dereferenceable(92) %this, ptr nocapture noundef readonly %data, i32 noundef %num) local_unnamed_addr #5 align 2 {
 entry:
-  %size = getelementptr inbounds i8, ptr %this, i64 88
+  %size = getelementptr inbounds nuw i8, ptr %this, i64 88
   %0 = load i32, ptr %size, align 4, !tbaa !14
   %add = add i32 %0, %num
   store i32 %add, ptr %size, align 4, !tbaa !14
@@ -533,8 +533,8 @@ entry:
   br i1 %cmp.not20, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
-  %unprocessedBytes = getelementptr inbounds i8, ptr %this, i64 84
-  %bytes = getelementptr inbounds i8, ptr %this, i64 20
+  %unprocessedBytes = getelementptr inbounds nuw i8, ptr %this, i64 84
+  %bytes = getelementptr inbounds nuw i8, ptr %this, i64 20
   br label %while.body
 
 while.body:                                       ; preds = %if.end, %while.body.lr.ph
@@ -544,11 +544,11 @@ while.body:                                       ; preds = %if.end, %while.body
   %sub = sub i32 64, %1
   %cond = tail call i32 @llvm.umin.i32(i32 %num.addr.021, i32 %sub)
   %idx.ext = zext i32 %1 to i64
-  %add.ptr = getelementptr inbounds i8, ptr %bytes, i64 %idx.ext
+  %add.ptr = getelementptr inbounds nuw i8, ptr %bytes, i64 %idx.ext
   %conv = zext i32 %cond to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr, ptr align 1 %data.addr.022, i64 %conv, i1 false)
   %sub4 = sub i32 %num.addr.021, %cond
-  %add.ptr6 = getelementptr inbounds i8, ptr %data.addr.022, i64 %conv
+  %add.ptr6 = getelementptr inbounds nuw i8, ptr %data.addr.022, i64 %conv
   %2 = load i32, ptr %unprocessedBytes, align 4, !tbaa !13
   %add8 = add i32 %2, %cond
   store i32 %add8, ptr %unprocessedBytes, align 4, !tbaa !13
@@ -574,12 +574,12 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define dso_local void @_ZN4SHA19getDigestEPh(ptr nocapture noundef nonnull align 4 dereferenceable(92) %this, ptr nocapture noundef writeonly %digest) local_unnamed_addr #5 align 2 {
 entry:
   %footer = alloca [64 x i8], align 16
-  %size = getelementptr inbounds i8, ptr %this, i64 88
+  %size = getelementptr inbounds nuw i8, ptr %this, i64 88
   %0 = load i32, ptr %size, align 4, !tbaa !14
   %add.i = add i32 %0, 1
   store i32 %add.i, ptr %size, align 4, !tbaa !14
-  %unprocessedBytes.i = getelementptr inbounds i8, ptr %this, i64 84
-  %bytes.i = getelementptr inbounds i8, ptr %this, i64 20
+  %unprocessedBytes.i = getelementptr inbounds nuw i8, ptr %this, i64 84
+  %bytes.i = getelementptr inbounds nuw i8, ptr %this, i64 20
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end.i, %entry
@@ -588,10 +588,10 @@ while.body.i:                                     ; preds = %if.end.i, %entry
   %2 = icmp ne i32 %1, 64
   %cond.i = zext i1 %2 to i32
   %idx.ext.i = zext i32 %1 to i64
-  %add.ptr.i = getelementptr inbounds i8, ptr %bytes.i, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %bytes.i, i64 %idx.ext.i
   %conv.i = zext i1 %2 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr align 1 %data.addr.022.i, i64 %conv.i, i1 false)
-  %add.ptr6.i = getelementptr inbounds i8, ptr %data.addr.022.i, i64 %conv.i
+  %add.ptr6.i = getelementptr inbounds nuw i8, ptr %data.addr.022.i, i64 %conv.i
   %3 = load i32, ptr %unprocessedBytes.i, align 4, !tbaa !13
   %add8.i = add i32 %3, %cond.i
   store i32 %add8.i, ptr %unprocessedBytes.i, align 4, !tbaa !13
@@ -627,11 +627,11 @@ while.body.i26:                                   ; preds = %if.then, %if.end.i3
   %sub.i29 = sub i32 64, %5
   %cond.i30 = tail call i32 @llvm.umin.i32(i32 %num.addr.021.i28, i32 %sub.i29)
   %idx.ext.i31 = zext i32 %5 to i64
-  %add.ptr.i32 = getelementptr inbounds i8, ptr %bytes.i, i64 %idx.ext.i31
+  %add.ptr.i32 = getelementptr inbounds nuw i8, ptr %bytes.i, i64 %idx.ext.i31
   %conv.i33 = zext i32 %cond.i30 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i32, ptr align 1 %data.addr.022.i27, i64 %conv.i33, i1 false)
   %sub4.i34 = sub i32 %num.addr.021.i28, %cond.i30
-  %add.ptr6.i35 = getelementptr inbounds i8, ptr %data.addr.022.i27, i64 %conv.i33
+  %add.ptr6.i35 = getelementptr inbounds nuw i8, ptr %data.addr.022.i27, i64 %conv.i33
   %6 = load i32, ptr %unprocessedBytes.i, align 4, !tbaa !13
   %add8.i36 = add i32 %6, %cond.i30
   store i32 %add8.i36, ptr %unprocessedBytes.i, align 4, !tbaa !13
@@ -658,29 +658,29 @@ if.end:                                           ; preds = %if.end.loopexit, %i
   %shl = shl i32 %0, 3
   %sub5 = sub i32 56, %8
   %idx.ext = zext i32 %sub5 to i64
-  %add.ptr = getelementptr inbounds i8, ptr %footer, i64 %idx.ext
+  %add.ptr = getelementptr inbounds nuw i8, ptr %footer, i64 %idx.ext
   store i8 0, ptr %add.ptr, align 1, !tbaa !4
-  %arrayidx3.i = getelementptr inbounds i8, ptr %add.ptr, i64 1
+  %arrayidx3.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 1
   store i8 0, ptr %arrayidx3.i, align 1, !tbaa !4
-  %arrayidx6.i = getelementptr inbounds i8, ptr %add.ptr, i64 2
+  %arrayidx6.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 2
   store i8 0, ptr %arrayidx6.i, align 1, !tbaa !4
   %conv7.i = trunc nuw nsw i32 %shr to i8
-  %arrayidx8.i = getelementptr inbounds i8, ptr %add.ptr, i64 3
+  %arrayidx8.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 3
   store i8 %conv7.i, ptr %arrayidx8.i, align 1, !tbaa !4
-  %add.ptr10 = getelementptr inbounds i8, ptr %add.ptr, i64 4
+  %add.ptr10 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 4
   %shr.i43 = lshr i32 %shl, 24
   %conv.i44 = trunc nuw i32 %shr.i43 to i8
   store i8 %conv.i44, ptr %add.ptr10, align 1, !tbaa !4
   %shr1.i45 = lshr i32 %shl, 16
   %conv2.i46 = trunc i32 %shr1.i45 to i8
-  %arrayidx3.i47 = getelementptr inbounds i8, ptr %add.ptr, i64 5
+  %arrayidx3.i47 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 5
   store i8 %conv2.i46, ptr %arrayidx3.i47, align 1, !tbaa !4
   %shr4.i48 = lshr i32 %shl, 8
   %conv5.i49 = trunc i32 %shr4.i48 to i8
-  %arrayidx6.i50 = getelementptr inbounds i8, ptr %add.ptr, i64 6
+  %arrayidx6.i50 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 6
   store i8 %conv5.i49, ptr %arrayidx6.i50, align 1, !tbaa !4
   %conv7.i51 = trunc i32 %shl to i8
-  %arrayidx8.i52 = getelementptr inbounds i8, ptr %add.ptr, i64 7
+  %arrayidx8.i52 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 7
   store i8 %conv7.i51, ptr %arrayidx8.i52, align 1, !tbaa !4
   %add = sub i32 64, %8
   %add.i54 = add i32 %add, %7
@@ -695,11 +695,11 @@ while.body.i59:                                   ; preds = %if.end, %if.end.i71
   %sub.i62 = sub i32 64, %9
   %cond.i63 = tail call i32 @llvm.umin.i32(i32 %num.addr.021.i61, i32 %sub.i62)
   %idx.ext.i64 = zext i32 %9 to i64
-  %add.ptr.i65 = getelementptr inbounds i8, ptr %bytes.i, i64 %idx.ext.i64
+  %add.ptr.i65 = getelementptr inbounds nuw i8, ptr %bytes.i, i64 %idx.ext.i64
   %conv.i66 = zext i32 %cond.i63 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i65, ptr align 1 %data.addr.022.i60, i64 %conv.i66, i1 false)
   %sub4.i67 = sub i32 %num.addr.021.i61, %cond.i63
-  %add.ptr6.i68 = getelementptr inbounds i8, ptr %data.addr.022.i60, i64 %conv.i66
+  %add.ptr6.i68 = getelementptr inbounds nuw i8, ptr %data.addr.022.i60, i64 %conv.i66
   %10 = load i32, ptr %unprocessedBytes.i, align 4, !tbaa !13
   %add8.i69 = add i32 %10, %cond.i63
   store i32 %add8.i69, ptr %unprocessedBytes.i, align 4, !tbaa !13
@@ -721,82 +721,82 @@ _ZN4SHA18addBytesEPKcj.exit74:                    ; preds = %if.end.i71, %if.end
   store i8 %conv.i76, ptr %digest, align 1, !tbaa !4
   %shr1.i77 = lshr i32 %11, 16
   %conv2.i78 = trunc i32 %shr1.i77 to i8
-  %arrayidx3.i79 = getelementptr inbounds i8, ptr %digest, i64 1
+  %arrayidx3.i79 = getelementptr inbounds nuw i8, ptr %digest, i64 1
   store i8 %conv2.i78, ptr %arrayidx3.i79, align 1, !tbaa !4
   %shr4.i80 = lshr i32 %11, 8
   %conv5.i81 = trunc i32 %shr4.i80 to i8
-  %arrayidx6.i82 = getelementptr inbounds i8, ptr %digest, i64 2
+  %arrayidx6.i82 = getelementptr inbounds nuw i8, ptr %digest, i64 2
   store i8 %conv5.i81, ptr %arrayidx6.i82, align 1, !tbaa !4
   %conv7.i83 = trunc i32 %11 to i8
-  %arrayidx8.i84 = getelementptr inbounds i8, ptr %digest, i64 3
+  %arrayidx8.i84 = getelementptr inbounds nuw i8, ptr %digest, i64 3
   store i8 %conv7.i83, ptr %arrayidx8.i84, align 1, !tbaa !4
-  %add.ptr12 = getelementptr inbounds i8, ptr %digest, i64 4
-  %H1 = getelementptr inbounds i8, ptr %this, i64 4
+  %add.ptr12 = getelementptr inbounds nuw i8, ptr %digest, i64 4
+  %H1 = getelementptr inbounds nuw i8, ptr %this, i64 4
   %12 = load i32, ptr %H1, align 4, !tbaa !16
   %shr.i85 = lshr i32 %12, 24
   %conv.i86 = trunc nuw i32 %shr.i85 to i8
   store i8 %conv.i86, ptr %add.ptr12, align 1, !tbaa !4
   %shr1.i87 = lshr i32 %12, 16
   %conv2.i88 = trunc i32 %shr1.i87 to i8
-  %arrayidx3.i89 = getelementptr inbounds i8, ptr %digest, i64 5
+  %arrayidx3.i89 = getelementptr inbounds nuw i8, ptr %digest, i64 5
   store i8 %conv2.i88, ptr %arrayidx3.i89, align 1, !tbaa !4
   %shr4.i90 = lshr i32 %12, 8
   %conv5.i91 = trunc i32 %shr4.i90 to i8
-  %arrayidx6.i92 = getelementptr inbounds i8, ptr %digest, i64 6
+  %arrayidx6.i92 = getelementptr inbounds nuw i8, ptr %digest, i64 6
   store i8 %conv5.i91, ptr %arrayidx6.i92, align 1, !tbaa !4
   %conv7.i93 = trunc i32 %12 to i8
-  %arrayidx8.i94 = getelementptr inbounds i8, ptr %digest, i64 7
+  %arrayidx8.i94 = getelementptr inbounds nuw i8, ptr %digest, i64 7
   store i8 %conv7.i93, ptr %arrayidx8.i94, align 1, !tbaa !4
-  %add.ptr13 = getelementptr inbounds i8, ptr %digest, i64 8
-  %H2 = getelementptr inbounds i8, ptr %this, i64 8
+  %add.ptr13 = getelementptr inbounds nuw i8, ptr %digest, i64 8
+  %H2 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %13 = load i32, ptr %H2, align 4, !tbaa !17
   %shr.i95 = lshr i32 %13, 24
   %conv.i96 = trunc nuw i32 %shr.i95 to i8
   store i8 %conv.i96, ptr %add.ptr13, align 1, !tbaa !4
   %shr1.i97 = lshr i32 %13, 16
   %conv2.i98 = trunc i32 %shr1.i97 to i8
-  %arrayidx3.i99 = getelementptr inbounds i8, ptr %digest, i64 9
+  %arrayidx3.i99 = getelementptr inbounds nuw i8, ptr %digest, i64 9
   store i8 %conv2.i98, ptr %arrayidx3.i99, align 1, !tbaa !4
   %shr4.i100 = lshr i32 %13, 8
   %conv5.i101 = trunc i32 %shr4.i100 to i8
-  %arrayidx6.i102 = getelementptr inbounds i8, ptr %digest, i64 10
+  %arrayidx6.i102 = getelementptr inbounds nuw i8, ptr %digest, i64 10
   store i8 %conv5.i101, ptr %arrayidx6.i102, align 1, !tbaa !4
   %conv7.i103 = trunc i32 %13 to i8
-  %arrayidx8.i104 = getelementptr inbounds i8, ptr %digest, i64 11
+  %arrayidx8.i104 = getelementptr inbounds nuw i8, ptr %digest, i64 11
   store i8 %conv7.i103, ptr %arrayidx8.i104, align 1, !tbaa !4
-  %add.ptr14 = getelementptr inbounds i8, ptr %digest, i64 12
-  %H3 = getelementptr inbounds i8, ptr %this, i64 12
+  %add.ptr14 = getelementptr inbounds nuw i8, ptr %digest, i64 12
+  %H3 = getelementptr inbounds nuw i8, ptr %this, i64 12
   %14 = load i32, ptr %H3, align 4, !tbaa !18
   %shr.i105 = lshr i32 %14, 24
   %conv.i106 = trunc nuw i32 %shr.i105 to i8
   store i8 %conv.i106, ptr %add.ptr14, align 1, !tbaa !4
   %shr1.i107 = lshr i32 %14, 16
   %conv2.i108 = trunc i32 %shr1.i107 to i8
-  %arrayidx3.i109 = getelementptr inbounds i8, ptr %digest, i64 13
+  %arrayidx3.i109 = getelementptr inbounds nuw i8, ptr %digest, i64 13
   store i8 %conv2.i108, ptr %arrayidx3.i109, align 1, !tbaa !4
   %shr4.i110 = lshr i32 %14, 8
   %conv5.i111 = trunc i32 %shr4.i110 to i8
-  %arrayidx6.i112 = getelementptr inbounds i8, ptr %digest, i64 14
+  %arrayidx6.i112 = getelementptr inbounds nuw i8, ptr %digest, i64 14
   store i8 %conv5.i111, ptr %arrayidx6.i112, align 1, !tbaa !4
   %conv7.i113 = trunc i32 %14 to i8
-  %arrayidx8.i114 = getelementptr inbounds i8, ptr %digest, i64 15
+  %arrayidx8.i114 = getelementptr inbounds nuw i8, ptr %digest, i64 15
   store i8 %conv7.i113, ptr %arrayidx8.i114, align 1, !tbaa !4
-  %add.ptr15 = getelementptr inbounds i8, ptr %digest, i64 16
-  %H4 = getelementptr inbounds i8, ptr %this, i64 16
+  %add.ptr15 = getelementptr inbounds nuw i8, ptr %digest, i64 16
+  %H4 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %15 = load i32, ptr %H4, align 4, !tbaa !11
   %shr.i115 = lshr i32 %15, 24
   %conv.i116 = trunc nuw i32 %shr.i115 to i8
   store i8 %conv.i116, ptr %add.ptr15, align 1, !tbaa !4
   %shr1.i117 = lshr i32 %15, 16
   %conv2.i118 = trunc i32 %shr1.i117 to i8
-  %arrayidx3.i119 = getelementptr inbounds i8, ptr %digest, i64 17
+  %arrayidx3.i119 = getelementptr inbounds nuw i8, ptr %digest, i64 17
   store i8 %conv2.i118, ptr %arrayidx3.i119, align 1, !tbaa !4
   %shr4.i120 = lshr i32 %15, 8
   %conv5.i121 = trunc i32 %shr4.i120 to i8
-  %arrayidx6.i122 = getelementptr inbounds i8, ptr %digest, i64 18
+  %arrayidx6.i122 = getelementptr inbounds nuw i8, ptr %digest, i64 18
   store i8 %conv5.i121, ptr %arrayidx6.i122, align 1, !tbaa !4
   %conv7.i123 = trunc i32 %15 to i8
-  %arrayidx8.i124 = getelementptr inbounds i8, ptr %digest, i64 19
+  %arrayidx8.i124 = getelementptr inbounds nuw i8, ptr %digest, i64 19
   store i8 %conv7.i123, ptr %arrayidx8.i124, align 1, !tbaa !4
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %footer) #9
   ret void

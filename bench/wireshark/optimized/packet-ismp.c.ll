@@ -282,7 +282,7 @@ define internal i32 @dissect_ismp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %5 = alloca i32, align 4
   %6 = alloca [3 x i8], align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %6, ptr noundef nonnull align 1 dereferenceable(3) @__const.dissect_ismp.weird_stuff, i64 3, i1 false)
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void @col_set_str(ptr noundef %8, i32 noundef 34, ptr noundef nonnull @.str.126) #4
   %9 = load ptr, ptr %7, align 8
@@ -327,7 +327,7 @@ define internal i32 @dissect_ismp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %40 = load i32, ptr @ett_ismp_edp, align 4
   %41 = call ptr @proto_item_add_subtree(ptr noundef %39, i32 noundef %40) #4
   %42 = load ptr, ptr %7, align 8
-  %43 = getelementptr inbounds i8, ptr %1, i64 408
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %44 = load ptr, ptr %43, align 8
   %45 = add nuw nsw i32 %35, 2
   %46 = call ptr @tvb_address_to_str(ptr noundef %44, ptr noundef %0, i32 noundef 2, i32 noundef %45) #4

@@ -59,27 +59,27 @@ $_ZTV17LogStreamImplBase = comdat any
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN21GCTraceTimeLoggerImpl9log_startE11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE(ptr nocapture noundef nonnull align 8 dereferenceable(88) initializes((72, 88)) %0, i64 %1, i64 %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.LogStream, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 72
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i64 %1, ptr %5, align 8
-  %.sroa.23.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 80
+  %.sroa.23.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i64 %2, ptr %.sroa.23.0..sroa_idx, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.sroa.0.0.copyload = load i32, ptr %6, align 8
-  %.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
+  %.sroa.21.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.sroa.21.0.copyload = load ptr, ptr %.sroa.21.0..sroa_idx, align 8
   call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %4, i1 noundef zeroext false) #7
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 56
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %7) #7
-  %8 = getelementptr inbounds i8, ptr %4, i64 144
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 144
   store i32 %.sroa.0.0.copyload, ptr %8, align 8
-  %.sroa.21.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %4, i64 152
+  %.sroa.21.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 152
   store ptr %.sroa.21.0.copyload, ptr %.sroa.21.0..sroa_idx.i.i, align 8
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV9LogStream, i64 16), ptr %4, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull @.str, ptr noundef %10) #7
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load i32, ptr %11, align 8
   %.not = icmp eq i32 %12, 11
   br i1 %.not, label %15, label %13
@@ -91,7 +91,7 @@ define hidden void @_ZN21GCTraceTimeLoggerImpl9log_startE11TimeInstantI30Composi
 
 15:                                               ; preds = %13, %3
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %4) #7
-  %16 = getelementptr inbounds i8, ptr %0, i64 28
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %17 = load i8, ptr %16, align 4
   %18 = trunc i8 %17 to i1
   br i1 %18, label %19, label %26
@@ -99,10 +99,10 @@ define hidden void @_ZN21GCTraceTimeLoggerImpl9log_startE11TimeInstantI30Composi
 19:                                               ; preds = %15
   %20 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 96
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 96
   %23 = load ptr, ptr %22, align 8
   %24 = call noundef i64 %23(ptr noundef nonnull align 8 dereferenceable(104) %20) #7
-  %25 = getelementptr inbounds i8, ptr %0, i64 64
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i64 %24, ptr %25, align 8
   br label %26
 
@@ -126,27 +126,27 @@ define linkonce_odr hidden void @_ZN9LogStreamD2Ev(ptr noundef nonnull align 8 d
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN21GCTraceTimeLoggerImpl7log_endE11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0, i64 %1, i64 %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.LogStream, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 72
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %6 = load i64, ptr %5, align 8
   %7 = sub nsw i64 %1, %6
   %8 = tail call noundef double @_ZN10TimeHelper17counter_to_millisEl(i64 noundef %7) #7
-  %9 = getelementptr inbounds i8, ptr %0, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.sroa.0.0.copyload = load i32, ptr %9, align 8
-  %.sroa.24.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 56
+  %.sroa.24.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 56
   %.sroa.24.0.copyload = load ptr, ptr %.sroa.24.0..sroa_idx, align 8
   call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %4, i1 noundef zeroext false) #7
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %4, align 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 56
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %10) #7
-  %11 = getelementptr inbounds i8, ptr %4, i64 144
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 144
   store i32 %.sroa.0.0.copyload, ptr %11, align 8
-  %.sroa.21.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %4, i64 152
+  %.sroa.21.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 152
   store ptr %.sroa.24.0.copyload, ptr %.sroa.21.0..sroa_idx.i.i, align 8
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV9LogStream, i64 16), ptr %4, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull @.str, ptr noundef %13) #7
-  %14 = getelementptr inbounds i8, ptr %0, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %15 = load i32, ptr %14, align 8
   %.not = icmp eq i32 %15, 11
   br i1 %.not, label %18, label %16
@@ -157,7 +157,7 @@ define hidden void @_ZN21GCTraceTimeLoggerImpl7log_endE11TimeInstantI30Composite
   br label %18
 
 18:                                               ; preds = %16, %3
-  %19 = getelementptr inbounds i8, ptr %0, i64 64
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %20 = load i64, ptr %19, align 8
   %.not7 = icmp eq i64 %20, -1
   br i1 %.not7, label %34, label %21
@@ -166,12 +166,12 @@ define hidden void @_ZN21GCTraceTimeLoggerImpl7log_endE11TimeInstantI30Composite
   %22 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   %23 = lshr i64 %20, 20
   %24 = load ptr, ptr %22, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 96
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 96
   %26 = load ptr, ptr %25, align 8
   %27 = call noundef i64 %26(ptr noundef nonnull align 8 dereferenceable(104) %22) #7
   %28 = lshr i64 %27, 20
   %29 = load ptr, ptr %22, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 88
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 88
   %31 = load ptr, ptr %30, align 8
   %32 = call noundef i64 %31(ptr noundef nonnull align 8 dereferenceable(104) %22) #7
   %33 = lshr i64 %32, 20
@@ -190,14 +190,14 @@ declare void @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 derefe
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN14GCTraceCPUTimeC2EP8GCTracer(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 1), (8, 40)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
-  %3 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_28ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %3 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_28ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not5 = icmp eq ptr %3, null
   br i1 %.not5, label %6, label %.thread
 
 .thread:                                          ; preds = %2
   store i8 1, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   store ptr %1, ptr %5, align 8
   br label %13
@@ -208,7 +208,7 @@ define hidden void @_ZN14GCTraceCPUTimeC2EP8GCTracer(ptr noundef nonnull align 8
 
 .thread4:                                         ; preds = %6
   store i8 0, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 32, i1 false)
   br label %22
 
@@ -216,21 +216,21 @@ define hidden void @_ZN14GCTraceCPUTimeC2EP8GCTracer(ptr noundef nonnull align 8
   %9 = tail call noundef zeroext i1 @_ZNK8GCTracer28should_report_cpu_time_eventEv(ptr noundef nonnull align 8 dereferenceable(80) %1) #7
   %10 = zext i1 %9 to i8
   store i8 %10, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, i8 0, i64 24, i1 false)
   store ptr %1, ptr %12, align 8
   br i1 %9, label %13, label %22
 
 13:                                               ; preds = %.thread, %8
   %14 = phi ptr [ %4, %.thread ], [ %11, %8 ]
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
-  %16 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %17 = tail call noundef zeroext i1 @_ZN2os12getTimesSecsEPdS0_S0_(ptr noundef nonnull %16, ptr noundef nonnull %14, ptr noundef nonnull %15) #7
   br i1 %17, label %22, label %18
 
 18:                                               ; preds = %13
-  %19 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_28ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 72), align 8
+  %19 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_28ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 72), align 8
   %.not6 = icmp eq ptr %19, null
   br i1 %.not6, label %21, label %20
 
@@ -273,22 +273,22 @@ define hidden void @_ZN14GCTraceCPUTimeD2Ev(ptr nocapture noundef nonnull readon
   br i1 %8, label %9, label %31
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load double, ptr %10, align 8
   %12 = load double, ptr %3, align 8
   %13 = fsub double %12, %11
   store double %13, ptr %3, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load double, ptr %14, align 8
   %16 = load double, ptr %4, align 8
   %17 = fsub double %16, %15
   store double %17, ptr %4, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = load double, ptr %18, align 8
   %20 = load double, ptr %2, align 8
   %21 = fsub double %20, %19
   store double %21, ptr %2, align 8
-  %22 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_28ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %22 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_28ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not2 = icmp eq ptr %22, null
   br i1 %.not2, label %24, label %23
 
@@ -297,7 +297,7 @@ define hidden void @_ZN14GCTraceCPUTimeD2Ev(ptr nocapture noundef nonnull readon
   br label %24
 
 24:                                               ; preds = %9, %23
-  %25 = getelementptr inbounds i8, ptr %0, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %26 = load ptr, ptr %25, align 8
   %.not = icmp eq ptr %26, null
   br i1 %.not, label %34, label %27
@@ -310,7 +310,7 @@ define hidden void @_ZN14GCTraceCPUTimeD2Ev(ptr nocapture noundef nonnull readon
   br label %34
 
 31:                                               ; preds = %7
-  %32 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_28ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 72), align 8
+  %32 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_28ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 72), align 8
   %.not1 = icmp eq ptr %32, null
   br i1 %.not1, label %34, label %33
 
@@ -384,7 +384,7 @@ declare void @__cxa_pure_virtual() unnamed_addr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN17LogStreamImplBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @_ZN17LogStreamImplBase10LineBufferD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %2) #7
   ret void
 }

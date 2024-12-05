@@ -94,17 +94,17 @@ entry:
   tail call void @lua_replace(ptr noundef %7, i32 noundef -10002) #8
   %call38 = tail call noalias dereferenceable_or_null(56) ptr @zmalloc(i64 noundef 56) #7
   store ptr %call, ptr %call38, align 8
-  %.compoundliteral.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %call38, i64 8
+  %.compoundliteral.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %call38, i64 8
   store ptr @luaEngineCreate, ptr %.compoundliteral.sroa.2.0..sroa_idx, align 8
-  %.compoundliteral.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %call38, i64 16
+  %.compoundliteral.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %call38, i64 16
   store ptr @luaEngineCall, ptr %.compoundliteral.sroa.3.0..sroa_idx, align 8
-  %.compoundliteral.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %call38, i64 24
+  %.compoundliteral.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %call38, i64 24
   store ptr @luaEngineGetUsedMemoy, ptr %.compoundliteral.sroa.4.0..sroa_idx, align 8
-  %.compoundliteral.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %call38, i64 32
+  %.compoundliteral.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %call38, i64 32
   store ptr @luaEngineFunctionMemoryOverhead, ptr %.compoundliteral.sroa.5.0..sroa_idx, align 8
-  %.compoundliteral.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %call38, i64 40
+  %.compoundliteral.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %call38, i64 40
   store ptr @luaEngineMemoryOverhead, ptr %.compoundliteral.sroa.6.0..sroa_idx, align 8
-  %.compoundliteral.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %call38, i64 48
+  %.compoundliteral.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %call38, i64 48
   store ptr @luaEngineFreeFunction, ptr %.compoundliteral.sroa.7.0..sroa_idx, align 8
   %call40 = tail call i32 @functionsRegisterEngine(ptr noundef nonnull @.str.9, ptr noundef nonnull %call38) #8
   ret i32 %call40
@@ -239,7 +239,7 @@ if.end.i.i.i:                                     ; preds = %if.end39.i.i, %for.
 
 if.end4.i.i.i:                                    ; preds = %if.end.i.i.i
   %call5.i.i.i = tail call ptr @lua_tolstring(ptr noundef %lua, i32 noundef -1, ptr noundef null) #8
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @scripts_flags_def, i64 8), align 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @scripts_flags_def, i64 8), align 8
   %tobool6.not16.i.i.i = icmp eq ptr %2, null
   br i1 %tobool6.not16.i.i.i, label %error.sink.split.i.i, label %for.body.i.i.i
 
@@ -251,8 +251,8 @@ for.body.i.i.i:                                   ; preds = %if.end4.i.i.i, %for
   br i1 %tobool9.not.i.i.i, label %for.end.i.i.i, label %for.inc.i.i.i
 
 for.inc.i.i.i:                                    ; preds = %for.body.i.i.i
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %flag.017.i.i.i, i64 16
-  %str.i.i.i = getelementptr inbounds i8, ptr %flag.017.i.i.i, i64 24
+  %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %flag.017.i.i.i, i64 16
+  %str.i.i.i = getelementptr inbounds nuw i8, ptr %flag.017.i.i.i, i64 24
   %4 = load ptr, ptr %str.i.i.i, align 8
   %tobool6.not.i.i.i = icmp eq ptr %4, null
   br i1 %tobool6.not.i.i.i, label %error.sink.split.i.i, label %for.body.i.i.i, !llvm.loop !7
@@ -503,11 +503,11 @@ cond.false:                                       ; preds = %if.end
 
 cond.end:                                         ; preds = %if.end
   store ptr %li, ptr %load_ctx, align 8
-  %start_time = getelementptr inbounds i8, ptr %load_ctx, i64 8
+  %start_time = getelementptr inbounds nuw i8, ptr %load_ctx, i64 8
   %6 = load ptr, ptr @getMonotonicUs, align 8
   %call11 = tail call i64 %6() #8
   store i64 %call11, ptr %start_time, align 8
-  %timeout12 = getelementptr inbounds i8, ptr %load_ctx, i64 16
+  %timeout12 = getelementptr inbounds nuw i8, ptr %load_ctx, i64 16
   store i64 %timeout, ptr %timeout12, align 8
   call void @luaSaveOnRegistry(ptr noundef %0, ptr noundef nonnull @.str.10, ptr noundef nonnull %load_ctx) #8
   %call13 = call i32 @lua_sethook(ptr noundef %0, ptr noundef nonnull @luaEngineLoadHook, i32 noundef 8, i32 noundef 100000) #8
@@ -664,13 +664,13 @@ cond.false:                                       ; preds = %entry
   unreachable
 
 cond.end:                                         ; preds = %entry
-  %start_time = getelementptr inbounds i8, ptr %call, i64 8
+  %start_time = getelementptr inbounds nuw i8, ptr %call, i64 8
   %0 = load i64, ptr %start_time, align 8
   %1 = load ptr, ptr @getMonotonicUs, align 8
   %call.i.i = tail call i64 %1() #8
   %sub.i.i = sub i64 %call.i.i, %0
   %div.i = udiv i64 %sub.i.i, 1000
-  %timeout = getelementptr inbounds i8, ptr %call, i64 16
+  %timeout = getelementptr inbounds nuw i8, ptr %call, i64 16
   %2 = load i64, ptr %timeout, align 8
   %cmp.not = icmp ne i64 %2, 0
   %cmp6 = icmp ugt i64 %div.i, %2

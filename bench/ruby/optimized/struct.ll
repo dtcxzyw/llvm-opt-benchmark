@@ -203,7 +203,7 @@ define dso_local range(i64 1, -7) i64 @rb_struct_members(i64 noundef %0) local_u
   br label %internal_RSTRUCT_LEN.exit
 
 10:                                               ; preds = %1
-  %11 = getelementptr inbounds i8, ptr %4, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %12 = load i64, ptr %11, align 8
   br label %internal_RSTRUCT_LEN.exit
 
@@ -221,7 +221,7 @@ internal_RSTRUCT_LEN.exit:                        ; preds = %7, %10
   br label %rb_array_len.exit
 
 19:                                               ; preds = %internal_RSTRUCT_LEN.exit
-  %20 = getelementptr inbounds i8, ptr %13, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %21 = load i64, ptr %20, align 8
   br label %rb_array_len.exit
 
@@ -256,7 +256,7 @@ define internal fastcc i64 @internal_RSTRUCT_LEN(i64 noundef %0) unnamed_addr #3
   br label %11
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %2, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %10 = load i64, ptr %9, align 8
   br label %11
 
@@ -280,11 +280,11 @@ define dso_local i64 @rb_struct_getmember(i64 noundef %0, i64 noundef %1) local_
   br i1 %.not.i.i, label %11, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %6, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
   br label %internal_RSTRUCT_GET.exit
 
 11:                                               ; preds = %5
-  %12 = getelementptr inbounds i8, ptr %6, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %13 = load ptr, ptr %12, align 8
   br label %internal_RSTRUCT_GET.exit
 
@@ -370,7 +370,7 @@ struct_ivar_get.exit.thread76:                    ; preds = %2, %struct_ivar_get
   br label %rb_array_len.exit
 
 34:                                               ; preds = %29
-  %35 = getelementptr inbounds i8, ptr %25, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %36 = load i64, ptr %35, align 8
   br label %rb_array_len.exit
 
@@ -392,7 +392,7 @@ rb_array_len.exit:                                ; preds = %31, %34
   br label %internal_RSTRUCT_LEN.exit
 
 45:                                               ; preds = %41
-  %46 = getelementptr inbounds i8, ptr %38, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %47 = load i64, ptr %46, align 8
   br label %internal_RSTRUCT_LEN.exit
 
@@ -406,11 +406,11 @@ internal_RSTRUCT_LEN.exit:                        ; preds = %42, %45
   br i1 %48, label %.lr.ph96, label %.loopexit
 
 .lr.ph96:                                         ; preds = %.preheader
-  %49 = getelementptr inbounds i8, ptr %25, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %25, i64 16
   br i1 %.not.i, label %.lr.ph96.split.us, label %RARRAY_AREF.exit
 
 .lr.ph96.split.us:                                ; preds = %.lr.ph96
-  %50 = getelementptr inbounds i8, ptr %25, i64 32
+  %50 = getelementptr inbounds nuw i8, ptr %25, i64 32
   %51 = load ptr, ptr %50, align 8
   br label %RARRAY_AREF.exit.us
 
@@ -458,7 +458,7 @@ RARRAY_AREF.exit:                                 ; preds = %.lr.ph96, %64
   br label %internal_RSTRUCT_LEN.exit62
 
 70:                                               ; preds = %66
-  %71 = getelementptr inbounds i8, ptr %38, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %72 = load i64, ptr %71, align 8
   br label %internal_RSTRUCT_LEN.exit62
 
@@ -468,11 +468,11 @@ internal_RSTRUCT_LEN.exit62:                      ; preds = %67, %70
   br i1 %.not.i, label %76, label %74
 
 74:                                               ; preds = %internal_RSTRUCT_LEN.exit62
-  %75 = getelementptr inbounds i8, ptr %25, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %25, i64 16
   br label %RARRAY_AREF.exit65
 
 76:                                               ; preds = %internal_RSTRUCT_LEN.exit62
-  %77 = getelementptr inbounds i8, ptr %25, i64 32
+  %77 = getelementptr inbounds nuw i8, ptr %25, i64 32
   %78 = load ptr, ptr %77, align 8
   br label %RARRAY_AREF.exit65
 
@@ -494,11 +494,11 @@ RARRAY_AREF.exit65:                               ; preds = %74, %76
   br i1 %.not.i.i66, label %89, label %87
 
 87:                                               ; preds = %83
-  %88 = getelementptr inbounds i8, ptr %25, i64 16
+  %88 = getelementptr inbounds nuw i8, ptr %25, i64 16
   br label %RARRAY_AREF.exit68
 
 89:                                               ; preds = %83
-  %90 = getelementptr inbounds i8, ptr %25, i64 32
+  %90 = getelementptr inbounds nuw i8, ptr %25, i64 32
   %91 = load ptr, ptr %90, align 8
   br label %RARRAY_AREF.exit68
 
@@ -518,11 +518,11 @@ RARRAY_AREF.exit68:                               ; preds = %87, %89
   %100 = load i64, ptr %25, align 8
   %101 = and i64 %100, 8192
   %.not.i.i69 = icmp eq i64 %101, 0
-  %102 = getelementptr inbounds i8, ptr %25, i64 16
+  %102 = getelementptr inbounds nuw i8, ptr %25, i64 16
   br i1 %.not.i.i69, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %96
-  %103 = getelementptr inbounds i8, ptr %25, i64 32
+  %103 = getelementptr inbounds nuw i8, ptr %25, i64 32
   %104 = load ptr, ptr %103, align 8
   %.1.us91 = and i64 %99, %97
   %105 = getelementptr i64, ptr %104, i64 %.1.us91
@@ -556,8 +556,8 @@ RARRAY_AREF.exit71.us:                            ; preds = %.lr.ph93
 RARRAY_AREF.exit74:                               ; preds = %RARRAY_AREF.exit71.thread, %RARRAY_AREF.exit71.us, %.split.us, %.split
   %.186 = phi i64 [ %.189, %.split ], [ %.1.us91, %.split.us ], [ %.1.us, %RARRAY_AREF.exit71.us ], [ %.1, %RARRAY_AREF.exit71.thread ]
   %.0.i.i73 = phi ptr [ %102, %.split ], [ %104, %.split.us ], [ %104, %RARRAY_AREF.exit71.us ], [ %102, %RARRAY_AREF.exit71.thread ]
-  %118 = add i64 %.186, 1
-  %119 = getelementptr i64, ptr %.0.i.i73, i64 %118
+  %118 = getelementptr i64, ptr %.0.i.i73, i64 %.186
+  %119 = getelementptr i8, ptr %118, i64 8
   %120 = load i64, ptr %119, align 8
   %121 = tail call i64 @rb_fix2int(i64 noundef %120) #15
   %122 = trunc i64 %121 to i32
@@ -616,7 +616,7 @@ define internal i64 @struct_alloc(i64 noundef %0) #0 {
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i64 @rb_wb_protected_newobj_of(ptr noundef %12, i64 noundef %0, i64 noundef %10, i64 noundef %4) #15
   %14 = inttoptr i64 %13 to ptr
-  %15 = getelementptr inbounds i8, ptr %14, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   tail call void @rb_mem_clear(ptr noundef nonnull %15, i64 noundef %2) #19
   br label %24
 
@@ -626,8 +626,8 @@ define internal i64 @struct_alloc(i64 noundef %0) #0 {
   %19 = tail call i64 @rb_wb_protected_newobj_of(ptr noundef %18, i64 noundef %0, i64 noundef 9, i64 noundef 32) #15
   %20 = inttoptr i64 %19 to ptr
   %21 = tail call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %2, i64 noundef 8) #20
-  %22 = getelementptr inbounds i8, ptr %20, i64 16
-  %23 = getelementptr inbounds i8, ptr %20, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store ptr %21, ptr %23, align 8
   tail call void @rb_mem_clear(ptr noundef nonnull %21, i64 noundef %2) #19
   store i64 %2, ptr %22, align 8
@@ -668,10 +668,10 @@ struct_define_without_accessor.exit:              ; preds = %7, %9
 define internal fastcc i64 @struct_make_members_list(ptr nocapture noundef nonnull %0) unnamed_addr #0 {
   %2 = tail call i64 @rb_ident_hash_new() #15
   %3 = inttoptr i64 %2 to ptr
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 0, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %7
 
 7:                                                ; preds = %27, %1
@@ -718,7 +718,7 @@ define internal fastcc i64 @struct_make_members_list(ptr nocapture noundef nonnu
 29:                                               ; preds = %18
   %30 = tail call i64 @rb_hash_keys(i64 noundef %2) #15
   %31 = inttoptr i64 %30 to ptr
-  %32 = getelementptr inbounds i8, ptr %31, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store i64 0, ptr %32, align 8
   %33 = load i64, ptr %31, align 8
   %34 = or i64 %33, 2048
@@ -742,7 +742,7 @@ define dso_local noundef i64 @rb_struct_define_without_accessor(ptr noundef %0, 
 8:                                                ; preds = %3
   %9 = call i64 @rb_class_new(i64 noundef %1) #15
   %10 = inttoptr i64 %1 to ptr
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load i64, ptr %11, align 8
   %13 = call i64 @rb_make_metaclass(i64 noundef %9, i64 noundef %12) #15
   %14 = call i64 @rb_class_inherited(i64 noundef %1, i64 noundef %9) #15
@@ -770,7 +770,7 @@ define dso_local noundef i64 @rb_struct_define(ptr noundef %0, ...) local_unname
   %5 = load i64, ptr @rb_cStruct, align 8
   %6 = call i64 @rb_class_new(i64 noundef %5) #15
   %7 = inttoptr i64 %5 to ptr
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load i64, ptr %8, align 8
   %10 = call i64 @rb_make_metaclass(i64 noundef %6, i64 noundef %9) #15
   %11 = call i64 @rb_class_inherited(i64 noundef %5, i64 noundef %6) #15
@@ -849,7 +849,7 @@ define internal fastcc noundef i64 @setup_struct(i64 noundef returned %0, i64 no
   br label %rb_array_len.exit
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %4, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %12 = load i64, ptr %11, align 8
   br label %rb_array_len.exit
 
@@ -859,8 +859,8 @@ rb_array_len.exit:                                ; preds = %7, %10
   br i1 %13, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %rb_array_len.exit
-  %14 = getelementptr inbounds i8, ptr %4, i64 16
-  %15 = getelementptr inbounds i8, ptr %4, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 32
   br label %16
 
 16:                                               ; preds = %.lr.ph, %rb_long2num_inline.exit
@@ -941,7 +941,7 @@ define dso_local noundef i64 @rb_struct_initialize(i64 noundef %0, i64 noundef %
   br i1 %.not.i.i, label %rb_array_len.exit.i, label %rb_array_len.exit.i.thread
 
 rb_array_len.exit.i:                              ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load i64, ptr %8, align 8
   %10 = add i64 %9, 2147483648
   %.not.i1.i = icmp ult i64 %10, 4294967296
@@ -951,7 +951,7 @@ rb_array_len.exit.i.thread:                       ; preds = %2
   %11 = trunc i64 %6 to i32
   %12 = lshr i32 %11, 15
   %13 = and i32 %12, 127
-  %14 = getelementptr inbounds i8, ptr %5, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 16
   br label %rb_array_const_ptr.exit
 
 15:                                               ; preds = %rb_array_len.exit.i
@@ -960,7 +960,7 @@ rb_array_len.exit.i.thread:                       ; preds = %2
 
 16:                                               ; preds = %rb_array_len.exit.i
   %17 = trunc i64 %9 to i32
-  %18 = getelementptr inbounds i8, ptr %5, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %19 = load ptr, ptr %18, align 8
   br label %rb_array_const_ptr.exit
 
@@ -1024,11 +1024,11 @@ rb_struct_modify.exit:                            ; preds = %10
   br i1 %.not.i, label %24, label %22
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %11, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %11, i64 16
   br label %RSTRUCT_CONST_PTR.exit
 
 24:                                               ; preds = %19
-  %25 = getelementptr inbounds i8, ptr %11, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %26 = load ptr, ptr %25, align 8
   br label %RSTRUCT_CONST_PTR.exit
 
@@ -1126,11 +1126,11 @@ rb_struct_s_keyword_init.exit.thread:             ; preds = %.preheader.i.i, %rb
   br i1 %.not.i81, label %73, label %71
 
 71:                                               ; preds = %.critedge80
-  %72 = getelementptr inbounds i8, ptr %11, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %11, i64 16
   br label %RSTRUCT_CONST_PTR.exit83
 
 73:                                               ; preds = %.critedge80
-  %74 = getelementptr inbounds i8, ptr %11, i64 24
+  %74 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %75 = load ptr, ptr %74, align 8
   br label %RSTRUCT_CONST_PTR.exit83
 
@@ -1138,7 +1138,7 @@ RSTRUCT_CONST_PTR.exit83:                         ; preds = %71, %73
   %.0.i82 = phi ptr [ %72, %71 ], [ %75, %73 ]
   tail call void @rb_mem_clear(ptr noundef %.0.i82, i64 noundef %17) #19
   store i64 %2, ptr %4, align 8
-  %76 = getelementptr inbounds i8, ptr %4, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 4, ptr %76, align 8
   %77 = load i64, ptr %1, align 8
   %78 = ptrtoint ptr %4 to i64
@@ -1155,7 +1155,7 @@ RSTRUCT_CONST_PTR.exit83:                         ; preds = %71, %73
   %85 = load i64, ptr %84, align 8, !noalias !12
   %86 = and i64 %85, 8192
   %.not.i.i = icmp eq i64 %86, 0
-  %87 = getelementptr inbounds i8, ptr %84, i64 24
+  %87 = getelementptr inbounds nuw i8, ptr %84, i64 24
   br i1 %.not.i.i, label %RSTRING_PTR.exit, label %88
 
 88:                                               ; preds = %80
@@ -1177,8 +1177,8 @@ RSTRING_PTR.exit:                                 ; preds = %80, %88
   br i1 %91, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  %92 = getelementptr inbounds i8, ptr %11, i64 16
-  %93 = getelementptr inbounds i8, ptr %11, i64 24
+  %92 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %93 = getelementptr inbounds nuw i8, ptr %11, i64 24
   br label %96
 
 94:                                               ; preds = %.critedge79
@@ -1229,11 +1229,11 @@ internal_RSTRUCT_SET.exit:                        ; preds = %RSTRUCT_CONST_PTR.e
   br i1 %.not.i86, label %116, label %114
 
 114:                                              ; preds = %111
-  %115 = getelementptr inbounds i8, ptr %11, i64 16
+  %115 = getelementptr inbounds nuw i8, ptr %11, i64 16
   br label %RSTRUCT_CONST_PTR.exit88
 
 116:                                              ; preds = %111
-  %117 = getelementptr inbounds i8, ptr %11, i64 24
+  %117 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %118 = load ptr, ptr %117, align 8
   br label %RSTRUCT_CONST_PTR.exit88
 
@@ -1259,7 +1259,7 @@ define dso_local i64 @rb_struct_alloc(i64 noundef %0, i64 noundef %1) local_unna
   br i1 %.not.i.i, label %rb_array_len.exit.i, label %rb_array_len.exit.i.thread
 
 rb_array_len.exit.i:                              ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %7 = load i64, ptr %6, align 8
   %8 = add i64 %7, 2147483648
   %.not.i1.i = icmp ult i64 %8, 4294967296
@@ -1269,7 +1269,7 @@ rb_array_len.exit.i.thread:                       ; preds = %2
   %9 = trunc i64 %4 to i32
   %10 = lshr i32 %9, 15
   %11 = and i32 %10, 127
-  %12 = getelementptr inbounds i8, ptr %3, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 16
   br label %rb_array_const_ptr.exit
 
 13:                                               ; preds = %rb_array_len.exit.i
@@ -1278,7 +1278,7 @@ rb_array_len.exit.i.thread:                       ; preds = %2
 
 14:                                               ; preds = %rb_array_len.exit.i
   %15 = trunc i64 %7 to i32
-  %16 = getelementptr inbounds i8, ptr %3, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %17 = load ptr, ptr %16, align 8
   br label %rb_array_const_ptr.exit
 
@@ -1321,11 +1321,11 @@ rb_long2int_inline.exit:                          ; preds = %1
   br i1 %.not.i.i, label %17, label %15
 
 15:                                               ; preds = %9
-  %16 = getelementptr inbounds i8, ptr %12, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 16
   br label %RARRAY_PTR.exit.thread
 
 17:                                               ; preds = %9
-  %18 = getelementptr inbounds i8, ptr %12, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %19 = load ptr, ptr %18, align 8
   br label %RARRAY_PTR.exit.thread
 
@@ -1341,8 +1341,8 @@ RARRAY_PTR.exit:                                  ; preds = %rb_long2int_inline.
 
 .lr.ph:                                           ; preds = %RARRAY_PTR.exit.thread, %RARRAY_PTR.exit
   %.01016 = phi ptr [ %.010.ph, %RARRAY_PTR.exit.thread ], [ %2, %RARRAY_PTR.exit ]
-  %21 = getelementptr inbounds i8, ptr %3, i64 8
-  %22 = getelementptr inbounds i8, ptr %3, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %wide.trip.count = and i64 %4, 2147483647
   %.pre = load i32, ptr %3, align 16
   br label %23
@@ -1444,7 +1444,7 @@ struct_ivar_get.exit:                             ; preds = %1, %15
   br label %rb_array_len.exit
 
 32:                                               ; preds = %27
-  %33 = getelementptr inbounds i8, ptr %22, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %34 = load i64, ptr %33, align 8
   br label %rb_array_len.exit
 
@@ -1474,7 +1474,7 @@ define hidden noundef i64 @rb_struct_init_copy(i64 noundef returned %0, i64 noun
   br label %internal_RSTRUCT_LEN.exit
 
 11:                                               ; preds = %3
-  %12 = getelementptr inbounds i8, ptr %5, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %13 = load i64, ptr %12, align 8
   br label %internal_RSTRUCT_LEN.exit
 
@@ -1492,7 +1492,7 @@ internal_RSTRUCT_LEN.exit:                        ; preds = %8, %11
   br label %internal_RSTRUCT_LEN.exit22
 
 20:                                               ; preds = %internal_RSTRUCT_LEN.exit
-  %21 = getelementptr inbounds i8, ptr %14, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %22 = load i64, ptr %21, align 8
   br label %internal_RSTRUCT_LEN.exit22
 
@@ -1515,7 +1515,7 @@ internal_RSTRUCT_LEN.exit22:                      ; preds = %17, %20
   br label %internal_RSTRUCT_LEN.exit25
 
 29:                                               ; preds = %25
-  %30 = getelementptr inbounds i8, ptr %5, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %31 = load i64, ptr %30, align 8
   br label %internal_RSTRUCT_LEN.exit25
 
@@ -1525,10 +1525,10 @@ internal_RSTRUCT_LEN.exit25:                      ; preds = %26, %29
   br i1 %32, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %internal_RSTRUCT_LEN.exit25
-  %33 = getelementptr inbounds i8, ptr %14, i64 16
-  %34 = getelementptr inbounds i8, ptr %14, i64 24
-  %35 = getelementptr inbounds i8, ptr %5, i64 16
-  %36 = getelementptr inbounds i8, ptr %5, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %14, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %5, i64 24
   br label %37
 
 37:                                               ; preds = %.lr.ph, %internal_RSTRUCT_SET.exit
@@ -1601,11 +1601,11 @@ define dso_local i64 @rb_struct_aref(i64 noundef %0, i64 noundef %1) #0 {
   br i1 %.not.i.i, label %14, label %12
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %9, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 16
   br label %internal_RSTRUCT_GET.exit
 
 14:                                               ; preds = %8
-  %15 = getelementptr inbounds i8, ptr %9, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %16 = load ptr, ptr %15, align 8
   br label %internal_RSTRUCT_GET.exit
 
@@ -1685,7 +1685,7 @@ rb_num2long_inline.exit:                          ; preds = %26, %28
   br label %internal_RSTRUCT_LEN.exit
 
 36:                                               ; preds = %rb_num2long_inline.exit
-  %37 = getelementptr inbounds i8, ptr %30, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %38 = load i64, ptr %37, align 8
   br label %internal_RSTRUCT_LEN.exit
 
@@ -1747,7 +1747,7 @@ define internal fastcc void @invalid_struct_pos(i64 noundef %0, i64 noundef %1) 
   br label %internal_RSTRUCT_LEN.exit
 
 13:                                               ; preds = %4
-  %14 = getelementptr inbounds i8, ptr %7, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %15 = load i64, ptr %14, align 8
   br label %internal_RSTRUCT_LEN.exit
 
@@ -1812,11 +1812,11 @@ rb_struct_modify.exit:                            ; preds = %14
   br i1 %.not.i.i, label %25, label %23
 
 23:                                               ; preds = %rb_struct_modify.exit
-  %24 = getelementptr inbounds i8, ptr %15, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %15, i64 16
   br label %RSTRUCT_CONST_PTR.exit.i
 
 25:                                               ; preds = %rb_struct_modify.exit
-  %26 = getelementptr inbounds i8, ptr %15, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %27 = load ptr, ptr %26, align 8
   br label %RSTRUCT_CONST_PTR.exit.i
 
@@ -1856,11 +1856,11 @@ define hidden i64 @rb_struct_lookup(i64 noundef %0, i64 noundef %1) local_unname
   br i1 %.not.i.i.i, label %13, label %11
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %8, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 16
   br label %internal_RSTRUCT_GET.exit.i
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %8, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %15 = load ptr, ptr %14, align 8
   br label %internal_RSTRUCT_GET.exit.i
 
@@ -1890,7 +1890,7 @@ define dso_local range(i64 1, 0) i64 @rb_struct_size(i64 noundef %0) #3 {
   br label %internal_RSTRUCT_LEN.exit
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %2, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %10 = load i64, ptr %9, align 8
   br label %internal_RSTRUCT_LEN.exit
 
@@ -1912,7 +1912,7 @@ define dso_local noundef i64 @rb_data_define(i64 noundef %0, ...) local_unnamed_
   %spec.select = select i1 %.not, i64 %4, i64 %0
   %5 = call i64 @rb_class_new(i64 noundef %spec.select) #15
   %6 = inttoptr i64 %spec.select to ptr
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load i64, ptr %7, align 8
   %9 = call i64 @rb_make_metaclass(i64 noundef %5, i64 noundef %8) #15
   %10 = call i64 @rb_class_inherited(i64 noundef %spec.select, i64 noundef %5) #15
@@ -1943,7 +1943,7 @@ define internal fastcc noundef i64 @setup_data(i64 noundef returned %0, i64 noun
   br label %rb_array_len.exit
 
 11:                                               ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %5, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %13 = load i64, ptr %12, align 8
   br label %rb_array_len.exit
 
@@ -1953,8 +1953,8 @@ rb_array_len.exit:                                ; preds = %8, %11
   br i1 %14, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %rb_array_len.exit
-  %15 = getelementptr inbounds i8, ptr %5, i64 16
-  %16 = getelementptr inbounds i8, ptr %5, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 32
   br label %17
 
 17:                                               ; preds = %.lr.ph, %rb_long2num_inline.exit
@@ -2067,7 +2067,7 @@ define hidden void @InitVM_Struct() local_unnamed_addr #0 {
 
 35:                                               ; preds = %0
   %36 = inttoptr i64 %30 to ptr
-  %37 = getelementptr inbounds i8, ptr %36, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   br label %rb_class_of.exit
 
 38:                                               ; preds = %0
@@ -2225,7 +2225,7 @@ rbimpl_intern_const.exit:                         ; preds = %rbimpl_intern_const
 36:                                               ; preds = %.sink.split, %34, %RB_SYMBOL_P.exit.thread
   %37 = call i64 @rb_ident_hash_new() #15
   %38 = inttoptr i64 %37 to ptr
-  %39 = getelementptr inbounds i8, ptr %38, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   store i64 0, ptr %39, align 8
   %40 = sext i32 %.0 to i64
   %41 = icmp sgt i32 %.0, 0
@@ -2265,7 +2265,7 @@ rbimpl_intern_const.exit:                         ; preds = %rbimpl_intern_const
 ._crit_edge:                                      ; preds = %53, %36
   %56 = call i64 @rb_hash_keys(i64 noundef %37) #15
   %57 = inttoptr i64 %56 to ptr
-  %58 = getelementptr inbounds i8, ptr %57, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
   store i64 0, ptr %58, align 8
   %59 = load i64, ptr %57, align 8
   %60 = or i64 %59, 2048
@@ -2276,7 +2276,7 @@ rbimpl_intern_const.exit:                         ; preds = %rbimpl_intern_const
 62:                                               ; preds = %._crit_edge
   %63 = call i64 @rb_class_new(i64 noundef %2) #15
   %64 = inttoptr i64 %2 to ptr
-  %65 = getelementptr inbounds i8, ptr %64, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %66 = load i64, ptr %65, align 8
   %67 = call i64 @rb_make_metaclass(i64 noundef %63, i64 noundef %66) #15
   %68 = call i64 @rb_class_inherited(i64 noundef %2, i64 noundef %63) #15
@@ -2344,7 +2344,7 @@ define internal i64 @rb_struct_equal(i64 noundef %0, i64 noundef %1) #0 {
   br label %internal_RSTRUCT_LEN.exit
 
 24:                                               ; preds = %17
-  %25 = getelementptr inbounds i8, ptr %18, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %26 = load i64, ptr %25, align 8
   br label %internal_RSTRUCT_LEN.exit
 
@@ -2361,7 +2361,7 @@ internal_RSTRUCT_LEN.exit:                        ; preds = %21, %24
   br label %internal_RSTRUCT_LEN.exit34
 
 32:                                               ; preds = %internal_RSTRUCT_LEN.exit
-  %33 = getelementptr inbounds i8, ptr %10, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %34 = load i64, ptr %33, align 8
   br label %internal_RSTRUCT_LEN.exit34
 
@@ -2421,7 +2421,7 @@ define internal i64 @rb_struct_eql(i64 noundef %0, i64 noundef %1) #0 {
   br label %internal_RSTRUCT_LEN.exit
 
 24:                                               ; preds = %17
-  %25 = getelementptr inbounds i8, ptr %18, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %26 = load i64, ptr %25, align 8
   br label %internal_RSTRUCT_LEN.exit
 
@@ -2438,7 +2438,7 @@ internal_RSTRUCT_LEN.exit:                        ; preds = %21, %24
   br label %internal_RSTRUCT_LEN.exit34
 
 32:                                               ; preds = %internal_RSTRUCT_LEN.exit
-  %33 = getelementptr inbounds i8, ptr %10, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %34 = load i64, ptr %33, align 8
   br label %internal_RSTRUCT_LEN.exit34
 
@@ -2477,7 +2477,7 @@ define internal range(i64 1, 0) i64 @rb_struct_hash(i64 noundef %0) #0 {
   br label %internal_RSTRUCT_LEN.exit
 
 11:                                               ; preds = %1
-  %12 = getelementptr inbounds i8, ptr %5, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %13 = load i64, ptr %12, align 8
   br label %internal_RSTRUCT_LEN.exit
 
@@ -2487,8 +2487,8 @@ internal_RSTRUCT_LEN.exit:                        ; preds = %8, %11
   br i1 %14, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %internal_RSTRUCT_LEN.exit
-  %15 = getelementptr inbounds i8, ptr %5, i64 16
-  %16 = getelementptr inbounds i8, ptr %5, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 24
   br label %17
 
 17:                                               ; preds = %.lr.ph, %rb_num2long_inline.exit
@@ -2559,13 +2559,13 @@ define internal i64 @rb_struct_to_a(i64 noundef %0) #0 {
 5:                                                ; preds = %1
   %6 = lshr i64 %3, 13
   %7 = and i64 %6, 127
-  %8 = getelementptr inbounds i8, ptr %2, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   br label %RSTRUCT_CONST_PTR.exit
 
 9:                                                ; preds = %1
-  %10 = getelementptr inbounds i8, ptr %2, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %11 = load i64, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %2, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %13 = load ptr, ptr %12, align 8
   br label %RSTRUCT_CONST_PTR.exit
 
@@ -2590,7 +2590,7 @@ define internal i64 @rb_struct_to_h(i64 noundef %0) #0 {
   br label %internal_RSTRUCT_LEN.exit
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %2, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %10 = load i64, ptr %9, align 8
   br label %internal_RSTRUCT_LEN.exit
 
@@ -2610,7 +2610,7 @@ internal_RSTRUCT_LEN.exit:                        ; preds = %5, %8
   br label %internal_RSTRUCT_LEN.exit.i
 
 19:                                               ; preds = %internal_RSTRUCT_LEN.exit
-  %20 = getelementptr inbounds i8, ptr %2, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %21 = load i64, ptr %20, align 8
   br label %internal_RSTRUCT_LEN.exit.i
 
@@ -2628,7 +2628,7 @@ internal_RSTRUCT_LEN.exit.i:                      ; preds = %19, %16
   br label %rb_array_len.exit.i
 
 28:                                               ; preds = %internal_RSTRUCT_LEN.exit.i
-  %29 = getelementptr inbounds i8, ptr %22, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %30 = load i64, ptr %29, align 8
   br label %rb_array_len.exit.i
 
@@ -2645,8 +2645,8 @@ rb_array_len.exit.i:                              ; preds = %28, %25
 
 rb_struct_members.exit:                           ; preds = %rb_array_len.exit.i
   %34 = tail call i32 @rb_block_given_p() #15
-  %35 = getelementptr inbounds i8, ptr %2, i64 16
-  %36 = getelementptr inbounds i8, ptr %2, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %.fr = freeze i32 %34
   %.not = icmp eq i32 %.fr, 0
   br i1 %.not, label %rb_struct_members.exit.split.us, label %rb_struct_members.exit.split
@@ -2736,8 +2736,8 @@ define internal i64 @rb_struct_each(i64 noundef %0) #0 {
 
 .preheader:                                       ; preds = %1
   %3 = inttoptr i64 %0 to ptr
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
-  %5 = getelementptr inbounds i8, ptr %3, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   br label %10
 
 6:                                                ; preds = %1
@@ -2808,7 +2808,7 @@ define internal i64 @rb_struct_each_pair(i64 noundef %0) #0 {
   br label %internal_RSTRUCT_LEN.exit.i
 
 16:                                               ; preds = %7
-  %17 = getelementptr inbounds i8, ptr %10, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %18 = load i64, ptr %17, align 8
   br label %internal_RSTRUCT_LEN.exit.i
 
@@ -2826,7 +2826,7 @@ internal_RSTRUCT_LEN.exit.i:                      ; preds = %16, %13
   br label %rb_array_len.exit.i
 
 25:                                               ; preds = %internal_RSTRUCT_LEN.exit.i
-  %26 = getelementptr inbounds i8, ptr %19, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %27 = load i64, ptr %26, align 8
   br label %rb_array_len.exit.i
 
@@ -2844,8 +2844,8 @@ rb_array_len.exit.i:                              ; preds = %25, %22
 rb_struct_members.exit:                           ; preds = %rb_array_len.exit.i
   %31 = tail call i32 @rb_block_pair_yield_optimizable() #15
   %.not23 = icmp eq i32 %31, 0
-  %32 = getelementptr inbounds i8, ptr %10, i64 16
-  %33 = getelementptr inbounds i8, ptr %10, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %10, i64 24
   br i1 %.not23, label %.preheader, label %.preheader36
 
 .preheader36:                                     ; preds = %rb_struct_members.exit, %internal_RSTRUCT_GET.exit
@@ -2949,8 +2949,8 @@ rb_check_arity.exit:                              ; preds = %3
 10:                                               ; preds = %rb_check_arity.exit
   %11 = tail call i64 @rb_ary_new() #15
   %12 = inttoptr i64 %2 to ptr
-  %13 = getelementptr inbounds i8, ptr %12, i64 16
-  %14 = getelementptr inbounds i8, ptr %12, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 24
   br label %15
 
 15:                                               ; preds = %37, %10
@@ -3024,7 +3024,7 @@ define internal i64 @rb_struct_values_at(i32 noundef %0, ptr noundef %1, i64 nou
   br label %internal_RSTRUCT_LEN.exit
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %4, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %12 = load i64, ptr %11, align 8
   br label %internal_RSTRUCT_LEN.exit
 
@@ -3069,11 +3069,11 @@ rb_check_arity.exit:                              ; preds = %3
   br i1 %.not.i.i.i.i, label %17, label %15
 
 15:                                               ; preds = %10
-  %16 = getelementptr inbounds i8, ptr %12, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 16
   br label %internal_RSTRUCT_GET.exit.i.i
 
 17:                                               ; preds = %10
-  %18 = getelementptr inbounds i8, ptr %12, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %19 = load ptr, ptr %18, align 8
   br label %internal_RSTRUCT_GET.exit.i.i
 
@@ -3143,7 +3143,7 @@ define internal i64 @rb_struct_deconstruct_keys(i64 noundef %0, i64 noundef %1) 
   br label %internal_RSTRUCT_LEN.exit
 
 25:                                               ; preds = %18
-  %26 = getelementptr inbounds i8, ptr %19, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %27 = load i64, ptr %26, align 8
   br label %internal_RSTRUCT_LEN.exit
 
@@ -3159,7 +3159,7 @@ internal_RSTRUCT_LEN.exit:                        ; preds = %22, %25
   br label %rb_array_len.exit
 
 32:                                               ; preds = %internal_RSTRUCT_LEN.exit
-  %33 = getelementptr inbounds i8, ptr %13, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %34 = load i64, ptr %33, align 8
   br label %rb_array_len.exit
 
@@ -3174,10 +3174,10 @@ rb_array_len.exit:                                ; preds = %29, %32
 
 38:                                               ; preds = %rb_array_len.exit
   %39 = tail call i64 @rb_hash_new_with_size(i64 noundef %.0.i42) #15
-  %40 = getelementptr inbounds i8, ptr %13, i64 16
-  %41 = getelementptr inbounds i8, ptr %13, i64 32
-  %42 = getelementptr inbounds i8, ptr %19, i64 16
-  %43 = getelementptr inbounds i8, ptr %19, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %13, i64 32
+  %42 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %19, i64 24
   br label %44
 
 44:                                               ; preds = %internal_RSTRUCT_GET.exit, %38
@@ -3242,7 +3242,7 @@ declare void @rb_undef_method(i64 noundef, ptr noundef) local_unnamed_addr #2
 define internal noundef i64 @rb_data_s_def(i32 noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) #0 {
   %4 = tail call i64 @rb_ident_hash_new() #15
   %5 = inttoptr i64 %4 to ptr
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %6, align 8
   %7 = sext i32 %0 to i64
   %8 = icmp sgt i32 %0, 0
@@ -3282,14 +3282,14 @@ define internal noundef i64 @rb_data_s_def(i32 noundef %0, ptr nocapture noundef
 ._crit_edge:                                      ; preds = %20, %3
   %23 = tail call i64 @rb_hash_keys(i64 noundef %4) #15
   %24 = inttoptr i64 %23 to ptr
-  %25 = getelementptr inbounds i8, ptr %24, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i64 0, ptr %25, align 8
   %26 = load i64, ptr %24, align 8
   %27 = or i64 %26, 2048
   store i64 %27, ptr %24, align 8
   %28 = tail call i64 @rb_class_new(i64 noundef %2) #15
   %29 = inttoptr i64 %2 to ptr
-  %30 = getelementptr inbounds i8, ptr %29, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load i64, ptr %30, align 8
   %32 = tail call i64 @rb_make_metaclass(i64 noundef %28, i64 noundef %31) #15
   %33 = tail call i64 @rb_class_inherited(i64 noundef %2, i64 noundef %28) #15
@@ -3372,7 +3372,7 @@ struct_ivar_get.exit:                             ; preds = %.preheader.i, %rb_s
   br label %rb_array_len.exit
 
 38:                                               ; preds = %struct_ivar_get.exit
-  %39 = getelementptr inbounds i8, ptr %32, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %40 = load i64, ptr %39, align 8
   br label %rb_array_len.exit
 
@@ -3426,7 +3426,7 @@ rb_array_len.exit:                                ; preds = %35, %38
 63:                                               ; preds = %58
   %64 = add i64 %48, 24
   %65 = inttoptr i64 %64 to ptr
-  %66 = getelementptr inbounds i8, ptr %65, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 16
   %67 = load i64, ptr %66, align 8
   br label %RHASH_SIZE.exit
 
@@ -3449,11 +3449,11 @@ RHASH_SIZE.exit:                                  ; preds = %60, %63
   br i1 %.not.i45, label %78, label %76
 
 76:                                               ; preds = %73
-  %77 = getelementptr inbounds i8, ptr %11, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %11, i64 16
   br label %RSTRUCT_CONST_PTR.exit
 
 78:                                               ; preds = %73
-  %79 = getelementptr inbounds i8, ptr %11, i64 24
+  %79 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %80 = load ptr, ptr %79, align 8
   br label %RSTRUCT_CONST_PTR.exit
 
@@ -3461,7 +3461,7 @@ RSTRUCT_CONST_PTR.exit:                           ; preds = %76, %78
   %.0.i46 = phi ptr [ %77, %76 ], [ %80, %78 ]
   tail call void @rb_mem_clear(ptr noundef %.0.i46, i64 noundef %.0.i43) #19
   store i64 %2, ptr %4, align 8
-  %81 = getelementptr inbounds i8, ptr %4, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 4, ptr %81, align 8
   %82 = load i64, ptr %1, align 8
   %83 = ptrtoint ptr %4 to i64
@@ -3595,7 +3595,7 @@ define internal fastcc noundef i64 @struct_set_members(i64 noundef %0, i64 nound
   br label %rb_array_len.exit
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %3, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %11 = load i64, ptr %10, align 8
   br label %rb_array_len.exit
 
@@ -3621,11 +3621,11 @@ rb_array_len.exit:                                ; preds = %6, %9
   %20 = or disjoint i64 %19, 1
   tail call void @rb_ary_store(i64 noundef %18, i64 noundef %.034, i64 noundef %20) #15
   %21 = add i64 %.034, -2
-  %22 = getelementptr inbounds i8, ptr %3, i64 16
-  %23 = getelementptr inbounds i8, ptr %3, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %24 = inttoptr i64 %18 to ptr
-  %25 = getelementptr inbounds i8, ptr %24, i64 16
-  %26 = getelementptr inbounds i8, ptr %24, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 32
   br label %27
 
 27:                                               ; preds = %.lr.ph50, %.split.us
@@ -3832,7 +3832,7 @@ define internal noundef i32 @struct_hash_set_i(i64 noundef %0, i64 noundef %1, i
   br i1 %8, label %9, label %19
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %5, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %11 = load i64, ptr %10, align 8
   %12 = icmp eq i64 %11, 4
   br i1 %12, label %13, label %15
@@ -3877,11 +3877,11 @@ rb_struct_modify.exit:                            ; preds = %25
   br i1 %.not.i.i, label %36, label %34
 
 34:                                               ; preds = %rb_struct_modify.exit
-  %35 = getelementptr inbounds i8, ptr %26, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %26, i64 16
   br label %RSTRUCT_CONST_PTR.exit.i
 
 36:                                               ; preds = %rb_struct_modify.exit
-  %37 = getelementptr inbounds i8, ptr %26, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %38 = load ptr, ptr %37, align 8
   br label %RSTRUCT_CONST_PTR.exit.i
 
@@ -4011,7 +4011,7 @@ struct_ivar_get.exit:                             ; preds = %.preheader.i, %21, 
   br label %rb_array_len.exit.i
 
 43:                                               ; preds = %struct_ivar_get.exit
-  %44 = getelementptr inbounds i8, ptr %37, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %45 = load i64, ptr %44, align 8
   br label %rb_array_len.exit.i
 
@@ -4109,7 +4109,7 @@ define internal range(i64 0, 21) i64 @recursive_equal(i64 noundef %0, i64 nounde
   br label %internal_RSTRUCT_LEN.exit
 
 11:                                               ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %5, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %13 = load i64, ptr %12, align 8
   br label %internal_RSTRUCT_LEN.exit
 
@@ -4119,11 +4119,11 @@ internal_RSTRUCT_LEN.exit:                        ; preds = %8, %11
   br i1 %14, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %internal_RSTRUCT_LEN.exit
-  %15 = getelementptr inbounds i8, ptr %5, i64 16
-  %16 = getelementptr inbounds i8, ptr %5, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %17 = inttoptr i64 %1 to ptr
-  %18 = getelementptr inbounds i8, ptr %17, i64 16
-  %19 = getelementptr inbounds i8, ptr %17, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 24
   br label %22
 
 20:                                               ; preds = %internal_RSTRUCT_GET.exit14
@@ -4188,7 +4188,7 @@ define internal range(i64 0, 21) i64 @recursive_eql(i64 noundef %0, i64 noundef 
   br label %internal_RSTRUCT_LEN.exit
 
 11:                                               ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %5, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %13 = load i64, ptr %12, align 8
   br label %internal_RSTRUCT_LEN.exit
 
@@ -4198,11 +4198,11 @@ internal_RSTRUCT_LEN.exit:                        ; preds = %8, %11
   br i1 %14, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %internal_RSTRUCT_LEN.exit
-  %15 = getelementptr inbounds i8, ptr %5, i64 16
-  %16 = getelementptr inbounds i8, ptr %5, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %17 = inttoptr i64 %1 to ptr
-  %18 = getelementptr inbounds i8, ptr %17, i64 16
-  %19 = getelementptr inbounds i8, ptr %17, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 24
   br label %22
 
 20:                                               ; preds = %internal_RSTRUCT_GET.exit14
@@ -4269,7 +4269,7 @@ define internal i64 @inspect_struct(i64 noundef %0, i64 noundef %1, i32 noundef 
   %7 = load i64, ptr %6, align 8, !noalias !34
   %8 = and i64 %7, 8192
   %.not.i.i = icmp eq i64 %8, 0
-  %9 = getelementptr inbounds i8, ptr %6, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 24
   br i1 %.not.i.i, label %RSTRING_PTR.exit, label %10
 
 10:                                               ; preds = %3
@@ -4307,7 +4307,7 @@ RSTRING_PTR.exit:                                 ; preds = %3, %10
   br label %internal_RSTRUCT_LEN.exit.i
 
 26:                                               ; preds = %.thread
-  %27 = getelementptr inbounds i8, ptr %20, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %28 = load i64, ptr %27, align 8
   br label %internal_RSTRUCT_LEN.exit.i
 
@@ -4325,7 +4325,7 @@ internal_RSTRUCT_LEN.exit.i:                      ; preds = %26, %23
   br label %rb_array_len.exit.i
 
 35:                                               ; preds = %internal_RSTRUCT_LEN.exit.i
-  %36 = getelementptr inbounds i8, ptr %29, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %37 = load i64, ptr %36, align 8
   br label %rb_array_len.exit.i
 
@@ -4349,7 +4349,7 @@ rb_struct_members.exit:                           ; preds = %rb_array_len.exit.i
   br label %internal_RSTRUCT_LEN.exit
 
 44:                                               ; preds = %rb_struct_members.exit
-  %45 = getelementptr inbounds i8, ptr %20, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %46 = load i64, ptr %45, align 8
   br label %internal_RSTRUCT_LEN.exit
 
@@ -4359,10 +4359,10 @@ internal_RSTRUCT_LEN.exit:                        ; preds = %41, %44
   br i1 %47, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %internal_RSTRUCT_LEN.exit
-  %48 = getelementptr inbounds i8, ptr %29, i64 16
-  %49 = getelementptr inbounds i8, ptr %29, i64 32
-  %50 = getelementptr inbounds i8, ptr %20, i64 16
-  %51 = getelementptr inbounds i8, ptr %20, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %29, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %29, i64 32
+  %50 = getelementptr inbounds nuw i8, ptr %20, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %20, i64 24
   br label %52
 
 52:                                               ; preds = %.lr.ph, %internal_RSTRUCT_GET.exit
@@ -4483,7 +4483,7 @@ define internal range(i64 1, 0) i64 @struct_enum_size(i64 noundef %0, i64 %1, i6
   br label %rb_struct_size.exit
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %4, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %12 = load i64, ptr %11, align 8
   br label %rb_struct_size.exit
 
@@ -4539,11 +4539,11 @@ rb_long2num_inline.exit:                          ; preds = %5, %8
   br i1 %.not.i.i.i, label %20, label %18
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds i8, ptr %15, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 16
   br label %rb_struct_aref.exit
 
 20:                                               ; preds = %14
-  %21 = getelementptr inbounds i8, ptr %15, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %22 = load ptr, ptr %21, align 8
   br label %rb_struct_aref.exit
 

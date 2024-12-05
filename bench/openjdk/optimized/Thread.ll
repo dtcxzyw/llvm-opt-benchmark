@@ -42,7 +42,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define void @Java_java_lang_Thread_registerNatives(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 1720
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 1720
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 %5(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @methods, i32 noundef 18) #3
   ret void

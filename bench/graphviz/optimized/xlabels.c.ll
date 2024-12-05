@@ -51,7 +51,7 @@ define range(i32 -2147483648, 2) i32 @placeLabels(ptr noundef %0, i64 noundef %1
 gv_alloc.exit.i:                                  ; preds = %5
   %24 = load ptr, ptr @Dtobag, align 8
   %25 = tail call ptr @dtopen(ptr noundef nonnull @Hdisc, ptr noundef %24) #18
-  %26 = getelementptr inbounds i8, ptr %19, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %19, i64 40
   store ptr %25, ptr %26, align 8
   %.not.i = icmp eq ptr %25, null
   br i1 %.not.i, label %27, label %30
@@ -64,7 +64,7 @@ gv_alloc.exit.i:                                  ; preds = %5
 
 30:                                               ; preds = %gv_alloc.exit.i
   %31 = tail call ptr @RTreeOpen() #18
-  %32 = getelementptr inbounds i8, ptr %19, i64 48
+  %32 = getelementptr inbounds nuw i8, ptr %19, i64 48
   store ptr %31, ptr %32, align 8
   %.not12.i = icmp eq ptr %31, null
   br i1 %.not12.i, label %33, label %xlnew.exit
@@ -77,13 +77,13 @@ gv_alloc.exit.i:                                  ; preds = %5
 
 xlnew.exit:                                       ; preds = %30
   store ptr %0, ptr %19, align 8
-  %36 = getelementptr inbounds i8, ptr %19, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i64 %1, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %19, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store ptr %2, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %19, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %19, i64 24
   store i64 %3, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %19, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %19, i64 32
   store ptr %4, ptr %39, align 8
   %40 = getelementptr i8, ptr %4, i64 16
   %.val.val.i.i = load double, ptr %40, align 8
@@ -121,17 +121,17 @@ xlnew.exit:                                       ; preds = %30
 
 gv_alloc.exit.i.i:                                ; preds = %52
   %58 = getelementptr inbounds %struct.object_t, ptr %0, i64 %.02325.i.i
-  %59 = getelementptr inbounds i8, ptr %53, i64 24
-  %60 = getelementptr inbounds i8, ptr %53, i64 40
+  %59 = getelementptr inbounds nuw i8, ptr %53, i64 24
+  %60 = getelementptr inbounds nuw i8, ptr %53, i64 40
   store ptr %58, ptr %60, align 8
-  %61 = getelementptr inbounds i8, ptr %58, i64 32
+  %61 = getelementptr inbounds nuw i8, ptr %58, i64 32
   %62 = load ptr, ptr %61, align 8
   %.not.i.i.i = icmp eq ptr %62, null
   br i1 %.not.i.i.i, label %objplpmks.exit.i.i, label %63
 
 63:                                               ; preds = %gv_alloc.exit.i.i
   %.sroa.0.0.copyload.i.i.i = load double, ptr %62, align 8
-  %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %62, i64 8
+  %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %62, i64 8
   %.sroa.4.0.copyload.i.i.i = load double, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8
   br label %objplpmks.exit.i.i
 
@@ -142,18 +142,18 @@ objplpmks.exit.i.i:                               ; preds = %63, %gv_alloc.exit.
   %65 = fsub double %64, %.sroa.0.0.i.i.i
   %66 = tail call double @llvm.floor.f64(double %65)
   %67 = fptosi double %66 to i32
-  %68 = getelementptr inbounds i8, ptr %58, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %69 = load double, ptr %68, align 8
   %70 = fsub double %69, %.sroa.4.0.i.i.i
   %71 = tail call double @llvm.floor.f64(double %70)
   %72 = fptosi double %71 to i32
-  %73 = getelementptr inbounds i8, ptr %58, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %58, i64 16
   %74 = load double, ptr %73, align 8
   %75 = fadd double %64, %74
   %76 = fadd double %.sroa.0.0.i.i.i, %75
   %77 = tail call double @llvm.ceil.f64(double %76)
   %78 = fptosi double %77 to i32
-  %79 = getelementptr inbounds i8, ptr %58, i64 24
+  %79 = getelementptr inbounds nuw i8, ptr %58, i64 24
   %80 = load double, ptr %79, align 8
   %81 = fadd double %69, %80
   %82 = fadd double %.sroa.4.0.i.i.i, %81
@@ -168,7 +168,7 @@ objplpmks.exit.i.i:                               ; preds = %63, %gv_alloc.exit.
   %.sroa.3.8.insert.ext.i.i.i = zext i32 %78 to i64
   %.sroa.3.8.insert.insert.i.i.i = or disjoint i64 %.sroa.5.8.insert.shift.i.i.i, %.sroa.3.8.insert.ext.i.i.i
   store i64 %.sroa.010.0.insert.insert.i.i.i, ptr %59, align 8
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %53, i64 32
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %53, i64 32
   store i64 %.sroa.3.8.insert.insert.i.i.i, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   br i1 %48, label %.lr.ph.preheader.i.i.i, label %hd_hil_s_from_xy.exit.i.i
 
@@ -209,7 +209,7 @@ objplpmks.exit.i.i:                               ; preds = %63, %gv_alloc.exit.
 
 hd_hil_s_from_xy.exit.i.i:                        ; preds = %.lr.ph.i.i.i, %objplpmks.exit.i.i
   %.027.lcssa.i.i.i = phi i32 [ 0, %objplpmks.exit.i.i ], [ %99, %.lr.ph.i.i.i ]
-  %109 = getelementptr inbounds i8, ptr %53, i64 16
+  %109 = getelementptr inbounds nuw i8, ptr %53, i64 16
   store i32 %.027.lcssa.i.i.i, ptr %109, align 8
   %110 = load ptr, ptr %25, align 8
   %111 = tail call ptr %110(ptr noundef nonnull %25, ptr noundef nonnull %53, i32 noundef 1) #18
@@ -225,8 +225,8 @@ hd_hil_s_from_xy.exit.i.i:                        ; preds = %.lr.ph.i.i.i, %objp
 .lr.ph.i6.i:                                      ; preds = %.loopexit.i, %.lr.ph.i6.i
   %.011.i.i = phi ptr [ %121, %.lr.ph.i6.i ], [ %113, %.loopexit.i ]
   %114 = load ptr, ptr %32, align 8
-  %115 = getelementptr inbounds i8, ptr %.011.i.i, i64 24
-  %116 = getelementptr inbounds i8, ptr %.011.i.i, i64 40
+  %115 = getelementptr inbounds nuw i8, ptr %.011.i.i, i64 24
+  %116 = getelementptr inbounds nuw i8, ptr %.011.i.i, i64 40
   %117 = load ptr, ptr %116, align 8
   %118 = tail call i32 @RTreeInsert(ptr noundef %114, ptr noundef nonnull %115, ptr noundef %117, ptr noundef %114, i32 noundef 0) #18
   %119 = load ptr, ptr %26, align 8
@@ -243,26 +243,26 @@ xlspdxload.exit.i:                                ; preds = %.lr.ph.i6.i, %.loop
   br i1 %.not18.i.i, label %xlinitialize.exit, label %.lr.ph.i8.i.preheader
 
 .lr.ph.i8.i.preheader:                            ; preds = %xlspdxload.exit.i
-  %125 = getelementptr inbounds i8, ptr %122, i64 16
-  %126 = getelementptr inbounds i8, ptr %122, i64 8
+  %125 = getelementptr inbounds nuw i8, ptr %122, i64 16
+  %126 = getelementptr inbounds nuw i8, ptr %122, i64 8
   br label %.lr.ph.i8.i
 
 .lr.ph.i8.i:                                      ; preds = %.lr.ph.i8.i.preheader, %.thread.i.i
   %127 = load ptr, ptr %125, align 8
-  %128 = getelementptr inbounds i8, ptr %127, i64 8
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 8
   %129 = load ptr, ptr %128, align 8
   %.not15.i.i = icmp eq ptr %129, null
   br i1 %.not15.i.i, label %.thread.i.i, label %130
 
 130:                                              ; preds = %.lr.ph.i8.i
   %131 = load ptr, ptr %126, align 8
-  %132 = getelementptr inbounds i8, ptr %131, i64 8
+  %132 = getelementptr inbounds nuw i8, ptr %131, i64 8
   %133 = load i32, ptr %132, align 8
   %134 = icmp slt i32 %133, 0
   br i1 %134, label %135, label %138
 
 135:                                              ; preds = %130
-  %136 = getelementptr inbounds i8, ptr %129, i64 16
+  %136 = getelementptr inbounds nuw i8, ptr %129, i64 16
   %137 = load ptr, ptr %136, align 8
   br label %142
 
@@ -297,57 +297,57 @@ xlinitialize.exit:                                ; preds = %.thread.i.i, %xlspd
   br i1 %.not27.i.i, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %.sroa.26.0..sroa_idx.i = getelementptr inbounds i8, ptr %7, i64 8
-  %.sroa.48.0..sroa_idx.i = getelementptr inbounds i8, ptr %7, i64 16
-  %.sroa.44142.0..sroa_idx.i = getelementptr inbounds i8, ptr %8, i64 8
-  %.sroa.55.0..sroa_idx.i = getelementptr inbounds i8, ptr %8, i64 16
-  %.sroa.44142.0..sroa_idx147.i = getelementptr inbounds i8, ptr %9, i64 8
-  %.sroa.55.0..sroa_idx219.i = getelementptr inbounds i8, ptr %9, i64 16
-  %.sroa.44142.0..sroa_idx153.i = getelementptr inbounds i8, ptr %10, i64 8
-  %.sroa.55.0..sroa_idx222.i = getelementptr inbounds i8, ptr %10, i64 16
-  %.sroa.44142.0..sroa_idx159.i = getelementptr inbounds i8, ptr %11, i64 8
-  %.sroa.55.0..sroa_idx225.i = getelementptr inbounds i8, ptr %11, i64 16
-  %.sroa.44142.0..sroa_idx165.i = getelementptr inbounds i8, ptr %12, i64 8
-  %.sroa.55.0..sroa_idx228.i = getelementptr inbounds i8, ptr %12, i64 16
-  %.sroa.44142.0..sroa_idx171.i = getelementptr inbounds i8, ptr %13, i64 8
-  %.sroa.55.0..sroa_idx231.i = getelementptr inbounds i8, ptr %13, i64 16
-  %.sroa.44142.0..sroa_idx177.i = getelementptr inbounds i8, ptr %14, i64 8
-  %.sroa.55.0..sroa_idx234.i = getelementptr inbounds i8, ptr %14, i64 16
-  %150 = getelementptr inbounds i8, ptr %6, i64 48
-  %151 = getelementptr inbounds i8, ptr %6, i64 56
-  %152 = getelementptr inbounds i8, ptr %6, i64 64
-  %153 = getelementptr inbounds i8, ptr %6, i64 24
-  %.sroa.44142.0..sroa_idx183.i = getelementptr inbounds i8, ptr %15, i64 8
-  %.sroa.55.0..sroa_idx237.i = getelementptr inbounds i8, ptr %15, i64 16
-  %.sroa.44142.0..sroa_idx189.i = getelementptr inbounds i8, ptr %16, i64 8
-  %.sroa.55.0..sroa_idx240.i = getelementptr inbounds i8, ptr %16, i64 16
-  %154 = getelementptr inbounds i8, ptr %6, i64 16
-  %155 = getelementptr inbounds i8, ptr %6, i64 8
-  %156 = getelementptr inbounds i8, ptr %6, i64 40
-  %.sroa.44142.0..sroa_idx195.i = getelementptr inbounds i8, ptr %17, i64 8
-  %.sroa.55.0..sroa_idx243.i = getelementptr inbounds i8, ptr %17, i64 16
-  %.sroa.44142.0..sroa_idx201.i = getelementptr inbounds i8, ptr %18, i64 8
-  %.sroa.55.0..sroa_idx246.i = getelementptr inbounds i8, ptr %18, i64 16
-  %157 = getelementptr inbounds i8, ptr %4, i64 32
-  %.sroa.48.i.sroa.16.0..sroa.48.0..sroa_idx.i.sroa_idx = getelementptr inbounds i8, ptr %7, i64 24
-  %.sroa.48.i.sroa.16.0..sroa.55.0..sroa_idx.i.sroa_idx = getelementptr inbounds i8, ptr %8, i64 24
-  %.sroa.48.i.sroa.16.0..sroa.55.0..sroa_idx219.i.sroa_idx = getelementptr inbounds i8, ptr %9, i64 24
-  %.sroa.48.i.sroa.16.0..sroa.55.0..sroa_idx222.i.sroa_idx = getelementptr inbounds i8, ptr %10, i64 24
-  %.sroa.48.i.sroa.16.0..sroa.55.0..sroa_idx225.i.sroa_idx = getelementptr inbounds i8, ptr %11, i64 24
-  %.sroa.48.i.sroa.16.0..sroa.55.0..sroa_idx228.i.sroa_idx = getelementptr inbounds i8, ptr %12, i64 24
-  %.sroa.48.i.sroa.16.0..sroa.55.0..sroa_idx231.i.sroa_idx = getelementptr inbounds i8, ptr %13, i64 24
-  %.sroa.48.i.sroa.16.0..sroa.55.0..sroa_idx234.i.sroa_idx = getelementptr inbounds i8, ptr %14, i64 24
-  %.sroa.48.i.sroa.16.0..sroa.55.0..sroa_idx237.i.sroa_idx = getelementptr inbounds i8, ptr %15, i64 24
-  %.sroa.48.i.sroa.16.0..sroa.55.0..sroa_idx240.i.sroa_idx = getelementptr inbounds i8, ptr %16, i64 24
-  %.sroa.48.i.sroa.16.0..sroa.55.0..sroa_idx243.i.sroa_idx = getelementptr inbounds i8, ptr %17, i64 24
-  %.sroa.48.i.sroa.16.0..sroa.55.0..sroa_idx246.i.sroa_idx = getelementptr inbounds i8, ptr %18, i64 24
+  %.sroa.26.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %.sroa.48.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %.sroa.44142.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %.sroa.55.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %.sroa.44142.0..sroa_idx147.i = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %.sroa.55.0..sroa_idx219.i = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %.sroa.44142.0..sroa_idx153.i = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %.sroa.55.0..sroa_idx222.i = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %.sroa.44142.0..sroa_idx159.i = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %.sroa.55.0..sroa_idx225.i = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %.sroa.44142.0..sroa_idx165.i = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %.sroa.55.0..sroa_idx228.i = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %.sroa.44142.0..sroa_idx171.i = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %.sroa.55.0..sroa_idx231.i = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %.sroa.44142.0..sroa_idx177.i = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %.sroa.55.0..sroa_idx234.i = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %150 = getelementptr inbounds nuw i8, ptr %6, i64 48
+  %151 = getelementptr inbounds nuw i8, ptr %6, i64 56
+  %152 = getelementptr inbounds nuw i8, ptr %6, i64 64
+  %153 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %.sroa.44142.0..sroa_idx183.i = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %.sroa.55.0..sroa_idx237.i = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %.sroa.44142.0..sroa_idx189.i = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %.sroa.55.0..sroa_idx240.i = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %154 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %155 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %156 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  %.sroa.44142.0..sroa_idx195.i = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %.sroa.55.0..sroa_idx243.i = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %.sroa.44142.0..sroa_idx201.i = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %.sroa.55.0..sroa_idx246.i = getelementptr inbounds nuw i8, ptr %18, i64 16
+  %157 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %.sroa.48.i.sroa.16.0..sroa.48.0..sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %.sroa.48.i.sroa.16.0..sroa.55.0..sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %.sroa.48.i.sroa.16.0..sroa.55.0..sroa_idx219.i.sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %.sroa.48.i.sroa.16.0..sroa.55.0..sroa_idx222.i.sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 24
+  %.sroa.48.i.sroa.16.0..sroa.55.0..sroa_idx225.i.sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 24
+  %.sroa.48.i.sroa.16.0..sroa.55.0..sroa_idx228.i.sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 24
+  %.sroa.48.i.sroa.16.0..sroa.55.0..sroa_idx231.i.sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 24
+  %.sroa.48.i.sroa.16.0..sroa.55.0..sroa_idx234.i.sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 24
+  %.sroa.48.i.sroa.16.0..sroa.55.0..sroa_idx237.i.sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 24
+  %.sroa.48.i.sroa.16.0..sroa.55.0..sroa_idx240.i.sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 24
+  %.sroa.48.i.sroa.16.0..sroa.55.0..sroa_idx243.i.sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 24
+  %.sroa.48.i.sroa.16.0..sroa.55.0..sroa_idx246.i.sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 24
   br label %158
 
 158:                                              ; preds = %.lr.ph, %381
   %.052 = phi i64 [ 0, %.lr.ph ], [ %382, %381 ]
   %.03650 = phi i32 [ 0, %.lr.ph ], [ %.1, %381 ]
   %159 = getelementptr inbounds %struct.object_t, ptr %0, i64 %.052
-  %160 = getelementptr inbounds i8, ptr %159, i64 32
+  %160 = getelementptr inbounds nuw i8, ptr %159, i64 32
   %161 = load ptr, ptr %160, align 8
   %162 = icmp eq ptr %161, null
   br i1 %162, label %381, label %163
@@ -367,26 +367,26 @@ xlinitialize.exit:                                ; preds = %.thread.i.i, %xlspd
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %18)
   %164 = load double, ptr %161, align 8, !noalias !4
-  %165 = getelementptr inbounds i8, ptr %159, i64 16
+  %165 = getelementptr inbounds nuw i8, ptr %159, i64 16
   %166 = load double, ptr %165, align 8, !noalias !4
   %167 = tail call double @llvm.fmuladd.f64(double %164, double 2.000000e+00, double %166)
   %168 = fmul double %167, 1.250000e-01
-  %169 = getelementptr inbounds i8, ptr %161, i64 8
+  %169 = getelementptr inbounds nuw i8, ptr %161, i64 8
   %170 = load double, ptr %169, align 8, !noalias !4
-  %171 = getelementptr inbounds i8, ptr %159, i64 24
+  %171 = getelementptr inbounds nuw i8, ptr %159, i64 24
   %172 = load double, ptr %171, align 8, !noalias !4
   %173 = tail call double @llvm.fmuladd.f64(double %170, double 2.000000e+00, double %172)
   %174 = fmul double %173, 5.000000e-01
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %6, i8 0, i64 72, i1 false), !noalias !4
   %175 = load double, ptr %159, align 8, !noalias !4
   %176 = fsub double %175, %164
-  %177 = getelementptr inbounds i8, ptr %161, i64 16
+  %177 = getelementptr inbounds nuw i8, ptr %161, i64 16
   store double %176, ptr %177, align 8, !noalias !4
-  %178 = getelementptr inbounds i8, ptr %159, i64 8
+  %178 = getelementptr inbounds nuw i8, ptr %159, i64 8
   %179 = load double, ptr %178, align 8, !noalias !4
   %180 = load double, ptr %171, align 8, !noalias !4
   %181 = fadd double %179, %180
-  %182 = getelementptr inbounds i8, ptr %161, i64 24
+  %182 = getelementptr inbounds nuw i8, ptr %161, i64 24
   store double %181, ptr %182, align 8, !noalias !4
   call fastcc void @xlintersections(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull readonly %19, ptr noundef nonnull %159, ptr noundef %6), !noalias !4
   %.sroa.0249.0.copyload.i = load i32, ptr %7, align 8, !noalias !4
@@ -900,10 +900,10 @@ xladjust.exit:                                    ; preds = %356, %.loopexit382.
 
 366:                                              ; preds = %364
   %367 = load ptr, ptr %160, align 8
-  %368 = getelementptr inbounds i8, ptr %367, i64 16
+  %368 = getelementptr inbounds nuw i8, ptr %367, i64 16
   store double %.sroa.48.i.sroa.0.18, ptr %368, align 8
   %369 = load ptr, ptr %160, align 8
-  %370 = getelementptr inbounds i8, ptr %369, i64 24
+  %370 = getelementptr inbounds nuw i8, ptr %369, i64 24
   store double %.sroa.48.i.sroa.16.18, ptr %370, align 8
   br label %.sink.split
 
@@ -914,16 +914,16 @@ xladjust.exit:                                    ; preds = %356, %.loopexit382.
 
 374:                                              ; preds = %371
   %375 = load ptr, ptr %160, align 8
-  %376 = getelementptr inbounds i8, ptr %375, i64 16
+  %376 = getelementptr inbounds nuw i8, ptr %375, i64 16
   store double %.sroa.48.i.sroa.0.18, ptr %376, align 8
   %377 = load ptr, ptr %160, align 8
-  %378 = getelementptr inbounds i8, ptr %377, i64 24
+  %378 = getelementptr inbounds nuw i8, ptr %377, i64 24
   store double %.sroa.48.i.sroa.16.18, ptr %378, align 8
   br label %.sink.split
 
 .sink.split:                                      ; preds = %xladjust.exit, %xladjust.exit.thread, %366, %374
   %379 = load ptr, ptr %160, align 8
-  %380 = getelementptr inbounds i8, ptr %379, i64 40
+  %380 = getelementptr inbounds nuw i8, ptr %379, i64 40
   store i8 1, ptr %380, align 8
   br label %381
 
@@ -1004,23 +1004,23 @@ define internal fastcc void @xlintersections(ptr dead_on_unwind noalias nocaptur
   %7 = alloca %struct.Rect, align 8
   %8 = alloca %struct.Rect, align 8
   store i32 0, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double 0.000000e+00, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
-  %11 = getelementptr inbounds i8, ptr %2, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %12 = load ptr, ptr %11, align 8
   %.fr = freeze ptr %12
-  %13 = getelementptr inbounds i8, ptr %.fr, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %.fr, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %13, i64 16, i1 false)
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load i64, ptr %14, align 8
   %.not124 = icmp eq i64 %15, 0
   br i1 %.not124, label %._crit_edge, label %.lr.ph.split.split.preheader
 
 .lr.ph.split.split.preheader:                     ; preds = %4
   %16 = load ptr, ptr %1, align 8
-  %17 = getelementptr inbounds i8, ptr %.fr, i64 24
-  %18 = getelementptr inbounds i8, ptr %.fr, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %.fr, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %.fr, i64 8
   br label %.lr.ph.split.split
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split.split.preheader, %lblenclosing.exit.thread
@@ -1031,13 +1031,13 @@ define internal fastcc void @xlintersections(ptr dead_on_unwind noalias nocaptur
   br i1 %21, label %lblenclosing.exit.thread, label %22
 
 22:                                               ; preds = %.lr.ph.split.split
-  %23 = getelementptr inbounds i8, ptr %20, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %24 = load double, ptr %23, align 8
   %25 = fcmp ogt double %24, 0.000000e+00
   br i1 %25, label %26, label %30
 
 26:                                               ; preds = %22
-  %27 = getelementptr inbounds i8, ptr %20, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %28 = load double, ptr %27, align 8
   %29 = fcmp ogt double %28, 0.000000e+00
   br i1 %29, label %lblenclosing.exit.thread, label %30
@@ -1055,7 +1055,7 @@ define internal fastcc void @xlintersections(ptr dead_on_unwind noalias nocaptur
   br i1 %37, label %38, label %lblenclosing.exit.thread
 
 38:                                               ; preds = %34
-  %39 = getelementptr inbounds i8, ptr %20, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %40 = load double, ptr %39, align 8
   %41 = load double, ptr %17, align 8
   %42 = fcmp ogt double %40, %41
@@ -1082,14 +1082,14 @@ lblenclosing.exit.thread:                         ; preds = %30, %34, %38, %lble
   %50 = phi i32 [ 0, %4 ], [ %48, %lblenclosing.exit.thread ]
   %51 = load double, ptr %13, align 8
   %52 = fptosi double %51 to i32
-  %53 = getelementptr inbounds i8, ptr %.fr, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %.fr, i64 24
   %54 = load double, ptr %53, align 8
   %55 = fptosi double %54 to i32
   %56 = load double, ptr %.fr, align 8
   %57 = fadd double %51, %56
   %58 = fptosi double %57 to i32
   %.sroa.4.8.insert.ext.i = zext i32 %58 to i64
-  %59 = getelementptr inbounds i8, ptr %.fr, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %.fr, i64 8
   %60 = load double, ptr %59, align 8
   %61 = fadd double %54, %60
   %62 = fptosi double %61 to i32
@@ -1101,9 +1101,9 @@ lblenclosing.exit.thread:                         ; preds = %30, %34, %38, %lble
   %.sroa.0.sroa.0.0.insert.ext.i = zext i32 %52 to i64
   %.sroa.0.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.0.sroa.3.0.insert.shift.i, %.sroa.0.sroa.0.0.insert.ext.i
   store i64 %.sroa.0.sroa.0.0.insert.insert.i, ptr %7, align 8
-  %63 = getelementptr inbounds i8, ptr %7, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %.sroa.4.12.insert.insert.i, ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %1, i64 48
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %65 = load ptr, ptr %64, align 8
   %66 = load ptr, ptr %65, align 8
   %67 = call ptr @RTreeSearch(ptr noundef nonnull %65, ptr noundef %66, ptr noundef nonnull %7) #18
@@ -1111,27 +1111,27 @@ lblenclosing.exit.thread:                         ; preds = %30, %34, %38, %lble
   br i1 %.not, label %402, label %.preheader
 
 .preheader:                                       ; preds = %._crit_edge
-  %68 = getelementptr inbounds i8, ptr %8, i64 8
-  %69 = getelementptr inbounds i8, ptr %7, i64 4
-  %70 = getelementptr inbounds i8, ptr %8, i64 4
-  %71 = getelementptr inbounds i8, ptr %7, i64 12
-  %72 = getelementptr inbounds i8, ptr %8, i64 12
-  %73 = getelementptr inbounds i8, ptr %2, i64 8
-  %74 = getelementptr inbounds i8, ptr %6, i64 8
-  %75 = getelementptr inbounds i8, ptr %6, i64 4
-  %76 = getelementptr inbounds i8, ptr %6, i64 12
-  %77 = getelementptr inbounds i8, ptr %5, i64 8
-  %78 = getelementptr inbounds i8, ptr %5, i64 4
-  %79 = getelementptr inbounds i8, ptr %5, i64 12
+  %68 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %70 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  %71 = getelementptr inbounds nuw i8, ptr %7, i64 12
+  %72 = getelementptr inbounds nuw i8, ptr %8, i64 12
+  %73 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %76 = getelementptr inbounds nuw i8, ptr %6, i64 12
+  %77 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %79 = getelementptr inbounds nuw i8, ptr %5, i64 12
   br label %80
 
 80:                                               ; preds = %.preheader, %aabbaabb.exit78.thread
   %81 = phi double [ 0.000000e+00, %.preheader ], [ %398, %aabbaabb.exit78.thread ]
   %82 = phi i32 [ %50, %.preheader ], [ %399, %aabbaabb.exit78.thread ]
   %.040123 = phi ptr [ %67, %.preheader ], [ %400, %aabbaabb.exit78.thread ]
-  %83 = getelementptr inbounds i8, ptr %.040123, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %.040123, i64 8
   %84 = load ptr, ptr %83, align 8
-  %85 = getelementptr inbounds i8, ptr %84, i64 16
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 16
   %86 = load ptr, ptr %85, align 8
   %87 = icmp eq ptr %86, %2
   br i1 %87, label %aabbaabb.exit78.thread, label %88
@@ -1139,15 +1139,15 @@ lblenclosing.exit.thread:                         ; preds = %30, %34, %38, %lble
 88:                                               ; preds = %80
   %89 = load double, ptr %86, align 8
   %90 = fptosi double %89 to i32
-  %91 = getelementptr inbounds i8, ptr %86, i64 8
+  %91 = getelementptr inbounds nuw i8, ptr %86, i64 8
   %92 = load double, ptr %91, align 8
   %93 = fptosi double %92 to i32
-  %94 = getelementptr inbounds i8, ptr %86, i64 16
+  %94 = getelementptr inbounds nuw i8, ptr %86, i64 16
   %95 = load double, ptr %94, align 8
   %96 = fadd double %89, %95
   %97 = fptosi double %96 to i32
   %.sroa.4.8.insert.ext.i53 = zext i32 %97 to i64
-  %98 = getelementptr inbounds i8, ptr %86, i64 24
+  %98 = getelementptr inbounds nuw i8, ptr %86, i64 24
   %99 = load double, ptr %98, align 8
   %100 = fadd double %92, %99
   %101 = fptosi double %100 to i32
@@ -1189,15 +1189,15 @@ aabbaabb.exit:                                    ; preds = %88
 122:                                              ; preds = %aabbaabb.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   %123 = load ptr, ptr %11, align 8
-  %124 = getelementptr inbounds i8, ptr %123, i64 40
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 40
   %125 = load i8, ptr %124, align 8
   %126 = icmp eq i8 %125, 0
   br i1 %126, label %getintrsxi.exit.i, label %127
 
 127:                                              ; preds = %122
-  %128 = getelementptr inbounds i8, ptr %86, i64 32
+  %128 = getelementptr inbounds nuw i8, ptr %86, i64 32
   %129 = load ptr, ptr %128, align 8
-  %130 = getelementptr inbounds i8, ptr %129, i64 40
+  %130 = getelementptr inbounds nuw i8, ptr %129, i64 40
   %131 = load i8, ptr %130, align 8
   %132 = icmp eq i8 %131, 0
   br i1 %132, label %getintrsxi.exit.i, label %133
@@ -1255,7 +1255,7 @@ aabbaabb.exit:                                    ; preds = %88
 
 getintrsxi.exit.i:                                ; preds = %157, %156, %154, %153, %148, %146, %139, %136, %127, %122
   %158 = phi i64 [ 5, %139 ], [ 5, %136 ], [ 5, %127 ], [ 5, %122 ], [ 3, %156 ], [ %.32.i.i, %154 ], [ 6, %153 ], [ %..i.i, %148 ], [ 0, %146 ], [ 5, %157 ]
-  %159 = getelementptr inbounds ptr, ptr %3, i64 %158
+  %159 = getelementptr inbounds nuw ptr, ptr %3, i64 %158
   %160 = load ptr, ptr %159, align 8
   %.not.i64 = icmp eq ptr %160, null
   br i1 %.not.i64, label %.sink.split.i, label %161
@@ -1263,15 +1263,15 @@ getintrsxi.exit.i:                                ; preds = %157, %156, %154, %1
 161:                                              ; preds = %getintrsxi.exit.i
   %162 = load double, ptr %160, align 8
   %163 = fptosi double %162 to i32
-  %164 = getelementptr inbounds i8, ptr %160, i64 8
+  %164 = getelementptr inbounds nuw i8, ptr %160, i64 8
   %165 = load double, ptr %164, align 8
   %166 = fptosi double %165 to i32
-  %167 = getelementptr inbounds i8, ptr %160, i64 16
+  %167 = getelementptr inbounds nuw i8, ptr %160, i64 16
   %168 = load double, ptr %167, align 8
   %169 = fadd double %162, %168
   %170 = fptosi double %169 to i32
   %.sroa.4.8.insert.ext.i.i = zext i32 %170 to i64
-  %171 = getelementptr inbounds i8, ptr %160, i64 24
+  %171 = getelementptr inbounds nuw i8, ptr %160, i64 24
   %172 = load double, ptr %171, align 8
   %173 = fadd double %165, %172
   %174 = fptosi double %173 to i32
@@ -1314,23 +1314,23 @@ aabbaabb.exit.i:                                  ; preds = %176, %161
   %195 = fcmp ogt double %.0.i35.i, %120
   %.030.i = select i1 %195, double %.0.i35.i, double 0.000000e+00
   %196 = load ptr, ptr %159, align 8
-  %197 = getelementptr inbounds i8, ptr %196, i64 32
+  %197 = getelementptr inbounds nuw i8, ptr %196, i64 32
   %198 = load ptr, ptr %197, align 8
   %.not34.i = icmp eq ptr %198, null
   br i1 %.not34.i, label %236, label %199
 
 199:                                              ; preds = %aabbaabb.exit.i
-  %200 = getelementptr inbounds i8, ptr %198, i64 16
+  %200 = getelementptr inbounds nuw i8, ptr %198, i64 16
   %201 = load double, ptr %200, align 8
   %202 = fptosi double %201 to i32
-  %203 = getelementptr inbounds i8, ptr %198, i64 24
+  %203 = getelementptr inbounds nuw i8, ptr %198, i64 24
   %204 = load double, ptr %203, align 8
   %205 = fptosi double %204 to i32
   %206 = load double, ptr %198, align 8
   %207 = fadd double %201, %206
   %208 = fptosi double %207 to i32
   %.sroa.4.8.insert.ext.i37.i = zext i32 %208 to i64
-  %209 = getelementptr inbounds i8, ptr %198, i64 8
+  %209 = getelementptr inbounds nuw i8, ptr %198, i64 8
   %210 = load double, ptr %209, align 8
   %211 = fadd double %204, %210
   %212 = fptosi double %211 to i32
@@ -1398,29 +1398,29 @@ recordointrsx.exit:                               ; preds = %236, %.sink.split.i
 aabbaabb.exit.thread:                             ; preds = %88, %recordointrsx.exit, %aabbaabb.exit
   %240 = phi double [ %81, %88 ], [ %239, %recordointrsx.exit ], [ %81, %aabbaabb.exit ]
   %241 = phi i32 [ %82, %88 ], [ %238, %recordointrsx.exit ], [ %82, %aabbaabb.exit ]
-  %242 = getelementptr inbounds i8, ptr %86, i64 32
+  %242 = getelementptr inbounds nuw i8, ptr %86, i64 32
   %243 = load ptr, ptr %242, align 8
   %.not49 = icmp eq ptr %243, null
   br i1 %.not49, label %aabbaabb.exit78.thread, label %244
 
 244:                                              ; preds = %aabbaabb.exit.thread
-  %245 = getelementptr inbounds i8, ptr %243, i64 40
+  %245 = getelementptr inbounds nuw i8, ptr %243, i64 40
   %246 = load i8, ptr %245, align 8
   %.not50 = icmp eq i8 %246, 0
   br i1 %.not50, label %aabbaabb.exit78.thread, label %247
 
 247:                                              ; preds = %244
-  %248 = getelementptr inbounds i8, ptr %243, i64 16
+  %248 = getelementptr inbounds nuw i8, ptr %243, i64 16
   %249 = load double, ptr %248, align 8
   %250 = fptosi double %249 to i32
-  %251 = getelementptr inbounds i8, ptr %243, i64 24
+  %251 = getelementptr inbounds nuw i8, ptr %243, i64 24
   %252 = load double, ptr %251, align 8
   %253 = fptosi double %252 to i32
   %254 = load double, ptr %243, align 8
   %255 = fadd double %249, %254
   %256 = fptosi double %255 to i32
   %.sroa.4.8.insert.ext.i66 = zext i32 %256 to i64
-  %257 = getelementptr inbounds i8, ptr %243, i64 8
+  %257 = getelementptr inbounds nuw i8, ptr %243, i64 8
   %258 = load double, ptr %257, align 8
   %259 = fadd double %252, %258
   %260 = fptosi double %259 to i32
@@ -1462,14 +1462,14 @@ aabbaabb.exit78:                                  ; preds = %247
 281:                                              ; preds = %aabbaabb.exit78
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   %282 = load ptr, ptr %11, align 8
-  %283 = getelementptr inbounds i8, ptr %282, i64 40
+  %283 = getelementptr inbounds nuw i8, ptr %282, i64 40
   %284 = load i8, ptr %283, align 8
   %285 = icmp eq i8 %284, 0
   br i1 %285, label %getintrsxi.exit.i81, label %286
 
 286:                                              ; preds = %281
   %287 = load ptr, ptr %242, align 8
-  %288 = getelementptr inbounds i8, ptr %287, i64 40
+  %288 = getelementptr inbounds nuw i8, ptr %287, i64 40
   %289 = load i8, ptr %288, align 8
   %290 = icmp eq i8 %289, 0
   br i1 %290, label %getintrsxi.exit.i81, label %291
@@ -1527,7 +1527,7 @@ aabbaabb.exit78:                                  ; preds = %247
 
 getintrsxi.exit.i81:                              ; preds = %315, %314, %312, %311, %306, %304, %297, %294, %286, %281
   %316 = phi i64 [ 5, %297 ], [ 5, %294 ], [ 5, %286 ], [ 5, %281 ], [ 3, %314 ], [ %.32.i.i110, %312 ], [ 6, %311 ], [ %..i.i111, %306 ], [ 0, %304 ], [ 5, %315 ]
-  %317 = getelementptr inbounds ptr, ptr %3, i64 %316
+  %317 = getelementptr inbounds nuw ptr, ptr %3, i64 %316
   %318 = load ptr, ptr %317, align 8
   %.not.i82 = icmp eq ptr %318, null
   br i1 %.not.i82, label %.sink.split.i106, label %319
@@ -1535,15 +1535,15 @@ getintrsxi.exit.i81:                              ; preds = %315, %314, %312, %3
 319:                                              ; preds = %getintrsxi.exit.i81
   %320 = load double, ptr %318, align 8
   %321 = fptosi double %320 to i32
-  %322 = getelementptr inbounds i8, ptr %318, i64 8
+  %322 = getelementptr inbounds nuw i8, ptr %318, i64 8
   %323 = load double, ptr %322, align 8
   %324 = fptosi double %323 to i32
-  %325 = getelementptr inbounds i8, ptr %318, i64 16
+  %325 = getelementptr inbounds nuw i8, ptr %318, i64 16
   %326 = load double, ptr %325, align 8
   %327 = fadd double %320, %326
   %328 = fptosi double %327 to i32
   %.sroa.4.8.insert.ext.i.i83 = zext i32 %328 to i64
-  %329 = getelementptr inbounds i8, ptr %318, i64 24
+  %329 = getelementptr inbounds nuw i8, ptr %318, i64 24
   %330 = load double, ptr %329, align 8
   %331 = fadd double %323, %330
   %332 = fptosi double %331 to i32
@@ -1586,23 +1586,23 @@ aabbaabb.exit.i91:                                ; preds = %334, %319
   %353 = fcmp ogt double %.0.i35.i92, %279
   %.030.i93 = select i1 %353, double %.0.i35.i92, double 0.000000e+00
   %354 = load ptr, ptr %317, align 8
-  %355 = getelementptr inbounds i8, ptr %354, i64 32
+  %355 = getelementptr inbounds nuw i8, ptr %354, i64 32
   %356 = load ptr, ptr %355, align 8
   %.not34.i94 = icmp eq ptr %356, null
   br i1 %.not34.i94, label %394, label %357
 
 357:                                              ; preds = %aabbaabb.exit.i91
-  %358 = getelementptr inbounds i8, ptr %356, i64 16
+  %358 = getelementptr inbounds nuw i8, ptr %356, i64 16
   %359 = load double, ptr %358, align 8
   %360 = fptosi double %359 to i32
-  %361 = getelementptr inbounds i8, ptr %356, i64 24
+  %361 = getelementptr inbounds nuw i8, ptr %356, i64 24
   %362 = load double, ptr %361, align 8
   %363 = fptosi double %362 to i32
   %364 = load double, ptr %356, align 8
   %365 = fadd double %359, %364
   %366 = fptosi double %365 to i32
   %.sroa.4.8.insert.ext.i37.i95 = zext i32 %366 to i64
-  %367 = getelementptr inbounds i8, ptr %356, i64 8
+  %367 = getelementptr inbounds nuw i8, ptr %356, i64 8
   %368 = load double, ptr %367, align 8
   %369 = fadd double %362, %368
   %370 = fptosi double %369 to i32

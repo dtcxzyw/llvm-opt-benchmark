@@ -28,7 +28,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_con_copy_uni
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(write, argmem: read, inaccessiblemem: none)
 define dso_local noundef nonnull ptr @set_translate(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 416
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 416
   %4 = load i16, ptr %3, align 8
   %5 = zext i16 %4 to i64
   %6 = getelementptr [63 x i32], ptr @inv_translate, i64 0, i64 %5
@@ -44,7 +44,7 @@ define dso_local zeroext i16 @inverse_translate(ptr nocapture noundef readonly %
   br i1 %4, label %35, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 808
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
@@ -54,7 +54,7 @@ define dso_local zeroext i16 @inverse_translate(ptr nocapture noundef readonly %
   br i1 %2, label %11, label %19
 
 11:                                               ; preds = %10
-  %12 = getelementptr inbounds i8, ptr %8, i64 304
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 304
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %35, label %15
@@ -66,12 +66,12 @@ define dso_local zeroext i16 @inverse_translate(ptr nocapture noundef readonly %
   br label %35
 
 19:                                               ; preds = %10
-  %20 = getelementptr inbounds i8, ptr %0, i64 416
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %21 = load i16, ptr %20, align 8
   %22 = zext i16 %21 to i64
   %23 = getelementptr [63 x i32], ptr @inv_translate, i64 0, i64 %22
   %24 = load i32, ptr %23, align 4
-  %25 = getelementptr inbounds i8, ptr %8, i64 272
+  %25 = getelementptr inbounds nuw i8, ptr %8, i64 272
   %26 = zext i32 %24 to i64
   %27 = getelementptr [4 x ptr], ptr %25, i64 0, i64 %26
   %28 = load ptr, ptr %27, align 8
@@ -169,7 +169,7 @@ define internal fastcc void @update_user_maps() unnamed_addr #3 align 16 {
 7:                                                ; preds = %1
   %8 = getelementptr [63 x %struct.vc], ptr @vc_cons, i64 0, i64 %2
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 808
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 808
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
@@ -179,7 +179,7 @@ define internal fastcc void @update_user_maps() unnamed_addr #3 align 16 {
 
 16:                                               ; preds = %7
   tail call fastcc void @set_inverse_transl(ptr noundef %9, ptr noundef nonnull %12, i32 noundef 3)
-  %17 = getelementptr inbounds i8, ptr %12, i64 304
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 304
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
   br i1 %19, label %20, label %24
@@ -277,7 +277,7 @@ define dso_local range(i32 -14, 1) i32 @con_get_trans_old(ptr noundef %0) local_
   %4 = sext i32 %3 to i64
   %5 = getelementptr [63 x %struct.vc], ptr @vc_cons, i64 0, i64 %4
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 808
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 808
   br label %8
 
 8:                                                ; preds = %43, %1
@@ -387,7 +387,7 @@ define dso_local range(i32 -4, 65536) i32 @conv_uni_to_pc(ptr nocapture noundef 
   br label %36
 
 13:                                               ; preds = %7
-  %14 = getelementptr inbounds i8, ptr %0, i64 808
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %15 = load ptr, ptr %14, align 8
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
@@ -460,7 +460,7 @@ define dso_local range(i32 -14, 1) i32 @con_get_trans_new(ptr noundef %0) local_
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @con_free_unimap(ptr nocapture noundef readonly %0) local_unnamed_addr #3 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 808
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -468,7 +468,7 @@ define dso_local void @con_free_unimap(ptr nocapture noundef readonly %0) local_
 
 6:                                                ; preds = %1
   store ptr null, ptr %3, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 256
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 256
   %8 = load i64, ptr %7, align 8
   %9 = add i64 %8, -1
   store i64 %9, ptr %7, align 8
@@ -488,7 +488,7 @@ define dso_local void @con_free_unimap(ptr nocapture noundef readonly %0) local_
   br label %.preheader2
 
 15:                                               ; preds = %28
-  %16 = getelementptr inbounds i8, ptr %4, i64 272
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 272
   br label %31
 
 17:                                               ; preds = %.preheader2, %28
@@ -528,7 +528,7 @@ define dso_local void @con_free_unimap(ptr nocapture noundef readonly %0) local_
   br i1 %36, label %37, label %31, !llvm.loop !18
 
 37:                                               ; preds = %31
-  %38 = getelementptr inbounds i8, ptr %4, i64 304
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 304
   %39 = load ptr, ptr %38, align 8
   tail call void @kfree(ptr noundef %39) #16
   store ptr null, ptr %38, align 8
@@ -552,14 +552,14 @@ define dso_local noundef range(i32 -12, 1) i32 @con_clear_unimap(ptr nocapture n
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc noundef range(i32 -12, 1) i32 @con_do_clear_unimap(ptr nocapture noundef readonly %0) unnamed_addr #3 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 808
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %10, label %6
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %4, i64 256
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 256
   %8 = load i64, ptr %7, align 8
   %9 = icmp ugt i64 %8, 1
   br i1 %9, label %10, label %21
@@ -571,21 +571,21 @@ define internal fastcc noundef range(i32 -12, 1) i32 @con_do_clear_unimap(ptr no
   br i1 %13, label %51, label %14
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %12, i64 256
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 256
   store i64 1, ptr %15, align 8
   %16 = load ptr, ptr %2, align 8
   store ptr %12, ptr %16, align 8
   br i1 %5, label %51, label %17
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %4, i64 256
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 256
   %19 = load i64, ptr %18, align 8
   %20 = add i64 %19, -1
   store i64 %20, ptr %18, align 8
   br label %51
 
 21:                                               ; preds = %6
-  %22 = getelementptr inbounds i8, ptr %4, i64 264
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 264
   store i64 0, ptr %22, align 8
   %23 = load ptr, ptr @dflt, align 8
   %24 = icmp eq ptr %23, %4
@@ -599,7 +599,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @con_do_clear_unimap(ptr no
   br label %.preheader3
 
 26:                                               ; preds = %39
-  %27 = getelementptr inbounds i8, ptr %4, i64 272
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 272
   br label %42
 
 28:                                               ; preds = %.preheader3, %39
@@ -639,7 +639,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @con_do_clear_unimap(ptr no
   br i1 %47, label %48, label %42, !llvm.loop !18
 
 48:                                               ; preds = %42
-  %49 = getelementptr inbounds i8, ptr %4, i64 304
+  %49 = getelementptr inbounds nuw i8, ptr %4, i64 304
   %50 = load ptr, ptr %49, align 8
   tail call void @kfree(ptr noundef %50) #16
   store ptr null, ptr %49, align 8
@@ -669,14 +669,14 @@ define dso_local i32 @con_set_unimap(ptr nocapture noundef readonly %0, i16 noun
 
 13:                                               ; preds = %5
   tail call void @console_lock() #16
-  %14 = getelementptr inbounds i8, ptr %0, i64 808
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %15 = load ptr, ptr %14, align 8
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
   br i1 %17, label %.loopexit39, label %18
 
 18:                                               ; preds = %13
-  %19 = getelementptr inbounds i8, ptr %16, i64 256
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 256
   %20 = load i64, ptr %19, align 8
   %21 = icmp ugt i64 %20, 1
   br i1 %21, label %22, label %130
@@ -688,7 +688,7 @@ define dso_local i32 @con_set_unimap(ptr nocapture noundef readonly %0, i16 noun
   br i1 %25, label %.loopexit46.thread, label %26
 
 26:                                               ; preds = %22
-  %27 = getelementptr inbounds i8, ptr %24, i64 256
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 256
   store i64 1, ptr %27, align 8
   %28 = load ptr, ptr %14, align 8
   store ptr %24, ptr %28, align 8
@@ -697,9 +697,9 @@ define dso_local i32 @con_set_unimap(ptr nocapture noundef readonly %0, i16 noun
   store i64 %30, ptr %19, align 8
   %31 = load ptr, ptr %14, align 8
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 264
-  %34 = getelementptr inbounds i8, ptr %32, i64 272
-  %35 = getelementptr inbounds i8, ptr %32, i64 304
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 264
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 272
+  %35 = getelementptr inbounds nuw i8, ptr %32, i64 304
   br label %36
 
 36:                                               ; preds = %.loopexit45, %26
@@ -884,7 +884,7 @@ define dso_local i32 @con_set_unimap(ptr nocapture noundef readonly %0, i16 noun
 
 134:                                              ; preds = %133, %130, %.loopexit46
   %135 = phi ptr [ %32, %.loopexit46 ], [ %16, %133 ], [ %16, %130 ]
-  %136 = getelementptr inbounds i8, ptr %135, i64 264
+  %136 = getelementptr inbounds nuw i8, ptr %135, i64 264
   br label %137
 
 137:                                              ; preds = %177, %134
@@ -892,7 +892,7 @@ define dso_local i32 @con_set_unimap(ptr nocapture noundef readonly %0, i16 noun
   %139 = phi i32 [ 0, %134 ], [ %178, %177 ]
   %140 = phi i16 [ %1, %134 ], [ %179, %177 ]
   %141 = load i16, ptr %138, align 2
-  %142 = getelementptr inbounds i8, ptr %138, i64 2
+  %142 = getelementptr inbounds nuw i8, ptr %138, i64 2
   %143 = load i16, ptr %142, align 2
   %144 = zext i16 %141 to i64
   %145 = lshr i64 %144, 11
@@ -961,7 +961,7 @@ define dso_local i32 @con_set_unimap(ptr nocapture noundef readonly %0, i16 noun
   br i1 %186, label %.loopexit39, label %187
 
 187:                                              ; preds = %185
-  %188 = getelementptr inbounds i8, ptr %135, i64 304
+  %188 = getelementptr inbounds nuw i8, ptr %135, i64 304
   %189 = load ptr, ptr %188, align 8
   %190 = icmp eq ptr %189, null
   br i1 %190, label %191, label %195
@@ -1056,7 +1056,7 @@ define dso_local i32 @con_set_unimap(ptr nocapture noundef readonly %0, i16 noun
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc noundef range(i32 0, 2) i32 @con_unify_unimap(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #3 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 264
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 264
   br label %4
 
 4:                                                ; preds = %85, %2
@@ -1069,7 +1069,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @con_unify_unimap(ptr nocaptu
 9:                                                ; preds = %4
   %10 = getelementptr [63 x %struct.vc], ptr @vc_cons, i64 0, i64 %5
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 808
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 808
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
@@ -1078,7 +1078,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @con_unify_unimap(ptr nocaptu
   br i1 %17, label %85, label %18
 
 18:                                               ; preds = %9
-  %19 = getelementptr inbounds i8, ptr %14, i64 264
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 264
   %20 = load i64, ptr %19, align 8
   %21 = load i64, ptr %3, align 8
   %22 = icmp eq i64 %20, %21
@@ -1136,11 +1136,11 @@ define internal fastcc noundef range(i32 0, 2) i32 @con_unify_unimap(ptr nocaptu
   br i1 %51, label %.critedge, label %85
 
 .critedge:                                        ; preds = %.loopexit, %.loopexit8
-  %52 = getelementptr inbounds i8, ptr %14, i64 256
+  %52 = getelementptr inbounds nuw i8, ptr %14, i64 256
   %53 = load i64, ptr %52, align 8
   %54 = add i64 %53, 1
   store i64 %54, ptr %52, align 8
-  %55 = getelementptr inbounds i8, ptr %0, i64 808
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %56 = load ptr, ptr %55, align 8
   store ptr %14, ptr %56, align 8
   %57 = load ptr, ptr @dflt, align 8
@@ -1155,7 +1155,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @con_unify_unimap(ptr nocaptu
   br label %.preheader35
 
 60:                                               ; preds = %73
-  %61 = getelementptr inbounds i8, ptr %1, i64 272
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 272
   br label %76
 
 62:                                               ; preds = %.preheader35, %73
@@ -1195,7 +1195,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @con_unify_unimap(ptr nocaptu
   br i1 %81, label %82, label %76, !llvm.loop !18
 
 82:                                               ; preds = %76
-  %83 = getelementptr inbounds i8, ptr %1, i64 304
+  %83 = getelementptr inbounds nuw i8, ptr %1, i64 304
   %84 = load ptr, ptr %83, align 8
   tail call void @kfree(ptr noundef %84) #16
   store ptr null, ptr %83, align 8
@@ -1220,7 +1220,7 @@ define internal fastcc void @set_inverse_transl(ptr nocapture noundef readonly %
   br i1 %6, label %.loopexit, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %1, i64 272
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %9 = getelementptr [4 x ptr], ptr %8, i64 0, i64 %4
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
@@ -1236,7 +1236,7 @@ define internal fastcc void @set_inverse_transl(ptr nocapture noundef readonly %
 16:                                               ; preds = %12, %7
   %17 = phi ptr [ %10, %7 ], [ %14, %12 ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(512) %17, i8 0, i64 512, i1 false)
-  %18 = getelementptr inbounds i8, ptr %0, i64 808
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 808
   br label %19
 
 19:                                               ; preds = %.thread, %16
@@ -1326,14 +1326,14 @@ define dso_local range(i32 -12, 1) i32 @con_set_default_unimap(ptr nocapture nou
   br i1 %3, label %44, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 808
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, %2
   br i1 %8, label %162, label %9
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %2, i64 256
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 256
   %11 = load i64, ptr %10, align 8
   %12 = add i64 %11, 1
   store i64 %12, ptr %10, align 8
@@ -1343,7 +1343,7 @@ define dso_local range(i32 -12, 1) i32 @con_set_default_unimap(ptr nocapture nou
   br i1 %14, label %162, label %15
 
 15:                                               ; preds = %9
-  %16 = getelementptr inbounds i8, ptr %7, i64 256
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 256
   %17 = load i64, ptr %16, align 8
   %18 = add i64 %17, -1
   store i64 %18, ptr %16, align 8
@@ -1351,7 +1351,7 @@ define dso_local range(i32 -12, 1) i32 @con_set_default_unimap(ptr nocapture nou
   br i1 %19, label %.preheader24, label %162
 
 20:                                               ; preds = %32
-  %21 = getelementptr inbounds i8, ptr %7, i64 272
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 272
   br label %35
 
 .preheader24:                                     ; preds = %15, %32
@@ -1391,7 +1391,7 @@ define dso_local range(i32 -12, 1) i32 @con_set_default_unimap(ptr nocapture nou
   br i1 %40, label %41, label %35, !llvm.loop !18
 
 41:                                               ; preds = %35
-  %42 = getelementptr inbounds i8, ptr %7, i64 304
+  %42 = getelementptr inbounds nuw i8, ptr %7, i64 304
   %43 = load ptr, ptr %42, align 8
   tail call void @kfree(ptr noundef %43) #16
   store ptr null, ptr %42, align 8
@@ -1404,10 +1404,10 @@ define dso_local range(i32 -12, 1) i32 @con_set_default_unimap(ptr nocapture nou
   br i1 %46, label %47, label %162
 
 47:                                               ; preds = %44
-  %48 = getelementptr inbounds i8, ptr %0, i64 808
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %49 = load ptr, ptr %48, align 8
   %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 264
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 264
   br label %52
 
 52:                                               ; preds = %.loopexit22, %47
@@ -1506,7 +1506,7 @@ define dso_local range(i32 -12, 1) i32 @con_set_default_unimap(ptr nocapture nou
   br i1 %113, label %.loopexit21, label %114
 
 114:                                              ; preds = %112
-  %115 = getelementptr inbounds i8, ptr %50, i64 304
+  %115 = getelementptr inbounds nuw i8, ptr %50, i64 304
   %116 = load ptr, ptr %115, align 8
   %117 = icmp eq ptr %116, null
   br i1 %117, label %118, label %122
@@ -1599,14 +1599,14 @@ define dso_local range(i32 -12, 1) i32 @con_set_default_unimap(ptr nocapture nou
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -22, 1) i32 @con_copy_unimap(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 808
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 808
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %19, label %7
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 808
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, %5
@@ -1616,7 +1616,7 @@ define dso_local noundef range(i32 -22, 1) i32 @con_copy_unimap(ptr nocapture no
   tail call void @con_free_unimap(ptr noundef %0)
   %13 = load ptr, ptr %3, align 8
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 256
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 256
   %16 = load i64, ptr %15, align 8
   %17 = add i64 %16, 1
   store i64 %17, ptr %15, align 8
@@ -1639,7 +1639,7 @@ define dso_local range(i32 -14, 1) i32 @con_get_unimap(ptr nocapture noundef rea
 
 9:                                                ; preds = %4
   tail call void @console_lock() #16
-  %10 = getelementptr inbounds i8, ptr %0, i64 808
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
@@ -1689,7 +1689,7 @@ define dso_local range(i32 -14, 1) i32 @con_get_unimap(ptr nocapture noundef rea
   %42 = zext i16 %32 to i64
   %43 = getelementptr %struct.unipair, ptr %7, i64 %42
   store i16 %41, ptr %43, align 2
-  %44 = getelementptr inbounds i8, ptr %43, i64 2
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 2
   store i16 %35, ptr %44, align 2
   br label %45
 
@@ -1806,7 +1806,7 @@ define dso_local void @console_map_init() local_unnamed_addr #11 section ".init.
 6:                                                ; preds = %1
   %7 = getelementptr [63 x %struct.vc], ptr @vc_cons, i64 0, i64 %2
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 808
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 808
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null

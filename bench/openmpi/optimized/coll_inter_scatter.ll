@@ -11,16 +11,16 @@ target triple = "x86_64-pc-linux-gnu"
 define i32 @mca_coll_inter_scatter_inter(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7, ptr nocapture noundef readnone %8) local_unnamed_addr #0 {
   %10 = getelementptr i8, ptr %7, i64 220
   %.val = load i32, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %7, i64 224
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 224
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not.i = icmp eq i32 %13, 0
   br i1 %.not.i, label %ompi_comm_remote_size.exit, label %14
 
 14:                                               ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %7, i64 256
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 256
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = load i32, ptr %17, align 8
   %19 = sext i32 %18 to i64
   br label %ompi_comm_remote_size.exit
@@ -37,7 +37,7 @@ ompi_comm_remote_size.exit:                       ; preds = %9, %14
   br i1 %22, label %23, label %56
 
 23:                                               ; preds = %21
-  %24 = getelementptr inbounds i8, ptr %7, i64 264
+  %24 = getelementptr inbounds nuw i8, ptr %7, i64 264
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr i8, ptr %25, i64 248
   %.val49 = load ptr, ptr %26, align 8
@@ -46,7 +46,7 @@ ompi_comm_remote_size.exit:                       ; preds = %9, %14
   %28 = sext i32 %4 to i64
   %29 = sext i32 %.val49.val to i64
   %30 = mul nsw i64 %29, %28
-  %31 = getelementptr inbounds i8, ptr %5, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %32 = load i64, ptr %31, align 8
   %33 = icmp eq i64 %32, 0
   %34 = icmp eq i64 %30, 0
@@ -54,14 +54,14 @@ ompi_comm_remote_size.exit:                       ; preds = %9, %14
   br i1 %or.cond.i, label %opal_datatype_span.exit, label %35
 
 35:                                               ; preds = %23
-  %36 = getelementptr inbounds i8, ptr %5, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %37 = load i64, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %5, i64 56
+  %38 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %39 = load i64, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %5, i64 48
+  %40 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %41 = load i64, ptr %40, align 8
   %42 = sub nsw i64 %39, %41
-  %43 = getelementptr inbounds i8, ptr %5, i64 40
+  %43 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %44 = load i64, ptr %43, align 8
   %45 = sub i64 %44, %37
   %46 = add nsw i64 %30, -1
@@ -87,13 +87,13 @@ opal_datatype_span.exit:                          ; preds = %23, %35
 56:                                               ; preds = %51, %21
   %.041 = phi ptr [ %49, %51 ], [ null, %21 ]
   %.040 = phi ptr [ %53, %51 ], [ null, %21 ]
-  %57 = getelementptr inbounds i8, ptr %7, i64 264
+  %57 = getelementptr inbounds nuw i8, ptr %7, i64 264
   %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 328
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 328
   %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 240
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 240
   %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %60, i64 248
+  %63 = getelementptr inbounds nuw i8, ptr %60, i64 248
   %64 = load ptr, ptr %63, align 8
   %65 = tail call i32 %62(ptr noundef %.040, i32 noundef %4, ptr noundef %5, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef 0, ptr noundef %58, ptr noundef %64) #4
   %.not48 = icmp eq ptr %.041, null

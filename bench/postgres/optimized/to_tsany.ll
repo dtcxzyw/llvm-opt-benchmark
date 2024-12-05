@@ -25,7 +25,7 @@ declare i32 @getTSCurrentConfig(i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @make_tsvector(ptr nocapture noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 12
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %5, label %._crit_edge.thread
@@ -36,10 +36,10 @@ define dso_local noundef ptr @make_tsvector(ptr nocapture noundef %0) local_unna
   br i1 %7, label %.thread118, label %.lr.ph.preheader.i
 
 .thread118:                                       ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %6, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %9 = load i16, ptr %8, align 8
   %spec.select.i = tail call i16 @llvm.umin.i16(i16 %9, i16 16383)
-  %10 = getelementptr inbounds i8, ptr %6, i64 6
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 6
   store i16 2, ptr %10, align 2
   %11 = tail call ptr @palloc(i64 noundef 4) #8
   store ptr %11, ptr %8, align 8
@@ -53,10 +53,10 @@ define dso_local noundef ptr @make_tsvector(ptr nocapture noundef %0) local_unna
 .lr.ph.preheader.i:                               ; preds = %5
   %14 = zext nneg i32 %3 to i64
   tail call void @pg_qsort(ptr noundef %6, i64 noundef %14, i64 noundef 24, ptr noundef nonnull @compareWORD) #8
-  %15 = getelementptr inbounds i8, ptr %6, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %16 = load i16, ptr %15, align 8
   %spec.select85.i = tail call i16 @llvm.umin.i16(i16 %16, i16 16383)
-  %17 = getelementptr inbounds i8, ptr %6, i64 6
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 6
   store i16 2, ptr %17, align 2
   %18 = tail call ptr @palloc(i64 noundef 4) #8
   store ptr %18, ptr %15, align 8
@@ -74,7 +74,7 @@ define dso_local noundef ptr @make_tsvector(ptr nocapture noundef %0) local_unna
   %.pn93.i = phi ptr [ %.07095.i, %82 ], [ %6, %.lr.ph.preheader.i ]
   %22 = getelementptr i8, ptr %.pn93.i, i64 26
   %23 = load i16, ptr %22, align 2
-  %24 = getelementptr inbounds i8, ptr %.094.i, i64 2
+  %24 = getelementptr inbounds nuw i8, ptr %.094.i, i64 2
   %25 = load i16, ptr %24, align 2
   %26 = icmp eq i16 %23, %25
   br i1 %26, label %27, label %35
@@ -82,7 +82,7 @@ define dso_local noundef ptr @make_tsvector(ptr nocapture noundef %0) local_unna
 27:                                               ; preds = %.lr.ph.i
   %28 = getelementptr i8, ptr %.pn93.i, i64 40
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %.094.i, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %.094.i, i64 16
   %31 = load ptr, ptr %30, align 8
   %32 = zext i16 %23 to i64
   %33 = tail call i32 @strncmp(ptr noundef %29, ptr noundef %31, i64 noundef %32) #9
@@ -113,7 +113,7 @@ define dso_local noundef ptr @make_tsvector(ptr nocapture noundef %0) local_unna
 
 48:                                               ; preds = %27
   tail call void @pfree(ptr noundef %29) #8
-  %49 = getelementptr inbounds i8, ptr %.094.i, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %.094.i, i64 8
   %50 = load ptr, ptr %49, align 8
   %51 = load i16, ptr %50, align 2
   %52 = icmp ult i16 %51, 255
@@ -135,7 +135,7 @@ define dso_local noundef ptr @make_tsvector(ptr nocapture noundef %0) local_unna
 
 60:                                               ; preds = %57
   %narrow90.i = add nuw nsw i16 %51, 1
-  %61 = getelementptr inbounds i8, ptr %.094.i, i64 6
+  %61 = getelementptr inbounds nuw i8, ptr %.094.i, i64 6
   %62 = load i16, ptr %61, align 2
   %.not83.i = icmp ult i16 %narrow90.i, %62
   br i1 %.not83.i, label %68, label %63
@@ -211,11 +211,11 @@ define dso_local noundef ptr @make_tsvector(ptr nocapture noundef %0) local_unna
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %113 ]
   %.08695 = phi i32 [ 0, %.lr.ph ], [ %.187, %113 ]
   %96 = getelementptr %struct.ParsedWord, ptr %94, i64 %indvars.iv
-  %97 = getelementptr inbounds i8, ptr %96, i64 2
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 2
   %98 = load i16, ptr %97, align 2
   %99 = zext i16 %98 to i32
   %100 = add i32 %.08695, %99
-  %101 = getelementptr inbounds i8, ptr %96, i64 6
+  %101 = getelementptr inbounds nuw i8, ptr %96, i64 6
   %102 = load i16, ptr %101, align 2
   %.not94 = icmp eq i16 %102, 0
   br i1 %.not94, label %113, label %103
@@ -223,7 +223,7 @@ define dso_local noundef ptr @make_tsvector(ptr nocapture noundef %0) local_unna
 103:                                              ; preds = %95
   %104 = add i32 %100, 1
   %105 = and i32 %104, -2
-  %106 = getelementptr inbounds i8, ptr %96, i64 8
+  %106 = getelementptr inbounds nuw i8, ptr %96, i64 8
   %107 = load ptr, ptr %106, align 8
   %108 = load i16, ptr %107, align 2
   %109 = zext i16 %108 to i32
@@ -261,9 +261,9 @@ define dso_local noundef ptr @make_tsvector(ptr nocapture noundef %0) local_unna
   %125 = shl i32 %122, 2
   store i32 %125, ptr %124, align 4
   %126 = load i32, ptr %2, align 4
-  %127 = getelementptr inbounds i8, ptr %124, i64 4
+  %127 = getelementptr inbounds nuw i8, ptr %124, i64 4
   store i32 %126, ptr %127, align 4
-  %128 = getelementptr inbounds i8, ptr %124, i64 8
+  %128 = getelementptr inbounds nuw i8, ptr %124, i64 8
   %129 = sext i32 %126 to i64
   %130 = getelementptr [0 x %struct.WordEntry], ptr %128, i64 0, i64 %129
   %131 = icmp sgt i32 %126, 0
@@ -289,30 +289,30 @@ define dso_local noundef ptr @make_tsvector(ptr nocapture noundef %0) local_unna
   %143 = getelementptr i8, ptr %130, i64 %142
   %144 = load ptr, ptr %0, align 8
   %145 = getelementptr %struct.ParsedWord, ptr %144, i64 %indvars.iv115
-  %146 = getelementptr inbounds i8, ptr %145, i64 16
+  %146 = getelementptr inbounds nuw i8, ptr %145, i64 16
   %147 = load ptr, ptr %146, align 8
-  %148 = getelementptr inbounds i8, ptr %145, i64 2
+  %148 = getelementptr inbounds nuw i8, ptr %145, i64 2
   %149 = load i16, ptr %148, align 2
   %150 = zext i16 %149 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %143, ptr align 1 %147, i64 %150, i1 false)
   %151 = load ptr, ptr %0, align 8
   %152 = getelementptr %struct.ParsedWord, ptr %151, i64 %indvars.iv115
-  %153 = getelementptr inbounds i8, ptr %152, i64 2
+  %153 = getelementptr inbounds nuw i8, ptr %152, i64 2
   %154 = load i16, ptr %153, align 2
   %155 = zext i16 %154 to i32
   %156 = add i32 %.084103, %155
-  %157 = getelementptr inbounds i8, ptr %152, i64 16
+  %157 = getelementptr inbounds nuw i8, ptr %152, i64 16
   %158 = load ptr, ptr %157, align 8
   tail call void @pfree(ptr noundef %158) #8
   %159 = load ptr, ptr %0, align 8
   %160 = getelementptr %struct.ParsedWord, ptr %159, i64 %indvars.iv115
-  %161 = getelementptr inbounds i8, ptr %160, i64 6
+  %161 = getelementptr inbounds nuw i8, ptr %160, i64 6
   %162 = load i16, ptr %161, align 2
   %.not93 = icmp eq i16 %162, 0
   br i1 %.not93, label %201, label %163
 
 163:                                              ; preds = %.lr.ph106
-  %164 = getelementptr inbounds i8, ptr %160, i64 8
+  %164 = getelementptr inbounds nuw i8, ptr %160, i64 8
   %165 = load ptr, ptr %164, align 8
   %166 = load i16, ptr %165, align 2
   %167 = zext i16 %166 to i32
@@ -336,7 +336,7 @@ define dso_local noundef ptr @make_tsvector(ptr nocapture noundef %0) local_unna
   %182 = and i32 %narrow, 4194302
   %183 = zext nneg i32 %182 to i64
   %184 = getelementptr i8, ptr %176, i64 %183
-  %185 = getelementptr inbounds i8, ptr %184, i64 2
+  %185 = getelementptr inbounds nuw i8, ptr %184, i64 2
   %.not108 = icmp eq i16 %166, 0
   br i1 %.not108, label %._crit_edge101, label %.lr.ph100.preheader
 
@@ -418,7 +418,7 @@ declare void @pfree(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @to_tsvector_byid(ptr nocapture noundef readonly %0) #0 {
   %2 = alloca %struct.ParsedText, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
   %5 = trunc i64 %4 to i32
   %6 = getelementptr i8, ptr %0, i64 48
@@ -431,7 +431,7 @@ define dso_local noundef i64 @to_tsvector_byid(ptr nocapture noundef readonly %0
   br i1 %12, label %13, label %22
 
 13:                                               ; preds = %1
-  %14 = getelementptr inbounds i8, ptr %9, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 1
   %15 = load i8, ptr %14, align 1
   %16 = icmp eq i8 %15, 1
   %17 = and i8 %15, -2
@@ -464,7 +464,7 @@ define dso_local noundef i64 @to_tsvector_byid(ptr nocapture noundef readonly %0
   %34 = phi i64 [ %21, %13 ], [ %27, %24 ], [ %32, %28 ]
   %35 = udiv i64 %34, 6
   %36 = trunc i64 %35 to i32
-  %37 = getelementptr inbounds i8, ptr %2, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %36, ptr %37, align 8
   %38 = icmp slt i32 %36, 2
   br i1 %38, label %.sink.split, label %39
@@ -482,9 +482,9 @@ define dso_local noundef i64 @to_tsvector_byid(ptr nocapture noundef readonly %0
 
 42:                                               ; preds = %.sink.split, %39
   %43 = phi i64 [ %35, %39 ], [ %.ph, %.sink.split ]
-  %44 = getelementptr inbounds i8, ptr %2, i64 12
+  %44 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 0, ptr %44, align 4
-  %45 = getelementptr inbounds i8, ptr %2, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 0, ptr %45, align 8
   %46 = and i64 %43, 2147483647
   %47 = mul nuw nsw i64 %46, 24
@@ -494,8 +494,8 @@ define dso_local noundef i64 @to_tsvector_byid(ptr nocapture noundef readonly %0
   %50 = zext i8 %49 to i32
   %51 = and i32 %50, 1
   %.not28 = icmp eq i32 %51, 0
-  %52 = getelementptr inbounds i8, ptr %9, i64 1
-  %53 = getelementptr inbounds i8, ptr %9, i64 4
+  %52 = getelementptr inbounds nuw i8, ptr %9, i64 1
+  %53 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %54 = select i1 %.not28, ptr %53, ptr %52
   %55 = icmp eq i8 %49, 1
   br i1 %55, label %56, label %64
@@ -551,7 +551,7 @@ declare void @parsetext(i32 noundef, ptr noundef, ptr noundef, i32 noundef) loca
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @to_tsvector(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #8
@@ -568,7 +568,7 @@ declare i64 @DirectFunctionCall2Coll(ptr noundef, i32 noundef, i64 noundef, i64 
 define dso_local noundef i64 @jsonb_string_to_tsvector_byid(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca %struct.TSVectorBuildState, align 8
   %3 = alloca %struct.ParsedText, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i64, ptr %4, align 8
   %6 = trunc i64 %5 to i32
   %7 = getelementptr i8, ptr %0, i64 48
@@ -578,10 +578,10 @@ define dso_local noundef i64 @jsonb_string_to_tsvector_byid(ptr nocapture nounde
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   store ptr null, ptr %3, align 8
-  %11 = getelementptr inbounds i8, ptr %3, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 0, ptr %11, align 4
   store ptr %3, ptr %2, align 8
-  %12 = getelementptr inbounds i8, ptr %2, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %6, ptr %12, align 8
   call void @iterate_jsonb_values(ptr noundef %10, i32 noundef 2, ptr noundef nonnull %2, ptr noundef nonnull @add_to_tsvector) #8
   %13 = call noundef ptr @make_tsvector(ptr noundef nonnull %3)
@@ -605,7 +605,7 @@ define dso_local noundef i64 @jsonb_string_to_tsvector_byid(ptr nocapture nounde
 define dso_local noundef i64 @jsonb_string_to_tsvector(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca %struct.TSVectorBuildState, align 8
   %3 = alloca %struct.ParsedText, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i64, ptr %4, align 8
   %6 = inttoptr i64 %5 to ptr
   %7 = tail call ptr @pg_detoast_datum(ptr noundef %6) #8
@@ -613,10 +613,10 @@ define dso_local noundef i64 @jsonb_string_to_tsvector(ptr nocapture noundef rea
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   store ptr null, ptr %3, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 12
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 0, ptr %9, align 4
   store ptr %3, ptr %2, align 8
-  %10 = getelementptr inbounds i8, ptr %2, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %8, ptr %10, align 8
   call void @iterate_jsonb_values(ptr noundef %7, i32 noundef 2, ptr noundef nonnull %2, ptr noundef nonnull @add_to_tsvector) #8
   %11 = call noundef ptr @make_tsvector(ptr noundef nonnull %3)
@@ -640,7 +640,7 @@ define dso_local noundef i64 @jsonb_string_to_tsvector(ptr nocapture noundef rea
 define dso_local noundef i64 @jsonb_to_tsvector_byid(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca %struct.TSVectorBuildState, align 8
   %3 = alloca %struct.ParsedText, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i64, ptr %4, align 8
   %6 = trunc i64 %5 to i32
   %7 = getelementptr i8, ptr %0, i64 48
@@ -655,10 +655,10 @@ define dso_local noundef i64 @jsonb_to_tsvector_byid(ptr nocapture noundef reado
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   store ptr null, ptr %3, align 8
-  %16 = getelementptr inbounds i8, ptr %3, i64 12
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 0, ptr %16, align 4
   store ptr %3, ptr %2, align 8
-  %17 = getelementptr inbounds i8, ptr %2, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %6, ptr %17, align 8
   call void @iterate_jsonb_values(ptr noundef %10, i32 noundef %15, ptr noundef nonnull %2, ptr noundef nonnull @add_to_tsvector) #8
   %18 = call noundef ptr @make_tsvector(ptr noundef nonnull %3)
@@ -694,7 +694,7 @@ declare i32 @parse_jsonb_index_flags(ptr noundef) local_unnamed_addr #1
 define dso_local noundef i64 @jsonb_to_tsvector(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca %struct.TSVectorBuildState, align 8
   %3 = alloca %struct.ParsedText, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i64, ptr %4, align 8
   %6 = inttoptr i64 %5 to ptr
   %7 = tail call ptr @pg_detoast_datum(ptr noundef %6) #8
@@ -707,10 +707,10 @@ define dso_local noundef i64 @jsonb_to_tsvector(ptr nocapture noundef readonly %
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   store ptr null, ptr %3, align 8
-  %14 = getelementptr inbounds i8, ptr %3, i64 12
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 0, ptr %14, align 4
   store ptr %3, ptr %2, align 8
-  %15 = getelementptr inbounds i8, ptr %2, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %13, ptr %15, align 8
   call void @iterate_jsonb_values(ptr noundef %7, i32 noundef %12, ptr noundef nonnull %2, ptr noundef nonnull @add_to_tsvector) #8
   %16 = call noundef ptr @make_tsvector(ptr noundef nonnull %3)
@@ -744,7 +744,7 @@ define dso_local noundef i64 @jsonb_to_tsvector(ptr nocapture noundef readonly %
 define dso_local noundef i64 @json_string_to_tsvector_byid(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca %struct.TSVectorBuildState, align 8
   %3 = alloca %struct.ParsedText, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i64, ptr %4, align 8
   %6 = trunc i64 %5 to i32
   %7 = getelementptr i8, ptr %0, i64 48
@@ -754,10 +754,10 @@ define dso_local noundef i64 @json_string_to_tsvector_byid(ptr nocapture noundef
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   store ptr null, ptr %3, align 8
-  %11 = getelementptr inbounds i8, ptr %3, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 0, ptr %11, align 4
   store ptr %3, ptr %2, align 8
-  %12 = getelementptr inbounds i8, ptr %2, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %6, ptr %12, align 8
   call void @iterate_json_values(ptr noundef %10, i32 noundef 2, ptr noundef nonnull %2, ptr noundef nonnull @add_to_tsvector) #8
   %13 = call noundef ptr @make_tsvector(ptr noundef nonnull %3)
@@ -783,7 +783,7 @@ declare ptr @pg_detoast_datum(ptr noundef) local_unnamed_addr #1
 define dso_local noundef i64 @json_string_to_tsvector(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca %struct.TSVectorBuildState, align 8
   %3 = alloca %struct.ParsedText, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i64, ptr %4, align 8
   %6 = inttoptr i64 %5 to ptr
   %7 = tail call ptr @pg_detoast_datum(ptr noundef %6) #8
@@ -791,10 +791,10 @@ define dso_local noundef i64 @json_string_to_tsvector(ptr nocapture noundef read
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   store ptr null, ptr %3, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 12
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 0, ptr %9, align 4
   store ptr %3, ptr %2, align 8
-  %10 = getelementptr inbounds i8, ptr %2, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %8, ptr %10, align 8
   call void @iterate_json_values(ptr noundef %7, i32 noundef 2, ptr noundef nonnull %2, ptr noundef nonnull @add_to_tsvector) #8
   %11 = call noundef ptr @make_tsvector(ptr noundef nonnull %3)
@@ -818,7 +818,7 @@ define dso_local noundef i64 @json_string_to_tsvector(ptr nocapture noundef read
 define dso_local noundef i64 @json_to_tsvector_byid(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca %struct.TSVectorBuildState, align 8
   %3 = alloca %struct.ParsedText, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i64, ptr %4, align 8
   %6 = trunc i64 %5 to i32
   %7 = getelementptr i8, ptr %0, i64 48
@@ -833,10 +833,10 @@ define dso_local noundef i64 @json_to_tsvector_byid(ptr nocapture noundef readon
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   store ptr null, ptr %3, align 8
-  %16 = getelementptr inbounds i8, ptr %3, i64 12
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 0, ptr %16, align 4
   store ptr %3, ptr %2, align 8
-  %17 = getelementptr inbounds i8, ptr %2, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %6, ptr %17, align 8
   call void @iterate_json_values(ptr noundef %10, i32 noundef %15, ptr noundef nonnull %2, ptr noundef nonnull @add_to_tsvector) #8
   %18 = call noundef ptr @make_tsvector(ptr noundef nonnull %3)
@@ -870,7 +870,7 @@ define dso_local noundef i64 @json_to_tsvector_byid(ptr nocapture noundef readon
 define dso_local noundef i64 @json_to_tsvector(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca %struct.TSVectorBuildState, align 8
   %3 = alloca %struct.ParsedText, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i64, ptr %4, align 8
   %6 = inttoptr i64 %5 to ptr
   %7 = tail call ptr @pg_detoast_datum(ptr noundef %6) #8
@@ -883,10 +883,10 @@ define dso_local noundef i64 @json_to_tsvector(ptr nocapture noundef readonly %0
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   store ptr null, ptr %3, align 8
-  %14 = getelementptr inbounds i8, ptr %3, i64 12
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 0, ptr %14, align 4
   store ptr %3, ptr %2, align 8
-  %15 = getelementptr inbounds i8, ptr %2, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %13, ptr %15, align 8
   call void @iterate_json_values(ptr noundef %7, i32 noundef %12, ptr noundef nonnull %2, ptr noundef nonnull @add_to_tsvector) #8
   %16 = call noundef ptr @make_tsvector(ptr noundef nonnull %3)
@@ -919,7 +919,7 @@ define dso_local noundef i64 @json_to_tsvector(ptr nocapture noundef readonly %0
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @to_tsquery_byid(ptr nocapture noundef readonly %0) #0 {
   %2 = alloca %struct.MorphOpaque, align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = getelementptr i8, ptr %0, i64 48
   %5 = load i64, ptr %4, align 8
   %6 = inttoptr i64 %5 to ptr
@@ -927,7 +927,7 @@ define dso_local i64 @to_tsquery_byid(ptr nocapture noundef readonly %0) #0 {
   %8 = load i64, ptr %3, align 8
   %9 = trunc i64 %8 to i32
   store i32 %9, ptr %2, align 4
-  %10 = getelementptr inbounds i8, ptr %2, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 4, ptr %10, align 4
   %11 = tail call ptr @text_to_cstring(ptr noundef %7) #8
   %12 = ptrtoint ptr %2 to i64
@@ -944,11 +944,11 @@ declare ptr @text_to_cstring(ptr noundef) local_unnamed_addr #1
 define internal void @pushval_morph(i64 noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4, i1 noundef zeroext %5) #0 {
   %7 = alloca %struct.ParsedText, align 8
   %8 = inttoptr i64 %0 to ptr
-  %9 = getelementptr inbounds i8, ptr %7, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 4, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %7, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i32 0, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %7, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i32 0, ptr %11, align 8
   %12 = tail call ptr @palloc(i64 noundef 96) #8
   store ptr %12, ptr %7, align 8
@@ -959,7 +959,7 @@ define internal void @pushval_morph(i64 noundef %0, ptr noundef %1, ptr noundef 
   br i1 %15, label %.lr.ph78, label %111
 
 .lr.ph78:                                         ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %8, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 4
   br label %17
 
 17:                                               ; preds = %.lr.ph78, %106
@@ -1030,13 +1030,13 @@ define internal void @pushval_morph(i64 noundef %0, ptr noundef %1, ptr noundef 
   %46 = load ptr, ptr %7, align 8
   %47 = sext i32 %.170 to i64
   %48 = getelementptr %struct.ParsedWord, ptr %46, i64 %47
-  %49 = getelementptr inbounds i8, ptr %48, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %50 = load i16, ptr %49, align 8
   %51 = icmp eq i16 %41, %50
   br i1 %51, label %52, label %.critedge
 
 52:                                               ; preds = %.lr.ph71
-  %53 = getelementptr inbounds i8, ptr %48, i64 4
+  %53 = getelementptr inbounds nuw i8, ptr %48, i64 4
   %54 = load i16, ptr %53, align 4
   %55 = icmp slt i32 %.170, %45
   br i1 %55, label %.lr.ph63.preheader, label %.critedge2
@@ -1045,7 +1045,7 @@ define internal void @pushval_morph(i64 noundef %0, ptr noundef %1, ptr noundef 
   %56 = load ptr, ptr %7, align 8
   %57 = sext i32 %.170 to i64
   %58 = getelementptr %struct.ParsedWord, ptr %56, i64 %57
-  %59 = getelementptr inbounds i8, ptr %58, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %60 = load i16, ptr %59, align 8
   %61 = icmp eq i16 %41, %60
   br i1 %61, label %.lr.ph91, label %.critedge2
@@ -1055,7 +1055,7 @@ define internal void @pushval_morph(i64 noundef %0, ptr noundef %1, ptr noundef 
   %63 = load ptr, ptr %7, align 8
   %64 = sext i32 %91 to i64
   %65 = getelementptr %struct.ParsedWord, ptr %63, i64 %64
-  %66 = getelementptr inbounds i8, ptr %65, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %67 = load i16, ptr %66, align 8
   %68 = icmp eq i16 %41, %67
   br i1 %68, label %.lr.ph91, label %.critedge2, !llvm.loop !11
@@ -1067,15 +1067,15 @@ define internal void @pushval_morph(i64 noundef %0, ptr noundef %1, ptr noundef 
   %.26289 = phi i32 [ %91, %.lr.ph63 ], [ %.170, %.lr.ph63.preheader ]
   %71 = phi i32 [ %92, %.lr.ph63 ], [ %45, %.lr.ph63.preheader ]
   %72 = phi i32 [ %92, %.lr.ph63 ], [ %44, %.lr.ph63.preheader ]
-  %73 = getelementptr inbounds i8, ptr %69, i64 4
+  %73 = getelementptr inbounds nuw i8, ptr %69, i64 4
   %74 = load i16, ptr %73, align 4
   %75 = icmp eq i16 %54, %74
   br i1 %75, label %76, label %.critedge2
 
 76:                                               ; preds = %.lr.ph91
-  %77 = getelementptr inbounds i8, ptr %69, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %69, i64 16
   %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %69, i64 2
+  %79 = getelementptr inbounds nuw i8, ptr %69, i64 2
   %80 = load i16, ptr %79, align 2
   %81 = zext i16 %80 to i32
   %82 = load i16, ptr %69, align 8
@@ -1153,7 +1153,7 @@ define internal void @pushval_morph(i64 noundef %0, ptr noundef %1, ptr noundef 
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @to_tsquery(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #8
@@ -1167,7 +1167,7 @@ define dso_local i64 @to_tsquery(ptr nocapture noundef readonly %0) local_unname
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @plainto_tsquery_byid(ptr nocapture noundef readonly %0) #0 {
   %2 = alloca %struct.MorphOpaque, align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = getelementptr i8, ptr %0, i64 48
   %5 = load i64, ptr %4, align 8
   %6 = inttoptr i64 %5 to ptr
@@ -1175,7 +1175,7 @@ define dso_local i64 @plainto_tsquery_byid(ptr nocapture noundef readonly %0) #0
   %8 = load i64, ptr %3, align 8
   %9 = trunc i64 %8 to i32
   store i32 %9, ptr %2, align 4
-  %10 = getelementptr inbounds i8, ptr %2, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 2, ptr %10, align 4
   %11 = tail call ptr @text_to_cstring(ptr noundef %7) #8
   %12 = ptrtoint ptr %2 to i64
@@ -1186,7 +1186,7 @@ define dso_local i64 @plainto_tsquery_byid(ptr nocapture noundef readonly %0) #0
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @plainto_tsquery(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #8
@@ -1200,7 +1200,7 @@ define dso_local i64 @plainto_tsquery(ptr nocapture noundef readonly %0) local_u
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @phraseto_tsquery_byid(ptr nocapture noundef readonly %0) #0 {
   %2 = alloca %struct.MorphOpaque, align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = getelementptr i8, ptr %0, i64 48
   %5 = load i64, ptr %4, align 8
   %6 = inttoptr i64 %5 to ptr
@@ -1208,7 +1208,7 @@ define dso_local i64 @phraseto_tsquery_byid(ptr nocapture noundef readonly %0) #
   %8 = load i64, ptr %3, align 8
   %9 = trunc i64 %8 to i32
   store i32 %9, ptr %2, align 4
-  %10 = getelementptr inbounds i8, ptr %2, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 4, ptr %10, align 4
   %11 = tail call ptr @text_to_cstring(ptr noundef %7) #8
   %12 = ptrtoint ptr %2 to i64
@@ -1219,7 +1219,7 @@ define dso_local i64 @phraseto_tsquery_byid(ptr nocapture noundef readonly %0) #
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @phraseto_tsquery(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #8
@@ -1233,7 +1233,7 @@ define dso_local i64 @phraseto_tsquery(ptr nocapture noundef readonly %0) local_
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @websearch_to_tsquery_byid(ptr nocapture noundef readonly %0) #0 {
   %2 = alloca %struct.MorphOpaque, align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = getelementptr i8, ptr %0, i64 48
   %5 = load i64, ptr %4, align 8
   %6 = inttoptr i64 %5 to ptr
@@ -1241,7 +1241,7 @@ define dso_local i64 @websearch_to_tsquery_byid(ptr nocapture noundef readonly %
   %8 = load i64, ptr %3, align 8
   %9 = trunc i64 %8 to i32
   store i32 %9, ptr %2, align 4
-  %10 = getelementptr inbounds i8, ptr %2, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 4, ptr %10, align 4
   %11 = tail call ptr @text_to_cstring(ptr noundef %7) #8
   %12 = ptrtoint ptr %2 to i64
@@ -1252,7 +1252,7 @@ define dso_local i64 @websearch_to_tsquery_byid(ptr nocapture noundef readonly %
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @websearch_to_tsquery(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #8
@@ -1267,14 +1267,14 @@ declare void @pg_qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @compareWORD(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 2
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %6 = load i16, ptr %5, align 2
   %7 = zext i16 %6 to i32
-  %8 = getelementptr inbounds i8, ptr %1, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 2
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %11 = load i16, ptr %10, align 2
   %12 = zext i16 %11 to i32
   %13 = tail call i32 @tsCompareString(ptr noundef %4, i32 noundef %7, ptr noundef %9, i32 noundef %12, i1 noundef zeroext false) #8
@@ -1282,9 +1282,9 @@ define internal i32 @compareWORD(ptr nocapture noundef readonly %0, ptr nocaptur
   br i1 %14, label %15, label %24
 
 15:                                               ; preds = %2
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load i16, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %1, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %19 = load i16, ptr %18, align 8
   %20 = icmp eq i16 %17, %19
   br i1 %20, label %24, label %21
@@ -1316,25 +1316,25 @@ define internal void @add_to_tsvector(ptr nocapture noundef readonly %0, ptr nou
   br i1 %6, label %7, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %3
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 12
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 12
   %.pre = load i32, ptr %.phi.trans.insert, align 4
   br label %12
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %4, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 16, ptr %8, align 8
   %9 = tail call ptr @palloc(i64 noundef 384) #8
   store ptr %9, ptr %4, align 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 0, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %4, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 0, ptr %11, align 8
   br label %12
 
 12:                                               ; preds = %._crit_edge, %7
   %13 = phi i32 [ %.pre, %._crit_edge ], [ 0, %7 ]
-  %14 = getelementptr inbounds i8, ptr %4, i64 12
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 12
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load i32, ptr %15, align 8
   tail call void @parsetext(i32 noundef %16, ptr noundef nonnull %4, ptr noundef %1, i32 noundef %2) #8
   %17 = load i32, ptr %14, align 4
@@ -1342,7 +1342,7 @@ define internal void @add_to_tsvector(ptr nocapture noundef readonly %0, ptr nou
   br i1 %18, label %19, label %23
 
 19:                                               ; preds = %12
-  %20 = getelementptr inbounds i8, ptr %4, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %21 = load i32, ptr %20, align 8
   %22 = add i32 %21, 1
   store i32 %22, ptr %20, align 8

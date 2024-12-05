@@ -58,12 +58,12 @@ define dso_local void @prep_prolog_slurmctld_callback(i32 noundef %0, i32 nounde
   br label %.sink.split
 
 .sink.split:                                      ; preds = %11, %18
-  %20 = getelementptr inbounds i8, ptr %4, i64 708
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 708
   store i8 1, ptr %20, align 4
   br label %21
 
 21:                                               ; preds = %.sink.split, %13, %15
-  %22 = getelementptr inbounds i8, ptr %4, i64 704
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 704
   %23 = load i32, ptr %22, align 8
   %.not45 = icmp eq i32 %23, 0
   br i1 %.not45, label %.thread, label %24
@@ -85,14 +85,14 @@ define dso_local void @prep_prolog_slurmctld_callback(i32 noundef %0, i32 nounde
   br label %61
 
 .thread:                                          ; preds = %21, %24
-  %31 = getelementptr inbounds i8, ptr %4, i64 708
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 708
   %32 = load i8, ptr %31, align 4
   %33 = trunc i8 %32 to i1
   br i1 %33, label %34, label %56
 
 34:                                               ; preds = %.thread
   store i8 0, ptr %31, align 4
-  %35 = getelementptr inbounds i8, ptr %4, i64 360
+  %35 = getelementptr inbounds nuw i8, ptr %4, i64 360
   %36 = load i32, ptr %35, align 8
   %.not47 = icmp eq i32 %36, 0
   %spec.select = select i1 %.not47, i32 %1, i32 %36
@@ -119,7 +119,7 @@ define dso_local void @prep_prolog_slurmctld_callback(i32 noundef %0, i32 nounde
   br i1 %.not48, label %54, label %46
 
 46:                                               ; preds = %43
-  %47 = getelementptr inbounds i8, ptr %4, i64 384
+  %47 = getelementptr inbounds nuw i8, ptr %4, i64 384
   %48 = load ptr, ptr %47, align 8
   %.not49 = icmp eq ptr %48, null
   br i1 %.not49, label %49, label %.thread54
@@ -203,7 +203,7 @@ define dso_local void @prep_epilog_slurmctld_callback(i32 noundef %0, i32 nounde
   br label %10
 
 10:                                               ; preds = %8, %7
-  %11 = getelementptr inbounds i8, ptr %4, i64 700
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 700
   %12 = load i32, ptr %11, align 4
   %.not13 = icmp eq i32 %12, 0
   br i1 %.not13, label %.thread, label %13
@@ -225,15 +225,15 @@ define dso_local void @prep_epilog_slurmctld_callback(i32 noundef %0, i32 nounde
   br label %29
 
 .thread:                                          ; preds = %10, %13
-  %20 = getelementptr inbounds i8, ptr %4, i64 248
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 248
   store i8 0, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %4, i64 600
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 600
   %22 = load i32, ptr %21, align 8
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %24, label %29
 
 24:                                               ; preds = %.thread
-  %25 = getelementptr inbounds i8, ptr %4, i64 448
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 448
   %26 = load i32, ptr %25, align 8
   %27 = and i32 %26, 32768
   %.not15 = icmp eq i32 %27, 0

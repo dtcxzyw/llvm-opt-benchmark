@@ -25,14 +25,14 @@ define hidden void @lls_extract_save_slt_table(ptr noundef %0, ptr noundef %1) l
   %3 = alloca %struct.lls_slt_key_t, align 4
   %4 = alloca %struct.lls_slt_value_t, align 4
   %5 = tail call i32 @dissector_handle_get_protocol_index(ptr noundef %1) #6
-  %6 = getelementptr inbounds i8, ptr %0, i64 408
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %7 = load ptr, ptr %6, align 8
   %8 = tail call ptr @p_get_proto_data(ptr noundef %7, ptr noundef %0, i32 noundef %5, i32 noundef 0) #6
   %9 = icmp eq ptr %8, null
   br i1 %9, label %.thread, label %10
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %8, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %.081 = load ptr, ptr %11, align 8
   %.not82 = icmp eq ptr %.081, null
   br i1 %.not82, label %.thread, label %.lr.ph
@@ -44,31 +44,31 @@ define hidden void @lls_extract_save_slt_table(ptr noundef %0, ptr noundef %1) l
   br i1 %13, label %14, label %19
 
 14:                                               ; preds = %.lr.ph
-  %15 = getelementptr inbounds i8, ptr %.083, i64 56
+  %15 = getelementptr inbounds nuw i8, ptr %.083, i64 56
   %16 = load ptr, ptr %15, align 8
   %17 = tail call i32 @g_strcmp0(ptr noundef nonnull @.str, ptr noundef %16) #6
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %21, label %19
 
 19:                                               ; preds = %14, %.lr.ph
-  %20 = getelementptr inbounds i8, ptr %.083, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %.083, i64 40
   %.0 = load ptr, ptr %20, align 8
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %.thread, label %.lr.ph, !llvm.loop !4
 
 21:                                               ; preds = %14
-  %22 = getelementptr inbounds i8, ptr %.083, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %.083, i64 16
   %.06191 = load ptr, ptr %22, align 8
   %.not6592 = icmp eq ptr %.06191, null
   br i1 %.not6592, label %.thread, label %.lr.ph95
 
 .lr.ph95:                                         ; preds = %21
-  %23 = getelementptr inbounds i8, ptr %4, i64 4
-  %24 = getelementptr inbounds i8, ptr %4, i64 8
-  %25 = getelementptr inbounds i8, ptr %4, i64 2
-  %26 = getelementptr inbounds i8, ptr %3, i64 8
-  %27 = getelementptr inbounds i8, ptr %3, i64 4
-  %28 = getelementptr inbounds i8, ptr %4, i64 1
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 2
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 1
   br label %29
 
 29:                                               ; preds = %.lr.ph95, %.backedge
@@ -78,20 +78,20 @@ define hidden void @lls_extract_save_slt_table(ptr noundef %0, ptr noundef %1) l
   br i1 %31, label %32, label %.backedge
 
 32:                                               ; preds = %29
-  %33 = getelementptr inbounds i8, ptr %.06193, i64 56
+  %33 = getelementptr inbounds nuw i8, ptr %.06193, i64 56
   %34 = load ptr, ptr %33, align 8
   %35 = call i32 @g_strcmp0(ptr noundef nonnull @.str.1, ptr noundef %34) #6
   %36 = icmp eq i32 %35, 0
   br i1 %36, label %37, label %.backedge
 
 .backedge:                                        ; preds = %37, %._crit_edge, %lls_check_init_slt_table.exit, %29, %32
-  %.061.in.be = getelementptr inbounds i8, ptr %.06193, i64 40
+  %.061.in.be = getelementptr inbounds nuw i8, ptr %.06193, i64 40
   %.061 = load ptr, ptr %.061.in.be, align 8
   %.not65 = icmp eq ptr %.061, null
   br i1 %.not65, label %.thread, label %29, !llvm.loop !6
 
 37:                                               ; preds = %32
-  %38 = getelementptr inbounds i8, ptr %.06193, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %.06193, i64 16
   %39 = load ptr, ptr %38, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %3, i8 0, i64 12, i1 false)
   store i32 0, ptr %4, align 4
@@ -102,7 +102,7 @@ define hidden void @lls_extract_save_slt_table(ptr noundef %0, ptr noundef %1) l
 
 .lr.ph90:                                         ; preds = %37, %.loopexit
   %.06089 = phi ptr [ %123, %.loopexit ], [ %39, %37 ]
-  %40 = getelementptr inbounds i8, ptr %.06089, i64 64
+  %40 = getelementptr inbounds nuw i8, ptr %.06089, i64 64
   %41 = load ptr, ptr %40, align 8
   %.not.i = icmp eq ptr %41, null
   br i1 %.not.i, label %xml_value_to_gchar.exit.thread, label %xml_value_to_gchar.exit
@@ -123,7 +123,7 @@ xml_value_to_gchar.exit:                          ; preds = %.lr.ph90
   br i1 %or.cond, label %53, label %xml_value_to_gchar.exit.thread
 
 53:                                               ; preds = %xml_value_to_gchar.exit
-  %54 = getelementptr inbounds i8, ptr %.06089, i64 56
+  %54 = getelementptr inbounds nuw i8, ptr %.06089, i64 56
   %55 = load ptr, ptr %54, align 8
   %56 = call i32 @g_strcmp0(ptr noundef nonnull @.str.2, ptr noundef %55) #6
   %57 = icmp eq i32 %56, 0
@@ -162,21 +162,21 @@ xml_value_to_gchar.exit.thread:                   ; preds = %.lr.ph90, %58, %66,
   br i1 %74, label %75, label %.loopexit
 
 75:                                               ; preds = %xml_value_to_gchar.exit.thread
-  %76 = getelementptr inbounds i8, ptr %.06089, i64 56
+  %76 = getelementptr inbounds nuw i8, ptr %.06089, i64 56
   %77 = load ptr, ptr %76, align 8
   %78 = call i32 @g_strcmp0(ptr noundef nonnull @.str.5, ptr noundef %77) #6
   %79 = icmp eq i32 %78, 0
   br i1 %79, label %80, label %.loopexit
 
 80:                                               ; preds = %75
-  %81 = getelementptr inbounds i8, ptr %.06089, i64 16
+  %81 = getelementptr inbounds nuw i8, ptr %.06089, i64 16
   %.05984 = load ptr, ptr %81, align 8
   %.not6885 = icmp eq ptr %.05984, null
   br i1 %.not6885, label %.loopexit, label %.lr.ph87
 
 .lr.ph87:                                         ; preds = %80, %xml_value_to_gchar.exit71.thread
   %.05986 = phi ptr [ %.059, %xml_value_to_gchar.exit71.thread ], [ %.05984, %80 ]
-  %82 = getelementptr inbounds i8, ptr %.05986, i64 64
+  %82 = getelementptr inbounds nuw i8, ptr %.05986, i64 64
   %83 = load ptr, ptr %82, align 8
   %.not.i69 = icmp eq ptr %83, null
   br i1 %.not.i69, label %xml_value_to_gchar.exit71.thread, label %xml_value_to_gchar.exit71
@@ -197,7 +197,7 @@ xml_value_to_gchar.exit71:                        ; preds = %.lr.ph87
   br i1 %or.cond3, label %95, label %xml_value_to_gchar.exit71.thread
 
 95:                                               ; preds = %xml_value_to_gchar.exit71
-  %96 = getelementptr inbounds i8, ptr %.05986, i64 56
+  %96 = getelementptr inbounds nuw i8, ptr %.05986, i64 56
   %97 = load ptr, ptr %96, align 8
   %98 = call i32 @g_strcmp0(ptr noundef nonnull @.str.6, ptr noundef %97) #6
   %99 = icmp eq i32 %98, 0
@@ -241,13 +241,13 @@ xml_value_to_gchar.exit71.thread:                 ; preds = %.lr.ph87, %100, %11
   %.0.i7078 = phi ptr [ %88, %100 ], [ %88, %112 ], [ %88, %118 ], [ %88, %114 ], [ %88, %106 ], [ %88, %xml_value_to_gchar.exit71 ], [ null, %.lr.ph87 ]
   %120 = load ptr, ptr %6, align 8
   call void @wmem_free(ptr noundef %120, ptr noundef %.0.i7078) #6
-  %121 = getelementptr inbounds i8, ptr %.05986, i64 40
+  %121 = getelementptr inbounds nuw i8, ptr %.05986, i64 40
   %.059 = load ptr, ptr %121, align 8
   %.not68 = icmp eq ptr %.059, null
   br i1 %.not68, label %.loopexit, label %.lr.ph87, !llvm.loop !7
 
 .loopexit:                                        ; preds = %xml_value_to_gchar.exit71.thread, %80, %75, %xml_value_to_gchar.exit.thread
-  %122 = getelementptr inbounds i8, ptr %.06089, i64 40
+  %122 = getelementptr inbounds nuw i8, ptr %.06089, i64 40
   %123 = load ptr, ptr %122, align 8
   %.not66 = icmp eq ptr %123, null
   br i1 %.not66, label %._crit_edge, label %.lr.ph90, !llvm.loop !8
@@ -316,7 +316,7 @@ declare ptr @wmem_map_insert(ptr noundef, ptr noundef, ptr noundef) local_unname
 define hidden range(i32 0, 2) i32 @test_alc_over_slt(ptr nocapture noundef readonly %0, ptr nocapture noundef readnone %1, i32 noundef %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 {
   %5 = alloca %struct.lls_slt_key_t, align 4
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5)
-  %6 = getelementptr inbounds i8, ptr %0, i64 160
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %7 = load i32, ptr %6, align 8
   %8 = icmp ne i32 %7, 2
   %9 = load ptr, ptr @lls_slt_table, align 8
@@ -329,19 +329,19 @@ get_lls_slt_val.exit.thread:                      ; preds = %4
   br label %32
 
 11:                                               ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %0, i64 168
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %13 = load ptr, ptr %12, align 8
   %14 = load i32, ptr %13, align 4
   store i32 %14, ptr %5, align 4
-  %15 = getelementptr inbounds i8, ptr %0, i64 192
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %16 = load ptr, ptr %15, align 8
   %17 = load i32, ptr %16, align 4
-  %18 = getelementptr inbounds i8, ptr %5, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %17, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %0, i64 288
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %20 = load i32, ptr %19, align 8
   %21 = trunc i32 %20 to i16
-  %22 = getelementptr inbounds i8, ptr %5, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i16 %21, ptr %22, align 4
   %23 = call ptr @wmem_map_lookup(ptr noundef nonnull %9, ptr noundef nonnull %5) #6
   %24 = icmp eq ptr %23, null
@@ -361,7 +361,7 @@ get_lls_slt_val.exit:                             ; preds = %11
 
 28:                                               ; preds = %get_lls_slt_val.exit.thread5, %get_lls_slt_val.exit
   %.08.i7 = phi ptr [ %23, %get_lls_slt_val.exit.thread5 ], [ %26, %get_lls_slt_val.exit ]
-  %29 = getelementptr inbounds i8, ptr %.08.i7, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %.08.i7, i64 1
   %30 = load i8, ptr %29, align 1
   %31 = icmp eq i8 %30, 1
   %. = zext i1 %31 to i32
@@ -376,7 +376,7 @@ get_lls_slt_val.exit:                             ; preds = %11
 define hidden noalias ptr @get_slt_channel_info(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca %struct.lls_slt_key_t, align 4
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %2)
-  %3 = getelementptr inbounds i8, ptr %0, i64 160
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %4 = load i32, ptr %3, align 8
   %5 = icmp ne i32 %4, 2
   %6 = load ptr, ptr @lls_slt_table, align 8
@@ -389,19 +389,19 @@ get_lls_slt_val.exit.thread:                      ; preds = %1
   br label %41
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %0, i64 168
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr %10, align 4
   store i32 %11, ptr %2, align 4
-  %12 = getelementptr inbounds i8, ptr %0, i64 192
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %13 = load ptr, ptr %12, align 8
   %14 = load i32, ptr %13, align 4
-  %15 = getelementptr inbounds i8, ptr %2, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %14, ptr %15, align 4
-  %16 = getelementptr inbounds i8, ptr %0, i64 288
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %17 = load i32, ptr %16, align 8
   %18 = trunc i32 %17 to i16
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i16 %18, ptr %19, align 4
   %20 = call ptr @wmem_map_lookup(ptr noundef nonnull %6, ptr noundef nonnull %2) #6
   %21 = icmp eq ptr %20, null
@@ -421,16 +421,16 @@ get_lls_slt_val.exit:                             ; preds = %8
 
 25:                                               ; preds = %get_lls_slt_val.exit.thread19, %get_lls_slt_val.exit
   %.08.i21 = phi ptr [ %20, %get_lls_slt_val.exit.thread19 ], [ %23, %get_lls_slt_val.exit ]
-  %26 = getelementptr inbounds i8, ptr %.08.i21, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %.08.i21, i64 4
   %27 = load i32, ptr %26, align 4
-  %28 = getelementptr inbounds i8, ptr %.08.i21, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %.08.i21, i64 8
   %29 = load i32, ptr %28, align 4
   %30 = icmp sgt i32 %27, 0
   %31 = icmp sgt i32 %29, 0
   %or.cond = select i1 %30, i1 %31, i1 false
-  %32 = getelementptr inbounds i8, ptr %0, i64 408
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %.08.i21, i64 2
+  %34 = getelementptr inbounds nuw i8, ptr %.08.i21, i64 2
   %35 = load i16, ptr %34, align 2
   %36 = zext i16 %35 to i32
   br i1 %or.cond, label %37, label %39
@@ -463,10 +463,10 @@ declare ptr @wmem_epan_scope() local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal i32 @lls_slt_key_hash(ptr nocapture noundef readonly %0) #4 {
   %2 = load i32, ptr %0, align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = xor i32 %4, %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i16, ptr %6, align 4
   %8 = zext i16 %7 to i32
   %9 = shl nuw i32 %8, 16
@@ -482,17 +482,17 @@ define internal range(i32 0, 2) i32 @lls_slt_key_equal(ptr nocapture noundef rea
   br i1 %5, label %6, label %19
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %8 = load i32, ptr %7, align 4
-  %9 = getelementptr inbounds i8, ptr %1, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %8, %10
   br i1 %11, label %12, label %19
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load i16, ptr %13, align 4
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load i16, ptr %15, align 4
   %17 = icmp eq i16 %14, %16
   %18 = zext i1 %17 to i32

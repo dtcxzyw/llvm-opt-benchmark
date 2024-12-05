@@ -22,7 +22,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %event_readset_in.i = getelementptr inbounds i8, ptr %call, i64 16
+  %event_readset_in.i = getelementptr inbounds nuw i8, ptr %call, i64 16
   %0 = load ptr, ptr %event_readset_in.i, align 8
   %call.i = tail call ptr @event_mm_realloc_(ptr noundef %0, i64 noundef 8) #7
   %cmp.i = icmp eq ptr %call.i, null
@@ -30,7 +30,7 @@ if.end:                                           ; preds = %entry
 
 if.end4.i:                                        ; preds = %if.end
   store ptr %call.i, ptr %event_readset_in.i, align 8
-  %event_writeset_in.i = getelementptr inbounds i8, ptr %call, i64 24
+  %event_writeset_in.i = getelementptr inbounds nuw i8, ptr %call, i64 24
   %1 = load ptr, ptr %event_writeset_in.i, align 8
   %call7.i = tail call ptr @event_mm_realloc_(ptr noundef %1, i64 noundef 8) #7
   %cmp8.i = icmp eq ptr %call7.i, null
@@ -47,7 +47,7 @@ if.then.i:                                        ; preds = %if.then3
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %if.then3
-  %event_writeset_in.i6 = getelementptr inbounds i8, ptr %call, i64 24
+  %event_writeset_in.i6 = getelementptr inbounds nuw i8, ptr %call, i64 24
   %3 = load ptr, ptr %event_writeset_in.i6, align 8
   %tobool2.not.i = icmp eq ptr %3, null
   br i1 %tobool2.not.i, label %if.end5.i, label %if.then3.i
@@ -57,7 +57,7 @@ if.then3.i:                                       ; preds = %if.end.i
   br label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.then3.i, %if.end.i
-  %event_readset_out.i = getelementptr inbounds i8, ptr %call, i64 32
+  %event_readset_out.i = getelementptr inbounds nuw i8, ptr %call, i64 32
   %4 = load ptr, ptr %event_readset_out.i, align 8
   %tobool6.not.i = icmp eq ptr %4, null
   br i1 %tobool6.not.i, label %if.end9.i, label %if.then7.i
@@ -67,7 +67,7 @@ if.then7.i:                                       ; preds = %if.end5.i
   br label %if.end9.i
 
 if.end9.i:                                        ; preds = %if.then7.i, %if.end5.i
-  %event_writeset_out.i = getelementptr inbounds i8, ptr %call, i64 40
+  %event_writeset_out.i = getelementptr inbounds nuw i8, ptr %call, i64 40
   %5 = load ptr, ptr %event_writeset_out.i, align 8
   %tobool10.not.i = icmp eq ptr %5, null
   br i1 %tobool10.not.i, label %select_free_selectop.exit, label %if.then11.i
@@ -83,10 +83,10 @@ select_free_selectop.exit:                        ; preds = %if.end9.i, %if.then
 
 if.end4:                                          ; preds = %if.end4.i
   store ptr %call7.i, ptr %event_writeset_in.i, align 8
-  %resize_out_sets.i = getelementptr inbounds i8, ptr %call, i64 8
+  %resize_out_sets.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   store i32 1, ptr %resize_out_sets.i, align 8
   %6 = load ptr, ptr %event_readset_in.i, align 8
-  %event_fdsz.i = getelementptr inbounds i8, ptr %call, i64 4
+  %event_fdsz.i = getelementptr inbounds nuw i8, ptr %call, i64 4
   %7 = load i32, ptr %event_fdsz.i, align 4
   %idx.ext.i = sext i32 %7 to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %6, i64 %idx.ext.i
@@ -110,7 +110,7 @@ if.then6:                                         ; preds = %if.end4
   br label %if.end8
 
 if.end8:                                          ; preds = %if.then6, %if.end4
-  %weakrand_seed = getelementptr inbounds i8, ptr %base, i64 1160
+  %weakrand_seed = getelementptr inbounds nuw i8, ptr %base, i64 1160
   %call9 = tail call i32 @evutil_weakrand_seed_(ptr noundef nonnull %weakrand_seed, i32 noundef 0) #7
   br label %return
 
@@ -122,14 +122,14 @@ return:                                           ; preds = %entry, %if.end8, %s
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @select_add(ptr nocapture noundef readonly %base, i32 noundef %fd, i16 signext %old, i16 noundef signext %events, ptr nocapture readnone %p) #0 {
 entry:
-  %evbase = getelementptr inbounds i8, ptr %base, i64 8
+  %evbase = getelementptr inbounds nuw i8, ptr %base, i64 8
   %0 = load ptr, ptr %evbase, align 8
   %1 = load i32, ptr %0, align 8
   %cmp = icmp slt i32 %1, %fd
   br i1 %cmp, label %if.then, label %if.end20
 
 if.then:                                          ; preds = %entry
-  %event_fdsz = getelementptr inbounds i8, ptr %0, i64 4
+  %event_fdsz = getelementptr inbounds nuw i8, ptr %0, i64 4
   %2 = load i32, ptr %event_fdsz, align 4
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %2, i32 8)
   %add5 = add nsw i32 %fd, 64
@@ -148,7 +148,7 @@ while.end:                                        ; preds = %while.cond
   br i1 %cmp11.not, label %if.end18, label %if.then13
 
 if.then13:                                        ; preds = %while.end
-  %event_readset_in.i = getelementptr inbounds i8, ptr %0, i64 16
+  %event_readset_in.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %event_readset_in.i, align 8
   %conv.i = zext nneg i32 %fdsz.0 to i64
   %call.i = tail call ptr @event_mm_realloc_(ptr noundef %3, i64 noundef %conv.i) #7
@@ -157,7 +157,7 @@ if.then13:                                        ; preds = %while.end
 
 if.end4.i:                                        ; preds = %if.then13
   store ptr %call.i, ptr %event_readset_in.i, align 8
-  %event_writeset_in.i = getelementptr inbounds i8, ptr %0, i64 24
+  %event_writeset_in.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %event_writeset_in.i, align 8
   %call7.i = tail call ptr @event_mm_realloc_(ptr noundef %4, i64 noundef %conv.i) #7
   %cmp8.i = icmp eq ptr %call7.i, null
@@ -165,7 +165,7 @@ if.end4.i:                                        ; preds = %if.then13
 
 select_resize.exit.thread:                        ; preds = %if.end4.i
   store ptr %call7.i, ptr %event_writeset_in.i, align 8
-  %resize_out_sets.i = getelementptr inbounds i8, ptr %0, i64 8
+  %resize_out_sets.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 1, ptr %resize_out_sets.i, align 8
   %5 = load ptr, ptr %event_readset_in.i, align 8
   %6 = load i32, ptr %event_fdsz, align 4
@@ -201,7 +201,7 @@ if.then23:                                        ; preds = %if.end20
   %rem = srem i32 %fd, 64
   %sh_prom = zext nneg i32 %rem to i64
   %shl = shl nuw i64 1, %sh_prom
-  %event_readset_in = getelementptr inbounds i8, ptr %0, i64 16
+  %event_readset_in = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %event_readset_in, align 8
   %div24 = sdiv i32 %fd, 64
   %idxprom = sext i32 %div24 to i64
@@ -220,7 +220,7 @@ if.then29:                                        ; preds = %if.end25
   %rem30 = srem i32 %fd, 64
   %sh_prom31 = zext nneg i32 %rem30 to i64
   %shl32 = shl nuw i64 1, %sh_prom31
-  %event_writeset_in = getelementptr inbounds i8, ptr %0, i64 24
+  %event_writeset_in = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load ptr, ptr %event_writeset_in, align 8
   %div34 = sdiv i32 %fd, 64
   %idxprom35 = sext i32 %div34 to i64
@@ -238,7 +238,7 @@ return:                                           ; preds = %select_resize.exit,
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define internal noundef i32 @select_del(ptr nocapture noundef readonly %base, i32 noundef %fd, i16 signext %old, i16 noundef signext %events, ptr nocapture readnone %p) #1 {
 entry:
-  %evbase = getelementptr inbounds i8, ptr %base, i64 8
+  %evbase = getelementptr inbounds nuw i8, ptr %base, i64 8
   %0 = load ptr, ptr %evbase, align 8
   %1 = load i32, ptr %0, align 8
   %cmp = icmp slt i32 %1, %fd
@@ -254,7 +254,7 @@ if.then5:                                         ; preds = %if.end
   %sh_prom = zext nneg i32 %rem to i64
   %shl = shl nuw i64 1, %sh_prom
   %not = xor i64 %shl, -1
-  %event_readset_in = getelementptr inbounds i8, ptr %0, i64 16
+  %event_readset_in = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %event_readset_in, align 8
   %div = sdiv i32 %fd, 64
   %idxprom = sext i32 %div to i64
@@ -274,7 +274,7 @@ if.then11:                                        ; preds = %if.end7
   %sh_prom13 = zext nneg i32 %rem12 to i64
   %shl14 = shl nuw i64 1, %sh_prom13
   %not15 = xor i64 %shl14, -1
-  %event_writeset_in = getelementptr inbounds i8, ptr %0, i64 24
+  %event_writeset_in = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %event_writeset_in, align 8
   %div17 = sdiv i32 %fd, 64
   %idxprom18 = sext i32 %div17 to i64
@@ -291,18 +291,18 @@ return:                                           ; preds = %if.end7, %if.then11
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @select_dispatch(ptr noundef %base, ptr noundef %tv) #0 {
 entry:
-  %evbase = getelementptr inbounds i8, ptr %base, i64 8
+  %evbase = getelementptr inbounds nuw i8, ptr %base, i64 8
   %0 = load ptr, ptr %evbase, align 8
-  %resize_out_sets = getelementptr inbounds i8, ptr %0, i64 8
+  %resize_out_sets = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1 = load i32, ptr %resize_out_sets, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end10, label %if.then
 
 if.then:                                          ; preds = %entry
-  %event_fdsz = getelementptr inbounds i8, ptr %0, i64 4
+  %event_fdsz = getelementptr inbounds nuw i8, ptr %0, i64 4
   %2 = load i32, ptr %event_fdsz, align 4
   %conv = sext i32 %2 to i64
-  %event_readset_out = getelementptr inbounds i8, ptr %0, i64 32
+  %event_readset_out = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %event_readset_out, align 8
   %call = tail call ptr @event_mm_realloc_(ptr noundef %3, i64 noundef %conv) #7
   %tobool1.not = icmp eq ptr %call, null
@@ -310,7 +310,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then
   store ptr %call, ptr %event_readset_out, align 8
-  %event_writeset_out = getelementptr inbounds i8, ptr %0, i64 40
+  %event_writeset_out = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %event_writeset_out, align 8
   %call4 = tail call ptr @event_mm_realloc_(ptr noundef %4, i64 noundef %conv) #7
   %tobool5.not = icmp eq ptr %call4, null
@@ -322,24 +322,24 @@ if.end7:                                          ; preds = %if.end
   br label %if.end10
 
 if.end10:                                         ; preds = %if.end7, %entry
-  %event_readset_out11 = getelementptr inbounds i8, ptr %0, i64 32
+  %event_readset_out11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %event_readset_out11, align 8
-  %event_readset_in = getelementptr inbounds i8, ptr %0, i64 16
+  %event_readset_in = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %event_readset_in, align 8
-  %event_fdsz12 = getelementptr inbounds i8, ptr %0, i64 4
+  %event_fdsz12 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = load i32, ptr %event_fdsz12, align 4
   %conv13 = sext i32 %7 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %5, ptr align 8 %6, i64 %conv13, i1 false)
-  %event_writeset_out14 = getelementptr inbounds i8, ptr %0, i64 40
+  %event_writeset_out14 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load ptr, ptr %event_writeset_out14, align 8
-  %event_writeset_in = getelementptr inbounds i8, ptr %0, i64 24
+  %event_writeset_in = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %event_writeset_in, align 8
   %10 = load i32, ptr %event_fdsz12, align 4
   %conv16 = sext i32 %10 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %9, i64 %conv16, i1 false)
   %11 = load i32, ptr %0, align 8
   %add = add i32 %11, 1
-  %th_base_lock = getelementptr inbounds i8, ptr %base, i64 952
+  %th_base_lock = getelementptr inbounds nuw i8, ptr %base, i64 952
   %12 = load ptr, ptr %th_base_lock, align 8
   %tobool19.not = icmp eq ptr %12, null
   br i1 %tobool19.not, label %do.end25, label %if.then20
@@ -386,7 +386,7 @@ if.then51:                                        ; preds = %do.body49
   br label %do.end55
 
 do.end55:                                         ; preds = %do.body49, %if.then51
-  %weakrand_seed = getelementptr inbounds i8, ptr %base, i64 1160
+  %weakrand_seed = getelementptr inbounds nuw i8, ptr %base, i64 1160
   %call56 = tail call i32 @evutil_weakrand_range_(ptr noundef nonnull %weakrand_seed, i32 noundef %add) #7
   %cmp57.not40 = icmp slt i32 %11, 0
   br i1 %cmp57.not40, label %return, label %for.body
@@ -436,9 +436,9 @@ return:                                           ; preds = %for.inc, %do.end55,
 define internal void @select_dealloc(ptr noundef %base) #0 {
 entry:
   tail call void @evsig_dealloc_(ptr noundef %base) #7
-  %evbase = getelementptr inbounds i8, ptr %base, i64 8
+  %evbase = getelementptr inbounds nuw i8, ptr %base, i64 8
   %0 = load ptr, ptr %evbase, align 8
-  %event_readset_in.i = getelementptr inbounds i8, ptr %0, i64 16
+  %event_readset_in.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %1 = load ptr, ptr %event_readset_in.i, align 8
   %tobool.not.i = icmp eq ptr %1, null
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
@@ -448,7 +448,7 @@ if.then.i:                                        ; preds = %entry
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %entry
-  %event_writeset_in.i = getelementptr inbounds i8, ptr %0, i64 24
+  %event_writeset_in.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   %2 = load ptr, ptr %event_writeset_in.i, align 8
   %tobool2.not.i = icmp eq ptr %2, null
   br i1 %tobool2.not.i, label %if.end5.i, label %if.then3.i
@@ -458,7 +458,7 @@ if.then3.i:                                       ; preds = %if.end.i
   br label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.then3.i, %if.end.i
-  %event_readset_out.i = getelementptr inbounds i8, ptr %0, i64 32
+  %event_readset_out.i = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %event_readset_out.i, align 8
   %tobool6.not.i = icmp eq ptr %3, null
   br i1 %tobool6.not.i, label %if.end9.i, label %if.then7.i
@@ -468,7 +468,7 @@ if.then7.i:                                       ; preds = %if.end5.i
   br label %if.end9.i
 
 if.end9.i:                                        ; preds = %if.then7.i, %if.end5.i
-  %event_writeset_out.i = getelementptr inbounds i8, ptr %0, i64 40
+  %event_writeset_out.i = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %event_writeset_out.i, align 8
   %tobool10.not.i = icmp eq ptr %4, null
   br i1 %tobool10.not.i, label %select_free_selectop.exit, label %if.then11.i

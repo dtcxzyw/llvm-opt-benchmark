@@ -18,7 +18,7 @@ define dso_local i32 @acpi_parse_entries_array(ptr noundef %0, i64 noundef %1, p
   %8 = ptrtoint ptr %2 to i64
   %9 = icmp eq i32 %7, 4
   %10 = select i1 %9, i64 0, i64 4
-  %11 = getelementptr inbounds i8, ptr %2, i64 %10
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 %10
   %12 = load i32, ptr %11, align 1
   %13 = zext i32 %12 to i64
   %14 = add i64 %13, %8
@@ -108,7 +108,7 @@ acpi_get_entry_type.exit:                         ; preds = %29, %30, %33, %36, 
   br i1 %51, label %69, label %52
 
 52:                                               ; preds = %50
-  %53 = getelementptr inbounds i8, ptr %46, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %54 = load ptr, ptr %53, align 8
   %55 = icmp eq ptr %54, null
   br i1 %55, label %58, label %56
@@ -118,13 +118,13 @@ acpi_get_entry_type.exit:                         ; preds = %29, %30, %33, %36, 
   br label %66
 
 58:                                               ; preds = %52
-  %59 = getelementptr inbounds i8, ptr %46, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %60 = load ptr, ptr %59, align 8
   %61 = icmp eq ptr %60, null
   br i1 %61, label %.thread12, label %62
 
 62:                                               ; preds = %58
-  %63 = getelementptr inbounds i8, ptr %46, i64 24
+  %63 = getelementptr inbounds nuw i8, ptr %46, i64 24
   %64 = load ptr, ptr %63, align 8
   %65 = tail call i32 %60(ptr noundef %.sroa.0.0, ptr noundef %64, i64 noundef %14) #8
   br label %66
@@ -135,7 +135,7 @@ acpi_get_entry_type.exit:                         ; preds = %29, %30, %33, %36, 
   br i1 %68, label %69, label %.thread12
 
 69:                                               ; preds = %66, %50
-  %70 = getelementptr inbounds i8, ptr %46, i64 32
+  %70 = getelementptr inbounds nuw i8, ptr %46, i64 32
   %71 = load i32, ptr %70, align 8
   %72 = add i32 %71, 1
   store i32 %72, ptr %70, align 8
@@ -220,31 +220,31 @@ define internal fastcc range(i64 0, 4294967296) i64 @acpi_get_entry_length(ptr n
   ]
 
 1:                                                ; preds = %0
-  %2 = getelementptr inbounds i8, ptr %.0.val, i64 1
+  %2 = getelementptr inbounds nuw i8, ptr %.0.val, i64 1
   %3 = load i8, ptr %2, align 1
   %4 = zext i8 %3 to i64
   br label %21
 
 5:                                                ; preds = %0
-  %6 = getelementptr inbounds i8, ptr %.0.val, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %.0.val, i64 4
   %7 = load i32, ptr %6, align 1
   %8 = zext i32 %7 to i64
   br label %21
 
 9:                                                ; preds = %0
-  %10 = getelementptr inbounds i8, ptr %.0.val, i64 2
+  %10 = getelementptr inbounds nuw i8, ptr %.0.val, i64 2
   %11 = load i16, ptr %10, align 1
   %12 = zext i16 %11 to i64
   br label %21
 
 13:                                               ; preds = %0
-  %14 = getelementptr inbounds i8, ptr %.0.val, i64 2
+  %14 = getelementptr inbounds nuw i8, ptr %.0.val, i64 2
   %15 = load i16, ptr %14, align 1
   %16 = zext i16 %15 to i64
   br label %21
 
 17:                                               ; preds = %0
-  %18 = getelementptr inbounds i8, ptr %.0.val, i64 2
+  %18 = getelementptr inbounds nuw i8, ptr %.0.val, i64 2
   %19 = load i16, ptr %18, align 1
   %20 = zext i16 %19 to i64
   br label %21
@@ -266,9 +266,9 @@ define dso_local i32 @cdat_table_parse(i32 noundef %0, ptr noundef %1, ptr nound
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 40, i1 false), !annotation !10
   store i32 %0, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %1, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %2, ptr %7, align 8
   %8 = icmp eq ptr %3, null
   br i1 %8, label %11, label %9

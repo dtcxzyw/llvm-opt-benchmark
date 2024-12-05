@@ -20,7 +20,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite) uwtable
 define dso_local range(i32 -1, 1) i32 @sigfd_init_(ptr nocapture noundef %base) local_unnamed_addr #0 {
 entry:
-  %flags = getelementptr inbounds i8, ptr %base, i64 984
+  %flags = getelementptr inbounds nuw i8, ptr %base, i64 984
   %0 = load i32, ptr %flags, align 8
   %and = and i32 %0, 128
   %tobool.not = icmp eq i32 %and, 0
@@ -32,7 +32,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %tobool1.not, label %return, label %if.end
 
 if.end:                                           ; preds = %land.lhs.true, %entry
-  %evsigsel = getelementptr inbounds i8, ptr %base, i64 32
+  %evsigsel = getelementptr inbounds nuw i8, ptr %base, i64 32
   store ptr @sigfdops, ptr %evsigsel, align 8
   br label %return
 
@@ -48,8 +48,8 @@ declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #1
 define internal range(i32 -1, 1) i32 @sigfd_add(ptr noundef %base, i32 noundef %signo, i16 noundef signext %old, i16 signext %events, ptr nocapture readnone %p) #2 {
 entry:
   %mask = alloca %struct.__sigset_t, align 8
-  %sig1 = getelementptr inbounds i8, ptr %base, i64 40
-  %ev_sigevent = getelementptr inbounds i8, ptr %base, i64 176
+  %sig1 = getelementptr inbounds nuw i8, ptr %base, i64 40
+  %ev_sigevent = getelementptr inbounds nuw i8, ptr %base, i64 176
   %idxprom = sext i32 %signo to i64
   %arrayidx = getelementptr inbounds [65 x ptr], ptr %ev_sigevent, i64 0, i64 %idxprom
   %0 = load ptr, ptr %arrayidx, align 8
@@ -62,7 +62,7 @@ if.then:                                          ; preds = %entry
 
 if.then5:                                         ; preds = %if.then
   %call.i = tail call i32 @event_del_nolock_(ptr noundef nonnull %0, i32 noundef 2) #6
-  %ev_fd.i = getelementptr inbounds i8, ptr %0, i64 56
+  %ev_fd.i = getelementptr inbounds nuw i8, ptr %0, i64 56
   %1 = load i32, ptr %ev_fd.i, align 8
   %call1.i = tail call i32 @close(i32 noundef %1) #6
   tail call void @event_mm_free_(ptr noundef nonnull %0) #6
@@ -76,7 +76,7 @@ if.end6:                                          ; preds = %if.then5, %entry
 
 if.end9:                                          ; preds = %if.end6
   %call10 = tail call ptr @event_mm_malloc_(i64 noundef 152) #6
-  %sh_old = getelementptr inbounds i8, ptr %base, i64 696
+  %sh_old = getelementptr inbounds nuw i8, ptr %base, i64 696
   %2 = load ptr, ptr %sh_old, align 8
   %arrayidx12 = getelementptr inbounds ptr, ptr %2, i64 %idxprom
   store ptr %call10, ptr %arrayidx12, align 8
@@ -132,7 +132,7 @@ if.end41:                                         ; preds = %if.end37
   br i1 %tobool43.not, label %close_fd, label %if.end45
 
 if.end45:                                         ; preds = %if.end41
-  %evcb_flags = getelementptr inbounds i8, ptr %call42, i64 16
+  %evcb_flags = getelementptr inbounds nuw i8, ptr %call42, i64 16
   %8 = load i16, ptr %evcb_flags, align 8
   %9 = or i16 %8, 16
   store i16 %9, ptr %evcb_flags, align 8
@@ -178,13 +178,13 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %sh_old_max = getelementptr inbounds i8, ptr %base, i64 704
+  %sh_old_max = getelementptr inbounds nuw i8, ptr %base, i64 704
   %0 = load i32, ptr %sh_old_max, align 8
   %cmp = icmp slt i32 %signo, %0
   br i1 %cmp, label %if.then7, label %if.end20
 
 if.then7:                                         ; preds = %if.end
-  %sh_old = getelementptr inbounds i8, ptr %base, i64 696
+  %sh_old = getelementptr inbounds nuw i8, ptr %base, i64 696
   %1 = load ptr, ptr %sh_old, align 8
   %arrayidx9 = getelementptr inbounds ptr, ptr %1, i64 %idxprom
   %2 = load ptr, ptr %arrayidx9, align 8
@@ -208,11 +208,11 @@ if.end15:                                         ; preds = %if.then11
   br label %if.end20
 
 if.end20:                                         ; preds = %if.then7, %if.end15, %if.end
-  %ev_sigevent.i = getelementptr inbounds i8, ptr %base, i64 176
+  %ev_sigevent.i = getelementptr inbounds nuw i8, ptr %base, i64 176
   %arrayidx.i = getelementptr inbounds [65 x ptr], ptr %ev_sigevent.i, i64 0, i64 %idxprom
   %4 = load ptr, ptr %arrayidx.i, align 8
   %call.i = call i32 @event_del_nolock_(ptr noundef %4, i32 noundef 2) #6
-  %ev_fd.i = getelementptr inbounds i8, ptr %4, i64 56
+  %ev_fd.i = getelementptr inbounds nuw i8, ptr %4, i64 56
   %5 = load i32, ptr %ev_fd.i, align 8
   %call1.i = call i32 @close(i32 noundef %5) #6
   call void @event_mm_free_(ptr noundef %4) #6
@@ -254,7 +254,7 @@ define internal void @sigfd_cb(i32 noundef %fd, i16 signext %what, ptr noundef %
 entry:
   %fdsi = alloca %struct.signalfd_siginfo, align 8
   %call = call i64 @read(i32 noundef %fd, ptr noundef nonnull %fdsi, i64 noundef 128) #6
-  %th_base_lock = getelementptr inbounds i8, ptr %arg, i64 952
+  %th_base_lock = getelementptr inbounds nuw i8, ptr %arg, i64 952
   %0 = load ptr, ptr %th_base_lock, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %do.end10, label %if.then

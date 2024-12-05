@@ -34,7 +34,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZNK4llvm13Rew
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %19 = load i32, ptr %18, align 8
   %20 = zext i32 %19 to i64
-  %21 = getelementptr inbounds [1 x i8], ptr %17, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw [1 x i8], ptr %17, i64 0, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %15, i64 12
   %23 = load i32, ptr %22, align 4
   %24 = sub i32 %23, %19
@@ -58,7 +58,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZNK4llvm13Rew
 35:                                               ; preds = %34
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %27, ptr nonnull align 1 %21, i64 %25, i1 false)
   %36 = load ptr, ptr %13, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 %25
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 %25
   store ptr %37, ptr %13, align 8
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit
 
@@ -121,7 +121,7 @@ _ZN4llvm11RewriteRope5eraseEjj.exit:              ; preds = %4
   %27 = load i32, ptr %26, align 8
   %28 = add i32 %27, %23
   %29 = zext i32 %28 to i64
-  %30 = getelementptr inbounds [1 x i8], ptr %25, i64 0, i64 %29
+  %30 = getelementptr inbounds nuw [1 x i8], ptr %25, i64 0, i64 %29
   %31 = load i8, ptr %30, align 1
   %32 = icmp eq i8 %31, 10
   br i1 %32, label %33, label %46
@@ -204,7 +204,7 @@ _ZN4llvm22RopePieceBTreeIteratorppEv.exit21:      ; preds = %55, %56
   %69 = load i32, ptr %68, align 8
   %70 = add i32 %69, %65
   %71 = zext i32 %70 to i64
-  %72 = getelementptr inbounds [1 x i8], ptr %67, i64 0, i64 %71
+  %72 = getelementptr inbounds nuw [1 x i8], ptr %67, i64 0, i64 %71
   %73 = load i8, ptr %72, align 1
   switch i8 %73, label %.critedge2 [
     i8 32, label %74

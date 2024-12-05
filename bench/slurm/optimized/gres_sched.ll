@@ -27,7 +27,7 @@ define ptr @gres_sched_str(ptr noundef %0) local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %3, %.backedge
   %6 = phi ptr [ %11, %.backedge ], [ %5, %3 ]
-  %7 = getelementptr inbounds i8, ptr %6, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %8 = load ptr, ptr %7, align 8
   %.not21 = icmp eq ptr %8, null
   br i1 %.not21, label %9, label %12
@@ -42,17 +42,17 @@ define ptr @gres_sched_str(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not20, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 12:                                               ; preds = %.lr.ph
-  %13 = getelementptr inbounds i8, ptr %8, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %2, align 8
   %.not22 = icmp eq ptr %15, null
   %.str.2..str.1 = select i1 %.not22, ptr @.str.2, ptr @.str.1
-  %16 = getelementptr inbounds i8, ptr %14, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %17 = load ptr, ptr %16, align 8
   %.not23 = icmp eq ptr %17, null
-  %18 = getelementptr inbounds i8, ptr %8, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %6, i64 64
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %21 = load i64, ptr %20, align 8
   br i1 %.not23, label %23, label %22
 
@@ -103,15 +103,15 @@ define noundef zeroext i1 @gres_sched_init(ptr noundef %0) local_unnamed_addr #0
   br i1 %.not12, label %13, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %5, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %10 = load i64, ptr %9, align 8
   %.not13 = icmp eq i64 %10, 0
   br i1 %.not13, label %4, label %11, !llvm.loop !8
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %8, i64 112
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 112
   store i64 0, ptr %12, align 8
   br label %.outer, !llvm.loop !8
 
@@ -137,15 +137,15 @@ define noundef zeroext i1 @gres_sched_test(ptr noundef %0, i32 noundef %1) local
 
 .lr.ph:                                           ; preds = %3, %15
   %6 = phi ptr [ %16, %15 ], [ %5, %3 ]
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %10 = load i64, ptr %9, align 8
   %.not15 = icmp eq i64 %10, 0
   br i1 %.not15, label %15, label %11
 
 11:                                               ; preds = %.lr.ph
-  %12 = getelementptr inbounds i8, ptr %8, i64 112
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 112
   %13 = load i64, ptr %12, align 8
   %14 = icmp ugt i64 %10, %13
   br i1 %14, label %._crit_edge, label %15
@@ -192,9 +192,9 @@ define void @gres_sched_add(ptr noundef %0, ptr noundef %1, ptr nocapture nounde
 
 10:                                               ; preds = %.lr.ph, %.backedge
   %11 = phi ptr [ %9, %.lr.ph ], [ %16, %.backedge ]
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = load i64, ptr %14, align 8
   %.not40 = icmp eq i64 %15, 0
   br i1 %.not40, label %.backedge, label %17
@@ -210,7 +210,7 @@ define void @gres_sched_add(ptr noundef %0, ptr noundef %1, ptr nocapture nounde
   br i1 %.not41, label %.backedge, label %19
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %13, i64 18
+  %20 = getelementptr inbounds nuw i8, ptr %13, i64 18
   %21 = load i16, ptr %20, align 2
   %.not42 = icmp eq i16 %21, 0
   br i1 %.not42, label %34, label %22
@@ -219,7 +219,7 @@ define void @gres_sched_add(ptr noundef %0, ptr noundef %1, ptr nocapture nounde
   %23 = load i16, ptr %2, align 2
   %24 = udiv i16 %23, %21
   %25 = zext i16 %24 to i64
-  %26 = getelementptr inbounds i8, ptr %18, i64 64
+  %26 = getelementptr inbounds nuw i8, ptr %18, i64 64
   %27 = load i64, ptr %26, align 8
   %. = tail call i64 @llvm.umin.i64(i64 %27, i64 %25)
   %28 = zext i16 %.0.ph47 to i64
@@ -231,14 +231,14 @@ define void @gres_sched_add(ptr noundef %0, ptr noundef %1, ptr nocapture nounde
   br label %.outer
 
 34:                                               ; preds = %19
-  %35 = getelementptr inbounds i8, ptr %18, i64 64
+  %35 = getelementptr inbounds nuw i8, ptr %18, i64 64
   %36 = load i64, ptr %35, align 8
   br label %.outer
 
 .outer:                                           ; preds = %34, %22
   %.028 = phi i64 [ %., %22 ], [ %36, %34 ]
   %.1 = phi i16 [ %33, %22 ], [ %.0.ph47, %34 ]
-  %37 = getelementptr inbounds i8, ptr %13, i64 112
+  %37 = getelementptr inbounds nuw i8, ptr %13, i64 112
   %38 = load i64, ptr %37, align 8
   %39 = add i64 %38, %.028
   store i64 %39, ptr %37, align 8
@@ -277,9 +277,9 @@ define void @gres_sched_consec(ptr nocapture noundef %0, ptr noundef %1, ptr nou
 
 .lr.ph:                                           ; preds = %4, %.backedge
   %7 = phi ptr [ %32, %.backedge ], [ %6, %4 ]
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %11 = load i64, ptr %10, align 8
   %.not25 = icmp eq i64 %11, 0
   br i1 %.not25, label %.backedge, label %12
@@ -307,7 +307,7 @@ define void @gres_sched_consec(ptr nocapture noundef %0, ptr noundef %1, ptr nou
 
 22:                                               ; preds = %19
   %23 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 88, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.5, i32 noundef 218, ptr noundef nonnull @__func__.gres_sched_consec) #3
-  %24 = getelementptr inbounds i8, ptr %23, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 32
   store ptr %7, ptr %24, align 8
   %25 = load ptr, ptr %0, align 8
   tail call void @slurm_list_append(ptr noundef %25, ptr noundef %23) #3
@@ -315,9 +315,9 @@ define void @gres_sched_consec(ptr nocapture noundef %0, ptr noundef %1, ptr nou
 
 26:                                               ; preds = %22, %19
   %.0 = phi ptr [ %21, %19 ], [ %23, %22 ]
-  %27 = getelementptr inbounds i8, ptr %13, i64 64
+  %27 = getelementptr inbounds nuw i8, ptr %13, i64 64
   %28 = load i64, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %.0, i64 64
+  %29 = getelementptr inbounds nuw i8, ptr %.0, i64 64
   %30 = load i64, ptr %29, align 8
   %31 = add i64 %30, %28
   store i64 %31, ptr %29, align 8
@@ -361,9 +361,9 @@ define noundef zeroext i1 @gres_sched_sufficient(ptr noundef %0, ptr noundef %1)
 
 .lr.ph:                                           ; preds = %4, %.backedge
   %7 = phi ptr [ %12, %.backedge ], [ %6, %4 ]
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %11 = load i64, ptr %10, align 8
   %.not24 = icmp eq i64 %11, 0
   br i1 %.not24, label %.backedge, label %13
@@ -374,7 +374,7 @@ define noundef zeroext i1 @gres_sched_sufficient(ptr noundef %0, ptr noundef %1)
   br i1 %.not23, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 13:                                               ; preds = %.lr.ph
-  %14 = getelementptr inbounds i8, ptr %9, i64 112
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 112
   %15 = load i64, ptr %14, align 8
   %.not25 = icmp ult i64 %15, %11
   br i1 %.not25, label %16, label %.backedge
@@ -386,7 +386,7 @@ define noundef zeroext i1 @gres_sched_sufficient(ptr noundef %0, ptr noundef %1)
 
 18:                                               ; preds = %16
   %19 = load i64, ptr %14, align 8
-  %20 = getelementptr inbounds i8, ptr %17, i64 64
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 64
   %21 = load i64, ptr %20, align 8
   %22 = add i64 %21, %19
   %23 = load i64, ptr %10, align 8

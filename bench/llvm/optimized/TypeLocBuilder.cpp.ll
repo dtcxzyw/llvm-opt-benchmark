@@ -58,7 +58,7 @@ define dso_local void @_ZN5clang14TypeLocBuilder12pushFullCopyENS_7TypeLocE(ptr 
   %15 = sub nuw nsw i64 %7, %9
   %16 = add i64 %15, %14
   %17 = and i64 %16, 4294967295
-  %18 = getelementptr inbounds i8, ptr %12, i64 %17
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 %17
   %19 = load ptr, ptr %0, align 8
   %20 = getelementptr inbounds i8, ptr %19, i64 %14
   %21 = sub i64 %9, %14
@@ -80,7 +80,7 @@ _ZN5clang14TypeLocBuilder4growEm.exit.i:          ; preds = %24, %11
   br label %_ZN5clang14TypeLocBuilder7reserveEm.exit
 
 _ZN5clang14TypeLocBuilder7reserveEm.exit:         ; preds = %3, %_ZN5clang14TypeLocBuilder4growEm.exit.i
-  %25 = getelementptr inbounds i8, ptr %4, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(80) %4, ptr noundef nonnull %25, i64 noundef 4) #7
   %.not1013 = icmp eq ptr %1, null
   br i1 %.not1013, label %._crit_edge, label %.lr.ph
@@ -103,7 +103,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang7TypeLocELb1EE9push_backES2_.exit: ; pr
   %31 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #7
   %32 = getelementptr inbounds %"class.clang::TypeLoc", ptr %30, i64 %31
   store ptr %.sroa.0922.01014, ptr %32, align 1
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %32, i64 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %32, i64 8
   store ptr %.sroa.5.01015, ptr %.sroa.2.0..sroa_idx.i, align 1
   %33 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #7
   %34 = add i64 %33, 1
@@ -134,9 +134,9 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang7TypeLocELb1EE9push_backES2_.exit: ; pr
   %46 = add i64 %38, %45
   %47 = and i64 %46, 4294967295
   %48 = load ptr, ptr %4, align 8
-  %49 = getelementptr inbounds %"class.clang::TypeLoc", ptr %48, i64 %47
+  %49 = getelementptr inbounds nuw %"class.clang::TypeLoc", ptr %48, i64 %47
   %.sroa.0804.0.copyload = load ptr, ptr %49, align 8
-  %.sroa.61.0..sroa_idx = getelementptr inbounds i8, ptr %49, i64 8
+  %.sroa.61.0..sroa_idx = getelementptr inbounds nuw i8, ptr %49, i64 8
   %.sroa.61.0.copyload = load ptr, ptr %.sroa.61.0..sroa_idx, align 8
   %50 = ptrtoint ptr %.sroa.0804.0.copyload to i64
   %51 = and i64 %50, 15
@@ -231,9 +231,9 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit:       ; preds = %44
   %65 = sub i64 %56, %59
   %66 = add i64 %65, %.0.i568
   %67 = and i64 %66, 4294967295
-  %68 = getelementptr inbounds i8, ptr %64, i64 %67
+  %68 = getelementptr inbounds nuw i8, ptr %64, i64 %67
   %69 = load ptr, ptr %0, align 8
-  %70 = getelementptr inbounds i8, ptr %69, i64 %56
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 %56
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %68, ptr align 1 %70, i64 %reass.sub1033, i1 false)
   %.not.i.i569 = icmp eq ptr %69, %41
   %71 = icmp eq ptr %69, null
@@ -308,9 +308,9 @@ _ZN5clang14TypeLocBuilder8pushImplENS_8QualTypeEmj.exit: ; preds = %73, %78
   %99 = sub i64 %90, %93
   %100 = add i64 %99, %.0.i576
   %101 = and i64 %100, 4294967295
-  %102 = getelementptr inbounds i8, ptr %98, i64 %101
+  %102 = getelementptr inbounds nuw i8, ptr %98, i64 %101
   %103 = load ptr, ptr %0, align 8
-  %104 = getelementptr inbounds i8, ptr %103, i64 %90
+  %104 = getelementptr inbounds nuw i8, ptr %103, i64 %90
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %102, ptr align 1 %104, i64 %reass.sub1032, i1 false)
   %.not.i.i577 = icmp eq ptr %103, %41
   %105 = icmp eq ptr %103, null
@@ -385,9 +385,9 @@ _ZN5clang14TypeLocBuilder8pushImplENS_8QualTypeEmj.exit580: ; preds = %107, %112
   %133 = sub i64 %124, %127
   %134 = add i64 %133, %.0.i585
   %135 = and i64 %134, 4294967295
-  %136 = getelementptr inbounds i8, ptr %132, i64 %135
+  %136 = getelementptr inbounds nuw i8, ptr %132, i64 %135
   %137 = load ptr, ptr %0, align 8
-  %138 = getelementptr inbounds i8, ptr %137, i64 %124
+  %138 = getelementptr inbounds nuw i8, ptr %137, i64 %124
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %136, ptr align 1 %138, i64 %reass.sub1031, i1 false)
   %.not.i.i586 = icmp eq ptr %137, %41
   %139 = icmp eq ptr %137, null
@@ -462,9 +462,9 @@ _ZN5clang14TypeLocBuilder8pushImplENS_8QualTypeEmj.exit589: ; preds = %141, %146
   %167 = sub i64 %158, %161
   %168 = add i64 %167, %.0.i594
   %169 = and i64 %168, 4294967295
-  %170 = getelementptr inbounds i8, ptr %166, i64 %169
+  %170 = getelementptr inbounds nuw i8, ptr %166, i64 %169
   %171 = load ptr, ptr %0, align 8
-  %172 = getelementptr inbounds i8, ptr %171, i64 %158
+  %172 = getelementptr inbounds nuw i8, ptr %171, i64 %158
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %170, ptr align 1 %172, i64 %reass.sub1030, i1 false)
   %.not.i.i595 = icmp eq ptr %171, %41
   %173 = icmp eq ptr %171, null
@@ -539,9 +539,9 @@ _ZN5clang14TypeLocBuilder8pushImplENS_8QualTypeEmj.exit598: ; preds = %175, %180
   %201 = sub i64 %192, %195
   %202 = add i64 %201, %.0.i603
   %203 = and i64 %202, 4294967295
-  %204 = getelementptr inbounds i8, ptr %200, i64 %203
+  %204 = getelementptr inbounds nuw i8, ptr %200, i64 %203
   %205 = load ptr, ptr %0, align 8
-  %206 = getelementptr inbounds i8, ptr %205, i64 %192
+  %206 = getelementptr inbounds nuw i8, ptr %205, i64 %192
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %204, ptr align 1 %206, i64 %reass.sub1029, i1 false)
   %.not.i.i604 = icmp eq ptr %205, %41
   %207 = icmp eq ptr %205, null
@@ -616,9 +616,9 @@ _ZN5clang14TypeLocBuilder8pushImplENS_8QualTypeEmj.exit607: ; preds = %209, %214
   %235 = sub i64 %226, %229
   %236 = add i64 %235, %.0.i.i
   %237 = and i64 %236, 4294967295
-  %238 = getelementptr inbounds i8, ptr %234, i64 %237
+  %238 = getelementptr inbounds nuw i8, ptr %234, i64 %237
   %239 = load ptr, ptr %0, align 8
-  %240 = getelementptr inbounds i8, ptr %239, i64 %226
+  %240 = getelementptr inbounds nuw i8, ptr %239, i64 %226
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %238, ptr align 1 %240, i64 %reass.sub15.i, i1 false)
   %.not.i.i.i75 = icmp eq ptr %239, %41
   %241 = icmp eq ptr %239, null
@@ -695,9 +695,9 @@ _ZN5clang14TypeLocBuilder4pushINS_13AtomicTypeLocEEET_NS_8QualTypeE.exit: ; pred
   %271 = sub i64 %262, %265
   %272 = add i64 %271, %.0.i612
   %273 = and i64 %272, 4294967295
-  %274 = getelementptr inbounds i8, ptr %270, i64 %273
+  %274 = getelementptr inbounds nuw i8, ptr %270, i64 %273
   %275 = load ptr, ptr %0, align 8
-  %276 = getelementptr inbounds i8, ptr %275, i64 %262
+  %276 = getelementptr inbounds nuw i8, ptr %275, i64 %262
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %274, ptr align 1 %276, i64 %reass.sub1028, i1 false)
   %.not.i.i613 = icmp eq ptr %275, %41
   %277 = icmp eq ptr %275, null
@@ -771,7 +771,7 @@ _ZN5clang14TypeLocBuilder8pushImplENS_8QualTypeEmj.exit616: ; preds = %279, %284
   %305 = call noalias noundef nonnull ptr @_Znam(i64 noundef %.0.i.i80) #8
   %306 = sub i64 %.0.i.i80, %300
   %307 = and i64 %306, 4294967295
-  %308 = getelementptr inbounds i8, ptr %305, i64 %307
+  %308 = getelementptr inbounds nuw i8, ptr %305, i64 %307
   %309 = load ptr, ptr %0, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %308, ptr align 1 %309, i64 %300, i1 false)
   %.not.i.i.i81 = icmp eq ptr %309, %41
@@ -824,9 +824,9 @@ _ZN5clang14TypeLocBuilder4pushINS_23BTFTagAttributedTypeLocEEET_NS_8QualTypeE.ex
   %327 = sub i64 %318, %321
   %328 = add i64 %327, %.0.i.i95
   %329 = and i64 %328, 4294967295
-  %330 = getelementptr inbounds i8, ptr %326, i64 %329
+  %330 = getelementptr inbounds nuw i8, ptr %326, i64 %329
   %331 = load ptr, ptr %0, align 8
-  %332 = getelementptr inbounds i8, ptr %331, i64 %318
+  %332 = getelementptr inbounds nuw i8, ptr %331, i64 %318
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %330, ptr align 1 %332, i64 %reass.sub15.i93, i1 false)
   %.not.i.i.i96 = icmp eq ptr %331, %41
   %333 = icmp eq ptr %331, null
@@ -904,9 +904,9 @@ _ZN5clang14TypeLocBuilder4pushINS_13BitIntTypeLocEEET_NS_8QualTypeE.exit: ; pred
   %364 = sub i64 %355, %358
   %365 = add i64 %364, %.0.i.i110
   %366 = and i64 %365, 4294967295
-  %367 = getelementptr inbounds i8, ptr %363, i64 %366
+  %367 = getelementptr inbounds nuw i8, ptr %363, i64 %366
   %368 = load ptr, ptr %0, align 8
-  %369 = getelementptr inbounds i8, ptr %368, i64 %355
+  %369 = getelementptr inbounds nuw i8, ptr %368, i64 %355
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %367, ptr align 1 %369, i64 %reass.sub15.i108, i1 false)
   %.not.i.i.i111 = icmp eq ptr %368, %41
   %370 = icmp eq ptr %368, null
@@ -1012,9 +1012,9 @@ _ZNK5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_14BuiltinTypeLocENS_11BuiltinT
   %415 = sub i64 %406, %409
   %416 = add i64 %415, %.0.i.i128
   %417 = and i64 %416, 4294967295
-  %418 = getelementptr inbounds i8, ptr %414, i64 %417
+  %418 = getelementptr inbounds nuw i8, ptr %414, i64 %417
   %419 = load ptr, ptr %0, align 8
-  %420 = getelementptr inbounds i8, ptr %419, i64 %406
+  %420 = getelementptr inbounds nuw i8, ptr %419, i64 %406
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %418, ptr align 1 %420, i64 %reass.sub15.i126, i1 false)
   %.not.i.i.i129 = icmp eq ptr %419, %41
   %421 = icmp eq ptr %419, null
@@ -1092,9 +1092,9 @@ _ZN5clang14TypeLocBuilder4pushINS_14ComplexTypeLocEEET_NS_8QualTypeE.exit: ; pre
   %452 = sub i64 %443, %446
   %453 = add i64 %452, %.0.i.i140
   %454 = and i64 %453, 4294967295
-  %455 = getelementptr inbounds i8, ptr %451, i64 %454
+  %455 = getelementptr inbounds nuw i8, ptr %451, i64 %454
   %456 = load ptr, ptr %0, align 8
-  %457 = getelementptr inbounds i8, ptr %456, i64 %443
+  %457 = getelementptr inbounds nuw i8, ptr %456, i64 %443
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %455, ptr align 1 %457, i64 %reass.sub15.i138, i1 false)
   %.not.i.i.i141 = icmp eq ptr %456, %41
   %458 = icmp eq ptr %456, null
@@ -1149,9 +1149,9 @@ _ZN5clang14TypeLocBuilder4pushINS_15DecltypeTypeLocEEET_NS_8QualTypeE.exit: ; pr
   %475 = sub i64 %466, %469
   %476 = add i64 %475, %.0.i621
   %477 = and i64 %476, 4294967295
-  %478 = getelementptr inbounds i8, ptr %474, i64 %477
+  %478 = getelementptr inbounds nuw i8, ptr %474, i64 %477
   %479 = load ptr, ptr %0, align 8
-  %480 = getelementptr inbounds i8, ptr %479, i64 %466
+  %480 = getelementptr inbounds nuw i8, ptr %479, i64 %466
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %478, ptr align 1 %480, i64 %reass.sub1027, i1 false)
   %.not.i.i622 = icmp eq ptr %479, %41
   %481 = icmp eq ptr %479, null
@@ -1226,9 +1226,9 @@ _ZN5clang14TypeLocBuilder8pushImplENS_8QualTypeEmj.exit625: ; preds = %483, %488
   %509 = sub i64 %500, %503
   %510 = add i64 %509, %.0.i.i155
   %511 = and i64 %510, 4294967295
-  %512 = getelementptr inbounds i8, ptr %508, i64 %511
+  %512 = getelementptr inbounds nuw i8, ptr %508, i64 %511
   %513 = load ptr, ptr %0, align 8
-  %514 = getelementptr inbounds i8, ptr %513, i64 %500
+  %514 = getelementptr inbounds nuw i8, ptr %513, i64 %500
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %512, ptr align 1 %514, i64 %reass.sub15.i153, i1 false)
   %.not.i.i.i156 = icmp eq ptr %513, %41
   %515 = icmp eq ptr %513, null
@@ -1306,9 +1306,9 @@ _ZN5clang14TypeLocBuilder4pushINS_36DeducedTemplateSpecializationTypeLocEEET_NS_
   %546 = sub i64 %537, %540
   %547 = add i64 %546, %.0.i630
   %548 = and i64 %547, 4294967295
-  %549 = getelementptr inbounds i8, ptr %545, i64 %548
+  %549 = getelementptr inbounds nuw i8, ptr %545, i64 %548
   %550 = load ptr, ptr %0, align 8
-  %551 = getelementptr inbounds i8, ptr %550, i64 %537
+  %551 = getelementptr inbounds nuw i8, ptr %550, i64 %537
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %549, ptr align 1 %551, i64 %reass.sub1026, i1 false)
   %.not.i.i631 = icmp eq ptr %550, %41
   %552 = icmp eq ptr %550, null
@@ -1383,9 +1383,9 @@ _ZN5clang14TypeLocBuilder8pushImplENS_8QualTypeEmj.exit634: ; preds = %554, %559
   %580 = sub i64 %571, %574
   %581 = add i64 %580, %.0.i.i170
   %582 = and i64 %581, 4294967295
-  %583 = getelementptr inbounds i8, ptr %579, i64 %582
+  %583 = getelementptr inbounds nuw i8, ptr %579, i64 %582
   %584 = load ptr, ptr %0, align 8
-  %585 = getelementptr inbounds i8, ptr %584, i64 %571
+  %585 = getelementptr inbounds nuw i8, ptr %584, i64 %571
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %583, ptr align 1 %585, i64 %reass.sub15.i168, i1 false)
   %.not.i.i.i171 = icmp eq ptr %584, %41
   %586 = icmp eq ptr %584, null
@@ -1463,9 +1463,9 @@ _ZN5clang14TypeLocBuilder4pushINS_22DependentBitIntTypeLocEEET_NS_8QualTypeE.exi
   %617 = sub i64 %608, %611
   %618 = add i64 %617, %.0.i639
   %619 = and i64 %618, 4294967295
-  %620 = getelementptr inbounds i8, ptr %616, i64 %619
+  %620 = getelementptr inbounds nuw i8, ptr %616, i64 %619
   %621 = load ptr, ptr %0, align 8
-  %622 = getelementptr inbounds i8, ptr %621, i64 %608
+  %622 = getelementptr inbounds nuw i8, ptr %621, i64 %608
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %620, ptr align 1 %622, i64 %reass.sub1025, i1 false)
   %.not.i.i640 = icmp eq ptr %621, %41
   %623 = icmp eq ptr %621, null
@@ -1540,9 +1540,9 @@ _ZN5clang14TypeLocBuilder8pushImplENS_8QualTypeEmj.exit643: ; preds = %625, %630
   %651 = sub i64 %642, %645
   %652 = add i64 %651, %.0.i.i185
   %653 = and i64 %652, 4294967295
-  %654 = getelementptr inbounds i8, ptr %650, i64 %653
+  %654 = getelementptr inbounds nuw i8, ptr %650, i64 %653
   %655 = load ptr, ptr %0, align 8
-  %656 = getelementptr inbounds i8, ptr %655, i64 %642
+  %656 = getelementptr inbounds nuw i8, ptr %655, i64 %642
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %654, ptr align 1 %656, i64 %reass.sub15.i183, i1 false)
   %.not.i.i.i186 = icmp eq ptr %655, %41
   %657 = icmp eq ptr %655, null
@@ -1637,9 +1637,9 @@ _ZN5clang14TypeLocBuilder4pushINS_30DependentSizedExtVectorTypeLocEEET_NS_8QualT
   %702 = sub i64 %693, %696
   %703 = add i64 %702, %.0.i.i200
   %704 = and i64 %703, 4294967295
-  %705 = getelementptr inbounds i8, ptr %701, i64 %704
+  %705 = getelementptr inbounds nuw i8, ptr %701, i64 %704
   %706 = load ptr, ptr %0, align 8
-  %707 = getelementptr inbounds i8, ptr %706, i64 %693
+  %707 = getelementptr inbounds nuw i8, ptr %706, i64 %693
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %705, ptr align 1 %707, i64 %reass.sub15.i198, i1 false)
   %.not.i.i.i201 = icmp eq ptr %706, %41
   %708 = icmp eq ptr %706, null
@@ -1892,9 +1892,9 @@ _ZNK5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_15FunctionTypeLocENS_12Functio
   %809 = sub i64 %800, %803
   %810 = add i64 %809, %.0.i.i237
   %811 = and i64 %810, 4294967295
-  %812 = getelementptr inbounds i8, ptr %808, i64 %811
+  %812 = getelementptr inbounds nuw i8, ptr %808, i64 %811
   %813 = load ptr, ptr %0, align 8
-  %814 = getelementptr inbounds i8, ptr %813, i64 %800
+  %814 = getelementptr inbounds nuw i8, ptr %813, i64 %800
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %812, ptr align 1 %814, i64 %reass.sub15.i235, i1 false)
   %.not.i.i.i238 = icmp eq ptr %813, %41
   %815 = icmp eq ptr %813, null
@@ -1949,9 +1949,9 @@ _ZN5clang14TypeLocBuilder4pushINS_29HLSLAttributedResourceTypeLocEEET_NS_8QualTy
   %832 = sub i64 %823, %826
   %833 = add i64 %832, %.0.i.i252
   %834 = and i64 %833, 4294967295
-  %835 = getelementptr inbounds i8, ptr %831, i64 %834
+  %835 = getelementptr inbounds nuw i8, ptr %831, i64 %834
   %836 = load ptr, ptr %0, align 8
-  %837 = getelementptr inbounds i8, ptr %836, i64 %823
+  %837 = getelementptr inbounds nuw i8, ptr %836, i64 %823
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %835, ptr align 1 %837, i64 %reass.sub15.i250, i1 false)
   %.not.i.i.i253 = icmp eq ptr %836, %41
   %838 = icmp eq ptr %836, null
@@ -2029,9 +2029,9 @@ _ZN5clang14TypeLocBuilder4pushINS_24InjectedClassNameTypeLocEEET_NS_8QualTypeE.e
   %869 = sub i64 %860, %863
   %870 = add i64 %869, %.0.i.i267
   %871 = and i64 %870, 4294967295
-  %872 = getelementptr inbounds i8, ptr %868, i64 %871
+  %872 = getelementptr inbounds nuw i8, ptr %868, i64 %871
   %873 = load ptr, ptr %0, align 8
-  %874 = getelementptr inbounds i8, ptr %873, i64 %860
+  %874 = getelementptr inbounds nuw i8, ptr %873, i64 %860
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %872, ptr align 1 %874, i64 %reass.sub15.i265, i1 false)
   %.not.i.i.i268 = icmp eq ptr %873, %41
   %875 = icmp eq ptr %873, null
@@ -2109,9 +2109,9 @@ _ZN5clang14TypeLocBuilder4pushINS_21MacroQualifiedTypeLocEEET_NS_8QualTypeE.exit
   %906 = sub i64 %897, %900
   %907 = add i64 %906, %.0.i648
   %908 = and i64 %907, 4294967295
-  %909 = getelementptr inbounds i8, ptr %905, i64 %908
+  %909 = getelementptr inbounds nuw i8, ptr %905, i64 %908
   %910 = load ptr, ptr %0, align 8
-  %911 = getelementptr inbounds i8, ptr %910, i64 %897
+  %911 = getelementptr inbounds nuw i8, ptr %910, i64 %897
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %909, ptr align 1 %911, i64 %reass.sub1024, i1 false)
   %.not.i.i649 = icmp eq ptr %910, %41
   %912 = icmp eq ptr %910, null
@@ -2186,9 +2186,9 @@ _ZN5clang14TypeLocBuilder8pushImplENS_8QualTypeEmj.exit652: ; preds = %914, %919
   %940 = sub i64 %931, %934
   %941 = add i64 %940, %.0.i657
   %942 = and i64 %941, 4294967295
-  %943 = getelementptr inbounds i8, ptr %939, i64 %942
+  %943 = getelementptr inbounds nuw i8, ptr %939, i64 %942
   %944 = load ptr, ptr %0, align 8
-  %945 = getelementptr inbounds i8, ptr %944, i64 %931
+  %945 = getelementptr inbounds nuw i8, ptr %944, i64 %931
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %943, ptr align 1 %945, i64 %reass.sub1023, i1 false)
   %.not.i.i658 = icmp eq ptr %944, %41
   %946 = icmp eq ptr %944, null
@@ -2263,9 +2263,9 @@ _ZN5clang14TypeLocBuilder8pushImplENS_8QualTypeEmj.exit661: ; preds = %948, %953
   %974 = sub i64 %965, %968
   %975 = add i64 %974, %.0.i666
   %976 = and i64 %975, 4294967295
-  %977 = getelementptr inbounds i8, ptr %973, i64 %976
+  %977 = getelementptr inbounds nuw i8, ptr %973, i64 %976
   %978 = load ptr, ptr %0, align 8
-  %979 = getelementptr inbounds i8, ptr %978, i64 %965
+  %979 = getelementptr inbounds nuw i8, ptr %978, i64 %965
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %977, ptr align 1 %979, i64 %reass.sub1022, i1 false)
   %.not.i.i667 = icmp eq ptr %978, %41
   %980 = icmp eq ptr %978, null
@@ -2340,9 +2340,9 @@ _ZN5clang14TypeLocBuilder8pushImplENS_8QualTypeEmj.exit670: ; preds = %982, %987
   %1008 = sub i64 %999, %1002
   %1009 = add i64 %1008, %.0.i.i282
   %1010 = and i64 %1009, 4294967295
-  %1011 = getelementptr inbounds i8, ptr %1007, i64 %1010
+  %1011 = getelementptr inbounds nuw i8, ptr %1007, i64 %1010
   %1012 = load ptr, ptr %0, align 8
-  %1013 = getelementptr inbounds i8, ptr %1012, i64 %999
+  %1013 = getelementptr inbounds nuw i8, ptr %1012, i64 %999
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1011, ptr align 1 %1013, i64 %reass.sub15.i280, i1 false)
   %.not.i.i.i283 = icmp eq ptr %1012, %41
   %1014 = icmp eq ptr %1012, null
@@ -2445,9 +2445,9 @@ _ZN5clang14TypeLocBuilder4pushINS_24ObjCObjectPointerTypeLocEEET_NS_8QualTypeE.e
   %1067 = sub i64 %1058, %1061
   %1068 = add i64 %1067, %.0.i.i294
   %1069 = and i64 %1068, 4294967295
-  %1070 = getelementptr inbounds i8, ptr %1066, i64 %1069
+  %1070 = getelementptr inbounds nuw i8, ptr %1066, i64 %1069
   %1071 = load ptr, ptr %0, align 8
-  %1072 = getelementptr inbounds i8, ptr %1071, i64 %1058
+  %1072 = getelementptr inbounds nuw i8, ptr %1071, i64 %1058
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1070, ptr align 1 %1072, i64 %reass.sub15.i292, i1 false)
   %.not.i.i.i295 = icmp eq ptr %1071, %41
   %1073 = icmp eq ptr %1071, null
@@ -2517,9 +2517,9 @@ _ZN5clang14TypeLocBuilder4pushINS_20ObjCInterfaceTypeLocEEET_NS_8QualTypeE.exit:
   %1101 = sub i64 %1092, %1095
   %1102 = add i64 %1101, %.0.i.i310
   %1103 = and i64 %1102, 4294967295
-  %1104 = getelementptr inbounds i8, ptr %1100, i64 %1103
+  %1104 = getelementptr inbounds nuw i8, ptr %1100, i64 %1103
   %1105 = load ptr, ptr %0, align 8
-  %1106 = getelementptr inbounds i8, ptr %1105, i64 %1092
+  %1106 = getelementptr inbounds nuw i8, ptr %1105, i64 %1092
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1104, ptr align 1 %1106, i64 %reass.sub15.i308, i1 false)
   %.not.i.i.i311 = icmp eq ptr %1105, %41
   %1107 = icmp eq ptr %1105, null
@@ -2597,9 +2597,9 @@ _ZN5clang14TypeLocBuilder4pushINS_20PackExpansionTypeLocEEET_NS_8QualTypeE.exit:
   %1138 = sub i64 %1129, %1132
   %1139 = add i64 %1138, %.0.i.i325
   %1140 = and i64 %1139, 4294967295
-  %1141 = getelementptr inbounds i8, ptr %1137, i64 %1140
+  %1141 = getelementptr inbounds nuw i8, ptr %1137, i64 %1140
   %1142 = load ptr, ptr %0, align 8
-  %1143 = getelementptr inbounds i8, ptr %1142, i64 %1129
+  %1143 = getelementptr inbounds nuw i8, ptr %1142, i64 %1129
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1141, ptr align 1 %1143, i64 %reass.sub15.i323, i1 false)
   %.not.i.i.i326 = icmp eq ptr %1142, %41
   %1144 = icmp eq ptr %1142, null
@@ -2677,9 +2677,9 @@ _ZN5clang14TypeLocBuilder4pushINS_19PackIndexingTypeLocEEET_NS_8QualTypeE.exit: 
   %1175 = sub i64 %1166, %1169
   %1176 = add i64 %1175, %.0.i.i337
   %1177 = and i64 %1176, 4294967295
-  %1178 = getelementptr inbounds i8, ptr %1174, i64 %1177
+  %1178 = getelementptr inbounds nuw i8, ptr %1174, i64 %1177
   %1179 = load ptr, ptr %0, align 8
-  %1180 = getelementptr inbounds i8, ptr %1179, i64 %1166
+  %1180 = getelementptr inbounds nuw i8, ptr %1179, i64 %1166
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1178, ptr align 1 %1180, i64 %reass.sub15.i335, i1 false)
   %.not.i.i.i338 = icmp eq ptr %1179, %41
   %1181 = icmp eq ptr %1179, null
@@ -2734,9 +2734,9 @@ _ZN5clang14TypeLocBuilder4pushINS_12ParenTypeLocEEET_NS_8QualTypeE.exit: ; preds
   %1198 = sub i64 %1189, %1192
   %1199 = add i64 %1198, %.0.i.i352
   %1200 = and i64 %1199, 4294967295
-  %1201 = getelementptr inbounds i8, ptr %1197, i64 %1200
+  %1201 = getelementptr inbounds nuw i8, ptr %1197, i64 %1200
   %1202 = load ptr, ptr %0, align 8
-  %1203 = getelementptr inbounds i8, ptr %1202, i64 %1189
+  %1203 = getelementptr inbounds nuw i8, ptr %1202, i64 %1189
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1201, ptr align 1 %1203, i64 %reass.sub15.i350, i1 false)
   %.not.i.i.i353 = icmp eq ptr %1202, %41
   %1204 = icmp eq ptr %1202, null
@@ -2814,9 +2814,9 @@ _ZN5clang14TypeLocBuilder4pushINS_11PipeTypeLocEEET_NS_8QualTypeE.exit: ; preds 
   %1235 = sub i64 %1226, %1229
   %1236 = add i64 %1235, %.0.i.i367
   %1237 = and i64 %1236, 4294967295
-  %1238 = getelementptr inbounds i8, ptr %1234, i64 %1237
+  %1238 = getelementptr inbounds nuw i8, ptr %1234, i64 %1237
   %1239 = load ptr, ptr %0, align 8
-  %1240 = getelementptr inbounds i8, ptr %1239, i64 %1226
+  %1240 = getelementptr inbounds nuw i8, ptr %1239, i64 %1226
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1238, ptr align 1 %1240, i64 %reass.sub15.i365, i1 false)
   %.not.i.i.i368 = icmp eq ptr %1239, %41
   %1241 = icmp eq ptr %1239, null
@@ -2894,9 +2894,9 @@ _ZN5clang14TypeLocBuilder4pushINS_14PointerTypeLocEEET_NS_8QualTypeE.exit: ; pre
   %1272 = sub i64 %1263, %1266
   %1273 = add i64 %1272, %.0.i.i382
   %1274 = and i64 %1273, 4294967295
-  %1275 = getelementptr inbounds i8, ptr %1271, i64 %1274
+  %1275 = getelementptr inbounds nuw i8, ptr %1271, i64 %1274
   %1276 = load ptr, ptr %0, align 8
-  %1277 = getelementptr inbounds i8, ptr %1276, i64 %1263
+  %1277 = getelementptr inbounds nuw i8, ptr %1276, i64 %1263
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1275, ptr align 1 %1277, i64 %reass.sub15.i380, i1 false)
   %.not.i.i.i383 = icmp eq ptr %1276, %41
   %1278 = icmp eq ptr %1276, null
@@ -2974,9 +2974,9 @@ _ZN5clang14TypeLocBuilder4pushINS_22LValueReferenceTypeLocEEET_NS_8QualTypeE.exi
   %1309 = sub i64 %1300, %1303
   %1310 = add i64 %1309, %.0.i.i397
   %1311 = and i64 %1310, 4294967295
-  %1312 = getelementptr inbounds i8, ptr %1308, i64 %1311
+  %1312 = getelementptr inbounds nuw i8, ptr %1308, i64 %1311
   %1313 = load ptr, ptr %0, align 8
-  %1314 = getelementptr inbounds i8, ptr %1313, i64 %1300
+  %1314 = getelementptr inbounds nuw i8, ptr %1313, i64 %1300
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1312, ptr align 1 %1314, i64 %reass.sub15.i395, i1 false)
   %.not.i.i.i398 = icmp eq ptr %1313, %41
   %1315 = icmp eq ptr %1313, null
@@ -3054,9 +3054,9 @@ _ZN5clang14TypeLocBuilder4pushINS_22RValueReferenceTypeLocEEET_NS_8QualTypeE.exi
   %1346 = sub i64 %1337, %1340
   %1347 = add i64 %1346, %.0.i.i412
   %1348 = and i64 %1347, 4294967295
-  %1349 = getelementptr inbounds i8, ptr %1345, i64 %1348
+  %1349 = getelementptr inbounds nuw i8, ptr %1345, i64 %1348
   %1350 = load ptr, ptr %0, align 8
-  %1351 = getelementptr inbounds i8, ptr %1350, i64 %1337
+  %1351 = getelementptr inbounds nuw i8, ptr %1350, i64 %1337
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1349, ptr align 1 %1351, i64 %reass.sub15.i410, i1 false)
   %.not.i.i.i413 = icmp eq ptr %1350, %41
   %1352 = icmp eq ptr %1350, null
@@ -3134,9 +3134,9 @@ _ZN5clang14TypeLocBuilder4pushINS_32SubstTemplateTypeParmPackTypeLocEEET_NS_8Qua
   %1383 = sub i64 %1374, %1377
   %1384 = add i64 %1383, %.0.i.i427
   %1385 = and i64 %1384, 4294967295
-  %1386 = getelementptr inbounds i8, ptr %1382, i64 %1385
+  %1386 = getelementptr inbounds nuw i8, ptr %1382, i64 %1385
   %1387 = load ptr, ptr %0, align 8
-  %1388 = getelementptr inbounds i8, ptr %1387, i64 %1374
+  %1388 = getelementptr inbounds nuw i8, ptr %1387, i64 %1374
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1386, ptr align 1 %1388, i64 %reass.sub15.i425, i1 false)
   %.not.i.i.i428 = icmp eq ptr %1387, %41
   %1389 = icmp eq ptr %1387, null
@@ -3214,9 +3214,9 @@ _ZN5clang14TypeLocBuilder4pushINS_28SubstTemplateTypeParmTypeLocEEET_NS_8QualTyp
   %1420 = sub i64 %1411, %1414
   %1421 = add i64 %1420, %.0.i.i442
   %1422 = and i64 %1421, 4294967295
-  %1423 = getelementptr inbounds i8, ptr %1419, i64 %1422
+  %1423 = getelementptr inbounds nuw i8, ptr %1419, i64 %1422
   %1424 = load ptr, ptr %0, align 8
-  %1425 = getelementptr inbounds i8, ptr %1424, i64 %1411
+  %1425 = getelementptr inbounds nuw i8, ptr %1424, i64 %1411
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1423, ptr align 1 %1425, i64 %reass.sub15.i440, i1 false)
   %.not.i.i.i443 = icmp eq ptr %1424, %41
   %1426 = icmp eq ptr %1424, null
@@ -3294,9 +3294,9 @@ _ZN5clang14TypeLocBuilder4pushINS_11EnumTypeLocEEET_NS_8QualTypeE.exit: ; preds 
   %1457 = sub i64 %1448, %1451
   %1458 = add i64 %1457, %.0.i.i457
   %1459 = and i64 %1458, 4294967295
-  %1460 = getelementptr inbounds i8, ptr %1456, i64 %1459
+  %1460 = getelementptr inbounds nuw i8, ptr %1456, i64 %1459
   %1461 = load ptr, ptr %0, align 8
-  %1462 = getelementptr inbounds i8, ptr %1461, i64 %1448
+  %1462 = getelementptr inbounds nuw i8, ptr %1461, i64 %1448
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1460, ptr align 1 %1462, i64 %reass.sub15.i455, i1 false)
   %.not.i.i.i458 = icmp eq ptr %1461, %41
   %1463 = icmp eq ptr %1461, null
@@ -3391,9 +3391,9 @@ _ZN5clang14TypeLocBuilder4pushINS_13RecordTypeLocEEET_NS_8QualTypeE.exit: ; pred
   %1508 = sub i64 %1499, %1502
   %1509 = add i64 %1508, %.0.i.i472
   %1510 = and i64 %1509, 4294967295
-  %1511 = getelementptr inbounds i8, ptr %1507, i64 %1510
+  %1511 = getelementptr inbounds nuw i8, ptr %1507, i64 %1510
   %1512 = load ptr, ptr %0, align 8
-  %1513 = getelementptr inbounds i8, ptr %1512, i64 %1499
+  %1513 = getelementptr inbounds nuw i8, ptr %1512, i64 %1499
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1511, ptr align 1 %1513, i64 %reass.sub15.i470, i1 false)
   %.not.i.i.i473 = icmp eq ptr %1512, %41
   %1514 = icmp eq ptr %1512, null
@@ -3471,9 +3471,9 @@ _ZN5clang14TypeLocBuilder4pushINS_23TemplateTypeParmTypeLocEEET_NS_8QualTypeE.ex
   %1545 = sub i64 %1536, %1539
   %1546 = add i64 %1545, %.0.i.i487
   %1547 = and i64 %1546, 4294967295
-  %1548 = getelementptr inbounds i8, ptr %1544, i64 %1547
+  %1548 = getelementptr inbounds nuw i8, ptr %1544, i64 %1547
   %1549 = load ptr, ptr %0, align 8
-  %1550 = getelementptr inbounds i8, ptr %1549, i64 %1536
+  %1550 = getelementptr inbounds nuw i8, ptr %1549, i64 %1536
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1548, ptr align 1 %1550, i64 %reass.sub15.i485, i1 false)
   %.not.i.i.i488 = icmp eq ptr %1549, %41
   %1551 = icmp eq ptr %1549, null
@@ -3550,9 +3550,9 @@ _ZN5clang14TypeLocBuilder4pushINS_17TypeOfExprTypeLocEEET_NS_8QualTypeE.exit: ; 
   %1581 = sub i64 %1572, %1575
   %1582 = add i64 %1581, %.0.i675
   %1583 = and i64 %1582, 4294967295
-  %1584 = getelementptr inbounds i8, ptr %1580, i64 %1583
+  %1584 = getelementptr inbounds nuw i8, ptr %1580, i64 %1583
   %1585 = load ptr, ptr %0, align 8
-  %1586 = getelementptr inbounds i8, ptr %1585, i64 %1572
+  %1586 = getelementptr inbounds nuw i8, ptr %1585, i64 %1572
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1584, ptr align 1 %1586, i64 %reass.sub, i1 false)
   %.not.i.i676 = icmp eq ptr %1585, %41
   %1587 = icmp eq ptr %1585, null
@@ -3627,9 +3627,9 @@ _ZN5clang14TypeLocBuilder8pushImplENS_8QualTypeEmj.exit679: ; preds = %1589, %15
   %1615 = sub i64 %1606, %1609
   %1616 = add i64 %1615, %.0.i.i502
   %1617 = and i64 %1616, 4294967295
-  %1618 = getelementptr inbounds i8, ptr %1614, i64 %1617
+  %1618 = getelementptr inbounds nuw i8, ptr %1614, i64 %1617
   %1619 = load ptr, ptr %0, align 8
-  %1620 = getelementptr inbounds i8, ptr %1619, i64 %1606
+  %1620 = getelementptr inbounds nuw i8, ptr %1619, i64 %1606
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1618, ptr align 1 %1620, i64 %reass.sub15.i500, i1 false)
   %.not.i.i.i503 = icmp eq ptr %1619, %41
   %1621 = icmp eq ptr %1619, null
@@ -3707,9 +3707,9 @@ _ZN5clang14TypeLocBuilder4pushINS_14TypedefTypeLocEEET_NS_8QualTypeE.exit: ; pre
   %1652 = sub i64 %1643, %1646
   %1653 = add i64 %1652, %.0.i684
   %1654 = and i64 %1653, 4294967295
-  %1655 = getelementptr inbounds i8, ptr %1651, i64 %1654
+  %1655 = getelementptr inbounds nuw i8, ptr %1651, i64 %1654
   %1656 = load ptr, ptr %0, align 8
-  %1657 = getelementptr inbounds i8, ptr %1656, i64 %1643
+  %1657 = getelementptr inbounds nuw i8, ptr %1656, i64 %1643
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1655, ptr align 1 %1657, i64 %reass.sub1021, i1 false)
   %.not.i.i685 = icmp eq ptr %1656, %41
   %1658 = icmp eq ptr %1656, null
@@ -3784,9 +3784,9 @@ _ZN5clang14TypeLocBuilder8pushImplENS_8QualTypeEmj.exit688: ; preds = %1660, %16
   %1686 = sub i64 %1677, %1680
   %1687 = add i64 %1686, %.0.i.i517
   %1688 = and i64 %1687, 4294967295
-  %1689 = getelementptr inbounds i8, ptr %1685, i64 %1688
+  %1689 = getelementptr inbounds nuw i8, ptr %1685, i64 %1688
   %1690 = load ptr, ptr %0, align 8
-  %1691 = getelementptr inbounds i8, ptr %1690, i64 %1677
+  %1691 = getelementptr inbounds nuw i8, ptr %1690, i64 %1677
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1689, ptr align 1 %1691, i64 %reass.sub15.i515, i1 false)
   %.not.i.i.i518 = icmp eq ptr %1690, %41
   %1692 = icmp eq ptr %1690, null
@@ -3864,9 +3864,9 @@ _ZN5clang14TypeLocBuilder4pushINS_22UnresolvedUsingTypeLocEEET_NS_8QualTypeE.exi
   %1723 = sub i64 %1714, %1717
   %1724 = add i64 %1723, %.0.i.i532
   %1725 = and i64 %1724, 4294967295
-  %1726 = getelementptr inbounds i8, ptr %1722, i64 %1725
+  %1726 = getelementptr inbounds nuw i8, ptr %1722, i64 %1725
   %1727 = load ptr, ptr %0, align 8
-  %1728 = getelementptr inbounds i8, ptr %1727, i64 %1714
+  %1728 = getelementptr inbounds nuw i8, ptr %1727, i64 %1714
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1726, ptr align 1 %1728, i64 %reass.sub15.i530, i1 false)
   %.not.i.i.i533 = icmp eq ptr %1727, %41
   %1729 = icmp eq ptr %1727, null
@@ -3944,9 +3944,9 @@ _ZN5clang14TypeLocBuilder4pushINS_12UsingTypeLocEEET_NS_8QualTypeE.exit: ; preds
   %1760 = sub i64 %1751, %1754
   %1761 = add i64 %1760, %.0.i.i547
   %1762 = and i64 %1761, 4294967295
-  %1763 = getelementptr inbounds i8, ptr %1759, i64 %1762
+  %1763 = getelementptr inbounds nuw i8, ptr %1759, i64 %1762
   %1764 = load ptr, ptr %0, align 8
-  %1765 = getelementptr inbounds i8, ptr %1764, i64 %1751
+  %1765 = getelementptr inbounds nuw i8, ptr %1764, i64 %1751
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1763, ptr align 1 %1765, i64 %reass.sub15.i545, i1 false)
   %.not.i.i.i548 = icmp eq ptr %1764, %41
   %1766 = icmp eq ptr %1764, null
@@ -4024,9 +4024,9 @@ _ZN5clang14TypeLocBuilder4pushINS_13VectorTypeLocEEET_NS_8QualTypeE.exit: ; pred
   %1797 = sub i64 %1788, %1791
   %1798 = add i64 %1797, %.0.i.i562
   %1799 = and i64 %1798, 4294967295
-  %1800 = getelementptr inbounds i8, ptr %1796, i64 %1799
+  %1800 = getelementptr inbounds nuw i8, ptr %1796, i64 %1799
   %1801 = load ptr, ptr %0, align 8
-  %1802 = getelementptr inbounds i8, ptr %1801, i64 %1788
+  %1802 = getelementptr inbounds nuw i8, ptr %1801, i64 %1788
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1800, ptr align 1 %1802, i64 %reass.sub15.i560, i1 false)
   %.not.i.i.i563 = icmp eq ptr %1801, %41
   %1803 = icmp eq ptr %1801, null
@@ -4150,7 +4150,7 @@ _ZNK5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_14BuiltinTypeLocENS_11BuiltinT
   %27 = sub i64 %16, %20
   %28 = add i64 %27, %.0.i
   %29 = and i64 %28, 4294967295
-  %30 = getelementptr inbounds i8, ptr %26, i64 %29
+  %30 = getelementptr inbounds nuw i8, ptr %26, i64 %29
   %31 = load ptr, ptr %0, align 8
   %32 = getelementptr inbounds i8, ptr %31, i64 %16
   %33 = sub i64 %20, %16
@@ -4246,7 +4246,7 @@ define linkonce_odr hidden { ptr, ptr } @_ZN5clang14TypeLocBuilder4pushINS_20Obj
   %24 = sub i64 %13, %17
   %25 = add i64 %24, %.0.i
   %26 = and i64 %25, 4294967295
-  %27 = getelementptr inbounds i8, ptr %23, i64 %26
+  %27 = getelementptr inbounds nuw i8, ptr %23, i64 %26
   %28 = load ptr, ptr %0, align 8
   %29 = getelementptr inbounds i8, ptr %28, i64 %13
   %30 = sub i64 %17, %13
@@ -4333,7 +4333,7 @@ define dso_local void @_ZN5clang14TypeLocBuilder11pushTrivialERNS_10ASTContextEN
   %24 = sub nuw nsw i64 %16, %18
   %25 = add i64 %24, %23
   %26 = and i64 %25, 4294967295
-  %27 = getelementptr inbounds i8, ptr %21, i64 %26
+  %27 = getelementptr inbounds nuw i8, ptr %21, i64 %26
   %28 = load ptr, ptr %0, align 8
   %29 = getelementptr inbounds i8, ptr %28, i64 %23
   %30 = sub i64 %18, %23
@@ -4355,7 +4355,7 @@ _ZN5clang14TypeLocBuilder4growEm.exit.i:          ; preds = %33, %20
   br label %_ZN5clang14TypeLocBuilder7reserveEm.exit
 
 _ZN5clang14TypeLocBuilder7reserveEm.exit:         ; preds = %4, %_ZN5clang14TypeLocBuilder4growEm.exit.i
-  %34 = getelementptr inbounds i8, ptr %5, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(80) %5, ptr noundef nonnull %34, i64 noundef 4) #7
   %.not1175 = icmp eq i64 %2, 0
   br i1 %.not1175, label %._crit_edge, label %.lr.ph
@@ -4378,7 +4378,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang7TypeLocELb1EE9push_backES2_.exit: ; pr
   %40 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #7
   %41 = getelementptr inbounds %"class.clang::TypeLoc", ptr %39, i64 %40
   store ptr %.sroa.01082.01176, ptr %41, align 1
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %41, i64 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %41, i64 8
   store ptr %.sroa.5.01177, ptr %.sroa.2.0..sroa_idx.i, align 1
   %42 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #7
   %43 = add i64 %42, 1
@@ -4511,9 +4511,9 @@ _ZNK5clang7TypeLoc15getTypeLocClassEv.exit:       ; preds = %63
   %81 = sub i64 %72, %75
   %82 = add i64 %81, %.0.i814
   %83 = and i64 %82, 4294967295
-  %84 = getelementptr inbounds i8, ptr %80, i64 %83
+  %84 = getelementptr inbounds nuw i8, ptr %80, i64 %83
   %85 = load ptr, ptr %0, align 8
-  %86 = getelementptr inbounds i8, ptr %85, i64 %72
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 %72
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %84, ptr align 1 %86, i64 %reass.sub1195, i1 false)
   %.not.i.i815 = icmp eq ptr %85, %52
   %87 = icmp eq ptr %85, null
@@ -4592,9 +4592,9 @@ _ZN5clang14TypeLocBuilder8pushImplENS_8QualTypeEmj.exit: ; preds = %89, %94
   %117 = sub i64 %108, %111
   %118 = add i64 %117, %.0.i822
   %119 = and i64 %118, 4294967295
-  %120 = getelementptr inbounds i8, ptr %116, i64 %119
+  %120 = getelementptr inbounds nuw i8, ptr %116, i64 %119
   %121 = load ptr, ptr %0, align 8
-  %122 = getelementptr inbounds i8, ptr %121, i64 %108
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 %108
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %120, ptr align 1 %122, i64 %reass.sub1194, i1 false)
   %.not.i.i823 = icmp eq ptr %121, %52
   %123 = icmp eq ptr %121, null
@@ -4673,9 +4673,9 @@ _ZN5clang14TypeLocBuilder8pushImplENS_8QualTypeEmj.exit826: ; preds = %125, %130
   %153 = sub i64 %144, %147
   %154 = add i64 %153, %.0.i831
   %155 = and i64 %154, 4294967295
-  %156 = getelementptr inbounds i8, ptr %152, i64 %155
+  %156 = getelementptr inbounds nuw i8, ptr %152, i64 %155
   %157 = load ptr, ptr %0, align 8
-  %158 = getelementptr inbounds i8, ptr %157, i64 %144
+  %158 = getelementptr inbounds nuw i8, ptr %157, i64 %144
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %156, ptr align 1 %158, i64 %reass.sub1193, i1 false)
   %.not.i.i832 = icmp eq ptr %157, %52
   %159 = icmp eq ptr %157, null
@@ -4757,9 +4757,9 @@ _ZN5clang14TypeLocBuilder8pushImplENS_8QualTypeEmj.exit835: ; preds = %161, %166
   %191 = sub i64 %182, %185
   %192 = add i64 %191, %.0.i840
   %193 = and i64 %192, 4294967295
-  %194 = getelementptr inbounds i8, ptr %190, i64 %193
+  %194 = getelementptr inbounds nuw i8, ptr %190, i64 %193
   %195 = load ptr, ptr %0, align 8
-  %196 = getelementptr inbounds i8, ptr %195, i64 %182
+  %196 = getelementptr inbounds nuw i8, ptr %195, i64 %182
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %194, ptr align 1 %196, i64 %reass.sub1192, i1 false)
   %.not.i.i841 = icmp eq ptr %195, %52
   %197 = icmp eq ptr %195, null
@@ -4838,9 +4838,9 @@ _ZN5clang14TypeLocBuilder8pushImplENS_8QualTypeEmj.exit844: ; preds = %199, %204
   %227 = sub i64 %218, %221
   %228 = add i64 %227, %.0.i849
   %229 = and i64 %228, 4294967295
-  %230 = getelementptr inbounds i8, ptr %226, i64 %229
+  %230 = getelementptr inbounds nuw i8, ptr %226, i64 %229
   %231 = load ptr, ptr %0, align 8
-  %232 = getelementptr inbounds i8, ptr %231, i64 %218
+  %232 = getelementptr inbounds nuw i8, ptr %231, i64 %218
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %230, ptr align 1 %232, i64 %reass.sub1191, i1 false)
   %.not.i.i850 = icmp eq ptr %231, %52
   %233 = icmp eq ptr %231, null
@@ -4919,9 +4919,9 @@ _ZN5clang14TypeLocBuilder8pushImplENS_8QualTypeEmj.exit853: ; preds = %235, %240
   %263 = sub i64 %254, %257
   %264 = add i64 %263, %.0.i.i
   %265 = and i64 %264, 4294967295
-  %266 = getelementptr inbounds i8, ptr %262, i64 %265
+  %266 = getelementptr inbounds nuw i8, ptr %262, i64 %265
   %267 = load ptr, ptr %0, align 8
-  %268 = getelementptr inbounds i8, ptr %267, i64 %254
+  %268 = getelementptr inbounds nuw i8, ptr %267, i64 %254
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %266, ptr align 1 %268, i64 %reass.sub15.i, i1 false)
   %.not.i.i.i310 = icmp eq ptr %267, %52
   %269 = icmp eq ptr %267, null
@@ -5002,9 +5002,9 @@ _ZN5clang14TypeLocBuilder4pushINS_13AtomicTypeLocEEET_NS_8QualTypeE.exit: ; pred
   %301 = sub i64 %292, %295
   %302 = add i64 %301, %.0.i858
   %303 = and i64 %302, 4294967295
-  %304 = getelementptr inbounds i8, ptr %300, i64 %303
+  %304 = getelementptr inbounds nuw i8, ptr %300, i64 %303
   %305 = load ptr, ptr %0, align 8
-  %306 = getelementptr inbounds i8, ptr %305, i64 %292
+  %306 = getelementptr inbounds nuw i8, ptr %305, i64 %292
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %304, ptr align 1 %306, i64 %reass.sub1190, i1 false)
   %.not.i.i859 = icmp eq ptr %305, %52
   %307 = icmp eq ptr %305, null
@@ -5073,7 +5073,7 @@ _ZN5clang14TypeLocBuilder8pushImplENS_8QualTypeEmj.exit862: ; preds = %309, %314
   %334 = call noalias noundef nonnull ptr @_Znam(i64 noundef %.0.i.i315) #8
   %335 = sub i64 %.0.i.i315, %329
   %336 = and i64 %335, 4294967295
-  %337 = getelementptr inbounds i8, ptr %334, i64 %336
+  %337 = getelementptr inbounds nuw i8, ptr %334, i64 %336
   %338 = load ptr, ptr %0, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %337, ptr align 1 %338, i64 %329, i1 false)
   %.not.i.i.i316 = icmp eq ptr %338, %52
@@ -5122,9 +5122,9 @@ _ZN5clang14TypeLocBuilder4pushINS_23BTFTagAttributedTypeLocEEET_NS_8QualTypeE.ex
   %353 = sub i64 %344, %347
   %354 = add i64 %353, %.0.i.i330
   %355 = and i64 %354, 4294967295
-  %356 = getelementptr inbounds i8, ptr %352, i64 %355
+  %356 = getelementptr inbounds nuw i8, ptr %352, i64 %355
   %357 = load ptr, ptr %0, align 8
-  %358 = getelementptr inbounds i8, ptr %357, i64 %344
+  %358 = getelementptr inbounds nuw i8, ptr %357, i64 %344
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %356, ptr align 1 %358, i64 %reass.sub15.i328, i1 false)
   %.not.i.i.i331 = icmp eq ptr %357, %52
   %359 = icmp eq ptr %357, null
@@ -5201,9 +5201,9 @@ _ZN5clang14TypeLocBuilder4pushINS_13BitIntTypeLocEEET_NS_8QualTypeE.exit: ; pred
   %389 = sub i64 %380, %383
   %390 = add i64 %389, %.0.i.i345
   %391 = and i64 %390, 4294967295
-  %392 = getelementptr inbounds i8, ptr %388, i64 %391
+  %392 = getelementptr inbounds nuw i8, ptr %388, i64 %391
   %393 = load ptr, ptr %0, align 8
-  %394 = getelementptr inbounds i8, ptr %393, i64 %380
+  %394 = getelementptr inbounds nuw i8, ptr %393, i64 %380
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %392, ptr align 1 %394, i64 %reass.sub15.i343, i1 false)
   %.not.i.i.i346 = icmp eq ptr %393, %52
   %395 = icmp eq ptr %393, null
@@ -5292,7 +5292,7 @@ _ZN5clang14BuiltinTypeLoc22getWrittenBuiltinSpecsEv.exit.i: ; preds = %switch.ea
   %428 = zext nneg i8 %narrow.i.i.i to i32
   %429 = mul nuw nsw i32 %426, %428
   %430 = zext nneg i32 %429 to i64
-  %431 = getelementptr inbounds i8, ptr %418, i64 %430
+  %431 = getelementptr inbounds nuw i8, ptr %418, i64 %430
   %432 = load i16, ptr %431, align 4
   %433 = and i16 %432, -4096
   store i16 %433, ptr %431, align 4
@@ -5324,9 +5324,9 @@ _ZN5clang14BuiltinTypeLoc22getWrittenBuiltinSpecsEv.exit.i: ; preds = %switch.ea
   %444 = sub i64 %435, %438
   %445 = add i64 %444, %.0.i.i363
   %446 = and i64 %445, 4294967295
-  %447 = getelementptr inbounds i8, ptr %443, i64 %446
+  %447 = getelementptr inbounds nuw i8, ptr %443, i64 %446
   %448 = load ptr, ptr %0, align 8
-  %449 = getelementptr inbounds i8, ptr %448, i64 %435
+  %449 = getelementptr inbounds nuw i8, ptr %448, i64 %435
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %447, ptr align 1 %449, i64 %reass.sub15.i361, i1 false)
   %.not.i.i.i364 = icmp eq ptr %448, %52
   %450 = icmp eq ptr %448, null
@@ -5403,9 +5403,9 @@ _ZN5clang14TypeLocBuilder4pushINS_14ComplexTypeLocEEET_NS_8QualTypeE.exit: ; pre
   %480 = sub i64 %471, %474
   %481 = add i64 %480, %.0.i.i375
   %482 = and i64 %481, 4294967295
-  %483 = getelementptr inbounds i8, ptr %479, i64 %482
+  %483 = getelementptr inbounds nuw i8, ptr %479, i64 %482
   %484 = load ptr, ptr %0, align 8
-  %485 = getelementptr inbounds i8, ptr %484, i64 %471
+  %485 = getelementptr inbounds nuw i8, ptr %484, i64 %471
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %483, ptr align 1 %485, i64 %reass.sub15.i373, i1 false)
   %.not.i.i.i376 = icmp eq ptr %484, %52
   %486 = icmp eq ptr %484, null
@@ -5461,9 +5461,9 @@ _ZN5clang14TypeLocBuilder4pushINS_15DecltypeTypeLocEEET_NS_8QualTypeE.exit: ; pr
   %503 = sub i64 %494, %497
   %504 = add i64 %503, %.0.i867
   %505 = and i64 %504, 4294967295
-  %506 = getelementptr inbounds i8, ptr %502, i64 %505
+  %506 = getelementptr inbounds nuw i8, ptr %502, i64 %505
   %507 = load ptr, ptr %0, align 8
-  %508 = getelementptr inbounds i8, ptr %507, i64 %494
+  %508 = getelementptr inbounds nuw i8, ptr %507, i64 %494
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %506, ptr align 1 %508, i64 %reass.sub1189, i1 false)
   %.not.i.i868 = icmp eq ptr %507, %52
   %509 = icmp eq ptr %507, null
@@ -5540,9 +5540,9 @@ _ZN5clang14TypeLocBuilder8pushImplENS_8QualTypeEmj.exit871: ; preds = %511, %516
   %537 = sub i64 %528, %531
   %538 = add i64 %537, %.0.i.i390
   %539 = and i64 %538, 4294967295
-  %540 = getelementptr inbounds i8, ptr %536, i64 %539
+  %540 = getelementptr inbounds nuw i8, ptr %536, i64 %539
   %541 = load ptr, ptr %0, align 8
-  %542 = getelementptr inbounds i8, ptr %541, i64 %528
+  %542 = getelementptr inbounds nuw i8, ptr %541, i64 %528
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %540, ptr align 1 %542, i64 %reass.sub15.i388, i1 false)
   %.not.i.i.i391 = icmp eq ptr %541, %52
   %543 = icmp eq ptr %541, null
@@ -5619,9 +5619,9 @@ _ZN5clang14TypeLocBuilder4pushINS_36DeducedTemplateSpecializationTypeLocEEET_NS_
   %573 = sub i64 %564, %567
   %574 = add i64 %573, %.0.i876
   %575 = and i64 %574, 4294967295
-  %576 = getelementptr inbounds i8, ptr %572, i64 %575
+  %576 = getelementptr inbounds nuw i8, ptr %572, i64 %575
   %577 = load ptr, ptr %0, align 8
-  %578 = getelementptr inbounds i8, ptr %577, i64 %564
+  %578 = getelementptr inbounds nuw i8, ptr %577, i64 %564
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %576, ptr align 1 %578, i64 %reass.sub1188, i1 false)
   %.not.i.i877 = icmp eq ptr %577, %52
   %579 = icmp eq ptr %577, null
@@ -5702,9 +5702,9 @@ _ZN5clang14TypeLocBuilder8pushImplENS_8QualTypeEmj.exit880: ; preds = %581, %586
   %611 = sub i64 %602, %605
   %612 = add i64 %611, %.0.i.i405
   %613 = and i64 %612, 4294967295
-  %614 = getelementptr inbounds i8, ptr %610, i64 %613
+  %614 = getelementptr inbounds nuw i8, ptr %610, i64 %613
   %615 = load ptr, ptr %0, align 8
-  %616 = getelementptr inbounds i8, ptr %615, i64 %602
+  %616 = getelementptr inbounds nuw i8, ptr %615, i64 %602
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %614, ptr align 1 %616, i64 %reass.sub15.i403, i1 false)
   %.not.i.i.i406 = icmp eq ptr %615, %52
   %617 = icmp eq ptr %615, null
@@ -5781,9 +5781,9 @@ _ZN5clang14TypeLocBuilder4pushINS_22DependentBitIntTypeLocEEET_NS_8QualTypeE.exi
   %647 = sub i64 %638, %641
   %648 = add i64 %647, %.0.i885
   %649 = and i64 %648, 4294967295
-  %650 = getelementptr inbounds i8, ptr %646, i64 %649
+  %650 = getelementptr inbounds nuw i8, ptr %646, i64 %649
   %651 = load ptr, ptr %0, align 8
-  %652 = getelementptr inbounds i8, ptr %651, i64 %638
+  %652 = getelementptr inbounds nuw i8, ptr %651, i64 %638
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %650, ptr align 1 %652, i64 %reass.sub1187, i1 false)
   %.not.i.i886 = icmp eq ptr %651, %52
   %653 = icmp eq ptr %651, null
@@ -5860,9 +5860,9 @@ _ZN5clang14TypeLocBuilder8pushImplENS_8QualTypeEmj.exit889: ; preds = %655, %660
   %681 = sub i64 %672, %675
   %682 = add i64 %681, %.0.i.i420
   %683 = and i64 %682, 4294967295
-  %684 = getelementptr inbounds i8, ptr %680, i64 %683
+  %684 = getelementptr inbounds nuw i8, ptr %680, i64 %683
   %685 = load ptr, ptr %0, align 8
-  %686 = getelementptr inbounds i8, ptr %685, i64 %672
+  %686 = getelementptr inbounds nuw i8, ptr %685, i64 %672
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %684, ptr align 1 %686, i64 %reass.sub15.i418, i1 false)
   %.not.i.i.i421 = icmp eq ptr %685, %52
   %687 = icmp eq ptr %685, null
@@ -5953,9 +5953,9 @@ _ZN5clang14TypeLocBuilder4pushINS_30DependentSizedExtVectorTypeLocEEET_NS_8QualT
   %726 = sub i64 %717, %720
   %727 = add i64 %726, %.0.i.i435
   %728 = and i64 %727, 4294967295
-  %729 = getelementptr inbounds i8, ptr %725, i64 %728
+  %729 = getelementptr inbounds nuw i8, ptr %725, i64 %728
   %730 = load ptr, ptr %0, align 8
-  %731 = getelementptr inbounds i8, ptr %730, i64 %717
+  %731 = getelementptr inbounds nuw i8, ptr %730, i64 %717
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %729, ptr align 1 %731, i64 %reass.sub15.i433, i1 false)
   %.not.i.i.i436 = icmp eq ptr %730, %52
   %732 = icmp eq ptr %730, null
@@ -6084,7 +6084,7 @@ _ZNK5clang15FunctionTypeLoc12getNumParamsEv.exit.i: ; preds = %_ZN5clang14TypeLo
   br i1 %.not17.i, label %._crit_edge.i443, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %_ZNK5clang15FunctionTypeLoc12getNumParamsEv.exit.i
-  %786 = getelementptr inbounds i8, ptr %776, i64 16
+  %786 = getelementptr inbounds nuw i8, ptr %776, i64 16
   %787 = lshr i64 %783, 35
   %788 = and i64 %787, 524280
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %786, i8 0, i64 %788, i1 false)
@@ -6105,8 +6105,8 @@ _ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit.i: ; preds = %._crit_edge.i
 _ZNK5clang15FunctionTypeLoc24getExceptionSpecRangePtrEv.exit.i.i: ; preds = %_ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit.i
   %792 = lshr i64 %790, 38
   %793 = and i64 %792, 65535
-  %794 = getelementptr inbounds i8, ptr %776, i64 16
-  %795 = getelementptr inbounds ptr, ptr %794, i64 %793
+  %794 = getelementptr inbounds nuw i8, ptr %776, i64 16
+  %795 = getelementptr inbounds nuw ptr, ptr %794, i64 %793
   store i64 %.sroa.0.0.insert.insert.i517, ptr %795, align 4
   br label %_ZN5clang14BuiltinTypeLoc15initializeLocalERNS_10ASTContextENS_14SourceLocationE.exit
 
@@ -6162,7 +6162,7 @@ _ZNK5clang15FunctionTypeLoc12getNumParamsEv.exit.i453: ; preds = %_ZN5clang14Typ
   br i1 %.not17.i454, label %._crit_edge.i464, label %.lr.ph.preheader.i455
 
 .lr.ph.preheader.i455:                            ; preds = %_ZNK5clang15FunctionTypeLoc12getNumParamsEv.exit.i453
-  %819 = getelementptr inbounds i8, ptr %809, i64 16
+  %819 = getelementptr inbounds nuw i8, ptr %809, i64 16
   %820 = lshr i64 %816, 35
   %821 = and i64 %820, 524280
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %819, i8 0, i64 %821, i1 false)
@@ -6183,8 +6183,8 @@ _ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit.i466: ; preds = %._crit_edg
 _ZNK5clang15FunctionTypeLoc24getExceptionSpecRangePtrEv.exit.i.i468: ; preds = %_ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit.i466
   %825 = lshr i64 %823, 38
   %826 = and i64 %825, 65535
-  %827 = getelementptr inbounds i8, ptr %809, i64 16
-  %828 = getelementptr inbounds ptr, ptr %827, i64 %826
+  %827 = getelementptr inbounds nuw i8, ptr %809, i64 16
+  %828 = getelementptr inbounds nuw ptr, ptr %827, i64 %826
   store i64 %.sroa.0.0.insert.insert.i517, ptr %828, align 4
   br label %_ZN5clang14BuiltinTypeLoc15initializeLocalERNS_10ASTContextENS_14SourceLocationE.exit
 
@@ -6214,9 +6214,9 @@ _ZNK5clang15FunctionTypeLoc24getExceptionSpecRangePtrEv.exit.i.i468: ; preds = %
   %839 = sub i64 %830, %833
   %840 = add i64 %839, %.0.i.i480
   %841 = and i64 %840, 4294967295
-  %842 = getelementptr inbounds i8, ptr %838, i64 %841
+  %842 = getelementptr inbounds nuw i8, ptr %838, i64 %841
   %843 = load ptr, ptr %0, align 8
-  %844 = getelementptr inbounds i8, ptr %843, i64 %830
+  %844 = getelementptr inbounds nuw i8, ptr %843, i64 %830
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %842, ptr align 1 %844, i64 %reass.sub15.i478, i1 false)
   %.not.i.i.i481 = icmp eq ptr %843, %52
   %845 = icmp eq ptr %843, null
@@ -6270,9 +6270,9 @@ _ZN5clang14TypeLocBuilder4pushINS_29HLSLAttributedResourceTypeLocEEET_NS_8QualTy
   %861 = sub i64 %852, %855
   %862 = add i64 %861, %.0.i.i495
   %863 = and i64 %862, 4294967295
-  %864 = getelementptr inbounds i8, ptr %860, i64 %863
+  %864 = getelementptr inbounds nuw i8, ptr %860, i64 %863
   %865 = load ptr, ptr %0, align 8
-  %866 = getelementptr inbounds i8, ptr %865, i64 %852
+  %866 = getelementptr inbounds nuw i8, ptr %865, i64 %852
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %864, ptr align 1 %866, i64 %reass.sub15.i493, i1 false)
   %.not.i.i.i496 = icmp eq ptr %865, %52
   %867 = icmp eq ptr %865, null
@@ -6349,9 +6349,9 @@ _ZN5clang14TypeLocBuilder4pushINS_24InjectedClassNameTypeLocEEET_NS_8QualTypeE.e
   %897 = sub i64 %888, %891
   %898 = add i64 %897, %.0.i.i510
   %899 = and i64 %898, 4294967295
-  %900 = getelementptr inbounds i8, ptr %896, i64 %899
+  %900 = getelementptr inbounds nuw i8, ptr %896, i64 %899
   %901 = load ptr, ptr %0, align 8
-  %902 = getelementptr inbounds i8, ptr %901, i64 %888
+  %902 = getelementptr inbounds nuw i8, ptr %901, i64 %888
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %900, ptr align 1 %902, i64 %reass.sub15.i508, i1 false)
   %.not.i.i.i511 = icmp eq ptr %901, %52
   %903 = icmp eq ptr %901, null
@@ -6428,9 +6428,9 @@ _ZN5clang14TypeLocBuilder4pushINS_21MacroQualifiedTypeLocEEET_NS_8QualTypeE.exit
   %933 = sub i64 %924, %927
   %934 = add i64 %933, %.0.i894
   %935 = and i64 %934, 4294967295
-  %936 = getelementptr inbounds i8, ptr %932, i64 %935
+  %936 = getelementptr inbounds nuw i8, ptr %932, i64 %935
   %937 = load ptr, ptr %0, align 8
-  %938 = getelementptr inbounds i8, ptr %937, i64 %924
+  %938 = getelementptr inbounds nuw i8, ptr %937, i64 %924
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %936, ptr align 1 %938, i64 %reass.sub1186, i1 false)
   %.not.i.i895 = icmp eq ptr %937, %52
   %939 = icmp eq ptr %937, null
@@ -6509,9 +6509,9 @@ _ZN5clang14TypeLocBuilder8pushImplENS_8QualTypeEmj.exit898: ; preds = %941, %946
   %969 = sub i64 %960, %963
   %970 = add i64 %969, %.0.i903
   %971 = and i64 %970, 4294967295
-  %972 = getelementptr inbounds i8, ptr %968, i64 %971
+  %972 = getelementptr inbounds nuw i8, ptr %968, i64 %971
   %973 = load ptr, ptr %0, align 8
-  %974 = getelementptr inbounds i8, ptr %973, i64 %960
+  %974 = getelementptr inbounds nuw i8, ptr %973, i64 %960
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %972, ptr align 1 %974, i64 %reass.sub1185, i1 false)
   %.not.i.i904 = icmp eq ptr %973, %52
   %975 = icmp eq ptr %973, null
@@ -6590,9 +6590,9 @@ _ZN5clang14TypeLocBuilder8pushImplENS_8QualTypeEmj.exit907: ; preds = %977, %982
   %1005 = sub i64 %996, %999
   %1006 = add i64 %1005, %.0.i912
   %1007 = and i64 %1006, 4294967295
-  %1008 = getelementptr inbounds i8, ptr %1004, i64 %1007
+  %1008 = getelementptr inbounds nuw i8, ptr %1004, i64 %1007
   %1009 = load ptr, ptr %0, align 8
-  %1010 = getelementptr inbounds i8, ptr %1009, i64 %996
+  %1010 = getelementptr inbounds nuw i8, ptr %1009, i64 %996
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1008, ptr align 1 %1010, i64 %reass.sub1184, i1 false)
   %.not.i.i913 = icmp eq ptr %1009, %52
   %1011 = icmp eq ptr %1009, null
@@ -6669,9 +6669,9 @@ _ZN5clang14TypeLocBuilder8pushImplENS_8QualTypeEmj.exit916: ; preds = %1013, %10
   %1040 = sub i64 %1031, %1034
   %1041 = add i64 %1040, %.0.i.i529
   %1042 = and i64 %1041, 4294967295
-  %1043 = getelementptr inbounds i8, ptr %1039, i64 %1042
+  %1043 = getelementptr inbounds nuw i8, ptr %1039, i64 %1042
   %1044 = load ptr, ptr %0, align 8
-  %1045 = getelementptr inbounds i8, ptr %1044, i64 %1031
+  %1045 = getelementptr inbounds nuw i8, ptr %1044, i64 %1031
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1043, ptr align 1 %1045, i64 %reass.sub15.i527, i1 false)
   %.not.i.i.i530 = icmp eq ptr %1044, %52
   %1046 = icmp eq ptr %1044, null
@@ -6766,9 +6766,9 @@ _ZN5clang14TypeLocBuilder4pushINS_24ObjCObjectPointerTypeLocEEET_NS_8QualTypeE.e
   %1089 = sub i64 %1080, %1083
   %1090 = add i64 %1089, %.0.i.i541
   %1091 = and i64 %1090, 4294967295
-  %1092 = getelementptr inbounds i8, ptr %1088, i64 %1091
+  %1092 = getelementptr inbounds nuw i8, ptr %1088, i64 %1091
   %1093 = load ptr, ptr %0, align 8
-  %1094 = getelementptr inbounds i8, ptr %1093, i64 %1080
+  %1094 = getelementptr inbounds nuw i8, ptr %1093, i64 %1080
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1092, ptr align 1 %1094, i64 %reass.sub15.i539, i1 false)
   %.not.i.i.i542 = icmp eq ptr %1093, %52
   %1095 = icmp eq ptr %1093, null
@@ -6833,9 +6833,9 @@ _ZN5clang14TypeLocBuilder4pushINS_20ObjCInterfaceTypeLocEEET_NS_8QualTypeE.exit:
   %1116 = sub i64 %1107, %1110
   %1117 = add i64 %1116, %.0.i.i556
   %1118 = and i64 %1117, 4294967295
-  %1119 = getelementptr inbounds i8, ptr %1115, i64 %1118
+  %1119 = getelementptr inbounds nuw i8, ptr %1115, i64 %1118
   %1120 = load ptr, ptr %0, align 8
-  %1121 = getelementptr inbounds i8, ptr %1120, i64 %1107
+  %1121 = getelementptr inbounds nuw i8, ptr %1120, i64 %1107
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1119, ptr align 1 %1121, i64 %reass.sub15.i554, i1 false)
   %.not.i.i.i557 = icmp eq ptr %1120, %52
   %1122 = icmp eq ptr %1120, null
@@ -6912,9 +6912,9 @@ _ZN5clang14TypeLocBuilder4pushINS_20PackExpansionTypeLocEEET_NS_8QualTypeE.exit:
   %1152 = sub i64 %1143, %1146
   %1153 = add i64 %1152, %.0.i.i571
   %1154 = and i64 %1153, 4294967295
-  %1155 = getelementptr inbounds i8, ptr %1151, i64 %1154
+  %1155 = getelementptr inbounds nuw i8, ptr %1151, i64 %1154
   %1156 = load ptr, ptr %0, align 8
-  %1157 = getelementptr inbounds i8, ptr %1156, i64 %1143
+  %1157 = getelementptr inbounds nuw i8, ptr %1156, i64 %1143
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1155, ptr align 1 %1157, i64 %reass.sub15.i569, i1 false)
   %.not.i.i.i572 = icmp eq ptr %1156, %52
   %1158 = icmp eq ptr %1156, null
@@ -6991,9 +6991,9 @@ _ZN5clang14TypeLocBuilder4pushINS_19PackIndexingTypeLocEEET_NS_8QualTypeE.exit: 
   %1188 = sub i64 %1179, %1182
   %1189 = add i64 %1188, %.0.i.i583
   %1190 = and i64 %1189, 4294967295
-  %1191 = getelementptr inbounds i8, ptr %1187, i64 %1190
+  %1191 = getelementptr inbounds nuw i8, ptr %1187, i64 %1190
   %1192 = load ptr, ptr %0, align 8
-  %1193 = getelementptr inbounds i8, ptr %1192, i64 %1179
+  %1193 = getelementptr inbounds nuw i8, ptr %1192, i64 %1179
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1191, ptr align 1 %1193, i64 %reass.sub15.i581, i1 false)
   %.not.i.i.i584 = icmp eq ptr %1192, %52
   %1194 = icmp eq ptr %1192, null
@@ -7049,9 +7049,9 @@ _ZN5clang14TypeLocBuilder4pushINS_12ParenTypeLocEEET_NS_8QualTypeE.exit: ; preds
   %1211 = sub i64 %1202, %1205
   %1212 = add i64 %1211, %.0.i.i598
   %1213 = and i64 %1212, 4294967295
-  %1214 = getelementptr inbounds i8, ptr %1210, i64 %1213
+  %1214 = getelementptr inbounds nuw i8, ptr %1210, i64 %1213
   %1215 = load ptr, ptr %0, align 8
-  %1216 = getelementptr inbounds i8, ptr %1215, i64 %1202
+  %1216 = getelementptr inbounds nuw i8, ptr %1215, i64 %1202
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1214, ptr align 1 %1216, i64 %reass.sub15.i596, i1 false)
   %.not.i.i.i599 = icmp eq ptr %1215, %52
   %1217 = icmp eq ptr %1215, null
@@ -7128,9 +7128,9 @@ _ZN5clang14TypeLocBuilder4pushINS_11PipeTypeLocEEET_NS_8QualTypeE.exit: ; preds 
   %1247 = sub i64 %1238, %1241
   %1248 = add i64 %1247, %.0.i.i613
   %1249 = and i64 %1248, 4294967295
-  %1250 = getelementptr inbounds i8, ptr %1246, i64 %1249
+  %1250 = getelementptr inbounds nuw i8, ptr %1246, i64 %1249
   %1251 = load ptr, ptr %0, align 8
-  %1252 = getelementptr inbounds i8, ptr %1251, i64 %1238
+  %1252 = getelementptr inbounds nuw i8, ptr %1251, i64 %1238
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1250, ptr align 1 %1252, i64 %reass.sub15.i611, i1 false)
   %.not.i.i.i614 = icmp eq ptr %1251, %52
   %1253 = icmp eq ptr %1251, null
@@ -7207,9 +7207,9 @@ _ZN5clang14TypeLocBuilder4pushINS_14PointerTypeLocEEET_NS_8QualTypeE.exit: ; pre
   %1283 = sub i64 %1274, %1277
   %1284 = add i64 %1283, %.0.i.i628
   %1285 = and i64 %1284, 4294967295
-  %1286 = getelementptr inbounds i8, ptr %1282, i64 %1285
+  %1286 = getelementptr inbounds nuw i8, ptr %1282, i64 %1285
   %1287 = load ptr, ptr %0, align 8
-  %1288 = getelementptr inbounds i8, ptr %1287, i64 %1274
+  %1288 = getelementptr inbounds nuw i8, ptr %1287, i64 %1274
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1286, ptr align 1 %1288, i64 %reass.sub15.i626, i1 false)
   %.not.i.i.i629 = icmp eq ptr %1287, %52
   %1289 = icmp eq ptr %1287, null
@@ -7286,9 +7286,9 @@ _ZN5clang14TypeLocBuilder4pushINS_22LValueReferenceTypeLocEEET_NS_8QualTypeE.exi
   %1319 = sub i64 %1310, %1313
   %1320 = add i64 %1319, %.0.i.i643
   %1321 = and i64 %1320, 4294967295
-  %1322 = getelementptr inbounds i8, ptr %1318, i64 %1321
+  %1322 = getelementptr inbounds nuw i8, ptr %1318, i64 %1321
   %1323 = load ptr, ptr %0, align 8
-  %1324 = getelementptr inbounds i8, ptr %1323, i64 %1310
+  %1324 = getelementptr inbounds nuw i8, ptr %1323, i64 %1310
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1322, ptr align 1 %1324, i64 %reass.sub15.i641, i1 false)
   %.not.i.i.i644 = icmp eq ptr %1323, %52
   %1325 = icmp eq ptr %1323, null
@@ -7365,9 +7365,9 @@ _ZN5clang14TypeLocBuilder4pushINS_22RValueReferenceTypeLocEEET_NS_8QualTypeE.exi
   %1355 = sub i64 %1346, %1349
   %1356 = add i64 %1355, %.0.i.i658
   %1357 = and i64 %1356, 4294967295
-  %1358 = getelementptr inbounds i8, ptr %1354, i64 %1357
+  %1358 = getelementptr inbounds nuw i8, ptr %1354, i64 %1357
   %1359 = load ptr, ptr %0, align 8
-  %1360 = getelementptr inbounds i8, ptr %1359, i64 %1346
+  %1360 = getelementptr inbounds nuw i8, ptr %1359, i64 %1346
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1358, ptr align 1 %1360, i64 %reass.sub15.i656, i1 false)
   %.not.i.i.i659 = icmp eq ptr %1359, %52
   %1361 = icmp eq ptr %1359, null
@@ -7444,9 +7444,9 @@ _ZN5clang14TypeLocBuilder4pushINS_32SubstTemplateTypeParmPackTypeLocEEET_NS_8Qua
   %1391 = sub i64 %1382, %1385
   %1392 = add i64 %1391, %.0.i.i673
   %1393 = and i64 %1392, 4294967295
-  %1394 = getelementptr inbounds i8, ptr %1390, i64 %1393
+  %1394 = getelementptr inbounds nuw i8, ptr %1390, i64 %1393
   %1395 = load ptr, ptr %0, align 8
-  %1396 = getelementptr inbounds i8, ptr %1395, i64 %1382
+  %1396 = getelementptr inbounds nuw i8, ptr %1395, i64 %1382
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1394, ptr align 1 %1396, i64 %reass.sub15.i671, i1 false)
   %.not.i.i.i674 = icmp eq ptr %1395, %52
   %1397 = icmp eq ptr %1395, null
@@ -7523,9 +7523,9 @@ _ZN5clang14TypeLocBuilder4pushINS_28SubstTemplateTypeParmTypeLocEEET_NS_8QualTyp
   %1427 = sub i64 %1418, %1421
   %1428 = add i64 %1427, %.0.i.i688
   %1429 = and i64 %1428, 4294967295
-  %1430 = getelementptr inbounds i8, ptr %1426, i64 %1429
+  %1430 = getelementptr inbounds nuw i8, ptr %1426, i64 %1429
   %1431 = load ptr, ptr %0, align 8
-  %1432 = getelementptr inbounds i8, ptr %1431, i64 %1418
+  %1432 = getelementptr inbounds nuw i8, ptr %1431, i64 %1418
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1430, ptr align 1 %1432, i64 %reass.sub15.i686, i1 false)
   %.not.i.i.i689 = icmp eq ptr %1431, %52
   %1433 = icmp eq ptr %1431, null
@@ -7602,9 +7602,9 @@ _ZN5clang14TypeLocBuilder4pushINS_11EnumTypeLocEEET_NS_8QualTypeE.exit: ; preds 
   %1463 = sub i64 %1454, %1457
   %1464 = add i64 %1463, %.0.i.i703
   %1465 = and i64 %1464, 4294967295
-  %1466 = getelementptr inbounds i8, ptr %1462, i64 %1465
+  %1466 = getelementptr inbounds nuw i8, ptr %1462, i64 %1465
   %1467 = load ptr, ptr %0, align 8
-  %1468 = getelementptr inbounds i8, ptr %1467, i64 %1454
+  %1468 = getelementptr inbounds nuw i8, ptr %1467, i64 %1454
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1466, ptr align 1 %1468, i64 %reass.sub15.i701, i1 false)
   %.not.i.i.i704 = icmp eq ptr %1467, %52
   %1469 = icmp eq ptr %1467, null
@@ -7671,11 +7671,11 @@ _ZN5clang14TypeLocBuilder4pushINS_13RecordTypeLocEEET_NS_8QualTypeE.exit: ; pred
   store i32 %3, ptr %1499, align 4
   %1500 = getelementptr inbounds nuw i8, ptr %1497, i64 12
   store i32 %3, ptr %1500, align 4
-  %1501 = getelementptr inbounds i8, ptr %1496, i64 48
+  %1501 = getelementptr inbounds nuw i8, ptr %1496, i64 48
   %1502 = getelementptr inbounds nuw i8, ptr %1496, i64 20
   %1503 = load i32, ptr %1502, align 4
   %1504 = zext i32 %1503 to i64
-  %1505 = getelementptr inbounds i8, ptr %1497, i64 16
+  %1505 = getelementptr inbounds nuw i8, ptr %1497, i64 16
   call void @_ZN5clang29TemplateSpecializationTypeLoc17initializeArgLocsERNS_10ASTContextEN4llvm8ArrayRefINS_16TemplateArgumentEEEPNS_23TemplateArgumentLocInfoENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nonnull %1501, i64 %1504, ptr noundef nonnull %1505, i32 %3) #7
   br label %_ZN5clang14BuiltinTypeLoc15initializeLocalERNS_10ASTContextENS_14SourceLocationE.exit
 
@@ -7705,9 +7705,9 @@ _ZN5clang14TypeLocBuilder4pushINS_13RecordTypeLocEEET_NS_8QualTypeE.exit: ; pred
   %1516 = sub i64 %1507, %1510
   %1517 = add i64 %1516, %.0.i.i718
   %1518 = and i64 %1517, 4294967295
-  %1519 = getelementptr inbounds i8, ptr %1515, i64 %1518
+  %1519 = getelementptr inbounds nuw i8, ptr %1515, i64 %1518
   %1520 = load ptr, ptr %0, align 8
-  %1521 = getelementptr inbounds i8, ptr %1520, i64 %1507
+  %1521 = getelementptr inbounds nuw i8, ptr %1520, i64 %1507
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1519, ptr align 1 %1521, i64 %reass.sub15.i716, i1 false)
   %.not.i.i.i719 = icmp eq ptr %1520, %52
   %1522 = icmp eq ptr %1520, null
@@ -7784,9 +7784,9 @@ _ZN5clang14TypeLocBuilder4pushINS_23TemplateTypeParmTypeLocEEET_NS_8QualTypeE.ex
   %1552 = sub i64 %1543, %1546
   %1553 = add i64 %1552, %.0.i.i733
   %1554 = and i64 %1553, 4294967295
-  %1555 = getelementptr inbounds i8, ptr %1551, i64 %1554
+  %1555 = getelementptr inbounds nuw i8, ptr %1551, i64 %1554
   %1556 = load ptr, ptr %0, align 8
-  %1557 = getelementptr inbounds i8, ptr %1556, i64 %1543
+  %1557 = getelementptr inbounds nuw i8, ptr %1556, i64 %1543
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1555, ptr align 1 %1557, i64 %reass.sub15.i731, i1 false)
   %.not.i.i.i734 = icmp eq ptr %1556, %52
   %1558 = icmp eq ptr %1556, null
@@ -7867,9 +7867,9 @@ _ZN5clang14TypeLocBuilder4pushINS_17TypeOfExprTypeLocEEET_NS_8QualTypeE.exit: ; 
   %1590 = sub i64 %1581, %1584
   %1591 = add i64 %1590, %.0.i921
   %1592 = and i64 %1591, 4294967295
-  %1593 = getelementptr inbounds i8, ptr %1589, i64 %1592
+  %1593 = getelementptr inbounds nuw i8, ptr %1589, i64 %1592
   %1594 = load ptr, ptr %0, align 8
-  %1595 = getelementptr inbounds i8, ptr %1594, i64 %1581
+  %1595 = getelementptr inbounds nuw i8, ptr %1594, i64 %1581
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1593, ptr align 1 %1595, i64 %reass.sub, i1 false)
   %.not.i.i922 = icmp eq ptr %1594, %52
   %1596 = icmp eq ptr %1594, null
@@ -7946,9 +7946,9 @@ _ZN5clang14TypeLocBuilder8pushImplENS_8QualTypeEmj.exit925: ; preds = %1598, %16
   %1624 = sub i64 %1615, %1618
   %1625 = add i64 %1624, %.0.i.i748
   %1626 = and i64 %1625, 4294967295
-  %1627 = getelementptr inbounds i8, ptr %1623, i64 %1626
+  %1627 = getelementptr inbounds nuw i8, ptr %1623, i64 %1626
   %1628 = load ptr, ptr %0, align 8
-  %1629 = getelementptr inbounds i8, ptr %1628, i64 %1615
+  %1629 = getelementptr inbounds nuw i8, ptr %1628, i64 %1615
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1627, ptr align 1 %1629, i64 %reass.sub15.i746, i1 false)
   %.not.i.i.i749 = icmp eq ptr %1628, %52
   %1630 = icmp eq ptr %1628, null
@@ -8025,9 +8025,9 @@ _ZN5clang14TypeLocBuilder4pushINS_14TypedefTypeLocEEET_NS_8QualTypeE.exit: ; pre
   %1660 = sub i64 %1651, %1654
   %1661 = add i64 %1660, %.0.i930
   %1662 = and i64 %1661, 4294967295
-  %1663 = getelementptr inbounds i8, ptr %1659, i64 %1662
+  %1663 = getelementptr inbounds nuw i8, ptr %1659, i64 %1662
   %1664 = load ptr, ptr %0, align 8
-  %1665 = getelementptr inbounds i8, ptr %1664, i64 %1651
+  %1665 = getelementptr inbounds nuw i8, ptr %1664, i64 %1651
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1663, ptr align 1 %1665, i64 %reass.sub1183, i1 false)
   %.not.i.i931 = icmp eq ptr %1664, %52
   %1666 = icmp eq ptr %1664, null
@@ -8104,9 +8104,9 @@ _ZN5clang14TypeLocBuilder8pushImplENS_8QualTypeEmj.exit934: ; preds = %1668, %16
   %1694 = sub i64 %1685, %1688
   %1695 = add i64 %1694, %.0.i.i763
   %1696 = and i64 %1695, 4294967295
-  %1697 = getelementptr inbounds i8, ptr %1693, i64 %1696
+  %1697 = getelementptr inbounds nuw i8, ptr %1693, i64 %1696
   %1698 = load ptr, ptr %0, align 8
-  %1699 = getelementptr inbounds i8, ptr %1698, i64 %1685
+  %1699 = getelementptr inbounds nuw i8, ptr %1698, i64 %1685
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1697, ptr align 1 %1699, i64 %reass.sub15.i761, i1 false)
   %.not.i.i.i764 = icmp eq ptr %1698, %52
   %1700 = icmp eq ptr %1698, null
@@ -8183,9 +8183,9 @@ _ZN5clang14TypeLocBuilder4pushINS_22UnresolvedUsingTypeLocEEET_NS_8QualTypeE.exi
   %1730 = sub i64 %1721, %1724
   %1731 = add i64 %1730, %.0.i.i778
   %1732 = and i64 %1731, 4294967295
-  %1733 = getelementptr inbounds i8, ptr %1729, i64 %1732
+  %1733 = getelementptr inbounds nuw i8, ptr %1729, i64 %1732
   %1734 = load ptr, ptr %0, align 8
-  %1735 = getelementptr inbounds i8, ptr %1734, i64 %1721
+  %1735 = getelementptr inbounds nuw i8, ptr %1734, i64 %1721
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1733, ptr align 1 %1735, i64 %reass.sub15.i776, i1 false)
   %.not.i.i.i779 = icmp eq ptr %1734, %52
   %1736 = icmp eq ptr %1734, null
@@ -8262,9 +8262,9 @@ _ZN5clang14TypeLocBuilder4pushINS_12UsingTypeLocEEET_NS_8QualTypeE.exit: ; preds
   %1766 = sub i64 %1757, %1760
   %1767 = add i64 %1766, %.0.i.i793
   %1768 = and i64 %1767, 4294967295
-  %1769 = getelementptr inbounds i8, ptr %1765, i64 %1768
+  %1769 = getelementptr inbounds nuw i8, ptr %1765, i64 %1768
   %1770 = load ptr, ptr %0, align 8
-  %1771 = getelementptr inbounds i8, ptr %1770, i64 %1757
+  %1771 = getelementptr inbounds nuw i8, ptr %1770, i64 %1757
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1769, ptr align 1 %1771, i64 %reass.sub15.i791, i1 false)
   %.not.i.i.i794 = icmp eq ptr %1770, %52
   %1772 = icmp eq ptr %1770, null
@@ -8341,9 +8341,9 @@ _ZN5clang14TypeLocBuilder4pushINS_13VectorTypeLocEEET_NS_8QualTypeE.exit: ; pred
   %1802 = sub i64 %1793, %1796
   %1803 = add i64 %1802, %.0.i.i808
   %1804 = and i64 %1803, 4294967295
-  %1805 = getelementptr inbounds i8, ptr %1801, i64 %1804
+  %1805 = getelementptr inbounds nuw i8, ptr %1801, i64 %1804
   %1806 = load ptr, ptr %0, align 8
-  %1807 = getelementptr inbounds i8, ptr %1806, i64 %1793
+  %1807 = getelementptr inbounds nuw i8, ptr %1806, i64 %1793
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1805, ptr align 1 %1807, i64 %reass.sub15.i806, i1 false)
   %.not.i.i.i809 = icmp eq ptr %1806, %52
   %1808 = icmp eq ptr %1806, null
@@ -8438,7 +8438,7 @@ define dso_local void @_ZN5clang14TypeLocBuilder4growEm(ptr noundef nonnull alig
   %8 = load i64, ptr %7, align 8
   %9 = sub i64 %6, %8
   %10 = and i64 %9, 4294967295
-  %11 = getelementptr inbounds i8, ptr %3, i64 %10
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 %10
   %12 = load ptr, ptr %0, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 %5
   %14 = sub i64 %8, %5
@@ -8491,7 +8491,7 @@ define dso_local { ptr, ptr } @_ZN5clang14TypeLocBuilder8pushImplENS_8QualTypeEm
   %17 = sub i64 %6, %10
   %18 = add i64 %17, %.0
   %19 = and i64 %18, 4294967295
-  %20 = getelementptr inbounds i8, ptr %16, i64 %19
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 %19
   %21 = load ptr, ptr %0, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 %6
   %23 = sub i64 %10, %6

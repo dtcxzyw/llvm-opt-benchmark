@@ -39,13 +39,13 @@ target triple = "x86_64-pc-linux-gnu"
 define void @io_hdr_pack(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load i16, ptr %0, align 4
   tail call void @pack16(i16 noundef zeroext %3, ptr noundef %1) #6
-  %4 = getelementptr inbounds i8, ptr %0, i64 2
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %5 = load i16, ptr %4, align 2
   tail call void @pack16(i16 noundef zeroext %5, ptr noundef %1) #6
-  %6 = getelementptr inbounds i8, ptr %0, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = load i16, ptr %6, align 4
   tail call void @pack16(i16 noundef zeroext %7, ptr noundef %1) #6
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i32, ptr %8, align 4
   tail call void @pack32(i32 noundef %9, ptr noundef %1) #6
   ret void
@@ -62,19 +62,19 @@ define range(i32 -1, 1) i32 @io_hdr_unpack(ptr noundef %0, ptr noundef %1) local
   br i1 %.not, label %4, label %13
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 2
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %6 = tail call i32 @unpack16(ptr noundef nonnull %5, ptr noundef %1) #6
   %.not8 = icmp eq i32 %6, 0
   br i1 %.not8, label %7, label %13
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %9 = tail call i32 @unpack16(ptr noundef nonnull %8, ptr noundef %1) #6
   %.not9 = icmp eq i32 %9, 0
   br i1 %.not9, label %10, label %13
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = tail call i32 @unpack32(ptr noundef nonnull %11, ptr noundef %1) #6
   %.not10 = icmp eq i32 %12, 0
   br i1 %.not10, label %15, label %13
@@ -112,7 +112,7 @@ define i32 @io_hdr_read_fd(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
   br i1 %10, label %.preheader.i.preheader, label %io_hdr_unpack.exit
 
 .preheader.i.preheader:                           ; preds = %8
-  %11 = getelementptr inbounds i8, ptr %4, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %12 = load ptr, ptr %11, align 8
   br label %.preheader.i
 
@@ -161,7 +161,7 @@ define i32 @io_hdr_read_fd(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
 31:                                               ; preds = %._crit_edge.i
   %32 = sub nsw i32 %.01220.i, %.lcssa.i
   %33 = and i64 %.lcssa17.i, 2147483647
-  %34 = getelementptr inbounds i8, ptr %.021.i, i64 %33
+  %34 = getelementptr inbounds nuw i8, ptr %.021.i, i64 %33
   %35 = icmp sgt i32 %32, 0
   br i1 %35, label %.preheader.i, label %_full_read.exit, !llvm.loop !6
 
@@ -177,19 +177,19 @@ _full_read.exit:                                  ; preds = %31
   br i1 %.not.i, label %37, label %46
 
 37:                                               ; preds = %_full_read.exit
-  %38 = getelementptr inbounds i8, ptr %1, i64 2
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %39 = tail call i32 @unpack16(ptr noundef nonnull %38, ptr noundef %4) #6
   %.not8.i = icmp eq i32 %39, 0
   br i1 %.not8.i, label %40, label %46
 
 40:                                               ; preds = %37
-  %41 = getelementptr inbounds i8, ptr %1, i64 4
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %42 = tail call i32 @unpack16(ptr noundef nonnull %41, ptr noundef %4) #6
   %.not9.i = icmp eq i32 %42, 0
   br i1 %.not9.i, label %43, label %46
 
 43:                                               ; preds = %40
-  %44 = getelementptr inbounds i8, ptr %1, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %45 = tail call i32 @unpack32(ptr noundef nonnull %44, ptr noundef %4) #6
   %.not10.i = icmp eq i32 %45, 0
   br i1 %.not10.i, label %io_hdr_unpack.exit, label %46
@@ -255,7 +255,7 @@ define range(i32 -1, 1) i32 @io_init_msg_validate(ptr nocapture noundef readonly
   br i1 %14, label %15, label %18
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = load i32, ptr %16, align 8
   tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.5, i32 noundef %17) #6
   br label %18
@@ -270,7 +270,7 @@ define range(i32 -1, 1) i32 @io_init_msg_validate(ptr nocapture noundef readonly
   br label %33
 
 23:                                               ; preds = %18
-  %24 = getelementptr inbounds i8, ptr %0, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %25 = load ptr, ptr %24, align 8
   %26 = tail call i32 @xstrcmp(ptr noundef %25, ptr noundef %1) #6
   %.not = icmp eq i32 %26, 0
@@ -313,7 +313,7 @@ define range(i32 -1, 1) i32 @io_init_msg_write_to_fd(i32 noundef %0, ptr nocaptu
   br i1 %9, label %10, label %13
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load i32, ptr %11, align 8
   tail call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.9, ptr noundef nonnull @__func__.io_init_msg_write_to_fd, i32 noundef %12) #6
   br label %13
@@ -324,21 +324,21 @@ define range(i32 -1, 1) i32 @io_init_msg_write_to_fd(i32 noundef %0, ptr nocaptu
   br i1 %15, label %16, label %io_init_msg_pack.exit
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %3, i64 20
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 20
   %18 = load i32, ptr %17, align 4
   tail call void @pack32(i32 noundef 0, ptr noundef %3) #6
   %19 = load i16, ptr %1, align 8
   tail call void @pack16(i16 noundef zeroext %19, ptr noundef %3) #6
-  %20 = getelementptr inbounds i8, ptr %1, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %21 = load i32, ptr %20, align 8
   tail call void @pack32(i32 noundef %21, ptr noundef %3) #6
-  %22 = getelementptr inbounds i8, ptr %1, i64 20
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %23 = load i32, ptr %22, align 4
   tail call void @pack32(i32 noundef %23, ptr noundef %3) #6
-  %24 = getelementptr inbounds i8, ptr %1, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %25 = load i32, ptr %24, align 8
   tail call void @pack32(i32 noundef %25, ptr noundef %3) #6
-  %26 = getelementptr inbounds i8, ptr %1, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %27 = load ptr, ptr %26, align 8
   %.not.i = icmp eq ptr %27, null
   br i1 %.not.i, label %33, label %28
@@ -366,7 +366,7 @@ io_init_msg_pack.exit:                            ; preds = %13
   br i1 %36, label %.lr.ph.preheader, label %.loopexit.thread
 
 .lr.ph.preheader:                                 ; preds = %33
-  %37 = getelementptr inbounds i8, ptr %3, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %38 = load ptr, ptr %37, align 8
   br label %.lr.ph.split.us
 
@@ -410,7 +410,7 @@ io_init_msg_pack.exit:                            ; preds = %13
   %.us-phi = phi i64 [ %40, %.lr.ph.split.us ], [ %47, %46 ]
   %.us-phi38 = phi i32 [ %41, %.lr.ph.split.us ], [ %48, %46 ]
   %53 = and i64 %.us-phi, 2147483647
-  %54 = getelementptr inbounds i8, ptr %.021.ph49, i64 %53
+  %54 = getelementptr inbounds nuw i8, ptr %.021.ph49, i64 %53
   %55 = sub nsw i32 %.022.ph47, %.us-phi38
   %56 = icmp sgt i32 %55, 0
   br i1 %56, label %57, label %.loopexit
@@ -524,7 +524,7 @@ define range(i32 -1, 1) i32 @io_init_msg_read_from_fd(i32 noundef %0, ptr nounde
   %.us-phi91 = phi i64 [ %37, %.lr.ph115.preheader.preheader ], [ %37, %.lr.ph131.preheader ], [ %53, %.lr.ph115.preheader ], [ %45, %.lr.ph131 ]
   %.us-phi92 = phi i32 [ %38, %.lr.ph115.preheader.preheader ], [ %38, %.lr.ph131.preheader ], [ %54, %.lr.ph115.preheader ], [ %46, %.lr.ph131 ]
   %27 = and i64 %.us-phi91, 2147483647
-  %28 = getelementptr inbounds i8, ptr %.048.ph135, i64 %27
+  %28 = getelementptr inbounds nuw i8, ptr %.048.ph135, i64 %27
   %29 = sub nsw i32 %.049.ph133, %.us-phi92
   %30 = icmp sgt i32 %29, 0
   br i1 %30, label %31, label %.outer68._crit_edge
@@ -615,7 +615,7 @@ define range(i32 -1, 1) i32 @io_init_msg_read_from_fd(i32 noundef %0, ptr nounde
   br i1 %59, label %.lr.ph137.preheader, label %.outer._crit_edge
 
 .lr.ph137.preheader:                              ; preds = %.outer68._crit_edge
-  %60 = getelementptr inbounds i8, ptr %58, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %61 = load ptr, ptr %60, align 8
   br label %.lr.ph137
 
@@ -717,7 +717,7 @@ define range(i32 -1, 1) i32 @io_init_msg_read_from_fd(i32 noundef %0, ptr nounde
   %.us-phi144 = phi i64 [ %64, %.lr.ph169.preheader.preheader ], [ %64, %.lr.ph185.preheader ], [ %80, %.lr.ph169.preheader ], [ %72, %.lr.ph185 ]
   %.us-phi145 = phi i32 [ %65, %.lr.ph169.preheader.preheader ], [ %65, %.lr.ph185.preheader ], [ %81, %.lr.ph169.preheader ], [ %73, %.lr.ph185 ]
   %92 = and i64 %.us-phi144, 2147483647
-  %93 = getelementptr inbounds i8, ptr %.045.ph190, i64 %92
+  %93 = getelementptr inbounds nuw i8, ptr %.045.ph190, i64 %92
   %94 = sub nsw i32 %.046.ph188, %.us-phi145
   %95 = icmp sgt i32 %94, 0
   br i1 %95, label %96, label %.outer._crit_edge
@@ -746,25 +746,25 @@ define range(i32 -1, 1) i32 @io_init_msg_read_from_fd(i32 noundef %0, ptr nounde
   br i1 %103, label %104, label %116
 
 104:                                              ; preds = %101
-  %105 = getelementptr inbounds i8, ptr %1, i64 16
+  %105 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %106 = tail call i32 @unpack32(ptr noundef nonnull %105, ptr noundef %58) #6
   %.not11.i = icmp eq i32 %106, 0
   br i1 %.not11.i, label %107, label %116
 
 107:                                              ; preds = %104
-  %108 = getelementptr inbounds i8, ptr %1, i64 20
+  %108 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %109 = tail call i32 @unpack32(ptr noundef nonnull %108, ptr noundef %58) #6
   %.not12.i = icmp eq i32 %109, 0
   br i1 %.not12.i, label %110, label %116
 
 110:                                              ; preds = %107
-  %111 = getelementptr inbounds i8, ptr %1, i64 24
+  %111 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %112 = tail call i32 @unpack32(ptr noundef nonnull %111, ptr noundef %58) #6
   %.not13.i = icmp eq i32 %112, 0
   br i1 %.not13.i, label %113, label %116
 
 113:                                              ; preds = %110
-  %114 = getelementptr inbounds i8, ptr %1, i64 8
+  %114 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %115 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %114, ptr noundef nonnull %3, ptr noundef %58) #6
   %.not14.i = icmp eq i32 %115, 0
   br i1 %.not14.i, label %io_init_msg_unpack.exit.thread, label %116

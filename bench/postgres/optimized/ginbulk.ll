@@ -17,10 +17,10 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ginInitBA(ptr noundef initializes((8, 28)) %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %2, i8 0, i64 20, i1 false)
   %3 = tail call ptr @rbt_create(i64 noundef 64, ptr noundef nonnull @cmpEntryAccumulator, ptr noundef nonnull @ginCombineData, ptr noundef nonnull @ginAllocEntryAccumulator, ptr noundef null, ptr noundef %0) #9
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %3, ptr %4, align 8
   ret void
 }
@@ -30,17 +30,17 @@ declare ptr @rbt_create(i64 noundef, ptr noundef, ptr noundef, ptr noundef, ptr 
 ; Function Attrs: nounwind uwtable
 define internal i32 @cmpEntryAccumulator(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #0 {
   %4 = load ptr, ptr %2, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 42
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 42
   %6 = load i16, ptr %5, align 2
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load i8, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 42
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 42
   %12 = load i16, ptr %11, align 2
-  %13 = getelementptr inbounds i8, ptr %1, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %14 = load i64, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %16 = load i8, ptr %15, align 8
   %17 = tail call i32 @ginCompareAttEntries(ptr noundef %4, i16 noundef zeroext %6, i64 noundef %8, i8 noundef signext %10, i16 noundef zeroext %12, i64 noundef %14, i8 noundef signext %16) #9
   ret i32 %17
@@ -48,9 +48,9 @@ define internal i32 @cmpEntryAccumulator(ptr nocapture noundef readonly %0, ptr 
 
 ; Function Attrs: nounwind uwtable
 define internal void @ginCombineData(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 60
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %5 = load i32, ptr %4, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %7 = load i32, ptr %6, align 8
   %.not = icmp ult i32 %5, %7
   br i1 %.not, label %31, label %8
@@ -69,10 +69,10 @@ define internal void @ginCombineData(ptr nocapture noundef %0, ptr nocapture nou
   unreachable
 
 15:                                               ; preds = %8
-  %16 = getelementptr inbounds i8, ptr %0, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %17 = load ptr, ptr %16, align 8
   %18 = tail call i64 @GetMemoryChunkSpace(ptr noundef %17) #9
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load i64, ptr %19, align 8
   %21 = sub i64 %20, %18
   store i64 %21, ptr %19, align 8
@@ -91,11 +91,11 @@ define internal void @ginCombineData(ptr nocapture noundef %0, ptr nocapture nou
   br label %31
 
 31:                                               ; preds = %15, %3
-  %32 = getelementptr inbounds i8, ptr %0, i64 44
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %33 = load i8, ptr %32, align 4
   %34 = and i8 %33, 1
   %35 = icmp eq i8 %34, 0
-  %36 = getelementptr inbounds i8, ptr %0, i64 48
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %37 = load ptr, ptr %36, align 8
   %38 = load i32, ptr %4, align 4
   %39 = zext i32 %38 to i64
@@ -104,7 +104,7 @@ define internal void @ginCombineData(ptr nocapture noundef %0, ptr nocapture nou
 40:                                               ; preds = %31
   %41 = getelementptr %struct.ItemPointerData, ptr %37, i64 %39
   %42 = getelementptr i8, ptr %41, i64 -6
-  %43 = getelementptr inbounds i8, ptr %1, i64 48
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %44 = load ptr, ptr %43, align 8
   %.val.i = load i16, ptr %42, align 2
   %45 = getelementptr i8, ptr %41, i64 -4
@@ -139,7 +139,7 @@ define internal void @ginCombineData(ptr nocapture noundef %0, ptr nocapture nou
 
 ._crit_edge:                                      ; preds = %31, %40, %64
   %65 = getelementptr %struct.ItemPointerData, ptr %37, i64 %39
-  %66 = getelementptr inbounds i8, ptr %1, i64 48
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %67 = load ptr, ptr %66, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %65, ptr noundef nonnull align 2 dereferenceable(6) %67, i64 6, i1 false)
   %68 = load i32, ptr %4, align 4
@@ -150,13 +150,13 @@ define internal void @ginCombineData(ptr nocapture noundef %0, ptr nocapture nou
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @ginAllocEntryAccumulator(ptr nocapture noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %9, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load i32, ptr %6, align 8
   %8 = icmp ugt i32 %7, 2047
   br i1 %8, label %9, label %15
@@ -165,7 +165,7 @@ define internal ptr @ginAllocEntryAccumulator(ptr nocapture noundef %0) #0 {
   %10 = tail call ptr @palloc(i64 noundef 131072) #9
   store ptr %10, ptr %2, align 8
   %11 = tail call i64 @GetMemoryChunkSpace(ptr noundef %10) #9
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load i64, ptr %12, align 8
   %14 = add i64 %13, %11
   store i64 %14, ptr %12, align 8
@@ -175,7 +175,7 @@ define internal ptr @ginAllocEntryAccumulator(ptr nocapture noundef %0) #0 {
 15:                                               ; preds = %9, %5
   %16 = phi i32 [ 0, %9 ], [ %7, %5 ]
   %17 = phi ptr [ %.pre, %9 ], [ %3, %5 ]
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = zext nneg i32 %16 to i64
   %20 = getelementptr %struct.GinEntryAccumulator, ptr %17, i64 %19
   %21 = add nuw nsw i32 %16, 1
@@ -203,14 +203,14 @@ define dso_local void @ginInsertBAEntries(ptr nocapture noundef %0, ptr noundef 
   %20 = lshr i32 %18, 1
   %21 = or i32 %19, %20
   %22 = add nuw nsw i32 %21, 1
-  %23 = getelementptr inbounds i8, ptr %7, i64 42
-  %24 = getelementptr inbounds i8, ptr %7, i64 32
-  %25 = getelementptr inbounds i8, ptr %7, i64 40
-  %26 = getelementptr inbounds i8, ptr %7, i64 48
-  %27 = getelementptr inbounds i8, ptr %0, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %7, i64 42
+  %24 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %7, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %7, i64 48
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %28 = zext i16 %2 to i64
   %29 = add nsw i64 %28, -1
-  %30 = getelementptr inbounds i8, ptr %0, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %31 = zext nneg i32 %5 to i64
   br label %32
 
@@ -250,17 +250,17 @@ define dso_local void @ginInsertBAEntries(ptr nocapture noundef %0, ptr noundef 
 
 49:                                               ; preds = %47
   %50 = load ptr, ptr %0, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 24
   %54 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %53, i64 0, i64 %29
-  %55 = getelementptr inbounds i8, ptr %54, i64 86
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 86
   %56 = load i8, ptr %55, align 2
   %57 = trunc i8 %56 to i1
   br i1 %57, label %getDatumCopy.exit.i, label %58
 
 58:                                               ; preds = %49
-  %59 = getelementptr inbounds i8, ptr %54, i64 72
+  %59 = getelementptr inbounds nuw i8, ptr %54, i64 72
   %60 = load i16, ptr %59, align 4
   %61 = sext i16 %60 to i32
   %62 = call i64 @datumCopy(i64 noundef %40, i1 noundef zeroext false, i32 noundef %61) #9
@@ -273,19 +273,19 @@ define dso_local void @ginInsertBAEntries(ptr nocapture noundef %0, ptr noundef 
 
 getDatumCopy.exit.i:                              ; preds = %58, %49
   %.0.i.i = phi i64 [ %62, %58 ], [ %40, %49 ]
-  %67 = getelementptr inbounds i8, ptr %44, i64 32
+  %67 = getelementptr inbounds nuw i8, ptr %44, i64 32
   store i64 %.0.i.i, ptr %67, align 8
   br label %68
 
 68:                                               ; preds = %getDatumCopy.exit.i, %47
-  %69 = getelementptr inbounds i8, ptr %44, i64 56
+  %69 = getelementptr inbounds nuw i8, ptr %44, i64 56
   store i32 5, ptr %69, align 8
-  %70 = getelementptr inbounds i8, ptr %44, i64 60
+  %70 = getelementptr inbounds nuw i8, ptr %44, i64 60
   store i32 1, ptr %70, align 4
-  %71 = getelementptr inbounds i8, ptr %44, i64 44
+  %71 = getelementptr inbounds nuw i8, ptr %44, i64 44
   store i8 0, ptr %71, align 4
   %72 = call ptr @palloc(i64 noundef 30) #9
-  %73 = getelementptr inbounds i8, ptr %44, i64 48
+  %73 = getelementptr inbounds nuw i8, ptr %44, i64 48
   store ptr %72, ptr %73, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %72, ptr noundef nonnull align 2 dereferenceable(6) %1, i64 6, i1 false)
   %74 = load ptr, ptr %73, align 8
@@ -313,9 +313,9 @@ ginInsertBAEntry.exit:                            ; preds = %38, %68
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ginBeginBAScan(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @rbt_begin_iterate(ptr noundef %3, i32 noundef 0, ptr noundef nonnull %4) #9
   ret void
 }
@@ -324,27 +324,27 @@ declare void @rbt_begin_iterate(ptr noundef, i32 noundef, ptr noundef) local_unn
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @ginGetBAEntry(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = tail call ptr @rbt_iterate(ptr noundef nonnull %6) #9
   %8 = icmp eq ptr %7, null
   br i1 %8, label %26, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %7, i64 42
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 42
   %11 = load i16, ptr %10, align 2
   store i16 %11, ptr %1, align 2
-  %12 = getelementptr inbounds i8, ptr %7, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %13 = load i64, ptr %12, align 8
   store i64 %13, ptr %2, align 8
-  %14 = getelementptr inbounds i8, ptr %7, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %15 = load i8, ptr %14, align 8
   store i8 %15, ptr %3, align 1
-  %16 = getelementptr inbounds i8, ptr %7, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %7, i64 60
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 60
   %19 = load i32, ptr %18, align 4
   store i32 %19, ptr %4, align 4
-  %20 = getelementptr inbounds i8, ptr %7, i64 44
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 44
   %21 = load i8, ptr %20, align 4
   %22 = trunc i8 %21 to i1
   %23 = icmp ugt i32 %19, 1

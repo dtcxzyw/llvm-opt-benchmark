@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define zeroext i1 @nxsched_merge_pending() local_unnamed_addr #0 {
   %1 = load ptr, ptr @g_readytorun, align 8
-  %2 = getelementptr inbounds i8, ptr %1, i64 66
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 66
   %3 = load i16, ptr %2, align 2
   %4 = icmp eq i16 %3, 0
   br i1 %4, label %5, label %24
@@ -26,13 +26,13 @@ define zeroext i1 @nxsched_merge_pending() local_unnamed_addr #0 {
   %.02840 = phi ptr [ %7, %22 ], [ %6, %5 ]
   %.02939 = phi ptr [ %.02840, %22 ], [ %1, %5 ]
   %7 = load ptr, ptr %.02840, align 16
-  %8 = getelementptr inbounds i8, ptr %.02840, i64 28
+  %8 = getelementptr inbounds nuw i8, ptr %.02840, i64 28
   %9 = load i8, ptr %8, align 4
   br label %10
 
 10:                                               ; preds = %.lr.ph, %13
   %.13035 = phi ptr [ %.02939, %.lr.ph ], [ %14, %13 ]
-  %11 = getelementptr inbounds i8, ptr %.13035, i64 28
+  %11 = getelementptr inbounds nuw i8, ptr %.13035, i64 28
   %12 = load i8, ptr %11, align 4
   %.not33 = icmp ugt i8 %9, %12
   br i1 %.not33, label %.critedge, label %13
@@ -44,17 +44,17 @@ define zeroext i1 @nxsched_merge_pending() local_unnamed_addr #0 {
 
 .critedge:                                        ; preds = %10, %13
   %.130.lcssa.ph = phi ptr [ %.13035, %10 ], [ null, %13 ]
-  %15 = getelementptr inbounds i8, ptr %.130.lcssa.ph, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %.130.lcssa.ph, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
   store ptr %.130.lcssa.ph, ptr %.02840, align 16
-  %18 = getelementptr inbounds i8, ptr %.02840, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %.02840, i64 8
   br i1 %17, label %19, label %21
 
 19:                                               ; preds = %.critedge
   store ptr null, ptr %18, align 8
   store ptr %.02840, ptr @g_readytorun, align 8
-  %20 = getelementptr inbounds i8, ptr %.130.lcssa.ph, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %.130.lcssa.ph, i64 48
   store i8 2, ptr %20, align 16
   br label %22
 
@@ -67,7 +67,7 @@ define zeroext i1 @nxsched_merge_pending() local_unnamed_addr #0 {
   %.sink = phi i8 [ 3, %19 ], [ 2, %21 ]
   %.2 = phi i1 [ true, %19 ], [ %.141, %21 ]
   store ptr %.02840, ptr %15, align 8
-  %23 = getelementptr inbounds i8, ptr %.02840, i64 48
+  %23 = getelementptr inbounds nuw i8, ptr %.02840, i64 48
   store i8 %.sink, ptr %23, align 16
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8

@@ -68,7 +68,7 @@ for.cond.preheader:                               ; preds = %if.end9
   br i1 %cmp1516, label %if.then17, label %if.end32.lr.ph
 
 if.end32.lr.ph:                                   ; preds = %for.cond.preheader
-  %store_ctx = getelementptr inbounds i8, ptr %ctx, i64 24
+  %store_ctx = getelementptr inbounds nuw i8, ptr %ctx, i64 24
   br label %if.end32
 
 if.then17:                                        ; preds = %if.end41, %for.cond.preheader
@@ -146,7 +146,7 @@ if.then49:                                        ; preds = %if.then45
   br label %err
 
 if.end50:                                         ; preds = %if.then45
-  %store_ctx51 = getelementptr inbounds i8, ptr %ctx, i64 24
+  %store_ctx51 = getelementptr inbounds nuw i8, ptr %ctx, i64 24
   %4 = load ptr, ptr %store_ctx51, align 8
   %5 = load ptr, ptr %x, align 8
   %call52 = call i32 @X509_STORE_add_cert(ptr noundef %4, ptr noundef %5) #3
@@ -237,7 +237,7 @@ for.cond.preheader:                               ; preds = %if.end
   br i1 %cmp917, label %if.then11, label %if.end24.lr.ph
 
 if.end24.lr.ph:                                   ; preds = %for.cond.preheader
-  %store_ctx = getelementptr inbounds i8, ptr %ctx, i64 24
+  %store_ctx = getelementptr inbounds nuw i8, ptr %ctx, i64 24
   br label %if.end24
 
 if.then11:                                        ; preds = %if.end27, %for.cond.preheader
@@ -298,7 +298,7 @@ if.then35:                                        ; preds = %if.then31
   br label %err
 
 if.end36:                                         ; preds = %if.then31
-  %store_ctx37 = getelementptr inbounds i8, ptr %ctx, i64 24
+  %store_ctx37 = getelementptr inbounds nuw i8, ptr %ctx, i64 24
   %2 = load ptr, ptr %store_ctx37, align 8
   %call38 = tail call i32 @X509_STORE_add_crl(ptr noundef %2, ptr noundef nonnull %call32) #3
   br label %err
@@ -360,7 +360,7 @@ for.cond.preheader:                               ; preds = %if.end4
   br i1 %cmp1223, label %for.body.lr.ph, label %if.then34
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %store_ctx = getelementptr inbounds i8, ptr %ctx, i64 24
+  %store_ctx = getelementptr inbounds nuw i8, ptr %ctx, i64 24
   br label %for.body
 
 if.then8:                                         ; preds = %if.end4
@@ -389,7 +389,7 @@ if.end20:                                         ; preds = %if.then15
 
 if.end21:                                         ; preds = %if.end20, %for.body
   %count.1 = phi i32 [ %inc, %if.end20 ], [ %count.025, %for.body ]
-  %crl = getelementptr inbounds i8, ptr %call14, i64 8
+  %crl = getelementptr inbounds nuw i8, ptr %call14, i64 8
   %2 = load ptr, ptr %crl, align 8
   %tobool22.not = icmp eq ptr %2, null
   br i1 %tobool22.not, label %for.inc, label %if.then23

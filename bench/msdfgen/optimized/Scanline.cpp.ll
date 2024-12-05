@@ -45,7 +45,7 @@ return:                                           ; preds = %entry, %sw.bb4, %sw
 define dso_local noundef double @_ZN7msdfgen8Scanline7overlapERKS0_S2_ddNS_8FillRuleE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %a, ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %b, double noundef %xFrom, double noundef %xTo, i32 noundef %fillRule) local_unnamed_addr #1 align 2 {
 entry:
   %0 = load ptr, ptr %a, align 8
-  %_M_finish.i.i = getelementptr inbounds i8, ptr %a, i64 8
+  %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %a, i64 8
   %1 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.i = icmp eq ptr %0, %1
   br i1 %cmp.i.i, label %cond.end, label %cond.true
@@ -57,7 +57,7 @@ cond.true:                                        ; preds = %entry
 cond.end:                                         ; preds = %entry, %cond.true
   %cond = phi double [ %2, %cond.true ], [ %xTo, %entry ]
   %3 = load ptr, ptr %b, align 8
-  %_M_finish.i.i67 = getelementptr inbounds i8, ptr %b, i64 8
+  %_M_finish.i.i67 = getelementptr inbounds nuw i8, ptr %b, i64 8
   %4 = load ptr, ptr %_M_finish.i.i67, align 8
   %cmp.i.i68 = icmp eq ptr %3, %4
   br i1 %cmp.i.i68, label %cond.end11, label %cond.true5
@@ -371,10 +371,10 @@ entry:
 ; Function Attrs: mustprogress nofree uwtable
 define dso_local void @_ZN7msdfgen8Scanline10preprocessEv(ptr nocapture noundef nonnull align 8 dereferenceable(28) initializes((24, 28)) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %lastIndex = getelementptr inbounds i8, ptr %this, i64 24
+  %lastIndex = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i32 0, ptr %lastIndex, align 8
   %0 = load ptr, ptr %this, align 8
-  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.i = icmp eq ptr %0, %1
   br i1 %cmp.i.i, label %if.end, label %if.then
@@ -393,11 +393,11 @@ if.then:                                          ; preds = %entry
 for.body:                                         ; preds = %if.then, %for.body
   %totalDirection.08 = phi i32 [ %add, %for.body ], [ 0, %if.then ]
   %intersection.sroa.0.07 = phi ptr [ %incdec.ptr.i, %for.body ], [ %2, %if.then ]
-  %direction = getelementptr inbounds i8, ptr %intersection.sroa.0.07, i64 8
+  %direction = getelementptr inbounds nuw i8, ptr %intersection.sroa.0.07, i64 8
   %4 = load i32, ptr %direction, align 8
   %add = add nsw i32 %4, %totalDirection.08
   store i32 %add, ptr %direction, align 8
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %intersection.sroa.0.07, i64 16
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %intersection.sroa.0.07, i64 16
   %5 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %5
   br i1 %cmp.i.not, label %if.end, label %for.body, !llvm.loop !8
@@ -427,10 +427,10 @@ entry:
 define dso_local void @_ZN7msdfgen8Scanline16setIntersectionsERKSt6vectorINS0_12IntersectionESaIS2_EE(ptr noundef nonnull align 8 dereferenceable(28) %this, ptr noundef nonnull align 8 dereferenceable(24) %intersections) local_unnamed_addr #6 align 2 {
 entry:
   %call = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN7msdfgen8Scanline12IntersectionESaIS2_EEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %intersections)
-  %lastIndex.i = getelementptr inbounds i8, ptr %this, i64 24
+  %lastIndex.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i32 0, ptr %lastIndex.i, align 8
   %0 = load ptr, ptr %this, align 8
-  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish.i.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.i.i.i, label %_ZN7msdfgen8Scanline10preprocessEv.exit, label %if.then.i
@@ -449,11 +449,11 @@ if.then.i:                                        ; preds = %entry
 for.body.i:                                       ; preds = %if.then.i, %for.body.i
   %totalDirection.08.i = phi i32 [ %add.i, %for.body.i ], [ 0, %if.then.i ]
   %intersection.sroa.0.07.i = phi ptr [ %incdec.ptr.i.i, %for.body.i ], [ %2, %if.then.i ]
-  %direction.i = getelementptr inbounds i8, ptr %intersection.sroa.0.07.i, i64 8
+  %direction.i = getelementptr inbounds nuw i8, ptr %intersection.sroa.0.07.i, i64 8
   %4 = load i32, ptr %direction.i, align 8
   %add.i = add nsw i32 %4, %totalDirection.08.i
   store i32 %add.i, ptr %direction.i, align 8
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %intersection.sroa.0.07.i, i64 16
+  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %intersection.sroa.0.07.i, i64 16
   %5 = load ptr, ptr %_M_finish.i.i.i, align 8
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %5
   br i1 %cmp.i.not.i, label %_ZN7msdfgen8Scanline10preprocessEv.exit, label %for.body.i, !llvm.loop !8
@@ -469,13 +469,13 @@ entry:
   br i1 %cmp.not, label %if.end75, label %if.then
 
 if.then:                                          ; preds = %entry
-  %_M_finish.i = getelementptr inbounds i8, ptr %__x, i64 8
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %__x, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %__x, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_end_of_storage.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8
   %3 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i14 = ptrtoint ptr %2 to i64
@@ -511,12 +511,12 @@ if.then.i:                                        ; preds = %_ZNSt6vectorIN7msdf
 
 _ZNSt12_Vector_baseIN7msdfgen8Scanline12IntersectionESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN7msdfgen8Scanline12IntersectionESaIS2_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS2_S4_EEEEPS2_mT_SC_.exit, %if.then.i
   store ptr %call5.i.i.i.i, ptr %this, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 %sub.ptr.sub.i
+  %add.ptr = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i, i64 %sub.ptr.sub.i
   store ptr %add.ptr, ptr %_M_end_of_storage.i, align 8
   br label %if.end69
 
 if.else:                                          ; preds = %if.then
-  %_M_finish.i19 = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_finish.i19 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %4 = load ptr, ptr %_M_finish.i19, align 8
   %sub.ptr.lhs.cast.i20 = ptrtoint ptr %4 to i64
   %sub.ptr.sub.i22 = sub i64 %sub.ptr.lhs.cast.i20, %sub.ptr.rhs.cast.i15
@@ -565,7 +565,7 @@ if.then.i.i.i.i.i.i.i.i:                          ; preds = %_ZSt4copyIPN7msdfge
 if.end69:                                         ; preds = %if.then.i.i.i.i.i.i.i.i, %_ZSt4copyIPN7msdfgen8Scanline12IntersectionES3_ET0_T_S5_S4_.exit, %if.then.i.i.i.i.i, %if.then27, %_ZNSt12_Vector_baseIN7msdfgen8Scanline12IntersectionESaIS2_EE13_M_deallocateEPS2_m.exit
   %8 = load ptr, ptr %this, align 8
   %add.ptr72 = getelementptr inbounds i8, ptr %8, i64 %sub.ptr.sub.i
-  %_M_finish74 = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_finish74 = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %add.ptr72, ptr %_M_finish74, align 8
   br label %if.end75
 
@@ -577,14 +577,14 @@ if.end75:                                         ; preds = %if.end69, %entry
 define dso_local void @_ZN7msdfgen8Scanline16setIntersectionsEOSt6vectorINS0_12IntersectionESaIS2_EE(ptr nocapture noundef nonnull align 8 dereferenceable(28) initializes((8, 28)) %this, ptr nocapture noundef nonnull align 8 dereferenceable(24) %intersections) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_finish.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %_M_end_of_storage.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %intersections, align 8
   store ptr %1, ptr %this, align 8
-  %_M_finish.i2.i.i.i = getelementptr inbounds i8, ptr %intersections, i64 8
+  %_M_finish.i2.i.i.i = getelementptr inbounds nuw i8, ptr %intersections, i64 8
   %2 = load ptr, ptr %_M_finish.i2.i.i.i, align 8
   store ptr %2, ptr %_M_finish.i.i.i.i, align 8
-  %_M_end_of_storage.i4.i.i.i = getelementptr inbounds i8, ptr %intersections, i64 16
+  %_M_end_of_storage.i4.i.i.i = getelementptr inbounds nuw i8, ptr %intersections, i64 16
   %3 = load ptr, ptr %_M_end_of_storage.i4.i.i.i, align 8
   store ptr %3, ptr %_M_end_of_storage.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %0, null
@@ -596,7 +596,7 @@ if.then.i.i.i.i.i:                                ; preds = %entry
   br label %_ZNSt6vectorIN7msdfgen8Scanline12IntersectionESaIS2_EEaSEOS4_.exit
 
 _ZNSt6vectorIN7msdfgen8Scanline12IntersectionESaIS2_EEaSEOS4_.exit: ; preds = %entry, %if.then.i.i.i.i.i
-  %lastIndex.i = getelementptr inbounds i8, ptr %this, i64 24
+  %lastIndex.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i32 0, ptr %lastIndex.i, align 8
   %4 = load ptr, ptr %this, align 8
   %5 = load ptr, ptr %_M_finish.i.i.i.i, align 8
@@ -617,11 +617,11 @@ if.then.i:                                        ; preds = %_ZNSt6vectorIN7msdf
 for.body.i:                                       ; preds = %if.then.i, %for.body.i
   %totalDirection.08.i = phi i32 [ %add.i, %for.body.i ], [ 0, %if.then.i ]
   %intersection.sroa.0.07.i = phi ptr [ %incdec.ptr.i.i, %for.body.i ], [ %6, %if.then.i ]
-  %direction.i = getelementptr inbounds i8, ptr %intersection.sroa.0.07.i, i64 8
+  %direction.i = getelementptr inbounds nuw i8, ptr %intersection.sroa.0.07.i, i64 8
   %8 = load i32, ptr %direction.i, align 8
   %add.i = add nsw i32 %8, %totalDirection.08.i
   store i32 %add.i, ptr %direction.i, align 8
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %intersection.sroa.0.07.i, i64 16
+  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %intersection.sroa.0.07.i, i64 16
   %9 = load ptr, ptr %_M_finish.i.i.i.i, align 8
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %9
   br i1 %cmp.i.not.i, label %_ZN7msdfgen8Scanline10preprocessEv.exit, label %for.body.i, !llvm.loop !8
@@ -634,13 +634,13 @@ _ZN7msdfgen8Scanline10preprocessEv.exit:          ; preds = %for.body.i, %_ZNSt6
 define dso_local noundef i32 @_ZNK7msdfgen8Scanline6moveToEd(ptr nocapture noundef nonnull align 8 dereferenceable(28) %this, double noundef %x) local_unnamed_addr #7 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.i = icmp eq ptr %0, %1
   br i1 %cmp.i.i, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %lastIndex = getelementptr inbounds i8, ptr %this, i64 24
+  %lastIndex = getelementptr inbounds nuw i8, ptr %this, i64 24
   %2 = load i32, ptr %lastIndex, align 8
   %conv = sext i32 %2 to i64
   %add.ptr.i = getelementptr inbounds %"struct.msdfgen::Scanline::Intersection", ptr %0, i64 %conv
@@ -706,13 +706,13 @@ return:                                           ; preds = %return.sink.split, 
 define dso_local noundef range(i32 -2147483647, -2147483648) i32 @_ZNK7msdfgen8Scanline18countIntersectionsEd(ptr nocapture noundef nonnull align 8 dereferenceable(28) %this, double noundef %x) local_unnamed_addr #7 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish.i.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.i.i.i, label %_ZNK7msdfgen8Scanline6moveToEd.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %lastIndex.i = getelementptr inbounds i8, ptr %this, i64 24
+  %lastIndex.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %2 = load i32, ptr %lastIndex.i, align 8
   %conv.i = sext i32 %2 to i64
   %add.ptr.i.i = getelementptr inbounds %"struct.msdfgen::Scanline::Intersection", ptr %0, i64 %conv.i
@@ -779,13 +779,13 @@ _ZNK7msdfgen8Scanline6moveToEd.exit:              ; preds = %entry, %return.sink
 define dso_local noundef i32 @_ZNK7msdfgen8Scanline16sumIntersectionsEd(ptr nocapture noundef nonnull align 8 dereferenceable(28) %this, double noundef %x) local_unnamed_addr #7 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish.i.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.i.i.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %lastIndex.i = getelementptr inbounds i8, ptr %this, i64 24
+  %lastIndex.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %2 = load i32, ptr %lastIndex.i, align 8
   %conv.i = sext i32 %2 to i64
   %add.ptr.i.i = getelementptr inbounds %"struct.msdfgen::Scanline::Intersection", ptr %0, i64 %conv.i
@@ -848,7 +848,7 @@ _ZNK7msdfgen8Scanline6moveToEd.exit:              ; preds = %while.cond.i, %if.e
 
 if.then:                                          ; preds = %_ZNK7msdfgen8Scanline6moveToEd.exit
   %conv = zext nneg i32 %index.1.sink.i to i64
-  %direction = getelementptr inbounds %"struct.msdfgen::Scanline::Intersection", ptr %0, i64 %conv, i32 1
+  %direction = getelementptr inbounds nuw %"struct.msdfgen::Scanline::Intersection", ptr %0, i64 %conv, i32 1
   %9 = load i32, ptr %direction, align 8
   br label %return
 
@@ -861,13 +861,13 @@ return:                                           ; preds = %entry, %_ZNK7msdfge
 define dso_local noundef zeroext i1 @_ZNK7msdfgen8Scanline6filledEdNS_8FillRuleE(ptr nocapture noundef nonnull align 8 dereferenceable(28) %this, double noundef %x, i32 noundef %fillRule) local_unnamed_addr #7 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_finish.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish.i.i.i.i, align 8
   %cmp.i.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.i.i.i.i, label %_ZNK7msdfgen8Scanline16sumIntersectionsEd.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %entry
-  %lastIndex.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %lastIndex.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %2 = load i32, ptr %lastIndex.i.i, align 8
   %conv.i.i = sext i32 %2 to i64
   %add.ptr.i.i.i = getelementptr inbounds %"struct.msdfgen::Scanline::Intersection", ptr %0, i64 %conv.i.i
@@ -930,7 +930,7 @@ _ZNK7msdfgen8Scanline6moveToEd.exit.i:            ; preds = %while.cond.i.i, %if
 
 if.then.i:                                        ; preds = %_ZNK7msdfgen8Scanline6moveToEd.exit.i
   %conv.i = zext nneg i32 %index.1.sink.i.i to i64
-  %direction.i = getelementptr inbounds %"struct.msdfgen::Scanline::Intersection", ptr %0, i64 %conv.i, i32 1
+  %direction.i = getelementptr inbounds nuw %"struct.msdfgen::Scanline::Intersection", ptr %0, i64 %conv.i, i32 1
   %9 = load i32, ptr %direction.i, align 8
   br label %_ZNK7msdfgen8Scanline16sumIntersectionsEd.exit
 

@@ -237,7 +237,7 @@ declare zeroext i1 @uat_fld_chk_str(ptr noundef, ptr noundef, i32 noundef, ptr n
 define internal void @oscore_context_uat_sender_id_prefs_set_cb(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #9
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8
   tail call void @g_free(ptr noundef %9) #9
   store ptr %7, ptr %8, align 8
@@ -246,7 +246,7 @@ define internal void @oscore_context_uat_sender_id_prefs_set_cb(ptr nocapture no
 
 ; Function Attrs: nounwind uwtable
 define internal void @oscore_context_uat_sender_id_prefs_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %13, label %8
@@ -274,7 +274,7 @@ define internal void @oscore_context_uat_sender_id_prefs_tostr_cb(ptr nocapture 
 define internal void @oscore_context_uat_recipient_id_prefs_set_cb(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #9
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
   tail call void @g_free(ptr noundef %9) #9
   store ptr %7, ptr %8, align 8
@@ -283,7 +283,7 @@ define internal void @oscore_context_uat_recipient_id_prefs_set_cb(ptr nocapture
 
 ; Function Attrs: nounwind uwtable
 define internal void @oscore_context_uat_recipient_id_prefs_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %13, label %8
@@ -346,7 +346,7 @@ define internal void @oscore_context_uat_master_secret_prefs_tostr_cb(ptr nocapt
 define internal void @oscore_context_uat_master_salt_prefs_set_cb(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #9
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void @g_free(ptr noundef %9) #9
   store ptr %7, ptr %8, align 8
@@ -355,7 +355,7 @@ define internal void @oscore_context_uat_master_salt_prefs_set_cb(ptr nocapture 
 
 ; Function Attrs: nounwind uwtable
 define internal void @oscore_context_uat_master_salt_prefs_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %13, label %8
@@ -383,7 +383,7 @@ define internal void @oscore_context_uat_master_salt_prefs_tostr_cb(ptr nocaptur
 define internal void @oscore_context_uat_id_context_prefs_set_cb(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #9
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
   tail call void @g_free(ptr noundef %9) #9
   store ptr %7, ptr %8, align 8
@@ -392,7 +392,7 @@ define internal void @oscore_context_uat_id_context_prefs_set_cb(ptr nocapture n
 
 ; Function Attrs: nounwind uwtable
 define internal void @oscore_context_uat_id_context_prefs_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %13, label %8
@@ -422,9 +422,9 @@ declare zeroext i1 @uat_fld_chk_enum(ptr noundef, ptr noundef, i32 noundef, ptr 
 define internal void @oscore_context_uat_algorithm_set_cb(ptr nocapture noundef writeonly initializes((40, 44)) %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #9
-  %8 = getelementptr inbounds i8, ptr %0, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 10, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %10 = load ptr, ptr %9, align 8
   %.not15 = icmp eq ptr %10, null
   br i1 %.not15, label %._crit_edge, label %.lr.ph.preheader
@@ -439,7 +439,7 @@ define internal void @oscore_context_uat_algorithm_set_cb(ptr nocapture noundef 
   %12 = add i32 %.01621, 1
   %13 = zext i32 %12 to i64
   %14 = getelementptr %struct._value_string, ptr %3, i64 %13
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
@@ -462,13 +462,13 @@ define internal void @oscore_context_uat_algorithm_set_cb(ptr nocapture noundef 
 
 ; Function Attrs: nounwind uwtable
 define internal void @oscore_context_uat_algorithm_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not14 = icmp eq ptr %7, null
   br i1 %.not14, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %0, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = load i32, ptr %8, align 8
   %10 = load i32, ptr %3, align 8
   %11 = icmp eq i32 %10, %9
@@ -479,7 +479,7 @@ define internal void @oscore_context_uat_algorithm_tostr_cb(ptr nocapture nounde
   %12 = add i32 %.01519, 1
   %13 = zext i32 %12 to i64
   %14 = getelementptr %struct._value_string, ptr %3, i64 %13
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %._crit_edge, label %17, !llvm.loop !6
@@ -527,31 +527,31 @@ define internal noundef ptr @oscore_context_copy_cb(ptr noundef returned writeon
   %4 = load ptr, ptr %1, align 8
   %5 = tail call noalias ptr @g_strdup(ptr noundef %4) #9
   store ptr %5, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noalias ptr @g_strdup(ptr noundef %7) #9
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %8, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %11 = load ptr, ptr %10, align 8
   %12 = tail call noalias ptr @g_strdup(ptr noundef %11) #9
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %12, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %15 = load ptr, ptr %14, align 8
   %16 = tail call noalias ptr @g_strdup(ptr noundef %15) #9
-  %17 = getelementptr inbounds i8, ptr %0, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %16, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %1, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %19 = load ptr, ptr %18, align 8
   %20 = tail call noalias ptr @g_strdup(ptr noundef %19) #9
-  %21 = getelementptr inbounds i8, ptr %0, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %20, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %23 = load i32, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 %23, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 48
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %25, i8 0, i64 64, i1 false)
   ret ptr %0
 }
@@ -559,7 +559,7 @@ define internal noundef ptr @oscore_context_copy_cb(ptr noundef returned writeon
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i1 @oscore_context_update_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
   %3 = tail call ptr @g_byte_array_new() #9
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 @hex_str_to_bytes(ptr noundef %5, ptr noundef %3, i32 noundef 0) #9
   %7 = icmp eq i32 %6, 0
@@ -570,7 +570,7 @@ define internal noundef zeroext i1 @oscore_context_update_cb(ptr nocapture nound
   br label %.sink.split
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %3, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %12 = load i32, ptr %11, align 8
   %13 = icmp ugt i32 %12, 7
   br i1 %13, label %14, label %16
@@ -580,7 +580,7 @@ define internal noundef zeroext i1 @oscore_context_update_cb(ptr nocapture nound
   br label %.sink.split
 
 16:                                               ; preds = %10
-  %17 = getelementptr inbounds i8, ptr %0, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %18 = load ptr, ptr %17, align 8
   %19 = tail call i32 @hex_str_to_bytes(ptr noundef %18, ptr noundef nonnull %3, i32 noundef 0) #9
   %20 = icmp eq i32 %19, 0
@@ -600,7 +600,7 @@ define internal noundef zeroext i1 @oscore_context_update_cb(ptr nocapture nound
   br label %.sink.split
 
 28:                                               ; preds = %23
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
   %31 = tail call i32 @hex_str_to_bytes(ptr noundef %30, ptr noundef nonnull %3, i32 noundef 0) #9
   %32 = icmp eq i32 %31, 0
@@ -639,7 +639,7 @@ define internal noundef zeroext i1 @oscore_context_update_cb(ptr nocapture nound
   br label %.sink.split
 
 51:                                               ; preds = %46
-  %52 = getelementptr inbounds i8, ptr %0, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %53 = load ptr, ptr %52, align 8
   %54 = tail call i32 @hex_str_to_bytes(ptr noundef %53, ptr noundef nonnull %3, i32 noundef 0) #9
   %55 = icmp eq i32 %54, 0
@@ -664,16 +664,16 @@ define internal noundef zeroext i1 @oscore_context_update_cb(ptr nocapture nound
 define internal void @oscore_context_free_cb(ptr nocapture noundef readonly %0) #0 {
   %2 = load ptr, ptr %0, align 8
   tail call void @g_free(ptr noundef %2) #9
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call void @g_free(ptr noundef %4) #9
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call void @g_free(ptr noundef %6) #9
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8
   tail call void @g_free(ptr noundef %8) #9
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load ptr, ptr %9, align 8
   tail call void @g_free(ptr noundef %10) #9
   tail call fastcc void @oscore_context_free_byte_arrays(ptr noundef nonnull %0)
@@ -689,9 +689,9 @@ define internal void @oscore_context_post_update_cb() #0 {
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %0
-  %4 = getelementptr inbounds i8, ptr %2, i64 1
-  %5 = getelementptr inbounds i8, ptr %2, i64 2
-  %6 = getelementptr inbounds i8, ptr %2, i64 3
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 1
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 2
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 3
   br label %7
 
 7:                                                ; preds = %.lr.ph, %oscore_context_derive_params.exit
@@ -721,36 +721,36 @@ define internal void @oscore_context_post_update_cb() #0 {
   store ptr %22, ptr %24, align 8
   %25 = load ptr, ptr @oscore_contexts, align 8
   %26 = getelementptr %struct.oscore_context, ptr %25, i64 %indvars.iv
-  %27 = getelementptr inbounds i8, ptr %26, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %26, i64 72
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 72
   %30 = load ptr, ptr %29, align 8
   %31 = call i32 @hex_str_to_bytes(ptr noundef %28, ptr noundef %30, i32 noundef 0) #9
   %32 = load ptr, ptr @oscore_contexts, align 8
   %33 = getelementptr %struct.oscore_context, ptr %32, i64 %indvars.iv
-  %34 = getelementptr inbounds i8, ptr %33, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 32
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %33, i64 80
+  %36 = getelementptr inbounds nuw i8, ptr %33, i64 80
   %37 = load ptr, ptr %36, align 8
   %38 = call i32 @hex_str_to_bytes(ptr noundef %35, ptr noundef %37, i32 noundef 0) #9
   %39 = load ptr, ptr @oscore_contexts, align 8
   %40 = getelementptr %struct.oscore_context, ptr %39, i64 %indvars.iv
-  %41 = getelementptr inbounds i8, ptr %40, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %40, i64 64
+  %43 = getelementptr inbounds nuw i8, ptr %40, i64 64
   %44 = load ptr, ptr %43, align 8
   %45 = call i32 @hex_str_to_bytes(ptr noundef %42, ptr noundef %44, i32 noundef 0) #9
   %46 = load ptr, ptr @oscore_contexts, align 8
   %47 = getelementptr %struct.oscore_context, ptr %46, i64 %indvars.iv
   %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %47, i64 48
+  %49 = getelementptr inbounds nuw i8, ptr %47, i64 48
   %50 = load ptr, ptr %49, align 8
   %51 = call i32 @hex_str_to_bytes(ptr noundef %48, ptr noundef %50, i32 noundef 0) #9
   %52 = load ptr, ptr @oscore_contexts, align 8
   %53 = getelementptr %struct.oscore_context, ptr %52, i64 %indvars.iv
-  %54 = getelementptr inbounds i8, ptr %53, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %53, i64 56
+  %56 = getelementptr inbounds nuw i8, ptr %53, i64 56
   %57 = load ptr, ptr %56, align 8
   %58 = call i32 @hex_str_to_bytes(ptr noundef %55, ptr noundef %57, i32 noundef 0) #9
   %59 = load ptr, ptr @oscore_contexts, align 8
@@ -775,30 +775,30 @@ define internal void @oscore_context_post_update_cb() #0 {
   %72 = getelementptr %struct.oscore_context, ptr %71, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %1)
   call void @llvm.lifetime.start.p0(i64 85, ptr nonnull %2)
-  %73 = getelementptr inbounds i8, ptr %72, i64 40
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 40
   %74 = load i32, ptr %73, align 8
   %cond.i.i = icmp eq i32 %74, 10
   %..i.i = select i1 %cond.i.i, i32 16, i32 0
   %..i108.i = select i1 %cond.i.i, i32 13, i32 0
   %75 = call ptr @g_byte_array_new() #9
-  %76 = getelementptr inbounds i8, ptr %72, i64 56
+  %76 = getelementptr inbounds nuw i8, ptr %72, i64 56
   %77 = load ptr, ptr %76, align 8
   %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %77, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %77, i64 8
   %80 = load i32, ptr %79, align 8
   %81 = zext i32 %80 to i64
-  %82 = getelementptr inbounds i8, ptr %72, i64 48
+  %82 = getelementptr inbounds nuw i8, ptr %72, i64 48
   %83 = load ptr, ptr %82, align 8
   %84 = load ptr, ptr %83, align 8
-  %85 = getelementptr inbounds i8, ptr %83, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %83, i64 8
   %86 = load i32, ptr %85, align 8
   %87 = zext i32 %86 to i64
   %88 = call i32 @ws_hmac_buffer(i32 noundef 8, ptr noundef nonnull %1, ptr noundef %84, i64 noundef range(i64 0, 4294967296) %87, ptr noundef %78, i64 noundef range(i64 0, 4294967296) %81) #9
   store i8 -123, ptr %2, align 16
-  %89 = getelementptr inbounds i8, ptr %72, i64 72
+  %89 = getelementptr inbounds nuw i8, ptr %72, i64 72
   %90 = load ptr, ptr %89, align 8
   %91 = load ptr, ptr %90, align 8
-  %92 = getelementptr inbounds i8, ptr %90, i64 8
+  %92 = getelementptr inbounds nuw i8, ptr %90, i64 8
   %93 = load i32, ptr %92, align 8
   %94 = trunc i32 %93 to i8
   %95 = icmp ugt i8 %94, 23
@@ -834,9 +834,9 @@ cborencoder_put_bytes.exit.i:                     ; preds = %102, %99
   %.1.i.i = phi i8 [ %106, %102 ], [ %.0.i.i, %99 ]
   %107 = zext i8 %.1.i.i to i32
   %108 = add nuw nsw i32 %107, 1
-  %109 = getelementptr inbounds i8, ptr %72, i64 64
+  %109 = getelementptr inbounds nuw i8, ptr %72, i64 64
   %110 = load ptr, ptr %109, align 8
-  %111 = getelementptr inbounds i8, ptr %110, i64 8
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 8
   %112 = load i32, ptr %111, align 8
   %.not.i = icmp eq i32 %112, 0
   %113 = zext nneg i32 %108 to i64
@@ -926,21 +926,21 @@ cborencoder_put_unsigned.exit.i:                  ; preds = %141, %135
 153:                                              ; preds = %cborencoder_put_unsigned.exit.i
   %154 = add nuw nsw i32 %143, 5
   %155 = call ptr @g_byte_array_append(ptr noundef %75, ptr noundef nonnull %2, i32 noundef %154) #9
-  %156 = getelementptr inbounds i8, ptr %72, i64 88
+  %156 = getelementptr inbounds nuw i8, ptr %72, i64 88
   %157 = load ptr, ptr %156, align 8
   %158 = call ptr @g_byte_array_set_size(ptr noundef %157, i32 noundef %..i.i) #9
   %159 = load ptr, ptr %75, align 8
-  %160 = getelementptr inbounds i8, ptr %75, i64 8
+  %160 = getelementptr inbounds nuw i8, ptr %75, i64 8
   %161 = load i32, ptr %160, align 8
   %162 = load ptr, ptr %156, align 8
   %163 = load ptr, ptr %162, align 8
   %164 = call i32 @hkdf_expand(i32 noundef 8, ptr noundef nonnull %1, i32 noundef 32, ptr noundef %159, i32 noundef %161, ptr noundef %163, i32 noundef %..i.i) #9
   %165 = call ptr @g_byte_array_set_size(ptr noundef nonnull %75, i32 noundef 0) #9
   store i8 -123, ptr %2, align 16
-  %166 = getelementptr inbounds i8, ptr %72, i64 80
+  %166 = getelementptr inbounds nuw i8, ptr %72, i64 80
   %167 = load ptr, ptr %166, align 8
   %168 = load ptr, ptr %167, align 8
-  %169 = getelementptr inbounds i8, ptr %167, i64 8
+  %169 = getelementptr inbounds nuw i8, ptr %167, i64 8
   %170 = load i32, ptr %169, align 8
   %171 = trunc i32 %170 to i8
   %172 = icmp ugt i8 %171, 23
@@ -977,7 +977,7 @@ cborencoder_put_bytes.exit124.i:                  ; preds = %179, %176
   %184 = zext i8 %.1.i123.i to i32
   %185 = add nuw nsw i32 %184, 1
   %186 = load ptr, ptr %109, align 8
-  %187 = getelementptr inbounds i8, ptr %186, i64 8
+  %187 = getelementptr inbounds nuw i8, ptr %186, i64 8
   %188 = load i32, ptr %187, align 8
   %.not105.i = icmp eq i32 %188, 0
   %189 = zext nneg i32 %185 to i64
@@ -1066,7 +1066,7 @@ cborencoder_put_unsigned.exit136.i:               ; preds = %217, %211
 228:                                              ; preds = %cborencoder_put_unsigned.exit136.i
   %229 = add nuw nsw i32 %219, 5
   %230 = call ptr @g_byte_array_append(ptr noundef nonnull %75, ptr noundef nonnull %2, i32 noundef %229) #9
-  %231 = getelementptr inbounds i8, ptr %72, i64 96
+  %231 = getelementptr inbounds nuw i8, ptr %72, i64 96
   %232 = load ptr, ptr %231, align 8
   %233 = call ptr @g_byte_array_set_size(ptr noundef %232, i32 noundef %..i.i) #9
   %234 = load ptr, ptr %75, align 8
@@ -1078,7 +1078,7 @@ cborencoder_put_unsigned.exit136.i:               ; preds = %217, %211
   store i8 -123, ptr %2, align 16
   store i8 64, ptr %4, align 1
   %240 = load ptr, ptr %109, align 8
-  %241 = getelementptr inbounds i8, ptr %240, i64 8
+  %241 = getelementptr inbounds nuw i8, ptr %240, i64 8
   %242 = load i32, ptr %241, align 8
   %.not106.i = icmp eq i32 %242, 0
   br i1 %.not106.i, label %260, label %243
@@ -1164,7 +1164,7 @@ cborencoder_put_unsigned.exit147.i:               ; preds = %267, %261
 oscore_context_derive_params.exit:                ; preds = %cborencoder_put_unsigned.exit147.i
   %279 = add nuw nsw i32 %269, 4
   %280 = call ptr @g_byte_array_append(ptr noundef nonnull %75, ptr noundef nonnull %2, i32 noundef %279) #9
-  %281 = getelementptr inbounds i8, ptr %72, i64 104
+  %281 = getelementptr inbounds nuw i8, ptr %72, i64 104
   %282 = load ptr, ptr %281, align 8
   %283 = call ptr @g_byte_array_set_size(ptr noundef %282, i32 noundef %..i108.i) #9
   %284 = load ptr, ptr %75, align 8
@@ -1206,20 +1206,20 @@ define internal i32 @oscore_dissect(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %15, label %248, label %16
 
 16:                                               ; preds = %4
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8
   tail call void @col_set_str(ptr noundef %18, i32 noundef 34, ptr noundef nonnull @.str.141) #9
   %19 = load i32, ptr @proto_oscore, align 4
   %20 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %19, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #9
   %21 = load i32, ptr @ett_oscore, align 4
   %22 = tail call ptr @proto_item_add_subtree(ptr noundef %20, i32 noundef %21) #9
-  %23 = getelementptr inbounds i8, ptr %3, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %24 = load ptr, ptr %23, align 8
   %25 = icmp eq ptr %24, null
   br i1 %25, label %26, label %33
 
 26:                                               ; preds = %16
-  %27 = getelementptr inbounds i8, ptr %3, i64 48
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %28 = load ptr, ptr %27, align 8
   %29 = icmp eq ptr %28, null
   br i1 %29, label %30, label %33
@@ -1235,22 +1235,22 @@ define internal i32 @oscore_dissect(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %.not.i, label %oscore_find_context.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %33
-  %35 = getelementptr inbounds i8, ptr %3, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %36 = load i8, ptr %35, align 8
   %37 = zext i8 %36 to i32
   %38 = load ptr, ptr @oscore_contexts, align 8
   %39 = zext i8 %36 to i64
-  %40 = getelementptr inbounds i8, ptr %3, i64 24
-  %41 = getelementptr inbounds i8, ptr %3, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %wide.trip.count.i = zext i32 %34 to i64
   br label %42
 
 42:                                               ; preds = %66, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %66 ]
   %43 = getelementptr %struct.oscore_context, ptr %38, i64 %indvars.iv.i
-  %44 = getelementptr inbounds i8, ptr %43, i64 72
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 72
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %47 = load i32, ptr %46, align 8
   %48 = icmp eq i32 %47, %37
   br i1 %48, label %49, label %66
@@ -1265,9 +1265,9 @@ define internal i32 @oscore_dissect(ptr noundef %0, ptr noundef %1, ptr noundef 
 53:                                               ; preds = %49
   %54 = load i8, ptr %40, align 8
   %55 = zext i8 %54 to i32
-  %56 = getelementptr inbounds i8, ptr %43, i64 64
+  %56 = getelementptr inbounds nuw i8, ptr %43, i64 64
   %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %59 = load i32, ptr %58, align 8
   %60 = icmp eq i32 %59, %55
   br i1 %60, label %61, label %66
@@ -1286,7 +1286,7 @@ define internal i32 @oscore_dissect(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %exitcond.not.i, label %oscore_find_context.exit.thread, label %42, !llvm.loop !8
 
 oscore_find_context.exit:                         ; preds = %61
-  %67 = getelementptr inbounds i8, ptr %43, i64 72
+  %67 = getelementptr inbounds nuw i8, ptr %43, i64 72
   %68 = icmp eq ptr %43, null
   br i1 %68, label %oscore_find_context.exit.thread, label %71
 
@@ -1296,7 +1296,7 @@ oscore_find_context.exit.thread:                  ; preds = %66, %33, %oscore_fi
   br label %248
 
 71:                                               ; preds = %oscore_find_context.exit
-  %72 = getelementptr inbounds i8, ptr %3, i64 40
+  %72 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %73 = load i8, ptr %72, align 8
   %74 = icmp ugt i8 %73, 5
   br i1 %74, label %75, label %78
@@ -1313,7 +1313,7 @@ oscore_find_context.exit.thread:                  ; preds = %66, %33, %oscore_fi
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 23, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 37, ptr nonnull %11)
-  %79 = getelementptr inbounds i8, ptr %43, i64 40
+  %79 = getelementptr inbounds nuw i8, ptr %43, i64 40
   %80 = load i32, ptr %79, align 8
   %cond.i.not.i = icmp ne i32 %80, 10
   %..i.i = select i1 %cond.i.not.i, i32 0, i32 8
@@ -1353,15 +1353,15 @@ oscore_decrypt_and_verify.exit.thread79:          ; preds = %78
   br label %94
 
 94:                                               ; preds = %91, %89
-  %95 = getelementptr inbounds i8, ptr %3, i64 60
+  %95 = getelementptr inbounds nuw i8, ptr %3, i64 60
   %96 = load i32, ptr %95, align 4
   %.not95.i = icmp eq i32 %96, 0
   %.088.in.in.v.i = select i1 %.not95.i, i64 88, i64 96
-  %.088.in.in.i = getelementptr inbounds i8, ptr %43, i64 %.088.in.in.v.i
+  %.088.in.in.i = getelementptr inbounds nuw i8, ptr %43, i64 %.088.in.in.v.i
   %.088.in.i = load ptr, ptr %.088.in.in.i, align 8
   %.088.i = load ptr, ptr %.088.in.i, align 8
   call void @llvm.lifetime.start.p0(i64 13, ptr nonnull %5)
-  %97 = getelementptr inbounds i8, ptr %5, i64 1
+  %97 = getelementptr inbounds nuw i8, ptr %5, i64 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %97, i8 0, i64 12, i1 false)
   %98 = load i32, ptr %79, align 8
   %cond.i.i.i = icmp eq i32 %98, 10
@@ -1374,12 +1374,12 @@ oscore_decrypt_and_verify.exit.thread79:          ; preds = %78
   br i1 %.not42.i.i, label %103, label %101
 
 101:                                              ; preds = %99
-  %102 = getelementptr inbounds i8, ptr %43, i64 80
+  %102 = getelementptr inbounds nuw i8, ptr %43, i64 80
   br label %107
 
 103:                                              ; preds = %99, %94
-  %104 = getelementptr inbounds i8, ptr %3, i64 48
-  %105 = getelementptr inbounds i8, ptr %3, i64 56
+  %104 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  %105 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %106 = load i8, ptr %105, align 8
   br label %107
 
@@ -1403,7 +1403,7 @@ oscore_decrypt_and_verify.exit.thread79:          ; preds = %78
   %114 = getelementptr [13 x i8], ptr %5, i64 0, i64 %113
   %115 = zext nneg i8 %.032.i.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %114, ptr align 1 %.033.i.i, i64 %115, i1 false)
-  %116 = getelementptr inbounds i8, ptr %.0.i.i, i64 8
+  %116 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
   %117 = load i32, ptr %116, align 8
   %118 = add nsw i32 %..i.i.i, -6
   %.not43.i.i = icmp ugt i32 %117, %118
@@ -1426,7 +1426,7 @@ oscore_decrypt_and_verify.exit.thread79:          ; preds = %78
   br i1 %cond.i.i.i, label %.lr.ph.i.i, label %oscore_create_nonce.exit.i
 
 .lr.ph.i.i:                                       ; preds = %120
-  %128 = getelementptr inbounds i8, ptr %43, i64 104
+  %128 = getelementptr inbounds nuw i8, ptr %43, i64 104
   %129 = load ptr, ptr %128, align 8
   %.pre.i = load ptr, ptr %129, align 8
   br label %130
@@ -1447,7 +1447,7 @@ oscore_decrypt_and_verify.exit.thread79:          ; preds = %78
 oscore_create_nonce.exit.i:                       ; preds = %130, %120
   call void @llvm.lifetime.end.p0(i64 13, ptr nonnull %5)
   call void @ccm_init_block(ptr noundef nonnull %7, i32 noundef 0, i32 noundef 0, i64 noundef 0, i32 noundef 0, i8 noundef zeroext 0, i32 noundef 0, ptr noundef nonnull %6) #9
-  %137 = getelementptr inbounds i8, ptr %1, i64 408
+  %137 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %138 = load ptr, ptr %137, align 8
   %139 = sext i32 %.087.i to i64
   %140 = call ptr @tvb_memdup(ptr noundef %138, ptr noundef %0, i32 noundef 0, i64 noundef %139) #9
@@ -1484,18 +1484,18 @@ oscore_decrypt_and_verify.exit.thread82:          ; preds = %145
 
 148:                                              ; preds = %145
   store i8 -123, ptr %10, align 16
-  %149 = getelementptr inbounds i8, ptr %10, i64 1
+  %149 = getelementptr inbounds nuw i8, ptr %10, i64 1
   store i8 1, ptr %149, align 1
-  %150 = getelementptr inbounds i8, ptr %10, i64 2
+  %150 = getelementptr inbounds nuw i8, ptr %10, i64 2
   store i8 -127, ptr %150, align 2
-  %151 = getelementptr inbounds i8, ptr %10, i64 3
+  %151 = getelementptr inbounds nuw i8, ptr %10, i64 3
   %152 = load i32, ptr %79, align 8
   %153 = trunc i32 %152 to i8
   %154 = icmp ugt i8 %153, 23
   br i1 %154, label %155, label %cborencoder_put_unsigned.exit.i
 
 155:                                              ; preds = %148
-  %156 = getelementptr inbounds i8, ptr %10, i64 4
+  %156 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store i8 %153, ptr %156, align 4
   br label %cborencoder_put_unsigned.exit.i
 
@@ -1541,9 +1541,9 @@ cborencoder_put_bytes.exit.i:                     ; preds = %169, %166
   %174 = add i8 %.1.i.i, %.0.i103.i
   %175 = zext i8 %174 to i64
   %176 = getelementptr [23 x i8], ptr %10, i64 0, i64 %175
-  %177 = getelementptr inbounds i8, ptr %3, i64 48
+  %177 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %178 = load ptr, ptr %177, align 8
-  %179 = getelementptr inbounds i8, ptr %3, i64 56
+  %179 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %180 = load i8, ptr %179, align 8
   %181 = icmp ugt i8 %180, 23
   br i1 %181, label %182, label %184
@@ -1590,20 +1590,20 @@ cborencoder_put_bytes.exit110.i:                  ; preds = %189, %186
 
 200:                                              ; preds = %cborencoder_put_bytes.exit110.i
   store i8 -125, ptr %11, align 16
-  %201 = getelementptr inbounds i8, ptr %11, i64 1
+  %201 = getelementptr inbounds nuw i8, ptr %11, i64 1
   store i8 104, ptr %201, align 1
-  %202 = getelementptr inbounds i8, ptr %11, i64 2
+  %202 = getelementptr inbounds nuw i8, ptr %11, i64 2
   store i64 3491539278031449669, ptr %202, align 2
-  %203 = getelementptr inbounds i8, ptr %11, i64 10
+  %203 = getelementptr inbounds nuw i8, ptr %11, i64 10
   store i8 64, ptr %203, align 2
-  %204 = getelementptr inbounds i8, ptr %11, i64 11
+  %204 = getelementptr inbounds nuw i8, ptr %11, i64 11
   %205 = or disjoint i8 %197, 64
   store i8 %205, ptr %204, align 1
   %.not124.i = icmp eq i8 %197, 0
   br i1 %.not124.i, label %cborencoder_put_bytes.exit122.i, label %206
 
 206:                                              ; preds = %200
-  %207 = getelementptr inbounds i8, ptr %11, i64 12
+  %207 = getelementptr inbounds nuw i8, ptr %11, i64 12
   %208 = zext nneg i8 %197 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %207, ptr nonnull readonly align 16 %10, i64 %208, i1 false)
   %209 = add nuw nsw i8 %194, 13
@@ -1642,13 +1642,13 @@ oscore_decrypt_and_verify.exit.thread76:          ; preds = %cborencoder_put_byt
   br i1 %.not.i123.i, label %oscore_decrypt_and_verify.exit.thread, label %219
 
 219:                                              ; preds = %216
-  %220 = getelementptr inbounds i8, ptr %218, i64 32
+  %220 = getelementptr inbounds nuw i8, ptr %218, i64 32
   %221 = load ptr, ptr %220, align 8
   %.not5.i.i = icmp eq ptr %221, null
   br i1 %.not5.i.i, label %oscore_decrypt_and_verify.exit.thread, label %222
 
 222:                                              ; preds = %219
-  %223 = getelementptr inbounds i8, ptr %221, i64 28
+  %223 = getelementptr inbounds nuw i8, ptr %221, i64 28
   %224 = load i32, ptr %223, align 4
   %225 = or i32 %224, 2
   store i32 %225, ptr %223, align 4
@@ -1748,7 +1748,7 @@ declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unn
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @oscore_context_free_byte_arrays(ptr nocapture noundef readonly %0) unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %6, label %4
@@ -1758,7 +1758,7 @@ define internal fastcc void @oscore_context_free_byte_arrays(ptr nocapture nound
   br label %6
 
 6:                                                ; preds = %4, %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %8 = load ptr, ptr %7, align 8
   %.not23 = icmp eq ptr %8, null
   br i1 %.not23, label %11, label %9
@@ -1768,7 +1768,7 @@ define internal fastcc void @oscore_context_free_byte_arrays(ptr nocapture nound
   br label %11
 
 11:                                               ; preds = %9, %6
-  %12 = getelementptr inbounds i8, ptr %0, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %13 = load ptr, ptr %12, align 8
   %.not24 = icmp eq ptr %13, null
   br i1 %.not24, label %16, label %14
@@ -1778,7 +1778,7 @@ define internal fastcc void @oscore_context_free_byte_arrays(ptr nocapture nound
   br label %16
 
 16:                                               ; preds = %14, %11
-  %17 = getelementptr inbounds i8, ptr %0, i64 72
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %18 = load ptr, ptr %17, align 8
   %.not25 = icmp eq ptr %18, null
   br i1 %.not25, label %21, label %19
@@ -1788,7 +1788,7 @@ define internal fastcc void @oscore_context_free_byte_arrays(ptr nocapture nound
   br label %21
 
 21:                                               ; preds = %19, %16
-  %22 = getelementptr inbounds i8, ptr %0, i64 80
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %23 = load ptr, ptr %22, align 8
   %.not26 = icmp eq ptr %23, null
   br i1 %.not26, label %26, label %24
@@ -1798,7 +1798,7 @@ define internal fastcc void @oscore_context_free_byte_arrays(ptr nocapture nound
   br label %26
 
 26:                                               ; preds = %24, %21
-  %27 = getelementptr inbounds i8, ptr %0, i64 88
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %28 = load ptr, ptr %27, align 8
   %.not27 = icmp eq ptr %28, null
   br i1 %.not27, label %31, label %29
@@ -1808,7 +1808,7 @@ define internal fastcc void @oscore_context_free_byte_arrays(ptr nocapture nound
   br label %31
 
 31:                                               ; preds = %29, %26
-  %32 = getelementptr inbounds i8, ptr %0, i64 96
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %33 = load ptr, ptr %32, align 8
   %.not28 = icmp eq ptr %33, null
   br i1 %.not28, label %36, label %34
@@ -1818,7 +1818,7 @@ define internal fastcc void @oscore_context_free_byte_arrays(ptr nocapture nound
   br label %36
 
 36:                                               ; preds = %34, %31
-  %37 = getelementptr inbounds i8, ptr %0, i64 104
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %38 = load ptr, ptr %37, align 8
   %.not29 = icmp eq ptr %38, null
   br i1 %.not29, label %41, label %39

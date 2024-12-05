@@ -40,16 +40,16 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, 3) i32 @psql_yylex(ptr noundef %0, ptr noundef initializes((144, 152)) %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 144
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 144
   store ptr %0, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 72
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %5 = load i32, ptr %4, align 8
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %6, label %70
 
 6:                                                ; preds = %2
   store i32 1, ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 76
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 76
   %8 = load i32, ptr %7, align 4
   %.not733 = icmp eq i32 %8, 0
   br i1 %.not733, label %9, label %10
@@ -59,7 +59,7 @@ define dso_local range(i32 0, 3) i32 @psql_yylex(ptr noundef %0, ptr noundef ini
   br label %10
 
 10:                                               ; preds = %9, %6
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8
   %.not734 = icmp eq ptr %12, null
   br i1 %.not734, label %13, label %15
@@ -71,7 +71,7 @@ define dso_local range(i32 0, 3) i32 @psql_yylex(ptr noundef %0, ptr noundef ini
 
 15:                                               ; preds = %13, %10
   %16 = phi ptr [ %14, %13 ], [ %12, %10 ]
-  %17 = getelementptr inbounds i8, ptr %1, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %18 = load ptr, ptr %17, align 8
   %.not735 = icmp eq ptr %18, null
   br i1 %.not735, label %19, label %21
@@ -82,13 +82,13 @@ define dso_local range(i32 0, 3) i32 @psql_yylex(ptr noundef %0, ptr noundef ini
   br label %21
 
 21:                                               ; preds = %19, %15
-  %22 = getelementptr inbounds i8, ptr %1, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %23 = load ptr, ptr %22, align 8
   %.not736 = icmp eq ptr %23, null
   br i1 %.not736, label %29, label %24
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds i8, ptr %1, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %26 = load i64, ptr %25, align 8
   %27 = getelementptr ptr, ptr %23, i64 %26
   %28 = load ptr, ptr %27, align 8
@@ -107,14 +107,14 @@ define dso_local range(i32 0, 3) i32 @psql_yylex(ptr noundef %0, ptr noundef ini
 
 32:                                               ; preds = %29
   store i64 0, ptr %30, align 8
-  %33 = getelementptr inbounds i8, ptr %1, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i64 1, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %1, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i64 0, ptr %34, align 8
   br label %psql_yyensure_buffer_stack.exit
 
 35:                                               ; preds = %24
-  %36 = getelementptr inbounds i8, ptr %1, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %37 = load i64, ptr %36, align 8
   %38 = add i64 %37, -1
   %.not29.i = icmp ult i64 %26, %38
@@ -144,7 +144,7 @@ psql_yyensure_buffer_stack.exit:                  ; preds = %32, %35, %44
   %47 = phi ptr [ %16, %32 ], [ %16, %35 ], [ %.pre, %44 ]
   %48 = tail call ptr @psql_yy_create_buffer(ptr noundef %47, i32 noundef 16384, ptr noundef nonnull %1)
   %49 = load ptr, ptr %22, align 8
-  %50 = getelementptr inbounds i8, ptr %1, i64 24
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %51 = load i64, ptr %50, align 8
   %52 = getelementptr ptr, ptr %49, i64 %51
   store ptr %48, ptr %52, align 8
@@ -159,65 +159,65 @@ psql_yyensure_buffer_stack.exit:                  ; preds = %32, %35, %44
   %55 = phi i64 [ %.pre2326, %psql_yyensure_buffer_stack.exit ], [ %26, %24 ]
   %56 = phi ptr [ %.pre2325, %psql_yyensure_buffer_stack.exit ], [ %23, %24 ]
   %57 = getelementptr ptr, ptr %56, i64 %55
-  %58 = getelementptr inbounds i8, ptr %54, i64 28
+  %58 = getelementptr inbounds nuw i8, ptr %54, i64 28
   %59 = load i32, ptr %58, align 4
-  %60 = getelementptr inbounds i8, ptr %1, i64 52
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 52
   store i32 %59, ptr %60, align 4
   %61 = load ptr, ptr %57, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 16
   %63 = load ptr, ptr %62, align 8
-  %64 = getelementptr inbounds i8, ptr %1, i64 64
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store ptr %63, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %1, i64 128
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 128
   store ptr %63, ptr %65, align 8
   %66 = load ptr, ptr %57, align 8
   %67 = load ptr, ptr %66, align 8
   store ptr %67, ptr %11, align 8
   %68 = load i8, ptr %63, align 1
-  %69 = getelementptr inbounds i8, ptr %1, i64 48
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store i8 %68, ptr %69, align 8
   br label %70
 
 70:                                               ; preds = %53, %2
   %71 = load ptr, ptr %1, align 8
-  %72 = getelementptr inbounds i8, ptr %71, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %73 = load ptr, ptr %72, align 8
-  %74 = getelementptr inbounds i8, ptr %71, i64 72
+  %74 = getelementptr inbounds nuw i8, ptr %71, i64 72
   %75 = load i32, ptr %74, align 8
   %76 = shl i32 %75, 1
   %77 = or disjoint i32 %76, 1
-  %78 = getelementptr inbounds i8, ptr %1, i64 76
+  %78 = getelementptr inbounds nuw i8, ptr %1, i64 76
   store i32 %77, ptr %78, align 4
-  %79 = getelementptr inbounds i8, ptr %1, i64 64
-  %80 = getelementptr inbounds i8, ptr %1, i64 48
-  %81 = getelementptr inbounds i8, ptr %1, i64 128
-  %82 = getelementptr inbounds i8, ptr %1, i64 56
-  %83 = getelementptr inbounds i8, ptr %1, i64 40
-  %84 = getelementptr inbounds i8, ptr %1, i64 24
-  %85 = getelementptr inbounds i8, ptr %1, i64 52
-  %86 = getelementptr inbounds i8, ptr %1, i64 8
-  %87 = getelementptr inbounds i8, ptr %1, i64 80
-  %88 = getelementptr inbounds i8, ptr %71, i64 16
-  %89 = getelementptr inbounds i8, ptr %71, i64 56
-  %90 = getelementptr inbounds i8, ptr %71, i64 24
-  %91 = getelementptr inbounds i8, ptr %71, i64 32
-  %92 = getelementptr inbounds i8, ptr %71, i64 40
-  %93 = getelementptr inbounds i8, ptr %71, i64 64
-  %94 = getelementptr inbounds i8, ptr %71, i64 52
-  %95 = getelementptr inbounds i8, ptr %71, i64 96
-  %96 = getelementptr inbounds i8, ptr %71, i64 100
+  %79 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %80 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %81 = getelementptr inbounds nuw i8, ptr %1, i64 128
+  %82 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %83 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %84 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %85 = getelementptr inbounds nuw i8, ptr %1, i64 52
+  %86 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %88 = getelementptr inbounds nuw i8, ptr %71, i64 16
+  %89 = getelementptr inbounds nuw i8, ptr %71, i64 56
+  %90 = getelementptr inbounds nuw i8, ptr %71, i64 24
+  %91 = getelementptr inbounds nuw i8, ptr %71, i64 32
+  %92 = getelementptr inbounds nuw i8, ptr %71, i64 40
+  %93 = getelementptr inbounds nuw i8, ptr %71, i64 64
+  %94 = getelementptr inbounds nuw i8, ptr %71, i64 52
+  %95 = getelementptr inbounds nuw i8, ptr %71, i64 96
+  %96 = getelementptr inbounds nuw i8, ptr %71, i64 100
   %97 = getelementptr i8, ptr %71, i64 101
   %98 = getelementptr i8, ptr %71, i64 102
   %99 = getelementptr i8, ptr %71, i64 103
-  %100 = getelementptr inbounds i8, ptr %71, i64 80
-  %101 = getelementptr inbounds i8, ptr %71, i64 104
-  %102 = getelementptr inbounds i8, ptr %71, i64 112
-  %103 = getelementptr inbounds i8, ptr %71, i64 120
-  %104 = getelementptr inbounds i8, ptr %71, i64 88
-  %105 = getelementptr inbounds i8, ptr %71, i64 76
-  %106 = getelementptr inbounds i8, ptr %71, i64 53
-  %107 = getelementptr inbounds i8, ptr %71, i64 84
-  %108 = getelementptr inbounds i8, ptr %73, i64 8
+  %100 = getelementptr inbounds nuw i8, ptr %71, i64 80
+  %101 = getelementptr inbounds nuw i8, ptr %71, i64 104
+  %102 = getelementptr inbounds nuw i8, ptr %71, i64 112
+  %103 = getelementptr inbounds nuw i8, ptr %71, i64 120
+  %104 = getelementptr inbounds nuw i8, ptr %71, i64 88
+  %105 = getelementptr inbounds nuw i8, ptr %71, i64 76
+  %106 = getelementptr inbounds nuw i8, ptr %71, i64 53
+  %107 = getelementptr inbounds nuw i8, ptr %71, i64 84
+  %108 = getelementptr inbounds nuw i8, ptr %73, i64 8
   br label %psqlscan_emit.exit
 
 psqlscan_emit.exit:                               ; preds = %psqlscan_emit.exit.backedge, %70
@@ -2928,7 +2928,7 @@ psqlscan_extract_substring.exit:                  ; preds = %1381, %1365, %1367
 
 .lr.ph.i1143:                                     ; preds = %1390, %1397
   %.012.i = phi ptr [ %.0.i1144, %1397 ], [ %.010.i, %1390 ]
-  %1392 = getelementptr inbounds i8, ptr %.012.i, i64 24
+  %1392 = getelementptr inbounds nuw i8, ptr %.012.i, i64 24
   %1393 = load ptr, ptr %1392, align 8
   %.not9.i = icmp eq ptr %1393, null
   br i1 %.not9.i, label %1397, label %1394
@@ -2939,7 +2939,7 @@ psqlscan_extract_substring.exit:                  ; preds = %1381, %1365, %1367
   br i1 %1396, label %psqlscan_var_is_current_source.exit, label %1397
 
 1397:                                             ; preds = %1394, %.lr.ph.i1143
-  %1398 = getelementptr inbounds i8, ptr %.012.i, i64 32
+  %1398 = getelementptr inbounds nuw i8, ptr %.012.i, i64 32
   %.0.i1144 = load ptr, ptr %1398, align 8
   %.not.not.i = icmp eq ptr %.0.i1144, null
   br i1 %.not.not.i, label %1421, label %.lr.ph.i1143, !llvm.loop !9
@@ -3004,11 +3004,11 @@ psqlscan_var_is_current_source.exit:              ; preds = %1394
 1426:                                             ; preds = %1423, %1421
   %1427 = phi ptr [ %1424, %1423 ], [ %1422, %1421 ]
   %1428 = phi ptr [ %1425, %1423 ], [ null, %1421 ]
-  %1429 = getelementptr inbounds i8, ptr %1427, i64 24
+  %1429 = getelementptr inbounds nuw i8, ptr %1427, i64 24
   store ptr %1428, ptr %1429, align 8
   %1430 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1389) #28
   %1431 = trunc i64 %1430 to i32
-  %1432 = getelementptr inbounds i8, ptr %1427, i64 8
+  %1432 = getelementptr inbounds nuw i8, ptr %1427, i64 8
   %1433 = tail call ptr @psqlscan_prepare_buffer(ptr noundef %71, ptr noundef nonnull %1389, i32 noundef %1431, ptr noundef nonnull %1432)
   store ptr %1433, ptr %1427, align 8
   %1434 = load ptr, ptr %1432, align 8
@@ -3024,11 +3024,11 @@ psqlscan_var_is_current_source.exit:              ; preds = %1394
 psqlscan_push_new_buffer.exit:                    ; preds = %1426, %1437
   %.sink22.i = phi ptr [ %1438, %1437 ], [ null, %1426 ]
   %.sink.i = phi ptr [ %1438, %1437 ], [ %1434, %1426 ]
-  %1439 = getelementptr inbounds i8, ptr %1427, i64 16
+  %1439 = getelementptr inbounds nuw i8, ptr %1427, i64 16
   store ptr %.sink22.i, ptr %1439, align 8
   store ptr %.sink.i, ptr %93, align 8
   %1440 = load ptr, ptr %88, align 8
-  %1441 = getelementptr inbounds i8, ptr %1427, i64 32
+  %1441 = getelementptr inbounds nuw i8, ptr %1427, i64 32
   store ptr %1440, ptr %1441, align 8
   store ptr %1427, ptr %88, align 8
   br label %psqlscan_emit.exit1152
@@ -4661,10 +4661,10 @@ psqlscan_emit.exit.backedge:                      ; preds = %2220, %2197, %2100,
 2231:                                             ; preds = %2228
   %2232 = load ptr, ptr %2229, align 8
   tail call void @psql_yy_switch_to_buffer(ptr noundef %2232, ptr noundef %2230)
-  %2233 = getelementptr inbounds i8, ptr %2229, i64 8
+  %2233 = getelementptr inbounds nuw i8, ptr %2229, i64 8
   %2234 = load ptr, ptr %2233, align 8
   store ptr %2234, ptr %89, align 8
-  %2235 = getelementptr inbounds i8, ptr %2229, i64 16
+  %2235 = getelementptr inbounds nuw i8, ptr %2229, i64 16
   %2236 = load ptr, ptr %2235, align 8
   %.not17.i = icmp eq ptr %2236, null
   %spec.select.i = select i1 %.not17.i, ptr %2234, ptr %2236
@@ -4695,13 +4695,13 @@ psqlscan_select_top_buffer.exit:                  ; preds = %2231, %2237
   %2246 = load i64, ptr %84, align 8
   %2247 = getelementptr ptr, ptr %2245, i64 %2246
   %2248 = load ptr, ptr %2247, align 8
-  %2249 = getelementptr inbounds i8, ptr %2248, i64 56
+  %2249 = getelementptr inbounds nuw i8, ptr %2248, i64 56
   %2250 = load i32, ptr %2249, align 8
   %2251 = icmp eq i32 %2250, 0
   br i1 %2251, label %2252, label %2262
 
 2252:                                             ; preds = %2242
-  %2253 = getelementptr inbounds i8, ptr %2248, i64 28
+  %2253 = getelementptr inbounds nuw i8, ptr %2248, i64 28
   %2254 = load i32, ptr %2253, align 4
   store i32 %2254, ptr %85, align 4
   %2255 = load ptr, ptr %86, align 8
@@ -4711,7 +4711,7 @@ psqlscan_select_top_buffer.exit:                  ; preds = %2231, %2237
   %2258 = load i64, ptr %84, align 8
   %2259 = getelementptr ptr, ptr %2257, i64 %2258
   %2260 = load ptr, ptr %2259, align 8
-  %2261 = getelementptr inbounds i8, ptr %2260, i64 56
+  %2261 = getelementptr inbounds nuw i8, ptr %2260, i64 56
   store i32 1, ptr %2261, align 8
   %.pre2329 = load ptr, ptr %83, align 8
   %.pre2330 = load i64, ptr %84, align 8
@@ -4724,7 +4724,7 @@ psqlscan_select_top_buffer.exit:                  ; preds = %2231, %2237
   %2264 = phi i64 [ %.pre2330, %2252 ], [ %2246, %2242 ]
   %2265 = phi ptr [ %.pre2329, %2252 ], [ %2245, %2242 ]
   %2266 = load ptr, ptr %79, align 8
-  %2267 = getelementptr inbounds i8, ptr %2263, i64 8
+  %2267 = getelementptr inbounds nuw i8, ptr %2263, i64 8
   %2268 = load ptr, ptr %2267, align 8
   %2269 = load i32, ptr %85, align 4
   %2270 = sext i32 %2269 to i64
@@ -4796,7 +4796,7 @@ yy_get_previous_state.exit:                       ; preds = %2288, %2272
   unreachable
 
 2307:                                             ; preds = %2300
-  %2308 = getelementptr inbounds i8, ptr %2263, i64 52
+  %2308 = getelementptr inbounds nuw i8, ptr %2263, i64 52
   %2309 = load i32, ptr %2308, align 4
   %2310 = icmp eq i32 %2309, 0
   %2311 = ptrtoint ptr %2266 to i64
@@ -4838,7 +4838,7 @@ yy_get_previous_state.exit:                       ; preds = %2288, %2272
   %2325 = phi ptr [ %.pre181.i, %._crit_edge.loopexit.i ], [ %2263, %2316 ]
   %2326 = phi i64 [ %.pre180.i, %._crit_edge.loopexit.i ], [ %2264, %2316 ]
   %2327 = phi ptr [ %.pre.i, %._crit_edge.loopexit.i ], [ %2265, %2316 ]
-  %2328 = getelementptr inbounds i8, ptr %2325, i64 56
+  %2328 = getelementptr inbounds nuw i8, ptr %2325, i64 56
   %2329 = load i32, ptr %2328, align 8
   %2330 = icmp eq i32 %2329, 2
   br i1 %2330, label %2331, label %2333
@@ -4850,7 +4850,7 @@ yy_get_previous_state.exit:                       ; preds = %2288, %2272
 
 2333:                                             ; preds = %._crit_edge.i
   %2334 = xor i32 %2319, -1
-  %.pn.in164.i = getelementptr inbounds i8, ptr %2325, i64 24
+  %.pn.in164.i = getelementptr inbounds nuw i8, ptr %2325, i64 24
   %.pn165.i = load i32, ptr %.pn.in164.i, align 8
   %.0134166.i = add i32 %.pn165.i, %2334
   %2335 = icmp slt i32 %.0134166.i, 1
@@ -4864,12 +4864,12 @@ yy_get_previous_state.exit:                       ; preds = %2288, %2272
   %2336 = phi i32 [ %.pn165.i, %.lr.ph168.preheader.i ], [ %.pn.i, %2357 ]
   %2337 = phi ptr [ %.pre182.i, %.lr.ph168.preheader.i ], [ %2359, %2357 ]
   %2338 = phi ptr [ %2325, %.lr.ph168.preheader.i ], [ %2363, %2357 ]
-  %2339 = getelementptr inbounds i8, ptr %2338, i64 8
+  %2339 = getelementptr inbounds nuw i8, ptr %2338, i64 8
   %2340 = load ptr, ptr %2339, align 8
   %2341 = ptrtoint ptr %2337 to i64
   %2342 = ptrtoint ptr %2340 to i64
   %2343 = sub i64 %2341, %2342
-  %2344 = getelementptr inbounds i8, ptr %2338, i64 32
+  %2344 = getelementptr inbounds nuw i8, ptr %2338, i64 32
   %2345 = load i32, ptr %2344, align 8
   %.not147.i = icmp eq i32 %2345, 0
   br i1 %.not147.i, label %.thread.i, label %2346
@@ -4879,7 +4879,7 @@ yy_get_previous_state.exit:                       ; preds = %2288, %2272
   br label %.loopexit.i
 
 2346:                                             ; preds = %.lr.ph168.i
-  %2347 = getelementptr inbounds i8, ptr %2338, i64 24
+  %2347 = getelementptr inbounds nuw i8, ptr %2338, i64 24
   %2348 = shl i32 %2336, 1
   %2349 = icmp slt i32 %2348, 1
   br i1 %2349, label %2350, label %2353
@@ -4912,7 +4912,7 @@ yy_get_previous_state.exit:                       ; preds = %2288, %2272
   %2361 = load i64, ptr %84, align 8
   %2362 = getelementptr ptr, ptr %2360, i64 %2361
   %2363 = load ptr, ptr %2362, align 8
-  %.pn.in.i = getelementptr inbounds i8, ptr %2363, i64 24
+  %.pn.in.i = getelementptr inbounds nuw i8, ptr %2363, i64 24
   %.pn.i = load i32, ptr %.pn.in.i, align 8
   %.0134.i = add i32 %.pn.i, %2334
   %2364 = icmp slt i32 %.0134.i, 1
@@ -4922,7 +4922,7 @@ yy_get_previous_state.exit:                       ; preds = %2288, %2272
   %2365 = phi ptr [ %2325, %2333 ], [ %2363, %2357 ]
   %.0134.lcssa.i = phi i32 [ %.0134166.i, %2333 ], [ %.0134.i, %2357 ]
   %2366 = tail call i32 @llvm.umin.i32(i32 %.0134.lcssa.i, i32 8192)
-  %2367 = getelementptr inbounds i8, ptr %2365, i64 36
+  %2367 = getelementptr inbounds nuw i8, ptr %2365, i64 36
   %2368 = load i32, ptr %2367, align 4
   %.not.i1383 = icmp eq i32 %2368, 0
   br i1 %.not.i1383, label %2399, label %.preheader.i
@@ -4948,7 +4948,7 @@ yy_get_previous_state.exit:                       ; preds = %2288, %2272
   %2376 = load i64, ptr %84, align 8
   %2377 = getelementptr ptr, ptr %2375, i64 %2376
   %2378 = load ptr, ptr %2377, align 8
-  %2379 = getelementptr inbounds i8, ptr %2378, i64 8
+  %2379 = getelementptr inbounds nuw i8, ptr %2378, i64 8
   %2380 = load ptr, ptr %2379, align 8
   %2381 = getelementptr i8, ptr %2380, i64 %2369
   %2382 = getelementptr i8, ptr %2381, i64 %indvars.iv.i1385
@@ -4973,7 +4973,7 @@ yy_get_previous_state.exit:                       ; preds = %2288, %2272
   %2385 = load i64, ptr %84, align 8
   %2386 = getelementptr ptr, ptr %2384, i64 %2385
   %2387 = load ptr, ptr %2386, align 8
-  %2388 = getelementptr inbounds i8, ptr %2387, i64 8
+  %2388 = getelementptr inbounds nuw i8, ptr %2387, i64 8
   %2389 = load ptr, ptr %2388, align 8
   %2390 = getelementptr i8, ptr %2389, i64 %2369
   %2391 = add nuw i32 %.0128.lcssa.i, 1
@@ -5007,7 +5007,7 @@ yy_get_previous_state.exit:                       ; preds = %2288, %2272
   %2404 = load i64, ptr %84, align 8
   %2405 = getelementptr ptr, ptr %2403, i64 %2404
   %2406 = load ptr, ptr %2405, align 8
-  %2407 = getelementptr inbounds i8, ptr %2406, i64 8
+  %2407 = getelementptr inbounds nuw i8, ptr %2406, i64 8
   %2408 = load ptr, ptr %2407, align 8
   %2409 = getelementptr i8, ptr %2408, i64 %2401
   %2410 = load ptr, ptr %86, align 8
@@ -5040,7 +5040,7 @@ yy_get_previous_state.exit:                       ; preds = %2288, %2272
   %2422 = load i64, ptr %84, align 8
   %2423 = getelementptr ptr, ptr %2421, i64 %2422
   %2424 = load ptr, ptr %2423, align 8
-  %2425 = getelementptr inbounds i8, ptr %2424, i64 8
+  %2425 = getelementptr inbounds nuw i8, ptr %2424, i64 8
   %2426 = load ptr, ptr %2425, align 8
   %2427 = getelementptr i8, ptr %2426, i64 %2401
   %2428 = load ptr, ptr %86, align 8
@@ -5061,7 +5061,7 @@ yy_get_previous_state.exit:                       ; preds = %2288, %2272
   %.sink196.in.i = phi ptr [ %2435, %.critedge2.i ], [ %2332, %2331 ]
   %.sink.i1386 = phi i32 [ %2432, %.critedge2.i ], [ 0, %2331 ]
   %.sink196.i = load ptr, ptr %.sink196.in.i, align 8
-  %2437 = getelementptr inbounds i8, ptr %.sink196.i, i64 28
+  %2437 = getelementptr inbounds nuw i8, ptr %.sink196.i, i64 28
   store i32 %.sink.i1386, ptr %2437, align 4
   %2438 = load i32, ptr %85, align 4
   %2439 = icmp eq i32 %2438, 0
@@ -5081,7 +5081,7 @@ yy_get_previous_state.exit:                       ; preds = %2288, %2272
   %2446 = load i64, ptr %84, align 8
   %2447 = getelementptr ptr, ptr %2445, i64 %2446
   %2448 = load ptr, ptr %2447, align 8
-  %2449 = getelementptr inbounds i8, ptr %2448, i64 56
+  %2449 = getelementptr inbounds nuw i8, ptr %2448, i64 56
   store i32 2, ptr %2449, align 8
   br label %2450
 
@@ -5093,7 +5093,7 @@ yy_get_previous_state.exit:                       ; preds = %2288, %2272
   %2454 = load i64, ptr %84, align 8
   %2455 = getelementptr ptr, ptr %2453, i64 %2454
   %2456 = load ptr, ptr %2455, align 8
-  %2457 = getelementptr inbounds i8, ptr %2456, i64 24
+  %2457 = getelementptr inbounds nuw i8, ptr %2456, i64 24
   %2458 = load i32, ptr %2457, align 8
   %2459 = icmp sgt i32 %2452, %2458
   br i1 %2459, label %2460, label %yy_get_next_buffer.exit
@@ -5101,7 +5101,7 @@ yy_get_previous_state.exit:                       ; preds = %2288, %2272
 2460:                                             ; preds = %2450
   %2461 = ashr i32 %2451, 1
   %2462 = add i32 %2452, %2461
-  %2463 = getelementptr inbounds i8, ptr %2456, i64 8
+  %2463 = getelementptr inbounds nuw i8, ptr %2456, i64 8
   %2464 = load ptr, ptr %2463, align 8
   %2465 = sext i32 %2462 to i64
   %2466 = tail call noalias noundef ptr @realloc(ptr noundef %2464, i64 noundef %2465) #26
@@ -5109,13 +5109,13 @@ yy_get_previous_state.exit:                       ; preds = %2288, %2272
   %2468 = load i64, ptr %84, align 8
   %2469 = getelementptr ptr, ptr %2467, i64 %2468
   %2470 = load ptr, ptr %2469, align 8
-  %2471 = getelementptr inbounds i8, ptr %2470, i64 8
+  %2471 = getelementptr inbounds nuw i8, ptr %2470, i64 8
   store ptr %2466, ptr %2471, align 8
   %2472 = load ptr, ptr %83, align 8
   %2473 = load i64, ptr %84, align 8
   %2474 = getelementptr ptr, ptr %2472, i64 %2473
   %2475 = load ptr, ptr %2474, align 8
-  %2476 = getelementptr inbounds i8, ptr %2475, i64 8
+  %2476 = getelementptr inbounds nuw i8, ptr %2475, i64 8
   %2477 = load ptr, ptr %2476, align 8
   %.not151.i = icmp eq ptr %2477, null
   br i1 %.not151.i, label %2478, label %2479
@@ -5126,7 +5126,7 @@ yy_get_previous_state.exit:                       ; preds = %2288, %2272
 
 2479:                                             ; preds = %2460
   %2480 = add i32 %2462, -2
-  %2481 = getelementptr inbounds i8, ptr %2475, i64 24
+  %2481 = getelementptr inbounds nuw i8, ptr %2475, i64 24
   store i32 %2480, ptr %2481, align 8
   %.pre183.i = load i32, ptr %85, align 4
   %.pre184.i = load ptr, ptr %83, align 8
@@ -5141,7 +5141,7 @@ yy_get_next_buffer.exit:                          ; preds = %2450, %2479
   store i32 %.pre-phi.i, ptr %85, align 4
   %2484 = getelementptr ptr, ptr %2483, i64 %2482
   %2485 = load ptr, ptr %2484, align 8
-  %2486 = getelementptr inbounds i8, ptr %2485, i64 8
+  %2486 = getelementptr inbounds nuw i8, ptr %2485, i64 8
   %2487 = load ptr, ptr %2486, align 8
   %2488 = sext i32 %.pre-phi.i to i64
   %2489 = getelementptr i8, ptr %2487, i64 %2488
@@ -5150,7 +5150,7 @@ yy_get_next_buffer.exit:                          ; preds = %2450, %2479
   %2491 = load i64, ptr %84, align 8
   %2492 = getelementptr ptr, ptr %2490, i64 %2491
   %2493 = load ptr, ptr %2492, align 8
-  %2494 = getelementptr inbounds i8, ptr %2493, i64 8
+  %2494 = getelementptr inbounds nuw i8, ptr %2493, i64 8
   %2495 = load ptr, ptr %2494, align 8
   %2496 = load i32, ptr %85, align 4
   %2497 = add i32 %2496, 1
@@ -5161,7 +5161,7 @@ yy_get_next_buffer.exit:                          ; preds = %2450, %2479
   %2501 = load i64, ptr %84, align 8
   %2502 = getelementptr ptr, ptr %2500, i64 %2501
   %2503 = load ptr, ptr %2502, align 8
-  %2504 = getelementptr inbounds i8, ptr %2503, i64 8
+  %2504 = getelementptr inbounds nuw i8, ptr %2503, i64 8
   %2505 = load ptr, ptr %2504, align 8
   store ptr %2505, ptr %81, align 8
   switch i32 %.0135.i, label %default.unreachable2340 [
@@ -5173,7 +5173,7 @@ yy_get_next_buffer.exit:                          ; preds = %2450, %2479
 yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread1415_crit_edge: ; preds = %yy_get_next_buffer.exit
   %2506 = getelementptr ptr, ptr %2500, i64 %2501
   %.pre2333 = load ptr, ptr %2506, align 8
-  %.phi.trans.insert2334 = getelementptr inbounds i8, ptr %.pre2333, i64 8
+  %.phi.trans.insert2334 = getelementptr inbounds nuw i8, ptr %.pre2333, i64 8
   %.pre2335 = load ptr, ptr %.phi.trans.insert2334, align 8
   %.pre2336 = load i32, ptr %85, align 4
   %.pre2339 = sext i32 %.pre2336 to i64
@@ -5294,12 +5294,12 @@ define dso_local nonnull ptr @psql_yy_create_buffer(ptr noundef %0, i32 noundef 
   unreachable
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %4, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i32 %1, ptr %7, align 8
   %8 = add i32 %1, 2
   %9 = sext i32 %8 to i64
   %10 = tail call noalias noundef ptr @malloc(i64 noundef %9) #24
-  %11 = getelementptr inbounds i8, ptr %4, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %10, ptr %11, align 8
   %.not14 = icmp eq ptr %10, null
   br i1 %.not14, label %12, label %13
@@ -5309,28 +5309,28 @@ define dso_local nonnull ptr @psql_yy_create_buffer(ptr noundef %0, i32 noundef 
   unreachable
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %4, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i32 1, ptr %14, align 8
   %15 = tail call ptr @__errno_location() #29
   %16 = load i32, ptr %15, align 4
-  %17 = getelementptr inbounds i8, ptr %4, i64 28
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 28
   store i32 0, ptr %17, align 4
   store i8 0, ptr %10, align 1
   %18 = getelementptr i8, ptr %10, i64 1
   store i8 0, ptr %18, align 1
-  %19 = getelementptr inbounds i8, ptr %4, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %10, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %4, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i32 1, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %4, i64 56
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 56
   store i32 0, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %2, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %23 = load ptr, ptr %22, align 8
   %.not15.i.i = icmp eq ptr %23, null
   br i1 %.not15.i.i, label %psql_yy_flush_buffer.exit.i, label %24
 
 24:                                               ; preds = %13
-  %25 = getelementptr inbounds i8, ptr %2, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %26 = load i64, ptr %25, align 8
   %27 = getelementptr ptr, ptr %23, i64 %26
   %28 = load ptr, ptr %27, align 8
@@ -5338,37 +5338,37 @@ define dso_local nonnull ptr @psql_yy_create_buffer(ptr noundef %0, i32 noundef 
   br i1 %29, label %30, label %45
 
 30:                                               ; preds = %24
-  %31 = getelementptr inbounds i8, ptr %28, i64 28
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 28
   %32 = load i32, ptr %31, align 4
-  %33 = getelementptr inbounds i8, ptr %2, i64 52
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 52
   store i32 %32, ptr %33, align 4
   %34 = load ptr, ptr %27, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %2, i64 64
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store ptr %36, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %2, i64 128
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 128
   store ptr %36, ptr %38, align 8
   %39 = load ptr, ptr %27, align 8
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %2, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %40, ptr %41, align 8
   %42 = load i8, ptr %36, align 1
-  %43 = getelementptr inbounds i8, ptr %2, i64 48
+  %43 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store i8 %42, ptr %43, align 8
   br label %45
 
 psql_yy_flush_buffer.exit.i:                      ; preds = %13
   store ptr %0, ptr %4, align 8
-  %44 = getelementptr inbounds i8, ptr %4, i64 52
+  %44 = getelementptr inbounds nuw i8, ptr %4, i64 52
   store i32 1, ptr %44, align 4
   br label %.thread.i
 
 45:                                               ; preds = %30, %24
   store ptr %0, ptr %4, align 8
-  %46 = getelementptr inbounds i8, ptr %4, i64 52
+  %46 = getelementptr inbounds nuw i8, ptr %4, i64 52
   store i32 1, ptr %46, align 4
-  %47 = getelementptr inbounds i8, ptr %2, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %48 = load i64, ptr %47, align 8
   %49 = getelementptr ptr, ptr %23, i64 %48
   %50 = load ptr, ptr %49, align 8
@@ -5376,14 +5376,14 @@ psql_yy_flush_buffer.exit.i:                      ; preds = %13
   br i1 %.not14.i, label %psql_yy_init_buffer.exit, label %.thread.i
 
 .thread.i:                                        ; preds = %psql_yy_flush_buffer.exit.i, %45
-  %51 = getelementptr inbounds i8, ptr %4, i64 44
+  %51 = getelementptr inbounds nuw i8, ptr %4, i64 44
   store i32 1, ptr %51, align 4
-  %52 = getelementptr inbounds i8, ptr %4, i64 48
+  %52 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store i32 0, ptr %52, align 8
   br label %psql_yy_init_buffer.exit
 
 psql_yy_init_buffer.exit:                         ; preds = %45, %.thread.i
-  %53 = getelementptr inbounds i8, ptr %4, i64 36
+  %53 = getelementptr inbounds nuw i8, ptr %4, i64 36
   store i32 0, ptr %53, align 4
   store i32 %16, ptr %15, align 4
   ret ptr %4
@@ -5391,9 +5391,9 @@ psql_yy_init_buffer.exit:                         ; preds = %45, %.thread.i
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @psqlscan_emit(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 52
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %7 = load i8, ptr %6, align 4
   %8 = trunc i8 %7 to i1
   br i1 %8, label %9, label %11
@@ -5404,9 +5404,9 @@ define dso_local void @psqlscan_emit(ptr nocapture noundef readonly %0, ptr noun
   br label %.loopexit
 
 11:                                               ; preds = %3
-  %12 = getelementptr inbounds i8, ptr %0, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %15 = load ptr, ptr %14, align 8
   %16 = ptrtoint ptr %1 to i64
   %17 = ptrtoint ptr %15 to i64
@@ -5455,7 +5455,7 @@ define dso_local ptr @psqlscan_extract_substring(ptr nocapture noundef readonly 
   %4 = add i32 %2, 1
   %5 = sext i32 %4 to i64
   %6 = tail call ptr @pg_malloc(i64 noundef %5) #27
-  %7 = getelementptr inbounds i8, ptr %0, i64 52
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %8 = load i8, ptr %7, align 4
   %9 = trunc i8 %8 to i1
   br i1 %9, label %10, label %12
@@ -5466,9 +5466,9 @@ define dso_local ptr @psqlscan_extract_substring(ptr nocapture noundef readonly 
   br label %.loopexit
 
 12:                                               ; preds = %3
-  %13 = getelementptr inbounds i8, ptr %0, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 56
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %16 = load ptr, ptr %15, align 8
   %17 = ptrtoint ptr %1 to i64
   %18 = ptrtoint ptr %16 to i64
@@ -5510,14 +5510,14 @@ define dso_local ptr @psqlscan_extract_substring(ptr nocapture noundef readonly 
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @psqlscan_var_is_current_source(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.010 = load ptr, ptr %3, align 8
   %.not11.not = icmp eq ptr %.010, null
   br i1 %.not11.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %9
   %.012 = phi ptr [ %.0, %9 ], [ %.010, %2 ]
-  %4 = getelementptr inbounds i8, ptr %.012, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %.012, i64 24
   %5 = load ptr, ptr %4, align 8
   %.not9 = icmp eq ptr %5, null
   br i1 %.not9, label %9, label %6
@@ -5528,7 +5528,7 @@ define dso_local noundef zeroext i1 @psqlscan_var_is_current_source(ptr nocaptur
   br i1 %8, label %._crit_edge, label %9
 
 9:                                                ; preds = %.lr.ph, %6
-  %10 = getelementptr inbounds i8, ptr %.012, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %.012, i64 32
   %.0 = load ptr, ptr %10, align 8
   %.not.not = icmp eq ptr %.0, null
   br i1 %.not.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
@@ -5552,17 +5552,17 @@ define dso_local void @psqlscan_push_new_buffer(ptr nocapture noundef %0, ptr no
 
 7:                                                ; preds = %3, %5
   %8 = phi ptr [ %6, %5 ], [ null, %3 ]
-  %9 = getelementptr inbounds i8, ptr %4, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %8, ptr %9, align 8
   %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #28
   %11 = trunc i64 %10 to i32
-  %12 = getelementptr inbounds i8, ptr %4, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %13 = tail call ptr @psqlscan_prepare_buffer(ptr noundef %0, ptr noundef %1, i32 noundef %11, ptr noundef nonnull %12)
   store ptr %13, ptr %4, align 8
   %14 = load ptr, ptr %12, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 56
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %14, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 52
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %17 = load i8, ptr %16, align 4
   %18 = trunc i8 %17 to i1
   br i1 %18, label %21, label %19
@@ -5574,13 +5574,13 @@ define dso_local void @psqlscan_push_new_buffer(ptr nocapture noundef %0, ptr no
 21:                                               ; preds = %7, %19
   %.sink22 = phi ptr [ %20, %19 ], [ null, %7 ]
   %.sink = phi ptr [ %20, %19 ], [ %14, %7 ]
-  %22 = getelementptr inbounds i8, ptr %4, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %.sink22, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 64
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %.sink, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %4, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr %25, ptr %26, align 8
   store ptr %4, ptr %24, align 8
   ret void
@@ -5593,7 +5593,7 @@ define dso_local void @psqlscan_escape_variable(ptr nocapture noundef readonly %
   %7 = add i32 %2, -2
   %8 = sext i32 %7 to i64
   %9 = tail call ptr @pg_malloc(i64 noundef %8) #27
-  %10 = getelementptr inbounds i8, ptr %0, i64 52
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %11 = load i8, ptr %10, align 4
   %12 = trunc i8 %11 to i1
   br i1 %12, label %13, label %15
@@ -5604,9 +5604,9 @@ define dso_local void @psqlscan_escape_variable(ptr nocapture noundef readonly %
   br label %psqlscan_extract_substring.exit
 
 15:                                               ; preds = %4
-  %16 = getelementptr inbounds i8, ptr %0, i64 64
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %19 = load ptr, ptr %18, align 8
   %20 = ptrtoint ptr %5 to i64
   %21 = ptrtoint ptr %19 to i64
@@ -5643,7 +5643,7 @@ psqlscan_extract_substring.exit:                  ; preds = %31, %13, %15
   %33 = sext i32 %6 to i64
   %34 = getelementptr i8, ptr %9, i64 %33
   store i8 0, ptr %34, align 1
-  %35 = getelementptr inbounds i8, ptr %0, i64 112
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %36 = load ptr, ptr %35, align 8
   %37 = load ptr, ptr %36, align 8
   %.not = icmp eq ptr %37, null
@@ -5654,7 +5654,7 @@ psqlscan_extract_substring.exit:                  ; preds = %31, %13, %15
   br label %45
 
 38:                                               ; preds = %psqlscan_extract_substring.exit
-  %39 = getelementptr inbounds i8, ptr %0, i64 120
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %40 = load ptr, ptr %39, align 8
   %41 = tail call ptr %37(ptr noundef nonnull %9, i32 noundef %3, ptr noundef %40) #27
   tail call void @free(ptr noundef nonnull %9) #27
@@ -5662,14 +5662,14 @@ psqlscan_extract_substring.exit:                  ; preds = %31, %13, %15
   br i1 %.not16, label %45, label %42
 
 42:                                               ; preds = %38
-  %43 = getelementptr inbounds i8, ptr %0, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %44 = load ptr, ptr %43, align 8
   tail call void @appendPQExpBufferStr(ptr noundef %44, ptr noundef nonnull %41) #27
   tail call void @free(ptr noundef nonnull %41) #27
   br label %psqlscan_emit.exit
 
 45:                                               ; preds = %.thread, %38
-  %46 = getelementptr inbounds i8, ptr %0, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %47 = load ptr, ptr %46, align 8
   %48 = load i8, ptr %10, align 4
   %49 = trunc i8 %48 to i1
@@ -5681,9 +5681,9 @@ psqlscan_extract_substring.exit:                  ; preds = %31, %13, %15
   br label %psqlscan_emit.exit
 
 52:                                               ; preds = %45
-  %53 = getelementptr inbounds i8, ptr %0, i64 64
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %0, i64 56
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %56 = load ptr, ptr %55, align 8
   %57 = ptrtoint ptr %1 to i64
   %58 = ptrtoint ptr %56 to i64
@@ -5726,7 +5726,7 @@ define dso_local void @psqlscan_test_variable(ptr nocapture noundef readonly %0,
   %6 = add i32 %2, -3
   %7 = sext i32 %6 to i64
   %8 = tail call ptr @pg_malloc(i64 noundef %7) #27
-  %9 = getelementptr inbounds i8, ptr %0, i64 52
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %10 = load i8, ptr %9, align 4
   %11 = trunc i8 %10 to i1
   br i1 %11, label %12, label %14
@@ -5737,9 +5737,9 @@ define dso_local void @psqlscan_test_variable(ptr nocapture noundef readonly %0,
   br label %psqlscan_extract_substring.exit
 
 14:                                               ; preds = %3
-  %15 = getelementptr inbounds i8, ptr %0, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 56
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %18 = load ptr, ptr %17, align 8
   %19 = ptrtoint ptr %4 to i64
   %20 = ptrtoint ptr %18 to i64
@@ -5776,7 +5776,7 @@ psqlscan_extract_substring.exit:                  ; preds = %30, %12, %14
   %32 = sext i32 %5 to i64
   %33 = getelementptr i8, ptr %8, i64 %32
   store i8 0, ptr %33, align 1
-  %34 = getelementptr inbounds i8, ptr %0, i64 112
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %35 = load ptr, ptr %34, align 8
   %36 = load ptr, ptr %35, align 8
   %.not = icmp eq ptr %36, null
@@ -5787,7 +5787,7 @@ psqlscan_extract_substring.exit:                  ; preds = %30, %12, %14
   br label %62
 
 37:                                               ; preds = %psqlscan_extract_substring.exit
-  %38 = getelementptr inbounds i8, ptr %0, i64 120
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %39 = load ptr, ptr %38, align 8
   %40 = tail call ptr %36(ptr noundef nonnull %8, i32 noundef 0, ptr noundef %39) #27
   tail call void @free(ptr noundef nonnull %8) #27
@@ -5795,7 +5795,7 @@ psqlscan_extract_substring.exit:                  ; preds = %30, %12, %14
   br i1 %.not12, label %62, label %41
 
 41:                                               ; preds = %37
-  %42 = getelementptr inbounds i8, ptr %0, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %43 = load ptr, ptr %42, align 8
   %44 = load i8, ptr %9, align 4
   %45 = trunc i8 %44 to i1
@@ -5806,9 +5806,9 @@ psqlscan_extract_substring.exit:                  ; preds = %30, %12, %14
   br label %psqlscan_emit.exit
 
 47:                                               ; preds = %41
-  %48 = getelementptr inbounds i8, ptr %0, i64 64
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %0, i64 56
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %51 = load ptr, ptr %50, align 8
   %52 = ptrtoint ptr %51 to i64
   %53 = sub i64 ptrtoint (ptr @.str.21 to i64), %52
@@ -5839,7 +5839,7 @@ psqlscan_emit.exit:                               ; preds = %61, %46
   br label %psqlscan_emit.exit25
 
 62:                                               ; preds = %.thread, %37
-  %63 = getelementptr inbounds i8, ptr %0, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %64 = load ptr, ptr %63, align 8
   %65 = load i8, ptr %9, align 4
   %66 = trunc i8 %65 to i1
@@ -5850,9 +5850,9 @@ psqlscan_emit.exit:                               ; preds = %61, %46
   br label %psqlscan_emit.exit25
 
 68:                                               ; preds = %62
-  %69 = getelementptr inbounds i8, ptr %0, i64 64
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %70 = load ptr, ptr %69, align 8
-  %71 = getelementptr inbounds i8, ptr %0, i64 56
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %72 = load ptr, ptr %71, align 8
   %73 = ptrtoint ptr %72 to i64
   %74 = sub i64 ptrtoint (ptr @.str.22 to i64), %73
@@ -5894,9 +5894,9 @@ declare zeroext i8 @pg_tolower(i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define dso_local void @psqlscan_pop_buffer_stack(ptr nocapture noundef %0) local_unnamed_addr #6 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %5 = load ptr, ptr %4, align 8
   store ptr %5, ptr %2, align 8
   %6 = load ptr, ptr %3, align 8
@@ -5905,13 +5905,13 @@ define dso_local void @psqlscan_pop_buffer_stack(ptr nocapture noundef %0) local
   br i1 %.not.i, label %psql_yy_delete_buffer.exit, label %8
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %7, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %10 = load ptr, ptr %9, align 8
   %.not14.i = icmp eq ptr %10, null
   br i1 %.not14.i, label %.thread.i, label %11
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %7, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %13 = load i64, ptr %12, align 8
   %14 = getelementptr ptr, ptr %10, i64 %13
   %15 = load ptr, ptr %14, align 8
@@ -5923,13 +5923,13 @@ define dso_local void @psqlscan_pop_buffer_stack(ptr nocapture noundef %0) local
   br label %.thread.i
 
 .thread.i:                                        ; preds = %17, %11, %8
-  %18 = getelementptr inbounds i8, ptr %6, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %19 = load i32, ptr %18, align 8
   %.not15.i = icmp eq i32 %19, 0
   br i1 %.not15.i, label %23, label %20
 
 20:                                               ; preds = %.thread.i
-  %21 = getelementptr inbounds i8, ptr %6, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %22 = load ptr, ptr %21, align 8
   tail call void @free(ptr noundef %22) #27
   br label %23
@@ -5939,10 +5939,10 @@ define dso_local void @psqlscan_pop_buffer_stack(ptr nocapture noundef %0) local
   br label %psql_yy_delete_buffer.exit
 
 psql_yy_delete_buffer.exit:                       ; preds = %1, %23
-  %24 = getelementptr inbounds i8, ptr %3, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %25 = load ptr, ptr %24, align 8
   tail call void @free(ptr noundef %25) #27
-  %26 = getelementptr inbounds i8, ptr %3, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %27 = load ptr, ptr %26, align 8
   %.not = icmp eq ptr %27, null
   br i1 %.not, label %29, label %28
@@ -5952,7 +5952,7 @@ psql_yy_delete_buffer.exit:                       ; preds = %1, %23
   br label %29
 
 29:                                               ; preds = %28, %psql_yy_delete_buffer.exit
-  %30 = getelementptr inbounds i8, ptr %3, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %31 = load ptr, ptr %30, align 8
   %.not12 = icmp eq ptr %31, null
   br i1 %.not12, label %33, label %32
@@ -5968,7 +5968,7 @@ psql_yy_delete_buffer.exit:                       ; preds = %1, %23
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @psqlscan_select_top_buffer(ptr nocapture noundef initializes((56, 72)) %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %12, label %4
@@ -5977,32 +5977,32 @@ define dso_local void @psqlscan_select_top_buffer(ptr nocapture noundef initiali
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %0, align 8
   tail call void @psql_yy_switch_to_buffer(ptr noundef %5, ptr noundef %6)
-  %7 = getelementptr inbounds i8, ptr %3, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %8, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %11 = load ptr, ptr %10, align 8
   %.not17 = icmp eq ptr %11, null
   %spec.select = select i1 %.not17, ptr %8, ptr %11
   br label %21
 
 12:                                               ; preds = %1
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %0, align 8
   tail call void @psql_yy_switch_to_buffer(ptr noundef %14, ptr noundef %15)
-  %16 = getelementptr inbounds i8, ptr %0, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %17, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %20 = load ptr, ptr %19, align 8
   br label %21
 
 21:                                               ; preds = %12, %4
   %.sink = phi ptr [ %20, %12 ], [ %spec.select, %4 ]
-  %22 = getelementptr inbounds i8, ptr %0, i64 64
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %.sink, ptr %22, align 8
   ret void
 }
@@ -6017,13 +6017,13 @@ define internal fastcc void @yy_fatal_error(ptr noundef %0) unnamed_addr #7 {
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @psql_yyrestart(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %10, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %7 = load i64, ptr %6, align 8
   %8 = getelementptr ptr, ptr %4, i64 %7
   %9 = load ptr, ptr %8, align 8
@@ -6042,14 +6042,14 @@ define dso_local void @psql_yyrestart(ptr noundef %0, ptr nocapture noundef %1) 
 
 13:                                               ; preds = %10
   store i64 0, ptr %11, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i64 1, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i64 0, ptr %15, align 8
   br label %28
 
 16:                                               ; preds = %5
-  %17 = getelementptr inbounds i8, ptr %1, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %18 = load i64, ptr %17, align 8
   %19 = add i64 %18, -1
   %.not29.i = icmp ult i64 %7, %19
@@ -6075,11 +6075,11 @@ define dso_local void @psql_yyrestart(ptr noundef %0, ptr nocapture noundef %1) 
   br label %28
 
 28:                                               ; preds = %25, %16, %13
-  %29 = getelementptr inbounds i8, ptr %1, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %30 = load ptr, ptr %29, align 8
   %31 = tail call ptr @psql_yy_create_buffer(ptr noundef %30, i32 noundef 16384, ptr noundef nonnull %1)
   %32 = load ptr, ptr %3, align 8
-  %33 = getelementptr inbounds i8, ptr %1, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %34 = load i64, ptr %33, align 8
   %35 = getelementptr ptr, ptr %32, i64 %34
   store ptr %31, ptr %35, align 8
@@ -6094,7 +6094,7 @@ define dso_local void @psql_yyrestart(ptr noundef %0, ptr nocapture noundef %1) 
 
 .thread:                                          ; preds = %5, %28
   %38 = phi ptr [ %.pre, %28 ], [ %4, %5 ]
-  %39 = getelementptr inbounds i8, ptr %1, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %40 = load i64, ptr %39, align 8
   %41 = getelementptr ptr, ptr %38, i64 %40
   %42 = load ptr, ptr %41, align 8
@@ -6104,20 +6104,20 @@ define dso_local void @psql_yyrestart(ptr noundef %0, ptr nocapture noundef %1) 
   br i1 %.not.i.i, label %psql_yy_flush_buffer.exit.i, label %45
 
 45:                                               ; preds = %.thread
-  %46 = getelementptr inbounds i8, ptr %42, i64 28
+  %46 = getelementptr inbounds nuw i8, ptr %42, i64 28
   store i32 0, ptr %46, align 4
-  %47 = getelementptr inbounds i8, ptr %42, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %48 = load ptr, ptr %47, align 8
   store i8 0, ptr %48, align 1
   %49 = load ptr, ptr %47, align 8
   %50 = getelementptr i8, ptr %49, i64 1
   store i8 0, ptr %50, align 1
   %51 = load ptr, ptr %47, align 8
-  %52 = getelementptr inbounds i8, ptr %42, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %42, i64 16
   store ptr %51, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %42, i64 40
+  %53 = getelementptr inbounds nuw i8, ptr %42, i64 40
   store i32 1, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %42, i64 56
+  %54 = getelementptr inbounds nuw i8, ptr %42, i64 56
   store i32 0, ptr %54, align 8
   %55 = load ptr, ptr %3, align 8
   %.not15.i.i = icmp eq ptr %55, null
@@ -6131,23 +6131,23 @@ define dso_local void @psql_yyrestart(ptr noundef %0, ptr nocapture noundef %1) 
   br i1 %60, label %61, label %psql_yy_flush_buffer.exit.i
 
 61:                                               ; preds = %56
-  %62 = getelementptr inbounds i8, ptr %59, i64 28
+  %62 = getelementptr inbounds nuw i8, ptr %59, i64 28
   %63 = load i32, ptr %62, align 4
-  %64 = getelementptr inbounds i8, ptr %1, i64 52
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 52
   store i32 %63, ptr %64, align 4
   %65 = load ptr, ptr %58, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 16
   %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds i8, ptr %1, i64 64
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store ptr %67, ptr %68, align 8
-  %69 = getelementptr inbounds i8, ptr %1, i64 128
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 128
   store ptr %67, ptr %69, align 8
   %70 = load ptr, ptr %58, align 8
   %71 = load ptr, ptr %70, align 8
-  %72 = getelementptr inbounds i8, ptr %1, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %71, ptr %72, align 8
   %73 = load i8, ptr %67, align 1
-  %74 = getelementptr inbounds i8, ptr %1, i64 48
+  %74 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store i8 %73, ptr %74, align 8
   br label %psql_yy_flush_buffer.exit.i
 
@@ -6156,14 +6156,14 @@ psql_yy_flush_buffer.exit.i:                      ; preds = %.thread19, %61, %56
   %76 = phi ptr [ %36, %.thread19 ], [ %43, %61 ], [ %43, %56 ], [ %43, %45 ], [ %43, %.thread ]
   %77 = phi ptr [ null, %.thread19 ], [ %42, %61 ], [ %42, %56 ], [ %42, %45 ], [ null, %.thread ]
   store ptr %0, ptr %77, align 8
-  %78 = getelementptr inbounds i8, ptr %77, i64 52
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 52
   store i32 1, ptr %78, align 4
   %79 = load ptr, ptr %3, align 8
   %.not.i18 = icmp eq ptr %79, null
   br i1 %.not.i18, label %.thread.i, label %80
 
 80:                                               ; preds = %psql_yy_flush_buffer.exit.i
-  %81 = getelementptr inbounds i8, ptr %1, i64 24
+  %81 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %82 = load i64, ptr %81, align 8
   %83 = getelementptr ptr, ptr %79, i64 %82
   %84 = load ptr, ptr %83, align 8
@@ -6171,45 +6171,45 @@ psql_yy_flush_buffer.exit.i:                      ; preds = %.thread19, %61, %56
   br i1 %.not14.i, label %psql_yy_init_buffer.exit, label %.thread.i
 
 .thread.i:                                        ; preds = %80, %psql_yy_flush_buffer.exit.i
-  %85 = getelementptr inbounds i8, ptr %77, i64 44
+  %85 = getelementptr inbounds nuw i8, ptr %77, i64 44
   store i32 1, ptr %85, align 4
-  %86 = getelementptr inbounds i8, ptr %77, i64 48
+  %86 = getelementptr inbounds nuw i8, ptr %77, i64 48
   store i32 0, ptr %86, align 8
   br label %psql_yy_init_buffer.exit
 
 psql_yy_init_buffer.exit:                         ; preds = %80, %.thread.i
-  %87 = getelementptr inbounds i8, ptr %77, i64 36
+  %87 = getelementptr inbounds nuw i8, ptr %77, i64 36
   store i32 0, ptr %87, align 4
   store i32 %75, ptr %76, align 4
   %88 = load ptr, ptr %3, align 8
-  %89 = getelementptr inbounds i8, ptr %1, i64 24
+  %89 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %90 = load i64, ptr %89, align 8
   %91 = getelementptr ptr, ptr %88, i64 %90
   %92 = load ptr, ptr %91, align 8
-  %93 = getelementptr inbounds i8, ptr %92, i64 28
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 28
   %94 = load i32, ptr %93, align 4
-  %95 = getelementptr inbounds i8, ptr %1, i64 52
+  %95 = getelementptr inbounds nuw i8, ptr %1, i64 52
   store i32 %94, ptr %95, align 4
   %96 = load ptr, ptr %91, align 8
-  %97 = getelementptr inbounds i8, ptr %96, i64 16
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 16
   %98 = load ptr, ptr %97, align 8
-  %99 = getelementptr inbounds i8, ptr %1, i64 64
+  %99 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store ptr %98, ptr %99, align 8
-  %100 = getelementptr inbounds i8, ptr %1, i64 128
+  %100 = getelementptr inbounds nuw i8, ptr %1, i64 128
   store ptr %98, ptr %100, align 8
   %101 = load ptr, ptr %91, align 8
   %102 = load ptr, ptr %101, align 8
-  %103 = getelementptr inbounds i8, ptr %1, i64 8
+  %103 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %102, ptr %103, align 8
   %104 = load i8, ptr %98, align 1
-  %105 = getelementptr inbounds i8, ptr %1, i64 48
+  %105 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store i8 %104, ptr %105, align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @psql_yy_switch_to_buffer(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %5, label %11
@@ -6226,16 +6226,16 @@ define dso_local void @psql_yy_switch_to_buffer(ptr noundef %0, ptr nocapture no
 
 8:                                                ; preds = %5
   store i64 0, ptr %6, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i64 1, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i64 0, ptr %10, align 8
   br label %.thread
 
 11:                                               ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %1, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %13 = load i64, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %15 = load i64, ptr %14, align 8
   %16 = add i64 %15, -1
   %.not29.i = icmp ult i64 %13, %16
@@ -6262,7 +6262,7 @@ define dso_local void @psql_yy_switch_to_buffer(ptr noundef %0, ptr nocapture no
 
 .thread:                                          ; preds = %22, %11, %8
   %25 = phi ptr [ %6, %8 ], [ %4, %11 ], [ %20, %22 ]
-  %26 = getelementptr inbounds i8, ptr %1, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %27 = load i64, ptr %26, align 8
   %28 = getelementptr ptr, ptr %25, i64 %27
   %29 = load ptr, ptr %28, align 8
@@ -6274,9 +6274,9 @@ define dso_local void @psql_yy_switch_to_buffer(ptr noundef %0, ptr nocapture no
   br i1 %.not25, label %50, label %32
 
 32:                                               ; preds = %31
-  %33 = getelementptr inbounds i8, ptr %1, i64 48
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %34 = load i8, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %1, i64 64
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %36 = load ptr, ptr %35, align 8
   store i8 %34, ptr %36, align 1
   %37 = load ptr, ptr %35, align 8
@@ -6284,22 +6284,22 @@ define dso_local void @psql_yy_switch_to_buffer(ptr noundef %0, ptr nocapture no
   %39 = load i64, ptr %26, align 8
   %40 = getelementptr ptr, ptr %38, i64 %39
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   store ptr %37, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %1, i64 52
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %44 = load i32, ptr %43, align 4
   %45 = load ptr, ptr %3, align 8
   %46 = load i64, ptr %26, align 8
   %47 = getelementptr ptr, ptr %45, i64 %46
   %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 28
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 28
   store i32 %44, ptr %49, align 4
   %.pre = load ptr, ptr %3, align 8
   br label %50
 
 50:                                               ; preds = %32, %31
   %51 = phi ptr [ %.pre, %32 ], [ %25, %31 ]
-  %52 = getelementptr inbounds i8, ptr %1, i64 24
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %53 = load i64, ptr %52, align 8
   %54 = getelementptr ptr, ptr %51, i64 %53
   store ptr %0, ptr %54, align 8
@@ -6307,25 +6307,25 @@ define dso_local void @psql_yy_switch_to_buffer(ptr noundef %0, ptr nocapture no
   %56 = load i64, ptr %52, align 8
   %57 = getelementptr ptr, ptr %55, i64 %56
   %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 28
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 28
   %60 = load i32, ptr %59, align 4
-  %61 = getelementptr inbounds i8, ptr %1, i64 52
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 52
   store i32 %60, ptr %61, align 4
   %62 = load ptr, ptr %57, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %1, i64 64
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store ptr %64, ptr %65, align 8
-  %66 = getelementptr inbounds i8, ptr %1, i64 128
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 128
   store ptr %64, ptr %66, align 8
   %67 = load ptr, ptr %57, align 8
   %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %1, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %68, ptr %69, align 8
   %70 = load i8, ptr %64, align 1
-  %71 = getelementptr inbounds i8, ptr %1, i64 48
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store i8 %70, ptr %71, align 8
-  %72 = getelementptr inbounds i8, ptr %1, i64 80
+  %72 = getelementptr inbounds nuw i8, ptr %1, i64 80
   store i32 1, ptr %72, align 8
   br label %73
 
@@ -6345,13 +6345,13 @@ define dso_local void @psql_yy_delete_buffer(ptr noundef %0, ptr nocapture nound
   br i1 %.not, label %19, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %1, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %5 = load ptr, ptr %4, align 8
   %.not14 = icmp eq ptr %5, null
   br i1 %.not14, label %.thread, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %1, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load i64, ptr %7, align 8
   %9 = getelementptr ptr, ptr %5, i64 %8
   %10 = load ptr, ptr %9, align 8
@@ -6363,13 +6363,13 @@ define dso_local void @psql_yy_delete_buffer(ptr noundef %0, ptr nocapture nound
   br label %.thread
 
 .thread:                                          ; preds = %3, %12, %6
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load i32, ptr %13, align 8
   %.not15 = icmp eq i32 %14, 0
   br i1 %.not15, label %18, label %15
 
 15:                                               ; preds = %.thread
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8
   tail call void @free(ptr noundef %17) #27
   br label %18
@@ -6394,28 +6394,28 @@ define dso_local void @psql_yy_flush_buffer(ptr noundef %0, ptr nocapture nounde
   br i1 %.not, label %.thread, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 28
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 0, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   store i8 0, ptr %6, align 1
   %7 = load ptr, ptr %5, align 8
   %8 = getelementptr i8, ptr %7, i64 1
   store i8 0, ptr %8, align 1
   %9 = load ptr, ptr %5, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %9, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 1, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 0, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %14 = load ptr, ptr %13, align 8
   %.not15 = icmp eq ptr %14, null
   br i1 %.not15, label %.thread, label %15
 
 15:                                               ; preds = %3
-  %16 = getelementptr inbounds i8, ptr %1, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %17 = load i64, ptr %16, align 8
   %18 = getelementptr ptr, ptr %14, i64 %17
   %19 = load ptr, ptr %18, align 8
@@ -6423,23 +6423,23 @@ define dso_local void @psql_yy_flush_buffer(ptr noundef %0, ptr nocapture nounde
   br i1 %20, label %21, label %.thread
 
 21:                                               ; preds = %15
-  %22 = getelementptr inbounds i8, ptr %19, i64 28
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 28
   %23 = load i32, ptr %22, align 4
-  %24 = getelementptr inbounds i8, ptr %1, i64 52
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 52
   store i32 %23, ptr %24, align 4
   %25 = load ptr, ptr %18, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %1, i64 64
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store ptr %27, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %1, i64 128
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 128
   store ptr %27, ptr %29, align 8
   %30 = load ptr, ptr %18, align 8
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %1, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %31, ptr %32, align 8
   %33 = load i8, ptr %27, align 1
-  %34 = getelementptr inbounds i8, ptr %1, i64 48
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store i8 %33, ptr %34, align 8
   br label %.thread
 
@@ -6453,7 +6453,7 @@ define dso_local void @psql_yypush_buffer_state(ptr noundef %0, ptr nocapture no
   br i1 %3, label %73, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %1, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %7, label %13
@@ -6470,16 +6470,16 @@ define dso_local void @psql_yypush_buffer_state(ptr noundef %0, ptr nocapture no
 
 10:                                               ; preds = %7
   store i64 0, ptr %8, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i64 1, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i64 0, ptr %12, align 8
   br label %psql_yyensure_buffer_stack.exit
 
 13:                                               ; preds = %4
-  %14 = getelementptr inbounds i8, ptr %1, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %15 = load i64, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %17 = load i64, ptr %16, align 8
   %18 = add i64 %17, -1
   %.not29.i = icmp ult i64 %15, %18
@@ -6508,16 +6508,16 @@ define dso_local void @psql_yypush_buffer_state(ptr noundef %0, ptr nocapture no
 psql_yyensure_buffer_stack.exit:                  ; preds = %10, %13, %24
   %27 = phi i64 [ 0, %10 ], [ %15, %13 ], [ %.pre, %24 ]
   %28 = phi ptr [ %8, %10 ], [ %6, %13 ], [ %22, %24 ]
-  %29 = getelementptr inbounds i8, ptr %1, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %30 = getelementptr ptr, ptr %28, i64 %27
   %31 = load ptr, ptr %30, align 8
   %.not25 = icmp eq ptr %31, null
   br i1 %.not25, label %.thread, label %32
 
 32:                                               ; preds = %psql_yyensure_buffer_stack.exit
-  %33 = getelementptr inbounds i8, ptr %1, i64 48
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %34 = load i8, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %1, i64 64
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %36 = load ptr, ptr %35, align 8
   store i8 %34, ptr %36, align 1
   %37 = load ptr, ptr %35, align 8
@@ -6525,15 +6525,15 @@ psql_yyensure_buffer_stack.exit:                  ; preds = %10, %13, %24
   %39 = load i64, ptr %29, align 8
   %40 = getelementptr ptr, ptr %38, i64 %39
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   store ptr %37, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %1, i64 52
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %44 = load i32, ptr %43, align 4
   %45 = load ptr, ptr %5, align 8
   %46 = load i64, ptr %29, align 8
   %47 = getelementptr ptr, ptr %45, i64 %46
   %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 28
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 28
   store i32 %44, ptr %49, align 4
   %.pr.pre = load ptr, ptr %5, align 8
   %.pre30 = load i64, ptr %29, align 8
@@ -6556,25 +6556,25 @@ psql_yyensure_buffer_stack.exit:                  ; preds = %10, %13, %24
   %56 = load i64, ptr %29, align 8
   %57 = getelementptr ptr, ptr %55, i64 %56
   %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 28
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 28
   %60 = load i32, ptr %59, align 4
-  %61 = getelementptr inbounds i8, ptr %1, i64 52
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 52
   store i32 %60, ptr %61, align 4
   %62 = load ptr, ptr %57, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %1, i64 64
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store ptr %64, ptr %65, align 8
-  %66 = getelementptr inbounds i8, ptr %1, i64 128
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 128
   store ptr %64, ptr %66, align 8
   %67 = load ptr, ptr %57, align 8
   %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %1, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %68, ptr %69, align 8
   %70 = load i8, ptr %64, align 1
-  %71 = getelementptr inbounds i8, ptr %1, i64 48
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store i8 %70, ptr %71, align 8
-  %72 = getelementptr inbounds i8, ptr %1, i64 80
+  %72 = getelementptr inbounds nuw i8, ptr %1, i64 80
   store i32 1, ptr %72, align 8
   br label %73
 
@@ -6584,13 +6584,13 @@ psql_yyensure_buffer_stack.exit:                  ; preds = %10, %13, %24
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define dso_local void @psql_yypop_buffer_state(ptr nocapture noundef %0) local_unnamed_addr #6 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %41, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i64, ptr %5, align 8
   %7 = getelementptr ptr, ptr %3, i64 %6
   %8 = load ptr, ptr %7, align 8
@@ -6599,13 +6599,13 @@ define dso_local void @psql_yypop_buffer_state(ptr nocapture noundef %0) local_u
 
 .thread.i:                                        ; preds = %4
   store ptr null, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %10 = load i32, ptr %9, align 8
   %.not15.i = icmp eq i32 %10, 0
   br i1 %.not15.i, label %psql_yy_delete_buffer.exit, label %11
 
 11:                                               ; preds = %.thread.i
-  %12 = getelementptr inbounds i8, ptr %8, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %13 = load ptr, ptr %12, align 8
   tail call void @free(ptr noundef %13) #27
   br label %psql_yy_delete_buffer.exit
@@ -6638,25 +6638,25 @@ psql_yy_delete_buffer.exit:                       ; preds = %.thread.i, %11
   br i1 %.not23, label %41, label %26
 
 26:                                               ; preds = %23
-  %27 = getelementptr inbounds i8, ptr %25, i64 28
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 28
   %28 = load i32, ptr %27, align 4
-  %29 = getelementptr inbounds i8, ptr %0, i64 52
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i32 %28, ptr %29, align 4
   %30 = load ptr, ptr %24, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 64
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %32, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 128
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store ptr %32, ptr %34, align 8
   %35 = load ptr, ptr %24, align 8
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %0, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %36, ptr %37, align 8
   %38 = load i8, ptr %32, align 1
-  %39 = getelementptr inbounds i8, ptr %0, i64 48
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i8 %38, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 80
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 1, ptr %40, align 8
   br label %41
 
@@ -6694,24 +6694,24 @@ define dso_local noundef ptr @psql_yy_scan_buffer(ptr noundef %0, i64 noundef %1
 
 16:                                               ; preds = %13
   %17 = trunc i64 %6 to i32
-  %18 = getelementptr inbounds i8, ptr %14, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store i32 %17, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %14, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %0, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %14, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store ptr %0, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %14, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store i32 0, ptr %21, align 8
   store ptr null, ptr %14, align 8
-  %22 = getelementptr inbounds i8, ptr %14, i64 28
+  %22 = getelementptr inbounds nuw i8, ptr %14, i64 28
   store i32 %17, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %14, i64 36
+  %23 = getelementptr inbounds nuw i8, ptr %14, i64 36
   store i32 0, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %14, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %14, i64 40
   store i32 1, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %14, i64 52
+  %25 = getelementptr inbounds nuw i8, ptr %14, i64 52
   store i32 0, ptr %25, align 4
-  %26 = getelementptr inbounds i8, ptr %14, i64 56
+  %26 = getelementptr inbounds nuw i8, ptr %14, i64 56
   store i32 0, ptr %26, align 8
   tail call void @psql_yy_switch_to_buffer(ptr noundef nonnull %14, ptr noundef %2)
   br label %27
@@ -6797,24 +6797,24 @@ define dso_local nonnull ptr @psql_yy_scan_bytes(ptr nocapture noundef readonly 
 
 33:                                               ; preds = %29
   %34 = trunc i64 %22 to i32
-  %35 = getelementptr inbounds i8, ptr %30, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %30, i64 24
   store i32 %34, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %30, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store ptr %6, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %30, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %30, i64 16
   store ptr %6, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %30, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %30, i64 32
   store i32 0, ptr %38, align 8
   store ptr null, ptr %30, align 8
-  %39 = getelementptr inbounds i8, ptr %30, i64 28
+  %39 = getelementptr inbounds nuw i8, ptr %30, i64 28
   store i32 %34, ptr %39, align 4
-  %40 = getelementptr inbounds i8, ptr %30, i64 36
+  %40 = getelementptr inbounds nuw i8, ptr %30, i64 36
   store i32 0, ptr %40, align 4
-  %41 = getelementptr inbounds i8, ptr %30, i64 40
+  %41 = getelementptr inbounds nuw i8, ptr %30, i64 40
   store i32 1, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %30, i64 52
+  %42 = getelementptr inbounds nuw i8, ptr %30, i64 52
   store i32 0, ptr %42, align 4
-  %43 = getelementptr inbounds i8, ptr %30, i64 56
+  %43 = getelementptr inbounds nuw i8, ptr %30, i64 56
   store i32 0, ptr %43, align 8
   tail call void @psql_yy_switch_to_buffer(ptr noundef nonnull %30, ptr noundef %2)
   store i32 1, ptr %38, align 8
@@ -6832,13 +6832,13 @@ define dso_local ptr @psql_yyget_extra(ptr nocapture noundef readonly %0) local_
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local i32 @psql_yyget_lineno(ptr nocapture noundef readonly %0) local_unnamed_addr #12 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %12, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i64, ptr %5, align 8
   %7 = getelementptr ptr, ptr %3, i64 %6
   %8 = load ptr, ptr %7, align 8
@@ -6846,7 +6846,7 @@ define dso_local i32 @psql_yyget_lineno(ptr nocapture noundef readonly %0) local
   br i1 %.not8, label %12, label %9
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %8, i64 44
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 44
   %11 = load i32, ptr %10, align 4
   br label %12
 
@@ -6857,13 +6857,13 @@ define dso_local i32 @psql_yyget_lineno(ptr nocapture noundef readonly %0) local
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local i32 @psql_yyget_column(ptr nocapture noundef readonly %0) local_unnamed_addr #12 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %12, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i64, ptr %5, align 8
   %7 = getelementptr ptr, ptr %3, i64 %6
   %8 = load ptr, ptr %7, align 8
@@ -6871,7 +6871,7 @@ define dso_local i32 @psql_yyget_column(ptr nocapture noundef readonly %0) local
   br i1 %.not8, label %12, label %9
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %8, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %11 = load i32, ptr %10, align 8
   br label %12
 
@@ -6882,28 +6882,28 @@ define dso_local i32 @psql_yyget_column(ptr nocapture noundef readonly %0) local
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local ptr @psql_yyget_in(ptr nocapture noundef readonly %0) local_unnamed_addr #11 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local ptr @psql_yyget_out(ptr nocapture noundef readonly %0) local_unnamed_addr #11 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local i32 @psql_yyget_leng(ptr nocapture noundef readonly %0) local_unnamed_addr #11 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local ptr @psql_yyget_text(ptr nocapture noundef readonly %0) local_unnamed_addr #11 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 128
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
@@ -6916,13 +6916,13 @@ define dso_local void @psql_yyset_extra(ptr noundef %0, ptr nocapture noundef wr
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @psql_yyset_lineno(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %10, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %7 = load i64, ptr %6, align 8
   %8 = getelementptr ptr, ptr %4, i64 %7
   %9 = load ptr, ptr %8, align 8
@@ -6934,20 +6934,20 @@ define dso_local void @psql_yyset_lineno(i32 noundef %0, ptr nocapture noundef r
   unreachable
 
 11:                                               ; preds = %5
-  %12 = getelementptr inbounds i8, ptr %9, i64 44
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 44
   store i32 %0, ptr %12, align 4
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @psql_yyset_column(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %10, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %7 = load i64, ptr %6, align 8
   %8 = getelementptr ptr, ptr %4, i64 %7
   %9 = load ptr, ptr %8, align 8
@@ -6959,49 +6959,49 @@ define dso_local void @psql_yyset_column(i32 noundef %0, ptr nocapture noundef r
   unreachable
 
 11:                                               ; preds = %5
-  %12 = getelementptr inbounds i8, ptr %9, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 48
   store i32 %0, ptr %12, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @psql_yyset_in(ptr noundef %0, ptr nocapture noundef writeonly initializes((8, 16)) %1) local_unnamed_addr #13 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %0, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @psql_yyset_out(ptr noundef %0, ptr nocapture noundef writeonly initializes((16, 24)) %1) local_unnamed_addr #13 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr %0, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local i32 @psql_yyget_debug(ptr nocapture noundef readonly %0) local_unnamed_addr #11 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 124
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 124
   %3 = load i32, ptr %2, align 4
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @psql_yyset_debug(i32 noundef %0, ptr nocapture noundef writeonly initializes((124, 128)) %1) local_unnamed_addr #13 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 124
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 124
   store i32 %0, ptr %3, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local ptr @psql_yyget_lval(ptr nocapture noundef readonly %0) local_unnamed_addr #11 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 144
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @psql_yyset_lval(ptr noundef %0, ptr nocapture noundef writeonly initializes((144, 152)) %1) local_unnamed_addr #13 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 144
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 144
   store ptr %0, ptr %3, align 8
   ret void
 }
@@ -7063,19 +7063,19 @@ define dso_local range(i32 0, 2) i32 @psql_yylex_init_extra(ptr noundef %0, ptr 
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i32 @psql_yylex_destroy(ptr nocapture noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not25 = icmp eq ptr %4, null
   br i1 %.not25, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 52
-  %6 = getelementptr inbounds i8, ptr %0, i64 64
-  %7 = getelementptr inbounds i8, ptr %0, i64 128
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 48
-  %10 = getelementptr inbounds i8, ptr %0, i64 80
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %11 = load i64, ptr %2, align 8
   %12 = getelementptr ptr, ptr %4, i64 %11
   %13 = load ptr, ptr %12, align 8
@@ -7086,13 +7086,13 @@ define dso_local noundef i32 @psql_yylex_destroy(ptr nocapture noundef %0) local
   %15 = phi ptr [ %59, %psql_yypop_buffer_state.exit ], [ %13, %.lr.ph ]
   %16 = phi ptr [ %58, %psql_yypop_buffer_state.exit ], [ %12, %.lr.ph ]
   store ptr null, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %15, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %18 = load i32, ptr %17, align 8
   %.not15.i = icmp eq i32 %18, 0
   br i1 %.not15.i, label %psql_yy_delete_buffer.exit, label %19
 
 19:                                               ; preds = %.thread.i
-  %20 = getelementptr inbounds i8, ptr %15, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %21 = load ptr, ptr %20, align 8
   tail call void @free(ptr noundef %21) #27
   br label %psql_yy_delete_buffer.exit
@@ -7116,13 +7116,13 @@ psql_yy_delete_buffer.exit:                       ; preds = %.thread.i, %19
 
 .thread.i.i:                                      ; preds = %26
   store ptr null, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 32
   %31 = load i32, ptr %30, align 8
   %.not15.i.i = icmp eq i32 %31, 0
   br i1 %.not15.i.i, label %psql_yy_delete_buffer.exit.i, label %32
 
 32:                                               ; preds = %.thread.i.i
-  %33 = getelementptr inbounds i8, ptr %29, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %34 = load ptr, ptr %33, align 8
   tail call void @free(ptr noundef %34) #27
   br label %psql_yy_delete_buffer.exit.i
@@ -7155,11 +7155,11 @@ psql_yy_delete_buffer.exit.i:                     ; preds = %32, %.thread.i.i
   br i1 %.not23.i, label %psql_yypop_buffer_state.exit, label %47
 
 47:                                               ; preds = %44
-  %48 = getelementptr inbounds i8, ptr %46, i64 28
+  %48 = getelementptr inbounds nuw i8, ptr %46, i64 28
   %49 = load i32, ptr %48, align 4
   store i32 %49, ptr %5, align 4
   %50 = load ptr, ptr %45, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %52 = load ptr, ptr %51, align 8
   store ptr %52, ptr %6, align 8
   store ptr %52, ptr %7, align 8
@@ -7183,7 +7183,7 @@ psql_yypop_buffer_state.exit:                     ; preds = %26, %44, %47
   %.lcssa = phi ptr [ null, %1 ], [ %4, %.lr.ph ], [ null, %41 ], [ null, %psql_yy_delete_buffer.exit ], [ %56, %psql_yypop_buffer_state.exit ]
   tail call void @free(ptr noundef %.lcssa) #27
   store ptr null, ptr %3, align 8
-  %61 = getelementptr inbounds i8, ptr %0, i64 96
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %62 = load ptr, ptr %61, align 8
   tail call void @free(ptr noundef %62) #27
   tail call void @free(ptr noundef nonnull %0) #27
@@ -7205,7 +7205,7 @@ declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @psql_scan_create(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call ptr @pg_malloc0(i64 noundef 128) #27
-  %3 = getelementptr inbounds i8, ptr %2, i64 112
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 112
   store ptr %0, ptr %3, align 8
   %calloc.i = tail call dereferenceable_or_null(152) ptr @calloc(i64 1, i64 152)
   store ptr %calloc.i, ptr %2, align 8
@@ -7221,13 +7221,13 @@ define dso_local noundef ptr @psql_scan_create(ptr noundef %0) local_unnamed_add
 psql_yylex_init.exit:                             ; preds = %1, %5
   %7 = phi ptr [ %calloc.i, %1 ], [ %.pre, %5 ]
   store ptr %2, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 72
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 72
   store i32 0, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 80
   store i32 0, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %2, i64 84
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 84
   store i32 0, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %2, i64 88
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %12 = load ptr, ptr %11, align 8
   %.not.i = icmp eq ptr %12, null
   br i1 %.not.i, label %psql_scan_reset.exit, label %13
@@ -7238,9 +7238,9 @@ psql_yylex_init.exit:                             ; preds = %1, %5
 
 psql_scan_reset.exit:                             ; preds = %psql_yylex_init.exit, %13
   store ptr null, ptr %11, align 8
-  %14 = getelementptr inbounds i8, ptr %2, i64 96
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 96
   store i32 0, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %2, i64 104
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 104
   store i32 0, ptr %15, align 8
   ret ptr %2
 }
@@ -7249,13 +7249,13 @@ declare ptr @pg_malloc0(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define dso_local void @psql_scan_reset(ptr nocapture noundef initializes((72, 76), (80, 88), (96, 100), (104, 108)) %0) local_unnamed_addr #6 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 72
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 0, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 80
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 0, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 84
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 84
   store i32 0, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 88
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %8, label %7
@@ -7266,16 +7266,16 @@ define dso_local void @psql_scan_reset(ptr nocapture noundef initializes((72, 76
 
 8:                                                ; preds = %7, %1
   store ptr null, ptr %5, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 96
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i32 0, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 104
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i32 0, ptr %10, align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @psql_scan_destroy(ptr nocapture noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not12.i = icmp eq ptr %3, null
   br i1 %.not12.i, label %._crit_edge.i, label %.lr.ph.i
@@ -7287,20 +7287,20 @@ define dso_local void @psql_scan_destroy(ptr nocapture noundef %0) local_unnamed
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !17
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %.not10.i = icmp eq ptr %6, null
   br i1 %.not10.i, label %23, label %7
 
 7:                                                ; preds = %._crit_edge.i
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %10 = load ptr, ptr %9, align 8
   %.not14.i.i = icmp eq ptr %10, null
   br i1 %.not14.i.i, label %.thread.i.i, label %11
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %8, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %13 = load i64, ptr %12, align 8
   %14 = getelementptr ptr, ptr %10, i64 %13
   %15 = load ptr, ptr %14, align 8
@@ -7312,13 +7312,13 @@ define dso_local void @psql_scan_destroy(ptr nocapture noundef %0) local_unnamed
   br label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %17, %11, %7
-  %18 = getelementptr inbounds i8, ptr %6, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %19 = load i32, ptr %18, align 8
   %.not15.i.i = icmp eq i32 %19, 0
   br i1 %.not15.i.i, label %psql_yy_delete_buffer.exit.i, label %20
 
 20:                                               ; preds = %.thread.i.i
-  %21 = getelementptr inbounds i8, ptr %6, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %22 = load ptr, ptr %21, align 8
   tail call void @free(ptr noundef %22) #27
   br label %psql_yy_delete_buffer.exit.i
@@ -7329,7 +7329,7 @@ psql_yy_delete_buffer.exit.i:                     ; preds = %20, %.thread.i.i
 
 23:                                               ; preds = %psql_yy_delete_buffer.exit.i, %._crit_edge.i
   store ptr null, ptr %5, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %25 = load ptr, ptr %24, align 8
   %.not11.i = icmp eq ptr %25, null
   br i1 %.not11.i, label %psql_scan_finish.exit, label %26
@@ -7340,13 +7340,13 @@ psql_yy_delete_buffer.exit.i:                     ; preds = %20, %.thread.i.i
 
 psql_scan_finish.exit:                            ; preds = %23, %26
   store ptr null, ptr %24, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 72
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 0, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 80
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 0, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 84
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 84
   store i32 0, ptr %29, align 4
-  %30 = getelementptr inbounds i8, ptr %0, i64 88
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %31 = load ptr, ptr %30, align 8
   %.not.i4 = icmp eq ptr %31, null
   br i1 %.not.i4, label %psql_scan_reset.exit, label %32
@@ -7357,9 +7357,9 @@ psql_scan_finish.exit:                            ; preds = %23, %26
 
 psql_scan_reset.exit:                             ; preds = %psql_scan_finish.exit, %32
   store ptr null, ptr %30, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 96
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i32 0, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 104
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i32 0, ptr %34, align 8
   %35 = load ptr, ptr %0, align 8
   %36 = tail call i32 @psql_yylex_destroy(ptr noundef %35)
@@ -7369,7 +7369,7 @@ psql_scan_reset.exit:                             ; preds = %psql_scan_finish.ex
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @psql_scan_finish(ptr nocapture noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not12 = icmp eq ptr %3, null
   br i1 %.not12, label %._crit_edge, label %.lr.ph
@@ -7381,20 +7381,20 @@ define dso_local void @psql_scan_finish(ptr nocapture noundef %0) local_unnamed_
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %.not10 = icmp eq ptr %6, null
   br i1 %.not10, label %23, label %7
 
 7:                                                ; preds = %._crit_edge
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %10 = load ptr, ptr %9, align 8
   %.not14.i = icmp eq ptr %10, null
   br i1 %.not14.i, label %.thread.i, label %11
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %8, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %13 = load i64, ptr %12, align 8
   %14 = getelementptr ptr, ptr %10, i64 %13
   %15 = load ptr, ptr %14, align 8
@@ -7406,13 +7406,13 @@ define dso_local void @psql_scan_finish(ptr nocapture noundef %0) local_unnamed_
   br label %.thread.i
 
 .thread.i:                                        ; preds = %17, %11, %7
-  %18 = getelementptr inbounds i8, ptr %6, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %19 = load i32, ptr %18, align 8
   %.not15.i = icmp eq i32 %19, 0
   br i1 %.not15.i, label %psql_yy_delete_buffer.exit, label %20
 
 20:                                               ; preds = %.thread.i
-  %21 = getelementptr inbounds i8, ptr %6, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %22 = load ptr, ptr %21, align 8
   tail call void @free(ptr noundef %22) #27
   br label %psql_yy_delete_buffer.exit
@@ -7423,7 +7423,7 @@ psql_yy_delete_buffer.exit:                       ; preds = %.thread.i, %20
 
 23:                                               ; preds = %psql_yy_delete_buffer.exit, %._crit_edge
   store ptr null, ptr %5, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %25 = load ptr, ptr %24, align 8
   %.not11 = icmp eq ptr %25, null
   br i1 %.not11, label %27, label %26
@@ -7439,7 +7439,7 @@ psql_yy_delete_buffer.exit:                       ; preds = %.thread.i, %20
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @psql_scan_set_passthrough(ptr nocapture noundef writeonly initializes((120, 128)) %0, ptr noundef %1) local_unnamed_addr #13 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 120
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr %1, ptr %3, align 8
   ret void
 }
@@ -7447,25 +7447,25 @@ define dso_local void @psql_scan_set_passthrough(ptr nocapture noundef writeonly
 ; Function Attrs: nounwind uwtable
 define dso_local void @psql_scan_setup(ptr nocapture noundef initializes((48, 54)) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = zext i1 %4 to i8
-  %7 = getelementptr inbounds i8, ptr %0, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 %3, ptr %7, align 8
   %8 = tail call i32 @pg_valid_server_encoding_id(i32 noundef %3) #27
   %9 = icmp ne i32 %8, 0
-  %10 = getelementptr inbounds i8, ptr %0, i64 52
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %11 = zext i1 %9 to i8
   store i8 %11, ptr %10, align 4
-  %12 = getelementptr inbounds i8, ptr %0, i64 53
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 53
   store i8 %6, ptr %12, align 1
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = tail call ptr @psqlscan_prepare_buffer(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %13)
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %14, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %1, ptr %16, align 8
   %17 = load ptr, ptr %13, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %17, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 64
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %1, ptr %19, align 8
   ret void
 }
@@ -7485,7 +7485,7 @@ define dso_local noundef ptr @psqlscan_prepare_buffer(ptr nocapture noundef read
   %11 = sext i32 %2 to i64
   %12 = getelementptr i8, ptr %7, i64 %11
   store i8 0, ptr %12, align 1
-  %13 = getelementptr inbounds i8, ptr %0, i64 52
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %14 = load i8, ptr %13, align 4
   %15 = trunc i8 %14 to i1
   br i1 %15, label %19, label %.preheader
@@ -7495,7 +7495,7 @@ define dso_local noundef ptr @psqlscan_prepare_buffer(ptr nocapture noundef read
   br i1 %16, label %.lr.ph35, label %.loopexit31
 
 .lr.ph35:                                         ; preds = %.preheader
-  %17 = getelementptr inbounds i8, ptr %0, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %18 = add nsw i32 %2, -2
   br label %22
 
@@ -7579,24 +7579,24 @@ define dso_local noundef ptr @psqlscan_prepare_buffer(ptr nocapture noundef read
 
 56:                                               ; preds = %53
   %57 = trunc i64 %46 to i32
-  %58 = getelementptr inbounds i8, ptr %54, i64 24
+  %58 = getelementptr inbounds nuw i8, ptr %54, i64 24
   store i32 %57, ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %54, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %54, i64 8
   store ptr %7, ptr %59, align 8
-  %60 = getelementptr inbounds i8, ptr %54, i64 16
+  %60 = getelementptr inbounds nuw i8, ptr %54, i64 16
   store ptr %7, ptr %60, align 8
-  %61 = getelementptr inbounds i8, ptr %54, i64 32
+  %61 = getelementptr inbounds nuw i8, ptr %54, i64 32
   store i32 0, ptr %61, align 8
   store ptr null, ptr %54, align 8
-  %62 = getelementptr inbounds i8, ptr %54, i64 28
+  %62 = getelementptr inbounds nuw i8, ptr %54, i64 28
   store i32 %57, ptr %62, align 4
-  %63 = getelementptr inbounds i8, ptr %54, i64 36
+  %63 = getelementptr inbounds nuw i8, ptr %54, i64 36
   store i32 0, ptr %63, align 4
-  %64 = getelementptr inbounds i8, ptr %54, i64 40
+  %64 = getelementptr inbounds nuw i8, ptr %54, i64 40
   store i32 1, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %54, i64 52
+  %65 = getelementptr inbounds nuw i8, ptr %54, i64 52
   store i32 0, ptr %65, align 4
-  %66 = getelementptr inbounds i8, ptr %54, i64 56
+  %66 = getelementptr inbounds nuw i8, ptr %54, i64 56
   store i32 0, ptr %66, align 8
   tail call void @psql_yy_switch_to_buffer(ptr noundef nonnull %54, ptr noundef %43)
   br label %psql_yy_scan_buffer.exit
@@ -7608,12 +7608,12 @@ psql_yy_scan_buffer.exit:                         ; preds = %.loopexit31, %45, %
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, 4) i32 @psql_scan(ptr nocapture noundef initializes((8, 16)) %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.sink.in = select i1 %.not, ptr %7, ptr %6
   %.sink = load ptr, ptr %.sink.in, align 8
   %8 = load ptr, ptr %0, align 8
@@ -7627,7 +7627,7 @@ define dso_local range(i32 0, 4) i32 @psql_scan(ptr nocapture noundef initialize
   ]
 
 11:                                               ; preds = %3
-  %12 = getelementptr inbounds i8, ptr %0, i64 72
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %13 = load i32, ptr %12, align 8
   switch i32 %13, label %28 [
     i32 0, label %14
@@ -7644,19 +7644,19 @@ define dso_local range(i32 0, 4) i32 @psql_scan(ptr nocapture noundef initialize
   ]
 
 14:                                               ; preds = %11, %11
-  %15 = getelementptr inbounds i8, ptr %0, i64 80
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %16 = load i32, ptr %15, align 8
   %17 = icmp sgt i32 %16, 0
   br i1 %17, label %32, label %18
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds i8, ptr %0, i64 104
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %20 = load i32, ptr %19, align 8
   %21 = icmp sgt i32 %20, 0
   br i1 %21, label %32, label %22
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %1, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %24 = load i64, ptr %23, align 8
   %.not29 = icmp ne i64 %24, 0
   %. = zext i1 %.not29 to i32
@@ -7698,14 +7698,14 @@ declare void @exit(i32 noundef) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @psql_scan_reselect_sql_lexer(ptr nocapture noundef writeonly initializes((72, 76)) %0) local_unnamed_addr #13 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 72
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 0, ptr %2, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local zeroext i1 @psql_scan_in_quote(ptr nocapture noundef readonly %0) local_unnamed_addr #11 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 72
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load i32, ptr %2, align 8
   %.not = icmp ne i32 %3, 0
   %4 = icmp ne i32 %3, 6

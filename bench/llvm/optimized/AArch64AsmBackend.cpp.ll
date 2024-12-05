@@ -1771,7 +1771,7 @@ define internal noundef nonnull align 8 dereferenceable(24) ptr @_ZNK12_GLOBAL__
 10:                                               ; preds = %6
   %11 = add nsw i32 %1, -128
   %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr inbounds [15 x %"struct.llvm::MCFixupKindInfo"], ptr @_ZZNK12_GLOBAL__N_117AArch64AsmBackend16getFixupKindInfoEN4llvm11MCFixupKindEE5Infos, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw [15 x %"struct.llvm::MCFixupKindInfo"], ptr @_ZZNK12_GLOBAL__N_117AArch64AsmBackend16getFixupKindInfoEN4llvm11MCFixupKindEE5Infos, i64 0, i64 %12
   br label %14
 
 14:                                               ; preds = %10, %8, %4
@@ -1839,7 +1839,7 @@ define internal void @_ZNK12_GLOBAL__N_117AArch64AsmBackend10applyFixupERKN4llvm
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %36 = load i32, ptr %35, align 4
   %37 = icmp eq i32 %36, 4
-  %38 = getelementptr inbounds i8, ptr %0, i64 68
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %39 = load i32, ptr %38, align 4
   %40 = icmp eq i32 %39, 3
   %or.cond66 = select i1 %37, i1 %40, i1 false
@@ -1924,13 +1924,13 @@ define internal void @_ZNK12_GLOBAL__N_117AArch64AsmBackend10applyFixupERKN4llvm
 _ZL20getFixupKindNumBytesj.exit:                  ; preds = %66, %68, %69, %70, %71
   %.0.i = phi i64 [ 8, %71 ], [ 4, %70 ], [ 3, %69 ], [ 2, %68 ], [ 1, %66 ]
   %72 = load ptr, ptr %0, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 64
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 64
   %74 = load ptr, ptr %73, align 8
   %75 = tail call noundef nonnull align 8 dereferenceable(24) ptr %74(ptr noundef nonnull align 8 dereferenceable(72) %0, i32 noundef %36) #17
-  %.sroa.1.0..sroa_idx = getelementptr inbounds i8, ptr %75, i64 8
+  %.sroa.1.0..sroa_idx = getelementptr inbounds nuw i8, ptr %75, i64 8
   %.sroa.1.0.copyload = load i32, ptr %.sroa.1.0..sroa_idx, align 8
   %76 = load ptr, ptr %1, align 8
-  %77 = getelementptr inbounds i8, ptr %3, i64 24
+  %77 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %.val = load i32, ptr %77, align 8
   %.val56 = load i32, ptr %38, align 4
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10)
@@ -2580,7 +2580,7 @@ _ZL16adjustFixupValueRKN4llvm7MCFixupERKNS_7MCValueEmRNS_9MCContextERKNS_6Triple
   %317 = shl i64 %.0.i58, %316
   %318 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %319 = load i32, ptr %318, align 8
-  %320 = getelementptr inbounds i8, ptr %0, i64 8
+  %320 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val57 = load i32, ptr %320, align 8
   %321 = icmp eq i32 %.val57, 1
   br i1 %321, label %.preheader.preheader, label %322
@@ -2634,7 +2634,7 @@ _ZL16adjustFixupValueRKN4llvm7MCFixupERKNS_7MCValueEmRNS_9MCContextERKNS_6Triple
   %331 = trunc nuw nsw i64 %indvars.iv76 to i32
   %332 = add i32 %319, %331
   %333 = zext i32 %332 to i64
-  %334 = getelementptr inbounds i8, ptr %4, i64 %333
+  %334 = getelementptr inbounds nuw i8, ptr %4, i64 %333
   %335 = load i8, ptr %334, align 1
   %336 = or i8 %335, %330
   store i8 %336, ptr %334, align 1
@@ -2651,7 +2651,7 @@ _ZL16adjustFixupValueRKN4llvm7MCFixupERKNS_7MCValueEmRNS_9MCContextERKNS_6Triple
   %342 = trunc i64 %341 to i8
   %343 = add i32 %327, %339
   %344 = zext i32 %343 to i64
-  %345 = getelementptr inbounds i8, ptr %4, i64 %344
+  %345 = getelementptr inbounds nuw i8, ptr %4, i64 %344
   %346 = load i8, ptr %345, align 1
   %347 = or i8 %346, %342
   store i8 %347, ptr %345, align 1
@@ -2676,7 +2676,7 @@ _ZL16adjustFixupValueRKN4llvm7MCFixupERKNS_7MCValueEmRNS_9MCContextERKNS_6Triple
   %354 = icmp slt i64 %.0, 0
   %355 = add i32 %319, 3
   %356 = zext i32 %355 to i64
-  %357 = getelementptr inbounds i8, ptr %4, i64 %356
+  %357 = getelementptr inbounds nuw i8, ptr %4, i64 %356
   %358 = load i8, ptr %357, align 1
   %359 = and i8 %358, -65
   %masksel = select i1 %354, i8 0, i8 64

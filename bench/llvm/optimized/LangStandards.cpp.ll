@@ -868,7 +868,7 @@ define dso_local noundef ptr @_ZN5clang12LangStandard22getLangStandardForNameEN4
 switch.lookup:
   %2 = tail call noundef i32 @_ZN5clang12LangStandard11getLangKindEN4llvm9StringRefE(ptr %0, i64 %1)
   %3 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds [42 x ptr], ptr @switch.table._ZN5clang12LangStandard22getLangStandardForNameEN4llvm9StringRefE, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw [42 x ptr], ptr @switch.table._ZN5clang12LangStandard22getLangStandardForNameEN4llvm9StringRefE, i64 0, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }

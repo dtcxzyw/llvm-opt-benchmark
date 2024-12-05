@@ -64,11 +64,11 @@ define dso_local void @_ZN4llvm20CrashRecoveryContextD2Ev(ptr noundef nonnull al
   %8 = getelementptr inbounds nuw i8, ptr %.012, i64 16
   store i8 1, ptr %8, align 8
   %9 = load ptr, ptr %.012, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(40) %.012) #19
   %12 = load ptr, ptr %.012, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr noundef nonnull align 8 dereferenceable(40) %.012) #19
   %.not = icmp eq ptr %7, null
@@ -163,9 +163,9 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %0
 
 8:                                                ; preds = %8, %4
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %8 ]
-  %9 = getelementptr inbounds [6 x i32], ptr @_ZL7Signals, i64 0, i64 %indvars.iv.i
+  %9 = getelementptr inbounds nuw [6 x i32], ptr @_ZL7Signals, i64 0, i64 %indvars.iv.i
   %10 = load i32, ptr %9, align 4
-  %11 = getelementptr inbounds [6 x %struct.sigaction], ptr @_ZL11PrevActions, i64 0, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw [6 x %struct.sigaction], ptr @_ZL11PrevActions, i64 0, i64 %indvars.iv.i
   %12 = call i32 @sigaction(i32 noundef %10, ptr noundef nonnull %1, ptr noundef nonnull %11) #19
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %.not.i = icmp eq i64 %indvars.iv.next.i, 6
@@ -200,9 +200,9 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %0
 
 4:                                                ; preds = %4, %3
   %indvars.iv.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i, %4 ]
-  %5 = getelementptr inbounds [6 x i32], ptr @_ZL7Signals, i64 0, i64 %indvars.iv.i
+  %5 = getelementptr inbounds nuw [6 x i32], ptr @_ZL7Signals, i64 0, i64 %indvars.iv.i
   %6 = load i32, ptr %5, align 4
-  %7 = getelementptr inbounds [6 x %struct.sigaction], ptr @_ZL11PrevActions, i64 0, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw [6 x %struct.sigaction], ptr @_ZL11PrevActions, i64 0, i64 %indvars.iv.i
   %8 = tail call i32 @sigaction(i32 noundef %6, ptr noundef nonnull %7, ptr noundef null) #19
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %.not.i = icmp eq i64 %indvars.iv.next.i, 6
@@ -279,7 +279,7 @@ define dso_local void @_ZN4llvm20CrashRecoveryContext17unregisterCleanupEPNS_27C
 
 17:                                               ; preds = %.sink.split, %9, %10
   %18 = load ptr, ptr %1, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load ptr, ptr %19, align 8
   tail call void %20(ptr noundef nonnull align 8 dereferenceable(40) %1) #19
   br label %21
@@ -405,7 +405,7 @@ declare i32 @raise(i32 noundef) local_unnamed_addr #13
 define dso_local noundef zeroext i1 @_ZN4llvm20CrashRecoveryContext17RunSafelyOnThreadENS_12function_refIFvvEEEj(ptr noundef nonnull align 8 dereferenceable(21) %0, ptr %1, i64 %2, i32 noundef %3) local_unnamed_addr #3 align 2 {
   %5 = alloca %"struct.(anonymous namespace)::RunSafelyOnThreadInfo", align 8
   store ptr %1, ptr %5, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %2, ptr %.sroa.2.0..sroa_idx, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %0, ptr %6, align 8
@@ -419,7 +419,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm20CrashRecoveryContext17RunSafelyOn
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.2.0.insert.shift, %.sroa.0.0.insert.ext
   %9 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
   store ptr %5, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr @_ZL26RunSafelyOnThread_DispatchPv, ptr %10, align 8
   %11 = call noundef i64 @_ZN4llvm27llvm_execute_on_thread_implEPFPvS0_ES0_St8optionalIjE(ptr noundef nonnull @_ZN4llvm6thread11ThreadProxyISt5tupleIJPFvPvEPN12_GLOBAL__N_121RunSafelyOnThreadInfoEEEEES3_S3_, ptr noundef nonnull %9, i64 %.sroa.0.0.insert.insert) #19
   %.not.i = icmp eq i64 %11, 0
@@ -453,7 +453,7 @@ define internal void @_ZL26RunSafelyOnThread_DispatchPv(ptr nocapture noundef in
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.sroa.0.0.copyload = load ptr, ptr %0, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
   %4 = tail call noundef zeroext i1 @_ZN4llvm20CrashRecoveryContext9RunSafelyENS_12function_refIFvvEEE(ptr noundef nonnull align 8 dereferenceable(21) %3, ptr %.sroa.0.0.copyload, i64 %.sroa.2.0.copyload)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 25
@@ -491,9 +491,9 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i:        ; preds = %5
 
 9:                                                ; preds = %9, %8
   %indvars.iv.i.i = phi i64 [ 0, %8 ], [ %indvars.iv.next.i.i, %9 ]
-  %10 = getelementptr inbounds [6 x i32], ptr @_ZL7Signals, i64 0, i64 %indvars.iv.i.i
+  %10 = getelementptr inbounds nuw [6 x i32], ptr @_ZL7Signals, i64 0, i64 %indvars.iv.i.i
   %11 = load i32, ptr %10, align 4
-  %12 = getelementptr inbounds [6 x %struct.sigaction], ptr @_ZL11PrevActions, i64 0, i64 %indvars.iv.i.i
+  %12 = getelementptr inbounds nuw [6 x %struct.sigaction], ptr @_ZL11PrevActions, i64 0, i64 %indvars.iv.i.i
   %13 = tail call i32 @sigaction(i32 noundef %11, ptr noundef nonnull %12, ptr noundef null) #19
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 6

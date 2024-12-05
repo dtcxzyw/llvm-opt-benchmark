@@ -17,10 +17,10 @@ define i32 @FT_Get_CID_Registry_Ordering_Supplement(ptr noundef %0, ptr noundef 
   br i1 %.not, label %.thread, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 176
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 64
   %13 = load ptr, ptr %12, align 8
   %.not23 = icmp eq ptr %13, null
   br i1 %.not23, label %.thread, label %14
@@ -79,10 +79,10 @@ define i32 @FT_Get_CID_Is_Internally_CID_Keyed(ptr noundef %0, ptr noundef write
   br i1 %.not, label %.thread, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 176
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %9 = load ptr, ptr %8, align 8
   %.not17 = icmp eq ptr %9, null
   br i1 %.not17, label %.thread, label %10
@@ -93,7 +93,7 @@ define i32 @FT_Get_CID_Is_Internally_CID_Keyed(ptr noundef %0, ptr noundef write
   br i1 %.not18, label %.thread, label %12
 
 12:                                               ; preds = %10
-  %13 = getelementptr inbounds i8, ptr %11, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %14 = load ptr, ptr %13, align 8
   %.not19 = icmp eq ptr %14, null
   br i1 %.not19, label %.thread, label %15
@@ -124,10 +124,10 @@ define i32 @FT_Get_CID_From_Glyph_Index(ptr noundef %0, i32 noundef %1, ptr noun
   br i1 %.not, label %.thread, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 176
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 64
   %10 = load ptr, ptr %9, align 8
   %.not18 = icmp eq ptr %10, null
   br i1 %.not18, label %.thread, label %11
@@ -138,7 +138,7 @@ define i32 @FT_Get_CID_From_Glyph_Index(ptr noundef %0, i32 noundef %1, ptr noun
   br i1 %.not19, label %.thread, label %13
 
 13:                                               ; preds = %11
-  %14 = getelementptr inbounds i8, ptr %12, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %15 = load ptr, ptr %14, align 8
   %.not20 = icmp eq ptr %15, null
   br i1 %.not20, label %.thread, label %16

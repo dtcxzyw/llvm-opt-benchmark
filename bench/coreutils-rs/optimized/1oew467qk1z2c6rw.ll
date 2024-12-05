@@ -25,18 +25,18 @@ define hidden void @"_ZN3std4sync5mutex14Mutex$LT$T$GT$8try_lock17hb691800f6da1e
 
 "_ZN3std4sync5mutex19MutexGuard$LT$T$GT$3new17h562c7d5557676d92E.exit": ; preds = %5, %9
   %.0.i.i.i = phi i8 [ %12, %9 ], [ 0, %5 ]
-  %13 = getelementptr inbounds i8, ptr %1, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %14 = load atomic i8, ptr %13 monotonic, align 4, !noalias !4
   %.not = icmp ne i8 %14, 0
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 %.0.i.i.i, ptr %16, align 8
   %. = zext i1 %.not to i64
   br label %19
 
 17:                                               ; preds = %2
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 2, ptr %18, align 8
   br label %19
 
@@ -50,7 +50,7 @@ define hidden void @"_ZN3std4sync5mutex14Mutex$LT$T$GT$8try_lock17hb691800f6da1e
 define hidden { ptr, ptr } @_ZN3std9panicking3try17heeaa3e43d6ab3a57E(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %.val.i = load ptr, ptr %0, align 8, !alias.scope !7, !noundef !10
   store i64 0, ptr %.val.i, align 8, !noalias !11
-  %2 = getelementptr inbounds i8, ptr %.val.i, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %.val.i, i64 16
   store i8 2, ptr %2, align 1, !noalias !11
   ret { ptr, ptr } { ptr null, ptr undef }
 }
@@ -60,7 +60,7 @@ define hidden void @_ZN3std9panicking3try7do_call17hc9020d6dc220e9c6E.llvm.17873
   %2 = load ptr, ptr %0, align 8, !nonnull !10, !align !14, !noundef !10
   %.val = load ptr, ptr %2, align 8, !alias.scope !15, !noundef !10
   store i64 0, ptr %.val, align 8, !noalias !18
-  %3 = getelementptr inbounds i8, ptr %.val, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %.val, i64 16
   store i8 2, ptr %3, align 1, !noalias !18
   ret void
 }
@@ -84,7 +84,7 @@ define hidden void @_ZN3std9panicking3try8do_catch17h6eab450f761c7ea1E.llvm.1787
   %10 = icmp ne ptr %8, null
   tail call void @llvm.assume(i1 %10)
   store ptr %7, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %8, ptr %11, align 8
   ret void
 }

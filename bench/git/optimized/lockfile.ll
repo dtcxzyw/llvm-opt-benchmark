@@ -53,7 +53,7 @@ entry:
   %buf = alloca %struct.strbuf, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buf, ptr noundef nonnull align 8 dereferenceable(24) @__const.lock_file.filename, i64 24, i1 false)
   call void @unable_to_lock_message(ptr noundef %path, i32 noundef %err, ptr noundef nonnull %buf)
-  %buf1 = getelementptr inbounds i8, ptr %buf, i64 16
+  %buf1 = getelementptr inbounds nuw i8, ptr %buf, i64 16
   %0 = load ptr, ptr %buf1, align 8
   call void (ptr, ...) @die(ptr noundef nonnull @.str.2, ptr noundef %0) #11
   unreachable
@@ -167,7 +167,7 @@ unable_to_lock_message.exit:                      ; preds = %if.then5, %if.end.s
   %call4.i = tail call ptr @absolute_path(ptr noundef %path) #10
   %call5.i = tail call ptr @strerror(i32 noundef %2) #10
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %buf, ptr noundef %retval.0.i8.sink.i, ptr noundef %call4.i, ptr noundef %call5.i) #10
-  %buf7 = getelementptr inbounds i8, ptr %buf, i64 16
+  %buf7 = getelementptr inbounds nuw i8, ptr %buf, i64 16
   %4 = load ptr, ptr %buf7, align 8
   %call8 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.2, ptr noundef %4) #10
   call void @strbuf_release(ptr noundef nonnull %buf) #10
@@ -194,13 +194,13 @@ entry:
   %call = tail call ptr @get_tempfile_path(ptr noundef %0) #10
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call) #14
   call void @strbuf_add(ptr noundef nonnull %ret, ptr noundef %call, i64 noundef %call.i) #10
-  %len = getelementptr inbounds i8, ptr %ret, i64 8
+  %len = getelementptr inbounds nuw i8, ptr %ret, i64 8
   %1 = load i64, ptr %len, align 8
   %cmp = icmp ult i64 %1, 6
   br i1 %cmp, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %buf = getelementptr inbounds i8, ptr %ret, i64 16
+  %buf = getelementptr inbounds nuw i8, ptr %ret, i64 16
   %2 = load ptr, ptr %buf, align 8
   %add.ptr = getelementptr inbounds i8, ptr %2, i64 %1
   %add.ptr2 = getelementptr inbounds i8, ptr %add.ptr, i64 -5
@@ -290,8 +290,8 @@ entry:
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %buf.i = getelementptr inbounds i8, ptr %filename, i64 16
-  %len.i = getelementptr inbounds i8, ptr %filename, i64 8
+  %buf.i = getelementptr inbounds nuw i8, ptr %filename, i64 16
+  %len.i = getelementptr inbounds nuw i8, ptr %filename, i64 8
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end4.i, %if.then
@@ -395,8 +395,8 @@ if.end4.i:                                        ; preds = %if.then4.i.i.i, %if
   br i1 %tobool.not.i, label %while.end.i, label %while.body.i, !llvm.loop !8
 
 while.end.i:                                      ; preds = %if.end4.i, %while.body.i
-  store i64 0, ptr getelementptr inbounds (i8, ptr @resolve_symlink.link, i64 8), align 8
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @resolve_symlink.link, i64 16), align 8
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @resolve_symlink.link, i64 8), align 8
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @resolve_symlink.link, i64 16), align 8
   %cmp3.not.i9.i = icmp eq ptr %12, @strbuf_slopbuf
   br i1 %cmp3.not.i9.i, label %if.end, label %if.then4.i10.i
 
@@ -406,7 +406,7 @@ if.then4.i10.i:                                   ; preds = %while.end.i
 
 if.end:                                           ; preds = %if.then4.i10.i, %while.end.i, %entry
   call void @strbuf_add(ptr noundef nonnull %filename, ptr noundef nonnull @.str.3, i64 noundef 5) #10
-  %buf = getelementptr inbounds i8, ptr %filename, i64 16
+  %buf = getelementptr inbounds nuw i8, ptr %filename, i64 16
   %13 = load ptr, ptr %buf, align 8
   %call = call ptr @create_tempfile_mode(ptr noundef %13, i32 noundef %mode) #10
   store ptr %call, ptr %lk, align 8
@@ -416,7 +416,7 @@ if.end:                                           ; preds = %if.then4.i10.i, %wh
   br i1 %tobool2.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %if.end
-  %fd = getelementptr inbounds i8, ptr %14, i64 16
+  %fd = getelementptr inbounds nuw i8, ptr %14, i64 16
   %15 = load volatile i32, ptr %fd, align 8
   br label %cond.end
 

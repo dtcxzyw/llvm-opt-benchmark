@@ -293,7 +293,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_ismacryp(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 25, ptr noundef nonnull @.str.134) #3
   %7 = load i32, ptr @version_type, align 4
@@ -304,7 +304,7 @@ define internal i32 @dissect_ismacryp(ptr noundef %0, ptr nocapture noundef read
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_ismacryp_v11(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.46) #3
   %7 = load ptr, ptr %5, align 8
@@ -316,7 +316,7 @@ define internal i32 @dissect_ismacryp_v11(ptr noundef %0, ptr nocapture noundef 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_ismacryp_v20(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.48) #3
   %7 = load ptr, ptr %5, align 8
@@ -367,7 +367,7 @@ define internal fastcc void @dissect_ismacryp_common(ptr noundef %0, ptr nocaptu
   br i1 %or.cond, label %9, label %13
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
   tail call void @col_append_str(ptr noundef %11, i32 noundef 25, ptr noundef nonnull @.str.135) #3
   %12 = load i32, ptr @version_type, align 4
@@ -381,7 +381,7 @@ define internal fastcc void @dissect_ismacryp_common(ptr noundef %0, ptr nocaptu
   ]
 
 14:                                               ; preds = %13
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load ptr, ptr %15, align 8
   tail call void @col_set_str(ptr noundef %16, i32 noundef 34, ptr noundef nonnull @.str.46) #3
   %17 = load i32, ptr @pref_user_mode, align 4
@@ -405,7 +405,7 @@ define internal fastcc void @dissect_ismacryp_common(ptr noundef %0, ptr nocaptu
   br label %30
 
 26:                                               ; preds = %13
-  %27 = getelementptr inbounds i8, ptr %1, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %28 = load ptr, ptr %27, align 8
   tail call void @col_set_str(ptr noundef %28, i32 noundef 34, ptr noundef nonnull @.str.48) #3
   store i32 1, ptr @user_mode, align 4
@@ -500,8 +500,8 @@ thread-pre-split:                                 ; preds = %26, %13
 .lr.ph:                                           ; preds = %45
   %54 = icmp eq i32 %.0, 20
   %55 = icmp eq i32 %.0, 11
-  %56 = getelementptr inbounds i8, ptr %1, i64 8
-  %57 = getelementptr inbounds i8, ptr %1, i64 408
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 408
   switch i32 %.0, label %67 [
     i32 11, label %.lr.ph.split.preheader
     i32 20, label %.lr.ph.split.preheader

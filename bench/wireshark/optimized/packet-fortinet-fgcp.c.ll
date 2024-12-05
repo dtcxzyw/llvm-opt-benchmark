@@ -146,11 +146,11 @@ define internal i32 @dissect_fortinet_fgcp_hb(ptr noundef %0, ptr nocapture noun
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
   tail call void @col_set_str(ptr noundef %11, i32 noundef 34, ptr noundef nonnull @.str.58) #2
   %12 = load ptr, ptr %10, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 408
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %14 = load ptr, ptr %13, align 8
   %15 = tail call ptr @tvb_get_string_enc(ptr noundef %14, ptr noundef %0, i32 noundef 4, i32 noundef 32, i32 noundef 0) #2
   %16 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef 38, i32 noundef -2147483648) #2
@@ -301,7 +301,7 @@ define internal i32 @dissect_fortinet_fgcp_hb(ptr noundef %0, ptr nocapture noun
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @dissect_fortinet_fgcp_session(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.65) #2
   %7 = load i32, ptr @proto_fortinet_fgcp_session, align 4

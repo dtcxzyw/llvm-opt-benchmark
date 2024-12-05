@@ -20,14 +20,14 @@ define noundef nonnull ptr @_RINvNtNtNtNtCs1LoaDTb72WA_4core5slice4sort6shared5p
 7:                                                ; preds = %5
   %8 = lshr i64 %3, 3
   %9 = shl nuw nsw i64 %8, 2
-  %10 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %0, i64 %9
+  %10 = getelementptr inbounds nuw { { { i64, ptr, {} }, i64 } }, ptr %0, i64 %9
   %11 = mul nuw i64 %8, 7
   %12 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %0, i64 %11
   %13 = tail call noundef ptr @_RINvNtNtNtNtCs1LoaDTb72WA_4core5slice4sort6shared5pivot11median3_recNtNtCs68wO5nsWeTG_5alloc6string6StringNvYB14_NtNtBa_3cmp10PartialOrd2ltECsff1zCjKRl2o_13turborepo_env(ptr noundef %0, ptr noundef %10, ptr noundef %12, i64 noundef %8, ptr noalias noundef nonnull align 1 %4)
-  %14 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %1, i64 %9
+  %14 = getelementptr inbounds nuw { { { i64, ptr, {} }, i64 } }, ptr %1, i64 %9
   %15 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %1, i64 %11
   %16 = tail call noundef ptr @_RINvNtNtNtNtCs1LoaDTb72WA_4core5slice4sort6shared5pivot11median3_recNtNtCs68wO5nsWeTG_5alloc6string6StringNvYB14_NtNtBa_3cmp10PartialOrd2ltECsff1zCjKRl2o_13turborepo_env(ptr noundef %1, ptr noundef %14, ptr noundef %15, i64 noundef %8, ptr noalias noundef nonnull align 1 %4)
-  %17 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %2, i64 %9
+  %17 = getelementptr inbounds nuw { { { i64, ptr, {} }, i64 } }, ptr %2, i64 %9
   %18 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %2, i64 %11
   %19 = tail call noundef ptr @_RINvNtNtNtNtCs1LoaDTb72WA_4core5slice4sort6shared5pivot11median3_recNtNtCs68wO5nsWeTG_5alloc6string6StringNvYB14_NtNtBa_3cmp10PartialOrd2ltECsff1zCjKRl2o_13turborepo_env(ptr noundef %2, ptr noundef %17, ptr noundef %18, i64 noundef %8, ptr noalias noundef nonnull align 1 %4)
   br label %20
@@ -44,13 +44,13 @@ define noundef nonnull ptr @_RINvNtNtNtNtCs1LoaDTb72WA_4core5slice4sort6shared5p
   tail call void @llvm.experimental.noalias.scope.decl(metadata !20), !noalias !12
   tail call void @llvm.experimental.noalias.scope.decl(metadata !22), !noalias !12
   tail call void @llvm.experimental.noalias.scope.decl(metadata !25), !noalias !12
-  %21 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 8
   %22 = load ptr, ptr %21, align 8, !alias.scope !27, !noalias !28, !nonnull !29, !noundef !29
-  %23 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 16
   %24 = load i64, ptr %23, align 8, !alias.scope !27, !noalias !28, !noundef !29
-  %25 = getelementptr inbounds i8, ptr %.sroa.04.0, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %.sroa.04.0, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !30, !noalias !31, !nonnull !29, !noundef !29
-  %27 = getelementptr inbounds i8, ptr %.sroa.04.0, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %.sroa.04.0, i64 16
   %28 = load i64, ptr %27, align 8, !alias.scope !30, !noalias !31, !noundef !29
   %29 = tail call noundef range(i8 -1, 3) i8 @_RNvXs5_NtNtCs1LoaDTb72WA_4core5slice3cmphNtB5_15SlicePartialOrd15partial_compareCsgrIngBG6lgl_14regex_automata(ptr noalias noundef nonnull readonly align 1 %22, i64 noundef %24, ptr noalias noundef nonnull readonly align 1 %26, i64 noundef %28), !range !32, !noalias !33
   %30 = icmp eq i8 %29, -1
@@ -64,9 +64,9 @@ define noundef nonnull ptr @_RINvNtNtNtNtCs1LoaDTb72WA_4core5slice4sort6shared5p
   tail call void @llvm.experimental.noalias.scope.decl(metadata !52)
   %31 = load ptr, ptr %21, align 8, !alias.scope !54, !noalias !55, !nonnull !29, !noundef !29
   %32 = load i64, ptr %23, align 8, !alias.scope !54, !noalias !55, !noundef !29
-  %33 = getelementptr inbounds i8, ptr %.sroa.08.0, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %.sroa.08.0, i64 8
   %34 = load ptr, ptr %33, align 8, !alias.scope !55, !noalias !54, !nonnull !29, !noundef !29
-  %35 = getelementptr inbounds i8, ptr %.sroa.08.0, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %.sroa.08.0, i64 16
   %36 = load i64, ptr %35, align 8, !alias.scope !55, !noalias !54, !noundef !29
   %37 = tail call noundef range(i8 -1, 3) i8 @_RNvXs5_NtNtCs1LoaDTb72WA_4core5slice3cmphNtB5_15SlicePartialOrd15partial_compareCsgrIngBG6lgl_14regex_automata(ptr noalias noundef nonnull readonly align 1 %31, i64 noundef %32, ptr noalias noundef nonnull readonly align 1 %34, i64 noundef %36), !range !32, !noalias !56
   %38 = icmp eq i8 %37, -1
@@ -105,7 +105,7 @@ define noundef range(i64 0, 768614336404564651) i64 @_RINvNtNtNtNtCs1LoaDTb72WA_
 5:                                                ; preds = %3
   %6 = lshr i64 %1, 3
   %.idx = mul nuw nsw i64 %6, 96
-  %7 = getelementptr inbounds i8, ptr %0, i64 %.idx
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
   %.idx1 = mul i64 %6, 168
   %8 = getelementptr inbounds i8, ptr %0, i64 %.idx1
   %9 = icmp ult i64 %1, 64
@@ -128,13 +128,13 @@ define noundef range(i64 0, 768614336404564651) i64 @_RINvNtNtNtNtCs1LoaDTb72WA_
   tail call void @llvm.experimental.noalias.scope.decl(metadata !96), !noalias !88
   tail call void @llvm.experimental.noalias.scope.decl(metadata !98), !noalias !88
   tail call void @llvm.experimental.noalias.scope.decl(metadata !101), !noalias !88
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8, !alias.scope !103, !noalias !104, !nonnull !29, !noundef !29
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = load i64, ptr %16, align 8, !alias.scope !103, !noalias !104, !noundef !29
-  %18 = getelementptr inbounds i8, ptr %7, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %19 = load ptr, ptr %18, align 8, !alias.scope !105, !noalias !106, !nonnull !29, !noundef !29
-  %20 = getelementptr inbounds i8, ptr %7, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %21 = load i64, ptr %20, align 8, !alias.scope !105, !noalias !106, !noundef !29
   %22 = tail call noundef range(i8 -1, 3) i8 @_RNvXs5_NtNtCs1LoaDTb72WA_4core5slice3cmphNtB5_15SlicePartialOrd15partial_compareCsgrIngBG6lgl_14regex_automata(ptr noalias noundef nonnull readonly align 1 %15, i64 noundef %17, ptr noalias noundef nonnull readonly align 1 %19, i64 noundef %21), !range !32, !noalias !107
   %23 = icmp eq i8 %22, -1
@@ -142,9 +142,9 @@ define noundef range(i64 0, 768614336404564651) i64 @_RINvNtNtNtNtCs1LoaDTb72WA_
   tail call void @llvm.experimental.noalias.scope.decl(metadata !111)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !114)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !117)
-  %24 = getelementptr inbounds i8, ptr %8, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %25 = load ptr, ptr %24, align 8, !alias.scope !120, !noalias !121, !nonnull !29, !noundef !29
-  %26 = getelementptr inbounds i8, ptr %8, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %27 = load i64, ptr %26, align 8, !alias.scope !120, !noalias !121, !noundef !29
   %28 = tail call noundef range(i8 -1, 3) i8 @_RNvXs5_NtNtCs1LoaDTb72WA_4core5slice3cmphNtB5_15SlicePartialOrd15partial_compareCsgrIngBG6lgl_14regex_automata(ptr noalias noundef nonnull readonly align 1 %15, i64 noundef %17, ptr noalias noundef nonnull readonly align 1 %25, i64 noundef %27), !range !32, !noalias !126
   %29 = icmp eq i8 %28, -1
@@ -177,13 +177,13 @@ define hidden noundef nonnull ptr @_RINvNtNtNtNtCs1LoaDTb72WA_4core5slice4sort6s
   tail call void @llvm.experimental.noalias.scope.decl(metadata !153)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !155)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !158)
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !alias.scope !160, !noalias !161, !nonnull !29, !noundef !29
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8, !alias.scope !160, !noalias !161, !noundef !29
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8, !alias.scope !161, !noalias !160, !nonnull !29, !noundef !29
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load i64, ptr %11, align 8, !alias.scope !161, !noalias !160, !noundef !29
   %13 = tail call noundef range(i8 -1, 3) i8 @_RNvXs5_NtNtCs1LoaDTb72WA_4core5slice3cmphNtB5_15SlicePartialOrd15partial_compareCsgrIngBG6lgl_14regex_automata(ptr noalias noundef nonnull readonly align 1 %6, i64 noundef %8, ptr noalias noundef nonnull readonly align 1 %10, i64 noundef %12), !range !32, !noalias !162
   %14 = icmp eq i8 %13, -1
@@ -191,9 +191,9 @@ define hidden noundef nonnull ptr @_RINvNtNtNtNtCs1LoaDTb72WA_4core5slice4sort6s
   tail call void @llvm.experimental.noalias.scope.decl(metadata !166)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !169)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !172)
-  %15 = getelementptr inbounds i8, ptr %2, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %16 = load ptr, ptr %15, align 8, !alias.scope !175, !noalias !176, !nonnull !29, !noundef !29
-  %17 = getelementptr inbounds i8, ptr %2, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %18 = load i64, ptr %17, align 8, !alias.scope !175, !noalias !176, !noundef !29
   %19 = tail call noundef range(i8 -1, 3) i8 @_RNvXs5_NtNtCs1LoaDTb72WA_4core5slice3cmphNtB5_15SlicePartialOrd15partial_compareCsgrIngBG6lgl_14regex_automata(ptr noalias noundef nonnull readonly align 1 %6, i64 noundef %8, ptr noalias noundef nonnull readonly align 1 %16, i64 noundef %18), !range !32, !noalias !181
   %20 = icmp eq i8 %19, -1
@@ -219,7 +219,7 @@ define void @_RNvMs5_NtNtCsapf13pIxsjn_3std4sync5mutexINtB5_5MutexINtNtCs68wO5ns
   br i1 %4, label %5, label %17
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %7 = load atomic i64, ptr @_ZN3std9panicking11panic_count18GLOBAL_PANIC_COUNT17h61f2e2713c991336E monotonic, align 8
   %8 = and i64 %7, 9223372036854775807
   %9 = icmp eq i64 %8, 0
@@ -235,15 +235,15 @@ _ZN3std4sync6poison4Flag5guard17ha77840720f7012acE.exit: ; preds = %5, %10
   %.sroa.01.0.i = phi i8 [ %13, %10 ], [ 0, %5 ]
   %14 = load atomic i8, ptr %6 monotonic, align 4
   %.not = icmp ne i8 %14, 0
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 %.sroa.01.0.i, ptr %16, align 8
   %. = zext i1 %.not to i64
   br label %19
 
 17:                                               ; preds = %2
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 2, ptr %18, align 8
   br label %19
 
@@ -261,15 +261,15 @@ define void @_RNvXs1_CslGy2FzxvRkj_12block_bufferINtB5_11BlockBufferINtNtCs5FtjD
   %5 = alloca [72 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5), !noalias !195
-  %6 = getelementptr inbounds i8, ptr %5, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 64
   store i64 0, ptr %6, align 8, !noalias !195
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !195
   store ptr %6, ptr %4, align 8, !noalias !195
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !195
   store ptr %2, ptr %3, align 8, !noalias !195
-  %7 = getelementptr inbounds i8, ptr %3, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %4, ptr %7, align 8, !noalias !195
-  %8 = getelementptr inbounds i8, ptr %3, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 0, ptr %8, align 8, !noalias !195
   call void @_RINvXs32_NtNtCs1LoaDTb72WA_4core5slice4iterINtB7_7IterMuthENtNtNtNtBb_4iter6traits8iterator8Iterator4folduNCINvNvXs_NtNtB11_8adapters9enumerateINtB1Q_9EnumeratepEBV_4fold9enumerateQhuNCINvNvBV_8for_each4callTjB2S_ENCINvXsg_CshTjWJoR5NBV_13generic_arrayINtB3z_12GenericArrayhINtNtCs5FtjDnxWtNK_7typenum4uint4UIntIB4p_IB4p_IB4p_IB4p_IB4p_IB4p_NtB4r_5UTermNtNtB4t_3bit2B1ENtB5H_2B0EB5V_EB5V_EB5V_EB5V_EB5V_EEINtNtB3z_8sequence15GenericSequencehE8generateNCNvXNtB3z_5implsB42_NtNtBb_7default7Default7default0E0E0E0ECsff1zCjKRl2o_13turborepo_env.llvm.10116246802473599757(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %3), !noalias !195
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !195
@@ -277,14 +277,14 @@ define void @_RNvXs1_CslGy2FzxvRkj_12block_bufferINtB5_11BlockBufferINtNtCs5FtjD
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 64, i1 false)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5), !noalias !195
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2)
-  %9 = getelementptr inbounds i8, ptr %0, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i8 0, ptr %9, align 1
   ret void
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden noundef align 8 dereferenceable_or_null(24) ptr @_RNvXsM_NtNtNtCsapf13pIxsjn_3std11collections4hash3mapINtB5_4KeysNtNtCs68wO5nsWeTG_5alloc6string6StringB10_ENtNtNtNtCs1LoaDTb72WA_4core4iter6traits8iterator8Iterator4nextCsff1zCjKRl2o_13turborepo_env.llvm.7496975812530076926(ptr noalias noundef align 8 dereferenceable(40) %0) unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8, !alias.scope !198, !noundef !29
   %4 = icmp eq i64 %3, 0
   br i1 %4, label %_RNvXsW_NtCs7oQ2vmvFkJi_9hashbrown3mapINtB5_4IterNtNtCs68wO5nsWeTG_5alloc6string6StringBK_ENtNtNtNtCs1LoaDTb72WA_4core4iter6traits8iterator8Iterator4nextCsff1zCjKRl2o_13turborepo_env.exit, label %5
@@ -306,19 +306,19 @@ _RNvXsW_NtCs7oQ2vmvFkJi_9hashbrown3mapINtB5_4IterNtNtCs68wO5nsWeTG_5alloc6string
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_RNvXsM_NtNtNtCsapf13pIxsjn_3std11collections4hash3mapINtB5_4KeysNtNtCs68wO5nsWeTG_5alloc6string6StringB10_ENtNtNtNtCs1LoaDTb72WA_4core4iter6traits8iterator8Iterator9size_hintCsff1zCjKRl2o_13turborepo_env.llvm.7496975812530076926(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %1) unnamed_addr #3 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %4 = load i64, ptr %3, align 8, !noundef !29
   store i64 %4, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 1, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %4, ptr %6, align 8
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define void @_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters6clonedINtB4_6ClonedINtNtNtNtCsapf13pIxsjn_3std11collections4hash3map4KeysNtNtCs68wO5nsWeTG_5alloc6string6StringB1T_EENtNtNtB8_6traits8iterator8Iterator4nextCsff1zCjKRl2o_13turborepo_env(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) %0, ptr noalias noundef align 8 dereferenceable(40) %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %4 = load i64, ptr %3, align 8, !alias.scope !201, !noundef !29
   %5 = icmp eq i64 %4, 0
   br i1 %5, label %select.unfold, label %6
@@ -348,25 +348,25 @@ _RNvXsM_NtNtNtCsapf13pIxsjn_3std11collections4hash3mapINtB5_4KeysNtNtCs68wO5nsWe
 define void @_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters6clonedINtB4_6ClonedINtNtNtNtCsapf13pIxsjn_3std11collections4hash3map4KeysNtNtCs68wO5nsWeTG_5alloc6string6StringB1T_EENtNtNtB8_6traits8iterator8Iterator9size_hintCsff1zCjKRl2o_13turborepo_env(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %1) unnamed_addr #4 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !206)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !209)
-  %3 = getelementptr inbounds i8, ptr %1, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %4 = load i64, ptr %3, align 8, !alias.scope !209, !noalias !206, !noundef !29
   store i64 %4, ptr %0, align 8, !alias.scope !206, !noalias !209
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 1, ptr %5, align 8, !alias.scope !206, !noalias !209
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %4, ptr %6, align 8, !alias.scope !206, !noalias !209
   ret void
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden noundef range(i8 -1, 3) i8 @_RNvXsk_NtCs68wO5nsWeTG_5alloc3vecINtB5_3VechENtNtCs1LoaDTb72WA_4core3cmp10PartialOrd11partial_cmpCsff1zCjKRl2o_13turborepo_env.llvm.7496975812530076926(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !nonnull !29, !noundef !29
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !29
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8, !nonnull !29, !noundef !29
-  %9 = getelementptr inbounds i8, ptr %1, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load i64, ptr %9, align 8, !noundef !29
   %11 = tail call noundef i8 @_RNvXs5_NtNtCs1LoaDTb72WA_4core5slice3cmphNtB5_15SlicePartialOrd15partial_compareCsgrIngBG6lgl_14regex_automata(ptr noalias noundef nonnull readonly align 1 %4, i64 noundef %6, ptr noalias noundef nonnull readonly align 1 %8, i64 noundef %10), !range !32
   ret i8 %11
@@ -378,13 +378,13 @@ define hidden noundef zeroext i1 @_RNvYNtNtCs68wO5nsWeTG_5alloc6string6StringNtN
   tail call void @llvm.experimental.noalias.scope.decl(metadata !214)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !216)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !219)
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !alias.scope !221, !noalias !222, !nonnull !29, !noundef !29
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !alias.scope !221, !noalias !222, !noundef !29
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8, !alias.scope !222, !noalias !221, !nonnull !29, !noundef !29
-  %9 = getelementptr inbounds i8, ptr %1, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load i64, ptr %9, align 8, !alias.scope !222, !noalias !221, !noundef !29
   %11 = tail call noundef range(i8 -1, 3) i8 @_RNvXs5_NtNtCs1LoaDTb72WA_4core5slice3cmphNtB5_15SlicePartialOrd15partial_compareCsgrIngBG6lgl_14regex_automata(ptr noalias noundef nonnull readonly align 1 %4, i64 noundef %6, ptr noalias noundef nonnull readonly align 1 %8, i64 noundef %10), !range !32, !noalias !223
   %12 = icmp eq i8 %11, -1
@@ -399,13 +399,13 @@ define hidden noundef zeroext i1 @_RNvYNvYNtNtCs68wO5nsWeTG_5alloc6string6String
   tail call void @llvm.experimental.noalias.scope.decl(metadata !232)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !234)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !237)
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8, !alias.scope !239, !noalias !240, !nonnull !29, !noundef !29
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load i64, ptr %6, align 8, !alias.scope !239, !noalias !240, !noundef !29
-  %8 = getelementptr inbounds i8, ptr %2, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %9 = load ptr, ptr %8, align 8, !alias.scope !240, !noalias !239, !nonnull !29, !noundef !29
-  %10 = getelementptr inbounds i8, ptr %2, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %11 = load i64, ptr %10, align 8, !alias.scope !240, !noalias !239, !noundef !29
   %12 = tail call noundef range(i8 -1, 3) i8 @_RNvXs5_NtNtCs1LoaDTb72WA_4core5slice3cmphNtB5_15SlicePartialOrd15partial_compareCsgrIngBG6lgl_14regex_automata(ptr noalias noundef nonnull readonly align 1 %5, i64 noundef %7, ptr noalias noundef nonnull readonly align 1 %9, i64 noundef %11), !range !32, !noalias !241
   %13 = icmp eq i8 %12, -1
@@ -416,13 +416,13 @@ define hidden noundef zeroext i1 @_RNvYNvYNtNtCs68wO5nsWeTG_5alloc6string6String
 define hidden noundef range(i8 -1, 3) i8 @"_ZN63_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17hbce456c0d745fbdaE.llvm.7496975812530076926"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !242)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !245)
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !alias.scope !242, !noalias !245, !nonnull !29, !noundef !29
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !alias.scope !242, !noalias !245, !noundef !29
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8, !alias.scope !245, !noalias !242, !nonnull !29, !noundef !29
-  %9 = getelementptr inbounds i8, ptr %1, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load i64, ptr %9, align 8, !alias.scope !245, !noalias !242, !noundef !29
   %11 = tail call noundef range(i8 -1, 3) i8 @_RNvXs5_NtNtCs1LoaDTb72WA_4core5slice3cmphNtB5_15SlicePartialOrd15partial_compareCsgrIngBG6lgl_14regex_automata(ptr noalias noundef nonnull readonly align 1 %4, i64 noundef %6, ptr noalias noundef nonnull readonly align 1 %8, i64 noundef %10), !range !32, !noalias !247
   ret i8 %11

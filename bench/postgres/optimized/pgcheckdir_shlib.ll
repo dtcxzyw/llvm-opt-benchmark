@@ -26,19 +26,19 @@ define range(i32 -1, 5) i32 @pg_check_dir(ptr nocapture noundef readonly %0) loc
 
 sub_0:                                            ; preds = %sub_0.lr.ph, %26
   %10 = phi ptr [ %32, %sub_0.lr.ph ], [ %27, %26 ]
-  %11 = getelementptr inbounds i8, ptr %10, i64 19
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 19
   %12 = load i8, ptr %11, align 1
   %.not53 = icmp eq i8 %12, 46
   br i1 %.not53, label %.tail, label %.thread
 
 .tail:                                            ; preds = %sub_0
-  %13 = getelementptr inbounds i8, ptr %10, i64 20
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 20
   %14 = load i8, ptr %13, align 1
   %15 = icmp eq i8 %14, 0
   br i1 %15, label %26, label %sub_131
 
 sub_131:                                          ; preds = %.tail
-  %16 = getelementptr inbounds i8, ptr %10, i64 20
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 20
   %17 = load i8, ptr %16, align 1
   %18 = zext i8 %17 to i32
   %19 = sub nsw i32 46, %18
@@ -46,7 +46,7 @@ sub_131:                                          ; preds = %.tail
   br i1 %.not55, label %sub_2, label %.tail29
 
 sub_2:                                            ; preds = %sub_131
-  %20 = getelementptr inbounds i8, ptr %10, i64 21
+  %20 = getelementptr inbounds nuw i8, ptr %10, i64 21
   %21 = load i8, ptr %20, align 1
   %22 = zext i8 %21 to i32
   %23 = sub nsw i32 0, %22
@@ -64,7 +64,7 @@ sub_2:                                            ; preds = %sub_131
   br i1 %.not, label %.loopexit, label %sub_0, !llvm.loop !4
 
 .thread:                                          ; preds = %sub_0
-  %28 = getelementptr inbounds i8, ptr %10, i64 19
+  %28 = getelementptr inbounds nuw i8, ptr %10, i64 19
   %29 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(11) @.str.2, ptr noundef nonnull dereferenceable(1) %28) #7
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %.outer, label %.loopexit

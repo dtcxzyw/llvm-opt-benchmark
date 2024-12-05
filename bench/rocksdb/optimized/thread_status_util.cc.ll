@@ -179,7 +179,7 @@ entry.if.end_crit_edge.i:                         ; preds = %entry
 if.then.i:                                        ; preds = %entry
   store i8 1, ptr %0, align 1
   %vtable.i = load ptr, ptr %env, align 8
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 640
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 640
   %2 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef ptr %2(ptr noundef nonnull align 8 dereferenceable(72) %env)
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN7rocksdb16ThreadStatusUtil27thread_updater_local_cache_E)
@@ -195,7 +195,7 @@ if.end:                                           ; preds = %_ZN7rocksdb16Thread
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN7rocksdb16ThreadStatusUtil27thread_updater_local_cache_E)
   %6 = load ptr, ptr %5, align 8
   %vtable = load ptr, ptr %env, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 648
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 648
   %7 = load ptr, ptr %vfn, align 8
   %call1 = tail call noundef i64 %7(ptr noundef nonnull align 8 dereferenceable(72) %env)
   tail call void @_ZN7rocksdb19ThreadStatusUpdater14RegisterThreadENS_12ThreadStatus10ThreadTypeEm(ptr noundef nonnull align 8 dereferenceable(216) %6, i32 noundef %thread_type, i64 noundef %call1)
@@ -222,7 +222,7 @@ entry.if.end_crit_edge:                           ; preds = %entry
 if.then:                                          ; preds = %entry
   store i8 1, ptr %0, align 1
   %vtable = load ptr, ptr %env, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 640
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 640
   %2 = load ptr, ptr %vfn, align 8
   %call = tail call noundef ptr %2(ptr noundef nonnull align 8 dereferenceable(72) %env)
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN7rocksdb16ThreadStatusUtil27thread_updater_local_cache_E)
@@ -314,7 +314,7 @@ if.then2:                                         ; preds = %if.end
   %call = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN7rocksdb11SystemClock7DefaultEv()
   %2 = load ptr, ptr %call, align 8
   %vtable = load ptr, ptr %2, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 152
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 152
   %3 = load ptr, ptr %vfn, align 8
   %call4 = tail call noundef i64 %3(ptr noundef nonnull align 8 dereferenceable(32) %2)
   %4 = load ptr, ptr %0, align 8
@@ -468,7 +468,7 @@ entry.if.end_crit_edge.i:                         ; preds = %entry
 if.then.i:                                        ; preds = %entry
   store i8 1, ptr %0, align 1
   %vtable.i = load ptr, ptr %env, align 8
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 640
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 640
   %2 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef ptr %2(ptr noundef nonnull align 8 dereferenceable(72) %env)
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN7rocksdb16ThreadStatusUtil27thread_updater_local_cache_E)
@@ -486,7 +486,7 @@ _ZN7rocksdb16ThreadStatusUtil27MaybeInitThreadLocalUpdaterEPKNS_3EnvE.exit: ; pr
 
 if.then1:                                         ; preds = %_ZN7rocksdb16ThreadStatusUtil27MaybeInitThreadLocalUpdaterEPKNS_3EnvE.exit
   %vtable = load ptr, ptr %db, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 744
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 744
   %6 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef nonnull align 8 dereferenceable(32) ptr %6(ptr noundef nonnull align 8 dereferenceable(8) %db)
   tail call void @_ZN7rocksdb19ThreadStatusUpdater19NewColumnFamilyInfoEPKvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_SA_(ptr noundef nonnull align 8 dereferenceable(216) %5, ptr noundef nonnull %db, ptr noundef nonnull align 8 dereferenceable(32) %call2, ptr noundef %cfd, ptr noundef nonnull align 8 dereferenceable(32) %cf_name)
@@ -520,11 +520,11 @@ declare void @_ZN7rocksdb19ThreadStatusUpdater21EraseColumnFamilyInfoEPKv(ptr no
 define void @_ZN7rocksdb16ThreadStatusUtil17EraseDatabaseInfoEPKNS_2DBE(ptr noundef %db) local_unnamed_addr #3 align 2 {
 entry:
   %vtable = load ptr, ptr %db, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 752
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 752
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef ptr %0(ptr noundef nonnull align 8 dereferenceable(8) %db)
   %vtable1 = load ptr, ptr %call, align 8
-  %vfn2 = getelementptr inbounds i8, ptr %vtable1, i64 640
+  %vfn2 = getelementptr inbounds nuw i8, ptr %vtable1, i64 640
   %1 = load ptr, ptr %vfn2, align 8
   %call3 = tail call noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(72) %call)
   %cmp = icmp eq ptr %call3, null

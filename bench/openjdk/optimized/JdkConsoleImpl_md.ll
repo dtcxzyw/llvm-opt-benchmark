@@ -25,7 +25,7 @@ define zeroext range(i8 0, 2) i8 @Java_jdk_internal_io_JdkConsoleImpl_echo(ptr n
   br label %21
 
 11:                                               ; preds = %3
-  %12 = getelementptr inbounds i8, ptr %4, i64 12
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %13 = load i32, ptr %12, align 4
   %14 = trunc i32 %13 to i8
   %15 = lshr i8 %14, 3

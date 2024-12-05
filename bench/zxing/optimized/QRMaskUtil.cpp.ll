@@ -14,7 +14,7 @@ define noundef i32 @_ZN5ZXing6QRCode8MaskUtil20CalculateMaskPenaltyERKNS_6Matrix
   %2 = alloca %"struct.std::array", align 4
   %3 = tail call fastcc noundef i32 @_ZN5ZXing6QRCode8MaskUtilL29ApplyMaskPenaltyRule1InternalERKNS_6MatrixINS_4TritEEEb(ptr noundef nonnull align 8 dereferenceable(32) %0, i1 noundef zeroext true) #3
   %4 = tail call fastcc noundef i32 @_ZN5ZXing6QRCode8MaskUtilL29ApplyMaskPenaltyRule1InternalERKNS_6MatrixINS_4TritEEEb(ptr noundef nonnull align 8 dereferenceable(32) %0, i1 noundef zeroext false) #3
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4, !tbaa !3
   %7 = icmp sgt i32 %6, 1
   %8 = load i32, ptr %0, align 8, !tbaa !13
@@ -24,7 +24,7 @@ define noundef i32 @_ZN5ZXing6QRCode8MaskUtil20CalculateMaskPenaltyERKNS_6Matrix
   %10 = add nsw i32 %6, -1
   %11 = add i32 %8, -1
   %12 = icmp sgt i32 %8, 1
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = zext nneg i32 %10 to i64
   %16 = zext nneg i32 %11 to i64
@@ -98,13 +98,13 @@ define noundef i32 @_ZN5ZXing6QRCode8MaskUtil20CalculateMaskPenaltyERKNS_6Matrix
   br i1 %62, label %66, label %63
 
 63:                                               ; preds = %60
-  %64 = getelementptr inbounds i8, ptr %0, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %65 = load ptr, ptr %64, align 8, !tbaa !21
   br label %234
 
 66:                                               ; preds = %60
   %67 = icmp sgt i32 %8, 0
-  %68 = getelementptr inbounds i8, ptr %0, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %69 = load ptr, ptr %68, align 8
   %70 = add nsw i32 %8, -7
   %71 = add nsw i32 %6, -7
@@ -160,13 +160,13 @@ define noundef i32 @_ZN5ZXing6QRCode8MaskUtil20CalculateMaskPenaltyERKNS_6Matrix
   br i1 %109, label %.loopexit29, label %110
 
 110:                                              ; preds = %105
-  %111 = getelementptr inbounds i8, ptr %108, i64 7
+  %111 = getelementptr inbounds nuw i8, ptr %108, i64 7
   br label %112
 
 112:                                              ; preds = %121, %110
   %113 = phi i64 [ 0, %110 ], [ %122, %121 ]
-  %114 = getelementptr inbounds i8, ptr %108, i64 %113
-  %115 = getelementptr inbounds i8, ptr @__const._ZN5ZXing6QRCode8MaskUtilL21ApplyMaskPenaltyRule3ERKNS_6MatrixINS_4TritEEE.finder, i64 %113
+  %114 = getelementptr inbounds nuw i8, ptr %108, i64 %113
+  %115 = getelementptr inbounds nuw i8, ptr @__const._ZN5ZXing6QRCode8MaskUtilL21ApplyMaskPenaltyRule3ERKNS_6MatrixINS_4TritEEE.finder, i64 %113
   %116 = load i8, ptr %114, align 1, !tbaa !18
   %117 = icmp eq i8 %116, 1
   %118 = load i8, ptr %115, align 1, !tbaa !23, !range !25, !noundef !26
@@ -194,7 +194,7 @@ define noundef i32 @_ZN5ZXing6QRCode8MaskUtil20CalculateMaskPenaltyERKNS_6Matrix
 .preheader31:                                     ; preds = %124, %142
   %134 = phi i64 [ %144, %142 ], [ 0, %124 ]
   %135 = phi ptr [ %143, %142 ], [ %131, %124 ]
-  %136 = getelementptr inbounds i8, ptr %2, i64 %134
+  %136 = getelementptr inbounds nuw i8, ptr %2, i64 %134
   %137 = load i8, ptr %135, align 1, !tbaa !18
   %138 = icmp eq i8 %137, 1
   %139 = load i8, ptr %136, align 1, !tbaa !23, !range !25, !noundef !26
@@ -203,7 +203,7 @@ define noundef i32 @_ZN5ZXing6QRCode8MaskUtil20CalculateMaskPenaltyERKNS_6Matrix
   br i1 %141, label %142, label %148
 
 142:                                              ; preds = %.preheader31
-  %143 = getelementptr inbounds i8, ptr %135, i64 1
+  %143 = getelementptr inbounds nuw i8, ptr %135, i64 1
   %144 = add nuw nsw i64 %134, 1
   %145 = icmp uge ptr %143, %132
   %146 = icmp eq i64 %144, 4
@@ -226,7 +226,7 @@ define noundef i32 @_ZN5ZXing6QRCode8MaskUtil20CalculateMaskPenaltyERKNS_6Matrix
 .preheader28:                                     ; preds = %148, %167
   %159 = phi i64 [ %169, %167 ], [ 0, %148 ]
   %160 = phi ptr [ %168, %167 ], [ %156, %148 ]
-  %161 = getelementptr inbounds i8, ptr %2, i64 %159
+  %161 = getelementptr inbounds nuw i8, ptr %2, i64 %159
   %162 = load i8, ptr %160, align 1, !tbaa !18
   %163 = icmp eq i8 %162, 1
   %164 = load i8, ptr %161, align 1, !tbaa !23, !range !25, !noundef !26
@@ -235,7 +235,7 @@ define noundef i32 @_ZN5ZXing6QRCode8MaskUtil20CalculateMaskPenaltyERKNS_6Matrix
   br i1 %166, label %167, label %.loopexit29
 
 167:                                              ; preds = %.preheader28
-  %168 = getelementptr inbounds i8, ptr %160, i64 1
+  %168 = getelementptr inbounds nuw i8, ptr %160, i64 1
   %169 = add nuw nsw i64 %159, 1
   %170 = icmp uge ptr %168, %157
   %171 = icmp eq i64 %169, 4
@@ -251,13 +251,13 @@ define noundef i32 @_ZN5ZXing6QRCode8MaskUtil20CalculateMaskPenaltyERKNS_6Matrix
   br i1 %83, label %.loopexit, label %175
 
 175:                                              ; preds = %.loopexit29
-  %176 = getelementptr inbounds %"class.ZXing::Trit", ptr %108, i64 %73
+  %176 = getelementptr inbounds nuw %"class.ZXing::Trit", ptr %108, i64 %73
   br label %177
 
 177:                                              ; preds = %186, %175
   %178 = phi i64 [ 0, %175 ], [ %188, %186 ]
   %179 = phi ptr [ %108, %175 ], [ %187, %186 ]
-  %180 = getelementptr inbounds i8, ptr @__const._ZN5ZXing6QRCode8MaskUtilL21ApplyMaskPenaltyRule3ERKNS_6MatrixINS_4TritEEE.finder, i64 %178
+  %180 = getelementptr inbounds nuw i8, ptr @__const._ZN5ZXing6QRCode8MaskUtilL21ApplyMaskPenaltyRule3ERKNS_6MatrixINS_4TritEEE.finder, i64 %178
   %181 = load i8, ptr %179, align 1, !tbaa !18
   %182 = icmp eq i8 %181, 1
   %183 = load i8, ptr %180, align 1, !tbaa !23, !range !25, !noundef !26
@@ -266,7 +266,7 @@ define noundef i32 @_ZN5ZXing6QRCode8MaskUtil20CalculateMaskPenaltyERKNS_6Matrix
   br i1 %185, label %186, label %.loopexit
 
 186:                                              ; preds = %177
-  %187 = getelementptr inbounds %"class.ZXing::Trit", ptr %179, i64 %74
+  %187 = getelementptr inbounds nuw %"class.ZXing::Trit", ptr %179, i64 %74
   %188 = add nuw nsw i64 %178, 1
   %189 = icmp uge ptr %187, %176
   %190 = icmp eq i64 %188, 7
@@ -283,7 +283,7 @@ define noundef i32 @_ZN5ZXing6QRCode8MaskUtil20CalculateMaskPenaltyERKNS_6Matrix
 .preheader25:                                     ; preds = %192, %205
   %197 = phi i64 [ %207, %205 ], [ 0, %192 ]
   %198 = phi ptr [ %206, %205 ], [ %194, %192 ]
-  %199 = getelementptr inbounds i8, ptr %2, i64 %197
+  %199 = getelementptr inbounds nuw i8, ptr %2, i64 %197
   %200 = load i8, ptr %198, align 1, !tbaa !18
   %201 = icmp eq i8 %200, 1
   %202 = load i8, ptr %199, align 1, !tbaa !23, !range !25, !noundef !26
@@ -292,7 +292,7 @@ define noundef i32 @_ZN5ZXing6QRCode8MaskUtil20CalculateMaskPenaltyERKNS_6Matrix
   br i1 %204, label %205, label %211
 
 205:                                              ; preds = %.preheader25
-  %206 = getelementptr inbounds %"class.ZXing::Trit", ptr %198, i64 %75
+  %206 = getelementptr inbounds nuw %"class.ZXing::Trit", ptr %198, i64 %75
   %207 = add nuw nsw i64 %197, 1
   %208 = icmp uge ptr %206, %195
   %209 = icmp eq i64 %207, 4
@@ -309,7 +309,7 @@ define noundef i32 @_ZN5ZXing6QRCode8MaskUtil20CalculateMaskPenaltyERKNS_6Matrix
 .preheader23:                                     ; preds = %211, %224
   %216 = phi i64 [ %226, %224 ], [ 0, %211 ]
   %217 = phi ptr [ %225, %224 ], [ %213, %211 ]
-  %218 = getelementptr inbounds i8, ptr %2, i64 %216
+  %218 = getelementptr inbounds nuw i8, ptr %2, i64 %216
   %219 = load i8, ptr %217, align 1, !tbaa !18
   %220 = icmp eq i8 %219, 1
   %221 = load i8, ptr %218, align 1, !tbaa !23, !range !25, !noundef !26
@@ -318,7 +318,7 @@ define noundef i32 @_ZN5ZXing6QRCode8MaskUtil20CalculateMaskPenaltyERKNS_6Matrix
   br i1 %223, label %224, label %.loopexit
 
 224:                                              ; preds = %.preheader23
-  %225 = getelementptr inbounds %"class.ZXing::Trit", ptr %217, i64 %75
+  %225 = getelementptr inbounds nuw %"class.ZXing::Trit", ptr %217, i64 %75
   %226 = add nuw nsw i64 %216, 1
   %227 = icmp uge ptr %225, %214
   %228 = icmp eq i64 %226, 4
@@ -352,7 +352,7 @@ define noundef i32 @_ZN5ZXing6QRCode8MaskUtil20CalculateMaskPenaltyERKNS_6Matrix
   %244 = icmp eq i8 %243, 1
   %245 = zext i1 %244 to i64
   %246 = add nuw nsw i64 %241, %245
-  %247 = getelementptr inbounds i8, ptr %242, i64 1
+  %247 = getelementptr inbounds nuw i8, ptr %242, i64 1
   %248 = icmp eq ptr %247, %239
   br i1 %248, label %249, label %.preheader, !llvm.loop !30
 
@@ -365,7 +365,7 @@ define noundef i32 @_ZN5ZXing6QRCode8MaskUtil20CalculateMaskPenaltyERKNS_6Matrix
   %253 = add nsw i32 %4, %3
   %254 = add nsw i32 %253, %61
   %255 = add nsw i32 %254, %236
-  %256 = getelementptr inbounds i8, ptr %0, i64 16
+  %256 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %257 = load ptr, ptr %256, align 8, !tbaa !31
   %258 = ptrtoint ptr %257 to i64
   %259 = ptrtoint ptr %235 to i64
@@ -385,7 +385,7 @@ define noundef i32 @_ZN5ZXing6QRCode8MaskUtil20CalculateMaskPenaltyERKNS_6Matrix
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind optsize willreturn memory(read, inaccessiblemem: none) uwtable
 define internal fastcc noundef i32 @_ZN5ZXing6QRCode8MaskUtilL29ApplyMaskPenaltyRule1InternalERKNS_6MatrixINS_4TritEEEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, i1 noundef zeroext %1) unnamed_addr #0 {
   %3 = load i32, ptr %0, align 8, !tbaa !13
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4, !tbaa !3
   %6 = select i1 %1, i32 %5, i32 %3
   %7 = select i1 %1, i32 %3, i32 %5
@@ -394,7 +394,7 @@ define internal fastcc noundef i32 @_ZN5ZXing6QRCode8MaskUtilL29ApplyMaskPenalty
 
 9:                                                ; preds = %2
   %10 = icmp sgt i32 %7, 0
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8
   br label %13
 

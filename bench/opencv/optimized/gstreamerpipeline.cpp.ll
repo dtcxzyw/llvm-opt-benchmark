@@ -118,7 +118,7 @@ define void @_ZN2cv4gapi3wip3gst17GStreamerPipelineC2ERKNSt7__cxx1112basic_strin
           to label %4 unwind label %6
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %3, ptr %5, align 8
   ret void
 
@@ -141,14 +141,14 @@ define void @_ZN2cv4gapi3wip3gst17GStreamerPipeline18getStreamingSourceERKNSt7__
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN2cv4gapi3wip3gst17GStreamerPipelineD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv4gapi3wip3gst17GStreamerPipelineE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %_ZNSt10unique_ptrIN2cv4gapi3wip3gst17GStreamerPipeline4PrivESt14default_deleteIS5_EED2Ev.exit, label %_ZNKSt14default_deleteIN2cv4gapi3wip3gst17GStreamerPipeline4PrivEEclEPS5_.exit.i
 
 _ZNKSt14default_deleteIN2cv4gapi3wip3gst17GStreamerPipeline4PrivEEclEPS5_.exit.i: ; preds = %1
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(8) %3) #14
   br label %_ZNSt10unique_ptrIN2cv4gapi3wip3gst17GStreamerPipeline4PrivESt14default_deleteIS5_EED2Ev.exit
@@ -168,7 +168,7 @@ define void @_ZN2cv4gapi3wip3gst17GStreamerPipelineD0Ev(ptr noundef nonnull alig
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN2cv4gapi3wip3gst17GStreamerPipelineC2ESt10unique_ptrINS3_4PrivESt14default_deleteIS5_EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, ptr nocapture noundef %1) unnamed_addr #11 align 2 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv4gapi3wip3gst17GStreamerPipelineE, i64 16), ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %1, align 8
   store i64 %4, ptr %3, align 8
   store ptr null, ptr %1, align 8

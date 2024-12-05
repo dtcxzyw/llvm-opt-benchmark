@@ -196,7 +196,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden void @rb_io_buffer_type_mark(ptr nocapture noundef readonly %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i64, ptr %2, align 8
   tail call void @rb_gc_mark(i64 noundef %3) #20
   ret void
@@ -211,7 +211,7 @@ define hidden void @rb_io_buffer_type_free(ptr nocapture noundef %0) #0 {
   br i1 %.not.i, label %io_buffer_free.exit, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 2
   %.not10.i = icmp eq i32 %6, 0
@@ -230,13 +230,13 @@ define hidden void @rb_io_buffer_type_free(ptr nocapture noundef %0) #0 {
 
 11:                                               ; preds = %8
   %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load i64, ptr %13, align 8
   %15 = tail call i32 @munmap(ptr noundef %12, i64 noundef %14) #20
   br label %16
 
 16:                                               ; preds = %11, %8
-  %17 = getelementptr inbounds i8, ptr %0, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %0, i8 0, i64 20, i1 false)
   store i64 4, ptr %17, align 8
   br label %io_buffer_free.exit
@@ -247,13 +247,13 @@ io_buffer_free.exit:                              ; preds = %1, %16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define hidden i64 @rb_io_buffer_type_size(ptr nocapture noundef readonly %0) #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %8, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = add i64 %6, 32
   br label %8
@@ -267,7 +267,7 @@ define hidden i64 @rb_io_buffer_type_size(ptr nocapture noundef readonly %0) #2 
 define hidden i64 @rb_io_buffer_type_allocate(i64 noundef %0) #0 {
   %2 = tail call i64 @rb_data_typed_object_zalloc(i64 noundef %0, i64 noundef 32, ptr noundef nonnull @rb_io_buffer_type) #20
   %3 = inttoptr i64 %2 to ptr
-  %4 = getelementptr inbounds i8, ptr %3, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load i64, ptr %4, align 8
   %6 = and i64 %5, 2
   %.not.i = icmp eq i64 %6, 0
@@ -280,7 +280,7 @@ define hidden i64 @rb_io_buffer_type_allocate(i64 noundef %0) #0 {
 
 RTYPEDDATA_GET_DATA.exit:                         ; preds = %1, %8
   %10 = phi ptr [ %9, %8 ], [ %7, %1 ]
-  %11 = getelementptr inbounds i8, ptr %10, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
   store i64 4, ptr %11, align 8
   ret i64 %2
@@ -300,12 +300,12 @@ define hidden i64 @rb_io_buffer_type_for(i64 noundef %0, i64 noundef %1) #0 {
 
 7:                                                ; preds = %2
   store i64 %0, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %9 = load i64, ptr %3, align 8
   store i64 %9, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 4, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i32 0, ptr %11, align 8
   %12 = ptrtoint ptr %4 to i64
   %13 = call i64 @rb_ensure(ptr noundef nonnull @io_buffer_for_yield_instance, i64 noundef %12, ptr noundef nonnull @io_buffer_for_yield_instance_ensure, i64 noundef %12) #20
@@ -333,12 +333,12 @@ declare i64 @rb_ensure(ptr noundef, i64 noundef, ptr noundef, i64 noundef) local
 define internal i64 @io_buffer_for_yield_instance(i64 noundef %0) #0 {
   %2 = inttoptr i64 %0 to ptr
   %3 = load i64, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load i64, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %7 = load i32, ptr %6, align 8
   %8 = tail call fastcc i64 @io_buffer_for_make_instance(i64 noundef %3, i64 noundef %5, i32 noundef %7)
-  %9 = getelementptr inbounds i8, ptr %2, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 %8, ptr %9, align 8
   %10 = load i64, ptr %4, align 8
   %11 = tail call i64 @rb_str_locktmp(i64 noundef %10) #20
@@ -350,14 +350,14 @@ define internal i64 @io_buffer_for_yield_instance(i64 noundef %0) #0 {
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i64 @io_buffer_for_yield_instance_ensure(i64 noundef %0) #0 {
   %2 = inttoptr i64 %0 to ptr
-  %3 = getelementptr inbounds i8, ptr %2, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load i64, ptr %3, align 8
   %.not = icmp eq i64 %4, 4
   br i1 %.not, label %rb_io_buffer_free.exit, label %5
 
 5:                                                ; preds = %1
   %6 = tail call ptr @rb_check_typeddata(i64 noundef %4, ptr noundef nonnull @rb_io_buffer_type) #20
-  %7 = getelementptr inbounds i8, ptr %6, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i32, ptr %7, align 8
   %9 = and i32 %8, 32
   %.not.i = icmp eq i32 %9, 0
@@ -391,19 +391,19 @@ define internal noundef i64 @io_buffer_for_yield_instance_ensure(i64 noundef %0)
 
 20:                                               ; preds = %17
   %21 = load ptr, ptr %6, align 8
-  %22 = getelementptr inbounds i8, ptr %6, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %23 = load i64, ptr %22, align 8
   %24 = tail call i32 @munmap(ptr noundef %21, i64 noundef %23) #20
   br label %25
 
 25:                                               ; preds = %20, %17
-  %26 = getelementptr inbounds i8, ptr %6, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %6, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %6, i8 0, i64 20, i1 false)
   store i64 4, ptr %26, align 8
   br label %rb_io_buffer_free.exit
 
 rb_io_buffer_free.exit:                           ; preds = %25, %12, %1
-  %27 = getelementptr inbounds i8, ptr %2, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %28 = load i64, ptr %27, align 8
   %29 = tail call i64 @rb_str_unlocktmp(i64 noundef %28) #20
   ret i64 4
@@ -415,7 +415,7 @@ declare i64 @rb_str_tmp_frozen_acquire(i64 noundef) local_unnamed_addr #1
 define internal fastcc i64 @io_buffer_for_make_instance(i64 noundef %0, i64 noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = tail call i64 @rb_data_typed_object_zalloc(i64 noundef %0, i64 noundef 32, ptr noundef nonnull @rb_io_buffer_type) #20
   %5 = inttoptr i64 %4 to ptr
-  %6 = getelementptr inbounds i8, ptr %5, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %7 = load i64, ptr %6, align 8
   %8 = and i64 %7, 2
   %.not.i.i = icmp eq i64 %8, 0
@@ -428,7 +428,7 @@ define internal fastcc i64 @io_buffer_for_make_instance(i64 noundef %0, i64 noun
 
 rb_io_buffer_type_allocate.exit:                  ; preds = %3, %10
   %12 = phi ptr [ %11, %10 ], [ %9, %3 ]
-  %13 = getelementptr inbounds i8, ptr %12, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
   store i64 4, ptr %13, align 8
   %14 = tail call ptr @rb_check_typeddata(i64 noundef %4, ptr noundef nonnull @rb_io_buffer_type) #20
@@ -472,7 +472,7 @@ RB_OBJ_FROZEN.exit:                               ; preds = %19
   %32 = load i64, ptr %31, align 8, !noalias !7
   %33 = and i64 %32, 8192
   %.not.i.i13 = icmp eq i64 %33, 0
-  %34 = getelementptr inbounds i8, ptr %31, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %31, i64 24
   br i1 %.not.i.i13, label %RSTRING_PTR.exit, label %35
 
 35:                                               ; preds = %30
@@ -481,7 +481,7 @@ RB_OBJ_FROZEN.exit:                               ; preds = %19
 
 RSTRING_PTR.exit:                                 ; preds = %30, %35
   %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %35 ], [ %34, %30 ]
-  %36 = getelementptr inbounds i8, ptr %31, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %37 = load i64, ptr %36, align 8
   tail call fastcc void @io_buffer_initialize(i64 noundef %4, ptr noundef %14, ptr noundef %.sroa.2.0.i, i64 noundef %37, i32 noundef %27, i64 noundef %1)
   ret i64 %4
@@ -506,11 +506,11 @@ rb_num2long_inline.exit:                          ; preds = %5, %7
   %.0.i = phi i64 [ %6, %5 ], [ %8, %7 ]
   %9 = tail call i64 @rb_str_new(ptr noundef null, i64 noundef %.0.i) #20
   store i64 %0, ptr %3, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %9, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %3, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 4, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %3, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i32 0, ptr %12, align 8
   %13 = ptrtoint ptr %3 to i64
   %14 = call i64 @rb_ensure(ptr noundef nonnull @io_buffer_for_yield_instance, i64 noundef %13, ptr noundef nonnull @io_buffer_for_yield_instance_ensure, i64 noundef %13) #20
@@ -524,7 +524,7 @@ define dso_local i64 @rb_io_buffer_new(ptr noundef %0, i64 noundef %1, i32 nound
   %4 = load i64, ptr @rb_cIOBuffer, align 8
   %5 = tail call i64 @rb_data_typed_object_zalloc(i64 noundef %4, i64 noundef 32, ptr noundef nonnull @rb_io_buffer_type) #20
   %6 = inttoptr i64 %5 to ptr
-  %7 = getelementptr inbounds i8, ptr %6, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %8 = load i64, ptr %7, align 8
   %9 = and i64 %8, 2
   %.not.i.i = icmp eq i64 %9, 0
@@ -537,7 +537,7 @@ define dso_local i64 @rb_io_buffer_new(ptr noundef %0, i64 noundef %1, i32 nound
 
 rb_io_buffer_type_allocate.exit:                  ; preds = %3, %11
   %13 = phi ptr [ %12, %11 ], [ %10, %3 ]
-  %14 = getelementptr inbounds i8, ptr %13, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
   store i64 4, ptr %14, align 8
   %15 = tail call ptr @rb_check_typeddata(i64 noundef %5, ptr noundef nonnull @rb_io_buffer_type) #20
@@ -597,11 +597,11 @@ io_buffer_map_memory.exit.thread:                 ; preds = %12, %io_buffer_map_
 22:                                               ; preds = %io_buffer_map_memory.exit, %6
   %.0 = phi ptr [ %2, %6 ], [ %.1, %io_buffer_map_memory.exit ]
   store ptr %.0, ptr %1, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %3, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %1, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i32 %4, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %1, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i64 %5, ptr %25, align 8
   %26 = and i64 %5, 7
   %27 = icmp ne i64 %26, 0
@@ -635,7 +635,7 @@ io_buffer_experimental.exit:                      ; preds = %4, %5, %7
   %8 = load i64, ptr @rb_cIOBuffer, align 8
   %9 = tail call i64 @rb_data_typed_object_zalloc(i64 noundef %8, i64 noundef 32, ptr noundef nonnull @rb_io_buffer_type) #20
   %10 = inttoptr i64 %9 to ptr
-  %11 = getelementptr inbounds i8, ptr %10, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %12 = load i64, ptr %11, align 8
   %13 = and i64 %12, 2
   %.not.i.i = icmp eq i64 %13, 0
@@ -648,19 +648,19 @@ io_buffer_experimental.exit:                      ; preds = %4, %5, %7
 
 rb_io_buffer_type_allocate.exit:                  ; preds = %io_buffer_experimental.exit, %15
   %17 = phi ptr [ %16, %15 ], [ %14, %io_buffer_experimental.exit ]
-  %18 = getelementptr inbounds i8, ptr %17, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false)
   store i64 4, ptr %18, align 8
   %19 = tail call ptr @rb_check_typeddata(i64 noundef %9, ptr noundef nonnull @rb_io_buffer_type) #20
   %20 = tail call i32 @rb_io_descriptor(i64 noundef %0) #20
   %21 = and i32 %3, 128
   %.not.i = icmp eq i32 %21, 0
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %19, i64 16
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %19, i64 16
   %.pre = load i32, ptr %.phi.trans.insert, align 8
   %.0.i = select i1 %.not.i, i32 3, i32 1
   %22 = and i32 %3, 64
   %.not23.i = icmp eq i32 %22, 0
-  %23 = getelementptr inbounds i8, ptr %19, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %..i = select i1 %.not23.i, i32 9, i32 64
   %.25.i = select i1 %.not23.i, i32 1, i32 2
   %24 = or i32 %.pre, %..i
@@ -678,7 +678,7 @@ rb_io_buffer_type_allocate.exit:                  ; preds = %io_buffer_experimen
 
 io_buffer_map_file.exit:                          ; preds = %rb_io_buffer_type_allocate.exit
   store ptr %26, ptr %19, align 8
-  %31 = getelementptr inbounds i8, ptr %19, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i64 %1, ptr %31, align 8
   %32 = load i32, ptr %23, align 8
   %33 = or i32 %32, 260
@@ -783,14 +783,14 @@ io_buffer_extract_flags.exit:                     ; preds = %22
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @rb_io_buffer_get_bytes(i64 noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #0 {
   %4 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @rb_io_buffer_type) #20
-  %5 = getelementptr inbounds i8, ptr %4, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %6 = load i64, ptr %5, align 8
   %.not.i = icmp eq i64 %6, 4
   br i1 %.not.i, label %io_buffer_validate.exit.thread, label %io_buffer_validate.exit
 
 io_buffer_validate.exit:                          ; preds = %3
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %9 = load i64, ptr %8, align 8
   %10 = tail call fastcc i32 @io_buffer_validate_slice(i64 noundef %6, ptr noundef %7, i64 noundef %9)
   %.not = icmp eq i32 %10, 0
@@ -803,10 +803,10 @@ io_buffer_validate.exit.thread:                   ; preds = %3, %io_buffer_valid
 
 12:                                               ; preds = %io_buffer_validate.exit.thread
   store ptr %11, ptr %1, align 8
-  %13 = getelementptr inbounds i8, ptr %4, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %14 = load i64, ptr %13, align 8
   store i64 %14, ptr %2, align 8
-  %15 = getelementptr inbounds i8, ptr %4, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %16 = load i32, ptr %15, align 8
   br label %18
 
@@ -823,7 +823,7 @@ io_buffer_validate.exit.thread:                   ; preds = %3, %io_buffer_valid
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @rb_io_buffer_get_bytes_for_writing(i64 noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @rb_io_buffer_type) #20
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load i32, ptr %5, align 8
   %7 = and i32 %6, 128
   %.not.i = icmp eq i32 %7, 0
@@ -835,14 +835,14 @@ define dso_local void @rb_io_buffer_get_bytes_for_writing(i64 noundef %0, ptr no
   unreachable
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %4, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %12 = load i64, ptr %11, align 8
   %.not.i.i = icmp eq i64 %12, 4
   br i1 %.not.i.i, label %io_buffer_validate.exit.thread.i, label %io_buffer_validate.exit.i
 
 io_buffer_validate.exit.i:                        ; preds = %10
   %13 = load ptr, ptr %4, align 8
-  %14 = getelementptr inbounds i8, ptr %4, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %15 = load i64, ptr %14, align 8
   %16 = tail call fastcc i32 @io_buffer_validate_slice(i64 noundef %12, ptr noundef %13, i64 noundef %15)
   %.not9.i = icmp eq i32 %16, 0
@@ -860,7 +860,7 @@ io_buffer_validate.exit.thread.i:                 ; preds = %io_buffer_validate.
 
 20:                                               ; preds = %io_buffer_validate.exit.thread.i
   store ptr %19, ptr %1, align 8
-  %21 = getelementptr inbounds i8, ptr %4, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %22 = load i64, ptr %21, align 8
   br label %io_buffer_get_bytes_for_writing.exit
 
@@ -877,14 +877,14 @@ io_buffer_get_bytes_for_writing.exit:             ; preds = %20, %23
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @rb_io_buffer_get_bytes_for_reading(i64 noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @rb_io_buffer_type) #20
-  %5 = getelementptr inbounds i8, ptr %4, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %6 = load i64, ptr %5, align 8
   %.not.i.i = icmp eq i64 %6, 4
   br i1 %.not.i.i, label %io_buffer_validate.exit.thread.i, label %io_buffer_validate.exit.i
 
 io_buffer_validate.exit.i:                        ; preds = %3
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %9 = load i64, ptr %8, align 8
   %10 = tail call fastcc i32 @io_buffer_validate_slice(i64 noundef %6, ptr noundef %7, i64 noundef %9)
   %.not.i = icmp eq i32 %10, 0
@@ -902,7 +902,7 @@ io_buffer_validate.exit.thread.i:                 ; preds = %io_buffer_validate.
 
 14:                                               ; preds = %io_buffer_validate.exit.thread.i
   store ptr %13, ptr %1, align 8
-  %15 = getelementptr inbounds i8, ptr %4, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %16 = load i64, ptr %15, align 8
   br label %io_buffer_get_bytes_for_reading.exit
 
@@ -928,7 +928,7 @@ define hidden i64 @rb_io_buffer_to_s(i64 noundef %0) #0 {
 
 8:                                                ; preds = %1
   %9 = inttoptr i64 %0 to ptr
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   br label %rb_class_of.exit
 
 11:                                               ; preds = %1
@@ -961,7 +961,7 @@ rb_class_of.exit:                                 ; preds = %8, %11, %12, %13, %
   %19 = tail call i64 @rb_class_name(i64 noundef %.0.i) #20
   %20 = tail call i64 @rb_str_append(i64 noundef %3, i64 noundef %19) #20
   %21 = load ptr, ptr %2, align 8
-  %22 = getelementptr inbounds i8, ptr %2, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %23 = load i64, ptr %22, align 8
   %24 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %3, ptr noundef nonnull @.str.1, ptr noundef %21, i64 noundef %23) #20
   %25 = load ptr, ptr %2, align 8
@@ -973,7 +973,7 @@ rb_class_of.exit:                                 ; preds = %8, %11, %12, %13, %
   br label %29
 
 29:                                               ; preds = %27, %rb_class_of.exit
-  %30 = getelementptr inbounds i8, ptr %2, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %31 = load i32, ptr %30, align 8
   %32 = and i32 %31, 1
   %.not = icmp eq i32 %32, 0
@@ -1061,7 +1061,7 @@ rb_class_of.exit:                                 ; preds = %8, %11, %12, %13, %
   br label %70
 
 70:                                               ; preds = %68, %65
-  %71 = getelementptr inbounds i8, ptr %2, i64 24
+  %71 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %72 = load i64, ptr %71, align 8
   %.not35 = icmp eq i64 %72, 4
   br i1 %.not35, label %io_buffer_validate.exit.thread, label %73
@@ -1098,21 +1098,21 @@ declare i64 @rb_str_catf(i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 define hidden i64 @rb_io_buffer_inspect(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @rb_io_buffer_type) #20
   %3 = tail call i64 @rb_io_buffer_to_s(i64 noundef %0)
-  %4 = getelementptr inbounds i8, ptr %2, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %5 = load i64, ptr %4, align 8
   %.not.i = icmp eq i64 %5, 4
   br i1 %.not.i, label %io_buffer_validate.exit.thread, label %io_buffer_validate.exit
 
 io_buffer_validate.exit:                          ; preds = %1
   %6 = load ptr, ptr %2, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %8 = load i64, ptr %7, align 8
   %9 = tail call fastcc i32 @io_buffer_validate_slice(i64 noundef %5, ptr noundef %6, i64 noundef %8)
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %19, label %io_buffer_validate.exit.thread
 
 io_buffer_validate.exit.thread:                   ; preds = %1, %io_buffer_validate.exit
-  %10 = getelementptr inbounds i8, ptr %2, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %11 = load i64, ptr %10, align 8
   %12 = icmp ult i64 %11, 257
   %spec.select = select i1 %12, i64 %11, i64 256
@@ -1206,7 +1206,7 @@ define internal fastcc noundef i64 @io_buffer_hexdump(i64 noundef returned %0, i
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden i64 @rb_io_buffer_size(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @rb_io_buffer_type) #20
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = icmp ult i64 %4, 4611686018427387904
   br i1 %5, label %6, label %9
@@ -1228,7 +1228,7 @@ rb_ull2num_inline.exit:                           ; preds = %6, %9
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden range(i32 0, 129) i32 @rb_io_buffer_readonly_p(i64 noundef %0) local_unnamed_addr #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @rb_io_buffer_type) #20
-  %3 = getelementptr inbounds i8, ptr %2, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 128
   ret i32 %5
@@ -1237,7 +1237,7 @@ define hidden range(i32 0, 129) i32 @rb_io_buffer_readonly_p(i64 noundef %0) loc
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef i64 @rb_io_buffer_lock(i64 noundef returned %0) local_unnamed_addr #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @rb_io_buffer_type) #20
-  %3 = getelementptr inbounds i8, ptr %2, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 32
   %.not.i = icmp eq i32 %5, 0
@@ -1257,7 +1257,7 @@ io_buffer_lock.exit:                              ; preds = %1
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef i64 @rb_io_buffer_unlock(i64 noundef returned %0) local_unnamed_addr #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @rb_io_buffer_type) #20
-  %3 = getelementptr inbounds i8, ptr %2, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 32
   %.not.i = icmp eq i32 %5, 0
@@ -1277,7 +1277,7 @@ io_buffer_unlock.exit:                            ; preds = %1
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local range(i32 0, 2) i32 @rb_io_buffer_try_unlock(i64 noundef %0) local_unnamed_addr #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @rb_io_buffer_type) #20
-  %3 = getelementptr inbounds i8, ptr %2, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 32
   %.not = icmp eq i32 %5, 0
@@ -1296,7 +1296,7 @@ define dso_local range(i32 0, 2) i32 @rb_io_buffer_try_unlock(i64 noundef %0) lo
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden i64 @rb_io_buffer_locked(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @rb_io_buffer_type) #20
-  %3 = getelementptr inbounds i8, ptr %2, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 32
   %.not = icmp eq i32 %5, 0
@@ -1325,7 +1325,7 @@ declare i64 @rb_yield(i64 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef i64 @rb_io_buffer_free(i64 noundef returned %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @rb_io_buffer_type) #20
-  %3 = getelementptr inbounds i8, ptr %2, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 32
   %.not = icmp eq i32 %5, 0
@@ -1359,13 +1359,13 @@ define dso_local noundef i64 @rb_io_buffer_free(i64 noundef returned %0) #0 {
 
 16:                                               ; preds = %13
   %17 = load ptr, ptr %2, align 8
-  %18 = getelementptr inbounds i8, ptr %2, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %19 = load i64, ptr %18, align 8
   %20 = tail call i32 @munmap(ptr noundef %17, i64 noundef %19) #20
   br label %21
 
 21:                                               ; preds = %16, %13
-  %22 = getelementptr inbounds i8, ptr %2, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %2, i8 0, i64 20, i1 false)
   store i64 4, ptr %22, align 8
   br label %io_buffer_free.exit
@@ -1377,7 +1377,7 @@ io_buffer_free.exit:                              ; preds = %8, %21
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef i64 @rb_io_buffer_free_locked(i64 noundef returned %0) local_unnamed_addr #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @rb_io_buffer_type) #20
-  %3 = getelementptr inbounds i8, ptr %2, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 32
   %.not.i = icmp eq i32 %5, 0
@@ -1413,13 +1413,13 @@ io_buffer_unlock.exit:                            ; preds = %1
 
 16:                                               ; preds = %13
   %17 = load ptr, ptr %2, align 8
-  %18 = getelementptr inbounds i8, ptr %2, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %19 = load i64, ptr %18, align 8
   %20 = tail call i32 @munmap(ptr noundef %17, i64 noundef %19) #20
   br label %21
 
 21:                                               ; preds = %16, %13
-  %22 = getelementptr inbounds i8, ptr %2, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %2, i8 0, i64 20, i1 false)
   store i64 4, ptr %22, align 8
   br label %io_buffer_free.exit
@@ -1431,7 +1431,7 @@ io_buffer_free.exit:                              ; preds = %io_buffer_unlock.ex
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @rb_io_buffer_transfer(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @rb_io_buffer_type) #20
-  %3 = getelementptr inbounds i8, ptr %2, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 32
   %.not = icmp eq i32 %5, 0
@@ -1451,7 +1451,7 @@ define dso_local i64 @rb_io_buffer_transfer(i64 noundef %0) #0 {
 
 13:                                               ; preds = %8
   %14 = inttoptr i64 %0 to ptr
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   br label %rb_class_of.exit
 
 16:                                               ; preds = %8
@@ -1483,7 +1483,7 @@ rb_class_of.exit:                                 ; preds = %13, %16, %17, %18, 
   %.0.i = load i64, ptr %.0.in.i, align 8
   %24 = tail call i64 @rb_data_typed_object_zalloc(i64 noundef %.0.i, i64 noundef 32, ptr noundef nonnull @rb_io_buffer_type) #20
   %25 = inttoptr i64 %24 to ptr
-  %26 = getelementptr inbounds i8, ptr %25, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %27 = load i64, ptr %26, align 8
   %28 = and i64 %27, 2
   %.not.i.i = icmp eq i64 %28, 0
@@ -1496,12 +1496,12 @@ rb_class_of.exit:                                 ; preds = %13, %16, %17, %18, 
 
 rb_io_buffer_type_allocate.exit:                  ; preds = %rb_class_of.exit, %30
   %32 = phi ptr [ %31, %30 ], [ %29, %rb_class_of.exit ]
-  %33 = getelementptr inbounds i8, ptr %32, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %32, i8 0, i64 16, i1 false)
   store i64 4, ptr %33, align 8
   %34 = tail call ptr @rb_check_typeddata(i64 noundef %24, ptr noundef nonnull @rb_io_buffer_type) #20
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %34, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
-  %35 = getelementptr inbounds i8, ptr %2, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   store i64 4, ptr %35, align 8
   ret i64 %24
@@ -1513,7 +1513,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @rb_io_buffer_resize(i64 noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @rb_io_buffer_type) #20
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 32
   %.not = icmp eq i32 %6, 0
@@ -1552,7 +1552,7 @@ define dso_local void @rb_io_buffer_resize(i64 noundef %0, i64 noundef %1) local
   br i1 %.not41, label %33, label %20
 
 20:                                               ; preds = %18
-  %21 = getelementptr inbounds i8, ptr %3, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %22 = load i64, ptr %21, align 8
   %23 = tail call ptr (ptr, i64, i64, i32, ...) @mremap(ptr noundef nonnull %10, i64 noundef %22, i64 noundef %1, i32 noundef 1) #20
   %24 = icmp eq ptr %23, inttoptr (i64 -1 to ptr)
@@ -1598,13 +1598,13 @@ io_buffer_resize_clear.exit:                      ; preds = %28, %30
 
 39:                                               ; preds = %37
   %40 = load ptr, ptr %3, align 8
-  %41 = getelementptr inbounds i8, ptr %3, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %42 = load i64, ptr %41, align 8
   %43 = tail call i32 @munmap(ptr noundef %40, i64 noundef %42) #20
   br label %io_buffer_free.exit
 
 io_buffer_free.exit:                              ; preds = %37, %39
-  %44 = getelementptr inbounds i8, ptr %3, i64 24
+  %44 = getelementptr inbounds nuw i8, ptr %3, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %3, i8 0, i64 20, i1 false)
   store i64 4, ptr %44, align 8
   br label %88
@@ -1683,7 +1683,7 @@ io_buffer_initialize.exit.i.thread:               ; preds = %56, %io_buffer_init
   %.sroa.0.0.i53 = phi ptr [ %.1.i.i, %io_buffer_initialize.exit.i ], [ undef, %56 ]
   %.sroa.5.0.i51 = phi i32 [ %..i.i, %io_buffer_initialize.exit.i ], [ undef, %56 ]
   %69 = phi ptr [ %.pre, %io_buffer_initialize.exit.i ], [ %10, %56 ]
-  %70 = getelementptr inbounds i8, ptr %3, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %71 = load i64, ptr %70, align 8
   %spec.select.i = tail call i64 @llvm.umin.i64(i64 %71, i64 %1)
   %.not.i15.i = icmp eq i64 %spec.select.i, 0
@@ -1737,10 +1737,10 @@ io_buffer_resize_copy.exit:                       ; preds = %io_buffer_initializ
   %.sroa.0.0.i54 = phi ptr [ %.1.i.i, %io_buffer_initialize.exit.i ], [ %.sroa.0.0.i53, %io_buffer_resize_clear.exit.i ], [ %.sroa.0.0.i53, %81 ], [ %.sroa.0.0.i53, %84 ]
   %.sroa.5.0.i52 = phi i32 [ %..i.i, %io_buffer_initialize.exit.i ], [ %.sroa.5.0.i51, %io_buffer_resize_clear.exit.i ], [ %.sroa.5.0.i51, %81 ], [ %.sroa.5.0.i51, %84 ]
   store ptr %.sroa.0.0.i54, ptr %3, align 8
-  %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %1, ptr %.sroa.4.0..sroa_idx.i, align 8
   store i32 %.sroa.5.0.i52, ptr %4, align 8
-  %.sroa.618.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 24
+  %.sroa.618.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 4, ptr %.sroa.618.0..sroa_idx.i, align 8
   br label %88
 
@@ -1762,7 +1762,7 @@ declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @rb_io_buffer_clear(i64 noundef %0, i8 noundef zeroext %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @rb_io_buffer_type) #20
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load i32, ptr %6, align 8
   %8 = and i32 %7, 128
   %.not.i = icmp eq i32 %8, 0
@@ -1774,14 +1774,14 @@ define dso_local void @rb_io_buffer_clear(i64 noundef %0, i8 noundef zeroext %1,
   unreachable
 
 11:                                               ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %5, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %13 = load i64, ptr %12, align 8
   %.not.i.i = icmp eq i64 %13, 4
   br i1 %.not.i.i, label %io_buffer_validate.exit.thread.i, label %io_buffer_validate.exit.i
 
 io_buffer_validate.exit.i:                        ; preds = %11
   %14 = load ptr, ptr %5, align 8
-  %15 = getelementptr inbounds i8, ptr %5, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %16 = load i64, ptr %15, align 8
   %17 = tail call fastcc i32 @io_buffer_validate_slice(i64 noundef %13, ptr noundef %14, i64 noundef %16)
   %.not9.i = icmp eq i32 %17, 0
@@ -1842,7 +1842,7 @@ define dso_local i64 @rb_io_buffer_read(i64 noundef %0, i64 noundef %1, i64 noun
 
 io_buffer_validate_range.exit:                    ; preds = %11
   %18 = tail call i32 @rb_io_descriptor(i64 noundef %1) #20
-  %19 = getelementptr inbounds i8, ptr %12, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %20 = load i32, ptr %19, align 8
   %21 = and i32 %20, 128
   %.not.i = icmp eq i32 %21, 0
@@ -1854,7 +1854,7 @@ io_buffer_validate_range.exit:                    ; preds = %11
   unreachable
 
 24:                                               ; preds = %io_buffer_validate_range.exit
-  %25 = getelementptr inbounds i8, ptr %12, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %26 = load i64, ptr %25, align 8
   %.not.i.i = icmp eq i64 %26, 4
   br i1 %.not.i.i, label %io_buffer_validate.exit.thread.i, label %io_buffer_validate.exit.i
@@ -1885,19 +1885,19 @@ io_buffer_get_bytes_for_writing.exit:             ; preds = %io_buffer_validate.
   %35 = getelementptr i8, ptr %32, i64 %3
   %36 = sub i64 %storemerge.i, %3
   store i32 %18, ptr %6, align 8
-  %37 = getelementptr inbounds i8, ptr %6, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %35, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %6, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 %36, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %6, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 %2, ptr %39, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   store ptr %12, ptr %5, align 8
-  %40 = getelementptr inbounds i8, ptr %5, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @io_buffer_read_internal, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %5, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %6, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %5, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i32 %18, ptr %42, align 8
   %43 = load i32, ptr %19, align 8
   %44 = and i32 %43, 32
@@ -1931,8 +1931,8 @@ declare i64 @rb_fiber_scheduler_io_read(i64 noundef, i64 noundef, i64 noundef, i
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @io_buffer_read_internal(ptr nocapture noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %0, align 8
   %5 = load ptr, ptr %2, align 8
   %6 = load i64, ptr %3, align 8
@@ -1941,7 +1941,7 @@ define internal i64 @io_buffer_read_internal(ptr nocapture noundef %0) #0 {
   br i1 %8, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %20
 
 ._crit_edge:                                      ; preds = %42, %1
@@ -2049,7 +2049,7 @@ define dso_local i64 @rb_io_buffer_pread(i64 noundef %0, i64 noundef %1, i64 nou
 
 io_buffer_validate_range.exit:                    ; preds = %12
   %19 = tail call i32 @rb_io_descriptor(i64 noundef %1) #20
-  %20 = getelementptr inbounds i8, ptr %13, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %21 = load i32, ptr %20, align 8
   %22 = and i32 %21, 128
   %.not.i = icmp eq i32 %22, 0
@@ -2061,7 +2061,7 @@ io_buffer_validate_range.exit:                    ; preds = %12
   unreachable
 
 25:                                               ; preds = %io_buffer_validate_range.exit
-  %26 = getelementptr inbounds i8, ptr %13, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %27 = load i64, ptr %26, align 8
   %.not.i.i = icmp eq i64 %27, 4
   br i1 %.not.i.i, label %io_buffer_validate.exit.thread.i, label %io_buffer_validate.exit.i
@@ -2092,21 +2092,21 @@ io_buffer_get_bytes_for_writing.exit:             ; preds = %io_buffer_validate.
   %36 = getelementptr i8, ptr %33, i64 %4
   %37 = sub i64 %storemerge.i, %4
   store i32 %19, ptr %7, align 8
-  %38 = getelementptr inbounds i8, ptr %7, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %36, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %7, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 %37, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %7, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 %3, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %7, i64 32
+  %41 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store i64 %2, ptr %41, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   store ptr %13, ptr %6, align 8
-  %42 = getelementptr inbounds i8, ptr %6, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr @io_buffer_pread_internal, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %6, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %7, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %6, i64 24
+  %44 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i32 %19, ptr %44, align 8
   %45 = load i32, ptr %20, align 8
   %46 = and i32 %45, 32
@@ -2138,9 +2138,9 @@ declare i64 @rb_fiber_scheduler_io_pread(i64 noundef, i64 noundef, i64 noundef, 
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @io_buffer_pread_internal(ptr nocapture noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i32, ptr %0, align 8
   %6 = load ptr, ptr %2, align 8
   %7 = load i64, ptr %3, align 8
@@ -2150,7 +2150,7 @@ define internal i64 @io_buffer_pread_internal(ptr nocapture noundef %0) #0 {
   br i1 %10, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %22
 
 ._crit_edge:                                      ; preds = %44, %1
@@ -2261,7 +2261,7 @@ define dso_local i64 @rb_io_buffer_write(i64 noundef %0, i64 noundef %1, i64 nou
 
 io_buffer_validate_range.exit:                    ; preds = %11
   %18 = tail call i32 @rb_io_descriptor(i64 noundef %1) #20
-  %19 = getelementptr inbounds i8, ptr %12, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %20 = load i64, ptr %19, align 8
   %.not.i.i = icmp eq i64 %20, 4
   br i1 %.not.i.i, label %io_buffer_validate.exit.thread.i, label %io_buffer_validate.exit.i
@@ -2292,21 +2292,21 @@ io_buffer_get_bytes_for_reading.exit:             ; preds = %io_buffer_validate.
   %29 = getelementptr i8, ptr %26, i64 %3
   %30 = sub i64 %storemerge.i, %3
   store i32 %18, ptr %6, align 8
-  %31 = getelementptr inbounds i8, ptr %6, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %29, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %6, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 %30, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %6, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 %2, ptr %33, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   store ptr %12, ptr %5, align 8
-  %34 = getelementptr inbounds i8, ptr %5, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @io_buffer_write_internal, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %5, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %6, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %5, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i32 %18, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %12, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %38 = load i32, ptr %37, align 8
   %39 = and i32 %38, 32
   %.not.i21 = icmp eq i32 %39, 0
@@ -2337,8 +2337,8 @@ declare i64 @rb_fiber_scheduler_io_write(i64 noundef, i64 noundef, i64 noundef, 
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @io_buffer_write_internal(ptr nocapture noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %0, align 8
   %5 = load ptr, ptr %2, align 8
   %6 = load i64, ptr %3, align 8
@@ -2347,7 +2347,7 @@ define internal i64 @io_buffer_write_internal(ptr nocapture noundef %0) #0 {
   br i1 %8, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %20
 
 ._crit_edge:                                      ; preds = %42, %1
@@ -2455,7 +2455,7 @@ define dso_local i64 @rb_io_buffer_pwrite(i64 noundef %0, i64 noundef %1, i64 no
 
 io_buffer_validate_range.exit:                    ; preds = %12
   %19 = tail call i32 @rb_io_descriptor(i64 noundef %1) #20
-  %20 = getelementptr inbounds i8, ptr %13, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %21 = load i64, ptr %20, align 8
   %.not.i.i = icmp eq i64 %21, 4
   br i1 %.not.i.i, label %io_buffer_validate.exit.thread.i, label %io_buffer_validate.exit.i
@@ -2486,23 +2486,23 @@ io_buffer_get_bytes_for_reading.exit:             ; preds = %io_buffer_validate.
   %30 = getelementptr i8, ptr %27, i64 %4
   %31 = sub i64 %storemerge.i, %4
   store i32 %19, ptr %7, align 8
-  %32 = getelementptr inbounds i8, ptr %7, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %30, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %7, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 %31, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %7, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 %3, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %7, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store i64 %2, ptr %35, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   store ptr %13, ptr %6, align 8
-  %36 = getelementptr inbounds i8, ptr %6, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr @io_buffer_pwrite_internal, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %6, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %7, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %6, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i32 %19, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %13, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %40 = load i32, ptr %39, align 8
   %41 = and i32 %40, 32
   %.not.i23 = icmp eq i32 %41, 0
@@ -2533,9 +2533,9 @@ declare i64 @rb_fiber_scheduler_io_pwrite(i64 noundef, i64 noundef, i64 noundef,
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @io_buffer_pwrite_internal(ptr nocapture noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i32, ptr %0, align 8
   %6 = load ptr, ptr %2, align 8
   %7 = load i64, ptr %3, align 8
@@ -2545,7 +2545,7 @@ define internal i64 @io_buffer_pwrite_internal(ptr nocapture noundef %0) #0 {
   br i1 %10, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %22
 
 ._crit_edge:                                      ; preds = %44, %1
@@ -2993,14 +2993,14 @@ declare extern_weak void @rb_define_method(i64 noundef, ptr noundef, ptr noundef
 define internal i64 @rb_io_buffer_initialize_copy(i64 noundef %0, i64 noundef %1) #0 {
   %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @rb_io_buffer_type) #20
   %4 = tail call ptr @rb_check_typeddata(i64 noundef %1, ptr noundef nonnull @rb_io_buffer_type) #20
-  %5 = getelementptr inbounds i8, ptr %4, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %6 = load i64, ptr %5, align 8
   %.not.i.i.i = icmp eq i64 %6, 4
   br i1 %.not.i.i.i, label %io_buffer_validate.exit.thread.i.i, label %io_buffer_validate.exit.i.i
 
 io_buffer_validate.exit.i.i:                      ; preds = %2
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %9 = load i64, ptr %8, align 8
   %10 = tail call fastcc i32 @io_buffer_validate_slice(i64 noundef %6, ptr noundef %7, i64 noundef %9)
   %.not.i.i = icmp eq i32 %10, 0
@@ -3017,7 +3017,7 @@ io_buffer_validate.exit.thread.i.i:               ; preds = %io_buffer_validate.
   br i1 %.not8.i.i, label %rb_io_buffer_get_bytes_for_reading.exit, label %14
 
 14:                                               ; preds = %io_buffer_validate.exit.thread.i.i
-  %15 = getelementptr inbounds i8, ptr %4, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %16 = load i64, ptr %15, align 8
   br label %rb_io_buffer_get_bytes_for_reading.exit
 
@@ -3098,7 +3098,7 @@ io_buffer_extract_width.exit:                     ; preds = %rb_num2ull_inline.e
   unreachable
 
 io_buffer_validate_range.exit:                    ; preds = %io_buffer_extract_width.exit
-  %31 = getelementptr inbounds i8, ptr %7, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %32 = load i64, ptr %31, align 8
   %.not.i15 = icmp eq i64 %32, 4
   br i1 %.not.i15, label %io_buffer_validate.exit.thread, label %io_buffer_validate.exit
@@ -3138,14 +3138,14 @@ io_buffer_validate.exit.thread:                   ; preds = %io_buffer_validate_
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 0, 21) i64 @rb_io_buffer_valid_p(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @rb_io_buffer_type) #20
-  %3 = getelementptr inbounds i8, ptr %2, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %4 = load i64, ptr %3, align 8
   %.not.i = icmp eq i64 %4, 4
   br i1 %.not.i, label %io_buffer_validate.exit.thread, label %io_buffer_validate.exit
 
 io_buffer_validate.exit:                          ; preds = %1
   %5 = load ptr, ptr %2, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load i64, ptr %6, align 8
   %8 = tail call fastcc i32 @io_buffer_validate_slice(i64 noundef %4, ptr noundef %5, i64 noundef %7)
   %.fr = freeze i32 %8
@@ -3170,7 +3170,7 @@ define internal range(i64 0, 21) i64 @rb_io_buffer_null_p(i64 noundef %0) #0 {
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 0, 21) i64 @rb_io_buffer_empty_p(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @rb_io_buffer_type) #20
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = icmp eq i64 %4, 0
   %6 = select i1 %5, i64 20, i64 0
@@ -3180,7 +3180,7 @@ define internal range(i64 0, 21) i64 @rb_io_buffer_empty_p(i64 noundef %0) #0 {
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 0, 21) i64 @rb_io_buffer_external_p(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @rb_io_buffer_type) #20
-  %3 = getelementptr inbounds i8, ptr %2, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 1
   %.not = icmp eq i32 %5, 0
@@ -3191,7 +3191,7 @@ define internal range(i64 0, 21) i64 @rb_io_buffer_external_p(i64 noundef %0) #0
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 0, 21) i64 @rb_io_buffer_internal_p(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @rb_io_buffer_type) #20
-  %3 = getelementptr inbounds i8, ptr %2, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 2
   %.not = icmp eq i32 %5, 0
@@ -3202,7 +3202,7 @@ define internal range(i64 0, 21) i64 @rb_io_buffer_internal_p(i64 noundef %0) #0
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 0, 21) i64 @rb_io_buffer_mapped_p(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @rb_io_buffer_type) #20
-  %3 = getelementptr inbounds i8, ptr %2, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 4
   %.not = icmp eq i32 %5, 0
@@ -3213,7 +3213,7 @@ define internal range(i64 0, 21) i64 @rb_io_buffer_mapped_p(i64 noundef %0) #0 {
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 0, 21) i64 @rb_io_buffer_shared_p(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @rb_io_buffer_type) #20
-  %3 = getelementptr inbounds i8, ptr %2, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 8
   %.not = icmp eq i32 %5, 0
@@ -3224,7 +3224,7 @@ define internal range(i64 0, 21) i64 @rb_io_buffer_shared_p(i64 noundef %0) #0 {
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 0, 21) i64 @rb_io_buffer_locked_p(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @rb_io_buffer_type) #20
-  %3 = getelementptr inbounds i8, ptr %2, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 32
   %.not = icmp eq i32 %5, 0
@@ -3235,7 +3235,7 @@ define internal range(i64 0, 21) i64 @rb_io_buffer_locked_p(i64 noundef %0) #0 {
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 0, 21) i64 @rb_io_buffer_private_p(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @rb_io_buffer_type) #20
-  %3 = getelementptr inbounds i8, ptr %2, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 64
   %.not = icmp eq i32 %5, 0
@@ -3246,7 +3246,7 @@ define internal range(i64 0, 21) i64 @rb_io_buffer_private_p(i64 noundef %0) #0 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 0, 21) i64 @io_buffer_readonly_p(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @rb_io_buffer_type) #20
-  %3 = getelementptr inbounds i8, ptr %2, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 128
   %.not = icmp eq i32 %5, 0
@@ -3289,7 +3289,7 @@ io_buffer_validate_range.exit.i:                  ; preds = %rb_check_arity.exit
 
 19:                                               ; preds = %io_buffer_validate_range.exit.i
   %20 = inttoptr i64 %2 to ptr
-  %21 = getelementptr inbounds i8, ptr %20, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   br label %rb_class_of.exit.i
 
 22:                                               ; preds = %io_buffer_validate_range.exit.i
@@ -3321,7 +3321,7 @@ rb_class_of.exit.i:                               ; preds = %27, %25, %24, %23, 
   %.0.i.i = load i64, ptr %.0.in.i.i, align 8
   %30 = tail call i64 @rb_data_typed_object_zalloc(i64 noundef %.0.i.i, i64 noundef 32, ptr noundef nonnull @rb_io_buffer_type) #20
   %31 = inttoptr i64 %30 to ptr
-  %32 = getelementptr inbounds i8, ptr %31, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 24
   %33 = load i64, ptr %32, align 8
   %34 = and i64 %33, 2
   %.not.i.i.i = icmp eq i64 %34, 0
@@ -3334,19 +3334,19 @@ rb_class_of.exit.i:                               ; preds = %27, %25, %24, %23, 
 
 rb_io_buffer_type_allocate.exit.i:                ; preds = %36, %rb_class_of.exit.i
   %38 = phi ptr [ %37, %36 ], [ %35, %rb_class_of.exit.i ]
-  %39 = getelementptr inbounds i8, ptr %38, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, i8 0, i64 16, i1 false)
   store i64 4, ptr %39, align 8
   %40 = tail call ptr @rb_check_typeddata(i64 noundef %30, ptr noundef nonnull @rb_io_buffer_type) #20
   %41 = load ptr, ptr %7, align 8
   %42 = getelementptr i8, ptr %41, i64 %8
   store ptr %42, ptr %40, align 8
-  %43 = getelementptr inbounds i8, ptr %40, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %40, i64 8
   store i64 %9, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %7, i64 24
+  %44 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %45 = load i64, ptr %44, align 8
   %.not.i = icmp eq i64 %45, 4
-  %46 = getelementptr inbounds i8, ptr %40, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %40, i64 24
   br i1 %.not.i, label %52, label %47
 
 47:                                               ; preds = %rb_io_buffer_type_allocate.exit.i
@@ -3373,14 +3373,14 @@ rb_io_buffer_slice.exit:                          ; preds = %47, %52, %rb_obj_wr
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 1, 0) i64 @rb_io_buffer_compare(i64 noundef %0, i64 noundef %1) #0 {
   %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @rb_io_buffer_type) #20
-  %4 = getelementptr inbounds i8, ptr %3, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load i64, ptr %4, align 8
   %.not.i.i.i = icmp eq i64 %5, 4
   br i1 %.not.i.i.i, label %io_buffer_validate.exit.thread.i.i, label %io_buffer_validate.exit.i.i
 
 io_buffer_validate.exit.i.i:                      ; preds = %2
   %6 = load ptr, ptr %3, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %8 = load i64, ptr %7, align 8
   %9 = tail call fastcc i32 @io_buffer_validate_slice(i64 noundef %5, ptr noundef %6, i64 noundef %8)
   %.not.i.i = icmp eq i32 %9, 0
@@ -3397,21 +3397,21 @@ io_buffer_validate.exit.thread.i.i:               ; preds = %io_buffer_validate.
   br i1 %.not8.i.i, label %rb_io_buffer_get_bytes_for_reading.exit, label %13
 
 13:                                               ; preds = %io_buffer_validate.exit.thread.i.i
-  %14 = getelementptr inbounds i8, ptr %3, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %15 = load i64, ptr %14, align 8
   br label %rb_io_buffer_get_bytes_for_reading.exit
 
 rb_io_buffer_get_bytes_for_reading.exit:          ; preds = %io_buffer_validate.exit.thread.i.i, %13
   %storemerge.i.i = phi i64 [ %15, %13 ], [ 0, %io_buffer_validate.exit.thread.i.i ]
   %16 = tail call ptr @rb_check_typeddata(i64 noundef %1, ptr noundef nonnull @rb_io_buffer_type) #20
-  %17 = getelementptr inbounds i8, ptr %16, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %18 = load i64, ptr %17, align 8
   %.not.i.i.i5 = icmp eq i64 %18, 4
   br i1 %.not.i.i.i5, label %io_buffer_validate.exit.thread.i.i8, label %io_buffer_validate.exit.i.i6
 
 io_buffer_validate.exit.i.i6:                     ; preds = %rb_io_buffer_get_bytes_for_reading.exit
   %19 = load ptr, ptr %16, align 8
-  %20 = getelementptr inbounds i8, ptr %16, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %21 = load i64, ptr %20, align 8
   %22 = tail call fastcc i32 @io_buffer_validate_slice(i64 noundef %18, ptr noundef %19, i64 noundef %21)
   %.not.i.i7 = icmp eq i32 %22, 0
@@ -3428,7 +3428,7 @@ io_buffer_validate.exit.thread.i.i8:              ; preds = %io_buffer_validate.
   br i1 %.not8.i.i9, label %rb_io_buffer_get_bytes_for_reading.exit11, label %26
 
 26:                                               ; preds = %io_buffer_validate.exit.thread.i.i8
-  %27 = getelementptr inbounds i8, ptr %16, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %28 = load i64, ptr %27, align 8
   br label %rb_io_buffer_get_bytes_for_reading.exit11
 
@@ -3533,8 +3533,8 @@ define internal i64 @io_buffer_size_of(i64 %0, i64 noundef %1) #0 {
   br i1 %11, label %.preheader, label %.critedge
 
 .preheader:                                       ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %8, i64 16
-  %13 = getelementptr inbounds i8, ptr %8, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 32
   br label %14
 
 14:                                               ; preds = %.preheader, %RARRAY_AREF.exit
@@ -3625,14 +3625,14 @@ io_buffer_extract_offset.exit:                    ; preds = %10, %12
   %.0.i.i = phi i64 [ %11, %10 ], [ %13, %12 ]
   store i64 %.0.i.i, ptr %4, align 8
   %14 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @rb_io_buffer_type) #20
-  %15 = getelementptr inbounds i8, ptr %14, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load i64, ptr %15, align 8
   %.not.i.i.i = icmp eq i64 %16, 4
   br i1 %.not.i.i.i, label %io_buffer_validate.exit.thread.i.i, label %io_buffer_validate.exit.i.i
 
 io_buffer_validate.exit.i.i:                      ; preds = %io_buffer_extract_offset.exit
   %17 = load ptr, ptr %14, align 8
-  %18 = getelementptr inbounds i8, ptr %14, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %19 = load i64, ptr %18, align 8
   %20 = tail call fastcc i32 @io_buffer_validate_slice(i64 noundef %16, ptr noundef %17, i64 noundef %19)
   %.not.i.i3 = icmp eq i32 %20, 0
@@ -3649,7 +3649,7 @@ io_buffer_validate.exit.thread.i.i:               ; preds = %io_buffer_validate.
   br i1 %.not8.i.i, label %rb_io_buffer_get_bytes_for_reading.exit, label %24
 
 24:                                               ; preds = %io_buffer_validate.exit.thread.i.i
-  %25 = getelementptr inbounds i8, ptr %14, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %26 = load i64, ptr %25, align 8
   br label %rb_io_buffer_get_bytes_for_reading.exit
 
@@ -3689,14 +3689,14 @@ io_buffer_extract_offset.exit:                    ; preds = %10, %12
   %.0.i.i = phi i64 [ %11, %10 ], [ %13, %12 ]
   store i64 %.0.i.i, ptr %4, align 8
   %14 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @rb_io_buffer_type) #20
-  %15 = getelementptr inbounds i8, ptr %14, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load i64, ptr %15, align 8
   %.not.i.i.i = icmp eq i64 %16, 4
   br i1 %.not.i.i.i, label %io_buffer_validate.exit.thread.i.i, label %io_buffer_validate.exit.i.i
 
 io_buffer_validate.exit.i.i:                      ; preds = %io_buffer_extract_offset.exit
   %17 = load ptr, ptr %14, align 8
-  %18 = getelementptr inbounds i8, ptr %14, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %19 = load i64, ptr %18, align 8
   %20 = tail call fastcc i32 @io_buffer_validate_slice(i64 noundef %16, ptr noundef %17, i64 noundef %19)
   %.not.i.i31 = icmp eq i32 %20, 0
@@ -3713,7 +3713,7 @@ io_buffer_validate.exit.thread.i.i:               ; preds = %io_buffer_validate.
   br i1 %.not8.i.i, label %rb_io_buffer_get_bytes_for_reading.exit, label %24
 
 24:                                               ; preds = %io_buffer_validate.exit.thread.i.i
-  %25 = getelementptr inbounds i8, ptr %14, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %26 = load i64, ptr %25, align 8
   br label %rb_io_buffer_get_bytes_for_reading.exit
 
@@ -3748,14 +3748,14 @@ rb_io_buffer_get_bytes_for_reading.exit:          ; preds = %io_buffer_validate.
   br label %rb_array_len.exit
 
 42:                                               ; preds = %37
-  %43 = getelementptr inbounds i8, ptr %32, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %44 = load i64, ptr %43, align 8
   br label %rb_array_len.exit
 
 rb_array_len.exit:                                ; preds = %39, %42
   %.0.i = phi i64 [ %41, %39 ], [ %44, %42 ]
   %45 = tail call i64 @rb_ary_new_capa(i64 noundef %.0.i) #20
-  %46 = getelementptr inbounds i8, ptr %32, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %32, i64 16
   br label %47
 
 47:                                               ; preds = %56, %rb_array_len.exit
@@ -3807,14 +3807,14 @@ define internal i64 @io_buffer_each(i32 noundef %0, ptr noundef %1, i64 noundef 
 
 11:                                               ; preds = %3
   %12 = tail call ptr @rb_check_typeddata(i64 noundef %2, ptr noundef nonnull @rb_io_buffer_type) #20
-  %13 = getelementptr inbounds i8, ptr %12, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %14 = load i64, ptr %13, align 8
   %.not.i.i.i = icmp eq i64 %14, 4
   br i1 %.not.i.i.i, label %io_buffer_validate.exit.thread.i.i, label %io_buffer_validate.exit.i.i
 
 io_buffer_validate.exit.i.i:                      ; preds = %11
   %15 = load ptr, ptr %12, align 8
-  %16 = getelementptr inbounds i8, ptr %12, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %17 = load i64, ptr %16, align 8
   %18 = tail call fastcc i32 @io_buffer_validate_slice(i64 noundef %14, ptr noundef %15, i64 noundef %17)
   %.not.i.i = icmp eq i32 %18, 0
@@ -3831,7 +3831,7 @@ io_buffer_validate.exit.thread.i.i:               ; preds = %io_buffer_validate.
   br i1 %.not8.i.i, label %rb_io_buffer_get_bytes_for_reading.exit, label %22
 
 22:                                               ; preds = %io_buffer_validate.exit.thread.i.i
-  %23 = getelementptr inbounds i8, ptr %12, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %24 = load i64, ptr %23, align 8
   br label %rb_io_buffer_get_bytes_for_reading.exit
 
@@ -3891,14 +3891,14 @@ define internal i64 @io_buffer_values(i32 noundef %0, ptr nocapture noundef read
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = tail call ptr @rb_check_typeddata(i64 noundef %2, ptr noundef nonnull @rb_io_buffer_type) #20
-  %7 = getelementptr inbounds i8, ptr %6, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %8 = load i64, ptr %7, align 8
   %.not.i.i.i = icmp eq i64 %8, 4
   br i1 %.not.i.i.i, label %io_buffer_validate.exit.thread.i.i, label %io_buffer_validate.exit.i.i
 
 io_buffer_validate.exit.i.i:                      ; preds = %3
   %9 = load ptr, ptr %6, align 8
-  %10 = getelementptr inbounds i8, ptr %6, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %11 = load i64, ptr %10, align 8
   %12 = tail call fastcc i32 @io_buffer_validate_slice(i64 noundef %8, ptr noundef %9, i64 noundef %11)
   %.not.i.i = icmp eq i32 %12, 0
@@ -3915,7 +3915,7 @@ io_buffer_validate.exit.thread.i.i:               ; preds = %io_buffer_validate.
   br i1 %.not8.i.i, label %rb_io_buffer_get_bytes_for_reading.exit, label %16
 
 16:                                               ; preds = %io_buffer_validate.exit.thread.i.i
-  %17 = getelementptr inbounds i8, ptr %6, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %18 = load i64, ptr %17, align 8
   br label %rb_io_buffer_get_bytes_for_reading.exit
 
@@ -3971,14 +3971,14 @@ define internal i64 @io_buffer_each_byte(i32 noundef %0, ptr noundef %1, i64 nou
 
 11:                                               ; preds = %3
   %12 = tail call ptr @rb_check_typeddata(i64 noundef %2, ptr noundef nonnull @rb_io_buffer_type) #20
-  %13 = getelementptr inbounds i8, ptr %12, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %14 = load i64, ptr %13, align 8
   %.not.i.i.i = icmp eq i64 %14, 4
   br i1 %.not.i.i.i, label %io_buffer_validate.exit.thread.i.i, label %io_buffer_validate.exit.i.i
 
 io_buffer_validate.exit.i.i:                      ; preds = %11
   %15 = load ptr, ptr %12, align 8
-  %16 = getelementptr inbounds i8, ptr %12, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %17 = load i64, ptr %16, align 8
   %18 = tail call fastcc i32 @io_buffer_validate_slice(i64 noundef %14, ptr noundef %15, i64 noundef %17)
   %.not.i.i = icmp eq i32 %18, 0
@@ -3995,7 +3995,7 @@ io_buffer_validate.exit.thread.i.i:               ; preds = %io_buffer_validate.
   br i1 %.not8.i.i, label %rb_io_buffer_get_bytes_for_reading.exit, label %22
 
 22:                                               ; preds = %io_buffer_validate.exit.thread.i.i
-  %23 = getelementptr inbounds i8, ptr %12, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %24 = load i64, ptr %23, align 8
   br label %rb_io_buffer_get_bytes_for_reading.exit
 
@@ -4060,7 +4060,7 @@ io_buffer_extract_offset.exit:                    ; preds = %11, %13
   %.0.i.i = phi i64 [ %12, %11 ], [ %14, %13 ]
   store i64 %.0.i.i, ptr %5, align 8
   %15 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @rb_io_buffer_type) #20
-  %16 = getelementptr inbounds i8, ptr %15, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %17 = load i32, ptr %16, align 8
   %18 = and i32 %17, 128
   %.not.i.i4 = icmp eq i32 %18, 0
@@ -4072,14 +4072,14 @@ io_buffer_extract_offset.exit:                    ; preds = %11, %13
   unreachable
 
 21:                                               ; preds = %io_buffer_extract_offset.exit
-  %22 = getelementptr inbounds i8, ptr %15, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %23 = load i64, ptr %22, align 8
   %.not.i.i.i = icmp eq i64 %23, 4
   br i1 %.not.i.i.i, label %io_buffer_validate.exit.thread.i.i, label %io_buffer_validate.exit.i.i
 
 io_buffer_validate.exit.i.i:                      ; preds = %21
   %24 = load ptr, ptr %15, align 8
-  %25 = getelementptr inbounds i8, ptr %15, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %26 = load i64, ptr %25, align 8
   %27 = tail call fastcc i32 @io_buffer_validate_slice(i64 noundef %23, ptr noundef %24, i64 noundef %26)
   %.not9.i.i = icmp eq i32 %27, 0
@@ -4096,7 +4096,7 @@ io_buffer_validate.exit.thread.i.i:               ; preds = %io_buffer_validate.
   br i1 %.not10.i.i, label %rb_io_buffer_get_bytes_for_writing.exit, label %31
 
 31:                                               ; preds = %io_buffer_validate.exit.thread.i.i
-  %32 = getelementptr inbounds i8, ptr %15, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %33 = load i64, ptr %32, align 8
   br label %rb_io_buffer_get_bytes_for_writing.exit
 
@@ -4173,7 +4173,7 @@ define internal i64 @io_buffer_set_values(i64 noundef %0, i64 noundef %1, i64 no
   br label %rb_array_len.exit
 
 32:                                               ; preds = %27
-  %33 = getelementptr inbounds i8, ptr %11, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %34 = load i64, ptr %33, align 8
   br label %rb_array_len.exit
 
@@ -4189,7 +4189,7 @@ rb_array_len.exit:                                ; preds = %29, %32
   br label %rb_array_len.exit57
 
 39:                                               ; preds = %rb_array_len.exit
-  %40 = getelementptr inbounds i8, ptr %22, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %41 = load i64, ptr %40, align 8
   br label %rb_array_len.exit57
 
@@ -4230,7 +4230,7 @@ io_buffer_extract_offset.exit:                    ; preds = %50, %52
   %.0.i.i = phi i64 [ %51, %50 ], [ %53, %52 ]
   store i64 %.0.i.i, ptr %5, align 8
   %54 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @rb_io_buffer_type) #20
-  %55 = getelementptr inbounds i8, ptr %54, i64 16
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %56 = load i32, ptr %55, align 8
   %57 = and i32 %56, 128
   %.not.i.i59 = icmp eq i32 %57, 0
@@ -4242,14 +4242,14 @@ io_buffer_extract_offset.exit:                    ; preds = %50, %52
   unreachable
 
 60:                                               ; preds = %io_buffer_extract_offset.exit
-  %61 = getelementptr inbounds i8, ptr %54, i64 24
+  %61 = getelementptr inbounds nuw i8, ptr %54, i64 24
   %62 = load i64, ptr %61, align 8
   %.not.i.i.i = icmp eq i64 %62, 4
   br i1 %.not.i.i.i, label %io_buffer_validate.exit.thread.i.i, label %io_buffer_validate.exit.i.i
 
 io_buffer_validate.exit.i.i:                      ; preds = %60
   %63 = load ptr, ptr %54, align 8
-  %64 = getelementptr inbounds i8, ptr %54, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %65 = load i64, ptr %64, align 8
   %66 = tail call fastcc i32 @io_buffer_validate_slice(i64 noundef %62, ptr noundef %63, i64 noundef %65)
   %.not9.i.i = icmp eq i32 %66, 0
@@ -4266,13 +4266,13 @@ io_buffer_validate.exit.thread.i.i:               ; preds = %io_buffer_validate.
   br i1 %.not10.i.i, label %rb_io_buffer_get_bytes_for_writing.exit, label %70
 
 70:                                               ; preds = %io_buffer_validate.exit.thread.i.i
-  %71 = getelementptr inbounds i8, ptr %54, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %72 = load i64, ptr %71, align 8
   br label %rb_io_buffer_get_bytes_for_writing.exit
 
 rb_io_buffer_get_bytes_for_writing.exit:          ; preds = %io_buffer_validate.exit.thread.i.i, %70
   %storemerge.i.i = phi i64 [ %72, %70 ], [ 0, %io_buffer_validate.exit.thread.i.i ]
-  %73 = getelementptr inbounds i8, ptr %11, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %11, i64 16
   br label %74
 
 74:                                               ; preds = %83, %rb_io_buffer_get_bytes_for_writing.exit
@@ -4337,14 +4337,14 @@ rb_check_arity.exit:                              ; preds = %3
   %6 = tail call ptr @rb_check_typeddata(i64 noundef %2, ptr noundef nonnull @rb_io_buffer_type) #20
   %7 = load i64, ptr %1, align 8
   %8 = tail call ptr @rb_check_typeddata(i64 noundef %7, ptr noundef nonnull @rb_io_buffer_type) #20
-  %9 = getelementptr inbounds i8, ptr %8, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %10 = load i64, ptr %9, align 8
   %.not.i.i.i = icmp eq i64 %10, 4
   br i1 %.not.i.i.i, label %io_buffer_validate.exit.thread.i.i, label %io_buffer_validate.exit.i.i
 
 io_buffer_validate.exit.i.i:                      ; preds = %rb_check_arity.exit
   %11 = load ptr, ptr %8, align 8
-  %12 = getelementptr inbounds i8, ptr %8, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %13 = load i64, ptr %12, align 8
   %14 = tail call fastcc i32 @io_buffer_validate_slice(i64 noundef %10, ptr noundef %11, i64 noundef %13)
   %.not.i.i = icmp eq i32 %14, 0
@@ -4361,7 +4361,7 @@ io_buffer_validate.exit.thread.i.i:               ; preds = %io_buffer_validate.
   br i1 %.not8.i.i, label %rb_io_buffer_get_bytes_for_reading.exit, label %18
 
 18:                                               ; preds = %io_buffer_validate.exit.thread.i.i
-  %19 = getelementptr inbounds i8, ptr %8, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %20 = load i64, ptr %19, align 8
   br label %rb_io_buffer_get_bytes_for_reading.exit
 
@@ -4386,14 +4386,14 @@ define internal i64 @io_buffer_get_string(i32 noundef %0, ptr nocapture noundef 
 
 rb_check_arity.exit:                              ; preds = %3
   %7 = call fastcc ptr @io_buffer_extract_offset_length(i64 noundef %2, i32 noundef %0, ptr noundef %1, ptr noundef %4, ptr noundef %5)
-  %8 = getelementptr inbounds i8, ptr %7, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %9 = load i64, ptr %8, align 8
   %.not.i.i = icmp eq i64 %9, 4
   br i1 %.not.i.i, label %io_buffer_validate.exit.thread.i, label %io_buffer_validate.exit.i
 
 io_buffer_validate.exit.i:                        ; preds = %rb_check_arity.exit
   %10 = load ptr, ptr %7, align 8
-  %11 = getelementptr inbounds i8, ptr %7, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %12 = load i64, ptr %11, align 8
   %13 = tail call fastcc i32 @io_buffer_validate_slice(i64 noundef %9, ptr noundef %10, i64 noundef %12)
   %.not.i = icmp eq i32 %13, 0
@@ -4458,7 +4458,7 @@ rb_check_arity.exit:                              ; preds = %3
   %10 = load i64, ptr %9, align 8, !noalias !19
   %11 = and i64 %10, 8192
   %.not.i.i = icmp eq i64 %11, 0
-  %12 = getelementptr inbounds i8, ptr %9, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 24
   br i1 %.not.i.i, label %RSTRING_PTR.exit, label %13
 
 13:                                               ; preds = %rb_check_arity.exit
@@ -4467,7 +4467,7 @@ rb_check_arity.exit:                              ; preds = %3
 
 RSTRING_PTR.exit:                                 ; preds = %rb_check_arity.exit, %13
   %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %13 ], [ %12, %rb_check_arity.exit ]
-  %14 = getelementptr inbounds i8, ptr %9, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %15 = load i64, ptr %14, align 8
   %16 = add nsw i32 %0, -1
   %17 = getelementptr i8, ptr %1, i64 8
@@ -4490,7 +4490,7 @@ define internal i64 @io_buffer_and(i64 noundef %0, i64 noundef %1) #0 {
   unreachable
 
 io_buffer_check_mask.exit:                        ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %3, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %10 = load i64, ptr %9, align 8
   %11 = load i64, ptr @RUBY_IO_BUFFER_PAGE_SIZE, align 8
   %.not.i = icmp ult i64 %10, %11
@@ -4498,7 +4498,7 @@ io_buffer_check_mask.exit:                        ; preds = %2
   %12 = load i64, ptr @rb_cIOBuffer, align 8
   %13 = tail call i64 @rb_data_typed_object_zalloc(i64 noundef %12, i64 noundef 32, ptr noundef nonnull @rb_io_buffer_type) #20
   %14 = inttoptr i64 %13 to ptr
-  %15 = getelementptr inbounds i8, ptr %14, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load i64, ptr %15, align 8
   %17 = and i64 %16, 2
   %.not.i.i.i = icmp eq i64 %17, 0
@@ -4511,7 +4511,7 @@ io_buffer_check_mask.exit:                        ; preds = %2
 
 rb_io_buffer_new.exit:                            ; preds = %io_buffer_check_mask.exit, %19
   %21 = phi ptr [ %20, %19 ], [ %18, %io_buffer_check_mask.exit ]
-  %22 = getelementptr inbounds i8, ptr %21, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, i8 0, i64 16, i1 false)
   store i64 4, ptr %22, align 8
   %23 = tail call ptr @rb_check_typeddata(i64 noundef %13, ptr noundef nonnull @rb_io_buffer_type) #20
@@ -4561,7 +4561,7 @@ define internal i64 @io_buffer_or(i64 noundef %0, i64 noundef %1) #0 {
   unreachable
 
 io_buffer_check_mask.exit:                        ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %3, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %10 = load i64, ptr %9, align 8
   %11 = load i64, ptr @RUBY_IO_BUFFER_PAGE_SIZE, align 8
   %.not.i = icmp ult i64 %10, %11
@@ -4569,7 +4569,7 @@ io_buffer_check_mask.exit:                        ; preds = %2
   %12 = load i64, ptr @rb_cIOBuffer, align 8
   %13 = tail call i64 @rb_data_typed_object_zalloc(i64 noundef %12, i64 noundef 32, ptr noundef nonnull @rb_io_buffer_type) #20
   %14 = inttoptr i64 %13 to ptr
-  %15 = getelementptr inbounds i8, ptr %14, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load i64, ptr %15, align 8
   %17 = and i64 %16, 2
   %.not.i.i.i = icmp eq i64 %17, 0
@@ -4582,7 +4582,7 @@ io_buffer_check_mask.exit:                        ; preds = %2
 
 rb_io_buffer_new.exit:                            ; preds = %io_buffer_check_mask.exit, %19
   %21 = phi ptr [ %20, %19 ], [ %18, %io_buffer_check_mask.exit ]
-  %22 = getelementptr inbounds i8, ptr %21, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, i8 0, i64 16, i1 false)
   store i64 4, ptr %22, align 8
   %23 = tail call ptr @rb_check_typeddata(i64 noundef %13, ptr noundef nonnull @rb_io_buffer_type) #20
@@ -4632,7 +4632,7 @@ define internal i64 @io_buffer_xor(i64 noundef %0, i64 noundef %1) #0 {
   unreachable
 
 io_buffer_check_mask.exit:                        ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %3, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %10 = load i64, ptr %9, align 8
   %11 = load i64, ptr @RUBY_IO_BUFFER_PAGE_SIZE, align 8
   %.not.i = icmp ult i64 %10, %11
@@ -4640,7 +4640,7 @@ io_buffer_check_mask.exit:                        ; preds = %2
   %12 = load i64, ptr @rb_cIOBuffer, align 8
   %13 = tail call i64 @rb_data_typed_object_zalloc(i64 noundef %12, i64 noundef 32, ptr noundef nonnull @rb_io_buffer_type) #20
   %14 = inttoptr i64 %13 to ptr
-  %15 = getelementptr inbounds i8, ptr %14, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load i64, ptr %15, align 8
   %17 = and i64 %16, 2
   %.not.i.i.i = icmp eq i64 %17, 0
@@ -4653,7 +4653,7 @@ io_buffer_check_mask.exit:                        ; preds = %2
 
 rb_io_buffer_new.exit:                            ; preds = %io_buffer_check_mask.exit, %19
   %21 = phi ptr [ %20, %19 ], [ %18, %io_buffer_check_mask.exit ]
-  %22 = getelementptr inbounds i8, ptr %21, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, i8 0, i64 16, i1 false)
   store i64 4, ptr %22, align 8
   %23 = tail call ptr @rb_check_typeddata(i64 noundef %13, ptr noundef nonnull @rb_io_buffer_type) #20
@@ -4691,7 +4691,7 @@ memory_xor.exit:                                  ; preds = %.lr.ph.i, %rb_io_bu
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @io_buffer_not(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @rb_io_buffer_type) #20
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = load i64, ptr @RUBY_IO_BUFFER_PAGE_SIZE, align 8
   %.not.i = icmp ult i64 %4, %5
@@ -4699,7 +4699,7 @@ define internal i64 @io_buffer_not(i64 noundef %0) #0 {
   %6 = load i64, ptr @rb_cIOBuffer, align 8
   %7 = tail call i64 @rb_data_typed_object_zalloc(i64 noundef %6, i64 noundef 32, ptr noundef nonnull @rb_io_buffer_type) #20
   %8 = inttoptr i64 %7 to ptr
-  %9 = getelementptr inbounds i8, ptr %8, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %10 = load i64, ptr %9, align 8
   %11 = and i64 %10, 2
   %.not.i.i.i = icmp eq i64 %11, 0
@@ -4712,7 +4712,7 @@ define internal i64 @io_buffer_not(i64 noundef %0) #0 {
 
 rb_io_buffer_new.exit:                            ; preds = %1, %13
   %15 = phi ptr [ %14, %13 ], [ %12, %1 ]
-  %16 = getelementptr inbounds i8, ptr %15, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
   store i64 4, ptr %16, align 8
   %17 = tail call ptr @rb_check_typeddata(i64 noundef %7, ptr noundef nonnull @rb_io_buffer_type) #20
@@ -4768,7 +4768,7 @@ tailrecurse.i.i:                                  ; preds = %tailrecurse.i.i, %i
   br i1 %11, label %tailrecurse.i.i, label %io_buffer_overlaps.exit.i
 
 io_buffer_overlaps.exit.i:                        ; preds = %tailrecurse.i.i
-  %12 = getelementptr inbounds i8, ptr %.tr.i.i, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.tr.i.i, i64 8
   %13 = load i64, ptr %12, align 8
   %14 = getelementptr i8, ptr %9, i64 %13
   %.not2.i = icmp ugt ptr %10, %14
@@ -4780,7 +4780,7 @@ io_buffer_overlaps.exit.i:                        ; preds = %tailrecurse.i.i
   unreachable
 
 io_buffer_check_overlaps.exit:                    ; preds = %io_buffer_overlaps.exit.i
-  %17 = getelementptr inbounds i8, ptr %3, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = load i32, ptr %17, align 8
   %19 = and i32 %18, 128
   %.not.i = icmp eq i32 %19, 0
@@ -4792,13 +4792,13 @@ io_buffer_check_overlaps.exit:                    ; preds = %io_buffer_overlaps.
   unreachable
 
 22:                                               ; preds = %io_buffer_check_overlaps.exit
-  %23 = getelementptr inbounds i8, ptr %3, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %24 = load i64, ptr %23, align 8
   %.not.i.i = icmp eq i64 %24, 4
   br i1 %.not.i.i, label %io_buffer_validate.exit.thread.i, label %io_buffer_validate.exit.i
 
 io_buffer_validate.exit.i:                        ; preds = %22
-  %25 = getelementptr inbounds i8, ptr %3, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %26 = load i64, ptr %25, align 8
   %27 = tail call fastcc i32 @io_buffer_validate_slice(i64 noundef %24, ptr noundef %.pre.i.i, i64 noundef %26)
   %.not9.i = icmp eq i32 %27, 0
@@ -4819,7 +4819,7 @@ io_buffer_validate.exit.thread.i:                 ; preds = %io_buffer_validate.
   br i1 %.not10.i, label %memory_and_inplace.exit, label %io_buffer_get_bytes_for_writing.exit
 
 io_buffer_get_bytes_for_writing.exit:             ; preds = %io_buffer_validate.exit.thread.i
-  %31 = getelementptr inbounds i8, ptr %3, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %32 = load i64, ptr %31, align 8
   %33 = load ptr, ptr %4, align 8
   %34 = load i64, ptr %5, align 8
@@ -4872,7 +4872,7 @@ tailrecurse.i.i:                                  ; preds = %tailrecurse.i.i, %i
   br i1 %11, label %tailrecurse.i.i, label %io_buffer_overlaps.exit.i
 
 io_buffer_overlaps.exit.i:                        ; preds = %tailrecurse.i.i
-  %12 = getelementptr inbounds i8, ptr %.tr.i.i, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.tr.i.i, i64 8
   %13 = load i64, ptr %12, align 8
   %14 = getelementptr i8, ptr %9, i64 %13
   %.not2.i = icmp ugt ptr %10, %14
@@ -4884,7 +4884,7 @@ io_buffer_overlaps.exit.i:                        ; preds = %tailrecurse.i.i
   unreachable
 
 io_buffer_check_overlaps.exit:                    ; preds = %io_buffer_overlaps.exit.i
-  %17 = getelementptr inbounds i8, ptr %3, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = load i32, ptr %17, align 8
   %19 = and i32 %18, 128
   %.not.i = icmp eq i32 %19, 0
@@ -4896,13 +4896,13 @@ io_buffer_check_overlaps.exit:                    ; preds = %io_buffer_overlaps.
   unreachable
 
 22:                                               ; preds = %io_buffer_check_overlaps.exit
-  %23 = getelementptr inbounds i8, ptr %3, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %24 = load i64, ptr %23, align 8
   %.not.i.i = icmp eq i64 %24, 4
   br i1 %.not.i.i, label %io_buffer_validate.exit.thread.i, label %io_buffer_validate.exit.i
 
 io_buffer_validate.exit.i:                        ; preds = %22
-  %25 = getelementptr inbounds i8, ptr %3, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %26 = load i64, ptr %25, align 8
   %27 = tail call fastcc i32 @io_buffer_validate_slice(i64 noundef %24, ptr noundef %.pre.i.i, i64 noundef %26)
   %.not9.i = icmp eq i32 %27, 0
@@ -4923,7 +4923,7 @@ io_buffer_validate.exit.thread.i:                 ; preds = %io_buffer_validate.
   br i1 %.not10.i, label %memory_or_inplace.exit, label %io_buffer_get_bytes_for_writing.exit
 
 io_buffer_get_bytes_for_writing.exit:             ; preds = %io_buffer_validate.exit.thread.i
-  %31 = getelementptr inbounds i8, ptr %3, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %32 = load i64, ptr %31, align 8
   %33 = load ptr, ptr %4, align 8
   %34 = load i64, ptr %5, align 8
@@ -4976,7 +4976,7 @@ tailrecurse.i.i:                                  ; preds = %tailrecurse.i.i, %i
   br i1 %11, label %tailrecurse.i.i, label %io_buffer_overlaps.exit.i
 
 io_buffer_overlaps.exit.i:                        ; preds = %tailrecurse.i.i
-  %12 = getelementptr inbounds i8, ptr %.tr.i.i, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.tr.i.i, i64 8
   %13 = load i64, ptr %12, align 8
   %14 = getelementptr i8, ptr %9, i64 %13
   %.not2.i = icmp ugt ptr %10, %14
@@ -4988,7 +4988,7 @@ io_buffer_overlaps.exit.i:                        ; preds = %tailrecurse.i.i
   unreachable
 
 io_buffer_check_overlaps.exit:                    ; preds = %io_buffer_overlaps.exit.i
-  %17 = getelementptr inbounds i8, ptr %3, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = load i32, ptr %17, align 8
   %19 = and i32 %18, 128
   %.not.i = icmp eq i32 %19, 0
@@ -5000,13 +5000,13 @@ io_buffer_check_overlaps.exit:                    ; preds = %io_buffer_overlaps.
   unreachable
 
 22:                                               ; preds = %io_buffer_check_overlaps.exit
-  %23 = getelementptr inbounds i8, ptr %3, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %24 = load i64, ptr %23, align 8
   %.not.i.i = icmp eq i64 %24, 4
   br i1 %.not.i.i, label %io_buffer_validate.exit.thread.i, label %io_buffer_validate.exit.i
 
 io_buffer_validate.exit.i:                        ; preds = %22
-  %25 = getelementptr inbounds i8, ptr %3, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %26 = load i64, ptr %25, align 8
   %27 = tail call fastcc i32 @io_buffer_validate_slice(i64 noundef %24, ptr noundef %.pre.i.i, i64 noundef %26)
   %.not9.i = icmp eq i32 %27, 0
@@ -5027,7 +5027,7 @@ io_buffer_validate.exit.thread.i:                 ; preds = %io_buffer_validate.
   br i1 %.not10.i, label %memory_xor_inplace.exit, label %io_buffer_get_bytes_for_writing.exit
 
 io_buffer_get_bytes_for_writing.exit:             ; preds = %io_buffer_validate.exit.thread.i
-  %31 = getelementptr inbounds i8, ptr %3, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %32 = load i64, ptr %31, align 8
   %33 = load ptr, ptr %4, align 8
   %34 = load i64, ptr %5, align 8
@@ -5056,7 +5056,7 @@ memory_xor_inplace.exit:                          ; preds = %.lr.ph.i, %io_buffe
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i64 @io_buffer_not_inplace(i64 noundef returned %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @rb_io_buffer_type) #20
-  %3 = getelementptr inbounds i8, ptr %2, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 128
   %.not.i = icmp eq i32 %5, 0
@@ -5068,14 +5068,14 @@ define internal noundef i64 @io_buffer_not_inplace(i64 noundef returned %0) #0 {
   unreachable
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %2, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %10 = load i64, ptr %9, align 8
   %.not.i.i = icmp eq i64 %10, 4
   br i1 %.not.i.i, label %io_buffer_validate.exit.thread.i, label %io_buffer_validate.exit.i
 
 io_buffer_validate.exit.i:                        ; preds = %8
   %11 = load ptr, ptr %2, align 8
-  %12 = getelementptr inbounds i8, ptr %2, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %13 = load i64, ptr %12, align 8
   %14 = tail call fastcc i32 @io_buffer_validate_slice(i64 noundef %10, ptr noundef %11, i64 noundef %13)
   %.not9.i = icmp eq i32 %14, 0
@@ -5092,7 +5092,7 @@ io_buffer_validate.exit.thread.i:                 ; preds = %io_buffer_validate.
   br i1 %.not10.i, label %memory_not_inplace.exit, label %io_buffer_get_bytes_for_writing.exit
 
 io_buffer_get_bytes_for_writing.exit:             ; preds = %io_buffer_validate.exit.thread.i
-  %18 = getelementptr inbounds i8, ptr %2, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %19 = load i64, ptr %18, align 8
   %.not.i2 = icmp eq i64 %19, 0
   br i1 %.not.i2, label %memory_not_inplace.exit, label %.lr.ph.i
@@ -5289,9 +5289,9 @@ define internal fastcc range(i32 0, 2) i32 @io_buffer_validate_slice(i64 noundef
 13:                                               ; preds = %8
   %14 = and i64 %10, 8192
   %.not.i = icmp eq i64 %14, 0
-  %15 = getelementptr inbounds i8, ptr %9, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %16 = load i64, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %9, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %9, i64 24
   br i1 %.not.i, label %rbimpl_rstring_getmem.exit, label %18
 
 18:                                               ; preds = %13
@@ -5300,14 +5300,14 @@ define internal fastcc range(i32 0, 2) i32 @io_buffer_validate_slice(i64 noundef
 
 .critedge:                                        ; preds = %3, %8
   %19 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @rb_io_buffer_type) #20
-  %20 = getelementptr inbounds i8, ptr %19, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %21 = load i64, ptr %20, align 8
   %.not.i.i = icmp eq i64 %21, 4
   br i1 %.not.i.i, label %io_buffer_validate.exit.i.thread, label %io_buffer_validate.exit.i
 
 io_buffer_validate.exit.i:                        ; preds = %.critedge
   %22 = load ptr, ptr %19, align 8
-  %23 = getelementptr inbounds i8, ptr %19, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %24 = load i64, ptr %23, align 8
   %25 = tail call fastcc i32 @io_buffer_validate_slice(i64 noundef %21, ptr noundef %22, i64 noundef %24)
   %.not.i30 = icmp eq i32 %25, 0
@@ -5319,7 +5319,7 @@ io_buffer_validate.exit.i.thread:                 ; preds = %.critedge, %io_buff
   br i1 %.not11.i, label %rbimpl_rstring_getmem.exit, label %27
 
 27:                                               ; preds = %io_buffer_validate.exit.i.thread
-  %28 = getelementptr inbounds i8, ptr %19, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %29 = load i64, ptr %28, align 8
   br label %rbimpl_rstring_getmem.exit
 
@@ -5349,11 +5349,11 @@ declare i64 @rb_ull2inum(i64 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @io_buffer_blocking_region_begin(i64 noundef %0) #0 {
   %2 = inttoptr i64 %0 to ptr
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %8 = load i32, ptr %7, align 8
   %9 = tail call i64 @rb_thread_io_blocking_region(ptr noundef %4, ptr noundef %6, i32 noundef %8) #20
   ret i64 %9
@@ -5363,7 +5363,7 @@ define internal i64 @io_buffer_blocking_region_begin(i64 noundef %0) #0 {
 define internal noundef i64 @io_buffer_blocking_region_ensure(i64 noundef %0) #0 {
   %2 = inttoptr i64 %0 to ptr
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 32
   %.not.i = icmp eq i32 %6, 0
@@ -5515,7 +5515,7 @@ io_buffer_extract_length.exit:                    ; preds = %46, %44, %.thread38
   %.037 = phi i64 [ %.035, %.thread38 ], [ %.036, %44 ], [ %.036, %46 ]
   %.0182932 = phi i64 [ %.0182933, %.thread38 ], [ %.018, %44 ], [ %.018, %46 ]
   %.017 = phi i64 [ %48, %.thread38 ], [ %45, %44 ], [ %47, %46 ]
-  %49 = getelementptr inbounds i8, ptr %0, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %50 = load i32, ptr %49, align 8
   %51 = and i32 %50, 128
   %.not.i.i27 = icmp eq i32 %51, 0
@@ -5527,14 +5527,14 @@ io_buffer_extract_length.exit:                    ; preds = %46, %44, %.thread38
   unreachable
 
 54:                                               ; preds = %io_buffer_extract_length.exit
-  %55 = getelementptr inbounds i8, ptr %0, i64 24
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %56 = load i64, ptr %55, align 8
   %.not.i.i.i = icmp eq i64 %56, 4
   br i1 %.not.i.i.i, label %io_buffer_validate.exit.thread.i.i, label %io_buffer_validate.exit.i.i
 
 io_buffer_validate.exit.i.i:                      ; preds = %54
   %57 = load ptr, ptr %0, align 8
-  %58 = getelementptr inbounds i8, ptr %0, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %59 = load i64, ptr %58, align 8
   %60 = tail call fastcc i32 @io_buffer_validate_slice(i64 noundef %56, ptr noundef %57, i64 noundef %59)
   %.not9.i.i = icmp eq i32 %60, 0

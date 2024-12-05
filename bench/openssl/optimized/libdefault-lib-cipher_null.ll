@@ -78,7 +78,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool1.not, label %land.lhs.true, label %if.end10
 
 land.lhs.true:                                    ; preds = %if.end
-  %tlsmacsize = getelementptr inbounds i8, ptr %vctx, i64 8
+  %tlsmacsize = getelementptr inbounds nuw i8, ptr %vctx, i64 8
   %1 = load i64, ptr %tlsmacsize, align 8
   %cmp.not = icmp eq i64 %1, 0
   br i1 %cmp.not, label %if.end10, label %if.then2
@@ -91,7 +91,7 @@ if.end6:                                          ; preds = %if.then2
   %add.ptr = getelementptr inbounds i8, ptr %in, i64 %inl
   %idx.neg = sub i64 0, %1
   %add.ptr8 = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.neg
-  %tlsmac = getelementptr inbounds i8, ptr %vctx, i64 16
+  %tlsmac = getelementptr inbounds nuw i8, ptr %vctx, i64 16
   store ptr %add.ptr8, ptr %tlsmac, align 8
   %sub = sub nuw i64 %inl, %1
   br label %if.end10
@@ -171,9 +171,9 @@ if.end8:                                          ; preds = %land.lhs.true4, %if
   br i1 %cmp10.not, label %return, label %land.lhs.true11
 
 land.lhs.true11:                                  ; preds = %if.end8
-  %tlsmac = getelementptr inbounds i8, ptr %vctx, i64 16
+  %tlsmac = getelementptr inbounds nuw i8, ptr %vctx, i64 16
   %0 = load ptr, ptr %tlsmac, align 8
-  %tlsmacsize = getelementptr inbounds i8, ptr %vctx, i64 8
+  %tlsmacsize = getelementptr inbounds nuw i8, ptr %vctx, i64 8
   %1 = load i64, ptr %tlsmacsize, align 8
   %call12 = tail call i32 @OSSL_PARAM_set_octet_ptr(ptr noundef nonnull %call9, ptr noundef %0, i64 noundef %1) #4
   %tobool13.not = icmp eq i32 %call12, 0
@@ -205,7 +205,7 @@ entry:
   br i1 %cmp.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %tlsmacsize = getelementptr inbounds i8, ptr %vctx, i64 8
+  %tlsmacsize = getelementptr inbounds nuw i8, ptr %vctx, i64 8
   %call1 = tail call i32 @OSSL_PARAM_get_size_t(ptr noundef nonnull %call, ptr noundef nonnull %tlsmacsize) #4
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %if.then2, label %return

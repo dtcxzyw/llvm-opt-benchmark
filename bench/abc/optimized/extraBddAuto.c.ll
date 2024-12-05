@@ -8,9 +8,9 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @Extra_bddSpaceFromFunctionFast(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 140
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 136
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %6 = load i32, ptr %5, align 8
   %. = tail call i32 @llvm.smax.i32(i32 %4, i32 %6)
   %7 = sext i32 %. to i64
@@ -28,7 +28,7 @@ define noundef ptr @Extra_bddSpaceFromFunctionFast(ptr noundef %0, ptr noundef %
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.0123142 = phi i32 [ 0, %.lr.ph.preheader ], [ %spec.select, %.lr.ph ]
-  %13 = getelementptr inbounds i32, ptr %9, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv
   %14 = load i32, ptr %13, align 4
   %.not141 = icmp ne i32 %14, 0
   %15 = zext i1 %.not141 to i32
@@ -67,20 +67,20 @@ define noundef ptr @Extra_bddSpaceFromFunctionFast(ptr noundef %0, ptr noundef %
   br i1 %12, label %.lr.ph147, label %._crit_edge148
 
 .lr.ph147:                                        ; preds = %22
-  %29 = getelementptr inbounds i8, ptr %0, i64 344
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 344
   br label %30
 
 30:                                               ; preds = %.lr.ph147, %30
   %indvars.iv161 = phi i64 [ 0, %.lr.ph147 ], [ %indvars.iv.next162, %30 ]
-  %31 = getelementptr inbounds i32, ptr %25, i64 %indvars.iv161
+  %31 = getelementptr inbounds nuw i32, ptr %25, i64 %indvars.iv161
   %32 = trunc nuw nsw i64 %indvars.iv161 to i32
   store i32 %32, ptr %31, align 4
-  %33 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv161
+  %33 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv161
   store i32 %32, ptr %33, align 4
   %34 = load ptr, ptr %29, align 8
-  %35 = getelementptr inbounds ptr, ptr %34, i64 %indvars.iv161
+  %35 = getelementptr inbounds nuw ptr, ptr %34, i64 %indvars.iv161
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds ptr, ptr %28, i64 %indvars.iv161
+  %37 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv161
   store ptr %36, ptr %37, align 8
   tail call void @Cudd_Ref(ptr noundef %36) #10
   %indvars.iv.next162 = add nuw nsw i64 %indvars.iv161, 1
@@ -90,7 +90,7 @@ define noundef ptr @Extra_bddSpaceFromFunctionFast(ptr noundef %0, ptr noundef %
   br i1 %40, label %30, label %._crit_edge148, !llvm.loop !6
 
 ._crit_edge148:                                   ; preds = %30, %22
-  %41 = getelementptr inbounds i8, ptr %0, i64 40
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %42 = load ptr, ptr %41, align 8
   tail call void @Cudd_Ref(ptr noundef %42) #10
   %43 = load i32, ptr %5, align 8
@@ -98,8 +98,8 @@ define noundef ptr @Extra_bddSpaceFromFunctionFast(ptr noundef %0, ptr noundef %
   br i1 %44, label %.lr.ph153, label %._crit_edge154
 
 .lr.ph153:                                        ; preds = %._crit_edge148
-  %45 = getelementptr inbounds i8, ptr %0, i64 328
-  %46 = getelementptr inbounds i8, ptr %0, i64 344
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 328
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 344
   br label %47
 
 47:                                               ; preds = %.lr.ph153, %97
@@ -108,7 +108,7 @@ define noundef ptr @Extra_bddSpaceFromFunctionFast(ptr noundef %0, ptr noundef %
   %.0121150 = phi i32 [ 0, %.lr.ph153 ], [ %.1122, %97 ]
   %.0126149 = phi ptr [ %42, %.lr.ph153 ], [ %.1127, %97 ]
   %49 = load ptr, ptr %45, align 8
-  %50 = getelementptr inbounds i32, ptr %49, i64 %indvars.iv164
+  %50 = getelementptr inbounds nuw i32, ptr %49, i64 %indvars.iv164
   %51 = load i32, ptr %50, align 4
   %52 = sext i32 %51 to i64
   %53 = getelementptr inbounds i32, ptr %9, i64 %52
@@ -200,7 +200,7 @@ define noundef ptr @Extra_bddSpaceFromFunctionFast(ptr noundef %0, ptr noundef %
 
 .lr.ph158:                                        ; preds = %._crit_edge154, %.lr.ph158
   %indvars.iv167 = phi i64 [ %indvars.iv.next168, %.lr.ph158 ], [ 0, %._crit_edge154 ]
-  %110 = getelementptr inbounds ptr, ptr %28, i64 %indvars.iv167
+  %110 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv167
   %111 = load ptr, ptr %110, align 8
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %111) #10
   %indvars.iv.next168 = add nuw nsw i64 %indvars.iv167, 1
@@ -279,7 +279,7 @@ declare ptr @Cudd_bddXorExistAbstract(ptr noundef, ptr noundef, ptr noundef, ptr
 
 ; Function Attrs: nounwind uwtable
 define ptr @Extra_bddSpaceFromFunction(ptr noundef initializes((448, 452)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 448
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 448
   br label %5
 
 5:                                                ; preds = %5, %3
@@ -312,7 +312,7 @@ tailrecurse:                                      ; preds = %29, %3
 
 12:                                               ; preds = %tailrecurse
   %13 = icmp eq ptr %.tr155, %.tr156
-  %14 = getelementptr inbounds i8, ptr %0, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %15 = load ptr, ptr %14, align 8
   br i1 %13, label %166, label %16
 
@@ -328,7 +328,7 @@ tailrecurse:                                      ; preds = %29, %3
   br i1 %22, label %23, label %29
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds i8, ptr %0, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %25 = load ptr, ptr %24, align 8
   %26 = ptrtoint ptr %25 to i64
   %27 = xor i64 %26, 1
@@ -347,18 +347,18 @@ tailrecurse:                                      ; preds = %29, %3
   br i1 %.not, label %35, label %166
 
 35:                                               ; preds = %33
-  %36 = getelementptr inbounds i8, ptr %0, i64 312
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %37 = load ptr, ptr %36, align 8
   %38 = load i32, ptr %6, align 8
   %39 = zext i32 %38 to i64
-  %40 = getelementptr inbounds i32, ptr %37, i64 %39
+  %40 = getelementptr inbounds nuw i32, ptr %37, i64 %39
   %41 = load i32, ptr %40, align 4
   %42 = load i32, ptr %9, align 8
   %43 = zext i32 %42 to i64
-  %44 = getelementptr inbounds i32, ptr %37, i64 %43
+  %44 = getelementptr inbounds nuw i32, ptr %37, i64 %43
   %45 = load i32, ptr %44, align 4
   %.not150 = icmp sgt i32 %41, %45
-  %46 = getelementptr inbounds i8, ptr %0, i64 328
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %47 = load ptr, ptr %46, align 8
   br i1 %.not150, label %65, label %48
 
@@ -367,8 +367,8 @@ tailrecurse:                                      ; preds = %29, %3
   %50 = getelementptr inbounds i32, ptr %47, i64 %49
   %51 = load i32, ptr %50, align 4
   %.not151 = icmp eq ptr %.tr155, %6
-  %52 = getelementptr inbounds i8, ptr %6, i64 16
-  %53 = getelementptr inbounds i8, ptr %6, i64 24
+  %52 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %54 = load ptr, ptr %53, align 8
   br i1 %.not151, label %63, label %55
 
@@ -401,8 +401,8 @@ tailrecurse:                                      ; preds = %29, %3
 
 70:                                               ; preds = %69
   %.not153 = icmp eq ptr %.tr156, %9
-  %71 = getelementptr inbounds i8, ptr %9, i64 16
-  %72 = getelementptr inbounds i8, ptr %9, i64 24
+  %71 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %73 = load ptr, ptr %72, align 8
   br i1 %.not153, label %82, label %74
 
@@ -431,7 +431,7 @@ tailrecurse:                                      ; preds = %29, %3
   %88 = ptrtoint ptr %85 to i64
   %89 = and i64 %88, -2
   %90 = inttoptr i64 %89 to ptr
-  %91 = getelementptr inbounds i8, ptr %90, i64 4
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 4
   %92 = load i32, ptr %91, align 4
   %93 = add i32 %92, 1
   store i32 %93, ptr %91, align 4
@@ -447,7 +447,7 @@ tailrecurse:                                      ; preds = %29, %3
   %98 = ptrtoint ptr %94 to i64
   %99 = and i64 %98, -2
   %100 = inttoptr i64 %99 to ptr
-  %101 = getelementptr inbounds i8, ptr %100, i64 4
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 4
   %102 = load i32, ptr %101, align 4
   %103 = add i32 %102, 1
   store i32 %103, ptr %101, align 4
@@ -464,7 +464,7 @@ tailrecurse:                                      ; preds = %29, %3
   %108 = ptrtoint ptr %104 to i64
   %109 = and i64 %108, -2
   %110 = inttoptr i64 %109 to ptr
-  %111 = getelementptr inbounds i8, ptr %110, i64 4
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 4
   %112 = load i32, ptr %111, align 4
   %113 = add i32 %112, 1
   store i32 %113, ptr %111, align 4
@@ -482,7 +482,7 @@ tailrecurse:                                      ; preds = %29, %3
   %118 = ptrtoint ptr %114 to i64
   %119 = and i64 %118, -2
   %120 = inttoptr i64 %119 to ptr
-  %121 = getelementptr inbounds i8, ptr %120, i64 4
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 4
   %122 = load i32, ptr %121, align 4
   %123 = add i32 %122, 1
   store i32 %123, ptr %121, align 4
@@ -499,7 +499,7 @@ tailrecurse:                                      ; preds = %29, %3
   %128 = ptrtoint ptr %124 to i64
   %129 = and i64 %128, -2
   %130 = inttoptr i64 %129 to ptr
-  %131 = getelementptr inbounds i8, ptr %130, i64 4
+  %131 = getelementptr inbounds nuw i8, ptr %130, i64 4
   %132 = load i32, ptr %131, align 4
   %133 = add i32 %132, 1
   store i32 %133, ptr %131, align 4
@@ -517,7 +517,7 @@ tailrecurse:                                      ; preds = %29, %3
   %138 = ptrtoint ptr %134 to i64
   %139 = and i64 %138, -2
   %140 = inttoptr i64 %139 to ptr
-  %141 = getelementptr inbounds i8, ptr %140, i64 4
+  %141 = getelementptr inbounds nuw i8, ptr %140, i64 4
   %142 = load i32, ptr %141, align 4
   %143 = add i32 %142, 1
   store i32 %143, ptr %141, align 4
@@ -577,7 +577,7 @@ tailrecurse:                                      ; preds = %29, %3
 
 ; Function Attrs: nounwind uwtable
 define ptr @Extra_bddSpaceFromFunctionPos(ptr noundef initializes((448, 452)) %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 448
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 448
   br label %4
 
 4:                                                ; preds = %4, %2
@@ -601,7 +601,7 @@ define ptr @extraBddSpaceFromFunctionPos(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load ptr, ptr %9, align 8
   br label %110
 
@@ -612,8 +612,8 @@ define ptr @extraBddSpaceFromFunctionPos(ptr noundef %0, ptr noundef %1) #0 {
 
 13:                                               ; preds = %11
   %.not107 = icmp eq ptr %1, %5
-  %14 = getelementptr inbounds i8, ptr %5, i64 16
-  %15 = getelementptr inbounds i8, ptr %5, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %16 = load ptr, ptr %15, align 8
   br i1 %.not107, label %25, label %17
 
@@ -642,7 +642,7 @@ define ptr @extraBddSpaceFromFunctionPos(ptr noundef %0, ptr noundef %1) #0 {
   %31 = ptrtoint ptr %28 to i64
   %32 = and i64 %31, -2
   %33 = inttoptr i64 %32 to ptr
-  %34 = getelementptr inbounds i8, ptr %33, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 4
   %35 = load i32, ptr %34, align 4
   %36 = add i32 %35, 1
   store i32 %36, ptr %34, align 4
@@ -658,7 +658,7 @@ define ptr @extraBddSpaceFromFunctionPos(ptr noundef %0, ptr noundef %1) #0 {
   %41 = ptrtoint ptr %37 to i64
   %42 = and i64 %41, -2
   %43 = inttoptr i64 %42 to ptr
-  %44 = getelementptr inbounds i8, ptr %43, i64 4
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 4
   %45 = load i32, ptr %44, align 4
   %46 = add i32 %45, 1
   store i32 %46, ptr %44, align 4
@@ -675,7 +675,7 @@ define ptr @extraBddSpaceFromFunctionPos(ptr noundef %0, ptr noundef %1) #0 {
   %51 = ptrtoint ptr %47 to i64
   %52 = and i64 %51, -2
   %53 = inttoptr i64 %52 to ptr
-  %54 = getelementptr inbounds i8, ptr %53, i64 4
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 4
   %55 = load i32, ptr %54, align 4
   %56 = add i32 %55, 1
   store i32 %56, ptr %54, align 4
@@ -693,7 +693,7 @@ define ptr @extraBddSpaceFromFunctionPos(ptr noundef %0, ptr noundef %1) #0 {
   %61 = ptrtoint ptr %57 to i64
   %62 = and i64 %61, -2
   %63 = inttoptr i64 %62 to ptr
-  %64 = getelementptr inbounds i8, ptr %63, i64 4
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 4
   %65 = load i32, ptr %64, align 4
   %66 = add i32 %65, 1
   store i32 %66, ptr %64, align 4
@@ -710,7 +710,7 @@ define ptr @extraBddSpaceFromFunctionPos(ptr noundef %0, ptr noundef %1) #0 {
   %71 = ptrtoint ptr %67 to i64
   %72 = and i64 %71, -2
   %73 = inttoptr i64 %72 to ptr
-  %74 = getelementptr inbounds i8, ptr %73, i64 4
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 4
   %75 = load i32, ptr %74, align 4
   %76 = add i32 %75, 1
   store i32 %76, ptr %74, align 4
@@ -728,7 +728,7 @@ define ptr @extraBddSpaceFromFunctionPos(ptr noundef %0, ptr noundef %1) #0 {
   %81 = ptrtoint ptr %77 to i64
   %82 = and i64 %81, -2
   %83 = inttoptr i64 %82 to ptr
-  %84 = getelementptr inbounds i8, ptr %83, i64 4
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 4
   %85 = load i32, ptr %84, align 4
   %86 = add i32 %85, 1
   store i32 %86, ptr %84, align 4
@@ -789,7 +789,7 @@ define ptr @extraBddSpaceFromFunctionPos(ptr noundef %0, ptr noundef %1) #0 {
 
 ; Function Attrs: nounwind uwtable
 define ptr @Extra_bddSpaceFromFunctionNeg(ptr noundef initializes((448, 452)) %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 448
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 448
   br label %4
 
 4:                                                ; preds = %4, %2
@@ -813,7 +813,7 @@ define ptr @extraBddSpaceFromFunctionNeg(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %7, label %8, label %14
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load ptr, ptr %9, align 8
   %11 = ptrtoint ptr %10 to i64
   %12 = xor i64 %11, 1
@@ -827,8 +827,8 @@ define ptr @extraBddSpaceFromFunctionNeg(ptr noundef %0, ptr noundef %1) #0 {
 
 16:                                               ; preds = %14
   %.not107 = icmp eq ptr %1, %5
-  %17 = getelementptr inbounds i8, ptr %5, i64 16
-  %18 = getelementptr inbounds i8, ptr %5, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %19 = load ptr, ptr %18, align 8
   br i1 %.not107, label %28, label %20
 
@@ -857,7 +857,7 @@ define ptr @extraBddSpaceFromFunctionNeg(ptr noundef %0, ptr noundef %1) #0 {
   %34 = ptrtoint ptr %31 to i64
   %35 = and i64 %34, -2
   %36 = inttoptr i64 %35 to ptr
-  %37 = getelementptr inbounds i8, ptr %36, i64 4
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 4
   %38 = load i32, ptr %37, align 4
   %39 = add i32 %38, 1
   store i32 %39, ptr %37, align 4
@@ -873,7 +873,7 @@ define ptr @extraBddSpaceFromFunctionNeg(ptr noundef %0, ptr noundef %1) #0 {
   %44 = ptrtoint ptr %40 to i64
   %45 = and i64 %44, -2
   %46 = inttoptr i64 %45 to ptr
-  %47 = getelementptr inbounds i8, ptr %46, i64 4
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 4
   %48 = load i32, ptr %47, align 4
   %49 = add i32 %48, 1
   store i32 %49, ptr %47, align 4
@@ -890,7 +890,7 @@ define ptr @extraBddSpaceFromFunctionNeg(ptr noundef %0, ptr noundef %1) #0 {
   %54 = ptrtoint ptr %50 to i64
   %55 = and i64 %54, -2
   %56 = inttoptr i64 %55 to ptr
-  %57 = getelementptr inbounds i8, ptr %56, i64 4
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 4
   %58 = load i32, ptr %57, align 4
   %59 = add i32 %58, 1
   store i32 %59, ptr %57, align 4
@@ -908,7 +908,7 @@ define ptr @extraBddSpaceFromFunctionNeg(ptr noundef %0, ptr noundef %1) #0 {
   %64 = ptrtoint ptr %60 to i64
   %65 = and i64 %64, -2
   %66 = inttoptr i64 %65 to ptr
-  %67 = getelementptr inbounds i8, ptr %66, i64 4
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 4
   %68 = load i32, ptr %67, align 4
   %69 = add i32 %68, 1
   store i32 %69, ptr %67, align 4
@@ -925,7 +925,7 @@ define ptr @extraBddSpaceFromFunctionNeg(ptr noundef %0, ptr noundef %1) #0 {
   %74 = ptrtoint ptr %70 to i64
   %75 = and i64 %74, -2
   %76 = inttoptr i64 %75 to ptr
-  %77 = getelementptr inbounds i8, ptr %76, i64 4
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 4
   %78 = load i32, ptr %77, align 4
   %79 = add i32 %78, 1
   store i32 %79, ptr %77, align 4
@@ -943,7 +943,7 @@ define ptr @extraBddSpaceFromFunctionNeg(ptr noundef %0, ptr noundef %1) #0 {
   %84 = ptrtoint ptr %80 to i64
   %85 = and i64 %84, -2
   %86 = inttoptr i64 %85 to ptr
-  %87 = getelementptr inbounds i8, ptr %86, i64 4
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 4
   %88 = load i32, ptr %87, align 4
   %89 = add i32 %88, 1
   store i32 %89, ptr %87, align 4
@@ -1004,7 +1004,7 @@ define ptr @extraBddSpaceFromFunctionNeg(ptr noundef %0, ptr noundef %1) #0 {
 
 ; Function Attrs: nounwind uwtable
 define ptr @Extra_bddSpaceCanonVars(ptr noundef initializes((448, 452)) %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 448
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 448
   br label %4
 
 4:                                                ; preds = %4, %2
@@ -1034,8 +1034,8 @@ define ptr @extraBddSpaceCanonVars(ptr noundef %0, ptr noundef %1) #0 {
 
 10:                                               ; preds = %8
   %.not49 = icmp eq ptr %1, %5
-  %11 = getelementptr inbounds i8, ptr %5, i64 16
-  %12 = getelementptr inbounds i8, ptr %5, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %13 = load ptr, ptr %12, align 8
   br i1 %.not49, label %22, label %14
 
@@ -1056,7 +1056,7 @@ define ptr @extraBddSpaceCanonVars(ptr noundef %0, ptr noundef %1) #0 {
 24:                                               ; preds = %22, %14
   %.041 = phi ptr [ %17, %14 ], [ %13, %22 ]
   %.040 = phi ptr [ %21, %14 ], [ %23, %22 ]
-  %25 = getelementptr inbounds i8, ptr %0, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %26 = load ptr, ptr %25, align 8
   %27 = ptrtoint ptr %26 to i64
   %28 = xor i64 %27, 1
@@ -1085,7 +1085,7 @@ define ptr @extraBddSpaceCanonVars(ptr noundef %0, ptr noundef %1) #0 {
   %41 = ptrtoint ptr %36 to i64
   %42 = and i64 %41, -2
   %43 = inttoptr i64 %42 to ptr
-  %44 = getelementptr inbounds i8, ptr %43, i64 4
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 4
   %45 = load i32, ptr %44, align 4
   %46 = add i32 %45, 1
   store i32 %46, ptr %44, align 4
@@ -1135,7 +1135,7 @@ declare ptr @Cudd_Cofactor(ptr noundef, ptr noundef, ptr noundef) local_unnamed_
 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @Extra_bddSpaceEquations(ptr noundef initializes((448, 452)) %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 448
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 448
   br label %4
 
 4:                                                ; preds = %4, %2
@@ -1168,7 +1168,7 @@ Extra_bddSpaceEquationsNeg.exit:                  ; preds = %8
 
 ; Function Attrs: nounwind uwtable
 define ptr @Extra_bddSpaceEquationsPos(ptr noundef initializes((448, 452)) %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 448
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 448
   br label %4
 
 4:                                                ; preds = %4, %2
@@ -1184,7 +1184,7 @@ define ptr @Extra_bddSpaceEquationsPos(ptr noundef initializes((448, 452)) %0, p
 
 ; Function Attrs: nounwind uwtable
 define ptr @Extra_bddSpaceEquationsNeg(ptr noundef initializes((448, 452)) %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 448
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 448
   br label %4
 
 4:                                                ; preds = %4, %2
@@ -1204,7 +1204,7 @@ declare void @Cudd_RecursiveDerefZdd(ptr noundef, ptr noundef) local_unnamed_add
 
 ; Function Attrs: nounwind uwtable
 define ptr @extraBddSpaceEquationsPos(ptr noundef %0, ptr noundef %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = ptrtoint ptr %4 to i64
   %6 = xor i64 %5, 1
@@ -1217,7 +1217,7 @@ define ptr @extraBddSpaceEquationsPos(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %9
-  %12 = getelementptr inbounds i8, ptr %0, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %13 = load ptr, ptr %12, align 8
   br label %122
 
@@ -1231,8 +1231,8 @@ define ptr @extraBddSpaceEquationsPos(ptr noundef %0, ptr noundef %1) #0 {
   %18 = and i64 %17, -2
   %19 = inttoptr i64 %18 to ptr
   %.not115 = icmp eq ptr %1, %19
-  %20 = getelementptr inbounds i8, ptr %19, i64 16
-  %21 = getelementptr inbounds i8, ptr %19, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %22 = load ptr, ptr %21, align 8
   br i1 %.not115, label %31, label %23
 
@@ -1269,7 +1269,7 @@ define ptr @extraBddSpaceEquationsPos(ptr noundef %0, ptr noundef %1) #0 {
   %43 = ptrtoint ptr %40 to i64
   %44 = and i64 %43, -2
   %45 = inttoptr i64 %44 to ptr
-  %46 = getelementptr inbounds i8, ptr %45, i64 4
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 4
   %47 = load i32, ptr %46, align 4
   %48 = add i32 %47, 1
   store i32 %48, ptr %46, align 4
@@ -1306,7 +1306,7 @@ define ptr @extraBddSpaceEquationsPos(ptr noundef %0, ptr noundef %1) #0 {
   %65 = ptrtoint ptr %60 to i64
   %66 = and i64 %65, -2
   %67 = inttoptr i64 %66 to ptr
-  %68 = getelementptr inbounds i8, ptr %67, i64 4
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 4
   %69 = load i32, ptr %68, align 4
   %70 = add i32 %69, 1
   store i32 %70, ptr %68, align 4
@@ -1322,7 +1322,7 @@ define ptr @extraBddSpaceEquationsPos(ptr noundef %0, ptr noundef %1) #0 {
   %75 = ptrtoint ptr %71 to i64
   %76 = and i64 %75, -2
   %77 = inttoptr i64 %76 to ptr
-  %78 = getelementptr inbounds i8, ptr %77, i64 4
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 4
   %79 = load i32, ptr %78, align 4
   %80 = add i32 %79, 1
   store i32 %80, ptr %78, align 4
@@ -1339,7 +1339,7 @@ define ptr @extraBddSpaceEquationsPos(ptr noundef %0, ptr noundef %1) #0 {
   %85 = ptrtoint ptr %81 to i64
   %86 = and i64 %85, -2
   %87 = inttoptr i64 %86 to ptr
-  %88 = getelementptr inbounds i8, ptr %87, i64 4
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 4
   %89 = load i32, ptr %88, align 4
   %90 = add i32 %89, 1
   store i32 %90, ptr %88, align 4
@@ -1357,7 +1357,7 @@ define ptr @extraBddSpaceEquationsPos(ptr noundef %0, ptr noundef %1) #0 {
   %95 = ptrtoint ptr %91 to i64
   %96 = and i64 %95, -2
   %97 = inttoptr i64 %96 to ptr
-  %98 = getelementptr inbounds i8, ptr %97, i64 4
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 4
   %99 = load i32, ptr %98, align 4
   %100 = add i32 %99, 1
   store i32 %100, ptr %98, align 4
@@ -1376,7 +1376,7 @@ define ptr @extraBddSpaceEquationsPos(ptr noundef %0, ptr noundef %1) #0 {
   %105 = ptrtoint ptr %101 to i64
   %106 = and i64 %105, -2
   %107 = inttoptr i64 %106 to ptr
-  %108 = getelementptr inbounds i8, ptr %107, i64 4
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 4
   %109 = load i32, ptr %108, align 4
   %110 = add i32 %109, 1
   store i32 %110, ptr %108, align 4
@@ -1415,7 +1415,7 @@ define ptr @extraBddSpaceEquationsPos(ptr noundef %0, ptr noundef %1) #0 {
 
 ; Function Attrs: nounwind uwtable
 define ptr @extraBddSpaceEquationsNeg(ptr noundef %0, ptr noundef %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = ptrtoint ptr %4 to i64
   %6 = xor i64 %5, 1
@@ -1428,7 +1428,7 @@ define ptr @extraBddSpaceEquationsNeg(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %9
-  %12 = getelementptr inbounds i8, ptr %0, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %13 = load ptr, ptr %12, align 8
   br label %122
 
@@ -1442,8 +1442,8 @@ define ptr @extraBddSpaceEquationsNeg(ptr noundef %0, ptr noundef %1) #0 {
   %18 = and i64 %17, -2
   %19 = inttoptr i64 %18 to ptr
   %.not115 = icmp eq ptr %1, %19
-  %20 = getelementptr inbounds i8, ptr %19, i64 16
-  %21 = getelementptr inbounds i8, ptr %19, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %22 = load ptr, ptr %21, align 8
   br i1 %.not115, label %31, label %23
 
@@ -1489,7 +1489,7 @@ define ptr @extraBddSpaceEquationsNeg(ptr noundef %0, ptr noundef %1) #0 {
   %48 = ptrtoint ptr %44 to i64
   %49 = and i64 %48, -2
   %50 = inttoptr i64 %49 to ptr
-  %51 = getelementptr inbounds i8, ptr %50, i64 4
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 4
   %52 = load i32, ptr %51, align 4
   %53 = add i32 %52, 1
   store i32 %53, ptr %51, align 4
@@ -1517,7 +1517,7 @@ define ptr @extraBddSpaceEquationsNeg(ptr noundef %0, ptr noundef %1) #0 {
   %65 = ptrtoint ptr %44 to i64
   %66 = and i64 %65, -2
   %67 = inttoptr i64 %66 to ptr
-  %68 = getelementptr inbounds i8, ptr %67, i64 4
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 4
   %69 = load i32, ptr %68, align 4
   %70 = add i32 %69, 1
   store i32 %70, ptr %68, align 4
@@ -1533,7 +1533,7 @@ define ptr @extraBddSpaceEquationsNeg(ptr noundef %0, ptr noundef %1) #0 {
   %75 = ptrtoint ptr %71 to i64
   %76 = and i64 %75, -2
   %77 = inttoptr i64 %76 to ptr
-  %78 = getelementptr inbounds i8, ptr %77, i64 4
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 4
   %79 = load i32, ptr %78, align 4
   %80 = add i32 %79, 1
   store i32 %80, ptr %78, align 4
@@ -1550,7 +1550,7 @@ define ptr @extraBddSpaceEquationsNeg(ptr noundef %0, ptr noundef %1) #0 {
   %85 = ptrtoint ptr %81 to i64
   %86 = and i64 %85, -2
   %87 = inttoptr i64 %86 to ptr
-  %88 = getelementptr inbounds i8, ptr %87, i64 4
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 4
   %89 = load i32, ptr %88, align 4
   %90 = add i32 %89, 1
   store i32 %90, ptr %88, align 4
@@ -1568,7 +1568,7 @@ define ptr @extraBddSpaceEquationsNeg(ptr noundef %0, ptr noundef %1) #0 {
   %95 = ptrtoint ptr %91 to i64
   %96 = and i64 %95, -2
   %97 = inttoptr i64 %96 to ptr
-  %98 = getelementptr inbounds i8, ptr %97, i64 4
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 4
   %99 = load i32, ptr %98, align 4
   %100 = add i32 %99, 1
   store i32 %100, ptr %98, align 4
@@ -1587,7 +1587,7 @@ define ptr @extraBddSpaceEquationsNeg(ptr noundef %0, ptr noundef %1) #0 {
   %105 = ptrtoint ptr %101 to i64
   %106 = and i64 %105, -2
   %107 = inttoptr i64 %106 to ptr
-  %108 = getelementptr inbounds i8, ptr %107, i64 4
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 4
   %109 = load i32, ptr %108, align 4
   %110 = add i32 %109, 1
   store i32 %110, ptr %108, align 4
@@ -1626,7 +1626,7 @@ define ptr @extraBddSpaceEquationsNeg(ptr noundef %0, ptr noundef %1) #0 {
 
 ; Function Attrs: nounwind uwtable
 define ptr @Extra_bddSpaceFromMatrixPos(ptr noundef initializes((448, 452)) %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 448
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 448
   br label %4
 
 4:                                                ; preds = %4, %2
@@ -1642,10 +1642,10 @@ define ptr @Extra_bddSpaceFromMatrixPos(ptr noundef initializes((448, 452)) %0, 
 
 ; Function Attrs: nounwind uwtable
 define ptr @extraBddSpaceFromMatrixPos(ptr noundef %0, ptr noundef %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %1, %4
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %1, %7
   %or.cond = select i1 %5, i1 true, i1 %8
@@ -1657,8 +1657,8 @@ define ptr @extraBddSpaceFromMatrixPos(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %.not, label %11, label %101
 
 11:                                               ; preds = %9
-  %12 = getelementptr inbounds i8, ptr %1, i64 16
-  %13 = getelementptr inbounds i8, ptr %1, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %14 = load ptr, ptr %13, align 8
   %15 = tail call ptr @extraBddSpaceFromMatrixPos(ptr noundef nonnull %0, ptr noundef %14)
   %16 = icmp eq ptr %15, null
@@ -1668,7 +1668,7 @@ define ptr @extraBddSpaceFromMatrixPos(ptr noundef %0, ptr noundef %1) #0 {
   %18 = ptrtoint ptr %15 to i64
   %19 = and i64 %18, -2
   %20 = inttoptr i64 %19 to ptr
-  %21 = getelementptr inbounds i8, ptr %20, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
   %22 = load i32, ptr %21, align 4
   %23 = add i32 %22, 1
   store i32 %23, ptr %21, align 4
@@ -1685,7 +1685,7 @@ define ptr @extraBddSpaceFromMatrixPos(ptr noundef %0, ptr noundef %1) #0 {
   %29 = ptrtoint ptr %25 to i64
   %30 = and i64 %29, -2
   %31 = inttoptr i64 %30 to ptr
-  %32 = getelementptr inbounds i8, ptr %31, i64 4
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 4
   %33 = load i32, ptr %32, align 4
   %34 = add i32 %33, 1
   store i32 %34, ptr %32, align 4
@@ -1702,7 +1702,7 @@ define ptr @extraBddSpaceFromMatrixPos(ptr noundef %0, ptr noundef %1) #0 {
   %39 = ptrtoint ptr %35 to i64
   %40 = and i64 %39, -2
   %41 = inttoptr i64 %40 to ptr
-  %42 = getelementptr inbounds i8, ptr %41, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 4
   %43 = load i32, ptr %42, align 4
   %44 = add i32 %43, 1
   store i32 %44, ptr %42, align 4
@@ -1721,7 +1721,7 @@ define ptr @extraBddSpaceFromMatrixPos(ptr noundef %0, ptr noundef %1) #0 {
   %50 = ptrtoint ptr %46 to i64
   %51 = and i64 %50, -2
   %52 = inttoptr i64 %51 to ptr
-  %53 = getelementptr inbounds i8, ptr %52, i64 4
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 4
   %54 = load i32, ptr %53, align 4
   %55 = add i32 %54, 1
   store i32 %55, ptr %53, align 4
@@ -1739,7 +1739,7 @@ define ptr @extraBddSpaceFromMatrixPos(ptr noundef %0, ptr noundef %1) #0 {
   %61 = ptrtoint ptr %57 to i64
   %62 = and i64 %61, -2
   %63 = inttoptr i64 %62 to ptr
-  %64 = getelementptr inbounds i8, ptr %63, i64 4
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 4
   %65 = load i32, ptr %64, align 4
   %66 = add i32 %65, 1
   store i32 %66, ptr %64, align 4
@@ -1757,7 +1757,7 @@ define ptr @extraBddSpaceFromMatrixPos(ptr noundef %0, ptr noundef %1) #0 {
   %71 = ptrtoint ptr %67 to i64
   %72 = and i64 %71, -2
   %73 = inttoptr i64 %72 to ptr
-  %74 = getelementptr inbounds i8, ptr %73, i64 4
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 4
   %75 = load i32, ptr %74, align 4
   %76 = add i32 %75, 1
   store i32 %76, ptr %74, align 4
@@ -1819,7 +1819,7 @@ define ptr @extraBddSpaceFromMatrixPos(ptr noundef %0, ptr noundef %1) #0 {
 
 ; Function Attrs: nounwind uwtable
 define ptr @Extra_bddSpaceFromMatrixNeg(ptr noundef initializes((448, 452)) %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 448
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 448
   br label %4
 
 4:                                                ; preds = %4, %2
@@ -1835,10 +1835,10 @@ define ptr @Extra_bddSpaceFromMatrixNeg(ptr noundef initializes((448, 452)) %0, 
 
 ; Function Attrs: nounwind uwtable
 define ptr @extraBddSpaceFromMatrixNeg(ptr noundef %0, ptr noundef %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %1, %4
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8
   br i1 %5, label %106, label %8
 
@@ -1858,8 +1858,8 @@ define ptr @extraBddSpaceFromMatrixNeg(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %.not, label %16, label %106
 
 16:                                               ; preds = %14
-  %17 = getelementptr inbounds i8, ptr %1, i64 16
-  %18 = getelementptr inbounds i8, ptr %1, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %19 = load ptr, ptr %18, align 8
   %20 = tail call ptr @extraBddSpaceFromMatrixNeg(ptr noundef nonnull %0, ptr noundef %19)
   %21 = icmp eq ptr %20, null
@@ -1869,7 +1869,7 @@ define ptr @extraBddSpaceFromMatrixNeg(ptr noundef %0, ptr noundef %1) #0 {
   %23 = ptrtoint ptr %20 to i64
   %24 = and i64 %23, -2
   %25 = inttoptr i64 %24 to ptr
-  %26 = getelementptr inbounds i8, ptr %25, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 4
   %27 = load i32, ptr %26, align 4
   %28 = add i32 %27, 1
   store i32 %28, ptr %26, align 4
@@ -1886,7 +1886,7 @@ define ptr @extraBddSpaceFromMatrixNeg(ptr noundef %0, ptr noundef %1) #0 {
   %34 = ptrtoint ptr %30 to i64
   %35 = and i64 %34, -2
   %36 = inttoptr i64 %35 to ptr
-  %37 = getelementptr inbounds i8, ptr %36, i64 4
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 4
   %38 = load i32, ptr %37, align 4
   %39 = add i32 %38, 1
   store i32 %39, ptr %37, align 4
@@ -1903,7 +1903,7 @@ define ptr @extraBddSpaceFromMatrixNeg(ptr noundef %0, ptr noundef %1) #0 {
   %44 = ptrtoint ptr %40 to i64
   %45 = and i64 %44, -2
   %46 = inttoptr i64 %45 to ptr
-  %47 = getelementptr inbounds i8, ptr %46, i64 4
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 4
   %48 = load i32, ptr %47, align 4
   %49 = add i32 %48, 1
   store i32 %49, ptr %47, align 4
@@ -1922,7 +1922,7 @@ define ptr @extraBddSpaceFromMatrixNeg(ptr noundef %0, ptr noundef %1) #0 {
   %55 = ptrtoint ptr %51 to i64
   %56 = and i64 %55, -2
   %57 = inttoptr i64 %56 to ptr
-  %58 = getelementptr inbounds i8, ptr %57, i64 4
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 4
   %59 = load i32, ptr %58, align 4
   %60 = add i32 %59, 1
   store i32 %60, ptr %58, align 4
@@ -1940,7 +1940,7 @@ define ptr @extraBddSpaceFromMatrixNeg(ptr noundef %0, ptr noundef %1) #0 {
   %66 = ptrtoint ptr %62 to i64
   %67 = and i64 %66, -2
   %68 = inttoptr i64 %67 to ptr
-  %69 = getelementptr inbounds i8, ptr %68, i64 4
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 4
   %70 = load i32, ptr %69, align 4
   %71 = add i32 %70, 1
   store i32 %71, ptr %69, align 4
@@ -1958,7 +1958,7 @@ define ptr @extraBddSpaceFromMatrixNeg(ptr noundef %0, ptr noundef %1) #0 {
   %76 = ptrtoint ptr %72 to i64
   %77 = and i64 %76, -2
   %78 = inttoptr i64 %77 to ptr
-  %79 = getelementptr inbounds i8, ptr %78, i64 4
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 4
   %80 = load i32, ptr %79, align 4
   %81 = add i32 %80, 1
   store i32 %81, ptr %79, align 4
@@ -2020,13 +2020,13 @@ define ptr @extraBddSpaceFromMatrixNeg(ptr noundef %0, ptr noundef %1) #0 {
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define i32 @Extra_zddLitCountComb(ptr nocapture noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #5 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %1, %4
   br i1 %5, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8
   %.not10 = icmp eq ptr %1, %7
   br i1 %.not10, label %.loopexit, label %.lr.ph
@@ -2035,7 +2035,7 @@ define i32 @Extra_zddLitCountComb(ptr nocapture noundef readonly %0, ptr noundef
   %.012 = phi i32 [ %8, %.lr.ph ], [ 0, %.preheader ]
   %.0711 = phi ptr [ %10, %.lr.ph ], [ %1, %.preheader ]
   %8 = add nuw nsw i32 %.012, 1
-  %9 = getelementptr inbounds i8, ptr %.0711, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %.0711, i64 16
   %10 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %10, %7
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !17
@@ -2047,9 +2047,9 @@ define i32 @Extra_zddLitCountComb(ptr nocapture noundef readonly %0, ptr noundef
 
 ; Function Attrs: nounwind uwtable
 define noalias noundef ptr @Extra_bddSpaceExorGates(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 140
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %5 = load i32, ptr %4, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 136
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %7 = load i32, ptr %6, align 8
   %. = tail call i32 @llvm.smax.i32(i32 %5, i32 %7)
   %8 = sext i32 %. to i64
@@ -2061,13 +2061,13 @@ define noalias noundef ptr @Extra_bddSpaceExorGates(ptr noundef %0, ptr noundef 
   %14 = shl nsw i64 %13, 3
   %calloc = tail call ptr @calloc(i64 1, i64 %14)
   tail call void @Cudd_Ref(ptr noundef %2) #10
-  %15 = getelementptr inbounds i8, ptr %0, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %16 = load ptr, ptr %15, align 8
   %.not54 = icmp eq ptr %2, %16
   br i1 %.not54, label %._crit_edge58, label %.lr.ph57
 
 .lr.ph57:                                         ; preds = %3
-  %17 = getelementptr inbounds i8, ptr %0, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %18
 
 18:                                               ; preds = %.lr.ph57, %38
@@ -2087,11 +2087,11 @@ define noalias noundef ptr @Extra_bddSpaceExorGates(ptr noundef %0, ptr noundef 
   %22 = load i32, ptr %.052, align 8
   %23 = lshr i32 %22, 1
   %24 = zext nneg i32 %23 to i64
-  %25 = getelementptr inbounds i32, ptr %10, i64 %24
+  %25 = getelementptr inbounds nuw i32, ptr %10, i64 %24
   %26 = load i32, ptr %25, align 4
   %27 = icmp eq i32 %26, 1
   %spec.select = select i1 %27, i32 %23, i32 %.04151
-  %28 = getelementptr inbounds i8, ptr %.052, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %.052, i64 16
   %29 = load ptr, ptr %28, align 8
   %.not47 = icmp eq ptr %29, %21
   br i1 %.not47, label %._crit_edge, label %.lr.ph, !llvm.loop !18
@@ -2106,7 +2106,7 @@ define noalias noundef ptr @Extra_bddSpaceExorGates(ptr noundef %0, ptr noundef 
   %.012.i = phi i32 [ %33, %.lr.ph.i ], [ 0, %._crit_edge ]
   %.0711.i = phi ptr [ %35, %.lr.ph.i ], [ %19, %._crit_edge ]
   %33 = add nuw nsw i32 %.012.i, 1
-  %34 = getelementptr inbounds i8, ptr %.0711.i, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %.0711.i, i64 16
   %35 = load ptr, ptr %34, align 8
   %.not.i = icmp eq ptr %35, %21
   br i1 %.not.i, label %Extra_zddLitCountComb.exit, label %.lr.ph.i, !llvm.loop !17

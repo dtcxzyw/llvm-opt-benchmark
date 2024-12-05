@@ -22,7 +22,7 @@ define hidden noundef range(i32 0, 2) i32 @_Z10pj_factors5PJ_LPPK8PJconstsdP7FAC
 
 11:                                               ; preds = %5
   %12 = tail call i32 @proj_errno_reset(ptr noundef nonnull %2)
-  %13 = getelementptr inbounds i8, ptr %4, i64 96
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 96
   store i32 0, ptr %13, align 8
   %14 = tail call double @llvm.fabs.f64(double %1)
   %15 = fadd double %14, 0xBFF921FB54442D18
@@ -48,20 +48,20 @@ define hidden noundef range(i32 0, 2) i32 @_Z10pj_factors5PJ_LPPK8PJconstsdP7FAC
   %25 = tail call double @llvm.fabs.f64(double %3)
   %26 = fcmp olt double %25, 0x3D719799812DEA11
   %.095 = select i1 %26, double 1.000000e-05, double %25
-  %27 = getelementptr inbounds i8, ptr %2, i64 348
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 348
   %28 = load i32, ptr %27, align 4
   %.not = icmp eq i32 %28, 0
   br i1 %.not, label %30, label %29
 
 29:                                               ; preds = %24
   store double %0, ptr %7, align 8
-  %.sroa.01.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 8
+  %.sroa.01.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   store double %1, ptr %.sroa.01.sroa.3.0..sroa_idx, align 8
-  %.sroa.01.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 16
+  %.sroa.01.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.01.sroa.4.0..sroa_idx, i8 0, i64 16, i1 false)
   call void @_Z22pj_geocentric_latitudePK8PJconsts12PJ_DIRECTION8PJ_COORD(ptr dead_on_unwind nonnull writable sret(%union.PJ_COORD) align 8 %6, ptr noundef nonnull %2, i32 noundef -1, ptr noundef nonnull byval(%union.PJ_COORD) align 8 %7)
   %.sroa.083.0.copyload = load double, ptr %6, align 8
-  %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 8
+  %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.10.0.copyload = load double, ptr %.sroa.10.0..sroa_idx, align 8
   %.pre105 = call double @llvm.fabs.f64(double %.sroa.10.0.copyload)
   br label %30
@@ -82,10 +82,10 @@ define hidden noundef range(i32 0, 2) i32 @_Z10pj_factors5PJ_LPPK8PJconstsdP7FAC
 
 37:                                               ; preds = %33, %30
   %.sroa.10.1 = phi double [ %36, %33 ], [ %.sroa.10.0, %30 ]
-  %38 = getelementptr inbounds i8, ptr %2, i64 440
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 440
   %39 = load double, ptr %38, align 8
   %40 = fsub double %.sroa.083.0, %39
-  %41 = getelementptr inbounds i8, ptr %2, i64 344
+  %41 = getelementptr inbounds nuw i8, ptr %2, i64 344
   %42 = load i32, ptr %41, align 8
   %.not102 = icmp eq i32 %42, 0
   br i1 %.not102, label %43, label %45
@@ -107,21 +107,21 @@ define hidden noundef range(i32 0, 2) i32 @_Z10pj_factors5PJ_LPPK8PJconstsdP7FAC
 
 49:                                               ; preds = %45
   %50 = call double @cos(double noundef %.sroa.10.1) #5
-  %51 = getelementptr inbounds i8, ptr %4, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %52 = load double, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %4, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %54 = load double, ptr %53, align 8
   %55 = call double @hypot(double noundef %52, double noundef %54) #5
-  %56 = getelementptr inbounds i8, ptr %4, i64 32
+  %56 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store double %55, ptr %56, align 8
   %57 = load double, ptr %4, align 8
-  %58 = getelementptr inbounds i8, ptr %4, i64 16
+  %58 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %59 = load double, ptr %58, align 8
   %60 = call double @hypot(double noundef %57, double noundef %59) #5
   %61 = fdiv double %60, %50
-  %62 = getelementptr inbounds i8, ptr %4, i64 40
+  %62 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store double %61, ptr %62, align 8
-  %63 = getelementptr inbounds i8, ptr %2, i64 216
+  %63 = getelementptr inbounds nuw i8, ptr %2, i64 216
   %64 = load double, ptr %63, align 8
   %65 = fcmp une double %64, 0.000000e+00
   br i1 %65, label %66, label %84
@@ -134,7 +134,7 @@ define hidden noundef range(i32 0, 2) i32 @_Z10pj_factors5PJ_LPPK8PJconstsdP7FAC
   %71 = call double @llvm.fmuladd.f64(double %70, double %67, double 1.000000e+00)
   %72 = call double @sqrt(double noundef %71) #5
   %73 = fmul double %72, %71
-  %74 = getelementptr inbounds i8, ptr %2, i64 256
+  %74 = getelementptr inbounds nuw i8, ptr %2, i64 256
   %75 = load double, ptr %74, align 8
   %76 = fdiv double %73, %75
   %77 = load double, ptr %56, align 8
@@ -154,7 +154,7 @@ define hidden noundef range(i32 0, 2) i32 @_Z10pj_factors5PJ_LPPK8PJconstsdP7FAC
   %86 = load double, ptr %53, align 8
   %87 = call double @atan2(double noundef %85, double noundef %86) #5
   %88 = fneg double %87
-  %89 = getelementptr inbounds i8, ptr %4, i64 64
+  %89 = getelementptr inbounds nuw i8, ptr %4, i64 64
   store double %88, ptr %89, align 8
   %90 = load double, ptr %53, align 8
   %91 = load double, ptr %4, align 8
@@ -165,7 +165,7 @@ define hidden noundef range(i32 0, 2) i32 @_Z10pj_factors5PJ_LPPK8PJconstsdP7FAC
   %96 = call double @llvm.fmuladd.f64(double %90, double %91, double %95)
   %97 = fmul double %.094, %96
   %98 = fdiv double %97, %50
-  %99 = getelementptr inbounds i8, ptr %4, i64 72
+  %99 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store double %98, ptr %99, align 8
   %100 = load ptr, ptr %2, align 8
   %101 = load double, ptr %56, align 8
@@ -173,7 +173,7 @@ define hidden noundef range(i32 0, 2) i32 @_Z10pj_factors5PJ_LPPK8PJconstsdP7FAC
   %103 = fmul double %101, %102
   %104 = fdiv double %98, %103
   %105 = call noundef double @_Z5aasinP6pj_ctxd(ptr noundef %100, double noundef %104)
-  %106 = getelementptr inbounds i8, ptr %4, i64 56
+  %106 = getelementptr inbounds nuw i8, ptr %4, i64 56
   store double %105, ptr %106, align 8
   %107 = load double, ptr %62, align 8
   %108 = load double, ptr %56, align 8
@@ -182,7 +182,7 @@ define hidden noundef range(i32 0, 2) i32 @_Z10pj_factors5PJ_LPPK8PJconstsdP7FAC
   %111 = load double, ptr %99, align 8
   %112 = call double @llvm.fmuladd.f64(double %111, double 2.000000e+00, double %110)
   %113 = call double @sqrt(double noundef %112) #5
-  %114 = getelementptr inbounds i8, ptr %4, i64 80
+  %114 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store double %113, ptr %114, align 8
   %115 = load double, ptr %99, align 8
   %116 = call double @llvm.fmuladd.f64(double %115, double -2.000000e+00, double %110)
@@ -199,7 +199,7 @@ define hidden noundef range(i32 0, 2) i32 @_Z10pj_factors5PJ_LPPK8PJconstsdP7FAC
   %122 = phi double [ %119, %118 ], [ 0.000000e+00, %84 ]
   %123 = fsub double %121, %122
   %124 = fmul double %123, 5.000000e-01
-  %125 = getelementptr inbounds i8, ptr %4, i64 88
+  %125 = getelementptr inbounds nuw i8, ptr %4, i64 88
   store double %124, ptr %125, align 8
   %126 = fadd double %122, %121
   %127 = fmul double %126, 5.000000e-01
@@ -210,7 +210,7 @@ define hidden noundef range(i32 0, 2) i32 @_Z10pj_factors5PJ_LPPK8PJconstsdP7FAC
   %131 = fdiv double %129, %130
   %132 = call noundef double @_Z5aasinP6pj_ctxd(ptr noundef %128, double noundef %131)
   %133 = fmul double %132, 2.000000e+00
-  %134 = getelementptr inbounds i8, ptr %4, i64 48
+  %134 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store double %133, ptr %134, align 8
   %135 = call i32 @proj_errno_restore(ptr noundef nonnull %2, i32 noundef %12)
   br label %136

@@ -37,16 +37,16 @@ $_ZNSt10filesystem7__cxx114pathD2Ev = comdat any
 define void @_ZN3gmx12ResetHandlerC2ENS_6compat8not_nullIPNS_16SimulationSignalEEEblbbfRKNS_8MDLoggerEP13gmx_wallcycleP23gmx_walltime_accounting(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 10), (12, 16)) %0, ptr %1, i1 noundef zeroext %2, i64 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, float noundef %6, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %7, ptr noundef %8, ptr noundef %9) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %11 = alloca %"class.gmx::LogEntryWriter", align 8
   store ptr %1, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 0, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 9
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 9
   store i8 0, ptr %13, align 1
-  %14 = getelementptr inbounds i8, ptr %0, i64 12
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store float %6, ptr %14, align 4
   br i1 %2, label %15, label %17
 
 15:                                               ; preds = %10
-  %16 = getelementptr inbounds i8, ptr %1, i64 2
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 2
   store i8 0, ptr %16, align 1
   br label %17
 
@@ -54,7 +54,7 @@ define void @_ZN3gmx12ResetHandlerC2ENS_6compat8not_nullIPNS_16SimulationSignalE
   br i1 %5, label %18, label %37
 
 18:                                               ; preds = %17
-  %19 = getelementptr inbounds i8, ptr %7, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
   br i1 %21, label %30, label %22
@@ -62,14 +62,14 @@ define void @_ZN3gmx12ResetHandlerC2ENS_6compat8not_nullIPNS_16SimulationSignalE
 22:                                               ; preds = %18
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %11, i8 0, i64 40, i1 false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %11) #8
-  %23 = getelementptr inbounds i8, ptr %11, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %11, i64 32
   store i8 1, ptr %23, align 8
   %24 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull @.str)
           to label %_ZN3gmx14LogEntryWriter10appendTextEPKc.exit unwind label %28
 
 _ZN3gmx14LogEntryWriter10appendTextEPKc.exit:     ; preds = %22
   %25 = load ptr, ptr %20, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load ptr, ptr %26, align 8
   invoke void %27(ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit unwind label %28
@@ -142,7 +142,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN3gmx12ResetHandler13setSignalImplEP23gmx_walltime_accounting(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = tail call noundef double @_Z40walltime_accounting_get_time_since_startP23gmx_walltime_accounting(ptr noundef %1)
-  %4 = getelementptr inbounds i8, ptr %0, i64 12
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %5 = load float, ptr %4, align 4
   %6 = fpext float %5 to double
   %7 = fmul double %6, 6.000000e+01
@@ -168,7 +168,7 @@ define noundef zeroext i1 @_ZN3gmx12ResetHandler17resetCountersImplEllRKNS_8MDLo
   %14 = alloca [22 x i8], align 16
   %15 = alloca %"class.gmx::LogEntryWriter", align 8
   %16 = load ptr, ptr %0, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 1
   %18 = load i8, ptr %17, align 1
   %19 = icmp slt i8 %18, 1
   br i1 %19, label %20, label %23
@@ -204,7 +204,7 @@ define noundef zeroext i1 @_ZN3gmx12ResetHandler17resetCountersImplEllRKNS_8MDLo
 32:                                               ; preds = %29
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %15, i8 0, i64 40, i1 false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %15) #8
-  %33 = getelementptr inbounds i8, ptr %15, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %15, i64 32
   store i8 1, ptr %33, align 8
   %34 = invoke noundef ptr @_Z12gmx_step_strlPc(i64 noundef %1, ptr noundef nonnull %14)
           to label %35 unwind label %41
@@ -215,7 +215,7 @@ define noundef zeroext i1 @_ZN3gmx12ResetHandler17resetCountersImplEllRKNS_8MDLo
 
 37:                                               ; preds = %35
   %38 = load ptr, ptr %30, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %40 = load ptr, ptr %39, align 8
   invoke void %40(ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef nonnull align 8 dereferenceable(40) %36)
           to label %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit unwind label %41
@@ -243,7 +243,7 @@ _Z20pme_gpu_task_enabledPK9gmx_pme_t.exit.thread: ; preds = %_Z20pme_gpu_task_en
   br i1 %.not35, label %49, label %45
 
 45:                                               ; preds = %_Z20pme_gpu_task_enabledPK9gmx_pme_t.exit.thread
-  %46 = getelementptr inbounds i8, ptr %6, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %47 = load i32, ptr %46, align 8
   %48 = icmp eq i32 %47, 4
   br i1 %48, label %51, label %49
@@ -273,7 +273,7 @@ _Z20pme_gpu_task_enabledPK9gmx_pme_t.exit38.thread: ; preds = %49, %51, %_Z20pme
   %58 = zext i32 %56 to i64
   %59 = shl nuw i64 %58, 32
   %60 = or disjoint i64 %59, %57
-  %61 = getelementptr inbounds i8, ptr %10, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %62 = load i64, ptr %61, align 8
   %.not.i39 = icmp ult i64 %60, %62
   br i1 %.not.i39, label %65, label %63
@@ -283,32 +283,32 @@ _Z20pme_gpu_task_enabledPK9gmx_pme_t.exit38.thread: ; preds = %49, %51, %_Z20pme
   br label %67
 
 65:                                               ; preds = %53
-  %66 = getelementptr inbounds i8, ptr %10, i64 2288
+  %66 = getelementptr inbounds nuw i8, ptr %10, i64 2288
   store i8 1, ptr %66, align 8
   br label %67
 
 67:                                               ; preds = %65, %63
   %.0.i = phi i64 [ %64, %63 ], [ 0, %65 ]
-  %68 = getelementptr inbounds i8, ptr %10, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %69 = load i64, ptr %68, align 8
   %70 = add i64 %69, %.0.i
   store i64 %70, ptr %68, align 8
   %71 = load i32, ptr %10, align 8
   %72 = add nsw i32 %71, 1
   store i32 %72, ptr %10, align 8
-  %73 = getelementptr inbounds i8, ptr %10, i64 2248
+  %73 = getelementptr inbounds nuw i8, ptr %10, i64 2248
   %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %10, i64 2256
+  %75 = getelementptr inbounds nuw i8, ptr %10, i64 2256
   %76 = load ptr, ptr %75, align 8
   %77 = icmp eq ptr %74, %76
   br i1 %77, label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit, label %78
 
 78:                                               ; preds = %67
-  %79 = getelementptr inbounds i8, ptr %10, i64 2272
+  %79 = getelementptr inbounds nuw i8, ptr %10, i64 2272
   %80 = load i32, ptr %79, align 8
   %81 = add nsw i32 %80, -1
   store i32 %81, ptr %79, align 8
-  %82 = getelementptr inbounds i8, ptr %10, i64 2276
+  %82 = getelementptr inbounds nuw i8, ptr %10, i64 2276
   %83 = load i32, ptr %82, align 4
   %84 = mul nsw i32 %83, 52
   %85 = sext i32 %84 to i64
@@ -316,7 +316,7 @@ _Z20pme_gpu_task_enabledPK9gmx_pme_t.exit38.thread: ; preds = %49, %51, %_Z20pme
   %87 = load i32, ptr %86, align 8
   %88 = add nsw i32 %87, 1
   store i32 %88, ptr %86, align 8
-  %89 = getelementptr inbounds i8, ptr %10, i64 2280
+  %89 = getelementptr inbounds nuw i8, ptr %10, i64 2280
   %90 = load i64, ptr %89, align 8
   %91 = sub i64 %60, %90
   %92 = load ptr, ptr %73, align 8
@@ -350,34 +350,34 @@ _Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %67, %78, %
   %104 = zext i32 %102 to i64
   %105 = shl nuw i64 %104, 32
   %106 = or disjoint i64 %105, %103
-  %107 = getelementptr inbounds i8, ptr %10, i64 16
+  %107 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 %106, ptr %107, align 8
-  %108 = getelementptr inbounds i8, ptr %10, i64 2248
+  %108 = getelementptr inbounds nuw i8, ptr %10, i64 2248
   %109 = load ptr, ptr %108, align 8
-  %110 = getelementptr inbounds i8, ptr %10, i64 2256
+  %110 = getelementptr inbounds nuw i8, ptr %10, i64 2256
   %111 = load ptr, ptr %110, align 8
   %112 = icmp eq ptr %109, %111
   br i1 %112, label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit, label %113
 
 113:                                              ; preds = %99
-  %114 = getelementptr inbounds i8, ptr %10, i64 2272
+  %114 = getelementptr inbounds nuw i8, ptr %10, i64 2272
   %115 = load i32, ptr %114, align 8
   %116 = add nsw i32 %115, 1
   store i32 %116, ptr %114, align 8
-  %117 = getelementptr inbounds i8, ptr %10, i64 2276
+  %117 = getelementptr inbounds nuw i8, ptr %10, i64 2276
   store i32 0, ptr %117, align 4
-  %118 = getelementptr inbounds i8, ptr %10, i64 2280
+  %118 = getelementptr inbounds nuw i8, ptr %10, i64 2280
   store i64 %106, ptr %118, align 8
   br label %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit
 
 _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %98, %99, %113
   call void @_Z30walltime_accounting_reset_timeP23gmx_walltime_accountingl(ptr noundef %11, i64 noundef %1)
-  %119 = getelementptr inbounds i8, ptr %5, i64 12
+  %119 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %120 = load i32, ptr %119, align 4
   %121 = call noundef double @_Z11gmx_gettimev()
   call void @_Z19print_date_and_timeP8_IO_FILEiPKcd(ptr noundef %4, i32 noundef %120, ptr noundef nonnull @.str.4, double noundef %121)
   call void @_Z25wcycle_set_reset_countersP13gmx_wallcyclel(ptr noundef %10, i64 noundef -1)
-  %122 = getelementptr inbounds i8, ptr %5, i64 104
+  %122 = getelementptr inbounds nuw i8, ptr %5, i64 104
   %123 = load i32, ptr %122, align 8
   %124 = and i32 %123, 2
   %.not42 = icmp eq i32 %124, 0
@@ -389,7 +389,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %98, %99, 
 
 126:                                              ; preds = %125, %_Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit
   %127 = load ptr, ptr %0, align 8
-  %128 = getelementptr inbounds i8, ptr %127, i64 1
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 1
   store i8 0, ptr %128, align 1
   call void @_Z36walltime_accounting_set_valid_finishP23gmx_walltime_accounting(ptr noundef %11)
   br label %129
@@ -420,7 +420,7 @@ define linkonce_odr void @_ZNSt10filesystem7__cxx114pathC2IA128_cS1_EERKT_NS1_6f
   %9 = extractvalue { i64, ptr } %7, 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %4, i64 %8, ptr %9) #8
   %10 = load i64, ptr %4, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %12 = load ptr, ptr %11, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 %10, ptr %12, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %13 unwind label %17
@@ -428,7 +428,7 @@ define linkonce_odr void @_ZNSt10filesystem7__cxx114pathC2IA128_cS1_EERKT_NS1_6f
 13:                                               ; preds = %3
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #8
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   invoke void @_ZNSt10filesystem7__cxx114path5_ListC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %14)
           to label %15 unwind label %19
 
@@ -477,7 +477,7 @@ _ZNSt10filesystem7__cxx114path5_ListD2Ev.exit:    ; preds = %21, %24
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i, label %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit, label %4

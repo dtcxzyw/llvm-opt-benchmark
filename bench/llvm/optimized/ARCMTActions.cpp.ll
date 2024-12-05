@@ -107,7 +107,7 @@ _ZNK5clang16CompilerInstance25getPCHContainerOperationsEv.exit: ; preds = %2, %1
   %33 = getelementptr inbounds nuw i8, ptr %26, i64 12
   store i32 0, ptr %33, align 4
   %34 = load ptr, ptr %26, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load ptr, ptr %35, align 8
   call void %36(ptr noundef nonnull align 8 dereferenceable(16) %26) #7
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
@@ -133,7 +133,7 @@ _ZNK5clang16CompilerInstance25getPCHContainerOperationsEv.exit: ; preds = %2, %1
 
 45:                                               ; preds = %43
   %46 = load ptr, ptr %26, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %48 = load ptr, ptr %47, align 8
   call void %48(ptr noundef nonnull align 8 dereferenceable(16) %26) #7
   %49 = getelementptr inbounds nuw i8, ptr %26, i64 12
@@ -158,7 +158,7 @@ _ZNK5clang16CompilerInstance25getPCHContainerOperationsEv.exit: ; preds = %2, %1
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i: ; preds = %56, %32
   %58 = load ptr, ptr %26, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 24
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 24
   %60 = load ptr, ptr %59, align 8
   call void %60(ptr noundef nonnull align 8 dereferenceable(16) %26) #7
   br label %_ZNSt10shared_ptrIN5clang22PCHContainerOperationsEED2Ev.exit
@@ -199,7 +199,7 @@ define dso_local void @_ZN5clang5arcmt11CheckActionC2ESt10unique_ptrINS_14Fronte
 
 _ZNKSt14default_deleteIN5clang14FrontendActionEEclEPS1_.exit.i: ; preds = %2
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %8 = load ptr, ptr %7, align 8
   call void %8(ptr noundef nonnull align 8 dereferenceable(104) %5) #7
   br label %_ZNSt10unique_ptrIN5clang14FrontendActionESt14default_deleteIS1_EED2Ev.exit
@@ -266,7 +266,7 @@ _ZNK5clang16CompilerInstance25getPCHContainerOperationsEv.exit: ; preds = %2, %1
   %32 = getelementptr inbounds nuw i8, ptr %25, i64 12
   store i32 0, ptr %32, align 4
   %33 = load ptr, ptr %25, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %35 = load ptr, ptr %34, align 8
   call void %35(ptr noundef nonnull align 8 dereferenceable(16) %25) #7
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
@@ -292,7 +292,7 @@ _ZNK5clang16CompilerInstance25getPCHContainerOperationsEv.exit: ; preds = %2, %1
 
 44:                                               ; preds = %42
   %45 = load ptr, ptr %25, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %47 = load ptr, ptr %46, align 8
   call void %47(ptr noundef nonnull align 8 dereferenceable(16) %25) #7
   %48 = getelementptr inbounds nuw i8, ptr %25, i64 12
@@ -317,7 +317,7 @@ _ZNK5clang16CompilerInstance25getPCHContainerOperationsEv.exit: ; preds = %2, %1
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i: ; preds = %55, %31
   %57 = load ptr, ptr %25, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 24
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 24
   %59 = load ptr, ptr %58, align 8
   call void %59(ptr noundef nonnull align 8 dereferenceable(16) %25) #7
   br label %_ZNSt10shared_ptrIN5clang22PCHContainerOperationsEED2Ev.exit
@@ -342,7 +342,7 @@ define dso_local void @_ZN5clang5arcmt12ModifyActionC2ESt10unique_ptrINS_14Front
 
 _ZNKSt14default_deleteIN5clang14FrontendActionEEclEPS1_.exit.i: ; preds = %2
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %8 = load ptr, ptr %7, align 8
   call void %8(ptr noundef nonnull align 8 dereferenceable(104) %5) #7
   br label %_ZNSt10unique_ptrIN5clang14FrontendActionESt14default_deleteIS1_EED2Ev.exit
@@ -420,7 +420,7 @@ _ZNK5clang16CompilerInstance25getPCHContainerOperationsEv.exit: ; preds = %2, %1
   %43 = getelementptr inbounds nuw i8, ptr %36, i64 12
   store i32 0, ptr %43, align 4
   %44 = load ptr, ptr %36, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %46 = load ptr, ptr %45, align 8
   call void %46(ptr noundef nonnull align 8 dereferenceable(16) %36) #7
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
@@ -446,7 +446,7 @@ _ZNK5clang16CompilerInstance25getPCHContainerOperationsEv.exit: ; preds = %2, %1
 
 55:                                               ; preds = %53
   %56 = load ptr, ptr %36, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 16
   %58 = load ptr, ptr %57, align 8
   call void %58(ptr noundef nonnull align 8 dereferenceable(16) %36) #7
   %59 = getelementptr inbounds nuw i8, ptr %36, i64 12
@@ -471,7 +471,7 @@ _ZNK5clang16CompilerInstance25getPCHContainerOperationsEv.exit: ; preds = %2, %1
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i: ; preds = %66, %42
   %68 = load ptr, ptr %36, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 24
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 24
   %70 = load ptr, ptr %69, align 8
   call void %70(ptr noundef nonnull align 8 dereferenceable(16) %36) #7
   br label %_ZNSt10shared_ptrIN5clang22PCHContainerOperationsEED2Ev.exit
@@ -514,7 +514,7 @@ define dso_local void @_ZN5clang5arcmt13MigrateActionC2ESt10unique_ptrINS_14Fron
 
 _ZNKSt14default_deleteIN5clang14FrontendActionEEclEPS1_.exit.i: ; preds = %7
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 64
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 64
   %18 = load ptr, ptr %17, align 8
   call void %18(ptr noundef nonnull align 8 dereferenceable(104) %15) #7
   br label %_ZNSt10unique_ptrIN5clang14FrontendActionESt14default_deleteIS1_EED2Ev.exit
@@ -594,7 +594,7 @@ define linkonce_odr hidden void @_ZN5clang5arcmt11CheckActionD2Ev(ptr noundef no
 
 _ZNKSt14default_deleteIN5clang14FrontendActionEEclEPS1_.exit.i.i: ; preds = %1
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %6 = load ptr, ptr %5, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(104) %3) #7
   br label %_ZN5clang21WrapperFrontendActionD2Ev.exit
@@ -615,7 +615,7 @@ define linkonce_odr hidden void @_ZN5clang5arcmt11CheckActionD0Ev(ptr noundef no
 
 _ZNKSt14default_deleteIN5clang14FrontendActionEEclEPS1_.exit.i.i.i: ; preds = %1
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %6 = load ptr, ptr %5, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(104) %3) #7
   br label %_ZN5clang5arcmt11CheckActionD2Ev.exit
@@ -656,7 +656,7 @@ define linkonce_odr hidden void @_ZN5clang5arcmt12ModifyActionD2Ev(ptr noundef n
 
 _ZNKSt14default_deleteIN5clang14FrontendActionEEclEPS1_.exit.i.i: ; preds = %1
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %6 = load ptr, ptr %5, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(104) %3) #7
   br label %_ZN5clang21WrapperFrontendActionD2Ev.exit
@@ -677,7 +677,7 @@ define linkonce_odr hidden void @_ZN5clang5arcmt12ModifyActionD0Ev(ptr noundef n
 
 _ZNKSt14default_deleteIN5clang14FrontendActionEEclEPS1_.exit.i.i.i: ; preds = %1
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %6 = load ptr, ptr %5, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(104) %3) #7
   br label %_ZN5clang5arcmt12ModifyActionD2Ev.exit
@@ -704,7 +704,7 @@ define linkonce_odr hidden void @_ZN5clang5arcmt13MigrateActionD2Ev(ptr noundef 
 
 _ZNKSt14default_deleteIN5clang14FrontendActionEEclEPS1_.exit.i.i: ; preds = %1
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %8 = load ptr, ptr %7, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(104) %5) #7
   br label %_ZN5clang21WrapperFrontendActionD2Ev.exit
@@ -730,7 +730,7 @@ define linkonce_odr hidden void @_ZN5clang5arcmt13MigrateActionD0Ev(ptr noundef 
 
 _ZNKSt14default_deleteIN5clang14FrontendActionEEclEPS1_.exit.i.i.i: ; preds = %1
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %8 = load ptr, ptr %7, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(104) %5) #7
   br label %_ZN5clang5arcmt13MigrateActionD2Ev.exit

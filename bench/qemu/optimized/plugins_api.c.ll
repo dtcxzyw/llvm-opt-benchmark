@@ -43,13 +43,13 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qemu_plugin_register_vcpu_tb_exec_cb(ptr noundef %tb, ptr noundef %cb, i32 noundef %flags, ptr noundef %udata) local_unnamed_addr #0 {
 entry:
-  %mem_only = getelementptr inbounds i8, ptr %tb, i64 48
+  %mem_only = getelementptr inbounds nuw i8, ptr %tb, i64 48
   %0 = load i8, ptr %mem_only, align 8
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %cbs = getelementptr inbounds i8, ptr %tb, i64 56
+  %cbs = getelementptr inbounds nuw i8, ptr %tb, i64 56
   tail call void @plugin_register_dyn_cb__udata(ptr noundef nonnull %cbs, ptr noundef %cb, i32 noundef %flags, ptr noundef %udata) #7
   br label %if.end
 
@@ -62,7 +62,7 @@ declare void @plugin_register_dyn_cb__udata(ptr noundef, ptr noundef, i32 nounde
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qemu_plugin_register_vcpu_tb_exec_inline(ptr noundef %tb, i32 noundef %op, ptr noundef %ptr, i64 noundef %imm) local_unnamed_addr #0 {
 entry:
-  %mem_only = getelementptr inbounds i8, ptr %tb, i64 48
+  %mem_only = getelementptr inbounds nuw i8, ptr %tb, i64 48
   %0 = load i8, ptr %mem_only, align 8
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %if.end, label %if.then
@@ -81,13 +81,13 @@ declare void @plugin_register_inline_op(ptr noundef, i32 noundef, i32 noundef, p
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qemu_plugin_register_vcpu_insn_exec_cb(ptr noundef %insn, ptr noundef %cb, i32 noundef %flags, ptr noundef %udata) local_unnamed_addr #0 {
 entry:
-  %mem_only = getelementptr inbounds i8, ptr %insn, i64 58
+  %mem_only = getelementptr inbounds nuw i8, ptr %insn, i64 58
   %0 = load i8, ptr %mem_only, align 2
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %cbs = getelementptr inbounds i8, ptr %insn, i64 24
+  %cbs = getelementptr inbounds nuw i8, ptr %insn, i64 24
   tail call void @plugin_register_dyn_cb__udata(ptr noundef nonnull %cbs, ptr noundef %cb, i32 noundef %flags, ptr noundef %udata) #7
   br label %if.end
 
@@ -98,7 +98,7 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qemu_plugin_register_vcpu_insn_exec_inline(ptr noundef %insn, i32 noundef %op, ptr noundef %ptr, i64 noundef %imm) local_unnamed_addr #0 {
 entry:
-  %mem_only = getelementptr inbounds i8, ptr %insn, i64 58
+  %mem_only = getelementptr inbounds nuw i8, ptr %insn, i64 58
   %0 = load i8, ptr %mem_only, align 2
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %if.end, label %if.then
@@ -154,7 +154,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local i64 @qemu_plugin_tb_n_insns(ptr nocapture noundef readonly %tb) local_unnamed_addr #2 {
 entry:
-  %n = getelementptr inbounds i8, ptr %tb, i64 8
+  %n = getelementptr inbounds nuw i8, ptr %tb, i64 8
   %0 = load i64, ptr %n, align 8
   ret i64 %0
 }
@@ -162,7 +162,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local i64 @qemu_plugin_tb_vaddr(ptr nocapture noundef readonly %tb) local_unnamed_addr #2 {
 entry:
-  %vaddr = getelementptr inbounds i8, ptr %tb, i64 16
+  %vaddr = getelementptr inbounds nuw i8, ptr %tb, i64 16
   %0 = load i64, ptr %vaddr, align 8
   ret i64 %0
 }
@@ -170,7 +170,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local ptr @qemu_plugin_tb_get_insn(ptr nocapture noundef readonly %tb, i64 noundef %idx) local_unnamed_addr #3 {
 entry:
-  %n = getelementptr inbounds i8, ptr %tb, i64 8
+  %n = getelementptr inbounds nuw i8, ptr %tb, i64 8
   %0 = load i64, ptr %n, align 8
   %cmp.not = icmp ult i64 %idx, %0
   br i1 %cmp.not, label %if.end, label %return
@@ -180,9 +180,9 @@ if.end:                                           ; preds = %entry
   %2 = load ptr, ptr %1, align 8
   %arrayidx = getelementptr ptr, ptr %2, i64 %idx
   %3 = load ptr, ptr %arrayidx, align 8
-  %mem_only = getelementptr inbounds i8, ptr %tb, i64 48
+  %mem_only = getelementptr inbounds nuw i8, ptr %tb, i64 48
   %4 = load i8, ptr %mem_only, align 8
-  %mem_only3 = getelementptr inbounds i8, ptr %3, i64 58
+  %mem_only3 = getelementptr inbounds nuw i8, ptr %3, i64 58
   %frombool = and i8 %4, 1
   store i8 %frombool, ptr %mem_only3, align 2
   br label %return
@@ -204,7 +204,7 @@ entry:
 define dso_local range(i64 0, 4294967296) i64 @qemu_plugin_insn_size(ptr nocapture noundef readonly %insn) local_unnamed_addr #4 {
 entry:
   %0 = load ptr, ptr %insn, align 8
-  %len = getelementptr inbounds i8, ptr %0, i64 8
+  %len = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1 = load i32, ptr %len, align 8
   %conv = zext i32 %1 to i64
   ret i64 %conv
@@ -213,7 +213,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local i64 @qemu_plugin_insn_vaddr(ptr nocapture noundef readonly %insn) local_unnamed_addr #2 {
 entry:
-  %vaddr = getelementptr inbounds i8, ptr %insn, i64 8
+  %vaddr = getelementptr inbounds nuw i8, ptr %insn, i64 8
   %0 = load i64, ptr %vaddr, align 8
   ret i64 %0
 }
@@ -221,7 +221,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local ptr @qemu_plugin_insn_haddr(ptr nocapture noundef readonly %insn) local_unnamed_addr #2 {
 entry:
-  %haddr = getelementptr inbounds i8, ptr %insn, i64 16
+  %haddr = getelementptr inbounds nuw i8, ptr %insn, i64 16
   %0 = load ptr, ptr %haddr, align 8
   ret ptr %0
 }
@@ -231,10 +231,10 @@ define dso_local ptr @qemu_plugin_insn_disas(ptr nocapture noundef readonly %ins
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @current_cpu)
   %1 = load ptr, ptr %0, align 8
-  %vaddr = getelementptr inbounds i8, ptr %insn, i64 8
+  %vaddr = getelementptr inbounds nuw i8, ptr %insn, i64 8
   %2 = load i64, ptr %vaddr, align 8
   %3 = load ptr, ptr %insn, align 8
-  %len = getelementptr inbounds i8, ptr %3, i64 8
+  %len = getelementptr inbounds nuw i8, ptr %3, i64 8
   %4 = load i32, ptr %len, align 8
   %conv = zext i32 %4 to i64
   %call = tail call ptr @plugin_disas(ptr noundef %1, i64 noundef %2, i64 noundef %conv) #7
@@ -249,7 +249,7 @@ declare ptr @plugin_disas(ptr noundef, i64 noundef, i64 noundef) local_unnamed_a
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @qemu_plugin_insn_symbol(ptr nocapture noundef readonly %insn) local_unnamed_addr #0 {
 entry:
-  %vaddr = getelementptr inbounds i8, ptr %insn, i64 8
+  %vaddr = getelementptr inbounds nuw i8, ptr %insn, i64 8
   %0 = load i64, ptr %vaddr, align 8
   %call = tail call ptr @lookup_symbol(i64 noundef %0) #7
   %1 = load i8, ptr %call, align 1
@@ -373,11 +373,11 @@ define dso_local noalias ptr @qemu_plugin_path_to_binary() local_unnamed_addr #0
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @current_cpu)
   %1 = load ptr, ptr %0, align 8
-  %opaque = getelementptr inbounds i8, ptr %1, i64 624
+  %opaque = getelementptr inbounds nuw i8, ptr %1, i64 624
   %2 = load ptr, ptr %opaque, align 16
-  %bprm = getelementptr inbounds i8, ptr %2, i64 56
+  %bprm = getelementptr inbounds nuw i8, ptr %2, i64 56
   %3 = load ptr, ptr %bprm, align 8
-  %filename = getelementptr inbounds i8, ptr %3, i64 1080
+  %filename = getelementptr inbounds nuw i8, ptr %3, i64 1080
   %4 = load ptr, ptr %filename, align 8
   %call = tail call noalias ptr @g_strdup(ptr noundef %4) #7
   ret ptr %call
@@ -390,11 +390,11 @@ define dso_local i64 @qemu_plugin_start_code() local_unnamed_addr #4 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @current_cpu)
   %1 = load ptr, ptr %0, align 8
-  %opaque = getelementptr inbounds i8, ptr %1, i64 624
+  %opaque = getelementptr inbounds nuw i8, ptr %1, i64 624
   %2 = load ptr, ptr %opaque, align 16
-  %info = getelementptr inbounds i8, ptr %2, i64 48
+  %info = getelementptr inbounds nuw i8, ptr %2, i64 48
   %3 = load ptr, ptr %info, align 8
-  %start_code = getelementptr inbounds i8, ptr %3, i64 16
+  %start_code = getelementptr inbounds nuw i8, ptr %3, i64 16
   %4 = load i64, ptr %start_code, align 8
   ret i64 %4
 }
@@ -404,11 +404,11 @@ define dso_local i64 @qemu_plugin_end_code() local_unnamed_addr #4 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @current_cpu)
   %1 = load ptr, ptr %0, align 8
-  %opaque = getelementptr inbounds i8, ptr %1, i64 624
+  %opaque = getelementptr inbounds nuw i8, ptr %1, i64 624
   %2 = load ptr, ptr %opaque, align 16
-  %info = getelementptr inbounds i8, ptr %2, i64 48
+  %info = getelementptr inbounds nuw i8, ptr %2, i64 48
   %3 = load ptr, ptr %info, align 8
-  %end_code = getelementptr inbounds i8, ptr %3, i64 24
+  %end_code = getelementptr inbounds nuw i8, ptr %3, i64 24
   %4 = load i64, ptr %end_code, align 8
   ret i64 %4
 }
@@ -418,11 +418,11 @@ define dso_local i64 @qemu_plugin_entry_code() local_unnamed_addr #4 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @current_cpu)
   %1 = load ptr, ptr %0, align 8
-  %opaque = getelementptr inbounds i8, ptr %1, i64 624
+  %opaque = getelementptr inbounds nuw i8, ptr %1, i64 624
   %2 = load ptr, ptr %opaque, align 16
-  %info = getelementptr inbounds i8, ptr %2, i64 48
+  %info = getelementptr inbounds nuw i8, ptr %2, i64 48
   %3 = load ptr, ptr %info, align 8
-  %entry2 = getelementptr inbounds i8, ptr %3, i64 80
+  %entry2 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %4 = load i64, ptr %entry2, align 8
   ret i64 %4
 }

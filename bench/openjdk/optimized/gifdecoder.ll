@@ -21,7 +21,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define void @Java_sun_awt_image_GifImageDecoder_initIDs(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 264
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 264
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr %5(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #3
   store ptr %6, ptr @readID, align 8
@@ -30,7 +30,7 @@ define void @Java_sun_awt_image_GifImageDecoder_initIDs(ptr noundef %0, ptr noun
 
 8:                                                ; preds = %2
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 264
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 264
   %11 = load ptr, ptr %10, align 8
   %12 = tail call ptr %11(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3) #3
   store ptr %12, ptr @sendID, align 8
@@ -39,7 +39,7 @@ define void @Java_sun_awt_image_GifImageDecoder_initIDs(ptr noundef %0, ptr noun
 
 14:                                               ; preds = %8
   %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 752
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 752
   %17 = load ptr, ptr %16, align 8
   %18 = tail call ptr %17(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5) #3
   store ptr %18, ptr @prefixID, align 8
@@ -48,7 +48,7 @@ define void @Java_sun_awt_image_GifImageDecoder_initIDs(ptr noundef %0, ptr noun
 
 20:                                               ; preds = %14
   %21 = load ptr, ptr %0, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 752
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 752
   %23 = load ptr, ptr %22, align 8
   %24 = tail call ptr %23(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7) #3
   store ptr %24, ptr @suffixID, align 8
@@ -57,7 +57,7 @@ define void @Java_sun_awt_image_GifImageDecoder_initIDs(ptr noundef %0, ptr noun
 
 26:                                               ; preds = %20
   %27 = load ptr, ptr %0, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 752
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 752
   %29 = load ptr, ptr %28, align 8
   %30 = tail call ptr %29(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.7) #3
   store ptr %30, ptr @outCodeID, align 8
@@ -76,17 +76,17 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_image_GifImageDecoder_parseImage(
   %16 = add nsw i32 %15, -1
   %17 = add nuw nsw i32 %12, 2
   %18 = load ptr, ptr %0, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 760
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 760
   %20 = load ptr, ptr %19, align 8
   %21 = load ptr, ptr @prefixID, align 8
   %22 = tail call ptr %20(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %21) #3
   %23 = load ptr, ptr %0, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 760
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 760
   %25 = load ptr, ptr %24, align 8
   %26 = load ptr, ptr @suffixID, align 8
   %27 = tail call ptr %25(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %26) #3
   %28 = load ptr, ptr %0, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 760
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 760
   %30 = load ptr, ptr %29, align 8
   %31 = load ptr, ptr @outCodeID, align 8
   %32 = tail call ptr %30(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %31) #3
@@ -115,7 +115,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_image_GifImageDecoder_parseImage(
 
 43:                                               ; preds = %36
   %44 = load ptr, ptr %0, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 1368
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 1368
   %46 = load ptr, ptr %45, align 8
   %47 = tail call i32 %46(ptr noundef nonnull %0, ptr noundef nonnull %22) #3
   %.not642 = icmp eq i32 %47, 4096
@@ -123,7 +123,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_image_GifImageDecoder_parseImage(
 
 48:                                               ; preds = %43
   %49 = load ptr, ptr %0, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 1368
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 1368
   %51 = load ptr, ptr %50, align 8
   %52 = tail call i32 %51(ptr noundef nonnull %0, ptr noundef nonnull %27) #3
   %.not643 = icmp eq i32 %52, 4096
@@ -131,7 +131,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_image_GifImageDecoder_parseImage(
 
 53:                                               ; preds = %48
   %54 = load ptr, ptr %0, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 1368
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 1368
   %56 = load ptr, ptr %55, align 8
   %57 = tail call i32 %56(ptr noundef nonnull %0, ptr noundef nonnull %32) #3
   %.not644 = icmp eq i32 %57, 4097
@@ -143,7 +143,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_image_GifImageDecoder_parseImage(
 
 59:                                               ; preds = %53
   %60 = load ptr, ptr %0, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 1776
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 1776
   %62 = load ptr, ptr %61, align 8
   %63 = tail call ptr %62(ptr noundef nonnull %0, ptr noundef nonnull %22, ptr noundef null) #3
   %64 = icmp eq ptr %63, null
@@ -151,7 +151,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_image_GifImageDecoder_parseImage(
 
 65:                                               ; preds = %59
   %66 = load ptr, ptr %0, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 1776
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 1776
   %68 = load ptr, ptr %67, align 8
   %69 = tail call ptr %68(ptr noundef nonnull %0, ptr noundef nonnull %27, ptr noundef null) #3
   %70 = icmp eq ptr %69, null
@@ -159,7 +159,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_image_GifImageDecoder_parseImage(
 
 71:                                               ; preds = %65
   %72 = load ptr, ptr %0, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 1776
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 1776
   %74 = load ptr, ptr %73, align 8
   %75 = tail call ptr %74(ptr noundef nonnull %0, ptr noundef nonnull %32, ptr noundef null) #3
   %76 = icmp eq ptr %75, null
@@ -167,7 +167,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_image_GifImageDecoder_parseImage(
 
 77:                                               ; preds = %71
   %78 = load ptr, ptr %0, align 8
-  %79 = getelementptr inbounds i8, ptr %78, i64 1776
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 1776
   %80 = load ptr, ptr %79, align 8
   %81 = tail call ptr %80(ptr noundef nonnull %0, ptr noundef nonnull %9, ptr noundef null) #3
   %82 = icmp eq ptr %81, null
@@ -175,7 +175,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_image_GifImageDecoder_parseImage(
 
 83:                                               ; preds = %77
   %84 = load ptr, ptr %0, align 8
-  %85 = getelementptr inbounds i8, ptr %84, i64 1776
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 1776
   %86 = load ptr, ptr %85, align 8
   %87 = tail call ptr %86(ptr noundef nonnull %0, ptr noundef nonnull %8, ptr noundef null) #3
   %88 = icmp eq ptr %87, null
@@ -256,23 +256,23 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_image_GifImageDecoder_parseImage(
 
 97:                                               ; preds = %94
   %98 = load ptr, ptr %0, align 8
-  %99 = getelementptr inbounds i8, ptr %98, i64 1784
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 1784
   %100 = load ptr, ptr %99, align 8
   tail call void %100(ptr noundef nonnull %0, ptr noundef %22, ptr noundef %.3539958, i32 noundef 0) #3
   %101 = load ptr, ptr %0, align 8
-  %102 = getelementptr inbounds i8, ptr %101, i64 1784
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 1784
   %103 = load ptr, ptr %102, align 8
   tail call void %103(ptr noundef nonnull %0, ptr noundef %27, ptr noundef %.3529959, i32 noundef 0) #3
   %104 = load ptr, ptr %0, align 8
-  %105 = getelementptr inbounds i8, ptr %104, i64 1784
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 1784
   %106 = load ptr, ptr %105, align 8
   tail call void %106(ptr noundef nonnull %0, ptr noundef %32, ptr noundef %.3519960, i32 noundef 0) #3
   %107 = load ptr, ptr %0, align 8
-  %108 = getelementptr inbounds i8, ptr %107, i64 1784
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 1784
   %109 = load ptr, ptr %108, align 8
   tail call void %109(ptr noundef nonnull %0, ptr noundef %9, ptr noundef %.3509961, i32 noundef 0) #3
   %110 = load ptr, ptr %0, align 8
-  %111 = getelementptr inbounds i8, ptr %110, i64 1784
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 1784
   %112 = load ptr, ptr %111, align 8
   tail call void %112(ptr noundef nonnull %0, ptr noundef %8, ptr noundef %.3504962, i32 noundef 0) #3
   %113 = icmp sgt i32 %.0477.ph, 0
@@ -280,7 +280,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_image_GifImageDecoder_parseImage(
 
 114:                                              ; preds = %97
   %115 = load ptr, ptr %0, align 8
-  %116 = getelementptr inbounds i8, ptr %115, i64 392
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 392
   %117 = load ptr, ptr %116, align 8
   %118 = load ptr, ptr @sendID, align 8
   %119 = add nsw i32 %.0480.ph, %3
@@ -293,34 +293,34 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_image_GifImageDecoder_parseImage(
   %124 = load i8, ptr %123, align 1
   store i8 %124, ptr %.3504962, align 1
   %125 = load ptr, ptr %0, align 8
-  %126 = getelementptr inbounds i8, ptr %125, i64 1784
+  %126 = getelementptr inbounds nuw i8, ptr %125, i64 1784
   %127 = load ptr, ptr %126, align 8
   tail call void %127(ptr noundef nonnull %0, ptr noundef %22, ptr noundef %.3539958, i32 noundef 0) #3
   %128 = load ptr, ptr %0, align 8
-  %129 = getelementptr inbounds i8, ptr %128, i64 1784
+  %129 = getelementptr inbounds nuw i8, ptr %128, i64 1784
   %130 = load ptr, ptr %129, align 8
   tail call void %130(ptr noundef nonnull %0, ptr noundef %27, ptr noundef %.3529959, i32 noundef 0) #3
   %131 = load ptr, ptr %0, align 8
-  %132 = getelementptr inbounds i8, ptr %131, i64 1784
+  %132 = getelementptr inbounds nuw i8, ptr %131, i64 1784
   %133 = load ptr, ptr %132, align 8
   tail call void %133(ptr noundef nonnull %0, ptr noundef %32, ptr noundef %.3519960, i32 noundef 0) #3
   %134 = load ptr, ptr %0, align 8
-  %135 = getelementptr inbounds i8, ptr %134, i64 1784
+  %135 = getelementptr inbounds nuw i8, ptr %134, i64 1784
   %136 = load ptr, ptr %135, align 8
   tail call void %136(ptr noundef nonnull %0, ptr noundef %9, ptr noundef %.3509961, i32 noundef 0) #3
   %137 = load ptr, ptr %0, align 8
-  %138 = getelementptr inbounds i8, ptr %137, i64 1784
+  %138 = getelementptr inbounds nuw i8, ptr %137, i64 1784
   %139 = load ptr, ptr %138, align 8
   tail call void %139(ptr noundef nonnull %0, ptr noundef %8, ptr noundef nonnull %.3504962, i32 noundef 0) #3
   %140 = load ptr, ptr %0, align 8
-  %141 = getelementptr inbounds i8, ptr %140, i64 392
+  %141 = getelementptr inbounds nuw i8, ptr %140, i64 392
   %142 = load ptr, ptr %141, align 8
   %143 = load ptr, ptr @readID, align 8
   %144 = add nuw nsw i32 %.2489964, 1
   %145 = tail call i32 (ptr, ptr, ptr, ...) %142(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %143, ptr noundef %8, i32 noundef %.2573956, i32 noundef %144) #3
   %.0470 = tail call i32 @llvm.smin.i32(i32 %145, i32 %144)
   %146 = load ptr, ptr %0, align 8
-  %147 = getelementptr inbounds i8, ptr %146, i64 120
+  %147 = getelementptr inbounds nuw i8, ptr %146, i64 120
   %148 = load ptr, ptr %147, align 8
   %149 = tail call ptr %148(ptr noundef nonnull %0) #3
   %.not646 = icmp eq ptr %149, null
@@ -328,7 +328,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_image_GifImageDecoder_parseImage(
 
 150:                                              ; preds = %121
   %151 = load ptr, ptr %0, align 8
-  %152 = getelementptr inbounds i8, ptr %151, i64 1776
+  %152 = getelementptr inbounds nuw i8, ptr %151, i64 1776
   %153 = load ptr, ptr %152, align 8
   %154 = tail call ptr %153(ptr noundef nonnull %0, ptr noundef %22, ptr noundef null) #3
   %155 = icmp eq ptr %154, null
@@ -336,7 +336,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_image_GifImageDecoder_parseImage(
 
 156:                                              ; preds = %150
   %157 = load ptr, ptr %0, align 8
-  %158 = getelementptr inbounds i8, ptr %157, i64 1776
+  %158 = getelementptr inbounds nuw i8, ptr %157, i64 1776
   %159 = load ptr, ptr %158, align 8
   %160 = tail call ptr %159(ptr noundef nonnull %0, ptr noundef %27, ptr noundef null) #3
   %161 = icmp eq ptr %160, null
@@ -344,7 +344,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_image_GifImageDecoder_parseImage(
 
 162:                                              ; preds = %156
   %163 = load ptr, ptr %0, align 8
-  %164 = getelementptr inbounds i8, ptr %163, i64 1776
+  %164 = getelementptr inbounds nuw i8, ptr %163, i64 1776
   %165 = load ptr, ptr %164, align 8
   %166 = tail call ptr %165(ptr noundef nonnull %0, ptr noundef %32, ptr noundef null) #3
   %167 = icmp eq ptr %166, null
@@ -352,7 +352,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_image_GifImageDecoder_parseImage(
 
 168:                                              ; preds = %162
   %169 = load ptr, ptr %0, align 8
-  %170 = getelementptr inbounds i8, ptr %169, i64 1776
+  %170 = getelementptr inbounds nuw i8, ptr %169, i64 1776
   %171 = load ptr, ptr %170, align 8
   %172 = tail call ptr %171(ptr noundef nonnull %0, ptr noundef %9, ptr noundef null) #3
   %173 = icmp eq ptr %172, null
@@ -360,7 +360,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_image_GifImageDecoder_parseImage(
 
 174:                                              ; preds = %168
   %175 = load ptr, ptr %0, align 8
-  %176 = getelementptr inbounds i8, ptr %175, i64 1776
+  %176 = getelementptr inbounds nuw i8, ptr %175, i64 1776
   %177 = load ptr, ptr %176, align 8
   %178 = tail call ptr %177(ptr noundef nonnull %0, ptr noundef %8, ptr noundef null) #3
   %179 = icmp eq ptr %178, null
@@ -479,27 +479,27 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_image_GifImageDecoder_parseImage(
   %.75331025 = phi ptr [ %260, %280 ], [ %.6532, %.thread670 ]
   %.75431024 = phi ptr [ %254, %280 ], [ %.6542, %.thread670 ]
   %218 = load ptr, ptr %0, align 8
-  %219 = getelementptr inbounds i8, ptr %218, i64 1784
+  %219 = getelementptr inbounds nuw i8, ptr %218, i64 1784
   %220 = load ptr, ptr %219, align 8
   tail call void %220(ptr noundef nonnull %0, ptr noundef %22, ptr noundef %.75431024, i32 noundef 0) #3
   %221 = load ptr, ptr %0, align 8
-  %222 = getelementptr inbounds i8, ptr %221, i64 1784
+  %222 = getelementptr inbounds nuw i8, ptr %221, i64 1784
   %223 = load ptr, ptr %222, align 8
   tail call void %223(ptr noundef nonnull %0, ptr noundef %27, ptr noundef %.75331025, i32 noundef 0) #3
   %224 = load ptr, ptr %0, align 8
-  %225 = getelementptr inbounds i8, ptr %224, i64 1784
+  %225 = getelementptr inbounds nuw i8, ptr %224, i64 1784
   %226 = load ptr, ptr %225, align 8
   tail call void %226(ptr noundef nonnull %0, ptr noundef %32, ptr noundef %.75231026, i32 noundef 0) #3
   %227 = load ptr, ptr %0, align 8
-  %228 = getelementptr inbounds i8, ptr %227, i64 1784
+  %228 = getelementptr inbounds nuw i8, ptr %227, i64 1784
   %229 = load ptr, ptr %228, align 8
   tail call void %229(ptr noundef nonnull %0, ptr noundef %9, ptr noundef %.75131027, i32 noundef 0) #3
   %230 = load ptr, ptr %0, align 8
-  %231 = getelementptr inbounds i8, ptr %230, i64 1784
+  %231 = getelementptr inbounds nuw i8, ptr %230, i64 1784
   %232 = load ptr, ptr %231, align 8
   tail call void %232(ptr noundef nonnull %0, ptr noundef %8, ptr noundef %.71028, i32 noundef 0) #3
   %233 = load ptr, ptr %0, align 8
-  %234 = getelementptr inbounds i8, ptr %233, i64 392
+  %234 = getelementptr inbounds nuw i8, ptr %233, i64 392
   %235 = load ptr, ptr %234, align 8
   %236 = load ptr, ptr @readID, align 8
   %237 = add nuw nsw i32 %.41029, 1
@@ -509,7 +509,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_image_GifImageDecoder_parseImage(
 
 239:                                              ; preds = %.lr.ph1030
   %240 = load ptr, ptr %0, align 8
-  %241 = getelementptr inbounds i8, ptr %240, i64 120
+  %241 = getelementptr inbounds nuw i8, ptr %240, i64 120
   %242 = load ptr, ptr %241, align 8
   %243 = tail call ptr %242(ptr noundef nonnull %0) #3
   %.not655 = icmp eq ptr %243, null
@@ -517,7 +517,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_image_GifImageDecoder_parseImage(
 
 244:                                              ; preds = %239, %.lr.ph1030
   %245 = load ptr, ptr %0, align 8
-  %246 = getelementptr inbounds i8, ptr %245, i64 120
+  %246 = getelementptr inbounds nuw i8, ptr %245, i64 120
   %247 = load ptr, ptr %246, align 8
   %248 = tail call ptr %247(ptr noundef nonnull %0) #3
   %.not656 = icmp eq ptr %248, null
@@ -526,7 +526,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_image_GifImageDecoder_parseImage(
 
 250:                                              ; preds = %239
   %251 = load ptr, ptr %0, align 8
-  %252 = getelementptr inbounds i8, ptr %251, i64 1776
+  %252 = getelementptr inbounds nuw i8, ptr %251, i64 1776
   %253 = load ptr, ptr %252, align 8
   %254 = tail call ptr %253(ptr noundef nonnull %0, ptr noundef %22, ptr noundef null) #3
   %255 = icmp eq ptr %254, null
@@ -534,7 +534,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_image_GifImageDecoder_parseImage(
 
 256:                                              ; preds = %250
   %257 = load ptr, ptr %0, align 8
-  %258 = getelementptr inbounds i8, ptr %257, i64 1776
+  %258 = getelementptr inbounds nuw i8, ptr %257, i64 1776
   %259 = load ptr, ptr %258, align 8
   %260 = tail call ptr %259(ptr noundef nonnull %0, ptr noundef %27, ptr noundef null) #3
   %261 = icmp eq ptr %260, null
@@ -542,7 +542,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_image_GifImageDecoder_parseImage(
 
 262:                                              ; preds = %256
   %263 = load ptr, ptr %0, align 8
-  %264 = getelementptr inbounds i8, ptr %263, i64 1776
+  %264 = getelementptr inbounds nuw i8, ptr %263, i64 1776
   %265 = load ptr, ptr %264, align 8
   %266 = tail call ptr %265(ptr noundef nonnull %0, ptr noundef %32, ptr noundef null) #3
   %267 = icmp eq ptr %266, null
@@ -550,7 +550,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_image_GifImageDecoder_parseImage(
 
 268:                                              ; preds = %262
   %269 = load ptr, ptr %0, align 8
-  %270 = getelementptr inbounds i8, ptr %269, i64 1776
+  %270 = getelementptr inbounds nuw i8, ptr %269, i64 1776
   %271 = load ptr, ptr %270, align 8
   %272 = tail call ptr %271(ptr noundef nonnull %0, ptr noundef %9, ptr noundef null) #3
   %273 = icmp eq ptr %272, null
@@ -558,7 +558,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_image_GifImageDecoder_parseImage(
 
 274:                                              ; preds = %268
   %275 = load ptr, ptr %0, align 8
-  %276 = getelementptr inbounds i8, ptr %275, i64 1776
+  %276 = getelementptr inbounds nuw i8, ptr %275, i64 1776
   %277 = load ptr, ptr %276, align 8
   %278 = tail call ptr %277(ptr noundef nonnull %0, ptr noundef %8, ptr noundef null) #3
   %279 = icmp eq ptr %278, null
@@ -566,7 +566,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_image_GifImageDecoder_parseImage(
 
 280:                                              ; preds = %274
   %281 = zext nneg i32 %.41029 to i64
-  %282 = getelementptr inbounds i8, ptr %278, i64 %281
+  %282 = getelementptr inbounds nuw i8, ptr %278, i64 %281
   %283 = load i8, ptr %282, align 1
   %284 = zext i8 %283 to i32
   %.not1037 = icmp eq i8 %283, 0
@@ -579,23 +579,23 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_image_GifImageDecoder_parseImage(
   %.7513.lcssa = phi ptr [ %.6512, %.thread670 ], [ %272, %280 ]
   %.7.lcssa = phi ptr [ %.6, %.thread670 ], [ %278, %280 ]
   %285 = load ptr, ptr %0, align 8
-  %286 = getelementptr inbounds i8, ptr %285, i64 1784
+  %286 = getelementptr inbounds nuw i8, ptr %285, i64 1784
   %287 = load ptr, ptr %286, align 8
   tail call void %287(ptr noundef nonnull %0, ptr noundef %22, ptr noundef %.7543.lcssa, i32 noundef 0) #3
   %288 = load ptr, ptr %0, align 8
-  %289 = getelementptr inbounds i8, ptr %288, i64 1784
+  %289 = getelementptr inbounds nuw i8, ptr %288, i64 1784
   %290 = load ptr, ptr %289, align 8
   tail call void %290(ptr noundef nonnull %0, ptr noundef %27, ptr noundef %.7533.lcssa, i32 noundef 0) #3
   %291 = load ptr, ptr %0, align 8
-  %292 = getelementptr inbounds i8, ptr %291, i64 1784
+  %292 = getelementptr inbounds nuw i8, ptr %291, i64 1784
   %293 = load ptr, ptr %292, align 8
   tail call void %293(ptr noundef nonnull %0, ptr noundef %32, ptr noundef %.7523.lcssa, i32 noundef 0) #3
   %294 = load ptr, ptr %0, align 8
-  %295 = getelementptr inbounds i8, ptr %294, i64 1784
+  %295 = getelementptr inbounds nuw i8, ptr %294, i64 1784
   %296 = load ptr, ptr %295, align 8
   tail call void %296(ptr noundef nonnull %0, ptr noundef %9, ptr noundef %.7513.lcssa, i32 noundef 0) #3
   %297 = load ptr, ptr %0, align 8
-  %298 = getelementptr inbounds i8, ptr %297, i64 1784
+  %298 = getelementptr inbounds nuw i8, ptr %297, i64 1784
   %299 = load ptr, ptr %298, align 8
   tail call void %299(ptr noundef nonnull %0, ptr noundef %8, ptr noundef %.7.lcssa, i32 noundef 0) #3
   br label %.thread713
@@ -609,7 +609,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_image_GifImageDecoder_parseImage(
   br i1 %302, label %.thread670, label %303
 
 303:                                              ; preds = %301
-  %304 = getelementptr inbounds i8, ptr %.2518, i64 4096
+  %304 = getelementptr inbounds nuw i8, ptr %.2518, i64 4096
   store i8 %.0546.ph, ptr %304, align 1
   br label %305
 
@@ -650,9 +650,9 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_image_GifImageDecoder_parseImage(
   %.1494.lcssa = phi i32 [ %.0493, %305 ], [ %316, %._crit_edge978.loopexit ]
   %.1492.lcssa = phi i32 [ %.0491, %305 ], [ %315, %._crit_edge978.loopexit ]
   %317 = trunc i32 %.1492.lcssa to i8
-  %318 = add nsw i32 %.1494.lcssa, -1
-  %319 = sext i32 %318 to i64
-  %320 = getelementptr inbounds i8, ptr %.2518, i64 %319
+  %318 = sext i32 %.1494.lcssa to i64
+  %319 = getelementptr i8, ptr %.2518, i64 %318
+  %320 = getelementptr i8, ptr %319, i64 -1
   store i8 %317, ptr %320, align 1
   %321 = icmp slt i32 %.1494.lcssa, 4098
   %or.cond1738 = and i1 %89, %321
@@ -690,27 +690,27 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_image_GifImageDecoder_parseImage(
 
 334:                                              ; preds = %325
   %335 = load ptr, ptr %0, align 8
-  %336 = getelementptr inbounds i8, ptr %335, i64 1784
+  %336 = getelementptr inbounds nuw i8, ptr %335, i64 1784
   %337 = load ptr, ptr %336, align 8
   tail call void %337(ptr noundef nonnull %0, ptr noundef %22, ptr noundef %.85449881727, i32 noundef 0) #3
   %338 = load ptr, ptr %0, align 8
-  %339 = getelementptr inbounds i8, ptr %338, i64 1784
+  %339 = getelementptr inbounds nuw i8, ptr %338, i64 1784
   %340 = load ptr, ptr %339, align 8
   tail call void %340(ptr noundef nonnull %0, ptr noundef %27, ptr noundef %.85349891726, i32 noundef 0) #3
   %341 = load ptr, ptr %0, align 8
-  %342 = getelementptr inbounds i8, ptr %341, i64 1784
+  %342 = getelementptr inbounds nuw i8, ptr %341, i64 1784
   %343 = load ptr, ptr %342, align 8
   tail call void %343(ptr noundef nonnull %0, ptr noundef %32, ptr noundef nonnull %.85249901725, i32 noundef 0) #3
   %344 = load ptr, ptr %0, align 8
-  %345 = getelementptr inbounds i8, ptr %344, i64 1784
+  %345 = getelementptr inbounds nuw i8, ptr %344, i64 1784
   %346 = load ptr, ptr %345, align 8
   tail call void %346(ptr noundef nonnull %0, ptr noundef %9, ptr noundef nonnull %.85149911724, i32 noundef 0) #3
   %347 = load ptr, ptr %0, align 8
-  %348 = getelementptr inbounds i8, ptr %347, i64 1784
+  %348 = getelementptr inbounds nuw i8, ptr %347, i64 1784
   %349 = load ptr, ptr %348, align 8
   tail call void %349(ptr noundef nonnull %0, ptr noundef %8, ptr noundef %.89921723, i32 noundef 0) #3
   %350 = load ptr, ptr %0, align 8
-  %351 = getelementptr inbounds i8, ptr %350, i64 392
+  %351 = getelementptr inbounds nuw i8, ptr %350, i64 392
   %352 = load ptr, ptr %351, align 8
   %353 = load ptr, ptr @sendID, align 8
   %354 = add nsw i32 %.14819951721, %3
@@ -720,7 +720,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_image_GifImageDecoder_parseImage(
 
 357:                                              ; preds = %334
   %358 = load ptr, ptr %0, align 8
-  %359 = getelementptr inbounds i8, ptr %358, i64 120
+  %359 = getelementptr inbounds nuw i8, ptr %358, i64 120
   %360 = load ptr, ptr %359, align 8
   %361 = tail call ptr %360(ptr noundef nonnull %0) #3
   %.not651 = icmp eq ptr %361, null
@@ -728,7 +728,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_image_GifImageDecoder_parseImage(
 
 362:                                              ; preds = %357
   %363 = load ptr, ptr %0, align 8
-  %364 = getelementptr inbounds i8, ptr %363, i64 1776
+  %364 = getelementptr inbounds nuw i8, ptr %363, i64 1776
   %365 = load ptr, ptr %364, align 8
   %366 = tail call ptr %365(ptr noundef nonnull %0, ptr noundef %22, ptr noundef null) #3
   %367 = icmp eq ptr %366, null
@@ -736,7 +736,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_image_GifImageDecoder_parseImage(
 
 368:                                              ; preds = %362
   %369 = load ptr, ptr %0, align 8
-  %370 = getelementptr inbounds i8, ptr %369, i64 1776
+  %370 = getelementptr inbounds nuw i8, ptr %369, i64 1776
   %371 = load ptr, ptr %370, align 8
   %372 = tail call ptr %371(ptr noundef nonnull %0, ptr noundef %27, ptr noundef null) #3
   %373 = icmp eq ptr %372, null
@@ -744,7 +744,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_image_GifImageDecoder_parseImage(
 
 374:                                              ; preds = %368
   %375 = load ptr, ptr %0, align 8
-  %376 = getelementptr inbounds i8, ptr %375, i64 1776
+  %376 = getelementptr inbounds nuw i8, ptr %375, i64 1776
   %377 = load ptr, ptr %376, align 8
   %378 = tail call ptr %377(ptr noundef nonnull %0, ptr noundef %32, ptr noundef null) #3
   %379 = icmp eq ptr %378, null
@@ -752,7 +752,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_image_GifImageDecoder_parseImage(
 
 380:                                              ; preds = %374
   %381 = load ptr, ptr %0, align 8
-  %382 = getelementptr inbounds i8, ptr %381, i64 1776
+  %382 = getelementptr inbounds nuw i8, ptr %381, i64 1776
   %383 = load ptr, ptr %382, align 8
   %384 = tail call ptr %383(ptr noundef nonnull %0, ptr noundef %9, ptr noundef null) #3
   %385 = icmp eq ptr %384, null
@@ -760,7 +760,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_image_GifImageDecoder_parseImage(
 
 386:                                              ; preds = %380
   %387 = load ptr, ptr %0, align 8
-  %388 = getelementptr inbounds i8, ptr %387, i64 1776
+  %388 = getelementptr inbounds nuw i8, ptr %387, i64 1776
   %389 = load ptr, ptr %388, align 8
   %390 = tail call ptr %389(ptr noundef nonnull %0, ptr noundef %8, ptr noundef null) #3
   %391 = icmp eq ptr %390, null
@@ -845,7 +845,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_image_GifImageDecoder_parseImage(
   %.0506.ph = phi ptr [ %81, %83 ], [ null, %77 ], [ null, %71 ], [ null, %65 ], [ %.75131027, %256 ], [ %.75131027, %262 ], [ null, %268 ], [ %272, %274 ], [ %.3509961, %156 ], [ %.3509961, %162 ], [ null, %168 ], [ %172, %174 ], [ %.85149911724, %368 ], [ %.85149911724, %374 ], [ null, %380 ], [ %384, %386 ]
   %.0501.ph = phi ptr [ null, %83 ], [ null, %77 ], [ null, %71 ], [ null, %65 ], [ %.71028, %256 ], [ %.71028, %262 ], [ %.71028, %268 ], [ null, %274 ], [ %.3504962, %156 ], [ %.3504962, %162 ], [ %.3504962, %168 ], [ null, %174 ], [ %.89921723, %368 ], [ %.89921723, %374 ], [ %.89921723, %380 ], [ null, %386 ]
   %412 = load ptr, ptr %0, align 8
-  %413 = getelementptr inbounds i8, ptr %412, i64 1784
+  %413 = getelementptr inbounds nuw i8, ptr %412, i64 1784
   %414 = load ptr, ptr %413, align 8
   tail call void %414(ptr noundef nonnull %0, ptr noundef %22, ptr noundef nonnull %.0536.ph, i32 noundef 0) #3
   br label %.loopexit
@@ -860,7 +860,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_image_GifImageDecoder_parseImage(
 
 415:                                              ; preds = %.loopexit
   %416 = load ptr, ptr %0, align 8
-  %417 = getelementptr inbounds i8, ptr %416, i64 1784
+  %417 = getelementptr inbounds nuw i8, ptr %416, i64 1784
   %418 = load ptr, ptr %417, align 8
   tail call void %418(ptr noundef nonnull %0, ptr noundef %27, ptr noundef nonnull %.0526685, i32 noundef 0) #3
   br label %419
@@ -871,7 +871,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_image_GifImageDecoder_parseImage(
 
 420:                                              ; preds = %419
   %421 = load ptr, ptr %0, align 8
-  %422 = getelementptr inbounds i8, ptr %421, i64 1784
+  %422 = getelementptr inbounds nuw i8, ptr %421, i64 1784
   %423 = load ptr, ptr %422, align 8
   tail call void %423(ptr noundef nonnull %0, ptr noundef %32, ptr noundef nonnull %.0516687, i32 noundef 0) #3
   br label %424
@@ -882,7 +882,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_image_GifImageDecoder_parseImage(
 
 425:                                              ; preds = %424
   %426 = load ptr, ptr %0, align 8
-  %427 = getelementptr inbounds i8, ptr %426, i64 1784
+  %427 = getelementptr inbounds nuw i8, ptr %426, i64 1784
   %428 = load ptr, ptr %427, align 8
   tail call void %428(ptr noundef nonnull %0, ptr noundef %9, ptr noundef nonnull %.0506689, i32 noundef 0) #3
   br label %429
@@ -893,7 +893,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_image_GifImageDecoder_parseImage(
 
 430:                                              ; preds = %429
   %431 = load ptr, ptr %0, align 8
-  %432 = getelementptr inbounds i8, ptr %431, i64 1784
+  %432 = getelementptr inbounds nuw i8, ptr %431, i64 1784
   %433 = load ptr, ptr %432, align 8
   tail call void %433(ptr noundef nonnull %0, ptr noundef %8, ptr noundef nonnull %.0501691, i32 noundef 0) #3
   br label %.thread713

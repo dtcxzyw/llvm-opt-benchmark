@@ -682,11 +682,11 @@ define internal i32 @dissect_zbee_nwk(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %17, label %dissect_zbee_nwk_full.exit, label %18
 
 18:                                               ; preds = %16
-  %19 = getelementptr inbounds i8, ptr %8, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %8, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %19, i8 0, i64 64, i1 false)
-  %20 = getelementptr inbounds i8, ptr %1, i64 80
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 50
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 50
   %23 = load i16, ptr %22, align 2
   %24 = and i16 %23, 8
   %.not.i = icmp eq i16 %24, 0
@@ -710,7 +710,7 @@ define internal i32 @dissect_zbee_nwk(ptr noundef %0, ptr noundef %1, ptr nounde
   %34 = tail call ptr @wmem_file_scope() #8
   %35 = tail call i32 @proto_get_id_by_filter_name(ptr noundef nonnull @.str.243) #8
   %36 = tail call ptr @p_get_proto_data(ptr noundef %34, ptr noundef nonnull %1, i32 noundef %35, i32 noundef 0) #8
-  %37 = getelementptr inbounds i8, ptr %1, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %38 = load ptr, ptr %37, align 8
   tail call void @col_set_str(ptr noundef %38, i32 noundef 34, ptr noundef nonnull @.str.227) #8
   %39 = load ptr, ptr %37, align 8
@@ -722,7 +722,7 @@ define internal i32 @dissect_zbee_nwk(ptr noundef %0, ptr noundef %1, ptr nounde
   %44 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 0) #8
   %45 = zext i16 %44 to i32
   %46 = and i16 %44, 3
-  %47 = getelementptr inbounds i8, ptr %8, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i16 %46, ptr %47, align 8
   br label %.lr.ph.i.i
 
@@ -738,7 +738,7 @@ define internal i32 @dissect_zbee_nwk(ptr noundef %0, ptr noundef %1, ptr nounde
 zbee_get_bit_field.exit.i:                        ; preds = %.lr.ph.i.i
   %51 = and i32 %48, 15
   %52 = trunc nuw nsw i32 %51 to i8
-  %53 = getelementptr inbounds i8, ptr %8, i64 26
+  %53 = getelementptr inbounds nuw i8, ptr %8, i64 26
   store i8 %52, ptr %53, align 2
   br label %.lr.ph.i263.i
 
@@ -753,7 +753,7 @@ zbee_get_bit_field.exit.i:                        ; preds = %.lr.ph.i.i
 
 zbee_get_bit_field.exit267.i:                     ; preds = %.lr.ph.i263.i
   %57 = and i32 %54, 3
-  %58 = getelementptr inbounds i8, ptr %8, i64 4
+  %58 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 %57, ptr %58, align 4
   br label %.lr.ph.i268.i
 
@@ -796,7 +796,7 @@ zbee_get_bit_field.exit277.i:                     ; preds = %.lr.ph.i273.i
 
 zbee_get_bit_field.exit282.i:                     ; preds = %.lr.ph.i278.i
   %70 = and i32 %67, 1
-  %71 = getelementptr inbounds i8, ptr %8, i64 12
+  %71 = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i32 %70, ptr %71, align 4
   br label %.lr.ph.i283.i
 
@@ -811,7 +811,7 @@ zbee_get_bit_field.exit282.i:                     ; preds = %.lr.ph.i278.i
 
 zbee_get_bit_field.exit287.i:                     ; preds = %.lr.ph.i283.i
   %75 = and i32 %72, 1
-  %76 = getelementptr inbounds i8, ptr %8, i64 16
+  %76 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 %75, ptr %76, align 8
   br label %.lr.ph.i288.i
 
@@ -826,7 +826,7 @@ zbee_get_bit_field.exit287.i:                     ; preds = %.lr.ph.i283.i
 
 zbee_get_bit_field.exit292.i:                     ; preds = %.lr.ph.i288.i
   %80 = and i32 %77, 1
-  %81 = getelementptr inbounds i8, ptr %8, i64 20
+  %81 = getelementptr inbounds nuw i8, ptr %8, i64 20
   store i32 %80, ptr %81, align 4
   %82 = icmp samesign ugt i32 %51, 1
   %83 = load i32, ptr @hf_zbee_nwk_fcf, align 4
@@ -847,27 +847,27 @@ zbee_get_bit_field.exit292.i:                     ; preds = %.lr.ph.i288.i
 
 91:                                               ; preds = %zbee_get_bit_field.exit292.i
   %92 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 2) #8
-  %93 = getelementptr inbounds i8, ptr %8, i64 28
+  %93 = getelementptr inbounds nuw i8, ptr %8, i64 28
   store i16 %92, ptr %93, align 4
-  %94 = getelementptr inbounds i8, ptr %1, i64 184
+  %94 = getelementptr inbounds nuw i8, ptr %1, i64 184
   %95 = load i32, ptr @zbee_nwk_address_type, align 4
   %96 = tail call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef 2, i32 noundef 2) #8
   store i32 %95, ptr %94, align 8
-  %97 = getelementptr inbounds i8, ptr %1, i64 188
+  %97 = getelementptr inbounds nuw i8, ptr %1, i64 188
   store i32 2, ptr %97, align 4
-  %98 = getelementptr inbounds i8, ptr %1, i64 192
+  %98 = getelementptr inbounds nuw i8, ptr %1, i64 192
   store ptr %96, ptr %98, align 8
-  %99 = getelementptr inbounds i8, ptr %1, i64 200
+  %99 = getelementptr inbounds nuw i8, ptr %1, i64 200
   store ptr null, ptr %99, align 8
-  %100 = getelementptr inbounds i8, ptr %1, i64 232
+  %100 = getelementptr inbounds nuw i8, ptr %1, i64 232
   store i32 %95, ptr %100, align 8
-  %101 = getelementptr inbounds i8, ptr %1, i64 236
+  %101 = getelementptr inbounds nuw i8, ptr %1, i64 236
   store i32 2, ptr %101, align 4
-  %102 = getelementptr inbounds i8, ptr %1, i64 240
+  %102 = getelementptr inbounds nuw i8, ptr %1, i64 240
   store ptr %96, ptr %102, align 8
-  %103 = getelementptr inbounds i8, ptr %1, i64 248
+  %103 = getelementptr inbounds nuw i8, ptr %1, i64 248
   store ptr null, ptr %103, align 8
-  %104 = getelementptr inbounds i8, ptr %1, i64 408
+  %104 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %105 = load ptr, ptr %104, align 8
   %106 = tail call ptr @address_to_str(ptr noundef %105, ptr noundef nonnull %100) #8
   %107 = load i32, ptr @hf_zbee_nwk_dst, align 4
@@ -880,13 +880,13 @@ zbee_get_bit_field.exit292.i:                     ; preds = %.lr.ph.i288.i
   br i1 %.not.i293.i, label %proto_item_set_hidden.exit.i, label %112
 
 112:                                              ; preds = %91
-  %113 = getelementptr inbounds i8, ptr %111, i64 32
+  %113 = getelementptr inbounds nuw i8, ptr %111, i64 32
   %114 = load ptr, ptr %113, align 8
   %.not5.i.i = icmp eq ptr %114, null
   br i1 %.not5.i.i, label %proto_item_set_hidden.exit.i, label %115
 
 115:                                              ; preds = %112
-  %116 = getelementptr inbounds i8, ptr %114, i64 28
+  %116 = getelementptr inbounds nuw i8, ptr %114, i64 28
   %117 = load i32, ptr %116, align 4
   %118 = or i32 %117, 2
   store i32 %118, ptr %116, align 4
@@ -895,7 +895,7 @@ zbee_get_bit_field.exit292.i:                     ; preds = %.lr.ph.i288.i
   br i1 %.not5.i295.i, label %proto_item_set_hidden.exit.i, label %119
 
 119:                                              ; preds = %115
-  %120 = getelementptr inbounds i8, ptr %.pre.i, i64 28
+  %120 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 28
   %121 = load i32, ptr %120, align 4
   %122 = or i32 %121, 1
   store i32 %122, ptr %120, align 4
@@ -906,25 +906,25 @@ proto_item_set_hidden.exit.i:                     ; preds = %119, %115, %112, %9
   %123 = load ptr, ptr %37, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %123, i32 noundef 25, ptr noundef nonnull @.str.325, ptr noundef %106) #8
   %124 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 4) #8
-  %125 = getelementptr inbounds i8, ptr %8, i64 30
+  %125 = getelementptr inbounds nuw i8, ptr %8, i64 30
   store i16 %124, ptr %125, align 2
-  %126 = getelementptr inbounds i8, ptr %1, i64 160
+  %126 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %127 = load i32, ptr @zbee_nwk_address_type, align 4
   %128 = tail call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef 4, i32 noundef 2) #8
   store i32 %127, ptr %126, align 8
-  %129 = getelementptr inbounds i8, ptr %1, i64 164
+  %129 = getelementptr inbounds nuw i8, ptr %1, i64 164
   store i32 2, ptr %129, align 4
-  %130 = getelementptr inbounds i8, ptr %1, i64 168
+  %130 = getelementptr inbounds nuw i8, ptr %1, i64 168
   store ptr %128, ptr %130, align 8
-  %131 = getelementptr inbounds i8, ptr %1, i64 176
+  %131 = getelementptr inbounds nuw i8, ptr %1, i64 176
   store ptr null, ptr %131, align 8
-  %132 = getelementptr inbounds i8, ptr %1, i64 208
+  %132 = getelementptr inbounds nuw i8, ptr %1, i64 208
   store i32 %127, ptr %132, align 8
-  %133 = getelementptr inbounds i8, ptr %1, i64 212
+  %133 = getelementptr inbounds nuw i8, ptr %1, i64 212
   store i32 2, ptr %133, align 4
-  %134 = getelementptr inbounds i8, ptr %1, i64 216
+  %134 = getelementptr inbounds nuw i8, ptr %1, i64 216
   store ptr %128, ptr %134, align 8
-  %135 = getelementptr inbounds i8, ptr %1, i64 224
+  %135 = getelementptr inbounds nuw i8, ptr %1, i64 224
   store ptr null, ptr %135, align 8
   %136 = load ptr, ptr %104, align 8
   %137 = tail call ptr @address_to_str(ptr noundef %136, ptr noundef nonnull %132) #8
@@ -933,7 +933,7 @@ proto_item_set_hidden.exit.i:                     ; preds = %119, %115, %112, %9
   br i1 %138, label %140, label %proto_item_set_hidden.exit._crit_edge.i
 
 140:                                              ; preds = %proto_item_set_hidden.exit.i
-  %141 = getelementptr inbounds i8, ptr %.0240.i, i64 4
+  %141 = getelementptr inbounds nuw i8, ptr %.0240.i, i64 4
   store i32 %139, ptr %141, align 4
   br label %proto_item_set_hidden.exit._crit_edge.i
 
@@ -947,13 +947,13 @@ proto_item_set_hidden.exit._crit_edge.i:          ; preds = %140, %proto_item_se
   br i1 %.not.i296.i, label %proto_item_set_hidden.exit301.i, label %146
 
 146:                                              ; preds = %proto_item_set_hidden.exit._crit_edge.i
-  %147 = getelementptr inbounds i8, ptr %145, i64 32
+  %147 = getelementptr inbounds nuw i8, ptr %145, i64 32
   %148 = load ptr, ptr %147, align 8
   %.not5.i297.i = icmp eq ptr %148, null
   br i1 %.not5.i297.i, label %proto_item_set_hidden.exit301.i, label %149
 
 149:                                              ; preds = %146
-  %150 = getelementptr inbounds i8, ptr %148, i64 28
+  %150 = getelementptr inbounds nuw i8, ptr %148, i64 28
   %151 = load i32, ptr %150, align 4
   %152 = or i32 %151, 2
   store i32 %152, ptr %150, align 4
@@ -962,7 +962,7 @@ proto_item_set_hidden.exit._crit_edge.i:          ; preds = %140, %proto_item_se
   br i1 %.not5.i300.i, label %proto_item_set_hidden.exit301.i, label %153
 
 153:                                              ; preds = %149
-  %154 = getelementptr inbounds i8, ptr %.pre386.i, i64 28
+  %154 = getelementptr inbounds nuw i8, ptr %.pre386.i, i64 28
   %155 = load i32, ptr %154, align 4
   %156 = or i32 %155, 1
   store i32 %156, ptr %154, align 4
@@ -973,13 +973,13 @@ proto_item_set_hidden.exit301.i:                  ; preds = %153, %149, %146, %p
   %157 = load ptr, ptr %37, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %157, i32 noundef 25, ptr noundef nonnull @.str.326, ptr noundef %137) #8
   %158 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 6) #8
-  %159 = getelementptr inbounds i8, ptr %8, i64 48
+  %159 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store i8 %158, ptr %159, align 8
   %160 = load i32, ptr @hf_zbee_nwk_radius, align 4
   %161 = zext i8 %158 to i32
   %162 = tail call ptr @proto_tree_add_uint(ptr noundef %43, i32 noundef %160, ptr noundef %0, i32 noundef 6, i32 noundef 1, i32 noundef %161) #8
   %163 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 7) #8
-  %164 = getelementptr inbounds i8, ptr %8, i64 49
+  %164 = getelementptr inbounds nuw i8, ptr %8, i64 49
   store i8 %163, ptr %164, align 1
   %165 = load i32, ptr @hf_zbee_nwk_seqno, align 4
   %166 = zext i8 %163 to i32
@@ -990,7 +990,7 @@ proto_item_set_hidden.exit301.i:                  ; preds = %153, %149, %146, %p
 
 169:                                              ; preds = %proto_item_set_hidden.exit301.i
   %170 = tail call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef 8) #8
-  %171 = getelementptr inbounds i8, ptr %8, i64 32
+  %171 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store i64 %170, ptr %171, align 8
   %172 = load i32, ptr @hf_zbee_nwk_dst64, align 4
   %173 = tail call ptr @proto_tree_add_item(ptr noundef %43, i32 noundef %172, ptr noundef %0, i32 noundef 8, i32 noundef 8, i32 noundef -2147483648) #8
@@ -1001,13 +1001,13 @@ proto_item_set_hidden.exit301.i:                  ; preds = %153, %149, %146, %p
   br i1 %.not.i302.i, label %proto_item_set_hidden.exit307.thread.i, label %176
 
 176:                                              ; preds = %169
-  %177 = getelementptr inbounds i8, ptr %175, i64 32
+  %177 = getelementptr inbounds nuw i8, ptr %175, i64 32
   %178 = load ptr, ptr %177, align 8
   %.not5.i303.i = icmp eq ptr %178, null
   br i1 %.not5.i303.i, label %proto_item_set_hidden.exit307.thread.i, label %179
 
 179:                                              ; preds = %176
-  %180 = getelementptr inbounds i8, ptr %178, i64 28
+  %180 = getelementptr inbounds nuw i8, ptr %178, i64 28
   %181 = load i32, ptr %180, align 4
   %182 = or i32 %181, 2
   store i32 %182, ptr %180, align 4
@@ -1016,7 +1016,7 @@ proto_item_set_hidden.exit301.i:                  ; preds = %153, %149, %146, %p
   br i1 %.not5.i306.i, label %proto_item_set_hidden.exit307.thread.i, label %183
 
 183:                                              ; preds = %179
-  %184 = getelementptr inbounds i8, ptr %.pre387.i, i64 28
+  %184 = getelementptr inbounds nuw i8, ptr %.pre387.i, i64 28
   %185 = load i32, ptr %184, align 4
   %186 = or i32 %185, 1
   store i32 %186, ptr %184, align 4
@@ -1027,7 +1027,7 @@ proto_item_set_hidden.exit307.i:                  ; preds = %proto_item_set_hidd
 
 proto_item_set_hidden.exit307.thread.i:           ; preds = %proto_item_set_hidden.exit307.i, %183, %179, %176, %169
   %.1397.i = phi i32 [ 8, %proto_item_set_hidden.exit307.i ], [ 16, %183 ], [ 16, %179 ], [ 16, %169 ], [ 16, %176 ]
-  %187 = getelementptr inbounds i8, ptr %3, i64 66
+  %187 = getelementptr inbounds nuw i8, ptr %3, i64 66
   %188 = load i16, ptr %187, align 2
   store i16 %188, ptr %9, align 2
   %.not251.i = icmp eq i32 %80, 0
@@ -1035,7 +1035,7 @@ proto_item_set_hidden.exit307.thread.i:           ; preds = %proto_item_set_hidd
 
 189:                                              ; preds = %proto_item_set_hidden.exit307.thread.i
   %190 = tail call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef %.1397.i) #8
-  %191 = getelementptr inbounds i8, ptr %8, i64 40
+  %191 = getelementptr inbounds nuw i8, ptr %8, i64 40
   store i64 %190, ptr %191, align 8
   %192 = load i32, ptr @hf_zbee_nwk_src64, align 4
   %193 = tail call ptr @proto_tree_add_item(ptr noundef %43, i32 noundef %192, ptr noundef %0, i32 noundef %.1397.i, i32 noundef 8, i32 noundef -2147483648) #8
@@ -1046,13 +1046,13 @@ proto_item_set_hidden.exit307.thread.i:           ; preds = %proto_item_set_hidd
   br i1 %.not.i308.i, label %proto_item_set_hidden.exit313.i, label %196
 
 196:                                              ; preds = %189
-  %197 = getelementptr inbounds i8, ptr %195, i64 32
+  %197 = getelementptr inbounds nuw i8, ptr %195, i64 32
   %198 = load ptr, ptr %197, align 8
   %.not5.i309.i = icmp eq ptr %198, null
   br i1 %.not5.i309.i, label %proto_item_set_hidden.exit313.i, label %199
 
 199:                                              ; preds = %196
-  %200 = getelementptr inbounds i8, ptr %198, i64 28
+  %200 = getelementptr inbounds nuw i8, ptr %198, i64 28
   %201 = load i32, ptr %200, align 4
   %202 = or i32 %201, 2
   store i32 %202, ptr %200, align 4
@@ -1061,7 +1061,7 @@ proto_item_set_hidden.exit307.thread.i:           ; preds = %proto_item_set_hidd
   br i1 %.not5.i312.i, label %proto_item_set_hidden.exit313.i, label %203
 
 203:                                              ; preds = %199
-  %204 = getelementptr inbounds i8, ptr %.pre388.i, i64 28
+  %204 = getelementptr inbounds nuw i8, ptr %.pre388.i, i64 28
   %205 = load i32, ptr %204, align 4
   %206 = or i32 %205, 1
   store i32 %206, ptr %204, align 4
@@ -1070,7 +1070,7 @@ proto_item_set_hidden.exit307.thread.i:           ; preds = %proto_item_set_hidd
 proto_item_set_hidden.exit313.i:                  ; preds = %203, %199, %196, %189
   %207 = add nuw nsw i32 %.1397.i, 8
   %208 = load ptr, ptr %20, align 8
-  %209 = getelementptr inbounds i8, ptr %208, i64 50
+  %209 = getelementptr inbounds nuw i8, ptr %208, i64 50
   %210 = load i16, ptr %209, align 2
   %211 = and i16 %210, 8
   %212 = icmp eq i16 %211, 0
@@ -1090,16 +1090,16 @@ proto_item_set_hidden.exit313.i:                  ; preds = %203, %199, %196, %1
 216:                                              ; preds = %213
   %217 = load i16, ptr %9, align 2
   %218 = load ptr, ptr %1, align 8
-  %219 = getelementptr inbounds i8, ptr %1, i64 20
+  %219 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %220 = load i32, ptr %219, align 4
   %221 = tail call ptr @ieee802154_addr_update(ptr noundef nonnull @zbee_nwk_map, i16 noundef zeroext %124, i16 noundef zeroext %217, i64 noundef %190, ptr noundef %218, i32 noundef %220) #8
-  %222 = getelementptr inbounds i8, ptr %.0240.i, i64 8
+  %222 = getelementptr inbounds nuw i8, ptr %.0240.i, i64 8
   store ptr %221, ptr %222, align 8
   br label %proto_item_set_generated.exit325.i
 
 223:                                              ; preds = %proto_item_set_hidden.exit307.thread.i
   %224 = load ptr, ptr %20, align 8
-  %225 = getelementptr inbounds i8, ptr %224, i64 50
+  %225 = getelementptr inbounds nuw i8, ptr %224, i64 50
   %226 = load i16, ptr %225, align 2
   %227 = and i16 %226, 8
   %228 = icmp eq i16 %227, 0
@@ -1109,7 +1109,7 @@ proto_item_set_hidden.exit313.i:                  ; preds = %203, %199, %196, %1
 229:                                              ; preds = %223
   %230 = zext i16 %188 to i32
   store i32 %230, ptr %.0240.i, align 8
-  %231 = getelementptr inbounds i8, ptr %9, i64 2
+  %231 = getelementptr inbounds nuw i8, ptr %9, i64 2
   store i16 %124, ptr %231, align 2
   %232 = load ptr, ptr getelementptr inbounds (i8, ptr @zbee_nwk_map, i64 8), align 8
   %233 = call ptr @g_hash_table_lookup(ptr noundef %232, ptr noundef nonnull %9) #8
@@ -1117,19 +1117,19 @@ proto_item_set_hidden.exit313.i:                  ; preds = %203, %199, %196, %1
   br i1 %.not255.i, label %236, label %234
 
 234:                                              ; preds = %229
-  %235 = getelementptr inbounds i8, ptr %.0240.i, i64 8
+  %235 = getelementptr inbounds nuw i8, ptr %.0240.i, i64 8
   store ptr %233, ptr %235, align 8
   br label %proto_item_set_generated.exit325.i
 
 236:                                              ; preds = %229
-  %237 = getelementptr inbounds i8, ptr %3, i64 144
+  %237 = getelementptr inbounds nuw i8, ptr %3, i64 144
   %238 = load ptr, ptr %237, align 8
   %239 = call ptr @g_hash_table_lookup(ptr noundef %238, ptr noundef nonnull %9) #8
   %.not256.i = icmp eq ptr %239, null
   br i1 %.not256.i, label %proto_item_set_generated.exit325.i, label %240
 
 240:                                              ; preds = %236
-  %241 = getelementptr inbounds i8, ptr %.0240.i, i64 8
+  %241 = getelementptr inbounds nuw i8, ptr %.0240.i, i64 8
   store ptr %239, ptr %241, align 8
   br label %proto_item_set_generated.exit325.i
 
@@ -1137,27 +1137,27 @@ proto_item_set_hidden.exit313.i:                  ; preds = %203, %199, %196, %1
   br i1 %138, label %243, label %proto_item_set_generated.exit325.i
 
 243:                                              ; preds = %242
-  %244 = getelementptr inbounds i8, ptr %.0240.i, i64 8
+  %244 = getelementptr inbounds nuw i8, ptr %.0240.i, i64 8
   %245 = load ptr, ptr %244, align 8
   %.not252.i = icmp eq ptr %245, null
   br i1 %.not252.i, label %proto_item_set_generated.exit325.i, label %246
 
 246:                                              ; preds = %243
   %247 = load i32, ptr @hf_zbee_nwk_src64, align 4
-  %248 = getelementptr inbounds i8, ptr %245, i64 16
+  %248 = getelementptr inbounds nuw i8, ptr %245, i64 16
   %249 = load i64, ptr %248, align 8
   %250 = tail call ptr @proto_tree_add_eui64(ptr noundef %43, i32 noundef %247, ptr noundef %0, i32 noundef %.1397.i, i32 noundef 0, i64 noundef %249) #8
   %.not.i314.i = icmp eq ptr %250, null
   br i1 %.not.i314.i, label %proto_item_set_generated.exit316.i, label %251
 
 251:                                              ; preds = %246
-  %252 = getelementptr inbounds i8, ptr %250, i64 32
+  %252 = getelementptr inbounds nuw i8, ptr %250, i64 32
   %253 = load ptr, ptr %252, align 8
   %.not5.i315.i = icmp eq ptr %253, null
   br i1 %.not5.i315.i, label %proto_item_set_generated.exit316.i, label %254
 
 254:                                              ; preds = %251
-  %255 = getelementptr inbounds i8, ptr %253, i64 28
+  %255 = getelementptr inbounds nuw i8, ptr %253, i64 28
   %256 = load i32, ptr %255, align 4
   %257 = or i32 %256, 2
   store i32 %257, ptr %255, align 4
@@ -1166,20 +1166,20 @@ proto_item_set_hidden.exit313.i:                  ; preds = %203, %199, %196, %1
 proto_item_set_generated.exit316.i:               ; preds = %254, %251, %246
   %258 = load i32, ptr @hf_zbee_nwk_addr64, align 4
   %259 = load ptr, ptr %244, align 8
-  %260 = getelementptr inbounds i8, ptr %259, i64 16
+  %260 = getelementptr inbounds nuw i8, ptr %259, i64 16
   %261 = load i64, ptr %260, align 8
   %262 = tail call ptr @proto_tree_add_eui64(ptr noundef %43, i32 noundef %258, ptr noundef %0, i32 noundef %.1397.i, i32 noundef 0, i64 noundef %261) #8
   %.not.i317.i = icmp eq ptr %262, null
   br i1 %.not.i317.i, label %proto_item_set_hidden.exit322.i, label %263
 
 263:                                              ; preds = %proto_item_set_generated.exit316.i
-  %264 = getelementptr inbounds i8, ptr %262, i64 32
+  %264 = getelementptr inbounds nuw i8, ptr %262, i64 32
   %265 = load ptr, ptr %264, align 8
   %.not5.i318.i = icmp eq ptr %265, null
   br i1 %.not5.i318.i, label %proto_item_set_hidden.exit322.i, label %266
 
 266:                                              ; preds = %263
-  %267 = getelementptr inbounds i8, ptr %265, i64 28
+  %267 = getelementptr inbounds nuw i8, ptr %265, i64 28
   %268 = load i32, ptr %267, align 4
   %269 = or i32 %268, 2
   store i32 %269, ptr %267, align 4
@@ -1188,7 +1188,7 @@ proto_item_set_generated.exit316.i:               ; preds = %254, %251, %246
   br i1 %.not5.i321.i, label %proto_item_set_hidden.exit322.i, label %270
 
 270:                                              ; preds = %266
-  %271 = getelementptr inbounds i8, ptr %.pre389.i, i64 28
+  %271 = getelementptr inbounds nuw i8, ptr %.pre389.i, i64 28
   %272 = load i32, ptr %271, align 4
   %273 = or i32 %272, 1
   store i32 %273, ptr %271, align 4
@@ -1196,7 +1196,7 @@ proto_item_set_generated.exit316.i:               ; preds = %254, %251, %246
 
 proto_item_set_hidden.exit322.i:                  ; preds = %270, %266, %263, %proto_item_set_generated.exit316.i
   %274 = load ptr, ptr %244, align 8
-  %275 = getelementptr inbounds i8, ptr %274, i64 8
+  %275 = getelementptr inbounds nuw i8, ptr %274, i64 8
   %276 = load i32, ptr %275, align 8
   %.not253.i = icmp eq i32 %276, 0
   %277 = load i32, ptr @hf_zbee_nwk_src64_origin, align 4
@@ -1217,13 +1217,13 @@ proto_item_set_hidden.exit322.i:                  ; preds = %270, %266, %263, %p
   br i1 %.not.i323.i, label %proto_item_set_generated.exit325.i, label %283
 
 283:                                              ; preds = %282
-  %284 = getelementptr inbounds i8, ptr %storemerge254.i, i64 32
+  %284 = getelementptr inbounds nuw i8, ptr %storemerge254.i, i64 32
   %285 = load ptr, ptr %284, align 8
   %.not5.i324.i = icmp eq ptr %285, null
   br i1 %.not5.i324.i, label %proto_item_set_generated.exit325.i, label %286
 
 286:                                              ; preds = %283
-  %287 = getelementptr inbounds i8, ptr %285, i64 28
+  %287 = getelementptr inbounds nuw i8, ptr %285, i64 28
   %288 = load i32, ptr %287, align 4
   %289 = or i32 %288, 2
   store i32 %289, ptr %287, align 4
@@ -1232,14 +1232,14 @@ proto_item_set_hidden.exit322.i:                  ; preds = %270, %266, %263, %p
 proto_item_set_generated.exit325.i:               ; preds = %286, %283, %282, %243, %242, %240, %236, %234, %216, %213, %213, %213, %proto_item_set_hidden.exit313.i
   %.3.i = phi i32 [ %207, %216 ], [ %207, %213 ], [ %207, %proto_item_set_hidden.exit313.i ], [ %.1397.i, %234 ], [ %.1397.i, %240 ], [ %.1397.i, %236 ], [ %.1397.i, %243 ], [ %.1397.i, %242 ], [ %207, %213 ], [ %207, %213 ], [ %.1397.i, %282 ], [ %.1397.i, %283 ], [ %.1397.i, %286 ]
   %290 = load ptr, ptr %20, align 8
-  %291 = getelementptr inbounds i8, ptr %290, i64 50
+  %291 = getelementptr inbounds nuw i8, ptr %290, i64 50
   %292 = load i16, ptr %291, align 2
   %293 = and i16 %292, 8
   %.not258.i = icmp eq i16 %293, 0
   br i1 %.not258.i, label %294, label %310
 
 294:                                              ; preds = %proto_item_set_generated.exit325.i
-  %295 = getelementptr inbounds i8, ptr %3, i64 12
+  %295 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %296 = load i32, ptr %295, align 4
   %297 = icmp eq i32 %296, 2
   %298 = icmp ne ptr %36, null
@@ -1247,7 +1247,7 @@ proto_item_set_generated.exit325.i:               ; preds = %286, %283, %282, %2
   br i1 %or.cond16.i, label %299, label %310
 
 299:                                              ; preds = %294
-  %300 = getelementptr inbounds i8, ptr %36, i64 8
+  %300 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %301 = load ptr, ptr %300, align 8
   %.not259.i = icmp eq ptr %301, null
   br i1 %.not259.i, label %302, label %310
@@ -1255,9 +1255,9 @@ proto_item_set_generated.exit325.i:               ; preds = %286, %283, %282, %2
 302:                                              ; preds = %299
   %303 = load i16, ptr %187, align 2
   store i16 %303, ptr %9, align 2
-  %304 = getelementptr inbounds i8, ptr %3, i64 80
+  %304 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %305 = load i16, ptr %304, align 8
-  %306 = getelementptr inbounds i8, ptr %9, i64 2
+  %306 = getelementptr inbounds nuw i8, ptr %9, i64 2
   store i16 %305, ptr %306, align 2
   %307 = load ptr, ptr getelementptr inbounds (i8, ptr @zbee_nwk_map, i64 8), align 8
   %308 = call ptr @g_hash_table_lookup(ptr noundef %307, ptr noundef nonnull %9) #8
@@ -1275,7 +1275,7 @@ proto_item_set_generated.exit325.i:               ; preds = %286, %283, %282, %2
 311:                                              ; preds = %310
   %312 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.3.i) #8
   %313 = and i8 %312, 3
-  %314 = getelementptr inbounds i8, ptr %8, i64 50
+  %314 = getelementptr inbounds nuw i8, ptr %8, i64 50
   store i8 %313, ptr %314, align 2
   br label %.lr.ph.i326.i
 
@@ -1290,7 +1290,7 @@ proto_item_set_generated.exit325.i:               ; preds = %286, %283, %282, %2
 
 zbee_get_bit_field.exit330.i:                     ; preds = %.lr.ph.i326.i
   %318 = and i8 %315, 7
-  %319 = getelementptr inbounds i8, ptr %8, i64 51
+  %319 = getelementptr inbounds nuw i8, ptr %8, i64 51
   store i8 %318, ptr %319, align 1
   br label %.lr.ph.i331.i
 
@@ -1305,7 +1305,7 @@ zbee_get_bit_field.exit330.i:                     ; preds = %.lr.ph.i326.i
 
 zbee_get_bit_field.exit335.i:                     ; preds = %.lr.ph.i331.i
   %323 = and i8 %320, 7
-  %324 = getelementptr inbounds i8, ptr %8, i64 52
+  %324 = getelementptr inbounds nuw i8, ptr %8, i64 52
   store i8 %323, ptr %324, align 4
   %325 = load i32, ptr @hf_zbee_nwk_mcast, align 4
   %326 = load i32, ptr @ett_zbee_nwk_mcast, align 4
@@ -1858,7 +1858,7 @@ dissect_zbee_nwk_full.exit:                       ; preds = %16, %.sink.split.i
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_zbee_beacon(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #1 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.227) #8
   %7 = load i32, ptr @proto_zbee_beacon, align 4
@@ -1883,7 +1883,7 @@ define internal i32 @dissect_zbee_beacon(ptr noundef %0, ptr noundef %1, ptr nou
   %22 = load i32, ptr @hf_zbee_beacon_epid, align 4
   %23 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %22, ptr noundef %0, i32 noundef 3, i32 noundef 8, i32 noundef -2147483648) #8
   %24 = load ptr, ptr %5, align 8
-  %25 = getelementptr inbounds i8, ptr %1, i64 408
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %26 = load ptr, ptr %25, align 8
   %27 = tail call i64 @tvb_get_guint64(ptr noundef %0, i32 noundef 3, i32 noundef -2147483648) #8
   %28 = tail call ptr @eui64_to_display(ptr noundef %26, i64 noundef %27) #8
@@ -1930,7 +1930,7 @@ define internal i32 @dissect_zbip_beacon(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %.not, label %44, label %5
 
 5:                                                ; preds = %4
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void @col_set_str(ptr noundef %7, i32 noundef 34, ptr noundef nonnull @.str.356) #8
   %8 = load i32, ptr @proto_zbip_beacon, align 4
@@ -1940,7 +1940,7 @@ define internal i32 @dissect_zbip_beacon(ptr noundef %0, ptr noundef %1, ptr nou
   %12 = load ptr, ptr %6, align 8
   tail call void @col_clear(ptr noundef %12, i32 noundef 25) #8
   %13 = load ptr, ptr %6, align 8
-  %14 = getelementptr inbounds i8, ptr %3, i64 80
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %15 = load i16, ptr %14, align 8
   %16 = zext i16 %15 to i32
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %13, i32 noundef 25, ptr noundef nonnull @.str.357, i32 noundef %16) #8
@@ -1958,7 +1958,7 @@ define internal i32 @dissect_zbip_beacon(ptr noundef %0, ptr noundef %1, ptr nou
   %28 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %27, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #8
   %29 = load i32, ptr @hf_zbip_beacon_network_id, align 4
   %30 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %29, ptr noundef %0, i32 noundef 2, i32 noundef 16, i32 noundef 0) #8
-  %31 = getelementptr inbounds i8, ptr %1, i64 408
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %32 = load ptr, ptr %31, align 8
   %33 = tail call ptr @tvb_get_string_enc(ptr noundef %32, ptr noundef %0, i32 noundef 2, i32 noundef 16, i32 noundef 0) #8
   %34 = load ptr, ptr %6, align 8
@@ -1990,7 +1990,7 @@ define internal i32 @dissect_zbee_ie(ptr noundef %0, ptr noundef %1, ptr noundef
   %6 = alloca i32, align 4
   store i32 0, ptr %6, align 4
   %7 = load i32, ptr %3, align 4
-  %8 = getelementptr inbounds i8, ptr %1, i64 408
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %9
 
 9:                                                ; preds = %70, %4
@@ -2100,7 +2100,7 @@ declare i32 @address_type_dissector_register(ptr noundef, ptr noundef, ptr nound
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @zbee_nwk_address_to_str(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) #1 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %.val = load i8, ptr %5, align 1
   %6 = getelementptr i8, ptr %5, i64 1
@@ -2151,33 +2151,33 @@ declare void @register_conversation_table(i32 noundef, i32 noundef, ptr noundef,
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @zbee_nwk_conversation_packet(ptr noundef initializes((24, 28)) %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %4, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 160
-  %8 = getelementptr inbounds i8, ptr %1, i64 184
-  %9 = getelementptr inbounds i8, ptr %1, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 160
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 184
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %12 = load i32, ptr %11, align 4
-  %13 = getelementptr inbounds i8, ptr %1, i64 40
-  %14 = getelementptr inbounds i8, ptr %1, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
   tail call void @add_conversation_table_data(ptr noundef %0, ptr noundef nonnull %7, ptr noundef nonnull %8, i32 noundef 0, i32 noundef 0, i32 noundef 1, i32 noundef %12, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull @zbee_nwk_ct_dissector_info, i32 noundef 0) #8
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @zbee_nwk_endpoint_packet(ptr noundef initializes((24, 28)) %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %4, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 160
-  %8 = getelementptr inbounds i8, ptr %1, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 160
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %11 = load i32, ptr %10, align 4
   tail call void @add_endpoint_table_data(ptr noundef %0, ptr noundef nonnull %7, i32 noundef 0, i32 noundef 1, i32 noundef 1, i32 noundef %11, ptr noundef nonnull @zbee_nwk_endpoint_dissector_info, i32 noundef 0) #8
-  %12 = getelementptr inbounds i8, ptr %1, i64 184
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 184
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %15 = load i32, ptr %14, align 4
   tail call void @add_endpoint_table_data(ptr noundef %0, ptr noundef nonnull %12, i32 noundef 0, i32 noundef 0, i32 noundef 1, i32 noundef %15, ptr noundef nonnull @zbee_nwk_endpoint_dissector_info, i32 noundef 0) #8
   ret i32 1
@@ -2187,7 +2187,7 @@ declare void @register_conversation_filter(ptr noundef, ptr noundef, ptr noundef
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @zbee_nwk_filter_valid(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 360
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 @proto_is_frame_protocol(ptr noundef %4, ptr noundef nonnull @.str.228) #8
   ret i32 %5
@@ -2195,12 +2195,12 @@ define internal i32 @zbee_nwk_filter_valid(ptr nocapture noundef readonly %0, pt
 
 ; Function Attrs: nounwind uwtable
 define internal noalias ptr @zbee_nwk_build_filter(ptr noundef %0, ptr nocapture readnone %1) #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 408
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 160
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %6 = tail call ptr @address_to_str(ptr noundef %4, ptr noundef nonnull %5) #8
   %7 = load ptr, ptr %3, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 184
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %9 = tail call ptr @address_to_str(ptr noundef %7, ptr noundef nonnull %8) #8
   %10 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.367, ptr noundef %6, ptr noundef %9) #8
   ret ptr %10
@@ -2239,7 +2239,7 @@ define internal range(i32 0, 2) i32 @dissect_zbee_beacon_heur(ptr noundef %0, pt
   br i1 %.not, label %15, label %5
 
 5:                                                ; preds = %4
-  %6 = getelementptr inbounds i8, ptr %3, i64 12
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %7 = load i32, ptr %6, align 4
   %.not10 = icmp eq i32 %7, 2
   br i1 %.not10, label %8, label %15
@@ -2269,7 +2269,7 @@ define internal range(i32 0, 2) i32 @dissect_zbip_beacon_heur(ptr noundef %0, pt
   br i1 %.not, label %15, label %5
 
 5:                                                ; preds = %4
-  %6 = getelementptr inbounds i8, ptr %3, i64 12
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %7 = load i32, ptr %6, align 4
   %.not10 = icmp eq i32 %7, 2
   br i1 %.not10, label %8, label %15
@@ -2326,7 +2326,7 @@ zbee_get_bit_field.exit:                          ; preds = %.lr.ph.i
 
 17:                                               ; preds = %15
   %18 = icmp eq i32 %13, 3
-  %19 = getelementptr inbounds i8, ptr %3, i64 12
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %20 = load i32, ptr %19, align 4
   br i1 %18, label %21, label %22
 
@@ -2339,7 +2339,7 @@ zbee_get_bit_field.exit:                          ; preds = %.lr.ph.i
   br i1 %.not18, label %23, label %28
 
 23:                                               ; preds = %22
-  %24 = getelementptr inbounds i8, ptr %3, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %25 = load i32, ptr %24, align 8
   %.not19 = icmp eq i32 %25, 2
   br i1 %.not19, label %26, label %28
@@ -2470,21 +2470,21 @@ define internal noundef nonnull ptr @zbee_nwk_conv_get_filter_type(ptr nocapture
   ]
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = load i32, ptr @zbee_nwk_address_type, align 4
   %7 = icmp eq i32 %5, %6
   br i1 %7, label %19, label %18
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load i32, ptr %9, align 8
   %11 = load i32, ptr @zbee_nwk_address_type, align 4
   %12 = icmp eq i32 %10, %11
   br i1 %12, label %19, label %18
 
 13:                                               ; preds = %2
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load i32, ptr %14, align 8
   %16 = load i32, ptr @zbee_nwk_address_type, align 4
   %17 = icmp eq i32 %15, %16
@@ -2506,7 +2506,7 @@ define internal noundef nonnull ptr @zbee_nwk_endpoint_get_filter_type(ptr nocap
   br i1 %3, label %4, label %9
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = load i32, ptr @zbee_nwk_address_type, align 4
   %8 = icmp eq i32 %6, %7

@@ -15,9 +15,9 @@ define range(i64 0, 2) i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3
   %6 = icmp ne ptr %5, null
   %spec.select.i = zext i1 %6 to i64
   store i64 1, ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %spec.select.i, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %spec.select.i, ptr %8, align 8
   store i64 1, ptr %3, align 8
   %9 = call zeroext i1 @"_ZN70_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hca2ce06c7b5fa296E"(ptr nonnull align 8 %4, ptr nonnull align 8 %3)
@@ -41,9 +41,9 @@ define range(i64 0, 2) i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3
   %6 = icmp ne ptr %5, null
   %spec.select.i = zext i1 %6 to i64
   store i64 1, ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %spec.select.i, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %spec.select.i, ptr %8, align 8
   store i64 1, ptr %3, align 8
   %9 = call zeroext i1 @"_ZN70_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hca2ce06c7b5fa296E"(ptr nonnull align 8 %4, ptr nonnull align 8 %3)
@@ -67,9 +67,9 @@ define range(i64 0, 2) i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3
   %6 = icmp ne ptr %5, null
   %spec.select.i = zext i1 %6 to i64
   store i64 1, ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %spec.select.i, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %spec.select.i, ptr %8, align 8
   store i64 1, ptr %3, align 8
   %9 = call zeroext i1 @"_ZN70_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hca2ce06c7b5fa296E"(ptr nonnull align 8 %4, ptr nonnull align 8 %3)
@@ -93,9 +93,9 @@ define range(i64 0, 2) i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3
   %6 = icmp ne ptr %5, null
   %spec.select.i = zext i1 %6 to i64
   store i64 1, ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %spec.select.i, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %spec.select.i, ptr %8, align 8
   store i64 1, ptr %3, align 8
   %9 = call zeroext i1 @"_ZN70_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hca2ce06c7b5fa296E"(ptr nonnull align 8 %4, ptr nonnull align 8 %3)
@@ -119,9 +119,9 @@ define range(i64 0, 2) i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3
   %6 = icmp ne ptr %5, null
   %spec.select.i = zext i1 %6 to i64
   store i64 1, ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %spec.select.i, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %spec.select.i, ptr %8, align 8
   store i64 1, ptr %3, align 8
   %9 = call zeroext i1 @"_ZN70_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hca2ce06c7b5fa296E"(ptr nonnull align 8 %4, ptr nonnull align 8 %3)
@@ -145,9 +145,9 @@ define range(i64 0, 2) i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3
   %6 = icmp ne ptr %5, null
   %spec.select.i = zext i1 %6 to i64
   store i64 1, ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %spec.select.i, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %spec.select.i, ptr %8, align 8
   store i64 1, ptr %3, align 8
   %9 = call zeroext i1 @"_ZN70_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hca2ce06c7b5fa296E"(ptr nonnull align 8 %4, ptr nonnull align 8 %3)
@@ -171,9 +171,9 @@ define range(i64 0, 2) i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3
   %6 = icmp ne ptr %5, null
   %spec.select.i = zext i1 %6 to i64
   store i64 1, ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %spec.select.i, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %spec.select.i, ptr %8, align 8
   store i64 1, ptr %3, align 8
   %9 = call zeroext i1 @"_ZN70_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hca2ce06c7b5fa296E"(ptr nonnull align 8 %4, ptr nonnull align 8 %3)
@@ -197,9 +197,9 @@ define range(i64 0, 2) i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3
   %6 = icmp ne ptr %5, null
   %spec.select.i = zext i1 %6 to i64
   store i64 1, ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %spec.select.i, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %spec.select.i, ptr %8, align 8
   store i64 1, ptr %3, align 8
   %9 = call zeroext i1 @"_ZN70_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hca2ce06c7b5fa296E"(ptr nonnull align 8 %4, ptr nonnull align 8 %3)
@@ -218,8 +218,8 @@ define range(i64 0, 2) i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3
 define void @_ZN4core4iter6traits8iterator8Iterator4fold17h08b0c685899dd204E(ptr align 8 %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [32 x i8], align 8
   %4 = alloca [32 x i8], align 8
-  %.sroa.1.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 16
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %.sroa.1.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   br label %7
 
 .loopexit:                                        ; preds = %9
@@ -935,8 +935,8 @@ define void @_ZN4core4iter6traits8iterator8Iterator4fold17hf92fedc72e2fae60E(ptr
 define void @_ZN4core4iter6traits8iterator8Iterator4fold17hfcc42ca3f84f8190E(ptr align 8 %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [32 x i8], align 8
   %4 = alloca [32 x i8], align 8
-  %.sroa.1.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 16
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %.sroa.1.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   br label %7
 
 .loopexit:                                        ; preds = %9
@@ -1006,8 +1006,8 @@ define void @_ZN4core4iter6traits8iterator8Iterator8for_each17h02830764bb55a387E
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
-  %.sroa.1.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %0, i64 16
-  %6 = getelementptr inbounds i8, ptr %4, i64 16
+  %.sroa.1.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   br label %8
 
 .loopexit.i:                                      ; preds = %10
@@ -1576,8 +1576,8 @@ define void @_ZN4core4iter6traits8iterator8Iterator8for_each17h8f8b589f88c84c27E
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
-  %.sroa.1.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %0, i64 16
-  %6 = getelementptr inbounds i8, ptr %4, i64 16
+  %.sroa.1.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   br label %8
 
 .loopexit.i:                                      ; preds = %10
@@ -2468,13 +2468,13 @@ define void @"_ZN50_$LT$T$u20$as$u20$syn..parse_quote..ParseQuote$GT$5parse17h41
   %3 = alloca [24 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   %4 = load ptr, ptr %1, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i1 @"_ZN39_$LT$T$u20$as$u20$syn..token..Token$GT$4peek17h74a0974f855405e6E"(ptr %4, ptr %6)
   br i1 %7, label %10, label %8
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %9, align 8
   store i64 -9223372036854775808, ptr %0, align 8
   br label %"_ZN67_$LT$core..option..Option$LT$T$GT$$u20$as$u20$syn..parse..Parse$GT$5parse17h0fdce7ca510f5800E.exit"
@@ -2483,24 +2483,24 @@ define void @"_ZN50_$LT$T$u20$as$u20$syn..parse_quote..ParseQuote$GT$5parse17h41
   call void @"_ZN19pyo3_macros_backend10attributes2kw1_93_$LT$impl$u20$syn..parse..Parse$u20$for$u20$pyo3_macros_backend..attributes..kw..subclass$GT$5parse17hf82183fbfee94b23E"(ptr nonnull sret([24 x i8]) align 8 %3, ptr nonnull align 8 %1)
   %11 = load i64, ptr %3, align 8
   %12 = icmp eq i64 %11, -9223372036854775808
-  %13 = getelementptr inbounds i8, ptr %3, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %14 = load i32, ptr %13, align 8
   br i1 %12, label %15, label %18
 
 15:                                               ; preds = %10
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 1, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 12
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %14, ptr %17, align 4
   store i64 -9223372036854775808, ptr %0, align 8
   br label %"_ZN67_$LT$core..option..Option$LT$T$GT$$u20$as$u20$syn..parse..Parse$GT$5parse17h0fdce7ca510f5800E.exit"
 
 18:                                               ; preds = %10
-  %.sroa.316.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 12
+  %.sroa.316.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i64 %11, ptr %0, align 8
-  %.sroa.218.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.218.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %14, ptr %.sroa.218.0..sroa_idx.i, align 8
-  %.sroa.319.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 12
+  %.sroa.319.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.319.0..sroa_idx.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.316.0..sroa_idx.i, i64 12, i1 false)
   br label %"_ZN67_$LT$core..option..Option$LT$T$GT$$u20$as$u20$syn..parse..Parse$GT$5parse17h0fdce7ca510f5800E.exit"
 
@@ -2514,13 +2514,13 @@ define void @"_ZN50_$LT$T$u20$as$u20$syn..parse_quote..ParseQuote$GT$5parse17hbc
   %3 = alloca [24 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   %4 = load ptr, ptr %1, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i1 @"_ZN39_$LT$T$u20$as$u20$syn..token..Token$GT$4peek17h49cd30b809d85245E"(ptr %4, ptr %6)
   br i1 %7, label %10, label %8
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %9, align 8
   store i64 -9223372036854775808, ptr %0, align 8
   br label %"_ZN67_$LT$core..option..Option$LT$T$GT$$u20$as$u20$syn..parse..Parse$GT$5parse17h256ac300a82a9633E.exit"
@@ -2529,24 +2529,24 @@ define void @"_ZN50_$LT$T$u20$as$u20$syn..parse_quote..ParseQuote$GT$5parse17hbc
   call void @"_ZN19pyo3_macros_backend10attributes2kw1_91_$LT$impl$u20$syn..parse..Parse$u20$for$u20$pyo3_macros_backend..attributes..kw..frozen$GT$5parse17ha52f347d7ee82381E"(ptr nonnull sret([24 x i8]) align 8 %3, ptr nonnull align 8 %1)
   %11 = load i64, ptr %3, align 8
   %12 = icmp eq i64 %11, -9223372036854775808
-  %13 = getelementptr inbounds i8, ptr %3, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %14 = load i32, ptr %13, align 8
   br i1 %12, label %15, label %18
 
 15:                                               ; preds = %10
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 1, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 12
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %14, ptr %17, align 4
   store i64 -9223372036854775808, ptr %0, align 8
   br label %"_ZN67_$LT$core..option..Option$LT$T$GT$$u20$as$u20$syn..parse..Parse$GT$5parse17h256ac300a82a9633E.exit"
 
 18:                                               ; preds = %10
-  %.sroa.316.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 12
+  %.sroa.316.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i64 %11, ptr %0, align 8
-  %.sroa.218.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.218.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %14, ptr %.sroa.218.0..sroa_idx.i, align 8
-  %.sroa.319.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 12
+  %.sroa.319.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.319.0..sroa_idx.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.316.0..sroa_idx.i, i64 12, i1 false)
   br label %"_ZN67_$LT$core..option..Option$LT$T$GT$$u20$as$u20$syn..parse..Parse$GT$5parse17h256ac300a82a9633E.exit"
 
@@ -2558,7 +2558,7 @@ define void @"_ZN50_$LT$T$u20$as$u20$syn..parse_quote..ParseQuote$GT$5parse17hbc
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN52_$LT$$RF$T$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h013a5791902c4388E"(ptr nocapture readonly align 8 %0, ptr align 8 %1) unnamed_addr #1 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load i8, ptr %4, align 8
   %.not.i = icmp eq i8 %5, 3
   br i1 %.not.i, label %"_ZN76_$LT$core..option..Option$LT$T$GT$$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hcdf6585b8c90f2eaE.exit", label %6
@@ -2609,7 +2609,7 @@ define void @"_ZN52_$LT$$RF$T$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_token
   br i1 %5, label %6, label %"_ZN76_$LT$core..option..Option$LT$T$GT$$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h30c053119daab701E.exit"
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %3, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 4
   tail call void @"_ZN19pyo3_macros_backend10attributes2kw1_98_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$pyo3_macros_backend..attributes..kw..hash$GT$9to_tokens17hb0f9416de4791c4eE"(ptr nonnull align 4 %7, ptr align 8 %1)
   br label %"_ZN76_$LT$core..option..Option$LT$T$GT$$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h30c053119daab701E.exit"
 
@@ -2622,7 +2622,7 @@ define void @_ZN5quote9to_tokens8ToTokens15to_token_stream17h0a4f7e3a4d175758E(p
   %3 = alloca [32 x i8], align 8
   call void @_ZN11proc_macro211TokenStream3new17h9f9a9a6013abb6a8E(ptr nonnull sret([32 x i8]) align 8 %3)
   %4 = load ptr, ptr %1, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load i8, ptr %5, align 8
   %.not.i.i = icmp eq i8 %6, 3
   br i1 %.not.i.i, label %"_ZN52_$LT$$RF$T$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h013a5791902c4388E.exit", label %7
@@ -2751,7 +2751,7 @@ define void @_ZN5quote9to_tokens8ToTokens15to_token_stream17h5fa9a083b71b88e7E(p
   br i1 %6, label %7, label %"_ZN52_$LT$$RF$T$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hd1bd4250e36fdd29E.exit"
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %4, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 4
   invoke void @"_ZN19pyo3_macros_backend10attributes2kw1_98_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$pyo3_macros_backend..attributes..kw..hash$GT$9to_tokens17hb0f9416de4791c4eE"(ptr nonnull align 4 %8, ptr nonnull align 8 %3)
           to label %"_ZN52_$LT$$RF$T$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hd1bd4250e36fdd29E.exit" unwind label %9
 
@@ -2814,7 +2814,7 @@ define void @_ZN5quote9to_tokens8ToTokens17into_token_stream17h242f383c034a0a1fE
   br i1 %5, label %6, label %_ZN5quote9to_tokens8ToTokens15to_token_stream17h5fa9a083b71b88e7E.exit
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %1, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
   invoke void @"_ZN19pyo3_macros_backend10attributes2kw1_98_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$pyo3_macros_backend..attributes..kw..hash$GT$9to_tokens17hb0f9416de4791c4eE"(ptr nonnull align 4 %7, ptr nonnull align 8 %3)
           to label %_ZN5quote9to_tokens8ToTokens15to_token_stream17h5fa9a083b71b88e7E.exit unwind label %8
 
@@ -2844,7 +2844,7 @@ define void @_ZN5quote9to_tokens8ToTokens17into_token_stream17h6de0d16466e60b9fE
   %3 = alloca [32 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   call void @_ZN11proc_macro211TokenStream3new17h9f9a9a6013abb6a8E(ptr nonnull sret([32 x i8]) align 8 %3)
-  %4 = getelementptr inbounds i8, ptr %1, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i8, ptr %4, align 8
   %.not.i.i.i = icmp eq i8 %5, 3
   br i1 %.not.i.i.i, label %_ZN5quote9to_tokens8ToTokens15to_token_stream17h0a4f7e3a4d175758E.exit, label %6
@@ -2949,13 +2949,13 @@ define void @"_ZN60_$LT$$RF$mut$u20$T$u20$as$u20$quote..to_tokens..ToTokens$GT$9
 define void @"_ZN67_$LT$core..option..Option$LT$T$GT$$u20$as$u20$syn..parse..Parse$GT$5parse17h0fdce7ca510f5800E"(ptr nocapture writeonly sret([24 x i8]) align 8 initializes((0, 12)) %0, ptr align 8 %1) unnamed_addr #1 {
   %3 = alloca [24 x i8], align 8
   %4 = load ptr, ptr %1, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i1 @"_ZN39_$LT$T$u20$as$u20$syn..token..Token$GT$4peek17h74a0974f855405e6E"(ptr %4, ptr %6)
   br i1 %7, label %10, label %8
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %9, align 8
   store i64 -9223372036854775808, ptr %0, align 8
   br label %15
@@ -2964,7 +2964,7 @@ define void @"_ZN67_$LT$core..option..Option$LT$T$GT$$u20$as$u20$syn..parse..Par
   call void @"_ZN19pyo3_macros_backend10attributes2kw1_93_$LT$impl$u20$syn..parse..Parse$u20$for$u20$pyo3_macros_backend..attributes..kw..subclass$GT$5parse17hf82183fbfee94b23E"(ptr nonnull sret([24 x i8]) align 8 %3, ptr nonnull align 8 %1)
   %11 = load i64, ptr %3, align 8
   %12 = icmp eq i64 %11, -9223372036854775808
-  %13 = getelementptr inbounds i8, ptr %3, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %14 = load i32, ptr %13, align 8
   br i1 %12, label %16, label %19
 
@@ -2972,19 +2972,19 @@ define void @"_ZN67_$LT$core..option..Option$LT$T$GT$$u20$as$u20$syn..parse..Par
   ret void
 
 16:                                               ; preds = %10
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 1, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 12
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %14, ptr %18, align 4
   store i64 -9223372036854775808, ptr %0, align 8
   br label %15
 
 19:                                               ; preds = %10
-  %.sroa.316.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 12
+  %.sroa.316.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i64 %11, ptr %0, align 8
-  %.sroa.218.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.218.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %14, ptr %.sroa.218.0..sroa_idx, align 8
-  %.sroa.319.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 12
+  %.sroa.319.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.319.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.316.0..sroa_idx, i64 12, i1 false)
   br label %15
 }
@@ -2993,13 +2993,13 @@ define void @"_ZN67_$LT$core..option..Option$LT$T$GT$$u20$as$u20$syn..parse..Par
 define void @"_ZN67_$LT$core..option..Option$LT$T$GT$$u20$as$u20$syn..parse..Parse$GT$5parse17h256ac300a82a9633E"(ptr nocapture writeonly sret([24 x i8]) align 8 initializes((0, 12)) %0, ptr align 8 %1) unnamed_addr #1 {
   %3 = alloca [24 x i8], align 8
   %4 = load ptr, ptr %1, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i1 @"_ZN39_$LT$T$u20$as$u20$syn..token..Token$GT$4peek17h49cd30b809d85245E"(ptr %4, ptr %6)
   br i1 %7, label %10, label %8
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %9, align 8
   store i64 -9223372036854775808, ptr %0, align 8
   br label %15
@@ -3008,7 +3008,7 @@ define void @"_ZN67_$LT$core..option..Option$LT$T$GT$$u20$as$u20$syn..parse..Par
   call void @"_ZN19pyo3_macros_backend10attributes2kw1_91_$LT$impl$u20$syn..parse..Parse$u20$for$u20$pyo3_macros_backend..attributes..kw..frozen$GT$5parse17ha52f347d7ee82381E"(ptr nonnull sret([24 x i8]) align 8 %3, ptr nonnull align 8 %1)
   %11 = load i64, ptr %3, align 8
   %12 = icmp eq i64 %11, -9223372036854775808
-  %13 = getelementptr inbounds i8, ptr %3, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %14 = load i32, ptr %13, align 8
   br i1 %12, label %16, label %19
 
@@ -3016,19 +3016,19 @@ define void @"_ZN67_$LT$core..option..Option$LT$T$GT$$u20$as$u20$syn..parse..Par
   ret void
 
 16:                                               ; preds = %10
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 1, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 12
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %14, ptr %18, align 4
   store i64 -9223372036854775808, ptr %0, align 8
   br label %15
 
 19:                                               ; preds = %10
-  %.sroa.316.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 12
+  %.sroa.316.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i64 %11, ptr %0, align 8
-  %.sroa.218.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.218.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %14, ptr %.sroa.218.0..sroa_idx, align 8
-  %.sroa.319.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 12
+  %.sroa.319.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.319.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.316.0..sroa_idx, i64 12, i1 false)
   br label %15
 }
@@ -3070,13 +3070,13 @@ define void @"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Cl
   %14 = landingpad { ptr, i32 }
           cleanup
   store ptr %.sroa.0.0, ptr %0, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.sroa.4.0, ptr %15, align 8
   resume { ptr, i32 } %14
 
 16:                                               ; preds = %.thread
   store ptr %.sroa.0.0, ptr %0, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.sroa.4.0, ptr %17, align 8
   br label %8
 }
@@ -3130,7 +3130,7 @@ define void @"_ZN76_$LT$core..option..Option$LT$T$GT$$u20$as$u20$quote..to_token
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   tail call void @"_ZN19pyo3_macros_backend10attributes2kw1_98_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$pyo3_macros_backend..attributes..kw..hash$GT$9to_tokens17hb0f9416de4791c4eE"(ptr nonnull align 4 %6, ptr align 8 %1)
   br label %7
 
@@ -3168,7 +3168,7 @@ define void @"_ZN76_$LT$core..option..Option$LT$T$GT$$u20$as$u20$quote..to_token
 
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN76_$LT$core..option..Option$LT$T$GT$$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hcdf6585b8c90f2eaE"(ptr align 8 %0, ptr align 8 %1) unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i8, ptr %3, align 8
   %.not = icmp eq i8 %4, 3
   br i1 %.not, label %6, label %5
@@ -3219,7 +3219,7 @@ define void @"_ZN90_$LT$core..option..IntoIter$LT$A$GT$$u20$as$u20$core..iter..t
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define void @"_ZN90_$LT$core..option..IntoIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h88bd0c309614ea30E"(ptr nocapture writeonly sret([32 x i8]) align 8 initializes((0, 32)) %0, ptr nocapture align 8 %1) unnamed_addr #2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
-  %.sroa.1.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 16
+  %.sroa.1.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i8 3, ptr %.sroa.1.0..sroa_idx, align 8
   ret void
 }
@@ -3234,7 +3234,7 @@ define void @"_ZN90_$LT$core..option..IntoIter$LT$A$GT$$u20$as$u20$core..iter..t
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define void @"_ZN90_$LT$core..option..IntoIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9932d2a642c197eaE"(ptr nocapture writeonly sret([32 x i8]) align 8 initializes((0, 32)) %0, ptr nocapture align 8 %1) unnamed_addr #2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
-  %.sroa.1.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 16
+  %.sroa.1.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i8 5, ptr %.sroa.1.0..sroa_idx, align 8
   ret void
 }
@@ -3280,9 +3280,9 @@ define void @"_ZN90_$LT$core..option..IntoIter$LT$A$GT$$u20$as$u20$core..iter..t
   %4 = icmp ne ptr %3, null
   %spec.select = zext i1 %4 to i64
   store i64 %spec.select, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 1, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %spec.select, ptr %6, align 8
   ret void
 }
@@ -3293,9 +3293,9 @@ define void @"_ZN90_$LT$core..option..IntoIter$LT$A$GT$$u20$as$u20$core..iter..t
   %4 = icmp ne ptr %3, null
   %spec.select = zext i1 %4 to i64
   store i64 %spec.select, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 1, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %spec.select, ptr %6, align 8
   ret void
 }
@@ -3306,9 +3306,9 @@ define void @"_ZN90_$LT$core..option..IntoIter$LT$A$GT$$u20$as$u20$core..iter..t
   %4 = icmp ne i64 %3, -9223372036854775806
   %spec.select = zext i1 %4 to i64
   store i64 %spec.select, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 1, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %spec.select, ptr %6, align 8
   ret void
 }
@@ -3319,9 +3319,9 @@ define void @"_ZN90_$LT$core..option..IntoIter$LT$A$GT$$u20$as$u20$core..iter..t
   %4 = icmp ne i64 %3, -9223372036854775808
   %spec.select = zext i1 %4 to i64
   store i64 %spec.select, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 1, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %spec.select, ptr %6, align 8
   ret void
 }
@@ -3332,9 +3332,9 @@ define void @"_ZN90_$LT$core..option..IntoIter$LT$A$GT$$u20$as$u20$core..iter..t
   %4 = icmp ne i64 %3, -9223372036854775807
   %spec.select = zext i1 %4 to i64
   store i64 %spec.select, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 1, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %spec.select, ptr %6, align 8
   ret void
 }
@@ -3345,9 +3345,9 @@ define void @"_ZN90_$LT$core..option..IntoIter$LT$A$GT$$u20$as$u20$core..iter..t
   %4 = icmp ne i64 %3, -9223372036854775807
   %spec.select = zext i1 %4 to i64
   store i64 %spec.select, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 1, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %spec.select, ptr %6, align 8
   ret void
 }
@@ -3358,9 +3358,9 @@ define void @"_ZN90_$LT$core..option..IntoIter$LT$A$GT$$u20$as$u20$core..iter..t
   %4 = icmp ne ptr %3, null
   %spec.select = zext i1 %4 to i64
   store i64 %spec.select, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 1, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %spec.select, ptr %6, align 8
   ret void
 }
@@ -3371,9 +3371,9 @@ define void @"_ZN90_$LT$core..option..IntoIter$LT$A$GT$$u20$as$u20$core..iter..t
   %4 = icmp ne i64 %3, -9223372036854775807
   %spec.select = zext i1 %4 to i64
   store i64 %spec.select, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 1, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %spec.select, ptr %6, align 8
   ret void
 }
@@ -3384,9 +3384,9 @@ define void @"_ZN90_$LT$core..option..IntoIter$LT$A$GT$$u20$as$u20$core..iter..t
   %4 = icmp ne ptr %3, null
   %spec.select = zext i1 %4 to i64
   store i64 %spec.select, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 1, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %spec.select, ptr %6, align 8
   ret void
 }
@@ -3397,9 +3397,9 @@ define void @"_ZN90_$LT$core..option..IntoIter$LT$A$GT$$u20$as$u20$core..iter..t
   %4 = icmp ne ptr %3, null
   %spec.select = zext i1 %4 to i64
   store i64 %spec.select, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 1, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %spec.select, ptr %6, align 8
   ret void
 }
@@ -3410,9 +3410,9 @@ define void @"_ZN90_$LT$core..option..IntoIter$LT$A$GT$$u20$as$u20$core..iter..t
   %4 = icmp ne i64 %3, -9223372036854775807
   %spec.select = zext i1 %4 to i64
   store i64 %spec.select, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 1, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %spec.select, ptr %6, align 8
   ret void
 }
@@ -3423,9 +3423,9 @@ define void @"_ZN90_$LT$core..option..IntoIter$LT$A$GT$$u20$as$u20$core..iter..t
   %4 = icmp ne ptr %3, null
   %spec.select = zext i1 %4 to i64
   store i64 %spec.select, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 1, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %spec.select, ptr %6, align 8
   ret void
 }
@@ -3436,9 +3436,9 @@ define void @"_ZN90_$LT$core..option..IntoIter$LT$A$GT$$u20$as$u20$core..iter..t
   %4 = icmp ne i64 %3, -9223372036854775807
   %spec.select = zext i1 %4 to i64
   store i64 %spec.select, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 1, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %spec.select, ptr %6, align 8
   ret void
 }
@@ -3449,23 +3449,23 @@ define void @"_ZN90_$LT$core..option..IntoIter$LT$A$GT$$u20$as$u20$core..iter..t
   %4 = icmp ne i32 %3, 19
   %spec.select = zext i1 %4 to i64
   store i64 %spec.select, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 1, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %spec.select, ptr %6, align 8
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define void @"_ZN90_$LT$core..option..IntoIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hd63766f6b0ea6483E"(ptr nocapture writeonly sret([24 x i8]) align 8 initializes((0, 24)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i8, ptr %3, align 8
   %5 = icmp ne i8 %4, 5
   %spec.select = zext i1 %5 to i64
   store i64 %spec.select, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 1, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %spec.select, ptr %7, align 8
   ret void
 }
@@ -3476,9 +3476,9 @@ define void @"_ZN90_$LT$core..option..IntoIter$LT$A$GT$$u20$as$u20$core..iter..t
   %4 = icmp ne ptr %3, null
   %spec.select = zext i1 %4 to i64
   store i64 %spec.select, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 1, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %spec.select, ptr %6, align 8
   ret void
 }
@@ -3489,9 +3489,9 @@ define void @"_ZN90_$LT$core..option..IntoIter$LT$A$GT$$u20$as$u20$core..iter..t
   %4 = icmp ne ptr %3, null
   %spec.select = zext i1 %4 to i64
   store i64 %spec.select, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 1, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %spec.select, ptr %6, align 8
   ret void
 }
@@ -3502,9 +3502,9 @@ define void @"_ZN90_$LT$core..option..IntoIter$LT$A$GT$$u20$as$u20$core..iter..t
   %4 = icmp ne i32 %3, 5
   %spec.select = zext i1 %4 to i64
   store i64 %spec.select, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 1, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %spec.select, ptr %6, align 8
   ret void
 }
@@ -3515,23 +3515,23 @@ define void @"_ZN90_$LT$core..option..IntoIter$LT$A$GT$$u20$as$u20$core..iter..t
   %4 = icmp ne i64 %3, -9223372036854775805
   %spec.select = zext i1 %4 to i64
   store i64 %spec.select, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 1, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %spec.select, ptr %6, align 8
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define void @"_ZN90_$LT$core..option..IntoIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hee960361f1fb0576E"(ptr nocapture writeonly sret([24 x i8]) align 8 initializes((0, 24)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i8, ptr %3, align 8
   %5 = icmp ne i8 %4, 3
   %spec.select = zext i1 %5 to i64
   store i64 %spec.select, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 1, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %spec.select, ptr %7, align 8
   ret void
 }

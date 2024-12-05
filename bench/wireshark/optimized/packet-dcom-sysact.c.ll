@@ -398,9 +398,9 @@ define internal i32 @dissect_dcom_ActivationProperties(ptr noundef %0, i32 nound
   %20 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %18, ptr noundef %4, ptr noundef %5, i32 noundef %19, ptr noundef nonnull %13) #5
   %21 = load i32, ptr @hf_sysact_res, align 4
   %22 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %18, ptr noundef %4, ptr noundef %5, i32 noundef %21, ptr noundef nonnull %14) #5
-  %23 = getelementptr inbounds i8, ptr %4, i64 88
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 88
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %2, i64 408
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %26 = load ptr, ptr %25, align 8
   %27 = call noalias ptr @wmem_alloc0(ptr noundef %26, i64 noundef 208) #5
   store ptr %27, ptr %23, align 8
@@ -438,9 +438,9 @@ define internal i32 @dissect_dcom_ActivationProperties(ptr noundef %0, i32 nound
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   %51 = load ptr, ptr %23, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 200
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 200
   %53 = load i32, ptr %52, align 4
-  %54 = getelementptr inbounds i8, ptr %51, i64 204
+  %54 = getelementptr inbounds nuw i8, ptr %51, i64 204
   %55 = load i32, ptr %54, align 4
   %..i = call i32 @llvm.umin.i32(i32 %53, i32 %55)
   %56 = load i32, ptr @ett_properties, align 4
@@ -449,7 +449,7 @@ define internal i32 @dissect_dcom_ActivationProperties(ptr noundef %0, i32 nound
   br i1 %.not.i, label %dissect_dcom_ActivationPropertiesBody.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %7
-  %58 = getelementptr inbounds i8, ptr %51, i64 160
+  %58 = getelementptr inbounds nuw i8, ptr %51, i64 160
   %wide.trip.count.i = zext i32 %..i to i64
   br label %59
 
@@ -897,9 +897,9 @@ declare i32 @dissect_ndr_ucarray(ptr noundef, i32 noundef, ptr noundef, ptr noun
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_dcom_Property_Guid(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 88
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 88
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 200
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 200
   %10 = load i32, ptr %9, align 4
   %11 = icmp ult i32 %10, 10
   br i1 %11, label %12, label %18
@@ -927,16 +927,16 @@ declare void @tvb_ensure_bytes_exist(ptr noundef, i32 noundef, i32 noundef) loca
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_dcom_Property_Size(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 88
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 88
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 204
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 204
   %10 = load i32, ptr %9, align 4
   %11 = icmp ult i32 %10, 10
   br i1 %11, label %12, label %19
 
 12:                                               ; preds = %6
   %13 = load i32, ptr @hf_sysact_actpropsize, align 4
-  %14 = getelementptr inbounds i8, ptr %8, i64 160
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 160
   %15 = add nuw nsw i32 %10, 1
   store i32 %15, ptr %9, align 4
   %16 = zext nneg i32 %10 to i64
@@ -973,7 +973,7 @@ define internal i32 @dissect_dcom_InterfaceId(ptr noundef %0, i32 noundef %1, pt
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_ActCtxInfo_CltCtx(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 28
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %8 = load i32, ptr %7, align 4
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %9, label %12
@@ -997,7 +997,7 @@ declare i32 @dissect_dcom_MInterfacePointer(ptr noundef, i32 noundef, ptr nounde
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_dcom_SI_ServerInfo(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 28
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %8 = load i32, ptr %7, align 4
   %.not.i = icmp eq i32 %8, 0
   br i1 %.not.i, label %9, label %dissect_dcom_COSERVERINFO.exit
@@ -1029,7 +1029,7 @@ declare i32 @dissect_ndr_wchar_cvstring(ptr noundef, i32 noundef, ptr noundef, p
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_dcom_customREMOTE_REQUEST_SCM_INFO(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 28
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %9 = load i32, ptr %8, align 4
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %10, label %21
@@ -1115,7 +1115,7 @@ define internal i32 @dissect_OneInterfData(ptr noundef %0, i32 noundef %1, ptr n
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_dcom_customREMOTE_REPLY_SCM_INFO(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 28
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %9 = load i32, ptr %8, align 4
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %10, label %24
@@ -1147,7 +1147,7 @@ declare i32 @dissect_ndr_duint32(ptr noundef, i32 noundef, ptr noundef, ptr noun
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_dcom_OxidBindings(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 28
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %9 = load i32, ptr %8, align 4
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %10, label %18

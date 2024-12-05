@@ -46,7 +46,7 @@ define internal ptr @hwloc_opencl_component_instantiate(ptr noundef %0, ptr noun
   br i1 %.not, label %10, label %8
 
 8:                                                ; preds = %6
-  %9 = getelementptr inbounds i8, ptr %7, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 64
   store ptr @hwloc_opencl_discover, ptr %9, align 8
   br label %10
 
@@ -71,7 +71,7 @@ define internal range(i32 -1, 1) i32 @hwloc_opencl_discover(ptr nocapture nounde
   %13 = alloca i64, align 8
   %14 = alloca i32, align 4
   %15 = alloca [64 x i8], align 16
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call i32 @hwloc_topology_get_type_filter(ptr noundef %17, i32 noundef 16, ptr noundef nonnull %8) #9
   %19 = load i32, ptr %8, align 4
@@ -118,12 +118,12 @@ define internal range(i32 -1, 1) i32 @hwloc_opencl_discover(ptr nocapture nounde
   br i1 %or.cond5, label %.lr.ph164, label %48
 
 .lr.ph164:                                        ; preds = %37
-  %42 = getelementptr inbounds i8, ptr %3, i64 21
-  %43 = getelementptr inbounds i8, ptr %3, i64 22
-  %44 = getelementptr inbounds i8, ptr %3, i64 23
-  %45 = getelementptr inbounds i8, ptr %4, i64 4
-  %46 = getelementptr inbounds i8, ptr %4, i64 8
-  %47 = getelementptr inbounds i8, ptr %4, i64 12
+  %42 = getelementptr inbounds nuw i8, ptr %3, i64 21
+  %43 = getelementptr inbounds nuw i8, ptr %3, i64 22
+  %44 = getelementptr inbounds nuw i8, ptr %3, i64 23
+  %45 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %46 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %4, i64 12
   br label %49
 
 48:                                               ; preds = %37
@@ -133,7 +133,7 @@ define internal range(i32 -1, 1) i32 @hwloc_opencl_discover(ptr nocapture nounde
 49:                                               ; preds = %.lr.ph164, %192
   %indvars.iv170 = phi i64 [ 0, %.lr.ph164 ], [ %indvars.iv.next171, %192 ]
   %.088163 = phi i32 [ 0, %.lr.ph164 ], [ %.189, %192 ]
-  %50 = getelementptr inbounds ptr, ptr %36, i64 %indvars.iv170
+  %50 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv170
   %51 = load ptr, ptr %50, align 8
   %52 = call i32 @clGetDeviceIDs(ptr noundef %51, i64 noundef 4294967295, i32 noundef 0, ptr noundef null, ptr noundef nonnull %10) #9
   %.not96 = icmp eq i32 %52, 0
@@ -164,7 +164,7 @@ define internal range(i32 -1, 1) i32 @hwloc_opencl_discover(ptr nocapture nounde
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %188 ]
   %.2160 = phi i32 [ %.088163, %.lr.ph.preheader ], [ %.3, %188 ]
   store ptr null, ptr %11, align 8
-  %63 = getelementptr inbounds ptr, ptr %57, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw ptr, ptr %57, i64 %indvars.iv
   %64 = load ptr, ptr %63, align 8
   %65 = call i32 @clGetDeviceInfo(ptr noundef %64, i32 noundef 4096, i64 noundef 8, ptr noundef nonnull %12, ptr noundef null) #9
   %66 = load i64, ptr %12, align 8
@@ -178,12 +178,12 @@ define internal range(i32 -1, 1) i32 @hwloc_opencl_discover(ptr nocapture nounde
   %71 = trunc nuw i64 %indvars.iv to i32
   %72 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %15, i64 noundef 64, ptr noundef nonnull @.str.5, i32 noundef %62, i32 noundef %71) #9
   %73 = call noalias ptr @strdup(ptr noundef nonnull %15) #9
-  %74 = getelementptr inbounds i8, ptr %70, i64 24
+  %74 = getelementptr inbounds nuw i8, ptr %70, i64 24
   store ptr %73, ptr %74, align 8
-  %75 = getelementptr inbounds i8, ptr %70, i64 48
+  %75 = getelementptr inbounds nuw i8, ptr %70, i64 48
   store i32 -1, ptr %75, align 8
   %76 = call noalias dereferenceable_or_null(7) ptr @strdup(ptr noundef nonnull @.str.6) #9
-  %77 = getelementptr inbounds i8, ptr %70, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %70, i64 8
   store ptr %76, ptr %77, align 8
   %78 = load i64, ptr %12, align 8
   %79 = and i64 %78, 4
@@ -191,9 +191,9 @@ define internal range(i32 -1, 1) i32 @hwloc_opencl_discover(ptr nocapture nounde
   br i1 %.not99, label %85, label %80
 
 80:                                               ; preds = %69
-  %81 = getelementptr inbounds i8, ptr %70, i64 216
+  %81 = getelementptr inbounds nuw i8, ptr %70, i64 216
   %82 = call i32 @hwloc_modify_infos(ptr noundef nonnull %81, i64 noundef 1, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8) #9
-  %83 = getelementptr inbounds i8, ptr %70, i64 40
+  %83 = getelementptr inbounds nuw i8, ptr %70, i64 40
   %84 = load ptr, ptr %83, align 8
   store i64 12, ptr %84, align 8
   br label %102
@@ -204,9 +204,9 @@ define internal range(i32 -1, 1) i32 @hwloc_opencl_discover(ptr nocapture nounde
   br i1 %.not100, label %92, label %87
 
 87:                                               ; preds = %85
-  %88 = getelementptr inbounds i8, ptr %70, i64 216
+  %88 = getelementptr inbounds nuw i8, ptr %70, i64 216
   %89 = call i32 @hwloc_modify_infos(ptr noundef nonnull %88, i64 noundef 1, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.9) #9
-  %90 = getelementptr inbounds i8, ptr %70, i64 40
+  %90 = getelementptr inbounds nuw i8, ptr %70, i64 40
   %91 = load ptr, ptr %90, align 8
   store i64 8, ptr %91, align 8
   br label %102
@@ -214,8 +214,8 @@ define internal range(i32 -1, 1) i32 @hwloc_opencl_discover(ptr nocapture nounde
 92:                                               ; preds = %85
   %93 = and i64 %78, 16
   %.not101 = icmp eq i64 %93, 0
-  %94 = getelementptr inbounds i8, ptr %70, i64 216
-  %95 = getelementptr inbounds i8, ptr %70, i64 40
+  %94 = getelementptr inbounds nuw i8, ptr %70, i64 216
+  %95 = getelementptr inbounds nuw i8, ptr %70, i64 40
   br i1 %.not101, label %99, label %96
 
 96:                                               ; preds = %92
@@ -239,7 +239,7 @@ define internal range(i32 -1, 1) i32 @hwloc_opencl_discover(ptr nocapture nounde
   br i1 %.not102, label %109, label %106
 
 106:                                              ; preds = %102
-  %107 = getelementptr inbounds i8, ptr %70, i64 216
+  %107 = getelementptr inbounds nuw i8, ptr %70, i64 216
   %108 = call i32 @hwloc_modify_infos(ptr noundef nonnull %107, i64 noundef 1, ptr noundef nonnull @.str.12, ptr noundef nonnull %15) #9
   br label %109
 
@@ -261,13 +261,13 @@ define internal range(i32 -1, 1) i32 @hwloc_opencl_discover(ptr nocapture nounde
   br i1 %.not103, label %120, label %.thread
 
 .thread:                                          ; preds = %109, %115
-  %118 = getelementptr inbounds i8, ptr %70, i64 216
+  %118 = getelementptr inbounds nuw i8, ptr %70, i64 216
   %119 = call i32 @hwloc_modify_infos(ptr noundef nonnull %118, i64 noundef 1, ptr noundef nonnull @.str.13, ptr noundef nonnull %15) #9
   br label %120
 
 120:                                              ; preds = %.thread, %115
   %121 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %15, i64 noundef 64, ptr noundef nonnull @.str.14, i32 noundef %62) #9
-  %122 = getelementptr inbounds i8, ptr %70, i64 216
+  %122 = getelementptr inbounds nuw i8, ptr %70, i64 216
   %123 = call i32 @hwloc_modify_infos(ptr noundef nonnull %122, i64 noundef 1, ptr noundef nonnull @.str.15, ptr noundef nonnull %15) #9
   store i8 0, ptr %15, align 16
   %124 = load ptr, ptr %63, align 8

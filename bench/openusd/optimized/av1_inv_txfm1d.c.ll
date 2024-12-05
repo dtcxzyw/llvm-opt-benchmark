@@ -15,22 +15,22 @@ define hidden void @av1_idct4(ptr noundef %0, ptr noundef initializes((0, 16)) %
   %9 = getelementptr inbounds [7 x [64 x i32]], ptr @av1_cospi_arr_data, i64 0, i64 %8
   %10 = load i32, ptr %0, align 4
   store i32 %10, ptr %1, align 4
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load i32, ptr %11, align 4
-  %13 = getelementptr inbounds i8, ptr %1, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 %12, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %0, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %15 = load i32, ptr %14, align 4
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %15, ptr %16, align 4
-  %17 = getelementptr inbounds i8, ptr %0, i64 12
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %18 = load i32, ptr %17, align 4
-  %19 = getelementptr inbounds i8, ptr %1, i64 12
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 %18, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %3, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %21 = load i8, ptr %20, align 1
   tail call void @av1_range_check_buf(i32 noundef 1, ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef 4, i8 noundef signext %21) #5
-  %22 = getelementptr inbounds i8, ptr %9, i64 128
+  %22 = getelementptr inbounds nuw i8, ptr %9, i64 128
   %23 = load i32, ptr %22, align 16
   %24 = load i32, ptr %1, align 4
   %25 = load i32, ptr %13, align 4
@@ -52,12 +52,12 @@ define hidden void @av1_idct4(ptr noundef %0, ptr noundef initializes((0, 16)) %
   %40 = add i64 %33, %39
   %41 = ashr i64 %40, %35
   %42 = trunc i64 %41 to i32
-  %43 = getelementptr inbounds i8, ptr %5, i64 4
+  %43 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %42, ptr %43, align 4
-  %44 = getelementptr inbounds i8, ptr %9, i64 192
+  %44 = getelementptr inbounds nuw i8, ptr %9, i64 192
   %45 = load i32, ptr %44, align 16
   %46 = load i32, ptr %16, align 4
-  %47 = getelementptr inbounds i8, ptr %9, i64 64
+  %47 = getelementptr inbounds nuw i8, ptr %9, i64 64
   %48 = load i32, ptr %47, align 16
   %49 = load i32, ptr %19, align 4
   %50 = mul nsw i32 %46, %45
@@ -69,7 +69,7 @@ define hidden void @av1_idct4(ptr noundef %0, ptr noundef initializes((0, 16)) %
   %56 = add i64 %55, %54
   %57 = ashr i64 %56, %35
   %58 = trunc i64 %57 to i32
-  %59 = getelementptr inbounds i8, ptr %5, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %58, ptr %59, align 8
   %60 = mul nsw i32 %48, %46
   %61 = sext i32 %60 to i64
@@ -79,15 +79,15 @@ define hidden void @av1_idct4(ptr noundef %0, ptr noundef initializes((0, 16)) %
   %65 = add i64 %64, %63
   %66 = ashr i64 %65, %35
   %67 = trunc i64 %66 to i32
-  %68 = getelementptr inbounds i8, ptr %5, i64 12
+  %68 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 %67, ptr %68, align 4
-  %69 = getelementptr inbounds i8, ptr %3, i64 2
+  %69 = getelementptr inbounds nuw i8, ptr %3, i64 2
   %70 = load i8, ptr %69, align 1
   call void @av1_range_check_buf(i32 noundef 2, ptr noundef nonnull %0, ptr noundef nonnull %5, i32 noundef 4, i8 noundef signext %70) #5
   %71 = load i32, ptr %5, align 16
   %72 = load i32, ptr %68, align 4
   %73 = add nsw i32 %72, %71
-  %74 = getelementptr inbounds i8, ptr %3, i64 3
+  %74 = getelementptr inbounds nuw i8, ptr %3, i64 3
   %75 = load i8, ptr %74, align 1
   %76 = icmp slt i8 %75, 1
   br i1 %76, label %clamp_value.exit, label %77
@@ -191,52 +191,52 @@ define hidden void @av1_idct8(ptr noundef %0, ptr noundef initializes((0, 32)) %
   %9 = getelementptr inbounds [7 x [64 x i32]], ptr @av1_cospi_arr_data, i64 0, i64 %8
   %10 = load i32, ptr %0, align 4
   store i32 %10, ptr %1, align 4
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load i32, ptr %11, align 4
-  %13 = getelementptr inbounds i8, ptr %1, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 %12, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load i32, ptr %14, align 4
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %15, ptr %16, align 4
-  %17 = getelementptr inbounds i8, ptr %0, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %18 = load i32, ptr %17, align 4
-  %19 = getelementptr inbounds i8, ptr %1, i64 12
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 %18, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %0, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %21 = load i32, ptr %20, align 4
-  %22 = getelementptr inbounds i8, ptr %1, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i32 %21, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %0, i64 20
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %24 = load i32, ptr %23, align 4
-  %25 = getelementptr inbounds i8, ptr %1, i64 20
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 20
   store i32 %24, ptr %25, align 4
-  %26 = getelementptr inbounds i8, ptr %0, i64 12
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %27 = load i32, ptr %26, align 4
-  %28 = getelementptr inbounds i8, ptr %1, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i32 %27, ptr %28, align 4
-  %29 = getelementptr inbounds i8, ptr %0, i64 28
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %30 = load i32, ptr %29, align 4
-  %31 = getelementptr inbounds i8, ptr %1, i64 28
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 28
   store i32 %30, ptr %31, align 4
-  %32 = getelementptr inbounds i8, ptr %3, i64 1
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %33 = load i8, ptr %32, align 1
   tail call void @av1_range_check_buf(i32 noundef 1, ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef 8, i8 noundef signext %33) #5
   %34 = load i32, ptr %1, align 4
   store i32 %34, ptr %5, align 16
   %35 = load i32, ptr %13, align 4
-  %36 = getelementptr inbounds i8, ptr %5, i64 4
+  %36 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %35, ptr %36, align 4
   %37 = load i32, ptr %16, align 4
-  %38 = getelementptr inbounds i8, ptr %5, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %37, ptr %38, align 8
   %39 = load i32, ptr %19, align 4
-  %40 = getelementptr inbounds i8, ptr %5, i64 12
+  %40 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 %39, ptr %40, align 4
-  %41 = getelementptr inbounds i8, ptr %9, i64 224
+  %41 = getelementptr inbounds nuw i8, ptr %9, i64 224
   %42 = load i32, ptr %41, align 16
   %43 = load i32, ptr %22, align 4
-  %44 = getelementptr inbounds i8, ptr %9, i64 32
+  %44 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %45 = load i32, ptr %44, align 16
   %46 = load i32, ptr %31, align 4
   %47 = mul nsw i32 %43, %42
@@ -252,12 +252,12 @@ define hidden void @av1_idct8(ptr noundef %0, ptr noundef initializes((0, 32)) %
   %57 = zext nneg i32 %6 to i64
   %58 = ashr i64 %56, %57
   %59 = trunc i64 %58 to i32
-  %60 = getelementptr inbounds i8, ptr %5, i64 16
+  %60 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 %59, ptr %60, align 16
-  %61 = getelementptr inbounds i8, ptr %9, i64 96
+  %61 = getelementptr inbounds nuw i8, ptr %9, i64 96
   %62 = load i32, ptr %61, align 16
   %63 = load i32, ptr %25, align 4
-  %64 = getelementptr inbounds i8, ptr %9, i64 160
+  %64 = getelementptr inbounds nuw i8, ptr %9, i64 160
   %65 = load i32, ptr %64, align 16
   %66 = load i32, ptr %28, align 4
   %67 = mul nsw i32 %63, %62
@@ -269,7 +269,7 @@ define hidden void @av1_idct8(ptr noundef %0, ptr noundef initializes((0, 32)) %
   %73 = add i64 %72, %71
   %74 = ashr i64 %73, %57
   %75 = trunc i64 %74 to i32
-  %76 = getelementptr inbounds i8, ptr %5, i64 20
+  %76 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i32 %75, ptr %76, align 4
   %77 = mul nsw i32 %65, %63
   %78 = sext i32 %77 to i64
@@ -279,7 +279,7 @@ define hidden void @av1_idct8(ptr noundef %0, ptr noundef initializes((0, 32)) %
   %82 = add i64 %81, %80
   %83 = ashr i64 %82, %57
   %84 = trunc i64 %83 to i32
-  %85 = getelementptr inbounds i8, ptr %5, i64 24
+  %85 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i32 %84, ptr %85, align 8
   %86 = mul nsw i32 %45, %43
   %87 = sext i32 %86 to i64
@@ -289,12 +289,12 @@ define hidden void @av1_idct8(ptr noundef %0, ptr noundef initializes((0, 32)) %
   %91 = add i64 %90, %89
   %92 = ashr i64 %91, %57
   %93 = trunc i64 %92 to i32
-  %94 = getelementptr inbounds i8, ptr %5, i64 28
+  %94 = getelementptr inbounds nuw i8, ptr %5, i64 28
   store i32 %93, ptr %94, align 4
-  %95 = getelementptr inbounds i8, ptr %3, i64 2
+  %95 = getelementptr inbounds nuw i8, ptr %3, i64 2
   %96 = load i8, ptr %95, align 1
   call void @av1_range_check_buf(i32 noundef 2, ptr noundef nonnull %0, ptr noundef nonnull %5, i32 noundef 8, i8 noundef signext %96) #5
-  %97 = getelementptr inbounds i8, ptr %9, i64 128
+  %97 = getelementptr inbounds nuw i8, ptr %9, i64 128
   %98 = load i32, ptr %97, align 16
   %99 = load i32, ptr %5, align 16
   %100 = load i32, ptr %36, align 4
@@ -314,10 +314,10 @@ define hidden void @av1_idct8(ptr noundef %0, ptr noundef initializes((0, 32)) %
   %113 = ashr i64 %112, %57
   %114 = trunc i64 %113 to i32
   store i32 %114, ptr %13, align 4
-  %115 = getelementptr inbounds i8, ptr %9, i64 192
+  %115 = getelementptr inbounds nuw i8, ptr %9, i64 192
   %116 = load i32, ptr %115, align 16
   %117 = load i32, ptr %38, align 8
-  %118 = getelementptr inbounds i8, ptr %9, i64 64
+  %118 = getelementptr inbounds nuw i8, ptr %9, i64 64
   %119 = load i32, ptr %118, align 16
   %120 = load i32, ptr %40, align 4
   %121 = mul nsw i32 %117, %116
@@ -342,7 +342,7 @@ define hidden void @av1_idct8(ptr noundef %0, ptr noundef initializes((0, 32)) %
   %138 = load i32, ptr %60, align 16
   %139 = load i32, ptr %76, align 4
   %140 = add nsw i32 %139, %138
-  %141 = getelementptr inbounds i8, ptr %3, i64 3
+  %141 = getelementptr inbounds nuw i8, ptr %3, i64 3
   %142 = load i8, ptr %141, align 1
   %143 = icmp slt i8 %142, 1
   br i1 %143, label %clamp_value.exit, label %144
@@ -437,7 +437,7 @@ clamp_value.exit203:                              ; preds = %clamp_value.exit201
   %204 = load i32, ptr %1, align 4
   %205 = load i32, ptr %19, align 4
   %206 = add nsw i32 %205, %204
-  %207 = getelementptr inbounds i8, ptr %3, i64 4
+  %207 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %208 = load i8, ptr %207, align 1
   %209 = icmp slt i8 %208, 1
   br i1 %209, label %clamp_value.exit209.thread, label %215
@@ -518,7 +518,7 @@ clamp_value.exit211:                              ; preds = %clamp_value.exit209
   %264 = load i32, ptr %5, align 16
   %265 = load i32, ptr %94, align 4
   %266 = add nsw i32 %265, %264
-  %267 = getelementptr inbounds i8, ptr %3, i64 5
+  %267 = getelementptr inbounds nuw i8, ptr %3, i64 5
   %268 = load i8, ptr %267, align 1
   %269 = icmp slt i8 %268, 1
   br i1 %269, label %clamp_value.exit213, label %270
@@ -712,96 +712,96 @@ define hidden void @av1_idct16(ptr noundef %0, ptr noundef initializes((0, 64)) 
   %9 = getelementptr inbounds [7 x [64 x i32]], ptr @av1_cospi_arr_data, i64 0, i64 %8
   %10 = load i32, ptr %0, align 4
   store i32 %10, ptr %1, align 4
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load i32, ptr %11, align 4
-  %13 = getelementptr inbounds i8, ptr %1, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 %12, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load i32, ptr %14, align 4
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %15, ptr %16, align 4
-  %17 = getelementptr inbounds i8, ptr %0, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %18 = load i32, ptr %17, align 4
-  %19 = getelementptr inbounds i8, ptr %1, i64 12
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 %18, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = load i32, ptr %20, align 4
-  %22 = getelementptr inbounds i8, ptr %1, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i32 %21, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %0, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %24 = load i32, ptr %23, align 4
-  %25 = getelementptr inbounds i8, ptr %1, i64 20
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 20
   store i32 %24, ptr %25, align 4
-  %26 = getelementptr inbounds i8, ptr %0, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %27 = load i32, ptr %26, align 4
-  %28 = getelementptr inbounds i8, ptr %1, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i32 %27, ptr %28, align 4
-  %29 = getelementptr inbounds i8, ptr %0, i64 56
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %30 = load i32, ptr %29, align 4
-  %31 = getelementptr inbounds i8, ptr %1, i64 28
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 28
   store i32 %30, ptr %31, align 4
-  %32 = getelementptr inbounds i8, ptr %0, i64 4
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %33 = load i32, ptr %32, align 4
-  %34 = getelementptr inbounds i8, ptr %1, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i32 %33, ptr %34, align 4
-  %35 = getelementptr inbounds i8, ptr %0, i64 36
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %36 = load i32, ptr %35, align 4
-  %37 = getelementptr inbounds i8, ptr %1, i64 36
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 36
   store i32 %36, ptr %37, align 4
-  %38 = getelementptr inbounds i8, ptr %0, i64 20
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %39 = load i32, ptr %38, align 4
-  %40 = getelementptr inbounds i8, ptr %1, i64 40
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store i32 %39, ptr %40, align 4
-  %41 = getelementptr inbounds i8, ptr %0, i64 52
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %42 = load i32, ptr %41, align 4
-  %43 = getelementptr inbounds i8, ptr %1, i64 44
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 44
   store i32 %42, ptr %43, align 4
-  %44 = getelementptr inbounds i8, ptr %0, i64 12
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %45 = load i32, ptr %44, align 4
-  %46 = getelementptr inbounds i8, ptr %1, i64 48
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store i32 %45, ptr %46, align 4
-  %47 = getelementptr inbounds i8, ptr %0, i64 44
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %48 = load i32, ptr %47, align 4
-  %49 = getelementptr inbounds i8, ptr %1, i64 52
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 52
   store i32 %48, ptr %49, align 4
-  %50 = getelementptr inbounds i8, ptr %0, i64 28
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %51 = load i32, ptr %50, align 4
-  %52 = getelementptr inbounds i8, ptr %1, i64 56
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 56
   store i32 %51, ptr %52, align 4
-  %53 = getelementptr inbounds i8, ptr %0, i64 60
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %54 = load i32, ptr %53, align 4
-  %55 = getelementptr inbounds i8, ptr %1, i64 60
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 60
   store i32 %54, ptr %55, align 4
-  %56 = getelementptr inbounds i8, ptr %3, i64 1
+  %56 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %57 = load i8, ptr %56, align 1
   tail call void @av1_range_check_buf(i32 noundef 1, ptr noundef nonnull %0, ptr noundef %1, i32 noundef 16, i8 noundef signext %57) #5
   %58 = load i32, ptr %1, align 4
   store i32 %58, ptr %5, align 16
   %59 = load i32, ptr %13, align 4
-  %60 = getelementptr inbounds i8, ptr %5, i64 4
+  %60 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %59, ptr %60, align 4
   %61 = load i32, ptr %16, align 4
-  %62 = getelementptr inbounds i8, ptr %5, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %61, ptr %62, align 8
   %63 = load i32, ptr %19, align 4
-  %64 = getelementptr inbounds i8, ptr %5, i64 12
+  %64 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 %63, ptr %64, align 4
   %65 = load i32, ptr %22, align 4
-  %66 = getelementptr inbounds i8, ptr %5, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 %65, ptr %66, align 16
   %67 = load i32, ptr %25, align 4
-  %68 = getelementptr inbounds i8, ptr %5, i64 20
+  %68 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i32 %67, ptr %68, align 4
   %69 = load i32, ptr %28, align 4
-  %70 = getelementptr inbounds i8, ptr %5, i64 24
+  %70 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i32 %69, ptr %70, align 8
   %71 = load i32, ptr %31, align 4
-  %72 = getelementptr inbounds i8, ptr %5, i64 28
+  %72 = getelementptr inbounds nuw i8, ptr %5, i64 28
   store i32 %71, ptr %72, align 4
-  %73 = getelementptr inbounds i8, ptr %9, i64 240
+  %73 = getelementptr inbounds nuw i8, ptr %9, i64 240
   %74 = load i32, ptr %73, align 16
   %75 = load i32, ptr %34, align 4
-  %76 = getelementptr inbounds i8, ptr %9, i64 16
+  %76 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %77 = load i32, ptr %76, align 16
   %78 = load i32, ptr %55, align 4
   %79 = mul nsw i32 %75, %74
@@ -817,12 +817,12 @@ define hidden void @av1_idct16(ptr noundef %0, ptr noundef initializes((0, 64)) 
   %89 = zext nneg i32 %6 to i64
   %90 = ashr i64 %88, %89
   %91 = trunc i64 %90 to i32
-  %92 = getelementptr inbounds i8, ptr %5, i64 32
+  %92 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i32 %91, ptr %92, align 16
-  %93 = getelementptr inbounds i8, ptr %9, i64 112
+  %93 = getelementptr inbounds nuw i8, ptr %9, i64 112
   %94 = load i32, ptr %93, align 16
   %95 = load i32, ptr %37, align 4
-  %96 = getelementptr inbounds i8, ptr %9, i64 144
+  %96 = getelementptr inbounds nuw i8, ptr %9, i64 144
   %97 = load i32, ptr %96, align 16
   %98 = load i32, ptr %52, align 4
   %99 = mul nsw i32 %95, %94
@@ -834,12 +834,12 @@ define hidden void @av1_idct16(ptr noundef %0, ptr noundef initializes((0, 64)) 
   %105 = add i64 %104, %103
   %106 = ashr i64 %105, %89
   %107 = trunc i64 %106 to i32
-  %108 = getelementptr inbounds i8, ptr %5, i64 36
+  %108 = getelementptr inbounds nuw i8, ptr %5, i64 36
   store i32 %107, ptr %108, align 4
-  %109 = getelementptr inbounds i8, ptr %9, i64 176
+  %109 = getelementptr inbounds nuw i8, ptr %9, i64 176
   %110 = load i32, ptr %109, align 16
   %111 = load i32, ptr %40, align 4
-  %112 = getelementptr inbounds i8, ptr %9, i64 80
+  %112 = getelementptr inbounds nuw i8, ptr %9, i64 80
   %113 = load i32, ptr %112, align 16
   %114 = load i32, ptr %49, align 4
   %115 = mul nsw i32 %111, %110
@@ -851,12 +851,12 @@ define hidden void @av1_idct16(ptr noundef %0, ptr noundef initializes((0, 64)) 
   %121 = add i64 %120, %119
   %122 = ashr i64 %121, %89
   %123 = trunc i64 %122 to i32
-  %124 = getelementptr inbounds i8, ptr %5, i64 40
+  %124 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store i32 %123, ptr %124, align 8
-  %125 = getelementptr inbounds i8, ptr %9, i64 48
+  %125 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %126 = load i32, ptr %125, align 16
   %127 = load i32, ptr %43, align 4
-  %128 = getelementptr inbounds i8, ptr %9, i64 208
+  %128 = getelementptr inbounds nuw i8, ptr %9, i64 208
   %129 = load i32, ptr %128, align 16
   %130 = load i32, ptr %46, align 4
   %131 = mul nsw i32 %127, %126
@@ -868,7 +868,7 @@ define hidden void @av1_idct16(ptr noundef %0, ptr noundef initializes((0, 64)) 
   %137 = add i64 %136, %135
   %138 = ashr i64 %137, %89
   %139 = trunc i64 %138 to i32
-  %140 = getelementptr inbounds i8, ptr %5, i64 44
+  %140 = getelementptr inbounds nuw i8, ptr %5, i64 44
   store i32 %139, ptr %140, align 4
   %141 = mul nsw i32 %129, %127
   %142 = sext i32 %141 to i64
@@ -878,7 +878,7 @@ define hidden void @av1_idct16(ptr noundef %0, ptr noundef initializes((0, 64)) 
   %146 = add i64 %145, %144
   %147 = ashr i64 %146, %89
   %148 = trunc i64 %147 to i32
-  %149 = getelementptr inbounds i8, ptr %5, i64 48
+  %149 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store i32 %148, ptr %149, align 16
   %150 = mul nsw i32 %113, %111
   %151 = sext i32 %150 to i64
@@ -888,7 +888,7 @@ define hidden void @av1_idct16(ptr noundef %0, ptr noundef initializes((0, 64)) 
   %155 = add i64 %154, %153
   %156 = ashr i64 %155, %89
   %157 = trunc i64 %156 to i32
-  %158 = getelementptr inbounds i8, ptr %5, i64 52
+  %158 = getelementptr inbounds nuw i8, ptr %5, i64 52
   store i32 %157, ptr %158, align 4
   %159 = mul nsw i32 %97, %95
   %160 = sext i32 %159 to i64
@@ -898,7 +898,7 @@ define hidden void @av1_idct16(ptr noundef %0, ptr noundef initializes((0, 64)) 
   %164 = add i64 %163, %162
   %165 = ashr i64 %164, %89
   %166 = trunc i64 %165 to i32
-  %167 = getelementptr inbounds i8, ptr %5, i64 56
+  %167 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store i32 %166, ptr %167, align 8
   %168 = mul nsw i32 %77, %75
   %169 = sext i32 %168 to i64
@@ -908,9 +908,9 @@ define hidden void @av1_idct16(ptr noundef %0, ptr noundef initializes((0, 64)) 
   %173 = add i64 %172, %171
   %174 = ashr i64 %173, %89
   %175 = trunc i64 %174 to i32
-  %176 = getelementptr inbounds i8, ptr %5, i64 60
+  %176 = getelementptr inbounds nuw i8, ptr %5, i64 60
   store i32 %175, ptr %176, align 4
-  %177 = getelementptr inbounds i8, ptr %3, i64 2
+  %177 = getelementptr inbounds nuw i8, ptr %3, i64 2
   %178 = load i8, ptr %177, align 1
   call void @av1_range_check_buf(i32 noundef 2, ptr noundef nonnull %0, ptr noundef nonnull %5, i32 noundef 16, i8 noundef signext %178) #5
   %179 = load i32, ptr %5, align 16
@@ -921,10 +921,10 @@ define hidden void @av1_idct16(ptr noundef %0, ptr noundef initializes((0, 64)) 
   store i32 %181, ptr %16, align 4
   %182 = load i32, ptr %64, align 4
   store i32 %182, ptr %19, align 4
-  %183 = getelementptr inbounds i8, ptr %9, i64 224
+  %183 = getelementptr inbounds nuw i8, ptr %9, i64 224
   %184 = load i32, ptr %183, align 16
   %185 = load i32, ptr %66, align 16
-  %186 = getelementptr inbounds i8, ptr %9, i64 32
+  %186 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %187 = load i32, ptr %186, align 16
   %188 = load i32, ptr %72, align 4
   %189 = mul nsw i32 %185, %184
@@ -937,10 +937,10 @@ define hidden void @av1_idct16(ptr noundef %0, ptr noundef initializes((0, 64)) 
   %196 = ashr i64 %195, %89
   %197 = trunc i64 %196 to i32
   store i32 %197, ptr %22, align 4
-  %198 = getelementptr inbounds i8, ptr %9, i64 96
+  %198 = getelementptr inbounds nuw i8, ptr %9, i64 96
   %199 = load i32, ptr %198, align 16
   %200 = load i32, ptr %68, align 4
-  %201 = getelementptr inbounds i8, ptr %9, i64 160
+  %201 = getelementptr inbounds nuw i8, ptr %9, i64 160
   %202 = load i32, ptr %201, align 16
   %203 = load i32, ptr %70, align 8
   %204 = mul nsw i32 %200, %199
@@ -974,7 +974,7 @@ define hidden void @av1_idct16(ptr noundef %0, ptr noundef initializes((0, 64)) 
   %229 = load i32, ptr %92, align 16
   %230 = load i32, ptr %108, align 4
   %231 = add nsw i32 %230, %229
-  %232 = getelementptr inbounds i8, ptr %3, i64 3
+  %232 = getelementptr inbounds nuw i8, ptr %3, i64 3
   %233 = load i8, ptr %232, align 1
   %234 = icmp slt i8 %233, 1
   br i1 %234, label %clamp_value.exit, label %235
@@ -1158,7 +1158,7 @@ clamp_value.exit529:                              ; preds = %clamp_value.exit527
   store i32 %.0.i528, ptr %55, align 4
   %358 = load i8, ptr %232, align 1
   call void @av1_range_check_buf(i32 noundef 3, ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef 16, i8 noundef signext %358) #5
-  %359 = getelementptr inbounds i8, ptr %9, i64 128
+  %359 = getelementptr inbounds nuw i8, ptr %9, i64 128
   %360 = load i32, ptr %359, align 16
   %361 = load i32, ptr %1, align 4
   %362 = load i32, ptr %13, align 4
@@ -1178,10 +1178,10 @@ clamp_value.exit529:                              ; preds = %clamp_value.exit527
   %375 = ashr i64 %374, %89
   %376 = trunc i64 %375 to i32
   store i32 %376, ptr %60, align 4
-  %377 = getelementptr inbounds i8, ptr %9, i64 192
+  %377 = getelementptr inbounds nuw i8, ptr %9, i64 192
   %378 = load i32, ptr %377, align 16
   %379 = load i32, ptr %16, align 4
-  %380 = getelementptr inbounds i8, ptr %9, i64 64
+  %380 = getelementptr inbounds nuw i8, ptr %9, i64 64
   %381 = load i32, ptr %380, align 16
   %382 = sub nsw i32 0, %381
   %383 = load i32, ptr %19, align 4
@@ -1206,7 +1206,7 @@ clamp_value.exit529:                              ; preds = %clamp_value.exit527
   %400 = load i32, ptr %22, align 4
   %401 = load i32, ptr %25, align 4
   %402 = add nsw i32 %401, %400
-  %403 = getelementptr inbounds i8, ptr %3, i64 4
+  %403 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %404 = load i8, ptr %403, align 1
   %405 = icmp slt i8 %404, 1
   br i1 %405, label %clamp_value.exit535.thread, label %411
@@ -1315,7 +1315,7 @@ clamp_value.exit537:                              ; preds = %clamp_value.exit535
   %484 = load i32, ptr %5, align 16
   %485 = load i32, ptr %64, align 4
   %486 = add nsw i32 %485, %484
-  %487 = getelementptr inbounds i8, ptr %3, i64 5
+  %487 = getelementptr inbounds nuw i8, ptr %3, i64 5
   %488 = load i8, ptr %487, align 1
   %489 = icmp slt i8 %488, 1
   br i1 %489, label %clamp_value.exit539, label %490
@@ -1615,7 +1615,7 @@ clamp_value.exit561:                              ; preds = %clamp_value.exit559
   %695 = load i32, ptr %1, align 4
   %696 = load i32, ptr %31, align 4
   %697 = add nsw i32 %696, %695
-  %698 = getelementptr inbounds i8, ptr %3, i64 6
+  %698 = getelementptr inbounds nuw i8, ptr %3, i64 6
   %699 = load i8, ptr %698, align 1
   %700 = icmp slt i8 %699, 1
   br i1 %700, label %clamp_value.exit575.thread, label %714
@@ -1761,7 +1761,7 @@ clamp_value.exit577:                              ; preds = %clamp_value.exit575
   %808 = load i32, ptr %5, align 16
   %809 = load i32, ptr %176, align 4
   %810 = add nsw i32 %809, %808
-  %811 = getelementptr inbounds i8, ptr %3, i64 7
+  %811 = getelementptr inbounds nuw i8, ptr %3, i64 7
   %812 = load i8, ptr %811, align 1
   %813 = icmp slt i8 %812, 1
   br i1 %813, label %clamp_value.exit579, label %814
@@ -2139,184 +2139,184 @@ define hidden void @av1_idct32(ptr noundef %0, ptr noundef initializes((0, 128))
   %9 = getelementptr inbounds [7 x [64 x i32]], ptr @av1_cospi_arr_data, i64 0, i64 %8
   %10 = load i32, ptr %0, align 4
   store i32 %10, ptr %1, align 4
-  %11 = getelementptr inbounds i8, ptr %0, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %12 = load i32, ptr %11, align 4
-  %13 = getelementptr inbounds i8, ptr %1, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 %12, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %15 = load i32, ptr %14, align 4
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %15, ptr %16, align 4
-  %17 = getelementptr inbounds i8, ptr %0, i64 96
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %18 = load i32, ptr %17, align 4
-  %19 = getelementptr inbounds i8, ptr %1, i64 12
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 %18, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %0, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %21 = load i32, ptr %20, align 4
-  %22 = getelementptr inbounds i8, ptr %1, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i32 %21, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %0, i64 80
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %24 = load i32, ptr %23, align 4
-  %25 = getelementptr inbounds i8, ptr %1, i64 20
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 20
   store i32 %24, ptr %25, align 4
-  %26 = getelementptr inbounds i8, ptr %0, i64 48
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %27 = load i32, ptr %26, align 4
-  %28 = getelementptr inbounds i8, ptr %1, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i32 %27, ptr %28, align 4
-  %29 = getelementptr inbounds i8, ptr %0, i64 112
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %30 = load i32, ptr %29, align 4
-  %31 = getelementptr inbounds i8, ptr %1, i64 28
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 28
   store i32 %30, ptr %31, align 4
-  %32 = getelementptr inbounds i8, ptr %0, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %33 = load i32, ptr %32, align 4
-  %34 = getelementptr inbounds i8, ptr %1, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i32 %33, ptr %34, align 4
-  %35 = getelementptr inbounds i8, ptr %0, i64 72
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %36 = load i32, ptr %35, align 4
-  %37 = getelementptr inbounds i8, ptr %1, i64 36
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 36
   store i32 %36, ptr %37, align 4
-  %38 = getelementptr inbounds i8, ptr %0, i64 40
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %39 = load i32, ptr %38, align 4
-  %40 = getelementptr inbounds i8, ptr %1, i64 40
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store i32 %39, ptr %40, align 4
-  %41 = getelementptr inbounds i8, ptr %0, i64 104
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %42 = load i32, ptr %41, align 4
-  %43 = getelementptr inbounds i8, ptr %1, i64 44
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 44
   store i32 %42, ptr %43, align 4
-  %44 = getelementptr inbounds i8, ptr %0, i64 24
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %45 = load i32, ptr %44, align 4
-  %46 = getelementptr inbounds i8, ptr %1, i64 48
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store i32 %45, ptr %46, align 4
-  %47 = getelementptr inbounds i8, ptr %0, i64 88
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %48 = load i32, ptr %47, align 4
-  %49 = getelementptr inbounds i8, ptr %1, i64 52
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 52
   store i32 %48, ptr %49, align 4
-  %50 = getelementptr inbounds i8, ptr %0, i64 56
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %51 = load i32, ptr %50, align 4
-  %52 = getelementptr inbounds i8, ptr %1, i64 56
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 56
   store i32 %51, ptr %52, align 4
-  %53 = getelementptr inbounds i8, ptr %0, i64 120
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %54 = load i32, ptr %53, align 4
-  %55 = getelementptr inbounds i8, ptr %1, i64 60
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 60
   store i32 %54, ptr %55, align 4
-  %56 = getelementptr inbounds i8, ptr %0, i64 4
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %57 = load i32, ptr %56, align 4
-  %58 = getelementptr inbounds i8, ptr %1, i64 64
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store i32 %57, ptr %58, align 4
-  %59 = getelementptr inbounds i8, ptr %0, i64 68
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %60 = load i32, ptr %59, align 4
-  %61 = getelementptr inbounds i8, ptr %1, i64 68
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 68
   store i32 %60, ptr %61, align 4
-  %62 = getelementptr inbounds i8, ptr %0, i64 36
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %63 = load i32, ptr %62, align 4
-  %64 = getelementptr inbounds i8, ptr %1, i64 72
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 72
   store i32 %63, ptr %64, align 4
-  %65 = getelementptr inbounds i8, ptr %0, i64 100
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %66 = load i32, ptr %65, align 4
-  %67 = getelementptr inbounds i8, ptr %1, i64 76
+  %67 = getelementptr inbounds nuw i8, ptr %1, i64 76
   store i32 %66, ptr %67, align 4
-  %68 = getelementptr inbounds i8, ptr %0, i64 20
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %69 = load i32, ptr %68, align 4
-  %70 = getelementptr inbounds i8, ptr %1, i64 80
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 80
   store i32 %69, ptr %70, align 4
-  %71 = getelementptr inbounds i8, ptr %0, i64 84
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %72 = load i32, ptr %71, align 4
-  %73 = getelementptr inbounds i8, ptr %1, i64 84
+  %73 = getelementptr inbounds nuw i8, ptr %1, i64 84
   store i32 %72, ptr %73, align 4
-  %74 = getelementptr inbounds i8, ptr %0, i64 52
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %75 = load i32, ptr %74, align 4
-  %76 = getelementptr inbounds i8, ptr %1, i64 88
+  %76 = getelementptr inbounds nuw i8, ptr %1, i64 88
   store i32 %75, ptr %76, align 4
-  %77 = getelementptr inbounds i8, ptr %0, i64 116
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %78 = load i32, ptr %77, align 4
-  %79 = getelementptr inbounds i8, ptr %1, i64 92
+  %79 = getelementptr inbounds nuw i8, ptr %1, i64 92
   store i32 %78, ptr %79, align 4
-  %80 = getelementptr inbounds i8, ptr %0, i64 12
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %81 = load i32, ptr %80, align 4
-  %82 = getelementptr inbounds i8, ptr %1, i64 96
+  %82 = getelementptr inbounds nuw i8, ptr %1, i64 96
   store i32 %81, ptr %82, align 4
-  %83 = getelementptr inbounds i8, ptr %0, i64 76
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %84 = load i32, ptr %83, align 4
-  %85 = getelementptr inbounds i8, ptr %1, i64 100
+  %85 = getelementptr inbounds nuw i8, ptr %1, i64 100
   store i32 %84, ptr %85, align 4
-  %86 = getelementptr inbounds i8, ptr %0, i64 44
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %87 = load i32, ptr %86, align 4
-  %88 = getelementptr inbounds i8, ptr %1, i64 104
+  %88 = getelementptr inbounds nuw i8, ptr %1, i64 104
   store i32 %87, ptr %88, align 4
-  %89 = getelementptr inbounds i8, ptr %0, i64 108
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %90 = load i32, ptr %89, align 4
-  %91 = getelementptr inbounds i8, ptr %1, i64 108
+  %91 = getelementptr inbounds nuw i8, ptr %1, i64 108
   store i32 %90, ptr %91, align 4
-  %92 = getelementptr inbounds i8, ptr %0, i64 28
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %93 = load i32, ptr %92, align 4
-  %94 = getelementptr inbounds i8, ptr %1, i64 112
+  %94 = getelementptr inbounds nuw i8, ptr %1, i64 112
   store i32 %93, ptr %94, align 4
-  %95 = getelementptr inbounds i8, ptr %0, i64 92
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %96 = load i32, ptr %95, align 4
-  %97 = getelementptr inbounds i8, ptr %1, i64 116
+  %97 = getelementptr inbounds nuw i8, ptr %1, i64 116
   store i32 %96, ptr %97, align 4
-  %98 = getelementptr inbounds i8, ptr %0, i64 60
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %99 = load i32, ptr %98, align 4
-  %100 = getelementptr inbounds i8, ptr %1, i64 120
+  %100 = getelementptr inbounds nuw i8, ptr %1, i64 120
   store i32 %99, ptr %100, align 4
-  %101 = getelementptr inbounds i8, ptr %0, i64 124
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 124
   %102 = load i32, ptr %101, align 4
-  %103 = getelementptr inbounds i8, ptr %1, i64 124
+  %103 = getelementptr inbounds nuw i8, ptr %1, i64 124
   store i32 %102, ptr %103, align 4
-  %104 = getelementptr inbounds i8, ptr %3, i64 1
+  %104 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %105 = load i8, ptr %104, align 1
   tail call void @av1_range_check_buf(i32 noundef 1, ptr noundef %0, ptr noundef %1, i32 noundef 32, i8 noundef signext %105) #5
   %106 = load i32, ptr %1, align 4
   store i32 %106, ptr %5, align 16
   %107 = load i32, ptr %13, align 4
-  %108 = getelementptr inbounds i8, ptr %5, i64 4
+  %108 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %107, ptr %108, align 4
   %109 = load i32, ptr %16, align 4
-  %110 = getelementptr inbounds i8, ptr %5, i64 8
+  %110 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %109, ptr %110, align 8
   %111 = load i32, ptr %19, align 4
-  %112 = getelementptr inbounds i8, ptr %5, i64 12
+  %112 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 %111, ptr %112, align 4
   %113 = load i32, ptr %22, align 4
-  %114 = getelementptr inbounds i8, ptr %5, i64 16
+  %114 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 %113, ptr %114, align 16
   %115 = load i32, ptr %25, align 4
-  %116 = getelementptr inbounds i8, ptr %5, i64 20
+  %116 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i32 %115, ptr %116, align 4
   %117 = load i32, ptr %28, align 4
-  %118 = getelementptr inbounds i8, ptr %5, i64 24
+  %118 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i32 %117, ptr %118, align 8
   %119 = load i32, ptr %31, align 4
-  %120 = getelementptr inbounds i8, ptr %5, i64 28
+  %120 = getelementptr inbounds nuw i8, ptr %5, i64 28
   store i32 %119, ptr %120, align 4
   %121 = load i32, ptr %34, align 4
-  %122 = getelementptr inbounds i8, ptr %5, i64 32
+  %122 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i32 %121, ptr %122, align 16
   %123 = load i32, ptr %37, align 4
-  %124 = getelementptr inbounds i8, ptr %5, i64 36
+  %124 = getelementptr inbounds nuw i8, ptr %5, i64 36
   store i32 %123, ptr %124, align 4
   %125 = load i32, ptr %40, align 4
-  %126 = getelementptr inbounds i8, ptr %5, i64 40
+  %126 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store i32 %125, ptr %126, align 8
   %127 = load i32, ptr %43, align 4
-  %128 = getelementptr inbounds i8, ptr %5, i64 44
+  %128 = getelementptr inbounds nuw i8, ptr %5, i64 44
   store i32 %127, ptr %128, align 4
   %129 = load i32, ptr %46, align 4
-  %130 = getelementptr inbounds i8, ptr %5, i64 48
+  %130 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store i32 %129, ptr %130, align 16
   %131 = load i32, ptr %49, align 4
-  %132 = getelementptr inbounds i8, ptr %5, i64 52
+  %132 = getelementptr inbounds nuw i8, ptr %5, i64 52
   store i32 %131, ptr %132, align 4
   %133 = load i32, ptr %52, align 4
-  %134 = getelementptr inbounds i8, ptr %5, i64 56
+  %134 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store i32 %133, ptr %134, align 8
   %135 = load i32, ptr %55, align 4
-  %136 = getelementptr inbounds i8, ptr %5, i64 60
+  %136 = getelementptr inbounds nuw i8, ptr %5, i64 60
   store i32 %135, ptr %136, align 4
-  %137 = getelementptr inbounds i8, ptr %9, i64 248
+  %137 = getelementptr inbounds nuw i8, ptr %9, i64 248
   %138 = load i32, ptr %137, align 8
   %139 = load i32, ptr %58, align 4
-  %140 = getelementptr inbounds i8, ptr %9, i64 8
+  %140 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %141 = load i32, ptr %140, align 8
   %142 = load i32, ptr %103, align 4
   %143 = mul nsw i32 %139, %138
@@ -2332,12 +2332,12 @@ define hidden void @av1_idct32(ptr noundef %0, ptr noundef initializes((0, 128))
   %153 = zext nneg i32 %6 to i64
   %154 = ashr i64 %152, %153
   %155 = trunc i64 %154 to i32
-  %156 = getelementptr inbounds i8, ptr %5, i64 64
+  %156 = getelementptr inbounds nuw i8, ptr %5, i64 64
   store i32 %155, ptr %156, align 16
-  %157 = getelementptr inbounds i8, ptr %9, i64 120
+  %157 = getelementptr inbounds nuw i8, ptr %9, i64 120
   %158 = load i32, ptr %157, align 8
   %159 = load i32, ptr %61, align 4
-  %160 = getelementptr inbounds i8, ptr %9, i64 136
+  %160 = getelementptr inbounds nuw i8, ptr %9, i64 136
   %161 = load i32, ptr %160, align 8
   %162 = load i32, ptr %100, align 4
   %163 = mul nsw i32 %159, %158
@@ -2349,12 +2349,12 @@ define hidden void @av1_idct32(ptr noundef %0, ptr noundef initializes((0, 128))
   %169 = add i64 %168, %167
   %170 = ashr i64 %169, %153
   %171 = trunc i64 %170 to i32
-  %172 = getelementptr inbounds i8, ptr %5, i64 68
+  %172 = getelementptr inbounds nuw i8, ptr %5, i64 68
   store i32 %171, ptr %172, align 4
-  %173 = getelementptr inbounds i8, ptr %9, i64 184
+  %173 = getelementptr inbounds nuw i8, ptr %9, i64 184
   %174 = load i32, ptr %173, align 8
   %175 = load i32, ptr %64, align 4
-  %176 = getelementptr inbounds i8, ptr %9, i64 72
+  %176 = getelementptr inbounds nuw i8, ptr %9, i64 72
   %177 = load i32, ptr %176, align 8
   %178 = load i32, ptr %97, align 4
   %179 = mul nsw i32 %175, %174
@@ -2366,12 +2366,12 @@ define hidden void @av1_idct32(ptr noundef %0, ptr noundef initializes((0, 128))
   %185 = add i64 %184, %183
   %186 = ashr i64 %185, %153
   %187 = trunc i64 %186 to i32
-  %188 = getelementptr inbounds i8, ptr %5, i64 72
+  %188 = getelementptr inbounds nuw i8, ptr %5, i64 72
   store i32 %187, ptr %188, align 8
-  %189 = getelementptr inbounds i8, ptr %9, i64 56
+  %189 = getelementptr inbounds nuw i8, ptr %9, i64 56
   %190 = load i32, ptr %189, align 8
   %191 = load i32, ptr %67, align 4
-  %192 = getelementptr inbounds i8, ptr %9, i64 200
+  %192 = getelementptr inbounds nuw i8, ptr %9, i64 200
   %193 = load i32, ptr %192, align 8
   %194 = load i32, ptr %94, align 4
   %195 = mul nsw i32 %191, %190
@@ -2383,12 +2383,12 @@ define hidden void @av1_idct32(ptr noundef %0, ptr noundef initializes((0, 128))
   %201 = add i64 %200, %199
   %202 = ashr i64 %201, %153
   %203 = trunc i64 %202 to i32
-  %204 = getelementptr inbounds i8, ptr %5, i64 76
+  %204 = getelementptr inbounds nuw i8, ptr %5, i64 76
   store i32 %203, ptr %204, align 4
-  %205 = getelementptr inbounds i8, ptr %9, i64 216
+  %205 = getelementptr inbounds nuw i8, ptr %9, i64 216
   %206 = load i32, ptr %205, align 8
   %207 = load i32, ptr %70, align 4
-  %208 = getelementptr inbounds i8, ptr %9, i64 40
+  %208 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %209 = load i32, ptr %208, align 8
   %210 = load i32, ptr %91, align 4
   %211 = mul nsw i32 %207, %206
@@ -2400,12 +2400,12 @@ define hidden void @av1_idct32(ptr noundef %0, ptr noundef initializes((0, 128))
   %217 = add i64 %216, %215
   %218 = ashr i64 %217, %153
   %219 = trunc i64 %218 to i32
-  %220 = getelementptr inbounds i8, ptr %5, i64 80
+  %220 = getelementptr inbounds nuw i8, ptr %5, i64 80
   store i32 %219, ptr %220, align 16
-  %221 = getelementptr inbounds i8, ptr %9, i64 88
+  %221 = getelementptr inbounds nuw i8, ptr %9, i64 88
   %222 = load i32, ptr %221, align 8
   %223 = load i32, ptr %73, align 4
-  %224 = getelementptr inbounds i8, ptr %9, i64 168
+  %224 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %225 = load i32, ptr %224, align 8
   %226 = load i32, ptr %88, align 4
   %227 = mul nsw i32 %223, %222
@@ -2417,12 +2417,12 @@ define hidden void @av1_idct32(ptr noundef %0, ptr noundef initializes((0, 128))
   %233 = add i64 %232, %231
   %234 = ashr i64 %233, %153
   %235 = trunc i64 %234 to i32
-  %236 = getelementptr inbounds i8, ptr %5, i64 84
+  %236 = getelementptr inbounds nuw i8, ptr %5, i64 84
   store i32 %235, ptr %236, align 4
-  %237 = getelementptr inbounds i8, ptr %9, i64 152
+  %237 = getelementptr inbounds nuw i8, ptr %9, i64 152
   %238 = load i32, ptr %237, align 8
   %239 = load i32, ptr %76, align 4
-  %240 = getelementptr inbounds i8, ptr %9, i64 104
+  %240 = getelementptr inbounds nuw i8, ptr %9, i64 104
   %241 = load i32, ptr %240, align 8
   %242 = load i32, ptr %85, align 4
   %243 = mul nsw i32 %239, %238
@@ -2434,12 +2434,12 @@ define hidden void @av1_idct32(ptr noundef %0, ptr noundef initializes((0, 128))
   %249 = add i64 %248, %247
   %250 = ashr i64 %249, %153
   %251 = trunc i64 %250 to i32
-  %252 = getelementptr inbounds i8, ptr %5, i64 88
+  %252 = getelementptr inbounds nuw i8, ptr %5, i64 88
   store i32 %251, ptr %252, align 8
-  %253 = getelementptr inbounds i8, ptr %9, i64 24
+  %253 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %254 = load i32, ptr %253, align 8
   %255 = load i32, ptr %79, align 4
-  %256 = getelementptr inbounds i8, ptr %9, i64 232
+  %256 = getelementptr inbounds nuw i8, ptr %9, i64 232
   %257 = load i32, ptr %256, align 8
   %258 = load i32, ptr %82, align 4
   %259 = mul nsw i32 %255, %254
@@ -2451,7 +2451,7 @@ define hidden void @av1_idct32(ptr noundef %0, ptr noundef initializes((0, 128))
   %265 = add i64 %264, %263
   %266 = ashr i64 %265, %153
   %267 = trunc i64 %266 to i32
-  %268 = getelementptr inbounds i8, ptr %5, i64 92
+  %268 = getelementptr inbounds nuw i8, ptr %5, i64 92
   store i32 %267, ptr %268, align 4
   %269 = mul nsw i32 %257, %255
   %270 = sext i32 %269 to i64
@@ -2461,7 +2461,7 @@ define hidden void @av1_idct32(ptr noundef %0, ptr noundef initializes((0, 128))
   %274 = add i64 %273, %272
   %275 = ashr i64 %274, %153
   %276 = trunc i64 %275 to i32
-  %277 = getelementptr inbounds i8, ptr %5, i64 96
+  %277 = getelementptr inbounds nuw i8, ptr %5, i64 96
   store i32 %276, ptr %277, align 16
   %278 = mul nsw i32 %241, %239
   %279 = sext i32 %278 to i64
@@ -2471,7 +2471,7 @@ define hidden void @av1_idct32(ptr noundef %0, ptr noundef initializes((0, 128))
   %283 = add i64 %282, %281
   %284 = ashr i64 %283, %153
   %285 = trunc i64 %284 to i32
-  %286 = getelementptr inbounds i8, ptr %5, i64 100
+  %286 = getelementptr inbounds nuw i8, ptr %5, i64 100
   store i32 %285, ptr %286, align 4
   %287 = mul nsw i32 %225, %223
   %288 = sext i32 %287 to i64
@@ -2481,7 +2481,7 @@ define hidden void @av1_idct32(ptr noundef %0, ptr noundef initializes((0, 128))
   %292 = add i64 %291, %290
   %293 = ashr i64 %292, %153
   %294 = trunc i64 %293 to i32
-  %295 = getelementptr inbounds i8, ptr %5, i64 104
+  %295 = getelementptr inbounds nuw i8, ptr %5, i64 104
   store i32 %294, ptr %295, align 8
   %296 = mul nsw i32 %209, %207
   %297 = sext i32 %296 to i64
@@ -2491,7 +2491,7 @@ define hidden void @av1_idct32(ptr noundef %0, ptr noundef initializes((0, 128))
   %301 = add i64 %300, %299
   %302 = ashr i64 %301, %153
   %303 = trunc i64 %302 to i32
-  %304 = getelementptr inbounds i8, ptr %5, i64 108
+  %304 = getelementptr inbounds nuw i8, ptr %5, i64 108
   store i32 %303, ptr %304, align 4
   %305 = mul nsw i32 %193, %191
   %306 = sext i32 %305 to i64
@@ -2501,7 +2501,7 @@ define hidden void @av1_idct32(ptr noundef %0, ptr noundef initializes((0, 128))
   %310 = add i64 %309, %308
   %311 = ashr i64 %310, %153
   %312 = trunc i64 %311 to i32
-  %313 = getelementptr inbounds i8, ptr %5, i64 112
+  %313 = getelementptr inbounds nuw i8, ptr %5, i64 112
   store i32 %312, ptr %313, align 16
   %314 = mul nsw i32 %177, %175
   %315 = sext i32 %314 to i64
@@ -2511,7 +2511,7 @@ define hidden void @av1_idct32(ptr noundef %0, ptr noundef initializes((0, 128))
   %319 = add i64 %318, %317
   %320 = ashr i64 %319, %153
   %321 = trunc i64 %320 to i32
-  %322 = getelementptr inbounds i8, ptr %5, i64 116
+  %322 = getelementptr inbounds nuw i8, ptr %5, i64 116
   store i32 %321, ptr %322, align 4
   %323 = mul nsw i32 %161, %159
   %324 = sext i32 %323 to i64
@@ -2521,7 +2521,7 @@ define hidden void @av1_idct32(ptr noundef %0, ptr noundef initializes((0, 128))
   %328 = add i64 %327, %326
   %329 = ashr i64 %328, %153
   %330 = trunc i64 %329 to i32
-  %331 = getelementptr inbounds i8, ptr %5, i64 120
+  %331 = getelementptr inbounds nuw i8, ptr %5, i64 120
   store i32 %330, ptr %331, align 8
   %332 = mul nsw i32 %141, %139
   %333 = sext i32 %332 to i64
@@ -2531,9 +2531,9 @@ define hidden void @av1_idct32(ptr noundef %0, ptr noundef initializes((0, 128))
   %337 = add i64 %336, %335
   %338 = ashr i64 %337, %153
   %339 = trunc i64 %338 to i32
-  %340 = getelementptr inbounds i8, ptr %5, i64 124
+  %340 = getelementptr inbounds nuw i8, ptr %5, i64 124
   store i32 %339, ptr %340, align 4
-  %341 = getelementptr inbounds i8, ptr %3, i64 2
+  %341 = getelementptr inbounds nuw i8, ptr %3, i64 2
   %342 = load i8, ptr %341, align 1
   call void @av1_range_check_buf(i32 noundef 2, ptr noundef %0, ptr noundef nonnull %5, i32 noundef 32, i8 noundef signext %342) #5
   %343 = load i32, ptr %5, align 16
@@ -2552,10 +2552,10 @@ define hidden void @av1_idct32(ptr noundef %0, ptr noundef initializes((0, 128))
   store i32 %349, ptr %28, align 4
   %350 = load i32, ptr %120, align 4
   store i32 %350, ptr %31, align 4
-  %351 = getelementptr inbounds i8, ptr %9, i64 240
+  %351 = getelementptr inbounds nuw i8, ptr %9, i64 240
   %352 = load i32, ptr %351, align 16
   %353 = load i32, ptr %122, align 16
-  %354 = getelementptr inbounds i8, ptr %9, i64 16
+  %354 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %355 = load i32, ptr %354, align 16
   %356 = load i32, ptr %136, align 4
   %357 = mul nsw i32 %353, %352
@@ -2568,10 +2568,10 @@ define hidden void @av1_idct32(ptr noundef %0, ptr noundef initializes((0, 128))
   %364 = ashr i64 %363, %153
   %365 = trunc i64 %364 to i32
   store i32 %365, ptr %34, align 4
-  %366 = getelementptr inbounds i8, ptr %9, i64 112
+  %366 = getelementptr inbounds nuw i8, ptr %9, i64 112
   %367 = load i32, ptr %366, align 16
   %368 = load i32, ptr %124, align 4
-  %369 = getelementptr inbounds i8, ptr %9, i64 144
+  %369 = getelementptr inbounds nuw i8, ptr %9, i64 144
   %370 = load i32, ptr %369, align 16
   %371 = load i32, ptr %134, align 8
   %372 = mul nsw i32 %368, %367
@@ -2584,10 +2584,10 @@ define hidden void @av1_idct32(ptr noundef %0, ptr noundef initializes((0, 128))
   %379 = ashr i64 %378, %153
   %380 = trunc i64 %379 to i32
   store i32 %380, ptr %37, align 4
-  %381 = getelementptr inbounds i8, ptr %9, i64 176
+  %381 = getelementptr inbounds nuw i8, ptr %9, i64 176
   %382 = load i32, ptr %381, align 16
   %383 = load i32, ptr %126, align 8
-  %384 = getelementptr inbounds i8, ptr %9, i64 80
+  %384 = getelementptr inbounds nuw i8, ptr %9, i64 80
   %385 = load i32, ptr %384, align 16
   %386 = load i32, ptr %132, align 4
   %387 = mul nsw i32 %383, %382
@@ -2600,10 +2600,10 @@ define hidden void @av1_idct32(ptr noundef %0, ptr noundef initializes((0, 128))
   %394 = ashr i64 %393, %153
   %395 = trunc i64 %394 to i32
   store i32 %395, ptr %40, align 4
-  %396 = getelementptr inbounds i8, ptr %9, i64 48
+  %396 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %397 = load i32, ptr %396, align 16
   %398 = load i32, ptr %128, align 4
-  %399 = getelementptr inbounds i8, ptr %9, i64 208
+  %399 = getelementptr inbounds nuw i8, ptr %9, i64 208
   %400 = load i32, ptr %399, align 16
   %401 = load i32, ptr %130, align 16
   %402 = mul nsw i32 %398, %397
@@ -2655,7 +2655,7 @@ define hidden void @av1_idct32(ptr noundef %0, ptr noundef initializes((0, 128))
   %443 = load i32, ptr %156, align 16
   %444 = load i32, ptr %172, align 4
   %445 = add nsw i32 %444, %443
-  %446 = getelementptr inbounds i8, ptr %3, i64 3
+  %446 = getelementptr inbounds nuw i8, ptr %3, i64 3
   %447 = load i8, ptr %446, align 1
   %448 = icmp slt i8 %447, 1
   br i1 %448, label %clamp_value.exit, label %449
@@ -3031,10 +3031,10 @@ clamp_value.exit1311:                             ; preds = %clamp_value.exit130
   store i32 %703, ptr %110, align 8
   %704 = load i32, ptr %19, align 4
   store i32 %704, ptr %112, align 4
-  %705 = getelementptr inbounds i8, ptr %9, i64 224
+  %705 = getelementptr inbounds nuw i8, ptr %9, i64 224
   %706 = load i32, ptr %705, align 16
   %707 = load i32, ptr %22, align 4
-  %708 = getelementptr inbounds i8, ptr %9, i64 32
+  %708 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %709 = load i32, ptr %708, align 16
   %710 = sub nsw i32 0, %709
   %711 = load i32, ptr %31, align 4
@@ -3047,10 +3047,10 @@ clamp_value.exit1311:                             ; preds = %clamp_value.exit130
   %718 = ashr i64 %717, %153
   %719 = trunc i64 %718 to i32
   store i32 %719, ptr %114, align 16
-  %720 = getelementptr inbounds i8, ptr %9, i64 96
+  %720 = getelementptr inbounds nuw i8, ptr %9, i64 96
   %721 = load i32, ptr %720, align 16
   %722 = load i32, ptr %25, align 4
-  %723 = getelementptr inbounds i8, ptr %9, i64 160
+  %723 = getelementptr inbounds nuw i8, ptr %9, i64 160
   %724 = load i32, ptr %723, align 16
   %725 = sub nsw i32 0, %724
   %726 = load i32, ptr %28, align 4
@@ -3084,7 +3084,7 @@ clamp_value.exit1311:                             ; preds = %clamp_value.exit130
   %751 = load i32, ptr %34, align 4
   %752 = load i32, ptr %37, align 4
   %753 = add nsw i32 %752, %751
-  %754 = getelementptr inbounds i8, ptr %3, i64 4
+  %754 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %755 = load i8, ptr %754, align 1
   %756 = icmp slt i8 %755, 1
   br i1 %756, label %clamp_value.exit1325.thread, label %770
@@ -3283,7 +3283,7 @@ clamp_value.exit1327:                             ; preds = %clamp_value.exit132
   %911 = load i32, ptr %103, align 4
   store i32 %911, ptr %340, align 4
   call void @av1_range_check_buf(i32 noundef 4, ptr noundef nonnull %0, ptr noundef nonnull %5, i32 noundef 32, i8 noundef signext %755) #5
-  %912 = getelementptr inbounds i8, ptr %9, i64 128
+  %912 = getelementptr inbounds nuw i8, ptr %9, i64 128
   %913 = load i32, ptr %912, align 16
   %914 = load i32, ptr %5, align 16
   %915 = load i32, ptr %108, align 4
@@ -3303,10 +3303,10 @@ clamp_value.exit1327:                             ; preds = %clamp_value.exit132
   %928 = ashr i64 %927, %153
   %929 = trunc i64 %928 to i32
   store i32 %929, ptr %13, align 4
-  %930 = getelementptr inbounds i8, ptr %9, i64 192
+  %930 = getelementptr inbounds nuw i8, ptr %9, i64 192
   %931 = load i32, ptr %930, align 16
   %932 = load i32, ptr %110, align 8
-  %933 = getelementptr inbounds i8, ptr %9, i64 64
+  %933 = getelementptr inbounds nuw i8, ptr %9, i64 64
   %934 = load i32, ptr %933, align 16
   %935 = sub nsw i32 0, %934
   %936 = load i32, ptr %112, align 4
@@ -3331,7 +3331,7 @@ clamp_value.exit1327:                             ; preds = %clamp_value.exit132
   %953 = load i32, ptr %114, align 16
   %954 = load i32, ptr %116, align 4
   %955 = add nsw i32 %954, %953
-  %956 = getelementptr inbounds i8, ptr %3, i64 5
+  %956 = getelementptr inbounds nuw i8, ptr %3, i64 5
   %957 = load i8, ptr %956, align 1
   %958 = icmp slt i8 %957, 1
   br i1 %958, label %clamp_value.exit1329, label %959
@@ -3843,7 +3843,7 @@ clamp_value.exit1367:                             ; preds = %clamp_value.exit136
   %1316 = load i32, ptr %1, align 4
   %1317 = load i32, ptr %19, align 4
   %1318 = add nsw i32 %1317, %1316
-  %1319 = getelementptr inbounds i8, ptr %3, i64 6
+  %1319 = getelementptr inbounds nuw i8, ptr %3, i64 6
   %1320 = load i8, ptr %1319, align 1
   %1321 = icmp slt i8 %1320, 1
   br i1 %1321, label %clamp_value.exit1373.thread, label %1327
@@ -4120,7 +4120,7 @@ clamp_value.exit1391:                             ; preds = %clamp_value.exit138
   %1532 = load i32, ptr %5, align 16
   %1533 = load i32, ptr %120, align 4
   %1534 = add nsw i32 %1533, %1532
-  %1535 = getelementptr inbounds i8, ptr %3, i64 7
+  %1535 = getelementptr inbounds nuw i8, ptr %3, i64 7
   %1536 = load i8, ptr %1535, align 1
   %1537 = icmp slt i8 %1536, 1
   br i1 %1537, label %clamp_value.exit1393, label %1538
@@ -4717,7 +4717,7 @@ clamp_value.exit1439:                             ; preds = %clamp_value.exit143
   %1952 = load i32, ptr %1, align 4
   %1953 = load i32, ptr %55, align 4
   %1954 = add nsw i32 %1953, %1952
-  %1955 = getelementptr inbounds i8, ptr %3, i64 8
+  %1955 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %1956 = load i8, ptr %1955, align 1
   %1957 = icmp slt i8 %1956, 1
   br i1 %1957, label %clamp_value.exit1445.thread, label %1967
@@ -5045,7 +5045,7 @@ clamp_value.exit1471:                             ; preds = %clamp_value.exit146
   %2215 = load i32, ptr %5, align 16
   %2216 = load i32, ptr %340, align 4
   %2217 = add nsw i32 %2216, %2215
-  %2218 = getelementptr inbounds i8, ptr %3, i64 9
+  %2218 = getelementptr inbounds nuw i8, ptr %3, i64 9
   %2219 = load i8, ptr %2218, align 1
   %2220 = icmp slt i8 %2219, 1
   br i1 %2220, label %clamp_value.exit1473, label %2221
@@ -5785,11 +5785,11 @@ clamp_value.exit1535:                             ; preds = %clamp_value.exit153
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @av1_iadst4(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 16)) %1, i8 noundef signext %2, ptr nocapture noundef readonly %3) local_unnamed_addr #2 {
   %5 = load i32, ptr %0, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = load i32, ptr %6, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i32, ptr %8, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %11 = load i32, ptr %10, align 4
   %12 = or i32 %7, %5
   %13 = or i32 %12, %9
@@ -5802,16 +5802,16 @@ define hidden void @av1_iadst4(ptr nocapture noundef readonly %0, ptr nocapture 
   %17 = add nsw i32 %16, -10
   %18 = sext i32 %17 to i64
   %19 = getelementptr inbounds [7 x [5 x i32]], ptr @av1_sinpi_arr_data, i64 0, i64 %18
-  %20 = getelementptr inbounds i8, ptr %19, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %21 = load i32, ptr %20, align 4
   %22 = mul nsw i32 %21, %5
-  %23 = getelementptr inbounds i8, ptr %19, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %24 = load i32, ptr %23, align 4
   %25 = mul nsw i32 %24, %5
-  %26 = getelementptr inbounds i8, ptr %19, i64 12
+  %26 = getelementptr inbounds nuw i8, ptr %19, i64 12
   %27 = load i32, ptr %26, align 4
   %28 = mul nsw i32 %27, %7
-  %29 = getelementptr inbounds i8, ptr %19, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %30 = load i32, ptr %29, align 4
   %31 = mul nsw i32 %30, %9
   %32 = mul nsw i32 %24, %11
@@ -5855,11 +5855,11 @@ define hidden void @av1_iadst4(ptr nocapture noundef readonly %0, ptr nocapture 
   %.sink104 = phi i32 [ %58, %15 ], [ 0, %4 ]
   %.sink103 = phi i32 [ %54, %15 ], [ 0, %4 ]
   %.sink = phi i32 [ %50, %15 ], [ 0, %4 ]
-  %64 = getelementptr inbounds i8, ptr %1, i64 12
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 %.sink105, ptr %64, align 4
-  %65 = getelementptr inbounds i8, ptr %1, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %.sink104, ptr %65, align 4
-  %66 = getelementptr inbounds i8, ptr %1, i64 4
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 %.sink103, ptr %66, align 4
   store i32 %.sink, ptr %1, align 4
   ret void
@@ -5872,43 +5872,43 @@ define hidden void @av1_iadst8(ptr noundef %0, ptr noundef initializes((0, 32)) 
   %7 = add nsw i32 %6, -10
   %8 = sext i32 %7 to i64
   %9 = getelementptr inbounds [7 x [64 x i32]], ptr @av1_cospi_arr_data, i64 0, i64 %8
-  %10 = getelementptr inbounds i8, ptr %0, i64 28
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %11 = load i32, ptr %10, align 4
   store i32 %11, ptr %1, align 4
   %12 = load i32, ptr %0, align 4
-  %13 = getelementptr inbounds i8, ptr %1, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 %12, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %0, i64 20
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %15 = load i32, ptr %14, align 4
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %15, ptr %16, align 4
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load i32, ptr %17, align 4
-  %19 = getelementptr inbounds i8, ptr %1, i64 12
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 %18, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %0, i64 12
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %21 = load i32, ptr %20, align 4
-  %22 = getelementptr inbounds i8, ptr %1, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i32 %21, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %0, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %24 = load i32, ptr %23, align 4
-  %25 = getelementptr inbounds i8, ptr %1, i64 20
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 20
   store i32 %24, ptr %25, align 4
-  %26 = getelementptr inbounds i8, ptr %0, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %27 = load i32, ptr %26, align 4
-  %28 = getelementptr inbounds i8, ptr %1, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i32 %27, ptr %28, align 4
-  %29 = getelementptr inbounds i8, ptr %0, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %30 = load i32, ptr %29, align 4
-  %31 = getelementptr inbounds i8, ptr %1, i64 28
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 28
   store i32 %30, ptr %31, align 4
-  %32 = getelementptr inbounds i8, ptr %3, i64 1
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %33 = load i8, ptr %32, align 1
   tail call void @av1_range_check_buf(i32 noundef 1, ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef 8, i8 noundef signext %33) #5
-  %34 = getelementptr inbounds i8, ptr %9, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %35 = load i32, ptr %34, align 16
   %36 = load i32, ptr %1, align 4
-  %37 = getelementptr inbounds i8, ptr %9, i64 240
+  %37 = getelementptr inbounds nuw i8, ptr %9, i64 240
   %38 = load i32, ptr %37, align 16
   %39 = load i32, ptr %13, align 4
   %40 = mul nsw i32 %36, %35
@@ -5933,12 +5933,12 @@ define hidden void @av1_iadst8(ptr noundef %0, ptr noundef initializes((0, 32)) 
   %58 = add i64 %57, %56
   %59 = ashr i64 %58, %49
   %60 = trunc i64 %59 to i32
-  %61 = getelementptr inbounds i8, ptr %5, i64 4
+  %61 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %60, ptr %61, align 4
-  %62 = getelementptr inbounds i8, ptr %9, i64 80
+  %62 = getelementptr inbounds nuw i8, ptr %9, i64 80
   %63 = load i32, ptr %62, align 16
   %64 = load i32, ptr %16, align 4
-  %65 = getelementptr inbounds i8, ptr %9, i64 176
+  %65 = getelementptr inbounds nuw i8, ptr %9, i64 176
   %66 = load i32, ptr %65, align 16
   %67 = load i32, ptr %19, align 4
   %68 = mul nsw i32 %64, %63
@@ -5949,7 +5949,7 @@ define hidden void @av1_iadst8(ptr noundef %0, ptr noundef initializes((0, 32)) 
   %73 = add i64 %72, %71
   %74 = ashr i64 %73, %49
   %75 = trunc i64 %74 to i32
-  %76 = getelementptr inbounds i8, ptr %5, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %75, ptr %76, align 8
   %77 = mul nsw i32 %66, %64
   %78 = sext i32 %77 to i64
@@ -5960,12 +5960,12 @@ define hidden void @av1_iadst8(ptr noundef %0, ptr noundef initializes((0, 32)) 
   %83 = add i64 %82, %81
   %84 = ashr i64 %83, %49
   %85 = trunc i64 %84 to i32
-  %86 = getelementptr inbounds i8, ptr %5, i64 12
+  %86 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 %85, ptr %86, align 4
-  %87 = getelementptr inbounds i8, ptr %9, i64 144
+  %87 = getelementptr inbounds nuw i8, ptr %9, i64 144
   %88 = load i32, ptr %87, align 16
   %89 = load i32, ptr %22, align 4
-  %90 = getelementptr inbounds i8, ptr %9, i64 112
+  %90 = getelementptr inbounds nuw i8, ptr %9, i64 112
   %91 = load i32, ptr %90, align 16
   %92 = load i32, ptr %25, align 4
   %93 = mul nsw i32 %89, %88
@@ -5976,7 +5976,7 @@ define hidden void @av1_iadst8(ptr noundef %0, ptr noundef initializes((0, 32)) 
   %98 = add i64 %97, %96
   %99 = ashr i64 %98, %49
   %100 = trunc i64 %99 to i32
-  %101 = getelementptr inbounds i8, ptr %5, i64 16
+  %101 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 %100, ptr %101, align 16
   %102 = mul nsw i32 %91, %89
   %103 = sext i32 %102 to i64
@@ -5987,12 +5987,12 @@ define hidden void @av1_iadst8(ptr noundef %0, ptr noundef initializes((0, 32)) 
   %108 = add i64 %107, %106
   %109 = ashr i64 %108, %49
   %110 = trunc i64 %109 to i32
-  %111 = getelementptr inbounds i8, ptr %5, i64 20
+  %111 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i32 %110, ptr %111, align 4
-  %112 = getelementptr inbounds i8, ptr %9, i64 208
+  %112 = getelementptr inbounds nuw i8, ptr %9, i64 208
   %113 = load i32, ptr %112, align 16
   %114 = load i32, ptr %28, align 4
-  %115 = getelementptr inbounds i8, ptr %9, i64 48
+  %115 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %116 = load i32, ptr %115, align 16
   %117 = load i32, ptr %31, align 4
   %118 = mul nsw i32 %114, %113
@@ -6003,7 +6003,7 @@ define hidden void @av1_iadst8(ptr noundef %0, ptr noundef initializes((0, 32)) 
   %123 = add i64 %122, %121
   %124 = ashr i64 %123, %49
   %125 = trunc i64 %124 to i32
-  %126 = getelementptr inbounds i8, ptr %5, i64 24
+  %126 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i32 %125, ptr %126, align 8
   %127 = mul nsw i32 %116, %114
   %128 = sext i32 %127 to i64
@@ -6014,15 +6014,15 @@ define hidden void @av1_iadst8(ptr noundef %0, ptr noundef initializes((0, 32)) 
   %133 = add i64 %132, %131
   %134 = ashr i64 %133, %49
   %135 = trunc i64 %134 to i32
-  %136 = getelementptr inbounds i8, ptr %5, i64 28
+  %136 = getelementptr inbounds nuw i8, ptr %5, i64 28
   store i32 %135, ptr %136, align 4
-  %137 = getelementptr inbounds i8, ptr %3, i64 2
+  %137 = getelementptr inbounds nuw i8, ptr %3, i64 2
   %138 = load i8, ptr %137, align 1
   call void @av1_range_check_buf(i32 noundef 2, ptr noundef nonnull %0, ptr noundef nonnull %5, i32 noundef 8, i8 noundef signext %138) #5
   %139 = load i32, ptr %5, align 16
   %140 = load i32, ptr %101, align 16
   %141 = add nsw i32 %140, %139
-  %142 = getelementptr inbounds i8, ptr %3, i64 3
+  %142 = getelementptr inbounds nuw i8, ptr %3, i64 3
   %143 = load i8, ptr %142, align 1
   %144 = icmp slt i8 %143, 1
   br i1 %144, label %clamp_value.exit, label %145
@@ -6214,10 +6214,10 @@ clamp_value.exit280:                              ; preds = %clamp_value.exit278
   store i32 %271, ptr %76, align 8
   %272 = load i32, ptr %19, align 4
   store i32 %272, ptr %86, align 4
-  %273 = getelementptr inbounds i8, ptr %9, i64 64
+  %273 = getelementptr inbounds nuw i8, ptr %9, i64 64
   %274 = load i32, ptr %273, align 16
   %275 = load i32, ptr %22, align 4
-  %276 = getelementptr inbounds i8, ptr %9, i64 192
+  %276 = getelementptr inbounds nuw i8, ptr %9, i64 192
   %277 = load i32, ptr %276, align 16
   %278 = load i32, ptr %25, align 4
   %279 = mul nsw i32 %275, %274
@@ -6260,13 +6260,13 @@ clamp_value.exit280:                              ; preds = %clamp_value.exit278
   %313 = ashr i64 %312, %49
   %314 = trunc i64 %313 to i32
   store i32 %314, ptr %136, align 4
-  %315 = getelementptr inbounds i8, ptr %3, i64 4
+  %315 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %316 = load i8, ptr %315, align 1
   call void @av1_range_check_buf(i32 noundef 4, ptr noundef nonnull %0, ptr noundef nonnull %5, i32 noundef 8, i8 noundef signext %316) #5
   %317 = load i32, ptr %5, align 16
   %318 = load i32, ptr %76, align 8
   %319 = add nsw i32 %318, %317
-  %320 = getelementptr inbounds i8, ptr %3, i64 5
+  %320 = getelementptr inbounds nuw i8, ptr %3, i64 5
   %321 = load i8, ptr %320, align 1
   %322 = icmp slt i8 %321, 1
   br i1 %322, label %clamp_value.exit282, label %323
@@ -6454,7 +6454,7 @@ clamp_value.exit296:                              ; preds = %clamp_value.exit294
   store i32 %447, ptr %5, align 16
   %448 = load i32, ptr %13, align 4
   store i32 %448, ptr %61, align 4
-  %449 = getelementptr inbounds i8, ptr %9, i64 128
+  %449 = getelementptr inbounds nuw i8, ptr %9, i64 128
   %450 = load i32, ptr %449, align 16
   %451 = load i32, ptr %16, align 4
   %452 = load i32, ptr %19, align 4
@@ -6495,7 +6495,7 @@ clamp_value.exit296:                              ; preds = %clamp_value.exit294
   %482 = ashr i64 %481, %49
   %483 = trunc i64 %482 to i32
   store i32 %483, ptr %136, align 4
-  %484 = getelementptr inbounds i8, ptr %3, i64 6
+  %484 = getelementptr inbounds nuw i8, ptr %3, i64 6
   %485 = load i8, ptr %484, align 1
   call void @av1_range_check_buf(i32 noundef 6, ptr noundef nonnull %0, ptr noundef nonnull %5, i32 noundef 8, i8 noundef signext %485) #5
   %486 = load i32, ptr %5, align 16
@@ -6528,75 +6528,75 @@ define hidden void @av1_iadst16(ptr noundef %0, ptr noundef initializes((0, 64))
   %7 = add nsw i32 %6, -10
   %8 = sext i32 %7 to i64
   %9 = getelementptr inbounds [7 x [64 x i32]], ptr @av1_cospi_arr_data, i64 0, i64 %8
-  %10 = getelementptr inbounds i8, ptr %0, i64 60
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %11 = load i32, ptr %10, align 4
   store i32 %11, ptr %1, align 4
   %12 = load i32, ptr %0, align 4
-  %13 = getelementptr inbounds i8, ptr %1, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 %12, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %0, i64 52
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %15 = load i32, ptr %14, align 4
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %15, ptr %16, align 4
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load i32, ptr %17, align 4
-  %19 = getelementptr inbounds i8, ptr %1, i64 12
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 %18, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %0, i64 44
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %21 = load i32, ptr %20, align 4
-  %22 = getelementptr inbounds i8, ptr %1, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i32 %21, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %0, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %24 = load i32, ptr %23, align 4
-  %25 = getelementptr inbounds i8, ptr %1, i64 20
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 20
   store i32 %24, ptr %25, align 4
-  %26 = getelementptr inbounds i8, ptr %0, i64 36
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %27 = load i32, ptr %26, align 4
-  %28 = getelementptr inbounds i8, ptr %1, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i32 %27, ptr %28, align 4
-  %29 = getelementptr inbounds i8, ptr %0, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %30 = load i32, ptr %29, align 4
-  %31 = getelementptr inbounds i8, ptr %1, i64 28
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 28
   store i32 %30, ptr %31, align 4
-  %32 = getelementptr inbounds i8, ptr %0, i64 28
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %33 = load i32, ptr %32, align 4
-  %34 = getelementptr inbounds i8, ptr %1, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i32 %33, ptr %34, align 4
-  %35 = getelementptr inbounds i8, ptr %0, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %36 = load i32, ptr %35, align 4
-  %37 = getelementptr inbounds i8, ptr %1, i64 36
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 36
   store i32 %36, ptr %37, align 4
-  %38 = getelementptr inbounds i8, ptr %0, i64 20
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %39 = load i32, ptr %38, align 4
-  %40 = getelementptr inbounds i8, ptr %1, i64 40
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store i32 %39, ptr %40, align 4
-  %41 = getelementptr inbounds i8, ptr %0, i64 40
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %42 = load i32, ptr %41, align 4
-  %43 = getelementptr inbounds i8, ptr %1, i64 44
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 44
   store i32 %42, ptr %43, align 4
-  %44 = getelementptr inbounds i8, ptr %0, i64 12
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %45 = load i32, ptr %44, align 4
-  %46 = getelementptr inbounds i8, ptr %1, i64 48
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store i32 %45, ptr %46, align 4
-  %47 = getelementptr inbounds i8, ptr %0, i64 48
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %48 = load i32, ptr %47, align 4
-  %49 = getelementptr inbounds i8, ptr %1, i64 52
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 52
   store i32 %48, ptr %49, align 4
-  %50 = getelementptr inbounds i8, ptr %0, i64 4
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %51 = load i32, ptr %50, align 4
-  %52 = getelementptr inbounds i8, ptr %1, i64 56
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 56
   store i32 %51, ptr %52, align 4
-  %53 = getelementptr inbounds i8, ptr %0, i64 56
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %54 = load i32, ptr %53, align 4
-  %55 = getelementptr inbounds i8, ptr %1, i64 60
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 60
   store i32 %54, ptr %55, align 4
-  %56 = getelementptr inbounds i8, ptr %3, i64 1
+  %56 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %57 = load i8, ptr %56, align 1
   tail call void @av1_range_check_buf(i32 noundef 1, ptr noundef nonnull %0, ptr noundef %1, i32 noundef 16, i8 noundef signext %57) #5
-  %58 = getelementptr inbounds i8, ptr %9, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %59 = load i32, ptr %58, align 8
   %60 = load i32, ptr %1, align 4
-  %61 = getelementptr inbounds i8, ptr %9, i64 248
+  %61 = getelementptr inbounds nuw i8, ptr %9, i64 248
   %62 = load i32, ptr %61, align 8
   %63 = load i32, ptr %13, align 4
   %64 = mul nsw i32 %60, %59
@@ -6621,12 +6621,12 @@ define hidden void @av1_iadst16(ptr noundef %0, ptr noundef initializes((0, 64))
   %82 = add i64 %81, %80
   %83 = ashr i64 %82, %73
   %84 = trunc i64 %83 to i32
-  %85 = getelementptr inbounds i8, ptr %5, i64 4
+  %85 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %84, ptr %85, align 4
-  %86 = getelementptr inbounds i8, ptr %9, i64 40
+  %86 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %87 = load i32, ptr %86, align 8
   %88 = load i32, ptr %16, align 4
-  %89 = getelementptr inbounds i8, ptr %9, i64 216
+  %89 = getelementptr inbounds nuw i8, ptr %9, i64 216
   %90 = load i32, ptr %89, align 8
   %91 = load i32, ptr %19, align 4
   %92 = mul nsw i32 %88, %87
@@ -6637,7 +6637,7 @@ define hidden void @av1_iadst16(ptr noundef %0, ptr noundef initializes((0, 64))
   %97 = add i64 %96, %95
   %98 = ashr i64 %97, %73
   %99 = trunc i64 %98 to i32
-  %100 = getelementptr inbounds i8, ptr %5, i64 8
+  %100 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %99, ptr %100, align 8
   %101 = mul nsw i32 %90, %88
   %102 = sext i32 %101 to i64
@@ -6648,12 +6648,12 @@ define hidden void @av1_iadst16(ptr noundef %0, ptr noundef initializes((0, 64))
   %107 = add i64 %106, %105
   %108 = ashr i64 %107, %73
   %109 = trunc i64 %108 to i32
-  %110 = getelementptr inbounds i8, ptr %5, i64 12
+  %110 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 %109, ptr %110, align 4
-  %111 = getelementptr inbounds i8, ptr %9, i64 72
+  %111 = getelementptr inbounds nuw i8, ptr %9, i64 72
   %112 = load i32, ptr %111, align 8
   %113 = load i32, ptr %22, align 4
-  %114 = getelementptr inbounds i8, ptr %9, i64 184
+  %114 = getelementptr inbounds nuw i8, ptr %9, i64 184
   %115 = load i32, ptr %114, align 8
   %116 = load i32, ptr %25, align 4
   %117 = mul nsw i32 %113, %112
@@ -6664,7 +6664,7 @@ define hidden void @av1_iadst16(ptr noundef %0, ptr noundef initializes((0, 64))
   %122 = add i64 %121, %120
   %123 = ashr i64 %122, %73
   %124 = trunc i64 %123 to i32
-  %125 = getelementptr inbounds i8, ptr %5, i64 16
+  %125 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 %124, ptr %125, align 16
   %126 = mul nsw i32 %115, %113
   %127 = sext i32 %126 to i64
@@ -6675,12 +6675,12 @@ define hidden void @av1_iadst16(ptr noundef %0, ptr noundef initializes((0, 64))
   %132 = add i64 %131, %130
   %133 = ashr i64 %132, %73
   %134 = trunc i64 %133 to i32
-  %135 = getelementptr inbounds i8, ptr %5, i64 20
+  %135 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i32 %134, ptr %135, align 4
-  %136 = getelementptr inbounds i8, ptr %9, i64 104
+  %136 = getelementptr inbounds nuw i8, ptr %9, i64 104
   %137 = load i32, ptr %136, align 8
   %138 = load i32, ptr %28, align 4
-  %139 = getelementptr inbounds i8, ptr %9, i64 152
+  %139 = getelementptr inbounds nuw i8, ptr %9, i64 152
   %140 = load i32, ptr %139, align 8
   %141 = load i32, ptr %31, align 4
   %142 = mul nsw i32 %138, %137
@@ -6691,7 +6691,7 @@ define hidden void @av1_iadst16(ptr noundef %0, ptr noundef initializes((0, 64))
   %147 = add i64 %146, %145
   %148 = ashr i64 %147, %73
   %149 = trunc i64 %148 to i32
-  %150 = getelementptr inbounds i8, ptr %5, i64 24
+  %150 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i32 %149, ptr %150, align 8
   %151 = mul nsw i32 %140, %138
   %152 = sext i32 %151 to i64
@@ -6702,12 +6702,12 @@ define hidden void @av1_iadst16(ptr noundef %0, ptr noundef initializes((0, 64))
   %157 = add i64 %156, %155
   %158 = ashr i64 %157, %73
   %159 = trunc i64 %158 to i32
-  %160 = getelementptr inbounds i8, ptr %5, i64 28
+  %160 = getelementptr inbounds nuw i8, ptr %5, i64 28
   store i32 %159, ptr %160, align 4
-  %161 = getelementptr inbounds i8, ptr %9, i64 136
+  %161 = getelementptr inbounds nuw i8, ptr %9, i64 136
   %162 = load i32, ptr %161, align 8
   %163 = load i32, ptr %34, align 4
-  %164 = getelementptr inbounds i8, ptr %9, i64 120
+  %164 = getelementptr inbounds nuw i8, ptr %9, i64 120
   %165 = load i32, ptr %164, align 8
   %166 = load i32, ptr %37, align 4
   %167 = mul nsw i32 %163, %162
@@ -6718,7 +6718,7 @@ define hidden void @av1_iadst16(ptr noundef %0, ptr noundef initializes((0, 64))
   %172 = add i64 %171, %170
   %173 = ashr i64 %172, %73
   %174 = trunc i64 %173 to i32
-  %175 = getelementptr inbounds i8, ptr %5, i64 32
+  %175 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i32 %174, ptr %175, align 16
   %176 = mul nsw i32 %165, %163
   %177 = sext i32 %176 to i64
@@ -6729,12 +6729,12 @@ define hidden void @av1_iadst16(ptr noundef %0, ptr noundef initializes((0, 64))
   %182 = add i64 %181, %180
   %183 = ashr i64 %182, %73
   %184 = trunc i64 %183 to i32
-  %185 = getelementptr inbounds i8, ptr %5, i64 36
+  %185 = getelementptr inbounds nuw i8, ptr %5, i64 36
   store i32 %184, ptr %185, align 4
-  %186 = getelementptr inbounds i8, ptr %9, i64 168
+  %186 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %187 = load i32, ptr %186, align 8
   %188 = load i32, ptr %40, align 4
-  %189 = getelementptr inbounds i8, ptr %9, i64 88
+  %189 = getelementptr inbounds nuw i8, ptr %9, i64 88
   %190 = load i32, ptr %189, align 8
   %191 = load i32, ptr %43, align 4
   %192 = mul nsw i32 %188, %187
@@ -6745,7 +6745,7 @@ define hidden void @av1_iadst16(ptr noundef %0, ptr noundef initializes((0, 64))
   %197 = add i64 %196, %195
   %198 = ashr i64 %197, %73
   %199 = trunc i64 %198 to i32
-  %200 = getelementptr inbounds i8, ptr %5, i64 40
+  %200 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store i32 %199, ptr %200, align 8
   %201 = mul nsw i32 %190, %188
   %202 = sext i32 %201 to i64
@@ -6756,12 +6756,12 @@ define hidden void @av1_iadst16(ptr noundef %0, ptr noundef initializes((0, 64))
   %207 = add i64 %206, %205
   %208 = ashr i64 %207, %73
   %209 = trunc i64 %208 to i32
-  %210 = getelementptr inbounds i8, ptr %5, i64 44
+  %210 = getelementptr inbounds nuw i8, ptr %5, i64 44
   store i32 %209, ptr %210, align 4
-  %211 = getelementptr inbounds i8, ptr %9, i64 200
+  %211 = getelementptr inbounds nuw i8, ptr %9, i64 200
   %212 = load i32, ptr %211, align 8
   %213 = load i32, ptr %46, align 4
-  %214 = getelementptr inbounds i8, ptr %9, i64 56
+  %214 = getelementptr inbounds nuw i8, ptr %9, i64 56
   %215 = load i32, ptr %214, align 8
   %216 = load i32, ptr %49, align 4
   %217 = mul nsw i32 %213, %212
@@ -6772,7 +6772,7 @@ define hidden void @av1_iadst16(ptr noundef %0, ptr noundef initializes((0, 64))
   %222 = add i64 %221, %220
   %223 = ashr i64 %222, %73
   %224 = trunc i64 %223 to i32
-  %225 = getelementptr inbounds i8, ptr %5, i64 48
+  %225 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store i32 %224, ptr %225, align 16
   %226 = mul nsw i32 %215, %213
   %227 = sext i32 %226 to i64
@@ -6783,12 +6783,12 @@ define hidden void @av1_iadst16(ptr noundef %0, ptr noundef initializes((0, 64))
   %232 = add i64 %231, %230
   %233 = ashr i64 %232, %73
   %234 = trunc i64 %233 to i32
-  %235 = getelementptr inbounds i8, ptr %5, i64 52
+  %235 = getelementptr inbounds nuw i8, ptr %5, i64 52
   store i32 %234, ptr %235, align 4
-  %236 = getelementptr inbounds i8, ptr %9, i64 232
+  %236 = getelementptr inbounds nuw i8, ptr %9, i64 232
   %237 = load i32, ptr %236, align 8
   %238 = load i32, ptr %52, align 4
-  %239 = getelementptr inbounds i8, ptr %9, i64 24
+  %239 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %240 = load i32, ptr %239, align 8
   %241 = load i32, ptr %55, align 4
   %242 = mul nsw i32 %238, %237
@@ -6799,7 +6799,7 @@ define hidden void @av1_iadst16(ptr noundef %0, ptr noundef initializes((0, 64))
   %247 = add i64 %246, %245
   %248 = ashr i64 %247, %73
   %249 = trunc i64 %248 to i32
-  %250 = getelementptr inbounds i8, ptr %5, i64 56
+  %250 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store i32 %249, ptr %250, align 8
   %251 = mul nsw i32 %240, %238
   %252 = sext i32 %251 to i64
@@ -6810,15 +6810,15 @@ define hidden void @av1_iadst16(ptr noundef %0, ptr noundef initializes((0, 64))
   %257 = add i64 %256, %255
   %258 = ashr i64 %257, %73
   %259 = trunc i64 %258 to i32
-  %260 = getelementptr inbounds i8, ptr %5, i64 60
+  %260 = getelementptr inbounds nuw i8, ptr %5, i64 60
   store i32 %259, ptr %260, align 4
-  %261 = getelementptr inbounds i8, ptr %3, i64 2
+  %261 = getelementptr inbounds nuw i8, ptr %3, i64 2
   %262 = load i8, ptr %261, align 1
   call void @av1_range_check_buf(i32 noundef 2, ptr noundef nonnull %0, ptr noundef nonnull %5, i32 noundef 16, i8 noundef signext %262) #5
   %263 = load i32, ptr %5, align 16
   %264 = load i32, ptr %175, align 16
   %265 = add nsw i32 %264, %263
-  %266 = getelementptr inbounds i8, ptr %3, i64 3
+  %266 = getelementptr inbounds nuw i8, ptr %3, i64 3
   %267 = load i8, ptr %266, align 1
   %268 = icmp slt i8 %267, 1
   br i1 %268, label %clamp_value.exit, label %269
@@ -7202,10 +7202,10 @@ clamp_value.exit678:                              ; preds = %clamp_value.exit676
   store i32 %527, ptr %150, align 8
   %528 = load i32, ptr %31, align 4
   store i32 %528, ptr %160, align 4
-  %529 = getelementptr inbounds i8, ptr %9, i64 32
+  %529 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %530 = load i32, ptr %529, align 16
   %531 = load i32, ptr %34, align 4
-  %532 = getelementptr inbounds i8, ptr %9, i64 224
+  %532 = getelementptr inbounds nuw i8, ptr %9, i64 224
   %533 = load i32, ptr %532, align 16
   %534 = load i32, ptr %37, align 4
   %535 = mul nsw i32 %531, %530
@@ -7227,10 +7227,10 @@ clamp_value.exit678:                              ; preds = %clamp_value.exit676
   %550 = ashr i64 %549, %73
   %551 = trunc i64 %550 to i32
   store i32 %551, ptr %185, align 4
-  %552 = getelementptr inbounds i8, ptr %9, i64 160
+  %552 = getelementptr inbounds nuw i8, ptr %9, i64 160
   %553 = load i32, ptr %552, align 16
   %554 = load i32, ptr %40, align 4
-  %555 = getelementptr inbounds i8, ptr %9, i64 96
+  %555 = getelementptr inbounds nuw i8, ptr %9, i64 96
   %556 = load i32, ptr %555, align 16
   %557 = load i32, ptr %43, align 4
   %558 = mul nsw i32 %554, %553
@@ -7294,13 +7294,13 @@ clamp_value.exit678:                              ; preds = %clamp_value.exit676
   %611 = ashr i64 %610, %73
   %612 = trunc i64 %611 to i32
   store i32 %612, ptr %260, align 4
-  %613 = getelementptr inbounds i8, ptr %3, i64 4
+  %613 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %614 = load i8, ptr %613, align 1
   call void @av1_range_check_buf(i32 noundef 4, ptr noundef nonnull %0, ptr noundef nonnull %5, i32 noundef 16, i8 noundef signext %614) #5
   %615 = load i32, ptr %5, align 16
   %616 = load i32, ptr %125, align 16
   %617 = add nsw i32 %616, %615
-  %618 = getelementptr inbounds i8, ptr %3, i64 5
+  %618 = getelementptr inbounds nuw i8, ptr %3, i64 5
   %619 = load i8, ptr %618, align 1
   %620 = icmp slt i8 %619, 1
   br i1 %620, label %clamp_value.exit680, label %621
@@ -7676,10 +7676,10 @@ clamp_value.exit710:                              ; preds = %clamp_value.exit708
   store i32 %875, ptr %100, align 8
   %876 = load i32, ptr %19, align 4
   store i32 %876, ptr %110, align 4
-  %877 = getelementptr inbounds i8, ptr %9, i64 64
+  %877 = getelementptr inbounds nuw i8, ptr %9, i64 64
   %878 = load i32, ptr %877, align 16
   %879 = load i32, ptr %22, align 4
-  %880 = getelementptr inbounds i8, ptr %9, i64 192
+  %880 = getelementptr inbounds nuw i8, ptr %9, i64 192
   %881 = load i32, ptr %880, align 16
   %882 = load i32, ptr %25, align 4
   %883 = mul nsw i32 %879, %878
@@ -7770,13 +7770,13 @@ clamp_value.exit710:                              ; preds = %clamp_value.exit708
   %957 = ashr i64 %956, %73
   %958 = trunc i64 %957 to i32
   store i32 %958, ptr %260, align 4
-  %959 = getelementptr inbounds i8, ptr %3, i64 6
+  %959 = getelementptr inbounds nuw i8, ptr %3, i64 6
   %960 = load i8, ptr %959, align 1
   call void @av1_range_check_buf(i32 noundef 6, ptr noundef nonnull %0, ptr noundef nonnull %5, i32 noundef 16, i8 noundef signext %960) #5
   %961 = load i32, ptr %5, align 16
   %962 = load i32, ptr %100, align 8
   %963 = add nsw i32 %962, %961
-  %964 = getelementptr inbounds i8, ptr %3, i64 7
+  %964 = getelementptr inbounds nuw i8, ptr %3, i64 7
   %965 = load i8, ptr %964, align 1
   %966 = icmp slt i8 %965, 1
   br i1 %966, label %clamp_value.exit712, label %967
@@ -8148,7 +8148,7 @@ clamp_value.exit742:                              ; preds = %clamp_value.exit740
   store i32 %1219, ptr %5, align 16
   %1220 = load i32, ptr %13, align 4
   store i32 %1220, ptr %85, align 4
-  %1221 = getelementptr inbounds i8, ptr %9, i64 128
+  %1221 = getelementptr inbounds nuw i8, ptr %9, i64 128
   %1222 = load i32, ptr %1221, align 16
   %1223 = load i32, ptr %16, align 4
   %1224 = load i32, ptr %19, align 4
@@ -8231,7 +8231,7 @@ clamp_value.exit742:                              ; preds = %clamp_value.exit740
   %1288 = ashr i64 %1287, %73
   %1289 = trunc i64 %1288 to i32
   store i32 %1289, ptr %260, align 4
-  %1290 = getelementptr inbounds i8, ptr %3, i64 8
+  %1290 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %1291 = load i8, ptr %1290, align 1
   call void @av1_range_check_buf(i32 noundef 8, ptr noundef nonnull %0, ptr noundef nonnull %5, i32 noundef 16, i8 noundef signext %1291) #5
   %1292 = load i32, ptr %5, align 16
@@ -8283,14 +8283,14 @@ define hidden void @av1_iidentity4_c(ptr nocapture noundef readonly %0, ptr noca
 
 5:                                                ; preds = %4, %5
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %5 ]
-  %6 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
   %7 = load i32, ptr %6, align 4
   %8 = sext i32 %7 to i64
   %9 = mul nsw i64 %8, 5793
   %10 = add nsw i64 %9, 2048
   %11 = lshr i64 %10, 12
   %12 = trunc i64 %11 to i32
-  %13 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   store i32 %12, ptr %13, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -8306,10 +8306,10 @@ define hidden void @av1_iidentity8_c(ptr nocapture noundef readonly %0, ptr noca
 
 5:                                                ; preds = %4, %5
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %5 ]
-  %6 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
   %7 = load i32, ptr %6, align 4
   %8 = shl i32 %7, 1
-  %9 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   store i32 %8, ptr %9, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
@@ -8325,14 +8325,14 @@ define hidden void @av1_iidentity16_c(ptr nocapture noundef readonly %0, ptr noc
 
 5:                                                ; preds = %4, %5
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %5 ]
-  %6 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
   %7 = load i32, ptr %6, align 4
   %8 = sext i32 %7 to i64
   %9 = mul nsw i64 %8, 11586
   %10 = add nsw i64 %9, 2048
   %11 = lshr i64 %10, 12
   %12 = trunc i64 %11 to i32
-  %13 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   store i32 %12, ptr %13, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
@@ -8348,10 +8348,10 @@ define hidden void @av1_iidentity32_c(ptr nocapture noundef readonly %0, ptr noc
 
 5:                                                ; preds = %4, %5
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %5 ]
-  %6 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
   %7 = load i32, ptr %6, align 4
   %8 = shl i32 %7, 2
-  %9 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   store i32 %8, ptr %9, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
@@ -8370,360 +8370,360 @@ define hidden void @av1_idct64(ptr noundef %0, ptr noundef initializes((0, 256))
   %9 = getelementptr inbounds [7 x [64 x i32]], ptr @av1_cospi_arr_data, i64 0, i64 %8
   %10 = load i32, ptr %0, align 4
   store i32 %10, ptr %1, align 4
-  %11 = getelementptr inbounds i8, ptr %0, i64 128
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %12 = load i32, ptr %11, align 4
-  %13 = getelementptr inbounds i8, ptr %1, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 %12, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %0, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %15 = load i32, ptr %14, align 4
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %15, ptr %16, align 4
-  %17 = getelementptr inbounds i8, ptr %0, i64 192
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %18 = load i32, ptr %17, align 4
-  %19 = getelementptr inbounds i8, ptr %1, i64 12
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 %18, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %0, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %21 = load i32, ptr %20, align 4
-  %22 = getelementptr inbounds i8, ptr %1, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i32 %21, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %0, i64 160
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %24 = load i32, ptr %23, align 4
-  %25 = getelementptr inbounds i8, ptr %1, i64 20
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 20
   store i32 %24, ptr %25, align 4
-  %26 = getelementptr inbounds i8, ptr %0, i64 96
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %27 = load i32, ptr %26, align 4
-  %28 = getelementptr inbounds i8, ptr %1, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i32 %27, ptr %28, align 4
-  %29 = getelementptr inbounds i8, ptr %0, i64 224
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %30 = load i32, ptr %29, align 4
-  %31 = getelementptr inbounds i8, ptr %1, i64 28
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 28
   store i32 %30, ptr %31, align 4
-  %32 = getelementptr inbounds i8, ptr %0, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %33 = load i32, ptr %32, align 4
-  %34 = getelementptr inbounds i8, ptr %1, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i32 %33, ptr %34, align 4
-  %35 = getelementptr inbounds i8, ptr %0, i64 144
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %36 = load i32, ptr %35, align 4
-  %37 = getelementptr inbounds i8, ptr %1, i64 36
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 36
   store i32 %36, ptr %37, align 4
-  %38 = getelementptr inbounds i8, ptr %0, i64 80
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %39 = load i32, ptr %38, align 4
-  %40 = getelementptr inbounds i8, ptr %1, i64 40
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store i32 %39, ptr %40, align 4
-  %41 = getelementptr inbounds i8, ptr %0, i64 208
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %42 = load i32, ptr %41, align 4
-  %43 = getelementptr inbounds i8, ptr %1, i64 44
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 44
   store i32 %42, ptr %43, align 4
-  %44 = getelementptr inbounds i8, ptr %0, i64 48
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %45 = load i32, ptr %44, align 4
-  %46 = getelementptr inbounds i8, ptr %1, i64 48
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store i32 %45, ptr %46, align 4
-  %47 = getelementptr inbounds i8, ptr %0, i64 176
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %48 = load i32, ptr %47, align 4
-  %49 = getelementptr inbounds i8, ptr %1, i64 52
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 52
   store i32 %48, ptr %49, align 4
-  %50 = getelementptr inbounds i8, ptr %0, i64 112
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %51 = load i32, ptr %50, align 4
-  %52 = getelementptr inbounds i8, ptr %1, i64 56
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 56
   store i32 %51, ptr %52, align 4
-  %53 = getelementptr inbounds i8, ptr %0, i64 240
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %54 = load i32, ptr %53, align 4
-  %55 = getelementptr inbounds i8, ptr %1, i64 60
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 60
   store i32 %54, ptr %55, align 4
-  %56 = getelementptr inbounds i8, ptr %0, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %57 = load i32, ptr %56, align 4
-  %58 = getelementptr inbounds i8, ptr %1, i64 64
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store i32 %57, ptr %58, align 4
-  %59 = getelementptr inbounds i8, ptr %0, i64 136
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %60 = load i32, ptr %59, align 4
-  %61 = getelementptr inbounds i8, ptr %1, i64 68
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 68
   store i32 %60, ptr %61, align 4
-  %62 = getelementptr inbounds i8, ptr %0, i64 72
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %63 = load i32, ptr %62, align 4
-  %64 = getelementptr inbounds i8, ptr %1, i64 72
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 72
   store i32 %63, ptr %64, align 4
-  %65 = getelementptr inbounds i8, ptr %0, i64 200
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %66 = load i32, ptr %65, align 4
-  %67 = getelementptr inbounds i8, ptr %1, i64 76
+  %67 = getelementptr inbounds nuw i8, ptr %1, i64 76
   store i32 %66, ptr %67, align 4
-  %68 = getelementptr inbounds i8, ptr %0, i64 40
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %69 = load i32, ptr %68, align 4
-  %70 = getelementptr inbounds i8, ptr %1, i64 80
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 80
   store i32 %69, ptr %70, align 4
-  %71 = getelementptr inbounds i8, ptr %0, i64 168
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %72 = load i32, ptr %71, align 4
-  %73 = getelementptr inbounds i8, ptr %1, i64 84
+  %73 = getelementptr inbounds nuw i8, ptr %1, i64 84
   store i32 %72, ptr %73, align 4
-  %74 = getelementptr inbounds i8, ptr %0, i64 104
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %75 = load i32, ptr %74, align 4
-  %76 = getelementptr inbounds i8, ptr %1, i64 88
+  %76 = getelementptr inbounds nuw i8, ptr %1, i64 88
   store i32 %75, ptr %76, align 4
-  %77 = getelementptr inbounds i8, ptr %0, i64 232
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %78 = load i32, ptr %77, align 4
-  %79 = getelementptr inbounds i8, ptr %1, i64 92
+  %79 = getelementptr inbounds nuw i8, ptr %1, i64 92
   store i32 %78, ptr %79, align 4
-  %80 = getelementptr inbounds i8, ptr %0, i64 24
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %81 = load i32, ptr %80, align 4
-  %82 = getelementptr inbounds i8, ptr %1, i64 96
+  %82 = getelementptr inbounds nuw i8, ptr %1, i64 96
   store i32 %81, ptr %82, align 4
-  %83 = getelementptr inbounds i8, ptr %0, i64 152
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %84 = load i32, ptr %83, align 4
-  %85 = getelementptr inbounds i8, ptr %1, i64 100
+  %85 = getelementptr inbounds nuw i8, ptr %1, i64 100
   store i32 %84, ptr %85, align 4
-  %86 = getelementptr inbounds i8, ptr %0, i64 88
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %87 = load i32, ptr %86, align 4
-  %88 = getelementptr inbounds i8, ptr %1, i64 104
+  %88 = getelementptr inbounds nuw i8, ptr %1, i64 104
   store i32 %87, ptr %88, align 4
-  %89 = getelementptr inbounds i8, ptr %0, i64 216
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %90 = load i32, ptr %89, align 4
-  %91 = getelementptr inbounds i8, ptr %1, i64 108
+  %91 = getelementptr inbounds nuw i8, ptr %1, i64 108
   store i32 %90, ptr %91, align 4
-  %92 = getelementptr inbounds i8, ptr %0, i64 56
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %93 = load i32, ptr %92, align 4
-  %94 = getelementptr inbounds i8, ptr %1, i64 112
+  %94 = getelementptr inbounds nuw i8, ptr %1, i64 112
   store i32 %93, ptr %94, align 4
-  %95 = getelementptr inbounds i8, ptr %0, i64 184
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %96 = load i32, ptr %95, align 4
-  %97 = getelementptr inbounds i8, ptr %1, i64 116
+  %97 = getelementptr inbounds nuw i8, ptr %1, i64 116
   store i32 %96, ptr %97, align 4
-  %98 = getelementptr inbounds i8, ptr %0, i64 120
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %99 = load i32, ptr %98, align 4
-  %100 = getelementptr inbounds i8, ptr %1, i64 120
+  %100 = getelementptr inbounds nuw i8, ptr %1, i64 120
   store i32 %99, ptr %100, align 4
-  %101 = getelementptr inbounds i8, ptr %0, i64 248
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %102 = load i32, ptr %101, align 4
-  %103 = getelementptr inbounds i8, ptr %1, i64 124
+  %103 = getelementptr inbounds nuw i8, ptr %1, i64 124
   store i32 %102, ptr %103, align 4
-  %104 = getelementptr inbounds i8, ptr %0, i64 4
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %105 = load i32, ptr %104, align 4
-  %106 = getelementptr inbounds i8, ptr %1, i64 128
+  %106 = getelementptr inbounds nuw i8, ptr %1, i64 128
   store i32 %105, ptr %106, align 4
-  %107 = getelementptr inbounds i8, ptr %0, i64 132
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %108 = load i32, ptr %107, align 4
-  %109 = getelementptr inbounds i8, ptr %1, i64 132
+  %109 = getelementptr inbounds nuw i8, ptr %1, i64 132
   store i32 %108, ptr %109, align 4
-  %110 = getelementptr inbounds i8, ptr %0, i64 68
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %111 = load i32, ptr %110, align 4
-  %112 = getelementptr inbounds i8, ptr %1, i64 136
+  %112 = getelementptr inbounds nuw i8, ptr %1, i64 136
   store i32 %111, ptr %112, align 4
-  %113 = getelementptr inbounds i8, ptr %0, i64 196
+  %113 = getelementptr inbounds nuw i8, ptr %0, i64 196
   %114 = load i32, ptr %113, align 4
-  %115 = getelementptr inbounds i8, ptr %1, i64 140
+  %115 = getelementptr inbounds nuw i8, ptr %1, i64 140
   store i32 %114, ptr %115, align 4
-  %116 = getelementptr inbounds i8, ptr %0, i64 36
+  %116 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %117 = load i32, ptr %116, align 4
-  %118 = getelementptr inbounds i8, ptr %1, i64 144
+  %118 = getelementptr inbounds nuw i8, ptr %1, i64 144
   store i32 %117, ptr %118, align 4
-  %119 = getelementptr inbounds i8, ptr %0, i64 164
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 164
   %120 = load i32, ptr %119, align 4
-  %121 = getelementptr inbounds i8, ptr %1, i64 148
+  %121 = getelementptr inbounds nuw i8, ptr %1, i64 148
   store i32 %120, ptr %121, align 4
-  %122 = getelementptr inbounds i8, ptr %0, i64 100
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %123 = load i32, ptr %122, align 4
-  %124 = getelementptr inbounds i8, ptr %1, i64 152
+  %124 = getelementptr inbounds nuw i8, ptr %1, i64 152
   store i32 %123, ptr %124, align 4
-  %125 = getelementptr inbounds i8, ptr %0, i64 228
+  %125 = getelementptr inbounds nuw i8, ptr %0, i64 228
   %126 = load i32, ptr %125, align 4
-  %127 = getelementptr inbounds i8, ptr %1, i64 156
+  %127 = getelementptr inbounds nuw i8, ptr %1, i64 156
   store i32 %126, ptr %127, align 4
-  %128 = getelementptr inbounds i8, ptr %0, i64 20
+  %128 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %129 = load i32, ptr %128, align 4
-  %130 = getelementptr inbounds i8, ptr %1, i64 160
+  %130 = getelementptr inbounds nuw i8, ptr %1, i64 160
   store i32 %129, ptr %130, align 4
-  %131 = getelementptr inbounds i8, ptr %0, i64 148
+  %131 = getelementptr inbounds nuw i8, ptr %0, i64 148
   %132 = load i32, ptr %131, align 4
-  %133 = getelementptr inbounds i8, ptr %1, i64 164
+  %133 = getelementptr inbounds nuw i8, ptr %1, i64 164
   store i32 %132, ptr %133, align 4
-  %134 = getelementptr inbounds i8, ptr %0, i64 84
+  %134 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %135 = load i32, ptr %134, align 4
-  %136 = getelementptr inbounds i8, ptr %1, i64 168
+  %136 = getelementptr inbounds nuw i8, ptr %1, i64 168
   store i32 %135, ptr %136, align 4
-  %137 = getelementptr inbounds i8, ptr %0, i64 212
+  %137 = getelementptr inbounds nuw i8, ptr %0, i64 212
   %138 = load i32, ptr %137, align 4
-  %139 = getelementptr inbounds i8, ptr %1, i64 172
+  %139 = getelementptr inbounds nuw i8, ptr %1, i64 172
   store i32 %138, ptr %139, align 4
-  %140 = getelementptr inbounds i8, ptr %0, i64 52
+  %140 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %141 = load i32, ptr %140, align 4
-  %142 = getelementptr inbounds i8, ptr %1, i64 176
+  %142 = getelementptr inbounds nuw i8, ptr %1, i64 176
   store i32 %141, ptr %142, align 4
-  %143 = getelementptr inbounds i8, ptr %0, i64 180
+  %143 = getelementptr inbounds nuw i8, ptr %0, i64 180
   %144 = load i32, ptr %143, align 4
-  %145 = getelementptr inbounds i8, ptr %1, i64 180
+  %145 = getelementptr inbounds nuw i8, ptr %1, i64 180
   store i32 %144, ptr %145, align 4
-  %146 = getelementptr inbounds i8, ptr %0, i64 116
+  %146 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %147 = load i32, ptr %146, align 4
-  %148 = getelementptr inbounds i8, ptr %1, i64 184
+  %148 = getelementptr inbounds nuw i8, ptr %1, i64 184
   store i32 %147, ptr %148, align 4
-  %149 = getelementptr inbounds i8, ptr %0, i64 244
+  %149 = getelementptr inbounds nuw i8, ptr %0, i64 244
   %150 = load i32, ptr %149, align 4
-  %151 = getelementptr inbounds i8, ptr %1, i64 188
+  %151 = getelementptr inbounds nuw i8, ptr %1, i64 188
   store i32 %150, ptr %151, align 4
-  %152 = getelementptr inbounds i8, ptr %0, i64 12
+  %152 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %153 = load i32, ptr %152, align 4
-  %154 = getelementptr inbounds i8, ptr %1, i64 192
+  %154 = getelementptr inbounds nuw i8, ptr %1, i64 192
   store i32 %153, ptr %154, align 4
-  %155 = getelementptr inbounds i8, ptr %0, i64 140
+  %155 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %156 = load i32, ptr %155, align 4
-  %157 = getelementptr inbounds i8, ptr %1, i64 196
+  %157 = getelementptr inbounds nuw i8, ptr %1, i64 196
   store i32 %156, ptr %157, align 4
-  %158 = getelementptr inbounds i8, ptr %0, i64 76
+  %158 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %159 = load i32, ptr %158, align 4
-  %160 = getelementptr inbounds i8, ptr %1, i64 200
+  %160 = getelementptr inbounds nuw i8, ptr %1, i64 200
   store i32 %159, ptr %160, align 4
-  %161 = getelementptr inbounds i8, ptr %0, i64 204
+  %161 = getelementptr inbounds nuw i8, ptr %0, i64 204
   %162 = load i32, ptr %161, align 4
-  %163 = getelementptr inbounds i8, ptr %1, i64 204
+  %163 = getelementptr inbounds nuw i8, ptr %1, i64 204
   store i32 %162, ptr %163, align 4
-  %164 = getelementptr inbounds i8, ptr %0, i64 44
+  %164 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %165 = load i32, ptr %164, align 4
-  %166 = getelementptr inbounds i8, ptr %1, i64 208
+  %166 = getelementptr inbounds nuw i8, ptr %1, i64 208
   store i32 %165, ptr %166, align 4
-  %167 = getelementptr inbounds i8, ptr %0, i64 172
+  %167 = getelementptr inbounds nuw i8, ptr %0, i64 172
   %168 = load i32, ptr %167, align 4
-  %169 = getelementptr inbounds i8, ptr %1, i64 212
+  %169 = getelementptr inbounds nuw i8, ptr %1, i64 212
   store i32 %168, ptr %169, align 4
-  %170 = getelementptr inbounds i8, ptr %0, i64 108
+  %170 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %171 = load i32, ptr %170, align 4
-  %172 = getelementptr inbounds i8, ptr %1, i64 216
+  %172 = getelementptr inbounds nuw i8, ptr %1, i64 216
   store i32 %171, ptr %172, align 4
-  %173 = getelementptr inbounds i8, ptr %0, i64 236
+  %173 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %174 = load i32, ptr %173, align 4
-  %175 = getelementptr inbounds i8, ptr %1, i64 220
+  %175 = getelementptr inbounds nuw i8, ptr %1, i64 220
   store i32 %174, ptr %175, align 4
-  %176 = getelementptr inbounds i8, ptr %0, i64 28
+  %176 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %177 = load i32, ptr %176, align 4
-  %178 = getelementptr inbounds i8, ptr %1, i64 224
+  %178 = getelementptr inbounds nuw i8, ptr %1, i64 224
   store i32 %177, ptr %178, align 4
-  %179 = getelementptr inbounds i8, ptr %0, i64 156
+  %179 = getelementptr inbounds nuw i8, ptr %0, i64 156
   %180 = load i32, ptr %179, align 4
-  %181 = getelementptr inbounds i8, ptr %1, i64 228
+  %181 = getelementptr inbounds nuw i8, ptr %1, i64 228
   store i32 %180, ptr %181, align 4
-  %182 = getelementptr inbounds i8, ptr %0, i64 92
+  %182 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %183 = load i32, ptr %182, align 4
-  %184 = getelementptr inbounds i8, ptr %1, i64 232
+  %184 = getelementptr inbounds nuw i8, ptr %1, i64 232
   store i32 %183, ptr %184, align 4
-  %185 = getelementptr inbounds i8, ptr %0, i64 220
+  %185 = getelementptr inbounds nuw i8, ptr %0, i64 220
   %186 = load i32, ptr %185, align 4
-  %187 = getelementptr inbounds i8, ptr %1, i64 236
+  %187 = getelementptr inbounds nuw i8, ptr %1, i64 236
   store i32 %186, ptr %187, align 4
-  %188 = getelementptr inbounds i8, ptr %0, i64 60
+  %188 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %189 = load i32, ptr %188, align 4
-  %190 = getelementptr inbounds i8, ptr %1, i64 240
+  %190 = getelementptr inbounds nuw i8, ptr %1, i64 240
   store i32 %189, ptr %190, align 4
-  %191 = getelementptr inbounds i8, ptr %0, i64 188
+  %191 = getelementptr inbounds nuw i8, ptr %0, i64 188
   %192 = load i32, ptr %191, align 4
-  %193 = getelementptr inbounds i8, ptr %1, i64 244
+  %193 = getelementptr inbounds nuw i8, ptr %1, i64 244
   store i32 %192, ptr %193, align 4
-  %194 = getelementptr inbounds i8, ptr %0, i64 124
+  %194 = getelementptr inbounds nuw i8, ptr %0, i64 124
   %195 = load i32, ptr %194, align 4
-  %196 = getelementptr inbounds i8, ptr %1, i64 248
+  %196 = getelementptr inbounds nuw i8, ptr %1, i64 248
   store i32 %195, ptr %196, align 4
-  %197 = getelementptr inbounds i8, ptr %0, i64 252
+  %197 = getelementptr inbounds nuw i8, ptr %0, i64 252
   %198 = load i32, ptr %197, align 4
-  %199 = getelementptr inbounds i8, ptr %1, i64 252
+  %199 = getelementptr inbounds nuw i8, ptr %1, i64 252
   store i32 %198, ptr %199, align 4
-  %200 = getelementptr inbounds i8, ptr %3, i64 1
+  %200 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %201 = load i8, ptr %200, align 1
   tail call void @av1_range_check_buf(i32 noundef 1, ptr noundef %0, ptr noundef %1, i32 noundef 64, i8 noundef signext %201) #5
   %202 = load i32, ptr %1, align 4
   store i32 %202, ptr %5, align 16
   %203 = load i32, ptr %13, align 4
-  %204 = getelementptr inbounds i8, ptr %5, i64 4
+  %204 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %203, ptr %204, align 4
   %205 = load i32, ptr %16, align 4
-  %206 = getelementptr inbounds i8, ptr %5, i64 8
+  %206 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %205, ptr %206, align 8
   %207 = load i32, ptr %19, align 4
-  %208 = getelementptr inbounds i8, ptr %5, i64 12
+  %208 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 %207, ptr %208, align 4
   %209 = load i32, ptr %22, align 4
-  %210 = getelementptr inbounds i8, ptr %5, i64 16
+  %210 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 %209, ptr %210, align 16
   %211 = load i32, ptr %25, align 4
-  %212 = getelementptr inbounds i8, ptr %5, i64 20
+  %212 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i32 %211, ptr %212, align 4
   %213 = load i32, ptr %28, align 4
-  %214 = getelementptr inbounds i8, ptr %5, i64 24
+  %214 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i32 %213, ptr %214, align 8
   %215 = load i32, ptr %31, align 4
-  %216 = getelementptr inbounds i8, ptr %5, i64 28
+  %216 = getelementptr inbounds nuw i8, ptr %5, i64 28
   store i32 %215, ptr %216, align 4
   %217 = load i32, ptr %34, align 4
-  %218 = getelementptr inbounds i8, ptr %5, i64 32
+  %218 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i32 %217, ptr %218, align 16
   %219 = load i32, ptr %37, align 4
-  %220 = getelementptr inbounds i8, ptr %5, i64 36
+  %220 = getelementptr inbounds nuw i8, ptr %5, i64 36
   store i32 %219, ptr %220, align 4
   %221 = load i32, ptr %40, align 4
-  %222 = getelementptr inbounds i8, ptr %5, i64 40
+  %222 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store i32 %221, ptr %222, align 8
   %223 = load i32, ptr %43, align 4
-  %224 = getelementptr inbounds i8, ptr %5, i64 44
+  %224 = getelementptr inbounds nuw i8, ptr %5, i64 44
   store i32 %223, ptr %224, align 4
   %225 = load i32, ptr %46, align 4
-  %226 = getelementptr inbounds i8, ptr %5, i64 48
+  %226 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store i32 %225, ptr %226, align 16
   %227 = load i32, ptr %49, align 4
-  %228 = getelementptr inbounds i8, ptr %5, i64 52
+  %228 = getelementptr inbounds nuw i8, ptr %5, i64 52
   store i32 %227, ptr %228, align 4
   %229 = load i32, ptr %52, align 4
-  %230 = getelementptr inbounds i8, ptr %5, i64 56
+  %230 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store i32 %229, ptr %230, align 8
   %231 = load i32, ptr %55, align 4
-  %232 = getelementptr inbounds i8, ptr %5, i64 60
+  %232 = getelementptr inbounds nuw i8, ptr %5, i64 60
   store i32 %231, ptr %232, align 4
   %233 = load i32, ptr %58, align 4
-  %234 = getelementptr inbounds i8, ptr %5, i64 64
+  %234 = getelementptr inbounds nuw i8, ptr %5, i64 64
   store i32 %233, ptr %234, align 16
   %235 = load i32, ptr %61, align 4
-  %236 = getelementptr inbounds i8, ptr %5, i64 68
+  %236 = getelementptr inbounds nuw i8, ptr %5, i64 68
   store i32 %235, ptr %236, align 4
   %237 = load i32, ptr %64, align 4
-  %238 = getelementptr inbounds i8, ptr %5, i64 72
+  %238 = getelementptr inbounds nuw i8, ptr %5, i64 72
   store i32 %237, ptr %238, align 8
   %239 = load i32, ptr %67, align 4
-  %240 = getelementptr inbounds i8, ptr %5, i64 76
+  %240 = getelementptr inbounds nuw i8, ptr %5, i64 76
   store i32 %239, ptr %240, align 4
   %241 = load i32, ptr %70, align 4
-  %242 = getelementptr inbounds i8, ptr %5, i64 80
+  %242 = getelementptr inbounds nuw i8, ptr %5, i64 80
   store i32 %241, ptr %242, align 16
   %243 = load i32, ptr %73, align 4
-  %244 = getelementptr inbounds i8, ptr %5, i64 84
+  %244 = getelementptr inbounds nuw i8, ptr %5, i64 84
   store i32 %243, ptr %244, align 4
   %245 = load i32, ptr %76, align 4
-  %246 = getelementptr inbounds i8, ptr %5, i64 88
+  %246 = getelementptr inbounds nuw i8, ptr %5, i64 88
   store i32 %245, ptr %246, align 8
   %247 = load i32, ptr %79, align 4
-  %248 = getelementptr inbounds i8, ptr %5, i64 92
+  %248 = getelementptr inbounds nuw i8, ptr %5, i64 92
   store i32 %247, ptr %248, align 4
   %249 = load i32, ptr %82, align 4
-  %250 = getelementptr inbounds i8, ptr %5, i64 96
+  %250 = getelementptr inbounds nuw i8, ptr %5, i64 96
   store i32 %249, ptr %250, align 16
   %251 = load i32, ptr %85, align 4
-  %252 = getelementptr inbounds i8, ptr %5, i64 100
+  %252 = getelementptr inbounds nuw i8, ptr %5, i64 100
   store i32 %251, ptr %252, align 4
   %253 = load i32, ptr %88, align 4
-  %254 = getelementptr inbounds i8, ptr %5, i64 104
+  %254 = getelementptr inbounds nuw i8, ptr %5, i64 104
   store i32 %253, ptr %254, align 8
   %255 = load i32, ptr %91, align 4
-  %256 = getelementptr inbounds i8, ptr %5, i64 108
+  %256 = getelementptr inbounds nuw i8, ptr %5, i64 108
   store i32 %255, ptr %256, align 4
   %257 = load i32, ptr %94, align 4
-  %258 = getelementptr inbounds i8, ptr %5, i64 112
+  %258 = getelementptr inbounds nuw i8, ptr %5, i64 112
   store i32 %257, ptr %258, align 16
   %259 = load i32, ptr %97, align 4
-  %260 = getelementptr inbounds i8, ptr %5, i64 116
+  %260 = getelementptr inbounds nuw i8, ptr %5, i64 116
   store i32 %259, ptr %260, align 4
   %261 = load i32, ptr %100, align 4
-  %262 = getelementptr inbounds i8, ptr %5, i64 120
+  %262 = getelementptr inbounds nuw i8, ptr %5, i64 120
   store i32 %261, ptr %262, align 8
   %263 = load i32, ptr %103, align 4
-  %264 = getelementptr inbounds i8, ptr %5, i64 124
+  %264 = getelementptr inbounds nuw i8, ptr %5, i64 124
   store i32 %263, ptr %264, align 4
-  %265 = getelementptr inbounds i8, ptr %9, i64 252
+  %265 = getelementptr inbounds nuw i8, ptr %9, i64 252
   %266 = load i32, ptr %265, align 4
   %267 = load i32, ptr %106, align 4
-  %268 = getelementptr inbounds i8, ptr %9, i64 4
+  %268 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %269 = load i32, ptr %268, align 4
   %270 = load i32, ptr %199, align 4
   %271 = mul nsw i32 %267, %266
@@ -8739,12 +8739,12 @@ define hidden void @av1_idct64(ptr noundef %0, ptr noundef initializes((0, 256))
   %281 = zext nneg i32 %6 to i64
   %282 = ashr i64 %280, %281
   %283 = trunc i64 %282 to i32
-  %284 = getelementptr inbounds i8, ptr %5, i64 128
+  %284 = getelementptr inbounds nuw i8, ptr %5, i64 128
   store i32 %283, ptr %284, align 16
-  %285 = getelementptr inbounds i8, ptr %9, i64 124
+  %285 = getelementptr inbounds nuw i8, ptr %9, i64 124
   %286 = load i32, ptr %285, align 4
   %287 = load i32, ptr %109, align 4
-  %288 = getelementptr inbounds i8, ptr %9, i64 132
+  %288 = getelementptr inbounds nuw i8, ptr %9, i64 132
   %289 = load i32, ptr %288, align 4
   %290 = load i32, ptr %196, align 4
   %291 = mul nsw i32 %287, %286
@@ -8756,12 +8756,12 @@ define hidden void @av1_idct64(ptr noundef %0, ptr noundef initializes((0, 256))
   %297 = add i64 %296, %295
   %298 = ashr i64 %297, %281
   %299 = trunc i64 %298 to i32
-  %300 = getelementptr inbounds i8, ptr %5, i64 132
+  %300 = getelementptr inbounds nuw i8, ptr %5, i64 132
   store i32 %299, ptr %300, align 4
-  %301 = getelementptr inbounds i8, ptr %9, i64 188
+  %301 = getelementptr inbounds nuw i8, ptr %9, i64 188
   %302 = load i32, ptr %301, align 4
   %303 = load i32, ptr %112, align 4
-  %304 = getelementptr inbounds i8, ptr %9, i64 68
+  %304 = getelementptr inbounds nuw i8, ptr %9, i64 68
   %305 = load i32, ptr %304, align 4
   %306 = load i32, ptr %193, align 4
   %307 = mul nsw i32 %303, %302
@@ -8773,12 +8773,12 @@ define hidden void @av1_idct64(ptr noundef %0, ptr noundef initializes((0, 256))
   %313 = add i64 %312, %311
   %314 = ashr i64 %313, %281
   %315 = trunc i64 %314 to i32
-  %316 = getelementptr inbounds i8, ptr %5, i64 136
+  %316 = getelementptr inbounds nuw i8, ptr %5, i64 136
   store i32 %315, ptr %316, align 8
-  %317 = getelementptr inbounds i8, ptr %9, i64 60
+  %317 = getelementptr inbounds nuw i8, ptr %9, i64 60
   %318 = load i32, ptr %317, align 4
   %319 = load i32, ptr %115, align 4
-  %320 = getelementptr inbounds i8, ptr %9, i64 196
+  %320 = getelementptr inbounds nuw i8, ptr %9, i64 196
   %321 = load i32, ptr %320, align 4
   %322 = load i32, ptr %190, align 4
   %323 = mul nsw i32 %319, %318
@@ -8790,12 +8790,12 @@ define hidden void @av1_idct64(ptr noundef %0, ptr noundef initializes((0, 256))
   %329 = add i64 %328, %327
   %330 = ashr i64 %329, %281
   %331 = trunc i64 %330 to i32
-  %332 = getelementptr inbounds i8, ptr %5, i64 140
+  %332 = getelementptr inbounds nuw i8, ptr %5, i64 140
   store i32 %331, ptr %332, align 4
-  %333 = getelementptr inbounds i8, ptr %9, i64 220
+  %333 = getelementptr inbounds nuw i8, ptr %9, i64 220
   %334 = load i32, ptr %333, align 4
   %335 = load i32, ptr %118, align 4
-  %336 = getelementptr inbounds i8, ptr %9, i64 36
+  %336 = getelementptr inbounds nuw i8, ptr %9, i64 36
   %337 = load i32, ptr %336, align 4
   %338 = load i32, ptr %187, align 4
   %339 = mul nsw i32 %335, %334
@@ -8807,12 +8807,12 @@ define hidden void @av1_idct64(ptr noundef %0, ptr noundef initializes((0, 256))
   %345 = add i64 %344, %343
   %346 = ashr i64 %345, %281
   %347 = trunc i64 %346 to i32
-  %348 = getelementptr inbounds i8, ptr %5, i64 144
+  %348 = getelementptr inbounds nuw i8, ptr %5, i64 144
   store i32 %347, ptr %348, align 16
-  %349 = getelementptr inbounds i8, ptr %9, i64 92
+  %349 = getelementptr inbounds nuw i8, ptr %9, i64 92
   %350 = load i32, ptr %349, align 4
   %351 = load i32, ptr %121, align 4
-  %352 = getelementptr inbounds i8, ptr %9, i64 164
+  %352 = getelementptr inbounds nuw i8, ptr %9, i64 164
   %353 = load i32, ptr %352, align 4
   %354 = load i32, ptr %184, align 4
   %355 = mul nsw i32 %351, %350
@@ -8824,12 +8824,12 @@ define hidden void @av1_idct64(ptr noundef %0, ptr noundef initializes((0, 256))
   %361 = add i64 %360, %359
   %362 = ashr i64 %361, %281
   %363 = trunc i64 %362 to i32
-  %364 = getelementptr inbounds i8, ptr %5, i64 148
+  %364 = getelementptr inbounds nuw i8, ptr %5, i64 148
   store i32 %363, ptr %364, align 4
-  %365 = getelementptr inbounds i8, ptr %9, i64 156
+  %365 = getelementptr inbounds nuw i8, ptr %9, i64 156
   %366 = load i32, ptr %365, align 4
   %367 = load i32, ptr %124, align 4
-  %368 = getelementptr inbounds i8, ptr %9, i64 100
+  %368 = getelementptr inbounds nuw i8, ptr %9, i64 100
   %369 = load i32, ptr %368, align 4
   %370 = load i32, ptr %181, align 4
   %371 = mul nsw i32 %367, %366
@@ -8841,12 +8841,12 @@ define hidden void @av1_idct64(ptr noundef %0, ptr noundef initializes((0, 256))
   %377 = add i64 %376, %375
   %378 = ashr i64 %377, %281
   %379 = trunc i64 %378 to i32
-  %380 = getelementptr inbounds i8, ptr %5, i64 152
+  %380 = getelementptr inbounds nuw i8, ptr %5, i64 152
   store i32 %379, ptr %380, align 8
-  %381 = getelementptr inbounds i8, ptr %9, i64 28
+  %381 = getelementptr inbounds nuw i8, ptr %9, i64 28
   %382 = load i32, ptr %381, align 4
   %383 = load i32, ptr %127, align 4
-  %384 = getelementptr inbounds i8, ptr %9, i64 228
+  %384 = getelementptr inbounds nuw i8, ptr %9, i64 228
   %385 = load i32, ptr %384, align 4
   %386 = load i32, ptr %178, align 4
   %387 = mul nsw i32 %383, %382
@@ -8858,12 +8858,12 @@ define hidden void @av1_idct64(ptr noundef %0, ptr noundef initializes((0, 256))
   %393 = add i64 %392, %391
   %394 = ashr i64 %393, %281
   %395 = trunc i64 %394 to i32
-  %396 = getelementptr inbounds i8, ptr %5, i64 156
+  %396 = getelementptr inbounds nuw i8, ptr %5, i64 156
   store i32 %395, ptr %396, align 4
-  %397 = getelementptr inbounds i8, ptr %9, i64 236
+  %397 = getelementptr inbounds nuw i8, ptr %9, i64 236
   %398 = load i32, ptr %397, align 4
   %399 = load i32, ptr %130, align 4
-  %400 = getelementptr inbounds i8, ptr %9, i64 20
+  %400 = getelementptr inbounds nuw i8, ptr %9, i64 20
   %401 = load i32, ptr %400, align 4
   %402 = load i32, ptr %175, align 4
   %403 = mul nsw i32 %399, %398
@@ -8875,12 +8875,12 @@ define hidden void @av1_idct64(ptr noundef %0, ptr noundef initializes((0, 256))
   %409 = add i64 %408, %407
   %410 = ashr i64 %409, %281
   %411 = trunc i64 %410 to i32
-  %412 = getelementptr inbounds i8, ptr %5, i64 160
+  %412 = getelementptr inbounds nuw i8, ptr %5, i64 160
   store i32 %411, ptr %412, align 16
-  %413 = getelementptr inbounds i8, ptr %9, i64 108
+  %413 = getelementptr inbounds nuw i8, ptr %9, i64 108
   %414 = load i32, ptr %413, align 4
   %415 = load i32, ptr %133, align 4
-  %416 = getelementptr inbounds i8, ptr %9, i64 148
+  %416 = getelementptr inbounds nuw i8, ptr %9, i64 148
   %417 = load i32, ptr %416, align 4
   %418 = load i32, ptr %172, align 4
   %419 = mul nsw i32 %415, %414
@@ -8892,12 +8892,12 @@ define hidden void @av1_idct64(ptr noundef %0, ptr noundef initializes((0, 256))
   %425 = add i64 %424, %423
   %426 = ashr i64 %425, %281
   %427 = trunc i64 %426 to i32
-  %428 = getelementptr inbounds i8, ptr %5, i64 164
+  %428 = getelementptr inbounds nuw i8, ptr %5, i64 164
   store i32 %427, ptr %428, align 4
-  %429 = getelementptr inbounds i8, ptr %9, i64 172
+  %429 = getelementptr inbounds nuw i8, ptr %9, i64 172
   %430 = load i32, ptr %429, align 4
   %431 = load i32, ptr %136, align 4
-  %432 = getelementptr inbounds i8, ptr %9, i64 84
+  %432 = getelementptr inbounds nuw i8, ptr %9, i64 84
   %433 = load i32, ptr %432, align 4
   %434 = load i32, ptr %169, align 4
   %435 = mul nsw i32 %431, %430
@@ -8909,12 +8909,12 @@ define hidden void @av1_idct64(ptr noundef %0, ptr noundef initializes((0, 256))
   %441 = add i64 %440, %439
   %442 = ashr i64 %441, %281
   %443 = trunc i64 %442 to i32
-  %444 = getelementptr inbounds i8, ptr %5, i64 168
+  %444 = getelementptr inbounds nuw i8, ptr %5, i64 168
   store i32 %443, ptr %444, align 8
-  %445 = getelementptr inbounds i8, ptr %9, i64 44
+  %445 = getelementptr inbounds nuw i8, ptr %9, i64 44
   %446 = load i32, ptr %445, align 4
   %447 = load i32, ptr %139, align 4
-  %448 = getelementptr inbounds i8, ptr %9, i64 212
+  %448 = getelementptr inbounds nuw i8, ptr %9, i64 212
   %449 = load i32, ptr %448, align 4
   %450 = load i32, ptr %166, align 4
   %451 = mul nsw i32 %447, %446
@@ -8926,12 +8926,12 @@ define hidden void @av1_idct64(ptr noundef %0, ptr noundef initializes((0, 256))
   %457 = add i64 %456, %455
   %458 = ashr i64 %457, %281
   %459 = trunc i64 %458 to i32
-  %460 = getelementptr inbounds i8, ptr %5, i64 172
+  %460 = getelementptr inbounds nuw i8, ptr %5, i64 172
   store i32 %459, ptr %460, align 4
-  %461 = getelementptr inbounds i8, ptr %9, i64 204
+  %461 = getelementptr inbounds nuw i8, ptr %9, i64 204
   %462 = load i32, ptr %461, align 4
   %463 = load i32, ptr %142, align 4
-  %464 = getelementptr inbounds i8, ptr %9, i64 52
+  %464 = getelementptr inbounds nuw i8, ptr %9, i64 52
   %465 = load i32, ptr %464, align 4
   %466 = load i32, ptr %163, align 4
   %467 = mul nsw i32 %463, %462
@@ -8943,12 +8943,12 @@ define hidden void @av1_idct64(ptr noundef %0, ptr noundef initializes((0, 256))
   %473 = add i64 %472, %471
   %474 = ashr i64 %473, %281
   %475 = trunc i64 %474 to i32
-  %476 = getelementptr inbounds i8, ptr %5, i64 176
+  %476 = getelementptr inbounds nuw i8, ptr %5, i64 176
   store i32 %475, ptr %476, align 16
-  %477 = getelementptr inbounds i8, ptr %9, i64 76
+  %477 = getelementptr inbounds nuw i8, ptr %9, i64 76
   %478 = load i32, ptr %477, align 4
   %479 = load i32, ptr %145, align 4
-  %480 = getelementptr inbounds i8, ptr %9, i64 180
+  %480 = getelementptr inbounds nuw i8, ptr %9, i64 180
   %481 = load i32, ptr %480, align 4
   %482 = load i32, ptr %160, align 4
   %483 = mul nsw i32 %479, %478
@@ -8960,12 +8960,12 @@ define hidden void @av1_idct64(ptr noundef %0, ptr noundef initializes((0, 256))
   %489 = add i64 %488, %487
   %490 = ashr i64 %489, %281
   %491 = trunc i64 %490 to i32
-  %492 = getelementptr inbounds i8, ptr %5, i64 180
+  %492 = getelementptr inbounds nuw i8, ptr %5, i64 180
   store i32 %491, ptr %492, align 4
-  %493 = getelementptr inbounds i8, ptr %9, i64 140
+  %493 = getelementptr inbounds nuw i8, ptr %9, i64 140
   %494 = load i32, ptr %493, align 4
   %495 = load i32, ptr %148, align 4
-  %496 = getelementptr inbounds i8, ptr %9, i64 116
+  %496 = getelementptr inbounds nuw i8, ptr %9, i64 116
   %497 = load i32, ptr %496, align 4
   %498 = load i32, ptr %157, align 4
   %499 = mul nsw i32 %495, %494
@@ -8977,12 +8977,12 @@ define hidden void @av1_idct64(ptr noundef %0, ptr noundef initializes((0, 256))
   %505 = add i64 %504, %503
   %506 = ashr i64 %505, %281
   %507 = trunc i64 %506 to i32
-  %508 = getelementptr inbounds i8, ptr %5, i64 184
+  %508 = getelementptr inbounds nuw i8, ptr %5, i64 184
   store i32 %507, ptr %508, align 8
-  %509 = getelementptr inbounds i8, ptr %9, i64 12
+  %509 = getelementptr inbounds nuw i8, ptr %9, i64 12
   %510 = load i32, ptr %509, align 4
   %511 = load i32, ptr %151, align 4
-  %512 = getelementptr inbounds i8, ptr %9, i64 244
+  %512 = getelementptr inbounds nuw i8, ptr %9, i64 244
   %513 = load i32, ptr %512, align 4
   %514 = load i32, ptr %154, align 4
   %515 = mul nsw i32 %511, %510
@@ -8994,7 +8994,7 @@ define hidden void @av1_idct64(ptr noundef %0, ptr noundef initializes((0, 256))
   %521 = add i64 %520, %519
   %522 = ashr i64 %521, %281
   %523 = trunc i64 %522 to i32
-  %524 = getelementptr inbounds i8, ptr %5, i64 188
+  %524 = getelementptr inbounds nuw i8, ptr %5, i64 188
   store i32 %523, ptr %524, align 4
   %525 = mul nsw i32 %513, %511
   %526 = sext i32 %525 to i64
@@ -9004,7 +9004,7 @@ define hidden void @av1_idct64(ptr noundef %0, ptr noundef initializes((0, 256))
   %530 = add i64 %529, %528
   %531 = ashr i64 %530, %281
   %532 = trunc i64 %531 to i32
-  %533 = getelementptr inbounds i8, ptr %5, i64 192
+  %533 = getelementptr inbounds nuw i8, ptr %5, i64 192
   store i32 %532, ptr %533, align 16
   %534 = mul nsw i32 %497, %495
   %535 = sext i32 %534 to i64
@@ -9014,7 +9014,7 @@ define hidden void @av1_idct64(ptr noundef %0, ptr noundef initializes((0, 256))
   %539 = add i64 %538, %537
   %540 = ashr i64 %539, %281
   %541 = trunc i64 %540 to i32
-  %542 = getelementptr inbounds i8, ptr %5, i64 196
+  %542 = getelementptr inbounds nuw i8, ptr %5, i64 196
   store i32 %541, ptr %542, align 4
   %543 = mul nsw i32 %481, %479
   %544 = sext i32 %543 to i64
@@ -9024,7 +9024,7 @@ define hidden void @av1_idct64(ptr noundef %0, ptr noundef initializes((0, 256))
   %548 = add i64 %547, %546
   %549 = ashr i64 %548, %281
   %550 = trunc i64 %549 to i32
-  %551 = getelementptr inbounds i8, ptr %5, i64 200
+  %551 = getelementptr inbounds nuw i8, ptr %5, i64 200
   store i32 %550, ptr %551, align 8
   %552 = mul nsw i32 %465, %463
   %553 = sext i32 %552 to i64
@@ -9034,7 +9034,7 @@ define hidden void @av1_idct64(ptr noundef %0, ptr noundef initializes((0, 256))
   %557 = add i64 %556, %555
   %558 = ashr i64 %557, %281
   %559 = trunc i64 %558 to i32
-  %560 = getelementptr inbounds i8, ptr %5, i64 204
+  %560 = getelementptr inbounds nuw i8, ptr %5, i64 204
   store i32 %559, ptr %560, align 4
   %561 = mul nsw i32 %449, %447
   %562 = sext i32 %561 to i64
@@ -9044,7 +9044,7 @@ define hidden void @av1_idct64(ptr noundef %0, ptr noundef initializes((0, 256))
   %566 = add i64 %565, %564
   %567 = ashr i64 %566, %281
   %568 = trunc i64 %567 to i32
-  %569 = getelementptr inbounds i8, ptr %5, i64 208
+  %569 = getelementptr inbounds nuw i8, ptr %5, i64 208
   store i32 %568, ptr %569, align 16
   %570 = mul nsw i32 %433, %431
   %571 = sext i32 %570 to i64
@@ -9054,7 +9054,7 @@ define hidden void @av1_idct64(ptr noundef %0, ptr noundef initializes((0, 256))
   %575 = add i64 %574, %573
   %576 = ashr i64 %575, %281
   %577 = trunc i64 %576 to i32
-  %578 = getelementptr inbounds i8, ptr %5, i64 212
+  %578 = getelementptr inbounds nuw i8, ptr %5, i64 212
   store i32 %577, ptr %578, align 4
   %579 = mul nsw i32 %417, %415
   %580 = sext i32 %579 to i64
@@ -9064,7 +9064,7 @@ define hidden void @av1_idct64(ptr noundef %0, ptr noundef initializes((0, 256))
   %584 = add i64 %583, %582
   %585 = ashr i64 %584, %281
   %586 = trunc i64 %585 to i32
-  %587 = getelementptr inbounds i8, ptr %5, i64 216
+  %587 = getelementptr inbounds nuw i8, ptr %5, i64 216
   store i32 %586, ptr %587, align 8
   %588 = mul nsw i32 %401, %399
   %589 = sext i32 %588 to i64
@@ -9074,7 +9074,7 @@ define hidden void @av1_idct64(ptr noundef %0, ptr noundef initializes((0, 256))
   %593 = add i64 %592, %591
   %594 = ashr i64 %593, %281
   %595 = trunc i64 %594 to i32
-  %596 = getelementptr inbounds i8, ptr %5, i64 220
+  %596 = getelementptr inbounds nuw i8, ptr %5, i64 220
   store i32 %595, ptr %596, align 4
   %597 = mul nsw i32 %385, %383
   %598 = sext i32 %597 to i64
@@ -9084,7 +9084,7 @@ define hidden void @av1_idct64(ptr noundef %0, ptr noundef initializes((0, 256))
   %602 = add i64 %601, %600
   %603 = ashr i64 %602, %281
   %604 = trunc i64 %603 to i32
-  %605 = getelementptr inbounds i8, ptr %5, i64 224
+  %605 = getelementptr inbounds nuw i8, ptr %5, i64 224
   store i32 %604, ptr %605, align 16
   %606 = mul nsw i32 %369, %367
   %607 = sext i32 %606 to i64
@@ -9094,7 +9094,7 @@ define hidden void @av1_idct64(ptr noundef %0, ptr noundef initializes((0, 256))
   %611 = add i64 %610, %609
   %612 = ashr i64 %611, %281
   %613 = trunc i64 %612 to i32
-  %614 = getelementptr inbounds i8, ptr %5, i64 228
+  %614 = getelementptr inbounds nuw i8, ptr %5, i64 228
   store i32 %613, ptr %614, align 4
   %615 = mul nsw i32 %353, %351
   %616 = sext i32 %615 to i64
@@ -9104,7 +9104,7 @@ define hidden void @av1_idct64(ptr noundef %0, ptr noundef initializes((0, 256))
   %620 = add i64 %619, %618
   %621 = ashr i64 %620, %281
   %622 = trunc i64 %621 to i32
-  %623 = getelementptr inbounds i8, ptr %5, i64 232
+  %623 = getelementptr inbounds nuw i8, ptr %5, i64 232
   store i32 %622, ptr %623, align 8
   %624 = mul nsw i32 %337, %335
   %625 = sext i32 %624 to i64
@@ -9114,7 +9114,7 @@ define hidden void @av1_idct64(ptr noundef %0, ptr noundef initializes((0, 256))
   %629 = add i64 %628, %627
   %630 = ashr i64 %629, %281
   %631 = trunc i64 %630 to i32
-  %632 = getelementptr inbounds i8, ptr %5, i64 236
+  %632 = getelementptr inbounds nuw i8, ptr %5, i64 236
   store i32 %631, ptr %632, align 4
   %633 = mul nsw i32 %321, %319
   %634 = sext i32 %633 to i64
@@ -9124,7 +9124,7 @@ define hidden void @av1_idct64(ptr noundef %0, ptr noundef initializes((0, 256))
   %638 = add i64 %637, %636
   %639 = ashr i64 %638, %281
   %640 = trunc i64 %639 to i32
-  %641 = getelementptr inbounds i8, ptr %5, i64 240
+  %641 = getelementptr inbounds nuw i8, ptr %5, i64 240
   store i32 %640, ptr %641, align 16
   %642 = mul nsw i32 %305, %303
   %643 = sext i32 %642 to i64
@@ -9134,7 +9134,7 @@ define hidden void @av1_idct64(ptr noundef %0, ptr noundef initializes((0, 256))
   %647 = add i64 %646, %645
   %648 = ashr i64 %647, %281
   %649 = trunc i64 %648 to i32
-  %650 = getelementptr inbounds i8, ptr %5, i64 244
+  %650 = getelementptr inbounds nuw i8, ptr %5, i64 244
   store i32 %649, ptr %650, align 4
   %651 = mul nsw i32 %289, %287
   %652 = sext i32 %651 to i64
@@ -9144,7 +9144,7 @@ define hidden void @av1_idct64(ptr noundef %0, ptr noundef initializes((0, 256))
   %656 = add i64 %655, %654
   %657 = ashr i64 %656, %281
   %658 = trunc i64 %657 to i32
-  %659 = getelementptr inbounds i8, ptr %5, i64 248
+  %659 = getelementptr inbounds nuw i8, ptr %5, i64 248
   store i32 %658, ptr %659, align 8
   %660 = mul nsw i32 %269, %267
   %661 = sext i32 %660 to i64
@@ -9154,9 +9154,9 @@ define hidden void @av1_idct64(ptr noundef %0, ptr noundef initializes((0, 256))
   %665 = add i64 %664, %663
   %666 = ashr i64 %665, %281
   %667 = trunc i64 %666 to i32
-  %668 = getelementptr inbounds i8, ptr %5, i64 252
+  %668 = getelementptr inbounds nuw i8, ptr %5, i64 252
   store i32 %667, ptr %668, align 4
-  %669 = getelementptr inbounds i8, ptr %3, i64 2
+  %669 = getelementptr inbounds nuw i8, ptr %3, i64 2
   %670 = load i8, ptr %669, align 1
   call void @av1_range_check_buf(i32 noundef 2, ptr noundef %0, ptr noundef nonnull %5, i32 noundef 64, i8 noundef signext %670) #5
   %671 = load i32, ptr %5, align 16
@@ -9191,10 +9191,10 @@ define hidden void @av1_idct64(ptr noundef %0, ptr noundef initializes((0, 256))
   store i32 %685, ptr %52, align 4
   %686 = load i32, ptr %232, align 4
   store i32 %686, ptr %55, align 4
-  %687 = getelementptr inbounds i8, ptr %9, i64 248
+  %687 = getelementptr inbounds nuw i8, ptr %9, i64 248
   %688 = load i32, ptr %687, align 8
   %689 = load i32, ptr %234, align 16
-  %690 = getelementptr inbounds i8, ptr %9, i64 8
+  %690 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %691 = load i32, ptr %690, align 8
   %692 = load i32, ptr %264, align 4
   %693 = mul nsw i32 %689, %688
@@ -9207,10 +9207,10 @@ define hidden void @av1_idct64(ptr noundef %0, ptr noundef initializes((0, 256))
   %700 = ashr i64 %699, %281
   %701 = trunc i64 %700 to i32
   store i32 %701, ptr %58, align 4
-  %702 = getelementptr inbounds i8, ptr %9, i64 120
+  %702 = getelementptr inbounds nuw i8, ptr %9, i64 120
   %703 = load i32, ptr %702, align 8
   %704 = load i32, ptr %236, align 4
-  %705 = getelementptr inbounds i8, ptr %9, i64 136
+  %705 = getelementptr inbounds nuw i8, ptr %9, i64 136
   %706 = load i32, ptr %705, align 8
   %707 = load i32, ptr %262, align 8
   %708 = mul nsw i32 %704, %703
@@ -9223,10 +9223,10 @@ define hidden void @av1_idct64(ptr noundef %0, ptr noundef initializes((0, 256))
   %715 = ashr i64 %714, %281
   %716 = trunc i64 %715 to i32
   store i32 %716, ptr %61, align 4
-  %717 = getelementptr inbounds i8, ptr %9, i64 184
+  %717 = getelementptr inbounds nuw i8, ptr %9, i64 184
   %718 = load i32, ptr %717, align 8
   %719 = load i32, ptr %238, align 8
-  %720 = getelementptr inbounds i8, ptr %9, i64 72
+  %720 = getelementptr inbounds nuw i8, ptr %9, i64 72
   %721 = load i32, ptr %720, align 8
   %722 = load i32, ptr %260, align 4
   %723 = mul nsw i32 %719, %718
@@ -9239,10 +9239,10 @@ define hidden void @av1_idct64(ptr noundef %0, ptr noundef initializes((0, 256))
   %730 = ashr i64 %729, %281
   %731 = trunc i64 %730 to i32
   store i32 %731, ptr %64, align 4
-  %732 = getelementptr inbounds i8, ptr %9, i64 56
+  %732 = getelementptr inbounds nuw i8, ptr %9, i64 56
   %733 = load i32, ptr %732, align 8
   %734 = load i32, ptr %240, align 4
-  %735 = getelementptr inbounds i8, ptr %9, i64 200
+  %735 = getelementptr inbounds nuw i8, ptr %9, i64 200
   %736 = load i32, ptr %735, align 8
   %737 = load i32, ptr %258, align 16
   %738 = mul nsw i32 %734, %733
@@ -9255,10 +9255,10 @@ define hidden void @av1_idct64(ptr noundef %0, ptr noundef initializes((0, 256))
   %745 = ashr i64 %744, %281
   %746 = trunc i64 %745 to i32
   store i32 %746, ptr %67, align 4
-  %747 = getelementptr inbounds i8, ptr %9, i64 216
+  %747 = getelementptr inbounds nuw i8, ptr %9, i64 216
   %748 = load i32, ptr %747, align 8
   %749 = load i32, ptr %242, align 16
-  %750 = getelementptr inbounds i8, ptr %9, i64 40
+  %750 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %751 = load i32, ptr %750, align 8
   %752 = load i32, ptr %256, align 4
   %753 = mul nsw i32 %749, %748
@@ -9271,10 +9271,10 @@ define hidden void @av1_idct64(ptr noundef %0, ptr noundef initializes((0, 256))
   %760 = ashr i64 %759, %281
   %761 = trunc i64 %760 to i32
   store i32 %761, ptr %70, align 4
-  %762 = getelementptr inbounds i8, ptr %9, i64 88
+  %762 = getelementptr inbounds nuw i8, ptr %9, i64 88
   %763 = load i32, ptr %762, align 8
   %764 = load i32, ptr %244, align 4
-  %765 = getelementptr inbounds i8, ptr %9, i64 168
+  %765 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %766 = load i32, ptr %765, align 8
   %767 = load i32, ptr %254, align 8
   %768 = mul nsw i32 %764, %763
@@ -9287,10 +9287,10 @@ define hidden void @av1_idct64(ptr noundef %0, ptr noundef initializes((0, 256))
   %775 = ashr i64 %774, %281
   %776 = trunc i64 %775 to i32
   store i32 %776, ptr %73, align 4
-  %777 = getelementptr inbounds i8, ptr %9, i64 152
+  %777 = getelementptr inbounds nuw i8, ptr %9, i64 152
   %778 = load i32, ptr %777, align 8
   %779 = load i32, ptr %246, align 8
-  %780 = getelementptr inbounds i8, ptr %9, i64 104
+  %780 = getelementptr inbounds nuw i8, ptr %9, i64 104
   %781 = load i32, ptr %780, align 8
   %782 = load i32, ptr %252, align 4
   %783 = mul nsw i32 %779, %778
@@ -9303,10 +9303,10 @@ define hidden void @av1_idct64(ptr noundef %0, ptr noundef initializes((0, 256))
   %790 = ashr i64 %789, %281
   %791 = trunc i64 %790 to i32
   store i32 %791, ptr %76, align 4
-  %792 = getelementptr inbounds i8, ptr %9, i64 24
+  %792 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %793 = load i32, ptr %792, align 8
   %794 = load i32, ptr %248, align 4
-  %795 = getelementptr inbounds i8, ptr %9, i64 232
+  %795 = getelementptr inbounds nuw i8, ptr %9, i64 232
   %796 = load i32, ptr %795, align 8
   %797 = load i32, ptr %250, align 16
   %798 = mul nsw i32 %794, %793
@@ -9394,7 +9394,7 @@ define hidden void @av1_idct64(ptr noundef %0, ptr noundef initializes((0, 256))
   %871 = load i32, ptr %284, align 16
   %872 = load i32, ptr %300, align 4
   %873 = add nsw i32 %872, %871
-  %874 = getelementptr inbounds i8, ptr %3, i64 3
+  %874 = getelementptr inbounds nuw i8, ptr %3, i64 3
   %875 = load i8, ptr %874, align 1
   %876 = icmp slt i8 %875, 1
   br i1 %876, label %clamp_value.exit, label %877
@@ -10146,10 +10146,10 @@ clamp_value.exit3149:                             ; preds = %clamp_value.exit314
   store i32 %1391, ptr %214, align 8
   %1392 = load i32, ptr %31, align 4
   store i32 %1392, ptr %216, align 4
-  %1393 = getelementptr inbounds i8, ptr %9, i64 240
+  %1393 = getelementptr inbounds nuw i8, ptr %9, i64 240
   %1394 = load i32, ptr %1393, align 16
   %1395 = load i32, ptr %34, align 4
-  %1396 = getelementptr inbounds i8, ptr %9, i64 16
+  %1396 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %1397 = load i32, ptr %1396, align 16
   %1398 = sub nsw i32 0, %1397
   %1399 = load i32, ptr %55, align 4
@@ -10162,10 +10162,10 @@ clamp_value.exit3149:                             ; preds = %clamp_value.exit314
   %1406 = ashr i64 %1405, %281
   %1407 = trunc i64 %1406 to i32
   store i32 %1407, ptr %218, align 16
-  %1408 = getelementptr inbounds i8, ptr %9, i64 112
+  %1408 = getelementptr inbounds nuw i8, ptr %9, i64 112
   %1409 = load i32, ptr %1408, align 16
   %1410 = load i32, ptr %37, align 4
-  %1411 = getelementptr inbounds i8, ptr %9, i64 144
+  %1411 = getelementptr inbounds nuw i8, ptr %9, i64 144
   %1412 = load i32, ptr %1411, align 16
   %1413 = sub nsw i32 0, %1412
   %1414 = load i32, ptr %52, align 4
@@ -10178,10 +10178,10 @@ clamp_value.exit3149:                             ; preds = %clamp_value.exit314
   %1421 = ashr i64 %1420, %281
   %1422 = trunc i64 %1421 to i32
   store i32 %1422, ptr %220, align 4
-  %1423 = getelementptr inbounds i8, ptr %9, i64 176
+  %1423 = getelementptr inbounds nuw i8, ptr %9, i64 176
   %1424 = load i32, ptr %1423, align 16
   %1425 = load i32, ptr %40, align 4
-  %1426 = getelementptr inbounds i8, ptr %9, i64 80
+  %1426 = getelementptr inbounds nuw i8, ptr %9, i64 80
   %1427 = load i32, ptr %1426, align 16
   %1428 = sub nsw i32 0, %1427
   %1429 = load i32, ptr %49, align 4
@@ -10194,10 +10194,10 @@ clamp_value.exit3149:                             ; preds = %clamp_value.exit314
   %1436 = ashr i64 %1435, %281
   %1437 = trunc i64 %1436 to i32
   store i32 %1437, ptr %222, align 8
-  %1438 = getelementptr inbounds i8, ptr %9, i64 48
+  %1438 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %1439 = load i32, ptr %1438, align 16
   %1440 = load i32, ptr %43, align 4
-  %1441 = getelementptr inbounds i8, ptr %9, i64 208
+  %1441 = getelementptr inbounds nuw i8, ptr %9, i64 208
   %1442 = load i32, ptr %1441, align 16
   %1443 = sub nsw i32 0, %1442
   %1444 = load i32, ptr %46, align 4
@@ -10249,7 +10249,7 @@ clamp_value.exit3149:                             ; preds = %clamp_value.exit314
   %1485 = load i32, ptr %58, align 4
   %1486 = load i32, ptr %61, align 4
   %1487 = add nsw i32 %1486, %1485
-  %1488 = getelementptr inbounds i8, ptr %3, i64 4
+  %1488 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %1489 = load i8, ptr %1488, align 1
   %1490 = icmp slt i8 %1489, 1
   br i1 %1490, label %clamp_value.exit3179.thread, label %1520
@@ -10642,10 +10642,10 @@ clamp_value.exit3181:                             ; preds = %clamp_value.exit317
   store i32 %1802, ptr %16, align 4
   %1803 = load i32, ptr %208, align 4
   store i32 %1803, ptr %19, align 4
-  %1804 = getelementptr inbounds i8, ptr %9, i64 224
+  %1804 = getelementptr inbounds nuw i8, ptr %9, i64 224
   %1805 = load i32, ptr %1804, align 16
   %1806 = load i32, ptr %210, align 16
-  %1807 = getelementptr inbounds i8, ptr %9, i64 32
+  %1807 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %1808 = load i32, ptr %1807, align 16
   %1809 = sub nsw i32 0, %1808
   %1810 = load i32, ptr %216, align 4
@@ -10658,10 +10658,10 @@ clamp_value.exit3181:                             ; preds = %clamp_value.exit317
   %1817 = ashr i64 %1816, %281
   %1818 = trunc i64 %1817 to i32
   store i32 %1818, ptr %22, align 4
-  %1819 = getelementptr inbounds i8, ptr %9, i64 96
+  %1819 = getelementptr inbounds nuw i8, ptr %9, i64 96
   %1820 = load i32, ptr %1819, align 16
   %1821 = load i32, ptr %212, align 4
-  %1822 = getelementptr inbounds i8, ptr %9, i64 160
+  %1822 = getelementptr inbounds nuw i8, ptr %9, i64 160
   %1823 = load i32, ptr %1822, align 16
   %1824 = sub nsw i32 0, %1823
   %1825 = load i32, ptr %214, align 8
@@ -10695,7 +10695,7 @@ clamp_value.exit3181:                             ; preds = %clamp_value.exit317
   %1850 = load i32, ptr %218, align 16
   %1851 = load i32, ptr %220, align 4
   %1852 = add nsw i32 %1851, %1850
-  %1853 = getelementptr inbounds i8, ptr %3, i64 5
+  %1853 = getelementptr inbounds nuw i8, ptr %3, i64 5
   %1854 = load i8, ptr %1853, align 1
   %1855 = icmp slt i8 %1854, 1
   br i1 %1855, label %clamp_value.exit3183, label %1856
@@ -11713,7 +11713,7 @@ clamp_value.exit3261:                             ; preds = %clamp_value.exit325
   store i32 %.0.i3260, ptr %199, align 4
   %2573 = load i8, ptr %1853, align 1
   call void @av1_range_check_buf(i32 noundef 5, ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef 64, i8 noundef signext %2573) #5
-  %2574 = getelementptr inbounds i8, ptr %9, i64 128
+  %2574 = getelementptr inbounds nuw i8, ptr %9, i64 128
   %2575 = load i32, ptr %2574, align 16
   %2576 = load i32, ptr %1, align 4
   %2577 = load i32, ptr %13, align 4
@@ -11733,10 +11733,10 @@ clamp_value.exit3261:                             ; preds = %clamp_value.exit325
   %2590 = ashr i64 %2589, %281
   %2591 = trunc i64 %2590 to i32
   store i32 %2591, ptr %204, align 4
-  %2592 = getelementptr inbounds i8, ptr %9, i64 192
+  %2592 = getelementptr inbounds nuw i8, ptr %9, i64 192
   %2593 = load i32, ptr %2592, align 16
   %2594 = load i32, ptr %16, align 4
-  %2595 = getelementptr inbounds i8, ptr %9, i64 64
+  %2595 = getelementptr inbounds nuw i8, ptr %9, i64 64
   %2596 = load i32, ptr %2595, align 16
   %2597 = sub nsw i32 0, %2596
   %2598 = load i32, ptr %19, align 4
@@ -11761,7 +11761,7 @@ clamp_value.exit3261:                             ; preds = %clamp_value.exit325
   %2615 = load i32, ptr %22, align 4
   %2616 = load i32, ptr %25, align 4
   %2617 = add nsw i32 %2616, %2615
-  %2618 = getelementptr inbounds i8, ptr %3, i64 6
+  %2618 = getelementptr inbounds nuw i8, ptr %3, i64 6
   %2619 = load i8, ptr %2618, align 1
   %2620 = icmp slt i8 %2619, 1
   br i1 %2620, label %clamp_value.exit3267.thread, label %2626
@@ -12307,7 +12307,7 @@ clamp_value.exit3301:                             ; preds = %clamp_value.exit329
   %3064 = load i32, ptr %5, align 16
   %3065 = load i32, ptr %208, align 4
   %3066 = add nsw i32 %3065, %3064
-  %3067 = getelementptr inbounds i8, ptr %3, i64 7
+  %3067 = getelementptr inbounds nuw i8, ptr %3, i64 7
   %3068 = load i8, ptr %3067, align 1
   %3069 = icmp slt i8 %3068, 1
   br i1 %3069, label %clamp_value.exit3303, label %3070
@@ -13440,7 +13440,7 @@ clamp_value.exit3389:                             ; preds = %clamp_value.exit338
   %3868 = load i32, ptr %1, align 4
   %3869 = load i32, ptr %31, align 4
   %3870 = add nsw i32 %3869, %3868
-  %3871 = getelementptr inbounds i8, ptr %3, i64 8
+  %3871 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %3872 = load i8, ptr %3871, align 1
   %3873 = icmp slt i8 %3872, 1
   br i1 %3873, label %clamp_value.exit3403.thread, label %3887
@@ -14037,7 +14037,7 @@ clamp_value.exit3437:                             ; preds = %clamp_value.exit343
   %4360 = load i32, ptr %5, align 16
   %4361 = load i32, ptr %232, align 4
   %4362 = add nsw i32 %4361, %4360
-  %4363 = getelementptr inbounds i8, ptr %3, i64 9
+  %4363 = getelementptr inbounds nuw i8, ptr %3, i64 9
   %4364 = load i8, ptr %4363, align 1
   %4365 = icmp slt i8 %4364, 1
   br i1 %4365, label %clamp_value.exit3439, label %4366
@@ -15232,7 +15232,7 @@ clamp_value.exit3533:                             ; preds = %clamp_value.exit353
   %5202 = load i32, ptr %1, align 4
   %5203 = load i32, ptr %103, align 4
   %5204 = add nsw i32 %5203, %5202
-  %5205 = getelementptr inbounds i8, ptr %3, i64 10
+  %5205 = getelementptr inbounds nuw i8, ptr %3, i64 10
   %5206 = load i8, ptr %5205, align 1
   %5207 = icmp slt i8 %5206, 1
   br i1 %5207, label %clamp_value.exit3595.thread, label %5269
@@ -15879,7 +15879,7 @@ clamp_value.exit3597:                             ; preds = %clamp_value.exit359
   %5744 = load i32, ptr %5, align 16
   %5745 = load i32, ptr %668, align 4
   %5746 = add nsw i32 %5745, %5744
-  %5747 = getelementptr inbounds i8, ptr %3, i64 11
+  %5747 = getelementptr inbounds nuw i8, ptr %3, i64 11
   %5748 = load i8, ptr %5747, align 1
   %5749 = icmp slt i8 %5748, 1
   br i1 %5749, label %clamp_value.exit3599, label %5750

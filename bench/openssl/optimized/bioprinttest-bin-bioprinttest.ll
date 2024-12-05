@@ -382,7 +382,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %w = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %w = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %0 = load ptr, ptr %w, align 8
   %1 = load i32, ptr %arrayidx, align 16
   %call1 = tail call fastcc i32 @dofptest(i32 noundef %i, i32 noundef 0, double noundef 0.000000e+00, ptr noundef %0, i32 noundef %1)
@@ -464,11 +464,11 @@ entry:
   %bio_buf = alloca [80 x i8], align 16
   %idxprom = sext i32 %i to i64
   %arrayidx = getelementptr inbounds [4 x %struct.z_data_st], ptr @zu_data, i64 0, i64 %idxprom
-  %format = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %format = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %0 = load ptr, ptr %format, align 8
   %1 = load i64, ptr %arrayidx, align 8
   %call = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %bio_buf, i64 noundef 79, ptr noundef %0, i64 noundef %1) #8
-  %expected = getelementptr inbounds i8, ptr %arrayidx, i64 16
+  %expected = getelementptr inbounds nuw i8, ptr %arrayidx, i64 16
   %2 = load ptr, ptr %expected, align 8
   %call2 = call i32 @test_str_eq(ptr noundef nonnull @.str.23, i32 noundef 137, ptr noundef nonnull @.str.276, ptr noundef nonnull @.str.277, ptr noundef nonnull %bio_buf, ptr noundef %2) #8
   %tobool.not = icmp ne i32 %call2, 0
@@ -482,11 +482,11 @@ entry:
   %bio_buf = alloca [80 x i8], align 16
   %idxprom = sext i32 %i to i64
   %arrayidx = getelementptr inbounds [4 x %struct.j_data_st], ptr @jf_data, i64 0, i64 %idxprom
-  %format = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %format = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %0 = load ptr, ptr %format, align 8
   %1 = load i64, ptr %arrayidx, align 8
   %call = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %bio_buf, i64 noundef 79, ptr noundef %0, i64 noundef %1) #8
-  %expected = getelementptr inbounds i8, ptr %arrayidx, i64 16
+  %expected = getelementptr inbounds nuw i8, ptr %arrayidx, i64 16
   %2 = load ptr, ptr %expected, align 8
   %call2 = call i32 @test_str_eq(ptr noundef nonnull @.str.23, i32 noundef 165, ptr noundef nonnull @.str.276, ptr noundef nonnull @.str.277, ptr noundef nonnull %bio_buf, ptr noundef %2) #8
   %tobool.not = icmp ne i32 %call2, 0
@@ -624,7 +624,7 @@ entry:
 for.body.us:                                      ; preds = %entry, %for.inc.us
   %indvars.iv19 = phi i64 [ %indvars.iv.next20, %for.inc.us ], [ 0, %entry ]
   %ret.016.us = phi i32 [ %ret.1.us, %for.inc.us ], [ 1, %entry ]
-  %arrayidx.us = getelementptr inbounds [5 x ptr], ptr @dofptest.fspecs, i64 0, i64 %indvars.iv19
+  %arrayidx.us = getelementptr inbounds nuw [5 x ptr], ptr @dofptest.fspecs, i64 0, i64 %indvars.iv19
   %0 = load ptr, ptr %arrayidx.us, align 8
   %call.us = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %format, i64 noundef 80, ptr noundef nonnull @.str.46, ptr noundef %width, i32 noundef %prec, ptr noundef %0) #8
   %call6.us = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %result, i64 noundef 80, ptr noundef nonnull %format, double noundef %val) #8
@@ -663,7 +663,7 @@ for.inc.us:                                       ; preds = %if.then9.us, %if.el
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %entry ]
   %ret.016 = phi i32 [ %ret.1, %for.inc ], [ 1, %entry ]
-  %arrayidx = getelementptr inbounds [5 x ptr], ptr @dofptest.fspecs, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [5 x ptr], ptr @dofptest.fspecs, i64 0, i64 %indvars.iv
   %2 = load ptr, ptr %arrayidx, align 8
   %call3 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %format, i64 noundef 80, ptr noundef nonnull @.str.47, ptr noundef %width, ptr noundef %2) #8
   %call6 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %result, i64 noundef 80, ptr noundef nonnull %format, double noundef %val) #8

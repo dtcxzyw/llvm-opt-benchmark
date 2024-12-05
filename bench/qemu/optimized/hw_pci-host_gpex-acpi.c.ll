@@ -50,25 +50,25 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local void @acpi_dsdt_add_gpex(ptr noundef %scope, ptr nocapture noundef readonly %cfg) local_unnamed_addr #0 {
 entry:
   %crs_range_set = alloca %struct.CrsRangeSet, align 8
-  %size = getelementptr inbounds i8, ptr %cfg, i64 8
+  %size = getelementptr inbounds nuw i8, ptr %cfg, i64 8
   %0 = load i64, ptr %size, align 8
   %div97 = lshr i64 %0, 20
   %conv = trunc i64 %div97 to i32
-  %bus1 = getelementptr inbounds i8, ptr %cfg, i64 72
+  %bus1 = getelementptr inbounds nuw i8, ptr %cfg, i64 72
   %1 = load ptr, ptr %bus1, align 8
   call void @crs_range_set_init(ptr noundef nonnull %crs_range_set) #3
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.end57, label %if.then
 
 if.then:                                          ; preds = %entry
-  %child = getelementptr inbounds i8, ptr %1, i64 2256
+  %child = getelementptr inbounds nuw i8, ptr %1, i64 2256
   %bus.0102 = load ptr, ptr %child, align 8
   %tobool3.not103 = icmp eq ptr %bus.0102, null
   br i1 %tobool3.not103, label %if.end57, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.then
-  %irq = getelementptr inbounds i8, ptr %cfg, i64 64
-  %pio = getelementptr inbounds i8, ptr %cfg, i64 48
+  %irq = getelementptr inbounds nuw i8, ptr %cfg, i64 64
+  %pio = getelementptr inbounds nuw i8, ptr %cfg, i64 48
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -140,7 +140,7 @@ if.end47:                                         ; preds = %if.then43, %if.end2
   %3 = load i32, ptr %irq, align 8
   call fastcc void @acpi_dsdt_add_pci_route_table(ptr noundef %call16, i32 noundef %3)
   %call.i = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %bus.0105, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.28, i32 noundef 316, ptr noundef nonnull @__func__.BUS) #3
-  %parent = getelementptr inbounds i8, ptr %call.i, i64 40
+  %parent = getelementptr inbounds nuw i8, ptr %call.i, i64 40
   %4 = load ptr, ptr %parent, align 8
   %call.i101 = call ptr @object_dynamic_cast_assert(ptr noundef %4, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.26, i32 noundef 37, ptr noundef nonnull @__func__.PCI_HOST_BRIDGE) #3
   %5 = load i64, ptr %pio, align 8
@@ -164,7 +164,7 @@ if.end56:                                         ; preds = %if.else55, %if.then
 
 for.inc:                                          ; preds = %for.body, %if.end56
   %nr_pcie_buses.2 = phi i32 [ %spec.select, %if.end56 ], [ %nr_pcie_buses.1104, %for.body ]
-  %sibling = getelementptr inbounds i8, ptr %bus.0105, i64 2264
+  %sibling = getelementptr inbounds nuw i8, ptr %bus.0105, i64 2264
   %bus.0 = load ptr, ptr %sibling, align 8
   %tobool3.not = icmp eq ptr %bus.0, null
   br i1 %tobool3.not, label %if.end57, label %for.body, !llvm.loop !5
@@ -193,7 +193,7 @@ if.end57:                                         ; preds = %for.inc, %if.then, 
   %call71 = call ptr @aml_int(i64 noundef 1) #3
   %call72 = call ptr @aml_name_decl(ptr noundef nonnull @.str.10, ptr noundef %call71) #3
   call void @aml_append(ptr noundef %call58, ptr noundef %call72) #3
-  %irq73 = getelementptr inbounds i8, ptr %cfg, i64 64
+  %irq73 = getelementptr inbounds nuw i8, ptr %cfg, i64 64
   %6 = load i32, ptr %irq73, align 8
   call fastcc void @acpi_dsdt_add_pci_route_table(ptr noundef %call58, i32 noundef %6)
   %call74 = call ptr @aml_method(ptr noundef nonnull @.str.17, i32 noundef 0, i32 noundef 0) #3
@@ -207,21 +207,21 @@ if.end57:                                         ; preds = %for.inc, %if.then, 
   %conv80 = add i16 %8, -1
   %call82 = call ptr @aml_word_bus_number(i32 noundef 4, i32 noundef 8, i32 noundef 0, i16 noundef zeroext 0, i16 noundef zeroext 0, i16 noundef zeroext %conv80, i16 noundef zeroext 0, i16 noundef zeroext %8) #3
   call void @aml_append(ptr noundef %call79, ptr noundef %call82) #3
-  %size83 = getelementptr inbounds i8, ptr %cfg, i64 24
+  %size83 = getelementptr inbounds nuw i8, ptr %cfg, i64 24
   %9 = load i64, ptr %size83, align 8
   %tobool84.not = icmp eq i64 %9, 0
   br i1 %tobool84.not, label %if.end110, label %if.then85
 
 if.then85:                                        ; preds = %if.end57
-  %mmio32 = getelementptr inbounds i8, ptr %cfg, i64 16
-  %mem_ranges = getelementptr inbounds i8, ptr %crs_range_set, i64 8
+  %mmio32 = getelementptr inbounds nuw i8, ptr %cfg, i64 16
+  %mem_ranges = getelementptr inbounds nuw i8, ptr %crs_range_set, i64 8
   %10 = load ptr, ptr %mem_ranges, align 8
   %11 = load i64, ptr %mmio32, align 8
   %add = add i64 %9, -1
   %sub92 = add i64 %add, %11
   call void @crs_replace_with_free_ranges(ptr noundef %10, i64 noundef %11, i64 noundef %sub92) #3
   %12 = load ptr, ptr %mem_ranges, align 8
-  %len106 = getelementptr inbounds i8, ptr %12, i64 8
+  %len106 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %13 = load i32, ptr %len106, align 8
   %cmp95107.not = icmp eq i32 %13, 0
   br i1 %cmp95107.not, label %if.end110, label %for.body97
@@ -235,7 +235,7 @@ for.body97:                                       ; preds = %if.then85, %for.bod
   %16 = load ptr, ptr %arrayidx, align 8
   %17 = load i64, ptr %16, align 8
   %conv100 = trunc i64 %17 to i32
-  %limit = getelementptr inbounds i8, ptr %16, i64 8
+  %limit = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load i64, ptr %limit, align 8
   %conv101 = trunc i64 %18 to i32
   %sub104 = sub i64 %18, %17
@@ -245,14 +245,14 @@ for.body97:                                       ; preds = %if.then85, %for.bod
   call void @aml_append(ptr noundef %call79, ptr noundef %call107) #3
   %inc = add nuw i32 %i.0108, 1
   %20 = load ptr, ptr %mem_ranges, align 8
-  %len = getelementptr inbounds i8, ptr %20, i64 8
+  %len = getelementptr inbounds nuw i8, ptr %20, i64 8
   %21 = load i32, ptr %len, align 8
   %cmp95 = icmp ult i32 %inc, %21
   br i1 %cmp95, label %for.body97, label %if.end110, !llvm.loop !7
 
 if.end110:                                        ; preds = %for.body97, %if.then85, %if.end57
-  %pio111 = getelementptr inbounds i8, ptr %cfg, i64 48
-  %size112 = getelementptr inbounds i8, ptr %cfg, i64 56
+  %pio111 = getelementptr inbounds nuw i8, ptr %cfg, i64 48
+  %size112 = getelementptr inbounds nuw i8, ptr %cfg, i64 56
   %22 = load i64, ptr %size112, align 8
   %tobool113.not = icmp eq i64 %22, 0
   br i1 %tobool113.not, label %if.end144, label %if.then114
@@ -262,7 +262,7 @@ if.then114:                                       ; preds = %if.end110
   %sub117 = add i64 %22, -1
   call void @crs_replace_with_free_ranges(ptr noundef %23, i64 noundef 0, i64 noundef %sub117) #3
   %24 = load ptr, ptr %crs_range_set, align 8
-  %len120109 = getelementptr inbounds i8, ptr %24, i64 8
+  %len120109 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %25 = load i32, ptr %len120109, align 8
   %cmp121110.not = icmp eq i32 %25, 0
   br i1 %cmp121110.not, label %if.end144, label %for.body123
@@ -276,7 +276,7 @@ for.body123:                                      ; preds = %if.then114, %for.bo
   %28 = load ptr, ptr %arrayidx127, align 8
   %29 = load i64, ptr %28, align 8
   %conv129 = trunc i64 %29 to i32
-  %limit130 = getelementptr inbounds i8, ptr %28, i64 8
+  %limit130 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load i64, ptr %limit130, align 8
   %conv131 = trunc i64 %30 to i32
   %31 = load i64, ptr %pio111, align 8
@@ -288,27 +288,27 @@ for.body123:                                      ; preds = %if.then114, %for.bo
   call void @aml_append(ptr noundef %call79, ptr noundef %call140) #3
   %inc142 = add nuw i32 %i.1111, 1
   %33 = load ptr, ptr %crs_range_set, align 8
-  %len120 = getelementptr inbounds i8, ptr %33, i64 8
+  %len120 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %34 = load i32, ptr %len120, align 8
   %cmp121 = icmp ult i32 %inc142, %34
   br i1 %cmp121, label %for.body123, label %if.end144, !llvm.loop !8
 
 if.end144:                                        ; preds = %for.body123, %if.then114, %if.end110
-  %size145 = getelementptr inbounds i8, ptr %cfg, i64 40
+  %size145 = getelementptr inbounds nuw i8, ptr %cfg, i64 40
   %35 = load i64, ptr %size145, align 8
   %tobool146.not = icmp eq i64 %35, 0
   br i1 %tobool146.not, label %if.end176, label %if.then147
 
 if.then147:                                       ; preds = %if.end144
-  %mmio64 = getelementptr inbounds i8, ptr %cfg, i64 32
-  %mem_64bit_ranges = getelementptr inbounds i8, ptr %crs_range_set, i64 16
+  %mmio64 = getelementptr inbounds nuw i8, ptr %cfg, i64 32
+  %mem_64bit_ranges = getelementptr inbounds nuw i8, ptr %crs_range_set, i64 16
   %36 = load ptr, ptr %mem_64bit_ranges, align 8
   %37 = load i64, ptr %mmio64, align 8
   %add154 = add i64 %35, -1
   %sub155 = add i64 %add154, %37
   call void @crs_replace_with_free_ranges(ptr noundef %36, i64 noundef %37, i64 noundef %sub155) #3
   %38 = load ptr, ptr %mem_64bit_ranges, align 8
-  %len158112 = getelementptr inbounds i8, ptr %38, i64 8
+  %len158112 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %39 = load i32, ptr %len158112, align 8
   %cmp159113.not = icmp eq i32 %39, 0
   br i1 %cmp159113.not, label %if.end176, label %for.body161
@@ -321,7 +321,7 @@ for.body161:                                      ; preds = %if.then147, %for.bo
   %arrayidx165 = getelementptr ptr, ptr %41, i64 %idxprom164
   %42 = load ptr, ptr %arrayidx165, align 8
   %43 = load i64, ptr %42, align 8
-  %limit167 = getelementptr inbounds i8, ptr %42, i64 8
+  %limit167 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %44 = load i64, ptr %limit167, align 8
   %reass.sub = sub i64 %44, %43
   %add171 = add i64 %reass.sub, 1
@@ -329,7 +329,7 @@ for.body161:                                      ; preds = %if.then147, %for.bo
   call void @aml_append(ptr noundef %call79, ptr noundef %call172) #3
   %inc174 = add nuw i32 %i.2114, 1
   %45 = load ptr, ptr %mem_64bit_ranges, align 8
-  %len158 = getelementptr inbounds i8, ptr %45, i64 8
+  %len158 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %46 = load i32, ptr %len158, align 8
   %cmp159 = icmp ult i32 %inc174, %46
   br i1 %cmp159, label %for.body161, label %if.end176, !llvm.loop !9

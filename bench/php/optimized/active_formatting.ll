@@ -18,10 +18,10 @@ define hidden noundef nonnull ptr @lxb_html_tree_active_formatting_marker() loca
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @lxb_html_tree_active_formatting_up_to_last_marker(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %3, i64 16
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.pre = load i64, ptr %.phi.trans.insert, align 8
   br label %5
 
@@ -32,11 +32,11 @@ define hidden void @lxb_html_tree_active_formatting_up_to_last_marker(ptr nocapt
   br i1 %.not, label %17, label %8
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %7, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %10 = add i64 %6, -1
   store i64 %10, ptr %9, align 8
   %11 = load ptr, ptr %2, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load i64, ptr %12, align 8
   %14 = getelementptr inbounds ptr, ptr %4, i64 %13
   %15 = load ptr, ptr %14, align 8
@@ -49,10 +49,10 @@ define hidden void @lxb_html_tree_active_formatting_up_to_last_marker(ptr nocapt
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @lxb_html_tree_active_formatting_remove_by_node(ptr nocapture noundef readonly %0, ptr noundef readnone %1) local_unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %7 = load i64, ptr %6, align 8
   br label %8
 
@@ -71,11 +71,11 @@ define hidden void @lxb_html_tree_active_formatting_remove_by_node(ptr nocapture
 14:                                               ; preds = %9
   %15 = getelementptr inbounds ptr, ptr %5, i64 %10
   %16 = sub i64 %7, %.0
-  %17 = getelementptr inbounds i8, ptr %15, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %18 = shl i64 %16, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %15, ptr nonnull align 8 %17, i64 %18, i1 false)
   %19 = load ptr, ptr %3, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = load i64, ptr %20, align 8
   %22 = add i64 %21, -1
   store i64 %22, ptr %20, align 8
@@ -90,10 +90,10 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @lxb_html_tree_active_formatting_find_by_node(ptr nocapture noundef readonly %0, ptr noundef readnone %1, ptr noundef writeonly %2) local_unnamed_addr #3 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load i64, ptr %7, align 8
   %.not18 = icmp eq i64 %8, 0
   br i1 %.not18, label %._crit_edge, label %.lr.ph
@@ -131,10 +131,10 @@ define hidden noundef zeroext i1 @lxb_html_tree_active_formatting_find_by_node(p
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @lxb_html_tree_active_formatting_find_by_node_reverse(ptr nocapture noundef readonly %0, ptr noundef readnone %1, ptr noundef writeonly %2) local_unnamed_addr #3 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load i64, ptr %7, align 8
   br label %9
 
@@ -171,9 +171,9 @@ define hidden noundef zeroext i1 @lxb_html_tree_active_formatting_find_by_node_r
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 3) i32 @lxb_html_tree_active_formatting_reconstruct_elements(ptr noundef %0) local_unnamed_addr #4 {
   %2 = alloca %struct.lxb_html_token_t, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load i64, ptr %5, align 8
   %7 = icmp eq i64 %6, 0
   br i1 %7, label %.loopexit, label %8
@@ -213,15 +213,15 @@ define hidden range(i32 0, 3) i32 @lxb_html_tree_active_formatting_reconstruct_e
   br i1 %25, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %23
-  %26 = getelementptr inbounds i8, ptr %2, i64 80
-  %27 = getelementptr inbounds i8, ptr %2, i64 64
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 80
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 64
   br label %28
 
 28:                                               ; preds = %.lr.ph, %35
   %.234 = phi i64 [ %.029, %.lr.ph ], [ %36, %35 ]
   %29 = getelementptr inbounds ptr, ptr %9, i64 %.234
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load i64, ptr %31, align 8
   store i64 %32, ptr %26, align 8
   store ptr %30, ptr %27, align 8
@@ -248,10 +248,10 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden ptr @lxb_html_tree_active_formatting_between_last_marker(ptr nocapture noundef readonly %0, i64 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #3 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load i64, ptr %7, align 8
   %.not22 = icmp eq i64 %8, 0
   br i1 %.not22, label %.loopexit, label %.lr.ph
@@ -265,13 +265,13 @@ define hidden ptr @lxb_html_tree_active_formatting_between_last_marker(ptr nocap
   br i1 %12, label %.loopexit, label %13
 
 13:                                               ; preds = %.lr.ph
-  %14 = getelementptr inbounds i8, ptr %11, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %15 = load i64, ptr %14, align 8
   %16 = icmp eq i64 %15, %1
   br i1 %16, label %17, label %24
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %11, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %19 = load i64, ptr %18, align 8
   %20 = icmp eq i64 %19, 2
   br i1 %20, label %21, label %24
@@ -297,18 +297,18 @@ define hidden ptr @lxb_html_tree_active_formatting_between_last_marker(ptr nocap
 
 ; Function Attrs: nounwind uwtable
 define hidden void @lxb_html_tree_active_formatting_push_with_check_dupl(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #4 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %7 = load i64, ptr %6, align 8
   %.not29 = icmp eq i64 %7, 0
   br i1 %.not29, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %8 = add i64 %7, -1
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   br label %11
 
 11:                                               ; preds = %.lr.ph, %29
@@ -322,14 +322,14 @@ define hidden void @lxb_html_tree_active_formatting_push_with_check_dupl(ptr noc
   br i1 %15, label %._crit_edge, label %16
 
 16:                                               ; preds = %11
-  %17 = getelementptr inbounds i8, ptr %14, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %18 = load i64, ptr %17, align 8
   %19 = load i64, ptr %9, align 8
   %20 = icmp eq i64 %18, %19
   br i1 %20, label %21, label %29
 
 21:                                               ; preds = %16
-  %22 = getelementptr inbounds i8, ptr %14, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %23 = load i64, ptr %22, align 8
   %24 = load i64, ptr %10, align 8
   %25 = icmp eq i64 %23, %24

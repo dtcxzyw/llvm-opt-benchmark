@@ -159,7 +159,7 @@ define dso_local void @acpi_rs_set_resource_length(i32 noundef %0, ptr noundef %
 
 8:                                                ; preds = %2
   %9 = trunc i32 %5 to i16
-  %10 = getelementptr inbounds i8, ptr %1, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 1
   store i16 %9, ptr %10, align 2
   br label %15
 
@@ -189,7 +189,7 @@ define dso_local void @acpi_rs_set_resource_header(i8 noundef zeroext %0, i32 no
 
 9:                                                ; preds = %3
   %10 = trunc i32 %6 to i16
-  %11 = getelementptr inbounds i8, ptr %2, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 1
   store i16 %10, ptr %11, align 2
   br label %16
 
@@ -218,7 +218,7 @@ define dso_local zeroext i16 @acpi_rs_get_resource_source(i16 noundef zeroext %0
   %13 = getelementptr i8, ptr %3, i64 %12
   %14 = load i8, ptr %13, align 1
   store i8 %14, ptr %2, align 1
-  %15 = getelementptr inbounds i8, ptr %2, i64 3
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 3
   %16 = icmp eq ptr %4, null
   %17 = getelementptr i8, ptr %2, i64 11
   %18 = select i1 %16, ptr %17, ptr %4
@@ -257,16 +257,16 @@ define dso_local zeroext i16 @acpi_rs_get_resource_source(i16 noundef zeroext %0
   %41 = phi i64 [ 0, %11 ], [ %33, %37 ]
   %42 = getelementptr i8, ptr %25, i64 %41
   store i8 0, ptr %42, align 1
-  %43 = getelementptr inbounds i8, ptr %2, i64 1
+  %43 = getelementptr inbounds nuw i8, ptr %2, i64 1
   store i16 %40, ptr %43, align 1
   %44 = trunc i32 %23 to i16
   br label %48
 
 45:                                               ; preds = %5
   store i8 0, ptr %2, align 1
-  %46 = getelementptr inbounds i8, ptr %2, i64 1
+  %46 = getelementptr inbounds nuw i8, ptr %2, i64 1
   store i16 0, ptr %46, align 1
-  %47 = getelementptr inbounds i8, ptr %2, i64 3
+  %47 = getelementptr inbounds nuw i8, ptr %2, i64 3
   store ptr null, ptr %47, align 1
   br label %48
 
@@ -284,7 +284,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none)
 define dso_local range(i32 0, 131072) i32 @acpi_rs_set_resource_source(ptr noundef %0, i16 noundef zeroext %1, ptr nocapture noundef readonly %2) local_unnamed_addr #10 align 16 {
   %4 = zext i16 %1 to i32
-  %5 = getelementptr inbounds i8, ptr %2, i64 1
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %6 = load i16, ptr %5, align 1
   %7 = icmp eq i16 %6, 0
   br i1 %7, label %20, label %8
@@ -295,7 +295,7 @@ define dso_local range(i32 0, 131072) i32 @acpi_rs_set_resource_source(ptr nound
   %11 = load i8, ptr %2, align 1
   store i8 %11, ptr %10, align 1
   %12 = getelementptr i8, ptr %10, i64 1
-  %13 = getelementptr inbounds i8, ptr %2, i64 3
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 3
   %14 = load ptr, ptr %13, align 1
   %15 = tail call ptr @strcpy(ptr noundef %12, ptr noundef %14) #13
   %16 = load i16, ptr %5, align 1
@@ -442,7 +442,7 @@ define dso_local i32 @acpi_rs_set_srs_method_data(ptr noundef %0, ptr noundef %1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %4, i8 0, i64 16, i1 false), !annotation !11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #13
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %6, align 8, !annotation !11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #13
   store i64 0, ptr %3, align 8, !annotation !11
@@ -459,11 +459,11 @@ define dso_local i32 @acpi_rs_set_srs_method_data(ptr noundef %0, ptr noundef %1
 
 14:                                               ; preds = %2
   store ptr %0, ptr %12, align 8
-  %15 = getelementptr inbounds i8, ptr %12, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr @.str.4, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %12, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store ptr %4, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %12, i64 86
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 86
   store i8 1, ptr %17, align 2
   store i64 -2, ptr %5, align 8
   %18 = call i32 @acpi_rs_create_aml_resources(ptr noundef %1, ptr noundef nonnull %5) #13
@@ -477,7 +477,7 @@ define dso_local i32 @acpi_rs_set_srs_method_data(ptr noundef %0, ptr noundef %1
   br i1 %22, label %23, label %26
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds i8, ptr %5, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %25 = load ptr, ptr %24, align 8
   call void @kfree(ptr noundef %25) #13
   br label %37
@@ -485,15 +485,15 @@ define dso_local i32 @acpi_rs_set_srs_method_data(ptr noundef %0, ptr noundef %1
 26:                                               ; preds = %20
   %27 = load i64, ptr %5, align 8
   %28 = trunc i64 %27 to i32
-  %29 = getelementptr inbounds i8, ptr %21, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %21, i64 24
   store i32 %28, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %5, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %21, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %31, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %21, i64 12
+  %33 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i8 4, ptr %33, align 4
-  %34 = getelementptr inbounds i8, ptr %4, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr null, ptr %34, align 8
   %35 = call i32 @acpi_ns_evaluate(ptr noundef nonnull %12) #13
   %36 = load ptr, ptr %4, align 16

@@ -49,7 +49,7 @@ define dso_local void @set_user_limits(ptr nocapture noundef readonly %0, i32 no
   %10 = alloca %struct.rlimit, align 8
   %11 = call i32 @prlimit(i32 noundef %1, i32 noundef 0, ptr noundef null, ptr noundef nonnull %10) #7
   %12 = icmp eq i32 %11, 0
-  %13 = getelementptr inbounds i8, ptr %10, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %14 = load i64, ptr %13, align 8
   %15 = icmp ne i64 %14, -1
   %or.cond6 = select i1 %12, i1 %15, i1 false
@@ -62,14 +62,14 @@ define dso_local void @set_user_limits(ptr nocapture noundef readonly %0, i32 no
 
 19:                                               ; preds = %16, %2
   %20 = call ptr @get_slurm_rlimits_info() #7
-  %21 = getelementptr inbounds i8, ptr %20, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8
   %.not51 = icmp eq ptr %22, null
   br i1 %.not51, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %0, i64 272
-  %24 = getelementptr inbounds i8, ptr %7, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 272
+  %24 = getelementptr inbounds nuw i8, ptr %7, i64 8
   br label %25
 
 25:                                               ; preds = %.lr.ph, %_set_limit.exit
@@ -85,7 +85,7 @@ define dso_local void @set_user_limits(ptr nocapture noundef readonly %0, i32 no
   store ptr null, ptr %8, align 8
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %8, ptr noundef nonnull @.str.14, ptr noundef nonnull %26) #7
   %28 = load ptr, ptr %8, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 6
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 6
   %30 = call ptr @xstrdup(ptr noundef nonnull %29) #7
   store ptr %30, ptr %9, align 8
   %31 = load ptr, ptr %8, align 8
@@ -106,12 +106,12 @@ define dso_local void @set_user_limits(ptr nocapture noundef readonly %0, i32 no
   br i1 %38, label %39, label %41
 
 39:                                               ; preds = %36
-  %40 = getelementptr inbounds i8, ptr %31, i64 6
+  %40 = getelementptr inbounds nuw i8, ptr %31, i64 6
   call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.25, ptr noundef nonnull %40) #7
   br label %41
 
 41:                                               ; preds = %39, %36
-  %42 = getelementptr inbounds i8, ptr %32, i64 1
+  %42 = getelementptr inbounds nuw i8, ptr %32, i64 1
   br label %43
 
 43:                                               ; preds = %41, %33
@@ -146,7 +146,7 @@ define dso_local void @set_user_limits(ptr nocapture noundef readonly %0, i32 no
   %56 = load ptr, ptr %8, align 8
   call void @unsetenvp(ptr noundef %27, ptr noundef %56) #7
   call void @slurm_xfree(ptr noundef nonnull %8) #7
-  %57 = getelementptr inbounds i8, ptr %.052, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %.052, i64 16
   %58 = load i32, ptr %57, align 8
   %59 = icmp eq i32 %58, 1
   %brmerge.i = or i1 %35, %59
@@ -335,14 +335,14 @@ _set_limit.exit:                                  ; preds = %50, %53, %55, %64, 
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
-  %137 = getelementptr inbounds i8, ptr %.052, i64 24
-  %138 = getelementptr inbounds i8, ptr %.052, i64 32
+  %137 = getelementptr inbounds nuw i8, ptr %.052, i64 24
+  %138 = getelementptr inbounds nuw i8, ptr %.052, i64 32
   %139 = load ptr, ptr %138, align 8
   %.not = icmp eq ptr %139, null
   br i1 %.not, label %._crit_edge, label %25, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %_set_limit.exit, %19
-  %140 = getelementptr inbounds i8, ptr %0, i64 256
+  %140 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %141 = load i64, ptr %140, align 8
   %142 = shl i64 %141, 20
   %143 = call i32 @prlimit(i32 noundef %1, i32 noundef 5, ptr noundef null, ptr noundef nonnull %10) #7
@@ -512,14 +512,14 @@ declare void @log_var(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, 1) i32 @set_umask(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 272
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %3 = load ptr, ptr %2, align 8
   %4 = tail call ptr @getenvp(ptr noundef %3, ptr noundef nonnull @.str.12) #7
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %5, label %12
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 120
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %7 = load i32, ptr %6, align 8
   %.not10 = icmp eq i32 %7, -4
   br i1 %.not10, label %21, label %8
@@ -536,7 +536,7 @@ define dso_local range(i32 -1, 1) i32 @set_umask(ptr nocapture noundef readonly 
 12:                                               ; preds = %1
   %13 = tail call i64 @strtol(ptr nocapture noundef nonnull %4, ptr noundef null, i32 noundef 8) #7
   %14 = trunc i64 %13 to i32
-  %15 = getelementptr inbounds i8, ptr %0, i64 120
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %16 = load i32, ptr %15, align 8
   %.off = add i32 %16, 6
   %switch = icmp ult i32 %.off, 3

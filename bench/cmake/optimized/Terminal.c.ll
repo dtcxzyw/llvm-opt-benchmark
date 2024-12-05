@@ -103,7 +103,7 @@ define dso_local void @cmsysTerminal_cfprintf(i32 noundef %0, ptr nocapture noun
   ]
 
 .tail.i:                                          ; preds = %7
-  %9 = getelementptr inbounds i8, ptr %6, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 1
   %10 = load i8, ptr %9, align 1
   %11 = icmp eq i8 %10, 0
   br i1 %11, label %12, label %kwsysTerminalStreamIsVT100.exit.thread15
@@ -119,7 +119,7 @@ sub_043.i:                                        ; preds = %12
   br i1 %.not48.i, label %.tail42.i, label %.tail42.thread.i
 
 .tail42.i:                                        ; preds = %sub_043.i
-  %15 = getelementptr inbounds i8, ptr %13, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 1
   %16 = load i8, ptr %15, align 1
   %17 = icmp eq i8 %16, 0
   br i1 %17, label %.critedge, label %.tail42.thread.i
@@ -154,7 +154,7 @@ sub_043.i:                                        ; preds = %12
   br i1 %.not32.i, label %.critedge, label %.preheader.i
 
 29:                                               ; preds = %.preheader.i
-  %30 = getelementptr inbounds i8, ptr %.146.i, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %.146.i, i64 8
   %31 = load ptr, ptr %30, align 8
   %.not33.i = icmp eq ptr %31, null
   br i1 %.not33.i, label %.critedge, label %.preheader.i, !llvm.loop !5
@@ -254,7 +254,7 @@ define internal fastcc void @kwsysTerminalSetVT100Color(ptr nocapture noundef %0
 switch.lookup:                                    ; preds = %24
   %28 = lshr exact i32 %26, 4
   %29 = zext nneg i32 %28 to i64
-  %switch.gep = getelementptr inbounds [8 x ptr], ptr @switch.table.kwsysTerminalSetVT100Color, i64 0, i64 %29
+  %switch.gep = getelementptr inbounds nuw [8 x ptr], ptr @switch.table.kwsysTerminalSetVT100Color, i64 0, i64 %29
   %switch.load = load ptr, ptr %switch.gep, align 8
   %30 = tail call i64 @fwrite(ptr nonnull %switch.load, i64 5, i64 1, ptr %0)
   br label %31

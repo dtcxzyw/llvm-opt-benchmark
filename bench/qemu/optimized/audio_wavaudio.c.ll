@@ -53,7 +53,7 @@ declare void @audio_driver_register(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef ptr @wav_audio_init(ptr noundef readonly returned %dev, ptr nocapture readnone %errp) #0 {
 entry:
-  %driver = getelementptr inbounds i8, ptr %dev, i64 8
+  %driver = getelementptr inbounds nuw i8, ptr %dev, i64 8
   %0 = load i32, ptr %driver, align 8
   %cmp = icmp eq i32 %0, 3
   br i1 %cmp, label %if.end, label %if.else
@@ -81,15 +81,15 @@ entry:
   %hdr = alloca [44 x i8], align 16
   %wav_as = alloca %struct.audsettings, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(44) %hdr, ptr noundef nonnull align 16 dereferenceable(44) @__const.wav_init_out.hdr, i64 44, i1 false)
-  %out = getelementptr inbounds i8, ptr %drv_opaque, i64 32
+  %out = getelementptr inbounds nuw i8, ptr %drv_opaque, i64 32
   %0 = load ptr, ptr %out, align 8
   %call = tail call { i64, i64 } @audiodev_to_audsettings(ptr noundef %0) #9
   %1 = extractvalue { i64, i64 } %call, 0
   store i64 %1, ptr %wav_as, align 8
-  %2 = getelementptr inbounds i8, ptr %wav_as, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %wav_as, i64 8
   %3 = extractvalue { i64, i64 } %call, 1
   store i64 %3, ptr %2, align 8
-  %path = getelementptr inbounds i8, ptr %drv_opaque, i64 40
+  %path = getelementptr inbounds nuw i8, ptr %drv_opaque, i64 40
   %4 = load ptr, ptr %path, align 8
   %tobool.not = icmp eq ptr %4, null
   %..str.4 = select i1 %tobool.not, ptr @.str.4, ptr %4
@@ -125,16 +125,16 @@ sw.default:                                       ; preds = %entry
 sw.epilog:                                        ; preds = %entry, %entry, %sw.bb2
   %tobool5.not = phi i8 [ 16, %sw.bb2 ], [ 8, %entry ], [ 8, %entry ]
   %bits16.0 = phi i32 [ 1, %sw.bb2 ], [ 0, %entry ], [ 0, %entry ]
-  %arrayidx = getelementptr inbounds i8, ptr %hdr, i64 34
+  %arrayidx = getelementptr inbounds nuw i8, ptr %hdr, i64 34
   store i8 %tobool5.not, ptr %arrayidx, align 2
-  %endianness = getelementptr inbounds i8, ptr %wav_as, i64 12
+  %endianness = getelementptr inbounds nuw i8, ptr %wav_as, i64 12
   store i32 0, ptr %endianness, align 4
-  %info = getelementptr inbounds i8, ptr %hw, i64 20
+  %info = getelementptr inbounds nuw i8, ptr %hw, i64 20
   call void @audio_pcm_init_info(ptr noundef nonnull %info, ptr noundef nonnull %wav_as) #9
-  %samples = getelementptr inbounds i8, ptr %hw, i64 120
+  %samples = getelementptr inbounds nuw i8, ptr %hw, i64 120
   store i64 1024, ptr %samples, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %hdr, i64 22
-  %nchannels9 = getelementptr inbounds i8, ptr %hw, i64 32
+  %add.ptr = getelementptr inbounds nuw i8, ptr %hdr, i64 22
+  %nchannels9 = getelementptr inbounds nuw i8, ptr %hw, i64 32
   %6 = load i32, ptr %nchannels9, align 4
   br label %for.body.i
 
@@ -150,8 +150,8 @@ for.body.i:                                       ; preds = %for.body.i, %sw.epi
   br i1 %exitcond.not.i, label %le_store.exit, label %for.body.i, !llvm.loop !5
 
 le_store.exit:                                    ; preds = %for.body.i
-  %add.ptr11 = getelementptr inbounds i8, ptr %hdr, i64 24
-  %freq = getelementptr inbounds i8, ptr %hw, i64 28
+  %add.ptr11 = getelementptr inbounds nuw i8, ptr %hdr, i64 24
+  %freq = getelementptr inbounds nuw i8, ptr %hw, i64 28
   %7 = load i32, ptr %freq, align 4
   br label %for.body.i14
 
@@ -167,7 +167,7 @@ for.body.i14:                                     ; preds = %for.body.i14, %le_s
   br i1 %exitcond.not.i21, label %le_store.exit22, label %for.body.i14, !llvm.loop !5
 
 le_store.exit22:                                  ; preds = %for.body.i14
-  %add.ptr14 = getelementptr inbounds i8, ptr %hdr, i64 28
+  %add.ptr14 = getelementptr inbounds nuw i8, ptr %hdr, i64 28
   %add = add nuw nsw i32 %bits16.0, %conv
   %shl = shl i32 %7, %add
   br label %for.body.i23
@@ -184,7 +184,7 @@ for.body.i23:                                     ; preds = %for.body.i23, %le_s
   br i1 %exitcond.not.i30, label %le_store.exit31, label %for.body.i23, !llvm.loop !5
 
 le_store.exit31:                                  ; preds = %for.body.i23
-  %add.ptr18 = getelementptr inbounds i8, ptr %hdr, i64 32
+  %add.ptr18 = getelementptr inbounds nuw i8, ptr %hdr, i64 32
   %shl20 = shl nuw nsw i32 1, %add
   %8 = trunc nuw nsw i32 %shl20 to i8
   br label %for.body.i32
@@ -200,7 +200,7 @@ for.body.i32:                                     ; preds = %for.body.i32, %le_s
 
 le_store.exit40:                                  ; preds = %for.body.i32
   %call21 = call noalias ptr @fopen64(ptr noundef nonnull %..str.4, ptr noundef nonnull @.str.7)
-  %f = getelementptr inbounds i8, ptr %hw, i64 168
+  %f = getelementptr inbounds nuw i8, ptr %hw, i64 168
   store ptr %call21, ptr %f, align 8
   %tobool23.not = icmp eq ptr %call21, null
   br i1 %tobool23.not, label %if.then, label %if.end
@@ -225,7 +225,7 @@ if.then31:                                        ; preds = %if.end
   br label %return
 
 if.end34:                                         ; preds = %if.end
-  %rate = getelementptr inbounds i8, ptr %hw, i64 176
+  %rate = getelementptr inbounds nuw i8, ptr %hw, i64 176
   call void @audio_rate_start(ptr noundef nonnull %rate) #9
   br label %return
 
@@ -239,15 +239,15 @@ define internal void @wav_fini_out(ptr nocapture noundef %hw) #0 {
 entry:
   %rlen = alloca [4 x i8], align 1
   %dlen = alloca [4 x i8], align 1
-  %f = getelementptr inbounds i8, ptr %hw, i64 168
+  %f = getelementptr inbounds nuw i8, ptr %hw, i64 168
   %0 = load ptr, ptr %f, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %total_samples = getelementptr inbounds i8, ptr %hw, i64 192
+  %total_samples = getelementptr inbounds nuw i8, ptr %hw, i64 192
   %1 = load i32, ptr %total_samples, align 8
-  %bytes_per_frame = getelementptr inbounds i8, ptr %hw, i64 36
+  %bytes_per_frame = getelementptr inbounds nuw i8, ptr %hw, i64 36
   %2 = load i32, ptr %bytes_per_frame, align 4
   %mul = mul i32 %2, %1
   %add = add i32 %mul, 36
@@ -331,10 +331,10 @@ return:                                           ; preds = %entry, %if.end37
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @wav_write_out(ptr noundef %hw, ptr nocapture noundef %buf, i64 noundef %len) #0 {
 entry:
-  %rate = getelementptr inbounds i8, ptr %hw, i64 176
-  %info = getelementptr inbounds i8, ptr %hw, i64 20
+  %rate = getelementptr inbounds nuw i8, ptr %hw, i64 176
+  %info = getelementptr inbounds nuw i8, ptr %hw, i64 20
   %call = tail call i64 @audio_rate_get_bytes(ptr noundef nonnull %rate, ptr noundef nonnull %info, i64 noundef %len) #9
-  %bytes_per_frame = getelementptr inbounds i8, ptr %hw, i64 36
+  %bytes_per_frame = getelementptr inbounds nuw i8, ptr %hw, i64 36
   %0 = load i32, ptr %bytes_per_frame, align 4
   %conv = sext i32 %0 to i64
   %rem = srem i64 %call, %conv
@@ -350,7 +350,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %if.end9, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %f = getelementptr inbounds i8, ptr %hw, i64 168
+  %f = getelementptr inbounds nuw i8, ptr %hw, i64 168
   %1 = load ptr, ptr %f, align 8
   %call3 = tail call i64 @fwrite(ptr noundef %buf, i64 noundef %call, i64 noundef 1, ptr noundef %1)
   %cmp4.not = icmp eq i64 %call3, 1
@@ -367,7 +367,7 @@ if.end9:                                          ; preds = %if.then6, %land.lhs
   %3 = load i32, ptr %bytes_per_frame, align 4
   %conv12 = sext i32 %3 to i64
   %div = sdiv i64 %call, %conv12
-  %total_samples = getelementptr inbounds i8, ptr %hw, i64 192
+  %total_samples = getelementptr inbounds nuw i8, ptr %hw, i64 192
   %4 = load i32, ptr %total_samples, align 8
   %5 = trunc i64 %div to i32
   %conv14 = add i32 %4, %5
@@ -385,7 +385,7 @@ entry:
   br i1 %enable, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %rate = getelementptr inbounds i8, ptr %hw, i64 176
+  %rate = getelementptr inbounds nuw i8, ptr %hw, i64 176
   tail call void @audio_rate_start(ptr noundef nonnull %rate) #9
   br label %if.end
 

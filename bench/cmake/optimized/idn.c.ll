@@ -14,7 +14,7 @@ define dso_local noundef zeroext i1 @Curl_is_ASCII_name(ptr noundef readonly %0)
 .preheader:                                       ; preds = %1, %.preheader
   %.0 = phi ptr [ %3, %.preheader ], [ %0, %1 ]
   %2 = load i8, ptr %.0, align 1
-  %3 = getelementptr inbounds i8, ptr %.0, i64 1
+  %3 = getelementptr inbounds nuw i8, ptr %.0, i64 1
   %or.cond = icmp sgt i8 %2, 0
   br i1 %or.cond, label %.preheader, label %.loopexit.loopexit, !llvm.loop !5
 
@@ -106,7 +106,7 @@ idn_encode.exit:                                  ; preds = %2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @Curl_free_idnconverted_hostname(ptr nocapture noundef %0) local_unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %4
@@ -123,9 +123,9 @@ define dso_local void @Curl_free_idnconverted_hostname(ptr nocapture noundef %0)
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, 5) i32 @Curl_idnconvert_hostname(ptr nocapture noundef initializes((24, 32)) %0) local_unnamed_addr #1 {
   %2 = alloca ptr, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %4, ptr %5, align 8
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %Curl_is_ASCII_name.exit.thread, label %.preheader.i
@@ -137,7 +137,7 @@ define dso_local range(i32 0, 5) i32 @Curl_idnconvert_hostname(ptr nocapture nou
   br i1 %.not8.i, label %Curl_is_ASCII_name.exit.thread, label %7
 
 7:                                                ; preds = %.preheader.i
-  %8 = getelementptr inbounds i8, ptr %.0.i, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
   %.not9.i = icmp sgt i8 %6, -1
   br i1 %.not9.i, label %.preheader.i, label %Curl_is_ASCII_name.exit, !llvm.loop !5
 
@@ -175,7 +175,7 @@ idn_decode.exit.thread:                           ; preds = %Curl_is_ASCII_name.
   br label %Curl_is_ASCII_name.exit.thread
 
 19:                                               ; preds = %15
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %16, ptr %20, align 8
   store ptr %16, ptr %3, align 8
   br label %Curl_is_ASCII_name.exit.thread

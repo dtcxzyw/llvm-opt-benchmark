@@ -33,7 +33,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @tm2timestamp(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef readonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 20
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %6 = load i32, ptr %5, align 4
   %7 = icmp sgt i32 %6, -4713
   br i1 %7, label %14, label %8
@@ -43,7 +43,7 @@ define range(i32 -1, 1) i32 @tm2timestamp(ptr nocapture noundef readonly %0, i32
   br i1 %9, label %10, label %58
 
 10:                                               ; preds = %8
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load i32, ptr %11, align 8
   %13 = icmp sgt i32 %12, 10
   br i1 %13, label %.thread, label %58
@@ -53,7 +53,7 @@ define range(i32 -1, 1) i32 @tm2timestamp(ptr nocapture noundef readonly %0, i32
   br i1 %15, label %..thread_crit_edge, label %16
 
 ..thread_crit_edge:                               ; preds = %14
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 16
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.pre = load i32, ptr %.phi.trans.insert, align 8
   br label %.thread
 
@@ -62,21 +62,21 @@ define range(i32 -1, 1) i32 @tm2timestamp(ptr nocapture noundef readonly %0, i32
   br i1 %17, label %18, label %58
 
 18:                                               ; preds = %16
-  %19 = getelementptr inbounds i8, ptr %0, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = load i32, ptr %19, align 8
   %21 = icmp slt i32 %20, 6
   br i1 %21, label %.thread, label %58
 
 .thread:                                          ; preds = %..thread_crit_edge, %10, %18
   %22 = phi i32 [ %.pre, %..thread_crit_edge ], [ %12, %10 ], [ %20, %18 ]
-  %23 = getelementptr inbounds i8, ptr %0, i64 12
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %24 = load i32, ptr %23, align 4
   %25 = tail call i32 @date2j(i32 noundef %6, i32 noundef %22, i32 noundef %24) #9
   %26 = tail call i32 @date2j(i32 noundef 2000, i32 noundef 1, i32 noundef 1) #9
   %27 = sub i32 %25, %26
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %29 = load i32, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %31 = load i32, ptr %30, align 4
   %32 = load i32, ptr %0, align 8
   %33 = mul i32 %29, 60
@@ -216,14 +216,14 @@ define internal fastcc i64 @SetEpochTimestamp() unnamed_addr #0 {
   br i1 %3, label %tm2timestamp.exit, label %4
 
 4:                                                ; preds = %0
-  %5 = getelementptr inbounds i8, ptr %1, i64 20
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %6 = load i32, ptr %5, align 4
   %7 = icmp sgt i32 %6, -4713
   br i1 %7, label %13, label %8
 
 8:                                                ; preds = %4
   %9 = icmp eq i32 %6, -4713
-  %10 = getelementptr inbounds i8, ptr %1, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %11 = load i32, ptr %10, align 8
   %12 = icmp sgt i32 %11, 10
   %or.cond = select i1 %9, i1 %12, i1 false
@@ -234,13 +234,13 @@ define internal fastcc i64 @SetEpochTimestamp() unnamed_addr #0 {
   br i1 %14, label %..thread_crit_edge.i, label %15
 
 ..thread_crit_edge.i:                             ; preds = %13
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %1, i64 16
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.pre.i = load i32, ptr %.phi.trans.insert.i, align 8
   br label %.thread.i
 
 15:                                               ; preds = %13
   %16 = icmp eq i32 %6, 5874898
-  %17 = getelementptr inbounds i8, ptr %1, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %18 = load i32, ptr %17, align 8
   %19 = icmp slt i32 %18, 6
   %or.cond8 = select i1 %16, i1 %19, i1 false
@@ -248,14 +248,14 @@ define internal fastcc i64 @SetEpochTimestamp() unnamed_addr #0 {
 
 .thread.i:                                        ; preds = %15, %8, %..thread_crit_edge.i
   %20 = phi i32 [ %.pre.i, %..thread_crit_edge.i ], [ %11, %8 ], [ %18, %15 ]
-  %21 = getelementptr inbounds i8, ptr %1, i64 12
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %22 = load i32, ptr %21, align 4
   %23 = call i32 @date2j(i32 noundef %6, i32 noundef %20, i32 noundef %22) #9
   %24 = call i32 @date2j(i32 noundef 2000, i32 noundef 1, i32 noundef 1) #9
   %25 = sub i32 %23, %24
-  %26 = getelementptr inbounds i8, ptr %1, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %27 = load i32, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %1, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %29 = load i32, ptr %28, align 4
   %30 = load i32, ptr %1, align 8
   %31 = mul i32 %27, 60
@@ -340,21 +340,21 @@ define internal fastcc range(i32 -1, 1) i32 @timestamp2tm(i64 noundef %0, ptr no
   %11 = add nsw i64 %.066, 86400000000
   %.1 = select i1 %10, i64 %11, i64 %.066
   %12 = trunc nuw nsw i64 %8 to i32
-  %13 = getelementptr inbounds i8, ptr %1, i64 20
-  %14 = getelementptr inbounds i8, ptr %1, i64 16
-  %15 = getelementptr inbounds i8, ptr %1, i64 12
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 12
   tail call void @j2date(i32 noundef %12, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %15) #9
   %16 = sitofp i64 %.1 to double
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
-  %18 = getelementptr inbounds i8, ptr %1, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 4
   tail call void @dt2time(double noundef %16, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %1, ptr noundef nonnull %2) #9
-  %19 = getelementptr inbounds i8, ptr %1, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i32 -1, ptr %19, align 8
   %20 = load i32, ptr %13, align 4
   %21 = tail call i32 @date2j(i32 noundef %20, i32 noundef 1, i32 noundef 1) #9
   %22 = add nuw i32 %12, 1
   %23 = sub i32 %22, %21
-  %24 = getelementptr inbounds i8, ptr %1, i64 28
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 28
   store i32 %23, ptr %24, align 4
   br label %25
 
@@ -377,14 +377,14 @@ define void @PGTYPEStimestamp_current(ptr nocapture noundef writeonly %0) local_
   br i1 %5, label %6, label %tm2timestamp.exit
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %2, i64 20
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %8 = load i32, ptr %7, align 4
   %9 = icmp sgt i32 %8, -4713
   br i1 %9, label %15, label %10
 
 10:                                               ; preds = %6
   %11 = icmp eq i32 %8, -4713
-  %12 = getelementptr inbounds i8, ptr %2, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %13 = load i32, ptr %12, align 8
   %14 = icmp sgt i32 %13, 10
   %or.cond = select i1 %11, i1 %14, i1 false
@@ -395,13 +395,13 @@ define void @PGTYPEStimestamp_current(ptr nocapture noundef writeonly %0) local_
   br i1 %16, label %..thread_crit_edge.i, label %17
 
 ..thread_crit_edge.i:                             ; preds = %15
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %2, i64 16
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.pre.i = load i32, ptr %.phi.trans.insert.i, align 8
   br label %.thread.i
 
 17:                                               ; preds = %15
   %18 = icmp eq i32 %8, 5874898
-  %19 = getelementptr inbounds i8, ptr %2, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %20 = load i32, ptr %19, align 8
   %21 = icmp slt i32 %20, 6
   %or.cond5 = select i1 %18, i1 %21, i1 false
@@ -409,14 +409,14 @@ define void @PGTYPEStimestamp_current(ptr nocapture noundef writeonly %0) local_
 
 .thread.i:                                        ; preds = %17, %10, %..thread_crit_edge.i
   %22 = phi i32 [ %.pre.i, %..thread_crit_edge.i ], [ %13, %10 ], [ %20, %17 ]
-  %23 = getelementptr inbounds i8, ptr %2, i64 12
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %24 = load i32, ptr %23, align 4
   %25 = call i32 @date2j(i32 noundef %8, i32 noundef %22, i32 noundef %24) #9
   %26 = call i32 @date2j(i32 noundef 2000, i32 noundef 1, i32 noundef 1) #9
   %27 = sub i32 %25, %26
-  %28 = getelementptr inbounds i8, ptr %2, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %29 = load i32, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %2, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %31 = load i32, ptr %30, align 4
   %32 = load i32, ptr %2, align 8
   %33 = mul i32 %29, 60
@@ -461,17 +461,17 @@ define internal fastcc i32 @dttofmtasc_replace(ptr noundef %0, i32 noundef %1, p
   %7 = alloca ptr, align 8
   %8 = alloca [4 x i8], align 4
   store ptr %3, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 16
-  %10 = getelementptr inbounds i8, ptr %2, i64 20
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %.sroa.0.0.insert.ext83 = zext i32 %1 to i64
   %11 = icmp eq i32 %1, 0
   %spec.store.select = select i1 %11, i32 7, i32 %1
   %.sroa.0.0.insert.ext79 = zext i32 %spec.store.select to i64
-  %12 = getelementptr inbounds i8, ptr %2, i64 8
-  %13 = getelementptr inbounds i8, ptr %2, i64 4
-  %14 = getelementptr inbounds i8, ptr %2, i64 28
-  %15 = getelementptr inbounds i8, ptr %8, i64 2
-  %16 = getelementptr inbounds i8, ptr %2, i64 12
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 28
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 2
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %17 = sext i32 %1 to i64
   %18 = getelementptr [0 x ptr], ptr @days, i64 0, i64 %17
   %19 = getelementptr [0 x ptr], ptr @pgtypes_date_weekdays_short, i64 0, i64 %17
@@ -1234,7 +1234,7 @@ define range(i32 0, 322) i32 @PGTYPEStimestamp_sub(ptr nocapture noundef readonl
 7:                                                ; preds = %5
   %8 = sub i64 %4, %6
   store i64 %8, ptr %2, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 0, ptr %9, align 8
   br label %10
 
@@ -1296,7 +1296,7 @@ define range(i32 -1, 1) i32 @PGTYPEStimestamp_add_interval(ptr nocapture noundef
   br i1 %switch, label %114, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load i64, ptr %8, align 8
   %.not = icmp eq i64 %9, 0
   br i1 %.not, label %110, label %10
@@ -1308,7 +1308,7 @@ define range(i32 -1, 1) i32 @PGTYPEStimestamp_add_interval(ptr nocapture noundef
 
 12:                                               ; preds = %10
   %13 = load i64, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %4, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %15 = load i32, ptr %14, align 8
   %16 = trunc i64 %13 to i32
   %17 = add i32 %15, %16
@@ -1319,7 +1319,7 @@ define range(i32 -1, 1) i32 @PGTYPEStimestamp_add_interval(ptr nocapture noundef
 19:                                               ; preds = %12
   %20 = add nsw i32 %17, -1
   %21 = udiv i32 %20, 12
-  %22 = getelementptr inbounds i8, ptr %4, i64 20
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 20
   %23 = load i32, ptr %22, align 4
   %24 = add i32 %23, %21
   store i32 %24, ptr %22, align 4
@@ -1333,7 +1333,7 @@ define range(i32 -1, 1) i32 @PGTYPEStimestamp_add_interval(ptr nocapture noundef
   br i1 %28, label %29, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %27
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 20
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 20
   %.pre = load i32, ptr %.phi.trans.insert, align 4
   br label %37
 
@@ -1341,7 +1341,7 @@ define range(i32 -1, 1) i32 @PGTYPEStimestamp_add_interval(ptr nocapture noundef
   %.nonneg = sub i32 0, %17
   %30 = udiv i32 %.nonneg, 12
   %31 = xor i32 %30, -1
-  %32 = getelementptr inbounds i8, ptr %4, i64 20
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 20
   %33 = load i32, ptr %32, align 4
   %34 = add i32 %33, %31
   store i32 %34, ptr %32, align 4
@@ -1353,7 +1353,7 @@ define range(i32 -1, 1) i32 @PGTYPEStimestamp_add_interval(ptr nocapture noundef
 37:                                               ; preds = %._crit_edge, %29, %19
   %38 = phi i32 [ %17, %._crit_edge ], [ %36, %29 ], [ %26, %19 ]
   %39 = phi i32 [ %.pre, %._crit_edge ], [ %34, %29 ], [ %24, %19 ]
-  %40 = getelementptr inbounds i8, ptr %4, i64 12
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %41 = load i32, ptr %40, align 4
   %42 = and i32 %39, 3
   %43 = icmp eq i32 %42, 0
@@ -1431,9 +1431,9 @@ define range(i32 -1, 1) i32 @PGTYPEStimestamp_add_interval(ptr nocapture noundef
   %85 = call i32 @date2j(i32 noundef %39, i32 noundef %38, i32 noundef %74) #9
   %86 = call i32 @date2j(i32 noundef 2000, i32 noundef 1, i32 noundef 1) #9
   %87 = sub i32 %85, %86
-  %88 = getelementptr inbounds i8, ptr %4, i64 8
+  %88 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %89 = load i32, ptr %88, align 8
-  %90 = getelementptr inbounds i8, ptr %4, i64 4
+  %90 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %91 = load i32, ptr %90, align 4
   %92 = load i32, ptr %4, align 8
   %93 = mul i32 %89, 60
@@ -1487,10 +1487,10 @@ tm2timestamp.exit.thread:                         ; preds = %103, %106, %.thread
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @PGTYPEStimestamp_sub_interval(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = alloca %struct.interval, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = sub i64 0, %6
-  %8 = getelementptr inbounds i8, ptr %4, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %7, ptr %8, align 8
   %9 = load i64, ptr %1, align 8
   %10 = sub i64 0, %9

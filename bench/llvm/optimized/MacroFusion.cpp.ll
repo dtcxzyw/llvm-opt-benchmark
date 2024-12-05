@@ -94,7 +94,7 @@ _ZN4llvm11SmallPtrSetIPNS_2cl10SubCommandELj1EED2Ev.exit.i: ; preds = %12, %_ZNS
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %14 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %13) #11
   %15 = load ptr, ptr %13, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 80
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %17 = icmp eq ptr %15, %16
   br i1 %17, label %_ZN4llvm2cl6OptionD2Ev.exit, label %18
 
@@ -128,7 +128,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm19hasLessThanNumFusedERKNS_5SUnitEj
   br label %.lr.ph.i
 
 9:                                                ; preds = %.lr.ph.i
-  %10 = getelementptr inbounds i8, ptr %.01012.i, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %.01012.i, i64 16
   %.not.i = icmp eq ptr %10, %7
   br i1 %.not.i, label %_ZL16getPredClusterSURKN4llvm5SUnitE.exit.thread, label %.lr.ph.i
 
@@ -184,7 +184,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm19fuseInstructionPairERNS_17Schedul
   br i1 %.not134, label %._crit_edge, label %.lr.ph
 
 12:                                               ; preds = %.lr.ph
-  %13 = getelementptr inbounds i8, ptr %.089135, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %.089135, i64 16
   %.not = icmp eq ptr %13, %11
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -208,7 +208,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm19fuseInstructionPairERNS_17Schedul
   br i1 %.not100136, label %._crit_edge140, label %.lr.ph139
 
 24:                                               ; preds = %.lr.ph139
-  %25 = getelementptr inbounds i8, ptr %.090137, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %.090137, i64 16
   %.not100 = icmp eq ptr %25, %23
   br i1 %.not100, label %._crit_edge140, label %.lr.ph139
 
@@ -255,7 +255,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm19fuseInstructionPairERNS_17Schedul
   br label %46
 
 46:                                               ; preds = %.lr.ph144, %44
-  %47 = getelementptr inbounds i8, ptr %.091142, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %.091142, i64 16
   %.not101 = icmp eq ptr %47, %40
   br i1 %.not101, label %._crit_edge145, label %.lr.ph144
 
@@ -280,7 +280,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm19fuseInstructionPairERNS_17Schedul
   br label %56
 
 56:                                               ; preds = %.lr.ph149, %54
-  %57 = getelementptr inbounds i8, ptr %.092147, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %.092147, i64 16
   %.not102 = icmp eq ptr %57, %50
   br i1 %.not102, label %._crit_edge150, label %.lr.ph149
 
@@ -337,7 +337,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm19fuseInstructionPairERNS_17Schedul
   br i1 %.not11.not.i, label %.loopexit130, label %.lr.ph.i
 
 88:                                               ; preds = %.lr.ph.i
-  %89 = getelementptr inbounds i8, ptr %.01012.i, i64 16
+  %89 = getelementptr inbounds nuw i8, ptr %.01012.i, i64 16
   %.not.not.i = icmp eq ptr %89, %87
   br i1 %.not.not.i, label %.loopexit130, label %.lr.ph.i
 
@@ -357,7 +357,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm19fuseInstructionPairERNS_17Schedul
   br label %_ZNK4llvm5SUnit6isPredEPKS0_.exit
 
 _ZNK4llvm5SUnit6isPredEPKS0_.exit:                ; preds = %.lr.ph.i, %67, %76, %.loopexit130
-  %94 = getelementptr inbounds i8, ptr %.094152, i64 16
+  %94 = getelementptr inbounds nuw i8, ptr %.094152, i64 16
   %.not104 = icmp eq ptr %94, %62
   br i1 %.not104, label %.loopexit131, label %67
 
@@ -409,7 +409,7 @@ _ZNK4llvm5SUnit6isPredEPKS0_.exit:                ; preds = %.lr.ph.i, %67, %76,
   br i1 %.not11.not.i117, label %.loopexit129, label %.lr.ph.i118
 
 121:                                              ; preds = %.lr.ph.i118
-  %122 = getelementptr inbounds i8, ptr %.01012.i119, i64 16
+  %122 = getelementptr inbounds nuw i8, ptr %.01012.i119, i64 16
   %.not.not.i121 = icmp eq ptr %122, %120
   br i1 %.not.not.i121, label %.loopexit129, label %.lr.ph.i118
 
@@ -429,7 +429,7 @@ _ZNK4llvm5SUnit6isPredEPKS0_.exit:                ; preds = %.lr.ph.i, %67, %76,
   br label %_ZNK4llvm5SUnit6isSuccEPKS0_.exit
 
 _ZNK4llvm5SUnit6isSuccEPKS0_.exit:                ; preds = %.lr.ph.i118, %102, %110, %.loopexit129
-  %127 = getelementptr inbounds i8, ptr %.093156, i64 16
+  %127 = getelementptr inbounds nuw i8, ptr %.093156, i64 16
   %.not106 = icmp eq ptr %127, %99
   br i1 %.not106, label %._crit_edge159, label %102
 
@@ -465,7 +465,7 @@ _ZNK4llvm5SUnit6isSuccEPKS0_.exit:                ; preds = %.lr.ph.i118, %102, 
   br label %142
 
 142:                                              ; preds = %135, %138
-  %143 = getelementptr inbounds i8, ptr %.sroa.0123.0161, i64 256
+  %143 = getelementptr inbounds nuw i8, ptr %.sroa.0123.0161, i64 256
   %.not128 = icmp eq ptr %143, %132
   br i1 %.not128, label %.loopexit, label %135
 
@@ -482,7 +482,7 @@ declare noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef no
 define dso_local void @_ZN4llvm28createMacroFusionDAGMutationENS_8ArrayRefIPFbRKNS_15TargetInstrInfoERKNS_19TargetSubtargetInfoEPKNS_12MachineInstrERS8_EEEb(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 %0, ptr nocapture readonly %1, i64 %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL17EnableMacroFusion, i64 128), align 8
   %6 = trunc i8 %5 to i1
-  br i1 %6, label %7, label %20
+  br i1 %6, label %7, label %19
 
 7:                                                ; preds = %4
   %8 = xor i1 %3, true
@@ -510,17 +510,17 @@ _ZNSt6vectorIPFbRKN4llvm15TargetInstrInfoERKNS0_19TargetSubtargetInfoEPKNS0_12Ma
   br label %_ZNSt10unique_ptrIN12_GLOBAL__N_111MacroFusionESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN12_GLOBAL__N_111MacroFusionESt14default_deleteIS1_EED2Ev.exit: ; preds = %14, %_ZNSt6vectorIPFbRKN4llvm15TargetInstrInfoERKNS0_19TargetSubtargetInfoEPKNS0_12MachineInstrERS8_ESaISC_EE17_S_check_init_lenEmRKSD_.exit.i.i.i.i
-  %16 = phi ptr [ %15, %14 ], [ null, %_ZNSt6vectorIPFbRKN4llvm15TargetInstrInfoERKNS0_19TargetSubtargetInfoEPKNS0_12MachineInstrERS8_ESaISC_EE17_S_check_init_lenEmRKSD_.exit.i.i.i.i ]
-  %.sink.i = getelementptr inbounds i8, ptr %16, i64 %.idx.i.i
-  %17 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  %.pn.i = phi ptr [ %15, %14 ], [ null, %_ZNSt6vectorIPFbRKN4llvm15TargetInstrInfoERKNS0_19TargetSubtargetInfoEPKNS0_12MachineInstrERS8_ESaISC_EE17_S_check_init_lenEmRKSD_.exit.i.i.i.i ]
+  %.sink.i = getelementptr inbounds nuw i8, ptr %.pn.i, i64 %.idx.i.i
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  store ptr %.sink.i, ptr %16, align 8, !noalias !6
+  %17 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %.sink.i, ptr %17, align 8, !noalias !6
-  %18 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store ptr %.sink.i, ptr %18, align 8, !noalias !6
-  %19 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  store i8 %9, ptr %19, align 8, !noalias !6
-  br label %20
+  %18 = getelementptr inbounds nuw i8, ptr %10, i64 32
+  store i8 %9, ptr %18, align 8, !noalias !6
+  br label %19
 
-20:                                               ; preds = %4, %_ZNSt10unique_ptrIN12_GLOBAL__N_111MacroFusionESt14default_deleteIS1_EED2Ev.exit
+19:                                               ; preds = %4, %_ZNSt10unique_ptrIN12_GLOBAL__N_111MacroFusionESt14default_deleteIS1_EED2Ev.exit
   %storemerge = phi ptr [ %10, %_ZNSt10unique_ptrIN12_GLOBAL__N_111MacroFusionESt14default_deleteIS1_EED2Ev.exit ], [ null, %4 ]
   store ptr %storemerge, ptr %0, align 8
   ret void
@@ -555,7 +555,7 @@ define linkonce_odr hidden void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagEN
   store i16 %14, ptr %5, align 2
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %17 = getelementptr inbounds i8, ptr %0, i64 80
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %15, i8 0, i64 52, i1 false)
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull %17, i64 noundef 1) #11
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -730,7 +730,7 @@ define internal void @_ZN12_GLOBAL__N_111MacroFusion5applyEPN4llvm17ScheduleDAGI
 .lr.ph:                                           ; preds = %6, %.lr.ph
   %.sroa.09.014 = phi ptr [ %11, %.lr.ph ], [ %8, %6 ]
   tail call fastcc void @_ZN12_GLOBAL__N_111MacroFusion20scheduleAdjacentImplERN4llvm17ScheduleDAGInstrsERNS1_5SUnitE(ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef nonnull align 8 dereferenceable(2624) %1, ptr noundef nonnull align 8 dereferenceable(255) %.sroa.09.014)
-  %11 = getelementptr inbounds i8, ptr %.sroa.09.014, i64 256
+  %11 = getelementptr inbounds nuw i8, ptr %.sroa.09.014, i64 256
   %.not12 = icmp eq ptr %11, %10
   br i1 %.not12, label %.loopexit, label %.lr.ph
 
@@ -763,9 +763,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_111MacroFusion20scheduleAdjacentImp
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val = load ptr, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.val29 = load ptr, ptr %12, align 8
   %13 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_111MacroFusion22shouldScheduleAdjacentERKN4llvm15TargetInstrInfoERKNS1_19TargetSubtargetInfoEPKNS1_12MachineInstrERS9_(ptr %.val, ptr %.val29, ptr noundef nonnull align 8 dereferenceable(80) %6, ptr noundef nonnull align 8 dereferenceable(288) %10, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(70) %4)
   br i1 %13, label %14, label %.loopexit
@@ -824,7 +824,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_111MacroFusion20scheduleAdjacentImp
   br label %.lr.ph.i.i
 
 44:                                               ; preds = %.lr.ph.i.i
-  %45 = getelementptr inbounds i8, ptr %.01012.i.i, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %.01012.i.i, i64 16
   %.not.i.i = icmp eq ptr %45, %42
   br i1 %.not.i.i, label %_ZL16getPredClusterSURKN4llvm5SUnitE.exit.thread.i, label %.lr.ph.i.i
 
@@ -872,13 +872,13 @@ _ZL16getPredClusterSURKN4llvm5SUnitE.exit.thread.i.thread: ; preds = %36, %_ZL16
 
 65:                                               ; preds = %_ZL16getPredClusterSURKN4llvm5SUnitE.exit.thread.i.thread
   %66 = tail call noundef zeroext i1 @_ZN4llvm19fuseInstructionPairERNS_17ScheduleDAGInstrsERNS_5SUnitES3_(ptr noundef nonnull align 8 dereferenceable(2624) %1, ptr noundef nonnull align 8 dereferenceable(255) %32, ptr noundef nonnull align 8 dereferenceable(255) %2)
-  %67 = getelementptr inbounds i8, ptr %.02840, i64 16
+  %67 = getelementptr inbounds nuw i8, ptr %.02840, i64 16
   %.not = icmp eq ptr %67, %18
   %or.cond = select i1 %66, i1 true, i1 %.not
   br i1 %or.cond, label %.loopexit, label %.lr.ph.backedge
 
 68:                                               ; preds = %_ZL16getPredClusterSURKN4llvm5SUnitE.exit.thread.i, %_ZN4llvm19hasLessThanNumFusedERKNS_5SUnitEj.exit, %_ZL16getPredClusterSURKN4llvm5SUnitE.exit.thread.i.thread, %30, %.lr.ph, %25
-  %.old = getelementptr inbounds i8, ptr %.02840, i64 16
+  %.old = getelementptr inbounds nuw i8, ptr %.02840, i64 16
   %.not.old = icmp eq ptr %.old, %18
   br i1 %.not.old, label %.loopexit, label %.lr.ph.backedge
 
@@ -907,25 +907,25 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_111MacroFusion22shoul
   br i1 %11, label %"_ZN4llvm6any_ofIRSt6vectorIPFbRKNS_15TargetInstrInfoERKNS_19TargetSubtargetInfoEPKNS_12MachineInstrERS9_ESaISD_EEZN12_GLOBAL__N_111MacroFusion22shouldScheduleAdjacentES4_S7_SA_SB_E3$_0EEbOT_T0_.exit", label %12
 
 12:                                               ; preds = %.lr.ph.i.i.i.i.i.i
-  %13 = getelementptr inbounds i8, ptr %.sroa.025.044.i.i.i.i.i.i, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %.sroa.025.044.i.i.i.i.i.i, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = tail call noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(70) %3) #11
   br i1 %15, label %"_ZN4llvm6any_ofIRSt6vectorIPFbRKNS_15TargetInstrInfoERKNS_19TargetSubtargetInfoEPKNS_12MachineInstrERS9_ESaISD_EEZN12_GLOBAL__N_111MacroFusion22shouldScheduleAdjacentES4_S7_SA_SB_E3$_0EEbOT_T0_.exit.loopexit.split.loop.exit", label %16
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %.sroa.025.044.i.i.i.i.i.i, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %.sroa.025.044.i.i.i.i.i.i, i64 16
   %18 = load ptr, ptr %17, align 8
   %19 = tail call noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(70) %3) #11
   br i1 %19, label %"_ZN4llvm6any_ofIRSt6vectorIPFbRKNS_15TargetInstrInfoERKNS_19TargetSubtargetInfoEPKNS_12MachineInstrERS9_ESaISD_EEZN12_GLOBAL__N_111MacroFusion22shouldScheduleAdjacentES4_S7_SA_SB_E3$_0EEbOT_T0_.exit.loopexit.split.loop.exit21", label %20
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %.sroa.025.044.i.i.i.i.i.i, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %.sroa.025.044.i.i.i.i.i.i, i64 24
   %22 = load ptr, ptr %21, align 8
   %23 = tail call noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(70) %3) #11
   br i1 %23, label %"_ZN4llvm6any_ofIRSt6vectorIPFbRKNS_15TargetInstrInfoERKNS_19TargetSubtargetInfoEPKNS_12MachineInstrERS9_ESaISD_EEZN12_GLOBAL__N_111MacroFusion22shouldScheduleAdjacentES4_S7_SA_SB_E3$_0EEbOT_T0_.exit.loopexit.split.loop.exit23", label %24
 
 24:                                               ; preds = %20
-  %25 = getelementptr inbounds i8, ptr %.sroa.025.044.i.i.i.i.i.i, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %.sroa.025.044.i.i.i.i.i.i, i64 32
   %26 = add nsw i64 %.045.i.i.i.i.i.i, -1
   %27 = icmp sgt i64 %.045.i.i.i.i.i.i, 1
   br i1 %27, label %.lr.ph.i.i.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i.i.i, !llvm.loop !9
@@ -951,7 +951,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_111MacroFusion22shoul
   br i1 %31, label %"_ZN4llvm6any_ofIRSt6vectorIPFbRKNS_15TargetInstrInfoERKNS_19TargetSubtargetInfoEPKNS_12MachineInstrERS9_ESaISD_EEZN12_GLOBAL__N_111MacroFusion22shouldScheduleAdjacentES4_S7_SA_SB_E3$_0EEbOT_T0_.exit", label %32
 
 32:                                               ; preds = %29
-  %33 = getelementptr inbounds i8, ptr %.sroa.025.0.lcssa.i.i.i.i.i.i, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %.sroa.025.0.lcssa.i.i.i.i.i.i, i64 8
   br label %._crit_edge._crit_edge.i.i.i.i.i.i
 
 ._crit_edge._crit_edge.i.i.i.i.i.i:               ; preds = %32, %._crit_edge.i.i.i.i.i.i
@@ -961,7 +961,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_111MacroFusion22shoul
   br i1 %35, label %"_ZN4llvm6any_ofIRSt6vectorIPFbRKNS_15TargetInstrInfoERKNS_19TargetSubtargetInfoEPKNS_12MachineInstrERS9_ESaISD_EEZN12_GLOBAL__N_111MacroFusion22shouldScheduleAdjacentES4_S7_SA_SB_E3$_0EEbOT_T0_.exit", label %36
 
 36:                                               ; preds = %._crit_edge._crit_edge.i.i.i.i.i.i
-  %37 = getelementptr inbounds i8, ptr %.sroa.025.1.i.i.i.i.i.i, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %.sroa.025.1.i.i.i.i.i.i, i64 8
   br label %._crit_edge._crit_edge55.i.i.i.i.i.i
 
 ._crit_edge._crit_edge55.i.i.i.i.i.i:             ; preds = %36, %._crit_edge.i.i.i.i.i.i
@@ -972,15 +972,15 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_111MacroFusion22shoul
   br label %"_ZN4llvm6any_ofIRSt6vectorIPFbRKNS_15TargetInstrInfoERKNS_19TargetSubtargetInfoEPKNS_12MachineInstrERS9_ESaISD_EEZN12_GLOBAL__N_111MacroFusion22shouldScheduleAdjacentES4_S7_SA_SB_E3$_0EEbOT_T0_.exit"
 
 "_ZN4llvm6any_ofIRSt6vectorIPFbRKNS_15TargetInstrInfoERKNS_19TargetSubtargetInfoEPKNS_12MachineInstrERS9_ESaISD_EEZN12_GLOBAL__N_111MacroFusion22shouldScheduleAdjacentES4_S7_SA_SB_E3$_0EEbOT_T0_.exit.loopexit.split.loop.exit": ; preds = %12
-  %40 = getelementptr inbounds i8, ptr %.sroa.025.044.i.i.i.i.i.i, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %.sroa.025.044.i.i.i.i.i.i, i64 8
   br label %"_ZN4llvm6any_ofIRSt6vectorIPFbRKNS_15TargetInstrInfoERKNS_19TargetSubtargetInfoEPKNS_12MachineInstrERS9_ESaISD_EEZN12_GLOBAL__N_111MacroFusion22shouldScheduleAdjacentES4_S7_SA_SB_E3$_0EEbOT_T0_.exit"
 
 "_ZN4llvm6any_ofIRSt6vectorIPFbRKNS_15TargetInstrInfoERKNS_19TargetSubtargetInfoEPKNS_12MachineInstrERS9_ESaISD_EEZN12_GLOBAL__N_111MacroFusion22shouldScheduleAdjacentES4_S7_SA_SB_E3$_0EEbOT_T0_.exit.loopexit.split.loop.exit21": ; preds = %16
-  %41 = getelementptr inbounds i8, ptr %.sroa.025.044.i.i.i.i.i.i, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %.sroa.025.044.i.i.i.i.i.i, i64 16
   br label %"_ZN4llvm6any_ofIRSt6vectorIPFbRKNS_15TargetInstrInfoERKNS_19TargetSubtargetInfoEPKNS_12MachineInstrERS9_ESaISD_EEZN12_GLOBAL__N_111MacroFusion22shouldScheduleAdjacentES4_S7_SA_SB_E3$_0EEbOT_T0_.exit"
 
 "_ZN4llvm6any_ofIRSt6vectorIPFbRKNS_15TargetInstrInfoERKNS_19TargetSubtargetInfoEPKNS_12MachineInstrERS9_ESaISD_EEZN12_GLOBAL__N_111MacroFusion22shouldScheduleAdjacentES4_S7_SA_SB_E3$_0EEbOT_T0_.exit.loopexit.split.loop.exit23": ; preds = %20
-  %42 = getelementptr inbounds i8, ptr %.sroa.025.044.i.i.i.i.i.i, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %.sroa.025.044.i.i.i.i.i.i, i64 24
   br label %"_ZN4llvm6any_ofIRSt6vectorIPFbRKNS_15TargetInstrInfoERKNS_19TargetSubtargetInfoEPKNS_12MachineInstrERS9_ESaISD_EEZN12_GLOBAL__N_111MacroFusion22shouldScheduleAdjacentES4_S7_SA_SB_E3$_0EEbOT_T0_.exit"
 
 "_ZN4llvm6any_ofIRSt6vectorIPFbRKNS_15TargetInstrInfoERKNS_19TargetSubtargetInfoEPKNS_12MachineInstrERS9_ESaISD_EEZN12_GLOBAL__N_111MacroFusion22shouldScheduleAdjacentES4_S7_SA_SB_E3$_0EEbOT_T0_.exit": ; preds = %.lr.ph.i.i.i.i.i.i, %"_ZN4llvm6any_ofIRSt6vectorIPFbRKNS_15TargetInstrInfoERKNS_19TargetSubtargetInfoEPKNS_12MachineInstrERS9_ESaISD_EEZN12_GLOBAL__N_111MacroFusion22shouldScheduleAdjacentES4_S7_SA_SB_E3$_0EEbOT_T0_.exit.loopexit.split.loop.exit", %"_ZN4llvm6any_ofIRSt6vectorIPFbRKNS_15TargetInstrInfoERKNS_19TargetSubtargetInfoEPKNS_12MachineInstrERS9_ESaISD_EEZN12_GLOBAL__N_111MacroFusion22shouldScheduleAdjacentES4_S7_SA_SB_E3$_0EEbOT_T0_.exit.loopexit.split.loop.exit21", %"_ZN4llvm6any_ofIRSt6vectorIPFbRKNS_15TargetInstrInfoERKNS_19TargetSubtargetInfoEPKNS_12MachineInstrERS9_ESaISD_EEZN12_GLOBAL__N_111MacroFusion22shouldScheduleAdjacentES4_S7_SA_SB_E3$_0EEbOT_T0_.exit.loopexit.split.loop.exit23", %._crit_edge.i.i.i.i.i.i, %29, %._crit_edge._crit_edge.i.i.i.i.i.i, %._crit_edge._crit_edge55.i.i.i.i.i.i
@@ -995,9 +995,9 @@ define internal void @_GLOBAL__sub_I_MacroFusion.cpp() #9 section ".text.startup
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %1)
   store i8 1, ptr %1, align 1
   tail call void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE(ptr noundef nonnull align 8 dereferenceable(128) @_ZL17EnableMacroFusion, i32 noundef 0, i32 noundef 0)
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL17EnableMacroFusion, i64 128), align 8
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZL17EnableMacroFusion, i64 144), align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIbEE, i64 16), ptr getelementptr inbounds (i8, ptr @_ZL17EnableMacroFusion, i64 136), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL17EnableMacroFusion, i64 128), align 8
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL17EnableMacroFusion, i64 144), align 8
+  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL17EnableMacroFusion, i64 136), align 8
   store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIbLb0ENS0_6parserIbEEEE, i64 16), ptr @_ZL17EnableMacroFusion, align 8
   tail call void @_ZN4llvm2cl12basic_parserIbEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @_ZL17EnableMacroFusion, i64 152), ptr noundef nonnull align 8 dereferenceable(128) @_ZL17EnableMacroFusion) #11
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIbEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL17EnableMacroFusion, i64 152), align 8
@@ -1010,7 +1010,7 @@ define internal void @_GLOBAL__sub_I_MacroFusion.cpp() #9 section ".text.startup
   %4 = or disjoint i16 %3, 32
   store i16 %4, ptr getelementptr inbounds nuw (i8, ptr @_ZL17EnableMacroFusion, i64 10), align 2
   store ptr @.str.5, ptr getelementptr inbounds nuw (i8, ptr @_ZL17EnableMacroFusion, i64 32), align 8
-  store i64 35, ptr getelementptr inbounds (i8, ptr @_ZL17EnableMacroFusion, i64 40), align 8
+  store i64 35, ptr getelementptr inbounds nuw (i8, ptr @_ZL17EnableMacroFusion, i64 40), align 8
   call void @_ZN4llvm2cl3optIbLb0ENS0_6parserIbEEE15setInitialValueERKb(ptr noundef nonnull align 8 dereferenceable(192) @_ZL17EnableMacroFusion, ptr noundef nonnull align 1 dereferenceable(1) %1) #11
   call void @_ZN4llvm2cl3optIbLb0ENS0_6parserIbEEE4doneEv(ptr noundef nonnull align 8 dereferenceable(192) @_ZL17EnableMacroFusion) #11
   %5 = call i32 @__cxa_atexit(ptr nonnull @_ZN4llvm2cl3optIbLb0ENS0_6parserIbEEED2Ev, ptr nonnull @_ZL17EnableMacroFusion, ptr nonnull @__dso_handle) #11

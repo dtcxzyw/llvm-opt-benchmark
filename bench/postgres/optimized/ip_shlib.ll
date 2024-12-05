@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define i32 @pg_getaddrinfo_all(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef initializes((0, 8)) %3) local_unnamed_addr #0 {
   store ptr null, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %6 = load i32, ptr %5, align 4
   %7 = icmp eq i32 %6, 1
   br i1 %7, label %8, label %33
@@ -23,10 +23,10 @@ define i32 @pg_getaddrinfo_all(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
 
 11:                                               ; preds = %8
   %.sroa.2.0.copyload.i = load i32, ptr %5, align 4
-  %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.4.0.copyload.i = load i32, ptr %.sroa.4.0..sroa_idx.i, align 8
   %.sroa.4.0.copyload.fr.i = freeze i32 %.sroa.4.0.copyload.i
-  %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 12
+  %.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 12
   %.sroa.8.0.copyload.i = load i32, ptr %.sroa.8.0..sroa_idx.i, align 4
   %12 = icmp eq i32 %.sroa.2.0.copyload.i, 1
   %..sroa.4.0.copyload.i = tail call i32 @llvm.umax.i32(i32 %.sroa.4.0.copyload.fr.i, i32 1)
@@ -47,19 +47,19 @@ define i32 @pg_getaddrinfo_all(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   br label %getaddrinfo_unix.exit
 
 19:                                               ; preds = %15
-  %20 = getelementptr inbounds i8, ptr %13, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %13, i64 4
   store i32 1, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %13, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i32 %..sroa.4.0.copyload.i, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %13, i64 12
+  %22 = getelementptr inbounds nuw i8, ptr %13, i64 12
   store i32 %.sroa.8.0.copyload.i, ptr %22, align 4
   store ptr %13, ptr %3, align 8
   store i16 1, ptr %16, align 2
-  %23 = getelementptr inbounds i8, ptr %13, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %13, i64 24
   store ptr %16, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %13, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i32 110, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %16, i64 2
+  %25 = getelementptr inbounds nuw i8, ptr %16, i64 2
   %26 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %25, ptr noundef nonnull readonly dereferenceable(1) %1) #11
   %27 = load i8, ptr %1, align 1
   %28 = icmp eq i8 %27, 64
@@ -106,9 +106,9 @@ define void @pg_freeaddrinfo_all(i32 noundef %0, ptr noundef %1) local_unnamed_a
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %.010 = phi ptr [ %5, %.lr.ph ], [ %1, %.preheader ]
-  %4 = getelementptr inbounds i8, ptr %.010, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %.010, i64 40
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %.010, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %.010, i64 24
   %7 = load ptr, ptr %6, align 8
   tail call void @free(ptr noundef %7) #11
   tail call void @free(ptr noundef nonnull %.010) #11
@@ -163,7 +163,7 @@ define i32 @pg_getnameinfo_all(ptr noundef %0, i32 noundef %1, ptr noundef %2, i
   br i1 %13, label %getnameinfo_unix.exit.thread33, label %20
 
 20:                                               ; preds = %19
-  %21 = getelementptr inbounds i8, ptr %0, i64 2
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %22 = load i8, ptr %21, align 2
   %23 = icmp eq i8 %22, 0
   br i1 %23, label %24, label %30

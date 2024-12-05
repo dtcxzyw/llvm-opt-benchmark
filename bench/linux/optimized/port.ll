@@ -82,7 +82,7 @@ define internal void @usb_port_device_release(ptr noundef %0) #0 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @usb_hub_create_port_device(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 80), align 16
   %6 = tail call noalias align 8 dereferenceable_or_null(840) ptr @kmalloc_trace(ptr noundef %5, i32 noundef 3520, i64 noundef 840) #11
@@ -92,7 +92,7 @@ define dso_local i32 @usb_hub_create_port_device(ptr noundef %0, i32 noundef %1)
 8:                                                ; preds = %2
   %9 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 8), align 8
   %10 = tail call noalias align 8 dereferenceable_or_null(72) ptr @kmalloc_trace(ptr noundef %9, i32 noundef 3520, i64 noundef 72) #11
-  %11 = getelementptr inbounds i8, ptr %6, i64 760
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 760
   store ptr %10, ptr %11, align 8
   %12 = icmp eq ptr %10, null
   br i1 %12, label %13, label %14
@@ -102,29 +102,29 @@ define dso_local i32 @usb_hub_create_port_device(ptr noundef %0, i32 noundef %1)
   br label %158
 
 14:                                               ; preds = %8
-  %15 = getelementptr inbounds i8, ptr %0, i64 528
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 528
   %16 = load ptr, ptr %15, align 8
   %17 = add i32 %1, -1
   %18 = sext i32 %17 to i64
   %19 = getelementptr ptr, ptr %16, i64 %18
   store ptr %6, ptr %19, align 8
   %20 = trunc i32 %1 to i8
-  %21 = getelementptr inbounds i8, ptr %6, i64 828
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 828
   store i8 %20, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %0, i64 120
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %23 = sext i32 %1 to i64
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %22, i64 %23) #10, !srcloc !5
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %22, i64 %23) #10, !srcloc !5
   %24 = load ptr, ptr %0, align 8
-  %25 = getelementptr inbounds i8, ptr %6, i64 8
-  %26 = getelementptr inbounds i8, ptr %6, i64 72
+  %25 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %6, i64 72
   store ptr %24, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %4, i64 902
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 902
   %28 = load i8, ptr %27, align 2
   %29 = icmp eq i8 %28, 3
   br i1 %29, label %30, label %34
 
 30:                                               ; preds = %14
-  %31 = getelementptr inbounds i8, ptr %6, i64 836
+  %31 = getelementptr inbounds nuw i8, ptr %6, i64 836
   %32 = load i8, ptr %31, align 4
   %33 = or i8 %32, 28
   store i8 %33, ptr %31, align 4
@@ -132,62 +132,62 @@ define dso_local i32 @usb_hub_create_port_device(ptr noundef %0, i32 noundef %1)
 
 34:                                               ; preds = %30, %14
   %35 = phi ptr [ @port_dev_usb3_group, %30 ], [ @port_dev_group, %14 ]
-  %36 = getelementptr inbounds i8, ptr %6, i64 688
+  %36 = getelementptr inbounds nuw i8, ptr %6, i64 688
   store ptr %35, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %6, i64 96
+  %37 = getelementptr inbounds nuw i8, ptr %6, i64 96
   store ptr @usb_port_device_type, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %6, i64 112
+  %38 = getelementptr inbounds nuw i8, ptr %6, i64 112
   store ptr @usb_port_driver, ptr %38, align 8
   %39 = load ptr, ptr %3, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 248
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 248
   %41 = load ptr, ptr %40, align 8
   %42 = icmp eq ptr %41, null
   br i1 %42, label %43, label %46
 
 43:                                               ; preds = %34
-  %44 = getelementptr inbounds i8, ptr %39, i64 168
+  %44 = getelementptr inbounds nuw i8, ptr %39, i64 168
   %45 = load ptr, ptr %44, align 8
   br label %46
 
 46:                                               ; preds = %43, %34
   %47 = phi ptr [ %45, %43 ], [ %41, %34 ]
-  %48 = tail call i32 (ptr, ptr, ...) @dev_set_name(ptr noundef %25, ptr noundef nonnull @.str.1, ptr noundef %47, i32 noundef %1) #10
-  %49 = getelementptr inbounds i8, ptr %6, i64 792
-  tail call void @__mutex_init(ptr noundef %49, ptr noundef nonnull @.str.2, ptr noundef nonnull @usb_hub_create_port_device.__key) #10
-  %50 = tail call i32 @device_register(ptr noundef %25) #10
+  %48 = tail call i32 (ptr, ptr, ...) @dev_set_name(ptr noundef nonnull %25, ptr noundef nonnull @.str.1, ptr noundef %47, i32 noundef %1) #10
+  %49 = getelementptr inbounds nuw i8, ptr %6, i64 792
+  tail call void @__mutex_init(ptr noundef nonnull %49, ptr noundef nonnull @.str.2, ptr noundef nonnull @usb_hub_create_port_device.__key) #10
+  %50 = tail call i32 @device_register(ptr noundef nonnull %25) #10
   %51 = icmp eq i32 %50, 0
   br i1 %51, label %53, label %52
 
 52:                                               ; preds = %46
-  tail call void @put_device(ptr noundef %25) #10
+  tail call void @put_device(ptr noundef nonnull %25) #10
   br label %158
 
 53:                                               ; preds = %46
-  %54 = getelementptr inbounds i8, ptr %6, i64 56
+  %54 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %55 = load ptr, ptr %54, align 8
   %56 = tail call ptr @kernfs_find_and_get_ns(ptr noundef %55, ptr noundef nonnull @.str.3, ptr noundef null) #10
-  %57 = getelementptr inbounds i8, ptr %6, i64 776
+  %57 = getelementptr inbounds nuw i8, ptr %6, i64 776
   store ptr %56, ptr %57, align 8
   %58 = icmp eq ptr %56, null
   br i1 %58, label %59, label %60
 
 59:                                               ; preds = %53
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %25, ptr noundef nonnull @.str.4) #12
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %25, ptr noundef nonnull @.str.4) #12
   br label %156
 
 60:                                               ; preds = %53
   %61 = load ptr, ptr %11, align 8
-  %62 = tail call i32 @dev_pm_qos_add_request(ptr noundef %25, ptr noundef %61, i32 noundef 5, i32 noundef 1) #10
+  %62 = tail call i32 @dev_pm_qos_add_request(ptr noundef nonnull %25, ptr noundef %61, i32 noundef 5, i32 noundef 1) #10
   %63 = icmp slt i32 %62, 0
   br i1 %63, label %153, label %64
 
 64:                                               ; preds = %60
-  %65 = tail call i32 @component_add(ptr noundef %25, ptr noundef nonnull @connector_ops) #10
+  %65 = tail call i32 @component_add(ptr noundef nonnull %25, ptr noundef nonnull @connector_ops) #10
   %66 = icmp eq i32 %65, 0
   br i1 %66, label %68, label %67
 
 67:                                               ; preds = %64
-  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %25, ptr noundef nonnull @.str.5) #12
+  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef nonnull %25, ptr noundef nonnull @.str.5) #12
   br label %153
 
 68:                                               ; preds = %64
@@ -195,7 +195,7 @@ define dso_local i32 @usb_hub_create_port_device(ptr noundef %0, i32 noundef %1)
   %70 = getelementptr ptr, ptr %69, i64 %18
   %71 = load ptr, ptr %70, align 8
   %72 = load ptr, ptr %3, align 8
-  %73 = getelementptr inbounds i8, ptr %71, i64 784
+  %73 = getelementptr inbounds nuw i8, ptr %71, i64 784
   %74 = load i32, ptr %73, align 8
   %75 = icmp eq i32 %74, 0
   br i1 %75, label %78, label %76
@@ -205,21 +205,21 @@ define dso_local i32 @usb_hub_create_port_device(ptr noundef %0, i32 noundef %1)
   br label %.thread
 
 78:                                               ; preds = %68
-  %79 = getelementptr inbounds i8, ptr %72, i64 72
+  %79 = getelementptr inbounds nuw i8, ptr %72, i64 72
   %80 = load ptr, ptr %79, align 8
   %81 = icmp eq ptr %80, null
   br i1 %81, label %82, label %90
 
 82:                                               ; preds = %78
-  %83 = getelementptr inbounds i8, ptr %72, i64 80
+  %83 = getelementptr inbounds nuw i8, ptr %72, i64 80
   %84 = load ptr, ptr %83, align 8
-  %85 = getelementptr inbounds i8, ptr %84, i64 544
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 544
   %86 = load ptr, ptr %85, align 8
   %87 = icmp eq ptr %86, null
   br i1 %87, label %.thread, label %88
 
 88:                                               ; preds = %82
-  %89 = getelementptr inbounds i8, ptr %86, i64 96
+  %89 = getelementptr inbounds nuw i8, ptr %86, i64 96
   br label %107
 
 90:                                               ; preds = %78
@@ -228,9 +228,9 @@ define dso_local i32 @usb_hub_create_port_device(ptr noundef %0, i32 noundef %1)
   br i1 %92, label %.thread, label %93
 
 93:                                               ; preds = %90
-  %94 = getelementptr inbounds i8, ptr %91, i64 528
+  %94 = getelementptr inbounds nuw i8, ptr %91, i64 528
   %95 = load ptr, ptr %94, align 8
-  %96 = getelementptr inbounds i8, ptr %72, i64 1210
+  %96 = getelementptr inbounds nuw i8, ptr %72, i64 1210
   %97 = load i8, ptr %96, align 2
   %98 = zext i8 %97 to i64
   %99 = getelementptr ptr, ptr %95, i64 %98
@@ -240,7 +240,7 @@ define dso_local i32 @usb_hub_create_port_device(ptr noundef %0, i32 noundef %1)
   br i1 %102, label %.thread, label %103
 
 103:                                              ; preds = %93
-  %104 = getelementptr inbounds i8, ptr %101, i64 744
+  %104 = getelementptr inbounds nuw i8, ptr %101, i64 744
   %105 = load ptr, ptr %104, align 8
   %106 = icmp eq ptr %105, null
   br i1 %106, label %.thread, label %107
@@ -253,13 +253,13 @@ define dso_local i32 @usb_hub_create_port_device(ptr noundef %0, i32 noundef %1)
   br i1 %110, label %.thread, label %111
 
 111:                                              ; preds = %107
-  %112 = getelementptr inbounds i8, ptr %108, i64 1264
+  %112 = getelementptr inbounds nuw i8, ptr %108, i64 1264
   %113 = load i32, ptr %112, align 8
   %114 = icmp slt i32 %113, %1
   br i1 %114, label %.thread, label %115
 
 115:                                              ; preds = %111
-  %116 = getelementptr inbounds i8, ptr %109, i64 528
+  %116 = getelementptr inbounds nuw i8, ptr %109, i64 528
   %117 = load ptr, ptr %116, align 8
   %118 = getelementptr ptr, ptr %117, i64 %18
   %119 = load ptr, ptr %118, align 8
@@ -267,7 +267,7 @@ define dso_local i32 @usb_hub_create_port_device(ptr noundef %0, i32 noundef %1)
   br i1 %120, label %.thread, label %121
 
 121:                                              ; preds = %115
-  %122 = getelementptr inbounds i8, ptr %119, i64 784
+  %122 = getelementptr inbounds nuw i8, ptr %119, i64 784
   %123 = load i32, ptr %122, align 8
   %124 = icmp eq i32 %123, 0
   br i1 %124, label %125, label %.thread
@@ -277,11 +277,11 @@ define dso_local i32 @usb_hub_create_port_device(ptr noundef %0, i32 noundef %1)
   br label %.thread
 
 .thread:                                          ; preds = %93, %103, %90, %82, %125, %121, %115, %111, %107, %76
-  %126 = tail call i32 @__pm_runtime_set_status(ptr noundef %25, i32 noundef 0) #10
-  %127 = getelementptr inbounds i8, ptr %6, i64 440
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %127, ptr elementtype(i32) %127) #10, !srcloc !6
-  tail call void @pm_runtime_enable(ptr noundef %25) #10
-  %128 = getelementptr inbounds i8, ptr %6, i64 228
+  %126 = tail call i32 @__pm_runtime_set_status(ptr noundef nonnull %25, i32 noundef 0) #10
+  %127 = getelementptr inbounds nuw i8, ptr %6, i64 440
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %127, ptr nonnull elementtype(i32) %127) #10, !srcloc !6
+  tail call void @pm_runtime_enable(ptr noundef nonnull %25) #10
+  %128 = getelementptr inbounds nuw i8, ptr %6, i64 228
   %129 = load i16, ptr %128, align 4
   %130 = and i16 %129, 8
   %131 = icmp eq i16 %130, 0
@@ -297,21 +297,21 @@ define dso_local i32 @usb_hub_create_port_device(ptr noundef %0, i32 noundef %1)
   br i1 %135, label %158, label %136
 
 136:                                              ; preds = %134
-  %137 = getelementptr inbounds i8, ptr %0, i64 144
+  %137 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %138 = load ptr, ptr %137, align 8
-  %139 = getelementptr inbounds i8, ptr %138, i64 3
+  %139 = getelementptr inbounds nuw i8, ptr %138, i64 3
   %140 = load i16, ptr %139, align 1
   %141 = and i16 %140, 2
   %142 = icmp eq i16 %141, 0
   br i1 %142, label %143, label %158
 
 143:                                              ; preds = %136
-  %144 = tail call i32 @dev_pm_qos_expose_flags(ptr noundef %25, i32 noundef 1) #10
+  %144 = tail call i32 @dev_pm_qos_expose_flags(ptr noundef nonnull %25, i32 noundef 1) #10
   %145 = icmp slt i32 %144, 0
   br i1 %145, label %146, label %147
 
 146:                                              ; preds = %143
-  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %25, ptr noundef nonnull @.str.6) #12
+  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef nonnull %25, ptr noundef nonnull @.str.6) #12
   br label %158
 
 147:                                              ; preds = %143
@@ -334,7 +334,7 @@ define dso_local i32 @usb_hub_create_port_device(ptr noundef %0, i32 noundef %1)
 
 156:                                              ; preds = %153, %59
   %157 = phi i32 [ %154, %153 ], [ -19, %59 ]
-  tail call void @device_unregister(ptr noundef %25) #10
+  tail call void @device_unregister(ptr noundef nonnull %25) #10
   br label %158
 
 158:                                              ; preds = %156, %151, %147, %146, %136, %134, %52, %13, %2
@@ -389,44 +389,44 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @usb_hub_remove_port_device(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 528
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 528
   %4 = load ptr, ptr %3, align 8
   %5 = add i32 %1, -1
   %6 = sext i32 %5 to i64
   %7 = getelementptr ptr, ptr %4, i64 %6
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 744
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 744
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %47, label %12
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %10, i64 744
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 744
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, %8
   br i1 %15, label %33, label %16
 
 16:                                               ; preds = %12
   tail call void asm sideeffect "328: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 328b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 328) #10, !srcloc !7
-  %17 = getelementptr inbounds i8, ptr %8, i64 88
+  %17 = getelementptr inbounds nuw i8, ptr %8, i64 88
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
   br i1 %19, label %20, label %23
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %8, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %22 = load ptr, ptr %21, align 8
   br label %23
 
 23:                                               ; preds = %20, %16
   %24 = phi ptr [ %22, %20 ], [ %18, %16 ]
-  %25 = getelementptr inbounds i8, ptr %10, i64 88
+  %25 = getelementptr inbounds nuw i8, ptr %10, i64 88
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, null
   br i1 %27, label %28, label %31
 
 28:                                               ; preds = %23
-  %29 = getelementptr inbounds i8, ptr %10, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %30 = load ptr, ptr %29, align 8
   br label %31
 
@@ -440,32 +440,32 @@ define dso_local void @usb_hub_remove_port_device(ptr nocapture noundef readonly
   br label %33
 
 33:                                               ; preds = %31, %12
-  %34 = getelementptr inbounds i8, ptr %8, i64 836
+  %34 = getelementptr inbounds nuw i8, ptr %8, i64 836
   %35 = load i8, ptr %34, align 4
   %36 = and i8 %35, 4
   %37 = icmp eq i8 %36, 0
   %38 = select i1 %37, ptr %8, ptr %10
   %39 = select i1 %37, ptr %10, ptr %8
-  %40 = getelementptr inbounds i8, ptr %38, i64 8
-  %41 = tail call i32 @__pm_runtime_resume(ptr noundef %40, i32 noundef 4) #10
-  %42 = getelementptr inbounds i8, ptr %8, i64 8
-  tail call void @sysfs_remove_link(ptr noundef %42, ptr noundef nonnull @.str.34) #10
+  %40 = getelementptr inbounds nuw i8, ptr %38, i64 8
+  %41 = tail call i32 @__pm_runtime_resume(ptr noundef nonnull %40, i32 noundef 4) #10
+  %42 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  tail call void @sysfs_remove_link(ptr noundef nonnull %42, ptr noundef nonnull @.str.34) #10
   store ptr null, ptr %13, align 8
-  %43 = getelementptr inbounds i8, ptr %10, i64 8
-  tail call void @sysfs_remove_link(ptr noundef %43, ptr noundef nonnull @.str.34) #10
+  %43 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  tail call void @sysfs_remove_link(ptr noundef nonnull %43, ptr noundef nonnull @.str.34) #10
   store ptr null, ptr %9, align 8
-  %44 = getelementptr inbounds i8, ptr %39, i64 8
-  %45 = tail call i32 @__pm_runtime_idle(ptr noundef %44, i32 noundef 5) #10
-  %46 = tail call i32 @__pm_runtime_idle(ptr noundef %40, i32 noundef 5) #10
+  %44 = getelementptr inbounds nuw i8, ptr %39, i64 8
+  %45 = tail call i32 @__pm_runtime_idle(ptr noundef nonnull %44, i32 noundef 5) #10
+  %46 = tail call i32 @__pm_runtime_idle(ptr noundef nonnull %40, i32 noundef 5) #10
   br label %47
 
 47:                                               ; preds = %33, %2
-  %48 = getelementptr inbounds i8, ptr %8, i64 8
-  tail call void @component_del(ptr noundef %48, ptr noundef nonnull @connector_ops) #10
-  %49 = getelementptr inbounds i8, ptr %8, i64 776
+  %48 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  tail call void @component_del(ptr noundef nonnull %48, ptr noundef nonnull @connector_ops) #10
+  %49 = getelementptr inbounds nuw i8, ptr %8, i64 776
   %50 = load ptr, ptr %49, align 8
   tail call void @kernfs_put(ptr noundef %50) #10
-  tail call void @device_unregister(ptr noundef %48) #10
+  tail call void @device_unregister(ptr noundef nonnull %48) #10
   ret void
 }
 
@@ -474,9 +474,9 @@ declare dso_local void @component_del(ptr noundef, ptr noundef) local_unnamed_ad
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @usb_port_runtime_suspend(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 64
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %5, i64 -168
   %7 = getelementptr i8, ptr %3, i64 -80
@@ -490,7 +490,7 @@ define internal i32 @usb_port_runtime_suspend(ptr noundef %0) #0 align 16 {
   br i1 %14, label %46, label %15
 
 15:                                               ; preds = %1
-  %16 = getelementptr inbounds i8, ptr %8, i64 240
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 240
   %17 = load i8, ptr %16, align 8
   %18 = and i8 %17, 8
   %19 = icmp eq i8 %18, 0
@@ -533,8 +533,8 @@ define internal i32 @usb_port_runtime_suspend(ptr noundef %0) #0 align 16 {
   br i1 %42, label %43, label %46
 
 43:                                               ; preds = %37
-  %44 = getelementptr inbounds i8, ptr %10, i64 8
-  %45 = tail call i32 @__pm_runtime_idle(ptr noundef %44, i32 noundef 5) #10
+  %44 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %45 = tail call i32 @__pm_runtime_idle(ptr noundef nonnull %44, i32 noundef 5) #10
   br label %46
 
 46:                                               ; preds = %43, %37, %25, %23, %20, %15, %1
@@ -545,9 +545,9 @@ define internal i32 @usb_port_runtime_suspend(ptr noundef %0) #0 align 16 {
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @usb_port_runtime_resume(ptr noundef %0) #0 align 16 {
   %2 = getelementptr i8, ptr %0, i64 -8
-  %3 = getelementptr inbounds i8, ptr %0, i64 64
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr i8, ptr %6, i64 -168
   %8 = getelementptr i8, ptr %4, i64 -80
@@ -562,16 +562,16 @@ define internal i32 @usb_port_runtime_resume(ptr noundef %0) #0 align 16 {
   br i1 %16, label %77, label %17
 
 17:                                               ; preds = %1
-  %18 = getelementptr inbounds i8, ptr %9, i64 240
+  %18 = getelementptr inbounds nuw i8, ptr %9, i64 240
   %19 = load i8, ptr %18, align 8
   %20 = and i8 %19, 8
   %21 = icmp eq i8 %20, 0
   br i1 %21, label %25, label %22
 
 22:                                               ; preds = %17
-  %23 = getelementptr inbounds i8, ptr %9, i64 120
+  %23 = getelementptr inbounds nuw i8, ptr %9, i64 120
   %24 = zext i8 %14 to i64
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %23, i64 %24) #10, !srcloc !5
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %23, i64 %24) #10, !srcloc !5
   br label %77
 
 25:                                               ; preds = %17
@@ -584,8 +584,8 @@ define internal i32 @usb_port_runtime_resume(ptr noundef %0) #0 align 16 {
   br i1 %31, label %32, label %35
 
 32:                                               ; preds = %25
-  %33 = getelementptr inbounds i8, ptr %12, i64 8
-  %34 = tail call i32 @__pm_runtime_resume(ptr noundef %33, i32 noundef 4) #10
+  %33 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %34 = tail call i32 @__pm_runtime_resume(ptr noundef nonnull %33, i32 noundef 4) #10
   br label %35
 
 35:                                               ; preds = %32, %25
@@ -595,15 +595,15 @@ define internal i32 @usb_port_runtime_resume(ptr noundef %0) #0 align 16 {
 
 38:                                               ; preds = %35
   %39 = tail call i32 @usb_hub_set_port_power(ptr noundef %7, ptr noundef nonnull %9, i32 noundef %15, i1 noundef zeroext true) #10
-  %40 = getelementptr inbounds i8, ptr %9, i64 144
+  %40 = getelementptr inbounds nuw i8, ptr %9, i64 144
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 5
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 5
   %43 = load i8, ptr %42, align 1
   %44 = zext i8 %43 to i32
   %45 = shl nuw nsw i32 %44, 1
-  %46 = getelementptr inbounds i8, ptr %9, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 72
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 72
   %49 = load ptr, ptr %48, align 8
   %50 = icmp eq ptr %49, null
   %51 = tail call i32 @llvm.umax.i32(i32 %45, i32 100)
@@ -626,25 +626,25 @@ define internal i32 @usb_port_runtime_resume(ptr noundef %0) #0 align 16 {
   br i1 %62, label %63, label %66
 
 63:                                               ; preds = %59
-  %64 = getelementptr inbounds i8, ptr %9, i64 136
+  %64 = getelementptr inbounds nuw i8, ptr %9, i64 136
   %65 = zext i8 %14 to i64
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %64, i64 %65) #10, !srcloc !5
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %64, i64 %65) #10, !srcloc !5
   br label %66
 
 66:                                               ; preds = %63, %59, %56
   %67 = zext i8 %14 to i64
-  %68 = getelementptr inbounds i8, ptr %9, i64 128
-  %69 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %68, i64 %67, ptr elementtype(i64) %68) #10, !srcloc !12
+  %68 = getelementptr inbounds nuw i8, ptr %9, i64 128
+  %69 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %68, i64 %67, ptr nonnull elementtype(i64) %68) #10, !srcloc !12
   %70 = icmp ult i8 %69, 2
   tail call void @llvm.assume(i1 %70)
   %71 = icmp eq i8 %69, 0
   br i1 %71, label %72, label %76
 
 72:                                               ; preds = %66
-  %73 = getelementptr inbounds i8, ptr %0, i64 432
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %73, ptr elementtype(i32) %73) #10, !srcloc !6
-  %74 = getelementptr inbounds i8, ptr %10, i64 168
-  %75 = tail call i32 @__pm_runtime_resume(ptr noundef %74, i32 noundef 1) #10
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 432
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %73, ptr nonnull elementtype(i32) %73) #10, !srcloc !6
+  %74 = getelementptr inbounds nuw i8, ptr %10, i64 168
+  %75 = tail call i32 @__pm_runtime_resume(ptr noundef nonnull %74, i32 noundef 1) #10
   br label %76
 
 76:                                               ; preds = %72, %66, %38
@@ -792,9 +792,9 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @over_current_cou
 define internal range(i64 -2147483648, 2147483648) i64 @disable_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
   %4 = alloca i16, align 2
   %5 = alloca i16, align 2
-  %6 = getelementptr inbounds i8, ptr %0, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr i8, ptr %9, i64 -168
   %11 = tail call ptr @usb_hub_to_struct_hub(ptr noundef %10) #10
@@ -812,9 +812,9 @@ define internal range(i64 -2147483648, 2147483648) i64 @disable_show(ptr nocaptu
 19:                                               ; preds = %3
   store i16 0, ptr %4, align 2, !annotation !13
   store i16 0, ptr %5, align 2, !annotation !13
-  %20 = getelementptr inbounds i8, ptr %9, i64 128
-  tail call void @mutex_lock(ptr noundef %20) #10
-  %21 = getelementptr inbounds i8, ptr %11, i64 240
+  %20 = getelementptr inbounds nuw i8, ptr %9, i64 128
+  tail call void @mutex_lock(ptr noundef nonnull %20) #10
+  %21 = getelementptr inbounds nuw i8, ptr %11, i64 240
   %22 = load i8, ptr %21, align 8
   %23 = and i8 %22, 4
   %24 = icmp eq i8 %23, 0
@@ -832,7 +832,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @disable_show(ptr nocaptu
 32:                                               ; preds = %25, %19
   %33 = phi ptr [ %31, %25 ], [ @.str.22, %19 ]
   %34 = phi i32 [ %17, %25 ], [ -19, %19 ]
-  call void @mutex_unlock(ptr noundef %20) #10
+  call void @mutex_unlock(ptr noundef nonnull %20) #10
   call void @usb_autopm_put_interface(ptr noundef %13) #10
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %36, label %38
@@ -853,9 +853,9 @@ define internal range(i64 -2147483648, 2147483648) i64 @disable_show(ptr nocaptu
 define internal range(i64 -2147483648, 2147483648) i64 @disable_store(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i64 noundef %3) #0 align 16 {
   %5 = alloca i8, align 1
   %6 = getelementptr i8, ptr %0, i64 -8
-  %7 = getelementptr inbounds i8, ptr %0, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 64
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr i8, ptr %10, i64 -168
   %12 = tail call ptr @usb_hub_to_struct_hub(ptr noundef %11) #10
@@ -876,9 +876,9 @@ define internal range(i64 -2147483648, 2147483648) i64 @disable_store(ptr nounde
   br i1 %22, label %56, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds i8, ptr %10, i64 128
-  call void @mutex_lock(ptr noundef %24) #10
-  %25 = getelementptr inbounds i8, ptr %12, i64 240
+  %24 = getelementptr inbounds nuw i8, ptr %10, i64 128
+  call void @mutex_lock(ptr noundef nonnull %24) #10
+  %25 = getelementptr inbounds nuw i8, ptr %12, i64 240
   %26 = load i8, ptr %25, align 8
   %27 = and i8 %26, 4
   %28 = icmp eq i8 %27, 0
@@ -927,7 +927,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @disable_store(ptr nounde
 
 54:                                               ; preds = %50, %23
   %55 = phi i32 [ -19, %23 ], [ %53, %50 ]
-  call void @mutex_unlock(ptr noundef %24) #10
+  call void @mutex_unlock(ptr noundef nonnull %24) #10
   call void @usb_autopm_put_interface(ptr noundef %14) #10
   br label %56
 
@@ -1031,7 +1031,7 @@ sub_0:                                            ; preds = %4
   ]
 
 .tail:                                            ; preds = %sub_0
-  %14 = getelementptr inbounds i8, ptr %2, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %15 = load i8, ptr %14, align 1
   %16 = icmp eq i8 %15, 49
   br i1 %16, label %17, label %.tail2
@@ -1045,7 +1045,7 @@ sub_0:                                            ; preds = %4
   br label %34
 
 .tail2:                                           ; preds = %.tail
-  %22 = getelementptr inbounds i8, ptr %2, i64 1
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %23 = load i8, ptr %22, align 1
   %24 = icmp eq i8 %23, 50
   br i1 %24, label %25, label %.thread
@@ -1070,15 +1070,15 @@ sub_0:                                            ; preds = %4
   br i1 %35, label %.thread, label %36
 
 36:                                               ; preds = %34
-  %37 = getelementptr inbounds i8, ptr %6, i64 80
+  %37 = getelementptr inbounds nuw i8, ptr %6, i64 80
   %38 = load ptr, ptr %37, align 8
   %39 = icmp eq ptr %38, null
   br i1 %39, label %.thread, label %40
 
 40:                                               ; preds = %36
-  %41 = getelementptr inbounds i8, ptr %6, i64 296
-  tail call void @mutex_lock(ptr noundef %41) #10
-  %42 = getelementptr inbounds i8, ptr %38, i64 536
+  %41 = getelementptr inbounds nuw i8, ptr %6, i64 296
+  tail call void @mutex_lock(ptr noundef nonnull %41) #10
+  %42 = getelementptr inbounds nuw i8, ptr %38, i64 536
   %43 = load ptr, ptr %42, align 8
   tail call void @mutex_lock(ptr noundef %43) #10
   %44 = tail call i32 @usb_disable_lpm(ptr noundef nonnull %6) #10
@@ -1092,7 +1092,7 @@ sub_0:                                            ; preds = %4
 47:                                               ; preds = %46, %40
   %48 = load ptr, ptr %42, align 8
   tail call void @mutex_unlock(ptr noundef %48) #10
-  tail call void @mutex_unlock(ptr noundef %41) #10
+  tail call void @mutex_unlock(ptr noundef nonnull %41) #10
   br label %.thread
 
 .thread:                                          ; preds = %sub_0, %.tail2, %47, %36, %34
@@ -1138,7 +1138,7 @@ define internal i32 @connector_bind(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %6, label %7, label %29
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %13
@@ -1165,7 +1165,7 @@ define internal i32 @connector_bind(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %21, label %29, label %22
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %20, i64 168
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 168
   %24 = icmp eq ptr %2, null
   br i1 %24, label %29, label %25
 
@@ -1175,7 +1175,7 @@ define internal i32 @connector_bind(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %27, label %29, label %28
 
 28:                                               ; preds = %25
-  tail call void %26(ptr noundef nonnull %2, ptr noundef %23) #10
+  tail call void %26(ptr noundef nonnull %2, ptr noundef nonnull %23) #10
   br label %29
 
 29:                                               ; preds = %28, %25, %22, %18, %17, %3
@@ -1185,7 +1185,7 @@ define internal i32 @connector_bind(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @connector_unbind(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 80
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %9
@@ -1219,29 +1219,29 @@ define internal noundef range(i32 0, 2) i32 @match_location(ptr noundef %0, ptr 
   br i1 %4, label %.loopexit, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 72
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr i8, ptr %9, i64 -88
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 80
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %11, i64 544
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 544
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %13, %15
   br i1 %16, label %17, label %.loopexit
 
 17:                                               ; preds = %5
-  %18 = getelementptr inbounds i8, ptr %0, i64 1264
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 1264
   %19 = load i32, ptr %18, align 8
   %20 = icmp slt i32 %19, 1
   br i1 %20, label %.loopexit, label %21
 
 21:                                               ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %3, i64 528
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 528
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %1, i64 784
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 784
   br label %25
 
 25:                                               ; preds = %38, %21
@@ -1254,7 +1254,7 @@ define internal noundef range(i32 0, 2) i32 @match_location(ptr noundef %0, ptr 
   br i1 %31, label %38, label %32
 
 32:                                               ; preds = %25
-  %33 = getelementptr inbounds i8, ptr %30, i64 784
+  %33 = getelementptr inbounds nuw i8, ptr %30, i64 784
   %34 = load i32, ptr %33, align 8
   %35 = load i32, ptr %24, align 8
   %36 = icmp eq i32 %34, %35
@@ -1276,13 +1276,13 @@ define internal noundef range(i32 0, 2) i32 @match_location(ptr noundef %0, ptr 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @link_peers_report(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 744
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 744
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, %1
   br i1 %5, label %6, label %10
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %1, i64 744
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 744
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, %0
   br i1 %9, label %51, label %10
@@ -1292,33 +1292,33 @@ define internal fastcc void @link_peers_report(ptr noundef %0, ptr noundef nonnu
   br i1 %11, label %12, label %46
 
 12:                                               ; preds = %10
-  %13 = getelementptr inbounds i8, ptr %1, i64 744
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 744
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %46
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
-  %18 = getelementptr inbounds i8, ptr %1, i64 8
-  %19 = tail call i32 @sysfs_create_link(ptr noundef %17, ptr noundef %18, ptr noundef nonnull @.str.34) #10
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %19 = tail call i32 @sysfs_create_link(ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull @.str.34) #10
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %21, label %46
 
 21:                                               ; preds = %16
-  %22 = tail call i32 @sysfs_create_link(ptr noundef %18, ptr noundef %17, ptr noundef nonnull @.str.34) #10
+  %22 = tail call i32 @sysfs_create_link(ptr noundef nonnull %18, ptr noundef nonnull %17, ptr noundef nonnull @.str.34) #10
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %25, label %24
 
 24:                                               ; preds = %21
-  tail call void @sysfs_remove_link(ptr noundef %17, ptr noundef nonnull @.str.34) #10
+  tail call void @sysfs_remove_link(ptr noundef nonnull %17, ptr noundef nonnull @.str.34) #10
   br label %46
 
 25:                                               ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %0, i64 836
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 836
   %27 = load i8, ptr %26, align 4
   %28 = and i8 %27, 4
   %29 = icmp eq i8 %28, 0
-  %30 = getelementptr inbounds i8, ptr %1, i64 836
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 836
   %31 = load i8, ptr %30, align 4
   %32 = and i8 %31, 4
   %33 = icmp eq i8 %32, 0
@@ -1345,13 +1345,13 @@ define internal fastcc void @link_peers_report(ptr noundef %0, ptr noundef nonnu
 38:                                               ; preds = %37, %36, %35, %34
   %39 = phi ptr [ %1, %35 ], [ %1, %34 ], [ %0, %37 ], [ %0, %36 ]
   %40 = phi ptr [ %0, %35 ], [ %0, %34 ], [ %1, %37 ], [ %1, %36 ]
-  %41 = getelementptr inbounds i8, ptr %39, i64 8
-  %42 = tail call i32 @__pm_runtime_resume(ptr noundef %41, i32 noundef 4) #10
+  %41 = getelementptr inbounds nuw i8, ptr %39, i64 8
+  %42 = tail call i32 @__pm_runtime_resume(ptr noundef nonnull %41, i32 noundef 4) #10
   store ptr %1, ptr %3, align 8
   store ptr %0, ptr %13, align 8
-  %43 = getelementptr inbounds i8, ptr %40, i64 8
-  %44 = tail call i32 @__pm_runtime_resume(ptr noundef %43, i32 noundef 4) #10
-  %45 = tail call i32 @__pm_runtime_idle(ptr noundef %41, i32 noundef 5) #10
+  %43 = getelementptr inbounds nuw i8, ptr %40, i64 8
+  %44 = tail call i32 @__pm_runtime_resume(ptr noundef nonnull %43, i32 noundef 4) #10
+  %45 = tail call i32 @__pm_runtime_idle(ptr noundef nonnull %41, i32 noundef 5) #10
   br label %51
 
 46:                                               ; preds = %24, %16, %12, %10

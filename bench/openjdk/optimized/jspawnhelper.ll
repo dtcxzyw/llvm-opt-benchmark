@@ -153,15 +153,15 @@ define hidden void @initChildStuff(i32 noundef %0, i32 noundef %1, ptr noundef %
   unreachable
 
 35:                                               ; preds = %29
-  %36 = getelementptr inbounds i8, ptr %12, i64 4
+  %36 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %37 = load i32, ptr %36, align 4
-  %38 = getelementptr inbounds i8, ptr %12, i64 12
+  %38 = getelementptr inbounds nuw i8, ptr %12, i64 12
   %39 = load i32, ptr %38, align 4
   %40 = add nsw i32 %39, %37
-  %41 = getelementptr inbounds i8, ptr %12, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %42 = load i32, ptr %41, align 4
   %43 = add nsw i32 %40, %42
-  %44 = getelementptr inbounds i8, ptr %12, i64 24
+  %44 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %45 = load i32, ptr %44, align 4
   %46 = add nsw i32 %43, %45
   %47 = sext i32 %46 to i64
@@ -228,18 +228,18 @@ define hidden void @initChildStuff(i32 noundef %0, i32 noundef %1, ptr noundef %
   unreachable
 
 70:                                               ; preds = %60
-  %71 = getelementptr inbounds i8, ptr %2, i64 56
+  %71 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store ptr %64, ptr %71, align 8
   %72 = add nsw i32 %61, -1
   call void @initVectorFromBlock(ptr noundef nonnull %64, ptr noundef nonnull %48, i32 noundef %72) #13
   %73 = load i32, ptr %36, align 4
-  %74 = getelementptr inbounds i8, ptr %12, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %75 = load i32, ptr %74, align 4
   %76 = icmp eq i32 %75, 0
   br i1 %76, label %77, label %79
 
 77:                                               ; preds = %70
-  %78 = getelementptr inbounds i8, ptr %2, i64 72
+  %78 = getelementptr inbounds nuw i8, ptr %2, i64 72
   store ptr null, ptr %78, align 8
   br label %95
 
@@ -266,7 +266,7 @@ define hidden void @initChildStuff(i32 noundef %0, i32 noundef %1, ptr noundef %
   unreachable
 
 88:                                               ; preds = %79
-  %89 = getelementptr inbounds i8, ptr %2, i64 72
+  %89 = getelementptr inbounds nuw i8, ptr %2, i64 72
   store ptr %82, ptr %89, align 8
   %90 = sext i32 %73 to i64
   %91 = getelementptr inbounds i8, ptr %48, i64 %90
@@ -283,9 +283,9 @@ define hidden void @initChildStuff(i32 noundef %0, i32 noundef %1, ptr noundef %
   %98 = sext i32 %.0 to i64
   %99 = getelementptr inbounds i8, ptr %48, i64 %98
   %.sink = select i1 %97, ptr null, ptr %99
-  %100 = getelementptr inbounds i8, ptr %2, i64 80
+  %100 = getelementptr inbounds nuw i8, ptr %2, i64 80
   store ptr %.sink, ptr %100, align 8
-  %101 = getelementptr inbounds i8, ptr %12, i64 20
+  %101 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %102 = load i32, ptr %101, align 4
   %103 = sext i32 %102 to i64
   %104 = shl nsw i64 %103, 3
@@ -357,7 +357,7 @@ define hidden noundef i32 @main(i32 noundef %0, ptr nocapture noundef readonly %
   unreachable
 
 24:                                               ; preds = %2
-  %25 = getelementptr inbounds i8, ptr %1, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %26, ptr noundef nonnull dereferenceable(30) @.str.1) #17
   %.not6 = icmp eq i32 %27, 0
@@ -382,7 +382,7 @@ define hidden noundef i32 @main(i32 noundef %0, ptr nocapture noundef readonly %
   unreachable
 
 43:                                               ; preds = %24
-  %44 = getelementptr inbounds i8, ptr %1, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %45 = load ptr, ptr %44, align 8
   %46 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %45, ptr noundef nonnull @.str.8, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #13
   %47 = icmp eq i32 %46, 3
@@ -403,7 +403,7 @@ define hidden noundef i32 @main(i32 noundef %0, ptr nocapture noundef readonly %
 54:                                               ; preds = %51
   %55 = load i32, ptr %5, align 4
   %56 = call i32 @fstat64(i32 noundef %55, ptr noundef nonnull %4) #13
-  %57 = getelementptr inbounds i8, ptr %4, i64 24
+  %57 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %58 = load i32, ptr %57, align 8
   %59 = and i32 %58, 61440
   %60 = icmp eq i32 %59, 4096
@@ -454,7 +454,7 @@ define hidden noundef i32 @main(i32 noundef %0, ptr nocapture noundef readonly %
   %97 = load i32, ptr %5, align 4
   %98 = load i32, ptr %7, align 4
   call void @initChildStuff(i32 noundef %97, i32 noundef %98, ptr noundef nonnull %3)
-  %99 = getelementptr inbounds i8, ptr %3, i64 36
+  %99 = getelementptr inbounds nuw i8, ptr %3, i64 36
   store i32 -1, ptr %99, align 4
   %100 = call i32 @childProcess(ptr noundef nonnull %3) #13
   ret i32 0

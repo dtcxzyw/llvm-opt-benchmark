@@ -286,9 +286,9 @@ define internal i32 @dissect_spnego(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %.not, label %9, label %24
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %1, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 50
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 50
   %13 = load i16, ptr %12, align 2
   %14 = and i16 %13, 8
   %.not14 = icmp eq i16 %14, 0
@@ -578,15 +578,15 @@ declare i32 @dissect_ber_choice(ptr noundef, ptr noundef, ptr noundef, i32 nound
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_spnego_T_negTokenInit(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %3, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 280
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 280
   %10 = load i32, ptr %9, align 8
   %11 = icmp eq i32 %10, 2
   br i1 %11, label %12, label %.critedge
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %8, i64 284
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 284
   %14 = load i32, ptr %13, align 4
   %15 = icmp ult i32 %14, 1024
   br i1 %15, label %16, label %.critedge
@@ -621,7 +621,7 @@ define internal i32 @dissect_spnego_MechTypeList(i1 noundef zeroext %0, ptr noun
   br i1 %.not, label %16, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %3, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = tail call nonnull ptr @find_or_create_conversation(ptr noundef %12) #6
   %14 = load i32, ptr @proto_spnego, align 4
@@ -713,9 +713,9 @@ define internal i32 @dissect_spnego_T_mechToken(i1 noundef zeroext %0, ptr nound
   br i1 %or.cond, label %13, label %19
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %11, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %3, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = call i32 @call_dissector(ptr noundef %15, ptr noundef nonnull %9, ptr noundef %17, ptr noundef %4) #6
   br label %19
@@ -755,7 +755,7 @@ define internal i32 @dissect_spnego_T_supportedMech(i1 noundef zeroext %0, ptr n
   br label %14
 
 14:                                               ; preds = %6, %13
-  %15 = getelementptr inbounds i8, ptr %3, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = tail call nonnull ptr @find_or_create_conversation(ptr noundef %16) #6
   %18 = load i32, ptr @proto_spnego, align 4
@@ -783,10 +783,10 @@ define internal i32 @dissect_spnego_T_responseToken(i1 noundef zeroext %0, ptr n
   br i1 %.not12, label %21, label %14
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %13, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = load ptr, ptr %7, align 8
-  %18 = getelementptr inbounds i8, ptr %3, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %19 = load ptr, ptr %18, align 8
   %20 = call i32 @call_dissector(ptr noundef %16, ptr noundef %17, ptr noundef %19, ptr noundef %4) #6
   br label %21
@@ -814,10 +814,10 @@ define internal i32 @dissect_spnego_T_mechListMIC(i1 noundef zeroext %0, ptr nou
   br i1 %.not12, label %21, label %14
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %13, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = load ptr, ptr %7, align 8
-  %18 = getelementptr inbounds i8, ptr %3, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %19 = load ptr, ptr %18, align 8
   %20 = call i32 @call_dissector(ptr noundef %16, ptr noundef %17, ptr noundef %19, ptr noundef %4) #6
   br label %21
@@ -852,13 +852,13 @@ define internal i32 @dissect_spnego_InnerContextToken(i1 zeroext %0, ptr noundef
   br i1 %.not, label %26, label %14
 
 14:                                               ; preds = %6
-  %15 = getelementptr inbounds i8, ptr %8, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %16 = load ptr, ptr %15, align 8
   %.not20 = icmp eq ptr %16, null
   br i1 %.not20, label %26, label %17
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %3, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %19 = load ptr, ptr %18, align 8
   %20 = tail call i32 @call_dissector(ptr noundef nonnull %16, ptr noundef %13, ptr noundef %19, ptr noundef %12) #6
   %21 = icmp eq i32 %20, 0
@@ -981,14 +981,14 @@ define internal fastcc noundef i32 @dissect_spnego_krb5_wrap_base(ptr noundef %0
 41:                                               ; preds = %40
   %42 = icmp ne i16 %24, -1
   %43 = zext i1 %42 to i32
-  %44 = getelementptr inbounds i8, ptr %5, i64 48
+  %44 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store i32 %43, ptr %44, align 8
   %45 = load i16, ptr %5, align 8
   %.not68 = icmp eq i16 %45, 0
   br i1 %.not68, label %.critedge, label %46
 
 46:                                               ; preds = %41
-  %47 = getelementptr inbounds i8, ptr %5, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %48 = load ptr, ptr %47, align 8
   %.not69 = icmp eq ptr %48, null
   br i1 %.not69, label %49, label %55
@@ -1013,7 +1013,7 @@ define internal fastcc noundef i32 @dissect_spnego_krb5_wrap_base(ptr noundef %0
   br i1 %or.cond8, label %60, label %.critedge
 
 60:                                               ; preds = %55
-  %61 = getelementptr inbounds i8, ptr %5, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %62 = load ptr, ptr %61, align 8
   %.not70 = icmp eq ptr %62, null
   br i1 %.not70, label %63, label %66
@@ -1030,7 +1030,7 @@ define internal fastcc noundef i32 @dissect_spnego_krb5_wrap_base(ptr noundef %0
   %68 = tail call i32 @tvb_captured_length(ptr noundef %67) #6
   %69 = load ptr, ptr %47, align 8
   %70 = tail call ptr @tvb_get_ptr(ptr noundef %69, i32 noundef 0, i32 noundef %68) #6
-  %71 = getelementptr inbounds i8, ptr %2, i64 408
+  %71 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %72 = load ptr, ptr %71, align 8
   %73 = sext i32 %68 to i64
   %74 = tail call noalias ptr @wmem_alloc(ptr noundef %72, i64 noundef %73) #6
@@ -1042,24 +1042,24 @@ define internal fastcc noundef i32 @dissect_spnego_krb5_wrap_base(ptr noundef %0
   br i1 %.not4.i, label %.critedge, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %66
-  %77 = getelementptr inbounds i8, ptr %12, i64 10
-  %78 = getelementptr inbounds i8, ptr %10, i64 7
-  %79 = getelementptr inbounds i8, ptr %15, i64 4
-  %80 = getelementptr inbounds i8, ptr %9, i64 10
-  %81 = getelementptr inbounds i8, ptr %7, i64 7
+  %77 = getelementptr inbounds nuw i8, ptr %12, i64 10
+  %78 = getelementptr inbounds nuw i8, ptr %10, i64 7
+  %79 = getelementptr inbounds nuw i8, ptr %15, i64 4
+  %80 = getelementptr inbounds nuw i8, ptr %9, i64 10
+  %81 = getelementptr inbounds nuw i8, ptr %7, i64 7
   br label %82
 
 82:                                               ; preds = %181, %.lr.ph.i
   %.05.i = phi ptr [ %.03.i, %.lr.ph.i ], [ %.0.i, %181 ]
-  %83 = getelementptr inbounds i8, ptr %.05.i, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %.05.i, i64 8
   %84 = load i32, ptr %83, align 8
   %.not32.i = icmp eq i32 %84, 23
   br i1 %.not32.i, label %85, label %181
 
 85:                                               ; preds = %82
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %74, ptr align 1 %70, i64 %73, i1 false)
-  %86 = getelementptr inbounds i8, ptr %.05.i, i64 16
-  %87 = getelementptr inbounds i8, ptr %.05.i, i64 12
+  %86 = getelementptr inbounds nuw i8, ptr %.05.i, i64 16
+  %87 = getelementptr inbounds nuw i8, ptr %.05.i, i64 12
   %88 = load i32, ptr %87, align 4
   %89 = load i32, ptr %83, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
@@ -1286,12 +1286,12 @@ decrypt_arcfour.exit.i:                           ; preds = %.thread65.i.i, %153
 
 173:                                              ; preds = %decrypt_arcfour.exit.i
   %174 = load i32, ptr %83, align 8
-  %175 = getelementptr inbounds i8, ptr %2, i64 20
+  %175 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %176 = load i32, ptr %175, align 4
-  %177 = getelementptr inbounds i8, ptr %.05.i, i64 48
+  %177 = getelementptr inbounds nuw i8, ptr %.05.i, i64 48
   %178 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef null, ptr noundef nonnull @ei_spnego_decrypted_keytype, ptr noundef nonnull @.str.134, i32 noundef %174, i32 noundef %176, ptr noundef nonnull %177) #6
   %179 = call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef %76, i32 noundef %.046.i.i, i32 noundef %.046.i.i) #6
-  %180 = getelementptr inbounds i8, ptr %5, i64 40
+  %180 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store ptr %179, ptr %180, align 8
   call void @add_new_data_source(ptr noundef %2, ptr noundef %179, ptr noundef nonnull @.str.135) #6
   br label %.critedge
@@ -1320,7 +1320,7 @@ define internal fastcc noundef i32 @dissect_spnego_krb5_cfx_wrap_base(ptr nounde
 13:                                               ; preds = %5
   %14 = and i8 %8, 2
   %15 = zext nneg i8 %14 to i32
-  %16 = getelementptr inbounds i8, ptr %4, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store i32 %15, ptr %16, align 8
   br label %17
 
@@ -1342,7 +1342,7 @@ define internal fastcc noundef i32 @dissect_spnego_krb5_cfx_wrap_base(ptr nounde
   br i1 %.not, label %153, label %32
 
 32:                                               ; preds = %17
-  %33 = getelementptr inbounds i8, ptr %4, i64 48
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %34 = load i32, ptr %33, align 8
   %.not112 = icmp eq i32 %34, 0
   %35 = zext i16 %21 to i32
@@ -1374,10 +1374,10 @@ define internal fastcc noundef i32 @dissect_spnego_krb5_cfx_wrap_base(ptr nounde
 51:                                               ; preds = %47, %42
   %.0104 = phi i32 [ %50, %47 ], [ %31, %42 ]
   %52 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.0104, i32 noundef %spec.select) #6
-  %53 = getelementptr inbounds i8, ptr %4, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %52, ptr %53, align 8
   %54 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.0104, i32 noundef %spec.select) #6
-  %55 = getelementptr inbounds i8, ptr %4, i64 40
+  %55 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store ptr %54, ptr %55, align 8
   %56 = icmp eq i16 %25, 0
   br i1 %56, label %57, label %153
@@ -1389,7 +1389,7 @@ define internal fastcc noundef i32 @dissect_spnego_krb5_cfx_wrap_base(ptr nounde
   br label %153
 
 61:                                               ; preds = %36
-  %62 = getelementptr inbounds i8, ptr %4, i64 24
+  %62 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %63 = load ptr, ptr %62, align 8
   %.not114 = icmp eq ptr %63, null
   br i1 %.not114, label %64, label %70
@@ -1411,7 +1411,7 @@ define internal fastcc noundef i32 @dissect_spnego_krb5_cfx_wrap_base(ptr nounde
   br i1 %.not115, label %79, label %72
 
 72:                                               ; preds = %70
-  %73 = getelementptr inbounds i8, ptr %4, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %74 = load ptr, ptr %73, align 8
   %.not116 = icmp eq ptr %74, null
   br i1 %.not116, label %75, label %79
@@ -1430,7 +1430,7 @@ define internal fastcc noundef i32 @dissect_spnego_krb5_cfx_wrap_base(ptr nounde
   br i1 %.not117, label %153, label %82
 
 82:                                               ; preds = %79
-  %83 = getelementptr inbounds i8, ptr %4, i64 24
+  %83 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %84 = load ptr, ptr %83, align 8
   %.not118 = icmp eq ptr %84, null
   br i1 %.not118, label %153, label %85
@@ -1450,16 +1450,16 @@ define internal fastcc noundef i32 @dissect_spnego_krb5_cfx_wrap_base(ptr nounde
   br i1 %91, label %92, label %100
 
 92:                                               ; preds = %89
-  %93 = getelementptr inbounds i8, ptr %4, i64 16
+  %93 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %94 = load ptr, ptr %93, align 8
-  %95 = getelementptr inbounds i8, ptr %4, i64 32
+  %95 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %96 = load ptr, ptr %95, align 8
   %97 = tail call ptr @decrypt_krb5_krb_cfx_dce(ptr noundef %3, ptr noundef %2, i32 noundef range(i32 22, 25) %87, i32 noundef -1, ptr noundef %94, ptr noundef nonnull %84, ptr noundef %96, ptr noundef %80) #6
   %.not47.i = icmp eq ptr %97, null
   br i1 %.not47.i, label %decrypt_gssapi_krb_cfx_wrap.exit, label %98
 
 98:                                               ; preds = %92
-  %99 = getelementptr inbounds i8, ptr %4, i64 40
+  %99 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store ptr %97, ptr %99, align 8
   tail call void @add_new_data_source(ptr noundef %2, ptr noundef nonnull %97, ptr noundef nonnull @.str.136) #6
   br label %decrypt_gssapi_krb_cfx_wrap.exit
@@ -1470,7 +1470,7 @@ define internal fastcc noundef i32 @dissect_spnego_krb5_cfx_wrap_base(ptr nounde
   %103 = tail call i32 @tvb_captured_length(ptr noundef %102) #6
   %104 = add i32 %103, %101
   store i32 %104, ptr %7, align 4
-  %105 = getelementptr inbounds i8, ptr %2, i64 408
+  %105 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %106 = load ptr, ptr %105, align 8
   %107 = sext i32 %104 to i64
   %108 = tail call noalias ptr @wmem_alloc(ptr noundef %106, i64 noundef %107) #6
@@ -1541,7 +1541,7 @@ rrc_rotate.exit.i:                                ; preds = %137, %133, %130, %1
   %149 = load ptr, ptr %83, align 8
   %150 = call i32 @tvb_captured_length(ptr noundef %149) #6
   %151 = call ptr @tvb_new_child_real_data(ptr noundef %147, ptr noundef %146, i32 noundef %148, i32 noundef %150) #6
-  %152 = getelementptr inbounds i8, ptr %4, i64 40
+  %152 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store ptr %151, ptr %152, align 8
   call void @add_new_data_source(ptr noundef nonnull %2, ptr noundef %151, ptr noundef nonnull @.str.135) #6
   br label %decrypt_gssapi_krb_cfx_wrap.exit
@@ -1610,11 +1610,11 @@ define internal fastcc void @arcfour_mic_cksum(ptr noundef nonnull %0, i32 nound
 
 17:                                               ; preds = %15
   store i8 13, ptr %9, align 1
-  %18 = getelementptr inbounds i8, ptr %9, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %9, i64 1
   store i8 0, ptr %18, align 1
-  %19 = getelementptr inbounds i8, ptr %9, i64 2
+  %19 = getelementptr inbounds nuw i8, ptr %9, i64 2
   store i8 0, ptr %19, align 1
-  %20 = getelementptr inbounds i8, ptr %9, i64 3
+  %20 = getelementptr inbounds nuw i8, ptr %9, i64 3
   store i8 0, ptr %20, align 1
   %21 = load ptr, ptr %12, align 8
   call void @gcry_md_write(ptr noundef %21, ptr noundef nonnull %9, i64 noundef 4) #6

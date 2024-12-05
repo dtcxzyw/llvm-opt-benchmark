@@ -37,7 +37,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %agg.tmp.sroa.0.0.copyload = load i16, ptr %data.addr.06, align 2
   %0 = load ptr, ptr %this, align 8
   %idxprom.i = zext i16 %agg.tmp.sroa.0.0.copyload to i64
-  %arrayidx.i = getelementptr inbounds %"class.Imath_3_2::half", ptr %0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %0, i64 %idxprom.i
   %retval.sroa.0.0.copyload.i = load i16, ptr %arrayidx.i, align 2
   store i16 %retval.sroa.0.0.copyload.i, ptr %data.addr.06, align 2
   %add.ptr = getelementptr inbounds %"class.Imath_3_2::half", ptr %data.addr.06, i64 %idx.ext
@@ -52,26 +52,26 @@ while.end:                                        ; preds = %while.body, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZNK7Imf_3_27HalfLut5applyERKNS_5SliceERKN9Imath_3_23BoxINS4_4Vec2IiEEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(50) %data, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %dataWindow) local_unnamed_addr #4 align 2 {
 entry:
-  %yStride = getelementptr inbounds i8, ptr %data, i64 24
-  %y = getelementptr inbounds i8, ptr %dataWindow, i64 4
+  %yStride = getelementptr inbounds nuw i8, ptr %data, i64 24
+  %y = getelementptr inbounds nuw i8, ptr %dataWindow, i64 4
   %0 = load i32, ptr %y, align 4
-  %ySampling = getelementptr inbounds i8, ptr %data, i64 36
-  %max = getelementptr inbounds i8, ptr %dataWindow, i64 8
-  %y6 = getelementptr inbounds i8, ptr %dataWindow, i64 12
+  %ySampling = getelementptr inbounds nuw i8, ptr %data, i64 36
+  %max = getelementptr inbounds nuw i8, ptr %dataWindow, i64 8
+  %y6 = getelementptr inbounds nuw i8, ptr %dataWindow, i64 12
   %1 = load i32, ptr %y6, align 4
   %cmp.not22 = icmp sgt i32 %0, %1
   br i1 %cmp.not22, label %for.end29, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %xStride = getelementptr inbounds i8, ptr %data, i64 16
-  %xSampling = getelementptr inbounds i8, ptr %data, i64 32
+  %xStride = getelementptr inbounds nuw i8, ptr %data, i64 16
+  %xSampling = getelementptr inbounds nuw i8, ptr %data, i64 32
   %2 = load i32, ptr %dataWindow, align 4
   %3 = load i32, ptr %max, align 4
   %4 = icmp sgt i32 %2, %3
   br i1 %4, label %for.end29, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %for.body.lr.ph
-  %base2 = getelementptr inbounds i8, ptr %data, i64 8
+  %base2 = getelementptr inbounds nuw i8, ptr %data, i64 8
   %5 = load ptr, ptr %base2, align 8
   %6 = load i64, ptr %yStride, align 8
   %7 = load i32, ptr %ySampling, align 4
@@ -109,7 +109,7 @@ for.body19:                                       ; preds = %for.body19.preheade
   %agg.tmp.sroa.0.0.copyload = load i16, ptr %pixel.020, align 2
   %15 = load ptr, ptr %this, align 8
   %idxprom.i = zext i16 %agg.tmp.sroa.0.0.copyload to i64
-  %arrayidx.i = getelementptr inbounds %"class.Imath_3_2::half", ptr %15, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %15, i64 %idxprom.i
   %retval.sroa.0.0.copyload.i = load i16, ptr %arrayidx.i, align 2
   store i16 %retval.sroa.0.0.copyload.i, ptr %pixel.020, align 2
   %16 = load i64, ptr %xStride, align 8
@@ -149,7 +149,7 @@ entry:
   br i1 %tobool.not19, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
-  %_chn = getelementptr inbounds i8, ptr %this, i64 8
+  %_chn = getelementptr inbounds nuw i8, ptr %this, i64 8
   %idx.ext = sext i32 %stride to i64
   br label %while.body
 
@@ -165,7 +165,7 @@ if.then:                                          ; preds = %while.body
   %agg.tmp.sroa.0.0.copyload = load i16, ptr %data.addr.021, align 2
   %1 = load ptr, ptr %this, align 8
   %idxprom.i = zext i16 %agg.tmp.sroa.0.0.copyload to i64
-  %arrayidx.i = getelementptr inbounds %"class.Imath_3_2::half", ptr %1, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %1, i64 %idxprom.i
   %retval.sroa.0.0.copyload.i = load i16, ptr %arrayidx.i, align 2
   store i16 %retval.sroa.0.0.copyload.i, ptr %data.addr.021, align 2
   %.pre = load i32, ptr %_chn, align 8
@@ -178,11 +178,11 @@ if.end:                                           ; preds = %if.then, %while.bod
   br i1 %tobool7.not, label %if.end16, label %if.then8
 
 if.then8:                                         ; preds = %if.end
-  %g = getelementptr inbounds i8, ptr %data.addr.021, i64 2
+  %g = getelementptr inbounds nuw i8, ptr %data.addr.021, i64 2
   %agg.tmp11.sroa.0.0.copyload = load i16, ptr %g, align 2
   %3 = load ptr, ptr %this, align 8
   %idxprom.i10 = zext i16 %agg.tmp11.sroa.0.0.copyload to i64
-  %arrayidx.i11 = getelementptr inbounds %"class.Imath_3_2::half", ptr %3, i64 %idxprom.i10
+  %arrayidx.i11 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %3, i64 %idxprom.i10
   %retval.sroa.0.0.copyload.i12 = load i16, ptr %arrayidx.i11, align 2
   store i16 %retval.sroa.0.0.copyload.i12, ptr %g, align 2
   %.pre22 = load i32, ptr %_chn, align 8
@@ -195,11 +195,11 @@ if.end16:                                         ; preds = %if.then8, %if.end
   br i1 %tobool19.not, label %if.end28, label %if.then20
 
 if.then20:                                        ; preds = %if.end16
-  %b = getelementptr inbounds i8, ptr %data.addr.021, i64 4
+  %b = getelementptr inbounds nuw i8, ptr %data.addr.021, i64 4
   %agg.tmp23.sroa.0.0.copyload = load i16, ptr %b, align 2
   %5 = load ptr, ptr %this, align 8
   %idxprom.i13 = zext i16 %agg.tmp23.sroa.0.0.copyload to i64
-  %arrayidx.i14 = getelementptr inbounds %"class.Imath_3_2::half", ptr %5, i64 %idxprom.i13
+  %arrayidx.i14 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %5, i64 %idxprom.i13
   %retval.sroa.0.0.copyload.i15 = load i16, ptr %arrayidx.i14, align 2
   store i16 %retval.sroa.0.0.copyload.i15, ptr %b, align 2
   %.pre23 = load i32, ptr %_chn, align 8
@@ -212,11 +212,11 @@ if.end28:                                         ; preds = %if.then20, %if.end1
   br i1 %tobool31.not, label %if.end40, label %if.then32
 
 if.then32:                                        ; preds = %if.end28
-  %a = getelementptr inbounds i8, ptr %data.addr.021, i64 6
+  %a = getelementptr inbounds nuw i8, ptr %data.addr.021, i64 6
   %agg.tmp35.sroa.0.0.copyload = load i16, ptr %a, align 2
   %7 = load ptr, ptr %this, align 8
   %idxprom.i16 = zext i16 %agg.tmp35.sroa.0.0.copyload to i64
-  %arrayidx.i17 = getelementptr inbounds %"class.Imath_3_2::half", ptr %7, i64 %idxprom.i16
+  %arrayidx.i17 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %7, i64 %idxprom.i16
   %retval.sroa.0.0.copyload.i18 = load i16, ptr %arrayidx.i17, align 2
   store i16 %retval.sroa.0.0.copyload.i18, ptr %a, align 2
   br label %if.end40
@@ -234,16 +234,16 @@ while.end:                                        ; preds = %if.end40, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @_ZNK7Imf_3_27RgbaLut5applyEPNS_4RgbaEiiRKN9Imath_3_23BoxINS3_4Vec2IiEEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this, ptr nocapture noundef %base, i32 noundef %xStride, i32 noundef %yStride, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %dataWindow) local_unnamed_addr #3 align 2 {
 entry:
-  %y = getelementptr inbounds i8, ptr %dataWindow, i64 4
+  %y = getelementptr inbounds nuw i8, ptr %dataWindow, i64 4
   %0 = load i32, ptr %y, align 4
-  %max = getelementptr inbounds i8, ptr %dataWindow, i64 8
-  %y5 = getelementptr inbounds i8, ptr %dataWindow, i64 12
+  %max = getelementptr inbounds nuw i8, ptr %dataWindow, i64 8
+  %y5 = getelementptr inbounds nuw i8, ptr %dataWindow, i64 12
   %1 = load i32, ptr %y5, align 4
   %cmp.not32 = icmp sgt i32 %0, %1
   br i1 %cmp.not32, label %for.end62, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %_chn = getelementptr inbounds i8, ptr %this, i64 8
+  %_chn = getelementptr inbounds nuw i8, ptr %this, i64 8
   %idx.ext56 = sext i32 %xStride to i64
   %idx.ext58 = sext i32 %yStride to i64
   %2 = load i32, ptr %dataWindow, align 4
@@ -284,7 +284,7 @@ if.then:                                          ; preds = %for.body17
   %agg.tmp.sroa.0.0.copyload = load i16, ptr %pixel.031, align 2
   %9 = load ptr, ptr %this, align 8
   %idxprom.i = zext i16 %agg.tmp.sroa.0.0.copyload to i64
-  %arrayidx.i = getelementptr inbounds %"class.Imath_3_2::half", ptr %9, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %9, i64 %idxprom.i
   %retval.sroa.0.0.copyload.i = load i16, ptr %arrayidx.i, align 2
   store i16 %retval.sroa.0.0.copyload.i, ptr %pixel.031, align 2
   %.pre = load i32, ptr %_chn, align 8
@@ -297,11 +297,11 @@ if.end:                                           ; preds = %if.then, %for.body1
   br i1 %tobool22.not, label %if.end31, label %if.then23
 
 if.then23:                                        ; preds = %if.end
-  %g = getelementptr inbounds i8, ptr %pixel.031, i64 2
+  %g = getelementptr inbounds nuw i8, ptr %pixel.031, i64 2
   %agg.tmp26.sroa.0.0.copyload = load i16, ptr %g, align 2
   %11 = load ptr, ptr %this, align 8
   %idxprom.i20 = zext i16 %agg.tmp26.sroa.0.0.copyload to i64
-  %arrayidx.i21 = getelementptr inbounds %"class.Imath_3_2::half", ptr %11, i64 %idxprom.i20
+  %arrayidx.i21 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %11, i64 %idxprom.i20
   %retval.sroa.0.0.copyload.i22 = load i16, ptr %arrayidx.i21, align 2
   store i16 %retval.sroa.0.0.copyload.i22, ptr %g, align 2
   %.pre36 = load i32, ptr %_chn, align 8
@@ -314,11 +314,11 @@ if.end31:                                         ; preds = %if.then23, %if.end
   br i1 %tobool34.not, label %if.end43, label %if.then35
 
 if.then35:                                        ; preds = %if.end31
-  %b = getelementptr inbounds i8, ptr %pixel.031, i64 4
+  %b = getelementptr inbounds nuw i8, ptr %pixel.031, i64 4
   %agg.tmp38.sroa.0.0.copyload = load i16, ptr %b, align 2
   %13 = load ptr, ptr %this, align 8
   %idxprom.i23 = zext i16 %agg.tmp38.sroa.0.0.copyload to i64
-  %arrayidx.i24 = getelementptr inbounds %"class.Imath_3_2::half", ptr %13, i64 %idxprom.i23
+  %arrayidx.i24 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %13, i64 %idxprom.i23
   %retval.sroa.0.0.copyload.i25 = load i16, ptr %arrayidx.i24, align 2
   store i16 %retval.sroa.0.0.copyload.i25, ptr %b, align 2
   %.pre37 = load i32, ptr %_chn, align 8
@@ -331,11 +331,11 @@ if.end43:                                         ; preds = %if.then35, %if.end3
   br i1 %tobool46.not, label %if.end55, label %if.then47
 
 if.then47:                                        ; preds = %if.end43
-  %a = getelementptr inbounds i8, ptr %pixel.031, i64 6
+  %a = getelementptr inbounds nuw i8, ptr %pixel.031, i64 6
   %agg.tmp50.sroa.0.0.copyload = load i16, ptr %a, align 2
   %15 = load ptr, ptr %this, align 8
   %idxprom.i26 = zext i16 %agg.tmp50.sroa.0.0.copyload to i64
-  %arrayidx.i27 = getelementptr inbounds %"class.Imath_3_2::half", ptr %15, i64 %idxprom.i26
+  %arrayidx.i27 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %15, i64 %idxprom.i26
   %retval.sroa.0.0.copyload.i28 = load i16, ptr %arrayidx.i27, align 2
   store i16 %retval.sroa.0.0.copyload.i28, ptr %a, align 2
   br label %if.end55
@@ -368,7 +368,7 @@ define i16 @_ZN7Imf_3_210round12logEN9Imath_3_24halfE(i16 %x.coerce) local_unnam
 entry:
   %0 = load ptr, ptr @imath_half_to_float_table, align 8
   %idxprom.i.i = zext i16 %x.coerce to i64
-  %arrayidx.i.i = getelementptr inbounds %union.imath_half_uif, ptr %0, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw %union.imath_half_uif, ptr %0, i64 %idxprom.i.i
   %1 = load float, ptr %arrayidx.i.i, align 4
   %cmp = fcmp ugt float %1, 0.000000e+00
   br i1 %cmp, label %if.else, label %return

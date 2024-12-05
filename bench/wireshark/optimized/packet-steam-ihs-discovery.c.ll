@@ -290,7 +290,7 @@ define internal i32 @dissect_steam_ihs_discovery(ptr noundef %0, ptr noundef %1,
   br i1 %.not97, label %26, label %172
 
 26:                                               ; preds = %24
-  %27 = getelementptr inbounds i8, ptr %1, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %28 = load ptr, ptr %27, align 8
   tail call void @col_set_str(ptr noundef %28, i32 noundef 34, ptr noundef nonnull @.str.131) #4
   %29 = load ptr, ptr %27, align 8
@@ -306,9 +306,9 @@ define internal i32 @dissect_steam_ihs_discovery(ptr noundef %0, ptr noundef %1,
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
   store ptr %0, ptr %8, align 8
-  %38 = getelementptr inbounds i8, ptr %8, i64 8
-  %39 = getelementptr inbounds i8, ptr %8, i64 12
-  %40 = getelementptr inbounds i8, ptr %9, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %8, i64 12
+  %40 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i64 0, ptr %40, align 8
   %41 = icmp slt i32 %18, 1
   br i1 %41, label %steamdiscover_dissect_header.exit.thread, label %.lr.ph.i
@@ -319,7 +319,7 @@ steamdiscover_dissect_header.exit.thread:         ; preds = %26
   br label %155
 
 .lr.ph.i:                                         ; preds = %26
-  %42 = getelementptr inbounds i8, ptr %9, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %9, i64 8
   br label %43
 
 43:                                               ; preds = %147, %.lr.ph.i
@@ -715,17 +715,17 @@ define internal fastcc void @steamdiscover_dissect_body_discovery(ptr noundef %0
   %8 = alloca %struct.protobuf_desc_t, align 8
   %9 = alloca %struct.protobuf_tag_t, align 8
   store ptr %0, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %8, i64 8
-  %11 = getelementptr inbounds i8, ptr %8, i64 12
-  %12 = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 12
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i64 0, ptr %12, align 8
   %13 = icmp slt i32 %4, 1
   br i1 %13, label %protobuf_iter_next.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
-  %14 = getelementptr inbounds i8, ptr %9, i64 8
-  %15 = getelementptr inbounds i8, ptr %9, i64 16
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %17
 
 17:                                               ; preds = %.lr.ph, %98
@@ -954,24 +954,24 @@ define internal fastcc void @steamdiscover_dissect_body_status(ptr noundef %0, p
   %21 = alloca %struct.nstime_t, align 8
   %22 = alloca ptr, align 8
   store ptr %0, ptr %18, align 8
-  %23 = getelementptr inbounds i8, ptr %18, i64 8
-  %24 = getelementptr inbounds i8, ptr %18, i64 12
+  %23 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %18, i64 12
   store ptr %0, ptr %19, align 8
-  %25 = getelementptr inbounds i8, ptr %19, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i32 0, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %19, i64 12
+  %26 = getelementptr inbounds nuw i8, ptr %19, i64 12
   store i32 0, ptr %26, align 4
-  %27 = getelementptr inbounds i8, ptr %20, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %20, i64 16
   store i64 0, ptr %27, align 8
   %28 = icmp slt i32 %4, 1
   br i1 %28, label %protobuf_iter_next.exit.thread, label %.lr.ph265
 
 .lr.ph265:                                        ; preds = %5
-  %29 = getelementptr inbounds i8, ptr %20, i64 8
-  %30 = getelementptr inbounds i8, ptr %20, i64 16
-  %31 = getelementptr inbounds i8, ptr %21, i64 8
-  %32 = getelementptr inbounds i8, ptr %1, i64 408
-  %33 = getelementptr inbounds i8, ptr %1, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %20, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 408
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %34
 
 34:                                               ; preds = %.lr.ph265, %protobuf_iter_next.exit152.thread
@@ -2061,18 +2061,18 @@ define internal fastcc void @steamdiscover_dissect_body_authrequest(ptr noundef 
   %6 = alloca %struct.protobuf_desc_t, align 8
   %7 = alloca %struct.protobuf_tag_t, align 8
   store ptr %0, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %6, i64 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 12
-  %10 = getelementptr inbounds i8, ptr %7, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 0, ptr %10, align 8
   %11 = icmp slt i32 %4, 1
   br i1 %11, label %protobuf_iter_next.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
-  %12 = getelementptr inbounds i8, ptr %7, i64 8
-  %13 = getelementptr inbounds i8, ptr %7, i64 16
-  %14 = getelementptr inbounds i8, ptr %1, i64 408
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 408
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %16
 
 16:                                               ; preds = %.lr.ph, %105
@@ -2302,17 +2302,17 @@ define internal fastcc void @steamdiscover_dissect_body_authresponse(ptr noundef
   %7 = alloca %struct.protobuf_desc_t, align 8
   %8 = alloca %struct.protobuf_tag_t, align 8
   store ptr %0, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %7, i64 8
-  %10 = getelementptr inbounds i8, ptr %7, i64 12
-  %11 = getelementptr inbounds i8, ptr %8, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i64 0, ptr %11, align 8
   %12 = icmp slt i32 %4, 1
   br i1 %12, label %protobuf_iter_next.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %8, i64 8
-  %14 = getelementptr inbounds i8, ptr %8, i64 16
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %16
 
 16:                                               ; preds = %.lr.ph, %69
@@ -2465,17 +2465,17 @@ define internal fastcc void @steamdiscover_dissect_body_streamingrequest(ptr nou
   %14 = alloca %struct.protobuf_desc_t, align 8
   %15 = alloca %struct.protobuf_tag_t, align 8
   store ptr %0, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %14, i64 8
-  %17 = getelementptr inbounds i8, ptr %14, i64 12
-  %18 = getelementptr inbounds i8, ptr %15, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 12
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store i64 0, ptr %18, align 8
   %19 = icmp slt i32 %4, 1
   br i1 %19, label %protobuf_iter_next.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
-  %20 = getelementptr inbounds i8, ptr %15, i64 8
-  %21 = getelementptr inbounds i8, ptr %15, i64 16
-  %22 = getelementptr inbounds i8, ptr %1, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %23
 
 23:                                               ; preds = %.lr.ph, %339
@@ -3247,17 +3247,17 @@ define internal fastcc void @steamdiscover_dissect_body_streamingcancelrequest(p
   %7 = alloca %struct.protobuf_desc_t, align 8
   %8 = alloca %struct.protobuf_tag_t, align 8
   store ptr %0, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %7, i64 8
-  %10 = getelementptr inbounds i8, ptr %7, i64 12
-  %11 = getelementptr inbounds i8, ptr %8, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i64 0, ptr %11, align 8
   %12 = icmp slt i32 %4, 1
   br i1 %12, label %protobuf_iter_next.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %8, i64 8
-  %14 = getelementptr inbounds i8, ptr %8, i64 16
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %16
 
 16:                                               ; preds = %.lr.ph, %69
@@ -3406,17 +3406,17 @@ define internal fastcc void @steamdiscover_dissect_body_streamingresponse(ptr no
   %10 = alloca %struct.protobuf_desc_t, align 8
   %11 = alloca %struct.protobuf_tag_t, align 8
   store ptr %0, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %10, i64 8
-  %13 = getelementptr inbounds i8, ptr %10, i64 12
-  %14 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 12
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i64 0, ptr %14, align 8
   %15 = icmp slt i32 %4, 1
   br i1 %15, label %protobuf_iter_next.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
-  %16 = getelementptr inbounds i8, ptr %11, i64 8
-  %17 = getelementptr inbounds i8, ptr %11, i64 16
-  %18 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %19
 
 19:                                               ; preds = %.lr.ph, %181
@@ -3819,16 +3819,16 @@ define internal fastcc void @steamdiscover_dissect_body_proofrequest(ptr noundef
   %6 = alloca %struct.protobuf_desc_t, align 8
   %7 = alloca %struct.protobuf_tag_t, align 8
   store ptr %0, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %6, i64 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 12
-  %10 = getelementptr inbounds i8, ptr %7, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 0, ptr %10, align 8
   %11 = icmp slt i32 %4, 1
   br i1 %11, label %protobuf_iter_next.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
-  %12 = getelementptr inbounds i8, ptr %7, i64 8
-  %13 = getelementptr inbounds i8, ptr %7, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 16
   br label %14
 
 14:                                               ; preds = %.lr.ph, %57
@@ -3948,16 +3948,16 @@ define internal fastcc void @steamdiscover_dissect_body_proofresponse(ptr nounde
   %6 = alloca %struct.protobuf_desc_t, align 8
   %7 = alloca %struct.protobuf_tag_t, align 8
   store ptr %0, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %6, i64 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 12
-  %10 = getelementptr inbounds i8, ptr %7, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 0, ptr %10, align 8
   %11 = icmp slt i32 %4, 1
   br i1 %11, label %protobuf_iter_next.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
-  %12 = getelementptr inbounds i8, ptr %7, i64 8
-  %13 = getelementptr inbounds i8, ptr %7, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 16
   br label %14
 
 14:                                               ; preds = %.lr.ph, %57
@@ -4077,16 +4077,16 @@ define internal fastcc void @steamdiscover_dissect_body_unknown(ptr noundef %0, 
   %6 = alloca %struct.protobuf_desc_t, align 8
   %7 = alloca %struct.protobuf_tag_t, align 8
   store ptr %0, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %6, i64 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 12
-  %10 = getelementptr inbounds i8, ptr %7, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 0, ptr %10, align 8
   %11 = icmp slt i32 %4, 1
   br i1 %11, label %protobuf_iter_next.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
-  %12 = getelementptr inbounds i8, ptr %7, i64 8
-  %13 = getelementptr inbounds i8, ptr %7, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 16
   br label %14
 
 14:                                               ; preds = %.lr.ph, %34
@@ -4152,7 +4152,7 @@ protobuf_iter_next.exit.thread:                   ; preds = %protobuf_iter_next.
 define internal fastcc i32 @protobuf_verify_wiretype(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext range(i8 0, 3) %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   store ptr null, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i8, ptr %7, align 8
   %9 = icmp eq i8 %4, %8
   br i1 %9, label %10, label %59
@@ -4163,9 +4163,9 @@ define internal fastcc i32 @protobuf_verify_wiretype(ptr nocapture noundef nonnu
 
 12:                                               ; preds = %10
   %13 = load ptr, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load i32, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 12
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %17 = load i32, ptr %16, align 4
   %smax = tail call i32 @llvm.smax.i32(i32 %17, i32 0)
   %wide.trip.count = zext nneg i32 %smax to i64
@@ -4209,7 +4209,7 @@ get_varint64.exit:                                ; preds = %18, %get_varint64.e
   %35 = load i32, ptr %16, align 4
   %36 = sub i32 %35, %.1
   %37 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %31, ptr noundef %32, i32 noundef %34, i32 noundef %36, i32 noundef 0) #4
-  %38 = getelementptr inbounds i8, ptr %1, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %39 = load i64, ptr %38, align 8
   %40 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %37, ptr noundef nonnull @ei_steam_ihs_discovery_invalid_length, ptr noundef nonnull @.str.133, i64 noundef %39, i64 noundef %.1.i) #4
   %41 = load i32, ptr %16, align 4
@@ -4228,7 +4228,7 @@ get_varint64.exit:                                ; preds = %18, %get_varint64.e
   %50 = load i32, ptr %14, align 8
   %51 = add i32 %50, %.1
   %52 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %48, ptr noundef %49, i32 noundef %51, i32 noundef %45, i32 noundef 0) #4
-  %53 = getelementptr inbounds i8, ptr %1, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %54 = load i64, ptr %53, align 8
   %55 = load i32, ptr %16, align 4
   %56 = sub i32 %55, %.1
@@ -4243,7 +4243,7 @@ get_varint64.exit:                                ; preds = %18, %get_varint64.e
   %63 = zext nneg i8 %4 to i64
   %64 = getelementptr [6 x ptr], ptr @protobuf_wiretype_names, i64 0, i64 %63
   %65 = load ptr, ptr %64, align 8
-  %66 = getelementptr inbounds i8, ptr %1, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %67 = load i64, ptr %66, align 8
   %68 = load i8, ptr %7, align 8
   %69 = zext i8 %68 to i32
@@ -4270,7 +4270,7 @@ declare ptr @proto_tree_add_uint64(ptr noundef, i32 noundef, ptr noundef, i32 no
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @protobuf_dissect_unknown_field(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1, ptr noundef %2, ptr noundef %3, ptr noundef writeonly %4) unnamed_addr #0 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load i8, ptr %6, align 8
   switch i8 %7, label %108 [
     i8 0, label %8
@@ -4281,9 +4281,9 @@ define internal fastcc i32 @protobuf_dissect_unknown_field(ptr nocapture noundef
 
 8:                                                ; preds = %5
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load i32, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 12
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %13 = load i32, ptr %12, align 4
   %smax78 = tail call i32 @llvm.smax.i32(i32 %13, i32 0)
   %wide.trip.count81 = zext nneg i32 %smax78 to i64
@@ -4339,7 +4339,7 @@ protobuf_get_wiretype_name.exit:                  ; preds = %get_varint64.exit, 
 38:                                               ; preds = %5
   %39 = load i32, ptr @hf_steam_ihs_discovery_unknown_number, align 4
   %40 = load ptr, ptr %0, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %42 = load i32, ptr %41, align 8
   %43 = add i32 %42, 8
   %44 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %39, ptr noundef %40, i32 noundef %43, i32 noundef 8, i32 noundef -2147483648) #4
@@ -4361,9 +4361,9 @@ protobuf_get_wiretype_name.exit61:                ; preds = %38, %48
 
 53:                                               ; preds = %5
   %54 = load ptr, ptr %0, align 8
-  %55 = getelementptr inbounds i8, ptr %0, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %56 = load i32, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %0, i64 12
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %58 = load i32, ptr %57, align 4
   %smax = tail call i32 @llvm.smax.i32(i32 %58, i32 0)
   %wide.trip.count = zext nneg i32 %smax to i64
@@ -4408,7 +4408,7 @@ get_varint64.exit64:                              ; preds = %59, %get_varint64.e
 
 79:                                               ; preds = %get_varint64.exit64
   %80 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %75, ptr noundef %76, i32 noundef %78, i32 noundef %72, i32 noundef 0) #4
-  %81 = getelementptr inbounds i8, ptr %1, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %82 = load i64, ptr %81, align 8
   %83 = load i32, ptr %57, align 4
   %84 = sub i32 %83, %.4
@@ -4431,7 +4431,7 @@ get_varint64.exit64:                              ; preds = %59, %get_varint64.e
 93:                                               ; preds = %5
   %94 = load i32, ptr @hf_steam_ihs_discovery_unknown_number, align 4
   %95 = load ptr, ptr %0, align 8
-  %96 = getelementptr inbounds i8, ptr %0, i64 8
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %97 = load i32, ptr %96, align 8
   %98 = add i32 %97, 4
   %99 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %94, ptr noundef %95, i32 noundef %98, i32 noundef 4, i32 noundef -2147483648) #4
@@ -4452,11 +4452,11 @@ protobuf_get_wiretype_name.exit66:                ; preds = %93, %103
   br label %117
 
 108:                                              ; preds = %5
-  %109 = getelementptr inbounds i8, ptr %0, i64 12
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %110 = load i32, ptr %109, align 4
   %111 = load i32, ptr @hf_steam_ihs_discovery_unknown_data, align 4
   %112 = load ptr, ptr %0, align 8
-  %113 = getelementptr inbounds i8, ptr %0, i64 8
+  %113 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %114 = load i32, ptr %113, align 8
   %115 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %111, ptr noundef %112, i32 noundef %114, i32 noundef %110, i32 noundef 0) #4
   %116 = tail call ptr @expert_add_info(ptr noundef %2, ptr noundef %115, ptr noundef nonnull @ei_steam_ihs_discovery_unknown_data) #4

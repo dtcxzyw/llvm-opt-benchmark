@@ -97,7 +97,7 @@ define range(i32 -1, 1) i32 @php_random_bytes(ptr noundef %0, i64 noundef %1, i1
   br i1 %.not, label %33, label %38
 
 33:                                               ; preds = %31
-  %34 = getelementptr inbounds i8, ptr %4, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %35 = load i32, ptr %34, align 8
   %36 = and i32 %35, 61440
   %37 = icmp eq i32 %36, 8192

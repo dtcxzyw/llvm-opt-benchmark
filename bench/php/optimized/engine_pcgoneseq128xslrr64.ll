@@ -94,12 +94,12 @@ define internal noundef zeroext i1 @serialize(ptr nocapture noundef readonly %0,
   store i64 %.sroa.29.0.extract.trunc, ptr %3, align 8
   %6 = call ptr @php_random_bin2hex_le(ptr noundef nonnull %3, i64 noundef 8) #7
   store ptr %6, ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %8 = load i32, ptr %7, align 4
   %9 = and i32 %8, 64
   %.not = icmp eq i32 %9, 0
   %10 = select i1 %.not, i32 262, i32 6
-  %11 = getelementptr inbounds i8, ptr %4, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %10, ptr %11, align 8
   %12 = call ptr @zend_hash_next_index_insert(ptr noundef %1, ptr noundef nonnull %4) #7
   %13 = load i128, ptr %0, align 16
@@ -107,7 +107,7 @@ define internal noundef zeroext i1 @serialize(ptr nocapture noundef readonly %0,
   store i64 %.sroa.0.0.extract.trunc, ptr %3, align 8
   %14 = call ptr @php_random_bin2hex_le(ptr noundef nonnull %3, i64 noundef 8) #7
   store ptr %14, ptr %4, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %16 = load i32, ptr %15, align 4
   %17 = and i32 %16, 64
   %.not16 = icmp eq i32 %17, 0
@@ -120,10 +120,10 @@ define internal noundef zeroext i1 @serialize(ptr nocapture noundef readonly %0,
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i1 @unserialize(ptr nocapture noundef writeonly %0, ptr noundef %1) #2 {
   %3 = alloca [2 x i64], align 16
-  %4 = getelementptr inbounds i8, ptr %1, i64 28
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %5 = load i32, ptr %4, align 4
   %.not = icmp eq i32 %5, 2
-  %indvars.iv.sroa.gep = getelementptr inbounds i8, ptr %3, i64 8
+  %indvars.iv.sroa.gep = getelementptr inbounds nuw i8, ptr %3, i64 8
   br i1 %.not, label %.preheader, label %.loopexit
 
 6:                                                ; preds = %16
@@ -138,14 +138,14 @@ define internal noundef zeroext i1 @unserialize(ptr nocapture noundef writeonly 
   br i1 %.not16, label %.loopexit, label %9
 
 9:                                                ; preds = %.preheader
-  %10 = getelementptr inbounds i8, ptr %8, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %11 = load i8, ptr %10, align 8
   %.not17 = icmp eq i8 %11, 6
   br i1 %.not17, label %12, label %.loopexit
 
 12:                                               ; preds = %9
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load i64, ptr %14, align 8
   %.not18 = icmp eq i64 %15, 16
   br i1 %.not18, label %16, label %.loopexit
@@ -156,7 +156,7 @@ define internal noundef zeroext i1 @unserialize(ptr nocapture noundef writeonly 
 
 18:                                               ; preds = %6
   %19 = load i64, ptr %3, align 16
-  %20 = getelementptr inbounds i8, ptr %3, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %21 = load i64, ptr %20, align 8
   %.sroa.2.0.insert.ext = zext i64 %19 to i128
   %.sroa.2.0.insert.shift = shl nuw i128 %.sroa.2.0.insert.ext, 64
@@ -277,13 +277,13 @@ define hidden void @zim_Random_Engine_PcgOneseq128XslRr64___construct(ptr nounde
   %5 = alloca i128, align 16
   %.sroa.0 = alloca i64, align 16
   %.sroa.2 = alloca i64, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8
   %.sroa.1.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 -8
   %.sroa.1.0.copyload = load ptr, ptr %.sroa.1.0..sroa_idx, align 8
   store ptr null, ptr %3, align 8
   store i64 0, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 44
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %9 = load i32, ptr %8, align 4
   %10 = icmp ugt i32 %9, 1
   br i1 %10, label %.thread150, label %11
@@ -297,8 +297,8 @@ define hidden void @zim_Random_Engine_PcgOneseq128XslRr64___construct(ptr nounde
   br i1 %12, label %.thread164, label %13
 
 13:                                               ; preds = %11
-  %14 = getelementptr inbounds i8, ptr %0, i64 80
-  %15 = getelementptr inbounds i8, ptr %0, i64 88
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %16 = load i8, ptr %15, align 8
   switch i8 %16, label %19 [
     i8 6, label %17
@@ -372,13 +372,13 @@ define hidden void @zim_Random_Engine_PcgOneseq128XslRr64___construct(ptr nounde
   br i1 %.not83, label %.thread162.thread, label %34
 
 34:                                               ; preds = %.thread162
-  %35 = getelementptr inbounds i8, ptr %33, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %36 = load i64, ptr %35, align 8
   %37 = icmp eq i64 %36, 16
   br i1 %37, label %.preheader, label %55
 
 .preheader:                                       ; preds = %34
-  %38 = getelementptr inbounds i8, ptr %33, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %33, i64 24
   br label %39
 
 39:                                               ; preds = %.preheader, %50
@@ -391,7 +391,7 @@ define hidden void @zim_Random_Engine_PcgOneseq128XslRr64___construct(ptr nounde
   %indvars.iv = phi i64 [ 0, %39 ], [ %indvars.iv.next, %41 ]
   %42 = phi i64 [ 0, %39 ], [ %49, %41 ]
   %43 = add nuw nsw i64 %indvars.iv, %indvars.iv184
-  %44 = getelementptr inbounds [1 x i8], ptr %38, i64 0, i64 %43
+  %44 = getelementptr inbounds nuw [1 x i8], ptr %38, i64 0, i64 %43
   %45 = load i8, ptr %44, align 1
   %46 = zext i8 %45 to i64
   %47 = shl nuw nsw i64 %indvars.iv, 3
@@ -470,19 +470,19 @@ declare void @zend_argument_value_error(i32 noundef, ptr noundef, ...) local_unn
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_Random_Engine_PcgOneseq128XslRr64_jump(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #2 {
   %3 = alloca i64, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
   %.sroa.1.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 -8
   %.sroa.1.0.copyload = load ptr, ptr %.sroa.1.0..sroa_idx, align 8
   store i64 0, ptr %3, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 44
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %7 = load i32, ptr %6, align 4
   %cond = icmp eq i32 %7, 1
   br i1 %cond, label %8, label %.thread79
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 80
-  %10 = getelementptr inbounds i8, ptr %0, i64 88
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %11 = load i8, ptr %10, align 8
   %12 = icmp eq i8 %11, 4
   br i1 %12, label %.thread69, label %14

@@ -283,12 +283,12 @@ define internal noundef i64 @strio_initialize(i32 noundef %0, ptr noundef %1, i6
 5:                                                ; preds = %3
   %6 = tail call noalias nonnull dereferenceable(40) ptr @ruby_xmalloc(i64 noundef 40) #16
   store i64 4, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 16
-  %8 = getelementptr inbounds i8, ptr %6, i64 36
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 36
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %7, i8 0, i64 20, i1 false)
   store i32 1, ptr %8, align 4
   %9 = inttoptr i64 %2 to ptr
-  %10 = getelementptr inbounds i8, ptr %9, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store ptr %6, ptr %10, align 8
   br label %11
 
@@ -322,7 +322,7 @@ get_strio.exit:                                   ; preds = %5
   br i1 %.not, label %strio_free.exit, label %11
 
 11:                                               ; preds = %get_strio.exit
-  %12 = getelementptr inbounds i8, ptr %10, i64 36
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 36
   %13 = load i32, ptr %12, align 4
   %14 = add nsw i32 %13, -1
   store i32 %14, ptr %12, align 4
@@ -335,7 +335,7 @@ get_strio.exit:                                   ; preds = %5
 
 strio_free.exit:                                  ; preds = %16, %11, %get_strio.exit
   %17 = inttoptr i64 %0 to ptr
-  %18 = getelementptr inbounds i8, ptr %17, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 32
   store ptr %7, ptr %18, align 8
   %19 = load i64, ptr %7, align 8
   %20 = and i64 %19, 7
@@ -357,7 +357,7 @@ rb_obj_written.exit:                              ; preds = %strio_free.exit, %2
   %29 = and i64 %28, 196608
   %30 = or disjoint i64 %29, %26
   store i64 %30, ptr %17, align 8
-  %31 = getelementptr inbounds i8, ptr %7, i64 36
+  %31 = getelementptr inbounds nuw i8, ptr %7, i64 36
   %32 = load i32, ptr %31, align 4
   %33 = add nsw i32 %32, 1
   store i32 %33, ptr %31, align 4
@@ -459,7 +459,7 @@ define internal i64 @strio_set_string(i64 noundef %0, i64 noundef %1) #0 {
 
 get_strio.exit:                                   ; preds = %2
   %8 = tail call i64 @rb_io_taint_check(i64 noundef %0) #14
-  %9 = getelementptr inbounds i8, ptr %5, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %10 = load i32, ptr %9, align 8
   %11 = and i32 %10, -4
   store i32 %11, ptr %9, align 8
@@ -473,7 +473,7 @@ get_strio.exit:                                   ; preds = %2
 
 .thread10:                                        ; preds = %get_strio.exit
   store i32 1, ptr %9, align 8
-  %18 = getelementptr inbounds i8, ptr %5, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, i8 0, i64 16, i1 false)
   store i64 %13, ptr %5, align 8
   br label %rb_obj_write.exit
@@ -489,7 +489,7 @@ get_strio.exit:                                   ; preds = %2
   %. = select i1 %.not, i32 3, i32 1
   %.sink12 = select i1 %23, i32 1, i32 %.
   store i32 %.sink12, ptr %9, align 8
-  %.sink = getelementptr inbounds i8, ptr %5, i64 16
+  %.sink = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sink, i8 0, i64 16, i1 false)
   store i64 %13, ptr %5, align 8
   call void @rb_gc_writebarrier(i64 noundef %0, i64 noundef %13) #14
@@ -514,7 +514,7 @@ define internal i64 @strio_get_lineno(i64 noundef %0) #0 {
   unreachable
 
 get_strio.exit:                                   ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %3, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %7 = load i64, ptr %6, align 8
   %8 = add i64 %7, 4611686018427387904
   %or.cond.i = icmp sgt i64 %8, -1
@@ -561,7 +561,7 @@ rb_num2long_inline.exit:                          ; preds = %4, %6
   unreachable
 
 get_strio.exit:                                   ; preds = %rb_num2long_inline.exit
-  %12 = getelementptr inbounds i8, ptr %9, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i64 %.0.i, ptr %12, align 8
   ret i64 %1
 }
@@ -580,7 +580,7 @@ define internal noundef i64 @strio_binmode(i64 noundef returned %0) #0 {
 
 get_strio.exit:                                   ; preds = %1
   %6 = tail call nonnull ptr @rb_ascii8bit_encoding() #14
-  %7 = getelementptr inbounds i8, ptr %3, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %6, ptr %7, align 8
   %8 = inttoptr i64 %0 to ptr
   %9 = load i64, ptr %8, align 8
@@ -589,9 +589,9 @@ get_strio.exit:                                   ; preds = %1
   br i1 %.not, label %20, label %11
 
 11:                                               ; preds = %get_strio.exit
-  %12 = getelementptr inbounds i8, ptr %8, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %15 = load i32, ptr %14, align 8
   %16 = and i32 %15, 2
   %.not7 = icmp eq i32 %16, 0
@@ -639,7 +639,7 @@ define internal noundef i64 @strio_close_read(i64 noundef %0) #0 {
   unreachable
 
 get_strio.exit:                                   ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %3, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %7 = load i32, ptr %6, align 8
   %8 = and i32 %7, 1
   %.not = icmp eq i32 %8, 0
@@ -671,7 +671,7 @@ define internal noundef i64 @strio_close_write(i64 noundef %0) #0 {
   unreachable
 
 get_strio.exit:                                   ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %3, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %7 = load i32, ptr %6, align 8
   %8 = and i32 %7, 2
   %.not = icmp eq i32 %8, 0
@@ -710,9 +710,9 @@ get_strio.exit:                                   ; preds = %1
   br i1 %.not, label %15, label %9
 
 9:                                                ; preds = %get_strio.exit
-  %10 = getelementptr inbounds i8, ptr %6, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %13 = load i32, ptr %12, align 8
   %14 = and i32 %13, 3
   %.not4 = icmp eq i32 %14, 0
@@ -746,9 +746,9 @@ get_strio.exit:                                   ; preds = %1
   br i1 %.not, label %15, label %9
 
 9:                                                ; preds = %get_strio.exit
-  %10 = getelementptr inbounds i8, ptr %6, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %13 = load i32, ptr %12, align 8
   %14 = and i32 %13, 1
   %.not4 = icmp eq i32 %14, 0
@@ -782,9 +782,9 @@ get_strio.exit:                                   ; preds = %1
   br i1 %.not, label %15, label %9
 
 9:                                                ; preds = %get_strio.exit
-  %10 = getelementptr inbounds i8, ptr %6, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %13 = load i32, ptr %12, align 8
   %14 = and i32 %13, 2
   %.not4 = icmp eq i32 %14, 0
@@ -818,9 +818,9 @@ get_strio.exit.i.i:                               ; preds = %1
   br i1 %.not.i.i, label %15, label %9
 
 9:                                                ; preds = %get_strio.exit.i.i
-  %10 = getelementptr inbounds i8, ptr %6, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %13 = load i32, ptr %12, align 8
   %14 = and i32 %13, 1
   %.not3.i.i = icmp eq i32 %14, 0
@@ -832,11 +832,11 @@ get_strio.exit.i.i:                               ; preds = %1
   unreachable
 
 strio_to_read.exit:                               ; preds = %9
-  %17 = getelementptr inbounds i8, ptr %3, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = load i64, ptr %17, align 8
   %19 = load i64, ptr %3, align 8
   %20 = inttoptr i64 %19 to ptr
-  %21 = getelementptr inbounds i8, ptr %20, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = load i64, ptr %21, align 8
   %.not = icmp slt i64 %18, %22
   %. = select i1 %.not, i64 0, i64 20
@@ -895,7 +895,7 @@ define internal i64 @strio_get_pos(i64 noundef %0) #0 {
   unreachable
 
 get_strio.exit:                                   ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %7 = load i64, ptr %6, align 8
   %8 = add i64 %7, 4611686018427387904
   %or.cond.i = icmp sgt i64 %8, -1
@@ -950,7 +950,7 @@ rb_num2long_inline.exit:                          ; preds = %8, %10
   unreachable
 
 14:                                               ; preds = %rb_num2long_inline.exit
-  %15 = getelementptr inbounds i8, ptr %4, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 %.0.i, ptr %15, align 8
   ret i64 %1
 }
@@ -968,7 +968,7 @@ define internal noundef i64 @strio_rewind(i64 noundef %0) #0 {
   unreachable
 
 get_strio.exit:                                   ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   ret i64 1
 }
@@ -1010,9 +1010,9 @@ rb_num2long_inline.exit:                          ; preds = %12, %14
   br i1 %.not, label %25, label %19
 
 19:                                               ; preds = %rb_num2long_inline.exit
-  %20 = getelementptr inbounds i8, ptr %16, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %23 = load i32, ptr %22, align 8
   %24 = and i32 %23, 3
   %.not16 = icmp eq i32 %24, 0
@@ -1060,7 +1060,7 @@ rb_num2long_inline.exit20:                        ; preds = %34, %32
 
 rb_num2long_inline.exit20.thread.sink.split:      ; preds = %rb_num2long_inline.exit20, %37
   %.sink21 = phi ptr [ %39, %37 ], [ %6, %rb_num2long_inline.exit20 ]
-  %41 = getelementptr inbounds i8, ptr %.sink21, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %.sink21, i64 16
   %42 = load i64, ptr %41, align 8
   br label %rb_num2long_inline.exit20.thread
 
@@ -1080,7 +1080,7 @@ rb_num2long_inline.exit20.thread:                 ; preds = %rb_num2long_inline.
   unreachable
 
 49:                                               ; preds = %45
-  %50 = getelementptr inbounds i8, ptr %6, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 %46, ptr %50, align 8
   ret i64 1
 }
@@ -1138,9 +1138,9 @@ get_strio.exit.i:                                 ; preds = %3
   br i1 %.not.i, label %18, label %12
 
 12:                                               ; preds = %get_strio.exit.i
-  %13 = getelementptr inbounds i8, ptr %9, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %16 = load i32, ptr %15, align 8
   %17 = and i32 %16, 1
   %.not3.i = icmp eq i32 %17, 0
@@ -1164,7 +1164,7 @@ readable.exit:                                    ; preds = %12
 
 25:                                               ; preds = %readable.exit
   %26 = call fastcc ptr @prepare_getline_args(ptr noundef %6, ptr noundef %4, i32 noundef %0, ptr noundef %1)
-  %27 = getelementptr inbounds i8, ptr %4, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %28 = load i64, ptr %27, align 8
   %29 = icmp eq i64 %28, 0
   br i1 %29, label %32, label %.preheader
@@ -1205,7 +1205,7 @@ define internal i64 @strio_each_byte(i64 noundef %0) #0 {
 
 get_strio.exit.i.i.lr.ph:                         ; preds = %.preheader
   %5 = inttoptr i64 %0 to ptr
-  %6 = getelementptr inbounds i8, ptr %5, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   br label %get_strio.exit.i.i
 
 7:                                                ; preds = %1
@@ -1228,7 +1228,7 @@ get_strio.exit.i.i:                               ; preds = %get_strio.exit.i.i.
 
 15:                                               ; preds = %get_strio.exit.i.i
   %16 = load ptr, ptr %6, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %18 = load i32, ptr %17, align 8
   %19 = and i32 %18, 1
   %.not3.i.i = icmp eq i32 %19, 0
@@ -1240,11 +1240,11 @@ get_strio.exit.i.i:                               ; preds = %get_strio.exit.i.i.
   unreachable
 
 strio_to_read.exit:                               ; preds = %15
-  %22 = getelementptr inbounds i8, ptr %12, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %23 = load i64, ptr %22, align 8
   %24 = load i64, ptr %12, align 8
   %25 = inttoptr i64 %24 to ptr
-  %26 = getelementptr inbounds i8, ptr %25, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load i64, ptr %26, align 8
   %.not10 = icmp slt i64 %23, %27
   br i1 %.not10, label %28, label %.loopexit
@@ -1253,7 +1253,7 @@ strio_to_read.exit:                               ; preds = %15
   %29 = load i64, ptr %25, align 8, !noalias !8
   %30 = and i64 %29, 8192
   %.not.i.i8 = icmp eq i64 %30, 0
-  %31 = getelementptr inbounds i8, ptr %25, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 24
   br i1 %.not.i.i8, label %RSTRING_PTR.exit, label %32
 
 32:                                               ; preds = %28
@@ -1341,9 +1341,9 @@ get_strio.exit.i:                                 ; preds = %8
   br i1 %.not.i, label %22, label %16
 
 16:                                               ; preds = %get_strio.exit.i
-  %17 = getelementptr inbounds i8, ptr %13, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 32
   %20 = load i32, ptr %19, align 8
   %21 = and i32 %20, 1
   %.not3.i = icmp eq i32 %21, 0
@@ -1355,7 +1355,7 @@ get_strio.exit.i:                                 ; preds = %8
   unreachable
 
 readable.exit:                                    ; preds = %16
-  %24 = getelementptr inbounds i8, ptr %10, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %25 = load ptr, ptr %24, align 8
   %.not15 = icmp eq ptr %25, null
   br i1 %.not15, label %26, label %29
@@ -1386,7 +1386,7 @@ get_strio.exit.i.i:                               ; preds = %29, %RSTRING_END.ex
 
 37:                                               ; preds = %get_strio.exit.i.i
   %38 = load ptr, ptr %17, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 32
   %40 = load i32, ptr %39, align 8
   %41 = and i32 %40, 1
   %.not3.i.i = icmp eq i32 %41, 0
@@ -1398,11 +1398,11 @@ get_strio.exit.i.i:                               ; preds = %29, %RSTRING_END.ex
   unreachable
 
 strio_to_read.exit:                               ; preds = %37
-  %44 = getelementptr inbounds i8, ptr %34, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %45 = load i64, ptr %44, align 8
   %46 = load i64, ptr %34, align 8
   %47 = inttoptr i64 %46 to ptr
-  %48 = getelementptr inbounds i8, ptr %47, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %49 = load i64, ptr %48, align 8
   %.not22 = icmp slt i64 %45, %49
   br i1 %.not22, label %50, label %.loopexit
@@ -1411,7 +1411,7 @@ strio_to_read.exit:                               ; preds = %37
   %51 = load i64, ptr %47, align 8, !noalias !13
   %52 = and i64 %51, 8192
   %.not.i.i18 = icmp eq i64 %52, 0
-  %53 = getelementptr inbounds i8, ptr %47, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %47, i64 24
   br i1 %.not.i.i18, label %RSTRING_END.exit, label %54
 
 54:                                               ; preds = %50
@@ -1462,9 +1462,9 @@ get_strio.exit.i:                                 ; preds = %1
   br i1 %.not.i, label %15, label %9
 
 9:                                                ; preds = %get_strio.exit.i
-  %10 = getelementptr inbounds i8, ptr %6, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %13 = load i32, ptr %12, align 8
   %14 = and i32 %13, 1
   %.not3.i = icmp eq i32 %14, 0
@@ -1476,7 +1476,7 @@ get_strio.exit.i:                                 ; preds = %1
   unreachable
 
 readable.exit:                                    ; preds = %9
-  %17 = getelementptr inbounds i8, ptr %3, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %18 = load ptr, ptr %17, align 8
   %.not = icmp eq ptr %18, null
   br i1 %.not, label %19, label %22
@@ -1489,10 +1489,10 @@ readable.exit:                                    ; preds = %9
 22:                                               ; preds = %readable.exit, %19
   %23 = phi ptr [ %21, %19 ], [ %18, %readable.exit ]
   %24 = load i64, ptr %3, align 8
-  %25 = getelementptr inbounds i8, ptr %3, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %26 = load i64, ptr %25, align 8
   %27 = inttoptr i64 %24 to ptr
-  %28 = getelementptr inbounds i8, ptr %27, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %29 = load i64, ptr %28, align 8
   %.not21 = icmp slt i64 %26, %29
   br i1 %.not21, label %30, label %43
@@ -1501,7 +1501,7 @@ readable.exit:                                    ; preds = %9
   %31 = load i64, ptr %27, align 8, !noalias !17
   %32 = and i64 %31, 8192
   %.not.i.i22 = icmp eq i64 %32, 0
-  %33 = getelementptr inbounds i8, ptr %27, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %27, i64 24
   br i1 %.not.i.i22, label %RSTRING_END.exit, label %34
 
 34:                                               ; preds = %30
@@ -1550,9 +1550,9 @@ get_strio.exit.i:                                 ; preds = %2
   br i1 %.not.i, label %19, label %13
 
 13:                                               ; preds = %get_strio.exit.i
-  %14 = getelementptr inbounds i8, ptr %10, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %17 = load i32, ptr %16, align 8
   %18 = and i32 %17, 1
   %.not3.i = icmp eq i32 %18, 0
@@ -1631,7 +1631,7 @@ rb_num2int_inline.exit:                           ; preds = %45, %47
   br label %56
 
 56:                                               ; preds = %54, %rb_num2int_inline.exit
-  %57 = getelementptr inbounds i8, ptr %51, i64 48
+  %57 = getelementptr inbounds nuw i8, ptr %51, i64 48
   %58 = load ptr, ptr %57, align 8
   %59 = call i32 %58(i32 noundef %49, ptr noundef nonnull %4, ptr noundef %51) #14
   %60 = sext i32 %52 to i64
@@ -1668,7 +1668,7 @@ rb_integer_type_p.exit.thread28._crit_edge:       ; preds = %rb_integer_type_p.e
   %73 = load i64, ptr %72, align 8, !noalias !20
   %74 = and i64 %73, 8192
   %.not.i.i26 = icmp eq i64 %74, 0
-  %75 = getelementptr inbounds i8, ptr %72, i64 24
+  %75 = getelementptr inbounds nuw i8, ptr %72, i64 24
   br i1 %.not.i.i26, label %RSTRING_PTR.exit, label %76
 
 76:                                               ; preds = %70
@@ -1677,7 +1677,7 @@ rb_integer_type_p.exit.thread28._crit_edge:       ; preds = %rb_integer_type_p.e
 
 RSTRING_PTR.exit:                                 ; preds = %70, %76
   %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %76 ], [ %75, %70 ]
-  %77 = getelementptr inbounds i8, ptr %72, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %72, i64 16
   %78 = load i64, ptr %77, align 8
   call fastcc void @strio_unget_bytes(ptr noundef %7, ptr noundef %.sroa.2.0.i, i64 noundef %78)
   store ptr %3, ptr %5, align 8
@@ -1714,9 +1714,9 @@ get_strio.exit.i:                                 ; preds = %2
   br i1 %.not.i, label %19, label %13
 
 13:                                               ; preds = %get_strio.exit.i
-  %14 = getelementptr inbounds i8, ptr %10, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %17 = load i32, ptr %16, align 8
   %18 = and i32 %17, 1
   %.not3.i = icmp eq i32 %18, 0
@@ -1798,7 +1798,7 @@ rb_integer_type_p.exit.thread13:                  ; preds = %36, %rb_integer_typ
   %52 = call i64 @rb_string_value(ptr noundef nonnull %3) #14
   %53 = load i64, ptr %3, align 8
   %54 = inttoptr i64 %53 to ptr
-  %55 = getelementptr inbounds i8, ptr %54, i64 16
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %56 = load i64, ptr %55, align 8
   %57 = icmp sgt i64 %56, 0
   br i1 %57, label %58, label %65
@@ -1807,7 +1807,7 @@ rb_integer_type_p.exit.thread13:                  ; preds = %36, %rb_integer_typ
   %59 = load i64, ptr %54, align 8, !noalias !24
   %60 = and i64 %59, 8192
   %.not.i.i11 = icmp eq i64 %60, 0
-  %61 = getelementptr inbounds i8, ptr %54, i64 24
+  %61 = getelementptr inbounds nuw i8, ptr %54, i64 24
   br i1 %.not.i.i11, label %RSTRING_PTR.exit, label %62
 
 62:                                               ; preds = %58
@@ -1847,9 +1847,9 @@ get_strio.exit.i:                                 ; preds = %1
   br i1 %.not.i, label %15, label %9
 
 9:                                                ; preds = %get_strio.exit.i
-  %10 = getelementptr inbounds i8, ptr %6, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %13 = load i32, ptr %12, align 8
   %14 = and i32 %13, 1
   %.not3.i = icmp eq i32 %14, 0
@@ -1861,11 +1861,11 @@ get_strio.exit.i:                                 ; preds = %1
   unreachable
 
 readable.exit:                                    ; preds = %9
-  %17 = getelementptr inbounds i8, ptr %3, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = load i64, ptr %17, align 8
   %19 = load i64, ptr %3, align 8
   %20 = inttoptr i64 %19 to ptr
-  %21 = getelementptr inbounds i8, ptr %20, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = load i64, ptr %21, align 8
   %.not = icmp slt i64 %18, %22
   br i1 %.not, label %23, label %34
@@ -1874,7 +1874,7 @@ readable.exit:                                    ; preds = %9
   %24 = load i64, ptr %20, align 8, !noalias !28
   %25 = and i64 %24, 8192
   %.not.i.i6 = icmp eq i64 %25, 0
-  %26 = getelementptr inbounds i8, ptr %20, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %20, i64 24
   br i1 %.not.i.i6, label %RSTRING_PTR.exit, label %27
 
 27:                                               ; preds = %23
@@ -1918,9 +1918,9 @@ get_strio.exit.i:                                 ; preds = %3
   br i1 %.not.i, label %18, label %12
 
 12:                                               ; preds = %get_strio.exit.i
-  %13 = getelementptr inbounds i8, ptr %9, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %16 = load i32, ptr %15, align 8
   %17 = and i32 %16, 1
   %.not3.i = icmp eq i32 %17, 0
@@ -1933,13 +1933,13 @@ get_strio.exit.i:                                 ; preds = %3
 
 readable.exit:                                    ; preds = %12
   %20 = call fastcc ptr @prepare_getline_args(ptr noundef %6, ptr noundef %4, i32 noundef %0, ptr noundef %1)
-  %21 = getelementptr inbounds i8, ptr %4, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %22 = load i64, ptr %21, align 8
   %23 = icmp eq i64 %22, 0
   br i1 %23, label %24, label %33
 
 24:                                               ; preds = %readable.exit
-  %25 = getelementptr inbounds i8, ptr %6, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %26 = load ptr, ptr %25, align 8
   %.not = icmp eq ptr %26, null
   br i1 %.not, label %27, label %30
@@ -1985,9 +1985,9 @@ get_strio.exit.i:                                 ; preds = %3
   br i1 %.not.i, label %18, label %12
 
 12:                                               ; preds = %get_strio.exit.i
-  %13 = getelementptr inbounds i8, ptr %9, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %16 = load i32, ptr %15, align 8
   %17 = and i32 %16, 1
   %.not3.i = icmp eq i32 %17, 0
@@ -2000,7 +2000,7 @@ get_strio.exit.i:                                 ; preds = %3
 
 readable.exit:                                    ; preds = %12
   %20 = call fastcc ptr @prepare_getline_args(ptr noundef %6, ptr noundef %4, i32 noundef %0, ptr noundef %1)
-  %21 = getelementptr inbounds i8, ptr %4, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %22 = load i64, ptr %21, align 8
   %23 = icmp eq i64 %22, 0
   br i1 %23, label %24, label %26
@@ -2048,9 +2048,9 @@ get_strio.exit.i:                                 ; preds = %3
   br i1 %.not.i, label %18, label %12
 
 12:                                               ; preds = %get_strio.exit.i
-  %13 = getelementptr inbounds i8, ptr %9, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %16 = load i32, ptr %15, align 8
   %17 = and i32 %16, 1
   %.not3.i = icmp eq i32 %17, 0
@@ -2070,7 +2070,7 @@ readable.exit:                                    ; preds = %12
   ]
 
 20:                                               ; preds = %readable.exit
-  %21 = getelementptr inbounds i8, ptr %1, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %22 = load i64, ptr %21, align 8
   store i64 %22, ptr %4, align 8
   %23 = icmp eq i64 %22, 4
@@ -2119,11 +2119,11 @@ rb_num2long_inline.exit:                          ; preds = %32, %34
   br label %76
 
 40:                                               ; preds = %39
-  %41 = getelementptr inbounds i8, ptr %6, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %42 = load i64, ptr %41, align 8
   %43 = load i64, ptr %6, align 8
   %44 = inttoptr i64 %43 to ptr
-  %45 = getelementptr inbounds i8, ptr %44, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %46 = load i64, ptr %45, align 8
   %.not49 = icmp slt i64 %42, %46
   %.pre74 = load i64, ptr %4, align 8
@@ -2140,15 +2140,15 @@ rb_num2long_inline.exit:                          ; preds = %32, %34
 51:                                               ; preds = %27, %readable.exit
   %52 = load i64, ptr %6, align 8
   %53 = inttoptr i64 %52 to ptr
-  %54 = getelementptr inbounds i8, ptr %53, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %55 = load i64, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %6, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %57 = load i64, ptr %56, align 8
   %.not50 = icmp sgt i64 %55, %57
   br i1 %.not50, label %.thread, label %58
 
 58:                                               ; preds = %51
-  %59 = getelementptr inbounds i8, ptr %6, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %60 = load ptr, ptr %59, align 8
   %.not54 = icmp eq ptr %60, null
   br i1 %.not54, label %61, label %63
@@ -2191,9 +2191,9 @@ rb_num2long_inline.exit:                          ; preds = %32, %34
 ._crit_edge76:                                    ; preds = %76
   %.pre77 = load i64, ptr %6, align 8
   %.phi.trans.insert = inttoptr i64 %.pre77 to ptr
-  %.phi.trans.insert78 = getelementptr inbounds i8, ptr %.phi.trans.insert, i64 16
+  %.phi.trans.insert78 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert, i64 16
   %.pre79 = load i64, ptr %.phi.trans.insert78, align 8
-  %.phi.trans.insert80 = getelementptr inbounds i8, ptr %6, i64 16
+  %.phi.trans.insert80 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %.pre81 = load i64, ptr %.phi.trans.insert80, align 8
   %.pre82 = sub nsw i64 %.pre79, %.pre81
   br label %103
@@ -2209,7 +2209,7 @@ rb_num2long_inline.exit:                          ; preds = %32, %34
   br label %89
 
 84:                                               ; preds = %.thread
-  %85 = getelementptr inbounds i8, ptr %6, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %86 = load ptr, ptr %85, align 8
   %.not53 = icmp eq ptr %86, null
   br i1 %.not53, label %87, label %89
@@ -2221,11 +2221,11 @@ rb_num2long_inline.exit:                          ; preds = %32, %34
 89:                                               ; preds = %84, %87, %82
   %.0406872 = phi i64 [ %.0.i, %82 ], [ %79, %87 ], [ %79, %84 ]
   %90 = phi ptr [ %83, %82 ], [ %88, %87 ], [ %86, %84 ]
-  %91 = getelementptr inbounds i8, ptr %6, i64 16
+  %91 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %92 = load i64, ptr %91, align 8
   %.val = load i64, ptr %6, align 8
   %93 = inttoptr i64 %.val to ptr
-  %94 = getelementptr inbounds i8, ptr %93, i64 16
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 16
   %95 = load i64, ptr %94, align 8
   %96 = sub nsw i64 %95, %92
   %spec.select.i = call i64 @llvm.smin.i64(i64 %.0406872, i64 %96)
@@ -2251,7 +2251,7 @@ strio_substr.exit:                                ; preds = %98, %100
   %104 = phi i64 [ %77, %._crit_edge76 ], [ %80, %.thread ]
   %.04067 = phi i64 [ %.0.i, %._crit_edge76 ], [ %79, %.thread ]
   %.not5165 = phi i1 [ false, %._crit_edge76 ], [ true, %.thread ]
-  %105 = getelementptr inbounds i8, ptr %6, i64 16
+  %105 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %spec.select = call i64 @llvm.smin.i64(i64 %.04067, i64 %.pre-phi83)
   %106 = call i64 @rb_str_resize(i64 noundef %104, i64 noundef %spec.select) #14
   %107 = load i64, ptr %4, align 8
@@ -2259,7 +2259,7 @@ strio_substr.exit:                                ; preds = %98, %100
   %109 = load i64, ptr %108, align 8, !noalias !32
   %110 = and i64 %109, 8192
   %.not.i.i57 = icmp eq i64 %110, 0
-  %111 = getelementptr inbounds i8, ptr %108, i64 24
+  %111 = getelementptr inbounds nuw i8, ptr %108, i64 24
   br i1 %.not.i.i57, label %RSTRING_PTR.exit, label %112
 
 112:                                              ; preds = %103
@@ -2273,7 +2273,7 @@ RSTRING_PTR.exit:                                 ; preds = %103, %112
   %115 = load i64, ptr %114, align 8, !noalias !35
   %116 = and i64 %115, 8192
   %.not.i.i58 = icmp eq i64 %116, 0
-  %117 = getelementptr inbounds i8, ptr %114, i64 24
+  %117 = getelementptr inbounds nuw i8, ptr %114, i64 24
   br i1 %.not.i.i58, label %RSTRING_PTR.exit61, label %118
 
 118:                                              ; preds = %RSTRING_PTR.exit
@@ -2308,9 +2308,9 @@ ruby_nonempty_memcpy.exit:                        ; preds = %RSTRING_PTR.exit61,
 128:                                              ; preds = %123, %126, %strio_substr.exit
   %129 = load i64, ptr %4, align 8
   %130 = inttoptr i64 %129 to ptr
-  %131 = getelementptr inbounds i8, ptr %130, i64 16
+  %131 = getelementptr inbounds nuw i8, ptr %130, i64 16
   %132 = load i64, ptr %131, align 8
-  %133 = getelementptr inbounds i8, ptr %6, i64 16
+  %133 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %134 = load i64, ptr %133, align 8
   %135 = add nsw i64 %134, %132
   store i64 %135, ptr %133, align 8
@@ -2408,9 +2408,9 @@ get_strio.exit.i:                                 ; preds = %36
   br i1 %.not.i28, label %50, label %44
 
 44:                                               ; preds = %get_strio.exit.i
-  %45 = getelementptr inbounds i8, ptr %41, i64 32
+  %45 = getelementptr inbounds nuw i8, ptr %41, i64 32
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 32
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 32
   %48 = load i32, ptr %47, align 8
   %49 = and i32 %48, 1
   %.not3.i = icmp eq i32 %49, 0
@@ -2424,7 +2424,7 @@ get_strio.exit.i:                                 ; preds = %36
 readable.exit:                                    ; preds = %44
   %52 = load i64, ptr %38, align 8
   %53 = inttoptr i64 %52 to ptr
-  %54 = getelementptr inbounds i8, ptr %53, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %55 = load i64, ptr %54, align 8
   %.not = icmp slt i64 %.0.i26, %55
   br i1 %.not, label %57, label %56
@@ -2442,7 +2442,7 @@ readable.exit:                                    ; preds = %44
   %61 = call nonnull ptr @rb_ascii8bit_encoding() #14
   %.val = load i64, ptr %38, align 8
   %62 = inttoptr i64 %.val to ptr
-  %63 = getelementptr inbounds i8, ptr %62, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %64 = load i64, ptr %63, align 8
   %65 = sub nsw i64 %64, %.0.i26
   %spec.select.i = call i64 @llvm.smin.i64(i64 %.0.i, i64 %65)
@@ -2470,7 +2470,7 @@ readable.exit:                                    ; preds = %44
   %80 = load i64, ptr %79, align 8, !noalias !38
   %81 = and i64 %80, 8192
   %.not.i.i30 = icmp eq i64 %81, 0
-  %82 = getelementptr inbounds i8, ptr %79, i64 24
+  %82 = getelementptr inbounds nuw i8, ptr %79, i64 24
   br i1 %.not.i.i30, label %RSTRING_PTR.exit, label %83
 
 83:                                               ; preds = %72
@@ -2484,7 +2484,7 @@ RSTRING_PTR.exit:                                 ; preds = %72, %83
   %86 = load i64, ptr %85, align 8, !noalias !41
   %87 = and i64 %86, 8192
   %.not.i.i31 = icmp eq i64 %87, 0
-  %88 = getelementptr inbounds i8, ptr %85, i64 24
+  %88 = getelementptr inbounds nuw i8, ptr %85, i64 24
   br i1 %.not.i.i31, label %RSTRING_PTR.exit34, label %89
 
 89:                                               ; preds = %RSTRING_PTR.exit
@@ -2493,7 +2493,7 @@ RSTRING_PTR.exit:                                 ; preds = %72, %83
 
 RSTRING_PTR.exit34:                               ; preds = %89, %RSTRING_PTR.exit
   %.sroa.2.0.i33 = phi ptr [ %.sroa.2.0.copyload.i32, %89 ], [ %88, %RSTRING_PTR.exit ]
-  %90 = getelementptr inbounds i8, ptr %.sroa.2.0.i33, i64 %.0.i26
+  %90 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.i33, i64 %.0.i26
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.2.0.i, ptr readonly align 1 %90, i64 %spec.select, i1 false)
   %91 = load i64, ptr %6, align 8
   br label %strio_substr.exit
@@ -2513,7 +2513,7 @@ define internal i64 @strio_write_m(i32 noundef %0, ptr nocapture noundef readonl
   %.047 = phi i32 [ %5, %.lr.ph ], [ %0, %3 ]
   %.056 = phi ptr [ %6, %.lr.ph ], [ %1, %3 ]
   %5 = add nsw i32 %.047, -1
-  %6 = getelementptr inbounds i8, ptr %.056, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %.056, i64 8
   %7 = load i64, ptr %.056, align 8
   %8 = tail call fastcc i64 @strio_write(i64 noundef %2, i64 noundef %7)
   %9 = add nsw i64 %8, %.08
@@ -2561,9 +2561,9 @@ get_strio.exit.i:                                 ; preds = %2
   br i1 %.not.i, label %17, label %11
 
 11:                                               ; preds = %get_strio.exit.i
-  %12 = getelementptr inbounds i8, ptr %8, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %15 = load i32, ptr %14, align 8
   %16 = and i32 %15, 2
   %.not3.i = icmp eq i32 %16, 0
@@ -2697,7 +2697,7 @@ get_strio.exit:                                   ; preds = %1
 
 10:                                               ; preds = %get_strio.exit
   %11 = inttoptr i64 %6 to ptr
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load i64, ptr %12, align 8
   %14 = icmp ult i64 %13, 4611686018427387904
   br i1 %14, label %15, label %18
@@ -2736,9 +2736,9 @@ get_strio.exit.i:                                 ; preds = %2
   br i1 %.not.i, label %16, label %10
 
 10:                                               ; preds = %get_strio.exit.i
-  %11 = getelementptr inbounds i8, ptr %7, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %14 = load i32, ptr %13, align 8
   %15 = and i32 %14, 2
   %.not3.i = icmp eq i32 %15, 0
@@ -2766,7 +2766,7 @@ writable.exit:                                    ; preds = %10
 rb_num2long_inline.exit:                          ; preds = %20, %22
   %.0.i = phi i64 [ %21, %20 ], [ %23, %22 ]
   %24 = inttoptr i64 %18 to ptr
-  %25 = getelementptr inbounds i8, ptr %24, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load i64, ptr %25, align 8
   %27 = icmp slt i64 %.0.i, 0
   br i1 %27, label %28, label %29
@@ -2784,7 +2784,7 @@ rb_num2long_inline.exit:                          ; preds = %20, %22
   %33 = load i64, ptr %24, align 8, !noalias !45
   %34 = and i64 %33, 8192
   %.not.i.i14 = icmp eq i64 %34, 0
-  %35 = getelementptr inbounds i8, ptr %24, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %24, i64 24
   br i1 %.not.i.i14, label %RSTRING_PTR.exit, label %36
 
 36:                                               ; preds = %32
@@ -2815,7 +2815,7 @@ define internal i64 @strio_external_encoding(i64 noundef %0) #0 {
   unreachable
 
 get_strio.exit:                                   ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %8, label %11
@@ -2876,13 +2876,13 @@ get_strio.exit:                                   ; preds = %3
   %25 = call i64 @rb_str_append(i64 noundef %23, i64 noundef %24) #14
   store i64 %25, ptr %10, align 8
   call void @rb_io_extract_modeenc(ptr noundef nonnull %10, ptr noundef null, i64 noundef 4, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %7) #14
-  %26 = getelementptr inbounds i8, ptr %7, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %27 = load ptr, ptr %26, align 8
   br label %28
 
 28:                                               ; preds = %20, %22, %18
   %.0 = phi ptr [ %19, %18 ], [ %21, %20 ], [ %27, %22 ]
-  %29 = getelementptr inbounds i8, ptr %12, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %.0, ptr %29, align 8
   %30 = inttoptr i64 %2 to ptr
   %31 = load i64, ptr %30, align 8
@@ -2891,9 +2891,9 @@ get_strio.exit:                                   ; preds = %3
   br i1 %.not11, label %42, label %33
 
 33:                                               ; preds = %28
-  %34 = getelementptr inbounds i8, ptr %30, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %30, i64 32
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 32
   %37 = load i32, ptr %36, align 8
   %38 = and i32 %37, 2
   %.not12 = icmp eq i32 %38, 0
@@ -2926,7 +2926,7 @@ get_strio.exit:                                   ; preds = %1
   br i1 %.not, label %11, label %7
 
 7:                                                ; preds = %get_strio.exit
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i64 @rb_enc_from_encoding(ptr noundef %9) #14
   br label %11
@@ -3112,7 +3112,7 @@ define internal void @strio_mark(ptr nocapture noundef readonly %0) #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal void @strio_free(ptr noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 36
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %3 = load i32, ptr %2, align 4
   %4 = add nsw i32 %3, -1
   store i32 %4, ptr %2, align 4
@@ -3165,7 +3165,7 @@ define internal noundef i64 @strio_finalize(i64 noundef returned %0) #0 {
 
 get_strio.exit:                                   ; preds = %1
   store i64 4, ptr %3, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %7 = load i32, ptr %6, align 8
   %8 = and i32 %7, -4
   store i32 %8, ptr %6, align 8
@@ -3208,7 +3208,7 @@ define internal fastcc noundef i64 @strio_init(i32 noundef %0, ptr noundef %1, p
   %9 = alloca %struct.rb_io_encoding, align 8
   %10 = call i32 (i32, ptr, ptr, ...) @rb_scan_args(i32 noundef %0, ptr noundef %1, ptr noundef nonnull @.str.76, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #14
   %11 = load i64, ptr %7, align 8
-  %12 = getelementptr inbounds i8, ptr %2, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 32
   call void @rb_io_extract_modeenc(ptr noundef nonnull %6, ptr noundef null, i64 noundef %11, ptr noundef nonnull %8, ptr noundef nonnull %12, ptr noundef nonnull %9) #14
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %15, label %13
@@ -3292,9 +3292,9 @@ rb_obj_write.exit:                                ; preds = %37, %43
 
 50:                                               ; preds = %48, %45
   %.sink = phi ptr [ %47, %45 ], [ %49, %48 ]
-  %51 = getelementptr inbounds i8, ptr %2, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %.sink, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %2, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %2, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %52, i8 0, i64 16, i1 false)
   %53 = load i32, ptr %12, align 8
   %54 = and i32 %53, 1048576
@@ -3345,7 +3345,7 @@ define internal fastcc ptr @set_encoding_by_bom(ptr nocapture noundef nonnull in
   %4 = load i64, ptr %3, align 8, !noalias !49
   %5 = and i64 %4, 8192
   %.not.i.i = icmp eq i64 %5, 0
-  %6 = getelementptr inbounds i8, ptr %3, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
   br i1 %.not.i.i, label %rbimpl_rstring_getmem.exit.i, label %7
 
 7:                                                ; preds = %1
@@ -3354,7 +3354,7 @@ define internal fastcc ptr @set_encoding_by_bom(ptr nocapture noundef nonnull in
 
 rbimpl_rstring_getmem.exit.i:                     ; preds = %7, %1
   %.sroa.3.0.i = phi ptr [ %.sroa.3.0.copyload.i, %7 ], [ %6, %1 ]
-  %.sroa.1.0.in.i = getelementptr inbounds i8, ptr %3, i64 16
+  %.sroa.1.0.in.i = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.sroa.1.0.i = load i64, ptr %.sroa.1.0.in.i, align 8
   %8 = icmp slt i64 %.sroa.1.0.i, 1
   br i1 %8, label %detect_bom.exit.thread, label %9
@@ -3373,7 +3373,7 @@ rbimpl_rstring_getmem.exit.i:                     ; preds = %7, %1
   br i1 %12, label %detect_bom.exit.thread, label %13
 
 13:                                               ; preds = %11
-  %14 = getelementptr inbounds i8, ptr %.sroa.3.0.i, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i, i64 1
   %15 = load i8, ptr %14, align 1
   %16 = icmp eq i8 %15, -69
   %17 = icmp samesign ugt i64 %.sroa.1.0.i, 2
@@ -3381,7 +3381,7 @@ rbimpl_rstring_getmem.exit.i:                     ; preds = %7, %1
   br i1 %or.cond.i, label %18, label %detect_bom.exit.thread
 
 18:                                               ; preds = %13
-  %19 = getelementptr inbounds i8, ptr %.sroa.3.0.i, i64 2
+  %19 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i, i64 2
   %20 = load i8, ptr %19, align 1
   %21 = icmp eq i8 %20, -65
   br i1 %21, label %22, label %detect_bom.exit.thread
@@ -3395,7 +3395,7 @@ rbimpl_rstring_getmem.exit.i:                     ; preds = %7, %1
   br i1 %25, label %detect_bom.exit.thread, label %26
 
 26:                                               ; preds = %24
-  %27 = getelementptr inbounds i8, ptr %.sroa.3.0.i, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i, i64 1
   %28 = load i8, ptr %27, align 1
   %29 = icmp eq i8 %28, -1
   br i1 %29, label %30, label %detect_bom.exit.thread
@@ -3409,7 +3409,7 @@ rbimpl_rstring_getmem.exit.i:                     ; preds = %7, %1
   br i1 %33, label %detect_bom.exit.thread, label %34
 
 34:                                               ; preds = %32
-  %35 = getelementptr inbounds i8, ptr %.sroa.3.0.i, i64 1
+  %35 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i, i64 1
   %36 = load i8, ptr %35, align 1
   %37 = icmp eq i8 %36, -2
   br i1 %37, label %38, label %detect_bom.exit.thread
@@ -3419,13 +3419,13 @@ rbimpl_rstring_getmem.exit.i:                     ; preds = %7, %1
   br i1 %39, label %40, label %50
 
 40:                                               ; preds = %38
-  %41 = getelementptr inbounds i8, ptr %.sroa.3.0.i, i64 2
+  %41 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i, i64 2
   %42 = load i8, ptr %41, align 1
   %43 = icmp eq i8 %42, 0
   br i1 %43, label %44, label %50
 
 44:                                               ; preds = %40
-  %45 = getelementptr inbounds i8, ptr %.sroa.3.0.i, i64 3
+  %45 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i, i64 3
   %46 = load i8, ptr %45, align 1
   %47 = icmp eq i8 %46, 0
   br i1 %47, label %48, label %50
@@ -3443,19 +3443,19 @@ rbimpl_rstring_getmem.exit.i:                     ; preds = %7, %1
   br i1 %53, label %detect_bom.exit.thread, label %54
 
 54:                                               ; preds = %52
-  %55 = getelementptr inbounds i8, ptr %.sroa.3.0.i, i64 1
+  %55 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i, i64 1
   %56 = load i8, ptr %55, align 1
   %57 = icmp eq i8 %56, 0
   br i1 %57, label %58, label %detect_bom.exit.thread
 
 58:                                               ; preds = %54
-  %59 = getelementptr inbounds i8, ptr %.sroa.3.0.i, i64 2
+  %59 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i, i64 2
   %60 = load i8, ptr %59, align 1
   %61 = icmp eq i8 %60, -2
   br i1 %61, label %62, label %detect_bom.exit.thread
 
 62:                                               ; preds = %58
-  %63 = getelementptr inbounds i8, ptr %.sroa.3.0.i, i64 3
+  %63 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i, i64 3
   %64 = load i8, ptr %63, align 1
   %65 = icmp eq i8 %64, -1
   br i1 %65, label %66, label %detect_bom.exit.thread
@@ -3472,9 +3472,9 @@ detect_bom.exit:                                  ; preds = %22, %30, %48, %50, 
 
 68:                                               ; preds = %detect_bom.exit
   %69 = tail call ptr @rb_enc_from_index(i32 noundef %.0.i) #14
-  %70 = getelementptr inbounds i8, ptr %0, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.011, ptr %70, align 8
-  %71 = getelementptr inbounds i8, ptr %0, i64 32
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %72 = load i32, ptr %71, align 8
   %73 = and i32 %72, 2
   %.not10 = icmp eq i32 %73, 0
@@ -3487,7 +3487,7 @@ detect_bom.exit:                                  ; preds = %22, %30, %48, %50, 
 
 detect_bom.exit.thread:                           ; preds = %9, %11, %18, %13, %24, %26, %32, %34, %52, %62, %58, %54, %rbimpl_rstring_getmem.exit.i, %68, %74, %detect_bom.exit
   %.0 = phi ptr [ %69, %74 ], [ %69, %68 ], [ null, %detect_bom.exit ], [ null, %rbimpl_rstring_getmem.exit.i ], [ null, %54 ], [ null, %58 ], [ null, %62 ], [ null, %52 ], [ null, %34 ], [ null, %32 ], [ null, %26 ], [ null, %24 ], [ null, %13 ], [ null, %18 ], [ null, %11 ], [ null, %9 ]
-  %77 = getelementptr inbounds i8, ptr %0, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.0, ptr %77, align 8
   ret ptr %.0
 }
@@ -3634,7 +3634,7 @@ rb_num2long_inline.exit51:                        ; preds = %rb_num2long_inline.
   %54 = phi i1 [ true, %rb_num2long_inline.exit51.thread56 ], [ %51, %rb_num2long_inline.exit51 ]
   %55 = phi i64 [ %27, %rb_num2long_inline.exit51.thread56 ], [ %50, %rb_num2long_inline.exit51 ]
   %56 = call ptr @rb_enc_get(i64 noundef %55) #14
-  %57 = getelementptr inbounds i8, ptr %0, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %58 = load ptr, ptr %57, align 8
   %.not = icmp eq ptr %58, null
   br i1 %.not, label %59, label %62
@@ -3658,7 +3658,7 @@ rb_num2long_inline.exit51:                        ; preds = %rb_num2long_inline.
 
 66:                                               ; preds = %64
   %67 = inttoptr i64 %.pre to ptr
-  %68 = getelementptr inbounds i8, ptr %67, i64 16
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 16
   %69 = load i64, ptr %68, align 8
   %70 = icmp sgt i64 %69, 0
   br i1 %70, label %71, label %rb_num2long_inline.exit51.thread
@@ -3700,9 +3700,9 @@ rb_num2long_inline.exit51.thread:                 ; preds = %15, %62, %66, %rb_e
   %.03955 = phi i64 [ %.03958, %62 ], [ %.03958, %66 ], [ %.03958, %rb_enc_asciicompat.exit ], [ %.03958, %76 ], [ %.039, %rb_num2long_inline.exit51 ], [ -1, %15 ]
   %84 = phi i1 [ %54, %62 ], [ %54, %66 ], [ %54, %rb_enc_asciicompat.exit ], [ %54, %76 ], [ %51, %rb_num2long_inline.exit51 ], [ %13, %15 ]
   store i64 %83, ptr %1, align 8
-  %85 = getelementptr inbounds i8, ptr %1, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %.03955, ptr %85, align 8
-  %86 = getelementptr inbounds i8, ptr %1, i64 16
+  %86 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %87 = load i8, ptr %86, align 8
   %88 = and i8 %87, -2
   store i8 %88, ptr %86, align 8
@@ -3746,10 +3746,10 @@ rb_num2long_inline.exit51.thread:                 ; preds = %15, %62, %66, %rb_e
 ; Function Attrs: nounwind uwtable
 define internal fastcc i64 @strio_getline(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca [256 x i64], align 16
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = load i64, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %9, label %12
@@ -3761,11 +3761,11 @@ define internal fastcc i64 @strio_getline(ptr nocapture noundef nonnull readonly
 
 12:                                               ; preds = %2, %9
   %13 = phi ptr [ %11, %9 ], [ %8, %2 ]
-  %14 = getelementptr inbounds i8, ptr %1, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %15 = load i64, ptr %14, align 8
   %16 = load i64, ptr %1, align 8
   %17 = inttoptr i64 %16 to ptr
-  %18 = getelementptr inbounds i8, ptr %17, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load i64, ptr %18, align 8
   %.not166 = icmp slt i64 %15, %19
   br i1 %.not166, label %20, label %.loopexit
@@ -3774,7 +3774,7 @@ define internal fastcc i64 @strio_getline(ptr nocapture noundef nonnull readonly
   %21 = load i64, ptr %17, align 8, !noalias !52
   %22 = and i64 %21, 8192
   %.not.i.i = icmp eq i64 %22, 0
-  %23 = getelementptr inbounds i8, ptr %17, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %17, i64 24
   br i1 %.not.i.i, label %RSTRING_PTR.exit, label %24
 
 24:                                               ; preds = %20
@@ -3792,7 +3792,7 @@ RSTRING_PTR.exit:                                 ; preds = %20, %24
   br i1 %or.cond178, label %29, label %37
 
 29:                                               ; preds = %RSTRING_PTR.exit
-  %30 = getelementptr inbounds i8, ptr %26, i64 %5
+  %30 = getelementptr inbounds nuw i8, ptr %26, i64 %5
   %31 = load ptr, ptr %7, align 8
   %.not167 = icmp eq ptr %31, null
   br i1 %.not167, label %32, label %34
@@ -3812,7 +3812,7 @@ RSTRING_PTR.exit:                                 ; preds = %20, %24
   br i1 %38, label %39, label %69
 
 39:                                               ; preds = %37
-  %40 = getelementptr inbounds i8, ptr %0, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %41 = load i8, ptr %40, align 8
   %42 = and i8 %41, 1
   %.not177 = icmp ne i8 %42, 0
@@ -3848,7 +3848,7 @@ chomp_newline_width.exit:                         ; preds = %54, %50, %44, %39
   %58 = add i64 %.neg222, %.0143.neg240
   %.val = load i64, ptr %1, align 8
   %59 = inttoptr i64 %.val to ptr
-  %60 = getelementptr inbounds i8, ptr %59, i64 16
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %61 = load i64, ptr %60, align 8
   %62 = sub nsw i64 %61, %55
   %spec.select.i = tail call i64 @llvm.smin.i64(i64 %58, i64 %62)
@@ -3866,7 +3866,7 @@ chomp_newline_width.exit:                         ; preds = %54, %50, %44, %39
 
 69:                                               ; preds = %37
   %70 = inttoptr i64 %6 to ptr
-  %71 = getelementptr inbounds i8, ptr %70, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 16
   %72 = load i64, ptr %71, align 8
   switch i64 %72, label %190 [
     i64 0, label %.preheader226
@@ -3890,13 +3890,13 @@ chomp_newline_width.exit:                         ; preds = %54, %50, %44, %39
   br i1 %81, label %.lr.ph, label %.critedge2
 
 82:                                               ; preds = %.preheader226
-  %83 = getelementptr inbounds i8, ptr %.0149, i64 1
+  %83 = getelementptr inbounds nuw i8, ptr %.0149, i64 1
   %84 = icmp eq ptr %83, %.0145
   br i1 %84, label %.loopexit, label %.preheader226, !llvm.loop !55
 
 .lr.ph:                                           ; preds = %.preheader224, %100
   %85 = phi ptr [ %103, %100 ], [ %78, %.preheader224 ]
-  %86 = getelementptr inbounds i8, ptr %85, i64 1
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 1
   %87 = icmp ult ptr %86, %.0145
   br i1 %87, label %88, label %91
 
@@ -3906,7 +3906,7 @@ chomp_newline_width.exit:                         ; preds = %54, %50, %44, %39
   br i1 %90, label %107, label %91
 
 91:                                               ; preds = %88, %.lr.ph
-  %92 = getelementptr inbounds i8, ptr %85, i64 2
+  %92 = getelementptr inbounds nuw i8, ptr %85, i64 2
   %93 = icmp ult ptr %92, %.0145
   br i1 %93, label %94, label %100
 
@@ -3948,7 +3948,7 @@ chomp_newline_width.exit:                         ; preds = %54, %50, %44, %39
   br i1 %116, label %.critedge, label %117
 
 117:                                              ; preds = %114, %112
-  %118 = getelementptr inbounds i8, ptr %.2151, i64 1
+  %118 = getelementptr inbounds nuw i8, ptr %.2151, i64 1
   %119 = icmp ult ptr %118, %.0145
   br i1 %119, label %120, label %.critedge2.loopexit
 
@@ -3964,7 +3964,7 @@ chomp_newline_width.exit:                         ; preds = %54, %50, %44, %39
 
 .critedge:                                        ; preds = %114, %123
   %126 = phi i64 [ 1, %114 ], [ 2, %123 ]
-  %127 = getelementptr inbounds i8, ptr %.2151, i64 %126
+  %127 = getelementptr inbounds nuw i8, ptr %.2151, i64 %126
   br label %112, !llvm.loop !57
 
 .critedge2.loopexit:                              ; preds = %120, %117, %123
@@ -3975,7 +3975,7 @@ chomp_newline_width.exit:                         ; preds = %54, %50, %44, %39
   %.pre-phi = phi i64 [ %.pre, %.critedge2.loopexit ], [ %75, %.preheader224 ], [ %75, %100 ]
   %.2147 = phi ptr [ %.2151, %.critedge2.loopexit ], [ %.0145, %.preheader224 ], [ %.0145, %100 ]
   %.0142 = phi ptr [ %111, %.critedge2.loopexit ], [ null, %.preheader224 ], [ null, %100 ]
-  %128 = getelementptr inbounds i8, ptr %0, i64 16
+  %128 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %129 = load i8, ptr %128, align 8
   %130 = and i8 %129, 1
   %131 = icmp ne i8 %130, 0
@@ -3989,7 +3989,7 @@ chomp_newline_width.exit:                         ; preds = %54, %50, %44, %39
   %136 = load i64, ptr %135, align 8, !noalias !58
   %137 = and i64 %136, 8192
   %.not.i.i184 = icmp eq i64 %137, 0
-  %138 = getelementptr inbounds i8, ptr %135, i64 24
+  %138 = getelementptr inbounds nuw i8, ptr %135, i64 24
   br i1 %.not.i.i184, label %RSTRING_PTR.exit187, label %139
 
 139:                                              ; preds = %.critedge2
@@ -4002,7 +4002,7 @@ RSTRING_PTR.exit187:                              ; preds = %.critedge2, %139
   %141 = sub i64 %76, %140
   %142 = sub i64 %.pre-phi, %76
   %143 = add i64 %142, %.1.neg
-  %144 = getelementptr inbounds i8, ptr %135, i64 16
+  %144 = getelementptr inbounds nuw i8, ptr %135, i64 16
   %145 = load i64, ptr %144, align 8
   %146 = sub nsw i64 %145, %141
   %spec.select.i188 = tail call i64 @llvm.smin.i64(i64 %143, i64 %146)
@@ -4022,7 +4022,7 @@ RSTRING_PTR.exit187:                              ; preds = %.critedge2, %139
   %154 = load i64, ptr %70, align 8, !noalias !61
   %155 = and i64 %154, 8192
   %.not.i.i191 = icmp eq i64 %155, 0
-  %156 = getelementptr inbounds i8, ptr %70, i64 24
+  %156 = getelementptr inbounds nuw i8, ptr %70, i64 24
   br i1 %.not.i.i191, label %RSTRING_PTR.exit194, label %157
 
 157:                                              ; preds = %153
@@ -4041,8 +4041,8 @@ RSTRING_PTR.exit194:                              ; preds = %153, %157
   br i1 %.not171, label %175, label %164
 
 164:                                              ; preds = %RSTRING_PTR.exit194
-  %165 = getelementptr inbounds i8, ptr %163, i64 1
-  %166 = getelementptr inbounds i8, ptr %0, i64 16
+  %165 = getelementptr inbounds nuw i8, ptr %163, i64 1
+  %166 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %167 = load i8, ptr %166, align 8
   %168 = and i8 %167, 1
   %.not172 = icmp eq i8 %168, 0
@@ -4068,7 +4068,7 @@ RSTRING_PTR.exit194:                              ; preds = %153, %157
   %179 = add i64 %178, %.2.neg
   %.val181 = load i64, ptr %1, align 8
   %180 = inttoptr i64 %.val181 to ptr
-  %181 = getelementptr inbounds i8, ptr %180, i64 16
+  %181 = getelementptr inbounds nuw i8, ptr %180, i64 16
   %182 = load i64, ptr %181, align 8
   %183 = sub nsw i64 %182, %176
   %spec.select.i195 = tail call i64 @llvm.smin.i64(i64 %179, i64 %183)
@@ -4088,7 +4088,7 @@ RSTRING_PTR.exit194:                              ; preds = %153, %157
   %191 = ptrtoint ptr %.0145 to i64
   %192 = ptrtoint ptr %26 to i64
   %193 = sub i64 %191, %192
-  %194 = getelementptr inbounds i8, ptr %0, i64 16
+  %194 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %195 = load i8, ptr %194, align 8
   %196 = and i8 %195, 1
   %197 = zext nneg i8 %196 to i64
@@ -4111,7 +4111,7 @@ RSTRING_PTR.exit194:                              ; preds = %153, %157
   %204 = load i64, ptr %70, align 8, !noalias !64
   %205 = and i64 %204, 8192
   %.not.i.i198 = icmp eq i64 %205, 0
-  %206 = getelementptr inbounds i8, ptr %70, i64 24
+  %206 = getelementptr inbounds nuw i8, ptr %70, i64 24
   br i1 %.not.i.i198, label %.lr.ph234.split.us, label %.lr.ph234.split
 
 .lr.ph234.split.us:                               ; preds = %.lr.ph234
@@ -4126,7 +4126,7 @@ RSTRING_PTR.exit201.us:                           ; preds = %.lr.ph238
 
 .lr.ph238:                                        ; preds = %.lr.ph234.split.us, %RSTRING_PTR.exit201.us
   %.3152233.us.pn = phi ptr [ %209, %RSTRING_PTR.exit201.us ], [ %26, %.lr.ph234.split.us ]
-  %209 = getelementptr inbounds i8, ptr %.3152233.us.pn, i64 1
+  %209 = getelementptr inbounds nuw i8, ptr %.3152233.us.pn, i64 1
   %210 = getelementptr inbounds i8, ptr %209, i64 %72
   %.not169.us = icmp ugt ptr %210, %.0145
   br i1 %.not169.us, label %bm_search.exit.thread, label %RSTRING_PTR.exit201.us, !llvm.loop !67
@@ -4139,7 +4139,7 @@ RSTRING_PTR.exit201.us:                           ; preds = %.lr.ph238
 
 .lr.ph236:                                        ; preds = %.lr.ph234.split, %RSTRING_PTR.exit201
   %.3152233.pn = phi ptr [ %212, %RSTRING_PTR.exit201 ], [ %26, %.lr.ph234.split ]
-  %212 = getelementptr inbounds i8, ptr %.3152233.pn, i64 1
+  %212 = getelementptr inbounds nuw i8, ptr %.3152233.pn, i64 1
   %213 = getelementptr inbounds i8, ptr %212, i64 %72
   %.not169 = icmp ugt ptr %213, %.0145
   br i1 %.not169, label %bm_search.exit.thread, label %RSTRING_PTR.exit201, !llvm.loop !67
@@ -4159,7 +4159,7 @@ RSTRING_PTR.exit201:                              ; preds = %.lr.ph236
   %217 = load i64, ptr %70, align 8, !noalias !68
   %218 = and i64 %217, 8192
   %.not.i.i202 = icmp eq i64 %218, 0
-  %219 = getelementptr inbounds i8, ptr %70, i64 24
+  %219 = getelementptr inbounds nuw i8, ptr %70, i64 24
   br i1 %.not.i.i202, label %RSTRING_PTR.exit205, label %220
 
 220:                                              ; preds = %216
@@ -4176,7 +4176,7 @@ RSTRING_PTR.exit205:                              ; preds = %216, %220
 
 222:                                              ; preds = %222, %RSTRING_PTR.exit205
   %indvars.iv.i = phi i64 [ 0, %RSTRING_PTR.exit205 ], [ %indvars.iv.next.i, %222 ]
-  %223 = getelementptr inbounds i64, ptr %3, i64 %indvars.iv.i
+  %223 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv.i
   store i64 %72, ptr %223, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 256
@@ -4185,10 +4185,10 @@ RSTRING_PTR.exit205:                              ; preds = %216, %220
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %224 = phi i64 [ %229, %.lr.ph.i ], [ %221, %.lr.ph.preheader.i ]
   %.0913.i = phi ptr [ %225, %.lr.ph.i ], [ %.sroa.2.0.i204, %.lr.ph.preheader.i ]
-  %225 = getelementptr inbounds i8, ptr %.0913.i, i64 1
+  %225 = getelementptr inbounds nuw i8, ptr %.0913.i, i64 1
   %226 = load i8, ptr %.0913.i, align 1
   %227 = zext i8 %226 to i64
-  %228 = getelementptr inbounds i64, ptr %3, i64 %227
+  %228 = getelementptr inbounds nuw i64, ptr %3, i64 %227
   store i64 %224, ptr %228, align 8
   %229 = add nsw i64 %224, -1
   %.not.i = icmp eq i64 %229, 0
@@ -4211,7 +4211,7 @@ bm_init_skip.exit:                                ; preds = %.lr.ph.i
   %.01822.us.i = phi i64 [ %221, %.preheader.us.i ], [ %246, %244 ]
   %232 = getelementptr inbounds i8, ptr %26, i64 %.023.us.i
   %233 = load i8, ptr %232, align 1
-  %234 = getelementptr inbounds i8, ptr %.sroa.2.0.i204, i64 %.01822.us.i
+  %234 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.i204, i64 %.01822.us.i
   %235 = load i8, ptr %234, align 1
   %236 = icmp eq i8 %233, %235
   br i1 %236, label %244, label %.critedge.us.i
@@ -4220,7 +4220,7 @@ bm_init_skip.exit:                                ; preds = %.lr.ph.i
   %237 = getelementptr inbounds i8, ptr %26, i64 %.01925.us.i
   %238 = load i8, ptr %237, align 1
   %239 = zext i8 %238 to i64
-  %240 = getelementptr inbounds i64, ptr %3, i64 %239
+  %240 = getelementptr inbounds nuw i64, ptr %3, i64 %239
   %241 = load i64, ptr %240, align 8
   %242 = add nsw i64 %241, %.01925.us.i
   %243 = icmp slt i64 %242, %193
@@ -4243,7 +4243,7 @@ bm_search.exit:                                   ; preds = %.preheader.lr.ph.i,
   br i1 %249, label %250, label %bm_search.exit.thread
 
 250:                                              ; preds = %bm_search.exit
-  %251 = getelementptr inbounds i8, ptr %26, i64 %.020.i
+  %251 = getelementptr inbounds nuw i8, ptr %26, i64 %.020.i
   %.not168 = icmp eq i8 %196, 0
   %252 = select i1 %.not168, i64 %72, i64 0
   %253 = getelementptr inbounds i8, ptr %251, i64 %252
@@ -4258,7 +4258,7 @@ bm_search.exit.thread:                            ; preds = %.critedge.us.i, %.l
   %257 = sub i64 %255, %256
   %.val182 = load i64, ptr %1, align 8
   %258 = inttoptr i64 %.val182 to ptr
-  %259 = getelementptr inbounds i8, ptr %258, i64 16
+  %259 = getelementptr inbounds nuw i8, ptr %258, i64 16
   %260 = load i64, ptr %259, align 8
   %261 = sub nsw i64 %260, %254
   %spec.select.i207 = tail call i64 @llvm.smin.i64(i64 %257, i64 %261)
@@ -4282,7 +4282,7 @@ strio_substr.exit:                                ; preds = %265, %263, %187, %1
   %270 = load i64, ptr %269, align 8, !noalias !75
   %271 = and i64 %270, 8192
   %.not.i.i210 = icmp eq i64 %271, 0
-  %272 = getelementptr inbounds i8, ptr %269, i64 24
+  %272 = getelementptr inbounds nuw i8, ptr %269, i64 24
   br i1 %.not.i.i210, label %RSTRING_PTR.exit213, label %273
 
 273:                                              ; preds = %strio_substr.exit
@@ -4295,7 +4295,7 @@ RSTRING_PTR.exit213:                              ; preds = %strio_substr.exit, 
   %275 = ptrtoint ptr %.sroa.2.0.i212 to i64
   %276 = sub i64 %274, %275
   store i64 %276, ptr %14, align 8
-  %277 = getelementptr inbounds i8, ptr %1, i64 24
+  %277 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %278 = load i64, ptr %277, align 8
   %279 = add nsw i64 %278, 1
   store i64 %279, ptr %277, align 8
@@ -4341,11 +4341,11 @@ declare i64 @rb_enc_uint_chr(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @strio_unget_bytes(ptr nocapture noundef nonnull %0, ptr nocapture noundef readonly %1, i64 noundef %2) unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8
   %6 = load i64, ptr %0, align 8
   %7 = inttoptr i64 %6 to ptr
-  %8 = getelementptr inbounds i8, ptr %7, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load i64, ptr %8, align 8
   %10 = sub nsw i64 %5, %9
   %11 = icmp sgt i64 %2, %5
@@ -4361,7 +4361,7 @@ define internal fastcc void @strio_unget_bytes(ptr nocapture noundef nonnull %0,
   %17 = load i64, ptr %7, align 8, !noalias !78
   %18 = and i64 %17, 8192
   %.not.i.i = icmp eq i64 %18, 0
-  %19 = getelementptr inbounds i8, ptr %7, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 24
   br i1 %.not.i.i, label %RSTRING_PTR.exit, label %20
 
 20:                                               ; preds = %12
@@ -4392,7 +4392,7 @@ RSTRING_PTR.exit:                                 ; preds = %12, %20
   %29 = load i64, ptr %7, align 8, !noalias !81
   %30 = and i64 %29, 8192
   %.not.i.i49 = icmp eq i64 %30, 0
-  %31 = getelementptr inbounds i8, ptr %7, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %7, i64 24
   br i1 %.not.i.i49, label %RSTRING_PTR.exit52, label %32
 
 32:                                               ; preds = %28
@@ -4482,9 +4482,9 @@ get_strio.exit.i:                                 ; preds = %2
   br i1 %.not.i, label %18, label %12
 
 12:                                               ; preds = %get_strio.exit.i
-  %13 = getelementptr inbounds i8, ptr %9, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %16 = load i32, ptr %15, align 8
   %17 = and i32 %16, 2
   %.not3.i = icmp eq i32 %17, 0
@@ -4517,7 +4517,7 @@ writable.exit:                                    ; preds = %12
 
 31:                                               ; preds = %.critedge, %25
   %32 = phi i64 [ %30, %.critedge ], [ %1, %25 ]
-  %33 = getelementptr inbounds i8, ptr %6, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %34 = load ptr, ptr %33, align 8
   %.not = icmp eq ptr %34, null
   br i1 %.not, label %35, label %38
@@ -4561,7 +4561,7 @@ writable.exit:                                    ; preds = %12
 50:                                               ; preds = %49, %41, %38
   %51 = phi i64 [ %44, %49 ], [ %32, %41 ], [ %32, %38 ]
   %52 = inttoptr i64 %51 to ptr
-  %53 = getelementptr inbounds i8, ptr %52, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %54 = load i64, ptr %53, align 8
   %55 = icmp eq i64 %54, 0
   br i1 %55, label %131, label %56
@@ -4590,14 +4590,14 @@ RB_OBJ_FROZEN.exit.thread.i:                      ; preds = %61, %56
   unreachable
 
 check_modifiable.exit:                            ; preds = %61
-  %69 = getelementptr inbounds i8, ptr %62, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %70 = load i64, ptr %69, align 8
-  %71 = getelementptr inbounds i8, ptr %6, i64 32
+  %71 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %72 = load i32, ptr %71, align 8
   %73 = and i32 %72, 64
   %.not76 = icmp eq i32 %73, 0
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %6, i64 16
-  %74 = getelementptr inbounds i8, ptr %6, i64 16
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %74 = getelementptr inbounds nuw i8, ptr %6, i64 16
   br i1 %.not76, label %75, label %.thread
 
 .thread:                                          ; preds = %check_modifiable.exit
@@ -4618,7 +4618,7 @@ check_modifiable.exit:                            ; preds = %61
   %80 = load i64, ptr %52, align 8, !noalias !84
   %81 = and i64 %80, 8192
   %.not.i.i80 = icmp eq i64 %81, 0
-  %82 = getelementptr inbounds i8, ptr %52, i64 24
+  %82 = getelementptr inbounds nuw i8, ptr %52, i64 24
   br i1 %.not.i.i80, label %RSTRING_PTR.exit, label %83
 
 83:                                               ; preds = %79
@@ -4675,7 +4675,7 @@ check_modifiable.exit.i:                          ; preds = %92
   %107 = load i64, ptr %106, align 8, !noalias !87
   %108 = and i64 %107, 8192
   %.not.i.i.i = icmp eq i64 %108, 0
-  %109 = getelementptr inbounds i8, ptr %106, i64 24
+  %109 = getelementptr inbounds nuw i8, ptr %106, i64 24
   br i1 %.not.i.i.i, label %RSTRING_PTR.exit.i, label %110
 
 110:                                              ; preds = %105
@@ -4698,7 +4698,7 @@ strio_extend.exit:                                ; preds = %check_modifiable.ex
   %116 = load i64, ptr %115, align 8, !noalias !90
   %117 = and i64 %116, 8192
   %.not.i.i81 = icmp eq i64 %117, 0
-  %118 = getelementptr inbounds i8, ptr %115, i64 24
+  %118 = getelementptr inbounds nuw i8, ptr %115, i64 24
   br i1 %.not.i.i81, label %RSTRING_PTR.exit84, label %119
 
 119:                                              ; preds = %strio_extend.exit
@@ -4712,7 +4712,7 @@ RSTRING_PTR.exit84:                               ; preds = %strio_extend.exit, 
   %122 = load i64, ptr %52, align 8, !noalias !93
   %123 = and i64 %122, 8192
   %.not.i.i85 = icmp eq i64 %123, 0
-  %124 = getelementptr inbounds i8, ptr %52, i64 24
+  %124 = getelementptr inbounds nuw i8, ptr %52, i64 24
   br i1 %.not.i.i85, label %RSTRING_PTR.exit88, label %125
 
 125:                                              ; preds = %RSTRING_PTR.exit84

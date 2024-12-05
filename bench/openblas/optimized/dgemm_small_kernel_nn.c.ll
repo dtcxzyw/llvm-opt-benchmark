@@ -1344,7 +1344,7 @@ define noundef i32 @dgemm_small_kernel_nn(i64 noundef %0, i64 noundef %1, i64 no
   br label %963
 
 963:                                              ; preds = %961, %932
-  %964 = getelementptr inbounds double, ptr %897, i64 %933
+  %964 = getelementptr inbounds nuw double, ptr %897, i64 %933
   store <4 x double> %953, ptr %964, align 1, !tbaa !3
   br label %965
 

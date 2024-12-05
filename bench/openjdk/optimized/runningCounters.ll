@@ -16,14 +16,14 @@ define hidden noundef i64 @_ZN9metaspace15RunningCounters14reserved_wordsEv() lo
   br i1 %.not.i, label %_ZN9metaspace15RunningCounters20reserved_words_classEv.exit, label %2
 
 2:                                                ; preds = %0
-  %3 = getelementptr inbounds i8, ptr %1, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load i64, ptr %3, align 8
   br label %_ZN9metaspace15RunningCounters20reserved_words_classEv.exit
 
 _ZN9metaspace15RunningCounters20reserved_words_classEv.exit: ; preds = %0, %2
   %5 = phi i64 [ %4, %2 ], [ 0, %0 ]
   %6 = tail call noundef ptr @_ZN9metaspace16VirtualSpaceList15vslist_nonclassEv() #4
-  %7 = getelementptr inbounds i8, ptr %6, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %8 = load i64, ptr %7, align 8
   %9 = add i64 %8, %5
   ret i64 %9
@@ -36,7 +36,7 @@ define hidden noundef i64 @_ZN9metaspace15RunningCounters20reserved_words_classE
   br i1 %.not, label %5, label %2
 
 2:                                                ; preds = %0
-  %3 = getelementptr inbounds i8, ptr %1, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load i64, ptr %3, align 8
   br label %5
 
@@ -48,7 +48,7 @@ define hidden noundef i64 @_ZN9metaspace15RunningCounters20reserved_words_classE
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i64 @_ZN9metaspace15RunningCounters23reserved_words_nonclassEv() local_unnamed_addr #0 align 2 {
   %1 = tail call noundef ptr @_ZN9metaspace16VirtualSpaceList15vslist_nonclassEv() #4
-  %2 = getelementptr inbounds i8, ptr %1, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %3 = load i64, ptr %2, align 8
   ret i64 %3
 }
@@ -64,14 +64,14 @@ define hidden noundef i64 @_ZN9metaspace15RunningCounters15committed_wordsEv() l
   br i1 %.not.i, label %_ZN9metaspace15RunningCounters21committed_words_classEv.exit, label %2
 
 2:                                                ; preds = %0
-  %3 = getelementptr inbounds i8, ptr %1, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %4 = load i64, ptr %3, align 8
   br label %_ZN9metaspace15RunningCounters21committed_words_classEv.exit
 
 _ZN9metaspace15RunningCounters21committed_words_classEv.exit: ; preds = %0, %2
   %5 = phi i64 [ %4, %2 ], [ 0, %0 ]
   %6 = tail call noundef ptr @_ZN9metaspace16VirtualSpaceList15vslist_nonclassEv() #4
-  %7 = getelementptr inbounds i8, ptr %6, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %8 = load i64, ptr %7, align 8
   %9 = add i64 %8, %5
   ret i64 %9
@@ -84,7 +84,7 @@ define hidden noundef i64 @_ZN9metaspace15RunningCounters21committed_words_class
   br i1 %.not, label %5, label %2
 
 2:                                                ; preds = %0
-  %3 = getelementptr inbounds i8, ptr %1, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %4 = load i64, ptr %3, align 8
   br label %5
 
@@ -96,7 +96,7 @@ define hidden noundef i64 @_ZN9metaspace15RunningCounters21committed_words_class
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i64 @_ZN9metaspace15RunningCounters24committed_words_nonclassEv() local_unnamed_addr #0 align 2 {
   %1 = tail call noundef ptr @_ZN9metaspace16VirtualSpaceList15vslist_nonclassEv() #4
-  %2 = getelementptr inbounds i8, ptr %1, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %3 = load i64, ptr %2, align 8
   ret i64 %3
 }
@@ -128,14 +128,14 @@ define hidden noundef i64 @_ZN9metaspace15RunningCounters17free_chunks_wordsEv()
   br i1 %.not.i, label %_ZN9metaspace15RunningCounters23free_chunks_words_classEv.exit, label %2
 
 2:                                                ; preds = %0
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = tail call noundef i64 @_ZNK9metaspace19FreeChunkListVector9word_sizeEv(ptr noundef nonnull align 8 dereferenceable(360) %3) #4
   br label %_ZN9metaspace15RunningCounters23free_chunks_words_classEv.exit
 
 _ZN9metaspace15RunningCounters23free_chunks_words_classEv.exit: ; preds = %0, %2
   %5 = phi i64 [ %4, %2 ], [ 0, %0 ]
   %6 = tail call noundef ptr @_ZN9metaspace12ChunkManager21chunkmanager_nonclassEv() #4
-  %7 = getelementptr inbounds i8, ptr %6, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = tail call noundef i64 @_ZNK9metaspace19FreeChunkListVector9word_sizeEv(ptr noundef nonnull align 8 dereferenceable(360) %7) #4
   %9 = add i64 %8, %5
   ret i64 %9
@@ -148,7 +148,7 @@ define hidden noundef i64 @_ZN9metaspace15RunningCounters23free_chunks_words_cla
   br i1 %.not, label %5, label %2
 
 2:                                                ; preds = %0
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = tail call noundef i64 @_ZNK9metaspace19FreeChunkListVector9word_sizeEv(ptr noundef nonnull align 8 dereferenceable(360) %3) #4
   br label %5
 
@@ -160,7 +160,7 @@ define hidden noundef i64 @_ZN9metaspace15RunningCounters23free_chunks_words_cla
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i64 @_ZN9metaspace15RunningCounters26free_chunks_words_nonclassEv() local_unnamed_addr #0 align 2 {
   %1 = tail call noundef ptr @_ZN9metaspace12ChunkManager21chunkmanager_nonclassEv() #4
-  %2 = getelementptr inbounds i8, ptr %1, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %3 = tail call noundef i64 @_ZNK9metaspace19FreeChunkListVector9word_sizeEv(ptr noundef nonnull align 8 dereferenceable(360) %2) #4
   ret i64 %3
 }

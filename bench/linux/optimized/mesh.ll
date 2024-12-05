@@ -51,43 +51,43 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @__cfg80211_join_mesh(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 align 16 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 960
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 960
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %8, 7
   br i1 %9, label %10, label %135
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %0, i64 960
-  %12 = getelementptr inbounds i8, ptr %0, i64 1044
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 960
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 1044
   %13 = load i32, ptr %12, align 4
   %14 = and i32 %13, 1024
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %16, label %20
 
 16:                                               ; preds = %10
-  %17 = getelementptr inbounds i8, ptr %2, i64 58
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 58
   %18 = load i8, ptr %17, align 2, !range !6, !noundef !7
   %19 = icmp eq i8 %18, 0
   br i1 %19, label %20, label %135
 
 20:                                               ; preds = %16, %10
-  %21 = getelementptr inbounds i8, ptr %6, i64 296
-  %22 = getelementptr inbounds i8, ptr %6, i64 400
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 296
+  %22 = getelementptr inbounds nuw i8, ptr %6, i64 400
   %23 = load i8, ptr %22, align 8
   %24 = icmp eq i8 %23, 0
   br i1 %24, label %25, label %135
 
 25:                                               ; preds = %20
-  %26 = getelementptr inbounds i8, ptr %2, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %27 = load i8, ptr %26, align 8
   %28 = icmp eq i8 %27, 0
   br i1 %28, label %135, label %29
 
 29:                                               ; preds = %25
   %30 = load ptr, ptr %0, align 32
-  %31 = getelementptr inbounds i8, ptr %30, i64 248
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 248
   %32 = load ptr, ptr %31, align 8
   %33 = icmp eq ptr %32, null
   br i1 %33, label %135, label %34
@@ -98,14 +98,14 @@ define dso_local i32 @__cfg80211_join_mesh(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %36, label %37, label %.thread
 
 37:                                               ; preds = %34
-  %38 = getelementptr inbounds i8, ptr %6, i64 304
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(32) %2, ptr noundef align 8 dereferenceable(32) %38, i64 32, i1 false)
+  %38 = getelementptr inbounds nuw i8, ptr %6, i64 304
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %38, i64 32, i1 false)
   %.pr = load ptr, ptr %2, align 8
   %39 = icmp eq ptr %.pr, null
   br i1 %39, label %40, label %.thread
 
 40:                                               ; preds = %37
-  %41 = getelementptr inbounds i8, ptr %0, i64 1272
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 1272
   br label %42
 
 42:                                               ; preds = %66, %40
@@ -117,7 +117,7 @@ define dso_local i32 @__cfg80211_join_mesh(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %47, label %66, label %48
 
 48:                                               ; preds = %42
-  %49 = getelementptr inbounds i8, ptr %46, i64 20
+  %49 = getelementptr inbounds nuw i8, ptr %46, i64 20
   %50 = load i32, ptr %49, align 4
   %51 = icmp sgt i32 %50, 0
   br i1 %51, label %52, label %.loopexit10
@@ -135,7 +135,7 @@ define dso_local i32 @__cfg80211_join_mesh(ptr noundef %0, ptr noundef %1, ptr n
 57:                                               ; preds = %55, %52
   %indvars.iv = phi i64 [ %indvars.iv.next, %55 ], [ 0, %52 ]
   %58 = getelementptr %struct.ieee80211_channel, ptr %53, i64 %indvars.iv
-  %59 = getelementptr inbounds i8, ptr %58, i64 12
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 12
   %60 = load i32, ptr %59, align 4
   %61 = and i32 %60, 11
   %62 = icmp eq i32 %61, 0
@@ -163,23 +163,23 @@ define dso_local i32 @__cfg80211_join_mesh(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %73, label %135, label %74
 
 74:                                               ; preds = %72
-  %75 = getelementptr inbounds i8, ptr %2, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 0, ptr %75, align 8
-  %76 = getelementptr inbounds i8, ptr %67, i64 4
+  %76 = getelementptr inbounds nuw i8, ptr %67, i64 4
   %77 = load i32, ptr %76, align 4
-  %78 = getelementptr inbounds i8, ptr %2, i64 12
+  %78 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 %77, ptr %78, align 4
   br label %.thread
 
 .thread:                                          ; preds = %34, %74, %37
   %79 = phi ptr [ %35, %34 ], [ %67, %74 ], [ %.pr, %37 ]
-  %80 = getelementptr inbounds i8, ptr %2, i64 88
+  %80 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %81 = load i32, ptr %80, align 8
   %82 = icmp eq i32 %81, 0
   br i1 %82, label %83, label %.loopexit
 
 83:                                               ; preds = %.thread
-  %84 = getelementptr inbounds i8, ptr %0, i64 1272
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 1272
   %85 = load i32, ptr %79, align 8
   %86 = zext i32 %85 to i64
   %87 = getelementptr [6 x ptr], ptr %84, i64 0, i64 %86
@@ -188,13 +188,13 @@ define dso_local i32 @__cfg80211_join_mesh(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %89, label %90, label %107
 
 90:                                               ; preds = %83
-  %91 = getelementptr inbounds i8, ptr %88, i64 24
+  %91 = getelementptr inbounds nuw i8, ptr %88, i64 24
   %92 = load i32, ptr %91, align 8
   %93 = icmp sgt i32 %92, 0
   br i1 %93, label %94, label %.loopexit
 
 94:                                               ; preds = %90
-  %95 = getelementptr inbounds i8, ptr %88, i64 8
+  %95 = getelementptr inbounds nuw i8, ptr %88, i64 8
   %96 = load ptr, ptr %95, align 8
   %97 = zext nneg i32 %92 to i64
   br label %98
@@ -226,7 +226,7 @@ define dso_local i32 @__cfg80211_join_mesh(ptr noundef %0, ptr noundef %1, ptr n
   br label %.loopexit
 
 .loopexit:                                        ; preds = %105, %109, %90, %.thread
-  %111 = tail call i32 @cfg80211_chandef_dfs_required(ptr noundef %11, ptr noundef %2, i32 noundef 7) #8
+  %111 = tail call i32 @cfg80211_chandef_dfs_required(ptr noundef nonnull %11, ptr noundef %2, i32 noundef 7) #8
   %112 = icmp slt i32 %111, 0
   br i1 %112, label %135, label %113
 
@@ -235,13 +235,13 @@ define dso_local i32 @__cfg80211_join_mesh(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %114, label %119, label %115
 
 115:                                              ; preds = %113
-  %116 = getelementptr inbounds i8, ptr %2, i64 452
+  %116 = getelementptr inbounds nuw i8, ptr %2, i64 452
   %117 = load i8, ptr %116, align 4, !range !6, !noundef !7
   %118 = icmp eq i8 %117, 0
   br i1 %118, label %135, label %119
 
 119:                                              ; preds = %115, %113
-  %120 = tail call zeroext i1 @cfg80211_reg_can_beacon(ptr noundef %11, ptr noundef %2, i32 noundef 7) #8
+  %120 = tail call zeroext i1 @cfg80211_reg_can_beacon(ptr noundef nonnull %11, ptr noundef %2, i32 noundef 7) #8
   br i1 %120, label %121, label %135
 
 121:                                              ; preds = %119
@@ -250,17 +250,17 @@ define dso_local i32 @__cfg80211_join_mesh(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %123, label %124, label %135
 
 124:                                              ; preds = %121
-  %125 = getelementptr inbounds i8, ptr %6, i64 368
-  %126 = getelementptr inbounds i8, ptr %2, i64 32
+  %125 = getelementptr inbounds nuw i8, ptr %6, i64 368
+  %126 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %127 = load ptr, ptr %126, align 8
   %128 = load i8, ptr %26, align 8
   %129 = zext i8 %128 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %125, ptr align 1 %127, i64 %129, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %125, ptr align 1 %127, i64 %129, i1 false)
   %130 = load i8, ptr %26, align 8
   store i8 %130, ptr %22, align 8
-  %131 = getelementptr inbounds i8, ptr %6, i64 336
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(32) %131, ptr noundef align 8 dereferenceable(32) %2, i64 32, i1 false)
-  %132 = getelementptr inbounds i8, ptr %2, i64 62
+  %131 = getelementptr inbounds nuw i8, ptr %6, i64 336
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %131, ptr noundef align 8 dereferenceable(32) %2, i64 32, i1 false)
+  %132 = getelementptr inbounds nuw i8, ptr %2, i64 62
   %133 = load i16, ptr %132, align 2
   %134 = zext i16 %133 to i32
   store i32 %134, ptr %21, align 8
@@ -285,7 +285,7 @@ declare dso_local zeroext i1 @cfg80211_reg_can_beacon(ptr noundef, ptr noundef, 
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
 define internal fastcc i32 @rdev_join_mesh(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #3 align 16 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 960
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 960
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_rdev_join_mesh, i64 8), i32 2) #8
           to label %26 [label %6], !srcloc !13
 
@@ -306,9 +306,9 @@ define internal fastcc i32 @rdev_join_mesh(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %14, label %19, label %15
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %13, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %17 = load ptr, ptr %16, align 8
-  %18 = tail call i32 @__SCT__tp_func_rdev_join_mesh(ptr noundef %17, ptr noundef %5, ptr noundef %1, ptr noundef %2, ptr noundef %3) #8
+  %18 = tail call i32 @__SCT__tp_func_rdev_join_mesh(ptr noundef %17, ptr noundef nonnull %5, ptr noundef %1, ptr noundef %2, ptr noundef %3) #8
   br label %19
 
 19:                                               ; preds = %15, %12
@@ -327,9 +327,9 @@ define internal fastcc i32 @rdev_join_mesh(ptr noundef %0, ptr noundef %1, ptr n
 
 26:                                               ; preds = %23, %19, %6, %4
   %27 = load ptr, ptr %0, align 32
-  %28 = getelementptr inbounds i8, ptr %27, i64 248
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 248
   %29 = load ptr, ptr %28, align 8
-  %30 = tail call i32 %29(ptr noundef %5, ptr noundef %1, ptr noundef %2, ptr noundef %3) #8
+  %30 = tail call i32 %29(ptr noundef nonnull %5, ptr noundef %1, ptr noundef %2, ptr noundef %3) #8
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_rdev_return_int, i64 8), i32 2) #8
           to label %51 [label %31], !srcloc !13
 
@@ -350,9 +350,9 @@ define internal fastcc i32 @rdev_join_mesh(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %39, label %44, label %40
 
 40:                                               ; preds = %37
-  %41 = getelementptr inbounds i8, ptr %38, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %42 = load ptr, ptr %41, align 8
-  %43 = tail call i32 @__SCT__tp_func_rdev_return_int(ptr noundef %42, ptr noundef %5, i32 noundef %30) #8
+  %43 = tail call i32 @__SCT__tp_func_rdev_return_int(ptr noundef %42, ptr noundef nonnull %5, i32 noundef %30) #8
   br label %44
 
 44:                                               ; preds = %40, %37
@@ -376,21 +376,21 @@ define internal fastcc i32 @rdev_join_mesh(ptr noundef %0, ptr noundef %1, ptr n
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @cfg80211_set_mesh_channel(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 align 16 {
   %4 = load ptr, ptr %0, align 32
-  %5 = getelementptr inbounds i8, ptr %4, i64 304
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 304
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %69, label %8
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %10 = load i32, ptr %9, align 8
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %12, label %76
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %1, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 352
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 352
   %16 = load volatile i64, ptr %15, align 8
   %17 = and i64 %16, 1
   %18 = icmp eq i64 %17, 0
@@ -398,7 +398,7 @@ define dso_local i32 @cfg80211_set_mesh_channel(ptr noundef %0, ptr nocapture no
 
 19:                                               ; preds = %12
   %20 = load ptr, ptr %2, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 960
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 960
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_rdev_libertas_set_mesh_channel, i64 8), i32 2) #8
           to label %42 [label %22], !srcloc !13
 
@@ -419,9 +419,9 @@ define dso_local i32 @cfg80211_set_mesh_channel(ptr noundef %0, ptr nocapture no
   br i1 %30, label %35, label %31
 
 31:                                               ; preds = %28
-  %32 = getelementptr inbounds i8, ptr %29, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %33 = load ptr, ptr %32, align 8
-  %34 = tail call i32 @__SCT__tp_func_rdev_libertas_set_mesh_channel(ptr noundef %33, ptr noundef %21, ptr noundef %14, ptr noundef %20) #8
+  %34 = tail call i32 @__SCT__tp_func_rdev_libertas_set_mesh_channel(ptr noundef %33, ptr noundef nonnull %21, ptr noundef %14, ptr noundef %20) #8
   br label %35
 
 35:                                               ; preds = %31, %28
@@ -440,9 +440,9 @@ define dso_local i32 @cfg80211_set_mesh_channel(ptr noundef %0, ptr nocapture no
 
 42:                                               ; preds = %39, %35, %22, %19
   %43 = load ptr, ptr %0, align 32
-  %44 = getelementptr inbounds i8, ptr %43, i64 304
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 304
   %45 = load ptr, ptr %44, align 8
-  %46 = tail call i32 %45(ptr noundef %21, ptr noundef %14, ptr noundef %20) #8
+  %46 = tail call i32 %45(ptr noundef nonnull %21, ptr noundef %14, ptr noundef %20) #8
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_rdev_return_int, i64 8), i32 2) #8
           to label %67 [label %47], !srcloc !13
 
@@ -463,9 +463,9 @@ define dso_local i32 @cfg80211_set_mesh_channel(ptr noundef %0, ptr nocapture no
   br i1 %55, label %60, label %56
 
 56:                                               ; preds = %53
-  %57 = getelementptr inbounds i8, ptr %54, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %58 = load ptr, ptr %57, align 8
-  %59 = tail call i32 @__SCT__tp_func_rdev_return_int(ptr noundef %58, ptr noundef %21, i32 noundef %46) #8
+  %59 = tail call i32 @__SCT__tp_func_rdev_return_int(ptr noundef %58, ptr noundef nonnull %21, i32 noundef %46) #8
   br label %60
 
 60:                                               ; preds = %56, %53
@@ -487,15 +487,15 @@ define dso_local i32 @cfg80211_set_mesh_channel(ptr noundef %0, ptr nocapture no
   br i1 %68, label %73, label %76
 
 69:                                               ; preds = %3
-  %70 = getelementptr inbounds i8, ptr %1, i64 400
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 400
   %71 = load i8, ptr %70, align 8
   %72 = icmp eq i8 %71, 0
   br i1 %72, label %73, label %76
 
 73:                                               ; preds = %69, %67
   %74 = phi i64 [ 336, %67 ], [ 304, %69 ]
-  %75 = getelementptr inbounds i8, ptr %1, i64 %74
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(32) %75, ptr noundef align 8 dereferenceable(32) %2, i64 32, i1 false)
+  %75 = getelementptr inbounds nuw i8, ptr %1, i64 %74
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %75, ptr noundef align 8 dereferenceable(32) %2, i64 32, i1 false)
   br label %76
 
 76:                                               ; preds = %73, %69, %67, %12, %8
@@ -505,29 +505,29 @@ define dso_local i32 @cfg80211_set_mesh_channel(ptr noundef %0, ptr nocapture no
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @cfg80211_leave_mesh(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 960
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 960
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, 7
   br i1 %7, label %8, label %121
 
 8:                                                ; preds = %2
   %9 = load ptr, ptr %0, align 32
-  %10 = getelementptr inbounds i8, ptr %9, i64 256
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 256
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %121, label %13
 
 13:                                               ; preds = %8
-  %14 = getelementptr inbounds i8, ptr %4, i64 296
-  %15 = getelementptr inbounds i8, ptr %4, i64 400
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 296
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 400
   %16 = load i8, ptr %15, align 8
   %17 = icmp eq i8 %16, 0
   br i1 %17, label %121, label %18
 
 18:                                               ; preds = %13
-  %19 = getelementptr inbounds i8, ptr %0, i64 960
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 960
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_rdev_leave_mesh, i64 8), i32 2) #8
           to label %40 [label %20], !srcloc !13
 
@@ -548,9 +548,9 @@ define dso_local i32 @cfg80211_leave_mesh(ptr noundef %0, ptr noundef %1) local_
   br i1 %28, label %33, label %29
 
 29:                                               ; preds = %26
-  %30 = getelementptr inbounds i8, ptr %27, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %31 = load ptr, ptr %30, align 8
-  %32 = tail call i32 @__SCT__tp_func_rdev_leave_mesh(ptr noundef %31, ptr noundef %19, ptr noundef %1) #8
+  %32 = tail call i32 @__SCT__tp_func_rdev_leave_mesh(ptr noundef %31, ptr noundef nonnull %19, ptr noundef %1) #8
   br label %33
 
 33:                                               ; preds = %29, %26
@@ -569,9 +569,9 @@ define dso_local i32 @cfg80211_leave_mesh(ptr noundef %0, ptr noundef %1) local_
 
 40:                                               ; preds = %37, %33, %20, %18
   %41 = load ptr, ptr %0, align 32
-  %42 = getelementptr inbounds i8, ptr %41, i64 256
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 256
   %43 = load ptr, ptr %42, align 8
-  %44 = tail call i32 %43(ptr noundef %19, ptr noundef %1) #8
+  %44 = tail call i32 %43(ptr noundef nonnull %19, ptr noundef %1) #8
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_rdev_return_int, i64 8), i32 2) #8
           to label %65 [label %45], !srcloc !13
 
@@ -592,9 +592,9 @@ define dso_local i32 @cfg80211_leave_mesh(ptr noundef %0, ptr noundef %1) local_
   br i1 %53, label %58, label %54
 
 54:                                               ; preds = %51
-  %55 = getelementptr inbounds i8, ptr %52, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %56 = load ptr, ptr %55, align 8
-  %57 = tail call i32 @__SCT__tp_func_rdev_return_int(ptr noundef %56, ptr noundef %19, i32 noundef %44) #8
+  %57 = tail call i32 @__SCT__tp_func_rdev_return_int(ptr noundef %56, ptr noundef nonnull %19, i32 noundef %44) #8
   br label %58
 
 58:                                               ; preds = %54, %51
@@ -616,14 +616,14 @@ define dso_local i32 @cfg80211_leave_mesh(ptr noundef %0, ptr noundef %1) local_
   br i1 %66, label %67, label %121
 
 67:                                               ; preds = %65
-  %68 = getelementptr inbounds i8, ptr %4, i64 100
+  %68 = getelementptr inbounds nuw i8, ptr %4, i64 100
   store i32 0, ptr %68, align 4
   store i8 0, ptr %15, align 8
   store i32 0, ptr %14, align 8
-  %69 = getelementptr inbounds i8, ptr %4, i64 336
-  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(32) %69, i8 0, i64 32, i1 false)
+  %69 = getelementptr inbounds nuw i8, ptr %4, i64 336
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %69, i8 0, i64 32, i1 false)
   %70 = load ptr, ptr %0, align 32
-  %71 = getelementptr inbounds i8, ptr %70, i64 720
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 720
   %72 = load ptr, ptr %71, align 8
   %73 = icmp eq ptr %72, null
   br i1 %73, label %120, label %74
@@ -649,9 +649,9 @@ define dso_local i32 @cfg80211_leave_mesh(ptr noundef %0, ptr noundef %1) local_
   br i1 %83, label %88, label %84
 
 84:                                               ; preds = %81
-  %85 = getelementptr inbounds i8, ptr %82, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %86 = load ptr, ptr %85, align 8
-  %87 = tail call i32 @__SCT__tp_func_rdev_set_qos_map(ptr noundef %86, ptr noundef %19, ptr noundef %1, ptr noundef null) #8
+  %87 = tail call i32 @__SCT__tp_func_rdev_set_qos_map(ptr noundef %86, ptr noundef nonnull %19, ptr noundef %1, ptr noundef null) #8
   br label %88
 
 88:                                               ; preds = %84, %81
@@ -670,9 +670,9 @@ define dso_local i32 @cfg80211_leave_mesh(ptr noundef %0, ptr noundef %1) local_
 
 95:                                               ; preds = %92, %88, %75, %74
   %96 = load ptr, ptr %0, align 32
-  %97 = getelementptr inbounds i8, ptr %96, i64 720
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 720
   %98 = load ptr, ptr %97, align 8
-  %99 = tail call i32 %98(ptr noundef %19, ptr noundef %1, ptr noundef null) #8
+  %99 = tail call i32 %98(ptr noundef nonnull %19, ptr noundef %1, ptr noundef null) #8
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_rdev_return_int, i64 8), i32 2) #8
           to label %120 [label %100], !srcloc !13
 
@@ -693,9 +693,9 @@ define dso_local i32 @cfg80211_leave_mesh(ptr noundef %0, ptr noundef %1) local_
   br i1 %108, label %113, label %109
 
 109:                                              ; preds = %106
-  %110 = getelementptr inbounds i8, ptr %107, i64 8
+  %110 = getelementptr inbounds nuw i8, ptr %107, i64 8
   %111 = load ptr, ptr %110, align 8
-  %112 = tail call i32 @__SCT__tp_func_rdev_return_int(ptr noundef %111, ptr noundef %19, i32 noundef %99) #8
+  %112 = tail call i32 @__SCT__tp_func_rdev_return_int(ptr noundef %111, ptr noundef nonnull %19, i32 noundef %99) #8
   br label %113
 
 113:                                              ; preds = %109, %106

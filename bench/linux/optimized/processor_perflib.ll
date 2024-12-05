@@ -93,7 +93,7 @@ define dso_local void @acpi_processor_ppc_has_changed(ptr noundef %0, i32 nounde
   br i1 %4, label %5, label %9
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 632
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 632
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %16
@@ -131,7 +131,7 @@ define dso_local void @acpi_processor_ppc_has_changed(ptr noundef %0, i32 nounde
   br i1 %26, label %27, label %30
 
 27:                                               ; preds = %25
-  %28 = getelementptr inbounds i8, ptr %0, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %29 = load i32, ptr %28, align 8
   tail call void @cpufreq_update_limits(i32 noundef %29) #11
   br label %30
@@ -170,15 +170,15 @@ define internal fastcc noundef range(i32 -22, 1) i32 @acpi_processor_get_platfor
 12:                                               ; preds = %8, %4
   %13 = load i64, ptr %2, align 8
   %14 = trunc i64 %13 to i32
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load i32, ptr %15, align 8
   %17 = icmp eq i32 %16, %14
   br i1 %17, label %51, label %18
 
 18:                                               ; preds = %12
-  %19 = getelementptr inbounds i8, ptr %0, i64 632
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 632
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 40
   %22 = load i32, ptr %21, align 8
   %23 = zext i32 %22 to i64
   %24 = icmp ult i64 %13, %23
@@ -186,8 +186,8 @@ define internal fastcc noundef range(i32 -22, 1) i32 @acpi_processor_get_platfor
 
 25:                                               ; preds = %18
   store i32 %14, ptr %15, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 880
-  %27 = getelementptr inbounds i8, ptr %0, i64 928
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 880
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %28 = load ptr, ptr %27, align 8
   %29 = icmp eq ptr %28, null
   %30 = icmp ugt ptr %28, inttoptr (i64 -4096 to ptr)
@@ -199,7 +199,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @acpi_processor_get_platfor
   br i1 %33, label %43, label %34
 
 34:                                               ; preds = %32
-  %35 = getelementptr inbounds i8, ptr %20, i64 48
+  %35 = getelementptr inbounds nuw i8, ptr %20, i64 48
   %36 = load ptr, ptr %35, align 8
   %37 = shl nuw i64 %13, 32
   %38 = ashr exact i64 %37, 32
@@ -211,12 +211,12 @@ define internal fastcc noundef range(i32 -22, 1) i32 @acpi_processor_get_platfor
 
 43:                                               ; preds = %34, %32
   %44 = phi i32 [ %42, %34 ], [ 2147483647, %32 ]
-  %45 = call i32 @freq_qos_update_request(ptr noundef %26, i32 noundef %44) #11
+  %45 = call i32 @freq_qos_update_request(ptr noundef nonnull %26, i32 noundef %44) #11
   %46 = icmp slt i32 %45, 0
   br i1 %46, label %47, label %51
 
 47:                                               ; preds = %43
-  %48 = getelementptr inbounds i8, ptr %0, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %49 = load i32, ptr %48, align 8
   %50 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.13, i32 noundef %49, i32 noundef %45) #12
   br label %51
@@ -245,21 +245,21 @@ define dso_local noundef range(i32 -19, 1) i32 @acpi_processor_get_bios_limit(i3
   br i1 %9, label %28, label %10
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %8, i64 632
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 632
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
   br i1 %13, label %28, label %14
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %12, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %16 = load i32, ptr %15, align 8
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %28, label %18
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds i8, ptr %12, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %12, i64 48
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %8, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %22 = load i32, ptr %21, align 8
   %23 = sext i32 %22 to i64
   %24 = getelementptr %struct.acpi_processor_px, ptr %20, i64 %23
@@ -290,8 +290,8 @@ define dso_local void @acpi_processor_ignore_ppc_init() local_unnamed_addr #4 al
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @acpi_processor_ppc_init(ptr noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 144
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
   br label %4
 
 4:                                                ; preds = %1, %29
@@ -319,10 +319,10 @@ define dso_local void @acpi_processor_ppc_init(ptr noundef %0) local_unnamed_add
   br i1 %21, label %29, label %22
 
 22:                                               ; preds = %14
-  %23 = getelementptr inbounds i8, ptr %20, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 0, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %20, i64 880
-  %25 = tail call i32 @freq_qos_add_request(ptr noundef %3, ptr noundef %24, i32 noundef 2, i32 noundef 2147483647) #11
+  %24 = getelementptr inbounds nuw i8, ptr %20, i64 880
+  %25 = tail call i32 @freq_qos_add_request(ptr noundef nonnull %3, ptr noundef nonnull %24, i32 noundef 2, i32 noundef 2147483647) #11
   %26 = icmp slt i32 %25, 0
   br i1 %26, label %27, label %29
 
@@ -348,7 +348,7 @@ declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @acpi_processor_ppc_exit(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %3
 
 3:                                                ; preds = %1, %24
@@ -376,8 +376,8 @@ define dso_local void @acpi_processor_ppc_exit(ptr nocapture noundef readonly %0
   br i1 %20, label %24, label %21
 
 21:                                               ; preds = %13
-  %22 = getelementptr inbounds i8, ptr %19, i64 880
-  %23 = tail call i32 @freq_qos_remove_request(ptr noundef %22) #11
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 880
+  %23 = tail call i32 @freq_qos_remove_request(ptr noundef nonnull %22) #11
   br label %24
 
 24:                                               ; preds = %21, %13
@@ -403,7 +403,7 @@ define dso_local range(i32 -22, 1) i32 @acpi_processor_get_performance_info(ptr 
   br i1 %6, label %221, label %7
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 632
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 632
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %221, label %11
@@ -420,7 +420,7 @@ define dso_local range(i32 -22, 1) i32 @acpi_processor_get_performance_info(ptr 
 16:                                               ; preds = %14
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #11
   store i64 -1, ptr %5, align 8
-  %17 = getelementptr inbounds i8, ptr %5, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr null, ptr %17, align 8
   %18 = load ptr, ptr %0, align 8
   %19 = call i32 @acpi_evaluate_object(ptr noundef %18, ptr noundef nonnull @.str.1, ptr noundef null, ptr noundef nonnull %5) #11
@@ -444,18 +444,18 @@ define dso_local range(i32 -22, 1) i32 @acpi_processor_get_performance_info(ptr 
   br i1 %27, label %28, label %.thread14
 
 28:                                               ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %23, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %30 = load i32, ptr %29, align 4
   %31 = icmp eq i32 %30, 2
   br i1 %31, label %32, label %.thread14
 
 32:                                               ; preds = %28
-  %33 = getelementptr inbounds i8, ptr %23, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %34 = load ptr, ptr %33, align 8
   %35 = load i32, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %34, i64 4
+  %36 = getelementptr inbounds nuw i8, ptr %34, i64 4
   %37 = load i32, ptr %36, align 4
-  %38 = getelementptr inbounds i8, ptr %34, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %39 = load ptr, ptr %38, align 8
   %40 = icmp eq ptr %39, null
   %41 = icmp ne i32 %35, 3
@@ -466,8 +466,8 @@ define dso_local range(i32 -22, 1) i32 @acpi_processor_get_performance_info(ptr 
 
 45:                                               ; preds = %32
   %46 = load ptr, ptr %8, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(15) %47, ptr noundef nonnull align 1 dereferenceable(15) %39, i64 15, i1 false)
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %47, ptr noundef nonnull align 1 dereferenceable(15) %39, i64 15, i1 false)
   %48 = load ptr, ptr %33, align 8
   %49 = getelementptr i8, ptr %48, i64 24
   %50 = load i32, ptr %49, align 8
@@ -492,18 +492,18 @@ define dso_local range(i32 -22, 1) i32 @acpi_processor_get_performance_info(ptr 
 
 62:                                               ; preds = %45
   %63 = load ptr, ptr %8, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 23
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(15) %64, ptr noundef nonnull align 1 dereferenceable(15) %54, i64 15, i1 false)
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 23
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %64, ptr noundef nonnull align 1 dereferenceable(15) %54, i64 15, i1 false)
   %65 = load ptr, ptr %17, align 8
   call void @kfree(ptr noundef %65) #11
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #11
   store i64 -1, ptr %2, align 8
-  %66 = getelementptr inbounds i8, ptr %2, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr null, ptr %66, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #11
   store i64 7, ptr %3, align 8
-  %67 = getelementptr inbounds i8, ptr %3, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @.str.17, ptr %67, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
@@ -535,34 +535,34 @@ define dso_local range(i32 -22, 1) i32 @acpi_processor_get_performance_info(ptr 
   br label %.thread25
 
 80:                                               ; preds = %75
-  %81 = getelementptr inbounds i8, ptr %73, i64 4
+  %81 = getelementptr inbounds nuw i8, ptr %73, i64 4
   %82 = load i32, ptr %81, align 4
   %83 = load ptr, ptr %8, align 8
-  %84 = getelementptr inbounds i8, ptr %83, i64 40
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 40
   store i32 %82, ptr %84, align 8
   %85 = zext i32 %82 to i64
   %86 = mul nuw nsw i64 %85, 48
   %87 = call noalias align 8 ptr @__kmalloc(i64 noundef %86, i32 noundef 3264) #14
   %88 = load ptr, ptr %8, align 8
-  %89 = getelementptr inbounds i8, ptr %88, i64 48
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 48
   store ptr %87, ptr %89, align 8
   %90 = load ptr, ptr %8, align 8
-  %91 = getelementptr inbounds i8, ptr %90, i64 48
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 48
   %92 = load ptr, ptr %91, align 8
   %93 = icmp eq ptr %92, null
   br i1 %93, label %.thread25, label %94
 
 94:                                               ; preds = %80
-  %95 = getelementptr inbounds i8, ptr %90, i64 40
+  %95 = getelementptr inbounds nuw i8, ptr %90, i64 40
   %96 = load i32, ptr %95, align 8
   %97 = icmp eq i32 %96, 0
   br i1 %97, label %.thread28, label %98
 
 98:                                               ; preds = %94
-  %99 = getelementptr inbounds i8, ptr %4, i64 8
-  %100 = getelementptr inbounds i8, ptr %73, i64 8
-  %101 = getelementptr inbounds i8, ptr %0, i64 16
-  %102 = getelementptr inbounds i8, ptr %90, i64 48
+  %99 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %100 = getelementptr inbounds nuw i8, ptr %73, i64 8
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %102 = getelementptr inbounds nuw i8, ptr %90, i64 48
   %103 = load ptr, ptr %102, align 8
   store i64 48, ptr %4, align 8
   store ptr %103, ptr %99, align 8
@@ -575,7 +575,7 @@ define dso_local range(i32 -22, 1) i32 @acpi_processor_get_performance_info(ptr 
   %.ph = phi i32 [ %175, %171 ], [ %184, %178 ]
   %108 = add nuw i32 %128, 1
   %109 = load ptr, ptr %8, align 8
-  %110 = getelementptr inbounds i8, ptr %109, i64 40
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 40
   %111 = load i32, ptr %110, align 8
   %112 = icmp ult i32 %108, %111
   br i1 %112, label %.backedge, label %190
@@ -584,7 +584,7 @@ define dso_local range(i32 -22, 1) i32 @acpi_processor_get_performance_info(ptr 
   %.be = phi ptr [ %109, %107 ], [ %122, %.thread32 ]
   %.be40 = phi i32 [ %108, %107 ], [ %121, %.thread32 ]
   %.be41 = phi i32 [ %.ph, %107 ], [ -1, %.thread32 ]
-  %113 = getelementptr inbounds i8, ptr %.be, i64 48
+  %113 = getelementptr inbounds nuw i8, ptr %.be, i64 48
   %114 = load ptr, ptr %113, align 8
   %115 = sext i32 %.be40 to i64
   %116 = getelementptr %struct.acpi_processor_px, ptr %114, i64 %115
@@ -599,7 +599,7 @@ define dso_local range(i32 -22, 1) i32 @acpi_processor_get_performance_info(ptr 
 .thread32:                                        ; preds = %176
   %121 = add nuw i32 %128, 1
   %122 = load ptr, ptr %8, align 8
-  %123 = getelementptr inbounds i8, ptr %122, i64 40
+  %123 = getelementptr inbounds nuw i8, ptr %122, i64 40
   %124 = load i32, ptr %123, align 8
   %125 = icmp ult i32 %121, %124
   br i1 %125, label %.backedge, label %.thread28
@@ -608,7 +608,7 @@ define dso_local range(i32 -22, 1) i32 @acpi_processor_get_performance_info(ptr 
   %126 = phi ptr [ %116, %.backedge ], [ %103, %98 ]
   %127 = phi i32 [ %.be41, %.backedge ], [ -1, %98 ]
   %128 = phi i32 [ %.be40, %.backedge ], [ 0, %98 ]
-  %129 = getelementptr inbounds i8, ptr %126, i64 32
+  %129 = getelementptr inbounds nuw i8, ptr %126, i64 32
   %130 = load i64, ptr %129, align 8
   %131 = trunc i64 %130 to i32
   %132 = and i32 %131, 7
@@ -680,7 +680,7 @@ define dso_local range(i32 -22, 1) i32 @acpi_processor_get_performance_info(ptr 
 
 178:                                              ; preds = %176
   %179 = load ptr, ptr %8, align 8
-  %180 = getelementptr inbounds i8, ptr %179, i64 48
+  %180 = getelementptr inbounds nuw i8, ptr %179, i64 48
   %181 = load ptr, ptr %180, align 8
   %182 = sext i32 %127 to i64
   %183 = getelementptr %struct.acpi_processor_px, ptr %181, i64 %182
@@ -694,13 +694,13 @@ define dso_local range(i32 -22, 1) i32 @acpi_processor_get_performance_info(ptr 
   %186 = call ptr @acpi_format_exception(i32 noundef %.lcssa46) #11
   call void (ptr, ptr, ptr, ...) @acpi_handle_printk(ptr noundef nonnull @.str.20, ptr noundef %185, ptr noundef nonnull @.str.21, ptr noundef %186) #11
   %187 = load ptr, ptr %8, align 8
-  %188 = getelementptr inbounds i8, ptr %187, i64 48
+  %188 = getelementptr inbounds nuw i8, ptr %187, i64 48
   %189 = load ptr, ptr %188, align 8
   call void @kfree(ptr noundef %189) #11
   br label %.thread25
 
 190:                                              ; preds = %107
-  %191 = getelementptr inbounds i8, ptr %109, i64 40
+  %191 = getelementptr inbounds nuw i8, ptr %109, i64 40
   %192 = icmp eq i32 %.ph, 0
   br i1 %192, label %197, label %193
 
@@ -725,11 +725,11 @@ define dso_local range(i32 -22, 1) i32 @acpi_processor_get_performance_info(ptr 
   %198 = load i32, ptr %101, align 8
   %199 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.23, i32 noundef %198) #12
   %200 = load ptr, ptr %8, align 8
-  %201 = getelementptr inbounds i8, ptr %200, i64 48
+  %201 = getelementptr inbounds nuw i8, ptr %200, i64 48
   %202 = load ptr, ptr %201, align 8
   call void @kfree(ptr noundef %202) #11
   %203 = load ptr, ptr %8, align 8
-  %204 = getelementptr inbounds i8, ptr %203, i64 48
+  %204 = getelementptr inbounds nuw i8, ptr %203, i64 48
   store ptr null, ptr %204, align 8
   %205 = load ptr, ptr %66, align 8
   call void @kfree(ptr noundef %205) #11
@@ -886,11 +886,11 @@ define dso_local noundef range(i32 -19, 1) i32 @acpi_processor_get_psd(ptr nound
   %5 = alloca %struct.acpi_buffer, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #11
   store i64 -1, ptr %3, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr null, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #11
   store i64 6, ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @.str.5, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
@@ -909,16 +909,16 @@ define dso_local noundef range(i32 -19, 1) i32 @acpi_processor_get_psd(ptr nound
   br i1 %15, label %16, label %38
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %11, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %18 = load i32, ptr %17, align 4
   %19 = icmp eq i32 %18, 1
   br i1 %19, label %20, label %38
 
 20:                                               ; preds = %16
   store i64 40, ptr %5, align 8
-  %21 = getelementptr inbounds i8, ptr %5, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %1, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %11, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = call i32 @acpi_extract_package(ptr noundef %23, ptr noundef nonnull %4, ptr noundef nonnull %5) #11
   %25 = icmp eq i32 %24, 0
@@ -930,13 +930,13 @@ define dso_local noundef range(i32 -19, 1) i32 @acpi_processor_get_psd(ptr nound
   br i1 %28, label %29, label %38
 
 29:                                               ; preds = %26
-  %30 = getelementptr inbounds i8, ptr %1, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %31 = load i64, ptr %30, align 1
   %32 = icmp eq i64 %31, 0
   br i1 %32, label %33, label %38
 
 33:                                               ; preds = %29
-  %34 = getelementptr inbounds i8, ptr %1, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %35 = load i64, ptr %34, align 1
   %36 = add i64 %35, -252
   %37 = icmp ult i64 %36, 3
@@ -1009,7 +1009,7 @@ define dso_local range(i32 -22, 1) i32 @acpi_processor_preregister_performance(p
   br i1 %23, label %31, label %24
 
 24:                                               ; preds = %16
-  %25 = getelementptr inbounds i8, ptr %22, i64 632
+  %25 = getelementptr inbounds nuw i8, ptr %22, i64 632
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, null
   br i1 %27, label %28, label %.thread31
@@ -1056,11 +1056,11 @@ define dso_local range(i32 -22, 1) i32 @acpi_processor_preregister_performance(p
 53:                                               ; preds = %45
   %54 = add i64 %48, %5
   %55 = inttoptr i64 %54 to ptr
-  %56 = getelementptr inbounds i8, ptr %51, i64 632
+  %56 = getelementptr inbounds nuw i8, ptr %51, i64 632
   store ptr %55, ptr %56, align 8
-  %57 = getelementptr inbounds i8, ptr %55, i64 56
+  %57 = getelementptr inbounds nuw i8, ptr %55, i64 56
   %58 = load ptr, ptr %51, align 8
-  %59 = tail call i32 @acpi_processor_get_psd(ptr noundef %58, ptr noundef %57), !range !19
+  %59 = tail call i32 @acpi_processor_get_psd(ptr noundef %58, ptr noundef nonnull %57), !range !19
   %60 = icmp eq i32 %59, 0
   %61 = select i1 %60, i32 %37, i32 -22
   %.pre = load i64, ptr @__cpu_possible_mask, align 8
@@ -1112,18 +1112,18 @@ define dso_local range(i32 -22, 1) i32 @acpi_processor_preregister_performance(p
   br i1 %89, label %90, label %.thread29
 
 90:                                               ; preds = %86
-  %91 = getelementptr inbounds i8, ptr %84, i64 632
+  %91 = getelementptr inbounds nuw i8, ptr %84, i64 632
   %92 = load ptr, ptr %91, align 8
-  %93 = getelementptr inbounds i8, ptr %92, i64 96
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %93, i64 %79) #11, !srcloc !22
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 96
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %93, i64 %79) #11, !srcloc !22
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %2, i64 %79) #11, !srcloc !22
-  %94 = getelementptr inbounds i8, ptr %92, i64 88
+  %94 = getelementptr inbounds nuw i8, ptr %92, i64 88
   %95 = load i64, ptr %94, align 1
   %96 = icmp ult i64 %95, 2
   br i1 %96, label %.thread29, label %97
 
 97:                                               ; preds = %90
-  %98 = getelementptr inbounds i8, ptr %92, i64 80
+  %98 = getelementptr inbounds nuw i8, ptr %92, i64 80
   %99 = load i64, ptr %98, align 1
   switch i64 %99, label %106 [
     i64 252, label %102
@@ -1140,12 +1140,12 @@ define dso_local range(i32 -22, 1) i32 @acpi_processor_preregister_performance(p
 102:                                              ; preds = %101, %100, %97
   %103 = phi i32 [ 1, %100 ], [ 3, %101 ], [ 2, %97 ]
   %104 = load ptr, ptr %91, align 8
-  %105 = getelementptr inbounds i8, ptr %104, i64 104
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 104
   store i32 %103, ptr %105, align 8
   br label %106
 
 106:                                              ; preds = %102, %97
-  %107 = getelementptr inbounds i8, ptr %92, i64 72
+  %107 = getelementptr inbounds nuw i8, ptr %92, i64 72
   %108 = shl i64 %95, 32
   %109 = ashr exact i64 %108, 32
   %.pre39 = load i64, ptr @__cpu_possible_mask, align 8
@@ -1184,23 +1184,23 @@ define dso_local range(i32 -22, 1) i32 @acpi_processor_preregister_performance(p
   br i1 %130, label %150, label %131
 
 131:                                              ; preds = %123
-  %132 = getelementptr inbounds i8, ptr %129, i64 632
+  %132 = getelementptr inbounds nuw i8, ptr %129, i64 632
   %133 = load ptr, ptr %132, align 8
-  %134 = getelementptr inbounds i8, ptr %133, i64 72
+  %134 = getelementptr inbounds nuw i8, ptr %133, i64 72
   %135 = load i64, ptr %134, align 1
   %136 = load i64, ptr %107, align 1
   %137 = icmp eq i64 %135, %136
   br i1 %137, label %138, label %150
 
 138:                                              ; preds = %131
-  %139 = getelementptr inbounds i8, ptr %133, i64 88
+  %139 = getelementptr inbounds nuw i8, ptr %133, i64 88
   %140 = load i64, ptr %139, align 1
   %141 = icmp eq i64 %140, %109
   br i1 %141, label %142, label %.thread25
 
 142:                                              ; preds = %138
   %143 = load i64, ptr %98, align 1
-  %144 = getelementptr inbounds i8, ptr %133, i64 80
+  %144 = getelementptr inbounds nuw i8, ptr %133, i64 80
   %145 = load i64, ptr %144, align 1
   %146 = icmp eq i64 %143, %145
   br i1 %146, label %147, label %.thread25
@@ -1208,8 +1208,8 @@ define dso_local range(i32 -22, 1) i32 @acpi_processor_preregister_performance(p
 147:                                              ; preds = %142
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %2, i64 %124) #11, !srcloc !22
   %148 = load ptr, ptr %91, align 8
-  %149 = getelementptr inbounds i8, ptr %148, i64 96
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %149, i64 %124) #11, !srcloc !22
+  %149 = getelementptr inbounds nuw i8, ptr %148, i64 96
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %149, i64 %124) #11, !srcloc !22
   %.pre38 = load i64, ptr @__cpu_possible_mask, align 8
   br label %150
 
@@ -1248,9 +1248,9 @@ define dso_local range(i32 -22, 1) i32 @acpi_processor_preregister_performance(p
   br i1 %173, label %191, label %174
 
 174:                                              ; preds = %166
-  %175 = getelementptr inbounds i8, ptr %172, i64 632
+  %175 = getelementptr inbounds nuw i8, ptr %172, i64 632
   %176 = load ptr, ptr %175, align 8
-  %177 = getelementptr inbounds i8, ptr %176, i64 72
+  %177 = getelementptr inbounds nuw i8, ptr %176, i64 72
   %178 = load i64, ptr %177, align 1
   %179 = load i64, ptr %107, align 1
   %180 = icmp eq i64 %178, %179
@@ -1258,14 +1258,14 @@ define dso_local range(i32 -22, 1) i32 @acpi_processor_preregister_performance(p
 
 181:                                              ; preds = %174
   %182 = load ptr, ptr %91, align 8
-  %183 = getelementptr inbounds i8, ptr %182, i64 104
+  %183 = getelementptr inbounds nuw i8, ptr %182, i64 104
   %184 = load i32, ptr %183, align 8
-  %185 = getelementptr inbounds i8, ptr %176, i64 104
+  %185 = getelementptr inbounds nuw i8, ptr %176, i64 104
   store i32 %184, ptr %185, align 8
   %186 = load ptr, ptr %175, align 8
-  %187 = getelementptr inbounds i8, ptr %186, i64 96
+  %187 = getelementptr inbounds nuw i8, ptr %186, i64 96
   %188 = load ptr, ptr %91, align 8
-  %189 = getelementptr inbounds i8, ptr %188, i64 96
+  %189 = getelementptr inbounds nuw i8, ptr %188, i64 96
   %190 = load i64, ptr %189, align 8
   store i64 %190, ptr %187, align 8
   br label %191
@@ -1317,7 +1317,7 @@ define dso_local range(i32 -22, 1) i32 @acpi_processor_preregister_performance(p
   br i1 %217, label %231, label %218
 
 218:                                              ; preds = %210
-  %219 = getelementptr inbounds i8, ptr %216, i64 632
+  %219 = getelementptr inbounds nuw i8, ptr %216, i64 632
   %220 = load ptr, ptr %219, align 8
   %221 = icmp eq ptr %220, null
   br i1 %221, label %231, label %222
@@ -1326,13 +1326,13 @@ define dso_local range(i32 -22, 1) i32 @acpi_processor_preregister_performance(p
   br i1 %199, label %229, label %223
 
 223:                                              ; preds = %222
-  %224 = getelementptr inbounds i8, ptr %220, i64 96
+  %224 = getelementptr inbounds nuw i8, ptr %220, i64 96
   store i64 0, ptr %224, align 8
   %225 = load ptr, ptr %219, align 8
-  %226 = getelementptr inbounds i8, ptr %225, i64 96
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %226, i64 %211) #11, !srcloc !22
+  %226 = getelementptr inbounds nuw i8, ptr %225, i64 96
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %226, i64 %211) #11, !srcloc !22
   %227 = load ptr, ptr %219, align 8
-  %228 = getelementptr inbounds i8, ptr %227, i64 104
+  %228 = getelementptr inbounds nuw i8, ptr %227, i64 104
   store i32 0, ptr %228, align 8
   %.pre40 = load i64, ptr @__cpu_possible_mask, align 8
   br label %229
@@ -1380,7 +1380,7 @@ define dso_local noundef range(i32 -22, 1) i32 @acpi_processor_register_performa
   br i1 %12, label %24, label %13
 
 13:                                               ; preds = %5
-  %14 = getelementptr inbounds i8, ptr %11, i64 632
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 632
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %17, label %24
@@ -1428,13 +1428,13 @@ define dso_local void @acpi_processor_unregister_performance(i32 noundef %0) #0 
   br i1 %8, label %17, label %9
 
 9:                                                ; preds = %1
-  %10 = getelementptr inbounds i8, ptr %7, i64 632
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 632
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %16, label %13
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %11, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 48
   %15 = load ptr, ptr %14, align 8
   tail call void @kfree(ptr noundef %15) #11
   br label %16

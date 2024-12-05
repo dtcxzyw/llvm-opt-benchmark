@@ -375,7 +375,7 @@ define internal i32 @dissect_v5ua(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8
   tail call void @col_set_str(ptr noundef %12, i32 noundef 34, ptr noundef nonnull @.str.78) #4
   %13 = load ptr, ptr %11, align 8
@@ -511,7 +511,7 @@ dissect_common_header.exit.i:                     ; preds = %65, %64
   br i1 %.not1.i.i, label %dissect_parameters.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %dissect_common_header.exit.i
-  %69 = getelementptr inbounds i8, ptr %1, i64 408
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %70
 
 70:                                               ; preds = %dissect_parameter.exit.i.i, %.lr.ph.i.i
@@ -1276,7 +1276,7 @@ define internal fastcc void @dissect_dlci_parameter(ptr noundef %0, ptr noundef 
   br i1 %33, label %34, label %37
 
 34:                                               ; preds = %9
-  %35 = getelementptr inbounds i8, ptr %3, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %36 = load ptr, ptr %35, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %36, i32 noundef 25, ptr noundef nonnull @.str.222, i32 noundef %32) #4
   br label %53
@@ -1291,31 +1291,31 @@ define internal fastcc void @dissect_dlci_parameter(ptr noundef %0, ptr noundef 
   ]
 
 38:                                               ; preds = %37
-  %39 = getelementptr inbounds i8, ptr %3, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %40 = load ptr, ptr %39, align 8
   tail call void @col_append_str(ptr noundef %40, i32 noundef 25, ptr noundef nonnull @.str.223) #4
   br label %53
 
 41:                                               ; preds = %37
-  %42 = getelementptr inbounds i8, ptr %3, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %43 = load ptr, ptr %42, align 8
   tail call void @col_append_str(ptr noundef %43, i32 noundef 25, ptr noundef nonnull @.str.224) #4
   br label %53
 
 44:                                               ; preds = %37
-  %45 = getelementptr inbounds i8, ptr %3, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %46 = load ptr, ptr %45, align 8
   tail call void @col_append_str(ptr noundef %46, i32 noundef 25, ptr noundef nonnull @.str.225) #4
   br label %53
 
 47:                                               ; preds = %37
-  %48 = getelementptr inbounds i8, ptr %3, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %49 = load ptr, ptr %48, align 8
   tail call void @col_append_str(ptr noundef %49, i32 noundef 25, ptr noundef nonnull @.str.226) #4
   br label %53
 
 50:                                               ; preds = %37
-  %51 = getelementptr inbounds i8, ptr %3, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %52 = load ptr, ptr %51, align 8
   tail call void @col_append_str(ptr noundef %52, i32 noundef 25, ptr noundef nonnull @.str.227) #4
   br label %53

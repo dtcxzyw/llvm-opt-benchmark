@@ -32,7 +32,7 @@ define internal void @CollectHistogram_SSE41(ptr noundef %0, ptr noundef %1, i32
   br i1 %8, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %7, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %10 = sext i32 %2 to i64
   %wide.trip.count = sext i32 %3 to i64
   br label %11
@@ -60,7 +60,7 @@ define internal void @CollectHistogram_SSE41(ptr noundef %0, ptr noundef %1, i32
 
 26:                                               ; preds = %11, %26
   %indvars.iv = phi i64 [ 0, %11 ], [ %indvars.iv.next, %26 ]
-  %27 = getelementptr inbounds [16 x i16], ptr %7, i64 0, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [16 x i16], ptr %7, i64 0, i64 %indvars.iv
   %28 = load i16, ptr %27, align 2
   %29 = sext i16 %28 to i64
   %30 = getelementptr inbounds [32 x i32], ptr %6, i64 0, i64 %29
@@ -83,21 +83,21 @@ define internal void @CollectHistogram_SSE41(ptr noundef %0, ptr noundef %1, i32
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal range(i32 0, 2) i32 @QuantizeBlock_SSE41(ptr nocapture noundef %0, ptr nocapture noundef writeonly initializes((0, 32)) %1, ptr nocapture noundef readonly %2) #2 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 192
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 192
   %5 = load <8 x i16>, ptr %0, align 1
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load <8 x i16>, ptr %6, align 1
-  %8 = getelementptr inbounds i8, ptr %2, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %9 = load <8 x i16>, ptr %8, align 1
-  %10 = getelementptr inbounds i8, ptr %2, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %11 = load <8 x i16>, ptr %10, align 1
   %12 = load <8 x i16>, ptr %2, align 1
-  %13 = getelementptr inbounds i8, ptr %2, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %14 = load <8 x i16>, ptr %13, align 1
   %15 = tail call <8 x i16> @llvm.abs.v8i16(<8 x i16> %5, i1 false)
   %16 = tail call <8 x i16> @llvm.abs.v8i16(<8 x i16> %7, i1 false)
   %17 = load <8 x i16>, ptr %4, align 1
-  %18 = getelementptr inbounds i8, ptr %2, i64 208
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 208
   %19 = load <8 x i16>, ptr %18, align 1
   %20 = add <8 x i16> %17, %15
   %21 = add <8 x i16> %19, %16
@@ -109,13 +109,13 @@ define internal range(i32 0, 2) i32 @QuantizeBlock_SSE41(ptr nocapture noundef %
   %27 = shufflevector <8 x i16> %23, <8 x i16> %22, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
   %28 = shufflevector <8 x i16> %25, <8 x i16> %24, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   %29 = shufflevector <8 x i16> %25, <8 x i16> %24, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
-  %30 = getelementptr inbounds i8, ptr %2, i64 64
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %31 = load <4 x i32>, ptr %30, align 1
-  %32 = getelementptr inbounds i8, ptr %2, i64 80
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %33 = load <4 x i32>, ptr %32, align 1
-  %34 = getelementptr inbounds i8, ptr %2, i64 96
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %35 = load <4 x i32>, ptr %34, align 1
-  %36 = getelementptr inbounds i8, ptr %2, i64 112
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 112
   %37 = load <4 x i32>, ptr %36, align 1
   %38 = bitcast <8 x i16> %26 to <4 x i32>
   %39 = add <4 x i32> %31, %38
@@ -148,7 +148,7 @@ define internal range(i32 0, 2) i32 @QuantizeBlock_SSE41(ptr nocapture noundef %
   %64 = or <16 x i8> %63, %59
   %65 = or <16 x i8> %62, %60
   store <16 x i8> %64, ptr %1, align 1
-  %66 = getelementptr inbounds i8, ptr %1, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store <16 x i8> %65, ptr %66, align 1
   %67 = bitcast <16 x i8> %64 to <8 x i16>
   %68 = bitcast <16 x i8> %65 to <8 x i16>
@@ -162,21 +162,21 @@ define internal range(i32 0, 2) i32 @QuantizeBlock_SSE41(ptr nocapture noundef %
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal range(i32 0, 4) i32 @Quantize2Blocks_SSE41(ptr nocapture noundef %0, ptr nocapture noundef writeonly initializes((0, 64)) %1, ptr nocapture noundef readonly %2) #2 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 192
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 192
   %5 = load <8 x i16>, ptr %0, align 1
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load <8 x i16>, ptr %6, align 1
-  %8 = getelementptr inbounds i8, ptr %2, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %9 = load <8 x i16>, ptr %8, align 1
-  %10 = getelementptr inbounds i8, ptr %2, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %11 = load <8 x i16>, ptr %10, align 1
   %12 = load <8 x i16>, ptr %2, align 1
-  %13 = getelementptr inbounds i8, ptr %2, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %14 = load <8 x i16>, ptr %13, align 1
   %15 = tail call <8 x i16> @llvm.abs.v8i16(<8 x i16> %5, i1 false)
   %16 = tail call <8 x i16> @llvm.abs.v8i16(<8 x i16> %7, i1 false)
   %17 = load <8 x i16>, ptr %4, align 1
-  %18 = getelementptr inbounds i8, ptr %2, i64 208
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 208
   %19 = load <8 x i16>, ptr %18, align 1
   %20 = add <8 x i16> %17, %15
   %21 = add <8 x i16> %19, %16
@@ -188,13 +188,13 @@ define internal range(i32 0, 4) i32 @Quantize2Blocks_SSE41(ptr nocapture noundef
   %27 = shufflevector <8 x i16> %23, <8 x i16> %22, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
   %28 = shufflevector <8 x i16> %25, <8 x i16> %24, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   %29 = shufflevector <8 x i16> %25, <8 x i16> %24, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
-  %30 = getelementptr inbounds i8, ptr %2, i64 64
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %31 = load <4 x i32>, ptr %30, align 1
-  %32 = getelementptr inbounds i8, ptr %2, i64 80
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %33 = load <4 x i32>, ptr %32, align 1
-  %34 = getelementptr inbounds i8, ptr %2, i64 96
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %35 = load <4 x i32>, ptr %34, align 1
-  %36 = getelementptr inbounds i8, ptr %2, i64 112
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 112
   %37 = load <4 x i32>, ptr %36, align 1
   %38 = bitcast <8 x i16> %26 to <4 x i32>
   %39 = add <4 x i32> %31, %38
@@ -227,7 +227,7 @@ define internal range(i32 0, 4) i32 @Quantize2Blocks_SSE41(ptr nocapture noundef
   %64 = or <16 x i8> %63, %59
   %65 = or <16 x i8> %62, %60
   store <16 x i8> %64, ptr %1, align 1
-  %66 = getelementptr inbounds i8, ptr %1, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store <16 x i8> %65, ptr %66, align 1
   %67 = bitcast <16 x i8> %64 to <8 x i16>
   %68 = bitcast <16 x i8> %65 to <8 x i16>
@@ -236,10 +236,10 @@ define internal range(i32 0, 4) i32 @Quantize2Blocks_SSE41(ptr nocapture noundef
   %71 = bitcast <16 x i1> %70 to i16
   %72 = icmp ne i16 %71, 0
   %73 = zext i1 %72 to i32
-  %74 = getelementptr inbounds i8, ptr %0, i64 32
-  %75 = getelementptr inbounds i8, ptr %1, i64 32
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %75 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %76 = load <8 x i16>, ptr %74, align 1
-  %77 = getelementptr inbounds i8, ptr %0, i64 48
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %78 = load <8 x i16>, ptr %77, align 1
   %79 = load <8 x i16>, ptr %8, align 1
   %80 = load <8 x i16>, ptr %10, align 1
@@ -294,7 +294,7 @@ define internal range(i32 0, 4) i32 @Quantize2Blocks_SSE41(ptr nocapture noundef
   %127 = or <16 x i8> %126, %122
   %128 = or <16 x i8> %125, %123
   store <16 x i8> %127, ptr %75, align 1
-  %129 = getelementptr inbounds i8, ptr %1, i64 48
+  %129 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store <16 x i8> %128, ptr %129, align 1
   %130 = bitcast <16 x i8> %127 to <8 x i16>
   %131 = bitcast <16 x i8> %128 to <8 x i16>
@@ -310,14 +310,14 @@ define internal range(i32 0, 4) i32 @Quantize2Blocks_SSE41(ptr nocapture noundef
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal range(i32 0, 2) i32 @QuantizeBlockWHT_SSE41(ptr nocapture noundef %0, ptr nocapture noundef writeonly initializes((0, 32)) %1, ptr nocapture noundef readonly %2) #2 {
   %4 = load <8 x i16>, ptr %0, align 1
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load <8 x i16>, ptr %5, align 1
-  %7 = getelementptr inbounds i8, ptr %2, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %8 = load <8 x i16>, ptr %7, align 1
-  %9 = getelementptr inbounds i8, ptr %2, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %10 = load <8 x i16>, ptr %9, align 1
   %11 = load <8 x i16>, ptr %2, align 1
-  %12 = getelementptr inbounds i8, ptr %2, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %13 = load <8 x i16>, ptr %12, align 1
   %14 = tail call <8 x i16> @llvm.abs.v8i16(<8 x i16> %4, i1 false)
   %15 = tail call <8 x i16> @llvm.abs.v8i16(<8 x i16> %6, i1 false)
@@ -329,13 +329,13 @@ define internal range(i32 0, 2) i32 @QuantizeBlockWHT_SSE41(ptr nocapture nounde
   %21 = shufflevector <8 x i16> %17, <8 x i16> %16, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
   %22 = shufflevector <8 x i16> %19, <8 x i16> %18, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   %23 = shufflevector <8 x i16> %19, <8 x i16> %18, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
-  %24 = getelementptr inbounds i8, ptr %2, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %25 = load <4 x i32>, ptr %24, align 1
-  %26 = getelementptr inbounds i8, ptr %2, i64 80
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %27 = load <4 x i32>, ptr %26, align 1
-  %28 = getelementptr inbounds i8, ptr %2, i64 96
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %29 = load <4 x i32>, ptr %28, align 1
-  %30 = getelementptr inbounds i8, ptr %2, i64 112
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 112
   %31 = load <4 x i32>, ptr %30, align 1
   %32 = bitcast <8 x i16> %20 to <4 x i32>
   %33 = add <4 x i32> %25, %32
@@ -368,7 +368,7 @@ define internal range(i32 0, 2) i32 @QuantizeBlockWHT_SSE41(ptr nocapture nounde
   %58 = or <16 x i8> %57, %53
   %59 = or <16 x i8> %56, %54
   store <16 x i8> %58, ptr %1, align 1
-  %60 = getelementptr inbounds i8, ptr %1, i64 16
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store <16 x i8> %59, ptr %60, align 1
   %61 = bitcast <16 x i8> %58 to <8 x i16>
   %62 = bitcast <16 x i8> %59 to <8 x i16>
@@ -386,19 +386,19 @@ define internal range(i32 0, 67108864) i32 @Disto4x4_SSE41(ptr nocapture noundef
   %4 = getelementptr i8, ptr %2, i64 16
   %.val3 = load <8 x i16>, ptr %4, align 1
   %5 = load <4 x i32>, ptr %0, align 1
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load <4 x i32>, ptr %6, align 1
-  %8 = getelementptr inbounds i8, ptr %0, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %9 = load <4 x i32>, ptr %8, align 1
-  %10 = getelementptr inbounds i8, ptr %0, i64 96
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %11 = load i64, ptr %10, align 1
   %12 = insertelement <2 x i64> poison, i64 %11, i64 0
   %13 = load <4 x i32>, ptr %1, align 1
-  %14 = getelementptr inbounds i8, ptr %1, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %15 = load <4 x i32>, ptr %14, align 1
-  %16 = getelementptr inbounds i8, ptr %1, i64 64
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %17 = load <4 x i32>, ptr %16, align 1
-  %18 = getelementptr inbounds i8, ptr %1, i64 96
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %19 = load i64, ptr %18, align 1
   %20 = insertelement <2 x i64> poison, i64 %19, i64 0
   %21 = shufflevector <4 x i32> %5, <4 x i32> %13, <4 x i32> <i32 0, i32 4, i32 poison, i32 poison>
@@ -504,29 +504,29 @@ define internal i32 @Disto16x16_SSE41(ptr nocapture noundef readonly %0, ptr noc
 .preheader:                                       ; preds = %3, %110
   %indvars.iv23 = phi i64 [ 0, %3 ], [ %indvars.iv.next24, %110 ]
   %.01320 = phi i32 [ 0, %3 ], [ %108, %110 ]
-  %invariant.gep = getelementptr inbounds i8, ptr %0, i64 %indvars.iv23
-  %invariant.gep16 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv23
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv23
+  %invariant.gep16 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv23
   br label %5
 
 5:                                                ; preds = %.preheader, %5
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %5 ]
   %.118 = phi i32 [ %.01320, %.preheader ], [ %108, %5 ]
-  %gep = getelementptr inbounds i8, ptr %invariant.gep, i64 %indvars.iv
-  %gep17 = getelementptr inbounds i8, ptr %invariant.gep16, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %indvars.iv
+  %gep17 = getelementptr inbounds nuw i8, ptr %invariant.gep16, i64 %indvars.iv
   %6 = load <4 x i32>, ptr %gep, align 1
-  %7 = getelementptr inbounds i8, ptr %gep, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %gep, i64 32
   %8 = load <4 x i32>, ptr %7, align 1
-  %9 = getelementptr inbounds i8, ptr %gep, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %gep, i64 64
   %10 = load <4 x i32>, ptr %9, align 1
-  %11 = getelementptr inbounds i8, ptr %gep, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %gep, i64 96
   %12 = load i64, ptr %11, align 1
   %13 = insertelement <2 x i64> poison, i64 %12, i64 0
   %14 = load <4 x i32>, ptr %gep17, align 1
-  %15 = getelementptr inbounds i8, ptr %gep17, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %gep17, i64 32
   %16 = load <4 x i32>, ptr %15, align 1
-  %17 = getelementptr inbounds i8, ptr %gep17, i64 64
+  %17 = getelementptr inbounds nuw i8, ptr %gep17, i64 64
   %18 = load <4 x i32>, ptr %17, align 1
-  %19 = getelementptr inbounds i8, ptr %gep17, i64 96
+  %19 = getelementptr inbounds nuw i8, ptr %gep17, i64 96
   %20 = load i64, ptr %19, align 1
   %21 = insertelement <2 x i64> poison, i64 %20, i64 0
   %22 = shufflevector <4 x i32> %6, <4 x i32> %14, <4 x i32> <i32 0, i32 4, i32 poison, i32 poison>

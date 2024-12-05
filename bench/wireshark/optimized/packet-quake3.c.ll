@@ -163,7 +163,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_quake3(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca i32, align 4
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void @col_set_str(ptr noundef %7, i32 noundef 34, ptr noundef nonnull @.str.33) #4
   %.not = icmp eq ptr %2, null
@@ -197,7 +197,7 @@ define internal i32 @dissect_quake3(ptr noundef %0, ptr noundef %1, ptr noundef 
   %25 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0) #4
   %26 = load i32, ptr @hf_quake3_connectionless_marker, align 4
   %27 = tail call ptr @proto_tree_add_uint(ptr noundef %24, i32 noundef %26, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef %25) #4
-  %28 = getelementptr inbounds i8, ptr %1, i64 408
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %29 = load ptr, ptr %28, align 8
   %30 = call ptr @tvb_get_stringz_enc(ptr noundef %29, ptr noundef %0, i32 noundef 4, ptr noundef nonnull %5, i32 noundef 0) #4
   %.not.i = icmp eq ptr %24, null
@@ -380,7 +380,7 @@ dissect_quake3_ConnectionlessPacket.exit:         ; preds = %.lr.ph.split.i, %.l
   tail call void @col_set_str(ptr noundef %19, i32 noundef 25, ptr noundef nonnull @.str.46) #4
   %128 = load i32, ptr @hf_quake3_game, align 4
   %129 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %.0, i32 noundef %128, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull @.str.47) #4
-  %130 = getelementptr inbounds i8, ptr %1, i64 288
+  %130 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %131 = load i32, ptr %130, align 8
   %132 = load i32, ptr @gbl_quake3_server_port, align 4
   %133 = icmp eq i32 %131, %132

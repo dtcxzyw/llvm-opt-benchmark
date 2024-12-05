@@ -386,7 +386,7 @@ declare ptr @create_dissector_handle(ptr noundef, i32 noundef) local_unnamed_add
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_calibration(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.1) #7
   %7 = load ptr, ptr %5, align 8
@@ -433,7 +433,7 @@ declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) local_un
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_ident(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.4) #7
   %7 = load ptr, ptr %5, align 8
@@ -516,7 +516,7 @@ define internal fastcc void @add_split_lines(ptr nocapture noundef readonly %0, 
   br i1 %.not17, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %0, i64 408
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 408
   br label %9
 
 9:                                                ; preds = %.lr.ph, %12
@@ -565,7 +565,7 @@ define internal fastcc i32 @dissect_samples_im(i32 noundef range(i32 0, 2) %0, p
   %16 = alloca [6 x i32], align 16
   %17 = alloca [8 x i32], align 16
   %18 = alloca [8 x i32], align 16
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load ptr, ptr %19, align 8
   %.not = icmp eq i32 %0, 0
   %21 = select i1 %.not, ptr @.str.10, ptr @.str.7
@@ -627,19 +627,19 @@ define internal fastcc i32 @dissect_samples_im(i32 noundef range(i32 0, 2) %0, p
 
 56:                                               ; preds = %54
   store i32 %55, ptr %11, align 16
-  %57 = getelementptr inbounds i8, ptr %11, i64 4
+  %57 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %58 = load i32, ptr @hf_samples_sample_set_measurement_channel_2, align 4
   store i32 %58, ptr %57, align 4
-  %59 = getelementptr inbounds i8, ptr %11, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %60 = load i32, ptr @hf_samples_sample_set_measurement_channel_3, align 4
   store i32 %60, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %11, i64 12
+  %61 = getelementptr inbounds nuw i8, ptr %11, i64 12
   %62 = load i32, ptr @hf_samples_sample_set_protection_channel_1, align 4
   store i32 %62, ptr %61, align 4
-  %63 = getelementptr inbounds i8, ptr %11, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %64 = load i32, ptr @hf_samples_sample_set_protection_channel_2, align 4
   store i32 %64, ptr %63, align 16
-  %65 = getelementptr inbounds i8, ptr %11, i64 20
+  %65 = getelementptr inbounds nuw i8, ptr %11, i64 20
   %66 = load i32, ptr @hf_samples_sample_set_protection_channel_3, align 4
   store i32 %66, ptr %65, align 4
   call fastcc void @add_sample_sets(ptr noundef %1, ptr noundef nonnull %2, ptr noundef %10, ptr noundef %11, i32 noundef 6, ptr noundef %53)
@@ -647,18 +647,18 @@ define internal fastcc i32 @dissect_samples_im(i32 noundef range(i32 0, 2) %0, p
 
 67:                                               ; preds = %54
   store i32 %55, ptr %12, align 16
-  %68 = getelementptr inbounds i8, ptr %12, i64 4
+  %68 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %69 = load i32, ptr @hf_samples_sample_set_measurement_channel_2, align 4
   store i32 %69, ptr %68, align 4
-  %70 = getelementptr inbounds i8, ptr %12, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %71 = load i32, ptr @hf_samples_sample_set_measurement_channel_3, align 4
   store i32 %71, ptr %70, align 8
-  %72 = getelementptr inbounds i8, ptr %12, i64 12
+  %72 = getelementptr inbounds nuw i8, ptr %12, i64 12
   %73 = load i32, ptr @hf_samples_sample_set_channel_unused, align 4
   store i32 %73, ptr %72, align 4
-  %74 = getelementptr inbounds i8, ptr %12, i64 16
+  %74 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i32 %73, ptr %74, align 16
-  %75 = getelementptr inbounds i8, ptr %12, i64 20
+  %75 = getelementptr inbounds nuw i8, ptr %12, i64 20
   store i32 %73, ptr %75, align 4
   call fastcc void @add_sample_sets(ptr noundef %1, ptr noundef nonnull %2, ptr noundef %10, ptr noundef %12, i32 noundef 6, ptr noundef %53)
   br label %106
@@ -672,25 +672,25 @@ define internal fastcc i32 @dissect_samples_im(i32 noundef range(i32 0, 2) %0, p
 
 79:                                               ; preds = %77
   store i32 %78, ptr %13, align 16
-  %80 = getelementptr inbounds i8, ptr %13, i64 4
+  %80 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %81 = load i32, ptr @hf_samples_sample_set_measurement_channel_2, align 4
   store i32 %81, ptr %80, align 4
-  %82 = getelementptr inbounds i8, ptr %13, i64 8
+  %82 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %83 = load i32, ptr @hf_samples_sample_set_measurement_channel_3, align 4
   store i32 %83, ptr %82, align 8
-  %84 = getelementptr inbounds i8, ptr %13, i64 12
+  %84 = getelementptr inbounds nuw i8, ptr %13, i64 12
   %85 = load i32, ptr @hf_samples_sample_set_protection_channel_1, align 4
   store i32 %85, ptr %84, align 4
-  %86 = getelementptr inbounds i8, ptr %13, i64 16
+  %86 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %87 = load i32, ptr @hf_samples_sample_set_protection_channel_2, align 4
   store i32 %87, ptr %86, align 16
-  %88 = getelementptr inbounds i8, ptr %13, i64 20
+  %88 = getelementptr inbounds nuw i8, ptr %13, i64 20
   %89 = load i32, ptr @hf_samples_sample_set_protection_channel_3, align 4
   store i32 %89, ptr %88, align 4
-  %90 = getelementptr inbounds i8, ptr %13, i64 24
+  %90 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %91 = load i32, ptr @hf_samples_sample_set_measurement_channel_n, align 4
   store i32 %91, ptr %90, align 8
-  %92 = getelementptr inbounds i8, ptr %13, i64 28
+  %92 = getelementptr inbounds nuw i8, ptr %13, i64 28
   %93 = load i32, ptr @hf_samples_sample_set_protection_channel_n, align 4
   store i32 %93, ptr %92, align 4
   call fastcc void @add_sample_sets(ptr noundef %1, ptr noundef nonnull %2, ptr noundef %10, ptr noundef %13, i32 noundef 8, ptr noundef %53)
@@ -698,23 +698,23 @@ define internal fastcc i32 @dissect_samples_im(i32 noundef range(i32 0, 2) %0, p
 
 94:                                               ; preds = %77
   store i32 %78, ptr %14, align 16
-  %95 = getelementptr inbounds i8, ptr %14, i64 4
+  %95 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %96 = load i32, ptr @hf_samples_sample_set_measurement_channel_2, align 4
   store i32 %96, ptr %95, align 4
-  %97 = getelementptr inbounds i8, ptr %14, i64 8
+  %97 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %98 = load i32, ptr @hf_samples_sample_set_measurement_channel_3, align 4
   store i32 %98, ptr %97, align 8
-  %99 = getelementptr inbounds i8, ptr %14, i64 12
+  %99 = getelementptr inbounds nuw i8, ptr %14, i64 12
   %100 = load i32, ptr @hf_samples_sample_set_measurement_channel_n, align 4
   store i32 %100, ptr %99, align 4
-  %101 = getelementptr inbounds i8, ptr %14, i64 16
+  %101 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %102 = load i32, ptr @hf_samples_sample_set_channel_unused, align 4
   store i32 %102, ptr %101, align 16
-  %103 = getelementptr inbounds i8, ptr %14, i64 20
+  %103 = getelementptr inbounds nuw i8, ptr %14, i64 20
   store i32 %102, ptr %103, align 4
-  %104 = getelementptr inbounds i8, ptr %14, i64 24
+  %104 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store i32 %102, ptr %104, align 8
-  %105 = getelementptr inbounds i8, ptr %14, i64 28
+  %105 = getelementptr inbounds nuw i8, ptr %14, i64 28
   store i32 %102, ptr %105, align 4
   call fastcc void @add_sample_sets(ptr noundef %1, ptr noundef nonnull %2, ptr noundef %10, ptr noundef %14, i32 noundef 8, ptr noundef %53)
   br label %106
@@ -737,19 +737,19 @@ define internal fastcc i32 @dissect_samples_im(i32 noundef range(i32 0, 2) %0, p
 
 116:                                              ; preds = %114
   store i32 %115, ptr %15, align 16
-  %117 = getelementptr inbounds i8, ptr %15, i64 4
+  %117 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %118 = load i32, ptr @hf_samples_rms_values_measurement_channel_2, align 4
   store i32 %118, ptr %117, align 4
-  %119 = getelementptr inbounds i8, ptr %15, i64 8
+  %119 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %120 = load i32, ptr @hf_samples_rms_values_measurement_channel_3, align 4
   store i32 %120, ptr %119, align 8
-  %121 = getelementptr inbounds i8, ptr %15, i64 12
+  %121 = getelementptr inbounds nuw i8, ptr %15, i64 12
   %122 = load i32, ptr @hf_samples_rms_values_protection_channel_1, align 4
   store i32 %122, ptr %121, align 4
-  %123 = getelementptr inbounds i8, ptr %15, i64 16
+  %123 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %124 = load i32, ptr @hf_samples_rms_values_protection_channel_2, align 4
   store i32 %124, ptr %123, align 16
-  %125 = getelementptr inbounds i8, ptr %15, i64 20
+  %125 = getelementptr inbounds nuw i8, ptr %15, i64 20
   %126 = load i32, ptr @hf_samples_rms_values_protection_channel_3, align 4
   store i32 %126, ptr %125, align 4
   br label %127
@@ -768,18 +768,18 @@ define internal fastcc i32 @dissect_samples_im(i32 noundef range(i32 0, 2) %0, p
 
 133:                                              ; preds = %114
   store i32 %115, ptr %16, align 16
-  %134 = getelementptr inbounds i8, ptr %16, i64 4
+  %134 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %135 = load i32, ptr @hf_samples_rms_values_measurement_channel_2, align 4
   store i32 %135, ptr %134, align 4
-  %136 = getelementptr inbounds i8, ptr %16, i64 8
+  %136 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %137 = load i32, ptr @hf_samples_rms_values_measurement_channel_3, align 4
   store i32 %137, ptr %136, align 8
-  %138 = getelementptr inbounds i8, ptr %16, i64 12
+  %138 = getelementptr inbounds nuw i8, ptr %16, i64 12
   %139 = load i32, ptr @hf_samples_rms_values_channel_unused, align 4
   store i32 %139, ptr %138, align 4
-  %140 = getelementptr inbounds i8, ptr %16, i64 16
+  %140 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store i32 %139, ptr %140, align 16
-  %141 = getelementptr inbounds i8, ptr %16, i64 20
+  %141 = getelementptr inbounds nuw i8, ptr %16, i64 20
   store i32 %139, ptr %141, align 4
   br label %142
 
@@ -801,19 +801,19 @@ define internal fastcc i32 @dissect_samples_im(i32 noundef range(i32 0, 2) %0, p
 149:                                              ; preds = %148
   %150 = load i32, ptr @hf_samples_rms_values_channel_unused, align 4
   store i32 %150, ptr %17, align 16
-  %151 = getelementptr inbounds i8, ptr %17, i64 4
+  %151 = getelementptr inbounds nuw i8, ptr %17, i64 4
   store i32 %150, ptr %151, align 4
-  %152 = getelementptr inbounds i8, ptr %17, i64 8
+  %152 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i32 %150, ptr %152, align 8
-  %153 = getelementptr inbounds i8, ptr %17, i64 12
+  %153 = getelementptr inbounds nuw i8, ptr %17, i64 12
   store i32 %150, ptr %153, align 4
-  %154 = getelementptr inbounds i8, ptr %17, i64 16
+  %154 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store i32 %150, ptr %154, align 16
-  %155 = getelementptr inbounds i8, ptr %17, i64 20
+  %155 = getelementptr inbounds nuw i8, ptr %17, i64 20
   store i32 %150, ptr %155, align 4
-  %156 = getelementptr inbounds i8, ptr %17, i64 24
+  %156 = getelementptr inbounds nuw i8, ptr %17, i64 24
   store i32 %150, ptr %156, align 8
-  %157 = getelementptr inbounds i8, ptr %17, i64 28
+  %157 = getelementptr inbounds nuw i8, ptr %17, i64 28
   store i32 %150, ptr %157, align 4
   br label %158
 
@@ -856,25 +856,25 @@ add_rms_values.exit:                              ; preds = %158, %142, %127
   %179 = add i32 %164, 4
   %180 = load i32, ptr @hf_samples_timestamps_sample_1, align 4
   store i32 %180, ptr %18, align 16
-  %181 = getelementptr inbounds i8, ptr %18, i64 4
+  %181 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %182 = load i32, ptr @hf_samples_timestamps_sample_2, align 4
   store i32 %182, ptr %181, align 4
-  %183 = getelementptr inbounds i8, ptr %18, i64 8
+  %183 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %184 = load i32, ptr @hf_samples_timestamps_sample_3, align 4
   store i32 %184, ptr %183, align 8
-  %185 = getelementptr inbounds i8, ptr %18, i64 12
+  %185 = getelementptr inbounds nuw i8, ptr %18, i64 12
   %186 = load i32, ptr @hf_samples_timestamps_sample_4, align 4
   store i32 %186, ptr %185, align 4
-  %187 = getelementptr inbounds i8, ptr %18, i64 16
+  %187 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %188 = load i32, ptr @hf_samples_timestamps_sample_5, align 4
   store i32 %188, ptr %187, align 16
-  %189 = getelementptr inbounds i8, ptr %18, i64 20
+  %189 = getelementptr inbounds nuw i8, ptr %18, i64 20
   %190 = load i32, ptr @hf_samples_timestamps_sample_6, align 4
   store i32 %190, ptr %189, align 4
-  %191 = getelementptr inbounds i8, ptr %18, i64 24
+  %191 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %192 = load i32, ptr @hf_samples_timestamps_sample_7, align 4
   store i32 %192, ptr %191, align 8
-  %193 = getelementptr inbounds i8, ptr %18, i64 28
+  %193 = getelementptr inbounds nuw i8, ptr %18, i64 28
   %194 = load i32, ptr @hf_samples_timestamps_sample_8, align 4
   store i32 %194, ptr %193, align 4
   br label %195
@@ -1037,13 +1037,13 @@ declare ptr @proto_tree_add_bitmask(ptr noundef, ptr noundef, i32 noundef, i32 n
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @add_sample_sets(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull readonly %3, i32 noundef range(i32 6, 9) %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca [8 x i32], align 16
-  %8 = getelementptr inbounds i8, ptr %7, i64 4
-  %9 = getelementptr inbounds i8, ptr %7, i64 8
-  %10 = getelementptr inbounds i8, ptr %7, i64 12
-  %11 = getelementptr inbounds i8, ptr %7, i64 16
-  %12 = getelementptr inbounds i8, ptr %7, i64 20
-  %13 = getelementptr inbounds i8, ptr %7, i64 24
-  %14 = getelementptr inbounds i8, ptr %7, i64 28
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 20
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 28
   %wide.trip.count = zext nneg i32 %4 to i64
   %.pre = load i32, ptr %2, align 4
   br label %15

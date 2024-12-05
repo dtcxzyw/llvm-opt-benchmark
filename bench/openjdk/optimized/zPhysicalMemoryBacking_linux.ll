@@ -132,10 +132,10 @@ define hidden void @_ZN22ZPhysicalMemoryBackingC2Em(ptr nocapture noundef nonnul
   %14 = alloca %class.GCLogPreciousHandle, align 8
   %15 = alloca %class.GCLogPreciousHandle, align 8
   store i32 -1, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
-  %17 = getelementptr inbounds i8, ptr %0, i64 24
-  %18 = getelementptr inbounds i8, ptr %0, i64 32
-  %19 = getelementptr inbounds i8, ptr %0, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %16, i8 0, i64 25, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   %20 = load ptr, ptr @AllocateHeapAt, align 8
@@ -154,7 +154,7 @@ _ZNK22ZPhysicalMemoryBacking9create_fdEPKc.exit.thread: ; preds = %22
 
 24:                                               ; preds = %22
   store i32 2, ptr %3, align 8
-  %.sroa.21.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.21.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i.i, align 8
   call void (ptr, ptr, ...) @_ZN19GCLogPreciousHandle5writeEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull @.str.32)
   br label %_ZNK22ZPhysicalMemoryBacking9create_fdEPKc.exit
@@ -184,7 +184,7 @@ _ZNK22ZPhysicalMemoryBacking9create_fdEPKc.exit:  ; preds = %2, %24
 33:                                               ; preds = %30
   call void @_ZN6ZErrnoC1Ev(ptr noundef nonnull align 4 dereferenceable(4) %4) #12
   store i32 5, ptr %5, align 8
-  %.sroa.21.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 8
+  %.sroa.21.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i, align 8
   %34 = call noundef ptr @_ZNK6ZErrno9to_stringEv(ptr noundef nonnull align 4 dereferenceable(4) %4) #12
   call void (ptr, ptr, ...) @_ZN19GCLogPreciousHandle5writeEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull @.str.4, ptr noundef %34)
@@ -199,7 +199,7 @@ _ZNK22ZPhysicalMemoryBacking9create_fdEPKc.exit:  ; preds = %2, %24
 39:                                               ; preds = %35
   call void @_ZN6ZErrnoC1Ev(ptr noundef nonnull align 4 dereferenceable(4) %7) #12
   store i32 5, ptr %8, align 8
-  %.sroa.21.0..sroa_idx.i20 = getelementptr inbounds i8, ptr %8, i64 8
+  %.sroa.21.0..sroa_idx.i20 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i20, align 8
   %40 = call noundef ptr @_ZNK6ZErrno9to_stringEv(ptr noundef nonnull align 4 dereferenceable(4) %7) #12
   call void (ptr, ptr, ...) @_ZN19GCLogPreciousHandle5writeEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull @.str.5, ptr noundef %40)
@@ -208,15 +208,15 @@ _ZNK22ZPhysicalMemoryBacking9create_fdEPKc.exit:  ; preds = %2, %24
 41:                                               ; preds = %35
   %42 = load i64, ptr %6, align 8
   store i64 %42, ptr %16, align 8
-  %43 = getelementptr inbounds i8, ptr %6, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %44 = load i64, ptr %43, align 8
   store i64 %44, ptr %17, align 8
-  %45 = getelementptr inbounds i8, ptr %6, i64 32
+  %45 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %46 = load i64, ptr %45, align 8
   %47 = mul i64 %46, %44
   store i64 %47, ptr %18, align 8
   store i32 3, ptr %9, align 8
-  %.sroa.21.0..sroa_idx.i21 = getelementptr inbounds i8, ptr %9, i64 8
+  %.sroa.21.0..sroa_idx.i21 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_58ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i21, align 8
   %48 = icmp eq i64 %42, 16914836
   %49 = icmp eq i64 %42, 2508478710
@@ -234,7 +234,7 @@ _ZNK22ZPhysicalMemoryBacking9create_fdEPKc.exit:  ; preds = %2, %24
 
 57:                                               ; preds = %54
   store i32 5, ptr %10, align 8
-  %.sroa.21.0..sroa_idx.i22 = getelementptr inbounds i8, ptr %10, i64 8
+  %.sroa.21.0..sroa_idx.i22 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i22, align 8
   call void (ptr, ptr, ...) @_ZN19GCLogPreciousHandle5writeEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.7)
   br label %77
@@ -246,7 +246,7 @@ _ZNK22ZPhysicalMemoryBacking9create_fdEPKc.exit:  ; preds = %2, %24
 
 61:                                               ; preds = %58
   store i32 5, ptr %11, align 8
-  %.sroa.21.0..sroa_idx.i23 = getelementptr inbounds i8, ptr %11, i64 8
+  %.sroa.21.0..sroa_idx.i23 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i23, align 8
   call void (ptr, ptr, ...) @_ZN19GCLogPreciousHandle5writeEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.7)
   br label %77
@@ -267,7 +267,7 @@ thread-pre-split:                                 ; preds = %58
 
 68:                                               ; preds = %67
   store i32 5, ptr %12, align 8
-  %.sroa.21.0..sroa_idx.i24 = getelementptr inbounds i8, ptr %12, i64 8
+  %.sroa.21.0..sroa_idx.i24 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i24, align 8
   call void (ptr, ptr, ...) @_ZN19GCLogPreciousHandle5writeEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.8)
   br label %77
@@ -277,7 +277,7 @@ thread-pre-split:                                 ; preds = %58
 
 70:                                               ; preds = %69
   store i32 5, ptr %13, align 8
-  %.sroa.21.0..sroa_idx.i25 = getelementptr inbounds i8, ptr %13, i64 8
+  %.sroa.21.0..sroa_idx.i25 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i25, align 8
   call void (ptr, ptr, ...) @_ZN19GCLogPreciousHandle5writeEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.8)
   br label %77
@@ -290,7 +290,7 @@ thread-pre-split:                                 ; preds = %58
 
 73:                                               ; preds = %.thread28
   store i32 5, ptr %14, align 8
-  %.sroa.21.0..sroa_idx.i26 = getelementptr inbounds i8, ptr %14, i64 8
+  %.sroa.21.0..sroa_idx.i26 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i26, align 8
   call void (ptr, ptr, ...) @_ZN19GCLogPreciousHandle5writeEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull @.str.14, i64 noundef %71)
   br label %77
@@ -302,7 +302,7 @@ thread-pre-split:                                 ; preds = %58
 
 75:                                               ; preds = %74
   store i32 5, ptr %15, align 8
-  %.sroa.21.0..sroa_idx.i27 = getelementptr inbounds i8, ptr %15, i64 8
+  %.sroa.21.0..sroa_idx.i27 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i27, align 8
   call void (ptr, ptr, ...) @_ZN19GCLogPreciousHandle5writeEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.8, i64 noundef %71, i64 noundef 2097152)
   br label %77
@@ -329,7 +329,7 @@ define hidden noundef i32 @_ZNK22ZPhysicalMemoryBacking9create_fdEPKc(ptr nocapt
 
 8:                                                ; preds = %6
   store i32 2, ptr %3, align 8
-  %.sroa.21.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.21.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i, align 8
   call void (ptr, ptr, ...) @_ZN19GCLogPreciousHandle5writeEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull @.str.32)
   br label %9
@@ -356,7 +356,7 @@ define linkonce_odr hidden void @_ZN19GCLogPreciousHandle5writeEPKcz(ptr noundef
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %3)
   %.sroa.0.0.copyload = load i32, ptr %0, align 8
-  %.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.21.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.21.0.copyload = load ptr, ptr %.sroa.21.0..sroa_idx, align 8
   call void @_ZN13GCLogPrecious6vwriteE15LogTargetHandlePKcP13__va_list_tag(i32 %.sroa.0.0.copyload, ptr %.sroa.21.0.copyload, ptr noundef %1, ptr noundef nonnull %3) #12
   call void @llvm.va_end.p0(ptr nonnull %3)
@@ -370,7 +370,7 @@ declare i32 @fstatfs64(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZNK22ZPhysicalMemoryBacking8is_tmpfsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(41) %0) local_unnamed_addr #4 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i64, ptr %2, align 8
   %4 = icmp eq i64 %3, 16914836
   ret i1 %4
@@ -378,7 +378,7 @@ define hidden noundef zeroext i1 @_ZNK22ZPhysicalMemoryBacking8is_tmpfsEv(ptr no
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZNK22ZPhysicalMemoryBacking12is_hugetlbfsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(41) %0) local_unnamed_addr #4 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i64, ptr %2, align 8
   %4 = icmp eq i64 %3, 2508478710
   ret i1 %4
@@ -411,7 +411,7 @@ define hidden noundef i32 @_ZNK22ZPhysicalMemoryBacking13create_mem_fdEPKc(ptr n
 16:                                               ; preds = %2
   call void @_ZN6ZErrnoC1Ev(ptr noundef nonnull align 4 dereferenceable(4) %4) #12
   store i32 2, ptr %5, align 8
-  %.sroa.21.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 8
+  %.sroa.21.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_58ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i, align 8
   %17 = load i32, ptr @_ZN11ZLargePages6_stateE, align 4
   %18 = icmp eq i32 %17, 1
@@ -436,7 +436,7 @@ define hidden noundef i32 @_ZNK22ZPhysicalMemoryBacking13create_mem_fdEPKc(ptr n
 
 27:                                               ; preds = %2
   store i32 3, ptr %6, align 8
-  %.sroa.21.0..sroa_idx.i7 = getelementptr inbounds i8, ptr %6, i64 8
+  %.sroa.21.0..sroa_idx.i7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_58ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i7, align 8
   call void (ptr, ptr, ...) @_ZN19GCLogPreciousHandle5writeEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull @.str.21, ptr noundef nonnull %3)
   br label %28
@@ -480,7 +480,7 @@ define hidden noundef i32 @_ZNK22ZPhysicalMemoryBacking14create_file_fdEPKc(ptr 
 
 23:                                               ; preds = %2
   store i32 5, ptr %4, align 8
-  %.sroa.21.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.21.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i, align 8
   call void (ptr, ptr, ...) @_ZN19GCLogPreciousHandle5writeEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull @.str.22, ptr noundef nonnull %20)
   br label %57
@@ -494,7 +494,7 @@ define hidden noundef i32 @_ZNK22ZPhysicalMemoryBacking14create_file_fdEPKc(ptr 
 28:                                               ; preds = %24
   call void @_ZN6ZErrnoC1Ev(ptr noundef nonnull align 4 dereferenceable(4) %5) #12
   store i32 2, ptr %6, align 8
-  %.sroa.21.0..sroa_idx.i25 = getelementptr inbounds i8, ptr %6, i64 8
+  %.sroa.21.0..sroa_idx.i25 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_58ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i25, align 8
   %29 = call noundef ptr @_ZNK11ZMountPoint3getEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #12
   %30 = call noundef zeroext i1 @_ZNK6ZErrnoeqEi(ptr noundef nonnull align 4 dereferenceable(4) %5, i32 noundef 22) #12
@@ -508,7 +508,7 @@ define hidden noundef i32 @_ZNK22ZPhysicalMemoryBacking14create_file_fdEPKc(ptr 
   %34 = phi ptr [ %32, %31 ], [ @.str.24, %28 ]
   call void (ptr, ptr, ...) @_ZN19GCLogPreciousHandle5writeEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull @.str.23, ptr noundef %29, ptr noundef %34)
   store i32 2, ptr %11, align 8
-  %.sroa.21.0..sroa_idx.i26 = getelementptr inbounds i8, ptr %11, i64 8
+  %.sroa.21.0..sroa_idx.i26 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_58ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i26, align 8
   call void (ptr, ptr, ...) @_ZN19GCLogPreciousHandle5writeEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull @.str.27)
   %35 = call noundef ptr @_ZNK11ZMountPoint3getEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #12
@@ -526,7 +526,7 @@ define hidden noundef i32 @_ZNK22ZPhysicalMemoryBacking14create_file_fdEPKc(ptr 
 43:                                               ; preds = %40
   call void @_ZN6ZErrnoC1Ev(ptr noundef nonnull align 4 dereferenceable(4) %8) #12
   store i32 5, ptr %9, align 8
-  %.sroa.21.0..sroa_idx.i27 = getelementptr inbounds i8, ptr %9, i64 8
+  %.sroa.21.0..sroa_idx.i27 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i27, align 8
   %44 = call noundef ptr @_ZNK6ZErrno9to_stringEv(ptr noundef nonnull align 4 dereferenceable(4) %8) #12
   call void (ptr, ptr, ...) @_ZN19GCLogPreciousHandle15write_and_debugEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull @.str.25, ptr noundef %44)
@@ -534,10 +534,10 @@ define hidden noundef i32 @_ZNK22ZPhysicalMemoryBacking14create_file_fdEPKc(ptr 
 
 45:                                               ; preds = %40
   store i32 3, ptr %10, align 8
-  %.sroa.21.0..sroa_idx.i28 = getelementptr inbounds i8, ptr %10, i64 8
+  %.sroa.21.0..sroa_idx.i28 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_58ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i28, align 8
   %46 = call noundef ptr @_ZNK11ZMountPoint3getEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #12
-  %47 = getelementptr inbounds i8, ptr %7, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %48 = load i64, ptr %47, align 8
   call void (ptr, ptr, ...) @_ZN19GCLogPreciousHandle5writeEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull @.str.26, ptr noundef %46, i64 noundef %48)
   br label %57
@@ -545,7 +545,7 @@ define hidden noundef i32 @_ZNK22ZPhysicalMemoryBacking14create_file_fdEPKc(ptr 
 49:                                               ; preds = %33
   call void @_ZN6ZErrnoC1Ev(ptr noundef nonnull align 4 dereferenceable(4) %13) #12
   store i32 5, ptr %14, align 8
-  %.sroa.21.0..sroa_idx.i29 = getelementptr inbounds i8, ptr %14, i64 8
+  %.sroa.21.0..sroa_idx.i29 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i29, align 8
   %50 = call noundef ptr @_ZNK6ZErrno9to_stringEv(ptr noundef nonnull align 4 dereferenceable(4) %13) #12
   call void (ptr, ptr, ...) @_ZN19GCLogPreciousHandle5writeEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull @.str.29, ptr noundef nonnull %12, ptr noundef %50)
@@ -559,7 +559,7 @@ define hidden noundef i32 @_ZNK22ZPhysicalMemoryBacking14create_file_fdEPKc(ptr 
 54:                                               ; preds = %51
   call void @_ZN6ZErrnoC1Ev(ptr noundef nonnull align 4 dereferenceable(4) %15) #12
   store i32 5, ptr %16, align 8
-  %.sroa.21.0..sroa_idx.i30 = getelementptr inbounds i8, ptr %16, i64 8
+  %.sroa.21.0..sroa_idx.i30 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i30, align 8
   %55 = call noundef ptr @_ZNK6ZErrno9to_stringEv(ptr noundef nonnull align 4 dereferenceable(4) %15) #12
   call void (ptr, ptr, ...) @_ZN19GCLogPreciousHandle5writeEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull @.str.30, ptr noundef nonnull %12, ptr noundef %55)
@@ -567,7 +567,7 @@ define hidden noundef i32 @_ZNK22ZPhysicalMemoryBacking14create_file_fdEPKc(ptr 
 
 56:                                               ; preds = %51
   store i32 3, ptr %17, align 8
-  %.sroa.21.0..sroa_idx.i31 = getelementptr inbounds i8, ptr %17, i64 8
+  %.sroa.21.0..sroa_idx.i31 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_58ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i31, align 8
   call void (ptr, ptr, ...) @_ZN19GCLogPreciousHandle5writeEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull @.str.31, ptr noundef nonnull %12)
   br label %57
@@ -592,7 +592,7 @@ define linkonce_odr hidden void @_ZN19GCLogPreciousHandle15write_and_debugEPKcz(
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %3)
   %.sroa.0.0.copyload = load i32, ptr %0, align 8
-  %.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.21.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.21.0.copyload = load ptr, ptr %.sroa.21.0..sroa_idx, align 8
   call void @_ZN13GCLogPrecious16vwrite_and_debugE15LogTargetHandlePKcP13__va_list_tag(i32 %.sroa.0.0.copyload, ptr %.sroa.21.0.copyload, ptr noundef %1, ptr noundef nonnull %3) #12
   call void @llvm.va_end.p0(ptr nonnull %3)
@@ -609,7 +609,7 @@ declare void @_ZN11ZMountPointD1Ev(ptr noundef nonnull align 8 dereferenceable(8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZNK22ZPhysicalMemoryBacking14is_initializedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(41) %0) local_unnamed_addr #4 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
   ret i1 %4
@@ -624,21 +624,21 @@ define hidden void @_ZNK22ZPhysicalMemoryBacking20warn_available_spaceEm(ptr noc
   %7 = alloca %class.GCLogPreciousHandle, align 8
   %8 = alloca %class.GCLogPreciousHandle, align 8
   %9 = alloca %class.GCLogPreciousHandle, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load i64, ptr %10, align 8
   %12 = icmp eq i64 %11, 0
   br i1 %12, label %13, label %14
 
 13:                                               ; preds = %2
   store i32 3, ptr %3, align 8
-  %.sroa.21.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.21.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_58ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i, align 8
   call void (ptr, ptr, ...) @_ZN19GCLogPreciousHandle5writeEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull @.str.33)
   br label %22
 
 14:                                               ; preds = %2
   store i32 3, ptr %4, align 8
-  %.sroa.21.0..sroa_idx.i14 = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.21.0..sroa_idx.i14 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_58ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i14, align 8
   %15 = lshr i64 %11, 20
   call void (ptr, ptr, ...) @_ZN19GCLogPreciousHandle5writeEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull @.str.34, i64 noundef %15)
@@ -648,26 +648,26 @@ define hidden void @_ZNK22ZPhysicalMemoryBacking20warn_available_spaceEm(ptr noc
 
 18:                                               ; preds = %14
   store i32 4, ptr %5, align 8
-  %.sroa.21.0..sroa_idx.i15 = getelementptr inbounds i8, ptr %5, i64 8
+  %.sroa.21.0..sroa_idx.i15 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i15, align 8
   call void (ptr, ptr, ...) @_ZN19GCLogPreciousHandle5writeEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull @.str.35)
   store i32 4, ptr %6, align 8
-  %.sroa.21.0..sroa_idx.i16 = getelementptr inbounds i8, ptr %6, i64 8
+  %.sroa.21.0..sroa_idx.i16 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i16, align 8
   call void (ptr, ptr, ...) @_ZN19GCLogPreciousHandle5writeEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull @.str.36)
   store i32 4, ptr %7, align 8
-  %.sroa.21.0..sroa_idx.i17 = getelementptr inbounds i8, ptr %7, i64 8
+  %.sroa.21.0..sroa_idx.i17 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i17, align 8
   %19 = lshr i64 %1, 20
   call void (ptr, ptr, ...) @_ZN19GCLogPreciousHandle5writeEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull @.str.37, i64 noundef %19)
   store i32 4, ptr %8, align 8
-  %.sroa.21.0..sroa_idx.i18 = getelementptr inbounds i8, ptr %8, i64 8
+  %.sroa.21.0..sroa_idx.i18 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i18, align 8
   %20 = load i64, ptr %10, align 8
   %21 = lshr i64 %20, 20
   call void (ptr, ptr, ...) @_ZN19GCLogPreciousHandle5writeEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull @.str.38, i64 noundef %21)
   store i32 4, ptr %9, align 8
-  %.sroa.21.0..sroa_idx.i19 = getelementptr inbounds i8, ptr %9, i64 8
+  %.sroa.21.0..sroa_idx.i19 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i19, align 8
   call void (ptr, ptr, ...) @_ZN19GCLogPreciousHandle5writeEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull @.str.39)
   br label %22
@@ -692,7 +692,7 @@ define hidden void @_ZNK22ZPhysicalMemoryBacking18warn_max_map_countEm(ptr nocap
 
 13:                                               ; preds = %2
   store i32 2, ptr %3, align 8
-  %.sroa.21.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.21.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_58ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i, align 8
   call void (ptr, ptr, ...) @_ZN19GCLogPreciousHandle5writeEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.40)
   br label %29
@@ -706,7 +706,7 @@ define hidden void @_ZNK22ZPhysicalMemoryBacking18warn_max_map_countEm(ptr nocap
 
 17:                                               ; preds = %14
   store i32 2, ptr %5, align 8
-  %.sroa.21.0..sroa_idx.i20 = getelementptr inbounds i8, ptr %5, i64 8
+  %.sroa.21.0..sroa_idx.i20 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_58ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i20, align 8
   call void (ptr, ptr, ...) @_ZN19GCLogPreciousHandle5writeEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.40)
   br label %29
@@ -723,25 +723,25 @@ define hidden void @_ZNK22ZPhysicalMemoryBacking18warn_max_map_countEm(ptr nocap
 
 26:                                               ; preds = %18
   store i32 4, ptr %6, align 8
-  %.sroa.21.0..sroa_idx.i21 = getelementptr inbounds i8, ptr %6, i64 8
+  %.sroa.21.0..sroa_idx.i21 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i21, align 8
   call void (ptr, ptr, ...) @_ZN19GCLogPreciousHandle5writeEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull @.str.35)
   store i32 4, ptr %7, align 8
-  %.sroa.21.0..sroa_idx.i22 = getelementptr inbounds i8, ptr %7, i64 8
+  %.sroa.21.0..sroa_idx.i22 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i22, align 8
   call void (ptr, ptr, ...) @_ZN19GCLogPreciousHandle5writeEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull @.str.45)
   store i32 4, ptr %8, align 8
-  %.sroa.21.0..sroa_idx.i23 = getelementptr inbounds i8, ptr %8, i64 8
+  %.sroa.21.0..sroa_idx.i23 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i23, align 8
   %27 = lshr i64 %1, 20
   call void (ptr, ptr, ...) @_ZN19GCLogPreciousHandle5writeEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull @.str.46, i64 noundef %27, ptr noundef nonnull @.str.40)
   store i32 4, ptr %9, align 8
-  %.sroa.21.0..sroa_idx.i24 = getelementptr inbounds i8, ptr %9, i64 8
+  %.sroa.21.0..sroa_idx.i24 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i24, align 8
   %28 = load i64, ptr %4, align 8
   call void (ptr, ptr, ...) @_ZN19GCLogPreciousHandle5writeEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull @.str.47, i64 noundef %23, i64 noundef %28)
   store i32 4, ptr %10, align 8
-  %.sroa.21.0..sroa_idx.i25 = getelementptr inbounds i8, ptr %10, i64 8
+  %.sroa.21.0..sroa_idx.i25 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i25, align 8
   call void (ptr, ptr, ...) @_ZN19GCLogPreciousHandle5writeEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull @.str.48)
   br label %29
@@ -780,7 +780,7 @@ define hidden i32 @_ZNK22ZPhysicalMemoryBacking31fallocate_compat_mmap_hugetlbfs
 
 10:                                               ; preds = %9
   %11 = getelementptr inbounds i8, ptr %7, i64 %2
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load i64, ptr %12, align 8
   tail call void @_ZN2os15pretouch_memoryEPvS0_m(ptr noundef %7, ptr noundef %11, i64 noundef %13) #12
   br label %14
@@ -829,7 +829,7 @@ define hidden i32 @_ZNK22ZPhysicalMemoryBacking27fallocate_compat_mmap_tmpfsE7zo
   br label %11
 
 11:                                               ; preds = %10, %8
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load i64, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %6, i64 %2
   %15 = icmp slt i64 %2, 1
@@ -878,7 +878,7 @@ define hidden i32 @_ZNK22ZPhysicalMemoryBacking23fallocate_compat_pwriteE7zoffse
   br i1 %7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %9
 
 9:                                                ; preds = %.lr.ph, %16
@@ -956,7 +956,7 @@ _ZNK22ZPhysicalMemoryBacking31fallocate_compat_mmap_hugetlbfsE7zoffsetmb.exit: ;
   br i1 %22, label %.lr.ph.i, label %_ZNK22ZPhysicalMemoryBacking23fallocate_compat_pwriteE7zoffsetm.exit
 
 .lr.ph.i:                                         ; preds = %20
-  %23 = getelementptr inbounds i8, ptr %0, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %24
 
 24:                                               ; preds = %31, %.lr.ph.i
@@ -1059,7 +1059,7 @@ _ZNK22ZPhysicalMemoryBacking27fallocate_fill_hole_syscallE7zoffsetm.exit: ; pred
 
 24:                                               ; preds = %20, %18
   store i32 2, ptr %6, align 8
-  %.sroa.21.0..sroa_idx.i = getelementptr inbounds i8, ptr %6, i64 8
+  %.sroa.21.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i, align 8
   call void (ptr, ptr, ...) @_ZN19GCLogPreciousHandle5writeEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull @.str.50)
   store i1 true, ptr @_ZL21z_fallocate_supported, align 1
@@ -1093,7 +1093,7 @@ define hidden i32 @_ZNK22ZPhysicalMemoryBacking20fallocate_punch_holeE7zoffsetm(
 
 11:                                               ; preds = %7
   %12 = getelementptr inbounds i8, ptr %9, i64 %2
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load i64, ptr %13, align 8
   tail call void @_ZN2os15pretouch_memoryEPvS0_m(ptr noundef %9, ptr noundef %12, i64 noundef %14) #12
   %15 = tail call i32 @munmap(ptr noundef %9, i64 noundef %2) #12
@@ -1140,7 +1140,7 @@ define hidden i32 @_ZNK22ZPhysicalMemoryBacking19split_and_fallocateEb7zoffsetm(
   %8 = alloca %class.ZErrno, align 4
   %9 = alloca %class.ZErrno, align 4
   %10 = lshr i64 %3, 1
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load i64, ptr %11, align 8
   %13 = add nsw i64 %10, -1
   %14 = add i64 %13, %12
@@ -1246,7 +1246,7 @@ define hidden i32 @_ZNK22ZPhysicalMemoryBacking9fallocateEb7zoffsetm(ptr noundef
   %storemerge = phi i32 [ %9, %8 ], [ %7, %6 ]
   store i32 %storemerge, ptr %5, align 4
   %11 = call noundef zeroext i1 @_ZNK6ZErrnoeqEi(ptr noundef nonnull align 4 dereferenceable(4) %5, i32 noundef 4) #12
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load i64, ptr %12, align 8
   %14 = icmp ugt i64 %3, %13
   %or.cond = select i1 %11, i1 %14, i1 false
@@ -1271,7 +1271,7 @@ define hidden noundef zeroext i1 @_ZNK22ZPhysicalMemoryBacking12commit_innerE7zo
   %5 = alloca %class.ZErrno, align 4
   %6 = alloca %class.GCLogPreciousHandle, align 8
   %7 = alloca %class.GCLogPreciousHandle, align 8
-  %8 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_52ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %8 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_52ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not11 = icmp eq ptr %8, null
   br i1 %.not11, label %14, label %9
 
@@ -1284,8 +1284,8 @@ define hidden noundef zeroext i1 @_ZNK22ZPhysicalMemoryBacking12commit_innerE7zo
   br label %14
 
 14:                                               ; preds = %3, %9
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
-  %.sroa.21.0..sroa_idx.i = getelementptr inbounds i8, ptr %6, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.sroa.21.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   br label %16
 
 16:                                               ; preds = %35, %14
@@ -1341,7 +1341,7 @@ _ZNK22ZPhysicalMemoryBacking9fallocateEb7zoffsetm.exit: ; preds = %21, %23
 
 38:                                               ; preds = %31, %27, %25
   store i32 5, ptr %7, align 8
-  %.sroa.21.0..sroa_idx.i9 = getelementptr inbounds i8, ptr %7, i64 8
+  %.sroa.21.0..sroa_idx.i9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i9, align 8
   %39 = call noundef ptr @_ZNK6ZErrno9to_stringEv(ptr noundef nonnull align 4 dereferenceable(4) %5) #12
   call void (ptr, ptr, ...) @_ZN19GCLogPreciousHandle5writeEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull @.str.53, ptr noundef %39)
@@ -1379,7 +1379,7 @@ define hidden noundef i64 @_ZNK22ZPhysicalMemoryBacking23commit_numa_interleaved
 
 6:                                                ; preds = %.lr.ph
   %7 = load ptr, ptr @_ZN2os5Linux15_nindex_to_nodeE, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = lshr i64 %4, 21
   %11 = load i32, ptr %7, align 4
@@ -1475,7 +1475,7 @@ define hidden noundef i64 @_ZNK22ZPhysicalMemoryBacking6commitE7zoffsetm(ptr nou
 
 11:                                               ; preds = %.lr.ph.i
   %12 = load ptr, ptr @_ZN2os5Linux15_nindex_to_nodeE, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = lshr i64 %9, 21
   %16 = load i32, ptr %12, align 4
@@ -1548,7 +1548,7 @@ _ZNK22ZPhysicalMemoryBacking23commit_numa_interleavedE7zoffsetm.exit: ; preds = 
 define hidden noundef i64 @_ZNK22ZPhysicalMemoryBacking8uncommitE7zoffsetm(ptr noundef nonnull align 8 dereferenceable(41) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.ZErrno, align 4
   %5 = alloca %class.ZErrno, align 4
-  %6 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_52ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %6 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_52ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %12, label %7
 
@@ -1565,7 +1565,7 @@ define hidden noundef i64 @_ZNK22ZPhysicalMemoryBacking8uncommitE7zoffsetm(ptr n
   %13 = tail call i32 @_ZNK22ZPhysicalMemoryBacking20fallocate_punch_holeE7zoffsetm(ptr noundef nonnull align 8 dereferenceable(41) %0, i64 noundef %1, i64 noundef %2)
   store i32 %13, ptr %4, align 4
   %14 = call noundef zeroext i1 @_ZNK6ZErrnoeqEi(ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef 4) #12
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load i64, ptr %15, align 8
   %17 = icmp ugt i64 %2, %16
   %or.cond.i = select i1 %14, i1 %17, i1 false
@@ -1587,7 +1587,7 @@ _ZNK22ZPhysicalMemoryBacking9fallocateEb7zoffsetm.exit: ; preds = %18, %20
   br i1 %21, label %22, label %26
 
 22:                                               ; preds = %_ZNK22ZPhysicalMemoryBacking9fallocateEb7zoffsetm.exit
-  %23 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
+  %23 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
   %.not8 = icmp eq ptr %23, null
   br i1 %.not8, label %26, label %24
 

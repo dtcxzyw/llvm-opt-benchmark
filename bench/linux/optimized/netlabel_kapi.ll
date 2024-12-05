@@ -93,7 +93,7 @@ define dso_local i32 @netlbl_cfg_unlbl_map_add(ptr noundef %0, i16 noundef zeroe
   br i1 %13, label %.thread, label %14
 
 14:                                               ; preds = %11, %9
-  %15 = getelementptr inbounds i8, ptr %7, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i16 %1, ptr %15, align 8
   %16 = icmp eq ptr %2, null
   %17 = icmp eq ptr %3, null
@@ -101,7 +101,7 @@ define dso_local i32 @netlbl_cfg_unlbl_map_add(ptr noundef %0, i16 noundef zeroe
   br i1 %18, label %19, label %21
 
 19:                                               ; preds = %14
-  %20 = getelementptr inbounds i8, ptr %7, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 5, ptr %20, align 8
   br label %79
 
@@ -119,11 +119,11 @@ define dso_local i32 @netlbl_cfg_unlbl_map_add(ptr noundef %0, i16 noundef zeroe
 
 29:                                               ; preds = %25
   store volatile ptr %27, ptr %27, align 8
-  %30 = getelementptr inbounds i8, ptr %27, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store volatile ptr %27, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %27, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %27, i64 16
   store volatile ptr %31, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %27, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %27, i64 24
   store volatile ptr %31, ptr %32, align 8
   switch i16 %1, label %.thread [
     i16 2, label %33
@@ -141,13 +141,13 @@ define dso_local i32 @netlbl_cfg_unlbl_map_add(ptr noundef %0, i16 noundef zeroe
   %38 = load i32, ptr %2, align 4
   %39 = load i32, ptr %3, align 4
   %40 = and i32 %39, %38
-  %41 = getelementptr inbounds i8, ptr %35, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %35, i64 16
   store i32 %40, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %35, i64 20
+  %42 = getelementptr inbounds nuw i8, ptr %35, i64 20
   store i32 %39, ptr %42, align 4
-  %43 = getelementptr inbounds i8, ptr %35, i64 24
+  %43 = getelementptr inbounds nuw i8, ptr %35, i64 24
   store i32 1, ptr %43, align 8
-  %44 = tail call i32 @netlbl_af4list_add(ptr noundef %41, ptr noundef nonnull %27) #13
+  %44 = tail call i32 @netlbl_af4list_add(ptr noundef nonnull %41, ptr noundef nonnull %27) #13
   %45 = icmp eq i32 %44, 0
   br i1 %45, label %74, label %.thread
 
@@ -159,8 +159,8 @@ define dso_local i32 @netlbl_cfg_unlbl_map_add(ptr noundef %0, i16 noundef zeroe
 
 50:                                               ; preds = %46
   store i32 5, ptr %48, align 8
-  %51 = getelementptr inbounds i8, ptr %48, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(16) %51, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false)
+  %51 = getelementptr inbounds nuw i8, ptr %48, i64 16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %51, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false)
   %52 = load i32, ptr %3, align 4
   %53 = load i32, ptr %51, align 8
   %54 = and i32 %53, %52
@@ -183,19 +183,19 @@ define dso_local i32 @netlbl_cfg_unlbl_map_add(ptr noundef %0, i16 noundef zeroe
   %68 = load i32, ptr %67, align 4
   %69 = and i32 %68, %66
   store i32 %69, ptr %67, align 4
-  %70 = getelementptr inbounds i8, ptr %48, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(16) %70, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false)
-  %71 = getelementptr inbounds i8, ptr %48, i64 48
+  %70 = getelementptr inbounds nuw i8, ptr %48, i64 32
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %70, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false)
+  %71 = getelementptr inbounds nuw i8, ptr %48, i64 48
   store i32 1, ptr %71, align 8
-  %72 = tail call i32 @netlbl_af6list_add(ptr noundef %51, ptr noundef %31) #13
+  %72 = tail call i32 @netlbl_af6list_add(ptr noundef nonnull %51, ptr noundef nonnull %31) #13
   %73 = icmp eq i32 %72, 0
   br i1 %73, label %74, label %.thread
 
 74:                                               ; preds = %50, %37
   %75 = phi ptr [ null, %50 ], [ %35, %37 ]
   %76 = phi ptr [ %48, %50 ], [ null, %37 ]
-  %77 = getelementptr inbounds i8, ptr %7, i64 8
-  %78 = getelementptr inbounds i8, ptr %7, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %27, ptr %78, align 8
   store i32 6, ptr %77, align 8
   br label %79
@@ -321,7 +321,7 @@ define dso_local i32 @netlbl_cfg_cipsov4_map_add(i32 noundef %0, ptr noundef %1,
   br i1 %11, label %68, label %12
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %10, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store i16 2, ptr %13, align 8
   %14 = icmp eq ptr %1, null
   br i1 %14, label %18, label %15
@@ -352,11 +352,11 @@ define dso_local i32 @netlbl_cfg_cipsov4_map_add(i32 noundef %0, ptr noundef %1,
 
 30:                                               ; preds = %26
   store volatile ptr %28, ptr %28, align 8
-  %31 = getelementptr inbounds i8, ptr %28, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store volatile ptr %28, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %28, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %28, i64 16
   store volatile ptr %32, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %28, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %28, i64 24
   store volatile ptr %32, ptr %33, align 8
   %34 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
   %35 = tail call noalias align 8 dereferenceable_or_null(48) ptr @kmalloc_trace(ptr noundef %34, i32 noundef 2336, i64 noundef 48) #14
@@ -364,19 +364,19 @@ define dso_local i32 @netlbl_cfg_cipsov4_map_add(i32 noundef %0, ptr noundef %1,
   br i1 %36, label %60, label %37
 
 37:                                               ; preds = %30
-  %38 = getelementptr inbounds i8, ptr %35, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store ptr %6, ptr %38, align 8
   store i32 3, ptr %35, align 8
   %39 = load i32, ptr %2, align 4
   %40 = load i32, ptr %3, align 4
   %41 = and i32 %40, %39
-  %42 = getelementptr inbounds i8, ptr %35, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %35, i64 16
   store i32 %41, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %35, i64 20
+  %43 = getelementptr inbounds nuw i8, ptr %35, i64 20
   store i32 %40, ptr %43, align 4
-  %44 = getelementptr inbounds i8, ptr %35, i64 24
+  %44 = getelementptr inbounds nuw i8, ptr %35, i64 24
   store i32 1, ptr %44, align 8
-  %45 = tail call i32 @netlbl_af4list_add(ptr noundef %42, ptr noundef nonnull %28) #13
+  %45 = tail call i32 @netlbl_af4list_add(ptr noundef nonnull %42, ptr noundef nonnull %28) #13
   %46 = icmp eq i32 %45, 0
   br i1 %46, label %47, label %56
 
@@ -385,8 +385,8 @@ define dso_local i32 @netlbl_cfg_cipsov4_map_add(i32 noundef %0, ptr noundef %1,
   %49 = phi i32 [ 3, %18 ], [ 6, %37 ]
   %50 = phi ptr [ null, %18 ], [ %28, %37 ]
   %51 = phi ptr [ null, %18 ], [ %35, %37 ]
-  %52 = getelementptr inbounds i8, ptr %10, i64 8
-  %53 = getelementptr inbounds i8, ptr %10, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %48, ptr %53, align 8
   store i32 %49, ptr %52, align 8
   %54 = tail call i32 @netlbl_domhsh_add(ptr noundef nonnull %10, ptr noundef %4) #13
@@ -464,7 +464,7 @@ define dso_local i32 @netlbl_cfg_calipso_map_add(i32 noundef %0, ptr noundef %1,
   br i1 %11, label %83, label %12
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %10, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store i16 10, ptr %13, align 8
   %14 = icmp eq ptr %1, null
   br i1 %14, label %18, label %15
@@ -495,11 +495,11 @@ define dso_local i32 @netlbl_cfg_calipso_map_add(i32 noundef %0, ptr noundef %1,
 
 30:                                               ; preds = %26
   store volatile ptr %28, ptr %28, align 8
-  %31 = getelementptr inbounds i8, ptr %28, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store volatile ptr %28, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %28, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %28, i64 16
   store volatile ptr %32, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %28, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %28, i64 24
   store volatile ptr %32, ptr %33, align 8
   %34 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 8), align 8
   %35 = tail call noalias align 8 dereferenceable_or_null(72) ptr @kmalloc_trace(ptr noundef %34, i32 noundef 2336, i64 noundef 72) #14
@@ -507,11 +507,11 @@ define dso_local i32 @netlbl_cfg_calipso_map_add(i32 noundef %0, ptr noundef %1,
   br i1 %36, label %75, label %37
 
 37:                                               ; preds = %30
-  %38 = getelementptr inbounds i8, ptr %35, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store ptr %6, ptr %38, align 8
   store i32 7, ptr %35, align 8
-  %39 = getelementptr inbounds i8, ptr %35, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(16) %39, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false)
+  %39 = getelementptr inbounds nuw i8, ptr %35, i64 16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false)
   %40 = load i32, ptr %3, align 4
   %41 = load i32, ptr %39, align 8
   %42 = and i32 %41, %40
@@ -534,11 +534,11 @@ define dso_local i32 @netlbl_cfg_calipso_map_add(i32 noundef %0, ptr noundef %1,
   %56 = load i32, ptr %55, align 4
   %57 = and i32 %56, %54
   store i32 %57, ptr %55, align 4
-  %58 = getelementptr inbounds i8, ptr %35, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(16) %58, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false)
-  %59 = getelementptr inbounds i8, ptr %35, i64 48
+  %58 = getelementptr inbounds nuw i8, ptr %35, i64 32
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %58, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false)
+  %59 = getelementptr inbounds nuw i8, ptr %35, i64 48
   store i32 1, ptr %59, align 8
-  %60 = tail call i32 @netlbl_af6list_add(ptr noundef %39, ptr noundef %32) #13
+  %60 = tail call i32 @netlbl_af6list_add(ptr noundef nonnull %39, ptr noundef nonnull %32) #13
   %61 = icmp eq i32 %60, 0
   br i1 %61, label %62, label %71
 
@@ -547,8 +547,8 @@ define dso_local i32 @netlbl_cfg_calipso_map_add(i32 noundef %0, ptr noundef %1,
   %64 = phi i32 [ 7, %18 ], [ 6, %37 ]
   %65 = phi ptr [ null, %18 ], [ %28, %37 ]
   %66 = phi ptr [ null, %18 ], [ %35, %37 ]
-  %67 = getelementptr inbounds i8, ptr %10, i64 8
-  %68 = getelementptr inbounds i8, ptr %10, i64 16
+  %67 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %63, ptr %68, align 8
   store i32 %64, ptr %67, align 8
   %69 = tail call i32 @netlbl_domhsh_add(ptr noundef nonnull %10, ptr noundef %4) #13
@@ -618,7 +618,7 @@ define dso_local i32 @netlbl_catmap_walk(ptr noundef readonly %0, i32 noundef %1
   br i1 %14, label %.loopexit9, label %15
 
 15:                                               ; preds = %9
-  %16 = getelementptr inbounds i8, ptr %10, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, null
   br i1 %18, label %.thread, label %9, !llvm.loop !5
@@ -632,7 +632,7 @@ define dso_local i32 @netlbl_catmap_walk(ptr noundef readonly %0, i32 noundef %1
   %24 = and i32 %22, 63
   %25 = select i1 %21, i32 %23, i32 0
   %26 = select i1 %21, i32 %24, i32 0
-  %27 = getelementptr inbounds i8, ptr %20, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %28 = zext nneg i32 %25 to i64
   %29 = getelementptr [4 x i64], ptr %27, i64 0, i64 %28
   %30 = load i64, ptr %29, align 8
@@ -675,7 +675,7 @@ define dso_local i32 @netlbl_catmap_walk(ptr noundef readonly %0, i32 noundef %1
   br i1 %54, label %55, label %59
 
 55:                                               ; preds = %.preheader7
-  %56 = getelementptr inbounds i8, ptr %52, i64 40
+  %56 = getelementptr inbounds nuw i8, ptr %52, i64 40
   %57 = load ptr, ptr %56, align 8
   %58 = icmp eq ptr %57, null
   br i1 %58, label %.thread, label %59
@@ -683,7 +683,7 @@ define dso_local i32 @netlbl_catmap_walk(ptr noundef readonly %0, i32 noundef %1
 59:                                               ; preds = %55, %.preheader7
   %60 = phi ptr [ %52, %.preheader7 ], [ %57, %55 ]
   %61 = phi i32 [ %53, %.preheader7 ], [ 0, %55 ]
-  %62 = getelementptr inbounds i8, ptr %60, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %63 = zext nneg i32 %61 to i64
   %64 = getelementptr [4 x i64], ptr %62, i64 0, i64 %63
   %65 = load i64, ptr %64, align 8
@@ -718,7 +718,7 @@ define dso_local i32 @netlbl_catmap_walkrng(ptr noundef readonly %0, i32 noundef
   br i1 %14, label %.loopexit8, label %15
 
 15:                                               ; preds = %9
-  %16 = getelementptr inbounds i8, ptr %10, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, null
   br i1 %18, label %.thread, label %9, !llvm.loop !5
@@ -743,7 +743,7 @@ define dso_local i32 @netlbl_catmap_walkrng(ptr noundef readonly %0, i32 noundef
   %33 = phi i32 [ 0, %.split42.us ], [ %26, %.loopexit8 ]
   %34 = phi i64 [ 1, %.split42.us ], [ %28, %.loopexit8 ]
   %.fr43 = freeze ptr %31
-  %35 = getelementptr inbounds i8, ptr %30, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %.not44.not.not.not.not = icmp ne ptr %.fr43, null
   %36 = zext nneg i32 %32 to i64
   %umax93 = tail call i32 @llvm.umax.i32(i32 %32, i32 3)
@@ -849,7 +849,7 @@ define dso_local i32 @netlbl_catmap_walkrng(ptr noundef readonly %0, i32 noundef
   br i1 %exitcond95, label %.split42.us, label %.split, !llvm.loop !11
 
 .split42.us:                                      ; preds = %51, %84
-  %85 = getelementptr inbounds i8, ptr %30, i64 40
+  %85 = getelementptr inbounds nuw i8, ptr %30, i64 40
   %86 = load ptr, ptr %85, align 8
   %87 = icmp eq ptr %86, null
   br i1 %87, label %88, label %29, !llvm.loop !11
@@ -908,7 +908,7 @@ define dso_local noundef range(i32 -22, 1) i32 @netlbl_catmap_getlong(ptr nounde
   br i1 %25, label %.loopexit, label %26
 
 26:                                               ; preds = %20
-  %27 = getelementptr inbounds i8, ptr %21, i64 40
+  %27 = getelementptr inbounds nuw i8, ptr %21, i64 40
   %28 = load ptr, ptr %27, align 8
   %29 = icmp eq ptr %28, null
   br i1 %29, label %30, label %20, !llvm.loop !5
@@ -935,7 +935,7 @@ define dso_local noundef range(i32 -22, 1) i32 @netlbl_catmap_getlong(ptr nounde
 37:                                               ; preds = %34, %33
   %38 = phi i64 [ 0, %33 ], [ %36, %34 ]
   %39 = lshr i64 %38, 6
-  %40 = getelementptr inbounds i8, ptr %.ph, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %.ph, i64 8
   %41 = getelementptr [4 x i64], ptr %40, i64 0, i64 %39
   %42 = load i64, ptr %41, align 8
   %43 = and i64 %38, 63
@@ -975,7 +975,7 @@ define dso_local noundef range(i32 -12, 1) i32 @netlbl_catmap_setbit(ptr nocaptu
 
 .preheader:                                       ; preds = %9, %14
   %19 = phi ptr [ %21, %14 ], [ %4, %9 ]
-  %20 = getelementptr inbounds i8, ptr %19, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 40
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, null
   br i1 %22, label %.loopexit, label %14, !llvm.loop !5
@@ -1012,10 +1012,10 @@ define dso_local noundef range(i32 -12, 1) i32 @netlbl_catmap_setbit(ptr nocaptu
   %42 = and i32 %1, -256
   store i32 %42, ptr %39, align 8
   %43 = icmp eq ptr %27, null
-  %44 = getelementptr inbounds i8, ptr %27, i64 40
+  %44 = getelementptr inbounds nuw i8, ptr %27, i64 40
   %45 = select i1 %43, ptr %0, ptr %44
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %39, i64 40
+  %47 = getelementptr inbounds nuw i8, ptr %39, i64 40
   store ptr %46, ptr %47, align 8
   store ptr %39, ptr %45, align 8
   %.pre = load i32, ptr %39, align 8
@@ -1029,7 +1029,7 @@ define dso_local noundef range(i32 -12, 1) i32 @netlbl_catmap_setbit(ptr nocaptu
   %52 = and i32 %50, 63
   %53 = zext nneg i32 %52 to i64
   %54 = shl nuw i64 1, %53
-  %55 = getelementptr inbounds i8, ptr %.ph, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %.ph, i64 8
   %56 = zext nneg i32 %51 to i64
   %57 = getelementptr [4 x i64], ptr %55, i64 0, i64 %56
   %58 = load i64, ptr %57, align 8
@@ -1091,7 +1091,7 @@ define dso_local noundef range(i32 -12, 1) i32 @netlbl_catmap_setrng(ptr nocaptu
 
 .preheader.i:                                     ; preds = %25, %30
   %35 = phi ptr [ %37, %30 ], [ %20, %25 ]
-  %36 = getelementptr inbounds i8, ptr %35, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 40
   %37 = load ptr, ptr %36, align 8
   %38 = icmp eq ptr %37, null
   br i1 %38, label %.loopexit.i, label %30, !llvm.loop !5
@@ -1122,10 +1122,10 @@ define dso_local noundef range(i32 -12, 1) i32 @netlbl_catmap_setrng(ptr nocaptu
   %52 = and i32 %13, -256
   store i32 %52, ptr %49, align 8
   %53 = icmp eq ptr %43, null
-  %54 = getelementptr inbounds i8, ptr %43, i64 40
+  %54 = getelementptr inbounds nuw i8, ptr %43, i64 40
   %55 = select i1 %53, ptr %0, ptr %54
   %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %49, i64 40
+  %57 = getelementptr inbounds nuw i8, ptr %49, i64 40
   store ptr %56, ptr %57, align 8
   store ptr %49, ptr %55, align 8
   %.pre.i = load i32, ptr %49, align 8
@@ -1139,7 +1139,7 @@ define dso_local noundef range(i32 -12, 1) i32 @netlbl_catmap_setrng(ptr nocaptu
   %62 = and i32 %60, 63
   %63 = zext nneg i32 %62 to i64
   %64 = shl nsw i64 -1, %63
-  %65 = getelementptr inbounds i8, ptr %.ph.i, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %.ph.i, i64 8
   %66 = zext nneg i32 %61 to i64
   %67 = getelementptr [4 x i64], ptr %65, i64 0, i64 %66
   %68 = load i64, ptr %67, align 8
@@ -1179,7 +1179,7 @@ netlbl_catmap_setlong.exit:                       ; preds = %45, %58
 
 .preheader.i2:                                    ; preds = %79, %84
   %89 = phi ptr [ %91, %84 ], [ %74, %79 ]
-  %90 = getelementptr inbounds i8, ptr %89, i64 40
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 40
   %91 = load ptr, ptr %90, align 8
   %92 = icmp eq ptr %91, null
   br i1 %92, label %.loopexit.i5, label %84, !llvm.loop !5
@@ -1210,10 +1210,10 @@ netlbl_catmap_setlong.exit:                       ; preds = %45, %58
   %106 = and i32 %13, -256
   store i32 %106, ptr %103, align 8
   %107 = icmp eq ptr %97, null
-  %108 = getelementptr inbounds i8, ptr %97, i64 40
+  %108 = getelementptr inbounds nuw i8, ptr %97, i64 40
   %109 = select i1 %107, ptr %0, ptr %108
   %110 = load ptr, ptr %109, align 8
-  %111 = getelementptr inbounds i8, ptr %103, i64 40
+  %111 = getelementptr inbounds nuw i8, ptr %103, i64 40
   store ptr %110, ptr %111, align 8
   store ptr %103, ptr %109, align 8
   %.pre.i6 = load i32, ptr %103, align 8
@@ -1227,7 +1227,7 @@ netlbl_catmap_setlong.exit:                       ; preds = %45, %58
   %116 = and i32 %114, 63
   %117 = zext nneg i32 %116 to i64
   %118 = shl nuw i64 1, %117
-  %119 = getelementptr inbounds i8, ptr %.ph.i4, i64 8
+  %119 = getelementptr inbounds nuw i8, ptr %.ph.i4, i64 8
   %120 = zext nneg i32 %115 to i64
   %121 = getelementptr [4 x i64], ptr %119, i64 0, i64 %120
   %122 = load i64, ptr %121, align 8
@@ -1280,7 +1280,7 @@ define dso_local noundef range(i32 -22, 1) i32 @netlbl_catmap_setlong(ptr nocapt
 
 .preheader:                                       ; preds = %13, %18
   %23 = phi ptr [ %25, %18 ], [ %8, %13 ]
-  %24 = getelementptr inbounds i8, ptr %23, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 40
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, null
   br i1 %26, label %.loopexit, label %18, !llvm.loop !5
@@ -1317,10 +1317,10 @@ define dso_local noundef range(i32 -22, 1) i32 @netlbl_catmap_setlong(ptr nocapt
   %46 = and i32 %1, -256
   store i32 %46, ptr %43, align 8
   %47 = icmp eq ptr %31, null
-  %48 = getelementptr inbounds i8, ptr %31, i64 40
+  %48 = getelementptr inbounds nuw i8, ptr %31, i64 40
   %49 = select i1 %47, ptr %0, ptr %48
   %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %43, i64 40
+  %51 = getelementptr inbounds nuw i8, ptr %43, i64 40
   store ptr %50, ptr %51, align 8
   store ptr %43, ptr %49, align 8
   %.pre = load i32, ptr %43, align 8
@@ -1334,7 +1334,7 @@ define dso_local noundef range(i32 -22, 1) i32 @netlbl_catmap_setlong(ptr nocapt
   %56 = and i32 %54, 63
   %57 = zext nneg i32 %56 to i64
   %58 = shl i64 %2, %57
-  %59 = getelementptr inbounds i8, ptr %.ph, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %.ph, i64 8
   %60 = zext nneg i32 %55 to i64
   %61 = getelementptr [4 x i64], ptr %59, i64 0, i64 %60
   %62 = load i64, ptr %61, align 8
@@ -1439,7 +1439,7 @@ define dso_local range(i32 0, 2) i32 @netlbl_enabled() local_unnamed_addr #7 ali
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @netlbl_sock_setattr(ptr noundef %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
   tail call void @__rcu_read_lock() #13
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr @netlbl_domhsh_getentry(ptr noundef %5, i16 noundef zeroext %1) #13
   %7 = icmp eq ptr %6, null
@@ -1452,7 +1452,7 @@ define dso_local i32 @netlbl_sock_setattr(ptr noundef %0, i16 noundef zeroext %1
   ]
 
 9:                                                ; preds = %8
-  %10 = getelementptr inbounds i8, ptr %6, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %11 = load i32, ptr %10, align 8
   switch i32 %11, label %17 [
     i32 6, label %27
@@ -1461,7 +1461,7 @@ define dso_local i32 @netlbl_sock_setattr(ptr noundef %0, i16 noundef zeroext %1
   ]
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %6, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = tail call i32 @cipso_v4_sock_setattr(ptr noundef %0, ptr noundef %14, ptr noundef %2) #13
   br label %27
@@ -1473,7 +1473,7 @@ define dso_local i32 @netlbl_sock_setattr(ptr noundef %0, i16 noundef zeroext %1
   br label %27
 
 18:                                               ; preds = %8
-  %19 = getelementptr inbounds i8, ptr %6, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %20 = load i32, ptr %19, align 8
   switch i32 %20, label %26 [
     i32 6, label %27
@@ -1482,7 +1482,7 @@ define dso_local i32 @netlbl_sock_setattr(ptr noundef %0, i16 noundef zeroext %1
   ]
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %6, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %23 = load ptr, ptr %22, align 8
   %24 = tail call i32 @calipso_sock_setattr(ptr noundef %0, ptr noundef %23, ptr noundef %2) #13
   br label %27
@@ -1510,7 +1510,7 @@ declare dso_local i32 @calipso_sock_setattr(ptr noundef, ptr noundef, ptr nounde
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @netlbl_sock_delattr(ptr noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i16, ptr %2, align 8
   switch i16 %3, label %6 [
     i16 2, label %4
@@ -1537,7 +1537,7 @@ declare dso_local void @calipso_sock_delattr(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @netlbl_sock_getattr(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i16, ptr %3, align 8
   switch i16 %4, label %9 [
     i16 2, label %5
@@ -1573,9 +1573,9 @@ define dso_local i32 @netlbl_conn_setattr(ptr noundef %0, ptr noundef %1, ptr no
   ]
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %2, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %9 = load i32, ptr %8, align 4
   %10 = tail call ptr @netlbl_domhsh_getentry_af4(ptr noundef %7, i32 noundef %9) #13
   %11 = icmp eq ptr %10, null
@@ -1589,13 +1589,13 @@ define dso_local i32 @netlbl_conn_setattr(ptr noundef %0, ptr noundef %1, ptr no
   ]
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %10, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = tail call i32 @cipso_v4_sock_setattr(ptr noundef %0, ptr noundef %16, ptr noundef %2) #13
   br label %40
 
 18:                                               ; preds = %12
-  %19 = getelementptr inbounds i8, ptr %0, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = load i16, ptr %19, align 8
   switch i16 %20, label %40 [
     i16 2, label %21
@@ -1611,10 +1611,10 @@ define dso_local i32 @netlbl_conn_setattr(ptr noundef %0, ptr noundef %1, ptr no
   br label %40
 
 23:                                               ; preds = %3
-  %24 = getelementptr inbounds i8, ptr %2, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %1, i64 8
-  %27 = tail call ptr @netlbl_domhsh_getentry_af6(ptr noundef %25, ptr noundef %26) #13
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %27 = tail call ptr @netlbl_domhsh_getentry_af6(ptr noundef %25, ptr noundef nonnull %26) #13
   %28 = icmp eq ptr %27, null
   br i1 %28, label %40, label %29
 
@@ -1626,13 +1626,13 @@ define dso_local i32 @netlbl_conn_setattr(ptr noundef %0, ptr noundef %1, ptr no
   ]
 
 31:                                               ; preds = %29
-  %32 = getelementptr inbounds i8, ptr %27, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %33 = load ptr, ptr %32, align 8
   %34 = tail call i32 @calipso_sock_setattr(ptr noundef %0, ptr noundef %33, ptr noundef %2) #13
   br label %40
 
 35:                                               ; preds = %29
-  %36 = getelementptr inbounds i8, ptr %0, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %37 = load i16, ptr %36, align 8
   switch i16 %37, label %40 [
     i16 2, label %38
@@ -1662,7 +1662,7 @@ declare dso_local ptr @netlbl_domhsh_getentry_af6(ptr noundef, ptr noundef) loca
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @netlbl_req_setattr(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   tail call void @__rcu_read_lock() #13
-  %3 = getelementptr inbounds i8, ptr %0, i64 192
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr %4, align 8
   switch i32 %5, label %40 [
@@ -1671,7 +1671,7 @@ define dso_local i32 @netlbl_req_setattr(ptr noundef %0, ptr noundef %1) local_u
   ]
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = load i32, ptr %0, align 8
   %10 = tail call ptr @netlbl_domhsh_getentry_af4(ptr noundef %8, i32 noundef %9) #13
@@ -1686,7 +1686,7 @@ define dso_local i32 @netlbl_req_setattr(ptr noundef %0, ptr noundef %1) local_u
   ]
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %10, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = tail call i32 @cipso_v4_req_setattr(ptr noundef %0, ptr noundef %16, ptr noundef %1) #13
   br label %40
@@ -1708,10 +1708,10 @@ define dso_local i32 @netlbl_req_setattr(ptr noundef %0, ptr noundef %1) local_u
   br label %40
 
 23:                                               ; preds = %2
-  %24 = getelementptr inbounds i8, ptr %1, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 56
-  %27 = tail call ptr @netlbl_domhsh_getentry_af6(ptr noundef %25, ptr noundef %26) #13
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %27 = tail call ptr @netlbl_domhsh_getentry_af6(ptr noundef %25, ptr noundef nonnull %26) #13
   %28 = icmp eq ptr %27, null
   br i1 %28, label %40, label %29
 
@@ -1723,7 +1723,7 @@ define dso_local i32 @netlbl_req_setattr(ptr noundef %0, ptr noundef %1) local_u
   ]
 
 31:                                               ; preds = %29
-  %32 = getelementptr inbounds i8, ptr %27, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %33 = load ptr, ptr %32, align 8
   %34 = tail call i32 @calipso_req_setattr(ptr noundef %0, ptr noundef %33, ptr noundef %1) #13
   br label %40
@@ -1755,7 +1755,7 @@ declare dso_local i32 @cipso_v4_req_setattr(ptr noundef, ptr noundef, ptr nounde
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @netlbl_req_delattr(ptr noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 192
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %3 = load ptr, ptr %2, align 8
   %4 = load i32, ptr %3, align 8
   switch i32 %4, label %7 [
@@ -1793,15 +1793,15 @@ define dso_local i32 @netlbl_skbuff_setattr(ptr noundef %0, i16 noundef zeroext 
   ]
 
 4:                                                ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %0, i64 192
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 180
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 180
   %8 = load i16, ptr %7, align 4
   %9 = zext i16 %8 to i64
   %10 = getelementptr i8, ptr %6, i64 %9
-  %11 = getelementptr inbounds i8, ptr %2, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %10, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %14 = load i32, ptr %13, align 4
   %15 = tail call ptr @netlbl_domhsh_getentry_af4(ptr noundef %12, i32 noundef %14) #13
   %16 = icmp eq ptr %15, null
@@ -1815,7 +1815,7 @@ define dso_local i32 @netlbl_skbuff_setattr(ptr noundef %0, i16 noundef zeroext 
   ]
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %15, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %21 = load ptr, ptr %20, align 8
   %22 = tail call i32 @cipso_v4_skbuff_setattr(ptr noundef %0, ptr noundef %21, ptr noundef %2) #13
   br label %45
@@ -1825,16 +1825,16 @@ define dso_local i32 @netlbl_skbuff_setattr(ptr noundef %0, i16 noundef zeroext 
   br label %45
 
 25:                                               ; preds = %3
-  %26 = getelementptr inbounds i8, ptr %0, i64 192
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 180
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 180
   %29 = load i16, ptr %28, align 4
   %30 = zext i16 %29 to i64
   %31 = getelementptr i8, ptr %27, i64 %30
-  %32 = getelementptr inbounds i8, ptr %2, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %31, i64 24
-  %35 = tail call ptr @netlbl_domhsh_getentry_af6(ptr noundef %33, ptr noundef %34) #13
+  %34 = getelementptr inbounds nuw i8, ptr %31, i64 24
+  %35 = tail call ptr @netlbl_domhsh_getentry_af6(ptr noundef %33, ptr noundef nonnull %34) #13
   %36 = icmp eq ptr %35, null
   br i1 %36, label %45, label %37
 
@@ -1846,7 +1846,7 @@ define dso_local i32 @netlbl_skbuff_setattr(ptr noundef %0, i16 noundef zeroext 
   ]
 
 39:                                               ; preds = %37
-  %40 = getelementptr inbounds i8, ptr %35, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %41 = load ptr, ptr %40, align 8
   %42 = tail call i32 @calipso_skbuff_setattr(ptr noundef %0, ptr noundef %41, ptr noundef %2) #13
   br label %45

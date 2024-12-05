@@ -394,7 +394,7 @@ define hidden noundef zeroext i1 @_ZN12JfrOptionSet10initializeEP10JavaThread(pt
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #19
   call void @_ZN7CmdLineC1EPKcmb(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull %3, i64 noundef %6, i1 noundef zeroext true) #18
   call void @_ZN10DCmdParser5parseEP7CmdLinecP10JavaThread(ptr noundef nonnull align 8 dereferenceable(16) @_ZL7_parser, ptr noundef nonnull %2, i8 noundef signext 44, ptr noundef %0) #18
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %.not25.i = icmp eq ptr %8, null
   br i1 %.not25.i, label %44, label %.preheader.i
@@ -405,7 +405,7 @@ define hidden noundef zeroext i1 @_ZN12JfrOptionSet10initializeEP10JavaThread(pt
 
 10:                                               ; preds = %21, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %21 ]
-  %11 = getelementptr inbounds [9 x %struct.ObsoleteOption], ptr @_ZL16OBSOLETE_OPTIONS, i64 0, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw [9 x %struct.ObsoleteOption], ptr @_ZL16OBSOLETE_OPTIONS, i64 0, i64 %indvars.iv.i
   %.sroa.0.0.copyload.i = load ptr, ptr %11, align 16
   %12 = call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %.sroa.0.0.copyload.i) #19
   %.not21.i = icmp eq ptr %12, null
@@ -419,9 +419,9 @@ define hidden noundef zeroext i1 @_ZN12JfrOptionSet10initializeEP10JavaThread(pt
   br i1 %17, label %18, label %21
 
 18:                                               ; preds = %13
-  %.sroa.4.0..sroa_idx.le.i = getelementptr inbounds i8, ptr %11, i64 8
+  %.sroa.4.0..sroa_idx.le.i = getelementptr inbounds nuw i8, ptr %11, i64 8
   %.sroa.4.0.copyload.le.i = load ptr, ptr %.sroa.4.0..sroa_idx.le.i, align 8
-  %19 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
+  %19 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
   %.not27.i = icmp eq ptr %19, null
   br i1 %.not27.i, label %_ZL38parse_flight_recorder_options_internalP10JavaThread.exit.thread, label %20
 
@@ -435,15 +435,15 @@ define hidden noundef zeroext i1 @_ZN12JfrOptionSet10initializeEP10JavaThread(pt
   br i1 %exitcond.not.i, label %22, label %10, !llvm.loop !6
 
 22:                                               ; preds = %21
-  %23 = getelementptr inbounds i8, ptr %0, i64 800
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 800
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %24, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %24, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %24, i64 40
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %24, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %32 = load i64, ptr %31, align 8
   %33 = call noundef ptr @_ZN19java_lang_Throwable7messageEP7oopDesc(ptr noundef nonnull %8) #18
   %.not.i = icmp eq ptr %33, null
@@ -451,7 +451,7 @@ define hidden noundef zeroext i1 @_ZN12JfrOptionSet10initializeEP10JavaThread(pt
 
 34:                                               ; preds = %22
   %35 = call noundef ptr @_ZN16java_lang_String14as_utf8_stringEP7oopDesc(ptr noundef nonnull %33) #18
-  %36 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
+  %36 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
   %.not26.i = icmp eq ptr %36, null
   br i1 %.not26.i, label %38, label %37
 
@@ -487,18 +487,18 @@ _ZL38parse_flight_recorder_options_internalP10JavaThread.exit.thread: ; preds = 
 
 44:                                               ; preds = %5, %1
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
-  %45 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL17_dcmd_retransform, i64 48), align 8
+  %45 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL17_dcmd_retransform, i64 48), align 8
   %46 = trunc i8 %45 to i1
   br i1 %46, label %47, label %50
 
 47:                                               ; preds = %44
-  %48 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL17_dcmd_retransform, i64 51), align 1
+  %48 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL17_dcmd_retransform, i64 51), align 1
   %49 = and i8 %48, 1
   store i8 %49, ptr @_ZN12JfrOptionSet12_retransformE, align 1
   br label %50
 
 50:                                               ; preds = %47, %44
-  %51 = load i64, ptr getelementptr inbounds (i8, ptr @_ZL27_dcmd_old_object_queue_size, i64 56), align 8
+  %51 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL27_dcmd_old_object_queue_size, i64 56), align 8
   store i64 %51, ptr @_ZN12JfrOptionSet22_old_object_queue_sizeE, align 8
   %52 = call noundef zeroext i1 @_ZN12JfrOptionSet21adjust_memory_optionsEv()
   br label %53
@@ -511,7 +511,7 @@ _ZL38parse_flight_recorder_options_internalP10JavaThread.exit.thread: ; preds = 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN12JfrOptionSet21adjust_memory_optionsEv() local_unnamed_addr #3 align 2 {
   %1 = alloca %struct.JfrMemoryOptions, align 8
-  %2 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL16_dcmd_memorysize, i64 48), align 8
+  %2 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL16_dcmd_memorysize, i64 48), align 8
   %3 = trunc i8 %2 to i1
   br i1 %3, label %4, label %7
 
@@ -521,7 +521,7 @@ define hidden noundef zeroext i1 @_ZN12JfrOptionSet21adjust_memory_optionsEv() l
   br i1 %6, label %7, label %_ZL26ensure_valid_minimum_sizesv.exit.thread
 
 7:                                                ; preds = %4, %0
-  %8 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 48), align 8
+  %8 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 48), align 8
   %9 = trunc i8 %8 to i1
   br i1 %9, label %10, label %13
 
@@ -531,28 +531,28 @@ define hidden noundef zeroext i1 @_ZN12JfrOptionSet21adjust_memory_optionsEv() l
   br i1 %12, label %13, label %_ZL26ensure_valid_minimum_sizesv.exit.thread
 
 13:                                               ; preds = %10, %7
-  %14 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL22_dcmd_numglobalbuffers, i64 48), align 8
+  %14 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_numglobalbuffers, i64 48), align 8
   %15 = trunc i8 %14 to i1
   br i1 %15, label %16, label %_ZL20ensure_minimum_countI12DCmdArgumentIlEEbRT_l.exit.i
 
 16:                                               ; preds = %13
   %17 = load i64, ptr @MIN_BUFFER_COUNT, align 8
-  %18 = load i64, ptr getelementptr inbounds (i8, ptr @_ZL22_dcmd_numglobalbuffers, i64 56), align 8
+  %18 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_numglobalbuffers, i64 56), align 8
   %.not.i = icmp slt i64 %18, %17
   br i1 %.not.i, label %19, label %_ZL20ensure_minimum_countI12DCmdArgumentIlEEbRT_l.exit.i
 
 19:                                               ; preds = %16
-  %20 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
+  %20 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
   %.not.i.i = icmp eq ptr %20, null
   br i1 %.not.i.i, label %23, label %21
 
 21:                                               ; preds = %19
-  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL22_dcmd_numglobalbuffers, i64 16), align 8
+  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_numglobalbuffers, i64 16), align 8
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE5EEEvPKcz(ptr noundef nonnull @.str.83, ptr noundef %22, i64 noundef %18)
   br label %23
 
 23:                                               ; preds = %21, %19
-  %24 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
+  %24 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
   %.not1.i.i = icmp eq ptr %24, null
   br i1 %.not1.i.i, label %_ZL26ensure_valid_minimum_sizesv.exit.thread, label %25
 
@@ -561,7 +561,7 @@ define hidden noundef zeroext i1 @_ZN12JfrOptionSet21adjust_memory_optionsEv() l
   br label %_ZL26ensure_valid_minimum_sizesv.exit.thread
 
 _ZL20ensure_minimum_countI12DCmdArgumentIlEEbRT_l.exit.i: ; preds = %16, %13
-  %26 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL22_dcmd_threadbuffersize, i64 48), align 8
+  %26 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_threadbuffersize, i64 48), align 8
   %27 = trunc i8 %26 to i1
   br i1 %27, label %28, label %_ZL26ensure_valid_minimum_sizesv.exit
 
@@ -571,7 +571,7 @@ _ZL20ensure_minimum_countI12DCmdArgumentIlEEbRT_l.exit.i: ; preds = %16, %13
   br i1 %30, label %_ZL26ensure_valid_minimum_sizesv.exit, label %_ZL26ensure_valid_minimum_sizesv.exit.thread
 
 _ZL26ensure_valid_minimum_sizesv.exit:            ; preds = %28, %_ZL20ensure_minimum_countI12DCmdArgumentIlEEbRT_l.exit.i
-  %31 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 48), align 8
+  %31 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 48), align 8
   %32 = trunc i8 %31 to i1
   br i1 %32, label %33, label %36
 
@@ -581,7 +581,7 @@ _ZL26ensure_valid_minimum_sizesv.exit:            ; preds = %28, %_ZL20ensure_mi
   br i1 %35, label %36, label %_ZL26ensure_valid_minimum_sizesv.exit.thread
 
 36:                                               ; preds = %33, %_ZL26ensure_valid_minimum_sizesv.exit
-  %37 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL22_dcmd_threadbuffersize, i64 48), align 8
+  %37 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_threadbuffersize, i64 48), align 8
   %38 = trunc i8 %37 to i1
   br i1 %38, label %39, label %_ZL26ensure_valid_maximum_sizesv.exit
 
@@ -591,38 +591,38 @@ _ZL26ensure_valid_minimum_sizesv.exit:            ; preds = %28, %_ZL20ensure_mi
   br i1 %41, label %._ZL26ensure_valid_maximum_sizesv.exit_crit_edge, label %_ZL26ensure_valid_minimum_sizesv.exit.thread
 
 ._ZL26ensure_valid_maximum_sizesv.exit_crit_edge: ; preds = %39
-  %.pre = load i8, ptr getelementptr inbounds (i8, ptr @_ZL22_dcmd_threadbuffersize, i64 48), align 8
+  %.pre = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_threadbuffersize, i64 48), align 8
   br label %_ZL26ensure_valid_maximum_sizesv.exit
 
 _ZL26ensure_valid_maximum_sizesv.exit:            ; preds = %._ZL26ensure_valid_maximum_sizesv.exit_crit_edge, %36
   %42 = phi i8 [ %.pre, %._ZL26ensure_valid_maximum_sizesv.exit_crit_edge ], [ %37, %36 ]
-  %.sroa.010.0.copyload.i = load i64, ptr getelementptr inbounds (i8, ptr @_ZL16_dcmd_memorysize, i64 56), align 8
+  %.sroa.010.0.copyload.i = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL16_dcmd_memorysize, i64 56), align 8
   store i64 %.sroa.010.0.copyload.i, ptr %1, align 8
-  %.sroa.08.0.copyload.i = load i64, ptr getelementptr inbounds (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 56), align 8
+  %.sroa.08.0.copyload.i = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 56), align 8
   %43 = load i64, ptr @_ZN6OSInfo13_vm_page_sizeE, align 8
   %44 = tail call noundef i64 @llvm.umax.i64(i64 %.sroa.08.0.copyload.i, i64 %43)
-  %45 = getelementptr inbounds i8, ptr %1, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %44, ptr %45, align 8
-  %46 = load i64, ptr getelementptr inbounds (i8, ptr @_ZL22_dcmd_numglobalbuffers, i64 56), align 8
-  %47 = getelementptr inbounds i8, ptr %1, i64 16
+  %46 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_numglobalbuffers, i64 56), align 8
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i64 %46, ptr %47, align 8
-  %.sroa.0.0.copyload.i = load i64, ptr getelementptr inbounds (i8, ptr @_ZL22_dcmd_threadbuffersize, i64 56), align 8
+  %.sroa.0.0.copyload.i = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_threadbuffersize, i64 56), align 8
   %48 = tail call noundef i64 @llvm.umax.i64(i64 %.sroa.0.0.copyload.i, i64 %43)
-  %49 = getelementptr inbounds i8, ptr %1, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i64 %48, ptr %49, align 8
-  %50 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL16_dcmd_memorysize, i64 48), align 8
-  %51 = getelementptr inbounds i8, ptr %1, i64 32
+  %50 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL16_dcmd_memorysize, i64 48), align 8
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %52 = and i8 %50, 1
   store i8 %52, ptr %51, align 8
-  %53 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 48), align 8
-  %54 = getelementptr inbounds i8, ptr %1, i64 33
+  %53 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 48), align 8
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 33
   %55 = and i8 %53, 1
   store i8 %55, ptr %54, align 1
-  %56 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL22_dcmd_numglobalbuffers, i64 48), align 8
-  %57 = getelementptr inbounds i8, ptr %1, i64 34
+  %56 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_numglobalbuffers, i64 48), align 8
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 34
   %58 = and i8 %56, 1
   store i8 %58, ptr %57, align 2
-  %59 = getelementptr inbounds i8, ptr %1, i64 35
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 35
   %60 = and i8 %42, 1
   store i8 %60, ptr %59, align 1
   %61 = trunc i8 %53 to i1
@@ -650,16 +650,16 @@ _ZL26ensure_valid_maximum_sizesv.exit:            ; preds = %._ZL26ensure_valid_
 
 72:                                               ; preds = %70
   %73 = load i64, ptr @MIN_MEMORY_SIZE, align 8
-  %.sroa.0.0.copyload.i.i = load i64, ptr getelementptr inbounds (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 56), align 8
-  %74 = load i64, ptr getelementptr inbounds (i8, ptr @_ZL22_dcmd_numglobalbuffers, i64 56), align 8
+  %.sroa.0.0.copyload.i.i = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 56), align 8
+  %74 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_numglobalbuffers, i64 56), align 8
   %75 = mul i64 %74, %.sroa.0.0.copyload.i.i
   %.not.i3 = icmp ult i64 %75, %73
   br i1 %.not.i3, label %76, label %_ZL22valid_memory_relationsRK16JfrMemoryOptions.exit
 
 76:                                               ; preds = %72
-  %.sroa.116.0.copyload.i.i.i = load i64, ptr getelementptr inbounds (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 64), align 8
+  %.sroa.116.0.copyload.i.i.i = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 64), align 8
   %.not.i.i.i = icmp eq i64 %.sroa.0.0.copyload.i.i, %.sroa.116.0.copyload.i.i.i
-  %77 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
+  %77 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
   %.not21.i.i.i = icmp eq ptr %77, null
   br i1 %.not.i.i.i, label %85, label %78
 
@@ -667,11 +667,11 @@ _ZL26ensure_valid_maximum_sizesv.exit:            ; preds = %._ZL26ensure_valid_
   br i1 %.not21.i.i.i, label %_ZL13log_set_valueI12DCmdArgumentI18MemorySizeArgumentEEvRT_.exit.i.i, label %79
 
 79:                                               ; preds = %78
-  %80 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 48), align 8
+  %80 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 48), align 8
   %81 = trunc i8 %80 to i1
   %82 = select i1 %81, ptr @_ZL17specified_val_msg, ptr @_ZL15default_val_msg
-  %83 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 16), align 8
-  %.sroa.110.0.copyload.i.i.i = load i8, ptr getelementptr inbounds (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 72), align 8
+  %83 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 16), align 8
+  %.sroa.110.0.copyload.i.i.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 72), align 8
   %84 = sext i8 %.sroa.110.0.copyload.i.i.i to i32
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE5EEEvPKcz(ptr noundef nonnull @.str.98, ptr noundef nonnull %82, ptr noundef %83, i64 noundef %.sroa.116.0.copyload.i.i.i, i32 noundef %84)
   br label %_ZL13log_set_valueI12DCmdArgumentI18MemorySizeArgumentEEvRT_.exit.i.i
@@ -680,32 +680,32 @@ _ZL26ensure_valid_maximum_sizesv.exit:            ; preds = %._ZL26ensure_valid_
   br i1 %.not21.i.i.i, label %_ZL13log_set_valueI12DCmdArgumentI18MemorySizeArgumentEEvRT_.exit.i.i, label %86
 
 86:                                               ; preds = %85
-  %87 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 48), align 8
+  %87 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 48), align 8
   %88 = trunc i8 %87 to i1
   %89 = select i1 %88, ptr @_ZL17specified_val_msg, ptr @_ZL15default_val_msg
-  %90 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 16), align 8
+  %90 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 16), align 8
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE5EEEvPKcz(ptr noundef nonnull @.str.99, ptr noundef nonnull %89, ptr noundef %90, i64 noundef %.sroa.0.0.copyload.i.i)
   br label %_ZL13log_set_valueI12DCmdArgumentI18MemorySizeArgumentEEvRT_.exit.i.i
 
 _ZL13log_set_valueI12DCmdArgumentI18MemorySizeArgumentEEvRT_.exit.i.i: ; preds = %86, %85, %79, %78
-  %91 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
+  %91 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
   %.not.i.i4 = icmp eq ptr %91, null
   br i1 %.not.i.i4, label %95, label %92
 
 92:                                               ; preds = %_ZL13log_set_valueI12DCmdArgumentI18MemorySizeArgumentEEvRT_.exit.i.i
-  %93 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL22_dcmd_numglobalbuffers, i64 16), align 8
-  %94 = load i64, ptr getelementptr inbounds (i8, ptr @_ZL22_dcmd_numglobalbuffers, i64 56), align 8
+  %93 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_numglobalbuffers, i64 16), align 8
+  %94 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_numglobalbuffers, i64 56), align 8
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE5EEEvPKcz(ptr noundef nonnull @.str.83, ptr noundef %93, i64 noundef %94)
   br label %95
 
 95:                                               ; preds = %92, %_ZL13log_set_valueI12DCmdArgumentI18MemorySizeArgumentEEvRT_.exit.i.i
-  %96 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
+  %96 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
   %.not1.i.i5 = icmp eq ptr %96, null
   br i1 %.not1.i.i5, label %_ZL26ensure_valid_minimum_sizesv.exit.thread, label %97
 
 97:                                               ; preds = %95
-  %98 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 16), align 8
-  %99 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL22_dcmd_numglobalbuffers, i64 16), align 8
+  %98 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 16), align 8
+  %99 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_numglobalbuffers, i64 16), align 8
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE5EEEvPKcz(ptr noundef nonnull @.str.86, ptr noundef %98, ptr noundef %99, i64 noundef %75, i64 noundef %73)
   br label %_ZL26ensure_valid_minimum_sizesv.exit.thread
 
@@ -738,10 +738,10 @@ _ZL22valid_memory_relationsRK16JfrMemoryOptions.exit: ; preds = %104, %102, %100
   br i1 %114, label %115, label %181
 
 115:                                              ; preds = %111, %107
-  %.sroa.018.0.copyload.i = load i64, ptr getelementptr inbounds (i8, ptr @_ZL16_dcmd_memorysize, i64 56), align 8
-  %.sroa.116.0.copyload.i = load i64, ptr getelementptr inbounds (i8, ptr @_ZL16_dcmd_memorysize, i64 64), align 8
+  %.sroa.018.0.copyload.i = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL16_dcmd_memorysize, i64 56), align 8
+  %.sroa.116.0.copyload.i = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL16_dcmd_memorysize, i64 64), align 8
   %.not.i6 = icmp eq i64 %.sroa.018.0.copyload.i, %.sroa.116.0.copyload.i
-  %116 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
+  %116 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
   %.not21.i = icmp eq ptr %116, null
   br i1 %.not.i6, label %124, label %117
 
@@ -749,11 +749,11 @@ _ZL22valid_memory_relationsRK16JfrMemoryOptions.exit: ; preds = %104, %102, %100
   br i1 %.not21.i, label %_ZL13log_set_valueI12DCmdArgumentI18MemorySizeArgumentEEvRT_.exit, label %118
 
 118:                                              ; preds = %117
-  %119 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL16_dcmd_memorysize, i64 48), align 8
+  %119 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL16_dcmd_memorysize, i64 48), align 8
   %120 = trunc i8 %119 to i1
   %121 = select i1 %120, ptr @_ZL17specified_val_msg, ptr @_ZL15default_val_msg
-  %122 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL16_dcmd_memorysize, i64 16), align 8
-  %.sroa.110.0.copyload.i = load i8, ptr getelementptr inbounds (i8, ptr @_ZL16_dcmd_memorysize, i64 72), align 8
+  %122 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL16_dcmd_memorysize, i64 16), align 8
+  %.sroa.110.0.copyload.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL16_dcmd_memorysize, i64 72), align 8
   %123 = sext i8 %.sroa.110.0.copyload.i to i32
   call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE5EEEvPKcz(ptr noundef nonnull @.str.98, ptr noundef nonnull %121, ptr noundef %122, i64 noundef %.sroa.116.0.copyload.i, i32 noundef %123)
   br label %_ZL13log_set_valueI12DCmdArgumentI18MemorySizeArgumentEEvRT_.exit
@@ -762,18 +762,18 @@ _ZL22valid_memory_relationsRK16JfrMemoryOptions.exit: ; preds = %104, %102, %100
   br i1 %.not21.i, label %_ZL13log_set_valueI12DCmdArgumentI18MemorySizeArgumentEEvRT_.exit, label %125
 
 125:                                              ; preds = %124
-  %126 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL16_dcmd_memorysize, i64 48), align 8
+  %126 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL16_dcmd_memorysize, i64 48), align 8
   %127 = trunc i8 %126 to i1
   %128 = select i1 %127, ptr @_ZL17specified_val_msg, ptr @_ZL15default_val_msg
-  %129 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL16_dcmd_memorysize, i64 16), align 8
+  %129 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL16_dcmd_memorysize, i64 16), align 8
   call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE5EEEvPKcz(ptr noundef nonnull @.str.99, ptr noundef nonnull %128, ptr noundef %129, i64 noundef %.sroa.018.0.copyload.i)
   br label %_ZL13log_set_valueI12DCmdArgumentI18MemorySizeArgumentEEvRT_.exit
 
 _ZL13log_set_valueI12DCmdArgumentI18MemorySizeArgumentEEvRT_.exit: ; preds = %117, %118, %124, %125
-  %.sroa.018.0.copyload.i7 = load i64, ptr getelementptr inbounds (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 56), align 8
-  %.sroa.116.0.copyload.i8 = load i64, ptr getelementptr inbounds (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 64), align 8
+  %.sroa.018.0.copyload.i7 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 56), align 8
+  %.sroa.116.0.copyload.i8 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 64), align 8
   %.not.i9 = icmp eq i64 %.sroa.018.0.copyload.i7, %.sroa.116.0.copyload.i8
-  %130 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
+  %130 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
   %.not21.i10 = icmp eq ptr %130, null
   br i1 %.not.i9, label %138, label %131
 
@@ -781,11 +781,11 @@ _ZL13log_set_valueI12DCmdArgumentI18MemorySizeArgumentEEvRT_.exit: ; preds = %11
   br i1 %.not21.i10, label %_ZL13log_set_valueI12DCmdArgumentI18MemorySizeArgumentEEvRT_.exit12, label %132
 
 132:                                              ; preds = %131
-  %133 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 48), align 8
+  %133 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 48), align 8
   %134 = trunc i8 %133 to i1
   %135 = select i1 %134, ptr @_ZL17specified_val_msg, ptr @_ZL15default_val_msg
-  %136 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 16), align 8
-  %.sroa.110.0.copyload.i11 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 72), align 8
+  %136 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 16), align 8
+  %.sroa.110.0.copyload.i11 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 72), align 8
   %137 = sext i8 %.sroa.110.0.copyload.i11 to i32
   call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE5EEEvPKcz(ptr noundef nonnull @.str.98, ptr noundef nonnull %135, ptr noundef %136, i64 noundef %.sroa.116.0.copyload.i8, i32 noundef %137)
   br label %_ZL13log_set_valueI12DCmdArgumentI18MemorySizeArgumentEEvRT_.exit12
@@ -794,32 +794,32 @@ _ZL13log_set_valueI12DCmdArgumentI18MemorySizeArgumentEEvRT_.exit: ; preds = %11
   br i1 %.not21.i10, label %_ZL13log_set_valueI12DCmdArgumentI18MemorySizeArgumentEEvRT_.exit12, label %139
 
 139:                                              ; preds = %138
-  %140 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 48), align 8
+  %140 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 48), align 8
   %141 = trunc i8 %140 to i1
   %142 = select i1 %141, ptr @_ZL17specified_val_msg, ptr @_ZL15default_val_msg
-  %143 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 16), align 8
+  %143 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 16), align 8
   call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE5EEEvPKcz(ptr noundef nonnull @.str.99, ptr noundef nonnull %142, ptr noundef %143, i64 noundef %.sroa.018.0.copyload.i7)
   br label %_ZL13log_set_valueI12DCmdArgumentI18MemorySizeArgumentEEvRT_.exit12
 
 _ZL13log_set_valueI12DCmdArgumentI18MemorySizeArgumentEEvRT_.exit12: ; preds = %131, %132, %138, %139
-  %144 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
+  %144 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
   %.not = icmp eq ptr %144, null
   br i1 %.not, label %151, label %145
 
 145:                                              ; preds = %_ZL13log_set_valueI12DCmdArgumentI18MemorySizeArgumentEEvRT_.exit12
-  %146 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL22_dcmd_numglobalbuffers, i64 48), align 8
+  %146 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_numglobalbuffers, i64 48), align 8
   %147 = trunc i8 %146 to i1
   %148 = select i1 %147, ptr @_ZL17specified_val_msg, ptr @_ZL15default_val_msg
-  %149 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL22_dcmd_numglobalbuffers, i64 16), align 8
-  %150 = load i64, ptr getelementptr inbounds (i8, ptr @_ZL22_dcmd_numglobalbuffers, i64 56), align 8
+  %149 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_numglobalbuffers, i64 16), align 8
+  %150 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_numglobalbuffers, i64 56), align 8
   call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE5EEEvPKcz(ptr noundef nonnull @.str.54, ptr noundef nonnull %148, ptr noundef %149, i64 noundef %150)
   br label %151
 
 151:                                              ; preds = %_ZL13log_set_valueI12DCmdArgumentI18MemorySizeArgumentEEvRT_.exit12, %145
-  %.sroa.018.0.copyload.i13 = load i64, ptr getelementptr inbounds (i8, ptr @_ZL22_dcmd_threadbuffersize, i64 56), align 8
-  %.sroa.116.0.copyload.i14 = load i64, ptr getelementptr inbounds (i8, ptr @_ZL22_dcmd_threadbuffersize, i64 64), align 8
+  %.sroa.018.0.copyload.i13 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_threadbuffersize, i64 56), align 8
+  %.sroa.116.0.copyload.i14 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_threadbuffersize, i64 64), align 8
   %.not.i15 = icmp eq i64 %.sroa.018.0.copyload.i13, %.sroa.116.0.copyload.i14
-  %152 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
+  %152 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
   %.not21.i16 = icmp eq ptr %152, null
   br i1 %.not.i15, label %160, label %153
 
@@ -827,11 +827,11 @@ _ZL13log_set_valueI12DCmdArgumentI18MemorySizeArgumentEEvRT_.exit12: ; preds = %
   br i1 %.not21.i16, label %_ZL13log_set_valueI12DCmdArgumentI18MemorySizeArgumentEEvRT_.exit18, label %154
 
 154:                                              ; preds = %153
-  %155 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL22_dcmd_threadbuffersize, i64 48), align 8
+  %155 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_threadbuffersize, i64 48), align 8
   %156 = trunc i8 %155 to i1
   %157 = select i1 %156, ptr @_ZL17specified_val_msg, ptr @_ZL15default_val_msg
-  %158 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL22_dcmd_threadbuffersize, i64 16), align 8
-  %.sroa.110.0.copyload.i17 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL22_dcmd_threadbuffersize, i64 72), align 8
+  %158 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_threadbuffersize, i64 16), align 8
+  %.sroa.110.0.copyload.i17 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_threadbuffersize, i64 72), align 8
   %159 = sext i8 %.sroa.110.0.copyload.i17 to i32
   call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE5EEEvPKcz(ptr noundef nonnull @.str.98, ptr noundef nonnull %157, ptr noundef %158, i64 noundef %.sroa.116.0.copyload.i14, i32 noundef %159)
   br label %_ZL13log_set_valueI12DCmdArgumentI18MemorySizeArgumentEEvRT_.exit18
@@ -840,17 +840,17 @@ _ZL13log_set_valueI12DCmdArgumentI18MemorySizeArgumentEEvRT_.exit12: ; preds = %
   br i1 %.not21.i16, label %_ZL13log_set_valueI12DCmdArgumentI18MemorySizeArgumentEEvRT_.exit18, label %161
 
 161:                                              ; preds = %160
-  %162 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL22_dcmd_threadbuffersize, i64 48), align 8
+  %162 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_threadbuffersize, i64 48), align 8
   %163 = trunc i8 %162 to i1
   %164 = select i1 %163, ptr @_ZL17specified_val_msg, ptr @_ZL15default_val_msg
-  %165 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL22_dcmd_threadbuffersize, i64 16), align 8
+  %165 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_threadbuffersize, i64 16), align 8
   call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE5EEEvPKcz(ptr noundef nonnull @.str.99, ptr noundef nonnull %164, ptr noundef %165, i64 noundef %.sroa.018.0.copyload.i13)
   br label %_ZL13log_set_valueI12DCmdArgumentI18MemorySizeArgumentEEvRT_.exit18
 
 _ZL13log_set_valueI12DCmdArgumentI18MemorySizeArgumentEEvRT_.exit18: ; preds = %153, %154, %160, %161
   %166 = load i64, ptr %47, align 8
   %167 = icmp ult i64 %166, %109
-  %168 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
+  %168 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
   %.not26 = icmp eq ptr %168, null
   br i1 %167, label %169, label %174
 
@@ -862,7 +862,7 @@ _ZL13log_set_valueI12DCmdArgumentI18MemorySizeArgumentEEvRT_.exit18: ; preds = %
   br label %171
 
 171:                                              ; preds = %169, %170
-  %172 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
+  %172 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
   %.not27 = icmp eq ptr %172, null
   br i1 %.not27, label %_ZL26ensure_valid_minimum_sizesv.exit.thread, label %173
 
@@ -880,7 +880,7 @@ _ZL13log_set_valueI12DCmdArgumentI18MemorySizeArgumentEEvRT_.exit18: ; preds = %
   br label %178
 
 178:                                              ; preds = %174, %175
-  %179 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
+  %179 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
   %.not25 = icmp eq ptr %179, null
   br i1 %.not25, label %_ZL26ensure_valid_minimum_sizesv.exit.thread, label %180
 
@@ -894,37 +894,37 @@ _ZL13log_set_valueI12DCmdArgumentI18MemorySizeArgumentEEvRT_.exit18: ; preds = %
 
 183:                                              ; preds = %181, %_ZL22valid_memory_relationsRK16JfrMemoryOptions.exit
   %184 = load i64, ptr %1, align 8
-  %185 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %185 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not25.i.i = icmp eq ptr %185, null
   br i1 %.not25.i.i, label %190, label %186
 
 186:                                              ; preds = %183
-  %.sroa.023.0.copyload.i.i = load i64, ptr getelementptr inbounds (i8, ptr @_ZL16_dcmd_memorysize, i64 56), align 8
-  %187 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL16_dcmd_memorysize, i64 48), align 8
+  %.sroa.023.0.copyload.i.i = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL16_dcmd_memorysize, i64 56), align 8
+  %187 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL16_dcmd_memorysize, i64 48), align 8
   %188 = trunc i8 %187 to i1
   %189 = select i1 %188, ptr @.str.41, ptr @.str.52
   call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.94, ptr noundef nonnull @.str.87, i64 noundef %.sroa.023.0.copyload.i.i, ptr noundef nonnull %189)
   br label %190
 
 190:                                              ; preds = %186, %183
-  %191 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %191 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not26.i.i = icmp eq ptr %191, null
   br i1 %.not26.i.i, label %194, label %192
 
 192:                                              ; preds = %190
-  %.sroa.021.0.copyload.i.i = load i64, ptr getelementptr inbounds (i8, ptr @_ZL16_dcmd_memorysize, i64 56), align 8
+  %.sroa.021.0.copyload.i.i = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL16_dcmd_memorysize, i64 56), align 8
   %.not.i.i19 = icmp eq i64 %.sroa.021.0.copyload.i.i, %184
   %193 = select i1 %.not.i.i19, ptr @.str.52, ptr @.str.41
   call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.95, ptr noundef nonnull @.str.87, i64 noundef %184, ptr noundef nonnull %193)
   br label %194
 
 194:                                              ; preds = %192, %190
-  %195 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %195 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not27.i.i = icmp eq ptr %195, null
   br i1 %.not27.i.i, label %_ZL15log_adjustmentsI12DCmdArgumentI18MemorySizeArgumentEEvRT_mPKc.exit.i, label %196
 
 196:                                              ; preds = %194
-  %.sroa.019.0.copyload.i.i = load i64, ptr getelementptr inbounds (i8, ptr @_ZL16_dcmd_memorysize, i64 56), align 8
+  %.sroa.019.0.copyload.i.i = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL16_dcmd_memorysize, i64 56), align 8
   %197 = icmp ult i64 %184, %.sroa.019.0.copyload.i.i
   %.str.97..str.93.i.i = select i1 %197, ptr @.str.97, ptr @.str.93
   %198 = sub nuw i64 %.sroa.019.0.copyload.i.i, %184
@@ -935,37 +935,37 @@ _ZL13log_set_valueI12DCmdArgumentI18MemorySizeArgumentEEvRT_.exit18: ; preds = %
 
 _ZL15log_adjustmentsI12DCmdArgumentI18MemorySizeArgumentEEvRT_mPKc.exit.i: ; preds = %196, %194
   %201 = load i64, ptr %45, align 8
-  %202 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %202 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not25.i22.i = icmp eq ptr %202, null
   br i1 %.not25.i22.i, label %207, label %203
 
 203:                                              ; preds = %_ZL15log_adjustmentsI12DCmdArgumentI18MemorySizeArgumentEEvRT_mPKc.exit.i
-  %.sroa.023.0.copyload.i23.i = load i64, ptr getelementptr inbounds (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 56), align 8
-  %204 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 48), align 8
+  %.sroa.023.0.copyload.i23.i = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 56), align 8
+  %204 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 48), align 8
   %205 = trunc i8 %204 to i1
   %206 = select i1 %205, ptr @.str.41, ptr @.str.52
   call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.94, ptr noundef nonnull @.str.88, i64 noundef %.sroa.023.0.copyload.i23.i, ptr noundef nonnull %206)
   br label %207
 
 207:                                              ; preds = %203, %_ZL15log_adjustmentsI12DCmdArgumentI18MemorySizeArgumentEEvRT_mPKc.exit.i
-  %208 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %208 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not26.i24.i = icmp eq ptr %208, null
   br i1 %.not26.i24.i, label %211, label %209
 
 209:                                              ; preds = %207
-  %.sroa.021.0.copyload.i25.i = load i64, ptr getelementptr inbounds (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 56), align 8
+  %.sroa.021.0.copyload.i25.i = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 56), align 8
   %.not.i26.i = icmp eq i64 %.sroa.021.0.copyload.i25.i, %201
   %210 = select i1 %.not.i26.i, ptr @.str.52, ptr @.str.41
   call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.95, ptr noundef nonnull @.str.88, i64 noundef %201, ptr noundef nonnull %210)
   br label %211
 
 211:                                              ; preds = %209, %207
-  %212 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %212 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not27.i27.i = icmp eq ptr %212, null
   br i1 %.not27.i27.i, label %_ZL15log_adjustmentsI12DCmdArgumentI18MemorySizeArgumentEEvRT_mPKc.exit30.i, label %213
 
 213:                                              ; preds = %211
-  %.sroa.019.0.copyload.i28.i = load i64, ptr getelementptr inbounds (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 56), align 8
+  %.sroa.019.0.copyload.i28.i = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 56), align 8
   %214 = icmp ult i64 %201, %.sroa.019.0.copyload.i28.i
   %.str.97..str.93.i29.i = select i1 %214, ptr @.str.97, ptr @.str.93
   %215 = sub nuw i64 %.sroa.019.0.copyload.i28.i, %201
@@ -976,37 +976,37 @@ _ZL15log_adjustmentsI12DCmdArgumentI18MemorySizeArgumentEEvRT_mPKc.exit.i: ; pre
 
 _ZL15log_adjustmentsI12DCmdArgumentI18MemorySizeArgumentEEvRT_mPKc.exit30.i: ; preds = %213, %211
   %218 = load i64, ptr %49, align 8
-  %219 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %219 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not25.i31.i = icmp eq ptr %219, null
   br i1 %.not25.i31.i, label %224, label %220
 
 220:                                              ; preds = %_ZL15log_adjustmentsI12DCmdArgumentI18MemorySizeArgumentEEvRT_mPKc.exit30.i
-  %.sroa.023.0.copyload.i32.i = load i64, ptr getelementptr inbounds (i8, ptr @_ZL22_dcmd_threadbuffersize, i64 56), align 8
-  %221 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL22_dcmd_threadbuffersize, i64 48), align 8
+  %.sroa.023.0.copyload.i32.i = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_threadbuffersize, i64 56), align 8
+  %221 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_threadbuffersize, i64 48), align 8
   %222 = trunc i8 %221 to i1
   %223 = select i1 %222, ptr @.str.41, ptr @.str.52
   call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.94, ptr noundef nonnull @.str.89, i64 noundef %.sroa.023.0.copyload.i32.i, ptr noundef nonnull %223)
   br label %224
 
 224:                                              ; preds = %220, %_ZL15log_adjustmentsI12DCmdArgumentI18MemorySizeArgumentEEvRT_mPKc.exit30.i
-  %225 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %225 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not26.i33.i = icmp eq ptr %225, null
   br i1 %.not26.i33.i, label %228, label %226
 
 226:                                              ; preds = %224
-  %.sroa.021.0.copyload.i34.i = load i64, ptr getelementptr inbounds (i8, ptr @_ZL22_dcmd_threadbuffersize, i64 56), align 8
+  %.sroa.021.0.copyload.i34.i = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_threadbuffersize, i64 56), align 8
   %.not.i35.i = icmp eq i64 %.sroa.021.0.copyload.i34.i, %218
   %227 = select i1 %.not.i35.i, ptr @.str.52, ptr @.str.41
   call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.95, ptr noundef nonnull @.str.89, i64 noundef %218, ptr noundef nonnull %227)
   br label %228
 
 228:                                              ; preds = %226, %224
-  %229 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %229 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not27.i36.i = icmp eq ptr %229, null
   br i1 %.not27.i36.i, label %_ZL15log_adjustmentsI12DCmdArgumentI18MemorySizeArgumentEEvRT_mPKc.exit39.i, label %230
 
 230:                                              ; preds = %228
-  %.sroa.019.0.copyload.i37.i = load i64, ptr getelementptr inbounds (i8, ptr @_ZL22_dcmd_threadbuffersize, i64 56), align 8
+  %.sroa.019.0.copyload.i37.i = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_threadbuffersize, i64 56), align 8
   %231 = icmp ult i64 %218, %.sroa.019.0.copyload.i37.i
   %.str.97..str.93.i38.i = select i1 %231, ptr @.str.97, ptr @.str.93
   %232 = sub nuw i64 %.sroa.019.0.copyload.i37.i, %218
@@ -1016,39 +1016,39 @@ _ZL15log_adjustmentsI12DCmdArgumentI18MemorySizeArgumentEEvRT_mPKc.exit30.i: ; p
   br label %_ZL15log_adjustmentsI12DCmdArgumentI18MemorySizeArgumentEEvRT_mPKc.exit39.i
 
 _ZL15log_adjustmentsI12DCmdArgumentI18MemorySizeArgumentEEvRT_mPKc.exit39.i: ; preds = %230, %228
-  %235 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %235 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not81.i = icmp eq ptr %235, null
   br i1 %.not81.i, label %241, label %236
 
 236:                                              ; preds = %_ZL15log_adjustmentsI12DCmdArgumentI18MemorySizeArgumentEEvRT_mPKc.exit39.i
-  %237 = load i64, ptr getelementptr inbounds (i8, ptr @_ZL22_dcmd_numglobalbuffers, i64 56), align 8
-  %238 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL22_dcmd_numglobalbuffers, i64 48), align 8
+  %237 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_numglobalbuffers, i64 56), align 8
+  %238 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_numglobalbuffers, i64 48), align 8
   %239 = trunc i8 %238 to i1
   %240 = select i1 %239, ptr @.str.41, ptr @.str.52
   call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.90, i64 noundef %237, ptr noundef nonnull %240)
   br label %241
 
 241:                                              ; preds = %236, %_ZL15log_adjustmentsI12DCmdArgumentI18MemorySizeArgumentEEvRT_mPKc.exit39.i
-  %242 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %242 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not82.i = icmp eq ptr %242, null
   br i1 %.not82.i, label %247, label %243
 
 243:                                              ; preds = %241
   %244 = load i64, ptr %47, align 8
-  %245 = load i64, ptr getelementptr inbounds (i8, ptr @_ZL22_dcmd_numglobalbuffers, i64 56), align 8
+  %245 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_numglobalbuffers, i64 56), align 8
   %.not.i20 = icmp eq i64 %245, %244
   %246 = select i1 %.not.i20, ptr @.str.52, ptr @.str.41
   call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.91, i64 noundef %244, ptr noundef nonnull %246)
   br label %247
 
 247:                                              ; preds = %243, %241
-  %248 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %248 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not83.i = icmp eq ptr %248, null
   br i1 %.not83.i, label %255, label %249
 
 249:                                              ; preds = %247
   %250 = load i64, ptr %47, align 8
-  %251 = load i64, ptr getelementptr inbounds (i8, ptr @_ZL22_dcmd_numglobalbuffers, i64 56), align 8
+  %251 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_numglobalbuffers, i64 56), align 8
   %252 = icmp slt i64 %250, %251
   %253 = select i1 %252, ptr @.str.64, ptr @.str.93
   %254 = sub nsw i64 %250, %251
@@ -1057,13 +1057,13 @@ _ZL15log_adjustmentsI12DCmdArgumentI18MemorySizeArgumentEEvRT_mPKc.exit39.i: ; p
 
 255:                                              ; preds = %249, %247
   %256 = load i64, ptr %1, align 8
-  %.sroa.010.0.copyload.i.i = load i64, ptr getelementptr inbounds (i8, ptr @_ZL16_dcmd_memorysize, i64 56), align 8
-  %.sroa.18.0.copyload.i.i = load i64, ptr getelementptr inbounds (i8, ptr @_ZL16_dcmd_memorysize, i64 64), align 8
+  %.sroa.010.0.copyload.i.i = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL16_dcmd_memorysize, i64 56), align 8
+  %.sroa.18.0.copyload.i.i = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL16_dcmd_memorysize, i64 64), align 8
   %.not.i40.i = icmp eq i64 %.sroa.010.0.copyload.i.i, %.sroa.18.0.copyload.i.i
   br i1 %.not.i40.i, label %_ZL21divide_with_user_unitI12DCmdArgumentI18MemorySizeArgumentEEmRT_m.exit.i, label %257
 
 257:                                              ; preds = %255
-  %.sroa.1.0.copyload.i.i = load i8, ptr getelementptr inbounds (i8, ptr @_ZL16_dcmd_memorysize, i64 72), align 8
+  %.sroa.1.0.copyload.i.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL16_dcmd_memorysize, i64 72), align 8
   switch i8 %.sroa.1.0.copyload.i.i, label %_ZL21divide_with_user_unitI12DCmdArgumentI18MemorySizeArgumentEEmRT_m.exit.i [
     i8 107, label %258
     i8 75, label %258
@@ -1088,13 +1088,13 @@ _ZL15log_adjustmentsI12DCmdArgumentI18MemorySizeArgumentEEvRT_mPKc.exit39.i: ; p
 _ZL21divide_with_user_unitI12DCmdArgumentI18MemorySizeArgumentEEmRT_m.exit.i: ; preds = %262, %260, %258, %257, %255
   %.0.i.i = phi i64 [ %263, %262 ], [ %261, %260 ], [ %259, %258 ], [ %256, %257 ], [ %256, %255 ]
   %264 = load i64, ptr %45, align 8
-  %.sroa.010.0.copyload.i41.i = load i64, ptr getelementptr inbounds (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 56), align 8
-  %.sroa.18.0.copyload.i42.i = load i64, ptr getelementptr inbounds (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 64), align 8
+  %.sroa.010.0.copyload.i41.i = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 56), align 8
+  %.sroa.18.0.copyload.i42.i = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 64), align 8
   %.not.i43.i = icmp eq i64 %.sroa.010.0.copyload.i41.i, %.sroa.18.0.copyload.i42.i
   br i1 %.not.i43.i, label %_ZL21divide_with_user_unitI12DCmdArgumentI18MemorySizeArgumentEEmRT_m.exit46.i, label %265
 
 265:                                              ; preds = %_ZL21divide_with_user_unitI12DCmdArgumentI18MemorySizeArgumentEEmRT_m.exit.i
-  %.sroa.1.0.copyload.i44.i = load i8, ptr getelementptr inbounds (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 72), align 8
+  %.sroa.1.0.copyload.i44.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 72), align 8
   switch i8 %.sroa.1.0.copyload.i44.i, label %_ZL21divide_with_user_unitI12DCmdArgumentI18MemorySizeArgumentEEmRT_m.exit46.i [
     i8 107, label %266
     i8 75, label %266
@@ -1119,13 +1119,13 @@ _ZL21divide_with_user_unitI12DCmdArgumentI18MemorySizeArgumentEEmRT_m.exit.i: ; 
 _ZL21divide_with_user_unitI12DCmdArgumentI18MemorySizeArgumentEEmRT_m.exit46.i: ; preds = %270, %268, %266, %265, %_ZL21divide_with_user_unitI12DCmdArgumentI18MemorySizeArgumentEEmRT_m.exit.i
   %.0.i45.i = phi i64 [ %271, %270 ], [ %269, %268 ], [ %267, %266 ], [ %264, %265 ], [ %264, %_ZL21divide_with_user_unitI12DCmdArgumentI18MemorySizeArgumentEEmRT_m.exit.i ]
   %272 = load i64, ptr %49, align 8
-  %.sroa.010.0.copyload.i47.i = load i64, ptr getelementptr inbounds (i8, ptr @_ZL22_dcmd_threadbuffersize, i64 56), align 8
-  %.sroa.18.0.copyload.i48.i = load i64, ptr getelementptr inbounds (i8, ptr @_ZL22_dcmd_threadbuffersize, i64 64), align 8
+  %.sroa.010.0.copyload.i47.i = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_threadbuffersize, i64 56), align 8
+  %.sroa.18.0.copyload.i48.i = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_threadbuffersize, i64 64), align 8
   %.not.i49.i = icmp eq i64 %.sroa.010.0.copyload.i47.i, %.sroa.18.0.copyload.i48.i
   br i1 %.not.i49.i, label %_ZL36post_process_adjusted_memory_optionsRK16JfrMemoryOptions.exit, label %273
 
 273:                                              ; preds = %_ZL21divide_with_user_unitI12DCmdArgumentI18MemorySizeArgumentEEmRT_m.exit46.i
-  %.sroa.1.0.copyload.i50.i = load i8, ptr getelementptr inbounds (i8, ptr @_ZL22_dcmd_threadbuffersize, i64 72), align 8
+  %.sroa.1.0.copyload.i50.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_threadbuffersize, i64 72), align 8
   switch i8 %.sroa.1.0.copyload.i50.i, label %_ZL36post_process_adjusted_memory_optionsRK16JfrMemoryOptions.exit [
     i8 107, label %274
     i8 75, label %274
@@ -1149,18 +1149,18 @@ _ZL21divide_with_user_unitI12DCmdArgumentI18MemorySizeArgumentEEmRT_m.exit46.i: 
 
 _ZL36post_process_adjusted_memory_optionsRK16JfrMemoryOptions.exit: ; preds = %_ZL21divide_with_user_unitI12DCmdArgumentI18MemorySizeArgumentEEmRT_m.exit46.i, %273, %274, %276, %278
   %.0.i51.i = phi i64 [ %279, %278 ], [ %277, %276 ], [ %275, %274 ], [ %272, %273 ], [ %272, %_ZL21divide_with_user_unitI12DCmdArgumentI18MemorySizeArgumentEEmRT_m.exit46.i ]
-  store i64 %256, ptr getelementptr inbounds (i8, ptr @_ZL16_dcmd_memorysize, i64 56), align 8
+  store i64 %256, ptr getelementptr inbounds nuw (i8, ptr @_ZL16_dcmd_memorysize, i64 56), align 8
   store i64 %.0.i.i, ptr getelementptr inbounds (i8, ptr @_ZL16_dcmd_memorysize, i64 64), align 8
-  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL16_dcmd_memorysize, i64 48), align 8
-  store i64 %264, ptr getelementptr inbounds (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 56), align 8
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZL16_dcmd_memorysize, i64 48), align 8
+  store i64 %264, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 56), align 8
   store i64 %.0.i45.i, ptr getelementptr inbounds (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 64), align 8
-  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 48), align 8
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 48), align 8
   %280 = load i64, ptr %47, align 8
-  store i64 %280, ptr getelementptr inbounds (i8, ptr @_ZL22_dcmd_numglobalbuffers, i64 56), align 8
-  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL22_dcmd_numglobalbuffers, i64 48), align 8
-  store i64 %272, ptr getelementptr inbounds (i8, ptr @_ZL22_dcmd_threadbuffersize, i64 56), align 8
+  store i64 %280, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_numglobalbuffers, i64 56), align 8
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_numglobalbuffers, i64 48), align 8
+  store i64 %272, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_threadbuffersize, i64 56), align 8
   store i64 %.0.i51.i, ptr getelementptr inbounds (i8, ptr @_ZL22_dcmd_threadbuffersize, i64 64), align 8
-  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL22_dcmd_threadbuffersize, i64 48), align 8
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_threadbuffersize, i64 48), align 8
   br label %_ZL26ensure_valid_minimum_sizesv.exit.thread
 
 _ZL26ensure_valid_minimum_sizesv.exit.thread:     ; preds = %97, %95, %104, %68, %64, %39, %33, %25, %23, %28, %10, %4, %181, %171, %173, %178, %180, %_ZL36post_process_adjusted_memory_optionsRK16JfrMemoryOptions.exit
@@ -1177,24 +1177,24 @@ define hidden noundef zeroext i1 @_ZN12JfrOptionSet9configureEP10JavaThread(ptr 
   br i1 %5, label %_ZN12ResourceMarkD2Ev.exit, label %6
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 800
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 800
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %8, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %8, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %8, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %16 = load i64, ptr %15, align 8
   call void @_ZN14bufferedStreamC1Emm(ptr noundef nonnull align 8 dereferenceable(89) %2, i64 noundef 256, i64 noundef 10485760) #18
   call void @_ZN30JfrConfigureFlightRecorderDCmdC1EP12outputStreamb(ptr noundef nonnull align 8 dereferenceable(729) %3, ptr noundef nonnull %2, i1 noundef zeroext false) #18
-  %17 = getelementptr inbounds i8, ptr %3, i64 40
-  %18 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL16_dcmd_repository, i64 48), align 8
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %18 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL16_dcmd_repository, i64 48), align 8
   %19 = and i8 %18, 1
-  %20 = getelementptr inbounds i8, ptr %3, i64 88
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 88
   store i8 %19, ptr %20, align 8
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL16_dcmd_repository, i64 56), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL16_dcmd_repository, i64 56), align 8
   %.not = icmp eq ptr %21, null
   br i1 %.not, label %30, label %22
 
@@ -1208,16 +1208,16 @@ define hidden noundef zeroext i1 @_ZN12JfrOptionSet9configureEP10JavaThread(ptr 
 
 27:                                               ; preds = %22
   %28 = call ptr @strncpy(ptr noundef nonnull %25, ptr noundef nonnull %21, i64 noundef %24) #18
-  %29 = getelementptr inbounds i8, ptr %3, i64 96
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 96
   store ptr %25, ptr %29, align 8
   br label %30
 
 30:                                               ; preds = %27, %6
-  %31 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL14_dcmd_dumppath, i64 48), align 8
+  %31 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL14_dcmd_dumppath, i64 48), align 8
   %32 = and i8 %31, 1
-  %33 = getelementptr inbounds i8, ptr %3, i64 152
+  %33 = getelementptr inbounds nuw i8, ptr %3, i64 152
   store i8 %32, ptr %33, align 8
-  %34 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL14_dcmd_dumppath, i64 56), align 8
+  %34 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL14_dcmd_dumppath, i64 56), align 8
   %.not25 = icmp eq ptr %34, null
   br i1 %.not25, label %43, label %35
 
@@ -1231,69 +1231,69 @@ define hidden noundef zeroext i1 @_ZN12JfrOptionSet9configureEP10JavaThread(ptr 
 
 40:                                               ; preds = %35
   %41 = call ptr @strncpy(ptr noundef nonnull %38, ptr noundef nonnull %34, i64 noundef %37) #18
-  %42 = getelementptr inbounds i8, ptr %3, i64 160
+  %42 = getelementptr inbounds nuw i8, ptr %3, i64 160
   store ptr %38, ptr %42, align 8
   br label %43
 
 43:                                               ; preds = %40, %30
-  %44 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL16_dcmd_stackdepth, i64 48), align 8
+  %44 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL16_dcmd_stackdepth, i64 48), align 8
   %45 = and i8 %44, 1
-  %46 = getelementptr inbounds i8, ptr %3, i64 216
+  %46 = getelementptr inbounds nuw i8, ptr %3, i64 216
   store i8 %45, ptr %46, align 8
-  %47 = load i64, ptr getelementptr inbounds (i8, ptr @_ZL16_dcmd_stackdepth, i64 56), align 8
-  %48 = getelementptr inbounds i8, ptr %3, i64 224
+  %47 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL16_dcmd_stackdepth, i64 56), align 8
+  %48 = getelementptr inbounds nuw i8, ptr %3, i64 224
   store i64 %47, ptr %48, align 8
-  %49 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL22_dcmd_threadbuffersize, i64 48), align 8
+  %49 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_threadbuffersize, i64 48), align 8
   %50 = and i8 %49, 1
-  %51 = getelementptr inbounds i8, ptr %3, i64 424
+  %51 = getelementptr inbounds nuw i8, ptr %3, i64 424
   store i8 %50, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %3, i64 432
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %52, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZL22_dcmd_threadbuffersize, i64 56), i64 24, i1 false)
-  %53 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL22_dcmd_numglobalbuffers, i64 48), align 8
+  %52 = getelementptr inbounds nuw i8, ptr %3, i64 432
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %52, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_threadbuffersize, i64 56), i64 24, i1 false)
+  %53 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_numglobalbuffers, i64 48), align 8
   %54 = and i8 %53, 1
-  %55 = getelementptr inbounds i8, ptr %3, i64 280
+  %55 = getelementptr inbounds nuw i8, ptr %3, i64 280
   store i8 %54, ptr %55, align 8
-  %56 = load i64, ptr getelementptr inbounds (i8, ptr @_ZL22_dcmd_numglobalbuffers, i64 56), align 8
-  %57 = getelementptr inbounds i8, ptr %3, i64 288
+  %56 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_numglobalbuffers, i64 56), align 8
+  %57 = getelementptr inbounds nuw i8, ptr %3, i64 288
   store i64 %56, ptr %57, align 8
-  %58 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 48), align 8
+  %58 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 48), align 8
   %59 = and i8 %58, 1
-  %60 = getelementptr inbounds i8, ptr %3, i64 344
+  %60 = getelementptr inbounds nuw i8, ptr %3, i64 344
   store i8 %59, ptr %60, align 8
-  %61 = getelementptr inbounds i8, ptr %3, i64 352
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %61, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 56), i64 24, i1 false)
-  %62 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL18_dcmd_maxchunksize, i64 48), align 8
+  %61 = getelementptr inbounds nuw i8, ptr %3, i64 352
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %61, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 56), i64 24, i1 false)
+  %62 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL18_dcmd_maxchunksize, i64 48), align 8
   %63 = and i8 %62, 1
-  %64 = getelementptr inbounds i8, ptr %3, i64 584
+  %64 = getelementptr inbounds nuw i8, ptr %3, i64 584
   store i8 %63, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %3, i64 592
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %65, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZL18_dcmd_maxchunksize, i64 56), i64 24, i1 false)
-  %66 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL16_dcmd_memorysize, i64 48), align 8
+  %65 = getelementptr inbounds nuw i8, ptr %3, i64 592
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %65, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @_ZL18_dcmd_maxchunksize, i64 56), i64 24, i1 false)
+  %66 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL16_dcmd_memorysize, i64 48), align 8
   %67 = and i8 %66, 1
-  %68 = getelementptr inbounds i8, ptr %3, i64 504
+  %68 = getelementptr inbounds nuw i8, ptr %3, i64 504
   store i8 %67, ptr %68, align 8
-  %69 = getelementptr inbounds i8, ptr %3, i64 512
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %69, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZL16_dcmd_memorysize, i64 56), i64 24, i1 false)
-  %70 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL20_dcmd_sample_threads, i64 48), align 8
+  %69 = getelementptr inbounds nuw i8, ptr %3, i64 512
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %69, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @_ZL16_dcmd_memorysize, i64 56), i64 24, i1 false)
+  %70 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL20_dcmd_sample_threads, i64 48), align 8
   %71 = and i8 %70, 1
-  %72 = getelementptr inbounds i8, ptr %3, i64 664
+  %72 = getelementptr inbounds nuw i8, ptr %3, i64 664
   store i8 %71, ptr %72, align 8
-  %73 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL20_dcmd_sample_threads, i64 51), align 1
+  %73 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL20_dcmd_sample_threads, i64 51), align 1
   %74 = and i8 %73, 1
-  %75 = getelementptr inbounds i8, ptr %3, i64 667
+  %75 = getelementptr inbounds nuw i8, ptr %3, i64 667
   store i8 %74, ptr %75, align 1
-  %76 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL25_dcmd_preserve_repository, i64 48), align 8
+  %76 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL25_dcmd_preserve_repository, i64 48), align 8
   %77 = and i8 %76, 1
-  %78 = getelementptr inbounds i8, ptr %3, i64 720
+  %78 = getelementptr inbounds nuw i8, ptr %3, i64 720
   store i8 %77, ptr %78, align 8
-  %79 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL25_dcmd_preserve_repository, i64 51), align 1
+  %79 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL25_dcmd_preserve_repository, i64 51), align 1
   %80 = and i8 %79, 1
-  %81 = getelementptr inbounds i8, ptr %3, i64 723
+  %81 = getelementptr inbounds nuw i8, ptr %3, i64 723
   store i8 %80, ptr %81, align 1
-  %82 = getelementptr inbounds i8, ptr %3, i64 728
+  %82 = getelementptr inbounds nuw i8, ptr %3, i64 728
   store i8 0, ptr %82, align 8
   call void @_ZN30JfrConfigureFlightRecorderDCmd7executeE10DCmdSourceP10JavaThread(ptr noundef nonnull align 8 dereferenceable(729) %3, i32 noundef 1, ptr noundef nonnull %0) #18
-  %83 = getelementptr inbounds i8, ptr %0, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %84 = load ptr, ptr %83, align 8
   %.not29 = icmp eq ptr %84, null
   br i1 %.not29, label %88, label %85
@@ -1309,31 +1309,31 @@ define hidden noundef zeroext i1 @_ZN12JfrOptionSet9configureEP10JavaThread(ptr 
 88:                                               ; preds = %43, %35, %22, %85
   %.1 = phi i1 [ false, %85 ], [ false, %22 ], [ false, %35 ], [ true, %43 ]
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV30JfrConfigureFlightRecorderDCmd, i64 16), ptr %3, align 8
-  %89 = getelementptr inbounds i8, ptr %3, i64 672
+  %89 = getelementptr inbounds nuw i8, ptr %3, i64 672
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIbE, i64 16), ptr %89, align 8
   call void @_ZN12DCmdArgumentIbE13destroy_valueEv(ptr noundef nonnull align 8 dereferenceable(52) %89) #18
-  %90 = getelementptr inbounds i8, ptr %3, i64 616
+  %90 = getelementptr inbounds nuw i8, ptr %3, i64 616
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIbE, i64 16), ptr %90, align 8
   call void @_ZN12DCmdArgumentIbE13destroy_valueEv(ptr noundef nonnull align 8 dereferenceable(52) %90) #18
-  %91 = getelementptr inbounds i8, ptr %3, i64 536
+  %91 = getelementptr inbounds nuw i8, ptr %3, i64 536
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentI18MemorySizeArgumentE, i64 16), ptr %91, align 8
   call void @_ZN12DCmdArgumentI18MemorySizeArgumentE13destroy_valueEv(ptr noundef nonnull align 8 dereferenceable(80) %91) #18
-  %92 = getelementptr inbounds i8, ptr %3, i64 456
+  %92 = getelementptr inbounds nuw i8, ptr %3, i64 456
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentI18MemorySizeArgumentE, i64 16), ptr %92, align 8
   call void @_ZN12DCmdArgumentI18MemorySizeArgumentE13destroy_valueEv(ptr noundef nonnull align 8 dereferenceable(80) %92) #18
-  %93 = getelementptr inbounds i8, ptr %3, i64 376
+  %93 = getelementptr inbounds nuw i8, ptr %3, i64 376
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentI18MemorySizeArgumentE, i64 16), ptr %93, align 8
   call void @_ZN12DCmdArgumentI18MemorySizeArgumentE13destroy_valueEv(ptr noundef nonnull align 8 dereferenceable(80) %93) #18
-  %94 = getelementptr inbounds i8, ptr %3, i64 296
+  %94 = getelementptr inbounds nuw i8, ptr %3, i64 296
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentI18MemorySizeArgumentE, i64 16), ptr %94, align 8
   call void @_ZN12DCmdArgumentI18MemorySizeArgumentE13destroy_valueEv(ptr noundef nonnull align 8 dereferenceable(80) %94) #18
-  %95 = getelementptr inbounds i8, ptr %3, i64 232
+  %95 = getelementptr inbounds nuw i8, ptr %3, i64 232
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIlE, i64 16), ptr %95, align 8
   call void @_ZN12DCmdArgumentIlE13destroy_valueEv(ptr noundef nonnull align 8 dereferenceable(64) %95) #18
-  %96 = getelementptr inbounds i8, ptr %3, i64 168
+  %96 = getelementptr inbounds nuw i8, ptr %3, i64 168
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIlE, i64 16), ptr %96, align 8
   call void @_ZN12DCmdArgumentIlE13destroy_valueEv(ptr noundef nonnull align 8 dereferenceable(64) %96) #18
-  %97 = getelementptr inbounds i8, ptr %3, i64 104
+  %97 = getelementptr inbounds nuw i8, ptr %3, i64 104
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr %97, align 8
   call void @_ZN12DCmdArgumentIPcE13destroy_valueEv(ptr noundef nonnull align 8 dereferenceable(64) %97) #18
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr %17, align 8
@@ -1398,17 +1398,17 @@ define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0E
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef zeroext i1 @_ZL19check_for_ambiguityI12DCmdArgumentI18MemorySizeArgumentES0_IlEEbRT_S5_RT0_() unnamed_addr #3 {
-  %.sroa.01.0.copyload = load i64, ptr getelementptr inbounds (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 56), align 8
-  %1 = load i64, ptr getelementptr inbounds (i8, ptr @_ZL22_dcmd_numglobalbuffers, i64 56), align 8
+  %.sroa.01.0.copyload = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 56), align 8
+  %1 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_numglobalbuffers, i64 56), align 8
   %2 = mul i64 %1, %.sroa.01.0.copyload
-  %.sroa.0.0.copyload = load i64, ptr getelementptr inbounds (i8, ptr @_ZL16_dcmd_memorysize, i64 56), align 8
+  %.sroa.0.0.copyload = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL16_dcmd_memorysize, i64 56), align 8
   %.not = icmp eq i64 %2, %.sroa.0.0.copyload
   br i1 %.not, label %48, label %3
 
 3:                                                ; preds = %0
-  %.sroa.116.0.copyload.i = load i64, ptr getelementptr inbounds (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 64), align 8
+  %.sroa.116.0.copyload.i = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 64), align 8
   %.not.i = icmp eq i64 %.sroa.01.0.copyload, %.sroa.116.0.copyload.i
-  %4 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
+  %4 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
   %.not21.i = icmp eq ptr %4, null
   br i1 %.not.i, label %12, label %5
 
@@ -1416,11 +1416,11 @@ define internal fastcc noundef zeroext i1 @_ZL19check_for_ambiguityI12DCmdArgume
   br i1 %.not21.i, label %_ZL13log_set_valueI12DCmdArgumentI18MemorySizeArgumentEEvRT_.exit, label %6
 
 6:                                                ; preds = %5
-  %7 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 48), align 8
+  %7 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 48), align 8
   %8 = trunc i8 %7 to i1
   %9 = select i1 %8, ptr @_ZL17specified_val_msg, ptr @_ZL15default_val_msg
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 16), align 8
-  %.sroa.110.0.copyload.i = load i8, ptr getelementptr inbounds (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 72), align 8
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 16), align 8
+  %.sroa.110.0.copyload.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 72), align 8
   %11 = sext i8 %.sroa.110.0.copyload.i to i32
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE5EEEvPKcz(ptr noundef nonnull @.str.98, ptr noundef nonnull %9, ptr noundef %10, i64 noundef %.sroa.116.0.copyload.i, i32 noundef %11)
   br label %_ZL13log_set_valueI12DCmdArgumentI18MemorySizeArgumentEEvRT_.exit
@@ -1429,29 +1429,29 @@ define internal fastcc noundef zeroext i1 @_ZL19check_for_ambiguityI12DCmdArgume
   br i1 %.not21.i, label %_ZL13log_set_valueI12DCmdArgumentI18MemorySizeArgumentEEvRT_.exit, label %13
 
 13:                                               ; preds = %12
-  %14 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 48), align 8
+  %14 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 48), align 8
   %15 = trunc i8 %14 to i1
   %16 = select i1 %15, ptr @_ZL17specified_val_msg, ptr @_ZL15default_val_msg
-  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 16), align 8
+  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 16), align 8
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE5EEEvPKcz(ptr noundef nonnull @.str.99, ptr noundef nonnull %16, ptr noundef %17, i64 noundef %.sroa.01.0.copyload)
   br label %_ZL13log_set_valueI12DCmdArgumentI18MemorySizeArgumentEEvRT_.exit
 
 _ZL13log_set_valueI12DCmdArgumentI18MemorySizeArgumentEEvRT_.exit: ; preds = %5, %6, %12, %13
-  %18 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
+  %18 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
   %.not3 = icmp eq ptr %18, null
   br i1 %.not3, label %22, label %19
 
 19:                                               ; preds = %_ZL13log_set_valueI12DCmdArgumentI18MemorySizeArgumentEEvRT_.exit
-  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL22_dcmd_numglobalbuffers, i64 16), align 8
-  %21 = load i64, ptr getelementptr inbounds (i8, ptr @_ZL22_dcmd_numglobalbuffers, i64 56), align 8
+  %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_numglobalbuffers, i64 16), align 8
+  %21 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_numglobalbuffers, i64 56), align 8
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE5EEEvPKcz(ptr noundef nonnull @.str.83, ptr noundef %20, i64 noundef %21)
   br label %22
 
 22:                                               ; preds = %_ZL13log_set_valueI12DCmdArgumentI18MemorySizeArgumentEEvRT_.exit, %19
-  %.sroa.018.0.copyload.i11 = load i64, ptr getelementptr inbounds (i8, ptr @_ZL16_dcmd_memorysize, i64 56), align 8
-  %.sroa.116.0.copyload.i12 = load i64, ptr getelementptr inbounds (i8, ptr @_ZL16_dcmd_memorysize, i64 64), align 8
+  %.sroa.018.0.copyload.i11 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL16_dcmd_memorysize, i64 56), align 8
+  %.sroa.116.0.copyload.i12 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL16_dcmd_memorysize, i64 64), align 8
   %.not.i13 = icmp eq i64 %.sroa.018.0.copyload.i11, %.sroa.116.0.copyload.i12
-  %23 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
+  %23 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
   %.not21.i14 = icmp eq ptr %23, null
   br i1 %.not.i13, label %31, label %24
 
@@ -1459,11 +1459,11 @@ _ZL13log_set_valueI12DCmdArgumentI18MemorySizeArgumentEEvRT_.exit: ; preds = %5,
   br i1 %.not21.i14, label %_ZL13log_set_valueI12DCmdArgumentI18MemorySizeArgumentEEvRT_.exit16, label %25
 
 25:                                               ; preds = %24
-  %26 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL16_dcmd_memorysize, i64 48), align 8
+  %26 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL16_dcmd_memorysize, i64 48), align 8
   %27 = trunc i8 %26 to i1
   %28 = select i1 %27, ptr @_ZL17specified_val_msg, ptr @_ZL15default_val_msg
-  %29 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL16_dcmd_memorysize, i64 16), align 8
-  %.sroa.110.0.copyload.i15 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL16_dcmd_memorysize, i64 72), align 8
+  %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL16_dcmd_memorysize, i64 16), align 8
+  %.sroa.110.0.copyload.i15 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL16_dcmd_memorysize, i64 72), align 8
   %30 = sext i8 %.sroa.110.0.copyload.i15 to i32
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE5EEEvPKcz(ptr noundef nonnull @.str.98, ptr noundef nonnull %28, ptr noundef %29, i64 noundef %.sroa.116.0.copyload.i12, i32 noundef %30)
   br label %_ZL13log_set_valueI12DCmdArgumentI18MemorySizeArgumentEEvRT_.exit16
@@ -1472,15 +1472,15 @@ _ZL13log_set_valueI12DCmdArgumentI18MemorySizeArgumentEEvRT_.exit: ; preds = %5,
   br i1 %.not21.i14, label %_ZL13log_set_valueI12DCmdArgumentI18MemorySizeArgumentEEvRT_.exit16, label %32
 
 32:                                               ; preds = %31
-  %33 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL16_dcmd_memorysize, i64 48), align 8
+  %33 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL16_dcmd_memorysize, i64 48), align 8
   %34 = trunc i8 %33 to i1
   %35 = select i1 %34, ptr @_ZL17specified_val_msg, ptr @_ZL15default_val_msg
-  %36 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL16_dcmd_memorysize, i64 16), align 8
+  %36 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL16_dcmd_memorysize, i64 16), align 8
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE5EEEvPKcz(ptr noundef nonnull @.str.99, ptr noundef nonnull %35, ptr noundef %36, i64 noundef %.sroa.018.0.copyload.i11)
   br label %_ZL13log_set_valueI12DCmdArgumentI18MemorySizeArgumentEEvRT_.exit16
 
 _ZL13log_set_valueI12DCmdArgumentI18MemorySizeArgumentEEvRT_.exit16: ; preds = %24, %25, %31, %32
-  %37 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
+  %37 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
   %.not4 = icmp eq ptr %37, null
   br i1 %.not4, label %39, label %38
 
@@ -1489,19 +1489,19 @@ _ZL13log_set_valueI12DCmdArgumentI18MemorySizeArgumentEEvRT_.exit16: ; preds = %
   br label %39
 
 39:                                               ; preds = %_ZL13log_set_valueI12DCmdArgumentI18MemorySizeArgumentEEvRT_.exit16, %38
-  %40 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
+  %40 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
   %.not5 = icmp eq ptr %40, null
   br i1 %.not5, label %45, label %41
 
 41:                                               ; preds = %39
-  %42 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 16), align 8
-  %43 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL22_dcmd_numglobalbuffers, i64 16), align 8
-  %44 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL16_dcmd_memorysize, i64 16), align 8
+  %42 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 16), align 8
+  %43 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_numglobalbuffers, i64 16), align 8
+  %44 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL16_dcmd_memorysize, i64 16), align 8
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE5EEEvPKcz(ptr noundef nonnull @.str.101, ptr noundef %42, ptr noundef %43, ptr noundef %44)
   br label %45
 
 45:                                               ; preds = %39, %41
-  %46 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
+  %46 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
   %.not6 = icmp eq ptr %46, null
   br i1 %.not6, label %48, label %47
 
@@ -1538,12 +1538,12 @@ define hidden noundef zeroext i1 @_ZN12JfrOptionSet35parse_start_flight_recordin
   store ptr @.str.59, ptr %6, align 8
   %7 = load ptr, ptr %0, align 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 25
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 25
   br label %12
 
 10:                                               ; preds = %2
   store i8 61, ptr %1, align 1
-  %11 = getelementptr inbounds i8, ptr %1, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 1
   br label %12
 
 12:                                               ; preds = %10, %5
@@ -1561,12 +1561,12 @@ define hidden noundef zeroext i1 @_ZN12JfrOptionSet35parse_start_flight_recordin
 19:                                               ; preds = %16
   %20 = tail call noundef ptr @_ZN27GrowableArrayCHeapAllocator8allocateEii8MEMFLAGS(i32 noundef 8, i32 noundef 8, i8 noundef zeroext 16) #18
   store i32 0, ptr %17, align 4
-  %21 = getelementptr inbounds i8, ptr %17, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 4
   store i32 8, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %17, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %20, ptr %22, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %20, i8 0, i64 64, i1 false)
-  %23 = getelementptr inbounds i8, ptr %17, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store i64 33, ptr %23, align 8
   br label %24
 
@@ -1580,7 +1580,7 @@ define hidden noundef zeroext i1 @_ZN12JfrOptionSet35parse_start_flight_recordin
   %28 = tail call ptr @strncpy(ptr noundef %27, ptr noundef nonnull %.0, i64 noundef %26) #18
   %29 = load ptr, ptr @_ZL36start_flight_recording_options_array, align 8
   %30 = load i32, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %29, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %29, i64 4
   %32 = load i32, ptr %31, align 4
   %33 = icmp eq i32 %30, %32
   br i1 %33, label %34, label %_ZN26GrowableArrayWithAllocatorIPKc13GrowableArrayIS1_EE6appendERKS1_.exit
@@ -1603,7 +1603,7 @@ _ZN26GrowableArrayWithAllocatorIPKc13GrowableArrayIS1_EE6appendERKS1_.exit: ; pr
   %42 = phi i32 [ %.pre.i, %34 ], [ %30, %25 ]
   %43 = add nsw i32 %42, 1
   store i32 %43, ptr %29, align 8
-  %44 = getelementptr inbounds i8, ptr %29, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %45 = load ptr, ptr %44, align 8
   %46 = sext i32 %42 to i64
   %47 = getelementptr inbounds ptr, ptr %45, i64 %46
@@ -1640,9 +1640,9 @@ define hidden void @_ZN12JfrOptionSet38release_start_flight_recording_optionsEv(
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %5 = load ptr, ptr @_ZL36start_flight_recording_options_array, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds ptr, ptr %7, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8
   tail call void @_Z8FreeHeapPv(ptr noundef %9) #18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1656,7 +1656,7 @@ define hidden void @_ZN12JfrOptionSet38release_start_flight_recording_optionsEv(
 
 ._crit_edge.thread:                               ; preds = %2, %._crit_edge
   %11 = phi ptr [ %.pre, %._crit_edge ], [ %1, %2 ]
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load i64, ptr %12, align 8
   %14 = and i64 %13, 1
   %.not.i = icmp eq i64 %14, 0
@@ -1728,17 +1728,17 @@ declare void @_ZN5Chunk9next_chopEPS_(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef zeroext i1 @_ZL11ensure_gteqI12DCmdArgumentI18MemorySizeArgumentEEbRT_l(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0, i64 noundef %1) unnamed_addr #3 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 56
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %.sroa.0.0.copyload = load i64, ptr %3, align 8
   %4 = icmp sge i64 %.sroa.0.0.copyload, %1
   br i1 %4, label %_ZL22log_out_of_range_valueI12DCmdArgumentI18MemorySizeArgumentELb1EEvRT_m.exit, label %5
 
 5:                                                ; preds = %2
-  %.sroa.219.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 64
+  %.sroa.219.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.sroa.116.0.copyload.i = load i64, ptr %.sroa.219.0..sroa_idx.i, align 8
-  %.sroa.217.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 72
+  %.sroa.217.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 72
   %.not.i = icmp eq i64 %.sroa.0.0.copyload, %.sroa.116.0.copyload.i
-  %6 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
+  %6 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
   %.not21.i = icmp eq ptr %6, null
   br i1 %.not.i, label %16, label %7
 
@@ -1746,11 +1746,11 @@ define internal fastcc noundef zeroext i1 @_ZL11ensure_gteqI12DCmdArgumentI18Mem
   br i1 %.not21.i, label %_ZL13log_set_valueI12DCmdArgumentI18MemorySizeArgumentEEvRT_.exit, label %8
 
 8:                                                ; preds = %7
-  %9 = getelementptr inbounds i8, ptr %0, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %10 = load i8, ptr %9, align 8
   %11 = trunc i8 %10 to i1
   %12 = select i1 %11, ptr @_ZL17specified_val_msg, ptr @_ZL15default_val_msg
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
   %.sroa.110.0.copyload.i = load i8, ptr %.sroa.217.0..sroa_idx.i, align 8
   %15 = sext i8 %.sroa.110.0.copyload.i to i32
@@ -1761,11 +1761,11 @@ define internal fastcc noundef zeroext i1 @_ZL11ensure_gteqI12DCmdArgumentI18Mem
   br i1 %.not21.i, label %_ZL13log_set_valueI12DCmdArgumentI18MemorySizeArgumentEEvRT_.exit, label %17
 
 17:                                               ; preds = %16
-  %18 = getelementptr inbounds i8, ptr %0, i64 48
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %19 = load i8, ptr %18, align 8
   %20 = trunc i8 %19 to i1
   %21 = select i1 %20, ptr @_ZL17specified_val_msg, ptr @_ZL15default_val_msg
-  %22 = getelementptr inbounds i8, ptr %0, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %23 = load ptr, ptr %22, align 8
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE5EEEvPKcz(ptr noundef nonnull @.str.99, ptr noundef nonnull %21, ptr noundef %23, i64 noundef %.sroa.0.0.copyload)
   br label %_ZL13log_set_valueI12DCmdArgumentI18MemorySizeArgumentEEvRT_.exit
@@ -1774,7 +1774,7 @@ _ZL13log_set_valueI12DCmdArgumentI18MemorySizeArgumentEEvRT_.exit: ; preds = %7,
   %.sroa.019.0.copyload.i = load i64, ptr %3, align 8
   %.sroa.117.0.copyload.i = load i64, ptr %.sroa.219.0..sroa_idx.i, align 8
   %.not.i6 = icmp eq i64 %.sroa.019.0.copyload.i, %.sroa.117.0.copyload.i
-  %24 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
+  %24 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
   %.not22.i = icmp eq ptr %24, null
   br i1 %.not.i6, label %34, label %25
 
@@ -1823,17 +1823,17 @@ _ZL22log_out_of_range_valueI12DCmdArgumentI18MemorySizeArgumentELb1EEvRT_m.exit:
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef zeroext i1 @_ZL11ensure_lteqI12DCmdArgumentI18MemorySizeArgumentEEbRT_l(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0, i64 noundef %1) unnamed_addr #3 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 56
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %.sroa.0.0.copyload = load i64, ptr %3, align 8
   %4 = icmp sle i64 %.sroa.0.0.copyload, %1
   br i1 %4, label %_ZL22log_out_of_range_valueI12DCmdArgumentI18MemorySizeArgumentELb0EEvRT_m.exit, label %5
 
 5:                                                ; preds = %2
-  %.sroa.219.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 64
+  %.sroa.219.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.sroa.116.0.copyload.i = load i64, ptr %.sroa.219.0..sroa_idx.i, align 8
-  %.sroa.217.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 72
+  %.sroa.217.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 72
   %.not.i = icmp eq i64 %.sroa.0.0.copyload, %.sroa.116.0.copyload.i
-  %6 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
+  %6 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
   %.not21.i = icmp eq ptr %6, null
   br i1 %.not.i, label %16, label %7
 
@@ -1841,11 +1841,11 @@ define internal fastcc noundef zeroext i1 @_ZL11ensure_lteqI12DCmdArgumentI18Mem
   br i1 %.not21.i, label %_ZL13log_set_valueI12DCmdArgumentI18MemorySizeArgumentEEvRT_.exit, label %8
 
 8:                                                ; preds = %7
-  %9 = getelementptr inbounds i8, ptr %0, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %10 = load i8, ptr %9, align 8
   %11 = trunc i8 %10 to i1
   %12 = select i1 %11, ptr @_ZL17specified_val_msg, ptr @_ZL15default_val_msg
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
   %.sroa.110.0.copyload.i = load i8, ptr %.sroa.217.0..sroa_idx.i, align 8
   %15 = sext i8 %.sroa.110.0.copyload.i to i32
@@ -1856,11 +1856,11 @@ define internal fastcc noundef zeroext i1 @_ZL11ensure_lteqI12DCmdArgumentI18Mem
   br i1 %.not21.i, label %_ZL13log_set_valueI12DCmdArgumentI18MemorySizeArgumentEEvRT_.exit, label %17
 
 17:                                               ; preds = %16
-  %18 = getelementptr inbounds i8, ptr %0, i64 48
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %19 = load i8, ptr %18, align 8
   %20 = trunc i8 %19 to i1
   %21 = select i1 %20, ptr @_ZL17specified_val_msg, ptr @_ZL15default_val_msg
-  %22 = getelementptr inbounds i8, ptr %0, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %23 = load ptr, ptr %22, align 8
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE5EEEvPKcz(ptr noundef nonnull @.str.99, ptr noundef nonnull %21, ptr noundef %23, i64 noundef %.sroa.0.0.copyload)
   br label %_ZL13log_set_valueI12DCmdArgumentI18MemorySizeArgumentEEvRT_.exit
@@ -1869,7 +1869,7 @@ _ZL13log_set_valueI12DCmdArgumentI18MemorySizeArgumentEEvRT_.exit: ; preds = %7,
   %.sroa.019.0.copyload.i = load i64, ptr %3, align 8
   %.sroa.117.0.copyload.i = load i64, ptr %.sroa.219.0..sroa_idx.i, align 8
   %.not.i6 = icmp eq i64 %.sroa.019.0.copyload.i, %.sroa.117.0.copyload.i
-  %24 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
+  %24 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
   %.not22.i = icmp eq ptr %24, null
   br i1 %.not.i6, label %34, label %25
 
@@ -1918,19 +1918,19 @@ _ZL22log_out_of_range_valueI12DCmdArgumentI18MemorySizeArgumentELb0EEvRT_m.exit:
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef zeroext i1 @_ZL24ensure_first_gteq_secondI12DCmdArgumentI18MemorySizeArgumentEEbRT_S4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %1) unnamed_addr #3 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 56
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %.sroa.015.0.copyload = load i64, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %.sroa.0.0.copyload = load i64, ptr %4, align 8
   %5 = icmp ule i64 %.sroa.015.0.copyload, %.sroa.0.0.copyload
   br i1 %5, label %49, label %6
 
 6:                                                ; preds = %2
-  %.sroa.219.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 64
+  %.sroa.219.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.sroa.116.0.copyload.i = load i64, ptr %.sroa.219.0..sroa_idx.i, align 8
-  %.sroa.217.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 72
+  %.sroa.217.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 72
   %.not.i = icmp eq i64 %.sroa.0.0.copyload, %.sroa.116.0.copyload.i
-  %7 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
+  %7 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
   %.not21.i = icmp eq ptr %7, null
   br i1 %.not.i, label %17, label %8
 
@@ -1938,11 +1938,11 @@ define internal fastcc noundef zeroext i1 @_ZL24ensure_first_gteq_secondI12DCmdA
   br i1 %.not21.i, label %_ZL13log_set_valueI12DCmdArgumentI18MemorySizeArgumentEEvRT_.exit, label %9
 
 9:                                                ; preds = %8
-  %10 = getelementptr inbounds i8, ptr %0, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %11 = load i8, ptr %10, align 8
   %12 = trunc i8 %11 to i1
   %13 = select i1 %12, ptr @_ZL17specified_val_msg, ptr @_ZL15default_val_msg
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load ptr, ptr %14, align 8
   %.sroa.110.0.copyload.i = load i8, ptr %.sroa.217.0..sroa_idx.i, align 8
   %16 = sext i8 %.sroa.110.0.copyload.i to i32
@@ -1953,22 +1953,22 @@ define internal fastcc noundef zeroext i1 @_ZL24ensure_first_gteq_secondI12DCmdA
   br i1 %.not21.i, label %_ZL13log_set_valueI12DCmdArgumentI18MemorySizeArgumentEEvRT_.exit, label %18
 
 18:                                               ; preds = %17
-  %19 = getelementptr inbounds i8, ptr %0, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %20 = load i8, ptr %19, align 8
   %21 = trunc i8 %20 to i1
   %22 = select i1 %21, ptr @_ZL17specified_val_msg, ptr @_ZL15default_val_msg
-  %23 = getelementptr inbounds i8, ptr %0, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %24 = load ptr, ptr %23, align 8
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE5EEEvPKcz(ptr noundef nonnull @.str.99, ptr noundef nonnull %22, ptr noundef %24, i64 noundef %.sroa.0.0.copyload)
   br label %_ZL13log_set_valueI12DCmdArgumentI18MemorySizeArgumentEEvRT_.exit
 
 _ZL13log_set_valueI12DCmdArgumentI18MemorySizeArgumentEEvRT_.exit: ; preds = %8, %9, %17, %18
   %.sroa.018.0.copyload.i7 = load i64, ptr %3, align 8
-  %.sroa.219.0..sroa_idx.i8 = getelementptr inbounds i8, ptr %1, i64 64
+  %.sroa.219.0..sroa_idx.i8 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %.sroa.116.0.copyload.i9 = load i64, ptr %.sroa.219.0..sroa_idx.i8, align 8
-  %.sroa.217.0..sroa_idx.i10 = getelementptr inbounds i8, ptr %1, i64 72
+  %.sroa.217.0..sroa_idx.i10 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %.not.i11 = icmp eq i64 %.sroa.018.0.copyload.i7, %.sroa.116.0.copyload.i9
-  %25 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
+  %25 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
   %.not21.i12 = icmp eq ptr %25, null
   br i1 %.not.i11, label %35, label %26
 
@@ -1976,11 +1976,11 @@ _ZL13log_set_valueI12DCmdArgumentI18MemorySizeArgumentEEvRT_.exit: ; preds = %8,
   br i1 %.not21.i12, label %_ZL13log_set_valueI12DCmdArgumentI18MemorySizeArgumentEEvRT_.exit14, label %27
 
 27:                                               ; preds = %26
-  %28 = getelementptr inbounds i8, ptr %1, i64 48
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %29 = load i8, ptr %28, align 8
   %30 = trunc i8 %29 to i1
   %31 = select i1 %30, ptr @_ZL17specified_val_msg, ptr @_ZL15default_val_msg
-  %32 = getelementptr inbounds i8, ptr %1, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %33 = load ptr, ptr %32, align 8
   %.sroa.110.0.copyload.i13 = load i8, ptr %.sroa.217.0..sroa_idx.i10, align 8
   %34 = sext i8 %.sroa.110.0.copyload.i13 to i32
@@ -1991,24 +1991,24 @@ _ZL13log_set_valueI12DCmdArgumentI18MemorySizeArgumentEEvRT_.exit: ; preds = %8,
   br i1 %.not21.i12, label %_ZL13log_set_valueI12DCmdArgumentI18MemorySizeArgumentEEvRT_.exit14, label %36
 
 36:                                               ; preds = %35
-  %37 = getelementptr inbounds i8, ptr %1, i64 48
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %38 = load i8, ptr %37, align 8
   %39 = trunc i8 %38 to i1
   %40 = select i1 %39, ptr @_ZL17specified_val_msg, ptr @_ZL15default_val_msg
-  %41 = getelementptr inbounds i8, ptr %1, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %42 = load ptr, ptr %41, align 8
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE5EEEvPKcz(ptr noundef nonnull @.str.99, ptr noundef nonnull %40, ptr noundef %42, i64 noundef %.sroa.018.0.copyload.i7)
   br label %_ZL13log_set_valueI12DCmdArgumentI18MemorySizeArgumentEEvRT_.exit14
 
 _ZL13log_set_valueI12DCmdArgumentI18MemorySizeArgumentEEvRT_.exit14: ; preds = %26, %27, %35, %36
-  %43 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
+  %43 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
   %.not = icmp eq ptr %43, null
   br i1 %.not, label %49, label %44
 
 44:                                               ; preds = %_ZL13log_set_valueI12DCmdArgumentI18MemorySizeArgumentEEvRT_.exit14
-  %45 = getelementptr inbounds i8, ptr %1, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %0, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %48 = load ptr, ptr %47, align 8
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE5ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE5EEEvPKcz(ptr noundef nonnull @.str.85, ptr noundef %46, ptr noundef %48)
   br label %49
@@ -2042,16 +2042,16 @@ declare void @_ZN12DCmdArgumentIPcE10init_valueEP10JavaThread(ptr noundef nonnul
 define linkonce_odr hidden void @_ZN12DCmdArgumentIPcE5resetEP10JavaThread(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 {
   tail call void @_ZN12DCmdArgumentIPcE13destroy_valueEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #18
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1) #18
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %8, label %10
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i8 0, ptr %9, align 8
   br label %10
 
@@ -2067,7 +2067,7 @@ define linkonce_odr hidden void @_ZN12DCmdArgumentIPcE7cleanupEv(ptr noundef non
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK12DCmdArgumentIPcE12value_as_strES0_m(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #3 comdat align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load ptr, ptr %4, align 8
   tail call void @_ZNK15GenDCmdArgument9to_stringEPcS0_m(ptr noundef nonnull align 8 dereferenceable(51) %0, ptr noundef %5, ptr noundef %1, i64 noundef %2) #18
   ret void
@@ -2085,16 +2085,16 @@ declare void @_ZN12DCmdArgumentI18MemorySizeArgumentE10init_valueEP10JavaThread(
 define linkonce_odr hidden void @_ZN12DCmdArgumentI18MemorySizeArgumentE5resetEP10JavaThread(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 {
   tail call void @_ZN12DCmdArgumentI18MemorySizeArgumentE13destroy_valueEv(ptr noundef nonnull align 8 dereferenceable(80) %0) #18
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %1) #18
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %8, label %10
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i8 0, ptr %9, align 8
   br label %10
 
@@ -2110,7 +2110,7 @@ define linkonce_odr hidden void @_ZN12DCmdArgumentI18MemorySizeArgumentE7cleanup
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK12DCmdArgumentI18MemorySizeArgumentE12value_as_strEPcm(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #3 comdat align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @_ZNK15GenDCmdArgument9to_stringE18MemorySizeArgumentPcm(ptr noundef nonnull align 8 dereferenceable(51) %0, ptr noundef nonnull byval(%class.MemorySizeArgument) align 8 %4, ptr noundef %1, i64 noundef %2) #18
   ret void
 }
@@ -2127,16 +2127,16 @@ declare void @_ZN12DCmdArgumentIlE10init_valueEP10JavaThread(ptr noundef nonnull
 define linkonce_odr hidden void @_ZN12DCmdArgumentIlE5resetEP10JavaThread(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 {
   tail call void @_ZN12DCmdArgumentIlE13destroy_valueEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #18
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1) #18
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %8, label %10
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i8 0, ptr %9, align 8
   br label %10
 
@@ -2152,7 +2152,7 @@ define linkonce_odr hidden void @_ZN12DCmdArgumentIlE7cleanupEv(ptr noundef nonn
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK12DCmdArgumentIlE12value_as_strEPcm(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #3 comdat align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load i64, ptr %4, align 8
   tail call void @_ZNK15GenDCmdArgument9to_stringElPcm(ptr noundef nonnull align 8 dereferenceable(51) %0, i64 noundef %5, ptr noundef %1, i64 noundef %2) #18
   ret void
@@ -2170,16 +2170,16 @@ declare void @_ZN12DCmdArgumentIbE10init_valueEP10JavaThread(ptr noundef nonnull
 define linkonce_odr hidden void @_ZN12DCmdArgumentIbE5resetEP10JavaThread(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 {
   tail call void @_ZN12DCmdArgumentIbE13destroy_valueEv(ptr noundef nonnull align 8 dereferenceable(52) %0) #18
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef %1) #18
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %8, label %10
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i8 0, ptr %9, align 8
   br label %10
 
@@ -2195,7 +2195,7 @@ define linkonce_odr hidden void @_ZN12DCmdArgumentIbE7cleanupEv(ptr noundef nonn
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK12DCmdArgumentIbE12value_as_strEPcm(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #3 comdat align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 51
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 51
   %5 = load i8, ptr %4, align 1
   %6 = trunc i8 %5 to i1
   tail call void @_ZNK15GenDCmdArgument9to_stringEbPcm(ptr noundef nonnull align 8 dereferenceable(51) %0, i1 noundef zeroext %6, ptr noundef %1, i64 noundef %2) #18
@@ -2214,9 +2214,9 @@ declare noundef ptr @_ZN27GrowableArrayCHeapAllocator8allocateEii8MEMFLAGS(i32 n
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIPKc13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #3 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %1, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8
   %6 = icmp eq i64 %5, 0
   br i1 %6, label %7, label %9
@@ -2248,7 +2248,7 @@ _ZN13GrowableArrayIPKcE8allocateEv.exit:          ; preds = %7, %11, %15
   br i1 %19, label %.lr.ph, label %.preheader16
 
 .lr.ph:                                           ; preds = %_ZN13GrowableArrayIPKcE8allocateEv.exit
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %25
 
 .preheader16.loopexit:                            ; preds = %25
@@ -2267,9 +2267,9 @@ _ZN13GrowableArrayIPKcE8allocateEv.exit:          ; preds = %7, %11, %15
 
 25:                                               ; preds = %.lr.ph, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
-  %26 = getelementptr inbounds ptr, ptr %.0.i, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv
   %27 = load ptr, ptr %20, align 8
-  %28 = getelementptr inbounds ptr, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8
   store ptr %29, ptr %26, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2279,14 +2279,14 @@ _ZN13GrowableArrayIPKcE8allocateEv.exit:          ; preds = %7, %11, %15
   br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !9
 
 .preheader:                                       ; preds = %.lr.ph19, %.preheader16
-  %33 = getelementptr inbounds i8, ptr %0, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %34 = load ptr, ptr %33, align 8
   %.not = icmp eq ptr %34, null
   br i1 %.not, label %_ZN13GrowableArrayIPKcE10deallocateEPS1_.exit, label %39
 
 .lr.ph19:                                         ; preds = %.lr.ph19.preheader, %.lr.ph19
   %indvars.iv21 = phi i64 [ %24, %.lr.ph19.preheader ], [ %indvars.iv.next22, %.lr.ph19 ]
-  %35 = getelementptr inbounds ptr, ptr %.0.i, i64 %indvars.iv21
+  %35 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv21
   store ptr null, ptr %35, align 8
   %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
   %36 = load i32, ptr %3, align 4
@@ -2320,21 +2320,21 @@ declare i32 @llvm.ctlz.i32(i32, i1 immarg) #13
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIPKc13GrowableArrayIS1_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #3 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 4
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   %4 = load i32, ptr %0, align 8
   %5 = icmp eq i32 %4, %3
   br i1 %5, label %32, label %6
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   store i32 %4, ptr %2, align 4
   %9 = icmp sgt i32 %4, 0
   br i1 %9, label %10, label %.loopexit
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load i64, ptr %11, align 8
   %13 = icmp eq i64 %12, 0
   br i1 %13, label %14, label %16
@@ -2366,8 +2366,8 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIPKc13GrowableAr
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %25 = getelementptr inbounds ptr, ptr %.0.i, i64 %indvars.iv
-  %26 = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8
   store ptr %27, ptr %25, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2380,7 +2380,7 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIPKc13GrowableAr
 
 .loopexit.thread:                                 ; preds = %.lr.ph, %.loopexit
   %.01827 = phi ptr [ null, %.loopexit ], [ %.0.i, %.lr.ph ]
-  %28 = getelementptr inbounds i8, ptr %0, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %29 = load i64, ptr %28, align 8
   %30 = and i64 %29, 1
   %.not.i22 = icmp eq i64 %30, 0
@@ -2401,118 +2401,118 @@ _ZN13GrowableArrayIPKcE10deallocateEPS1_.exit:    ; preds = %31, %.loopexit.thre
 
 ; Function Attrs: nofree nounwind uwtable
 define internal void @_GLOBAL__sub_I_jfrOptionSet.cpp() #14 section ".text.startup" {
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZL16_dcmd_repository, i64 8), align 8
-  store ptr @.str, ptr getelementptr inbounds (i8, ptr @_ZL16_dcmd_repository, i64 16), align 8
-  store ptr @.str.5, ptr getelementptr inbounds (i8, ptr @_ZL16_dcmd_repository, i64 24), align 8
-  store ptr @.str.6, ptr getelementptr inbounds (i8, ptr @_ZL16_dcmd_repository, i64 32), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) getelementptr inbounds (i8, ptr @_ZL16_dcmd_repository, i64 40), i8 0, i64 11, i1 false)
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZL16_dcmd_repository, i64 8), align 8
+  store ptr @.str, ptr getelementptr inbounds nuw (i8, ptr @_ZL16_dcmd_repository, i64 16), align 8
+  store ptr @.str.5, ptr getelementptr inbounds nuw (i8, ptr @_ZL16_dcmd_repository, i64 24), align 8
+  store ptr @.str.6, ptr getelementptr inbounds nuw (i8, ptr @_ZL16_dcmd_repository, i64 32), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) getelementptr inbounds nuw (i8, ptr @_ZL16_dcmd_repository, i64 40), i8 0, i64 11, i1 false)
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr @_ZL16_dcmd_repository, align 8
   %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN12DCmdArgumentIPcED2Ev, ptr nonnull @_ZL16_dcmd_repository, ptr nonnull @__dso_handle) #18
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZL14_dcmd_dumppath, i64 8), align 8
-  store ptr @.str.8, ptr getelementptr inbounds (i8, ptr @_ZL14_dcmd_dumppath, i64 16), align 8
-  store ptr @.str.9, ptr getelementptr inbounds (i8, ptr @_ZL14_dcmd_dumppath, i64 24), align 8
-  store ptr @.str.6, ptr getelementptr inbounds (i8, ptr @_ZL14_dcmd_dumppath, i64 32), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) getelementptr inbounds (i8, ptr @_ZL14_dcmd_dumppath, i64 40), i8 0, i64 11, i1 false)
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZL14_dcmd_dumppath, i64 8), align 8
+  store ptr @.str.8, ptr getelementptr inbounds nuw (i8, ptr @_ZL14_dcmd_dumppath, i64 16), align 8
+  store ptr @.str.9, ptr getelementptr inbounds nuw (i8, ptr @_ZL14_dcmd_dumppath, i64 24), align 8
+  store ptr @.str.6, ptr getelementptr inbounds nuw (i8, ptr @_ZL14_dcmd_dumppath, i64 32), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) getelementptr inbounds nuw (i8, ptr @_ZL14_dcmd_dumppath, i64 40), i8 0, i64 11, i1 false)
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIPcE, i64 16), ptr @_ZL14_dcmd_dumppath, align 8
   %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN12DCmdArgumentIPcED2Ev, ptr nonnull @_ZL14_dcmd_dumppath, ptr nonnull @__dso_handle) #18
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZL22_dcmd_threadbuffersize, i64 8), align 8
-  store ptr @.str.11, ptr getelementptr inbounds (i8, ptr @_ZL22_dcmd_threadbuffersize, i64 16), align 8
-  store ptr @.str.12, ptr getelementptr inbounds (i8, ptr @_ZL22_dcmd_threadbuffersize, i64 24), align 8
-  store ptr @.str.13, ptr getelementptr inbounds (i8, ptr @_ZL22_dcmd_threadbuffersize, i64 32), align 8
-  store ptr @.str.14, ptr getelementptr inbounds (i8, ptr @_ZL22_dcmd_threadbuffersize, i64 40), align 8
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL22_dcmd_threadbuffersize, i64 48), align 8
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL22_dcmd_threadbuffersize, i64 49), align 1
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL22_dcmd_threadbuffersize, i64 50), align 2
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_threadbuffersize, i64 8), align 8
+  store ptr @.str.11, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_threadbuffersize, i64 16), align 8
+  store ptr @.str.12, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_threadbuffersize, i64 24), align 8
+  store ptr @.str.13, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_threadbuffersize, i64 32), align 8
+  store ptr @.str.14, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_threadbuffersize, i64 40), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_threadbuffersize, i64 48), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_threadbuffersize, i64 49), align 1
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_threadbuffersize, i64 50), align 2
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentI18MemorySizeArgumentE, i64 16), ptr @_ZL22_dcmd_threadbuffersize, align 8
   %3 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN12DCmdArgumentI18MemorySizeArgumentED2Ev, ptr nonnull @_ZL22_dcmd_threadbuffersize, ptr nonnull @__dso_handle) #18
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZL16_dcmd_memorysize, i64 8), align 8
-  store ptr @.str.16, ptr getelementptr inbounds (i8, ptr @_ZL16_dcmd_memorysize, i64 16), align 8
-  store ptr @.str.17, ptr getelementptr inbounds (i8, ptr @_ZL16_dcmd_memorysize, i64 24), align 8
-  store ptr @.str.13, ptr getelementptr inbounds (i8, ptr @_ZL16_dcmd_memorysize, i64 32), align 8
-  store ptr @.str.18, ptr getelementptr inbounds (i8, ptr @_ZL16_dcmd_memorysize, i64 40), align 8
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL16_dcmd_memorysize, i64 48), align 8
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL16_dcmd_memorysize, i64 49), align 1
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL16_dcmd_memorysize, i64 50), align 2
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZL16_dcmd_memorysize, i64 8), align 8
+  store ptr @.str.16, ptr getelementptr inbounds nuw (i8, ptr @_ZL16_dcmd_memorysize, i64 16), align 8
+  store ptr @.str.17, ptr getelementptr inbounds nuw (i8, ptr @_ZL16_dcmd_memorysize, i64 24), align 8
+  store ptr @.str.13, ptr getelementptr inbounds nuw (i8, ptr @_ZL16_dcmd_memorysize, i64 32), align 8
+  store ptr @.str.18, ptr getelementptr inbounds nuw (i8, ptr @_ZL16_dcmd_memorysize, i64 40), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL16_dcmd_memorysize, i64 48), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL16_dcmd_memorysize, i64 49), align 1
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL16_dcmd_memorysize, i64 50), align 2
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentI18MemorySizeArgumentE, i64 16), ptr @_ZL16_dcmd_memorysize, align 8
   %4 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN12DCmdArgumentI18MemorySizeArgumentED2Ev, ptr nonnull @_ZL16_dcmd_memorysize, ptr nonnull @__dso_handle) #18
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 8), align 8
-  store ptr @.str.20, ptr getelementptr inbounds (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 16), align 8
-  store ptr @.str.21, ptr getelementptr inbounds (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 24), align 8
-  store ptr @.str.13, ptr getelementptr inbounds (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 32), align 8
-  store ptr @.str.22, ptr getelementptr inbounds (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 40), align 8
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 48), align 8
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 49), align 1
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 50), align 2
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 8), align 8
+  store ptr @.str.20, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 16), align 8
+  store ptr @.str.21, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 24), align 8
+  store ptr @.str.13, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 32), align 8
+  store ptr @.str.22, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 40), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 48), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 49), align 1
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_globalbuffersize, i64 50), align 2
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentI18MemorySizeArgumentE, i64 16), ptr @_ZL22_dcmd_globalbuffersize, align 8
   %5 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN12DCmdArgumentI18MemorySizeArgumentED2Ev, ptr nonnull @_ZL22_dcmd_globalbuffersize, ptr nonnull @__dso_handle) #18
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZL22_dcmd_numglobalbuffers, i64 8), align 8
-  store ptr @.str.24, ptr getelementptr inbounds (i8, ptr @_ZL22_dcmd_numglobalbuffers, i64 16), align 8
-  store ptr @.str.25, ptr getelementptr inbounds (i8, ptr @_ZL22_dcmd_numglobalbuffers, i64 24), align 8
-  store ptr @.str.26, ptr getelementptr inbounds (i8, ptr @_ZL22_dcmd_numglobalbuffers, i64 32), align 8
-  store ptr @.str.27, ptr getelementptr inbounds (i8, ptr @_ZL22_dcmd_numglobalbuffers, i64 40), align 8
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL22_dcmd_numglobalbuffers, i64 48), align 8
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL22_dcmd_numglobalbuffers, i64 49), align 1
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL22_dcmd_numglobalbuffers, i64 50), align 2
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_numglobalbuffers, i64 8), align 8
+  store ptr @.str.24, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_numglobalbuffers, i64 16), align 8
+  store ptr @.str.25, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_numglobalbuffers, i64 24), align 8
+  store ptr @.str.26, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_numglobalbuffers, i64 32), align 8
+  store ptr @.str.27, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_numglobalbuffers, i64 40), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_numglobalbuffers, i64 48), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_numglobalbuffers, i64 49), align 1
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL22_dcmd_numglobalbuffers, i64 50), align 2
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIlE, i64 16), ptr @_ZL22_dcmd_numglobalbuffers, align 8
   %6 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN12DCmdArgumentIlED2Ev, ptr nonnull @_ZL22_dcmd_numglobalbuffers, ptr nonnull @__dso_handle) #18
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZL18_dcmd_maxchunksize, i64 8), align 8
-  store ptr @.str.29, ptr getelementptr inbounds (i8, ptr @_ZL18_dcmd_maxchunksize, i64 16), align 8
-  store ptr @.str.30, ptr getelementptr inbounds (i8, ptr @_ZL18_dcmd_maxchunksize, i64 24), align 8
-  store ptr @.str.13, ptr getelementptr inbounds (i8, ptr @_ZL18_dcmd_maxchunksize, i64 32), align 8
-  store ptr @.str.31, ptr getelementptr inbounds (i8, ptr @_ZL18_dcmd_maxchunksize, i64 40), align 8
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL18_dcmd_maxchunksize, i64 48), align 8
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL18_dcmd_maxchunksize, i64 49), align 1
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL18_dcmd_maxchunksize, i64 50), align 2
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZL18_dcmd_maxchunksize, i64 8), align 8
+  store ptr @.str.29, ptr getelementptr inbounds nuw (i8, ptr @_ZL18_dcmd_maxchunksize, i64 16), align 8
+  store ptr @.str.30, ptr getelementptr inbounds nuw (i8, ptr @_ZL18_dcmd_maxchunksize, i64 24), align 8
+  store ptr @.str.13, ptr getelementptr inbounds nuw (i8, ptr @_ZL18_dcmd_maxchunksize, i64 32), align 8
+  store ptr @.str.31, ptr getelementptr inbounds nuw (i8, ptr @_ZL18_dcmd_maxchunksize, i64 40), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL18_dcmd_maxchunksize, i64 48), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL18_dcmd_maxchunksize, i64 49), align 1
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL18_dcmd_maxchunksize, i64 50), align 2
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentI18MemorySizeArgumentE, i64 16), ptr @_ZL18_dcmd_maxchunksize, align 8
   %7 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN12DCmdArgumentI18MemorySizeArgumentED2Ev, ptr nonnull @_ZL18_dcmd_maxchunksize, ptr nonnull @__dso_handle) #18
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZL27_dcmd_old_object_queue_size, i64 8), align 8
-  store ptr @.str.33, ptr getelementptr inbounds (i8, ptr @_ZL27_dcmd_old_object_queue_size, i64 16), align 8
-  store ptr @.str.34, ptr getelementptr inbounds (i8, ptr @_ZL27_dcmd_old_object_queue_size, i64 24), align 8
-  store ptr @.str.35, ptr getelementptr inbounds (i8, ptr @_ZL27_dcmd_old_object_queue_size, i64 32), align 8
-  store ptr @.str.36, ptr getelementptr inbounds (i8, ptr @_ZL27_dcmd_old_object_queue_size, i64 40), align 8
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL27_dcmd_old_object_queue_size, i64 48), align 8
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL27_dcmd_old_object_queue_size, i64 49), align 1
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL27_dcmd_old_object_queue_size, i64 50), align 2
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZL27_dcmd_old_object_queue_size, i64 8), align 8
+  store ptr @.str.33, ptr getelementptr inbounds nuw (i8, ptr @_ZL27_dcmd_old_object_queue_size, i64 16), align 8
+  store ptr @.str.34, ptr getelementptr inbounds nuw (i8, ptr @_ZL27_dcmd_old_object_queue_size, i64 24), align 8
+  store ptr @.str.35, ptr getelementptr inbounds nuw (i8, ptr @_ZL27_dcmd_old_object_queue_size, i64 32), align 8
+  store ptr @.str.36, ptr getelementptr inbounds nuw (i8, ptr @_ZL27_dcmd_old_object_queue_size, i64 40), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL27_dcmd_old_object_queue_size, i64 48), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL27_dcmd_old_object_queue_size, i64 49), align 1
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL27_dcmd_old_object_queue_size, i64 50), align 2
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIlE, i64 16), ptr @_ZL27_dcmd_old_object_queue_size, align 8
   %8 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN12DCmdArgumentIlED2Ev, ptr nonnull @_ZL27_dcmd_old_object_queue_size, ptr nonnull @__dso_handle) #18
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZL20_dcmd_sample_threads, i64 8), align 8
-  store ptr @.str.38, ptr getelementptr inbounds (i8, ptr @_ZL20_dcmd_sample_threads, i64 16), align 8
-  store ptr @.str.39, ptr getelementptr inbounds (i8, ptr @_ZL20_dcmd_sample_threads, i64 24), align 8
-  store ptr @.str.40, ptr getelementptr inbounds (i8, ptr @_ZL20_dcmd_sample_threads, i64 32), align 8
-  store ptr @.str.41, ptr getelementptr inbounds (i8, ptr @_ZL20_dcmd_sample_threads, i64 40), align 8
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL20_dcmd_sample_threads, i64 48), align 8
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL20_dcmd_sample_threads, i64 49), align 1
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL20_dcmd_sample_threads, i64 50), align 2
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZL20_dcmd_sample_threads, i64 8), align 8
+  store ptr @.str.38, ptr getelementptr inbounds nuw (i8, ptr @_ZL20_dcmd_sample_threads, i64 16), align 8
+  store ptr @.str.39, ptr getelementptr inbounds nuw (i8, ptr @_ZL20_dcmd_sample_threads, i64 24), align 8
+  store ptr @.str.40, ptr getelementptr inbounds nuw (i8, ptr @_ZL20_dcmd_sample_threads, i64 32), align 8
+  store ptr @.str.41, ptr getelementptr inbounds nuw (i8, ptr @_ZL20_dcmd_sample_threads, i64 40), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL20_dcmd_sample_threads, i64 48), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL20_dcmd_sample_threads, i64 49), align 1
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL20_dcmd_sample_threads, i64 50), align 2
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIbE, i64 16), ptr @_ZL20_dcmd_sample_threads, align 8
   %9 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN12DCmdArgumentIbED2Ev, ptr nonnull @_ZL20_dcmd_sample_threads, ptr nonnull @__dso_handle) #18
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZL16_dcmd_stackdepth, i64 8), align 8
-  store ptr @.str.43, ptr getelementptr inbounds (i8, ptr @_ZL16_dcmd_stackdepth, i64 16), align 8
-  store ptr @.str.44, ptr getelementptr inbounds (i8, ptr @_ZL16_dcmd_stackdepth, i64 24), align 8
-  store ptr @.str.26, ptr getelementptr inbounds (i8, ptr @_ZL16_dcmd_stackdepth, i64 32), align 8
-  store ptr @.str.45, ptr getelementptr inbounds (i8, ptr @_ZL16_dcmd_stackdepth, i64 40), align 8
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL16_dcmd_stackdepth, i64 48), align 8
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL16_dcmd_stackdepth, i64 49), align 1
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL16_dcmd_stackdepth, i64 50), align 2
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZL16_dcmd_stackdepth, i64 8), align 8
+  store ptr @.str.43, ptr getelementptr inbounds nuw (i8, ptr @_ZL16_dcmd_stackdepth, i64 16), align 8
+  store ptr @.str.44, ptr getelementptr inbounds nuw (i8, ptr @_ZL16_dcmd_stackdepth, i64 24), align 8
+  store ptr @.str.26, ptr getelementptr inbounds nuw (i8, ptr @_ZL16_dcmd_stackdepth, i64 32), align 8
+  store ptr @.str.45, ptr getelementptr inbounds nuw (i8, ptr @_ZL16_dcmd_stackdepth, i64 40), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL16_dcmd_stackdepth, i64 48), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL16_dcmd_stackdepth, i64 49), align 1
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL16_dcmd_stackdepth, i64 50), align 2
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIlE, i64 16), ptr @_ZL16_dcmd_stackdepth, align 8
   %10 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN12DCmdArgumentIlED2Ev, ptr nonnull @_ZL16_dcmd_stackdepth, ptr nonnull @__dso_handle) #18
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZL17_dcmd_retransform, i64 8), align 8
-  store ptr @.str.47, ptr getelementptr inbounds (i8, ptr @_ZL17_dcmd_retransform, i64 16), align 8
-  store ptr @.str.48, ptr getelementptr inbounds (i8, ptr @_ZL17_dcmd_retransform, i64 24), align 8
-  store ptr @.str.40, ptr getelementptr inbounds (i8, ptr @_ZL17_dcmd_retransform, i64 32), align 8
-  store ptr @.str.41, ptr getelementptr inbounds (i8, ptr @_ZL17_dcmd_retransform, i64 40), align 8
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL17_dcmd_retransform, i64 48), align 8
-  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL17_dcmd_retransform, i64 49), align 1
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL17_dcmd_retransform, i64 50), align 2
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZL17_dcmd_retransform, i64 8), align 8
+  store ptr @.str.47, ptr getelementptr inbounds nuw (i8, ptr @_ZL17_dcmd_retransform, i64 16), align 8
+  store ptr @.str.48, ptr getelementptr inbounds nuw (i8, ptr @_ZL17_dcmd_retransform, i64 24), align 8
+  store ptr @.str.40, ptr getelementptr inbounds nuw (i8, ptr @_ZL17_dcmd_retransform, i64 32), align 8
+  store ptr @.str.41, ptr getelementptr inbounds nuw (i8, ptr @_ZL17_dcmd_retransform, i64 40), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL17_dcmd_retransform, i64 48), align 8
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZL17_dcmd_retransform, i64 49), align 1
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL17_dcmd_retransform, i64 50), align 2
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIbE, i64 16), ptr @_ZL17_dcmd_retransform, align 8
   %11 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN12DCmdArgumentIbED2Ev, ptr nonnull @_ZL17_dcmd_retransform, ptr nonnull @__dso_handle) #18
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZL25_dcmd_preserve_repository, i64 8), align 8
-  store ptr @.str.50, ptr getelementptr inbounds (i8, ptr @_ZL25_dcmd_preserve_repository, i64 16), align 8
-  store ptr @.str.51, ptr getelementptr inbounds (i8, ptr @_ZL25_dcmd_preserve_repository, i64 24), align 8
-  store ptr @.str.40, ptr getelementptr inbounds (i8, ptr @_ZL25_dcmd_preserve_repository, i64 32), align 8
-  store ptr @.str.52, ptr getelementptr inbounds (i8, ptr @_ZL25_dcmd_preserve_repository, i64 40), align 8
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL25_dcmd_preserve_repository, i64 48), align 8
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL25_dcmd_preserve_repository, i64 49), align 1
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL25_dcmd_preserve_repository, i64 50), align 2
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZL25_dcmd_preserve_repository, i64 8), align 8
+  store ptr @.str.50, ptr getelementptr inbounds nuw (i8, ptr @_ZL25_dcmd_preserve_repository, i64 16), align 8
+  store ptr @.str.51, ptr getelementptr inbounds nuw (i8, ptr @_ZL25_dcmd_preserve_repository, i64 24), align 8
+  store ptr @.str.40, ptr getelementptr inbounds nuw (i8, ptr @_ZL25_dcmd_preserve_repository, i64 32), align 8
+  store ptr @.str.52, ptr getelementptr inbounds nuw (i8, ptr @_ZL25_dcmd_preserve_repository, i64 40), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL25_dcmd_preserve_repository, i64 48), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL25_dcmd_preserve_repository, i64 49), align 1
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL25_dcmd_preserve_repository, i64 50), align 2
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV12DCmdArgumentIbE, i64 16), ptr @_ZL25_dcmd_preserve_repository, align 8
   %12 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN12DCmdArgumentIbED2Ev, ptr nonnull @_ZL25_dcmd_preserve_repository, ptr nonnull @__dso_handle) #18
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) @_ZL7_parser, i8 0, i64 16, i1 false)

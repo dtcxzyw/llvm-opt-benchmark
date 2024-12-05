@@ -68,14 +68,14 @@ gv_calloc.exit:                                   ; preds = %4
   unreachable
 
 gv_calloc.exit109:                                ; preds = %gv_calloc.exit
-  %15 = getelementptr inbounds i8, ptr %10, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %5, ptr %15, align 8
   store i32 2, ptr %10, align 8
-  %16 = getelementptr inbounds i8, ptr %5, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 1, ptr %16, align 4
-  %17 = getelementptr inbounds i8, ptr %5, i64 8
-  %18 = getelementptr inbounds i8, ptr %10, i64 24
-  %19 = getelementptr inbounds i8, ptr %10, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store ptr %17, ptr %19, align 8
   store i32 2, ptr %18, align 8
   store i32 1, ptr %17, align 4
@@ -104,7 +104,7 @@ gv_calloc.exit110:                                ; preds = %20
   unreachable
 
 gv_calloc.exit111:                                ; preds = %gv_calloc.exit110
-  %31 = getelementptr inbounds i8, ptr %26, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store ptr %21, ptr %31, align 8
   store i32 1, ptr %26, align 8
   br label %35
@@ -126,10 +126,10 @@ define void @freeGraph(ptr noundef %0) local_unnamed_addr #2 {
   br i1 %.not, label %7, label %2
 
 2:                                                ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call void @free(ptr noundef %4) #9
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call void @free(ptr noundef %6) #9
   tail call void @free(ptr noundef nonnull %0) #9
@@ -148,13 +148,13 @@ define void @freeGraphData(ptr noundef %0) local_unnamed_addr #2 {
   br i1 %.not, label %9, label %2
 
 2:                                                ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call void @free(ptr noundef %4) #9
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call void @free(ptr noundef %6) #9
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load ptr, ptr %7, align 8
   tail call void @free(ptr noundef %8) #9
   tail call void @free(ptr noundef nonnull %0) #9

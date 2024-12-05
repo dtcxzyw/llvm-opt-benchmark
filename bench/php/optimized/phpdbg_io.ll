@@ -71,7 +71,7 @@ define range(i32 -2147483648, 2147483647) i32 @phpdbg_consume_stdin_line(ptr noc
   br i1 %.not53, label %21, label %16
 
 16:                                               ; preds = %14
-  %17 = getelementptr inbounds i8, ptr %12, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 1
   %18 = xor i32 %.061, -1
   %19 = add i32 %10, %18
   %20 = sext i32 %19 to i64
@@ -91,7 +91,7 @@ define range(i32 -2147483648, 2147483647) i32 @phpdbg_consume_stdin_line(ptr noc
   br i1 %.not51, label %30, label %27
 
 27:                                               ; preds = %24
-  %28 = getelementptr inbounds i8, ptr %12, i64 1
+  %28 = getelementptr inbounds nuw i8, ptr %12, i64 1
   %29 = sext i32 %26 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1632), ptr nonnull align 1 %28, i64 %29, i1 false)
   br label %30
@@ -218,7 +218,7 @@ define i32 @phpdbg_mixed_write(i32 noundef %0, ptr noundef %1, i32 noundef %2) l
   %18 = phi ptr [ %14, %.lr.ph.i ], [ %42, %40 ]
   %.03444.i = phi i32 [ 0, %.lr.ph.i ], [ %.2.i, %40 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %19 = getelementptr inbounds i8, ptr %18, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 1
   %20 = urem i64 %indvars.iv.next.i, %17
   %21 = icmp eq i64 %20, 0
   br i1 %21, label %22, label %._crit_edge55.i

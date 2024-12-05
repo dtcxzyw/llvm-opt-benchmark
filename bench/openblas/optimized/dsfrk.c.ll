@@ -238,7 +238,7 @@ define void @dsfrk_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
   %149 = add i32 %147, %148
   %150 = sext i32 %149 to i64
   %151 = getelementptr inbounds double, ptr %18, i64 %150
-  %152 = getelementptr inbounds i8, ptr %9, i64 8
+  %152 = getelementptr inbounds nuw i8, ptr %9, i64 8
   call void @dsyrk_(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str, ptr noundef nonnull %13, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef %151, ptr noundef nonnull %7, ptr noundef %8, ptr noundef nonnull %152, ptr noundef nonnull %12) #5
   %153 = load i32, ptr %12, align 4, !tbaa !3
   %154 = add i32 %153, %148
@@ -259,7 +259,7 @@ define void @dsfrk_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
   %165 = sext i32 %164 to i64
   %166 = getelementptr double, ptr %18, i64 %165
   %167 = getelementptr i8, ptr %166, i64 8
-  %168 = getelementptr inbounds i8, ptr %9, i64 8
+  %168 = getelementptr inbounds nuw i8, ptr %9, i64 8
   call void @dsyrk_(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull %13, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef %167, ptr noundef nonnull %7, ptr noundef %8, ptr noundef nonnull %168, ptr noundef nonnull %12) #5
   %169 = load i32, ptr %12, align 4, !tbaa !3
   %170 = add nsw i32 %169, 1
@@ -334,7 +334,7 @@ define void @dsfrk_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
   br i1 %31, label %259, label %220
 
 220:                                              ; preds = %218
-  %221 = getelementptr inbounds i8, ptr %9, i64 8
+  %221 = getelementptr inbounds nuw i8, ptr %9, i64 8
   br i1 %23, label %239, label %222
 
 222:                                              ; preds = %220

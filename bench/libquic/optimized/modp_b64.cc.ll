@@ -30,9 +30,9 @@ for.body:                                         ; preds = %for.body.preheader,
   %arrayidx4 = getelementptr i8, ptr %arrayidx, i64 2
   %2 = load i8, ptr %arrayidx4, align 1
   %idxprom = zext i8 %0 to i64
-  %arrayidx5 = getelementptr inbounds [256 x i8], ptr @_ZL2e0, i64 0, i64 %idxprom
+  %arrayidx5 = getelementptr inbounds nuw [256 x i8], ptr @_ZL2e0, i64 0, i64 %idxprom
   %3 = load i8, ptr %arrayidx5, align 1
-  %incdec.ptr = getelementptr inbounds i8, ptr %p.140, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %p.140, i64 1
   store i8 %3, ptr %p.140, align 1
   %4 = shl i8 %0, 4
   %5 = and i8 %4, 48
@@ -41,9 +41,9 @@ for.body:                                         ; preds = %for.body.preheader,
   %shr = lshr i32 %conv6, 4
   %or = or disjoint i32 %shr, %shl
   %idxprom8 = zext nneg i32 %or to i64
-  %arrayidx9 = getelementptr inbounds [256 x i8], ptr @_ZL2e2, i64 0, i64 %idxprom8
+  %arrayidx9 = getelementptr inbounds nuw [256 x i8], ptr @_ZL2e2, i64 0, i64 %idxprom8
   %6 = load i8, ptr %arrayidx9, align 1
-  %incdec.ptr10 = getelementptr inbounds i8, ptr %p.140, i64 2
+  %incdec.ptr10 = getelementptr inbounds nuw i8, ptr %p.140, i64 2
   store i8 %6, ptr %incdec.ptr, align 1
   %and12 = shl nuw nsw i32 %conv6, 2
   %shl13 = and i32 %and12, 60
@@ -51,14 +51,14 @@ for.body:                                         ; preds = %for.body.preheader,
   %shr15 = zext nneg i8 %7 to i32
   %or17 = or disjoint i32 %shl13, %shr15
   %idxprom18 = zext nneg i32 %or17 to i64
-  %arrayidx19 = getelementptr inbounds [256 x i8], ptr @_ZL2e2, i64 0, i64 %idxprom18
+  %arrayidx19 = getelementptr inbounds nuw [256 x i8], ptr @_ZL2e2, i64 0, i64 %idxprom18
   %8 = load i8, ptr %arrayidx19, align 1
-  %incdec.ptr20 = getelementptr inbounds i8, ptr %p.140, i64 3
+  %incdec.ptr20 = getelementptr inbounds nuw i8, ptr %p.140, i64 3
   store i8 %8, ptr %incdec.ptr10, align 1
   %idxprom21 = zext i8 %2 to i64
-  %arrayidx22 = getelementptr inbounds [256 x i8], ptr @_ZL2e2, i64 0, i64 %idxprom21
+  %arrayidx22 = getelementptr inbounds nuw [256 x i8], ptr @_ZL2e2, i64 0, i64 %idxprom21
   %9 = load i8, ptr %arrayidx22, align 1
-  %incdec.ptr23 = getelementptr inbounds i8, ptr %p.140, i64 4
+  %incdec.ptr23 = getelementptr inbounds nuw i8, ptr %p.140, i64 4
   store i8 %9, ptr %incdec.ptr20, align 1
   %add24 = add i64 %i.141, 3
   %cmp1 = icmp ult i64 %add24, %sub
@@ -77,20 +77,20 @@ sw.bb26:                                          ; preds = %if.end
   %arrayidx27 = getelementptr inbounds i8, ptr %str, i64 %i.0
   %10 = load i8, ptr %arrayidx27, align 1
   %idxprom28 = zext i8 %10 to i64
-  %arrayidx29 = getelementptr inbounds [256 x i8], ptr @_ZL2e0, i64 0, i64 %idxprom28
+  %arrayidx29 = getelementptr inbounds nuw [256 x i8], ptr @_ZL2e0, i64 0, i64 %idxprom28
   %11 = load i8, ptr %arrayidx29, align 1
-  %incdec.ptr30 = getelementptr inbounds i8, ptr %p.0, i64 1
+  %incdec.ptr30 = getelementptr inbounds nuw i8, ptr %p.0, i64 1
   store i8 %11, ptr %p.0, align 1
   %12 = shl i8 %10, 4
   %13 = and i8 %12, 48
   %idxprom34 = zext nneg i8 %13 to i64
-  %arrayidx35 = getelementptr inbounds [256 x i8], ptr @_ZL2e2, i64 0, i64 %idxprom34
+  %arrayidx35 = getelementptr inbounds nuw [256 x i8], ptr @_ZL2e2, i64 0, i64 %idxprom34
   %14 = load i8, ptr %arrayidx35, align 16
-  %incdec.ptr36 = getelementptr inbounds i8, ptr %p.0, i64 2
+  %incdec.ptr36 = getelementptr inbounds nuw i8, ptr %p.0, i64 2
   store i8 %14, ptr %incdec.ptr30, align 1
-  %incdec.ptr37 = getelementptr inbounds i8, ptr %p.0, i64 3
+  %incdec.ptr37 = getelementptr inbounds nuw i8, ptr %p.0, i64 3
   store i8 61, ptr %incdec.ptr36, align 1
-  %incdec.ptr38 = getelementptr inbounds i8, ptr %p.0, i64 4
+  %incdec.ptr38 = getelementptr inbounds nuw i8, ptr %p.0, i64 4
   store i8 61, ptr %incdec.ptr37, align 1
   br label %sw.epilog
 
@@ -100,9 +100,9 @@ sw.default:                                       ; preds = %if.end
   %arrayidx41 = getelementptr i8, ptr %arrayidx39, i64 1
   %16 = load i8, ptr %arrayidx41, align 1
   %idxprom42 = zext i8 %15 to i64
-  %arrayidx43 = getelementptr inbounds [256 x i8], ptr @_ZL2e0, i64 0, i64 %idxprom42
+  %arrayidx43 = getelementptr inbounds nuw [256 x i8], ptr @_ZL2e0, i64 0, i64 %idxprom42
   %17 = load i8, ptr %arrayidx43, align 1
-  %incdec.ptr44 = getelementptr inbounds i8, ptr %p.0, i64 1
+  %incdec.ptr44 = getelementptr inbounds nuw i8, ptr %p.0, i64 1
   store i8 %17, ptr %p.0, align 1
   %18 = shl i8 %15, 4
   %19 = and i8 %18, 48
@@ -111,18 +111,18 @@ sw.default:                                       ; preds = %if.end
   %shr49 = lshr i32 %conv48, 4
   %or51 = or disjoint i32 %shr49, %shl47
   %idxprom52 = zext nneg i32 %or51 to i64
-  %arrayidx53 = getelementptr inbounds [256 x i8], ptr @_ZL2e2, i64 0, i64 %idxprom52
+  %arrayidx53 = getelementptr inbounds nuw [256 x i8], ptr @_ZL2e2, i64 0, i64 %idxprom52
   %20 = load i8, ptr %arrayidx53, align 1
-  %incdec.ptr54 = getelementptr inbounds i8, ptr %p.0, i64 2
+  %incdec.ptr54 = getelementptr inbounds nuw i8, ptr %p.0, i64 2
   store i8 %20, ptr %incdec.ptr44, align 1
   %and56 = shl nuw nsw i32 %conv48, 2
   %shl57 = and i32 %and56, 60
   %idxprom58 = zext nneg i32 %shl57 to i64
-  %arrayidx59 = getelementptr inbounds [256 x i8], ptr @_ZL2e2, i64 0, i64 %idxprom58
+  %arrayidx59 = getelementptr inbounds nuw [256 x i8], ptr @_ZL2e2, i64 0, i64 %idxprom58
   %21 = load i8, ptr %arrayidx59, align 4
-  %incdec.ptr60 = getelementptr inbounds i8, ptr %p.0, i64 3
+  %incdec.ptr60 = getelementptr inbounds nuw i8, ptr %p.0, i64 3
   store i8 %21, ptr %incdec.ptr54, align 1
-  %incdec.ptr61 = getelementptr inbounds i8, ptr %p.0, i64 4
+  %incdec.ptr61 = getelementptr inbounds nuw i8, ptr %p.0, i64 4
   store i8 61, ptr %incdec.ptr60, align 1
   br label %sw.epilog
 
@@ -180,24 +180,24 @@ for.body:                                         ; preds = %if.end14, %if.end36
   %i.0120 = phi i64 [ %inc, %if.end36 ], [ 0, %if.end14 ]
   %4 = load i8, ptr %y.0122, align 1
   %idxprom = zext i8 %4 to i64
-  %arrayidx22 = getelementptr inbounds [256 x i32], ptr @_ZL2d0, i64 0, i64 %idxprom
+  %arrayidx22 = getelementptr inbounds nuw [256 x i32], ptr @_ZL2d0, i64 0, i64 %idxprom
   %5 = load i32, ptr %arrayidx22, align 4
-  %arrayidx23 = getelementptr inbounds i8, ptr %y.0122, i64 1
+  %arrayidx23 = getelementptr inbounds nuw i8, ptr %y.0122, i64 1
   %6 = load i8, ptr %arrayidx23, align 1
   %idxprom24 = zext i8 %6 to i64
-  %arrayidx25 = getelementptr inbounds [256 x i32], ptr @_ZL2d1, i64 0, i64 %idxprom24
+  %arrayidx25 = getelementptr inbounds nuw [256 x i32], ptr @_ZL2d1, i64 0, i64 %idxprom24
   %7 = load i32, ptr %arrayidx25, align 4
   %or = or i32 %7, %5
-  %arrayidx26 = getelementptr inbounds i8, ptr %y.0122, i64 2
+  %arrayidx26 = getelementptr inbounds nuw i8, ptr %y.0122, i64 2
   %8 = load i8, ptr %arrayidx26, align 1
   %idxprom27 = zext i8 %8 to i64
-  %arrayidx28 = getelementptr inbounds [256 x i32], ptr @_ZL2d2, i64 0, i64 %idxprom27
+  %arrayidx28 = getelementptr inbounds nuw [256 x i32], ptr @_ZL2d2, i64 0, i64 %idxprom27
   %9 = load i32, ptr %arrayidx28, align 4
   %or29 = or i32 %or, %9
-  %arrayidx30 = getelementptr inbounds i8, ptr %y.0122, i64 3
+  %arrayidx30 = getelementptr inbounds nuw i8, ptr %y.0122, i64 3
   %10 = load i8, ptr %arrayidx30, align 1
   %idxprom31 = zext i8 %10 to i64
-  %arrayidx32 = getelementptr inbounds [256 x i32], ptr @_ZL2d3, i64 0, i64 %idxprom31
+  %arrayidx32 = getelementptr inbounds nuw [256 x i32], ptr @_ZL2d3, i64 0, i64 %idxprom31
   %11 = load i32, ptr %arrayidx32, align 4
   %or33 = or i32 %or29, %11
   %cmp34 = icmp ugt i32 %or33, 33554430
@@ -209,14 +209,14 @@ if.end36:                                         ; preds = %for.body
   %x.sroa.14.0.extract.trunc = trunc i32 %x.sroa.14.0.extract.shift to i8
   %x.sroa.17.0.extract.shift = lshr i32 %or33, 16
   %x.sroa.17.0.extract.trunc = trunc i32 %x.sroa.17.0.extract.shift to i8
-  %incdec.ptr = getelementptr inbounds i8, ptr %p.0121, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %p.0121, i64 1
   store i8 %x.sroa.0.0.extract.trunc, ptr %p.0121, align 1
-  %incdec.ptr39 = getelementptr inbounds i8, ptr %p.0121, i64 2
+  %incdec.ptr39 = getelementptr inbounds nuw i8, ptr %p.0121, i64 2
   store i8 %x.sroa.14.0.extract.trunc, ptr %incdec.ptr, align 1
-  %incdec.ptr41 = getelementptr inbounds i8, ptr %p.0121, i64 3
+  %incdec.ptr41 = getelementptr inbounds nuw i8, ptr %p.0121, i64 3
   store i8 %x.sroa.17.0.extract.trunc, ptr %incdec.ptr39, align 1
   %inc = add nuw i64 %i.0120, 1
-  %add.ptr = getelementptr inbounds i8, ptr %y.0122, i64 4
+  %add.ptr = getelementptr inbounds nuw i8, ptr %y.0122, i64 4
   %exitcond.not = icmp eq i64 %inc, %cond
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !7
 
@@ -225,7 +225,7 @@ for.end:                                          ; preds = %if.end36, %if.end14
   %y.0.lcssa = phi ptr [ %src, %if.end14 ], [ %add.ptr, %if.end36 ]
   %12 = load i8, ptr %y.0.lcssa, align 1
   %idxprom43 = zext i8 %12 to i64
-  %arrayidx44 = getelementptr inbounds [256 x i32], ptr @_ZL2d0, i64 0, i64 %idxprom43
+  %arrayidx44 = getelementptr inbounds nuw [256 x i32], ptr @_ZL2d0, i64 0, i64 %idxprom43
   %13 = load i32, ptr %arrayidx44, align 4
   switch i32 %conv16, label %default.unreachable [
     i32 0, label %sw.bb
@@ -235,21 +235,21 @@ for.end:                                          ; preds = %if.end36, %if.end14
   ]
 
 sw.bb:                                            ; preds = %for.end
-  %arrayidx45 = getelementptr inbounds i8, ptr %y.0.lcssa, i64 1
+  %arrayidx45 = getelementptr inbounds nuw i8, ptr %y.0.lcssa, i64 1
   %14 = load i8, ptr %arrayidx45, align 1
   %idxprom46 = zext i8 %14 to i64
-  %arrayidx47 = getelementptr inbounds [256 x i32], ptr @_ZL2d1, i64 0, i64 %idxprom46
+  %arrayidx47 = getelementptr inbounds nuw [256 x i32], ptr @_ZL2d1, i64 0, i64 %idxprom46
   %15 = load i32, ptr %arrayidx47, align 4
-  %arrayidx49 = getelementptr inbounds i8, ptr %y.0.lcssa, i64 2
+  %arrayidx49 = getelementptr inbounds nuw i8, ptr %y.0.lcssa, i64 2
   %16 = load i8, ptr %arrayidx49, align 1
   %idxprom50 = zext i8 %16 to i64
-  %arrayidx51 = getelementptr inbounds [256 x i32], ptr @_ZL2d2, i64 0, i64 %idxprom50
+  %arrayidx51 = getelementptr inbounds nuw [256 x i32], ptr @_ZL2d2, i64 0, i64 %idxprom50
   %17 = load i32, ptr %arrayidx51, align 4
   %18 = or i32 %15, %17
-  %arrayidx53 = getelementptr inbounds i8, ptr %y.0.lcssa, i64 3
+  %arrayidx53 = getelementptr inbounds nuw i8, ptr %y.0.lcssa, i64 3
   %19 = load i8, ptr %arrayidx53, align 1
   %idxprom54 = zext i8 %19 to i64
-  %arrayidx55 = getelementptr inbounds [256 x i32], ptr @_ZL2d3, i64 0, i64 %idxprom54
+  %arrayidx55 = getelementptr inbounds nuw [256 x i32], ptr @_ZL2d3, i64 0, i64 %idxprom54
   %20 = load i32, ptr %arrayidx55, align 4
   %21 = or i32 %18, %20
   %or56 = or i32 %21, %13
@@ -262,9 +262,9 @@ if.end59:                                         ; preds = %sw.bb
   %x.sroa.14.0.extract.trunc33 = trunc i32 %x.sroa.14.0.extract.shift32 to i8
   %x.sroa.17.0.extract.shift52 = lshr i32 %or56, 16
   %x.sroa.17.0.extract.trunc53 = trunc i32 %x.sroa.17.0.extract.shift52 to i8
-  %incdec.ptr61 = getelementptr inbounds i8, ptr %p.0.lcssa, i64 1
+  %incdec.ptr61 = getelementptr inbounds nuw i8, ptr %p.0.lcssa, i64 1
   store i8 %x.sroa.0.0.extract.trunc20, ptr %p.0.lcssa, align 1
-  %incdec.ptr63 = getelementptr inbounds i8, ptr %p.0.lcssa, i64 2
+  %incdec.ptr63 = getelementptr inbounds nuw i8, ptr %p.0.lcssa, i64 2
   store i8 %x.sroa.14.0.extract.trunc33, ptr %incdec.ptr61, align 1
   store i8 %x.sroa.17.0.extract.trunc53, ptr %incdec.ptr63, align 1
   %22 = mul i64 %sub18, 3
@@ -278,10 +278,10 @@ sw.bb65:                                          ; preds = %for.end
   br label %sw.epilog
 
 sw.bb69:                                          ; preds = %for.end
-  %arrayidx73 = getelementptr inbounds i8, ptr %y.0.lcssa, i64 1
+  %arrayidx73 = getelementptr inbounds nuw i8, ptr %y.0.lcssa, i64 1
   %23 = load i8, ptr %arrayidx73, align 1
   %idxprom74 = zext i8 %23 to i64
-  %arrayidx75 = getelementptr inbounds [256 x i32], ptr @_ZL2d1, i64 0, i64 %idxprom74
+  %arrayidx75 = getelementptr inbounds nuw [256 x i32], ptr @_ZL2d1, i64 0, i64 %idxprom74
   %24 = load i32, ptr %arrayidx75, align 4
   %or76 = or i32 %24, %13
   %x.sroa.0.0.extract.trunc26 = trunc i32 %or76 to i8
@@ -293,22 +293,22 @@ default.unreachable:                              ; preds = %for.end
   unreachable
 
 sw.default:                                       ; preds = %for.end
-  %arrayidx80 = getelementptr inbounds i8, ptr %y.0.lcssa, i64 1
+  %arrayidx80 = getelementptr inbounds nuw i8, ptr %y.0.lcssa, i64 1
   %25 = load i8, ptr %arrayidx80, align 1
   %idxprom81 = zext i8 %25 to i64
-  %arrayidx82 = getelementptr inbounds [256 x i32], ptr @_ZL2d1, i64 0, i64 %idxprom81
+  %arrayidx82 = getelementptr inbounds nuw [256 x i32], ptr @_ZL2d1, i64 0, i64 %idxprom81
   %26 = load i32, ptr %arrayidx82, align 4
-  %arrayidx84 = getelementptr inbounds i8, ptr %y.0.lcssa, i64 2
+  %arrayidx84 = getelementptr inbounds nuw i8, ptr %y.0.lcssa, i64 2
   %27 = load i8, ptr %arrayidx84, align 1
   %idxprom85 = zext i8 %27 to i64
-  %arrayidx86 = getelementptr inbounds [256 x i32], ptr @_ZL2d2, i64 0, i64 %idxprom85
+  %arrayidx86 = getelementptr inbounds nuw [256 x i32], ptr @_ZL2d2, i64 0, i64 %idxprom85
   %28 = load i32, ptr %arrayidx86, align 4
   %29 = or i32 %26, %28
   %or87 = or i32 %29, %13
   %x.sroa.0.0.extract.trunc27 = trunc i32 %or87 to i8
   %x.sroa.14.0.extract.shift43 = lshr i32 %or87, 8
   %x.sroa.14.0.extract.trunc44 = trunc i32 %x.sroa.14.0.extract.shift43 to i8
-  %incdec.ptr89 = getelementptr inbounds i8, ptr %p.0.lcssa, i64 1
+  %incdec.ptr89 = getelementptr inbounds nuw i8, ptr %p.0.lcssa, i64 1
   store i8 %x.sroa.0.0.extract.trunc27, ptr %p.0.lcssa, align 1
   store i8 %x.sroa.14.0.extract.trunc44, ptr %incdec.ptr89, align 1
   br label %sw.epilog

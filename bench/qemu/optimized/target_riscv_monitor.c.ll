@@ -45,7 +45,7 @@ if.end6:                                          ; preds = %if.end
   %1 = getelementptr i8, ptr %call, i64 5008
   %call.val = load i32, ptr %1, align 16
   %cmp = icmp eq i32 %call.val, 1
-  %satp = getelementptr inbounds i8, ptr %call, i64 5152
+  %satp = getelementptr inbounds nuw i8, ptr %call, i64 5152
   %2 = load i64, ptr %satp, align 16
   br i1 %cmp, label %if.then8, label %if.else
 
@@ -96,13 +96,13 @@ switch.hole_check:                                ; preds = %if.end19
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %6 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [10 x i32], ptr @switch.table.hmp_info_mem, i64 0, i64 %6
+  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @switch.table.hmp_info_mem, i64 0, i64 %6
   %switch.load = load i32, ptr %switch.gep, align 4
   %7 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep11 = getelementptr inbounds [10 x i32], ptr @switch.table.hmp_info_mem.2, i64 0, i64 %7
+  %switch.gep11 = getelementptr inbounds nuw [10 x i32], ptr @switch.table.hmp_info_mem.2, i64 0, i64 %7
   %switch.load12 = load i32, ptr %switch.gep11, align 4
   %8 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep13 = getelementptr inbounds [10 x i32], ptr @switch.table.hmp_info_mem.3, i64 0, i64 %8
+  %switch.gep13 = getelementptr inbounds nuw [10 x i32], ptr @switch.table.hmp_info_mem.3, i64 0, i64 %8
   %switch.load14 = load i32, ptr %switch.gep13, align 4
   %mul.i = mul nuw nsw i32 %switch.load14, %switch.load
   %add.i = add nuw nsw i32 %mul.i, 12

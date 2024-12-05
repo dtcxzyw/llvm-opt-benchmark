@@ -51,7 +51,7 @@ for.cond:                                         ; preds = %for.cond.backedge, 
 
 land.rhs:                                         ; preds = %for.cond, %for.inc
   %indvars.iv = phi i64 [ 0, %for.cond ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds %"struct.absl::base_internal::SpinLockWaitTransition", ptr %trans, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw %"struct.absl::base_internal::SpinLockWaitTransition", ptr %trans, i64 %indvars.iv
   %3 = load i32, ptr %arrayidx, align 4
   %cmp2.not = icmp eq i32 %2, %3
   br i1 %cmp2.not, label %if.else, label %for.inc
@@ -72,8 +72,8 @@ for.cond.outer:                                   ; preds = %for.cond1.if.then_c
 
 if.else:                                          ; preds = %land.rhs
   %idxprom5 = and i64 %indvars.iv, 4294967295
-  %arrayidx6 = getelementptr inbounds %"struct.absl::base_internal::SpinLockWaitTransition", ptr %trans, i64 %idxprom5
-  %to = getelementptr inbounds i8, ptr %arrayidx6, i64 4
+  %arrayidx6 = getelementptr inbounds nuw %"struct.absl::base_internal::SpinLockWaitTransition", ptr %trans, i64 %idxprom5
+  %to = getelementptr inbounds nuw i8, ptr %arrayidx6, i64 4
   %4 = load i32, ptr %to, align 4
   %cmp7 = icmp eq i32 %4, %2
   br i1 %cmp7, label %if.then12, label %monotonic_fail9.i
@@ -87,7 +87,7 @@ for.cond.backedge:                                ; preds = %monotonic_fail9.i, 
   br label %for.cond, !llvm.loop !5
 
 if.then12:                                        ; preds = %monotonic_fail9.i, %if.else
-  %done = getelementptr inbounds i8, ptr %arrayidx6, i64 8
+  %done = getelementptr inbounds nuw i8, ptr %arrayidx6, i64 8
   %7 = load i8, ptr %done, align 4
   %tobool = trunc i8 %7 to i1
   br i1 %tobool, label %if.then15, label %for.cond.backedge

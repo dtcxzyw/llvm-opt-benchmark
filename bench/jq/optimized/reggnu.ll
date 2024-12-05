@@ -29,9 +29,9 @@ define i32 @re_adjust_startpos(ptr nocapture noundef readonly %0, ptr noundef %1
   br i1 %6, label %7, label %28
 
 7:                                                ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %0, i64 96
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load i32, ptr %10, align 8
   %.not = icmp ne i32 %11, 1
   %12 = icmp slt i32 %3, %2
@@ -40,7 +40,7 @@ define i32 @re_adjust_startpos(ptr nocapture noundef readonly %0, ptr noundef %1
 
 13:                                               ; preds = %7
   %14 = zext nneg i32 %3 to i64
-  %15 = getelementptr inbounds i8, ptr %1, i64 %14
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 %14
   %16 = icmp sgt i32 %4, 0
   br i1 %16, label %17, label %19
 
@@ -49,7 +49,7 @@ define i32 @re_adjust_startpos(ptr nocapture noundef readonly %0, ptr noundef %1
   br label %23
 
 19:                                               ; preds = %13
-  %20 = getelementptr inbounds i8, ptr %9, i64 104
+  %20 = getelementptr inbounds nuw i8, ptr %9, i64 104
   %21 = load ptr, ptr %20, align 8
   %22 = tail call ptr %21(ptr noundef %1, ptr noundef nonnull %15) #3
   br label %23
@@ -166,7 +166,7 @@ define void @re_mbcinit(i32 noundef %0) local_unnamed_addr #0 {
 
 switch.lookup:                                    ; preds = %1
   %4 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.re_mbcinit, i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.re_mbcinit, i64 0, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
   store ptr %switch.load, ptr %2, align 8
   %5 = call i32 @onig_initialize(ptr noundef nonnull %2, i32 noundef 1) #3

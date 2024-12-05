@@ -37,17 +37,17 @@ define noundef i32 @_Z7xdr_intP3XDRPi(ptr noundef %0, ptr nocapture noundef %1) 
 5:                                                ; preds = %2
   %6 = load i32, ptr %1, align 4
   store i32 %6, ptr %3, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %10 = load ptr, ptr %9, align 8
   %11 = call noundef i32 %10(ptr noundef nonnull %0, ptr noundef nonnull %3)
   br label %21
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 48
   %16 = load ptr, ptr %15, align 8
   %17 = call noundef i32 %16(ptr noundef nonnull %0, ptr noundef nonnull %3)
   %.not = icmp eq i32 %17, 0
@@ -79,17 +79,17 @@ define noundef i32 @_Z9xdr_u_intP3XDRPj(ptr noundef %0, ptr nocapture noundef %1
 5:                                                ; preds = %2
   %6 = load i32, ptr %1, align 4
   store i32 %6, ptr %3, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 72
   %10 = load ptr, ptr %9, align 8
   %11 = call noundef i32 %10(ptr noundef nonnull %0, ptr noundef nonnull %3)
   br label %21
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 64
   %16 = load ptr, ptr %15, align 8
   %17 = call noundef i32 %16(ptr noundef nonnull %0, ptr noundef nonnull %3)
   %.not = icmp eq i32 %17, 0
@@ -122,17 +122,17 @@ define noundef i32 @_Z9xdr_shortP3XDRPs(ptr noundef %0, ptr nocapture noundef %1
   %6 = load i16, ptr %1, align 2
   %7 = sext i16 %6 to i32
   store i32 %7, ptr %3, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 56
   %11 = load ptr, ptr %10, align 8
   %12 = call noundef i32 %11(ptr noundef nonnull %0, ptr noundef nonnull %3)
   br label %23
 
 13:                                               ; preds = %2
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 48
   %17 = load ptr, ptr %16, align 8
   %18 = call noundef i32 %17(ptr noundef nonnull %0, ptr noundef nonnull %3)
   %.not = icmp eq i32 %18, 0
@@ -166,17 +166,17 @@ define noundef i32 @_Z11xdr_u_shortP3XDRPt(ptr noundef %0, ptr nocapture noundef
   %6 = load i16, ptr %1, align 2
   %7 = zext i16 %6 to i32
   store i32 %7, ptr %3, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 72
   %11 = load ptr, ptr %10, align 8
   %12 = call noundef i32 %11(ptr noundef nonnull %0, ptr noundef nonnull %3)
   br label %23
 
 13:                                               ; preds = %2
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 64
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 64
   %17 = load ptr, ptr %16, align 8
   %18 = call noundef i32 %17(ptr noundef nonnull %0, ptr noundef nonnull %3)
   %.not = icmp eq i32 %18, 0
@@ -209,9 +209,9 @@ define noundef range(i32 0, 2) i32 @_Z8xdr_charP3XDRPc(ptr noundef %0, ptr nocap
   ]
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %10 = load ptr, ptr %9, align 8
   %11 = call noundef i32 %10(ptr noundef nonnull %0, ptr noundef nonnull %3)
   %.not.i = icmp eq i32 %11, 0
@@ -234,9 +234,9 @@ _Z7xdr_intP3XDRPi.exit.thread9:                   ; preds = %12, %2
 _Z7xdr_intP3XDRPi.exit:                           ; preds = %2
   %15 = sext i8 %4 to i32
   store i32 %15, ptr %3, align 4
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 56
   %19 = load ptr, ptr %18, align 8
   %20 = call noundef i32 %19(ptr noundef nonnull %0, ptr noundef nonnull %3)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
@@ -266,9 +266,9 @@ define noundef range(i32 0, 2) i32 @_Z10xdr_u_charP3XDRPh(ptr noundef %0, ptr no
   ]
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 64
   %10 = load ptr, ptr %9, align 8
   %11 = call noundef i32 %10(ptr noundef nonnull %0, ptr noundef nonnull %3)
   %.not.i = icmp eq i32 %11, 0
@@ -291,9 +291,9 @@ _Z9xdr_u_intP3XDRPj.exit.thread9:                 ; preds = %12, %2
 _Z9xdr_u_intP3XDRPj.exit:                         ; preds = %2
   %15 = zext i8 %4 to i32
   store i32 %15, ptr %3, align 4
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 72
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 72
   %19 = load ptr, ptr %18, align 8
   %20 = call noundef i32 %19(ptr noundef nonnull %0, ptr noundef nonnull %3)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
@@ -325,17 +325,17 @@ define noundef i32 @_Z8xdr_boolP3XDRPi(ptr noundef %0, ptr nocapture noundef %1)
   %.not7 = icmp ne i32 %6, 0
   %7 = zext i1 %.not7 to i32
   store i32 %7, ptr %3, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 56
   %11 = load ptr, ptr %10, align 8
   %12 = call noundef i32 %11(ptr noundef nonnull %0, ptr noundef nonnull %3)
   br label %24
 
 13:                                               ; preds = %2
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 48
   %17 = load ptr, ptr %16, align 8
   %18 = call noundef i32 %17(ptr noundef nonnull %0, ptr noundef nonnull %3)
   %.not = icmp eq i32 %18, 0
@@ -374,7 +374,7 @@ define noundef i32 @_Z10xdr_opaqueP3XDRPcj(ptr noundef %0, ptr noundef %1, i32 n
   ]
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr %12, align 8
   %14 = tail call noundef i32 %13(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2)
@@ -391,9 +391,9 @@ define noundef i32 @_Z10xdr_opaqueP3XDRPcj(ptr noundef %0, ptr noundef %1, i32 n
   br label %31
 
 19:                                               ; preds = %6
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = tail call noundef i32 %23(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2)
   %.not24 = icmp eq i32 %24, 0
@@ -404,7 +404,7 @@ define noundef i32 @_Z10xdr_opaqueP3XDRPcj(ptr noundef %0, ptr noundef %1, i32 n
 
 25:                                               ; preds = %19
   %26 = load ptr, ptr %20, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load ptr, ptr %27, align 8
   %29 = tail call noundef i32 %28(ptr noundef nonnull %0, ptr noundef nonnull @_ZL8xdr_zero, i32 noundef %8)
   br label %31
@@ -447,9 +447,9 @@ define noundef i32 @_Z10xdr_stringP3XDRPPcj(ptr noundef %0, ptr nocapture nounde
   %15 = trunc i64 %14 to i32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   store i32 %15, ptr %5, align 4
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 72
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 72
   %19 = load ptr, ptr %18, align 8
   %20 = call noundef i32 %19(ptr noundef nonnull %0, ptr noundef nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
@@ -462,9 +462,9 @@ define noundef i32 @_Z10xdr_stringP3XDRPPcj(ptr noundef %0, ptr nocapture nounde
   br i1 %cond, label %22, label %_Z9xdr_u_intP3XDRPj.exit.thread50
 
 22:                                               ; preds = %21
-  %23 = getelementptr inbounds i8, ptr %0, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 64
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 64
   %26 = load ptr, ptr %25, align 8
   %27 = call noundef i32 %26(ptr noundef nonnull %0, ptr noundef nonnull %5)
   %.not.i = icmp eq i32 %27, 0
@@ -520,7 +520,7 @@ _Z9xdr_u_intP3XDRPj.exit.thread50:                ; preds = %21, %22
 .thread54:                                        ; preds = %37, %39
   %.056 = phi ptr [ %41, %39 ], [ %6, %37 ]
   %46 = zext i32 %.148 to i64
-  %47 = getelementptr inbounds i8, ptr %.056, i64 %46
+  %47 = getelementptr inbounds nuw i8, ptr %.056, i64 %46
   store i8 0, ptr %47, align 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   %48 = icmp eq i32 %.148, 0
@@ -538,7 +538,7 @@ _Z9xdr_u_intP3XDRPj.exit.thread50:                ; preds = %21, %22
   ]
 
 53:                                               ; preds = %49
-  %54 = getelementptr inbounds i8, ptr %0, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %55 = load ptr, ptr %54, align 8
   %56 = load ptr, ptr %55, align 8
   %57 = call noundef i32 %56(ptr noundef nonnull %0, ptr noundef nonnull %.056, i32 noundef %.148)
@@ -555,9 +555,9 @@ _Z9xdr_u_intP3XDRPj.exit.thread50:                ; preds = %21, %22
   br label %_Z10xdr_opaqueP3XDRPcj.exit
 
 62:                                               ; preds = %49
-  %63 = getelementptr inbounds i8, ptr %0, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %66 = load ptr, ptr %65, align 8
   %67 = call noundef i32 %66(ptr noundef nonnull %0, ptr noundef nonnull %.056, i32 noundef %.148)
   %.not24.i = icmp eq i32 %67, 0
@@ -568,7 +568,7 @@ _Z9xdr_u_intP3XDRPj.exit.thread50:                ; preds = %21, %22
 
 68:                                               ; preds = %62
   %69 = load ptr, ptr %63, align 8
-  %70 = getelementptr inbounds i8, ptr %69, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %71 = load ptr, ptr %70, align 8
   %72 = call noundef i32 %71(ptr noundef nonnull %0, ptr noundef nonnull @_ZL8xdr_zero, i32 noundef %51)
   br label %_Z10xdr_opaqueP3XDRPcj.exit
@@ -588,9 +588,9 @@ _Z10xdr_opaqueP3XDRPcj.exit:                      ; preds = %.thread54, %49, %53
 76:                                               ; preds = %74
   %77 = and i32 %.148, 3
   %.not.i26 = icmp eq i32 %77, 0
-  %78 = getelementptr inbounds i8, ptr %0, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %79 = load ptr, ptr %78, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
   %81 = load ptr, ptr %80, align 8
   %82 = call noundef i32 %81(ptr noundef nonnull %0, ptr noundef %6, i32 noundef %.148)
   %.not24.i28 = icmp eq i32 %82, 0
@@ -602,7 +602,7 @@ _Z10xdr_opaqueP3XDRPcj.exit:                      ; preds = %.thread54, %49, %53
 83:                                               ; preds = %76
   %84 = sub nuw nsw i32 4, %77
   %85 = load ptr, ptr %78, align 8
-  %86 = getelementptr inbounds i8, ptr %85, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 8
   %87 = load ptr, ptr %86, align 8
   %88 = call noundef i32 %87(ptr noundef nonnull %0, ptr noundef nonnull @_ZL8xdr_zero, i32 noundef %84)
   br label %_Z10xdr_opaqueP3XDRPcj.exit36
@@ -639,17 +639,17 @@ define noundef i32 @_Z9xdr_floatP3XDRPf(ptr noundef %0, ptr nocapture noundef %1
 5:                                                ; preds = %2
   %6 = load i32, ptr %1, align 4
   store i32 %6, ptr %3, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %10 = load ptr, ptr %9, align 8
   %11 = call noundef i32 %10(ptr noundef nonnull %0, ptr noundef nonnull %3)
   br label %21
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 48
   %16 = load ptr, ptr %15, align 8
   %17 = call noundef i32 %16(ptr noundef nonnull %0, ptr noundef nonnull %3)
   %.not = icmp eq i32 %17, 0
@@ -679,15 +679,15 @@ define noundef range(i32 0, 2) i32 @_Z10xdr_doubleP3XDRPd(ptr noundef %0, ptr no
   ]
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %7 = load i32, ptr %6, align 4
   store i32 %7, ptr %3, align 4
   %8 = load i32, ptr %1, align 4
-  %9 = getelementptr inbounds i8, ptr %3, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 %8, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 56
   %13 = load ptr, ptr %12, align 8
   %14 = call noundef i32 %13(ptr noundef nonnull %0, ptr noundef nonnull %3)
   %.not32 = icmp eq i32 %14, 0
@@ -695,7 +695,7 @@ define noundef range(i32 0, 2) i32 @_Z10xdr_doubleP3XDRPd(ptr noundef %0, ptr no
 
 15:                                               ; preds = %5
   %16 = load ptr, ptr %10, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 56
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 56
   %18 = load ptr, ptr %17, align 8
   %19 = call noundef i32 %18(ptr noundef nonnull %0, ptr noundef nonnull %9)
   %20 = icmp ne i32 %19, 0
@@ -703,18 +703,18 @@ define noundef range(i32 0, 2) i32 @_Z10xdr_doubleP3XDRPd(ptr noundef %0, ptr no
   br label %39
 
 22:                                               ; preds = %2
-  %23 = getelementptr inbounds i8, ptr %0, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 48
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 48
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %3, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %28 = call noundef i32 %26(ptr noundef nonnull %0, ptr noundef nonnull %27)
   %.not = icmp eq i32 %28, 0
   br i1 %.not, label %38, label %29
 
 29:                                               ; preds = %22
   %30 = load ptr, ptr %23, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 48
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 48
   %32 = load ptr, ptr %31, align 8
   %33 = call noundef i32 %32(ptr noundef nonnull %0, ptr noundef nonnull %3)
   %.not31 = icmp eq i32 %33, 0
@@ -724,7 +724,7 @@ define noundef range(i32 0, 2) i32 @_Z10xdr_doubleP3XDRPd(ptr noundef %0, ptr no
   %35 = load i32, ptr %3, align 4
   store i32 %35, ptr %1, align 4
   %36 = load i32, ptr %27, align 4
-  %37 = getelementptr inbounds i8, ptr %1, i64 4
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 %36, ptr %37, align 4
   br label %39
 
@@ -753,7 +753,7 @@ define noundef range(i32 0, 2) i32 @_Z10xdr_vectorP3XDRPcjjPFiS0_PvzE(ptr nounde
   br i1 %.not, label %._crit_edge, label %9
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %.012, i64 %6
+  %10 = getelementptr inbounds nuw i8, ptr %.012, i64 %6
   %11 = add nuw i32 %.0911, 1
   %exitcond.not = icmp eq i32 %11, %2
   br i1 %exitcond.not, label %._crit_edge, label %7, !llvm.loop !5
@@ -766,13 +766,13 @@ define noundef range(i32 0, 2) i32 @_Z10xdr_vectorP3XDRPcjjPFiS0_PvzE(ptr nounde
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_Z15xdrstdio_createP3XDRP8_IO_FILE6xdr_op(ptr nocapture noundef writeonly initializes((0, 4), (8, 16), (24, 44)) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #5 {
   store i32 %2, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @_ZL12xdrstdio_ops, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 0, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr null, ptr %7, align 8
   ret void
 }
@@ -784,7 +784,7 @@ define internal noundef range(i32 0, 2) i32 @_ZL17xdrstdio_getbytesP3XDRPcj(ptr 
 
 4:                                                ; preds = %3
   %5 = sext i32 %2 to i64
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i64 @fread(ptr noundef %1, i64 noundef %5, i64 noundef 1, ptr noundef %7)
   %.not5 = icmp eq i64 %8, 1
@@ -805,7 +805,7 @@ define internal noundef range(i32 0, 2) i32 @_ZL17xdrstdio_putbytesP3XDRPcj(ptr 
 
 4:                                                ; preds = %3
   %5 = sext i32 %2 to i64
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i64 @fwrite(ptr noundef %1, i64 noundef %5, i64 noundef 1, ptr noundef %7)
   %.not5 = icmp eq i64 %8, 1
@@ -821,7 +821,7 @@ define internal noundef range(i32 0, 2) i32 @_ZL17xdrstdio_putbytesP3XDRPcj(ptr 
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define internal noundef i32 @_ZL15xdrstdio_getposP3XDR(ptr nocapture noundef readonly %0) #6 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i64 @ftell(ptr noundef %3)
   %5 = trunc i64 %4 to i32
@@ -830,7 +830,7 @@ define internal noundef i32 @_ZL15xdrstdio_getposP3XDR(ptr nocapture noundef rea
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define internal noundef range(i32 0, 2) i32 @_ZL15xdrstdio_setposP3XDRj(ptr nocapture noundef readonly %0, i32 noundef %1) #6 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = sext i32 %1 to i64
   %6 = tail call i32 @fseek(ptr noundef %4, i64 noundef %5, i32 noundef 0)
@@ -846,7 +846,7 @@ define internal noalias noundef ptr @_ZL15xdrstdio_inlineP3XDRi(ptr nocapture re
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define internal void @_ZL16xdrstdio_destroyP3XDR(ptr nocapture noundef readonly %0) #6 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i32 @fflush(ptr noundef %3)
   ret void
@@ -857,7 +857,7 @@ define internal noundef range(i32 0, 2) i32 @_ZL17xdrstdio_getint32P3XDRPi(ptr n
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = call i64 @fread(ptr noundef nonnull %5, i64 noundef 4, i64 noundef 1, ptr noundef %7)
   %.not = icmp eq i64 %8, 1
@@ -873,9 +873,9 @@ define internal noundef range(i32 0, 2) i32 @_ZL17xdrstdio_getint32P3XDRPi(ptr n
 11:                                               ; preds = %11, %9
   %indvars.iv.i.i = phi i64 [ 0, %9 ], [ %indvars.iv.next.i.i, %11 ]
   %12 = sub nuw nsw i64 3, %indvars.iv.i.i
-  %13 = getelementptr inbounds i8, ptr %3, i64 %12
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 %12
   %14 = load i8, ptr %13, align 1
-  %15 = getelementptr inbounds i8, ptr %4, i64 %indvars.iv.i.i
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv.i.i
   store i8 %14, ptr %15, align 1
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 4
@@ -905,9 +905,9 @@ define internal noundef range(i32 0, 2) i32 @_ZL17xdrstdio_putint32P3XDRPi(ptr n
 6:                                                ; preds = %6, %2
   %indvars.iv.i.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i.i, %6 ]
   %7 = sub nuw nsw i64 3, %indvars.iv.i.i
-  %8 = getelementptr inbounds i8, ptr %3, i64 %7
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 %7
   %9 = load i8, ptr %8, align 1
-  %10 = getelementptr inbounds i8, ptr %4, i64 %indvars.iv.i.i
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv.i.i
   store i8 %9, ptr %10, align 1
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 4
@@ -915,7 +915,7 @@ define internal noundef range(i32 0, 2) i32 @_ZL17xdrstdio_putint32P3XDRPi(ptr n
 
 _ZL9xdr_htonlj.exit:                              ; preds = %6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = call i64 @fwrite(ptr noundef nonnull %4, i64 noundef 4, i64 noundef 1, ptr noundef %12)
   %.not = icmp eq i64 %13, 1
@@ -928,7 +928,7 @@ define internal noundef range(i32 0, 2) i32 @_ZL18xdrstdio_getuint32P3XDRPj(ptr 
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = call i64 @fread(ptr noundef nonnull %5, i64 noundef 4, i64 noundef 1, ptr noundef %7)
   %.not = icmp eq i64 %8, 1
@@ -944,9 +944,9 @@ define internal noundef range(i32 0, 2) i32 @_ZL18xdrstdio_getuint32P3XDRPj(ptr 
 11:                                               ; preds = %11, %9
   %indvars.iv.i.i = phi i64 [ 0, %9 ], [ %indvars.iv.next.i.i, %11 ]
   %12 = sub nuw nsw i64 3, %indvars.iv.i.i
-  %13 = getelementptr inbounds i8, ptr %3, i64 %12
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 %12
   %14 = load i8, ptr %13, align 1
-  %15 = getelementptr inbounds i8, ptr %4, i64 %indvars.iv.i.i
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv.i.i
   store i8 %14, ptr %15, align 1
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 4
@@ -976,9 +976,9 @@ define internal noundef range(i32 0, 2) i32 @_ZL18xdrstdio_putuint32P3XDRPj(ptr 
 6:                                                ; preds = %6, %2
   %indvars.iv.i.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i.i, %6 ]
   %7 = sub nuw nsw i64 3, %indvars.iv.i.i
-  %8 = getelementptr inbounds i8, ptr %3, i64 %7
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 %7
   %9 = load i8, ptr %8, align 1
-  %10 = getelementptr inbounds i8, ptr %4, i64 %indvars.iv.i.i
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv.i.i
   store i8 %9, ptr %10, align 1
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 4
@@ -986,7 +986,7 @@ define internal noundef range(i32 0, 2) i32 @_ZL18xdrstdio_putuint32P3XDRPj(ptr 
 
 _ZL9xdr_htonlj.exit:                              ; preds = %6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = call i64 @fwrite(ptr noundef nonnull %4, i64 noundef 4, i64 noundef 1, ptr noundef %12)
   %.not = icmp eq i64 %13, 1

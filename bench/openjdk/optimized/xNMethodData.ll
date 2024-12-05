@@ -21,13 +21,13 @@ define hidden noundef ptr @_ZN16XNMethodDataOops6createERK13GrowableArrayIPP7oop
   %9 = load i32, ptr %0, align 8
   %10 = sext i32 %9 to i64
   store i64 %10, ptr %7, align 8
-  %11 = getelementptr inbounds i8, ptr %7, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i8 %8, ptr %11, align 8
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %_ZN16XNMethodDataOopsC2ERK13GrowableArrayIPP7oopDescEb.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = ptrtoint ptr %7 to i64
   %14 = add i64 %13, 16
   %15 = inttoptr i64 %14 to ptr
@@ -63,13 +63,13 @@ define hidden void @_ZN16XNMethodDataOopsC2ERK13GrowableArrayIPP7oopDescEb(ptr n
   %5 = load i32, ptr %1, align 8
   %6 = sext i32 %5 to i64
   store i64 %6, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %4, ptr %7, align 8
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = ptrtoint ptr %0 to i64
   %10 = add i64 %9, 16
   %11 = inttoptr i64 %10 to ptr
@@ -119,7 +119,7 @@ define hidden noundef ptr @_ZNK16XNMethodDataOops14immediates_endEv(ptr noundef 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZNK16XNMethodDataOops18has_non_immediatesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %0) local_unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
   ret i1 %4
@@ -129,27 +129,27 @@ define hidden noundef zeroext i1 @_ZNK16XNMethodDataOops18has_non_immediatesEv(p
 define hidden void @_ZN12XNMethodDataC2Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 40)) %0) unnamed_addr #0 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 40, i1 false)
   tail call void @_ZN13PlatformMutexC1Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #8
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store volatile ptr null, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
-  %4 = getelementptr inbounds i8, ptr %0, i64 56
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, i8 0, i64 48, i1 false)
   tail call void @_ZN13PlatformMutexC1Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #8
-  %5 = getelementptr inbounds i8, ptr %0, i64 96
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store volatile ptr null, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 104
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i64 0, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 112
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store volatile ptr null, ptr %7, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN12XNMethodDataD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 112
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load volatile ptr, ptr %2, align 8
   tail call void @_Z8FreeHeapPv(ptr noundef %3) #8
-  %4 = getelementptr inbounds i8, ptr %0, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @_ZN13PlatformMutexD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #8
   tail call void @_ZN13PlatformMutexD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #8
   ret void
@@ -162,13 +162,13 @@ define hidden noundef nonnull ptr @_ZN12XNMethodData4lockEv(ptr noundef nonnull 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef nonnull ptr @_ZN12XNMethodData7ic_lockEv(ptr noundef nonnull readnone align 8 dereferenceable(120) %0) local_unnamed_addr #3 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZNK12XNMethodData4oopsEv(ptr noundef nonnull align 8 dereferenceable(120) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 112
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load volatile ptr, ptr %2, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !8
   ret ptr %3
@@ -178,7 +178,7 @@ define hidden noundef ptr @_ZNK12XNMethodData4oopsEv(ptr noundef nonnull align 8
 define hidden noundef ptr @_ZN12XNMethodData9swap_oopsEP16XNMethodDataOops(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load volatile ptr, ptr %5, align 8
   %.not.i.i = icmp eq ptr %6, %4
   br i1 %.not.i.i, label %9, label %7
@@ -189,9 +189,9 @@ define hidden noundef ptr @_ZN12XNMethodData9swap_oopsEP16XNMethodDataOops(ptr n
   br label %9
 
 9:                                                ; preds = %7, %2
-  %10 = getelementptr inbounds i8, ptr %0, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %11 = load i64, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 112
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %13 = load volatile ptr, ptr %12, align 8
   store volatile ptr %1, ptr %12, align 8
   store i64 %11, ptr %10, align 8

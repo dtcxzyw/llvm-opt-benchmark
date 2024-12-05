@@ -769,7 +769,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 define internal i32 @dissect_abis_om2000(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca %struct.nstime_t, align 8
   %6 = alloca %struct.tm, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void @col_set_str(ptr noundef %8, i32 noundef 34, ptr noundef nonnull @.str.474) #5
   %9 = load i32, ptr @proto_abis_om2000, align 4
@@ -872,15 +872,15 @@ dissect_om2k_mo.exit:                             ; preds = %4, %22
   br i1 %62, label %.lr.ph.i, label %dissect_om2k_attrs.exit
 
 .lr.ph.i:                                         ; preds = %60
-  %63 = getelementptr inbounds i8, ptr %1, i64 408
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %64 = icmp eq i16 %13, 58
-  %65 = getelementptr inbounds i8, ptr %6, i64 20
-  %66 = getelementptr inbounds i8, ptr %6, i64 16
-  %67 = getelementptr inbounds i8, ptr %6, i64 12
-  %68 = getelementptr inbounds i8, ptr %6, i64 8
-  %69 = getelementptr inbounds i8, ptr %6, i64 4
-  %70 = getelementptr inbounds i8, ptr %6, i64 32
-  %71 = getelementptr inbounds i8, ptr %5, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %6, i64 20
+  %66 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %67 = getelementptr inbounds nuw i8, ptr %6, i64 12
+  %68 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %70 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %71 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %72
 
 72:                                               ; preds = %dissect_om2k_con_list.exit.i, %.lr.ph.i

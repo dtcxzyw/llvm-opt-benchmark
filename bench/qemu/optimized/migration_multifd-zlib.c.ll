@@ -52,7 +52,7 @@ declare void @multifd_register_ops(i32 noundef, ptr noundef) local_unnamed_addr 
 define internal range(i32 -1, 1) i32 @zlib_send_setup(ptr nocapture noundef %p, ptr noundef %errp) #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(136) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 136) #7
-  %zalloc = getelementptr inbounds i8, ptr %call, i64 64
+  %zalloc = getelementptr inbounds nuw i8, ptr %call, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %zalloc, i8 0, i64 24, i1 false)
   %call2 = tail call i32 @migrate_multifd_zlib_level() #6
   %call3 = tail call i32 @deflateInit_(ptr noundef %call, i32 noundef %call2, ptr noundef nonnull @.str, i32 noundef 112) #6
@@ -62,11 +62,11 @@ entry:
 if.end:                                           ; preds = %entry
   %call4 = tail call i64 @compressBound(i64 noundef 524288) #6
   %conv = trunc i64 %call4 to i32
-  %zbuff_len = getelementptr inbounds i8, ptr %call, i64 120
+  %zbuff_len = getelementptr inbounds nuw i8, ptr %call, i64 120
   store i32 %conv, ptr %zbuff_len, align 8
   %conv6 = and i64 %call4, 4294967295
   %call7 = tail call noalias ptr @g_try_malloc(i64 noundef %conv6) #8
-  %zbuff = getelementptr inbounds i8, ptr %call, i64 112
+  %zbuff = getelementptr inbounds nuw i8, ptr %call, i64 112
   store ptr %call7, ptr %zbuff, align 8
   %tobool.not = icmp eq ptr %call7, null
   br i1 %tobool.not, label %err_deflate_end, label %if.end10
@@ -74,7 +74,7 @@ if.end:                                           ; preds = %entry
 if.end10:                                         ; preds = %if.end
   %call11 = tail call i64 @qemu_target_page_size() #6
   %call12 = tail call noalias ptr @g_try_malloc(i64 noundef %call11) #8
-  %buf = getelementptr inbounds i8, ptr %call, i64 128
+  %buf = getelementptr inbounds nuw i8, ptr %call, i64 128
   store ptr %call12, ptr %buf, align 8
   %tobool14.not = icmp eq ptr %call12, null
   br i1 %tobool14.not, label %if.then15, label %if.end16
@@ -85,7 +85,7 @@ if.then15:                                        ; preds = %if.end10
   br label %err_deflate_end
 
 if.end16:                                         ; preds = %if.end10
-  %data = getelementptr inbounds i8, ptr %p, i64 424
+  %data = getelementptr inbounds nuw i8, ptr %p, i64 424
   store ptr %call, ptr %data, align 8
   br label %return
 
@@ -110,14 +110,14 @@ return:                                           ; preds = %err_free_z, %if.end
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @zlib_send_cleanup(ptr nocapture noundef %p, ptr nocapture readnone %errp) #0 {
 entry:
-  %data = getelementptr inbounds i8, ptr %p, i64 424
+  %data = getelementptr inbounds nuw i8, ptr %p, i64 424
   %0 = load ptr, ptr %data, align 8
   %call = tail call i32 @deflateEnd(ptr noundef %0) #6
-  %zbuff = getelementptr inbounds i8, ptr %0, i64 112
+  %zbuff = getelementptr inbounds nuw i8, ptr %0, i64 112
   %1 = load ptr, ptr %zbuff, align 8
   tail call void @g_free(ptr noundef %1) #6
   store ptr null, ptr %zbuff, align 8
-  %buf = getelementptr inbounds i8, ptr %0, i64 128
+  %buf = getelementptr inbounds nuw i8, ptr %0, i64 128
   %2 = load ptr, ptr %buf, align 8
   tail call void @g_free(ptr noundef %2) #6
   store ptr null, ptr %buf, align 8
@@ -130,23 +130,23 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i32 -1, 1) i32 @zlib_send_prepare(ptr nocapture noundef %p, ptr noundef %errp) #0 {
 entry:
-  %data = getelementptr inbounds i8, ptr %p, i64 424
+  %data = getelementptr inbounds nuw i8, ptr %p, i64 424
   %0 = load ptr, ptr %data, align 8
-  %normal_num = getelementptr inbounds i8, ptr %p, i64 416
+  %normal_num = getelementptr inbounds nuw i8, ptr %p, i64 416
   %1 = load i32, ptr %normal_num, align 8
   %cmp45.not = icmp eq i32 %1, 0
   br i1 %cmp45.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %zbuff_len = getelementptr inbounds i8, ptr %0, i64 120
-  %buf = getelementptr inbounds i8, ptr %0, i64 128
-  %pages = getelementptr inbounds i8, ptr %p, i64 352
-  %normal = getelementptr inbounds i8, ptr %p, i64 408
-  %page_size = getelementptr inbounds i8, ptr %p, i64 40
-  %avail_in = getelementptr inbounds i8, ptr %0, i64 8
-  %avail_out = getelementptr inbounds i8, ptr %0, i64 32
-  %zbuff = getelementptr inbounds i8, ptr %0, i64 112
-  %next_out = getelementptr inbounds i8, ptr %0, i64 24
+  %zbuff_len = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %buf = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %pages = getelementptr inbounds nuw i8, ptr %p, i64 352
+  %normal = getelementptr inbounds nuw i8, ptr %p, i64 408
+  %page_size = getelementptr inbounds nuw i8, ptr %p, i64 40
+  %avail_in = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %avail_out = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %zbuff = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %next_out = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end26
@@ -161,9 +161,9 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   %spec.store.select = select i1 %cmp4, i32 2, i32 0
   %5 = load ptr, ptr %buf, align 8
   %6 = load ptr, ptr %pages, align 8
-  %block = getelementptr inbounds i8, ptr %6, i64 24
+  %block = getelementptr inbounds nuw i8, ptr %6, i64 24
   %7 = load ptr, ptr %block, align 8
-  %host = getelementptr inbounds i8, ptr %7, i64 24
+  %host = getelementptr inbounds nuw i8, ptr %7, i64 24
   %8 = load ptr, ptr %host, align 8
   %9 = load ptr, ptr %normal, align 8
   %arrayidx = getelementptr i64, ptr %9, i64 %indvars.iv
@@ -220,11 +220,11 @@ if.end26:                                         ; preds = %land.lhs.true
 
 for.end:                                          ; preds = %if.end26, %entry
   %out_size.0.lcssa = phi i32 [ 0, %entry ], [ %add, %if.end26 ]
-  %zbuff29 = getelementptr inbounds i8, ptr %0, i64 112
+  %zbuff29 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %21 = load ptr, ptr %zbuff29, align 8
-  %iov = getelementptr inbounds i8, ptr %p, i64 392
+  %iov = getelementptr inbounds nuw i8, ptr %p, i64 392
   %22 = load ptr, ptr %iov, align 8
-  %iovs_num = getelementptr inbounds i8, ptr %p, i64 400
+  %iovs_num = getelementptr inbounds nuw i8, ptr %p, i64 400
   %23 = load i32, ptr %iovs_num, align 8
   %idxprom30 = zext i32 %23 to i64
   %arrayidx31 = getelementptr %struct.iovec, ptr %22, i64 %idxprom30
@@ -238,9 +238,9 @@ for.end:                                          ; preds = %if.end26, %entry
   %26 = load i32, ptr %iovs_num, align 8
   %inc38 = add i32 %26, 1
   store i32 %inc38, ptr %iovs_num, align 8
-  %next_packet_size = getelementptr inbounds i8, ptr %p, i64 368
+  %next_packet_size = getelementptr inbounds nuw i8, ptr %p, i64 368
   store i32 %out_size.0.lcssa, ptr %next_packet_size, align 8
-  %flags = getelementptr inbounds i8, ptr %p, i64 332
+  %flags = getelementptr inbounds nuw i8, ptr %p, i64 332
   %27 = load i32, ptr %flags, align 4
   %or = or i32 %27, 2
   store i32 %or, ptr %flags, align 4
@@ -255,10 +255,10 @@ return:                                           ; preds = %for.end, %if.then23
 define internal range(i32 -1, 1) i32 @zlib_recv_setup(ptr nocapture noundef initializes((296, 304)) %p, ptr noundef %errp) #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(136) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 136) #7
-  %data = getelementptr inbounds i8, ptr %p, i64 296
+  %data = getelementptr inbounds nuw i8, ptr %p, i64 296
   store ptr %call, ptr %data, align 8
-  %zalloc = getelementptr inbounds i8, ptr %call, i64 64
-  %avail_in = getelementptr inbounds i8, ptr %call, i64 8
+  %zalloc = getelementptr inbounds nuw i8, ptr %call, i64 64
+  %avail_in = getelementptr inbounds nuw i8, ptr %call, i64 8
   store i32 0, ptr %avail_in, align 8
   store ptr null, ptr %call, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %zalloc, i8 0, i64 24, i1 false)
@@ -273,10 +273,10 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %zbuff_len = getelementptr inbounds i8, ptr %call, i64 120
+  %zbuff_len = getelementptr inbounds nuw i8, ptr %call, i64 120
   store i32 1048576, ptr %zbuff_len, align 8
   %call5 = tail call noalias dereferenceable_or_null(1048576) ptr @g_try_malloc(i64 noundef 1048576) #8
-  %zbuff = getelementptr inbounds i8, ptr %call, i64 112
+  %zbuff = getelementptr inbounds nuw i8, ptr %call, i64 112
   store ptr %call5, ptr %zbuff, align 8
   %tobool.not = icmp eq ptr %call5, null
   br i1 %tobool.not, label %if.then7, label %return
@@ -296,10 +296,10 @@ return:                                           ; preds = %if.end, %if.then7, 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @zlib_recv_cleanup(ptr nocapture noundef %p) #0 {
 entry:
-  %data = getelementptr inbounds i8, ptr %p, i64 296
+  %data = getelementptr inbounds nuw i8, ptr %p, i64 296
   %0 = load ptr, ptr %data, align 8
   %call = tail call i32 @inflateEnd(ptr noundef %0) #6
-  %zbuff = getelementptr inbounds i8, ptr %0, i64 112
+  %zbuff = getelementptr inbounds nuw i8, ptr %0, i64 112
   %1 = load ptr, ptr %zbuff, align 8
   tail call void @g_free(ptr noundef %1) #6
   store ptr null, ptr %zbuff, align 8
@@ -312,18 +312,18 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @zlib_recv_pages(ptr nocapture noundef readonly %p, ptr noundef %errp) #0 {
 entry:
-  %data = getelementptr inbounds i8, ptr %p, i64 296
+  %data = getelementptr inbounds nuw i8, ptr %p, i64 296
   %0 = load ptr, ptr %data, align 8
-  %next_packet_size = getelementptr inbounds i8, ptr %p, i64 232
+  %next_packet_size = getelementptr inbounds nuw i8, ptr %p, i64 232
   %1 = load i32, ptr %next_packet_size, align 8
-  %total_out = getelementptr inbounds i8, ptr %0, i64 40
+  %total_out = getelementptr inbounds nuw i8, ptr %0, i64 40
   %2 = load i64, ptr %total_out, align 8
-  %normal_num = getelementptr inbounds i8, ptr %p, i64 288
+  %normal_num = getelementptr inbounds nuw i8, ptr %p, i64 288
   %3 = load i32, ptr %normal_num, align 8
-  %page_size = getelementptr inbounds i8, ptr %p, i64 36
+  %page_size = getelementptr inbounds nuw i8, ptr %p, i64 36
   %4 = load i32, ptr %page_size, align 4
   %mul = mul i32 %4, %3
-  %flags2 = getelementptr inbounds i8, ptr %p, i64 212
+  %flags2 = getelementptr inbounds nuw i8, ptr %p, i64 212
   %5 = load i32, ptr %flags2, align 4
   %and = and i32 %5, 14
   %cmp.not = icmp eq i32 %and, 2
@@ -336,9 +336,9 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %c = getelementptr inbounds i8, ptr %p, i64 24
+  %c = getelementptr inbounds nuw i8, ptr %p, i64 24
   %7 = load ptr, ptr %c, align 8
-  %zbuff = getelementptr inbounds i8, ptr %0, i64 112
+  %zbuff = getelementptr inbounds nuw i8, ptr %0, i64 112
   %8 = load ptr, ptr %zbuff, align 8
   %conv5 = zext i32 %1 to i64
   %call = tail call i32 @qio_channel_read_all(ptr noundef %7, ptr noundef %8, i64 noundef %conv5, ptr noundef %errp) #6
@@ -346,7 +346,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp6.not, label %if.end9, label %return
 
 if.end9:                                          ; preds = %if.end
-  %avail_in = getelementptr inbounds i8, ptr %0, i64 8
+  %avail_in = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %1, ptr %avail_in, align 8
   %9 = load ptr, ptr %zbuff, align 8
   store ptr %9, ptr %0, align 8
@@ -356,10 +356,10 @@ if.end9:                                          ; preds = %if.end
   br i1 %cmp1248.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end9
-  %avail_out = getelementptr inbounds i8, ptr %0, i64 32
-  %host = getelementptr inbounds i8, ptr %p, i64 256
-  %normal = getelementptr inbounds i8, ptr %p, i64 280
-  %next_out = getelementptr inbounds i8, ptr %0, i64 24
+  %avail_out = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %host = getelementptr inbounds nuw i8, ptr %p, i64 256
+  %normal = getelementptr inbounds nuw i8, ptr %p, i64 280
+  %next_out = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.pre51 = load i32, ptr %page_size, align 4
   br label %for.body
 

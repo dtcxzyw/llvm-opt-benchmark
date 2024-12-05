@@ -109,20 +109,20 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 define internal noundef i32 @dissect_mrdisc(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca i32, align 4
   store i32 33554656, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %1, i64 232
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %7 = load i32, ptr %6, align 8
   %.not = icmp eq i32 %7, 2
   br i1 %.not, label %8, label %dissect_mrdisc_mra.exit
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %1, i64 240
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 240
   %10 = load ptr, ptr %9, align 8
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %10, ptr noundef nonnull dereferenceable(4) %5, i64 4)
   %.not28 = icmp eq i32 %bcmp, 0
   br i1 %.not28, label %11, label %dissect_mrdisc_mra.exit
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8
   tail call void @col_set_str(ptr noundef %13, i32 noundef 34, ptr noundef nonnull @.str.35) #3
   %14 = load ptr, ptr %12, align 8

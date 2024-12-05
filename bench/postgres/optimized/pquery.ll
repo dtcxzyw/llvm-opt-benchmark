@@ -46,29 +46,29 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @CreateQueryDesc(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = tail call ptr @palloc(i64 noundef 112) #10
-  %10 = getelementptr inbounds i8, ptr %0, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %11 = load i32, ptr %10, align 4
   store i32 %11, ptr %9, align 8
-  %12 = getelementptr inbounds i8, ptr %9, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %0, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %9, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %1, ptr %13, align 8
   %14 = tail call ptr @RegisterSnapshot(ptr noundef %2) #10
-  %15 = getelementptr inbounds i8, ptr %9, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store ptr %14, ptr %15, align 8
   %16 = tail call ptr @RegisterSnapshot(ptr noundef %3) #10
-  %17 = getelementptr inbounds i8, ptr %9, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store ptr %16, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %9, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %9, i64 40
   store ptr %4, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %9, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %9, i64 48
   store ptr %5, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %9, i64 56
+  %20 = getelementptr inbounds nuw i8, ptr %9, i64 56
   store ptr %6, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %9, i64 64
+  %21 = getelementptr inbounds nuw i8, ptr %9, i64 64
   store i32 %7, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %9, i64 72
-  %23 = getelementptr inbounds i8, ptr %9, i64 104
+  %22 = getelementptr inbounds nuw i8, ptr %9, i64 72
+  %23 = getelementptr inbounds nuw i8, ptr %9, i64 104
   store ptr null, ptr %23, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %22, i8 0, i64 25, i1 false)
   ret ptr %9
@@ -80,10 +80,10 @@ declare ptr @RegisterSnapshot(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @FreeQueryDesc(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   tail call void @UnregisterSnapshot(ptr noundef %3) #10
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
   tail call void @UnregisterSnapshot(ptr noundef %5) #10
   tail call void @pfree(ptr noundef %0) #10
@@ -100,7 +100,7 @@ define dso_local range(i32 0, 5) i32 @ChoosePortalStrategy(ptr noundef readonly 
   br i1 %.not.i, label %.loopexit, label %list_length.exit
 
 list_length.exit:                                 ; preds = %1
-  %2 = getelementptr inbounds i8, ptr %0, i64 4
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   %4 = icmp eq i32 %3, 1
   br i1 %4, label %5, label %.lr.ph
@@ -116,13 +116,13 @@ list_length.exit:                                 ; preds = %1
   ]
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %7, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %11 = load i8, ptr %10, align 8
   %12 = trunc i8 %11 to i1
   br i1 %12, label %13, label %.lr.ph64
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %7, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %15 = load i32, ptr %14, align 4
   switch i32 %15, label %.lr.ph64 [
     i32 1, label %16
@@ -130,27 +130,27 @@ list_length.exit:                                 ; preds = %1
   ]
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %7, i64 50
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 50
   %18 = load i8, ptr %17, align 2
   %19 = trunc i8 %18 to i1
   %. = select i1 %19, i32 2, i32 0
   br label %.loopexit
 
 20:                                               ; preds = %13
-  %21 = getelementptr inbounds i8, ptr %7, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %22 = load ptr, ptr %21, align 8
   %23 = tail call zeroext i1 @UtilityReturnsTuples(ptr noundef %22) #10
   %.47 = select i1 %23, i32 3, i32 4
   br label %.loopexit
 
 24:                                               ; preds = %5
-  %25 = getelementptr inbounds i8, ptr %7, i64 18
+  %25 = getelementptr inbounds nuw i8, ptr %7, i64 18
   %26 = load i8, ptr %25, align 2
   %27 = trunc i8 %26 to i1
   br i1 %27, label %28, label %.lr.ph64
 
 28:                                               ; preds = %24
-  %29 = getelementptr inbounds i8, ptr %7, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %30 = load i32, ptr %29, align 4
   switch i32 %30, label %.lr.ph64 [
     i32 1, label %31
@@ -158,14 +158,14 @@ list_length.exit:                                 ; preds = %1
   ]
 
 31:                                               ; preds = %28
-  %32 = getelementptr inbounds i8, ptr %7, i64 17
+  %32 = getelementptr inbounds nuw i8, ptr %7, i64 17
   %33 = load i8, ptr %32, align 1
   %34 = trunc i8 %33 to i1
   %.48 = select i1 %34, i32 2, i32 0
   br label %.loopexit
 
 35:                                               ; preds = %28
-  %36 = getelementptr inbounds i8, ptr %7, i64 120
+  %36 = getelementptr inbounds nuw i8, ptr %7, i64 120
   %37 = load ptr, ptr %36, align 8
   %38 = tail call zeroext i1 @UtilityReturnsTuples(ptr noundef %37) #10
   %.49 = select i1 %38, i32 3, i32 4
@@ -184,7 +184,7 @@ list_length.exit:                                 ; preds = %1
   br i1 %43, label %.lr.ph64, label %.loopexit
 
 .lr.ph64:                                         ; preds = %28, %13, %9, %24, %.lr.ph
-  %44 = getelementptr inbounds i8, ptr %0, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %45 = load ptr, ptr %44, align 8
   %wide.trip.count = zext nneg i32 %3 to i64
   br label %46
@@ -201,7 +201,7 @@ list_length.exit:                                 ; preds = %1
   ]
 
 50:                                               ; preds = %46
-  %51 = getelementptr inbounds i8, ptr %48, i64 24
+  %51 = getelementptr inbounds nuw i8, ptr %48, i64 24
   %52 = load i8, ptr %51, align 8
   %53 = trunc i8 %52 to i1
   br i1 %53, label %54, label %81
@@ -211,19 +211,19 @@ list_length.exit:                                 ; preds = %1
   br i1 %55, label %.loopexit, label %56
 
 56:                                               ; preds = %54
-  %57 = getelementptr inbounds i8, ptr %48, i64 4
+  %57 = getelementptr inbounds nuw i8, ptr %48, i64 4
   %58 = load i32, ptr %57, align 4
   %59 = icmp eq i32 %58, 6
   br i1 %59, label %.loopexit, label %60
 
 60:                                               ; preds = %56
-  %61 = getelementptr inbounds i8, ptr %48, i64 128
+  %61 = getelementptr inbounds nuw i8, ptr %48, i64 128
   %62 = load ptr, ptr %61, align 8
   %63 = icmp eq ptr %62, null
   br i1 %63, label %.loopexit, label %81
 
 64:                                               ; preds = %46
-  %65 = getelementptr inbounds i8, ptr %48, i64 18
+  %65 = getelementptr inbounds nuw i8, ptr %48, i64 18
   %66 = load i8, ptr %65, align 2
   %67 = trunc i8 %66 to i1
   br i1 %67, label %68, label %81
@@ -233,13 +233,13 @@ list_length.exit:                                 ; preds = %1
   br i1 %69, label %.loopexit, label %70
 
 70:                                               ; preds = %68
-  %71 = getelementptr inbounds i8, ptr %48, i64 4
+  %71 = getelementptr inbounds nuw i8, ptr %48, i64 4
   %72 = load i32, ptr %71, align 4
   %73 = icmp eq i32 %72, 6
   br i1 %73, label %.loopexit, label %74
 
 74:                                               ; preds = %70
-  %75 = getelementptr inbounds i8, ptr %48, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %76 = load i8, ptr %75, align 8
   %77 = trunc i8 %76 to i1
   br i1 %77, label %81, label %.loopexit
@@ -281,7 +281,7 @@ declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_add
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @FetchPortalTargetList(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 120
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 4
   br i1 %4, label %8, label %5
@@ -308,7 +308,7 @@ define dso_local ptr @FetchStatementTargetList(ptr noundef readonly %0) local_un
   br i1 %4, label %5, label %17
 
 5:                                                ; preds = %.lr.ph
-  %6 = getelementptr inbounds i8, ptr %.tr39, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %.tr39, i64 4
   %7 = load i32, ptr %6, align 4
   switch i32 %7, label %14 [
     i32 6, label %8
@@ -316,18 +316,18 @@ define dso_local ptr @FetchStatementTargetList(ptr noundef readonly %0) local_un
   ]
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %.tr39, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %.tr39, i64 32
   %10 = load ptr, ptr %9, align 8
   %.pr = load i32, ptr %10, align 4
   br label %17
 
 11:                                               ; preds = %5
-  %12 = getelementptr inbounds i8, ptr %.tr39, i64 104
+  %12 = getelementptr inbounds nuw i8, ptr %.tr39, i64 104
   %13 = load ptr, ptr %12, align 8
   br label %FetchPortalTargetList.exit
 
 14:                                               ; preds = %5
-  %15 = getelementptr inbounds i8, ptr %.tr39, i64 128
+  %15 = getelementptr inbounds nuw i8, ptr %.tr39, i64 128
   %16 = load ptr, ptr %15, align 8
   br label %FetchPortalTargetList.exit
 
@@ -338,7 +338,7 @@ define dso_local ptr @FetchStatementTargetList(ptr noundef readonly %0) local_un
   br i1 %19, label %20, label %40
 
 20:                                               ; preds = %17
-  %21 = getelementptr inbounds i8, ptr %.026, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %.026, i64 4
   %22 = load i32, ptr %21, align 4
   switch i32 %22, label %31 [
     i32 6, label %23
@@ -346,28 +346,28 @@ define dso_local ptr @FetchStatementTargetList(ptr noundef readonly %0) local_un
   ]
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds i8, ptr %.026, i64 120
+  %24 = getelementptr inbounds nuw i8, ptr %.026, i64 120
   %25 = load ptr, ptr %24, align 8
   %.pre = load i32, ptr %25, align 4
   br label %40
 
 26:                                               ; preds = %20
-  %27 = getelementptr inbounds i8, ptr %.026, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %.026, i64 32
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 48
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 48
   %30 = load ptr, ptr %29, align 8
   br label %FetchPortalTargetList.exit
 
 31:                                               ; preds = %20
-  %32 = getelementptr inbounds i8, ptr %.026, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %.026, i64 16
   %33 = load i8, ptr %32, align 8
   %34 = trunc i8 %33 to i1
   br i1 %34, label %35, label %FetchPortalTargetList.exit
 
 35:                                               ; preds = %31
-  %36 = getelementptr inbounds i8, ptr %.026, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %.026, i64 32
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 48
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 48
   %39 = load ptr, ptr %38, align 8
   br label %FetchPortalTargetList.exit
 
@@ -380,10 +380,10 @@ define dso_local ptr @FetchStatementTargetList(ptr noundef readonly %0) local_un
   ]
 
 42:                                               ; preds = %40
-  %43 = getelementptr inbounds i8, ptr %.1, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %.1, i64 16
   %44 = load ptr, ptr %43, align 8
   %45 = tail call ptr @GetPortalByName(ptr noundef %44) #10
-  %46 = getelementptr inbounds i8, ptr %45, i64 120
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 120
   %47 = load i32, ptr %46, align 8
   %48 = icmp eq i32 %47, 4
   br i1 %48, label %FetchPortalTargetList.exit, label %tailrecurse
@@ -394,7 +394,7 @@ tailrecurse:                                      ; preds = %42
   br i1 %50, label %FetchPortalTargetList.exit, label %.lr.ph
 
 51:                                               ; preds = %40
-  %52 = getelementptr inbounds i8, ptr %.1, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %.1, i64 8
   %53 = load ptr, ptr %52, align 8
   %54 = tail call ptr @FetchPreparedStatement(ptr noundef %53, i1 noundef zeroext true) #10
   %55 = tail call ptr @FetchPreparedStatementTargetList(ptr noundef %54) #10
@@ -428,7 +428,7 @@ define dso_local void @PortalStart(ptr noundef %0, ptr noundef %1, i32 noundef %
 13:                                               ; preds = %4
   store ptr %5, ptr @PG_exception_stack, align 8
   store ptr %0, ptr @ActivePortal, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %15 = load ptr, ptr %14, align 8
   %.not = icmp eq ptr %15, null
   br i1 %.not, label %17, label %16
@@ -438,17 +438,17 @@ define dso_local void @PortalStart(ptr noundef %0, ptr noundef %1, i32 noundef %
   br label %17
 
 17:                                               ; preds = %16, %13
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load ptr, ptr %18, align 8
   store ptr %19, ptr @PortalContext, align 8
   %20 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %19, ptr @CurrentMemoryContext, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 104
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr %1, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 88
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %23 = load ptr, ptr %22, align 8
   %24 = call i32 @ChoosePortalStrategy(ptr noundef %23)
-  %25 = getelementptr inbounds i8, ptr %0, i64 120
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i32 %24, ptr %25, align 8
   switch i32 %24, label %default.unreachable57 [
     i32 0, label %26
@@ -473,93 +473,93 @@ define dso_local void @PortalStart(ptr noundef %0, ptr noundef %1, i32 noundef %
   %31 = getelementptr i8, ptr %30, i64 16
   %.val = load ptr, ptr %31, align 8
   %32 = load ptr, ptr %.val, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 56
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %34 = load ptr, ptr %33, align 8
   %35 = call ptr @GetActiveSnapshot() #10
   %36 = load ptr, ptr @None_Receiver, align 8
-  %37 = getelementptr inbounds i8, ptr %0, i64 112
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %38 = load ptr, ptr %37, align 8
   %39 = call ptr @palloc(i64 noundef 112) #10
-  %40 = getelementptr inbounds i8, ptr %32, i64 4
+  %40 = getelementptr inbounds nuw i8, ptr %32, i64 4
   %41 = load i32, ptr %40, align 4
   store i32 %41, ptr %39, align 8
-  %42 = getelementptr inbounds i8, ptr %39, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %39, i64 8
   store ptr %32, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %39, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %39, i64 16
   store ptr %34, ptr %43, align 8
   %44 = call ptr @RegisterSnapshot(ptr noundef %35) #10
-  %45 = getelementptr inbounds i8, ptr %39, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %39, i64 24
   store ptr %44, ptr %45, align 8
   %46 = call ptr @RegisterSnapshot(ptr noundef null) #10
-  %47 = getelementptr inbounds i8, ptr %39, i64 32
+  %47 = getelementptr inbounds nuw i8, ptr %39, i64 32
   store ptr %46, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %39, i64 40
+  %48 = getelementptr inbounds nuw i8, ptr %39, i64 40
   store ptr %36, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %39, i64 48
+  %49 = getelementptr inbounds nuw i8, ptr %39, i64 48
   store ptr %1, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %39, i64 56
+  %50 = getelementptr inbounds nuw i8, ptr %39, i64 56
   store ptr %38, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %39, i64 64
+  %51 = getelementptr inbounds nuw i8, ptr %39, i64 64
   store i32 0, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %39, i64 72
-  %53 = getelementptr inbounds i8, ptr %39, i64 104
+  %52 = getelementptr inbounds nuw i8, ptr %39, i64 72
+  %53 = getelementptr inbounds nuw i8, ptr %39, i64 104
   store ptr null, ptr %53, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %52, i8 0, i64 25, i1 false)
-  %54 = getelementptr inbounds i8, ptr %0, i64 124
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 124
   %55 = load i32, ptr %54, align 4
   %56 = and i32 %55, 2
   %.not56 = icmp eq i32 %56, 0
   %57 = or i32 %2, 12
   %.0 = select i1 %.not56, i32 %2, i32 %57
   call void @ExecutorStart(ptr noundef nonnull %39, i32 noundef %.0) #10
-  %58 = getelementptr inbounds i8, ptr %0, i64 144
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store ptr %39, ptr %58, align 8
   %59 = load ptr, ptr %52, align 8
-  %60 = getelementptr inbounds i8, ptr %0, i64 152
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store ptr %59, ptr %60, align 8
-  %61 = getelementptr inbounds i8, ptr %0, i64 200
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 200
   store i8 1, ptr %61, align 8
-  %62 = getelementptr inbounds i8, ptr %0, i64 201
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 201
   store i8 0, ptr %62, align 1
-  %63 = getelementptr inbounds i8, ptr %0, i64 208
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 208
   store i64 0, ptr %63, align 8
   call void @PopActiveSnapshot() #10
   br label %87
 
 64:                                               ; preds = %17, %17
   %65 = call ptr @PortalGetPrimaryStmt(ptr noundef nonnull %0) #10
-  %66 = getelementptr inbounds i8, ptr %65, i64 32
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 32
   %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds i8, ptr %67, i64 48
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 48
   %69 = load ptr, ptr %68, align 8
   %70 = call ptr @ExecCleanTypeFromTL(ptr noundef %69) #10
-  %71 = getelementptr inbounds i8, ptr %0, i64 152
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store ptr %70, ptr %71, align 8
-  %72 = getelementptr inbounds i8, ptr %0, i64 200
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 200
   store i8 1, ptr %72, align 8
-  %73 = getelementptr inbounds i8, ptr %0, i64 201
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 201
   store i8 0, ptr %73, align 1
-  %74 = getelementptr inbounds i8, ptr %0, i64 208
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 208
   store i64 0, ptr %74, align 8
   br label %87
 
 75:                                               ; preds = %17
   %76 = call ptr @PortalGetPrimaryStmt(ptr noundef nonnull %0) #10
-  %77 = getelementptr inbounds i8, ptr %76, i64 120
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 120
   %78 = load ptr, ptr %77, align 8
   %79 = call ptr @UtilityTupleDescriptor(ptr noundef %78) #10
-  %80 = getelementptr inbounds i8, ptr %0, i64 152
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store ptr %79, ptr %80, align 8
-  %81 = getelementptr inbounds i8, ptr %0, i64 200
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 200
   store i8 1, ptr %81, align 8
-  %82 = getelementptr inbounds i8, ptr %0, i64 201
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 201
   store i8 0, ptr %82, align 1
-  %83 = getelementptr inbounds i8, ptr %0, i64 208
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 208
   store i64 0, ptr %83, align 8
   br label %87
 
 84:                                               ; preds = %17
-  %85 = getelementptr inbounds i8, ptr %0, i64 152
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store ptr null, ptr %85, align 8
   br label %87
 
@@ -583,7 +583,7 @@ default.unreachable57:                            ; preds = %17
   store ptr %6, ptr @ActivePortal, align 8
   store ptr %7, ptr @CurrentResourceOwner, align 8
   store ptr %8, ptr @PortalContext, align 8
-  %88 = getelementptr inbounds i8, ptr %0, i64 132
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 132
   store i32 2, ptr %88, align 4
   ret void
 }
@@ -612,19 +612,19 @@ declare void @pg_re_throw() local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @PortalSetResultFormat(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 152
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %.loopexit, label %7
 
 7:                                                ; preds = %3
   %8 = load i32, ptr %5, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
   %11 = sext i32 %8 to i64
   %12 = shl nsw i64 %11, 1
   %13 = tail call ptr @MemoryContextAlloc(ptr noundef %10, i64 noundef %12) #10
-  %14 = getelementptr inbounds i8, ptr %0, i64 160
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store ptr %13, ptr %14, align 8
   %15 = icmp sgt i32 %1, 1
   br i1 %15, label %16, label %22
@@ -714,7 +714,7 @@ define dso_local zeroext i1 @PortalRun(ptr noundef %0, i64 noundef %1, i1 nounde
   br i1 %13, label %14, label %22
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %0, i64 120
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %16 = load i32, ptr %15, align 8
   %.not62 = icmp eq i32 %16, 4
   br i1 %.not62, label %22, label %17
@@ -734,7 +734,7 @@ define dso_local zeroext i1 @PortalRun(ptr noundef %0, i64 noundef %1, i1 nounde
 
 22:                                               ; preds = %21, %14, %11
   call void @MarkPortalActive(ptr noundef %0) #10
-  %23 = getelementptr inbounds i8, ptr %0, i64 128
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 %9, ptr %23, align 8
   %24 = load ptr, ptr @TopTransactionResourceOwner, align 8
   %25 = load ptr, ptr @TopTransactionContext, align 8
@@ -751,7 +751,7 @@ define dso_local zeroext i1 @PortalRun(ptr noundef %0, i64 noundef %1, i1 nounde
 34:                                               ; preds = %22
   store ptr %8, ptr @PG_exception_stack, align 8
   store ptr %0, ptr @ActivePortal, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %36 = load ptr, ptr %35, align 8
   %.not63 = icmp eq ptr %36, null
   br i1 %.not63, label %38, label %37
@@ -761,11 +761,11 @@ define dso_local zeroext i1 @PortalRun(ptr noundef %0, i64 noundef %1, i1 nounde
   br label %38
 
 38:                                               ; preds = %37, %34
-  %39 = getelementptr inbounds i8, ptr %0, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %40 = load ptr, ptr %39, align 8
   store ptr %40, ptr @PortalContext, align 8
   store ptr %40, ptr @CurrentMemoryContext, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 120
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %42 = load i32, ptr %41, align 8
   switch i32 %42, label %60 [
     i32 4, label %59
@@ -776,7 +776,7 @@ define dso_local zeroext i1 @PortalRun(ptr noundef %0, i64 noundef %1, i1 nounde
   ]
 
 43:                                               ; preds = %38, %38, %38
-  %44 = getelementptr inbounds i8, ptr %0, i64 176
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %45 = load ptr, ptr %44, align 8
   %.not65 = icmp eq ptr %45, null
   br i1 %.not65, label %46, label %47
@@ -790,21 +790,21 @@ define dso_local zeroext i1 @PortalRun(ptr noundef %0, i64 noundef %1, i1 nounde
   br i1 %.not, label %54, label %49
 
 49:                                               ; preds = %47
-  %50 = getelementptr inbounds i8, ptr %0, i64 72
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %51 = load i32, ptr %50, align 8
   %.not66 = icmp eq i32 %51, 0
   br i1 %.not66, label %54, label %52
 
 52:                                               ; preds = %49
   store i32 %51, ptr %6, align 8
-  %53 = getelementptr inbounds i8, ptr %6, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %48, ptr %53, align 8
   br label %54
 
 54:                                               ; preds = %52, %49, %47
-  %55 = getelementptr inbounds i8, ptr %0, i64 132
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 132
   store i32 2, ptr %55, align 4
-  %56 = getelementptr inbounds i8, ptr %0, i64 201
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 201
   %57 = load i8, ptr %56, align 1
   %58 = trunc i8 %57 to i1
   br label %69
@@ -882,12 +882,12 @@ define internal fastcc void @FillPortalStore(ptr noundef %0, i1 noundef zeroext 
   call void @InitializeQueryCompletion(ptr noundef nonnull %3) #10
   call void @PortalCreateHoldStore(ptr noundef %0) #10
   %4 = call ptr @CreateDestReceiver(i32 noundef 6) #10
-  %5 = getelementptr inbounds i8, ptr %0, i64 176
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 184
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %8 = load ptr, ptr %7, align 8
   call void @SetTuplestoreDestReceiverParams(ptr noundef %4, ptr noundef %6, ptr noundef %8, i1 noundef zeroext false, ptr noundef null, ptr noundef null) #10
-  %9 = getelementptr inbounds i8, ptr %0, i64 120
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %10 = load i32, ptr %9, align 8
   switch i32 %10, label %18 [
     i32 1, label %11
@@ -901,7 +901,7 @@ define internal fastcc void @FillPortalStore(ptr noundef %0, i1 noundef zeroext 
   br label %22
 
 13:                                               ; preds = %2
-  %14 = getelementptr inbounds i8, ptr %0, i64 88
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr i8, ptr %15, i64 16
   %.val = load ptr, ptr %16, align 8
@@ -923,16 +923,16 @@ define internal fastcc void @FillPortalStore(ptr noundef %0, i1 noundef zeroext 
   br i1 %.not, label %29, label %24
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds i8, ptr %0, i64 72
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 %23, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %3, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %27 = load i64, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 80
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i64 %27, ptr %28, align 8
   br label %29
 
 29:                                               ; preds = %24, %22
-  %30 = getelementptr inbounds i8, ptr %4, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %31 = load ptr, ptr %30, align 8
   call void %31(ptr noundef %4) #10
   ret void
@@ -940,13 +940,13 @@ define internal fastcc void @FillPortalStore(ptr noundef %0, i1 noundef zeroext 
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef i64 @PortalRunSelect(ptr nocapture noundef %0, i1 noundef zeroext %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 144
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %9, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %6, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store ptr %3, ptr %8, align 8
   br label %9
 
@@ -954,7 +954,7 @@ define internal fastcc noundef i64 @PortalRunSelect(ptr nocapture noundef %0, i1
   br i1 %1, label %10, label %42
 
 10:                                               ; preds = %9
-  %11 = getelementptr inbounds i8, ptr %0, i64 201
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 201
   %12 = load i8, ptr %11, align 1
   %13 = trunc i8 %12 to i1
   %14 = icmp slt i64 %2, 1
@@ -964,7 +964,7 @@ define internal fastcc noundef i64 @PortalRunSelect(ptr nocapture noundef %0, i1
   %.71 = zext i1 %not.or.cond to i32
   %15 = icmp eq i64 %., 9223372036854775807
   %spec.store.select = select i1 %15, i64 0, i64 %.
-  %16 = getelementptr inbounds i8, ptr %0, i64 176
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %17 = load ptr, ptr %16, align 8
   %.not69 = icmp eq ptr %17, null
   br i1 %.not69, label %20, label %18
@@ -974,16 +974,16 @@ define internal fastcc noundef i64 @PortalRunSelect(ptr nocapture noundef %0, i1
   br label %30
 
 20:                                               ; preds = %10
-  %21 = getelementptr inbounds i8, ptr %6, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %22 = load ptr, ptr %21, align 8
   tail call void @PushActiveSnapshot(ptr noundef %22) #10
-  %23 = getelementptr inbounds i8, ptr %0, i64 128
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %24 = load i8, ptr %23, align 8
   %25 = trunc i8 %24 to i1
   tail call void @ExecutorRun(ptr noundef %6, i32 noundef %.71, i64 noundef %spec.store.select, i1 noundef zeroext %25) #10
-  %26 = getelementptr inbounds i8, ptr %6, i64 80
+  %26 = getelementptr inbounds nuw i8, ptr %6, i64 80
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 176
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 176
   %29 = load i64, ptr %28, align 8
   tail call void @PopActiveSnapshot() #10
   br label %30
@@ -998,7 +998,7 @@ define internal fastcc noundef i64 @PortalRunSelect(ptr nocapture noundef %0, i1
   br i1 %.not70, label %35, label %33
 
 33:                                               ; preds = %32
-  %34 = getelementptr inbounds i8, ptr %0, i64 200
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 200
   store i8 0, ptr %34, align 8
   br label %35
 
@@ -1012,14 +1012,14 @@ define internal fastcc noundef i64 @PortalRunSelect(ptr nocapture noundef %0, i1
   br label %38
 
 38:                                               ; preds = %35, %37
-  %39 = getelementptr inbounds i8, ptr %0, i64 208
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %40 = load i64, ptr %39, align 8
   %41 = add i64 %40, %31
   store i64 %41, ptr %39, align 8
   br label %90
 
 42:                                               ; preds = %9
-  %43 = getelementptr inbounds i8, ptr %0, i64 124
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 124
   %44 = load i32, ptr %43, align 4
   %45 = and i32 %44, 4
   %.not66 = icmp eq i32 %45, 0
@@ -1035,7 +1035,7 @@ define internal fastcc noundef i64 @PortalRunSelect(ptr nocapture noundef %0, i1
   unreachable
 
 51:                                               ; preds = %42
-  %52 = getelementptr inbounds i8, ptr %0, i64 200
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %53 = load i8, ptr %52, align 8
   %54 = trunc i8 %53 to i1
   %55 = icmp slt i64 %2, 1
@@ -1045,7 +1045,7 @@ define internal fastcc noundef i64 @PortalRunSelect(ptr nocapture noundef %0, i1
   %.74 = sext i1 %not.or.cond3 to i32
   %56 = icmp eq i64 %.73, 9223372036854775807
   %spec.store.select4 = select i1 %56, i64 0, i64 %.73
-  %57 = getelementptr inbounds i8, ptr %0, i64 176
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %58 = load ptr, ptr %57, align 8
   %.not67 = icmp eq ptr %58, null
   br i1 %.not67, label %61, label %59
@@ -1055,16 +1055,16 @@ define internal fastcc noundef i64 @PortalRunSelect(ptr nocapture noundef %0, i1
   br label %71
 
 61:                                               ; preds = %51
-  %62 = getelementptr inbounds i8, ptr %6, i64 24
+  %62 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %63 = load ptr, ptr %62, align 8
   tail call void @PushActiveSnapshot(ptr noundef %63) #10
-  %64 = getelementptr inbounds i8, ptr %0, i64 128
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %65 = load i8, ptr %64, align 8
   %66 = trunc i8 %65 to i1
   tail call void @ExecutorRun(ptr noundef %6, i32 noundef %.74, i64 noundef %spec.store.select4, i1 noundef zeroext %66) #10
-  %67 = getelementptr inbounds i8, ptr %6, i64 80
+  %67 = getelementptr inbounds nuw i8, ptr %6, i64 80
   %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 176
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 176
   %70 = load i64, ptr %69, align 8
   tail call void @PopActiveSnapshot() #10
   br label %71
@@ -1079,14 +1079,14 @@ define internal fastcc noundef i64 @PortalRunSelect(ptr nocapture noundef %0, i1
   br i1 %.not68, label %82, label %74
 
 74:                                               ; preds = %73
-  %75 = getelementptr inbounds i8, ptr %0, i64 201
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 201
   %76 = load i8, ptr %75, align 1
   %77 = trunc i8 %76 to i1
   br i1 %77, label %78, label %82
 
 78:                                               ; preds = %74
   store i8 0, ptr %75, align 1
-  %79 = getelementptr inbounds i8, ptr %0, i64 208
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %80 = load i64, ptr %79, align 8
   %81 = add i64 %80, 1
   store i64 %81, ptr %79, align 8
@@ -1099,12 +1099,12 @@ define internal fastcc noundef i64 @PortalRunSelect(ptr nocapture noundef %0, i1
 
 84:                                               ; preds = %82
   store i8 1, ptr %52, align 8
-  %85 = getelementptr inbounds i8, ptr %0, i64 208
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 208
   store i64 0, ptr %85, align 8
   br label %90
 
 86:                                               ; preds = %82
-  %87 = getelementptr inbounds i8, ptr %0, i64 208
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %88 = load i64, ptr %87, align 8
   %89 = sub i64 %88, %72
   store i64 %89, ptr %87, align 8
@@ -1117,28 +1117,28 @@ define internal fastcc noundef i64 @PortalRunSelect(ptr nocapture noundef %0, i1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @PortalRunMulti(ptr nocapture noundef %0, i1 noundef zeroext %1, i1 noundef zeroext %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
-  %7 = getelementptr inbounds i8, ptr %3, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %8, 3
   %10 = load ptr, ptr @None_Receiver, align 8
   %spec.select = select i1 %9, ptr %10, ptr %3
-  %11 = getelementptr inbounds i8, ptr %4, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %12 = load i32, ptr %11, align 8
   %13 = icmp eq i32 %12, 3
   %.047 = select i1 %13, ptr %10, ptr %4
-  %14 = getelementptr inbounds i8, ptr %0, i64 88
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %.not = icmp eq ptr %15, null
   br i1 %.not, label %.thread.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
-  %17 = getelementptr inbounds i8, ptr %15, i64 16
-  %18 = getelementptr inbounds i8, ptr %0, i64 192
-  %19 = getelementptr inbounds i8, ptr %0, i64 56
-  %20 = getelementptr inbounds i8, ptr %0, i64 104
-  %21 = getelementptr inbounds i8, ptr %0, i64 112
-  %22 = getelementptr inbounds i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %23 = load i32, ptr %16, align 4
   %24 = icmp sgt i32 %23, 0
   br i1 %24, label %.lr.ph71, label %.thread.thread
@@ -1158,7 +1158,7 @@ define internal fastcc void @PortalRunMulti(ptr nocapture noundef %0, i1 noundef
   br label %30
 
 30:                                               ; preds = %.lr.ph71, %29
-  %31 = getelementptr inbounds i8, ptr %27, i64 120
+  %31 = getelementptr inbounds nuw i8, ptr %27, i64 120
   %32 = load ptr, ptr %31, align 8
   %33 = icmp eq ptr %32, null
   br i1 %33, label %34, label %59
@@ -1196,7 +1196,7 @@ define internal fastcc void @PortalRunMulti(ptr nocapture noundef %0, i1 noundef
 
 46:                                               ; preds = %45, %44
   %.2 = phi i8 [ %.0496270, %45 ], [ 1, %44 ]
-  %47 = getelementptr inbounds i8, ptr %27, i64 18
+  %47 = getelementptr inbounds nuw i8, ptr %27, i64 18
   %48 = load i8, ptr %47, align 2
   %49 = trunc i8 %48 to i1
   %50 = load ptr, ptr %19, align 8
@@ -1222,7 +1222,7 @@ define internal fastcc void @PortalRunMulti(ptr nocapture noundef %0, i1 noundef
   br label %65
 
 59:                                               ; preds = %30
-  %60 = getelementptr inbounds i8, ptr %27, i64 18
+  %60 = getelementptr inbounds nuw i8, ptr %27, i64 18
   %61 = load i8, ptr %60, align 2
   %62 = trunc i8 %61 to i1
   br i1 %62, label %63, label %64
@@ -1285,16 +1285,16 @@ define internal fastcc void @PortalRunMulti(ptr nocapture noundef %0, i1 noundef
   br i1 %85, label %86, label %93
 
 86:                                               ; preds = %83
-  %87 = getelementptr inbounds i8, ptr %0, i64 72
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %88 = load i32, ptr %87, align 8
   %.not57 = icmp eq i32 %88, 0
   br i1 %.not57, label %93, label %89
 
 89:                                               ; preds = %86
   store i32 %88, ptr %5, align 8
-  %90 = getelementptr inbounds i8, ptr %0, i64 80
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %91 = load i64, ptr %90, align 8
-  %92 = getelementptr inbounds i8, ptr %5, i64 8
+  %92 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %91, ptr %92, align 8
   br label %93
 
@@ -1322,7 +1322,7 @@ define dso_local i64 @PortalRunFetch(ptr noundef %0, i32 noundef %1, i64 noundef
 13:                                               ; preds = %4
   store ptr %5, ptr @PG_exception_stack, align 8
   store ptr %0, ptr @ActivePortal, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %15 = load ptr, ptr %14, align 8
   %.not = icmp eq ptr %15, null
   br i1 %.not, label %17, label %16
@@ -1332,12 +1332,12 @@ define dso_local i64 @PortalRunFetch(ptr noundef %0, i32 noundef %1, i64 noundef
   br label %17
 
 17:                                               ; preds = %16, %13
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load ptr, ptr %18, align 8
   store ptr %19, ptr @PortalContext, align 8
   %20 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %19, ptr @CurrentMemoryContext, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 120
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %22 = load i32, ptr %21, align 8
   switch i32 %22, label %27 [
     i32 0, label %31
@@ -1347,7 +1347,7 @@ define dso_local i64 @PortalRunFetch(ptr noundef %0, i32 noundef %1, i64 noundef
   ]
 
 23:                                               ; preds = %17, %17, %17
-  %24 = getelementptr inbounds i8, ptr %0, i64 176
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %25 = load ptr, ptr %24, align 8
   %.not31 = icmp eq ptr %25, null
   br i1 %.not31, label %26, label %31
@@ -1378,7 +1378,7 @@ define dso_local i64 @PortalRunFetch(ptr noundef %0, i32 noundef %1, i64 noundef
   store ptr %9, ptr @PG_exception_stack, align 8
   store ptr %10, ptr @error_context_stack, align 8
   store ptr %20, ptr @CurrentMemoryContext, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 132
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 132
   store i32 2, ptr %33, align 4
   store ptr %6, ptr @ActivePortal, align 8
   store ptr %7, ptr @CurrentResourceOwner, align 8
@@ -1413,7 +1413,7 @@ define internal fastcc i64 @DoPortalRunFetch(ptr nocapture noundef %0, i32 nound
 
 10:                                               ; preds = %8
   %11 = add nsw i64 %2, -1
-  %12 = getelementptr inbounds i8, ptr %0, i64 208
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %13 = load i64, ptr %12, align 8
   %14 = lshr i64 %13, 1
   %.not87 = icmp samesign ule i64 %11, %14
@@ -1432,7 +1432,7 @@ define internal fastcc i64 @DoPortalRunFetch(ptr nocapture noundef %0, i32 nound
   br label %37
 
 20:                                               ; preds = %10
-  %21 = getelementptr inbounds i8, ptr %0, i64 201
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 201
   %22 = load i8, ptr %21, align 1
   %23 = and i8 %22, 1
   %24 = zext nneg i8 %23 to i64
@@ -1485,18 +1485,18 @@ define internal fastcc i64 @DoPortalRunFetch(ptr nocapture noundef %0, i32 nound
 
 50:                                               ; preds = %39
   tail call fastcc void @DoPortalRewind(ptr noundef %0)
-  %51 = getelementptr inbounds i8, ptr %0, i64 144
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %52 = load ptr, ptr %51, align 8
   %.not.i = icmp eq ptr %52, null
   br i1 %.not.i, label %55, label %53
 
 53:                                               ; preds = %50
-  %54 = getelementptr inbounds i8, ptr %52, i64 40
+  %54 = getelementptr inbounds nuw i8, ptr %52, i64 40
   store ptr %3, ptr %54, align 8
   br label %55
 
 55:                                               ; preds = %53, %50
-  %56 = getelementptr inbounds i8, ptr %0, i64 176
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %57 = load ptr, ptr %56, align 8
   %.not69.i = icmp eq ptr %57, null
   br i1 %.not69.i, label %60, label %58
@@ -1506,16 +1506,16 @@ define internal fastcc i64 @DoPortalRunFetch(ptr nocapture noundef %0, i32 nound
   br label %PortalRunSelect.exit
 
 60:                                               ; preds = %55
-  %61 = getelementptr inbounds i8, ptr %52, i64 24
+  %61 = getelementptr inbounds nuw i8, ptr %52, i64 24
   %62 = load ptr, ptr %61, align 8
   tail call void @PushActiveSnapshot(ptr noundef %62) #10
-  %63 = getelementptr inbounds i8, ptr %0, i64 128
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %64 = load i8, ptr %63, align 8
   %65 = trunc i8 %64 to i1
   tail call void @ExecutorRun(ptr noundef %52, i32 noundef 0, i64 noundef 0, i1 noundef zeroext %65) #10
-  %66 = getelementptr inbounds i8, ptr %52, i64 80
+  %66 = getelementptr inbounds nuw i8, ptr %52, i64 80
   %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds i8, ptr %67, i64 176
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 176
   %69 = load i64, ptr %68, align 8
   tail call void @PopActiveSnapshot() #10
   br label %PortalRunSelect.exit
@@ -1576,23 +1576,23 @@ PortalRunSelect.exit:                             ; preds = %58, %60
 
 .thread:                                          ; preds = %80, %92
   %95 = phi i8 [ %93, %92 ], [ 1, %80 ]
-  %96 = getelementptr inbounds i8, ptr %0, i64 200
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %97 = load i8, ptr %96, align 8
   %98 = trunc i8 %97 to i1
   br i1 %98, label %.thread97, label %99
 
 99:                                               ; preds = %.thread
-  %100 = getelementptr inbounds i8, ptr %0, i64 201
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 201
   %101 = load i8, ptr %100, align 1
   %102 = trunc i8 %101 to i1
   %103 = xor i1 %102, true
-  %104 = getelementptr inbounds i8, ptr %3, i64 32
+  %104 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %105 = load i32, ptr %104, align 8
   %106 = icmp eq i32 %105, 0
   br i1 %106, label %110, label %113
 
 .thread97:                                        ; preds = %.thread
-  %107 = getelementptr inbounds i8, ptr %3, i64 32
+  %107 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %108 = load i32, ptr %107, align 8
   %109 = icmp eq i32 %108, 0
   br i1 %109, label %110, label %.thread99
@@ -1623,19 +1623,19 @@ PortalRunSelect.exit:                             ; preds = %58, %60
   br i1 %or.cond.not, label %135, label %121
 
 121:                                              ; preds = %118
-  %122 = getelementptr inbounds i8, ptr %3, i64 32
+  %122 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %123 = load i32, ptr %122, align 8
   %124 = icmp eq i32 %123, 0
   br i1 %124, label %125, label %135
 
 125:                                              ; preds = %121
-  %126 = getelementptr inbounds i8, ptr %0, i64 208
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %127 = load i64, ptr %126, align 8
   %.not = icmp eq i64 %127, 0
   br i1 %.not, label %134, label %128
 
 128:                                              ; preds = %125
-  %129 = getelementptr inbounds i8, ptr %0, i64 201
+  %129 = getelementptr inbounds nuw i8, ptr %0, i64 201
   %130 = load i8, ptr %129, align 1
   %131 = and i8 %130, 1
   %132 = xor i8 %131, 1
@@ -1661,7 +1661,7 @@ PortalRunSelect.exit:                             ; preds = %58, %60
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @PlannedStmtRequiresSnapshot(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 120
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %8, label %5
@@ -1708,11 +1708,11 @@ define dso_local void @EnsurePortalSnapshotExists() local_unnamed_addr #0 {
 
 8:                                                ; preds = %2
   %9 = tail call ptr @GetTransactionSnapshot() #10
-  %10 = getelementptr inbounds i8, ptr %3, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %11 = load i32, ptr %10, align 8
   tail call void @PushActiveSnapshotWithLevel(ptr noundef %9, i32 noundef %11) #10
   %12 = tail call ptr @GetActiveSnapshot() #10
-  %13 = getelementptr inbounds i8, ptr %3, i64 168
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 168
   store ptr %12, ptr %13, align 8
   br label %14
 
@@ -1726,10 +1726,10 @@ declare void @PushActiveSnapshotWithLevel(ptr noundef, i32 noundef) local_unname
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i64 @RunFromStore(ptr nocapture noundef readonly %0, i32 noundef range(i32 -1, 2) %1, i64 noundef range(i64 0, -9223372036854775808) %2, ptr noundef %3) unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 152
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %6 = load ptr, ptr %5, align 8
   %7 = tail call ptr @MakeSingleTupleTableSlot(ptr noundef %6, ptr noundef nonnull @TTSOpsMinimalTuple) #10
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %5, align 8
   tail call void %9(ptr noundef %3, i32 noundef 1, ptr noundef %10) #10
@@ -1738,9 +1738,9 @@ define internal fastcc i64 @RunFromStore(ptr nocapture noundef readonly %0, i32 
 
 12:                                               ; preds = %4
   %13 = icmp eq i32 %1, 1
-  %14 = getelementptr inbounds i8, ptr %0, i64 184
-  %15 = getelementptr inbounds i8, ptr %0, i64 176
-  %16 = getelementptr inbounds i8, ptr %7, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %.not.not = icmp eq i64 %2, 0
   br i1 %.not.not, label %.split.us, label %.split
 
@@ -1761,7 +1761,7 @@ define internal fastcc i64 @RunFromStore(ptr nocapture noundef readonly %0, i32 
 
 23:                                               ; preds = %.lr.ph
   %24 = load ptr, ptr %16, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %26 = load ptr, ptr %25, align 8
   tail call void %26(ptr noundef %7) #10
   %27 = add i64 %.1.us26, 1
@@ -1790,7 +1790,7 @@ define internal fastcc i64 @RunFromStore(ptr nocapture noundef readonly %0, i32 
 
 39:                                               ; preds = %36
   %40 = load ptr, ptr %16, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 24
   %42 = load ptr, ptr %41, align 8
   tail call void %42(ptr noundef %7) #10
   %43 = add nuw nsw i64 %.1, 1
@@ -1799,7 +1799,7 @@ define internal fastcc i64 @RunFromStore(ptr nocapture noundef readonly %0, i32 
 
 .loopexit:                                        ; preds = %36, %.split, %39, %23, %.lr.ph, %.split.us, %4
   %.0 = phi i64 [ 0, %4 ], [ 0, %.split.us ], [ %.1.us26, %.lr.ph ], [ %27, %23 ], [ %2, %39 ], [ %.1, %.split ], [ %.1, %36 ]
-  %45 = getelementptr inbounds i8, ptr %3, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %46 = load ptr, ptr %45, align 8
   tail call void %46(ptr noundef %3) #10
   tail call void @ExecDropSingleTupleTableSlot(ptr noundef %7) #10
@@ -1833,13 +1833,13 @@ define internal fastcc void @PortalRunUtility(ptr nocapture noundef initializes(
 
 10:                                               ; preds = %8
   %11 = tail call ptr @RegisterSnapshot(ptr noundef %9) #10
-  %12 = getelementptr inbounds i8, ptr %0, i64 192
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store ptr %11, ptr %12, align 8
   br label %13
 
 13:                                               ; preds = %10, %8
   %.0 = phi ptr [ %11, %10 ], [ %9, %8 ]
-  %14 = getelementptr inbounds i8, ptr %0, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %15 = load i32, ptr %14, align 8
   tail call void @PushActiveSnapshotWithLevel(ptr noundef %.0, i32 noundef %15) #10
   %16 = tail call ptr @GetActiveSnapshot() #10
@@ -1847,24 +1847,24 @@ define internal fastcc void @PortalRunUtility(ptr nocapture noundef initializes(
 
 17:                                               ; preds = %6, %13
   %.sink = phi ptr [ %16, %13 ], [ null, %6 ]
-  %18 = getelementptr inbounds i8, ptr %0, i64 168
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store ptr %.sink, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 56
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 96
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %22 = load ptr, ptr %21, align 8
   %23 = icmp ne ptr %22, null
   %not. = xor i1 %2, true
   %24 = zext i1 %not. to i32
-  %25 = getelementptr inbounds i8, ptr %0, i64 104
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 112
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %28 = load ptr, ptr %27, align 8
   tail call void @ProcessUtility(ptr noundef %1, ptr noundef %20, i1 noundef zeroext %23, i32 noundef %24, ptr noundef %26, ptr noundef %28, ptr noundef %4, ptr noundef %5) #10
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
   store ptr %30, ptr @CurrentMemoryContext, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 168
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %32 = load ptr, ptr %31, align 8
   %.not = icmp eq ptr %32, null
   br i1 %.not, label %36, label %33
@@ -1894,29 +1894,29 @@ declare void @UpdateActiveSnapshotCommandId() local_unnamed_addr #1
 define internal fastcc void @ProcessQuery(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef writeonly %5) unnamed_addr #0 {
   %7 = tail call ptr @GetActiveSnapshot() #10
   %8 = tail call ptr @palloc(i64 noundef 112) #10
-  %9 = getelementptr inbounds i8, ptr %0, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %10 = load i32, ptr %9, align 4
   store i32 %10, ptr %8, align 8
-  %11 = getelementptr inbounds i8, ptr %8, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %0, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %8, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %1, ptr %12, align 8
   %13 = tail call ptr @RegisterSnapshot(ptr noundef %7) #10
-  %14 = getelementptr inbounds i8, ptr %8, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr %13, ptr %14, align 8
   %15 = tail call ptr @RegisterSnapshot(ptr noundef null) #10
-  %16 = getelementptr inbounds i8, ptr %8, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store ptr %15, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %8, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %8, i64 40
   store ptr %4, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %8, i64 48
+  %18 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store ptr %2, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %8, i64 56
+  %19 = getelementptr inbounds nuw i8, ptr %8, i64 56
   store ptr %3, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %8, i64 64
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 64
   store i32 0, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %8, i64 72
-  %22 = getelementptr inbounds i8, ptr %8, i64 104
+  %21 = getelementptr inbounds nuw i8, ptr %8, i64 72
+  %22 = getelementptr inbounds nuw i8, ptr %8, i64 104
   store ptr null, ptr %22, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %21, i8 0, i64 25, i1 false)
   tail call void @ExecutorStart(ptr noundef nonnull %8, i32 noundef 0) #10
@@ -1926,18 +1926,18 @@ define internal fastcc void @ProcessQuery(ptr noundef %0, ptr noundef %1, ptr no
 
 23:                                               ; preds = %6
   %24 = load i32, ptr %8, align 8
-  %25 = getelementptr inbounds i8, ptr %8, i64 80
+  %25 = getelementptr inbounds nuw i8, ptr %8, i64 80
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 176
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 176
   %28 = load i64, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %5, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %switch.tableidx = add i32 %24, -1
   %30 = icmp ult i32 %switch.tableidx, 5
   br i1 %30, label %switch.lookup, label %.sink.split
 
 switch.lookup:                                    ; preds = %23
   %31 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [5 x i32], ptr @switch.table.ProcessQuery, i64 0, i64 %31
+  %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table.ProcessQuery, i64 0, i64 %31
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %.sink.split
 
@@ -1968,19 +1968,19 @@ declare void @ExecutorEnd(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @DoPortalRewind(ptr nocapture noundef %0) unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 200
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
   br i1 %4, label %5, label %9
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 201
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 201
   %7 = load i8, ptr %6, align 1
   %8 = trunc i8 %7 to i1
   br i1 %8, label %9, label %34
 
 9:                                                ; preds = %5, %1
-  %10 = getelementptr inbounds i8, ptr %0, i64 124
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 124
   %11 = load i32, ptr %10, align 4
   %12 = and i32 %11, 4
   %.not = icmp eq i32 %12, 0
@@ -1996,13 +1996,13 @@ define internal fastcc void @DoPortalRewind(ptr nocapture noundef %0) unnamed_ad
   unreachable
 
 18:                                               ; preds = %9
-  %19 = getelementptr inbounds i8, ptr %0, i64 176
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %20 = load ptr, ptr %19, align 8
   %.not14 = icmp eq ptr %20, null
   br i1 %.not14, label %25, label %21
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %0, i64 184
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %23 = load ptr, ptr %22, align 8
   %24 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %23, ptr @CurrentMemoryContext, align 8
@@ -2011,13 +2011,13 @@ define internal fastcc void @DoPortalRewind(ptr nocapture noundef %0) unnamed_ad
   br label %25
 
 25:                                               ; preds = %21, %18
-  %26 = getelementptr inbounds i8, ptr %0, i64 144
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %27 = load ptr, ptr %26, align 8
   %.not15 = icmp eq ptr %27, null
   br i1 %.not15, label %31, label %28
 
 28:                                               ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %27, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %30 = load ptr, ptr %29, align 8
   tail call void @PushActiveSnapshot(ptr noundef %30) #10
   tail call void @ExecutorRewind(ptr noundef nonnull %27) #10
@@ -2026,9 +2026,9 @@ define internal fastcc void @DoPortalRewind(ptr nocapture noundef %0) unnamed_ad
 
 31:                                               ; preds = %28, %25
   store i8 1, ptr %2, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 201
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 201
   store i8 0, ptr %32, align 1
-  %33 = getelementptr inbounds i8, ptr %0, i64 208
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 208
   store i64 0, ptr %33, align 8
   br label %34
 

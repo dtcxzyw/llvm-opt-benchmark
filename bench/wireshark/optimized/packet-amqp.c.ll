@@ -2411,7 +2411,7 @@ define internal void @message_decode_match_criteria_set_cb(ptr nocapture noundef
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #12
   store i32 0, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %9 = load ptr, ptr %8, align 8
   %.not15 = icmp eq ptr %9, null
   br i1 %.not15, label %._crit_edge, label %.lr.ph.preheader
@@ -2426,7 +2426,7 @@ define internal void @message_decode_match_criteria_set_cb(ptr nocapture noundef
   %11 = add i32 %.01621, 1
   %12 = zext i32 %11 to i64
   %13 = getelementptr %struct._value_string, ptr %3, i64 %12
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8
   %.not = icmp eq ptr %15, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
@@ -2449,7 +2449,7 @@ define internal void @message_decode_match_criteria_set_cb(ptr nocapture noundef
 
 ; Function Attrs: nounwind uwtable
 define internal void @message_decode_match_criteria_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not14 = icmp eq ptr %7, null
   br i1 %.not14, label %._crit_edge, label %.lr.ph
@@ -2465,7 +2465,7 @@ define internal void @message_decode_match_criteria_tostr_cb(ptr nocapture nound
   %11 = add i32 %.01519, 1
   %12 = zext i32 %11 to i64
   %13 = getelementptr %struct._value_string, ptr %3, i64 %12
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8
   %.not = icmp eq ptr %15, null
   br i1 %.not, label %._crit_edge, label %16, !llvm.loop !6
@@ -2500,7 +2500,7 @@ declare zeroext i1 @uat_fld_chk_str(ptr noundef, ptr noundef, i32 noundef, ptr n
 define internal void @message_decode_topic_pattern_set_cb(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #12
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void @g_free(ptr noundef %9) #12
   store ptr %7, ptr %8, align 8
@@ -2509,7 +2509,7 @@ define internal void @message_decode_topic_pattern_set_cb(ptr nocapture noundef 
 
 ; Function Attrs: nounwind uwtable
 define internal void @message_decode_topic_pattern_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %13, label %8
@@ -2543,7 +2543,7 @@ define internal void @message_decode_payload_proto_set_cb(ptr nocapture noundef 
 6:                                                ; preds = %5
   %7 = zext i32 %2 to i64
   %8 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %7) #12
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %8, ptr %9, align 8
   %10 = tail call ptr @g_strchug(ptr noundef %8) #12
   %11 = tail call ptr @g_strchomp(ptr noundef %10) #12
@@ -2553,20 +2553,20 @@ define internal void @message_decode_payload_proto_set_cb(ptr nocapture noundef 
 
 14:                                               ; preds = %5
   %15 = tail call ptr @find_dissector(ptr noundef nonnull @.str.1376) #12
-  %16 = getelementptr inbounds i8, ptr %0, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr null, ptr %16, align 8
   br label %17
 
 17:                                               ; preds = %14, %6
   %.sink = phi ptr [ %15, %14 ], [ %13, %6 ]
-  %18 = getelementptr inbounds i8, ptr %0, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %.sink, ptr %18, align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @message_decode_payload_proto_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %12, label %8
@@ -2593,7 +2593,7 @@ define internal void @message_decode_payload_proto_tostr_cb(ptr nocapture nounde
 define internal void @message_decode_topic_more_info_set_cb(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #12
-  %8 = getelementptr inbounds i8, ptr %0, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = load ptr, ptr %8, align 8
   tail call void @g_free(ptr noundef %9) #12
   store ptr %7, ptr %8, align 8
@@ -2602,7 +2602,7 @@ define internal void @message_decode_topic_more_info_set_cb(ptr nocapture nounde
 
 ; Function Attrs: nounwind uwtable
 define internal void @message_decode_topic_more_info_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %13, label %8
@@ -2632,31 +2632,31 @@ declare ptr @uat_new(ptr noundef, i64 noundef, ptr noundef, i1 noundef zeroext, 
 define internal noundef ptr @amqp_message_decode_copy_cb(ptr noundef returned writeonly initializes((0, 4), (8, 16), (24, 48)) %0, ptr nocapture noundef readonly %1, i64 %2) #0 {
   %4 = load i32, ptr %1, align 8
   store i32 %4, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noalias ptr @g_strdup(ptr noundef %6) #12
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %7, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load ptr, ptr %9, align 8
   %11 = tail call noalias ptr @g_strdup(ptr noundef %10) #12
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %11, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %14, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %17 = load ptr, ptr %16, align 8
   %18 = tail call noalias ptr @g_strdup(ptr noundef %17) #12
-  %19 = getelementptr inbounds i8, ptr %0, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %18, ptr %19, align 8
   ret ptr %0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i1 @amqp_message_decode_update_cb(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %8, label %6
@@ -2671,7 +2671,7 @@ define internal noundef zeroext i1 @amqp_message_decode_update_cb(ptr nocapture 
   br label %.sink.split
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
   br i1 %13, label %16, label %14
@@ -2692,7 +2692,7 @@ define internal noundef zeroext i1 @amqp_message_decode_update_cb(ptr nocapture 
 
 21:                                               ; preds = %18
   %22 = tail call ptr @g_regex_new(ptr noundef nonnull %4, i32 noundef 8192, i32 noundef 0, ptr noundef null) #12
-  %23 = getelementptr inbounds i8, ptr %0, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %22, ptr %23, align 8
   %.not = icmp eq ptr %22, null
   br i1 %.not, label %24, label %27
@@ -2714,10 +2714,10 @@ define internal noundef zeroext i1 @amqp_message_decode_update_cb(ptr nocapture 
 
 ; Function Attrs: nounwind uwtable
 define internal void @amqp_message_decode_free_cb(ptr nocapture noundef readonly %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   tail call void @g_free(ptr noundef %3) #12
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %7, label %6
@@ -2727,10 +2727,10 @@ define internal void @amqp_message_decode_free_cb(ptr nocapture noundef readonly
   br label %7
 
 7:                                                ; preds = %6, %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8
   tail call void @g_free(ptr noundef %9) #12
-  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = load ptr, ptr %10, align 8
   tail call void @g_free(ptr noundef %11) #12
   ret void
@@ -2779,7 +2779,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_amqp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.1058) #12
   %7 = load ptr, ptr %5, align 8
@@ -2789,7 +2789,7 @@ define internal i32 @dissect_amqp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %1, i64 336
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 336
   store i32 268435455, ptr %11, align 8
   br label %64
 
@@ -2805,7 +2805,7 @@ define internal i32 @dissect_amqp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %19 = tail call noalias ptr @wmem_alloc0(ptr noundef %18, i64 noundef 16) #12
   %20 = tail call ptr @wmem_file_scope() #12
   %21 = tail call noalias ptr @wmem_map_new(ptr noundef %20, ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal) #12
-  %22 = getelementptr inbounds i8, ptr %19, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr %21, ptr %22, align 8
   %23 = load i32, ptr @proto_amqp, align 4
   tail call void @conversation_add_proto_data(ptr noundef nonnull %13, i32 noundef %23, ptr noundef %19) #12
@@ -2875,9 +2875,9 @@ define internal i32 @dissect_amqp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %check_amqp_version.exit
 
 check_amqp_version.exit:                          ; preds = %26, %38, %39, %.sink.split.i
-  %52 = getelementptr inbounds i8, ptr %1, i64 330
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 330
   %53 = load i16, ptr %52, align 2
-  %54 = getelementptr inbounds i8, ptr %1, i64 328
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 328
   store i16 %53, ptr %54, align 8
   %55 = load ptr, ptr @version_table, align 8
   %56 = load i8, ptr %.0, align 8
@@ -3104,7 +3104,7 @@ define internal i32 @dissect_amqp_0_9_frame(ptr noundef %0, ptr noundef %1, ptr 
   %14 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 5) #12
   %15 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 6) #12
   %16 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 7) #12
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8
   %19 = zext i8 %14 to i32
   %20 = zext i8 %15 to i32
@@ -3189,7 +3189,7 @@ define internal i32 @dissect_amqp_0_9_frame(ptr noundef %0, ptr noundef %1, ptr 
   %64 = tail call ptr @proto_tree_add_item(ptr noundef %.0502, i32 noundef %62, ptr noundef %0, i32 noundef 11, i32 noundef %63, i32 noundef 0) #12
   %65 = load i32, ptr @ett_args, align 4
   %66 = tail call ptr @proto_item_add_subtree(ptr noundef %64, i32 noundef %65) #12
-  %67 = getelementptr inbounds i8, ptr %1, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %68 = load ptr, ptr %67, align 8
   %69 = zext i16 %59 to i32
   %70 = tail call ptr @val_to_str(i32 noundef %69, ptr noundef nonnull @amqp_method_connection_methods, ptr noundef nonnull @.str.1384) #12
@@ -3267,7 +3267,7 @@ define internal i32 @dissect_amqp_0_9_frame(ptr noundef %0, ptr noundef %1, ptr 
   %90 = tail call ptr @proto_tree_add_item(ptr noundef %.0502, i32 noundef %88, ptr noundef %0, i32 noundef 11, i32 noundef %89, i32 noundef 0) #12
   %91 = load i32, ptr @ett_args, align 4
   %92 = tail call ptr @proto_item_add_subtree(ptr noundef %90, i32 noundef %91) #12
-  %93 = getelementptr inbounds i8, ptr %1, i64 8
+  %93 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %94 = load ptr, ptr %93, align 8
   %95 = zext i16 %85 to i32
   %96 = tail call ptr @val_to_str(i32 noundef %95, ptr noundef nonnull @amqp_method_channel_methods, ptr noundef nonnull @.str.1384) #12
@@ -3331,7 +3331,7 @@ define internal i32 @dissect_amqp_0_9_frame(ptr noundef %0, ptr noundef %1, ptr 
 
 118:                                              ; preds = %109
   tail call fastcc void @dissect_amqp_0_9_method_access_request(ptr noundef %0, ptr noundef %117)
-  %119 = getelementptr inbounds i8, ptr %1, i64 8
+  %119 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %120 = load ptr, ptr %119, align 8
   tail call void @col_append_str(ptr noundef %120, i32 noundef 25, ptr noundef nonnull @.str.1388) #12
   br label %dissect_amqp_0_9_content_header_tunnel.exit
@@ -3339,7 +3339,7 @@ define internal i32 @dissect_amqp_0_9_frame(ptr noundef %0, ptr noundef %1, ptr 
 121:                                              ; preds = %109
   %122 = load i32, ptr @hf_amqp_method_access_request_ok_ticket, align 4
   %123 = tail call ptr @proto_tree_add_item(ptr noundef %117, i32 noundef %122, ptr noundef %0, i32 noundef 11, i32 noundef 2, i32 noundef 0) #12
-  %124 = getelementptr inbounds i8, ptr %1, i64 8
+  %124 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %125 = load ptr, ptr %124, align 8
   tail call void @col_append_str(ptr noundef %125, i32 noundef 25, ptr noundef nonnull @.str.1389) #12
   br label %dissect_amqp_0_9_content_header_tunnel.exit
@@ -3358,7 +3358,7 @@ define internal i32 @dissect_amqp_0_9_frame(ptr noundef %0, ptr noundef %1, ptr 
   %135 = tail call ptr @proto_tree_add_item(ptr noundef %.0502, i32 noundef %133, ptr noundef %0, i32 noundef 11, i32 noundef %134, i32 noundef 0) #12
   %136 = load i32, ptr @ett_args, align 4
   %137 = tail call ptr @proto_item_add_subtree(ptr noundef %135, i32 noundef %136) #12
-  %138 = getelementptr inbounds i8, ptr %1, i64 8
+  %138 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %139 = load ptr, ptr %138, align 8
   %140 = zext i16 %130 to i32
   %141 = tail call ptr @val_to_str(i32 noundef %140, ptr noundef nonnull @amqp_method_exchange_methods, ptr noundef nonnull @.str.1384) #12
@@ -3403,7 +3403,7 @@ define internal i32 @dissect_amqp_0_9_frame(ptr noundef %0, ptr noundef %1, ptr 
   %154 = tail call ptr @proto_tree_add_item(ptr noundef %.0502, i32 noundef %152, ptr noundef %0, i32 noundef 11, i32 noundef %153, i32 noundef 0) #12
   %155 = load i32, ptr @ett_args, align 4
   %156 = tail call ptr @proto_item_add_subtree(ptr noundef %154, i32 noundef %155) #12
-  %157 = getelementptr inbounds i8, ptr %1, i64 8
+  %157 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %158 = load ptr, ptr %157, align 8
   %159 = zext i16 %149 to i32
   %160 = tail call ptr @val_to_str(i32 noundef %159, ptr noundef nonnull @amqp_method_queue_methods, ptr noundef nonnull @.str.1384) #12
@@ -3468,7 +3468,7 @@ define internal i32 @dissect_amqp_0_9_frame(ptr noundef %0, ptr noundef %1, ptr 
   %181 = tail call ptr @proto_tree_add_item(ptr noundef %.0502, i32 noundef %179, ptr noundef %0, i32 noundef 11, i32 noundef %180, i32 noundef 0) #12
   %182 = load i32, ptr @ett_args, align 4
   %183 = tail call ptr @proto_item_add_subtree(ptr noundef %181, i32 noundef %182) #12
-  %184 = getelementptr inbounds i8, ptr %1, i64 8
+  %184 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %185 = load ptr, ptr %184, align 8
   %186 = zext i16 %176 to i32
   %187 = tail call ptr @val_to_str(i32 noundef %186, ptr noundef nonnull @amqp_method_basic_methods, ptr noundef nonnull @.str.1384) #12
@@ -3579,7 +3579,7 @@ define internal i32 @dissect_amqp_0_9_frame(ptr noundef %0, ptr noundef %1, ptr 
   %216 = tail call ptr @proto_tree_add_item(ptr noundef %.0502, i32 noundef %214, ptr noundef %0, i32 noundef 11, i32 noundef %215, i32 noundef 0) #12
   %217 = load i32, ptr @ett_args, align 4
   %218 = tail call ptr @proto_item_add_subtree(ptr noundef %216, i32 noundef %217) #12
-  %219 = getelementptr inbounds i8, ptr %1, i64 8
+  %219 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %220 = load ptr, ptr %219, align 8
   %221 = zext i16 %211 to i32
   %222 = tail call ptr @val_to_str(i32 noundef %221, ptr noundef nonnull @amqp_method_file_methods, ptr noundef nonnull @.str.1384) #12
@@ -3663,7 +3663,7 @@ define internal i32 @dissect_amqp_0_9_frame(ptr noundef %0, ptr noundef %1, ptr 
   %245 = tail call ptr @proto_tree_add_item(ptr noundef %.0502, i32 noundef %243, ptr noundef %0, i32 noundef 11, i32 noundef %244, i32 noundef 0) #12
   %246 = load i32, ptr @ett_args, align 4
   %247 = tail call ptr @proto_item_add_subtree(ptr noundef %245, i32 noundef %246) #12
-  %248 = getelementptr inbounds i8, ptr %1, i64 8
+  %248 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %249 = load ptr, ptr %248, align 8
   %250 = zext i16 %240 to i32
   %251 = tail call ptr @val_to_str(i32 noundef %250, ptr noundef nonnull @amqp_method_stream_methods, ptr noundef nonnull @.str.1384) #12
@@ -3725,7 +3725,7 @@ define internal i32 @dissect_amqp_0_9_frame(ptr noundef %0, ptr noundef %1, ptr 
   %268 = tail call ptr @proto_tree_add_item(ptr noundef %.0502, i32 noundef %266, ptr noundef %0, i32 noundef 11, i32 noundef %267, i32 noundef 0) #12
   %269 = load i32, ptr @ett_args, align 4
   %270 = tail call ptr @proto_item_add_subtree(ptr noundef %268, i32 noundef %269) #12
-  %271 = getelementptr inbounds i8, ptr %1, i64 8
+  %271 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %272 = load ptr, ptr %271, align 8
   %273 = zext i16 %263 to i32
   %274 = tail call ptr @val_to_str(i32 noundef %273, ptr noundef nonnull @amqp_method_tx_methods, ptr noundef nonnull @.str.1384) #12
@@ -3752,7 +3752,7 @@ define internal i32 @dissect_amqp_0_9_frame(ptr noundef %0, ptr noundef %1, ptr 
   %283 = tail call ptr @proto_tree_add_item(ptr noundef %.0502, i32 noundef %281, ptr noundef %0, i32 noundef 11, i32 noundef %282, i32 noundef 0) #12
   %284 = load i32, ptr @ett_args, align 4
   %285 = tail call ptr @proto_item_add_subtree(ptr noundef %283, i32 noundef %284) #12
-  %286 = getelementptr inbounds i8, ptr %1, i64 8
+  %286 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %287 = load ptr, ptr %286, align 8
   %288 = zext i16 %278 to i32
   %289 = tail call ptr @val_to_str(i32 noundef %288, ptr noundef nonnull @amqp_method_dtx_methods, ptr noundef nonnull @.str.1384) #12
@@ -3786,7 +3786,7 @@ define internal i32 @dissect_amqp_0_9_frame(ptr noundef %0, ptr noundef %1, ptr 
 
 302:                                              ; preds = %293
   tail call fastcc void @dissect_amqp_0_9_method_tunnel_request(ptr noundef %0, ptr noundef %1, ptr noundef %301)
-  %303 = getelementptr inbounds i8, ptr %1, i64 8
+  %303 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %304 = load ptr, ptr %303, align 8
   tail call void @col_append_str(ptr noundef %304, i32 noundef 25, ptr noundef nonnull @.str.1405) #12
   br label %dissect_amqp_0_9_content_header_tunnel.exit
@@ -3813,14 +3813,14 @@ define internal i32 @dissect_amqp_0_9_frame(ptr noundef %0, ptr noundef %1, ptr 
 317:                                              ; preds = %308
   %318 = load i32, ptr @hf_amqp_method_confirm_select_nowait, align 4
   %319 = tail call ptr @proto_tree_add_item(ptr noundef %316, i32 noundef %318, ptr noundef %0, i32 noundef 11, i32 noundef 1, i32 noundef 0) #12
-  %320 = getelementptr inbounds i8, ptr %1, i64 8
+  %320 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %321 = load ptr, ptr %320, align 8
   tail call void @col_append_str(ptr noundef %321, i32 noundef 25, ptr noundef nonnull @.str.1407) #12
   br label %dissect_amqp_0_9_content_header_tunnel.exit
 
 322:                                              ; preds = %308
   tail call fastcc void @dissect_amqp_0_9_method_confirm_select_ok(i16 noundef zeroext %52, ptr noundef %1)
-  %323 = getelementptr inbounds i8, ptr %1, i64 8
+  %323 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %324 = load ptr, ptr %323, align 8
   tail call void @col_append_str(ptr noundef %324, i32 noundef 25, ptr noundef nonnull @.str.1408) #12
   br label %dissect_amqp_0_9_content_header_tunnel.exit
@@ -3850,7 +3850,7 @@ define internal i32 @dissect_amqp_0_9_frame(ptr noundef %0, ptr noundef %1, ptr 
   %343 = tail call ptr @proto_tree_add_item(ptr noundef %.0502, i32 noundef %341, ptr noundef %0, i32 noundef 21, i32 noundef %342, i32 noundef 0) #12
   %344 = load i32, ptr @ett_props, align 4
   %345 = tail call ptr @proto_item_add_subtree(ptr noundef %343, i32 noundef %344) #12
-  %346 = getelementptr inbounds i8, ptr %1, i64 8
+  %346 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %347 = load ptr, ptr %346, align 8
   tail call void @col_append_str(ptr noundef %347, i32 noundef 25, ptr noundef nonnull @.str.1411) #12
   switch i16 %332, label %671 [
@@ -3868,7 +3868,7 @@ define internal i32 @dissect_amqp_0_9_frame(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %.not.i, label %get_conversation_channel.exit, label %352
 
 352:                                              ; preds = %348
-  %353 = getelementptr inbounds i8, ptr %351, i64 8
+  %353 = getelementptr inbounds nuw i8, ptr %351, i64 8
   %354 = load ptr, ptr %353, align 8
   %355 = zext i16 %52 to i64
   %356 = inttoptr i64 %355 to ptr
@@ -3880,7 +3880,7 @@ define internal i32 @dissect_amqp_0_9_frame(ptr noundef %0, ptr noundef %1, ptr 
   %360 = tail call ptr @wmem_file_scope() #12
   %361 = tail call noalias ptr @wmem_alloc0(ptr noundef %360, i64 noundef 48) #12
   store ptr %351, ptr %361, align 8
-  %362 = getelementptr inbounds i8, ptr %361, i64 12
+  %362 = getelementptr inbounds nuw i8, ptr %361, i64 12
   store i16 %52, ptr %362, align 4
   %363 = load ptr, ptr %353, align 8
   %364 = tail call ptr @wmem_map_insert(ptr noundef %363, ptr noundef %356, ptr noundef nonnull %361) #12
@@ -3890,7 +3890,7 @@ get_conversation_channel.exit:                    ; preds = %348, %352, %359
   %.013.i = phi ptr [ null, %348 ], [ %361, %359 ], [ %357, %352 ]
   %365 = tail call ptr @wmem_file_scope() #12
   %366 = tail call noalias ptr @wmem_alloc0(ptr noundef %365, i64 noundef 16) #12
-  %367 = getelementptr inbounds i8, ptr %.013.i, i64 40
+  %367 = getelementptr inbounds nuw i8, ptr %.013.i, i64 40
   store ptr %366, ptr %367, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
@@ -3902,7 +3902,7 @@ get_conversation_channel.exit:                    ; preds = %348, %352, %359
   %370 = load i32, ptr @hf_amqp_header_basic_content_type, align 4
   %371 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 21) #12
   %372 = zext i8 %371 to i32
-  %373 = getelementptr inbounds i8, ptr %1, i64 408
+  %373 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %374 = load ptr, ptr %373, align 8
   %375 = call ptr @proto_tree_add_item_ret_string(ptr noundef %345, i32 noundef %370, ptr noundef %0, i32 noundef 22, i32 noundef %372, i32 noundef 0, ptr noundef %374, ptr noundef nonnull %10) #12
   %376 = load ptr, ptr %346, align 8
@@ -3936,7 +3936,7 @@ get_conversation_channel.exit:                    ; preds = %348, %352, %359
   %395 = zext i8 %394 to i32
   %396 = call ptr @tvb_get_string_enc(ptr noundef %393, ptr noundef %0, i32 noundef %389, i32 noundef %395, i32 noundef 0) #12
   %397 = call ptr @ascii_strdown_inplace(ptr noundef %396) #12
-  %398 = getelementptr inbounds i8, ptr %366, i64 8
+  %398 = getelementptr inbounds nuw i8, ptr %366, i64 8
   store ptr %397, ptr %398, align 8
   %399 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0.i) #12
   %400 = zext i8 %399 to i32
@@ -4061,7 +4061,7 @@ get_conversation_channel.exit:                    ; preds = %348, %352, %359
 462:                                              ; preds = %461
   %463 = call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef %.8.i) #12
   store i64 %463, ptr %9, align 8
-  %464 = getelementptr inbounds i8, ptr %9, i64 8
+  %464 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 0, ptr %464, align 8
   %465 = load i32, ptr @hf_amqp_header_basic_timestamp, align 4
   %466 = call ptr @proto_tree_add_time(ptr noundef %345, i32 noundef %465, ptr noundef %0, i32 noundef %.8.i, i32 noundef 8, ptr noundef nonnull %9) #12
@@ -4150,7 +4150,7 @@ dissect_amqp_0_9_content_header_basic.exit:       ; preds = %498, %499
   %509 = load i32, ptr @hf_amqp_header_file_content_type, align 4
   %510 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 21) #12
   %511 = zext i8 %510 to i32
-  %512 = getelementptr inbounds i8, ptr %1, i64 408
+  %512 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %513 = load ptr, ptr %512, align 8
   %514 = call ptr @proto_tree_add_item_ret_string(ptr noundef %345, i32 noundef %509, ptr noundef %0, i32 noundef 22, i32 noundef %511, i32 noundef 0, ptr noundef %513, ptr noundef nonnull %8) #12
   %515 = load ptr, ptr %346, align 8
@@ -4267,7 +4267,7 @@ dissect_amqp_0_9_content_header_basic.exit:       ; preds = %498, %499
 575:                                              ; preds = %574
   %576 = call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef %.6.i518) #12
   store i64 %576, ptr %7, align 8
-  %577 = getelementptr inbounds i8, ptr %7, i64 8
+  %577 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 0, ptr %577, align 8
   %578 = load i32, ptr @hf_amqp_header_file_timestamp, align 4
   %579 = call ptr @proto_tree_add_time(ptr noundef %345, i32 noundef %578, ptr noundef %0, i32 noundef %.6.i518, i32 noundef 8, ptr noundef nonnull %7) #12
@@ -4305,7 +4305,7 @@ dissect_amqp_0_9_content_header_file.exit:        ; preds = %581, %582
   %592 = load i32, ptr @hf_amqp_header_stream_content_type, align 4
   %593 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 21) #12
   %594 = zext i8 %593 to i32
-  %595 = getelementptr inbounds i8, ptr %1, i64 408
+  %595 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %596 = load ptr, ptr %595, align 8
   %597 = call ptr @proto_tree_add_item_ret_string(ptr noundef %345, i32 noundef %592, ptr noundef %0, i32 noundef 22, i32 noundef %594, i32 noundef 0, ptr noundef %596, ptr noundef nonnull %6) #12
   %598 = load ptr, ptr %346, align 8
@@ -4371,7 +4371,7 @@ dissect_amqp_0_9_content_header_file.exit:        ; preds = %581, %582
 628:                                              ; preds = %627
   %629 = call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef %.3.i526) #12
   store i64 %629, ptr %5, align 8
-  %630 = getelementptr inbounds i8, ptr %5, i64 8
+  %630 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 0, ptr %630, align 8
   %631 = load i32, ptr @hf_amqp_header_stream_timestamp, align 4
   %632 = call ptr @proto_tree_add_time(ptr noundef %345, i32 noundef %631, ptr noundef %0, i32 noundef %.3.i526, i32 noundef 8, ptr noundef nonnull %5) #12
@@ -4462,7 +4462,7 @@ dissect_amqp_0_9_content_header_stream.exit:      ; preds = %627, %628
 674:                                              ; preds = %50
   %675 = load i32, ptr @hf_amqp_payload, align 4
   %676 = tail call ptr @proto_tree_add_item(ptr noundef %.0502, i32 noundef %675, ptr noundef %0, i32 noundef 7, i32 noundef %53, i32 noundef 0) #12
-  %677 = getelementptr inbounds i8, ptr %1, i64 8
+  %677 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %678 = load ptr, ptr %677, align 8
   tail call void @col_append_str(ptr noundef %678, i32 noundef 25, ptr noundef nonnull @.str.1413) #12
   %679 = tail call nonnull ptr @find_or_create_conversation(ptr noundef %1) #12
@@ -4470,7 +4470,7 @@ dissect_amqp_0_9_content_header_stream.exit:      ; preds = %627, %628
   %681 = tail call ptr @conversation_get_proto_data(ptr noundef nonnull %679, i32 noundef %680) #12
   %.not.i537 = icmp ne ptr %681, null
   tail call void @llvm.assume(i1 %.not.i537)
-  %682 = getelementptr inbounds i8, ptr %681, i64 8
+  %682 = getelementptr inbounds nuw i8, ptr %681, i64 8
   %683 = load ptr, ptr %682, align 8
   %684 = zext i16 %52 to i64
   %685 = inttoptr i64 %684 to ptr
@@ -4482,7 +4482,7 @@ dissect_amqp_0_9_content_header_stream.exit:      ; preds = %627, %628
   %689 = tail call ptr @wmem_file_scope() #12
   %690 = tail call noalias ptr @wmem_alloc0(ptr noundef %689, i64 noundef 48) #12
   store ptr %681, ptr %690, align 8
-  %691 = getelementptr inbounds i8, ptr %690, i64 12
+  %691 = getelementptr inbounds nuw i8, ptr %690, i64 12
   store i16 %52, ptr %691, align 4
   %692 = load ptr, ptr %682, align 8
   %693 = tail call ptr @wmem_map_insert(ptr noundef %692, ptr noundef %685, ptr noundef nonnull %690) #12
@@ -4490,7 +4490,7 @@ dissect_amqp_0_9_content_header_stream.exit:      ; preds = %627, %628
 
 get_conversation_channel.exit539:                 ; preds = %674, %688
   %.013.i538 = phi ptr [ %690, %688 ], [ %686, %674 ]
-  %694 = getelementptr inbounds i8, ptr %.013.i538, i64 40
+  %694 = getelementptr inbounds nuw i8, ptr %.013.i538, i64 40
   %695 = load ptr, ptr %694, align 8
   %.not506 = icmp eq ptr %695, null
   br i1 %.not506, label %dissect_amqp_0_9_content_header_tunnel.exit, label %696
@@ -4508,7 +4508,7 @@ get_conversation_channel.exit539:                 ; preds = %674, %688
   br label %dissect_amqp_0_9_content_header_tunnel.exit
 
 703:                                              ; preds = %50
-  %704 = getelementptr inbounds i8, ptr %1, i64 8
+  %704 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %705 = load ptr, ptr %704, align 8
   tail call void @col_append_str(ptr noundef %705, i32 noundef 25, ptr noundef nonnull @.str.1414) #12
   br label %dissect_amqp_0_9_content_header_tunnel.exit
@@ -4519,7 +4519,7 @@ get_conversation_channel.exit539:                 ; preds = %674, %688
   br label %dissect_amqp_0_9_content_header_tunnel.exit
 
 dissect_amqp_0_9_content_header_tunnel.exit:      ; preds = %668, %667, %277, %277, %277, %262, %262, %262, %262, %262, %262, %239, %210, %210, %175, %175, %148, %148, %129, %129, %129, %129, %84, %84, %84, %84, %58, %58, %get_conversation_channel.exit539, %696, %698, %dissect_amqp_0_9_content_header_basic.exit, %dissect_amqp_0_9_content_header_file.exit, %dissect_amqp_0_9_content_header_stream.exit, %671, %328, %82, %81, %80, %79, %78, %77, %76, %75, %74, %73, %72, %71, %107, %106, %105, %102, %99, %98, %97, %126, %121, %118, %146, %145, %144, %143, %142, %173, %170, %169, %166, %165, %164, %163, %162, %161, %208, %207, %204, %201, %200, %199, %198, %197, %196, %195, %194, %193, %192, %191, %190, %189, %188, %237, %236, %235, %234, %233, %232, %229, %228, %227, %226, %225, %224, %223, %260, %259, %258, %257, %256, %255, %254, %253, %252, %275, %291, %290, %305, %302, %325, %322, %317, %706, %703
-  %709 = getelementptr inbounds i8, ptr %1, i64 8
+  %709 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %710 = load ptr, ptr %709, align 8
   call void @col_set_fence(ptr noundef %710, i32 noundef 25) #12
   %711 = call i32 @tvb_reported_length(ptr noundef %0) #12
@@ -4635,10 +4635,10 @@ define internal fastcc void @dissect_amqp_0_9_method_connection_tune_ok(ptr noun
 define internal fastcc void @dissect_amqp_0_9_method_connection_open(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = load i32, ptr @hf_amqp_method_connection_open_virtual_host, align 4
-  %6 = getelementptr inbounds i8, ptr %1, i64 408
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %7 = load ptr, ptr %6, align 8
   %8 = call ptr @proto_tree_add_item_ret_string(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 11, i32 noundef 1, i32 noundef 0, ptr noundef %7, ptr noundef nonnull %4) #12
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %4, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.1421, ptr noundef %11) #12
@@ -4699,10 +4699,10 @@ define internal fastcc void @dissect_amqp_0_9_method_connection_close(ptr nounde
 
 11:                                               ; preds = %9, %3
   %12 = load i32, ptr @hf_amqp_method_connection_close_reply_text, align 4
-  %13 = getelementptr inbounds i8, ptr %1, i64 408
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @proto_tree_add_item_ret_string(ptr noundef %2, i32 noundef %12, ptr noundef %0, i32 noundef 13, i32 noundef 1, i32 noundef 0, ptr noundef %14, ptr noundef nonnull %4) #12
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr %4, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.1422, ptr noundef %18) #12
@@ -4765,10 +4765,10 @@ define internal fastcc void @dissect_amqp_0_9_method_channel_close(i16 noundef z
   %13 = load i32, ptr @hf_amqp_method_channel_close_reply_text, align 4
   %14 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 13) #12
   %15 = zext i8 %14 to i32
-  %16 = getelementptr inbounds i8, ptr %2, i64 408
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @proto_tree_add_item_ret_string(ptr noundef %3, i32 noundef %13, ptr noundef %1, i32 noundef 14, i32 noundef %15, i32 noundef 0, ptr noundef %17, ptr noundef nonnull %5) #12
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = load ptr, ptr %5, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.1422, ptr noundef %21) #12
@@ -4780,9 +4780,9 @@ define internal fastcc void @dissect_amqp_0_9_method_channel_close(i16 noundef z
   %27 = add nuw nsw i32 %23, 16
   %28 = load i32, ptr @hf_amqp_method_channel_close_method_id, align 4
   %29 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %28, ptr noundef %1, i32 noundef %27, i32 noundef 2, i32 noundef 0) #12
-  %30 = getelementptr inbounds i8, ptr %2, i64 80
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 50
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 50
   %33 = load i16, ptr %32, align 2
   %34 = and i16 %33, 8
   %.not = icmp eq i16 %34, 0
@@ -4796,7 +4796,7 @@ define internal fastcc void @dissect_amqp_0_9_method_channel_close(i16 noundef z
   br i1 %.not32, label %45, label %39
 
 39:                                               ; preds = %35
-  %40 = getelementptr inbounds i8, ptr %38, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %41 = load ptr, ptr %40, align 8
   %42 = zext i16 %0 to i64
   %43 = inttoptr i64 %42 to ptr
@@ -4846,10 +4846,10 @@ define internal fastcc void @dissect_amqp_0_9_method_exchange_declare(ptr nounde
   %7 = load i32, ptr @hf_amqp_method_exchange_declare_exchange, align 4
   %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 13) #12
   %9 = zext i8 %8 to i32
-  %10 = getelementptr inbounds i8, ptr %1, i64 408
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %11 = load ptr, ptr %10, align 8
   %12 = call ptr @proto_tree_add_item_ret_string(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef 14, i32 noundef %9, i32 noundef 0, ptr noundef %11, ptr noundef nonnull %4) #12
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %4, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.1423, ptr noundef %15) #12
@@ -4893,10 +4893,10 @@ define internal fastcc void @dissect_amqp_0_9_method_exchange_bind(ptr noundef %
   %7 = load i32, ptr @hf_amqp_method_exchange_bind_destination, align 4
   %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 13) #12
   %9 = zext i8 %8 to i32
-  %10 = getelementptr inbounds i8, ptr %1, i64 408
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %11 = load ptr, ptr %10, align 8
   %12 = call ptr @proto_tree_add_item_ret_string(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef 14, i32 noundef %9, i32 noundef 0, ptr noundef %11, ptr noundef nonnull %4) #12
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %4, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.1424, ptr noundef %15) #12
@@ -4948,10 +4948,10 @@ define internal fastcc void @dissect_amqp_0_9_method_exchange_delete(ptr noundef
   %7 = load i32, ptr @hf_amqp_method_exchange_delete_exchange, align 4
   %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 13) #12
   %9 = zext i8 %8 to i32
-  %10 = getelementptr inbounds i8, ptr %1, i64 408
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %11 = load ptr, ptr %10, align 8
   %12 = call ptr @proto_tree_add_item_ret_string(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef 14, i32 noundef %9, i32 noundef 0, ptr noundef %11, ptr noundef nonnull %4) #12
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %4, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.1423, ptr noundef %15) #12
@@ -4973,10 +4973,10 @@ define internal fastcc void @dissect_amqp_0_9_method_queue_declare(ptr noundef %
   %7 = load i32, ptr @hf_amqp_method_queue_declare_queue, align 4
   %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 13) #12
   %9 = zext i8 %8 to i32
-  %10 = getelementptr inbounds i8, ptr %1, i64 408
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %11 = load ptr, ptr %10, align 8
   %12 = call ptr @proto_tree_add_item_ret_string(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef 14, i32 noundef %9, i32 noundef 0, ptr noundef %11, ptr noundef nonnull %4) #12
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %4, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.1427, ptr noundef %15) #12
@@ -5010,10 +5010,10 @@ define internal fastcc void @dissect_amqp_0_9_method_queue_declare_ok(ptr nounde
   %5 = load i32, ptr @hf_amqp_method_queue_declare_ok_queue, align 4
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 11) #12
   %7 = zext i8 %6 to i32
-  %8 = getelementptr inbounds i8, ptr %1, i64 408
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %9 = load ptr, ptr %8, align 8
   %10 = call ptr @proto_tree_add_item_ret_string(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 12, i32 noundef %7, i32 noundef 0, ptr noundef %9, ptr noundef nonnull %4) #12
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr %4, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %12, i32 noundef 25, ptr noundef nonnull @.str.1427, ptr noundef %13) #12
@@ -5036,10 +5036,10 @@ define internal fastcc void @dissect_amqp_0_9_method_queue_bind(ptr noundef %0, 
   %7 = load i32, ptr @hf_amqp_method_queue_bind_queue, align 4
   %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 13) #12
   %9 = zext i8 %8 to i32
-  %10 = getelementptr inbounds i8, ptr %1, i64 408
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %11 = load ptr, ptr %10, align 8
   %12 = call ptr @proto_tree_add_item_ret_string(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef 14, i32 noundef %9, i32 noundef 0, ptr noundef %11, ptr noundef nonnull %4) #12
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %4, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.1427, ptr noundef %15) #12
@@ -5091,10 +5091,10 @@ define internal fastcc void @dissect_amqp_0_9_method_queue_unbind(ptr noundef %0
   %7 = load i32, ptr @hf_amqp_method_queue_unbind_queue, align 4
   %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 13) #12
   %9 = zext i8 %8 to i32
-  %10 = getelementptr inbounds i8, ptr %1, i64 408
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %11 = load ptr, ptr %10, align 8
   %12 = call ptr @proto_tree_add_item_ret_string(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef 14, i32 noundef %9, i32 noundef 0, ptr noundef %11, ptr noundef nonnull %4) #12
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %4, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.1427, ptr noundef %15) #12
@@ -5143,10 +5143,10 @@ define internal fastcc void @dissect_amqp_0_9_method_queue_purge(ptr noundef %0,
   %7 = load i32, ptr @hf_amqp_method_queue_purge_queue, align 4
   %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 13) #12
   %9 = zext i8 %8 to i32
-  %10 = getelementptr inbounds i8, ptr %1, i64 408
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %11 = load ptr, ptr %10, align 8
   %12 = call ptr @proto_tree_add_item_ret_string(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef 14, i32 noundef %9, i32 noundef 0, ptr noundef %11, ptr noundef nonnull %4) #12
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %4, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.1427, ptr noundef %15) #12
@@ -5166,10 +5166,10 @@ define internal fastcc void @dissect_amqp_0_9_method_queue_delete(ptr noundef %0
   %7 = load i32, ptr @hf_amqp_method_queue_delete_queue, align 4
   %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 13) #12
   %9 = zext i8 %8 to i32
-  %10 = getelementptr inbounds i8, ptr %1, i64 408
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %11 = load ptr, ptr %10, align 8
   %12 = call ptr @proto_tree_add_item_ret_string(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef 14, i32 noundef %9, i32 noundef 0, ptr noundef %11, ptr noundef nonnull %4) #12
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %4, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.1427, ptr noundef %15) #12
@@ -5204,10 +5204,10 @@ define internal fastcc void @dissect_amqp_0_9_method_basic_consume(ptr noundef %
   %7 = load i32, ptr @hf_amqp_method_basic_consume_queue, align 4
   %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 13) #12
   %9 = zext i8 %8 to i32
-  %10 = getelementptr inbounds i8, ptr %1, i64 408
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %11 = load ptr, ptr %10, align 8
   %12 = call ptr @proto_tree_add_item_ret_string(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef 14, i32 noundef %9, i32 noundef 0, ptr noundef %11, ptr noundef nonnull %4) #12
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %4, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.1427, ptr noundef %15) #12
@@ -5278,9 +5278,9 @@ define internal fastcc void @dissect_amqp_0_9_method_basic_cancel_ok(ptr noundef
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @dissect_amqp_0_9_method_basic_publish(i16 noundef zeroext %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 80
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 50
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 50
   %9 = load i16, ptr %8, align 2
   %10 = and i16 %9, 8
   %.not = icmp eq i16 %10, 0
@@ -5294,7 +5294,7 @@ define internal fastcc void @dissect_amqp_0_9_method_basic_publish(i16 noundef z
   br i1 %.not.i, label %get_conversation_channel.exit, label %15
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %14, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = zext i16 %0 to i64
   %19 = inttoptr i64 %18 to ptr
@@ -5306,7 +5306,7 @@ define internal fastcc void @dissect_amqp_0_9_method_basic_publish(i16 noundef z
   %23 = tail call ptr @wmem_file_scope() #12
   %24 = tail call noalias ptr @wmem_alloc0(ptr noundef %23, i64 noundef 48) #12
   store ptr %14, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 12
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 12
   store i16 %0, ptr %25, align 4
   %26 = load ptr, ptr %16, align 8
   %27 = tail call ptr @wmem_map_insert(ptr noundef %26, ptr noundef %19, ptr noundef nonnull %24) #12
@@ -5314,28 +5314,28 @@ define internal fastcc void @dissect_amqp_0_9_method_basic_publish(i16 noundef z
 
 get_conversation_channel.exit:                    ; preds = %11, %15, %22
   %.013.i = phi ptr [ null, %11 ], [ %24, %22 ], [ %20, %15 ]
-  %28 = getelementptr inbounds i8, ptr %.013.i, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %.013.i, i64 16
   %29 = load i64, ptr %28, align 8
   %30 = add i64 %29, 1
   store i64 %30, ptr %28, align 8
   %31 = tail call ptr @get_tcp_conversation_data(ptr noundef nonnull %12, ptr noundef nonnull %2) #12
-  %32 = getelementptr inbounds i8, ptr %31, i64 208
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 208
   %33 = load ptr, ptr %32, align 8
   %34 = icmp eq ptr %33, %31
   %.v.i = select i1 %34, i64 24, i64 32
-  %35 = getelementptr inbounds i8, ptr %.013.i, i64 %.v.i
+  %35 = getelementptr inbounds nuw i8, ptr %.013.i, i64 %.v.i
   %36 = tail call ptr @wmem_file_scope() #12
   %37 = tail call noalias ptr @wmem_alloc0(ptr noundef %36, i64 noundef 24) #12
   store i64 %30, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %2, i64 20
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %39 = load i32, ptr %38, align 4
-  %40 = getelementptr inbounds i8, ptr %37, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store i32 %39, ptr %40, align 8
   %41 = load ptr, ptr %35, align 8
-  %42 = getelementptr inbounds i8, ptr %37, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %37, i64 16
   store ptr %41, ptr %42, align 8
   store ptr %37, ptr %35, align 8
-  %43 = getelementptr inbounds i8, ptr %2, i64 408
+  %43 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %44 = load ptr, ptr %43, align 8
   %45 = load i32, ptr @proto_amqp, align 4
   %46 = tail call i32 @tvb_raw_offset(ptr noundef %1) #12
@@ -5343,7 +5343,7 @@ get_conversation_channel.exit:                    ; preds = %11, %15, %22
   br label %47
 
 47:                                               ; preds = %get_conversation_channel.exit, %4
-  %48 = getelementptr inbounds i8, ptr %2, i64 408
+  %48 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %49 = load ptr, ptr %48, align 8
   %50 = load i32, ptr @proto_amqp, align 4
   %51 = tail call i32 @tvb_raw_offset(ptr noundef %1) #12
@@ -5359,13 +5359,13 @@ get_conversation_channel.exit:                    ; preds = %11, %15, %22
   br i1 %.not.i49, label %proto_item_set_generated.exit, label %57
 
 57:                                               ; preds = %53
-  %58 = getelementptr inbounds i8, ptr %56, i64 32
+  %58 = getelementptr inbounds nuw i8, ptr %56, i64 32
   %59 = load ptr, ptr %58, align 8
   %.not5.i = icmp eq ptr %59, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %60
 
 60:                                               ; preds = %57
-  %61 = getelementptr inbounds i8, ptr %59, i64 28
+  %61 = getelementptr inbounds nuw i8, ptr %59, i64 28
   %62 = load i32, ptr %61, align 4
   %63 = or i32 %62, 2
   store i32 %63, ptr %61, align 4
@@ -5379,7 +5379,7 @@ proto_item_set_generated.exit:                    ; preds = %60, %57, %53, %47
   %68 = zext i8 %67 to i32
   %69 = load ptr, ptr %48, align 8
   %70 = call ptr @proto_tree_add_item_ret_string(ptr noundef %3, i32 noundef %66, ptr noundef %1, i32 noundef 14, i32 noundef %68, i32 noundef 0, ptr noundef %69, ptr noundef nonnull %5) #12
-  %71 = getelementptr inbounds i8, ptr %2, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %72 = load ptr, ptr %71, align 8
   %73 = load ptr, ptr %5, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %72, i32 noundef 25, ptr noundef nonnull @.str.1423, ptr noundef %73) #12
@@ -5407,7 +5407,7 @@ proto_item_set_generated.exit:                    ; preds = %60, %57, %53, %47
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @generate_ack_reference(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 408
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %5 = load ptr, ptr %4, align 8
   %6 = load i32, ptr @proto_amqp, align 4
   %7 = tail call i32 @tvb_raw_offset(ptr noundef %0) #12
@@ -5416,7 +5416,7 @@ define internal fastcc void @generate_ack_reference(ptr noundef %0, ptr noundef 
   br i1 %.not, label %proto_item_set_generated.exit, label %9
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %8, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 12
   %11 = load i32, ptr %10, align 4
   %.not10 = icmp eq i32 %11, 0
   br i1 %.not10, label %proto_item_set_generated.exit, label %12
@@ -5428,13 +5428,13 @@ define internal fastcc void @generate_ack_reference(ptr noundef %0, ptr noundef 
   br i1 %.not.i, label %proto_item_set_generated.exit, label %15
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %14, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %17 = load ptr, ptr %16, align 8
   %.not5.i = icmp eq ptr %17, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %18
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %17, i64 28
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 28
   %20 = load i32, ptr %19, align 4
   %21 = or i32 %20, 2
   store i32 %21, ptr %19, align 4
@@ -5502,10 +5502,10 @@ define internal fastcc void @dissect_amqp_0_9_method_basic_deliver(i16 noundef z
   %21 = add nuw nsw i32 %11, 22
   %22 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %19) #12
   %23 = zext i8 %22 to i32
-  %24 = getelementptr inbounds i8, ptr %2, i64 408
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %25 = load ptr, ptr %24, align 8
   %26 = call ptr @proto_tree_add_item_ret_string(ptr noundef %3, i32 noundef %20, ptr noundef %1, i32 noundef %21, i32 noundef %23, i32 noundef 0, ptr noundef %25, ptr noundef nonnull %5) #12
-  %27 = getelementptr inbounds i8, ptr %2, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %28 = load ptr, ptr %27, align 8
   %29 = load ptr, ptr %5, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %28, i32 noundef 25, ptr noundef nonnull @.str.1423, ptr noundef %29) #12
@@ -5522,9 +5522,9 @@ define internal fastcc void @dissect_amqp_0_9_method_basic_deliver(i16 noundef z
   %40 = load ptr, ptr %5, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %39, i32 noundef 25, ptr noundef nonnull @.str.1428, ptr noundef %40) #12
   %41 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %32) #12
-  %42 = getelementptr inbounds i8, ptr %2, i64 80
+  %42 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 50
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 50
   %45 = load i16, ptr %44, align 2
   %46 = and i16 %45, 8
   %.not = icmp eq i16 %46, 0
@@ -5546,10 +5546,10 @@ define internal fastcc void @dissect_amqp_0_9_method_basic_get(ptr noundef %0, p
   %7 = load i32, ptr @hf_amqp_method_basic_get_queue, align 4
   %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 13) #12
   %9 = zext i8 %8 to i32
-  %10 = getelementptr inbounds i8, ptr %1, i64 408
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %11 = load ptr, ptr %10, align 8
   %12 = call ptr @proto_tree_add_item_ret_string(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef 14, i32 noundef %9, i32 noundef 0, ptr noundef %11, ptr noundef nonnull %4) #12
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %4, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.1427, ptr noundef %15) #12
@@ -5572,10 +5572,10 @@ define internal fastcc void @dissect_amqp_0_9_method_basic_get_ok(i16 noundef ze
   %11 = load i32, ptr @hf_amqp_method_basic_get_ok_exchange, align 4
   %12 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 20) #12
   %13 = zext i8 %12 to i32
-  %14 = getelementptr inbounds i8, ptr %2, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = call ptr @proto_tree_add_item_ret_string(ptr noundef %3, i32 noundef %11, ptr noundef %1, i32 noundef 21, i32 noundef %13, i32 noundef 0, ptr noundef %15, ptr noundef nonnull %5) #12
-  %17 = getelementptr inbounds i8, ptr %2, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %18 = load ptr, ptr %17, align 8
   %19 = load ptr, ptr %5, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %18, i32 noundef 25, ptr noundef nonnull @.str.1423, ptr noundef %19) #12
@@ -5596,9 +5596,9 @@ define internal fastcc void @dissect_amqp_0_9_method_basic_get_ok(i16 noundef ze
   %33 = add nuw nsw i32 %24, %32
   %34 = load i32, ptr @hf_amqp_method_basic_get_ok_message_count, align 4
   %35 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %34, ptr noundef %1, i32 noundef %33, i32 noundef 4, i32 noundef 0) #12
-  %36 = getelementptr inbounds i8, ptr %2, i64 80
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 50
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 50
   %39 = load i16, ptr %38, align 2
   %40 = and i16 %39, 8
   %.not = icmp eq i16 %40, 0
@@ -5630,9 +5630,9 @@ define internal fastcc void @dissect_amqp_0_9_method_basic_ack(i16 noundef zeroe
   %8 = load i32, ptr @hf_amqp_method_basic_ack_multiple, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %8, ptr noundef %1, i32 noundef 19, i32 noundef 1, i32 noundef 0) #12
   %10 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 19) #12
-  %11 = getelementptr inbounds i8, ptr %2, i64 80
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 50
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 50
   %14 = load i16, ptr %13, align 2
   %15 = and i16 %14, 8
   %.not = icmp eq i16 %15, 0
@@ -5650,7 +5650,7 @@ define internal fastcc void @dissect_amqp_0_9_method_basic_ack(i16 noundef zeroe
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @generate_msg_reference(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 408
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %5 = load ptr, ptr %4, align 8
   %6 = load i32, ptr @proto_amqp, align 4
   %7 = tail call i32 @tvb_raw_offset(ptr noundef %0) #12
@@ -5660,7 +5660,7 @@ define internal fastcc void @generate_msg_reference(ptr noundef %0, ptr noundef 
 
 .lr.ph:                                           ; preds = %3, %proto_item_set_generated.exit
   %.013 = phi ptr [ %22, %proto_item_set_generated.exit ], [ %8, %3 ]
-  %9 = getelementptr inbounds i8, ptr %.013, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %.013, i64 8
   %10 = load i32, ptr %9, align 8
   %.not11 = icmp eq i32 %10, 0
   br i1 %.not11, label %proto_item_set_generated.exit, label %11
@@ -5672,20 +5672,20 @@ define internal fastcc void @generate_msg_reference(ptr noundef %0, ptr noundef 
   br i1 %.not.i, label %proto_item_set_generated.exit, label %14
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %13, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %16 = load ptr, ptr %15, align 8
   %.not5.i = icmp eq ptr %16, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %17
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %16, i64 28
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 28
   %19 = load i32, ptr %18, align 4
   %20 = or i32 %19, 2
   store i32 %20, ptr %18, align 4
   br label %proto_item_set_generated.exit
 
 proto_item_set_generated.exit:                    ; preds = %17, %14, %11, %.lr.ph
-  %21 = getelementptr inbounds i8, ptr %.013, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %.013, i64 16
   %22 = load ptr, ptr %21, align 8
   %.not = icmp eq ptr %22, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
@@ -5701,9 +5701,9 @@ define internal fastcc void @dissect_amqp_0_9_method_basic_reject(i16 noundef ze
   %7 = tail call i64 @tvb_get_ntoh64(ptr noundef %1, i32 noundef 11) #12
   %8 = load i32, ptr @hf_amqp_method_basic_reject_requeue, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %8, ptr noundef %1, i32 noundef 19, i32 noundef 1, i32 noundef 0) #12
-  %10 = getelementptr inbounds i8, ptr %2, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 50
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 50
   %13 = load i16, ptr %12, align 2
   %14 = and i16 %13, 8
   %.not = icmp eq i16 %14, 0
@@ -5727,9 +5727,9 @@ define internal fastcc void @dissect_amqp_0_9_method_basic_nack(i16 noundef zero
   %10 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 19) #12
   %11 = load i32, ptr @hf_amqp_method_basic_nack_requeue, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %11, ptr noundef %1, i32 noundef 19, i32 noundef 1, i32 noundef 0) #12
-  %13 = getelementptr inbounds i8, ptr %2, i64 80
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 50
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 50
   %16 = load i16, ptr %15, align 2
   %17 = and i16 %16, 8
   %.not = icmp eq i16 %17, 0
@@ -6150,9 +6150,9 @@ define internal fastcc void @dissect_amqp_0_9_method_tunnel_request(ptr noundef 
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @dissect_amqp_0_9_method_confirm_select_ok(i16 noundef zeroext %0, ptr noundef %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 80
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 50
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 50
   %6 = load i16, ptr %5, align 2
   %7 = and i16 %6, 8
   %.not = icmp eq i16 %7, 0
@@ -6164,7 +6164,7 @@ define internal fastcc void @dissect_amqp_0_9_method_confirm_select_ok(i16 nound
   %11 = tail call ptr @conversation_get_proto_data(ptr noundef nonnull %9, i32 noundef %10) #12
   %.not.i = icmp ne ptr %11, null
   tail call void @llvm.assume(i1 %.not.i)
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = zext i16 %0 to i64
   %15 = inttoptr i64 %14 to ptr
@@ -6176,7 +6176,7 @@ define internal fastcc void @dissect_amqp_0_9_method_confirm_select_ok(i16 nound
   %19 = tail call ptr @wmem_file_scope() #12
   %20 = tail call noalias ptr @wmem_alloc0(ptr noundef %19, i64 noundef 48) #12
   store ptr %11, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 12
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 12
   store i16 %0, ptr %21, align 4
   %22 = load ptr, ptr %12, align 8
   %23 = tail call ptr @wmem_map_insert(ptr noundef %22, ptr noundef %15, ptr noundef nonnull %20) #12
@@ -6184,7 +6184,7 @@ define internal fastcc void @dissect_amqp_0_9_method_confirm_select_ok(i16 nound
 
 get_conversation_channel.exit:                    ; preds = %8, %18
   %.013.i = phi ptr [ %20, %18 ], [ %16, %8 ]
-  %24 = getelementptr inbounds i8, ptr %.013.i, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %.013.i, i64 8
   store i32 1, ptr %24, align 8
   br label %25
 
@@ -6205,7 +6205,7 @@ define internal fastcc void @dissect_amqp_0_9_field_table(ptr noundef %0, ptr no
   br i1 %.not45, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %1, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %10
 
 10:                                               ; preds = %.lr.ph, %29
@@ -6491,7 +6491,7 @@ define internal fastcc noundef i32 @dissect_amqp_0_9_field_value(ptr noundef %0,
   br i1 %.not, label %134, label %130
 
 130:                                              ; preds = %129
-  %131 = getelementptr inbounds i8, ptr %1, i64 408
+  %131 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %132 = load ptr, ptr %131, align 8
   %133 = call ptr @proto_item_get_display_repr(ptr noundef %132, ptr noundef nonnull %.0123) #12
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %11, ptr noundef nonnull @.str.1419, ptr noundef %133) #12
@@ -6532,7 +6532,7 @@ define internal fastcc void @dissect_amqp_0_9_field_array(ptr noundef %0, ptr no
   br i1 %.not2, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %1, i64 408
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %8
 
 8:                                                ; preds = %.lr.ph, %17
@@ -6601,7 +6601,7 @@ define internal fastcc void @record_msg_delivery(ptr noundef %0, ptr noundef %1,
   br i1 %.not.i, label %get_conversation_channel.exit, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %7, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = zext i16 %2 to i64
   %12 = inttoptr i64 %11 to ptr
@@ -6613,7 +6613,7 @@ define internal fastcc void @record_msg_delivery(ptr noundef %0, ptr noundef %1,
   %16 = tail call ptr @wmem_file_scope() #12
   %17 = tail call noalias ptr @wmem_alloc0(ptr noundef %16, i64 noundef 48) #12
   store ptr %7, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 12
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 12
   store i16 %2, ptr %18, align 4
   %19 = load ptr, ptr %9, align 8
   %20 = tail call ptr @wmem_map_insert(ptr noundef %19, ptr noundef %12, ptr noundef nonnull %17) #12
@@ -6622,23 +6622,23 @@ define internal fastcc void @record_msg_delivery(ptr noundef %0, ptr noundef %1,
 get_conversation_channel.exit:                    ; preds = %4, %8, %15
   %.013.i = phi ptr [ null, %4 ], [ %17, %15 ], [ %13, %8 ]
   %21 = tail call ptr @get_tcp_conversation_data(ptr noundef nonnull %5, ptr noundef %1) #12
-  %22 = getelementptr inbounds i8, ptr %21, i64 208
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 208
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, %21
   %.v.i = select i1 %24, i64 24, i64 32
-  %25 = getelementptr inbounds i8, ptr %.013.i, i64 %.v.i
+  %25 = getelementptr inbounds nuw i8, ptr %.013.i, i64 %.v.i
   %26 = tail call ptr @wmem_file_scope() #12
   %27 = tail call noalias ptr @wmem_alloc0(ptr noundef %26, i64 noundef 24) #12
   store i64 %3, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %1, i64 20
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %29 = load i32, ptr %28, align 4
-  %30 = getelementptr inbounds i8, ptr %27, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store i32 %29, ptr %30, align 8
   %31 = load ptr, ptr %25, align 8
-  %32 = getelementptr inbounds i8, ptr %27, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %27, i64 16
   store ptr %31, ptr %32, align 8
   store ptr %27, ptr %25, align 8
-  %33 = getelementptr inbounds i8, ptr %1, i64 408
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %34 = load ptr, ptr %33, align 8
   %35 = load i32, ptr @proto_amqp, align 4
   %36 = tail call i32 @tvb_raw_offset(ptr noundef %0) #12
@@ -6655,7 +6655,7 @@ define internal fastcc void @record_delivery_ack(ptr noundef %0, ptr noundef %1,
   br i1 %.not.i, label %get_conversation_channel.exit, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %8, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = zext i16 %2 to i64
   %13 = inttoptr i64 %12 to ptr
@@ -6667,7 +6667,7 @@ define internal fastcc void @record_delivery_ack(ptr noundef %0, ptr noundef %1,
   %17 = tail call ptr @wmem_file_scope() #12
   %18 = tail call noalias ptr @wmem_alloc0(ptr noundef %17, i64 noundef 48) #12
   store ptr %8, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 12
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 12
   store i16 %2, ptr %19, align 4
   %20 = load ptr, ptr %10, align 8
   %21 = tail call ptr @wmem_map_insert(ptr noundef %20, ptr noundef %13, ptr noundef nonnull %18) #12
@@ -6676,17 +6676,17 @@ define internal fastcc void @record_delivery_ack(ptr noundef %0, ptr noundef %1,
 get_conversation_channel.exit:                    ; preds = %5, %9, %16
   %.013.i = phi ptr [ null, %5 ], [ %18, %16 ], [ %14, %9 ]
   %22 = tail call ptr @get_tcp_conversation_data(ptr noundef nonnull %6, ptr noundef %1) #12
-  %23 = getelementptr inbounds i8, ptr %22, i64 216
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 216
   %24 = load ptr, ptr %23, align 8
   %25 = icmp eq ptr %24, %22
   %.v.i = select i1 %25, i64 24, i64 32
-  %26 = getelementptr inbounds i8, ptr %.013.i, i64 %.v.i
+  %26 = getelementptr inbounds nuw i8, ptr %.013.i, i64 %.v.i
   %27 = load ptr, ptr %26, align 8
   %.not28.i = icmp eq ptr %27, null
   br i1 %.not28.i, label %record_delivery_ack_c.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %get_conversation_channel.exit
-  %28 = getelementptr inbounds i8, ptr %1, i64 20
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %.not26.i = icmp eq i32 %4, 0
   br i1 %.not26.i, label %.lr.ph.split.us.i, label %.lr.ph.split.i.preheader
 
@@ -6701,7 +6701,7 @@ get_conversation_channel.exit:                    ; preds = %5, %9, %16
   %.02329.us.i = phi ptr [ %.2.us.i, %.critedge.us.i ], [ null, %.lr.ph.i ]
   %32 = load i64, ptr %31, align 8
   %33 = icmp eq i64 %32, %3
-  %34 = getelementptr inbounds i8, ptr %31, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %31, i64 16
   br i1 %33, label %.preheader.us.i, label %.critedge.us.i
 
 .critedge.us.i:                                   ; preds = %.preheader.us.i, %.lr.ph.split.us.i
@@ -6715,7 +6715,7 @@ get_conversation_channel.exit:                    ; preds = %5, %9, %16
   %36 = load ptr, ptr %34, align 8
   store ptr %36, ptr %.030.us.i, align 8
   %37 = load i32, ptr %28, align 4
-  %38 = getelementptr inbounds i8, ptr %31, i64 12
+  %38 = getelementptr inbounds nuw i8, ptr %31, i64 12
   store i32 %37, ptr %38, align 4
   store ptr %.02329.us.i, ptr %34, align 8
   br label %.critedge.us.i
@@ -6726,7 +6726,7 @@ get_conversation_channel.exit:                    ; preds = %5, %9, %16
   br i1 %40, label %.preheader.i.preheader.loopexit, label %.critedge.i, !llvm.loop !10
 
 .preheader.i.preheader.loopexit:                  ; preds = %.lr.ph.split.i
-  %41 = getelementptr inbounds i8, ptr %48, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %48, i64 16
   br label %.preheader.i.preheader
 
 .preheader.i.preheader:                           ; preds = %.preheader.i.preheader.loopexit, %.lr.ph.split.i.preheader
@@ -6737,11 +6737,11 @@ get_conversation_channel.exit:                    ; preds = %5, %9, %16
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %.preheader.i
   %42 = phi ptr [ %47, %.preheader.i ], [ %.lcssa12, %.preheader.i.preheader ]
   %.124.i = phi ptr [ %42, %.preheader.i ], [ null, %.preheader.i.preheader ]
-  %43 = getelementptr inbounds i8, ptr %42, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %44 = load ptr, ptr %43, align 8
   store ptr %44, ptr %.030.i.lcssa, align 8
   %45 = load i32, ptr %28, align 4
-  %46 = getelementptr inbounds i8, ptr %42, i64 12
+  %46 = getelementptr inbounds nuw i8, ptr %42, i64 12
   store i32 %45, ptr %46, align 4
   store ptr %.124.i, ptr %43, align 8
   %47 = load ptr, ptr %.030.i.lcssa, align 8
@@ -6750,14 +6750,14 @@ get_conversation_channel.exit:                    ; preds = %5, %9, %16
 
 .critedge.i:                                      ; preds = %.lr.ph.split.i.preheader, %.lr.ph.split.i
   %48 = phi ptr [ %.pre.i, %.lr.ph.split.i ], [ %27, %.lr.ph.split.i.preheader ]
-  %49 = getelementptr inbounds i8, ptr %48, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %.pre.i = load ptr, ptr %49, align 8
   %.not.i8 = icmp eq ptr %.pre.i, null
   br i1 %.not.i8, label %record_delivery_ack_c.exit, label %.lr.ph.split.i, !llvm.loop !10
 
 record_delivery_ack_c.exit:                       ; preds = %.critedge.i, %.preheader.i, %.critedge.us.i, %get_conversation_channel.exit
   %.023.lcssa.i = phi ptr [ null, %get_conversation_channel.exit ], [ %.2.us.i, %.critedge.us.i ], [ %42, %.preheader.i ], [ null, %.critedge.i ]
-  %50 = getelementptr inbounds i8, ptr %1, i64 408
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %51 = load ptr, ptr %50, align 8
   %52 = load i32, ptr @proto_amqp, align 4
   %53 = tail call i32 @tvb_raw_offset(ptr noundef %0) #12
@@ -6818,7 +6818,7 @@ define internal i32 @dissect_amqp_0_10_frame(ptr noundef %0, ptr noundef %1, ptr
 24:                                               ; preds = %4
   %25 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 6) #12
   %26 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 7) #12
-  %27 = getelementptr inbounds i8, ptr %1, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %28 = load ptr, ptr %27, align 8
   %29 = zext i8 %25 to i32
   %30 = zext i8 %26 to i32
@@ -6903,7 +6903,7 @@ define internal i32 @dissect_amqp_0_10_frame(ptr noundef %0, ptr noundef %1, ptr
   %76 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %70, i32 noundef 1) #12
   %77 = zext i8 %76 to i32
   %78 = tail call ptr @val_to_str_const(i32 noundef %77, ptr noundef nonnull @amqp_0_10_connection_methods, ptr noundef nonnull @.str.1435) #12
-  %79 = getelementptr inbounds i8, ptr %1, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %80 = load ptr, ptr %79, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %80, i32 noundef 25, ptr noundef nonnull @.str.1436, ptr noundef %78) #12
   %81 = load ptr, ptr %79, align 8
@@ -7447,7 +7447,7 @@ amqp_0_10_get_32bit_size_new.exit324.i:           ; preds = %331, %326
   %354 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %70, i32 noundef 1) #12
   %355 = zext i8 %354 to i32
   %356 = tail call ptr @val_to_str_const(i32 noundef %355, ptr noundef nonnull @amqp_0_10_session_methods, ptr noundef nonnull @.str.1468) #12
-  %357 = getelementptr inbounds i8, ptr %1, i64 8
+  %357 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %358 = load ptr, ptr %357, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %358, i32 noundef 25, ptr noundef nonnull @.str.1436, ptr noundef %356) #12
   %359 = load ptr, ptr %357, align 8
@@ -7803,7 +7803,7 @@ dissect_amqp_0_10_session.exit:                   ; preds = %353, %383, %389, %.
   %547 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %70, i32 noundef 1) #12
   %548 = zext i8 %547 to i32
   %549 = tail call ptr @val_to_str_const(i32 noundef %548, ptr noundef nonnull @amqp_0_10_execution_methods, ptr noundef nonnull @.str.1475) #12
-  %550 = getelementptr inbounds i8, ptr %1, i64 8
+  %550 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %551 = load ptr, ptr %550, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %551, i32 noundef 25, ptr noundef nonnull @.str.1436, ptr noundef %549) #12
   %552 = load ptr, ptr %550, align 8
@@ -7978,7 +7978,7 @@ amqp_0_10_get_32bit_size_new.exit.i151:           ; preds = %595, %590
 
 switch.lookup:                                    ; preds = %635
   %637 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [10 x ptr], ptr @switch.table.dissect_amqp_0_10_frame, i64 0, i64 %637
+  %switch.gep = getelementptr inbounds nuw [10 x ptr], ptr @switch.table.dissect_amqp_0_10_frame, i64 0, i64 %637
   %switch.load = load ptr, ptr %switch.gep, align 8
   %.0145.i = load i32, ptr %switch.load, align 4
   %.not154.i = icmp eq i32 %.0145.i, -1
@@ -8068,7 +8068,7 @@ amqp_0_10_get_32bit_size_new.exit161.i:           ; preds = %665, %660
   %679 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %70, i32 noundef 1) #12
   %680 = zext i8 %679 to i32
   %681 = tail call ptr @val_to_str_const(i32 noundef %680, ptr noundef nonnull @amqp_0_10_message_methods, ptr noundef nonnull @.str.1478) #12
-  %682 = getelementptr inbounds i8, ptr %1, i64 8
+  %682 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %683 = load ptr, ptr %682, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %683, i32 noundef 25, ptr noundef nonnull @.str.1436, ptr noundef %681) #12
   %684 = load ptr, ptr %682, align 8
@@ -8589,7 +8589,7 @@ amqp_0_10_get_32bit_size_new.exit161.i:           ; preds = %665, %660
   %955 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %70, i32 noundef 2) #12
   %956 = zext i8 %955 to i32
   %957 = tail call ptr @val_to_str_const(i32 noundef %956, ptr noundef nonnull @amqp_0_10_tx_methods, ptr noundef nonnull @.str.1479) #12
-  %958 = getelementptr inbounds i8, ptr %1, i64 8
+  %958 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %959 = load ptr, ptr %958, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %959, i32 noundef 25, ptr noundef nonnull @.str.1436, ptr noundef %957) #12
   %960 = load ptr, ptr %958, align 8
@@ -8618,7 +8618,7 @@ amqp_0_10_get_32bit_size_new.exit161.i:           ; preds = %665, %660
   %972 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %70, i32 noundef 1) #12
   %973 = zext i8 %972 to i32
   %974 = tail call ptr @val_to_str_const(i32 noundef %973, ptr noundef nonnull @amqp_0_10_dtx_methods, ptr noundef nonnull @.str.1480) #12
-  %975 = getelementptr inbounds i8, ptr %1, i64 8
+  %975 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %976 = load ptr, ptr %975, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %976, i32 noundef 25, ptr noundef nonnull @.str.1436, ptr noundef %974) #12
   %977 = load ptr, ptr %975, align 8
@@ -8825,7 +8825,7 @@ amqp_0_10_get_32bit_size_new.exit161.i:           ; preds = %665, %660
   %1084 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %70, i32 noundef 1) #12
   %1085 = zext i8 %1084 to i32
   %1086 = tail call ptr @val_to_str_const(i32 noundef %1085, ptr noundef nonnull @amqp_0_10_exchange_methods, ptr noundef nonnull @.str.1481) #12
-  %1087 = getelementptr inbounds i8, ptr %1, i64 8
+  %1087 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %1088 = load ptr, ptr %1087, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %1088, i32 noundef 25, ptr noundef nonnull @.str.1436, ptr noundef %1086) #12
   %1089 = load ptr, ptr %1087, align 8
@@ -9258,7 +9258,7 @@ amqp_0_10_get_32bit_size_new.exit265.i:           ; preds = %1309, %1304
   %1323 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %70, i32 noundef 1) #12
   %1324 = zext i8 %1323 to i32
   %1325 = tail call ptr @val_to_str_const(i32 noundef %1324, ptr noundef nonnull @amqp_0_10_queue_methods, ptr noundef nonnull @.str.1482) #12
-  %1326 = getelementptr inbounds i8, ptr %1, i64 8
+  %1326 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %1327 = load ptr, ptr %1326, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %1327, i32 noundef 25, ptr noundef nonnull @.str.1436, ptr noundef %1325) #12
   %1328 = load ptr, ptr %1326, align 8
@@ -9458,7 +9458,7 @@ amqp_0_10_get_32bit_size_new.exit.i238:           ; preds = %1386, %1381
   %1435 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %70, i32 noundef 1) #12
   %1436 = zext i8 %1435 to i32
   %1437 = tail call ptr @val_to_str_const(i32 noundef %1436, ptr noundef nonnull @amqp_0_10_file_methods, ptr noundef nonnull @.str.1483) #12
-  %1438 = getelementptr inbounds i8, ptr %1, i64 8
+  %1438 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %1439 = load ptr, ptr %1438, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %1439, i32 noundef 25, ptr noundef nonnull @.str.1436, ptr noundef %1437) #12
   %1440 = load ptr, ptr %1438, align 8
@@ -9955,7 +9955,7 @@ amqp_0_10_get_32bit_size_new.exit.i262:           ; preds = %1517, %1512
   %1707 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %70, i32 noundef 1) #12
   %1708 = zext i8 %1707 to i32
   %1709 = tail call ptr @val_to_str_const(i32 noundef %1708, ptr noundef nonnull @amqp_0_10_stream_methods, ptr noundef nonnull @.str.1484) #12
-  %1710 = getelementptr inbounds i8, ptr %1, i64 8
+  %1710 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %1711 = load ptr, ptr %1710, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %1711, i32 noundef 25, ptr noundef nonnull @.str.1436, ptr noundef %1709) #12
   %1712 = load ptr, ptr %1710, align 8
@@ -10327,7 +10327,7 @@ amqp_0_10_get_32bit_size_new.exit.i282:           ; preds = %1793, %1788
   br label %dissect_amqp_0_10_connection.exit
 
 1912:                                             ; preds = %67
-  %1913 = getelementptr inbounds i8, ptr %1, i64 8
+  %1913 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %1914 = load ptr, ptr %1913, align 8
   tail call void @col_append_str(ptr noundef %1914, i32 noundef 25, ptr noundef nonnull @.str.1432) #12
   %1915 = load ptr, ptr %1913, align 8
@@ -10377,7 +10377,7 @@ amqp_0_10_get_32bit_size_new.exit:                ; preds = %.lr.ph, %1922
   br i1 %1937, label %.lr.ph, label %dissect_amqp_0_10_connection.exit, !llvm.loop !12
 
 1938:                                             ; preds = %67
-  %1939 = getelementptr inbounds i8, ptr %1, i64 8
+  %1939 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %1940 = load ptr, ptr %1939, align 8
   tail call void @col_append_str(ptr noundef %1940, i32 noundef 25, ptr noundef nonnull @.str.1433) #12
   %1941 = load ptr, ptr %1939, align 8
@@ -10514,7 +10514,7 @@ define internal fastcc void @dissect_amqp_0_10_struct32(ptr noundef %0, ptr noun
 60:                                               ; preds = %58
   %61 = call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef %.2.i) #12
   store i64 %61, ptr %12, align 8
-  %62 = getelementptr inbounds i8, ptr %12, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i32 0, ptr %62, align 8
   %63 = load i32, ptr @hf_amqp_0_10_struct_delivery_properties_timestamp, align 4
   %64 = call ptr @proto_tree_add_time(ptr noundef %26, i32 noundef %63, ptr noundef %0, i32 noundef %.2.i, i32 noundef 8, ptr noundef nonnull %12) #12
@@ -10529,7 +10529,7 @@ define internal fastcc void @dissect_amqp_0_10_struct32(ptr noundef %0, ptr noun
 67:                                               ; preds = %66
   %68 = call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef %.3.i) #12
   store i64 %68, ptr %12, align 8
-  %69 = getelementptr inbounds i8, ptr %12, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i32 0, ptr %69, align 8
   %70 = load i32, ptr @hf_amqp_0_10_struct_delivery_properties_expiration, align 4
   %71 = call ptr @proto_tree_add_time(ptr noundef %26, i32 noundef %70, ptr noundef %0, i32 noundef %.3.i, i32 noundef 8, ptr noundef nonnull %12) #12
@@ -11273,7 +11273,7 @@ amqp_0_10_get_32bit_size_new.exit.i124:           ; preds = %447, %442
 495:                                              ; preds = %494
   %496 = call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef %.6.i130) #12
   store i64 %496, ptr %7, align 8
-  %497 = getelementptr inbounds i8, ptr %7, i64 8
+  %497 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 0, ptr %497, align 8
   %498 = load i32, ptr @hf_amqp_0_10_struct_file_properties_timestamp, align 4
   %499 = call ptr @proto_tree_add_time(ptr noundef %415, i32 noundef %498, ptr noundef %0, i32 noundef %.6.i130, i32 noundef 8, ptr noundef nonnull %7) #12
@@ -11409,7 +11409,7 @@ amqp_0_10_get_32bit_size_new.exit.i135:           ; preds = %544, %539
 566:                                              ; preds = %564
   %567 = call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef %.3.i138) #12
   store i64 %567, ptr %5, align 8
-  %568 = getelementptr inbounds i8, ptr %5, i64 8
+  %568 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 0, ptr %568, align 8
   %569 = load i32, ptr @hf_amqp_0_10_struct_stream_properties_timestamp, align 4
   %570 = call ptr @proto_tree_add_time(ptr noundef %510, i32 noundef %569, ptr noundef %0, i32 noundef %.3.i138, i32 noundef 8, ptr noundef nonnull %5) #12
@@ -11480,12 +11480,12 @@ define internal fastcc void @dissect_amqp_0_10_map(ptr noundef %0, ptr noundef %
 .lr.ph.i._crit_edge:                              ; preds = %.lr.ph.i, %.lr.ph.i.preheader
   %.lcssa = phi ptr [ %amqp_0_10_fixed_types.amqp_0_10_var_types.i, %.lr.ph.i.preheader ], [ %24, %.lr.ph.i ]
   %27 = call ptr @wmem_packet_scope() #12
-  %28 = getelementptr inbounds i8, ptr %.lcssa, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 8
   %29 = load ptr, ptr %28, align 8
   %30 = call noalias ptr @wmem_strdup(ptr noundef %27, ptr noundef %29) #12
-  %31 = getelementptr inbounds i8, ptr %.lcssa, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 16
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %.lcssa, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 24
   %34 = load i32, ptr %33, align 8
   %35 = call i32 %32(ptr noundef %0, i32 noundef %19, i32 noundef %34, ptr noundef nonnull %3) #12
   %36 = call i32 @llvm.umin.i32(i32 %35, i32 65536)
@@ -12002,7 +12002,7 @@ define internal i32 @dissect_amqp_1_0_frame(ptr noundef %0, ptr noundef %1, ptr 
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
   %13 = alloca i32, align 4
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load ptr, ptr %14, align 8
   tail call void @col_clear(ptr noundef %15, i32 noundef 25) #12
   %16 = tail call i32 @tvb_memeql(ptr noundef %0, i32 noundef 0, ptr noundef nonnull @.str.1058, i64 noundef 4) #12
@@ -12485,7 +12485,7 @@ define internal fastcc void @get_amqp_1_0_type_value_formatter(ptr noundef %0, p
   br i1 %20, label %25, label %21
 
 21:                                               ; preds = %19
-  %22 = getelementptr inbounds i8, ptr %1, i64 408
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %23 = load ptr, ptr %22, align 8
   %24 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %23, ptr noundef nonnull @.str.1495, ptr noundef nonnull %4, ptr noundef nonnull %15) #12
   br label %25
@@ -12594,14 +12594,14 @@ define internal fastcc range(i32 0, 256) i32 @get_amqp_1_0_type_formatter(ptr no
 
 ._crit_edge:                                      ; preds = %45, %42
   %.lcssa = phi ptr [ @amqp_1_0_defined_types, %42 ], [ %46, %45 ]
-  %49 = getelementptr inbounds i8, ptr %.lcssa, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 8
   %50 = load ptr, ptr %49, align 8
   %51 = load i32, ptr %50, align 4
   store i32 %51, ptr %2, align 4
-  %52 = getelementptr inbounds i8, ptr %.lcssa, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 16
   %53 = load i32, ptr %52, align 16
   store i32 %53, ptr %4, align 4
-  %54 = getelementptr inbounds i8, ptr %.lcssa, i64 24
+  %54 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 24
   %55 = load ptr, ptr %54, align 8
   store ptr %55, ptr %5, align 8
   br label %.loopexit
@@ -12661,7 +12661,7 @@ decode_fixed_type.exit:                           ; preds = %20, %10
   br i1 %28, label %29, label %46
 
 29:                                               ; preds = %.preheader
-  %30 = getelementptr inbounds i8, ptr %.lcssa154, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %.lcssa154, i64 16
   %31 = load i32, ptr %30, align 8
   switch i32 %31, label %.thread [
     i32 3, label %32
@@ -12684,7 +12684,7 @@ decode_fixed_type.exit:                           ; preds = %20, %10
   ]
 
 32:                                               ; preds = %29, %29, %29, %29, %29, %29, %29, %29, %29, %29
-  %33 = getelementptr inbounds i8, ptr %.0112178, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %.0112178, i64 8
   %34 = load ptr, ptr %33, align 8
   %.not128 = icmp eq ptr %34, null
   br i1 %.not128, label %35, label %.thread.sink.split
@@ -12698,7 +12698,7 @@ decode_fixed_type.exit:                           ; preds = %20, %10
   ]
 
 36:                                               ; preds = %35, %29, %29, %29, %29, %29, %35, %35
-  %37 = getelementptr inbounds i8, ptr %.0112178, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %.0112178, i64 16
   %38 = load ptr, ptr %37, align 8
   %.not129 = icmp eq ptr %38, null
   br i1 %.not129, label %39, label %.thread.sink.split
@@ -12710,13 +12710,13 @@ decode_fixed_type.exit:                           ; preds = %20, %10
   ]
 
 40:                                               ; preds = %35, %29, %39
-  %41 = getelementptr inbounds i8, ptr %.0112178, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %.0112178, i64 24
   %42 = load ptr, ptr %41, align 8
   %.not130 = icmp eq ptr %42, null
   br i1 %.not130, label %.thread, label %.thread.sink.split
 
 43:                                               ; preds = %29, %39
-  %44 = getelementptr inbounds i8, ptr %.0112178, i64 32
+  %44 = getelementptr inbounds nuw i8, ptr %.0112178, i64 32
   %45 = load ptr, ptr %44, align 8
   %.not131 = icmp eq ptr %45, null
   br i1 %.not131, label %.thread, label %.thread.sink.split
@@ -12739,9 +12739,9 @@ decode_fixed_type.exit:                           ; preds = %20, %10
   br i1 %.not132, label %57, label %51
 
 51:                                               ; preds = %.thread
-  %52 = getelementptr inbounds i8, ptr %.lcssa154, i64 24
+  %52 = getelementptr inbounds nuw i8, ptr %.lcssa154, i64 24
   %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %.lcssa154, i64 20
+  %54 = getelementptr inbounds nuw i8, ptr %.lcssa154, i64 20
   %55 = load i32, ptr %54, align 4
   %56 = tail call i32 %53(ptr noundef %0, ptr noundef %1, i32 noundef %3, i32 noundef %55, ptr noundef %9, i32 noundef %.0113) #12
   store i32 %56, ptr %8, align 4
@@ -12771,9 +12771,9 @@ decode_fixed_type.exit:                           ; preds = %20, %10
   br label %253
 
 68:                                               ; preds = %57
-  %69 = getelementptr inbounds i8, ptr %.lcssa154, i64 32
+  %69 = getelementptr inbounds nuw i8, ptr %.lcssa154, i64 32
   %70 = load ptr, ptr %69, align 8
-  %71 = getelementptr inbounds i8, ptr %.lcssa154, i64 20
+  %71 = getelementptr inbounds nuw i8, ptr %.lcssa154, i64 20
   %72 = load i32, ptr %71, align 4
   %73 = call i32 %70(ptr noundef %0, i32 noundef %3, i32 noundef %72, ptr noundef nonnull %18) #12
   store i32 %73, ptr %8, align 4
@@ -12792,7 +12792,7 @@ decode_fixed_type.exit:                           ; preds = %20, %10
 
 80:                                               ; preds = %68, %78
   %81 = phi ptr [ %79, %78 ], [ %5, %68 ]
-  %82 = getelementptr inbounds i8, ptr %.lcssa154, i64 8
+  %82 = getelementptr inbounds nuw i8, ptr %.lcssa154, i64 8
   %83 = load ptr, ptr %82, align 8
   %84 = load ptr, ptr %18, align 8
   %85 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %9, i32 noundef %.0113, ptr noundef %0, i32 noundef %76, i32 noundef %77, ptr noundef nonnull @.str.1440, ptr noundef %81, ptr noundef %83, ptr noundef %84) #12
@@ -12954,10 +12954,10 @@ decode_fixed_type.exit.thread:                    ; preds = %.lr.ph
 
 decode_fixed_type.exit142:                        ; preds = %152, %149
   %.lcssa = phi ptr [ @amqp_1_0_fixed_types, %149 ], [ %153, %152 ]
-  %156 = getelementptr inbounds i8, ptr %.lcssa, i64 32
+  %156 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 32
   %157 = load ptr, ptr %156, align 8
   %158 = add i32 %.091.i173, 1
-  %159 = getelementptr inbounds i8, ptr %.lcssa, i64 20
+  %159 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 20
   %160 = load i32, ptr %159, align 4
   %161 = call i32 %157(ptr noundef %0, i32 noundef %158, i32 noundef %160, ptr noundef nonnull %17) #12
   store i32 %161, ptr %16, align 4
@@ -13465,7 +13465,7 @@ define internal noundef i32 @dissect_amqp_1_0_timestamp(ptr noundef %0, ptr noca
   %10 = srem i64 %8, 1000
   %11 = trunc nsw i64 %10 to i32
   %12 = mul nsw i32 %11, 1000000
-  %13 = getelementptr inbounds i8, ptr %7, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 %12, ptr %13, align 8
   %14 = call ptr @proto_tree_add_time(ptr noundef %4, i32 noundef %5, ptr noundef %0, i32 noundef %2, i32 noundef %3, ptr noundef nonnull %7) #12
   ret i32 %3
@@ -13480,7 +13480,7 @@ define internal noundef i32 @format_amqp_1_0_timestamp(ptr noundef %0, i32 nound
   %8 = srem i64 %6, 1000
   %9 = trunc nsw i64 %8 to i32
   %10 = mul nsw i32 %9, 1000000
-  %11 = getelementptr inbounds i8, ptr %5, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %10, ptr %11, align 8
   %12 = tail call ptr @wmem_packet_scope() #12
   %13 = call ptr @abs_time_to_str_ex(ptr noundef %12, ptr noundef nonnull %5, i32 noundef 19, i32 noundef 0) #12
@@ -13539,7 +13539,7 @@ define internal i32 @dissect_amqp_1_0_variable(ptr noundef %0, ptr noundef %1, i
   br i1 %25, label %.critedge.sink.split, label %26
 
 26:                                               ; preds = %22
-  %27 = getelementptr inbounds i8, ptr %24, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %28 = load i32, ptr %27, align 8
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %find_data_dissector.exit.thread.sink.split, label %30
@@ -13551,7 +13551,7 @@ define internal i32 @dissect_amqp_1_0_variable(ptr noundef %0, ptr noundef %1, i
   br i1 %33, label %find_data_dissector.exit.thread.sink.split, label %34
 
 34:                                               ; preds = %30
-  %35 = getelementptr inbounds i8, ptr %32, i64 48
+  %35 = getelementptr inbounds nuw i8, ptr %32, i64 48
   %36 = load ptr, ptr %35, align 8
   %37 = tail call i32 @fvalue_type_ftenum(ptr noundef %36) #12
   %38 = icmp eq i32 %37, 26
@@ -13607,7 +13607,7 @@ define internal i32 @dissect_amqp_1_0_variable(ptr noundef %0, ptr noundef %1, i
   ]
 
 63:                                               ; preds = %.lr.ph.i
-  %64 = getelementptr inbounds i8, ptr %61, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %65 = load ptr, ptr %64, align 8
   %66 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %57, ptr noundef nonnull dereferenceable(1) %65) #13
   %67 = icmp eq i32 %66, 0
@@ -13615,7 +13615,7 @@ define internal i32 @dissect_amqp_1_0_variable(ptr noundef %0, ptr noundef %1, i
   br label %104
 
 69:                                               ; preds = %.lr.ph.i
-  %70 = getelementptr inbounds i8, ptr %61, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %71 = load ptr, ptr %70, align 8
   %72 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %57, ptr noundef nonnull dereferenceable(1) %71) #13
   %73 = icmp ne ptr %72, null
@@ -13624,7 +13624,7 @@ define internal i32 @dissect_amqp_1_0_variable(ptr noundef %0, ptr noundef %1, i
 
 75:                                               ; preds = %.lr.ph.i
   %76 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %57) #13
-  %77 = getelementptr inbounds i8, ptr %61, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %78 = load ptr, ptr %77, align 8
   %79 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %78) #13
   %.not59.i = icmp ult i64 %76, %79
@@ -13638,7 +13638,7 @@ define internal i32 @dissect_amqp_1_0_variable(ptr noundef %0, ptr noundef %1, i
 
 84:                                               ; preds = %.lr.ph.i
   %85 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %57) #13
-  %86 = getelementptr inbounds i8, ptr %61, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %87 = load ptr, ptr %86, align 8
   %88 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %87) #13
   %.not58.i = icmp ult i64 %85, %88
@@ -13653,7 +13653,7 @@ define internal i32 @dissect_amqp_1_0_variable(ptr noundef %0, ptr noundef %1, i
   br label %104
 
 95:                                               ; preds = %.lr.ph.i
-  %96 = getelementptr inbounds i8, ptr %61, i64 16
+  %96 = getelementptr inbounds nuw i8, ptr %61, i64 16
   %97 = load ptr, ptr %96, align 8
   %.not57.i = icmp eq ptr %97, null
   br i1 %.not57.i, label %.thread.i, label %98
@@ -13696,9 +13696,9 @@ find_data_dissector.exit.thread32:                ; preds = %.thread.i, %55
   br label %.critedge.sink.split
 
 find_data_dissector.exit:                         ; preds = %104
-  %112 = getelementptr inbounds i8, ptr %61, i64 32
+  %112 = getelementptr inbounds nuw i8, ptr %61, i64 32
   %113 = load ptr, ptr %112, align 8
-  %114 = getelementptr inbounds i8, ptr %61, i64 40
+  %114 = getelementptr inbounds nuw i8, ptr %61, i64 40
   %115 = load ptr, ptr %114, align 8
   %116 = call i32 @call_dissector_with_data(ptr noundef %113, ptr noundef %20, ptr noundef %1, ptr noundef nonnull %4, ptr noundef %115) #12
   %117 = call ptr @g_ptr_array_free(ptr noundef nonnull %24, i32 noundef 1) #12

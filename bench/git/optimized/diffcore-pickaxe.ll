@@ -33,9 +33,9 @@ entry:
   %errbuf.i = alloca [1024 x i8], align 16
   %regex = alloca %struct.re_pattern_buffer, align 8
   %sb = alloca %struct.strbuf, align 8
-  %pickaxe = getelementptr inbounds i8, ptr %o, i64 24
+  %pickaxe = getelementptr inbounds nuw i8, ptr %o, i64 24
   %0 = load ptr, ptr %pickaxe, align 8
-  %pickaxe_opts = getelementptr inbounds i8, ptr %o, i64 32
+  %pickaxe_opts = getelementptr inbounds nuw i8, ptr %o, i64 32
   %1 = load i32, ptr %pickaxe_opts, align 8
   %and = and i32 %1, -17
   %tobool.not = icmp eq i32 %and, 0
@@ -133,7 +133,7 @@ land.lhs.true27.if.else31_crit_edge:              ; preds = %land.lhs.true27
 if.then29:                                        ; preds = %land.lhs.true27
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %sb, ptr noundef nonnull align 8 dereferenceable(24) @__const.diffcore_pickaxe.sb, i64 24, i1 false)
   call void @basic_regex_quote_buf(ptr noundef nonnull %sb, ptr noundef %0) #9
-  %buf = getelementptr inbounds i8, ptr %sb, i64 16
+  %buf = getelementptr inbounds nuw i8, ptr %sb, i64 16
   %5 = load ptr, ptr %buf, align 8
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %errbuf.i30)
   %call.i31 = call i32 @regcomp(ptr noundef nonnull %regex, ptr noundef %5, i32 noundef 6) #9
@@ -200,7 +200,7 @@ for.cond5.preheader.i:                            ; preds = %for.cond.i
 for.body.i:                                       ; preds = %for.cond.preheader.i, %for.cond.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.cond.i ], [ 0, %for.cond.preheader.i ]
   %11 = load ptr, ptr @diff_queued_diff, align 8
-  %arrayidx.i = getelementptr inbounds ptr, ptr %11, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv.i
   %12 = load ptr, ptr %arrayidx.i, align 8
   %call.i37 = call fastcc i32 @pickaxe_match(ptr noundef %12, ptr noundef %o, ptr noundef %regexp.0, ptr noundef %kws.0, ptr noundef readonly %fn.0)
   %tobool3.not.i = icmp eq i32 %call.i37, 0
@@ -209,7 +209,7 @@ for.body.i:                                       ; preds = %for.cond.preheader.
 for.body8.i:                                      ; preds = %for.cond5.preheader.i, %for.body8.i
   %indvars.iv10.i = phi i64 [ %indvars.iv.next11.i, %for.body8.i ], [ 0, %for.cond5.preheader.i ]
   %13 = load ptr, ptr @diff_queued_diff, align 8
-  %arrayidx11.i = getelementptr inbounds ptr, ptr %13, i64 %indvars.iv10.i
+  %arrayidx11.i = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv10.i
   %14 = load ptr, ptr %arrayidx11.i, align 8
   call void @diff_free_filepair(ptr noundef %14) #9
   %indvars.iv.next11.i = add nuw nsw i64 %indvars.iv10.i, 1
@@ -221,7 +221,7 @@ for.body8.i:                                      ; preds = %for.cond5.preheader
 for.body18.i:                                     ; preds = %for.cond15.preheader.i, %for.inc28.i
   %indvars.iv13.i = phi i64 [ %indvars.iv.next14.i, %for.inc28.i ], [ 0, %for.cond15.preheader.i ]
   %17 = load ptr, ptr @diff_queued_diff, align 8
-  %arrayidx22.i = getelementptr inbounds ptr, ptr %17, i64 %indvars.iv13.i
+  %arrayidx22.i = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv13.i
   %18 = load ptr, ptr %arrayidx22.i, align 8
   %call23.i = call fastcc i32 @pickaxe_match(ptr noundef %18, ptr noundef %o, ptr noundef %regexp.0, ptr noundef %kws.0, ptr noundef readonly %fn.0)
   %tobool24.not.i = icmp eq i32 %call23.i, 0
@@ -279,21 +279,21 @@ entry:
   %xpp = alloca %struct.s_xpparam, align 8
   %xecfg = alloca %struct.s_xdemitconf, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %xpp, i8 0, i64 40, i1 false)
-  %0 = getelementptr inbounds i8, ptr %xecfg, i64 24
+  %0 = getelementptr inbounds nuw i8, ptr %xecfg, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 0, i64 24, i1 false)
   store ptr %regexp, ptr %ecbdata, align 8
-  %hit = getelementptr inbounds i8, ptr %ecbdata, i64 8
+  %hit = getelementptr inbounds nuw i8, ptr %ecbdata, i64 8
   store i32 0, ptr %hit, align 8
-  %flags = getelementptr inbounds i8, ptr %xecfg, i64 16
+  %flags = getelementptr inbounds nuw i8, ptr %xecfg, i64 16
   store i64 2, ptr %flags, align 8
-  %context = getelementptr inbounds i8, ptr %o, i64 256
+  %context = getelementptr inbounds nuw i8, ptr %o, i64 256
   %1 = load i32, ptr %context, align 8
   %conv = sext i32 %1 to i64
   store i64 %conv, ptr %xecfg, align 8
-  %interhunkcontext = getelementptr inbounds i8, ptr %o, i64 260
+  %interhunkcontext = getelementptr inbounds nuw i8, ptr %o, i64 260
   %2 = load i32, ptr %interhunkcontext, align 4
   %conv2 = sext i32 %2 to i64
-  %interhunkctxlen = getelementptr inbounds i8, ptr %xecfg, i64 8
+  %interhunkctxlen = getelementptr inbounds nuw i8, ptr %xecfg, i64 8
   store i64 %conv2, ptr %interhunkctxlen, align 8
   %call = call i32 @xdi_diff_outf(ptr noundef %one, ptr noundef %two, ptr noundef null, ptr noundef nonnull @diffgrep_consume, ptr noundef nonnull %ecbdata, ptr noundef nonnull %xpp, ptr noundef nonnull %xecfg) #9
   %3 = load i32, ptr %hit, align 8
@@ -323,7 +323,7 @@ cond.true:                                        ; preds = %entry
   br i1 %tobool.not.i, label %while.cond14.preheader.i, label %while.cond.preheader.i
 
 while.cond.preheader.i:                           ; preds = %cond.true
-  %rm_eo.i.i = getelementptr inbounds i8, ptr %regmatch.i, i64 4
+  %rm_eo.i.i = getelementptr inbounds nuw i8, ptr %regmatch.i, i64 4
   br i1 %tobool15.not.us10.i, label %contains.exit, label %land.rhs.us.i
 
 land.rhs.us.i:                                    ; preds = %while.cond.preheader.i, %land.lhs.true.us.i
@@ -356,13 +356,13 @@ land.lhs.true.us.i:                               ; preds = %while.body.us.i
   %dec.us.i = sext i1 %cmp.us.i to i64
   %sz.1.us.i = add i64 %sub.us.i, %dec.us.i
   %data.1.us.idx.i = zext i1 %cmp.us.i to i64
-  %data.1.us.i = getelementptr inbounds i8, ptr %add.ptr.us.i, i64 %data.1.us.idx.i
+  %data.1.us.i = getelementptr inbounds nuw i8, ptr %add.ptr.us.i, i64 %data.1.us.idx.i
   %inc.us.i = add i32 %cnt.0.us4.i, 1
   %tobool1.not.us.i = icmp eq i64 %sz.1.us.i, 0
   br i1 %tobool1.not.us.i, label %contains.exit, label %land.rhs.us.i
 
 while.cond14.preheader.i:                         ; preds = %cond.true
-  %size22.i = getelementptr inbounds i8, ptr %kwsm.i, i64 16
+  %size22.i = getelementptr inbounds nuw i8, ptr %kwsm.i, i64 16
   br i1 %tobool15.not.us10.i, label %contains.exit, label %while.body16.us.i
 
 while.body16.us.i:                                ; preds = %while.cond14.preheader.i, %if.end21.us.i
@@ -405,7 +405,7 @@ cond.true2:                                       ; preds = %cond.end
   br i1 %tobool.not.i10, label %while.cond14.preheader.i38, label %while.cond.preheader.i11
 
 while.cond.preheader.i11:                         ; preds = %cond.true2
-  %rm_eo.i.i12 = getelementptr inbounds i8, ptr %regmatch.i8, i64 4
+  %rm_eo.i.i12 = getelementptr inbounds nuw i8, ptr %regmatch.i8, i64 4
   br i1 %tobool29.not.not.i, label %while.cond.preheader.split.us.i, label %while.cond.i
 
 while.cond.preheader.split.us.i:                  ; preds = %while.cond.preheader.i11
@@ -442,13 +442,13 @@ land.lhs.true.us.i26:                             ; preds = %while.body.us.i23
   %dec.us.i30 = sext i1 %cmp.us.i29 to i64
   %sz.1.us.i31 = add i64 %sub.us.i27, %dec.us.i30
   %data.1.us.idx.i32 = zext i1 %cmp.us.i29 to i64
-  %data.1.us.i33 = getelementptr inbounds i8, ptr %add.ptr.us.i28, i64 %data.1.us.idx.i32
+  %data.1.us.i33 = getelementptr inbounds nuw i8, ptr %add.ptr.us.i28, i64 %data.1.us.idx.i32
   %inc.us.i34 = add i32 %cnt.0.us4.i19, 1
   %tobool1.not.us.i35 = icmp eq i64 %sz.1.us.i31, 0
   br i1 %tobool1.not.us.i35, label %contains.exit53, label %land.rhs.us.i15
 
 while.cond14.preheader.i38:                       ; preds = %cond.true2
-  %size22.i39 = getelementptr inbounds i8, ptr %kwsm.i9, i64 16
+  %size22.i39 = getelementptr inbounds nuw i8, ptr %kwsm.i9, i64 16
   br i1 %tobool29.not.not.i, label %while.cond14.preheader.split.us.i, label %while.cond14.i
 
 while.cond14.preheader.split.us.i:                ; preds = %while.cond14.preheader.i38
@@ -502,7 +502,7 @@ land.lhs.true.i:                                  ; preds = %while.body.i
   br i1 %cmp.i, label %if.then7.i, label %if.end.i
 
 if.then7.i:                                       ; preds = %land.lhs.true.i
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 1
   %dec.i = add i64 %sub.i, -1
   br label %if.end.i
 
@@ -592,7 +592,7 @@ entry:
   ]
 
 if.end:                                           ; preds = %entry, %entry
-  %hit = getelementptr inbounds i8, ptr %priv, i64 8
+  %hit = getelementptr inbounds nuw i8, ptr %priv, i64 8
   %1 = load i32, ptr %hit, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end7, label %if.then6
@@ -603,11 +603,11 @@ if.then6:                                         ; preds = %if.end
 
 if.end7:                                          ; preds = %if.end
   %2 = load ptr, ptr %priv, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %line, i64 1
+  %add.ptr = getelementptr inbounds nuw i8, ptr %line, i64 1
   store i32 0, ptr %regmatch, align 4
   %3 = trunc i64 %len to i32
   %conv.i = add i32 %3, -1
-  %rm_eo.i = getelementptr inbounds i8, ptr %regmatch, i64 4
+  %rm_eo.i = getelementptr inbounds nuw i8, ptr %regmatch, i64 4
   store i32 %conv.i, ptr %rm_eo.i, align 4
   %call.i = call i32 @regexec(ptr noundef %2, ptr noundef nonnull %add.ptr, i64 noundef 1, ptr noundef nonnull %regmatch, i32 noundef 4) #9
   %tobool8.not = icmp eq i32 %call.i, 0
@@ -632,27 +632,27 @@ entry:
   %mf1 = alloca %struct.s_mmfile, align 8
   %mf2 = alloca %struct.s_mmfile, align 8
   %0 = load ptr, ptr %p, align 8
-  %mode = getelementptr inbounds i8, ptr %0, i64 80
+  %mode = getelementptr inbounds nuw i8, ptr %0, i64 80
   %1 = load i16, ptr %mode, align 8
   %cmp.not = icmp eq i16 %1, 0
   br i1 %cmp.not, label %land.lhs.true, label %if.end.thread
 
 land.lhs.true:                                    ; preds = %entry
-  %two = getelementptr inbounds i8, ptr %p, i64 8
+  %two = getelementptr inbounds nuw i8, ptr %p, i64 8
   %2 = load ptr, ptr %two, align 8
-  %mode2 = getelementptr inbounds i8, ptr %2, i64 80
+  %mode2 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %3 = load i16, ptr %mode2, align 8
   %cmp4.not = icmp eq i16 %3, 0
   br i1 %cmp4.not, label %return, label %if.end
 
 if.end:                                           ; preds = %land.lhs.true
-  %objfind = getelementptr inbounds i8, ptr %o, i64 424
+  %objfind = getelementptr inbounds nuw i8, ptr %o, i64 424
   %4 = load ptr, ptr %objfind, align 8
   %tobool.not = icmp eq ptr %4, null
   br i1 %tobool.not, label %if.end26, label %land.rhs
 
 if.end.thread:                                    ; preds = %entry
-  %objfind33 = getelementptr inbounds i8, ptr %o, i64 424
+  %objfind33 = getelementptr inbounds nuw i8, ptr %o, i64 424
   %5 = load ptr, ptr %objfind33, align 8
   %tobool.not34 = icmp eq ptr %5, null
   br i1 %tobool.not34, label %if.end26, label %land.lhs.true12
@@ -663,9 +663,9 @@ land.lhs.true12:                                  ; preds = %if.end.thread
   br i1 %tobool15.not, label %lor.rhs, label %return
 
 lor.rhs:                                          ; preds = %land.lhs.true12
-  %two16.phi.trans.insert = getelementptr inbounds i8, ptr %p, i64 8
+  %two16.phi.trans.insert = getelementptr inbounds nuw i8, ptr %p, i64 8
   %.pre = load ptr, ptr %two16.phi.trans.insert, align 8
-  %mode17.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 80
+  %mode17.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 80
   %.pre46 = load i16, ptr %mode17.phi.trans.insert, align 8
   %6 = icmp eq i16 %.pre46, 0
   br i1 %6, label %return, label %land.rhs
@@ -680,17 +680,17 @@ land.rhs:                                         ; preds = %if.end, %lor.rhs
   br label %return
 
 if.end26:                                         ; preds = %if.end.thread, %if.end
-  %allow_textconv = getelementptr inbounds i8, ptr %o, i64 184
+  %allow_textconv = getelementptr inbounds nuw i8, ptr %o, i64 184
   %10 = load i32, ptr %allow_textconv, align 8
   %tobool27.not = icmp eq i32 %10, 0
   br i1 %tobool27.not, label %land.lhs.true37, label %if.end34
 
 if.end34:                                         ; preds = %if.end26
-  %repo = getelementptr inbounds i8, ptr %o, i64 576
+  %repo = getelementptr inbounds nuw i8, ptr %o, i64 576
   %11 = load ptr, ptr %repo, align 8
   %call30 = tail call ptr @get_textconv(ptr noundef %11, ptr noundef nonnull %0) #9
   %12 = load ptr, ptr %repo, align 8
-  %two32 = getelementptr inbounds i8, ptr %p, i64 8
+  %two32 = getelementptr inbounds nuw i8, ptr %p, i64 8
   %13 = load ptr, ptr %two32, align 8
   %call33 = tail call ptr @get_textconv(ptr noundef %12, ptr noundef %13) #9
   %cmp35 = icmp eq ptr %call30, %call33
@@ -706,14 +706,14 @@ land.lhs.true37:                                  ; preds = %if.end26, %if.end34
 if.end41:                                         ; preds = %land.lhs.true37, %if.end34
   %textconv_two.044 = phi ptr [ %textconv_two.045, %land.lhs.true37 ], [ %call33, %if.end34 ]
   %textconv_one.042 = phi ptr [ %textconv_one.043, %land.lhs.true37 ], [ %call30, %if.end34 ]
-  %pickaxe_opts = getelementptr inbounds i8, ptr %o, i64 32
+  %pickaxe_opts = getelementptr inbounds nuw i8, ptr %o, i64 32
   %14 = load i32, ptr %pickaxe_opts, align 8
   %and = and i32 %14, 8
   %tobool42.not = icmp eq i32 %and, 0
   br i1 %tobool42.not, label %if.end60, label %land.lhs.true43
 
 land.lhs.true43:                                  ; preds = %if.end41
-  %text = getelementptr inbounds i8, ptr %o, i64 116
+  %text = getelementptr inbounds nuw i8, ptr %o, i64 116
   %15 = load i32, ptr %text, align 4
   %tobool45.not = icmp eq i32 %15, 0
   br i1 %tobool45.not, label %land.lhs.true46, label %if.end60
@@ -723,7 +723,7 @@ land.lhs.true46:                                  ; preds = %land.lhs.true43
   br i1 %tobool47.not, label %land.lhs.true48, label %lor.lhs.false
 
 land.lhs.true48:                                  ; preds = %land.lhs.true46
-  %repo49 = getelementptr inbounds i8, ptr %o, i64 576
+  %repo49 = getelementptr inbounds nuw i8, ptr %o, i64 576
   %16 = load ptr, ptr %repo49, align 8
   %17 = load ptr, ptr %p, align 8
   %call51 = tail call i32 @diff_filespec_is_binary(ptr noundef %16, ptr noundef %17) #9
@@ -735,26 +735,26 @@ lor.lhs.false:                                    ; preds = %land.lhs.true48, %l
   br i1 %tobool53.not, label %land.lhs.true54, label %if.end60
 
 land.lhs.true54:                                  ; preds = %lor.lhs.false
-  %repo55 = getelementptr inbounds i8, ptr %o, i64 576
+  %repo55 = getelementptr inbounds nuw i8, ptr %o, i64 576
   %18 = load ptr, ptr %repo55, align 8
-  %two56 = getelementptr inbounds i8, ptr %p, i64 8
+  %two56 = getelementptr inbounds nuw i8, ptr %p, i64 8
   %19 = load ptr, ptr %two56, align 8
   %call57 = tail call i32 @diff_filespec_is_binary(ptr noundef %18, ptr noundef %19) #9
   %tobool58.not = icmp eq i32 %call57, 0
   br i1 %tobool58.not, label %if.end60, label %return
 
 if.end60:                                         ; preds = %land.lhs.true54, %lor.lhs.false, %land.lhs.true43, %if.end41
-  %repo61 = getelementptr inbounds i8, ptr %o, i64 576
+  %repo61 = getelementptr inbounds nuw i8, ptr %o, i64 576
   %20 = load ptr, ptr %repo61, align 8
   %21 = load ptr, ptr %p, align 8
   %call63 = call i64 @fill_textconv(ptr noundef %20, ptr noundef %textconv_one.042, ptr noundef %21, ptr noundef nonnull %mf1) #9
-  %size = getelementptr inbounds i8, ptr %mf1, i64 8
+  %size = getelementptr inbounds nuw i8, ptr %mf1, i64 8
   store i64 %call63, ptr %size, align 8
   %22 = load ptr, ptr %repo61, align 8
-  %two65 = getelementptr inbounds i8, ptr %p, i64 8
+  %two65 = getelementptr inbounds nuw i8, ptr %p, i64 8
   %23 = load ptr, ptr %two65, align 8
   %call67 = call i64 @fill_textconv(ptr noundef %22, ptr noundef %textconv_two.044, ptr noundef %23, ptr noundef nonnull %mf2) #9
-  %size68 = getelementptr inbounds i8, ptr %mf2, i64 8
+  %size68 = getelementptr inbounds nuw i8, ptr %mf2, i64 8
   store i64 %call67, ptr %size68, align 8
   %call69 = call i32 %fn(ptr noundef nonnull %mf1, ptr noundef nonnull %mf2, ptr noundef nonnull %o, ptr noundef %regexp, ptr noundef %kws) #9, !callees !11
   %tobool70.not = icmp eq ptr %textconv_one.042, null

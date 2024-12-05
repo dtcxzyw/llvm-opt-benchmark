@@ -50,7 +50,7 @@ define dso_local i32 @i9xx_check_plane_surface(ptr noundef %0) local_unnamed_add
   %3 = alloca i32, align 4
   %4 = load ptr, ptr %0, align 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 184
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %7 = load ptr, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #9
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #9
@@ -59,36 +59,36 @@ define dso_local i32 @i9xx_check_plane_surface(ptr noundef %0) local_unnamed_add
   br i1 %9, label %10, label %163
 
 10:                                               ; preds = %1
-  %11 = getelementptr inbounds i8, ptr %0, i64 140
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %12 = load i8, ptr %11, align 4, !range !6, !noundef !7
   %13 = icmp eq i8 %12, 0
   br i1 %13, label %163, label %14
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %0, i64 108
-  %16 = getelementptr inbounds i8, ptr %0, i64 116
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 108
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %17 = load i32, ptr %16, align 4
   %18 = load i32, ptr %15, align 4
   %19 = sub i32 %17, %18
   %20 = ashr i32 %19, 16
   %21 = ashr i32 %18, 16
   store i32 %21, ptr %2, align 4
-  %22 = getelementptr inbounds i8, ptr %0, i64 112
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %23 = load i32, ptr %22, align 4
   %24 = ashr i32 %23, 16
   store i32 %24, ptr %3, align 4
-  %25 = getelementptr inbounds i8, ptr %5, i64 2624
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 2624
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 28
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 28
   %28 = load i16, ptr %27, align 4
   %29 = and i16 %28, 128
   %30 = icmp eq i16 %29, 0
   br i1 %30, label %39, label %31
 
 31:                                               ; preds = %14
-  %32 = getelementptr inbounds i8, ptr %7, i64 72
+  %32 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 6
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 6
   %35 = load i8, ptr %34, align 2
   %36 = icmp eq i8 %35, 8
   %37 = icmp sgt i32 %20, 2048
@@ -97,7 +97,7 @@ define dso_local i32 @i9xx_check_plane_surface(ptr noundef %0) local_unnamed_add
 
 39:                                               ; preds = %31, %14
   call void @intel_add_fb_offsets(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef %0, i32 noundef 0) #9
-  %40 = getelementptr inbounds i8, ptr %5, i64 2632
+  %40 = getelementptr inbounds nuw i8, ptr %5, i64 2632
   %41 = load i16, ptr %40, align 8
   %42 = icmp ugt i16 %41, 3
   br i1 %42, label %43, label %.thread
@@ -109,19 +109,19 @@ define dso_local i32 @i9xx_check_plane_surface(ptr noundef %0) local_unnamed_add
   br i1 %45, label %46, label %.thread
 
 46:                                               ; preds = %43
-  %47 = getelementptr inbounds i8, ptr %7, i64 120
+  %47 = getelementptr inbounds nuw i8, ptr %7, i64 120
   %48 = load i64, ptr %47, align 8
   %49 = icmp eq i64 %48, 72057594037927937
   br i1 %49, label %50, label %.thread
 
 50:                                               ; preds = %46
   %51 = call i32 @intel_surf_alignment(ptr noundef %7, i32 noundef 0) #9
-  %52 = getelementptr inbounds i8, ptr %7, i64 72
+  %52 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 6
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 6
   %55 = load i8, ptr %54, align 2
   %56 = zext i8 %55 to i32
-  %57 = getelementptr inbounds i8, ptr %0, i64 308
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 308
   %58 = load i32, ptr %2, align 4
   %59 = add i32 %58, %20
   %60 = mul i32 %59, %56
@@ -139,7 +139,7 @@ define dso_local i32 @i9xx_check_plane_surface(ptr noundef %0) local_unnamed_add
   br i1 %66, label %70, label %67
 
 67:                                               ; preds = %65
-  %68 = getelementptr inbounds i8, ptr %5, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %69 = load ptr, ptr %68, align 8
   br label %70
 
@@ -173,18 +173,18 @@ define dso_local i32 @i9xx_check_plane_surface(ptr noundef %0) local_unnamed_add
   %89 = load i32, ptr %16, align 4
   %90 = add i32 %89, %86
   store i32 %90, ptr %16, align 4
-  %91 = getelementptr inbounds i8, ptr %0, i64 120
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %92 = load i32, ptr %91, align 4
   %93 = add i32 %92, %88
   store i32 %93, ptr %91, align 4
-  %94 = getelementptr inbounds i8, ptr %5, i64 7184
+  %94 = getelementptr inbounds nuw i8, ptr %5, i64 7184
   %95 = load i32, ptr %94, align 4
   %96 = and i32 %95, 12582912
   %97 = icmp eq i32 %96, 0
   br i1 %97, label %98, label %118
 
 98:                                               ; preds = %.thread
-  %99 = getelementptr inbounds i8, ptr %0, i64 196
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 196
   %100 = load i32, ptr %99, align 4
   %101 = sub i32 %90, %82
   %102 = ashr i32 %101, 16
@@ -222,11 +222,11 @@ define dso_local i32 @i9xx_check_plane_surface(ptr noundef %0) local_unnamed_add
 
 122:                                              ; preds = %118
   call void asm sideeffect "905: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 905b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 905) #9, !srcloc !12
-  %123 = getelementptr inbounds i8, ptr %5, i64 8
+  %123 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %124 = load ptr, ptr %123, align 8
   %125 = call ptr @dev_driver_string(ptr noundef %124) #9
   %126 = load ptr, ptr %123, align 8
-  %127 = getelementptr inbounds i8, ptr %126, i64 80
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 80
   %128 = load ptr, ptr %127, align 8
   %129 = icmp eq ptr %128, null
   br i1 %129, label %130, label %132
@@ -252,7 +252,7 @@ define dso_local i32 @i9xx_check_plane_surface(ptr noundef %0) local_unnamed_add
   br i1 %136, label %137, label %157
 
 137:                                              ; preds = %134
-  %138 = getelementptr inbounds i8, ptr %7, i64 120
+  %138 = getelementptr inbounds nuw i8, ptr %7, i64 120
   %139 = load i64, ptr %138, align 8
   %140 = icmp eq i64 %139, 72057594037927937
   br i1 %140, label %141, label %157
@@ -265,11 +265,11 @@ define dso_local i32 @i9xx_check_plane_surface(ptr noundef %0) local_unnamed_add
 
 145:                                              ; preds = %141
   call void asm sideeffect "909: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 909b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 909) #9, !srcloc !17
-  %146 = getelementptr inbounds i8, ptr %5, i64 8
+  %146 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %147 = load ptr, ptr %146, align 8
   %148 = call ptr @dev_driver_string(ptr noundef %147) #9
   %149 = load ptr, ptr %146, align 8
-  %150 = getelementptr inbounds i8, ptr %149, i64 80
+  %150 = getelementptr inbounds nuw i8, ptr %149, i64 80
   %151 = load ptr, ptr %150, align 8
   %152 = icmp eq ptr %151, null
   br i1 %152, label %153, label %155
@@ -288,13 +288,13 @@ define dso_local i32 @i9xx_check_plane_surface(ptr noundef %0) local_unnamed_add
   br label %157
 
 157:                                              ; preds = %155, %141, %137, %134, %132, %118
-  %158 = getelementptr inbounds i8, ptr %0, i64 296
+  %158 = getelementptr inbounds nuw i8, ptr %0, i64 296
   store i32 %80, ptr %158, align 8
   %159 = load i32, ptr %2, align 4
-  %160 = getelementptr inbounds i8, ptr %0, i64 300
+  %160 = getelementptr inbounds nuw i8, ptr %0, i64 300
   store i32 %159, ptr %160, align 4
   %161 = load i32, ptr %3, align 4
-  %162 = getelementptr inbounds i8, ptr %0, i64 304
+  %162 = getelementptr inbounds nuw i8, ptr %0, i64 304
   store i32 %161, ptr %162, align 8
   br label %163
 
@@ -342,7 +342,7 @@ define dso_local range(i32 0, 32769) i32 @i965_plane_max_stride(ptr nocapture re
   br i1 %6, label %7, label %13
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %5, i64 6
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 6
   %9 = load i8, ptr %8, align 2
   %10 = zext i8 %9 to i32
   %11 = shl nuw nsw i32 %10, 12
@@ -364,11 +364,11 @@ define dso_local ptr @intel_primary_plane_create(ptr noundef %0, i32 noundef %1)
   br i1 %4, label %168, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %3, i64 1328
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 1328
   store i32 %1, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 2624
-  %8 = getelementptr inbounds i8, ptr %0, i64 2632
-  %9 = getelementptr inbounds i8, ptr %0, i64 2650
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 2624
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 2632
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 2650
   %10 = load i8, ptr %9, align 2
   %11 = icmp eq i8 %10, 0
   br i1 %11, label %24, label %12
@@ -379,7 +379,7 @@ define dso_local ptr @intel_primary_plane_create(ptr noundef %0, i32 noundef %1)
   br i1 %14, label %15, label %24
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %0, i64 2638
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 2638
   %17 = load i8, ptr %16, align 2
   %18 = zext i8 %17 to i32
   %19 = tail call i32 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight32\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntl $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i32 %18) #10, !srcloc !22
@@ -393,22 +393,22 @@ define dso_local ptr @intel_primary_plane_create(ptr noundef %0, i32 noundef %1)
 
 24:                                               ; preds = %21, %15, %12, %5
   %25 = phi i32 [ %23, %21 ], [ %1, %15 ], [ %1, %12 ], [ %1, %5 ]
-  %26 = getelementptr inbounds i8, ptr %3, i64 1320
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 1320
   store i32 %25, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %3, i64 1324
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 1324
   store i32 0, ptr %27, align 4
   %28 = shl i32 %1, 3
   %29 = zext nneg i32 %28 to i64
   %30 = shl nuw i64 1, %29
   %31 = trunc i64 %30 to i32
-  %32 = getelementptr inbounds i8, ptr %3, i64 1336
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 1336
   store i32 %31, ptr %32, align 8
   %33 = load i8, ptr %9, align 2
   %34 = icmp eq i8 %33, 0
   br i1 %34, label %58, label %35
 
 35:                                               ; preds = %24
-  %36 = getelementptr inbounds i8, ptr %0, i64 7184
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 7184
   %37 = load i32, ptr %36, align 4
   %38 = zext i32 %37 to i64
   %39 = and i64 %38, 12582912
@@ -442,14 +442,14 @@ define dso_local ptr @intel_primary_plane_create(ptr noundef %0, i32 noundef %1)
   br i1 %54, label %55, label %58
 
 55:                                               ; preds = %51, %46, %41, %53
-  %56 = getelementptr inbounds i8, ptr %0, i64 5992
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 5992
   %57 = load ptr, ptr %56, align 8
   br label %58
 
 58:                                               ; preds = %51, %46, %41, %55, %53, %24
   %59 = phi ptr [ %57, %55 ], [ null, %53 ], [ null, %24 ], [ null, %41 ], [ null, %46 ], [ null, %51 ]
   tail call void @intel_fbc_add_plane(ptr noundef %59, ptr noundef %3) #9
-  %60 = getelementptr inbounds i8, ptr %0, i64 7184
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 7184
   %61 = load i32, ptr %60, align 4
   %62 = zext i32 %61 to i64
   %63 = and i64 %62, 18874368
@@ -468,12 +468,12 @@ define dso_local ptr @intel_primary_plane_create(ptr noundef %0, i32 noundef %1)
   %72 = select i1 %66, ptr @i965_plane_funcs, ptr @i8xx_plane_funcs
   %73 = and i64 %62, 12582912
   %74 = icmp eq i64 %73, 0
-  %75 = getelementptr inbounds i8, ptr %3, i64 1432
+  %75 = getelementptr inbounds nuw i8, ptr %3, i64 1432
   br i1 %74, label %80, label %79
 
 76:                                               ; preds = %58
   %77 = select i1 %66, ptr @i965_plane_funcs, ptr @i8xx_plane_funcs
-  %78 = getelementptr inbounds i8, ptr %3, i64 1432
+  %78 = getelementptr inbounds nuw i8, ptr %3, i64 1432
   store ptr @vlv_plane_min_cdclk, ptr %78, align 8
   br label %83
 
@@ -497,7 +497,7 @@ define dso_local ptr @intel_primary_plane_create(ptr noundef %0, i32 noundef %1)
   %85 = phi i32 [ %.ph3, %82 ], [ %.ph3, %81 ], [ %.ph3, %79 ], [ 11, %76 ]
   %86 = phi ptr [ %.ph, %82 ], [ %.ph, %81 ], [ %.ph, %79 ], [ @vlv_primary_formats, %76 ]
   %87 = load ptr, ptr %7, align 8
-  %88 = getelementptr inbounds i8, ptr %87, i64 28
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 28
   %89 = load i16, ptr %88, align 4
   %90 = and i16 %89, 128
   %91 = icmp eq i16 %90, 0
@@ -506,7 +506,7 @@ define dso_local ptr @intel_primary_plane_create(ptr noundef %0, i32 noundef %1)
 92:                                               ; preds = %83
   %93 = load i16, ptr %8, align 8
   %94 = icmp ugt i16 %93, 3
-  %95 = getelementptr inbounds i8, ptr %3, i64 1384
+  %95 = getelementptr inbounds nuw i8, ptr %3, i64 1384
   br i1 %94, label %96, label %97
 
 96:                                               ; preds = %92
@@ -521,7 +521,7 @@ define dso_local ptr @intel_primary_plane_create(ptr noundef %0, i32 noundef %1)
   %99 = load i32, ptr %60, align 4
   %100 = and i32 %99, 12582912
   %101 = icmp eq i32 %100, 0
-  %102 = getelementptr inbounds i8, ptr %3, i64 1384
+  %102 = getelementptr inbounds nuw i8, ptr %3, i64 1384
   br i1 %101, label %104, label %103
 
 103:                                              ; preds = %98
@@ -539,19 +539,19 @@ define dso_local ptr @intel_primary_plane_create(ptr noundef %0, i32 noundef %1)
   br i1 %108, label %109, label %111
 
 109:                                              ; preds = %105
-  %110 = getelementptr inbounds i8, ptr %3, i64 1392
+  %110 = getelementptr inbounds nuw i8, ptr %3, i64 1392
   store ptr @i9xx_plane_update_noarm, ptr %110, align 8
   br label %111
 
 111:                                              ; preds = %109, %105
   %112 = phi ptr [ @i9xx_plane_update_arm, %109 ], [ @i830_plane_update_arm, %105 ]
-  %113 = getelementptr inbounds i8, ptr %3, i64 1400
+  %113 = getelementptr inbounds nuw i8, ptr %3, i64 1400
   store ptr %112, ptr %113, align 8
-  %114 = getelementptr inbounds i8, ptr %3, i64 1408
+  %114 = getelementptr inbounds nuw i8, ptr %3, i64 1408
   store ptr @i9xx_plane_disable_arm, ptr %114, align 8
-  %115 = getelementptr inbounds i8, ptr %3, i64 1416
+  %115 = getelementptr inbounds nuw i8, ptr %3, i64 1416
   store ptr @i9xx_plane_get_hw_state, ptr %115, align 8
-  %116 = getelementptr inbounds i8, ptr %3, i64 1424
+  %116 = getelementptr inbounds nuw i8, ptr %3, i64 1424
   store ptr @i9xx_plane_check, ptr %116, align 8
   %117 = load i32, ptr %60, align 4
   %118 = zext i32 %117 to i64
@@ -565,7 +565,7 @@ define dso_local ptr @intel_primary_plane_create(ptr noundef %0, i32 noundef %1)
   br i1 %123, label %126, label %124
 
 124:                                              ; preds = %121
-  %125 = getelementptr inbounds i8, ptr %3, i64 1332
+  %125 = getelementptr inbounds nuw i8, ptr %3, i64 1332
   store i8 1, ptr %125, align 4
   br label %131
 
@@ -582,11 +582,11 @@ define dso_local ptr @intel_primary_plane_create(ptr noundef %0, i32 noundef %1)
   %132 = phi ptr [ @g4x_primary_async_flip, %124 ], [ @vlv_primary_async_flip, %111 ], [ @g4x_primary_async_flip, %126 ], [ @g4x_primary_async_flip, %129 ]
   %133 = phi ptr [ @bdw_primary_enable_flip_done, %124 ], [ @vlv_primary_enable_flip_done, %111 ], [ @ivb_primary_enable_flip_done, %126 ], [ @ilk_primary_enable_flip_done, %129 ]
   %134 = phi ptr [ @bdw_primary_disable_flip_done, %124 ], [ @vlv_primary_disable_flip_done, %111 ], [ @ivb_primary_disable_flip_done, %126 ], [ @ilk_primary_disable_flip_done, %129 ]
-  %135 = getelementptr inbounds i8, ptr %3, i64 1440
+  %135 = getelementptr inbounds nuw i8, ptr %3, i64 1440
   store ptr %132, ptr %135, align 8
-  %136 = getelementptr inbounds i8, ptr %3, i64 1448
+  %136 = getelementptr inbounds nuw i8, ptr %3, i64 1448
   store ptr %133, ptr %136, align 8
-  %137 = getelementptr inbounds i8, ptr %3, i64 1456
+  %137 = getelementptr inbounds nuw i8, ptr %3, i64 1456
   store ptr %134, ptr %137, align 8
   br label %138
 
@@ -663,18 +663,18 @@ declare dso_local i32 @ivb_plane_min_cdclk(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
 define internal i32 @i9xx_plane_min_cdclk(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 856
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 856
   %4 = load i32, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 184
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 184
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 72
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 6
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 6
   %10 = load i8, ptr %9, align 2
   %11 = icmp eq i8 %10, 8
   %12 = select i1 %11, i32 10, i32 1
   %13 = select i1 %11, i32 8, i32 1
-  %14 = getelementptr inbounds i8, ptr %0, i64 1518
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 1518
   %15 = load i8, ptr %14, align 2, !range !6, !noundef !7
   %16 = zext nneg i8 %15 to i32
   %17 = shl nuw nsw i32 %13, %16
@@ -690,7 +690,7 @@ define internal i32 @i9xx_plane_min_cdclk(ptr nocapture noundef readonly %0, ptr
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
 define internal range(i32 4096, 16385) i32 @i9xx_plane_max_stride(ptr nocapture noundef readonly %0, i32 %1, i64 noundef %2, i32 %3) #3 align 16 {
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 2632
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 2632
   %7 = load i16, ptr %6, align 8
   %8 = icmp ugt i16 %7, 2
   br i1 %8, label %9, label %12
@@ -701,7 +701,7 @@ define internal range(i32 4096, 16385) i32 @i9xx_plane_max_stride(ptr nocapture 
   br label %17
 
 12:                                               ; preds = %4
-  %13 = getelementptr inbounds i8, ptr %0, i64 1320
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 1320
   %14 = load i32, ptr %13, align 8
   %15 = icmp eq i32 %14, 2
   %16 = select i1 %15, i32 4096, i32 8192
@@ -715,7 +715,7 @@ define internal range(i32 4096, 16385) i32 @i9xx_plane_max_stride(ptr nocapture 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i32 0, 32769) i32 @hsw_primary_max_stride(ptr nocapture readnone %0, i32 noundef %1, i64 %2, i32 %3) #0 align 16 {
   %5 = tail call ptr @drm_format_info(i32 noundef %1) #9
-  %6 = getelementptr inbounds i8, ptr %5, i64 6
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 6
   %7 = load i8, ptr %6, align 2
   %8 = zext i8 %7 to i32
   %9 = shl nuw nsw i32 %8, 13
@@ -730,7 +730,7 @@ define internal range(i32 0, 32769) i32 @ilk_primary_max_stride(ptr nocapture re
   br i1 %6, label %7, label %13
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %5, i64 6
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 6
   %9 = load i8, ptr %8, align 2
   %10 = zext i8 %9 to i32
   %11 = shl nuw nsw i32 %10, 12
@@ -752,21 +752,21 @@ define internal void @i830_plane_update_arm(ptr nocapture noundef readonly %0, p
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @i9xx_plane_update_noarm(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2) #0 align 16 {
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 1320
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1320
   %6 = load i32, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 2624
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 2624
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 36
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 36
   %10 = zext i32 %6 to i64
   %11 = getelementptr [7 x i32], ptr %9, i64 0, i64 %10
   %12 = load i32, ptr %11, align 4
   %13 = load i32, ptr %9, align 4
-  %14 = getelementptr inbounds i8, ptr %8, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %15 = load i32, ptr %14, align 4
   %16 = add i32 %12, 459144
   %17 = sub i32 %16, %13
   %18 = add i32 %17, %15
-  %19 = getelementptr inbounds i8, ptr %2, i64 308
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 308
   %20 = load i32, ptr %19, align 4
   %21 = zext i32 %20 to i64
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_i915_reg_rw, i64 8), i32 2) #9
@@ -789,7 +789,7 @@ define internal void @i9xx_plane_update_noarm(ptr nocapture noundef readonly %0,
   br i1 %30, label %35, label %31
 
 31:                                               ; preds = %28
-  %32 = getelementptr inbounds i8, ptr %29, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %33 = load ptr, ptr %32, align 8
   %34 = tail call i32 @__SCT__tp_func_i915_reg_rw(ptr noundef %33, i1 noundef zeroext true, i32 %18, i64 noundef %21, i32 noundef 4, i1 noundef zeroext true) #9
   br label %35
@@ -813,39 +813,39 @@ define internal void @i9xx_plane_update_noarm(ptr nocapture noundef readonly %0,
   br i1 %43, label %44, label %48
 
 44:                                               ; preds = %42
-  %45 = getelementptr inbounds i8, ptr %4, i64 7404
+  %45 = getelementptr inbounds nuw i8, ptr %4, i64 7404
   %46 = load i32, ptr %45, align 4
   %47 = add i32 %46, %18
   br label %48
 
 48:                                               ; preds = %44, %42
   %49 = phi i32 [ %47, %44 ], [ %18, %42 ]
-  %50 = getelementptr inbounds i8, ptr %4, i64 7368
+  %50 = getelementptr inbounds nuw i8, ptr %4, i64 7368
   %51 = load ptr, ptr %50, align 8
   %52 = zext i32 %49 to i64
   %53 = getelementptr i8, ptr %51, i64 %52
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %20, ptr elementtype(i32) %53) #9, !srcloc !32
-  %54 = getelementptr inbounds i8, ptr %4, i64 2632
+  %54 = getelementptr inbounds nuw i8, ptr %4, i64 2632
   %55 = load i16, ptr %54, align 8
   %56 = icmp ult i16 %55, 4
   br i1 %56, label %57, label %159
 
 57:                                               ; preds = %48
-  %58 = getelementptr inbounds i8, ptr %2, i64 124
+  %58 = getelementptr inbounds nuw i8, ptr %2, i64 124
   %59 = load i32, ptr %58, align 4
-  %60 = getelementptr inbounds i8, ptr %2, i64 128
+  %60 = getelementptr inbounds nuw i8, ptr %2, i64 128
   %61 = load i32, ptr %60, align 4
-  %62 = getelementptr inbounds i8, ptr %2, i64 132
+  %62 = getelementptr inbounds nuw i8, ptr %2, i64 132
   %63 = load i32, ptr %62, align 4
-  %64 = getelementptr inbounds i8, ptr %2, i64 136
+  %64 = getelementptr inbounds nuw i8, ptr %2, i64 136
   %65 = load i32, ptr %64, align 4
   %66 = sub i32 %65, %61
   %67 = load ptr, ptr %7, align 8
-  %68 = getelementptr inbounds i8, ptr %67, i64 36
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 36
   %69 = getelementptr [7 x i32], ptr %68, i64 0, i64 %10
   %70 = load i32, ptr %69, align 4
   %71 = load i32, ptr %68, align 4
-  %72 = getelementptr inbounds i8, ptr %67, i64 32
+  %72 = getelementptr inbounds nuw i8, ptr %67, i64 32
   %73 = load i32, ptr %72, align 4
   %74 = add i32 %70, 459148
   %75 = sub i32 %74, %71
@@ -874,7 +874,7 @@ define internal void @i9xx_plane_update_noarm(ptr nocapture noundef readonly %0,
   br i1 %89, label %94, label %90
 
 90:                                               ; preds = %87
-  %91 = getelementptr inbounds i8, ptr %88, i64 8
+  %91 = getelementptr inbounds nuw i8, ptr %88, i64 8
   %92 = load ptr, ptr %91, align 8
   %93 = tail call i32 @__SCT__tp_func_i915_reg_rw(ptr noundef %92, i1 noundef zeroext true, i32 %76, i64 noundef %80, i32 noundef 4, i1 noundef zeroext true) #9
   br label %94
@@ -898,7 +898,7 @@ define internal void @i9xx_plane_update_noarm(ptr nocapture noundef readonly %0,
   br i1 %102, label %103, label %107
 
 103:                                              ; preds = %101
-  %104 = getelementptr inbounds i8, ptr %4, i64 7404
+  %104 = getelementptr inbounds nuw i8, ptr %4, i64 7404
   %105 = load i32, ptr %104, align 4
   %106 = add i32 %105, %76
   br label %107
@@ -910,11 +910,11 @@ define internal void @i9xx_plane_update_noarm(ptr nocapture noundef readonly %0,
   %111 = getelementptr i8, ptr %109, i64 %110
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %79, ptr elementtype(i32) %111) #9, !srcloc !32
   %112 = load ptr, ptr %7, align 8
-  %113 = getelementptr inbounds i8, ptr %112, i64 36
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 36
   %114 = getelementptr [7 x i32], ptr %113, i64 0, i64 %10
   %115 = load i32, ptr %114, align 4
   %116 = load i32, ptr %113, align 4
-  %117 = getelementptr inbounds i8, ptr %112, i64 32
+  %117 = getelementptr inbounds nuw i8, ptr %112, i64 32
   %118 = load i32, ptr %117, align 4
   %119 = add i32 %115, 459152
   %120 = sub i32 %119, %116
@@ -946,7 +946,7 @@ define internal void @i9xx_plane_update_noarm(ptr nocapture noundef readonly %0,
   br i1 %136, label %141, label %137
 
 137:                                              ; preds = %134
-  %138 = getelementptr inbounds i8, ptr %135, i64 8
+  %138 = getelementptr inbounds nuw i8, ptr %135, i64 8
   %139 = load ptr, ptr %138, align 8
   %140 = tail call i32 @__SCT__tp_func_i915_reg_rw(ptr noundef %139, i1 noundef zeroext true, i32 %121, i64 noundef %127, i32 noundef 4, i1 noundef zeroext true) #9
   br label %141
@@ -970,7 +970,7 @@ define internal void @i9xx_plane_update_noarm(ptr nocapture noundef readonly %0,
   br i1 %149, label %150, label %154
 
 150:                                              ; preds = %148
-  %151 = getelementptr inbounds i8, ptr %4, i64 7404
+  %151 = getelementptr inbounds nuw i8, ptr %4, i64 7404
   %152 = load i32, ptr %151, align 4
   %153 = add i32 %152, %121
   br label %154
@@ -990,32 +990,32 @@ define internal void @i9xx_plane_update_noarm(ptr nocapture noundef readonly %0,
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @i9xx_plane_update_arm(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 1320
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1320
   %6 = load i32, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 300
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 300
   %8 = load i32, ptr %7, align 4
-  %9 = getelementptr inbounds i8, ptr %2, i64 304
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 304
   %10 = load i32, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %2, i64 380
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 380
   %12 = load i32, ptr %11, align 4
   %13 = load ptr, ptr %1, align 8
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 4752
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 4752
   %16 = load i8, ptr %15, align 8, !range !6, !noundef !7
   %17 = icmp eq i8 %16, 0
   %18 = select i1 %17, i32 0, i32 1073741824
-  %19 = getelementptr inbounds i8, ptr %1, i64 4753
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 4753
   %20 = load i8, ptr %19, align 1, !range !6, !noundef !7
   %21 = icmp eq i8 %20, 0
   %22 = or disjoint i32 %18, 16777216
   %23 = select i1 %21, i32 %18, i32 %22
-  %24 = getelementptr inbounds i8, ptr %14, i64 2632
+  %24 = getelementptr inbounds nuw i8, ptr %14, i64 2632
   %25 = load i16, ptr %24, align 8
   %26 = icmp ult i16 %25, 5
   br i1 %26, label %27, label %33
 
 27:                                               ; preds = %3
-  %28 = getelementptr inbounds i8, ptr %13, i64 1648
+  %28 = getelementptr inbounds nuw i8, ptr %13, i64 1648
   %29 = load i32, ptr %28, align 8
   %30 = shl i32 %29, 24
   %31 = and i32 %30, 50331648
@@ -1026,20 +1026,20 @@ define internal void @i9xx_plane_update_arm(ptr nocapture noundef readonly %0, p
   %34 = phi i32 [ %32, %27 ], [ %23, %3 ]
   %35 = or i32 %34, %12
   %36 = tail call i32 @intel_fb_xy_to_linear(i32 noundef %8, i32 noundef %10, ptr noundef %2, i32 noundef 0) #9
-  %37 = getelementptr inbounds i8, ptr %4, i64 2624
-  %38 = getelementptr inbounds i8, ptr %4, i64 2632
+  %37 = getelementptr inbounds nuw i8, ptr %4, i64 2624
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 2632
   %39 = load i16, ptr %38, align 8
   %40 = icmp ugt i16 %39, 3
   br i1 %40, label %41, label %44
 
 41:                                               ; preds = %33
-  %42 = getelementptr inbounds i8, ptr %2, i64 296
+  %42 = getelementptr inbounds nuw i8, ptr %2, i64 296
   %43 = load i32, ptr %42, align 8
   br label %44
 
 44:                                               ; preds = %41, %33
   %45 = phi i32 [ %43, %41 ], [ %36, %33 ]
-  %46 = getelementptr inbounds i8, ptr %4, i64 7184
+  %46 = getelementptr inbounds nuw i8, ptr %4, i64 7184
   %47 = load i32, ptr %46, align 4
   %48 = and i32 %47, 16777216
   %49 = icmp ne i32 %48, 0
@@ -1048,21 +1048,21 @@ define internal void @i9xx_plane_update_arm(ptr nocapture noundef readonly %0, p
   br i1 %51, label %52, label %196
 
 52:                                               ; preds = %44
-  %53 = getelementptr inbounds i8, ptr %2, i64 124
+  %53 = getelementptr inbounds nuw i8, ptr %2, i64 124
   %54 = load i32, ptr %53, align 4
-  %55 = getelementptr inbounds i8, ptr %2, i64 128
+  %55 = getelementptr inbounds nuw i8, ptr %2, i64 128
   %56 = load i32, ptr %55, align 4
-  %57 = getelementptr inbounds i8, ptr %2, i64 132
+  %57 = getelementptr inbounds nuw i8, ptr %2, i64 132
   %58 = load i32, ptr %57, align 4
-  %59 = getelementptr inbounds i8, ptr %2, i64 136
+  %59 = getelementptr inbounds nuw i8, ptr %2, i64 136
   %60 = load i32, ptr %59, align 4
   %61 = sub i32 %60, %56
   %62 = load ptr, ptr %37, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 64
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 64
   %64 = getelementptr i8, ptr %62, i64 68
   %65 = load i32, ptr %64, align 4
   %66 = load i32, ptr %63, align 4
-  %67 = getelementptr inbounds i8, ptr %62, i64 32
+  %67 = getelementptr inbounds nuw i8, ptr %62, i64 32
   %68 = load i32, ptr %67, align 4
   %69 = add i32 %65, 395784
   %70 = sub i32 %69, %66
@@ -1091,7 +1091,7 @@ define internal void @i9xx_plane_update_arm(ptr nocapture noundef readonly %0, p
   br i1 %84, label %89, label %85
 
 85:                                               ; preds = %82
-  %86 = getelementptr inbounds i8, ptr %83, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %83, i64 8
   %87 = load ptr, ptr %86, align 8
   %88 = tail call i32 @__SCT__tp_func_i915_reg_rw(ptr noundef %87, i1 noundef zeroext true, i32 %71, i64 noundef %75, i32 noundef 4, i1 noundef zeroext true) #9
   br label %89
@@ -1115,24 +1115,24 @@ define internal void @i9xx_plane_update_arm(ptr nocapture noundef readonly %0, p
   br i1 %97, label %98, label %102
 
 98:                                               ; preds = %96
-  %99 = getelementptr inbounds i8, ptr %4, i64 7404
+  %99 = getelementptr inbounds nuw i8, ptr %4, i64 7404
   %100 = load i32, ptr %99, align 4
   %101 = add i32 %100, %71
   br label %102
 
 102:                                              ; preds = %98, %96
   %103 = phi i32 [ %101, %98 ], [ %71, %96 ]
-  %104 = getelementptr inbounds i8, ptr %4, i64 7368
+  %104 = getelementptr inbounds nuw i8, ptr %4, i64 7368
   %105 = load ptr, ptr %104, align 8
   %106 = zext i32 %103 to i64
   %107 = getelementptr i8, ptr %105, i64 %106
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %74, ptr elementtype(i32) %107) #9, !srcloc !32
   %108 = load ptr, ptr %37, align 8
-  %109 = getelementptr inbounds i8, ptr %108, i64 64
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 64
   %110 = getelementptr i8, ptr %108, i64 68
   %111 = load i32, ptr %110, align 4
   %112 = load i32, ptr %109, align 4
-  %113 = getelementptr inbounds i8, ptr %108, i64 32
+  %113 = getelementptr inbounds nuw i8, ptr %108, i64 32
   %114 = load i32, ptr %113, align 4
   %115 = add i32 %111, 395788
   %116 = sub i32 %115, %112
@@ -1164,7 +1164,7 @@ define internal void @i9xx_plane_update_arm(ptr nocapture noundef readonly %0, p
   br i1 %132, label %137, label %133
 
 133:                                              ; preds = %130
-  %134 = getelementptr inbounds i8, ptr %131, i64 8
+  %134 = getelementptr inbounds nuw i8, ptr %131, i64 8
   %135 = load ptr, ptr %134, align 8
   %136 = tail call i32 @__SCT__tp_func_i915_reg_rw(ptr noundef %135, i1 noundef zeroext true, i32 %117, i64 noundef %123, i32 noundef 4, i1 noundef zeroext true) #9
   br label %137
@@ -1188,7 +1188,7 @@ define internal void @i9xx_plane_update_arm(ptr nocapture noundef readonly %0, p
   br i1 %145, label %146, label %150
 
 146:                                              ; preds = %144
-  %147 = getelementptr inbounds i8, ptr %4, i64 7404
+  %147 = getelementptr inbounds nuw i8, ptr %4, i64 7404
   %148 = load i32, ptr %147, align 4
   %149 = add i32 %148, %117
   br label %150
@@ -1200,11 +1200,11 @@ define internal void @i9xx_plane_update_arm(ptr nocapture noundef readonly %0, p
   %154 = getelementptr i8, ptr %152, i64 %153
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %122, ptr elementtype(i32) %154) #9, !srcloc !32
   %155 = load ptr, ptr %37, align 8
-  %156 = getelementptr inbounds i8, ptr %155, i64 64
+  %156 = getelementptr inbounds nuw i8, ptr %155, i64 64
   %157 = getelementptr i8, ptr %155, i64 68
   %158 = load i32, ptr %157, align 4
   %159 = load i32, ptr %156, align 4
-  %160 = getelementptr inbounds i8, ptr %155, i64 32
+  %160 = getelementptr inbounds nuw i8, ptr %155, i64 32
   %161 = load i32, ptr %160, align 4
   %162 = add i32 %158, 395792
   %163 = sub i32 %162, %159
@@ -1229,7 +1229,7 @@ define internal void @i9xx_plane_update_arm(ptr nocapture noundef readonly %0, p
   br i1 %173, label %178, label %174
 
 174:                                              ; preds = %171
-  %175 = getelementptr inbounds i8, ptr %172, i64 8
+  %175 = getelementptr inbounds nuw i8, ptr %172, i64 8
   %176 = load ptr, ptr %175, align 8
   %177 = tail call i32 @__SCT__tp_func_i915_reg_rw(ptr noundef %176, i1 noundef zeroext true, i32 %164, i64 noundef 0, i32 noundef 4, i1 noundef zeroext true) #9
   br label %178
@@ -1253,7 +1253,7 @@ define internal void @i9xx_plane_update_arm(ptr nocapture noundef readonly %0, p
   br i1 %186, label %187, label %191
 
 187:                                              ; preds = %185
-  %188 = getelementptr inbounds i8, ptr %4, i64 7404
+  %188 = getelementptr inbounds nuw i8, ptr %4, i64 7404
   %189 = load i32, ptr %188, align 4
   %190 = add i32 %189, %164
   br label %191
@@ -1275,12 +1275,12 @@ define internal void @i9xx_plane_update_arm(ptr nocapture noundef readonly %0, p
 
 200:                                              ; preds = %196
   %201 = load ptr, ptr %37, align 8
-  %202 = getelementptr inbounds i8, ptr %201, i64 36
+  %202 = getelementptr inbounds nuw i8, ptr %201, i64 36
   %203 = zext i32 %6 to i64
   %204 = getelementptr [7 x i32], ptr %202, i64 0, i64 %203
   %205 = load i32, ptr %204, align 4
   %206 = load i32, ptr %202, align 4
-  %207 = getelementptr inbounds i8, ptr %201, i64 32
+  %207 = getelementptr inbounds nuw i8, ptr %201, i64 32
   %208 = load i32, ptr %207, align 4
   %209 = add i32 %205, 459172
   %210 = sub i32 %209, %206
@@ -1309,7 +1309,7 @@ define internal void @i9xx_plane_update_arm(ptr nocapture noundef readonly %0, p
   br i1 %224, label %229, label %225
 
 225:                                              ; preds = %222
-  %226 = getelementptr inbounds i8, ptr %223, i64 8
+  %226 = getelementptr inbounds nuw i8, ptr %223, i64 8
   %227 = load ptr, ptr %226, align 8
   %228 = tail call i32 @__SCT__tp_func_i915_reg_rw(ptr noundef %227, i1 noundef zeroext true, i32 %211, i64 noundef %215, i32 noundef 4, i1 noundef zeroext true) #9
   br label %229
@@ -1333,14 +1333,14 @@ define internal void @i9xx_plane_update_arm(ptr nocapture noundef readonly %0, p
   br i1 %237, label %238, label %242
 
 238:                                              ; preds = %236
-  %239 = getelementptr inbounds i8, ptr %4, i64 7404
+  %239 = getelementptr inbounds nuw i8, ptr %4, i64 7404
   %240 = load i32, ptr %239, align 4
   %241 = add i32 %240, %211
   br label %242
 
 242:                                              ; preds = %238, %236
   %243 = phi i32 [ %241, %238 ], [ %211, %236 ]
-  %244 = getelementptr inbounds i8, ptr %4, i64 7368
+  %244 = getelementptr inbounds nuw i8, ptr %4, i64 7368
   %245 = load ptr, ptr %244, align 8
   %246 = zext i32 %243 to i64
   %247 = getelementptr i8, ptr %245, i64 %246
@@ -1358,12 +1358,12 @@ define internal void @i9xx_plane_update_arm(ptr nocapture noundef readonly %0, p
 
 251:                                              ; preds = %248
   %252 = load ptr, ptr %37, align 8
-  %253 = getelementptr inbounds i8, ptr %252, i64 36
+  %253 = getelementptr inbounds nuw i8, ptr %252, i64 36
   %254 = zext i32 %6 to i64
   %255 = getelementptr [7 x i32], ptr %253, i64 0, i64 %254
   %256 = load i32, ptr %255, align 4
   %257 = load i32, ptr %253, align 4
-  %258 = getelementptr inbounds i8, ptr %252, i64 32
+  %258 = getelementptr inbounds nuw i8, ptr %252, i64 32
   %259 = load i32, ptr %258, align 4
   %260 = add i32 %256, 459140
   %261 = sub i32 %260, %257
@@ -1389,7 +1389,7 @@ define internal void @i9xx_plane_update_arm(ptr nocapture noundef readonly %0, p
   br i1 %272, label %277, label %273
 
 273:                                              ; preds = %270
-  %274 = getelementptr inbounds i8, ptr %271, i64 8
+  %274 = getelementptr inbounds nuw i8, ptr %271, i64 8
   %275 = load ptr, ptr %274, align 8
   %276 = tail call i32 @__SCT__tp_func_i915_reg_rw(ptr noundef %275, i1 noundef zeroext true, i32 %262, i64 noundef %263, i32 noundef 4, i1 noundef zeroext true) #9
   br label %277
@@ -1413,24 +1413,24 @@ define internal void @i9xx_plane_update_arm(ptr nocapture noundef readonly %0, p
   br i1 %285, label %286, label %290
 
 286:                                              ; preds = %284
-  %287 = getelementptr inbounds i8, ptr %4, i64 7404
+  %287 = getelementptr inbounds nuw i8, ptr %4, i64 7404
   %288 = load i32, ptr %287, align 4
   %289 = add i32 %288, %262
   br label %290
 
 290:                                              ; preds = %286, %284
   %291 = phi i32 [ %289, %286 ], [ %262, %284 ]
-  %292 = getelementptr inbounds i8, ptr %4, i64 7368
+  %292 = getelementptr inbounds nuw i8, ptr %4, i64 7368
   %293 = load ptr, ptr %292, align 8
   %294 = zext i32 %291 to i64
   %295 = getelementptr i8, ptr %293, i64 %294
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %36, ptr elementtype(i32) %295) #9, !srcloc !32
   %296 = load ptr, ptr %37, align 8
-  %297 = getelementptr inbounds i8, ptr %296, i64 36
+  %297 = getelementptr inbounds nuw i8, ptr %296, i64 36
   %298 = getelementptr [7 x i32], ptr %297, i64 0, i64 %254
   %299 = load i32, ptr %298, align 4
   %300 = load i32, ptr %297, align 4
-  %301 = getelementptr inbounds i8, ptr %296, i64 32
+  %301 = getelementptr inbounds nuw i8, ptr %296, i64 32
   %302 = load i32, ptr %301, align 4
   %303 = add i32 %299, 459172
   %304 = sub i32 %303, %300
@@ -1459,7 +1459,7 @@ define internal void @i9xx_plane_update_arm(ptr nocapture noundef readonly %0, p
   br i1 %318, label %323, label %319
 
 319:                                              ; preds = %316
-  %320 = getelementptr inbounds i8, ptr %317, i64 8
+  %320 = getelementptr inbounds nuw i8, ptr %317, i64 8
   %321 = load ptr, ptr %320, align 8
   %322 = tail call i32 @__SCT__tp_func_i915_reg_rw(ptr noundef %321, i1 noundef zeroext true, i32 %305, i64 noundef %309, i32 noundef 4, i1 noundef zeroext true) #9
   br label %323
@@ -1483,7 +1483,7 @@ define internal void @i9xx_plane_update_arm(ptr nocapture noundef readonly %0, p
   br i1 %331, label %332, label %336
 
 332:                                              ; preds = %330
-  %333 = getelementptr inbounds i8, ptr %4, i64 7404
+  %333 = getelementptr inbounds nuw i8, ptr %4, i64 7404
   %334 = load i32, ptr %333, align 4
   %335 = add i32 %334, %305
   br label %336
@@ -1499,11 +1499,11 @@ define internal void @i9xx_plane_update_arm(ptr nocapture noundef readonly %0, p
 341:                                              ; preds = %._crit_edge, %336, %242
   %.pre-phi = phi i64 [ %.pre34, %._crit_edge ], [ %254, %336 ], [ %203, %242 ]
   %342 = load ptr, ptr %37, align 8
-  %343 = getelementptr inbounds i8, ptr %342, i64 36
+  %343 = getelementptr inbounds nuw i8, ptr %342, i64 36
   %344 = getelementptr [7 x i32], ptr %343, i64 0, i64 %.pre-phi
   %345 = load i32, ptr %344, align 4
   %346 = load i32, ptr %343, align 4
-  %347 = getelementptr inbounds i8, ptr %342, i64 32
+  %347 = getelementptr inbounds nuw i8, ptr %342, i64 32
   %348 = load i32, ptr %347, align 4
   %349 = add i32 %345, 459136
   %350 = sub i32 %349, %346
@@ -1529,7 +1529,7 @@ define internal void @i9xx_plane_update_arm(ptr nocapture noundef readonly %0, p
   br i1 %361, label %366, label %362
 
 362:                                              ; preds = %359
-  %363 = getelementptr inbounds i8, ptr %360, i64 8
+  %363 = getelementptr inbounds nuw i8, ptr %360, i64 8
   %364 = load ptr, ptr %363, align 8
   %365 = tail call i32 @__SCT__tp_func_i915_reg_rw(ptr noundef %364, i1 noundef zeroext true, i32 %351, i64 noundef %352, i32 noundef 4, i1 noundef zeroext true) #9
   br label %366
@@ -1553,14 +1553,14 @@ define internal void @i9xx_plane_update_arm(ptr nocapture noundef readonly %0, p
   br i1 %374, label %375, label %379
 
 375:                                              ; preds = %373
-  %376 = getelementptr inbounds i8, ptr %4, i64 7404
+  %376 = getelementptr inbounds nuw i8, ptr %4, i64 7404
   %377 = load i32, ptr %376, align 4
   %378 = add i32 %377, %351
   br label %379
 
 379:                                              ; preds = %375, %373
   %380 = phi i32 [ %378, %375 ], [ %351, %373 ]
-  %381 = getelementptr inbounds i8, ptr %4, i64 7368
+  %381 = getelementptr inbounds nuw i8, ptr %4, i64 7368
   %382 = load ptr, ptr %381, align 8
   %383 = zext i32 %380 to i64
   %384 = getelementptr i8, ptr %382, i64 %383
@@ -1568,17 +1568,17 @@ define internal void @i9xx_plane_update_arm(ptr nocapture noundef readonly %0, p
   %385 = load i16, ptr %38, align 8
   %386 = icmp ugt i16 %385, 3
   %387 = load ptr, ptr %37, align 8
-  %388 = getelementptr inbounds i8, ptr %387, i64 36
+  %388 = getelementptr inbounds nuw i8, ptr %387, i64 36
   %389 = getelementptr [7 x i32], ptr %388, i64 0, i64 %.pre-phi
   %390 = load i32, ptr %389, align 4
   %391 = load i32, ptr %388, align 4
-  %392 = getelementptr inbounds i8, ptr %387, i64 32
+  %392 = getelementptr inbounds nuw i8, ptr %387, i64 32
   %393 = load i32, ptr %392, align 4
-  %394 = getelementptr inbounds i8, ptr %2, i64 216
+  %394 = getelementptr inbounds nuw i8, ptr %2, i64 216
   %395 = load ptr, ptr %394, align 8
-  %396 = getelementptr inbounds i8, ptr %395, i64 8
+  %396 = getelementptr inbounds nuw i8, ptr %395, i64 8
   %397 = load i64, ptr %396, align 8
-  %398 = getelementptr inbounds i8, ptr %395, i64 248
+  %398 = getelementptr inbounds nuw i8, ptr %395, i64 248
   %399 = load i32, ptr %398, align 8
   %400 = trunc i64 %397 to i32
   %401 = add i32 %45, %400
@@ -1610,7 +1610,7 @@ define internal void @i9xx_plane_update_arm(ptr nocapture noundef readonly %0, p
   br i1 %416, label %421, label %417
 
 417:                                              ; preds = %414
-  %418 = getelementptr inbounds i8, ptr %415, i64 8
+  %418 = getelementptr inbounds nuw i8, ptr %415, i64 8
   %419 = load ptr, ptr %418, align 8
   %420 = tail call i32 @__SCT__tp_func_i915_reg_rw(ptr noundef %419, i1 noundef zeroext true, i32 %407, i64 noundef %403, i32 noundef 4, i1 noundef zeroext true) #9
   br label %421
@@ -1634,7 +1634,7 @@ define internal void @i9xx_plane_update_arm(ptr nocapture noundef readonly %0, p
   br i1 %429, label %430, label %434
 
 430:                                              ; preds = %428
-  %431 = getelementptr inbounds i8, ptr %4, i64 7404
+  %431 = getelementptr inbounds nuw i8, ptr %4, i64 7404
   %432 = load i32, ptr %431, align 4
   %433 = add i32 %432, %407
   br label %434
@@ -1671,7 +1671,7 @@ define internal void @i9xx_plane_update_arm(ptr nocapture noundef readonly %0, p
   br i1 %451, label %456, label %452
 
 452:                                              ; preds = %449
-  %453 = getelementptr inbounds i8, ptr %450, i64 8
+  %453 = getelementptr inbounds nuw i8, ptr %450, i64 8
   %454 = load ptr, ptr %453, align 8
   %455 = tail call i32 @__SCT__tp_func_i915_reg_rw(ptr noundef %454, i1 noundef zeroext true, i32 %442, i64 noundef %403, i32 noundef 4, i1 noundef zeroext true) #9
   br label %456
@@ -1695,7 +1695,7 @@ define internal void @i9xx_plane_update_arm(ptr nocapture noundef readonly %0, p
   br i1 %464, label %465, label %469
 
 465:                                              ; preds = %463
-  %466 = getelementptr inbounds i8, ptr %4, i64 7404
+  %466 = getelementptr inbounds nuw i8, ptr %4, i64 7404
   %467 = load i32, ptr %466, align 4
   %468 = add i32 %467, %442
   br label %469
@@ -1715,26 +1715,26 @@ define internal void @i9xx_plane_update_arm(ptr nocapture noundef readonly %0, p
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @i9xx_plane_disable_arm(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 align 16 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 1320
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1320
   %5 = load i32, ptr %4, align 8
   %6 = load ptr, ptr %1, align 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 4752
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 4752
   %9 = load i8, ptr %8, align 8, !range !6, !noundef !7
   %10 = icmp eq i8 %9, 0
   %11 = select i1 %10, i32 0, i32 1073741824
-  %12 = getelementptr inbounds i8, ptr %1, i64 4753
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 4753
   %13 = load i8, ptr %12, align 1, !range !6, !noundef !7
   %14 = icmp eq i8 %13, 0
   %15 = or disjoint i32 %11, 16777216
   %16 = select i1 %14, i32 %11, i32 %15
-  %17 = getelementptr inbounds i8, ptr %7, i64 2632
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 2632
   %18 = load i16, ptr %17, align 8
   %19 = icmp ult i16 %18, 5
   br i1 %19, label %20, label %26
 
 20:                                               ; preds = %2
-  %21 = getelementptr inbounds i8, ptr %6, i64 1648
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 1648
   %22 = load i32, ptr %21, align 8
   %23 = shl i32 %22, 24
   %24 = and i32 %23, 50331648
@@ -1743,14 +1743,14 @@ define internal void @i9xx_plane_disable_arm(ptr nocapture noundef readonly %0, 
 
 26:                                               ; preds = %20, %2
   %27 = phi i32 [ %25, %20 ], [ %16, %2 ]
-  %28 = getelementptr inbounds i8, ptr %3, i64 2624
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 2624
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 36
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 36
   %31 = zext i32 %5 to i64
   %32 = getelementptr [7 x i32], ptr %30, i64 0, i64 %31
   %33 = load i32, ptr %32, align 4
   %34 = load i32, ptr %30, align 4
-  %35 = getelementptr inbounds i8, ptr %29, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %29, i64 32
   %36 = load i32, ptr %35, align 4
   %37 = add i32 %33, 459136
   %38 = sub i32 %37, %34
@@ -1776,7 +1776,7 @@ define internal void @i9xx_plane_disable_arm(ptr nocapture noundef readonly %0, 
   br i1 %49, label %54, label %50
 
 50:                                               ; preds = %47
-  %51 = getelementptr inbounds i8, ptr %48, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %52 = load ptr, ptr %51, align 8
   %53 = tail call i32 @__SCT__tp_func_i915_reg_rw(ptr noundef %52, i1 noundef zeroext true, i32 %39, i64 noundef %40, i32 noundef 4, i1 noundef zeroext true) #9
   br label %54
@@ -1800,27 +1800,27 @@ define internal void @i9xx_plane_disable_arm(ptr nocapture noundef readonly %0, 
   br i1 %62, label %63, label %67
 
 63:                                               ; preds = %61
-  %64 = getelementptr inbounds i8, ptr %3, i64 7404
+  %64 = getelementptr inbounds nuw i8, ptr %3, i64 7404
   %65 = load i32, ptr %64, align 4
   %66 = add i32 %65, %39
   br label %67
 
 67:                                               ; preds = %63, %61
   %68 = phi i32 [ %66, %63 ], [ %39, %61 ]
-  %69 = getelementptr inbounds i8, ptr %3, i64 7368
+  %69 = getelementptr inbounds nuw i8, ptr %3, i64 7368
   %70 = load ptr, ptr %69, align 8
   %71 = zext i32 %68 to i64
   %72 = getelementptr i8, ptr %70, i64 %71
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %27, ptr elementtype(i32) %72) #9, !srcloc !32
-  %73 = getelementptr inbounds i8, ptr %3, i64 2632
+  %73 = getelementptr inbounds nuw i8, ptr %3, i64 2632
   %74 = load i16, ptr %73, align 8
   %75 = icmp ugt i16 %74, 3
   %76 = load ptr, ptr %28, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 36
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 36
   %78 = getelementptr [7 x i32], ptr %77, i64 0, i64 %31
   %79 = load i32, ptr %78, align 4
   %80 = load i32, ptr %77, align 4
-  %81 = getelementptr inbounds i8, ptr %76, i64 32
+  %81 = getelementptr inbounds nuw i8, ptr %76, i64 32
   %82 = load i32, ptr %81, align 4
   br i1 %75, label %83, label %118
 
@@ -1848,7 +1848,7 @@ define internal void @i9xx_plane_disable_arm(ptr nocapture noundef readonly %0, 
   br i1 %95, label %100, label %96
 
 96:                                               ; preds = %93
-  %97 = getelementptr inbounds i8, ptr %94, i64 8
+  %97 = getelementptr inbounds nuw i8, ptr %94, i64 8
   %98 = load ptr, ptr %97, align 8
   %99 = tail call i32 @__SCT__tp_func_i915_reg_rw(ptr noundef %98, i1 noundef zeroext true, i32 %86, i64 noundef 0, i32 noundef 4, i1 noundef zeroext true) #9
   br label %100
@@ -1872,7 +1872,7 @@ define internal void @i9xx_plane_disable_arm(ptr nocapture noundef readonly %0, 
   br i1 %108, label %109, label %113
 
 109:                                              ; preds = %107
-  %110 = getelementptr inbounds i8, ptr %3, i64 7404
+  %110 = getelementptr inbounds nuw i8, ptr %3, i64 7404
   %111 = load i32, ptr %110, align 4
   %112 = add i32 %111, %86
   br label %113
@@ -1909,7 +1909,7 @@ define internal void @i9xx_plane_disable_arm(ptr nocapture noundef readonly %0, 
   br i1 %130, label %135, label %131
 
 131:                                              ; preds = %128
-  %132 = getelementptr inbounds i8, ptr %129, i64 8
+  %132 = getelementptr inbounds nuw i8, ptr %129, i64 8
   %133 = load ptr, ptr %132, align 8
   %134 = tail call i32 @__SCT__tp_func_i915_reg_rw(ptr noundef %133, i1 noundef zeroext true, i32 %121, i64 noundef 0, i32 noundef 4, i1 noundef zeroext true) #9
   br label %135
@@ -1933,7 +1933,7 @@ define internal void @i9xx_plane_disable_arm(ptr nocapture noundef readonly %0, 
   br i1 %143, label %144, label %148
 
 144:                                              ; preds = %142
-  %145 = getelementptr inbounds i8, ptr %3, i64 7404
+  %145 = getelementptr inbounds nuw i8, ptr %3, i64 7404
   %146 = load i32, ptr %145, align 4
   %147 = add i32 %146, %121
   br label %148
@@ -1953,9 +1953,9 @@ define internal void @i9xx_plane_disable_arm(ptr nocapture noundef readonly %0, 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal zeroext i1 @i9xx_plane_get_hw_state(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 align 16 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 1320
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1320
   %5 = load i32, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 1328
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1328
   %7 = load i32, ptr %6, align 8
   %8 = add i32 %7, 1
   %9 = tail call i64 @intel_display_power_get_if_enabled(ptr noundef %3, i32 noundef %8) #9
@@ -1963,24 +1963,24 @@ define internal zeroext i1 @i9xx_plane_get_hw_state(ptr nocapture noundef readon
   br i1 %10, label %39, label %11
 
 11:                                               ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %3, i64 2624
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 2624
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 36
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 36
   %15 = zext i32 %5 to i64
   %16 = getelementptr [7 x i32], ptr %14, i64 0, i64 %15
   %17 = load i32, ptr %16, align 4
   %18 = load i32, ptr %14, align 4
-  %19 = getelementptr inbounds i8, ptr %13, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %20 = load i32, ptr %19, align 4
   %21 = add i32 %17, 459136
   %22 = sub i32 %21, %18
   %23 = add i32 %22, %20
-  %24 = getelementptr inbounds i8, ptr %3, i64 7368
-  %25 = getelementptr inbounds i8, ptr %3, i64 7512
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 7368
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 7512
   %26 = load ptr, ptr %25, align 8
-  %27 = tail call i32 %26(ptr noundef %24, i32 %23, i1 noundef zeroext true) #9
+  %27 = tail call i32 %26(ptr noundef nonnull %24, i32 %23, i1 noundef zeroext true) #9
   %28 = icmp slt i32 %27, 0
-  %29 = getelementptr inbounds i8, ptr %3, i64 2632
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 2632
   %30 = load i16, ptr %29, align 8
   %31 = icmp ugt i16 %30, 4
   br i1 %31, label %32, label %34
@@ -2014,9 +2014,9 @@ define internal i32 @i9xx_plane_check(ptr noundef %0, ptr noundef %1) #0 align 1
 
 6:                                                ; preds = %2
   %7 = load ptr, ptr %3, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 1320
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 1320
   %9 = load i32, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %7, i64 7184
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 7184
   %11 = load i32, ptr %10, align 4
   %12 = zext i32 %11 to i64
   %13 = and i64 %12, 16777216
@@ -2028,7 +2028,7 @@ define internal i32 @i9xx_plane_check(ptr noundef %0, ptr noundef %1) #0 align 1
   br label %31
 
 17:                                               ; preds = %6
-  %18 = getelementptr inbounds i8, ptr %7, i64 2632
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 2632
   %19 = load i16, ptr %18, align 8
   %20 = icmp ugt i16 %19, 4
   %21 = and i64 %12, 196608
@@ -2061,7 +2061,7 @@ define internal i32 @i9xx_plane_check(ptr noundef %0, ptr noundef %1) #0 align 1
   br i1 %37, label %38, label %48
 
 38:                                               ; preds = %35
-  %39 = getelementptr inbounds i8, ptr %1, i64 140
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 140
   %40 = load i8, ptr %39, align 4, !range !6, !noundef !7
   %41 = icmp eq i8 %40, 0
   br i1 %41, label %48, label %42
@@ -2073,7 +2073,7 @@ define internal i32 @i9xx_plane_check(ptr noundef %0, ptr noundef %1) #0 align 1
 
 45:                                               ; preds = %42
   %46 = tail call fastcc i32 @i9xx_plane_ctl(ptr noundef %1)
-  %47 = getelementptr inbounds i8, ptr %1, i64 380
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 380
   store i32 %46, ptr %47, align 4
   br label %48
 
@@ -2085,27 +2085,27 @@ define internal i32 @i9xx_plane_check(ptr noundef %0, ptr noundef %1) #0 align 1
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @vlv_primary_async_flip(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2, i1 zeroext %3) #0 align 16 {
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 296
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 296
   %7 = load i32, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 1320
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1320
   %9 = load i32, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 2624
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 2624
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 36
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 36
   %13 = zext i32 %9 to i64
   %14 = getelementptr [7 x i32], ptr %12, i64 0, i64 %13
   %15 = load i32, ptr %14, align 4
   %16 = load i32, ptr %12, align 4
-  %17 = getelementptr inbounds i8, ptr %11, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %18 = load i32, ptr %17, align 4
   %19 = add i32 %15, 459132
   %20 = sub i32 %19, %16
   %21 = add i32 %20, %18
-  %22 = getelementptr inbounds i8, ptr %2, i64 216
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 216
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load i64, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %23, i64 248
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 248
   %27 = load i32, ptr %26, align 8
   %28 = trunc i64 %25 to i32
   %29 = add i32 %7, %28
@@ -2131,7 +2131,7 @@ define internal void @vlv_primary_async_flip(ptr nocapture noundef readonly %0, 
   br i1 %40, label %45, label %41
 
 41:                                               ; preds = %38
-  %42 = getelementptr inbounds i8, ptr %39, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %43 = load ptr, ptr %42, align 8
   %44 = tail call i32 @__SCT__tp_func_i915_reg_rw(ptr noundef %43, i1 noundef zeroext true, i32 %21, i64 noundef %31, i32 noundef 4, i1 noundef zeroext true) #9
   br label %45
@@ -2155,14 +2155,14 @@ define internal void @vlv_primary_async_flip(ptr nocapture noundef readonly %0, 
   br i1 %53, label %54, label %58
 
 54:                                               ; preds = %52
-  %55 = getelementptr inbounds i8, ptr %5, i64 7404
+  %55 = getelementptr inbounds nuw i8, ptr %5, i64 7404
   %56 = load i32, ptr %55, align 4
   %57 = add i32 %56, %21
   br label %58
 
 58:                                               ; preds = %54, %52
   %59 = phi i32 [ %57, %54 ], [ %21, %52 ]
-  %60 = getelementptr inbounds i8, ptr %5, i64 7368
+  %60 = getelementptr inbounds nuw i8, ptr %5, i64 7368
   %61 = load ptr, ptr %60, align 8
   %62 = zext i32 %59 to i64
   %63 = getelementptr i8, ptr %61, i64 %62
@@ -2173,50 +2173,50 @@ define internal void @vlv_primary_async_flip(ptr nocapture noundef readonly %0, 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @vlv_primary_enable_flip_done(ptr nocapture noundef readonly %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 1328
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1328
   %4 = load i32, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 7932
-  tail call void @_raw_spin_lock_irq(ptr noundef %5) #9
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 7932
+  tail call void @_raw_spin_lock_irq(ptr noundef nonnull %5) #9
   tail call void @i915_enable_pipestat(ptr noundef %2, i32 noundef %4, i32 noundef 1024) #9
-  tail call void @_raw_spin_unlock_irq(ptr noundef %5) #9
+  tail call void @_raw_spin_unlock_irq(ptr noundef nonnull %5) #9
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @vlv_primary_disable_flip_done(ptr nocapture noundef readonly %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 1328
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1328
   %4 = load i32, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 7932
-  tail call void @_raw_spin_lock_irq(ptr noundef %5) #9
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 7932
+  tail call void @_raw_spin_lock_irq(ptr noundef nonnull %5) #9
   tail call void @i915_disable_pipestat(ptr noundef %2, i32 noundef %4, i32 noundef 1024) #9
-  tail call void @_raw_spin_unlock_irq(ptr noundef %5) #9
+  tail call void @_raw_spin_unlock_irq(ptr noundef nonnull %5) #9
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @g4x_primary_async_flip(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i1 noundef zeroext %3) #0 align 16 {
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 380
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 380
   %7 = load i32, ptr %6, align 4
   %8 = load ptr, ptr %1, align 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 4752
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 4752
   %11 = load i8, ptr %10, align 8, !range !6, !noundef !7
   %12 = icmp eq i8 %11, 0
   %13 = select i1 %12, i32 0, i32 1073741824
-  %14 = getelementptr inbounds i8, ptr %1, i64 4753
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 4753
   %15 = load i8, ptr %14, align 1, !range !6, !noundef !7
   %16 = icmp eq i8 %15, 0
   %17 = or disjoint i32 %13, 16777216
   %18 = select i1 %16, i32 %13, i32 %17
-  %19 = getelementptr inbounds i8, ptr %9, i64 2632
+  %19 = getelementptr inbounds nuw i8, ptr %9, i64 2632
   %20 = load i16, ptr %19, align 8
   %21 = icmp ult i16 %20, 5
   br i1 %21, label %22, label %28
 
 22:                                               ; preds = %4
-  %23 = getelementptr inbounds i8, ptr %8, i64 1648
+  %23 = getelementptr inbounds nuw i8, ptr %8, i64 1648
   %24 = load i32, ptr %23, align 8
   %25 = shl i32 %24, 24
   %26 = and i32 %25, 50331648
@@ -2226,20 +2226,20 @@ define internal void @g4x_primary_async_flip(ptr nocapture noundef readonly %0, 
 28:                                               ; preds = %22, %4
   %29 = phi i32 [ %27, %22 ], [ %18, %4 ]
   %30 = or i32 %29, %7
-  %31 = getelementptr inbounds i8, ptr %2, i64 296
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 296
   %32 = load i32, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 1320
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 1320
   %34 = load i32, ptr %33, align 8
   %35 = or i32 %30, 512
   %36 = select i1 %3, i32 %35, i32 %30
-  %37 = getelementptr inbounds i8, ptr %5, i64 2624
+  %37 = getelementptr inbounds nuw i8, ptr %5, i64 2624
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 36
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 36
   %40 = zext i32 %34 to i64
   %41 = getelementptr [7 x i32], ptr %39, i64 0, i64 %40
   %42 = load i32, ptr %41, align 4
   %43 = load i32, ptr %39, align 4
-  %44 = getelementptr inbounds i8, ptr %38, i64 32
+  %44 = getelementptr inbounds nuw i8, ptr %38, i64 32
   %45 = load i32, ptr %44, align 4
   %46 = add i32 %42, 459136
   %47 = sub i32 %46, %43
@@ -2265,7 +2265,7 @@ define internal void @g4x_primary_async_flip(ptr nocapture noundef readonly %0, 
   br i1 %58, label %63, label %59
 
 59:                                               ; preds = %56
-  %60 = getelementptr inbounds i8, ptr %57, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %61 = load ptr, ptr %60, align 8
   %62 = tail call i32 @__SCT__tp_func_i915_reg_rw(ptr noundef %61, i1 noundef zeroext true, i32 %48, i64 noundef %49, i32 noundef 4, i1 noundef zeroext true) #9
   br label %63
@@ -2289,33 +2289,33 @@ define internal void @g4x_primary_async_flip(ptr nocapture noundef readonly %0, 
   br i1 %71, label %72, label %76
 
 72:                                               ; preds = %70
-  %73 = getelementptr inbounds i8, ptr %5, i64 7404
+  %73 = getelementptr inbounds nuw i8, ptr %5, i64 7404
   %74 = load i32, ptr %73, align 4
   %75 = add i32 %74, %48
   br label %76
 
 76:                                               ; preds = %72, %70
   %77 = phi i32 [ %75, %72 ], [ %48, %70 ]
-  %78 = getelementptr inbounds i8, ptr %5, i64 7368
+  %78 = getelementptr inbounds nuw i8, ptr %5, i64 7368
   %79 = load ptr, ptr %78, align 8
   %80 = zext i32 %77 to i64
   %81 = getelementptr i8, ptr %79, i64 %80
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %36, ptr elementtype(i32) %81) #9, !srcloc !32
   %82 = load ptr, ptr %37, align 8
-  %83 = getelementptr inbounds i8, ptr %82, i64 36
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 36
   %84 = getelementptr [7 x i32], ptr %83, i64 0, i64 %40
   %85 = load i32, ptr %84, align 4
   %86 = load i32, ptr %83, align 4
-  %87 = getelementptr inbounds i8, ptr %82, i64 32
+  %87 = getelementptr inbounds nuw i8, ptr %82, i64 32
   %88 = load i32, ptr %87, align 4
   %89 = add i32 %85, 459164
   %90 = sub i32 %89, %86
   %91 = add i32 %90, %88
-  %92 = getelementptr inbounds i8, ptr %2, i64 216
+  %92 = getelementptr inbounds nuw i8, ptr %2, i64 216
   %93 = load ptr, ptr %92, align 8
-  %94 = getelementptr inbounds i8, ptr %93, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 8
   %95 = load i64, ptr %94, align 8
-  %96 = getelementptr inbounds i8, ptr %93, i64 248
+  %96 = getelementptr inbounds nuw i8, ptr %93, i64 248
   %97 = load i32, ptr %96, align 8
   %98 = trunc i64 %95 to i32
   %99 = add i32 %32, %98
@@ -2341,7 +2341,7 @@ define internal void @g4x_primary_async_flip(ptr nocapture noundef readonly %0, 
   br i1 %110, label %115, label %111
 
 111:                                              ; preds = %108
-  %112 = getelementptr inbounds i8, ptr %109, i64 8
+  %112 = getelementptr inbounds nuw i8, ptr %109, i64 8
   %113 = load ptr, ptr %112, align 8
   %114 = tail call i32 @__SCT__tp_func_i915_reg_rw(ptr noundef %113, i1 noundef zeroext true, i32 %91, i64 noundef %101, i32 noundef 4, i1 noundef zeroext true) #9
   br label %115
@@ -2365,7 +2365,7 @@ define internal void @g4x_primary_async_flip(ptr nocapture noundef readonly %0, 
   br i1 %123, label %124, label %128
 
 124:                                              ; preds = %122
-  %125 = getelementptr inbounds i8, ptr %5, i64 7404
+  %125 = getelementptr inbounds nuw i8, ptr %5, i64 7404
   %126 = load i32, ptr %125, align 4
   %127 = add i32 %126, %91
   br label %128
@@ -2382,82 +2382,82 @@ define internal void @g4x_primary_async_flip(ptr nocapture noundef readonly %0, 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @bdw_primary_enable_flip_done(ptr nocapture noundef readonly %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 1328
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1328
   %4 = load i32, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 7932
-  tail call void @_raw_spin_lock_irq(ptr noundef %5) #9
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 7932
+  tail call void @_raw_spin_lock_irq(ptr noundef nonnull %5) #9
   tail call void @bdw_enable_pipe_irq(ptr noundef %2, i32 noundef %4, i32 noundef 16) #9
-  tail call void @_raw_spin_unlock_irq(ptr noundef %5) #9
+  tail call void @_raw_spin_unlock_irq(ptr noundef nonnull %5) #9
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @bdw_primary_disable_flip_done(ptr nocapture noundef readonly %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 1328
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1328
   %4 = load i32, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 7932
-  tail call void @_raw_spin_lock_irq(ptr noundef %5) #9
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 7932
+  tail call void @_raw_spin_lock_irq(ptr noundef nonnull %5) #9
   tail call void @bdw_disable_pipe_irq(ptr noundef %2, i32 noundef %4, i32 noundef 16) #9
-  tail call void @_raw_spin_unlock_irq(ptr noundef %5) #9
+  tail call void @_raw_spin_unlock_irq(ptr noundef nonnull %5) #9
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @ivb_primary_enable_flip_done(ptr nocapture noundef readonly %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 7932
-  tail call void @_raw_spin_lock_irq(ptr noundef %3) #9
-  %4 = getelementptr inbounds i8, ptr %0, i64 1320
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 7932
+  tail call void @_raw_spin_lock_irq(ptr noundef nonnull %3) #9
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1320
   %5 = load i32, ptr %4, align 8
   %6 = mul i32 %5, 5
   %7 = add i32 %6, 3
   %8 = shl nuw i32 1, %7
   tail call void @ilk_enable_display_irq(ptr noundef %2, i32 noundef %8) #9
-  tail call void @_raw_spin_unlock_irq(ptr noundef %3) #9
+  tail call void @_raw_spin_unlock_irq(ptr noundef nonnull %3) #9
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @ivb_primary_disable_flip_done(ptr nocapture noundef readonly %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 7932
-  tail call void @_raw_spin_lock_irq(ptr noundef %3) #9
-  %4 = getelementptr inbounds i8, ptr %0, i64 1320
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 7932
+  tail call void @_raw_spin_lock_irq(ptr noundef nonnull %3) #9
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1320
   %5 = load i32, ptr %4, align 8
   %6 = mul i32 %5, 5
   %7 = add i32 %6, 3
   %8 = shl nuw i32 1, %7
   tail call void @ilk_disable_display_irq(ptr noundef %2, i32 noundef %8) #9
-  tail call void @_raw_spin_unlock_irq(ptr noundef %3) #9
+  tail call void @_raw_spin_unlock_irq(ptr noundef nonnull %3) #9
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @ilk_primary_enable_flip_done(ptr nocapture noundef readonly %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 7932
-  tail call void @_raw_spin_lock_irq(ptr noundef %3) #9
-  %4 = getelementptr inbounds i8, ptr %0, i64 1320
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 7932
+  tail call void @_raw_spin_lock_irq(ptr noundef nonnull %3) #9
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1320
   %5 = load i32, ptr %4, align 8
   %6 = add i32 %5, 26
   %7 = shl nuw i32 1, %6
   tail call void @ilk_enable_display_irq(ptr noundef %2, i32 noundef %7) #9
-  tail call void @_raw_spin_unlock_irq(ptr noundef %3) #9
+  tail call void @_raw_spin_unlock_irq(ptr noundef nonnull %3) #9
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @ilk_primary_disable_flip_done(ptr nocapture noundef readonly %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 7932
-  tail call void @_raw_spin_lock_irq(ptr noundef %3) #9
-  %4 = getelementptr inbounds i8, ptr %0, i64 1320
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 7932
+  tail call void @_raw_spin_lock_irq(ptr noundef nonnull %3) #9
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1320
   %5 = load i32, ptr %4, align 8
   %6 = add i32 %5, 26
   %7 = shl nuw i32 1, %6
   tail call void @ilk_disable_display_irq(ptr noundef %2, i32 noundef %7) #9
-  tail call void @_raw_spin_unlock_irq(ptr noundef %3) #9
+  tail call void @_raw_spin_unlock_irq(ptr noundef nonnull %3) #9
   ret void
 }
 
@@ -2486,31 +2486,31 @@ declare dso_local void @intel_plane_free(ptr noundef) local_unnamed_addr #2
 define dso_local void @i9xx_get_initial_plane_config(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #0 align 16 {
   %3 = alloca i32, align 4
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 128
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 1320
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 1320
   %8 = load i32, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #9
   store i32 0, ptr %3, align 4, !annotation !33
-  %9 = getelementptr inbounds i8, ptr %6, i64 1416
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 1416
   %10 = load ptr, ptr %9, align 8
   %11 = call zeroext i1 %10(ptr noundef %6, ptr noundef nonnull %3) #9
   br i1 %11, label %12, label %240
 
 12:                                               ; preds = %2
   %13 = load i32, ptr %3, align 4
-  %14 = getelementptr inbounds i8, ptr %0, i64 1648
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 1648
   %15 = load i32, ptr %14, align 8
   %16 = icmp eq i32 %13, %15
   br i1 %16, label %29, label %17, !prof !30
 
 17:                                               ; preds = %12
   call void asm sideeffect "924: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 924b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 924) #9, !srcloc !34
-  %18 = getelementptr inbounds i8, ptr %4, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = call ptr @dev_driver_string(ptr noundef %19) #9
   %21 = load ptr, ptr %18, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 80
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 80
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, null
   br i1 %24, label %25, label %27
@@ -2539,7 +2539,7 @@ define dso_local void @i9xx_get_initial_plane_config(ptr nocapture noundef reado
   br i1 %34, label %38, label %35
 
 35:                                               ; preds = %33
-  %36 = getelementptr inbounds i8, ptr %4, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %37 = load ptr, ptr %36, align 8
   br label %38
 
@@ -2550,23 +2550,23 @@ define dso_local void @i9xx_get_initial_plane_config(ptr nocapture noundef reado
 
 40:                                               ; preds = %29
   store ptr %4, ptr %31, align 8
-  %41 = getelementptr inbounds i8, ptr %4, i64 2624
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 2624
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 36
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 36
   %44 = zext i32 %8 to i64
   %45 = getelementptr [7 x i32], ptr %43, i64 0, i64 %44
   %46 = load i32, ptr %45, align 4
   %47 = load i32, ptr %43, align 4
-  %48 = getelementptr inbounds i8, ptr %42, i64 32
+  %48 = getelementptr inbounds nuw i8, ptr %42, i64 32
   %49 = load i32, ptr %48, align 4
   %50 = add i32 %46, 459136
   %51 = sub i32 %50, %47
   %52 = add i32 %51, %49
-  %53 = getelementptr inbounds i8, ptr %4, i64 7368
-  %54 = getelementptr inbounds i8, ptr %4, i64 7512
+  %53 = getelementptr inbounds nuw i8, ptr %4, i64 7368
+  %54 = getelementptr inbounds nuw i8, ptr %4, i64 7512
   %55 = load ptr, ptr %54, align 8
-  %56 = call i32 %55(ptr noundef %53, i32 %52, i1 noundef zeroext true) #9
-  %57 = getelementptr inbounds i8, ptr %4, i64 2632
+  %56 = call i32 %55(ptr noundef nonnull %53, i32 %52, i1 noundef zeroext true) #9
+  %57 = getelementptr inbounds nuw i8, ptr %4, i64 2632
   %58 = load i16, ptr %57, align 8
   %59 = icmp ugt i16 %58, 3
   br i1 %59, label %60, label %71
@@ -2577,9 +2577,9 @@ define dso_local void @i9xx_get_initial_plane_config(ptr nocapture noundef reado
   br i1 %62, label %66, label %63
 
 63:                                               ; preds = %60
-  %64 = getelementptr inbounds i8, ptr %1, i64 16
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i32 1, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %31, i64 120
+  %65 = getelementptr inbounds nuw i8, ptr %31, i64 120
   store i64 72057594037927937, ptr %65, align 8
   br label %66
 
@@ -2589,12 +2589,12 @@ define dso_local void @i9xx_get_initial_plane_config(ptr nocapture noundef reado
   br i1 %68, label %71, label %69
 
 69:                                               ; preds = %66
-  %70 = getelementptr inbounds i8, ptr %1, i64 28
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 28
   store i8 4, ptr %70, align 4
   br label %71
 
 71:                                               ; preds = %69, %66, %40
-  %72 = getelementptr inbounds i8, ptr %4, i64 7184
+  %72 = getelementptr inbounds nuw i8, ptr %4, i64 7184
   %73 = load i32, ptr %72, align 4
   %74 = and i32 %73, 16777216
   %75 = icmp eq i32 %74, 0
@@ -2607,7 +2607,7 @@ define dso_local void @i9xx_get_initial_plane_config(ptr nocapture noundef reado
   br i1 %81, label %86, label %82
 
 82:                                               ; preds = %71
-  %83 = getelementptr inbounds i8, ptr %1, i64 28
+  %83 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %84 = load i8, ptr %83, align 4
   %85 = or i8 %84, 16
   store i8 %85, ptr %83, align 4
@@ -2671,7 +2671,7 @@ define dso_local void @i9xx_get_initial_plane_config(ptr nocapture noundef reado
 102:                                              ; preds = %101, %100, %99, %98, %97, %96, %95, %94, %93, %92, %91, %90, %86
   %103 = phi i32 [ 875713112, %93 ], [ 808665665, %100 ], [ 808669761, %99 ], [ 808665688, %98 ], [ 808669784, %97 ], [ 875708993, %96 ], [ 875713089, %95 ], [ 875709016, %94 ], [ 1211384408, %101 ], [ 909199186, %92 ], [ 892424792, %91 ], [ 892424769, %90 ], [ 538982467, %86 ]
   %104 = call ptr @drm_format_info(i32 noundef %103) #9
-  %105 = getelementptr inbounds i8, ptr %31, i64 72
+  %105 = getelementptr inbounds nuw i8, ptr %31, i64 72
   store ptr %104, ptr %105, align 8
   %106 = load i32, ptr %72, align 4
   %107 = and i32 %106, 12582912
@@ -2680,17 +2680,17 @@ define dso_local void @i9xx_get_initial_plane_config(ptr nocapture noundef reado
 
 109:                                              ; preds = %102
   %110 = load ptr, ptr %41, align 8
-  %111 = getelementptr inbounds i8, ptr %110, i64 36
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 36
   %112 = getelementptr [7 x i32], ptr %111, i64 0, i64 %44
   %113 = load i32, ptr %112, align 4
   %114 = load i32, ptr %111, align 4
-  %115 = getelementptr inbounds i8, ptr %110, i64 32
+  %115 = getelementptr inbounds nuw i8, ptr %110, i64 32
   %116 = load i32, ptr %115, align 4
   %117 = add i32 %113, 459172
   %118 = sub i32 %117, %114
   %119 = add i32 %118, %116
   %120 = load ptr, ptr %54, align 8
-  %121 = call i32 %120(ptr noundef %53, i32 %119, i1 noundef zeroext true) #9
+  %121 = call i32 %120(ptr noundef nonnull %53, i32 %119, i1 noundef zeroext true) #9
   br label %154
 
 122:                                              ; preds = %102
@@ -2700,66 +2700,66 @@ define dso_local void @i9xx_get_initial_plane_config(ptr nocapture noundef reado
   br i1 %124, label %126, label %.thread
 
 126:                                              ; preds = %122
-  %127 = getelementptr inbounds i8, ptr %1, i64 16
+  %127 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %128 = load i32, ptr %127, align 8
   %129 = icmp eq i32 %128, 0
   %130 = load ptr, ptr %41, align 8
-  %131 = getelementptr inbounds i8, ptr %130, i64 36
+  %131 = getelementptr inbounds nuw i8, ptr %130, i64 36
   %132 = getelementptr [7 x i32], ptr %131, i64 0, i64 %44
   %133 = load i32, ptr %132, align 4
   %134 = load i32, ptr %131, align 4
-  %135 = getelementptr inbounds i8, ptr %130, i64 32
+  %135 = getelementptr inbounds nuw i8, ptr %130, i64 32
   %136 = load i32, ptr %135, align 4
   %137 = select i1 %129, i32 459140, i32 459172
   %138 = add i32 %133, %137
   %139 = sub i32 %138, %134
   %140 = add i32 %139, %136
-  %141 = call i32 %125(ptr noundef %53, i32 %140, i1 noundef zeroext true) #9
+  %141 = call i32 %125(ptr noundef nonnull %53, i32 %140, i1 noundef zeroext true) #9
   br label %154
 
 .thread:                                          ; preds = %122
   %142 = load ptr, ptr %41, align 8
-  %143 = getelementptr inbounds i8, ptr %142, i64 36
+  %143 = getelementptr inbounds nuw i8, ptr %142, i64 36
   %144 = getelementptr [7 x i32], ptr %143, i64 0, i64 %44
   %145 = load i32, ptr %144, align 4
   %146 = load i32, ptr %143, align 4
-  %147 = getelementptr inbounds i8, ptr %142, i64 32
+  %147 = getelementptr inbounds nuw i8, ptr %142, i64 32
   %148 = load i32, ptr %147, align 4
   %149 = add i32 %145, 459140
   %150 = sub i32 %149, %146
   %151 = add i32 %150, %148
-  %152 = call i32 %125(ptr noundef %53, i32 %151, i1 noundef zeroext true) #9
-  %153 = getelementptr inbounds i8, ptr %1, i64 24
+  %152 = call i32 %125(ptr noundef nonnull %53, i32 %151, i1 noundef zeroext true) #9
+  %153 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i32 %152, ptr %153, align 8
   br label %183
 
 154:                                              ; preds = %126, %109
   %155 = phi i32 [ %121, %109 ], [ %141, %126 ]
   %156 = load ptr, ptr %41, align 8
-  %157 = getelementptr inbounds i8, ptr %156, i64 36
+  %157 = getelementptr inbounds nuw i8, ptr %156, i64 36
   %158 = getelementptr [7 x i32], ptr %157, i64 0, i64 %44
   %159 = load i32, ptr %158, align 4
   %160 = load i32, ptr %157, align 4
-  %161 = getelementptr inbounds i8, ptr %156, i64 32
+  %161 = getelementptr inbounds nuw i8, ptr %156, i64 32
   %162 = load i32, ptr %161, align 4
   %163 = add i32 %159, 459164
   %164 = sub i32 %163, %160
   %165 = add i32 %164, %162
   %166 = load ptr, ptr %54, align 8
-  %167 = call i32 %166(ptr noundef %53, i32 %165, i1 noundef zeroext true) #9
+  %167 = call i32 %166(ptr noundef nonnull %53, i32 %165, i1 noundef zeroext true) #9
   %168 = and i32 %167, -4096
-  %169 = getelementptr inbounds i8, ptr %1, i64 24
+  %169 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i32 %168, ptr %169, align 8
   %170 = icmp eq i32 %155, 0
   br i1 %170, label %183, label %171, !prof !39
 
 171:                                              ; preds = %154
   call void asm sideeffect "928: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 928b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 928) #9, !srcloc !40
-  %172 = getelementptr inbounds i8, ptr %4, i64 8
+  %172 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %173 = load ptr, ptr %172, align 8
   %174 = call ptr @dev_driver_string(ptr noundef %173) #9
   %175 = load ptr, ptr %172, align 8
-  %176 = getelementptr inbounds i8, ptr %175, i64 80
+  %176 = getelementptr inbounds nuw i8, ptr %175, i64 80
   %177 = load ptr, ptr %176, align 8
   %178 = icmp eq ptr %177, null
   br i1 %178, label %179, label %181
@@ -2780,65 +2780,65 @@ define dso_local void @i9xx_get_initial_plane_config(ptr nocapture noundef reado
 183:                                              ; preds = %.thread, %181, %154
   %184 = phi i32 [ %152, %.thread ], [ %168, %181 ], [ %168, %154 ]
   %185 = load ptr, ptr %41, align 8
-  %186 = getelementptr inbounds i8, ptr %185, i64 64
+  %186 = getelementptr inbounds nuw i8, ptr %185, i64 64
   %187 = load i32, ptr %3, align 4
   %188 = sext i32 %187 to i64
   %189 = getelementptr [7 x i32], ptr %186, i64 0, i64 %188
   %190 = load i32, ptr %189, align 4
   %191 = load i32, ptr %186, align 4
-  %192 = getelementptr inbounds i8, ptr %185, i64 32
+  %192 = getelementptr inbounds nuw i8, ptr %185, i64 32
   %193 = load i32, ptr %192, align 4
   %194 = add i32 %190, 393244
   %195 = sub i32 %194, %191
   %196 = add i32 %195, %193
   %197 = load ptr, ptr %54, align 8
-  %198 = call i32 %197(ptr noundef %53, i32 %196, i1 noundef zeroext true) #9
+  %198 = call i32 %197(ptr noundef nonnull %53, i32 %196, i1 noundef zeroext true) #9
   %199 = lshr i32 %198, 16
   %200 = add nuw nsw i32 %199, 1
-  %201 = getelementptr inbounds i8, ptr %31, i64 128
+  %201 = getelementptr inbounds nuw i8, ptr %31, i64 128
   store i32 %200, ptr %201, align 8
   %202 = and i32 %198, 65535
   %203 = add nuw nsw i32 %202, 1
-  %204 = getelementptr inbounds i8, ptr %31, i64 132
+  %204 = getelementptr inbounds nuw i8, ptr %31, i64 132
   store i32 %203, ptr %204, align 4
   %205 = load ptr, ptr %41, align 8
-  %206 = getelementptr inbounds i8, ptr %205, i64 36
+  %206 = getelementptr inbounds nuw i8, ptr %205, i64 36
   %207 = getelementptr [7 x i32], ptr %206, i64 0, i64 %44
   %208 = load i32, ptr %207, align 4
   %209 = load i32, ptr %206, align 4
-  %210 = getelementptr inbounds i8, ptr %205, i64 32
+  %210 = getelementptr inbounds nuw i8, ptr %205, i64 32
   %211 = load i32, ptr %210, align 4
   %212 = add i32 %208, 459144
   %213 = sub i32 %212, %209
   %214 = add i32 %213, %211
   %215 = load ptr, ptr %54, align 8
-  %216 = call i32 %215(ptr noundef %53, i32 %214, i1 noundef zeroext true) #9
+  %216 = call i32 %215(ptr noundef nonnull %53, i32 %214, i1 noundef zeroext true) #9
   %217 = and i32 %216, -64
-  %218 = getelementptr inbounds i8, ptr %31, i64 88
+  %218 = getelementptr inbounds nuw i8, ptr %31, i64 88
   store i32 %217, ptr %218, align 8
   %219 = call i32 @intel_fb_align_height(ptr noundef nonnull %31, i32 noundef 0, i32 noundef %203) #9
   %220 = load i32, ptr %218, align 8
   %221 = mul i32 %220, %219
-  %222 = getelementptr inbounds i8, ptr %1, i64 20
+  %222 = getelementptr inbounds nuw i8, ptr %1, i64 20
   store i32 %221, ptr %222, align 4
   %223 = icmp eq ptr %4, null
   br i1 %223, label %227, label %224
 
 224:                                              ; preds = %183
-  %225 = getelementptr inbounds i8, ptr %4, i64 8
+  %225 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %226 = load ptr, ptr %225, align 8
   br label %227
 
 227:                                              ; preds = %224, %183
   %228 = phi ptr [ %226, %224 ], [ null, %183 ]
-  %229 = getelementptr inbounds i8, ptr %0, i64 32
+  %229 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %230 = load ptr, ptr %229, align 8
-  %231 = getelementptr inbounds i8, ptr %6, i64 24
+  %231 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %232 = load ptr, ptr %231, align 8
   %233 = load i32, ptr %201, align 8
   %234 = load i32, ptr %204, align 4
   %235 = load ptr, ptr %105, align 8
-  %236 = getelementptr inbounds i8, ptr %235, i64 6
+  %236 = getelementptr inbounds nuw i8, ptr %235, i64 6
   %237 = load i8, ptr %236, align 2
   %238 = zext i8 %237 to i32
   %239 = shl nuw nsw i32 %238, 3
@@ -2961,16 +2961,16 @@ declare dso_local i32 @intel_plane_check_src_coordinates(ptr noundef) local_unna
 define internal fastcc range(i32 -2147483648, 1) i32 @i9xx_plane_ctl(ptr nocapture noundef readonly %0) unnamed_addr #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 184
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 196
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 196
   %7 = load i32, ptr %6, align 4
-  %8 = getelementptr inbounds i8, ptr %3, i64 7184
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 7184
   %9 = load i32, ptr %8, align 4
   %10 = and i32 %9, 2031616
   %11 = icmp eq i32 %10, 0
   %12 = select i1 %11, i32 -2147483648, i32 -2147467264
-  %13 = getelementptr inbounds i8, ptr %5, i64 72
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %14 = load ptr, ptr %13, align 8
   %15 = load i32, ptr %14, align 4
   switch i32 %15, label %28 [
@@ -3040,13 +3040,13 @@ define internal fastcc range(i32 -2147483648, 1) i32 @i9xx_plane_ctl(ptr nocaptu
 32:                                               ; preds = %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %1
   %33 = phi i32 [ 805306368, %27 ], [ 603979776, %26 ], [ 738197504, %25 ], [ 536870912, %24 ], [ 671088640, %23 ], [ 1006632960, %22 ], [ 469762048, %21 ], [ 939524096, %20 ], [ 402653184, %19 ], [ 335544320, %18 ], [ 201326592, %17 ], [ 268435456, %16 ], [ 134217728, %1 ]
   %34 = or disjoint i32 %33, %12
-  %35 = getelementptr inbounds i8, ptr %3, i64 2632
+  %35 = getelementptr inbounds nuw i8, ptr %3, i64 2632
   %36 = load i16, ptr %35, align 8
   %37 = icmp ugt i16 %36, 3
   br i1 %37, label %38, label %44
 
 38:                                               ; preds = %32
-  %39 = getelementptr inbounds i8, ptr %5, i64 120
+  %39 = getelementptr inbounds nuw i8, ptr %5, i64 120
   %40 = load i64, ptr %39, align 8
   %41 = icmp eq i64 %40, 72057594037927937
   %42 = or disjoint i32 %34, 1024

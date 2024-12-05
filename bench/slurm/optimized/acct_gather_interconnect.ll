@@ -117,7 +117,7 @@ define noundef i32 @acct_gather_interconnect_init() local_unnamed_addr #0 {
   br i1 %27, label %28, label %30
 
 28:                                               ; preds = %.lr.ph
-  %29 = getelementptr inbounds i8, ptr %.pre, i64 25
+  %29 = getelementptr inbounds nuw i8, ptr %.pre, i64 25
   store ptr %29, ptr %3, align 8
   br label %30
 
@@ -319,7 +319,7 @@ define range(i32 -1, 1) i32 @acct_gather_interconnect_fini() local_unnamed_addr 
   %indvars.iv = phi i64 [ %indvars.iv.next, %51 ], [ 0, %33 ]
   %.050 = phi i32 [ %.1, %51 ], [ 0, %33 ]
   %36 = load ptr, ptr @g_context, align 8
-  %37 = getelementptr inbounds ptr, ptr %36, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv
   %38 = load ptr, ptr %37, align 8
   %.not45 = icmp eq ptr %38, null
   br i1 %.not45, label %51, label %39
@@ -336,9 +336,9 @@ define range(i32 -1, 1) i32 @acct_gather_interconnect_fini() local_unnamed_addr 
 
 44:                                               ; preds = %41
   %45 = load ptr, ptr @g_context, align 8
-  %46 = getelementptr inbounds ptr, ptr %45, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw ptr, ptr %45, i64 %indvars.iv
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %49 = load ptr, ptr %48, align 8
   %50 = tail call ptr @slurm_strerror(i32 noundef %40) #6
   tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.11, ptr noundef nonnull @__func__.acct_gather_interconnect_fini, ptr noundef %49, ptr noundef %50) #6
@@ -533,14 +533,14 @@ define internal noundef ptr @_watch_node(ptr nocapture readnone %0) #0 {
   %15 = phi i32 [ %11, %.lr.ph.preheader ], [ %25, %24 ]
   %16 = phi ptr [ %.pre45, %.lr.ph.preheader ], [ %26, %24 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %24 ]
-  %17 = getelementptr inbounds ptr, ptr %16, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8
   %.not24 = icmp eq ptr %18, null
   br i1 %.not24, label %24, label %19
 
 19:                                               ; preds = %.lr.ph
   %20 = load ptr, ptr @ops, align 8
-  %21 = getelementptr inbounds %struct.slurm_acct_gather_interconnect_ops, ptr %20, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw %struct.slurm_acct_gather_interconnect_ops, ptr %20, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8
   %23 = tail call i32 %22() #6
   %.pre = load ptr, ptr @g_context, align 8
@@ -636,14 +636,14 @@ define noundef i32 @acct_gather_interconnect_g_conf_options(ptr noundef %0, ptr 
   %10 = phi i32 [ %6, %.lr.ph.preheader ], [ %19, %18 ]
   %11 = phi ptr [ %.pre17, %.lr.ph.preheader ], [ %20, %18 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %18 ]
-  %12 = getelementptr inbounds ptr, ptr %11, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8
   %.not14 = icmp eq ptr %13, null
   br i1 %.not14, label %18, label %14
 
 14:                                               ; preds = %.lr.ph
   %15 = load ptr, ptr @ops, align 8
-  %16 = getelementptr inbounds %struct.slurm_acct_gather_interconnect_ops, ptr %15, i64 %indvars.iv, i32 1
+  %16 = getelementptr inbounds nuw %struct.slurm_acct_gather_interconnect_ops, ptr %15, i64 %indvars.iv, i32 1
   %17 = load ptr, ptr %16, align 8
   tail call void %17(ptr noundef %0, ptr noundef %1) #6
   %.pre = load ptr, ptr @g_context, align 8
@@ -703,14 +703,14 @@ define noundef i32 @acct_gather_interconnect_g_conf_set(ptr noundef %0) local_un
   %9 = phi i32 [ %5, %.lr.ph.preheader ], [ %18, %17 ]
   %10 = phi ptr [ %.pre16, %.lr.ph.preheader ], [ %19, %17 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %17 ]
-  %11 = getelementptr inbounds ptr, ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
   %.not13 = icmp eq ptr %12, null
   br i1 %.not13, label %17, label %13
 
 13:                                               ; preds = %.lr.ph
   %14 = load ptr, ptr @ops, align 8
-  %15 = getelementptr inbounds %struct.slurm_acct_gather_interconnect_ops, ptr %14, i64 %indvars.iv, i32 2
+  %15 = getelementptr inbounds nuw %struct.slurm_acct_gather_interconnect_ops, ptr %14, i64 %indvars.iv, i32 2
   %16 = load ptr, ptr %15, align 8
   tail call void %16(ptr noundef %0) #6
   %.pre = load ptr, ptr @g_context, align 8
@@ -770,14 +770,14 @@ define noundef i32 @acct_gather_interconnect_g_conf_values(ptr noundef %0) local
   %9 = phi i32 [ %5, %.lr.ph.preheader ], [ %18, %17 ]
   %10 = phi ptr [ %.pre16, %.lr.ph.preheader ], [ %19, %17 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %17 ]
-  %11 = getelementptr inbounds ptr, ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
   %.not13 = icmp eq ptr %12, null
   br i1 %.not13, label %17, label %13
 
 13:                                               ; preds = %.lr.ph
   %14 = load ptr, ptr @ops, align 8
-  %15 = getelementptr inbounds %struct.slurm_acct_gather_interconnect_ops, ptr %14, i64 %indvars.iv, i32 3
+  %15 = getelementptr inbounds nuw %struct.slurm_acct_gather_interconnect_ops, ptr %14, i64 %indvars.iv, i32 3
   %16 = load ptr, ptr %15, align 8
   tail call void %16(ptr noundef %0) #6
   %.pre = load ptr, ptr @g_context, align 8
@@ -837,14 +837,14 @@ define noundef i32 @acct_gather_interconnect_g_get_data(ptr noundef %0) local_un
   %9 = phi i32 [ %5, %.lr.ph.preheader ], [ %19, %18 ]
   %10 = phi ptr [ %.pre19, %.lr.ph.preheader ], [ %20, %18 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %18 ]
-  %11 = getelementptr inbounds ptr, ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
   %.not13 = icmp eq ptr %12, null
   br i1 %.not13, label %18, label %13
 
 13:                                               ; preds = %.lr.ph
   %14 = load ptr, ptr @ops, align 8
-  %15 = getelementptr inbounds %struct.slurm_acct_gather_interconnect_ops, ptr %14, i64 %indvars.iv, i32 4
+  %15 = getelementptr inbounds nuw %struct.slurm_acct_gather_interconnect_ops, ptr %14, i64 %indvars.iv, i32 4
   %16 = load ptr, ptr %15, align 8
   %17 = tail call i32 %16(ptr noundef %0) #6
   %.not14 = icmp eq i32 %17, 0

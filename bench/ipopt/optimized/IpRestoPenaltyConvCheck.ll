@@ -51,7 +51,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define void @_ZN5Ipopt28RestoPenaltyConvergenceCheckC2Ev(ptr noundef nonnull align 8 dereferenceable(232) %0) unnamed_addr #3 align 2 {
   tail call void @_ZN5Ipopt21RestoConvergenceCheckC2Ev(ptr noundef nonnull align 8 dereferenceable(224) %0)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt28RestoPenaltyConvergenceCheckE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 224
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 224
   store ptr null, ptr %2, align 8
   ret void
 }
@@ -81,7 +81,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, argmem: readwrite) uwtable
 define void @_ZN5Ipopt28RestoPenaltyConvergenceCheck17SetOrigLSAcceptorERKNS_22BacktrackingLSAcceptorE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(232) initializes((224, 232)) %0, ptr noundef nonnull align 8 dereferenceable(49) %1) unnamed_addr #6 align 2 {
   %3 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN5Ipopt22BacktrackingLSAcceptorE, ptr nonnull @_ZTIN5Ipopt17PenaltyLSAcceptorE, i64 0) #10
-  %4 = getelementptr inbounds i8, ptr %0, i64 224
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 224
   store ptr %3, ptr %4, align 8
   ret void
 }
@@ -104,13 +104,13 @@ declare noundef zeroext i1 @_ZN5Ipopt21RestoConvergenceCheck14InitializeImplERKN
 
 ; Function Attrs: mustprogress uwtable
 define noundef range(i32 0, 2) i32 @_ZN5Ipopt28RestoPenaltyConvergenceCheck16TestOrigProgressEdd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(232) %0, double noundef %1, double noundef %2) unnamed_addr #3 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 224
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noundef zeroext i1 @_ZNK5Ipopt17PenaltyLSAcceptor28IsAcceptableToCurrentIterateEddb(ptr noundef nonnull align 8 dereferenceable(224) %5, double noundef %1, double noundef %2, i1 noundef zeroext true)
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8
   %.str.1..str = select i1 %6, ptr @.str.1, ptr @.str
   %. = zext i1 %6 to i32

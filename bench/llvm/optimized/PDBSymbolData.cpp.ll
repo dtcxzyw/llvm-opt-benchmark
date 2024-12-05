@@ -47,7 +47,7 @@ $_ZNK4llvm3pdb9PDBSymbol9dumpRightERNS0_12PDBSymDumperE = comdat any
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZNK4llvm3pdb13PDBSymbolData4dumpERNS0_12PDBSymDumperE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(9) %1) unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %5 = load ptr, ptr %4, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(9) %1, ptr noundef nonnull align 8 dereferenceable(32) %0) #5
   ret void
@@ -58,13 +58,13 @@ define dso_local void @_ZNK4llvm3pdb13PDBSymbolData14getLineNumbersEv(ptr dead_o
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 752
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 752
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef i64 %7(ptr noundef nonnull align 8 dereferenceable(8) %4) #5
   %9 = tail call i64 @llvm.umax.i64(i64 %8, i64 1)
   %10 = load ptr, ptr %3, align 8
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 448
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 448
   %13 = load ptr, ptr %12, align 8
   %14 = tail call noundef i32 %13(ptr noundef nonnull align 8 dereferenceable(8) %10) #5
   %.not = icmp eq i32 %14, 0
@@ -75,7 +75,7 @@ define dso_local void @_ZNK4llvm3pdb13PDBSymbolData14getLineNumbersEv(ptr dead_o
   %17 = load ptr, ptr %16, align 8
   %18 = trunc i64 %9 to i32
   %19 = load ptr, ptr %17, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 104
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 104
   %21 = load ptr, ptr %20, align 8
   tail call void %21(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.2") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %17, i32 noundef %14, i32 noundef %18) #5
   br label %41
@@ -83,7 +83,7 @@ define dso_local void @_ZNK4llvm3pdb13PDBSymbolData14getLineNumbersEv(ptr dead_o
 22:                                               ; preds = %2
   %23 = load ptr, ptr %3, align 8
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 152
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 152
   %26 = load ptr, ptr %25, align 8
   %27 = tail call noundef i32 %26(ptr noundef nonnull align 8 dereferenceable(8) %23) #5
   %.not9 = icmp eq i32 %27, 0
@@ -94,12 +94,12 @@ define dso_local void @_ZNK4llvm3pdb13PDBSymbolData14getLineNumbersEv(ptr dead_o
   %30 = load ptr, ptr %29, align 8
   %31 = load ptr, ptr %3, align 8
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 144
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 144
   %34 = load ptr, ptr %33, align 8
   %35 = tail call noundef i32 %34(ptr noundef nonnull align 8 dereferenceable(8) %31) #5
   %36 = trunc i64 %9 to i32
   %37 = load ptr, ptr %30, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 112
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 112
   %39 = load ptr, ptr %38, align 8
   tail call void %39(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.2") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %30, i32 noundef %27, i32 noundef %35, i32 noundef %36) #5
   br label %41
@@ -124,13 +124,13 @@ define dso_local noundef i32 @_ZNK4llvm3pdb13PDBSymbolData14getCompilandIdEv(ptr
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8, !noalias !4
   %11 = load ptr, ptr %10, align 8, !noalias !4
-  %12 = getelementptr inbounds i8, ptr %11, i64 752
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 752
   %13 = load ptr, ptr %12, align 8, !noalias !4
   %14 = tail call noundef i64 %13(ptr noundef nonnull align 8 dereferenceable(8) %10) #5, !noalias !4
   %15 = tail call i64 @llvm.umax.i64(i64 %14, i64 1)
   %16 = load ptr, ptr %9, align 8, !noalias !4
   %17 = load ptr, ptr %16, align 8, !noalias !4
-  %18 = getelementptr inbounds i8, ptr %17, i64 448
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 448
   %19 = load ptr, ptr %18, align 8, !noalias !4
   %20 = tail call noundef i32 %19(ptr noundef nonnull align 8 dereferenceable(8) %16) #5, !noalias !4
   %.not.i = icmp eq i32 %20, 0
@@ -141,7 +141,7 @@ define dso_local noundef i32 @_ZNK4llvm3pdb13PDBSymbolData14getCompilandIdEv(ptr
   %23 = load ptr, ptr %22, align 8, !noalias !4
   %24 = trunc i64 %15 to i32
   %25 = load ptr, ptr %23, align 8, !noalias !4
-  %26 = getelementptr inbounds i8, ptr %25, i64 104
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 104
   %27 = load ptr, ptr %26, align 8, !noalias !4
   call void %27(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.2") align 8 %2, ptr noundef nonnull align 8 dereferenceable(8) %23, i32 noundef %20, i32 noundef %24) #5
   br label %_ZNK4llvm3pdb13PDBSymbolData14getLineNumbersEv.exit
@@ -149,7 +149,7 @@ define dso_local noundef i32 @_ZNK4llvm3pdb13PDBSymbolData14getCompilandIdEv(ptr
 28:                                               ; preds = %1
   %29 = load ptr, ptr %9, align 8, !noalias !4
   %30 = load ptr, ptr %29, align 8, !noalias !4
-  %31 = getelementptr inbounds i8, ptr %30, i64 152
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 152
   %32 = load ptr, ptr %31, align 8, !noalias !4
   %33 = tail call noundef i32 %32(ptr noundef nonnull align 8 dereferenceable(8) %29) #5, !noalias !4
   %.not9.i = icmp eq i32 %33, 0
@@ -160,12 +160,12 @@ define dso_local noundef i32 @_ZNK4llvm3pdb13PDBSymbolData14getCompilandIdEv(ptr
   %36 = load ptr, ptr %35, align 8, !noalias !4
   %37 = load ptr, ptr %9, align 8, !noalias !4
   %38 = load ptr, ptr %37, align 8, !noalias !4
-  %39 = getelementptr inbounds i8, ptr %38, i64 144
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 144
   %40 = load ptr, ptr %39, align 8, !noalias !4
   %41 = tail call noundef i32 %40(ptr noundef nonnull align 8 dereferenceable(8) %37) #5, !noalias !4
   %42 = trunc i64 %15 to i32
   %43 = load ptr, ptr %36, align 8, !noalias !4
-  %44 = getelementptr inbounds i8, ptr %43, i64 112
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 112
   %45 = load ptr, ptr %44, align 8, !noalias !4
   call void %45(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.2") align 8 %2, ptr noundef nonnull align 8 dereferenceable(8) %36, i32 noundef %33, i32 noundef %41, i32 noundef %42) #5
   br label %_ZNK4llvm3pdb13PDBSymbolData14getLineNumbersEv.exit
@@ -177,7 +177,7 @@ _ZNK4llvm3pdb13PDBSymbolData14getLineNumbersEv.exit: ; preds = %21, %34
 
 46:                                               ; preds = %_ZNK4llvm3pdb13PDBSymbolData14getLineNumbersEv.exit
   %47 = load ptr, ptr %.pr, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 32
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 32
   %49 = load ptr, ptr %48, align 8
   call void %49(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.10") align 8 %3, ptr noundef nonnull align 8 dereferenceable(8) %.pr) #5
   %50 = load ptr, ptr %3, align 8
@@ -186,7 +186,7 @@ _ZNK4llvm3pdb13PDBSymbolData14getLineNumbersEv.exit: ; preds = %21, %34
 
 51:                                               ; preds = %46
   %52 = load ptr, ptr %50, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 96
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 96
   %54 = load ptr, ptr %53, align 8
   %55 = call noundef i32 %54(ptr noundef nonnull align 8 dereferenceable(8) %50) #5
   %.pr27 = load ptr, ptr %3, align 8
@@ -195,7 +195,7 @@ _ZNK4llvm3pdb13PDBSymbolData14getLineNumbersEv.exit: ; preds = %21, %34
 
 _ZNKSt14default_deleteIN4llvm3pdb14IPDBLineNumberEEclEPS2_.exit.i: ; preds = %51
   %56 = load ptr, ptr %.pr27, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %58 = load ptr, ptr %57, align 8
   call void %58(ptr noundef nonnull align 8 dereferenceable(8) %.pr27) #5
   br label %.thread
@@ -213,7 +213,7 @@ _ZNSt10unique_ptrIN4llvm3pdb16IPDBEnumChildrenINS1_14IPDBLineNumberEEESt14defaul
 
 _ZNKSt14default_deleteIN4llvm3pdb16IPDBEnumChildrenINS1_14IPDBLineNumberEEEEclEPS4_.exit.i: ; preds = %.thread
   %59 = load ptr, ptr %.pr31, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %61 = load ptr, ptr %60, align 8
   call void %61(ptr noundef nonnull align 8 dereferenceable(8) %.pr31) #5
   br label %_ZNSt10unique_ptrIN4llvm3pdb16IPDBEnumChildrenINS1_14IPDBLineNumberEEESt14default_deleteIS4_EED2Ev.exit
@@ -226,13 +226,13 @@ _ZNSt10unique_ptrIN4llvm3pdb16IPDBEnumChildrenINS1_14IPDBLineNumberEEESt14defaul
   %.23741 = phi i32 [ undef, %_ZNSt10unique_ptrIN4llvm3pdb16IPDBEnumChildrenINS1_14IPDBLineNumberEEESt14default_deleteIS4_EED2Ev.exit.thread ], [ %.11130, %_ZNSt10unique_ptrIN4llvm3pdb16IPDBEnumChildrenINS1_14IPDBLineNumberEEESt14default_deleteIS4_EED2Ev.exit ]
   %63 = load ptr, ptr %9, align 8
   %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 152
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 152
   %66 = load ptr, ptr %65, align 8
   %67 = call noundef i32 %66(ptr noundef nonnull align 8 dereferenceable(8) %63) #5
   store i32 %67, ptr %4, align 4
   %68 = load ptr, ptr %9, align 8
   %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %69, i64 144
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 144
   %71 = load ptr, ptr %70, align 8
   %72 = call noundef i32 %71(ptr noundef nonnull align 8 dereferenceable(8) %68) #5
   store i32 %72, ptr %5, align 4
@@ -243,7 +243,7 @@ _ZNSt10unique_ptrIN4llvm3pdb16IPDBEnumChildrenINS1_14IPDBLineNumberEEESt14defaul
 75:                                               ; preds = %62
   %76 = load ptr, ptr %9, align 8
   %77 = load ptr, ptr %76, align 8
-  %78 = getelementptr inbounds i8, ptr %77, i64 448
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 448
   %79 = load ptr, ptr %78, align 8
   %80 = call noundef i32 %79(ptr noundef nonnull align 8 dereferenceable(8) %76) #5
   %.not = icmp eq i32 %80, 0
@@ -253,7 +253,7 @@ _ZNSt10unique_ptrIN4llvm3pdb16IPDBEnumChildrenINS1_14IPDBLineNumberEEESt14defaul
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %83 = load ptr, ptr %82, align 8
   %84 = load ptr, ptr %83, align 8
-  %85 = getelementptr inbounds i8, ptr %84, i64 56
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 56
   %86 = load ptr, ptr %85, align 8
   %87 = call noundef zeroext i1 %86(ptr noundef nonnull align 8 dereferenceable(8) %83, i32 noundef %80, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 4 dereferenceable(4) %5) #5
   br label %88
@@ -267,7 +267,7 @@ _ZNSt10unique_ptrIN4llvm3pdb16IPDBEnumChildrenINS1_14IPDBLineNumberEEESt14defaul
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %90 = load ptr, ptr %89, align 8
   %91 = load ptr, ptr %90, align 8
-  %92 = getelementptr inbounds i8, ptr %91, i64 200
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 200
   %93 = load ptr, ptr %92, align 8
   call void %93(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.18") align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) %90) #5
   %94 = load ptr, ptr %6, align 8
@@ -278,7 +278,7 @@ _ZNSt10unique_ptrIN4llvm3pdb16IPDBEnumChildrenINS1_14IPDBLineNumberEEESt14defaul
   %.5 = phi i32 [ %.6.ph, %_ZNSt10unique_ptrIN4llvm3pdb18IPDBSectionContribESt14default_deleteIS2_EED2Ev.exit ], [ %.23741, %.thread43 ]
   %95 = load ptr, ptr %6, align 8
   %96 = load ptr, ptr %95, align 8
-  %97 = getelementptr inbounds i8, ptr %96, i64 32
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 32
   %98 = load ptr, ptr %97, align 8
   call void %98(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.26") align 8 %7, ptr noundef nonnull align 8 dereferenceable(8) %95) #5
   %99 = load ptr, ptr %7, align 8
@@ -287,7 +287,7 @@ _ZNSt10unique_ptrIN4llvm3pdb16IPDBEnumChildrenINS1_14IPDBLineNumberEEESt14defaul
 
 100:                                              ; preds = %.preheader
   %101 = load ptr, ptr %99, align 8
-  %102 = getelementptr inbounds i8, ptr %101, i64 24
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 24
   %103 = load ptr, ptr %102, align 8
   %104 = call noundef i32 %103(ptr noundef nonnull align 8 dereferenceable(8) %99) #5
   %105 = load i32, ptr %4, align 4
@@ -297,7 +297,7 @@ _ZNSt10unique_ptrIN4llvm3pdb16IPDBEnumChildrenINS1_14IPDBLineNumberEEESt14defaul
 107:                                              ; preds = %100
   %108 = load ptr, ptr %7, align 8
   %109 = load ptr, ptr %108, align 8
-  %110 = getelementptr inbounds i8, ptr %109, i64 32
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 32
   %111 = load ptr, ptr %110, align 8
   %112 = call noundef i32 %111(ptr noundef nonnull align 8 dereferenceable(8) %108) #5
   %113 = load i32, ptr %5, align 4
@@ -307,12 +307,12 @@ _ZNSt10unique_ptrIN4llvm3pdb16IPDBEnumChildrenINS1_14IPDBLineNumberEEESt14defaul
 114:                                              ; preds = %107
   %115 = load ptr, ptr %7, align 8
   %116 = load ptr, ptr %115, align 8
-  %117 = getelementptr inbounds i8, ptr %116, i64 32
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 32
   %118 = load ptr, ptr %117, align 8
   %119 = call noundef i32 %118(ptr noundef nonnull align 8 dereferenceable(8) %115) #5
   %120 = load ptr, ptr %7, align 8
   %121 = load ptr, ptr %120, align 8
-  %122 = getelementptr inbounds i8, ptr %121, i64 56
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 56
   %123 = load ptr, ptr %122, align 8
   %124 = call noundef i32 %123(ptr noundef nonnull align 8 dereferenceable(8) %120) #5
   %125 = add i32 %124, %119
@@ -323,7 +323,7 @@ _ZNSt10unique_ptrIN4llvm3pdb16IPDBEnumChildrenINS1_14IPDBLineNumberEEESt14defaul
 128:                                              ; preds = %114
   %129 = load ptr, ptr %7, align 8
   %130 = load ptr, ptr %129, align 8
-  %131 = getelementptr inbounds i8, ptr %130, i64 184
+  %131 = getelementptr inbounds nuw i8, ptr %130, i64 184
   %132 = load ptr, ptr %131, align 8
   %133 = call noundef i32 %132(ptr noundef nonnull align 8 dereferenceable(8) %129) #5
   br label %134
@@ -337,7 +337,7 @@ _ZNSt10unique_ptrIN4llvm3pdb16IPDBEnumChildrenINS1_14IPDBLineNumberEEESt14defaul
 
 _ZNKSt14default_deleteIN4llvm3pdb18IPDBSectionContribEEclEPS2_.exit.i: ; preds = %134
   %135 = load ptr, ptr %.pr46, align 8
-  %136 = getelementptr inbounds i8, ptr %135, i64 8
+  %136 = getelementptr inbounds nuw i8, ptr %135, i64 8
   %137 = load ptr, ptr %136, align 8
   call void %137(ptr noundef nonnull align 8 dereferenceable(8) %.pr46) #5
   br label %_ZNSt10unique_ptrIN4llvm3pdb18IPDBSectionContribESt14default_deleteIS2_EED2Ev.exit
@@ -354,7 +354,7 @@ _ZNSt10unique_ptrIN4llvm3pdb18IPDBSectionContribESt14default_deleteIS2_EED2Ev.ex
 
 _ZNKSt14default_deleteIN4llvm3pdb16IPDBEnumChildrenINS1_18IPDBSectionContribEEEEclEPS4_.exit.i: ; preds = %.loopexit86
   %138 = load ptr, ptr %.pr57, align 8
-  %139 = getelementptr inbounds i8, ptr %138, i64 8
+  %139 = getelementptr inbounds nuw i8, ptr %138, i64 8
   %140 = load ptr, ptr %139, align 8
   call void %140(ptr noundef nonnull align 8 dereferenceable(8) %.pr57) #5
   br label %_ZNSt10unique_ptrIN4llvm3pdb16IPDBEnumChildrenINS1_18IPDBSectionContribEEESt14default_deleteIS4_EED2Ev.exit
@@ -365,7 +365,7 @@ _ZNSt10unique_ptrIN4llvm3pdb16IPDBEnumChildrenINS1_18IPDBSectionContribEEESt14de
 141:                                              ; preds = %88
   %142 = load ptr, ptr %9, align 8
   %143 = load ptr, ptr %142, align 8
-  %144 = getelementptr inbounds i8, ptr %143, i64 272
+  %144 = getelementptr inbounds nuw i8, ptr %143, i64 272
   %145 = load ptr, ptr %144, align 8
   %146 = call noundef i32 %145(ptr noundef nonnull align 8 dereferenceable(8) %142) #5
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -376,7 +376,7 @@ _ZNSt10unique_ptrIN4llvm3pdb16IPDBEnumChildrenINS1_18IPDBSectionContribEEESt14de
   %.0 = phi i32 [ %146, %141 ], [ %.1.ph, %_ZNSt10unique_ptrIN4llvm3pdb9PDBSymbolESt14default_deleteIS2_EED2Ev.exit ]
   %149 = load ptr, ptr %147, align 8
   %150 = load ptr, ptr %149, align 8
-  %151 = getelementptr inbounds i8, ptr %150, i64 40
+  %151 = getelementptr inbounds nuw i8, ptr %150, i64 40
   %152 = load ptr, ptr %151, align 8
   call void %152(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.35") align 8 %8, ptr noundef nonnull align 8 dereferenceable(8) %149, i32 noundef %.0) #5
   %153 = load ptr, ptr %8, align 8
@@ -399,7 +399,7 @@ _ZNSt10unique_ptrIN4llvm3pdb16IPDBEnumChildrenINS1_18IPDBSectionContribEEESt14de
   %163 = getelementptr inbounds nuw i8, ptr %162, i64 24
   %164 = load ptr, ptr %163, align 8
   %165 = load ptr, ptr %164, align 8
-  %166 = getelementptr inbounds i8, ptr %165, i64 272
+  %166 = getelementptr inbounds nuw i8, ptr %165, i64 272
   %167 = load ptr, ptr %166, align 8
   %168 = call noundef i32 %167(ptr noundef nonnull align 8 dereferenceable(8) %164) #5
   br label %169
@@ -414,7 +414,7 @@ _ZNSt10unique_ptrIN4llvm3pdb16IPDBEnumChildrenINS1_18IPDBSectionContribEEESt14de
 
 _ZNKSt14default_deleteIN4llvm3pdb9PDBSymbolEEclEPS2_.exit.i: ; preds = %169
   %170 = load ptr, ptr %.pr68, align 8
-  %171 = getelementptr inbounds i8, ptr %170, i64 8
+  %171 = getelementptr inbounds nuw i8, ptr %170, i64 8
   %172 = load ptr, ptr %171, align 8
   call void %172(ptr noundef nonnull align 8 dereferenceable(32) %.pr68) #5
   br label %_ZNSt10unique_ptrIN4llvm3pdb9PDBSymbolESt14default_deleteIS2_EED2Ev.exit

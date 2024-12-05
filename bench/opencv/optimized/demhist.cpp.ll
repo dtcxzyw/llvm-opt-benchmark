@@ -517,8 +517,8 @@ define internal void @_ZL24updateBrightnessContrastiPv(i32 %0, ptr nocapture rea
   %.021 = phi double [ %36, %30 ], [ %45, %39 ]
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #10
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #10
-  %48 = getelementptr inbounds i8, ptr %6, i64 8
-  %49 = getelementptr inbounds i8, ptr %6, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 0, ptr %49, align 8
   store i32 33619968, ptr %6, align 8
   store ptr %4, ptr %48, align 8
@@ -531,12 +531,12 @@ define internal void @_ZL24updateBrightnessContrastiPv(i32 %0, ptr nocapture rea
           to label %51 unwind label %157
 
 51:                                               ; preds = %50
-  %52 = getelementptr inbounds i8, ptr %9, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i32 0, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %9, i64 20
+  %53 = getelementptr inbounds nuw i8, ptr %9, i64 20
   store i32 0, ptr %53, align 4
   store i32 16842752, ptr %9, align 8
-  %54 = getelementptr inbounds i8, ptr %9, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %4, ptr %54, align 8
   invoke void @_ZN2cv6imshowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11_InputArrayE(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(24) %9)
           to label %55 unwind label %159
@@ -545,15 +545,15 @@ define internal void @_ZL24updateBrightnessContrastiPv(i32 %0, ptr nocapture rea
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #10
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #10
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %11) #10
-  %56 = getelementptr inbounds i8, ptr %10, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i32 0, ptr %56, align 8
-  %57 = getelementptr inbounds i8, ptr %10, i64 20
+  %57 = getelementptr inbounds nuw i8, ptr %10, i64 20
   store i32 0, ptr %57, align 4
   store i32 16842752, ptr %10, align 8
-  %58 = getelementptr inbounds i8, ptr %10, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %11, ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %12, i64 8
-  %60 = getelementptr inbounds i8, ptr %12, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i64 0, ptr %60, align 8
   store i32 33619968, ptr %12, align 8
   store ptr %5, ptr %59, align 8
@@ -573,7 +573,7 @@ define internal void @_ZL24updateBrightnessContrastiPv(i32 %0, ptr nocapture rea
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %13) #10
   %64 = load ptr, ptr %14, align 8, !noalias !5
   %65 = load ptr, ptr %64, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 24
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 24
   %67 = load ptr, ptr %66, align 8
   invoke void %67(ptr noundef nonnull align 8 dereferenceable(8) %64, ptr noundef nonnull align 8 dereferenceable(352) %14, ptr noundef nonnull align 8 dereferenceable(96) %13, i32 noundef -1)
           to label %69 unwind label %.body
@@ -586,31 +586,31 @@ define internal void @_ZL24updateBrightnessContrastiPv(i32 %0, ptr nocapture rea
   br label %166
 
 69:                                               ; preds = %63
-  %70 = getelementptr inbounds i8, ptr %14, i64 208
+  %70 = getelementptr inbounds nuw i8, ptr %14, i64 208
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %70) #10
-  %71 = getelementptr inbounds i8, ptr %14, i64 112
+  %71 = getelementptr inbounds nuw i8, ptr %14, i64 112
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %71) #10
-  %72 = getelementptr inbounds i8, ptr %14, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %14, i64 16
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %72) #10
-  %73 = getelementptr inbounds i8, ptr %15, i64 208
+  %73 = getelementptr inbounds nuw i8, ptr %15, i64 208
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %73) #10
-  %74 = getelementptr inbounds i8, ptr %15, i64 112
+  %74 = getelementptr inbounds nuw i8, ptr %15, i64 112
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %74) #10
-  %75 = getelementptr inbounds i8, ptr %15, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %15, i64 16
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %75) #10
-  %76 = getelementptr inbounds i8, ptr %16, i64 16
+  %76 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store i32 0, ptr %76, align 8
-  %77 = getelementptr inbounds i8, ptr %16, i64 20
+  %77 = getelementptr inbounds nuw i8, ptr %16, i64 20
   store i32 0, ptr %77, align 4
   store i32 16842752, ptr %16, align 8
-  %78 = getelementptr inbounds i8, ptr %16, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %5, ptr %78, align 8
-  %79 = getelementptr inbounds i8, ptr %17, i64 8
-  %80 = getelementptr inbounds i8, ptr %17, i64 16
+  %79 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store i64 0, ptr %80, align 8
   store i32 50397184, ptr %17, align 8
   store ptr %5, ptr %79, align 8
-  %81 = getelementptr inbounds i8, ptr %13, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %82 = load i32, ptr %81, align 8
   %83 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN2cv7noArrayEv()
           to label %84 unwind label %169
@@ -622,17 +622,17 @@ define internal void @_ZL24updateBrightnessContrastiPv(i32 %0, ptr nocapture rea
 
 86:                                               ; preds = %84
   store double 2.550000e+02, ptr %18, align 8, !alias.scope !8
-  %87 = getelementptr inbounds i8, ptr %18, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store double 2.550000e+02, ptr %87, align 8, !alias.scope !8
-  %88 = getelementptr inbounds i8, ptr %18, i64 16
+  %88 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store double 2.550000e+02, ptr %88, align 8, !alias.scope !8
-  %89 = getelementptr inbounds i8, ptr %18, i64 24
+  %89 = getelementptr inbounds nuw i8, ptr %18, i64 24
   store double 2.550000e+02, ptr %89, align 8, !alias.scope !8
   %90 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSERKNS_7Scalar_IdEE(ptr noundef nonnull align 8 dereferenceable(96) %13, ptr noundef nonnull align 8 dereferenceable(32) %18)
           to label %91 unwind label %167
 
 91:                                               ; preds = %86
-  %92 = getelementptr inbounds i8, ptr %13, i64 12
+  %92 = getelementptr inbounds nuw i8, ptr %13, i64 12
   %93 = load i32, ptr %92, align 4
   %94 = sitofp i32 %93 to double
   %95 = load i32, ptr %3, align 4
@@ -640,12 +640,12 @@ define internal void @_ZL24updateBrightnessContrastiPv(i32 %0, ptr nocapture rea
   %97 = fdiv double %94, %96
   %98 = insertelement <2 x double> poison, double %97, i64 0
   %99 = call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %98)
-  %100 = getelementptr inbounds i8, ptr %19, i64 8
-  %101 = getelementptr inbounds i8, ptr %19, i64 16
-  %102 = getelementptr inbounds i8, ptr %5, i64 64
-  %103 = getelementptr inbounds i8, ptr %5, i64 12
-  %104 = getelementptr inbounds i8, ptr %5, i64 16
-  %105 = getelementptr inbounds i8, ptr %5, i64 72
+  %100 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %101 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  %102 = getelementptr inbounds nuw i8, ptr %5, i64 64
+  %103 = getelementptr inbounds nuw i8, ptr %5, i64 12
+  %104 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %105 = getelementptr inbounds nuw i8, ptr %5, i64 72
   br label %106
 
 106:                                              ; preds = %146, %91
@@ -676,11 +676,11 @@ define internal void @_ZL24updateBrightnessContrastiPv(i32 %0, ptr nocapture rea
 
 120:                                              ; preds = %116, %110
   %121 = load ptr, ptr %104, align 8
-  %122 = getelementptr inbounds float, ptr %121, i64 %indvars.iv
+  %122 = getelementptr inbounds nuw float, ptr %121, i64 %indvars.iv
   br label %146
 
 123:                                              ; preds = %116
-  %124 = getelementptr inbounds i8, ptr %117, i64 4
+  %124 = getelementptr inbounds nuw i8, ptr %117, i64 4
   %125 = load i32, ptr %124, align 4
   %126 = icmp eq i32 %125, 1
   br i1 %126, label %127, label %133
@@ -792,12 +792,12 @@ define internal void @_ZL24updateBrightnessContrastiPv(i32 %0, ptr nocapture rea
           to label %174 unwind label %179
 
 174:                                              ; preds = %173
-  %175 = getelementptr inbounds i8, ptr %23, i64 16
+  %175 = getelementptr inbounds nuw i8, ptr %23, i64 16
   store i32 0, ptr %175, align 8
-  %176 = getelementptr inbounds i8, ptr %23, i64 20
+  %176 = getelementptr inbounds nuw i8, ptr %23, i64 20
   store i32 0, ptr %176, align 4
   store i32 16842752, ptr %23, align 8
-  %177 = getelementptr inbounds i8, ptr %23, i64 8
+  %177 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store ptr %13, ptr %177, align 8
   invoke void @_ZN2cv6imshowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11_InputArrayE(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(24) %23)
           to label %178 unwind label %181
@@ -858,11 +858,11 @@ declare void @_ZN2cv3Mat4onesEiii(ptr dead_on_unwind writable sret(%"class.cv::M
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv7MatExprD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %0) unnamed_addr #6 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 208
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 208
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #10
-  %3 = getelementptr inbounds i8, ptr %0, i64 112
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #10
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #10
   ret void
 }

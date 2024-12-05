@@ -219,7 +219,7 @@ define ptr @job_state_reason_string(i32 noundef %0) #0 {
 
 3:                                                ; preds = %1
   %4 = zext nneg i32 %0 to i64
-  %5 = getelementptr inbounds [201 x %struct.entry_t], ptr @jsra, i64 0, i64 %4, i32 1
+  %5 = getelementptr inbounds nuw [201 x %struct.entry_t], ptr @jsra, i64 0, i64 %4, i32 1
   %6 = load ptr, ptr %5, align 8
   br label %7
 
@@ -234,7 +234,7 @@ define range(i32 -2, 201) i32 @job_state_reason_num(ptr noundef %0) #1 {
 
 2:                                                ; preds = %1, %6
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %6 ]
-  %3 = getelementptr inbounds [201 x %struct.entry_t], ptr @jsra, i64 0, i64 %indvars.iv, i32 1
+  %3 = getelementptr inbounds nuw [201 x %struct.entry_t], ptr @jsra, i64 0, i64 %indvars.iv, i32 1
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 @xstrcasecmp(ptr noundef %0, ptr noundef %4) #3
   %.not = icmp eq i32 %5, 0
@@ -257,7 +257,7 @@ define range(i32 -2, 201) i32 @job_state_reason_num(ptr noundef %0) #1 {
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define zeroext i1 @job_state_reason_check(i32 noundef %0, i32 noundef %1) #0 {
   %3 = zext i32 %0 to i64
-  %4 = getelementptr inbounds [201 x %struct.entry_t], ptr @jsra, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw [201 x %struct.entry_t], ptr @jsra, i64 0, i64 %3
   %5 = load i32, ptr %4, align 16
   %6 = and i32 %5, %1
   %.not = icmp ne i32 %6, 0

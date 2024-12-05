@@ -59,7 +59,7 @@ define internal range(i32 0, 32770) i32 @cryptomgr_notify(ptr nocapture readnone
   br i1 %4, label %5, label %105
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %2, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %7 = tail call zeroext i1 @try_module_get(ptr noundef null) #8
   br i1 %7, label %8, label %105
 
@@ -101,9 +101,9 @@ define internal range(i32 0, 32770) i32 @cryptomgr_notify(ptr nocapture readnone
   br i1 %30, label %31, label %.loopexit
 
 31:                                               ; preds = %23
-  %32 = getelementptr inbounds i8, ptr %10, i64 4508
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %32, ptr align 1 %6, i64 %27, i1 false)
-  %33 = getelementptr inbounds i8, ptr %10, i64 284
+  %32 = getelementptr inbounds nuw i8, ptr %10, i64 4508
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %32, ptr nonnull align 1 %6, i64 %27, i1 false)
+  %33 = getelementptr inbounds nuw i8, ptr %10, i64 284
   br label %34
 
 34:                                               ; preds = %75, %31
@@ -178,10 +178,10 @@ define internal range(i32 0, 32770) i32 @cryptomgr_notify(ptr nocapture readnone
 68:                                               ; preds = %.loopexit4
   %69 = getelementptr [32 x %struct.anon.3], ptr %33, i64 0, i64 %35
   store i16 132, ptr %69, align 4
-  %70 = getelementptr inbounds i8, ptr %69, i64 2
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 2
   store i16 1, ptr %70, align 2
-  %71 = getelementptr inbounds i8, ptr %69, i64 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %71, ptr align 1 %37, i64 %66, i1 false)
+  %71 = getelementptr inbounds nuw i8, ptr %69, i64 4
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %71, ptr align 1 %37, i64 %66, i1 false)
   %72 = add nuw nsw i64 %35, 1
   %73 = getelementptr [34 x ptr], ptr %10, i64 0, i64 %72
   store ptr %69, ptr %73, align 8
@@ -206,27 +206,27 @@ define internal range(i32 0, 32770) i32 @cryptomgr_notify(ptr nocapture readnone
   %83 = ashr exact i64 %82, 32
   %84 = getelementptr [34 x ptr], ptr %10, i64 0, i64 %83
   store ptr null, ptr %84, align 8
-  %85 = getelementptr inbounds i8, ptr %10, i64 272
+  %85 = getelementptr inbounds nuw i8, ptr %10, i64 272
   store i16 12, ptr %85, align 8
-  %86 = getelementptr inbounds i8, ptr %10, i64 274
+  %86 = getelementptr inbounds nuw i8, ptr %10, i64 274
   store i16 2, ptr %86, align 2
-  %87 = getelementptr inbounds i8, ptr %2, i64 32
+  %87 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %88 = load i32, ptr %87, align 8
   %89 = and i32 %88, -1025
-  %90 = getelementptr inbounds i8, ptr %10, i64 276
+  %90 = getelementptr inbounds nuw i8, ptr %10, i64 276
   store i32 %89, ptr %90, align 4
-  %91 = getelementptr inbounds i8, ptr %2, i64 424
+  %91 = getelementptr inbounds nuw i8, ptr %2, i64 424
   %92 = load i32, ptr %91, align 8
   %93 = and i32 %92, -1025
-  %94 = getelementptr inbounds i8, ptr %10, i64 280
+  %94 = getelementptr inbounds nuw i8, ptr %10, i64 280
   store i32 %93, ptr %94, align 8
   store ptr %85, ptr %10, align 8
-  %95 = getelementptr inbounds i8, ptr %10, i64 4648
+  %95 = getelementptr inbounds nuw i8, ptr %10, i64 4648
   store i32 %88, ptr %95, align 8
-  %96 = getelementptr inbounds i8, ptr %10, i64 4652
+  %96 = getelementptr inbounds nuw i8, ptr %10, i64 4652
   store i32 %92, ptr %96, align 4
   %97 = tail call fastcc ptr @crypto_alg_get(ptr noundef %2)
-  %98 = getelementptr inbounds i8, ptr %10, i64 4640
+  %98 = getelementptr inbounds nuw i8, ptr %10, i64 4640
   store ptr %2, ptr %98, align 8
   %99 = tail call ptr (ptr, ptr, i32, ptr, ...) @kthread_create_on_node(ptr noundef nonnull @cryptomgr_probe, ptr noundef nonnull %10, i32 noundef -1, ptr noundef nonnull @.str.1) #8
   %100 = icmp ugt ptr %99, inttoptr (i64 -4096 to ptr)
@@ -261,8 +261,8 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
 define internal fastcc noundef ptr @crypto_alg_get(ptr noundef returned %0) unnamed_addr #4 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 52
-  %3 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %2, i32 1, ptr elementtype(i32) %2) #8, !srcloc !13
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %3 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %2, i32 1, ptr nonnull elementtype(i32) %2) #8, !srcloc !13
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %9, label %5, !prof !14
 
@@ -274,7 +274,7 @@ define internal fastcc noundef ptr @crypto_alg_get(ptr noundef returned %0) unna
 
 9:                                                ; preds = %5, %1
   %10 = phi i32 [ 2, %1 ], [ 1, %5 ]
-  tail call void @refcount_warn_saturate(ptr noundef %2, i32 noundef %10) #8
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %2, i32 noundef %10) #8
   br label %11
 
 11:                                               ; preds = %9, %5
@@ -286,13 +286,13 @@ declare dso_local ptr @kthread_create_on_node(ptr noundef, ptr noundef, i32 noun
 
 ; Function Attrs: fn_ret_thunk_extern noreturn nounwind null_pointer_is_valid
 define internal noundef i32 @cryptomgr_probe(ptr noundef %0) #5 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 4508
-  %3 = tail call ptr @crypto_lookup_template(ptr noundef %2) #8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 4508
+  %3 = tail call ptr @crypto_lookup_template(ptr noundef nonnull %2) #8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %23, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %3, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 32
   br label %7
 
 7:                                                ; preds = %17, %5
@@ -316,16 +316,16 @@ define internal noundef i32 @cryptomgr_probe(ptr noundef %0) #5 align 16 {
   br i1 %20, label %7, label %.critedge, !llvm.loop !16
 
 .critedge:                                        ; preds = %11, %17, %7
-  %21 = getelementptr inbounds i8, ptr %3, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %22 = load ptr, ptr %21, align 8
   tail call void @module_put(ptr noundef %22) #8
   br label %23
 
 23:                                               ; preds = %.critedge, %1
-  %24 = getelementptr inbounds i8, ptr %0, i64 4640
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 4640
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 392
-  tail call void @complete_all(ptr noundef %26) #8
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 392
+  tail call void @complete_all(ptr noundef nonnull %26) #8
   %27 = load ptr, ptr %24, align 8
   tail call fastcc void @crypto_alg_put(ptr noundef %27)
   tail call void @kfree(ptr noundef %0) #8
@@ -338,8 +338,8 @@ declare dso_local i32 @wake_up_process(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
 define internal fastcc void @crypto_alg_put(ptr noundef %0) unnamed_addr #4 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 52
-  %3 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %2, i32 -1, ptr elementtype(i32) %2) #8, !srcloc !17
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %3 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %2, i32 -1, ptr nonnull elementtype(i32) %2) #8, !srcloc !17
   %4 = icmp eq i32 %3, 1
   br i1 %4, label %8, label %5
 
@@ -348,12 +348,12 @@ define internal fastcc void @crypto_alg_put(ptr noundef %0) unnamed_addr #4 alig
   br i1 %6, label %.thread, label %7, !prof !5
 
 7:                                                ; preds = %5
-  tail call void @refcount_warn_saturate(ptr noundef %2, i32 noundef 3) #8
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %2, i32 noundef 3) #8
   br label %.thread
 
 8:                                                ; preds = %1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !18
-  %9 = getelementptr inbounds i8, ptr %0, i64 368
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %.thread, label %12

@@ -26,8 +26,8 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @acpi_thermal_cpufreq_init(ptr noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 144
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
   br label %4
 
 4:                                                ; preds = %1, %31
@@ -55,8 +55,8 @@ define dso_local void @acpi_thermal_cpufreq_init(ptr noundef %0) local_unnamed_a
   br i1 %21, label %31, label %22
 
 22:                                               ; preds = %14
-  %23 = getelementptr inbounds i8, ptr %20, i64 936
-  %24 = tail call i32 @freq_qos_add_request(ptr noundef %3, ptr noundef %23, i32 noundef 2, i32 noundef 2147483647) #4
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 936
+  %24 = tail call i32 @freq_qos_add_request(ptr noundef nonnull %3, ptr noundef nonnull %23, i32 noundef 2, i32 noundef 2147483647) #4
   %25 = icmp slt i32 %24, 0
   br i1 %25, label %26, label %28
 
@@ -65,7 +65,7 @@ define dso_local void @acpi_thermal_cpufreq_init(ptr noundef %0) local_unnamed_a
   br label %31
 
 28:                                               ; preds = %22
-  %29 = getelementptr inbounds i8, ptr %20, i64 864
+  %29 = getelementptr inbounds nuw i8, ptr %20, i64 864
   %30 = load ptr, ptr %29, align 8
   tail call void @thermal_cooling_device_update(ptr noundef %30) #4
   br label %31
@@ -91,7 +91,7 @@ declare dso_local void @thermal_cooling_device_update(ptr noundef) local_unnamed
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @acpi_thermal_cpufreq_exit(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %3
 
 3:                                                ; preds = %1, %26
@@ -119,9 +119,9 @@ define dso_local void @acpi_thermal_cpufreq_exit(ptr nocapture noundef readonly 
   br i1 %20, label %26, label %21
 
 21:                                               ; preds = %13
-  %22 = getelementptr inbounds i8, ptr %19, i64 936
-  %23 = tail call i32 @freq_qos_remove_request(ptr noundef %22) #4
-  %24 = getelementptr inbounds i8, ptr %19, i64 864
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 936
+  %23 = tail call i32 @freq_qos_remove_request(ptr noundef nonnull %22) #4
+  %24 = getelementptr inbounds nuw i8, ptr %19, i64 864
   %25 = load ptr, ptr %24, align 8
   tail call void @thermal_cooling_device_update(ptr noundef %25) #4
   br label %26
@@ -141,13 +141,13 @@ declare dso_local i32 @freq_qos_remove_request(ptr noundef) local_unnamed_addr #
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef range(i32 -22, 1) i32 @processor_get_max_state(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 760
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 760
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %33, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %4, i64 608
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 608
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %33, label %10
@@ -158,7 +158,7 @@ define internal noundef range(i32 -22, 1) i32 @processor_get_max_state(ptr nocap
   br i1 %12, label %19, label %13
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %8, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %15 = load i32, ptr %14, align 8
   %16 = tail call ptr @cpufreq_cpu_get(i32 noundef %15) #4
   %17 = icmp eq ptr %16, null
@@ -170,14 +170,14 @@ define internal noundef range(i32 -22, 1) i32 @processor_get_max_state(ptr nocap
 
 19:                                               ; preds = %18, %13, %10
   %20 = phi i32 [ 3, %18 ], [ 0, %10 ], [ 0, %13 ]
-  %21 = getelementptr inbounds i8, ptr %8, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %22 = load i16, ptr %21, align 8
   %23 = and i16 %22, 4
   %24 = icmp eq i16 %23, 0
   br i1 %24, label %30, label %25
 
 25:                                               ; preds = %19
-  %26 = getelementptr inbounds i8, ptr %8, i64 680
+  %26 = getelementptr inbounds nuw i8, ptr %8, i64 680
   %27 = load i32, ptr %26, align 8
   %28 = add nsw i32 %20, -1
   %29 = add i32 %28, %27
@@ -196,19 +196,19 @@ define internal noundef range(i32 -22, 1) i32 @processor_get_max_state(ptr nocap
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef range(i32 -22, 1) i32 @processor_get_cur_state(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 760
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 760
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %68, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %4, i64 608
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 608
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %68, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %8, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %12 = load i32, ptr %11, align 8
   %13 = load i8, ptr @acpi_processor_cpufreq_init, align 1, !range !11, !noundef !12
   %14 = icmp eq i8 %13, 0
@@ -226,7 +226,7 @@ define internal noundef range(i32 -22, 1) i32 @processor_get_cur_state(ptr nocap
   %21 = load i64, ptr %20, align 8
   %22 = add i64 %21, ptrtoint (ptr @cpu_info to i64)
   %23 = inttoptr i64 %22 to ptr
-  %24 = getelementptr inbounds i8, ptr %23, i64 224
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 224
   %25 = load i32, ptr %24, align 8
   %26 = load i64, ptr @__cpu_online_mask, align 8
   br label %27
@@ -255,7 +255,7 @@ define internal noundef range(i32 -22, 1) i32 @processor_get_cur_state(ptr nocap
   %42 = load i64, ptr %41, align 8
   %43 = add i64 %42, ptrtoint (ptr @cpu_info to i64)
   %44 = inttoptr i64 %43 to ptr
-  %45 = getelementptr inbounds i8, ptr %44, i64 224
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 224
   %46 = load i32, ptr %45, align 8
   %47 = icmp eq i32 %46, %25
   %48 = add nuw nsw i64 %36, 1
@@ -275,14 +275,14 @@ define internal noundef range(i32 -22, 1) i32 @processor_get_cur_state(ptr nocap
 57:                                               ; preds = %.thread, %15, %10
   %58 = phi i64 [ %56, %.thread ], [ 0, %10 ], [ 0, %15 ]
   store i64 %58, ptr %1, align 8
-  %59 = getelementptr inbounds i8, ptr %8, i64 32
+  %59 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %60 = load i16, ptr %59, align 8
   %61 = and i16 %60, 4
   %62 = icmp eq i16 %61, 0
   br i1 %62, label %68, label %63
 
 63:                                               ; preds = %57
-  %64 = getelementptr inbounds i8, ptr %8, i64 640
+  %64 = getelementptr inbounds nuw i8, ptr %8, i64 640
   %65 = load i32, ptr %64, align 8
   %66 = zext i32 %65 to i64
   %67 = add nsw i64 %58, %66
@@ -296,19 +296,19 @@ define internal noundef range(i32 -22, 1) i32 @processor_get_cur_state(ptr nocap
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @processor_set_cur_state(ptr nocapture noundef readonly %0, i64 noundef %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 760
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 760
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %60, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %4, i64 608
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 608
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %60, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %8, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %12 = load i8, ptr @acpi_processor_cpufreq_init, align 1, !range !11, !noundef !12
   %13 = icmp eq i8 %12, 0
   br i1 %13, label %.thread, label %14
@@ -342,14 +342,14 @@ define internal i32 @processor_set_cur_state(ptr nocapture noundef readonly %0, 
 .thread:                                          ; preds = %10, %25, %21, %19
   %26 = phi i32 [ %.ph, %25 ], [ %.ph, %19 ], [ %.ph, %21 ], [ 0, %10 ]
   %27 = phi i32 [ 3, %25 ], [ 0, %19 ], [ 0, %21 ], [ 0, %10 ]
-  %28 = getelementptr inbounds i8, ptr %8, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %29 = load i16, ptr %28, align 8
   %30 = and i16 %29, 4
   %31 = icmp eq i16 %30, 0
   br i1 %31, label %37, label %32
 
 32:                                               ; preds = %.thread
-  %33 = getelementptr inbounds i8, ptr %8, i64 680
+  %33 = getelementptr inbounds nuw i8, ptr %8, i64 680
   %34 = load i32, ptr %33, align 8
   %35 = add nsw i32 %27, -1
   %36 = add i32 %35, %34
@@ -370,7 +370,7 @@ define internal i32 @processor_set_cur_state(ptr nocapture noundef readonly %0, 
   br i1 %31, label %51, label %45
 
 45:                                               ; preds = %44
-  %46 = getelementptr inbounds i8, ptr %8, i64 640
+  %46 = getelementptr inbounds nuw i8, ptr %8, i64 640
   %47 = load i32, ptr %46, align 8
   %48 = icmp eq i32 %47, 0
   br i1 %48, label %51, label %49
@@ -402,7 +402,7 @@ define internal i32 @processor_set_cur_state(ptr nocapture noundef readonly %0, 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @acpi_processor_thermal_init(ptr nocapture noundef initializes((864, 872)) %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = tail call ptr @thermal_cooling_device_register(ptr noundef nonnull @.str.1, ptr noundef %1, ptr noundef nonnull @processor_cooling_ops) #4
-  %4 = getelementptr inbounds i8, ptr %0, i64 864
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 864
   store ptr %3, ptr %4, align 8
   %5 = icmp ugt ptr %3, inttoptr (i64 -4096 to ptr)
   br i1 %5, label %6, label %9
@@ -413,28 +413,28 @@ define dso_local i32 @acpi_processor_thermal_init(ptr nocapture noundef initiali
   br label %26
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %1, i64 616
-  %11 = getelementptr inbounds i8, ptr %3, i64 24
-  %12 = tail call i32 @sysfs_create_link(ptr noundef %10, ptr noundef %11, ptr noundef nonnull @.str.2) #4
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 616
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %12 = tail call i32 @sysfs_create_link(ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull @.str.2) #4
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %15, label %14
 
 14:                                               ; preds = %9
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %10, ptr noundef nonnull @.str.3) #5
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %10, ptr noundef nonnull @.str.3) #5
   br label %23
 
 15:                                               ; preds = %9
   %16 = load ptr, ptr %4, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 24
-  %18 = tail call i32 @sysfs_create_link(ptr noundef %17, ptr noundef %10, ptr noundef nonnull @.str.4) #4
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
+  %18 = tail call i32 @sysfs_create_link(ptr noundef nonnull %17, ptr noundef nonnull %10, ptr noundef nonnull @.str.4) #4
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %26, label %20
 
 20:                                               ; preds = %15
   %21 = load ptr, ptr %4, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 24
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %22, ptr noundef nonnull @.str.5) #5
-  tail call void @sysfs_remove_link(ptr noundef %10, ptr noundef nonnull @.str.2) #4
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %22, ptr noundef nonnull @.str.5) #5
+  tail call void @sysfs_remove_link(ptr noundef nonnull %10, ptr noundef nonnull @.str.2) #4
   br label %23
 
 23:                                               ; preds = %20, %14
@@ -465,17 +465,17 @@ declare dso_local void @thermal_cooling_device_unregister(ptr noundef) local_unn
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @acpi_processor_thermal_exit(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 864
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 864
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %11, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %1, i64 616
-  tail call void @sysfs_remove_link(ptr noundef %7, ptr noundef nonnull @.str.2) #4
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 616
+  tail call void @sysfs_remove_link(ptr noundef nonnull %7, ptr noundef nonnull @.str.2) #4
   %8 = load ptr, ptr %3, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 24
-  tail call void @sysfs_remove_link(ptr noundef %9, ptr noundef nonnull @.str.4) #4
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  tail call void @sysfs_remove_link(ptr noundef nonnull %9, ptr noundef nonnull @.str.4) #4
   %10 = load ptr, ptr %3, align 8
   tail call void @thermal_cooling_device_unregister(ptr noundef %10) #4
   store ptr null, ptr %3, align 8
@@ -512,7 +512,7 @@ define internal fastcc void @cpufreq_set_cur_state(i32 noundef %0, i32 noundef r
   %11 = load i64, ptr %10, align 8
   %12 = add i64 %11, ptrtoint (ptr @cpu_info to i64)
   %13 = inttoptr i64 %12 to ptr
-  %14 = getelementptr inbounds i8, ptr %13, i64 224
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 224
   %15 = load i32, ptr %14, align 8
   %16 = load i64, ptr @__cpu_online_mask, align 8
   br label %17
@@ -541,7 +541,7 @@ define internal fastcc void @cpufreq_set_cur_state(i32 noundef %0, i32 noundef r
   %32 = load i64, ptr %31, align 8
   %33 = add i64 %32, ptrtoint (ptr @cpu_info to i64)
   %34 = inttoptr i64 %33 to ptr
-  %35 = getelementptr inbounds i8, ptr %34, i64 224
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 224
   %36 = load i32, ptr %35, align 8
   %37 = icmp eq i32 %36, %15
   %38 = add nuw nsw i64 %26, 1
@@ -579,12 +579,12 @@ define internal fastcc void @cpufreq_set_cur_state(i32 noundef %0, i32 noundef r
   %60 = load i64, ptr %59, align 8
   %61 = add i64 %60, ptrtoint (ptr @cpu_info to i64)
   %62 = inttoptr i64 %61 to ptr
-  %63 = getelementptr inbounds i8, ptr %62, i64 224
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 224
   %64 = load i32, ptr %63, align 8
   %65 = load i64, ptr %46, align 8
   %66 = add i64 %65, ptrtoint (ptr @cpu_info to i64)
   %67 = inttoptr i64 %66 to ptr
-  %68 = getelementptr inbounds i8, ptr %67, i64 224
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 224
   %69 = load i32, ptr %68, align 8
   %70 = icmp eq i32 %64, %69
   br i1 %70, label %71, label %132
@@ -593,8 +593,8 @@ define internal fastcc void @cpufreq_set_cur_state(i32 noundef %0, i32 noundef r
   %72 = add i64 %60, ptrtoint (ptr @processors to i64)
   %73 = inttoptr i64 %72 to ptr
   %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 936
-  %76 = getelementptr inbounds i8, ptr %74, i64 984
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 936
+  %76 = getelementptr inbounds nuw i8, ptr %74, i64 984
   %77 = load ptr, ptr %76, align 8
   %78 = icmp eq ptr %77, null
   %79 = icmp ugt ptr %77, inttoptr (i64 -4096 to ptr)
@@ -607,12 +607,12 @@ define internal fastcc void @cpufreq_set_cur_state(i32 noundef %0, i32 noundef r
   br i1 %83, label %.thread11, label %84
 
 84:                                               ; preds = %81
-  %85 = getelementptr inbounds i8, ptr %82, i64 40
+  %85 = getelementptr inbounds nuw i8, ptr %82, i64 40
   %86 = load i32, ptr %85, align 8
   %87 = load i64, ptr %59, align 8
   %88 = add i64 %87, ptrtoint (ptr @cpu_info to i64)
   %89 = inttoptr i64 %88 to ptr
-  %90 = getelementptr inbounds i8, ptr %89, i64 224
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 224
   %91 = load i32, ptr %90, align 8
   %92 = load i64, ptr @__cpu_online_mask, align 8
   br label %93
@@ -641,7 +641,7 @@ define internal fastcc void @cpufreq_set_cur_state(i32 noundef %0, i32 noundef r
   %108 = load i64, ptr %107, align 8
   %109 = add i64 %108, ptrtoint (ptr @cpu_info to i64)
   %110 = inttoptr i64 %109 to ptr
-  %111 = getelementptr inbounds i8, ptr %110, i64 224
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 224
   %112 = load i32, ptr %111, align 8
   %113 = icmp eq i32 %112, %91
   %114 = add nuw nsw i64 %102, 1
@@ -660,12 +660,12 @@ define internal fastcc void @cpufreq_set_cur_state(i32 noundef %0, i32 noundef r
   %124 = mul i32 %123, %86
   %125 = udiv i32 %124, 100
   tail call void @cpufreq_cpu_put(ptr noundef nonnull %82) #4
-  %126 = tail call i32 @freq_qos_update_request(ptr noundef %75, i32 noundef %125) #4
+  %126 = tail call i32 @freq_qos_update_request(ptr noundef nonnull %75, i32 noundef %125) #4
   %127 = icmp slt i32 %126, 0
   br i1 %127, label %128, label %132
 
 128:                                              ; preds = %.thread13
-  %129 = getelementptr inbounds i8, ptr %74, i64 16
+  %129 = getelementptr inbounds nuw i8, ptr %74, i64 16
   %130 = load i32, ptr %129, align 8
   %131 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.6, i32 noundef %130, i32 noundef %126) #5
   br label %132

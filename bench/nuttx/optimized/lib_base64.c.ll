@@ -23,42 +23,42 @@ define i32 @b64_ntop(ptr nocapture noundef readonly %0, i64 noundef %1, ptr noca
   %8 = load i8, ptr %.03645, align 1
   %9 = lshr i8 %8, 2
   %10 = zext nneg i8 %9 to i64
-  %11 = getelementptr inbounds [65 x i8], ptr @g_base64, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw [65 x i8], ptr @g_base64, i64 0, i64 %10
   %12 = load i8, ptr %11, align 1
-  %13 = getelementptr inbounds i8, ptr %.03347, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %.03347, i64 1
   store i8 %12, ptr %.03347, align 1
   %14 = load i8, ptr %.03645, align 1
   %15 = shl i8 %14, 4
   %16 = and i8 %15, 48
-  %17 = getelementptr inbounds i8, ptr %.03645, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %.03645, i64 1
   %18 = load i8, ptr %17, align 1
   %19 = lshr i8 %18, 4
   %20 = or disjoint i8 %16, %19
   %21 = zext nneg i8 %20 to i64
-  %22 = getelementptr inbounds [65 x i8], ptr @g_base64, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw [65 x i8], ptr @g_base64, i64 0, i64 %21
   %23 = load i8, ptr %22, align 1
-  %24 = getelementptr inbounds i8, ptr %.03347, i64 2
+  %24 = getelementptr inbounds nuw i8, ptr %.03347, i64 2
   store i8 %23, ptr %13, align 1
   %25 = load i8, ptr %17, align 1
   %26 = shl i8 %25, 2
   %27 = and i8 %26, 60
-  %28 = getelementptr inbounds i8, ptr %.03645, i64 2
+  %28 = getelementptr inbounds nuw i8, ptr %.03645, i64 2
   %29 = load i8, ptr %28, align 1
   %30 = lshr i8 %29, 6
   %31 = or disjoint i8 %27, %30
   %32 = zext nneg i8 %31 to i64
-  %33 = getelementptr inbounds [65 x i8], ptr @g_base64, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw [65 x i8], ptr @g_base64, i64 0, i64 %32
   %34 = load i8, ptr %33, align 1
-  %35 = getelementptr inbounds i8, ptr %.03347, i64 3
+  %35 = getelementptr inbounds nuw i8, ptr %.03347, i64 3
   store i8 %34, ptr %24, align 1
   %36 = load i8, ptr %28, align 1
   %37 = and i8 %36, 63
   %38 = zext nneg i8 %37 to i64
-  %39 = getelementptr inbounds [65 x i8], ptr @g_base64, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw [65 x i8], ptr @g_base64, i64 0, i64 %38
   %40 = load i8, ptr %39, align 1
-  %41 = getelementptr inbounds i8, ptr %.03347, i64 4
+  %41 = getelementptr inbounds nuw i8, ptr %.03347, i64 4
   store i8 %40, ptr %35, align 1
-  %42 = getelementptr inbounds i8, ptr %.03645, i64 3
+  %42 = getelementptr inbounds nuw i8, ptr %.03645, i64 3
   %43 = add i64 %.03546, -3
   %44 = icmp ugt i64 %43, 2
   br i1 %44, label %.lr.ph, label %._crit_edge, !llvm.loop !6
@@ -80,9 +80,9 @@ define i32 @b64_ntop(ptr nocapture noundef readonly %0, i64 noundef %1, ptr noca
   %48 = load i8, ptr %.036.lcssa, align 1
   %49 = lshr i8 %48, 2
   %50 = zext nneg i8 %49 to i64
-  %51 = getelementptr inbounds [65 x i8], ptr @g_base64, i64 0, i64 %50
+  %51 = getelementptr inbounds nuw [65 x i8], ptr @g_base64, i64 0, i64 %50
   %52 = load i8, ptr %51, align 1
-  %53 = getelementptr inbounds i8, ptr %.033.lcssa, i64 1
+  %53 = getelementptr inbounds nuw i8, ptr %.033.lcssa, i64 1
   store i8 %52, ptr %.033.lcssa, align 1
   %54 = icmp eq i64 %.035.lcssa, 1
   %55 = load i8, ptr %.036.lcssa, align 1
@@ -92,34 +92,34 @@ define i32 @b64_ntop(ptr nocapture noundef readonly %0, i64 noundef %1, ptr noca
 
 58:                                               ; preds = %47
   %59 = zext nneg i8 %57 to i64
-  %60 = getelementptr inbounds [65 x i8], ptr @g_base64, i64 0, i64 %59
+  %60 = getelementptr inbounds nuw [65 x i8], ptr @g_base64, i64 0, i64 %59
   %61 = load i8, ptr %60, align 16
   store i8 %61, ptr %53, align 1
   br label %76
 
 62:                                               ; preds = %47
-  %63 = getelementptr inbounds i8, ptr %.036.lcssa, i64 1
+  %63 = getelementptr inbounds nuw i8, ptr %.036.lcssa, i64 1
   %64 = load i8, ptr %63, align 1
   %65 = lshr i8 %64, 4
   %66 = or disjoint i8 %57, %65
   %67 = zext nneg i8 %66 to i64
-  %68 = getelementptr inbounds [65 x i8], ptr @g_base64, i64 0, i64 %67
+  %68 = getelementptr inbounds nuw [65 x i8], ptr @g_base64, i64 0, i64 %67
   %69 = load i8, ptr %68, align 1
   store i8 %69, ptr %53, align 1
   %70 = load i8, ptr %63, align 1
   %71 = shl i8 %70, 2
   %72 = and i8 %71, 60
   %73 = zext nneg i8 %72 to i64
-  %74 = getelementptr inbounds [65 x i8], ptr @g_base64, i64 0, i64 %73
+  %74 = getelementptr inbounds nuw [65 x i8], ptr @g_base64, i64 0, i64 %73
   %75 = load i8, ptr %74, align 4
   br label %76
 
 76:                                               ; preds = %62, %58
   %.sink = phi i8 [ 61, %58 ], [ %75, %62 ]
-  %77 = getelementptr inbounds i8, ptr %.033.lcssa, i64 2
+  %77 = getelementptr inbounds nuw i8, ptr %.033.lcssa, i64 2
   store i8 %.sink, ptr %77, align 1
-  %.2 = getelementptr inbounds i8, ptr %.033.lcssa, i64 3
-  %78 = getelementptr inbounds i8, ptr %.033.lcssa, i64 4
+  %.2 = getelementptr inbounds nuw i8, ptr %.033.lcssa, i64 3
+  %78 = getelementptr inbounds nuw i8, ptr %.033.lcssa, i64 4
   store i8 61, ptr %.2, align 1
   br label %79
 
@@ -161,7 +161,7 @@ define i32 @b64_pton(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noun
 
 6:                                                ; preds = %4
   %7 = sext i8 %5 to i32
-  %8 = getelementptr inbounds i8, ptr %.050, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %.050, i64 1
   %9 = tail call i32 @isspace(i32 noundef %7) #4
   %.not62 = icmp eq i32 %9, 0
   br i1 %.not62, label %10, label %4, !llvm.loop !8
@@ -213,7 +213,7 @@ define i32 @b64_pton(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noun
   %24 = ptrtoint ptr %memchr to i64
   %25 = sub i64 %24, ptrtoint (ptr @g_base64 to i64)
   %26 = lshr i64 %25, 4
-  %27 = getelementptr inbounds i8, ptr %.054.ph.ph, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %.054.ph.ph, i64 1
   %28 = load i8, ptr %.054.ph.ph, align 1
   %29 = trunc i64 %26 to i8
   %30 = or i8 %28, %29
@@ -235,7 +235,7 @@ define i32 @b64_pton(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noun
   %36 = ptrtoint ptr %memchr to i64
   %37 = sub i64 %36, ptrtoint (ptr @g_base64 to i64)
   %38 = lshr i64 %37, 2
-  %39 = getelementptr inbounds i8, ptr %.054.ph.ph, i64 1
+  %39 = getelementptr inbounds nuw i8, ptr %.054.ph.ph, i64 1
   %40 = load i8, ptr %.054.ph.ph, align 1
   %41 = trunc i64 %38 to i8
   %42 = or i8 %40, %41
@@ -266,7 +266,7 @@ define i32 @b64_pton(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noun
 
 45:                                               ; preds = %44
   %46 = ptrtoint ptr %memchr to i64
-  %47 = getelementptr inbounds i8, ptr %.054.ph.ph, i64 1
+  %47 = getelementptr inbounds nuw i8, ptr %.054.ph.ph, i64 1
   %48 = load i8, ptr %.054.ph.ph, align 1
   %49 = trunc i64 %46 to i8
   %50 = sub i8 %49, ptrtoint (ptr @g_base64 to i8)
@@ -280,7 +280,7 @@ define i32 @b64_pton(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noun
   br label %.outer.outer.outer.backedge
 
 54:                                               ; preds = %10
-  %55 = getelementptr inbounds i8, ptr %.050, i64 2
+  %55 = getelementptr inbounds nuw i8, ptr %.050, i64 2
   %56 = load i8, ptr %8, align 1
   %57 = sext i8 %56 to i32
   switch i32 %.044.ph, label %.unreachabledefault [
@@ -302,7 +302,7 @@ define i32 @b64_pton(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noun
   br i1 %.not74, label %63, label %59
 
 59:                                               ; preds = %.lr.ph
-  %60 = getelementptr inbounds i8, ptr %.252102, i64 1
+  %60 = getelementptr inbounds nuw i8, ptr %.252102, i64 1
   %61 = load i8, ptr %.252102, align 1
   %62 = sext i8 %61 to i32
   %cond81 = icmp eq i8 %61, 0
@@ -313,7 +313,7 @@ define i32 @b64_pton(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noun
   br i1 %.not75, label %64, label %.loopexit
 
 64:                                               ; preds = %63
-  %65 = getelementptr inbounds i8, ptr %.252102, i64 1
+  %65 = getelementptr inbounds nuw i8, ptr %.252102, i64 1
   %66 = load i8, ptr %.252102, align 1
   %67 = sext i8 %66 to i32
   br label %68
@@ -332,7 +332,7 @@ define i32 @b64_pton(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noun
   br i1 %.not79, label %.loopexit, label %70
 
 70:                                               ; preds = %.lr.ph107
-  %71 = getelementptr inbounds i8, ptr %.353105, i64 1
+  %71 = getelementptr inbounds nuw i8, ptr %.353105, i64 1
   %72 = load i8, ptr %.353105, align 1
   %73 = sext i8 %72 to i32
   %.not76 = icmp eq i8 %72, 0

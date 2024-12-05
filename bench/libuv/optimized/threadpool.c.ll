@@ -39,10 +39,10 @@ entry:
 if.end:                                           ; preds = %entry
   tail call void @uv_mutex_lock(ptr noundef nonnull @mutex) #9
   store ptr @wq, ptr @exit_message, align 8
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @wq, i64 8), align 8
-  store ptr %1, ptr getelementptr inbounds (i8, ptr @exit_message, i64 8), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @wq, i64 8), align 8
+  store ptr %1, ptr getelementptr inbounds nuw (i8, ptr @exit_message, i64 8), align 8
   store ptr @exit_message, ptr %1, align 8
-  store ptr @exit_message, ptr getelementptr inbounds (i8, ptr @wq, i64 8), align 8
+  store ptr @exit_message, ptr getelementptr inbounds nuw (i8, ptr @wq, i64 8), align 8
   %2 = load i32, ptr @idle_threads, align 4
   %cmp3.not.i = icmp eq i32 %2, 0
   br i1 %cmp3.not.i, label %post.exit, label %if.then4.i
@@ -67,7 +67,7 @@ for.cond:                                         ; preds = %for.body
 for.body:                                         ; preds = %post.exit, %for.cond
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.cond ], [ 0, %post.exit ]
   %6 = load ptr, ptr @threads, align 8
-  %add.ptr = getelementptr inbounds i64, ptr %6, i64 %indvars.iv
+  %add.ptr = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv
   %call = tail call i32 @uv_thread_join(ptr noundef %add.ptr) #9
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %for.cond, label %if.then2
@@ -111,23 +111,23 @@ declare void @uv_cond_destroy(ptr noundef) local_unnamed_addr #1
 define hidden void @uv__work_submit(ptr noundef %loop, ptr noundef initializes((0, 24)) %w, i32 noundef %kind, ptr noundef %work, ptr noundef %done) local_unnamed_addr #0 {
 entry:
   tail call void @uv_once(ptr noundef nonnull @once, ptr noundef nonnull @init_once) #9
-  %loop1 = getelementptr inbounds i8, ptr %w, i64 16
+  %loop1 = getelementptr inbounds nuw i8, ptr %w, i64 16
   store ptr %loop, ptr %loop1, align 8
   store ptr %work, ptr %w, align 8
-  %done3 = getelementptr inbounds i8, ptr %w, i64 8
+  %done3 = getelementptr inbounds nuw i8, ptr %w, i64 8
   store ptr %done, ptr %done3, align 8
-  %wq = getelementptr inbounds i8, ptr %w, i64 24
+  %wq = getelementptr inbounds nuw i8, ptr %w, i64 24
   tail call void @uv_mutex_lock(ptr noundef nonnull @mutex) #9
   %cmp.i = icmp eq i32 %kind, 2
   br i1 %cmp.i, label %if.then.i, label %if.end2.i
 
 if.then.i:                                        ; preds = %entry
   store ptr @slow_io_pending_wq, ptr %wq, align 8
-  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @slow_io_pending_wq, i64 8), align 8
-  %prev1.i.i = getelementptr inbounds i8, ptr %w, i64 32
+  %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slow_io_pending_wq, i64 8), align 8
+  %prev1.i.i = getelementptr inbounds nuw i8, ptr %w, i64 32
   store ptr %0, ptr %prev1.i.i, align 8
   store ptr %wq, ptr %0, align 8
-  store ptr %wq, ptr getelementptr inbounds (i8, ptr @slow_io_pending_wq, i64 8), align 8
+  store ptr %wq, ptr getelementptr inbounds nuw (i8, ptr @slow_io_pending_wq, i64 8), align 8
   %1 = load ptr, ptr @run_slow_work_message, align 8
   %cmp.i.not.i = icmp eq ptr %1, @run_slow_work_message
   br i1 %cmp.i.not.i, label %if.end2.i, label %post.exit
@@ -135,11 +135,11 @@ if.then.i:                                        ; preds = %entry
 if.end2.i:                                        ; preds = %if.then.i, %entry
   %q.addr.0.i = phi ptr [ %wq, %entry ], [ @run_slow_work_message, %if.then.i ]
   store ptr @wq, ptr %q.addr.0.i, align 8
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @wq, i64 8), align 8
-  %prev1.i2.i = getelementptr inbounds i8, ptr %q.addr.0.i, i64 8
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @wq, i64 8), align 8
+  %prev1.i2.i = getelementptr inbounds nuw i8, ptr %q.addr.0.i, i64 8
   store ptr %2, ptr %prev1.i2.i, align 8
   store ptr %q.addr.0.i, ptr %2, align 8
-  store ptr %q.addr.0.i, ptr getelementptr inbounds (i8, ptr @wq, i64 8), align 8
+  store ptr %q.addr.0.i, ptr getelementptr inbounds nuw (i8, ptr @wq, i64 8), align 8
   %3 = load i32, ptr @idle_threads, align 4
   %cmp3.not.i = icmp eq i32 %3, 0
   br i1 %cmp3.not.i, label %post.exit, label %if.then4.i
@@ -234,11 +234,11 @@ if.then23.i:                                      ; preds = %if.end20.i
 
 if.end24.i:                                       ; preds = %if.end20.i
   store ptr @wq, ptr @wq, align 8
-  store ptr @wq, ptr getelementptr inbounds (i8, ptr @wq, i64 8), align 8
+  store ptr @wq, ptr getelementptr inbounds nuw (i8, ptr @wq, i64 8), align 8
   store ptr @slow_io_pending_wq, ptr @slow_io_pending_wq, align 8
-  store ptr @slow_io_pending_wq, ptr getelementptr inbounds (i8, ptr @slow_io_pending_wq, i64 8), align 8
+  store ptr @slow_io_pending_wq, ptr getelementptr inbounds nuw (i8, ptr @slow_io_pending_wq, i64 8), align 8
   store ptr @run_slow_work_message, ptr @run_slow_work_message, align 8
-  store ptr @run_slow_work_message, ptr getelementptr inbounds (i8, ptr @run_slow_work_message, i64 8), align 8
+  store ptr @run_slow_work_message, ptr getelementptr inbounds nuw (i8, ptr @run_slow_work_message, i64 8), align 8
   %call25.i = call i32 @uv_sem_init(ptr noundef nonnull %sem.i, i32 noundef 0) #9
   %tobool26.not.i = icmp eq i32 %call25.i, 0
   br i1 %tobool26.not.i, label %if.end28.i, label %if.then27.i
@@ -249,7 +249,7 @@ if.then27.i:                                      ; preds = %if.end24.i
 
 if.end28.i:                                       ; preds = %if.end24.i
   store i32 1, ptr %config.i, align 8
-  %stack_size.i = getelementptr inbounds i8, ptr %config.i, i64 8
+  %stack_size.i = getelementptr inbounds nuw i8, ptr %config.i, i64 8
   store i64 8388608, ptr %stack_size.i, align 8
   %2 = load i32, ptr @nthreads, align 4
   %cmp299.not.i = icmp eq i32 %2, 0
@@ -269,7 +269,7 @@ for.cond35.preheader.i:                           ; preds = %for.cond.i
 for.body.i:                                       ; preds = %if.end28.i, %for.cond.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.cond.i ], [ 0, %if.end28.i ]
   %6 = load ptr, ptr @threads, align 8
-  %add.ptr.i = getelementptr inbounds i64, ptr %6, i64 %indvars.iv.i
+  %add.ptr.i = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv.i
   %call31.i = call i32 @uv_thread_create_ex(ptr noundef %add.ptr.i, ptr noundef nonnull %config.i, ptr noundef nonnull @worker, ptr noundef nonnull %sem.i) #9
   %tobool32.not.i = icmp eq i32 %call31.i, 0
   br i1 %tobool32.not.i, label %for.cond.i, label %if.then33.i
@@ -306,18 +306,18 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   store ptr %wq, ptr %wq, align 8
-  %prev.i.i = getelementptr inbounds i8, ptr %wq, i64 8
+  %prev.i.i = getelementptr inbounds nuw i8, ptr %wq, i64 8
   store ptr %wq, ptr %prev.i.i, align 8
   br label %uv__queue_move.exit
 
 if.else.i:                                        ; preds = %entry
   %prev.i4.i = getelementptr inbounds i8, ptr %handle, i64 -48
   %1 = load ptr, ptr %prev.i4.i, align 8
-  %prev1.i.i = getelementptr inbounds i8, ptr %wq, i64 8
+  %prev1.i.i = getelementptr inbounds nuw i8, ptr %wq, i64 8
   store ptr %1, ptr %prev1.i.i, align 8
   store ptr %wq, ptr %1, align 8
   store ptr %0, ptr %wq, align 8
-  %prev4.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %prev4.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = load ptr, ptr %prev4.i.i, align 8
   store ptr %2, ptr %prev.i4.i, align 8
   store ptr %wq1, ptr %2, align 8
@@ -334,11 +334,11 @@ while.body:                                       ; preds = %uv__queue_move.exit
   %4 = phi ptr [ %10, %while.body ], [ %3, %uv__queue_move.exit ]
   %nevents.013 = phi i32 [ %inc, %while.body ], [ 0, %uv__queue_move.exit ]
   %5 = load ptr, ptr %4, align 8
-  %prev.i = getelementptr inbounds i8, ptr %4, i64 8
+  %prev.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %prev.i, align 8
   store ptr %5, ptr %6, align 8
   %7 = load ptr, ptr %prev.i, align 8
-  %prev4.i = getelementptr inbounds i8, ptr %5, i64 8
+  %prev4.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %7, ptr %prev4.i, align 8
   %add.ptr4 = getelementptr inbounds i8, ptr %4, i64 -24
   %8 = load ptr, ptr %add.ptr4, align 8
@@ -360,18 +360,18 @@ do.body:                                          ; preds = %while.end
   %conv = zext nneg i32 %nevents.013 to i64
   %internal_fields = getelementptr inbounds i8, ptr %handle, i64 -136
   %11 = load ptr, ptr %internal_fields, align 8
-  %events = getelementptr inbounds i8, ptr %11, i64 16
+  %events = getelementptr inbounds nuw i8, ptr %11, i64 16
   %12 = load i64, ptr %events, align 8
   %add = add i64 %12, %conv
   store i64 %add, ptr %events, align 8
   %13 = load ptr, ptr %internal_fields, align 8
-  %current_timeout = getelementptr inbounds i8, ptr %13, i64 192
+  %current_timeout = getelementptr inbounds nuw i8, ptr %13, i64 192
   %14 = load i32, ptr %current_timeout, align 8
   %cmp7 = icmp eq i32 %14, 0
   br i1 %cmp7, label %do.body10, label %if.end18
 
 do.body10:                                        ; preds = %do.body
-  %events_waiting = getelementptr inbounds i8, ptr %13, i64 24
+  %events_waiting = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = load i64, ptr %events_waiting, align 8
   %add16 = add i64 %15, %conv
   store i64 %add16, ptr %events_waiting, align 8
@@ -399,33 +399,33 @@ entry:
   br i1 %cmp, label %return, label %do.body1
 
 do.body1:                                         ; preds = %entry
-  %type = getelementptr inbounds i8, ptr %req, i64 8
+  %type = getelementptr inbounds nuw i8, ptr %req, i64 8
   store i32 7, ptr %type, align 8
-  %active_reqs = getelementptr inbounds i8, ptr %loop, i64 32
+  %active_reqs = getelementptr inbounds nuw i8, ptr %loop, i64 32
   %0 = load i32, ptr %active_reqs, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %active_reqs, align 8
-  %loop5 = getelementptr inbounds i8, ptr %req, i64 64
+  %loop5 = getelementptr inbounds nuw i8, ptr %req, i64 64
   store ptr %loop, ptr %loop5, align 8
-  %work_cb6 = getelementptr inbounds i8, ptr %req, i64 72
+  %work_cb6 = getelementptr inbounds nuw i8, ptr %req, i64 72
   store ptr %work_cb, ptr %work_cb6, align 8
-  %after_work_cb7 = getelementptr inbounds i8, ptr %req, i64 80
+  %after_work_cb7 = getelementptr inbounds nuw i8, ptr %req, i64 80
   store ptr %after_work_cb, ptr %after_work_cb7, align 8
-  %work_req = getelementptr inbounds i8, ptr %req, i64 88
+  %work_req = getelementptr inbounds nuw i8, ptr %req, i64 88
   tail call void @uv_once(ptr noundef nonnull @once, ptr noundef nonnull @init_once) #9
-  %loop1.i = getelementptr inbounds i8, ptr %req, i64 104
+  %loop1.i = getelementptr inbounds nuw i8, ptr %req, i64 104
   store ptr %loop, ptr %loop1.i, align 8
   store ptr @uv__queue_work, ptr %work_req, align 8
-  %done3.i = getelementptr inbounds i8, ptr %req, i64 96
+  %done3.i = getelementptr inbounds nuw i8, ptr %req, i64 96
   store ptr @uv__queue_done, ptr %done3.i, align 8
-  %wq.i = getelementptr inbounds i8, ptr %req, i64 112
+  %wq.i = getelementptr inbounds nuw i8, ptr %req, i64 112
   tail call void @uv_mutex_lock(ptr noundef nonnull @mutex) #9
   store ptr @wq, ptr %wq.i, align 8
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @wq, i64 8), align 8
-  %prev1.i2.i.i = getelementptr inbounds i8, ptr %req, i64 120
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @wq, i64 8), align 8
+  %prev1.i2.i.i = getelementptr inbounds nuw i8, ptr %req, i64 120
   store ptr %1, ptr %prev1.i2.i.i, align 8
   store ptr %wq.i, ptr %1, align 8
-  store ptr %wq.i, ptr getelementptr inbounds (i8, ptr @wq, i64 8), align 8
+  store ptr %wq.i, ptr getelementptr inbounds nuw (i8, ptr @wq, i64 8), align 8
   %2 = load i32, ptr @idle_threads, align 4
   %cmp3.not.i.i = icmp eq i32 %2, 0
   br i1 %cmp3.not.i.i, label %uv__work_submit.exit, label %if.then4.i.i
@@ -458,7 +458,7 @@ define internal void @uv__queue_done(ptr noundef %w, i32 noundef %err) #0 {
 entry:
   %loop = getelementptr inbounds i8, ptr %w, i64 -24
   %0 = load ptr, ptr %loop, align 8
-  %active_reqs = getelementptr inbounds i8, ptr %0, i64 32
+  %active_reqs = getelementptr inbounds nuw i8, ptr %0, i64 32
   %1 = load i32, ptr %active_reqs, align 8
   %dec = add i32 %1, -1
   store i32 %dec, ptr %active_reqs, align 8
@@ -479,7 +479,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: nounwind uwtable
 define range(i32 -22, 1) i32 @uv_cancel(ptr noundef %req) local_unnamed_addr #0 {
 entry:
-  %type = getelementptr inbounds i8, ptr %req, i64 8
+  %type = getelementptr inbounds nuw i8, ptr %req, i64 8
   %0 = load i32, ptr %type, align 8
   %switch.tableidx = add i32 %0, -6
   %1 = icmp ult i32 %switch.tableidx, 5
@@ -487,21 +487,21 @@ entry:
 
 switch.lookup:                                    ; preds = %entry
   %2 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [5 x i64], ptr @switch.table.uv_cancel, i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table.uv_cancel, i64 0, i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep13 = getelementptr inbounds [5 x i64], ptr @switch.table.uv_cancel.4, i64 0, i64 %3
+  %switch.gep13 = getelementptr inbounds nuw [5 x i64], ptr @switch.table.uv_cancel.4, i64 0, i64 %3
   %switch.load14 = load i64, ptr %switch.gep13, align 8
-  %loop12 = getelementptr inbounds i8, ptr %req, i64 %switch.load
-  %work_req13 = getelementptr inbounds i8, ptr %req, i64 %switch.load14
+  %loop12 = getelementptr inbounds nuw i8, ptr %req, i64 %switch.load
+  %work_req13 = getelementptr inbounds nuw i8, ptr %req, i64 %switch.load14
   %loop.0 = load ptr, ptr %loop12, align 8
   tail call void @uv_once(ptr noundef nonnull @once, ptr noundef nonnull @init_once) #9
   tail call void @uv_mutex_lock(ptr noundef nonnull @mutex) #9
-  %loop1.i = getelementptr inbounds i8, ptr %work_req13, i64 16
+  %loop1.i = getelementptr inbounds nuw i8, ptr %work_req13, i64 16
   %4 = load ptr, ptr %loop1.i, align 8
-  %wq_mutex.i = getelementptr inbounds i8, ptr %4, i64 136
+  %wq_mutex.i = getelementptr inbounds nuw i8, ptr %4, i64 136
   tail call void @uv_mutex_lock(ptr noundef nonnull %wq_mutex.i) #9
-  %wq.i = getelementptr inbounds i8, ptr %work_req13, i64 24
+  %wq.i = getelementptr inbounds nuw i8, ptr %work_req13, i64 24
   %5 = load ptr, ptr %wq.i, align 8
   %cmp.i.not.i = icmp eq ptr %wq.i, %5
   br i1 %cmp.i.not.i, label %if.then7.critedge.i, label %land.rhs.i
@@ -512,33 +512,33 @@ land.rhs.i:                                       ; preds = %switch.lookup
   br i1 %cmp.not.i, label %if.then7.critedge.i, label %if.then.i
 
 if.then.i:                                        ; preds = %land.rhs.i
-  %prev.i.i = getelementptr inbounds i8, ptr %work_req13, i64 32
+  %prev.i.i = getelementptr inbounds nuw i8, ptr %work_req13, i64 32
   %7 = load ptr, ptr %prev.i.i, align 8
   store ptr %5, ptr %7, align 8
   %8 = load ptr, ptr %prev.i.i, align 8
-  %prev4.i.i = getelementptr inbounds i8, ptr %5, i64 8
+  %prev4.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %8, ptr %prev4.i.i, align 8
   %9 = load ptr, ptr %loop1.i, align 8
-  %wq_mutex5.i = getelementptr inbounds i8, ptr %9, i64 136
+  %wq_mutex5.i = getelementptr inbounds nuw i8, ptr %9, i64 136
   tail call void @uv_mutex_unlock(ptr noundef nonnull %wq_mutex5.i) #9
   tail call void @uv_mutex_unlock(ptr noundef nonnull @mutex) #9
   store ptr @uv__cancelled, ptr %work_req13, align 8
-  %wq_mutex10.i = getelementptr inbounds i8, ptr %loop.0, i64 136
+  %wq_mutex10.i = getelementptr inbounds nuw i8, ptr %loop.0, i64 136
   tail call void @uv_mutex_lock(ptr noundef nonnull %wq_mutex10.i) #9
-  %wq11.i = getelementptr inbounds i8, ptr %loop.0, i64 120
+  %wq11.i = getelementptr inbounds nuw i8, ptr %loop.0, i64 120
   store ptr %wq11.i, ptr %wq.i, align 8
-  %prev.i11.i = getelementptr inbounds i8, ptr %loop.0, i64 128
+  %prev.i11.i = getelementptr inbounds nuw i8, ptr %loop.0, i64 128
   %10 = load ptr, ptr %prev.i11.i, align 8
   store ptr %10, ptr %prev.i.i, align 8
   store ptr %wq.i, ptr %10, align 8
   store ptr %wq.i, ptr %prev.i11.i, align 8
-  %wq_async.i = getelementptr inbounds i8, ptr %loop.0, i64 176
+  %wq_async.i = getelementptr inbounds nuw i8, ptr %loop.0, i64 176
   %call13.i = tail call i32 @uv_async_send(ptr noundef nonnull %wq_async.i) #9
   br label %uv__work_cancel.exit
 
 if.then7.critedge.i:                              ; preds = %land.rhs.i, %switch.lookup
   %11 = load ptr, ptr %loop1.i, align 8
-  %wq_mutex5.c.i = getelementptr inbounds i8, ptr %11, i64 136
+  %wq_mutex5.c.i = getelementptr inbounds nuw i8, ptr %11, i64 136
   tail call void @uv_mutex_unlock(ptr noundef nonnull %wq_mutex5.c.i) #9
   br label %uv__work_cancel.exit
 
@@ -634,24 +634,24 @@ if.then:                                          ; preds = %while.end
 
 if.end:                                           ; preds = %while.end
   %.pre = load ptr, ptr %0, align 8
-  %prev.i = getelementptr inbounds i8, ptr %0, i64 8
+  %prev.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %prev.i, align 8
   store ptr %.pre, ptr %6, align 8
   %7 = load ptr, ptr %prev.i, align 8
-  %prev4.i = getelementptr inbounds i8, ptr %.pre, i64 8
+  %prev4.i = getelementptr inbounds nuw i8, ptr %.pre, i64 8
   store ptr %7, ptr %prev4.i, align 8
   store ptr %0, ptr %0, align 8
   store ptr %0, ptr %prev.i, align 8
   br label %if.end26
 
 if.then9:                                         ; preds = %land.rhs, %land.lhs.true
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @run_slow_work_message, i64 8), align 8
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @run_slow_work_message, i64 8), align 8
   store ptr %1, ptr %8, align 8
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @run_slow_work_message, i64 8), align 8
-  %prev4.i35 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @run_slow_work_message, i64 8), align 8
+  %prev4.i35 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %9, ptr %prev4.i35, align 8
   store ptr @run_slow_work_message, ptr @run_slow_work_message, align 8
-  store ptr @run_slow_work_message, ptr getelementptr inbounds (i8, ptr @run_slow_work_message, i64 8), align 8
+  store ptr @run_slow_work_message, ptr getelementptr inbounds nuw (i8, ptr @run_slow_work_message, i64 8), align 8
   %10 = load i32, ptr @slow_io_work_running, align 4
   %11 = load i32, ptr @nthreads, align 4
   %add.i17 = add i32 %11, 1
@@ -661,10 +661,10 @@ if.then9:                                         ; preds = %land.rhs, %land.lhs
 
 if.then12:                                        ; preds = %if.then9
   store ptr @wq, ptr @run_slow_work_message, align 8
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @wq, i64 8), align 8
-  store ptr %12, ptr getelementptr inbounds (i8, ptr @run_slow_work_message, i64 8), align 8
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @wq, i64 8), align 8
+  store ptr %12, ptr getelementptr inbounds nuw (i8, ptr @run_slow_work_message, i64 8), align 8
   store ptr @run_slow_work_message, ptr %12, align 8
-  store ptr @run_slow_work_message, ptr getelementptr inbounds (i8, ptr @wq, i64 8), align 8
+  store ptr @run_slow_work_message, ptr getelementptr inbounds nuw (i8, ptr @wq, i64 8), align 8
   br label %while.cond.backedge
 
 if.end13:                                         ; preds = %if.then9
@@ -676,11 +676,11 @@ if.end17:                                         ; preds = %if.end13
   %inc = add nuw nsw i32 %10, 1
   store i32 %inc, ptr @slow_io_work_running, align 4
   %14 = load ptr, ptr %13, align 8
-  %prev.i21 = getelementptr inbounds i8, ptr %13, i64 8
+  %prev.i21 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %prev.i21, align 8
   store ptr %14, ptr %15, align 8
   %16 = load ptr, ptr %prev.i21, align 8
-  %prev4.i22 = getelementptr inbounds i8, ptr %14, i64 8
+  %prev4.i22 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %16, ptr %prev4.i22, align 8
   store ptr %13, ptr %13, align 8
   store ptr %13, ptr %prev.i21, align 8
@@ -690,10 +690,10 @@ if.end17:                                         ; preds = %if.end13
 
 if.then21:                                        ; preds = %if.end17
   store ptr @wq, ptr @run_slow_work_message, align 8
-  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @wq, i64 8), align 8
-  store ptr %18, ptr getelementptr inbounds (i8, ptr @run_slow_work_message, i64 8), align 8
+  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @wq, i64 8), align 8
+  store ptr %18, ptr getelementptr inbounds nuw (i8, ptr @run_slow_work_message, i64 8), align 8
   store ptr @run_slow_work_message, ptr %18, align 8
-  store ptr @run_slow_work_message, ptr getelementptr inbounds (i8, ptr @wq, i64 8), align 8
+  store ptr @run_slow_work_message, ptr getelementptr inbounds nuw (i8, ptr @wq, i64 8), align 8
   %19 = load i32, ptr @idle_threads, align 4
   %cmp22.not = icmp eq i32 %19, 0
   br i1 %cmp22.not, label %if.end26, label %if.then23
@@ -710,23 +710,23 @@ if.end26:                                         ; preds = %if.end, %if.end17, 
   tail call void %20(ptr noundef nonnull %add.ptr) #9
   %loop = getelementptr inbounds i8, ptr %q.0, i64 -8
   %21 = load ptr, ptr %loop, align 8
-  %wq_mutex = getelementptr inbounds i8, ptr %21, i64 136
+  %wq_mutex = getelementptr inbounds nuw i8, ptr %21, i64 136
   tail call void @uv_mutex_lock(ptr noundef nonnull %wq_mutex) #9
   store ptr null, ptr %add.ptr, align 8
   %22 = load ptr, ptr %loop, align 8
-  %wq = getelementptr inbounds i8, ptr %22, i64 120
+  %wq = getelementptr inbounds nuw i8, ptr %22, i64 120
   store ptr %wq, ptr %q.0, align 8
-  %prev.i26 = getelementptr inbounds i8, ptr %22, i64 128
+  %prev.i26 = getelementptr inbounds nuw i8, ptr %22, i64 128
   %23 = load ptr, ptr %prev.i26, align 8
-  %prev1.i = getelementptr inbounds i8, ptr %q.0, i64 8
+  %prev1.i = getelementptr inbounds nuw i8, ptr %q.0, i64 8
   store ptr %23, ptr %prev1.i, align 8
   store ptr %q.0, ptr %23, align 8
   store ptr %q.0, ptr %prev.i26, align 8
   %24 = load ptr, ptr %loop, align 8
-  %wq_async = getelementptr inbounds i8, ptr %24, i64 176
+  %wq_async = getelementptr inbounds nuw i8, ptr %24, i64 176
   %call31 = tail call i32 @uv_async_send(ptr noundef nonnull %wq_async) #9
   %25 = load ptr, ptr %loop, align 8
-  %wq_mutex33 = getelementptr inbounds i8, ptr %25, i64 136
+  %wq_mutex33 = getelementptr inbounds nuw i8, ptr %25, i64 136
   tail call void @uv_mutex_unlock(ptr noundef nonnull %wq_mutex33) #9
   tail call void @uv_mutex_lock(ptr noundef nonnull @mutex) #9
   br i1 %cmp, label %if.then35, label %while.cond.backedge

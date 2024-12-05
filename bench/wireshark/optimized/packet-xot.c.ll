@@ -246,7 +246,7 @@ define internal range(i32 -2147483648, 65540) i32 @get_xot_pdu_len(ptr nocapture
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_xot_pdu(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.40) #2
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 0) #2
@@ -425,7 +425,7 @@ get_xot_pdu_len.exit:                             ; preds = %11, %14
 ._crit_edge:                                      ; preds = %40, %4
   %.042.lcssa = phi i32 [ %2, %4 ], [ %20, %40 ]
   %.043 = add i32 %.042.lcssa, 7
-  %43 = getelementptr inbounds i8, ptr %0, i64 336
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 336
   store i32 268435455, ptr %43, align 8
   br label %.loopexit
 

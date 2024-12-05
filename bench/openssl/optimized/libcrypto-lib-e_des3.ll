@@ -102,13 +102,13 @@ entry:
 define internal noundef i32 @des_ede_init_key(ptr noundef %ctx, ptr noundef %key, ptr nocapture readnone %iv, i32 %enc) #1 {
 entry:
   %call = tail call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %ctx) #5
-  %stream = getelementptr inbounds i8, ptr %call, i64 384
+  %stream = getelementptr inbounds nuw i8, ptr %call, i64 384
   store ptr null, ptr %stream, align 8
   tail call void @DES_set_key_unchecked(ptr noundef %key, ptr noundef %call) #5
-  %arrayidx2 = getelementptr inbounds i8, ptr %key, i64 8
-  %arrayidx4 = getelementptr inbounds i8, ptr %call, i64 128
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %key, i64 8
+  %arrayidx4 = getelementptr inbounds nuw i8, ptr %call, i64 128
   tail call void @DES_set_key_unchecked(ptr noundef nonnull %arrayidx2, ptr noundef nonnull %arrayidx4) #5
-  %arrayidx6 = getelementptr inbounds i8, ptr %call, i64 256
+  %arrayidx6 = getelementptr inbounds nuw i8, ptr %call, i64 256
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %arrayidx6, ptr noundef nonnull align 8 dereferenceable(128) %call, i64 128, i1 false)
   ret i32 1
 }
@@ -117,7 +117,7 @@ entry:
 define internal noundef i32 @des_ede_cbc_cipher(ptr noundef %ctx, ptr noundef %out, ptr noundef %in, i64 noundef %inl) #1 {
 entry:
   %call = tail call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %ctx) #5
-  %stream = getelementptr inbounds i8, ptr %call, i64 384
+  %stream = getelementptr inbounds nuw i8, ptr %call, i64 384
   %0 = load ptr, ptr %stream, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %while.cond.preheader, label %if.then
@@ -127,13 +127,13 @@ while.cond.preheader:                             ; preds = %entry
   br i1 %cmp324, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %while.cond.preheader
-  %arrayidx6 = getelementptr inbounds i8, ptr %call, i64 128
-  %arrayidx8 = getelementptr inbounds i8, ptr %call, i64 256
-  %iv9 = getelementptr inbounds i8, ptr %ctx, i64 40
+  %arrayidx6 = getelementptr inbounds nuw i8, ptr %call, i64 128
+  %arrayidx8 = getelementptr inbounds nuw i8, ptr %call, i64 256
+  %iv9 = getelementptr inbounds nuw i8, ptr %ctx, i64 40
   br label %while.body
 
 if.then:                                          ; preds = %entry
-  %iv = getelementptr inbounds i8, ptr %ctx, i64 40
+  %iv = getelementptr inbounds nuw i8, ptr %ctx, i64 40
   tail call void %0(ptr noundef %in, ptr noundef %out, i64 noundef %inl, ptr noundef nonnull %call, ptr noundef nonnull %iv) #5
   br label %return
 
@@ -144,8 +144,8 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %call11 = tail call i32 @EVP_CIPHER_CTX_is_encrypting(ptr noundef %ctx) #5
   tail call void @DES_ede3_cbc_encrypt(ptr noundef %in.addr.026, ptr noundef %out.addr.025, i64 noundef 1073741824, ptr noundef %call, ptr noundef nonnull %arrayidx6, ptr noundef nonnull %arrayidx8, ptr noundef nonnull %iv9, i32 noundef %call11) #5
   %sub = add i64 %inl.addr.027, -1073741824
-  %add.ptr = getelementptr inbounds i8, ptr %in.addr.026, i64 1073741824
-  %add.ptr12 = getelementptr inbounds i8, ptr %out.addr.025, i64 1073741824
+  %add.ptr = getelementptr inbounds nuw i8, ptr %in.addr.026, i64 1073741824
+  %add.ptr12 = getelementptr inbounds nuw i8, ptr %out.addr.025, i64 1073741824
   %cmp3 = icmp ugt i64 %sub, 1073741823
   br i1 %cmp3, label %while.body, label %while.end, !llvm.loop !4
 
@@ -157,9 +157,9 @@ while.end:                                        ; preds = %while.body, %while.
   br i1 %tobool.not, label %return, label %if.then13
 
 if.then13:                                        ; preds = %while.end
-  %arrayidx17 = getelementptr inbounds i8, ptr %call, i64 128
-  %arrayidx19 = getelementptr inbounds i8, ptr %call, i64 256
-  %iv20 = getelementptr inbounds i8, ptr %ctx, i64 40
+  %arrayidx17 = getelementptr inbounds nuw i8, ptr %call, i64 128
+  %arrayidx19 = getelementptr inbounds nuw i8, ptr %call, i64 256
+  %iv20 = getelementptr inbounds nuw i8, ptr %ctx, i64 40
   %call22 = tail call i32 @EVP_CIPHER_CTX_is_encrypting(ptr noundef %ctx) #5
   tail call void @DES_ede3_cbc_encrypt(ptr noundef %in.addr.0.lcssa, ptr noundef %out.addr.0.lcssa, i64 noundef %inl.addr.0.lcssa, ptr noundef %call, ptr noundef nonnull %arrayidx17, ptr noundef nonnull %arrayidx19, ptr noundef nonnull %iv20, i32 noundef %call22) #5
   br label %return
@@ -190,13 +190,13 @@ if.end:                                           ; preds = %lor.lhs.false
   br i1 %cmp3, label %if.end5, label %return
 
 if.end5:                                          ; preds = %if.end
-  %add.ptr = getelementptr inbounds i8, ptr %ptr, i64 8
+  %add.ptr = getelementptr inbounds nuw i8, ptr %ptr, i64 8
   tail call void @DES_set_odd_parity(ptr noundef nonnull %add.ptr) #5
   %cmp6 = icmp samesign ugt i32 %call, 23
   br i1 %cmp6, label %if.then7, label %return
 
 if.then7:                                         ; preds = %if.end5
-  %add.ptr8 = getelementptr inbounds i8, ptr %ptr, i64 16
+  %add.ptr8 = getelementptr inbounds nuw i8, ptr %ptr, i64 16
   tail call void @DES_set_odd_parity(ptr noundef nonnull %add.ptr8) #5
   br label %return
 
@@ -231,7 +231,7 @@ entry:
   br i1 %cmp21, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %entry
-  %iv = getelementptr inbounds i8, ptr %ctx, i64 40
+  %iv = getelementptr inbounds nuw i8, ptr %ctx, i64 40
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
@@ -242,16 +242,16 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   store i32 %call, ptr %num, align 4
   %call1 = call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %ctx) #5
   %call2 = call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %ctx) #5
-  %arrayidx4 = getelementptr inbounds i8, ptr %call2, i64 128
+  %arrayidx4 = getelementptr inbounds nuw i8, ptr %call2, i64 128
   %call5 = call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %ctx) #5
-  %arrayidx7 = getelementptr inbounds i8, ptr %call5, i64 256
+  %arrayidx7 = getelementptr inbounds nuw i8, ptr %call5, i64 256
   %call8 = call i32 @EVP_CIPHER_CTX_is_encrypting(ptr noundef %ctx) #5
   call void @DES_ede3_cfb64_encrypt(ptr noundef %in.addr.023, ptr noundef %out.addr.022, i64 noundef 1073741824, ptr noundef %call1, ptr noundef nonnull %arrayidx4, ptr noundef nonnull %arrayidx7, ptr noundef nonnull %iv, ptr noundef nonnull %num, i32 noundef %call8) #5
   %0 = load i32, ptr %num, align 4
   %call9 = call i32 @EVP_CIPHER_CTX_set_num(ptr noundef %ctx, i32 noundef %0) #5
   %sub = add i64 %inl.addr.024, -1073741824
-  %add.ptr = getelementptr inbounds i8, ptr %in.addr.023, i64 1073741824
-  %add.ptr10 = getelementptr inbounds i8, ptr %out.addr.022, i64 1073741824
+  %add.ptr = getelementptr inbounds nuw i8, ptr %in.addr.023, i64 1073741824
+  %add.ptr10 = getelementptr inbounds nuw i8, ptr %out.addr.022, i64 1073741824
   %cmp = icmp ugt i64 %sub, 1073741823
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !6
 
@@ -267,10 +267,10 @@ if.then:                                          ; preds = %while.end
   store i32 %call12, ptr %num11, align 4
   %call13 = call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %ctx) #5
   %call16 = call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %ctx) #5
-  %arrayidx18 = getelementptr inbounds i8, ptr %call16, i64 128
+  %arrayidx18 = getelementptr inbounds nuw i8, ptr %call16, i64 128
   %call19 = call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %ctx) #5
-  %arrayidx21 = getelementptr inbounds i8, ptr %call19, i64 256
-  %iv22 = getelementptr inbounds i8, ptr %ctx, i64 40
+  %arrayidx21 = getelementptr inbounds nuw i8, ptr %call19, i64 256
+  %iv22 = getelementptr inbounds nuw i8, ptr %ctx, i64 40
   %call24 = call i32 @EVP_CIPHER_CTX_is_encrypting(ptr noundef %ctx) #5
   call void @DES_ede3_cfb64_encrypt(ptr noundef %in.addr.0.lcssa, ptr noundef %out.addr.0.lcssa, i64 noundef %inl.addr.0.lcssa, ptr noundef %call13, ptr noundef nonnull %arrayidx18, ptr noundef nonnull %arrayidx21, ptr noundef nonnull %iv22, ptr noundef nonnull %num11, i32 noundef %call24) #5
   %1 = load i32, ptr %num11, align 4
@@ -296,7 +296,7 @@ entry:
   br i1 %cmp19, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %entry
-  %iv = getelementptr inbounds i8, ptr %ctx, i64 40
+  %iv = getelementptr inbounds nuw i8, ptr %ctx, i64 40
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
@@ -307,15 +307,15 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   store i32 %call, ptr %num, align 4
   %call1 = call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %ctx) #5
   %call2 = call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %ctx) #5
-  %arrayidx4 = getelementptr inbounds i8, ptr %call2, i64 128
+  %arrayidx4 = getelementptr inbounds nuw i8, ptr %call2, i64 128
   %call5 = call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %ctx) #5
-  %arrayidx7 = getelementptr inbounds i8, ptr %call5, i64 256
+  %arrayidx7 = getelementptr inbounds nuw i8, ptr %call5, i64 256
   call void @DES_ede3_ofb64_encrypt(ptr noundef %in.addr.021, ptr noundef %out.addr.020, i64 noundef 1073741824, ptr noundef %call1, ptr noundef nonnull %arrayidx4, ptr noundef nonnull %arrayidx7, ptr noundef nonnull %iv, ptr noundef nonnull %num) #5
   %0 = load i32, ptr %num, align 4
   %call8 = call i32 @EVP_CIPHER_CTX_set_num(ptr noundef %ctx, i32 noundef %0) #5
   %sub = add i64 %inl.addr.022, -1073741824
-  %add.ptr = getelementptr inbounds i8, ptr %in.addr.021, i64 1073741824
-  %add.ptr9 = getelementptr inbounds i8, ptr %out.addr.020, i64 1073741824
+  %add.ptr = getelementptr inbounds nuw i8, ptr %in.addr.021, i64 1073741824
+  %add.ptr9 = getelementptr inbounds nuw i8, ptr %out.addr.020, i64 1073741824
   %cmp = icmp ugt i64 %sub, 1073741823
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !7
 
@@ -331,10 +331,10 @@ if.then:                                          ; preds = %while.end
   store i32 %call11, ptr %num10, align 4
   %call12 = call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %ctx) #5
   %call15 = call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %ctx) #5
-  %arrayidx17 = getelementptr inbounds i8, ptr %call15, i64 128
+  %arrayidx17 = getelementptr inbounds nuw i8, ptr %call15, i64 128
   %call18 = call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %ctx) #5
-  %arrayidx20 = getelementptr inbounds i8, ptr %call18, i64 256
-  %iv21 = getelementptr inbounds i8, ptr %ctx, i64 40
+  %arrayidx20 = getelementptr inbounds nuw i8, ptr %call18, i64 256
+  %iv21 = getelementptr inbounds nuw i8, ptr %ctx, i64 40
   call void @DES_ede3_ofb64_encrypt(ptr noundef %in.addr.0.lcssa, ptr noundef %out.addr.0.lcssa, i64 noundef %inl.addr.0.lcssa, ptr noundef %call12, ptr noundef nonnull %arrayidx17, ptr noundef nonnull %arrayidx20, ptr noundef nonnull %iv21, ptr noundef nonnull %num10) #5
   %1 = load i32, ptr %num10, align 4
   %call23 = call i32 @EVP_CIPHER_CTX_set_num(ptr noundef %ctx, i32 noundef %1) #5
@@ -350,7 +350,7 @@ declare void @DES_ede3_ofb64_encrypt(ptr noundef, ptr noundef, i64 noundef, ptr 
 define internal noundef i32 @des_ede_ecb_cipher(ptr noundef %ctx, ptr noundef %out, ptr noundef %in, i64 noundef %inl) #1 {
 entry:
   %call = tail call ptr @EVP_CIPHER_CTX_get0_cipher(ptr noundef %ctx) #5
-  %block_size = getelementptr inbounds i8, ptr %call, i64 4
+  %block_size = getelementptr inbounds nuw i8, ptr %call, i64 4
   %0 = load i32, ptr %block_size, align 4
   %conv = sext i32 %0 to i64
   %cmp = icmp ult i64 %inl, %conv
@@ -366,9 +366,9 @@ for.body:                                         ; preds = %if.end, %for.body
   %add.ptr4 = getelementptr inbounds i8, ptr %out, i64 %i.012
   %call5 = tail call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %ctx) #5
   %call6 = tail call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %ctx) #5
-  %arrayidx8 = getelementptr inbounds i8, ptr %call6, i64 128
+  %arrayidx8 = getelementptr inbounds nuw i8, ptr %call6, i64 128
   %call9 = tail call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %ctx) #5
-  %arrayidx11 = getelementptr inbounds i8, ptr %call9, i64 256
+  %arrayidx11 = getelementptr inbounds nuw i8, ptr %call9, i64 256
   %call12 = tail call i32 @EVP_CIPHER_CTX_is_encrypting(ptr noundef %ctx) #5
   tail call void @DES_ecb3_encrypt(ptr noundef %add.ptr, ptr noundef %add.ptr4, ptr noundef %call5, ptr noundef nonnull %arrayidx8, ptr noundef nonnull %arrayidx11, i32 noundef %call12) #5
   %add = add i64 %i.012, %conv
@@ -387,14 +387,14 @@ declare void @DES_ecb3_encrypt(ptr noundef, ptr noundef, ptr noundef, ptr nounde
 define internal noundef i32 @des_ede3_init_key(ptr noundef %ctx, ptr noundef %key, ptr nocapture readnone %iv, i32 %enc) #1 {
 entry:
   %call = tail call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %ctx) #5
-  %stream = getelementptr inbounds i8, ptr %call, i64 384
+  %stream = getelementptr inbounds nuw i8, ptr %call, i64 384
   store ptr null, ptr %stream, align 8
   tail call void @DES_set_key_unchecked(ptr noundef %key, ptr noundef %call) #5
-  %arrayidx2 = getelementptr inbounds i8, ptr %key, i64 8
-  %arrayidx4 = getelementptr inbounds i8, ptr %call, i64 128
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %key, i64 8
+  %arrayidx4 = getelementptr inbounds nuw i8, ptr %call, i64 128
   tail call void @DES_set_key_unchecked(ptr noundef nonnull %arrayidx2, ptr noundef nonnull %arrayidx4) #5
-  %arrayidx5 = getelementptr inbounds i8, ptr %key, i64 16
-  %arrayidx7 = getelementptr inbounds i8, ptr %call, i64 256
+  %arrayidx5 = getelementptr inbounds nuw i8, ptr %key, i64 16
+  %arrayidx7 = getelementptr inbounds nuw i8, ptr %call, i64 256
   tail call void @DES_set_key_unchecked(ptr noundef nonnull %arrayidx5, ptr noundef nonnull %arrayidx7) #5
   ret i32 1
 }
@@ -413,13 +413,13 @@ entry:
   br i1 %cmp16.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %iv = getelementptr inbounds i8, ptr %ctx, i64 40
+  %iv = getelementptr inbounds nuw i8, ptr %ctx, i64 40
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %n.017 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
   %div15 = lshr i64 %n.017, 3
-  %arrayidx = getelementptr inbounds i8, ptr %in, i64 %div15
+  %arrayidx = getelementptr inbounds nuw i8, ptr %in, i64 %div15
   %0 = load i8, ptr %arrayidx, align 1
   %conv = zext i8 %0 to i32
   %1 = trunc i64 %n.017 to i32
@@ -432,12 +432,12 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   store i8 %conv2, ptr %c, align 1
   %call5 = call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %ctx) #5
   %call7 = call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %ctx) #5
-  %arrayidx9 = getelementptr inbounds i8, ptr %call7, i64 128
+  %arrayidx9 = getelementptr inbounds nuw i8, ptr %call7, i64 128
   %call10 = call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %ctx) #5
-  %arrayidx12 = getelementptr inbounds i8, ptr %call10, i64 256
+  %arrayidx12 = getelementptr inbounds nuw i8, ptr %call10, i64 256
   %call14 = call i32 @EVP_CIPHER_CTX_is_encrypting(ptr noundef %ctx) #5
   call void @DES_ede3_cfb_encrypt(ptr noundef nonnull %c, ptr noundef nonnull %d, i32 noundef 1, i64 noundef 1, ptr noundef %call5, ptr noundef nonnull %arrayidx9, ptr noundef nonnull %arrayidx12, ptr noundef nonnull %iv, i32 noundef %call14) #5
-  %arrayidx16 = getelementptr inbounds i8, ptr %out, i64 %div15
+  %arrayidx16 = getelementptr inbounds nuw i8, ptr %out, i64 %div15
   %3 = load i8, ptr %arrayidx16, align 1
   %conv17 = zext i8 %3 to i32
   %not = ashr i32 -129, %2
@@ -468,7 +468,7 @@ entry:
   br i1 %cmp17, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %entry
-  %iv = getelementptr inbounds i8, ptr %ctx, i64 40
+  %iv = getelementptr inbounds nuw i8, ptr %ctx, i64 40
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
@@ -477,14 +477,14 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %out.addr.018 = phi ptr [ %out, %while.body.lr.ph ], [ %add.ptr8, %while.body ]
   %call = tail call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %ctx) #5
   %call1 = tail call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %ctx) #5
-  %arrayidx3 = getelementptr inbounds i8, ptr %call1, i64 128
+  %arrayidx3 = getelementptr inbounds nuw i8, ptr %call1, i64 128
   %call4 = tail call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %ctx) #5
-  %arrayidx6 = getelementptr inbounds i8, ptr %call4, i64 256
+  %arrayidx6 = getelementptr inbounds nuw i8, ptr %call4, i64 256
   %call7 = tail call i32 @EVP_CIPHER_CTX_is_encrypting(ptr noundef %ctx) #5
   tail call void @DES_ede3_cfb_encrypt(ptr noundef %in.addr.019, ptr noundef %out.addr.018, i32 noundef 8, i64 noundef 1073741824, ptr noundef %call, ptr noundef nonnull %arrayidx3, ptr noundef nonnull %arrayidx6, ptr noundef nonnull %iv, i32 noundef %call7) #5
   %sub = add i64 %inl.addr.020, -1073741824
-  %add.ptr = getelementptr inbounds i8, ptr %in.addr.019, i64 1073741824
-  %add.ptr8 = getelementptr inbounds i8, ptr %out.addr.018, i64 1073741824
+  %add.ptr = getelementptr inbounds nuw i8, ptr %in.addr.019, i64 1073741824
+  %add.ptr8 = getelementptr inbounds nuw i8, ptr %out.addr.018, i64 1073741824
   %cmp = icmp ugt i64 %sub, 1073741823
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !10
 
@@ -498,10 +498,10 @@ while.end:                                        ; preds = %while.body, %entry
 if.then:                                          ; preds = %while.end
   %call9 = tail call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %ctx) #5
   %call12 = tail call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %ctx) #5
-  %arrayidx14 = getelementptr inbounds i8, ptr %call12, i64 128
+  %arrayidx14 = getelementptr inbounds nuw i8, ptr %call12, i64 128
   %call15 = tail call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %ctx) #5
-  %arrayidx17 = getelementptr inbounds i8, ptr %call15, i64 256
-  %iv18 = getelementptr inbounds i8, ptr %ctx, i64 40
+  %arrayidx17 = getelementptr inbounds nuw i8, ptr %call15, i64 256
+  %iv18 = getelementptr inbounds nuw i8, ptr %ctx, i64 40
   %call20 = tail call i32 @EVP_CIPHER_CTX_is_encrypting(ptr noundef %ctx) #5
   tail call void @DES_ede3_cfb_encrypt(ptr noundef %in.addr.0.lcssa, ptr noundef %out.addr.0.lcssa, i32 noundef 8, i64 noundef %inl.addr.0.lcssa, ptr noundef %call9, ptr noundef nonnull %arrayidx14, ptr noundef nonnull %arrayidx17, ptr noundef nonnull %iv18, i32 noundef %call20) #5
   br label %if.end
@@ -548,19 +548,19 @@ if.then.i:                                        ; preds = %if.then6
   br label %des_ede3_wrap.exit
 
 if.end.i:                                         ; preds = %if.then6
-  %add.ptr.i = getelementptr inbounds i8, ptr %out, i64 8
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %out, i64 8
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr align 1 %in, i64 range(i64 0, 1073741824) %inl, i1 false)
   %call.i = call ptr @ossl_sha1(ptr noundef %in, i64 noundef range(i64 0, 1073741824) %inl, ptr noundef nonnull %sha1tmp.i) #5
   %tobool.not.i = icmp eq ptr %call.i, null
   br i1 %tobool.not.i, label %des_ede3_wrap.exit, label %if.end2.i
 
 if.end2.i:                                        ; preds = %if.end.i
-  %add.ptr3.i = getelementptr inbounds i8, ptr %out, i64 %inl
-  %add.ptr4.i = getelementptr inbounds i8, ptr %add.ptr3.i, i64 8
+  %add.ptr3.i = getelementptr inbounds nuw i8, ptr %out, i64 %inl
+  %add.ptr4.i = getelementptr inbounds nuw i8, ptr %add.ptr3.i, i64 8
   %1 = load i64, ptr %sha1tmp.i, align 16
   store i64 %1, ptr %add.ptr4.i, align 1
   call void @OPENSSL_cleanse(ptr noundef nonnull %sha1tmp.i, i64 noundef 20) #5
-  %iv.i = getelementptr inbounds i8, ptr %ctx, i64 40
+  %iv.i = getelementptr inbounds nuw i8, ptr %ctx, i64 40
   %call8.i = call i32 @RAND_bytes(ptr noundef nonnull %iv.i, i32 noundef 8) #5
   %cmp9.i = icmp slt i32 %call8.i, 1
   br i1 %cmp9.i, label %des_ede3_wrap.exit, label %if.end12.i
@@ -598,17 +598,17 @@ if.then2.i:                                       ; preds = %if.end.i14
   br label %des_ede3_unwrap.exit
 
 if.end3.i:                                        ; preds = %if.end.i14
-  %iv4.i = getelementptr inbounds i8, ptr %ctx, i64 40
+  %iv4.i = getelementptr inbounds nuw i8, ptr %ctx, i64 40
   store i64 369832251558649162, ptr %iv4.i, align 8
   %call.i.i = tail call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %ctx) #5
-  %stream.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 384
+  %stream.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 384
   %3 = load ptr, ptr %stream.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %3, null
   br i1 %cmp.not.i.i, label %while.cond.preheader.i.i, label %if.then.i.i
 
 while.cond.preheader.i.i:                         ; preds = %if.end3.i
-  %arrayidx17.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 128
-  %arrayidx19.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 256
+  %arrayidx17.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 128
+  %arrayidx19.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 256
   %call22.i.i = tail call i32 @EVP_CIPHER_CTX_is_encrypting(ptr noundef nonnull %ctx) #5
   call void @DES_ede3_cbc_encrypt(ptr noundef %in, ptr noundef nonnull %icv.i, i64 noundef 8, ptr noundef nonnull %call.i.i, ptr noundef nonnull %arrayidx17.i.i, ptr noundef nonnull %arrayidx19.i.i, ptr noundef nonnull %iv4.i, i32 noundef %call22.i.i) #5
   br label %des_ede_cbc_cipher.exit.i
@@ -622,7 +622,7 @@ des_ede_cbc_cipher.exit.i:                        ; preds = %if.then.i.i, %while
   br i1 %cmp6.i, label %if.then8.i, label %if.end11.i
 
 if.then8.i:                                       ; preds = %des_ede_cbc_cipher.exit.i
-  %add.ptr.i17 = getelementptr inbounds i8, ptr %out, i64 8
+  %add.ptr.i17 = getelementptr inbounds nuw i8, ptr %out, i64 8
   %sub9.i = add nsw i64 %inl, -8
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %out, ptr nonnull align 1 %add.ptr.i17, i64 %sub9.i, i1 false)
   %add.ptr10.i = getelementptr inbounds i8, ptr %in, i64 -8
@@ -630,20 +630,20 @@ if.then8.i:                                       ; preds = %des_ede_cbc_cipher.
 
 if.end11.i:                                       ; preds = %if.then8.i, %des_ede_cbc_cipher.exit.i
   %in.addr.0.i = phi ptr [ %add.ptr10.i, %if.then8.i ], [ %in, %des_ede_cbc_cipher.exit.i ]
-  %add.ptr12.i = getelementptr inbounds i8, ptr %in.addr.0.i, i64 8
+  %add.ptr12.i = getelementptr inbounds nuw i8, ptr %in.addr.0.i, i64 8
   %sub13.i = add nsw i64 %inl, -16
   %call14.i = call i32 @des_ede_cbc_cipher(ptr noundef nonnull %ctx, ptr noundef nonnull %out, ptr noundef nonnull %add.ptr12.i, i64 noundef %sub13.i)
-  %add.ptr16.i = getelementptr inbounds i8, ptr %in.addr.0.i, i64 %inl
+  %add.ptr16.i = getelementptr inbounds nuw i8, ptr %in.addr.0.i, i64 %inl
   %add.ptr17.i = getelementptr inbounds i8, ptr %add.ptr16.i, i64 -8
   %call.i31.i = call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef nonnull %ctx) #5
-  %stream.i32.i = getelementptr inbounds i8, ptr %call.i31.i, i64 384
+  %stream.i32.i = getelementptr inbounds nuw i8, ptr %call.i31.i, i64 384
   %4 = load ptr, ptr %stream.i32.i, align 8
   %cmp.not.i33.i = icmp eq ptr %4, null
   br i1 %cmp.not.i33.i, label %while.cond.preheader.i36.i, label %if.then.i34.i
 
 while.cond.preheader.i36.i:                       ; preds = %if.end11.i
-  %arrayidx17.i37.i = getelementptr inbounds i8, ptr %call.i31.i, i64 128
-  %arrayidx19.i38.i = getelementptr inbounds i8, ptr %call.i31.i, i64 256
+  %arrayidx17.i37.i = getelementptr inbounds nuw i8, ptr %call.i31.i, i64 128
+  %arrayidx19.i38.i = getelementptr inbounds nuw i8, ptr %call.i31.i, i64 256
   %call22.i40.i = call i32 @EVP_CIPHER_CTX_is_encrypting(ptr noundef nonnull %ctx) #5
   call void @DES_ede3_cbc_encrypt(ptr noundef nonnull %add.ptr17.i, ptr noundef nonnull %iv.i11, i64 noundef 8, ptr noundef nonnull %call.i31.i, ptr noundef nonnull %arrayidx17.i37.i, ptr noundef nonnull %arrayidx19.i38.i, ptr noundef nonnull %iv4.i, i32 noundef %call22.i40.i) #5
   br label %des_ede_cbc_cipher.exit41.i
@@ -658,14 +658,14 @@ des_ede_cbc_cipher.exit41.i:                      ; preds = %if.then.i34.i, %whi
   call void @BUF_reverse(ptr noundef nonnull %iv4.i, ptr noundef nonnull %iv.i11, i64 noundef 8) #5
   %call25.i = call i32 @des_ede_cbc_cipher(ptr noundef nonnull %ctx, ptr noundef nonnull %out, ptr noundef nonnull %out, i64 noundef %sub13.i)
   %call.i42.i = call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef nonnull %ctx) #5
-  %stream.i43.i = getelementptr inbounds i8, ptr %call.i42.i, i64 384
+  %stream.i43.i = getelementptr inbounds nuw i8, ptr %call.i42.i, i64 384
   %5 = load ptr, ptr %stream.i43.i, align 8
   %cmp.not.i44.i = icmp eq ptr %5, null
   br i1 %cmp.not.i44.i, label %while.cond.preheader.i47.i, label %if.then.i45.i
 
 while.cond.preheader.i47.i:                       ; preds = %des_ede_cbc_cipher.exit41.i
-  %arrayidx17.i48.i = getelementptr inbounds i8, ptr %call.i42.i, i64 128
-  %arrayidx19.i49.i = getelementptr inbounds i8, ptr %call.i42.i, i64 256
+  %arrayidx17.i48.i = getelementptr inbounds nuw i8, ptr %call.i42.i, i64 128
+  %arrayidx19.i49.i = getelementptr inbounds nuw i8, ptr %call.i42.i, i64 256
   %call22.i51.i = call i32 @EVP_CIPHER_CTX_is_encrypting(ptr noundef nonnull %ctx) #5
   call void @DES_ede3_cbc_encrypt(ptr noundef nonnull %icv.i, ptr noundef nonnull %icv.i, i64 noundef 8, ptr noundef nonnull %call.i42.i, ptr noundef nonnull %arrayidx17.i48.i, ptr noundef nonnull %arrayidx19.i49.i, ptr noundef nonnull %iv4.i, i32 noundef %call22.i51.i) #5
   br label %des_ede_cbc_cipher.exit52.i

@@ -201,17 +201,17 @@ define hidden noundef range(i32 0, 2) i32 @main(i32 noundef %0, ptr nocapture no
           to label %.preheader unwind label %.loopexit.split-lp
 
 .preheader:                                       ; preds = %67
-  %69 = getelementptr inbounds i8, ptr %11, i64 16
-  %70 = getelementptr inbounds i8, ptr %11, i64 20
-  %71 = getelementptr inbounds i8, ptr %11, i64 8
-  %72 = getelementptr inbounds i8, ptr %13, i64 16
-  %73 = getelementptr inbounds i8, ptr %13, i64 20
-  %74 = getelementptr inbounds i8, ptr %13, i64 8
-  %75 = getelementptr inbounds i8, ptr %14, i64 8
-  %76 = getelementptr inbounds i8, ptr %14, i64 16
-  %77 = getelementptr inbounds i8, ptr %17, i64 16
-  %78 = getelementptr inbounds i8, ptr %17, i64 20
-  %79 = getelementptr inbounds i8, ptr %17, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %11, i64 20
+  %71 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %13, i64 20
+  %74 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %78 = getelementptr inbounds nuw i8, ptr %17, i64 20
+  %79 = getelementptr inbounds nuw i8, ptr %17, i64 8
   br label %.outer
 
 .outer:                                           ; preds = %183, %.preheader

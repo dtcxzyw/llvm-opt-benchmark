@@ -40,9 +40,9 @@ define void @Wlc_ComputeSum(ptr nocapture noundef %0, ptr nocapture noundef read
 7:                                                ; preds = %.lr.ph, %7
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
   %.01518 = phi i8 [ 0, %.lr.ph ], [ %.1, %7 ]
-  %8 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %9 = load i8, ptr %8, align 1
-  %10 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   %11 = load i8, ptr %10, align 1
   %12 = add i8 %9, %.01518
   %13 = add i8 %12, %11
@@ -78,8 +78,8 @@ define noalias noundef ptr @Wlc_ConvertToRadix(ptr nocapture noundef readonly %0
 Vec_StrStart.exit:                                ; preds = %4, %7
   %.pre-phi = phi i64 [ %8, %7 ], [ 0, %4 ]
   %10 = phi ptr [ %9, %7 ], [ null, %4 ]
-  %11 = getelementptr inbounds i8, ptr %5, i64 4
-  %12 = getelementptr inbounds i8, ptr %5, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %10, ptr %12, align 8
   %13 = sext i32 %2 to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %10, i8 0, i64 %13, i1 false)
@@ -111,9 +111,9 @@ Vec_StrStart.exit:                                ; preds = %4, %7
 .lr.ph.i:                                         ; preds = %17, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %17 ]
   %.01518.i = phi i8 [ %.1.i, %.lr.ph.i ], [ 0, %17 ]
-  %26 = getelementptr inbounds i8, ptr %10, i64 %indvars.iv.i
+  %26 = getelementptr inbounds nuw i8, ptr %10, i64 %indvars.iv.i
   %27 = load i8, ptr %26, align 1
-  %28 = getelementptr inbounds i8, ptr %14, i64 %indvars.iv.i
+  %28 = getelementptr inbounds nuw i8, ptr %14, i64 %indvars.iv.i
   %29 = load i8, ptr %28, align 1
   %30 = add i8 %27, %.01518.i
   %31 = add i8 %30, %29
@@ -134,7 +134,7 @@ Wlc_ComputeSum.exit:                              ; preds = %.lr.ph.i, %17
 .lr.ph.i52:                                       ; preds = %Wlc_ComputeSum.exit, %.lr.ph.i52
   %indvars.iv.i54 = phi i64 [ %indvars.iv.next.i59, %.lr.ph.i52 ], [ 0, %Wlc_ComputeSum.exit ]
   %.01518.i55 = phi i8 [ %.1.i57, %.lr.ph.i52 ], [ 0, %Wlc_ComputeSum.exit ]
-  %35 = getelementptr inbounds i8, ptr %14, i64 %indvars.iv.i54
+  %35 = getelementptr inbounds nuw i8, ptr %14, i64 %indvars.iv.i54
   %36 = load i8, ptr %35, align 1
   %reass.add = shl i8 %36, 1
   %37 = or disjoint i8 %reass.add, %.01518.i55
@@ -168,7 +168,7 @@ Vec_StrFree.exit:                                 ; preds = %Wlc_ComputeSum.exit
 45:                                               ; preds = %42
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %46 = and i64 %indvars.iv.next, 4294967295
-  %47 = getelementptr inbounds i8, ptr %10, i64 %46
+  %47 = getelementptr inbounds nuw i8, ptr %10, i64 %46
   %48 = load i8, ptr %47, align 1
   %.not = icmp eq i8 %48, 0
   br i1 %.not, label %42, label %.lr.ph77.preheader, !llvm.loop !7
@@ -184,7 +184,7 @@ Vec_StrFree.exit:                                 ; preds = %Wlc_ComputeSum.exit
 
 .lr.ph77:                                         ; preds = %.lr.ph77.preheader, %.lr.ph77
   %indvars.iv80 = phi i64 [ %49, %.lr.ph77.preheader ], [ %indvars.iv.next81, %.lr.ph77 ]
-  %50 = getelementptr inbounds i8, ptr %10, i64 %indvars.iv80
+  %50 = getelementptr inbounds nuw i8, ptr %10, i64 %indvars.iv80
   %51 = load i8, ptr %50, align 1
   %52 = icmp slt i8 %51, 10
   %storemerge.v = select i1 %52, i8 48, i8 87
@@ -206,7 +206,7 @@ Vec_StrFree.exit:                                 ; preds = %Wlc_ComputeSum.exit
 
 .lr.ph.i63:                                       ; preds = %.lr.ph.i63.preheader, %.lr.ph.i63
   %indvars.iv.i64 = phi i64 [ %indvars.iv.next.i65, %.lr.ph.i63 ], [ 0, %.lr.ph.i63.preheader ]
-  %57 = getelementptr inbounds i8, ptr %10, i64 %indvars.iv.i64
+  %57 = getelementptr inbounds nuw i8, ptr %10, i64 %indvars.iv.i64
   %58 = load i8, ptr %57, align 1
   %59 = xor i64 %indvars.iv.i64, -1
   %60 = add i64 %indvars.iv, %59
@@ -283,7 +283,7 @@ Vec_StrPush.exit72:                               ; preds = %Vec_StrPush.exit72.
 
 ; Function Attrs: nounwind uwtable
 define void @Wlc_NtkReport(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #1 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 688
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 688
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 @Abc_NamStrFind(ptr noundef %6, ptr noundef %2) #15
   %8 = icmp slt i32 %7, 1
@@ -306,7 +306,7 @@ define void @Wlc_NtkReport(ptr nocapture noundef readonly %0, ptr nocapture noun
 
 14:                                               ; preds = %.lr.ph, %18
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %18 ]
-  %15 = getelementptr inbounds i32, ptr %.val33, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw i32, ptr %.val33, i64 %indvars.iv
   %16 = load i32, ptr %15, align 4
   %17 = icmp eq i32 %16, %7
   br i1 %17, label %.critedge.sink.split, label %18
@@ -323,11 +323,11 @@ define void @Wlc_NtkReport(ptr nocapture noundef readonly %0, ptr nocapture noun
   %22 = add nuw nsw i64 %indvars.iv, 2
   %23 = trunc nuw i64 %indvars.iv.lcssa66.sink71 to i32
   %24 = and i64 %indvars.iv, 4294967295
-  %25 = getelementptr inbounds i32, ptr %.val33, i64 %24
-  %26 = getelementptr inbounds i8, ptr %25, i64 4
+  %25 = getelementptr inbounds nuw i32, ptr %.val33, i64 %24
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 4
   %27 = load i32, ptr %26, align 4
   %28 = and i64 %22, 4294967295
-  %29 = getelementptr inbounds i32, ptr %.val33, i64 %28
+  %29 = getelementptr inbounds nuw i32, ptr %.val33, i64 %28
   %30 = load i32, ptr %29, align 4
   br label %.critedge
 
@@ -343,7 +343,7 @@ define void @Wlc_NtkReport(ptr nocapture noundef readonly %0, ptr nocapture noun
   br label %44
 
 34:                                               ; preds = %.critedge
-  %35 = getelementptr inbounds i8, ptr %1, i64 20
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %36 = tail call ptr @Wlc_ConvertToRadix(ptr noundef nonnull %35, i32 noundef %.127, i32 noundef %.1, i32 noundef %3)
   %37 = icmp eq i32 %3, 16
   %38 = icmp eq i32 %3, 2
@@ -377,11 +377,11 @@ define noalias noundef ptr @Wlc_StdinCollectProblem(ptr nocapture noundef readon
   %2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #17
   %3 = trunc i64 %2 to i32
   %4 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #14
-  %5 = getelementptr inbounds i8, ptr %4, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 0, ptr %5, align 4
   store i32 1000, ptr %4, align 8
   %6 = tail call noalias dereferenceable_or_null(1000) ptr @malloc(i64 noundef 1000) #14
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %6, ptr %7, align 8
   %8 = load ptr, ptr @stdin, align 8
   %9 = tail call i32 @fgetc(ptr noundef %8)
@@ -559,11 +559,11 @@ declare noundef i32 @fgetc(ptr nocapture noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define noalias noundef ptr @Wlc_StdinCollectQuery() local_unnamed_addr #1 {
   %1 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #14
-  %2 = getelementptr inbounds i8, ptr %1, i64 4
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 0, ptr %2, align 4
   store i32 1000, ptr %1, align 8
   %3 = tail call noalias dereferenceable_or_null(1000) ptr @malloc(i64 noundef 1000) #14
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %3, ptr %4, align 8
   br label %5
 
@@ -795,7 +795,7 @@ Vec_StrFree.exit:                                 ; preds = %2, %9
   br i1 %.not2645, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %21
-  %25 = getelementptr inbounds i8, ptr %0, i64 504
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 504
   br label %26
 
 26:                                               ; preds = %.lr.ph, %Vec_StrFree.exit39

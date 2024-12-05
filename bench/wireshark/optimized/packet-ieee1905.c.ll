@@ -2841,7 +2841,7 @@ define internal noundef i32 @dissect_ieee1905(ptr noundef %0, ptr noundef %1, pt
   %5 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 4) #11
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 6) #11
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 7) #11
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void @col_set_str(ptr noundef %9, i32 noundef 34, ptr noundef nonnull @.str.1195) #11
   %10 = load ptr, ptr %8, align 8
@@ -2881,7 +2881,7 @@ define internal noundef i32 @dissect_ieee1905(ptr noundef %0, ptr noundef %1, pt
   br label %59
 
 39:                                               ; preds = %4
-  %40 = getelementptr inbounds i8, ptr %1, i64 272
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %41 = load i32, ptr %40, align 8
   store i32 1, ptr %40, align 8
   %42 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 8) #11
@@ -2904,7 +2904,7 @@ define internal noundef i32 @dissect_ieee1905(ptr noundef %0, ptr noundef %1, pt
 
 52:                                               ; preds = %39
   %53 = load ptr, ptr %8, align 8
-  %54 = getelementptr inbounds i8, ptr %1, i64 256
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 256
   %55 = load i32, ptr %54, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %53, i32 noundef 25, ptr noundef nonnull @.str.1551, i32 noundef %43, i32 noundef %34, i32 noundef %55) #11
   %56 = load i32, ptr @hf_ieee1905_fragment_data, align 4
@@ -2944,21 +2944,21 @@ define internal i32 @ieee1905_fragment_hash(ptr noundef readonly %0) #0 {
   br i1 %.not, label %33, label %2
 
 2:                                                ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not28 = icmp eq ptr %4, null
   br i1 %.not28, label %33, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8
   %.not29 = icmp eq ptr %7, null
   br i1 %.not29, label %33, label %8
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %10 = load i32, ptr %9, align 4
-  %11 = getelementptr inbounds i8, ptr %0, i64 28
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %12 = load i32, ptr %11, align 4
   %13 = and i32 %10, 255
   %14 = and i32 %12, 255
@@ -2976,12 +2976,12 @@ define internal i32 @ieee1905_fragment_hash(ptr noundef readonly %0) #0 {
   %24 = load ptr, ptr %6, align 8
   %25 = zext nneg i32 %14 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %23, ptr align 1 %24, i64 %25, i1 false)
-  %26 = getelementptr inbounds i8, ptr %0, i64 52
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %27 = load i8, ptr %26, align 4
   %28 = getelementptr i8, ptr %20, i64 %16
   store i8 %27, ptr %28, align 1
   %29 = getelementptr i8, ptr %28, i64 1
-  %30 = getelementptr inbounds i8, ptr %0, i64 48
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %31 = load i32, ptr %30, align 8
   store i32 %31, ptr %29, align 1
   %32 = tail call i32 @wmem_strong_hash(ptr noundef %20, i64 noundef %19) #11
@@ -3000,17 +3000,17 @@ define internal range(i32 0, 2) i32 @ieee1905_fragment_equal(ptr noundef readonl
   br i1 %or.cond, label %5, label %addresses_equal.exit
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 52
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %7 = load i8, ptr %6, align 4
-  %8 = getelementptr inbounds i8, ptr %1, i64 52
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %9 = load i8, ptr %8, align 4
   %10 = icmp eq i8 %7, %9
   br i1 %10, label %11, label %addresses_equal.exit
 
 11:                                               ; preds = %5
-  %12 = getelementptr inbounds i8, ptr %0, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %13 = load i32, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %15 = load i32, ptr %14, align 8
   %16 = icmp eq i32 %13, %15
   br i1 %16, label %17, label %addresses_equal.exit
@@ -3022,9 +3022,9 @@ define internal range(i32 0, 2) i32 @ieee1905_fragment_equal(ptr noundef readonl
   br i1 %20, label %21, label %addresses_equal.exit
 
 21:                                               ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %0, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %23 = load i32, ptr %22, align 4
-  %24 = getelementptr inbounds i8, ptr %1, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %25 = load i32, ptr %24, align 4
   %26 = icmp eq i32 %23, %25
   br i1 %26, label %27, label %addresses_equal.exit
@@ -3034,9 +3034,9 @@ define internal range(i32 0, 2) i32 @ieee1905_fragment_equal(ptr noundef readonl
   br i1 %28, label %addresses_equal.exit, label %29
 
 29:                                               ; preds = %27
-  %30 = getelementptr inbounds i8, ptr %0, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %1, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %33 = load ptr, ptr %32, align 8
   %34 = sext i32 %23 to i64
   %bcmp.i = tail call i32 @bcmp(ptr %31, ptr %33, i64 %34)
@@ -3044,9 +3044,9 @@ define internal range(i32 0, 2) i32 @ieee1905_fragment_equal(ptr noundef readonl
   br i1 %35, label %36, label %addresses_equal.exit
 
 36:                                               ; preds = %29
-  %37 = getelementptr inbounds i8, ptr %0, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %1, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %40 = load ptr, ptr %39, align 8
   %41 = sext i32 %23 to i64
   %bcmp.i16 = tail call i32 @bcmp(ptr %38, ptr %40, i64 %41)
@@ -3061,50 +3061,50 @@ addresses_equal.exit:                             ; preds = %36, %27, %29, %21, 
 
 ; Function Attrs: nounwind uwtable
 define internal noalias noundef ptr @ieee1905_fragment_temporary_key(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture readnone %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 208
-  %5 = getelementptr inbounds i8, ptr %0, i64 216
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 208
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %35, label %8
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 240
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %35, label %12
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %0, i64 232
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %14 = tail call noalias dereferenceable_or_null(56) ptr @g_slice_alloc(i64 noundef 56) #12
   %15 = trunc i32 %1 to i8
-  %16 = getelementptr inbounds i8, ptr %14, i64 52
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 52
   store i8 %15, ptr %16, align 4
   %17 = load i32, ptr %4, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 212
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 212
   %19 = load i32, ptr %18, align 4
   %20 = load ptr, ptr %5, align 8
   store i32 %17, ptr %14, align 8
-  %21 = getelementptr inbounds i8, ptr %14, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %14, i64 4
   store i32 %19, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %14, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %20, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %14, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store ptr null, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %14, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %25 = load i32, ptr %13, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 236
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %27 = load i32, ptr %26, align 4
   %28 = load ptr, ptr %9, align 8
   store i32 %25, ptr %24, align 8
-  %29 = getelementptr inbounds i8, ptr %14, i64 28
+  %29 = getelementptr inbounds nuw i8, ptr %14, i64 28
   store i32 %27, ptr %29, align 4
-  %30 = getelementptr inbounds i8, ptr %14, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store ptr %28, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %14, i64 40
+  %31 = getelementptr inbounds nuw i8, ptr %14, i64 40
   store ptr null, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 256
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %33 = load i32, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %14, i64 48
+  %34 = getelementptr inbounds nuw i8, ptr %14, i64 48
   store i32 %33, ptr %34, align 8
   br label %35
 
@@ -3115,26 +3115,26 @@ define internal noalias noundef ptr @ieee1905_fragment_temporary_key(ptr nocaptu
 
 ; Function Attrs: nounwind uwtable
 define internal noalias noundef ptr @ieee1905_fragment_persistent_key(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture readnone %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 208
-  %5 = getelementptr inbounds i8, ptr %0, i64 216
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 208
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %43, label %8
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 240
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %43, label %12
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %0, i64 232
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %14 = tail call noalias dereferenceable_or_null(56) ptr @g_slice_alloc(i64 noundef 56) #12
   %15 = trunc i32 %1 to i8
-  %16 = getelementptr inbounds i8, ptr %14, i64 52
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 52
   store i8 %15, ptr %16, align 4
   %17 = load i32, ptr %4, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 212
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 212
   %19 = load i32, ptr %18, align 4
   %20 = load ptr, ptr %5, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
@@ -3145,18 +3145,18 @@ define internal noalias noundef ptr @ieee1905_fragment_persistent_key(ptr nocapt
 22:                                               ; preds = %12
   %23 = sext i32 %19 to i64
   %24 = tail call noalias ptr @wmem_memdup(ptr noundef null, ptr noundef %20, i64 noundef %23) #11
-  %25 = getelementptr inbounds i8, ptr %14, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store ptr %24, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %14, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %24, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %14, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %14, i64 4
   store i32 %19, ptr %27, align 4
   br label %copy_address.exit
 
 copy_address.exit:                                ; preds = %12, %22
-  %28 = getelementptr inbounds i8, ptr %14, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %29 = load i32, ptr %13, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 236
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %31 = load i32, ptr %30, align 4
   %32 = load ptr, ptr %9, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %28, i8 0, i64 24, i1 false)
@@ -3167,18 +3167,18 @@ copy_address.exit:                                ; preds = %12, %22
 34:                                               ; preds = %copy_address.exit
   %35 = sext i32 %31 to i64
   %36 = tail call noalias ptr @wmem_memdup(ptr noundef null, ptr noundef %32, i64 noundef %35) #11
-  %37 = getelementptr inbounds i8, ptr %14, i64 40
+  %37 = getelementptr inbounds nuw i8, ptr %14, i64 40
   store ptr %36, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %14, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store ptr %36, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %14, i64 28
+  %39 = getelementptr inbounds nuw i8, ptr %14, i64 28
   store i32 %31, ptr %39, align 4
   br label %copy_address.exit11
 
 copy_address.exit11:                              ; preds = %copy_address.exit, %34
-  %40 = getelementptr inbounds i8, ptr %0, i64 256
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %41 = load i32, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %14, i64 48
+  %42 = getelementptr inbounds nuw i8, ptr %14, i64 48
   store i32 %41, ptr %42, align 8
   br label %43
 
@@ -3204,13 +3204,13 @@ define internal void @ieee1905_fragment_free_persistent_key(ptr noundef %0) #0 {
   br i1 %.not.i.i, label %free_address.exit, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %8, label %free_address.exit
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
   %.not6.i.i = icmp eq ptr %10, null
   br i1 %.not6.i.i, label %free_address.exit, label %11
@@ -3221,19 +3221,19 @@ define internal void @ieee1905_fragment_free_persistent_key(ptr noundef %0) #0 {
 
 free_address.exit:                                ; preds = %2, %4, %8, %11
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load i32, ptr %12, align 8
   %.not.i.i5 = icmp eq i32 %13, 0
   br i1 %.not.i.i5, label %free_address.exit7, label %14
 
 14:                                               ; preds = %free_address.exit
-  %15 = getelementptr inbounds i8, ptr %0, i64 28
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %16 = load i32, ptr %15, align 4
   %17 = icmp sgt i32 %16, 0
   br i1 %17, label %18, label %free_address.exit7
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds i8, ptr %0, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %20 = load ptr, ptr %19, align 8
   %.not6.i.i6 = icmp eq ptr %20, null
   br i1 %.not6.i.i6, label %free_address.exit7, label %21

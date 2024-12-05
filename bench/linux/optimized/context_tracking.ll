@@ -90,7 +90,7 @@ define dso_local void @ct_nmi_exit() local_unnamed_addr #0 section ".noinstr.tex
   tail call fastcc void @trace_rcu_dyntick(ptr noundef %17, i64 noundef %14, i64 noundef %18, i32 noundef %22)
   %23 = tail call i64 asm "movq %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds (i8, ptr @context_tracking, i64 16)) #8, !srcloc !8
   %24 = add i64 %23, -2
-  %25 = getelementptr inbounds i8, ptr %2, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store volatile i64 %24, ptr %25, align 8
   tail call void asm sideeffect "698: nop\0A\09.pushsection .discard.instr_end\0A\09.long 698b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 698) #9, !srcloc !18
   br label %37
@@ -102,7 +102,7 @@ define dso_local void @ct_nmi_exit() local_unnamed_addr #0 section ".noinstr.tex
   %30 = load volatile i32, ptr %29, align 4
   %31 = and i32 %30, -4
   tail call fastcc void @trace_rcu_dyntick(ptr noundef %27, i64 noundef 1, i64 noundef 0, i32 noundef %31)
-  %32 = getelementptr inbounds i8, ptr %2, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store volatile i64 0, ptr %32, align 8
   tail call void asm sideeffect "700: nop\0A\09.pushsection .discard.instr_end\0A\09.long 700b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 700) #9, !srcloc !19
   %33 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @context_tracking) #8, !srcloc !20
@@ -143,7 +143,7 @@ define internal fastcc void @trace_rcu_dyntick(ptr noundef %0, i64 noundef %1, i
   br i1 %13, label %18, label %14
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %12, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = tail call i32 @__SCT__tp_func_rcu_dyntick(ptr noundef %16, ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3) #9
   br label %18
@@ -223,7 +223,7 @@ define dso_local void @ct_nmi_enter() local_unnamed_addr #0 section ".noinstr.te
   tail call void asm sideeffect "706: nop\0A\09.pushsection .discard.instr_end\0A\09.long 706b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 706) #9, !srcloc !39
   %32 = tail call i64 asm "movq %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds (i8, ptr @context_tracking, i64 16)) #8, !srcloc !8
   %33 = add i64 %32, %23
-  %34 = getelementptr inbounds i8, ptr %24, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %24, i64 16
   store volatile i64 %33, ptr %34, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !40
   ret void
@@ -244,14 +244,14 @@ define dso_local void @ct_idle_enter() #0 section ".noinstr.text" align 16 {
   br label %6
 
 6:                                                ; preds = %5, %0
-  %7 = getelementptr inbounds i8, ptr %2, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store volatile i64 0, ptr %7, align 8
   %8 = tail call i64 asm "movq %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds (i8, ptr @context_tracking, i64 8)) #8, !srcloc !45
   %9 = icmp eq i64 %8, 1
   br i1 %9, label %14, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %2, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %12 = load i64, ptr %11, align 8
   %13 = add i64 %12, -1
   store i64 %13, ptr %11, align 8
@@ -270,7 +270,7 @@ define dso_local void @ct_idle_enter() #0 section ".noinstr.text" align 16 {
   %22 = inttoptr i64 %21 to ptr
   tail call void @rcu_preempt_deferred_qs(ptr noundef %22) #9
   tail call void asm sideeffect "678: nop\0A\09.pushsection .discard.instr_end\0A\09.long 678b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 678) #9, !srcloc !48
-  %23 = getelementptr inbounds i8, ptr %2, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store volatile i64 0, ptr %23, align 8
   %24 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @context_tracking) #8, !srcloc !20
   %25 = inttoptr i64 %24 to ptr
@@ -297,7 +297,7 @@ define dso_local void @ct_idle_exit() #0 section ".noinstr.text" align 16 {
   br i1 %6, label %11, label %7
 
 7:                                                ; preds = %0
-  %8 = getelementptr inbounds i8, ptr %4, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %9 = load i64, ptr %8, align 8
   %10 = add i64 %9, 1
   store i64 %10, ptr %8, align 8
@@ -313,7 +313,7 @@ define dso_local void @ct_idle_exit() #0 section ".noinstr.text" align 16 {
   %17 = load volatile i32, ptr %16, align 4
   %18 = and i32 %17, -4
   call fastcc void @trace_rcu_dyntick(ptr noundef %13, i64 noundef %14, i64 noundef 1, i32 noundef %18)
-  %19 = getelementptr inbounds i8, ptr %4, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store volatile i64 1, ptr %19, align 8
   %20 = call i64 asm "movq %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds (i8, ptr @context_tracking, i64 16)) #8, !srcloc !8
   %21 = icmp eq i64 %20, 0
@@ -326,7 +326,7 @@ define dso_local void @ct_idle_exit() #0 section ".noinstr.text" align 16 {
   br label %23
 
 23:                                               ; preds = %22, %11
-  %24 = getelementptr inbounds i8, ptr %4, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store volatile i64 4611686018427387904, ptr %24, align 8
   call void asm sideeffect "691: nop\0A\09.pushsection .discard.instr_end\0A\09.long 691b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 691) #9, !srcloc !57
   br label %ct_kernel_enter.exit

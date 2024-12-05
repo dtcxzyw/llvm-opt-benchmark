@@ -94,7 +94,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp) #22
   %add = fadd double %t0, %dt
   %vtable = load ptr, ptr %process, align 8, !tbaa !3
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 56
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 56
   %0 = load ptr, ptr %vfn, align 8
   call void %0(ptr dead_on_unwind nonnull writable sret(%"class.QuantLib::Array") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(128) %process, double noundef %add, ptr noundef nonnull align 8 dereferenceable(16) %x0)
   call void @llvm.experimental.noalias.scope.decl(metadata !6)
@@ -127,7 +127,7 @@ define noundef double @_ZNK8QuantLib22EndEulerDiscretization5driftERKNS_19Stocha
 entry:
   %add = fadd double %t0, %dt
   %vtable = load ptr, ptr %process, align 8, !tbaa !3
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 128
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 128
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef double %0(ptr noundef nonnull align 8 dereferenceable(144) %process, double noundef %add, double noundef %x0)
   %mul = fmul double %dt, %call
@@ -139,7 +139,7 @@ define noundef double @_ZThn8_NK8QuantLib22EndEulerDiscretization5driftERKNS_19S
 entry:
   %add.i = fadd double %t0, %dt
   %vtable.i = load ptr, ptr %process, align 8, !tbaa !3
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 128
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 128
   %0 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef double %0(ptr noundef nonnull align 8 dereferenceable(144) %process, double noundef %add.i, double noundef %x0)
   %mul.i = fmul double %dt, %call.i
@@ -153,7 +153,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp) #22
   %add = fadd double %t0, %dt
   %vtable = load ptr, ptr %process, align 8, !tbaa !3
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 64
   %0 = load ptr, ptr %vfn, align 8
   call void %0(ptr dead_on_unwind nonnull writable sret(%"class.QuantLib::Matrix") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(128) %process, double noundef %add, ptr noundef nonnull align 8 dereferenceable(16) %x0)
   %call = call double @sqrt(double noundef %dt) #22, !tbaa !18
@@ -195,7 +195,7 @@ define noundef double @_ZNK8QuantLib22EndEulerDiscretization9diffusionERKNS_19St
 entry:
   %add = fadd double %t0, %dt
   %vtable = load ptr, ptr %process, align 8, !tbaa !3
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 136
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 136
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef double %0(ptr noundef nonnull align 8 dereferenceable(144) %process, double noundef %add, double noundef %x0)
   %call2 = tail call double @sqrt(double noundef %dt) #22, !tbaa !18
@@ -208,7 +208,7 @@ define noundef double @_ZThn8_NK8QuantLib22EndEulerDiscretization9diffusionERKNS
 entry:
   %add.i = fadd double %t0, %dt
   %vtable.i = load ptr, ptr %process, align 8, !tbaa !3
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 136
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 136
   %0 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef double %0(ptr noundef nonnull align 8 dereferenceable(144) %process, double noundef %add.i, double noundef %x0)
   %call2.i = tail call double @sqrt(double noundef %dt) #22, !tbaa !18
@@ -225,7 +225,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %sigma) #22
   %add = fadd double %t0, %dt
   %vtable = load ptr, ptr %process, align 8, !tbaa !3
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 64
   %0 = load ptr, ptr %vfn, align 8
   call void %0(ptr dead_on_unwind nonnull writable sret(%"class.QuantLib::Matrix") align 8 %sigma, ptr noundef nonnull align 8 dereferenceable(128) %process, double noundef %add, ptr noundef nonnull align 8 dereferenceable(16) %x0)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp) #22
@@ -680,7 +680,7 @@ define noundef double @_ZNK8QuantLib22EndEulerDiscretization8varianceERKNS_19Sto
 entry:
   %add = fadd double %t0, %dt
   %vtable = load ptr, ptr %process, align 8, !tbaa !3
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 136
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 136
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef double %0(ptr noundef nonnull align 8 dereferenceable(144) %process, double noundef %add, double noundef %x0)
   %mul = fmul double %call, %call
@@ -693,7 +693,7 @@ define noundef double @_ZThn8_NK8QuantLib22EndEulerDiscretization8varianceERKNS_
 entry:
   %add.i = fadd double %t0, %dt
   %vtable.i = load ptr, ptr %process, align 8, !tbaa !3
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 136
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 136
   %0 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef double %0(ptr noundef nonnull align 8 dereferenceable(144) %process, double noundef %add.i, double noundef %x0)
   %mul.i = fmul double %call.i, %call.i
@@ -818,7 +818,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %vtable.i.i.i = load ptr, ptr %0, align 8, !tbaa !3
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
+  %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 16
   %2 = load ptr, ptr %vfn.i.i.i, align 8
   invoke void %2(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %.noexc.i.i unwind label %terminate.lpad.i.i
@@ -831,7 +831,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
 
 if.then.i.i.i.i:                                  ; preds = %.noexc.i.i
   %vtable.i.i.i.i = load ptr, ptr %0, align 8, !tbaa !3
-  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 24
+  %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 24
   %4 = load ptr, ptr %vfn.i.i.i.i, align 8
   invoke void %4(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN5boost10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit unwind label %terminate.lpad.i.i

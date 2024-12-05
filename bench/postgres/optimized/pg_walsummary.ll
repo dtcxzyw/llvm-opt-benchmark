@@ -78,9 +78,9 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %.not17, label %.lr.ph23, label %20
 
 .lr.ph23:                                         ; preds = %15
-  %17 = getelementptr inbounds i8, ptr %4, i64 8
-  %18 = getelementptr inbounds i8, ptr %5, i64 4
-  %19 = getelementptr inbounds i8, ptr %5, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %21
 
 20:                                               ; preds = %15
@@ -331,7 +331,7 @@ define internal range(i32 0, -2147483648) i32 @walsummary_read_callback(ptr noca
   br i1 %8, label %9, label %12
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.9, ptr noundef %11) #10
   tail call void @exit(i32 noundef 1) #11

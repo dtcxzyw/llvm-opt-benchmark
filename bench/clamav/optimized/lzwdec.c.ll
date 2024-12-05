@@ -20,10 +20,10 @@ define range(i32 -4, 1) i32 @lzwInit(ptr nocapture noundef writeonly %0) local_u
 
 4:                                                ; preds = %1
   store i16 9, ptr %2, align 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   %6 = tail call ptr @cli_max_calloc(i64 noundef 16384, i64 noundef 16) #8
-  %7 = getelementptr inbounds i8, ptr %2, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 72
   store ptr %6, ptr %7, align 8
   %8 = icmp eq ptr %6, null
   br i1 %8, label %9, label %.preheader
@@ -34,32 +34,32 @@ define range(i32 -4, 1) i32 @lzwInit(ptr nocapture noundef writeonly %0) local_u
 
 .preheader:                                       ; preds = %4, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %4 ]
-  %10 = getelementptr inbounds %struct.code_ent, ptr %6, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw %struct.code_ent, ptr %6, i64 %indvars.iv
   store ptr null, ptr %10, align 8
-  %11 = getelementptr inbounds %struct.code_ent, ptr %6, i64 %indvars.iv, i32 1
+  %11 = getelementptr inbounds nuw %struct.code_ent, ptr %6, i64 %indvars.iv, i32 1
   store i16 1, ptr %11, align 8
   %12 = trunc i64 %indvars.iv to i8
-  %13 = getelementptr inbounds %struct.code_ent, ptr %6, i64 %indvars.iv, i32 2
+  %13 = getelementptr inbounds nuw %struct.code_ent, ptr %6, i64 %indvars.iv, i32 2
   store i8 %12, ptr %13, align 2
-  %14 = getelementptr inbounds %struct.code_ent, ptr %6, i64 %indvars.iv, i32 3
+  %14 = getelementptr inbounds nuw %struct.code_ent, ptr %6, i64 %indvars.iv, i32 3
   store i8 %12, ptr %14, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
   br i1 %exitcond.not, label %15, label %.preheader
 
 15:                                               ; preds = %.preheader
-  %16 = getelementptr inbounds i8, ptr %2, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i64 0, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %2, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 511, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %6, i64 4128
-  %19 = getelementptr inbounds i8, ptr %2, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 4128
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store ptr %18, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %6, i64 4096
-  %21 = getelementptr inbounds i8, ptr %2, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 4096
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store ptr %20, ptr %21, align 8
   %22 = getelementptr i8, ptr %6, i64 8160
-  %23 = getelementptr inbounds i8, ptr %2, i64 64
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store ptr %22, ptr %23, align 8
   br label %24
 
@@ -67,7 +67,7 @@ define range(i32 -4, 1) i32 @lzwInit(ptr nocapture noundef writeonly %0) local_u
   %.sink37 = phi i64 [ 48, %15 ], [ 32, %9 ], [ 32, %1 ]
   %.sink = phi ptr [ %2, %15 ], [ @.str.1, %9 ], [ @.str, %1 ]
   %.032 = phi i32 [ 0, %15 ], [ -4, %9 ], [ -4, %1 ]
-  %25 = getelementptr inbounds i8, ptr %0, i64 %.sink37
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink37
   store ptr %.sink, ptr %25, align 8
   ret i32 %.032
 }
@@ -86,13 +86,13 @@ define range(i32 -7, 2) i32 @lzwInflate(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %2, label %319, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %319, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %319, label %11
@@ -100,7 +100,7 @@ define range(i32 -7, 2) i32 @lzwInflate(ptr noundef %0) local_unnamed_addr #0 {
 11:                                               ; preds = %7
   %12 = load ptr, ptr %0, align 8
   %13 = icmp eq ptr %12, null
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load i32, ptr %14, align 8
   br i1 %13, label %16, label %._crit_edge867
 
@@ -110,48 +110,48 @@ define range(i32 -7, 2) i32 @lzwInflate(ptr noundef %0) local_unnamed_addr #0 {
 
 ._crit_edge867:                                   ; preds = %11, %16
   %17 = phi i32 [ 0, %16 ], [ %15, %11 ]
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = load i32, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %22 = load i32, ptr %21, align 8
   %23 = load i16, ptr %5, align 8
   %24 = zext i16 %23 to i64
-  %25 = getelementptr inbounds i8, ptr %5, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %26 = load i64, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %5, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %28 = load i64, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %5, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %30 = load i64, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %5, i64 48
+  %31 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %5, i64 56
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %5, i64 64
+  %35 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %36 = load ptr, ptr %35, align 8
   %37 = and i32 %22, 1
   %38 = and i32 %22, 2
-  %39 = getelementptr inbounds i8, ptr %5, i64 72
+  %39 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %40 = load ptr, ptr %39, align 8
   %41 = ptrtoint ptr %34 to i64
   %42 = ptrtoint ptr %40 to i64
   %43 = sub i64 %41, %42
   %44 = lshr exact i64 %43, 4
   %45 = trunc i64 %44 to i16
-  %46 = getelementptr inbounds i8, ptr %40, i64 4112
+  %46 = getelementptr inbounds nuw i8, ptr %40, i64 4112
   %47 = icmp eq ptr %32, %46
   br i1 %47, label %319, label %48
 
 48:                                               ; preds = %._crit_edge867
-  %49 = getelementptr inbounds i8, ptr %5, i64 32
+  %49 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %50 = load i64, ptr %49, align 8
   %.not415 = icmp eq i64 %50, 0
   br i1 %.not415, label %85, label %51
 
 51:                                               ; preds = %48
-  %52 = getelementptr inbounds i8, ptr %5, i64 40
+  %52 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %55 = load i16, ptr %54, align 8
   %56 = zext i16 %55 to i64
   %57 = sub nsw i64 %56, %50
@@ -173,14 +173,14 @@ define range(i32 -7, 2) i32 @lzwInflate(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %65, label %62, label %66
 
 66:                                               ; preds = %62
-  %67 = getelementptr inbounds i8, ptr %9, i64 %58
+  %67 = getelementptr inbounds nuw i8, ptr %9, i64 %58
   br label %68
 
 68:                                               ; preds = %68, %66
   %.1356 = phi i32 [ %19, %66 ], [ %73, %68 ]
   %.1312 = phi ptr [ %63, %66 ], [ %72, %68 ]
   %.0290 = phi ptr [ %67, %66 ], [ %71, %68 ]
-  %69 = getelementptr inbounds i8, ptr %.1312, i64 10
+  %69 = getelementptr inbounds nuw i8, ptr %.1312, i64 10
   %70 = load i8, ptr %69, align 2
   %71 = getelementptr inbounds i8, ptr %.0290, i64 -1
   store i8 %70, ptr %71, align 1
@@ -198,7 +198,7 @@ define range(i32 -7, 2) i32 @lzwInflate(ptr noundef %0) local_unnamed_addr #0 {
   %.2313 = phi ptr [ %53, %74 ], [ %81, %77 ]
   %.1291 = phi ptr [ %75, %74 ], [ %80, %77 ]
   %.1 = phi i64 [ %57, %74 ], [ %82, %77 ]
-  %78 = getelementptr inbounds i8, ptr %.2313, i64 10
+  %78 = getelementptr inbounds nuw i8, ptr %.2313, i64 10
   %79 = load i8, ptr %78, align 2
   %80 = getelementptr inbounds i8, ptr %.1291, i64 -1
   store i8 %79, ptr %80, align 1
@@ -220,18 +220,18 @@ define range(i32 -7, 2) i32 @lzwInflate(ptr noundef %0) local_unnamed_addr #0 {
 
 86:                                               ; preds = %85
   %87 = load ptr, ptr %39, align 8
-  %88 = getelementptr inbounds i8, ptr %87, i64 4096
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 4096
   %89 = icmp eq ptr %32, %88
   br i1 %89, label %90, label %.preheader.lr.ph
 
 90:                                               ; preds = %86
-  %91 = getelementptr inbounds i8, ptr %87, i64 4128
-  %92 = getelementptr inbounds i8, ptr %87, i64 8160
+  %91 = getelementptr inbounds nuw i8, ptr %87, i64 4128
+  %92 = getelementptr inbounds nuw i8, ptr %87, i64 8160
   %93 = icmp eq i32 %17, 0
   br i1 %93, label %.thread943, label %.lr.ph
 
 .thread943:                                       ; preds = %90
-  %94 = getelementptr inbounds i8, ptr %87, i64 4096
+  %94 = getelementptr inbounds nuw i8, ptr %87, i64 4096
   br label %.preheader.lr.ph
 
 .lr.ph:                                           ; preds = %90, %113
@@ -240,7 +240,7 @@ define range(i32 -7, 2) i32 @lzwInflate(ptr noundef %0) local_unnamed_addr #0 {
   %.2337690 = phi i64 [ %114, %113 ], [ %28, %90 ]
   %.2367689 = phi i32 [ %.4369, %113 ], [ %17, %90 ]
   %95 = shl i64 %.2319691, 8
-  %96 = getelementptr inbounds i8, ptr %.2279693, i64 1
+  %96 = getelementptr inbounds nuw i8, ptr %.2279693, i64 1
   %97 = load i8, ptr %.2279693, align 1
   %98 = zext i8 %97 to i64
   %99 = or disjoint i64 %95, %98
@@ -255,7 +255,7 @@ define range(i32 -7, 2) i32 @lzwInflate(ptr noundef %0) local_unnamed_addr #0 {
 
 105:                                              ; preds = %103
   %106 = shl i64 %99, 8
-  %107 = getelementptr inbounds i8, ptr %.2279693, i64 2
+  %107 = getelementptr inbounds nuw i8, ptr %.2279693, i64 2
   %108 = load i8, ptr %96, align 1
   %109 = zext i8 %108 to i64
   %110 = or disjoint i64 %106, %109
@@ -283,7 +283,7 @@ define range(i32 -7, 2) i32 @lzwInflate(ptr noundef %0) local_unnamed_addr #0 {
 
 121:                                              ; preds = %._crit_edge
   %122 = trunc i64 %115 to i8
-  %123 = getelementptr inbounds i8, ptr %.0376, i64 1
+  %123 = getelementptr inbounds nuw i8, ptr %.0376, i64 1
   store i8 %122, ptr %.0376, align 1
   %124 = add i32 %.0355, -1
   %.pre869 = load ptr, ptr %39, align 8
@@ -298,7 +298,7 @@ define range(i32 -7, 2) i32 @lzwInflate(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %128, label %129, label %.loopexit954
 
 129:                                              ; preds = %127
-  %130 = getelementptr inbounds i8, ptr %0, i64 32
+  %130 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr @.str.2, ptr %130, align 8
   %.pre868 = load ptr, ptr %39, align 8
   %131 = and i64 %115, 511
@@ -308,7 +308,7 @@ define range(i32 -7, 2) i32 @lzwInflate(ptr noundef %0) local_unnamed_addr #0 {
   %.0288.lcssa880890 = phi i64 [ %131, %129 ], [ 257, %125 ]
   %133 = phi ptr [ %.pre868, %129 ], [ %87, %125 ]
   %.2274 = phi i32 [ -3, %129 ], [ 1, %125 ]
-  %134 = getelementptr inbounds %struct.code_ent, ptr %133, i64 %.0288.lcssa880890
+  %134 = getelementptr inbounds nuw %struct.code_ent, ptr %133, i64 %.0288.lcssa880890
   br label %.loopexit
 
 .loopexit954:                                     ; preds = %103, %127, %121
@@ -321,7 +321,7 @@ define range(i32 -7, 2) i32 @lzwInflate(ptr noundef %0) local_unnamed_addr #0 {
   %.3379.ph = phi ptr [ %.0376, %127 ], [ %123, %121 ], [ %.0376, %103 ]
   %.4359.ph = phi i32 [ %.0355, %127 ], [ %124, %121 ], [ %.0355, %103 ]
   %136 = zext nneg i16 %.0288681 to i64
-  %137 = getelementptr inbounds %struct.code_ent, ptr %135, i64 %136
+  %137 = getelementptr inbounds nuw %struct.code_ent, ptr %135, i64 %136
   %.old9.not715 = icmp eq i32 %.4359.ph, 0
   br i1 %.old9.not715, label %.loopexit, label %.preheader.lr.ph
 
@@ -376,7 +376,7 @@ define range(i32 -7, 2) i32 @lzwInflate(ptr noundef %0) local_unnamed_addr #0 {
 
 141:                                              ; preds = %139
   %142 = shl i64 %.6323, 8
-  %143 = getelementptr inbounds i8, ptr %.6283, i64 1
+  %143 = getelementptr inbounds nuw i8, ptr %.6283, i64 1
   %144 = load i8, ptr %.6283, align 1
   %145 = zext i8 %144 to i64
   %146 = or disjoint i64 %142, %145
@@ -391,7 +391,7 @@ define range(i32 -7, 2) i32 @lzwInflate(ptr noundef %0) local_unnamed_addr #0 {
 
 152:                                              ; preds = %150
   %153 = shl i64 %146, 8
-  %154 = getelementptr inbounds i8, ptr %.6283, i64 2
+  %154 = getelementptr inbounds nuw i8, ptr %.6283, i64 2
   %155 = load i8, ptr %143, align 1
   %156 = zext i8 %155 to i64
   %157 = or disjoint i64 %153, %156
@@ -415,8 +415,8 @@ define range(i32 -7, 2) i32 @lzwInflate(ptr noundef %0) local_unnamed_addr #0 {
 
 164:                                              ; preds = %160
   %165 = load ptr, ptr %39, align 8
-  %166 = getelementptr inbounds i8, ptr %165, i64 4128
-  %167 = getelementptr inbounds i8, ptr %165, i64 8160
+  %166 = getelementptr inbounds nuw i8, ptr %165, i64 4128
+  %167 = getelementptr inbounds nuw i8, ptr %165, i64 8160
   %168 = trunc i64 %163 to i32
   %169 = and i32 %168, 65535
   %170 = icmp ne i32 %169, 256
@@ -431,7 +431,7 @@ define range(i32 -7, 2) i32 @lzwInflate(ptr noundef %0) local_unnamed_addr #0 {
   %.8343700 = phi i64 [ %191, %190 ], [ %161, %164 ]
   %.8373699 = phi i32 [ %.10375, %190 ], [ %.7372, %164 ]
   %172 = shl i64 %.8325701, 8
-  %173 = getelementptr inbounds i8, ptr %.8703, i64 1
+  %173 = getelementptr inbounds nuw i8, ptr %.8703, i64 1
   %174 = load i8, ptr %.8703, align 1
   %175 = zext i8 %174 to i64
   %176 = or disjoint i64 %172, %175
@@ -446,7 +446,7 @@ define range(i32 -7, 2) i32 @lzwInflate(ptr noundef %0) local_unnamed_addr #0 {
 
 182:                                              ; preds = %180
   %183 = shl i64 %176, 8
-  %184 = getelementptr inbounds i8, ptr %.8703, i64 2
+  %184 = getelementptr inbounds nuw i8, ptr %.8703, i64 2
   %185 = load i8, ptr %173, align 1
   %186 = zext i8 %185 to i64
   %187 = or disjoint i64 %183, %186
@@ -483,7 +483,7 @@ define range(i32 -7, 2) i32 @lzwInflate(ptr noundef %0) local_unnamed_addr #0 {
 
 198:                                              ; preds = %._crit_edge706
   %199 = trunc i64 %.1289.in.lcssa to i8
-  %200 = getelementptr inbounds i8, ptr %.5381, i64 1
+  %200 = getelementptr inbounds nuw i8, ptr %.5381, i64 1
   store i8 %199, ptr %.5381, align 1
   %201 = add i32 %.6361, -1
   %.pre871 = load ptr, ptr %39, align 8
@@ -498,7 +498,7 @@ define range(i32 -7, 2) i32 @lzwInflate(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %205, label %206, label %.thread493
 
 206:                                              ; preds = %204
-  %207 = getelementptr inbounds i8, ptr %0, i64 32
+  %207 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr @.str.2, ptr %207, align 8
   %.pre870 = load ptr, ptr %39, align 8
   br label %.thread499
@@ -507,7 +507,7 @@ define range(i32 -7, 2) i32 @lzwInflate(ptr noundef %0) local_unnamed_addr #0 {
   %208 = phi ptr [ %.pre870, %206 ], [ %165, %202 ]
   %.5.ph = phi i32 [ -3, %206 ], [ 1, %202 ]
   %209 = and i64 %.1289.in.lcssa, 65535
-  %210 = getelementptr inbounds %struct.code_ent, ptr %208, i64 %209
+  %210 = getelementptr inbounds nuw %struct.code_ent, ptr %208, i64 %209
   br label %.loopexit
 
 .thread493:                                       ; preds = %180, %204, %198
@@ -520,7 +520,7 @@ define range(i32 -7, 2) i32 @lzwInflate(ptr noundef %0) local_unnamed_addr #0 {
   %.6382 = phi ptr [ %200, %198 ], [ %.5381, %204 ], [ %.5381, %180 ]
   %.7362 = phi i32 [ %201, %198 ], [ %.6361, %204 ], [ %.6361, %180 ]
   %212 = and i64 %.1289.in523, 65535
-  %213 = getelementptr inbounds %struct.code_ent, ptr %211, i64 %212
+  %213 = getelementptr inbounds nuw %struct.code_ent, ptr %211, i64 %212
   %.not508 = icmp eq i32 %.7362, 0
   br i1 %.not508, label %.loopexit, label %139
 
@@ -529,7 +529,7 @@ define range(i32 -7, 2) i32 @lzwInflate(ptr noundef %0) local_unnamed_addr #0 {
   %216 = and i32 %215, 65535
   %217 = load ptr, ptr %39, align 8
   %218 = and i64 %163, 65535
-  %219 = getelementptr inbounds %struct.code_ent, ptr %217, i64 %218
+  %219 = getelementptr inbounds nuw %struct.code_ent, ptr %217, i64 %218
   %220 = icmp ult i16 %.2286, 4096
   %or.cond = select i1 %220, i1 true, i1 %138
   br i1 %or.cond, label %221, label %259
@@ -547,7 +547,7 @@ define range(i32 -7, 2) i32 @lzwInflate(ptr noundef %0) local_unnamed_addr #0 {
   %.5351 = select i1 %225, i64 %.mux, i64 %224
   %notmask = shl nsw i64 -1, %.5351
   %226 = xor i64 %notmask, -1
-  %227 = getelementptr inbounds %struct.code_ent, ptr %217, i64 %226
+  %227 = getelementptr inbounds nuw %struct.code_ent, ptr %217, i64 %226
   %228 = getelementptr inbounds i8, ptr %227, i64 -16
   br label %229
 
@@ -556,36 +556,36 @@ define range(i32 -7, 2) i32 @lzwInflate(ptr noundef %0) local_unnamed_addr #0 {
   %.4332 = phi i64 [ %.3331, %221 ], [ %226, %223 ]
   %.4303 = phi ptr [ %.3302, %221 ], [ %228, %223 ]
   %230 = icmp ule ptr %217, %.3309
-  %231 = getelementptr inbounds i8, ptr %217, i64 262144
+  %231 = getelementptr inbounds nuw i8, ptr %217, i64 262144
   %.not420 = icmp ult ptr %.3309, %231
   %or.cond428 = select i1 %230, i1 %.not420, i1 false
   br i1 %or.cond428, label %235, label %232
 
 232:                                              ; preds = %229
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.3, ptr noundef %217, ptr noundef %.3309, ptr noundef %.3309, ptr noundef nonnull %231, i64 noundef 16384) #8
-  %233 = getelementptr inbounds i8, ptr %0, i64 32
+  %233 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr @.str.4, ptr %233, align 8
   %234 = or i32 %.1271728, 256
   br label %.loopexit
 
 235:                                              ; preds = %229
   store ptr %.3297, ptr %.3309, align 8
-  %236 = getelementptr inbounds i8, ptr %.3297, i64 11
+  %236 = getelementptr inbounds nuw i8, ptr %.3297, i64 11
   %237 = load i8, ptr %236, align 1
-  %238 = getelementptr inbounds i8, ptr %.3309, i64 11
+  %238 = getelementptr inbounds nuw i8, ptr %.3309, i64 11
   store i8 %237, ptr %238, align 1
-  %239 = getelementptr inbounds i8, ptr %.3297, i64 8
+  %239 = getelementptr inbounds nuw i8, ptr %.3297, i64 8
   %240 = load i16, ptr %239, align 8
   %241 = add i16 %240, 1
-  %242 = getelementptr inbounds i8, ptr %.3309, i64 8
+  %242 = getelementptr inbounds nuw i8, ptr %.3309, i64 8
   store i16 %241, ptr %242, align 8
   %243 = icmp ult ptr %219, %.3309
-  %244 = getelementptr inbounds i8, ptr %219, i64 11
+  %244 = getelementptr inbounds nuw i8, ptr %219, i64 11
   %.in.in = select i1 %243, ptr %244, ptr %238
   %.in421 = load i8, ptr %.in.in, align 1
-  %245 = getelementptr inbounds i8, ptr %.3309, i64 10
+  %245 = getelementptr inbounds nuw i8, ptr %.3309, i64 10
   store i8 %.in421, ptr %245, align 2
-  %246 = getelementptr inbounds i8, ptr %.3309, i64 16
+  %246 = getelementptr inbounds nuw i8, ptr %.3309, i64 16
   %247 = icmp ule ptr %246, %.4303
   %or.cond429.not = select i1 %.not419, i1 true, i1 %247
   br i1 %or.cond429.not, label %255, label %248
@@ -599,7 +599,7 @@ define range(i32 -7, 2) i32 @lzwInflate(ptr noundef %0) local_unnamed_addr #0 {
   %notmask422 = shl nsw i64 -1, %.7353
   %251 = xor i64 %notmask422, -1
   %252 = load ptr, ptr %39, align 8
-  %253 = getelementptr inbounds %struct.code_ent, ptr %252, i64 %251
+  %253 = getelementptr inbounds nuw %struct.code_ent, ptr %252, i64 %251
   %254 = getelementptr inbounds i8, ptr %253, i64 -16
   br label %255
 
@@ -634,20 +634,20 @@ define range(i32 -7, 2) i32 @lzwInflate(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not423, label %268, label %265
 
 265:                                              ; preds = %263
-  %266 = getelementptr inbounds i8, ptr %0, i64 32
+  %266 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr @.str.2, ptr %266, align 8
   %267 = or i32 %.3, 1024
   br label %.loopexit
 
 268:                                              ; preds = %263
-  %269 = getelementptr inbounds i8, ptr %219, i64 8
+  %269 = getelementptr inbounds nuw i8, ptr %219, i64 8
   %270 = load i16, ptr %269, align 8
   %271 = zext i16 %270 to i32
   %272 = icmp ult i32 %.6361, %271
   br i1 %272, label %273, label %290
 
 273:                                              ; preds = %268
-  %274 = getelementptr inbounds i8, ptr %5, i64 40
+  %274 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store ptr %219, ptr %274, align 8
   %275 = trunc i32 %.6361 to i16
   br label %276
@@ -655,7 +655,7 @@ define range(i32 -7, 2) i32 @lzwInflate(ptr noundef %0) local_unnamed_addr #0 {
 276:                                              ; preds = %276, %273
   %.3314 = phi ptr [ %219, %273 ], [ %277, %276 ]
   %277 = load ptr, ptr %.3314, align 8
-  %278 = getelementptr inbounds i8, ptr %277, i64 8
+  %278 = getelementptr inbounds nuw i8, ptr %277, i64 8
   %279 = load i16, ptr %278, align 8
   %280 = icmp ugt i16 %279, %275
   br i1 %280, label %276, label %281
@@ -663,14 +663,14 @@ define range(i32 -7, 2) i32 @lzwInflate(ptr noundef %0) local_unnamed_addr #0 {
 281:                                              ; preds = %276
   %282 = zext nneg i32 %.6361 to i64
   store i64 %282, ptr %49, align 8
-  %283 = getelementptr inbounds i8, ptr %.5381, i64 %282
+  %283 = getelementptr inbounds nuw i8, ptr %.5381, i64 %282
   br label %284
 
 284:                                              ; preds = %284, %281
   %.8363 = phi i32 [ %.6361, %281 ], [ %289, %284 ]
   %.4315 = phi ptr [ %277, %281 ], [ %288, %284 ]
   %.2292 = phi ptr [ %283, %281 ], [ %287, %284 ]
-  %285 = getelementptr inbounds i8, ptr %.4315, i64 10
+  %285 = getelementptr inbounds nuw i8, ptr %.4315, i64 10
   %286 = load i8, ptr %285, align 2
   %287 = getelementptr inbounds i8, ptr %.2292, i64 -1
   store i8 %286, ptr %287, align 1
@@ -681,13 +681,13 @@ define range(i32 -7, 2) i32 @lzwInflate(ptr noundef %0) local_unnamed_addr #0 {
 
 290:                                              ; preds = %268
   %291 = zext i16 %270 to i64
-  %292 = getelementptr inbounds i8, ptr %.5381, i64 %291
+  %292 = getelementptr inbounds nuw i8, ptr %.5381, i64 %291
   br label %293
 
 293:                                              ; preds = %293, %290
   %.5316 = phi ptr [ %219, %290 ], [ %297, %293 ]
   %.3293 = phi ptr [ %292, %290 ], [ %296, %293 ]
-  %294 = getelementptr inbounds i8, ptr %.5316, i64 10
+  %294 = getelementptr inbounds nuw i8, ptr %.5316, i64 10
   %295 = load i8, ptr %294, align 2
   %296 = getelementptr inbounds i8, ptr %.3293, i64 -1
   store i8 %295, ptr %296, align 1
@@ -697,7 +697,7 @@ define range(i32 -7, 2) i32 @lzwInflate(ptr noundef %0) local_unnamed_addr #0 {
 
 298:                                              ; preds = %261
   %299 = trunc i64 %163 to i8
-  %300 = getelementptr inbounds i8, ptr %.5381, i64 1
+  %300 = getelementptr inbounds nuw i8, ptr %.5381, i64 1
   store i8 %299, ptr %.5381, align 1
   %301 = add i32 %.6361, -1
   br label %.loopexit513
@@ -743,11 +743,11 @@ define range(i32 -7, 2) i32 @lzwInflate(ptr noundef %0) local_unnamed_addr #0 {
   %305 = sub i32 %17, %304
   %306 = load i32, ptr %18, align 8
   %307 = sub i32 %19, %306
-  %308 = getelementptr inbounds i8, ptr %0, i64 12
+  %308 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %309 = load i32, ptr %308, align 4
   %310 = add i32 %305, %309
   store i32 %310, ptr %308, align 4
-  %311 = getelementptr inbounds i8, ptr %0, i64 28
+  %311 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %312 = load i32, ptr %311, align 4
   %313 = add i32 %307, %312
   store i32 %313, ptr %311, align 4
@@ -759,7 +759,7 @@ define range(i32 -7, 2) i32 @lzwInflate(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %or.cond6, label %317, label %319
 
 317:                                              ; preds = %.loopexit
-  %318 = getelementptr inbounds i8, ptr %0, i64 32
+  %318 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr @.str.5, ptr %318, align 8
   br label %319
 
@@ -772,9 +772,9 @@ declare void @cli_dbgmsg(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define noundef i32 @lzwInflateEnd(ptr nocapture noundef %0) local_unnamed_addr #4 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 72
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %5 = load ptr, ptr %4, align 8
   tail call void @free(ptr noundef %5) #8
   %6 = load ptr, ptr %2, align 8

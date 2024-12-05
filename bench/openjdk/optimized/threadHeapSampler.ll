@@ -27,7 +27,7 @@ define hidden noundef double @_ZN17ThreadHeapSampler9fast_log2ERKd(ptr nocapture
   %6 = and i32 %5, 2047
   %7 = add nsw i32 %6, -1023
   %8 = sitofp i32 %7 to double
-  %9 = getelementptr inbounds [1024 x double], ptr @_ZL9log_table, i64 0, i64 %4
+  %9 = getelementptr inbounds nuw [1024 x double], ptr @_ZL9log_table, i64 0, i64 %4
   %10 = load double, ptr %9, align 8
   %11 = fadd double %10, %8
   ret double %11
@@ -51,7 +51,7 @@ define hidden void @_ZN17ThreadHeapSampler26pick_next_geometric_sampleEv(ptr noc
   %13 = trunc nuw nsw i64 %sum.shift.i to i32
   %14 = add nsw i32 %13, -1023
   %15 = sitofp i32 %14 to double
-  %16 = getelementptr inbounds [1024 x double], ptr @_ZL9log_table, i64 0, i64 %12
+  %16 = getelementptr inbounds nuw [1024 x double], ptr @_ZL9log_table, i64 0, i64 %12
   %17 = load double, ptr %16, align 8
   %18 = fadd double %17, %15
   %19 = fadd double %18, -2.600000e+01
@@ -101,7 +101,7 @@ define hidden void @_ZN17ThreadHeapSampler16pick_next_sampleEm(ptr nocapture nou
   %17 = trunc nuw nsw i64 %sum.shift.i.i to i32
   %18 = add nsw i32 %17, -1023
   %19 = sitofp i32 %18 to double
-  %20 = getelementptr inbounds [1024 x double], ptr @_ZL9log_table, i64 0, i64 %16
+  %20 = getelementptr inbounds nuw [1024 x double], ptr @_ZL9log_table, i64 0, i64 %16
   %21 = load double, ptr %20, align 8
   %22 = fadd double %21, %19
   %23 = fadd double %22, -2.600000e+01
@@ -164,7 +164,7 @@ _ZN11JvmtiExport36sampled_object_alloc_event_collectorEP7oopDesc.exit: ; preds =
   %28 = trunc nuw nsw i64 %sum.shift.i.i.i to i32
   %29 = add nsw i32 %28, -1023
   %30 = sitofp i32 %29 to double
-  %31 = getelementptr inbounds [1024 x double], ptr @_ZL9log_table, i64 0, i64 %27
+  %31 = getelementptr inbounds nuw [1024 x double], ptr @_ZL9log_table, i64 0, i64 %27
   %32 = load double, ptr %31, align 8
   %33 = fadd double %32, %30
   %34 = fadd double %33, -2.600000e+01

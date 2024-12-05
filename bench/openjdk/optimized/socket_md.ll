@@ -50,9 +50,9 @@ define hidden range(i32 -2147483648, 1) i32 @dbgsysFinishConnect(i32 noundef %0,
   %3 = alloca [1 x %struct.pollfd], align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store i32 %0, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %3, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i16 4, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %3, i64 6
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 6
   store i16 0, ptr %5, align 2
   %6 = call i32 @poll(ptr noundef nonnull %3, i64 noundef 1, i32 noundef %1) #11
   %7 = icmp sgt i32 %6, -1
@@ -80,14 +80,14 @@ dbgsysPoll.exit:                                  ; preds = %2, %8
 define hidden range(i32 -2147483648, 4) i32 @dbgsysPoll(i32 noundef %0, i8 noundef zeroext %1, i8 noundef zeroext %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = alloca [1 x %struct.pollfd], align 4
   store i32 %0, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %5, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.not = icmp ne i8 %1, 0
   %spec.select = zext i1 %.not to i16
   %.not9 = icmp eq i8 %2, 0
   %7 = or disjoint i16 %spec.select, 4
   %spec.select15 = select i1 %.not9, i16 %spec.select, i16 %7
   store i16 %spec.select15, ptr %6, align 4
-  %8 = getelementptr inbounds i8, ptr %5, i64 6
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 6
   store i16 0, ptr %8, align 2
   %9 = trunc i64 %3 to i32
   %10 = call i32 @poll(ptr noundef nonnull %5, i64 noundef 1, i32 noundef %9) #11
@@ -341,7 +341,7 @@ define hidden range(i32 -1, 1) i32 @dbgsysSetSocketOption(i32 noundef %0, i32 no
   %.not = icmp eq i8 %2, 0
   %15 = and i32 %.sroa.0.0.extract.trunc, 65535
   %16 = select i1 %.not, i32 0, i32 %15
-  %17 = getelementptr inbounds i8, ptr %6, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 %16, ptr %17, align 4
   %18 = call i32 @setsockopt(i32 noundef %0, i32 noundef 1, i32 noundef 13, ptr noundef nonnull %6, i32 noundef 8) #11
   %19 = icmp slt i32 %18, 0
@@ -485,7 +485,7 @@ define hidden i64 @dbgsysCurrentTimeMillis() local_unnamed_addr #8 {
   %2 = call i32 @gettimeofday(ptr noundef nonnull %1, ptr noundef null) #11
   %3 = load i64, ptr %1, align 8
   %4 = mul nsw i64 %3, 1000
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = sdiv i64 %6, 1000
   %8 = add nsw i64 %7, %4

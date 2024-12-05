@@ -307,7 +307,7 @@ define internal void @svg_begin_job(ptr noundef %0) #0 {
 3:                                                ; preds = %1
   %4 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.5) #11
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 304
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 304
   %7 = load ptr, ptr %6, align 8
   %8 = tail call ptr @agget(ptr noundef %7, ptr noundef nonnull @.str.6) #11
   %.not = icmp eq ptr %8, null
@@ -330,7 +330,7 @@ define internal void @svg_begin_job(ptr noundef %0) #0 {
 
 17:                                               ; preds = %15, %1
   %18 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.10) #11
-  %19 = getelementptr inbounds i8, ptr %0, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %20 = load ptr, ptr %19, align 8
   %21 = load ptr, ptr %20, align 8
   %22 = load ptr, ptr %21, align 8
@@ -338,13 +338,13 @@ define internal void @svg_begin_job(ptr noundef %0) #0 {
   %24 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.11) #11
   %25 = load ptr, ptr %19, align 8
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load ptr, ptr %27, align 8
   %29 = tail call i32 @gvputs_xml(ptr noundef nonnull %0, ptr noundef %28) #11
   %30 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.12) #11
   %31 = load ptr, ptr %19, align 8
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %34 = load ptr, ptr %33, align 8
   %35 = tail call i32 @gvputs_xml(ptr noundef nonnull %0, ptr noundef %34) #11
   %36 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.13) #11
@@ -353,10 +353,10 @@ define internal void @svg_begin_job(ptr noundef %0) #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal void @svg_begin_graph(ptr noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i32 @gvputs(ptr noundef %0, ptr noundef nonnull @.str.14) #11
-  %5 = getelementptr inbounds i8, ptr %3, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = tail call ptr @agnameof(ptr noundef %6) #11
   %8 = load i8, ptr %7, align 1
@@ -378,24 +378,24 @@ define internal void @svg_begin_graph(ptr noundef %0) #0 {
   br label %18
 
 18:                                               ; preds = %13, %9, %1
-  %19 = getelementptr inbounds i8, ptr %0, i64 284
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 284
   %20 = load i32, ptr %19, align 4
-  %21 = getelementptr inbounds i8, ptr %0, i64 288
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %22 = load i32, ptr %21, align 4
   %23 = mul nsw i32 %22, %20
   tail call void (ptr, ptr, ...) @gvprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.16, i32 noundef %23) #11
-  %24 = getelementptr inbounds i8, ptr %0, i64 568
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 568
   %25 = load i32, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 572
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 572
   %27 = load i32, ptr %26, align 4
   tail call void (ptr, ptr, ...) @gvprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.17, i32 noundef %25, i32 noundef %27) #11
-  %28 = getelementptr inbounds i8, ptr %0, i64 504
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 504
   %29 = load double, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 512
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %31 = load double, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 520
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %33 = load double, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 528
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 528
   %35 = load double, ptr %34, align 8
   tail call void (ptr, ptr, ...) @gvprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.18, double noundef %29, double noundef %31, double noundef %33, double noundef %35) #11
   %36 = getelementptr i8, ptr %0, i64 120
@@ -420,9 +420,9 @@ define internal void @svg_end_graph(ptr noundef %0) #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal void @svg_begin_layer(ptr noundef %0, ptr noundef %1, i32 %2, i32 %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load ptr, ptr %7, align 8
   tail call fastcc void @svg_print_id_class(ptr noundef %0, ptr noundef %1, ptr noundef null, ptr noundef nonnull @.str.22, ptr noundef %8)
   %9 = tail call i32 @gvputs(ptr noundef %0, ptr noundef nonnull @.str.20) #11
@@ -437,28 +437,28 @@ define internal void @svg_end_layer(ptr noundef %0) #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal void @svg_begin_page(ptr noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 248
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 248
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %7 = load ptr, ptr %6, align 8
   tail call fastcc void @svg_print_id_class(ptr noundef %0, ptr noundef %5, ptr noundef null, ptr noundef nonnull @.str.27, ptr noundef %7)
   %8 = tail call i32 @gvputs(ptr noundef %0, ptr noundef nonnull @.str.28) #11
-  %9 = getelementptr inbounds i8, ptr %0, i64 608
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 608
   %10 = load double, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 616
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %12 = load double, ptr %11, align 8
   tail call void (ptr, ptr, ...) @gvprintf(ptr noundef %0, ptr noundef nonnull @.str.29, double noundef %10, double noundef %12) #11
-  %13 = getelementptr inbounds i8, ptr %0, i64 480
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %14 = load i32, ptr %13, align 8
   %15 = sub nsw i32 0, %14
   tail call void (ptr, ptr, ...) @gvprintf(ptr noundef %0, ptr noundef nonnull @.str.30, i32 noundef %15) #11
-  %16 = getelementptr inbounds i8, ptr %0, i64 624
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 624
   %17 = load double, ptr %16, align 8
   tail call void @gvprintdouble(ptr noundef %0, double noundef %17) #11
   %18 = tail call i32 @gvputc(ptr noundef %0, i32 noundef 32) #11
-  %19 = getelementptr inbounds i8, ptr %0, i64 632
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 632
   %20 = load double, ptr %19, align 8
   %21 = fneg double %20
   tail call void @gvprintdouble(ptr noundef %0, double noundef %21) #11
@@ -496,11 +496,11 @@ define internal void @svg_end_page(ptr noundef %0) #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal void @svg_begin_cluster(ptr noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 248
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 248
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %7 = load ptr, ptr %6, align 8
   tail call fastcc void @svg_print_id_class(ptr noundef %0, ptr noundef %5, ptr noundef null, ptr noundef nonnull @.str.34, ptr noundef %7)
   %8 = tail call i32 @gvputs(ptr noundef %0, ptr noundef nonnull @.str.35) #11
@@ -519,27 +519,27 @@ define internal void @svg_end_cluster(ptr noundef %0) #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal void @svg_begin_node(ptr noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 280
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %5 = load i32, ptr %4, align 8
   %6 = icmp sgt i32 %5, 1
   br i1 %6, label %7, label %14
 
 7:                                                ; preds = %1
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 488
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 488
   %10 = load ptr, ptr %9, align 8
   %11 = zext nneg i32 %5 to i64
-  %12 = getelementptr inbounds ptr, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw ptr, ptr %10, i64 %11
   %13 = load ptr, ptr %12, align 8
   br label %14
 
 14:                                               ; preds = %1, %7
   %.0 = phi ptr [ %13, %7 ], [ null, %1 ]
-  %15 = getelementptr inbounds i8, ptr %3, i64 248
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 248
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %3, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = load ptr, ptr %17, align 8
   tail call fastcc void @svg_print_id_class(ptr noundef nonnull %0, ptr noundef %16, ptr noundef %.0, ptr noundef nonnull @.str.36, ptr noundef %18)
   %19 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.35) #11
@@ -558,11 +558,11 @@ define internal void @svg_end_node(ptr noundef %0) #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal void @svg_begin_edge(ptr noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 248
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 248
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %7 = load ptr, ptr %6, align 8
   tail call fastcc void @svg_print_id_class(ptr noundef %0, ptr noundef %5, ptr noundef null, ptr noundef nonnull @.str.37, ptr noundef %7)
   %8 = tail call i32 @gvputs(ptr noundef %0, ptr noundef nonnull @.str.35) #11
@@ -651,20 +651,20 @@ define internal void @svg_end_anchor(ptr noundef %0) #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal void @svg_textspan(ptr noundef %0, double %1, double %2, ptr nocapture noundef readonly %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 @gvputs(ptr noundef %0, ptr noundef nonnull @.str.47) #11
-  %8 = getelementptr inbounds i8, ptr %3, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %9 = load i8, ptr %8, align 8
   %switch.selectcmp = icmp eq i8 %9, 114
   %switch.select = select i1 %switch.selectcmp, ptr @.str.49, ptr @.str.50
   %switch.selectcmp124 = icmp eq i8 %9, 108
   %switch.select125 = select i1 %switch.selectcmp124, ptr @.str.48, ptr %switch.select
   %10 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull %switch.select125) #11
-  %11 = getelementptr inbounds i8, ptr %3, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %12 = load double, ptr %11, align 8
   %13 = fadd double %2, %12
-  %14 = getelementptr inbounds i8, ptr %6, i64 344
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 344
   %15 = load i16, ptr %14, align 8
   %16 = and i16 %15, 512
   %.not = icmp eq i16 %16, 0
@@ -680,20 +680,20 @@ define internal void @svg_textspan(ptr noundef %0, double %1, double %2, ptr noc
   br label %22
 
 22:                                               ; preds = %17, %4
-  %23 = getelementptr inbounds i8, ptr %3, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load ptr, ptr %25, align 8
   %.not105 = icmp eq ptr %26, null
   br i1 %.not105, label %54, label %27
 
 27:                                               ; preds = %22
   %28 = load ptr, ptr %0, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 304
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 304
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 356
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 356
   %34 = load i32, ptr %33, align 4
   switch i32 %34, label %37 [
     i32 1, label %39
@@ -701,26 +701,26 @@ define internal void @svg_textspan(ptr noundef %0, double %1, double %2, ptr noc
   ]
 
 35:                                               ; preds = %27
-  %36 = getelementptr inbounds i8, ptr %26, i64 48
+  %36 = getelementptr inbounds nuw i8, ptr %26, i64 48
   br label %39
 
 37:                                               ; preds = %27
-  %38 = getelementptr inbounds i8, ptr %26, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %26, i64 8
   br label %39
 
 39:                                               ; preds = %27, %37, %35
   %.sink123 = phi i64 [ 16, %37 ], [ 56, %35 ], [ 16, %27 ]
   %.sink = phi i64 [ 32, %37 ], [ 64, %35 ], [ 32, %27 ]
   %.096.in = phi ptr [ %38, %37 ], [ %36, %35 ], [ %26, %27 ]
-  %40 = getelementptr inbounds i8, ptr %26, i64 %.sink123
-  %41 = getelementptr inbounds i8, ptr %26, i64 %.sink
+  %40 = getelementptr inbounds nuw i8, ptr %26, i64 %.sink123
+  %41 = getelementptr inbounds nuw i8, ptr %26, i64 %.sink
   %.096 = load ptr, ptr %.096.in, align 8
   %.097 = load ptr, ptr %41, align 8
   %.099 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %26, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %43 = load ptr, ptr %42, align 8
   tail call void (ptr, ptr, ...) @gvprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.54, ptr noundef %.096) #11
-  %44 = getelementptr inbounds i8, ptr %26, i64 48
+  %44 = getelementptr inbounds nuw i8, ptr %26, i64 48
   %45 = load ptr, ptr %44, align 8
   %.not106 = icmp eq ptr %45, null
   br i1 %.not106, label %47, label %46
@@ -763,7 +763,7 @@ define internal void @svg_textspan(ptr noundef %0, double %1, double %2, ptr noc
   %.1100 = phi ptr [ %.099, %53 ], [ %.099, %52 ], [ null, %54 ]
   %.198 = phi i1 [ true, %53 ], [ false, %52 ], [ false, %54 ]
   %57 = load ptr, ptr %23, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 32
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 32
   %59 = load i32, ptr %58, align 8
   %60 = and i32 %59, 127
   %.not110 = icmp eq i32 %60, 0
@@ -852,11 +852,11 @@ define internal void @svg_textspan(ptr noundef %0, double %1, double %2, ptr noc
 
 97:                                               ; preds = %93, %95, %56
   %98 = load ptr, ptr %23, align 8
-  %99 = getelementptr inbounds i8, ptr %98, i64 24
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 24
   %100 = load double, ptr %99, align 8
   tail call void (ptr, ptr, ...) @gvprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.70, double noundef %100) #11
-  %101 = getelementptr inbounds i8, ptr %6, i64 32
-  %102 = getelementptr inbounds i8, ptr %6, i64 64
+  %101 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %102 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %103 = load i32, ptr %102, align 8
   switch i32 %103, label %122 [
     i32 5, label %104
@@ -876,14 +876,14 @@ define internal void @svg_textspan(ptr noundef %0, double %1, double %2, ptr noc
 108:                                              ; preds = %97
   %109 = load i8, ptr %101, align 8
   %110 = zext i8 %109 to i32
-  %111 = getelementptr inbounds i8, ptr %6, i64 33
+  %111 = getelementptr inbounds nuw i8, ptr %6, i64 33
   %112 = load i8, ptr %111, align 1
   %113 = zext i8 %112 to i32
-  %114 = getelementptr inbounds i8, ptr %6, i64 34
+  %114 = getelementptr inbounds nuw i8, ptr %6, i64 34
   %115 = load i8, ptr %114, align 2
   %116 = zext i8 %115 to i32
   tail call void (ptr, ptr, ...) @gvprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.73, i32 noundef %110, i32 noundef %113, i32 noundef %116) #11
-  %117 = getelementptr inbounds i8, ptr %6, i64 35
+  %117 = getelementptr inbounds nuw i8, ptr %6, i64 35
   %118 = load i8, ptr %117, align 1
   %.not119 = icmp eq i8 %118, -1
   br i1 %.not119, label %125, label %119
@@ -909,7 +909,7 @@ define internal void @svg_textspan(ptr noundef %0, double %1, double %2, ptr noc
 
 129:                                              ; preds = %125
   %130 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.77) #11
-  %131 = getelementptr inbounds i8, ptr %6, i64 248
+  %131 = getelementptr inbounds nuw i8, ptr %6, i64 248
   %132 = load ptr, ptr %131, align 8
   %133 = tail call i32 @gvputs_xml(ptr noundef nonnull %0, ptr noundef %132) #11
   %134 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.78) #11
@@ -958,18 +958,18 @@ define internal void @svg_ellipse(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %11 = load double, ptr %1, align 8
   tail call void @gvprintdouble(ptr noundef %0, double noundef %11) #11
   %12 = tail call i32 @gvputs(ptr noundef %0, ptr noundef nonnull @.str.84) #11
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load double, ptr %13, align 8
   %15 = fneg double %14
   tail call void @gvprintdouble(ptr noundef %0, double noundef %15) #11
   %16 = tail call i32 @gvputs(ptr noundef %0, ptr noundef nonnull @.str.85) #11
-  %17 = getelementptr inbounds i8, ptr %1, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %18 = load double, ptr %17, align 8
   %19 = load double, ptr %1, align 8
   %20 = fsub double %18, %19
   tail call void @gvprintdouble(ptr noundef %0, double noundef %20) #11
   %21 = tail call i32 @gvputs(ptr noundef %0, ptr noundef nonnull @.str.86) #11
-  %22 = getelementptr inbounds i8, ptr %1, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %23 = load double, ptr %22, align 8
   %24 = load double, ptr %13, align 8
   %25 = fsub double %23, %24
@@ -1007,7 +1007,7 @@ define internal void @svg_polygon(ptr noundef %0, ptr noundef %1, i64 noundef %2
   %13 = load double, ptr %12, align 8
   tail call void @gvprintdouble(ptr noundef %0, double noundef %13) #11
   %14 = tail call i32 @gvputc(ptr noundef %0, i32 noundef 44) #11
-  %15 = getelementptr inbounds i8, ptr %12, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %16 = load double, ptr %15, align 8
   %17 = fneg double %16
   tail call void @gvprintdouble(ptr noundef %0, double noundef %17) #11
@@ -1020,7 +1020,7 @@ define internal void @svg_polygon(ptr noundef %0, ptr noundef %1, i64 noundef %2
   %20 = load double, ptr %1, align 8
   tail call void @gvprintdouble(ptr noundef %0, double noundef %20) #11
   %21 = tail call i32 @gvputc(ptr noundef %0, i32 noundef 44) #11
-  %22 = getelementptr inbounds i8, ptr %1, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %23 = load double, ptr %22, align 8
   %24 = fneg double %23
   tail call void @gvprintdouble(ptr noundef %0, double noundef %24) #11
@@ -1031,7 +1031,7 @@ define internal void @svg_polygon(ptr noundef %0, ptr noundef %1, i64 noundef %2
 ; Function Attrs: nounwind uwtable
 define internal void @svg_bezier(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) #0 {
   %5 = alloca i8, align 1
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8
   switch i32 %3, label %12 [
     i32 2, label %8
@@ -1049,7 +1049,7 @@ define internal void @svg_bezier(ptr noundef %0, ptr noundef %1, i64 noundef %2,
 12:                                               ; preds = %4, %10, %8
   %.0 = phi i32 [ %9, %8 ], [ %11, %10 ], [ 0, %4 ]
   %13 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.120) #11
-  %14 = getelementptr inbounds i8, ptr %7, i64 344
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 344
   %15 = load i16, ptr %14, align 8
   %16 = and i16 %15, 512
   %.not = icmp eq i16 %16, 0
@@ -1057,7 +1057,7 @@ define internal void @svg_bezier(ptr noundef %0, ptr noundef %1, i64 noundef %2,
 
 17:                                               ; preds = %12
   %18 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.121) #11
-  %19 = getelementptr inbounds i8, ptr %7, i64 248
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 248
   %20 = load ptr, ptr %19, align 8
   %21 = tail call i32 @gvputs_xml(ptr noundef nonnull %0, ptr noundef %20) #11
   %22 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.122) #11
@@ -1078,7 +1078,7 @@ define internal void @svg_bezier(ptr noundef %0, ptr noundef %1, i64 noundef %2,
   %27 = load double, ptr %26, align 8
   call void @gvprintdouble(ptr noundef %0, double noundef %27) #11
   %28 = call i32 @gvputc(ptr noundef %0, i32 noundef 44) #11
-  %29 = getelementptr inbounds i8, ptr %26, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %30 = load double, ptr %29, align 8
   %31 = fneg double %30
   call void @gvprintdouble(ptr noundef %0, double noundef %31) #11
@@ -1109,7 +1109,7 @@ define internal void @svg_polyline(ptr noundef %0, ptr nocapture noundef readonl
   %7 = load double, ptr %6, align 8
   tail call void @gvprintdouble(ptr noundef %0, double noundef %7) #11
   %8 = tail call i32 @gvputc(ptr noundef %0, i32 noundef 44) #11
-  %9 = getelementptr inbounds i8, ptr %6, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %10 = load double, ptr %9, align 8
   %11 = fneg double %10
   tail call void @gvprintdouble(ptr noundef %0, double noundef %11) #11
@@ -1207,9 +1207,9 @@ define internal fastcc i32 @svg_gradstyle(ptr noundef %0, ptr noundef %1, i64 no
   %5 = load i32, ptr @svg_gradstyle.gradId, align 4
   %6 = add nsw i32 %5, 1
   store i32 %6, ptr @svg_gradstyle.gradId, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 152
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 152
   %10 = load i32, ptr %9, align 8
   %11 = sitofp i32 %10 to double
   %12 = fmul double %11, 0x400921FB54442D18
@@ -1217,7 +1217,7 @@ define internal fastcc i32 @svg_gradstyle(ptr noundef %0, ptr noundef %1, i64 no
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %4, i8 0, i64 32, i1 false)
   call void @get_gradient_points(ptr noundef %1, ptr noundef nonnull %4, i64 noundef %2, double noundef %13, i32 noundef 0) #11
   %14 = call i32 @gvputs(ptr noundef %0, ptr noundef nonnull @.str.88) #11
-  %15 = getelementptr inbounds i8, ptr %8, i64 248
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 248
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %20, label %17
@@ -1228,9 +1228,9 @@ define internal fastcc i32 @svg_gradstyle(ptr noundef %0, ptr noundef %1, i64 no
   br label %20
 
 20:                                               ; preds = %17, %3
-  %21 = getelementptr inbounds i8, ptr %4, i64 8
-  %22 = getelementptr inbounds i8, ptr %4, i64 24
-  %23 = getelementptr inbounds i8, ptr %4, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 16
   call void (ptr, ptr, ...) @gvprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.89, i32 noundef %5) #11
   %24 = call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.90) #11
   %25 = load double, ptr %4, align 16
@@ -1245,19 +1245,19 @@ define internal fastcc i32 @svg_gradstyle(ptr noundef %0, ptr noundef %1, i64 no
   %31 = load double, ptr %22, align 8
   call void @gvprintdouble(ptr noundef nonnull %0, double noundef %31) #11
   %32 = call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.94) #11
-  %33 = getelementptr inbounds i8, ptr %8, i64 156
+  %33 = getelementptr inbounds nuw i8, ptr %8, i64 156
   %34 = load float, ptr %33, align 4
   %35 = fcmp ogt float %34, 0.000000e+00
   %36 = fpext float %34 to double
   %37 = fadd double %36, -1.000000e-03
   %38 = select i1 %35, double %37, double 0.000000e+00
-  %39 = getelementptr inbounds i8, ptr %8, i64 72
+  %39 = getelementptr inbounds nuw i8, ptr %8, i64 72
   call fastcc void @svg_print_stop(ptr noundef nonnull %0, double noundef %38, ptr noundef nonnull byval(%struct.color_s) align 8 %39)
   %40 = load float, ptr %33, align 4
   %41 = fcmp ogt float %40, 0.000000e+00
   %42 = fpext float %40 to double
   %43 = select i1 %41, double %42, double 1.000000e+00
-  %44 = getelementptr inbounds i8, ptr %8, i64 112
+  %44 = getelementptr inbounds nuw i8, ptr %8, i64 112
   call fastcc void @svg_print_stop(ptr noundef nonnull %0, double noundef %43, ptr noundef nonnull byval(%struct.color_s) align 8 %44)
   %45 = call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.95) #11
   ret i32 %5
@@ -1268,9 +1268,9 @@ define internal fastcc i32 @svg_rgradstyle(ptr noundef %0) unnamed_addr #0 {
   %2 = load i32, ptr @svg_rgradstyle.rgradId, align 4
   %3 = add nsw i32 %2, 1
   store i32 %3, ptr @svg_rgradstyle.rgradId, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 152
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 152
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %21, label %9
@@ -1293,7 +1293,7 @@ define internal fastcc i32 @svg_rgradstyle(ptr noundef %0) unnamed_addr #0 {
   %.019 = phi double [ %20, %9 ], [ 5.000000e+01, %1 ]
   %.0 = phi double [ %16, %9 ], [ 5.000000e+01, %1 ]
   %22 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.105) #11
-  %23 = getelementptr inbounds i8, ptr %5, i64 248
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 248
   %24 = load ptr, ptr %23, align 8
   %.not = icmp eq ptr %24, null
   br i1 %.not, label %28, label %25
@@ -1305,9 +1305,9 @@ define internal fastcc i32 @svg_rgradstyle(ptr noundef %0) unnamed_addr #0 {
 
 28:                                               ; preds = %25, %21
   tail call void (ptr, ptr, ...) @gvprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.106, i32 noundef %2, double noundef %.0, double noundef %.019) #11
-  %29 = getelementptr inbounds i8, ptr %5, i64 72
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 72
   tail call fastcc void @svg_print_stop(ptr noundef nonnull %0, double noundef 0.000000e+00, ptr noundef nonnull byval(%struct.color_s) align 8 %29)
-  %30 = getelementptr inbounds i8, ptr %5, i64 112
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 112
   tail call fastcc void @svg_print_stop(ptr noundef nonnull %0, double noundef 1.000000e+00, ptr noundef nonnull byval(%struct.color_s) align 8 %30)
   %31 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.107) #11
   ret i32 %2
@@ -1315,7 +1315,7 @@ define internal fastcc i32 @svg_rgradstyle(ptr noundef %0) unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @svg_grstyle(ptr noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 @gvputs(ptr noundef %0, ptr noundef nonnull @.str.108) #11
   switch i32 %1, label %23 [
@@ -1326,7 +1326,7 @@ define internal fastcc void @svg_grstyle(ptr noundef %0, i32 noundef %1, i32 nou
 
 7:                                                ; preds = %3
   %8 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.109) #11
-  %9 = getelementptr inbounds i8, ptr %5, i64 248
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 248
   %10 = load ptr, ptr %9, align 8
   %.not51 = icmp eq ptr %10, null
   br i1 %.not51, label %14, label %11
@@ -1342,7 +1342,7 @@ define internal fastcc void @svg_grstyle(ptr noundef %0, i32 noundef %1, i32 nou
 
 15:                                               ; preds = %3
   %16 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.109) #11
-  %17 = getelementptr inbounds i8, ptr %5, i64 248
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 248
   %18 = load ptr, ptr %17, align 8
   %.not50 = icmp eq ptr %18, null
   br i1 %.not50, label %22, label %19
@@ -1357,15 +1357,15 @@ define internal fastcc void @svg_grstyle(ptr noundef %0, i32 noundef %1, i32 nou
   br label %36
 
 23:                                               ; preds = %3
-  %24 = getelementptr inbounds i8, ptr %5, i64 72
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 72
   tail call fastcc void @svg_print_paint(ptr noundef nonnull %0, ptr noundef nonnull byval(%struct.color_s) align 8 %24)
-  %25 = getelementptr inbounds i8, ptr %5, i64 104
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 104
   %26 = load i32, ptr %25, align 8
   %27 = icmp eq i32 %26, 1
   br i1 %27, label %28, label %36
 
 28:                                               ; preds = %23
-  %29 = getelementptr inbounds i8, ptr %5, i64 75
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 75
   %30 = load i8, ptr %29, align 1
   switch i8 %30, label %31 [
     i8 0, label %36
@@ -1384,9 +1384,9 @@ define internal fastcc void @svg_grstyle(ptr noundef %0, i32 noundef %1, i32 nou
 
 36:                                               ; preds = %28, %28, %22, %23, %31, %34, %14
   %37 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.114) #11
-  %38 = getelementptr inbounds i8, ptr %5, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %5, i64 32
   tail call fastcc void @svg_print_paint(ptr noundef nonnull %0, ptr noundef nonnull byval(%struct.color_s) align 8 %38)
-  %39 = getelementptr inbounds i8, ptr %5, i64 168
+  %39 = getelementptr inbounds nuw i8, ptr %5, i64 168
   %40 = load double, ptr %39, align 8
   %41 = fadd double %40, -1.000000e+00
   %42 = tail call double @llvm.fabs.f64(double %41)
@@ -1400,7 +1400,7 @@ define internal fastcc void @svg_grstyle(ptr noundef %0, i32 noundef %1, i32 nou
   br label %47
 
 47:                                               ; preds = %44, %36
-  %48 = getelementptr inbounds i8, ptr %5, i64 160
+  %48 = getelementptr inbounds nuw i8, ptr %5, i64 160
   %49 = load i32, ptr %48, align 8
   switch i32 %49, label %51 [
     i32 1, label %.sink.split
@@ -1416,13 +1416,13 @@ define internal fastcc void @svg_grstyle(ptr noundef %0, i32 noundef %1, i32 nou
   br label %51
 
 51:                                               ; preds = %.sink.split, %47
-  %52 = getelementptr inbounds i8, ptr %5, i64 64
+  %52 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %53 = load i32, ptr %52, align 8
   %54 = icmp eq i32 %53, 1
   br i1 %54, label %55, label %61
 
 55:                                               ; preds = %51
-  %56 = getelementptr inbounds i8, ptr %5, i64 35
+  %56 = getelementptr inbounds nuw i8, ptr %5, i64 35
   %57 = load i8, ptr %56, align 1
   switch i8 %57, label %58 [
     i8 0, label %61
@@ -1468,7 +1468,7 @@ define internal fastcc void @svg_print_stop(ptr noundef %0, double noundef %1, p
 
 15:                                               ; preds = %12, %14, %6
   %.sroa.0.0.copyload = load ptr, ptr %2, align 8
-  %.sroa.717.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 32
+  %.sroa.717.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 32
   %.sroa.717.0.copyload = load i32, ptr %.sroa.717.0..sroa_idx, align 8
   %16 = ptrtoint ptr %.sroa.0.0.copyload to i64
   %17 = lshr i64 %16, 24
@@ -1559,7 +1559,7 @@ declare double @sin(double noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @svg_print_paint(ptr noundef %0, ptr nocapture noundef readonly byval(%struct.color_s) align 8 %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %4 = load i32, ptr %3, align 8
   switch i32 %4, label %27 [
     i32 5, label %5
@@ -1581,7 +1581,7 @@ define internal fastcc void @svg_print_paint(ptr noundef %0, ptr nocapture nound
   br label %30
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %1, i64 3
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %14 = load i8, ptr %13, align 1
   %15 = icmp eq i8 %14, 0
   br i1 %15, label %16, label %18
@@ -1593,10 +1593,10 @@ define internal fastcc void @svg_print_paint(ptr noundef %0, ptr nocapture nound
 18:                                               ; preds = %12
   %19 = load i8, ptr %1, align 8
   %20 = zext i8 %19 to i32
-  %21 = getelementptr inbounds i8, ptr %1, i64 1
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %22 = load i8, ptr %21, align 1
   %23 = zext i8 %22 to i32
-  %24 = getelementptr inbounds i8, ptr %1, i64 2
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %25 = load i8, ptr %24, align 2
   %26 = zext i8 %25 to i32
   tail call void (ptr, ptr, ...) @gvprintf(ptr noundef %0, ptr noundef nonnull @.str.104, i32 noundef %20, i32 noundef %23, i32 noundef %26) #11

@@ -67,11 +67,11 @@ define internal noundef nonnull ptr @_ZL41initializeRegUsageInfoPropagationPassO
   tail call void @_ZN4llvm39initializePhysicalRegisterUsageInfoPassERNS_12PassRegistryE(ptr noundef nonnull align 8 dereferenceable(160) %0) #12
   %2 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #14
   store ptr @.str, ptr %2, align 8
-  %.sroa.25.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.25.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 38, ptr %.sroa.25.0..sroa_idx.i, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr @.str.1, ptr %3, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 24
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 21, ptr %.sroa.2.0..sroa_idx.i, align 8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store ptr @_ZN12_GLOBAL__N_123RegUsageInfoPropagation2IDE, ptr %4, align 8
@@ -200,19 +200,19 @@ define internal { ptr, i64 } @_ZNK12_GLOBAL__N_123RegUsageInfoPropagation11getPa
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm19MachineFunctionPass16doInitializationERNS_6ModuleE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(857) %1) unnamed_addr #0 comdat align 2 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 152
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i64 %5(ptr noundef nonnull align 8 dereferenceable(56) %0) #12
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %6, ptr %7, align 8
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 160
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 160
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i64 %10(ptr noundef nonnull align 8 dereferenceable(56) %0) #12
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %11, ptr %12, align 8
   %13 = load ptr, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 168
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 168
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i64 %15(ptr noundef nonnull align 8 dereferenceable(56) %0) #12
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -276,7 +276,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_123RegUsageInfoPropagation20
 
 .lr.ph.i.i.i:                                     ; preds = %2, %.lr.ph.i.i.i
   %.sroa.07.012.i4.i.i = phi ptr [ %13, %.lr.ph.i.i.i ], [ %8, %2 ]
-  %13 = getelementptr inbounds i8, ptr %.sroa.07.012.i4.i.i, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %.sroa.07.012.i4.i.i, i64 16
   %.not.i.i.i = icmp ne ptr %13, %10
   tail call void @llvm.assume(i1 %.not.i.i.i)
   %14 = load ptr, ptr %13, align 8
@@ -288,7 +288,7 @@ _ZNK4llvm4Pass11getAnalysisINS_25PhysicalRegisterUsageInfoEEERT_v.exit: ; preds 
   %16 = getelementptr inbounds nuw i8, ptr %.sroa.07.012.i.lcssa.i.i, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 96
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 96
   %20 = load ptr, ptr %19, align 8
   %21 = tail call noundef nonnull align 8 dereferenceable(64) ptr %20(ptr noundef nonnull align 8 dereferenceable(28) %17, ptr noundef nonnull @_ZN4llvm25PhysicalRegisterUsageInfo2IDE) #12
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -314,8 +314,8 @@ _ZNK4llvm4Pass11getAnalysisINS_25PhysicalRegisterUsageInfoEEERT_v.exit: ; preds 
 .lr.ph57:                                         ; preds = %31, %._crit_edge
   %.sroa.028.055 = phi ptr [ %.sroa.028.0, %._crit_edge ], [ %.sroa.028.052, %31 ]
   %.03154 = phi i1 [ %.1.lcssa, %._crit_edge ], [ false, %31 ]
-  %34 = getelementptr inbounds i8, ptr %.sroa.028.055, i64 56
-  %35 = getelementptr inbounds i8, ptr %.sroa.028.055, i64 48
+  %34 = getelementptr inbounds nuw i8, ptr %.sroa.028.055, i64 56
+  %35 = getelementptr inbounds nuw i8, ptr %.sroa.028.055, i64 48
   %.sroa.025.048 = load ptr, ptr %34, align 8
   %.not4049 = icmp eq ptr %.sroa.025.048, %35
   br i1 %.not4049, label %._crit_edge, label %.lr.ph
@@ -351,7 +351,7 @@ _ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit: ; preds = %.lr.ph
   %51 = getelementptr i8, ptr %.sroa.025.051, i64 40
   %.val20 = load i24, ptr %51, align 8
   %52 = zext i24 %.val20 to i64
-  %53 = getelementptr inbounds %"class.llvm::MachineOperand", ptr %.val, i64 %52
+  %53 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %.val, i64 %52
   %.not5.i = icmp eq i24 %.val20, 0
   br i1 %.not5.i, label %"_ZZN12_GLOBAL__N_123RegUsageInfoPropagation20runOnMachineFunctionERN4llvm15MachineFunctionEENK3$_0clERKNS1_8FunctionE.exit", label %.lr.ph.i
 
@@ -382,7 +382,7 @@ _ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit: ; preds = %.lr.ph
   br label %_ZL18findCalledFunctionRKN4llvm6ModuleERKNS_12MachineInstrE.exit
 
 65:                                               ; preds = %.lr.ph.i
-  %66 = getelementptr inbounds i8, ptr %.0136.i, i64 32
+  %66 = getelementptr inbounds nuw i8, ptr %.0136.i, i64 32
   %.not.i = icmp eq ptr %66, %53
   br i1 %.not.i, label %"_ZZN12_GLOBAL__N_123RegUsageInfoPropagation20runOnMachineFunctionERN4llvm15MachineFunctionEENK3$_0clERKNS1_8FunctionE.exit", label %.lr.ph.i
 
@@ -433,7 +433,7 @@ _ZNK4llvm11GlobalValue17isDefinitionExactEv.exit: ; preds = %72
   %.val.i = load ptr, ptr %50, align 8
   %.val2.i = load i24, ptr %51, align 8
   %82 = zext i24 %.val2.i to i64
-  %83 = getelementptr inbounds %"class.llvm::MachineOperand", ptr %.val.i, i64 %82
+  %83 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %.val.i, i64 %82
   %.not3.i.i = icmp eq i24 %.val2.i, 0
   br i1 %.not3.i.i, label %"_ZZN12_GLOBAL__N_123RegUsageInfoPropagation20runOnMachineFunctionERN4llvm15MachineFunctionEENK3$_0clERKNS1_8FunctionE.exit", label %.lr.ph.i.i
 
@@ -450,7 +450,7 @@ _ZNK4llvm11GlobalValue17isDefinitionExactEv.exit: ; preds = %72
   br label %89
 
 89:                                               ; preds = %87, %.lr.ph.i.i
-  %90 = getelementptr inbounds i8, ptr %.04.i.i, i64 32
+  %90 = getelementptr inbounds nuw i8, ptr %.04.i.i, i64 32
   %.not.i.i22 = icmp eq ptr %90, %83
   br i1 %.not.i.i22, label %"_ZZN12_GLOBAL__N_123RegUsageInfoPropagation20runOnMachineFunctionERN4llvm15MachineFunctionEENK3$_0clERKNS1_8FunctionE.exit", label %.lr.ph.i.i
 

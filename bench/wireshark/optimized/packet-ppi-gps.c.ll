@@ -218,10 +218,10 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_ppi_gps(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca %struct.nstime_t, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 0, ptr %6, align 8
   store i64 0, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void @col_clear(ptr noundef %8, i32 noundef 25) #2
   %9 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #2
@@ -275,7 +275,7 @@ define internal i32 @dissect_ppi_gps(ptr noundef %0, ptr noundef %1, ptr noundef
 .lr.ph:                                           ; preds = %36
   %40 = add nsw i32 %12, -8
   %.not317 = icmp eq ptr %2, null
-  %41 = getelementptr inbounds i8, ptr %1, i64 408
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %42
 
 42:                                               ; preds = %.lr.ph, %229

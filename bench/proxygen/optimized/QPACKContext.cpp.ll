@@ -42,11 +42,11 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define void @_ZN8proxygen12QPACKContextC2Ejb(ptr noundef nonnull align 8 dereferenceable(116) %this, i32 noundef %tableSize, i1 noundef zeroext %trackReferences) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN8proxygen16QPACKHeaderTableC1Ejb(ptr noundef nonnull align 8 dereferenceable(104) %this, i32 noundef %tableSize, i1 noundef zeroext %trackReferences)
-  %blockedInsertions_ = getelementptr inbounds i8, ptr %this, i64 104
+  %blockedInsertions_ = getelementptr inbounds nuw i8, ptr %this, i64 104
   store i32 0, ptr %blockedInsertions_, align 8
-  %duplications_ = getelementptr inbounds i8, ptr %this, i64 108
+  %duplications_ = getelementptr inbounds nuw i8, ptr %this, i64 108
   store i32 0, ptr %duplications_, align 4
-  %staticRefs_ = getelementptr inbounds i8, ptr %this, i64 112
+  %staticRefs_ = getelementptr inbounds nuw i8, ptr %this, i64 112
   store i32 0, ptr %staticRefs_, align 8
   ret void
 }
@@ -62,7 +62,7 @@ entry:
   br i1 %isStatic, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %staticRefs_ = getelementptr inbounds i8, ptr %this, i64 112
+  %staticRefs_ = getelementptr inbounds nuw i8, ptr %this, i64 112
   %0 = load i32, ptr %staticRefs_, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %staticRefs_, align 8
@@ -159,14 +159,14 @@ entry:
   %agg.tmp = alloca %"class.proxygen::HPACKHeader", align 8
   %ref.tmp8 = alloca %"class.google::LogMessageFatal", align 8
   %0 = load ptr, ptr %headers, align 8
-  %_M_finish.i = getelementptr inbounds i8, ptr %headers, i64 8
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %headers, i64 8
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not7 = icmp eq ptr %0, %1
   br i1 %cmp.i.not7, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %value.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
-  %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 31
+  %value.i = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 8
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 31
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN8proxygen11HPACKHeaderD2Ev.exit
@@ -174,9 +174,9 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %2 = load ptr, ptr %__begin1.sroa.0.08, align 8
   store ptr %2, ptr %agg.tmp, align 8
   store ptr null, ptr %__begin1.sroa.0.08, align 8
-  %value3.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.08, i64 8
+  %value3.i = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.08, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %value.i, ptr noundef nonnull align 8 dereferenceable(24) %value3.i, i64 24, i1 false)
-  %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.08, i64 31
+  %arrayidx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.08, i64 31
   store i8 23, ptr %arrayidx.i.i.i.i.i, align 1
   store i8 0, ptr %value3.i, align 1
   %call6 = invoke noundef zeroext i1 @_ZN8proxygen16QPACKHeaderTable3addENS_11HPACKHeaderE(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef nonnull %agg.tmp)
@@ -280,7 +280,7 @@ terminate.lpad.i.i:                               ; preds = %_ZNK8proxygen15HPAC
 
 _ZN8proxygen11HPACKHeaderD2Ev.exit:               ; preds = %_ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEED2Ev.exit.i, %call.i.i.i.i.noexc.i.i, %if.then.i.i.i, %delete.notnull.i.i.i
   store ptr null, ptr %agg.tmp, align 8
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.08, i64 32
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.08, i64 32
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %1
   br i1 %cmp.i.not, label %for.end, label %for.body
 
@@ -297,13 +297,13 @@ declare void @_ZN6google15LogMessageFatalC1EPKci(ptr noundef nonnull align 8 der
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8proxygen11HPACKHeaderD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %this, i64 31
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 31
   %0 = load i8, ptr %arrayidx.i.i.i, align 1
   %cmp.i.i = icmp ult i8 %0, 64
   br i1 %cmp.i.i, label %_ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEED2Ev.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %entry
-  %value = getelementptr inbounds i8, ptr %this, i64 8
+  %value = getelementptr inbounds nuw i8, ptr %this, i64 8
   %cmp.i.i.i = icmp slt i8 %0, -64
   %1 = load ptr, ptr %value, align 8
   br i1 %cmp.i.i.i, label %if.end.sink.split.i.i.i, label %if.else.i.i.i

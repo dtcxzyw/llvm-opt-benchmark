@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define void @Abc_TruthStoreFree(ptr nocapture noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
   tail call void @free(ptr noundef %4) #7
@@ -31,7 +31,7 @@ define noalias noundef ptr @setTtStore(ptr noundef %0) local_unnamed_addr #2 {
 
 .preheader.i:                                     ; preds = %1, %6
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %6 ], [ 0, %1 ]
-  %4 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv.i
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i
   %5 = load i8, ptr %4, align 1
   switch i8 %5, label %6 [
     i8 0, label %7
@@ -55,7 +55,7 @@ define noalias noundef ptr @setTtStore(ptr noundef %0) local_unnamed_addr #2 {
   br i1 %10, label %11, label %16
 
 11:                                               ; preds = %.loopexit.i
-  %12 = getelementptr inbounds i8, ptr %2, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %13 = load i8, ptr %12, align 1
   %14 = icmp eq i8 %13, 120
   %15 = add nsw i32 %8, -2
@@ -99,7 +99,7 @@ define noalias noundef ptr @setTtStore(ptr noundef %0) local_unnamed_addr #2 {
   %28 = zext i1 %27 to i32
   %29 = add nuw nsw i32 %.057.i, %28
   %indvars.iv.next63.i = add nuw nsw i64 %indvars.iv62.i, 1
-  %30 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv.next63.i
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.next63.i
   %31 = load i8, ptr %30, align 1
   %.not48.i = icmp eq i8 %31, 0
   br i1 %.not48.i, label %Abc_TruthGetParams.exit, label %.lr.ph.i, !llvm.loop !7
@@ -113,14 +113,14 @@ Abc_TruthGetParams.exit:                          ; preds = %.lr.ph.i, %25, %1, 
   %35 = add nsw i32 %32, -6
   %36 = shl nuw i32 1, %35
   %37 = select i1 %34, i32 1, i32 %36
-  %38 = getelementptr inbounds i8, ptr %33, i64 4
+  %38 = getelementptr inbounds nuw i8, ptr %33, i64 4
   store i32 %37, ptr %38, align 4
-  %39 = getelementptr inbounds i8, ptr %33, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %33, i64 8
   store i32 %.0, ptr %39, align 8
   %40 = sext i32 %.0 to i64
   %41 = shl nsw i64 %40, 3
   %42 = tail call noalias ptr @malloc(i64 noundef %41) #8
-  %43 = getelementptr inbounds i8, ptr %33, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %33, i64 16
   store ptr %42, ptr %43, align 8
   %44 = select i1 %34, i32 0, i32 %35
   %45 = shl i32 %.0, %44
@@ -172,28 +172,28 @@ Abc_TruthStoreAlloc.exit:                         ; preds = %50, %Abc_TruthGetPa
   %64 = phi ptr [ %101, %99 ], [ %53, %.lr.ph.i10.preheader ]
   %.01216.i.us = phi i64 [ %indvars.iv.next.i12.us, %99 ], [ 0, %.lr.ph.i10.preheader ]
   %indvars.iv.next21.i.us = add nuw nsw i64 %indvars.iv20.i.us, 1
-  %65 = getelementptr inbounds ptr, ptr %42, i64 %indvars.iv20.i.us
+  %65 = getelementptr inbounds nuw ptr, ptr %42, i64 %indvars.iv20.i.us
   %66 = load ptr, ptr %65, align 8
   %67 = icmp eq i8 %63, 48
   br i1 %67, label %68, label %.lr.ph.preheader.i.i.us
 
 68:                                               ; preds = %.lr.ph.i10.us
-  %69 = getelementptr inbounds i8, ptr %64, i64 1
+  %69 = getelementptr inbounds nuw i8, ptr %64, i64 1
   %70 = load i8, ptr %69, align 1
   %71 = icmp eq i8 %70, 120
   %spec.select.idx.i.i.us = select i1 %71, i64 2, i64 0
-  %spec.select.i.i.us = getelementptr inbounds i8, ptr %64, i64 %spec.select.idx.i.i.us
+  %spec.select.i.i.us = getelementptr inbounds nuw i8, ptr %64, i64 %spec.select.idx.i.i.us
   br label %.lr.ph.preheader.i.i.us
 
 .lr.ph.preheader.i.i.us:                          ; preds = %68, %.lr.ph.i10.us
   %.0.i.i.us = phi ptr [ %64, %.lr.ph.i10.us ], [ %spec.select.i.i.us, %68 ]
+  %72 = getelementptr i8, ptr %.0.i.i.us, i64 %62
   br label %.lr.ph.i.i.us
 
 .lr.ph.i.i.us:                                    ; preds = %Abc_TruthReadHexDigit.exit.i.i.us, %.lr.ph.preheader.i.i.us
   %indvars.iv.i.i.us = phi i64 [ 0, %.lr.ph.preheader.i.i.us ], [ %indvars.iv.next.i.i.us, %Abc_TruthReadHexDigit.exit.i.i.us ]
-  %72 = xor i64 %indvars.iv.i.i.us, -1
-  %73 = add nsw i64 %72, %62
-  %74 = getelementptr inbounds i8, ptr %.0.i.i.us, i64 %73
+  %73 = xor i64 %indvars.iv.i.i.us, -1
+  %74 = getelementptr i8, ptr %72, i64 %73
   %75 = load i8, ptr %74, align 1
   %76 = sext i8 %75 to i32
   %77 = add i8 %75, -48
@@ -228,7 +228,7 @@ Abc_TruthReadHexDigit.exit.i.i.us:                ; preds = %85, %83, %80
   %90 = shl i64 %87, %89
   %91 = lshr i64 %indvars.iv.i.i.us, 4
   %92 = and i64 %91, 268435455
-  %93 = getelementptr inbounds i64, ptr %66, i64 %92
+  %93 = getelementptr inbounds nuw i64, ptr %66, i64 %92
   %94 = load i64, ptr %93, align 8
   %95 = or i64 %90, %94
   store i64 %95, ptr %93, align 8

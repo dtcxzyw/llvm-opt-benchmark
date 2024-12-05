@@ -31,7 +31,7 @@ while.body:                                       ; preds = %while.cond.preheade
   br i1 %cmp9, label %return, label %if.end12
 
 if.end12:                                         ; preds = %while.body
-  %incdec.ptr = getelementptr inbounds i8, ptr %cur.035, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %cur.035, i64 1
   %4 = load i8, ptr %incdec.ptr, align 1
   %5 = add i8 %4, -48
   %or.cond = icmp ult i8 %5, 10
@@ -54,7 +54,7 @@ if.then16:                                        ; preds = %while.end
   br i1 %cmp17.not, label %return, label %return.sink.split
 
 if.end21:                                         ; preds = %while.end
-  %incdec.ptr22 = getelementptr inbounds i8, ptr %cur.0.lcssa, i64 1
+  %incdec.ptr22 = getelementptr inbounds nuw i8, ptr %cur.0.lcssa, i64 1
   %7 = load i8, ptr %incdec.ptr22, align 1
   %8 = add i8 %7, -48
   %9 = icmp ult i8 %8, 10
@@ -71,7 +71,7 @@ for.body:                                         ; preds = %if.end21, %for.body
   %conv32 = zext nneg i8 %10 to i64
   %sub33 = add nsw i64 %conv32, -48
   %cur.2.idx = zext i1 %12 to i64
-  %cur.2 = getelementptr inbounds i8, ptr %cur.138, i64 %cur.2.idx
+  %cur.2 = getelementptr inbounds nuw i8, ptr %cur.138, i64 %cur.2.idx
   %add35 = select i1 %12, i64 %sub33, i64 0
   %fractional_part.1 = add i64 %add35, %mul28
   %inc = add nuw nsw i32 %i.041, 1
@@ -83,7 +83,7 @@ while.cond38:                                     ; preds = %for.body, %while.co
   %13 = load i8, ptr %cur.3, align 1
   %14 = add i8 %13, -48
   %15 = icmp ult i8 %14, 10
-  %incdec.ptr41 = getelementptr inbounds i8, ptr %cur.3, i64 1
+  %incdec.ptr41 = getelementptr inbounds nuw i8, ptr %cur.3, i64 1
   br i1 %15, label %while.cond38, label %do.end, !llvm.loop !8
 
 do.end:                                           ; preds = %while.cond38

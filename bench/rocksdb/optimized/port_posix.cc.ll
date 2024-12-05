@@ -341,7 +341,7 @@ entry:
 define void @_ZN7rocksdb4port7CondVarC2EPNS0_5MutexE(ptr noundef nonnull align 8 dereferenceable(56) initializes((48, 56)) %this, ptr noundef %mu) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
-  %mu_ = getelementptr inbounds i8, ptr %this, i64 48
+  %mu_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   store ptr %mu, ptr %mu_, align 8
   %call = tail call i32 @pthread_cond_init(ptr noundef nonnull %this, ptr noundef null) #16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
@@ -411,7 +411,7 @@ declare i32 @pthread_cond_destroy(ptr noundef) local_unnamed_addr #1
 define void @_ZN7rocksdb4port7CondVar4WaitEv(ptr noundef nonnull align 8 dereferenceable(56) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
-  %mu_ = getelementptr inbounds i8, ptr %this, i64 48
+  %mu_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %mu_, align 8
   %call = tail call i32 @pthread_cond_wait(ptr noundef nonnull %this, ptr noundef %0)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
@@ -446,9 +446,9 @@ entry:
   store i64 %div, ptr %ts, align 8
   %rem = urem i64 %abs_time_us, 1000000
   %mul = mul nuw nsw i64 %rem, 1000
-  %tv_nsec = getelementptr inbounds i8, ptr %ts, i64 8
+  %tv_nsec = getelementptr inbounds nuw i8, ptr %ts, i64 8
   store i64 %mul, ptr %tv_nsec, align 8
-  %mu_ = getelementptr inbounds i8, ptr %this, i64 48
+  %mu_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %mu_, align 8
   %call = call i32 @pthread_cond_timedwait(ptr noundef nonnull %this, ptr noundef %0, ptr noundef nonnull %ts)
   switch i32 %call, label %if.then4 [

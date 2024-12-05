@@ -115,7 +115,7 @@ for.cond:                                         ; preds = %for.body, %if.end
 
 for.body:                                         ; preds = %for.cond
   %call7 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %sk, i32 noundef %lastpos.addr.0) #6
-  %critical = getelementptr inbounds i8, ptr %call7, i64 8
+  %critical = getelementptr inbounds nuw i8, ptr %call7, i64 8
   %1 = load i32, ptr %critical, align 8
   %cmp8 = icmp sgt i32 %1, 0
   %or.cond11 = xor i1 %tobool, %cmp8
@@ -322,10 +322,10 @@ X509_EXTENSION_set_object.exit:                   ; preds = %if.end4
 if.end11:                                         ; preds = %X509_EXTENSION_set_object.exit
   %tobool.not.i = icmp eq i32 %crit, 0
   %cond.i = select i1 %tobool.not.i, i32 -1, i32 255
-  %critical.i = getelementptr inbounds i8, ptr %ret.0, i64 8
+  %critical.i = getelementptr inbounds nuw i8, ptr %ret.0, i64 8
   store i32 %cond.i, ptr %critical.i, align 8
-  %value.i = getelementptr inbounds i8, ptr %ret.0, i64 16
-  %data1.i = getelementptr inbounds i8, ptr %data, i64 8
+  %value.i = getelementptr inbounds nuw i8, ptr %ret.0, i64 16
+  %data1.i = getelementptr inbounds nuw i8, ptr %data, i64 8
   %2 = load ptr, ptr %data1.i, align 8
   %3 = load i32, ptr %data, align 8
   %call.i17 = tail call i32 @ASN1_OCTET_STRING_set(ptr noundef nonnull %value.i, ptr noundef %2, i32 noundef %3) #6
@@ -396,7 +396,7 @@ entry:
 if.end:                                           ; preds = %entry
   %tobool.not = icmp eq i32 %crit, 0
   %cond = select i1 %tobool.not, i32 -1, i32 255
-  %critical = getelementptr inbounds i8, ptr %ex, i64 8
+  %critical = getelementptr inbounds nuw i8, ptr %ex, i64 8
   store i32 %cond, ptr %critical, align 8
   br label %return
 
@@ -412,8 +412,8 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %value = getelementptr inbounds i8, ptr %ex, i64 16
-  %data1 = getelementptr inbounds i8, ptr %data, i64 8
+  %value = getelementptr inbounds nuw i8, ptr %ex, i64 16
+  %data1 = getelementptr inbounds nuw i8, ptr %data, i64 8
   %0 = load ptr, ptr %data1, align 8
   %1 = load i32, ptr %data, align 8
   %call = tail call i32 @ASN1_OCTET_STRING_set(ptr noundef nonnull %value, ptr noundef %0, i32 noundef %1) #6
@@ -449,7 +449,7 @@ return:                                           ; preds = %entry, %if.end
 define ptr @X509_EXTENSION_get_data(ptr noundef readnone %ex) local_unnamed_addr #4 {
 entry:
   %cmp = icmp eq ptr %ex, null
-  %value = getelementptr inbounds i8, ptr %ex, i64 16
+  %value = getelementptr inbounds nuw i8, ptr %ex, i64 16
   %retval.0 = select i1 %cmp, ptr null, ptr %value
   ret ptr %retval.0
 }
@@ -461,7 +461,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %critical = getelementptr inbounds i8, ptr %ex, i64 8
+  %critical = getelementptr inbounds nuw i8, ptr %ex, i64 8
   %0 = load i32, ptr %critical, align 8
   %cmp1 = icmp sgt i32 %0, 0
   %. = zext i1 %cmp1 to i32

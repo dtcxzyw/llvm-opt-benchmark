@@ -8,28 +8,28 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_Z11sha256_initP14sha256_context(ptr nocapture noundef writeonly initializes((0, 40)) %0) local_unnamed_addr #0 {
   store i32 1779033703, ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 4
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 -1150833019, ptr %2, align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 1013904242, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 12
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 -1521486534, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 1359893119, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 20
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 -1694144372, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 528734635, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 28
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 1541459225, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 0, ptr %9, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @_Z14sha256_processP14sha256_contextPKvm(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #1 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i64, ptr %4, align 8
   %6 = add i64 %5, %2
   store i64 %6, ptr %4, align 8
@@ -38,7 +38,7 @@ define void @_Z14sha256_processP14sha256_contextPKvm(ptr nocapture noundef %0, p
 
 .lr.ph:                                           ; preds = %3
   %7 = and i64 %5, 63
-  %8 = getelementptr inbounds i8, ptr %0, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %9
 
 9:                                                ; preds = %.lr.ph, %18
@@ -74,16 +74,16 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc void @_ZL16sha256_transformP14sha256_context(ptr nocapture noundef %0) unnamed_addr #1 {
   %2 = alloca [64 x i32], align 16
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %4
 
 4:                                                ; preds = %1, %4
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %4 ]
   %5 = shl nuw nsw i64 %indvars.iv, 2
-  %6 = getelementptr inbounds i8, ptr %3, i64 %5
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 %5
   %7 = load i32, ptr %6, align 4
   %8 = tail call noundef i32 @llvm.bswap.i32(i32 %7)
-  %9 = getelementptr inbounds [64 x i32], ptr %2, i64 0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [64 x i32], ptr %2, i64 0, i64 %indvars.iv
   store i32 %8, ptr %9, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
@@ -97,7 +97,7 @@ define internal fastcc void @_ZL16sha256_transformP14sha256_context(ptr nocaptur
   %10 = phi i32 [ %.pre, %.preheader.preheader ], [ %25, %.preheader ]
   %indvars.iv88 = phi i64 [ 16, %.preheader.preheader ], [ %indvars.iv.next89, %.preheader ]
   %11 = add nsw i64 %indvars.iv88, -2
-  %12 = getelementptr inbounds [64 x i32], ptr %2, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw [64 x i32], ptr %2, i64 0, i64 %11
   %13 = load i32, ptr %12, align 4
   %14 = tail call i32 @llvm.fshl.i32(i32 %13, i32 %13, i32 15)
   %15 = tail call i32 @llvm.fshl.i32(i32 %13, i32 %13, i32 13)
@@ -105,11 +105,11 @@ define internal fastcc void @_ZL16sha256_transformP14sha256_context(ptr nocaptur
   %17 = lshr i32 %13, 10
   %18 = xor i32 %16, %17
   %19 = add nsw i64 %indvars.iv88, -7
-  %20 = getelementptr inbounds [64 x i32], ptr %2, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw [64 x i32], ptr %2, i64 0, i64 %19
   %21 = load i32, ptr %20, align 4
   %22 = add i32 %18, %21
   %23 = add nsw i64 %indvars.iv88, -15
-  %24 = getelementptr inbounds [64 x i32], ptr %2, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw [64 x i32], ptr %2, i64 0, i64 %23
   %25 = load i32, ptr %24, align 4
   %26 = tail call i32 @llvm.fshl.i32(i32 %25, i32 %25, i32 25)
   %27 = tail call i32 @llvm.fshl.i32(i32 %25, i32 %25, i32 14)
@@ -118,7 +118,7 @@ define internal fastcc void @_ZL16sha256_transformP14sha256_context(ptr nocaptur
   %30 = xor i32 %28, %29
   %31 = add i32 %22, %10
   %32 = add i32 %31, %30
-  %33 = getelementptr inbounds [64 x i32], ptr %2, i64 0, i64 %indvars.iv88
+  %33 = getelementptr inbounds nuw [64 x i32], ptr %2, i64 0, i64 %indvars.iv88
   store i32 %32, ptr %33, align 4
   %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
   %exitcond91.not = icmp eq i64 %indvars.iv.next89, 64
@@ -126,19 +126,19 @@ define internal fastcc void @_ZL16sha256_transformP14sha256_context(ptr nocaptur
 
 34:                                               ; preds = %.preheader
   %35 = load i32, ptr %0, align 4
-  %36 = getelementptr inbounds i8, ptr %0, i64 4
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %37 = load i32, ptr %36, align 4
-  %38 = getelementptr inbounds i8, ptr %0, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %39 = load i32, ptr %38, align 4
-  %40 = getelementptr inbounds i8, ptr %0, i64 12
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %41 = load i32, ptr %40, align 4
-  %42 = getelementptr inbounds i8, ptr %0, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %43 = load i32, ptr %42, align 4
-  %44 = getelementptr inbounds i8, ptr %0, i64 20
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %45 = load i32, ptr %44, align 4
-  %46 = getelementptr inbounds i8, ptr %0, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %47 = load i32, ptr %46, align 4
-  %48 = getelementptr inbounds i8, ptr %0, i64 28
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %49 = load i32, ptr %48, align 4
   br label %50
 
@@ -163,10 +163,10 @@ define internal fastcc void @_ZL16sha256_transformP14sha256_context(ptr nocaptur
   %59 = and i32 %.sroa.45.084, %58
   %60 = or i32 %59, %57
   %61 = add i32 %56, %60
-  %62 = getelementptr inbounds [64 x i32], ptr @_ZL1K, i64 0, i64 %indvars.iv92
+  %62 = getelementptr inbounds nuw [64 x i32], ptr @_ZL1K, i64 0, i64 %indvars.iv92
   %63 = load i32, ptr %62, align 4
   %64 = add i32 %61, %63
-  %65 = getelementptr inbounds [64 x i32], ptr %2, i64 0, i64 %indvars.iv92
+  %65 = getelementptr inbounds nuw [64 x i32], ptr %2, i64 0, i64 %indvars.iv92
   %66 = load i32, ptr %65, align 4
   %67 = add i32 %64, %66
   %68 = add i32 %67, %.sroa.24.078
@@ -207,14 +207,14 @@ define internal fastcc void @_ZL16sha256_transformP14sha256_context(ptr nocaptur
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @_Z11sha256_doneP14sha256_contextPh(ptr nocapture noundef %0, ptr nocapture noundef writeonly initializes((0, 32)) %1) local_unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
   %5 = trunc i64 %4 to i32
   %6 = and i32 %5, 63
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = add nuw nsw i32 %6, 1
   %9 = and i64 %4, 63
-  %10 = getelementptr inbounds [64 x i8], ptr %7, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 0, i64 %9
   store i8 -128, ptr %10, align 1
   %.not = icmp eq i32 %8, 56
   br i1 %.not, label %21, label %11
@@ -243,7 +243,7 @@ define void @_Z11sha256_doneP14sha256_contextPh(ptr nocapture noundef %0, ptr no
 16:                                               ; preds = %11, %._crit_edge
   %.037 = phi i32 [ 0, %._crit_edge ], [ %8, %11 ]
   %17 = zext nneg i32 %.037 to i64
-  %18 = getelementptr inbounds i8, ptr %7, i64 %17
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 %17
   %19 = sub nuw nsw i32 56, %.037
   %20 = zext nneg i32 %19 to i64
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %18, i8 0, i64 %20, i1 false)
@@ -253,50 +253,50 @@ define void @_Z11sha256_doneP14sha256_contextPh(ptr nocapture noundef %0, ptr no
   %22 = shl i64 %4, 3
   %23 = lshr i64 %22, 32
   %24 = trunc nuw i64 %23 to i32
-  %25 = getelementptr inbounds i8, ptr %0, i64 96
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %26 = tail call i32 @llvm.bswap.i32(i32 %24)
   store i32 %26, ptr %25, align 4
   %27 = trunc i64 %22 to i32
-  %28 = getelementptr inbounds i8, ptr %0, i64 100
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %29 = tail call i32 @llvm.bswap.i32(i32 %27)
   store i32 %29, ptr %28, align 4
   tail call fastcc void @_ZL16sha256_transformP14sha256_context(ptr noundef nonnull %0)
   %30 = load i32, ptr %0, align 8
   %31 = tail call i32 @llvm.bswap.i32(i32 %30)
   store i32 %31, ptr %1, align 4
-  %32 = getelementptr inbounds i8, ptr %0, i64 4
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %33 = load i32, ptr %32, align 4
-  %34 = getelementptr inbounds i8, ptr %1, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %35 = tail call i32 @llvm.bswap.i32(i32 %33)
   store i32 %35, ptr %34, align 4
-  %36 = getelementptr inbounds i8, ptr %0, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %37 = load i32, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %1, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %39 = tail call i32 @llvm.bswap.i32(i32 %37)
   store i32 %39, ptr %38, align 4
-  %40 = getelementptr inbounds i8, ptr %0, i64 12
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %41 = load i32, ptr %40, align 4
-  %42 = getelementptr inbounds i8, ptr %1, i64 12
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %43 = tail call i32 @llvm.bswap.i32(i32 %41)
   store i32 %43, ptr %42, align 4
-  %44 = getelementptr inbounds i8, ptr %0, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %45 = load i32, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %1, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %47 = tail call i32 @llvm.bswap.i32(i32 %45)
   store i32 %47, ptr %46, align 4
-  %48 = getelementptr inbounds i8, ptr %0, i64 20
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %49 = load i32, ptr %48, align 4
-  %50 = getelementptr inbounds i8, ptr %1, i64 20
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %51 = tail call i32 @llvm.bswap.i32(i32 %49)
   store i32 %51, ptr %50, align 4
-  %52 = getelementptr inbounds i8, ptr %0, i64 24
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %53 = load i32, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %1, i64 24
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %55 = tail call i32 @llvm.bswap.i32(i32 %53)
   store i32 %55, ptr %54, align 4
-  %56 = getelementptr inbounds i8, ptr %0, i64 28
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %57 = load i32, ptr %56, align 4
-  %58 = getelementptr inbounds i8, ptr %1, i64 28
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %59 = tail call i32 @llvm.bswap.i32(i32 %57)
   store i32 %59, ptr %58, align 4
   store i32 1779033703, ptr %0, align 8

@@ -170,7 +170,7 @@ define void @_ZN5boost3log11v2_mt_posix5sinks22text_multifile_backendD2Ev(ptr no
 define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix5sinks22text_multifile_backend14implementationD2Ev(ptr noundef nonnull align 8 dereferenceable(556) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTCN5boost10filesystem14basic_ofstreamIcSt11char_traitsIcEEE0_St14basic_ofstreamIcS3_E, i64 24), ptr %2, align 8, !tbaa !33
-  %3 = getelementptr inbounds i8, ptr %0, i64 288
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 288
   store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTCN5boost10filesystem14basic_ofstreamIcSt11char_traitsIcEEE0_St14basic_ofstreamIcS3_E, i64 64), ptr %3, align 8, !tbaa !33
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVSt13basic_filebufIcSt11char_traitsIcEE, i64 16), ptr %4, align 8, !tbaa !33
@@ -611,15 +611,15 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef 
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN5boost10filesystem14basic_ofstreamIcSt11char_traitsIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 248
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 248
   tail call void @_ZNSt8ios_baseC2Ev(ptr noundef nonnull align 8 dereferenceable(264) %2) #18
-  %3 = getelementptr inbounds i8, ptr %0, i64 464
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 464
   store ptr null, ptr %3, align 8, !tbaa !55
-  %4 = getelementptr inbounds i8, ptr %0, i64 472
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 472
   store i8 0, ptr %4, align 8, !tbaa !57
-  %5 = getelementptr inbounds i8, ptr %0, i64 473
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 473
   store i8 0, ptr %5, align 1, !tbaa !58
-  %6 = getelementptr inbounds i8, ptr %0, i64 480
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 480
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 32, i1 false)
   store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTCN5boost10filesystem14basic_ofstreamIcSt11char_traitsIcEEE0_So, i64 24), ptr %0, align 8, !tbaa !33
   store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTCN5boost10filesystem14basic_ofstreamIcSt11char_traitsIcEEE0_So, i64 64), ptr %2, align 8, !tbaa !33
@@ -695,7 +695,7 @@ declare void @_ZTv0_n24_NSoD0Ev(ptr noundef) unnamed_addr #11 align 2
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost10filesystem14basic_ofstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTCN5boost10filesystem14basic_ofstreamIcSt11char_traitsIcEEE0_St14basic_ofstreamIcS3_E, i64 24), ptr %0, align 8, !tbaa !33
-  %2 = getelementptr inbounds i8, ptr %0, i64 248
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 248
   store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTCN5boost10filesystem14basic_ofstreamIcSt11char_traitsIcEEE0_St14basic_ofstreamIcS3_E, i64 64), ptr %2, align 8, !tbaa !33
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVSt13basic_filebufIcSt11char_traitsIcEE, i64 16), ptr %3, align 8, !tbaa !33
@@ -730,7 +730,7 @@ _ZN5boost10filesystem14basic_ofstreamIcSt11char_traitsIcEED2Ev.exit: ; preds = %
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost10filesystem14basic_ofstreamIcSt11char_traitsIcEED0Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTCN5boost10filesystem14basic_ofstreamIcSt11char_traitsIcEEE0_St14basic_ofstreamIcS3_E, i64 24), ptr %0, align 8, !tbaa !33
-  %2 = getelementptr inbounds i8, ptr %0, i64 248
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 248
   store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTCN5boost10filesystem14basic_ofstreamIcSt11char_traitsIcEEE0_St14basic_ofstreamIcS3_E, i64 64), ptr %2, align 8, !tbaa !33
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVSt13basic_filebufIcSt11char_traitsIcEE, i64 16), ptr %3, align 8, !tbaa !33
@@ -770,7 +770,7 @@ define linkonce_odr hidden void @_ZTv0_n24_N5boost10filesystem14basic_ofstreamIc
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
   store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTCN5boost10filesystem14basic_ofstreamIcSt11char_traitsIcEEE0_St14basic_ofstreamIcS3_E, i64 24), ptr %5, align 8, !tbaa !33
-  %6 = getelementptr inbounds i8, ptr %5, i64 248
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 248
   store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTCN5boost10filesystem14basic_ofstreamIcSt11char_traitsIcEEE0_St14basic_ofstreamIcS3_E, i64 64), ptr %6, align 8, !tbaa !33
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVSt13basic_filebufIcSt11char_traitsIcEE, i64 16), ptr %7, align 8, !tbaa !33
@@ -809,7 +809,7 @@ define linkonce_odr hidden void @_ZTv0_n24_N5boost10filesystem14basic_ofstreamIc
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
   store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTCN5boost10filesystem14basic_ofstreamIcSt11char_traitsIcEEE0_St14basic_ofstreamIcS3_E, i64 24), ptr %5, align 8, !tbaa !33
-  %6 = getelementptr inbounds i8, ptr %5, i64 248
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 248
   store ptr getelementptr inbounds inrange(-24, 16) (i8, ptr @_ZTCN5boost10filesystem14basic_ofstreamIcSt11char_traitsIcEEE0_St14basic_ofstreamIcS3_E, i64 64), ptr %6, align 8, !tbaa !33
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVSt13basic_filebufIcSt11char_traitsIcEE, i64 16), ptr %7, align 8, !tbaa !33

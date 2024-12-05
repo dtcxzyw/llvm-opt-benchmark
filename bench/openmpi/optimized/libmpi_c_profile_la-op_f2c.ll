@@ -43,23 +43,23 @@ define ptr @PMPI_Op_f2c(i32 noundef %0) #0 {
   br i1 %16, label %17, label %20
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %12, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %19 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %18) #3
   %.pre.i = load i8, ptr @opal_uses_threads, align 1
   br label %20
 
 20:                                               ; preds = %17, %14
   %21 = phi i8 [ %15, %14 ], [ %.pre.i, %17 ]
-  %22 = getelementptr inbounds i8, ptr %12, i64 112
+  %22 = getelementptr inbounds nuw i8, ptr %12, i64 112
   %23 = load ptr, ptr %22, align 8
   %24 = zext nneg i32 %0 to i64
-  %25 = getelementptr inbounds ptr, ptr %23, i64 %24
+  %25 = getelementptr inbounds nuw ptr, ptr %23, i64 %24
   %26 = load ptr, ptr %25, align 8
   %27 = trunc i8 %21 to i1
   br i1 %27, label %28, label %opal_pointer_array_get_item.exit
 
 28:                                               ; preds = %20
-  %29 = getelementptr inbounds i8, ptr %12, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %30 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %29) #3
   br label %opal_pointer_array_get_item.exit
 

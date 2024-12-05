@@ -588,7 +588,7 @@ if.then58:                                        ; preds = %for.end.i
   store <2 x i64> %xor.i34.i, ptr %computed_mac, align 16
   %xor.i31.i = xor <2 x i64> %95, %94
   %xor.i.i89 = xor <2 x i64> %xor.i31.i, %96
-  %add.ptr.i90 = getelementptr inbounds i8, ptr %computed_mac, i64 16
+  %add.ptr.i90 = getelementptr inbounds nuw i8, ptr %computed_mac, i64 16
   store <2 x i64> %xor.i.i89, ptr %add.ptr.i90, align 16
   %call60 = call i32 @crypto_verify_32(ptr noundef nonnull %computed_mac, ptr noundef %mac) #7
   br label %if.end63

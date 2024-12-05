@@ -19,14 +19,14 @@ $_ZNK15AbstractDecoder9has_errorEv = comdat any
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN10ElfDecoderD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV10ElfDecoder, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %8, label %4
 
 4:                                                ; preds = %1
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(144) %3) #4
   store ptr null, ptr %2, align 8
@@ -39,14 +39,14 @@ define hidden void @_ZN10ElfDecoderD2Ev(ptr nocapture noundef nonnull align 8 de
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN10ElfDecoderD0Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV10ElfDecoder, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %_ZN10ElfDecoderD2Ev.exit, label %4
 
 4:                                                ; preds = %1
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(144) %3) #4
   store ptr null, ptr %2, align 8
@@ -60,20 +60,20 @@ _ZN10ElfDecoderD2Ev.exit:                         ; preds = %1, %4
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN10ElfDecoder6decodeEPhPciPiPKcb(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, i1 noundef zeroext %6) unnamed_addr #0 align 2 {
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %10 = load ptr, ptr %9, align 8
   %11 = tail call noundef zeroext i1 %10(ptr noundef nonnull align 8 dereferenceable(12) %0) #4
   br i1 %11, label %_ZN10ElfDecoder12get_elf_fileEPKc.exit, label %12
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.023.i = load ptr, ptr %13, align 8
   %.not24.i = icmp eq ptr %.023.i, null
   br i1 %.not24.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %12, %_ZNK7ElfFile13same_elf_fileEPKc.exit.thread.i
   %.025.i = phi ptr [ %.0.i, %_ZNK7ElfFile13same_elf_fileEPKc.exit.thread.i ], [ %.023.i, %12 ]
-  %14 = getelementptr inbounds i8, ptr %.025.i, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %.025.i, i64 16
   %15 = load ptr, ptr %14, align 8
   %.not.i.i = icmp eq ptr %15, null
   br i1 %.not.i.i, label %_ZNK7ElfFile13same_elf_fileEPKc.exit.thread.i, label %_ZNK7ElfFile13same_elf_fileEPKc.exit.i
@@ -84,7 +84,7 @@ _ZNK7ElfFile13same_elf_fileEPKc.exit.i:           ; preds = %.lr.ph.i
   br i1 %.not2.i.i, label %.loopexit, label %_ZNK7ElfFile13same_elf_fileEPKc.exit.thread.i
 
 _ZNK7ElfFile13same_elf_fileEPKc.exit.thread.i:    ; preds = %_ZNK7ElfFile13same_elf_fileEPKc.exit.i, %.lr.ph.i
-  %17 = getelementptr inbounds i8, ptr %.025.i, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %.025.i, i64 8
   %.0.i = load ptr, ptr %17, align 8
   %.not.i = icmp eq ptr %.0.i, null
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !6
@@ -101,7 +101,7 @@ _ZNK7ElfFile13same_elf_fileEPKc.exit.thread.i:    ; preds = %_ZNK7ElfFile13same_
   br i1 %.not20.i, label %24, label %22
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds i8, ptr %18, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr %21, ptr %23, align 8
   br label %24
 
@@ -122,7 +122,7 @@ _ZNK7ElfFile13same_elf_fileEPKc.exit.thread.i:    ; preds = %_ZNK7ElfFile13same_
 
 28:                                               ; preds = %26
   %29 = load ptr, ptr %0, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 32
   %31 = load ptr, ptr %30, align 8
   %32 = tail call noundef zeroext i1 %31(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %2, ptr noundef nonnull %2, i32 noundef %3) #4
   br label %_ZN10ElfDecoder12get_elf_fileEPKc.exit
@@ -134,14 +134,14 @@ _ZN10ElfDecoder12get_elf_fileEPKc.exit:           ; preds = %._crit_edge.i, %.lo
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN10ElfDecoder12get_elf_fileEPKc(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.023 = load ptr, ptr %3, align 8
   %.not24 = icmp eq ptr %.023, null
   br i1 %.not24, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %_ZNK7ElfFile13same_elf_fileEPKc.exit.thread
   %.025 = phi ptr [ %.0, %_ZNK7ElfFile13same_elf_fileEPKc.exit.thread ], [ %.023, %2 ]
-  %4 = getelementptr inbounds i8, ptr %.025, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %.025, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %_ZNK7ElfFile13same_elf_fileEPKc.exit.thread, label %_ZNK7ElfFile13same_elf_fileEPKc.exit
@@ -152,7 +152,7 @@ _ZNK7ElfFile13same_elf_fileEPKc.exit:             ; preds = %.lr.ph
   br i1 %.not2.i, label %.thread, label %_ZNK7ElfFile13same_elf_fileEPKc.exit.thread
 
 _ZNK7ElfFile13same_elf_fileEPKc.exit.thread:      ; preds = %.lr.ph, %_ZNK7ElfFile13same_elf_fileEPKc.exit
-  %7 = getelementptr inbounds i8, ptr %.025, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %.025, i64 8
   %.0 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
@@ -169,7 +169,7 @@ _ZNK7ElfFile13same_elf_fileEPKc.exit.thread:      ; preds = %.lr.ph, %_ZNK7ElfFi
   br i1 %.not20, label %14, label %12
 
 12:                                               ; preds = %10
-  %13 = getelementptr inbounds i8, ptr %8, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %11, ptr %13, align 8
   br label %14
 
@@ -190,7 +190,7 @@ define hidden noundef zeroext i1 @_ZN10ElfDecoder15get_source_infoEPhPcmPib(ptr 
   %8 = alloca i32, align 4
   store i8 0, ptr %2, align 1
   store i32 -1, ptr %4, align 4
-  %9 = getelementptr inbounds i8, ptr %7, i64 4096
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 4096
   store i8 0, ptr %9, align 16
   store i32 -1, ptr %8, align 4
   %10 = call noundef zeroext i1 @_ZN2os27dll_address_to_library_nameEPhPciPi(ptr noundef %1, ptr noundef nonnull %7, i32 noundef 4097, ptr noundef nonnull %8) #4
@@ -201,14 +201,14 @@ define hidden noundef zeroext i1 @_ZN10ElfDecoder15get_source_infoEPhPcmPib(ptr 
 
 12:                                               ; preds = %6
   %13 = load i32, ptr %8, align 4
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.023.i = load ptr, ptr %14, align 8
   %.not24.i = icmp eq ptr %.023.i, null
   br i1 %.not24.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %12, %_ZNK7ElfFile13same_elf_fileEPKc.exit.thread.i
   %.025.i = phi ptr [ %.0.i, %_ZNK7ElfFile13same_elf_fileEPKc.exit.thread.i ], [ %.023.i, %12 ]
-  %15 = getelementptr inbounds i8, ptr %.025.i, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %.025.i, i64 16
   %16 = load ptr, ptr %15, align 8
   %.not.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i, label %_ZNK7ElfFile13same_elf_fileEPKc.exit.thread.i, label %_ZNK7ElfFile13same_elf_fileEPKc.exit.i
@@ -219,7 +219,7 @@ _ZNK7ElfFile13same_elf_fileEPKc.exit.i:           ; preds = %.lr.ph.i
   br i1 %.not2.i.i, label %.loopexit, label %_ZNK7ElfFile13same_elf_fileEPKc.exit.thread.i
 
 _ZNK7ElfFile13same_elf_fileEPKc.exit.thread.i:    ; preds = %_ZNK7ElfFile13same_elf_fileEPKc.exit.i, %.lr.ph.i
-  %18 = getelementptr inbounds i8, ptr %.025.i, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %.025.i, i64 8
   %.0.i = load ptr, ptr %18, align 8
   %.not.i = icmp eq ptr %.0.i, null
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !6
@@ -236,7 +236,7 @@ _ZNK7ElfFile13same_elf_fileEPKc.exit.thread.i:    ; preds = %_ZNK7ElfFile13same_
   br i1 %.not20.i, label %25, label %23
 
 23:                                               ; preds = %21
-  %24 = getelementptr inbounds i8, ptr %19, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr %22, ptr %24, align 8
   br label %25
 
@@ -277,14 +277,14 @@ declare noundef zeroext i1 @_ZN10ElfDecoder8demangleEPKcPci(ptr noundef nonnull 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i32 @_ZNK15AbstractDecoder6statusEv(ptr noundef nonnull align 8 dereferenceable(12) %0) unnamed_addr #0 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK15AbstractDecoder9has_errorEv(ptr noundef nonnull align 8 dereferenceable(12) %0) unnamed_addr #0 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
   ret i1 %4

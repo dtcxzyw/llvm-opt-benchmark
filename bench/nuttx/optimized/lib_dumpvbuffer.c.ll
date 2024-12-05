@@ -25,9 +25,9 @@ define void @lib_dumpvhandler(ptr noundef %0, ptr noundef readonly %1, i32 nound
   br label %10
 
 10:                                               ; preds = %8, %7
-  %11 = getelementptr inbounds i8, ptr %6, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store i8 32, ptr %11, align 16
-  %12 = getelementptr inbounds i8, ptr %6, i64 65
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 65
   store i8 0, ptr %12, align 1
   %13 = sext i32 %2 to i64
   %14 = getelementptr inbounds %struct.iovec, ptr %1, i64 %13
@@ -38,7 +38,7 @@ define void @lib_dumpvhandler(ptr noundef %0, ptr noundef readonly %1, i32 nound
   %.068 = phi ptr [ %.2, %.loopexit ], [ %1, %10 ]
   %.04167 = phi i32 [ %55, %.loopexit ], [ 0, %10 ]
   %.04366 = phi i32 [ %.245, %.loopexit ], [ 0, %10 ]
-  %15 = getelementptr inbounds i8, ptr %.068, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %.068, i64 8
   %16 = load i64, ptr %15, align 8
   %.not55 = icmp eq i64 %16, 0
   br i1 %.not55, label %.critedge, label %.preheader
@@ -50,14 +50,14 @@ define void @lib_dumpvhandler(ptr noundef %0, ptr noundef readonly %1, i32 nound
   %.14461 = phi i32 [ %.346, %54 ], [ %.04366, %.lr.ph ]
   %17 = load ptr, ptr %.164, align 8
   %18 = zext i32 %.14461 to i64
-  %19 = getelementptr inbounds i8, ptr %17, i64 %18
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 %18
   %20 = load i8, ptr %19, align 1
   %21 = lshr i8 %20, 4
   %22 = icmp ult i8 %20, -96
   %23 = or disjoint i8 %21, 48
   %24 = add nuw nsw i8 %21, 87
   %.0.i = select i1 %22, i8 %23, i8 %24
-  %25 = getelementptr inbounds i8, ptr %.04063, i64 1
+  %25 = getelementptr inbounds nuw i8, ptr %.04063, i64 1
   store i8 %.0.i, ptr %.04063, align 1
   %26 = load i8, ptr %19, align 1
   %27 = and i8 %26, 15
@@ -65,26 +65,26 @@ define void @lib_dumpvhandler(ptr noundef %0, ptr noundef readonly %1, i32 nound
   %29 = or disjoint i8 %27, 48
   %30 = add nuw nsw i8 %27, 87
   %.0.i56 = select i1 %28, i8 %29, i8 %30
-  %31 = getelementptr inbounds i8, ptr %.04063, i64 2
+  %31 = getelementptr inbounds nuw i8, ptr %.04063, i64 2
   store i8 %.0.i56, ptr %25, align 1
-  %32 = getelementptr inbounds i8, ptr %.04063, i64 3
+  %32 = getelementptr inbounds nuw i8, ptr %.04063, i64 3
   store i8 32, ptr %31, align 1
   %33 = load i8, ptr %19, align 1
   %34 = add i8 %33, -32
   %or.cond = icmp ult i8 %34, 95
   %35 = add nuw nsw i64 %indvars.iv, 49
-  %36 = getelementptr inbounds [66 x i8], ptr %6, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw [66 x i8], ptr %6, i64 0, i64 %35
   %. = select i1 %or.cond, i8 %33, i8 46
   store i8 %., ptr %36, align 1
   %37 = add i32 %.14461, 1
   %38 = zext i32 %37 to i64
-  %39 = getelementptr inbounds i8, ptr %.164, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %.164, i64 8
   %40 = load i64, ptr %39, align 8
   %41 = icmp eq i64 %40, %38
   br i1 %41, label %42, label %54
 
 42:                                               ; preds = %.preheader
-  %43 = getelementptr inbounds i8, ptr %.164, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %.164, i64 16
   %44 = icmp eq ptr %43, %14
   br i1 %44, label %45, label %54
 
@@ -96,7 +96,7 @@ define void @lib_dumpvhandler(ptr noundef %0, ptr noundef readonly %1, i32 nound
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %32, i8 32, i64 %49, i1 false)
   %50 = add nuw i64 %indvars.iv, 50
   %51 = and i64 %50, 4294967295
-  %52 = getelementptr inbounds [66 x i8], ptr %6, i64 0, i64 %51
+  %52 = getelementptr inbounds nuw [66 x i8], ptr %6, i64 0, i64 %51
   %53 = zext nneg i32 %47 to i64
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %52, i8 32, i64 %53, i1 false)
   br label %.loopexit

@@ -45,12 +45,12 @@ define dso_local void @recordMultipleDependencies(ptr nocapture noundef readonly
   %11 = shl nuw nsw i32 %10, 3
   %12 = zext nneg i32 %11 to i64
   %13 = tail call ptr @palloc(i64 noundef %12) #6
-  %14 = getelementptr inbounds i8, ptr %9, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 64
   %15 = zext i32 %3 to i64
   %sext = shl i64 %15, 56
   %16 = ashr exact i64 %sext, 56
-  %17 = getelementptr inbounds i8, ptr %0, i64 4
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %.outer
 
 .outer:                                           ; preds = %.thread, %8
@@ -95,62 +95,62 @@ define dso_local void @recordMultipleDependencies(ptr nocapture noundef readonly
   %31 = phi ptr [ %.pre, %._crit_edge90 ], [ %26, %24 ]
   %.2 = phi i32 [ %.06984, %._crit_edge90 ], [ %29, %24 ]
   %32 = getelementptr ptr, ptr %13, i64 %.pre-phi
-  %33 = getelementptr inbounds i8, ptr %31, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 24
   %36 = load ptr, ptr %35, align 8
   tail call void %36(ptr noundef %31) #6
   %37 = load i32, ptr %.07183, align 4
   %38 = zext i32 %37 to i64
   %39 = load ptr, ptr %32, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 24
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr i8, ptr %41, i64 24
   store i64 %38, ptr %42, align 8
   %43 = load i32, ptr %20, align 4
   %44 = zext i32 %43 to i64
   %45 = load ptr, ptr %32, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 24
   %47 = load ptr, ptr %46, align 8
   %48 = getelementptr i8, ptr %47, i64 32
   store i64 %44, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %.07183, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %.07183, i64 8
   %50 = load i32, ptr %49, align 4
   %51 = sext i32 %50 to i64
   %52 = load ptr, ptr %32, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 24
   %54 = load ptr, ptr %53, align 8
   %55 = getelementptr i8, ptr %54, i64 40
   store i64 %51, ptr %55, align 8
   %56 = load ptr, ptr %32, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 24
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 24
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr i8, ptr %58, i64 48
   store i64 %16, ptr %59, align 8
   %60 = load i32, ptr %0, align 4
   %61 = zext i32 %60 to i64
   %62 = load ptr, ptr %32, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 24
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 24
   %64 = load ptr, ptr %63, align 8
   store i64 %61, ptr %64, align 8
   %65 = load i32, ptr %17, align 4
   %66 = zext i32 %65 to i64
   %67 = load ptr, ptr %32, align 8
-  %68 = getelementptr inbounds i8, ptr %67, i64 24
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 24
   %69 = load ptr, ptr %68, align 8
   %70 = getelementptr i8, ptr %69, i64 8
   store i64 %66, ptr %70, align 8
   %71 = load i32, ptr %18, align 4
   %72 = sext i32 %71 to i64
   %73 = load ptr, ptr %32, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i64 24
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 24
   %75 = load ptr, ptr %74, align 8
   %76 = getelementptr i8, ptr %75, i64 16
   store i64 %72, ptr %76, align 8
   %77 = load ptr, ptr %32, align 8
-  %78 = getelementptr inbounds i8, ptr %77, i64 32
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 32
   %79 = load ptr, ptr %78, align 8
-  %80 = getelementptr inbounds i8, ptr %77, i64 16
+  %80 = getelementptr inbounds nuw i8, ptr %77, i64 16
   %81 = load ptr, ptr %80, align 8
   %82 = load i32, ptr %81, align 8
   %83 = sext i32 %82 to i64
@@ -273,7 +273,7 @@ define dso_local void @recordDependencyOnCurrentExtension(ptr noundef %0, i1 nou
 
 7:                                                ; preds = %6
   %8 = load i32, ptr %0, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = tail call i32 @getExtensionOfObject(i32 noundef %8, i32 noundef %10)
   %.not = icmp eq i32 %11, 0
@@ -309,9 +309,9 @@ define dso_local void @recordDependencyOnCurrentExtension(ptr noundef %0, i1 nou
 29:                                               ; preds = %6
   store i32 3079, ptr %3, align 4
   %30 = load i32, ptr @CurrentExtensionObject, align 4
-  %31 = getelementptr inbounds i8, ptr %3, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 %30, ptr %31, align 4
-  %32 = getelementptr inbounds i8, ptr %3, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 0, ptr %32, align 4
   call void @recordMultipleDependencies(ptr noundef readonly %0, ptr noundef nonnull readonly %3, i32 noundef 1, i32 noundef 101)
   br label %33
@@ -326,7 +326,7 @@ define dso_local i32 @getExtensionOfObject(i32 noundef %0, i32 noundef %1) local
   %4 = tail call ptr @table_open(i32 noundef 2608, i32 noundef 1) #6
   %5 = zext i32 %0 to i64
   call void @ScanKeyInit(ptr noundef nonnull %3, i16 noundef signext 1, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %5) #6
-  %6 = getelementptr inbounds i8, ptr %3, i64 72
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %7 = zext i32 %1 to i64
   call void @ScanKeyInit(ptr noundef nonnull %6, i16 noundef signext 2, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %7) #6
   %8 = call ptr @systable_beginscan(ptr noundef %4, i32 noundef 2673, i1 noundef zeroext true, ptr noundef null, i32 noundef 2, ptr noundef nonnull %3) #6
@@ -336,25 +336,25 @@ define dso_local i32 @getExtensionOfObject(i32 noundef %0, i32 noundef %1) local
 
 .lr.ph:                                           ; preds = %2, %27
   %10 = phi ptr [ %28, %27 ], [ %9, %2 ]
-  %11 = getelementptr inbounds i8, ptr %10, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 22
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 22
   %14 = load i8, ptr %13, align 2
   %15 = zext i8 %14 to i64
   %16 = getelementptr i8, ptr %12, i64 %15
-  %17 = getelementptr inbounds i8, ptr %16, i64 12
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 12
   %18 = load i32, ptr %17, align 4
   %19 = icmp eq i32 %18, 3079
   br i1 %19, label %20, label %27
 
 20:                                               ; preds = %.lr.ph
-  %21 = getelementptr inbounds i8, ptr %16, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %22 = load i8, ptr %21, align 4
   %23 = icmp eq i8 %22, 101
   br i1 %23, label %24, label %27
 
 24:                                               ; preds = %20
-  %25 = getelementptr inbounds i8, ptr %16, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %26 = load i32, ptr %25, align 4
   br label %.loopexit
 
@@ -393,7 +393,7 @@ define dso_local void @checkMembershipInCurrentExtension(ptr noundef %0) local_u
 
 4:                                                ; preds = %1
   %5 = load i32, ptr %0, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = tail call i32 @getExtensionOfObject(i32 noundef %5, i32 noundef %7)
   %9 = load i32, ptr @CurrentExtensionObject, align 4
@@ -422,7 +422,7 @@ define dso_local i64 @deleteDependencyRecordsFor(i32 noundef %0, i32 noundef %1,
   %5 = tail call ptr @table_open(i32 noundef 2608, i32 noundef 3) #6
   %6 = zext i32 %0 to i64
   call void @ScanKeyInit(ptr noundef nonnull %4, i16 noundef signext 1, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %6) #6
-  %7 = getelementptr inbounds i8, ptr %4, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %8 = zext i32 %1 to i64
   call void @ScanKeyInit(ptr noundef nonnull %7, i16 noundef signext 2, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %8) #6
   %9 = call ptr @systable_beginscan(ptr noundef %5, i32 noundef 2673, i1 noundef zeroext true, ptr noundef null, i32 noundef 2, ptr noundef nonnull %4) #6
@@ -438,19 +438,19 @@ define dso_local i64 @deleteDependencyRecordsFor(i32 noundef %0, i32 noundef %1,
   br i1 %.not.us.us, label %.split.us, label %12
 
 12:                                               ; preds = %10
-  %13 = getelementptr inbounds i8, ptr %11, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 22
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 22
   %16 = load i8, ptr %15, align 2
   %17 = zext i8 %16 to i64
   %18 = getelementptr i8, ptr %14, i64 %17
-  %19 = getelementptr inbounds i8, ptr %18, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %20 = load i8, ptr %19, align 4
   %21 = icmp eq i8 %20, 101
   br i1 %21, label %10, label %.split15.us.us, !llvm.loop !9
 
 .split15.us.us:                                   ; preds = %12
-  %22 = getelementptr inbounds i8, ptr %11, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %11, i64 4
   call void @CatalogTupleDelete(ptr noundef %5, ptr noundef nonnull %22) #6
   %23 = add i64 %.0.ph.us, 1
   br label %.outer.us, !llvm.loop !9
@@ -463,7 +463,7 @@ define dso_local i64 @deleteDependencyRecordsFor(i32 noundef %0, i32 noundef %1,
 .split15:                                         ; preds = %.split17, %.split15
   %25 = phi ptr [ %28, %.split15 ], [ %24, %.split17 ]
   %.0.ph20 = phi i64 [ %27, %.split15 ], [ 0, %.split17 ]
-  %26 = getelementptr inbounds i8, ptr %25, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 4
   call void @CatalogTupleDelete(ptr noundef %5, ptr noundef nonnull %26) #6
   %27 = add i64 %.0.ph20, 1
   %28 = call ptr @systable_getnext(ptr noundef %9) #6
@@ -493,7 +493,7 @@ define dso_local i64 @deleteDependencyRecordsForClass(i32 noundef %0, i32 nounde
   %6 = tail call ptr @table_open(i32 noundef 2608, i32 noundef 3) #6
   %7 = zext i32 %0 to i64
   call void @ScanKeyInit(ptr noundef nonnull %5, i16 noundef signext 1, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %7) #6
-  %8 = getelementptr inbounds i8, ptr %5, i64 72
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %9 = zext i32 %1 to i64
   call void @ScanKeyInit(ptr noundef nonnull %8, i16 noundef signext 2, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %9) #6
   %10 = call ptr @systable_beginscan(ptr noundef %6, i32 noundef 2673, i1 noundef zeroext true, ptr noundef null, i32 noundef 2, ptr noundef nonnull %5) #6
@@ -504,25 +504,25 @@ define dso_local i64 @deleteDependencyRecordsForClass(i32 noundef %0, i32 nounde
 .lr.ph:                                           ; preds = %4, %29
   %12 = phi ptr [ %30, %29 ], [ %11, %4 ]
   %.017 = phi i64 [ %.1, %29 ], [ 0, %4 ]
-  %13 = getelementptr inbounds i8, ptr %12, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 22
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 22
   %16 = load i8, ptr %15, align 2
   %17 = zext i8 %16 to i64
   %18 = getelementptr i8, ptr %14, i64 %17
-  %19 = getelementptr inbounds i8, ptr %18, i64 12
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 12
   %20 = load i32, ptr %19, align 4
   %21 = icmp eq i32 %20, %2
   br i1 %21, label %22, label %29
 
 22:                                               ; preds = %.lr.ph
-  %23 = getelementptr inbounds i8, ptr %18, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %24 = load i8, ptr %23, align 4
   %25 = icmp eq i8 %24, %3
   br i1 %25, label %26, label %29
 
 26:                                               ; preds = %22
-  %27 = getelementptr inbounds i8, ptr %12, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %12, i64 4
   call void @CatalogTupleDelete(ptr noundef %6, ptr noundef nonnull %27) #6
   %28 = add i64 %.017, 1
   br label %29
@@ -546,7 +546,7 @@ define dso_local i64 @deleteDependencyRecordsForSpecific(i32 noundef %0, i32 nou
   %7 = tail call ptr @table_open(i32 noundef 2608, i32 noundef 3) #6
   %8 = zext i32 %0 to i64
   call void @ScanKeyInit(ptr noundef nonnull %6, i16 noundef signext 1, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %8) #6
-  %9 = getelementptr inbounds i8, ptr %6, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 72
   %10 = zext i32 %1 to i64
   call void @ScanKeyInit(ptr noundef nonnull %9, i16 noundef signext 2, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %10) #6
   %11 = call ptr @systable_beginscan(ptr noundef %7, i32 noundef 2673, i1 noundef zeroext true, ptr noundef null, i32 noundef 2, ptr noundef nonnull %6) #6
@@ -557,31 +557,31 @@ define dso_local i64 @deleteDependencyRecordsForSpecific(i32 noundef %0, i32 nou
 .lr.ph:                                           ; preds = %5, %34
   %13 = phi ptr [ %35, %34 ], [ %12, %5 ]
   %.019 = phi i64 [ %.1, %34 ], [ 0, %5 ]
-  %14 = getelementptr inbounds i8, ptr %13, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 22
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 22
   %17 = load i8, ptr %16, align 2
   %18 = zext i8 %17 to i64
   %19 = getelementptr i8, ptr %15, i64 %18
-  %20 = getelementptr inbounds i8, ptr %19, i64 12
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 12
   %21 = load i32, ptr %20, align 4
   %22 = icmp eq i32 %21, %3
   br i1 %22, label %23, label %34
 
 23:                                               ; preds = %.lr.ph
-  %24 = getelementptr inbounds i8, ptr %19, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %25 = load i32, ptr %24, align 4
   %26 = icmp eq i32 %25, %4
   br i1 %26, label %27, label %34
 
 27:                                               ; preds = %23
-  %28 = getelementptr inbounds i8, ptr %19, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %29 = load i8, ptr %28, align 4
   %30 = icmp eq i8 %29, %2
   br i1 %30, label %31, label %34
 
 31:                                               ; preds = %27
-  %32 = getelementptr inbounds i8, ptr %13, i64 4
+  %32 = getelementptr inbounds nuw i8, ptr %13, i64 4
   call void @CatalogTupleDelete(ptr noundef %7, ptr noundef nonnull %32) #6
   %33 = add i64 %.019, 1
   br label %34
@@ -605,8 +605,8 @@ define dso_local i64 @changeDependencyFor(i32 noundef %0, i32 noundef %1, i32 no
   %7 = alloca %struct.ObjectAddress, align 4
   %8 = alloca %struct.ObjectAddress, align 4
   store i32 %2, ptr %7, align 4
-  %9 = getelementptr inbounds i8, ptr %7, i64 4
-  %10 = getelementptr inbounds i8, ptr %7, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 0, ptr %10, align 4
   %11 = tail call zeroext i1 @IsPinnedObject(i32 noundef %2, i32 noundef %3) #6
   store i32 %4, ptr %9, align 4
@@ -619,9 +619,9 @@ define dso_local i64 @changeDependencyFor(i32 noundef %0, i32 noundef %1, i32 no
 
 14:                                               ; preds = %13
   store i32 %0, ptr %8, align 4
-  %15 = getelementptr inbounds i8, ptr %8, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 %1, ptr %15, align 4
-  %16 = getelementptr inbounds i8, ptr %8, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 0, ptr %16, align 4
   call void @recordMultipleDependencies(ptr noundef nonnull readonly %8, ptr noundef nonnull readonly %7, i32 noundef 1, i32 noundef 110)
   br label %70
@@ -630,7 +630,7 @@ define dso_local i64 @changeDependencyFor(i32 noundef %0, i32 noundef %1, i32 no
   %18 = tail call ptr @table_open(i32 noundef 2608, i32 noundef 3) #6
   %19 = zext i32 %0 to i64
   call void @ScanKeyInit(ptr noundef nonnull %6, i16 noundef signext 1, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %19) #6
-  %20 = getelementptr inbounds i8, ptr %6, i64 72
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 72
   %21 = zext i32 %1 to i64
   call void @ScanKeyInit(ptr noundef nonnull %20, i16 noundef signext 2, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %21) #6
   %22 = call ptr @systable_beginscan(ptr noundef %18, i32 noundef 2673, i1 noundef zeroext true, ptr noundef null, i32 noundef 2, ptr noundef nonnull %6) #6
@@ -644,25 +644,25 @@ define dso_local i64 @changeDependencyFor(i32 noundef %0, i32 noundef %1, i32 no
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %41
   %24 = phi ptr [ %42, %41 ], [ %23, %.lr.ph ]
   %.03339.us = phi i64 [ %.1.us, %41 ], [ 0, %.lr.ph ]
-  %25 = getelementptr inbounds i8, ptr %24, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 22
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 22
   %28 = load i8, ptr %27, align 2
   %29 = zext i8 %28 to i64
   %30 = getelementptr i8, ptr %26, i64 %29
-  %31 = getelementptr inbounds i8, ptr %30, i64 12
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 12
   %32 = load i32, ptr %31, align 4
   %33 = icmp eq i32 %32, %2
   br i1 %33, label %34, label %41
 
 34:                                               ; preds = %.lr.ph.split.us
-  %35 = getelementptr inbounds i8, ptr %30, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %36 = load i32, ptr %35, align 4
   %37 = icmp eq i32 %36, %3
   br i1 %37, label %38, label %41
 
 38:                                               ; preds = %34
-  %39 = getelementptr inbounds i8, ptr %24, i64 4
+  %39 = getelementptr inbounds nuw i8, ptr %24, i64 4
   call void @CatalogTupleDelete(ptr noundef %18, ptr noundef nonnull %39) #6
   %40 = add i64 %.03339.us, 1
   br label %41
@@ -676,34 +676,34 @@ define dso_local i64 @changeDependencyFor(i32 noundef %0, i32 noundef %1, i32 no
 .lr.ph.split:                                     ; preds = %.lr.ph, %68
   %43 = phi ptr [ %69, %68 ], [ %23, %.lr.ph ]
   %.03339 = phi i64 [ %.1, %68 ], [ 0, %.lr.ph ]
-  %44 = getelementptr inbounds i8, ptr %43, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 22
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 22
   %47 = load i8, ptr %46, align 2
   %48 = zext i8 %47 to i64
   %49 = getelementptr i8, ptr %45, i64 %48
-  %50 = getelementptr inbounds i8, ptr %49, i64 12
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 12
   %51 = load i32, ptr %50, align 4
   %52 = icmp eq i32 %51, %2
   br i1 %52, label %53, label %68
 
 53:                                               ; preds = %.lr.ph.split
-  %54 = getelementptr inbounds i8, ptr %49, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %55 = load i32, ptr %54, align 4
   %56 = icmp eq i32 %55, %3
   br i1 %56, label %57, label %68
 
 57:                                               ; preds = %53
   %58 = call ptr @heap_copytuple(ptr noundef nonnull %43) #6
-  %59 = getelementptr inbounds i8, ptr %58, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 16
   %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 22
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 22
   %62 = load i8, ptr %61, align 2
   %63 = zext i8 %62 to i64
   %64 = getelementptr i8, ptr %60, i64 %63
-  %65 = getelementptr inbounds i8, ptr %64, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 16
   store i32 %4, ptr %65, align 4
-  %66 = getelementptr inbounds i8, ptr %58, i64 4
+  %66 = getelementptr inbounds nuw i8, ptr %58, i64 4
   call void @CatalogTupleUpdate(ptr noundef %18, ptr noundef nonnull %66, ptr noundef %58) #6
   call void @heap_freetuple(ptr noundef %58) #6
   %67 = add i64 %.03339, 1
@@ -738,7 +738,7 @@ define dso_local i64 @changeDependenciesOf(i32 noundef %0, i32 noundef %1, i32 n
   %5 = tail call ptr @table_open(i32 noundef 2608, i32 noundef 3) #6
   %6 = zext i32 %0 to i64
   call void @ScanKeyInit(ptr noundef nonnull %4, i16 noundef signext 1, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %6) #6
-  %7 = getelementptr inbounds i8, ptr %4, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %8 = zext i32 %1 to i64
   call void @ScanKeyInit(ptr noundef nonnull %7, i16 noundef signext 2, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %8) #6
   %9 = call ptr @systable_beginscan(ptr noundef %5, i32 noundef 2673, i1 noundef zeroext true, ptr noundef null, i32 noundef 2, ptr noundef nonnull %4) #6
@@ -750,15 +750,15 @@ define dso_local i64 @changeDependenciesOf(i32 noundef %0, i32 noundef %1, i32 n
   %11 = phi ptr [ %22, %.lr.ph ], [ %10, %3 ]
   %.018 = phi i64 [ %21, %.lr.ph ], [ 0, %3 ]
   %12 = call ptr @heap_copytuple(ptr noundef nonnull %11) #6
-  %13 = getelementptr inbounds i8, ptr %12, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 22
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 22
   %16 = load i8, ptr %15, align 2
   %17 = zext i8 %16 to i64
   %18 = getelementptr i8, ptr %14, i64 %17
-  %19 = getelementptr inbounds i8, ptr %18, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 4
   store i32 %2, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %12, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %12, i64 4
   call void @CatalogTupleUpdate(ptr noundef %5, ptr noundef nonnull %20, ptr noundef %12) #6
   call void @heap_freetuple(ptr noundef %12) #6
   %21 = add i64 %.018, 1
@@ -779,9 +779,9 @@ define dso_local i64 @changeDependenciesOn(i32 noundef %0, i32 noundef %1, i32 n
   %5 = alloca %struct.ObjectAddress, align 4
   %6 = tail call ptr @table_open(i32 noundef 2608, i32 noundef 3) #6
   store i32 %0, ptr %5, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %1, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %5, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 0, ptr %8, align 4
   %9 = tail call zeroext i1 @IsPinnedObject(i32 noundef %0, i32 noundef %1) #6
   br i1 %9, label %10, label %15
@@ -800,7 +800,7 @@ define dso_local i64 @changeDependenciesOn(i32 noundef %0, i32 noundef %1, i32 n
   %16 = tail call zeroext i1 @IsPinnedObject(i32 noundef %0, i32 noundef %2) #6
   %17 = zext i32 %0 to i64
   call void @ScanKeyInit(ptr noundef nonnull %4, i16 noundef signext 4, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %17) #6
-  %18 = getelementptr inbounds i8, ptr %4, i64 72
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %19 = zext i32 %1 to i64
   call void @ScanKeyInit(ptr noundef nonnull %18, i16 noundef signext 5, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %19) #6
   %20 = call ptr @systable_beginscan(ptr noundef %6, i32 noundef 2674, i1 noundef zeroext true, ptr noundef null, i32 noundef 2, ptr noundef nonnull %4) #6
@@ -814,7 +814,7 @@ define dso_local i64 @changeDependenciesOn(i32 noundef %0, i32 noundef %1, i32 n
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
   %22 = phi ptr [ %25, %.lr.ph.split.us ], [ %21, %.lr.ph ]
   %.027.us = phi i64 [ %24, %.lr.ph.split.us ], [ 0, %.lr.ph ]
-  %23 = getelementptr inbounds i8, ptr %22, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 4
   call void @CatalogTupleDelete(ptr noundef %6, ptr noundef nonnull %23) #6
   %24 = add i64 %.027.us, 1
   %25 = call ptr @systable_getnext(ptr noundef %20) #6
@@ -825,15 +825,15 @@ define dso_local i64 @changeDependenciesOn(i32 noundef %0, i32 noundef %1, i32 n
   %26 = phi ptr [ %37, %.lr.ph.split ], [ %21, %.lr.ph ]
   %.027 = phi i64 [ %36, %.lr.ph.split ], [ 0, %.lr.ph ]
   %27 = call ptr @heap_copytuple(ptr noundef nonnull %26) #6
-  %28 = getelementptr inbounds i8, ptr %27, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 22
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 22
   %31 = load i8, ptr %30, align 2
   %32 = zext i8 %31 to i64
   %33 = getelementptr i8, ptr %29, i64 %32
-  %34 = getelementptr inbounds i8, ptr %33, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   store i32 %2, ptr %34, align 4
-  %35 = getelementptr inbounds i8, ptr %27, i64 4
+  %35 = getelementptr inbounds nuw i8, ptr %27, i64 4
   call void @CatalogTupleUpdate(ptr noundef %6, ptr noundef nonnull %35, ptr noundef %27) #6
   call void @heap_freetuple(ptr noundef %27) #6
   %36 = add i64 %.027, 1
@@ -854,7 +854,7 @@ define dso_local ptr @getAutoExtensionsOfObject(i32 noundef %0, i32 noundef %1) 
   %4 = tail call ptr @table_open(i32 noundef 2608, i32 noundef 1) #6
   %5 = zext i32 %0 to i64
   call void @ScanKeyInit(ptr noundef nonnull %3, i16 noundef signext 1, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %5) #6
-  %6 = getelementptr inbounds i8, ptr %3, i64 72
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %7 = zext i32 %1 to i64
   call void @ScanKeyInit(ptr noundef nonnull %6, i16 noundef signext 2, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %7) #6
   %8 = call ptr @systable_beginscan(ptr noundef %4, i32 noundef 2673, i1 noundef zeroext true, ptr noundef null, i32 noundef 2, ptr noundef nonnull %3) #6
@@ -865,25 +865,25 @@ define dso_local ptr @getAutoExtensionsOfObject(i32 noundef %0, i32 noundef %1) 
 .lr.ph:                                           ; preds = %2, %28
   %10 = phi ptr [ %29, %28 ], [ %9, %2 ]
   %.014 = phi ptr [ %.1, %28 ], [ null, %2 ]
-  %11 = getelementptr inbounds i8, ptr %10, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 22
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 22
   %14 = load i8, ptr %13, align 2
   %15 = zext i8 %14 to i64
   %16 = getelementptr i8, ptr %12, i64 %15
-  %17 = getelementptr inbounds i8, ptr %16, i64 12
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 12
   %18 = load i32, ptr %17, align 4
   %19 = icmp eq i32 %18, 3079
   br i1 %19, label %20, label %28
 
 20:                                               ; preds = %.lr.ph
-  %21 = getelementptr inbounds i8, ptr %16, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %22 = load i8, ptr %21, align 4
   %23 = icmp eq i8 %22, 120
   br i1 %23, label %24, label %28
 
 24:                                               ; preds = %20
-  %25 = getelementptr inbounds i8, ptr %16, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %26 = load i32, ptr %25, align 4
   %27 = call ptr @lappend_oid(ptr noundef %.014, i32 noundef %26) #6
   br label %28
@@ -908,7 +908,7 @@ define dso_local noundef zeroext i1 @sequenceIsOwned(i32 noundef %0, i8 noundef 
   %5 = alloca [2 x %struct.ScanKeyData], align 16
   %6 = tail call ptr @table_open(i32 noundef 2608, i32 noundef 1) #6
   call void @ScanKeyInit(ptr noundef nonnull %5, i16 noundef signext 1, i16 noundef zeroext 3, i32 noundef 184, i64 noundef 1259) #6
-  %7 = getelementptr inbounds i8, ptr %5, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %8 = zext i32 %0 to i64
   call void @ScanKeyInit(ptr noundef nonnull %7, i16 noundef signext 2, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %8) #6
   %9 = call ptr @systable_beginscan(ptr noundef %6, i32 noundef 2673, i1 noundef zeroext true, ptr noundef null, i32 noundef 2, ptr noundef nonnull %5) #6
@@ -918,28 +918,28 @@ define dso_local noundef zeroext i1 @sequenceIsOwned(i32 noundef %0, i8 noundef 
 
 .lr.ph:                                           ; preds = %4, %30
   %11 = phi ptr [ %31, %30 ], [ %10, %4 ]
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 22
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 22
   %15 = load i8, ptr %14, align 2
   %16 = zext i8 %15 to i64
   %17 = getelementptr i8, ptr %13, i64 %16
-  %18 = getelementptr inbounds i8, ptr %17, i64 12
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 12
   %19 = load i32, ptr %18, align 4
   %20 = icmp eq i32 %19, 1259
   br i1 %20, label %21, label %30
 
 21:                                               ; preds = %.lr.ph
-  %22 = getelementptr inbounds i8, ptr %17, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %23 = load i8, ptr %22, align 4
   %24 = icmp eq i8 %23, %1
   br i1 %24, label %25, label %30
 
 25:                                               ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %17, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %27 = load i32, ptr %26, align 4
   store i32 %27, ptr %2, align 4
-  %28 = getelementptr inbounds i8, ptr %17, i64 20
+  %28 = getelementptr inbounds nuw i8, ptr %17, i64 20
   %29 = load i32, ptr %28, align 4
   store i32 %29, ptr %3, align 4
   br label %.loopexit
@@ -967,14 +967,14 @@ define internal fastcc ptr @getOwnedSequences_internal(i32 noundef %0, i16 nound
   %4 = alloca [3 x %struct.ScanKeyData], align 16
   %5 = tail call ptr @table_open(i32 noundef 2608, i32 noundef 1) #6
   call void @ScanKeyInit(ptr noundef nonnull %4, i16 noundef signext 4, i16 noundef zeroext 3, i32 noundef 184, i64 noundef 1259) #6
-  %6 = getelementptr inbounds i8, ptr %4, i64 72
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %7 = zext i32 %0 to i64
   call void @ScanKeyInit(ptr noundef nonnull %6, i16 noundef signext 5, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %7) #6
   %.not = icmp eq i16 %1, 0
   br i1 %.not, label %11, label %8
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %4, i64 144
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 144
   %10 = sext i16 %1 to i64
   call void @ScanKeyInit(ptr noundef nonnull %9, i16 noundef signext 6, i16 noundef zeroext 3, i32 noundef 65, i64 noundef %10) #6
   br label %11
@@ -993,9 +993,9 @@ define internal fastcc ptr @getOwnedSequences_internal(i32 noundef %0, i16 nound
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %42
   %15 = phi ptr [ %43, %42 ], [ %14, %.lr.ph ]
   %.030.us = phi ptr [ %.1.us, %42 ], [ null, %.lr.ph ]
-  %16 = getelementptr inbounds i8, ptr %15, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 22
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 22
   %19 = load i8, ptr %18, align 2
   %20 = zext i8 %19 to i64
   %21 = getelementptr i8, ptr %17, i64 %20
@@ -1004,19 +1004,19 @@ define internal fastcc ptr @getOwnedSequences_internal(i32 noundef %0, i16 nound
   br i1 %23, label %24, label %42
 
 24:                                               ; preds = %.lr.ph.split.us
-  %25 = getelementptr inbounds i8, ptr %21, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %26 = load i32, ptr %25, align 4
   %27 = icmp eq i32 %26, 0
   br i1 %27, label %28, label %42
 
 28:                                               ; preds = %24
-  %29 = getelementptr inbounds i8, ptr %21, i64 20
+  %29 = getelementptr inbounds nuw i8, ptr %21, i64 20
   %30 = load i32, ptr %29, align 4
   %.not27.us = icmp eq i32 %30, 0
   br i1 %.not27.us, label %42, label %31
 
 31:                                               ; preds = %28
-  %32 = getelementptr inbounds i8, ptr %21, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %33 = load i8, ptr %32, align 4
   switch i8 %33, label %42 [
     i8 97, label %34
@@ -1024,7 +1024,7 @@ define internal fastcc ptr @getOwnedSequences_internal(i32 noundef %0, i16 nound
   ]
 
 34:                                               ; preds = %31, %31
-  %35 = getelementptr inbounds i8, ptr %21, i64 4
+  %35 = getelementptr inbounds nuw i8, ptr %21, i64 4
   %36 = load i32, ptr %35, align 4
   %37 = call signext i8 @get_rel_relkind(i32 noundef %36) #6
   %38 = icmp eq i8 %37, 83
@@ -1044,9 +1044,9 @@ define internal fastcc ptr @getOwnedSequences_internal(i32 noundef %0, i16 nound
 .lr.ph.split:                                     ; preds = %.lr.ph, %74
   %44 = phi ptr [ %75, %74 ], [ %14, %.lr.ph ]
   %.030 = phi ptr [ %.1, %74 ], [ null, %.lr.ph ]
-  %45 = getelementptr inbounds i8, ptr %44, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 22
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 22
   %48 = load i8, ptr %47, align 2
   %49 = zext i8 %48 to i64
   %50 = getelementptr i8, ptr %46, i64 %49
@@ -1055,19 +1055,19 @@ define internal fastcc ptr @getOwnedSequences_internal(i32 noundef %0, i16 nound
   br i1 %52, label %53, label %74
 
 53:                                               ; preds = %.lr.ph.split
-  %54 = getelementptr inbounds i8, ptr %50, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %55 = load i32, ptr %54, align 4
   %56 = icmp eq i32 %55, 0
   br i1 %56, label %57, label %74
 
 57:                                               ; preds = %53
-  %58 = getelementptr inbounds i8, ptr %50, i64 20
+  %58 = getelementptr inbounds nuw i8, ptr %50, i64 20
   %59 = load i32, ptr %58, align 4
   %.not27 = icmp eq i32 %59, 0
   br i1 %.not27, label %74, label %60
 
 60:                                               ; preds = %57
-  %61 = getelementptr inbounds i8, ptr %50, i64 24
+  %61 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %62 = load i8, ptr %61, align 4
   switch i8 %62, label %74 [
     i8 97, label %63
@@ -1075,7 +1075,7 @@ define internal fastcc ptr @getOwnedSequences_internal(i32 noundef %0, i16 nound
   ]
 
 63:                                               ; preds = %60, %60
-  %64 = getelementptr inbounds i8, ptr %50, i64 4
+  %64 = getelementptr inbounds nuw i8, ptr %50, i64 4
   %65 = load i32, ptr %64, align 4
   %66 = call signext i8 @get_rel_relkind(i32 noundef %65) #6
   %67 = icmp eq i8 %66, 83
@@ -1111,7 +1111,7 @@ define dso_local i32 @getIdentitySequence(i32 noundef %0, i16 noundef signext %1
   br i1 %.not.i, label %11, label %list_length.exit
 
 list_length.exit:                                 ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %4, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %6 = load i32, ptr %5, align 4
   %7 = icmp sgt i32 %6, 1
   br i1 %7, label %8, label %15
@@ -1151,10 +1151,10 @@ define dso_local i32 @get_index_constraint(i32 noundef %0) local_unnamed_addr #0
   %2 = alloca [3 x %struct.ScanKeyData], align 16
   %3 = tail call ptr @table_open(i32 noundef 2608, i32 noundef 1) #6
   call void @ScanKeyInit(ptr noundef nonnull %2, i16 noundef signext 1, i16 noundef zeroext 3, i32 noundef 184, i64 noundef 1259) #6
-  %4 = getelementptr inbounds i8, ptr %2, i64 72
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %5 = zext i32 %0 to i64
   call void @ScanKeyInit(ptr noundef nonnull %4, i16 noundef signext 2, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %5) #6
-  %6 = getelementptr inbounds i8, ptr %2, i64 144
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 144
   call void @ScanKeyInit(ptr noundef nonnull %6, i16 noundef signext 3, i16 noundef zeroext 3, i32 noundef 65, i64 noundef 0) #6
   %7 = call ptr @systable_beginscan(ptr noundef %3, i32 noundef 2673, i1 noundef zeroext true, ptr noundef null, i32 noundef 3, ptr noundef nonnull %2) #6
   %8 = call ptr @systable_getnext(ptr noundef %7) #6
@@ -1163,31 +1163,31 @@ define dso_local i32 @get_index_constraint(i32 noundef %0) local_unnamed_addr #0
 
 .lr.ph:                                           ; preds = %1, %30
   %9 = phi ptr [ %31, %30 ], [ %8, %1 ]
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 22
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 22
   %13 = load i8, ptr %12, align 2
   %14 = zext i8 %13 to i64
   %15 = getelementptr i8, ptr %11, i64 %14
-  %16 = getelementptr inbounds i8, ptr %15, i64 12
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 12
   %17 = load i32, ptr %16, align 4
   %18 = icmp eq i32 %17, 2606
   br i1 %18, label %19, label %30
 
 19:                                               ; preds = %.lr.ph
-  %20 = getelementptr inbounds i8, ptr %15, i64 20
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 20
   %21 = load i32, ptr %20, align 4
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %23, label %30
 
 23:                                               ; preds = %19
-  %24 = getelementptr inbounds i8, ptr %15, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %25 = load i8, ptr %24, align 4
   %26 = icmp eq i8 %25, 105
   br i1 %26, label %27, label %30
 
 27:                                               ; preds = %23
-  %28 = getelementptr inbounds i8, ptr %15, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %29 = load i32, ptr %28, align 4
   br label %.loopexit
 
@@ -1208,10 +1208,10 @@ define dso_local ptr @get_index_ref_constraints(i32 noundef %0) local_unnamed_ad
   %2 = alloca [3 x %struct.ScanKeyData], align 16
   %3 = tail call ptr @table_open(i32 noundef 2608, i32 noundef 1) #6
   call void @ScanKeyInit(ptr noundef nonnull %2, i16 noundef signext 4, i16 noundef zeroext 3, i32 noundef 184, i64 noundef 1259) #6
-  %4 = getelementptr inbounds i8, ptr %2, i64 72
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %5 = zext i32 %0 to i64
   call void @ScanKeyInit(ptr noundef nonnull %4, i16 noundef signext 5, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %5) #6
-  %6 = getelementptr inbounds i8, ptr %2, i64 144
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 144
   call void @ScanKeyInit(ptr noundef nonnull %6, i16 noundef signext 6, i16 noundef zeroext 3, i32 noundef 65, i64 noundef 0) #6
   %7 = call ptr @systable_beginscan(ptr noundef %3, i32 noundef 2674, i1 noundef zeroext true, ptr noundef null, i32 noundef 3, ptr noundef nonnull %2) #6
   %8 = call ptr @systable_getnext(ptr noundef %7) #6
@@ -1221,9 +1221,9 @@ define dso_local ptr @get_index_ref_constraints(i32 noundef %0) local_unnamed_ad
 .lr.ph:                                           ; preds = %1, %30
   %9 = phi ptr [ %31, %30 ], [ %8, %1 ]
   %.014 = phi ptr [ %.1, %30 ], [ null, %1 ]
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 22
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 22
   %13 = load i8, ptr %12, align 2
   %14 = zext i8 %13 to i64
   %15 = getelementptr i8, ptr %11, i64 %14
@@ -1232,19 +1232,19 @@ define dso_local ptr @get_index_ref_constraints(i32 noundef %0) local_unnamed_ad
   br i1 %17, label %18, label %30
 
 18:                                               ; preds = %.lr.ph
-  %19 = getelementptr inbounds i8, ptr %15, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %20 = load i32, ptr %19, align 4
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %22, label %30
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %15, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %24 = load i8, ptr %23, align 4
   %25 = icmp eq i8 %24, 110
   br i1 %25, label %26, label %30
 
 26:                                               ; preds = %22
-  %27 = getelementptr inbounds i8, ptr %15, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %28 = load i32, ptr %27, align 4
   %29 = call ptr @lappend_oid(ptr noundef %.014, i32 noundef %28) #6
   br label %30

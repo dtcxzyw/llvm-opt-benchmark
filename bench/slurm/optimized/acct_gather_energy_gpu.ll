@@ -302,7 +302,7 @@ _thread_init.exit:                                ; preds = %9
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %22 ]
   %24 = trunc nuw i64 %indvars.iv.i to i32
   %25 = load ptr, ptr @gpus, align 8
-  %26 = getelementptr inbounds %struct.gpu_status_t, ptr %25, i64 %indvars.iv.i, i32 3
+  %26 = getelementptr inbounds nuw %struct.gpu_status_t, ptr %25, i64 %indvars.iv.i, i32 3
   tail call fastcc void @_add_energy(ptr noundef %1, ptr noundef nonnull %26, i32 noundef %24)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %27 = load i16, ptr @gpus_len, align 2
@@ -322,11 +322,11 @@ _thread_init.exit:                                ; preds = %9
   br i1 %34, label %35, label %_get_node_energy.exit
 
 35:                                               ; preds = %32
-  %36 = getelementptr inbounds i8, ptr %1, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %37 = load i32, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %1, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %39 = load i64, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %1, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %41 = load i64, ptr %40, align 8
   %42 = load i32, ptr %1, align 8
   tail call void (i32, ptr, ...) @slurm_log_var(i32 noundef 4, ptr noundef nonnull @.str.20, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._get_node_energy, ptr noundef nonnull @__func__._get_node_energy, i32 noundef %37, i64 noundef %39, i64 noundef %41, i32 noundef %42) #10
@@ -391,7 +391,7 @@ _thread_init.exit:                                ; preds = %9
 
 65:                                               ; preds = %.lr.ph.split.us.i
   %66 = load ptr, ptr @gpus, align 8
-  %67 = getelementptr inbounds %struct.gpu_status_t, ptr %66, i64 %indvars.iv27.i, i32 3
+  %67 = getelementptr inbounds nuw %struct.gpu_status_t, ptr %66, i64 %indvars.iv27.i, i32 3
   tail call fastcc void @_add_energy(ptr noundef %1, ptr noundef nonnull %67, i32 noundef %indvars105)
   br label %75
 
@@ -421,7 +421,7 @@ _thread_init.exit:                                ; preds = %9
   %indvars.iv.i74 = phi i64 [ %indvars.iv.next.i75, %.lr.ph.split.i ], [ 0, %.lr.ph.i73 ]
   %indvars104 = trunc i64 %indvars.iv.i74 to i32
   %79 = load ptr, ptr @gpus, align 8
-  %80 = getelementptr inbounds %struct.gpu_status_t, ptr %79, i64 %indvars.iv.i74, i32 3
+  %80 = getelementptr inbounds nuw %struct.gpu_status_t, ptr %79, i64 %indvars.iv.i74, i32 3
   tail call fastcc void @_add_energy(ptr noundef %1, ptr noundef nonnull %80, i32 noundef %indvars104)
   %indvars.iv.next.i75 = add nuw nsw i64 %indvars.iv.i74, 1
   %81 = load i16, ptr @gpus_len, align 2
@@ -441,11 +441,11 @@ _thread_init.exit:                                ; preds = %9
   br i1 %88, label %89, label %_get_node_energy.exit
 
 89:                                               ; preds = %86
-  %90 = getelementptr inbounds i8, ptr %1, i64 24
+  %90 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %91 = load i32, ptr %90, align 8
-  %92 = getelementptr inbounds i8, ptr %1, i64 16
+  %92 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %93 = load i64, ptr %92, align 8
-  %94 = getelementptr inbounds i8, ptr %1, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %95 = load i64, ptr %94, align 8
   %96 = load i32, ptr %1, align 8
   tail call void (i32, ptr, ...) @slurm_log_var(i32 noundef 4, ptr noundef nonnull @.str.20, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._get_node_energy_up, ptr noundef nonnull @__func__._get_node_energy_up, i32 noundef %91, i64 noundef %93, i64 noundef %95, i32 noundef %96) #10
@@ -483,7 +483,7 @@ _get_node_energy.exit:                            ; preds = %89, %86, %._crit_ed
   %indvars.iv.i79 = phi i64 [ %indvars.iv.next.i80, %.lr.ph.i78 ], [ 0, %104 ]
   %106 = trunc nuw i64 %indvars.iv.i79 to i32
   %107 = load ptr, ptr @gpus, align 8
-  %108 = getelementptr inbounds %struct.gpu_status_t, ptr %107, i64 %indvars.iv.i79, i32 3
+  %108 = getelementptr inbounds nuw %struct.gpu_status_t, ptr %107, i64 %indvars.iv.i79, i32 3
   tail call fastcc void @_add_energy(ptr noundef %1, ptr noundef nonnull %108, i32 noundef %106)
   %indvars.iv.next.i80 = add nuw nsw i64 %indvars.iv.i79, 1
   %109 = load i16, ptr @gpus_len, align 2
@@ -503,11 +503,11 @@ _get_node_energy.exit:                            ; preds = %89, %86, %._crit_ed
   br i1 %116, label %117, label %_get_node_energy.exit83
 
 117:                                              ; preds = %114
-  %118 = getelementptr inbounds i8, ptr %1, i64 24
+  %118 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %119 = load i32, ptr %118, align 8
-  %120 = getelementptr inbounds i8, ptr %1, i64 16
+  %120 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %121 = load i64, ptr %120, align 8
-  %122 = getelementptr inbounds i8, ptr %1, i64 8
+  %122 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %123 = load i64, ptr %122, align 8
   %124 = load i32, ptr %1, align 8
   tail call void (i32, ptr, ...) @slurm_log_var(i32 noundef 4, ptr noundef nonnull @.str.20, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._get_node_energy, ptr noundef nonnull @__func__._get_node_energy, i32 noundef %119, i64 noundef %121, i64 noundef %123, i32 noundef %124) #10
@@ -608,8 +608,8 @@ _get_node_energy.exit83:                          ; preds = %._crit_edge.i81, %1
 
 159:                                              ; preds = %.lr.ph93, %159
   %indvars.iv99 = phi i64 [ 0, %.lr.ph93 ], [ %indvars.iv.next100, %159 ]
-  %160 = getelementptr inbounds %struct.acct_gather_energy, ptr %1, i64 %indvars.iv99
-  %161 = getelementptr inbounds %struct.gpu_status_t, ptr %156, i64 %indvars.iv99, i32 3
+  %160 = getelementptr inbounds nuw %struct.acct_gather_energy, ptr %1, i64 %indvars.iv99
+  %161 = getelementptr inbounds nuw %struct.gpu_status_t, ptr %156, i64 %indvars.iv99, i32 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %160, ptr noundef nonnull align 8 dereferenceable(48) %161, i64 48, i1 false)
   %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99, 1
   %exitcond103.not = icmp eq i64 %indvars.iv.next100, %wide.trip.count102
@@ -688,8 +688,8 @@ _thread_init.exit87:                              ; preds = %171
 
 189:                                              ; preds = %.lr.ph, %189
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %189 ]
-  %190 = getelementptr inbounds %struct.acct_gather_energy, ptr %1, i64 %indvars.iv
-  %191 = getelementptr inbounds %struct.gpu_status_t, ptr %188, i64 %indvars.iv, i32 3
+  %190 = getelementptr inbounds nuw %struct.acct_gather_energy, ptr %1, i64 %indvars.iv
+  %191 = getelementptr inbounds nuw %struct.gpu_status_t, ptr %188, i64 %indvars.iv, i32 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %190, ptr noundef nonnull align 8 dereferenceable(48) %191, i64 48, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -727,16 +727,16 @@ define internal fastcc void @_thread_update_node_energy() unnamed_addr #1 {
   %indvars.iv = phi i64 [ %indvars.iv.next, %43 ], [ 0, %0 ]
   %2 = trunc nuw i64 %indvars.iv to i32
   %3 = load ptr, ptr @gpus, align 8
-  %4 = getelementptr inbounds %struct.gpu_status_t, ptr %3, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw %struct.gpu_status_t, ptr %3, i64 %indvars.iv
   %5 = tail call i32 @gpu_g_energy_read(i32 noundef %2, ptr noundef %4) #10
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %7, label %43
 
 7:                                                ; preds = %.lr.ph
   %8 = load ptr, ptr @gpus, align 8
-  %9 = getelementptr inbounds %struct.gpu_status_t, ptr %8, i64 %indvars.iv
-  %10 = getelementptr inbounds i8, ptr %9, i64 24
-  %11 = getelementptr inbounds i8, ptr %9, i64 48
+  %9 = getelementptr inbounds nuw %struct.gpu_status_t, ptr %8, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %12 = load i32, ptr %11, align 8
   switch i32 %12, label %13 [
     i32 0, label %38
@@ -753,13 +753,13 @@ define internal fastcc void @_thread_update_node_energy() unnamed_addr #1 {
   store i32 %19, ptr %10, align 8
   %20 = load i32, ptr %9, align 8
   store i32 %20, ptr %11, align 8
-  %21 = getelementptr inbounds i8, ptr %9, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %22 = load i64, ptr %21, align 8
   %23 = icmp eq i64 %22, 0
   br i1 %23, label %32, label %24
 
 24:                                               ; preds = %13
-  %25 = getelementptr inbounds i8, ptr %9, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %26 = load i64, ptr %25, align 8
   %27 = sub nsw i64 %26, %22
   %28 = add i32 %20, %12
@@ -770,18 +770,18 @@ define internal fastcc void @_thread_update_node_energy() unnamed_addr #1 {
 
 32:                                               ; preds = %24, %13
   %.sink.i = phi i64 [ %31, %24 ], [ 0, %13 ]
-  %33 = getelementptr inbounds i8, ptr %9, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store i64 %.sink.i, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %9, i64 40
+  %34 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %35 = load i64, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %9, i64 56
+  %36 = getelementptr inbounds nuw i8, ptr %9, i64 56
   store i64 %35, ptr %36, align 8
   %37 = add i64 %35, %.sink.i
   store i64 %37, ptr %34, align 8
   br label %_update_energy.exit
 
 38:                                               ; preds = %7, %7
-  %39 = getelementptr inbounds i8, ptr %9, i64 40
+  %39 = getelementptr inbounds nuw i8, ptr %9, i64 40
   store i64 0, ptr %39, align 8
   store i32 0, ptr %10, align 8
   %40 = load i32, ptr %9, align 8
@@ -790,7 +790,7 @@ define internal fastcc void @_thread_update_node_energy() unnamed_addr #1 {
 
 _update_energy.exit:                              ; preds = %32, %38
   %41 = tail call i64 @time(ptr noundef null) #10
-  %42 = getelementptr inbounds i8, ptr %9, i64 64
+  %42 = getelementptr inbounds nuw i8, ptr %9, i64 64
   store i64 %41, ptr %42, align 8
   br label %43
 
@@ -825,12 +825,12 @@ _update_energy.exit:                              ; preds = %32, %38
 
 56:                                               ; preds = %.lr.ph19
   %57 = load ptr, ptr @gpus, align 8
-  %58 = getelementptr inbounds %struct.gpu_status_t, ptr %57, i64 %indvars.iv23, i32 3
-  %59 = getelementptr inbounds i8, ptr %58, i64 24
+  %58 = getelementptr inbounds nuw %struct.gpu_status_t, ptr %57, i64 %indvars.iv23, i32 3
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 24
   %60 = load i32, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %58, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %58, i64 16
   %62 = load i64, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %58, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %64 = load i64, ptr %63, align 8
   %65 = load i32, ptr %58, align 8
   tail call void (i32, ptr, ...) @slurm_log_var(i32 noundef 3, ptr noundef nonnull @.str.19, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._thread_update_node_energy, i32 noundef %53, i32 noundef %60, i64 noundef %62, i64 noundef %64, i32 noundef %65) #10
@@ -856,7 +856,7 @@ define internal fastcc void @_get_joules_task(i16 noundef zeroext %0) unnamed_ad
   store ptr null, ptr %2, align 8
   store i16 0, ptr %3, align 2
   %5 = load ptr, ptr @conf, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 4272
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 4272
   %7 = load ptr, ptr %6, align 8
   %8 = load i32, ptr @context_id, align 4
   %9 = trunc i32 %8 to i16
@@ -905,16 +905,16 @@ define internal fastcc void @_get_joules_task(i16 noundef zeroext %0) unnamed_ad
 .lr.ph:                                           ; preds = %.preheader, %81
   %indvars.iv = phi i64 [ %indvars.iv.next, %81 ], [ 0, %.preheader ]
   %29 = load ptr, ptr %2, align 8
-  %30 = getelementptr inbounds %struct.acct_gather_energy, ptr %29, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw %struct.acct_gather_energy, ptr %29, i64 %indvars.iv
   %31 = load ptr, ptr @gpus, align 8
-  %32 = getelementptr inbounds %struct.gpu_status_t, ptr %31, i64 %indvars.iv, i32 3
-  %33 = getelementptr inbounds i8, ptr %32, i64 16
+  %32 = getelementptr inbounds nuw %struct.gpu_status_t, ptr %31, i64 %indvars.iv, i32 3
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %34 = load i64, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %30, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %30, i64 32
   store i64 %34, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %30, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %30, i64 40
   %37 = load i64, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %30, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %30, i64 24
   %39 = load i32, ptr %38, align 8
   %40 = sub nsw i64 %4, %37
   %41 = shl i32 %39, 1
@@ -922,7 +922,7 @@ define internal fastcc void @_get_joules_task(i16 noundef zeroext %0) unnamed_ad
   %43 = mul nsw i64 %40, %42
   %44 = ashr exact i64 %43, 1
   %.b = load i1, ptr @_get_joules_task.stepd_first, align 1
-  %45 = getelementptr inbounds i8, ptr %30, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %46 = load i64, ptr %45, align 8
   br i1 %.b, label %47, label %61
 
@@ -932,29 +932,29 @@ define internal fastcc void @_get_joules_task(i16 noundef zeroext %0) unnamed_ad
 
 49:                                               ; preds = %47
   %50 = add i64 %46, %44
-  %51 = getelementptr inbounds i8, ptr %30, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store i64 %50, ptr %51, align 8
   br label %66
 
 52:                                               ; preds = %47
   %53 = load ptr, ptr @start_current_energies, align 8
-  %54 = getelementptr inbounds i64, ptr %53, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw i64, ptr %53, i64 %indvars.iv
   %55 = load i64, ptr %54, align 8
   %56 = sub i64 %46, %55
   store i64 %56, ptr %45, align 8
   %57 = load i64, ptr %33, align 8
   %58 = add i64 %56, %44
   %59 = sub i64 %58, %57
-  %60 = getelementptr inbounds i8, ptr %30, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store i64 %59, ptr %60, align 8
   br label %66
 
 61:                                               ; preds = %.lr.ph
   %62 = add i64 %46, %44
   %63 = load ptr, ptr @start_current_energies, align 8
-  %64 = getelementptr inbounds i64, ptr %63, i64 %indvars.iv
+  %64 = getelementptr inbounds nuw i64, ptr %63, i64 %indvars.iv
   store i64 %62, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %30, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store i64 0, ptr %65, align 8
   %.pre = load i64, ptr %35, align 8
   br label %66
@@ -962,9 +962,9 @@ define internal fastcc void @_get_joules_task(i16 noundef zeroext %0) unnamed_ad
 66:                                               ; preds = %49, %52, %61
   %67 = phi i64 [ %50, %49 ], [ %59, %52 ], [ 0, %61 ]
   %68 = phi i64 [ %34, %49 ], [ %34, %52 ], [ %.pre, %61 ]
-  %69 = getelementptr inbounds i8, ptr %30, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %70 = add i64 %67, %68
-  %71 = getelementptr inbounds i8, ptr %30, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %30, i64 16
   store i64 %70, ptr %71, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %32, ptr noundef nonnull align 8 dereferenceable(48) %30, i64 48, i1 false)
   %72 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
@@ -1040,7 +1040,7 @@ define noundef i32 @acct_gather_energy_p_set_data(i32 noundef %0, ptr noundef %1
 
 13:                                               ; preds = %2
   store ptr %1, ptr @step, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 760
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 760
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i32 @slurm_gres_get_step_info(ptr noundef %15, ptr noundef nonnull @.str.6, i32 noundef 0, i32 noundef 1, ptr noundef nonnull @saved_usable_gpus) #10
   switch i32 %16, label %32 [
@@ -1137,9 +1137,9 @@ _running_profile.exit:                            ; preds = %0, %10
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %17 ]
   %23 = trunc nuw i64 %indvars.iv to i32
   %24 = tail call ptr (ptr, ...) @slurm_xstrdup_printf(ptr noundef nonnull @.str.29, i32 noundef %23) #10
-  %25 = getelementptr inbounds %struct.acct_gather_profile_dataset_t, ptr %21, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw %struct.acct_gather_profile_dataset_t, ptr %21, i64 %indvars.iv
   store ptr %24, ptr %25, align 16
-  %26 = getelementptr inbounds i8, ptr %25, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store i32 1, ptr %26, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %27 = load i16, ptr @gpus_len, align 2
@@ -1149,9 +1149,9 @@ _running_profile.exit:                            ; preds = %0, %10
 
 ._crit_edge:                                      ; preds = %.lr.ph, %17
   %.023.lcssa = phi i64 [ 0, %17 ], [ %indvars.iv.next, %.lr.ph ]
-  %30 = getelementptr inbounds %struct.acct_gather_profile_dataset_t, ptr %21, i64 %.023.lcssa
+  %30 = getelementptr inbounds nuw %struct.acct_gather_profile_dataset_t, ptr %21, i64 %.023.lcssa
   store ptr null, ptr %30, align 16
-  %31 = getelementptr inbounds i8, ptr %30, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store i32 0, ptr %31, align 8
   %32 = call i32 @acct_gather_profile_g_create_dataset(ptr noundef nonnull @.str.30, i64 noundef -1, ptr noundef nonnull %21) #10
   store i32 %32, ptr @dataset_id, align 4
@@ -1161,7 +1161,7 @@ _running_profile.exit:                            ; preds = %0, %10
 
 .lr.ph35:                                         ; preds = %._crit_edge, %.lr.ph35
   %indvars.iv51 = phi i64 [ %indvars.iv.next52, %.lr.ph35 ], [ 0, %._crit_edge ]
-  %34 = getelementptr inbounds %struct.acct_gather_profile_dataset_t, ptr %21, i64 %indvars.iv51
+  %34 = getelementptr inbounds nuw %struct.acct_gather_profile_dataset_t, ptr %21, i64 %indvars.iv51
   call void @slurm_xfree(ptr noundef nonnull %34) #10
   %indvars.iv.next52 = add nuw nsw i64 %indvars.iv51, 1
   %35 = load i16, ptr @gpus_len, align 2
@@ -1215,17 +1215,17 @@ _running_profile.exit:                            ; preds = %0, %10
 
 54:                                               ; preds = %.lr.ph39, %54
   %indvars.iv54 = phi i64 [ 0, %.lr.ph39 ], [ %indvars.iv.next55, %54 ]
-  %55 = getelementptr inbounds %struct.gpu_status_t, ptr %53, i64 %indvars.iv54, i32 3, i32 3
+  %55 = getelementptr inbounds nuw %struct.gpu_status_t, ptr %53, i64 %indvars.iv54, i32 3, i32 3
   %56 = load i32, ptr %55, align 8
   %57 = zext i32 %56 to i64
-  %58 = getelementptr inbounds i64, ptr %3, i64 %indvars.iv54
+  %58 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv54
   store i64 %57, ptr %58, align 8
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next55, %wide.trip.count
   br i1 %exitcond.not, label %59, label %54, !llvm.loop !16
 
 59:                                               ; preds = %54
-  %60 = getelementptr inbounds %struct.gpu_status_t, ptr %53, i64 %indvars.iv54, i32 3, i32 5
+  %60 = getelementptr inbounds nuw %struct.gpu_status_t, ptr %53, i64 %indvars.iv54, i32 3, i32 5
   %61 = load i64, ptr %60, align 8
   %62 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %63 = and i64 %62, 2097152
@@ -1240,7 +1240,7 @@ _running_profile.exit:                            ; preds = %0, %10
   br i1 %66, label %67, label %70
 
 67:                                               ; preds = %.lr.ph45
-  %68 = getelementptr inbounds i64, ptr %3, i64 %indvars.iv57
+  %68 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv57
   %69 = load i64, ptr %68, align 8
   call void (i32, ptr, ...) @slurm_log_var(i32 noundef 3, ptr noundef nonnull @.str.33, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._send_profile, i32 noundef %64, i64 noundef %69) #10
   br label %70
@@ -1476,10 +1476,10 @@ define internal noalias noundef ptr @_thread_launcher(ptr nocapture readnone %0)
   %29 = load i64, ptr %2, align 8
   %30 = add nsw i64 %29, 10
   store i64 %30, ptr %3, align 8
-  %31 = getelementptr inbounds i8, ptr %2, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %32 = load i64, ptr %31, align 8
   %33 = mul nsw i64 %32, 1000
-  %34 = getelementptr inbounds i8, ptr %3, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %33, ptr %34, align 8
   %35 = call i32 @pthread_mutex_lock(ptr noundef nonnull @launch_mutex) #10
   %.not32 = icmp eq i32 %35, 0
@@ -1556,15 +1556,15 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_add_energy(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 0, 65535) %2) unnamed_addr #1 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, -2
   br i1 %6, label %44, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load i64, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load i64, ptr %10, align 8
   %12 = add i64 %11, %9
   store i64 %12, ptr %10, align 8
@@ -1572,27 +1572,27 @@ define internal fastcc void @_add_energy(ptr nocapture noundef %0, ptr nocapture
   %14 = load i32, ptr %0, align 8
   %15 = add i32 %14, %13
   store i32 %15, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %17 = load i64, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load i64, ptr %18, align 8
   %20 = add i64 %19, %17
   store i64 %20, ptr %18, align 8
   %21 = load i32, ptr %4, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %23 = load i32, ptr %22, align 8
   %24 = add i32 %23, %21
   store i32 %24, ptr %22, align 8
-  %25 = getelementptr inbounds i8, ptr %1, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %26 = load i64, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %28 = load i64, ptr %27, align 8
   %29 = add i64 %28, %26
   store i64 %29, ptr %27, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %31 = load i64, ptr %30, align 8
   %.not = icmp eq i64 %31, 0
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 40
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.pre = load i64, ptr %.phi.trans.insert, align 8
   %32 = icmp sgt i64 %31, %.pre
   %or.cond = select i1 %.not, i1 true, i1 %32
@@ -1816,10 +1816,10 @@ define internal noalias noundef ptr @_thread_gpu_run(ptr nocapture readnone %0) 
   %72 = call i32 @gettimeofday(ptr noundef nonnull %2, ptr noundef null) #10
   %73 = load i64, ptr %2, align 8
   store i64 %73, ptr %3, align 8
-  %74 = getelementptr inbounds i8, ptr %2, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %75 = load i64, ptr %74, align 8
   %76 = mul nsw i64 %75, 1000
-  %77 = getelementptr inbounds i8, ptr %3, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %76, ptr %77, align 8
   br label %78
 

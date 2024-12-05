@@ -9,23 +9,23 @@ target triple = "x86_64-pc-linux-gnu"
 define void @_ZN14PairlistParamsC2EN5Nbnxm10KernelTypeEbfb(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(36) initializes((0, 5), (8, 18), (20, 36)) %0, i32 noundef %1, i1 noundef zeroext %2, float noundef %3, i1 noundef zeroext %4) unnamed_addr #0 align 2 {
   %6 = zext i1 %2 to i8
   %7 = zext i1 %4 to i8
-  %8 = getelementptr inbounds i8, ptr %0, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i8 %6, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store float %3, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store float %3, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 %7, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %0, i64 17
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 17
   store i8 0, ptr %12, align 1
-  %13 = getelementptr inbounds i8, ptr %0, i64 20
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 1, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %0, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 -1, ptr %14, align 4
-  %15 = getelementptr inbounds i8, ptr %0, i64 28
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 1, ptr %15, align 4
-  %16 = getelementptr inbounds i8, ptr %0, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 -1, ptr %16, align 4
   %17 = add i32 %1, -1
   %spec.select.i = icmp ult i32 %17, 3

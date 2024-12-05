@@ -33,7 +33,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 -2147483648, 2147483648) i64 @gin_compare_jsonb(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #8
@@ -45,14 +45,14 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @gin_compare_jsonb(ptr n
   %11 = zext i8 %10 to i32
   %12 = and i32 %11, 1
   %.not = icmp eq i32 %12, 0
-  %13 = getelementptr inbounds i8, ptr %5, i64 1
-  %14 = getelementptr inbounds i8, ptr %5, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %15 = select i1 %.not, ptr %14, ptr %13
   %16 = load i8, ptr %9, align 1
   %17 = and i8 %16, 1
   %.not37 = icmp eq i8 %17, 0
-  %18 = getelementptr inbounds i8, ptr %9, i64 1
-  %19 = getelementptr inbounds i8, ptr %9, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %9, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %20 = select i1 %.not37, ptr %19, ptr %18
   %21 = icmp eq i8 %10, 1
   br i1 %21, label %22, label %30
@@ -152,14 +152,14 @@ declare void @pfree(ptr noundef) local_unnamed_addr #1
 define dso_local i64 @gin_extract_jsonb(ptr nocapture noundef readonly %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca %struct.JsonbValue, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i64, ptr %4, align 8
   %6 = inttoptr i64 %5 to ptr
   %7 = tail call ptr @pg_detoast_datum(ptr noundef %6) #8
   %8 = getelementptr i8, ptr %0, i64 48
   %9 = load i64, ptr %8, align 8
   %10 = inttoptr i64 %9 to ptr
-  %11 = getelementptr inbounds i8, ptr %7, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %12 = load i32, ptr %11, align 4
   %13 = and i32 %12, 268435455
   %14 = icmp eq i32 %13, 0
@@ -294,17 +294,17 @@ define internal fastcc noundef i64 @make_scalar_key(ptr nocapture noundef nonnul
 6:                                                ; preds = %2
   %7 = tail call ptr @palloc(i64 noundef 5) #8
   store i32 20, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %7, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i8 2, ptr %8, align 4
   br label %56
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load i8, ptr %10, align 8
   %12 = trunc i8 %11 to i1
   %13 = tail call ptr @palloc(i64 noundef 6) #8
   store i32 24, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %13, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
   store i8 3, ptr %14, align 4
   %15 = getelementptr i8, ptr %13, i64 5
   %16 = select i1 %12, i8 116, i8 102
@@ -312,7 +312,7 @@ define internal fastcc noundef i64 @make_scalar_key(ptr nocapture noundef nonnul
   br label %56
 
 17:                                               ; preds = %2
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = tail call ptr @numeric_normalize(ptr noundef %19) #8
   %21 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %20) #9
@@ -335,7 +335,7 @@ make_text_key.exit:                               ; preds = %17, %24
   %29 = call ptr @palloc(i64 noundef %28) #8
   %30 = shl i32 %27, 2
   store i32 %30, ptr %29, align 4
-  %31 = getelementptr inbounds i8, ptr %29, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %29, i64 4
   store i8 %.0.i, ptr %31, align 4
   %32 = getelementptr i8, ptr %29, i64 5
   %33 = sext i32 %.014.i to i64
@@ -346,8 +346,8 @@ make_text_key.exit:                               ; preds = %17, %24
 
 34:                                               ; preds = %2
   %35 = select i1 %1, i8 1, i8 5
-  %36 = getelementptr inbounds i8, ptr %0, i64 8
-  %37 = getelementptr inbounds i8, ptr %0, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %38 = load ptr, ptr %37, align 8
   %39 = load i32, ptr %36, align 8
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %3)
@@ -369,7 +369,7 @@ make_text_key.exit13:                             ; preds = %34, %41
   %47 = call ptr @palloc(i64 noundef %46) #8
   %48 = shl i32 %45, 2
   store i32 %48, ptr %47, align 4
-  %49 = getelementptr inbounds i8, ptr %47, i64 4
+  %49 = getelementptr inbounds nuw i8, ptr %47, i64 4
   store i8 %.0.i12, ptr %49, align 4
   %50 = getelementptr i8, ptr %47, i64 5
   %51 = sext i32 %.014.i10 to i64
@@ -398,7 +398,7 @@ define dso_local i64 @gin_extract_jsonb_query(ptr nocapture noundef readonly %0)
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = getelementptr i8, ptr %0, i64 48
   %9 = load i64, ptr %8, align 8
   %10 = inttoptr i64 %9 to ptr
@@ -435,8 +435,8 @@ define dso_local i64 @gin_extract_jsonb_query(ptr nocapture noundef readonly %0)
   %30 = zext i8 %29 to i32
   %31 = and i32 %30, 1
   %.not76 = icmp eq i32 %31, 0
-  %32 = getelementptr inbounds i8, ptr %27, i64 1
-  %33 = getelementptr inbounds i8, ptr %27, i64 4
+  %32 = getelementptr inbounds nuw i8, ptr %27, i64 1
+  %33 = getelementptr inbounds nuw i8, ptr %27, i64 4
   %34 = select i1 %.not76, ptr %33, ptr %32
   %35 = icmp eq i8 %29, 1
   br i1 %35, label %.thread, label %43
@@ -487,7 +487,7 @@ make_text_key.exit:                               ; preds = %.thread, %51, %54
   %59 = call ptr @palloc(i64 noundef %58) #8
   %60 = shl nuw nsw i32 %57, 2
   store i32 %60, ptr %59, align 4
-  %61 = getelementptr inbounds i8, ptr %59, i64 4
+  %61 = getelementptr inbounds nuw i8, ptr %59, i64 4
   store i8 %.0.i, ptr %61, align 4
   %62 = getelementptr i8, ptr %59, i64 5
   %63 = sext i32 %.014.i to i64
@@ -534,8 +534,8 @@ make_text_key.exit:                               ; preds = %.thread, %51, %54
   %88 = load i8, ptr %87, align 1
   %89 = and i8 %88, 1
   %.not74 = icmp eq i8 %89, 0
-  %90 = getelementptr inbounds i8, ptr %87, i64 1
-  %91 = getelementptr inbounds i8, ptr %87, i64 4
+  %90 = getelementptr inbounds nuw i8, ptr %87, i64 1
+  %91 = getelementptr inbounds nuw i8, ptr %87, i64 4
   %92 = select i1 %.not74, ptr %91, ptr %90
   %93 = zext i8 %88 to i32
   %94 = icmp eq i8 %88, 1
@@ -589,7 +589,7 @@ make_text_key.exit84:                             ; preds = %.thread85, %111, %1
   %119 = call ptr @palloc(i64 noundef %118) #8
   %120 = shl nuw nsw i32 %117, 2
   store i32 %120, ptr %119, align 4
-  %121 = getelementptr inbounds i8, ptr %119, i64 4
+  %121 = getelementptr inbounds nuw i8, ptr %119, i64 4
   store i8 %.0.i83, ptr %121, align 4
   %122 = getelementptr i8, ptr %119, i64 5
   %123 = sext i32 %.014.i81 to i64
@@ -671,16 +671,16 @@ define internal fastcc ptr @extract_jsp_query(ptr noundef %0, i16 noundef zeroex
   %7 = alloca %struct.JsonPathItem, align 8
   %8 = alloca %struct.GinEntries, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
-  %9 = getelementptr inbounds i8, ptr %0, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %10 = load i32, ptr %9, align 4
-  %11 = getelementptr inbounds i8, ptr %6, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %.lobit = lshr i32 %10, 31
   %12 = trunc nuw nsw i32 %.lobit to i8
   store i8 %12, ptr %11, align 8
   %spec.select = select i1 %2, ptr @jsonb_path_ops__add_path_item, ptr @jsonb_ops__add_path_item
   %spec.select15 = select i1 %2, ptr @jsonb_path_ops__extract_nodes, ptr @jsonb_ops__extract_nodes
   store ptr %spec.select, ptr %6, align 8
-  %13 = getelementptr inbounds i8, ptr %6, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %spec.select15, ptr %13, align 8
   call void @jspInit(ptr noundef nonnull %7, ptr noundef nonnull %0) #8
   %14 = icmp eq i16 %1, 15
@@ -705,7 +705,7 @@ define internal fastcc ptr @extract_jsp_query(ptr noundef %0, i16 noundef zeroex
 
 22:                                               ; preds = %19
   call fastcc void @emit_jsp_gin_entries(ptr noundef nonnull %20, ptr noundef %8)
-  %23 = getelementptr inbounds i8, ptr %8, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %24 = load i32, ptr %23, align 8
   store i32 %24, ptr %3, align 4
   %.not14 = icmp eq i32 %24, 0
@@ -734,7 +734,7 @@ declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_add
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 0, 2) i64 @gin_consistent_jsonb(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = getelementptr i8, ptr %0, i64 48
@@ -847,23 +847,23 @@ define internal fastcc signext i8 @execute_jsp_gin_node(ptr nocapture noundef re
   ]
 
 .preheader33:                                     ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader33
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %22
 
 .preheader:                                       ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i32, ptr %9, align 8
   %11 = icmp sgt i32 %10, 0
   br i1 %11, label %.lr.ph42, label %.loopexit
 
 .lr.ph42:                                         ; preds = %.preheader
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %13
 
 13:                                               ; preds = %.lr.ph42, %18
@@ -911,7 +911,7 @@ define internal fastcc signext i8 @execute_jsp_gin_node(ptr nocapture noundef re
   br i1 %30, label %22, label %.loopexit, !llvm.loop !11
 
 31:                                               ; preds = %3
-  %32 = getelementptr inbounds i8, ptr %0, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %33 = load i32, ptr %32, align 8
   %34 = sext i32 %33 to i64
   %35 = getelementptr i8, ptr %1, i64 %34
@@ -935,7 +935,7 @@ define internal fastcc signext i8 @execute_jsp_gin_node(ptr nocapture noundef re
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 -128, 128) i64 @gin_triconsistent_jsonb(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = getelementptr i8, ptr %0, i64 48
@@ -1034,14 +1034,14 @@ define dso_local i64 @gin_extract_jsonb_path(ptr nocapture noundef readonly %0) 
   %2 = alloca ptr, align 8
   %3 = alloca %struct.JsonbValue, align 8
   %4 = alloca %struct.PathHashStack, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load i64, ptr %5, align 8
   %7 = inttoptr i64 %6 to ptr
   %8 = tail call ptr @pg_detoast_datum(ptr noundef %7) #8
   %9 = getelementptr i8, ptr %0, i64 48
   %10 = load i64, ptr %9, align 8
   %11 = inttoptr i64 %10 to ptr
-  %12 = getelementptr inbounds i8, ptr %8, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %13 = load i32, ptr %12, align 4
   %14 = and i32 %13, 268435455
   %15 = icmp eq i32 %14, 0
@@ -1056,7 +1056,7 @@ define dso_local i64 @gin_extract_jsonb_path(ptr nocapture noundef readonly %0) 
   %19 = shl nuw i32 %14, 4
   %20 = zext i32 %19 to i64
   %21 = tail call ptr @palloc(i64 noundef %20) #8
-  %22 = getelementptr inbounds i8, ptr %4, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr null, ptr %22, align 8
   store i32 0, ptr %4, align 8
   %23 = tail call ptr @JsonbIteratorInit(ptr noundef nonnull %12) #8
@@ -1091,7 +1091,7 @@ define dso_local i64 @gin_extract_jsonb_path(ptr nocapture noundef readonly %0) 
   %27 = call ptr @palloc(i64 noundef 16) #8
   %28 = load i32, ptr %.0.ph48, align 8
   store i32 %28, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %27, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store ptr %.0.ph48, ptr %29, align 8
   br label %.outer47.backedge
 
@@ -1128,17 +1128,17 @@ add_gin_entry.exit:                               ; preds = %31, %35, %40
   %43 = sext i32 %.sroa.6.0.ph to i64
   %44 = getelementptr i64, ptr %.sroa.0.2, i64 %43
   store i64 %33, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %.0.ph48, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %.0.ph48, i64 8
   %46 = load ptr, ptr %45, align 8
   %47 = load i32, ptr %46, align 8
   store i32 %47, ptr %.0.ph48, align 8
   br label %.outer, !llvm.loop !14
 
 48:                                               ; preds = %24, %24
-  %49 = getelementptr inbounds i8, ptr %.0.ph48, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %.0.ph48, i64 8
   %50 = load ptr, ptr %49, align 8
   call void @pfree(ptr noundef nonnull %.0.ph48) #8
-  %51 = getelementptr inbounds i8, ptr %50, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %52 = load ptr, ptr %51, align 8
   %.not31 = icmp eq ptr %52, null
   br i1 %.not31, label %55, label %53
@@ -1177,7 +1177,7 @@ declare void @JsonbHashScalarValue(ptr noundef, ptr noundef) local_unnamed_addr 
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @gin_extract_jsonb_query_path(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = getelementptr i8, ptr %0, i64 48
   %4 = load i64, ptr %3, align 8
   %5 = inttoptr i64 %4 to ptr
@@ -1236,7 +1236,7 @@ define dso_local i64 @gin_extract_jsonb_query_path(ptr nocapture noundef readonl
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 0, 2) i64 @gin_consistent_jsonb_path(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = getelementptr i8, ptr %0, i64 48
@@ -1308,7 +1308,7 @@ define dso_local range(i64 0, 2) i64 @gin_consistent_jsonb_path(ptr nocapture no
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 -128, 128) i64 @gin_triconsistent_jsonb_path(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = getelementptr i8, ptr %0, i64 48
@@ -1396,9 +1396,9 @@ define internal noundef zeroext i1 @jsonb_path_ops__add_path_item(ptr noundef %0
 
 6:                                                ; preds = %2
   store i32 1, ptr %3, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %8 = call ptr @jspGetString(ptr noundef nonnull %1, ptr noundef nonnull %7) #8
-  %9 = getelementptr inbounds i8, ptr %3, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %8, ptr %9, align 8
   call void @JsonbHashScalarValue(ptr noundef nonnull %3, ptr noundef %0) #8
   br label %11
@@ -1426,7 +1426,7 @@ define internal ptr @jsonb_path_ops__extract_nodes(ptr nocapture readnone %0, pt
   %9 = zext i32 %8 to i64
   %10 = call noundef ptr @palloc(i64 noundef 16) #8
   store i32 2, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 %9, ptr %11, align 8
   %12 = call ptr @lappend(ptr noundef %3, ptr noundef nonnull %10) #8
   br label %13
@@ -1471,7 +1471,7 @@ make_text_key.exit:                               ; preds = %6, %10
   %15 = call ptr @palloc(i64 noundef %14) #8
   %16 = shl i32 %13, 2
   store i32 %16, ptr %15, align 4
-  %17 = getelementptr inbounds i8, ptr %15, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 4
   store i8 %.0.i, ptr %17, align 4
   %18 = getelementptr i8, ptr %15, i64 5
   %19 = sext i32 %.014.i to i64
@@ -1484,9 +1484,9 @@ make_text_key.exit:                               ; preds = %6, %10
   %.012 = phi i64 [ %20, %make_text_key.exit ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ]
   %22 = call ptr @palloc(i64 noundef 24) #8
   %23 = load i32, ptr %1, align 8
-  %24 = getelementptr inbounds i8, ptr %22, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 16
   store i32 %23, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %22, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store i64 %.012, ptr %25, align 8
   %26 = load ptr, ptr %0, align 8
   store ptr %26, ptr %22, align 8
@@ -1514,17 +1514,17 @@ define internal ptr @jsonb_ops__extract_nodes(ptr nocapture noundef readonly %0,
 .lr.ph:                                           ; preds = %.preheader, %14
   %.134 = phi ptr [ %.2, %14 ], [ %3, %.preheader ]
   %.02333 = phi ptr [ %15, %14 ], [ %1, %.preheader ]
-  %5 = getelementptr inbounds i8, ptr %.02333, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %.02333, i64 16
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, 25
   br i1 %7, label %8, label %14
 
 8:                                                ; preds = %.lr.ph
-  %9 = getelementptr inbounds i8, ptr %.02333, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %.02333, i64 8
   %10 = load i64, ptr %9, align 8
   %11 = tail call noundef ptr @palloc(i64 noundef 16) #8
   store i32 2, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 %10, ptr %12, align 8
   %13 = tail call ptr @lappend(ptr noundef %.134, ptr noundef nonnull %11) #8
   br label %14
@@ -1542,7 +1542,7 @@ define internal ptr @jsonb_ops__extract_nodes(ptr nocapture noundef readonly %0,
   br i1 %17, label %18, label %42
 
 18:                                               ; preds = %._crit_edge
-  %19 = getelementptr inbounds i8, ptr %0, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = load i8, ptr %19, align 8
   %21 = trunc i8 %20 to i1
   br i1 %21, label %27, label %22
@@ -1551,7 +1551,7 @@ define internal ptr @jsonb_ops__extract_nodes(ptr nocapture noundef readonly %0,
   br i1 %.not3032, label %38, label %23
 
 23:                                               ; preds = %22
-  %24 = getelementptr inbounds i8, ptr %1, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %25 = load i32, ptr %24, align 8
   switch i32 %25, label %26 [
     i32 21, label %38
@@ -1566,18 +1566,18 @@ define internal ptr @jsonb_ops__extract_nodes(ptr nocapture noundef readonly %0,
   %28 = tail call fastcc i64 @make_scalar_key(ptr noundef nonnull readonly %2, i1 noundef zeroext true)
   %29 = tail call noundef ptr @palloc(i64 noundef 16) #8
   store i32 2, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store i64 %28, ptr %30, align 8
   %31 = tail call fastcc i64 @make_scalar_key(ptr noundef nonnull readonly %2, i1 noundef zeroext false)
   %32 = tail call noundef ptr @palloc(i64 noundef 16) #8
   store i32 2, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   store i64 %31, ptr %33, align 8
   %34 = tail call noundef ptr @palloc(i64 noundef 32) #8
   store i32 0, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store i32 2, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %34, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %34, i64 16
   store ptr %29, ptr %36, align 8
   %37 = getelementptr i8, ptr %34, i64 24
   store ptr %32, ptr %37, align 8
@@ -1588,7 +1588,7 @@ define internal ptr @jsonb_ops__extract_nodes(ptr nocapture noundef readonly %0,
   %39 = tail call fastcc i64 @make_scalar_key(ptr noundef nonnull readonly %2, i1 noundef zeroext %.ph)
   %40 = tail call noundef ptr @palloc(i64 noundef 16) #8
   store i32 2, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
   store i64 %39, ptr %41, align 8
   br label %46
 
@@ -1596,7 +1596,7 @@ define internal ptr @jsonb_ops__extract_nodes(ptr nocapture noundef readonly %0,
   %43 = tail call fastcc i64 @make_scalar_key(ptr noundef nonnull readonly %2, i1 noundef zeroext false)
   %44 = tail call noundef ptr @palloc(i64 noundef 16) #8
   store i32 2, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   store i64 %43, ptr %45, align 8
   br label %46
 
@@ -1654,7 +1654,7 @@ define internal fastcc ptr @extract_jsp_path_expr(ptr noundef nonnull %0, ptr %1
   br i1 %19, label %8, label %20
 
 20:                                               ; preds = %18
-  %21 = getelementptr inbounds i8, ptr %0, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = load ptr, ptr %21, align 8
   %23 = load ptr, ptr %5, align 8
   %24 = call ptr %22(ptr noundef nonnull %0, ptr %23, ptr noundef %3, ptr noundef %.1.i) #8
@@ -1686,15 +1686,15 @@ extract_jsp_path_expr_nodes.exit:                 ; preds = %15, %20
   %35 = add nsw i64 %34, 16
   %36 = call noundef ptr @palloc(i64 noundef %35) #8
   store i32 1, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   store i32 %.val, ptr %37, align 8
   %38 = load i32, ptr %27, align 4
   %.not14.i = icmp sgt i32 %38, 0
   br i1 %.not14.i, label %.lr.ph.i, label %make_jsp_expr_node_args.exit
 
 .lr.ph.i:                                         ; preds = %32
-  %39 = getelementptr inbounds i8, ptr %.0.i, i64 16
-  %40 = getelementptr inbounds i8, ptr %36, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %36, i64 16
   br label %41
 
 41:                                               ; preds = %41, %.lr.ph.i
@@ -1725,8 +1725,8 @@ define internal fastcc ptr @extract_jsp_bool_expr(ptr noundef nonnull %0, ptr %1
   %10 = alloca %struct.JsonbValue, align 8
   tail call void @check_stack_depth() #8
   %11 = load i32, ptr %2, align 8
-  %.0.sroa.gep53 = getelementptr inbounds i8, ptr %8, i64 16
-  %.0.sroa.gep54 = getelementptr inbounds i8, ptr %9, i64 16
+  %.0.sroa.gep53 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %.0.sroa.gep54 = getelementptr inbounds nuw i8, ptr %9, i64 16
   switch i32 %11, label %62 [
     i32 4, label %12
     i32 5, label %12
@@ -1758,9 +1758,9 @@ define internal fastcc ptr @extract_jsp_bool_expr(ptr noundef nonnull %0, ptr %1
   %24 = zext i1 %23 to i32
   %25 = call noundef ptr @palloc(i64 noundef 32) #8
   store i32 %24, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store i32 2, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %25, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 16
   store ptr %13, ptr %27, align 8
   %28 = getelementptr i8, ptr %25, i64 24
   store ptr %14, ptr %28, align 8
@@ -1815,7 +1815,7 @@ define internal fastcc ptr @extract_jsp_bool_expr(ptr noundef nonnull %0, ptr %1
   %46 = load ptr, ptr %.0.sroa.phi61, align 8
   %47 = load i8, ptr %46, align 1
   %48 = icmp ne i8 %47, 0
-  %49 = getelementptr inbounds i8, ptr %10, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %50 = zext i1 %48 to i8
   store i8 %50, ptr %49, align 8
   br label %60
@@ -1823,17 +1823,17 @@ define internal fastcc ptr @extract_jsp_bool_expr(ptr noundef nonnull %0, ptr %1
 51:                                               ; preds = %42
   store i32 2, ptr %10, align 8
   %52 = load ptr, ptr %.0.sroa.phi61, align 8
-  %53 = getelementptr inbounds i8, ptr %10, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %52, ptr %53, align 8
   br label %60
 
 54:                                               ; preds = %42
   store i32 1, ptr %10, align 8
   %55 = load ptr, ptr %.0.sroa.phi61, align 8
-  %56 = getelementptr inbounds i8, ptr %10, i64 8
-  %57 = getelementptr inbounds i8, ptr %10, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %55, ptr %57, align 8
-  %58 = getelementptr inbounds i8, ptr %.0.sroa.phi61, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %.0.sroa.phi61, i64 8
   %59 = load i32, ptr %58, align 8
   store i32 %59, ptr %56, align 8
   br label %60
@@ -1861,11 +1861,11 @@ define internal fastcc void @emit_jsp_gin_entries(ptr nocapture noundef %0, ptr 
   ]
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i32, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 12
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %10 = load i32, ptr %9, align 4
   %.not.i = icmp slt i32 %8, %10
   br i1 %.not.i, label %._crit_edge.i, label %11
@@ -1906,13 +1906,13 @@ add_gin_entry.exit:                               ; preds = %._crit_edge.i, %12,
   br label %.loopexit
 
 25:                                               ; preds = %2, %2
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load i32, ptr %26, align 8
   %28 = icmp sgt i32 %27, 0
   br i1 %28, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %30
 
 30:                                               ; preds = %.lr.ph, %30

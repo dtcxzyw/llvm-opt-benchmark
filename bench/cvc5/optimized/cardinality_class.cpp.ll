@@ -32,7 +32,7 @@ entry:
   br i1 %0, label %switch.lookup, label %return
 
 switch.lookup:                                    ; preds = %entry
-  %switch.gep = getelementptr inbounds [6 x ptr], ptr @switch.table._ZN4cvc58internallsERSoNS0_16CardinalityClassE, i64 0, i64 %c
+  %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._ZN4cvc58internallsERSoNS0_16CardinalityClassE, i64 0, i64 %c
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %return
 
@@ -48,7 +48,7 @@ entry:
   br i1 %0, label %switch.lookup, label %_ZN4cvc58internal8toStringENS0_16CardinalityClassE.exit
 
 switch.lookup:                                    ; preds = %entry
-  %switch.gep = getelementptr inbounds [6 x ptr], ptr @switch.table._ZN4cvc58internallsERSoNS0_16CardinalityClassE, i64 0, i64 %c
+  %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._ZN4cvc58internallsERSoNS0_16CardinalityClassE, i64 0, i64 %c
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN4cvc58internal8toStringENS0_16CardinalityClassE.exit
 

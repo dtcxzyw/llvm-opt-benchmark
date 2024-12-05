@@ -39,15 +39,15 @@ declare dso_local void @put_device(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
 define dso_local range(i32 0, 2) i32 @mdio_device_bus_match(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 144
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, -1
   br i1 %5, label %6, label %12
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 736
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 736
   %8 = load ptr, ptr %1, align 8
-  %9 = tail call i32 @strcmp(ptr noundef %7, ptr noundef %8) #6
+  %9 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef %8) #6
   %10 = icmp eq i32 %9, 0
   %11 = zext i1 %10 to i32
   br label %12
@@ -68,25 +68,25 @@ define dso_local noundef ptr @mdio_device_create(ptr noundef %0, i32 noundef %1)
   br i1 %5, label %18, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %4, i64 688
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 688
   store ptr @mdio_device_release, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 1200
-  %9 = getelementptr inbounds i8, ptr %4, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1200
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 64
   store ptr %8, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 96
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 96
   store ptr @mdio_bus_type, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 776
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 776
   store ptr @mdio_device_free, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 784
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 784
   store ptr @mdio_device_remove, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %4, i64 728
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 728
   store ptr %0, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %4, i64 792
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 792
   store i32 %1, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %4, i64 800
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 800
   store i32 -1, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
-  %17 = tail call i32 (ptr, ptr, ...) @dev_set_name(ptr noundef nonnull %4, ptr noundef nonnull @.str, ptr noundef %16, i32 noundef %1) #6
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %17 = tail call i32 (ptr, ptr, ...) @dev_set_name(ptr noundef nonnull %4, ptr noundef nonnull @.str, ptr noundef nonnull %16, i32 noundef %1) #6
   tail call void @device_initialize(ptr noundef nonnull %4) #6
   br label %18
 
@@ -97,7 +97,7 @@ define dso_local noundef ptr @mdio_device_create(ptr noundef %0, i32 noundef %1)
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @mdio_device_release(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 632
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 632
   %3 = load ptr, ptr %2, align 8
   tail call void @fwnode_handle_put(ptr noundef %3) #6
   tail call void @kfree(ptr noundef %0) #6
@@ -129,7 +129,7 @@ define dso_local i32 @mdio_device_register(ptr noundef %0) #0 align 16 {
   br i1 %6, label %12, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 792
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 792
   %9 = load i32, ptr %8, align 8
   %10 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.1, i32 noundef %9) #8
   %11 = tail call i32 @mdiobus_unregister_device(ptr noundef %0) #6
@@ -157,25 +157,25 @@ declare dso_local void @device_del(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @mdio_device_reset(ptr nocapture noundef %0, i32 noundef %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 808
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %.thread
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 816
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %38, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %0, i64 800
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 800
   %12 = load i32, ptr %11, align 8
   %13 = icmp eq i32 %12, %1
   br i1 %13, label %38, label %18
 
 .thread:                                          ; preds = %2
-  %14 = getelementptr inbounds i8, ptr %0, i64 800
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 800
   %15 = load i32, ptr %14, align 8
   %16 = icmp eq i32 %15, %1
   br i1 %16, label %38, label %17
@@ -190,7 +190,7 @@ define dso_local void @mdio_device_reset(ptr nocapture noundef %0, i32 noundef %
   %19 = phi ptr [ %14, %17 ], [ %11, %10 ]
   %20 = icmp eq i32 %1, 0
   %21 = select i1 %20, i64 828, i64 824
-  %22 = getelementptr inbounds i8, ptr %0, i64 %21
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 %21
   %23 = load i32, ptr %22, align 4
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %37, label %25
@@ -230,13 +230,13 @@ define dso_local void @mdio_device_reset(ptr nocapture noundef %0, i32 noundef %
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @mdio_driver_register(ptr noundef initializes((8, 16), (56, 64), (72, 88)) %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @mdio_bus_type, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 56
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr @mdio_probe, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 72
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr @mdio_remove, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 80
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr @mdio_shutdown, ptr %5, align 8
   %6 = tail call i32 @driver_register(ptr noundef %0) #6
   %7 = icmp eq i32 %6, 0
@@ -253,27 +253,27 @@ define dso_local i32 @mdio_driver_register(ptr noundef initializes((8, 16), (56,
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @mdio_probe(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 104
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 808
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %.thread.i
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 816
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %mdio_device_reset.exit, label %11
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %0, i64 800
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 800
   %13 = load i32, ptr %12, align 8
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %mdio_device_reset.exit, label %19
 
 .thread.i:                                        ; preds = %1
-  %15 = getelementptr inbounds i8, ptr %0, i64 800
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 800
   %16 = load i32, ptr %15, align 8
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %mdio_device_reset.exit, label %18
@@ -286,7 +286,7 @@ define internal i32 @mdio_probe(ptr noundef %0) #0 align 16 {
 
 19:                                               ; preds = %18, %11
   %20 = phi ptr [ %15, %18 ], [ %12, %11 ]
-  %21 = getelementptr inbounds i8, ptr %0, i64 828
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 828
   %22 = load i32, ptr %21, align 4
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %36, label %24
@@ -321,7 +321,7 @@ define internal i32 @mdio_probe(ptr noundef %0) #0 align 16 {
   br label %mdio_device_reset.exit
 
 mdio_device_reset.exit:                           ; preds = %7, %11, %.thread.i, %36
-  %37 = getelementptr inbounds i8, ptr %3, i64 152
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %38 = load ptr, ptr %37, align 8
   %39 = icmp eq ptr %38, null
   br i1 %39, label %mdio_device_reset.exit3, label %40
@@ -337,19 +337,19 @@ mdio_device_reset.exit:                           ; preds = %7, %11, %.thread.i,
   br i1 %45, label %46, label %.thread.i2
 
 46:                                               ; preds = %43
-  %47 = getelementptr inbounds i8, ptr %0, i64 816
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %48 = load ptr, ptr %47, align 8
   %49 = icmp eq ptr %48, null
   br i1 %49, label %mdio_device_reset.exit3, label %50
 
 50:                                               ; preds = %46
-  %51 = getelementptr inbounds i8, ptr %0, i64 800
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 800
   %52 = load i32, ptr %51, align 8
   %53 = icmp eq i32 %52, 1
   br i1 %53, label %mdio_device_reset.exit3, label %58
 
 .thread.i2:                                       ; preds = %43
-  %54 = getelementptr inbounds i8, ptr %0, i64 800
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 800
   %55 = load i32, ptr %54, align 8
   %56 = icmp eq i32 %55, 1
   br i1 %56, label %mdio_device_reset.exit3, label %57
@@ -362,7 +362,7 @@ mdio_device_reset.exit:                           ; preds = %7, %11, %.thread.i,
 
 58:                                               ; preds = %57, %50
   %59 = phi ptr [ %54, %57 ], [ %51, %50 ]
-  %60 = getelementptr inbounds i8, ptr %0, i64 824
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 824
   %61 = load i32, ptr %60, align 4
   %62 = icmp eq i32 %61, 0
   br i1 %62, label %75, label %63
@@ -403,9 +403,9 @@ mdio_device_reset.exit3:                          ; preds = %75, %.thread.i2, %5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @mdio_remove(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 104
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 160
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 160
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %8, label %7
@@ -415,25 +415,25 @@ define internal noundef i32 @mdio_remove(ptr noundef %0) #0 align 16 {
   br label %8
 
 8:                                                ; preds = %7, %1
-  %9 = getelementptr inbounds i8, ptr %0, i64 808
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %.thread.i
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %0, i64 816
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %mdio_device_reset.exit, label %16
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %0, i64 800
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 800
   %18 = load i32, ptr %17, align 8
   %19 = icmp eq i32 %18, 1
   br i1 %19, label %mdio_device_reset.exit, label %24
 
 .thread.i:                                        ; preds = %8
-  %20 = getelementptr inbounds i8, ptr %0, i64 800
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 800
   %21 = load i32, ptr %20, align 8
   %22 = icmp eq i32 %21, 1
   br i1 %22, label %mdio_device_reset.exit, label %23
@@ -446,7 +446,7 @@ define internal noundef i32 @mdio_remove(ptr noundef %0) #0 align 16 {
 
 24:                                               ; preds = %23, %16
   %25 = phi ptr [ %20, %23 ], [ %17, %16 ]
-  %26 = getelementptr inbounds i8, ptr %0, i64 824
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 824
   %27 = load i32, ptr %26, align 4
   %28 = icmp eq i32 %27, 0
   br i1 %28, label %41, label %29
@@ -486,9 +486,9 @@ mdio_device_reset.exit:                           ; preds = %12, %16, %.thread.i
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @mdio_shutdown(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 104
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 168
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 168
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %8, label %7

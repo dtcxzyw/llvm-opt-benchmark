@@ -424,19 +424,19 @@ declare void @_ZN6google8protobuf8internal20AddDescriptorsRunnerC1EPKNS1_15Descr
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN17opencv_tensorflow18FunctionDefLibraryC2EPN6google8protobuf5ArenaEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((0, 68)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = ptrtoint ptr %1 to i64
   %6 = or i64 %5, 2
   %7 = select i1 %2, i64 %6, i64 %5
   store i64 %7, ptr %4, align 8
   store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN17opencv_tensorflow18FunctionDefLibraryE, i64 16), ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %1, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
-  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %1, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %11, i8 0, i64 20, i1 false)
   ret void
 }
@@ -445,7 +445,7 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6google8protobuf16RepeatedPtrFieldIN17opencv_tensorflow11GradientDefEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp ne ptr %3, null
   %4 = load ptr, ptr %0, align 8
@@ -470,7 +470,7 @@ define linkonce_odr hidden void @_ZN6google8protobuf16RepeatedPtrFieldIN17opencv
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6google8protobuf16RepeatedPtrFieldIN17opencv_tensorflow11FunctionDefEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp ne ptr %3, null
   %4 = load ptr, ptr %0, align 8
@@ -496,7 +496,7 @@ define linkonce_odr hidden void @_ZN6google8protobuf16RepeatedPtrFieldIN17opencv
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6google8protobuf7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 2
   %.not.i.i = icmp eq i64 %4, 0
@@ -529,26 +529,26 @@ _ZN6google8protobuf11MessageLiteD2Ev.exit:        ; preds = %1, %11, %13
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN17opencv_tensorflow18FunctionDefLibraryC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 40)) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
   store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN17opencv_tensorflow18FunctionDefLibraryE, i64 16), ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   invoke void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase9MergeFromINS0_16RepeatedPtrFieldIN17opencv_tensorflow11FunctionDefEE11TypeHandlerEEEvRKS2_(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5)
           to label %_ZN6google8protobuf16RepeatedPtrFieldIN17opencv_tensorflow11FunctionDefEEC2ERKS4_.exit unwind label %35
 
 _ZN6google8protobuf16RepeatedPtrFieldIN17opencv_tensorflow11FunctionDefEEC2ERKS4_.exit: ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
-  %7 = getelementptr inbounds i8, ptr %1, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   invoke void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase9MergeFromINS0_16RepeatedPtrFieldIN17opencv_tensorflow11GradientDefEE11TypeHandlerEEEvRKS2_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7)
           to label %_ZN6google8protobuf16RepeatedPtrFieldIN17opencv_tensorflow11GradientDefEEC2ERKS4_.exit unwind label %37
 
 _ZN6google8protobuf16RepeatedPtrFieldIN17opencv_tensorflow11GradientDefEEC2ERKS4_.exit: ; preds = %_ZN6google8protobuf16RepeatedPtrFieldIN17opencv_tensorflow11FunctionDefEEC2ERKS4_.exit
-  %8 = getelementptr inbounds i8, ptr %0, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 0, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load i64, ptr %9, align 8
   %11 = and i64 %10, 1
   %.not = icmp eq i64 %11, 0
@@ -557,7 +557,7 @@ _ZN6google8protobuf16RepeatedPtrFieldIN17opencv_tensorflow11GradientDefEEC2ERKS4
 12:                                               ; preds = %_ZN6google8protobuf16RepeatedPtrFieldIN17opencv_tensorflow11GradientDefEEC2ERKS4_.exit
   %13 = and i64 %10, -4
   %14 = inttoptr i64 %13 to ptr
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load i64, ptr %3, align 8
   %17 = and i64 %16, 1
   %.not.i = icmp eq i64 %17, 0
@@ -585,7 +585,7 @@ _ZN6google8protobuf16RepeatedPtrFieldIN17opencv_tensorflow11GradientDefEEC2ERKS4
   %26 = extractvalue { ptr, ptr } %25, 0
   %27 = extractvalue { ptr, ptr } %25, 1
   store ptr %26, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store ptr @_ZN6google8protobuf8internal21arena_destruct_objectINS1_16InternalMetadata9ContainerINS0_15UnknownFieldSetEEEEEvPv, ptr %28, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %26, i8 0, i64 32, i1 false)
   %.pre.i.i = load i64, ptr %3, align 8
@@ -604,7 +604,7 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
 
 34:                                               ; preds = %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i, %12
   %.pn.i = phi ptr [ %.041.i.i, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i ], [ %19, %12 ]
-  %.0.i = getelementptr inbounds i8, ptr %.pn.i, i64 8
+  %.0.i = getelementptr inbounds nuw i8, ptr %.pn.i, i64 8
   invoke void @_ZN6google8protobuf15UnknownFieldSet9MergeFromERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %.0.i, ptr noundef nonnull align 8 dereferenceable(24) %15)
           to label %_ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSetEEEvRKT_.exit unwind label %39
 
@@ -640,7 +640,7 @@ _ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSe
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN17opencv_tensorflow18FunctionDefLibraryD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 1
   %.not.i = icmp eq i64 %4, 0
@@ -656,9 +656,9 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.thread: ; preds 
   br i1 %or.cond, label %_ZN6google8protobuf8internal16InternalMetadata6DeleteINS0_15UnknownFieldSetEEEvv.exit, label %9
 
 9:                                                ; preds = %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.thread
-  %10 = getelementptr inbounds i8, ptr %6, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %6, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %11, %13
   br i1 %14, label %_ZN6google8protobuf15UnknownFieldSet5ClearEv.exit.i.i.i.i, label %15
@@ -692,8 +692,8 @@ _ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEE
   br label %_ZN6google8protobuf8internal16InternalMetadata6DeleteINS0_15UnknownFieldSetEEEvv.exit
 
 _ZN6google8protobuf8internal16InternalMetadata6DeleteINS0_15UnknownFieldSetEEEvv.exit: ; preds = %1, %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.thread
-  %21 = getelementptr inbounds i8, ptr %0, i64 40
-  %22 = getelementptr inbounds i8, ptr %0, i64 56
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %23 = load ptr, ptr %22, align 8
   %.not.i.i = icmp ne ptr %23, null
   %24 = load ptr, ptr %21, align 8
@@ -713,8 +713,8 @@ _ZN6google8protobuf8internal16InternalMetadata6DeleteINS0_15UnknownFieldSetEEEvv
   unreachable
 
 _ZN6google8protobuf16RepeatedPtrFieldIN17opencv_tensorflow11GradientDefEED2Ev.exit: ; preds = %_ZN6google8protobuf8internal16InternalMetadata6DeleteINS0_15UnknownFieldSetEEEvv.exit, %27
-  %31 = getelementptr inbounds i8, ptr %0, i64 16
-  %32 = getelementptr inbounds i8, ptr %0, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %33 = load ptr, ptr %32, align 8
   %.not.i.i2 = icmp ne ptr %33, null
   %34 = load ptr, ptr %31, align 8
@@ -794,29 +794,29 @@ define hidden void @_ZN17opencv_tensorflow18FunctionDefLibrary9ArenaDtorEPv(ptr 
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZNK17opencv_tensorflow18FunctionDefLibrary13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) %0, i32 noundef %1) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 64
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store atomic i32 %1, ptr %3 monotonic, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN17opencv_tensorflow18FunctionDefLibrary5ClearEv(ptr nocapture noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %5, label %_ZN6google8protobuf16RepeatedPtrFieldIN17opencv_tensorflow11FunctionDefEE5ClearEv.exit
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %wide.trip.count.i.i = zext nneg i32 %3 to i64
   br label %9
 
 9:                                                ; preds = %9, %5
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %9 ], [ 0, %5 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %10 = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv.i.i
+  %10 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv.i.i
   %11 = load ptr, ptr %10, align 8
   tail call void @_ZN17opencv_tensorflow11FunctionDef5ClearEv(ptr noundef nonnull align 8 dereferenceable(56) %11)
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
@@ -827,28 +827,28 @@ define hidden void @_ZN17opencv_tensorflow18FunctionDefLibrary5ClearEv(ptr nocap
   br label %_ZN6google8protobuf16RepeatedPtrFieldIN17opencv_tensorflow11FunctionDefEE5ClearEv.exit
 
 _ZN6google8protobuf16RepeatedPtrFieldIN17opencv_tensorflow11FunctionDefEE5ClearEv.exit: ; preds = %1, %12
-  %13 = getelementptr inbounds i8, ptr %0, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %14 = load i32, ptr %13, align 8
   %15 = icmp sgt i32 %14, 0
   br i1 %15, label %16, label %_ZN6google8protobuf16RepeatedPtrFieldIN17opencv_tensorflow11GradientDefEE5ClearEv.exit
 
 16:                                               ; preds = %_ZN6google8protobuf16RepeatedPtrFieldIN17opencv_tensorflow11FunctionDefEE5ClearEv.exit
-  %17 = getelementptr inbounds i8, ptr %0, i64 56
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %wide.trip.count.i.i4 = zext nneg i32 %14 to i64
   br label %20
 
 20:                                               ; preds = %_ZN6google8protobuf8internal18GenericTypeHandlerIN17opencv_tensorflow11GradientDefEE5ClearEPS4_.exit.i.i, %16
   %indvars.iv.i.i5 = phi i64 [ %indvars.iv.next.i.i6, %_ZN6google8protobuf8internal18GenericTypeHandlerIN17opencv_tensorflow11GradientDefEE5ClearEPS4_.exit.i.i ], [ 0, %16 ]
   %indvars.iv.next.i.i6 = add nuw nsw i64 %indvars.iv.i.i5, 1
-  %21 = getelementptr inbounds ptr, ptr %19, i64 %indvars.iv.i.i5
+  %21 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv.i.i5
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   tail call void @_ZN6google8protobuf8internal14ArenaStringPtr12ClearToEmptyEv(ptr noundef nonnull align 8 dereferenceable(8) %23)
-  %24 = getelementptr inbounds i8, ptr %22, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 24
   tail call void @_ZN6google8protobuf8internal14ArenaStringPtr12ClearToEmptyEv(ptr noundef nonnull align 8 dereferenceable(8) %24)
-  %25 = getelementptr inbounds i8, ptr %22, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %26 = load i64, ptr %25, align 8
   %27 = and i64 %26, 1
   %.not.i.i.i.i = icmp eq i64 %27, 0
@@ -857,9 +857,9 @@ _ZN6google8protobuf16RepeatedPtrFieldIN17opencv_tensorflow11FunctionDefEE5ClearE
 28:                                               ; preds = %20
   %29 = and i64 %26, -4
   %30 = inttoptr i64 %29 to ptr
-  %.0.i.i.i.i.i = getelementptr inbounds i8, ptr %30, i64 8
+  %.0.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %30, i64 8
   %31 = load ptr, ptr %.0.i.i.i.i.i, align 8
-  %32 = getelementptr inbounds i8, ptr %30, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %33 = load ptr, ptr %32, align 8
   %34 = icmp eq ptr %31, %33
   br i1 %34, label %_ZN6google8protobuf8internal18GenericTypeHandlerIN17opencv_tensorflow11GradientDefEE5ClearEPS4_.exit.i.i, label %35
@@ -877,7 +877,7 @@ _ZN6google8protobuf8internal18GenericTypeHandlerIN17opencv_tensorflow11GradientD
   br label %_ZN6google8protobuf16RepeatedPtrFieldIN17opencv_tensorflow11GradientDefEE5ClearEv.exit
 
 _ZN6google8protobuf16RepeatedPtrFieldIN17opencv_tensorflow11GradientDefEE5ClearEv.exit: ; preds = %_ZN6google8protobuf16RepeatedPtrFieldIN17opencv_tensorflow11FunctionDefEE5ClearEv.exit, %36
-  %37 = getelementptr inbounds i8, ptr %0, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %38 = load i64, ptr %37, align 8
   %39 = and i64 %38, 1
   %.not = icmp eq i64 %39, 0
@@ -886,9 +886,9 @@ _ZN6google8protobuf16RepeatedPtrFieldIN17opencv_tensorflow11GradientDefEE5ClearE
 40:                                               ; preds = %_ZN6google8protobuf16RepeatedPtrFieldIN17opencv_tensorflow11GradientDefEE5ClearEv.exit
   %41 = and i64 %38, -4
   %42 = inttoptr i64 %41 to ptr
-  %.0.i = getelementptr inbounds i8, ptr %42, i64 8
+  %.0.i = getelementptr inbounds nuw i8, ptr %42, i64 8
   %43 = load ptr, ptr %.0.i, align 8
-  %44 = getelementptr inbounds i8, ptr %42, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %45 = load ptr, ptr %44, align 8
   %46 = icmp eq ptr %43, %45
   br i1 %46, label %_ZN6google8protobuf8internal16InternalMetadata7DoClearINS0_15UnknownFieldSetEEEvv.exit, label %47
@@ -903,16 +903,16 @@ _ZN6google8protobuf8internal16InternalMetadata7DoClearINS0_15UnknownFieldSetEEEv
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_ZN17opencv_tensorflow18FunctionDefLibrary14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 92
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 28
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
-  %8 = getelementptr inbounds i8, ptr %0, i64 56
-  %9 = getelementptr inbounds i8, ptr %0, i64 48
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 92
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 28
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %14
 
 14:                                               ; preds = %.backedge, %3
@@ -934,7 +934,7 @@ define hidden noundef ptr @_ZN17opencv_tensorflow18FunctionDefLibrary14_Internal
 
 26:                                               ; preds = %18
   %27 = icmp sgt i32 %23, 0
-  %28 = getelementptr inbounds i8, ptr %2, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq ptr %29, null
   %or.cond.i.i = select i1 %27, i1 %30, i1 false
@@ -953,7 +953,7 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread36: ; preds = %1
   %35 = load i8, ptr %.439, align 1
   %36 = zext i8 %35 to i32
   %37 = icmp sgt i8 %35, -1
-  %38 = getelementptr inbounds i8, ptr %.439, i64 1
+  %38 = getelementptr inbounds nuw i8, ptr %.439, i64 1
   br i1 %37, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, label %39
 
 39:                                               ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread36
@@ -966,7 +966,7 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread36: ; preds = %1
   br i1 %45, label %46, label %48
 
 46:                                               ; preds = %39
-  %47 = getelementptr inbounds i8, ptr %.439, i64 2
+  %47 = getelementptr inbounds nuw i8, ptr %.439, i64 2
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
 48:                                               ; preds = %39
@@ -995,7 +995,7 @@ _ZN6google8protobuf8internal7ReadTagEPKcPjj.exit: ; preds = %_ZN6google8protobuf
 
 58:                                               ; preds = %89, %56
   %.1 = phi ptr [ %57, %56 ], [ %85, %89 ]
-  %59 = getelementptr inbounds i8, ptr %.1, i64 1
+  %59 = getelementptr inbounds nuw i8, ptr %.1, i64 1
   %60 = load ptr, ptr %11, align 8
   %.not.i.i.i = icmp eq ptr %60, null
   br i1 %.not.i.i.i, label %71, label %61
@@ -1007,7 +1007,7 @@ _ZN6google8protobuf8internal7ReadTagEPKcPjj.exit: ; preds = %_ZN6google8protobuf
   br i1 %64, label %65, label %71
 
 65:                                               ; preds = %61
-  %66 = getelementptr inbounds i8, ptr %60, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %67 = add nsw i32 %62, 1
   store i32 %67, ptr %12, align 8
   %68 = sext i32 %62 to i64
@@ -1022,22 +1022,22 @@ _ZN6google8protobuf8internal7ReadTagEPKcPjj.exit: ; preds = %_ZN6google8protobuf
 
 74:                                               ; preds = %71
   %75 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #27
-  %76 = getelementptr inbounds i8, ptr %75, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
   store i64 0, ptr %76, align 8
   store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN17opencv_tensorflow11FunctionDefE, i64 16), ptr %75, align 8
-  %77 = getelementptr inbounds i8, ptr %75, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %75, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %77, i8 0, i64 36, i1 false)
   br label %_ZN6google8protobuf8internal18GenericTypeHandlerIN17opencv_tensorflow11FunctionDefEE16NewFromPrototypeEPKS4_PNS0_5ArenaE.exit.i.i.i
 
 78:                                               ; preds = %71
   %79 = tail call noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %72, i64 noundef 56, ptr noundef nonnull @_ZTIN17opencv_tensorflow11FunctionDefE)
-  %80 = getelementptr inbounds i8, ptr %79, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
   %81 = ptrtoint ptr %72 to i64
   store i64 %81, ptr %80, align 8
   store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN17opencv_tensorflow11FunctionDefE, i64 16), ptr %79, align 8
-  %82 = getelementptr inbounds i8, ptr %79, i64 16
+  %82 = getelementptr inbounds nuw i8, ptr %79, i64 16
   store ptr %72, ptr %82, align 8
-  %83 = getelementptr inbounds i8, ptr %79, i64 24
+  %83 = getelementptr inbounds nuw i8, ptr %79, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %83, i8 0, i64 28, i1 false)
   br label %_ZN6google8protobuf8internal18GenericTypeHandlerIN17opencv_tensorflow11FunctionDefEE16NewFromPrototypeEPKS4_PNS0_5ArenaE.exit.i.i.i
 
@@ -1077,7 +1077,7 @@ _ZN17opencv_tensorflow18FunctionDefLibrary22_internal_add_functionEv.exit: ; pre
 
 97:                                               ; preds = %128, %95
   %.2 = phi ptr [ %96, %95 ], [ %124, %128 ]
-  %98 = getelementptr inbounds i8, ptr %.2, i64 1
+  %98 = getelementptr inbounds nuw i8, ptr %.2, i64 1
   %99 = load ptr, ptr %8, align 8
   %.not.i.i.i18 = icmp eq ptr %99, null
   br i1 %.not.i.i.i18, label %110, label %100
@@ -1089,7 +1089,7 @@ _ZN17opencv_tensorflow18FunctionDefLibrary22_internal_add_functionEv.exit: ; pre
   br i1 %103, label %104, label %110
 
 104:                                              ; preds = %100
-  %105 = getelementptr inbounds i8, ptr %99, i64 8
+  %105 = getelementptr inbounds nuw i8, ptr %99, i64 8
   %106 = add nsw i32 %101, 1
   store i32 %106, ptr %9, align 8
   %107 = sext i32 %101 to i64
@@ -1104,13 +1104,13 @@ _ZN17opencv_tensorflow18FunctionDefLibrary22_internal_add_functionEv.exit: ; pre
 
 113:                                              ; preds = %110
   %114 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #27
-  %115 = getelementptr inbounds i8, ptr %114, i64 8
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 8
   store i64 0, ptr %115, align 8
   br label %_ZN6google8protobuf8internal18GenericTypeHandlerIN17opencv_tensorflow11GradientDefEE16NewFromPrototypeEPKS4_PNS0_5ArenaE.exit.i.i.i
 
 116:                                              ; preds = %110
   %117 = tail call noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %111, i64 noundef 40, ptr noundef nonnull @_ZTIN17opencv_tensorflow11GradientDefE)
-  %118 = getelementptr inbounds i8, ptr %117, i64 8
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 8
   %119 = ptrtoint ptr %111 to i64
   store i64 %119, ptr %118, align 8
   br label %_ZN6google8protobuf8internal18GenericTypeHandlerIN17opencv_tensorflow11GradientDefEE16NewFromPrototypeEPKS4_PNS0_5ArenaE.exit.i.i.i
@@ -1118,11 +1118,11 @@ _ZN17opencv_tensorflow18FunctionDefLibrary22_internal_add_functionEv.exit: ; pre
 _ZN6google8protobuf8internal18GenericTypeHandlerIN17opencv_tensorflow11GradientDefEE16NewFromPrototypeEPKS4_PNS0_5ArenaE.exit.i.i.i: ; preds = %116, %113
   %.sink.i.i.i.i.i.i = phi ptr [ %114, %113 ], [ %117, %116 ]
   store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN17opencv_tensorflow11GradientDefE, i64 16), ptr %.sink.i.i.i.i.i.i, align 8
-  %120 = getelementptr inbounds i8, ptr %.sink.i.i.i.i.i.i, i64 32
+  %120 = getelementptr inbounds nuw i8, ptr %.sink.i.i.i.i.i.i, i64 32
   store i32 0, ptr %120, align 4
-  %121 = getelementptr inbounds i8, ptr %.sink.i.i.i.i.i.i, i64 16
+  %121 = getelementptr inbounds nuw i8, ptr %.sink.i.i.i.i.i.i, i64 16
   store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %121, align 8
-  %122 = getelementptr inbounds i8, ptr %.sink.i.i.i.i.i.i, i64 24
+  %122 = getelementptr inbounds nuw i8, ptr %.sink.i.i.i.i.i.i, i64 24
   store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %122, align 8
   %123 = tail call noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase18AddOutOfLineHelperEPv(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull %.sink.i.i.i.i.i.i)
   br label %_ZN17opencv_tensorflow18FunctionDefLibrary22_internal_add_gradientEv.exit
@@ -1156,7 +1156,7 @@ _ZN17opencv_tensorflow18FunctionDefLibrary22_internal_add_gradientEv.exit: ; pre
 
 136:                                              ; preds = %135
   %137 = add i32 %.032, -1
-  %138 = getelementptr inbounds i8, ptr %2, i64 80
+  %138 = getelementptr inbounds nuw i8, ptr %2, i64 80
   store i32 %137, ptr %138, align 8
   br label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread
 
@@ -1183,7 +1183,7 @@ _ZN17opencv_tensorflow18FunctionDefLibrary22_internal_add_gradientEv.exit: ; pre
   %151 = extractvalue { ptr, ptr } %150, 0
   %152 = extractvalue { ptr, ptr } %150, 1
   store ptr %151, ptr %152, align 8
-  %153 = getelementptr inbounds i8, ptr %152, i64 8
+  %153 = getelementptr inbounds nuw i8, ptr %152, i64 8
   store ptr @_ZN6google8protobuf8internal21arena_destruct_objectINS1_16InternalMetadata9ContainerINS0_15UnknownFieldSetEEEEEvPv, ptr %153, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %151, i8 0, i64 32, i1 false)
   %.pre.i = load i64, ptr %13, align 8
@@ -1202,7 +1202,7 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
 
 159:                                              ; preds = %139, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit
   %.pn = phi ptr [ %.041.i, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit ], [ %144, %139 ]
-  %.0 = getelementptr inbounds i8, ptr %.pn, i64 8
+  %.0 = getelementptr inbounds nuw i8, ptr %.pn, i64 8
   %160 = tail call noundef ptr @_ZN6google8protobuf8internal17UnknownFieldParseEmPNS0_15UnknownFieldSetEPKcPNS1_12ParseContextE(i64 noundef %140, ptr noundef nonnull %.0, ptr noundef %.0.i, ptr noundef nonnull %2)
   %.not15 = icmp eq ptr %160, null
   br i1 %.not15, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %.backedge
@@ -1214,7 +1214,7 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %159
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN6google8protobuf8internal12ParseContext4DoneEPPKc(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef %1) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 92
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %4 = load i32, ptr %3, align 4
   %5 = load ptr, ptr %1, align 8
   %6 = load ptr, ptr %0, align 8
@@ -1222,20 +1222,20 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN6google8protobuf8internal12Par
   br i1 %7, label %_ZN6google8protobuf8internal18EpsCopyInputStream13DoneWithCheckEPPKci.exit, label %8
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = ptrtoint ptr %5 to i64
   %12 = ptrtoint ptr %10 to i64
   %13 = sub i64 %11, %12
   %14 = trunc i64 %13 to i32
-  %15 = getelementptr inbounds i8, ptr %0, i64 28
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %16 = load i32, ptr %15, align 4
   %17 = icmp eq i32 %16, %14
   br i1 %17, label %18, label %24
 
 18:                                               ; preds = %8
   %19 = icmp sgt i32 %14, 0
-  %20 = getelementptr inbounds i8, ptr %0, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, null
   %or.cond.i = select i1 %19, i1 %22, i1 false
@@ -1264,13 +1264,13 @@ declare noundef ptr @_ZN6google8protobuf8internal17UnknownFieldParseEmPNS0_15Unk
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_ZNK17opencv_tensorflow18FunctionDefLibrary18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8
   %.not69 = icmp eq i32 %5, 0
   br i1 %.not69, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %7
 
 7:                                                ; preds = %.lr.ph, %_ZN6google8protobuf2io17CodedOutputStream29WriteVarint32ToArrayOutOfLineEjPh.exit
@@ -1287,13 +1287,13 @@ define hidden noundef ptr @_ZNK17opencv_tensorflow18FunctionDefLibrary18_Interna
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit: ; preds = %7, %9
   %.0.i = phi ptr [ %10, %9 ], [ %.05162, %7 ]
   %11 = load ptr, ptr %6, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = sext i32 %.05261 to i64
   %14 = getelementptr inbounds [268435454 x ptr], ptr %12, i64 0, i64 %13
   %15 = load ptr, ptr %14, align 8
   store i8 10, ptr %.0.i, align 1
-  %16 = getelementptr inbounds i8, ptr %.0.i, i64 1
-  %17 = getelementptr inbounds i8, ptr %15, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 48
   %18 = load atomic i32, ptr %17 monotonic, align 4
   %19 = trunc i32 %18 to i8
   store i8 %19, ptr %16, align 1
@@ -1301,7 +1301,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit: ; preds = %7, 
   br i1 %20, label %21, label %23
 
 21:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit
-  %22 = getelementptr inbounds i8, ptr %.0.i, i64 2
+  %22 = getelementptr inbounds nuw i8, ptr %.0.i, i64 2
   br label %_ZN6google8protobuf2io17CodedOutputStream29WriteVarint32ToArrayOutOfLineEjPh.exit
 
 23:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit
@@ -1317,13 +1317,13 @@ _ZN6google8protobuf2io17CodedOutputStream29WriteVarint32ToArrayOutOfLineEjPh.exi
 
 ._crit_edge:                                      ; preds = %_ZN6google8protobuf2io17CodedOutputStream29WriteVarint32ToArrayOutOfLineEjPh.exit, %3
   %.051.lcssa = phi ptr [ %1, %3 ], [ %25, %_ZN6google8protobuf2io17CodedOutputStream29WriteVarint32ToArrayOutOfLineEjPh.exit ]
-  %27 = getelementptr inbounds i8, ptr %0, i64 48
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %28 = load i32, ptr %27, align 8
   %.not70 = icmp eq i32 %28, 0
   br i1 %.not70, label %._crit_edge67, label %.lr.ph66
 
 .lr.ph66:                                         ; preds = %._crit_edge
-  %29 = getelementptr inbounds i8, ptr %0, i64 56
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 56
   br label %30
 
 30:                                               ; preds = %.lr.ph66, %_ZN6google8protobuf2io17CodedOutputStream29WriteVarint32ToArrayOutOfLineEjPh.exit60
@@ -1340,13 +1340,13 @@ _ZN6google8protobuf2io17CodedOutputStream29WriteVarint32ToArrayOutOfLineEjPh.exi
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit57: ; preds = %30, %32
   %.0.i56 = phi ptr [ %33, %32 ], [ %.163, %30 ]
   %34 = load ptr, ptr %29, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = sext i32 %.05064 to i64
   %37 = getelementptr inbounds [268435454 x ptr], ptr %35, i64 0, i64 %36
   %38 = load ptr, ptr %37, align 8
   store i8 18, ptr %.0.i56, align 1
-  %39 = getelementptr inbounds i8, ptr %.0.i56, i64 1
-  %40 = getelementptr inbounds i8, ptr %38, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %.0.i56, i64 1
+  %40 = getelementptr inbounds nuw i8, ptr %38, i64 32
   %41 = load atomic i32, ptr %40 monotonic, align 4
   %42 = trunc i32 %41 to i8
   store i8 %42, ptr %39, align 1
@@ -1354,7 +1354,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit57: ; preds = %3
   br i1 %43, label %44, label %46
 
 44:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit57
-  %45 = getelementptr inbounds i8, ptr %.0.i56, i64 2
+  %45 = getelementptr inbounds nuw i8, ptr %.0.i56, i64 2
   br label %_ZN6google8protobuf2io17CodedOutputStream29WriteVarint32ToArrayOutOfLineEjPh.exit60
 
 46:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit57
@@ -1370,7 +1370,7 @@ _ZN6google8protobuf2io17CodedOutputStream29WriteVarint32ToArrayOutOfLineEjPh.exi
 
 ._crit_edge67:                                    ; preds = %_ZN6google8protobuf2io17CodedOutputStream29WriteVarint32ToArrayOutOfLineEjPh.exit60, %._crit_edge
   %.1.lcssa = phi ptr [ %.051.lcssa, %._crit_edge ], [ %48, %_ZN6google8protobuf2io17CodedOutputStream29WriteVarint32ToArrayOutOfLineEjPh.exit60 ]
-  %50 = getelementptr inbounds i8, ptr %0, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %51 = load i64, ptr %50, align 8
   %52 = and i64 %51, 1
   %.not = icmp eq i64 %52, 0
@@ -1379,7 +1379,7 @@ _ZN6google8protobuf2io17CodedOutputStream29WriteVarint32ToArrayOutOfLineEjPh.exi
 53:                                               ; preds = %._crit_edge67
   %54 = and i64 %51, -4
   %55 = inttoptr i64 %54 to ptr
-  %56 = getelementptr inbounds i8, ptr %55, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %57 = tail call noundef ptr @_ZN6google8protobuf8internal10WireFormat37InternalSerializeUnknownFieldsToArrayERKNS0_15UnknownFieldSetEPhPNS0_2io19EpsCopyOutputStreamE(ptr noundef nonnull align 8 dereferenceable(24) %56, ptr noundef %.1.lcssa, ptr noundef %2)
   br label %58
 
@@ -1392,13 +1392,13 @@ declare noundef ptr @_ZN6google8protobuf8internal10WireFormat37InternalSerialize
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef i64 @_ZNK17opencv_tensorflow18FunctionDefLibrary12ByteSizeLongEv(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #3 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8
   %4 = sext i32 %3 to i64
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8
   %.not.i.i = icmp eq ptr %6, null
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %spec.select.i.i = select i1 %.not.i.i, ptr null, ptr %7
   %8 = getelementptr inbounds ptr, ptr %spec.select.i.i, i64 %4
   %.not25 = icmp eq i32 %3, 0
@@ -1410,20 +1410,20 @@ define hidden noundef i64 @_ZNK17opencv_tensorflow18FunctionDefLibrary12ByteSize
   %9 = load ptr, ptr %.sroa.021.026, align 8
   %10 = tail call noundef i64 @_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN17opencv_tensorflow11FunctionDefEEEmRKT_(ptr noundef nonnull align 8 dereferenceable(56) %9)
   %11 = add i64 %10, %.027
-  %12 = getelementptr inbounds i8, ptr %.sroa.021.026, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.sroa.021.026, i64 8
   %.not = icmp eq ptr %12, %8
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %.0.lcssa = phi i64 [ 0, %1 ], [ %11, %.lr.ph ]
-  %13 = getelementptr inbounds i8, ptr %0, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %14 = load i32, ptr %13, align 8
   %15 = sext i32 %14 to i64
   %16 = add i64 %.0.lcssa, %15
-  %17 = getelementptr inbounds i8, ptr %0, i64 56
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %18 = load ptr, ptr %17, align 8
   %.not.i.i13 = icmp eq ptr %18, null
-  %19 = getelementptr inbounds i8, ptr %18, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %spec.select.i.i14 = select i1 %.not.i.i13, ptr null, ptr %19
   %20 = getelementptr inbounds ptr, ptr %spec.select.i.i14, i64 %15
   %.not2428 = icmp eq i32 %14, 0
@@ -1444,26 +1444,26 @@ define hidden noundef i64 @_ZNK17opencv_tensorflow18FunctionDefLibrary12ByteSize
   %30 = zext nneg i32 %29 to i64
   %31 = add i64 %22, %.130
   %32 = add i64 %31, %30
-  %33 = getelementptr inbounds i8, ptr %.sroa.017.029, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %.sroa.017.029, i64 8
   %.not24 = icmp eq ptr %33, %20
   br i1 %.not24, label %._crit_edge33, label %.lr.ph32
 
 ._crit_edge33:                                    ; preds = %.lr.ph32, %._crit_edge
   %.1.lcssa = phi i64 [ %16, %._crit_edge ], [ %32, %.lr.ph32 ]
-  %34 = getelementptr inbounds i8, ptr %0, i64 64
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %35 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %.1.lcssa, ptr noundef nonnull %34)
   ret i64 %35
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef i64 @_ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN17opencv_tensorflow11FunctionDefEEEmRKT_(ptr noundef nonnull align 8 dereferenceable(56) %0) local_unnamed_addr #3 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8
   %4 = sext i32 %3 to i64
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8
   %.not.i.i.i = icmp eq ptr %6, null
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %7
   %8 = getelementptr inbounds ptr, ptr %spec.select.i.i.i, i64 %4
   %.not12.i = icmp eq i32 %3, 0
@@ -1484,14 +1484,14 @@ define linkonce_odr hidden noundef i64 @_ZN6google8protobuf8internal14WireFormat
   %18 = zext nneg i32 %17 to i64
   %19 = add i64 %10, %.014.i
   %20 = add i64 %19, %18
-  %21 = getelementptr inbounds i8, ptr %.sroa.09.013.i, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %.sroa.09.013.i, i64 8
   %.not.i = icmp eq ptr %21, %8
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %1
   %.0.lcssa.i = phi i64 [ 0, %1 ], [ %20, %.lr.ph.i ]
   %.not.i.i = icmp ne ptr %0, @_ZN17opencv_tensorflow30_FunctionDef_default_instance_E
-  %22 = getelementptr inbounds i8, ptr %0, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %23 = load ptr, ptr %22, align 8
   %24 = icmp ne ptr %23, null
   %25 = select i1 %.not.i.i, i1 %24, i1 false
@@ -1514,7 +1514,7 @@ define linkonce_odr hidden noundef i64 @_ZN6google8protobuf8internal14WireFormat
 
 _ZNK17opencv_tensorflow11FunctionDef12ByteSizeLongEv.exit: ; preds = %._crit_edge.i, %26
   %.1.i = phi i64 [ %38, %26 ], [ %.0.lcssa.i, %._crit_edge.i ]
-  %39 = getelementptr inbounds i8, ptr %0, i64 48
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %40 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %.1.i, ptr noundef nonnull %39)
   %41 = trunc i64 %40 to i32
   %42 = or i32 %41, 1
@@ -1545,14 +1545,14 @@ define hidden noundef nonnull ptr @_ZNK17opencv_tensorflow18FunctionDefLibrary12
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN17opencv_tensorflow18FunctionDefLibrary9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
-  %4 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   tail call void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase9MergeFromINS0_16RepeatedPtrFieldIN17opencv_tensorflow11FunctionDefEE11TypeHandlerEEEvRKS2_(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4)
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
-  %6 = getelementptr inbounds i8, ptr %1, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 40
   tail call void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase9MergeFromINS0_16RepeatedPtrFieldIN17opencv_tensorflow11GradientDefEE11TypeHandlerEEEvRKS2_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6)
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load i64, ptr %8, align 8
   %10 = and i64 %9, 1
   %.not = icmp eq i64 %10, 0
@@ -1561,7 +1561,7 @@ define hidden void @_ZN17opencv_tensorflow18FunctionDefLibrary9MergeFromERKS0_(p
 11:                                               ; preds = %2
   %12 = and i64 %9, -4
   %13 = inttoptr i64 %12 to ptr
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load i64, ptr %7, align 8
   %16 = and i64 %15, 1
   %.not.i = icmp eq i64 %16, 0
@@ -1583,7 +1583,7 @@ define hidden void @_ZN17opencv_tensorflow18FunctionDefLibrary9MergeFromERKS0_(p
   %25 = extractvalue { ptr, ptr } %24, 0
   %26 = extractvalue { ptr, ptr } %24, 1
   store ptr %25, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store ptr @_ZN6google8protobuf8internal21arena_destruct_objectINS1_16InternalMetadata9ContainerINS0_15UnknownFieldSetEEEEEvPv, ptr %27, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %25, i8 0, i64 32, i1 false)
   %.pre.i.i = load i64, ptr %7, align 8
@@ -1602,7 +1602,7 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
 
 _ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSetEEEvRKT_.exit: ; preds = %11, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i
   %.pn.i = phi ptr [ %.041.i.i, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i ], [ %18, %11 ]
-  %.0.i = getelementptr inbounds i8, ptr %.pn.i, i64 8
+  %.0.i = getelementptr inbounds nuw i8, ptr %.pn.i, i64 8
   tail call void @_ZN6google8protobuf15UnknownFieldSet9MergeFromERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %.0.i, ptr noundef nonnull align 8 dereferenceable(24) %14)
   br label %33
 
@@ -1640,24 +1640,24 @@ define hidden noundef zeroext i1 @_ZNK17opencv_tensorflow18FunctionDefLibrary13I
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZN17opencv_tensorflow18FunctionDefLibrary12InternalSwapEPS0_(ptr nocapture noundef nonnull align 8 dereferenceable(72) %0, ptr nocapture noundef %1) local_unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %3, align 8
   %6 = load i64, ptr %4, align 8
   store i64 %6, ptr %3, align 8
   store i64 %5, ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
-  %8 = getelementptr inbounds i8, ptr %1, i64 16
-  %9 = getelementptr inbounds i8, ptr %1, i64 24
-  %10 = getelementptr inbounds i8, ptr %1, i64 28
-  %11 = getelementptr inbounds i8, ptr %1, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 28
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %12 = load ptr, ptr %11, align 8, !noalias !12
   %13 = load i32, ptr %10, align 4, !noalias !12
   %14 = load i32, ptr %9, align 4, !noalias !12
   %15 = load ptr, ptr %8, align 8, !noalias !12
-  %16 = getelementptr inbounds i8, ptr %0, i64 24
-  %17 = getelementptr inbounds i8, ptr %0, i64 28
-  %18 = getelementptr inbounds i8, ptr %0, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %19 = load ptr, ptr %18, align 8, !noalias !15
   %20 = load i32, ptr %17, align 4, !noalias !15
   %21 = load i32, ptr %16, align 8, !noalias !15
@@ -1670,18 +1670,18 @@ define hidden void @_ZN17opencv_tensorflow18FunctionDefLibrary12InternalSwapEPS0
   store i32 %14, ptr %16, align 8
   store i32 %13, ptr %17, align 4
   store ptr %12, ptr %18, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 40
-  %24 = getelementptr inbounds i8, ptr %1, i64 40
-  %25 = getelementptr inbounds i8, ptr %1, i64 48
-  %26 = getelementptr inbounds i8, ptr %1, i64 52
-  %27 = getelementptr inbounds i8, ptr %1, i64 56
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 52
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %28 = load ptr, ptr %27, align 8, !noalias !18
   %29 = load i32, ptr %26, align 4, !noalias !18
   %30 = load i32, ptr %25, align 4, !noalias !18
   %31 = load ptr, ptr %24, align 8, !noalias !18
-  %32 = getelementptr inbounds i8, ptr %0, i64 48
-  %33 = getelementptr inbounds i8, ptr %0, i64 52
-  %34 = getelementptr inbounds i8, ptr %0, i64 56
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %35 = load ptr, ptr %34, align 8, !noalias !21
   %36 = load i32, ptr %33, align 4, !noalias !21
   %37 = load i32, ptr %32, align 8, !noalias !21
@@ -1707,15 +1707,15 @@ declare { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 36), (40, 48)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr null, ptr %4, align 8
-  %.ptr.i.i = getelementptr inbounds i8, ptr %0, i64 32
+  %.ptr.i.i = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 0, ptr %.ptr.i.i, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %5, align 8
   store ptr getelementptr inbounds inrange(-16, 168) (i8, ptr @_ZTVN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseE, i64 16), ptr %0, align 8
   ret void
@@ -1723,16 +1723,16 @@ define hidden void @_ZN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseC
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseC2EPN6google8protobuf5ArenaE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 36), (40, 48)) %0, ptr noundef %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = ptrtoint ptr %1 to i64
   store i64 %4, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr null, ptr %6, align 8
-  %.ptr.i.i = getelementptr inbounds i8, ptr %0, i64 32
+  %.ptr.i.i = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 0, ptr %.ptr.i.i, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %4, ptr %7, align 8
   store ptr getelementptr inbounds inrange(-16, 168) (i8, ptr @_ZTVN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseE, i64 16), ptr %0, align 8
   ret void
@@ -1746,7 +1746,7 @@ define hidden void @_ZN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUse9
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN6google8protobuf8internal12MapEntryImplIN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseENS0_7MessageENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_9AttrValueELNS1_14WireFormatLite9FieldTypeE9ELSE_11EE17MergeFromInternalERKSF_(ptr noundef nonnull align 8 dereferenceable(36) %0, ptr noundef nonnull align 8 dereferenceable(36) %1) local_unnamed_addr #3 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %4 = load i32, ptr %3, align 8
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %54, label %5
@@ -1757,8 +1757,8 @@ define linkonce_odr hidden void @_ZN6google8protobuf8internal12MapEntryImplIN17o
   br i1 %.not15, label %30, label %7
 
 7:                                                ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8
   %11 = and i64 %10, 1
   %.not.i = icmp eq i64 %11, 0
@@ -1774,7 +1774,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit: ; preds = %7, %
   %.0.i = phi ptr [ %15, %14 ], [ %13, %7 ]
   %16 = tail call noundef ptr @_ZN6google8protobuf8internal14ArenaStringPtr7MutableB5cxx11ENS2_12EmptyDefaultEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %.0.i)
   %17 = load ptr, ptr %1, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 152
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 152
   %19 = load ptr, ptr %18, align 8
   %20 = tail call noundef nonnull align 8 dereferenceable(32) ptr %19(ptr noundef nonnull align 8 dereferenceable(36) %1)
   %21 = load i64, ptr %9, align 8
@@ -1791,7 +1791,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit: ; preds = %7, %
 _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit8: ; preds = %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit, %25
   %.0.i7 = phi ptr [ %26, %25 ], [ %24, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit ]
   tail call void @_ZN6google8protobuf8internal14ArenaStringPtr3SetEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS9_PNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef %.0.i7)
-  %27 = getelementptr inbounds i8, ptr %0, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %28 = load i32, ptr %27, align 8
   %29 = or i32 %28, 1
   store i32 %29, ptr %27, align 8
@@ -1805,8 +1805,8 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit8: ; preds = %_ZN
   br i1 %.not16, label %54, label %33
 
 33:                                               ; preds = %30
-  %34 = getelementptr inbounds i8, ptr %0, i64 24
-  %35 = getelementptr inbounds i8, ptr %0, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %36 = load i64, ptr %35, align 8
   %37 = and i64 %36, 1
   %.not.i9 = icmp eq i64 %37, 0
@@ -1831,12 +1831,12 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit11: ; preds = %33
 
 _ZN6google8protobuf8internal14MapTypeHandlerILNS1_14WireFormatLite9FieldTypeE11EN17opencv_tensorflow9AttrValueEE13EnsureMutableEPPS6_PNS0_5ArenaE.exit: ; preds = %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit11, %44
   %46 = load ptr, ptr %1, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 160
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 160
   %48 = load ptr, ptr %47, align 8
   %49 = tail call noundef nonnull align 8 dereferenceable(32) ptr %48(ptr noundef nonnull align 8 dereferenceable(36) %1)
   %50 = load ptr, ptr %34, align 8
   tail call void @_ZN17opencv_tensorflow9AttrValue9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %50, ptr noundef nonnull align 8 dereferenceable(32) %49)
-  %51 = getelementptr inbounds i8, ptr %0, i64 32
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %52 = load i32, ptr %51, align 8
   %53 = or i32 %52, 2
   store i32 %53, ptr %51, align 8
@@ -1854,31 +1854,31 @@ define hidden { ptr, ptr } @_ZNK17opencv_tensorflow35FunctionDef_Node_AttrEntry_
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN17opencv_tensorflow16FunctionDef_Node10clear_attrEv(ptr noundef nonnull align 8 dereferenceable(224) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 104
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %_ZN6google8protobuf8internal8MapFieldIN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_9AttrValueELNS1_14WireFormatLite9FieldTypeE9ELSD_11EE5ClearEv.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %8, label %_ZN6google8protobuf8internal8MapFieldIN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_9AttrValueELNS1_14WireFormatLite9FieldTypeE9ELSD_11EE5ClearEv.exit
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %3, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %wide.trip.count.i.i.i = zext nneg i32 %6 to i64
   br label %12
 
 12:                                               ; preds = %12, %8
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %12 ], [ 0, %8 ]
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
-  %13 = getelementptr inbounds ptr, ptr %11, i64 %indvars.iv.i.i.i
+  %13 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv.i.i.i
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %17 = load ptr, ptr %16, align 8
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(36) %14)
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
@@ -1889,8 +1889,8 @@ define hidden void @_ZN17opencv_tensorflow16FunctionDef_Node10clear_attrEv(ptr n
   br label %_ZN6google8protobuf8internal8MapFieldIN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_9AttrValueELNS1_14WireFormatLite9FieldTypeE9ELSD_11EE5ClearEv.exit
 
 _ZN6google8protobuf8internal8MapFieldIN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_9AttrValueELNS1_14WireFormatLite9FieldTypeE9ELSD_11EE5ClearEv.exit: ; preds = %1, %4, %18
-  %19 = getelementptr inbounds i8, ptr %0, i64 88
-  %20 = getelementptr inbounds i8, ptr %0, i64 160
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 160
   tail call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap5clearEv(ptr noundef nonnull align 8 dereferenceable(48) %20)
   tail call void @_ZN6google8protobuf8internal12MapFieldBase11SetMapDirtyEv(ptr noundef nonnull align 8 dereferenceable(120) %19)
   ret void
@@ -1898,31 +1898,31 @@ _ZN6google8protobuf8internal8MapFieldIN17opencv_tensorflow35FunctionDef_Node_Att
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN6google8protobuf8internal8MapFieldIN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_9AttrValueELNS1_14WireFormatLite9FieldTypeE9ELSD_11EE5ClearEv(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %_ZN6google8protobuf16RepeatedPtrFieldIN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseEE5ClearEv.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %8, label %_ZN6google8protobuf16RepeatedPtrFieldIN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseEE5ClearEv.exit
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %3, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %wide.trip.count.i.i = zext nneg i32 %6 to i64
   br label %12
 
 12:                                               ; preds = %12, %8
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %12 ], [ 0, %8 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %13 = getelementptr inbounds ptr, ptr %11, i64 %indvars.iv.i.i
+  %13 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv.i.i
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %17 = load ptr, ptr %16, align 8
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(36) %14)
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
@@ -1933,7 +1933,7 @@ define linkonce_odr hidden void @_ZN6google8protobuf8internal8MapFieldIN17opencv
   br label %_ZN6google8protobuf16RepeatedPtrFieldIN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseEE5ClearEv.exit
 
 _ZN6google8protobuf16RepeatedPtrFieldIN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseEE5ClearEv.exit: ; preds = %18, %4, %1
-  %19 = getelementptr inbounds i8, ptr %0, i64 72
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap5clearEv(ptr noundef nonnull align 8 dereferenceable(48) %19)
   tail call void @_ZN6google8protobuf8internal12MapFieldBase11SetMapDirtyEv(ptr noundef nonnull align 8 dereferenceable(68) %0)
   ret void
@@ -1941,48 +1941,48 @@ _ZN6google8protobuf16RepeatedPtrFieldIN17opencv_tensorflow35FunctionDef_Node_Att
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN17opencv_tensorflow16FunctionDef_NodeC2EPN6google8protobuf5ArenaEb(ptr noundef nonnull align 8 dereferenceable(224) initializes((0, 16)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = ptrtoint ptr %1 to i64
   %6 = or i64 %5, 2
   %7 = select i1 %2, i64 %6, i64 %5
   store i64 %7, ptr %4, align 8
   store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN17opencv_tensorflow16FunctionDef_NodeE, i64 16), ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   invoke void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef %1)
           to label %9 unwind label %26
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   invoke void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef %1)
           to label %11 unwind label %28
 
 11:                                               ; preds = %9
-  %12 = getelementptr inbounds i8, ptr %0, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 64
   invoke void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef %1)
           to label %13 unwind label %30
 
 13:                                               ; preds = %11
-  %14 = getelementptr inbounds i8, ptr %0, i64 88
-  %15 = getelementptr inbounds i8, ptr %0, i64 96
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %1, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 104
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %16, i8 0, i64 52, i1 false)
   store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTVN6google8protobuf8internal8MapFieldIN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_9AttrValueELNS1_14WireFormatLite9FieldTypeE9ELSD_11EEE, i64 16), ptr %14, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 160
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store i64 0, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 168
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store i64 1, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 176
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store i64 0, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 184
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 184
   store i64 1, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 192
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store ptr @_ZN6google8protobuf8internal17kGlobalEmptyTableE, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 200
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 200
   store ptr %1, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 216
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 216
   store i32 0, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 208
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 208
   store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %24, align 8
   %.not.i = icmp eq ptr %1, null
   %or.cond = or i1 %2, %.not.i
@@ -2038,17 +2038,17 @@ declare void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcS
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6google8protobuf8internal8MapFieldIN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_9AttrValueELNS1_14WireFormatLite9FieldTypeE9ELSD_11EED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTVN6google8protobuf8internal8MapFieldIN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_9AttrValueELNS1_14WireFormatLite9FieldTypeE9ELSD_11EEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 112
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load ptr, ptr %2, align 8
   %4 = icmp ne ptr %3, null
-  %5 = getelementptr inbounds i8, ptr %0, i64 80
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %6 = load i64, ptr %5, align 8
   %.not.i.i.i = icmp eq i64 %6, 1
   %or.cond.i.i.i = select i1 %4, i1 true, i1 %.not.i.i.i
   br i1 %or.cond.i.i.i, label %_ZN6google8protobuf8internal12MapFieldLiteIN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_9AttrValueELNS1_14WireFormatLite9FieldTypeE9ELSD_11EED2Ev.exit, label %7
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 72
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 72
   invoke void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap5clearEv(ptr noundef nonnull align 8 dereferenceable(48) %8)
           to label %9 unwind label %15
 
@@ -2058,7 +2058,7 @@ define linkonce_odr hidden void @_ZN6google8protobuf8internal8MapFieldIN17opencv
   br i1 %11, label %12, label %_ZN6google8protobuf8internal12MapFieldLiteIN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_9AttrValueELNS1_14WireFormatLite9FieldTypeE9ELSD_11EED2Ev.exit
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %0, i64 104
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %14 = load ptr, ptr %13, align 8
   tail call void @_ZdlPv(ptr noundef %14) #25
   br label %_ZN6google8protobuf8internal12MapFieldLiteIN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_9AttrValueELNS1_14WireFormatLite9FieldTypeE9ELSD_11EED2Ev.exit
@@ -2080,46 +2080,46 @@ declare void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcS
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN17opencv_tensorflow16FunctionDef_NodeC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(224) initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(224) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
   store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN17opencv_tensorflow16FunctionDef_NodeE, i64 16), ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   invoke void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1ERKS8_(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5)
           to label %6 unwind label %69
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
-  %8 = getelementptr inbounds i8, ptr %1, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 40
   invoke void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1ERKS8_(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %8)
           to label %9 unwind label %71
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %0, i64 64
-  %11 = getelementptr inbounds i8, ptr %1, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 64
   invoke void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1ERKS8_(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %11)
           to label %12 unwind label %73
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %0, i64 88
-  %14 = getelementptr inbounds i8, ptr %0, i64 96
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %14, i8 0, i64 60, i1 false)
   store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTVN6google8protobuf8internal8MapFieldIN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_9AttrValueELNS1_14WireFormatLite9FieldTypeE9ELSD_11EEE, i64 16), ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 160
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store i64 0, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 168
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store i64 1, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 176
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store i64 0, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 184
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 184
   store i64 1, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 192
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store ptr @_ZN6google8protobuf8internal17kGlobalEmptyTableE, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 200
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 200
   store ptr null, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 216
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 216
   store i32 0, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %23 = load i64, ptr %22, align 8
   %24 = and i64 %23, 1
   %.not = icmp eq i64 %24, 0
@@ -2128,7 +2128,7 @@ define hidden void @_ZN17opencv_tensorflow16FunctionDef_NodeC2ERKS0_(ptr noundef
 25:                                               ; preds = %12
   %26 = and i64 %23, -4
   %27 = inttoptr i64 %26 to ptr
-  %28 = getelementptr inbounds i8, ptr %27, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load i64, ptr %3, align 8
   %30 = and i64 %29, 1
   %.not.i = icmp eq i64 %30, 0
@@ -2156,7 +2156,7 @@ define hidden void @_ZN17opencv_tensorflow16FunctionDef_NodeC2ERKS0_(ptr noundef
   %39 = extractvalue { ptr, ptr } %38, 0
   %40 = extractvalue { ptr, ptr } %38, 1
   store ptr %39, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
   store ptr @_ZN6google8protobuf8internal21arena_destruct_objectINS1_16InternalMetadata9ContainerINS0_15UnknownFieldSetEEEEEvPv, ptr %41, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %39, i8 0, i64 32, i1 false)
   %.pre.i.i = load i64, ptr %3, align 8
@@ -2175,7 +2175,7 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
 
 47:                                               ; preds = %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i, %25
   %.pn.i = phi ptr [ %.041.i.i, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i ], [ %32, %25 ]
-  %.0.i = getelementptr inbounds i8, ptr %.pn.i, i64 8
+  %.0.i = getelementptr inbounds nuw i8, ptr %.pn.i, i64 8
   invoke void @_ZN6google8protobuf15UnknownFieldSet9MergeFromERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %.0.i, ptr noundef nonnull align 8 dereferenceable(24) %28)
           to label %_ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSetEEEvRKT_.exit unwind label %75
 
@@ -2184,12 +2184,12 @@ _ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSe
           to label %.noexc30 unwind label %75
 
 .noexc30:                                         ; preds = %_ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSetEEEvRKT_.exit
-  %48 = getelementptr inbounds i8, ptr %1, i64 88
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 88
   invoke void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %48)
           to label %.noexc31 unwind label %75
 
 .noexc31:                                         ; preds = %.noexc30
-  %49 = getelementptr inbounds i8, ptr %1, i64 160
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 160
   invoke void @_ZN6google8protobuf8internal12MapFieldLiteIN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_9AttrValueELNS1_14WireFormatLite9FieldTypeE9ELSD_11EE9MergeFromERKSE_(ptr noundef nonnull align 8 dereferenceable(48) %15, ptr noundef nonnull align 8 dereferenceable(48) %49)
           to label %.noexc32 unwind label %75
 
@@ -2198,9 +2198,9 @@ _ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSe
           to label %50 unwind label %75
 
 50:                                               ; preds = %.noexc32
-  %51 = getelementptr inbounds i8, ptr %0, i64 208
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 208
   store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %1, i64 208
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 208
   %53 = load ptr, ptr %52, align 8
   %54 = ptrtoint ptr %53 to i64
   %55 = and i64 %54, -2
@@ -2276,8 +2276,8 @@ declare void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcS
 define linkonce_odr hidden void @_ZN6google8protobuf8internal8MapFieldIN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_9AttrValueELNS1_14WireFormatLite9FieldTypeE9ELSD_11EE9MergeFromERKNS1_12MapFieldBaseE(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(68) %1) unnamed_addr #3 comdat align 2 {
   tail call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %0)
   tail call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %1)
-  %3 = getelementptr inbounds i8, ptr %0, i64 72
-  %4 = getelementptr inbounds i8, ptr %1, i64 72
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 72
   tail call void @_ZN6google8protobuf8internal12MapFieldLiteIN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_9AttrValueELNS1_14WireFormatLite9FieldTypeE9ELSD_11EE9MergeFromERKSE_(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(48) %4)
   tail call void @_ZN6google8protobuf8internal12MapFieldBase11SetMapDirtyEv(ptr noundef nonnull align 8 dereferenceable(68) %0)
   ret void
@@ -2290,7 +2290,7 @@ declare void @_ZN6google8protobuf8internal14ArenaStringPtr3SetENS2_12EmptyDefaul
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN17opencv_tensorflow16FunctionDef_NodeD2Ev(ptr noundef nonnull align 8 dereferenceable(224) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 1
   %.not.i = icmp eq i64 %4, 0
@@ -2308,7 +2308,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit: ; preds = %7, %
   br i1 %.not, label %9, label %_ZN6google8protobuf8internal16InternalMetadata6DeleteINS0_15UnknownFieldSetEEEvv.exit
 
 9:                                                ; preds = %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit
-  %10 = getelementptr inbounds i8, ptr %0, i64 208
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E
   br i1 %12, label %_ZN17opencv_tensorflow16FunctionDef_Node10SharedDtorEv.exit, label %13
@@ -2338,9 +2338,9 @@ _ZN17opencv_tensorflow16FunctionDef_Node10SharedDtorEv.exit: ; preds = %._ZN17op
   br i1 %or.cond.i, label %_ZN6google8protobuf8internal16InternalMetadata6DeleteINS0_15UnknownFieldSetEEEvv.exit, label %21
 
 21:                                               ; preds = %15
-  %22 = getelementptr inbounds i8, ptr %17, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %17, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %23, %25
   br i1 %26, label %_ZN6google8protobuf15UnknownFieldSet5ClearEv.exit.i.i.i.i, label %27
@@ -2374,19 +2374,19 @@ _ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEE
   br label %_ZN6google8protobuf8internal16InternalMetadata6DeleteINS0_15UnknownFieldSetEEEvv.exit
 
 _ZN6google8protobuf8internal16InternalMetadata6DeleteINS0_15UnknownFieldSetEEEvv.exit: ; preds = %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i, %15, %_ZN17opencv_tensorflow16FunctionDef_Node10SharedDtorEv.exit, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit
-  %33 = getelementptr inbounds i8, ptr %0, i64 88
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTVN6google8protobuf8internal8MapFieldIN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_9AttrValueELNS1_14WireFormatLite9FieldTypeE9ELSD_11EEE, i64 16), ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 200
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %35 = load ptr, ptr %34, align 8
   %36 = icmp ne ptr %35, null
-  %37 = getelementptr inbounds i8, ptr %0, i64 168
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %38 = load i64, ptr %37, align 8
   %.not.i.i.i.i = icmp eq i64 %38, 1
   %or.cond.i.i.i.i = select i1 %36, i1 true, i1 %.not.i.i.i.i
   br i1 %or.cond.i.i.i.i, label %_ZN6google8protobuf8internal8MapFieldIN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_9AttrValueELNS1_14WireFormatLite9FieldTypeE9ELSD_11EED2Ev.exit, label %39
 
 39:                                               ; preds = %_ZN6google8protobuf8internal16InternalMetadata6DeleteINS0_15UnknownFieldSetEEEvv.exit
-  %40 = getelementptr inbounds i8, ptr %0, i64 160
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 160
   invoke void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap5clearEv(ptr noundef nonnull align 8 dereferenceable(48) %40)
           to label %41 unwind label %47
 
@@ -2396,7 +2396,7 @@ _ZN6google8protobuf8internal16InternalMetadata6DeleteINS0_15UnknownFieldSetEEEvv
   br i1 %43, label %44, label %_ZN6google8protobuf8internal8MapFieldIN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_9AttrValueELNS1_14WireFormatLite9FieldTypeE9ELSD_11EED2Ev.exit
 
 44:                                               ; preds = %41
-  %45 = getelementptr inbounds i8, ptr %0, i64 192
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %46 = load ptr, ptr %45, align 8
   tail call void @_ZdlPv(ptr noundef %46) #25
   br label %_ZN6google8protobuf8internal8MapFieldIN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_9AttrValueELNS1_14WireFormatLite9FieldTypeE9ELSD_11EED2Ev.exit
@@ -2410,11 +2410,11 @@ _ZN6google8protobuf8internal16InternalMetadata6DeleteINS0_15UnknownFieldSetEEEvv
 
 _ZN6google8protobuf8internal8MapFieldIN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_9AttrValueELNS1_14WireFormatLite9FieldTypeE9ELSD_11EED2Ev.exit: ; preds = %_ZN6google8protobuf8internal16InternalMetadata6DeleteINS0_15UnknownFieldSetEEEvv.exit, %41, %44
   tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %33) #25
-  %50 = getelementptr inbounds i8, ptr %0, i64 64
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 64
   tail call void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %50) #25
-  %51 = getelementptr inbounds i8, ptr %0, i64 40
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %51) #25
-  %52 = getelementptr inbounds i8, ptr %0, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %52) #25
   store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf11MessageLiteE, i64 16), ptr %0, align 8
   %53 = load i64, ptr %2, align 8
@@ -2463,19 +2463,19 @@ define hidden void @_ZN17opencv_tensorflow16FunctionDef_NodeD0Ev(ptr noundef non
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN17opencv_tensorflow16FunctionDef_Node9ArenaDtorEPv(ptr noundef initializes((88, 96)) %0) #5 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 88
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTVN6google8protobuf8internal8MapFieldIN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_9AttrValueELNS1_14WireFormatLite9FieldTypeE9ELSD_11EEE, i64 16), ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 200
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %4 = load ptr, ptr %3, align 8
   %5 = icmp ne ptr %4, null
-  %6 = getelementptr inbounds i8, ptr %0, i64 168
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %7 = load i64, ptr %6, align 8
   %.not.i.i.i.i = icmp eq i64 %7, 1
   %or.cond.i.i.i.i = select i1 %5, i1 true, i1 %.not.i.i.i.i
   br i1 %or.cond.i.i.i.i, label %_ZN6google8protobuf8internal8MapFieldIN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_9AttrValueELNS1_14WireFormatLite9FieldTypeE9ELSD_11EED2Ev.exit, label %8
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %0, i64 160
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 160
   invoke void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap5clearEv(ptr noundef nonnull align 8 dereferenceable(48) %9)
           to label %10 unwind label %16
 
@@ -2485,7 +2485,7 @@ define hidden void @_ZN17opencv_tensorflow16FunctionDef_Node9ArenaDtorEPv(ptr no
   br i1 %12, label %13, label %_ZN6google8protobuf8internal8MapFieldIN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_9AttrValueELNS1_14WireFormatLite9FieldTypeE9ELSD_11EED2Ev.exit
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %0, i64 192
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %15 = load ptr, ptr %14, align 8
   tail call void @_ZdlPv(ptr noundef %15) #25
   br label %_ZN6google8protobuf8internal8MapFieldIN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_9AttrValueELNS1_14WireFormatLite9FieldTypeE9ELSD_11EED2Ev.exit
@@ -2504,45 +2504,45 @@ _ZN6google8protobuf8internal8MapFieldIN17opencv_tensorflow35FunctionDef_Node_Att
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZNK17opencv_tensorflow16FunctionDef_Node13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(224) %0, i32 noundef %1) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 216
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 216
   store atomic i32 %1, ptr %3 monotonic, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN17opencv_tensorflow16FunctionDef_Node5ClearEv(ptr noundef nonnull align 8 dereferenceable(224) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5ClearEv(ptr noundef nonnull align 8 dereferenceable(24) %2)
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5ClearEv(ptr noundef nonnull align 8 dereferenceable(24) %3)
-  %4 = getelementptr inbounds i8, ptr %0, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   tail call void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5ClearEv(ptr noundef nonnull align 8 dereferenceable(24) %4)
-  %5 = getelementptr inbounds i8, ptr %0, i64 88
-  %6 = getelementptr inbounds i8, ptr %0, i64 104
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %7 = load ptr, ptr %6, align 8
   %.not.i = icmp eq ptr %7, null
   br i1 %.not.i, label %_ZN6google8protobuf8internal8MapFieldIN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_9AttrValueELNS1_14WireFormatLite9FieldTypeE9ELSD_11EE5ClearEv.exit, label %8
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %7, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %10 = load i32, ptr %9, align 8
   %11 = icmp sgt i32 %10, 0
   br i1 %11, label %12, label %_ZN6google8protobuf8internal8MapFieldIN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_9AttrValueELNS1_14WireFormatLite9FieldTypeE9ELSD_11EE5ClearEv.exit
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %7, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %wide.trip.count.i.i.i = zext nneg i32 %10 to i64
   br label %16
 
 16:                                               ; preds = %16, %12
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %16 ], [ 0, %12 ]
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
-  %17 = getelementptr inbounds ptr, ptr %15, i64 %indvars.iv.i.i.i
+  %17 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv.i.i.i
   %18 = load ptr, ptr %17, align 8
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 32
   %21 = load ptr, ptr %20, align 8
   tail call void %21(ptr noundef nonnull align 8 dereferenceable(36) %18)
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
@@ -2553,12 +2553,12 @@ define hidden void @_ZN17opencv_tensorflow16FunctionDef_Node5ClearEv(ptr noundef
   br label %_ZN6google8protobuf8internal8MapFieldIN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_9AttrValueELNS1_14WireFormatLite9FieldTypeE9ELSD_11EE5ClearEv.exit
 
 _ZN6google8protobuf8internal8MapFieldIN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_9AttrValueELNS1_14WireFormatLite9FieldTypeE9ELSD_11EE5ClearEv.exit: ; preds = %1, %8, %22
-  %23 = getelementptr inbounds i8, ptr %0, i64 160
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 160
   tail call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap5clearEv(ptr noundef nonnull align 8 dereferenceable(48) %23)
   tail call void @_ZN6google8protobuf8internal12MapFieldBase11SetMapDirtyEv(ptr noundef nonnull align 8 dereferenceable(120) %5)
-  %24 = getelementptr inbounds i8, ptr %0, i64 208
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 208
   tail call void @_ZN6google8protobuf8internal14ArenaStringPtr12ClearToEmptyEv(ptr noundef nonnull align 8 dereferenceable(8) %24)
-  %25 = getelementptr inbounds i8, ptr %0, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %26 = load i64, ptr %25, align 8
   %27 = and i64 %26, 1
   %.not = icmp eq i64 %27, 0
@@ -2567,9 +2567,9 @@ _ZN6google8protobuf8internal8MapFieldIN17opencv_tensorflow35FunctionDef_Node_Att
 28:                                               ; preds = %_ZN6google8protobuf8internal8MapFieldIN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_9AttrValueELNS1_14WireFormatLite9FieldTypeE9ELSD_11EE5ClearEv.exit
   %29 = and i64 %26, -4
   %30 = inttoptr i64 %29 to ptr
-  %.0.i = getelementptr inbounds i8, ptr %30, i64 8
+  %.0.i = getelementptr inbounds nuw i8, ptr %30, i64 8
   %31 = load ptr, ptr %.0.i, align 8
-  %32 = getelementptr inbounds i8, ptr %30, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %33 = load ptr, ptr %32, align 8
   %34 = icmp eq ptr %31, %33
   br i1 %34, label %_ZN6google8protobuf8internal16InternalMetadata7DoClearINS0_15UnknownFieldSetEEEvv.exit, label %35
@@ -2588,15 +2588,15 @@ declare void @_ZN6google8protobuf8internal14ArenaStringPtr12ClearToEmptyEv(ptr n
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_ZN17opencv_tensorflow16FunctionDef_Node14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 dereferenceable(224) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 92
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 28
-  %7 = getelementptr inbounds i8, ptr %0, i64 88
-  %8 = getelementptr inbounds i8, ptr %0, i64 64
-  %9 = getelementptr inbounds i8, ptr %0, i64 40
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 208
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 92
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 28
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 208
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %13
 
 13:                                               ; preds = %.backedge, %3
@@ -2618,7 +2618,7 @@ define hidden noundef ptr @_ZN17opencv_tensorflow16FunctionDef_Node14_InternalPa
 
 25:                                               ; preds = %17
   %26 = icmp sgt i32 %22, 0
-  %27 = getelementptr inbounds i8, ptr %2, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %28 = load ptr, ptr %27, align 8
   %29 = icmp eq ptr %28, null
   %or.cond.i.i = select i1 %26, i1 %29, i1 false
@@ -2637,7 +2637,7 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread63: ; preds = %1
   %34 = load i8, ptr %.666, align 1
   %35 = zext i8 %34 to i32
   %36 = icmp sgt i8 %34, -1
-  %37 = getelementptr inbounds i8, ptr %.666, i64 1
+  %37 = getelementptr inbounds nuw i8, ptr %.666, i64 1
   br i1 %36, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, label %38
 
 38:                                               ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread63
@@ -2650,7 +2650,7 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread63: ; preds = %1
   br i1 %44, label %45, label %47
 
 45:                                               ; preds = %38
-  %46 = getelementptr inbounds i8, ptr %.666, i64 2
+  %46 = getelementptr inbounds nuw i8, ptr %.666, i64 2
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
 47:                                               ; preds = %38
@@ -2682,7 +2682,7 @@ _ZN6google8protobuf8internal7ReadTagEPKcPjj.exit: ; preds = %_ZN6google8protobuf
 
 57:                                               ; preds = %67, %55
   %.1 = phi ptr [ %56, %55 ], [ %60, %67 ]
-  %58 = getelementptr inbounds i8, ptr %.1, i64 1
+  %58 = getelementptr inbounds nuw i8, ptr %.1, i64 1
   %59 = tail call noundef ptr @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3AddEv(ptr noundef nonnull align 8 dereferenceable(24) %12)
   %60 = tail call noundef ptr @_ZN6google8protobuf8internal24InlineGreedyStringParserEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcPNS1_12ParseContextE(ptr noundef %59, ptr noundef nonnull %58, ptr noundef nonnull %2)
   %61 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %59) #25
@@ -2745,7 +2745,7 @@ _ZN17opencv_tensorflow16FunctionDef_Node20_internal_mutable_opB5cxx11Ev.exit: ; 
 
 90:                                               ; preds = %100, %88
   %.2 = phi ptr [ %89, %88 ], [ %93, %100 ]
-  %91 = getelementptr inbounds i8, ptr %.2, i64 1
+  %91 = getelementptr inbounds nuw i8, ptr %.2, i64 1
   %92 = tail call noundef ptr @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3AddEv(ptr noundef nonnull align 8 dereferenceable(24) %9)
   %93 = tail call noundef ptr @_ZN6google8protobuf8internal24InlineGreedyStringParserEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcPNS1_12ParseContextE(ptr noundef %92, ptr noundef nonnull %91, ptr noundef nonnull %2)
   %94 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %92) #25
@@ -2776,7 +2776,7 @@ _ZN17opencv_tensorflow16FunctionDef_Node20_internal_mutable_opB5cxx11Ev.exit: ; 
 
 108:                                              ; preds = %118, %106
   %.3 = phi ptr [ %107, %106 ], [ %111, %118 ]
-  %109 = getelementptr inbounds i8, ptr %.3, i64 1
+  %109 = getelementptr inbounds nuw i8, ptr %.3, i64 1
   %110 = tail call noundef ptr @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3AddEv(ptr noundef nonnull align 8 dereferenceable(24) %8)
   %111 = tail call noundef ptr @_ZN6google8protobuf8internal24InlineGreedyStringParserEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcPNS1_12ParseContextE(ptr noundef %110, ptr noundef nonnull %109, ptr noundef nonnull %2)
   %112 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %110) #25
@@ -2807,7 +2807,7 @@ _ZN17opencv_tensorflow16FunctionDef_Node20_internal_mutable_opB5cxx11Ev.exit: ; 
 
 126:                                              ; preds = %132, %124
   %.4 = phi ptr [ %125, %124 ], [ %128, %132 ]
-  %127 = getelementptr inbounds i8, ptr %.4, i64 1
+  %127 = getelementptr inbounds nuw i8, ptr %.4, i64 1
   %128 = tail call noundef ptr @_ZN6google8protobuf8internal12ParseContext12ParseMessageINS1_8MapFieldIN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS5_9AttrValueELNS1_14WireFormatLite9FieldTypeE9ELSF_11EEETnNSt9enable_ifIXntsr3std10is_base_ofINS0_11MessageLiteET_EE5valueEbE4typeELb1EEEPKcPSJ_SN_(ptr noundef nonnull align 8 dereferenceable(120) %2, ptr noundef nonnull %7, ptr noundef nonnull %127)
   %.not = icmp eq ptr %128, null
   br i1 %.not, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %129
@@ -2835,7 +2835,7 @@ _ZN17opencv_tensorflow16FunctionDef_Node20_internal_mutable_opB5cxx11Ev.exit: ; 
 
 140:                                              ; preds = %139
   %141 = add i32 %.059, -1
-  %142 = getelementptr inbounds i8, ptr %2, i64 80
+  %142 = getelementptr inbounds nuw i8, ptr %2, i64 80
   store i32 %141, ptr %142, align 8
   br label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread
 
@@ -2862,7 +2862,7 @@ _ZN17opencv_tensorflow16FunctionDef_Node20_internal_mutable_opB5cxx11Ev.exit: ; 
   %155 = extractvalue { ptr, ptr } %154, 0
   %156 = extractvalue { ptr, ptr } %154, 1
   store ptr %155, ptr %156, align 8
-  %157 = getelementptr inbounds i8, ptr %156, i64 8
+  %157 = getelementptr inbounds nuw i8, ptr %156, i64 8
   store ptr @_ZN6google8protobuf8internal21arena_destruct_objectINS1_16InternalMetadata9ContainerINS0_15UnknownFieldSetEEEEEvPv, ptr %157, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %155, i8 0, i64 32, i1 false)
   %.pre.i = load i64, ptr %10, align 8
@@ -2881,7 +2881,7 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
 
 163:                                              ; preds = %143, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit
   %.pn = phi ptr [ %.041.i, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit ], [ %148, %143 ]
-  %.0 = getelementptr inbounds i8, ptr %.pn, i64 8
+  %.0 = getelementptr inbounds nuw i8, ptr %.pn, i64 8
   %164 = tail call noundef ptr @_ZN6google8protobuf8internal17UnknownFieldParseEmPNS0_15UnknownFieldSetEPKcPNS1_12ParseContextE(i64 noundef %144, ptr noundef nonnull %.0, ptr noundef %.0.i, ptr noundef nonnull %2)
   %.not31 = icmp eq ptr %164, null
   br i1 %.not31, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %.backedge
@@ -2902,14 +2902,14 @@ define linkonce_odr hidden noundef ptr @_ZN6google8protobuf8internal12ParseConte
   br i1 %.not, label %30, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %1, i64 72
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 72
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
   store ptr %8, ptr %4, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %8, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #25
-  %11 = getelementptr inbounds i8, ptr %4, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 56
   store ptr null, ptr %11, align 8
   %12 = invoke noundef ptr @_ZN6google8protobuf8internal12MapEntryImplIN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseENS0_7MessageENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_9AttrValueELNS1_14WireFormatLite9FieldTypeE9ELSE_11EE6ParserINS1_12MapFieldLiteIS4_SB_SC_LSE_9ELSE_11EEENS0_3MapISB_SC_EEE14_InternalParseEPKcPNS1_12ParseContextE(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull %6, ptr noundef nonnull %0)
           to label %13 unwind label %28
@@ -2920,7 +2920,7 @@ define linkonce_odr hidden noundef ptr @_ZN6google8protobuf8internal12ParseConte
   br i1 %.not.i.i.i, label %_ZN6google8protobuf8internal8MapFieldIN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_9AttrValueELNS1_14WireFormatLite9FieldTypeE9ELSD_11EE14_InternalParseEPKcPNS1_12ParseContextE.exit, label %15
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %14, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %17 = load i64, ptr %16, align 8
   %18 = and i64 %17, 1
   %.not.i.i.i.i = icmp eq i64 %18, 0
@@ -2939,7 +2939,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i.i.i: ; preds =
 
 24:                                               ; preds = %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit.i.i.i
   %25 = load ptr, ptr %14, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load ptr, ptr %26, align 8
   call void %27(ptr noundef nonnull align 8 dereferenceable(36) %14) #25
   br label %_ZN6google8protobuf8internal8MapFieldIN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_9AttrValueELNS1_14WireFormatLite9FieldTypeE9ELSD_11EE14_InternalParseEPKcPNS1_12ParseContextE.exit
@@ -2957,22 +2957,22 @@ _ZN6google8protobuf8internal8MapFieldIN17opencv_tensorflow35FunctionDef_Node_Att
 
 30:                                               ; preds = %3, %_ZN6google8protobuf8internal8MapFieldIN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_9AttrValueELNS1_14WireFormatLite9FieldTypeE9ELSD_11EE14_InternalParseEPKcPNS1_12ParseContextE.exit
   %31 = phi ptr [ %12, %_ZN6google8protobuf8internal8MapFieldIN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_9AttrValueELNS1_14WireFormatLite9FieldTypeE9ELSD_11EE14_InternalParseEPKcPNS1_12ParseContextE.exit ], [ null, %3 ]
-  %32 = getelementptr inbounds i8, ptr %0, i64 88
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %33 = load i32, ptr %32, align 8
   %34 = add nsw i32 %33, 1
   store i32 %34, ptr %32, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 80
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %36 = load i32, ptr %35, align 8
   %37 = icmp eq i32 %36, 0
   br i1 %37, label %38, label %_ZN6google8protobuf8internal18EpsCopyInputStream8PopLimitEi.exit
 
 38:                                               ; preds = %30
   %39 = load i32, ptr %5, align 4
-  %40 = getelementptr inbounds i8, ptr %0, i64 28
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %41 = load i32, ptr %40, align 4
   %42 = add nsw i32 %41, %39
   store i32 %42, ptr %40, align 4
-  %43 = getelementptr inbounds i8, ptr %0, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %44 = load ptr, ptr %43, align 8
   %.sroa.speculated.i = call i32 @llvm.smin.i32(i32 %42, i32 0)
   %45 = sext i32 %.sroa.speculated.i to i64
@@ -2989,7 +2989,7 @@ _ZN6google8protobuf8internal18EpsCopyInputStream8PopLimitEi.exit: ; preds = %30,
 define hidden noundef ptr @_ZNK17opencv_tensorflow16FunctionDef_Node18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr noundef nonnull align 8 dereferenceable(224) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.google::protobuf::Map<std::__cxx11::basic_string<char>, opencv_tensorflow::AttrValue>::const_iterator", align 8
   %5 = alloca %"class.google::protobuf::Map<std::__cxx11::basic_string<char>, opencv_tensorflow::AttrValue>::const_iterator", align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = tail call noundef i32 @_ZNK6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %6)
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %.lr.ph, label %._crit_edge
@@ -3021,9 +3021,9 @@ define hidden noundef ptr @_ZNK17opencv_tensorflow16FunctionDef_Node18_InternalS
 
 23:                                               ; preds = %16
   store i8 10, ptr %.0187240, align 1
-  %24 = getelementptr inbounds i8, ptr %.0187240, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %.0187240, i64 1
   %25 = trunc i64 %14 to i8
-  %26 = getelementptr inbounds i8, ptr %.0187240, i64 2
+  %26 = getelementptr inbounds nuw i8, ptr %.0187240, i64 2
   store i8 %25, ptr %24, align 1
   %27 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #25
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %26, ptr align 1 %27, i64 %14, i1 false)
@@ -3038,7 +3038,7 @@ define hidden noundef ptr @_ZNK17opencv_tensorflow16FunctionDef_Node18_InternalS
 
 ._crit_edge:                                      ; preds = %29, %3
   %.0187.lcssa = phi ptr [ %1, %3 ], [ %.0186, %29 ]
-  %31 = getelementptr inbounds i8, ptr %0, i64 208
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %32 = load ptr, ptr %31, align 8
   %33 = ptrtoint ptr %32 to i64
   %34 = and i64 %33, -2
@@ -3082,9 +3082,9 @@ define hidden noundef ptr @_ZNK17opencv_tensorflow16FunctionDef_Node18_InternalS
 
 63:                                               ; preds = %56
   store i8 18, ptr %.0187.lcssa, align 1
-  %64 = getelementptr inbounds i8, ptr %.0187.lcssa, i64 1
+  %64 = getelementptr inbounds nuw i8, ptr %.0187.lcssa, i64 1
   %65 = trunc i64 %54 to i8
-  %66 = getelementptr inbounds i8, ptr %.0187.lcssa, i64 2
+  %66 = getelementptr inbounds nuw i8, ptr %.0187.lcssa, i64 2
   store i8 %65, ptr %64, align 1
   %67 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %53) #25
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %66, ptr align 1 %67, i64 %54, i1 false)
@@ -3093,7 +3093,7 @@ define hidden noundef ptr @_ZNK17opencv_tensorflow16FunctionDef_Node18_InternalS
 
 _ZN6google8protobuf2io19EpsCopyOutputStream23WriteStringMaybeAliasedEjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPh.exit: ; preds = %63, %.critedge.i, %._crit_edge
   %.1 = phi ptr [ %.0187.lcssa, %._crit_edge ], [ %62, %.critedge.i ], [ %68, %63 ]
-  %69 = getelementptr inbounds i8, ptr %0, i64 40
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %70 = tail call noundef i32 @_ZNK6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %69)
   %71 = icmp sgt i32 %70, 0
   br i1 %71, label %.lr.ph244, label %._crit_edge245
@@ -3125,9 +3125,9 @@ _ZN6google8protobuf2io19EpsCopyOutputStream23WriteStringMaybeAliasedEjRKNSt7__cx
 
 86:                                               ; preds = %79
   store i8 26, ptr %.2242, align 1
-  %87 = getelementptr inbounds i8, ptr %.2242, i64 1
+  %87 = getelementptr inbounds nuw i8, ptr %.2242, i64 1
   %88 = trunc i64 %77 to i8
-  %89 = getelementptr inbounds i8, ptr %.2242, i64 2
+  %89 = getelementptr inbounds nuw i8, ptr %.2242, i64 2
   store i8 %88, ptr %87, align 1
   %90 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %72) #25
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %89, ptr align 1 %90, i64 %77, i1 false)
@@ -3142,7 +3142,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream23WriteStringMaybeAliasedEjRKNSt7__cx
 
 ._crit_edge245:                                   ; preds = %92, %_ZN6google8protobuf2io19EpsCopyOutputStream23WriteStringMaybeAliasedEjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPh.exit
   %.2.lcssa = phi ptr [ %.1, %_ZN6google8protobuf2io19EpsCopyOutputStream23WriteStringMaybeAliasedEjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPh.exit ], [ %.0188, %92 ]
-  %94 = getelementptr inbounds i8, ptr %0, i64 64
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %95 = tail call noundef i32 @_ZNK6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %94)
   %96 = icmp sgt i32 %95, 0
   br i1 %96, label %.lr.ph250, label %._crit_edge251
@@ -3174,9 +3174,9 @@ _ZN6google8protobuf2io19EpsCopyOutputStream23WriteStringMaybeAliasedEjRKNSt7__cx
 
 111:                                              ; preds = %104
   store i8 34, ptr %.3247, align 1
-  %112 = getelementptr inbounds i8, ptr %.3247, i64 1
+  %112 = getelementptr inbounds nuw i8, ptr %.3247, i64 1
   %113 = trunc i64 %102 to i8
-  %114 = getelementptr inbounds i8, ptr %.3247, i64 2
+  %114 = getelementptr inbounds nuw i8, ptr %.3247, i64 2
   store i8 %113, ptr %112, align 1
   %115 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %97) #25
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %114, ptr align 1 %115, i64 %102, i1 false)
@@ -3191,15 +3191,15 @@ _ZN6google8protobuf2io19EpsCopyOutputStream23WriteStringMaybeAliasedEjRKNSt7__cx
 
 ._crit_edge251:                                   ; preds = %117, %._crit_edge245
   %.3.lcssa = phi ptr [ %.2.lcssa, %._crit_edge245 ], [ %.0189, %117 ]
-  %119 = getelementptr inbounds i8, ptr %0, i64 88
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 88
   tail call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(120) %119)
-  %120 = getelementptr inbounds i8, ptr %0, i64 160
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %121 = load i64, ptr %120, align 8
   %122 = icmp eq i64 %121, 0
   br i1 %122, label %.loopexit, label %123
 
 123:                                              ; preds = %._crit_edge251
-  %124 = getelementptr inbounds i8, ptr %2, i64 58
+  %124 = getelementptr inbounds nuw i8, ptr %2, i64 58
   %125 = load i8, ptr %124, align 2
   %126 = trunc i8 %125 to i1
   br i1 %126, label %127, label %180
@@ -3222,15 +3222,15 @@ _ZN6google8protobuf2io19EpsCopyOutputStream23WriteStringMaybeAliasedEjRKNSt7__cx
 
 _ZNK17opencv_tensorflow16FunctionDef_Node14_internal_attrB5cxx11Ev.exit: ; preds = %130
   tail call void @llvm.experimental.noalias.scope.decl(metadata !33)
-  %136 = getelementptr inbounds i8, ptr %0, i64 184
+  %136 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %137 = load i64, ptr %136, align 8, !noalias !36
-  %138 = getelementptr inbounds i8, ptr %0, i64 168
+  %138 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %139 = load i64, ptr %138, align 8, !noalias !36
   %140 = icmp ult i64 %137, %139
   br i1 %140, label %.lr.ph.i.i.i.i, label %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE5beginEv.exit
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNK17opencv_tensorflow16FunctionDef_Node14_internal_attrB5cxx11Ev.exit
-  %141 = getelementptr inbounds i8, ptr %0, i64 192
+  %141 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %142 = load ptr, ptr %141, align 8, !noalias !36
   %143 = getelementptr inbounds ptr, ptr %142, i64 %137
   %144 = load ptr, ptr %143, align 8, !noalias !36
@@ -3258,9 +3258,9 @@ _ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17
   br i1 %.not.i.i.i.i, label %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap16TableEntryIsTreeEm.exit.i.i.i.i, label %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE5beginEv.exit
 
 _ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap16TableEntryIsTreeEm.exit.i.i.i.i: ; preds = %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i.i.i
-  %153 = getelementptr inbounds i8, ptr %.lcssa.i.i, i64 32
+  %153 = getelementptr inbounds nuw i8, ptr %.lcssa.i.i, i64 32
   %154 = load ptr, ptr %153, align 8, !noalias !36
-  %155 = getelementptr inbounds i8, ptr %154, i64 40
+  %155 = getelementptr inbounds nuw i8, ptr %154, i64 40
   %156 = load ptr, ptr %155, align 8, !noalias !36
   br label %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE5beginEv.exit
 
@@ -3273,9 +3273,9 @@ _ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17
   %.sroa.4.0.i = phi i64 [ %137, %_ZNK17opencv_tensorflow16FunctionDef_Node14_internal_attrB5cxx11Ev.exit ], [ %.lcssa5.i.i, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap16TableEntryIsTreeEm.exit.i.i.i.i ], [ %.lcssa5.i.i, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i.i.i ], [ %139, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap16TableEntryIsTreeEm.exit.thread.i.i.i.i ]
   %.sroa.0.0.i = phi ptr [ null, %_ZNK17opencv_tensorflow16FunctionDef_Node14_internal_attrB5cxx11Ev.exit ], [ %156, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap16TableEntryIsTreeEm.exit.i.i.i.i ], [ %.lcssa.i.i, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i.i.i ], [ null, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap16TableEntryIsTreeEm.exit.thread.i.i.i.i ]
   store ptr %.sroa.0.0.i, ptr %4, align 8, !alias.scope !33
-  %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %120, ptr %.sroa.3.0..sroa_idx.i, align 8, !alias.scope !33
-  %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 16
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 %.sroa.4.0.i, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !33
   br label %157
 
@@ -3339,7 +3339,7 @@ _ZNSt10unique_ptrIA_PKN6google8protobuf7MapPairINSt7__cxx1112basic_stringIcSt11c
   %.5257 = phi ptr [ %172, %_ZZNK17opencv_tensorflow16FunctionDef_Node18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamEEN9Utf8Check5CheckEPKNS3_7MapPairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_9AttrValueEEE.exit ], [ %.3.lcssa, %.noexc ]
   %169 = getelementptr inbounds ptr, ptr %135, i64 %.0258
   %170 = load ptr, ptr %169, align 8
-  %171 = getelementptr inbounds i8, ptr %170, i64 32
+  %171 = getelementptr inbounds nuw i8, ptr %170, i64 32
   %172 = invoke noundef ptr @_ZN6google8protobuf8internal13MapEntryFuncsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueELNS1_14WireFormatLite9FieldTypeE9ELSC_11EE17InternalSerializeEiRKS8_RKSA_PhPNS0_2io19EpsCopyOutputStreamE(i32 noundef 5, ptr noundef nonnull align 8 dereferenceable(32) %170, ptr noundef nonnull align 8 dereferenceable(32) %171, ptr noundef %.5257, ptr noundef nonnull %2)
           to label %173 unwind label %_ZNSt10unique_ptrIA_PKN6google8protobuf7MapPairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEEESt14default_deleteISE_EED2Ev.exit.loopexit
 
@@ -3364,15 +3364,15 @@ _ZNSt10unique_ptrIA_PKN6google8protobuf7MapPairINSt7__cxx1112basic_stringIcSt11c
 180:                                              ; preds = %127, %123
   tail call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(120) %119)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !42)
-  %181 = getelementptr inbounds i8, ptr %0, i64 184
+  %181 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %182 = load i64, ptr %181, align 8, !noalias !45
-  %183 = getelementptr inbounds i8, ptr %0, i64 168
+  %183 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %184 = load i64, ptr %183, align 8, !noalias !45
   %185 = icmp ult i64 %182, %184
   br i1 %185, label %.lr.ph.i.i.i.i204, label %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE5beginEv.exit216
 
 .lr.ph.i.i.i.i204:                                ; preds = %180
-  %186 = getelementptr inbounds i8, ptr %0, i64 192
+  %186 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %187 = load ptr, ptr %186, align 8, !noalias !45
   %188 = getelementptr inbounds ptr, ptr %187, i64 %182
   %189 = load ptr, ptr %188, align 8, !noalias !45
@@ -3400,9 +3400,9 @@ _ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17
   br i1 %.not.i.i.i.i209, label %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap16TableEntryIsTreeEm.exit.i.i.i.i210, label %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE5beginEv.exit216
 
 _ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap16TableEntryIsTreeEm.exit.i.i.i.i210: ; preds = %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i.i.i206
-  %198 = getelementptr inbounds i8, ptr %.lcssa.i.i208, i64 32
+  %198 = getelementptr inbounds nuw i8, ptr %.lcssa.i.i208, i64 32
   %199 = load ptr, ptr %198, align 8, !noalias !45
-  %200 = getelementptr inbounds i8, ptr %199, i64 40
+  %200 = getelementptr inbounds nuw i8, ptr %199, i64 40
   %201 = load ptr, ptr %200, align 8, !noalias !45
   br label %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE5beginEv.exit216
 
@@ -3415,9 +3415,9 @@ _ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17
   %.sroa.4.0.i200 = phi i64 [ %182, %180 ], [ %.lcssa5.i.i207, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap16TableEntryIsTreeEm.exit.i.i.i.i210 ], [ %.lcssa5.i.i207, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i.i.i206 ], [ %184, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap16TableEntryIsTreeEm.exit.thread.i.i.i.i212 ]
   %.sroa.0.0.i201 = phi ptr [ null, %180 ], [ %201, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap16TableEntryIsTreeEm.exit.i.i.i.i210 ], [ %.lcssa.i.i208, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i.i.i206 ], [ null, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap16TableEntryIsTreeEm.exit.thread.i.i.i.i212 ]
   store ptr %.sroa.0.0.i201, ptr %5, align 8, !alias.scope !42
-  %.sroa.3.0..sroa_idx.i202 = getelementptr inbounds i8, ptr %5, i64 8
+  %.sroa.3.0..sroa_idx.i202 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %120, ptr %.sroa.3.0..sroa_idx.i202, align 8, !alias.scope !42
-  %.sroa.4.0..sroa_idx.i203 = getelementptr inbounds i8, ptr %5, i64 16
+  %.sroa.4.0..sroa_idx.i203 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 %.sroa.4.0.i200, ptr %.sroa.4.0..sroa_idx.i203, align 8, !alias.scope !42
   tail call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(120) %119)
   %.not227253 = icmp eq ptr %.sroa.0.0.i201, null
@@ -3426,7 +3426,7 @@ _ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17
 .lr.ph255:                                        ; preds = %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE5beginEv.exit216, %.lr.ph255
   %202 = phi ptr [ %211, %.lr.ph255 ], [ %.sroa.0.0.i201, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE5beginEv.exit216 ]
   %.6254 = phi ptr [ %204, %.lr.ph255 ], [ %.3.lcssa, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE5beginEv.exit216 ]
-  %203 = getelementptr inbounds i8, ptr %202, i64 32
+  %203 = getelementptr inbounds nuw i8, ptr %202, i64 32
   %204 = call noundef ptr @_ZN6google8protobuf8internal13MapEntryFuncsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueELNS1_14WireFormatLite9FieldTypeE9ELSC_11EE17InternalSerializeEiRKS8_RKSA_PhPNS0_2io19EpsCopyOutputStreamE(i32 noundef 5, ptr noundef nonnull align 8 dereferenceable(32) %202, ptr noundef nonnull align 8 dereferenceable(32) %203, ptr noundef %.6254, ptr noundef nonnull %2)
   %205 = load ptr, ptr %5, align 8
   %206 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %205) #25
@@ -3441,7 +3441,7 @@ _ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17
 
 .loopexit:                                        ; preds = %.lr.ph255, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE5beginEv.exit216, %_ZNSt10unique_ptrIA_PKN6google8protobuf7MapPairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEEESt14default_deleteISE_EED2Ev.exit199, %._crit_edge251
   %.4 = phi ptr [ %.3.lcssa, %._crit_edge251 ], [ %.5.lcssa, %_ZNSt10unique_ptrIA_PKN6google8protobuf7MapPairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEEESt14default_deleteISE_EED2Ev.exit199 ], [ %.3.lcssa, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE5beginEv.exit216 ], [ %204, %.lr.ph255 ]
-  %212 = getelementptr inbounds i8, ptr %0, i64 8
+  %212 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %213 = load i64, ptr %212, align 8
   %214 = and i64 %213, 1
   %.not = icmp eq i64 %214, 0
@@ -3450,7 +3450,7 @@ _ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17
 215:                                              ; preds = %.loopexit
   %216 = and i64 %213, -4
   %217 = inttoptr i64 %216 to ptr
-  %218 = getelementptr inbounds i8, ptr %217, i64 8
+  %218 = getelementptr inbounds nuw i8, ptr %217, i64 8
   %219 = call noundef ptr @_ZN6google8protobuf8internal10WireFormat37InternalSerializeUnknownFieldsToArrayERKNS0_15UnknownFieldSetEPhPNS0_2io19EpsCopyOutputStreamE(ptr noundef nonnull align 8 dereferenceable(24) %218, ptr noundef %.4, ptr noundef %2)
   br label %220
 
@@ -3490,7 +3490,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit: ; preds = %5, 
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit
-  %14 = getelementptr inbounds i8, ptr %.0.i, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
   br label %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit
 
 15:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit
@@ -3498,10 +3498,10 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit: ; preds = %5, 
   store i8 %16, ptr %.0.i, align 1
   %17 = lshr i32 %9, 7
   %18 = trunc i32 %17 to i8
-  %19 = getelementptr inbounds i8, ptr %.0.i, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
   store i8 %18, ptr %19, align 1
   %20 = icmp ult i32 %9, 16384
-  %21 = getelementptr inbounds i8, ptr %.0.i, i64 2
+  %21 = getelementptr inbounds nuw i8, ptr %.0.i, i64 2
   br i1 %20, label %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit, label %.preheader26.preheader
 
 .preheader26.preheader:                           ; preds = %15
@@ -3519,7 +3519,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit: ; preds = %5, 
   %24 = lshr i32 %.020.i, 7
   %25 = trunc i32 %24 to i8
   store i8 %25, ptr %.021.i, align 1
-  %26 = getelementptr inbounds i8, ptr %.021.i, i64 1
+  %26 = getelementptr inbounds nuw i8, ptr %.021.i, i64 1
   %27 = icmp samesign ugt i32 %.020.i, 16383
   br i1 %27, label %.preheader26, label %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit, !llvm.loop !49
 
@@ -3533,7 +3533,7 @@ _ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit: ; pred
   %33 = mul nuw nsw i32 %32, 9
   %34 = add nuw nsw i32 %33, 73
   %35 = lshr i32 %34, 6
-  %36 = getelementptr inbounds i8, ptr %2, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %37 = load atomic i32, ptr %36 monotonic, align 8
   %38 = or i32 %37, 1
   %39 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %38, i1 true)
@@ -3551,7 +3551,7 @@ _ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit: ; pred
   br i1 %49, label %50, label %52
 
 50:                                               ; preds = %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit
-  %51 = getelementptr inbounds i8, ptr %.0.i17, i64 1
+  %51 = getelementptr inbounds nuw i8, ptr %.0.i17, i64 1
   br label %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit21
 
 52:                                               ; preds = %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit
@@ -3559,10 +3559,10 @@ _ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit: ; pred
   store i8 %53, ptr %.0.i17, align 1
   %54 = lshr i32 %47, 7
   %55 = trunc i32 %54 to i8
-  %56 = getelementptr inbounds i8, ptr %.0.i17, i64 1
+  %56 = getelementptr inbounds nuw i8, ptr %.0.i17, i64 1
   store i8 %55, ptr %56, align 1
   %57 = icmp ult i32 %47, 16384
-  %58 = getelementptr inbounds i8, ptr %.0.i17, i64 2
+  %58 = getelementptr inbounds nuw i8, ptr %.0.i17, i64 2
   br i1 %57, label %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit21, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %52
@@ -3580,7 +3580,7 @@ _ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit: ; pred
   %61 = lshr i32 %.020.i19, 7
   %62 = trunc i32 %61 to i8
   store i8 %62, ptr %.021.i18, align 1
-  %63 = getelementptr inbounds i8, ptr %.021.i18, i64 1
+  %63 = getelementptr inbounds nuw i8, ptr %.021.i18, i64 1
   %64 = icmp samesign ugt i32 %.020.i19, 16383
   br i1 %64, label %.preheader, label %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit21, !llvm.loop !49
 
@@ -3615,9 +3615,9 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i: ; preds = %6
 
 77:                                               ; preds = %70
   store i8 10, ptr %.0.i.i, align 1
-  %78 = getelementptr inbounds i8, ptr %.0.i.i, i64 1
+  %78 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 1
   %79 = trunc i64 %68 to i8
-  %80 = getelementptr inbounds i8, ptr %.0.i.i, i64 2
+  %80 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 2
   store i8 %79, ptr %78, align 1
   %81 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #25
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %80, ptr align 1 %81, i64 %68, i1 false)
@@ -3637,7 +3637,7 @@ _ZN6google8protobuf8internal14MapTypeHandlerILNS1_14WireFormatLite9FieldTypeE9EN
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i24: ; preds = %84, %_ZN6google8protobuf8internal14MapTypeHandlerILNS1_14WireFormatLite9FieldTypeE9ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5WriteEiRKSA_PhPNS0_2io19EpsCopyOutputStreamE.exit
   %.0.i.i25 = phi ptr [ %85, %84 ], [ %.045.i, %_ZN6google8protobuf8internal14MapTypeHandlerILNS1_14WireFormatLite9FieldTypeE9ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5WriteEiRKSA_PhPNS0_2io19EpsCopyOutputStreamE.exit ]
   store i8 18, ptr %.0.i.i25, align 1
-  %86 = getelementptr inbounds i8, ptr %.0.i.i25, i64 1
+  %86 = getelementptr inbounds nuw i8, ptr %.0.i.i25, i64 1
   %87 = load atomic i32, ptr %36 monotonic, align 8
   %88 = trunc i32 %87 to i8
   store i8 %88, ptr %86, align 1
@@ -3645,7 +3645,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i24: ; preds = 
   br i1 %89, label %90, label %92
 
 90:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i24
-  %91 = getelementptr inbounds i8, ptr %.0.i.i25, i64 2
+  %91 = getelementptr inbounds nuw i8, ptr %.0.i.i25, i64 2
   br label %_ZN6google8protobuf8internal14MapTypeHandlerILNS1_14WireFormatLite9FieldTypeE11EN17opencv_tensorflow9AttrValueEE5WriteEiRKS6_PhPNS0_2io19EpsCopyOutputStreamE.exit
 
 92:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i24
@@ -3661,7 +3661,7 @@ _ZN6google8protobuf8internal14MapTypeHandlerILNS1_14WireFormatLite9FieldTypeE11E
 ; Function Attrs: mustprogress uwtable
 define hidden noundef i64 @_ZNK17opencv_tensorflow16FunctionDef_Node12ByteSizeLongEv(ptr noundef nonnull align 8 dereferenceable(224) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.google::protobuf::Map<std::__cxx11::basic_string<char>, opencv_tensorflow::AttrValue>::const_iterator", align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = tail call noundef i32 @_ZNK6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %3)
   %5 = zext i32 %4 to i64
   %6 = tail call noundef i32 @_ZNK6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %3)
@@ -3689,7 +3689,7 @@ define hidden noundef i64 @_ZNK17opencv_tensorflow16FunctionDef_Node12ByteSizeLo
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %.0.lcssa = phi i64 [ %5, %1 ], [ %19, %.lr.ph ]
-  %21 = getelementptr inbounds i8, ptr %0, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %22 = tail call noundef i32 @_ZNK6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %21)
   %23 = zext i32 %22 to i64
   %24 = add i64 %.0.lcssa, %23
@@ -3718,7 +3718,7 @@ define hidden noundef i64 @_ZNK17opencv_tensorflow16FunctionDef_Node12ByteSizeLo
 
 ._crit_edge32:                                    ; preds = %.lr.ph31, %._crit_edge
   %.1.lcssa = phi i64 [ %24, %._crit_edge ], [ %38, %.lr.ph31 ]
-  %40 = getelementptr inbounds i8, ptr %0, i64 64
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %41 = tail call noundef i32 @_ZNK6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %40)
   %42 = zext i32 %41 to i64
   %43 = add i64 %.1.lcssa, %42
@@ -3747,23 +3747,23 @@ define hidden noundef i64 @_ZNK17opencv_tensorflow16FunctionDef_Node12ByteSizeLo
 
 ._crit_edge38:                                    ; preds = %.lr.ph37, %._crit_edge32
   %.2.lcssa = phi i64 [ %43, %._crit_edge32 ], [ %57, %.lr.ph37 ]
-  %59 = getelementptr inbounds i8, ptr %0, i64 88
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 88
   tail call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(120) %59)
-  %60 = getelementptr inbounds i8, ptr %0, i64 160
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %61 = load i64, ptr %60, align 8
   %62 = and i64 %61, 4294967295
   %63 = add i64 %62, %.2.lcssa
   tail call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(120) %59)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !53)
-  %64 = getelementptr inbounds i8, ptr %0, i64 184
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %65 = load i64, ptr %64, align 8, !noalias !56
-  %66 = getelementptr inbounds i8, ptr %0, i64 168
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %67 = load i64, ptr %66, align 8, !noalias !56
   %68 = icmp ult i64 %65, %67
   br i1 %68, label %.lr.ph.i.i.i.i, label %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE5beginEv.exit
 
 .lr.ph.i.i.i.i:                                   ; preds = %._crit_edge38
-  %69 = getelementptr inbounds i8, ptr %0, i64 192
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %70 = load ptr, ptr %69, align 8, !noalias !56
   %71 = getelementptr inbounds ptr, ptr %70, i64 %65
   %72 = load ptr, ptr %71, align 8, !noalias !56
@@ -3791,9 +3791,9 @@ _ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17
   br i1 %.not.i.i.i.i, label %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap16TableEntryIsTreeEm.exit.i.i.i.i, label %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE5beginEv.exit
 
 _ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap16TableEntryIsTreeEm.exit.i.i.i.i: ; preds = %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i.i.i
-  %81 = getelementptr inbounds i8, ptr %.lcssa.i.i, i64 32
+  %81 = getelementptr inbounds nuw i8, ptr %.lcssa.i.i, i64 32
   %82 = load ptr, ptr %81, align 8, !noalias !56
-  %83 = getelementptr inbounds i8, ptr %82, i64 40
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 40
   %84 = load ptr, ptr %83, align 8, !noalias !56
   br label %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE5beginEv.exit
 
@@ -3806,9 +3806,9 @@ _ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17
   %.sroa.4.0.i = phi i64 [ %65, %._crit_edge38 ], [ %.lcssa5.i.i, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap16TableEntryIsTreeEm.exit.i.i.i.i ], [ %.lcssa5.i.i, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i.i.i ], [ %67, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap16TableEntryIsTreeEm.exit.thread.i.i.i.i ]
   %.sroa.0.0.i = phi ptr [ null, %._crit_edge38 ], [ %84, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap16TableEntryIsTreeEm.exit.i.i.i.i ], [ %.lcssa.i.i, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i.i.i ], [ null, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap16TableEntryIsTreeEm.exit.thread.i.i.i.i ]
   store ptr %.sroa.0.0.i, ptr %2, align 8, !alias.scope !53
-  %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %60, ptr %.sroa.3.0..sroa_idx.i, align 8, !alias.scope !53
-  %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 16
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 %.sroa.4.0.i, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !53
   tail call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(120) %59)
   %.not40 = icmp eq ptr %.sroa.0.0.i, null
@@ -3817,7 +3817,7 @@ _ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17
 .lr.ph42:                                         ; preds = %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE5beginEv.exit, %.lr.ph42
   %85 = phi ptr [ %120, %.lr.ph42 ], [ %.sroa.0.0.i, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE5beginEv.exit ]
   %.341 = phi i64 [ %118, %.lr.ph42 ], [ %63, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE5beginEv.exit ]
-  %86 = getelementptr inbounds i8, ptr %85, i64 32
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 32
   %87 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %85) #25
   %88 = trunc i64 %87 to i32
   %89 = or i32 %88, 1
@@ -3858,7 +3858,7 @@ _ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17
 
 ._crit_edge43:                                    ; preds = %.lr.ph42, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE5beginEv.exit
   %.3.lcssa = phi i64 [ %63, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE5beginEv.exit ], [ %118, %.lr.ph42 ]
-  %121 = getelementptr inbounds i8, ptr %0, i64 208
+  %121 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %122 = load ptr, ptr %121, align 8
   %123 = ptrtoint ptr %122 to i64
   %124 = and i64 %123, -2
@@ -3887,7 +3887,7 @@ _ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17
 
 144:                                              ; preds = %127, %._crit_edge43
   %.4 = phi i64 [ %.3.lcssa, %._crit_edge43 ], [ %143, %127 ]
-  %145 = getelementptr inbounds i8, ptr %0, i64 216
+  %145 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %146 = call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %.4, ptr noundef nonnull %145)
   ret i64 %146
 }
@@ -3909,24 +3909,24 @@ define hidden noundef nonnull ptr @_ZNK17opencv_tensorflow16FunctionDef_Node12Ge
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN17opencv_tensorflow16FunctionDef_Node9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(224) %0, ptr noundef nonnull align 8 dereferenceable(224) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
-  %4 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   tail call void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9MergeFromERKS8_(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4)
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
-  %6 = getelementptr inbounds i8, ptr %1, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 40
   tail call void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9MergeFromERKS8_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6)
-  %7 = getelementptr inbounds i8, ptr %0, i64 64
-  %8 = getelementptr inbounds i8, ptr %1, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 64
   tail call void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9MergeFromERKS8_(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %8)
-  %9 = getelementptr inbounds i8, ptr %0, i64 88
-  %10 = getelementptr inbounds i8, ptr %1, i64 88
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 88
   tail call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(120) %9)
   tail call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %10)
-  %11 = getelementptr inbounds i8, ptr %0, i64 160
-  %12 = getelementptr inbounds i8, ptr %1, i64 160
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 160
   tail call void @_ZN6google8protobuf8internal12MapFieldLiteIN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_9AttrValueELNS1_14WireFormatLite9FieldTypeE9ELSD_11EE9MergeFromERKSE_(ptr noundef nonnull align 8 dereferenceable(48) %11, ptr noundef nonnull align 8 dereferenceable(48) %12)
   tail call void @_ZN6google8protobuf8internal12MapFieldBase11SetMapDirtyEv(ptr noundef nonnull align 8 dereferenceable(120) %9)
-  %13 = getelementptr inbounds i8, ptr %1, i64 208
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 208
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64
   %16 = and i64 %15, -2
@@ -3939,8 +3939,8 @@ define hidden void @_ZN17opencv_tensorflow16FunctionDef_Node9MergeFromERKS0_(ptr
   %21 = ptrtoint ptr %20 to i64
   %22 = and i64 %21, -2
   %23 = inttoptr i64 %22 to ptr
-  %24 = getelementptr inbounds i8, ptr %0, i64 208
-  %25 = getelementptr inbounds i8, ptr %0, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 208
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %26 = load i64, ptr %25, align 8
   %27 = and i64 %26, 1
   %.not.i = icmp eq i64 %27, 0
@@ -3958,8 +3958,8 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit: ; preds = %19, 
   br label %32
 
 32:                                               ; preds = %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit, %2
-  %33 = getelementptr inbounds i8, ptr %0, i64 8
-  %34 = getelementptr inbounds i8, ptr %1, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %35 = load i64, ptr %34, align 8
   %36 = and i64 %35, 1
   %.not = icmp eq i64 %36, 0
@@ -3968,7 +3968,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit: ; preds = %19, 
 37:                                               ; preds = %32
   %38 = and i64 %35, -4
   %39 = inttoptr i64 %38 to ptr
-  %40 = getelementptr inbounds i8, ptr %39, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %41 = load i64, ptr %33, align 8
   %42 = and i64 %41, 1
   %.not.i20 = icmp eq i64 %42, 0
@@ -3990,7 +3990,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit: ; preds = %19, 
   %51 = extractvalue { ptr, ptr } %50, 0
   %52 = extractvalue { ptr, ptr } %50, 1
   store ptr %51, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
   store ptr @_ZN6google8protobuf8internal21arena_destruct_objectINS1_16InternalMetadata9ContainerINS0_15UnknownFieldSetEEEEEvPv, ptr %53, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %51, i8 0, i64 32, i1 false)
   %.pre.i.i = load i64, ptr %33, align 8
@@ -4009,7 +4009,7 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
 
 _ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSetEEEvRKT_.exit: ; preds = %37, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i
   %.pn.i = phi ptr [ %.041.i.i, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i ], [ %44, %37 ]
-  %.0.i21 = getelementptr inbounds i8, ptr %.pn.i, i64 8
+  %.0.i21 = getelementptr inbounds nuw i8, ptr %.pn.i, i64 8
   tail call void @_ZN6google8protobuf15UnknownFieldSet9MergeFromERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %.0.i21, ptr noundef nonnull align 8 dereferenceable(24) %40)
   br label %59
 
@@ -4041,62 +4041,62 @@ define hidden noundef zeroext i1 @_ZNK17opencv_tensorflow16FunctionDef_Node13IsI
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN17opencv_tensorflow16FunctionDef_Node12InternalSwapEPS0_(ptr noundef nonnull align 8 dereferenceable(224) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
 _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8
   store i64 %5, ptr %2, align 8
   store i64 %3, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   tail call void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE12InternalSwapEPS8_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull %7)
-  %8 = getelementptr inbounds i8, ptr %0, i64 40
-  %9 = getelementptr inbounds i8, ptr %1, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 40
   tail call void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE12InternalSwapEPS8_(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull %9)
-  %10 = getelementptr inbounds i8, ptr %0, i64 64
-  %11 = getelementptr inbounds i8, ptr %1, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 64
   tail call void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE12InternalSwapEPS8_(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull %11)
-  %12 = getelementptr inbounds i8, ptr %0, i64 88
-  %13 = getelementptr inbounds i8, ptr %1, i64 88
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 88
   tail call void @_ZN6google8protobuf8internal12MapFieldBase12InternalSwapEPS2_(ptr noundef nonnull align 8 dereferenceable(120) %12, ptr noundef nonnull %13)
-  %14 = getelementptr inbounds i8, ptr %0, i64 160
-  %15 = getelementptr inbounds i8, ptr %1, i64 160
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %16 = load i64, ptr %14, align 8
   %17 = load i64, ptr %15, align 8
   store i64 %17, ptr %14, align 8
   store i64 %16, ptr %15, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 168
-  %19 = getelementptr inbounds i8, ptr %1, i64 168
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 168
   %20 = load i64, ptr %18, align 8
   %21 = load i64, ptr %19, align 8
   store i64 %21, ptr %18, align 8
   store i64 %20, ptr %19, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 176
-  %23 = getelementptr inbounds i8, ptr %1, i64 176
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %24 = load i64, ptr %22, align 8
   %25 = load i64, ptr %23, align 8
   store i64 %25, ptr %22, align 8
   store i64 %24, ptr %23, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 184
-  %27 = getelementptr inbounds i8, ptr %1, i64 184
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 184
   %28 = load i64, ptr %26, align 8
   %29 = load i64, ptr %27, align 8
   store i64 %29, ptr %26, align 8
   store i64 %28, ptr %27, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 192
-  %31 = getelementptr inbounds i8, ptr %1, i64 192
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %32 = load ptr, ptr %30, align 8
   %33 = load ptr, ptr %31, align 8
   store ptr %33, ptr %30, align 8
   store ptr %32, ptr %31, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 200
-  %35 = getelementptr inbounds i8, ptr %1, i64 200
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 200
   %.sroa.0.0.copyload.i.i.i.i.i = load ptr, ptr %34, align 8
   %36 = load i64, ptr %35, align 8
   store i64 %36, ptr %34, align 8
   store ptr %.sroa.0.0.copyload.i.i.i.i.i, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %0, i64 208
-  %38 = getelementptr inbounds i8, ptr %1, i64 208
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 208
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 208
   %.sroa.0.0.copyload.i = load ptr, ptr %38, align 8
   %39 = load i64, ptr %37, align 8
   store i64 %39, ptr %38, align 8
@@ -4114,14 +4114,14 @@ define hidden { ptr, ptr } @_ZNK17opencv_tensorflow16FunctionDef_Node11GetMetada
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef nonnull align 8 dereferenceable(128) ptr @_ZN17opencv_tensorflow11FunctionDef9_Internal9signatureEPKS0_(ptr nocapture noundef readonly %0) local_unnamed_addr #13 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN17opencv_tensorflow11FunctionDef15clear_signatureEv(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0) local_unnamed_addr #5 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 1
   %.not.i = icmp eq i64 %4, 0
@@ -4139,7 +4139,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit: ; preds = %1, %
   br i1 %9, label %10, label %14
 
 10:                                               ; preds = %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit
-  %11 = getelementptr inbounds i8, ptr %0, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %12 = load ptr, ptr %11, align 8
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %14, label %13
@@ -4150,7 +4150,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit: ; preds = %1, %
   br label %14
 
 14:                                               ; preds = %13, %10, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit
-  %15 = getelementptr inbounds i8, ptr %0, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr null, ptr %15, align 8
   ret void
 }
@@ -4160,22 +4160,22 @@ declare void @_ZN17opencv_tensorflow5OpDefD1Ev(ptr noundef nonnull align 8 deref
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN17opencv_tensorflow11FunctionDefC2EPN6google8protobuf5ArenaEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((0, 52)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = ptrtoint ptr %1 to i64
   %6 = or i64 %5, 2
   %7 = select i1 %2, i64 %6, i64 %5
   store i64 %7, ptr %4, align 8
   store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN17opencv_tensorflow11FunctionDefE, i64 16), ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %1, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %9, i8 0, i64 28, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6google8protobuf16RepeatedPtrFieldIN17opencv_tensorflow16FunctionDef_NodeEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp ne ptr %3, null
   %4 = load ptr, ptr %0, align 8
@@ -4200,19 +4200,19 @@ define linkonce_odr hidden void @_ZN6google8protobuf16RepeatedPtrFieldIN17opencv
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN17opencv_tensorflow11FunctionDefC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 40)) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
   store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN17opencv_tensorflow11FunctionDefE, i64 16), ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   invoke void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase9MergeFromINS0_16RepeatedPtrFieldIN17opencv_tensorflow16FunctionDef_NodeEE11TypeHandlerEEEvRKS2_(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5)
           to label %_ZN6google8protobuf16RepeatedPtrFieldIN17opencv_tensorflow16FunctionDef_NodeEEC2ERKS4_.exit unwind label %41
 
 _ZN6google8protobuf16RepeatedPtrFieldIN17opencv_tensorflow16FunctionDef_NodeEEC2ERKS4_.exit: ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 0, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i64, ptr %7, align 8
   %9 = and i64 %8, 1
   %.not = icmp eq i64 %9, 0
@@ -4221,7 +4221,7 @@ _ZN6google8protobuf16RepeatedPtrFieldIN17opencv_tensorflow16FunctionDef_NodeEEC2
 10:                                               ; preds = %_ZN6google8protobuf16RepeatedPtrFieldIN17opencv_tensorflow16FunctionDef_NodeEEC2ERKS4_.exit
   %11 = and i64 %8, -4
   %12 = inttoptr i64 %11 to ptr
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load i64, ptr %3, align 8
   %15 = and i64 %14, 1
   %.not.i = icmp eq i64 %15, 0
@@ -4249,7 +4249,7 @@ _ZN6google8protobuf16RepeatedPtrFieldIN17opencv_tensorflow16FunctionDef_NodeEEC2
   %24 = extractvalue { ptr, ptr } %23, 0
   %25 = extractvalue { ptr, ptr } %23, 1
   store ptr %24, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store ptr @_ZN6google8protobuf8internal21arena_destruct_objectINS1_16InternalMetadata9ContainerINS0_15UnknownFieldSetEEEEEvPv, ptr %26, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %24, i8 0, i64 32, i1 false)
   %.pre.i.i = load i64, ptr %3, align 8
@@ -4268,13 +4268,13 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
 
 32:                                               ; preds = %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i, %10
   %.pn.i = phi ptr [ %.041.i.i, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i ], [ %17, %10 ]
-  %.0.i = getelementptr inbounds i8, ptr %.pn.i, i64 8
+  %.0.i = getelementptr inbounds nuw i8, ptr %.pn.i, i64 8
   invoke void @_ZN6google8protobuf15UnknownFieldSet9MergeFromERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %.0.i, ptr noundef nonnull align 8 dereferenceable(24) %13)
           to label %33 unwind label %43
 
 33:                                               ; preds = %_ZN6google8protobuf16RepeatedPtrFieldIN17opencv_tensorflow16FunctionDef_NodeEEC2ERKS4_.exit, %32
   %.not.i23 = icmp ne ptr %1, @_ZN17opencv_tensorflow30_FunctionDef_default_instance_E
-  %34 = getelementptr inbounds i8, ptr %1, i64 40
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %35 = load ptr, ptr %34, align 8
   %36 = icmp ne ptr %35, null
   %37 = select i1 %.not.i23, i1 %36, i1 false
@@ -4306,7 +4306,7 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
 
 47:                                               ; preds = %33, %40
   %.sink = phi ptr [ %39, %40 ], [ null, %33 ]
-  %48 = getelementptr inbounds i8, ptr %0, i64 40
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.sink, ptr %48, align 8
   ret void
 
@@ -4328,7 +4328,7 @@ declare void @_ZN17opencv_tensorflow5OpDefC1ERKS0_(ptr noundef nonnull align 8 d
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN17opencv_tensorflow11FunctionDefD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 1
   %.not.i = icmp eq i64 %4, 0
@@ -4350,7 +4350,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit: ; preds = %7, %
   br i1 %.not.i1, label %_ZN17opencv_tensorflow11FunctionDef10SharedDtorEv.exit, label %10
 
 10:                                               ; preds = %9
-  %11 = getelementptr inbounds i8, ptr %0, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
   br i1 %13, label %_ZN17opencv_tensorflow11FunctionDef10SharedDtorEv.exit, label %14
@@ -4378,9 +4378,9 @@ _ZN17opencv_tensorflow11FunctionDef10SharedDtorEv.exit: ; preds = %14, %10, %9
   br i1 %or.cond.i, label %_ZN6google8protobuf8internal16InternalMetadata6DeleteINS0_15UnknownFieldSetEEEvv.exit, label %22
 
 22:                                               ; preds = %16
-  %23 = getelementptr inbounds i8, ptr %18, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %18, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %24, %26
   br i1 %27, label %_ZN6google8protobuf15UnknownFieldSet5ClearEv.exit.i.i.i.i, label %28
@@ -4414,8 +4414,8 @@ _ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEE
   br label %_ZN6google8protobuf8internal16InternalMetadata6DeleteINS0_15UnknownFieldSetEEEvv.exit
 
 _ZN6google8protobuf8internal16InternalMetadata6DeleteINS0_15UnknownFieldSetEEEvv.exit: ; preds = %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i, %16, %_ZN17opencv_tensorflow11FunctionDef10SharedDtorEv.exit, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit
-  %34 = getelementptr inbounds i8, ptr %0, i64 16
-  %35 = getelementptr inbounds i8, ptr %0, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %36 = load ptr, ptr %35, align 8
   %.not.i.i = icmp ne ptr %36, null
   %37 = load ptr, ptr %34, align 8
@@ -4480,29 +4480,29 @@ define hidden void @_ZN17opencv_tensorflow11FunctionDef9ArenaDtorEPv(ptr nocaptu
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZNK17opencv_tensorflow11FunctionDef13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) %0, i32 noundef %1) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store atomic i32 %1, ptr %3 monotonic, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN17opencv_tensorflow11FunctionDef5ClearEv(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %5, label %_ZN6google8protobuf16RepeatedPtrFieldIN17opencv_tensorflow16FunctionDef_NodeEE5ClearEv.exit
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %wide.trip.count.i.i = zext nneg i32 %3 to i64
   br label %9
 
 9:                                                ; preds = %9, %5
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %9 ], [ 0, %5 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %10 = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv.i.i
+  %10 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv.i.i
   %11 = load ptr, ptr %10, align 8
   tail call void @_ZN17opencv_tensorflow16FunctionDef_Node5ClearEv(ptr noundef nonnull align 8 dereferenceable(224) %11)
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
@@ -4513,7 +4513,7 @@ define hidden void @_ZN17opencv_tensorflow11FunctionDef5ClearEv(ptr nocapture no
   br label %_ZN6google8protobuf16RepeatedPtrFieldIN17opencv_tensorflow16FunctionDef_NodeEE5ClearEv.exit
 
 _ZN6google8protobuf16RepeatedPtrFieldIN17opencv_tensorflow16FunctionDef_NodeEE5ClearEv.exit: ; preds = %1, %12
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load i64, ptr %13, align 8
   %15 = and i64 %14, 1
   %.not.i = icmp eq i64 %15, 0
@@ -4531,7 +4531,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit: ; preds = %_ZN6
   br i1 %20, label %21, label %25
 
 21:                                               ; preds = %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit
-  %22 = getelementptr inbounds i8, ptr %0, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %23 = load ptr, ptr %22, align 8
   %.not = icmp eq ptr %23, null
   br i1 %.not, label %25, label %24
@@ -4546,7 +4546,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit: ; preds = %_ZN6
 25:                                               ; preds = %24, %21, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit
   %.pre-phi = phi i64 [ %.pre7, %24 ], [ %15, %21 ], [ %15, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit ]
   %26 = phi i64 [ %.pre, %24 ], [ %14, %21 ], [ %14, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit ]
-  %27 = getelementptr inbounds i8, ptr %0, i64 40
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr null, ptr %27, align 8
   %.not4 = icmp eq i64 %.pre-phi, 0
   br i1 %.not4, label %_ZN6google8protobuf8internal16InternalMetadata7DoClearINS0_15UnknownFieldSetEEEvv.exit, label %28
@@ -4554,9 +4554,9 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit: ; preds = %_ZN6
 28:                                               ; preds = %25
   %29 = and i64 %26, -4
   %30 = inttoptr i64 %29 to ptr
-  %.0.i6 = getelementptr inbounds i8, ptr %30, i64 8
+  %.0.i6 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %31 = load ptr, ptr %.0.i6, align 8
-  %32 = getelementptr inbounds i8, ptr %30, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %33 = load ptr, ptr %32, align 8
   %34 = icmp eq ptr %31, %33
   br i1 %34, label %_ZN6google8protobuf8internal16InternalMetadata7DoClearINS0_15UnknownFieldSetEEEvv.exit, label %35
@@ -4571,12 +4571,12 @@ _ZN6google8protobuf8internal16InternalMetadata7DoClearINS0_15UnknownFieldSetEEEv
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_ZN17opencv_tensorflow11FunctionDef14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 92
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 28
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
-  %8 = getelementptr inbounds i8, ptr %0, i64 40
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 92
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 28
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %10
 
 10:                                               ; preds = %.backedge, %3
@@ -4598,7 +4598,7 @@ define hidden noundef ptr @_ZN17opencv_tensorflow11FunctionDef14_InternalParseEP
 
 22:                                               ; preds = %14
   %23 = icmp sgt i32 %19, 0
-  %24 = getelementptr inbounds i8, ptr %2, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, null
   %or.cond.i.i = select i1 %23, i1 %26, i1 false
@@ -4617,7 +4617,7 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread32: ; preds = %1
   %31 = load i8, ptr %.335, align 1
   %32 = zext i8 %31 to i32
   %33 = icmp sgt i8 %31, -1
-  %34 = getelementptr inbounds i8, ptr %.335, i64 1
+  %34 = getelementptr inbounds nuw i8, ptr %.335, i64 1
   br i1 %33, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, label %35
 
 35:                                               ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread32
@@ -4630,7 +4630,7 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread32: ; preds = %1
   br i1 %41, label %42, label %44
 
 42:                                               ; preds = %35
-  %43 = getelementptr inbounds i8, ptr %.335, i64 2
+  %43 = getelementptr inbounds nuw i8, ptr %.335, i64 2
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
 44:                                               ; preds = %35
@@ -4693,7 +4693,7 @@ _ZN17opencv_tensorflow11FunctionDef27_internal_mutable_signatureEv.exit: ; preds
 
 70:                                               ; preds = %77, %68
   %.1 = phi ptr [ %69, %68 ], [ %73, %77 ]
-  %71 = getelementptr inbounds i8, ptr %.1, i64 1
+  %71 = getelementptr inbounds nuw i8, ptr %.1, i64 1
   %72 = tail call noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase3AddINS0_16RepeatedPtrFieldIN17opencv_tensorflow16FunctionDef_NodeEE11TypeHandlerEEEPNT_4TypeESB_(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef null)
   %73 = tail call noundef ptr @_ZN6google8protobuf8internal12ParseContext12ParseMessageEPNS0_11MessageLiteEPKc(ptr noundef nonnull align 8 dereferenceable(120) %2, ptr noundef %72, ptr noundef nonnull %71)
   %.not = icmp eq ptr %73, null
@@ -4726,7 +4726,7 @@ _ZN17opencv_tensorflow11FunctionDef27_internal_mutable_signatureEv.exit: ; preds
 
 85:                                               ; preds = %84
   %86 = add i32 %.028, -1
-  %87 = getelementptr inbounds i8, ptr %2, i64 80
+  %87 = getelementptr inbounds nuw i8, ptr %2, i64 80
   store i32 %86, ptr %87, align 8
   br label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread
 
@@ -4753,7 +4753,7 @@ _ZN17opencv_tensorflow11FunctionDef27_internal_mutable_signatureEv.exit: ; preds
   %100 = extractvalue { ptr, ptr } %99, 0
   %101 = extractvalue { ptr, ptr } %99, 1
   store ptr %100, ptr %101, align 8
-  %102 = getelementptr inbounds i8, ptr %101, i64 8
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 8
   store ptr @_ZN6google8protobuf8internal21arena_destruct_objectINS1_16InternalMetadata9ContainerINS0_15UnknownFieldSetEEEEEvPv, ptr %102, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %100, i8 0, i64 32, i1 false)
   %.pre.i = load i64, ptr %9, align 8
@@ -4772,7 +4772,7 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
 
 108:                                              ; preds = %88, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit
   %.pn = phi ptr [ %.041.i, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit ], [ %93, %88 ]
-  %.0 = getelementptr inbounds i8, ptr %.pn, i64 8
+  %.0 = getelementptr inbounds nuw i8, ptr %.pn, i64 8
   %109 = tail call noundef ptr @_ZN6google8protobuf8internal17UnknownFieldParseEmPNS0_15UnknownFieldSetEPKcPNS1_12ParseContextE(i64 noundef %89, ptr noundef nonnull %.0, ptr noundef %.0.i, ptr noundef nonnull %2)
   %.not14 = icmp eq ptr %109, null
   br i1 %.not14, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %.backedge
@@ -4785,7 +4785,7 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_ZNK17opencv_tensorflow11FunctionDef18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr noundef nonnull readonly align 8 dereferenceable(56) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i = icmp ne ptr %0, @_ZN17opencv_tensorflow30_FunctionDef_default_instance_E
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
   %6 = icmp ne ptr %5, null
   %7 = select i1 %.not.i, i1 %6, i1 false
@@ -4805,8 +4805,8 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit: ; preds = %8, 
   %12 = phi ptr [ %.pre, %10 ], [ %5, %8 ]
   %.0.i = phi ptr [ %11, %10 ], [ %1, %8 ]
   store i8 10, ptr %.0.i, align 1
-  %13 = getelementptr inbounds i8, ptr %.0.i, i64 1
-  %14 = getelementptr inbounds i8, ptr %12, i64 124
+  %13 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 124
   %15 = load atomic i32, ptr %14 monotonic, align 4
   %16 = trunc i32 %15 to i8
   store i8 %16, ptr %13, align 1
@@ -4814,7 +4814,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit: ; preds = %8, 
   br i1 %17, label %18, label %20
 
 18:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit
-  %19 = getelementptr inbounds i8, ptr %.0.i, i64 2
+  %19 = getelementptr inbounds nuw i8, ptr %.0.i, i64 2
   br label %_ZN6google8protobuf2io17CodedOutputStream29WriteVarint32ToArrayOutOfLineEjPh.exit
 
 20:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit
@@ -4828,13 +4828,13 @@ _ZN6google8protobuf2io17CodedOutputStream29WriteVarint32ToArrayOutOfLineEjPh.exi
 
 23:                                               ; preds = %_ZN6google8protobuf2io17CodedOutputStream29WriteVarint32ToArrayOutOfLineEjPh.exit, %3
   %.047 = phi ptr [ %22, %_ZN6google8protobuf2io17CodedOutputStream29WriteVarint32ToArrayOutOfLineEjPh.exit ], [ %1, %3 ]
-  %24 = getelementptr inbounds i8, ptr %0, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %25 = load i32, ptr %24, align 8
   %.not59 = icmp eq i32 %25, 0
   br i1 %.not59, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %23
-  %26 = getelementptr inbounds i8, ptr %0, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %27
 
 27:                                               ; preds = %.lr.ph, %_ZN6google8protobuf2io17CodedOutputStream29WriteVarint32ToArrayOutOfLineEjPh.exit56
@@ -4851,13 +4851,13 @@ _ZN6google8protobuf2io17CodedOutputStream29WriteVarint32ToArrayOutOfLineEjPh.exi
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit53: ; preds = %27, %29
   %.0.i52 = phi ptr [ %30, %29 ], [ %.157, %27 ]
   %31 = load ptr, ptr %26, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %33 = sext i32 %.04658 to i64
   %34 = getelementptr inbounds [268435454 x ptr], ptr %32, i64 0, i64 %33
   %35 = load ptr, ptr %34, align 8
   store i8 18, ptr %.0.i52, align 1
-  %36 = getelementptr inbounds i8, ptr %.0.i52, i64 1
-  %37 = getelementptr inbounds i8, ptr %35, i64 216
+  %36 = getelementptr inbounds nuw i8, ptr %.0.i52, i64 1
+  %37 = getelementptr inbounds nuw i8, ptr %35, i64 216
   %38 = load atomic i32, ptr %37 monotonic, align 4
   %39 = trunc i32 %38 to i8
   store i8 %39, ptr %36, align 1
@@ -4865,7 +4865,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit53: ; preds = %2
   br i1 %40, label %41, label %43
 
 41:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit53
-  %42 = getelementptr inbounds i8, ptr %.0.i52, i64 2
+  %42 = getelementptr inbounds nuw i8, ptr %.0.i52, i64 2
   br label %_ZN6google8protobuf2io17CodedOutputStream29WriteVarint32ToArrayOutOfLineEjPh.exit56
 
 43:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit53
@@ -4881,7 +4881,7 @@ _ZN6google8protobuf2io17CodedOutputStream29WriteVarint32ToArrayOutOfLineEjPh.exi
 
 ._crit_edge:                                      ; preds = %_ZN6google8protobuf2io17CodedOutputStream29WriteVarint32ToArrayOutOfLineEjPh.exit56, %23
   %.1.lcssa = phi ptr [ %.047, %23 ], [ %45, %_ZN6google8protobuf2io17CodedOutputStream29WriteVarint32ToArrayOutOfLineEjPh.exit56 ]
-  %47 = getelementptr inbounds i8, ptr %0, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %48 = load i64, ptr %47, align 8
   %49 = and i64 %48, 1
   %.not = icmp eq i64 %49, 0
@@ -4890,7 +4890,7 @@ _ZN6google8protobuf2io17CodedOutputStream29WriteVarint32ToArrayOutOfLineEjPh.exi
 50:                                               ; preds = %._crit_edge
   %51 = and i64 %48, -4
   %52 = inttoptr i64 %51 to ptr
-  %53 = getelementptr inbounds i8, ptr %52, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %54 = tail call noundef ptr @_ZN6google8protobuf8internal10WireFormat37InternalSerializeUnknownFieldsToArrayERKNS0_15UnknownFieldSetEPhPNS0_2io19EpsCopyOutputStreamE(ptr noundef nonnull align 8 dereferenceable(24) %53, ptr noundef %.1.lcssa, ptr noundef %2)
   br label %55
 
@@ -4901,13 +4901,13 @@ _ZN6google8protobuf2io17CodedOutputStream29WriteVarint32ToArrayOutOfLineEjPh.exi
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef i64 @_ZNK17opencv_tensorflow11FunctionDef12ByteSizeLongEv(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8
   %4 = sext i32 %3 to i64
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8
   %.not.i.i = icmp eq ptr %6, null
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %spec.select.i.i = select i1 %.not.i.i, ptr null, ptr %7
   %8 = getelementptr inbounds ptr, ptr %spec.select.i.i, i64 %4
   %.not12 = icmp eq i32 %3, 0
@@ -4928,14 +4928,14 @@ define hidden noundef i64 @_ZNK17opencv_tensorflow11FunctionDef12ByteSizeLongEv(
   %18 = zext nneg i32 %17 to i64
   %19 = add i64 %10, %.014
   %20 = add i64 %19, %18
-  %21 = getelementptr inbounds i8, ptr %.sroa.09.013, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %.sroa.09.013, i64 8
   %.not = icmp eq ptr %21, %8
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %.0.lcssa = phi i64 [ 0, %1 ], [ %20, %.lr.ph ]
   %.not.i = icmp ne ptr %0, @_ZN17opencv_tensorflow30_FunctionDef_default_instance_E
-  %22 = getelementptr inbounds i8, ptr %0, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %23 = load ptr, ptr %22, align 8
   %24 = icmp ne ptr %23, null
   %25 = select i1 %.not.i, i1 %24, i1 false
@@ -4958,7 +4958,7 @@ define hidden noundef i64 @_ZNK17opencv_tensorflow11FunctionDef12ByteSizeLongEv(
 
 39:                                               ; preds = %26, %._crit_edge
   %.1 = phi i64 [ %38, %26 ], [ %.0.lcssa, %._crit_edge ]
-  %40 = getelementptr inbounds i8, ptr %0, i64 48
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %41 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %.1, ptr noundef nonnull %40)
   ret i64 %41
 }
@@ -4976,24 +4976,24 @@ define hidden noundef nonnull ptr @_ZNK17opencv_tensorflow11FunctionDef12GetClas
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN17opencv_tensorflow11FunctionDef9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
-  %4 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   tail call void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase9MergeFromINS0_16RepeatedPtrFieldIN17opencv_tensorflow16FunctionDef_NodeEE11TypeHandlerEEEvRKS2_(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4)
   %.not.i = icmp ne ptr %1, @_ZN17opencv_tensorflow30_FunctionDef_default_instance_E
-  %5 = getelementptr inbounds i8, ptr %1, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %6 = load ptr, ptr %5, align 8
   %7 = icmp ne ptr %6, null
   %8 = select i1 %.not.i, i1 %7, i1 false
   br i1 %8, label %9, label %25
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %13, label %_ZN17opencv_tensorflow11FunctionDef27_internal_mutable_signatureEv.exit
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load i64, ptr %14, align 8
   %16 = and i64 %15, 1
   %.not.i.i = icmp eq i64 %16, 0
@@ -5021,8 +5021,8 @@ _ZN17opencv_tensorflow11FunctionDef27_internal_mutable_signatureEv.exit: ; preds
   br label %25
 
 25:                                               ; preds = %_ZN17opencv_tensorflow11FunctionDef27_internal_mutable_signatureEv.exit, %2
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
-  %27 = getelementptr inbounds i8, ptr %1, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %28 = load i64, ptr %27, align 8
   %29 = and i64 %28, 1
   %.not = icmp eq i64 %29, 0
@@ -5031,7 +5031,7 @@ _ZN17opencv_tensorflow11FunctionDef27_internal_mutable_signatureEv.exit: ; preds
 30:                                               ; preds = %25
   %31 = and i64 %28, -4
   %32 = inttoptr i64 %31 to ptr
-  %33 = getelementptr inbounds i8, ptr %32, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %34 = load i64, ptr %26, align 8
   %35 = and i64 %34, 1
   %.not.i16 = icmp eq i64 %35, 0
@@ -5053,7 +5053,7 @@ _ZN17opencv_tensorflow11FunctionDef27_internal_mutable_signatureEv.exit: ; preds
   %44 = extractvalue { ptr, ptr } %43, 0
   %45 = extractvalue { ptr, ptr } %43, 1
   store ptr %44, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   store ptr @_ZN6google8protobuf8internal21arena_destruct_objectINS1_16InternalMetadata9ContainerINS0_15UnknownFieldSetEEEEEvPv, ptr %46, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %44, i8 0, i64 32, i1 false)
   %.pre.i.i = load i64, ptr %26, align 8
@@ -5072,7 +5072,7 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
 
 _ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSetEEEvRKT_.exit: ; preds = %30, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i
   %.pn.i = phi ptr [ %.041.i.i, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i ], [ %37, %30 ]
-  %.0.i = getelementptr inbounds i8, ptr %.pn.i, i64 8
+  %.0.i = getelementptr inbounds nuw i8, ptr %.pn.i, i64 8
   tail call void @_ZN6google8protobuf15UnknownFieldSet9MergeFromERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %.0.i, ptr noundef nonnull align 8 dereferenceable(24) %33)
   br label %52
 
@@ -5103,24 +5103,24 @@ define hidden noundef zeroext i1 @_ZNK17opencv_tensorflow11FunctionDef13IsInitia
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZN17opencv_tensorflow11FunctionDef12InternalSwapEPS0_(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0, ptr nocapture noundef %1) local_unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %3, align 8
   %6 = load i64, ptr %4, align 8
   store i64 %6, ptr %3, align 8
   store i64 %5, ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
-  %8 = getelementptr inbounds i8, ptr %1, i64 16
-  %9 = getelementptr inbounds i8, ptr %1, i64 24
-  %10 = getelementptr inbounds i8, ptr %1, i64 28
-  %11 = getelementptr inbounds i8, ptr %1, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 28
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %12 = load ptr, ptr %11, align 8, !noalias !64
   %13 = load i32, ptr %10, align 4, !noalias !64
   %14 = load i32, ptr %9, align 4, !noalias !64
   %15 = load ptr, ptr %8, align 8, !noalias !64
-  %16 = getelementptr inbounds i8, ptr %0, i64 24
-  %17 = getelementptr inbounds i8, ptr %0, i64 28
-  %18 = getelementptr inbounds i8, ptr %0, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %19 = load ptr, ptr %18, align 8, !noalias !67
   %20 = load i32, ptr %17, align 4, !noalias !67
   %21 = load i32, ptr %16, align 8, !noalias !67
@@ -5133,8 +5133,8 @@ define hidden void @_ZN17opencv_tensorflow11FunctionDef12InternalSwapEPS0_(ptr n
   store i32 %14, ptr %16, align 8
   store i32 %13, ptr %17, align 4
   store ptr %12, ptr %18, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 40
-  %24 = getelementptr inbounds i8, ptr %1, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %25 = load ptr, ptr %23, align 8
   %26 = load ptr, ptr %24, align 8
   store ptr %26, ptr %23, align 8
@@ -5150,29 +5150,29 @@ define hidden { ptr, ptr } @_ZNK17opencv_tensorflow11FunctionDef11GetMetadataEv(
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN17opencv_tensorflow11GradientDefC2EPN6google8protobuf5ArenaEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 36)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = ptrtoint ptr %1 to i64
   %6 = or i64 %5, 2
   %7 = select i1 %2, i64 %6, i64 %5
   store i64 %7, ptr %4, align 8
   store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN17opencv_tensorflow11GradientDefE, i64 16), ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 0, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %10, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN17opencv_tensorflow11GradientDefC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 16), (32, 36)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
   store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN17opencv_tensorflow11GradientDefE, i64 16), ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 0, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = and i64 %6, 1
   %.not = icmp eq i64 %7, 0
@@ -5185,19 +5185,19 @@ define hidden void @_ZN17opencv_tensorflow11GradientDefC2ERKS0_(ptr noundef nonn
 10:                                               ; preds = %8
   %11 = and i64 %6, -4
   %12 = inttoptr i64 %11 to ptr
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %9, i8 0, i64 32, i1 false)
   %14 = ptrtoint ptr %9 to i64
   %15 = or i64 %14, 1
   store i64 %15, ptr %3, align 8
-  %.0.i = getelementptr inbounds i8, ptr %9, i64 8
+  %.0.i = getelementptr inbounds nuw i8, ptr %9, i64 8
   invoke void @_ZN6google8protobuf15UnknownFieldSet9MergeFromERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %.0.i, ptr noundef nonnull align 8 dereferenceable(24) %13)
           to label %16 unwind label %35
 
 16:                                               ; preds = %2, %10
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %1, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %19 = load ptr, ptr %18, align 8
   %20 = ptrtoint ptr %19 to i64
   %21 = and i64 %20, -2
@@ -5233,9 +5233,9 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit: ; preds = %33, 
   resume { ptr, i32 } %36
 
 37:                                               ; preds = %16, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit
-  %38 = getelementptr inbounds i8, ptr %0, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %1, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %40 = load ptr, ptr %39, align 8
   %41 = ptrtoint ptr %40 to i64
   %42 = and i64 %41, -2
@@ -5270,7 +5270,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit23: ; preds = %54
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN17opencv_tensorflow11GradientDefD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 1
   %.not.i = icmp eq i64 %4, 0
@@ -5288,7 +5288,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit: ; preds = %7, %
   br i1 %.not, label %9, label %_ZN6google8protobuf8internal16InternalMetadata6DeleteINS0_15UnknownFieldSetEEEvv.exit
 
 9:                                                ; preds = %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E
   br i1 %12, label %_ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i, label %13
@@ -5298,7 +5298,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit: ; preds = %7, %
           to label %_ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i unwind label %49
 
 _ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i: ; preds = %13, %9
-  %14 = getelementptr inbounds i8, ptr %0, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E
   br i1 %16, label %_ZN17opencv_tensorflow11GradientDef10SharedDtorEv.exit, label %17
@@ -5323,9 +5323,9 @@ _ZN17opencv_tensorflow11GradientDef10SharedDtorEv.exit: ; preds = %_ZN6google8pr
   br i1 %or.cond.i, label %_ZN6google8protobuf8internal16InternalMetadata6DeleteINS0_15UnknownFieldSetEEEvv.exit, label %26
 
 26:                                               ; preds = %20
-  %27 = getelementptr inbounds i8, ptr %22, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %22, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %30 = load ptr, ptr %29, align 8
   %31 = icmp eq ptr %28, %30
   br i1 %31, label %_ZN6google8protobuf15UnknownFieldSet5ClearEv.exit.i.i.i.i, label %32
@@ -5412,18 +5412,18 @@ define hidden void @_ZN17opencv_tensorflow11GradientDef9ArenaDtorEPv(ptr nocaptu
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZNK17opencv_tensorflow11GradientDef13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, i32 noundef %1) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store atomic i32 %1, ptr %3 monotonic, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN17opencv_tensorflow11GradientDef5ClearEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN6google8protobuf8internal14ArenaStringPtr12ClearToEmptyEv(ptr noundef nonnull align 8 dereferenceable(8) %2)
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN6google8protobuf8internal14ArenaStringPtr12ClearToEmptyEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = and i64 %5, 1
   %.not = icmp eq i64 %6, 0
@@ -5432,9 +5432,9 @@ define hidden void @_ZN17opencv_tensorflow11GradientDef5ClearEv(ptr noundef nonn
 7:                                                ; preds = %1
   %8 = and i64 %5, -4
   %9 = inttoptr i64 %8 to ptr
-  %.0.i = getelementptr inbounds i8, ptr %9, i64 8
+  %.0.i = getelementptr inbounds nuw i8, ptr %9, i64 8
   %10 = load ptr, ptr %.0.i, align 8
-  %11 = getelementptr inbounds i8, ptr %9, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %10, %12
   br i1 %13, label %_ZN6google8protobuf8internal16InternalMetadata7DoClearINS0_15UnknownFieldSetEEEvv.exit, label %14
@@ -5449,12 +5449,12 @@ _ZN6google8protobuf8internal16InternalMetadata7DoClearINS0_15UnknownFieldSetEEEv
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_ZN17opencv_tensorflow11GradientDef14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 92
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 28
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 92
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 28
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %3
@@ -5476,7 +5476,7 @@ define hidden noundef ptr @_ZN17opencv_tensorflow11GradientDef14_InternalParseEP
 
 21:                                               ; preds = %13
   %22 = icmp sgt i32 %18, 0
-  %23 = getelementptr inbounds i8, ptr %2, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %24 = load ptr, ptr %23, align 8
   %25 = icmp eq ptr %24, null
   %or.cond.i.i = select i1 %22, i1 %25, i1 false
@@ -5495,7 +5495,7 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread41: ; preds = %.
   %30 = load i8, ptr %.244, align 1
   %31 = zext i8 %30 to i32
   %32 = icmp sgt i8 %30, -1
-  %33 = getelementptr inbounds i8, ptr %.244, i64 1
+  %33 = getelementptr inbounds nuw i8, ptr %.244, i64 1
   br i1 %32, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, label %34
 
 34:                                               ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread41
@@ -5508,7 +5508,7 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread41: ; preds = %.
   br i1 %40, label %41, label %43
 
 41:                                               ; preds = %34
-  %42 = getelementptr inbounds i8, ptr %.244, i64 2
+  %42 = getelementptr inbounds nuw i8, ptr %.244, i64 2
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
 43:                                               ; preds = %34
@@ -5595,7 +5595,7 @@ _ZN17opencv_tensorflow11GradientDef31_internal_mutable_gradient_funcB5cxx11Ev.ex
 
 83:                                               ; preds = %82
   %84 = add i32 %.037, -1
-  %85 = getelementptr inbounds i8, ptr %2, i64 80
+  %85 = getelementptr inbounds nuw i8, ptr %2, i64 80
   store i32 %84, ptr %85, align 8
   br label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread
 
@@ -5622,7 +5622,7 @@ _ZN17opencv_tensorflow11GradientDef31_internal_mutable_gradient_funcB5cxx11Ev.ex
   %98 = extractvalue { ptr, ptr } %97, 0
   %99 = extractvalue { ptr, ptr } %97, 1
   store ptr %98, ptr %99, align 8
-  %100 = getelementptr inbounds i8, ptr %99, i64 8
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 8
   store ptr @_ZN6google8protobuf8internal21arena_destruct_objectINS1_16InternalMetadata9ContainerINS0_15UnknownFieldSetEEEEEvPv, ptr %100, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %98, i8 0, i64 32, i1 false)
   %.pre.i = load i64, ptr %7, align 8
@@ -5641,7 +5641,7 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
 
 106:                                              ; preds = %86, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit
   %.pn = phi ptr [ %.041.i, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit ], [ %91, %86 ]
-  %.0 = getelementptr inbounds i8, ptr %.pn, i64 8
+  %.0 = getelementptr inbounds nuw i8, ptr %.pn, i64 8
   %107 = tail call noundef ptr @_ZN6google8protobuf8internal17UnknownFieldParseEmPNS0_15UnknownFieldSetEPKcPNS1_12ParseContextE(i64 noundef %87, ptr noundef nonnull %.0, ptr noundef %.0.i, ptr noundef nonnull %2)
   %.not17 = icmp eq ptr %107, null
   br i1 %.not17, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %.backedge.backedge
@@ -5657,7 +5657,7 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_ZNK17opencv_tensorflow11GradientDef18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = ptrtoint ptr %5 to i64
   %7 = and i64 %6, -2
@@ -5701,9 +5701,9 @@ define hidden noundef ptr @_ZNK17opencv_tensorflow11GradientDef18_InternalSerial
 
 36:                                               ; preds = %29
   store i8 10, ptr %1, align 1
-  %37 = getelementptr inbounds i8, ptr %1, i64 1
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %38 = trunc i64 %27 to i8
-  %39 = getelementptr inbounds i8, ptr %1, i64 2
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 2
   store i8 %38, ptr %37, align 1
   %40 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %26) #25
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %39, ptr align 1 %40, i64 %27, i1 false)
@@ -5712,7 +5712,7 @@ define hidden noundef ptr @_ZNK17opencv_tensorflow11GradientDef18_InternalSerial
 
 _ZN6google8protobuf2io19EpsCopyOutputStream23WriteStringMaybeAliasedEjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPh.exit: ; preds = %36, %.critedge.i, %3
   %.015 = phi ptr [ %1, %3 ], [ %35, %.critedge.i ], [ %41, %36 ]
-  %42 = getelementptr inbounds i8, ptr %0, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %43 = load ptr, ptr %42, align 8
   %44 = ptrtoint ptr %43 to i64
   %45 = and i64 %44, -2
@@ -5756,9 +5756,9 @@ _ZN6google8protobuf2io19EpsCopyOutputStream23WriteStringMaybeAliasedEjRKNSt7__cx
 
 74:                                               ; preds = %67
   store i8 18, ptr %.015, align 1
-  %75 = getelementptr inbounds i8, ptr %.015, i64 1
+  %75 = getelementptr inbounds nuw i8, ptr %.015, i64 1
   %76 = trunc i64 %65 to i8
-  %77 = getelementptr inbounds i8, ptr %.015, i64 2
+  %77 = getelementptr inbounds nuw i8, ptr %.015, i64 2
   store i8 %76, ptr %75, align 1
   %78 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %64) #25
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %77, ptr align 1 %78, i64 %65, i1 false)
@@ -5767,7 +5767,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream23WriteStringMaybeAliasedEjRKNSt7__cx
 
 _ZN6google8protobuf2io19EpsCopyOutputStream23WriteStringMaybeAliasedEjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPh.exit18: ; preds = %74, %.critedge.i17, %_ZN6google8protobuf2io19EpsCopyOutputStream23WriteStringMaybeAliasedEjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPh.exit
   %.1 = phi ptr [ %.015, %_ZN6google8protobuf2io19EpsCopyOutputStream23WriteStringMaybeAliasedEjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPh.exit ], [ %73, %.critedge.i17 ], [ %79, %74 ]
-  %80 = getelementptr inbounds i8, ptr %0, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %81 = load i64, ptr %80, align 8
   %82 = and i64 %81, 1
   %.not = icmp eq i64 %82, 0
@@ -5776,7 +5776,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream23WriteStringMaybeAliasedEjRKNSt7__cx
 83:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream23WriteStringMaybeAliasedEjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPh.exit18
   %84 = and i64 %81, -4
   %85 = inttoptr i64 %84 to ptr
-  %86 = getelementptr inbounds i8, ptr %85, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 8
   %87 = tail call noundef ptr @_ZN6google8protobuf8internal10WireFormat37InternalSerializeUnknownFieldsToArrayERKNS0_15UnknownFieldSetEPhPNS0_2io19EpsCopyOutputStreamE(ptr noundef nonnull align 8 dereferenceable(24) %86, ptr noundef %.1, ptr noundef %2)
   br label %88
 
@@ -5787,7 +5787,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream23WriteStringMaybeAliasedEjRKNSt7__cx
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef i64 @_ZNK17opencv_tensorflow11GradientDef12ByteSizeLongEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = ptrtoint ptr %3 to i64
   %5 = and i64 %4, -2
@@ -5815,7 +5815,7 @@ define hidden noundef i64 @_ZNK17opencv_tensorflow11GradientDef12ByteSizeLongEv(
 
 24:                                               ; preds = %8, %1
   %.0 = phi i64 [ 0, %1 ], [ %23, %8 ]
-  %25 = getelementptr inbounds i8, ptr %0, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %26 = load ptr, ptr %25, align 8
   %27 = ptrtoint ptr %26 to i64
   %28 = and i64 %27, -2
@@ -5844,7 +5844,7 @@ define hidden noundef i64 @_ZNK17opencv_tensorflow11GradientDef12ByteSizeLongEv(
 
 48:                                               ; preds = %31, %24
   %.1 = phi i64 [ %.0, %24 ], [ %47, %31 ]
-  %49 = getelementptr inbounds i8, ptr %0, i64 32
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %50 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %.1, ptr noundef nonnull %49)
   ret i64 %50
 }
@@ -5862,7 +5862,7 @@ define hidden noundef nonnull ptr @_ZNK17opencv_tensorflow11GradientDef12GetClas
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN17opencv_tensorflow11GradientDef9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = ptrtoint ptr %4 to i64
   %6 = and i64 %5, -2
@@ -5875,8 +5875,8 @@ define hidden void @_ZN17opencv_tensorflow11GradientDef9MergeFromERKS0_(ptr noun
   %11 = ptrtoint ptr %10 to i64
   %12 = and i64 %11, -2
   %13 = inttoptr i64 %12 to ptr
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load i64, ptr %15, align 8
   %17 = and i64 %16, 1
   %.not.i = icmp eq i64 %17, 0
@@ -5894,7 +5894,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit: ; preds = %9, %
   br label %22
 
 22:                                               ; preds = %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit, %2
-  %23 = getelementptr inbounds i8, ptr %1, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %24 = load ptr, ptr %23, align 8
   %25 = ptrtoint ptr %24 to i64
   %26 = and i64 %25, -2
@@ -5907,8 +5907,8 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit: ; preds = %9, %
   %31 = ptrtoint ptr %30 to i64
   %32 = and i64 %31, -2
   %33 = inttoptr i64 %32 to ptr
-  %34 = getelementptr inbounds i8, ptr %0, i64 24
-  %35 = getelementptr inbounds i8, ptr %0, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %36 = load i64, ptr %35, align 8
   %37 = and i64 %36, 1
   %.not.i20 = icmp eq i64 %37, 0
@@ -5926,8 +5926,8 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit22: ; preds = %29
   br label %42
 
 42:                                               ; preds = %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit22, %22
-  %43 = getelementptr inbounds i8, ptr %0, i64 8
-  %44 = getelementptr inbounds i8, ptr %1, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %45 = load i64, ptr %44, align 8
   %46 = and i64 %45, 1
   %.not = icmp eq i64 %46, 0
@@ -5936,7 +5936,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit22: ; preds = %29
 47:                                               ; preds = %42
   %48 = and i64 %45, -4
   %49 = inttoptr i64 %48 to ptr
-  %50 = getelementptr inbounds i8, ptr %49, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %51 = load i64, ptr %43, align 8
   %52 = and i64 %51, 1
   %.not.i23 = icmp eq i64 %52, 0
@@ -5958,7 +5958,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit22: ; preds = %29
   %61 = extractvalue { ptr, ptr } %60, 0
   %62 = extractvalue { ptr, ptr } %60, 1
   store ptr %61, ptr %62, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
   store ptr @_ZN6google8protobuf8internal21arena_destruct_objectINS1_16InternalMetadata9ContainerINS0_15UnknownFieldSetEEEEEvPv, ptr %63, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %61, i8 0, i64 32, i1 false)
   %.pre.i.i = load i64, ptr %43, align 8
@@ -5977,7 +5977,7 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
 
 _ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSetEEEvRKT_.exit: ; preds = %47, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i
   %.pn.i = phi ptr [ %.041.i.i, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i ], [ %54, %47 ]
-  %.0.i24 = getelementptr inbounds i8, ptr %.pn.i, i64 8
+  %.0.i24 = getelementptr inbounds nuw i8, ptr %.pn.i, i64 8
   tail call void @_ZN6google8protobuf15UnknownFieldSet9MergeFromERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %.0.i24, ptr noundef nonnull align 8 dereferenceable(24) %50)
   br label %69
 
@@ -5991,11 +5991,11 @@ define hidden void @_ZN17opencv_tensorflow11GradientDef8CopyFromERKS0_(ptr nound
   br i1 %3, label %18, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN6google8protobuf8internal14ArenaStringPtr12ClearToEmptyEv(ptr noundef nonnull align 8 dereferenceable(8) %5)
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN6google8protobuf8internal14ArenaStringPtr12ClearToEmptyEv(ptr noundef nonnull align 8 dereferenceable(8) %6)
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i64, ptr %7, align 8
   %9 = and i64 %8, 1
   %.not.i = icmp eq i64 %9, 0
@@ -6004,9 +6004,9 @@ define hidden void @_ZN17opencv_tensorflow11GradientDef8CopyFromERKS0_(ptr nound
 10:                                               ; preds = %4
   %11 = and i64 %8, -4
   %12 = inttoptr i64 %11 to ptr
-  %.0.i.i = getelementptr inbounds i8, ptr %12, i64 8
+  %.0.i.i = getelementptr inbounds nuw i8, ptr %12, i64 8
   %13 = load ptr, ptr %.0.i.i, align 8
-  %14 = getelementptr inbounds i8, ptr %12, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %13, %15
   br i1 %16, label %_ZN17opencv_tensorflow11GradientDef5ClearEv.exit, label %17
@@ -6031,20 +6031,20 @@ define hidden noundef zeroext i1 @_ZNK17opencv_tensorflow11GradientDef13IsInitia
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZN17opencv_tensorflow11GradientDef12InternalSwapEPS0_(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture noundef %1) local_unnamed_addr #11 align 2 {
 _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8
   store i64 %5, ptr %2, align 8
   store i64 %3, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.0.0.copyload.i = load ptr, ptr %7, align 8
   %8 = load i64, ptr %6, align 8
   store i64 %8, ptr %7, align 8
   store ptr %.sroa.0.0.copyload.i, ptr %6, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
-  %10 = getelementptr inbounds i8, ptr %1, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.0.0.copyload.i18 = load ptr, ptr %10, align 8
   %11 = load i64, ptr %9, align 8
   store i64 %11, ptr %10, align 8
@@ -6065,26 +6065,26 @@ define hidden noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN17open
 
 3:                                                ; preds = %1
   %4 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #27
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 0, ptr %5, align 8
   store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN17opencv_tensorflow18FunctionDefLibraryE, i64 16), ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %6, i8 0, i64 52, i1 false)
   br label %15
 
 7:                                                ; preds = %1
   %8 = tail call noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef 72, ptr noundef nonnull @_ZTIN17opencv_tensorflow18FunctionDefLibraryE)
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = ptrtoint ptr %0 to i64
   store i64 %10, ptr %9, align 8
   store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN17opencv_tensorflow18FunctionDefLibraryE, i64 16), ptr %8, align 8
-  %11 = getelementptr inbounds i8, ptr %8, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %0, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %8, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
-  %13 = getelementptr inbounds i8, ptr %8, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 40
   store ptr %0, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %8, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %14, i8 0, i64 20, i1 false)
   br label %15
 
@@ -6100,13 +6100,13 @@ define hidden noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN17open
 
 3:                                                ; preds = %1
   %4 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 0, ptr %5, align 8
   br label %10
 
 6:                                                ; preds = %1
   %7 = tail call noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef 48, ptr noundef nonnull @_ZTIN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseE)
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = ptrtoint ptr %0 to i64
   store i64 %9, ptr %8, align 8
   br label %10
@@ -6114,13 +6114,13 @@ define hidden noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN17open
 10:                                               ; preds = %3, %6
   %.sink39 = phi ptr [ %4, %3 ], [ %7, %6 ]
   %.sink32 = phi i64 [ 0, %3 ], [ %9, %6 ]
-  %11 = getelementptr inbounds i8, ptr %.sink39, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %.sink39, i64 16
   store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %.sink39, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %.sink39, i64 24
   store ptr null, ptr %12, align 8
-  %.ptr.i.i.i = getelementptr inbounds i8, ptr %.sink39, i64 32
+  %.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %.sink39, i64 32
   store i32 0, ptr %.ptr.i.i.i, align 4
-  %13 = getelementptr inbounds i8, ptr %.sink39, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %.sink39, i64 40
   store i64 %.sink32, ptr %13, align 8
   store ptr getelementptr inbounds inrange(-16, 168) (i8, ptr @_ZTVN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseE, i64 16), ptr %.sink39, align 8
   ret ptr %.sink39
@@ -6159,22 +6159,22 @@ define hidden noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN17open
 
 3:                                                ; preds = %1
   %4 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #27
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 0, ptr %5, align 8
   store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN17opencv_tensorflow11FunctionDefE, i64 16), ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %6, i8 0, i64 36, i1 false)
   br label %13
 
 7:                                                ; preds = %1
   %8 = tail call noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef 56, ptr noundef nonnull @_ZTIN17opencv_tensorflow11FunctionDefE)
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = ptrtoint ptr %0 to i64
   store i64 %10, ptr %9, align 8
   store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN17opencv_tensorflow11FunctionDefE, i64 16), ptr %8, align 8
-  %11 = getelementptr inbounds i8, ptr %8, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %0, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %8, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %12, i8 0, i64 28, i1 false)
   br label %13
 
@@ -6190,13 +6190,13 @@ define hidden noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN17open
 
 3:                                                ; preds = %1
   %4 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #27
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 0, ptr %5, align 8
   br label %10
 
 6:                                                ; preds = %1
   %7 = tail call noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef 40, ptr noundef nonnull @_ZTIN17opencv_tensorflow11GradientDefE)
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = ptrtoint ptr %0 to i64
   store i64 %9, ptr %8, align 8
   br label %10
@@ -6204,11 +6204,11 @@ define hidden noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN17open
 10:                                               ; preds = %3, %6
   %.sink = phi ptr [ %4, %3 ], [ %7, %6 ]
   store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN17opencv_tensorflow11GradientDefE, i64 16), ptr %.sink, align 8
-  %11 = getelementptr inbounds i8, ptr %.sink, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %.sink, i64 32
   store i32 0, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %.sink, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %.sink, i64 16
   store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %.sink, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %.sink, i64 24
   store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %13, align 8
   ret ptr %.sink
 }
@@ -6222,26 +6222,26 @@ define linkonce_odr hidden noundef ptr @_ZNK17opencv_tensorflow18FunctionDefLibr
 
 4:                                                ; preds = %2
   %5 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #27
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %6, align 8
   store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN17opencv_tensorflow18FunctionDefLibraryE, i64 16), ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %7, i8 0, i64 52, i1 false)
   br label %_ZN6google8protobuf11MessageLite18CreateMaybeMessageIN17opencv_tensorflow18FunctionDefLibraryEEEPT_PNS0_5ArenaE.exit
 
 8:                                                ; preds = %2
   %9 = tail call noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef 72, ptr noundef nonnull @_ZTIN17opencv_tensorflow18FunctionDefLibraryE)
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = ptrtoint ptr %1 to i64
   store i64 %11, ptr %10, align 8
   store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN17opencv_tensorflow18FunctionDefLibraryE, i64 16), ptr %9, align 8
-  %12 = getelementptr inbounds i8, ptr %9, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %1, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %9, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
-  %14 = getelementptr inbounds i8, ptr %9, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 40
   store ptr %1, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %9, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %15, i8 0, i64 20, i1 false)
   br label %_ZN6google8protobuf11MessageLite18CreateMaybeMessageIN17opencv_tensorflow18FunctionDefLibraryEEEPT_PNS0_5ArenaE.exit
 
@@ -6256,7 +6256,7 @@ declare void @_ZN6google8protobuf7Message21CheckTypeAndMergeFromERKNS0_11Message
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef i32 @_ZNK17opencv_tensorflow18FunctionDefLibrary13GetCachedSizeEv(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #3 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 64
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load atomic i32, ptr %2 monotonic, align 8
   ret i32 %3
 }
@@ -6300,7 +6300,7 @@ _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN17opencv_tensorflow16Funct
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i32 @_ZNK17opencv_tensorflow16FunctionDef_Node13GetCachedSizeEv(ptr noundef nonnull align 8 dereferenceable(224) %0) unnamed_addr #5 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 216
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %3 = load atomic i32, ptr %2 monotonic, align 8
   ret i32 %3
 }
@@ -6312,22 +6312,22 @@ define linkonce_odr hidden noundef ptr @_ZNK17opencv_tensorflow11FunctionDef3New
 
 4:                                                ; preds = %2
   %5 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #27
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %6, align 8
   store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN17opencv_tensorflow11FunctionDefE, i64 16), ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %7, i8 0, i64 36, i1 false)
   br label %_ZN6google8protobuf11MessageLite18CreateMaybeMessageIN17opencv_tensorflow11FunctionDefEEEPT_PNS0_5ArenaE.exit
 
 8:                                                ; preds = %2
   %9 = tail call noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef 56, ptr noundef nonnull @_ZTIN17opencv_tensorflow11FunctionDefE)
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = ptrtoint ptr %1 to i64
   store i64 %11, ptr %10, align 8
   store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN17opencv_tensorflow11FunctionDefE, i64 16), ptr %9, align 8
-  %12 = getelementptr inbounds i8, ptr %9, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %1, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %9, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %13, i8 0, i64 28, i1 false)
   br label %_ZN6google8protobuf11MessageLite18CreateMaybeMessageIN17opencv_tensorflow11FunctionDefEEEPT_PNS0_5ArenaE.exit
 
@@ -6338,7 +6338,7 @@ _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN17opencv_tensorflow11Funct
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i32 @_ZNK17opencv_tensorflow11FunctionDef13GetCachedSizeEv(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #5 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load atomic i32, ptr %2 monotonic, align 8
   ret i32 %3
 }
@@ -6350,13 +6350,13 @@ define linkonce_odr hidden noundef ptr @_ZNK17opencv_tensorflow11GradientDef3New
 
 4:                                                ; preds = %2
   %5 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #27
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %6, align 8
   br label %_ZN6google8protobuf11MessageLite18CreateMaybeMessageIN17opencv_tensorflow11GradientDefEEEPT_PNS0_5ArenaE.exit
 
 7:                                                ; preds = %2
   %8 = tail call noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef 40, ptr noundef nonnull @_ZTIN17opencv_tensorflow11GradientDefE)
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = ptrtoint ptr %1 to i64
   store i64 %10, ptr %9, align 8
   br label %_ZN6google8protobuf11MessageLite18CreateMaybeMessageIN17opencv_tensorflow11GradientDefEEEPT_PNS0_5ArenaE.exit
@@ -6364,18 +6364,18 @@ define linkonce_odr hidden noundef ptr @_ZNK17opencv_tensorflow11GradientDef3New
 _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN17opencv_tensorflow11GradientDefEEEPT_PNS0_5ArenaE.exit: ; preds = %4, %7
   %.sink.i.i = phi ptr [ %5, %4 ], [ %8, %7 ]
   store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN17opencv_tensorflow11GradientDefE, i64 16), ptr %.sink.i.i, align 8
-  %11 = getelementptr inbounds i8, ptr %.sink.i.i, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 32
   store i32 0, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %.sink.i.i, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 16
   store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %.sink.i.i, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 24
   store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %13, align 8
   ret ptr %.sink.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i32 @_ZNK17opencv_tensorflow11GradientDef13GetCachedSizeEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load atomic i32, ptr %2 monotonic, align 8
   ret i32 %3
 }
@@ -6418,13 +6418,13 @@ define linkonce_odr hidden noundef ptr @_ZNK6google8protobuf8internal12MapEntryI
 
 4:                                                ; preds = %2
   %5 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %6, align 8
   br label %_ZN6google8protobuf5Arena18CreateMaybeMessageIN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseEJEEEPT_PS1_DpOT0_.exit
 
 7:                                                ; preds = %2
   %8 = tail call noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef 48, ptr noundef nonnull @_ZTIN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseE)
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = ptrtoint ptr %1 to i64
   store i64 %10, ptr %9, align 8
   br label %_ZN6google8protobuf5Arena18CreateMaybeMessageIN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseEJEEEPT_PS1_DpOT0_.exit
@@ -6432,13 +6432,13 @@ define linkonce_odr hidden noundef ptr @_ZNK6google8protobuf8internal12MapEntryI
 _ZN6google8protobuf5Arena18CreateMaybeMessageIN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseEJEEEPT_PS1_DpOT0_.exit: ; preds = %4, %7
   %.sink39.i = phi ptr [ %5, %4 ], [ %8, %7 ]
   %.sink32.i = phi i64 [ 0, %4 ], [ %10, %7 ]
-  %11 = getelementptr inbounds i8, ptr %.sink39.i, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %.sink39.i, i64 16
   store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %.sink39.i, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %.sink39.i, i64 24
   store ptr null, ptr %12, align 8
-  %.ptr.i.i.i.i = getelementptr inbounds i8, ptr %.sink39.i, i64 32
+  %.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sink39.i, i64 32
   store i32 0, ptr %.ptr.i.i.i.i, align 4
-  %13 = getelementptr inbounds i8, ptr %.sink39.i, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %.sink39.i, i64 40
   store i64 %.sink32.i, ptr %13, align 8
   store ptr getelementptr inbounds inrange(-16, 168) (i8, ptr @_ZTVN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseE, i64 16), ptr %.sink39.i, align 8
   ret ptr %.sink39.i
@@ -6447,9 +6447,9 @@ _ZN6google8protobuf5Arena18CreateMaybeMessageIN17opencv_tensorflow35FunctionDef_
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN6google8protobuf8internal12MapEntryImplIN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseENS0_7MessageENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_9AttrValueELNS1_14WireFormatLite9FieldTypeE9ELSE_11EE5ClearEv(ptr noundef nonnull align 8 dereferenceable(36) %0) unnamed_addr #3 comdat align 2 {
 _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
-  %1 = getelementptr inbounds i8, ptr %0, i64 16
+  %1 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN6google8protobuf8internal14ArenaStringPtr12ClearToEmptyEv(ptr noundef nonnull align 8 dereferenceable(8) %1)
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not.i4 = icmp eq ptr %3, null
   br i1 %.not.i4, label %_ZN6google8protobuf8internal14MapTypeHandlerILNS1_14WireFormatLite9FieldTypeE11EN17opencv_tensorflow9AttrValueEE5ClearEPPS6_PNS0_5ArenaE.exit, label %4
@@ -6459,7 +6459,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   br label %_ZN6google8protobuf8internal14MapTypeHandlerILNS1_14WireFormatLite9FieldTypeE11EN17opencv_tensorflow9AttrValueEE5ClearEPPS6_PNS0_5ArenaE.exit
 
 _ZN6google8protobuf8internal14MapTypeHandlerILNS1_14WireFormatLite9FieldTypeE11EN17opencv_tensorflow9AttrValueEE5ClearEPPS6_PNS0_5ArenaE.exit: ; preds = %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit, %4
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load i32, ptr %5, align 8
   %7 = and i32 %6, -4
   store i32 %7, ptr %5, align 8
@@ -6468,7 +6468,7 @@ _ZN6google8protobuf8internal14MapTypeHandlerILNS1_14WireFormatLite9FieldTypeE11E
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK6google8protobuf8internal12MapEntryImplIN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseENS0_7MessageENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_9AttrValueELNS1_14WireFormatLite9FieldTypeE9ELSE_11EE13IsInitializedEv(ptr noundef nonnull align 8 dereferenceable(36) %0) unnamed_addr #3 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %_ZN6google8protobuf8internal14MapTypeHandlerILNS1_14WireFormatLite9FieldTypeE11EN17opencv_tensorflow9AttrValueEE13IsInitializedEPS6_.exit, label %4
@@ -6491,7 +6491,7 @@ define linkonce_odr hidden void @_ZN6google8protobuf8internal12MapEntryImplIN17o
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef i64 @_ZNK6google8protobuf8internal12MapEntryImplIN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseENS0_7MessageENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_9AttrValueELNS1_14WireFormatLite9FieldTypeE9ELSE_11EE12ByteSizeLongEv(ptr noundef nonnull align 8 dereferenceable(36) %0) unnamed_addr #3 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 152
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 152
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef nonnull align 8 dereferenceable(32) ptr %4(ptr noundef nonnull align 8 dereferenceable(36) %0)
   %6 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #25
@@ -6505,7 +6505,7 @@ define linkonce_odr hidden noundef i64 @_ZNK6google8protobuf8internal12MapEntryI
   %14 = add i32 %13, %7
   %15 = sext i32 %14 to i64
   %16 = load ptr, ptr %0, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 160
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 160
   %18 = load ptr, ptr %17, align 8
   %19 = tail call noundef nonnull align 8 dereferenceable(32) ptr %18(ptr noundef nonnull align 8 dereferenceable(36) %0)
   %20 = tail call noundef i64 @_ZNK17opencv_tensorflow9AttrValue12ByteSizeLongEv(ptr noundef nonnull align 8 dereferenceable(32) %19)
@@ -6525,7 +6525,7 @@ define linkonce_odr hidden noundef i64 @_ZNK6google8protobuf8internal12MapEntryI
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef i32 @_ZNK6google8protobuf8internal12MapEntryImplIN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseENS0_7MessageENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_9AttrValueELNS1_14WireFormatLite9FieldTypeE9ELSE_11EE13GetCachedSizeEv(ptr noundef nonnull align 8 dereferenceable(36) %0) unnamed_addr #3 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 1
   %.not = icmp eq i32 %4, 0
@@ -6533,7 +6533,7 @@ define linkonce_odr hidden noundef i32 @_ZNK6google8protobuf8internal12MapEntryI
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 152
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noundef nonnull align 8 dereferenceable(32) ptr %8(ptr noundef nonnull align 8 dereferenceable(36) %0)
   %10 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #25
@@ -6558,10 +6558,10 @@ define linkonce_odr hidden noundef i32 @_ZNK6google8protobuf8internal12MapEntryI
 
 24:                                               ; preds = %20
   %25 = load ptr, ptr %0, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 160
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 160
   %27 = load ptr, ptr %26, align 8
   %28 = tail call noundef nonnull align 8 dereferenceable(32) ptr %27(ptr noundef nonnull align 8 dereferenceable(36) %0)
-  %29 = getelementptr inbounds i8, ptr %28, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %30 = load atomic i32, ptr %29 monotonic, align 8
   %31 = or i32 %30, 1
   %32 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %31, i1 true)
@@ -6581,13 +6581,13 @@ define linkonce_odr hidden noundef i32 @_ZNK6google8protobuf8internal12MapEntryI
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef ptr @_ZN6google8protobuf8internal12MapEntryImplIN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseENS0_7MessageENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_9AttrValueELNS1_14WireFormatLite9FieldTypeE9ELSE_11EE14_InternalParseEPKcPNS1_12ParseContextE(ptr noundef nonnull align 8 dereferenceable(36) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 92
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 28
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 92
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 28
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %11
 
 11:                                               ; preds = %104, %3
@@ -6609,7 +6609,7 @@ define linkonce_odr hidden noundef ptr @_ZN6google8protobuf8internal12MapEntryIm
 
 23:                                               ; preds = %15
   %24 = icmp sgt i32 %20, 0
-  %25 = getelementptr inbounds i8, ptr %2, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, null
   %or.cond.i.i = select i1 %24, i1 %27, i1 false
@@ -6628,7 +6628,7 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread32: ; preds = %1
   %32 = load i8, ptr %.235, align 1
   %33 = zext i8 %32 to i32
   %34 = icmp sgt i8 %32, -1
-  %35 = getelementptr inbounds i8, ptr %.235, i64 1
+  %35 = getelementptr inbounds nuw i8, ptr %.235, i64 1
   br i1 %34, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.thread, label %36
 
 36:                                               ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread32
@@ -6641,7 +6641,7 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread32: ; preds = %1
   br i1 %42, label %43, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
 43:                                               ; preds = %36
-  %44 = getelementptr inbounds i8, ptr %.235, i64 2
+  %44 = getelementptr inbounds nuw i8, ptr %.235, i64 2
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.thread
 
 _ZN6google8protobuf8internal7ReadTagEPKcPjj.exit: ; preds = %36
@@ -6684,7 +6684,7 @@ _ZN6google8protobuf8internal12MapEntryImplIN17opencv_tensorflow35FunctionDef_Nod
   br i1 %60, label %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.thread.i, label %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i
 
 _ZN6google8protobuf8internal8ReadSizeEPPKc.exit.thread.i: ; preds = %_ZN6google8protobuf8internal12MapEntryImplIN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseENS0_7MessageENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_9AttrValueELNS1_14WireFormatLite9FieldTypeE9ELSE_11EE11mutable_keyEv.exit
-  %61 = getelementptr inbounds i8, ptr %.0.i40, i64 1
+  %61 = getelementptr inbounds nuw i8, ptr %.0.i40, i64 1
   br label %65
 
 _ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i: ; preds = %_ZN6google8protobuf8internal12MapEntryImplIN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseENS0_7MessageENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_9AttrValueELNS1_14WireFormatLite9FieldTypeE9ELSE_11EE11mutable_keyEv.exit
@@ -6699,7 +6699,7 @@ _ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i: ; preds = %_ZN6google8protobu
   %storemerge.i9.i = phi ptr [ %61, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.thread.i ], [ %63, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i ]
   %66 = sext i32 %.0.i10.i to i64
   %67 = load ptr, ptr %5, align 8
-  %68 = getelementptr inbounds i8, ptr %67, i64 16
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 16
   %69 = ptrtoint ptr %68 to i64
   %70 = ptrtoint ptr %storemerge.i9.i to i64
   %71 = sub i64 %69, %70
@@ -6761,7 +6761,7 @@ _ZN6google8protobuf8internal12MapEntryImplIN17opencv_tensorflow35FunctionDef_Nod
 
 99:                                               ; preds = %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.thread, %96
   %100 = add i32 %.02739, -1
-  %101 = getelementptr inbounds i8, ptr %2, i64 80
+  %101 = getelementptr inbounds nuw i8, ptr %2, i64 80
   store i32 %100, ptr %101, align 8
   br label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread
 
@@ -6782,7 +6782,7 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef ptr @_ZNK6google8protobuf8internal12MapEntryImplIN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseENS0_7MessageENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_9AttrValueELNS1_14WireFormatLite9FieldTypeE9ELSE_11EE18_InternalSerializeEPhPNS0_2io19EpsCopyOutputStreamE(ptr noundef nonnull align 8 dereferenceable(36) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 comdat align 2 {
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 152
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 152
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef nonnull align 8 dereferenceable(32) ptr %6(ptr noundef nonnull align 8 dereferenceable(36) %0)
   %8 = load ptr, ptr %2, align 8
@@ -6814,9 +6814,9 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i: ; preds = %9
 
 20:                                               ; preds = %13
   store i8 10, ptr %.0.i.i, align 1
-  %21 = getelementptr inbounds i8, ptr %.0.i.i, i64 1
+  %21 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 1
   %22 = trunc i64 %11 to i8
-  %23 = getelementptr inbounds i8, ptr %.0.i.i, i64 2
+  %23 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 2
   store i8 %22, ptr %21, align 1
   %24 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #25
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %23, ptr align 1 %24, i64 %11, i1 false)
@@ -6826,7 +6826,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i: ; preds = %9
 _ZN6google8protobuf8internal14MapTypeHandlerILNS1_14WireFormatLite9FieldTypeE9ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5WriteEiRKSA_PhPNS0_2io19EpsCopyOutputStreamE.exit: ; preds = %.critedge.i, %20
   %.045.i = phi ptr [ %19, %.critedge.i ], [ %25, %20 ]
   %26 = load ptr, ptr %0, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 160
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 160
   %28 = load ptr, ptr %27, align 8
   %29 = tail call noundef nonnull align 8 dereferenceable(32) ptr %28(ptr noundef nonnull align 8 dereferenceable(36) %0)
   %30 = load ptr, ptr %2, align 8
@@ -6840,8 +6840,8 @@ _ZN6google8protobuf8internal14MapTypeHandlerILNS1_14WireFormatLite9FieldTypeE9EN
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i6: ; preds = %31, %_ZN6google8protobuf8internal14MapTypeHandlerILNS1_14WireFormatLite9FieldTypeE9ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5WriteEiRKSA_PhPNS0_2io19EpsCopyOutputStreamE.exit
   %.0.i.i7 = phi ptr [ %32, %31 ], [ %.045.i, %_ZN6google8protobuf8internal14MapTypeHandlerILNS1_14WireFormatLite9FieldTypeE9ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5WriteEiRKSA_PhPNS0_2io19EpsCopyOutputStreamE.exit ]
   store i8 18, ptr %.0.i.i7, align 1
-  %33 = getelementptr inbounds i8, ptr %.0.i.i7, i64 1
-  %34 = getelementptr inbounds i8, ptr %29, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %.0.i.i7, i64 1
+  %34 = getelementptr inbounds nuw i8, ptr %29, i64 24
   %35 = load atomic i32, ptr %34 monotonic, align 8
   %36 = trunc i32 %35 to i8
   store i8 %36, ptr %33, align 1
@@ -6849,7 +6849,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i6: ; preds = %
   br i1 %37, label %38, label %40
 
 38:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i6
-  %39 = getelementptr inbounds i8, ptr %.0.i.i7, i64 2
+  %39 = getelementptr inbounds nuw i8, ptr %.0.i.i7, i64 2
   br label %_ZN6google8protobuf8internal14MapTypeHandlerILNS1_14WireFormatLite9FieldTypeE11EN17opencv_tensorflow9AttrValueEE5WriteEiRKS6_PhPNS0_2io19EpsCopyOutputStreamE.exit
 
 40:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i6
@@ -6864,7 +6864,7 @@ _ZN6google8protobuf8internal14MapTypeHandlerILNS1_14WireFormatLite9FieldTypeE11E
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef i64 @_ZNK6google8protobuf8internal8MapEntryIN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_9AttrValueELNS1_14WireFormatLite9FieldTypeE9ELSD_11EE13SpaceUsedLongEv(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #3 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = tail call noundef i64 @_ZNK6google8protobuf7Message13SpaceUsedLongEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
   %5 = add i64 %4, 56
@@ -6880,7 +6880,7 @@ define linkonce_odr hidden noundef ptr @_ZNK6google8protobuf7Message12GetClassDa
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6google8protobuf8internal12MapEntryImplIN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseENS0_7MessageENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_9AttrValueELNS1_14WireFormatLite9FieldTypeE9ELSE_11EE3keyEv(ptr noundef nonnull align 8 dereferenceable(36) %0) unnamed_addr #3 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = ptrtoint ptr %3 to i64
   %5 = and i64 %4, -2
@@ -6890,7 +6890,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZNK
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6google8protobuf8internal12MapEntryImplIN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseENS0_7MessageENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_9AttrValueELNS1_14WireFormatLite9FieldTypeE9ELSE_11EE5valueEv(ptr noundef nonnull align 8 dereferenceable(36) %0) unnamed_addr #3 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
   %spec.select.i = select i1 %.not.i, ptr @_ZN17opencv_tensorflow28_AttrValue_default_instance_E, ptr %3
@@ -6900,17 +6900,17 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZNK
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6google8protobuf8internal8MapFieldIN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_9AttrValueELNS1_14WireFormatLite9FieldTypeE9ELSD_11EED0Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTVN6google8protobuf8internal8MapFieldIN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_9AttrValueELNS1_14WireFormatLite9FieldTypeE9ELSD_11EEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 112
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load ptr, ptr %2, align 8
   %4 = icmp ne ptr %3, null
-  %5 = getelementptr inbounds i8, ptr %0, i64 80
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %6 = load i64, ptr %5, align 8
   %.not.i.i.i.i = icmp eq i64 %6, 1
   %or.cond.i.i.i.i = select i1 %4, i1 true, i1 %.not.i.i.i.i
   br i1 %or.cond.i.i.i.i, label %_ZN6google8protobuf8internal8MapFieldIN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_9AttrValueELNS1_14WireFormatLite9FieldTypeE9ELSD_11EED2Ev.exit, label %7
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 72
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 72
   invoke void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap5clearEv(ptr noundef nonnull align 8 dereferenceable(48) %8)
           to label %9 unwind label %15
 
@@ -6920,7 +6920,7 @@ define linkonce_odr hidden void @_ZN6google8protobuf8internal8MapFieldIN17opencv
   br i1 %11, label %12, label %_ZN6google8protobuf8internal8MapFieldIN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_9AttrValueELNS1_14WireFormatLite9FieldTypeE9ELSD_11EED2Ev.exit
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %0, i64 104
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %14 = load ptr, ptr %13, align 8
   tail call void @_ZdlPv(ptr noundef %14) #25
   br label %_ZN6google8protobuf8internal8MapFieldIN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_9AttrValueELNS1_14WireFormatLite9FieldTypeE9ELSD_11EED2Ev.exit
@@ -6942,7 +6942,7 @@ _ZN6google8protobuf8internal8MapFieldIN17opencv_tensorflow35FunctionDef_Node_Att
 define linkonce_odr hidden noundef zeroext i1 @_ZNK6google8protobuf8internal8MapFieldIN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_9AttrValueELNS1_14WireFormatLite9FieldTypeE9ELSD_11EE14ContainsMapKeyERKNS0_6MapKeyE(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(36) %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.std::pair.53", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 72
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %6 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6google8protobuf6MapKey14GetStringValueB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(36) %1), !noalias !72
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %6)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3), !noalias !75
@@ -6969,7 +6969,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN6google8protobuf8internal8MapF
   %5 = alloca %"struct.std::pair.53", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 176
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 176
   %9 = load ptr, ptr %8, align 8
   %10 = tail call noundef ptr %9(ptr noundef nonnull align 8 dereferenceable(120) %0)
   %11 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6google8protobuf6MapKey14GetStringValueB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(36) %1), !noalias !78
@@ -7002,7 +7002,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN6google8protobuf8internal8MapF
 
 20:                                               ; preds = %12, %16
   %.pn = phi ptr [ %17, %16 ], [ %13, %12 ]
-  %storemerge = getelementptr inbounds i8, ptr %.pn, i64 32
+  %storemerge = getelementptr inbounds nuw i8, ptr %.pn, i64 32
   store ptr %storemerge, ptr %2, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #25
   ret i1 %14
@@ -7013,7 +7013,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK6google8protobuf8internal8Map
   %4 = alloca %"struct.std::pair.53", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 168
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 168
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noundef nonnull align 8 dereferenceable(48) ptr %8(ptr noundef nonnull align 8 dereferenceable(120) %0)
   %10 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6google8protobuf6MapKey14GetStringValueB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(36) %1), !noalias !87
@@ -7035,7 +7035,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK6google8protobuf8internal8Map
   resume { ptr, i32 } %14
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %.sroa.08.0.copyload, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %.sroa.08.0.copyload, i64 32
   store ptr %16, ptr %2, align 8
   br label %17
 
@@ -7053,7 +7053,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN6google8protobuf8internal8MapF
   %7 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6google8protobuf6MapKey14GetStringValueB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(36) %1), !noalias !93
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %7)
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 176
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 176
   %10 = load ptr, ptr %9, align 8
   %11 = invoke noundef ptr %10(ptr noundef nonnull align 8 dereferenceable(120) %0)
           to label %12 unwind label %21
@@ -7065,9 +7065,9 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN6google8protobuf8internal8MapF
 
 .noexc:                                           ; preds = %12
   %13 = load ptr, ptr %5, align 8, !noalias !99
-  %14 = getelementptr inbounds i8, ptr %5, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %15 = load ptr, ptr %14, align 8, !noalias !99
-  %16 = getelementptr inbounds i8, ptr %5, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %17 = load i64, ptr %16, align 8, !noalias !99
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !96
   %18 = icmp ne ptr %13, null
@@ -7077,9 +7077,9 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN6google8protobuf8internal8MapF
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   store ptr %13, ptr %4, align 8
-  %.sroa.02.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.02.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %15, ptr %.sroa.02.sroa.2.0..sroa_idx.i, align 8
-  %.sroa.02.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 16
+  %.sroa.02.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 %17, ptr %.sroa.02.sroa.3.0..sroa_idx.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false), !noalias !102
   %20 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap13iterator_baseINS0_7MapPairIS7_S9_EEEppEv(ptr noundef nonnull align 8 dereferenceable(24) %4)
@@ -7118,18 +7118,18 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK6google8protobuf8internal23Ty
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNK6google8protobuf8internal23TypeDefinedMapFieldBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8MapBeginEPNS0_11MapIteratorE(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 168
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 168
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noundef nonnull align 8 dereferenceable(48) ptr %5(ptr noundef nonnull align 8 dereferenceable(68) %0)
-  %7 = getelementptr inbounds i8, ptr %6, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %8 = load i64, ptr %7, align 8, !noalias !105
-  %9 = getelementptr inbounds i8, ptr %6, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %10 = load i64, ptr %9, align 8, !noalias !105
   %11 = icmp ult i64 %8, %10
   br i1 %11, label %.lr.ph.i.i.i.i, label %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE5beginEv.exit
 
 .lr.ph.i.i.i.i:                                   ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %6, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %13 = load ptr, ptr %12, align 8, !noalias !105
   %14 = getelementptr inbounds ptr, ptr %13, i64 %8
   %15 = load ptr, ptr %14, align 8, !noalias !105
@@ -7157,9 +7157,9 @@ _ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17
   br i1 %.not.i.i.i.i, label %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap16TableEntryIsTreeEm.exit.i.i.i.i, label %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE5beginEv.exit
 
 _ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap16TableEntryIsTreeEm.exit.i.i.i.i: ; preds = %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i.i.i
-  %24 = getelementptr inbounds i8, ptr %.lcssa.i.i, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %.lcssa.i.i, i64 32
   %25 = load ptr, ptr %24, align 8, !noalias !105
-  %26 = getelementptr inbounds i8, ptr %25, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 40
   %27 = load ptr, ptr %26, align 8, !noalias !105
   br label %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE5beginEv.exit
 
@@ -7173,12 +7173,12 @@ _ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17
   %.sroa.0.0.i = phi ptr [ null, %2 ], [ %27, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap16TableEntryIsTreeEm.exit.i.i.i.i ], [ %.lcssa.i.i, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i.i.i ], [ null, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap16TableEntryIsTreeEm.exit.thread.i.i.i.i ]
   %28 = load ptr, ptr %1, align 8
   store ptr %.sroa.0.0.i, ptr %28, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %28, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 8
   store ptr %6, ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %28, i64 16
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 16
   store i64 %.sroa.4.0.i, ptr %.sroa.3.0..sroa_idx, align 8
   %29 = load ptr, ptr %0, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 184
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 184
   %31 = load ptr, ptr %30, align 8
   tail call void %31(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull %1)
   ret void
@@ -7187,7 +7187,7 @@ _ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNK6google8protobuf8internal23TypeDefinedMapFieldBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE6MapEndEPNS0_11MapIteratorE(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 168
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 168
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noundef nonnull align 8 dereferenceable(48) ptr %5(ptr noundef nonnull align 8 dereferenceable(68) %0)
   %7 = load ptr, ptr %1, align 8
@@ -7198,8 +7198,8 @@ define linkonce_odr hidden void @_ZNK6google8protobuf8internal23TypeDefinedMapFi
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN6google8protobuf8internal8MapFieldIN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_9AttrValueELNS1_14WireFormatLite9FieldTypeE9ELSD_11EE4SwapEPNS1_12MapFieldBaseE(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 {
   tail call void @_ZN6google8protobuf8internal12MapFieldBase4SwapEPS2_(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef %1)
-  %3 = getelementptr inbounds i8, ptr %0, i64 72
-  %4 = getelementptr inbounds i8, ptr %1, i64 72
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 72
   tail call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE4swapERSA_(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(48) %4)
   ret void
 }
@@ -7207,38 +7207,38 @@ define linkonce_odr hidden void @_ZN6google8protobuf8internal8MapFieldIN17opencv
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN6google8protobuf8internal8MapFieldIN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_9AttrValueELNS1_14WireFormatLite9FieldTypeE9ELSD_11EE17UnsafeShallowSwapEPNS1_12MapFieldBaseE(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 {
   tail call void @_ZN6google8protobuf8internal12MapFieldBase12InternalSwapEPS2_(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef %1)
-  %3 = getelementptr inbounds i8, ptr %0, i64 72
-  %4 = getelementptr inbounds i8, ptr %1, i64 72
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %5 = load i64, ptr %3, align 8
   %6 = load i64, ptr %4, align 8
   store i64 %6, ptr %3, align 8
   store i64 %5, ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 80
-  %8 = getelementptr inbounds i8, ptr %1, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %9 = load i64, ptr %7, align 8
   %10 = load i64, ptr %8, align 8
   store i64 %10, ptr %7, align 8
   store i64 %9, ptr %8, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 88
-  %12 = getelementptr inbounds i8, ptr %1, i64 88
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %13 = load i64, ptr %11, align 8
   %14 = load i64, ptr %12, align 8
   store i64 %14, ptr %11, align 8
   store i64 %13, ptr %12, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 96
-  %16 = getelementptr inbounds i8, ptr %1, i64 96
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %17 = load i64, ptr %15, align 8
   %18 = load i64, ptr %16, align 8
   store i64 %18, ptr %15, align 8
   store i64 %17, ptr %16, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 104
-  %20 = getelementptr inbounds i8, ptr %1, i64 104
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %21 = load ptr, ptr %19, align 8
   %22 = load ptr, ptr %20, align 8
   store ptr %22, ptr %19, align 8
   store ptr %21, ptr %20, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 112
-  %24 = getelementptr inbounds i8, ptr %1, i64 112
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %.sroa.0.0.copyload.i.i.i.i.i = load ptr, ptr %23, align 8
   %25 = load i64, ptr %24, align 8
   store i64 %25, ptr %23, align 8
@@ -7249,7 +7249,7 @@ define linkonce_odr hidden void @_ZN6google8protobuf8internal8MapFieldIN17opencv
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef i32 @_ZNK6google8protobuf8internal8MapFieldIN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_9AttrValueELNS1_14WireFormatLite9FieldTypeE9ELSD_11EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #3 comdat align 2 {
   tail call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %0)
-  %2 = getelementptr inbounds i8, ptr %0, i64 72
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
   ret i32 %4
@@ -7257,17 +7257,17 @@ define linkonce_odr hidden noundef i32 @_ZNK6google8protobuf8internal8MapFieldIN
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef i64 @_ZNK6google8protobuf8internal8MapFieldIN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_9AttrValueELNS1_14WireFormatLite9FieldTypeE9ELSD_11EE28SpaceUsedExcludingSelfNoLockEv(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #3 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %_ZNK6google8protobuf16RepeatedPtrFieldINS0_7MessageEE26SpaceUsedExcludingSelfLongEv.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %3, i64 12
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %6 = load i32, ptr %5, align 4
   %7 = sext i32 %6 to i64
   %8 = shl nsw i64 %7, 3
-  %9 = getelementptr inbounds i8, ptr %3, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %10 = load ptr, ptr %9, align 8
   %.not.i.i = icmp eq ptr %10, null
   br i1 %.not.i.i, label %_ZNK6google8protobuf16RepeatedPtrFieldINS0_7MessageEE26SpaceUsedExcludingSelfLongEv.exit, label %.preheader.i.i
@@ -7281,11 +7281,11 @@ define linkonce_odr hidden noundef i64 @_ZNK6google8protobuf8internal8MapFieldIN
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 0, %.preheader.i.i ]
   %13 = phi ptr [ %22, %.lr.ph.i.i ], [ %10, %.preheader.i.i ]
   %.17.i.i = phi i64 [ %21, %.lr.ph.i.i ], [ %8, %.preheader.i.i ]
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
-  %15 = getelementptr inbounds [268435454 x ptr], ptr %14, i64 0, i64 %indvars.iv.i.i
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %15 = getelementptr inbounds nuw [268435454 x ptr], ptr %14, i64 0, i64 %indvars.iv.i.i
   %16 = load ptr, ptr %15, align 8
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 120
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 120
   %19 = load ptr, ptr %18, align 8
   %20 = tail call noundef i64 %19(ptr noundef nonnull align 8 dereferenceable(16) %16)
   %21 = add i64 %20, %.17.i.i
@@ -7303,15 +7303,15 @@ define linkonce_odr hidden noundef i64 @_ZNK6google8protobuf8internal8MapFieldIN
 
 _ZNK6google8protobuf16RepeatedPtrFieldINS0_7MessageEE26SpaceUsedExcludingSelfLongEv.exit: ; preds = %._crit_edge.i.i, %4, %1
   %.0 = phi i64 [ 0, %1 ], [ %26, %._crit_edge.i.i ], [ %8, %4 ]
-  %27 = getelementptr inbounds i8, ptr %0, i64 72
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %28 = load i64, ptr %27, align 8
   %29 = icmp eq i64 %28, 0
   br i1 %29, label %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE26SpaceUsedExcludingSelfLongEv.exit, label %30
 
 30:                                               ; preds = %_ZNK6google8protobuf16RepeatedPtrFieldINS0_7MessageEE26SpaceUsedExcludingSelfLongEv.exit
-  %31 = getelementptr inbounds i8, ptr %0, i64 104
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 80
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %34 = load i64, ptr %33, align 8
   %35 = shl i64 %34, 3
   %36 = mul i64 %28, 72
@@ -7335,7 +7335,7 @@ _ZN6google8protobuf8internal16TableEntryIsTreeEPKPvm.exit.i.i.i: ; preds = %.lr.
   br i1 %.not.i.i.i.i, label %44, label %_ZN6google8protobuf8internal16TableEntryIsTreeEPKPvm.exit.thread.i.i.i
 
 44:                                               ; preds = %_ZN6google8protobuf8internal16TableEntryIsTreeEPKPvm.exit.i.i.i
-  %45 = getelementptr inbounds i8, ptr %39, i64 48
+  %45 = getelementptr inbounds nuw i8, ptr %39, i64 48
   %46 = load i64, ptr %45, align 8
   %47 = mul i64 %46, 48
   %48 = add i64 %47, %.016.i.i.i
@@ -7362,13 +7362,13 @@ _ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNK6google8protobuf8internal8MapFieldIN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_9AttrValueELNS1_14WireFormatLite9FieldTypeE9ELSD_11EE30SyncRepeatedFieldWithMapNoLockEv(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.google::protobuf::Map<std::__cxx11::basic_string<char>, opencv_tensorflow::AttrValue>::const_iterator", align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %19
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %12
@@ -7383,10 +7383,10 @@ define linkonce_odr hidden void @_ZNK6google8protobuf8internal8MapFieldIN17openc
   %14 = extractvalue { ptr, ptr } %13, 0
   %15 = extractvalue { ptr, ptr } %13, 1
   store ptr %14, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr @_ZN6google8protobuf8internal21arena_destruct_objectINS0_16RepeatedPtrFieldINS0_7MessageEEEEEvPv, ptr %16, align 8
   store ptr %8, ptr %14, align 8
-  %17 = getelementptr inbounds i8, ptr %14, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false)
   br label %18
 
@@ -7397,26 +7397,26 @@ define linkonce_odr hidden void @_ZNK6google8protobuf8internal8MapFieldIN17openc
 
 19:                                               ; preds = %18, %1
   %20 = phi ptr [ %.039, %18 ], [ %4, %1 ]
-  %21 = getelementptr inbounds i8, ptr %0, i64 72
-  %22 = getelementptr inbounds i8, ptr %20, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %23 = load i32, ptr %22, align 8
   %24 = icmp sgt i32 %23, 0
   br i1 %24, label %25, label %_ZN6google8protobuf16RepeatedPtrFieldIN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseEE5ClearEv.exit
 
 25:                                               ; preds = %19
-  %26 = getelementptr inbounds i8, ptr %20, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %wide.trip.count.i.i = zext nneg i32 %23 to i64
   br label %29
 
 29:                                               ; preds = %29, %25
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %29 ], [ 0, %25 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %30 = getelementptr inbounds ptr, ptr %28, i64 %indvars.iv.i.i
+  %30 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv.i.i
   %31 = load ptr, ptr %30, align 8
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 32
   %34 = load ptr, ptr %33, align 8
   tail call void %34(ptr noundef nonnull align 8 dereferenceable(36) %31)
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
@@ -7428,15 +7428,15 @@ define linkonce_odr hidden void @_ZNK6google8protobuf8internal8MapFieldIN17openc
 
 _ZN6google8protobuf16RepeatedPtrFieldIN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseEE5ClearEv.exit: ; preds = %19, %35
   tail call void @llvm.experimental.noalias.scope.decl(metadata !112)
-  %36 = getelementptr inbounds i8, ptr %0, i64 96
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %37 = load i64, ptr %36, align 8, !noalias !115
-  %38 = getelementptr inbounds i8, ptr %0, i64 80
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %39 = load i64, ptr %38, align 8, !noalias !115
   %40 = icmp ult i64 %37, %39
   br i1 %40, label %.lr.ph.i.i.i.i, label %._crit_edge
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN6google8protobuf16RepeatedPtrFieldIN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseEE5ClearEv.exit
-  %41 = getelementptr inbounds i8, ptr %0, i64 104
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %42 = load ptr, ptr %41, align 8, !noalias !115
   %43 = getelementptr inbounds ptr, ptr %42, i64 %37
   %44 = load ptr, ptr %43, align 8, !noalias !115
@@ -7465,9 +7465,9 @@ _ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17
 
 _ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE5beginEv.exit.thread53: ; preds = %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i.i.i
   store ptr %.lcssa.i.i, ptr %2, align 8, !alias.scope !112
-  %.sroa.3.0..sroa_idx.i56 = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.3.0..sroa_idx.i56 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %21, ptr %.sroa.3.0..sroa_idx.i56, align 8, !alias.scope !112
-  %.sroa.4.0..sroa_idx.i57 = getelementptr inbounds i8, ptr %2, i64 16
+  %.sroa.4.0..sroa_idx.i57 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 %.lcssa5.i.i, ptr %.sroa.4.0..sroa_idx.i57, align 8, !alias.scope !112
   br label %.lr.ph
 
@@ -7477,31 +7477,31 @@ _ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17
   br i1 %exitcond.not.i.i41, label %._crit_edge, label %46, !llvm.loop !39
 
 _ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE5beginEv.exit: ; preds = %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i.i.i
-  %53 = getelementptr inbounds i8, ptr %.lcssa.i.i, i64 32
+  %53 = getelementptr inbounds nuw i8, ptr %.lcssa.i.i, i64 32
   %54 = load ptr, ptr %53, align 8, !noalias !115
-  %55 = getelementptr inbounds i8, ptr %54, i64 40
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 40
   %56 = load ptr, ptr %55, align 8, !noalias !115
   store ptr %56, ptr %2, align 8, !alias.scope !112
-  %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %21, ptr %.sroa.3.0..sroa_idx.i, align 8, !alias.scope !112
-  %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 16
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 %.lcssa5.i.i, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !112
   %.not46 = icmp eq ptr %56, null
   br i1 %.not46, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE5beginEv.exit.thread53, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE5beginEv.exit
-  %57 = getelementptr inbounds i8, ptr %0, i64 8
-  %58 = getelementptr inbounds i8, ptr %20, i64 16
-  %59 = getelementptr inbounds i8, ptr %20, i64 12
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %20, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %20, i64 12
   br label %60
 
 60:                                               ; preds = %.lr.ph, %_ZN6google8protobuf8internal12MapEntryImplIN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseENS0_7MessageENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_9AttrValueELNS1_14WireFormatLite9FieldTypeE9ELSE_11EE13mutable_valueEv.exit
   %61 = load ptr, ptr %57, align 8
   %62 = load ptr, ptr @_ZN17opencv_tensorflow54_FunctionDef_Node_AttrEntry_DoNotUse_default_instance_E, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 24
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 24
   %64 = load ptr, ptr %63, align 8
   %65 = call noundef ptr %64(ptr noundef nonnull align 8 dereferenceable(16) @_ZN17opencv_tensorflow54_FunctionDef_Node_AttrEntry_DoNotUse_default_instance_E, ptr noundef %61)
-  %66 = getelementptr inbounds i8, ptr %65, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %67 = load i64, ptr %66, align 8
   %68 = and i64 %67, 2
   %.not.i.i.i.i.i.i42 = icmp eq i64 %68, 0
@@ -7540,7 +7540,7 @@ _ZN6google8protobuf8internal18GenericTypeHandlerIN17opencv_tensorflow35FunctionD
   br i1 %85, label %86, label %105
 
 86:                                               ; preds = %82
-  %87 = getelementptr inbounds i8, ptr %81, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %81, i64 8
   %88 = load i32, ptr %22, align 8
   %89 = icmp slt i32 %88, %83
   br i1 %89, label %90, label %96
@@ -7575,7 +7575,7 @@ _ZN6google8protobuf8internal18GenericTypeHandlerIN17opencv_tensorflow35FunctionD
 
 _ZN6google8protobuf16RepeatedPtrFieldIN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseEE12AddAllocatedEPS3_.exit: ; preds = %96, %105
   %106 = load ptr, ptr %2, align 8
-  %107 = getelementptr inbounds i8, ptr %65, i64 32
+  %107 = getelementptr inbounds nuw i8, ptr %65, i64 32
   %108 = load i32, ptr %107, align 8
   %109 = or i32 %108, 1
   store i32 %109, ptr %107, align 8
@@ -7592,15 +7592,15 @@ _ZN6google8protobuf16RepeatedPtrFieldIN17opencv_tensorflow35FunctionDef_Node_Att
 
 _ZN6google8protobuf8internal12MapEntryImplIN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseENS0_7MessageENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_9AttrValueELNS1_14WireFormatLite9FieldTypeE9ELSE_11EE11mutable_keyEv.exit: ; preds = %_ZN6google8protobuf16RepeatedPtrFieldIN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseEE12AddAllocatedEPS3_.exit, %114
   %.0.i.i = phi ptr [ %115, %114 ], [ %113, %_ZN6google8protobuf16RepeatedPtrFieldIN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseEE12AddAllocatedEPS3_.exit ]
-  %116 = getelementptr inbounds i8, ptr %65, i64 16
+  %116 = getelementptr inbounds nuw i8, ptr %65, i64 16
   %117 = call noundef ptr @_ZN6google8protobuf8internal14ArenaStringPtr7MutableB5cxx11ENS2_12EmptyDefaultEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %116, ptr noundef %.0.i.i)
   %118 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %117, ptr noundef nonnull align 8 dereferenceable(32) %106)
   %119 = load ptr, ptr %2, align 8
-  %120 = getelementptr inbounds i8, ptr %119, i64 32
+  %120 = getelementptr inbounds nuw i8, ptr %119, i64 32
   %121 = load i32, ptr %107, align 8
   %122 = or i32 %121, 2
   store i32 %122, ptr %107, align 8
-  %123 = getelementptr inbounds i8, ptr %65, i64 24
+  %123 = getelementptr inbounds nuw i8, ptr %65, i64 24
   %124 = load i64, ptr %66, align 8
   %125 = and i64 %124, 1
   %.not.i.i43 = icmp eq i64 %125, 0
@@ -7640,8 +7640,8 @@ define linkonce_odr hidden void @_ZNK6google8protobuf8internal8MapFieldIN17openc
   %2 = alloca %"struct.std::pair.49", align 8
   %3 = alloca %"class.google::protobuf::internal::LogMessage", align 8
   %4 = alloca %"class.google::protobuf::internal::LogFinisher", align 1
-  %5 = getelementptr inbounds i8, ptr %0, i64 72
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %8, label %.critedge
@@ -7661,8 +7661,8 @@ define linkonce_odr hidden void @_ZNK6google8protobuf8internal8MapFieldIN17openc
 
 .critedge:                                        ; preds = %1, %11
   call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap5clearEv(ptr noundef nonnull align 8 dereferenceable(48) %5)
-  %12 = getelementptr inbounds i8, ptr %7, i64 16
-  %13 = getelementptr inbounds i8, ptr %7, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %14 = load i32, ptr %13, align 8
   %.not1417 = icmp eq i32 %14, 0
   br i1 %.not1417, label %._crit_edge, label %.lr.ph.preheader
@@ -7670,7 +7670,7 @@ define linkonce_odr hidden void @_ZNK6google8protobuf8internal8MapFieldIN17openc
 .lr.ph.preheader:                                 ; preds = %.critedge
   %15 = load ptr, ptr %12, align 8
   %.not.i.i = icmp eq ptr %15, null
-  %16 = getelementptr inbounds i8, ptr %15, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %spec.select.i.i = select i1 %.not.i.i, ptr null, ptr %16
   br label %.lr.ph
 
@@ -7678,24 +7678,24 @@ define linkonce_odr hidden void @_ZNK6google8protobuf8internal8MapFieldIN17openc
   %.sroa.010.018 = phi ptr [ %29, %.lr.ph ], [ %spec.select.i.i, %.lr.ph.preheader ]
   %17 = load ptr, ptr %.sroa.010.018, align 8
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 160
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 160
   %20 = load ptr, ptr %19, align 8
   %21 = call noundef nonnull align 8 dereferenceable(32) ptr %20(ptr noundef nonnull align 8 dereferenceable(36) %17)
   %22 = load ptr, ptr %.sroa.010.018, align 8
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 152
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 152
   %25 = load ptr, ptr %24, align 8
   %26 = call noundef nonnull align 8 dereferenceable(32) ptr %25(ptr noundef nonnull align 8 dereferenceable(36) %22)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
   call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap6insertIRKS7_EESt4pairINSB_13iterator_baseINS0_7MapPairIS7_S9_EEEEbEOT_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.49") align 8 %2, ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 8 dereferenceable(32) %26)
   %27 = load ptr, ptr %2, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
-  %28 = getelementptr inbounds i8, ptr %27, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 32
   call void @_ZN17opencv_tensorflow9AttrValue8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(32) %21)
-  %29 = getelementptr inbounds i8, ptr %.sroa.010.018, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %.sroa.010.018, i64 8
   %30 = load ptr, ptr %12, align 8
   %.not.i.i8 = icmp eq ptr %30, null
-  %31 = getelementptr inbounds i8, ptr %30, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %spec.select.i.i9 = select i1 %.not.i.i8, ptr null, ptr %31
   %32 = load i32, ptr %13, align 8
   %33 = sext i32 %32 to i64
@@ -7740,10 +7740,10 @@ define linkonce_odr hidden void @_ZNK6google8protobuf8internal23TypeDefinedMapFi
   %4 = load ptr, ptr %2, align 8
   %5 = load ptr, ptr %1, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
-  %7 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %8 = tail call noundef i32 @_ZNK6google8protobuf6MapKey4typeEv(ptr noundef nonnull align 8 dereferenceable(36) %7)
-  %9 = getelementptr inbounds i8, ptr %1, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %10 = load i32, ptr %9, align 8
   %11 = icmp eq i32 %10, %8
   br i1 %11, label %_ZN6google8protobuf6MapKey7SetTypeENS0_15FieldDescriptor7CppTypeE.exit, label %12
@@ -7766,12 +7766,12 @@ define linkonce_odr hidden void @_ZNK6google8protobuf8internal23TypeDefinedMapFi
   br label %_ZN6google8protobuf6MapKey7SetTypeENS0_15FieldDescriptor7CppTypeE.exit
 
 _ZN6google8protobuf6MapKey7SetTypeENS0_15FieldDescriptor7CppTypeE.exit: ; preds = %3, %15, %17
-  %18 = getelementptr inbounds i8, ptr %2, i64 64
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %19 = load i32, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 64
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store i32 %19, ptr %20, align 8
   %21 = load ptr, ptr %0, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 184
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 184
   %23 = load ptr, ptr %22, align 8
   tail call void %23(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull %1)
   ret void
@@ -7782,7 +7782,7 @@ define linkonce_odr hidden void @_ZNK6google8protobuf8internal23TypeDefinedMapFi
   %3 = load ptr, ptr %1, align 8
   %4 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap13iterator_baseIKNS0_7MapPairIS7_S9_EEEppEv(ptr noundef nonnull align 8 dereferenceable(24) %3)
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 184
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 184
   %7 = load ptr, ptr %6, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull %1)
   ret void
@@ -7791,14 +7791,14 @@ define linkonce_odr hidden void @_ZNK6google8protobuf8internal23TypeDefinedMapFi
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZNK6google8protobuf8internal8MapFieldIN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_9AttrValueELNS1_14WireFormatLite9FieldTypeE9ELSD_11EE6GetMapEv(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #3 comdat align 2 {
   tail call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %0)
-  %2 = getelementptr inbounds i8, ptr %0, i64 72
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef ptr @_ZN6google8protobuf8internal8MapFieldIN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_9AttrValueELNS1_14WireFormatLite9FieldTypeE9ELSD_11EE10MutableMapEv(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #3 comdat align 2 {
   tail call void @_ZNK6google8protobuf8internal12MapFieldBase24SyncMapWithRepeatedFieldEv(ptr noundef nonnull align 8 dereferenceable(68) %0)
-  %2 = getelementptr inbounds i8, ptr %0, i64 72
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @_ZN6google8protobuf8internal12MapFieldBase11SetMapDirtyEv(ptr noundef nonnull align 8 dereferenceable(68) %0)
   ret ptr %2
 }
@@ -7812,10 +7812,10 @@ define linkonce_odr hidden void @_ZNK6google8protobuf8internal8MapFieldIN17openc
   br i1 %5, label %15, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.05.0.copyload)
-  %8 = getelementptr inbounds i8, ptr %1, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %9 = load i32, ptr %8, align 8
   %10 = icmp eq i32 %9, 9
   br i1 %10, label %_ZN6google8protobuf8internal9SetMapKeyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPNS0_6MapKeyERKT_.exit, label %11
@@ -7829,8 +7829,8 @@ _ZN6google8protobuf8internal9SetMapKeyINSt7__cxx1112basic_stringIcSt11char_trait
   %12 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(36) %7, ptr noundef nonnull align 8 dereferenceable(32) %3) #25
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #25
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  %13 = getelementptr inbounds i8, ptr %1, i64 56
-  %14 = getelementptr inbounds i8, ptr %.sroa.05.0.copyload, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %.sroa.05.0.copyload, i64 32
   store ptr %14, ptr %13, align 8
   br label %15
 
@@ -7852,7 +7852,7 @@ declare noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFal
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6google8protobuf8internal8MapEntryIN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_9AttrValueELNS1_14WireFormatLite9FieldTypeE9ELSD_11EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 168) (i8, ptr @_ZTVN6google8protobuf8internal8MapEntryIN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_9AttrValueELNS1_14WireFormatLite9FieldTypeE9ELSD_11EEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 1
   %.not.i = icmp eq i64 %4, 0
@@ -7868,9 +7868,9 @@ define linkonce_odr hidden void @_ZN6google8protobuf8internal8MapEntryIN17opencv
   br i1 %or.cond.i, label %_ZN6google8protobuf8internal16InternalMetadata6DeleteINS0_15UnknownFieldSetEEEvv.exit, label %11
 
 11:                                               ; preds = %5
-  %12 = getelementptr inbounds i8, ptr %7, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %7, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %13, %15
   br i1 %16, label %_ZN6google8protobuf15UnknownFieldSet5ClearEv.exit.i.i.i.i, label %17
@@ -7904,7 +7904,7 @@ _ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEE
   br label %_ZN6google8protobuf8internal16InternalMetadata6DeleteINS0_15UnknownFieldSetEEEvv.exit
 
 _ZN6google8protobuf8internal16InternalMetadata6DeleteINS0_15UnknownFieldSetEEEvv.exit: ; preds = %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i.i, %5, %1
-  %23 = getelementptr inbounds i8, ptr %0, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %24 = load i64, ptr %23, align 8
   %25 = and i64 %24, 1
   %.not.i1 = icmp eq i64 %25, 0
@@ -7920,9 +7920,9 @@ _ZN6google8protobuf8internal16InternalMetadata6DeleteINS0_15UnknownFieldSetEEEvv
   br i1 %or.cond.i2, label %_ZN6google8protobuf8internal16InternalMetadata6DeleteINS0_15UnknownFieldSetEEEvv.exit8, label %32
 
 32:                                               ; preds = %26
-  %33 = getelementptr inbounds i8, ptr %28, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %28, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %36 = load ptr, ptr %35, align 8
   %37 = icmp eq ptr %34, %36
   br i1 %37, label %_ZN6google8protobuf15UnknownFieldSet5ClearEv.exit.i.i.i.i5, label %38
@@ -7999,7 +7999,7 @@ declare void @__cxa_pure_virtual() unnamed_addr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6google8protobuf8internal12MapEntryImplIN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseENS0_7MessageENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_9AttrValueELNS1_14WireFormatLite9FieldTypeE9ELSE_11EED2Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 168) (i8, ptr @_ZTVN6google8protobuf8internal12MapEntryImplIN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseENS0_7MessageENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_9AttrValueELNS1_14WireFormatLite9FieldTypeE9ELSE_11EEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 1
   %.not.i = icmp eq i64 %4, 0
@@ -8017,7 +8017,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit: ; preds = %7, %
   br i1 %.not, label %9, label %_ZN6google8protobuf8internal14MapTypeHandlerILNS1_14WireFormatLite9FieldTypeE11EN17opencv_tensorflow9AttrValueEE13DeleteNoArenaEPKS6_.exit
 
 9:                                                ; preds = %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E
   br i1 %12, label %_ZN6google8protobuf8internal14MapTypeHandlerILNS1_14WireFormatLite9FieldTypeE9ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE13DeleteNoArenaERNS1_14ArenaStringPtrE.exit, label %13
@@ -8027,7 +8027,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit: ; preds = %7, %
           to label %_ZN6google8protobuf8internal14MapTypeHandlerILNS1_14WireFormatLite9FieldTypeE9ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE13DeleteNoArenaERNS1_14ArenaStringPtrE.exit unwind label %29
 
 _ZN6google8protobuf8internal14MapTypeHandlerILNS1_14WireFormatLite9FieldTypeE9ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE13DeleteNoArenaERNS1_14ArenaStringPtrE.exit: ; preds = %9, %13
-  %14 = getelementptr inbounds i8, ptr %0, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %_ZN6google8protobuf8internal14MapTypeHandlerILNS1_14WireFormatLite9FieldTypeE11EN17opencv_tensorflow9AttrValueEE13DeleteNoArenaEPKS6_.exit, label %17
@@ -8092,10 +8092,10 @@ declare void @_ZN17opencv_tensorflow9AttrValueD1Ev(ptr noundef nonnull align 8 d
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = icmp ne ptr %3, null
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   %.not.i = icmp eq i64 %6, 1
   %or.cond.i = select i1 %4, i1 true, i1 %.not.i
@@ -8111,7 +8111,7 @@ define linkonce_odr hidden void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stri
   br i1 %10, label %11, label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMapD2Ev.exit
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %13 = load ptr, ptr %12, align 8
   tail call void @_ZdlPv(ptr noundef %13) #25
   br label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMapD2Ev.exit
@@ -8129,14 +8129,14 @@ _ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17o
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap5clearEv(ptr noundef nonnull align 8 dereferenceable(48) %0) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %.not35 = icmp eq i64 %3, 0
   br i1 %.not35, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %6
 
 6:                                                ; preds = %.lr.ph, %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap11DestroyTreeEPSt3mapISt17reference_wrapperIKS7_EPvSt4lessIS7_ENS0_8internal12MapAllocatorISt4pairIKSF_SG_EEEE.exit
@@ -8167,13 +8167,13 @@ _ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17
 .split:                                           ; preds = %13, %.splitthread-pre-split
   %16 = phi ptr [ %.pr, %.splitthread-pre-split ], [ null, %13 ]
   %.021 = phi ptr [ %18, %.splitthread-pre-split ], [ %9, %13 ]
-  %17 = getelementptr inbounds i8, ptr %.021, i64 64
+  %17 = getelementptr inbounds nuw i8, ptr %.021, i64 64
   %18 = load ptr, ptr %17, align 8
   %.not31 = icmp eq ptr %16, null
   br i1 %.not31, label %19, label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap11DestroyNodeEPNSB_4NodeE.exit
 
 19:                                               ; preds = %.split
-  %20 = getelementptr inbounds i8, ptr %.021, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %.021, i64 32
   tail call void @_ZN17opencv_tensorflow9AttrValueD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #25
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(72) %.021) #25
   tail call void @_ZdlPv(ptr noundef nonnull %.021) #26
@@ -8190,15 +8190,15 @@ _ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17
   %23 = load ptr, ptr %4, align 8
   %24 = getelementptr inbounds ptr, ptr %23, i64 %.034
   store ptr null, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %9, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %9, i64 16
-  %28 = getelementptr inbounds i8, ptr %9, i64 48
+  %27 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %9, i64 48
   br label %29
 
 29:                                               ; preds = %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap11DestroyNodeEPNSB_4NodeE.exit24, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap16TableEntryIsTreeEm.exit
   %.sroa.027.0 = phi ptr [ %26, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap16TableEntryIsTreeEm.exit ], [ %32, %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap11DestroyNodeEPNSB_4NodeE.exit24 ]
-  %30 = getelementptr inbounds i8, ptr %.sroa.027.0, i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %.sroa.027.0, i64 40
   %31 = load ptr, ptr %30, align 8
   %32 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.027.0) #28
   %33 = tail call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef %.sroa.027.0, ptr noundef nonnull align 8 dereferenceable(32) %27) #25
@@ -8221,7 +8221,7 @@ _ZNSt3mapISt17reference_wrapperIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   br i1 %or.cond.i23, label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap11DestroyNodeEPNSB_4NodeE.exit24, label %42
 
 42:                                               ; preds = %_ZNSt3mapISt17reference_wrapperIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEPvSt4lessIS6_EN6google8protobuf8internal12MapAllocatorISt4pairIKS8_S9_EEEE5eraseB5cxx11ESt17_Rb_tree_iteratorISI_E.exit
-  %43 = getelementptr inbounds i8, ptr %31, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %31, i64 32
   tail call void @_ZN17opencv_tensorflow9AttrValueD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %43) #25
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(72) %31) #25
   tail call void @_ZdlPv(ptr noundef nonnull %31) #26
@@ -8237,7 +8237,7 @@ _ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17o
   br i1 %.not30, label %46, label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap11DestroyTreeEPSt3mapISt17reference_wrapperIKS7_EPvSt4lessIS7_ENS0_8internal12MapAllocatorISt4pairIKSF_SG_EEEE.exit
 
 46:                                               ; preds = %44
-  %47 = getelementptr inbounds i8, ptr %9, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %48 = load ptr, ptr %47, align 8
   invoke void @_ZNSt8_Rb_treeISt17reference_wrapperIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt4pairIKS8_PvESt10_Select1stISC_ESt4lessIS6_EN6google8protobuf8internal12MapAllocatorISC_EEE8_M_eraseEPSt13_Rb_tree_nodeISC_E(ptr noundef nonnull align 8 dereferenceable(56) %9, ptr noundef %48)
           to label %_ZNSt3mapISt17reference_wrapperIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEPvSt4lessIS6_EN6google8protobuf8internal12MapAllocatorISt4pairIKS8_S9_EEEED2Ev.exit.i unwind label %49
@@ -8263,7 +8263,7 @@ _ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17o
 ._crit_edge:                                      ; preds = %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap11DestroyTreeEPSt3mapISt17reference_wrapperIKS7_EPvSt4lessIS7_ENS0_8internal12MapAllocatorISt4pairIKSF_SG_EEEE.exit, %1
   %.lcssa32 = phi i64 [ 0, %1 ], [ %53, %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap11DestroyTreeEPSt3mapISt17reference_wrapperIKS7_EPvSt4lessIS7_ENS0_8internal12MapAllocatorISt4pairIKSF_SG_EEEE.exit ]
   store i64 0, ptr %0, align 8
-  %55 = getelementptr inbounds i8, ptr %0, i64 24
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %.lcssa32, ptr %55, align 8
   ret void
 }
@@ -8287,10 +8287,10 @@ define linkonce_odr hidden void @_ZNSt8_Rb_treeISt17reference_wrapperIKNSt7__cxx
 
 .lr.ph:                                           ; preds = %2, %_ZNSt8_Rb_treeISt17reference_wrapperIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt4pairIKS8_PvESt10_Select1stISC_ESt4lessIS6_EN6google8protobuf8internal12MapAllocatorISC_EEE12_M_drop_nodeEPSt13_Rb_tree_nodeISC_E.exit
   %.07 = phi ptr [ %6, %_ZNSt8_Rb_treeISt17reference_wrapperIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt4pairIKS8_PvESt10_Select1stISC_ESt4lessIS6_EN6google8protobuf8internal12MapAllocatorISC_EEE12_M_drop_nodeEPSt13_Rb_tree_nodeISC_E.exit ], [ %1, %2 ]
-  %3 = getelementptr inbounds i8, ptr %.07, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %.07, i64 24
   %4 = load ptr, ptr %3, align 8
   tail call void @_ZNSt8_Rb_treeISt17reference_wrapperIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt4pairIKS8_PvESt10_Select1stISC_ESt4lessIS6_EN6google8protobuf8internal12MapAllocatorISC_EEE8_M_eraseEPSt13_Rb_tree_nodeISC_E(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %4)
-  %5 = getelementptr inbounds i8, ptr %.07, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %.07, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %0, align 8
   %8 = icmp eq ptr %7, null
@@ -8331,20 +8331,20 @@ declare noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN17opencv_ten
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase3AddINS0_16RepeatedPtrFieldIN17opencv_tensorflow16FunctionDef_NodeEE11TypeHandlerEEEPNT_4TypeESB_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %16, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 8
   %8 = load i32, ptr %4, align 8
   %9 = icmp slt i32 %7, %8
   br i1 %9, label %10, label %16
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %4, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %12 = add nsw i32 %7, 1
   store i32 %12, ptr %6, align 8
   %13 = sext i32 %7 to i64
@@ -8394,9 +8394,9 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6google8protobuf8internal21arena_destruct_objectINS1_16InternalMetadata9ContainerINS0_15UnknownFieldSetEEEEEvPv(ptr noundef %0) #5 comdat personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %3, %5
   br i1 %6, label %_ZN6google8protobuf15UnknownFieldSet5ClearEv.exit.i.i, label %7
@@ -8437,20 +8437,20 @@ declare noundef ptr @_ZN6google8protobuf2io17CodedOutputStream35WriteVarint32ToA
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase9MergeFromINS0_16RepeatedPtrFieldIN17opencv_tensorflow11FunctionDefEE11TypeHandlerEEEvRKS2_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase17MergeFromInternalERKS2_MS2_FvPPvS6_iiE.exit, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = tail call noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase14InternalExtendEi(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %4)
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load i32, ptr %14, align 8
   %16 = sub nsw i32 %13, %15
   %17 = icmp slt i32 %16, %4
@@ -8466,10 +8466,10 @@ define linkonce_odr hidden void @_ZN6google8protobuf8internal20RepeatedPtrFieldB
 _ZN6google8protobuf8internal18GenericTypeHandlerIN17opencv_tensorflow11FunctionDefEE16NewFromPrototypeEPKS4_PNS0_5ArenaE.exit.us: ; preds = %18, %_ZN6google8protobuf8internal18GenericTypeHandlerIN17opencv_tensorflow11FunctionDefEE16NewFromPrototypeEPKS4_PNS0_5ArenaE.exit.us
   %indvars.iv11 = phi i64 [ %indvars.iv.next12, %_ZN6google8protobuf8internal18GenericTypeHandlerIN17opencv_tensorflow11FunctionDefEE16NewFromPrototypeEPKS4_PNS0_5ArenaE.exit.us ], [ %22, %18 ]
   %23 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #27
-  %24 = getelementptr inbounds i8, ptr %23, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store i64 0, ptr %24, align 8
   store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN17opencv_tensorflow11FunctionDefE, i64 16), ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %23, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %23, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %25, i8 0, i64 36, i1 false)
   %26 = getelementptr inbounds ptr, ptr %10, i64 %indvars.iv11
   store ptr %23, ptr %26, align 8
@@ -8481,12 +8481,12 @@ _ZN6google8protobuf8internal18GenericTypeHandlerIN17opencv_tensorflow11FunctionD
 _ZN6google8protobuf8internal18GenericTypeHandlerIN17opencv_tensorflow11FunctionDefEE16NewFromPrototypeEPKS4_PNS0_5ArenaE.exit: ; preds = %18, %_ZN6google8protobuf8internal18GenericTypeHandlerIN17opencv_tensorflow11FunctionDefEE16NewFromPrototypeEPKS4_PNS0_5ArenaE.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN6google8protobuf8internal18GenericTypeHandlerIN17opencv_tensorflow11FunctionDefEE16NewFromPrototypeEPKS4_PNS0_5ArenaE.exit ], [ %22, %18 ]
   %27 = tail call noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %19, i64 noundef 56, ptr noundef nonnull @_ZTIN17opencv_tensorflow11FunctionDefE)
-  %28 = getelementptr inbounds i8, ptr %27, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store i64 %21, ptr %28, align 8
   store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN17opencv_tensorflow11FunctionDefE, i64 16), ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %27, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %27, i64 16
   store ptr %19, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %27, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %30, i8 0, i64 28, i1 false)
   %31 = getelementptr inbounds ptr, ptr %10, i64 %indvars.iv
   store ptr %27, ptr %31, align 8
@@ -8505,37 +8505,37 @@ _ZN6google8protobuf8internal18GenericTypeHandlerIN17opencv_tensorflow11FunctionD
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN17opencv_tensorflow11FunctionDef9MergeFromERKS0_.exit
   %indvars.iv16 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next17, %_ZN17opencv_tensorflow11FunctionDef9MergeFromERKS0_.exit ]
-  %33 = getelementptr inbounds ptr, ptr %9, i64 %indvars.iv16
+  %33 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv16
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds ptr, ptr %10, i64 %indvars.iv16
+  %35 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv16
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %34, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %34, i64 24
   %38 = load i32, ptr %37, align 8
   %39 = icmp eq i32 %38, 0
   br i1 %39, label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase9MergeFromINS0_16RepeatedPtrFieldIN17opencv_tensorflow16FunctionDef_NodeEE11TypeHandlerEEEvRKS2_.exit, label %40
 
 40:                                               ; preds = %.lr.ph
-  %41 = getelementptr inbounds i8, ptr %34, i64 16
-  %42 = getelementptr inbounds i8, ptr %36, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %34, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %36, i64 16
   tail call void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase17MergeFromInternalERKS2_MS2_FvPPvS6_iiE(ptr noundef nonnull align 8 dereferenceable(24) %42, ptr noundef nonnull align 8 dereferenceable(24) %41, i64 ptrtoint (ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase18MergeFromInnerLoopINS0_16RepeatedPtrFieldIN17opencv_tensorflow16FunctionDef_NodeEE11TypeHandlerEEEvPPvSA_ii to i64), i64 0) #29
   br label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase9MergeFromINS0_16RepeatedPtrFieldIN17opencv_tensorflow16FunctionDef_NodeEE11TypeHandlerEEEvRKS2_.exit
 
 _ZN6google8protobuf8internal20RepeatedPtrFieldBase9MergeFromINS0_16RepeatedPtrFieldIN17opencv_tensorflow16FunctionDef_NodeEE11TypeHandlerEEEvRKS2_.exit: ; preds = %.lr.ph, %40
   %.not.i6 = icmp ne ptr %34, @_ZN17opencv_tensorflow30_FunctionDef_default_instance_E
-  %43 = getelementptr inbounds i8, ptr %34, i64 40
+  %43 = getelementptr inbounds nuw i8, ptr %34, i64 40
   %44 = load ptr, ptr %43, align 8
   %45 = icmp ne ptr %44, null
   %46 = select i1 %.not.i6, i1 %45, i1 false
   br i1 %46, label %47, label %63
 
 47:                                               ; preds = %_ZN6google8protobuf8internal20RepeatedPtrFieldBase9MergeFromINS0_16RepeatedPtrFieldIN17opencv_tensorflow16FunctionDef_NodeEE11TypeHandlerEEEvRKS2_.exit
-  %48 = getelementptr inbounds i8, ptr %36, i64 40
+  %48 = getelementptr inbounds nuw i8, ptr %36, i64 40
   %49 = load ptr, ptr %48, align 8
   %50 = icmp eq ptr %49, null
   br i1 %50, label %51, label %_ZN17opencv_tensorflow11FunctionDef27_internal_mutable_signatureEv.exit
 
 51:                                               ; preds = %47
-  %52 = getelementptr inbounds i8, ptr %36, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %53 = load i64, ptr %52, align 8
   %54 = and i64 %53, 1
   %.not.i.i = icmp eq i64 %54, 0
@@ -8563,8 +8563,8 @@ _ZN17opencv_tensorflow11FunctionDef27_internal_mutable_signatureEv.exit: ; preds
   br label %63
 
 63:                                               ; preds = %_ZN17opencv_tensorflow11FunctionDef27_internal_mutable_signatureEv.exit, %_ZN6google8protobuf8internal20RepeatedPtrFieldBase9MergeFromINS0_16RepeatedPtrFieldIN17opencv_tensorflow16FunctionDef_NodeEE11TypeHandlerEEEvRKS2_.exit
-  %64 = getelementptr inbounds i8, ptr %36, i64 8
-  %65 = getelementptr inbounds i8, ptr %34, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %36, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %66 = load i64, ptr %65, align 8
   %67 = and i64 %66, 1
   %.not.i = icmp eq i64 %67, 0
@@ -8573,7 +8573,7 @@ _ZN17opencv_tensorflow11FunctionDef27_internal_mutable_signatureEv.exit: ; preds
 68:                                               ; preds = %63
   %69 = and i64 %66, -4
   %70 = inttoptr i64 %69 to ptr
-  %71 = getelementptr inbounds i8, ptr %70, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %72 = load i64, ptr %64, align 8
   %73 = and i64 %72, 1
   %.not.i3 = icmp eq i64 %73, 0
@@ -8595,7 +8595,7 @@ _ZN17opencv_tensorflow11FunctionDef27_internal_mutable_signatureEv.exit: ; preds
   %82 = extractvalue { ptr, ptr } %81, 0
   %83 = extractvalue { ptr, ptr } %81, 1
   store ptr %82, ptr %83, align 8
-  %84 = getelementptr inbounds i8, ptr %83, i64 8
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 8
   store ptr @_ZN6google8protobuf8internal21arena_destruct_objectINS1_16InternalMetadata9ContainerINS0_15UnknownFieldSetEEEEEvPv, ptr %84, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %82, i8 0, i64 32, i1 false)
   %.pre.i.i = load i64, ptr %64, align 8
@@ -8614,7 +8614,7 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
 
 _ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSetEEEvRKT_.exit: ; preds = %68, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i
   %.pn.i = phi ptr [ %.041.i.i, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_15UnknownFieldSetEEEPT_v.exit.i ], [ %75, %68 ]
-  %.0.i4 = getelementptr inbounds i8, ptr %.pn.i, i64 8
+  %.0.i4 = getelementptr inbounds nuw i8, ptr %.pn.i, i64 8
   tail call void @_ZN6google8protobuf15UnknownFieldSet9MergeFromERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %.0.i4, ptr noundef nonnull align 8 dereferenceable(24) %71)
   br label %_ZN17opencv_tensorflow11FunctionDef9MergeFromERKS0_.exit
 
@@ -8642,16 +8642,16 @@ _ZN6google8protobuf8internal20RepeatedPtrFieldBase17MergeFromInternalERKS2_MS2_F
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase17MergeFromInternalERKS2_MS2_FvPPvS6_iiE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 %2, i64 %3) local_unnamed_addr #3 comdat align 2 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i32, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = tail call noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase14InternalExtendEi(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %6)
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load i32, ptr %14, align 8
   %16 = sub nsw i32 %13, %15
   %17 = getelementptr inbounds i8, ptr %0, i64 %3
@@ -8693,20 +8693,20 @@ declare noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase14Interna
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase9MergeFromINS0_16RepeatedPtrFieldIN17opencv_tensorflow11GradientDefEE11TypeHandlerEEEvRKS2_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase17MergeFromInternalERKS2_MS2_FvPPvS6_iiE.exit, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = tail call noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase14InternalExtendEi(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %4)
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load i32, ptr %14, align 8
   %16 = sub nsw i32 %13, %15
   %17 = icmp slt i32 %16, %4
@@ -8722,14 +8722,14 @@ define linkonce_odr hidden void @_ZN6google8protobuf8internal20RepeatedPtrFieldB
 _ZN6google8protobuf8internal18GenericTypeHandlerIN17opencv_tensorflow11GradientDefEE16NewFromPrototypeEPKS4_PNS0_5ArenaE.exit.us: ; preds = %18, %_ZN6google8protobuf8internal18GenericTypeHandlerIN17opencv_tensorflow11GradientDefEE16NewFromPrototypeEPKS4_PNS0_5ArenaE.exit.us
   %indvars.iv7 = phi i64 [ %indvars.iv.next8, %_ZN6google8protobuf8internal18GenericTypeHandlerIN17opencv_tensorflow11GradientDefEE16NewFromPrototypeEPKS4_PNS0_5ArenaE.exit.us ], [ %22, %18 ]
   %23 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #27
-  %24 = getelementptr inbounds i8, ptr %23, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store i64 0, ptr %24, align 8
   store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN17opencv_tensorflow11GradientDefE, i64 16), ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %23, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %23, i64 32
   store i32 0, ptr %25, align 4
-  %26 = getelementptr inbounds i8, ptr %23, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 16
   store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %23, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %23, i64 24
   store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %27, align 8
   %28 = getelementptr inbounds ptr, ptr %10, i64 %indvars.iv7
   store ptr %23, ptr %28, align 8
@@ -8741,14 +8741,14 @@ _ZN6google8protobuf8internal18GenericTypeHandlerIN17opencv_tensorflow11GradientD
 _ZN6google8protobuf8internal18GenericTypeHandlerIN17opencv_tensorflow11GradientDefEE16NewFromPrototypeEPKS4_PNS0_5ArenaE.exit: ; preds = %18, %_ZN6google8protobuf8internal18GenericTypeHandlerIN17opencv_tensorflow11GradientDefEE16NewFromPrototypeEPKS4_PNS0_5ArenaE.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN6google8protobuf8internal18GenericTypeHandlerIN17opencv_tensorflow11GradientDefEE16NewFromPrototypeEPKS4_PNS0_5ArenaE.exit ], [ %22, %18 ]
   %29 = tail call noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %19, i64 noundef 40, ptr noundef nonnull @_ZTIN17opencv_tensorflow11GradientDefE)
-  %30 = getelementptr inbounds i8, ptr %29, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store i64 %21, ptr %30, align 8
   store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN17opencv_tensorflow11GradientDefE, i64 16), ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %29, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %29, i64 32
   store i32 0, ptr %31, align 4
-  %32 = getelementptr inbounds i8, ptr %29, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 16
   store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %29, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %29, i64 24
   store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %33, align 8
   %34 = getelementptr inbounds ptr, ptr %10, i64 %indvars.iv
   store ptr %29, ptr %34, align 8
@@ -8767,9 +8767,9 @@ _ZN6google8protobuf8internal18GenericTypeHandlerIN17opencv_tensorflow11GradientD
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv12 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next13, %.lr.ph ]
-  %36 = getelementptr inbounds ptr, ptr %9, i64 %indvars.iv12
+  %36 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv12
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds ptr, ptr %10, i64 %indvars.iv12
+  %38 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv12
   %39 = load ptr, ptr %38, align 8
   tail call void @_ZN17opencv_tensorflow11GradientDef9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %39, ptr noundef nonnull align 8 dereferenceable(40) %37)
   %indvars.iv.next13 = add nuw nsw i64 %indvars.iv12, 1
@@ -8810,15 +8810,15 @@ define linkonce_odr hidden void @_ZN6google8protobuf8internal12MapFieldLiteIN17o
   %3 = alloca %"struct.std::pair.49", align 8
   %4 = alloca %"class.google::protobuf::Map<std::__cxx11::basic_string<char>, opencv_tensorflow::AttrValue>::const_iterator", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !130)
-  %5 = getelementptr inbounds i8, ptr %1, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load i64, ptr %5, align 8, !noalias !133
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i64, ptr %7, align 8, !noalias !133
   %9 = icmp ult i64 %6, %8
   br i1 %9, label %.lr.ph.i.i.i.i, label %._crit_edge
 
 .lr.ph.i.i.i.i:                                   ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %1, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %11 = load ptr, ptr %10, align 8, !noalias !133
   %12 = getelementptr inbounds ptr, ptr %11, i64 %6
   %13 = load ptr, ptr %12, align 8, !noalias !133
@@ -8847,9 +8847,9 @@ _ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17
 
 _ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE5beginEv.exit.thread11: ; preds = %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i.i.i
   store ptr %.lcssa.i.i, ptr %4, align 8, !alias.scope !130
-  %.sroa.3.0..sroa_idx.i14 = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.3.0..sroa_idx.i14 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %1, ptr %.sroa.3.0..sroa_idx.i14, align 8, !alias.scope !130
-  %.sroa.4.0..sroa_idx.i15 = getelementptr inbounds i8, ptr %4, i64 16
+  %.sroa.4.0..sroa_idx.i15 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 %.lcssa5.i.i, ptr %.sroa.4.0..sroa_idx.i15, align 8, !alias.scope !130
   br label %.lr.ph.preheader
 
@@ -8859,14 +8859,14 @@ _ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17
   br i1 %exitcond.not.i.i, label %._crit_edge, label %15, !llvm.loop !39
 
 _ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE5beginEv.exit: ; preds = %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i.i.i
-  %22 = getelementptr inbounds i8, ptr %.lcssa.i.i, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %.lcssa.i.i, i64 32
   %23 = load ptr, ptr %22, align 8, !noalias !133
-  %24 = getelementptr inbounds i8, ptr %23, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 40
   %25 = load ptr, ptr %24, align 8, !noalias !133
   store ptr %25, ptr %4, align 8, !alias.scope !130
-  %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %1, ptr %.sroa.3.0..sroa_idx.i, align 8, !alias.scope !130
-  %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 16
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 %.lcssa5.i.i, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !130
   %.not4 = icmp eq ptr %25, null
   br i1 %.not4, label %._crit_edge, label %.lr.ph.preheader
@@ -8877,12 +8877,12 @@ _ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %26 = phi ptr [ %.pr, %.lr.ph ], [ %.ph, %.lr.ph.preheader ]
-  %27 = getelementptr inbounds i8, ptr %26, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 32
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap6insertIRKS7_EESt4pairINSB_13iterator_baseINS0_7MapPairIS7_S9_EEEEbEOT_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.49") align 8 %3, ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %26)
   %28 = load ptr, ptr %3, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  %29 = getelementptr inbounds i8, ptr %28, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 32
   call void @_ZN17opencv_tensorflow9AttrValue8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef nonnull align 8 dereferenceable(32) %27)
   %30 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap13iterator_baseIKNS0_7MapPairIS7_S9_EEEppEv(ptr noundef nonnull align 8 dereferenceable(24) %4)
   %.pr = load ptr, ptr %4, align 8
@@ -8904,21 +8904,21 @@ define linkonce_odr hidden void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stri
   br i1 %.not, label %13, label %8
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %12 = load i64, ptr %11, align 8
   store ptr %7, ptr %0, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %10, ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %12, ptr %.sroa.3.0..sroa_idx, align 8
   br label %53
 
 13:                                               ; preds = %3
   %14 = load i64, ptr %1, align 8
   %15 = add i64 %14, 1
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load i64, ptr %16, align 8
   %18 = mul i64 %17, 12
   %19 = lshr i64 %18, 4
@@ -8964,16 +8964,16 @@ define linkonce_odr hidden void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stri
   call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap6ResizeEm(ptr noundef nonnull align 8 dereferenceable(48) %1, i64 noundef %.sroa.speculated.sink.i)
   call void @_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap10FindHelperIS7_EESt4pairINSB_13iterator_baseIKNS0_7MapPairIS7_S9_EEEEmERKT_PSt17_Rb_tree_iteratorISD_IKSt17reference_wrapperIKS7_EPvEE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.53") align 8 %5, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef null)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 24, i1 false)
-  %37 = getelementptr inbounds i8, ptr %5, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %38 = load i64, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %4, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 %38, ptr %39, align 8
   br label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap24ResizeIfLoadIsOutOfRangeEm.exit.thread
 
 _ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap24ResizeIfLoadIsOutOfRangeEm.exit.thread: ; preds = %20, %23, %34, %36
-  %40 = getelementptr inbounds i8, ptr %4, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %41 = load i64, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %1, i64 40
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %43 = load ptr, ptr %42, align 8
   %44 = icmp eq ptr %43, null
   br i1 %44, label %45, label %.critedge27.i.i
@@ -8998,7 +8998,7 @@ _ZN6google8protobuf5Arena26RegisterDestructorInternalINSt7__cxx1112basic_stringI
   br label %_ZN6google8protobuf5Arena20CreateInArenaStorageINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKS8_EEEvPT_PS1_DpOT0_.exit
 
 _ZN6google8protobuf5Arena20CreateInArenaStorageINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKS8_EEEvPT_PS1_DpOT0_.exit: ; preds = %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap5AllocINSB_4NodeEEEPT_m.exit, %_ZN6google8protobuf5Arena26RegisterDestructorInternalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPT_PS1_St17integral_constantIbLb0EE.exit.i
-  %49 = getelementptr inbounds i8, ptr %.023.i.i, i64 32
+  %49 = getelementptr inbounds nuw i8, ptr %.023.i.i, i64 32
   %50 = load ptr, ptr %42, align 8
   call void @_ZN17opencv_tensorflow9AttrValueC1EPN6google8protobuf5ArenaEb(ptr noundef nonnull align 8 dereferenceable(32) %49, ptr noundef %50, i1 noundef zeroext false)
   call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap12InsertUniqueEmPNSB_4NodeE(ptr dead_on_unwind nonnull writable sret(%"class.google::protobuf::Map<std::__cxx11::basic_string<char>, opencv_tensorflow::AttrValue>::InnerMap::iterator_base.51") align 8 %6, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 noundef %41, ptr noundef nonnull %.023.i.i)
@@ -9010,7 +9010,7 @@ _ZN6google8protobuf5Arena20CreateInArenaStorageINSt7__cxx1112basic_stringIcSt11c
 
 53:                                               ; preds = %_ZN6google8protobuf5Arena20CreateInArenaStorageINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKS8_EEEvPT_PS1_DpOT0_.exit, %8
   %.sink = phi i8 [ 1, %_ZN6google8protobuf5Arena20CreateInArenaStorageINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKS8_EEEvPT_PS1_DpOT0_.exit ], [ 0, %8 ]
-  %54 = getelementptr inbounds i8, ptr %0, i64 24
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i8 %.sink, ptr %54, align 8
   ret void
 }
@@ -9019,7 +9019,7 @@ _ZN6google8protobuf5Arena20CreateInArenaStorageINSt7__cxx1112basic_stringIcSt11c
 define linkonce_odr hidden void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap12InsertUniqueEmPNSB_4NodeE(ptr dead_on_unwind noalias writable sret(%"class.google::protobuf::Map<std::__cxx11::basic_string<char>, opencv_tensorflow::AttrValue>::InnerMap::iterator_base.51") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.std::pair.24", align 8
   %6 = alloca %"struct.std::pair.24", align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds ptr, ptr %8, i64 %2
   %10 = load ptr, ptr %9, align 8
@@ -9027,7 +9027,7 @@ define linkonce_odr hidden void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stri
   br i1 %11, label %12, label %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap24TableEntryIsNonEmptyListEm.exit
 
 12:                                               ; preds = %4
-  %13 = getelementptr inbounds i8, ptr %3, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store ptr null, ptr %13, align 8, !noalias !138
   %14 = load ptr, ptr %7, align 8, !noalias !138
   %15 = getelementptr inbounds ptr, ptr %14, i64 %2
@@ -9045,7 +9045,7 @@ _ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17
   %.05.i = phi i64 [ %19, %.preheader ], [ 0, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap24TableEntryIsNonEmptyListEm.exit ]
   %.0.i = phi ptr [ %21, %.preheader ], [ %10, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap24TableEntryIsNonEmptyListEm.exit ]
   %19 = add i64 %.05.i, 1
-  %20 = getelementptr inbounds i8, ptr %.0.i, i64 64
+  %20 = getelementptr inbounds nuw i8, ptr %.0.i, i64 64
   %21 = load ptr, ptr %20, align 8
   %.not.i = icmp eq ptr %21, null
   br i1 %.not.i, label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap19TableEntryIsTooLongEm.exit, label %.preheader, !llvm.loop !141
@@ -9057,56 +9057,56 @@ _ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17o
 23:                                               ; preds = %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap19TableEntryIsTooLongEm.exit
   tail call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap11TreeConvertEm(ptr noundef nonnull align 8 dereferenceable(48) %1, i64 noundef %2)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  %24 = getelementptr inbounds i8, ptr %3, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store ptr null, ptr %24, align 8, !noalias !142
   %25 = load ptr, ptr %7, align 8, !noalias !142
   %26 = getelementptr inbounds ptr, ptr %25, i64 %2
   %27 = load ptr, ptr %26, align 8, !noalias !142
   store ptr %3, ptr %6, align 8, !noalias !142
-  %28 = getelementptr inbounds i8, ptr %6, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %3, ptr %28, align 8, !noalias !142
   %29 = call { ptr, i8 } @_ZNSt8_Rb_treeISt17reference_wrapperIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt4pairIKS8_PvESt10_Select1stISC_ESt4lessIS6_EN6google8protobuf8internal12MapAllocatorISC_EEE16_M_insert_uniqueISC_EES9_ISt17_Rb_tree_iteratorISC_EbEOT_(ptr noundef nonnull align 8 dereferenceable(56) %27, ptr noundef nonnull align 8 dereferenceable(16) %6), !noalias !142
   %30 = extractvalue { ptr, i8 } %29, 0
   %31 = and i64 %2, -2
-  %32 = getelementptr inbounds i8, ptr %30, i64 40
+  %32 = getelementptr inbounds nuw i8, ptr %30, i64 40
   %33 = load ptr, ptr %32, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   br label %53
 
 34:                                               ; preds = %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap19TableEntryIsTooLongEm.exit
   tail call void @llvm.experimental.noalias.scope.decl(metadata !145)
-  %35 = getelementptr inbounds i8, ptr %3, i64 64
+  %35 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store ptr %10, ptr %35, align 8, !noalias !145
   %36 = load ptr, ptr %7, align 8, !noalias !145
   %37 = getelementptr inbounds ptr, ptr %36, i64 %2
   store ptr %3, ptr %37, align 8, !noalias !145
   store ptr %3, ptr %0, align 8, !alias.scope !145
-  %38 = getelementptr inbounds i8, ptr %0, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %38, align 8, !alias.scope !145
-  %39 = getelementptr inbounds i8, ptr %0, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %2, ptr %39, align 8, !alias.scope !145
   br label %56
 
 40:                                               ; preds = %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap24TableEntryIsNonEmptyListEm.exit
   tail call void @llvm.experimental.noalias.scope.decl(metadata !148)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  %41 = getelementptr inbounds i8, ptr %3, i64 64
+  %41 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store ptr null, ptr %41, align 8, !noalias !148
   %42 = load ptr, ptr %7, align 8, !noalias !148
   %43 = getelementptr inbounds ptr, ptr %42, i64 %2
   %44 = load ptr, ptr %43, align 8, !noalias !148
   store ptr %3, ptr %5, align 8, !noalias !148
-  %45 = getelementptr inbounds i8, ptr %5, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %3, ptr %45, align 8, !noalias !148
   %46 = call { ptr, i8 } @_ZNSt8_Rb_treeISt17reference_wrapperIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt4pairIKS8_PvESt10_Select1stISC_ESt4lessIS6_EN6google8protobuf8internal12MapAllocatorISC_EEE16_M_insert_uniqueISC_EES9_ISt17_Rb_tree_iteratorISC_EbEOT_(ptr noundef nonnull align 8 dereferenceable(56) %44, ptr noundef nonnull align 8 dereferenceable(16) %5), !noalias !148
   %47 = extractvalue { ptr, i8 } %46, 0
   %48 = and i64 %2, -2
-  %49 = getelementptr inbounds i8, ptr %47, i64 40
+  %49 = getelementptr inbounds nuw i8, ptr %47, i64 40
   %50 = load ptr, ptr %49, align 8
   store ptr %50, ptr %0, align 8, !alias.scope !148
-  %51 = getelementptr inbounds i8, ptr %0, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %51, align 8, !alias.scope !148
-  %52 = getelementptr inbounds i8, ptr %0, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %48, ptr %52, align 8, !alias.scope !148
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   br label %56
@@ -9114,14 +9114,14 @@ _ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17o
 53:                                               ; preds = %23, %12
   %.sroa.6.0 = phi i64 [ %2, %12 ], [ %31, %23 ]
   %.sroa.015.0 = phi ptr [ %3, %12 ], [ %33, %23 ]
-  %54 = getelementptr inbounds i8, ptr %1, i64 24
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %55 = load i64, ptr %54, align 8
   %.sroa.speculated = call i64 @llvm.umin.i64(i64 %.sroa.6.0, i64 %55)
   store i64 %.sroa.speculated, ptr %54, align 8
   store ptr %.sroa.015.0, ptr %0, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.sroa.6.0, ptr %.sroa.6.0..sroa_idx, align 8
   br label %56
 
@@ -9144,25 +9144,25 @@ define linkonce_odr hidden void @_ZNK6google8protobuf3MapINSt7__cxx1112basic_str
   unreachable
 
 _ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap12BucketNumberIS7_EEmRKT_.exit: ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load i64, ptr %11, align 8
   %13 = xor i64 %12, %7
   %14 = mul i64 %13, -7046029254386353131
   %15 = lshr i64 %14, 32
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load i64, ptr %16, align 8
   %18 = add i64 %17, -1
   %19 = and i64 %15, %18
-  %20 = getelementptr inbounds i8, ptr %1, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds ptr, ptr %21, i64 %19
+  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %19
   %23 = load ptr, ptr %22, align 8
   %.not.i.i = icmp eq ptr %23, null
   br i1 %.not.i.i, label %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap16TableEntryIsTreeEm.exit.thread, label %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap24TableEntryIsNonEmptyListEm.exit
 
 _ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap24TableEntryIsNonEmptyListEm.exit: ; preds = %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap12BucketNumberIS7_EEmRKT_.exit
   %24 = xor i64 %19, 1
-  %25 = getelementptr inbounds ptr, ptr %21, i64 %24
+  %25 = getelementptr inbounds nuw ptr, ptr %21, i64 %24
   %26 = load ptr, ptr %25, align 8
   %.not34 = icmp eq ptr %23, %26
   br i1 %.not34, label %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap16TableEntryIsTreeEm.exit, label %.preheader
@@ -9188,32 +9188,32 @@ _ZN6google8protobuf8internal18TransparentSupportINSt7__cxx1112basic_stringIcSt11
 
 _ZN6google8protobuf8internal18TransparentSupportINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6EqualsERKS8_SB_.exit.thread: ; preds = %30, %_ZN6google8protobuf8internal18TransparentSupportINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6EqualsERKS8_SB_.exit
   store ptr %.0, ptr %0, align 8
-  %.sroa.222.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.222.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %.sroa.222.0..sroa_idx, align 8
-  %.sroa.323.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.323.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %19, ptr %.sroa.323.0..sroa_idx, align 8
   br label %66
 
 _ZN6google8protobuf8internal18TransparentSupportINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6EqualsERKS8_SB_.exit.thread32: ; preds = %.preheader, %_ZN6google8protobuf8internal18TransparentSupportINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6EqualsERKS8_SB_.exit
-  %36 = getelementptr inbounds i8, ptr %.0, i64 64
+  %36 = getelementptr inbounds nuw i8, ptr %.0, i64 64
   %37 = load ptr, ptr %36, align 8
   %.not14 = icmp eq ptr %37, null
   br i1 %.not14, label %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap16TableEntryIsTreeEm.exit.thread, label %.preheader, !llvm.loop !151
 
 _ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap16TableEntryIsTreeEm.exit: ; preds = %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap24TableEntryIsNonEmptyListEm.exit
   %38 = and i64 %19, 4294967294
-  %39 = getelementptr inbounds ptr, ptr %21, i64 %38
+  %39 = getelementptr inbounds nuw ptr, ptr %21, i64 %38
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 24
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %40, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %.not11.i.i.i = icmp eq ptr %42, null
   br i1 %.not11.i.i.i, label %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap16TableEntryIsTreeEm.exit.thread, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap16TableEntryIsTreeEm.exit, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i
   %.013.i.i.i = phi ptr [ %.1.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i ], [ %42, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap16TableEntryIsTreeEm.exit ]
   %.0812.i.i.i = phi ptr [ %.19.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i ], [ %43, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap16TableEntryIsTreeEm.exit ]
-  %44 = getelementptr inbounds i8, ptr %.013.i.i.i, i64 32
+  %44 = getelementptr inbounds nuw i8, ptr %.013.i.i.i, i64 32
   %45 = load ptr, ptr %44, align 8
   %46 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %45, ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i unwind label %47
@@ -9229,7 +9229,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   %50 = icmp slt i32 %46, 0
   %.19.i.i.i = select i1 %50, ptr %.0812.i.i.i, ptr %.013.i.i.i
   %.1.in.v.i.i.i = select i1 %50, i64 24, i64 16
-  %.1.in.i.i.i = getelementptr inbounds i8, ptr %.013.i.i.i, i64 %.1.in.v.i.i.i
+  %.1.in.i.i.i = getelementptr inbounds nuw i8, ptr %.013.i.i.i, i64 %.1.in.v.i.i.i
   %.1.i.i.i = load ptr, ptr %.1.in.i.i.i, align 8
   %.not.i.i.i = icmp eq ptr %.1.i.i.i, null
   br i1 %.not.i.i.i, label %_ZNSt8_Rb_treeISt17reference_wrapperIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt4pairIKS8_PvESt10_Select1stISC_ESt4lessIS6_EN6google8protobuf8internal12MapAllocatorISC_EEE14_M_lower_boundEPSt13_Rb_tree_nodeISC_EPSt18_Rb_tree_node_baseRSA_.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !152
@@ -9239,7 +9239,7 @@ _ZNSt8_Rb_treeISt17reference_wrapperIKNSt7__cxx1112basic_stringIcSt11char_traits
   br i1 %51, label %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap16TableEntryIsTreeEm.exit.thread, label %52
 
 52:                                               ; preds = %_ZNSt8_Rb_treeISt17reference_wrapperIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt4pairIKS8_PvESt10_Select1stISC_ESt4lessIS6_EN6google8protobuf8internal12MapAllocatorISC_EEE14_M_lower_boundEPSt13_Rb_tree_nodeISC_EPSt18_Rb_tree_node_baseRSA_.exit.i.i
-  %53 = getelementptr inbounds i8, ptr %.19.i.i.i, i64 32
+  %53 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 32
   %54 = load ptr, ptr %53, align 8
   %55 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %54)
           to label %_ZNSt3mapISt17reference_wrapperIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEPvSt4lessIS6_EN6google8protobuf8internal12MapAllocatorISt4pairIKS8_S9_EEEE4findERSH_.exit unwind label %56
@@ -9265,12 +9265,12 @@ _ZNSt3mapISt17reference_wrapperIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   br label %63
 
 63:                                               ; preds = %61, %60
-  %64 = getelementptr inbounds i8, ptr %.19.i.i.i, i64 40
+  %64 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 40
   %65 = load ptr, ptr %64, align 8
   store ptr %65, ptr %0, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %38, ptr %.sroa.3.0..sroa_idx, align 8
   br label %66
 
@@ -9281,7 +9281,7 @@ _ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17
 
 66:                                               ; preds = %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap16TableEntryIsTreeEm.exit.thread, %63, %_ZN6google8protobuf8internal18TransparentSupportINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6EqualsERKS8_SB_.exit.thread
   %.031.sink = phi i64 [ %.031, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap16TableEntryIsTreeEm.exit.thread ], [ %38, %63 ], [ %19, %_ZN6google8protobuf8internal18TransparentSupportINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6EqualsERKS8_SB_.exit.thread ]
-  %67 = getelementptr inbounds i8, ptr %0, i64 24
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %.031.sink, ptr %67, align 8
   ret void
 }
@@ -9294,14 +9294,14 @@ declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7comp
 define linkonce_odr hidden void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap6ResizeEm(ptr noundef nonnull align 8 dereferenceable(48) %0, i64 noundef %1) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.std::pair.24", align 8
   %4 = alloca %"struct.std::pair.24", align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = icmp eq i64 %6, 1
-  %8 = getelementptr inbounds i8, ptr %0, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br i1 %7, label %9, label %29
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 8, ptr %10, align 8
   store i64 8, ptr %5, align 8
   %11 = load i64, ptr %8, align 8
@@ -9320,7 +9320,7 @@ define linkonce_odr hidden void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stri
 _ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap16CreateEmptyTableEm.exit: ; preds = %13, %.critedge27.i.i.i
   %.023.i.i.i = phi ptr [ %14, %13 ], [ %16, %.critedge27.i.i.i ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.023.i.i.i, i8 0, i64 64, i1 false)
-  %17 = getelementptr inbounds i8, ptr %0, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %.023.i.i.i, ptr %17, align 8
   %18 = ptrtoint ptr %0 to i64
   %19 = lshr i64 %18, 4
@@ -9332,12 +9332,12 @@ _ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17o
   %25 = zext i32 %21 to i64
   %26 = add nuw nsw i64 %19, %25
   %27 = add i64 %26, %24
-  %28 = getelementptr inbounds i8, ptr %0, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %27, ptr %28, align 8
   br label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap7DeallocIPvEEvPT_m.exit
 
 29:                                               ; preds = %2
-  %30 = getelementptr inbounds i8, ptr %0, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %31 = load ptr, ptr %30, align 8
   store i64 %1, ptr %5, align 8
   %32 = load i64, ptr %8, align 8
@@ -9358,7 +9358,7 @@ _ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17o
   %.023.i.i.i17 = phi ptr [ %36, %35 ], [ %38, %.critedge27.i.i.i16 ]
   tail call void @llvm.memset.p0.i64(ptr align 8 %.023.i.i.i17, i8 0, i64 %34, i1 false)
   store ptr %.023.i.i.i17, ptr %30, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %40 = load i64, ptr %39, align 8
   %41 = load i64, ptr %5, align 8
   store i64 %41, ptr %39, align 8
@@ -9366,9 +9366,9 @@ _ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17o
   br i1 %42, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap16CreateEmptyTableEm.exit18
-  %43 = getelementptr inbounds i8, ptr %0, i64 16
-  %44 = getelementptr inbounds i8, ptr %4, i64 8
-  %45 = getelementptr inbounds i8, ptr %3, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %46
 
 46:                                               ; preds = %.lr.ph, %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap12TransferListEPKPvm.exit
@@ -9387,7 +9387,7 @@ _ZN6google8protobuf8internal24TableEntryIsNonEmptyListEPKPvm.exit: ; preds = %46
 
 .preheader:                                       ; preds = %_ZN6google8protobuf8internal24TableEntryIsNonEmptyListEPKPvm.exit, %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap12InsertUniqueEmPNSB_4NodeE.exit
   %.0.i = phi ptr [ %53, %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap12InsertUniqueEmPNSB_4NodeE.exit ], [ %48, %_ZN6google8protobuf8internal24TableEntryIsNonEmptyListEPKPvm.exit ]
-  %52 = getelementptr inbounds i8, ptr %.0.i, i64 64
+  %52 = getelementptr inbounds nuw i8, ptr %.0.i, i64 64
   %53 = load ptr, ptr %52, align 8
   %54 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %.0.i) #25
   %55 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %.0.i) #25
@@ -9410,7 +9410,7 @@ _ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17
   %65 = add i64 %64, -1
   %66 = and i64 %63, %65
   %67 = load ptr, ptr %30, align 8, !noalias !154
-  %68 = getelementptr inbounds ptr, ptr %67, i64 %66
+  %68 = getelementptr inbounds nuw ptr, ptr %67, i64 %66
   %69 = load ptr, ptr %68, align 8, !noalias !154
   %70 = icmp eq ptr %69, null
   br i1 %70, label %71, label %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap24TableEntryIsNonEmptyListEm.exit.i
@@ -9418,13 +9418,13 @@ _ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17
 71:                                               ; preds = %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap12BucketNumberIS7_EEmRKT_.exit.i
   store ptr null, ptr %52, align 8, !noalias !157
   %72 = load ptr, ptr %30, align 8, !noalias !157
-  %73 = getelementptr inbounds ptr, ptr %72, i64 %66
+  %73 = getelementptr inbounds nuw ptr, ptr %72, i64 %66
   store ptr %.0.i, ptr %73, align 8, !noalias !157
   br label %95
 
 _ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap24TableEntryIsNonEmptyListEm.exit.i: ; preds = %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap12BucketNumberIS7_EEmRKT_.exit.i
   %74 = xor i64 %66, 1
-  %75 = getelementptr inbounds ptr, ptr %67, i64 %74
+  %75 = getelementptr inbounds nuw ptr, ptr %67, i64 %74
   %76 = load ptr, ptr %75, align 8, !noalias !154
   %.not.i21 = icmp eq ptr %69, %76
   br i1 %.not.i21, label %90, label %.preheader.i
@@ -9433,7 +9433,7 @@ _ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17
   %.05.i.i = phi i64 [ %77, %.preheader.i ], [ 0, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap24TableEntryIsNonEmptyListEm.exit.i ]
   %.0.i.i = phi ptr [ %79, %.preheader.i ], [ %69, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap24TableEntryIsNonEmptyListEm.exit.i ]
   %77 = add i64 %.05.i.i, 1
-  %78 = getelementptr inbounds i8, ptr %.0.i.i, i64 64
+  %78 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 64
   %79 = load ptr, ptr %78, align 8, !noalias !154
   %.not.i.i = icmp eq ptr %79, null
   br i1 %.not.i.i, label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap19TableEntryIsTooLongEm.exit.i, label %.preheader.i, !llvm.loop !141
@@ -9447,7 +9447,7 @@ _ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17o
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !154
   store ptr null, ptr %52, align 8, !noalias !160
   %82 = load ptr, ptr %30, align 8, !noalias !160
-  %83 = getelementptr inbounds ptr, ptr %82, i64 %66
+  %83 = getelementptr inbounds nuw ptr, ptr %82, i64 %66
   %84 = load ptr, ptr %83, align 8, !noalias !160
   store ptr %.0.i, ptr %4, align 8, !noalias !160
   store ptr %.0.i, ptr %44, align 8, !noalias !160
@@ -9459,7 +9459,7 @@ _ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17o
 87:                                               ; preds = %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap19TableEntryIsTooLongEm.exit.i
   store ptr %69, ptr %52, align 8, !noalias !163
   %88 = load ptr, ptr %30, align 8, !noalias !163
-  %89 = getelementptr inbounds ptr, ptr %88, i64 %66
+  %89 = getelementptr inbounds nuw ptr, ptr %88, i64 %66
   store ptr %.0.i, ptr %89, align 8, !noalias !163
   br label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap12InsertUniqueEmPNSB_4NodeE.exit
 
@@ -9467,7 +9467,7 @@ _ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17o
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !154
   store ptr null, ptr %52, align 8, !noalias !166
   %91 = load ptr, ptr %30, align 8, !noalias !166
-  %92 = getelementptr inbounds ptr, ptr %91, i64 %66
+  %92 = getelementptr inbounds nuw ptr, ptr %91, i64 %66
   %93 = load ptr, ptr %92, align 8, !noalias !166
   store ptr %.0.i, ptr %3, align 8, !noalias !166
   store ptr %.0.i, ptr %45, align 8, !noalias !166
@@ -9515,16 +9515,16 @@ define linkonce_odr hidden void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stri
   %4 = alloca %"class.google::protobuf::Map<std::__cxx11::basic_string<char>, opencv_tensorflow::AttrValue>::InnerMap::iterator_base.51", align 8
   %5 = getelementptr inbounds ptr, ptr %1, i64 %2
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
-  %11 = getelementptr inbounds i8, ptr %6, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 16
   br label %12
 
 12:                                               ; preds = %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap12BucketNumberIS7_EEmRKT_.exit, %3
   %.sroa.07.0 = phi ptr [ %8, %3 ], [ %29, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap12BucketNumberIS7_EEmRKT_.exit ]
-  %13 = getelementptr inbounds i8, ptr %.sroa.07.0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %.sroa.07.0, i64 32
   %.sroa.01.0.copyload = load ptr, ptr %13, align 8
   %14 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.01.0.copyload) #25
   %15 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.01.0.copyload) #25
@@ -9546,7 +9546,7 @@ _ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17
   %24 = load i64, ptr %10, align 8
   %25 = add i64 %24, -1
   %26 = and i64 %23, %25
-  %27 = getelementptr inbounds i8, ptr %.sroa.07.0, i64 40
+  %27 = getelementptr inbounds nuw i8, ptr %.sroa.07.0, i64 40
   %28 = load ptr, ptr %27, align 8
   call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap12InsertUniqueEmPNSB_4NodeE(ptr dead_on_unwind nonnull writable sret(%"class.google::protobuf::Map<std::__cxx11::basic_string<char>, opencv_tensorflow::AttrValue>::InnerMap::iterator_base.51") align 8 %4, ptr noundef nonnull align 8 dereferenceable(48) %0, i64 noundef %26, ptr noundef %28)
   %29 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.07.0) #28
@@ -9554,7 +9554,7 @@ _ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17
   br i1 %.not, label %30, label %12, !llvm.loop !171
 
 30:                                               ; preds = %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap12BucketNumberIS7_EEmRKT_.exit
-  %31 = getelementptr inbounds i8, ptr %0, i64 40
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %32 = load ptr, ptr %31, align 8
   %33 = icmp ne ptr %32, null
   %34 = icmp eq ptr %6, null
@@ -9562,7 +9562,7 @@ _ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17
   br i1 %or.cond.i, label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap11DestroyTreeEPSt3mapISt17reference_wrapperIKS7_EPvSt4lessIS7_ENS0_8internal12MapAllocatorISt4pairIKSF_SG_EEEE.exit, label %35
 
 35:                                               ; preds = %30
-  %36 = getelementptr inbounds i8, ptr %6, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %37 = load ptr, ptr %36, align 8
   invoke void @_ZNSt8_Rb_treeISt17reference_wrapperIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt4pairIKS8_PvESt10_Select1stISC_ESt4lessIS6_EN6google8protobuf8internal12MapAllocatorISC_EEE8_M_eraseEPSt13_Rb_tree_nodeISC_E(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef %37)
           to label %_ZNSt3mapISt17reference_wrapperIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEPvSt4lessIS6_EN6google8protobuf8internal12MapAllocatorISt4pairIKS8_S9_EEEED2Ev.exit.i unwind label %38
@@ -9596,7 +9596,7 @@ declare void @_ZN17opencv_tensorflow9AttrValueC1EPN6google8protobuf5ArenaEb(ptr 
 define linkonce_odr hidden void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap11TreeConvertEm(ptr noundef nonnull align 8 dereferenceable(48) %0, i64 noundef %1) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.std::pair.24", align 8
   %4 = alloca %"struct.std::pair.24", align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %10
@@ -9611,7 +9611,7 @@ define linkonce_odr hidden void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stri
   %12 = extractvalue { ptr, ptr } %11, 0
   %13 = extractvalue { ptr, ptr } %11, 1
   store ptr %12, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr @_ZN6google8protobuf8internal21arena_destruct_objectISt3mapISt17reference_wrapperIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEPvSt4lessISA_ENS1_12MapAllocatorISt4pairIKSC_SD_EEEEEEvSD_, ptr %14, align 8
   %15 = ptrtoint ptr %6 to i64
   store i64 %15, ptr %12, align 8
@@ -9619,18 +9619,18 @@ define linkonce_odr hidden void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stri
 
 16:                                               ; preds = %8, %10
   %.sink64 = phi ptr [ %9, %8 ], [ %12, %10 ]
-  %17 = getelementptr inbounds i8, ptr %.sink64, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %.sink64, i64 16
   store i32 0, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %.sink64, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %.sink64, i64 24
   store ptr null, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %.sink64, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %.sink64, i64 32
   store ptr %17, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %.sink64, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %.sink64, i64 40
   store ptr %17, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %.sink64, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %.sink64, i64 48
   store i64 0, ptr %21, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  %22 = getelementptr inbounds i8, ptr %0, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds ptr, ptr %23, i64 %1
   %25 = load ptr, ptr %24, align 8
@@ -9638,7 +9638,7 @@ define linkonce_odr hidden void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stri
   br i1 %.not7.i, label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap14CopyListToTreeEmPSt3mapISt17reference_wrapperIKS7_EPvSt4lessIS7_ENS0_8internal12MapAllocatorISt4pairIKSF_SG_EEEE.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %16
-  %26 = getelementptr inbounds i8, ptr %4, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %27
 
 27:                                               ; preds = %27, %.lr.ph.i
@@ -9646,7 +9646,7 @@ define linkonce_odr hidden void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stri
   store ptr %storemerge8.i, ptr %4, align 8
   store ptr %storemerge8.i, ptr %26, align 8
   %28 = call { ptr, i8 } @_ZNSt8_Rb_treeISt17reference_wrapperIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt4pairIKS8_PvESt10_Select1stISC_ESt4lessIS6_EN6google8protobuf8internal12MapAllocatorISC_EEE16_M_insert_uniqueISC_EES9_ISt17_Rb_tree_iteratorISC_EbEOT_(ptr noundef nonnull align 8 dereferenceable(56) %.sink64, ptr noundef nonnull align 8 dereferenceable(16) %4)
-  %29 = getelementptr inbounds i8, ptr %storemerge8.i, i64 64
+  %29 = getelementptr inbounds nuw i8, ptr %storemerge8.i, i64 64
   %30 = load ptr, ptr %29, align 8
   store ptr null, ptr %29, align 8
   %.not.i = icmp eq ptr %30, null
@@ -9667,7 +9667,7 @@ _ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17o
   br i1 %.not7.i46, label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap14CopyListToTreeEmPSt3mapISt17reference_wrapperIKS7_EPvSt4lessIS7_ENS0_8internal12MapAllocatorISt4pairIKSF_SG_EEEE.exit52, label %.lr.ph.i47
 
 .lr.ph.i47:                                       ; preds = %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap14CopyListToTreeEmPSt3mapISt17reference_wrapperIKS7_EPvSt4lessIS7_ENS0_8internal12MapAllocatorISt4pairIKSF_SG_EEEE.exit
-  %35 = getelementptr inbounds i8, ptr %3, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %36
 
 36:                                               ; preds = %36, %.lr.ph.i47
@@ -9675,7 +9675,7 @@ _ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17o
   store ptr %storemerge8.i49, ptr %3, align 8
   store ptr %storemerge8.i49, ptr %35, align 8
   %37 = call { ptr, i8 } @_ZNSt8_Rb_treeISt17reference_wrapperIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt4pairIKS8_PvESt10_Select1stISC_ESt4lessIS6_EN6google8protobuf8internal12MapAllocatorISC_EEE16_M_insert_uniqueISC_EES9_ISt17_Rb_tree_iteratorISC_EbEOT_(ptr noundef nonnull align 8 dereferenceable(56) %.sink64, ptr noundef nonnull align 8 dereferenceable(16) %3)
-  %38 = getelementptr inbounds i8, ptr %storemerge8.i49, i64 64
+  %38 = getelementptr inbounds nuw i8, ptr %storemerge8.i49, i64 64
   %39 = load ptr, ptr %38, align 8
   store ptr null, ptr %38, align 8
   %.not.i50 = icmp eq ptr %39, null
@@ -9698,7 +9698,7 @@ _ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17o
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6google8protobuf8internal21arena_destruct_objectISt3mapISt17reference_wrapperIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEPvSt4lessISA_ENS1_12MapAllocatorISt4pairIKSC_SD_EEEEEEvSD_(ptr noundef %0) #5 comdat personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   invoke void @_ZNSt8_Rb_treeISt17reference_wrapperIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt4pairIKS8_PvESt10_Select1stISC_ESt4lessIS6_EN6google8protobuf8internal12MapAllocatorISC_EEE8_M_eraseEPSt13_Rb_tree_nodeISC_E(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %3)
           to label %_ZNSt3mapISt17reference_wrapperIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEPvSt4lessIS6_EN6google8protobuf8internal12MapAllocatorISt4pairIKS8_S9_EEEED2Ev.exit unwind label %4
@@ -9724,14 +9724,14 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt8_Rb_treeISt17reference_wrapperIKNS
 
 6:                                                ; preds = %2
   %.not.i = icmp ne ptr %4, null
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = icmp eq ptr %5, %7
   %or.cond.i = select i1 %.not.i, i1 true, i1 %8
   br i1 %or.cond.i, label %18, label %9
 
 9:                                                ; preds = %6
   %10 = load ptr, ptr %1, align 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %12 = load ptr, ptr %11, align 8
   %13 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %12)
           to label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i unwind label %14
@@ -9763,10 +9763,10 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 
 _ZNSt8_Rb_treeISt17reference_wrapperIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt4pairIKS8_PvESt10_Select1stISC_ESt4lessIS6_EN6google8protobuf8internal12MapAllocatorISC_EEE10_M_insert_ISC_NSM_11_Alloc_nodeEEESt17_Rb_tree_iteratorISC_EPSt18_Rb_tree_node_baseSS_OT_RT0_.exit: ; preds = %22, %.critedge27.i.i.i.i.i.i
   %.023.i.i.i.i.i.i = phi ptr [ %23, %22 ], [ %24, %.critedge27.i.i.i.i.i.i ]
-  %25 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %19, ptr noundef %.023.i.i.i.i.i.i, ptr noundef nonnull %5, ptr noundef nonnull align 8 dereferenceable(32) %7) #25
-  %26 = getelementptr inbounds i8, ptr %0, i64 48
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %27 = load i64, ptr %26, align 8
   %28 = add i64 %27, 1
   store i64 %28, ptr %26, align 8
@@ -9782,8 +9782,8 @@ _ZNSt8_Rb_treeISt17reference_wrapperIKNSt7__cxx1112basic_stringIcSt11char_traits
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden { ptr, ptr } @_ZNSt8_Rb_treeISt17reference_wrapperIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt4pairIKS8_PvESt10_Select1stISC_ESt4lessIS6_EN6google8protobuf8internal12MapAllocatorISC_EEE24_M_get_insert_unique_posERSA_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.02125 = load ptr, ptr %3, align 8
   %.not26 = icmp eq ptr %.02125, null
   br i1 %.not26, label %._crit_edge.thread, label %.lr.ph
@@ -9791,7 +9791,7 @@ define linkonce_odr hidden { ptr, ptr } @_ZNSt8_Rb_treeISt17reference_wrapperIKN
 .lr.ph:                                           ; preds = %2, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit
   %.02127 = phi ptr [ %.021, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit ], [ %.02125, %2 ]
   %5 = load ptr, ptr %1, align 8
-  %6 = getelementptr inbounds i8, ptr %.02127, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %.02127, i64 32
   %7 = load ptr, ptr %6, align 8
   %8 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %7)
           to label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit unwind label %9
@@ -9806,7 +9806,7 @@ define linkonce_odr hidden { ptr, ptr } @_ZNSt8_Rb_treeISt17reference_wrapperIKN
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit: ; preds = %.lr.ph
   %12 = icmp slt i32 %8, 0
   %.in.v = select i1 %12, i64 16, i64 24
-  %.in = getelementptr inbounds i8, ptr %.02127, i64 %.in.v
+  %.in = getelementptr inbounds nuw i8, ptr %.02127, i64 %.in.v
   %.021 = load ptr, ptr %.in, align 8
   %.not = icmp eq ptr %.021, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !173
@@ -9816,7 +9816,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 
 ._crit_edge.thread:                               ; preds = %2, %._crit_edge
   %.020.lcssa32 = phi ptr [ %.02127, %._crit_edge ], [ %4, %2 ]
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %.020.lcssa32, %14
   br i1 %15, label %27, label %16
@@ -9828,7 +9828,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 18:                                               ; preds = %16, %._crit_edge
   %.020.lcssa33 = phi ptr [ %.020.lcssa32, %16 ], [ %.02127, %._crit_edge ]
   %.sroa.06.0 = phi ptr [ %17, %16 ], [ %.02127, %._crit_edge ]
-  %19 = getelementptr inbounds i8, ptr %.sroa.06.0, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %.sroa.06.0, i64 32
   %20 = load ptr, ptr %19, align 8
   %21 = load ptr, ptr %1, align 8
   %22 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %21)
@@ -9870,27 +9870,27 @@ define linkonce_odr hidden noundef ptr @_ZN6google8protobuf8internal12MapEntryIm
   %4 = alloca %"struct.std::pair.49", align 8
   %5 = alloca ptr, align 8
   store ptr %1, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 92
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 92
   %7 = load i32, ptr %6, align 4
   %8 = load ptr, ptr %2, align 8
   %9 = icmp ult ptr %1, %8
   br i1 %9, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread30, label %10
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %2, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = ptrtoint ptr %1 to i64
   %14 = ptrtoint ptr %12 to i64
   %15 = sub i64 %13, %14
   %16 = trunc i64 %15 to i32
-  %17 = getelementptr inbounds i8, ptr %2, i64 28
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %18 = load i32, ptr %17, align 4
   %19 = icmp eq i32 %18, %16
   br i1 %19, label %20, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
 
 20:                                               ; preds = %10
   %21 = icmp sgt i32 %16, 0
-  %22 = getelementptr inbounds i8, ptr %2, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, null
   %or.cond.i.i = select i1 %21, i1 %24, i1 false
@@ -9911,15 +9911,15 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread30: ; preds = %3
   br i1 %31, label %32, label %.critedge.thread
 
 32:                                               ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread30
-  %33 = getelementptr inbounds i8, ptr %29, i64 1
-  %34 = getelementptr inbounds i8, ptr %0, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %29, i64 1
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %35 = load i8, ptr %33, align 1
   %36 = zext i8 %35 to i32
   %37 = icmp sgt i8 %35, -1
   br i1 %37, label %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.thread.i, label %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i
 
 _ZN6google8protobuf8internal8ReadSizeEPPKc.exit.thread.i: ; preds = %32
-  %38 = getelementptr inbounds i8, ptr %29, i64 2
+  %38 = getelementptr inbounds nuw i8, ptr %29, i64 2
   br label %42
 
 _ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i: ; preds = %32
@@ -9933,9 +9933,9 @@ _ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i: ; preds = %32
   %.0.i10.i = phi i32 [ %36, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.thread.i ], [ %41, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i ]
   %storemerge.i9.i = phi ptr [ %38, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.thread.i ], [ %40, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i ]
   %43 = sext i32 %.0.i10.i to i64
-  %44 = getelementptr inbounds i8, ptr %2, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %47 = ptrtoint ptr %46 to i64
   %48 = ptrtoint ptr %storemerge.i9.i to i64
   %49 = sub i64 %47, %48
@@ -9974,14 +9974,14 @@ _ZN6google8protobuf8internal14MapTypeHandlerILNS1_14WireFormatLite9FieldTypeE9EN
   %66 = ptrtoint ptr %64 to i64
   %67 = sub i64 %65, %66
   %68 = trunc i64 %67 to i32
-  %69 = getelementptr inbounds i8, ptr %2, i64 28
+  %69 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %70 = load i32, ptr %69, align 4
   %71 = icmp eq i32 %70, %68
   br i1 %71, label %72, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit22
 
 72:                                               ; preds = %63
   %73 = icmp sgt i32 %68, 0
-  %74 = getelementptr inbounds i8, ptr %2, i64 16
+  %74 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %75 = load ptr, ptr %74, align 8
   %76 = icmp eq ptr %75, null
   %or.cond.i.i21 = select i1 %73, i1 %76, i1 false
@@ -10002,15 +10002,15 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit22.thread38: ; preds = 
   br i1 %83, label %84, label %.critedge4.thread
 
 84:                                               ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit22.thread38
-  %85 = getelementptr inbounds i8, ptr %0, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %86 = load ptr, ptr %85, align 8
   %87 = load i64, ptr %86, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap6insertIRKS7_EESt4pairINSB_13iterator_baseINS0_7MapPairIS7_S9_EEEEbEOT_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.49") align 8 %4, ptr noundef nonnull align 8 dereferenceable(48) %86, ptr noundef nonnull align 8 dereferenceable(32) %34)
   %88 = load ptr, ptr %4, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
-  %89 = getelementptr inbounds i8, ptr %88, i64 32
-  %90 = getelementptr inbounds i8, ptr %0, i64 48
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 32
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %89, ptr %90, align 8
   %91 = load ptr, ptr %85, align 8
   %92 = load i64, ptr %91, align 8
@@ -10018,7 +10018,7 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit22.thread38: ; preds = 
   br i1 %.not14, label %.critedge4.thread, label %93
 
 93:                                               ; preds = %84
-  %94 = getelementptr inbounds i8, ptr %81, i64 1
+  %94 = getelementptr inbounds nuw i8, ptr %81, i64 1
   %95 = call noundef ptr @_ZN6google8protobuf8internal12ParseContext12ParseMessageEPNS0_11MessageLiteEPKc(ptr noundef nonnull align 8 dereferenceable(120) %2, ptr noundef nonnull %89, ptr noundef nonnull %94)
   store ptr %95, ptr %5, align 8
   %.not15 = icmp eq ptr %95, null
@@ -10041,7 +10041,7 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit22.thread38: ; preds = 
 102:                                              ; preds = %101
   %103 = call noundef ptr @_ZN6google8protobuf8internal12MapEntryImplIN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseENS0_7MessageENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_9AttrValueELNS1_14WireFormatLite9FieldTypeE9ELSE_11EE6ParserINS1_12MapFieldLiteIS4_SB_SC_LSE_9ELSE_11EEENS0_3MapISB_SC_EEE8NewEntryEv(ptr noundef nonnull align 8 dereferenceable(64) %0)
   %104 = load ptr, ptr %90, align 8
-  %105 = getelementptr inbounds i8, ptr %0, i64 56
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %106 = load ptr, ptr %105, align 8
   %107 = call noundef ptr @_ZN6google8protobuf8internal12MapEntryImplIN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseENS0_7MessageENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_9AttrValueELNS1_14WireFormatLite9FieldTypeE9ELSE_11EE13mutable_valueEv(ptr noundef nonnull align 8 dereferenceable(36) %106)
   call void @_ZN6google8protobuf8internal10MoveHelperILb0ELb1ELb1EN17opencv_tensorflow9AttrValueEE4MoveEPS4_S6_(ptr noundef %104, ptr noundef %107)
@@ -10056,20 +10056,20 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit22.thread38: ; preds = 
 
 .critedge4.thread:                                ; preds = %72, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit22.thread38, %.critedge4, %84
   %110 = load ptr, ptr %0, align 8
-  %111 = getelementptr inbounds i8, ptr %110, i64 40
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 40
   %112 = load ptr, ptr %111, align 8
   %113 = icmp eq ptr %112, null
   br i1 %113, label %114, label %117
 
 114:                                              ; preds = %.critedge4.thread
   %115 = call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
-  %116 = getelementptr inbounds i8, ptr %115, i64 8
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 8
   store i64 0, ptr %116, align 8
   br label %_ZN6google8protobuf8internal12MapEntryImplIN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseENS0_7MessageENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_9AttrValueELNS1_14WireFormatLite9FieldTypeE9ELSE_11EE6ParserINS1_12MapFieldLiteIS4_SB_SC_LSE_9ELSE_11EEENS0_3MapISB_SC_EEE8NewEntryEv.exit
 
 117:                                              ; preds = %.critedge4.thread
   %118 = call noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %112, i64 noundef 48, ptr noundef nonnull @_ZTIN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseE)
-  %119 = getelementptr inbounds i8, ptr %118, i64 8
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 8
   %120 = ptrtoint ptr %112 to i64
   store i64 %120, ptr %119, align 8
   br label %_ZN6google8protobuf8internal12MapEntryImplIN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseENS0_7MessageENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_9AttrValueELNS1_14WireFormatLite9FieldTypeE9ELSE_11EE6ParserINS1_12MapFieldLiteIS4_SB_SC_LSE_9ELSE_11EEENS0_3MapISB_SC_EEE8NewEntryEv.exit
@@ -10077,27 +10077,27 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit22.thread38: ; preds = 
 _ZN6google8protobuf8internal12MapEntryImplIN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseENS0_7MessageENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_9AttrValueELNS1_14WireFormatLite9FieldTypeE9ELSE_11EE6ParserINS1_12MapFieldLiteIS4_SB_SC_LSE_9ELSE_11EEENS0_3MapISB_SC_EEE8NewEntryEv.exit: ; preds = %114, %117
   %.sink39.i.i.i = phi ptr [ %115, %114 ], [ %118, %117 ]
   %.sink32.i.i.i = phi i64 [ 0, %114 ], [ %120, %117 ]
-  %121 = getelementptr inbounds i8, ptr %.sink39.i.i.i, i64 16
+  %121 = getelementptr inbounds nuw i8, ptr %.sink39.i.i.i, i64 16
   store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %121, align 8
-  %122 = getelementptr inbounds i8, ptr %.sink39.i.i.i, i64 24
+  %122 = getelementptr inbounds nuw i8, ptr %.sink39.i.i.i, i64 24
   store ptr null, ptr %122, align 8
-  %.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.sink39.i.i.i, i64 32
+  %.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sink39.i.i.i, i64 32
   store i32 0, ptr %.ptr.i.i.i.i.i.i, align 4
-  %123 = getelementptr inbounds i8, ptr %.sink39.i.i.i, i64 40
+  %123 = getelementptr inbounds nuw i8, ptr %.sink39.i.i.i, i64 40
   store i64 %.sink32.i.i.i, ptr %123, align 8
   store ptr getelementptr inbounds inrange(-16, 168) (i8, ptr @_ZTVN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseE, i64 16), ptr %.sink39.i.i.i, align 8
-  %124 = getelementptr inbounds i8, ptr %0, i64 56
+  %124 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %.sink39.i.i.i, ptr %124, align 8
   br label %125
 
 125:                                              ; preds = %_ZN6google8protobuf8internal12MapEntryImplIN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseENS0_7MessageENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_9AttrValueELNS1_14WireFormatLite9FieldTypeE9ELSE_11EE6ParserINS1_12MapFieldLiteIS4_SB_SC_LSE_9ELSE_11EEENS0_3MapISB_SC_EEE8NewEntryEv.exit, %102
   %126 = phi ptr [ %.sink39.i.i.i, %_ZN6google8protobuf8internal12MapEntryImplIN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseENS0_7MessageENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_9AttrValueELNS1_14WireFormatLite9FieldTypeE9ELSE_11EE6ParserINS1_12MapFieldLiteIS4_SB_SC_LSE_9ELSE_11EEENS0_3MapISB_SC_EEE8NewEntryEv.exit ], [ %.pre, %102 ]
-  %127 = getelementptr inbounds i8, ptr %0, i64 56
-  %128 = getelementptr inbounds i8, ptr %126, i64 32
+  %127 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %128 = getelementptr inbounds nuw i8, ptr %126, i64 32
   %129 = load i32, ptr %128, align 8
   %130 = or i32 %129, 1
   store i32 %130, ptr %128, align 8
-  %131 = getelementptr inbounds i8, ptr %126, i64 8
+  %131 = getelementptr inbounds nuw i8, ptr %126, i64 8
   %132 = load i64, ptr %131, align 8
   %133 = and i64 %132, 1
   %.not.i.i23 = icmp eq i64 %133, 0
@@ -10111,7 +10111,7 @@ _ZN6google8protobuf8internal12MapEntryImplIN17opencv_tensorflow35FunctionDef_Nod
 
 _ZN6google8protobuf8internal12MapEntryImplIN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseENS0_7MessageENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_9AttrValueELNS1_14WireFormatLite9FieldTypeE9ELSE_11EE11mutable_keyEv.exit: ; preds = %125, %136
   %.0.i.i24 = phi ptr [ %137, %136 ], [ %135, %125 ]
-  %138 = getelementptr inbounds i8, ptr %126, i64 16
+  %138 = getelementptr inbounds nuw i8, ptr %126, i64 16
   %139 = call noundef ptr @_ZN6google8protobuf8internal14ArenaStringPtr7MutableB5cxx11ENS2_12EmptyDefaultEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %138, ptr noundef %.0.i.i24)
   %140 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %139, ptr noundef nonnull align 8 dereferenceable(32) %34) #25
   %.pre46 = load ptr, ptr %127, align 8
@@ -10126,20 +10126,20 @@ _ZN6google8protobuf8internal12MapEntryImplIN17opencv_tensorflow35FunctionDef_Nod
 .critedge.thread:                                 ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread30, %.critedge
   %142 = phi ptr [ %29, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread30 ], [ %141, %.critedge ]
   %143 = load ptr, ptr %0, align 8
-  %144 = getelementptr inbounds i8, ptr %143, i64 40
+  %144 = getelementptr inbounds nuw i8, ptr %143, i64 40
   %145 = load ptr, ptr %144, align 8
   %146 = icmp eq ptr %145, null
   br i1 %146, label %147, label %150
 
 147:                                              ; preds = %.critedge.thread
   %148 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
-  %149 = getelementptr inbounds i8, ptr %148, i64 8
+  %149 = getelementptr inbounds nuw i8, ptr %148, i64 8
   store i64 0, ptr %149, align 8
   br label %_ZN6google8protobuf8internal12MapEntryImplIN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseENS0_7MessageENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_9AttrValueELNS1_14WireFormatLite9FieldTypeE9ELSE_11EE6ParserINS1_12MapFieldLiteIS4_SB_SC_LSE_9ELSE_11EEENS0_3MapISB_SC_EEE8NewEntryEv.exit28
 
 150:                                              ; preds = %.critedge.thread
   %151 = tail call noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %145, i64 noundef 48, ptr noundef nonnull @_ZTIN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseE)
-  %152 = getelementptr inbounds i8, ptr %151, i64 8
+  %152 = getelementptr inbounds nuw i8, ptr %151, i64 8
   %153 = ptrtoint ptr %145 to i64
   store i64 %153, ptr %152, align 8
   br label %_ZN6google8protobuf8internal12MapEntryImplIN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseENS0_7MessageENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_9AttrValueELNS1_14WireFormatLite9FieldTypeE9ELSE_11EE6ParserINS1_12MapFieldLiteIS4_SB_SC_LSE_9ELSE_11EEENS0_3MapISB_SC_EEE8NewEntryEv.exit28
@@ -10147,16 +10147,16 @@ _ZN6google8protobuf8internal12MapEntryImplIN17opencv_tensorflow35FunctionDef_Nod
 _ZN6google8protobuf8internal12MapEntryImplIN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseENS0_7MessageENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_9AttrValueELNS1_14WireFormatLite9FieldTypeE9ELSE_11EE6ParserINS1_12MapFieldLiteIS4_SB_SC_LSE_9ELSE_11EEENS0_3MapISB_SC_EEE8NewEntryEv.exit28: ; preds = %147, %150
   %.sink39.i.i.i25 = phi ptr [ %148, %147 ], [ %151, %150 ]
   %.sink32.i.i.i26 = phi i64 [ 0, %147 ], [ %153, %150 ]
-  %154 = getelementptr inbounds i8, ptr %.sink39.i.i.i25, i64 16
+  %154 = getelementptr inbounds nuw i8, ptr %.sink39.i.i.i25, i64 16
   store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %154, align 8
-  %155 = getelementptr inbounds i8, ptr %.sink39.i.i.i25, i64 24
+  %155 = getelementptr inbounds nuw i8, ptr %.sink39.i.i.i25, i64 24
   store ptr null, ptr %155, align 8
-  %.ptr.i.i.i.i.i.i27 = getelementptr inbounds i8, ptr %.sink39.i.i.i25, i64 32
+  %.ptr.i.i.i.i.i.i27 = getelementptr inbounds nuw i8, ptr %.sink39.i.i.i25, i64 32
   store i32 0, ptr %.ptr.i.i.i.i.i.i27, align 4
-  %156 = getelementptr inbounds i8, ptr %.sink39.i.i.i25, i64 40
+  %156 = getelementptr inbounds nuw i8, ptr %.sink39.i.i.i25, i64 40
   store i64 %.sink32.i.i.i26, ptr %156, align 8
   store ptr getelementptr inbounds inrange(-16, 168) (i8, ptr @_ZTVN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseE, i64 16), ptr %.sink39.i.i.i25, align 8
-  %157 = getelementptr inbounds i8, ptr %0, i64 56
+  %157 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %.sink39.i.i.i25, ptr %157, align 8
   br label %158
 
@@ -10180,13 +10180,13 @@ _ZN6google8protobuf8internal12MapEntryImplIN17opencv_tensorflow35FunctionDef_Nod
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6google8protobuf8internal12MapEntryImplIN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseENS0_7MessageENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_9AttrValueELNS1_14WireFormatLite9FieldTypeE9ELSE_11EE6ParserINS1_12MapFieldLiteIS4_SB_SC_LSE_9ELSE_11EEENS0_3MapISB_SC_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %17, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = and i64 %6, 1
   %.not.i = icmp eq i64 %7, 0
@@ -10205,13 +10205,13 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit: ; preds = %10, 
 
 13:                                               ; preds = %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit
   %14 = load ptr, ptr %3, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   tail call void %16(ptr noundef nonnull align 8 dereferenceable(36) %3) #25
   br label %17
 
 17:                                               ; preds = %13, %_ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit, %1
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #25
   ret void
 }
@@ -10227,9 +10227,9 @@ define linkonce_odr hidden noundef i64 @_ZN6google8protobuf3MapINSt7__cxx1112bas
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5), !noalias !174
   call void @_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap10FindHelperIS7_EESt4pairINSB_13iterator_baseIKNS0_7MapPairIS7_S9_EEEEmERKT_PSt17_Rb_tree_iteratorISD_IKSt17reference_wrapperIKS7_EPvEE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.53") align 8 %5, ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef null), !noalias !177
   %6 = load ptr, ptr %5, align 8, !noalias !177
-  %7 = getelementptr inbounds i8, ptr %5, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %8 = load ptr, ptr %7, align 8, !noalias !177
-  %9 = getelementptr inbounds i8, ptr %5, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %10 = load i64, ptr %9, align 8, !noalias !177
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !174
   %11 = icmp eq ptr %6, null
@@ -10239,9 +10239,9 @@ define linkonce_odr hidden noundef i64 @_ZN6google8protobuf3MapINSt7__cxx1112bas
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   store ptr %6, ptr %4, align 8
-  %.sroa.02.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.02.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %8, ptr %.sroa.02.sroa.2.0..sroa_idx, align 8
-  %.sroa.02.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
+  %.sroa.02.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 %10, ptr %.sroa.02.sroa.3.0..sroa_idx, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false), !noalias !180
   %13 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap13iterator_baseINS0_7MapPairIS7_S9_EEEppEv(ptr noundef nonnull align 8 dereferenceable(24) %4), !noalias !183
@@ -10258,20 +10258,20 @@ define linkonce_odr hidden noundef i64 @_ZN6google8protobuf3MapINSt7__cxx1112bas
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef ptr @_ZN6google8protobuf8internal12MapEntryImplIN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseENS0_7MessageENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_9AttrValueELNS1_14WireFormatLite9FieldTypeE9ELSE_11EE6ParserINS1_12MapFieldLiteIS4_SB_SC_LSE_9ELSE_11EEENS0_3MapISB_SC_EEE8NewEntryEv(ptr noundef nonnull align 8 dereferenceable(64) %0) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %9
 
 6:                                                ; preds = %1
   %7 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 0, ptr %8, align 8
   br label %_ZNK6google8protobuf8internal12MapFieldLiteIN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_9AttrValueELNS1_14WireFormatLite9FieldTypeE9ELSD_11EE8NewEntryEv.exit
 
 9:                                                ; preds = %1
   %10 = tail call noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %4, i64 noundef 48, ptr noundef nonnull @_ZTIN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseE)
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = ptrtoint ptr %4 to i64
   store i64 %12, ptr %11, align 8
   br label %_ZNK6google8protobuf8internal12MapFieldLiteIN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_9AttrValueELNS1_14WireFormatLite9FieldTypeE9ELSD_11EE8NewEntryEv.exit
@@ -10279,16 +10279,16 @@ define linkonce_odr hidden noundef ptr @_ZN6google8protobuf8internal12MapEntryIm
 _ZNK6google8protobuf8internal12MapFieldLiteIN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_9AttrValueELNS1_14WireFormatLite9FieldTypeE9ELSD_11EE8NewEntryEv.exit: ; preds = %6, %9
   %.sink39.i.i = phi ptr [ %7, %6 ], [ %10, %9 ]
   %.sink32.i.i = phi i64 [ 0, %6 ], [ %12, %9 ]
-  %13 = getelementptr inbounds i8, ptr %.sink39.i.i, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %.sink39.i.i, i64 16
   store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %.sink39.i.i, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %.sink39.i.i, i64 24
   store ptr null, ptr %14, align 8
-  %.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %.sink39.i.i, i64 32
+  %.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sink39.i.i, i64 32
   store i32 0, ptr %.ptr.i.i.i.i.i, align 4
-  %15 = getelementptr inbounds i8, ptr %.sink39.i.i, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %.sink39.i.i, i64 40
   store i64 %.sink32.i.i, ptr %15, align 8
   store ptr getelementptr inbounds inrange(-16, 168) (i8, ptr @_ZTVN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseE, i64 16), ptr %.sink39.i.i, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %.sink39.i.i, ptr %16, align 8
   ret ptr %.sink39.i.i
 }
@@ -10299,7 +10299,7 @@ define linkonce_odr hidden void @_ZN6google8protobuf8internal10MoveHelperILb0ELb
   br i1 %3, label %_ZN17opencv_tensorflow9AttrValue4SwapEPS0_.exit, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = and i64 %6, 2
   %.not.i.i = icmp eq i64 %7, 0
@@ -10322,7 +10322,7 @@ define linkonce_odr hidden void @_ZN6google8protobuf8internal10MoveHelperILb0ELb
 
 _ZNK6google8protobuf11MessageLite14GetOwningArenaEv.exit.i: ; preds = %14, %10, %4
   %16 = phi ptr [ null, %4 ], [ %13, %10 ], [ %15, %14 ]
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load i64, ptr %17, align 8
   %19 = and i64 %18, 2
   %.not.i6.i = icmp eq i64 %19, 0
@@ -10362,12 +10362,12 @@ _ZN17opencv_tensorflow9AttrValue4SwapEPS0_.exit:  ; preds = %2, %30, %31
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef ptr @_ZN6google8protobuf8internal12MapEntryImplIN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseENS0_7MessageENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_9AttrValueELNS1_14WireFormatLite9FieldTypeE9ELSE_11EE13mutable_valueEv(ptr noundef nonnull align 8 dereferenceable(36) %0) local_unnamed_addr #3 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i32, ptr %2, align 8
   %4 = or i32 %3, 2
   store i32 %4, ptr %2, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8
   %8 = and i64 %7, 1
   %.not.i = icmp eq i64 %8, 0
@@ -10398,30 +10398,30 @@ _ZN6google8protobuf8internal14MapTypeHandlerILNS1_14WireFormatLite9FieldTypeE11E
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN6google8protobuf8internal12MapEntryImplIN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseENS0_7MessageENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_9AttrValueELNS1_14WireFormatLite9FieldTypeE9ELSE_11EE6ParserINS1_12MapFieldLiteIS4_SB_SC_LSE_9ELSE_11EEENS0_3MapISB_SC_EEE23UseKeyAndValueFromEntryEv(ptr noundef nonnull align 8 dereferenceable(64) %0) local_unnamed_addr #3 comdat align 2 {
   %2 = alloca %"struct.std::pair.49", align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 56
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 152
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 152
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef nonnull align 8 dereferenceable(32) ptr %7(ptr noundef nonnull align 8 dereferenceable(36) %4)
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %8)
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
   call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap6insertIRKS7_EESt4pairINSB_13iterator_baseINS0_7MapPairIS7_S9_EEEEbEOT_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.49") align 8 %2, ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull align 8 dereferenceable(32) %9)
   %13 = load ptr, ptr %2, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
-  %14 = getelementptr inbounds i8, ptr %13, i64 32
-  %15 = getelementptr inbounds i8, ptr %0, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %14, ptr %15, align 8
   %16 = load ptr, ptr %3, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %18 = load i32, ptr %17, align 8
   %19 = or i32 %18, 2
   store i32 %19, ptr %17, align 8
-  %20 = getelementptr inbounds i8, ptr %16, i64 24
-  %21 = getelementptr inbounds i8, ptr %16, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %22 = load i64, ptr %21, align 8
   %23 = and i64 %22, 1
   %.not.i.i = icmp eq i64 %23, 0
@@ -10451,7 +10451,7 @@ _ZN6google8protobuf8internal12MapEntryImplIN17opencv_tensorflow35FunctionDef_Nod
   br i1 %34, label %_ZN6google8protobuf8internal10MoveHelperILb0ELb1ELb1EN17opencv_tensorflow9AttrValueEE4MoveEPS4_S6_.exit, label %35
 
 35:                                               ; preds = %_ZN6google8protobuf8internal12MapEntryImplIN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseENS0_7MessageENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_9AttrValueELNS1_14WireFormatLite9FieldTypeE9ELSE_11EE13mutable_valueEv.exit
-  %36 = getelementptr inbounds i8, ptr %33, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %37 = load i64, ptr %36, align 8
   %38 = and i64 %37, 2
   %.not.i.i.i = icmp eq i64 %38, 0
@@ -10474,7 +10474,7 @@ _ZN6google8protobuf8internal12MapEntryImplIN17opencv_tensorflow35FunctionDef_Nod
 
 _ZNK6google8protobuf11MessageLite14GetOwningArenaEv.exit.i.i: ; preds = %45, %41, %35
   %47 = phi ptr [ null, %35 ], [ %44, %41 ], [ %46, %45 ]
-  %48 = getelementptr inbounds i8, ptr %32, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %49 = load i64, ptr %48, align 8
   %50 = and i64 %49, 2
   %.not.i6.i.i = icmp eq i64 %50, 0
@@ -10523,15 +10523,15 @@ define linkonce_odr hidden void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stri
   %3 = alloca %"struct.std::pair.53", align 8
   %4 = alloca %"struct.std::_Rb_tree_iterator", align 8
   store ptr null, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load i64, ptr %7, align 8
   %9 = add i64 %8, -1
-  %10 = getelementptr inbounds i8, ptr %1, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %11 = load i64, ptr %10, align 8
   %12 = and i64 %11, %9
-  %13 = getelementptr inbounds i8, ptr %6, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds ptr, ptr %14, i64 %12
   %16 = load ptr, ptr %15, align 8
@@ -10552,7 +10552,7 @@ _ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17
 
 .preheader.i:                                     ; preds = %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap24TableEntryIsNonEmptyListEm.exit.i, %25
   %.0.i = phi ptr [ %24, %25 ], [ %16, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap24TableEntryIsNonEmptyListEm.exit.i ]
-  %23 = getelementptr inbounds i8, ptr %.0.i, i64 64
+  %23 = getelementptr inbounds nuw i8, ptr %.0.i, i64 64
   %24 = load ptr, ptr %23, align 8
   %.not.i = icmp eq ptr %24, null
   br i1 %.not.i, label %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap24TableEntryIsNonEmptyListEm.exit.thread.i, label %25
@@ -10564,7 +10564,7 @@ _ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17
 _ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap24TableEntryIsNonEmptyListEm.exit.thread.i: ; preds = %.preheader.i, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap24TableEntryIsNonEmptyListEm.exit.i, %19
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   call void @_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap10FindHelperIS7_EESt4pairINSB_13iterator_baseIKNS0_7MapPairIS7_S9_EEEEmERKT_PSt17_Rb_tree_iteratorISD_IKSt17reference_wrapperIKS7_EPvEE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.53") align 8 %3, ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull %4), !noalias !189
-  %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 16
+  %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.sroa.3.0.copyload.i = load i64, ptr %.sroa.3.0..sroa_idx.i, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   store i64 %.sroa.3.0.copyload.i, ptr %10, align 8
@@ -10583,7 +10583,7 @@ _ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17o
 
 _ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap13iterator_baseINS0_7MapPairIS7_S9_EEE23revalidate_if_necessaryEPSt17_Rb_tree_iteratorISt4pairIKSt17reference_wrapperIKS7_EPvEE.exit.thread: ; preds = %25, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap24TableEntryIsNonEmptyListEm.exit.thread.i, %2, %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap13iterator_baseINS0_7MapPairIS7_S9_EEE23revalidate_if_necessaryEPSt17_Rb_tree_iteratorISt4pairIKSt17reference_wrapperIKS7_EPvEE.exit
   %34 = phi i64 [ %.sroa.3.0.copyload.i, %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap13iterator_baseINS0_7MapPairIS7_S9_EEE23revalidate_if_necessaryEPSt17_Rb_tree_iteratorISt4pairIKSt17reference_wrapperIKS7_EPvEE.exit ], [ %12, %2 ], [ %.sroa.3.0.copyload.i, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap24TableEntryIsNonEmptyListEm.exit.thread.i ], [ %12, %25 ]
-  %35 = getelementptr inbounds i8, ptr %0, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds ptr, ptr %36, i64 %34
   %38 = load ptr, ptr %37, align 8
@@ -10594,12 +10594,12 @@ _ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17o
   br label %71
 
 42:                                               ; preds = %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap13iterator_baseINS0_7MapPairIS7_S9_EEE23revalidate_if_necessaryEPSt17_Rb_tree_iteratorISt4pairIKSt17reference_wrapperIKS7_EPvEE.exit
-  %43 = getelementptr inbounds i8, ptr %0, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds ptr, ptr %44, i64 %.sroa.3.0.copyload.i
   %46 = load ptr, ptr %45, align 8
   %.sroa.01.0.copyload = load ptr, ptr %4, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %48 = call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef %.sroa.01.0.copyload, ptr noundef nonnull align 8 dereferenceable(32) %47) #25
   %49 = load ptr, ptr %46, align 8
   %50 = icmp eq ptr %49, null
@@ -10610,7 +10610,7 @@ _ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17o
   br label %_ZNSt3mapISt17reference_wrapperIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEPvSt4lessIS6_EN6google8protobuf8internal12MapAllocatorISt4pairIKS8_S9_EEEE5eraseB5cxx11ESt17_Rb_tree_iteratorISI_E.exit
 
 _ZNSt3mapISt17reference_wrapperIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEPvSt4lessIS6_EN6google8protobuf8internal12MapAllocatorISt4pairIKS8_S9_EEEE5eraseB5cxx11ESt17_Rb_tree_iteratorISI_E.exit: ; preds = %42, %51
-  %52 = getelementptr inbounds i8, ptr %46, i64 48
+  %52 = getelementptr inbounds nuw i8, ptr %46, i64 48
   %53 = load i64, ptr %52, align 8
   %54 = add i64 %53, -1
   store i64 %54, ptr %52, align 8
@@ -10619,13 +10619,13 @@ _ZNSt3mapISt17reference_wrapperIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESa
 
 56:                                               ; preds = %_ZNSt3mapISt17reference_wrapperIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEPvSt4lessIS6_EN6google8protobuf8internal12MapAllocatorISt4pairIKS8_S9_EEEE5eraseB5cxx11ESt17_Rb_tree_iteratorISI_E.exit
   %57 = and i64 %.sroa.3.0.copyload.i, -2
-  %58 = getelementptr inbounds i8, ptr %0, i64 40
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %59 = load ptr, ptr %58, align 8
   %.not = icmp eq ptr %59, null
   br i1 %.not, label %60, label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap11DestroyTreeEPSt3mapISt17reference_wrapperIKS7_EPvSt4lessIS7_ENS0_8internal12MapAllocatorISt4pairIKSF_SG_EEEE.exit
 
 60:                                               ; preds = %56
-  %61 = getelementptr inbounds i8, ptr %46, i64 24
+  %61 = getelementptr inbounds nuw i8, ptr %46, i64 24
   %62 = load ptr, ptr %61, align 8
   invoke void @_ZNSt8_Rb_treeISt17reference_wrapperIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt4pairIKS8_PvESt10_Select1stISC_ESt4lessIS6_EN6google8protobuf8internal12MapAllocatorISC_EEE8_M_eraseEPSt13_Rb_tree_nodeISC_E(ptr noundef nonnull align 8 dereferenceable(56) %46, ptr noundef %62)
           to label %_ZNSt3mapISt17reference_wrapperIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEPvSt4lessIS6_EN6google8protobuf8internal12MapAllocatorISt4pairIKS8_S9_EEEED2Ev.exit.i unwind label %63
@@ -10653,7 +10653,7 @@ _ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17o
 
 71:                                               ; preds = %_ZNSt3mapISt17reference_wrapperIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEPvSt4lessIS6_EN6google8protobuf8internal12MapAllocatorISt4pairIKS8_S9_EEEE5eraseB5cxx11ESt17_Rb_tree_iteratorISI_E.exit, %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap11DestroyTreeEPSt3mapISt17reference_wrapperIKS7_EPvSt4lessIS7_ENS0_8internal12MapAllocatorISt4pairIKSF_SG_EEEE.exit, %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap13iterator_baseINS0_7MapPairIS7_S9_EEE23revalidate_if_necessaryEPSt17_Rb_tree_iteratorISt4pairIKSt17reference_wrapperIKS7_EPvEE.exit.thread
   %.0 = phi i64 [ %34, %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap13iterator_baseINS0_7MapPairIS7_S9_EEE23revalidate_if_necessaryEPSt17_Rb_tree_iteratorISt4pairIKSt17reference_wrapperIKS7_EPvEE.exit.thread ], [ %57, %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap11DestroyTreeEPSt3mapISt17reference_wrapperIKS7_EPvSt4lessIS7_ENS0_8internal12MapAllocatorISt4pairIKSF_SG_EEEE.exit ], [ %.sroa.3.0.copyload.i, %_ZNSt3mapISt17reference_wrapperIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEPvSt4lessIS6_EN6google8protobuf8internal12MapAllocatorISt4pairIKS8_S9_EEEE5eraseB5cxx11ESt17_Rb_tree_iteratorISI_E.exit ]
-  %72 = getelementptr inbounds i8, ptr %0, i64 40
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %73 = load ptr, ptr %72, align 8
   %74 = icmp ne ptr %73, null
   %75 = icmp eq ptr %17, null
@@ -10661,7 +10661,7 @@ _ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17o
   br i1 %or.cond.i17, label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap11DestroyNodeEPNSB_4NodeE.exit, label %76
 
 76:                                               ; preds = %71
-  %77 = getelementptr inbounds i8, ptr %17, i64 32
+  %77 = getelementptr inbounds nuw i8, ptr %17, i64 32
   call void @_ZN17opencv_tensorflow9AttrValueD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %77) #25
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(72) %17) #25
   call void @_ZdlPv(ptr noundef nonnull %17) #26
@@ -10671,19 +10671,19 @@ _ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17o
   %78 = load i64, ptr %0, align 8
   %79 = add i64 %78, -1
   store i64 %79, ptr %0, align 8
-  %80 = getelementptr inbounds i8, ptr %0, i64 24
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %81 = load i64, ptr %80, align 8
   %82 = icmp eq i64 %.0, %81
   br i1 %82, label %.preheader, label %.critedge
 
 .preheader:                                       ; preds = %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap11DestroyNodeEPNSB_4NodeE.exit
-  %83 = getelementptr inbounds i8, ptr %0, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %84 = load i64, ptr %83, align 8
   %85 = icmp ult i64 %.0, %84
   br i1 %85, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %.preheader
-  %86 = getelementptr inbounds i8, ptr %0, i64 32
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %87 = load ptr, ptr %86, align 8
   br label %88
 
@@ -10709,23 +10709,23 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN6
   %2 = alloca %"struct.std::pair.53", align 8
   %3 = alloca %"struct.std::_Rb_tree_iterator", align 8
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap13iterator_baseINS0_7MapPairIS7_S9_EEE10SearchFromEm.exit.sink.split
 
 8:                                                ; preds = %1
   store ptr null, ptr %3, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load i64, ptr %11, align 8
   %13 = add i64 %12, -1
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load i64, ptr %14, align 8
   %16 = and i64 %15, %13
   store i64 %16, ptr %14, align 8
-  %17 = getelementptr inbounds i8, ptr %10, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds ptr, ptr %18, i64 %16
   %20 = load ptr, ptr %19, align 8
@@ -10745,7 +10745,7 @@ _ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17
 
 .preheader.i:                                     ; preds = %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap24TableEntryIsNonEmptyListEm.exit.i, %28
   %.0.i = phi ptr [ %27, %28 ], [ %20, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap24TableEntryIsNonEmptyListEm.exit.i ]
-  %26 = getelementptr inbounds i8, ptr %.0.i, i64 64
+  %26 = getelementptr inbounds nuw i8, ptr %.0.i, i64 64
   %27 = load ptr, ptr %26, align 8
   %.not.i = icmp eq ptr %27, null
   br i1 %.not.i, label %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap24TableEntryIsNonEmptyListEm.exit.thread.i, label %28
@@ -10757,12 +10757,12 @@ _ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17
 _ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap24TableEntryIsNonEmptyListEm.exit.thread.i: ; preds = %.preheader.i, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap24TableEntryIsNonEmptyListEm.exit.i, %22
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
   call void @_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap10FindHelperIS7_EESt4pairINSB_13iterator_baseIKNS0_7MapPairIS7_S9_EEEEmERKT_PSt17_Rb_tree_iteratorISD_IKSt17reference_wrapperIKS7_EPvEE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.53") align 8 %2, ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull %3), !noalias !193
-  %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 16
+  %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.sroa.3.0.copyload.i = load i64, ptr %.sroa.3.0..sroa_idx.i, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
   store i64 %.sroa.3.0.copyload.i, ptr %14, align 8
   %30 = load ptr, ptr %9, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 32
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds ptr, ptr %32, i64 %.sroa.3.0.copyload.i
   %34 = load ptr, ptr %33, align 8
@@ -10781,14 +10781,14 @@ _ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17o
   %40 = phi i64 [ %.sroa.3.0.copyload.i, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap24TableEntryIsNonEmptyListEm.exit.thread.i ], [ %16, %8 ], [ %.sroa.3.0.copyload.i, %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap13iterator_baseINS0_7MapPairIS7_S9_EEE23revalidate_if_necessaryEPSt17_Rb_tree_iteratorISt4pairIKSt17reference_wrapperIKS7_EPvEE.exit ], [ %16, %28 ]
   %41 = add i64 %40, 1
   store ptr null, ptr %0, align 8
-  %42 = getelementptr inbounds i8, ptr %39, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %39, i64 8
   store i64 %41, ptr %14, align 8
   %43 = load i64, ptr %42, align 8
   %44 = icmp ult i64 %41, %43
   br i1 %44, label %.lr.ph.i, label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap13iterator_baseINS0_7MapPairIS7_S9_EEE10SearchFromEm.exit
 
 .lr.ph.i:                                         ; preds = %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap13iterator_baseINS0_7MapPairIS7_S9_EEE23revalidate_if_necessaryEPSt17_Rb_tree_iteratorISt4pairIKSt17reference_wrapperIKS7_EPvEE.exit.thread
-  %45 = getelementptr inbounds i8, ptr %39, i64 32
+  %45 = getelementptr inbounds nuw i8, ptr %39, i64 32
   br label %46
 
 46:                                               ; preds = %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap16TableEntryIsTreeEm.exit.thread.i, %.lr.ph.i
@@ -10817,14 +10817,14 @@ _ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17
   %57 = load ptr, ptr %3, align 8
   %58 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %57) #28
   store ptr %58, ptr %3, align 8
-  %59 = getelementptr inbounds i8, ptr %34, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %60 = icmp eq ptr %58, %59
   br i1 %60, label %61, label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap13iterator_baseINS0_7MapPairIS7_S9_EEE10SearchFromEm.exit.sink.split.sink.split
 
 61:                                               ; preds = %56
   %62 = add i64 %.sroa.3.0.copyload.i, 2
   store ptr null, ptr %0, align 8
-  %63 = getelementptr inbounds i8, ptr %30, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store i64 %62, ptr %14, align 8
   %64 = load i64, ptr %63, align 8
   %65 = icmp ult i64 %62, %64
@@ -10854,13 +10854,13 @@ _ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17
 
 _ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap13iterator_baseINS0_7MapPairIS7_S9_EEE10SearchFromEm.exit.sink.split.sink.split.sink.split: ; preds = %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap24TableEntryIsNonEmptyListEm.exit.i8, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap24TableEntryIsNonEmptyListEm.exit.i3
   %.lcssa.sink = phi ptr [ %49, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap24TableEntryIsNonEmptyListEm.exit.i3 ], [ %68, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap24TableEntryIsNonEmptyListEm.exit.i8 ]
-  %75 = getelementptr inbounds i8, ptr %.lcssa.sink, i64 32
+  %75 = getelementptr inbounds nuw i8, ptr %.lcssa.sink, i64 32
   %76 = load ptr, ptr %75, align 8
   br label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap13iterator_baseINS0_7MapPairIS7_S9_EEE10SearchFromEm.exit.sink.split.sink.split
 
 _ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap13iterator_baseINS0_7MapPairIS7_S9_EEE10SearchFromEm.exit.sink.split.sink.split: ; preds = %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap13iterator_baseINS0_7MapPairIS7_S9_EEE10SearchFromEm.exit.sink.split.sink.split.sink.split, %56
   %.sink46 = phi ptr [ %58, %56 ], [ %76, %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap13iterator_baseINS0_7MapPairIS7_S9_EEE10SearchFromEm.exit.sink.split.sink.split.sink.split ]
-  %77 = getelementptr inbounds i8, ptr %.sink46, i64 40
+  %77 = getelementptr inbounds nuw i8, ptr %.sink46, i64 40
   %78 = load ptr, ptr %77, align 8
   br label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap13iterator_baseINS0_7MapPairIS7_S9_EEE10SearchFromEm.exit.sink.split
 
@@ -10876,7 +10876,7 @@ _ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17o
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef ptr @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap19EraseFromLinkedListEPNSB_4NodeESD_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 comdat align 2 {
   %4 = icmp eq ptr %2, %1
-  %5 = getelementptr inbounds i8, ptr %2, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %6 = load ptr, ptr %5, align 8
   br i1 %4, label %common.ret11, label %7
 
@@ -10909,23 +10909,23 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN6
   %2 = alloca %"struct.std::pair.53", align 8
   %3 = alloca %"struct.std::_Rb_tree_iterator", align 8
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap13iterator_baseIKNS0_7MapPairIS7_S9_EEE10SearchFromEm.exit.sink.split
 
 8:                                                ; preds = %1
   store ptr null, ptr %3, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load i64, ptr %11, align 8
   %13 = add i64 %12, -1
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load i64, ptr %14, align 8
   %16 = and i64 %15, %13
   store i64 %16, ptr %14, align 8
-  %17 = getelementptr inbounds i8, ptr %10, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds ptr, ptr %18, i64 %16
   %20 = load ptr, ptr %19, align 8
@@ -10945,7 +10945,7 @@ _ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17
 
 .preheader.i:                                     ; preds = %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap24TableEntryIsNonEmptyListEm.exit.i, %28
   %.0.i = phi ptr [ %27, %28 ], [ %20, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap24TableEntryIsNonEmptyListEm.exit.i ]
-  %26 = getelementptr inbounds i8, ptr %.0.i, i64 64
+  %26 = getelementptr inbounds nuw i8, ptr %.0.i, i64 64
   %27 = load ptr, ptr %26, align 8
   %.not.i = icmp eq ptr %27, null
   br i1 %.not.i, label %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap24TableEntryIsNonEmptyListEm.exit.thread.i, label %28
@@ -10957,12 +10957,12 @@ _ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17
 _ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap24TableEntryIsNonEmptyListEm.exit.thread.i: ; preds = %.preheader.i, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap24TableEntryIsNonEmptyListEm.exit.i, %22
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
   call void @_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap10FindHelperIS7_EESt4pairINSB_13iterator_baseIKNS0_7MapPairIS7_S9_EEEEmERKT_PSt17_Rb_tree_iteratorISD_IKSt17reference_wrapperIKS7_EPvEE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.53") align 8 %2, ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull %3), !noalias !198
-  %.sroa.1.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 16
+  %.sroa.1.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.sroa.1.0.copyload.i = load i64, ptr %.sroa.1.0..sroa_idx.i, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
   store i64 %.sroa.1.0.copyload.i, ptr %14, align 8
   %30 = load ptr, ptr %9, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 32
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds ptr, ptr %32, i64 %.sroa.1.0.copyload.i
   %34 = load ptr, ptr %33, align 8
@@ -10981,14 +10981,14 @@ _ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17o
   %40 = phi i64 [ %.sroa.1.0.copyload.i, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap24TableEntryIsNonEmptyListEm.exit.thread.i ], [ %16, %8 ], [ %.sroa.1.0.copyload.i, %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap13iterator_baseIKNS0_7MapPairIS7_S9_EEE23revalidate_if_necessaryEPSt17_Rb_tree_iteratorISt4pairIKSt17reference_wrapperIKS7_EPvEE.exit ], [ %16, %28 ]
   %41 = add i64 %40, 1
   store ptr null, ptr %0, align 8
-  %42 = getelementptr inbounds i8, ptr %39, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %39, i64 8
   store i64 %41, ptr %14, align 8
   %43 = load i64, ptr %42, align 8
   %44 = icmp ult i64 %41, %43
   br i1 %44, label %.lr.ph.i, label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap13iterator_baseIKNS0_7MapPairIS7_S9_EEE10SearchFromEm.exit
 
 .lr.ph.i:                                         ; preds = %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap13iterator_baseIKNS0_7MapPairIS7_S9_EEE23revalidate_if_necessaryEPSt17_Rb_tree_iteratorISt4pairIKSt17reference_wrapperIKS7_EPvEE.exit.thread
-  %45 = getelementptr inbounds i8, ptr %39, i64 32
+  %45 = getelementptr inbounds nuw i8, ptr %39, i64 32
   br label %46
 
 46:                                               ; preds = %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap16TableEntryIsTreeEm.exit.thread.i, %.lr.ph.i
@@ -11017,14 +11017,14 @@ _ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17
   %57 = load ptr, ptr %3, align 8
   %58 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %57) #28
   store ptr %58, ptr %3, align 8
-  %59 = getelementptr inbounds i8, ptr %34, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %60 = icmp eq ptr %58, %59
   br i1 %60, label %61, label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap13iterator_baseIKNS0_7MapPairIS7_S9_EEE10SearchFromEm.exit.sink.split.sink.split
 
 61:                                               ; preds = %56
   %62 = add i64 %.sroa.1.0.copyload.i, 2
   store ptr null, ptr %0, align 8
-  %63 = getelementptr inbounds i8, ptr %30, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store i64 %62, ptr %14, align 8
   %64 = load i64, ptr %63, align 8
   %65 = icmp ult i64 %62, %64
@@ -11054,13 +11054,13 @@ _ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17
 
 _ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap13iterator_baseIKNS0_7MapPairIS7_S9_EEE10SearchFromEm.exit.sink.split.sink.split.sink.split: ; preds = %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap24TableEntryIsNonEmptyListEm.exit.i8, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap24TableEntryIsNonEmptyListEm.exit.i3
   %.lcssa.sink = phi ptr [ %49, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap24TableEntryIsNonEmptyListEm.exit.i3 ], [ %68, %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap24TableEntryIsNonEmptyListEm.exit.i8 ]
-  %75 = getelementptr inbounds i8, ptr %.lcssa.sink, i64 32
+  %75 = getelementptr inbounds nuw i8, ptr %.lcssa.sink, i64 32
   %76 = load ptr, ptr %75, align 8
   br label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap13iterator_baseIKNS0_7MapPairIS7_S9_EEE10SearchFromEm.exit.sink.split.sink.split
 
 _ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap13iterator_baseIKNS0_7MapPairIS7_S9_EEE10SearchFromEm.exit.sink.split.sink.split: ; preds = %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap13iterator_baseIKNS0_7MapPairIS7_S9_EEE10SearchFromEm.exit.sink.split.sink.split.sink.split, %56
   %.sink46 = phi ptr [ %58, %56 ], [ %76, %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap13iterator_baseIKNS0_7MapPairIS7_S9_EEE10SearchFromEm.exit.sink.split.sink.split.sink.split ]
-  %77 = getelementptr inbounds i8, ptr %.sink46, i64 40
+  %77 = getelementptr inbounds nuw i8, ptr %.sink46, i64 40
   %78 = load ptr, ptr %77, align 8
   br label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap13iterator_baseIKNS0_7MapPairIS7_S9_EEE10SearchFromEm.exit.sink.split
 
@@ -11095,7 +11095,7 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIPPKN6google8protobuf7Map
   %10 = lshr exact i64 %.lcssa, 3
   %11 = add nsw i64 %10, -2
   %12 = lshr i64 %11, 1
-  %13 = getelementptr inbounds ptr, ptr %0, i64 %12
+  %13 = getelementptr inbounds nuw ptr, ptr %0, i64 %12
   %14 = load ptr, ptr %13, align 8
   tail call void @_ZSt13__adjust_heapIPPKN6google8protobuf7MapPairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEEElSD_N9__gnu_cxx5__ops15_Iter_comp_iterINS1_8internal19CompareByDerefFirstISD_EEEEEvT_T0_SN_T1_T2_(ptr noundef %0, i64 noundef %12, i64 noundef %10, ptr noundef %14)
   br label %.split14.i.i
@@ -11147,12 +11147,12 @@ define linkonce_odr hidden void @_ZSt22__final_insertion_sortIPPKN6google8protob
   br i1 %6, label %7, label %38
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 128
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 128
   br label %9
 
 9:                                                ; preds = %_ZSt25__unguarded_linear_insertIPPKN6google8protobuf7MapPairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEEEN9__gnu_cxx5__ops14_Val_comp_iterINS1_8internal19CompareByDerefFirstISD_EEEEEvT_T0_.exit.i, %7
   %.021.i.idx = phi i64 [ 8, %7 ], [ %.021.i.add, %_ZSt25__unguarded_linear_insertIPPKN6google8protobuf7MapPairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEEEN9__gnu_cxx5__ops14_Val_comp_iterINS1_8internal19CompareByDerefFirstISD_EEEEEvT_T0_.exit.i ]
-  %.021.i.ptr = getelementptr inbounds i8, ptr %0, i64 %.021.i.idx
+  %.021.i.ptr = getelementptr inbounds nuw i8, ptr %0, i64 %.021.i.idx
   %10 = load ptr, ptr %.021.i.ptr, align 8
   %11 = load ptr, ptr %0, align 8
   %12 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %11)
@@ -11238,7 +11238,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIN6google8protobuf8internal19CompareByDerefFi
 
 _ZSt25__unguarded_linear_insertIPPKN6google8protobuf7MapPairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEEEN9__gnu_cxx5__ops14_Val_comp_iterINS1_8internal19CompareByDerefFirstISD_EEEEEvT_T0_.exit.i16: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN6google8protobuf8internal19CompareByDerefFirstIPKNS3_7MapPairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEEEEEEclISH_PSH_EEbRT_T0_.exit.i.i15
   store ptr %27, ptr %.09.i.i13, align 8
-  %37 = getelementptr inbounds i8, ptr %.08.i, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %.08.i, i64 8
   %.not.i17 = icmp eq ptr %37, %1
   br i1 %.not.i17, label %_ZSt26__unguarded_insertion_sortIPPKN6google8protobuf7MapPairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEEEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_8internal19CompareByDerefFirstISD_EEEEEvT_SM_T0_.exit, label %.lr.ph.i, !llvm.loop !206
 
@@ -11269,7 +11269,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf8internal19CompareByDerefF
   br i1 %46, label %48, label %.preheader31
 
 48:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf8internal19CompareByDerefFirstIPKNS3_7MapPairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEEEEEEclIPSH_SL_EEbT_T0_.exit.i22
-  %49 = getelementptr inbounds i8, ptr %.pn20.i21, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %.pn20.i21, i64 16
   %50 = ptrtoint ptr %.021.i20 to i64
   %51 = sub i64 %50, %4
   %52 = ashr exact i64 %51, 3
@@ -11304,7 +11304,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIN6google8protobuf8internal19CompareByDerefFi
 _ZSt25__unguarded_linear_insertIPPKN6google8protobuf7MapPairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEEEN9__gnu_cxx5__ops14_Val_comp_iterINS1_8internal19CompareByDerefFirstISD_EEEEEvT_T0_.exit.i26: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN6google8protobuf8internal19CompareByDerefFirstIPKNS3_7MapPairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEEEEEEclISH_PSH_EEbRT_T0_.exit.i.i25, %48
   %.sink.i27 = phi ptr [ %0, %48 ], [ %.09.i.i23, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN6google8protobuf8internal19CompareByDerefFirstIPKNS3_7MapPairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEEEEEEclISH_PSH_EEbRT_T0_.exit.i.i25 ]
   store ptr %47, ptr %.sink.i27, align 8
-  %.0.i28 = getelementptr inbounds i8, ptr %.021.i20, i64 8
+  %.0.i28 = getelementptr inbounds nuw i8, ptr %.021.i20, i64 8
   %.not.i29 = icmp eq ptr %.0.i28, %1
   br i1 %.not.i29, label %_ZSt26__unguarded_insertion_sortIPPKN6google8protobuf7MapPairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEEEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_8internal19CompareByDerefFirstISD_EEEEEvT_SM_T0_.exit, label %.lr.ph.i19, !llvm.loop !205
 
@@ -11320,7 +11320,7 @@ define linkonce_odr hidden noundef ptr @_ZSt27__unguarded_partition_pivotIPPKN6g
   %6 = ashr exact i64 %5, 3
   %7 = sdiv i64 %6, 2
   %8 = getelementptr inbounds ptr, ptr %0, i64 %7
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = getelementptr inbounds i8, ptr %1, i64 -8
   tail call void @_ZSt22__move_median_to_firstIPPKN6google8protobuf7MapPairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEEEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_8internal19CompareByDerefFirstISD_EEEEEvT_SM_SM_SM_T0_(ptr noundef %0, ptr noundef nonnull %9, ptr noundef %8, ptr noundef nonnull %10)
   br label %11
@@ -11349,7 +11349,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf8internal19CompareByDerefF
   br i1 %19, label %20, label %.preheader.i
 
 20:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf8internal19CompareByDerefFirstIPKNS3_7MapPairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEEEEEEclIPSH_SL_EEbT_T0_.exit.i
-  %21 = getelementptr inbounds i8, ptr %.1.i, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %.1.i, i64 8
   br label %12, !llvm.loop !207
 
 .preheader.i:                                     ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf8internal19CompareByDerefFirstIPKNS3_7MapPairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEEEEEEclIPSH_SL_EEbT_T0_.exit.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf8internal19CompareByDerefFirstIPKNS3_7MapPairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEEEEEEclIPSH_SL_EEbT_T0_.exit15.i
@@ -11380,7 +11380,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf8internal19CompareByDerefF
   %33 = load ptr, ptr %.114.i, align 8
   store ptr %33, ptr %.1.i, align 8
   store ptr %32, ptr %.114.i, align 8
-  %34 = getelementptr inbounds i8, ptr %.1.i, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %.1.i, i64 8
   br label %11, !llvm.loop !209
 
 _ZSt21__unguarded_partitionIPPKN6google8protobuf7MapPairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEEEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_8internal19CompareByDerefFirstISD_EEEEET_SM_SM_SM_T0_.exit: ; preds = %29
@@ -11630,20 +11630,20 @@ declare noundef i64 @_ZNK17opencv_tensorflow5OpDef12ByteSizeLongEv(ptr noundef n
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase9MergeFromINS0_16RepeatedPtrFieldIN17opencv_tensorflow16FunctionDef_NodeEE11TypeHandlerEEEvRKS2_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase17MergeFromInternalERKS2_MS2_FvPPvS6_iiE.exit, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = tail call noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase14InternalExtendEi(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %4)
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load i32, ptr %14, align 8
   %16 = sub nsw i32 %13, %15
   %17 = icmp slt i32 %16, %4
@@ -11696,9 +11696,9 @@ _ZN6google8protobuf5Arena18CreateMaybeMessageIN17opencv_tensorflow16FunctionDef_
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv17 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next18, %.lr.ph ]
-  %28 = getelementptr inbounds ptr, ptr %9, i64 %indvars.iv17
+  %28 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv17
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds ptr, ptr %10, i64 %indvars.iv17
+  %30 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv17
   %31 = load ptr, ptr %30, align 8
   tail call void @_ZN17opencv_tensorflow16FunctionDef_Node9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(224) %31, ptr noundef nonnull align 8 dereferenceable(224) %29)
   %indvars.iv.next18 = add nuw nsw i64 %indvars.iv17, 1
@@ -11773,9 +11773,9 @@ _ZN6google8protobuf8internal18GenericTypeHandlerIN17opencv_tensorflow16FunctionD
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv37 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next38, %.lr.ph ]
-  %17 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv37
+  %17 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv37
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv37
+  %19 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv37
   %20 = load ptr, ptr %19, align 8
   tail call void @_ZN17opencv_tensorflow16FunctionDef_Node9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(224) %20, ptr noundef nonnull align 8 dereferenceable(224) %18)
   %indvars.iv.next38 = add nuw nsw i64 %indvars.iv37, 1
@@ -11826,7 +11826,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZNK
           to label %13 unwind label %29
 
 13:                                               ; preds = %11
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6google8protobuf15FieldDescriptor14kCppTypeToNameE, i64 72), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6google8protobuf15FieldDescriptor14kCppTypeToNameE, i64 72), align 8
   %15 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEPKc(ptr noundef nonnull align 8 dereferenceable(56) %12, ptr noundef %14)
           to label %16 unwind label %29
 
@@ -11844,7 +11844,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZNK
 
 22:                                               ; preds = %20
   %23 = zext i32 %21 to i64
-  %24 = getelementptr inbounds [11 x ptr], ptr @_ZN6google8protobuf15FieldDescriptor14kCppTypeToNameE, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw [11 x ptr], ptr @_ZN6google8protobuf15FieldDescriptor14kCppTypeToNameE, i64 0, i64 %23
   %25 = load ptr, ptr %24, align 8
   %26 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEPKc(ptr noundef nonnull align 8 dereferenceable(56) %19, ptr noundef %25)
           to label %27 unwind label %29
@@ -11871,7 +11871,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZNK
 define linkonce_odr hidden noundef i32 @_ZNK6google8protobuf6MapKey4typeEv(ptr noundef nonnull align 8 dereferenceable(36) %0) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.google::protobuf::internal::LogMessage", align 8
   %3 = alloca %"class.google::protobuf::internal::LogFinisher", align 1
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %7, label %17
@@ -11912,9 +11912,9 @@ define linkonce_odr hidden noundef i32 @_ZNK6google8protobuf6MapKey4typeEv(ptr n
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE4swapERSA_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.google::protobuf::Map", align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %5, %7
   br i1 %8, label %9, label %29
@@ -11924,26 +11924,26 @@ define linkonce_odr hidden void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stri
   %11 = load i64, ptr %1, align 8
   store i64 %11, ptr %0, align 8
   store i64 %10, ptr %1, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load i64, ptr %12, align 8
   %15 = load i64, ptr %13, align 8
   store i64 %15, ptr %12, align 8
   store i64 %14, ptr %13, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
-  %17 = getelementptr inbounds i8, ptr %1, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %18 = load i64, ptr %16, align 8
   %19 = load i64, ptr %17, align 8
   store i64 %19, ptr %16, align 8
   store i64 %18, ptr %17, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 24
-  %21 = getelementptr inbounds i8, ptr %1, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %22 = load i64, ptr %20, align 8
   %23 = load i64, ptr %21, align 8
   store i64 %23, ptr %20, align 8
   store i64 %22, ptr %21, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 32
-  %25 = getelementptr inbounds i8, ptr %1, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %26 = load ptr, ptr %24, align 8
   %27 = load ptr, ptr %25, align 8
   store ptr %27, ptr %24, align 8
@@ -11964,10 +11964,10 @@ define linkonce_odr hidden void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stri
           to label %33 unwind label %49
 
 33:                                               ; preds = %31
-  %34 = getelementptr inbounds i8, ptr %3, i64 40
+  %34 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %35 = load ptr, ptr %34, align 8
   %36 = icmp ne ptr %35, null
-  %37 = getelementptr inbounds i8, ptr %3, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %38 = load i64, ptr %37, align 8
   %.not.i.i = icmp eq i64 %38, 1
   %or.cond.i.i = select i1 %36, i1 true, i1 %.not.i.i
@@ -11983,7 +11983,7 @@ define linkonce_odr hidden void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stri
   br i1 %42, label %43, label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEED2Ev.exit
 
 43:                                               ; preds = %40
-  %44 = getelementptr inbounds i8, ptr %3, i64 32
+  %44 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %45 = load ptr, ptr %44, align 8
   call void @_ZdlPv(ptr noundef %45) #25
   br label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEED2Ev.exit
@@ -12011,25 +12011,25 @@ define linkonce_odr hidden void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stri
   %4 = alloca %"struct.std::pair.53", align 8
   %5 = alloca %"class.google::protobuf::Map<std::__cxx11::basic_string<char>, opencv_tensorflow::AttrValue>::const_iterator", align 8
   store i64 0, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 1, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 1, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr @_ZN6google8protobuf8internal17kGlobalEmptyTableE, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr null, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %12 = load i64, ptr %11, align 8, !noalias !214
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load i64, ptr %13, align 8, !noalias !214
   %15 = icmp ult i64 %12, %14
   br i1 %15, label %.lr.ph.i.i.i.i, label %.loopexit11.thread
 
 .lr.ph.i.i.i.i:                                   ; preds = %2
-  %16 = getelementptr inbounds i8, ptr %1, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %17 = load ptr, ptr %16, align 8, !noalias !214
   %18 = getelementptr inbounds ptr, ptr %17, i64 %12
   %19 = load ptr, ptr %18, align 8, !noalias !214
@@ -12059,9 +12059,9 @@ _ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17
 .loopexit11.thread19:                             ; preds = %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   store ptr %.lcssa.i.i, ptr %5, align 8
-  %.sroa.4.0..sroa_idx22 = getelementptr inbounds i8, ptr %5, i64 8
+  %.sroa.4.0..sroa_idx22 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %1, ptr %.sroa.4.0..sroa_idx22, align 8
-  %.sroa.5.0..sroa_idx23 = getelementptr inbounds i8, ptr %5, i64 16
+  %.sroa.5.0..sroa_idx23 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 %.lcssa5.i.i, ptr %.sroa.5.0..sroa_idx23, align 8
   br label %.lr.ph.i.preheader
 
@@ -12075,15 +12075,15 @@ _ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17
   br label %.loopexit
 
 .loopexit11:                                      ; preds = %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i.i.i
-  %28 = getelementptr inbounds i8, ptr %.lcssa.i.i, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %.lcssa.i.i, i64 32
   %29 = load ptr, ptr %28, align 8, !noalias !214
-  %30 = getelementptr inbounds i8, ptr %29, i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 40
   %31 = load ptr, ptr %30, align 8, !noalias !214
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   store ptr %31, ptr %5, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %1, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 16
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 %.lcssa5.i.i, ptr %.sroa.5.0..sroa_idx, align 8
   %.not3.i = icmp eq ptr %31, null
   br i1 %.not3.i, label %.loopexit, label %.lr.ph.i.preheader
@@ -12111,10 +12111,10 @@ _ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17
           to label %.noexc4 unwind label %42
 
 .noexc4:                                          ; preds = %35
-  %37 = getelementptr inbounds i8, ptr %36, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 32
   %38 = load ptr, ptr %3, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  %39 = getelementptr inbounds i8, ptr %38, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 32
   invoke void @_ZN17opencv_tensorflow9AttrValue8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %39, ptr noundef nonnull align 8 dereferenceable(32) %37)
           to label %.noexc5 unwind label %42
 
@@ -12148,15 +12148,15 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN6
 
 6:                                                ; preds = %2
   tail call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap5clearEv(ptr noundef nonnull align 8 dereferenceable(48) %0)
-  %7 = getelementptr inbounds i8, ptr %1, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load i64, ptr %7, align 8, !noalias !226
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load i64, ptr %9, align 8, !noalias !226
   %11 = icmp ult i64 %8, %10
   br i1 %11, label %.lr.ph.i.i.i.i, label %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE5beginEv.exit.thread
 
 .lr.ph.i.i.i.i:                                   ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %1, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %13 = load ptr, ptr %12, align 8, !noalias !226
   %14 = getelementptr inbounds ptr, ptr %13, i64 %8
   %15 = load ptr, ptr %14, align 8, !noalias !226
@@ -12186,9 +12186,9 @@ _ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17
 _ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE5beginEv.exit.thread16: ; preds = %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   store ptr %.lcssa.i.i, ptr %5, align 8
-  %.sroa.4.0..sroa_idx19 = getelementptr inbounds i8, ptr %5, i64 8
+  %.sroa.4.0..sroa_idx19 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %1, ptr %.sroa.4.0..sroa_idx19, align 8
-  %.sroa.5.0..sroa_idx20 = getelementptr inbounds i8, ptr %5, i64 16
+  %.sroa.5.0..sroa_idx20 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 %.lcssa5.i.i, ptr %.sroa.5.0..sroa_idx20, align 8
   br label %.lr.ph.i.preheader
 
@@ -12202,15 +12202,15 @@ _ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17
   br label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE6insertINSA_14const_iteratorEEEvT_SD_.exit
 
 _ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE5beginEv.exit: ; preds = %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i.i.i
-  %24 = getelementptr inbounds i8, ptr %.lcssa.i.i, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %.lcssa.i.i, i64 32
   %25 = load ptr, ptr %24, align 8, !noalias !226
-  %26 = getelementptr inbounds i8, ptr %25, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 40
   %27 = load ptr, ptr %26, align 8, !noalias !226
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   store ptr %27, ptr %5, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %1, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 16
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 %.lcssa5.i.i, ptr %.sroa.5.0..sroa_idx, align 8
   %.not3.i = icmp eq ptr %27, null
   br i1 %.not3.i, label %_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE6insertINSA_14const_iteratorEEEvT_SD_.exit, label %.lr.ph.i.preheader
@@ -12230,12 +12230,12 @@ _ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17
 
 31:                                               ; preds = %.lr.ph.i
   %32 = load ptr, ptr %5, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 32
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap6insertIRKS7_EESt4pairINSB_13iterator_baseINS0_7MapPairIS7_S9_EEEEbEOT_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.49") align 8 %3, ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %32)
   %34 = load ptr, ptr %3, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  %35 = getelementptr inbounds i8, ptr %34, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 32
   call void @_ZN17opencv_tensorflow9AttrValue8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %35, ptr noundef nonnull align 8 dereferenceable(32) %33)
   br label %36
 
@@ -12257,15 +12257,15 @@ _ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17o
 define linkonce_odr hidden noundef i64 @_ZN6google8protobuf8internal17SpaceUsedInValuesINS0_3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEEEvEEmPKT_(ptr noundef %0) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.google::protobuf::Map<std::__cxx11::basic_string<char>, opencv_tensorflow::AttrValue>::const_iterator", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !237)
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i64, ptr %3, align 8, !noalias !240
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !noalias !240
   %7 = icmp ult i64 %4, %6
   br i1 %7, label %.lr.ph.i.i.i.i, label %._crit_edge
 
 .lr.ph.i.i.i.i:                                   ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8, !noalias !240
   %10 = getelementptr inbounds ptr, ptr %9, i64 %4
   %11 = load ptr, ptr %10, align 8, !noalias !240
@@ -12294,9 +12294,9 @@ _ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17
 
 _ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE5beginEv.exit.thread16: ; preds = %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i.i.i
   store ptr %.lcssa.i.i, ptr %2, align 8, !alias.scope !237
-  %.sroa.3.0..sroa_idx.i19 = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.3.0..sroa_idx.i19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %0, ptr %.sroa.3.0..sroa_idx.i19, align 8, !alias.scope !237
-  %.sroa.4.0..sroa_idx.i20 = getelementptr inbounds i8, ptr %2, i64 16
+  %.sroa.4.0..sroa_idx.i20 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 %.lcssa5.i.i, ptr %.sroa.4.0..sroa_idx.i20, align 8, !alias.scope !237
   br label %.lr.ph.preheader
 
@@ -12306,14 +12306,14 @@ _ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17
   br i1 %exitcond.not.i.i, label %._crit_edge, label %13, !llvm.loop !39
 
 _ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE5beginEv.exit: ; preds = %_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17opencv_tensorflow9AttrValueEE8InnerMap24TableEntryIsNonEmptyListEm.exit.i.i.i.i
-  %20 = getelementptr inbounds i8, ptr %.lcssa.i.i, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %.lcssa.i.i, i64 32
   %21 = load ptr, ptr %20, align 8, !noalias !240
-  %22 = getelementptr inbounds i8, ptr %21, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 40
   %23 = load ptr, ptr %22, align 8, !noalias !240
   store ptr %23, ptr %2, align 8, !alias.scope !237
-  %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %0, ptr %.sroa.3.0..sroa_idx.i, align 8, !alias.scope !237
-  %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 16
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 %.lcssa5.i.i, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !237
   %.not7 = icmp eq ptr %23, null
   br i1 %.not7, label %._crit_edge, label %.lr.ph.preheader
@@ -12326,7 +12326,7 @@ _ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN17
   %24 = phi ptr [ %32, %.lr.ph ], [ %.ph, %.lr.ph.preheader ]
   %.08 = phi i64 [ %30, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %25 = call noundef i64 @_ZN6google8protobuf8internal32StringSpaceUsedExcludingSelfLongERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %24)
-  %26 = getelementptr inbounds i8, ptr %24, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %27 = call noundef i64 @_ZNK6google8protobuf7Message13SpaceUsedLongEv(ptr noundef nonnull align 8 dereferenceable(32) %26)
   %28 = add i64 %.08, -32
   %29 = add i64 %28, %25
@@ -12345,7 +12345,7 @@ declare noundef i64 @_ZN6google8protobuf8internal32StringSpaceUsedExcludingSelfL
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6google8protobuf8internal21arena_destruct_objectINS0_16RepeatedPtrFieldINS0_7MessageEEEEEvPv(ptr noundef %0) #5 comdat personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp ne ptr %3, null
   %4 = load ptr, ptr %0, align 8
@@ -12393,13 +12393,13 @@ define linkonce_odr hidden void @_ZN6google8protobuf8internal20RepeatedPtrFieldB
 
 12:                                               ; preds = %10
   %13 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i64 0, ptr %14, align 8
   br label %_ZN6google8protobuf8internal18GenericTypeHandlerIN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseEE16NewFromPrototypeEPKS4_PNS0_5ArenaE.exit
 
 15:                                               ; preds = %10
   %16 = tail call noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %3, i64 noundef 48, ptr noundef nonnull @_ZTIN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseE)
-  %17 = getelementptr inbounds i8, ptr %16, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = ptrtoint ptr %3 to i64
   store i64 %18, ptr %17, align 8
   br label %_ZN6google8protobuf8internal18GenericTypeHandlerIN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseEE16NewFromPrototypeEPKS4_PNS0_5ArenaE.exit
@@ -12407,13 +12407,13 @@ define linkonce_odr hidden void @_ZN6google8protobuf8internal20RepeatedPtrFieldB
 _ZN6google8protobuf8internal18GenericTypeHandlerIN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseEE16NewFromPrototypeEPKS4_PNS0_5ArenaE.exit: ; preds = %12, %15
   %.sink39.i.i.i = phi ptr [ %13, %12 ], [ %16, %15 ]
   %.sink32.i.i.i = phi i64 [ 0, %12 ], [ %18, %15 ]
-  %19 = getelementptr inbounds i8, ptr %.sink39.i.i.i, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %.sink39.i.i.i, i64 16
   store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %.sink39.i.i.i, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %.sink39.i.i.i, i64 24
   store ptr null, ptr %20, align 8
-  %.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.sink39.i.i.i, i64 32
+  %.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sink39.i.i.i, i64 32
   store i32 0, ptr %.ptr.i.i.i.i.i.i, align 4
-  %21 = getelementptr inbounds i8, ptr %.sink39.i.i.i, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %.sink39.i.i.i, i64 40
   store i64 %.sink32.i.i.i, ptr %21, align 8
   store ptr getelementptr inbounds inrange(-16, 168) (i8, ptr @_ZTVN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseE, i64 16), ptr %.sink39.i.i.i, align 8
   tail call void @_ZN6google8protobuf8internal12MapEntryImplIN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseENS0_7MessageENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_9AttrValueELNS1_14WireFormatLite9FieldTypeE9ELSE_11EE17MergeFromInternalERKSF_(ptr noundef nonnull align 8 dereferenceable(48) %.sink39.i.i.i, ptr noundef nonnull align 8 dereferenceable(48) %1)
@@ -12421,27 +12421,27 @@ _ZN6google8protobuf8internal18GenericTypeHandlerIN17opencv_tensorflow35FunctionD
 
 22:                                               ; preds = %_ZN6google8protobuf8internal18GenericTypeHandlerIN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseEE16NewFromPrototypeEPKS4_PNS0_5ArenaE.exit
   %23 = load ptr, ptr %1, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load ptr, ptr %24, align 8
   tail call void %25(ptr noundef nonnull align 8 dereferenceable(48) %1) #25
   br label %_ZN6google8protobuf8internal18GenericTypeHandlerIN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseEE6DeleteEPS4_PNS0_5ArenaE.exit
 
 _ZN6google8protobuf8internal18GenericTypeHandlerIN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseEE6DeleteEPS4_PNS0_5ArenaE.exit: ; preds = %22, %_ZN6google8protobuf8internal18GenericTypeHandlerIN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseEE16NewFromPrototypeEPKS4_PNS0_5ArenaE.exit, %9, %7, %8
   %.0 = phi ptr [ %1, %8 ], [ null, %7 ], [ %1, %9 ], [ %.sink39.i.i.i, %_ZN6google8protobuf8internal18GenericTypeHandlerIN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseEE16NewFromPrototypeEPKS4_PNS0_5ArenaE.exit ], [ %.sink39.i.i.i, %22 ]
-  %26 = getelementptr inbounds i8, ptr %0, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %27 = load ptr, ptr %26, align 8
   %.not.i = icmp eq ptr %27, null
   br i1 %.not.i, label %._crit_edge.i, label %28
 
 ._crit_edge.i:                                    ; preds = %_ZN6google8protobuf8internal18GenericTypeHandlerIN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseEE6DeleteEPS4_PNS0_5ArenaE.exit
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %0, i64 12
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 12
   %.pre.i = load i32, ptr %.phi.trans.insert.i, align 4
   br label %34
 
 28:                                               ; preds = %_ZN6google8protobuf8internal18GenericTypeHandlerIN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseEE6DeleteEPS4_PNS0_5ArenaE.exit
-  %29 = getelementptr inbounds i8, ptr %0, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %30 = load i32, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 12
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %32 = load i32, ptr %31, align 4
   %33 = icmp eq i32 %30, %32
   br i1 %33, label %34, label %40
@@ -12462,7 +12462,7 @@ _ZN6google8protobuf8internal18GenericTypeHandlerIN17opencv_tensorflow35FunctionD
   br i1 %42, label %43, label %55
 
 43:                                               ; preds = %40
-  %44 = getelementptr inbounds i8, ptr %27, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %45 = sext i32 %30 to i64
   %46 = getelementptr inbounds [268435454 x ptr], ptr %44, i64 0, i64 %45
   %47 = load ptr, ptr %46, align 8
@@ -12474,7 +12474,7 @@ _ZN6google8protobuf8internal18GenericTypeHandlerIN17opencv_tensorflow35FunctionD
 
 51:                                               ; preds = %43
   %52 = load ptr, ptr %47, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %54 = load ptr, ptr %53, align 8
   tail call void %54(ptr noundef nonnull align 8 dereferenceable(48) %47) #25
   br label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase23UnsafeArenaAddAllocatedINS0_16RepeatedPtrFieldIN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseEE11TypeHandlerEEEvPNT_4TypeE.exit
@@ -12484,7 +12484,7 @@ _ZN6google8protobuf8internal18GenericTypeHandlerIN17opencv_tensorflow35FunctionD
   br i1 %56, label %57, label %67
 
 57:                                               ; preds = %55
-  %58 = getelementptr inbounds i8, ptr %27, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %59 = sext i32 %30 to i64
   %60 = getelementptr inbounds [268435454 x ptr], ptr %58, i64 0, i64 %59
   %61 = load ptr, ptr %60, align 8
@@ -12504,8 +12504,8 @@ _ZN6google8protobuf8internal18GenericTypeHandlerIN17opencv_tensorflow35FunctionD
 
 _ZN6google8protobuf8internal20RepeatedPtrFieldBase23UnsafeArenaAddAllocatedINS0_16RepeatedPtrFieldIN17opencv_tensorflow35FunctionDef_Node_AttrEntry_DoNotUseEE11TypeHandlerEEEvPNT_4TypeE.exit: ; preds = %34, %43, %51, %57, %67
   %69 = load ptr, ptr %26, align 8
-  %70 = getelementptr inbounds i8, ptr %69, i64 8
-  %71 = getelementptr inbounds i8, ptr %0, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %72 = load i32, ptr %71, align 8
   %73 = add nsw i32 %72, 1
   store i32 %73, ptr %71, align 8
@@ -12522,7 +12522,7 @@ define linkonce_odr hidden void @_ZN6google8protobuf8internal19arena_delete_obje
 
 3:                                                ; preds = %1
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #25
   br label %7

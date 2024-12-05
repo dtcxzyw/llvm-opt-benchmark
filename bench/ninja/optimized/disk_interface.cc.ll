@@ -96,7 +96,7 @@ _ZN12_GLOBAL__N_17DirNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
 13:                                               ; preds = %_ZN12_GLOBAL__N_17DirNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #14
   %14 = load ptr, ptr %0, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load ptr, ptr %15, align 8
   %17 = invoke noundef i64 %16(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull %4)
           to label %18 unwind label %22
@@ -130,7 +130,7 @@ _ZN12_GLOBAL__N_17DirNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
 
 28:                                               ; preds = %27
   %29 = load ptr, ptr %0, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 32
   %31 = load ptr, ptr %30, align 8
   %32 = invoke noundef zeroext i1 %31(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %33 unwind label %22
@@ -289,14 +289,14 @@ define dso_local noundef i64 @_ZNK17RealDiskInterface4StatERKNSt7__cxx1112basic_
   br label %61
 
 51:                                               ; preds = %22
-  %52 = getelementptr inbounds i8, ptr %7, i64 88
+  %52 = getelementptr inbounds nuw i8, ptr %7, i64 88
   %53 = load i64, ptr %52, align 8
   %54 = icmp eq i64 %53, 0
   br i1 %54, label %60, label %55
 
 55:                                               ; preds = %51
   %56 = mul nsw i64 %53, 1000000000
-  %57 = getelementptr inbounds i8, ptr %7, i64 96
+  %57 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %58 = load i64, ptr %57, align 8
   %59 = add nsw i64 %58, %56
   br label %60

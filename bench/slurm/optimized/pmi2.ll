@@ -242,7 +242,7 @@ define i32 @handle_pmi2_cmd(i32 noundef %0, i32 noundef %1) local_unnamed_addr #
   %.us-phi98 = phi i64 [ %10, %.lr.ph122.preheader.preheader ], [ %10, %.lr.ph138.preheader ], [ %26, %.lr.ph122.preheader ], [ %18, %.lr.ph138 ]
   %.us-phi99 = phi i32 [ %11, %.lr.ph122.preheader.preheader ], [ %11, %.lr.ph138.preheader ], [ %27, %.lr.ph122.preheader ], [ %19, %.lr.ph138 ]
   %38 = and i64 %.us-phi98, 2147483647
-  %39 = getelementptr inbounds i8, ptr %.059.ph142, i64 %38
+  %39 = getelementptr inbounds nuw i8, ptr %.059.ph142, i64 %38
   %40 = sub nsw i32 %.060.ph140, %.us-phi99
   %41 = icmp sgt i32 %40, 0
   br i1 %41, label %42, label %.outer74._crit_edge
@@ -260,7 +260,7 @@ define i32 @handle_pmi2_cmd(i32 noundef %0, i32 noundef %1) local_unnamed_addr #
   br label %.lr.ph, !llvm.loop !6
 
 .outer74._crit_edge:                              ; preds = %.split97.us
-  %46 = getelementptr inbounds i8, ptr %3, i64 6
+  %46 = getelementptr inbounds nuw i8, ptr %3, i64 6
   store i8 0, ptr %46, align 1
   %47 = call i32 @atoi(ptr nocapture noundef nonnull %3) #8
   %48 = add nsw i32 %47, 1
@@ -368,7 +368,7 @@ define i32 @handle_pmi2_cmd(i32 noundef %0, i32 noundef %1) local_unnamed_addr #
   %.us-phi151 = phi i64 [ %54, %.lr.ph176.preheader.preheader ], [ %54, %.lr.ph192.preheader ], [ %70, %.lr.ph176.preheader ], [ %62, %.lr.ph192 ]
   %.us-phi152 = phi i32 [ %55, %.lr.ph176.preheader.preheader ], [ %55, %.lr.ph192.preheader ], [ %71, %.lr.ph176.preheader ], [ %63, %.lr.ph192 ]
   %82 = and i64 %.us-phi151, 2147483647
-  %83 = getelementptr inbounds i8, ptr %.056.ph197, i64 %82
+  %83 = getelementptr inbounds nuw i8, ptr %.056.ph197, i64 %82
   %84 = sub nsw i32 %.057.ph195, %.us-phi152
   %85 = icmp sgt i32 %84, 0
   br i1 %85, label %86, label %.outer._crit_edge
@@ -420,7 +420,7 @@ define i32 @handle_pmi2_cmd(i32 noundef %0, i32 noundef %1) local_unnamed_addr #
   br i1 %105, label %109, label %.preheader
 
 .preheader:                                       ; preds = %102
-  %106 = getelementptr inbounds i8, ptr %104, i64 24
+  %106 = getelementptr inbounds nuw i8, ptr %104, i64 24
   %107 = load ptr, ptr %106, align 8
   %108 = call i32 @slurm_xstrcmp(ptr noundef %107, ptr noundef nonnull @.str.11) #6
   %.not72379 = icmp eq i32 %108, 0
@@ -437,7 +437,7 @@ define i32 @handle_pmi2_cmd(i32 noundef %0, i32 noundef %1) local_unnamed_addr #
   br i1 %exitcond, label %116, label %111, !llvm.loop !9
 
 111:                                              ; preds = %.lr.ph381
-  %112 = getelementptr inbounds [18 x %struct.anon], ptr @pmi2_cmd_handlers, i64 0, i64 %indvars.iv.next
+  %112 = getelementptr inbounds nuw [18 x %struct.anon], ptr @pmi2_cmd_handlers, i64 0, i64 %indvars.iv.next
   %113 = load ptr, ptr %112, align 16
   %114 = load ptr, ptr %106, align 8
   %115 = call i32 @slurm_xstrcmp(ptr noundef %114, ptr noundef nonnull %113) #6
@@ -451,7 +451,7 @@ define i32 @handle_pmi2_cmd(i32 noundef %0, i32 noundef %1) local_unnamed_addr #
 
 ._crit_edge:                                      ; preds = %111, %.preheader
   %.lcssa = phi ptr [ @pmi2_cmd_handlers, %.preheader ], [ %112, %111 ]
-  %119 = getelementptr inbounds i8, ptr %.lcssa, i64 8
+  %119 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 8
   %120 = load ptr, ptr %119, align 8
   %121 = call i32 %120(i32 noundef %0, i32 noundef %1, ptr noundef nonnull %104) #6
   br label %122
@@ -1159,7 +1159,7 @@ define internal i32 @_handle_spawn(i32 noundef %0, i32 noundef %1, ptr noundef %
 15:                                               ; preds = %8
   %16 = call i32 @spawn_req_send_to_srun(ptr noundef nonnull %10, ptr noundef nonnull %4) #6
   %17 = load ptr, ptr %4, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %19 = load i32, ptr %18, align 4
   %.not = icmp eq i32 %19, 0
   br i1 %.not, label %30, label %20
@@ -1167,7 +1167,7 @@ define internal i32 @_handle_spawn(i32 noundef %0, i32 noundef %1, ptr noundef %
 20:                                               ; preds = %15
   %21 = call ptr @client_resp_new() #6
   %22 = load ptr, ptr %4, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 4
   %24 = load i32, ptr %23, align 4
   call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef %21, ptr noundef nonnull @.str.93, i32 noundef %24) #6
   %25 = call i32 @client_resp_send(ptr noundef %21, i32 noundef %0) #6

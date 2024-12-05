@@ -38,21 +38,21 @@ $_ZN12b2WheelJointD0Ev = comdat any
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN15b2WheelJointDef10InitializeEP6b2BodyS1_RK6b2Vec2S4_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(92) initializes((16, 32), (36, 60)) %this, ptr noundef %bA, ptr noundef %bB, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %anchor, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %axis) local_unnamed_addr #0 align 2 {
 entry:
-  %bodyA = getelementptr inbounds i8, ptr %this, i64 16
+  %bodyA = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %bA, ptr %bodyA, align 8
-  %bodyB = getelementptr inbounds i8, ptr %this, i64 24
+  %bodyB = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr %bB, ptr %bodyB, align 8
-  %m_xf.i = getelementptr inbounds i8, ptr %bA, i64 12
+  %m_xf.i = getelementptr inbounds nuw i8, ptr %bA, i64 12
   %0 = load float, ptr %anchor, align 4
   %1 = load float, ptr %m_xf.i, align 4
   %sub.i.i = fsub float %0, %1
-  %y.i.i = getelementptr inbounds i8, ptr %anchor, i64 4
+  %y.i.i = getelementptr inbounds nuw i8, ptr %anchor, i64 4
   %2 = load float, ptr %y.i.i, align 4
-  %y3.i.i = getelementptr inbounds i8, ptr %bA, i64 16
+  %y3.i.i = getelementptr inbounds nuw i8, ptr %bA, i64 16
   %3 = load float, ptr %y3.i.i, align 4
   %sub4.i.i = fsub float %2, %3
-  %q.i.i = getelementptr inbounds i8, ptr %bA, i64 20
-  %c.i.i = getelementptr inbounds i8, ptr %bA, i64 24
+  %q.i.i = getelementptr inbounds nuw i8, ptr %bA, i64 20
+  %c.i.i = getelementptr inbounds nuw i8, ptr %bA, i64 24
   %4 = load float, ptr %c.i.i, align 4
   %5 = load float, ptr %q.i.i, align 4
   %mul7.i.i = fmul float %sub4.i.i, %5
@@ -62,18 +62,18 @@ entry:
   %7 = tail call float @llvm.fmuladd.f32(float %fneg.i.i, float %sub.i.i, float %mul13.i.i)
   %retval.sroa.0.0.vec.insert.i.i = insertelement <2 x float> poison, float %6, i64 0
   %retval.sroa.0.4.vec.insert.i.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i, float %7, i64 1
-  %localAnchorA = getelementptr inbounds i8, ptr %this, i64 36
+  %localAnchorA = getelementptr inbounds nuw i8, ptr %this, i64 36
   store <2 x float> %retval.sroa.0.4.vec.insert.i.i, ptr %localAnchorA, align 4
-  %m_xf.i2 = getelementptr inbounds i8, ptr %bB, i64 12
+  %m_xf.i2 = getelementptr inbounds nuw i8, ptr %bB, i64 12
   %8 = load float, ptr %anchor, align 4
   %9 = load float, ptr %m_xf.i2, align 4
   %sub.i.i3 = fsub float %8, %9
   %10 = load float, ptr %y.i.i, align 4
-  %y3.i.i5 = getelementptr inbounds i8, ptr %bB, i64 16
+  %y3.i.i5 = getelementptr inbounds nuw i8, ptr %bB, i64 16
   %11 = load float, ptr %y3.i.i5, align 4
   %sub4.i.i6 = fsub float %10, %11
-  %q.i.i7 = getelementptr inbounds i8, ptr %bB, i64 20
-  %c.i.i8 = getelementptr inbounds i8, ptr %bB, i64 24
+  %q.i.i7 = getelementptr inbounds nuw i8, ptr %bB, i64 20
+  %c.i.i8 = getelementptr inbounds nuw i8, ptr %bB, i64 24
   %12 = load float, ptr %c.i.i8, align 4
   %13 = load float, ptr %q.i.i7, align 4
   %mul7.i.i9 = fmul float %sub4.i.i6, %13
@@ -83,12 +83,12 @@ entry:
   %15 = tail call float @llvm.fmuladd.f32(float %fneg.i.i10, float %sub.i.i3, float %mul13.i.i11)
   %retval.sroa.0.0.vec.insert.i.i12 = insertelement <2 x float> poison, float %14, i64 0
   %retval.sroa.0.4.vec.insert.i.i13 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i12, float %15, i64 1
-  %localAnchorB = getelementptr inbounds i8, ptr %this, i64 44
+  %localAnchorB = getelementptr inbounds nuw i8, ptr %this, i64 44
   store <2 x float> %retval.sroa.0.4.vec.insert.i.i13, ptr %localAnchorB, align 4
   %16 = load float, ptr %c.i.i, align 4
   %17 = load float, ptr %axis, align 4
   %18 = load float, ptr %q.i.i, align 4
-  %y.i.i15 = getelementptr inbounds i8, ptr %axis, i64 4
+  %y.i.i15 = getelementptr inbounds nuw i8, ptr %axis, i64 4
   %19 = load float, ptr %y.i.i15, align 4
   %mul1.i.i = fmul float %18, %19
   %20 = tail call float @llvm.fmuladd.f32(float %16, float %17, float %mul1.i.i)
@@ -97,7 +97,7 @@ entry:
   %21 = tail call float @llvm.fmuladd.f32(float %fneg.i.i16, float %17, float %mul6.i.i)
   %retval.sroa.0.0.vec.insert.i.i17 = insertelement <2 x float> poison, float %20, i64 0
   %retval.sroa.0.4.vec.insert.i.i18 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i17, float %21, i64 1
-  %localAxisA = getelementptr inbounds i8, ptr %this, i64 52
+  %localAxisA = getelementptr inbounds nuw i8, ptr %this, i64 52
   store <2 x float> %retval.sroa.0.4.vec.insert.i.i18, ptr %localAxisA, align 4
   ret void
 }
@@ -107,16 +107,16 @@ define void @_ZN12b2WheelJointC2EPK15b2WheelJointDef(ptr noundef nonnull align 8
 invoke.cont:
   tail call void @_ZN7b2JointC2EPK10b2JointDef(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef %def)
   store ptr getelementptr inbounds (i8, ptr @_ZTV12b2WheelJoint, i64 16), ptr %this, align 8
-  %localAnchorA = getelementptr inbounds i8, ptr %def, i64 36
-  %m_localAnchorA2 = getelementptr inbounds i8, ptr %this, i64 128
+  %localAnchorA = getelementptr inbounds nuw i8, ptr %def, i64 36
+  %m_localAnchorA2 = getelementptr inbounds nuw i8, ptr %this, i64 128
   %0 = load i64, ptr %localAnchorA, align 4
   store i64 %0, ptr %m_localAnchorA2, align 8
-  %localAnchorB = getelementptr inbounds i8, ptr %def, i64 44
-  %m_localAnchorB3 = getelementptr inbounds i8, ptr %this, i64 136
+  %localAnchorB = getelementptr inbounds nuw i8, ptr %def, i64 44
+  %m_localAnchorB3 = getelementptr inbounds nuw i8, ptr %this, i64 136
   %1 = load i64, ptr %localAnchorB, align 4
   store i64 %1, ptr %m_localAnchorB3, align 8
-  %localAxisA = getelementptr inbounds i8, ptr %def, i64 52
-  %m_localXAxisA4 = getelementptr inbounds i8, ptr %this, i64 144
+  %localAxisA = getelementptr inbounds nuw i8, ptr %def, i64 52
+  %m_localXAxisA4 = getelementptr inbounds nuw i8, ptr %this, i64 144
   %2 = load i64, ptr %localAxisA, align 4
   store i64 %2, ptr %m_localXAxisA4, align 8
   %3 = lshr i64 %2, 32
@@ -127,51 +127,51 @@ invoke.cont:
   %7 = bitcast i32 %6 to float
   %retval.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %mul.i, i64 0
   %retval.sroa.0.4.vec.insert.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i, float %7, i64 1
-  %m_localYAxisA6 = getelementptr inbounds i8, ptr %this, i64 152
+  %m_localYAxisA6 = getelementptr inbounds nuw i8, ptr %this, i64 152
   store <2 x float> %retval.sroa.0.4.vec.insert.i, ptr %m_localYAxisA6, align 8
-  %m_mass = getelementptr inbounds i8, ptr %this, i64 284
-  %m_impulse = getelementptr inbounds i8, ptr %this, i64 160
-  %lowerTranslation = getelementptr inbounds i8, ptr %def, i64 64
+  %m_mass = getelementptr inbounds nuw i8, ptr %this, i64 284
+  %m_impulse = getelementptr inbounds nuw i8, ptr %this, i64 160
+  %lowerTranslation = getelementptr inbounds nuw i8, ptr %def, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %m_impulse, i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_mass, i8 0, i64 16, i1 false)
   %8 = load float, ptr %lowerTranslation, align 8
-  %m_lowerTranslation = getelementptr inbounds i8, ptr %this, i64 184
+  %m_lowerTranslation = getelementptr inbounds nuw i8, ptr %this, i64 184
   store float %8, ptr %m_lowerTranslation, align 8
-  %upperTranslation = getelementptr inbounds i8, ptr %def, i64 68
+  %upperTranslation = getelementptr inbounds nuw i8, ptr %def, i64 68
   %9 = load float, ptr %upperTranslation, align 4
-  %m_upperTranslation = getelementptr inbounds i8, ptr %this, i64 188
+  %m_upperTranslation = getelementptr inbounds nuw i8, ptr %this, i64 188
   store float %9, ptr %m_upperTranslation, align 4
-  %enableLimit = getelementptr inbounds i8, ptr %def, i64 60
+  %enableLimit = getelementptr inbounds nuw i8, ptr %def, i64 60
   %10 = load i8, ptr %enableLimit, align 4
-  %m_enableLimit = getelementptr inbounds i8, ptr %this, i64 200
+  %m_enableLimit = getelementptr inbounds nuw i8, ptr %this, i64 200
   %frombool = and i8 %10, 1
   store i8 %frombool, ptr %m_enableLimit, align 8
-  %maxMotorTorque = getelementptr inbounds i8, ptr %def, i64 76
+  %maxMotorTorque = getelementptr inbounds nuw i8, ptr %def, i64 76
   %11 = load float, ptr %maxMotorTorque, align 4
-  %m_maxMotorTorque = getelementptr inbounds i8, ptr %this, i64 192
+  %m_maxMotorTorque = getelementptr inbounds nuw i8, ptr %this, i64 192
   store float %11, ptr %m_maxMotorTorque, align 8
-  %motorSpeed = getelementptr inbounds i8, ptr %def, i64 80
+  %motorSpeed = getelementptr inbounds nuw i8, ptr %def, i64 80
   %12 = load float, ptr %motorSpeed, align 8
-  %m_motorSpeed = getelementptr inbounds i8, ptr %this, i64 196
+  %m_motorSpeed = getelementptr inbounds nuw i8, ptr %this, i64 196
   store float %12, ptr %m_motorSpeed, align 4
-  %enableMotor = getelementptr inbounds i8, ptr %def, i64 72
+  %enableMotor = getelementptr inbounds nuw i8, ptr %def, i64 72
   %13 = load i8, ptr %enableMotor, align 8
-  %m_enableMotor = getelementptr inbounds i8, ptr %this, i64 201
+  %m_enableMotor = getelementptr inbounds nuw i8, ptr %this, i64 201
   %frombool8 = and i8 %13, 1
   store i8 %frombool8, ptr %m_enableMotor, align 1
-  %m_bias = getelementptr inbounds i8, ptr %this, i64 300
+  %m_bias = getelementptr inbounds nuw i8, ptr %this, i64 300
   store float 0.000000e+00, ptr %m_bias, align 4
-  %m_gamma = getelementptr inbounds i8, ptr %this, i64 304
+  %m_gamma = getelementptr inbounds nuw i8, ptr %this, i64 304
   store float 0.000000e+00, ptr %m_gamma, align 8
-  %m_ax9 = getelementptr inbounds i8, ptr %this, i64 252
-  %stiffness = getelementptr inbounds i8, ptr %def, i64 84
+  %m_ax9 = getelementptr inbounds nuw i8, ptr %this, i64 252
+  %stiffness = getelementptr inbounds nuw i8, ptr %def, i64 84
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_ax9, i8 0, i64 16, i1 false)
   %14 = load float, ptr %stiffness, align 4
-  %m_stiffness = getelementptr inbounds i8, ptr %this, i64 204
+  %m_stiffness = getelementptr inbounds nuw i8, ptr %this, i64 204
   store float %14, ptr %m_stiffness, align 4
-  %damping = getelementptr inbounds i8, ptr %def, i64 88
+  %damping = getelementptr inbounds nuw i8, ptr %def, i64 88
   %15 = load float, ptr %damping, align 8
-  %m_damping = getelementptr inbounds i8, ptr %this, i64 208
+  %m_damping = getelementptr inbounds nuw i8, ptr %this, i64 208
   store float %15, ptr %m_damping, align 8
   ret void
 }
@@ -183,69 +183,69 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
 define void @_ZN12b2WheelJoint23InitVelocityConstraintsERK12b2SolverData(ptr noundef nonnull align 8 dereferenceable(308) initializes((212, 308)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %data) unnamed_addr #3 align 2 {
 entry:
-  %m_bodyA = getelementptr inbounds i8, ptr %this, i64 96
+  %m_bodyA = getelementptr inbounds nuw i8, ptr %this, i64 96
   %0 = load ptr, ptr %m_bodyA, align 8
-  %m_islandIndex = getelementptr inbounds i8, ptr %0, i64 8
+  %m_islandIndex = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1 = load i32, ptr %m_islandIndex, align 8
-  %m_indexA = getelementptr inbounds i8, ptr %this, i64 212
+  %m_indexA = getelementptr inbounds nuw i8, ptr %this, i64 212
   store i32 %1, ptr %m_indexA, align 4
-  %m_bodyB = getelementptr inbounds i8, ptr %this, i64 104
+  %m_bodyB = getelementptr inbounds nuw i8, ptr %this, i64 104
   %2 = load ptr, ptr %m_bodyB, align 8
-  %m_islandIndex2 = getelementptr inbounds i8, ptr %2, i64 8
+  %m_islandIndex2 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %3 = load i32, ptr %m_islandIndex2, align 8
-  %m_indexB = getelementptr inbounds i8, ptr %this, i64 216
+  %m_indexB = getelementptr inbounds nuw i8, ptr %this, i64 216
   store i32 %3, ptr %m_indexB, align 8
-  %m_sweep = getelementptr inbounds i8, ptr %0, i64 28
-  %m_localCenterA = getelementptr inbounds i8, ptr %this, i64 220
+  %m_sweep = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %m_localCenterA = getelementptr inbounds nuw i8, ptr %this, i64 220
   %4 = load i64, ptr %m_sweep, align 4
   store i64 %4, ptr %m_localCenterA, align 4
-  %m_sweep5 = getelementptr inbounds i8, ptr %2, i64 28
-  %m_localCenterB = getelementptr inbounds i8, ptr %this, i64 228
+  %m_sweep5 = getelementptr inbounds nuw i8, ptr %2, i64 28
+  %m_localCenterB = getelementptr inbounds nuw i8, ptr %this, i64 228
   %5 = load i64, ptr %m_sweep5, align 4
   store i64 %5, ptr %m_localCenterB, align 4
-  %m_invMass = getelementptr inbounds i8, ptr %0, i64 148
+  %m_invMass = getelementptr inbounds nuw i8, ptr %0, i64 148
   %6 = load float, ptr %m_invMass, align 4
-  %m_invMassA = getelementptr inbounds i8, ptr %this, i64 236
+  %m_invMassA = getelementptr inbounds nuw i8, ptr %this, i64 236
   store float %6, ptr %m_invMassA, align 4
-  %m_invMass9 = getelementptr inbounds i8, ptr %2, i64 148
+  %m_invMass9 = getelementptr inbounds nuw i8, ptr %2, i64 148
   %7 = load float, ptr %m_invMass9, align 4
-  %m_invMassB = getelementptr inbounds i8, ptr %this, i64 240
+  %m_invMassB = getelementptr inbounds nuw i8, ptr %this, i64 240
   store float %7, ptr %m_invMassB, align 8
-  %m_invI = getelementptr inbounds i8, ptr %0, i64 156
+  %m_invI = getelementptr inbounds nuw i8, ptr %0, i64 156
   %8 = load float, ptr %m_invI, align 4
-  %m_invIA = getelementptr inbounds i8, ptr %this, i64 244
+  %m_invIA = getelementptr inbounds nuw i8, ptr %this, i64 244
   store float %8, ptr %m_invIA, align 4
-  %m_invI12 = getelementptr inbounds i8, ptr %2, i64 156
+  %m_invI12 = getelementptr inbounds nuw i8, ptr %2, i64 156
   %9 = load float, ptr %m_invI12, align 4
-  %m_invIB = getelementptr inbounds i8, ptr %this, i64 248
+  %m_invIB = getelementptr inbounds nuw i8, ptr %this, i64 248
   store float %9, ptr %m_invIB, align 8
-  %positions = getelementptr inbounds i8, ptr %data, i64 24
+  %positions = getelementptr inbounds nuw i8, ptr %data, i64 24
   %10 = load ptr, ptr %positions, align 8
   %idxprom = sext i32 %1 to i64
   %arrayidx = getelementptr inbounds %struct.b2Position, ptr %10, i64 %idxprom
   %11 = load float, ptr %arrayidx, align 4
-  %arrayidx.sroa_idx = getelementptr inbounds i8, ptr %arrayidx, i64 4
+  %arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx, i64 4
   %12 = load float, ptr %arrayidx.sroa_idx, align 4
   %a = getelementptr inbounds %struct.b2Position, ptr %10, i64 %idxprom, i32 1
   %13 = load float, ptr %a, align 4
-  %velocities = getelementptr inbounds i8, ptr %data, i64 32
+  %velocities = getelementptr inbounds nuw i8, ptr %data, i64 32
   %14 = load ptr, ptr %velocities, align 8
   %arrayidx24 = getelementptr inbounds %struct.b2Velocity, ptr %14, i64 %idxprom
   %15 = load float, ptr %arrayidx24, align 4
-  %arrayidx24.sroa_idx = getelementptr inbounds i8, ptr %arrayidx24, i64 4
+  %arrayidx24.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx24, i64 4
   %16 = load float, ptr %arrayidx24.sroa_idx, align 4
   %w = getelementptr inbounds %struct.b2Velocity, ptr %14, i64 %idxprom, i32 1
   %17 = load float, ptr %w, align 4
   %idxprom31 = sext i32 %3 to i64
   %arrayidx32 = getelementptr inbounds %struct.b2Position, ptr %10, i64 %idxprom31
   %18 = load float, ptr %arrayidx32, align 4
-  %arrayidx32.sroa_idx = getelementptr inbounds i8, ptr %arrayidx32, i64 4
+  %arrayidx32.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx32, i64 4
   %19 = load float, ptr %arrayidx32.sroa_idx, align 4
   %a38 = getelementptr inbounds %struct.b2Position, ptr %10, i64 %idxprom31, i32 1
   %20 = load float, ptr %a38, align 4
   %arrayidx42 = getelementptr inbounds %struct.b2Velocity, ptr %14, i64 %idxprom31
   %21 = load float, ptr %arrayidx42, align 4
-  %arrayidx42.sroa_idx = getelementptr inbounds i8, ptr %arrayidx42, i64 4
+  %arrayidx42.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx42, i64 4
   %22 = load float, ptr %arrayidx42.sroa_idx, align 4
   %w48 = getelementptr inbounds %struct.b2Velocity, ptr %14, i64 %idxprom31, i32 1
   %23 = load float, ptr %w48, align 4
@@ -253,13 +253,13 @@ entry:
   %call2.i = tail call float @cosf(float noundef %13) #17
   %call.i35 = tail call float @sinf(float noundef %20) #17
   %call2.i36 = tail call float @cosf(float noundef %20) #17
-  %m_localAnchorA = getelementptr inbounds i8, ptr %this, i64 128
+  %m_localAnchorA = getelementptr inbounds nuw i8, ptr %this, i64 128
   %24 = load float, ptr %m_localAnchorA, align 8
   %25 = load float, ptr %m_localCenterA, align 4
   %sub.i = fsub float %24, %25
-  %y.i = getelementptr inbounds i8, ptr %this, i64 132
+  %y.i = getelementptr inbounds nuw i8, ptr %this, i64 132
   %26 = load float, ptr %y.i, align 4
-  %y2.i = getelementptr inbounds i8, ptr %this, i64 224
+  %y2.i = getelementptr inbounds nuw i8, ptr %this, i64 224
   %27 = load float, ptr %y2.i, align 8
   %sub3.i = fsub float %26, %27
   %28 = fneg float %sub3.i
@@ -267,13 +267,13 @@ entry:
   %29 = tail call float @llvm.fmuladd.f32(float %call2.i, float %sub.i, float %neg.i)
   %mul6.i = fmul float %call2.i, %sub3.i
   %30 = tail call float @llvm.fmuladd.f32(float %call.i, float %sub.i, float %mul6.i)
-  %m_localAnchorB = getelementptr inbounds i8, ptr %this, i64 136
+  %m_localAnchorB = getelementptr inbounds nuw i8, ptr %this, i64 136
   %31 = load float, ptr %m_localAnchorB, align 8
   %32 = load float, ptr %m_localCenterB, align 4
   %sub.i42 = fsub float %31, %32
-  %y.i43 = getelementptr inbounds i8, ptr %this, i64 140
+  %y.i43 = getelementptr inbounds nuw i8, ptr %this, i64 140
   %33 = load float, ptr %y.i43, align 4
-  %y2.i44 = getelementptr inbounds i8, ptr %this, i64 232
+  %y2.i44 = getelementptr inbounds nuw i8, ptr %this, i64 232
   %34 = load float, ptr %y2.i44, align 8
   %sub3.i45 = fsub float %33, %34
   %35 = fneg float %sub3.i45
@@ -287,9 +287,9 @@ entry:
   %sub3.i61 = fsub float %add3.i, %12
   %sub.i64 = fsub float %sub.i58, %29
   %sub3.i67 = fsub float %sub3.i61, %30
-  %m_localYAxisA = getelementptr inbounds i8, ptr %this, i64 152
+  %m_localYAxisA = getelementptr inbounds nuw i8, ptr %this, i64 152
   %38 = load float, ptr %m_localYAxisA, align 8
-  %y.i71 = getelementptr inbounds i8, ptr %this, i64 156
+  %y.i71 = getelementptr inbounds nuw i8, ptr %this, i64 156
   %39 = load float, ptr %y.i71, align 4
   %40 = fneg float %39
   %neg.i72 = fmul float %call.i, %40
@@ -298,32 +298,32 @@ entry:
   %42 = tail call float @llvm.fmuladd.f32(float %call.i, float %38, float %mul6.i73)
   %retval.sroa.0.0.vec.insert.i74 = insertelement <2 x float> poison, float %41, i64 0
   %retval.sroa.0.4.vec.insert.i75 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i74, float %42, i64 1
-  %m_ay = getelementptr inbounds i8, ptr %this, i64 260
+  %m_ay = getelementptr inbounds nuw i8, ptr %this, i64 260
   store <2 x float> %retval.sroa.0.4.vec.insert.i75, ptr %m_ay, align 4
   %add.i76 = fadd float %29, %sub.i64
   %add3.i79 = fadd float %30, %sub3.i67
   %43 = fneg float %41
   %neg.i83 = fmul float %add3.i79, %43
   %44 = tail call noundef float @llvm.fmuladd.f32(float %add.i76, float %42, float %neg.i83)
-  %m_sAy = getelementptr inbounds i8, ptr %this, i64 276
+  %m_sAy = getelementptr inbounds nuw i8, ptr %this, i64 276
   store float %44, ptr %m_sAy, align 4
   %neg.i86 = fmul float %37, %43
   %45 = tail call noundef float @llvm.fmuladd.f32(float %36, float %42, float %neg.i86)
-  %m_sBy = getelementptr inbounds i8, ptr %this, i64 280
+  %m_sBy = getelementptr inbounds nuw i8, ptr %this, i64 280
   store float %45, ptr %m_sBy, align 8
   %add = fadd float %6, %7
   %mul = fmul float %8, %44
   %46 = tail call float @llvm.fmuladd.f32(float %mul, float %44, float %add)
   %mul72 = fmul float %9, %45
   %47 = tail call float @llvm.fmuladd.f32(float %mul72, float %45, float %46)
-  %m_mass = getelementptr inbounds i8, ptr %this, i64 284
+  %m_mass = getelementptr inbounds nuw i8, ptr %this, i64 284
   %cmp = fcmp ogt float %47, 0.000000e+00
   %div = fdiv float 1.000000e+00, %47
   %storemerge = select i1 %cmp, float %div, float %47
   store float %storemerge, ptr %m_mass, align 4
-  %m_localXAxisA = getelementptr inbounds i8, ptr %this, i64 144
+  %m_localXAxisA = getelementptr inbounds nuw i8, ptr %this, i64 144
   %48 = load float, ptr %m_localXAxisA, align 8
-  %y.i88 = getelementptr inbounds i8, ptr %this, i64 148
+  %y.i88 = getelementptr inbounds nuw i8, ptr %this, i64 148
   %49 = load float, ptr %y.i88, align 4
   %50 = fneg float %49
   %neg.i89 = fmul float %call.i, %50
@@ -332,16 +332,16 @@ entry:
   %52 = tail call float @llvm.fmuladd.f32(float %call.i, float %48, float %mul6.i90)
   %retval.sroa.0.0.vec.insert.i91 = insertelement <2 x float> poison, float %51, i64 0
   %retval.sroa.0.4.vec.insert.i92 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i91, float %52, i64 1
-  %m_ax = getelementptr inbounds i8, ptr %this, i64 252
+  %m_ax = getelementptr inbounds nuw i8, ptr %this, i64 252
   store <2 x float> %retval.sroa.0.4.vec.insert.i92, ptr %m_ax, align 4
   %53 = fneg float %51
   %neg.i101 = fmul float %add3.i79, %53
   %54 = tail call noundef float @llvm.fmuladd.f32(float %add.i76, float %52, float %neg.i101)
-  %m_sAx = getelementptr inbounds i8, ptr %this, i64 268
+  %m_sAx = getelementptr inbounds nuw i8, ptr %this, i64 268
   store float %54, ptr %m_sAx, align 4
   %neg.i104 = fmul float %37, %53
   %55 = tail call noundef float @llvm.fmuladd.f32(float %36, float %52, float %neg.i104)
-  %m_sBx = getelementptr inbounds i8, ptr %this, i64 272
+  %m_sBx = getelementptr inbounds nuw i8, ptr %this, i64 272
   store float %55, ptr %m_sBx, align 8
   %mul88 = fmul float %8, %54
   %56 = tail call float @llvm.fmuladd.f32(float %mul88, float %54, float %add)
@@ -351,21 +351,21 @@ entry:
   br i1 %cmp95, label %if.end99, label %if.end99.thread
 
 if.end99.thread:                                  ; preds = %entry
-  %m_axialMass98 = getelementptr inbounds i8, ptr %this, i64 292
+  %m_axialMass98 = getelementptr inbounds nuw i8, ptr %this, i64 292
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_axialMass98, i8 0, i64 16, i1 false)
   br label %if.else134
 
 if.end99:                                         ; preds = %entry
   %div97 = fdiv float 1.000000e+00, %57
-  %m_axialMass = getelementptr inbounds i8, ptr %this, i64 292
+  %m_axialMass = getelementptr inbounds nuw i8, ptr %this, i64 292
   store float %div97, ptr %m_axialMass, align 4
-  %m_springMass = getelementptr inbounds i8, ptr %this, i64 296
+  %m_springMass = getelementptr inbounds nuw i8, ptr %this, i64 296
   store float 0.000000e+00, ptr %m_springMass, align 8
-  %m_bias = getelementptr inbounds i8, ptr %this, i64 300
+  %m_bias = getelementptr inbounds nuw i8, ptr %this, i64 300
   store float 0.000000e+00, ptr %m_bias, align 4
-  %m_gamma = getelementptr inbounds i8, ptr %this, i64 304
+  %m_gamma = getelementptr inbounds nuw i8, ptr %this, i64 304
   store float 0.000000e+00, ptr %m_gamma, align 8
-  %m_stiffness = getelementptr inbounds i8, ptr %this, i64 204
+  %m_stiffness = getelementptr inbounds nuw i8, ptr %this, i64 204
   %58 = load float, ptr %m_stiffness, align 4
   %cmp100 = fcmp ogt float %58, 0.000000e+00
   br i1 %cmp100, label %if.then102, label %if.else134
@@ -375,7 +375,7 @@ if.then102:                                       ; preds = %if.end99
   %mul3.i = fmul float %sub3.i67, %52
   %59 = tail call noundef float @llvm.fmuladd.f32(float %sub.i64, float %51, float %mul3.i)
   %60 = load float, ptr %data, align 8
-  %m_damping = getelementptr inbounds i8, ptr %this, i64 208
+  %m_damping = getelementptr inbounds nuw i8, ptr %this, i64 208
   %61 = load float, ptr %m_damping, align 8
   %62 = tail call float @llvm.fmuladd.f32(float %60, float %58, float %61)
   %mul109 = fmul float %60, %62
@@ -398,12 +398,12 @@ if.then129:                                       ; preds = %if.then102
   br label %if.end135
 
 if.else134:                                       ; preds = %if.end99.thread, %if.end99
-  %m_springImpulse = getelementptr inbounds i8, ptr %this, i64 168
+  %m_springImpulse = getelementptr inbounds nuw i8, ptr %this, i64 168
   store float 0.000000e+00, ptr %m_springImpulse, align 8
   br label %if.end135
 
 if.end135:                                        ; preds = %if.then102, %if.then129, %if.else134
-  %m_enableLimit = getelementptr inbounds i8, ptr %this, i64 200
+  %m_enableLimit = getelementptr inbounds nuw i8, ptr %this, i64 200
   %63 = load i8, ptr %m_enableLimit, align 8
   %tobool = trunc i8 %63 to i1
   br i1 %tobool, label %if.then136, label %if.else139
@@ -411,26 +411,26 @@ if.end135:                                        ; preds = %if.then102, %if.the
 if.then136:                                       ; preds = %if.end135
   %mul3.i109 = fmul float %sub3.i67, %52
   %64 = tail call noundef float @llvm.fmuladd.f32(float %51, float %sub.i64, float %mul3.i109)
-  %m_translation = getelementptr inbounds i8, ptr %this, i64 180
+  %m_translation = getelementptr inbounds nuw i8, ptr %this, i64 180
   store float %64, ptr %m_translation, align 4
   br label %if.end140
 
 if.else139:                                       ; preds = %if.end135
-  %m_lowerImpulse = getelementptr inbounds i8, ptr %this, i64 172
+  %m_lowerImpulse = getelementptr inbounds nuw i8, ptr %this, i64 172
   store float 0.000000e+00, ptr %m_lowerImpulse, align 4
-  %m_upperImpulse = getelementptr inbounds i8, ptr %this, i64 176
+  %m_upperImpulse = getelementptr inbounds nuw i8, ptr %this, i64 176
   store float 0.000000e+00, ptr %m_upperImpulse, align 8
   br label %if.end140
 
 if.end140:                                        ; preds = %if.else139, %if.then136
-  %m_enableMotor = getelementptr inbounds i8, ptr %this, i64 201
+  %m_enableMotor = getelementptr inbounds nuw i8, ptr %this, i64 201
   %65 = load i8, ptr %m_enableMotor, align 1
   %tobool141 = trunc i8 %65 to i1
   br i1 %tobool141, label %if.then142, label %if.else151
 
 if.then142:                                       ; preds = %if.end140
   %add143 = fadd float %8, %9
-  %m_motorMass = getelementptr inbounds i8, ptr %this, i64 288
+  %m_motorMass = getelementptr inbounds nuw i8, ptr %this, i64 288
   store float %add143, ptr %m_motorMass, align 8
   %cmp145 = fcmp ogt float %add143, 0.000000e+00
   br i1 %cmp145, label %if.then146, label %if.end153
@@ -441,39 +441,39 @@ if.then146:                                       ; preds = %if.then142
   br label %if.end153
 
 if.else151:                                       ; preds = %if.end140
-  %m_motorMass152 = getelementptr inbounds i8, ptr %this, i64 288
+  %m_motorMass152 = getelementptr inbounds nuw i8, ptr %this, i64 288
   store float 0.000000e+00, ptr %m_motorMass152, align 8
-  %m_motorImpulse = getelementptr inbounds i8, ptr %this, i64 164
+  %m_motorImpulse = getelementptr inbounds nuw i8, ptr %this, i64 164
   store float 0.000000e+00, ptr %m_motorImpulse, align 4
   br label %if.end153
 
 if.end153:                                        ; preds = %if.then142, %if.then146, %if.else151
-  %warmStarting = getelementptr inbounds i8, ptr %data, i64 20
+  %warmStarting = getelementptr inbounds nuw i8, ptr %data, i64 20
   %66 = load i8, ptr %warmStarting, align 4
   %tobool155 = trunc i8 %66 to i1
   br i1 %tobool155, label %if.then156, label %if.else203
 
 if.then156:                                       ; preds = %if.end153
-  %dtRatio = getelementptr inbounds i8, ptr %data, i64 8
+  %dtRatio = getelementptr inbounds nuw i8, ptr %data, i64 8
   %67 = load float, ptr %dtRatio, align 8
-  %m_impulse = getelementptr inbounds i8, ptr %this, i64 160
+  %m_impulse = getelementptr inbounds nuw i8, ptr %this, i64 160
   %68 = load float, ptr %m_impulse, align 8
   %mul158 = fmul float %67, %68
   store float %mul158, ptr %m_impulse, align 8
   %69 = load float, ptr %dtRatio, align 8
-  %m_springImpulse161 = getelementptr inbounds i8, ptr %this, i64 168
+  %m_springImpulse161 = getelementptr inbounds nuw i8, ptr %this, i64 168
   %70 = load float, ptr %m_springImpulse161, align 8
   %mul162 = fmul float %69, %70
   store float %mul162, ptr %m_springImpulse161, align 8
   %71 = load float, ptr %dtRatio, align 8
-  %m_motorImpulse165 = getelementptr inbounds i8, ptr %this, i64 164
+  %m_motorImpulse165 = getelementptr inbounds nuw i8, ptr %this, i64 164
   %72 = load float, ptr %m_motorImpulse165, align 4
   %mul166 = fmul float %71, %72
   store float %mul166, ptr %m_motorImpulse165, align 4
-  %m_lowerImpulse168 = getelementptr inbounds i8, ptr %this, i64 172
+  %m_lowerImpulse168 = getelementptr inbounds nuw i8, ptr %this, i64 172
   %73 = load float, ptr %m_lowerImpulse168, align 4
   %add169 = fadd float %mul162, %73
-  %m_upperImpulse170 = getelementptr inbounds i8, ptr %this, i64 176
+  %m_upperImpulse170 = getelementptr inbounds nuw i8, ptr %this, i64 176
   %74 = load float, ptr %m_upperImpulse170, align 8
   %sub = fsub float %add169, %74
   %mul.i = fmul float %41, %mul158
@@ -506,7 +506,7 @@ if.then156:                                       ; preds = %if.end153
   br label %if.end209
 
 if.else203:                                       ; preds = %if.end153
-  %m_impulse204 = getelementptr inbounds i8, ptr %this, i64 160
+  %m_impulse204 = getelementptr inbounds nuw i8, ptr %this, i64 160
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %m_impulse204, i8 0, i64 20, i1 false)
   br label %if.end209
 
@@ -522,7 +522,7 @@ if.end209:                                        ; preds = %if.else203, %if.the
   %idxprom212 = sext i32 %84 to i64
   %arrayidx213 = getelementptr inbounds %struct.b2Velocity, ptr %83, i64 %idxprom212
   store float %vA.sroa.0.0, ptr %arrayidx213, align 4
-  %arrayidx213.sroa_idx = getelementptr inbounds i8, ptr %arrayidx213, i64 4
+  %arrayidx213.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx213, i64 4
   store float %vA.sroa.4.0, ptr %arrayidx213.sroa_idx, align 4
   %85 = load ptr, ptr %velocities, align 8
   %86 = load i32, ptr %m_indexA, align 4
@@ -534,7 +534,7 @@ if.end209:                                        ; preds = %if.else203, %if.the
   %idxprom222 = sext i32 %88 to i64
   %arrayidx223 = getelementptr inbounds %struct.b2Velocity, ptr %87, i64 %idxprom222
   store float %vB.sroa.0.0, ptr %arrayidx223, align 4
-  %arrayidx223.sroa_idx = getelementptr inbounds i8, ptr %arrayidx223, i64 4
+  %arrayidx223.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx223, i64 4
   store float %vB.sroa.4.0, ptr %arrayidx223.sroa_idx, align 4
   %89 = load ptr, ptr %velocities, align 8
   %90 = load i32, ptr %m_indexB, align 8
@@ -550,58 +550,58 @@ declare float @llvm.fmuladd.f32(float, float, float) #4
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZN12b2WheelJoint24SolveVelocityConstraintsERK12b2SolverData(ptr nocapture noundef nonnull align 8 dereferenceable(308) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %data) unnamed_addr #5 align 2 {
 entry:
-  %m_invMassA = getelementptr inbounds i8, ptr %this, i64 236
+  %m_invMassA = getelementptr inbounds nuw i8, ptr %this, i64 236
   %0 = load float, ptr %m_invMassA, align 4
-  %m_invMassB = getelementptr inbounds i8, ptr %this, i64 240
+  %m_invMassB = getelementptr inbounds nuw i8, ptr %this, i64 240
   %1 = load float, ptr %m_invMassB, align 8
-  %m_invIA = getelementptr inbounds i8, ptr %this, i64 244
+  %m_invIA = getelementptr inbounds nuw i8, ptr %this, i64 244
   %2 = load float, ptr %m_invIA, align 4
-  %m_invIB = getelementptr inbounds i8, ptr %this, i64 248
+  %m_invIB = getelementptr inbounds nuw i8, ptr %this, i64 248
   %3 = load float, ptr %m_invIB, align 8
-  %velocities = getelementptr inbounds i8, ptr %data, i64 32
+  %velocities = getelementptr inbounds nuw i8, ptr %data, i64 32
   %4 = load ptr, ptr %velocities, align 8
-  %m_indexA = getelementptr inbounds i8, ptr %this, i64 212
+  %m_indexA = getelementptr inbounds nuw i8, ptr %this, i64 212
   %5 = load i32, ptr %m_indexA, align 4
   %idxprom = sext i32 %5 to i64
   %arrayidx = getelementptr inbounds %struct.b2Velocity, ptr %4, i64 %idxprom
   %6 = load float, ptr %arrayidx, align 4
-  %arrayidx.sroa_idx = getelementptr inbounds i8, ptr %arrayidx, i64 4
+  %arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx, i64 4
   %7 = load float, ptr %arrayidx.sroa_idx, align 4
   %w = getelementptr inbounds %struct.b2Velocity, ptr %4, i64 %idxprom, i32 1
   %8 = load float, ptr %w, align 4
-  %m_indexB = getelementptr inbounds i8, ptr %this, i64 216
+  %m_indexB = getelementptr inbounds nuw i8, ptr %this, i64 216
   %9 = load i32, ptr %m_indexB, align 8
   %idxprom7 = sext i32 %9 to i64
   %arrayidx8 = getelementptr inbounds %struct.b2Velocity, ptr %4, i64 %idxprom7
   %10 = load float, ptr %arrayidx8, align 4
-  %arrayidx8.sroa_idx = getelementptr inbounds i8, ptr %arrayidx8, i64 4
+  %arrayidx8.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx8, i64 4
   %11 = load float, ptr %arrayidx8.sroa_idx, align 4
   %w14 = getelementptr inbounds %struct.b2Velocity, ptr %4, i64 %idxprom7, i32 1
   %12 = load float, ptr %w14, align 4
-  %m_ax = getelementptr inbounds i8, ptr %this, i64 252
+  %m_ax = getelementptr inbounds nuw i8, ptr %this, i64 252
   %sub.i = fsub float %10, %6
   %sub3.i = fsub float %11, %7
   %13 = load float, ptr %m_ax, align 4
-  %y.i60 = getelementptr inbounds i8, ptr %this, i64 256
+  %y.i60 = getelementptr inbounds nuw i8, ptr %this, i64 256
   %14 = load float, ptr %y.i60, align 8
   %mul3.i = fmul float %sub3.i, %14
   %15 = tail call noundef float @llvm.fmuladd.f32(float %13, float %sub.i, float %mul3.i)
-  %m_sBx = getelementptr inbounds i8, ptr %this, i64 272
+  %m_sBx = getelementptr inbounds nuw i8, ptr %this, i64 272
   %16 = load float, ptr %m_sBx, align 8
   %17 = tail call float @llvm.fmuladd.f32(float %16, float %12, float %15)
-  %m_sAx = getelementptr inbounds i8, ptr %this, i64 268
+  %m_sAx = getelementptr inbounds nuw i8, ptr %this, i64 268
   %18 = load float, ptr %m_sAx, align 4
   %neg = fneg float %18
   %19 = tail call float @llvm.fmuladd.f32(float %neg, float %8, float %17)
-  %m_springMass = getelementptr inbounds i8, ptr %this, i64 296
+  %m_springMass = getelementptr inbounds nuw i8, ptr %this, i64 296
   %20 = load float, ptr %m_springMass, align 8
   %fneg = fneg float %20
-  %m_bias = getelementptr inbounds i8, ptr %this, i64 300
+  %m_bias = getelementptr inbounds nuw i8, ptr %this, i64 300
   %21 = load float, ptr %m_bias, align 4
   %add = fadd float %19, %21
-  %m_gamma = getelementptr inbounds i8, ptr %this, i64 304
+  %m_gamma = getelementptr inbounds nuw i8, ptr %this, i64 304
   %22 = load float, ptr %m_gamma, align 8
-  %m_springImpulse = getelementptr inbounds i8, ptr %this, i64 168
+  %m_springImpulse = getelementptr inbounds nuw i8, ptr %this, i64 168
   %23 = load float, ptr %m_springImpulse, align 8
   %24 = tail call float @llvm.fmuladd.f32(float %22, float %23, float %add)
   %mul = fmul float %24, %fneg
@@ -623,15 +623,15 @@ entry:
   %add4.i = fadd float %11, %mul1.i74
   %26 = tail call float @llvm.fmuladd.f32(float %3, float %mul23, float %12)
   %sub = fsub float %26, %25
-  %m_motorSpeed = getelementptr inbounds i8, ptr %this, i64 196
+  %m_motorSpeed = getelementptr inbounds nuw i8, ptr %this, i64 196
   %27 = load float, ptr %m_motorSpeed, align 4
   %sub32 = fsub float %sub, %27
-  %m_motorMass = getelementptr inbounds i8, ptr %this, i64 288
+  %m_motorMass = getelementptr inbounds nuw i8, ptr %this, i64 288
   %28 = load float, ptr %m_motorMass, align 8
-  %m_motorImpulse = getelementptr inbounds i8, ptr %this, i64 164
+  %m_motorImpulse = getelementptr inbounds nuw i8, ptr %this, i64 164
   %29 = load float, ptr %m_motorImpulse, align 4
   %30 = load float, ptr %data, align 8
-  %m_maxMotorTorque = getelementptr inbounds i8, ptr %this, i64 192
+  %m_maxMotorTorque = getelementptr inbounds nuw i8, ptr %this, i64 192
   %31 = load float, ptr %m_maxMotorTorque, align 8
   %mul36 = fmul float %30, %31
   %32 = fmul float %28, %sub32
@@ -645,15 +645,15 @@ entry:
   %sub43 = fsub float %cond.i2.i, %29
   %33 = tail call float @llvm.fmuladd.f32(float %neg27, float %sub43, float %25)
   %34 = tail call float @llvm.fmuladd.f32(float %3, float %sub43, float %26)
-  %m_enableLimit = getelementptr inbounds i8, ptr %this, i64 200
+  %m_enableLimit = getelementptr inbounds nuw i8, ptr %this, i64 200
   %35 = load i8, ptr %m_enableLimit, align 8
   %tobool = trunc i8 %35 to i1
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %m_translation = getelementptr inbounds i8, ptr %this, i64 180
+  %m_translation = getelementptr inbounds nuw i8, ptr %this, i64 180
   %36 = load float, ptr %m_translation, align 4
-  %m_lowerTranslation = getelementptr inbounds i8, ptr %this, i64 184
+  %m_lowerTranslation = getelementptr inbounds nuw i8, ptr %this, i64 184
   %37 = load float, ptr %m_lowerTranslation, align 8
   %sub47 = fsub float %36, %37
   %sub.i79 = fsub float %add.i, %sub.i70
@@ -662,14 +662,14 @@ if.then:                                          ; preds = %entry
   %38 = tail call noundef float @llvm.fmuladd.f32(float %13, float %sub.i79, float %mul3.i87)
   %39 = tail call float @llvm.fmuladd.f32(float %16, float %34, float %38)
   %40 = tail call float @llvm.fmuladd.f32(float %neg, float %33, float %39)
-  %m_axialMass = getelementptr inbounds i8, ptr %this, i64 292
+  %m_axialMass = getelementptr inbounds nuw i8, ptr %this, i64 292
   %41 = load float, ptr %m_axialMass, align 4
   %cmp.i = fcmp ogt float %sub47, 0.000000e+00
   %cond.i = select i1 %cmp.i, float %sub47, float 0.000000e+00
-  %inv_dt = getelementptr inbounds i8, ptr %data, i64 4
+  %inv_dt = getelementptr inbounds nuw i8, ptr %data, i64 4
   %42 = load float, ptr %inv_dt, align 4
   %43 = tail call float @llvm.fmuladd.f32(float %cond.i, float %42, float %40)
-  %m_lowerImpulse = getelementptr inbounds i8, ptr %this, i64 172
+  %m_lowerImpulse = getelementptr inbounds nuw i8, ptr %this, i64 172
   %44 = load float, ptr %m_lowerImpulse, align 4
   %45 = fmul float %41, %43
   %add66 = fsub float %44, %45
@@ -691,7 +691,7 @@ if.then:                                          ; preds = %entry
   %add.i109 = fadd float %add.i, %mul.i104
   %add4.i112 = fadd float %add4.i, %mul1.i106
   %47 = tail call float @llvm.fmuladd.f32(float %3, float %mul79, float %34)
-  %m_upperTranslation = getelementptr inbounds i8, ptr %this, i64 188
+  %m_upperTranslation = getelementptr inbounds nuw i8, ptr %this, i64 188
   %48 = load float, ptr %m_upperTranslation, align 4
   %sub89 = fsub float %48, %36
   %sub.i113 = fsub float %sub.i100, %add.i109
@@ -705,7 +705,7 @@ if.then:                                          ; preds = %entry
   %cond.i123 = select i1 %cmp.i122, float %sub89, float 0.000000e+00
   %52 = load float, ptr %inv_dt, align 4
   %53 = tail call float @llvm.fmuladd.f32(float %cond.i123, float %52, float %51)
-  %m_upperImpulse = getelementptr inbounds i8, ptr %this, i64 176
+  %m_upperImpulse = getelementptr inbounds nuw i8, ptr %this, i64 176
   %54 = load float, ptr %m_upperImpulse, align 8
   %55 = fmul float %41, %53
   %add110 = fsub float %54, %55
@@ -737,26 +737,26 @@ if.end:                                           ; preds = %if.then, %entry
   %vA.sroa.14.0 = phi float [ %add4.i139, %if.then ], [ %sub4.i, %entry ]
   %wB.0 = phi float [ %57, %if.then ], [ %34, %entry ]
   %wA.0 = phi float [ %56, %if.then ], [ %33, %entry ]
-  %m_ay = getelementptr inbounds i8, ptr %this, i64 260
+  %m_ay = getelementptr inbounds nuw i8, ptr %this, i64 260
   %sub.i149 = fsub float %vB.sroa.0.0, %vA.sroa.0.0
   %sub3.i152 = fsub float %vB.sroa.14.0, %vA.sroa.14.0
   %58 = load float, ptr %m_ay, align 4
-  %y.i155 = getelementptr inbounds i8, ptr %this, i64 264
+  %y.i155 = getelementptr inbounds nuw i8, ptr %this, i64 264
   %59 = load float, ptr %y.i155, align 8
   %mul3.i157 = fmul float %sub3.i152, %59
   %60 = tail call noundef float @llvm.fmuladd.f32(float %58, float %sub.i149, float %mul3.i157)
-  %m_sBy = getelementptr inbounds i8, ptr %this, i64 280
+  %m_sBy = getelementptr inbounds nuw i8, ptr %this, i64 280
   %61 = load float, ptr %m_sBy, align 8
   %62 = tail call float @llvm.fmuladd.f32(float %61, float %wB.0, float %60)
-  %m_sAy = getelementptr inbounds i8, ptr %this, i64 276
+  %m_sAy = getelementptr inbounds nuw i8, ptr %this, i64 276
   %63 = load float, ptr %m_sAy, align 4
   %neg137 = fneg float %63
   %64 = tail call float @llvm.fmuladd.f32(float %neg137, float %wA.0, float %62)
-  %m_mass = getelementptr inbounds i8, ptr %this, i64 284
+  %m_mass = getelementptr inbounds nuw i8, ptr %this, i64 284
   %65 = load float, ptr %m_mass, align 4
   %fneg139 = fneg float %65
   %mul140 = fmul float %64, %fneg139
-  %m_impulse = getelementptr inbounds i8, ptr %this, i64 160
+  %m_impulse = getelementptr inbounds nuw i8, ptr %this, i64 160
   %66 = load float, ptr %m_impulse, align 8
   %add141 = fadd float %66, %mul140
   store float %add141, ptr %m_impulse, align 8
@@ -777,7 +777,7 @@ if.end:                                           ; preds = %if.then, %entry
   %69 = load ptr, ptr %velocities, align 8
   %arrayidx161 = getelementptr inbounds %struct.b2Velocity, ptr %69, i64 %idxprom
   store float %sub.i168, ptr %arrayidx161, align 4
-  %arrayidx161.sroa_idx = getelementptr inbounds i8, ptr %arrayidx161, i64 4
+  %arrayidx161.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx161, i64 4
   store float %sub4.i171, ptr %arrayidx161.sroa_idx, align 4
   %70 = load ptr, ptr %velocities, align 8
   %71 = load i32, ptr %m_indexA, align 4
@@ -789,7 +789,7 @@ if.end:                                           ; preds = %if.then, %entry
   %idxprom170 = sext i32 %73 to i64
   %arrayidx171 = getelementptr inbounds %struct.b2Velocity, ptr %72, i64 %idxprom170
   store float %add.i177, ptr %arrayidx171, align 4
-  %arrayidx171.sroa_idx = getelementptr inbounds i8, ptr %arrayidx171, i64 4
+  %arrayidx171.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx171, i64 4
   store float %add4.i180, ptr %arrayidx171.sroa_idx, align 4
   %74 = load ptr, ptr %velocities, align 8
   %75 = load i32, ptr %m_indexB, align 8
@@ -802,27 +802,27 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
 define noundef zeroext i1 @_ZN12b2WheelJoint24SolvePositionConstraintsERK12b2SolverData(ptr nocapture noundef nonnull readonly align 8 dereferenceable(308) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %data) unnamed_addr #3 align 2 {
 entry:
-  %positions = getelementptr inbounds i8, ptr %data, i64 24
+  %positions = getelementptr inbounds nuw i8, ptr %data, i64 24
   %0 = load ptr, ptr %positions, align 8
-  %m_indexA = getelementptr inbounds i8, ptr %this, i64 212
+  %m_indexA = getelementptr inbounds nuw i8, ptr %this, i64 212
   %1 = load i32, ptr %m_indexA, align 4
   %idxprom = sext i32 %1 to i64
   %arrayidx = getelementptr inbounds %struct.b2Position, ptr %0, i64 %idxprom
   %2 = load float, ptr %arrayidx, align 4
-  %arrayidx.sroa_idx = getelementptr inbounds i8, ptr %arrayidx, i64 4
+  %arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx, i64 4
   %3 = load float, ptr %arrayidx.sroa_idx, align 4
   %a = getelementptr inbounds %struct.b2Position, ptr %0, i64 %idxprom, i32 1
   %4 = load float, ptr %a, align 4
-  %m_indexB = getelementptr inbounds i8, ptr %this, i64 216
+  %m_indexB = getelementptr inbounds nuw i8, ptr %this, i64 216
   %5 = load i32, ptr %m_indexB, align 8
   %idxprom7 = sext i32 %5 to i64
   %arrayidx8 = getelementptr inbounds %struct.b2Position, ptr %0, i64 %idxprom7
   %6 = load float, ptr %arrayidx8, align 4
-  %arrayidx8.sroa_idx = getelementptr inbounds i8, ptr %arrayidx8, i64 4
+  %arrayidx8.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx8, i64 4
   %7 = load float, ptr %arrayidx8.sroa_idx, align 4
   %a14 = getelementptr inbounds %struct.b2Position, ptr %0, i64 %idxprom7, i32 1
   %8 = load float, ptr %a14, align 4
-  %m_enableLimit = getelementptr inbounds i8, ptr %this, i64 200
+  %m_enableLimit = getelementptr inbounds nuw i8, ptr %this, i64 200
   %9 = load i8, ptr %m_enableLimit, align 8
   %tobool = trunc i8 %9 to i1
   br i1 %tobool, label %if.then, label %if.end71
@@ -832,14 +832,14 @@ if.then:                                          ; preds = %entry
   %call2.i = tail call float @cosf(float noundef %4) #17
   %call.i37 = tail call float @sinf(float noundef %8) #17
   %call2.i38 = tail call float @cosf(float noundef %8) #17
-  %m_localAnchorA = getelementptr inbounds i8, ptr %this, i64 128
-  %m_localCenterA = getelementptr inbounds i8, ptr %this, i64 220
+  %m_localAnchorA = getelementptr inbounds nuw i8, ptr %this, i64 128
+  %m_localCenterA = getelementptr inbounds nuw i8, ptr %this, i64 220
   %10 = load float, ptr %m_localAnchorA, align 8
   %11 = load float, ptr %m_localCenterA, align 4
   %sub.i = fsub float %10, %11
-  %y.i = getelementptr inbounds i8, ptr %this, i64 132
+  %y.i = getelementptr inbounds nuw i8, ptr %this, i64 132
   %12 = load float, ptr %y.i, align 4
-  %y2.i = getelementptr inbounds i8, ptr %this, i64 224
+  %y2.i = getelementptr inbounds nuw i8, ptr %this, i64 224
   %13 = load float, ptr %y2.i, align 8
   %sub3.i = fsub float %12, %13
   %14 = fneg float %sub3.i
@@ -847,14 +847,14 @@ if.then:                                          ; preds = %entry
   %15 = tail call float @llvm.fmuladd.f32(float %call2.i, float %sub.i, float %neg.i)
   %mul6.i = fmul float %call2.i, %sub3.i
   %16 = tail call float @llvm.fmuladd.f32(float %call.i, float %sub.i, float %mul6.i)
-  %m_localAnchorB = getelementptr inbounds i8, ptr %this, i64 136
-  %m_localCenterB = getelementptr inbounds i8, ptr %this, i64 228
+  %m_localAnchorB = getelementptr inbounds nuw i8, ptr %this, i64 136
+  %m_localCenterB = getelementptr inbounds nuw i8, ptr %this, i64 228
   %17 = load float, ptr %m_localAnchorB, align 8
   %18 = load float, ptr %m_localCenterB, align 4
   %sub.i44 = fsub float %17, %18
-  %y.i45 = getelementptr inbounds i8, ptr %this, i64 140
+  %y.i45 = getelementptr inbounds nuw i8, ptr %this, i64 140
   %19 = load float, ptr %y.i45, align 4
-  %y2.i46 = getelementptr inbounds i8, ptr %this, i64 232
+  %y2.i46 = getelementptr inbounds nuw i8, ptr %this, i64 232
   %20 = load float, ptr %y2.i46, align 8
   %sub3.i47 = fsub float %19, %20
   %21 = fneg float %sub3.i47
@@ -868,9 +868,9 @@ if.then:                                          ; preds = %entry
   %add3.i = fadd float %sub3.i59, %23
   %sub.i66 = fsub float %add.i, %15
   %sub3.i69 = fsub float %add3.i, %16
-  %m_localXAxisA = getelementptr inbounds i8, ptr %this, i64 144
+  %m_localXAxisA = getelementptr inbounds nuw i8, ptr %this, i64 144
   %24 = load float, ptr %m_localXAxisA, align 8
-  %y.i73 = getelementptr inbounds i8, ptr %this, i64 148
+  %y.i73 = getelementptr inbounds nuw i8, ptr %this, i64 148
   %25 = load float, ptr %y.i73, align 4
   %26 = fneg float %25
   %neg.i74 = fmul float %call.i, %26
@@ -879,8 +879,8 @@ if.then:                                          ; preds = %entry
   %28 = tail call float @llvm.fmuladd.f32(float %call.i, float %24, float %mul6.i75)
   %add.i78 = fadd float %15, %sub.i66
   %add3.i81 = fadd float %16, %sub3.i69
-  %m_ax = getelementptr inbounds i8, ptr %this, i64 252
-  %y.i84 = getelementptr inbounds i8, ptr %this, i64 256
+  %m_ax = getelementptr inbounds nuw i8, ptr %this, i64 252
+  %y.i84 = getelementptr inbounds nuw i8, ptr %this, i64 256
   %29 = load float, ptr %y.i84, align 8
   %30 = load float, ptr %m_ax, align 4
   %31 = fneg float %30
@@ -890,9 +890,9 @@ if.then:                                          ; preds = %entry
   %33 = tail call noundef float @llvm.fmuladd.f32(float %22, float %29, float %neg.i88)
   %mul3.i = fmul float %28, %sub3.i69
   %34 = tail call noundef float @llvm.fmuladd.f32(float %27, float %sub.i66, float %mul3.i)
-  %m_upperTranslation = getelementptr inbounds i8, ptr %this, i64 188
+  %m_upperTranslation = getelementptr inbounds nuw i8, ptr %this, i64 188
   %35 = load float, ptr %m_upperTranslation, align 4
-  %m_lowerTranslation = getelementptr inbounds i8, ptr %this, i64 184
+  %m_lowerTranslation = getelementptr inbounds nuw i8, ptr %this, i64 184
   %36 = load float, ptr %m_lowerTranslation, align 8
   %sub = fsub float %35, %36
   %cmp.i = fcmp ogt float %sub, 0.000000e+00
@@ -923,16 +923,16 @@ if.end47:                                         ; preds = %if.else39, %if.then
   br i1 %cmp48, label %if.then49, label %if.end71
 
 if.then49:                                        ; preds = %if.end47
-  %m_invMassA = getelementptr inbounds i8, ptr %this, i64 236
+  %m_invMassA = getelementptr inbounds nuw i8, ptr %this, i64 236
   %37 = load float, ptr %m_invMassA, align 4
-  %m_invMassB = getelementptr inbounds i8, ptr %this, i64 240
+  %m_invMassB = getelementptr inbounds nuw i8, ptr %this, i64 240
   %38 = load float, ptr %m_invMassB, align 8
   %add = fadd float %37, %38
-  %m_invIA = getelementptr inbounds i8, ptr %this, i64 244
+  %m_invIA = getelementptr inbounds nuw i8, ptr %this, i64 244
   %39 = load float, ptr %m_invIA, align 4
   %mul = fmul float %32, %39
   %40 = tail call float @llvm.fmuladd.f32(float %mul, float %32, float %add)
-  %m_invIB = getelementptr inbounds i8, ptr %this, i64 248
+  %m_invIB = getelementptr inbounds nuw i8, ptr %this, i64 248
   %41 = load float, ptr %m_invIB, align 8
   %mul51 = fmul float %33, %41
   %42 = tail call float @llvm.fmuladd.f32(float %mul51, float %33, float %40)
@@ -971,14 +971,14 @@ if.end71:                                         ; preds = %if.else39, %if.then
   %call2.i117 = tail call float @cosf(float noundef %aA.0) #17
   %call.i119 = tail call float @sinf(float noundef %aB.0) #17
   %call2.i120 = tail call float @cosf(float noundef %aB.0) #17
-  %m_localAnchorA76 = getelementptr inbounds i8, ptr %this, i64 128
-  %m_localCenterA77 = getelementptr inbounds i8, ptr %this, i64 220
+  %m_localAnchorA76 = getelementptr inbounds nuw i8, ptr %this, i64 128
+  %m_localCenterA77 = getelementptr inbounds nuw i8, ptr %this, i64 220
   %45 = load float, ptr %m_localAnchorA76, align 8
   %46 = load float, ptr %m_localCenterA77, align 4
   %sub.i122 = fsub float %45, %46
-  %y.i123 = getelementptr inbounds i8, ptr %this, i64 132
+  %y.i123 = getelementptr inbounds nuw i8, ptr %this, i64 132
   %47 = load float, ptr %y.i123, align 4
-  %y2.i124 = getelementptr inbounds i8, ptr %this, i64 224
+  %y2.i124 = getelementptr inbounds nuw i8, ptr %this, i64 224
   %48 = load float, ptr %y2.i124, align 8
   %sub3.i125 = fsub float %47, %48
   %49 = fneg float %sub3.i125
@@ -986,14 +986,14 @@ if.end71:                                         ; preds = %if.else39, %if.then
   %50 = tail call float @llvm.fmuladd.f32(float %call2.i117, float %sub.i122, float %neg.i130)
   %mul6.i131 = fmul float %call2.i117, %sub3.i125
   %51 = tail call float @llvm.fmuladd.f32(float %call.i116, float %sub.i122, float %mul6.i131)
-  %m_localAnchorB82 = getelementptr inbounds i8, ptr %this, i64 136
-  %m_localCenterB83 = getelementptr inbounds i8, ptr %this, i64 228
+  %m_localAnchorB82 = getelementptr inbounds nuw i8, ptr %this, i64 136
+  %m_localCenterB83 = getelementptr inbounds nuw i8, ptr %this, i64 228
   %52 = load float, ptr %m_localAnchorB82, align 8
   %53 = load float, ptr %m_localCenterB83, align 4
   %sub.i134 = fsub float %52, %53
-  %y.i135 = getelementptr inbounds i8, ptr %this, i64 140
+  %y.i135 = getelementptr inbounds nuw i8, ptr %this, i64 140
   %54 = load float, ptr %y.i135, align 4
-  %y2.i136 = getelementptr inbounds i8, ptr %this, i64 232
+  %y2.i136 = getelementptr inbounds nuw i8, ptr %this, i64 232
   %55 = load float, ptr %y2.i136, align 8
   %sub3.i137 = fsub float %54, %55
   %56 = fneg float %sub3.i137
@@ -1007,9 +1007,9 @@ if.end71:                                         ; preds = %if.else39, %if.then
   %add3.i155 = fadd float %sub3.i149, %58
   %sub.i158 = fsub float %add.i152, %50
   %sub3.i161 = fsub float %add3.i155, %51
-  %m_localYAxisA = getelementptr inbounds i8, ptr %this, i64 152
+  %m_localYAxisA = getelementptr inbounds nuw i8, ptr %this, i64 152
   %59 = load float, ptr %m_localYAxisA, align 8
-  %y.i165 = getelementptr inbounds i8, ptr %this, i64 156
+  %y.i165 = getelementptr inbounds nuw i8, ptr %this, i64 156
   %60 = load float, ptr %y.i165, align 4
   %61 = fneg float %60
   %neg.i166 = fmul float %call.i116, %61
@@ -1025,20 +1025,20 @@ if.end71:                                         ; preds = %if.else39, %if.then
   %66 = tail call noundef float @llvm.fmuladd.f32(float %57, float %63, float %neg.i181)
   %mul3.i184 = fmul float %63, %sub3.i161
   %67 = tail call noundef float @llvm.fmuladd.f32(float %sub.i158, float %62, float %mul3.i184)
-  %m_invMassA100 = getelementptr inbounds i8, ptr %this, i64 236
+  %m_invMassA100 = getelementptr inbounds nuw i8, ptr %this, i64 236
   %68 = load float, ptr %m_invMassA100, align 4
-  %m_invMassB101 = getelementptr inbounds i8, ptr %this, i64 240
+  %m_invMassB101 = getelementptr inbounds nuw i8, ptr %this, i64 240
   %69 = load float, ptr %m_invMassB101, align 8
   %add102 = fadd float %68, %69
-  %m_invIA103 = getelementptr inbounds i8, ptr %this, i64 244
+  %m_invIA103 = getelementptr inbounds nuw i8, ptr %this, i64 244
   %70 = load float, ptr %m_invIA103, align 4
-  %m_sAy = getelementptr inbounds i8, ptr %this, i64 276
+  %m_sAy = getelementptr inbounds nuw i8, ptr %this, i64 276
   %71 = load float, ptr %m_sAy, align 4
   %mul104 = fmul float %70, %71
   %72 = tail call float @llvm.fmuladd.f32(float %mul104, float %71, float %add102)
-  %m_invIB107 = getelementptr inbounds i8, ptr %this, i64 248
+  %m_invIB107 = getelementptr inbounds nuw i8, ptr %this, i64 248
   %73 = load float, ptr %m_invIB107, align 8
-  %m_sBy = getelementptr inbounds i8, ptr %this, i64 280
+  %m_sBy = getelementptr inbounds nuw i8, ptr %this, i64 280
   %74 = load float, ptr %m_sBy, align 8
   %mul108 = fmul float %73, %74
   %75 = tail call float @llvm.fmuladd.f32(float %mul108, float %74, float %72)
@@ -1070,7 +1070,7 @@ if.end71:                                         ; preds = %if.else39, %if.then
   %idxprom138 = sext i32 %79 to i64
   %arrayidx139 = getelementptr inbounds %struct.b2Position, ptr %78, i64 %idxprom138
   store float %sub.i195, ptr %arrayidx139, align 4
-  %arrayidx139.sroa_idx = getelementptr inbounds i8, ptr %arrayidx139, i64 4
+  %arrayidx139.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx139, i64 4
   store float %sub4.i198, ptr %arrayidx139.sroa_idx, align 4
   %80 = load ptr, ptr %positions, align 8
   %81 = load i32, ptr %m_indexA, align 4
@@ -1082,7 +1082,7 @@ if.end71:                                         ; preds = %if.else39, %if.then
   %idxprom148 = sext i32 %83 to i64
   %arrayidx149 = getelementptr inbounds %struct.b2Position, ptr %82, i64 %idxprom148
   store float %add.i204, ptr %arrayidx149, align 4
-  %arrayidx149.sroa_idx = getelementptr inbounds i8, ptr %arrayidx149, i64 4
+  %arrayidx149.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx149, i64 4
   store float %add4.i207, ptr %arrayidx149.sroa_idx, align 4
   %84 = load ptr, ptr %positions, align 8
   %85 = load i32, ptr %m_indexB, align 8
@@ -1096,16 +1096,16 @@ if.end71:                                         ; preds = %if.else39, %if.then
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define <2 x float> @_ZNK12b2WheelJoint10GetAnchorAEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(308) %this) unnamed_addr #6 align 2 {
 entry:
-  %m_bodyA = getelementptr inbounds i8, ptr %this, i64 96
+  %m_bodyA = getelementptr inbounds nuw i8, ptr %this, i64 96
   %0 = load ptr, ptr %m_bodyA, align 8
-  %m_localAnchorA = getelementptr inbounds i8, ptr %this, i64 128
-  %m_xf.i = getelementptr inbounds i8, ptr %0, i64 12
-  %q.i.i = getelementptr inbounds i8, ptr %0, i64 20
-  %c.i.i = getelementptr inbounds i8, ptr %0, i64 24
+  %m_localAnchorA = getelementptr inbounds nuw i8, ptr %this, i64 128
+  %m_xf.i = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %q.i.i = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %c.i.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   %1 = load float, ptr %c.i.i, align 4
   %2 = load float, ptr %m_localAnchorA, align 8
   %3 = load float, ptr %q.i.i, align 4
-  %y.i.i = getelementptr inbounds i8, ptr %this, i64 132
+  %y.i.i = getelementptr inbounds nuw i8, ptr %this, i64 132
   %4 = load float, ptr %y.i.i, align 4
   %5 = fneg float %4
   %neg.i.i = fmul float %3, %5
@@ -1114,7 +1114,7 @@ entry:
   %add.i.i = fadd float %7, %6
   %mul12.i.i = fmul float %1, %4
   %8 = tail call float @llvm.fmuladd.f32(float %3, float %2, float %mul12.i.i)
-  %y14.i.i = getelementptr inbounds i8, ptr %0, i64 16
+  %y14.i.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load float, ptr %y14.i.i, align 4
   %add15.i.i = fadd float %8, %9
   %retval.sroa.0.0.vec.insert.i.i = insertelement <2 x float> poison, float %add.i.i, i64 0
@@ -1125,16 +1125,16 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define <2 x float> @_ZNK12b2WheelJoint10GetAnchorBEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(308) %this) unnamed_addr #6 align 2 {
 entry:
-  %m_bodyB = getelementptr inbounds i8, ptr %this, i64 104
+  %m_bodyB = getelementptr inbounds nuw i8, ptr %this, i64 104
   %0 = load ptr, ptr %m_bodyB, align 8
-  %m_localAnchorB = getelementptr inbounds i8, ptr %this, i64 136
-  %m_xf.i = getelementptr inbounds i8, ptr %0, i64 12
-  %q.i.i = getelementptr inbounds i8, ptr %0, i64 20
-  %c.i.i = getelementptr inbounds i8, ptr %0, i64 24
+  %m_localAnchorB = getelementptr inbounds nuw i8, ptr %this, i64 136
+  %m_xf.i = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %q.i.i = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %c.i.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   %1 = load float, ptr %c.i.i, align 4
   %2 = load float, ptr %m_localAnchorB, align 8
   %3 = load float, ptr %q.i.i, align 4
-  %y.i.i = getelementptr inbounds i8, ptr %this, i64 140
+  %y.i.i = getelementptr inbounds nuw i8, ptr %this, i64 140
   %4 = load float, ptr %y.i.i, align 4
   %5 = fneg float %4
   %neg.i.i = fmul float %3, %5
@@ -1143,7 +1143,7 @@ entry:
   %add.i.i = fadd float %7, %6
   %mul12.i.i = fmul float %1, %4
   %8 = tail call float @llvm.fmuladd.f32(float %3, float %2, float %mul12.i.i)
-  %y14.i.i = getelementptr inbounds i8, ptr %0, i64 16
+  %y14.i.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load float, ptr %y14.i.i, align 4
   %add15.i.i = fadd float %8, %9
   %retval.sroa.0.0.vec.insert.i.i = insertelement <2 x float> poison, float %add.i.i, i64 0
@@ -1154,26 +1154,26 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define <2 x float> @_ZNK12b2WheelJoint16GetReactionForceEf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(308) %this, float noundef %inv_dt) unnamed_addr #7 align 2 {
 entry:
-  %m_impulse = getelementptr inbounds i8, ptr %this, i64 160
+  %m_impulse = getelementptr inbounds nuw i8, ptr %this, i64 160
   %0 = load float, ptr %m_impulse, align 8
-  %m_ay = getelementptr inbounds i8, ptr %this, i64 260
+  %m_ay = getelementptr inbounds nuw i8, ptr %this, i64 260
   %1 = load float, ptr %m_ay, align 4
   %mul.i = fmul float %0, %1
-  %y.i = getelementptr inbounds i8, ptr %this, i64 264
+  %y.i = getelementptr inbounds nuw i8, ptr %this, i64 264
   %2 = load float, ptr %y.i, align 8
   %mul1.i = fmul float %0, %2
-  %m_springImpulse = getelementptr inbounds i8, ptr %this, i64 168
+  %m_springImpulse = getelementptr inbounds nuw i8, ptr %this, i64 168
   %3 = load float, ptr %m_springImpulse, align 8
-  %m_lowerImpulse = getelementptr inbounds i8, ptr %this, i64 172
+  %m_lowerImpulse = getelementptr inbounds nuw i8, ptr %this, i64 172
   %4 = load float, ptr %m_lowerImpulse, align 4
   %add = fadd float %3, %4
-  %m_upperImpulse = getelementptr inbounds i8, ptr %this, i64 176
+  %m_upperImpulse = getelementptr inbounds nuw i8, ptr %this, i64 176
   %5 = load float, ptr %m_upperImpulse, align 8
   %sub = fsub float %add, %5
-  %m_ax = getelementptr inbounds i8, ptr %this, i64 252
+  %m_ax = getelementptr inbounds nuw i8, ptr %this, i64 252
   %6 = load float, ptr %m_ax, align 4
   %mul.i1 = fmul float %sub, %6
-  %y.i2 = getelementptr inbounds i8, ptr %this, i64 256
+  %y.i2 = getelementptr inbounds nuw i8, ptr %this, i64 256
   %7 = load float, ptr %y.i2, align 8
   %mul1.i3 = fmul float %sub, %7
   %add.i = fadd float %mul.i, %mul.i1
@@ -1188,7 +1188,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef float @_ZNK12b2WheelJoint17GetReactionTorqueEf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(308) %this, float noundef %inv_dt) unnamed_addr #8 align 2 {
 entry:
-  %m_motorImpulse = getelementptr inbounds i8, ptr %this, i64 164
+  %m_motorImpulse = getelementptr inbounds nuw i8, ptr %this, i64 164
   %0 = load float, ptr %m_motorImpulse, align 4
   %mul = fmul float %inv_dt, %0
   ret float %mul
@@ -1197,18 +1197,18 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef float @_ZNK12b2WheelJoint19GetJointTranslationEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(308) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %m_bodyA = getelementptr inbounds i8, ptr %this, i64 96
+  %m_bodyA = getelementptr inbounds nuw i8, ptr %this, i64 96
   %0 = load ptr, ptr %m_bodyA, align 8
-  %m_bodyB = getelementptr inbounds i8, ptr %this, i64 104
+  %m_bodyB = getelementptr inbounds nuw i8, ptr %this, i64 104
   %1 = load ptr, ptr %m_bodyB, align 8
-  %m_localAnchorA = getelementptr inbounds i8, ptr %this, i64 128
-  %m_xf.i = getelementptr inbounds i8, ptr %0, i64 12
-  %q.i.i = getelementptr inbounds i8, ptr %0, i64 20
-  %c.i.i = getelementptr inbounds i8, ptr %0, i64 24
+  %m_localAnchorA = getelementptr inbounds nuw i8, ptr %this, i64 128
+  %m_xf.i = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %q.i.i = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %c.i.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   %2 = load float, ptr %c.i.i, align 4
   %3 = load float, ptr %m_localAnchorA, align 8
   %4 = load float, ptr %q.i.i, align 4
-  %y.i.i = getelementptr inbounds i8, ptr %this, i64 132
+  %y.i.i = getelementptr inbounds nuw i8, ptr %this, i64 132
   %5 = load float, ptr %y.i.i, align 4
   %6 = fneg float %5
   %neg.i.i = fmul float %4, %6
@@ -1217,17 +1217,17 @@ entry:
   %add.i.i = fadd float %8, %7
   %mul12.i.i = fmul float %2, %5
   %9 = tail call float @llvm.fmuladd.f32(float %4, float %3, float %mul12.i.i)
-  %y14.i.i = getelementptr inbounds i8, ptr %0, i64 16
+  %y14.i.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load float, ptr %y14.i.i, align 4
   %add15.i.i = fadd float %9, %10
-  %m_localAnchorB = getelementptr inbounds i8, ptr %this, i64 136
-  %m_xf.i2 = getelementptr inbounds i8, ptr %1, i64 12
-  %q.i.i3 = getelementptr inbounds i8, ptr %1, i64 20
-  %c.i.i4 = getelementptr inbounds i8, ptr %1, i64 24
+  %m_localAnchorB = getelementptr inbounds nuw i8, ptr %this, i64 136
+  %m_xf.i2 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %q.i.i3 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %c.i.i4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = load float, ptr %c.i.i4, align 4
   %12 = load float, ptr %m_localAnchorB, align 8
   %13 = load float, ptr %q.i.i3, align 4
-  %y.i.i5 = getelementptr inbounds i8, ptr %this, i64 140
+  %y.i.i5 = getelementptr inbounds nuw i8, ptr %this, i64 140
   %14 = load float, ptr %y.i.i5, align 4
   %15 = fneg float %14
   %neg.i.i6 = fmul float %13, %15
@@ -1236,14 +1236,14 @@ entry:
   %add.i.i7 = fadd float %17, %16
   %mul12.i.i8 = fmul float %11, %14
   %18 = tail call float @llvm.fmuladd.f32(float %13, float %12, float %mul12.i.i8)
-  %y14.i.i9 = getelementptr inbounds i8, ptr %1, i64 16
+  %y14.i.i9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %19 = load float, ptr %y14.i.i9, align 4
   %add15.i.i10 = fadd float %18, %19
   %sub.i = fsub float %add.i.i7, %add.i.i
   %sub3.i = fsub float %add15.i.i10, %add15.i.i
-  %m_localXAxisA = getelementptr inbounds i8, ptr %this, i64 144
+  %m_localXAxisA = getelementptr inbounds nuw i8, ptr %this, i64 144
   %20 = load float, ptr %m_localXAxisA, align 8
-  %y.i.i14 = getelementptr inbounds i8, ptr %this, i64 148
+  %y.i.i14 = getelementptr inbounds nuw i8, ptr %this, i64 148
   %21 = load float, ptr %y.i.i14, align 4
   %22 = fneg float %21
   %neg.i.i15 = fmul float %4, %22
@@ -1258,22 +1258,22 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef float @_ZNK12b2WheelJoint19GetJointLinearSpeedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(308) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %m_bodyA = getelementptr inbounds i8, ptr %this, i64 96
+  %m_bodyA = getelementptr inbounds nuw i8, ptr %this, i64 96
   %0 = load ptr, ptr %m_bodyA, align 8
-  %m_bodyB = getelementptr inbounds i8, ptr %this, i64 104
+  %m_bodyB = getelementptr inbounds nuw i8, ptr %this, i64 104
   %1 = load ptr, ptr %m_bodyB, align 8
-  %q = getelementptr inbounds i8, ptr %0, i64 20
-  %m_localAnchorA = getelementptr inbounds i8, ptr %this, i64 128
-  %m_sweep = getelementptr inbounds i8, ptr %0, i64 28
+  %q = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %m_localAnchorA = getelementptr inbounds nuw i8, ptr %this, i64 128
+  %m_sweep = getelementptr inbounds nuw i8, ptr %0, i64 28
   %2 = load float, ptr %m_localAnchorA, align 8
   %3 = load float, ptr %m_sweep, align 4
   %sub.i = fsub float %2, %3
-  %y.i = getelementptr inbounds i8, ptr %this, i64 132
+  %y.i = getelementptr inbounds nuw i8, ptr %this, i64 132
   %4 = load float, ptr %y.i, align 4
-  %y2.i = getelementptr inbounds i8, ptr %0, i64 32
+  %y2.i = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load float, ptr %y2.i, align 4
   %sub3.i = fsub float %4, %5
-  %c.i = getelementptr inbounds i8, ptr %0, i64 24
+  %c.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load float, ptr %c.i, align 4
   %7 = load float, ptr %q, align 4
   %8 = fneg float %sub3.i
@@ -1281,18 +1281,18 @@ entry:
   %9 = tail call float @llvm.fmuladd.f32(float %6, float %sub.i, float %neg.i)
   %mul6.i = fmul float %6, %sub3.i
   %10 = tail call float @llvm.fmuladd.f32(float %7, float %sub.i, float %mul6.i)
-  %q4 = getelementptr inbounds i8, ptr %1, i64 20
-  %m_localAnchorB = getelementptr inbounds i8, ptr %this, i64 136
-  %m_sweep6 = getelementptr inbounds i8, ptr %1, i64 28
+  %q4 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %m_localAnchorB = getelementptr inbounds nuw i8, ptr %this, i64 136
+  %m_sweep6 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %11 = load float, ptr %m_localAnchorB, align 8
   %12 = load float, ptr %m_sweep6, align 4
   %sub.i14 = fsub float %11, %12
-  %y.i15 = getelementptr inbounds i8, ptr %this, i64 140
+  %y.i15 = getelementptr inbounds nuw i8, ptr %this, i64 140
   %13 = load float, ptr %y.i15, align 4
-  %y2.i16 = getelementptr inbounds i8, ptr %1, i64 32
+  %y2.i16 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %14 = load float, ptr %y2.i16, align 4
   %sub3.i17 = fsub float %13, %14
-  %c.i20 = getelementptr inbounds i8, ptr %1, i64 24
+  %c.i20 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %15 = load float, ptr %c.i20, align 4
   %16 = load float, ptr %q4, align 4
   %17 = fneg float %sub3.i17
@@ -1300,40 +1300,40 @@ entry:
   %18 = tail call float @llvm.fmuladd.f32(float %15, float %sub.i14, float %neg.i22)
   %mul6.i23 = fmul float %15, %sub3.i17
   %19 = tail call float @llvm.fmuladd.f32(float %16, float %sub.i14, float %mul6.i23)
-  %c = getelementptr inbounds i8, ptr %0, i64 44
+  %c = getelementptr inbounds nuw i8, ptr %0, i64 44
   %20 = load float, ptr %c, align 4
   %add.i = fadd float %9, %20
-  %y.i26 = getelementptr inbounds i8, ptr %0, i64 48
+  %y.i26 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %21 = load float, ptr %y.i26, align 4
   %add3.i = fadd float %10, %21
-  %c13 = getelementptr inbounds i8, ptr %1, i64 44
+  %c13 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %22 = load float, ptr %c13, align 4
   %add.i30 = fadd float %18, %22
-  %y.i31 = getelementptr inbounds i8, ptr %1, i64 48
+  %y.i31 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %23 = load float, ptr %y.i31, align 4
   %add3.i33 = fadd float %19, %23
   %sub.i36 = fsub float %add.i30, %add.i
   %sub3.i39 = fsub float %add3.i33, %add3.i
-  %m_localXAxisA = getelementptr inbounds i8, ptr %this, i64 144
+  %m_localXAxisA = getelementptr inbounds nuw i8, ptr %this, i64 144
   %24 = load float, ptr %m_localXAxisA, align 8
-  %y.i43 = getelementptr inbounds i8, ptr %this, i64 148
+  %y.i43 = getelementptr inbounds nuw i8, ptr %this, i64 148
   %25 = load float, ptr %y.i43, align 4
   %26 = fneg float %25
   %neg.i44 = fmul float %7, %26
   %27 = tail call float @llvm.fmuladd.f32(float %6, float %24, float %neg.i44)
   %mul6.i45 = fmul float %6, %25
   %28 = tail call float @llvm.fmuladd.f32(float %7, float %24, float %mul6.i45)
-  %m_linearVelocity = getelementptr inbounds i8, ptr %0, i64 64
+  %m_linearVelocity = getelementptr inbounds nuw i8, ptr %0, i64 64
   %29 = load float, ptr %m_linearVelocity, align 8
-  %m_linearVelocity.sroa_idx = getelementptr inbounds i8, ptr %0, i64 68
+  %m_linearVelocity.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 68
   %30 = load float, ptr %m_linearVelocity.sroa_idx, align 4
-  %m_linearVelocity19 = getelementptr inbounds i8, ptr %1, i64 64
+  %m_linearVelocity19 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %31 = load float, ptr %m_linearVelocity19, align 8
-  %m_linearVelocity19.sroa_idx = getelementptr inbounds i8, ptr %1, i64 68
+  %m_linearVelocity19.sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 68
   %32 = load float, ptr %m_linearVelocity19.sroa_idx, align 4
-  %m_angularVelocity = getelementptr inbounds i8, ptr %0, i64 72
+  %m_angularVelocity = getelementptr inbounds nuw i8, ptr %0, i64 72
   %33 = load float, ptr %m_angularVelocity, align 8
-  %m_angularVelocity20 = getelementptr inbounds i8, ptr %1, i64 72
+  %m_angularVelocity20 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %34 = load float, ptr %m_angularVelocity20, align 8
   %fneg.i = fneg float %33
   %mul.i = fmul float %28, %fneg.i
@@ -1359,13 +1359,13 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef float @_ZNK12b2WheelJoint13GetJointAngleEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(308) %this) local_unnamed_addr #9 align 2 {
 entry:
-  %m_bodyA = getelementptr inbounds i8, ptr %this, i64 96
+  %m_bodyA = getelementptr inbounds nuw i8, ptr %this, i64 96
   %0 = load ptr, ptr %m_bodyA, align 8
-  %m_bodyB = getelementptr inbounds i8, ptr %this, i64 104
+  %m_bodyB = getelementptr inbounds nuw i8, ptr %this, i64 104
   %1 = load ptr, ptr %m_bodyB, align 8
-  %a = getelementptr inbounds i8, ptr %1, i64 56
+  %a = getelementptr inbounds nuw i8, ptr %1, i64 56
   %2 = load float, ptr %a, align 4
-  %a3 = getelementptr inbounds i8, ptr %0, i64 56
+  %a3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load float, ptr %a3, align 4
   %sub = fsub float %2, %3
   ret float %sub
@@ -1374,13 +1374,13 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef float @_ZNK12b2WheelJoint20GetJointAngularSpeedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(308) %this) local_unnamed_addr #9 align 2 {
 entry:
-  %m_bodyA = getelementptr inbounds i8, ptr %this, i64 96
+  %m_bodyA = getelementptr inbounds nuw i8, ptr %this, i64 96
   %0 = load ptr, ptr %m_bodyA, align 8
-  %m_angularVelocity = getelementptr inbounds i8, ptr %0, i64 72
+  %m_angularVelocity = getelementptr inbounds nuw i8, ptr %0, i64 72
   %1 = load float, ptr %m_angularVelocity, align 8
-  %m_bodyB = getelementptr inbounds i8, ptr %this, i64 104
+  %m_bodyB = getelementptr inbounds nuw i8, ptr %this, i64 104
   %2 = load ptr, ptr %m_bodyB, align 8
-  %m_angularVelocity2 = getelementptr inbounds i8, ptr %2, i64 72
+  %m_angularVelocity2 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %3 = load float, ptr %m_angularVelocity2, align 8
   %sub = fsub float %3, %1
   ret float %sub
@@ -1389,7 +1389,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZNK12b2WheelJoint14IsLimitEnabledEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(308) %this) local_unnamed_addr #8 align 2 {
 entry:
-  %m_enableLimit = getelementptr inbounds i8, ptr %this, i64 200
+  %m_enableLimit = getelementptr inbounds nuw i8, ptr %this, i64 200
   %0 = load i8, ptr %m_enableLimit, align 8
   %tobool = trunc i8 %0 to i1
   ret i1 %tobool
@@ -1398,7 +1398,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZN12b2WheelJoint11EnableLimitEb(ptr nocapture noundef nonnull align 8 dereferenceable(308) %this, i1 noundef zeroext %flag) local_unnamed_addr #10 align 2 {
 entry:
-  %m_enableLimit = getelementptr inbounds i8, ptr %this, i64 200
+  %m_enableLimit = getelementptr inbounds nuw i8, ptr %this, i64 200
   %0 = load i8, ptr %m_enableLimit, align 8
   %1 = trunc i8 %0 to i1
   %2 = xor i1 %flag, %1
@@ -1406,32 +1406,32 @@ entry:
 
 if.then:                                          ; preds = %entry
   %frombool = zext i1 %flag to i8
-  %m_bodyA = getelementptr inbounds i8, ptr %this, i64 96
+  %m_bodyA = getelementptr inbounds nuw i8, ptr %this, i64 96
   %3 = load ptr, ptr %m_bodyA, align 8
   %4 = load i32, ptr %3, align 8
   %cmp.i = icmp eq i32 %4, 0
   br i1 %cmp.i, label %_ZN6b2Body8SetAwakeEb.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then
-  %m_flags.i = getelementptr inbounds i8, ptr %3, i64 4
+  %m_flags.i = getelementptr inbounds nuw i8, ptr %3, i64 4
   %5 = load i16, ptr %m_flags.i, align 4
-  %m_sleepTime.i = getelementptr inbounds i8, ptr %3, i64 172
+  %m_sleepTime.i = getelementptr inbounds nuw i8, ptr %3, i64 172
   %6 = or i16 %5, 2
   store i16 %6, ptr %m_flags.i, align 4
   store float 0.000000e+00, ptr %m_sleepTime.i, align 4
   br label %_ZN6b2Body8SetAwakeEb.exit
 
 _ZN6b2Body8SetAwakeEb.exit:                       ; preds = %if.then, %if.end.i
-  %m_bodyB = getelementptr inbounds i8, ptr %this, i64 104
+  %m_bodyB = getelementptr inbounds nuw i8, ptr %this, i64 104
   %7 = load ptr, ptr %m_bodyB, align 8
   %8 = load i32, ptr %7, align 8
   %cmp.i2 = icmp eq i32 %8, 0
   br i1 %cmp.i2, label %_ZN6b2Body8SetAwakeEb.exit6, label %if.end.i3
 
 if.end.i3:                                        ; preds = %_ZN6b2Body8SetAwakeEb.exit
-  %m_flags.i4 = getelementptr inbounds i8, ptr %7, i64 4
+  %m_flags.i4 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %9 = load i16, ptr %m_flags.i4, align 4
-  %m_sleepTime.i5 = getelementptr inbounds i8, ptr %7, i64 172
+  %m_sleepTime.i5 = getelementptr inbounds nuw i8, ptr %7, i64 172
   %10 = or i16 %9, 2
   store i16 %10, ptr %m_flags.i4, align 4
   store float 0.000000e+00, ptr %m_sleepTime.i5, align 4
@@ -1439,9 +1439,9 @@ if.end.i3:                                        ; preds = %_ZN6b2Body8SetAwake
 
 _ZN6b2Body8SetAwakeEb.exit6:                      ; preds = %_ZN6b2Body8SetAwakeEb.exit, %if.end.i3
   store i8 %frombool, ptr %m_enableLimit, align 8
-  %m_lowerImpulse = getelementptr inbounds i8, ptr %this, i64 172
+  %m_lowerImpulse = getelementptr inbounds nuw i8, ptr %this, i64 172
   store float 0.000000e+00, ptr %m_lowerImpulse, align 4
-  %m_upperImpulse = getelementptr inbounds i8, ptr %this, i64 176
+  %m_upperImpulse = getelementptr inbounds nuw i8, ptr %this, i64 176
   store float 0.000000e+00, ptr %m_upperImpulse, align 8
   br label %if.end
 
@@ -1452,7 +1452,7 @@ if.end:                                           ; preds = %_ZN6b2Body8SetAwake
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef float @_ZNK12b2WheelJoint13GetLowerLimitEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(308) %this) local_unnamed_addr #8 align 2 {
 entry:
-  %m_lowerTranslation = getelementptr inbounds i8, ptr %this, i64 184
+  %m_lowerTranslation = getelementptr inbounds nuw i8, ptr %this, i64 184
   %0 = load float, ptr %m_lowerTranslation, align 8
   ret float %0
 }
@@ -1460,7 +1460,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef float @_ZNK12b2WheelJoint13GetUpperLimitEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(308) %this) local_unnamed_addr #8 align 2 {
 entry:
-  %m_upperTranslation = getelementptr inbounds i8, ptr %this, i64 188
+  %m_upperTranslation = getelementptr inbounds nuw i8, ptr %this, i64 188
   %0 = load float, ptr %m_upperTranslation, align 4
   ret float %0
 }
@@ -1468,42 +1468,42 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZN12b2WheelJoint9SetLimitsEff(ptr nocapture noundef nonnull align 8 dereferenceable(308) %this, float noundef %lower, float noundef %upper) local_unnamed_addr #10 align 2 {
 entry:
-  %m_lowerTranslation = getelementptr inbounds i8, ptr %this, i64 184
+  %m_lowerTranslation = getelementptr inbounds nuw i8, ptr %this, i64 184
   %0 = load float, ptr %m_lowerTranslation, align 8
   %cmp = fcmp une float %lower, %0
-  %m_upperTranslation = getelementptr inbounds i8, ptr %this, i64 188
+  %m_upperTranslation = getelementptr inbounds nuw i8, ptr %this, i64 188
   %1 = load float, ptr %m_upperTranslation, align 4
   %cmp2 = fcmp une float %upper, %1
   %or.cond = select i1 %cmp, i1 true, i1 %cmp2
   br i1 %or.cond, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %m_bodyA = getelementptr inbounds i8, ptr %this, i64 96
+  %m_bodyA = getelementptr inbounds nuw i8, ptr %this, i64 96
   %2 = load ptr, ptr %m_bodyA, align 8
   %3 = load i32, ptr %2, align 8
   %cmp.i = icmp eq i32 %3, 0
   br i1 %cmp.i, label %_ZN6b2Body8SetAwakeEb.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then
-  %m_flags.i = getelementptr inbounds i8, ptr %2, i64 4
+  %m_flags.i = getelementptr inbounds nuw i8, ptr %2, i64 4
   %4 = load i16, ptr %m_flags.i, align 4
-  %m_sleepTime.i = getelementptr inbounds i8, ptr %2, i64 172
+  %m_sleepTime.i = getelementptr inbounds nuw i8, ptr %2, i64 172
   %5 = or i16 %4, 2
   store i16 %5, ptr %m_flags.i, align 4
   store float 0.000000e+00, ptr %m_sleepTime.i, align 4
   br label %_ZN6b2Body8SetAwakeEb.exit
 
 _ZN6b2Body8SetAwakeEb.exit:                       ; preds = %if.then, %if.end.i
-  %m_bodyB = getelementptr inbounds i8, ptr %this, i64 104
+  %m_bodyB = getelementptr inbounds nuw i8, ptr %this, i64 104
   %6 = load ptr, ptr %m_bodyB, align 8
   %7 = load i32, ptr %6, align 8
   %cmp.i3 = icmp eq i32 %7, 0
   br i1 %cmp.i3, label %_ZN6b2Body8SetAwakeEb.exit7, label %if.end.i4
 
 if.end.i4:                                        ; preds = %_ZN6b2Body8SetAwakeEb.exit
-  %m_flags.i5 = getelementptr inbounds i8, ptr %6, i64 4
+  %m_flags.i5 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %8 = load i16, ptr %m_flags.i5, align 4
-  %m_sleepTime.i6 = getelementptr inbounds i8, ptr %6, i64 172
+  %m_sleepTime.i6 = getelementptr inbounds nuw i8, ptr %6, i64 172
   %9 = or i16 %8, 2
   store i16 %9, ptr %m_flags.i5, align 4
   store float 0.000000e+00, ptr %m_sleepTime.i6, align 4
@@ -1512,9 +1512,9 @@ if.end.i4:                                        ; preds = %_ZN6b2Body8SetAwake
 _ZN6b2Body8SetAwakeEb.exit7:                      ; preds = %_ZN6b2Body8SetAwakeEb.exit, %if.end.i4
   store float %lower, ptr %m_lowerTranslation, align 8
   store float %upper, ptr %m_upperTranslation, align 4
-  %m_lowerImpulse = getelementptr inbounds i8, ptr %this, i64 172
+  %m_lowerImpulse = getelementptr inbounds nuw i8, ptr %this, i64 172
   store float 0.000000e+00, ptr %m_lowerImpulse, align 4
-  %m_upperImpulse = getelementptr inbounds i8, ptr %this, i64 176
+  %m_upperImpulse = getelementptr inbounds nuw i8, ptr %this, i64 176
   store float 0.000000e+00, ptr %m_upperImpulse, align 8
   br label %if.end
 
@@ -1525,7 +1525,7 @@ if.end:                                           ; preds = %entry, %_ZN6b2Body8
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZNK12b2WheelJoint14IsMotorEnabledEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(308) %this) local_unnamed_addr #8 align 2 {
 entry:
-  %m_enableMotor = getelementptr inbounds i8, ptr %this, i64 201
+  %m_enableMotor = getelementptr inbounds nuw i8, ptr %this, i64 201
   %0 = load i8, ptr %m_enableMotor, align 1
   %tobool = trunc i8 %0 to i1
   ret i1 %tobool
@@ -1534,7 +1534,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZN12b2WheelJoint11EnableMotorEb(ptr nocapture noundef nonnull align 8 dereferenceable(308) %this, i1 noundef zeroext %flag) local_unnamed_addr #10 align 2 {
 entry:
-  %m_enableMotor = getelementptr inbounds i8, ptr %this, i64 201
+  %m_enableMotor = getelementptr inbounds nuw i8, ptr %this, i64 201
   %0 = load i8, ptr %m_enableMotor, align 1
   %1 = trunc i8 %0 to i1
   %2 = xor i1 %flag, %1
@@ -1542,32 +1542,32 @@ entry:
 
 if.then:                                          ; preds = %entry
   %frombool = zext i1 %flag to i8
-  %m_bodyA = getelementptr inbounds i8, ptr %this, i64 96
+  %m_bodyA = getelementptr inbounds nuw i8, ptr %this, i64 96
   %3 = load ptr, ptr %m_bodyA, align 8
   %4 = load i32, ptr %3, align 8
   %cmp.i = icmp eq i32 %4, 0
   br i1 %cmp.i, label %_ZN6b2Body8SetAwakeEb.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then
-  %m_flags.i = getelementptr inbounds i8, ptr %3, i64 4
+  %m_flags.i = getelementptr inbounds nuw i8, ptr %3, i64 4
   %5 = load i16, ptr %m_flags.i, align 4
-  %m_sleepTime.i = getelementptr inbounds i8, ptr %3, i64 172
+  %m_sleepTime.i = getelementptr inbounds nuw i8, ptr %3, i64 172
   %6 = or i16 %5, 2
   store i16 %6, ptr %m_flags.i, align 4
   store float 0.000000e+00, ptr %m_sleepTime.i, align 4
   br label %_ZN6b2Body8SetAwakeEb.exit
 
 _ZN6b2Body8SetAwakeEb.exit:                       ; preds = %if.then, %if.end.i
-  %m_bodyB = getelementptr inbounds i8, ptr %this, i64 104
+  %m_bodyB = getelementptr inbounds nuw i8, ptr %this, i64 104
   %7 = load ptr, ptr %m_bodyB, align 8
   %8 = load i32, ptr %7, align 8
   %cmp.i2 = icmp eq i32 %8, 0
   br i1 %cmp.i2, label %_ZN6b2Body8SetAwakeEb.exit6, label %if.end.i3
 
 if.end.i3:                                        ; preds = %_ZN6b2Body8SetAwakeEb.exit
-  %m_flags.i4 = getelementptr inbounds i8, ptr %7, i64 4
+  %m_flags.i4 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %9 = load i16, ptr %m_flags.i4, align 4
-  %m_sleepTime.i5 = getelementptr inbounds i8, ptr %7, i64 172
+  %m_sleepTime.i5 = getelementptr inbounds nuw i8, ptr %7, i64 172
   %10 = or i16 %9, 2
   store i16 %10, ptr %m_flags.i4, align 4
   store float 0.000000e+00, ptr %m_sleepTime.i5, align 4
@@ -1584,38 +1584,38 @@ if.end:                                           ; preds = %_ZN6b2Body8SetAwake
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZN12b2WheelJoint13SetMotorSpeedEf(ptr nocapture noundef nonnull align 8 dereferenceable(308) %this, float noundef %speed) local_unnamed_addr #10 align 2 {
 entry:
-  %m_motorSpeed = getelementptr inbounds i8, ptr %this, i64 196
+  %m_motorSpeed = getelementptr inbounds nuw i8, ptr %this, i64 196
   %0 = load float, ptr %m_motorSpeed, align 4
   %cmp = fcmp une float %speed, %0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %m_bodyA = getelementptr inbounds i8, ptr %this, i64 96
+  %m_bodyA = getelementptr inbounds nuw i8, ptr %this, i64 96
   %1 = load ptr, ptr %m_bodyA, align 8
   %2 = load i32, ptr %1, align 8
   %cmp.i = icmp eq i32 %2, 0
   br i1 %cmp.i, label %_ZN6b2Body8SetAwakeEb.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then
-  %m_flags.i = getelementptr inbounds i8, ptr %1, i64 4
+  %m_flags.i = getelementptr inbounds nuw i8, ptr %1, i64 4
   %3 = load i16, ptr %m_flags.i, align 4
-  %m_sleepTime.i = getelementptr inbounds i8, ptr %1, i64 172
+  %m_sleepTime.i = getelementptr inbounds nuw i8, ptr %1, i64 172
   %4 = or i16 %3, 2
   store i16 %4, ptr %m_flags.i, align 4
   store float 0.000000e+00, ptr %m_sleepTime.i, align 4
   br label %_ZN6b2Body8SetAwakeEb.exit
 
 _ZN6b2Body8SetAwakeEb.exit:                       ; preds = %if.then, %if.end.i
-  %m_bodyB = getelementptr inbounds i8, ptr %this, i64 104
+  %m_bodyB = getelementptr inbounds nuw i8, ptr %this, i64 104
   %5 = load ptr, ptr %m_bodyB, align 8
   %6 = load i32, ptr %5, align 8
   %cmp.i2 = icmp eq i32 %6, 0
   br i1 %cmp.i2, label %_ZN6b2Body8SetAwakeEb.exit6, label %if.end.i3
 
 if.end.i3:                                        ; preds = %_ZN6b2Body8SetAwakeEb.exit
-  %m_flags.i4 = getelementptr inbounds i8, ptr %5, i64 4
+  %m_flags.i4 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %7 = load i16, ptr %m_flags.i4, align 4
-  %m_sleepTime.i5 = getelementptr inbounds i8, ptr %5, i64 172
+  %m_sleepTime.i5 = getelementptr inbounds nuw i8, ptr %5, i64 172
   %8 = or i16 %7, 2
   store i16 %8, ptr %m_flags.i4, align 4
   store float 0.000000e+00, ptr %m_sleepTime.i5, align 4
@@ -1632,38 +1632,38 @@ if.end:                                           ; preds = %_ZN6b2Body8SetAwake
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZN12b2WheelJoint17SetMaxMotorTorqueEf(ptr nocapture noundef nonnull align 8 dereferenceable(308) %this, float noundef %torque) local_unnamed_addr #10 align 2 {
 entry:
-  %m_maxMotorTorque = getelementptr inbounds i8, ptr %this, i64 192
+  %m_maxMotorTorque = getelementptr inbounds nuw i8, ptr %this, i64 192
   %0 = load float, ptr %m_maxMotorTorque, align 8
   %cmp = fcmp une float %torque, %0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %m_bodyA = getelementptr inbounds i8, ptr %this, i64 96
+  %m_bodyA = getelementptr inbounds nuw i8, ptr %this, i64 96
   %1 = load ptr, ptr %m_bodyA, align 8
   %2 = load i32, ptr %1, align 8
   %cmp.i = icmp eq i32 %2, 0
   br i1 %cmp.i, label %_ZN6b2Body8SetAwakeEb.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then
-  %m_flags.i = getelementptr inbounds i8, ptr %1, i64 4
+  %m_flags.i = getelementptr inbounds nuw i8, ptr %1, i64 4
   %3 = load i16, ptr %m_flags.i, align 4
-  %m_sleepTime.i = getelementptr inbounds i8, ptr %1, i64 172
+  %m_sleepTime.i = getelementptr inbounds nuw i8, ptr %1, i64 172
   %4 = or i16 %3, 2
   store i16 %4, ptr %m_flags.i, align 4
   store float 0.000000e+00, ptr %m_sleepTime.i, align 4
   br label %_ZN6b2Body8SetAwakeEb.exit
 
 _ZN6b2Body8SetAwakeEb.exit:                       ; preds = %if.then, %if.end.i
-  %m_bodyB = getelementptr inbounds i8, ptr %this, i64 104
+  %m_bodyB = getelementptr inbounds nuw i8, ptr %this, i64 104
   %5 = load ptr, ptr %m_bodyB, align 8
   %6 = load i32, ptr %5, align 8
   %cmp.i2 = icmp eq i32 %6, 0
   br i1 %cmp.i2, label %_ZN6b2Body8SetAwakeEb.exit6, label %if.end.i3
 
 if.end.i3:                                        ; preds = %_ZN6b2Body8SetAwakeEb.exit
-  %m_flags.i4 = getelementptr inbounds i8, ptr %5, i64 4
+  %m_flags.i4 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %7 = load i16, ptr %m_flags.i4, align 4
-  %m_sleepTime.i5 = getelementptr inbounds i8, ptr %5, i64 172
+  %m_sleepTime.i5 = getelementptr inbounds nuw i8, ptr %5, i64 172
   %8 = or i16 %7, 2
   store i16 %8, ptr %m_flags.i4, align 4
   store float 0.000000e+00, ptr %m_sleepTime.i5, align 4
@@ -1680,7 +1680,7 @@ if.end:                                           ; preds = %_ZN6b2Body8SetAwake
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef float @_ZNK12b2WheelJoint14GetMotorTorqueEf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(308) %this, float noundef %inv_dt) local_unnamed_addr #8 align 2 {
 entry:
-  %m_motorImpulse = getelementptr inbounds i8, ptr %this, i64 164
+  %m_motorImpulse = getelementptr inbounds nuw i8, ptr %this, i64 164
   %0 = load float, ptr %m_motorImpulse, align 4
   %mul = fmul float %inv_dt, %0
   ret float %mul
@@ -1689,7 +1689,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN12b2WheelJoint12SetStiffnessEf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(308) initializes((204, 208)) %this, float noundef %stiffness) local_unnamed_addr #11 align 2 {
 entry:
-  %m_stiffness = getelementptr inbounds i8, ptr %this, i64 204
+  %m_stiffness = getelementptr inbounds nuw i8, ptr %this, i64 204
   store float %stiffness, ptr %m_stiffness, align 4
   ret void
 }
@@ -1697,7 +1697,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef float @_ZNK12b2WheelJoint12GetStiffnessEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(308) %this) local_unnamed_addr #8 align 2 {
 entry:
-  %m_stiffness = getelementptr inbounds i8, ptr %this, i64 204
+  %m_stiffness = getelementptr inbounds nuw i8, ptr %this, i64 204
   %0 = load float, ptr %m_stiffness, align 4
   ret float %0
 }
@@ -1705,7 +1705,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN12b2WheelJoint10SetDampingEf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(308) initializes((208, 212)) %this, float noundef %damping) local_unnamed_addr #11 align 2 {
 entry:
-  %m_damping = getelementptr inbounds i8, ptr %this, i64 208
+  %m_damping = getelementptr inbounds nuw i8, ptr %this, i64 208
   store float %damping, ptr %m_damping, align 8
   ret void
 }
@@ -1713,7 +1713,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef float @_ZNK12b2WheelJoint10GetDampingEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(308) %this) local_unnamed_addr #8 align 2 {
 entry:
-  %m_damping = getelementptr inbounds i8, ptr %this, i64 208
+  %m_damping = getelementptr inbounds nuw i8, ptr %this, i64 208
   %0 = load float, ptr %m_damping, align 8
   ret float %0
 }
@@ -1721,65 +1721,65 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZN12b2WheelJoint4DumpEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(308) %this) unnamed_addr #12 align 2 {
 entry:
-  %m_bodyA = getelementptr inbounds i8, ptr %this, i64 96
+  %m_bodyA = getelementptr inbounds nuw i8, ptr %this, i64 96
   %0 = load ptr, ptr %m_bodyA, align 8
-  %m_islandIndex = getelementptr inbounds i8, ptr %0, i64 8
+  %m_islandIndex = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1 = load i32, ptr %m_islandIndex, align 8
-  %m_bodyB = getelementptr inbounds i8, ptr %this, i64 104
+  %m_bodyB = getelementptr inbounds nuw i8, ptr %this, i64 104
   %2 = load ptr, ptr %m_bodyB, align 8
-  %m_islandIndex2 = getelementptr inbounds i8, ptr %2, i64 8
+  %m_islandIndex2 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %3 = load i32, ptr %m_islandIndex2, align 8
   tail call void (ptr, ...) @_Z6b2DumpPKcz(ptr noundef nonnull @.str)
   tail call void (ptr, ...) @_Z6b2DumpPKcz(ptr noundef nonnull @.str.1, i32 noundef %1)
   tail call void (ptr, ...) @_Z6b2DumpPKcz(ptr noundef nonnull @.str.2, i32 noundef %3)
-  %m_collideConnected = getelementptr inbounds i8, ptr %this, i64 117
+  %m_collideConnected = getelementptr inbounds nuw i8, ptr %this, i64 117
   %4 = load i8, ptr %m_collideConnected, align 1
   %5 = and i8 %4, 1
   %conv = zext nneg i8 %5 to i32
   tail call void (ptr, ...) @_Z6b2DumpPKcz(ptr noundef nonnull @.str.3, i32 noundef %conv)
-  %m_localAnchorA = getelementptr inbounds i8, ptr %this, i64 128
+  %m_localAnchorA = getelementptr inbounds nuw i8, ptr %this, i64 128
   %6 = load float, ptr %m_localAnchorA, align 8
   %conv3 = fpext float %6 to double
-  %y = getelementptr inbounds i8, ptr %this, i64 132
+  %y = getelementptr inbounds nuw i8, ptr %this, i64 132
   %7 = load float, ptr %y, align 4
   %conv5 = fpext float %7 to double
   tail call void (ptr, ...) @_Z6b2DumpPKcz(ptr noundef nonnull @.str.4, double noundef %conv3, double noundef %conv5)
-  %m_localAnchorB = getelementptr inbounds i8, ptr %this, i64 136
+  %m_localAnchorB = getelementptr inbounds nuw i8, ptr %this, i64 136
   %8 = load float, ptr %m_localAnchorB, align 8
   %conv7 = fpext float %8 to double
-  %y9 = getelementptr inbounds i8, ptr %this, i64 140
+  %y9 = getelementptr inbounds nuw i8, ptr %this, i64 140
   %9 = load float, ptr %y9, align 4
   %conv10 = fpext float %9 to double
   tail call void (ptr, ...) @_Z6b2DumpPKcz(ptr noundef nonnull @.str.5, double noundef %conv7, double noundef %conv10)
-  %m_localXAxisA = getelementptr inbounds i8, ptr %this, i64 144
+  %m_localXAxisA = getelementptr inbounds nuw i8, ptr %this, i64 144
   %10 = load float, ptr %m_localXAxisA, align 8
   %conv12 = fpext float %10 to double
-  %y14 = getelementptr inbounds i8, ptr %this, i64 148
+  %y14 = getelementptr inbounds nuw i8, ptr %this, i64 148
   %11 = load float, ptr %y14, align 4
   %conv15 = fpext float %11 to double
   tail call void (ptr, ...) @_Z6b2DumpPKcz(ptr noundef nonnull @.str.6, double noundef %conv12, double noundef %conv15)
-  %m_enableMotor = getelementptr inbounds i8, ptr %this, i64 201
+  %m_enableMotor = getelementptr inbounds nuw i8, ptr %this, i64 201
   %12 = load i8, ptr %m_enableMotor, align 1
   %13 = and i8 %12, 1
   %conv17 = zext nneg i8 %13 to i32
   tail call void (ptr, ...) @_Z6b2DumpPKcz(ptr noundef nonnull @.str.7, i32 noundef %conv17)
-  %m_motorSpeed = getelementptr inbounds i8, ptr %this, i64 196
+  %m_motorSpeed = getelementptr inbounds nuw i8, ptr %this, i64 196
   %14 = load float, ptr %m_motorSpeed, align 4
   %conv18 = fpext float %14 to double
   tail call void (ptr, ...) @_Z6b2DumpPKcz(ptr noundef nonnull @.str.8, double noundef %conv18)
-  %m_maxMotorTorque = getelementptr inbounds i8, ptr %this, i64 192
+  %m_maxMotorTorque = getelementptr inbounds nuw i8, ptr %this, i64 192
   %15 = load float, ptr %m_maxMotorTorque, align 8
   %conv19 = fpext float %15 to double
   tail call void (ptr, ...) @_Z6b2DumpPKcz(ptr noundef nonnull @.str.9, double noundef %conv19)
-  %m_stiffness = getelementptr inbounds i8, ptr %this, i64 204
+  %m_stiffness = getelementptr inbounds nuw i8, ptr %this, i64 204
   %16 = load float, ptr %m_stiffness, align 4
   %conv20 = fpext float %16 to double
   tail call void (ptr, ...) @_Z6b2DumpPKcz(ptr noundef nonnull @.str.10, double noundef %conv20)
-  %m_damping = getelementptr inbounds i8, ptr %this, i64 208
+  %m_damping = getelementptr inbounds nuw i8, ptr %this, i64 208
   %17 = load float, ptr %m_damping, align 8
   %conv21 = fpext float %17 to double
   tail call void (ptr, ...) @_Z6b2DumpPKcz(ptr noundef nonnull @.str.11, double noundef %conv21)
-  %m_index = getelementptr inbounds i8, ptr %this, i64 112
+  %m_index = getelementptr inbounds nuw i8, ptr %this, i64 112
   %18 = load i32, ptr %m_index, align 8
   tail call void (ptr, ...) @_Z6b2DumpPKcz(ptr noundef nonnull @.str.12, i32 noundef %18)
   ret void
@@ -1805,19 +1805,19 @@ entry:
   %ref.tmp29 = alloca %struct.b2Vec2, align 8
   %ref.tmp35 = alloca %struct.b2Vec2, align 8
   %ref.tmp39 = alloca %struct.b2Vec2, align 8
-  %m_bodyA = getelementptr inbounds i8, ptr %this, i64 96
+  %m_bodyA = getelementptr inbounds nuw i8, ptr %this, i64 96
   %0 = load ptr, ptr %m_bodyA, align 8
-  %m_xf.i = getelementptr inbounds i8, ptr %0, i64 12
-  %m_bodyB = getelementptr inbounds i8, ptr %this, i64 104
+  %m_xf.i = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %m_bodyB = getelementptr inbounds nuw i8, ptr %this, i64 104
   %1 = load ptr, ptr %m_bodyB, align 8
-  %m_xf.i9 = getelementptr inbounds i8, ptr %1, i64 12
-  %m_localAnchorA = getelementptr inbounds i8, ptr %this, i64 128
-  %q.i = getelementptr inbounds i8, ptr %0, i64 20
-  %c.i = getelementptr inbounds i8, ptr %0, i64 24
+  %m_xf.i9 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %m_localAnchorA = getelementptr inbounds nuw i8, ptr %this, i64 128
+  %q.i = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %c.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   %2 = load float, ptr %c.i, align 4
   %3 = load float, ptr %m_localAnchorA, align 8
   %4 = load float, ptr %q.i, align 4
-  %y.i = getelementptr inbounds i8, ptr %this, i64 132
+  %y.i = getelementptr inbounds nuw i8, ptr %this, i64 132
   %5 = load float, ptr %y.i, align 4
   %6 = fneg float %5
   %neg.i = fmul float %4, %6
@@ -1826,19 +1826,19 @@ entry:
   %add.i = fadd float %8, %7
   %mul12.i = fmul float %2, %5
   %9 = tail call float @llvm.fmuladd.f32(float %4, float %3, float %mul12.i)
-  %y14.i = getelementptr inbounds i8, ptr %0, i64 16
+  %y14.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load float, ptr %y14.i, align 4
   %add15.i = fadd float %9, %10
   %retval.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %add.i, i64 0
   %retval.sroa.0.4.vec.insert.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i, float %add15.i, i64 1
   store <2 x float> %retval.sroa.0.4.vec.insert.i, ptr %pA, align 8
-  %m_localAnchorB = getelementptr inbounds i8, ptr %this, i64 136
-  %q.i10 = getelementptr inbounds i8, ptr %1, i64 20
-  %c.i11 = getelementptr inbounds i8, ptr %1, i64 24
+  %m_localAnchorB = getelementptr inbounds nuw i8, ptr %this, i64 136
+  %q.i10 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %c.i11 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = load float, ptr %c.i11, align 4
   %12 = load float, ptr %m_localAnchorB, align 8
   %13 = load float, ptr %q.i10, align 4
-  %y.i12 = getelementptr inbounds i8, ptr %this, i64 140
+  %y.i12 = getelementptr inbounds nuw i8, ptr %this, i64 140
   %14 = load float, ptr %y.i12, align 4
   %15 = fneg float %14
   %neg.i13 = fmul float %13, %15
@@ -1847,15 +1847,15 @@ entry:
   %add.i14 = fadd float %17, %16
   %mul12.i15 = fmul float %11, %14
   %18 = tail call float @llvm.fmuladd.f32(float %13, float %12, float %mul12.i15)
-  %y14.i16 = getelementptr inbounds i8, ptr %1, i64 16
+  %y14.i16 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %19 = load float, ptr %y14.i16, align 4
   %add15.i17 = fadd float %18, %19
   %retval.sroa.0.0.vec.insert.i18 = insertelement <2 x float> poison, float %add.i14, i64 0
   %retval.sroa.0.4.vec.insert.i19 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i18, float %add15.i17, i64 1
   store <2 x float> %retval.sroa.0.4.vec.insert.i19, ptr %pB, align 8
-  %m_localXAxisA = getelementptr inbounds i8, ptr %this, i64 144
+  %m_localXAxisA = getelementptr inbounds nuw i8, ptr %this, i64 144
   %20 = load float, ptr %m_localXAxisA, align 8
-  %y.i21 = getelementptr inbounds i8, ptr %this, i64 148
+  %y.i21 = getelementptr inbounds nuw i8, ptr %this, i64 148
   %21 = load float, ptr %y.i21, align 4
   %22 = fneg float %21
   %neg.i22 = fmul float %4, %22
@@ -1863,63 +1863,63 @@ entry:
   %mul6.i = fmul float %2, %21
   %24 = tail call float @llvm.fmuladd.f32(float %4, float %20, float %mul6.i)
   store float 0x3FE6666660000000, ptr %c1, align 4
-  %g.i = getelementptr inbounds i8, ptr %c1, i64 4
+  %g.i = getelementptr inbounds nuw i8, ptr %c1, i64 4
   store float 0x3FE6666660000000, ptr %g.i, align 4
-  %b.i = getelementptr inbounds i8, ptr %c1, i64 8
+  %b.i = getelementptr inbounds nuw i8, ptr %c1, i64 8
   store float 0x3FE6666660000000, ptr %b.i, align 4
-  %a.i = getelementptr inbounds i8, ptr %c1, i64 12
+  %a.i = getelementptr inbounds nuw i8, ptr %c1, i64 12
   store float 1.000000e+00, ptr %a.i, align 4
   store float 0x3FD3333340000000, ptr %c2, align 4
-  %g.i25 = getelementptr inbounds i8, ptr %c2, i64 4
+  %g.i25 = getelementptr inbounds nuw i8, ptr %c2, i64 4
   store float 0x3FECCCCCC0000000, ptr %g.i25, align 4
-  %b.i26 = getelementptr inbounds i8, ptr %c2, i64 8
+  %b.i26 = getelementptr inbounds nuw i8, ptr %c2, i64 8
   store float 0x3FD3333340000000, ptr %b.i26, align 4
-  %a.i27 = getelementptr inbounds i8, ptr %c2, i64 12
+  %a.i27 = getelementptr inbounds nuw i8, ptr %c2, i64 12
   store float 1.000000e+00, ptr %a.i27, align 4
   store float 0x3FECCCCCC0000000, ptr %c3, align 4
-  %g.i28 = getelementptr inbounds i8, ptr %c3, i64 4
+  %g.i28 = getelementptr inbounds nuw i8, ptr %c3, i64 4
   store float 0x3FD3333340000000, ptr %g.i28, align 4
-  %b.i29 = getelementptr inbounds i8, ptr %c3, i64 8
+  %b.i29 = getelementptr inbounds nuw i8, ptr %c3, i64 8
   store float 0x3FD3333340000000, ptr %b.i29, align 4
-  %a.i30 = getelementptr inbounds i8, ptr %c3, i64 12
+  %a.i30 = getelementptr inbounds nuw i8, ptr %c3, i64 12
   store float 1.000000e+00, ptr %a.i30, align 4
   store float 0x3FD3333340000000, ptr %c4, align 4
-  %g.i31 = getelementptr inbounds i8, ptr %c4, i64 4
+  %g.i31 = getelementptr inbounds nuw i8, ptr %c4, i64 4
   store float 0x3FD3333340000000, ptr %g.i31, align 4
-  %b.i32 = getelementptr inbounds i8, ptr %c4, i64 8
+  %b.i32 = getelementptr inbounds nuw i8, ptr %c4, i64 8
   store float 0x3FECCCCCC0000000, ptr %b.i32, align 4
-  %a.i33 = getelementptr inbounds i8, ptr %c4, i64 12
+  %a.i33 = getelementptr inbounds nuw i8, ptr %c4, i64 12
   store float 1.000000e+00, ptr %a.i33, align 4
   store float 0x3FD99999A0000000, ptr %c5, align 4
-  %g.i34 = getelementptr inbounds i8, ptr %c5, i64 4
+  %g.i34 = getelementptr inbounds nuw i8, ptr %c5, i64 4
   store float 0x3FD99999A0000000, ptr %g.i34, align 4
-  %b.i35 = getelementptr inbounds i8, ptr %c5, i64 8
+  %b.i35 = getelementptr inbounds nuw i8, ptr %c5, i64 8
   store float 0x3FD99999A0000000, ptr %b.i35, align 4
-  %a.i36 = getelementptr inbounds i8, ptr %c5, i64 12
+  %a.i36 = getelementptr inbounds nuw i8, ptr %c5, i64 12
   store float 1.000000e+00, ptr %a.i36, align 4
   %vtable = load ptr, ptr %draw, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 48
   %25 = load ptr, ptr %vfn, align 8
   call void %25(ptr noundef nonnull align 8 dereferenceable(12) %draw, ptr noundef nonnull align 4 dereferenceable(8) %pA, ptr noundef nonnull align 4 dereferenceable(8) %pB, ptr noundef nonnull align 4 dereferenceable(16) %c5)
-  %m_enableLimit = getelementptr inbounds i8, ptr %this, i64 200
+  %m_enableLimit = getelementptr inbounds nuw i8, ptr %this, i64 200
   %26 = load i8, ptr %m_enableLimit, align 8
   %tobool = trunc i8 %26 to i1
   br i1 %tobool, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %m_lowerTranslation = getelementptr inbounds i8, ptr %this, i64 184
+  %m_lowerTranslation = getelementptr inbounds nuw i8, ptr %this, i64 184
   %27 = load float, ptr %m_lowerTranslation, align 8
   %mul.i = fmul float %23, %27
   %mul1.i = fmul float %24, %27
   %28 = load float, ptr %pA, align 8
   %add.i40 = fadd float %28, %mul.i
-  %y.i41 = getelementptr inbounds i8, ptr %pA, i64 4
+  %y.i41 = getelementptr inbounds nuw i8, ptr %pA, i64 4
   %29 = load float, ptr %y.i41, align 4
   %add3.i = fadd float %mul1.i, %29
   %retval.sroa.0.0.vec.insert.i42 = insertelement <2 x float> poison, float %add.i40, i64 0
   %retval.sroa.0.4.vec.insert.i43 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i42, float %add3.i, i64 1
   store <2 x float> %retval.sroa.0.4.vec.insert.i43, ptr %lower, align 8
-  %m_upperTranslation = getelementptr inbounds i8, ptr %this, i64 188
+  %m_upperTranslation = getelementptr inbounds nuw i8, ptr %this, i64 188
   %30 = load float, ptr %m_upperTranslation, align 4
   %mul.i44 = fmul float %23, %30
   %mul1.i46 = fmul float %24, %30
@@ -1928,11 +1928,11 @@ if.then:                                          ; preds = %entry
   %retval.sroa.0.0.vec.insert.i53 = insertelement <2 x float> poison, float %add.i49, i64 0
   %retval.sroa.0.4.vec.insert.i54 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i53, float %add3.i52, i64 1
   store <2 x float> %retval.sroa.0.4.vec.insert.i54, ptr %upper, align 8
-  %m_localYAxisA = getelementptr inbounds i8, ptr %this, i64 152
+  %m_localYAxisA = getelementptr inbounds nuw i8, ptr %this, i64 152
   %31 = load float, ptr %c.i, align 4
   %32 = load float, ptr %m_localYAxisA, align 8
   %33 = load float, ptr %q.i, align 4
-  %y.i56 = getelementptr inbounds i8, ptr %this, i64 156
+  %y.i56 = getelementptr inbounds nuw i8, ptr %this, i64 156
   %34 = load float, ptr %y.i56, align 4
   %35 = fneg float %34
   %neg.i57 = fmul float %33, %35
@@ -1940,14 +1940,14 @@ if.then:                                          ; preds = %entry
   %mul6.i58 = fmul float %31, %34
   %37 = call float @llvm.fmuladd.f32(float %33, float %32, float %mul6.i58)
   %vtable13 = load ptr, ptr %draw, align 8
-  %vfn14 = getelementptr inbounds i8, ptr %vtable13, i64 48
+  %vfn14 = getelementptr inbounds nuw i8, ptr %vtable13, i64 48
   %38 = load ptr, ptr %vfn14, align 8
   call void %38(ptr noundef nonnull align 8 dereferenceable(12) %draw, ptr noundef nonnull align 4 dereferenceable(8) %lower, ptr noundef nonnull align 4 dereferenceable(8) %upper, ptr noundef nonnull align 4 dereferenceable(16) %c1)
   %mul.i61 = fmul float %36, 5.000000e-01
   %mul1.i63 = fmul float %37, 5.000000e-01
   %39 = load float, ptr %lower, align 8
   %sub.i = fsub float %39, %mul.i61
-  %y.i66 = getelementptr inbounds i8, ptr %lower, i64 4
+  %y.i66 = getelementptr inbounds nuw i8, ptr %lower, i64 4
   %40 = load float, ptr %y.i66, align 4
   %sub3.i = fsub float %40, %mul1.i63
   %retval.sroa.0.0.vec.insert.i68 = insertelement <2 x float> poison, float %sub.i, i64 0
@@ -1959,12 +1959,12 @@ if.then:                                          ; preds = %entry
   %retval.sroa.0.4.vec.insert.i80 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i79, float %add3.i78, i64 1
   store <2 x float> %retval.sroa.0.4.vec.insert.i80, ptr %ref.tmp19, align 8
   %vtable23 = load ptr, ptr %draw, align 8
-  %vfn24 = getelementptr inbounds i8, ptr %vtable23, i64 48
+  %vfn24 = getelementptr inbounds nuw i8, ptr %vtable23, i64 48
   %41 = load ptr, ptr %vfn24, align 8
   call void %41(ptr noundef nonnull align 8 dereferenceable(12) %draw, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp15, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp19, ptr noundef nonnull align 4 dereferenceable(16) %c2)
   %42 = load float, ptr %upper, align 8
   %sub.i86 = fsub float %42, %mul.i61
-  %y.i87 = getelementptr inbounds i8, ptr %upper, i64 4
+  %y.i87 = getelementptr inbounds nuw i8, ptr %upper, i64 4
   %43 = load float, ptr %y.i87, align 4
   %sub3.i89 = fsub float %43, %mul1.i63
   %retval.sroa.0.0.vec.insert.i90 = insertelement <2 x float> poison, float %sub.i86, i64 0
@@ -1976,7 +1976,7 @@ if.then:                                          ; preds = %entry
   %retval.sroa.0.4.vec.insert.i102 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i101, float %add3.i100, i64 1
   store <2 x float> %retval.sroa.0.4.vec.insert.i102, ptr %ref.tmp29, align 8
   %vtable33 = load ptr, ptr %draw, align 8
-  %vfn34 = getelementptr inbounds i8, ptr %vtable33, i64 48
+  %vfn34 = getelementptr inbounds nuw i8, ptr %vtable33, i64 48
   %44 = load ptr, ptr %vfn34, align 8
   call void %44(ptr noundef nonnull align 8 dereferenceable(12) %draw, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp25, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp29, ptr noundef nonnull align 4 dereferenceable(16) %c3)
   br label %if.end
@@ -1984,7 +1984,7 @@ if.then:                                          ; preds = %entry
 if.else:                                          ; preds = %entry
   %45 = load float, ptr %pA, align 8
   %sub.i108 = fsub float %45, %23
-  %y.i109 = getelementptr inbounds i8, ptr %pA, i64 4
+  %y.i109 = getelementptr inbounds nuw i8, ptr %pA, i64 4
   %46 = load float, ptr %y.i109, align 4
   %sub3.i111 = fsub float %46, %24
   %retval.sroa.0.0.vec.insert.i112 = insertelement <2 x float> poison, float %sub.i108, i64 0
@@ -1996,18 +1996,18 @@ if.else:                                          ; preds = %entry
   %retval.sroa.0.4.vec.insert.i124 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i123, float %add3.i122, i64 1
   store <2 x float> %retval.sroa.0.4.vec.insert.i124, ptr %ref.tmp39, align 8
   %vtable43 = load ptr, ptr %draw, align 8
-  %vfn44 = getelementptr inbounds i8, ptr %vtable43, i64 48
+  %vfn44 = getelementptr inbounds nuw i8, ptr %vtable43, i64 48
   %47 = load ptr, ptr %vfn44, align 8
   call void %47(ptr noundef nonnull align 8 dereferenceable(12) %draw, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp35, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp39, ptr noundef nonnull align 4 dereferenceable(16) %c1)
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
   %vtable45 = load ptr, ptr %draw, align 8
-  %vfn46 = getelementptr inbounds i8, ptr %vtable45, i64 64
+  %vfn46 = getelementptr inbounds nuw i8, ptr %vtable45, i64 64
   %48 = load ptr, ptr %vfn46, align 8
   call void %48(ptr noundef nonnull align 8 dereferenceable(12) %draw, ptr noundef nonnull align 4 dereferenceable(8) %pA, float noundef 5.000000e+00, ptr noundef nonnull align 4 dereferenceable(16) %c1)
   %vtable47 = load ptr, ptr %draw, align 8
-  %vfn48 = getelementptr inbounds i8, ptr %vtable47, i64 64
+  %vfn48 = getelementptr inbounds nuw i8, ptr %vtable47, i64 64
   %49 = load ptr, ptr %vfn48, align 8
   call void %49(ptr noundef nonnull align 8 dereferenceable(12) %draw, ptr noundef nonnull align 4 dereferenceable(8) %pB, float noundef 5.000000e+00, ptr noundef nonnull align 4 dereferenceable(16) %c4)
   ret void

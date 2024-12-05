@@ -19,7 +19,7 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local ptr @win64_classify(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr @type_void, align 8
   %10 = icmp eq ptr %8, %9
@@ -36,7 +36,7 @@ define dso_local ptr @win64_classify(ptr nocapture noundef %0, ptr nocapture nou
   br i1 %16, label %17, label %21
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %14, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = load i32, ptr %19, align 8
   br label %21
@@ -48,9 +48,9 @@ define dso_local ptr @win64_classify(ptr nocapture noundef %0, ptr nocapture nou
   br i1 %23, label %24, label %32
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds i8, ptr %14, i64 56
+  %25 = getelementptr inbounds nuw i8, ptr %14, i64 56
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %28 = load i64, ptr %27, align 8
   %29 = and i64 %28, 65536
   %.not = icmp eq i64 %29, 0
@@ -70,7 +70,7 @@ define dso_local ptr @win64_classify(ptr nocapture noundef %0, ptr nocapture nou
   br i1 %34, label %35, label %53
 
 35:                                               ; preds = %33
-  %36 = getelementptr inbounds i8, ptr %0, i64 4
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %37 = load i32, ptr %36, align 4
   %38 = load i32, ptr %6, align 4
   %.not44 = icmp ult i32 %37, %38
@@ -189,7 +189,7 @@ define internal fastcc ptr @type_lowering(ptr nocapture noundef readonly %0) unn
 
 .backedge:                                        ; preds = %.backedge.backedge, %1
   %.026 = phi ptr [ %0, %1 ], [ %.026.be, %.backedge.backedge ]
-  %3 = getelementptr inbounds i8, ptr %.026, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %.026, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr %4, align 8
   switch i32 %5, label %.loopexit [
@@ -219,25 +219,25 @@ define internal fastcc ptr @type_lowering(ptr nocapture noundef readonly %0) unn
   unreachable
 
 7:                                                ; preds = %.backedge
-  %8 = getelementptr inbounds i8, ptr %4, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %9 = load ptr, ptr %8, align 8
   br label %.backedge.backedge
 
 10:                                               ; preds = %.backedge
-  %11 = getelementptr inbounds i8, ptr %4, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 96
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 96
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   br label %.backedge.backedge
 
 17:                                               ; preds = %.backedge
-  %18 = getelementptr inbounds i8, ptr %4, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 112
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 112
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load ptr, ptr %22, align 8
   br label %.backedge.backedge
 
@@ -247,21 +247,21 @@ define internal fastcc ptr @type_lowering(ptr nocapture noundef readonly %0) unn
 
 26:                                               ; preds = %.backedge, %.backedge, %.backedge
   %27 = load ptr, ptr @type_iptr, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load ptr, ptr %28, align 8
   br label %.loopexit
 
 30:                                               ; preds = %.backedge
-  %31 = getelementptr inbounds i8, ptr %4, i64 56
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 96
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 96
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load ptr, ptr %35, align 8
   br label %.backedge.backedge
 
 37:                                               ; preds = %.backedge
-  %38 = getelementptr inbounds i8, ptr %4, i64 56
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %39 = load ptr, ptr %38, align 8
   %40 = tail call fastcc ptr @type_lowering(ptr noundef %39)
   %41 = icmp eq ptr %40, %39
@@ -272,7 +272,7 @@ define internal fastcc ptr @type_lowering(ptr nocapture noundef readonly %0) unn
   br label %.loopexit
 
 44:                                               ; preds = %.backedge, %.backedge, %.backedge, %.backedge
-  %45 = getelementptr inbounds i8, ptr %4, i64 56
+  %45 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %46 = load ptr, ptr %45, align 8
   %47 = tail call fastcc ptr @type_lowering(ptr noundef %46)
   %48 = icmp eq ptr %47, %46
@@ -292,13 +292,13 @@ define internal fastcc ptr @type_lowering(ptr nocapture noundef readonly %0) unn
   br label %.loopexit
 
 53:                                               ; preds = %49
-  %54 = getelementptr inbounds i8, ptr %4, i64 64
+  %54 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %55 = load i32, ptr %54, align 8
   %56 = tail call ptr @type_get_array(ptr noundef %47, i32 noundef %55) #5
   br label %.loopexit
 
 57:                                               ; preds = %49
-  %58 = getelementptr inbounds i8, ptr %4, i64 64
+  %58 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %59 = load i32, ptr %58, align 8
   %60 = tail call ptr @type_get_vector(ptr noundef %47, i32 noundef %59) #5
   br label %.loopexit
@@ -353,7 +353,7 @@ define dso_local ptr @win64_reclassify_hva_arg(ptr nocapture noundef %0, ptr noc
   br i1 %11, label %12, label %19
 
 12:                                               ; preds = %10
-  %13 = getelementptr inbounds i8, ptr %0, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %14 = load i32, ptr %13, align 4
   %15 = load i32, ptr %5, align 4
   %.not12 = icmp ult i32 %14, %15
@@ -391,10 +391,10 @@ define dso_local ptr @win64_create_params(ptr noundef readonly %0, ptr nocapture
 
 11:                                               ; preds = %7, %11
   %indvars.iv = phi i64 [ 0, %7 ], [ %indvars.iv.next, %11 ]
-  %12 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8
   %14 = tail call ptr @win64_classify(ptr noundef %1, ptr noundef %13, i1 noundef zeroext false, i1 noundef zeroext %2)
-  %15 = getelementptr inbounds ptr, ptr %10, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
   store ptr %14, ptr %15, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %8
@@ -417,12 +417,12 @@ define dso_local void @c_abi_func_create_win64(ptr nocapture noundef initializes
   %6 = and i16 %5, 15
   %cond = icmp eq i16 %6, 1
   %spec.select = select i1 %cond, i32 4, i32 0
-  %7 = getelementptr inbounds i8, ptr %4, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %spec.select, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %9 = load ptr, ptr %8, align 8
   %10 = call ptr @win64_classify(ptr noundef nonnull %4, ptr noundef %9, i1 noundef zeroext true, i1 noundef zeroext %cond)
-  %11 = getelementptr inbounds i8, ptr %0, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %10, ptr %11, align 8
   %12 = load i16, ptr %0, align 8
   %13 = and i16 %12, 128
@@ -430,12 +430,12 @@ define dso_local void @c_abi_func_create_win64(ptr nocapture noundef initializes
   br i1 %.not, label %21, label %14
 
 14:                                               ; preds = %1
-  %15 = getelementptr inbounds i8, ptr %0, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %16 = load ptr, ptr %15, align 8
   %17 = tail call fastcc ptr @type_lowering(ptr noundef %16)
   %18 = tail call ptr @type_get_ptr(ptr noundef %17) #5
   %19 = call ptr @win64_classify(ptr noundef nonnull %4, ptr noundef %18, i1 noundef zeroext false, i1 noundef zeroext %cond)
-  %20 = getelementptr inbounds i8, ptr %0, i64 64
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %19, ptr %20, align 8
   %.pre = load i16, ptr %0, align 8
   br label %21
@@ -455,7 +455,7 @@ define dso_local void @c_abi_func_create_win64(ptr nocapture noundef initializes
   br i1 %cond, label %25, label %63
 
 25:                                               ; preds = %.critedge, %24
-  %26 = getelementptr inbounds i8, ptr %0, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %27 = load ptr, ptr %26, align 8
   %.not.i = icmp eq ptr %27, null
   br i1 %.not.i, label %win64_vector_call_args.exit, label %28
@@ -474,7 +474,7 @@ define dso_local void @c_abi_func_create_win64(ptr nocapture noundef initializes
 
 35:                                               ; preds = %44, %31
   %indvars.iv.i = phi i64 [ 0, %31 ], [ %indvars.iv.next.i, %44 ]
-  %36 = getelementptr inbounds ptr, ptr %27, i64 %indvars.iv.i
+  %36 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv.i
   %37 = load ptr, ptr %36, align 8
   %38 = icmp samesign ult i64 %indvars.iv.i, 6
   br i1 %38, label %39, label %41
@@ -492,7 +492,7 @@ define dso_local void @c_abi_func_create_win64(ptr nocapture noundef initializes
 
 44:                                               ; preds = %41, %39
   %.sink29 = phi ptr [ %40, %39 ], [ %43, %41 ]
-  %45 = getelementptr inbounds ptr, ptr %34, i64 %indvars.iv.i
+  %45 = getelementptr inbounds nuw ptr, ptr %34, i64 %indvars.iv.i
   store ptr %.sink29, ptr %45, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %32
@@ -505,9 +505,9 @@ define dso_local void @c_abi_func_create_win64(ptr nocapture noundef initializes
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %win64_reclassify_hva_arg.exit.i
   %46 = phi i32 [ %62, %win64_reclassify_hva_arg.exit.i ], [ %.promoted, %.preheader.i.preheader ]
   %indvars.iv53.i = phi i64 [ %indvars.iv.next54.i, %win64_reclassify_hva_arg.exit.i ], [ 0, %.preheader.i.preheader ]
-  %47 = getelementptr inbounds ptr, ptr %27, i64 %indvars.iv53.i
+  %47 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv53.i
   %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds ptr, ptr %34, i64 %indvars.iv53.i
+  %49 = getelementptr inbounds nuw ptr, ptr %34, i64 %indvars.iv53.i
   %50 = load ptr, ptr %49, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
@@ -546,7 +546,7 @@ win64_reclassify_hva_arg.exit.i:                  ; preds = %59, %57, %55, %.pre
   br i1 %exitcond57.not.i, label %win64_vector_call_args.exit.sink.split, label %.preheader.i, !llvm.loop !10
 
 63:                                               ; preds = %24
-  %64 = getelementptr inbounds i8, ptr %0, i64 16
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %65 = load ptr, ptr %64, align 8
   %.not.i18 = icmp eq ptr %65, null
   br i1 %.not.i18, label %win64_create_params.exit, label %66
@@ -565,10 +565,10 @@ win64_reclassify_hva_arg.exit.i:                  ; preds = %59, %57, %55, %.pre
 
 73:                                               ; preds = %73, %69
   %indvars.iv.i19 = phi i64 [ 0, %69 ], [ %indvars.iv.next.i20, %73 ]
-  %74 = getelementptr inbounds ptr, ptr %65, i64 %indvars.iv.i19
+  %74 = getelementptr inbounds nuw ptr, ptr %65, i64 %indvars.iv.i19
   %75 = load ptr, ptr %74, align 8
   %76 = call ptr @win64_classify(ptr noundef nonnull %4, ptr noundef %75, i1 noundef zeroext false, i1 noundef zeroext false)
-  %77 = getelementptr inbounds ptr, ptr %72, i64 %indvars.iv.i19
+  %77 = getelementptr inbounds nuw ptr, ptr %72, i64 %indvars.iv.i19
   store ptr %76, ptr %77, align 8
   %indvars.iv.next.i20 = add nuw nsw i64 %indvars.iv.i19, 1
   %exitcond.not.i21 = icmp eq i64 %indvars.iv.next.i20, %70
@@ -576,9 +576,9 @@ win64_reclassify_hva_arg.exit.i:                  ; preds = %59, %57, %55, %.pre
 
 win64_create_params.exit:                         ; preds = %73, %63, %66
   %.018.i = phi ptr [ null, %66 ], [ null, %63 ], [ %72, %73 ]
-  %78 = getelementptr inbounds i8, ptr %0, i64 72
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %.018.i, ptr %78, align 8
-  %79 = getelementptr inbounds i8, ptr %0, i64 32
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %80 = load ptr, ptr %79, align 8
   %.not.i22 = icmp eq ptr %80, null
   br i1 %.not.i22, label %win64_vector_call_args.exit.sink.split, label %81
@@ -597,10 +597,10 @@ win64_create_params.exit:                         ; preds = %73, %63, %66
 
 88:                                               ; preds = %88, %84
   %indvars.iv.i24 = phi i64 [ 0, %84 ], [ %indvars.iv.next.i25, %88 ]
-  %89 = getelementptr inbounds ptr, ptr %80, i64 %indvars.iv.i24
+  %89 = getelementptr inbounds nuw ptr, ptr %80, i64 %indvars.iv.i24
   %90 = load ptr, ptr %89, align 8
   %91 = call ptr @win64_classify(ptr noundef nonnull %4, ptr noundef %90, i1 noundef zeroext false, i1 noundef zeroext false)
-  %92 = getelementptr inbounds ptr, ptr %87, i64 %indvars.iv.i24
+  %92 = getelementptr inbounds nuw ptr, ptr %87, i64 %indvars.iv.i24
   store ptr %91, ptr %92, align 8
   %indvars.iv.next.i25 = add nuw nsw i64 %indvars.iv.i24, 1
   %exitcond.not.i26 = icmp eq i64 %indvars.iv.next.i25, %85
@@ -609,7 +609,7 @@ win64_create_params.exit:                         ; preds = %73, %63, %66
 win64_vector_call_args.exit.sink.split:           ; preds = %88, %win64_reclassify_hva_arg.exit.i, %81, %win64_create_params.exit
   %.sink31 = phi i64 [ 80, %win64_create_params.exit ], [ 80, %81 ], [ 72, %win64_reclassify_hva_arg.exit.i ], [ 80, %88 ]
   %.sink = phi ptr [ null, %win64_create_params.exit ], [ null, %81 ], [ %34, %win64_reclassify_hva_arg.exit.i ], [ %87, %88 ]
-  %93 = getelementptr inbounds i8, ptr %0, i64 %.sink31
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink31
   store ptr %.sink, ptr %93, align 8
   br label %win64_vector_call_args.exit
 

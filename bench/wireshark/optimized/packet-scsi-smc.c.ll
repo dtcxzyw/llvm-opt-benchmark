@@ -329,7 +329,7 @@ define hidden void @dissect_smc_readelementstatus(ptr noundef %0, ptr nocapture 
 
 .lr.ph:                                           ; preds = %36
   %46 = add i32 %3, 8
-  %47 = getelementptr inbounds i8, ptr %1, i64 408
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %48
 
 48:                                               ; preds = %.lr.ph, %dissect_scsi_smc_elements.exit

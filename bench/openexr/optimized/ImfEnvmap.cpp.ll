@@ -24,13 +24,13 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
 define void @_ZN7Imf_3_210LatLongMap7latLongERKN9Imath_3_24Vec3IfEE(ptr noalias nocapture writeonly sret(%"class.Imath_3_2::Vec2") align 4 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %dir) local_unnamed_addr #3 {
 entry:
-  %z = getelementptr inbounds i8, ptr %dir, i64 8
+  %z = getelementptr inbounds nuw i8, ptr %dir, i64 8
   %0 = load float, ptr %z, align 4
   %1 = load float, ptr %dir, align 4
   %mul3 = fmul float %1, %1
   %2 = tail call float @llvm.fmuladd.f32(float %0, float %0, float %mul3)
   %sqrt = tail call float @llvm.sqrt.f32(float %2)
-  %y = getelementptr inbounds i8, ptr %dir, i64 4
+  %y = getelementptr inbounds nuw i8, ptr %dir, i64 4
   %3 = load float, ptr %y, align 4
   %4 = tail call noundef float @llvm.fabs.f32(float %3)
   %cmp = fcmp olt float %sqrt, %4
@@ -144,7 +144,7 @@ cond.false18:                                     ; preds = %cond.end
 cond.end22:                                       ; preds = %cond.end, %cond.false18
   %cond23 = phi float [ %call.i47, %cond.false18 ], [ 0.000000e+00, %cond.end ]
   store float %cond, ptr %agg.result, align 4
-  %y.i = getelementptr inbounds i8, ptr %agg.result, i64 4
+  %y.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 4
   store float %cond23, ptr %y.i, align 4
   ret void
 }
@@ -155,16 +155,16 @@ declare float @llvm.fmuladd.f32(float, float, float) #4
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN7Imf_3_210LatLongMap7latLongERKN9Imath_3_23BoxINS1_4Vec2IiEEEERKNS3_IfEE(ptr noalias nocapture writeonly sret(%"class.Imath_3_2::Vec2") align 4 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %dataWindow, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %pixelPosition) local_unnamed_addr #5 {
 entry:
-  %max = getelementptr inbounds i8, ptr %dataWindow, i64 8
-  %y = getelementptr inbounds i8, ptr %dataWindow, i64 12
+  %max = getelementptr inbounds nuw i8, ptr %dataWindow, i64 8
+  %y = getelementptr inbounds nuw i8, ptr %dataWindow, i64 12
   %0 = load i32, ptr %y, align 4
-  %y1 = getelementptr inbounds i8, ptr %dataWindow, i64 4
+  %y1 = getelementptr inbounds nuw i8, ptr %dataWindow, i64 4
   %1 = load i32, ptr %y1, align 4
   %cmp = icmp sgt i32 %0, %1
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %y2 = getelementptr inbounds i8, ptr %pixelPosition, i64 4
+  %y2 = getelementptr inbounds nuw i8, ptr %pixelPosition, i64 4
   %2 = load float, ptr %y2, align 4
   %conv = sitofp i32 %1 to float
   %sub = fsub float %2, %conv
@@ -196,7 +196,7 @@ if.then16:                                        ; preds = %if.end
 if.end32:                                         ; preds = %if.end, %if.then16
   %longitude.0 = phi float [ %mul30, %if.then16 ], [ 0.000000e+00, %if.end ]
   store float %latitude.0, ptr %agg.result, align 4
-  %y.i = getelementptr inbounds i8, ptr %agg.result, i64 4
+  %y.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 4
   store float %longitude.0, ptr %y.i, align 4
   ret void
 }
@@ -204,30 +204,30 @@ if.end32:                                         ; preds = %if.end, %if.then16
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN7Imf_3_210LatLongMap13pixelPositionERKN9Imath_3_23BoxINS1_4Vec2IiEEEERKNS3_IfEE(ptr noalias nocapture writeonly sret(%"class.Imath_3_2::Vec2") align 4 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %dataWindow, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %latLong) local_unnamed_addr #5 {
 entry:
-  %y = getelementptr inbounds i8, ptr %latLong, i64 4
+  %y = getelementptr inbounds nuw i8, ptr %latLong, i64 4
   %0 = load float, ptr %y, align 4
   %div = fdiv float %0, 0x401921FB60000000
   %1 = fsub float 5.000000e-01, %div
   %2 = load float, ptr %latLong, align 4
   %div3 = fdiv float %2, 0x400921FB60000000
   %3 = fsub float 5.000000e-01, %div3
-  %max = getelementptr inbounds i8, ptr %dataWindow, i64 8
+  %max = getelementptr inbounds nuw i8, ptr %dataWindow, i64 8
   %4 = load i32, ptr %max, align 4
   %5 = load i32, ptr %dataWindow, align 4
   %sub = sub nsw i32 %4, %5
   %conv = sitofp i32 %sub to float
   %conv9 = sitofp i32 %5 to float
   %6 = tail call float @llvm.fmuladd.f32(float %1, float %conv, float %conv9)
-  %y11 = getelementptr inbounds i8, ptr %dataWindow, i64 12
+  %y11 = getelementptr inbounds nuw i8, ptr %dataWindow, i64 12
   %7 = load i32, ptr %y11, align 4
-  %y13 = getelementptr inbounds i8, ptr %dataWindow, i64 4
+  %y13 = getelementptr inbounds nuw i8, ptr %dataWindow, i64 4
   %8 = load i32, ptr %y13, align 4
   %sub14 = sub nsw i32 %7, %8
   %conv15 = sitofp i32 %sub14 to float
   %conv18 = sitofp i32 %8 to float
   %9 = tail call float @llvm.fmuladd.f32(float %3, float %conv15, float %conv18)
   store float %6, ptr %agg.result, align 4
-  %y.i = getelementptr inbounds i8, ptr %agg.result, i64 4
+  %y.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 4
   store float %9, ptr %y.i, align 4
   ret void
 }
@@ -238,30 +238,30 @@ entry:
   %ref.tmp = alloca %"class.Imath_3_2::Vec2", align 4
   call void @_ZN7Imf_3_210LatLongMap7latLongERKN9Imath_3_24Vec3IfEE(ptr nonnull sret(%"class.Imath_3_2::Vec2") align 4 %ref.tmp, ptr noundef nonnull align 4 dereferenceable(12) %direction)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
-  %y.i = getelementptr inbounds i8, ptr %ref.tmp, i64 4
+  %y.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 4
   %0 = load float, ptr %y.i, align 4, !noalias !4
   %div.i = fdiv float %0, 0x401921FB60000000
   %1 = fsub float 5.000000e-01, %div.i
   %2 = load float, ptr %ref.tmp, align 4, !noalias !4
   %div3.i = fdiv float %2, 0x400921FB60000000
   %3 = fsub float 5.000000e-01, %div3.i
-  %max.i = getelementptr inbounds i8, ptr %dataWindow, i64 8
+  %max.i = getelementptr inbounds nuw i8, ptr %dataWindow, i64 8
   %4 = load i32, ptr %max.i, align 4, !noalias !4
   %5 = load i32, ptr %dataWindow, align 4, !noalias !4
   %sub.i = sub nsw i32 %4, %5
   %conv.i = sitofp i32 %sub.i to float
   %conv9.i = sitofp i32 %5 to float
   %6 = tail call float @llvm.fmuladd.f32(float %1, float %conv.i, float %conv9.i)
-  %y11.i = getelementptr inbounds i8, ptr %dataWindow, i64 12
+  %y11.i = getelementptr inbounds nuw i8, ptr %dataWindow, i64 12
   %7 = load i32, ptr %y11.i, align 4, !noalias !4
-  %y13.i = getelementptr inbounds i8, ptr %dataWindow, i64 4
+  %y13.i = getelementptr inbounds nuw i8, ptr %dataWindow, i64 4
   %8 = load i32, ptr %y13.i, align 4, !noalias !4
   %sub14.i = sub nsw i32 %7, %8
   %conv15.i = sitofp i32 %sub14.i to float
   %conv18.i = sitofp i32 %8 to float
   %9 = tail call float @llvm.fmuladd.f32(float %3, float %conv15.i, float %conv18.i)
   store float %6, ptr %agg.result, align 4, !alias.scope !4
-  %y.i.i = getelementptr inbounds i8, ptr %agg.result, i64 4
+  %y.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 4
   store float %9, ptr %y.i.i, align 4, !alias.scope !4
   ret void
 }
@@ -269,16 +269,16 @@ entry:
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
 define void @_ZN7Imf_3_210LatLongMap9directionERKN9Imath_3_23BoxINS1_4Vec2IiEEEERKNS3_IfEE(ptr noalias nocapture writeonly sret(%"class.Imath_3_2::Vec3") align 4 initializes((0, 12)) %agg.result, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %dataWindow, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %pixelPosition) local_unnamed_addr #3 {
 entry:
-  %max.i = getelementptr inbounds i8, ptr %dataWindow, i64 8
-  %y.i = getelementptr inbounds i8, ptr %dataWindow, i64 12
+  %max.i = getelementptr inbounds nuw i8, ptr %dataWindow, i64 8
+  %y.i = getelementptr inbounds nuw i8, ptr %dataWindow, i64 12
   %0 = load i32, ptr %y.i, align 4, !noalias !7
-  %y1.i = getelementptr inbounds i8, ptr %dataWindow, i64 4
+  %y1.i = getelementptr inbounds nuw i8, ptr %dataWindow, i64 4
   %1 = load i32, ptr %y1.i, align 4, !noalias !7
   %cmp.i = icmp sgt i32 %0, %1
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
-  %y2.i = getelementptr inbounds i8, ptr %pixelPosition, i64 4
+  %y2.i = getelementptr inbounds nuw i8, ptr %pixelPosition, i64 4
   %2 = load float, ptr %y2.i, align 4, !noalias !7
   %conv.i = sitofp i32 %1 to float
   %sub.i = fsub float %2, %conv.i
@@ -317,9 +317,9 @@ _ZN7Imf_3_210LatLongMap7latLongERKN9Imath_3_23BoxINS1_4Vec2IiEEEERKNS3_IfEE.exit
   %call.i4 = tail call noundef float @cosf(float noundef %latitude.0.i) #12
   %mul8 = fmul float %call.i3, %call.i4
   store float %mul, ptr %agg.result, align 4
-  %y.i5 = getelementptr inbounds i8, ptr %agg.result, i64 4
+  %y.i5 = getelementptr inbounds nuw i8, ptr %agg.result, i64 4
   store float %call.i2, ptr %y.i5, align 4
-  %z.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %z.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store float %mul8, ptr %z.i, align 4
   ret void
 }
@@ -327,14 +327,14 @@ _ZN7Imf_3_210LatLongMap7latLongERKN9Imath_3_23BoxINS1_4Vec2IiEEEERKNS3_IfEE.exit
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef range(i32 -2147483647, 357913942) i32 @_ZN7Imf_3_27CubeMap10sizeOfFaceERKN9Imath_3_23BoxINS1_4Vec2IiEEEE(ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %dataWindow) local_unnamed_addr #7 {
 entry:
-  %max = getelementptr inbounds i8, ptr %dataWindow, i64 8
+  %max = getelementptr inbounds nuw i8, ptr %dataWindow, i64 8
   %0 = load i32, ptr %max, align 4
   %1 = load i32, ptr %dataWindow, align 4
   %sub = add i32 %0, 1
   %add = sub i32 %sub, %1
-  %y = getelementptr inbounds i8, ptr %dataWindow, i64 12
+  %y = getelementptr inbounds nuw i8, ptr %dataWindow, i64 12
   %2 = load i32, ptr %y, align 4
-  %y5 = getelementptr inbounds i8, ptr %dataWindow, i64 4
+  %y5 = getelementptr inbounds nuw i8, ptr %dataWindow, i64 4
   %3 = load i32, ptr %y5, align 4
   %sub6 = add i32 %2, 1
   %add7 = sub i32 %sub6, %3
@@ -346,22 +346,22 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN7Imf_3_27CubeMap17dataWindowForFaceENS_11CubeMapFaceERKN9Imath_3_23BoxINS2_4Vec2IiEEEE(ptr noalias nocapture writeonly sret(%"class.Imath_3_2::Box") align 4 initializes((0, 16)) %agg.result, i32 noundef %face, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %dataWindow) local_unnamed_addr #5 {
 entry:
-  %max.i = getelementptr inbounds i8, ptr %dataWindow, i64 8
+  %max.i = getelementptr inbounds nuw i8, ptr %dataWindow, i64 8
   %0 = load i32, ptr %max.i, align 4
   %1 = load i32, ptr %dataWindow, align 4
   %sub.i = add i32 %0, 1
   %add.i = sub i32 %sub.i, %1
-  %y.i = getelementptr inbounds i8, ptr %dataWindow, i64 12
+  %y.i = getelementptr inbounds nuw i8, ptr %dataWindow, i64 12
   %2 = load i32, ptr %y.i, align 4
-  %y5.i = getelementptr inbounds i8, ptr %dataWindow, i64 4
+  %y5.i = getelementptr inbounds nuw i8, ptr %dataWindow, i64 4
   %3 = load i32, ptr %y5.i, align 4
   %sub6.i = add i32 %2, 1
   %add7.i = sub i32 %sub6.i, %3
   %div.i = sdiv i32 %add7.i, 6
   %.sroa.speculated.i = tail call noundef range(i32 -2147483647, 357913942) i32 @llvm.smin.i32(i32 %div.i, i32 %add.i)
-  %y3.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 4
-  %max.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %y3.i4.i.i = getelementptr inbounds i8, ptr %agg.result, i64 12
+  %y3.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 4
+  %max.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
+  %y3.i4.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 12
   store i32 0, ptr %agg.result, align 4
   %mul = mul nsw i32 %.sroa.speculated.i, %face
   store i32 %mul, ptr %y3.i.i.i, align 4
@@ -375,14 +375,14 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN7Imf_3_27CubeMap13pixelPositionENS_11CubeMapFaceERKN9Imath_3_23BoxINS2_4Vec2IiEEEENS4_IfEE(ptr noalias nocapture writeonly sret(%"class.Imath_3_2::Vec2") align 4 initializes((0, 8)) %agg.result, i32 noundef %face, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %dataWindow, ptr nocapture noundef readonly %positionInFace) local_unnamed_addr #5 {
 entry:
-  %max.i.i = getelementptr inbounds i8, ptr %dataWindow, i64 8
+  %max.i.i = getelementptr inbounds nuw i8, ptr %dataWindow, i64 8
   %0 = load i32, ptr %max.i.i, align 4, !noalias !10
   %1 = load i32, ptr %dataWindow, align 4, !noalias !10
   %sub.i.i = add i32 %0, 1
   %add.i.i = sub i32 %sub.i.i, %1
-  %y.i.i = getelementptr inbounds i8, ptr %dataWindow, i64 12
+  %y.i.i = getelementptr inbounds nuw i8, ptr %dataWindow, i64 12
   %2 = load i32, ptr %y.i.i, align 4, !noalias !10
-  %y5.i.i = getelementptr inbounds i8, ptr %dataWindow, i64 4
+  %y5.i.i = getelementptr inbounds nuw i8, ptr %dataWindow, i64 4
   %3 = load i32, ptr %y5.i.i, align 4, !noalias !10
   %sub6.i.i = add i32 %2, 1
   %add7.i.i = sub i32 %sub6.i.i, %3
@@ -392,7 +392,7 @@ entry:
   %sub.i = add nsw i32 %.sroa.speculated.i.i, -1
   %sub8.i = add i32 %sub.i, %mul.i
   store float 0.000000e+00, ptr %agg.result, align 4
-  %y.i = getelementptr inbounds i8, ptr %agg.result, i64 4
+  %y.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 4
   store float 0.000000e+00, ptr %y.i, align 4
   switch i32 %face, label %sw.epilog [
     i32 0, label %sw.bb
@@ -404,7 +404,7 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %y = getelementptr inbounds i8, ptr %positionInFace, i64 4
+  %y = getelementptr inbounds nuw i8, ptr %positionInFace, i64 4
   %4 = load float, ptr %y, align 4
   %add = fadd float %4, 0.000000e+00
   store float %add, ptr %agg.result, align 4
@@ -415,7 +415,7 @@ sw.bb:                                            ; preds = %entry
 
 sw.bb6:                                           ; preds = %entry
   %conv9 = sitofp i32 %sub.i to float
-  %y10 = getelementptr inbounds i8, ptr %positionInFace, i64 4
+  %y10 = getelementptr inbounds nuw i8, ptr %positionInFace, i64 4
   %6 = load float, ptr %y10, align 4
   %sub11 = fsub float %conv9, %6
   store float %sub11, ptr %agg.result, align 4
@@ -429,7 +429,7 @@ sw.bb19:                                          ; preds = %entry
   %add24 = fadd float %8, 0.000000e+00
   store float %add24, ptr %agg.result, align 4
   %conv28 = sitofp i32 %sub8.i to float
-  %y29 = getelementptr inbounds i8, ptr %positionInFace, i64 4
+  %y29 = getelementptr inbounds nuw i8, ptr %positionInFace, i64 4
   %9 = load float, ptr %y29, align 4
   %sub30 = fsub float %conv28, %9
   br label %sw.epilog.sink.split
@@ -439,7 +439,7 @@ sw.bb32:                                          ; preds = %entry
   %add37 = fadd float %10, 0.000000e+00
   store float %add37, ptr %agg.result, align 4
   %conv41 = sitofp i32 %mul.i to float
-  %y42 = getelementptr inbounds i8, ptr %positionInFace, i64 4
+  %y42 = getelementptr inbounds nuw i8, ptr %positionInFace, i64 4
   %11 = load float, ptr %y42, align 4
   %add43 = fadd float %11, %conv41
   br label %sw.epilog.sink.split
@@ -450,7 +450,7 @@ sw.bb45:                                          ; preds = %entry
   %sub50 = fsub float %conv48, %12
   store float %sub50, ptr %agg.result, align 4
   %conv54 = sitofp i32 %sub8.i to float
-  %y55 = getelementptr inbounds i8, ptr %positionInFace, i64 4
+  %y55 = getelementptr inbounds nuw i8, ptr %positionInFace, i64 4
   %13 = load float, ptr %y55, align 4
   %sub56 = fsub float %conv54, %13
   br label %sw.epilog.sink.split
@@ -460,7 +460,7 @@ sw.bb58:                                          ; preds = %entry
   %add63 = fadd float %14, 0.000000e+00
   store float %add63, ptr %agg.result, align 4
   %conv67 = sitofp i32 %sub8.i to float
-  %y68 = getelementptr inbounds i8, ptr %positionInFace, i64 4
+  %y68 = getelementptr inbounds nuw i8, ptr %positionInFace, i64 4
   %15 = load float, ptr %y68, align 4
   %sub69 = fsub float %conv67, %15
   br label %sw.epilog.sink.split
@@ -477,14 +477,14 @@ sw.epilog:                                        ; preds = %sw.epilog.sink.spli
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN7Imf_3_27CubeMap20faceAndPixelPositionERKN9Imath_3_24Vec3IfEERKNS1_3BoxINS1_4Vec2IiEEEERNS_11CubeMapFaceERNS7_IfEE(ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %direction, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %dataWindow, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %face, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) initializes((0, 8)) %pif) local_unnamed_addr #5 {
 entry:
-  %max.i = getelementptr inbounds i8, ptr %dataWindow, i64 8
+  %max.i = getelementptr inbounds nuw i8, ptr %dataWindow, i64 8
   %0 = load i32, ptr %max.i, align 4
   %1 = load i32, ptr %dataWindow, align 4
   %sub.i = add i32 %0, 1
   %add.i = sub i32 %sub.i, %1
-  %y.i = getelementptr inbounds i8, ptr %dataWindow, i64 12
+  %y.i = getelementptr inbounds nuw i8, ptr %dataWindow, i64 12
   %2 = load i32, ptr %y.i, align 4
-  %y5.i = getelementptr inbounds i8, ptr %dataWindow, i64 4
+  %y5.i = getelementptr inbounds nuw i8, ptr %dataWindow, i64 4
   %3 = load i32, ptr %y5.i, align 4
   %sub6.i = add i32 %2, 1
   %add7.i = sub i32 %sub6.i, %3
@@ -492,10 +492,10 @@ entry:
   %.sroa.speculated.i = tail call noundef range(i32 -2147483647, 357913942) i32 @llvm.smin.i32(i32 %div.i, i32 %add.i)
   %4 = load float, ptr %direction, align 4
   %5 = tail call noundef float @llvm.fabs.f32(float %4)
-  %y = getelementptr inbounds i8, ptr %direction, i64 4
+  %y = getelementptr inbounds nuw i8, ptr %direction, i64 4
   %6 = load float, ptr %y, align 4
   %7 = tail call noundef float @llvm.fabs.f32(float %6)
-  %z = getelementptr inbounds i8, ptr %direction, i64 8
+  %z = getelementptr inbounds nuw i8, ptr %direction, i64 8
   %8 = load float, ptr %z, align 4
   %9 = tail call noundef float @llvm.fabs.f32(float %8)
   %cmp = fcmp ult float %5, %7
@@ -510,7 +510,7 @@ if.then:                                          ; preds = %entry
 if.then6:                                         ; preds = %if.then
   store i32 0, ptr %face, align 4
   store float 0.000000e+00, ptr %pif, align 4
-  %y3.i = getelementptr inbounds i8, ptr %pif, i64 4
+  %y3.i = getelementptr inbounds nuw i8, ptr %pif, i64 4
   store float 0.000000e+00, ptr %y3.i, align 4
   br label %if.end70
 
@@ -527,7 +527,7 @@ if.end:                                           ; preds = %if.then
   %add13 = fadd float %div12, 1.000000e+00
   %div14 = fmul float %add13, 5.000000e-01
   %mul17 = fmul float %div14, %conv
-  %y18 = getelementptr inbounds i8, ptr %pif, i64 4
+  %y18 = getelementptr inbounds nuw i8, ptr %pif, i64 4
   store float %mul17, ptr %y18, align 4
   %11 = load float, ptr %direction, align 4
   %cmp20 = fcmp ogt float %11, 0.000000e+00
@@ -545,7 +545,7 @@ if.else23:                                        ; preds = %entry
   %cmp24 = fcmp ult float %7, %9
   %sub52 = add nsw i32 %.sroa.speculated.i, -1
   %conv53 = sitofp i32 %sub52 to float
-  %y63 = getelementptr inbounds i8, ptr %pif, i64 4
+  %y63 = getelementptr inbounds nuw i8, ptr %pif, i64 4
   br i1 %cmp24, label %if.else47, label %if.then25
 
 if.then25:                                        ; preds = %if.else23
@@ -603,14 +603,14 @@ if.end70:                                         ; preds = %if.else45, %if.then
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN7Imf_3_27CubeMap9directionENS_11CubeMapFaceERKN9Imath_3_23BoxINS2_4Vec2IiEEEERKNS4_IfEE(ptr noalias nocapture writeonly sret(%"class.Imath_3_2::Vec3") align 4 initializes((0, 12)) %agg.result, i32 noundef %face, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %dataWindow, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %positionInFace) local_unnamed_addr #5 {
 entry:
-  %max.i = getelementptr inbounds i8, ptr %dataWindow, i64 8
+  %max.i = getelementptr inbounds nuw i8, ptr %dataWindow, i64 8
   %0 = load i32, ptr %max.i, align 4
   %1 = load i32, ptr %dataWindow, align 4
   %sub.i = add i32 %0, 1
   %add.i = sub i32 %sub.i, %1
-  %y.i = getelementptr inbounds i8, ptr %dataWindow, i64 12
+  %y.i = getelementptr inbounds nuw i8, ptr %dataWindow, i64 12
   %2 = load i32, ptr %y.i, align 4
-  %y5.i = getelementptr inbounds i8, ptr %dataWindow, i64 4
+  %y5.i = getelementptr inbounds nuw i8, ptr %dataWindow, i64 4
   %3 = load i32, ptr %y5.i, align 4
   %sub6.i = add i32 %2, 1
   %add7.i = sub i32 %sub6.i, %3
@@ -625,7 +625,7 @@ if.then:                                          ; preds = %entry
   %conv = uitofp nneg i32 %sub to float
   %div = fdiv float %4, %conv
   %5 = tail call float @llvm.fmuladd.f32(float %div, float 2.000000e+00, float -1.000000e+00)
-  %y = getelementptr inbounds i8, ptr %positionInFace, i64 4
+  %y = getelementptr inbounds nuw i8, ptr %positionInFace, i64 4
   %6 = load float, ptr %y, align 4
   %div3 = fdiv float %6, %conv
   %7 = tail call float @llvm.fmuladd.f32(float %div3, float 2.000000e+00, float -1.000000e+00)
@@ -635,9 +635,9 @@ if.end:                                           ; preds = %entry, %if.then
   %pos.sroa.0.0 = phi float [ %5, %if.then ], [ 0.000000e+00, %entry ]
   %pos.sroa.8.0 = phi float [ %7, %if.then ], [ 0.000000e+00, %entry ]
   store float 1.000000e+00, ptr %agg.result, align 4
-  %y.i9 = getelementptr inbounds i8, ptr %agg.result, i64 4
+  %y.i9 = getelementptr inbounds nuw i8, ptr %agg.result, i64 4
   store float 0.000000e+00, ptr %y.i9, align 4
-  %z.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %z.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store float 0.000000e+00, ptr %z.i, align 4
   switch i32 %face, label %sw.epilog [
     i32 0, label %sw.epilog.sink.split

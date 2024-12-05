@@ -54,12 +54,12 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.body
   %j.09 = phi i64 [ 0, %entry ], [ %inc, %for.body ]
-  %arrayidx = getelementptr inbounds [3 x %union.pthread_mutex_t], ptr @bio_mutex, i64 0, i64 %j.09
+  %arrayidx = getelementptr inbounds nuw [3 x %union.pthread_mutex_t], ptr @bio_mutex, i64 0, i64 %j.09
   %call = tail call i32 @pthread_mutex_init(ptr noundef nonnull %arrayidx, ptr noundef null) #9
-  %arrayidx1 = getelementptr inbounds [3 x %union.pthread_cond_t], ptr @bio_newjob_cond, i64 0, i64 %j.09
+  %arrayidx1 = getelementptr inbounds nuw [3 x %union.pthread_cond_t], ptr @bio_newjob_cond, i64 0, i64 %j.09
   %call2 = tail call i32 @pthread_cond_init(ptr noundef nonnull %arrayidx1, ptr noundef null) #9
   %call3 = tail call ptr @listCreate() #9
-  %arrayidx4 = getelementptr inbounds [3 x ptr], ptr @bio_jobs, i64 0, i64 %j.09
+  %arrayidx4 = getelementptr inbounds nuw [3 x ptr], ptr @bio_jobs, i64 0, i64 %j.09
   store ptr %call3, ptr %arrayidx4, align 8
   %inc = add nuw nsw i64 %j.09, 1
   %exitcond.not = icmp eq i64 %inc, 3
@@ -120,7 +120,7 @@ do.end:                                           ; preds = %do.body, %if.end17
 
 if.end20:                                         ; preds = %for.body11
   %5 = load i64, ptr %thread, align 8
-  %arrayidx21 = getelementptr inbounds [3 x i64], ptr @bio_threads, i64 0, i64 %j.111
+  %arrayidx21 = getelementptr inbounds nuw [3 x i64], ptr @bio_threads, i64 0, i64 %j.111
   store i64 %5, ptr %arrayidx21, align 8
   %inc23 = add nuw nsw i64 %j.111, 1
   %exitcond12.not = icmp eq i64 %inc23, 3
@@ -196,7 +196,7 @@ if.end14:                                         ; preds = %if.end, %cond.end
 
 while.body:                                       ; preds = %while.body.backedge, %if.end14
   %5 = load ptr, ptr %arrayidx15, align 8
-  %len = getelementptr inbounds i8, ptr %5, i64 40
+  %len = getelementptr inbounds nuw i8, ptr %5, i64 40
   %6 = load i64, ptr %len, align 8
   %cmp16 = icmp eq i64 %6, 0
   br i1 %cmp16, label %if.then18, label %if.end22
@@ -210,7 +210,7 @@ while.body.backedge:                              ; preds = %if.then18, %if.end1
 
 if.end22:                                         ; preds = %while.body
   %7 = load ptr, ptr %5, align 8
-  %value = getelementptr inbounds i8, ptr %7, i64 16
+  %value = getelementptr inbounds nuw i8, ptr %7, i64 16
   %8 = load ptr, ptr %value, align 8
   %call25 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %arrayidx3) #9
   %9 = load i32, ptr %8, align 8
@@ -218,14 +218,14 @@ if.end22:                                         ; preds = %while.body
   br i1 %cmp26, label %if.then28, label %if.else
 
 if.then28:                                        ; preds = %if.end22
-  %need_fsync = getelementptr inbounds i8, ptr %8, i64 16
+  %need_fsync = getelementptr inbounds nuw i8, ptr %8, i64 16
   %bf.load = load i8, ptr %need_fsync, align 8
   %bf.clear = and i8 %bf.load, 1
   %tobool29.not = icmp eq i8 %bf.clear, 0
   br i1 %tobool29.not, label %if.end50, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.then28
-  %fd = getelementptr inbounds i8, ptr %8, i64 4
+  %fd = getelementptr inbounds nuw i8, ptr %8, i64 4
   %10 = load i32, ptr %fd, align 4
   %call30 = call i32 @fdatasync(i32 noundef %10) #9
   %cmp31 = icmp eq i32 %call30, -1
@@ -256,7 +256,7 @@ if.end50:                                         ; preds = %land.lhs.true33, %l
   br i1 %tobool54.not, label %if.end70, label %if.then55
 
 if.then55:                                        ; preds = %if.end50
-  %fd56 = getelementptr inbounds i8, ptr %8, i64 4
+  %fd56 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %14 = load i32, ptr %fd56, align 4
   %call57 = call i32 @reclaimFilePageCache(i32 noundef %14, i64 noundef 0, i64 noundef 0) #9
   %cmp58 = icmp ne i32 %call57, -1
@@ -273,7 +273,7 @@ if.end65:                                         ; preds = %if.then55
   br label %if.end70
 
 if.end70:                                         ; preds = %if.then55, %if.end65, %if.end50
-  %fd71 = getelementptr inbounds i8, ptr %8, i64 4
+  %fd71 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %17 = load i32, ptr %fd71, align 4
   %call72 = call i32 @close(i32 noundef %17) #9
   br label %if.end146
@@ -287,7 +287,7 @@ if.else:                                          ; preds = %if.end22
   ]
 
 if.then77:                                        ; preds = %if.else, %if.else
-  %fd78 = getelementptr inbounds i8, ptr %8, i64 4
+  %fd78 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %18 = load i32, ptr %fd78, align 4
   %call79 = call i32 @fdatasync(i32 noundef %18) #9
   %cmp80 = icmp eq i32 %call79, -1
@@ -319,13 +319,13 @@ if.end102:                                        ; preds = %do.body91
 
 if.else107:                                       ; preds = %land.lhs.true82, %land.lhs.true82, %if.then77
   store atomic i32 0, ptr getelementptr inbounds (i8, ptr @server, i64 4080) monotonic, align 8
-  %offset = getelementptr inbounds i8, ptr %8, i64 8
+  %offset = getelementptr inbounds nuw i8, ptr %8, i64 8
   %23 = load i64, ptr %offset, align 8
   store atomic i64 %23, ptr getelementptr inbounds (i8, ptr @server, i64 4456) monotonic, align 8
   br label %if.end110
 
 if.end110:                                        ; preds = %do.body91, %if.end102, %if.else107
-  %need_reclaim_cache111 = getelementptr inbounds i8, ptr %8, i64 16
+  %need_reclaim_cache111 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %bf.load112 = load i8, ptr %need_reclaim_cache111, align 8
   %24 = and i8 %bf.load112, 2
   %tobool116.not = icmp eq i8 %24, 0
@@ -356,9 +356,9 @@ if.then135:                                       ; preds = %if.end132
   br label %if.end146
 
 if.then142:                                       ; preds = %if.else
-  %free_fn = getelementptr inbounds i8, ptr %8, i64 8
+  %free_fn = getelementptr inbounds nuw i8, ptr %8, i64 8
   %29 = load ptr, ptr %free_fn, align 8
-  %free_args = getelementptr inbounds i8, ptr %8, i64 16
+  %free_args = getelementptr inbounds nuw i8, ptr %8, i64 16
   call void %29(ptr noundef nonnull %free_args) #9
   br label %if.end146
 
@@ -373,7 +373,7 @@ if.end146:                                        ; preds = %if.then142, %if.the
   %30 = load ptr, ptr %arrayidx15, align 8
   call void @listDelNode(ptr noundef %30, ptr noundef nonnull %7) #9
   %idxprom = zext nneg i32 %9 to i64
-  %arrayidx150 = getelementptr inbounds [4 x i64], ptr @bio_jobs_counter, i64 0, i64 %idxprom
+  %arrayidx150 = getelementptr inbounds nuw [4 x i64], ptr @bio_jobs_counter, i64 0, i64 %idxprom
   %31 = load i64, ptr %arrayidx150, align 8
   %dec = add i64 %31, -1
   store i64 %dec, ptr %arrayidx150, align 8
@@ -400,16 +400,16 @@ entry:
   %arrayidx = getelementptr inbounds [4 x i32], ptr @bio_job_to_worker, i64 0, i64 %idxprom
   %0 = load i32, ptr %arrayidx, align 4
   %conv = zext i32 %0 to i64
-  %arrayidx2 = getelementptr inbounds [3 x %union.pthread_mutex_t], ptr @bio_mutex, i64 0, i64 %conv
+  %arrayidx2 = getelementptr inbounds nuw [3 x %union.pthread_mutex_t], ptr @bio_mutex, i64 0, i64 %conv
   %call = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %arrayidx2) #9
-  %arrayidx3 = getelementptr inbounds [3 x ptr], ptr @bio_jobs, i64 0, i64 %conv
+  %arrayidx3 = getelementptr inbounds nuw [3 x ptr], ptr @bio_jobs, i64 0, i64 %conv
   %1 = load ptr, ptr %arrayidx3, align 8
   %call4 = tail call ptr @listAddNodeTail(ptr noundef %1, ptr noundef nonnull %job) #9
   %arrayidx6 = getelementptr inbounds [4 x i64], ptr @bio_jobs_counter, i64 0, i64 %idxprom
   %2 = load i64, ptr %arrayidx6, align 8
   %inc = add i64 %2, 1
   store i64 %inc, ptr %arrayidx6, align 8
-  %arrayidx7 = getelementptr inbounds [3 x %union.pthread_cond_t], ptr @bio_newjob_cond, i64 0, i64 %conv
+  %arrayidx7 = getelementptr inbounds nuw [3 x %union.pthread_cond_t], ptr @bio_newjob_cond, i64 0, i64 %conv
   %call8 = tail call i32 @pthread_cond_signal(ptr noundef nonnull %arrayidx7) #9
   %call10 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %arrayidx2) #9
   ret void
@@ -434,7 +434,7 @@ entry:
   %mul = shl nsw i64 %conv, 3
   %add = add nsw i64 %mul, 24
   %call = tail call noalias ptr @zmalloc(i64 noundef %add) #13
-  %free_fn1 = getelementptr inbounds i8, ptr %call, i64 8
+  %free_fn1 = getelementptr inbounds nuw i8, ptr %call, i64 8
   store ptr %free_fn, ptr %free_fn1, align 8
   call void @llvm.va_start.p0(ptr nonnull %valist)
   %cmp8 = icmp sgt i32 %arg_count, 0
@@ -442,10 +442,10 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %valist.promoted = load i32, ptr %valist, align 16
-  %overflow_arg_area_p = getelementptr inbounds i8, ptr %valist, i64 8
-  %0 = getelementptr inbounds i8, ptr %valist, i64 16
+  %overflow_arg_area_p = getelementptr inbounds nuw i8, ptr %valist, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %valist, i64 16
   %reg_save_area = load ptr, ptr %0, align 16
-  %free_args = getelementptr inbounds i8, ptr %call, i64 16
+  %free_args = getelementptr inbounds nuw i8, ptr %call, i64 16
   %overflow_arg_area_p.promoted = load ptr, ptr %overflow_arg_area_p, align 8
   %wide.trip.count = zext nneg i32 %arg_count to i64
   br label %for.body
@@ -474,7 +474,7 @@ vaarg.end:                                        ; preds = %vaarg.in_mem, %vaar
   %gp_offset6 = phi i32 [ %3, %vaarg.in_reg ], [ %gp_offset79, %vaarg.in_mem ]
   %vaarg.addr = phi ptr [ %2, %vaarg.in_reg ], [ %overflow_arg_area12, %vaarg.in_mem ]
   %4 = load ptr, ptr %vaarg.addr, align 8
-  %arrayidx = getelementptr inbounds [0 x ptr], ptr %free_args, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [0 x ptr], ptr %free_args, i64 0, i64 %indvars.iv
   store ptr %4, ptr %arrayidx, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -483,14 +483,14 @@ vaarg.end:                                        ; preds = %vaarg.in_mem, %vaar
 for.end:                                          ; preds = %vaarg.end, %entry
   call void @llvm.va_end.p0(ptr nonnull %valist)
   store i32 2, ptr %call, align 8
-  %call.i = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @bio_mutex, i64 80)) #9
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @bio_jobs, i64 16), align 16
+  %call.i = call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @bio_mutex, i64 80)) #9
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @bio_jobs, i64 16), align 16
   %call4.i = call ptr @listAddNodeTail(ptr noundef %5, ptr noundef nonnull %call) #9
   %6 = load i64, ptr getelementptr inbounds (i8, ptr @bio_jobs_counter, i64 16), align 16
   %inc.i = add i64 %6, 1
   store i64 %inc.i, ptr getelementptr inbounds (i8, ptr @bio_jobs_counter, i64 16), align 16
-  %call8.i = call i32 @pthread_cond_signal(ptr noundef nonnull getelementptr inbounds (i8, ptr @bio_newjob_cond, i64 96)) #9
-  %call10.i = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @bio_mutex, i64 80)) #9
+  %call8.i = call i32 @pthread_cond_signal(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @bio_newjob_cond, i64 96)) #9
+  %call10.i = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @bio_mutex, i64 80)) #9
   ret void
 }
 
@@ -507,9 +507,9 @@ declare void @llvm.va_end.p0(ptr) #7
 define dso_local void @bioCreateCloseJob(i32 noundef %fd, i32 noundef %need_fsync, i32 noundef %need_reclaim_cache) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(24) ptr @zmalloc(i64 noundef 24) #13
-  %fd1 = getelementptr inbounds i8, ptr %call, i64 4
+  %fd1 = getelementptr inbounds nuw i8, ptr %call, i64 4
   store i32 %fd, ptr %fd1, align 4
-  %need_fsync2 = getelementptr inbounds i8, ptr %call, i64 16
+  %need_fsync2 = getelementptr inbounds nuw i8, ptr %call, i64 16
   %0 = trunc i32 %need_fsync to i8
   %bf.load = load i8, ptr %need_fsync2, align 8
   %bf.value = and i8 %0, 1
@@ -536,11 +536,11 @@ entry:
 define dso_local void @bioCreateCloseAofJob(i32 noundef %fd, i64 noundef %offset, i32 noundef %need_reclaim_cache) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(24) ptr @zmalloc(i64 noundef 24) #13
-  %fd1 = getelementptr inbounds i8, ptr %call, i64 4
+  %fd1 = getelementptr inbounds nuw i8, ptr %call, i64 4
   store i32 %fd, ptr %fd1, align 4
-  %offset2 = getelementptr inbounds i8, ptr %call, i64 8
+  %offset2 = getelementptr inbounds nuw i8, ptr %call, i64 8
   store i64 %offset, ptr %offset2, align 8
-  %need_fsync = getelementptr inbounds i8, ptr %call, i64 16
+  %need_fsync = getelementptr inbounds nuw i8, ptr %call, i64 16
   %bf.load = load i8, ptr %need_fsync, align 8
   %0 = trunc i32 %need_reclaim_cache to i8
   %bf.value = shl i8 %0, 1
@@ -550,14 +550,14 @@ entry:
   %bf.set6 = or disjoint i8 %bf.clear5, 1
   store i8 %bf.set6, ptr %need_fsync, align 8
   store i32 3, ptr %call, align 8
-  %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @bio_mutex, i64 40)) #9
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @bio_jobs, i64 8), align 8
+  %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @bio_mutex, i64 40)) #9
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @bio_jobs, i64 8), align 8
   %call4.i = tail call ptr @listAddNodeTail(ptr noundef %1, ptr noundef nonnull %call) #9
   %2 = load i64, ptr getelementptr inbounds (i8, ptr @bio_jobs_counter, i64 24), align 8
   %inc.i = add i64 %2, 1
   store i64 %inc.i, ptr getelementptr inbounds (i8, ptr @bio_jobs_counter, i64 24), align 8
-  %call8.i = tail call i32 @pthread_cond_signal(ptr noundef nonnull getelementptr inbounds (i8, ptr @bio_newjob_cond, i64 48)) #9
-  %call10.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @bio_mutex, i64 40)) #9
+  %call8.i = tail call i32 @pthread_cond_signal(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @bio_newjob_cond, i64 48)) #9
+  %call10.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @bio_mutex, i64 40)) #9
   ret void
 }
 
@@ -565,11 +565,11 @@ entry:
 define dso_local void @bioCreateFsyncJob(i32 noundef %fd, i64 noundef %offset, i32 noundef %need_reclaim_cache) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(24) ptr @zmalloc(i64 noundef 24) #13
-  %fd1 = getelementptr inbounds i8, ptr %call, i64 4
+  %fd1 = getelementptr inbounds nuw i8, ptr %call, i64 4
   store i32 %fd, ptr %fd1, align 4
-  %offset2 = getelementptr inbounds i8, ptr %call, i64 8
+  %offset2 = getelementptr inbounds nuw i8, ptr %call, i64 8
   store i64 %offset, ptr %offset2, align 8
-  %need_reclaim_cache3 = getelementptr inbounds i8, ptr %call, i64 16
+  %need_reclaim_cache3 = getelementptr inbounds nuw i8, ptr %call, i64 16
   %0 = trunc i32 %need_reclaim_cache to i8
   %bf.load = load i8, ptr %need_reclaim_cache3, align 8
   %bf.value = shl i8 %0, 1
@@ -578,14 +578,14 @@ entry:
   %bf.set = or disjoint i8 %bf.clear, %bf.shl
   store i8 %bf.set, ptr %need_reclaim_cache3, align 8
   store i32 1, ptr %call, align 8
-  %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @bio_mutex, i64 40)) #9
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @bio_jobs, i64 8), align 8
+  %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @bio_mutex, i64 40)) #9
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @bio_jobs, i64 8), align 8
   %call4.i = tail call ptr @listAddNodeTail(ptr noundef %1, ptr noundef nonnull %call) #9
   %2 = load i64, ptr getelementptr inbounds (i8, ptr @bio_jobs_counter, i64 8), align 8
   %inc.i = add i64 %2, 1
   store i64 %inc.i, ptr getelementptr inbounds (i8, ptr @bio_jobs_counter, i64 8), align 8
-  %call8.i = tail call i32 @pthread_cond_signal(ptr noundef nonnull getelementptr inbounds (i8, ptr @bio_newjob_cond, i64 48)) #9
-  %call10.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @bio_mutex, i64 40)) #9
+  %call8.i = tail call i32 @pthread_cond_signal(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @bio_newjob_cond, i64 48)) #9
+  %call10.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @bio_mutex, i64 40)) #9
   ret void
 }
 
@@ -634,7 +634,7 @@ entry:
   %arrayidx = getelementptr inbounds [4 x i32], ptr @bio_job_to_worker, i64 0, i64 %idxprom
   %0 = load i32, ptr %arrayidx, align 4
   %idxprom1 = zext i32 %0 to i64
-  %arrayidx2 = getelementptr inbounds [3 x %union.pthread_mutex_t], ptr @bio_mutex, i64 0, i64 %idxprom1
+  %arrayidx2 = getelementptr inbounds nuw [3 x %union.pthread_mutex_t], ptr @bio_mutex, i64 0, i64 %idxprom1
   %call = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %arrayidx2) #9
   %arrayidx4 = getelementptr inbounds [4 x i64], ptr @bio_jobs_counter, i64 0, i64 %idxprom
   %1 = load i64, ptr %arrayidx4, align 8
@@ -649,23 +649,23 @@ entry:
   %arrayidx = getelementptr inbounds [4 x i32], ptr @bio_job_to_worker, i64 0, i64 %idxprom
   %0 = load i32, ptr %arrayidx, align 4
   %conv = zext i32 %0 to i64
-  %arrayidx1 = getelementptr inbounds [3 x %union.pthread_mutex_t], ptr @bio_mutex, i64 0, i64 %conv
+  %arrayidx1 = getelementptr inbounds nuw [3 x %union.pthread_mutex_t], ptr @bio_mutex, i64 0, i64 %conv
   %call = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %arrayidx1) #9
-  %arrayidx2 = getelementptr inbounds [3 x ptr], ptr @bio_jobs, i64 0, i64 %conv
+  %arrayidx2 = getelementptr inbounds nuw [3 x ptr], ptr @bio_jobs, i64 0, i64 %conv
   %1 = load ptr, ptr %arrayidx2, align 8
-  %len5 = getelementptr inbounds i8, ptr %1, i64 40
+  %len5 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %2 = load i64, ptr %len5, align 8
   %cmp.not6 = icmp eq i64 %2, 0
   br i1 %cmp.not6, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
-  %arrayidx4 = getelementptr inbounds [3 x %union.pthread_cond_t], ptr @bio_newjob_cond, i64 0, i64 %conv
+  %arrayidx4 = getelementptr inbounds nuw [3 x %union.pthread_cond_t], ptr @bio_newjob_cond, i64 0, i64 %conv
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
   %call6 = tail call i32 @pthread_cond_wait(ptr noundef nonnull %arrayidx4, ptr noundef nonnull %arrayidx1) #9
   %3 = load ptr, ptr %arrayidx2, align 8
-  %len = getelementptr inbounds i8, ptr %3, i64 40
+  %len = getelementptr inbounds nuw i8, ptr %3, i64 40
   %4 = load i64, ptr %len, align 8
   %cmp.not = icmp eq i64 %4, 0
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !10
@@ -683,7 +683,7 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.inc
   %j.08 = phi i64 [ 0, %entry ], [ %inc, %for.inc ]
-  %arrayidx = getelementptr inbounds [3 x i64], ptr @bio_threads, i64 0, i64 %j.08
+  %arrayidx = getelementptr inbounds nuw [3 x i64], ptr @bio_threads, i64 0, i64 %j.08
   %0 = load i64, ptr %arrayidx, align 8
   %cmp1 = icmp eq i64 %0, %call
   %tobool.not = icmp eq i64 %0, 0

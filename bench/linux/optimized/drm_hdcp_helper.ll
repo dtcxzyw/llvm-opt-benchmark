@@ -41,49 +41,49 @@ define dso_local i32 @drm_hdcp_check_ksvs_revoked(ptr nocapture noundef readonly
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %4) #9
   store i8 100, ptr %4, align 16
-  %6 = getelementptr inbounds i8, ptr %4, i64 1
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 1
   store i8 105, ptr %6, align 1
-  %7 = getelementptr inbounds i8, ptr %4, i64 2
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 2
   store i8 115, ptr %7, align 2
-  %8 = getelementptr inbounds i8, ptr %4, i64 3
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 3
   store i8 112, ptr %8, align 1
-  %9 = getelementptr inbounds i8, ptr %4, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i8 108, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %4, i64 5
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 5
   store i8 97, ptr %10, align 1
-  %11 = getelementptr inbounds i8, ptr %4, i64 6
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 6
   store i8 121, ptr %11, align 2
-  %12 = getelementptr inbounds i8, ptr %4, i64 7
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 7
   store i8 95, ptr %12, align 1
-  %13 = getelementptr inbounds i8, ptr %4, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i8 104, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %4, i64 9
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 9
   store i8 100, ptr %14, align 1
-  %15 = getelementptr inbounds i8, ptr %4, i64 10
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 10
   store i8 99, ptr %15, align 2
-  %16 = getelementptr inbounds i8, ptr %4, i64 11
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 11
   store i8 112, ptr %16, align 1
-  %17 = getelementptr inbounds i8, ptr %4, i64 12
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i8 95, ptr %17, align 4
-  %18 = getelementptr inbounds i8, ptr %4, i64 13
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 13
   store i8 115, ptr %18, align 1
-  %19 = getelementptr inbounds i8, ptr %4, i64 14
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 14
   store i8 114, ptr %19, align 2
-  %20 = getelementptr inbounds i8, ptr %4, i64 15
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 15
   store i8 109, ptr %20, align 1
-  %21 = getelementptr inbounds i8, ptr %4, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i8 46, ptr %21, align 16
-  %22 = getelementptr inbounds i8, ptr %4, i64 17
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 17
   store i8 98, ptr %22, align 1
-  %23 = getelementptr inbounds i8, ptr %4, i64 18
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 18
   store i8 105, ptr %23, align 2
-  %24 = getelementptr inbounds i8, ptr %4, i64 19
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 19
   store i8 110, ptr %24, align 1
-  %25 = getelementptr inbounds i8, ptr %4, i64 20
-  call void @llvm.memset.p0.i64(ptr noundef align 4 dereferenceable(16) %25, i8 0, i64 16, i1 false)
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 20
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %25, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #9
   store ptr null, ptr %5, align 8, !annotation !5
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load ptr, ptr %26, align 8
   %28 = call i32 @request_firmware_direct(ptr noundef nonnull %5, ptr noundef nonnull %4, ptr noundef %27) #9
   %29 = icmp slt i32 %28, 0
@@ -96,7 +96,7 @@ define dso_local i32 @drm_hdcp_check_ksvs_revoked(ptr nocapture noundef readonly
   br i1 %33, label %184, label %34
 
 34:                                               ; preds = %30
-  %35 = getelementptr inbounds i8, ptr %31, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %36 = load ptr, ptr %35, align 8
   %37 = icmp eq ptr %36, null
   br i1 %37, label %184, label %38
@@ -121,15 +121,15 @@ define dso_local i32 @drm_hdcp_check_ksvs_revoked(ptr nocapture noundef readonly
   br label %.thread
 
 45:                                               ; preds = %42
-  %46 = getelementptr inbounds i8, ptr %36, i64 2
+  %46 = getelementptr inbounds nuw i8, ptr %36, i64 2
   %47 = load i16, ptr %46, align 1
   %48 = call i16 @llvm.bswap.i16(i16 %47)
   %49 = zext i16 %48 to i32
-  %50 = getelementptr inbounds i8, ptr %36, i64 4
+  %50 = getelementptr inbounds nuw i8, ptr %36, i64 4
   %51 = load i8, ptr %50, align 1
   %52 = zext i8 %51 to i32
   call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.6, i32 noundef 128, i32 noundef %49, i32 noundef %52) #9
-  %53 = getelementptr inbounds i8, ptr %36, i64 1
+  %53 = getelementptr inbounds nuw i8, ptr %36, i64 1
   %54 = load i8, ptr %53, align 1
   %55 = icmp eq i8 %54, 0
   br i1 %55, label %57, label %56, !prof !6
@@ -250,15 +250,15 @@ define dso_local i32 @drm_hdcp_check_ksvs_revoked(ptr nocapture noundef readonly
   br label %.thread
 
 130:                                              ; preds = %127
-  %131 = getelementptr inbounds i8, ptr %36, i64 2
+  %131 = getelementptr inbounds nuw i8, ptr %36, i64 2
   %132 = load i16, ptr %131, align 1
   %133 = call i16 @llvm.bswap.i16(i16 %132)
   %134 = zext i16 %133 to i32
-  %135 = getelementptr inbounds i8, ptr %36, i64 4
+  %135 = getelementptr inbounds nuw i8, ptr %36, i64 4
   %136 = load i8, ptr %135, align 1
   %137 = zext i8 %136 to i32
   call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.6, i32 noundef 144, i32 noundef %134, i32 noundef %137) #9
-  %138 = getelementptr inbounds i8, ptr %36, i64 1
+  %138 = getelementptr inbounds nuw i8, ptr %36, i64 1
   %139 = load i8, ptr %138, align 1
   %140 = icmp eq i8 %139, 0
   br i1 %140, label %141, label %.thread
@@ -460,7 +460,7 @@ define dso_local ptr @drm_get_content_protection_name(i32 noundef %0) local_unna
   br i1 %9, label %10, label %2
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %7, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %12 = load ptr, ptr %11, align 8
   br label %.loopexit
 
@@ -485,7 +485,7 @@ define dso_local ptr @drm_get_hdcp_content_type_name(i32 noundef %0) local_unnam
   br i1 %8, label %9, label %2
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %6, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %11 = load ptr, ptr %10, align 8
   br label %.loopexit
 
@@ -497,7 +497,7 @@ define dso_local ptr @drm_get_hdcp_content_type_name(i32 noundef %0) local_unnam
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -12, 1) i32 @drm_connector_attach_content_protection_property(ptr noundef %0, i1 noundef zeroext %1) #0 align 16 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 1392
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 1392
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %.thread
@@ -509,13 +509,13 @@ define dso_local noundef range(i32 -12, 1) i32 @drm_connector_attach_content_pro
 
 .thread:                                          ; preds = %2, %7
   %10 = phi ptr [ %8, %7 ], [ %5, %2 ]
-  %11 = getelementptr inbounds i8, ptr %0, i64 64
-  tail call void @drm_object_attach_property(ptr noundef %11, ptr noundef nonnull %10, i64 noundef 0) #9
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  tail call void @drm_object_attach_property(ptr noundef nonnull %11, ptr noundef nonnull %10, i64 noundef 0) #9
   store ptr %10, ptr %4, align 8
   br i1 %1, label %12, label %20
 
 12:                                               ; preds = %.thread
-  %13 = getelementptr inbounds i8, ptr %3, i64 1400
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 1400
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %.thread4
@@ -527,7 +527,7 @@ define dso_local noundef range(i32 -12, 1) i32 @drm_connector_attach_content_pro
 
 .thread4:                                         ; preds = %12, %16
   %19 = phi ptr [ %17, %16 ], [ %14, %12 ]
-  tail call void @drm_object_attach_property(ptr noundef %11, ptr noundef nonnull %19, i64 noundef 0) #9
+  tail call void @drm_object_attach_property(ptr noundef nonnull %11, ptr noundef nonnull %19, i64 noundef 0) #9
   store ptr %19, ptr %13, align 8
   br label %20
 
@@ -545,10 +545,10 @@ declare dso_local void @drm_object_attach_property(ptr noundef, ptr noundef, i64
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @drm_hdcp_update_content_protection(ptr noundef %0, i64 noundef %1) #0 align 16 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 1904
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 400
-  %7 = tail call zeroext i1 @mutex_is_locked(ptr noundef %6) #9
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 400
+  %7 = tail call zeroext i1 @mutex_is_locked(ptr noundef nonnull %6) #9
   br i1 %7, label %9, label %8, !prof !6
 
 8:                                                ; preds = %2
@@ -558,7 +558,7 @@ define dso_local void @drm_hdcp_update_content_protection(ptr noundef %0, i64 no
   br label %9
 
 9:                                                ; preds = %8, %2
-  %10 = getelementptr inbounds i8, ptr %5, i64 124
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 124
   %11 = load i32, ptr %10, align 4
   %12 = zext i32 %11 to i64
   %13 = icmp eq i64 %1, %12
@@ -567,7 +567,7 @@ define dso_local void @drm_hdcp_update_content_protection(ptr noundef %0, i64 no
 14:                                               ; preds = %9
   %15 = trunc i64 %1 to i32
   store i32 %15, ptr %10, align 4
-  %16 = getelementptr inbounds i8, ptr %3, i64 1392
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 1392
   %17 = load ptr, ptr %16, align 8
   tail call void @drm_sysfs_connector_property_event(ptr noundef %0, ptr noundef %17) #9
   br label %18

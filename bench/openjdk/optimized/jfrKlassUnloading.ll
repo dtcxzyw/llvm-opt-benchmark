@@ -67,7 +67,7 @@ _ZL15is_nonempty_seth.exit:                       ; preds = %5, %7
 
 10:                                               ; preds = %_ZL15is_nonempty_seth.exit
   %11 = tail call fastcc noundef ptr @_ZL14get_unload_seth(i8 noundef zeroext %3)
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %_ZL8sort_setP13GrowableArrayImE.exit, label %15
@@ -106,7 +106,7 @@ _ZL15is_nonempty_seth.exit6:                      ; preds = %21, %23
 
 26:                                               ; preds = %_ZL15is_nonempty_seth.exit6
   %27 = tail call fastcc noundef ptr @_ZL14get_unload_seth(i8 noundef zeroext %20)
-  %28 = getelementptr inbounds i8, ptr %27, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq ptr %29, null
   br i1 %30, label %_ZL8sort_setP13GrowableArrayImE.exit7, label %31
@@ -156,13 +156,13 @@ _ZL15is_nonempty_seth.exit.thread:                ; preds = %5, %3, %8, %_ZL15is
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN17JfrKlassUnloading9on_unloadEPK5Klass(ptr noundef %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 12
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4
   %4 = icmp slt i32 %3, 5
   br i1 %4, label %5, label %_ZL20send_finalizer_eventPK5Klass.exit
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 164
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 164
   %7 = load i32, ptr %6, align 4
   %8 = and i32 %7, 1073741824
   %.not.i = icmp eq i32 %8, 0
@@ -173,7 +173,7 @@ define hidden noundef zeroext i1 @_ZN17JfrKlassUnloading9on_unloadEPK5Klass(ptr 
   br label %_ZL20send_finalizer_eventPK5Klass.exit
 
 _ZL20send_finalizer_eventPK5Klass.exit:           ; preds = %1, %5, %9
-  %10 = getelementptr inbounds i8, ptr %0, i64 168
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %11 = load i64, ptr %10, align 8
   %12 = and i64 %11, 16
   %.not = icmp eq i64 %12, 0
@@ -190,7 +190,7 @@ _ZL20send_finalizer_eventPK5Klass.exit:           ; preds = %1, %5, %9
   %18 = and i8 %17, 1
   %19 = tail call fastcc noundef ptr @_ZL14get_unload_seth(i8 noundef zeroext %18)
   %20 = load i32, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %19, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %22 = load i32, ptr %21, align 4
   %23 = icmp eq i32 %20, %22
   br i1 %23, label %24, label %_ZL25add_to_unloaded_klass_setm.exit
@@ -214,7 +214,7 @@ _ZL25add_to_unloaded_klass_setm.exit:             ; preds = %16, %24
   %33 = lshr i64 %11, 16
   %34 = add nsw i32 %32, 1
   store i32 %34, ptr %19, align 8
-  %35 = getelementptr inbounds i8, ptr %19, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %36 = load ptr, ptr %35, align 8
   %37 = sext i32 %32 to i64
   %38 = getelementptr inbounds i64, ptr %36, i64 %37
@@ -243,7 +243,7 @@ define hidden noundef zeroext i1 @_ZN17JfrKlassUnloading11is_unloadedEmb(i64 nou
 
 .lr.ph.i.i:                                       ; preds = %3
   %8 = add nsw i32 %7, -1
-  %9 = getelementptr inbounds i8, ptr %6, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %10 = load ptr, ptr %9, align 8
   br label %11
 
@@ -253,7 +253,7 @@ define hidden noundef zeroext i1 @_ZN17JfrKlassUnloading11is_unloadedEmb(i64 nou
   %12 = add i32 %.01621.i.i, %.01522.i.i
   %13 = lshr i32 %12, 1
   %14 = zext nneg i32 %13 to i64
-  %15 = getelementptr inbounds i64, ptr %10, i64 %14
+  %15 = getelementptr inbounds nuw i64, ptr %10, i64 %14
   %16 = load i64, ptr %15, align 8
   %17 = icmp ugt i64 %0, %16
   br i1 %17, label %18, label %20
@@ -286,7 +286,7 @@ _ZN12JfrPredicateImXadL_Z15compare_traceidRKmS1_EEE4testEP13GrowableArrayImEm.ex
 
 .lr.ph.i.i4:                                      ; preds = %_ZN12JfrPredicateImXadL_Z15compare_traceidRKmS1_EEE4testEP13GrowableArrayImEm.exit.thread
   %29 = add nsw i32 %28, -1
-  %30 = getelementptr inbounds i8, ptr %27, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %31 = load ptr, ptr %30, align 8
   br label %32
 
@@ -296,7 +296,7 @@ _ZN12JfrPredicateImXadL_Z15compare_traceidRKmS1_EEE4testEP13GrowableArrayImEm.ex
   %33 = add i32 %.01621.i.i6, %.01522.i.i5
   %34 = lshr i32 %33, 1
   %35 = zext nneg i32 %34 to i64
-  %36 = getelementptr inbounds i64, ptr %31, i64 %35
+  %36 = getelementptr inbounds nuw i64, ptr %31, i64 %35
   %37 = load i64, ptr %36, align 8
   %38 = icmp ugt i64 %0, %37
   br i1 %38, label %39, label %41
@@ -445,12 +445,12 @@ define internal fastcc noundef ptr @_ZL14get_unload_seth(i8 noundef zeroext %0) 
 9:                                                ; preds = %6
   %10 = tail call noundef ptr @_ZN27GrowableArrayCHeapAllocator8allocateEii8MEMFLAGS(i32 noundef 64, i32 noundef 8, i8 noundef zeroext 16) #9
   store i32 0, ptr %7, align 4
-  %11 = getelementptr inbounds i8, ptr %7, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 64, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %7, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %10, ptr %12, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %10, i8 0, i64 512, i1 false)
-  %13 = getelementptr inbounds i8, ptr %7, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 33, ptr %13, align 8
   br label %_ZL21c_heap_allocate_arrayImEP13GrowableArrayIT_Ei.exit.i
 
@@ -471,12 +471,12 @@ _ZL21c_heap_allocate_arrayImEP13GrowableArrayIT_Ei.exit.i: ; preds = %9, %6
 20:                                               ; preds = %17
   %21 = tail call noundef ptr @_ZN27GrowableArrayCHeapAllocator8allocateEii8MEMFLAGS(i32 noundef 64, i32 noundef 8, i8 noundef zeroext 16) #9
   store i32 0, ptr %18, align 4
-  %22 = getelementptr inbounds i8, ptr %18, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %18, i64 4
   store i32 64, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %18, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr %21, ptr %23, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %21, i8 0, i64 512, i1 false)
-  %24 = getelementptr inbounds i8, ptr %18, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store i64 33, ptr %24, align 8
   br label %_ZL21c_heap_allocate_arrayImEP13GrowableArrayIT_Ei.exit.i1
 
@@ -498,9 +498,9 @@ declare void @_ZN27JfrFinalizerStatisticsEvent17send_unload_eventEPK13InstanceKl
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIm13GrowableArrayImEE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #0 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %1, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8
   %6 = icmp eq i64 %5, 0
   br i1 %6, label %7, label %9
@@ -532,7 +532,7 @@ _ZN13GrowableArrayImE8allocateEv.exit:            ; preds = %7, %11, %15
   br i1 %19, label %.lr.ph, label %.preheader16
 
 .lr.ph:                                           ; preds = %_ZN13GrowableArrayImE8allocateEv.exit
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %25
 
 .preheader16.loopexit:                            ; preds = %25
@@ -551,9 +551,9 @@ _ZN13GrowableArrayImE8allocateEv.exit:            ; preds = %7, %11, %15
 
 25:                                               ; preds = %.lr.ph, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
-  %26 = getelementptr inbounds i64, ptr %.0.i, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw i64, ptr %.0.i, i64 %indvars.iv
   %27 = load ptr, ptr %20, align 8
-  %28 = getelementptr inbounds i64, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw i64, ptr %27, i64 %indvars.iv
   %29 = load i64, ptr %28, align 8
   store i64 %29, ptr %26, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -563,14 +563,14 @@ _ZN13GrowableArrayImE8allocateEv.exit:            ; preds = %7, %11, %15
   br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !8
 
 .preheader:                                       ; preds = %.lr.ph19, %.preheader16
-  %33 = getelementptr inbounds i8, ptr %0, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %34 = load ptr, ptr %33, align 8
   %.not = icmp eq ptr %34, null
   br i1 %.not, label %_ZN13GrowableArrayImE10deallocateEPm.exit, label %39
 
 .lr.ph19:                                         ; preds = %.lr.ph19.preheader, %.lr.ph19
   %indvars.iv21 = phi i64 [ %24, %.lr.ph19.preheader ], [ %indvars.iv.next22, %.lr.ph19 ]
-  %35 = getelementptr inbounds i64, ptr %.0.i, i64 %indvars.iv21
+  %35 = getelementptr inbounds nuw i64, ptr %.0.i, i64 %indvars.iv21
   store i64 0, ptr %35, align 8
   %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
   %36 = load i32, ptr %3, align 4

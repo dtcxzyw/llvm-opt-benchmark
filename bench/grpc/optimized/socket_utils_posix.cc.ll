@@ -48,32 +48,32 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define void @_Z28TcpOptionsFromEndpointConfigRKN17grpc_event_engine12experimental14EndpointConfigE(ptr noalias sret(%"struct.grpc_core::PosixTcpOptions") align 8 initializes((0, 25), (28, 42), (48, 64)) %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %config) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   store i32 8192, ptr %agg.result, align 8
-  %tcp_min_read_chunk_size.i = getelementptr inbounds i8, ptr %agg.result, i64 4
+  %tcp_min_read_chunk_size.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 4
   store i32 256, ptr %tcp_min_read_chunk_size.i, align 4
-  %tcp_max_read_chunk_size.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %tcp_max_read_chunk_size.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 4194304, ptr %tcp_max_read_chunk_size.i, align 8
-  %tcp_tx_zerocopy_send_bytes_threshold.i = getelementptr inbounds i8, ptr %agg.result, i64 12
+  %tcp_tx_zerocopy_send_bytes_threshold.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 12
   store i32 16384, ptr %tcp_tx_zerocopy_send_bytes_threshold.i, align 4
-  %tcp_tx_zerocopy_max_simultaneous_sends.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %tcp_tx_zerocopy_max_simultaneous_sends.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store i32 4, ptr %tcp_tx_zerocopy_max_simultaneous_sends.i, align 8
-  %tcp_receive_buffer_size.i = getelementptr inbounds i8, ptr %agg.result, i64 20
+  %tcp_receive_buffer_size.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 20
   store i32 -1, ptr %tcp_receive_buffer_size.i, align 4
-  %tcp_tx_zero_copy_enabled.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %tcp_tx_zero_copy_enabled.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store i8 0, ptr %tcp_tx_zero_copy_enabled.i, align 8
-  %keep_alive_time_ms.i = getelementptr inbounds i8, ptr %agg.result, i64 28
+  %keep_alive_time_ms.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 28
   store i32 0, ptr %keep_alive_time_ms.i, align 4
-  %keep_alive_timeout_ms.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %keep_alive_timeout_ms.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store i32 0, ptr %keep_alive_timeout_ms.i, align 8
-  %dscp.i = getelementptr inbounds i8, ptr %agg.result, i64 36
+  %dscp.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 36
   store i32 -1, ptr %dscp.i, align 4
-  %expand_wildcard_addrs.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %expand_wildcard_addrs.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i8 0, ptr %expand_wildcard_addrs.i, align 8
-  %allow_reuse_port.i = getelementptr inbounds i8, ptr %agg.result, i64 41
+  %allow_reuse_port.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 41
   store i8 0, ptr %allow_reuse_port.i, align 1
-  %resource_quota.i = getelementptr inbounds i8, ptr %agg.result, i64 48
+  %resource_quota.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %resource_quota.i, i8 0, i64 16, i1 false)
   %vtable = load ptr, ptr %config, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %0 = load ptr, ptr %vfn, align 8
   %call = invoke i64 %0(ptr noundef nonnull align 8 dereferenceable(8) %config, i64 37, ptr nonnull @.str)
           to label %invoke.cont unwind label %lpad
@@ -89,7 +89,7 @@ invoke.cont:                                      ; preds = %entry
   %retval.0.i = select i1 %or.cond3.i, i32 8192, i32 %actual_value.sroa.0.0.extract.trunc.i
   store i32 %retval.0.i, ptr %agg.result, align 8
   %vtable9 = load ptr, ptr %config, align 8
-  %vfn10 = getelementptr inbounds i8, ptr %vtable9, i64 16
+  %vfn10 = getelementptr inbounds nuw i8, ptr %vtable9, i64 16
   %2 = load ptr, ptr %vfn10, align 8
   %call12 = invoke i64 %2(ptr noundef nonnull align 8 dereferenceable(8) %config, i64 41, ptr nonnull @.str.1)
           to label %invoke.cont11 unwind label %lpad
@@ -105,7 +105,7 @@ invoke.cont11:                                    ; preds = %invoke.cont
   %retval.0.i25 = select i1 %or.cond3.i24, i32 256, i32 %actual_value.sroa.0.0.extract.trunc.i19
   store i32 %retval.0.i25, ptr %tcp_min_read_chunk_size.i, align 4
   %vtable21 = load ptr, ptr %config, align 8
-  %vfn22 = getelementptr inbounds i8, ptr %vtable21, i64 16
+  %vfn22 = getelementptr inbounds nuw i8, ptr %vtable21, i64 16
   %4 = load ptr, ptr %vfn22, align 8
   %call24 = invoke i64 %4(ptr noundef nonnull align 8 dereferenceable(8) %config, i64 41, ptr nonnull @.str.2)
           to label %invoke.cont23 unwind label %lpad
@@ -121,7 +121,7 @@ invoke.cont23:                                    ; preds = %invoke.cont11
   %retval.0.i34 = select i1 %or.cond3.i33, i32 4194304, i32 %actual_value.sroa.0.0.extract.trunc.i28
   store i32 %retval.0.i34, ptr %tcp_max_read_chunk_size.i, align 8
   %vtable33 = load ptr, ptr %config, align 8
-  %vfn34 = getelementptr inbounds i8, ptr %vtable33, i64 16
+  %vfn34 = getelementptr inbounds nuw i8, ptr %vtable33, i64 16
   %6 = load ptr, ptr %vfn34, align 8
   %call36 = invoke i64 %6(ptr noundef nonnull align 8 dereferenceable(8) %config, i64 54, ptr nonnull @.str.3)
           to label %invoke.cont35 unwind label %lpad
@@ -133,7 +133,7 @@ invoke.cont35:                                    ; preds = %invoke.cont23
   %retval.0.i43 = select i1 %or.cond3.i42.not, i32 %actual_value.sroa.0.0.extract.trunc.i37, i32 16384
   store i32 %retval.0.i43, ptr %tcp_tx_zerocopy_send_bytes_threshold.i, align 4
   %vtable45 = load ptr, ptr %config, align 8
-  %vfn46 = getelementptr inbounds i8, ptr %vtable45, i64 16
+  %vfn46 = getelementptr inbounds nuw i8, ptr %vtable45, i64 16
   %8 = load ptr, ptr %vfn46, align 8
   %call48 = invoke i64 %8(ptr noundef nonnull align 8 dereferenceable(8) %config, i64 56, ptr nonnull @.str.4)
           to label %invoke.cont47 unwind label %lpad
@@ -145,7 +145,7 @@ invoke.cont47:                                    ; preds = %invoke.cont35
   %retval.0.i52 = select i1 %or.cond3.i51.not, i32 %actual_value.sroa.0.0.extract.trunc.i46, i32 4
   store i32 %retval.0.i52, ptr %tcp_tx_zerocopy_max_simultaneous_sends.i, align 8
   %vtable57 = load ptr, ptr %config, align 8
-  %vfn58 = getelementptr inbounds i8, ptr %vtable57, i64 16
+  %vfn58 = getelementptr inbounds nuw i8, ptr %vtable57, i64 16
   %10 = load ptr, ptr %vfn58, align 8
   %call60 = invoke i64 %10(ptr noundef nonnull align 8 dereferenceable(8) %config, i64 28, ptr nonnull @.str.5)
           to label %invoke.cont59 unwind label %lpad
@@ -157,7 +157,7 @@ invoke.cont59:                                    ; preds = %invoke.cont47
   %retval.0.i61 = select i1 %or.cond3.i60.not, i32 %actual_value.sroa.0.0.extract.trunc.i55, i32 -1
   store i32 %retval.0.i61, ptr %tcp_receive_buffer_size.i, align 4
   %vtable69 = load ptr, ptr %config, align 8
-  %vfn70 = getelementptr inbounds i8, ptr %vtable69, i64 16
+  %vfn70 = getelementptr inbounds nuw i8, ptr %vtable69, i64 16
   %12 = load ptr, ptr %vfn70, align 8
   %call72 = invoke i64 %12(ptr noundef nonnull align 8 dereferenceable(8) %config, i64 41, ptr nonnull @.str.6)
           to label %invoke.cont71 unwind label %lpad
@@ -168,7 +168,7 @@ invoke.cont71:                                    ; preds = %invoke.cont59
   %frombool = zext i1 %cmp to i8
   store i8 %frombool, ptr %tcp_tx_zero_copy_enabled.i, align 8
   %vtable81 = load ptr, ptr %config, align 8
-  %vfn82 = getelementptr inbounds i8, ptr %vtable81, i64 16
+  %vfn82 = getelementptr inbounds nuw i8, ptr %vtable81, i64 16
   %14 = load ptr, ptr %vfn82, align 8
   %call84 = invoke i64 %14(ptr noundef nonnull align 8 dereferenceable(8) %config, i64 22, ptr nonnull @.str.7)
           to label %invoke.cont83 unwind label %lpad
@@ -182,7 +182,7 @@ invoke.cont83:                                    ; preds = %invoke.cont71
   %retval.0.i79 = select i1 %or.cond.i76, i32 0, i32 %actual_value.sroa.0.0.extract.trunc.i73
   store i32 %retval.0.i79, ptr %keep_alive_time_ms.i, align 4
   %vtable93 = load ptr, ptr %config, align 8
-  %vfn94 = getelementptr inbounds i8, ptr %vtable93, i64 16
+  %vfn94 = getelementptr inbounds nuw i8, ptr %vtable93, i64 16
   %16 = load ptr, ptr %vfn94, align 8
   %call96 = invoke i64 %16(ptr noundef nonnull align 8 dereferenceable(8) %config, i64 25, ptr nonnull @.str.8)
           to label %invoke.cont95 unwind label %lpad
@@ -196,7 +196,7 @@ invoke.cont95:                                    ; preds = %invoke.cont83
   %retval.0.i88 = select i1 %or.cond.i85, i32 0, i32 %actual_value.sroa.0.0.extract.trunc.i82
   store i32 %retval.0.i88, ptr %keep_alive_timeout_ms.i, align 8
   %vtable105 = load ptr, ptr %config, align 8
-  %vfn106 = getelementptr inbounds i8, ptr %vtable105, i64 16
+  %vfn106 = getelementptr inbounds nuw i8, ptr %vtable105, i64 16
   %18 = load ptr, ptr %vfn106, align 8
   %call108 = invoke i64 %18(ptr noundef nonnull align 8 dereferenceable(8) %config, i64 26, ptr nonnull @.str.9)
           to label %invoke.cont107 unwind label %lpad
@@ -210,7 +210,7 @@ invoke.cont107:                                   ; preds = %invoke.cont95
   %frombool116 = zext i1 %or.cond.i94.not to i8
   store i8 %frombool116, ptr %expand_wildcard_addrs.i, align 8
   %vtable119 = load ptr, ptr %config, align 8
-  %vfn120 = getelementptr inbounds i8, ptr %vtable119, i64 16
+  %vfn120 = getelementptr inbounds nuw i8, ptr %vtable119, i64 16
   %20 = load ptr, ptr %vfn120, align 8
   %call122 = invoke i64 %20(ptr noundef nonnull align 8 dereferenceable(8) %config, i64 17, ptr nonnull @.str.10)
           to label %invoke.cont121 unwind label %lpad
@@ -224,7 +224,7 @@ invoke.cont121:                                   ; preds = %invoke.cont107
   %frombool130 = zext i1 %or.cond.i103.not to i8
   store i8 %frombool130, ptr %allow_reuse_port.i, align 1
   %vtable133 = load ptr, ptr %config, align 8
-  %vfn134 = getelementptr inbounds i8, ptr %vtable133, i64 16
+  %vfn134 = getelementptr inbounds nuw i8, ptr %vtable133, i64 16
   %22 = load ptr, ptr %vfn134, align 8
   %call136 = invoke i64 %22(ptr noundef nonnull align 8 dereferenceable(8) %config, i64 9, ptr nonnull @.str.11)
           to label %invoke.cont135 unwind label %lpad
@@ -255,7 +255,7 @@ if.end:                                           ; preds = %if.then, %invoke.co
   %retval.0.i117 = select i1 %cmp.i116, i32 %25, i32 %max.val.i
   store i32 %retval.0.i117, ptr %agg.result, align 8
   %vtable155 = load ptr, ptr %config, align 8
-  %vfn156 = getelementptr inbounds i8, ptr %vtable155, i64 32
+  %vfn156 = getelementptr inbounds nuw i8, ptr %vtable155, i64 32
   %26 = load ptr, ptr %vfn156, align 8
   %call158 = invoke noundef ptr %26(ptr noundef nonnull align 8 dereferenceable(8) %config, i64 19, ptr nonnull @.str.12)
           to label %invoke.cont157 unwind label %lpad
@@ -265,14 +265,14 @@ invoke.cont157:                                   ; preds = %if.end
   br i1 %cmp159.not, label %if.end163, label %invoke.cont161
 
 invoke.cont161:                                   ; preds = %invoke.cont157
-  %refs_.i.i = getelementptr inbounds i8, ptr %call158, i64 8
+  %refs_.i.i = getelementptr inbounds nuw i8, ptr %call158, i64 8
   %27 = atomicrmw add ptr %refs_.i.i, i64 1 monotonic, align 8, !noalias !4
   store ptr %call158, ptr %resource_quota.i, align 8
   br label %if.end163
 
 if.end163:                                        ; preds = %invoke.cont161, %invoke.cont157
   %vtable165 = load ptr, ptr %config, align 8
-  %vfn166 = getelementptr inbounds i8, ptr %vtable165, i64 32
+  %vfn166 = getelementptr inbounds nuw i8, ptr %vtable165, i64 32
   %28 = load ptr, ptr %vfn166, align 8
   %call168 = invoke noundef ptr %28(ptr noundef nonnull align 8 dereferenceable(8) %config, i64 19, ptr nonnull @.str.13)
           to label %invoke.cont167 unwind label %lpad
@@ -286,7 +286,7 @@ if.then170:                                       ; preds = %invoke.cont167
           to label %invoke.cont171 unwind label %lpad
 
 invoke.cont171:                                   ; preds = %if.then170
-  %socket_mutator = getelementptr inbounds i8, ptr %agg.result, i64 56
+  %socket_mutator = getelementptr inbounds nuw i8, ptr %agg.result, i64 56
   store ptr %call172, ptr %socket_mutator, align 8
   br label %nrvo.skipdtor
 
@@ -301,7 +301,7 @@ declare noundef ptr @_Z23grpc_socket_mutator_refP19grpc_socket_mutator(ptr nound
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN9grpc_core15PosixTcpOptionsD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %socket_mutator = getelementptr inbounds i8, ptr %this, i64 56
+  %socket_mutator = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %socket_mutator, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -311,20 +311,20 @@ if.then:                                          ; preds = %entry
           to label %if.end unwind label %terminate.lpad
 
 if.end:                                           ; preds = %if.then, %entry
-  %resource_quota = getelementptr inbounds i8, ptr %this, i64 48
+  %resource_quota = getelementptr inbounds nuw i8, ptr %this, i64 48
   %1 = load ptr, ptr %resource_quota, align 8
   %cmp.not.i = icmp eq ptr %1, null
   br i1 %cmp.not.i, label %_ZN9grpc_core13RefCountedPtrINS_13ResourceQuotaEED2Ev.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
-  %refs_.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %refs_.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %2 = atomicrmw sub ptr %refs_.i.i, i64 1 acq_rel, align 8
   %cmp.i.i.i = icmp eq i64 %2, 1
   br i1 %cmp.i.i.i, label %if.then.i.i, label %_ZN9grpc_core13RefCountedPtrINS_13ResourceQuotaEED2Ev.exit
 
 if.then.i.i:                                      ; preds = %if.then.i
   %vtable.i.i.i = load ptr, ptr %1, align 8
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
+  %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 8
   %3 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(40) %1) #11
   br label %_ZN9grpc_core13RefCountedPtrINS_13ResourceQuotaEED2Ev.exit

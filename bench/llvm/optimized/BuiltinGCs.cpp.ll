@@ -279,41 +279,41 @@ define internal range(i16 256, 258) i16 @_ZNK12_GLOBAL__N_19CoreCLRGC18isGCManag
 ; Function Attrs: nounwind uwtable
 define internal void @_GLOBAL__sub_I_BuiltinGCs.cpp() #8 section ".text.startup" {
   store ptr @.str, ptr @_ZL1A, align 8
-  store i64 6, ptr getelementptr inbounds (i8, ptr @_ZL1A, i64 8), align 8
+  store i64 6, ptr getelementptr inbounds nuw (i8, ptr @_ZL1A, i64 8), align 8
   store ptr @.str.1, ptr getelementptr inbounds nuw (i8, ptr @_ZL1A, i64 16), align 8
-  store i64 35, ptr getelementptr inbounds (i8, ptr @_ZL1A, i64 24), align 8
+  store i64 35, ptr getelementptr inbounds nuw (i8, ptr @_ZL1A, i64 24), align 8
   store ptr @_ZN4llvm8RegistryINS_10GCStrategyEE3AddIN12_GLOBAL__N_18ErlangGCEE6CtorFnEv, ptr getelementptr inbounds nuw (i8, ptr @_ZL1A, i64 32), align 8
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZL1A, i64 40), align 8
   store ptr @_ZL1A, ptr getelementptr inbounds nuw (i8, ptr @_ZL1A, i64 48), align 8
   tail call void @_ZN4llvm8RegistryINS_10GCStrategyEE8add_nodeEPNS2_4nodeE(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZL1A, i64 40)) #10
   store ptr @.str.3, ptr @_ZL1B, align 8
-  store i64 5, ptr getelementptr inbounds (i8, ptr @_ZL1B, i64 8), align 8
+  store i64 5, ptr getelementptr inbounds nuw (i8, ptr @_ZL1B, i64 8), align 8
   store ptr @.str.4, ptr getelementptr inbounds nuw (i8, ptr @_ZL1B, i64 16), align 8
-  store i64 24, ptr getelementptr inbounds (i8, ptr @_ZL1B, i64 24), align 8
+  store i64 24, ptr getelementptr inbounds nuw (i8, ptr @_ZL1B, i64 24), align 8
   store ptr @_ZN4llvm8RegistryINS_10GCStrategyEE3AddIN12_GLOBAL__N_17OcamlGCEE6CtorFnEv, ptr getelementptr inbounds nuw (i8, ptr @_ZL1B, i64 32), align 8
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZL1B, i64 40), align 8
   store ptr @_ZL1B, ptr getelementptr inbounds nuw (i8, ptr @_ZL1B, i64 48), align 8
   tail call void @_ZN4llvm8RegistryINS_10GCStrategyEE8add_nodeEPNS2_4nodeE(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZL1B, i64 40)) #10
   store ptr @.str.6, ptr @_ZL1C, align 8
-  store i64 12, ptr getelementptr inbounds (i8, ptr @_ZL1C, i64 8), align 8
+  store i64 12, ptr getelementptr inbounds nuw (i8, ptr @_ZL1C, i64 8), align 8
   store ptr @.str.7, ptr getelementptr inbounds nuw (i8, ptr @_ZL1C, i64 16), align 8
-  store i64 50, ptr getelementptr inbounds (i8, ptr @_ZL1C, i64 24), align 8
+  store i64 50, ptr getelementptr inbounds nuw (i8, ptr @_ZL1C, i64 24), align 8
   store ptr @_ZN4llvm8RegistryINS_10GCStrategyEE3AddIN12_GLOBAL__N_113ShadowStackGCEE6CtorFnEv, ptr getelementptr inbounds nuw (i8, ptr @_ZL1C, i64 32), align 8
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZL1C, i64 40), align 8
   store ptr @_ZL1C, ptr getelementptr inbounds nuw (i8, ptr @_ZL1C, i64 48), align 8
   tail call void @_ZN4llvm8RegistryINS_10GCStrategyEE8add_nodeEPNS2_4nodeE(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZL1C, i64 40)) #10
   store ptr @.str.9, ptr @_ZL1D, align 8
-  store i64 18, ptr getelementptr inbounds (i8, ptr @_ZL1D, i64 8), align 8
+  store i64 18, ptr getelementptr inbounds nuw (i8, ptr @_ZL1D, i64 8), align 8
   store ptr @.str.10, ptr getelementptr inbounds nuw (i8, ptr @_ZL1D, i64 16), align 8
-  store i64 34, ptr getelementptr inbounds (i8, ptr @_ZL1D, i64 24), align 8
+  store i64 34, ptr getelementptr inbounds nuw (i8, ptr @_ZL1D, i64 24), align 8
   store ptr @_ZN4llvm8RegistryINS_10GCStrategyEE3AddIN12_GLOBAL__N_112StatepointGCEE6CtorFnEv, ptr getelementptr inbounds nuw (i8, ptr @_ZL1D, i64 32), align 8
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZL1D, i64 40), align 8
   store ptr @_ZL1D, ptr getelementptr inbounds nuw (i8, ptr @_ZL1D, i64 48), align 8
   tail call void @_ZN4llvm8RegistryINS_10GCStrategyEE8add_nodeEPNS2_4nodeE(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZL1D, i64 40)) #10
   store ptr @.str.12, ptr @_ZL1E, align 8
-  store i64 7, ptr getelementptr inbounds (i8, ptr @_ZL1E, i64 8), align 8
+  store i64 7, ptr getelementptr inbounds nuw (i8, ptr @_ZL1E, i64 8), align 8
   store ptr @.str.13, ptr getelementptr inbounds nuw (i8, ptr @_ZL1E, i64 16), align 8
-  store i64 21, ptr getelementptr inbounds (i8, ptr @_ZL1E, i64 24), align 8
+  store i64 21, ptr getelementptr inbounds nuw (i8, ptr @_ZL1E, i64 24), align 8
   store ptr @_ZN4llvm8RegistryINS_10GCStrategyEE3AddIN12_GLOBAL__N_19CoreCLRGCEE6CtorFnEv, ptr getelementptr inbounds nuw (i8, ptr @_ZL1E, i64 32), align 8
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZL1E, i64 40), align 8
   store ptr @_ZL1E, ptr getelementptr inbounds nuw (i8, ptr @_ZL1E, i64 48), align 8

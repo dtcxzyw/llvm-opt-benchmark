@@ -126,7 +126,7 @@ for.cond.i:                                       ; preds = %for.body.i
 
 for.body.i:                                       ; preds = %for.cond.i, %for.body
   %i.01.i = phi i64 [ 0, %for.body ], [ %inc.i, %for.cond.i ]
-  %arrayidx.i = getelementptr inbounds [50 x %"struct.(anonymous namespace)::Flag"], ptr @_ZN12_GLOBAL__N_110kBoolFlagsE, i64 0, i64 %i.01.i
+  %arrayidx.i = getelementptr inbounds nuw [50 x %"struct.(anonymous namespace)::Flag"], ptr @_ZN12_GLOBAL__N_110kBoolFlagsE, i64 0, i64 %i.01.i
   %1 = load ptr, ptr %arrayidx.i, align 16
   %call.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %1) #8
   %cmp2.i = icmp eq i32 %call.i, 0
@@ -139,7 +139,7 @@ for.body.i41.preheader:                           ; preds = %for.cond.i, %_ZN12_
   br label %for.body.i41
 
 if.then:                                          ; preds = %_ZN12_GLOBAL__N_19FindFieldIbLm50EEEPT_P10TestConfigRAT0__KNS_4FlagIS1_EEPKc.exit
-  %member.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  %member.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   %2 = load i64, ptr %member.i, align 8
   %memptr.offset.i = getelementptr inbounds i8, ptr %out_config, i64 %2
   store i8 1, ptr %memptr.offset.i, align 1
@@ -152,14 +152,14 @@ for.cond.i46:                                     ; preds = %for.body.i41
 
 for.body.i41:                                     ; preds = %for.body.i41.preheader, %for.cond.i46
   %i.01.i42 = phi i64 [ %inc.i47, %for.cond.i46 ], [ 0, %for.body.i41.preheader ]
-  %arrayidx.i43 = getelementptr inbounds [21 x %"struct.(anonymous namespace)::Flag.0"], ptr @_ZN12_GLOBAL__N_112kStringFlagsB5cxx11E, i64 0, i64 %i.01.i42
+  %arrayidx.i43 = getelementptr inbounds nuw [21 x %"struct.(anonymous namespace)::Flag.0"], ptr @_ZN12_GLOBAL__N_112kStringFlagsB5cxx11E, i64 0, i64 %i.01.i42
   %3 = load ptr, ptr %arrayidx.i43, align 16
   %call.i44 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %3) #8
   %cmp2.i45 = icmp eq i32 %call.i44, 0
   br i1 %cmp2.i45, label %_ZN12_GLOBAL__N_19FindFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm21EEEPT_P10TestConfigRAT0__KNS_4FlagIS7_EEPKc.exit, label %for.cond.i46
 
 _ZN12_GLOBAL__N_19FindFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm21EEEPT_P10TestConfigRAT0__KNS_4FlagIS7_EEPKc.exit: ; preds = %for.body.i41
-  %member.i51 = getelementptr inbounds i8, ptr %arrayidx.i43, i64 8
+  %member.i51 = getelementptr inbounds nuw i8, ptr %arrayidx.i43, i64 8
   %4 = load i64, ptr %member.i51, align 8
   %memptr.offset.i52 = getelementptr inbounds i8, ptr %out_config, i64 %4
   br i1 %cmp1.not, label %for.body.i53.preheader, label %if.then6
@@ -191,14 +191,14 @@ for.cond.i58:                                     ; preds = %for.body.i53
 
 for.body.i53:                                     ; preds = %for.body.i53.preheader, %for.cond.i58
   %i.01.i54 = phi i64 [ %inc.i59, %for.cond.i58 ], [ 0, %for.body.i53.preheader ]
-  %arrayidx.i55 = getelementptr inbounds [6 x %"struct.(anonymous namespace)::Flag.0"], ptr @_ZN12_GLOBAL__N_112kBase64FlagsB5cxx11E, i64 0, i64 %i.01.i54
+  %arrayidx.i55 = getelementptr inbounds nuw [6 x %"struct.(anonymous namespace)::Flag.0"], ptr @_ZN12_GLOBAL__N_112kBase64FlagsB5cxx11E, i64 0, i64 %i.01.i54
   %8 = load ptr, ptr %arrayidx.i55, align 16
   %call.i56 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %8) #8
   %cmp2.i57 = icmp eq i32 %call.i56, 0
   br i1 %cmp2.i57, label %_ZN12_GLOBAL__N_19FindFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm6EEEPT_P10TestConfigRAT0__KNS_4FlagIS7_EEPKc.exit, label %for.cond.i58
 
 _ZN12_GLOBAL__N_19FindFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm6EEEPT_P10TestConfigRAT0__KNS_4FlagIS7_EEPKc.exit: ; preds = %for.body.i53
-  %member.i63 = getelementptr inbounds i8, ptr %arrayidx.i55, i64 8
+  %member.i63 = getelementptr inbounds nuw i8, ptr %arrayidx.i55, i64 8
   %9 = load i64, ptr %member.i63, align 8
   %memptr.offset.i64 = getelementptr inbounds i8, ptr %out_config, i64 %9
   br i1 %cmp1.not, label %for.body.i68.preheader, label %if.then19
@@ -272,14 +272,14 @@ for.cond.i73:                                     ; preds = %for.body.i68
 
 for.body.i68:                                     ; preds = %for.body.i68.preheader, %for.cond.i73
   %i.01.i69 = phi i64 [ %inc.i74, %for.cond.i73 ], [ 0, %for.body.i68.preheader ]
-  %arrayidx.i70 = getelementptr inbounds [8 x %"struct.(anonymous namespace)::Flag.3"], ptr @_ZN12_GLOBAL__N_19kIntFlagsE, i64 0, i64 %i.01.i69
+  %arrayidx.i70 = getelementptr inbounds nuw [8 x %"struct.(anonymous namespace)::Flag.3"], ptr @_ZN12_GLOBAL__N_19kIntFlagsE, i64 0, i64 %i.01.i69
   %21 = load ptr, ptr %arrayidx.i70, align 16
   %call.i71 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %21) #8
   %cmp2.i72 = icmp eq i32 %call.i71, 0
   br i1 %cmp2.i72, label %_ZN12_GLOBAL__N_19FindFieldIiLm8EEEPT_P10TestConfigRAT0__KNS_4FlagIS1_EEPKc.exit, label %for.cond.i73
 
 _ZN12_GLOBAL__N_19FindFieldIiLm8EEEPT_P10TestConfigRAT0__KNS_4FlagIS1_EEPKc.exit: ; preds = %for.body.i68
-  %member.i78 = getelementptr inbounds i8, ptr %arrayidx.i70, i64 8
+  %member.i78 = getelementptr inbounds nuw i8, ptr %arrayidx.i70, i64 8
   %22 = load i64, ptr %member.i78, align 8
   %memptr.offset.i79 = getelementptr inbounds i8, ptr %out_config, i64 %22
   br i1 %cmp1.not, label %if.end66, label %if.then57

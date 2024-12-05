@@ -152,7 +152,7 @@ define dso_local noundef i32 @__traceiter_mei_reg_read(ptr nocapture readnone %0
 .preheader:                                       ; preds = %5, %.preheader
   %8 = phi ptr [ %12, %.preheader ], [ %6, %5 ]
   %9 = load volatile ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %8, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %11 = load ptr, ptr %10, align 8
   tail call void %9(ptr noundef %11, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #8
   %12 = getelementptr i8, ptr %8, i64 24
@@ -187,7 +187,7 @@ define dso_local noundef i32 @__traceiter_mei_reg_write(ptr nocapture readnone %
 .preheader:                                       ; preds = %5, %.preheader
   %8 = phi ptr [ %12, %.preheader ], [ %6, %5 ]
   %9 = load volatile ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %8, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %11 = load ptr, ptr %10, align 8
   tail call void %9(ptr noundef %11, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #8
   %12 = getelementptr i8, ptr %8, i64 24
@@ -216,7 +216,7 @@ define dso_local noundef i32 @__traceiter_mei_pci_cfg_read(ptr nocapture readnon
 .preheader:                                       ; preds = %5, %.preheader
   %8 = phi ptr [ %12, %.preheader ], [ %6, %5 ]
   %9 = load volatile ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %8, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %11 = load ptr, ptr %10, align 8
   tail call void %9(ptr noundef %11, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #8
   %12 = getelementptr i8, ptr %8, i64 24
@@ -237,7 +237,7 @@ define dso_local void @__probestub_mei_pci_cfg_read(ptr nocapture readnone %0, p
 define internal void @trace_event_raw_event_mei_reg_read(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #1 align 16 {
   %6 = alloca %struct.trace_event_buffer, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #8
-  %7 = getelementptr inbounds i8, ptr %0, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %8 = load i64, ptr %7, align 8
   %9 = and i64 %8, 704
   %10 = icmp eq i64 %9, 0
@@ -253,7 +253,7 @@ define internal void @trace_event_raw_event_mei_reg_read(ptr noundef %0, ptr noc
   br i1 %15, label %44, label %16
 
 16:                                               ; preds = %14, %11, %5
-  %17 = getelementptr inbounds i8, ptr %1, i64 80
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %18 = load ptr, ptr %17, align 8
   %.not = icmp eq ptr %18, null
   br i1 %.not, label %19, label %.thread2
@@ -279,7 +279,7 @@ define internal void @trace_event_raw_event_mei_reg_read(ptr noundef %0, ptr noc
 30:                                               ; preds = %.thread2
   %31 = shl i32 %25, 16
   %32 = or disjoint i32 %31, 32
-  %33 = getelementptr inbounds i8, ptr %28, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store i32 %32, ptr %33, align 8
   %34 = getelementptr i8, ptr %28, i64 32
   %35 = load ptr, ptr %17, align 8
@@ -295,11 +295,11 @@ define internal void @trace_event_raw_event_mei_reg_read(ptr noundef %0, ptr noc
 .thread6:                                         ; preds = %36, %30
   %39 = phi ptr [ %35, %30 ], [ %spec.select9, %36 ]
   %40 = call ptr @strcpy(ptr noundef %34, ptr noundef nonnull dereferenceable(1) %39) #8
-  %41 = getelementptr inbounds i8, ptr %28, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %28, i64 16
   store ptr %2, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %28, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %28, i64 24
   store i32 %3, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %28, i64 28
+  %43 = getelementptr inbounds nuw i8, ptr %28, i64 28
   store i32 %4, ptr %43, align 4
   call void @trace_event_buffer_commit(ptr noundef nonnull %6) #8
   br label %44
@@ -315,7 +315,7 @@ define internal void @perf_trace_mei_reg_read(ptr noundef %0, ptr nocapture noun
   %7 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #8
-  %8 = getelementptr inbounds i8, ptr %1, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %9 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %10, label %.thread2
@@ -333,11 +333,11 @@ define internal void @perf_trace_mei_reg_read(ptr noundef %0, ptr nocapture noun
   %15 = trunc i64 %14 to i32
   %16 = shl i32 %15, 16
   %17 = add i32 %16, 65568
-  %18 = getelementptr inbounds i8, ptr %0, i64 104
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %19 = load ptr, ptr %18, align 8
   %20 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %19) #9, !srcloc !13
   %21 = inttoptr i64 %20 to ptr
-  %22 = getelementptr inbounds i8, ptr %0, i64 112
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %23 = load volatile ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, null
   br i1 %24, label %25, label %28
@@ -360,17 +360,17 @@ define internal void @perf_trace_mei_reg_read(ptr noundef %0, ptr nocapture noun
   %35 = load ptr, ptr %6, align 8
   %36 = call ptr @llvm.returnaddress(i32 0)
   %37 = ptrtoint ptr %36 to i64
-  %38 = getelementptr inbounds i8, ptr %35, i64 128
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 128
   store i64 %37, ptr %38, align 8
   %39 = call ptr @llvm.frameaddress.p0(i32 0)
   %40 = ptrtoint ptr %39 to i64
-  %41 = getelementptr inbounds i8, ptr %35, i64 152
+  %41 = getelementptr inbounds nuw i8, ptr %35, i64 152
   store i64 %40, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %35, i64 136
+  %42 = getelementptr inbounds nuw i8, ptr %35, i64 136
   store i64 16, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %35, i64 144
+  %43 = getelementptr inbounds nuw i8, ptr %35, i64 144
   store i64 0, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %32, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %32, i64 8
   store i32 %17, ptr %44, align 8
   %45 = getelementptr i8, ptr %32, i64 32
   %46 = load ptr, ptr %8, align 8
@@ -386,11 +386,11 @@ define internal void @perf_trace_mei_reg_read(ptr noundef %0, ptr nocapture noun
 .thread6:                                         ; preds = %47, %34
   %50 = phi ptr [ %46, %34 ], [ %spec.select9, %47 ]
   %51 = call ptr @strcpy(ptr noundef %45, ptr noundef nonnull dereferenceable(1) %50) #8
-  %52 = getelementptr inbounds i8, ptr %32, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %32, i64 16
   store ptr %2, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %32, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %32, i64 24
   store i32 %3, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %32, i64 28
+  %54 = getelementptr inbounds nuw i8, ptr %32, i64 28
   store i32 %4, ptr %54, align 4
   %55 = load i32, ptr %7, align 4
   %56 = load ptr, ptr %6, align 8
@@ -413,7 +413,7 @@ declare dso_local i32 @trace_event_raw_init(ptr noundef) #0
 define internal void @trace_event_raw_event_mei_reg_write(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #1 align 16 {
   %6 = alloca %struct.trace_event_buffer, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #8
-  %7 = getelementptr inbounds i8, ptr %0, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %8 = load i64, ptr %7, align 8
   %9 = and i64 %8, 704
   %10 = icmp eq i64 %9, 0
@@ -429,7 +429,7 @@ define internal void @trace_event_raw_event_mei_reg_write(ptr noundef %0, ptr no
   br i1 %15, label %44, label %16
 
 16:                                               ; preds = %14, %11, %5
-  %17 = getelementptr inbounds i8, ptr %1, i64 80
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %18 = load ptr, ptr %17, align 8
   %.not = icmp eq ptr %18, null
   br i1 %.not, label %19, label %.thread2
@@ -455,7 +455,7 @@ define internal void @trace_event_raw_event_mei_reg_write(ptr noundef %0, ptr no
 30:                                               ; preds = %.thread2
   %31 = shl i32 %25, 16
   %32 = or disjoint i32 %31, 32
-  %33 = getelementptr inbounds i8, ptr %28, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store i32 %32, ptr %33, align 8
   %34 = getelementptr i8, ptr %28, i64 32
   %35 = load ptr, ptr %17, align 8
@@ -471,11 +471,11 @@ define internal void @trace_event_raw_event_mei_reg_write(ptr noundef %0, ptr no
 .thread6:                                         ; preds = %36, %30
   %39 = phi ptr [ %35, %30 ], [ %spec.select9, %36 ]
   %40 = call ptr @strcpy(ptr noundef %34, ptr noundef nonnull dereferenceable(1) %39) #8
-  %41 = getelementptr inbounds i8, ptr %28, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %28, i64 16
   store ptr %2, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %28, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %28, i64 24
   store i32 %3, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %28, i64 28
+  %43 = getelementptr inbounds nuw i8, ptr %28, i64 28
   store i32 %4, ptr %43, align 4
   call void @trace_event_buffer_commit(ptr noundef nonnull %6) #8
   br label %44
@@ -491,7 +491,7 @@ define internal void @perf_trace_mei_reg_write(ptr noundef %0, ptr nocapture nou
   %7 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #8
-  %8 = getelementptr inbounds i8, ptr %1, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %9 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %10, label %.thread2
@@ -509,11 +509,11 @@ define internal void @perf_trace_mei_reg_write(ptr noundef %0, ptr nocapture nou
   %15 = trunc i64 %14 to i32
   %16 = shl i32 %15, 16
   %17 = add i32 %16, 65568
-  %18 = getelementptr inbounds i8, ptr %0, i64 104
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %19 = load ptr, ptr %18, align 8
   %20 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %19) #9, !srcloc !14
   %21 = inttoptr i64 %20 to ptr
-  %22 = getelementptr inbounds i8, ptr %0, i64 112
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %23 = load volatile ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, null
   br i1 %24, label %25, label %28
@@ -536,17 +536,17 @@ define internal void @perf_trace_mei_reg_write(ptr noundef %0, ptr nocapture nou
   %35 = load ptr, ptr %6, align 8
   %36 = call ptr @llvm.returnaddress(i32 0)
   %37 = ptrtoint ptr %36 to i64
-  %38 = getelementptr inbounds i8, ptr %35, i64 128
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 128
   store i64 %37, ptr %38, align 8
   %39 = call ptr @llvm.frameaddress.p0(i32 0)
   %40 = ptrtoint ptr %39 to i64
-  %41 = getelementptr inbounds i8, ptr %35, i64 152
+  %41 = getelementptr inbounds nuw i8, ptr %35, i64 152
   store i64 %40, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %35, i64 136
+  %42 = getelementptr inbounds nuw i8, ptr %35, i64 136
   store i64 16, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %35, i64 144
+  %43 = getelementptr inbounds nuw i8, ptr %35, i64 144
   store i64 0, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %32, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %32, i64 8
   store i32 %17, ptr %44, align 8
   %45 = getelementptr i8, ptr %32, i64 32
   %46 = load ptr, ptr %8, align 8
@@ -562,11 +562,11 @@ define internal void @perf_trace_mei_reg_write(ptr noundef %0, ptr nocapture nou
 .thread6:                                         ; preds = %47, %34
   %50 = phi ptr [ %46, %34 ], [ %spec.select9, %47 ]
   %51 = call ptr @strcpy(ptr noundef %45, ptr noundef nonnull dereferenceable(1) %50) #8
-  %52 = getelementptr inbounds i8, ptr %32, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %32, i64 16
   store ptr %2, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %32, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %32, i64 24
   store i32 %3, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %32, i64 28
+  %54 = getelementptr inbounds nuw i8, ptr %32, i64 28
   store i32 %4, ptr %54, align 4
   %55 = load i32, ptr %7, align 4
   %56 = load ptr, ptr %6, align 8
@@ -583,7 +583,7 @@ define internal void @perf_trace_mei_reg_write(ptr noundef %0, ptr nocapture nou
 define internal void @trace_event_raw_event_mei_pci_cfg_read(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #1 align 16 {
   %6 = alloca %struct.trace_event_buffer, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #8
-  %7 = getelementptr inbounds i8, ptr %0, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %8 = load i64, ptr %7, align 8
   %9 = and i64 %8, 704
   %10 = icmp eq i64 %9, 0
@@ -599,7 +599,7 @@ define internal void @trace_event_raw_event_mei_pci_cfg_read(ptr noundef %0, ptr
   br i1 %15, label %44, label %16
 
 16:                                               ; preds = %14, %11, %5
-  %17 = getelementptr inbounds i8, ptr %1, i64 80
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %18 = load ptr, ptr %17, align 8
   %.not = icmp eq ptr %18, null
   br i1 %.not, label %19, label %.thread2
@@ -625,7 +625,7 @@ define internal void @trace_event_raw_event_mei_pci_cfg_read(ptr noundef %0, ptr
 30:                                               ; preds = %.thread2
   %31 = shl i32 %25, 16
   %32 = or disjoint i32 %31, 32
-  %33 = getelementptr inbounds i8, ptr %28, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store i32 %32, ptr %33, align 8
   %34 = getelementptr i8, ptr %28, i64 32
   %35 = load ptr, ptr %17, align 8
@@ -641,11 +641,11 @@ define internal void @trace_event_raw_event_mei_pci_cfg_read(ptr noundef %0, ptr
 .thread6:                                         ; preds = %36, %30
   %39 = phi ptr [ %35, %30 ], [ %spec.select9, %36 ]
   %40 = call ptr @strcpy(ptr noundef %34, ptr noundef nonnull dereferenceable(1) %39) #8
-  %41 = getelementptr inbounds i8, ptr %28, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %28, i64 16
   store ptr %2, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %28, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %28, i64 24
   store i32 %3, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %28, i64 28
+  %43 = getelementptr inbounds nuw i8, ptr %28, i64 28
   store i32 %4, ptr %43, align 4
   call void @trace_event_buffer_commit(ptr noundef nonnull %6) #8
   br label %44
@@ -661,7 +661,7 @@ define internal void @perf_trace_mei_pci_cfg_read(ptr noundef %0, ptr nocapture 
   %7 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #8
-  %8 = getelementptr inbounds i8, ptr %1, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %9 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %10, label %.thread2
@@ -679,11 +679,11 @@ define internal void @perf_trace_mei_pci_cfg_read(ptr noundef %0, ptr nocapture 
   %15 = trunc i64 %14 to i32
   %16 = shl i32 %15, 16
   %17 = add i32 %16, 65568
-  %18 = getelementptr inbounds i8, ptr %0, i64 104
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %19 = load ptr, ptr %18, align 8
   %20 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %19) #9, !srcloc !15
   %21 = inttoptr i64 %20 to ptr
-  %22 = getelementptr inbounds i8, ptr %0, i64 112
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %23 = load volatile ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, null
   br i1 %24, label %25, label %28
@@ -706,17 +706,17 @@ define internal void @perf_trace_mei_pci_cfg_read(ptr noundef %0, ptr nocapture 
   %35 = load ptr, ptr %6, align 8
   %36 = call ptr @llvm.returnaddress(i32 0)
   %37 = ptrtoint ptr %36 to i64
-  %38 = getelementptr inbounds i8, ptr %35, i64 128
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 128
   store i64 %37, ptr %38, align 8
   %39 = call ptr @llvm.frameaddress.p0(i32 0)
   %40 = ptrtoint ptr %39 to i64
-  %41 = getelementptr inbounds i8, ptr %35, i64 152
+  %41 = getelementptr inbounds nuw i8, ptr %35, i64 152
   store i64 %40, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %35, i64 136
+  %42 = getelementptr inbounds nuw i8, ptr %35, i64 136
   store i64 16, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %35, i64 144
+  %43 = getelementptr inbounds nuw i8, ptr %35, i64 144
   store i64 0, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %32, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %32, i64 8
   store i32 %17, ptr %44, align 8
   %45 = getelementptr i8, ptr %32, i64 32
   %46 = load ptr, ptr %8, align 8
@@ -732,11 +732,11 @@ define internal void @perf_trace_mei_pci_cfg_read(ptr noundef %0, ptr nocapture 
 .thread6:                                         ; preds = %47, %34
   %50 = phi ptr [ %46, %34 ], [ %spec.select9, %47 ]
   %51 = call ptr @strcpy(ptr noundef %45, ptr noundef nonnull dereferenceable(1) %50) #8
-  %52 = getelementptr inbounds i8, ptr %32, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %32, i64 16
   store ptr %2, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %32, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %32, i64 24
   store i32 %3, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %32, i64 28
+  %54 = getelementptr inbounds nuw i8, ptr %32, i64 28
   store i32 %4, ptr %54, align 4
   %55 = load i32, ptr %7, align 4
   %56 = load ptr, ptr %6, align 8
@@ -769,27 +769,27 @@ declare dso_local i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @trace_raw_output_mei_reg_read(ptr noundef %0, i32 %1, ptr noundef %2) #1 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16544
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16544
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 @trace_raw_output_prep(ptr noundef %0, ptr noundef %2) #8
   %7 = icmp eq i32 %6, 1
   br i1 %7, label %8, label %22
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 8344
-  %10 = getelementptr inbounds i8, ptr %5, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8344
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %11 = load i32, ptr %10, align 8
   %12 = and i32 %11, 65535
   %13 = zext nneg i32 %12 to i64
   %14 = getelementptr i8, ptr %5, i64 %13
-  %15 = getelementptr inbounds i8, ptr %5, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %5, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %18 = load i32, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %5, i64 28
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 28
   %20 = load i32, ptr %19, align 4
   tail call void (ptr, ptr, ...) @trace_event_printf(ptr noundef %0, ptr noundef nonnull @.str.8, ptr noundef %14, ptr noundef %16, i32 noundef %18, i32 noundef %20) #8
-  %21 = tail call i32 @trace_handle_return(ptr noundef %9) #8
+  %21 = tail call i32 @trace_handle_return(ptr noundef nonnull %9) #8
   br label %22
 
 22:                                               ; preds = %8, %3
@@ -808,27 +808,27 @@ declare dso_local i32 @trace_handle_return(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @trace_raw_output_mei_reg_write(ptr noundef %0, i32 %1, ptr noundef %2) #1 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16544
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16544
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 @trace_raw_output_prep(ptr noundef %0, ptr noundef %2) #8
   %7 = icmp eq i32 %6, 1
   br i1 %7, label %8, label %22
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 8344
-  %10 = getelementptr inbounds i8, ptr %5, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8344
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %11 = load i32, ptr %10, align 8
   %12 = and i32 %11, 65535
   %13 = zext nneg i32 %12 to i64
   %14 = getelementptr i8, ptr %5, i64 %13
-  %15 = getelementptr inbounds i8, ptr %5, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %5, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %18 = load i32, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %5, i64 28
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 28
   %20 = load i32, ptr %19, align 4
   tail call void (ptr, ptr, ...) @trace_event_printf(ptr noundef %0, ptr noundef nonnull @.str.9, ptr noundef %14, ptr noundef %16, i32 noundef %18, i32 noundef %20) #8
-  %21 = tail call i32 @trace_handle_return(ptr noundef %9) #8
+  %21 = tail call i32 @trace_handle_return(ptr noundef nonnull %9) #8
   br label %22
 
 22:                                               ; preds = %8, %3
@@ -838,27 +838,27 @@ define internal i32 @trace_raw_output_mei_reg_write(ptr noundef %0, i32 %1, ptr 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @trace_raw_output_mei_pci_cfg_read(ptr noundef %0, i32 %1, ptr noundef %2) #1 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16544
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16544
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 @trace_raw_output_prep(ptr noundef %0, ptr noundef %2) #8
   %7 = icmp eq i32 %6, 1
   br i1 %7, label %8, label %22
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 8344
-  %10 = getelementptr inbounds i8, ptr %5, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8344
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %11 = load i32, ptr %10, align 8
   %12 = and i32 %11, 65535
   %13 = zext nneg i32 %12 to i64
   %14 = getelementptr i8, ptr %5, i64 %13
-  %15 = getelementptr inbounds i8, ptr %5, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %5, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %18 = load i32, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %5, i64 28
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 28
   %20 = load i32, ptr %19, align 4
   tail call void (ptr, ptr, ...) @trace_event_printf(ptr noundef %0, ptr noundef nonnull @.str.10, ptr noundef %14, ptr noundef %16, i32 noundef %18, i32 noundef %20) #8
-  %21 = tail call i32 @trace_handle_return(ptr noundef %9) #8
+  %21 = tail call i32 @trace_handle_return(ptr noundef nonnull %9) #8
   br label %22
 
 22:                                               ; preds = %8, %3

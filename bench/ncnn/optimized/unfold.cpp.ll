@@ -263,7 +263,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn6Unfold7forwardERKNS_3Mat
   %123 = load i32, ptr %47, align 8
   %124 = sext i32 %123 to i64
   %125 = getelementptr inbounds float, ptr %.1136, i64 %124
-  %126 = getelementptr inbounds i8, ptr %.3135, i64 4
+  %126 = getelementptr inbounds nuw i8, ptr %.3135, i64 4
   %127 = add nuw i32 %.0137, 1
   %exitcond.not = icmp eq i32 %.0137, %49
   br i1 %exitcond.not, label %._crit_edge, label %121, !llvm.loop !4
@@ -318,7 +318,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn6Unfold7forwardERKNS_3Mat
 
 146:                                              ; preds = %143
   %147 = load ptr, ptr %144, align 8
-  %148 = getelementptr inbounds i8, ptr %147, i64 24
+  %148 = getelementptr inbounds nuw i8, ptr %147, i64 24
   %149 = load ptr, ptr %148, align 8
   invoke void %149(ptr noundef nonnull align 8 dereferenceable(8) %144, ptr noundef %145)
           to label %152 unwind label %153
@@ -354,7 +354,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn6Unfold7forwardERKNS_3Mat
 
 162:                                              ; preds = %159
   %163 = load ptr, ptr %160, align 8
-  %164 = getelementptr inbounds i8, ptr %163, i64 24
+  %164 = getelementptr inbounds nuw i8, ptr %163, i64 24
   %165 = load ptr, ptr %164, align 8
   invoke void %165(ptr noundef nonnull align 8 dereferenceable(8) %160, ptr noundef %161)
           to label %168 unwind label %169
@@ -437,7 +437,7 @@ define hidden void @_ZNK4ncnn6Unfold12make_paddingERKNS_3MatERS1_RKNS_6OptionE(p
 
 40:                                               ; preds = %36
   %41 = load ptr, ptr %38, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 24
   %43 = load ptr, ptr %42, align 8
   tail call void %43(ptr noundef nonnull align 8 dereferenceable(8) %38, ptr noundef %39)
   br label %46

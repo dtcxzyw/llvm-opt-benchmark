@@ -230,7 +230,7 @@ define hidden void @dissect_sss_request(ptr noundef %0, ptr nocapture noundef re
 
 8:                                                ; preds = %4
   %9 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 7) #3
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
   tail call void @col_set_str(ptr noundef %11, i32 noundef 34, ptr noundef nonnull @.str) #3
   %12 = load ptr, ptr %10, align 8
@@ -276,7 +276,7 @@ define hidden void @dissect_sss_request(ptr noundef %0, ptr nocapture noundef re
   br i1 %.not125, label %42, label %40
 
 40:                                               ; preds = %28
-  %41 = getelementptr inbounds i8, ptr %3, i64 44
+  %41 = getelementptr inbounds nuw i8, ptr %3, i64 44
   store i32 %33, ptr %41, align 4
   br label %42
 
@@ -643,7 +643,7 @@ process_flags.exit:                               ; preds = %110
   br i1 %.not, label %168, label %166
 
 166:                                              ; preds = %164
-  %167 = getelementptr inbounds i8, ptr %3, i64 44
+  %167 = getelementptr inbounds nuw i8, ptr %3, i64 44
   store i32 255, ptr %167, align 4
   br label %168
 
@@ -790,7 +790,7 @@ declare i32 @tvb_captured_length_remaining(ptr noundef, i32 noundef) local_unnam
 
 ; Function Attrs: nounwind uwtable
 define hidden void @dissect_sss_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext %3, ptr noundef readonly %4) local_unnamed_addr #0 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void @col_set_str(ptr noundef %7, i32 noundef 34, ptr noundef nonnull @.str) #3
   %8 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 8) #3
@@ -819,7 +819,7 @@ define hidden void @dissect_sss_reply(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %21, label %22, label %29
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds i8, ptr %4, i64 44
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 44
   %24 = load i32, ptr %23, align 4
   %25 = tail call ptr @try_val_to_str(i32 noundef %24, ptr noundef nonnull @sss_verb_enum) #3
   %.not = icmp eq ptr %25, null

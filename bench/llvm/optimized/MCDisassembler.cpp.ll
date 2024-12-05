@@ -26,7 +26,7 @@ define dso_local void @_ZN4llvm14MCDisassemblerD2Ev(ptr nocapture noundef nonnul
 
 _ZNKSt14default_deleteIN4llvm12MCSymbolizerEEclEPS1_.exit.i: ; preds = %1
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(24) %3) #6
   br label %_ZNSt10unique_ptrIN4llvm12MCSymbolizerESt14default_deleteIS1_EED2Ev.exit
@@ -71,7 +71,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm14MCDisassembler24tryAddingSymboli
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %10, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = tail call noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 1 %1, ptr noundef nonnull align 8 dereferenceable(48) %13, i64 noundef %2, i64 noundef %3, i1 noundef zeroext %4, i64 noundef %5, i64 noundef %6, i64 noundef %7) #6
   br label %18
@@ -92,7 +92,7 @@ define dso_local void @_ZNK4llvm14MCDisassembler31tryAddingPcLoadReferenceCommen
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %5, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %11 = load ptr, ptr %10, align 8
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(48) %8, i64 noundef %1, i64 noundef %2) #6
   br label %12
@@ -113,7 +113,7 @@ define dso_local void @_ZN4llvm14MCDisassembler13setSymbolizerESt10unique_ptrINS
 
 _ZNKSt14default_deleteIN4llvm12MCSymbolizerEEclEPS1_.exit.i.i.i.i: ; preds = %2
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(24) %5) #6
   br label %_ZNSt10unique_ptrIN4llvm12MCSymbolizerESt14default_deleteIS1_EEaSEOS4_.exit
@@ -156,7 +156,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm17XCOFFSymbolInfoTyltERKS0_(ptr no
 
 switch.lookup:                                    ; preds = %20
   %23 = zext nneg i8 %21 to i64
-  %switch.gep = getelementptr inbounds [23 x i8], ptr @switch.table._ZNK4llvm17XCOFFSymbolInfoTyltERKS0_.1, i64 0, i64 %23
+  %switch.gep = getelementptr inbounds nuw [23 x i8], ptr @switch.table._ZNK4llvm17XCOFFSymbolInfoTyltERKS0_.1, i64 0, i64 %23
   %switch.load = load i8, ptr %switch.gep, align 1
   br label %_ZL14getSMCPriorityN4llvm5XCOFF19StorageMappingClassE.exit
 
@@ -168,7 +168,7 @@ _ZL14getSMCPriorityN4llvm5XCOFF19StorageMappingClassE.exit: ; preds = %20, %swit
 
 switch.lookup11:                                  ; preds = %_ZL14getSMCPriorityN4llvm5XCOFF19StorageMappingClassE.exit
   %26 = zext nneg i8 %24 to i64
-  %switch.gep12 = getelementptr inbounds [23 x i8], ptr @switch.table._ZNK4llvm17XCOFFSymbolInfoTyltERKS0_.1, i64 0, i64 %26
+  %switch.gep12 = getelementptr inbounds nuw [23 x i8], ptr @switch.table._ZNK4llvm17XCOFFSymbolInfoTyltERKS0_.1, i64 0, i64 %26
   %switch.load13 = load i8, ptr %switch.gep12, align 1
   br label %_ZL14getSMCPriorityN4llvm5XCOFF19StorageMappingClassE.exit9
 

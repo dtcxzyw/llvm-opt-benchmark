@@ -238,7 +238,7 @@ declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @dissect_openvpn_msg_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef range(i32 0, 3) %4) unnamed_addr #0 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void @col_set_str(ptr noundef %7, i32 noundef 34, ptr noundef nonnull @.str.55) #2
   %8 = load ptr, ptr %6, align 8
@@ -493,7 +493,7 @@ switch.early.test:                                ; preds = %88, %91, %112
 
 152:                                              ; preds = %133
   %153 = icmp eq i32 %123, 100
-  %154 = getelementptr inbounds i8, ptr %1, i64 272
+  %154 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %155 = load i32, ptr %154, align 8
   store i32 1, ptr %154, align 8
   %156 = zext i1 %153 to i32
@@ -531,9 +531,9 @@ switch.early.test:                                ; preds = %88, %91, %112
 172:                                              ; preds = %.thread245
   %173 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %173, i32 noundef 25, ptr noundef nonnull @.str.99, i32 noundef %.0208) #2
-  %174 = getelementptr inbounds i8, ptr %1, i64 20
+  %174 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %175 = load i32, ptr %174, align 4
-  %176 = getelementptr inbounds i8, ptr %157, i64 40
+  %176 = getelementptr inbounds nuw i8, ptr %157, i64 40
   %177 = load i32, ptr %176, align 8
   %.not227 = icmp eq i32 %175, %177
   br i1 %.not227, label %.thread247, label %178

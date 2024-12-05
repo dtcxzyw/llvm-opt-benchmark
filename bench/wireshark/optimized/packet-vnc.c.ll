@@ -1203,13 +1203,13 @@ define internal i32 @dissect_vnc(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 10:                                               ; preds = %4
   %11 = tail call ptr @wmem_file_scope() #4
   %12 = tail call noalias ptr @wmem_alloc(ptr noundef %11, i64 noundef 56) #4
-  %13 = getelementptr inbounds i8, ptr %12, i64 44
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 44
   store i32 0, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %12, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 32
   store i8 0, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %12, i64 36
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 36
   store i32 0, ptr %15, align 4
-  %16 = getelementptr inbounds i8, ptr %12, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 48
   store i32 0, ptr %16, align 8
   %17 = load i32, ptr @proto_vnc, align 4
   tail call void @conversation_add_proto_data(ptr noundef nonnull %7, i32 noundef %17, ptr noundef %12) #4
@@ -1217,7 +1217,7 @@ define internal i32 @dissect_vnc(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 18:                                               ; preds = %10, %4
   %.0 = phi ptr [ %9, %4 ], [ %12, %10 ]
-  %19 = getelementptr inbounds i8, ptr %1, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %20 = load ptr, ptr %19, align 8
   tail call void @col_set_str(ptr noundef %20, i32 noundef 34, ptr noundef nonnull @.str.667) #4
   %21 = load ptr, ptr %19, align 8
@@ -1236,16 +1236,16 @@ define internal i32 @dissect_vnc(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 29:                                               ; preds = %18
   %30 = tail call ptr @wmem_file_scope() #4
   %31 = tail call noalias ptr @wmem_alloc(ptr noundef %30, i64 noundef 8) #4
-  %32 = getelementptr inbounds i8, ptr %.0, i64 44
+  %32 = getelementptr inbounds nuw i8, ptr %.0, i64 44
   %33 = load i32, ptr %32, align 4
   store i32 %33, ptr %31, align 4
-  %34 = getelementptr inbounds i8, ptr %.0, i64 42
+  %34 = getelementptr inbounds nuw i8, ptr %.0, i64 42
   %35 = load i8, ptr %34, align 2
-  %36 = getelementptr inbounds i8, ptr %31, i64 4
+  %36 = getelementptr inbounds nuw i8, ptr %31, i64 4
   store i8 %35, ptr %36, align 4
-  %37 = getelementptr inbounds i8, ptr %.0, i64 43
+  %37 = getelementptr inbounds nuw i8, ptr %.0, i64 43
   %38 = load i8, ptr %37, align 1
-  %39 = getelementptr inbounds i8, ptr %31, i64 5
+  %39 = getelementptr inbounds nuw i8, ptr %31, i64 5
   store i8 %38, ptr %39, align 1
   %40 = tail call ptr @wmem_file_scope() #4
   %41 = load i32, ptr @proto_vnc, align 4
@@ -1292,16 +1292,16 @@ define internal i32 @dissect_vnc(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %50 = tail call ptr @tvb_get_string_enc(ptr noundef %49, ptr noundef %0, i32 noundef 4, i32 noundef 7, i32 noundef 0) #4
   %51 = tail call double @g_ascii_strtod(ptr noundef %50, ptr noundef null) #4
   store double %51, ptr %.0, align 8
-  %52 = getelementptr inbounds i8, ptr %1, i64 284
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %53 = load i32, ptr %52, align 4
-  %54 = getelementptr inbounds i8, ptr %.0, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   store i32 %53, ptr %54, align 8
   %55 = load ptr, ptr %19, align 8
-  %56 = getelementptr inbounds i8, ptr %1, i64 408
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %57 = load ptr, ptr %56, align 8
   %58 = tail call ptr @tvb_format_text(ptr noundef %57, ptr noundef %0, i32 noundef 4, i32 noundef 7) #4
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %55, i32 noundef 25, ptr noundef nonnull @.str.786, ptr noundef %58) #4
-  %59 = getelementptr inbounds i8, ptr %.0, i64 44
+  %59 = getelementptr inbounds nuw i8, ptr %.0, i64 44
   store i32 1, ptr %59, align 4
   br label %462
 
@@ -1316,21 +1316,21 @@ define internal i32 @dissect_vnc(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %65 = tail call ptr @wmem_packet_scope() #4
   %66 = tail call ptr @tvb_get_string_enc(ptr noundef %65, ptr noundef %0, i32 noundef 4, i32 noundef 7, i32 noundef 0) #4
   %67 = tail call double @g_ascii_strtod(ptr noundef %66, ptr noundef null) #4
-  %68 = getelementptr inbounds i8, ptr %.0, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   store double %67, ptr %68, align 8
   %69 = load ptr, ptr %19, align 8
-  %70 = getelementptr inbounds i8, ptr %1, i64 408
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %71 = load ptr, ptr %70, align 8
   %72 = tail call ptr @tvb_format_text(ptr noundef %71, ptr noundef %0, i32 noundef 4, i32 noundef 7) #4
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %69, i32 noundef 25, ptr noundef nonnull @.str.787, ptr noundef %72) #4
-  %73 = getelementptr inbounds i8, ptr %.0, i64 44
+  %73 = getelementptr inbounds nuw i8, ptr %.0, i64 44
   store i32 2, ptr %73, align 4
   br label %462
 
 74:                                               ; preds = %42
   %75 = load ptr, ptr %19, align 8
   tail call void @col_set_str(ptr noundef %75, i32 noundef 25, ptr noundef nonnull @.str.788) #4
-  %76 = getelementptr inbounds i8, ptr %.0, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %77 = load double, ptr %76, align 8
   %78 = fcmp ult double %77, 3.007000e+00
   br i1 %78, label %89, label %79
@@ -1359,7 +1359,7 @@ define internal i32 @dissect_vnc(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %exitcond475.not.i, label %.loopexit.i, label %.lr.ph471.i, !llvm.loop !4
 
 .loopexit.i:                                      ; preds = %.lr.ph471.i, %81, %79
-  %88 = getelementptr inbounds i8, ptr %.0, i64 44
+  %88 = getelementptr inbounds nuw i8, ptr %.0, i64 44
   store i32 3, ptr %88, align 4
   br label %462
 
@@ -1368,7 +1368,7 @@ define internal i32 @dissect_vnc(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %91 = tail call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %90, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0) #4
   %92 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0) #4
   %93 = trunc i32 %92 to i8
-  %94 = getelementptr inbounds i8, ptr %.0, i64 32
+  %94 = getelementptr inbounds nuw i8, ptr %.0, i64 32
   store i8 %93, ptr %94, align 8
   switch i8 %93, label %462 [
     i8 0, label %95
@@ -1378,22 +1378,22 @@ define internal i32 @dissect_vnc(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   ]
 
 95:                                               ; preds = %89
-  %96 = getelementptr inbounds i8, ptr %.0, i64 44
+  %96 = getelementptr inbounds nuw i8, ptr %.0, i64 44
   store i32 3, ptr %96, align 4
   br label %462
 
 97:                                               ; preds = %89
-  %98 = getelementptr inbounds i8, ptr %.0, i64 44
+  %98 = getelementptr inbounds nuw i8, ptr %.0, i64 44
   store i32 19, ptr %98, align 4
   br label %462
 
 99:                                               ; preds = %89
-  %100 = getelementptr inbounds i8, ptr %.0, i64 44
+  %100 = getelementptr inbounds nuw i8, ptr %.0, i64 44
   store i32 9, ptr %100, align 4
   br label %462
 
 101:                                              ; preds = %89
-  %102 = getelementptr inbounds i8, ptr %.0, i64 44
+  %102 = getelementptr inbounds nuw i8, ptr %.0, i64 44
   store i32 11, ptr %102, align 4
   br label %462
 
@@ -1401,7 +1401,7 @@ define internal i32 @dissect_vnc(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %104 = load i32, ptr @hf_vnc_client_security_type, align 4
   %105 = tail call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %104, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #4
   %106 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #4
-  %107 = getelementptr inbounds i8, ptr %.0, i64 32
+  %107 = getelementptr inbounds nuw i8, ptr %.0, i64 32
   store i8 %106, ptr %107, align 8
   %108 = load ptr, ptr %19, align 8
   %109 = zext i8 %106 to i32
@@ -1419,10 +1419,10 @@ define internal i32 @dissect_vnc(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   ]
 
 114:                                              ; preds = %103
-  %115 = getelementptr inbounds i8, ptr %.0, i64 8
+  %115 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %116 = load double, ptr %115, align 8
   %117 = fcmp ult double %116, 3.008000e+00
-  %118 = getelementptr inbounds i8, ptr %.0, i64 44
+  %118 = getelementptr inbounds nuw i8, ptr %.0, i64 44
   br i1 %117, label %120, label %119
 
 119:                                              ; preds = %114
@@ -1434,24 +1434,24 @@ define internal i32 @dissect_vnc(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %462
 
 121:                                              ; preds = %103
-  %122 = getelementptr inbounds i8, ptr %.0, i64 44
+  %122 = getelementptr inbounds nuw i8, ptr %.0, i64 44
   store i32 9, ptr %122, align 4
   br label %462
 
 123:                                              ; preds = %103
-  %124 = getelementptr inbounds i8, ptr %.0, i64 44
+  %124 = getelementptr inbounds nuw i8, ptr %.0, i64 44
   store i32 4, ptr %124, align 4
-  %125 = getelementptr inbounds i8, ptr %.0, i64 36
+  %125 = getelementptr inbounds nuw i8, ptr %.0, i64 36
   store i32 1, ptr %125, align 4
   br label %462
 
 126:                                              ; preds = %103
-  %127 = getelementptr inbounds i8, ptr %.0, i64 44
+  %127 = getelementptr inbounds nuw i8, ptr %.0, i64 44
   store i32 11, ptr %127, align 4
   br label %462
 
 128:                                              ; preds = %103
-  %129 = getelementptr inbounds i8, ptr %.0, i64 44
+  %129 = getelementptr inbounds nuw i8, ptr %.0, i64 44
   store i32 14, ptr %129, align 4
   br label %462
 
@@ -1485,12 +1485,12 @@ define internal i32 @dissect_vnc(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %146, label %147, label %._crit_edge467.thread.i
 
 147:                                              ; preds = %._crit_edge467.i
-  %148 = getelementptr inbounds i8, ptr %.0, i64 44
+  %148 = getelementptr inbounds nuw i8, ptr %.0, i64 44
   store i32 6, ptr %148, align 4
   br label %462
 
 ._crit_edge467.thread.i:                          ; preds = %.lr.ph466.i, %._crit_edge467.i
-  %149 = getelementptr inbounds i8, ptr %.0, i64 44
+  %149 = getelementptr inbounds nuw i8, ptr %.0, i64 44
   store i32 5, ptr %149, align 4
   br label %462
 
@@ -1592,7 +1592,7 @@ define internal i32 @dissect_vnc(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 196:                                              ; preds = %.sink.split.i, %192, %187, %182, %177, %172, %167
   %197 = icmp eq i32 %154, 0
-  %198 = getelementptr inbounds i8, ptr %.0, i64 44
+  %198 = getelementptr inbounds nuw i8, ptr %.0, i64 44
   br i1 %197, label %199, label %200
 
 199:                                              ; preds = %196
@@ -1618,43 +1618,43 @@ define internal i32 @dissect_vnc(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   ]
 
 206:                                              ; preds = %201
-  %207 = getelementptr inbounds i8, ptr %.0, i64 32
+  %207 = getelementptr inbounds nuw i8, ptr %.0, i64 32
   store i8 1, ptr %207, align 8
-  %208 = getelementptr inbounds i8, ptr %.0, i64 44
+  %208 = getelementptr inbounds nuw i8, ptr %.0, i64 44
   store i32 19, ptr %208, align 4
   br label %462
 
 209:                                              ; preds = %201
-  %210 = getelementptr inbounds i8, ptr %.0, i64 32
+  %210 = getelementptr inbounds nuw i8, ptr %.0, i64 32
   store i8 2, ptr %210, align 8
-  %211 = getelementptr inbounds i8, ptr %.0, i64 44
+  %211 = getelementptr inbounds nuw i8, ptr %.0, i64 44
   store i32 9, ptr %211, align 4
   br label %462
 
 212:                                              ; preds = %201
-  %213 = getelementptr inbounds i8, ptr %.0, i64 32
+  %213 = getelementptr inbounds nuw i8, ptr %.0, i64 32
   store i8 20, ptr %213, align 8
-  %214 = getelementptr inbounds i8, ptr %.0, i64 44
+  %214 = getelementptr inbounds nuw i8, ptr %.0, i64 44
   store i32 8, ptr %214, align 4
   br label %462
 
 215:                                              ; preds = %201
-  %216 = getelementptr inbounds i8, ptr %.0, i64 32
+  %216 = getelementptr inbounds nuw i8, ptr %.0, i64 32
   store i8 119, ptr %216, align 8
-  %217 = getelementptr inbounds i8, ptr %.0, i64 44
+  %217 = getelementptr inbounds nuw i8, ptr %.0, i64 44
   store i32 8, ptr %217, align 4
   br label %462
 
 218:                                              ; preds = %201
-  %219 = getelementptr inbounds i8, ptr %.0, i64 32
+  %219 = getelementptr inbounds nuw i8, ptr %.0, i64 32
   store i8 -126, ptr %219, align 8
-  %220 = getelementptr inbounds i8, ptr %.0, i64 44
+  %220 = getelementptr inbounds nuw i8, ptr %.0, i64 44
   store i32 8, ptr %220, align 4
   br label %462
 
 221:                                              ; preds = %201
   %222 = tail call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %205, ptr noundef nonnull @ei_vnc_unknown_tight_vnc_auth) #4
-  %223 = getelementptr inbounds i8, ptr %.0, i64 44
+  %223 = getelementptr inbounds nuw i8, ptr %.0, i64 44
   store i32 8, ptr %223, align 4
   br label %462
 
@@ -1662,7 +1662,7 @@ define internal i32 @dissect_vnc(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %225 = load ptr, ptr %19, align 8
   tail call void @col_set_str(ptr noundef %225, i32 noundef 25, ptr noundef nonnull @.str.663) #4
   %226 = tail call ptr @proto_tree_add_expert(ptr noundef %25, ptr noundef nonnull %1, ptr noundef nonnull @ei_vnc_unknown_tight, ptr noundef %0, i32 noundef 0, i32 noundef -1) #4
-  %227 = getelementptr inbounds i8, ptr %.0, i64 44
+  %227 = getelementptr inbounds nuw i8, ptr %.0, i64 44
   store i32 9, ptr %227, align 4
   br label %462
 
@@ -1671,7 +1671,7 @@ define internal i32 @dissect_vnc(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   tail call void @col_set_str(ptr noundef %229, i32 noundef 25, ptr noundef nonnull @.str.803) #4
   %230 = load i32, ptr @hf_vnc_auth_challenge, align 4
   %231 = tail call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %230, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #4
-  %232 = getelementptr inbounds i8, ptr %.0, i64 44
+  %232 = getelementptr inbounds nuw i8, ptr %.0, i64 44
   store i32 10, ptr %232, align 4
   br label %462
 
@@ -1680,7 +1680,7 @@ define internal i32 @dissect_vnc(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   tail call void @col_set_str(ptr noundef %234, i32 noundef 25, ptr noundef nonnull @.str.804) #4
   %235 = load i32, ptr @hf_vnc_auth_response, align 4
   %236 = tail call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %235, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #4
-  %237 = getelementptr inbounds i8, ptr %.0, i64 44
+  %237 = getelementptr inbounds nuw i8, ptr %.0, i64 44
   store i32 13, ptr %237, align 4
   br label %462
 
@@ -1698,9 +1698,9 @@ define internal i32 @dissect_vnc(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %248 = load i32, ptr @hf_vnc_ard_auth_server_key, align 4
   %249 = add nuw nsw i32 %245, 4
   %250 = tail call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %248, ptr noundef %0, i32 noundef %249, i32 noundef %245, i32 noundef 0) #4
-  %251 = getelementptr inbounds i8, ptr %.0, i64 40
+  %251 = getelementptr inbounds nuw i8, ptr %.0, i64 40
   store i16 %244, ptr %251, align 8
-  %252 = getelementptr inbounds i8, ptr %.0, i64 44
+  %252 = getelementptr inbounds nuw i8, ptr %.0, i64 44
   store i32 12, ptr %252, align 4
   br label %462
 
@@ -1710,11 +1710,11 @@ define internal i32 @dissect_vnc(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %255 = load i32, ptr @hf_vnc_ard_auth_credentials, align 4
   %256 = tail call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %255, ptr noundef %0, i32 noundef 0, i32 noundef 128, i32 noundef 0) #4
   %257 = load i32, ptr @hf_vnc_ard_auth_client_key, align 4
-  %258 = getelementptr inbounds i8, ptr %.0, i64 40
+  %258 = getelementptr inbounds nuw i8, ptr %.0, i64 40
   %259 = load i16, ptr %258, align 8
   %260 = zext i16 %259 to i32
   %261 = tail call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %257, ptr noundef %0, i32 noundef 128, i32 noundef %260, i32 noundef 0) #4
-  %262 = getelementptr inbounds i8, ptr %.0, i64 44
+  %262 = getelementptr inbounds nuw i8, ptr %.0, i64 44
   store i32 13, ptr %262, align 4
   br label %462
 
@@ -1730,12 +1730,12 @@ define internal i32 @dissect_vnc(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   ]
 
 268:                                              ; preds = %263
-  %269 = getelementptr inbounds i8, ptr %.0, i64 44
+  %269 = getelementptr inbounds nuw i8, ptr %.0, i64 44
   store i32 19, ptr %269, align 4
   br label %462
 
 270:                                              ; preds = %263
-  %271 = getelementptr inbounds i8, ptr %.0, i64 8
+  %271 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %272 = load double, ptr %271, align 8
   %273 = fcmp ult double %272, 3.008000e+00
   br i1 %273, label %462, label %274
@@ -1759,7 +1759,7 @@ define internal i32 @dissect_vnc(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %288 = zext i8 %287 to i32
   %289 = load ptr, ptr %19, align 8
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %289, i32 noundef 25, ptr noundef nonnull @.str.807, i32 noundef %284, i32 noundef %288) #4
-  %290 = getelementptr inbounds i8, ptr %.0, i64 44
+  %290 = getelementptr inbounds nuw i8, ptr %.0, i64 44
   store i32 15, ptr %290, align 4
   br label %462
 
@@ -1774,7 +1774,7 @@ define internal i32 @dissect_vnc(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %299 = zext i8 %298 to i32
   %300 = load ptr, ptr %19, align 8
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %300, i32 noundef 25, ptr noundef nonnull @.str.808, i32 noundef %295, i32 noundef %299) #4
-  %301 = getelementptr inbounds i8, ptr %.0, i64 44
+  %301 = getelementptr inbounds nuw i8, ptr %.0, i64 44
   store i32 16, ptr %301, align 4
   br label %462
 
@@ -1801,7 +1801,7 @@ define internal i32 @dissect_vnc(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !7
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %302
-  %314 = getelementptr inbounds i8, ptr %.0, i64 44
+  %314 = getelementptr inbounds nuw i8, ptr %.0, i64 44
   store i32 17, ptr %314, align 4
   br label %462
 
@@ -1812,7 +1812,7 @@ define internal i32 @dissect_vnc(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %317, i32 noundef 25, ptr noundef nonnull @.str.810, ptr noundef %318, i32 noundef %316) #4
   %319 = load i32, ptr @hf_vnc_vencrypt_auth_type, align 4
   %320 = tail call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %319, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0) #4
-  %321 = getelementptr inbounds i8, ptr %.0, i64 44
+  %321 = getelementptr inbounds nuw i8, ptr %.0, i64 44
   switch i32 %316, label %326 [
     i32 1, label %322
     i32 2, label %324
@@ -1820,13 +1820,13 @@ define internal i32 @dissect_vnc(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 322:                                              ; preds = %315
   store i32 19, ptr %321, align 4
-  %323 = getelementptr inbounds i8, ptr %.0, i64 32
+  %323 = getelementptr inbounds nuw i8, ptr %.0, i64 32
   store i8 1, ptr %323, align 8
   br label %462
 
 324:                                              ; preds = %315
   store i32 9, ptr %321, align 4
-  %325 = getelementptr inbounds i8, ptr %.0, i64 32
+  %325 = getelementptr inbounds nuw i8, ptr %.0, i64 32
   store i8 2, ptr %325, align 8
   br label %462
 
@@ -1841,7 +1841,7 @@ define internal i32 @dissect_vnc(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %330 = tail call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %329, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #4
   %331 = tail call ptr @find_dissector(ptr noundef nonnull @.str.812) #4
   store ptr %331, ptr @tls_handle, align 8
-  %332 = getelementptr inbounds i8, ptr %.0, i64 44
+  %332 = getelementptr inbounds nuw i8, ptr %.0, i64 44
   store i32 22, ptr %332, align 4
   br label %462
 
@@ -1850,7 +1850,7 @@ define internal i32 @dissect_vnc(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   tail call void @col_set_str(ptr noundef %334, i32 noundef 25, ptr noundef nonnull @.str.152) #4
   %335 = load i32, ptr @hf_vnc_share_desktop_flag, align 4
   %336 = tail call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %335, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #4
-  %337 = getelementptr inbounds i8, ptr %.0, i64 44
+  %337 = getelementptr inbounds nuw i8, ptr %.0, i64 44
   store i32 20, ptr %337, align 4
   br label %462
 
@@ -1865,9 +1865,9 @@ define internal i32 @dissect_vnc(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %345 = tail call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %344, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0) #4
   %346 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 4) #4
   %347 = lshr i8 %346, 3
-  %348 = getelementptr inbounds i8, ptr %1, i64 80
+  %348 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %349 = load ptr, ptr %348, align 8
-  %350 = getelementptr inbounds i8, ptr %349, i64 50
+  %350 = getelementptr inbounds nuw i8, ptr %349, i64 50
   %351 = load i16, ptr %350, align 2
   %352 = and i16 %351, 8
   %.not.i.i = icmp eq i16 %352, 0
@@ -1885,9 +1885,9 @@ define internal i32 @dissect_vnc(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   unreachable
 
 358:                                              ; preds = %353
-  %359 = getelementptr inbounds i8, ptr %.0, i64 42
+  %359 = getelementptr inbounds nuw i8, ptr %.0, i64 42
   store i8 %347, ptr %359, align 2
-  %360 = getelementptr inbounds i8, ptr %356, i64 4
+  %360 = getelementptr inbounds nuw i8, ptr %356, i64 4
   store i8 %347, ptr %360, align 4
   br label %vnc_set_bytes_per_pixel.exit.i
 
@@ -1896,7 +1896,7 @@ vnc_set_bytes_per_pixel.exit.i:                   ; preds = %358, %338
   %362 = tail call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %361, ptr noundef %0, i32 noundef 5, i32 noundef 1, i32 noundef 0) #4
   %363 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 5) #4
   %364 = load ptr, ptr %348, align 8
-  %365 = getelementptr inbounds i8, ptr %364, i64 50
+  %365 = getelementptr inbounds nuw i8, ptr %364, i64 50
   %366 = load i16, ptr %365, align 2
   %367 = and i16 %366, 8
   %.not.i446.i = icmp eq i16 %367, 0
@@ -1914,9 +1914,9 @@ vnc_set_bytes_per_pixel.exit.i:                   ; preds = %358, %338
   unreachable
 
 373:                                              ; preds = %368
-  %374 = getelementptr inbounds i8, ptr %.0, i64 43
+  %374 = getelementptr inbounds nuw i8, ptr %.0, i64 43
   store i8 %363, ptr %374, align 1
-  %375 = getelementptr inbounds i8, ptr %371, i64 5
+  %375 = getelementptr inbounds nuw i8, ptr %371, i64 5
   store i8 %363, ptr %375, align 1
   br label %vnc_set_depth.exit.i
 
@@ -1952,10 +1952,10 @@ vnc_set_depth.exit.i:                             ; preds = %373, %vnc_set_bytes
   br label %402
 
 402:                                              ; preds = %396, %vnc_set_depth.exit.i
-  %403 = getelementptr inbounds i8, ptr %.0, i64 36
+  %403 = getelementptr inbounds nuw i8, ptr %.0, i64 36
   %404 = load i32, ptr %403, align 4
   %405 = icmp eq i32 %404, 1
-  %406 = getelementptr inbounds i8, ptr %.0, i64 44
+  %406 = getelementptr inbounds nuw i8, ptr %.0, i64 44
   br i1 %405, label %407, label %408
 
 407:                                              ; preds = %402
@@ -1973,19 +1973,19 @@ vnc_set_depth.exit.i:                             ; preds = %373, %vnc_set_bytes
   %412 = tail call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %411, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0) #4
   %413 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 0) #4
   %414 = zext i16 %413 to i32
-  %415 = getelementptr inbounds i8, ptr %.0, i64 20
+  %415 = getelementptr inbounds nuw i8, ptr %.0, i64 20
   store i32 %414, ptr %415, align 4
   %416 = load i32, ptr @hf_vnc_num_client_message_types, align 4
   %417 = tail call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %416, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0) #4
   %418 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 2) #4
   %419 = zext i16 %418 to i32
-  %420 = getelementptr inbounds i8, ptr %.0, i64 24
+  %420 = getelementptr inbounds nuw i8, ptr %.0, i64 24
   store i32 %419, ptr %420, align 8
   %421 = load i32, ptr @hf_vnc_num_encoding_types, align 4
   %422 = tail call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %421, ptr noundef %0, i32 noundef 4, i32 noundef 2, i32 noundef 0) #4
   %423 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 4) #4
   %424 = zext i16 %423 to i32
-  %425 = getelementptr inbounds i8, ptr %.0, i64 28
+  %425 = getelementptr inbounds nuw i8, ptr %.0, i64 28
   store i32 %424, ptr %425, align 4
   %426 = load i32, ptr @hf_vnc_padding, align 4
   %427 = tail call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %426, ptr noundef %0, i32 noundef 6, i32 noundef 2, i32 noundef 0) #4
@@ -2051,7 +2051,7 @@ process_tight_capabilities.exit453.i:             ; preds = %.lr.ph.i449.i, %pro
   br i1 %exitcond.not.i458.i, label %process_tight_capabilities.exit459.i, label %.lr.ph.i455.i, !llvm.loop !8
 
 process_tight_capabilities.exit459.i:             ; preds = %.lr.ph.i455.i, %process_tight_capabilities.exit453.i
-  %461 = getelementptr inbounds i8, ptr %.0, i64 44
+  %461 = getelementptr inbounds nuw i8, ptr %.0, i64 44
   store i32 22, ptr %461, align 4
   br label %462
 
@@ -2062,7 +2062,7 @@ process_tight_capabilities.exit459.i:             ; preds = %.lr.ph.i455.i, %pro
 
 464:                                              ; preds = %42
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  %465 = getelementptr inbounds i8, ptr %.0, i64 32
+  %465 = getelementptr inbounds nuw i8, ptr %.0, i64 32
   %466 = load i8, ptr %465, align 8
   %467 = icmp eq i8 %466, 19
   br i1 %467, label %468, label %472
@@ -2075,14 +2075,14 @@ process_tight_capabilities.exit459.i:             ; preds = %.lr.ph.i455.i, %pro
 
 472:                                              ; preds = %464
   %473 = load ptr, ptr @vnc_tcp_range, align 8
-  %474 = getelementptr inbounds i8, ptr %1, i64 288
+  %474 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %475 = load i32, ptr %474, align 8
   %476 = tail call i32 @value_is_in_range(ptr noundef %473, i32 noundef %475) #4
   %.not39 = icmp eq i32 %476, 0
   br i1 %.not39, label %477, label %482
 
 477:                                              ; preds = %472
-  %478 = getelementptr inbounds i8, ptr %.0, i64 16
+  %478 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   %479 = load i32, ptr %478, align 8
   %480 = load i32, ptr %474, align 8
   %481 = icmp eq i32 %479, %480
@@ -2116,9 +2116,9 @@ process_tight_capabilities.exit459.i:             ; preds = %.lr.ph.i455.i, %pro
   %493 = tail call ptr @proto_tree_add_item(ptr noundef %487, i32 noundef %492, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0) #4
   %494 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 4) #4
   %495 = lshr i8 %494, 3
-  %496 = getelementptr inbounds i8, ptr %1, i64 80
+  %496 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %497 = load ptr, ptr %496, align 8
-  %498 = getelementptr inbounds i8, ptr %497, i64 50
+  %498 = getelementptr inbounds nuw i8, ptr %497, i64 50
   %499 = load i16, ptr %498, align 2
   %500 = and i16 %499, 8
   %.not.i.i.i = icmp eq i16 %500, 0
@@ -2136,9 +2136,9 @@ process_tight_capabilities.exit459.i:             ; preds = %.lr.ph.i455.i, %pro
   unreachable
 
 506:                                              ; preds = %501
-  %507 = getelementptr inbounds i8, ptr %.0, i64 42
+  %507 = getelementptr inbounds nuw i8, ptr %.0, i64 42
   store i8 %495, ptr %507, align 2
-  %508 = getelementptr inbounds i8, ptr %504, i64 4
+  %508 = getelementptr inbounds nuw i8, ptr %504, i64 4
   store i8 %495, ptr %508, align 4
   br label %vnc_set_bytes_per_pixel.exit.i.i
 
@@ -2147,7 +2147,7 @@ vnc_set_bytes_per_pixel.exit.i.i:                 ; preds = %506, %488
   %510 = tail call ptr @proto_tree_add_item(ptr noundef %487, i32 noundef %509, ptr noundef %0, i32 noundef 5, i32 noundef 1, i32 noundef 0) #4
   %511 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 5) #4
   %512 = load ptr, ptr %496, align 8
-  %513 = getelementptr inbounds i8, ptr %512, i64 50
+  %513 = getelementptr inbounds nuw i8, ptr %512, i64 50
   %514 = load i16, ptr %513, align 2
   %515 = and i16 %514, 8
   %.not.i57.i.i = icmp eq i16 %515, 0
@@ -2165,9 +2165,9 @@ vnc_set_bytes_per_pixel.exit.i.i:                 ; preds = %506, %488
   unreachable
 
 521:                                              ; preds = %516
-  %522 = getelementptr inbounds i8, ptr %.0, i64 43
+  %522 = getelementptr inbounds nuw i8, ptr %.0, i64 43
   store i8 %511, ptr %522, align 1
-  %523 = getelementptr inbounds i8, ptr %519, i64 5
+  %523 = getelementptr inbounds nuw i8, ptr %519, i64 5
   store i8 %511, ptr %523, align 1
   br label %vnc_client_set_pixel_format.exit.i
 
@@ -2202,7 +2202,7 @@ vnc_client_set_pixel_format.exit.i:               ; preds = %521, %vnc_set_bytes
   %546 = load i32, ptr @hf_vnc_encoding_num, align 4
   %547 = tail call ptr @proto_tree_add_item(ptr noundef %487, i32 noundef %546, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0) #4
   store i32 4, ptr %6, align 4
-  %548 = getelementptr inbounds i8, ptr %.0, i64 48
+  %548 = getelementptr inbounds nuw i8, ptr %.0, i64 48
   store i32 -1, ptr %548, align 8
   %549 = zext i16 %545 to i32
   %.not.i.i40 = icmp eq i16 %545, 0
@@ -2337,7 +2337,7 @@ vnc_client_set_pixel_format.exit.i:               ; preds = %521, %vnc_set_bytes
   br label %vnc_client_to_server.exit
 
 619:                                              ; preds = %477
-  %620 = getelementptr inbounds i8, ptr %1, i64 328
+  %620 = getelementptr inbounds nuw i8, ptr %1, i64 328
   br label %621
 
 621:                                              ; preds = %vnc_server_framebuffer_update.exit.thread.i, %619
@@ -2492,7 +2492,7 @@ vnc_client_set_pixel_format.exit.i:               ; preds = %521, %vnc_set_bytes
   unreachable
 
 vnc_get_bytes_per_pixel.exit.i.i.i:               ; preds = %695
-  %700 = getelementptr inbounds i8, ptr %698, i64 4
+  %700 = getelementptr inbounds nuw i8, ptr %698, i64 4
   %701 = load i8, ptr %700, align 4
   %702 = zext i16 %676 to i32
   %703 = zext i16 %682 to i32
@@ -2539,7 +2539,7 @@ vnc_get_bytes_per_pixel.exit.i.i.i:               ; preds = %695
   unreachable
 
 vnc_get_bytes_per_pixel.exit.i153.i.i:            ; preds = %726
-  %731 = getelementptr inbounds i8, ptr %729, i64 4
+  %731 = getelementptr inbounds nuw i8, ptr %729, i64 4
   %732 = load i8, ptr %731, align 4
   %733 = load i32, ptr %6, align 4
   %734 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %733) #4
@@ -2641,7 +2641,7 @@ vnc_get_bytes_per_pixel.exit.i156.i.i:            ; preds = %786
   br i1 %.not160.i.i.i, label %vnc_raw_encoding.exit.i.i, label %.lr.ph162.i.i.i
 
 .lr.ph162.i.i.i:                                  ; preds = %vnc_get_bytes_per_pixel.exit.i156.i.i
-  %792 = getelementptr inbounds i8, ptr %789, i64 4
+  %792 = getelementptr inbounds nuw i8, ptr %789, i64 4
   %793 = load i8, ptr %792, align 4
   %794 = zext i16 %676 to i32
   %.not147157.i.i.i = icmp eq i16 %676, 0
@@ -2863,7 +2863,7 @@ vnc_get_bytes_per_pixel.exit.i156.i.i:            ; preds = %786
   unreachable
 
 vnc_get_bytes_per_pixel.exit.i163.i.i:            ; preds = %927
-  %932 = getelementptr inbounds i8, ptr %930, i64 4
+  %932 = getelementptr inbounds nuw i8, ptr %930, i64 4
   %933 = load i8, ptr %932, align 4
   %934 = load i32, ptr %6, align 4
   %935 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %934) #4
@@ -2999,7 +2999,7 @@ vnc_get_bytes_per_pixel.exit.i163.i.i:            ; preds = %927
 
 1026:                                             ; preds = %1004
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1020, ptr noundef nonnull @.str.852) #4
-  %1027 = getelementptr inbounds i8, ptr %998, i64 5
+  %1027 = getelementptr inbounds nuw i8, ptr %998, i64 5
   %1028 = load i8, ptr %1027, align 1
   %1029 = icmp eq i8 %1028, 24
   br i1 %1029, label %1030, label %1038
@@ -3017,7 +3017,7 @@ vnc_get_bytes_per_pixel.exit.i163.i.i:            ; preds = %927
   br label %.critedge.sink.split.i.i.i
 
 1038:                                             ; preds = %1026
-  %1039 = getelementptr inbounds i8, ptr %998, i64 4
+  %1039 = getelementptr inbounds nuw i8, ptr %998, i64 4
   %1040 = load i8, ptr %1039, align 4
   %1041 = zext i8 %1040 to i32
   %1042 = load i32, ptr %6, align 4
@@ -3060,7 +3060,7 @@ vnc_get_bytes_per_pixel.exit.i163.i.i:            ; preds = %927
   %1063 = load i32, ptr @hf_vnc_tight_filter_flag, align 4
   %1064 = or disjoint i32 %1006, 1
   %1065 = call ptr @proto_tree_add_bits_item(ptr noundef %694, i32 noundef %1063, ptr noundef %0, i32 noundef %1064, i32 noundef 1, i32 noundef 0) #4
-  %1066 = getelementptr inbounds i8, ptr %998, i64 5
+  %1066 = getelementptr inbounds nuw i8, ptr %998, i64 5
   %1067 = load i8, ptr %1066, align 1
   %1068 = zext i8 %1067 to i32
   %1069 = and i8 %1022, 64
@@ -3117,7 +3117,7 @@ vnc_get_bytes_per_pixel.exit.i163.i.i:            ; preds = %927
   br i1 %1101, label %process_tight_rect_filter_palette.exit.thread.i.i.i, label %1102
 
 1102:                                             ; preds = %1091
-  %1103 = getelementptr inbounds i8, ptr %1085, i64 5
+  %1103 = getelementptr inbounds nuw i8, ptr %1085, i64 5
   %1104 = load i8, ptr %1103, align 1
   %1105 = icmp eq i8 %1104, 24
   %1106 = mul nuw nsw i32 %1100, 3
@@ -3195,7 +3195,7 @@ process_tight_rect_filter_palette.exit.thread.i.i.i: ; preds = %1112, %1091, %10
   unreachable
 
 vnc_get_bytes_per_pixel.exit.i170.i.i:            ; preds = %1140
-  %1145 = getelementptr inbounds i8, ptr %1143, i64 4
+  %1145 = getelementptr inbounds nuw i8, ptr %1143, i64 4
   %1146 = load i8, ptr %1145, align 4
   %1147 = zext i16 %676 to i32
   %1148 = zext i16 %682 to i32
@@ -3481,7 +3481,7 @@ vnc_get_depth.exit.i.i.i:                         ; preds = %1328
   br i1 %.not.i186.i.i, label %vnc_raw_encoding.exit.i.i, label %.lr.ph.i187.i.i
 
 .lr.ph.i187.i.i:                                  ; preds = %vnc_get_depth.exit.i.i.i
-  %1333 = getelementptr inbounds i8, ptr %1331, i64 5
+  %1333 = getelementptr inbounds nuw i8, ptr %1331, i64 5
   %1334 = load i8, ptr %1333, align 1
   %1335 = zext i8 %1334 to i32
   %1336 = and i8 %1334, 7
@@ -3734,9 +3734,9 @@ vnc_server_framebuffer_update.exit.i:             ; preds = %vnc_raw_encoding.ex
 
 1488:                                             ; preds = %1486
   %1489 = call ptr @proto_tree_add_expert(ptr noundef %628, ptr noundef nonnull %1, ptr noundef nonnull @ei_vnc_reassemble, ptr noundef %0, i32 noundef %622, i32 noundef -1) #4
-  %1490 = getelementptr inbounds i8, ptr %1, i64 332
+  %1490 = getelementptr inbounds nuw i8, ptr %1, i64 332
   store i32 %622, ptr %1490, align 4
-  %1491 = getelementptr inbounds i8, ptr %1, i64 336
+  %1491 = getelementptr inbounds nuw i8, ptr %1, i64 336
   store i32 268435455, ptr %1491, align 8
   br label %vnc_client_to_server.exit
 
@@ -3815,16 +3815,16 @@ define internal range(i32 0, 2) i32 @test_vnc_protocol(ptr noundef %0, ptr nound
   br i1 %14, label %vnc_is_client_or_server_version_message.exit, label %vnc_is_client_or_server_version_message.exit.thread
 
 vnc_is_client_or_server_version_message.exit:     ; preds = %12, %10
-  %15 = getelementptr inbounds i8, ptr %1, i64 20
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %16 = load i32, ptr %15, align 4
-  %17 = getelementptr inbounds i8, ptr %1, i64 208
-  %18 = getelementptr inbounds i8, ptr %1, i64 232
-  %19 = getelementptr inbounds i8, ptr %1, i64 280
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 208
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 232
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %20 = load i32, ptr %19, align 8
   %21 = tail call i32 @conversation_pt_to_conversation_type(i32 noundef %20) #4
-  %22 = getelementptr inbounds i8, ptr %1, i64 284
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %23 = load i32, ptr %22, align 4
-  %24 = getelementptr inbounds i8, ptr %1, i64 288
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %25 = load i32, ptr %24, align 8
   %26 = tail call nonnull ptr @conversation_new(i32 noundef %16, ptr noundef nonnull %17, ptr noundef nonnull %18, i32 noundef %21, i32 noundef %23, i32 noundef %25, i32 noundef 0) #4
   %27 = load ptr, ptr @vnc_handle, align 8
@@ -4002,7 +4002,7 @@ define internal fastcc range(i32 0, 65536) i32 @vnc_mirrorlink(ptr noundef %0, p
   %20 = load i32, ptr %2, align 4
   %21 = add i32 %20, 2
   store i32 %21, ptr %2, align 4
-  %22 = getelementptr inbounds i8, ptr %1, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = zext i8 %10 to i32
   %25 = tail call ptr @val_to_str_const(i32 noundef %24, ptr noundef nonnull @vnc_mirrorlink_types_vs, ptr noundef nonnull @.str.219) #4
@@ -4507,7 +4507,7 @@ define internal fastcc range(i32 0, 264) i32 @vnc_fence(ptr noundef %0, ptr noca
   br i1 %16, label %39, label %17
 
 17:                                               ; preds = %8
-  %18 = getelementptr inbounds i8, ptr %1, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %19 = load ptr, ptr %18, align 8
   tail call void @col_append_sep_str(ptr noundef %19, i32 noundef 25, ptr noundef nonnull @.str.823, ptr noundef nonnull @.str.755) #4
   %20 = load i32, ptr @hf_vnc_padding, align 4

@@ -155,9 +155,9 @@ opal_gethostname.exit:                            ; preds = %6, %9
 
 21:                                               ; preds = %20
   store ptr @opal_hash_table_t_class, ptr %16, align 8
-  %22 = getelementptr inbounds i8, ptr %16, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store volatile i32 1, ptr %22, align 8
-  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_hash_table_t_class, i64 40), align 8
+  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_hash_table_t_class, i64 40), align 8
   %24 = load ptr, ptr %23, align 8
   %.not6.i.i = icmp eq ptr %24, null
   br i1 %.not6.i.i, label %opal_obj_new.exit, label %.lr.ph.i.i
@@ -166,7 +166,7 @@ opal_gethostname.exit:                            ; preds = %6, %9
   %25 = phi ptr [ %27, %.lr.ph.i.i ], [ %24, %21 ]
   %.07.i.i = phi ptr [ %26, %.lr.ph.i.i ], [ %23, %21 ]
   tail call void %25(ptr noundef nonnull %16) #19
-  %26 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %.07.i.i, i64 8
   %27 = load ptr, ptr %26, align 8
   %.not.i.i = icmp eq ptr %27, null
   br i1 %.not.i.i, label %opal_obj_new.exit, label %.lr.ph.i.i, !llvm.loop !4
@@ -219,7 +219,7 @@ define void @mca_common_monitoring_finalize() local_unnamed_addr #0 {
   %13 = load ptr, ptr @ompi_common_monitoring_translation_ht, align 8
   %14 = tail call i32 @opal_hash_table_remove_all(ptr noundef %13) #19
   %15 = load ptr, ptr @ompi_common_monitoring_translation_ht, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load i8, ptr @opal_uses_threads, align 1
   %18 = trunc i8 %17 to i1
   br i1 %18, label %19, label %22
@@ -243,7 +243,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %19, %22
 
 27:                                               ; preds = %opal_thread_add_fetch_32.exit
   %28 = load ptr, ptr %15, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 48
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 48
   %30 = load ptr, ptr %29, align 8
   %31 = load ptr, ptr %30, align 8
   %.not6.i = icmp eq ptr %31, null
@@ -253,7 +253,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %19, %22
   %32 = phi ptr [ %34, %.lr.ph.i ], [ %31, %27 ]
   %.07.i = phi ptr [ %33, %.lr.ph.i ], [ %30, %27 ]
   tail call void %32(ptr noundef nonnull %15) #19
-  %33 = getelementptr inbounds i8, ptr %.07.i, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
   %34 = load ptr, ptr %33, align 8
   %.not.i = icmp eq ptr %34, null
   br i1 %.not.i, label %opal_obj_run_destructors.exit.loopexit, label %.lr.ph.i, !llvm.loop !6
@@ -512,9 +512,9 @@ define internal range(i32 -1, 1) i32 @mca_common_monitoring_get_pml_count(ptr no
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %10 = getelementptr inbounds i64, ptr %7, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw i64, ptr %7, i64 %indvars.iv
   %11 = load volatile i64, ptr %10, align 8
-  %12 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
   store i64 %11, ptr %12, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -581,9 +581,9 @@ define internal range(i32 -1, 1) i32 @mca_common_monitoring_get_pml_size(ptr noc
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %10 = getelementptr inbounds i64, ptr %7, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw i64, ptr %7, i64 %indvars.iv
   %11 = load volatile i64, ptr %10, align 8
-  %12 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
   store i64 %11, ptr %12, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -617,9 +617,9 @@ define internal range(i32 -1, 1) i32 @mca_common_monitoring_get_osc_sent_count(p
 
 11:                                               ; preds = %.lr.ph, %11
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %11 ]
-  %12 = getelementptr inbounds i64, ptr %10, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw i64, ptr %10, i64 %indvars.iv
   %13 = load volatile i64, ptr %12, align 8
-  %14 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
   store i64 %13, ptr %14, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -653,9 +653,9 @@ define internal range(i32 -1, 1) i32 @mca_common_monitoring_get_osc_sent_size(pt
 
 11:                                               ; preds = %.lr.ph, %11
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %11 ]
-  %12 = getelementptr inbounds i64, ptr %10, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw i64, ptr %10, i64 %indvars.iv
   %13 = load volatile i64, ptr %12, align 8
-  %14 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
   store i64 %13, ptr %14, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -689,9 +689,9 @@ define internal range(i32 -1, 1) i32 @mca_common_monitoring_get_osc_recv_count(p
 
 11:                                               ; preds = %.lr.ph, %11
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %11 ]
-  %12 = getelementptr inbounds i64, ptr %10, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw i64, ptr %10, i64 %indvars.iv
   %13 = load volatile i64, ptr %12, align 8
-  %14 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
   store i64 %13, ptr %14, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -725,9 +725,9 @@ define internal range(i32 -1, 1) i32 @mca_common_monitoring_get_osc_recv_size(pt
 
 11:                                               ; preds = %.lr.ph, %11
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %11 ]
-  %12 = getelementptr inbounds i64, ptr %10, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw i64, ptr %10, i64 %indvars.iv
   %13 = load volatile i64, ptr %12, align 8
-  %14 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
   store i64 %13, ptr %14, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -761,9 +761,9 @@ define internal range(i32 -1, 1) i32 @mca_common_monitoring_get_coll_count(ptr n
 
 11:                                               ; preds = %.lr.ph, %11
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %11 ]
-  %12 = getelementptr inbounds i64, ptr %10, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw i64, ptr %10, i64 %indvars.iv
   %13 = load volatile i64, ptr %12, align 8
-  %14 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
   store i64 %13, ptr %14, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -797,9 +797,9 @@ define internal range(i32 -1, 1) i32 @mca_common_monitoring_get_coll_size(ptr no
 
 11:                                               ; preds = %.lr.ph, %11
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %11 ]
-  %12 = getelementptr inbounds i64, ptr %10, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw i64, ptr %10, i64 %indvars.iv
   %13 = load volatile i64, ptr %12, align 8
-  %14 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
   store i64 %13, ptr %14, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -905,9 +905,9 @@ define range(i32 -2, 1) i32 @mca_common_monitoring_add_procs(ptr nocapture nound
   br label %41
 
 39:                                               ; preds = %.lr.ph37
-  %40 = getelementptr inbounds i8, ptr %32, i64 40
+  %40 = getelementptr inbounds nuw i8, ptr %32, i64 40
   %.sroa.013.0.copyload = load i32, ptr %40, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %32, i64 44
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %32, i64 44
   %.sroa.5.0.copyload = load i32, ptr %.sroa.5.0..sroa_idx, align 4
   br label %41
 
@@ -915,7 +915,7 @@ define range(i32 -2, 1) i32 @mca_common_monitoring_add_procs(ptr nocapture nound
   %.sroa.013.0 = phi i32 [ %.sroa.013.0.extract.trunc, %35 ], [ %.sroa.013.0.copyload, %39 ]
   %.sroa.5.0 = phi i32 [ %.sroa.5.0.extract.trunc, %35 ], [ %.sroa.5.0.copyload, %39 ]
   %42 = load ptr, ptr @ompi_proc_local_proc, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 40
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 40
   %44 = load i32, ptr %43, align 8
   %.not30 = icmp eq i32 %.sroa.013.0, %44
   %45 = load i32, ptr @nprocs_world, align 4
@@ -935,7 +935,7 @@ define range(i32 -2, 1) i32 @mca_common_monitoring_add_procs(ptr nocapture nound
   %48 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_mpi_comm_world, i64 256), align 8
   %49 = getelementptr i8, ptr %48, i64 32
   %.val = load ptr, ptr %49, align 8
-  %50 = getelementptr inbounds ptr, ptr %.val, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw ptr, ptr %.val, i64 %indvars.iv
   %51 = load ptr, ptr %50, align 8
   %52 = ptrtoint ptr %51 to i64
   %53 = and i64 %52, 1
@@ -950,7 +950,7 @@ define range(i32 -2, 1) i32 @mca_common_monitoring_add_procs(ptr nocapture nound
   br label %ompi_group_get_proc_name.exit
 
 58:                                               ; preds = %47
-  %59 = getelementptr inbounds i8, ptr %51, i64 40
+  %59 = getelementptr inbounds nuw i8, ptr %51, i64 40
   %.sroa.0.0.copyload.i = load i64, ptr %59, align 8
   br label %ompi_group_get_proc_name.exit
 
@@ -1126,14 +1126,14 @@ define internal fastcc void @mca_common_monitoring_output(ptr noundef %0, i32 no
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.loopexit74
   %indvars.iv89 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next90, %.loopexit74 ]
   %8 = load ptr, ptr @pml_count, align 8
-  %9 = getelementptr inbounds i64, ptr %8, i64 %indvars.iv89
+  %9 = getelementptr inbounds nuw i64, ptr %8, i64 %indvars.iv89
   %10 = load volatile i64, ptr %9, align 8
   %.not70 = icmp eq i64 %10, 0
   br i1 %.not70, label %.loopexit74, label %11
 
 11:                                               ; preds = %.lr.ph
   %12 = load ptr, ptr @pml_data, align 8
-  %13 = getelementptr inbounds i64, ptr %12, i64 %indvars.iv89
+  %13 = getelementptr inbounds nuw i64, ptr %12, i64 %indvars.iv89
   %14 = load volatile i64, ptr %13, align 8
   %15 = load volatile i64, ptr %9, align 8
   %16 = trunc nuw nsw i64 %indvars.iv89 to i32
@@ -1144,7 +1144,7 @@ define internal fastcc void @mca_common_monitoring_output(ptr noundef %0, i32 no
 18:                                               ; preds = %11, %18
   %indvars.iv = phi i64 [ 0, %11 ], [ %indvars.iv.next, %18 ]
   %19 = load ptr, ptr @size_histogram, align 8
-  %20 = getelementptr inbounds i64, ptr %19, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw i64, ptr %19, i64 %indvars.iv
   %21 = getelementptr inbounds i8, ptr %20, i64 %.idx
   %22 = load volatile i64, ptr %21, align 8
   %.not71 = icmp eq i64 %indvars.iv, 65
@@ -1171,25 +1171,25 @@ define internal fastcc void @mca_common_monitoring_output(ptr noundef %0, i32 no
 .lr.ph79:                                         ; preds = %.lr.ph79.preheader, %.loopexit
   %indvars.iv97 = phi i64 [ 0, %.lr.ph79.preheader ], [ %indvars.iv.next98, %.loopexit ]
   %27 = load ptr, ptr @filtered_pml_count, align 8
-  %28 = getelementptr inbounds i64, ptr %27, i64 %indvars.iv97
+  %28 = getelementptr inbounds nuw i64, ptr %27, i64 %indvars.iv97
   %29 = load volatile i64, ptr %28, align 8
   %.not68 = icmp eq i64 %29, 0
   br i1 %.not68, label %.loopexit, label %30
 
 30:                                               ; preds = %.lr.ph79
   %31 = load ptr, ptr @filtered_pml_data, align 8
-  %32 = getelementptr inbounds i64, ptr %31, i64 %indvars.iv97
+  %32 = getelementptr inbounds nuw i64, ptr %31, i64 %indvars.iv97
   %33 = load volatile i64, ptr %32, align 8
   %34 = load volatile i64, ptr %28, align 8
   %35 = load ptr, ptr @pml_count, align 8
-  %36 = getelementptr inbounds i64, ptr %35, i64 %indvars.iv97
+  %36 = getelementptr inbounds nuw i64, ptr %35, i64 %indvars.iv97
   %37 = load volatile i64, ptr %36, align 8
   %38 = icmp eq i64 %37, 0
   %39 = select i1 %38, ptr @.str.49, ptr @.str.47
   %40 = trunc nuw nsw i64 %indvars.iv97 to i32
   %41 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.48, i32 noundef %1, i32 noundef %40, i64 noundef %33, i64 noundef %34, ptr noundef nonnull %39) #19
   %42 = load ptr, ptr @pml_count, align 8
-  %43 = getelementptr inbounds i64, ptr %42, i64 %indvars.iv97
+  %43 = getelementptr inbounds nuw i64, ptr %42, i64 %indvars.iv97
   %44 = load volatile i64, ptr %43, align 8
   %45 = icmp eq i64 %44, 0
   br i1 %45, label %.preheader, label %.loopexit
@@ -1201,7 +1201,7 @@ define internal fastcc void @mca_common_monitoring_output(ptr noundef %0, i32 no
 46:                                               ; preds = %.preheader, %46
   %indvars.iv93 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next94, %46 ]
   %47 = load ptr, ptr @size_histogram, align 8
-  %48 = getelementptr inbounds i64, ptr %47, i64 %indvars.iv93
+  %48 = getelementptr inbounds nuw i64, ptr %47, i64 %indvars.iv93
   %49 = getelementptr inbounds i8, ptr %48, i64 %.idx113
   %50 = load volatile i64, ptr %49, align 8
   %.not69 = icmp eq i64 %indvars.iv93, 65
@@ -1224,14 +1224,14 @@ define internal fastcc void @mca_common_monitoring_output(ptr noundef %0, i32 no
 .lr.ph82:                                         ; preds = %.loopexit73, %75
   %indvars.iv102 = phi i64 [ 0, %.loopexit73 ], [ %indvars.iv.next103, %75 ]
   %54 = load ptr, ptr @osc_count_s, align 8
-  %55 = getelementptr inbounds i64, ptr %54, i64 %indvars.iv102
+  %55 = getelementptr inbounds nuw i64, ptr %54, i64 %indvars.iv102
   %56 = load volatile i64, ptr %55, align 8
   %.not66 = icmp eq i64 %56, 0
   br i1 %.not66, label %64, label %57
 
 57:                                               ; preds = %.lr.ph82
   %58 = load ptr, ptr @osc_data_s, align 8
-  %59 = getelementptr inbounds i64, ptr %58, i64 %indvars.iv102
+  %59 = getelementptr inbounds nuw i64, ptr %58, i64 %indvars.iv102
   %60 = load volatile i64, ptr %59, align 8
   %61 = load volatile i64, ptr %55, align 8
   %62 = trunc nuw nsw i64 %indvars.iv102 to i32
@@ -1240,14 +1240,14 @@ define internal fastcc void @mca_common_monitoring_output(ptr noundef %0, i32 no
 
 64:                                               ; preds = %57, %.lr.ph82
   %65 = load ptr, ptr @osc_count_r, align 8
-  %66 = getelementptr inbounds i64, ptr %65, i64 %indvars.iv102
+  %66 = getelementptr inbounds nuw i64, ptr %65, i64 %indvars.iv102
   %67 = load volatile i64, ptr %66, align 8
   %.not67 = icmp eq i64 %67, 0
   br i1 %.not67, label %75, label %68
 
 68:                                               ; preds = %64
   %69 = load ptr, ptr @osc_data_r, align 8
-  %70 = getelementptr inbounds i64, ptr %69, i64 %indvars.iv102
+  %70 = getelementptr inbounds nuw i64, ptr %69, i64 %indvars.iv102
   %71 = load volatile i64, ptr %70, align 8
   %72 = load volatile i64, ptr %66, align 8
   %73 = trunc nuw nsw i64 %indvars.iv102 to i32
@@ -1268,14 +1268,14 @@ define internal fastcc void @mca_common_monitoring_output(ptr noundef %0, i32 no
 .lr.ph86:                                         ; preds = %._crit_edge83, %87
   %77 = phi ptr [ %.pre112, %._crit_edge83 ], [ %88, %87 ]
   %indvars.iv107 = phi i64 [ 0, %._crit_edge83 ], [ %indvars.iv.next108, %87 ]
-  %78 = getelementptr inbounds i64, ptr %77, i64 %indvars.iv107
+  %78 = getelementptr inbounds nuw i64, ptr %77, i64 %indvars.iv107
   %79 = load volatile i64, ptr %78, align 8
   %.not65 = icmp eq i64 %79, 0
   br i1 %.not65, label %87, label %80
 
 80:                                               ; preds = %.lr.ph86
   %81 = load ptr, ptr @coll_data, align 8
-  %82 = getelementptr inbounds i64, ptr %81, i64 %indvars.iv107
+  %82 = getelementptr inbounds nuw i64, ptr %81, i64 %indvars.iv107
   %83 = load volatile i64, ptr %82, align 8
   %84 = load volatile i64, ptr %78, align 8
   %85 = trunc nuw nsw i64 %indvars.iv107 to i32

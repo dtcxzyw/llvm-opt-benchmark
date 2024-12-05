@@ -53,10 +53,10 @@ define hidden noundef ptr @_ZN10JfrPostBox6createEv() local_unnamed_addr #1 alig
   br i1 %2, label %6, label %3
 
 3:                                                ; preds = %0
-  %4 = getelementptr inbounds i8, ptr %1, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %1, i8 0, i64 16, i1 false)
   store volatile i32 0, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 20
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 20
   store i8 0, ptr %5, align 4
   br label %6
 
@@ -88,10 +88,10 @@ declare void @_ZN11JfrCHeapObjdlEPvm(ptr noundef, i64 noundef) local_unnamed_add
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define hidden void @_ZN10JfrPostBoxC2Ev(ptr noundef nonnull align 8 dereferenceable(21) initializes((0, 16)) %0) unnamed_addr #3 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   store volatile i32 0, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 20
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i8 0, ptr %3, align 4
   ret void
 }
@@ -102,26 +102,26 @@ define hidden void @_ZN10JfrPostBox4postE7JFR_Msg(ptr noundef nonnull align 8 de
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(888) %5) #10
   br i1 %9, label %10, label %_ZL23is_thread_lock_aversivev.exit
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %5, i64 1092
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 1092
   %12 = load volatile i32, ptr %11, align 4
   %.not.i = icmp eq i32 %12, 6
   br i1 %.not.i, label %_ZL23is_thread_lock_aversivev.exit, label %_ZL23is_thread_lock_aversivev.exit.thread
 
 _ZL23is_thread_lock_aversivev.exit:               ; preds = %2, %10
   %13 = load ptr, ptr %5, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %15 = load ptr, ptr %14, align 8
   %16 = tail call noundef zeroext i1 %15(ptr noundef nonnull align 8 dereferenceable(888) %5) #10
   br i1 %16, label %_ZL23is_thread_lock_aversivev.exit.thread, label %25
 
 _ZL23is_thread_lock_aversivev.exit.thread:        ; preds = %10, %_ZL23is_thread_lock_aversivev.exit
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %18
 
 18:                                               ; preds = %18, %_ZL23is_thread_lock_aversivev.exit.thread
@@ -140,7 +140,7 @@ _ZL23is_thread_lock_aversivev.exit.thread:        ; preds = %10, %_ZL23is_thread
   br i1 %.not, label %27, label %40
 
 27:                                               ; preds = %25
-  %28 = getelementptr inbounds i8, ptr %0, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %29
 
 29:                                               ; preds = %29, %27
@@ -174,7 +174,7 @@ _ZN10JfrPostBox7depositEi.exit:                   ; preds = %18, %38, %_ZN10JfrP
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN10JfrPostBox7depositEi(ptr noundef nonnull align 8 dereferenceable(21) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %4
 
 4:                                                ; preds = %4, %2
@@ -193,7 +193,7 @@ define hidden void @_ZN10JfrPostBox7depositEi(ptr noundef nonnull align 8 derefe
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN10JfrPostBox17asynchronous_postEi(ptr noundef nonnull align 8 dereferenceable(21) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %4
 
 4:                                                ; preds = %4, %2
@@ -225,10 +225,10 @@ _ZN15JfrMutexTryLockD2Ev.exit:                    ; preds = %_ZN10JfrPostBox7dep
 define hidden void @_ZN10JfrPostBox16synchronous_postEi(ptr noundef nonnull align 8 dereferenceable(21) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 928
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #10
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !9
-  %6 = getelementptr inbounds i8, ptr %4, i64 1092
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 1092
   store volatile i32 10, ptr %6, align 4
   %7 = load ptr, ptr @JfrMsg_lock, align 8
   %.not.i.i = icmp eq ptr %7, null
@@ -239,7 +239,7 @@ define hidden void @_ZN10JfrPostBox16synchronous_postEi(ptr noundef nonnull alig
   br label %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit
 
 _ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit: ; preds = %2, %8
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %10
 
 10:                                               ; preds = %10, %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit
@@ -256,7 +256,7 @@ _ZN10JfrPostBox7depositEi.exit:                   ; preds = %10
   %17 = load volatile i64, ptr %0, align 8
   %18 = add i64 %17, 1
   tail call void @_ZN7Monitor10notify_allEv(ptr noundef nonnull align 8 dereferenceable(104) %7) #10
-  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = load volatile i64, ptr %19, align 8
   %.not11 = icmp ugt i64 %18, %20
   br i1 %.not11, label %_ZN13MonitorLocker4waitEl.exit, label %_ZN13MonitorLockerD2Ev.exit
@@ -272,7 +272,7 @@ _ZN13MonitorLockerD2Ev.exit:                      ; preds = %_ZN13MonitorLocker4
   store volatile i32 6, ptr %6, align 4
   tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !11
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !9
-  %23 = getelementptr inbounds i8, ptr %4, i64 1096
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 1096
   %24 = load volatile i64, ptr %23, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !9
   %25 = and i64 %24, 1
@@ -285,7 +285,7 @@ _ZN13MonitorLockerD2Ev.exit:                      ; preds = %_ZN13MonitorLocker4
   br i1 %.not5.i.i, label %28, label %34
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds i8, ptr %4, i64 1384
+  %29 = getelementptr inbounds nuw i8, ptr %4, i64 1384
   %30 = tail call noundef zeroext i1 @_ZN14HandshakeState13has_operationEbb(ptr noundef nonnull align 8 dereferenceable(131) %29, i1 noundef zeroext false, i1 noundef zeroext false) #10
   br i1 %30, label %34, label %31
 
@@ -316,7 +316,7 @@ declare void @_ZN7Monitor10notify_allEv(ptr noundef nonnull align 8 dereferencea
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define hidden noundef zeroext i1 @_ZNK10JfrPostBox20is_message_processedEm(ptr noundef nonnull align 8 dereferenceable(21) %0, i64 noundef %1) local_unnamed_addr #5 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load volatile i64, ptr %3, align 8
   %5 = icmp ule i64 %1, %4
   ret i1 %5
@@ -324,7 +324,7 @@ define hidden noundef zeroext i1 @_ZNK10JfrPostBox20is_message_processedEm(ptr n
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define hidden noundef zeroext i1 @_ZNK10JfrPostBox8is_emptyEv(ptr noundef nonnull align 8 dereferenceable(21) %0) local_unnamed_addr #5 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load volatile i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 0
   ret i1 %4
@@ -332,14 +332,14 @@ define hidden noundef zeroext i1 @_ZNK10JfrPostBox8is_emptyEv(ptr noundef nonnul
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i32 @_ZN10JfrPostBox7collectEv(ptr noundef nonnull align 8 dereferenceable(21) %0) local_unnamed_addr #1 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = tail call noundef i32 asm sideeffect "xchgl ($2),$0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 0, ptr nonnull %2) #10, !srcloc !12
   %4 = and i32 %3, 783
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %9, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 20
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i8 1, ptr %6, align 4
   %7 = load i64, ptr %0, align 8
   %8 = add i64 %7, 1
@@ -359,14 +359,14 @@ define hidden noundef zeroext i1 @_ZNK10JfrPostBox13check_waitersEi(ptr nocaptur
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN10JfrPostBox14notify_waitersEv(ptr nocapture noundef nonnull align 8 dereferenceable(21) %0) local_unnamed_addr #1 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 20
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %3 = load i8, ptr %2, align 4
   %4 = trunc i8 %3 to i1
   br i1 %4, label %5, label %10
 
 5:                                                ; preds = %1
   store i8 0, ptr %2, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8
   %8 = add i64 %7, 1
   store i64 %8, ptr %6, align 8

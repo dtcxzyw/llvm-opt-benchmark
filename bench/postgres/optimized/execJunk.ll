@@ -32,12 +32,12 @@ define dso_local noundef ptr @ExecInitJunkFilter(ptr noundef %0, ptr noundef %1)
   %11 = shl nuw i32 %8, 1
   %12 = zext i32 %11 to i64
   %13 = tail call ptr @palloc(i64 noundef %12) #4
-  %14 = getelementptr inbounds i8, ptr %0, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.not33 = icmp eq ptr %0, null
   br i1 %.not33, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load i32, ptr %14, align 4
   %17 = icmp sgt i32 %16, 0
   br i1 %17, label %.lr.ph42, label %.thread
@@ -49,13 +49,13 @@ define dso_local noundef ptr @ExecInitJunkFilter(ptr noundef %0, ptr noundef %1)
   %19 = load ptr, ptr %15, align 8
   %20 = getelementptr %union.ListCell, ptr %19, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 42
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 42
   %23 = load i8, ptr %22, align 2
   %24 = trunc i8 %23 to i1
   br i1 %24, label %31, label %25
 
 25:                                               ; preds = %.lr.ph42
-  %26 = getelementptr inbounds i8, ptr %21, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %27 = load i16, ptr %26, align 8
   %28 = sext i16 %.0293741 to i64
   %29 = getelementptr i16, ptr %13, i64 %28
@@ -76,13 +76,13 @@ define dso_local noundef ptr @ExecInitJunkFilter(ptr noundef %0, ptr noundef %1)
   %.027 = phi ptr [ null, %7 ], [ %13, %.lr.ph ], [ %13, %10 ], [ %13, %31 ]
   %35 = tail call noundef ptr @palloc0(i64 noundef 40) #4
   store i32 369, ptr %35, align 4
-  %36 = getelementptr inbounds i8, ptr %35, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store ptr %0, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %35, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %35, i64 16
   store ptr %3, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %35, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 24
   store ptr %.027, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %35, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %35, i64 32
   store ptr %.0, ptr %39, align 8
   ret ptr %35
 }
@@ -122,7 +122,7 @@ define dso_local noundef ptr @ExecInitJunkFilterConversion(ptr noundef %0, ptr n
   br i1 %.not.i, label %.lr.ph, label %14
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load ptr, ptr %15, align 8
   br label %.lr.ph
 
@@ -156,13 +156,13 @@ define dso_local noundef ptr @ExecInitJunkFilterConversion(ptr noundef %0, ptr n
   %29 = getelementptr i8, ptr %.2, i64 8
   %30 = icmp ult ptr %29, %26
   %..i = select i1 %30, ptr %29, ptr null
-  %31 = getelementptr inbounds i8, ptr %28, i64 42
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 42
   %32 = load i8, ptr %31, align 2
   %33 = trunc i8 %32 to i1
   br i1 %33, label %27, label %34
 
 34:                                               ; preds = %27
-  %35 = getelementptr inbounds i8, ptr %28, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %36 = load i16, ptr %35, align 8
   %37 = getelementptr i16, ptr %13, i64 %indvars.iv
   store i16 %36, ptr %37, align 2
@@ -178,13 +178,13 @@ define dso_local noundef ptr @ExecInitJunkFilterConversion(ptr noundef %0, ptr n
   %.030 = phi ptr [ null, %7 ], [ %13, %38 ]
   %39 = tail call noundef ptr @palloc0(i64 noundef 40) #4
   store i32 369, ptr %39, align 4
-  %40 = getelementptr inbounds i8, ptr %39, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   store ptr %0, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %39, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %39, i64 16
   store ptr %1, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %39, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %39, i64 24
   store ptr %.030, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %39, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %39, i64 32
   store ptr %.0, ptr %43, align 8
   ret ptr %39
 }
@@ -193,19 +193,19 @@ declare ptr @palloc0(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
 define dso_local signext i16 @ExecFindJunkAttribute(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %ExecFindJunkAttributeInTlist.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %4, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %6 = load i32, ptr %5, align 4
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %.lr.ph21.i, label %ExecFindJunkAttributeInTlist.exit
 
 .lr.ph21.i:                                       ; preds = %.lr.ph.i
-  %8 = getelementptr inbounds i8, ptr %4, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %9 = load ptr, ptr %8, align 8
   %wide.trip.count.i = zext nneg i32 %6 to i64
   br label %10
@@ -214,13 +214,13 @@ define dso_local signext i16 @ExecFindJunkAttribute(ptr nocapture noundef readon
   %indvars.iv.i = phi i64 [ 0, %.lr.ph21.i ], [ %indvars.iv.next.i, %24 ]
   %11 = getelementptr %union.ListCell, ptr %9, i64 %indvars.iv.i
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 42
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 42
   %14 = load i8, ptr %13, align 2
   %15 = trunc i8 %14 to i1
   br i1 %15, label %16, label %24
 
 16:                                               ; preds = %10
-  %17 = getelementptr inbounds i8, ptr %12, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %18 = load ptr, ptr %17, align 8
   %.not15.i = icmp eq ptr %18, null
   br i1 %.not15.i, label %24, label %19
@@ -231,7 +231,7 @@ define dso_local signext i16 @ExecFindJunkAttribute(ptr nocapture noundef readon
   br i1 %21, label %.split.i, label %24
 
 .split.i:                                         ; preds = %19
-  %22 = getelementptr inbounds i8, ptr %12, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %23 = load i16, ptr %22, align 8
   br label %ExecFindJunkAttributeInTlist.exit
 
@@ -251,13 +251,13 @@ define dso_local signext i16 @ExecFindJunkAttributeInTlist(ptr noundef readonly 
   br i1 %.not, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph21, label %.thread
 
 .lr.ph21:                                         ; preds = %.lr.ph
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   %wide.trip.count = zext nneg i32 %4 to i64
   br label %8
@@ -266,13 +266,13 @@ define dso_local signext i16 @ExecFindJunkAttributeInTlist(ptr noundef readonly 
   %indvars.iv = phi i64 [ 0, %.lr.ph21 ], [ %indvars.iv.next, %22 ]
   %9 = getelementptr %union.ListCell, ptr %7, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 42
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 42
   %12 = load i8, ptr %11, align 2
   %13 = trunc i8 %12 to i1
   br i1 %13, label %14, label %22
 
 14:                                               ; preds = %8
-  %15 = getelementptr inbounds i8, ptr %10, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %16 = load ptr, ptr %15, align 8
   %.not15 = icmp eq ptr %16, null
   br i1 %.not15, label %22, label %17
@@ -283,7 +283,7 @@ define dso_local signext i16 @ExecFindJunkAttributeInTlist(ptr noundef readonly 
   br i1 %19, label %.split, label %22
 
 .split:                                           ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %10, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %21 = load i16, ptr %20, align 8
   br label %.thread
 
@@ -302,10 +302,10 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @ExecFilterJunk(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 6
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 6
   %7 = load i16, ptr %6, align 2
   %8 = sext i16 %7 to i32
   %9 = icmp sgt i32 %5, %8
@@ -316,25 +316,25 @@ define dso_local ptr @ExecFilterJunk(ptr nocapture noundef readonly %0, ptr noun
   br label %slot_getallattrs.exit
 
 slot_getallattrs.exit:                            ; preds = %2, %10
-  %11 = getelementptr inbounds i8, ptr %1, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = load i32, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 24
   %25 = load ptr, ptr %24, align 8
   tail call void %25(ptr noundef %21) #4
-  %26 = getelementptr inbounds i8, ptr %21, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %21, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %29 = load ptr, ptr %28, align 8
   %30 = icmp sgt i32 %17, 0
   br i1 %30, label %.lr.ph.preheader, label %._crit_edge

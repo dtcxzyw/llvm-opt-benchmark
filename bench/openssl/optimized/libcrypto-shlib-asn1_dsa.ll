@@ -275,7 +275,7 @@ entry:
 if.end:                                           ; preds = %entry
   %1 = load ptr, ptr %pkt, align 8
   %2 = load i8, ptr %1, align 1
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %1, i64 1
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %1, i64 1
   store ptr %add.ptr.i.i, ptr %pkt, align 8
   %sub.i.i = add i64 %pkt.val.i.i, -1
   store i64 %sub.i.i, ptr %0, align 8
@@ -289,10 +289,10 @@ if.then1:                                         ; preds = %if.end
 
 if.end.i7:                                        ; preds = %if.then1
   store ptr %add.ptr.i.i, ptr %subpkt, align 8
-  %remaining.i.i.i = getelementptr inbounds i8, ptr %subpkt, i64 8
+  %remaining.i.i.i = getelementptr inbounds nuw i8, ptr %subpkt, i64 8
   store i64 %conv, ptr %remaining.i.i.i, align 8
   %3 = load ptr, ptr %pkt, align 8
-  %add.ptr.i.i8 = getelementptr inbounds i8, ptr %3, i64 %conv
+  %add.ptr.i.i8 = getelementptr inbounds nuw i8, ptr %3, i64 %conv
   store ptr %add.ptr.i.i8, ptr %pkt, align 8
   %4 = load i64, ptr %0, align 8
   %sub.i.i9 = sub i64 %4, %conv
@@ -317,13 +317,13 @@ lor.lhs.false.i:                                  ; preds = %if.then6
   br i1 %cmp.i.i.i, label %return, label %if.end.i11
 
 if.end.i11:                                       ; preds = %lor.lhs.false.i
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %1, i64 2
-  %add.ptr.i.i5.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %conv.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 2
+  %add.ptr.i.i5.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i, i64 %conv.i
   %sub.i.i6.i = sub nuw i64 %sub.i.i.i, %conv.i
   store ptr %add.ptr.i.i5.i, ptr %pkt, align 8
   store i64 %sub.i.i6.i, ptr %0, align 8
   store ptr %add.ptr.i.i.i, ptr %subpkt, align 8
-  %remaining.i = getelementptr inbounds i8, ptr %subpkt, i64 8
+  %remaining.i = getelementptr inbounds nuw i8, ptr %subpkt, i64 8
   store i64 %conv.i, ptr %remaining.i, align 8
   br label %return
 
@@ -335,7 +335,7 @@ lor.lhs.false.i14:                                ; preds = %if.then11
   %6 = load i8, ptr %add.ptr.i.i, align 1
   %conv.i.i.i = zext i8 %6 to i64
   %shl.i.i.i = shl nuw nsw i64 %conv.i.i.i, 8
-  %add.ptr.i.i.i16 = getelementptr inbounds i8, ptr %1, i64 2
+  %add.ptr.i.i.i16 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %7 = load i8, ptr %add.ptr.i.i.i16, align 1
   %conv2.i.i.i = zext i8 %7 to i64
   %or.i.i.i = or disjoint i64 %shl.i.i.i, %conv2.i.i.i
@@ -344,13 +344,13 @@ lor.lhs.false.i14:                                ; preds = %if.then11
   br i1 %cmp.i.i4.i, label %return, label %if.end.i18
 
 if.end.i18:                                       ; preds = %lor.lhs.false.i14
-  %add.ptr.i2.i.i = getelementptr inbounds i8, ptr %1, i64 3
-  %add.ptr.i.i6.i = getelementptr inbounds i8, ptr %add.ptr.i2.i.i, i64 %or.i.i.i
+  %add.ptr.i2.i.i = getelementptr inbounds nuw i8, ptr %1, i64 3
+  %add.ptr.i.i6.i = getelementptr inbounds nuw i8, ptr %add.ptr.i2.i.i, i64 %or.i.i.i
   %sub.i.i7.i = sub nuw i64 %sub.i.i.i17, %or.i.i.i
   store ptr %add.ptr.i.i6.i, ptr %pkt, align 8
   store i64 %sub.i.i7.i, ptr %0, align 8
   store ptr %add.ptr.i2.i.i, ptr %subpkt, align 8
-  %remaining.i19 = getelementptr inbounds i8, ptr %subpkt, i64 8
+  %remaining.i19 = getelementptr inbounds nuw i8, ptr %subpkt, i64 8
   store i64 %or.i.i.i, ptr %remaining.i19, align 8
   br label %return
 
@@ -370,7 +370,7 @@ entry:
 PACKET_get_1.exit:                                ; preds = %entry
   %1 = load ptr, ptr %pkt, align 8
   %2 = load i8, ptr %1, align 1
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %1, i64 1
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %1, i64 1
   store ptr %add.ptr.i.i, ptr %pkt, align 8
   %sub.i.i = add i64 %pkt.val.i.i, -1
   store i64 %sub.i.i, ptr %0, align 8
@@ -381,7 +381,7 @@ PACKET_get_1.exit:                                ; preds = %entry
 
 if.end.i4:                                        ; preds = %PACKET_get_1.exit
   %3 = load i8, ptr %add.ptr.i.i, align 1
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %1, i64 2
+  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 2
   store ptr %add.ptr.i.i.i, ptr %pkt, align 8
   %sub.i.i.i = add i64 %pkt.val.i.i, -2
   store i64 %sub.i.i.i, ptr %0, align 8
@@ -394,7 +394,7 @@ if.then1.i:                                       ; preds = %if.end.i4
   br i1 %cmp.i.i.i, label %return, label %if.end.i7.i
 
 if.end.i7.i:                                      ; preds = %if.then1.i
-  %add.ptr.i.i8.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %conv.i
+  %add.ptr.i.i8.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i, i64 %conv.i
   store ptr %add.ptr.i.i8.i, ptr %pkt, align 8
   %sub.i.i9.i = sub nuw i64 %sub.i.i.i, %conv.i
   br label %if.end
@@ -417,8 +417,8 @@ lor.lhs.false.i.i:                                ; preds = %if.then6.i
   br i1 %cmp.i.i.i.i, label %return, label %if.end.i11.i
 
 if.end.i11.i:                                     ; preds = %lor.lhs.false.i.i
-  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 3
-  %add.ptr.i.i5.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i, i64 %conv.i.i6
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 3
+  %add.ptr.i.i5.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i, i64 %conv.i.i6
   %sub.i.i6.i.i = sub nuw i64 %sub.i.i.i.i, %conv.i.i6
   store ptr %add.ptr.i.i5.i.i, ptr %pkt, align 8
   br label %if.end
@@ -431,7 +431,7 @@ lor.lhs.false.i14.i:                              ; preds = %if.then11.i
   %5 = load i8, ptr %add.ptr.i.i.i, align 1
   %conv.i.i.i.i = zext i8 %5 to i64
   %shl.i.i.i.i = shl nuw nsw i64 %conv.i.i.i.i, 8
-  %add.ptr.i.i.i16.i = getelementptr inbounds i8, ptr %1, i64 3
+  %add.ptr.i.i.i16.i = getelementptr inbounds nuw i8, ptr %1, i64 3
   %6 = load i8, ptr %add.ptr.i.i.i16.i, align 1
   %conv2.i.i.i.i = zext i8 %6 to i64
   %or.i.i.i.i = or disjoint i64 %shl.i.i.i.i, %conv2.i.i.i.i
@@ -440,8 +440,8 @@ lor.lhs.false.i14.i:                              ; preds = %if.then11.i
   br i1 %cmp.i.i4.i.i, label %return, label %if.end.i18.i
 
 if.end.i18.i:                                     ; preds = %lor.lhs.false.i14.i
-  %add.ptr.i2.i.i.i = getelementptr inbounds i8, ptr %1, i64 4
-  %add.ptr.i.i6.i.i = getelementptr inbounds i8, ptr %add.ptr.i2.i.i.i, i64 %or.i.i.i.i
+  %add.ptr.i2.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %add.ptr.i.i6.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i2.i.i.i, i64 %or.i.i.i.i
   %sub.i.i7.i.i = sub nuw i64 %sub.i.i.i17.i, %or.i.i.i.i
   store ptr %add.ptr.i.i6.i.i, ptr %pkt, align 8
   br label %if.end
@@ -456,7 +456,7 @@ if.end:                                           ; preds = %if.end.i18.i, %if.e
 
 lor.lhs.false6:                                   ; preds = %if.end
   %7 = load i8, ptr %contpkt.sroa.0.0, align 1
-  %add.ptr.i.i11 = getelementptr inbounds i8, ptr %contpkt.sroa.0.0, i64 1
+  %add.ptr.i.i11 = getelementptr inbounds nuw i8, ptr %contpkt.sroa.0.0, i64 1
   %cmp7.not = icmp sgt i8 %7, -1
   br i1 %cmp7.not, label %if.end9, label %return
 
@@ -501,9 +501,9 @@ PACKET_get_1.exit:                                ; preds = %entry
   br i1 %or.cond30, label %return, label %if.end.i6
 
 if.end.i6:                                        ; preds = %PACKET_get_1.exit
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %0, i64 1
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %0, i64 1
   %2 = load i8, ptr %add.ptr.i.i, align 1
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %0, i64 2
+  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 2
   %sub.i.i.i = add nsw i64 %len, -2
   %cmp.i7 = icmp sgt i8 %2, -1
   br i1 %cmp.i7, label %if.then1.i, label %if.end3.i
@@ -515,9 +515,9 @@ if.then1.i:                                       ; preds = %if.end.i6
 
 if.end.i7.i:                                      ; preds = %if.then1.i
   store ptr %add.ptr.i.i.i, ptr %contpkt, align 8
-  %remaining.i.i.i.i = getelementptr inbounds i8, ptr %contpkt, i64 8
+  %remaining.i.i.i.i = getelementptr inbounds nuw i8, ptr %contpkt, i64 8
   store i64 %conv.i, ptr %remaining.i.i.i.i, align 8
-  %add.ptr.i.i8.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %conv.i
+  %add.ptr.i.i8.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i, i64 %conv.i
   br label %lor.lhs.false7
 
 if.end3.i:                                        ; preds = %if.end.i6
@@ -538,10 +538,10 @@ lor.lhs.false.i.i:                                ; preds = %if.then6.i
   br i1 %cmp.i.i.i.i, label %return, label %if.end.i11.i
 
 if.end.i11.i:                                     ; preds = %lor.lhs.false.i.i
-  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 3
-  %add.ptr.i.i5.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i, i64 %conv.i.i9
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 3
+  %add.ptr.i.i5.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i, i64 %conv.i.i9
   store ptr %add.ptr.i.i.i.i, ptr %contpkt, align 8
-  %remaining.i.i = getelementptr inbounds i8, ptr %contpkt, i64 8
+  %remaining.i.i = getelementptr inbounds nuw i8, ptr %contpkt, i64 8
   store i64 %conv.i.i9, ptr %remaining.i.i, align 8
   br label %lor.lhs.false7
 
@@ -553,7 +553,7 @@ lor.lhs.false.i14.i:                              ; preds = %if.then11.i
   %4 = load i8, ptr %add.ptr.i.i.i, align 1
   %conv.i.i.i.i = zext i8 %4 to i64
   %shl.i.i.i.i = shl nuw nsw i64 %conv.i.i.i.i, 8
-  %add.ptr.i.i.i16.i = getelementptr inbounds i8, ptr %0, i64 3
+  %add.ptr.i.i.i16.i = getelementptr inbounds nuw i8, ptr %0, i64 3
   %5 = load i8, ptr %add.ptr.i.i.i16.i, align 1
   %conv2.i.i.i.i = zext i8 %5 to i64
   %or.i.i.i.i = or disjoint i64 %shl.i.i.i.i, %conv2.i.i.i.i
@@ -562,10 +562,10 @@ lor.lhs.false.i14.i:                              ; preds = %if.then11.i
   br i1 %cmp.i.i4.i.i, label %return, label %if.end.i18.i
 
 if.end.i18.i:                                     ; preds = %lor.lhs.false.i14.i
-  %add.ptr.i2.i.i.i = getelementptr inbounds i8, ptr %0, i64 4
-  %add.ptr.i.i6.i.i = getelementptr inbounds i8, ptr %add.ptr.i2.i.i.i, i64 %or.i.i.i.i
+  %add.ptr.i2.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %add.ptr.i.i6.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i2.i.i.i, i64 %or.i.i.i.i
   store ptr %add.ptr.i2.i.i.i, ptr %contpkt, align 8
-  %remaining.i19.i = getelementptr inbounds i8, ptr %contpkt, i64 8
+  %remaining.i19.i = getelementptr inbounds nuw i8, ptr %contpkt, i64 8
   store i64 %or.i.i.i.i, ptr %remaining.i19.i, align 8
   br label %lor.lhs.false7
 
@@ -578,7 +578,7 @@ lor.lhs.false7:                                   ; preds = %if.end.i18.i, %if.e
 lor.lhs.false10:                                  ; preds = %lor.lhs.false7
   %call11 = call i32 @ossl_decode_der_integer(ptr noundef nonnull %contpkt, ptr noundef %s)
   %tobool12.not = icmp ne i32 %call11, 0
-  %6 = getelementptr inbounds i8, ptr %contpkt, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %contpkt, i64 8
   %contpkt.val = load i64, ptr %6, align 8
   %cmp15.not = icmp eq i64 %contpkt.val, 0
   %or.cond31 = select i1 %tobool12.not, i1 %cmp15.not, i1 false

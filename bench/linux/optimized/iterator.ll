@@ -118,9 +118,9 @@ define dso_local noundef range(i64 -12, 4294967296) i64 @netfs_extract_user_iter
   %65 = trunc i64 %64 to i32
   %66 = trunc i64 %59 to i32
   store ptr %63, ptr %61, align 8
-  %67 = getelementptr inbounds i8, ptr %61, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %61, i64 8
   store i32 %65, ptr %67, align 8
-  %68 = getelementptr inbounds i8, ptr %61, i64 12
+  %68 = getelementptr inbounds nuw i8, ptr %61, i64 12
   store i32 %66, ptr %68, align 4
   %69 = sub i64 %57, %60
   store i64 0, ptr %6, align 8
@@ -131,7 +131,7 @@ define dso_local noundef range(i64 -12, 4294967296) i64 @netfs_extract_user_iter
 .loopexit10:                                      ; preds = %.loopexit, %53, %35, %31, %16
   %72 = phi i32 [ %26, %31 ], [ %26, %35 ], [ %26, %53 ], [ 0, %16 ], [ %44, %.loopexit ]
   %73 = phi i64 [ %27, %31 ], [ %27, %35 ], [ %38, %53 ], [ %1, %16 ], [ %38, %.loopexit ]
-  %74 = getelementptr inbounds i8, ptr %0, i64 3
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %75 = load i8, ptr %74, align 1, !range !14, !noundef !15
   %76 = zext nneg i8 %75 to i32
   %77 = zext i32 %72 to i64
@@ -174,14 +174,14 @@ define dso_local i64 @netfs_limit_iter(ptr nocapture noundef readonly %0, i64 no
   ]
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load i64, ptr %10, align 8
   %12 = trunc i64 %11 to i32
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load i64, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load i64, ptr %15, align 8
   %17 = add i64 %16, %1
   %18 = icmp ult i64 %14, %1
@@ -267,27 +267,27 @@ define dso_local i64 @netfs_limit_iter(ptr nocapture noundef readonly %0, i64 no
   br label %189
 
 71:                                               ; preds = %4
-  %72 = getelementptr inbounds i8, ptr %0, i64 32
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %73 = load i64, ptr %72, align 8
-  %74 = getelementptr inbounds i8, ptr %0, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %75 = load i64, ptr %74, align 8
   %76 = add i64 %75, %73
   %77 = lshr i64 %76, 12
-  %78 = getelementptr inbounds i8, ptr %0, i64 16
-  %79 = getelementptr inbounds i8, ptr %0, i64 24
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %80 = load i64, ptr %79, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #7
-  %81 = getelementptr inbounds i8, ptr %5, i64 16
+  %81 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 0, ptr %81, align 8, !annotation !9
   %82 = load ptr, ptr %78, align 8
   store ptr %82, ptr %5, align 8
-  %83 = getelementptr inbounds i8, ptr %5, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %77, ptr %83, align 8
-  %84 = getelementptr inbounds i8, ptr %5, i64 18
-  %85 = getelementptr inbounds i8, ptr %5, i64 24
+  %84 = getelementptr inbounds nuw i8, ptr %5, i64 18
+  %85 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr inttoptr (i64 3 to ptr), ptr %85, align 8
-  %86 = getelementptr inbounds i8, ptr %5, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(24) %86, i8 0, i64 24, i1 false)
+  %86 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %86, i8 0, i64 24, i1 false)
   %87 = icmp ult i64 %80, %1
   br i1 %87, label %.thread20, label %88, !prof !16
 
@@ -360,7 +360,7 @@ define dso_local i64 @netfs_limit_iter(ptr nocapture noundef readonly %0, i64 no
   br i1 %117, label %122, label %118
 
 118:                                              ; preds = %114
-  %119 = getelementptr inbounds i8, ptr %95, i64 64
+  %119 = getelementptr inbounds nuw i8, ptr %95, i64 64
   %120 = load i64, ptr %119, align 16
   %121 = and i64 %120, 255
   br label %122
@@ -374,7 +374,7 @@ define dso_local i64 @netfs_limit_iter(ptr nocapture noundef readonly %0, i64 no
   br i1 %127, label %132, label %128
 
 128:                                              ; preds = %122
-  %129 = getelementptr inbounds i8, ptr %95, i64 64
+  %129 = getelementptr inbounds nuw i8, ptr %95, i64 64
   %130 = load i64, ptr %129, align 16
   %131 = and i64 %130, 255
   br label %132
@@ -419,7 +419,7 @@ define dso_local i64 @netfs_limit_iter(ptr nocapture noundef readonly %0, i64 no
   br i1 %160, label %161, label %.loopexit, !prof !25
 
 161:                                              ; preds = %155
-  %162 = getelementptr inbounds i8, ptr %146, i64 40
+  %162 = getelementptr inbounds nuw i8, ptr %146, i64 40
   br label %163
 
 163:                                              ; preds = %177, %161

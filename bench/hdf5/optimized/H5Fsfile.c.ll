@@ -38,7 +38,7 @@ define range(i32 -1, 1) i32 @H5F__sfile_add(ptr noundef %0) local_unnamed_addr #
 8:                                                ; preds = %1
   store ptr %0, ptr %2, align 8
   %9 = load ptr, ptr @H5F_sfile_head_s, align 8
-  %10 = getelementptr inbounds i8, ptr %2, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %9, ptr %10, align 8
   store ptr %2, ptr @H5F_sfile_head_s, align 8
   br label %11
@@ -71,7 +71,7 @@ define ptr @H5F__sfile_search(ptr noundef %0) local_unnamed_addr #1 {
   br label %.loopexit
 
 8:                                                ; preds = %.lr.ph
-  %9 = getelementptr inbounds i8, ptr %.0610, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %.0610, i64 8
   %.06 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %.06, null
   br i1 %.not, label %.loopexit, label %.lr.ph
@@ -101,7 +101,7 @@ define range(i32 -1, 1) i32 @H5F__sfile_remove(ptr noundef readnone %0) local_un
 
 .lr.ph30:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %.0132129 = phi ptr [ %.013, %.lr.ph ], [ %.01318, %.lr.ph.preheader ]
-  %4 = getelementptr inbounds i8, ptr %.0132129, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %.0132129, i64 8
   %.013 = load ptr, ptr %4, align 8
   %cond = icmp eq ptr %.013, null
   br i1 %cond, label %._crit_edge, label %.lr.ph
@@ -116,12 +116,12 @@ define range(i32 -1, 1) i32 @H5F__sfile_remove(ptr noundef readnone %0) local_un
   %.01321.lcssa = phi ptr [ %.01318, %.lr.ph.preheader ], [ %.013, %.lr.ph ]
   %.01220.lcssa = phi ptr [ null, %.lr.ph.preheader ], [ %.0132129, %.lr.ph ]
   %.not15 = icmp eq ptr %.01220.lcssa, null
-  %8 = getelementptr inbounds i8, ptr %.01321.lcssa, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %.01321.lcssa, i64 8
   %9 = load ptr, ptr %8, align 8
   br i1 %.not15, label %12, label %10
 
 10:                                               ; preds = %.critedge
-  %11 = getelementptr inbounds i8, ptr %.01220.lcssa, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.01220.lcssa, i64 8
   store ptr %9, ptr %11, align 8
   br label %13
 

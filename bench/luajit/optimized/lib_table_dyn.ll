@@ -20,7 +20,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define noundef i32 @luaopen_table(ptr noundef %L) local_unnamed_addr #0 {
 entry:
   tail call void @lj_lib_register(ptr noundef %L, ptr noundef nonnull @.str, ptr noundef nonnull @lj_lib_init_table, ptr noundef nonnull @lj_lib_cf_table) #4
-  %top = getelementptr inbounds i8, ptr %L, i64 40
+  %top = getelementptr inbounds nuw i8, ptr %L, i64 40
   %0 = load ptr, ptr %top, align 8
   %add.ptr = getelementptr inbounds i8, ptr %0, i64 -8
   %1 = load i64, ptr %add.ptr, align 8
@@ -58,10 +58,10 @@ entry:
 define internal noundef i32 @lj_cf_table_maxn(ptr noundef %L) #0 {
 entry:
   %call = tail call ptr @lj_lib_checktab(ptr noundef %L, i32 noundef 1) #4
-  %array1 = getelementptr inbounds i8, ptr %call, i64 16
+  %array1 = getelementptr inbounds nuw i8, ptr %call, i64 16
   %0 = load i64, ptr %array1, align 8
   %1 = inttoptr i64 %0 to ptr
-  %asize = getelementptr inbounds i8, ptr %call, i64 48
+  %asize = getelementptr inbounds nuw i8, ptr %call, i64 48
   %2 = load i32, ptr %asize, align 8
   %conv = zext i32 %2 to i64
   br label %for.cond
@@ -85,10 +85,10 @@ if.then:                                          ; preds = %for.body
 
 for.end:                                          ; preds = %for.cond, %if.then
   %m.0 = phi double [ %conv6, %if.then ], [ 0.000000e+00, %for.cond ]
-  %node7 = getelementptr inbounds i8, ptr %call, i64 40
+  %node7 = getelementptr inbounds nuw i8, ptr %call, i64 40
   %4 = load i64, ptr %node7, align 8
   %5 = inttoptr i64 %4 to ptr
-  %hmask = getelementptr inbounds i8, ptr %call, i64 52
+  %hmask = getelementptr inbounds nuw i8, ptr %call, i64 52
   %6 = load i32, ptr %hmask, align 4
   %conv9 = zext i32 %6 to i64
   br label %for.body13
@@ -96,13 +96,13 @@ for.end:                                          ; preds = %for.cond, %if.then
 for.body13:                                       ; preds = %for.end, %for.inc30
   %m.119 = phi double [ %m.0, %for.end ], [ %m.2, %for.inc30 ]
   %i.118 = phi i64 [ %conv9, %for.end ], [ %dec31, %for.inc30 ]
-  %arrayidx14 = getelementptr inbounds %struct.Node, ptr %5, i64 %i.118
+  %arrayidx14 = getelementptr inbounds nuw %struct.Node, ptr %5, i64 %i.118
   %7 = load i64, ptr %arrayidx14, align 8
   %cmp15 = icmp eq i64 %7, -1
   br i1 %cmp15, label %for.inc30, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %for.body13
-  %key = getelementptr inbounds i8, ptr %arrayidx14, i64 8
+  %key = getelementptr inbounds nuw i8, ptr %arrayidx14, i64 8
   %8 = load i64, ptr %key, align 8
   %cmp19 = icmp ult i64 %8, -1829587348619264
   %9 = bitcast i64 %8 to double
@@ -120,7 +120,7 @@ for.inc30:                                        ; preds = %for.body13, %land.l
   br i1 %cmp11, label %for.body13, label %for.end32, !llvm.loop !5
 
 for.end32:                                        ; preds = %for.inc30
-  %top = getelementptr inbounds i8, ptr %L, i64 40
+  %top = getelementptr inbounds nuw i8, ptr %L, i64 40
   %10 = load ptr, ptr %top, align 8
   %add.ptr = getelementptr inbounds i8, ptr %10, i64 -8
   store double %m.2, ptr %add.ptr, align 8
@@ -133,9 +133,9 @@ entry:
   %call = tail call ptr @lj_lib_checktab(ptr noundef %L, i32 noundef 1) #4
   %call1 = tail call i32 @lj_tab_len(ptr noundef %call) #4
   %add = add i32 %call1, 1
-  %top = getelementptr inbounds i8, ptr %L, i64 40
+  %top = getelementptr inbounds nuw i8, ptr %L, i64 40
   %0 = load ptr, ptr %top, align 8
-  %base = getelementptr inbounds i8, ptr %L, i64 32
+  %base = getelementptr inbounds nuw i8, ptr %L, i64 32
   %1 = load ptr, ptr %base, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
@@ -156,8 +156,8 @@ if.end:                                           ; preds = %entry
   br i1 %cmp943.not, label %if.end30, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end
-  %asize = getelementptr inbounds i8, ptr %call, i64 48
-  %array = getelementptr inbounds i8, ptr %call, i64 16
+  %asize = getelementptr inbounds nuw i8, ptr %call, i64 48
+  %array = getelementptr inbounds nuw i8, ptr %call, i64 16
   %2 = sext i32 %add to i64
   %3 = sext i32 %call8 to i64
   br label %for.body
@@ -215,13 +215,13 @@ for.inc:                                          ; preds = %cond.end26, %if.the
 
 if.end30:                                         ; preds = %for.inc, %if.end, %entry
   %i.0 = phi i32 [ %add, %entry ], [ %call8, %if.end ], [ %call8, %for.inc ]
-  %asize32 = getelementptr inbounds i8, ptr %call, i64 48
+  %asize32 = getelementptr inbounds nuw i8, ptr %call, i64 48
   %13 = load i32, ptr %asize32, align 8
   %cmp33 = icmp ult i32 %i.0, %13
   br i1 %cmp33, label %cond.true35, label %cond.false40
 
 cond.true35:                                      ; preds = %if.end30
-  %array36 = getelementptr inbounds i8, ptr %call, i64 16
+  %array36 = getelementptr inbounds nuw i8, ptr %call, i64 16
   %14 = load i64, ptr %array36, align 8
   %15 = inttoptr i64 %14 to ptr
   %idxprom38 = sext i32 %i.0 to i64
@@ -247,28 +247,28 @@ cond.end42:                                       ; preds = %cond.false40, %cond
 land.lhs.true:                                    ; preds = %cond.end42
   %and = and i64 %17, 140737488355327
   %19 = inttoptr i64 %and to ptr
-  %marked = getelementptr inbounds i8, ptr %19, i64 8
+  %marked = getelementptr inbounds nuw i8, ptr %19, i64 8
   %20 = load i8, ptr %marked, align 8
   %21 = and i8 %20, 3
   %tobool51.not = icmp eq i8 %21, 0
   br i1 %tobool51.not, label %if.end59, label %land.lhs.true52
 
 land.lhs.true52:                                  ; preds = %land.lhs.true
-  %marked53 = getelementptr inbounds i8, ptr %call, i64 8
+  %marked53 = getelementptr inbounds nuw i8, ptr %call, i64 8
   %22 = load i8, ptr %marked53, align 8
   %23 = and i8 %22, 4
   %tobool56.not = icmp eq i8 %23, 0
   br i1 %tobool56.not, label %if.end59, label %if.then57
 
 if.then57:                                        ; preds = %land.lhs.true52
-  %glref = getelementptr inbounds i8, ptr %L, i64 16
+  %glref = getelementptr inbounds nuw i8, ptr %L, i64 16
   %24 = load i64, ptr %glref, align 8
   %25 = inttoptr i64 %24 to ptr
   %and.i = and i8 %22, -5
   store i8 %and.i, ptr %marked53, align 8
-  %grayagain.i = getelementptr inbounds i8, ptr %25, i64 64
+  %grayagain.i = getelementptr inbounds nuw i8, ptr %25, i64 64
   %26 = load i64, ptr %grayagain.i, align 8
-  %gclist.i = getelementptr inbounds i8, ptr %call, i64 24
+  %gclist.i = getelementptr inbounds nuw i8, ptr %call, i64 24
   store i64 %26, ptr %gclist.i, align 8
   %27 = ptrtoint ptr %call to i64
   store i64 %27, ptr %grayagain.i, align 8
@@ -284,10 +284,10 @@ entry:
   %call = tail call ptr @lj_lib_checktab(ptr noundef %L, i32 noundef 1) #4
   %call1 = tail call ptr @lj_lib_optstr(ptr noundef %L, i32 noundef 2) #4
   %call2 = tail call i32 @lj_lib_optint(ptr noundef %L, i32 noundef 3, i32 noundef 1) #4
-  %base = getelementptr inbounds i8, ptr %L, i64 32
+  %base = getelementptr inbounds nuw i8, ptr %L, i64 32
   %0 = load ptr, ptr %base, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %0, i64 24
-  %top = getelementptr inbounds i8, ptr %L, i64 40
+  %add.ptr = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %top = getelementptr inbounds nuw i8, ptr %L, i64 40
   %1 = load ptr, ptr %top, align 8
   %cmp = icmp ult ptr %add.ptr, %1
   br i1 %cmp, label %land.lhs.true, label %cond.false
@@ -307,14 +307,14 @@ cond.false:                                       ; preds = %land.lhs.true, %ent
 
 cond.end:                                         ; preds = %cond.false, %cond.true
   %cond = phi i32 [ %call6, %cond.true ], [ %call7, %cond.false ]
-  %glref.i = getelementptr inbounds i8, ptr %L, i64 16
+  %glref.i = getelementptr inbounds nuw i8, ptr %L, i64 16
   %3 = load i64, ptr %glref.i, align 8
   %4 = inttoptr i64 %3 to ptr
-  %tmpbuf.i = getelementptr inbounds i8, ptr %4, i64 200
+  %tmpbuf.i = getelementptr inbounds nuw i8, ptr %4, i64 200
   %5 = ptrtoint ptr %L to i64
-  %L1.i = getelementptr inbounds i8, ptr %4, i64 224
+  %L1.i = getelementptr inbounds nuw i8, ptr %4, i64 224
   store i64 %5, ptr %L1.i, align 8
-  %b.i58 = getelementptr inbounds i8, ptr %4, i64 216
+  %b.i58 = getelementptr inbounds nuw i8, ptr %4, i64 216
   %6 = load ptr, ptr %b.i58, align 8
   store ptr %6, ptr %tmpbuf.i, align 8
   %call9 = tail call ptr @lj_buf_puttab(ptr noundef nonnull %tmpbuf.i, ptr noundef %call, ptr noundef %call1, i32 noundef %call2, i32 noundef %cond) #4
@@ -325,13 +325,13 @@ if.then:                                          ; preds = %cond.end
   %7 = load ptr, ptr %tmpbuf.i, align 8
   %8 = ptrtoint ptr %7 to i64
   %conv13 = trunc i64 %8 to i32
-  %asize = getelementptr inbounds i8, ptr %call, i64 48
+  %asize = getelementptr inbounds nuw i8, ptr %call, i64 48
   %9 = load i32, ptr %asize, align 8
   %cmp14 = icmp ugt i32 %9, %conv13
   br i1 %cmp14, label %cond.true16, label %cond.false17
 
 cond.true16:                                      ; preds = %if.then
-  %array = getelementptr inbounds i8, ptr %call, i64 16
+  %array = getelementptr inbounds nuw i8, ptr %call, i64 16
   %10 = load i64, ptr %array, align 8
   %11 = inttoptr i64 %10 to ptr
   %sext = shl i64 %8, 32
@@ -365,7 +365,7 @@ cond.end33:                                       ; preds = %cond.true22, %cond.
 if.end:                                           ; preds = %cond.end
   %16 = load ptr, ptr %top, align 8
   %add.ptr38 = getelementptr inbounds i8, ptr %16, i64 -8
-  %b.i = getelementptr inbounds i8, ptr %call9, i64 16
+  %b.i = getelementptr inbounds nuw i8, ptr %call9, i64 16
   %17 = load ptr, ptr %b.i, align 8
   %18 = load ptr, ptr %call9, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %18 to i64
@@ -378,9 +378,9 @@ if.end:                                           ; preds = %cond.end
   store i64 %or.i, ptr %add.ptr38, align 8
   %20 = load i64, ptr %glref.i, align 8
   %21 = inttoptr i64 %20 to ptr
-  %gc = getelementptr inbounds i8, ptr %21, i64 16
+  %gc = getelementptr inbounds nuw i8, ptr %21, i64 16
   %22 = load i64, ptr %gc, align 8
-  %threshold = getelementptr inbounds i8, ptr %21, i64 24
+  %threshold = getelementptr inbounds nuw i8, ptr %21, i64 24
   %23 = load i64, ptr %threshold, align 8
   %cmp44.not = icmp ult i64 %22, %23
   br i1 %cmp44.not, label %if.end54, label %if.then52
@@ -399,9 +399,9 @@ entry:
   %call = tail call ptr @lj_lib_checktab(ptr noundef %L, i32 noundef 1) #4
   %call1 = tail call i32 @lj_tab_len(ptr noundef %call) #4
   tail call void @lua_settop(ptr noundef %L, i32 noundef 2) #4
-  %base = getelementptr inbounds i8, ptr %L, i64 32
+  %base = getelementptr inbounds nuw i8, ptr %L, i64 32
   %0 = load ptr, ptr %base, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %0, i64 8
+  %add.ptr = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1 = load i64, ptr %add.ptr, align 8
   %cmp = icmp eq i64 %1, -1
   br i1 %cmp, label %if.end, label %if.then

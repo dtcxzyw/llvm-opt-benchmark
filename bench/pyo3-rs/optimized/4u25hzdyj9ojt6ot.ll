@@ -38,7 +38,7 @@ define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..Fn
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
-  %7 = getelementptr inbounds i8, ptr %2, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 24
   call void @_ZN11proc_macro211TokenStream3new17h9f9a9a6013abb6a8E(ptr nonnull sret([32 x i8]) align 8 %6), !noalias !3
   %8 = load ptr, ptr %1, align 8, !noalias !3
   %9 = load ptr, ptr %8, align 8, !noalias !3
@@ -145,7 +145,7 @@ define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..Fn
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define nonnull align 8 ptr @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h92fb3879d7d3faeeE"(ptr nocapture readnone align 1 %0, ptr readnone align 8 %1) unnamed_addr #1 {
-  %.sroa.0.0.i = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.0.0.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   ret ptr %.sroa.0.0.i
 }
 
@@ -172,8 +172,8 @@ define hidden void @"_ZN19pyo3_macros_backend6params7Holders14check_gil_refs28_$
   %7 = alloca [32 x i8], align 8
   %8 = load i64, ptr %2, align 8
   %9 = icmp eq i64 %8, 0
-  %10 = getelementptr inbounds i8, ptr %2, i64 8
-  %11 = getelementptr inbounds i8, ptr %2, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 24
   br i1 %9, label %12, label %15
 
 12:                                               ; preds = %3
@@ -189,7 +189,7 @@ define hidden void @"_ZN19pyo3_macros_backend6params7Holders14check_gil_refs28_$
   br i1 %17, label %33, label %36
 
 18:                                               ; preds = %12
-  %19 = getelementptr inbounds i8, ptr %2, i64 12
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %20 = load i32, ptr %19, align 4
   br label %21
 
@@ -240,7 +240,7 @@ define hidden void @"_ZN19pyo3_macros_backend6params7Holders14check_gil_refs28_$
   resume { ptr, i32 } %.pn
 
 33:                                               ; preds = %15
-  %34 = getelementptr inbounds i8, ptr %2, i64 12
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %35 = load i32, ptr %34, align 4
   br label %36
 
@@ -303,22 +303,22 @@ define hidden void @"_ZN19pyo3_macros_backend6params15impl_arg_params28_$u7b$$u7
 21:                                               ; preds = %4
   store ptr %17, ptr %15, align 8
   store ptr %15, ptr %11, align 8
-  %.sroa.26.0..sroa_idx = getelementptr inbounds i8, ptr %11, i64 8
+  %.sroa.26.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr @"_ZN86_$LT$quote..__private..IdentFragmentAdapter$LT$T$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17h9d63ece71c44c931E", ptr %.sroa.26.0..sroa_idx, align 8
   store ptr @anon.3e7959b224c09f7393f0ebd8e51eb812.6, ptr %12, align 8
-  %22 = getelementptr inbounds i8, ptr %12, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i64 1, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %12, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %12, i64 32
   store ptr null, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %12, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store ptr %11, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %12, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %12, i64 24
   store i64 1, ptr %25, align 8
   call void @_ZN5alloc3fmt6format17hfef544611ce8decdE(ptr nonnull sret([24 x i8]) align 8 %13, ptr nonnull align 8 %12)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %13, i64 24, i1 false)
-  %26 = getelementptr inbounds i8, ptr %14, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %14, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %29 = load i64, ptr %28, align 8
   invoke void @_ZN5quote9__private8mk_ident17h7810a7ec9978fff3E(ptr nonnull sret([24 x i8]) align 8 %16, ptr align 1 %27, i64 %29, i32 0, i32 undef)
           to label %33 unwind label %31
@@ -549,7 +549,7 @@ define hidden void @"_ZN19pyo3_macros_backend6params15impl_arg_params28_$u7b$$u7
   %5 = alloca [8 x i8], align 8
   store i64 0, ptr %5, align 8
   %6 = load ptr, ptr %1, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   call void @_ZN19pyo3_macros_backend6params14impl_arg_param17h766ba4f9ed82a5c7E(ptr sret([32 x i8]) align 8 %0, ptr align 8 %3, i64 %2, ptr nonnull align 8 %5, ptr align 8 %6, ptr align 8 %8)
   ret void
@@ -558,9 +558,9 @@ define hidden void @"_ZN19pyo3_macros_backend6params15impl_arg_params28_$u7b$$u7
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden void @"_ZN19pyo3_macros_backend6params15impl_arg_params28_$u7b$$u7b$closure$u7d$$u7d$17h2a0f88a32b878082E"(ptr sret([32 x i8]) align 8 %0, ptr nocapture readonly align 8 %1, i64 %2, ptr align 8 %3) unnamed_addr #3 {
   %5 = load ptr, ptr %1, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load ptr, ptr %8, align 8
   tail call void @_ZN19pyo3_macros_backend6params14impl_arg_param17h766ba4f9ed82a5c7E(ptr sret([32 x i8]) align 8 %0, ptr align 8 %3, i64 %2, ptr align 8 %5, ptr align 8 %7, ptr align 8 %9)
   ret void

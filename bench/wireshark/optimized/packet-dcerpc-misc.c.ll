@@ -86,7 +86,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @misc_dissect_struct_GUID(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 3
@@ -134,9 +134,9 @@ misc_dissect_element_GUID_clock_seq.exit:         ; preds = %25, %misc_dissect_e
 misc_dissect_element_GUID_node.exit:              ; preds = %misc_dissect_element_GUID_clock_seq.exit
   %32 = sub i32 %30, %.0
   tail call void @proto_item_set_len(ptr noundef %.048, i32 noundef %32) #2
-  %33 = getelementptr inbounds i8, ptr %4, i64 72
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 96
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 96
   %36 = load i32, ptr %35, align 8
   %37 = and i32 %36, 1
   %.not52 = icmp eq i32 %37, 0
@@ -168,7 +168,7 @@ declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @misc_dissect_struct_ndr_syntax_id(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 3
@@ -195,9 +195,9 @@ define hidden i32 @misc_dissect_struct_ndr_syntax_id(ptr noundef %0, i32 noundef
   %22 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.029, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 noundef 0) #2
   %23 = sub i32 %22, %.0
   tail call void @proto_item_set_len(ptr noundef %.030, i32 noundef %23) #2
-  %24 = getelementptr inbounds i8, ptr %4, i64 72
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 96
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 96
   %27 = load i32, ptr %26, align 8
   %28 = and i32 %27, 1
   %.not34 = icmp eq i32 %28, 0
@@ -223,7 +223,7 @@ define hidden i32 @misc_dissect_struct_ndr_syntax_id(ptr noundef %0, i32 noundef
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @misc_dissect_struct_policy_handle(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 3
@@ -250,9 +250,9 @@ define hidden i32 @misc_dissect_struct_policy_handle(ptr noundef %0, i32 noundef
   %22 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.029, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, ptr noundef null) #2
   %23 = sub i32 %22, %.0
   tail call void @proto_item_set_len(ptr noundef %.030, i32 noundef %23) #2
-  %24 = getelementptr inbounds i8, ptr %4, i64 72
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 96
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 96
   %27 = load i32, ptr %26, align 8
   %28 = and i32 %27, 1
   %.not34 = icmp eq i32 %28, 0
@@ -304,7 +304,7 @@ declare i32 @dissect_ndr_uint1632(ptr noundef, i32 noundef, ptr noundef, ptr nou
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @misc_dissect_struct_KRB5_EDATA_NTSTATUS(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 3
@@ -333,9 +333,9 @@ define hidden i32 @misc_dissect_struct_KRB5_EDATA_NTSTATUS(ptr noundef %0, i32 n
   %24 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.035, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23, i32 noundef 0) #2
   %25 = sub i32 %24, %.0
   tail call void @proto_item_set_len(ptr noundef %.036, i32 noundef %25) #2
-  %26 = getelementptr inbounds i8, ptr %4, i64 72
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 96
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 96
   %29 = load i32, ptr %28, align 8
   %30 = and i32 %29, 1
   %.not40 = icmp eq i32 %30, 0

@@ -254,27 +254,27 @@ define internal i32 @dissect_li5g(ptr noundef %0, ptr noundef %1, ptr noundef %2
 ._crit_edge:                                      ; preds = %53, %4
   %55 = load i32, ptr @hf_li5g_pld, align 4
   %56 = call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %55, ptr noundef %0, i32 noundef %6, i32 noundef %7, i32 noundef 0) #2
-  %57 = getelementptr inbounds i8, ptr %1, i64 208
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 208
   %58 = load i32, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %1, i64 212
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 212
   %60 = load i32, ptr %59, align 4
-  %61 = getelementptr inbounds i8, ptr %1, i64 216
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 216
   %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %1, i64 232
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %64 = load i32, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %1, i64 236
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 236
   %66 = load i32, ptr %65, align 4
-  %67 = getelementptr inbounds i8, ptr %1, i64 240
+  %67 = getelementptr inbounds nuw i8, ptr %1, i64 240
   %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %1, i64 284
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %70 = load i32, ptr %69, align 4
-  %71 = getelementptr inbounds i8, ptr %1, i64 288
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %72 = load i32, ptr %71, align 8
   %.not112 = icmp eq ptr %13, null
   br i1 %.not112, label %77, label %73
 
 73:                                               ; preds = %._crit_edge
-  %74 = getelementptr inbounds i8, ptr %13, i64 24
+  %74 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %75 = load ptr, ptr %74, align 8
   %.not113 = icmp eq ptr %75, null
   br i1 %.not113, label %77, label %76
@@ -301,7 +301,7 @@ define internal i32 @dissect_li5g(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %.not115, label %87, label %85
 
 85:                                               ; preds = %84
-  %86 = getelementptr inbounds i8, ptr %13, i64 24
+  %86 = getelementptr inbounds nuw i8, ptr %13, i64 24
   store ptr %.0, ptr %86, align 8
   br label %87
 
@@ -317,7 +317,7 @@ define internal i32 @dissect_li5g(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %94
 
 94:                                               ; preds = %91, %87
-  %95 = getelementptr inbounds i8, ptr %1, i64 8
+  %95 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %96 = load ptr, ptr %95, align 8
   call void @col_set_str(ptr noundef %96, i32 noundef 34, ptr noundef nonnull @.str.67) #2
   %97 = load ptr, ptr %95, align 8
@@ -338,12 +338,12 @@ define internal i32 @dissect_li5g(ptr noundef %0, ptr noundef %1, ptr noundef %2
   store i32 %58, ptr %57, align 8
   store i32 %60, ptr %59, align 4
   store ptr %62, ptr %61, align 8
-  %104 = getelementptr inbounds i8, ptr %1, i64 224
+  %104 = getelementptr inbounds nuw i8, ptr %1, i64 224
   store ptr null, ptr %104, align 8
   store i32 %64, ptr %63, align 8
   store i32 %66, ptr %65, align 4
   store ptr %68, ptr %67, align 8
-  %105 = getelementptr inbounds i8, ptr %1, i64 248
+  %105 = getelementptr inbounds nuw i8, ptr %1, i64 248
   store ptr null, ptr %105, align 8
   store i32 %70, ptr %69, align 4
   store i32 %72, ptr %71, align 8
@@ -424,7 +424,7 @@ define internal range(i32 0, 2) i32 @dissect_li5g_heur(ptr noundef %0, ptr nound
 
 15:                                               ; preds = %12
   %16 = load ptr, ptr @li5g_handle, align 8
-  %17 = getelementptr inbounds i8, ptr %3, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = load ptr, ptr %17, align 8
   store ptr %16, ptr %18, align 8
   %19 = tail call i32 @dissect_li5g(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr poison)

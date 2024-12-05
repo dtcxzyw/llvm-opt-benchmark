@@ -66,7 +66,7 @@ define hidden noundef range(i32 -1, 1) i32 @main(i32 noundef %0, ptr nocapture n
   br i1 %15, label %16, label %19
 
 16:                                               ; preds = %2
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8
   br label %19
 
@@ -162,17 +162,17 @@ define hidden noundef range(i32 -1, 1) i32 @main(i32 noundef %0, ptr nocapture n
   %49 = fptosi double %48 to i32
   store i32 %49, ptr @left, align 4
   store i32 %49, ptr @right, align 4
-  %50 = getelementptr inbounds i8, ptr %9, i64 8
-  %51 = getelementptr inbounds i8, ptr %9, i64 16
-  %52 = getelementptr inbounds i8, ptr %9, i64 24
-  %53 = getelementptr inbounds i8, ptr %10, i64 16
-  %54 = getelementptr inbounds i8, ptr %10, i64 20
-  %55 = getelementptr inbounds i8, ptr %10, i64 8
-  %56 = getelementptr inbounds i8, ptr %11, i64 8
-  %57 = getelementptr inbounds i8, ptr %11, i64 16
-  %58 = getelementptr inbounds i8, ptr %14, i64 16
-  %59 = getelementptr inbounds i8, ptr %14, i64 20
-  %60 = getelementptr inbounds i8, ptr %14, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %10, i64 20
+  %55 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %58 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %14, i64 20
+  %60 = getelementptr inbounds nuw i8, ptr %14, i64 8
   br label %61
 
 61:                                               ; preds = %41, %102

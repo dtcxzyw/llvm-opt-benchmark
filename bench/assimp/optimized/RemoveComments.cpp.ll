@@ -111,7 +111,7 @@ while.cond4.us.preheader:                         ; preds = %while.cond.us, %whi
 while.cond4.us:                                   ; preds = %while.cond4.us.preheader, %land.lhs.true.us
   %1 = phi i8 [ %2, %land.lhs.true.us ], [ %0, %while.cond4.us.preheader ]
   %szBuffer.addr.2.us = phi ptr [ %incdec.ptr.us, %land.lhs.true.us ], [ %szBuffer.addr.0.us, %while.cond4.us.preheader ]
-  %incdec.ptr.us = getelementptr inbounds i8, ptr %szBuffer.addr.2.us, i64 1
+  %incdec.ptr.us = getelementptr inbounds nuw i8, ptr %szBuffer.addr.2.us, i64 1
   %tobool5.not.us = icmp eq i8 %1, 0
   br i1 %tobool5.not.us, label %if.end.us, label %land.lhs.true.us
 
@@ -129,7 +129,7 @@ if.end.us:                                        ; preds = %while.cond4.us, %la
   br i1 %tobool12.not.us, label %while.cond14.preheader.us, label %if.end26.us
 
 if.end26.us:                                      ; preds = %if.end.us
-  %incdec.ptr27.us = getelementptr inbounds i8, ptr %szBuffer.addr.1.us, i64 1
+  %incdec.ptr27.us = getelementptr inbounds nuw i8, ptr %szBuffer.addr.1.us, i64 1
   br label %while.cond.backedge.us
 
 while.body16.us:                                  ; preds = %while.cond14.preheader.us, %if.end23.us
@@ -139,7 +139,7 @@ while.body16.us:                                  ; preds = %while.cond14.prehea
   br i1 %tobool18.not.us, label %for.body.us, label %if.end23.us
 
 if.end23.us:                                      ; preds = %while.body16.us
-  %incdec.ptr24.us = getelementptr inbounds i8, ptr %szBuffer.addr.320.us, i64 1
+  %incdec.ptr24.us = getelementptr inbounds nuw i8, ptr %szBuffer.addr.320.us, i64 1
   store i8 %chReplacement, ptr %szBuffer.addr.320.us, align 1
   %3 = load i8, ptr %incdec.ptr24.us, align 1
   %tobool15.not.us = icmp eq i8 %3, 0
@@ -148,7 +148,7 @@ if.end23.us:                                      ; preds = %while.body16.us
 for.body.us:                                      ; preds = %while.body16.us, %for.body.us
   %i.023.us = phi i32 [ %inc.us, %for.body.us ], [ 0, %while.body16.us ]
   %szBuffer.addr.522.us = phi ptr [ %incdec.ptr22.us, %for.body.us ], [ %szBuffer.addr.320.us, %while.body16.us ]
-  %incdec.ptr22.us = getelementptr inbounds i8, ptr %szBuffer.addr.522.us, i64 1
+  %incdec.ptr22.us = getelementptr inbounds nuw i8, ptr %szBuffer.addr.522.us, i64 1
   store i8 %chReplacement, ptr %szBuffer.addr.522.us, align 1
   %inc.us = add i32 %i.023.us, 1
   %conv20.us = zext i32 %inc.us to i64

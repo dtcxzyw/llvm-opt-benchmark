@@ -375,7 +375,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_ppi_vector(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_clear(ptr noundef %6, i32 noundef 25) #2
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #2
@@ -1111,7 +1111,7 @@ annotate_vector_chars.exit.i:                     ; preds = %.critedge.i
   %.0311382395408.i = phi i32 [ 0, %annotate_vector_chars.exit.i ], [ %.0311384.i, %.thread.i51 ], [ %.0311382.i, %377 ], [ %.0311382.i, %375 ], [ %.0311382.i, %361 ]
   %.0310396407.i = phi i32 [ 0, %annotate_vector_chars.exit.i ], [ 0, %.thread.i51 ], [ %362, %377 ], [ %362, %375 ], [ 0, %361 ]
   %.not370.i = icmp eq ptr %15, null
-  %378 = getelementptr inbounds i8, ptr %1, i64 408
+  %378 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %379 = and i32 %.0310396407.i, 1
   %.not.i374.i = icmp eq i32 %379, 0
   %380 = and i32 %.0310396407.i, 2

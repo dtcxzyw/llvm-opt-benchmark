@@ -171,11 +171,11 @@ define dso_local { ptr, i64 } @_ZN4llvm6AMDGPU23getArchFamilyNameAMDGCNENS0_7GPU
   %.04.i.i.i.i.i = phi ptr [ %.1.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ @_ZN12_GLOBAL__N_110AMDGCNGPUsE, %1 ]
   %.0113.i.i.i.i.i = phi i64 [ %.112.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ 68, %1 ]
   %3 = lshr i64 %.0113.i.i.i.i.i, 1
-  %4 = getelementptr inbounds %"struct.(anonymous namespace)::GPUInfo", ptr %.04.i.i.i.i.i, i64 %3
+  %4 = getelementptr inbounds nuw %"struct.(anonymous namespace)::GPUInfo", ptr %.04.i.i.i.i.i, i64 %3
   %5 = getelementptr i8, ptr %4, i64 32
   %.val.i.i.i.i.i = load i32, ptr %5, align 8
   %6 = icmp ult i32 %.val.i.i.i.i.i, %0
-  %7 = getelementptr inbounds i8, ptr %4, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %8 = xor i64 %3, -1
   %9 = add nsw i64 %.0113.i.i.i.i.i, %8
   %.112.i.i.i.i.i = select i1 %6, i64 %9, i64 %3
@@ -196,7 +196,7 @@ define dso_local { ptr, i64 } @_ZN4llvm6AMDGPU23getArchFamilyNameAMDGCNENS0_7GPU
   br i1 %or.cond.i, label %_ZN4llvm6AMDGPU17getArchNameAMDGCNENS0_7GPUKindE.exit.thread, label %_ZN4llvm6AMDGPU17getArchNameAMDGCNENS0_7GPUKindE.exit
 
 _ZN4llvm6AMDGPU17getArchNameAMDGCNENS0_7GPUKindE.exit: ; preds = %12
-  %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %.1.i.i.i.i.i, i64 24
+  %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i, i64 24
   %.sroa.3.0.copyload.i = load i64, ptr %.sroa.3.0..sroa_idx.i, align 8
   %15 = icmp eq i64 %.sroa.3.0.copyload.i, 0
   br i1 %15, label %_ZN4llvm6AMDGPU17getArchNameAMDGCNENS0_7GPUKindE.exit.thread, label %16
@@ -210,10 +210,10 @@ _ZN4llvm6AMDGPU17getArchNameAMDGCNENS0_7GPUKindE.exit: ; preds = %12
 
 switch.lookup:                                    ; preds = %1
   %19 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [5 x ptr], ptr @switch.table._ZN4llvm6AMDGPU23getArchFamilyNameAMDGCNENS0_7GPUKindE, i64 0, i64 %19
+  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN4llvm6AMDGPU23getArchFamilyNameAMDGCNENS0_7GPUKindE, i64 0, i64 %19
   %switch.load = load ptr, ptr %switch.gep, align 8
   %20 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep8 = getelementptr inbounds [5 x i64], ptr @switch.table._ZN4llvm6AMDGPU23getArchFamilyNameAMDGCNENS0_7GPUKindE.19, i64 0, i64 %20
+  %switch.gep8 = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN4llvm6AMDGPU23getArchFamilyNameAMDGCNENS0_7GPUKindE.19, i64 0, i64 %20
   %switch.load9 = load i64, ptr %switch.gep8, align 8
   br label %_ZN4llvm6AMDGPU17getArchNameAMDGCNENS0_7GPUKindE.exit.thread
 
@@ -233,11 +233,11 @@ define dso_local { ptr, i64 } @_ZN4llvm6AMDGPU17getArchNameAMDGCNENS0_7GPUKindE(
   %.04.i.i.i.i = phi ptr [ %.1.i.i.i.i, %.lr.ph.i.i.i.i ], [ @_ZN12_GLOBAL__N_110AMDGCNGPUsE, %1 ]
   %.0113.i.i.i.i = phi i64 [ %.112.i.i.i.i, %.lr.ph.i.i.i.i ], [ 68, %1 ]
   %2 = lshr i64 %.0113.i.i.i.i, 1
-  %3 = getelementptr inbounds %"struct.(anonymous namespace)::GPUInfo", ptr %.04.i.i.i.i, i64 %2
+  %3 = getelementptr inbounds nuw %"struct.(anonymous namespace)::GPUInfo", ptr %.04.i.i.i.i, i64 %2
   %4 = getelementptr i8, ptr %3, i64 32
   %.val.i.i.i.i = load i32, ptr %4, align 8
   %5 = icmp ult i32 %.val.i.i.i.i, %0
-  %6 = getelementptr inbounds i8, ptr %3, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %7 = xor i64 %2, -1
   %8 = add nsw i64 %.0113.i.i.i.i, %7
   %.112.i.i.i.i = select i1 %5, i64 %8, i64 %2
@@ -260,7 +260,7 @@ define dso_local { ptr, i64 } @_ZN4llvm6AMDGPU17getArchNameAMDGCNENS0_7GPUKindE(
 14:                                               ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i, i64 16
   %.sroa.02.0.copyload = load ptr, ptr %15, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %.1.i.i.i.i, i64 24
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i, i64 24
   %.sroa.3.0.copyload = load i64, ptr %.sroa.3.0..sroa_idx, align 8
   br label %_ZN12_GLOBAL__N_112getArchEntryEN4llvm6AMDGPU7GPUKindENS0_8ArrayRefINS_7GPUInfoEEE.exit.thread
 
@@ -283,11 +283,11 @@ define dso_local { ptr, i64 } @_ZN4llvm6AMDGPU15getArchNameR600ENS0_7GPUKindE(i3
   %.04.i.i.i.i = phi ptr [ %.1.i.i.i.i, %.lr.ph.i.i.i.i ], [ @_ZN12_GLOBAL__N_18R600GPUsE, %1 ]
   %.0113.i.i.i.i = phi i64 [ %.112.i.i.i.i, %.lr.ph.i.i.i.i ], [ 26, %1 ]
   %2 = lshr i64 %.0113.i.i.i.i, 1
-  %3 = getelementptr inbounds %"struct.(anonymous namespace)::GPUInfo", ptr %.04.i.i.i.i, i64 %2
+  %3 = getelementptr inbounds nuw %"struct.(anonymous namespace)::GPUInfo", ptr %.04.i.i.i.i, i64 %2
   %4 = getelementptr i8, ptr %3, i64 32
   %.val.i.i.i.i = load i32, ptr %4, align 8
   %5 = icmp ult i32 %.val.i.i.i.i, %0
-  %6 = getelementptr inbounds i8, ptr %3, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %7 = xor i64 %2, -1
   %8 = add nsw i64 %.0113.i.i.i.i, %7
   %.112.i.i.i.i = select i1 %5, i64 %8, i64 %2
@@ -310,7 +310,7 @@ define dso_local { ptr, i64 } @_ZN4llvm6AMDGPU15getArchNameR600ENS0_7GPUKindE(i3
 14:                                               ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i, i64 16
   %.sroa.02.0.copyload = load ptr, ptr %15, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %.1.i.i.i.i, i64 24
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i, i64 24
   %.sroa.3.0.copyload = load i64, ptr %.sroa.3.0..sroa_idx, align 8
   br label %_ZN12_GLOBAL__N_112getArchEntryEN4llvm6AMDGPU7GPUKindENS0_8ArrayRefINS_7GPUInfoEEE.exit.thread
 
@@ -330,7 +330,7 @@ define dso_local noundef i32 @_ZN4llvm6AMDGPU15parseArchAMDGCNENS_9StringRefE(pt
 
 .split.us:                                        ; preds = %2, %_ZN4llvmeqENS_9StringRefES0_.exit.thread12.us
   %.010.idx15.us = phi i64 [ %.010.add.us, %_ZN4llvmeqENS_9StringRefES0_.exit.thread12.us ], [ 0, %2 ]
-  %gep = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_110AMDGCNGPUsE, i64 8), i64 %.010.idx15.us
+  %gep = getelementptr inbounds nuw i8, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_110AMDGCNGPUsE, i64 8), i64 %.010.idx15.us
   %.sroa.2.0.copyload.us = load i64, ptr %gep, align 8
   %.not.i.us = icmp eq i64 %.sroa.2.0.copyload.us, 0
   br i1 %.not.i.us, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread12.us
@@ -342,8 +342,8 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread12.us:    ; preds = %.split.us
 
 .split:                                           ; preds = %2, %_ZN4llvmeqENS_9StringRefES0_.exit.thread12
   %.010.idx15 = phi i64 [ %.010.add, %_ZN4llvmeqENS_9StringRefES0_.exit.thread12 ], [ 0, %2 ]
-  %.010.ptr16 = getelementptr inbounds i8, ptr @_ZN12_GLOBAL__N_110AMDGCNGPUsE, i64 %.010.idx15
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %.010.ptr16, i64 8
+  %.010.ptr16 = getelementptr inbounds nuw i8, ptr @_ZN12_GLOBAL__N_110AMDGCNGPUsE, i64 %.010.idx15
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.010.ptr16, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
   %.not.i = icmp eq i64 %.fr18, %.sroa.2.0.copyload
   br i1 %.not.i, label %_ZN4llvmeqENS_9StringRefES0_.exit, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread12
@@ -356,7 +356,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %.split
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit, %.split.us
   %5 = phi i64 [ %.010.idx15.us, %.split.us ], [ %.010.idx15, %_ZN4llvmeqENS_9StringRefES0_.exit ]
-  %6 = getelementptr inbounds i8, ptr @_ZN12_GLOBAL__N_110AMDGCNGPUsE, i64 %5
+  %6 = getelementptr inbounds nuw i8, ptr @_ZN12_GLOBAL__N_110AMDGCNGPUsE, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %8 = load i32, ptr %7, align 8
   br label %.loopexit
@@ -379,7 +379,7 @@ define dso_local noundef i32 @_ZN4llvm6AMDGPU13parseArchR600ENS_9StringRefE(ptr 
 
 .split.us:                                        ; preds = %2, %_ZN4llvmeqENS_9StringRefES0_.exit.thread12.us
   %.010.idx15.us = phi i64 [ %.010.add.us, %_ZN4llvmeqENS_9StringRefES0_.exit.thread12.us ], [ 0, %2 ]
-  %gep = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18R600GPUsE, i64 8), i64 %.010.idx15.us
+  %gep = getelementptr inbounds nuw i8, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18R600GPUsE, i64 8), i64 %.010.idx15.us
   %.sroa.2.0.copyload.us = load i64, ptr %gep, align 8
   %.not.i.us = icmp eq i64 %.sroa.2.0.copyload.us, 0
   br i1 %.not.i.us, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread12.us
@@ -391,8 +391,8 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread12.us:    ; preds = %.split.us
 
 .split:                                           ; preds = %2, %_ZN4llvmeqENS_9StringRefES0_.exit.thread12
   %.010.idx15 = phi i64 [ %.010.add, %_ZN4llvmeqENS_9StringRefES0_.exit.thread12 ], [ 0, %2 ]
-  %.010.ptr16 = getelementptr inbounds i8, ptr @_ZN12_GLOBAL__N_18R600GPUsE, i64 %.010.idx15
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %.010.ptr16, i64 8
+  %.010.ptr16 = getelementptr inbounds nuw i8, ptr @_ZN12_GLOBAL__N_18R600GPUsE, i64 %.010.idx15
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.010.ptr16, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
   %.not.i = icmp eq i64 %.fr18, %.sroa.2.0.copyload
   br i1 %.not.i, label %_ZN4llvmeqENS_9StringRefES0_.exit, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread12
@@ -405,7 +405,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %.split
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit, %.split.us
   %5 = phi i64 [ %.010.idx15.us, %.split.us ], [ %.010.idx15, %_ZN4llvmeqENS_9StringRefES0_.exit ]
-  %6 = getelementptr inbounds i8, ptr @_ZN12_GLOBAL__N_18R600GPUsE, i64 %5
+  %6 = getelementptr inbounds nuw i8, ptr @_ZN12_GLOBAL__N_18R600GPUsE, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %8 = load i32, ptr %7, align 8
   br label %.loopexit
@@ -428,11 +428,11 @@ define dso_local noundef i32 @_ZN4llvm6AMDGPU17getArchAttrAMDGCNENS0_7GPUKindE(i
   %.04.i.i.i.i = phi ptr [ %.1.i.i.i.i, %.lr.ph.i.i.i.i ], [ @_ZN12_GLOBAL__N_110AMDGCNGPUsE, %1 ]
   %.0113.i.i.i.i = phi i64 [ %.112.i.i.i.i, %.lr.ph.i.i.i.i ], [ 68, %1 ]
   %2 = lshr i64 %.0113.i.i.i.i, 1
-  %3 = getelementptr inbounds %"struct.(anonymous namespace)::GPUInfo", ptr %.04.i.i.i.i, i64 %2
+  %3 = getelementptr inbounds nuw %"struct.(anonymous namespace)::GPUInfo", ptr %.04.i.i.i.i, i64 %2
   %4 = getelementptr i8, ptr %3, i64 32
   %.val.i.i.i.i = load i32, ptr %4, align 8
   %5 = icmp ult i32 %.val.i.i.i.i, %0
-  %6 = getelementptr inbounds i8, ptr %3, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %7 = xor i64 %2, -1
   %8 = add nsw i64 %.0113.i.i.i.i, %7
   %.112.i.i.i.i = select i1 %5, i64 %8, i64 %2
@@ -470,11 +470,11 @@ define dso_local noundef i32 @_ZN4llvm6AMDGPU15getArchAttrR600ENS0_7GPUKindE(i32
   %.04.i.i.i.i = phi ptr [ %.1.i.i.i.i, %.lr.ph.i.i.i.i ], [ @_ZN12_GLOBAL__N_18R600GPUsE, %1 ]
   %.0113.i.i.i.i = phi i64 [ %.112.i.i.i.i, %.lr.ph.i.i.i.i ], [ 26, %1 ]
   %2 = lshr i64 %.0113.i.i.i.i, 1
-  %3 = getelementptr inbounds %"struct.(anonymous namespace)::GPUInfo", ptr %.04.i.i.i.i, i64 %2
+  %3 = getelementptr inbounds nuw %"struct.(anonymous namespace)::GPUInfo", ptr %.04.i.i.i.i, i64 %2
   %4 = getelementptr i8, ptr %3, i64 32
   %.val.i.i.i.i = load i32, ptr %4, align 8
   %5 = icmp ult i32 %.val.i.i.i.i, %0
-  %6 = getelementptr inbounds i8, ptr %3, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %7 = xor i64 %2, -1
   %8 = add nsw i64 %.0113.i.i.i.i, %7
   %.112.i.i.i.i = select i1 %5, i64 %8, i64 %2
@@ -506,14 +506,14 @@ _ZN12_GLOBAL__N_112getArchEntryEN4llvm6AMDGPU7GPUKindENS0_8ArrayRefINS_7GPUInfoE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm6AMDGPU23fillValidArchListAMDGCNERNS_15SmallVectorImplINS_9StringRefEEE(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %3
 
 3:                                                ; preds = %1, %_ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit
   %.0.idx6 = phi i64 [ 0, %1 ], [ %.0.add, %_ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit ]
-  %.0.ptr = getelementptr inbounds i8, ptr @_ZN12_GLOBAL__N_110AMDGCNGPUsE, i64 %.0.idx6
+  %.0.ptr = getelementptr inbounds nuw i8, ptr @_ZN12_GLOBAL__N_110AMDGCNGPUsE, i64 %.0.idx6
   %.sroa.0.0.copyload = load ptr, ptr %.0.ptr, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %.0.ptr, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.0.ptr, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
   %4 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #9
   %5 = add i64 %4, 1
@@ -530,7 +530,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit: ; pred
   %9 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #9
   %10 = getelementptr inbounds %"class.llvm::StringRef", ptr %8, i64 %9
   store ptr %.sroa.0.0.copyload, ptr %10, align 1
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %10, i64 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 %.sroa.2.0.copyload, ptr %.sroa.2.0..sroa_idx.i, align 1
   %11 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #9
   %12 = add i64 %11, 1
@@ -545,14 +545,14 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit: ; pred
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm6AMDGPU21fillValidArchListR600ERNS_15SmallVectorImplINS_9StringRefEEE(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %3
 
 3:                                                ; preds = %1, %_ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit
   %.0.idx6 = phi i64 [ 0, %1 ], [ %.0.add, %_ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit ]
-  %.0.ptr = getelementptr inbounds i8, ptr @_ZN12_GLOBAL__N_18R600GPUsE, i64 %.0.idx6
+  %.0.ptr = getelementptr inbounds nuw i8, ptr @_ZN12_GLOBAL__N_18R600GPUsE, i64 %.0.idx6
   %.sroa.0.0.copyload = load ptr, ptr %.0.ptr, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %.0.ptr, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.0.ptr, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
   %4 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #9
   %5 = add i64 %4, 1
@@ -569,7 +569,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit: ; pred
   %9 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #9
   %10 = getelementptr inbounds %"class.llvm::StringRef", ptr %8, i64 %9
   store ptr %.sroa.0.0.copyload, ptr %10, align 1
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %10, i64 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 %.sroa.2.0.copyload, ptr %.sroa.2.0..sroa_idx.i, align 1
   %11 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #9
   %12 = add i64 %11, 1
@@ -590,7 +590,7 @@ define dso_local { i64, i32 } @_ZN4llvm6AMDGPU13getIsaVersionENS_9StringRefE(ptr
 
 .split.us.i:                                      ; preds = %2, %_ZN4llvmeqENS_9StringRefES0_.exit.thread12.us.i
   %.010.idx15.us.i = phi i64 [ %.010.add.us.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread12.us.i ], [ 0, %2 ]
-  %gep.i = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_110AMDGCNGPUsE, i64 8), i64 %.010.idx15.us.i
+  %gep.i = getelementptr inbounds nuw i8, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_110AMDGCNGPUsE, i64 8), i64 %.010.idx15.us.i
   %.sroa.2.0.copyload.us.i = load i64, ptr %gep.i, align 8
   %.not.i.us.i = icmp eq i64 %.sroa.2.0.copyload.us.i, 0
   br i1 %.not.i.us.i, label %_ZN4llvm6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread12.us.i
@@ -602,8 +602,8 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread12.us.i:  ; preds = %.split.us.i
 
 .split.i:                                         ; preds = %2, %_ZN4llvmeqENS_9StringRefES0_.exit.thread12.i
   %.010.idx15.i = phi i64 [ %.010.add.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread12.i ], [ 0, %2 ]
-  %.010.ptr16.i = getelementptr inbounds i8, ptr @_ZN12_GLOBAL__N_110AMDGCNGPUsE, i64 %.010.idx15.i
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %.010.ptr16.i, i64 8
+  %.010.ptr16.i = getelementptr inbounds nuw i8, ptr @_ZN12_GLOBAL__N_110AMDGCNGPUsE, i64 %.010.idx15.i
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.010.ptr16.i, i64 8
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8
   %.not.i.i = icmp eq i64 %.fr18.i, %.sroa.2.0.copyload.i
   br i1 %.not.i.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread12.i
@@ -621,7 +621,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread12.i:     ; preds = %_ZN4llvmeqENS_9Stri
 
 _ZN4llvm6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i, %.split.us.i
   %5 = phi i64 [ %.010.idx15.us.i, %.split.us.i ], [ %.010.idx15.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i ]
-  %6 = getelementptr inbounds i8, ptr @_ZN12_GLOBAL__N_110AMDGCNGPUsE, i64 %5
+  %6 = getelementptr inbounds nuw i8, ptr @_ZN12_GLOBAL__N_110AMDGCNGPUsE, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %8 = load i32, ptr %7, align 8
   switch i32 %8, label %55 [
@@ -856,7 +856,7 @@ define dso_local { ptr, i64 } @_ZN4llvm6AMDGPU20getCanonicalArchNameERKNS_6Tripl
 
 .split.us.i:                                      ; preds = %8, %_ZN4llvmeqENS_9StringRefES0_.exit.thread12.us.i
   %.010.idx15.us.i = phi i64 [ %.010.add.us.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread12.us.i ], [ 0, %8 ]
-  %gep.i = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_110AMDGCNGPUsE, i64 8), i64 %.010.idx15.us.i
+  %gep.i = getelementptr inbounds nuw i8, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_110AMDGCNGPUsE, i64 8), i64 %.010.idx15.us.i
   %.sroa.2.0.copyload.us.i = load i64, ptr %gep.i, align 8
   %.not.i.us.i = icmp eq i64 %.sroa.2.0.copyload.us.i, 0
   br i1 %.not.i.us.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread12.us.i
@@ -868,8 +868,8 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread12.us.i:  ; preds = %.split.us.i
 
 .split.i:                                         ; preds = %8, %_ZN4llvmeqENS_9StringRefES0_.exit.thread12.i
   %.010.idx15.i = phi i64 [ %.010.add.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread12.i ], [ 0, %8 ]
-  %.010.ptr16.i = getelementptr inbounds i8, ptr @_ZN12_GLOBAL__N_110AMDGCNGPUsE, i64 %.010.idx15.i
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %.010.ptr16.i, i64 8
+  %.010.ptr16.i = getelementptr inbounds nuw i8, ptr @_ZN12_GLOBAL__N_110AMDGCNGPUsE, i64 %.010.idx15.i
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.010.ptr16.i, i64 8
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8
   %.not.i.i = icmp eq i64 %.fr18.i8, %.sroa.2.0.copyload.i
   br i1 %.not.i.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread12.i
@@ -882,7 +882,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i:              ; preds = %.split.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread.i:       ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i, %.split.us.i
   %10 = phi i64 [ %.010.idx15.us.i, %.split.us.i ], [ %.010.idx15.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i ]
-  %11 = getelementptr inbounds i8, ptr @_ZN12_GLOBAL__N_110AMDGCNGPUsE, i64 %10
+  %11 = getelementptr inbounds nuw i8, ptr @_ZN12_GLOBAL__N_110AMDGCNGPUsE, i64 %10
   br label %_ZN4llvm6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread12.i:     ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i, %.split.i
@@ -895,7 +895,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread12.i:     ; preds = %_ZN4llvmeqENS_9Stri
 
 .split.us.i23:                                    ; preds = %12, %_ZN4llvmeqENS_9StringRefES0_.exit.thread12.us.i28
   %.010.idx15.us.i24 = phi i64 [ %.010.add.us.i29, %_ZN4llvmeqENS_9StringRefES0_.exit.thread12.us.i28 ], [ 0, %12 ]
-  %gep.i25 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18R600GPUsE, i64 8), i64 %.010.idx15.us.i24
+  %gep.i25 = getelementptr inbounds nuw i8, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18R600GPUsE, i64 8), i64 %.010.idx15.us.i24
   %.sroa.2.0.copyload.us.i26 = load i64, ptr %gep.i25, align 8
   %.not.i.us.i27 = icmp eq i64 %.sroa.2.0.copyload.us.i26, 0
   br i1 %.not.i.us.i27, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i22, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread12.us.i28
@@ -907,8 +907,8 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread12.us.i28: ; preds = %.split.us.i23
 
 .split.i9:                                        ; preds = %12, %_ZN4llvmeqENS_9StringRefES0_.exit.thread12.i15
   %.010.idx15.i10 = phi i64 [ %.010.add.i16, %_ZN4llvmeqENS_9StringRefES0_.exit.thread12.i15 ], [ 0, %12 ]
-  %.010.ptr16.i11 = getelementptr inbounds i8, ptr @_ZN12_GLOBAL__N_18R600GPUsE, i64 %.010.idx15.i10
-  %.sroa.2.0..sroa_idx.i12 = getelementptr inbounds i8, ptr %.010.ptr16.i11, i64 8
+  %.010.ptr16.i11 = getelementptr inbounds nuw i8, ptr @_ZN12_GLOBAL__N_18R600GPUsE, i64 %.010.idx15.i10
+  %.sroa.2.0..sroa_idx.i12 = getelementptr inbounds nuw i8, ptr %.010.ptr16.i11, i64 8
   %.sroa.2.0.copyload.i13 = load i64, ptr %.sroa.2.0..sroa_idx.i12, align 8
   %.not.i.i14 = icmp eq i64 %.fr18.i8, %.sroa.2.0.copyload.i13
   br i1 %.not.i.i14, label %_ZN4llvmeqENS_9StringRefES0_.exit.i19, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread12.i15
@@ -921,7 +921,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i19:            ; preds = %.split.i9
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread.i22:     ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i19, %.split.us.i23
   %14 = phi i64 [ %.010.idx15.us.i24, %.split.us.i23 ], [ %.010.idx15.i10, %_ZN4llvmeqENS_9StringRefES0_.exit.i19 ]
-  %15 = getelementptr inbounds i8, ptr @_ZN12_GLOBAL__N_18R600GPUsE, i64 %14
+  %15 = getelementptr inbounds nuw i8, ptr @_ZN12_GLOBAL__N_18R600GPUsE, i64 %14
   br label %_ZN4llvm6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread12.i15:   ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i19, %.split.i9
@@ -943,11 +943,11 @@ _ZN4llvm6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit: ; preds = %_ZN4llvmeqENS_9
   %.04.i.i.i.i.i = phi ptr [ %.1.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ @_ZN12_GLOBAL__N_110AMDGCNGPUsE, %18 ]
   %.0113.i.i.i.i.i = phi i64 [ %.112.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ 68, %18 ]
   %19 = lshr i64 %.0113.i.i.i.i.i, 1
-  %20 = getelementptr inbounds %"struct.(anonymous namespace)::GPUInfo", ptr %.04.i.i.i.i.i, i64 %19
+  %20 = getelementptr inbounds nuw %"struct.(anonymous namespace)::GPUInfo", ptr %.04.i.i.i.i.i, i64 %19
   %21 = getelementptr i8, ptr %20, i64 32
   %.val.i.i.i.i.i = load i32, ptr %21, align 8
   %22 = icmp ult i32 %.val.i.i.i.i.i, %16
-  %23 = getelementptr inbounds i8, ptr %20, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 40
   %24 = xor i64 %19, -1
   %25 = add nsw i64 %.0113.i.i.i.i.i, %24
   %.112.i.i.i.i.i = select i1 %22, i64 %25, i64 %19
@@ -971,11 +971,11 @@ _ZN4llvm6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit: ; preds = %_ZN4llvmeqENS_9
   %.04.i.i.i.i.i34 = phi ptr [ %.1.i.i.i.i.i40, %.lr.ph.i.i.i.i.i33 ], [ @_ZN12_GLOBAL__N_18R600GPUsE, %18 ]
   %.0113.i.i.i.i.i35 = phi i64 [ %.112.i.i.i.i.i39, %.lr.ph.i.i.i.i.i33 ], [ 26, %18 ]
   %31 = lshr i64 %.0113.i.i.i.i.i35, 1
-  %32 = getelementptr inbounds %"struct.(anonymous namespace)::GPUInfo", ptr %.04.i.i.i.i.i34, i64 %31
+  %32 = getelementptr inbounds nuw %"struct.(anonymous namespace)::GPUInfo", ptr %.04.i.i.i.i.i34, i64 %31
   %33 = getelementptr i8, ptr %32, i64 32
   %.val.i.i.i.i.i38 = load i32, ptr %33, align 8
   %34 = icmp ult i32 %.val.i.i.i.i.i38, %16
-  %35 = getelementptr inbounds i8, ptr %32, i64 40
+  %35 = getelementptr inbounds nuw i8, ptr %32, i64 40
   %36 = xor i64 %31, -1
   %37 = add nsw i64 %.0113.i.i.i.i.i35, %36
   %.112.i.i.i.i.i39 = select i1 %34, i64 %37, i64 %31
@@ -999,7 +999,7 @@ _ZN4llvm6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit.thread.sink.split: ; preds 
   %.1.i.i.i.i.i40.lcssa.sink81 = phi ptr [ %.1.i.i.i.i.i, %28 ], [ %.1.i.i.i.i.i40, %40 ]
   %43 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i40.lcssa.sink81, i64 16
   %.sroa.02.0.copyload.i45 = load ptr, ptr %43, align 8
-  %.sroa.3.0..sroa_idx.i46 = getelementptr inbounds i8, ptr %.1.i.i.i.i.i40.lcssa.sink81, i64 24
+  %.sroa.3.0..sroa_idx.i46 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i40.lcssa.sink81, i64 24
   %.sroa.3.0.copyload.i47 = load i64, ptr %.sroa.3.0..sroa_idx.i46, align 8
   br label %_ZN4llvm6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit.thread
 
@@ -1266,7 +1266,7 @@ define dso_local void @_ZN4llvm6AMDGPU20fillAMDGPUFeatureMapENS_9StringRefERKNS_
 
 .split.us.i:                                      ; preds = %164, %_ZN4llvmeqENS_9StringRefES0_.exit.thread12.us.i
   %.010.idx15.us.i = phi i64 [ %.010.add.us.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread12.us.i ], [ 0, %164 ]
-  %gep.i = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_110AMDGCNGPUsE, i64 8), i64 %.010.idx15.us.i
+  %gep.i = getelementptr inbounds nuw i8, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_110AMDGCNGPUsE, i64 8), i64 %.010.idx15.us.i
   %.sroa.2.0.copyload.us.i = load i64, ptr %gep.i, align 8
   %.not.i.us.i = icmp eq i64 %.sroa.2.0.copyload.us.i, 0
   br i1 %.not.i.us.i, label %_ZN4llvm6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread12.us.i
@@ -1278,8 +1278,8 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread12.us.i:  ; preds = %.split.us.i
 
 .split.i:                                         ; preds = %164, %_ZN4llvmeqENS_9StringRefES0_.exit.thread12.i
   %.010.idx15.i = phi i64 [ %.010.add.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread12.i ], [ 0, %164 ]
-  %.010.ptr16.i = getelementptr inbounds i8, ptr @_ZN12_GLOBAL__N_110AMDGCNGPUsE, i64 %.010.idx15.i
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %.010.ptr16.i, i64 8
+  %.010.ptr16.i = getelementptr inbounds nuw i8, ptr @_ZN12_GLOBAL__N_110AMDGCNGPUsE, i64 %.010.idx15.i
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.010.ptr16.i, i64 8
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8
   %.not.i.i = icmp eq i64 %.fr18.i, %.sroa.2.0.copyload.i
   br i1 %.not.i.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread12.i
@@ -1297,7 +1297,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread12.i:     ; preds = %_ZN4llvmeqENS_9Stri
 
 _ZN4llvm6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i, %.split.us.i
   %167 = phi i64 [ %.010.idx15.us.i, %.split.us.i ], [ %.010.idx15.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i ]
-  %168 = getelementptr inbounds i8, ptr @_ZN12_GLOBAL__N_110AMDGCNGPUsE, i64 %167
+  %168 = getelementptr inbounds nuw i8, ptr @_ZN12_GLOBAL__N_110AMDGCNGPUsE, i64 %167
   %169 = getelementptr inbounds nuw i8, ptr %168, i64 32
   %170 = load i32, ptr %169, align 8
   switch i32 %170, label %622 [
@@ -2080,7 +2080,7 @@ define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN4l
 define dso_local void @_ZN4llvm6AMDGPU21insertWaveSizeFeatureENS_9StringRefERKNS_6TripleERNS_9StringMapIbNS_15MallocAllocatorEEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.std::pair") align 8 %0, ptr nocapture readonly %1, i64 %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(24) %4) local_unnamed_addr #3 {
   %6 = alloca %"struct.std::pair.2", align 8
   %.fr18.i.i = freeze i64 %2
-  %7 = getelementptr inbounds i8, ptr %3, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.val = load i32, ptr %7, align 8
   %8 = icmp eq i32 %.val, 26
   br i1 %8, label %9, label %_ZL15isWave32CapableN4llvm9StringRefERKNS_6TripleE.exit
@@ -2091,7 +2091,7 @@ define dso_local void @_ZN4llvm6AMDGPU21insertWaveSizeFeatureENS_9StringRefERKNS
 
 .split.us.i.i:                                    ; preds = %9, %_ZN4llvmeqENS_9StringRefES0_.exit.thread12.us.i.i
   %.010.idx15.us.i.i = phi i64 [ %.010.add.us.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread12.us.i.i ], [ 0, %9 ]
-  %gep.i.i = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_110AMDGCNGPUsE, i64 8), i64 %.010.idx15.us.i.i
+  %gep.i.i = getelementptr inbounds nuw i8, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_110AMDGCNGPUsE, i64 8), i64 %.010.idx15.us.i.i
   %.sroa.2.0.copyload.us.i.i = load i64, ptr %gep.i.i, align 8
   %.not.i.us.i.i = icmp eq i64 %.sroa.2.0.copyload.us.i.i, 0
   br i1 %.not.i.us.i.i, label %_ZN4llvm6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread12.us.i.i
@@ -2103,8 +2103,8 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread12.us.i.i: ; preds = %.split.us.i.i
 
 .split.i.i:                                       ; preds = %9, %_ZN4llvmeqENS_9StringRefES0_.exit.thread12.i.i
   %.010.idx15.i.i = phi i64 [ %.010.add.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread12.i.i ], [ 0, %9 ]
-  %.010.ptr16.i.i = getelementptr inbounds i8, ptr @_ZN12_GLOBAL__N_110AMDGCNGPUsE, i64 %.010.idx15.i.i
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %.010.ptr16.i.i, i64 8
+  %.010.ptr16.i.i = getelementptr inbounds nuw i8, ptr @_ZN12_GLOBAL__N_110AMDGCNGPUsE, i64 %.010.idx15.i.i
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.010.ptr16.i.i, i64 8
   %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   %.not.i.i.i = icmp eq i64 %.fr18.i.i, %.sroa.2.0.copyload.i.i
   br i1 %.not.i.i.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread12.i.i
@@ -2122,7 +2122,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread12.i.i:   ; preds = %_ZN4llvmeqENS_9Stri
 
 _ZN4llvm6AMDGPU15parseArchAMDGCNENS_9StringRefE.exit.i: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i, %.split.us.i.i
   %12 = phi i64 [ %.010.idx15.us.i.i, %.split.us.i.i ], [ %.010.idx15.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i ]
-  %13 = getelementptr inbounds i8, ptr @_ZN12_GLOBAL__N_110AMDGCNGPUsE, i64 %12
+  %13 = getelementptr inbounds nuw i8, ptr @_ZN12_GLOBAL__N_110AMDGCNGPUsE, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %15 = load i32, ptr %14, align 8
   switch i32 %15, label %_ZL15isWave32CapableN4llvm9StringRefERKNS_6TripleE.exit [
@@ -2209,9 +2209,9 @@ _ZL15isWave32CapableN4llvm9StringRefERKNS_6TripleE.exit: ; preds = %_ZN4llvmeqEN
   %.str.41..str.42 = select i1 %.0.i, ptr @.str.41, ptr @.str.42
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   store ptr %.str.41..str.42, ptr %6, align 8
-  %.sroa.0.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 8
+  %.sroa.0.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 15, ptr %.sroa.0.sroa.2.0..sroa_idx, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 16
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i8 1, ptr %.sroa.2.0..sroa_idx, align 8
   %44 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull %.str.41..str.42, i64 15) #9
   %45 = call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJbEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr nonnull %.str.41..str.42, i64 15, i32 noundef %44, ptr noundef nonnull align 1 dereferenceable(1) %.sroa.2.0..sroa_idx)
@@ -2241,7 +2241,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocator
   %5 = tail call noundef i32 @_ZN4llvm13StringMapImpl15LookupBucketForENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 %2, i32 noundef %3) #9
   %6 = load ptr, ptr %0, align 8
   %7 = zext i32 %5 to i64
-  %8 = getelementptr inbounds ptr, ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %7
   %9 = load ptr, ptr %8, align 8
   %magicptr = ptrtoint ptr %9 to i64
   switch i64 %magicptr, label %.preheader.i.i [
@@ -2259,7 +2259,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocator
   ]
 
 .critedge.i.i.i:                                  ; preds = %.preheader.i.i, %.preheader.i.i
-  %11 = getelementptr inbounds i8, ptr %.sroa.030.0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.sroa.030.0, i64 8
   %.pre = load ptr, ptr %11, align 8
   br label %.preheader.i.i, !llvm.loop !6
 
@@ -2273,7 +2273,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocator
 16:                                               ; preds = %4, %12
   %17 = add i64 %2, 17
   %18 = tail call noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef %17, i64 noundef 8) #9
-  %19 = getelementptr inbounds i8, ptr %18, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %.not.i.i = icmp eq i64 %2, 0
   br i1 %.not.i.i, label %_ZN4llvm14StringMapEntryIbE6createINS_15MallocAllocatorEJEEEPS1_NS_9StringRefERT_DpOT0_.exit, label %20
 
@@ -2295,7 +2295,7 @@ _ZN4llvm14StringMapEntryIbE6createINS_15MallocAllocatorEJEEEPS1_NS_9StringRefERT
   %26 = tail call noundef i32 @_ZN4llvm13StringMapImpl11RehashTableEj(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %5) #9
   %27 = load ptr, ptr %0, align 8
   %28 = zext i32 %26 to i64
-  %29 = getelementptr inbounds ptr, ptr %27, i64 %28
+  %29 = getelementptr inbounds nuw ptr, ptr %27, i64 %28
   br label %.preheader.i.i23
 
 .preheader.i.i23:                                 ; preds = %.critedge.i.i.i25, %_ZN4llvm14StringMapEntryIbE6createINS_15MallocAllocatorEJEEEPS1_NS_9StringRefERT_DpOT0_.exit
@@ -2308,7 +2308,7 @@ _ZN4llvm14StringMapEntryIbE6createINS_15MallocAllocatorEJEEEPS1_NS_9StringRefERT
   ]
 
 .critedge.i.i.i25:                                ; preds = %.preheader.i.i23, %.preheader.i.i23
-  %31 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 8
   br label %.preheader.i.i23, !llvm.loop !6
 
 _ZN4llvm17StringMapIteratorIbEC2EPPNS_18StringMapEntryBaseEb.exit: ; preds = %.preheader.i.i23, %.preheader.i.i
@@ -2334,7 +2334,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocator
   %6 = tail call noundef i32 @_ZN4llvm13StringMapImpl15LookupBucketForENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 %2, i32 noundef %3) #9
   %7 = load ptr, ptr %0, align 8
   %8 = zext i32 %6 to i64
-  %9 = getelementptr inbounds ptr, ptr %7, i64 %8
+  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %8
   %10 = load ptr, ptr %9, align 8
   %magicptr = ptrtoint ptr %10 to i64
   switch i64 %magicptr, label %.preheader.i.i [
@@ -2352,7 +2352,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocator
   ]
 
 .critedge.i.i.i:                                  ; preds = %.preheader.i.i, %.preheader.i.i
-  %12 = getelementptr inbounds i8, ptr %.sroa.031.0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.sroa.031.0, i64 8
   %.pre = load ptr, ptr %12, align 8
   br label %.preheader.i.i, !llvm.loop !6
 
@@ -2366,7 +2366,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocator
 17:                                               ; preds = %5, %13
   %18 = add i64 %2, 17
   %19 = tail call noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef %18, i64 noundef 8) #9
-  %20 = getelementptr inbounds i8, ptr %19, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %.not.i.i = icmp eq i64 %2, 0
   br i1 %.not.i.i, label %_ZN4llvm14StringMapEntryIbE6createINS_15MallocAllocatorEJbEEEPS1_NS_9StringRefERT_DpOT0_.exit, label %21
 
@@ -2390,7 +2390,7 @@ _ZN4llvm14StringMapEntryIbE6createINS_15MallocAllocatorEJbEEEPS1_NS_9StringRefER
   %29 = tail call noundef i32 @_ZN4llvm13StringMapImpl11RehashTableEj(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %6) #9
   %30 = load ptr, ptr %0, align 8
   %31 = zext i32 %29 to i64
-  %32 = getelementptr inbounds ptr, ptr %30, i64 %31
+  %32 = getelementptr inbounds nuw ptr, ptr %30, i64 %31
   br label %.preheader.i.i24
 
 .preheader.i.i24:                                 ; preds = %.critedge.i.i.i26, %_ZN4llvm14StringMapEntryIbE6createINS_15MallocAllocatorEJbEEEPS1_NS_9StringRefERT_DpOT0_.exit
@@ -2403,7 +2403,7 @@ _ZN4llvm14StringMapEntryIbE6createINS_15MallocAllocatorEJbEEEPS1_NS_9StringRefER
   ]
 
 .critedge.i.i.i26:                                ; preds = %.preheader.i.i24, %.preheader.i.i24
-  %34 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 8
   br label %.preheader.i.i24, !llvm.loop !6
 
 _ZN4llvm17StringMapIteratorIbEC2EPPNS_18StringMapEntryBaseEb.exit: ; preds = %.preheader.i.i24, %.preheader.i.i

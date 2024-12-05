@@ -35,15 +35,15 @@ define internal ptr @fat_get_parent(ptr nocapture noundef readonly %0) #1 align 
   %2 = alloca %struct.fat_slot_info, align 8
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 112
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %6 = load ptr, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #6
   store ptr null, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
   store ptr null, ptr %4, align 8, !annotation !5
-  %7 = getelementptr inbounds i8, ptr %6, i64 872
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 872
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %10 = load ptr, ptr %9, align 8
   %11 = call i32 @fat_get_dotdot_entry(ptr noundef %10, ptr noundef nonnull %3, ptr noundef nonnull %4) #6
   %12 = icmp eq i32 %11, 0
@@ -51,16 +51,16 @@ define internal ptr @fat_get_parent(ptr nocapture noundef readonly %0) #1 align 
 
 13:                                               ; preds = %1
   %14 = load ptr, ptr %4, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 26
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 26
   %16 = load i16, ptr %15, align 2
   %17 = zext i16 %16 to i32
-  %18 = getelementptr inbounds i8, ptr %8, i64 9
+  %18 = getelementptr inbounds nuw i8, ptr %8, i64 9
   %19 = load i8, ptr %18, align 1
   %20 = icmp eq i8 %19, 32
   br i1 %20, label %21, label %27
 
 21:                                               ; preds = %13
-  %22 = getelementptr inbounds i8, ptr %14, i64 20
+  %22 = getelementptr inbounds nuw i8, ptr %14, i64 20
   %23 = load i16, ptr %22, align 4
   %24 = zext i16 %23 to i32
   %25 = shl nuw i32 %24, 16
@@ -70,13 +70,13 @@ define internal ptr @fat_get_parent(ptr nocapture noundef readonly %0) #1 align 
 27:                                               ; preds = %21, %13
   %28 = phi i32 [ %26, %21 ], [ %17, %13 ]
   %29 = load ptr, ptr %7, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 2400
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 2400
   %31 = mul i32 %28, 1640531527
   %32 = lshr i32 %31, 24
   %33 = zext nneg i32 %32 to i64
   %34 = getelementptr %struct.hlist_head, ptr %30, i64 %33
-  %35 = getelementptr inbounds i8, ptr %29, i64 2392
-  call void @_raw_spin_lock(ptr noundef %35) #6
+  %35 = getelementptr inbounds nuw i8, ptr %29, i64 2392
+  call void @_raw_spin_lock(ptr noundef nonnull %35) #6
   %36 = load ptr, ptr %34, align 8
   %37 = icmp eq ptr %36, null
   %38 = getelementptr i8, ptr %36, i64 -80
@@ -86,8 +86,8 @@ define internal ptr @fat_get_parent(ptr nocapture noundef readonly %0) #1 align 
 
 .preheader14:                                     ; preds = %27, %54
   %41 = phi ptr [ %58, %54 ], [ %38, %27 ]
-  %42 = getelementptr inbounds i8, ptr %41, i64 152
-  %43 = getelementptr inbounds i8, ptr %41, i64 192
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 152
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 192
   %44 = load ptr, ptr %43, align 8
   %45 = icmp eq ptr %44, %6
   br i1 %45, label %47, label %46, !prof !6
@@ -98,18 +98,18 @@ define internal ptr @fat_get_parent(ptr nocapture noundef readonly %0) #1 align 
   unreachable
 
 47:                                               ; preds = %.preheader14
-  %48 = getelementptr inbounds i8, ptr %41, i64 44
+  %48 = getelementptr inbounds nuw i8, ptr %41, i64 44
   %49 = load i32, ptr %48, align 4
   %50 = icmp eq i32 %49, %28
   br i1 %50, label %51, label %54
 
 51:                                               ; preds = %47
-  %52 = call ptr @igrab(ptr noundef %42) #6
+  %52 = call ptr @igrab(ptr noundef nonnull %42) #6
   %53 = icmp eq ptr %52, null
   br i1 %53, label %54, label %61
 
 54:                                               ; preds = %51, %47
-  %55 = getelementptr inbounds i8, ptr %41, i64 80
+  %55 = getelementptr inbounds nuw i8, ptr %41, i64 80
   %56 = load ptr, ptr %55, align 8
   %57 = icmp eq ptr %56, null
   %58 = getelementptr i8, ptr %56, i64 -80
@@ -118,12 +118,12 @@ define internal ptr @fat_get_parent(ptr nocapture noundef readonly %0) #1 align 
   br i1 %60, label %.loopexit15, label %.preheader14, !llvm.loop !9
 
 61:                                               ; preds = %51
-  call void @_raw_spin_unlock(ptr noundef %35) #6
+  call void @_raw_spin_unlock(ptr noundef nonnull %35) #6
   br label %168
 
 .loopexit15:                                      ; preds = %54, %27
-  call void @_raw_spin_unlock(ptr noundef %35) #6
-  %62 = getelementptr inbounds i8, ptr %8, i64 220
+  call void @_raw_spin_unlock(ptr noundef nonnull %35) #6
+  %62 = getelementptr inbounds nuw i8, ptr %8, i64 220
   %63 = load i8, ptr %62, align 4
   %64 = icmp eq i8 %63, 2
   br i1 %64, label %65, label %168
@@ -137,12 +137,12 @@ define internal ptr @fat_get_parent(ptr nocapture noundef readonly %0) #1 align 
   %69 = load i16, ptr %66, align 8
   %70 = zext i16 %69 to i64
   %71 = mul nsw i64 %68, %70
-  %72 = getelementptr inbounds i8, ptr %66, i64 40
+  %72 = getelementptr inbounds nuw i8, ptr %66, i64 40
   %73 = load i64, ptr %72, align 8
   %74 = add i64 %71, %73
-  %75 = getelementptr inbounds i8, ptr %6, i64 200
+  %75 = getelementptr inbounds nuw i8, ptr %6, i64 200
   %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds i8, ptr %6, i64 24
+  %77 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %78 = load i64, ptr %77, align 8
   %79 = trunc i64 %78 to i32
   %80 = call ptr @__bread_gfp(ptr noundef %76, i64 noundef %74, i32 noundef %79, i32 noundef 8) #6
@@ -154,12 +154,12 @@ define internal ptr @fat_get_parent(ptr nocapture noundef readonly %0) #1 align 
   br label %166
 
 83:                                               ; preds = %65
-  %84 = getelementptr inbounds i8, ptr %80, i64 40
+  %84 = getelementptr inbounds nuw i8, ptr %80, i64 40
   %85 = load ptr, ptr %84, align 8
-  %86 = getelementptr inbounds i8, ptr %85, i64 26
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 26
   %87 = load i16, ptr %86, align 2
   %88 = zext i16 %87 to i32
-  %89 = getelementptr inbounds i8, ptr %66, i64 9
+  %89 = getelementptr inbounds nuw i8, ptr %66, i64 9
   %90 = load i8, ptr %89, align 1
   %91 = icmp eq i8 %90, 32
   br i1 %91, label %96, label %92
@@ -171,7 +171,7 @@ define internal ptr @fat_get_parent(ptr nocapture noundef readonly %0) #1 align 
   br label %110
 
 96:                                               ; preds = %83
-  %97 = getelementptr inbounds i8, ptr %85, i64 20
+  %97 = getelementptr inbounds nuw i8, ptr %85, i64 20
   %98 = load i16, ptr %97, align 4
   %99 = zext i16 %98 to i32
   %100 = shl nuw i32 %99, 16
@@ -191,13 +191,13 @@ define internal ptr @fat_get_parent(ptr nocapture noundef readonly %0) #1 align 
   %112 = phi i32 [ %109, %96 ], [ %95, %92 ]
   %113 = getelementptr i8, ptr %85, i64 32
   %114 = load ptr, ptr %7, align 8
-  %115 = getelementptr inbounds i8, ptr %114, i64 2400
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 2400
   %116 = mul i32 %112, 1640531527
   %117 = lshr i32 %116, 24
   %118 = zext nneg i32 %117 to i64
   %119 = getelementptr %struct.hlist_head, ptr %115, i64 %118
-  %120 = getelementptr inbounds i8, ptr %114, i64 2392
-  call void @_raw_spin_lock(ptr noundef %120) #6
+  %120 = getelementptr inbounds nuw i8, ptr %114, i64 2392
+  call void @_raw_spin_lock(ptr noundef nonnull %120) #6
   %121 = load ptr, ptr %119, align 8
   %122 = icmp eq ptr %121, null
   %123 = getelementptr i8, ptr %121, i64 -80
@@ -207,8 +207,8 @@ define internal ptr @fat_get_parent(ptr nocapture noundef readonly %0) #1 align 
 
 .preheader:                                       ; preds = %110, %139
   %126 = phi ptr [ %143, %139 ], [ %123, %110 ]
-  %127 = getelementptr inbounds i8, ptr %126, i64 152
-  %128 = getelementptr inbounds i8, ptr %126, i64 192
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 152
+  %128 = getelementptr inbounds nuw i8, ptr %126, i64 192
   %129 = load ptr, ptr %128, align 8
   %130 = icmp eq ptr %129, %6
   br i1 %130, label %132, label %131, !prof !6
@@ -219,18 +219,18 @@ define internal ptr @fat_get_parent(ptr nocapture noundef readonly %0) #1 align 
   unreachable
 
 132:                                              ; preds = %.preheader
-  %133 = getelementptr inbounds i8, ptr %126, i64 44
+  %133 = getelementptr inbounds nuw i8, ptr %126, i64 44
   %134 = load i32, ptr %133, align 4
   %135 = icmp eq i32 %134, %112
   br i1 %135, label %136, label %139
 
 136:                                              ; preds = %132
-  %137 = call ptr @igrab(ptr noundef %127) #6
+  %137 = call ptr @igrab(ptr noundef nonnull %127) #6
   %138 = icmp eq ptr %137, null
   br i1 %138, label %139, label %146
 
 139:                                              ; preds = %136, %132
-  %140 = getelementptr inbounds i8, ptr %126, i64 80
+  %140 = getelementptr inbounds nuw i8, ptr %126, i64 80
   %141 = load ptr, ptr %140, align 8
   %142 = icmp eq ptr %141, null
   %143 = getelementptr i8, ptr %141, i64 -80
@@ -239,11 +239,11 @@ define internal ptr @fat_get_parent(ptr nocapture noundef readonly %0) #1 align 
   br i1 %145, label %.loopexit, label %.preheader, !llvm.loop !9
 
 146:                                              ; preds = %136
-  call void @_raw_spin_unlock(ptr noundef %120) #6
+  call void @_raw_spin_unlock(ptr noundef nonnull %120) #6
   br label %155
 
 .loopexit:                                        ; preds = %139, %110
-  call void @_raw_spin_unlock(ptr noundef %120) #6
+  call void @_raw_spin_unlock(ptr noundef nonnull %120) #6
   %147 = call ptr @new_inode(ptr noundef %6) #6
   %148 = icmp eq ptr %147, null
   br i1 %148, label %149, label %150
@@ -254,7 +254,7 @@ define internal ptr @fat_get_parent(ptr nocapture noundef readonly %0) #1 align 
 
 150:                                              ; preds = %.loopexit
   %151 = call i64 @iunique(ptr noundef %6, i64 noundef 1) #6
-  %152 = getelementptr inbounds i8, ptr %147, i64 64
+  %152 = getelementptr inbounds nuw i8, ptr %147, i64 64
   store i64 %151, ptr %152, align 8
   %153 = call i32 @fat_fill_inode(ptr noundef nonnull %147, ptr noundef %113) #6
   %154 = getelementptr i8, ptr %147, i64 -96
@@ -268,7 +268,7 @@ define internal ptr @fat_get_parent(ptr nocapture noundef readonly %0) #1 align 
   br i1 %158, label %159, label %164
 
 159:                                              ; preds = %155
-  %160 = getelementptr inbounds i8, ptr %2, i64 24
+  %160 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %161 = load ptr, ptr %160, align 8
   %162 = load i64, ptr %2, align 8
   %163 = call ptr @fat_build_inode(ptr noundef %6, ptr noundef %161, i64 noundef %162) #6
@@ -320,15 +320,15 @@ define internal noundef range(i32 113, 256) i32 @fat_encode_fh_nostale(ptr nocap
   %12 = getelementptr i8, ptr %0, i64 -96
   %13 = load i64, ptr %12, align 8
   store i32 3, ptr %2, align 4
-  %14 = getelementptr inbounds i8, ptr %0, i64 576
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 576
   %15 = load i32, ptr %14, align 8
   store i32 %15, ptr %1, align 4
   %16 = trunc i64 %13 to i32
-  %17 = getelementptr inbounds i8, ptr %1, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 %16, ptr %17, align 4
   %18 = lshr i64 %13, 32
   %19 = trunc i64 %18 to i16
-  %20 = getelementptr inbounds i8, ptr %1, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i16 %19, ptr %20, align 4
   br i1 %6, label %35, label %21
 
@@ -337,14 +337,14 @@ define internal noundef range(i32 113, 256) i32 @fat_encode_fh_nostale(ptr nocap
   %23 = load i64, ptr %22, align 8
   %24 = lshr i64 %23, 32
   %25 = trunc i64 %24 to i16
-  %26 = getelementptr inbounds i8, ptr %1, i64 10
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 10
   store i16 %25, ptr %26, align 2
   %27 = trunc i64 %23 to i32
-  %28 = getelementptr inbounds i8, ptr %1, i64 12
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 %27, ptr %28, align 4
-  %29 = getelementptr inbounds i8, ptr %3, i64 576
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 576
   %30 = load i32, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %1, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i32 %30, ptr %31, align 4
   br label %32
 
@@ -375,11 +375,11 @@ define internal ptr @fat_fh_to_dentry_nostale(ptr noundef %0, ptr nocapture noun
   br i1 %8, label %21, label %9
 
 9:                                                ; preds = %7, %5
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load i16, ptr %10, align 4
   %12 = zext i16 %11 to i64
   %13 = shl nuw nsw i64 %12, 32
-  %14 = getelementptr inbounds i8, ptr %1, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %15 = load i32, ptr %14, align 4
   %16 = zext i32 %15 to i64
   %17 = or disjoint i64 %13, %16
@@ -403,15 +403,15 @@ define internal ptr @fat_fh_to_parent_nostale(ptr noundef %0, ptr nocapture noun
   br i1 %7, label %8, label %20
 
 8:                                                ; preds = %6
-  %9 = getelementptr inbounds i8, ptr %1, i64 10
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 10
   %10 = load i16, ptr %9, align 2
   %11 = zext i16 %10 to i64
   %12 = shl nuw nsw i64 %11, 32
-  %13 = getelementptr inbounds i8, ptr %1, i64 12
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %14 = load i32, ptr %13, align 4
   %15 = zext i32 %14 to i64
   %16 = or disjoint i64 %12, %15
-  %17 = getelementptr inbounds i8, ptr %1, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %18 = load i32, ptr %17, align 4
   %19 = tail call fastcc ptr @__fat_nfs_get_inode(ptr noundef %0, i64 noundef 0, i32 noundef %18, i64 noundef %16)
   br label %20
@@ -437,9 +437,9 @@ define internal ptr @fat_nfs_get_inode(ptr noundef %0, i64 noundef %1, i32 nound
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc ptr @__fat_nfs_get_inode(ptr noundef %0, i64 noundef %1, i32 noundef %2, i64 noundef range(i64 0, 281474976710656) %3) unnamed_addr #1 align 16 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 872
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 872
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 220
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 220
   %8 = load i8, ptr %7, align 4
   %9 = icmp eq i8 %8, 2
   br i1 %9, label %10, label %12
@@ -465,7 +465,7 @@ define internal fastcc ptr @__fat_nfs_get_inode(ptr noundef %0, i64 noundef %1, 
   br i1 %21, label %22, label %27
 
 22:                                               ; preds = %17
-  %23 = getelementptr inbounds i8, ptr %18, i64 576
+  %23 = getelementptr inbounds nuw i8, ptr %18, i64 576
   %24 = load i32, ptr %23, align 8
   %25 = icmp eq i32 %24, %2
   br i1 %25, label %.thread5, label %26
@@ -480,21 +480,21 @@ define internal fastcc ptr @__fat_nfs_get_inode(ptr noundef %0, i64 noundef %1, 
 
 .thread4:                                         ; preds = %12, %26, %27
   %29 = load ptr, ptr %5, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 220
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 220
   %31 = load i8, ptr %30, align 4
   %32 = icmp eq i8 %31, 2
   br i1 %32, label %33, label %.thread5
 
 33:                                               ; preds = %.thread4
-  %34 = getelementptr inbounds i8, ptr %29, i64 260
+  %34 = getelementptr inbounds nuw i8, ptr %29, i64 260
   %35 = load i32, ptr %34, align 4
   %36 = zext nneg i32 %35 to i64
   %37 = lshr i64 %3, %36
-  %38 = getelementptr inbounds i8, ptr %29, i64 256
+  %38 = getelementptr inbounds nuw i8, ptr %29, i64 256
   %39 = load i32, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 200
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %0, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %43 = load i64, ptr %42, align 8
   %44 = trunc i64 %43 to i32
   %45 = tail call ptr @__bread_gfp(ptr noundef %41, i64 noundef %37, i32 noundef %44, i32 noundef 8) #6
@@ -509,7 +509,7 @@ define internal fastcc ptr @__fat_nfs_get_inode(ptr noundef %0, i64 noundef %1, 
   %49 = add i32 %39, -1
   %50 = trunc i64 %3 to i32
   %51 = and i32 %49, %50
-  %52 = getelementptr inbounds i8, ptr %45, i64 40
+  %52 = getelementptr inbounds nuw i8, ptr %45, i64 40
   %53 = load ptr, ptr %52, align 8
   %54 = sext i32 %51 to i64
   %55 = getelementptr %struct.msdos_dir_entry, ptr %53, i64 %54

@@ -180,7 +180,7 @@ if.then.i4:                                       ; preds = %cond.end28
   br label %PyMutex_Unlock.exit
 
 PyMutex_Unlock.exit:                              ; preds = %cond.end28, %if.then.i4
-  %done = getelementptr inbounds i8, ptr %test_data, i64 1
+  %done = getelementptr inbounds nuw i8, ptr %test_data, i64 1
   call void @PyEvent_Wait(ptr noundef nonnull %done) #5
   %8 = load i8, ptr %test_data, align 8
   %cmp33 = icmp eq i8 %8, 0
@@ -221,7 +221,7 @@ for.body6:                                        ; preds = %for.body, %for.body
   br i1 %exitcond8.not, label %for.end10, label %for.body6, !llvm.loop !7
 
 for.end10:                                        ; preds = %for.body6
-  %counter = getelementptr inbounds i8, ptr %test_data, i64 8
+  %counter = getelementptr inbounds nuw i8, ptr %test_data, i64 8
   %0 = load i64, ptr %counter, align 8
   %cmp11 = icmp eq i64 %0, 50000
   br i1 %cmp11, label %cond.end, label %cond.false
@@ -261,7 +261,7 @@ for.body6:                                        ; preds = %for.body, %for.body
   br i1 %exitcond8.not, label %for.end10, label %for.body6, !llvm.loop !9
 
 for.end10:                                        ; preds = %for.body6
-  %counter = getelementptr inbounds i8, ptr %test_data, i64 8
+  %counter = getelementptr inbounds nuw i8, ptr %test_data, i64 8
   %0 = load i64, ptr %counter, align 8
   %cmp11 = icmp eq i64 %0, 500
   br i1 %cmp11, label %cond.end, label %cond.false
@@ -465,7 +465,7 @@ define internal noundef nonnull ptr @test_lock_rwlock(ptr nocapture readnone %se
 entry:
   %test_data = alloca %struct.test_rwlock_data, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %test_data, ptr noundef nonnull align 8 dereferenceable(24) @__const.test_lock_rwlock.test_data, i64 24, i1 false)
-  %rw = getelementptr inbounds i8, ptr %test_data, i64 8
+  %rw = getelementptr inbounds nuw i8, ptr %test_data, i64 8
   call void @_PyRWMutex_Lock(ptr noundef nonnull %rw) #5
   %0 = load i64, ptr %rw, align 8
   %cmp = icmp eq i64 %0, 1
@@ -531,7 +531,7 @@ cond.false25:                                     ; preds = %wait_until.exit7
   unreachable
 
 cond.end26:                                       ; preds = %wait_until.exit7
-  %step1 = getelementptr inbounds i8, ptr %test_data, i64 16
+  %step1 = getelementptr inbounds nuw i8, ptr %test_data, i64 16
   call void @_PyEvent_Notify(ptr noundef nonnull %step1) #5
   br label %do.body.i8
 
@@ -554,7 +554,7 @@ cond.false33:                                     ; preds = %wait_until.exit14
   unreachable
 
 cond.end34:                                       ; preds = %wait_until.exit14
-  %step2 = getelementptr inbounds i8, ptr %test_data, i64 17
+  %step2 = getelementptr inbounds nuw i8, ptr %test_data, i64 17
   call void @_PyEvent_Notify(ptr noundef nonnull %step2) #5
   br label %do.body.i15
 
@@ -577,7 +577,7 @@ cond.false41:                                     ; preds = %wait_until.exit21
   unreachable
 
 cond.end42:                                       ; preds = %wait_until.exit21
-  %step3 = getelementptr inbounds i8, ptr %test_data, i64 18
+  %step3 = getelementptr inbounds nuw i8, ptr %test_data, i64 18
   call void @_PyEvent_Notify(ptr noundef nonnull %step3) #5
   br label %do.body.i22
 
@@ -600,7 +600,7 @@ cond.false49:                                     ; preds = %wait_until.exit28
   unreachable
 
 cond.end50:                                       ; preds = %wait_until.exit28
-  %done = getelementptr inbounds i8, ptr %test_data, i64 19
+  %done = getelementptr inbounds nuw i8, ptr %test_data, i64 19
   call void @PyEvent_Wait(ptr noundef nonnull %done) #5
   ret ptr @_Py_NoneStruct
 }
@@ -620,7 +620,7 @@ declare i64 @PyThread_start_new_thread(ptr noundef, ptr noundef) local_unnamed_a
 ; Function Attrs: nounwind uwtable
 define internal void @lock_thread(ptr noundef %arg) #0 {
 entry:
-  %started = getelementptr inbounds i8, ptr %arg, i64 4
+  %started = getelementptr inbounds nuw i8, ptr %arg, i64 4
   store atomic i32 1, ptr %started seq_cst, align 4
   %0 = cmpxchg ptr %arg, i8 0, i8 1 seq_cst seq_cst, align 1
   %1 = extractvalue { i8, i1 } %0, 1
@@ -658,7 +658,7 @@ cond.false8:                                      ; preds = %PyMutex_Unlock.exit
   unreachable
 
 cond.end9:                                        ; preds = %PyMutex_Unlock.exit
-  %done = getelementptr inbounds i8, ptr %arg, i64 1
+  %done = getelementptr inbounds nuw i8, ptr %arg, i64 1
   tail call void @_PyEvent_Notify(ptr noundef nonnull %done) #5
   ret void
 }
@@ -673,7 +673,7 @@ declare i32 @usleep(i32 noundef) local_unnamed_addr #1
 define internal void @counter_thread(ptr noundef %arg) #0 {
 entry:
   %0 = load ptr, ptr %arg, align 8
-  %counter = getelementptr inbounds i8, ptr %0, i64 8
+  %counter = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %entry, %PyMutex_Unlock.exit
@@ -704,7 +704,7 @@ PyMutex_Unlock.exit:                              ; preds = %PyMutex_Lock.exit, 
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !12
 
 for.end:                                          ; preds = %PyMutex_Unlock.exit
-  %done_event = getelementptr inbounds i8, ptr %arg, i64 8
+  %done_event = getelementptr inbounds nuw i8, ptr %arg, i64 8
   tail call void @_PyEvent_Notify(ptr noundef nonnull %done_event) #5
   ret void
 }
@@ -713,7 +713,7 @@ for.end:                                          ; preds = %PyMutex_Unlock.exit
 define internal void @slow_counter_thread(ptr noundef %arg) #0 {
 entry:
   %0 = load ptr, ptr %arg, align 8
-  %counter = getelementptr inbounds i8, ptr %0, i64 8
+  %counter = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %entry, %PyMutex_Unlock.exit
@@ -754,7 +754,7 @@ PyMutex_Unlock.exit:                              ; preds = %if.end, %if.then.i6
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !13
 
 for.end:                                          ; preds = %PyMutex_Unlock.exit
-  %done_event = getelementptr inbounds i8, ptr %arg, i64 8
+  %done_event = getelementptr inbounds nuw i8, ptr %arg, i64 8
   tail call void @_PyEvent_Notify(ptr noundef nonnull %done_event) #5
   ret void
 }
@@ -776,12 +776,12 @@ define internal fastcc ptr @_testinternalcapi_benchmark_locks_impl(i64 noundef %
 entry:
   %bench_data = alloca %struct.bench_data_locks, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(248) %bench_data, i8 0, i64 248, i1 false)
-  %use_pymutex1 = getelementptr inbounds i8, ptr %bench_data, i64 4
+  %use_pymutex1 = getelementptr inbounds nuw i8, ptr %bench_data, i64 4
   store i32 %use_pymutex, ptr %use_pymutex1, align 4
-  %critical_section_length2 = getelementptr inbounds i8, ptr %bench_data, i64 8
+  %critical_section_length2 = getelementptr inbounds nuw i8, ptr %bench_data, i64 8
   store i32 %critical_section_length, ptr %critical_section_length2, align 8
   %call = tail call ptr @PyThread_allocate_lock() #5
-  %lock = getelementptr inbounds i8, ptr %bench_data, i64 216
+  %lock = getelementptr inbounds nuw i8, ptr %bench_data, i64 216
   store ptr %call, ptr %lock, align 8
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %if.then, label %if.end
@@ -813,7 +813,7 @@ for.end.thread:                                   ; preds = %if.end13
   %mul.i9 = mul i32 %time_ms, 1000
   %call.i10 = tail call i32 @usleep(i32 noundef %mul.i9) #5
   store atomic i32 1, ptr %bench_data seq_cst, align 8
-  %total_iters2711 = getelementptr inbounds i8, ptr %bench_data, i64 240
+  %total_iters2711 = getelementptr inbounds nuw i8, ptr %bench_data, i64 240
   %0 = load i64, ptr %total_iters2711, align 8
   %call2812 = tail call i64 @_PyTime_GetMonotonicClock() #5
   br label %for.end40
@@ -842,12 +842,12 @@ for.body22:                                       ; preds = %for.end, %for.body2
   br i1 %exitcond7.not, label %for.end26, label %for.body22, !llvm.loop !15
 
 for.end26:                                        ; preds = %for.body22
-  %total_iters27 = getelementptr inbounds i8, ptr %bench_data, i64 240
+  %total_iters27 = getelementptr inbounds nuw i8, ptr %bench_data, i64 240
   %1 = load i64, ptr %total_iters27, align 8
   %call28 = call i64 @_PyTime_GetMonotonicClock() #5
   %2 = getelementptr i8, ptr %call10, i64 8
-  %allocated.i = getelementptr inbounds i8, ptr %call10, i64 32
-  %ob_item.i = getelementptr inbounds i8, ptr %call10, i64 24
+  %allocated.i = getelementptr inbounds nuw i8, ptr %call10, i64 32
+  %ob_item.i = getelementptr inbounds nuw i8, ptr %call10, i64 24
   br label %for.body32
 
 for.body32:                                       ; preds = %for.end26, %PyList_SET_ITEM.exit
@@ -944,9 +944,9 @@ declare i64 @_PyTime_GetMonotonicClock() local_unnamed_addr #1
 define internal void @thread_benchmark_locks(ptr noundef %arg) #0 {
 entry:
   %0 = load ptr, ptr %arg, align 8
-  %use_pymutex2 = getelementptr inbounds i8, ptr %0, i64 4
+  %use_pymutex2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %1 = load i32, ptr %use_pymutex2, align 4
-  %critical_section_length3 = getelementptr inbounds i8, ptr %0, i64 8
+  %critical_section_length3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = load i32, ptr %critical_section_length3, align 8
   %.fr = freeze i32 %2
   %3 = load atomic i32, ptr %0 monotonic, align 4
@@ -955,9 +955,9 @@ entry:
 
 while.body.lr.ph:                                 ; preds = %entry
   %tobool4.not = icmp eq i32 %1, 0
-  %m = getelementptr inbounds i8, ptr %0, i64 224
-  %value = getelementptr inbounds i8, ptr %0, i64 232
-  %lock = getelementptr inbounds i8, ptr %0, i64 216
+  %m = getelementptr inbounds nuw i8, ptr %0, i64 224
+  %value = getelementptr inbounds nuw i8, ptr %0, i64 232
+  %lock = getelementptr inbounds nuw i8, ptr %0, i64 216
   %cmp1024 = icmp sgt i32 %.fr, 0
   br i1 %tobool4.not, label %while.body.lr.ph.split.us, label %while.body.lr.ph.split
 
@@ -1071,11 +1071,11 @@ if.end:                                           ; preds = %if.then.i20, %PyMut
 
 while.end:                                        ; preds = %if.end, %if.end.us35, %while.body.us, %for.cond9.for.end17_crit_edge.us.us, %entry
   %iters.0.lcssa = phi i64 [ 0, %entry ], [ %inc19.us.us, %for.cond9.for.end17_crit_edge.us.us ], [ %inc19.us, %while.body.us ], [ %inc19.us36, %if.end.us35 ], [ %inc19, %if.end ]
-  %iters20 = getelementptr inbounds i8, ptr %arg, i64 8
+  %iters20 = getelementptr inbounds nuw i8, ptr %arg, i64 8
   store i64 %iters.0.lcssa, ptr %iters20, align 8
-  %total_iters = getelementptr inbounds i8, ptr %0, i64 240
+  %total_iters = getelementptr inbounds nuw i8, ptr %0, i64 240
   %22 = atomicrmw add ptr %total_iters, i64 %iters.0.lcssa seq_cst, align 8
-  %done = getelementptr inbounds i8, ptr %arg, i64 16
+  %done = getelementptr inbounds nuw i8, ptr %arg, i64 16
   tail call void @_PyEvent_Notify(ptr noundef nonnull %done) #5
   ret void
 }
@@ -1126,13 +1126,13 @@ declare void @_PyRWMutex_Unlock(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal void @rdlock_thread(ptr noundef %arg) #0 {
 entry:
-  %rw = getelementptr inbounds i8, ptr %arg, i64 8
+  %rw = getelementptr inbounds nuw i8, ptr %arg, i64 8
   tail call void @_PyRWMutex_RLock(ptr noundef nonnull %rw) #5
-  %step1 = getelementptr inbounds i8, ptr %arg, i64 16
+  %step1 = getelementptr inbounds nuw i8, ptr %arg, i64 16
   tail call void @PyEvent_Wait(ptr noundef nonnull %step1) #5
   tail call void @_PyRWMutex_RUnlock(ptr noundef nonnull %rw) #5
   tail call void @_PyRWMutex_RLock(ptr noundef nonnull %rw) #5
-  %step3 = getelementptr inbounds i8, ptr %arg, i64 18
+  %step3 = getelementptr inbounds nuw i8, ptr %arg, i64 18
   tail call void @PyEvent_Wait(ptr noundef nonnull %step3) #5
   tail call void @_PyRWMutex_RUnlock(ptr noundef nonnull %rw) #5
   %0 = atomicrmw add ptr %arg, i64 -1 seq_cst, align 8
@@ -1140,7 +1140,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %done = getelementptr inbounds i8, ptr %arg, i64 19
+  %done = getelementptr inbounds nuw i8, ptr %arg, i64 19
   tail call void @_PyEvent_Notify(ptr noundef nonnull %done) #5
   br label %if.end
 
@@ -1151,9 +1151,9 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: nounwind uwtable
 define internal void @wrlock_thread(ptr noundef %arg) #0 {
 entry:
-  %rw = getelementptr inbounds i8, ptr %arg, i64 8
+  %rw = getelementptr inbounds nuw i8, ptr %arg, i64 8
   tail call void @_PyRWMutex_Lock(ptr noundef nonnull %rw) #5
-  %step2 = getelementptr inbounds i8, ptr %arg, i64 17
+  %step2 = getelementptr inbounds nuw i8, ptr %arg, i64 17
   tail call void @PyEvent_Wait(ptr noundef nonnull %step2) #5
   tail call void @_PyRWMutex_Unlock(ptr noundef nonnull %rw) #5
   %0 = atomicrmw add ptr %arg, i64 -1 seq_cst, align 8
@@ -1161,7 +1161,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %done = getelementptr inbounds i8, ptr %arg, i64 19
+  %done = getelementptr inbounds nuw i8, ptr %arg, i64 19
   tail call void @_PyEvent_Notify(ptr noundef nonnull %done) #5
   br label %if.end
 

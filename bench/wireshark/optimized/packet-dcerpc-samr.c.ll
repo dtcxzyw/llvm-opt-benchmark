@@ -2239,13 +2239,13 @@ define hidden i32 @samr_dissect_bitmap_UserAccessMask(ptr noundef %0, i32 nounde
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @samr_dissect_struct_lsa_Strings(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not40 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -2293,14 +2293,14 @@ define hidden i32 @samr_dissect_struct_lsa_Strings(ptr noundef %0, i32 noundef %
   %36 = sub i32 %35, %.0
   tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #5
   %37 = load ptr, ptr %9, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 96
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
   %40 = and i32 %39, 1
   %.not45 = icmp eq i32 %40, 0
   br i1 %.not45, label %48, label %41
 
 41:                                               ; preds = %31
-  %42 = getelementptr inbounds i8, ptr %4, i64 28
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %43 = load i32, ptr %42, align 4
   %.not46 = icmp ne i32 %43, 0
   %44 = and i32 %35, 7
@@ -2353,7 +2353,7 @@ declare i32 @dissect_ndr_uint32(ptr noundef, i32 noundef, ptr noundef, ptr nound
 ; Function Attrs: nounwind uwtable
 define hidden i32 @samr_dissect_bitmap_AcctFlags(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  %10 = getelementptr inbounds i8, ptr %4, i64 28
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %11 = load i32, ptr %10, align 4
   %.not = icmp ne i32 %11, 0
   %12 = and i32 %1, 3
@@ -2399,13 +2399,13 @@ declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unname
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @samr_dissect_struct_SamEntry(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not40 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -2453,14 +2453,14 @@ define hidden i32 @samr_dissect_struct_SamEntry(ptr noundef %0, i32 noundef %1, 
   %36 = sub i32 %35, %.0
   tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #5
   %37 = load ptr, ptr %9, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 96
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
   %40 = and i32 %39, 1
   %.not45 = icmp eq i32 %40, 0
   br i1 %.not45, label %48, label %41
 
 41:                                               ; preds = %31
-  %42 = getelementptr inbounds i8, ptr %4, i64 28
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %43 = load i32, ptr %42, align 4
   %.not46 = icmp ne i32 %43, 0
   %44 = and i32 %35, 7
@@ -2480,13 +2480,13 @@ define hidden i32 @samr_dissect_struct_SamEntry(ptr noundef %0, i32 noundef %1, 
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @samr_dissect_struct_SamArray(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not40 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -2534,14 +2534,14 @@ define hidden i32 @samr_dissect_struct_SamArray(ptr noundef %0, i32 noundef %1, 
   %36 = sub i32 %35, %.0
   tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #5
   %37 = load ptr, ptr %9, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 96
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
   %40 = and i32 %39, 1
   %.not45 = icmp eq i32 %40, 0
   br i1 %.not45, label %48, label %41
 
 41:                                               ; preds = %31
-  %42 = getelementptr inbounds i8, ptr %4, i64 28
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %43 = load i32, ptr %42, align 4
   %.not46 = icmp ne i32 %43, 0
   %44 = and i32 %35, 7
@@ -2612,7 +2612,7 @@ define hidden i32 @samr_dissect_enum_Role(ptr noundef %0, i32 noundef %1, ptr no
 ; Function Attrs: nounwind uwtable
 define hidden i32 @samr_dissect_bitmap_PasswordProperties(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  %10 = getelementptr inbounds i8, ptr %4, i64 28
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %11 = load i32, ptr %10, align 4
   %.not = icmp ne i32 %11, 0
   %12 = and i32 %1, 3
@@ -2678,7 +2678,7 @@ define hidden i32 @samr_dissect_enum_DomainServerState(ptr noundef %0, i32 nound
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @samr_dissect_struct_DomInfo1(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 3
@@ -2711,9 +2711,9 @@ define hidden i32 @samr_dissect_struct_DomInfo1(ptr noundef %0, i32 noundef %1, 
   %28 = tail call i32 @dissect_ndr_duint32(ptr noundef %0, i32 noundef %26, ptr noundef %2, ptr noundef %.047, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %27, ptr noundef null) #5
   %29 = sub i32 %28, %.0
   tail call void @proto_item_set_len(ptr noundef %.048, i32 noundef %29) #5
-  %30 = getelementptr inbounds i8, ptr %4, i64 72
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 96
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 96
   %33 = load i32, ptr %32, align 8
   %34 = and i32 %33, 1
   %.not52 = icmp eq i32 %34, 0
@@ -2741,13 +2741,13 @@ define hidden i32 @samr_dissect_struct_DomInfo1(ptr noundef %0, i32 noundef %1, 
 define hidden i32 @samr_dissect_struct_DomGeneralInformation(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
-  %11 = getelementptr inbounds i8, ptr %4, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 96
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 96
   %14 = load i32, ptr %13, align 8
   %15 = and i32 %14, 1
   %.not = icmp eq i32 %15, 0
-  %16 = getelementptr inbounds i8, ptr %4, i64 28
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %17 = load i32, ptr %16, align 4
   %.not94 = icmp ne i32 %17, 0
   br i1 %.not, label %23, label %18
@@ -2819,14 +2819,14 @@ define hidden i32 @samr_dissect_struct_DomGeneralInformation(ptr noundef %0, i32
   %56 = sub i32 %55, %.0
   call void @proto_item_set_len(ptr noundef %.092, i32 noundef %56) #5
   %57 = load ptr, ptr %11, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 96
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 96
   %59 = load i32, ptr %58, align 8
   %60 = and i32 %59, 1
   %.not99 = icmp eq i32 %60, 0
   br i1 %.not99, label %68, label %61
 
 61:                                               ; preds = %33
-  %62 = getelementptr inbounds i8, ptr %4, i64 28
+  %62 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %63 = load i32, ptr %62, align 4
   %.not100 = icmp ne i32 %63, 0
   %64 = and i32 %55, 7
@@ -2846,7 +2846,7 @@ define hidden i32 @samr_dissect_struct_DomGeneralInformation(ptr noundef %0, i32
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @samr_dissect_struct_DomInfo3(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 3
@@ -2871,9 +2871,9 @@ define hidden i32 @samr_dissect_struct_DomInfo3(ptr noundef %0, i32 noundef %1, 
   %20 = tail call i32 @dissect_ndr_nt_NTTIME(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19) #5
   %21 = sub i32 %20, %.0
   tail call void @proto_item_set_len(ptr noundef %.024, i32 noundef %21) #5
-  %22 = getelementptr inbounds i8, ptr %4, i64 72
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 96
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 96
   %25 = load i32, ptr %24, align 8
   %26 = and i32 %25, 1
   %.not28 = icmp eq i32 %26, 0
@@ -2899,13 +2899,13 @@ define hidden i32 @samr_dissect_struct_DomInfo3(ptr noundef %0, i32 noundef %1, 
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @samr_dissect_struct_DomOEMInformation(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not34 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -2951,14 +2951,14 @@ define hidden i32 @samr_dissect_struct_DomOEMInformation(ptr noundef %0, i32 nou
   %34 = sub i32 %33, %.0
   tail call void @proto_item_set_len(ptr noundef %.032, i32 noundef %34) #5
   %35 = load ptr, ptr %9, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 96
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 96
   %37 = load i32, ptr %36, align 8
   %38 = and i32 %37, 1
   %.not39 = icmp eq i32 %38, 0
   br i1 %.not39, label %46, label %39
 
 39:                                               ; preds = %31
-  %40 = getelementptr inbounds i8, ptr %4, i64 28
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %41 = load i32, ptr %40, align 4
   %.not40 = icmp ne i32 %41, 0
   %42 = and i32 %33, 7
@@ -2978,13 +2978,13 @@ define hidden i32 @samr_dissect_struct_DomOEMInformation(ptr noundef %0, i32 nou
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @samr_dissect_struct_DomInfo5(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not34 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -3030,14 +3030,14 @@ define hidden i32 @samr_dissect_struct_DomInfo5(ptr noundef %0, i32 noundef %1, 
   %34 = sub i32 %33, %.0
   tail call void @proto_item_set_len(ptr noundef %.032, i32 noundef %34) #5
   %35 = load ptr, ptr %9, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 96
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 96
   %37 = load i32, ptr %36, align 8
   %38 = and i32 %37, 1
   %.not39 = icmp eq i32 %38, 0
   br i1 %.not39, label %46, label %39
 
 39:                                               ; preds = %31
-  %40 = getelementptr inbounds i8, ptr %4, i64 28
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %41 = load i32, ptr %40, align 4
   %.not40 = icmp ne i32 %41, 0
   %42 = and i32 %33, 7
@@ -3057,13 +3057,13 @@ define hidden i32 @samr_dissect_struct_DomInfo5(ptr noundef %0, i32 noundef %1, 
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @samr_dissect_struct_DomInfo6(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not34 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -3109,14 +3109,14 @@ define hidden i32 @samr_dissect_struct_DomInfo6(ptr noundef %0, i32 noundef %1, 
   %34 = sub i32 %33, %.0
   tail call void @proto_item_set_len(ptr noundef %.032, i32 noundef %34) #5
   %35 = load ptr, ptr %9, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 96
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 96
   %37 = load i32, ptr %36, align 8
   %38 = and i32 %37, 1
   %.not39 = icmp eq i32 %38, 0
   br i1 %.not39, label %46, label %39
 
 39:                                               ; preds = %31
-  %40 = getelementptr inbounds i8, ptr %4, i64 28
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %41 = load i32, ptr %40, align 4
   %.not40 = icmp ne i32 %41, 0
   %42 = and i32 %33, 7
@@ -3137,7 +3137,7 @@ define hidden i32 @samr_dissect_struct_DomInfo6(ptr noundef %0, i32 noundef %1, 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @samr_dissect_struct_DomInfo7(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  %10 = getelementptr inbounds i8, ptr %4, i64 28
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %11 = load i32, ptr %10, align 4
   %.not = icmp ne i32 %11, 0
   %12 = and i32 %1, 3
@@ -3165,9 +3165,9 @@ define hidden i32 @samr_dissect_struct_DomInfo7(ptr noundef %0, i32 noundef %1, 
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   %22 = sub i32 %21, %.0
   call void @proto_item_set_len(ptr noundef %.024, i32 noundef %22) #5
-  %23 = getelementptr inbounds i8, ptr %4, i64 72
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 96
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 96
   %26 = load i32, ptr %25, align 8
   %27 = and i32 %26, 1
   %.not28 = icmp eq i32 %27, 0
@@ -3193,7 +3193,7 @@ define hidden i32 @samr_dissect_struct_DomInfo7(ptr noundef %0, i32 noundef %1, 
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @samr_dissect_struct_DomInfo8(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 7
@@ -3220,9 +3220,9 @@ define hidden i32 @samr_dissect_struct_DomInfo8(ptr noundef %0, i32 noundef %1, 
   %22 = tail call i32 @dissect_ndr_nt_NTTIME(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.029, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21) #5
   %23 = sub i32 %22, %.0
   tail call void @proto_item_set_len(ptr noundef %.030, i32 noundef %23) #5
-  %24 = getelementptr inbounds i8, ptr %4, i64 72
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 96
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 96
   %27 = load i32, ptr %26, align 8
   %28 = and i32 %27, 1
   %.not34 = icmp eq i32 %28, 0
@@ -3249,7 +3249,7 @@ define hidden i32 @samr_dissect_struct_DomInfo8(ptr noundef %0, i32 noundef %1, 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @samr_dissect_struct_DomInfo9(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  %10 = getelementptr inbounds i8, ptr %4, i64 28
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %11 = load i32, ptr %10, align 4
   %.not = icmp ne i32 %11, 0
   %12 = and i32 %1, 3
@@ -3277,9 +3277,9 @@ define hidden i32 @samr_dissect_struct_DomInfo9(ptr noundef %0, i32 noundef %1, 
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   %22 = sub i32 %21, %.0
   call void @proto_item_set_len(ptr noundef %.024, i32 noundef %22) #5
-  %23 = getelementptr inbounds i8, ptr %4, i64 72
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 96
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 96
   %26 = load i32, ptr %25, align 8
   %27 = and i32 %26, 1
   %.not28 = icmp eq i32 %27, 0
@@ -3305,7 +3305,7 @@ define hidden i32 @samr_dissect_struct_DomInfo9(ptr noundef %0, i32 noundef %1, 
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @samr_dissect_struct_DomGeneralInformation2(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 7
@@ -3336,9 +3336,9 @@ define hidden i32 @samr_dissect_struct_DomGeneralInformation2(ptr noundef %0, i3
   %26 = tail call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.041, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %25, i32 noundef 0) #5
   %27 = sub i32 %26, %.0
   tail call void @proto_item_set_len(ptr noundef %.042, i32 noundef %27) #5
-  %28 = getelementptr inbounds i8, ptr %4, i64 72
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 96
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 96
   %31 = load i32, ptr %30, align 8
   %32 = and i32 %31, 1
   %.not46 = icmp eq i32 %32, 0
@@ -3364,7 +3364,7 @@ define hidden i32 @samr_dissect_struct_DomGeneralInformation2(ptr noundef %0, i3
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @samr_dissect_struct_DomInfo12(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 7
@@ -3393,9 +3393,9 @@ define hidden i32 @samr_dissect_struct_DomInfo12(ptr noundef %0, i32 noundef %1,
   %24 = tail call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.035, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23, i32 noundef 0) #5
   %25 = sub i32 %24, %.0
   tail call void @proto_item_set_len(ptr noundef %.036, i32 noundef %25) #5
-  %26 = getelementptr inbounds i8, ptr %4, i64 72
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 96
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 96
   %29 = load i32, ptr %28, align 8
   %30 = and i32 %29, 1
   %.not40 = icmp eq i32 %30, 0
@@ -3421,7 +3421,7 @@ define hidden i32 @samr_dissect_struct_DomInfo12(ptr noundef %0, i32 noundef %1,
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @samr_dissect_struct_DomInfo13(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 7
@@ -3450,9 +3450,9 @@ define hidden i32 @samr_dissect_struct_DomInfo13(ptr noundef %0, i32 noundef %1,
   %24 = tail call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.035, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23, ptr noundef null) #5
   %25 = sub i32 %24, %.0
   tail call void @proto_item_set_len(ptr noundef %.036, i32 noundef %25) #5
-  %26 = getelementptr inbounds i8, ptr %4, i64 72
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 96
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 96
   %29 = load i32, ptr %28, align 8
   %30 = and i32 %29, 1
   %.not40 = icmp eq i32 %30, 0
@@ -3478,13 +3478,13 @@ define hidden i32 @samr_dissect_struct_DomInfo13(ptr noundef %0, i32 noundef %1,
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @samr_dissect_struct_Ids(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not40 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -3532,14 +3532,14 @@ define hidden i32 @samr_dissect_struct_Ids(ptr noundef %0, i32 noundef %1, ptr n
   %36 = sub i32 %35, %.0
   tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #5
   %37 = load ptr, ptr %9, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 96
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
   %40 = and i32 %39, 1
   %.not45 = icmp eq i32 %40, 0
   br i1 %.not45, label %48, label %41
 
 41:                                               ; preds = %31
-  %42 = getelementptr inbounds i8, ptr %4, i64 28
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %43 = load i32, ptr %42, align 4
   %.not46 = icmp ne i32 %43, 0
   %44 = and i32 %35, 7
@@ -3560,7 +3560,7 @@ define hidden i32 @samr_dissect_struct_Ids(ptr noundef %0, i32 noundef %1, ptr n
 ; Function Attrs: nounwind uwtable
 define hidden i32 @samr_dissect_bitmap_GroupAttrs(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  %10 = getelementptr inbounds i8, ptr %4, i64 28
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %11 = load i32, ptr %10, align 4
   %.not = icmp ne i32 %11, 0
   %12 = and i32 %1, 3
@@ -3602,13 +3602,13 @@ define hidden i32 @samr_dissect_bitmap_GroupAttrs(ptr noundef %0, i32 noundef %1
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @samr_dissect_struct_GroupInfoAll(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not52 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -3660,14 +3660,14 @@ define hidden i32 @samr_dissect_struct_GroupInfoAll(ptr noundef %0, i32 noundef 
   %40 = sub i32 %39, %.0
   tail call void @proto_item_set_len(ptr noundef %.050, i32 noundef %40) #5
   %41 = load ptr, ptr %9, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 96
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 96
   %43 = load i32, ptr %42, align 8
   %44 = and i32 %43, 1
   %.not57 = icmp eq i32 %44, 0
   br i1 %.not57, label %52, label %45
 
 45:                                               ; preds = %31
-  %46 = getelementptr inbounds i8, ptr %4, i64 28
+  %46 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %47 = load i32, ptr %46, align 4
   %.not58 = icmp ne i32 %47, 0
   %48 = and i32 %39, 7
@@ -3687,7 +3687,7 @@ define hidden i32 @samr_dissect_struct_GroupInfoAll(ptr noundef %0, i32 noundef 
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @samr_dissect_struct_GroupInfoAttributes(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 3
@@ -3712,9 +3712,9 @@ define hidden i32 @samr_dissect_struct_GroupInfoAttributes(ptr noundef %0, i32 n
   %20 = tail call i32 @samr_dissect_bitmap_GroupAttrs(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 poison)
   %21 = sub i32 %20, %.0
   tail call void @proto_item_set_len(ptr noundef %.024, i32 noundef %21) #5
-  %22 = getelementptr inbounds i8, ptr %4, i64 72
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 96
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 96
   %25 = load i32, ptr %24, align 8
   %26 = and i32 %25, 1
   %.not28 = icmp eq i32 %26, 0
@@ -3740,13 +3740,13 @@ define hidden i32 @samr_dissect_struct_GroupInfoAttributes(ptr noundef %0, i32 n
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @samr_dissect_struct_GroupInfoDescription(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not34 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -3792,14 +3792,14 @@ define hidden i32 @samr_dissect_struct_GroupInfoDescription(ptr noundef %0, i32 
   %34 = sub i32 %33, %.0
   tail call void @proto_item_set_len(ptr noundef %.032, i32 noundef %34) #5
   %35 = load ptr, ptr %9, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 96
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 96
   %37 = load i32, ptr %36, align 8
   %38 = and i32 %37, 1
   %.not39 = icmp eq i32 %38, 0
   br i1 %.not39, label %46, label %39
 
 39:                                               ; preds = %31
-  %40 = getelementptr inbounds i8, ptr %4, i64 28
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %41 = load i32, ptr %40, align 4
   %.not40 = icmp ne i32 %41, 0
   %42 = and i32 %33, 7
@@ -3843,13 +3843,13 @@ define hidden i32 @samr_dissect_enum_GroupInfoEnum(ptr noundef %0, i32 noundef %
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @samr_dissect_struct_RidTypeArray(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not46 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -3899,14 +3899,14 @@ define hidden i32 @samr_dissect_struct_RidTypeArray(ptr noundef %0, i32 noundef 
   %38 = sub i32 %37, %.0
   tail call void @proto_item_set_len(ptr noundef %.044, i32 noundef %38) #5
   %39 = load ptr, ptr %9, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 96
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 96
   %41 = load i32, ptr %40, align 8
   %42 = and i32 %41, 1
   %.not51 = icmp eq i32 %42, 0
   br i1 %.not51, label %50, label %43
 
 43:                                               ; preds = %31
-  %44 = getelementptr inbounds i8, ptr %4, i64 28
+  %44 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %45 = load i32, ptr %44, align 4
   %.not52 = icmp ne i32 %45, 0
   %46 = and i32 %37, 7
@@ -3926,13 +3926,13 @@ define hidden i32 @samr_dissect_struct_RidTypeArray(ptr noundef %0, i32 noundef 
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @samr_dissect_struct_AliasInfoAll(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not46 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -3982,14 +3982,14 @@ define hidden i32 @samr_dissect_struct_AliasInfoAll(ptr noundef %0, i32 noundef 
   %38 = sub i32 %37, %.0
   tail call void @proto_item_set_len(ptr noundef %.044, i32 noundef %38) #5
   %39 = load ptr, ptr %9, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 96
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 96
   %41 = load i32, ptr %40, align 8
   %42 = and i32 %41, 1
   %.not51 = icmp eq i32 %42, 0
   br i1 %.not51, label %50, label %43
 
 43:                                               ; preds = %31
-  %44 = getelementptr inbounds i8, ptr %4, i64 28
+  %44 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %45 = load i32, ptr %44, align 4
   %.not52 = icmp ne i32 %45, 0
   %46 = and i32 %37, 7
@@ -4057,13 +4057,13 @@ define hidden i32 @samr_dissect_enum_UserInfoLevel(ptr noundef %0, i32 noundef %
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @samr_dissect_struct_UserInfo1(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not58 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -4117,14 +4117,14 @@ define hidden i32 @samr_dissect_struct_UserInfo1(ptr noundef %0, i32 noundef %1,
   %42 = sub i32 %41, %.0
   tail call void @proto_item_set_len(ptr noundef %.056, i32 noundef %42) #5
   %43 = load ptr, ptr %9, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 96
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 96
   %45 = load i32, ptr %44, align 8
   %46 = and i32 %45, 1
   %.not63 = icmp eq i32 %46, 0
   br i1 %.not63, label %54, label %47
 
 47:                                               ; preds = %31
-  %48 = getelementptr inbounds i8, ptr %4, i64 28
+  %48 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %49 = load i32, ptr %48, align 4
   %.not64 = icmp ne i32 %49, 0
   %50 = and i32 %41, 7
@@ -4144,13 +4144,13 @@ define hidden i32 @samr_dissect_struct_UserInfo1(ptr noundef %0, i32 noundef %1,
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @samr_dissect_struct_UserInfo2(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not52 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -4202,14 +4202,14 @@ define hidden i32 @samr_dissect_struct_UserInfo2(ptr noundef %0, i32 noundef %1,
   %40 = sub i32 %39, %.0
   tail call void @proto_item_set_len(ptr noundef %.050, i32 noundef %40) #5
   %41 = load ptr, ptr %9, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 96
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 96
   %43 = load i32, ptr %42, align 8
   %44 = and i32 %43, 1
   %.not57 = icmp eq i32 %44, 0
   br i1 %.not57, label %52, label %45
 
 45:                                               ; preds = %31
-  %46 = getelementptr inbounds i8, ptr %4, i64 28
+  %46 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %47 = load i32, ptr %46, align 4
   %.not58 = icmp ne i32 %47, 0
   %48 = and i32 %39, 7
@@ -4229,13 +4229,13 @@ define hidden i32 @samr_dissect_struct_UserInfo2(ptr noundef %0, i32 noundef %1,
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @samr_dissect_struct_LogonHours(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not40 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -4283,14 +4283,14 @@ define hidden i32 @samr_dissect_struct_LogonHours(ptr noundef %0, i32 noundef %1
   %36 = sub i32 %35, %.0
   tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #5
   %37 = load ptr, ptr %9, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 96
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
   %40 = and i32 %39, 1
   %.not45 = icmp eq i32 %40, 0
   br i1 %.not45, label %48, label %41
 
 41:                                               ; preds = %31
-  %42 = getelementptr inbounds i8, ptr %4, i64 28
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %43 = load i32, ptr %42, align 4
   %.not46 = icmp ne i32 %43, 0
   %44 = and i32 %35, 7
@@ -4310,13 +4310,13 @@ define hidden i32 @samr_dissect_struct_LogonHours(ptr noundef %0, i32 noundef %1
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @samr_dissect_struct_UserInfo3(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not136 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -4396,14 +4396,14 @@ define hidden i32 @samr_dissect_struct_UserInfo3(ptr noundef %0, i32 noundef %1,
   %68 = sub i32 %67, %.0
   tail call void @proto_item_set_len(ptr noundef %.0134, i32 noundef %68) #5
   %69 = load ptr, ptr %9, align 8
-  %70 = getelementptr inbounds i8, ptr %69, i64 96
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 96
   %71 = load i32, ptr %70, align 8
   %72 = and i32 %71, 1
   %.not141 = icmp eq i32 %72, 0
   br i1 %.not141, label %80, label %73
 
 73:                                               ; preds = %31
-  %74 = getelementptr inbounds i8, ptr %4, i64 28
+  %74 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %75 = load i32, ptr %74, align 4
   %.not142 = icmp ne i32 %75, 0
   %76 = and i32 %67, 7
@@ -4423,13 +4423,13 @@ define hidden i32 @samr_dissect_struct_UserInfo3(ptr noundef %0, i32 noundef %1,
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @samr_dissect_struct_UserInfo4(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not34 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -4475,14 +4475,14 @@ define hidden i32 @samr_dissect_struct_UserInfo4(ptr noundef %0, i32 noundef %1,
   %34 = sub i32 %33, %.0
   tail call void @proto_item_set_len(ptr noundef %.032, i32 noundef %34) #5
   %35 = load ptr, ptr %9, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 96
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 96
   %37 = load i32, ptr %36, align 8
   %38 = and i32 %37, 1
   %.not39 = icmp eq i32 %38, 0
   br i1 %.not39, label %46, label %39
 
 39:                                               ; preds = %31
-  %40 = getelementptr inbounds i8, ptr %4, i64 28
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %41 = load i32, ptr %40, align 4
   %.not40 = icmp ne i32 %41, 0
   %42 = and i32 %33, 7
@@ -4502,13 +4502,13 @@ define hidden i32 @samr_dissect_struct_UserInfo4(ptr noundef %0, i32 noundef %1,
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @samr_dissect_struct_UserInfo5(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not136 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -4588,14 +4588,14 @@ define hidden i32 @samr_dissect_struct_UserInfo5(ptr noundef %0, i32 noundef %1,
   %68 = sub i32 %67, %.0
   tail call void @proto_item_set_len(ptr noundef %.0134, i32 noundef %68) #5
   %69 = load ptr, ptr %9, align 8
-  %70 = getelementptr inbounds i8, ptr %69, i64 96
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 96
   %71 = load i32, ptr %70, align 8
   %72 = and i32 %71, 1
   %.not141 = icmp eq i32 %72, 0
   br i1 %.not141, label %80, label %73
 
 73:                                               ; preds = %31
-  %74 = getelementptr inbounds i8, ptr %4, i64 28
+  %74 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %75 = load i32, ptr %74, align 4
   %.not142 = icmp ne i32 %75, 0
   %76 = and i32 %67, 7
@@ -4615,13 +4615,13 @@ define hidden i32 @samr_dissect_struct_UserInfo5(ptr noundef %0, i32 noundef %1,
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @samr_dissect_struct_UserInfo6(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not40 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -4669,14 +4669,14 @@ define hidden i32 @samr_dissect_struct_UserInfo6(ptr noundef %0, i32 noundef %1,
   %36 = sub i32 %35, %.0
   tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #5
   %37 = load ptr, ptr %9, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 96
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
   %40 = and i32 %39, 1
   %.not45 = icmp eq i32 %40, 0
   br i1 %.not45, label %48, label %41
 
 41:                                               ; preds = %31
-  %42 = getelementptr inbounds i8, ptr %4, i64 28
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %43 = load i32, ptr %42, align 4
   %.not46 = icmp ne i32 %43, 0
   %44 = and i32 %35, 7
@@ -4696,13 +4696,13 @@ define hidden i32 @samr_dissect_struct_UserInfo6(ptr noundef %0, i32 noundef %1,
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @samr_dissect_struct_UserInfo7(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not34 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -4748,14 +4748,14 @@ define hidden i32 @samr_dissect_struct_UserInfo7(ptr noundef %0, i32 noundef %1,
   %34 = sub i32 %33, %.0
   tail call void @proto_item_set_len(ptr noundef %.032, i32 noundef %34) #5
   %35 = load ptr, ptr %9, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 96
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 96
   %37 = load i32, ptr %36, align 8
   %38 = and i32 %37, 1
   %.not39 = icmp eq i32 %38, 0
   br i1 %.not39, label %46, label %39
 
 39:                                               ; preds = %31
-  %40 = getelementptr inbounds i8, ptr %4, i64 28
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %41 = load i32, ptr %40, align 4
   %.not40 = icmp ne i32 %41, 0
   %42 = and i32 %33, 7
@@ -4775,13 +4775,13 @@ define hidden i32 @samr_dissect_struct_UserInfo7(ptr noundef %0, i32 noundef %1,
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @samr_dissect_struct_UserInfo8(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not34 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -4827,14 +4827,14 @@ define hidden i32 @samr_dissect_struct_UserInfo8(ptr noundef %0, i32 noundef %1,
   %34 = sub i32 %33, %.0
   tail call void @proto_item_set_len(ptr noundef %.032, i32 noundef %34) #5
   %35 = load ptr, ptr %9, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 96
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 96
   %37 = load i32, ptr %36, align 8
   %38 = and i32 %37, 1
   %.not39 = icmp eq i32 %38, 0
   br i1 %.not39, label %46, label %39
 
 39:                                               ; preds = %31
-  %40 = getelementptr inbounds i8, ptr %4, i64 28
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %41 = load i32, ptr %40, align 4
   %.not40 = icmp ne i32 %41, 0
   %42 = and i32 %33, 7
@@ -4854,7 +4854,7 @@ define hidden i32 @samr_dissect_struct_UserInfo8(ptr noundef %0, i32 noundef %1,
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @samr_dissect_struct_UserInfo9(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 3
@@ -4879,9 +4879,9 @@ define hidden i32 @samr_dissect_struct_UserInfo9(ptr noundef %0, i32 noundef %1,
   %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #5
   %21 = sub i32 %20, %.0
   tail call void @proto_item_set_len(ptr noundef %.024, i32 noundef %21) #5
-  %22 = getelementptr inbounds i8, ptr %4, i64 72
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 96
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 96
   %25 = load i32, ptr %24, align 8
   %26 = and i32 %25, 1
   %.not28 = icmp eq i32 %26, 0
@@ -4907,13 +4907,13 @@ define hidden i32 @samr_dissect_struct_UserInfo9(ptr noundef %0, i32 noundef %1,
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @samr_dissect_struct_UserInfo10(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not40 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -4961,14 +4961,14 @@ define hidden i32 @samr_dissect_struct_UserInfo10(ptr noundef %0, i32 noundef %1
   %36 = sub i32 %35, %.0
   tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #5
   %37 = load ptr, ptr %9, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 96
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
   %40 = and i32 %39, 1
   %.not45 = icmp eq i32 %40, 0
   br i1 %.not45, label %48, label %41
 
 41:                                               ; preds = %31
-  %42 = getelementptr inbounds i8, ptr %4, i64 28
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %43 = load i32, ptr %42, align 4
   %.not46 = icmp ne i32 %43, 0
   %44 = and i32 %35, 7
@@ -4988,13 +4988,13 @@ define hidden i32 @samr_dissect_struct_UserInfo10(ptr noundef %0, i32 noundef %1
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @samr_dissect_struct_UserInfo11(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not34 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -5040,14 +5040,14 @@ define hidden i32 @samr_dissect_struct_UserInfo11(ptr noundef %0, i32 noundef %1
   %34 = sub i32 %33, %.0
   tail call void @proto_item_set_len(ptr noundef %.032, i32 noundef %34) #5
   %35 = load ptr, ptr %9, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 96
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 96
   %37 = load i32, ptr %36, align 8
   %38 = and i32 %37, 1
   %.not39 = icmp eq i32 %38, 0
   br i1 %.not39, label %46, label %39
 
 39:                                               ; preds = %31
-  %40 = getelementptr inbounds i8, ptr %4, i64 28
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %41 = load i32, ptr %40, align 4
   %.not40 = icmp ne i32 %41, 0
   %42 = and i32 %33, 7
@@ -5067,13 +5067,13 @@ define hidden i32 @samr_dissect_struct_UserInfo11(ptr noundef %0, i32 noundef %1
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @samr_dissect_struct_UserInfo12(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not34 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -5119,14 +5119,14 @@ define hidden i32 @samr_dissect_struct_UserInfo12(ptr noundef %0, i32 noundef %1
   %34 = sub i32 %33, %.0
   tail call void @proto_item_set_len(ptr noundef %.032, i32 noundef %34) #5
   %35 = load ptr, ptr %9, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 96
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 96
   %37 = load i32, ptr %36, align 8
   %38 = and i32 %37, 1
   %.not39 = icmp eq i32 %38, 0
   br i1 %.not39, label %46, label %39
 
 39:                                               ; preds = %31
-  %40 = getelementptr inbounds i8, ptr %4, i64 28
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %41 = load i32, ptr %40, align 4
   %.not40 = icmp ne i32 %41, 0
   %42 = and i32 %33, 7
@@ -5146,13 +5146,13 @@ define hidden i32 @samr_dissect_struct_UserInfo12(ptr noundef %0, i32 noundef %1
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @samr_dissect_struct_UserInfo13(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not34 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -5198,14 +5198,14 @@ define hidden i32 @samr_dissect_struct_UserInfo13(ptr noundef %0, i32 noundef %1
   %34 = sub i32 %33, %.0
   tail call void @proto_item_set_len(ptr noundef %.032, i32 noundef %34) #5
   %35 = load ptr, ptr %9, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 96
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 96
   %37 = load i32, ptr %36, align 8
   %38 = and i32 %37, 1
   %.not39 = icmp eq i32 %38, 0
   br i1 %.not39, label %46, label %39
 
 39:                                               ; preds = %31
-  %40 = getelementptr inbounds i8, ptr %4, i64 28
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %41 = load i32, ptr %40, align 4
   %.not40 = icmp ne i32 %41, 0
   %42 = and i32 %33, 7
@@ -5225,13 +5225,13 @@ define hidden i32 @samr_dissect_struct_UserInfo13(ptr noundef %0, i32 noundef %1
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @samr_dissect_struct_UserInfo14(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not34 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -5277,14 +5277,14 @@ define hidden i32 @samr_dissect_struct_UserInfo14(ptr noundef %0, i32 noundef %1
   %34 = sub i32 %33, %.0
   tail call void @proto_item_set_len(ptr noundef %.032, i32 noundef %34) #5
   %35 = load ptr, ptr %9, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 96
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 96
   %37 = load i32, ptr %36, align 8
   %38 = and i32 %37, 1
   %.not39 = icmp eq i32 %38, 0
   br i1 %.not39, label %46, label %39
 
 39:                                               ; preds = %31
-  %40 = getelementptr inbounds i8, ptr %4, i64 28
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %41 = load i32, ptr %40, align 4
   %.not40 = icmp ne i32 %41, 0
   %42 = and i32 %33, 7
@@ -5304,7 +5304,7 @@ define hidden i32 @samr_dissect_struct_UserInfo14(ptr noundef %0, i32 noundef %1
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @samr_dissect_struct_UserInfo16(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 3
@@ -5329,9 +5329,9 @@ define hidden i32 @samr_dissect_struct_UserInfo16(ptr noundef %0, i32 noundef %1
   %20 = tail call i32 @samr_dissect_bitmap_AcctFlags(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 poison)
   %21 = sub i32 %20, %.0
   tail call void @proto_item_set_len(ptr noundef %.024, i32 noundef %21) #5
-  %22 = getelementptr inbounds i8, ptr %4, i64 72
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 96
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 96
   %25 = load i32, ptr %24, align 8
   %26 = and i32 %25, 1
   %.not28 = icmp eq i32 %26, 0
@@ -5357,7 +5357,7 @@ define hidden i32 @samr_dissect_struct_UserInfo16(ptr noundef %0, i32 noundef %1
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @samr_dissect_struct_UserInfo17(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 3
@@ -5382,9 +5382,9 @@ define hidden i32 @samr_dissect_struct_UserInfo17(ptr noundef %0, i32 noundef %1
   %20 = tail call i32 @dissect_ndr_nt_NTTIME(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19) #5
   %21 = sub i32 %20, %.0
   tail call void @proto_item_set_len(ptr noundef %.024, i32 noundef %21) #5
-  %22 = getelementptr inbounds i8, ptr %4, i64 72
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 96
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 96
   %25 = load i32, ptr %24, align 8
   %26 = and i32 %25, 1
   %.not28 = icmp eq i32 %26, 0
@@ -5517,13 +5517,13 @@ samr_dissect_element_UserInfo18_lm_pwd.exit:      ; preds = %29
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @samr_dissect_struct_UserInfo20(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not34 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -5569,14 +5569,14 @@ define hidden i32 @samr_dissect_struct_UserInfo20(ptr noundef %0, i32 noundef %1
   %34 = sub i32 %33, %.0
   tail call void @proto_item_set_len(ptr noundef %.032, i32 noundef %34) #5
   %35 = load ptr, ptr %9, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 96
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 96
   %37 = load i32, ptr %36, align 8
   %38 = and i32 %37, 1
   %.not39 = icmp eq i32 %38, 0
   br i1 %.not39, label %46, label %39
 
 39:                                               ; preds = %31
-  %40 = getelementptr inbounds i8, ptr %4, i64 28
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %41 = load i32, ptr %40, align 4
   %.not40 = icmp ne i32 %41, 0
   %42 = and i32 %33, 7
@@ -5597,7 +5597,7 @@ define hidden i32 @samr_dissect_struct_UserInfo20(ptr noundef %0, i32 noundef %1
 ; Function Attrs: nounwind uwtable
 define hidden i32 @samr_dissect_bitmap_FieldsPresent(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  %10 = getelementptr inbounds i8, ptr %4, i64 28
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %11 = load i32, ptr %10, align 4
   %.not = icmp ne i32 %11, 0
   %12 = and i32 %1, 3
@@ -5639,13 +5639,13 @@ define hidden i32 @samr_dissect_bitmap_FieldsPresent(ptr noundef %0, i32 noundef
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @samr_dissect_struct_UserInfo21(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not232 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -5757,14 +5757,14 @@ define hidden i32 @samr_dissect_struct_UserInfo21(ptr noundef %0, i32 noundef %1
   %100 = sub i32 %99, %.0
   tail call void @proto_item_set_len(ptr noundef %.0230, i32 noundef %100) #5
   %101 = load ptr, ptr %9, align 8
-  %102 = getelementptr inbounds i8, ptr %101, i64 96
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 96
   %103 = load i32, ptr %102, align 8
   %104 = and i32 %103, 1
   %.not237 = icmp eq i32 %104, 0
   br i1 %.not237, label %112, label %105
 
 105:                                              ; preds = %31
-  %106 = getelementptr inbounds i8, ptr %4, i64 28
+  %106 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %107 = load i32, ptr %106, align 4
   %.not238 = icmp ne i32 %107, 0
   %108 = and i32 %99, 7
@@ -5815,13 +5815,13 @@ samr_dissect_element_CryptPassword_data.exit:     ; preds = %14
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @samr_dissect_struct_UserInfo23(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not40 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -5896,14 +5896,14 @@ samr_dissect_element_UserInfo23_password.exit:    ; preds = %42
   %47 = sub i32 %44, %.0
   tail call void @proto_item_set_len(ptr noundef %.03853, i32 noundef %47) #5
   %48 = load ptr, ptr %9, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 96
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 96
   %50 = load i32, ptr %49, align 8
   %51 = and i32 %50, 1
   %.not45 = icmp eq i32 %51, 0
   br i1 %.not45, label %59, label %52
 
 52:                                               ; preds = %samr_dissect_element_UserInfo23_password.exit
-  %53 = getelementptr inbounds i8, ptr %4, i64 28
+  %53 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %54 = load i32, ptr %53, align 4
   %.not46 = icmp ne i32 %54, 0
   %55 = and i32 %44, 7
@@ -5999,13 +5999,13 @@ samr_dissect_element_CryptPasswordEx_data.exit:   ; preds = %14
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @samr_dissect_struct_UserInfo25(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not40 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -6080,14 +6080,14 @@ samr_dissect_element_UserInfo25_password.exit:    ; preds = %42
   %47 = sub i32 %44, %.0
   tail call void @proto_item_set_len(ptr noundef %.03853, i32 noundef %47) #5
   %48 = load ptr, ptr %9, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 96
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 96
   %50 = load i32, ptr %49, align 8
   %51 = and i32 %50, 1
   %.not45 = icmp eq i32 %51, 0
   br i1 %.not45, label %59, label %52
 
 52:                                               ; preds = %samr_dissect_element_UserInfo25_password.exit
-  %53 = getelementptr inbounds i8, ptr %4, i64 28
+  %53 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %54 = load i32, ptr %53, align 4
   %.not46 = icmp ne i32 %54, 0
   %55 = and i32 %44, 7
@@ -6152,7 +6152,7 @@ samr_dissect_element_UserInfo26_password.exit:    ; preds = %18
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @samr_dissect_struct_EncryptedPasswordAES(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 7
@@ -6202,9 +6202,9 @@ samr_dissect_element_EncryptedPasswordAES_salt.exit: ; preds = %samr_dissect_ele
   %31 = tail call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %29, ptr noundef %2, ptr noundef %.047, ptr noundef %4, ptr noundef %5, i32 noundef %30, ptr noundef null) #5
   %32 = sub i32 %31, %.0
   tail call void @proto_item_set_len(ptr noundef %.048, i32 noundef %32) #5
-  %33 = getelementptr inbounds i8, ptr %4, i64 72
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 96
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 96
   %36 = load i32, ptr %35, align 8
   %37 = and i32 %36, 1
   %.not52 = icmp eq i32 %37, 0
@@ -6230,7 +6230,7 @@ samr_dissect_element_EncryptedPasswordAES_salt.exit: ; preds = %samr_dissect_ele
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @samr_dissect_struct_UserInfo31(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 7
@@ -6257,9 +6257,9 @@ define hidden i32 @samr_dissect_struct_UserInfo31(ptr noundef %0, i32 noundef %1
   %22 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.029, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 noundef 0) #5
   %23 = sub i32 %22, %.0
   tail call void @proto_item_set_len(ptr noundef %.030, i32 noundef %23) #5
-  %24 = getelementptr inbounds i8, ptr %4, i64 72
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 96
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 96
   %27 = load i32, ptr %26, align 8
   %28 = and i32 %27, 1
   %.not34 = icmp eq i32 %28, 0
@@ -6285,7 +6285,7 @@ define hidden i32 @samr_dissect_struct_UserInfo31(ptr noundef %0, i32 noundef %1
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @samr_dissect_struct_UserInfo32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 7
@@ -6312,9 +6312,9 @@ define hidden i32 @samr_dissect_struct_UserInfo32(ptr noundef %0, i32 noundef %1
   %22 = tail call i32 @samr_dissect_struct_EncryptedPasswordAES(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.029, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 poison)
   %23 = sub i32 %22, %.0
   tail call void @proto_item_set_len(ptr noundef %.030, i32 noundef %23) #5
-  %24 = getelementptr inbounds i8, ptr %4, i64 72
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 96
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 96
   %27 = load i32, ptr %26, align 8
   %28 = and i32 %27, 1
   %.not34 = icmp eq i32 %28, 0
@@ -6340,7 +6340,7 @@ define hidden i32 @samr_dissect_struct_UserInfo32(ptr noundef %0, i32 noundef %1
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @samr_dissect_struct_RidWithAttribute(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 3
@@ -6367,9 +6367,9 @@ define hidden i32 @samr_dissect_struct_RidWithAttribute(ptr noundef %0, i32 noun
   %22 = tail call i32 @samr_dissect_bitmap_GroupAttrs(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.029, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 poison)
   %23 = sub i32 %22, %.0
   tail call void @proto_item_set_len(ptr noundef %.030, i32 noundef %23) #5
-  %24 = getelementptr inbounds i8, ptr %4, i64 72
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 96
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 96
   %27 = load i32, ptr %26, align 8
   %28 = and i32 %27, 1
   %.not34 = icmp eq i32 %28, 0
@@ -6395,13 +6395,13 @@ define hidden i32 @samr_dissect_struct_RidWithAttribute(ptr noundef %0, i32 noun
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @samr_dissect_struct_RidWithAttributeArray(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not40 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -6449,14 +6449,14 @@ define hidden i32 @samr_dissect_struct_RidWithAttributeArray(ptr noundef %0, i32
   %36 = sub i32 %35, %.0
   tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #5
   %37 = load ptr, ptr %9, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 96
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
   %40 = and i32 %39, 1
   %.not45 = icmp eq i32 %40, 0
   br i1 %.not45, label %48, label %41
 
 41:                                               ; preds = %31
-  %42 = getelementptr inbounds i8, ptr %4, i64 28
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %43 = load i32, ptr %42, align 4
   %.not46 = icmp ne i32 %43, 0
   %44 = and i32 %35, 7
@@ -6476,13 +6476,13 @@ define hidden i32 @samr_dissect_struct_RidWithAttributeArray(ptr noundef %0, i32
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @samr_dissect_struct_DispEntryGeneral(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not64 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -6538,14 +6538,14 @@ define hidden i32 @samr_dissect_struct_DispEntryGeneral(ptr noundef %0, i32 noun
   %44 = sub i32 %43, %.0
   tail call void @proto_item_set_len(ptr noundef %.062, i32 noundef %44) #5
   %45 = load ptr, ptr %9, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 96
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 96
   %47 = load i32, ptr %46, align 8
   %48 = and i32 %47, 1
   %.not69 = icmp eq i32 %48, 0
   br i1 %.not69, label %56, label %49
 
 49:                                               ; preds = %31
-  %50 = getelementptr inbounds i8, ptr %4, i64 28
+  %50 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %51 = load i32, ptr %50, align 4
   %.not70 = icmp ne i32 %51, 0
   %52 = and i32 %43, 7
@@ -6565,13 +6565,13 @@ define hidden i32 @samr_dissect_struct_DispEntryGeneral(ptr noundef %0, i32 noun
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @samr_dissect_struct_DispInfoGeneral(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not40 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -6619,14 +6619,14 @@ define hidden i32 @samr_dissect_struct_DispInfoGeneral(ptr noundef %0, i32 nound
   %36 = sub i32 %35, %.0
   tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #5
   %37 = load ptr, ptr %9, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 96
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
   %40 = and i32 %39, 1
   %.not45 = icmp eq i32 %40, 0
   br i1 %.not45, label %48, label %41
 
 41:                                               ; preds = %31
-  %42 = getelementptr inbounds i8, ptr %4, i64 28
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %43 = load i32, ptr %42, align 4
   %.not46 = icmp ne i32 %43, 0
   %44 = and i32 %35, 7
@@ -6646,13 +6646,13 @@ define hidden i32 @samr_dissect_struct_DispInfoGeneral(ptr noundef %0, i32 nound
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @samr_dissect_struct_DispEntryFull(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not58 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -6706,14 +6706,14 @@ define hidden i32 @samr_dissect_struct_DispEntryFull(ptr noundef %0, i32 noundef
   %42 = sub i32 %41, %.0
   tail call void @proto_item_set_len(ptr noundef %.056, i32 noundef %42) #5
   %43 = load ptr, ptr %9, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 96
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 96
   %45 = load i32, ptr %44, align 8
   %46 = and i32 %45, 1
   %.not63 = icmp eq i32 %46, 0
   br i1 %.not63, label %54, label %47
 
 47:                                               ; preds = %31
-  %48 = getelementptr inbounds i8, ptr %4, i64 28
+  %48 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %49 = load i32, ptr %48, align 4
   %.not64 = icmp ne i32 %49, 0
   %50 = and i32 %41, 7
@@ -6733,13 +6733,13 @@ define hidden i32 @samr_dissect_struct_DispEntryFull(ptr noundef %0, i32 noundef
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @samr_dissect_struct_DispInfoFull(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not40 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -6787,14 +6787,14 @@ define hidden i32 @samr_dissect_struct_DispInfoFull(ptr noundef %0, i32 noundef 
   %36 = sub i32 %35, %.0
   tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #5
   %37 = load ptr, ptr %9, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 96
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
   %40 = and i32 %39, 1
   %.not45 = icmp eq i32 %40, 0
   br i1 %.not45, label %48, label %41
 
 41:                                               ; preds = %31
-  %42 = getelementptr inbounds i8, ptr %4, i64 28
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %43 = load i32, ptr %42, align 4
   %.not46 = icmp ne i32 %43, 0
   %44 = and i32 %35, 7
@@ -6814,13 +6814,13 @@ define hidden i32 @samr_dissect_struct_DispInfoFull(ptr noundef %0, i32 noundef 
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @samr_dissect_struct_DispEntryFullGroup(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not58 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -6874,14 +6874,14 @@ define hidden i32 @samr_dissect_struct_DispEntryFullGroup(ptr noundef %0, i32 no
   %42 = sub i32 %41, %.0
   tail call void @proto_item_set_len(ptr noundef %.056, i32 noundef %42) #5
   %43 = load ptr, ptr %9, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 96
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 96
   %45 = load i32, ptr %44, align 8
   %46 = and i32 %45, 1
   %.not63 = icmp eq i32 %46, 0
   br i1 %.not63, label %54, label %47
 
 47:                                               ; preds = %31
-  %48 = getelementptr inbounds i8, ptr %4, i64 28
+  %48 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %49 = load i32, ptr %48, align 4
   %.not64 = icmp ne i32 %49, 0
   %50 = and i32 %41, 7
@@ -6901,13 +6901,13 @@ define hidden i32 @samr_dissect_struct_DispEntryFullGroup(ptr noundef %0, i32 no
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @samr_dissect_struct_DispInfoFullGroups(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not40 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -6955,14 +6955,14 @@ define hidden i32 @samr_dissect_struct_DispInfoFullGroups(ptr noundef %0, i32 no
   %36 = sub i32 %35, %.0
   tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #5
   %37 = load ptr, ptr %9, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 96
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
   %40 = and i32 %39, 1
   %.not45 = icmp eq i32 %40, 0
   br i1 %.not45, label %48, label %41
 
 41:                                               ; preds = %31
-  %42 = getelementptr inbounds i8, ptr %4, i64 28
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %43 = load i32, ptr %42, align 4
   %.not46 = icmp ne i32 %43, 0
   %44 = and i32 %35, 7
@@ -6982,13 +6982,13 @@ define hidden i32 @samr_dissect_struct_DispInfoFullGroups(ptr noundef %0, i32 no
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @samr_dissect_struct_DispEntryAscii(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not40 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -7036,14 +7036,14 @@ define hidden i32 @samr_dissect_struct_DispEntryAscii(ptr noundef %0, i32 nounde
   %36 = sub i32 %35, %.0
   tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #5
   %37 = load ptr, ptr %9, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 96
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
   %40 = and i32 %39, 1
   %.not45 = icmp eq i32 %40, 0
   br i1 %.not45, label %48, label %41
 
 41:                                               ; preds = %31
-  %42 = getelementptr inbounds i8, ptr %4, i64 28
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %43 = load i32, ptr %42, align 4
   %.not46 = icmp ne i32 %43, 0
   %44 = and i32 %35, 7
@@ -7063,13 +7063,13 @@ define hidden i32 @samr_dissect_struct_DispEntryAscii(ptr noundef %0, i32 nounde
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @samr_dissect_struct_DispInfoAscii(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not40 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -7117,14 +7117,14 @@ define hidden i32 @samr_dissect_struct_DispInfoAscii(ptr noundef %0, i32 noundef
   %36 = sub i32 %35, %.0
   tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #5
   %37 = load ptr, ptr %9, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 96
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
   %40 = and i32 %39, 1
   %.not45 = icmp eq i32 %40, 0
   br i1 %.not45, label %48, label %41
 
 41:                                               ; preds = %31
-  %42 = getelementptr inbounds i8, ptr %4, i64 28
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %43 = load i32, ptr %42, align 4
   %.not46 = icmp ne i32 %43, 0
   %44 = and i32 %35, 7
@@ -7168,7 +7168,7 @@ define hidden i32 @samr_dissect_enum_DomainDisplayInformation(ptr noundef %0, i3
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @samr_dissect_struct_PwInfo(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 3
@@ -7195,9 +7195,9 @@ define hidden i32 @samr_dissect_struct_PwInfo(ptr noundef %0, i32 noundef %1, pt
   %22 = tail call i32 @samr_dissect_bitmap_PasswordProperties(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.029, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 poison)
   %23 = sub i32 %22, %.0
   tail call void @proto_item_set_len(ptr noundef %.030, i32 noundef %23) #5
-  %24 = getelementptr inbounds i8, ptr %4, i64 72
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 96
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 96
   %27 = load i32, ptr %26, align 8
   %28 = and i32 %27, 1
   %.not34 = icmp eq i32 %28, 0
@@ -7272,13 +7272,13 @@ define hidden i32 @samr_dissect_enum_samPwdChangeReason(ptr noundef %0, i32 noun
 ; Function Attrs: nounwind uwtable
 define hidden i32 @samr_dissect_struct_userPwdChangeFailureInformation(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  %10 = getelementptr inbounds i8, ptr %4, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 96
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 96
   %13 = load i32, ptr %12, align 8
   %14 = and i32 %13, 1
   %.not = icmp eq i32 %14, 0
-  %15 = getelementptr inbounds i8, ptr %4, i64 28
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %16 = load i32, ptr %15, align 4
   %.not40 = icmp ne i32 %16, 0
   br i1 %.not, label %22, label %17
@@ -7329,14 +7329,14 @@ define hidden i32 @samr_dissect_struct_userPwdChangeFailureInformation(ptr nound
   %37 = sub i32 %36, %.0
   call void @proto_item_set_len(ptr noundef %.038, i32 noundef %37) #5
   %38 = load ptr, ptr %10, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 96
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 96
   %40 = load i32, ptr %39, align 8
   %41 = and i32 %40, 1
   %.not45 = icmp eq i32 %41, 0
   br i1 %.not45, label %49, label %42
 
 42:                                               ; preds = %32
-  %43 = getelementptr inbounds i8, ptr %4, i64 28
+  %43 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %44 = load i32, ptr %43, align 4
   %.not46 = icmp ne i32 %44, 0
   %45 = and i32 %36, 7
@@ -7382,7 +7382,7 @@ define hidden i32 @samr_dissect_enum_SupportedFeatures(ptr noundef %0, i32 nound
 define hidden i32 @samr_dissect_struct_ConnectInfo1(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
-  %11 = getelementptr inbounds i8, ptr %4, i64 28
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %12 = load i32, ptr %11, align 4
   %.not = icmp ne i32 %12, 0
   %13 = and i32 %1, 3
@@ -7415,9 +7415,9 @@ define hidden i32 @samr_dissect_struct_ConnectInfo1(ptr noundef %0, i32 noundef 
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   %25 = sub i32 %24, %.0
   call void @proto_item_set_len(ptr noundef %.030, i32 noundef %25) #5
-  %26 = getelementptr inbounds i8, ptr %4, i64 72
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 96
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 96
   %29 = load i32, ptr %28, align 8
   %30 = and i32 %29, 1
   %.not34 = icmp eq i32 %30, 0
@@ -7444,7 +7444,7 @@ define hidden i32 @samr_dissect_struct_ConnectInfo1(ptr noundef %0, i32 noundef 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @samr_dissect_bitmap_ValidateFieldsPresent(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  %10 = getelementptr inbounds i8, ptr %4, i64 28
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %11 = load i32, ptr %10, align 4
   %.not = icmp ne i32 %11, 0
   %12 = and i32 %1, 3
@@ -7534,13 +7534,13 @@ define hidden i32 @samr_dissect_enum_ValidationStatus(ptr noundef %0, i32 nounde
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @samr_dissect_struct_ValidationBlob(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not40 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -7588,14 +7588,14 @@ define hidden i32 @samr_dissect_struct_ValidationBlob(ptr noundef %0, i32 nounde
   %36 = sub i32 %35, %.0
   tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #5
   %37 = load ptr, ptr %9, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 96
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
   %40 = and i32 %39, 1
   %.not45 = icmp eq i32 %40, 0
   br i1 %.not45, label %48, label %41
 
 41:                                               ; preds = %31
-  %42 = getelementptr inbounds i8, ptr %4, i64 28
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %43 = load i32, ptr %42, align 4
   %.not46 = icmp ne i32 %43, 0
   %44 = and i32 %35, 7
@@ -7615,7 +7615,7 @@ define hidden i32 @samr_dissect_struct_ValidationBlob(ptr noundef %0, i32 nounde
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @samr_dissect_struct_ValidatePasswordInfo(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 7
@@ -7652,9 +7652,9 @@ define hidden i32 @samr_dissect_struct_ValidatePasswordInfo(ptr noundef %0, i32 
   %32 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %30, ptr noundef %2, ptr noundef %.059, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_ValidatePasswordInfo_pwd_history_, i32 noundef 2, ptr noundef nonnull @.str.987, i32 noundef %31) #5
   %33 = sub i32 %32, %.0
   tail call void @proto_item_set_len(ptr noundef %.060, i32 noundef %33) #5
-  %34 = getelementptr inbounds i8, ptr %4, i64 72
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 96
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 96
   %37 = load i32, ptr %36, align 8
   %38 = and i32 %37, 1
   %.not64 = icmp eq i32 %38, 0
@@ -7681,7 +7681,7 @@ define hidden i32 @samr_dissect_struct_ValidatePasswordInfo(ptr noundef %0, i32 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @samr_dissect_struct_ValidatePasswordRepCtr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  %10 = getelementptr inbounds i8, ptr %4, i64 28
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %11 = load i32, ptr %10, align 4
   %.not = icmp ne i32 %11, 0
   %12 = and i32 %1, 7
@@ -7711,9 +7711,9 @@ define hidden i32 @samr_dissect_struct_ValidatePasswordRepCtr(ptr noundef %0, i3
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   %24 = sub i32 %23, %.0
   call void @proto_item_set_len(ptr noundef %.030, i32 noundef %24) #5
-  %25 = getelementptr inbounds i8, ptr %4, i64 72
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 96
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 96
   %28 = load i32, ptr %27, align 8
   %29 = and i32 %28, 1
   %.not34 = icmp eq i32 %29, 0
@@ -7739,7 +7739,7 @@ define hidden i32 @samr_dissect_struct_ValidatePasswordRepCtr(ptr noundef %0, i3
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @samr_dissect_struct_ValidatePasswordReq3(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 7
@@ -7774,9 +7774,9 @@ define hidden i32 @samr_dissect_struct_ValidatePasswordReq3(ptr noundef %0, i32 
   %30 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %28, ptr noundef %2, ptr noundef %.053, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %29, i32 noundef 0) #5
   %31 = sub i32 %30, %.0
   tail call void @proto_item_set_len(ptr noundef %.054, i32 noundef %31) #5
-  %32 = getelementptr inbounds i8, ptr %4, i64 72
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 96
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 96
   %35 = load i32, ptr %34, align 8
   %36 = and i32 %35, 1
   %.not58 = icmp eq i32 %36, 0
@@ -7802,7 +7802,7 @@ define hidden i32 @samr_dissect_struct_ValidatePasswordReq3(ptr noundef %0, i32 
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @samr_dissect_struct_ValidatePasswordReq2(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 7
@@ -7835,9 +7835,9 @@ define hidden i32 @samr_dissect_struct_ValidatePasswordReq2(ptr noundef %0, i32 
   %28 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %26, ptr noundef %2, ptr noundef %.047, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %27, i32 noundef 0) #5
   %29 = sub i32 %28, %.0
   tail call void @proto_item_set_len(ptr noundef %.048, i32 noundef %29) #5
-  %30 = getelementptr inbounds i8, ptr %4, i64 72
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 96
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 96
   %33 = load i32, ptr %32, align 8
   %34 = and i32 %33, 1
   %.not52 = icmp eq i32 %34, 0
@@ -7863,7 +7863,7 @@ define hidden i32 @samr_dissect_struct_ValidatePasswordReq2(ptr noundef %0, i32 
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @samr_dissect_struct_ValidatePasswordReq1(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 7
@@ -7890,9 +7890,9 @@ define hidden i32 @samr_dissect_struct_ValidatePasswordReq1(ptr noundef %0, i32 
   %22 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.029, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 noundef 0) #5
   %23 = sub i32 %22, %.0
   tail call void @proto_item_set_len(ptr noundef %.030, i32 noundef %23) #5
-  %24 = getelementptr inbounds i8, ptr %4, i64 72
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 96
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 96
   %27 = load i32, ptr %26, align 8
   %28 = and i32 %27, 1
   %.not34 = icmp eq i32 %28, 0
@@ -8165,7 +8165,7 @@ define internal i32 @samr_dissect_element_ValidatePasswordInfo_pwd_history__(ptr
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_Connect_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1206, ptr %7, align 8
   %8 = load i32, ptr @hf_samr_samr_Connect_system_name, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_Connect_system_name_, i32 noundef 2, ptr noundef nonnull @.str.1280, i32 noundef %8) #5
@@ -8179,7 +8179,7 @@ define internal i32 @samr_dissect_Connect_request(ptr noundef %0, i32 noundef %1
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_Connect_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1206, ptr %8, align 8
   %9 = load i32, ptr @hf_samr_connect_handle, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_Connect_connect_handle_, i32 noundef 1, ptr noundef nonnull @.str.1283, i32 noundef %9) #5
@@ -8191,7 +8191,7 @@ define internal i32 @samr_dissect_Connect_response(ptr noundef %0, i32 noundef %
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @NT_errors, ptr noundef nonnull @.str.1282) #5
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.1281, ptr noundef %18) #5
@@ -8203,7 +8203,7 @@ define internal i32 @samr_dissect_Connect_response(ptr noundef %0, i32 noundef %
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_Close_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1207, ptr %7, align 8
   %8 = load i32, ptr @hf_samr_handle, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_Close_handle_, i32 noundef 1, ptr noundef nonnull @.str.1284, i32 noundef %8) #5
@@ -8214,7 +8214,7 @@ define internal i32 @samr_dissect_Close_request(ptr noundef %0, i32 noundef %1, 
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_Close_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1207, ptr %8, align 8
   %9 = load i32, ptr @hf_samr_handle, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_Close_handle_, i32 noundef 1, ptr noundef nonnull @.str.1284, i32 noundef %9) #5
@@ -8226,7 +8226,7 @@ define internal i32 @samr_dissect_Close_response(ptr noundef %0, i32 noundef %1,
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @NT_errors, ptr noundef nonnull @.str.1282) #5
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.1281, ptr noundef %18) #5
@@ -8238,7 +8238,7 @@ define internal i32 @samr_dissect_Close_response(ptr noundef %0, i32 noundef %1,
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_SetSecurity_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1208, ptr %7, align 8
   %8 = load i32, ptr @hf_samr_handle, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_SetSecurity_handle_, i32 noundef 1, ptr noundef nonnull @.str.1284, i32 noundef %8) #5
@@ -8254,7 +8254,7 @@ define internal i32 @samr_dissect_SetSecurity_request(ptr noundef %0, i32 nounde
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_SetSecurity_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1208, ptr %8, align 8
   %9 = load i32, ptr @hf_samr_status, align 4
   %10 = call i32 @dissect_ntstatus(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #5
@@ -8263,7 +8263,7 @@ define internal i32 @samr_dissect_SetSecurity_response(ptr noundef %0, i32 nound
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @NT_errors, ptr noundef nonnull @.str.1282) #5
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.1281, ptr noundef %15) #5
@@ -8275,7 +8275,7 @@ define internal i32 @samr_dissect_SetSecurity_response(ptr noundef %0, i32 nound
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_QuerySecurity_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1209, ptr %7, align 8
   %8 = load i32, ptr @hf_samr_handle, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_QuerySecurity_handle_, i32 noundef 1, ptr noundef nonnull @.str.1284, i32 noundef %8) #5
@@ -8288,7 +8288,7 @@ define internal i32 @samr_dissect_QuerySecurity_request(ptr noundef %0, i32 noun
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_QuerySecurity_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1209, ptr %8, align 8
   %9 = load i32, ptr @hf_samr_samr_QuerySecurity_sdbuf, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_QuerySecurity_sdbuf_, i32 noundef 1, ptr noundef nonnull @.str.1285, i32 noundef %9) #5
@@ -8300,7 +8300,7 @@ define internal i32 @samr_dissect_QuerySecurity_response(ptr noundef %0, i32 nou
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @NT_errors, ptr noundef nonnull @.str.1282) #5
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.1281, ptr noundef %18) #5
@@ -8312,7 +8312,7 @@ define internal i32 @samr_dissect_QuerySecurity_response(ptr noundef %0, i32 nou
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_Shutdown_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1210, ptr %7, align 8
   %8 = load i32, ptr @hf_samr_samr_Shutdown_connect_handle, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_Shutdown_connect_handle_, i32 noundef 1, ptr noundef nonnull @.str.1283, i32 noundef %8) #5
@@ -8323,7 +8323,7 @@ define internal i32 @samr_dissect_Shutdown_request(ptr noundef %0, i32 noundef %
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_Shutdown_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1210, ptr %8, align 8
   %9 = load i32, ptr @hf_samr_status, align 4
   %10 = call i32 @dissect_ntstatus(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #5
@@ -8332,7 +8332,7 @@ define internal i32 @samr_dissect_Shutdown_response(ptr noundef %0, i32 noundef 
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @NT_errors, ptr noundef nonnull @.str.1282) #5
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.1281, ptr noundef %15) #5
@@ -8344,7 +8344,7 @@ define internal i32 @samr_dissect_Shutdown_response(ptr noundef %0, i32 noundef 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_LookupDomain_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1211, ptr %7, align 8
   %8 = load i32, ptr @hf_samr_connect_handle, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_LookupDomain_connect_handle_, i32 noundef 1, ptr noundef nonnull @.str.1283, i32 noundef %8) #5
@@ -8358,7 +8358,7 @@ define internal i32 @samr_dissect_LookupDomain_request(ptr noundef %0, i32 nound
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_LookupDomain_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1211, ptr %8, align 8
   %9 = load i32, ptr @hf_samr_samr_LookupDomain_sid, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_LookupDomain_sid_, i32 noundef 1, ptr noundef nonnull @.str.1288, i32 noundef %9) #5
@@ -8370,7 +8370,7 @@ define internal i32 @samr_dissect_LookupDomain_response(ptr noundef %0, i32 noun
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @NT_errors, ptr noundef nonnull @.str.1282) #5
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.1281, ptr noundef %18) #5
@@ -8382,7 +8382,7 @@ define internal i32 @samr_dissect_LookupDomain_response(ptr noundef %0, i32 noun
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_EnumDomains_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1212, ptr %7, align 8
   %8 = load i32, ptr @hf_samr_samr_EnumDomains_connect_handle, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_EnumDomains_connect_handle_, i32 noundef 1, ptr noundef nonnull @.str.1283, i32 noundef %8) #5
@@ -8399,7 +8399,7 @@ define internal i32 @samr_dissect_EnumDomains_request(ptr noundef %0, i32 nounde
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_EnumDomains_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1212, ptr %8, align 8
   %9 = load i32, ptr @hf_samr_samr_EnumDomains_resume_handle, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_EnumDomains_resume_handle_, i32 noundef 1, ptr noundef nonnull @.str.1289, i32 noundef %9) #5
@@ -8417,7 +8417,7 @@ define internal i32 @samr_dissect_EnumDomains_response(ptr noundef %0, i32 nound
   br i1 %.not, label %25, label %21
 
 21:                                               ; preds = %6
-  %22 = getelementptr inbounds i8, ptr %2, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = call ptr @val_to_str(i32 noundef %20, ptr noundef nonnull @NT_errors, ptr noundef nonnull @.str.1282) #5
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %23, i32 noundef 25, ptr noundef nonnull @.str.1281, ptr noundef %24) #5
@@ -8429,7 +8429,7 @@ define internal i32 @samr_dissect_EnumDomains_response(ptr noundef %0, i32 nound
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_OpenDomain_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1213, ptr %7, align 8
   %8 = load i32, ptr @hf_samr_connect_handle, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_OpenDomain_connect_handle_, i32 noundef 1, ptr noundef nonnull @.str.1283, i32 noundef %8) #5
@@ -8446,7 +8446,7 @@ define internal i32 @samr_dissect_OpenDomain_request(ptr noundef %0, i32 noundef
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_OpenDomain_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1213, ptr %8, align 8
   %9 = load i32, ptr @hf_samr_domain_handle, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_OpenDomain_domain_handle_, i32 noundef 1, ptr noundef nonnull @.str.1292, i32 noundef %9) #5
@@ -8458,7 +8458,7 @@ define internal i32 @samr_dissect_OpenDomain_response(ptr noundef %0, i32 nounde
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @NT_errors, ptr noundef nonnull @.str.1282) #5
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.1281, ptr noundef %18) #5
@@ -8471,7 +8471,7 @@ define internal i32 @samr_dissect_OpenDomain_response(ptr noundef %0, i32 nounde
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_QueryDomainInfo_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1214, ptr %8, align 8
   %9 = load i32, ptr @hf_samr_domain_handle, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_QueryDomainInfo_domain_handle_, i32 noundef 1, ptr noundef nonnull @.str.1292, i32 noundef %9) #5
@@ -8488,7 +8488,7 @@ define internal i32 @samr_dissect_QueryDomainInfo_request(ptr noundef %0, i32 no
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_QueryDomainInfo_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1214, ptr %8, align 8
   %9 = load i32, ptr @hf_samr_samr_QueryDomainInfo_info, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_QueryDomainInfo_info_, i32 noundef 1, ptr noundef nonnull @.str.1293, i32 noundef %9) #5
@@ -8500,7 +8500,7 @@ define internal i32 @samr_dissect_QueryDomainInfo_response(ptr noundef %0, i32 n
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @NT_errors, ptr noundef nonnull @.str.1282) #5
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.1281, ptr noundef %18) #5
@@ -8513,7 +8513,7 @@ define internal i32 @samr_dissect_QueryDomainInfo_response(ptr noundef %0, i32 n
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_SetDomainInfo_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1215, ptr %8, align 8
   %9 = load i32, ptr @hf_samr_domain_handle, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_SetDomainInfo_domain_handle_, i32 noundef 1, ptr noundef nonnull @.str.1292, i32 noundef %9) #5
@@ -8533,7 +8533,7 @@ define internal i32 @samr_dissect_SetDomainInfo_request(ptr noundef %0, i32 noun
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_SetDomainInfo_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1215, ptr %8, align 8
   %9 = load i32, ptr @hf_samr_status, align 4
   %10 = call i32 @dissect_ntstatus(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #5
@@ -8542,7 +8542,7 @@ define internal i32 @samr_dissect_SetDomainInfo_response(ptr noundef %0, i32 nou
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @NT_errors, ptr noundef nonnull @.str.1282) #5
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.1281, ptr noundef %15) #5
@@ -8554,7 +8554,7 @@ define internal i32 @samr_dissect_SetDomainInfo_response(ptr noundef %0, i32 nou
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_CreateDomainGroup_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1216, ptr %7, align 8
   %8 = load i32, ptr @hf_samr_domain_handle, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_CreateDomainGroup_domain_handle_, i32 noundef 1, ptr noundef nonnull @.str.1292, i32 noundef %8) #5
@@ -8571,7 +8571,7 @@ define internal i32 @samr_dissect_CreateDomainGroup_request(ptr noundef %0, i32 
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_CreateDomainGroup_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1216, ptr %8, align 8
   %9 = load i32, ptr @hf_samr_group_handle, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_CreateDomainGroup_group_handle_, i32 noundef 1, ptr noundef nonnull @.str.1296, i32 noundef %9) #5
@@ -8586,7 +8586,7 @@ define internal i32 @samr_dissect_CreateDomainGroup_response(ptr noundef %0, i32
   br i1 %.not, label %22, label %18
 
 18:                                               ; preds = %6
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = call ptr @val_to_str(i32 noundef %17, ptr noundef nonnull @NT_errors, ptr noundef nonnull @.str.1282) #5
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.1281, ptr noundef %21) #5
@@ -8598,7 +8598,7 @@ define internal i32 @samr_dissect_CreateDomainGroup_response(ptr noundef %0, i32
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_EnumDomainGroups_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1217, ptr %7, align 8
   %8 = load i32, ptr @hf_samr_domain_handle, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_EnumDomainGroups_domain_handle_, i32 noundef 1, ptr noundef nonnull @.str.1292, i32 noundef %8) #5
@@ -8615,7 +8615,7 @@ define internal i32 @samr_dissect_EnumDomainGroups_request(ptr noundef %0, i32 n
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_EnumDomainGroups_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1217, ptr %8, align 8
   %9 = load i32, ptr @hf_samr_samr_EnumDomainGroups_resume_handle, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_EnumDomainGroups_resume_handle_, i32 noundef 1, ptr noundef nonnull @.str.1289, i32 noundef %9) #5
@@ -8633,7 +8633,7 @@ define internal i32 @samr_dissect_EnumDomainGroups_response(ptr noundef %0, i32 
   br i1 %.not, label %25, label %21
 
 21:                                               ; preds = %6
-  %22 = getelementptr inbounds i8, ptr %2, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = call ptr @val_to_str(i32 noundef %20, ptr noundef nonnull @NT_errors, ptr noundef nonnull @.str.1282) #5
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %23, i32 noundef 25, ptr noundef nonnull @.str.1281, ptr noundef %24) #5
@@ -8645,7 +8645,7 @@ define internal i32 @samr_dissect_EnumDomainGroups_response(ptr noundef %0, i32 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_CreateUser_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1218, ptr %7, align 8
   %8 = load i32, ptr @hf_samr_domain_handle, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_CreateUser_domain_handle_, i32 noundef 1, ptr noundef nonnull @.str.1292, i32 noundef %8) #5
@@ -8662,7 +8662,7 @@ define internal i32 @samr_dissect_CreateUser_request(ptr noundef %0, i32 noundef
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_CreateUser_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1218, ptr %8, align 8
   %9 = load i32, ptr @hf_samr_user_handle, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_CreateUser_user_handle_, i32 noundef 1, ptr noundef nonnull @.str.1299, i32 noundef %9) #5
@@ -8677,7 +8677,7 @@ define internal i32 @samr_dissect_CreateUser_response(ptr noundef %0, i32 nounde
   br i1 %.not, label %22, label %18
 
 18:                                               ; preds = %6
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = call ptr @val_to_str(i32 noundef %17, ptr noundef nonnull @NT_errors, ptr noundef nonnull @.str.1282) #5
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.1281, ptr noundef %21) #5
@@ -8689,7 +8689,7 @@ define internal i32 @samr_dissect_CreateUser_response(ptr noundef %0, i32 nounde
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_EnumDomainUsers_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1219, ptr %7, align 8
   %8 = load i32, ptr @hf_samr_domain_handle, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_EnumDomainUsers_domain_handle_, i32 noundef 1, ptr noundef nonnull @.str.1292, i32 noundef %8) #5
@@ -8709,7 +8709,7 @@ define internal i32 @samr_dissect_EnumDomainUsers_request(ptr noundef %0, i32 no
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_EnumDomainUsers_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1219, ptr %8, align 8
   %9 = load i32, ptr @hf_samr_samr_EnumDomainUsers_resume_handle, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_EnumDomainUsers_resume_handle_, i32 noundef 1, ptr noundef nonnull @.str.1289, i32 noundef %9) #5
@@ -8727,7 +8727,7 @@ define internal i32 @samr_dissect_EnumDomainUsers_response(ptr noundef %0, i32 n
   br i1 %.not, label %25, label %21
 
 21:                                               ; preds = %6
-  %22 = getelementptr inbounds i8, ptr %2, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = call ptr @val_to_str(i32 noundef %20, ptr noundef nonnull @NT_errors, ptr noundef nonnull @.str.1282) #5
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %23, i32 noundef 25, ptr noundef nonnull @.str.1281, ptr noundef %24) #5
@@ -8739,7 +8739,7 @@ define internal i32 @samr_dissect_EnumDomainUsers_response(ptr noundef %0, i32 n
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_CreateDomAlias_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1220, ptr %7, align 8
   %8 = load i32, ptr @hf_samr_domain_handle, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_CreateDomAlias_domain_handle_, i32 noundef 1, ptr noundef nonnull @.str.1292, i32 noundef %8) #5
@@ -8756,7 +8756,7 @@ define internal i32 @samr_dissect_CreateDomAlias_request(ptr noundef %0, i32 nou
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_CreateDomAlias_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1220, ptr %8, align 8
   %9 = load i32, ptr @hf_samr_alias_handle, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_CreateDomAlias_alias_handle_, i32 noundef 1, ptr noundef nonnull @.str.1301, i32 noundef %9) #5
@@ -8771,7 +8771,7 @@ define internal i32 @samr_dissect_CreateDomAlias_response(ptr noundef %0, i32 no
   br i1 %.not, label %22, label %18
 
 18:                                               ; preds = %6
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = call ptr @val_to_str(i32 noundef %17, ptr noundef nonnull @NT_errors, ptr noundef nonnull @.str.1282) #5
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.1281, ptr noundef %21) #5
@@ -8783,7 +8783,7 @@ define internal i32 @samr_dissect_CreateDomAlias_response(ptr noundef %0, i32 no
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_EnumDomainAliases_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1221, ptr %7, align 8
   %8 = load i32, ptr @hf_samr_domain_handle, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_EnumDomainAliases_domain_handle_, i32 noundef 1, ptr noundef nonnull @.str.1292, i32 noundef %8) #5
@@ -8800,7 +8800,7 @@ define internal i32 @samr_dissect_EnumDomainAliases_request(ptr noundef %0, i32 
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_EnumDomainAliases_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1221, ptr %8, align 8
   %9 = load i32, ptr @hf_samr_samr_EnumDomainAliases_resume_handle, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_EnumDomainAliases_resume_handle_, i32 noundef 1, ptr noundef nonnull @.str.1289, i32 noundef %9) #5
@@ -8818,7 +8818,7 @@ define internal i32 @samr_dissect_EnumDomainAliases_response(ptr noundef %0, i32
   br i1 %.not, label %25, label %21
 
 21:                                               ; preds = %6
-  %22 = getelementptr inbounds i8, ptr %2, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = call ptr @val_to_str(i32 noundef %20, ptr noundef nonnull @NT_errors, ptr noundef nonnull @.str.1282) #5
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %23, i32 noundef 25, ptr noundef nonnull @.str.1281, ptr noundef %24) #5
@@ -8830,7 +8830,7 @@ define internal i32 @samr_dissect_EnumDomainAliases_response(ptr noundef %0, i32
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_GetAliasMembership_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1222, ptr %7, align 8
   %8 = load i32, ptr @hf_samr_domain_handle, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_GetAliasMembership_domain_handle_, i32 noundef 1, ptr noundef nonnull @.str.1292, i32 noundef %8) #5
@@ -8844,7 +8844,7 @@ define internal i32 @samr_dissect_GetAliasMembership_request(ptr noundef %0, i32
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_GetAliasMembership_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1222, ptr %8, align 8
   %9 = load i32, ptr @hf_samr_samr_GetAliasMembership_rids, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_GetAliasMembership_rids_, i32 noundef 1, ptr noundef nonnull @.str.1303, i32 noundef %9) #5
@@ -8856,7 +8856,7 @@ define internal i32 @samr_dissect_GetAliasMembership_response(ptr noundef %0, i3
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @NT_errors, ptr noundef nonnull @.str.1282) #5
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.1281, ptr noundef %18) #5
@@ -8868,7 +8868,7 @@ define internal i32 @samr_dissect_GetAliasMembership_response(ptr noundef %0, i3
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_LookupNames_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1223, ptr %7, align 8
   %8 = load i32, ptr @hf_samr_domain_handle, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_LookupNames_domain_handle_, i32 noundef 1, ptr noundef nonnull @.str.1292, i32 noundef %8) #5
@@ -8884,7 +8884,7 @@ define internal i32 @samr_dissect_LookupNames_request(ptr noundef %0, i32 nounde
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_LookupNames_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1223, ptr %8, align 8
   %9 = load i32, ptr @hf_samr_samr_LookupNames_rids, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_LookupNames_rids_, i32 noundef 1, ptr noundef nonnull @.str.1303, i32 noundef %9) #5
@@ -8899,7 +8899,7 @@ define internal i32 @samr_dissect_LookupNames_response(ptr noundef %0, i32 nound
   br i1 %.not, label %22, label %18
 
 18:                                               ; preds = %6
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = call ptr @val_to_str(i32 noundef %17, ptr noundef nonnull @NT_errors, ptr noundef nonnull @.str.1282) #5
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.1281, ptr noundef %21) #5
@@ -8911,7 +8911,7 @@ define internal i32 @samr_dissect_LookupNames_response(ptr noundef %0, i32 nound
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_LookupRids_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1224, ptr %7, align 8
   %8 = load i32, ptr @hf_samr_domain_handle, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_LookupRids_domain_handle_, i32 noundef 1, ptr noundef nonnull @.str.1292, i32 noundef %8) #5
@@ -8928,7 +8928,7 @@ define internal i32 @samr_dissect_LookupRids_request(ptr noundef %0, i32 noundef
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_LookupRids_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1224, ptr %8, align 8
   %9 = load i32, ptr @hf_samr_samr_LookupRids_names, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_LookupRids_names_, i32 noundef 1, ptr noundef nonnull @.str.1305, i32 noundef %9) #5
@@ -8943,7 +8943,7 @@ define internal i32 @samr_dissect_LookupRids_response(ptr noundef %0, i32 nounde
   br i1 %.not, label %22, label %18
 
 18:                                               ; preds = %6
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = call ptr @val_to_str(i32 noundef %17, ptr noundef nonnull @NT_errors, ptr noundef nonnull @.str.1282) #5
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.1281, ptr noundef %21) #5
@@ -8955,7 +8955,7 @@ define internal i32 @samr_dissect_LookupRids_response(ptr noundef %0, i32 nounde
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_OpenGroup_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1225, ptr %7, align 8
   %8 = load i32, ptr @hf_samr_domain_handle, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_OpenGroup_domain_handle_, i32 noundef 1, ptr noundef nonnull @.str.1292, i32 noundef %8) #5
@@ -8972,7 +8972,7 @@ define internal i32 @samr_dissect_OpenGroup_request(ptr noundef %0, i32 noundef 
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_OpenGroup_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1225, ptr %8, align 8
   %9 = load i32, ptr @hf_samr_group_handle, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_OpenGroup_group_handle_, i32 noundef 1, ptr noundef nonnull @.str.1296, i32 noundef %9) #5
@@ -8984,7 +8984,7 @@ define internal i32 @samr_dissect_OpenGroup_response(ptr noundef %0, i32 noundef
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @NT_errors, ptr noundef nonnull @.str.1282) #5
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.1281, ptr noundef %18) #5
@@ -8997,7 +8997,7 @@ define internal i32 @samr_dissect_OpenGroup_response(ptr noundef %0, i32 noundef
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_QueryGroupInfo_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1226, ptr %8, align 8
   %9 = load i32, ptr @hf_samr_group_handle, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_QueryGroupInfo_group_handle_, i32 noundef 1, ptr noundef nonnull @.str.1296, i32 noundef %9) #5
@@ -9014,7 +9014,7 @@ define internal i32 @samr_dissect_QueryGroupInfo_request(ptr noundef %0, i32 nou
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_QueryGroupInfo_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1226, ptr %8, align 8
   %9 = load i32, ptr @hf_samr_samr_QueryGroupInfo_info, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_QueryGroupInfo_info_, i32 noundef 1, ptr noundef nonnull @.str.1306, i32 noundef %9) #5
@@ -9026,7 +9026,7 @@ define internal i32 @samr_dissect_QueryGroupInfo_response(ptr noundef %0, i32 no
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @NT_errors, ptr noundef nonnull @.str.1282) #5
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.1281, ptr noundef %18) #5
@@ -9039,7 +9039,7 @@ define internal i32 @samr_dissect_QueryGroupInfo_response(ptr noundef %0, i32 no
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_SetGroupInfo_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1227, ptr %8, align 8
   %9 = load i32, ptr @hf_samr_group_handle, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_SetGroupInfo_group_handle_, i32 noundef 1, ptr noundef nonnull @.str.1296, i32 noundef %9) #5
@@ -9059,7 +9059,7 @@ define internal i32 @samr_dissect_SetGroupInfo_request(ptr noundef %0, i32 nound
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_SetGroupInfo_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1227, ptr %8, align 8
   %9 = load i32, ptr @hf_samr_status, align 4
   %10 = call i32 @dissect_ntstatus(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #5
@@ -9068,7 +9068,7 @@ define internal i32 @samr_dissect_SetGroupInfo_response(ptr noundef %0, i32 noun
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @NT_errors, ptr noundef nonnull @.str.1282) #5
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.1281, ptr noundef %15) #5
@@ -9080,7 +9080,7 @@ define internal i32 @samr_dissect_SetGroupInfo_response(ptr noundef %0, i32 noun
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_AddGroupMember_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1228, ptr %7, align 8
   %8 = load i32, ptr @hf_samr_group_handle, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_AddGroupMember_group_handle_, i32 noundef 1, ptr noundef nonnull @.str.1296, i32 noundef %8) #5
@@ -9097,7 +9097,7 @@ define internal i32 @samr_dissect_AddGroupMember_request(ptr noundef %0, i32 nou
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_AddGroupMember_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1228, ptr %8, align 8
   %9 = load i32, ptr @hf_samr_status, align 4
   %10 = call i32 @dissect_ntstatus(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #5
@@ -9106,7 +9106,7 @@ define internal i32 @samr_dissect_AddGroupMember_response(ptr noundef %0, i32 no
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @NT_errors, ptr noundef nonnull @.str.1282) #5
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.1281, ptr noundef %15) #5
@@ -9118,7 +9118,7 @@ define internal i32 @samr_dissect_AddGroupMember_response(ptr noundef %0, i32 no
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_DeleteDomainGroup_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1229, ptr %7, align 8
   %8 = load i32, ptr @hf_samr_group_handle, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_DeleteDomainGroup_group_handle_, i32 noundef 1, ptr noundef nonnull @.str.1296, i32 noundef %8) #5
@@ -9129,7 +9129,7 @@ define internal i32 @samr_dissect_DeleteDomainGroup_request(ptr noundef %0, i32 
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_DeleteDomainGroup_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1229, ptr %8, align 8
   %9 = load i32, ptr @hf_samr_group_handle, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_DeleteDomainGroup_group_handle_, i32 noundef 1, ptr noundef nonnull @.str.1296, i32 noundef %9) #5
@@ -9141,7 +9141,7 @@ define internal i32 @samr_dissect_DeleteDomainGroup_response(ptr noundef %0, i32
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @NT_errors, ptr noundef nonnull @.str.1282) #5
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.1281, ptr noundef %18) #5
@@ -9153,7 +9153,7 @@ define internal i32 @samr_dissect_DeleteDomainGroup_response(ptr noundef %0, i32
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_DeleteGroupMember_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1230, ptr %7, align 8
   %8 = load i32, ptr @hf_samr_group_handle, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_DeleteGroupMember_group_handle_, i32 noundef 1, ptr noundef nonnull @.str.1296, i32 noundef %8) #5
@@ -9167,7 +9167,7 @@ define internal i32 @samr_dissect_DeleteGroupMember_request(ptr noundef %0, i32 
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_DeleteGroupMember_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1230, ptr %8, align 8
   %9 = load i32, ptr @hf_samr_status, align 4
   %10 = call i32 @dissect_ntstatus(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #5
@@ -9176,7 +9176,7 @@ define internal i32 @samr_dissect_DeleteGroupMember_response(ptr noundef %0, i32
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @NT_errors, ptr noundef nonnull @.str.1282) #5
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.1281, ptr noundef %15) #5
@@ -9188,7 +9188,7 @@ define internal i32 @samr_dissect_DeleteGroupMember_response(ptr noundef %0, i32
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_QueryGroupMember_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1231, ptr %7, align 8
   %8 = load i32, ptr @hf_samr_group_handle, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_QueryGroupMember_group_handle_, i32 noundef 1, ptr noundef nonnull @.str.1296, i32 noundef %8) #5
@@ -9199,7 +9199,7 @@ define internal i32 @samr_dissect_QueryGroupMember_request(ptr noundef %0, i32 n
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_QueryGroupMember_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1231, ptr %8, align 8
   %9 = load i32, ptr @hf_samr_samr_QueryGroupMember_rids, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_QueryGroupMember_rids_, i32 noundef 1, ptr noundef nonnull @.str.1308, i32 noundef %9) #5
@@ -9211,7 +9211,7 @@ define internal i32 @samr_dissect_QueryGroupMember_response(ptr noundef %0, i32 
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @NT_errors, ptr noundef nonnull @.str.1282) #5
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.1281, ptr noundef %18) #5
@@ -9223,7 +9223,7 @@ define internal i32 @samr_dissect_QueryGroupMember_response(ptr noundef %0, i32 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_SetMemberAttributesOfGroup_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1232, ptr %7, align 8
   %8 = load i32, ptr @hf_samr_group_handle, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_SetMemberAttributesOfGroup_group_handle_, i32 noundef 1, ptr noundef nonnull @.str.1296, i32 noundef %8) #5
@@ -9240,7 +9240,7 @@ define internal i32 @samr_dissect_SetMemberAttributesOfGroup_request(ptr noundef
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_SetMemberAttributesOfGroup_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1232, ptr %8, align 8
   %9 = load i32, ptr @hf_samr_status, align 4
   %10 = call i32 @dissect_ntstatus(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #5
@@ -9249,7 +9249,7 @@ define internal i32 @samr_dissect_SetMemberAttributesOfGroup_response(ptr nounde
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @NT_errors, ptr noundef nonnull @.str.1282) #5
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.1281, ptr noundef %15) #5
@@ -9261,7 +9261,7 @@ define internal i32 @samr_dissect_SetMemberAttributesOfGroup_response(ptr nounde
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_OpenAlias_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1233, ptr %7, align 8
   %8 = load i32, ptr @hf_samr_domain_handle, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_OpenAlias_domain_handle_, i32 noundef 1, ptr noundef nonnull @.str.1292, i32 noundef %8) #5
@@ -9278,7 +9278,7 @@ define internal i32 @samr_dissect_OpenAlias_request(ptr noundef %0, i32 noundef 
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_OpenAlias_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1233, ptr %8, align 8
   %9 = load i32, ptr @hf_samr_alias_handle, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_OpenAlias_alias_handle_, i32 noundef 1, ptr noundef nonnull @.str.1301, i32 noundef %9) #5
@@ -9290,7 +9290,7 @@ define internal i32 @samr_dissect_OpenAlias_response(ptr noundef %0, i32 noundef
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @NT_errors, ptr noundef nonnull @.str.1282) #5
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.1281, ptr noundef %18) #5
@@ -9303,7 +9303,7 @@ define internal i32 @samr_dissect_OpenAlias_response(ptr noundef %0, i32 noundef
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_QueryAliasInfo_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1234, ptr %8, align 8
   %9 = load i32, ptr @hf_samr_alias_handle, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_QueryAliasInfo_alias_handle_, i32 noundef 1, ptr noundef nonnull @.str.1301, i32 noundef %9) #5
@@ -9320,7 +9320,7 @@ define internal i32 @samr_dissect_QueryAliasInfo_request(ptr noundef %0, i32 nou
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_QueryAliasInfo_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1234, ptr %8, align 8
   %9 = load i32, ptr @hf_samr_samr_QueryAliasInfo_info, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_QueryAliasInfo_info_, i32 noundef 1, ptr noundef nonnull @.str.1309, i32 noundef %9) #5
@@ -9332,7 +9332,7 @@ define internal i32 @samr_dissect_QueryAliasInfo_response(ptr noundef %0, i32 no
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @NT_errors, ptr noundef nonnull @.str.1282) #5
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.1281, ptr noundef %18) #5
@@ -9345,7 +9345,7 @@ define internal i32 @samr_dissect_QueryAliasInfo_response(ptr noundef %0, i32 no
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_SetAliasInfo_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1235, ptr %8, align 8
   %9 = load i32, ptr @hf_samr_alias_handle, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_SetAliasInfo_alias_handle_, i32 noundef 1, ptr noundef nonnull @.str.1301, i32 noundef %9) #5
@@ -9365,7 +9365,7 @@ define internal i32 @samr_dissect_SetAliasInfo_request(ptr noundef %0, i32 nound
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_SetAliasInfo_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1235, ptr %8, align 8
   %9 = load i32, ptr @hf_samr_status, align 4
   %10 = call i32 @dissect_ntstatus(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #5
@@ -9374,7 +9374,7 @@ define internal i32 @samr_dissect_SetAliasInfo_response(ptr noundef %0, i32 noun
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @NT_errors, ptr noundef nonnull @.str.1282) #5
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.1281, ptr noundef %15) #5
@@ -9386,7 +9386,7 @@ define internal i32 @samr_dissect_SetAliasInfo_response(ptr noundef %0, i32 noun
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_DeleteDomAlias_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1236, ptr %7, align 8
   %8 = load i32, ptr @hf_samr_alias_handle, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_DeleteDomAlias_alias_handle_, i32 noundef 1, ptr noundef nonnull @.str.1301, i32 noundef %8) #5
@@ -9397,7 +9397,7 @@ define internal i32 @samr_dissect_DeleteDomAlias_request(ptr noundef %0, i32 nou
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_DeleteDomAlias_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1236, ptr %8, align 8
   %9 = load i32, ptr @hf_samr_alias_handle, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_DeleteDomAlias_alias_handle_, i32 noundef 1, ptr noundef nonnull @.str.1301, i32 noundef %9) #5
@@ -9409,7 +9409,7 @@ define internal i32 @samr_dissect_DeleteDomAlias_response(ptr noundef %0, i32 no
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @NT_errors, ptr noundef nonnull @.str.1282) #5
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.1281, ptr noundef %18) #5
@@ -9421,7 +9421,7 @@ define internal i32 @samr_dissect_DeleteDomAlias_response(ptr noundef %0, i32 no
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_AddAliasMember_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1237, ptr %7, align 8
   %8 = load i32, ptr @hf_samr_alias_handle, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_AddAliasMember_alias_handle_, i32 noundef 1, ptr noundef nonnull @.str.1301, i32 noundef %8) #5
@@ -9435,7 +9435,7 @@ define internal i32 @samr_dissect_AddAliasMember_request(ptr noundef %0, i32 nou
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_AddAliasMember_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1237, ptr %8, align 8
   %9 = load i32, ptr @hf_samr_status, align 4
   %10 = call i32 @dissect_ntstatus(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #5
@@ -9444,7 +9444,7 @@ define internal i32 @samr_dissect_AddAliasMember_response(ptr noundef %0, i32 no
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @NT_errors, ptr noundef nonnull @.str.1282) #5
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.1281, ptr noundef %15) #5
@@ -9456,7 +9456,7 @@ define internal i32 @samr_dissect_AddAliasMember_response(ptr noundef %0, i32 no
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_DeleteAliasMember_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1238, ptr %7, align 8
   %8 = load i32, ptr @hf_samr_alias_handle, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_DeleteAliasMember_alias_handle_, i32 noundef 1, ptr noundef nonnull @.str.1301, i32 noundef %8) #5
@@ -9470,7 +9470,7 @@ define internal i32 @samr_dissect_DeleteAliasMember_request(ptr noundef %0, i32 
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_DeleteAliasMember_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1238, ptr %8, align 8
   %9 = load i32, ptr @hf_samr_status, align 4
   %10 = call i32 @dissect_ntstatus(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #5
@@ -9479,7 +9479,7 @@ define internal i32 @samr_dissect_DeleteAliasMember_response(ptr noundef %0, i32
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @NT_errors, ptr noundef nonnull @.str.1282) #5
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.1281, ptr noundef %15) #5
@@ -9491,7 +9491,7 @@ define internal i32 @samr_dissect_DeleteAliasMember_response(ptr noundef %0, i32
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_GetMembersInAlias_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1239, ptr %7, align 8
   %8 = load i32, ptr @hf_samr_alias_handle, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_GetMembersInAlias_alias_handle_, i32 noundef 1, ptr noundef nonnull @.str.1301, i32 noundef %8) #5
@@ -9502,7 +9502,7 @@ define internal i32 @samr_dissect_GetMembersInAlias_request(ptr noundef %0, i32 
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_GetMembersInAlias_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1239, ptr %8, align 8
   %9 = load i32, ptr @hf_samr_samr_GetMembersInAlias_sids, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_GetMembersInAlias_sids_, i32 noundef 1, ptr noundef nonnull @.str.1302, i32 noundef %9) #5
@@ -9514,7 +9514,7 @@ define internal i32 @samr_dissect_GetMembersInAlias_response(ptr noundef %0, i32
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @NT_errors, ptr noundef nonnull @.str.1282) #5
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.1281, ptr noundef %18) #5
@@ -9526,7 +9526,7 @@ define internal i32 @samr_dissect_GetMembersInAlias_response(ptr noundef %0, i32
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_OpenUser_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1240, ptr %7, align 8
   %8 = load i32, ptr @hf_samr_domain_handle, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_OpenUser_domain_handle_, i32 noundef 1, ptr noundef nonnull @.str.1292, i32 noundef %8) #5
@@ -9543,7 +9543,7 @@ define internal i32 @samr_dissect_OpenUser_request(ptr noundef %0, i32 noundef %
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_OpenUser_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1240, ptr %8, align 8
   %9 = load i32, ptr @hf_samr_user_handle, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_OpenUser_user_handle_, i32 noundef 1, ptr noundef nonnull @.str.1299, i32 noundef %9) #5
@@ -9555,7 +9555,7 @@ define internal i32 @samr_dissect_OpenUser_response(ptr noundef %0, i32 noundef 
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @NT_errors, ptr noundef nonnull @.str.1282) #5
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.1281, ptr noundef %18) #5
@@ -9567,7 +9567,7 @@ define internal i32 @samr_dissect_OpenUser_response(ptr noundef %0, i32 noundef 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_DeleteUser_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1241, ptr %7, align 8
   %8 = load i32, ptr @hf_samr_user_handle, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_DeleteUser_user_handle_, i32 noundef 1, ptr noundef nonnull @.str.1299, i32 noundef %8) #5
@@ -9578,7 +9578,7 @@ define internal i32 @samr_dissect_DeleteUser_request(ptr noundef %0, i32 noundef
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_DeleteUser_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1241, ptr %8, align 8
   %9 = load i32, ptr @hf_samr_user_handle, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_DeleteUser_user_handle_, i32 noundef 1, ptr noundef nonnull @.str.1299, i32 noundef %9) #5
@@ -9590,7 +9590,7 @@ define internal i32 @samr_dissect_DeleteUser_response(ptr noundef %0, i32 nounde
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @NT_errors, ptr noundef nonnull @.str.1282) #5
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.1281, ptr noundef %18) #5
@@ -9603,7 +9603,7 @@ define internal i32 @samr_dissect_DeleteUser_response(ptr noundef %0, i32 nounde
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_QueryUserInfo_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1242, ptr %8, align 8
   %9 = load i32, ptr @hf_samr_user_handle, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_QueryUserInfo_user_handle_, i32 noundef 1, ptr noundef nonnull @.str.1299, i32 noundef %9) #5
@@ -9620,7 +9620,7 @@ define internal i32 @samr_dissect_QueryUserInfo_request(ptr noundef %0, i32 noun
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_QueryUserInfo_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1242, ptr %8, align 8
   %9 = load i32, ptr @hf_samr_samr_QueryUserInfo_info, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_QueryUserInfo_info_, i32 noundef 1, ptr noundef nonnull @.str.1311, i32 noundef %9) #5
@@ -9632,7 +9632,7 @@ define internal i32 @samr_dissect_QueryUserInfo_response(ptr noundef %0, i32 nou
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @NT_errors, ptr noundef nonnull @.str.1282) #5
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.1281, ptr noundef %18) #5
@@ -9645,7 +9645,7 @@ define internal i32 @samr_dissect_QueryUserInfo_response(ptr noundef %0, i32 nou
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_SetUserInfo_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1243, ptr %8, align 8
   %9 = load i32, ptr @hf_samr_user_handle, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_SetUserInfo_user_handle_, i32 noundef 1, ptr noundef nonnull @.str.1299, i32 noundef %9) #5
@@ -9665,7 +9665,7 @@ define internal i32 @samr_dissect_SetUserInfo_request(ptr noundef %0, i32 nounde
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_SetUserInfo_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1243, ptr %8, align 8
   %9 = load i32, ptr @hf_samr_status, align 4
   %10 = call i32 @dissect_ntstatus(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #5
@@ -9674,7 +9674,7 @@ define internal i32 @samr_dissect_SetUserInfo_response(ptr noundef %0, i32 nound
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @NT_errors, ptr noundef nonnull @.str.1282) #5
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.1281, ptr noundef %15) #5
@@ -9686,7 +9686,7 @@ define internal i32 @samr_dissect_SetUserInfo_response(ptr noundef %0, i32 nound
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_ChangePasswordUser_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1244, ptr %7, align 8
   %8 = load i32, ptr @hf_samr_user_handle, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_ChangePasswordUser_user_handle_, i32 noundef 1, ptr noundef nonnull @.str.1299, i32 noundef %8) #5
@@ -9727,7 +9727,7 @@ define internal i32 @samr_dissect_ChangePasswordUser_request(ptr noundef %0, i32
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_ChangePasswordUser_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1244, ptr %8, align 8
   %9 = load i32, ptr @hf_samr_status, align 4
   %10 = call i32 @dissect_ntstatus(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #5
@@ -9736,7 +9736,7 @@ define internal i32 @samr_dissect_ChangePasswordUser_response(ptr noundef %0, i3
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @NT_errors, ptr noundef nonnull @.str.1282) #5
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.1281, ptr noundef %15) #5
@@ -9748,7 +9748,7 @@ define internal i32 @samr_dissect_ChangePasswordUser_response(ptr noundef %0, i3
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_GetGroupsForUser_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1245, ptr %7, align 8
   %8 = load i32, ptr @hf_samr_user_handle, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_GetGroupsForUser_user_handle_, i32 noundef 1, ptr noundef nonnull @.str.1299, i32 noundef %8) #5
@@ -9759,7 +9759,7 @@ define internal i32 @samr_dissect_GetGroupsForUser_request(ptr noundef %0, i32 n
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_GetGroupsForUser_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1245, ptr %8, align 8
   %9 = load i32, ptr @hf_samr_samr_GetGroupsForUser_rids, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_GetGroupsForUser_rids_, i32 noundef 1, ptr noundef nonnull @.str.1319, i32 noundef %9) #5
@@ -9771,7 +9771,7 @@ define internal i32 @samr_dissect_GetGroupsForUser_response(ptr noundef %0, i32 
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @NT_errors, ptr noundef nonnull @.str.1282) #5
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.1281, ptr noundef %18) #5
@@ -9784,7 +9784,7 @@ define internal i32 @samr_dissect_GetGroupsForUser_response(ptr noundef %0, i32 
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_QueryDisplayInfo_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1246, ptr %8, align 8
   %9 = load i32, ptr @hf_samr_domain_handle, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_QueryDisplayInfo_domain_handle_, i32 noundef 1, ptr noundef nonnull @.str.1292, i32 noundef %9) #5
@@ -9810,7 +9810,7 @@ define internal i32 @samr_dissect_QueryDisplayInfo_request(ptr noundef %0, i32 n
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_QueryDisplayInfo_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1246, ptr %8, align 8
   %9 = load i32, ptr @hf_samr_samr_QueryDisplayInfo_total_size, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_QueryDisplayInfo_total_size_, i32 noundef 1, ptr noundef nonnull @.str.1320, i32 noundef %9) #5
@@ -9828,7 +9828,7 @@ define internal i32 @samr_dissect_QueryDisplayInfo_response(ptr noundef %0, i32 
   br i1 %.not, label %25, label %21
 
 21:                                               ; preds = %6
-  %22 = getelementptr inbounds i8, ptr %2, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = call ptr @val_to_str(i32 noundef %20, ptr noundef nonnull @NT_errors, ptr noundef nonnull @.str.1282) #5
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %23, i32 noundef 25, ptr noundef nonnull @.str.1281, ptr noundef %24) #5
@@ -9840,7 +9840,7 @@ define internal i32 @samr_dissect_QueryDisplayInfo_response(ptr noundef %0, i32 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_GetDisplayEnumerationIndex_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1247, ptr %7, align 8
   %8 = load i32, ptr @hf_samr_domain_handle, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_GetDisplayEnumerationIndex_domain_handle_, i32 noundef 1, ptr noundef nonnull @.str.1292, i32 noundef %8) #5
@@ -9857,7 +9857,7 @@ define internal i32 @samr_dissect_GetDisplayEnumerationIndex_request(ptr noundef
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_GetDisplayEnumerationIndex_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1247, ptr %8, align 8
   %9 = load i32, ptr @hf_samr_samr_GetDisplayEnumerationIndex_idx, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_GetDisplayEnumerationIndex_idx_, i32 noundef 1, ptr noundef nonnull @.str.1324, i32 noundef %9) #5
@@ -9869,7 +9869,7 @@ define internal i32 @samr_dissect_GetDisplayEnumerationIndex_response(ptr nounde
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @NT_errors, ptr noundef nonnull @.str.1282) #5
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.1281, ptr noundef %18) #5
@@ -9881,7 +9881,7 @@ define internal i32 @samr_dissect_GetDisplayEnumerationIndex_response(ptr nounde
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_TestPrivateFunctionsDomain_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1248, ptr %7, align 8
   %8 = load i32, ptr @hf_samr_domain_handle, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_TestPrivateFunctionsDomain_domain_handle_, i32 noundef 1, ptr noundef nonnull @.str.1292, i32 noundef %8) #5
@@ -9892,7 +9892,7 @@ define internal i32 @samr_dissect_TestPrivateFunctionsDomain_request(ptr noundef
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_TestPrivateFunctionsDomain_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1248, ptr %8, align 8
   %9 = load i32, ptr @hf_samr_status, align 4
   %10 = call i32 @dissect_ntstatus(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #5
@@ -9901,7 +9901,7 @@ define internal i32 @samr_dissect_TestPrivateFunctionsDomain_response(ptr nounde
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @NT_errors, ptr noundef nonnull @.str.1282) #5
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.1281, ptr noundef %15) #5
@@ -9913,7 +9913,7 @@ define internal i32 @samr_dissect_TestPrivateFunctionsDomain_response(ptr nounde
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_TestPrivateFunctionsUser_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1249, ptr %7, align 8
   %8 = load i32, ptr @hf_samr_user_handle, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_TestPrivateFunctionsUser_user_handle_, i32 noundef 1, ptr noundef nonnull @.str.1299, i32 noundef %8) #5
@@ -9924,7 +9924,7 @@ define internal i32 @samr_dissect_TestPrivateFunctionsUser_request(ptr noundef %
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_TestPrivateFunctionsUser_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1249, ptr %8, align 8
   %9 = load i32, ptr @hf_samr_status, align 4
   %10 = call i32 @dissect_ntstatus(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #5
@@ -9933,7 +9933,7 @@ define internal i32 @samr_dissect_TestPrivateFunctionsUser_response(ptr noundef 
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @NT_errors, ptr noundef nonnull @.str.1282) #5
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.1281, ptr noundef %15) #5
@@ -9945,7 +9945,7 @@ define internal i32 @samr_dissect_TestPrivateFunctionsUser_response(ptr noundef 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_GetUserPwInfo_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1250, ptr %7, align 8
   %8 = load i32, ptr @hf_samr_user_handle, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_GetUserPwInfo_user_handle_, i32 noundef 1, ptr noundef nonnull @.str.1299, i32 noundef %8) #5
@@ -9956,7 +9956,7 @@ define internal i32 @samr_dissect_GetUserPwInfo_request(ptr noundef %0, i32 noun
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_GetUserPwInfo_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1250, ptr %8, align 8
   %9 = load i32, ptr @hf_samr_samr_GetUserPwInfo_info, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_GetUserPwInfo_info_, i32 noundef 1, ptr noundef nonnull @.str.1325, i32 noundef %9) #5
@@ -9968,7 +9968,7 @@ define internal i32 @samr_dissect_GetUserPwInfo_response(ptr noundef %0, i32 nou
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @NT_errors, ptr noundef nonnull @.str.1282) #5
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.1281, ptr noundef %18) #5
@@ -9980,7 +9980,7 @@ define internal i32 @samr_dissect_GetUserPwInfo_response(ptr noundef %0, i32 nou
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_RemoveMemberFromForeignDomain_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1251, ptr %7, align 8
   %8 = load i32, ptr @hf_samr_domain_handle, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_RemoveMemberFromForeignDomain_domain_handle_, i32 noundef 1, ptr noundef nonnull @.str.1292, i32 noundef %8) #5
@@ -9994,7 +9994,7 @@ define internal i32 @samr_dissect_RemoveMemberFromForeignDomain_request(ptr noun
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_RemoveMemberFromForeignDomain_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1251, ptr %8, align 8
   %9 = load i32, ptr @hf_samr_status, align 4
   %10 = call i32 @dissect_ntstatus(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #5
@@ -10003,7 +10003,7 @@ define internal i32 @samr_dissect_RemoveMemberFromForeignDomain_response(ptr nou
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @NT_errors, ptr noundef nonnull @.str.1282) #5
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.1281, ptr noundef %15) #5
@@ -10016,7 +10016,7 @@ define internal i32 @samr_dissect_RemoveMemberFromForeignDomain_response(ptr nou
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_QueryDomainInfo2_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1252, ptr %8, align 8
   %9 = load i32, ptr @hf_samr_domain_handle, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_QueryDomainInfo2_domain_handle_, i32 noundef 1, ptr noundef nonnull @.str.1292, i32 noundef %9) #5
@@ -10033,7 +10033,7 @@ define internal i32 @samr_dissect_QueryDomainInfo2_request(ptr noundef %0, i32 n
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_QueryDomainInfo2_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1252, ptr %8, align 8
   %9 = load i32, ptr @hf_samr_samr_QueryDomainInfo2_info, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_QueryDomainInfo2_info_, i32 noundef 1, ptr noundef nonnull @.str.1293, i32 noundef %9) #5
@@ -10045,7 +10045,7 @@ define internal i32 @samr_dissect_QueryDomainInfo2_response(ptr noundef %0, i32 
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @NT_errors, ptr noundef nonnull @.str.1282) #5
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.1281, ptr noundef %18) #5
@@ -10058,7 +10058,7 @@ define internal i32 @samr_dissect_QueryDomainInfo2_response(ptr noundef %0, i32 
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_QueryUserInfo2_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1253, ptr %8, align 8
   %9 = load i32, ptr @hf_samr_user_handle, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_QueryUserInfo2_user_handle_, i32 noundef 1, ptr noundef nonnull @.str.1299, i32 noundef %9) #5
@@ -10075,7 +10075,7 @@ define internal i32 @samr_dissect_QueryUserInfo2_request(ptr noundef %0, i32 nou
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_QueryUserInfo2_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1253, ptr %8, align 8
   %9 = load i32, ptr @hf_samr_samr_QueryUserInfo2_info, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_QueryUserInfo2_info_, i32 noundef 1, ptr noundef nonnull @.str.1311, i32 noundef %9) #5
@@ -10087,7 +10087,7 @@ define internal i32 @samr_dissect_QueryUserInfo2_response(ptr noundef %0, i32 no
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @NT_errors, ptr noundef nonnull @.str.1282) #5
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.1281, ptr noundef %18) #5
@@ -10100,7 +10100,7 @@ define internal i32 @samr_dissect_QueryUserInfo2_response(ptr noundef %0, i32 no
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_QueryDisplayInfo2_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1254, ptr %8, align 8
   %9 = load i32, ptr @hf_samr_domain_handle, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_QueryDisplayInfo2_domain_handle_, i32 noundef 1, ptr noundef nonnull @.str.1292, i32 noundef %9) #5
@@ -10126,7 +10126,7 @@ define internal i32 @samr_dissect_QueryDisplayInfo2_request(ptr noundef %0, i32 
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_QueryDisplayInfo2_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1254, ptr %8, align 8
   %9 = load i32, ptr @hf_samr_samr_QueryDisplayInfo2_total_size, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_QueryDisplayInfo2_total_size_, i32 noundef 1, ptr noundef nonnull @.str.1320, i32 noundef %9) #5
@@ -10144,7 +10144,7 @@ define internal i32 @samr_dissect_QueryDisplayInfo2_response(ptr noundef %0, i32
   br i1 %.not, label %25, label %21
 
 21:                                               ; preds = %6
-  %22 = getelementptr inbounds i8, ptr %2, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = call ptr @val_to_str(i32 noundef %20, ptr noundef nonnull @NT_errors, ptr noundef nonnull @.str.1282) #5
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %23, i32 noundef 25, ptr noundef nonnull @.str.1281, ptr noundef %24) #5
@@ -10157,7 +10157,7 @@ define internal i32 @samr_dissect_QueryDisplayInfo2_response(ptr noundef %0, i32
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_GetDisplayEnumerationIndex2_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1255, ptr %8, align 8
   %9 = load i32, ptr @hf_samr_domain_handle, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_GetDisplayEnumerationIndex2_domain_handle_, i32 noundef 1, ptr noundef nonnull @.str.1292, i32 noundef %9) #5
@@ -10177,7 +10177,7 @@ define internal i32 @samr_dissect_GetDisplayEnumerationIndex2_request(ptr nounde
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_GetDisplayEnumerationIndex2_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1255, ptr %8, align 8
   %9 = load i32, ptr @hf_samr_samr_GetDisplayEnumerationIndex2_idx, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_GetDisplayEnumerationIndex2_idx_, i32 noundef 1, ptr noundef nonnull @.str.1324, i32 noundef %9) #5
@@ -10189,7 +10189,7 @@ define internal i32 @samr_dissect_GetDisplayEnumerationIndex2_response(ptr nound
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @NT_errors, ptr noundef nonnull @.str.1282) #5
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.1281, ptr noundef %18) #5
@@ -10201,7 +10201,7 @@ define internal i32 @samr_dissect_GetDisplayEnumerationIndex2_response(ptr nound
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_CreateUser2_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1256, ptr %7, align 8
   %8 = load i32, ptr @hf_samr_domain_handle, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_CreateUser2_domain_handle_, i32 noundef 1, ptr noundef nonnull @.str.1292, i32 noundef %8) #5
@@ -10221,7 +10221,7 @@ define internal i32 @samr_dissect_CreateUser2_request(ptr noundef %0, i32 nounde
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_CreateUser2_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1256, ptr %8, align 8
   %9 = load i32, ptr @hf_samr_user_handle, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_CreateUser2_user_handle_, i32 noundef 1, ptr noundef nonnull @.str.1299, i32 noundef %9) #5
@@ -10239,7 +10239,7 @@ define internal i32 @samr_dissect_CreateUser2_response(ptr noundef %0, i32 nound
   br i1 %.not, label %25, label %21
 
 21:                                               ; preds = %6
-  %22 = getelementptr inbounds i8, ptr %2, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = call ptr @val_to_str(i32 noundef %20, ptr noundef nonnull @NT_errors, ptr noundef nonnull @.str.1282) #5
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %23, i32 noundef 25, ptr noundef nonnull @.str.1281, ptr noundef %24) #5
@@ -10252,7 +10252,7 @@ define internal i32 @samr_dissect_CreateUser2_response(ptr noundef %0, i32 nound
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_QueryDisplayInfo3_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1257, ptr %8, align 8
   %9 = load i32, ptr @hf_samr_domain_handle, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_QueryDisplayInfo3_domain_handle_, i32 noundef 1, ptr noundef nonnull @.str.1292, i32 noundef %9) #5
@@ -10278,7 +10278,7 @@ define internal i32 @samr_dissect_QueryDisplayInfo3_request(ptr noundef %0, i32 
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_QueryDisplayInfo3_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1257, ptr %8, align 8
   %9 = load i32, ptr @hf_samr_samr_QueryDisplayInfo3_total_size, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_QueryDisplayInfo3_total_size_, i32 noundef 1, ptr noundef nonnull @.str.1320, i32 noundef %9) #5
@@ -10296,7 +10296,7 @@ define internal i32 @samr_dissect_QueryDisplayInfo3_response(ptr noundef %0, i32
   br i1 %.not, label %25, label %21
 
 21:                                               ; preds = %6
-  %22 = getelementptr inbounds i8, ptr %2, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = call ptr @val_to_str(i32 noundef %20, ptr noundef nonnull @NT_errors, ptr noundef nonnull @.str.1282) #5
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %23, i32 noundef 25, ptr noundef nonnull @.str.1281, ptr noundef %24) #5
@@ -10308,7 +10308,7 @@ define internal i32 @samr_dissect_QueryDisplayInfo3_response(ptr noundef %0, i32
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_AddMultipleMembersToAlias_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1258, ptr %7, align 8
   %8 = load i32, ptr @hf_samr_alias_handle, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_AddMultipleMembersToAlias_alias_handle_, i32 noundef 1, ptr noundef nonnull @.str.1301, i32 noundef %8) #5
@@ -10322,7 +10322,7 @@ define internal i32 @samr_dissect_AddMultipleMembersToAlias_request(ptr noundef 
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_AddMultipleMembersToAlias_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1258, ptr %8, align 8
   %9 = load i32, ptr @hf_samr_status, align 4
   %10 = call i32 @dissect_ntstatus(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #5
@@ -10331,7 +10331,7 @@ define internal i32 @samr_dissect_AddMultipleMembersToAlias_response(ptr noundef
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @NT_errors, ptr noundef nonnull @.str.1282) #5
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.1281, ptr noundef %15) #5
@@ -10343,7 +10343,7 @@ define internal i32 @samr_dissect_AddMultipleMembersToAlias_response(ptr noundef
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_RemoveMultipleMembersFromAlias_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1259, ptr %7, align 8
   %8 = load i32, ptr @hf_samr_alias_handle, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_RemoveMultipleMembersFromAlias_alias_handle_, i32 noundef 1, ptr noundef nonnull @.str.1301, i32 noundef %8) #5
@@ -10357,7 +10357,7 @@ define internal i32 @samr_dissect_RemoveMultipleMembersFromAlias_request(ptr nou
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_RemoveMultipleMembersFromAlias_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1259, ptr %8, align 8
   %9 = load i32, ptr @hf_samr_status, align 4
   %10 = call i32 @dissect_ntstatus(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #5
@@ -10366,7 +10366,7 @@ define internal i32 @samr_dissect_RemoveMultipleMembersFromAlias_response(ptr no
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @NT_errors, ptr noundef nonnull @.str.1282) #5
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.1281, ptr noundef %15) #5
@@ -10378,7 +10378,7 @@ define internal i32 @samr_dissect_RemoveMultipleMembersFromAlias_response(ptr no
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_OemChangePasswordUser2_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1260, ptr %7, align 8
   %8 = load i32, ptr @hf_samr_samr_OemChangePasswordUser2_server, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_OemChangePasswordUser2_server_, i32 noundef 2, ptr noundef nonnull @.str.1327, i32 noundef %8) #5
@@ -10398,7 +10398,7 @@ define internal i32 @samr_dissect_OemChangePasswordUser2_request(ptr noundef %0,
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_OemChangePasswordUser2_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1260, ptr %8, align 8
   %9 = load i32, ptr @hf_samr_status, align 4
   %10 = call i32 @dissect_ntstatus(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #5
@@ -10407,7 +10407,7 @@ define internal i32 @samr_dissect_OemChangePasswordUser2_response(ptr noundef %0
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @NT_errors, ptr noundef nonnull @.str.1282) #5
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.1281, ptr noundef %15) #5
@@ -10419,7 +10419,7 @@ define internal i32 @samr_dissect_OemChangePasswordUser2_response(ptr noundef %0
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_ChangePasswordUser2_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1261, ptr %7, align 8
   %8 = load i32, ptr @hf_samr_samr_ChangePasswordUser2_server, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_ChangePasswordUser2_server_, i32 noundef 2, ptr noundef nonnull @.str.1331, i32 noundef %8) #5
@@ -10448,7 +10448,7 @@ define internal i32 @samr_dissect_ChangePasswordUser2_request(ptr noundef %0, i3
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_ChangePasswordUser2_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1261, ptr %8, align 8
   %9 = load i32, ptr @hf_samr_status, align 4
   %10 = call i32 @dissect_ntstatus(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #5
@@ -10457,7 +10457,7 @@ define internal i32 @samr_dissect_ChangePasswordUser2_response(ptr noundef %0, i
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @NT_errors, ptr noundef nonnull @.str.1282) #5
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.1281, ptr noundef %15) #5
@@ -10469,7 +10469,7 @@ define internal i32 @samr_dissect_ChangePasswordUser2_response(ptr noundef %0, i
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_GetDomPwInfo_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1262, ptr %7, align 8
   %8 = load i32, ptr @hf_samr_samr_GetDomPwInfo_domain_name, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_GetDomPwInfo_domain_name_, i32 noundef 2, ptr noundef nonnull @.str.1287, i32 noundef %8) #5
@@ -10480,7 +10480,7 @@ define internal i32 @samr_dissect_GetDomPwInfo_request(ptr noundef %0, i32 nound
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_GetDomPwInfo_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1262, ptr %8, align 8
   %9 = load i32, ptr @hf_samr_samr_GetDomPwInfo_info, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_GetDomPwInfo_info_, i32 noundef 1, ptr noundef nonnull @.str.1325, i32 noundef %9) #5
@@ -10492,7 +10492,7 @@ define internal i32 @samr_dissect_GetDomPwInfo_response(ptr noundef %0, i32 noun
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @NT_errors, ptr noundef nonnull @.str.1282) #5
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.1281, ptr noundef %18) #5
@@ -10504,7 +10504,7 @@ define internal i32 @samr_dissect_GetDomPwInfo_response(ptr noundef %0, i32 noun
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_Connect2_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1263, ptr %7, align 8
   %8 = load i32, ptr @hf_samr_samr_Connect2_system_name, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_Connect2_system_name_, i32 noundef 2, ptr noundef nonnull @.str.1280, i32 noundef %8) #5
@@ -10518,7 +10518,7 @@ define internal i32 @samr_dissect_Connect2_request(ptr noundef %0, i32 noundef %
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_Connect2_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1263, ptr %8, align 8
   %9 = load i32, ptr @hf_samr_connect_handle, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_Connect2_connect_handle_, i32 noundef 1, ptr noundef nonnull @.str.1283, i32 noundef %9) #5
@@ -10530,7 +10530,7 @@ define internal i32 @samr_dissect_Connect2_response(ptr noundef %0, i32 noundef 
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @NT_errors, ptr noundef nonnull @.str.1282) #5
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.1281, ptr noundef %18) #5
@@ -10543,7 +10543,7 @@ define internal i32 @samr_dissect_Connect2_response(ptr noundef %0, i32 noundef 
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_SetUserInfo2_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1264, ptr %8, align 8
   %9 = load i32, ptr @hf_samr_user_handle, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_SetUserInfo2_user_handle_, i32 noundef 1, ptr noundef nonnull @.str.1299, i32 noundef %9) #5
@@ -10563,7 +10563,7 @@ define internal i32 @samr_dissect_SetUserInfo2_request(ptr noundef %0, i32 nound
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_SetUserInfo2_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1264, ptr %8, align 8
   %9 = load i32, ptr @hf_samr_status, align 4
   %10 = call i32 @dissect_ntstatus(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #5
@@ -10572,7 +10572,7 @@ define internal i32 @samr_dissect_SetUserInfo2_response(ptr noundef %0, i32 noun
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @NT_errors, ptr noundef nonnull @.str.1282) #5
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.1281, ptr noundef %15) #5
@@ -10584,7 +10584,7 @@ define internal i32 @samr_dissect_SetUserInfo2_response(ptr noundef %0, i32 noun
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_SetBootKeyInformation_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1265, ptr %7, align 8
   %8 = load i32, ptr @hf_samr_connect_handle, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_SetBootKeyInformation_connect_handle_, i32 noundef 1, ptr noundef nonnull @.str.1283, i32 noundef %8) #5
@@ -10604,7 +10604,7 @@ define internal i32 @samr_dissect_SetBootKeyInformation_request(ptr noundef %0, 
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_SetBootKeyInformation_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1265, ptr %8, align 8
   %9 = load i32, ptr @hf_samr_status, align 4
   %10 = call i32 @dissect_ntstatus(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #5
@@ -10613,7 +10613,7 @@ define internal i32 @samr_dissect_SetBootKeyInformation_response(ptr noundef %0,
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @NT_errors, ptr noundef nonnull @.str.1282) #5
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.1281, ptr noundef %15) #5
@@ -10625,7 +10625,7 @@ define internal i32 @samr_dissect_SetBootKeyInformation_response(ptr noundef %0,
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_GetBootKeyInformation_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1266, ptr %7, align 8
   %8 = load i32, ptr @hf_samr_samr_GetBootKeyInformation_domain_handle, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_GetBootKeyInformation_domain_handle_, i32 noundef 1, ptr noundef nonnull @.str.1292, i32 noundef %8) #5
@@ -10636,7 +10636,7 @@ define internal i32 @samr_dissect_GetBootKeyInformation_request(ptr noundef %0, 
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_GetBootKeyInformation_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1266, ptr %8, align 8
   %9 = load i32, ptr @hf_samr_samr_GetBootKeyInformation_unknown, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_GetBootKeyInformation_unknown_, i32 noundef 1, ptr noundef nonnull @.str.1338, i32 noundef %9) #5
@@ -10648,7 +10648,7 @@ define internal i32 @samr_dissect_GetBootKeyInformation_response(ptr noundef %0,
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @NT_errors, ptr noundef nonnull @.str.1282) #5
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.1281, ptr noundef %18) #5
@@ -10660,7 +10660,7 @@ define internal i32 @samr_dissect_GetBootKeyInformation_response(ptr noundef %0,
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_Connect3_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1267, ptr %7, align 8
   %8 = load i32, ptr @hf_samr_samr_Connect3_system_name, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_Connect3_system_name_, i32 noundef 2, ptr noundef nonnull @.str.1280, i32 noundef %8) #5
@@ -10677,7 +10677,7 @@ define internal i32 @samr_dissect_Connect3_request(ptr noundef %0, i32 noundef %
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_Connect3_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1267, ptr %8, align 8
   %9 = load i32, ptr @hf_samr_connect_handle, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_Connect3_connect_handle_, i32 noundef 1, ptr noundef nonnull @.str.1283, i32 noundef %9) #5
@@ -10689,7 +10689,7 @@ define internal i32 @samr_dissect_Connect3_response(ptr noundef %0, i32 noundef 
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @NT_errors, ptr noundef nonnull @.str.1282) #5
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.1281, ptr noundef %18) #5
@@ -10702,7 +10702,7 @@ define internal i32 @samr_dissect_Connect3_response(ptr noundef %0, i32 noundef 
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_Connect4_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1268, ptr %8, align 8
   %9 = load i32, ptr @hf_samr_samr_Connect4_system_name, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_Connect4_system_name_, i32 noundef 2, ptr noundef nonnull @.str.1280, i32 noundef %9) #5
@@ -10722,7 +10722,7 @@ define internal i32 @samr_dissect_Connect4_request(ptr noundef %0, i32 noundef %
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_Connect4_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1268, ptr %8, align 8
   %9 = load i32, ptr @hf_samr_connect_handle, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_Connect4_connect_handle_, i32 noundef 1, ptr noundef nonnull @.str.1283, i32 noundef %9) #5
@@ -10734,7 +10734,7 @@ define internal i32 @samr_dissect_Connect4_response(ptr noundef %0, i32 noundef 
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @NT_errors, ptr noundef nonnull @.str.1282) #5
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.1281, ptr noundef %18) #5
@@ -10746,7 +10746,7 @@ define internal i32 @samr_dissect_Connect4_response(ptr noundef %0, i32 noundef 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_ChangePasswordUser3_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1269, ptr %7, align 8
   %8 = load i32, ptr @hf_samr_samr_ChangePasswordUser3_server, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_ChangePasswordUser3_server_, i32 noundef 2, ptr noundef nonnull @.str.1331, i32 noundef %8) #5
@@ -10778,7 +10778,7 @@ define internal i32 @samr_dissect_ChangePasswordUser3_request(ptr noundef %0, i3
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_ChangePasswordUser3_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1269, ptr %8, align 8
   %9 = load i32, ptr @hf_samr_samr_ChangePasswordUser3_dominfo, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_ChangePasswordUser3_dominfo_, i32 noundef 1, ptr noundef nonnull @.str.1340, i32 noundef %9) #5
@@ -10793,7 +10793,7 @@ define internal i32 @samr_dissect_ChangePasswordUser3_response(ptr noundef %0, i
   br i1 %.not, label %22, label %18
 
 18:                                               ; preds = %6
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = call ptr @val_to_str(i32 noundef %17, ptr noundef nonnull @NT_errors, ptr noundef nonnull @.str.1282) #5
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.1281, ptr noundef %21) #5
@@ -10805,7 +10805,7 @@ define internal i32 @samr_dissect_ChangePasswordUser3_response(ptr noundef %0, i
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_Connect5_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1270, ptr %7, align 8
   %8 = load i32, ptr @hf_samr_samr_Connect5_system_name, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_Connect5_system_name_, i32 noundef 2, ptr noundef nonnull @.str.1280, i32 noundef %8) #5
@@ -10825,7 +10825,7 @@ define internal i32 @samr_dissect_Connect5_request(ptr noundef %0, i32 noundef %
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_Connect5_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1270, ptr %8, align 8
   %9 = load i32, ptr @hf_samr_samr_Connect5_level_out, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_Connect5_level_out_, i32 noundef 1, ptr noundef nonnull @.str.1344, i32 noundef %9) #5
@@ -10843,7 +10843,7 @@ define internal i32 @samr_dissect_Connect5_response(ptr noundef %0, i32 noundef 
   br i1 %.not, label %25, label %21
 
 21:                                               ; preds = %6
-  %22 = getelementptr inbounds i8, ptr %2, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = call ptr @val_to_str(i32 noundef %20, ptr noundef nonnull @NT_errors, ptr noundef nonnull @.str.1282) #5
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %23, i32 noundef 25, ptr noundef nonnull @.str.1281, ptr noundef %24) #5
@@ -10855,7 +10855,7 @@ define internal i32 @samr_dissect_Connect5_response(ptr noundef %0, i32 noundef 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_RidToSid_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1271, ptr %7, align 8
   %8 = load i32, ptr @hf_samr_domain_handle, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_RidToSid_domain_handle_, i32 noundef 1, ptr noundef nonnull @.str.1292, i32 noundef %8) #5
@@ -10869,7 +10869,7 @@ define internal i32 @samr_dissect_RidToSid_request(ptr noundef %0, i32 noundef %
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_RidToSid_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1271, ptr %8, align 8
   %9 = load i32, ptr @hf_samr_samr_RidToSid_sid, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_RidToSid_sid_, i32 noundef 1, ptr noundef nonnull @.str.1288, i32 noundef %9) #5
@@ -10881,7 +10881,7 @@ define internal i32 @samr_dissect_RidToSid_response(ptr noundef %0, i32 noundef 
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @NT_errors, ptr noundef nonnull @.str.1282) #5
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.1281, ptr noundef %18) #5
@@ -10893,7 +10893,7 @@ define internal i32 @samr_dissect_RidToSid_response(ptr noundef %0, i32 noundef 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_SetDsrmPassword_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1272, ptr %7, align 8
   %8 = load i32, ptr @hf_samr_samr_SetDsrmPassword_name, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_SetDsrmPassword_name_, i32 noundef 2, ptr noundef nonnull @.str.1295, i32 noundef %8) #5
@@ -10910,7 +10910,7 @@ define internal i32 @samr_dissect_SetDsrmPassword_request(ptr noundef %0, i32 no
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_SetDsrmPassword_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1272, ptr %8, align 8
   %9 = load i32, ptr @hf_samr_status, align 4
   %10 = call i32 @dissect_ntstatus(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #5
@@ -10919,7 +10919,7 @@ define internal i32 @samr_dissect_SetDsrmPassword_response(ptr noundef %0, i32 n
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @NT_errors, ptr noundef nonnull @.str.1282) #5
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.1281, ptr noundef %15) #5
@@ -10932,7 +10932,7 @@ define internal i32 @samr_dissect_SetDsrmPassword_response(ptr noundef %0, i32 n
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_ValidatePassword_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1273, ptr %8, align 8
   %9 = load i32, ptr @hf_samr_samr_ValidatePassword_level, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
@@ -10949,7 +10949,7 @@ define internal i32 @samr_dissect_ValidatePassword_request(ptr noundef %0, i32 n
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_ValidatePassword_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1273, ptr %8, align 8
   %9 = load i32, ptr @hf_samr_samr_ValidatePassword_rep, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_ValidatePassword_rep_, i32 noundef 1, ptr noundef nonnull @.str.1348, i32 noundef %9) #5
@@ -10961,7 +10961,7 @@ define internal i32 @samr_dissect_ValidatePassword_response(ptr noundef %0, i32 
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @NT_errors, ptr noundef nonnull @.str.1282) #5
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.1281, ptr noundef %18) #5
@@ -10973,77 +10973,77 @@ define internal i32 @samr_dissect_ValidatePassword_response(ptr noundef %0, i32 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @samr_dissect_Opnum68NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1274, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @samr_dissect_Opnum68NotUsedOnWire_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1274, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @samr_dissect_Opnum69NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1275, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @samr_dissect_Opnum69NotUsedOnWire_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1275, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @samr_dissect_Opnum70NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1276, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @samr_dissect_Opnum70NotUsedOnWire_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1276, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @samr_dissect_Opnum71NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1277, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @samr_dissect_Opnum71NotUsedOnWire_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1277, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @samr_dissect_Opnum72NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1278, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @samr_dissect_Opnum72NotUsedOnWire_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1278, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_ChangePasswordUser4_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1279, ptr %7, align 8
   %8 = load i32, ptr @hf_samr_samr_ChangePasswordUser4_server, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_ChangePasswordUser4_server_, i32 noundef 2, ptr noundef nonnull @.str.1331, i32 noundef %8) #5
@@ -11060,7 +11060,7 @@ define internal i32 @samr_dissect_ChangePasswordUser4_request(ptr noundef %0, i3
 ; Function Attrs: nounwind uwtable
 define internal i32 @samr_dissect_ChangePasswordUser4_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.1279, ptr %8, align 8
   %9 = load i32, ptr @hf_samr_status, align 4
   %10 = call i32 @dissect_ntstatus(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #5
@@ -11069,7 +11069,7 @@ define internal i32 @samr_dissect_ChangePasswordUser4_response(ptr noundef %0, i
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @NT_errors, ptr noundef nonnull @.str.1282) #5
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.1281, ptr noundef %15) #5
@@ -11125,7 +11125,7 @@ declare i32 @dissect_nt_security_information(ptr noundef, i32 noundef, ptr nound
 define internal i32 @samr_dissect_element_SetSecurity_sdbuf_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  %8 = getelementptr inbounds i8, ptr %4, i64 28
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %9 = load i32, ptr %8, align 4
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %10, label %cnf_dissect_sec_desc_buf.exit
@@ -11151,7 +11151,7 @@ define internal i32 @cnf_dissect_sec_desc_buf_(ptr noundef %0, i32 noundef %1, p
   %7 = alloca i64, align 8
   %8 = alloca i32, align 4
   store i32 0, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %11, label %35
@@ -11159,19 +11159,19 @@ define internal i32 @cnf_dissect_sec_desc_buf_(ptr noundef %0, i32 noundef %1, p
 11:                                               ; preds = %6
   %12 = load i32, ptr @hf_samr_sec_desc_buf_len, align 4
   %13 = call i32 @dissect_ndr_uint3264(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %12, ptr noundef nonnull %7) #5
-  %14 = getelementptr inbounds i8, ptr %4, i64 72
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %15 = load ptr, ptr %14, align 8
   %.not25 = icmp eq ptr %15, null
   br i1 %.not25, label %.thread, label %16
 
 16:                                               ; preds = %11
-  %17 = getelementptr inbounds i8, ptr %15, i64 88
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 88
   %18 = load ptr, ptr %17, align 8
   %.not26 = icmp eq ptr %18, null
   br i1 %.not26, label %.thread, label %19
 
 19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %2, i64 20
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %21 = load i32, ptr %20, align 4
   %22 = call i32 @dcerpc_fetch_polhnd_data(ptr noundef nonnull %18, ptr noundef null, ptr noundef nonnull %8, ptr noundef null, ptr noundef null, i32 noundef %21) #5
   %.pre = load i32, ptr %8, align 4
@@ -11186,7 +11186,7 @@ define internal i32 @cnf_dissect_sec_desc_buf_(ptr noundef %0, i32 noundef %1, p
 
 switch.lookup:                                    ; preds = %.thread
   %27 = zext nneg i32 %25 to i64
-  %switch.gep = getelementptr inbounds [5 x ptr], ptr @switch.table.cnf_dissect_sec_desc_buf_, i64 0, i64 %27
+  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table.cnf_dissect_sec_desc_buf_, i64 0, i64 %27
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %28
 
@@ -11227,7 +11227,7 @@ define internal i32 @samr_dissect_element_QuerySecurity_sdbuf_(ptr noundef %0, i
 define internal i32 @samr_dissect_element_QuerySecurity_sdbuf__(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  %8 = getelementptr inbounds i8, ptr %4, i64 28
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %9 = load i32, ptr %8, align 4
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %10, label %cnf_dissect_sec_desc_buf.exit
@@ -11372,7 +11372,7 @@ define internal fastcc i32 @samr_dissect_DomainInfo(ptr noundef %0, i32 noundef 
 13:                                               ; preds = %10, %7
   %.089 = phi ptr [ %12, %10 ], [ null, %7 ]
   %14 = call i32 @dissect_ndr_uint16(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.089, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef nonnull %9) #5
-  %15 = getelementptr inbounds i8, ptr %4, i64 28
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %16 = load i32, ptr %15, align 4
   %.not91 = icmp ne i32 %16, 0
   %17 = and i32 %14, 7
@@ -11807,13 +11807,13 @@ define internal fastcc i32 @samr_dissect_GroupInfo(ptr noundef %0, i32 noundef %
 13:                                               ; preds = %10, %7
   %.051 = phi ptr [ %12, %10 ], [ null, %7 ]
   %14 = call i32 @dissect_ndr_uint1632(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.051, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef nonnull %9) #5
-  %15 = getelementptr inbounds i8, ptr %4, i64 72
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 96
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 96
   %18 = load i32, ptr %17, align 8
   %19 = and i32 %18, 1
   %.not53 = icmp eq i32 %19, 0
-  %20 = getelementptr inbounds i8, ptr %4, i64 28
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %21 = load i32, ptr %20, align 4
   %.not54 = icmp ne i32 %21, 0
   br i1 %.not53, label %27, label %22
@@ -11998,13 +11998,13 @@ define internal fastcc i32 @samr_dissect_AliasInfo(ptr noundef %0, i32 noundef %
 13:                                               ; preds = %10, %7
   %.039 = phi ptr [ %12, %10 ], [ null, %7 ]
   %14 = call i32 @dissect_ndr_uint1632(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.039, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef nonnull %9) #5
-  %15 = getelementptr inbounds i8, ptr %4, i64 72
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 96
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 96
   %18 = load i32, ptr %17, align 8
   %19 = and i32 %18, 1
   %.not41 = icmp eq i32 %19, 0
-  %20 = getelementptr inbounds i8, ptr %4, i64 28
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %21 = load i32, ptr %20, align 4
   %.not42 = icmp ne i32 %21, 0
   br i1 %.not41, label %27, label %22
@@ -12181,7 +12181,7 @@ define internal fastcc i32 @samr_dissect_UserInfo(ptr noundef %0, i32 noundef %1
 13:                                               ; preds = %10, %7
   %.0167 = phi ptr [ %12, %10 ], [ null, %7 ]
   %14 = call i32 @dissect_ndr_uint16(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.0167, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef nonnull %9) #5
-  %15 = getelementptr inbounds i8, ptr %4, i64 28
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %16 = load i32, ptr %15, align 4
   %.not169 = icmp ne i32 %16, 0
   %17 = and i32 %14, 7
@@ -12630,13 +12630,13 @@ define internal fastcc i32 @samr_dissect_DispInfo(ptr noundef %0, i32 noundef %1
 13:                                               ; preds = %10, %7
   %.051 = phi ptr [ %12, %10 ], [ null, %7 ]
   %14 = call i32 @dissect_ndr_uint16(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.051, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef nonnull %9) #5
-  %15 = getelementptr inbounds i8, ptr %4, i64 72
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 96
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 96
   %18 = load i32, ptr %17, align 8
   %19 = and i32 %18, 1
   %.not53 = icmp eq i32 %19, 0
-  %20 = getelementptr inbounds i8, ptr %4, i64 28
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %21 = load i32, ptr %20, align 4
   %.not54 = icmp ne i32 %21, 0
   br i1 %.not53, label %27, label %22
@@ -13506,7 +13506,7 @@ define internal fastcc i32 @samr_dissect_ConnectInfo(ptr noundef %0, i32 noundef
 13:                                               ; preds = %10, %7
   %.023 = phi ptr [ %12, %10 ], [ null, %7 ]
   %14 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.023, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef nonnull %9) #5
-  %15 = getelementptr inbounds i8, ptr %4, i64 28
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %16 = load i32, ptr %15, align 4
   %.not25 = icmp ne i32 %16, 0
   %17 = and i32 %14, 3
@@ -13631,7 +13631,7 @@ define internal i32 @samr_dissect_element_ValidatePassword_req_(ptr noundef %0, 
 13:                                               ; preds = %10, %6
   %.035.i = phi ptr [ %12, %10 ], [ null, %6 ]
   %14 = call i32 @dissect_ndr_uint16(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.035.i, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %8) #5
-  %15 = getelementptr inbounds i8, ptr %4, i64 28
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %16 = load i32, ptr %15, align 4
   %.not37.i = icmp ne i32 %16, 0
   %17 = and i32 %14, 7
@@ -13698,7 +13698,7 @@ define internal i32 @samr_dissect_element_ValidatePassword_rep__(ptr noundef %0,
 13:                                               ; preds = %10, %6
   %.035.i = phi ptr [ %12, %10 ], [ null, %6 ]
   %14 = call i32 @dissect_ndr_uint16(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.035.i, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %8) #5
-  %15 = getelementptr inbounds i8, ptr %4, i64 28
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %16 = load i32, ptr %15, align 4
   %.not37.i = icmp ne i32 %16, 0
   %17 = and i32 %14, 7
@@ -13714,7 +13714,7 @@ define internal i32 @samr_dissect_element_ValidatePassword_rep__(ptr noundef %0,
 
 switch.lookup:                                    ; preds = %13
   %22 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table.samr_dissect_element_ValidatePassword_rep__, i64 0, i64 %22
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.samr_dissect_element_ValidatePassword_rep__, i64 0, i64 %22
   %switch.load = load ptr, ptr %switch.gep, align 8
   %23 = load i32, ptr %switch.load, align 4
   %24 = call i32 @samr_dissect_struct_ValidatePasswordRepCtr(ptr noundef %0, i32 noundef %.0.i, ptr noundef %2, ptr noundef %.035.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23, i32 poison)

@@ -20,22 +20,22 @@ declare i32 @_archive_set_option(ptr noundef, ptr noundef, ptr noundef, ptr noun
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -30, 1) i32 @archive_set_format_option(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 664
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 664
   %.not = icmp eq ptr %1, null
-  %6 = getelementptr inbounds i8, ptr %0, i64 2072
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 2072
   br i1 %.not, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %4, %18
   %.02535.us = phi i32 [ %.126.us, %18 ], [ -20, %4 ]
   %.02734.us = phi i64 [ %19, %18 ], [ 0, %4 ]
-  %7 = getelementptr inbounds [16 x %struct.archive_format_descriptor], ptr %5, i64 0, i64 %.02734.us
-  %8 = getelementptr inbounds i8, ptr %7, i64 24
+  %7 = getelementptr inbounds nuw [16 x %struct.archive_format_descriptor], ptr %5, i64 0, i64 %.02734.us
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %18, label %11
 
 11:                                               ; preds = %.split.us
-  %12 = getelementptr inbounds i8, ptr %7, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %18, label %15
@@ -62,14 +62,14 @@ define internal range(i32 -30, 1) i32 @archive_set_format_option(ptr noundef %0,
   %.02436 = phi i32 [ %.1, %34 ], [ 0, %4 ]
   %.02535 = phi i32 [ %.126, %34 ], [ -20, %4 ]
   %.02734 = phi i64 [ %35, %34 ], [ 0, %4 ]
-  %20 = getelementptr inbounds [16 x %struct.archive_format_descriptor], ptr %5, i64 0, i64 %.02734
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %20 = getelementptr inbounds nuw [16 x %struct.archive_format_descriptor], ptr %5, i64 0, i64 %.02734
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, null
   br i1 %23, label %34, label %24
 
 24:                                               ; preds = %.split
-  %25 = getelementptr inbounds i8, ptr %20, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, null
   br i1 %27, label %34, label %28

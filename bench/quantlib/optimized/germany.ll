@@ -267,25 +267,25 @@ init:                                             ; preds = %init.check
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %init
-  %2 = getelementptr inbounds i8, ptr %call, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %call, i64 16
   store i32 0, ptr %2, align 8, !tbaa !4
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 24
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 24
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8, !tbaa !12
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 32
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 32
   store ptr %2, ptr %_M_left.i.i.i.i.i.i.i.i, align 8, !tbaa !13
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 40
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 40
   store ptr %2, ptr %_M_right.i.i.i.i.i.i.i.i, align 8, !tbaa !14
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 48
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 48
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8, !tbaa !15
-  %3 = getelementptr inbounds i8, ptr %call, i64 64
+  %3 = getelementptr inbounds nuw i8, ptr %call, i64 64
   store i32 0, ptr %3, align 8, !tbaa !4
-  %_M_parent.i.i.i.i.i1.i.i.i = getelementptr inbounds i8, ptr %call, i64 72
+  %_M_parent.i.i.i.i.i1.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 72
   store ptr null, ptr %_M_parent.i.i.i.i.i1.i.i.i, align 8, !tbaa !12
-  %_M_left.i.i.i.i.i2.i.i.i = getelementptr inbounds i8, ptr %call, i64 80
+  %_M_left.i.i.i.i.i2.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 80
   store ptr %3, ptr %_M_left.i.i.i.i.i2.i.i.i, align 8, !tbaa !13
-  %_M_right.i.i.i.i.i3.i.i.i = getelementptr inbounds i8, ptr %call, i64 88
+  %_M_right.i.i.i.i.i3.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 88
   store ptr %3, ptr %_M_right.i.i.i.i.i3.i.i.i, align 8, !tbaa !14
-  %_M_node_count.i.i.i.i.i4.i.i.i = getelementptr inbounds i8, ptr %call, i64 96
+  %_M_node_count.i.i.i.i.i4.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 96
   store i64 0, ptr %_M_node_count.i.i.i.i.i4.i.i.i, align 8, !tbaa !15
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN8QuantLib7Germany14SettlementImplE, i64 16), ptr %call, align 8, !tbaa !16
   invoke void @_ZN5boost10shared_ptrIN8QuantLib8Calendar4ImplEEC2INS1_7Germany14SettlementImplEEEPT_(ptr noundef nonnull align 8 dereferenceable(16) @_ZZN8QuantLib7GermanyC1ENS0_6MarketEE14settlementImpl, ptr noundef nonnull %call)
@@ -311,25 +311,25 @@ init6:                                            ; preds = %init.check4
           to label %invoke.cont8 unwind label %lpad7
 
 invoke.cont8:                                     ; preds = %init6
-  %7 = getelementptr inbounds i8, ptr %call9, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %call9, i64 16
   store i32 0, ptr %7, align 8, !tbaa !4
-  %_M_parent.i.i.i.i.i.i.i.i7 = getelementptr inbounds i8, ptr %call9, i64 24
+  %_M_parent.i.i.i.i.i.i.i.i7 = getelementptr inbounds nuw i8, ptr %call9, i64 24
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i7, align 8, !tbaa !12
-  %_M_left.i.i.i.i.i.i.i.i8 = getelementptr inbounds i8, ptr %call9, i64 32
+  %_M_left.i.i.i.i.i.i.i.i8 = getelementptr inbounds nuw i8, ptr %call9, i64 32
   store ptr %7, ptr %_M_left.i.i.i.i.i.i.i.i8, align 8, !tbaa !13
-  %_M_right.i.i.i.i.i.i.i.i9 = getelementptr inbounds i8, ptr %call9, i64 40
+  %_M_right.i.i.i.i.i.i.i.i9 = getelementptr inbounds nuw i8, ptr %call9, i64 40
   store ptr %7, ptr %_M_right.i.i.i.i.i.i.i.i9, align 8, !tbaa !14
-  %_M_node_count.i.i.i.i.i.i.i.i10 = getelementptr inbounds i8, ptr %call9, i64 48
+  %_M_node_count.i.i.i.i.i.i.i.i10 = getelementptr inbounds nuw i8, ptr %call9, i64 48
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i10, align 8, !tbaa !15
-  %8 = getelementptr inbounds i8, ptr %call9, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %call9, i64 64
   store i32 0, ptr %8, align 8, !tbaa !4
-  %_M_parent.i.i.i.i.i1.i.i.i11 = getelementptr inbounds i8, ptr %call9, i64 72
+  %_M_parent.i.i.i.i.i1.i.i.i11 = getelementptr inbounds nuw i8, ptr %call9, i64 72
   store ptr null, ptr %_M_parent.i.i.i.i.i1.i.i.i11, align 8, !tbaa !12
-  %_M_left.i.i.i.i.i2.i.i.i12 = getelementptr inbounds i8, ptr %call9, i64 80
+  %_M_left.i.i.i.i.i2.i.i.i12 = getelementptr inbounds nuw i8, ptr %call9, i64 80
   store ptr %8, ptr %_M_left.i.i.i.i.i2.i.i.i12, align 8, !tbaa !13
-  %_M_right.i.i.i.i.i3.i.i.i13 = getelementptr inbounds i8, ptr %call9, i64 88
+  %_M_right.i.i.i.i.i3.i.i.i13 = getelementptr inbounds nuw i8, ptr %call9, i64 88
   store ptr %8, ptr %_M_right.i.i.i.i.i3.i.i.i13, align 8, !tbaa !14
-  %_M_node_count.i.i.i.i.i4.i.i.i14 = getelementptr inbounds i8, ptr %call9, i64 96
+  %_M_node_count.i.i.i.i.i4.i.i.i14 = getelementptr inbounds nuw i8, ptr %call9, i64 96
   store i64 0, ptr %_M_node_count.i.i.i.i.i4.i.i.i14, align 8, !tbaa !15
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN8QuantLib7Germany26FrankfurtStockExchangeImplE, i64 16), ptr %call9, align 8, !tbaa !16
   invoke void @_ZN5boost10shared_ptrIN8QuantLib8Calendar4ImplEEC2INS1_7Germany26FrankfurtStockExchangeImplEEEPT_(ptr noundef nonnull align 8 dereferenceable(16) @_ZZN8QuantLib7GermanyC1ENS0_6MarketEE26frankfurtStockExchangeImpl, ptr noundef nonnull %call9)
@@ -355,25 +355,25 @@ init15:                                           ; preds = %init.check13
           to label %invoke.cont17 unwind label %lpad16
 
 invoke.cont17:                                    ; preds = %init15
-  %12 = getelementptr inbounds i8, ptr %call18, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %call18, i64 16
   store i32 0, ptr %12, align 8, !tbaa !4
-  %_M_parent.i.i.i.i.i.i.i.i15 = getelementptr inbounds i8, ptr %call18, i64 24
+  %_M_parent.i.i.i.i.i.i.i.i15 = getelementptr inbounds nuw i8, ptr %call18, i64 24
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i15, align 8, !tbaa !12
-  %_M_left.i.i.i.i.i.i.i.i16 = getelementptr inbounds i8, ptr %call18, i64 32
+  %_M_left.i.i.i.i.i.i.i.i16 = getelementptr inbounds nuw i8, ptr %call18, i64 32
   store ptr %12, ptr %_M_left.i.i.i.i.i.i.i.i16, align 8, !tbaa !13
-  %_M_right.i.i.i.i.i.i.i.i17 = getelementptr inbounds i8, ptr %call18, i64 40
+  %_M_right.i.i.i.i.i.i.i.i17 = getelementptr inbounds nuw i8, ptr %call18, i64 40
   store ptr %12, ptr %_M_right.i.i.i.i.i.i.i.i17, align 8, !tbaa !14
-  %_M_node_count.i.i.i.i.i.i.i.i18 = getelementptr inbounds i8, ptr %call18, i64 48
+  %_M_node_count.i.i.i.i.i.i.i.i18 = getelementptr inbounds nuw i8, ptr %call18, i64 48
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i18, align 8, !tbaa !15
-  %13 = getelementptr inbounds i8, ptr %call18, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %call18, i64 64
   store i32 0, ptr %13, align 8, !tbaa !4
-  %_M_parent.i.i.i.i.i1.i.i.i19 = getelementptr inbounds i8, ptr %call18, i64 72
+  %_M_parent.i.i.i.i.i1.i.i.i19 = getelementptr inbounds nuw i8, ptr %call18, i64 72
   store ptr null, ptr %_M_parent.i.i.i.i.i1.i.i.i19, align 8, !tbaa !12
-  %_M_left.i.i.i.i.i2.i.i.i20 = getelementptr inbounds i8, ptr %call18, i64 80
+  %_M_left.i.i.i.i.i2.i.i.i20 = getelementptr inbounds nuw i8, ptr %call18, i64 80
   store ptr %13, ptr %_M_left.i.i.i.i.i2.i.i.i20, align 8, !tbaa !13
-  %_M_right.i.i.i.i.i3.i.i.i21 = getelementptr inbounds i8, ptr %call18, i64 88
+  %_M_right.i.i.i.i.i3.i.i.i21 = getelementptr inbounds nuw i8, ptr %call18, i64 88
   store ptr %13, ptr %_M_right.i.i.i.i.i3.i.i.i21, align 8, !tbaa !14
-  %_M_node_count.i.i.i.i.i4.i.i.i22 = getelementptr inbounds i8, ptr %call18, i64 96
+  %_M_node_count.i.i.i.i.i4.i.i.i22 = getelementptr inbounds nuw i8, ptr %call18, i64 96
   store i64 0, ptr %_M_node_count.i.i.i.i.i4.i.i.i22, align 8, !tbaa !15
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN8QuantLib7Germany9XetraImplE, i64 16), ptr %call18, align 8, !tbaa !16
   invoke void @_ZN5boost10shared_ptrIN8QuantLib8Calendar4ImplEEC2INS1_7Germany9XetraImplEEEPT_(ptr noundef nonnull align 8 dereferenceable(16) @_ZZN8QuantLib7GermanyC1ENS0_6MarketEE9xetraImpl, ptr noundef nonnull %call18)
@@ -399,25 +399,25 @@ init24:                                           ; preds = %init.check22
           to label %invoke.cont26 unwind label %lpad25
 
 invoke.cont26:                                    ; preds = %init24
-  %17 = getelementptr inbounds i8, ptr %call27, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %call27, i64 16
   store i32 0, ptr %17, align 8, !tbaa !4
-  %_M_parent.i.i.i.i.i.i.i.i23 = getelementptr inbounds i8, ptr %call27, i64 24
+  %_M_parent.i.i.i.i.i.i.i.i23 = getelementptr inbounds nuw i8, ptr %call27, i64 24
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i23, align 8, !tbaa !12
-  %_M_left.i.i.i.i.i.i.i.i24 = getelementptr inbounds i8, ptr %call27, i64 32
+  %_M_left.i.i.i.i.i.i.i.i24 = getelementptr inbounds nuw i8, ptr %call27, i64 32
   store ptr %17, ptr %_M_left.i.i.i.i.i.i.i.i24, align 8, !tbaa !13
-  %_M_right.i.i.i.i.i.i.i.i25 = getelementptr inbounds i8, ptr %call27, i64 40
+  %_M_right.i.i.i.i.i.i.i.i25 = getelementptr inbounds nuw i8, ptr %call27, i64 40
   store ptr %17, ptr %_M_right.i.i.i.i.i.i.i.i25, align 8, !tbaa !14
-  %_M_node_count.i.i.i.i.i.i.i.i26 = getelementptr inbounds i8, ptr %call27, i64 48
+  %_M_node_count.i.i.i.i.i.i.i.i26 = getelementptr inbounds nuw i8, ptr %call27, i64 48
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i26, align 8, !tbaa !15
-  %18 = getelementptr inbounds i8, ptr %call27, i64 64
+  %18 = getelementptr inbounds nuw i8, ptr %call27, i64 64
   store i32 0, ptr %18, align 8, !tbaa !4
-  %_M_parent.i.i.i.i.i1.i.i.i27 = getelementptr inbounds i8, ptr %call27, i64 72
+  %_M_parent.i.i.i.i.i1.i.i.i27 = getelementptr inbounds nuw i8, ptr %call27, i64 72
   store ptr null, ptr %_M_parent.i.i.i.i.i1.i.i.i27, align 8, !tbaa !12
-  %_M_left.i.i.i.i.i2.i.i.i28 = getelementptr inbounds i8, ptr %call27, i64 80
+  %_M_left.i.i.i.i.i2.i.i.i28 = getelementptr inbounds nuw i8, ptr %call27, i64 80
   store ptr %18, ptr %_M_left.i.i.i.i.i2.i.i.i28, align 8, !tbaa !13
-  %_M_right.i.i.i.i.i3.i.i.i29 = getelementptr inbounds i8, ptr %call27, i64 88
+  %_M_right.i.i.i.i.i3.i.i.i29 = getelementptr inbounds nuw i8, ptr %call27, i64 88
   store ptr %18, ptr %_M_right.i.i.i.i.i3.i.i.i29, align 8, !tbaa !14
-  %_M_node_count.i.i.i.i.i4.i.i.i30 = getelementptr inbounds i8, ptr %call27, i64 96
+  %_M_node_count.i.i.i.i.i4.i.i.i30 = getelementptr inbounds nuw i8, ptr %call27, i64 96
   store i64 0, ptr %_M_node_count.i.i.i.i.i4.i.i.i30, align 8, !tbaa !15
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN8QuantLib7Germany9EurexImplE, i64 16), ptr %call27, align 8, !tbaa !16
   invoke void @_ZN5boost10shared_ptrIN8QuantLib8Calendar4ImplEEC2INS1_7Germany9EurexImplEEEPT_(ptr noundef nonnull align 8 dereferenceable(16) @_ZZN8QuantLib7GermanyC1ENS0_6MarketEE9eurexImpl, ptr noundef nonnull %call27)
@@ -443,25 +443,25 @@ init33:                                           ; preds = %init.check31
           to label %invoke.cont35 unwind label %lpad34
 
 invoke.cont35:                                    ; preds = %init33
-  %22 = getelementptr inbounds i8, ptr %call36, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %call36, i64 16
   store i32 0, ptr %22, align 8, !tbaa !4
-  %_M_parent.i.i.i.i.i.i.i.i31 = getelementptr inbounds i8, ptr %call36, i64 24
+  %_M_parent.i.i.i.i.i.i.i.i31 = getelementptr inbounds nuw i8, ptr %call36, i64 24
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i31, align 8, !tbaa !12
-  %_M_left.i.i.i.i.i.i.i.i32 = getelementptr inbounds i8, ptr %call36, i64 32
+  %_M_left.i.i.i.i.i.i.i.i32 = getelementptr inbounds nuw i8, ptr %call36, i64 32
   store ptr %22, ptr %_M_left.i.i.i.i.i.i.i.i32, align 8, !tbaa !13
-  %_M_right.i.i.i.i.i.i.i.i33 = getelementptr inbounds i8, ptr %call36, i64 40
+  %_M_right.i.i.i.i.i.i.i.i33 = getelementptr inbounds nuw i8, ptr %call36, i64 40
   store ptr %22, ptr %_M_right.i.i.i.i.i.i.i.i33, align 8, !tbaa !14
-  %_M_node_count.i.i.i.i.i.i.i.i34 = getelementptr inbounds i8, ptr %call36, i64 48
+  %_M_node_count.i.i.i.i.i.i.i.i34 = getelementptr inbounds nuw i8, ptr %call36, i64 48
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i34, align 8, !tbaa !15
-  %23 = getelementptr inbounds i8, ptr %call36, i64 64
+  %23 = getelementptr inbounds nuw i8, ptr %call36, i64 64
   store i32 0, ptr %23, align 8, !tbaa !4
-  %_M_parent.i.i.i.i.i1.i.i.i35 = getelementptr inbounds i8, ptr %call36, i64 72
+  %_M_parent.i.i.i.i.i1.i.i.i35 = getelementptr inbounds nuw i8, ptr %call36, i64 72
   store ptr null, ptr %_M_parent.i.i.i.i.i1.i.i.i35, align 8, !tbaa !12
-  %_M_left.i.i.i.i.i2.i.i.i36 = getelementptr inbounds i8, ptr %call36, i64 80
+  %_M_left.i.i.i.i.i2.i.i.i36 = getelementptr inbounds nuw i8, ptr %call36, i64 80
   store ptr %23, ptr %_M_left.i.i.i.i.i2.i.i.i36, align 8, !tbaa !13
-  %_M_right.i.i.i.i.i3.i.i.i37 = getelementptr inbounds i8, ptr %call36, i64 88
+  %_M_right.i.i.i.i.i3.i.i.i37 = getelementptr inbounds nuw i8, ptr %call36, i64 88
   store ptr %23, ptr %_M_right.i.i.i.i.i3.i.i.i37, align 8, !tbaa !14
-  %_M_node_count.i.i.i.i.i4.i.i.i38 = getelementptr inbounds i8, ptr %call36, i64 96
+  %_M_node_count.i.i.i.i.i4.i.i.i38 = getelementptr inbounds nuw i8, ptr %call36, i64 96
   store i64 0, ptr %_M_node_count.i.i.i.i.i4.i.i.i38, align 8, !tbaa !15
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN8QuantLib7Germany9EuwaxImplE, i64 16), ptr %call36, align 8, !tbaa !16
   invoke void @_ZN5boost10shared_ptrIN8QuantLib8Calendar4ImplEEC2INS1_7Germany9EuwaxImplEEEPT_(ptr noundef nonnull align 8 dereferenceable(16) @_ZZN8QuantLib7GermanyC1ENS0_6MarketEE9euwaxImpl, ptr noundef nonnull %call36)
@@ -538,7 +538,7 @@ if.then.i.i5.i:                                   ; preds = %_ZN5boost10shared_p
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i5.i
   %vtable.i.i.i.i = load ptr, ptr %33, align 8, !tbaa !16
-  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
+  %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 16
   %35 = load ptr, ptr %vfn.i.i.i.i, align 8
   invoke void %35(ptr noundef nonnull align 8 dereferenceable(16) %33)
           to label %.noexc.i.i.i unwind label %terminate.lpad.i.i.i
@@ -551,7 +551,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then.i.i5.i
 
 if.then.i.i.i.i.i:                                ; preds = %.noexc.i.i.i
   %vtable.i.i.i.i.i = load ptr, ptr %33, align 8, !tbaa !16
-  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 24
+  %vfn.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i, i64 24
   %37 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   invoke void %37(ptr noundef nonnull align 8 dereferenceable(16) %33)
           to label %sw.epilog unwind label %terminate.lpad.i.i.i
@@ -590,7 +590,7 @@ if.then.i.i5.i45:                                 ; preds = %_ZN5boost10shared_p
 
 if.then.i.i.i.i48:                                ; preds = %if.then.i.i5.i45
   %vtable.i.i.i.i49 = load ptr, ptr %43, align 8, !tbaa !16
-  %vfn.i.i.i.i50 = getelementptr inbounds i8, ptr %vtable.i.i.i.i49, i64 16
+  %vfn.i.i.i.i50 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i49, i64 16
   %45 = load ptr, ptr %vfn.i.i.i.i50, align 8
   invoke void %45(ptr noundef nonnull align 8 dereferenceable(16) %43)
           to label %.noexc.i.i.i52 unwind label %terminate.lpad.i.i.i51
@@ -603,7 +603,7 @@ if.then.i.i.i.i48:                                ; preds = %if.then.i.i5.i45
 
 if.then.i.i.i.i.i55:                              ; preds = %.noexc.i.i.i52
   %vtable.i.i.i.i.i56 = load ptr, ptr %43, align 8, !tbaa !16
-  %vfn.i.i.i.i.i57 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i56, i64 24
+  %vfn.i.i.i.i.i57 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i56, i64 24
   %47 = load ptr, ptr %vfn.i.i.i.i.i57, align 8
   invoke void %47(ptr noundef nonnull align 8 dereferenceable(16) %43)
           to label %sw.epilog unwind label %terminate.lpad.i.i.i51
@@ -642,7 +642,7 @@ if.then.i.i5.i65:                                 ; preds = %_ZN5boost10shared_p
 
 if.then.i.i.i.i68:                                ; preds = %if.then.i.i5.i65
   %vtable.i.i.i.i69 = load ptr, ptr %53, align 8, !tbaa !16
-  %vfn.i.i.i.i70 = getelementptr inbounds i8, ptr %vtable.i.i.i.i69, i64 16
+  %vfn.i.i.i.i70 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i69, i64 16
   %55 = load ptr, ptr %vfn.i.i.i.i70, align 8
   invoke void %55(ptr noundef nonnull align 8 dereferenceable(16) %53)
           to label %.noexc.i.i.i72 unwind label %terminate.lpad.i.i.i71
@@ -655,7 +655,7 @@ if.then.i.i.i.i68:                                ; preds = %if.then.i.i5.i65
 
 if.then.i.i.i.i.i75:                              ; preds = %.noexc.i.i.i72
   %vtable.i.i.i.i.i76 = load ptr, ptr %53, align 8, !tbaa !16
-  %vfn.i.i.i.i.i77 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i76, i64 24
+  %vfn.i.i.i.i.i77 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i76, i64 24
   %57 = load ptr, ptr %vfn.i.i.i.i.i77, align 8
   invoke void %57(ptr noundef nonnull align 8 dereferenceable(16) %53)
           to label %sw.epilog unwind label %terminate.lpad.i.i.i71
@@ -694,7 +694,7 @@ if.then.i.i5.i85:                                 ; preds = %_ZN5boost10shared_p
 
 if.then.i.i.i.i88:                                ; preds = %if.then.i.i5.i85
   %vtable.i.i.i.i89 = load ptr, ptr %63, align 8, !tbaa !16
-  %vfn.i.i.i.i90 = getelementptr inbounds i8, ptr %vtable.i.i.i.i89, i64 16
+  %vfn.i.i.i.i90 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i89, i64 16
   %65 = load ptr, ptr %vfn.i.i.i.i90, align 8
   invoke void %65(ptr noundef nonnull align 8 dereferenceable(16) %63)
           to label %.noexc.i.i.i92 unwind label %terminate.lpad.i.i.i91
@@ -707,7 +707,7 @@ if.then.i.i.i.i88:                                ; preds = %if.then.i.i5.i85
 
 if.then.i.i.i.i.i95:                              ; preds = %.noexc.i.i.i92
   %vtable.i.i.i.i.i96 = load ptr, ptr %63, align 8, !tbaa !16
-  %vfn.i.i.i.i.i97 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i96, i64 24
+  %vfn.i.i.i.i.i97 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i96, i64 24
   %67 = load ptr, ptr %vfn.i.i.i.i.i97, align 8
   invoke void %67(ptr noundef nonnull align 8 dereferenceable(16) %63)
           to label %sw.epilog unwind label %terminate.lpad.i.i.i91
@@ -746,7 +746,7 @@ if.then.i.i5.i105:                                ; preds = %_ZN5boost10shared_p
 
 if.then.i.i.i.i108:                               ; preds = %if.then.i.i5.i105
   %vtable.i.i.i.i109 = load ptr, ptr %73, align 8, !tbaa !16
-  %vfn.i.i.i.i110 = getelementptr inbounds i8, ptr %vtable.i.i.i.i109, i64 16
+  %vfn.i.i.i.i110 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i109, i64 16
   %75 = load ptr, ptr %vfn.i.i.i.i110, align 8
   invoke void %75(ptr noundef nonnull align 8 dereferenceable(16) %73)
           to label %.noexc.i.i.i112 unwind label %terminate.lpad.i.i.i111
@@ -759,7 +759,7 @@ if.then.i.i.i.i108:                               ; preds = %if.then.i.i5.i105
 
 if.then.i.i.i.i.i115:                             ; preds = %.noexc.i.i.i112
   %vtable.i.i.i.i.i116 = load ptr, ptr %73, align 8, !tbaa !16
-  %vfn.i.i.i.i.i117 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i116, i64 24
+  %vfn.i.i.i.i.i117 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i116, i64 24
   %77 = load ptr, ptr %vfn.i.i.i.i.i117, align 8
   invoke void %77(ptr noundef nonnull align 8 dereferenceable(16) %73)
           to label %sw.epilog unwind label %terminate.lpad.i.i.i111
@@ -994,7 +994,7 @@ if.then.i:                                        ; preds = %entry
 
 if.then.i.i:                                      ; preds = %if.then.i
   %vtable.i.i = load ptr, ptr %0, align 8, !tbaa !16
-  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 16
+  %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 16
   %2 = load ptr, ptr %vfn.i.i, align 8
   invoke void %2(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %.noexc.i unwind label %terminate.lpad.i
@@ -1007,7 +1007,7 @@ if.then.i.i:                                      ; preds = %if.then.i
 
 if.then.i.i.i:                                    ; preds = %.noexc.i
   %vtable.i.i.i = load ptr, ptr %0, align 8, !tbaa !16
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 24
+  %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 24
   %4 = load ptr, ptr %vfn.i.i.i, align 8
   invoke void %4(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN5boost6detail12shared_countD2Ev.exit unwind label %terminate.lpad.i
@@ -1192,7 +1192,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %vtable.i.i.i = load ptr, ptr %0, align 8, !tbaa !16
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
+  %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 16
   %2 = load ptr, ptr %vfn.i.i.i, align 8
   invoke void %2(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %.noexc.i.i unwind label %terminate.lpad.i.i
@@ -1205,7 +1205,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
 
 if.then.i.i.i.i:                                  ; preds = %.noexc.i.i
   %vtable.i.i.i.i = load ptr, ptr %0, align 8, !tbaa !16
-  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 24
+  %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 24
   %4 = load ptr, ptr %vfn.i.i.i.i, align 8
   invoke void %4(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN5boost10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit unwind label %terminate.lpad.i.i
@@ -1249,7 +1249,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %vtable.i.i.i = load ptr, ptr %0, align 8, !tbaa !16
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
+  %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 16
   %2 = load ptr, ptr %vfn.i.i.i, align 8
   invoke void %2(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %.noexc.i.i unwind label %terminate.lpad.i.i
@@ -1262,7 +1262,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
 
 if.then.i.i.i.i:                                  ; preds = %.noexc.i.i
   %vtable.i.i.i.i = load ptr, ptr %0, align 8, !tbaa !16
-  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 24
+  %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 24
   %4 = load ptr, ptr %vfn.i.i.i.i, align 8
   invoke void %4(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN5boost10shared_ptrIN8QuantLib8Calendar4ImplEED2Ev.exit unwind label %terminate.lpad.i.i
@@ -1593,7 +1593,7 @@ define linkonce_odr void @_ZN8QuantLib7Germany14SettlementImplD0Ev(ptr noundef n
 entry:
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN8QuantLib8Calendar4ImplE, i64 16), ptr %this, align 8, !tbaa !16
   %removedHolidays.i = getelementptr inbounds nuw i8, ptr %this, i64 56
-  %_M_parent.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
+  %_M_parent.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8, !tbaa !12
   invoke void @_ZNSt8_Rb_treeIN8QuantLib4DateES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE8_M_eraseEPSt13_Rb_tree_nodeIS1_E(ptr noundef nonnull align 8 dereferenceable(48) %removedHolidays.i, ptr noundef %0)
           to label %_ZNSt3setIN8QuantLib4DateESt4lessIS1_ESaIS1_EED2Ev.exit.i unwind label %terminate.lpad.i.i.i
@@ -1607,7 +1607,7 @@ terminate.lpad.i.i.i:                             ; preds = %entry
 
 _ZNSt3setIN8QuantLib4DateESt4lessIS1_ESaIS1_EED2Ev.exit.i: ; preds = %entry
   %addedHolidays.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %_M_parent.i.i.i.i1.i = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_parent.i.i.i.i1.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %3 = load ptr, ptr %_M_parent.i.i.i.i1.i, align 8, !tbaa !12
   invoke void @_ZNSt8_Rb_treeIN8QuantLib4DateES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE8_M_eraseEPSt13_Rb_tree_nodeIS1_E(ptr noundef nonnull align 8 dereferenceable(48) %addedHolidays.i, ptr noundef %3)
           to label %_ZN8QuantLib8Calendar4ImplD2Ev.exit unwind label %terminate.lpad.i.i2.i
@@ -1651,7 +1651,7 @@ define linkonce_odr void @_ZN8QuantLib7Germany26FrankfurtStockExchangeImplD0Ev(p
 entry:
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN8QuantLib8Calendar4ImplE, i64 16), ptr %this, align 8, !tbaa !16
   %removedHolidays.i = getelementptr inbounds nuw i8, ptr %this, i64 56
-  %_M_parent.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
+  %_M_parent.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8, !tbaa !12
   invoke void @_ZNSt8_Rb_treeIN8QuantLib4DateES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE8_M_eraseEPSt13_Rb_tree_nodeIS1_E(ptr noundef nonnull align 8 dereferenceable(48) %removedHolidays.i, ptr noundef %0)
           to label %_ZNSt3setIN8QuantLib4DateESt4lessIS1_ESaIS1_EED2Ev.exit.i unwind label %terminate.lpad.i.i.i
@@ -1665,7 +1665,7 @@ terminate.lpad.i.i.i:                             ; preds = %entry
 
 _ZNSt3setIN8QuantLib4DateESt4lessIS1_ESaIS1_EED2Ev.exit.i: ; preds = %entry
   %addedHolidays.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %_M_parent.i.i.i.i1.i = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_parent.i.i.i.i1.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %3 = load ptr, ptr %_M_parent.i.i.i.i1.i, align 8, !tbaa !12
   invoke void @_ZNSt8_Rb_treeIN8QuantLib4DateES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE8_M_eraseEPSt13_Rb_tree_nodeIS1_E(ptr noundef nonnull align 8 dereferenceable(48) %addedHolidays.i, ptr noundef %3)
           to label %_ZN8QuantLib8Calendar4ImplD2Ev.exit unwind label %terminate.lpad.i.i2.i
@@ -1709,7 +1709,7 @@ define linkonce_odr void @_ZN8QuantLib7Germany9XetraImplD0Ev(ptr noundef nonnull
 entry:
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN8QuantLib8Calendar4ImplE, i64 16), ptr %this, align 8, !tbaa !16
   %removedHolidays.i = getelementptr inbounds nuw i8, ptr %this, i64 56
-  %_M_parent.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
+  %_M_parent.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8, !tbaa !12
   invoke void @_ZNSt8_Rb_treeIN8QuantLib4DateES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE8_M_eraseEPSt13_Rb_tree_nodeIS1_E(ptr noundef nonnull align 8 dereferenceable(48) %removedHolidays.i, ptr noundef %0)
           to label %_ZNSt3setIN8QuantLib4DateESt4lessIS1_ESaIS1_EED2Ev.exit.i unwind label %terminate.lpad.i.i.i
@@ -1723,7 +1723,7 @@ terminate.lpad.i.i.i:                             ; preds = %entry
 
 _ZNSt3setIN8QuantLib4DateESt4lessIS1_ESaIS1_EED2Ev.exit.i: ; preds = %entry
   %addedHolidays.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %_M_parent.i.i.i.i1.i = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_parent.i.i.i.i1.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %3 = load ptr, ptr %_M_parent.i.i.i.i1.i, align 8, !tbaa !12
   invoke void @_ZNSt8_Rb_treeIN8QuantLib4DateES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE8_M_eraseEPSt13_Rb_tree_nodeIS1_E(ptr noundef nonnull align 8 dereferenceable(48) %addedHolidays.i, ptr noundef %3)
           to label %_ZN8QuantLib8Calendar4ImplD2Ev.exit unwind label %terminate.lpad.i.i2.i
@@ -1758,7 +1758,7 @@ define linkonce_odr void @_ZN8QuantLib7Germany9EurexImplD0Ev(ptr noundef nonnull
 entry:
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN8QuantLib8Calendar4ImplE, i64 16), ptr %this, align 8, !tbaa !16
   %removedHolidays.i = getelementptr inbounds nuw i8, ptr %this, i64 56
-  %_M_parent.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
+  %_M_parent.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8, !tbaa !12
   invoke void @_ZNSt8_Rb_treeIN8QuantLib4DateES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE8_M_eraseEPSt13_Rb_tree_nodeIS1_E(ptr noundef nonnull align 8 dereferenceable(48) %removedHolidays.i, ptr noundef %0)
           to label %_ZNSt3setIN8QuantLib4DateESt4lessIS1_ESaIS1_EED2Ev.exit.i unwind label %terminate.lpad.i.i.i
@@ -1772,7 +1772,7 @@ terminate.lpad.i.i.i:                             ; preds = %entry
 
 _ZNSt3setIN8QuantLib4DateESt4lessIS1_ESaIS1_EED2Ev.exit.i: ; preds = %entry
   %addedHolidays.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %_M_parent.i.i.i.i1.i = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_parent.i.i.i.i1.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %3 = load ptr, ptr %_M_parent.i.i.i.i1.i, align 8, !tbaa !12
   invoke void @_ZNSt8_Rb_treeIN8QuantLib4DateES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE8_M_eraseEPSt13_Rb_tree_nodeIS1_E(ptr noundef nonnull align 8 dereferenceable(48) %addedHolidays.i, ptr noundef %3)
           to label %_ZN8QuantLib8Calendar4ImplD2Ev.exit unwind label %terminate.lpad.i.i2.i
@@ -1807,7 +1807,7 @@ define linkonce_odr void @_ZN8QuantLib8Calendar4ImplD2Ev(ptr noundef nonnull ali
 entry:
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN8QuantLib8Calendar4ImplE, i64 16), ptr %this, align 8, !tbaa !16
   %removedHolidays = getelementptr inbounds nuw i8, ptr %this, i64 56
-  %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
+  %_M_parent.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = load ptr, ptr %_M_parent.i.i.i.i, align 8, !tbaa !12
   invoke void @_ZNSt8_Rb_treeIN8QuantLib4DateES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE8_M_eraseEPSt13_Rb_tree_nodeIS1_E(ptr noundef nonnull align 8 dereferenceable(48) %removedHolidays, ptr noundef %0)
           to label %_ZNSt3setIN8QuantLib4DateESt4lessIS1_ESaIS1_EED2Ev.exit unwind label %terminate.lpad.i.i
@@ -1821,7 +1821,7 @@ terminate.lpad.i.i:                               ; preds = %entry
 
 _ZNSt3setIN8QuantLib4DateESt4lessIS1_ESaIS1_EED2Ev.exit: ; preds = %entry
   %addedHolidays = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %_M_parent.i.i.i.i1 = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_parent.i.i.i.i1 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %3 = load ptr, ptr %_M_parent.i.i.i.i1, align 8, !tbaa !12
   invoke void @_ZNSt8_Rb_treeIN8QuantLib4DateES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE8_M_eraseEPSt13_Rb_tree_nodeIS1_E(ptr noundef nonnull align 8 dereferenceable(48) %addedHolidays, ptr noundef %3)
           to label %_ZNSt3setIN8QuantLib4DateESt4lessIS1_ESaIS1_EED2Ev.exit3 unwind label %terminate.lpad.i.i2
@@ -1842,7 +1842,7 @@ define linkonce_odr void @_ZN8QuantLib7Germany9EuwaxImplD0Ev(ptr noundef nonnull
 entry:
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN8QuantLib8Calendar4ImplE, i64 16), ptr %this, align 8, !tbaa !16
   %removedHolidays.i = getelementptr inbounds nuw i8, ptr %this, i64 56
-  %_M_parent.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
+  %_M_parent.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8, !tbaa !12
   invoke void @_ZNSt8_Rb_treeIN8QuantLib4DateES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE8_M_eraseEPSt13_Rb_tree_nodeIS1_E(ptr noundef nonnull align 8 dereferenceable(48) %removedHolidays.i, ptr noundef %0)
           to label %_ZNSt3setIN8QuantLib4DateESt4lessIS1_ESaIS1_EED2Ev.exit.i unwind label %terminate.lpad.i.i.i
@@ -1856,7 +1856,7 @@ terminate.lpad.i.i.i:                             ; preds = %entry
 
 _ZNSt3setIN8QuantLib4DateESt4lessIS1_ESaIS1_EED2Ev.exit.i: ; preds = %entry
   %addedHolidays.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %_M_parent.i.i.i.i1.i = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_parent.i.i.i.i1.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %3 = load ptr, ptr %_M_parent.i.i.i.i1.i, align 8, !tbaa !12
   invoke void @_ZNSt8_Rb_treeIN8QuantLib4DateES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE8_M_eraseEPSt13_Rb_tree_nodeIS1_E(ptr noundef nonnull align 8 dereferenceable(48) %addedHolidays.i, ptr noundef %3)
           to label %_ZN8QuantLib8Calendar4ImplD2Ev.exit unwind label %terminate.lpad.i.i2.i
@@ -1949,7 +1949,7 @@ if.then:                                          ; preds = %entry
 
 if.then.i:                                        ; preds = %if.then
   %vtable.i = load ptr, ptr %0, align 8, !tbaa !16
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 16
   %2 = load ptr, ptr %vfn.i, align 8
   invoke void %2(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %.noexc unwind label %terminate.lpad
@@ -1962,7 +1962,7 @@ if.then.i:                                        ; preds = %if.then
 
 if.then.i.i:                                      ; preds = %.noexc
   %vtable.i.i = load ptr, ptr %0, align 8, !tbaa !16
-  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 24
+  %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 24
   %4 = load ptr, ptr %vfn.i.i, align 8
   invoke void %4(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %if.end unwind label %terminate.lpad
@@ -2055,7 +2055,7 @@ if.then.i:                                        ; preds = %_ZN5boost6detail12s
 
 if.then.i.i:                                      ; preds = %if.then.i
   %vtable.i.i = load ptr, ptr %5, align 8, !tbaa !16
-  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 16
+  %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 16
   %7 = load ptr, ptr %vfn.i.i, align 8
   invoke void %7(ptr noundef nonnull align 8 dereferenceable(16) %5)
           to label %.noexc.i unwind label %terminate.lpad.i3
@@ -2068,7 +2068,7 @@ if.then.i.i:                                      ; preds = %if.then.i
 
 if.then.i.i.i:                                    ; preds = %.noexc.i
   %vtable.i.i.i = load ptr, ptr %5, align 8, !tbaa !16
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 24
+  %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 24
   %9 = load ptr, ptr %vfn.i.i.i, align 8
   invoke void %9(ptr noundef nonnull align 8 dereferenceable(16) %5)
           to label %_ZN5boost6detail12shared_countD2Ev.exit unwind label %terminate.lpad.i3
@@ -2093,7 +2093,7 @@ entry:
 delete.notnull:                                   ; preds = %entry
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN8QuantLib8Calendar4ImplE, i64 16), ptr %x, align 8, !tbaa !16
   %removedHolidays.i = getelementptr inbounds nuw i8, ptr %x, i64 56
-  %_M_parent.i.i.i.i.i = getelementptr inbounds i8, ptr %x, i64 72
+  %_M_parent.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %x, i64 72
   %0 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8, !tbaa !12
   invoke void @_ZNSt8_Rb_treeIN8QuantLib4DateES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE8_M_eraseEPSt13_Rb_tree_nodeIS1_E(ptr noundef nonnull align 8 dereferenceable(48) %removedHolidays.i, ptr noundef %0)
           to label %_ZNSt3setIN8QuantLib4DateESt4lessIS1_ESaIS1_EED2Ev.exit.i unwind label %terminate.lpad.i.i.i
@@ -2107,7 +2107,7 @@ terminate.lpad.i.i.i:                             ; preds = %delete.notnull
 
 _ZNSt3setIN8QuantLib4DateESt4lessIS1_ESaIS1_EED2Ev.exit.i: ; preds = %delete.notnull
   %addedHolidays.i = getelementptr inbounds nuw i8, ptr %x, i64 8
-  %_M_parent.i.i.i.i1.i = getelementptr inbounds i8, ptr %x, i64 24
+  %_M_parent.i.i.i.i1.i = getelementptr inbounds nuw i8, ptr %x, i64 24
   %3 = load ptr, ptr %_M_parent.i.i.i.i1.i, align 8, !tbaa !12
   invoke void @_ZNSt8_Rb_treeIN8QuantLib4DateES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE8_M_eraseEPSt13_Rb_tree_nodeIS1_E(ptr noundef nonnull align 8 dereferenceable(48) %addedHolidays.i, ptr noundef %3)
           to label %_ZN8QuantLib8Calendar4ImplD2Ev.exit unwind label %terminate.lpad.i.i2.i
@@ -2149,7 +2149,7 @@ entry:
 delete.notnull.i:                                 ; preds = %entry
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN8QuantLib8Calendar4ImplE, i64 16), ptr %0, align 8, !tbaa !16
   %removedHolidays.i.i = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %_M_parent.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 72
+  %_M_parent.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 72
   %1 = load ptr, ptr %_M_parent.i.i.i.i.i.i, align 8, !tbaa !12
   invoke void @_ZNSt8_Rb_treeIN8QuantLib4DateES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE8_M_eraseEPSt13_Rb_tree_nodeIS1_E(ptr noundef nonnull align 8 dereferenceable(48) %removedHolidays.i.i, ptr noundef %1)
           to label %_ZNSt3setIN8QuantLib4DateESt4lessIS1_ESaIS1_EED2Ev.exit.i.i unwind label %terminate.lpad.i.i.i.i
@@ -2163,7 +2163,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %delete.notnull.i
 
 _ZNSt3setIN8QuantLib4DateESt4lessIS1_ESaIS1_EED2Ev.exit.i.i: ; preds = %delete.notnull.i
   %addedHolidays.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %_M_parent.i.i.i.i1.i.i = getelementptr inbounds i8, ptr %0, i64 24
+  %_M_parent.i.i.i.i1.i.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %_M_parent.i.i.i.i1.i.i, align 8, !tbaa !12
   invoke void @_ZNSt8_Rb_treeIN8QuantLib4DateES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE8_M_eraseEPSt13_Rb_tree_nodeIS1_E(ptr noundef nonnull align 8 dereferenceable(48) %addedHolidays.i.i, ptr noundef %4)
           to label %_ZN8QuantLib8Calendar4ImplD2Ev.exit.i unwind label %terminate.lpad.i.i2.i.i
@@ -2187,7 +2187,7 @@ _ZN5boost14checked_deleteIN8QuantLib7Germany14SettlementImplEEEvPT_.exit: ; pred
 define linkonce_odr void @_ZN5boost6detail15sp_counted_base7destroyEv(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #7 comdat align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8, !tbaa !16
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 8
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(16) %this) #19
   ret void
@@ -2266,7 +2266,7 @@ if.then.i:                                        ; preds = %_ZN5boost6detail12s
 
 if.then.i.i:                                      ; preds = %if.then.i
   %vtable.i.i = load ptr, ptr %6, align 8, !tbaa !16
-  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 16
+  %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 16
   %8 = load ptr, ptr %vfn.i.i, align 8
   invoke void %8(ptr noundef nonnull align 8 dereferenceable(16) %6)
           to label %.noexc.i unwind label %terminate.lpad.i3
@@ -2279,7 +2279,7 @@ if.then.i.i:                                      ; preds = %if.then.i
 
 if.then.i.i.i:                                    ; preds = %.noexc.i
   %vtable.i.i.i = load ptr, ptr %6, align 8, !tbaa !16
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 24
+  %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 24
   %10 = load ptr, ptr %vfn.i.i.i, align 8
   invoke void %10(ptr noundef nonnull align 8 dereferenceable(16) %6)
           to label %_ZN5boost6detail12shared_countD2Ev.exit unwind label %terminate.lpad.i3
@@ -2304,7 +2304,7 @@ entry:
 delete.notnull:                                   ; preds = %entry
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN8QuantLib8Calendar4ImplE, i64 16), ptr %x, align 8, !tbaa !16
   %removedHolidays.i = getelementptr inbounds nuw i8, ptr %x, i64 56
-  %_M_parent.i.i.i.i.i = getelementptr inbounds i8, ptr %x, i64 72
+  %_M_parent.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %x, i64 72
   %0 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8, !tbaa !12
   invoke void @_ZNSt8_Rb_treeIN8QuantLib4DateES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE8_M_eraseEPSt13_Rb_tree_nodeIS1_E(ptr noundef nonnull align 8 dereferenceable(48) %removedHolidays.i, ptr noundef %0)
           to label %_ZNSt3setIN8QuantLib4DateESt4lessIS1_ESaIS1_EED2Ev.exit.i unwind label %terminate.lpad.i.i.i
@@ -2318,7 +2318,7 @@ terminate.lpad.i.i.i:                             ; preds = %delete.notnull
 
 _ZNSt3setIN8QuantLib4DateESt4lessIS1_ESaIS1_EED2Ev.exit.i: ; preds = %delete.notnull
   %addedHolidays.i = getelementptr inbounds nuw i8, ptr %x, i64 8
-  %_M_parent.i.i.i.i1.i = getelementptr inbounds i8, ptr %x, i64 24
+  %_M_parent.i.i.i.i1.i = getelementptr inbounds nuw i8, ptr %x, i64 24
   %3 = load ptr, ptr %_M_parent.i.i.i.i1.i, align 8, !tbaa !12
   invoke void @_ZNSt8_Rb_treeIN8QuantLib4DateES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE8_M_eraseEPSt13_Rb_tree_nodeIS1_E(ptr noundef nonnull align 8 dereferenceable(48) %addedHolidays.i, ptr noundef %3)
           to label %_ZN8QuantLib8Calendar4ImplD2Ev.exit unwind label %terminate.lpad.i.i2.i
@@ -2356,7 +2356,7 @@ entry:
 delete.notnull.i:                                 ; preds = %entry
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN8QuantLib8Calendar4ImplE, i64 16), ptr %0, align 8, !tbaa !16
   %removedHolidays.i.i = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %_M_parent.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 72
+  %_M_parent.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 72
   %1 = load ptr, ptr %_M_parent.i.i.i.i.i.i, align 8, !tbaa !12
   invoke void @_ZNSt8_Rb_treeIN8QuantLib4DateES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE8_M_eraseEPSt13_Rb_tree_nodeIS1_E(ptr noundef nonnull align 8 dereferenceable(48) %removedHolidays.i.i, ptr noundef %1)
           to label %_ZNSt3setIN8QuantLib4DateESt4lessIS1_ESaIS1_EED2Ev.exit.i.i unwind label %terminate.lpad.i.i.i.i
@@ -2370,7 +2370,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %delete.notnull.i
 
 _ZNSt3setIN8QuantLib4DateESt4lessIS1_ESaIS1_EED2Ev.exit.i.i: ; preds = %delete.notnull.i
   %addedHolidays.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %_M_parent.i.i.i.i1.i.i = getelementptr inbounds i8, ptr %0, i64 24
+  %_M_parent.i.i.i.i1.i.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %_M_parent.i.i.i.i1.i.i, align 8, !tbaa !12
   invoke void @_ZNSt8_Rb_treeIN8QuantLib4DateES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE8_M_eraseEPSt13_Rb_tree_nodeIS1_E(ptr noundef nonnull align 8 dereferenceable(48) %addedHolidays.i.i, ptr noundef %4)
           to label %_ZN8QuantLib8Calendar4ImplD2Ev.exit.i unwind label %terminate.lpad.i.i2.i.i
@@ -2463,7 +2463,7 @@ if.then.i:                                        ; preds = %_ZN5boost6detail12s
 
 if.then.i.i:                                      ; preds = %if.then.i
   %vtable.i.i = load ptr, ptr %6, align 8, !tbaa !16
-  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 16
+  %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 16
   %8 = load ptr, ptr %vfn.i.i, align 8
   invoke void %8(ptr noundef nonnull align 8 dereferenceable(16) %6)
           to label %.noexc.i unwind label %terminate.lpad.i3
@@ -2476,7 +2476,7 @@ if.then.i.i:                                      ; preds = %if.then.i
 
 if.then.i.i.i:                                    ; preds = %.noexc.i
   %vtable.i.i.i = load ptr, ptr %6, align 8, !tbaa !16
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 24
+  %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 24
   %10 = load ptr, ptr %vfn.i.i.i, align 8
   invoke void %10(ptr noundef nonnull align 8 dereferenceable(16) %6)
           to label %_ZN5boost6detail12shared_countD2Ev.exit unwind label %terminate.lpad.i3
@@ -2501,7 +2501,7 @@ entry:
 delete.notnull:                                   ; preds = %entry
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN8QuantLib8Calendar4ImplE, i64 16), ptr %x, align 8, !tbaa !16
   %removedHolidays.i = getelementptr inbounds nuw i8, ptr %x, i64 56
-  %_M_parent.i.i.i.i.i = getelementptr inbounds i8, ptr %x, i64 72
+  %_M_parent.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %x, i64 72
   %0 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8, !tbaa !12
   invoke void @_ZNSt8_Rb_treeIN8QuantLib4DateES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE8_M_eraseEPSt13_Rb_tree_nodeIS1_E(ptr noundef nonnull align 8 dereferenceable(48) %removedHolidays.i, ptr noundef %0)
           to label %_ZNSt3setIN8QuantLib4DateESt4lessIS1_ESaIS1_EED2Ev.exit.i unwind label %terminate.lpad.i.i.i
@@ -2515,7 +2515,7 @@ terminate.lpad.i.i.i:                             ; preds = %delete.notnull
 
 _ZNSt3setIN8QuantLib4DateESt4lessIS1_ESaIS1_EED2Ev.exit.i: ; preds = %delete.notnull
   %addedHolidays.i = getelementptr inbounds nuw i8, ptr %x, i64 8
-  %_M_parent.i.i.i.i1.i = getelementptr inbounds i8, ptr %x, i64 24
+  %_M_parent.i.i.i.i1.i = getelementptr inbounds nuw i8, ptr %x, i64 24
   %3 = load ptr, ptr %_M_parent.i.i.i.i1.i, align 8, !tbaa !12
   invoke void @_ZNSt8_Rb_treeIN8QuantLib4DateES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE8_M_eraseEPSt13_Rb_tree_nodeIS1_E(ptr noundef nonnull align 8 dereferenceable(48) %addedHolidays.i, ptr noundef %3)
           to label %_ZN8QuantLib8Calendar4ImplD2Ev.exit unwind label %terminate.lpad.i.i2.i
@@ -2553,7 +2553,7 @@ entry:
 delete.notnull.i:                                 ; preds = %entry
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN8QuantLib8Calendar4ImplE, i64 16), ptr %0, align 8, !tbaa !16
   %removedHolidays.i.i = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %_M_parent.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 72
+  %_M_parent.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 72
   %1 = load ptr, ptr %_M_parent.i.i.i.i.i.i, align 8, !tbaa !12
   invoke void @_ZNSt8_Rb_treeIN8QuantLib4DateES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE8_M_eraseEPSt13_Rb_tree_nodeIS1_E(ptr noundef nonnull align 8 dereferenceable(48) %removedHolidays.i.i, ptr noundef %1)
           to label %_ZNSt3setIN8QuantLib4DateESt4lessIS1_ESaIS1_EED2Ev.exit.i.i unwind label %terminate.lpad.i.i.i.i
@@ -2567,7 +2567,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %delete.notnull.i
 
 _ZNSt3setIN8QuantLib4DateESt4lessIS1_ESaIS1_EED2Ev.exit.i.i: ; preds = %delete.notnull.i
   %addedHolidays.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %_M_parent.i.i.i.i1.i.i = getelementptr inbounds i8, ptr %0, i64 24
+  %_M_parent.i.i.i.i1.i.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %_M_parent.i.i.i.i1.i.i, align 8, !tbaa !12
   invoke void @_ZNSt8_Rb_treeIN8QuantLib4DateES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE8_M_eraseEPSt13_Rb_tree_nodeIS1_E(ptr noundef nonnull align 8 dereferenceable(48) %addedHolidays.i.i, ptr noundef %4)
           to label %_ZN8QuantLib8Calendar4ImplD2Ev.exit.i unwind label %terminate.lpad.i.i2.i.i
@@ -2660,7 +2660,7 @@ if.then.i:                                        ; preds = %_ZN5boost6detail12s
 
 if.then.i.i:                                      ; preds = %if.then.i
   %vtable.i.i = load ptr, ptr %6, align 8, !tbaa !16
-  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 16
+  %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 16
   %8 = load ptr, ptr %vfn.i.i, align 8
   invoke void %8(ptr noundef nonnull align 8 dereferenceable(16) %6)
           to label %.noexc.i unwind label %terminate.lpad.i3
@@ -2673,7 +2673,7 @@ if.then.i.i:                                      ; preds = %if.then.i
 
 if.then.i.i.i:                                    ; preds = %.noexc.i
   %vtable.i.i.i = load ptr, ptr %6, align 8, !tbaa !16
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 24
+  %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 24
   %10 = load ptr, ptr %vfn.i.i.i, align 8
   invoke void %10(ptr noundef nonnull align 8 dereferenceable(16) %6)
           to label %_ZN5boost6detail12shared_countD2Ev.exit unwind label %terminate.lpad.i3
@@ -2698,7 +2698,7 @@ entry:
 delete.notnull:                                   ; preds = %entry
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN8QuantLib8Calendar4ImplE, i64 16), ptr %x, align 8, !tbaa !16
   %removedHolidays.i = getelementptr inbounds nuw i8, ptr %x, i64 56
-  %_M_parent.i.i.i.i.i = getelementptr inbounds i8, ptr %x, i64 72
+  %_M_parent.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %x, i64 72
   %0 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8, !tbaa !12
   invoke void @_ZNSt8_Rb_treeIN8QuantLib4DateES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE8_M_eraseEPSt13_Rb_tree_nodeIS1_E(ptr noundef nonnull align 8 dereferenceable(48) %removedHolidays.i, ptr noundef %0)
           to label %_ZNSt3setIN8QuantLib4DateESt4lessIS1_ESaIS1_EED2Ev.exit.i unwind label %terminate.lpad.i.i.i
@@ -2712,7 +2712,7 @@ terminate.lpad.i.i.i:                             ; preds = %delete.notnull
 
 _ZNSt3setIN8QuantLib4DateESt4lessIS1_ESaIS1_EED2Ev.exit.i: ; preds = %delete.notnull
   %addedHolidays.i = getelementptr inbounds nuw i8, ptr %x, i64 8
-  %_M_parent.i.i.i.i1.i = getelementptr inbounds i8, ptr %x, i64 24
+  %_M_parent.i.i.i.i1.i = getelementptr inbounds nuw i8, ptr %x, i64 24
   %3 = load ptr, ptr %_M_parent.i.i.i.i1.i, align 8, !tbaa !12
   invoke void @_ZNSt8_Rb_treeIN8QuantLib4DateES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE8_M_eraseEPSt13_Rb_tree_nodeIS1_E(ptr noundef nonnull align 8 dereferenceable(48) %addedHolidays.i, ptr noundef %3)
           to label %_ZN8QuantLib8Calendar4ImplD2Ev.exit unwind label %terminate.lpad.i.i2.i
@@ -2750,7 +2750,7 @@ entry:
 delete.notnull.i:                                 ; preds = %entry
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN8QuantLib8Calendar4ImplE, i64 16), ptr %0, align 8, !tbaa !16
   %removedHolidays.i.i = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %_M_parent.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 72
+  %_M_parent.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 72
   %1 = load ptr, ptr %_M_parent.i.i.i.i.i.i, align 8, !tbaa !12
   invoke void @_ZNSt8_Rb_treeIN8QuantLib4DateES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE8_M_eraseEPSt13_Rb_tree_nodeIS1_E(ptr noundef nonnull align 8 dereferenceable(48) %removedHolidays.i.i, ptr noundef %1)
           to label %_ZNSt3setIN8QuantLib4DateESt4lessIS1_ESaIS1_EED2Ev.exit.i.i unwind label %terminate.lpad.i.i.i.i
@@ -2764,7 +2764,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %delete.notnull.i
 
 _ZNSt3setIN8QuantLib4DateESt4lessIS1_ESaIS1_EED2Ev.exit.i.i: ; preds = %delete.notnull.i
   %addedHolidays.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %_M_parent.i.i.i.i1.i.i = getelementptr inbounds i8, ptr %0, i64 24
+  %_M_parent.i.i.i.i1.i.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %_M_parent.i.i.i.i1.i.i, align 8, !tbaa !12
   invoke void @_ZNSt8_Rb_treeIN8QuantLib4DateES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE8_M_eraseEPSt13_Rb_tree_nodeIS1_E(ptr noundef nonnull align 8 dereferenceable(48) %addedHolidays.i.i, ptr noundef %4)
           to label %_ZN8QuantLib8Calendar4ImplD2Ev.exit.i unwind label %terminate.lpad.i.i2.i.i
@@ -2857,7 +2857,7 @@ if.then.i:                                        ; preds = %_ZN5boost6detail12s
 
 if.then.i.i:                                      ; preds = %if.then.i
   %vtable.i.i = load ptr, ptr %6, align 8, !tbaa !16
-  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 16
+  %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 16
   %8 = load ptr, ptr %vfn.i.i, align 8
   invoke void %8(ptr noundef nonnull align 8 dereferenceable(16) %6)
           to label %.noexc.i unwind label %terminate.lpad.i3
@@ -2870,7 +2870,7 @@ if.then.i.i:                                      ; preds = %if.then.i
 
 if.then.i.i.i:                                    ; preds = %.noexc.i
   %vtable.i.i.i = load ptr, ptr %6, align 8, !tbaa !16
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 24
+  %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 24
   %10 = load ptr, ptr %vfn.i.i.i, align 8
   invoke void %10(ptr noundef nonnull align 8 dereferenceable(16) %6)
           to label %_ZN5boost6detail12shared_countD2Ev.exit unwind label %terminate.lpad.i3
@@ -2895,7 +2895,7 @@ entry:
 delete.notnull:                                   ; preds = %entry
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN8QuantLib8Calendar4ImplE, i64 16), ptr %x, align 8, !tbaa !16
   %removedHolidays.i = getelementptr inbounds nuw i8, ptr %x, i64 56
-  %_M_parent.i.i.i.i.i = getelementptr inbounds i8, ptr %x, i64 72
+  %_M_parent.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %x, i64 72
   %0 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8, !tbaa !12
   invoke void @_ZNSt8_Rb_treeIN8QuantLib4DateES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE8_M_eraseEPSt13_Rb_tree_nodeIS1_E(ptr noundef nonnull align 8 dereferenceable(48) %removedHolidays.i, ptr noundef %0)
           to label %_ZNSt3setIN8QuantLib4DateESt4lessIS1_ESaIS1_EED2Ev.exit.i unwind label %terminate.lpad.i.i.i
@@ -2909,7 +2909,7 @@ terminate.lpad.i.i.i:                             ; preds = %delete.notnull
 
 _ZNSt3setIN8QuantLib4DateESt4lessIS1_ESaIS1_EED2Ev.exit.i: ; preds = %delete.notnull
   %addedHolidays.i = getelementptr inbounds nuw i8, ptr %x, i64 8
-  %_M_parent.i.i.i.i1.i = getelementptr inbounds i8, ptr %x, i64 24
+  %_M_parent.i.i.i.i1.i = getelementptr inbounds nuw i8, ptr %x, i64 24
   %3 = load ptr, ptr %_M_parent.i.i.i.i1.i, align 8, !tbaa !12
   invoke void @_ZNSt8_Rb_treeIN8QuantLib4DateES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE8_M_eraseEPSt13_Rb_tree_nodeIS1_E(ptr noundef nonnull align 8 dereferenceable(48) %addedHolidays.i, ptr noundef %3)
           to label %_ZN8QuantLib8Calendar4ImplD2Ev.exit unwind label %terminate.lpad.i.i2.i
@@ -2953,7 +2953,7 @@ entry:
 delete.notnull.i:                                 ; preds = %entry
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN8QuantLib8Calendar4ImplE, i64 16), ptr %0, align 8, !tbaa !16
   %removedHolidays.i.i = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %_M_parent.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 72
+  %_M_parent.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 72
   %1 = load ptr, ptr %_M_parent.i.i.i.i.i.i, align 8, !tbaa !12
   invoke void @_ZNSt8_Rb_treeIN8QuantLib4DateES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE8_M_eraseEPSt13_Rb_tree_nodeIS1_E(ptr noundef nonnull align 8 dereferenceable(48) %removedHolidays.i.i, ptr noundef %1)
           to label %_ZNSt3setIN8QuantLib4DateESt4lessIS1_ESaIS1_EED2Ev.exit.i.i unwind label %terminate.lpad.i.i.i.i
@@ -2967,7 +2967,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %delete.notnull.i
 
 _ZNSt3setIN8QuantLib4DateESt4lessIS1_ESaIS1_EED2Ev.exit.i.i: ; preds = %delete.notnull.i
   %addedHolidays.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %_M_parent.i.i.i.i1.i.i = getelementptr inbounds i8, ptr %0, i64 24
+  %_M_parent.i.i.i.i1.i.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %_M_parent.i.i.i.i1.i.i, align 8, !tbaa !12
   invoke void @_ZNSt8_Rb_treeIN8QuantLib4DateES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE8_M_eraseEPSt13_Rb_tree_nodeIS1_E(ptr noundef nonnull align 8 dereferenceable(48) %addedHolidays.i.i, ptr noundef %4)
           to label %_ZN8QuantLib8Calendar4ImplD2Ev.exit.i unwind label %terminate.lpad.i.i2.i.i

@@ -14,14 +14,14 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define hidden void @_ZN11StringDedup10StorageUseC2EP10OopStorage(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store volatile i64 0, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZNK11StringDedup10StorageUse15is_used_acquireEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #1 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load volatile i64, ptr %2, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !6
   %4 = icmp ne i64 %3, 0
@@ -32,7 +32,7 @@ define hidden noundef zeroext i1 @_ZNK11StringDedup10StorageUse15is_used_acquire
 define hidden noundef ptr @_ZN11StringDedup10StorageUse6obtainEPVPS0_(ptr noundef %0) local_unnamed_addr #1 align 2 {
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 424
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 424
   %5 = load volatile i64, ptr %4, align 8
   %6 = and i64 %5, 1
   %7 = icmp eq i64 %6, 0
@@ -47,7 +47,7 @@ _ZN13GlobalCounter15CriticalSectionC2EP6Thread.exit: ; preds = %1, %8
   %.0.i.i = phi i64 [ %10, %8 ], [ %5, %1 ]
   %11 = tail call i64 asm sideeffect "xchgq ($2), $0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i, ptr nonnull %4) #3, !srcloc !7
   %12 = load volatile ptr, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 1, ptr nonnull %13) #3, !srcloc !8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !6
   store volatile i64 %5, ptr %4, align 8
@@ -56,7 +56,7 @@ _ZN13GlobalCounter15CriticalSectionC2EP6Thread.exit: ; preds = %1, %8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN11StringDedup10StorageUse10relinquishEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #1 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 -1, ptr nonnull %2) #3, !srcloc !8
   ret void
 }

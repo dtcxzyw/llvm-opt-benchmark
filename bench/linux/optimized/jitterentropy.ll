@@ -18,7 +18,7 @@ define dso_local range(i32 -1, 1) i32 @jent_read_entropy(ptr noundef %0, ptr nou
   br i1 %.not2224, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %4 = getelementptr inbounds i8, ptr %0, i64 36
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 36
   br label %5
 
 5:                                                ; preds = %.lr.ph, %15
@@ -74,19 +74,19 @@ define dso_local range(i32 0, 13) i32 @jent_entropy_init(i32 noundef %0, i32 nou
   br i1 %.not42, label %37, label %19
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %3, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 80
   store i32 0, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 84
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 84
   store i32 0, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %3, i64 76
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 76
   store i32 0, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %3, i64 92
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 92
   %13 = load i8, ptr %12, align 4
   %14 = and i8 %13, -2
   store i8 %14, ptr %12, align 4
-  %15 = getelementptr inbounds i8, ptr %3, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i32 0, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %3, i64 88
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 88
   %17 = load i32, ptr %16, align 8
   %18 = and i32 %17, -4
   store i32 %18, ptr %16, align 8
@@ -94,7 +94,7 @@ define dso_local range(i32 0, 13) i32 @jent_entropy_init(i32 noundef %0, i32 nou
 
 19:                                               ; preds = %6, %8
   %.035 = phi ptr [ %3, %8 ], [ %7, %6 ]
-  %20 = getelementptr inbounds i8, ptr %.035, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %.035, i64 8
   br label %21
 
 21:                                               ; preds = %19, %28
@@ -133,7 +133,7 @@ define dso_local range(i32 0, 13) i32 @jent_entropy_init(i32 noundef %0, i32 nou
   br i1 %.not.not, label %34, label %37
 
 34:                                               ; preds = %.loopexit
-  %35 = getelementptr inbounds i8, ptr %.035, i64 40
+  %35 = getelementptr inbounds nuw i8, ptr %.035, i64 40
   %36 = load ptr, ptr %35, align 8
   call void @jent_kvzfree(ptr noundef %36, i32 noundef 2048) #4
   store ptr null, ptr %35, align 8
@@ -161,7 +161,7 @@ define dso_local ptr @jent_entropy_collector_alloc(i32 noundef %0, i32 noundef %
 
 7:                                                ; preds = %5
   %8 = tail call ptr @jent_kvzalloc(i32 noundef 2048) #4
-  %9 = getelementptr inbounds i8, ptr %4, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store ptr %8, ptr %9, align 8
   %.not21 = icmp eq ptr %8, null
   br i1 %.not21, label %10, label %11
@@ -171,19 +171,19 @@ define dso_local ptr @jent_entropy_collector_alloc(i32 noundef %0, i32 noundef %
   br label %jent_gen_entropy.exit
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %4, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 56
   store i32 32, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %4, i64 52
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 52
   store i32 64, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %4, i64 60
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 60
   store i32 128, ptr %14, align 4
   br label %15
 
 15:                                               ; preds = %11, %5
   %spec.store.select = tail call i32 @llvm.umax.i32(i32 %0, i32 1)
-  %16 = getelementptr inbounds i8, ptr %4, i64 36
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 36
   store i32 %spec.store.select, ptr %16, align 4
-  %17 = getelementptr inbounds i8, ptr %4, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i32 %1, ptr %17, align 8
   store ptr %2, ptr %4, align 8
   %18 = icmp ugt i32 %0, 14
@@ -201,9 +201,9 @@ define dso_local ptr @jent_entropy_collector_alloc(i32 noundef %0, i32 noundef %
 jent_apt_init.exit:                               ; preds = %15, %19
   %.sink6.i = phi i32 [ %23, %19 ], [ 512, %15 ]
   %.sink.i = phi i32 [ %25, %19 ], [ 512, %15 ]
-  %26 = getelementptr inbounds i8, ptr %4, i64 68
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 68
   store i32 %.sink6.i, ptr %26, align 4
-  %27 = getelementptr inbounds i8, ptr %4, i64 72
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store i32 %.sink.i, ptr %27, align 8
   %28 = tail call fastcc i32 @jent_measure_jitter(ptr noundef nonnull %4, ptr noundef null)
   br label %.outer.i
@@ -240,7 +240,7 @@ declare dso_local void @jent_zfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @jent_entropy_collector_free(ptr noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   tail call void @jent_kvzfree(ptr noundef %3, i32 noundef 2048) #4
   store ptr null, ptr %2, align 8
@@ -281,19 +281,19 @@ jent_loop_shuffle.exit.i:                         ; preds = %6
   br i1 %13, label %jent_memaccess.exit, label %14
 
 14:                                               ; preds = %jent_loop_shuffle.exit.i
-  %15 = getelementptr inbounds i8, ptr %0, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
   br i1 %17, label %jent_memaccess.exit, label %18
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds i8, ptr %0, i64 56
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %20 = load i32, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 52
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %22 = load i32, ptr %21, align 4
   %23 = mul i32 %22, %20
-  %24 = getelementptr inbounds i8, ptr %0, i64 60
-  %25 = getelementptr inbounds i8, ptr %0, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 60
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.pre.i = load i32, ptr %25, align 8
   br label %26
 
@@ -321,24 +321,24 @@ jent_loop_shuffle.exit.i:                         ; preds = %6
 
 jent_memaccess.exit:                              ; preds = %26, %jent_loop_shuffle.exit.i, %14
   call void @jent_get_nstime(ptr noundef nonnull %5) #4
-  %43 = getelementptr inbounds i8, ptr %0, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %44 = load i64, ptr %43, align 8
   %45 = load i64, ptr %5, align 8
   %46 = sub i64 %45, %44
   store i64 %45, ptr %43, align 8
-  %47 = getelementptr inbounds i8, ptr %0, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %48 = load i64, ptr %47, align 8
   %49 = sub i64 %46, %48
-  %50 = getelementptr inbounds i8, ptr %0, i64 24
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %51 = load i64, ptr %50, align 8
   store i64 %46, ptr %47, align 8
   store i64 %49, ptr %50, align 8
   %52 = trunc i64 %46 to i32
-  %53 = getelementptr inbounds i8, ptr %0, i64 92
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %54 = load i8, ptr %53, align 4
   %55 = and i8 %54, 1
   %.not.i.i = icmp eq i8 %55, 0
-  %56 = getelementptr inbounds i8, ptr %0, i64 84
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 84
   br i1 %.not.i.i, label %57, label %59
 
 57:                                               ; preds = %jent_memaccess.exit
@@ -353,31 +353,31 @@ jent_memaccess.exit:                              ; preds = %26, %jent_loop_shuf
   br i1 %61, label %62, label %74
 
 62:                                               ; preds = %59
-  %63 = getelementptr inbounds i8, ptr %0, i64 80
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %64 = load i32, ptr %63, align 8
   %65 = add i32 %64, 1
   store i32 %65, ptr %63, align 8
-  %66 = getelementptr inbounds i8, ptr %0, i64 72
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %67 = load i32, ptr %66, align 8
   %.not16.i.i = icmp ult i32 %65, %67
   br i1 %.not16.i.i, label %68, label %.sink.split.i.i
 
 68:                                               ; preds = %62
-  %69 = getelementptr inbounds i8, ptr %0, i64 68
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %70 = load i32, ptr %69, align 4
   %.not17.i.i = icmp ult i32 %65, %70
   br i1 %.not17.i.i, label %74, label %.sink.split.i.i
 
 .sink.split.i.i:                                  ; preds = %68, %62
   %.sink20.i.i = phi i32 [ 131072, %62 ], [ 2, %68 ]
-  %71 = getelementptr inbounds i8, ptr %0, i64 88
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %72 = load i32, ptr %71, align 8
   %73 = or i32 %72, %.sink20.i.i
   store i32 %73, ptr %71, align 8
   br label %74
 
 74:                                               ; preds = %.sink.split.i.i, %68, %59
-  %75 = getelementptr inbounds i8, ptr %0, i64 76
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %76 = load i32, ptr %75, align 4
   %77 = add i32 %76, 1
   store i32 %77, ptr %75, align 4
@@ -385,7 +385,7 @@ jent_memaccess.exit:                              ; preds = %26, %jent_loop_shuf
   br i1 %78, label %79, label %jent_apt_insert.exit.i
 
 79:                                               ; preds = %74
-  %80 = getelementptr inbounds i8, ptr %0, i64 80
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 0, ptr %80, align 8
   store i32 %52, ptr %56, align 4
   store i32 0, ptr %75, align 4
@@ -398,14 +398,14 @@ jent_apt_insert.exit.i:                           ; preds = %79, %74, %57
   %or.cond.i = and i1 %82, %83
   %84 = icmp ne i64 %49, %51
   %or.cond3.i = select i1 %or.cond.i, i1 %84, i1 false
-  %85 = getelementptr inbounds i8, ptr %0, i64 64
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 64
   br i1 %or.cond3.i, label %102, label %86
 
 86:                                               ; preds = %jent_apt_insert.exit.i
   %87 = load i32, ptr %85, align 8
   %88 = add i32 %87, 1
   store i32 %88, ptr %85, align 8
-  %89 = getelementptr inbounds i8, ptr %0, i64 36
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %90 = load i32, ptr %89, align 4
   %91 = mul i32 %90, 60
   %.not10.i.i = icmp ult i32 %88, %91
@@ -413,7 +413,7 @@ jent_apt_insert.exit.i:                           ; preds = %79, %74, %57
 
 92:                                               ; preds = %86
   store i32 -1, ptr %85, align 8
-  %93 = getelementptr inbounds i8, ptr %0, i64 88
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %94 = load i32, ptr %93, align 8
   %95 = or i32 %94, 65536
   store i32 %95, ptr %93, align 8
@@ -426,7 +426,7 @@ jent_apt_insert.exit.i:                           ; preds = %79, %74, %57
 
 98:                                               ; preds = %96
   store i32 -1, ptr %85, align 8
-  %99 = getelementptr inbounds i8, ptr %0, i64 88
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %100 = load i32, ptr %99, align 8
   %101 = or i32 %100, 1
   store i32 %101, ptr %99, align 8
@@ -441,15 +441,15 @@ jent_stuck.exit:                                  ; preds = %92, %96, %98, %102
   %.0.i = phi i32 [ 0, %102 ], [ 1, %92 ], [ 1, %96 ], [ 1, %98 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   store i32 %103, ptr %3, align 4
-  %104 = getelementptr inbounds i8, ptr %3, i64 4
-  %105 = getelementptr inbounds i8, ptr %0, i64 76
+  %104 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %106 = load i32, ptr %105, align 4
   store i32 %106, ptr %104, align 4
-  %107 = getelementptr inbounds i8, ptr %3, i64 8
-  %108 = getelementptr inbounds i8, ptr %0, i64 80
+  %107 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %109 = load i32, ptr %108, align 8
   store i32 %109, ptr %107, align 4
-  %110 = getelementptr inbounds i8, ptr %3, i64 12
+  %110 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 %81, ptr %110, align 4
   %111 = load ptr, ptr %0, align 8
   %112 = call i32 @jent_hash_time(ptr noundef %111, i64 noundef %46, ptr noundef nonnull %3, i32 noundef 16, i64 noundef 8, i32 noundef range(i32 0, 2) %.0.i) #4

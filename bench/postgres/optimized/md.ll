@@ -81,7 +81,7 @@ define dso_local zeroext i1 @mdexists(ptr nocapture noundef %0, i32 noundef %1) 
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @mdclose(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = sext i32 %1 to i64
   %5 = getelementptr [4 x i32], ptr %3, i64 0, i64 %4
   %6 = load i32, ptr %5, align 4
@@ -89,7 +89,7 @@ define dso_local void @mdclose(ptr nocapture noundef %0, i32 noundef %1) local_u
   br i1 %7, label %.preheader, label %38
 
 .preheader:                                       ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %9 = getelementptr [4 x ptr], ptr %8, i64 0, i64 %4
   %10 = load ptr, ptr %9, align 8
   %11 = add nsw i32 %6, -1
@@ -159,7 +159,7 @@ _fdvec_resize.exit:                               ; preds = %26, %29
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @mdopenfork(ptr nocapture noundef %0, i32 noundef %1, i32 noundef range(i32 1, 33) %2) unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = sext i32 %1 to i64
   %6 = getelementptr [4 x i32], ptr %4, i64 0, i64 %5
   %7 = load i32, ptr %6, align 4
@@ -167,18 +167,18 @@ define internal fastcc ptr @mdopenfork(ptr nocapture noundef %0, i32 noundef %1,
   br i1 %8, label %9, label %13
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %0, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %11 = getelementptr [4 x ptr], ptr %10, i64 0, i64 %5
   %12 = load ptr, ptr %11, align 8
   br label %54
 
 13:                                               ; preds = %3
-  %14 = getelementptr inbounds i8, ptr %0, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %15 = load i32, ptr %14, align 4
   %16 = load i32, ptr %0, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load i32, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 12
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %20 = load i32, ptr %19, align 4
   %21 = tail call ptr @GetRelationPath(i32 noundef %15, i32 noundef %16, i32 noundef %18, i32 noundef %20, i32 noundef %1) #14
   %22 = load i32, ptr @io_direct_flags, align 4
@@ -221,13 +221,13 @@ define internal fastcc ptr @mdopenfork(ptr nocapture noundef %0, i32 noundef %1,
 40:                                               ; preds = %37
   %41 = load ptr, ptr @MdCxt, align 8
   %42 = tail call ptr @MemoryContextAlloc(ptr noundef %41, i64 noundef 8) #14
-  %43 = getelementptr inbounds i8, ptr %0, i64 56
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %44 = getelementptr [4 x ptr], ptr %43, i64 0, i64 %5
   store ptr %42, ptr %44, align 8
   br label %_fdvec_resize.exit
 
 45:                                               ; preds = %37
-  %46 = getelementptr inbounds i8, ptr %0, i64 56
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %47 = getelementptr [4 x ptr], ptr %46, i64 0, i64 %5
   %48 = load ptr, ptr %47, align 8
   %49 = tail call ptr @repalloc(ptr noundef %48, i64 noundef 8) #14
@@ -236,11 +236,11 @@ define internal fastcc ptr @mdopenfork(ptr nocapture noundef %0, i32 noundef %1,
 
 _fdvec_resize.exit:                               ; preds = %40, %45
   store i32 1, ptr %6, align 4
-  %50 = getelementptr inbounds i8, ptr %0, i64 56
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %51 = getelementptr [4 x ptr], ptr %50, i64 0, i64 %5
   %52 = load ptr, ptr %51, align 8
   store i32 %24, ptr %52, align 4
-  %53 = getelementptr inbounds i8, ptr %52, i64 4
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 4
   store i32 0, ptr %53, align 4
   br label %54
 
@@ -254,7 +254,7 @@ define dso_local void @mdcreate(ptr nocapture noundef %0, i32 noundef %1, i1 nou
   br i1 %2, label %4, label %10
 
 4:                                                ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = sext i32 %1 to i64
   %7 = getelementptr [4 x i32], ptr %5, i64 0, i64 %6
   %8 = load i32, ptr %7, align 4
@@ -263,14 +263,14 @@ define dso_local void @mdcreate(ptr nocapture noundef %0, i32 noundef %1, i1 nou
 
 10:                                               ; preds = %4, %3
   %11 = load i32, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %13 = load i32, ptr %12, align 4
   tail call void @TablespaceCreateDbspace(i32 noundef %11, i32 noundef %13, i1 noundef zeroext %2) #14
   %14 = load i32, ptr %12, align 4
   %15 = load i32, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load i32, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 12
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %19 = load i32, ptr %18, align 4
   %20 = tail call ptr @GetRelationPath(i32 noundef %14, i32 noundef %15, i32 noundef %17, i32 noundef %19, i32 noundef %1) #14
   %21 = load i32, ptr @io_direct_flags, align 4
@@ -307,7 +307,7 @@ define dso_local void @mdcreate(ptr nocapture noundef %0, i32 noundef %1, i1 nou
 37:                                               ; preds = %29, %10
   %.0 = phi i32 [ %32, %29 ], [ %24, %10 ]
   tail call void @pfree(ptr noundef %20) #14
-  %38 = getelementptr inbounds i8, ptr %0, i64 40
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %39 = sext i32 %1 to i64
   %40 = getelementptr [4 x i32], ptr %38, i64 0, i64 %39
   %41 = load i32, ptr %40, align 4
@@ -317,13 +317,13 @@ define dso_local void @mdcreate(ptr nocapture noundef %0, i32 noundef %1, i1 nou
 43:                                               ; preds = %37
   %44 = load ptr, ptr @MdCxt, align 8
   %45 = tail call ptr @MemoryContextAlloc(ptr noundef %44, i64 noundef 8) #14
-  %46 = getelementptr inbounds i8, ptr %0, i64 56
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %47 = getelementptr [4 x ptr], ptr %46, i64 0, i64 %39
   store ptr %45, ptr %47, align 8
   br label %_fdvec_resize.exit
 
 48:                                               ; preds = %37
-  %49 = getelementptr inbounds i8, ptr %0, i64 56
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %50 = getelementptr [4 x ptr], ptr %49, i64 0, i64 %39
   %51 = load ptr, ptr %50, align 8
   %52 = tail call ptr @repalloc(ptr noundef %51, i64 noundef 8) #14
@@ -332,11 +332,11 @@ define dso_local void @mdcreate(ptr nocapture noundef %0, i32 noundef %1, i1 nou
 
 _fdvec_resize.exit:                               ; preds = %43, %48
   store i32 1, ptr %40, align 4
-  %53 = getelementptr inbounds i8, ptr %0, i64 56
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %54 = getelementptr [4 x ptr], ptr %53, i64 0, i64 %39
   %55 = load ptr, ptr %54, align 8
   store i32 %.0, ptr %55, align 4
-  %56 = getelementptr inbounds i8, ptr %55, i64 4
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 4
   store i32 0, ptr %56, align 4
   %57 = load i32, ptr %18, align 4
   %.not = icmp eq i32 %57, -1
@@ -375,16 +375,16 @@ declare void @pfree(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @register_dirty_segment(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
   %4 = alloca %struct.FileTag, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i64 0, ptr %4, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(12) %0, i64 12, i1 false)
   %6 = trunc i32 %1 to i16
-  %7 = getelementptr inbounds i8, ptr %4, i64 2
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 2
   store i16 %6, ptr %7, align 2
-  %8 = getelementptr inbounds i8, ptr %2, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %9 = load i32, ptr %8, align 4
   %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds i8, ptr %4, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 %10, ptr %11, align 8
   %12 = call zeroext i1 @RegisterSyncRequest(ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext false) #14
   br i1 %12, label %33, label %13
@@ -504,15 +504,15 @@ define internal fastcc void @mdunlinkfork(i64 %0, i64 %1, i32 noundef %2, i1 nou
 ._crit_edge95:                                    ; preds = %15, %26, %20
   %27 = phi i32 [ %19, %26 ], [ 2, %20 ], [ %19, %15 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
-  %28 = getelementptr inbounds i8, ptr %7, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i64 0, ptr %7, align 8
   store i64 %0, ptr %28, align 4
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %7, i64 12
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i32 %.sroa.6.8.extract.trunc, ptr %.sroa.2.0..sroa_idx.i, align 4
   %29 = trunc i32 %2 to i16
-  %30 = getelementptr inbounds i8, ptr %7, i64 2
+  %30 = getelementptr inbounds nuw i8, ptr %7, i64 2
   store i16 %29, ptr %30, align 2
-  %31 = getelementptr inbounds i8, ptr %7, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 0, ptr %31, align 8
   %32 = call zeroext i1 @RegisterSyncRequest(ptr noundef nonnull %7, i32 noundef 2, i1 noundef zeroext true) #14
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
@@ -575,12 +575,12 @@ define internal fastcc void @mdunlinkfork(i64 %0, i64 %1, i32 noundef %2, i1 nou
 ._crit_edge:                                      ; preds = %44, %55, %48
   %56 = load i32, ptr %47, align 4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
-  %57 = getelementptr inbounds i8, ptr %6, i64 4
+  %57 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i64 0, ptr %6, align 8
   store i64 %0, ptr %57, align 4
-  %.sroa.2.0..sroa_idx.i83 = getelementptr inbounds i8, ptr %6, i64 12
+  %.sroa.2.0..sroa_idx.i83 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 %.sroa.6.8.extract.trunc, ptr %.sroa.2.0..sroa_idx.i83, align 4
-  %58 = getelementptr inbounds i8, ptr %6, i64 16
+  %58 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 0, ptr %58, align 8
   %59 = call zeroext i1 @RegisterSyncRequest(ptr noundef nonnull %6, i32 noundef 1, i1 noundef zeroext true) #14
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
@@ -595,11 +595,11 @@ define internal fastcc void @mdunlinkfork(i64 %0, i64 %1, i32 noundef %2, i1 nou
   %62 = add i64 %61, 12
   %63 = call ptr @palloc(i64 noundef %62) #14
   %.not79 = icmp eq i64 %.sroa.11.8.extract.shift, 4294967295
-  %64 = getelementptr inbounds i8, ptr %5, i64 4
-  %.sroa.2.0..sroa_idx.i87 = getelementptr inbounds i8, ptr %5, i64 12
+  %64 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %.sroa.2.0..sroa_idx.i87 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %65 = trunc i32 %2 to i16
-  %66 = getelementptr inbounds i8, ptr %5, i64 2
-  %67 = getelementptr inbounds i8, ptr %5, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %5, i64 2
+  %67 = getelementptr inbounds nuw i8, ptr %5, i64 16
   br i1 %.not79, label %.thread92.split.us, label %.thread92.split
 
 .thread92.split.us:                               ; preds = %.thread92, %do_truncate.exit86.us
@@ -687,12 +687,12 @@ define dso_local void @mdextend(ptr nocapture noundef %0, i32 noundef %1, i32 no
   %9 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
   tail call void @llvm.assume(i1 %9)
   %10 = tail call i32 @errcode(i32 noundef 261) #14
-  %11 = getelementptr inbounds i8, ptr %0, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %12 = load i32, ptr %11, align 4
   %13 = load i32, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load i32, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 12
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %17 = load i32, ptr %16, align 4
   %18 = tail call ptr @GetRelationPath(i32 noundef %12, i32 noundef %13, i32 noundef %15, i32 noundef %17, i32 noundef %1) #14
   %19 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3, ptr noundef %18, i32 noundef -1) #14
@@ -707,7 +707,7 @@ define dso_local void @mdextend(ptr nocapture noundef %0, i32 noundef %1, i32 no
   %25 = load i32, ptr %21, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   store ptr %3, ptr %6, align 8
-  %26 = getelementptr inbounds i8, ptr %6, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 8192, ptr %26, align 8
   %27 = call i64 @FileWriteV(i32 noundef %25, ptr noundef nonnull %6, i32 noundef 1, i64 noundef range(i64 0, 1073733633) %24, i32 noundef 167772173) #14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
@@ -743,7 +743,7 @@ define dso_local void @mdextend(ptr nocapture noundef %0, i32 noundef %1, i32 no
   br i1 %4, label %49, label %45
 
 45:                                               ; preds = %44
-  %46 = getelementptr inbounds i8, ptr %0, i64 12
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %47 = load i32, ptr %46, align 4
   %.not24 = icmp eq i32 %47, -1
   br i1 %.not24, label %48, label %49
@@ -761,7 +761,7 @@ declare i32 @errcode(i32 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @_mdfd_getseg(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3, i32 noundef range(i32 1, 33) %4) unnamed_addr #0 {
   %6 = lshr i32 %2, 17
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = sext i32 %1 to i64
   %9 = getelementptr [4 x i32], ptr %7, i64 0, i64 %8
   %10 = load i32, ptr %9, align 4
@@ -769,7 +769,7 @@ define internal fastcc ptr @_mdfd_getseg(ptr nocapture noundef %0, i32 noundef %
   br i1 %11, label %12, label %18
 
 12:                                               ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %0, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %14 = getelementptr [4 x ptr], ptr %13, i64 0, i64 %8
   %15 = load ptr, ptr %14, align 8
   %16 = zext nneg i32 %6 to i64
@@ -785,7 +785,7 @@ define internal fastcc ptr @_mdfd_getseg(ptr nocapture noundef %0, i32 noundef %
   br i1 %.not76, label %27, label %20
 
 20:                                               ; preds = %19
-  %21 = getelementptr inbounds i8, ptr %0, i64 56
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %22 = getelementptr [4 x ptr], ptr %21, i64 0, i64 %8
   %23 = load ptr, ptr %22, align 8
   %24 = zext nneg i32 %10 to i64
@@ -1082,7 +1082,7 @@ define dso_local void @mdzeroextend(ptr nocapture noundef %0, i32 noundef %1, i3
   br i1 %10, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  %11 = getelementptr inbounds i8, ptr %0, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 12
   br i1 %4, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %28
@@ -1122,12 +1122,12 @@ define dso_local void @mdzeroextend(ptr nocapture noundef %0, i32 noundef %1, i3
   %33 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
   tail call void @llvm.assume(i1 %33)
   %34 = tail call i32 @errcode(i32 noundef 261) #14
-  %35 = getelementptr inbounds i8, ptr %0, i64 4
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %36 = load i32, ptr %35, align 4
   %37 = load i32, ptr %0, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %39 = load i32, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 12
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %41 = load i32, ptr %40, align 4
   %42 = tail call ptr @GetRelationPath(i32 noundef %36, i32 noundef %37, i32 noundef %39, i32 noundef %41, i32 noundef %1) #14
   %43 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3, ptr noundef %42, i32 noundef -1) #14
@@ -1210,7 +1210,7 @@ declare i32 @FileZero(i32 noundef, i64 noundef, i64 noundef, i32 noundef) local_
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @mdopen(ptr nocapture noundef writeonly initializes((40, 56)) %0) local_unnamed_addr #4 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   ret void
 }
@@ -1268,7 +1268,7 @@ define dso_local void @mdreadv(ptr nocapture noundef %0, i32 noundef %1, i32 nou
   br i1 %.not77, label %._crit_edge84, label %.lr.ph83
 
 .lr.ph83:                                         ; preds = %5
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   br label %8
 
 8:                                                ; preds = %.lr.ph83, %.loopexit
@@ -1299,7 +1299,7 @@ define dso_local void @mdreadv(ptr nocapture noundef %0, i32 noundef %1, i32 nou
   %.02327.i = phi i32 [ 1, %.lr.ph.preheader.i ], [ %.124.i, %31 ]
   %19 = getelementptr ptr, ptr %.05079, i64 %indvars.iv.i
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %.029.i, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %.029.i, i64 8
   %22 = load i64, ptr %21, align 8
   %23 = getelementptr i8, ptr %18, i64 %22
   %24 = icmp eq ptr %23, %20
@@ -1440,8 +1440,8 @@ define dso_local void @mdwritev(ptr nocapture noundef %0, i32 noundef %1, i32 no
   br i1 %.not62, label %._crit_edge68, label %.lr.ph67
 
 .lr.ph67:                                         ; preds = %6
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 12
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 12
   br label %10
 
 10:                                               ; preds = %.lr.ph67, %67
@@ -1472,7 +1472,7 @@ define dso_local void @mdwritev(ptr nocapture noundef %0, i32 noundef %1, i32 no
   %.02327.i = phi i32 [ 1, %.lr.ph.preheader.i ], [ %.124.i, %33 ]
   %21 = getelementptr ptr, ptr %.04264, i64 %indvars.iv.i
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %.029.i, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %.029.i, i64 8
   %24 = load i64, ptr %23, align 8
   %25 = getelementptr i8, ptr %20, i64 %24
   %26 = icmp eq ptr %25, %22
@@ -1578,14 +1578,14 @@ declare i64 @FileWriteV(i32 noundef, ptr noundef, i32 noundef, i64 noundef, i32 
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @mdwriteback(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 56
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = sext i32 %1 to i64
   %7 = getelementptr [4 x ptr], ptr %5, i64 0, i64 %6
   %.not26 = icmp eq i32 %3, 0
   br i1 %.not26, label %_mdfd_getseg.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = getelementptr [4 x i32], ptr %8, i64 0, i64 %6
   br label %10
 
@@ -1633,12 +1633,12 @@ declare void @FileWriteback(i32 noundef, i64 noundef, i64 noundef, i32 noundef) 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @mdnblocks(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = tail call fastcc ptr @mdopenfork(ptr noundef %0, i32 noundef %1, i32 noundef 1)
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = sext i32 %1 to i64
   %6 = getelementptr [4 x i32], ptr %4, i64 0, i64 %5
   %7 = load i32, ptr %6, align 4
   %8 = add i32 %7, -1
-  %9 = getelementptr inbounds i8, ptr %0, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %10 = getelementptr [4 x ptr], ptr %9, i64 0, i64 %5
   %11 = load ptr, ptr %10, align 8
   %12 = zext i32 %8 to i64
@@ -1704,12 +1704,12 @@ declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef ptr @_mdfd_openseg(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef range(i32 0, 65) %3) unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
   %7 = load i32, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i32, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %11 = load i32, ptr %10, align 4
   %12 = tail call ptr @GetRelationPath(i32 noundef %6, i32 noundef %7, i32 noundef %9, i32 noundef %11, i32 noundef %1) #14
   %.not.i = icmp eq i32 %2, 0
@@ -1735,7 +1735,7 @@ _mdfd_segpath.exit:                               ; preds = %4, %13
 20:                                               ; preds = %_mdfd_segpath.exit
   %21 = add i32 %2, 1
   %22 = icmp eq i32 %21, 0
-  %23 = getelementptr inbounds i8, ptr %0, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %24 = sext i32 %1 to i64
   %25 = getelementptr [4 x i32], ptr %23, i64 0, i64 %24
   %26 = load i32, ptr %25, align 4
@@ -1746,7 +1746,7 @@ _mdfd_segpath.exit:                               ; preds = %4, %13
   br i1 %28, label %29, label %_fdvec_resize.exit
 
 29:                                               ; preds = %27
-  %30 = getelementptr inbounds i8, ptr %0, i64 56
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %31 = getelementptr [4 x ptr], ptr %30, i64 0, i64 %24
   %32 = load ptr, ptr %31, align 8
   tail call void @pfree(ptr noundef %32) #14
@@ -1762,13 +1762,13 @@ _mdfd_segpath.exit:                               ; preds = %4, %13
   %37 = sext i32 %21 to i64
   %38 = shl nsw i64 %37, 3
   %39 = tail call ptr @MemoryContextAlloc(ptr noundef %36, i64 noundef %38) #14
-  %40 = getelementptr inbounds i8, ptr %0, i64 56
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %41 = getelementptr [4 x ptr], ptr %40, i64 0, i64 %24
   store ptr %39, ptr %41, align 8
   br label %_fdvec_resize.exit
 
 42:                                               ; preds = %33
-  %43 = getelementptr inbounds i8, ptr %0, i64 56
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %44 = getelementptr [4 x ptr], ptr %43, i64 0, i64 %24
   %45 = load ptr, ptr %44, align 8
   %46 = sext i32 %21 to i64
@@ -1779,13 +1779,13 @@ _mdfd_segpath.exit:                               ; preds = %4, %13
 
 _fdvec_resize.exit:                               ; preds = %27, %29, %35, %42
   store i32 %21, ptr %25, align 4
-  %49 = getelementptr inbounds i8, ptr %0, i64 56
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %50 = getelementptr [4 x ptr], ptr %49, i64 0, i64 %24
   %51 = load ptr, ptr %50, align 8
   %52 = zext i32 %2 to i64
   %53 = getelementptr %struct._MdfdVec, ptr %51, i64 %52
   store i32 %18, ptr %53, align 4
-  %54 = getelementptr inbounds i8, ptr %53, i64 4
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 4
   store i32 %2, ptr %54, align 4
   br label %55
 
@@ -1808,12 +1808,12 @@ define dso_local void @mdtruncate(ptr nocapture noundef %0, i32 noundef %1, i32 
 9:                                                ; preds = %6
   %10 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
   tail call void @llvm.assume(i1 %10)
-  %11 = getelementptr inbounds i8, ptr %0, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %12 = load i32, ptr %11, align 4
   %13 = load i32, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load i32, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 12
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %17 = load i32, ptr %16, align 4
   %18 = tail call ptr @GetRelationPath(i32 noundef %12, i32 noundef %13, i32 noundef %15, i32 noundef %17, i32 noundef %1) #14
   %19 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.12, ptr noundef %18, i32 noundef %2, i32 noundef %4) #14
@@ -1825,7 +1825,7 @@ define dso_local void @mdtruncate(ptr nocapture noundef %0, i32 noundef %1, i32 
   br i1 %21, label %.loopexit, label %22
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds i8, ptr %0, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %24 = sext i32 %1 to i64
   %25 = getelementptr [4 x i32], ptr %23, i64 0, i64 %24
   %26 = load i32, ptr %25, align 4
@@ -1833,9 +1833,9 @@ define dso_local void @mdtruncate(ptr nocapture noundef %0, i32 noundef %1, i32 
   br i1 %27, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %22
-  %28 = getelementptr inbounds i8, ptr %0, i64 56
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %29 = getelementptr [4 x ptr], ptr %28, i64 0, i64 %24
-  %30 = getelementptr inbounds i8, ptr %0, i64 12
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %31 = zext nneg i32 %26 to i64
   br label %32
 
@@ -1960,7 +1960,7 @@ declare i32 @FileTruncate(i32 noundef, i64 noundef, i32 noundef) local_unnamed_a
 ; Function Attrs: nounwind uwtable
 define dso_local void @mdregistersync(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = tail call i32 @mdnblocks(ptr noundef %0, i32 noundef %1)
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = sext i32 %1 to i64
   %6 = getelementptr [4 x i32], ptr %4, i64 0, i64 %5
   %7 = load i32, ptr %6, align 4
@@ -1978,7 +1978,7 @@ define dso_local void @mdregistersync(ptr nocapture noundef %0, i32 noundef %1) 
   br i1 %11, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  %12 = getelementptr inbounds i8, ptr %0, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %13 = getelementptr [4 x ptr], ptr %12, i64 0, i64 %5
   %14 = zext nneg i32 %.0 to i64
   %15 = sext i32 %7 to i64
@@ -2045,7 +2045,7 @@ _fdvec_resize.exit:                               ; preds = %_fdvec_resize.exit.
 ; Function Attrs: nounwind uwtable
 define dso_local void @mdimmedsync(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = tail call i32 @mdnblocks(ptr noundef %0, i32 noundef %1)
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = sext i32 %1 to i64
   %6 = getelementptr [4 x i32], ptr %4, i64 0, i64 %5
   %7 = load i32, ptr %6, align 4
@@ -2063,7 +2063,7 @@ define dso_local void @mdimmedsync(ptr nocapture noundef %0, i32 noundef %1) loc
   br i1 %11, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  %12 = getelementptr inbounds i8, ptr %0, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %13 = getelementptr [4 x ptr], ptr %12, i64 0, i64 %5
   %14 = zext nneg i32 %.0 to i64
   %15 = sext i32 %7 to i64
@@ -2152,14 +2152,14 @@ declare i32 @data_sync_elevel(i32 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local void @ForgetDatabaseSyncRequests(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.FileTag, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 0, ptr %2, align 8
   store i32 %0, ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 12
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 0, ptr %.sroa.3.0..sroa_idx, align 4
-  %3 = getelementptr inbounds i8, ptr %2, i64 2
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 2
   store i16 -1, ptr %3, align 2
-  %4 = getelementptr inbounds i8, ptr %2, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 4294967295, ptr %4, align 8
   %5 = call zeroext i1 @RegisterSyncRequest(ptr noundef nonnull %2, i32 noundef 3, i1 noundef zeroext true) #14
   ret void
@@ -2190,7 +2190,7 @@ define dso_local void @DropRelationFiles(ptr nocapture noundef readonly %0, i32 
   %indvars.iv36 = phi i64 [ %indvars.iv.next37, %.loopexit.us ], [ 0, %.lr.ph ]
   %8 = getelementptr %struct.RelFileLocator, ptr %0, i64 %indvars.iv36
   %.sroa.03.0.copyload.us = load i64, ptr %8, align 4
-  %.sroa.24.0..sroa_idx.us = getelementptr inbounds i8, ptr %8, i64 8
+  %.sroa.24.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %8, i64 8
   %.sroa.24.0.copyload.us = load i32, ptr %.sroa.24.0..sroa_idx.us, align 4
   %9 = tail call ptr @smgropen(i64 %.sroa.03.0.copyload.us, i32 %.sroa.24.0.copyload.us, i32 noundef -1) #14
   br label %10
@@ -2215,7 +2215,7 @@ define dso_local void @DropRelationFiles(ptr nocapture noundef readonly %0, i32 
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ 0, %.lr.ph ]
   %13 = getelementptr %struct.RelFileLocator, ptr %0, i64 %indvars.iv
   %.sroa.03.0.copyload = load i64, ptr %13, align 4
-  %.sroa.24.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 8
+  %.sroa.24.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 8
   %.sroa.24.0.copyload = load i32, ptr %.sroa.24.0..sroa_idx, align 4
   %14 = tail call ptr @smgropen(i64 %.sroa.03.0.copyload, i32 %.sroa.24.0.copyload, i32 noundef -1) #14
   %15 = getelementptr ptr, ptr %6, i64 %indvars.iv
@@ -2255,15 +2255,15 @@ declare void @smgrclose(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @mdsyncfiletag(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.sroa.09.0.copyload = load i64, ptr %3, align 4
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 12
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
   %.sroa.2.0.copyload = load i32, ptr %.sroa.2.0..sroa_idx, align 4
   %4 = tail call ptr @smgropen(i64 %.sroa.09.0.copyload, i32 %.sroa.2.0.copyload, i32 noundef -1) #14
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 40
-  %8 = getelementptr inbounds i8, ptr %0, i64 2
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %9 = load i16, ptr %8, align 2
   %10 = sext i16 %9 to i64
   %11 = getelementptr [4 x i32], ptr %7, i64 0, i64 %10
@@ -2273,7 +2273,7 @@ define dso_local i32 @mdsyncfiletag(ptr nocapture noundef readonly %0, ptr nound
   br i1 %.not, label %14, label %22
 
 14:                                               ; preds = %2
-  %15 = getelementptr inbounds i8, ptr %4, i64 56
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %16 = getelementptr [4 x ptr], ptr %15, i64 0, i64 %10
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr %struct._MdfdVec, ptr %17, i64 %6
@@ -2285,12 +2285,12 @@ define dso_local i32 @mdsyncfiletag(ptr nocapture noundef readonly %0, ptr nound
 22:                                               ; preds = %2
   %23 = sext i16 %9 to i32
   %24 = trunc i64 %6 to i32
-  %25 = getelementptr inbounds i8, ptr %4, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %26 = load i32, ptr %25, align 4
   %27 = load i32, ptr %4, align 8
-  %28 = getelementptr inbounds i8, ptr %4, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %29 = load i32, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %4, i64 12
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %31 = load i32, ptr %30, align 4
   %32 = tail call ptr @GetRelationPath(i32 noundef %26, i32 noundef %27, i32 noundef %29, i32 noundef %31, i32 noundef %23) #14
   %.not.i = icmp eq i32 %24, 0
@@ -2342,12 +2342,12 @@ declare i64 @strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @_mdfd_segpath(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = load i32, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i32, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 12
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %10 = load i32, ptr %9, align 4
   %11 = tail call ptr @GetRelationPath(i32 noundef %5, i32 noundef %6, i32 noundef %8, i32 noundef %10, i32 noundef %1) #14
   %.not = icmp eq i32 %2, 0
@@ -2369,11 +2369,11 @@ declare void @pgstat_count_io_op_time(i32 noundef, i32 noundef, i32 noundef, i64
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i32 @mdunlinkfiletag(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 4
   %6 = load i32, ptr %3, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 12
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %8 = load i32, ptr %7, align 4
   %9 = tail call ptr @GetRelationPath(i32 noundef %5, i32 noundef %6, i32 noundef %8, i32 noundef -1, i32 noundef 0) #14
   %10 = tail call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %9, i64 noundef 1024) #14
@@ -2387,9 +2387,9 @@ declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local zeroext i1 @mdfiletagmatches(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #9 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i32, ptr %5, align 4
   %7 = icmp eq i32 %4, %6
   ret i1 %7

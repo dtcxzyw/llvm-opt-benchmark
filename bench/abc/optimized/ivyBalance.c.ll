@@ -22,7 +22,7 @@ define ptr @Ivy_ManBalance(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0
   %12 = or disjoint i32 %10, %11
   %13 = getelementptr i8, ptr %0, i64 32
   %.val30 = load ptr, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %.val30, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %.val30, i64 4
   store i32 %12, ptr %14, align 4
   %15 = load ptr, ptr %0, align 8
   %16 = getelementptr i8, ptr %15, i64 4
@@ -35,7 +35,7 @@ define ptr @Ivy_ManBalance(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0
   %18 = phi ptr [ %32, %.lr.ph ], [ %15, %2 ]
   %19 = getelementptr i8, ptr %18, i64 8
   %.val33 = load ptr, ptr %19, align 8
-  %20 = getelementptr inbounds ptr, ptr %.val33, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw ptr, ptr %.val33, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8
   %22 = tail call ptr @Ivy_ObjCreatePi(ptr noundef %3) #9
   %23 = ptrtoint ptr %22 to i64
@@ -46,7 +46,7 @@ define ptr @Ivy_ManBalance(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0
   %28 = and i32 %27, 1
   %29 = shl i32 %26, 1
   %30 = or disjoint i32 %28, %29
-  %31 = getelementptr inbounds i8, ptr %21, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %21, i64 4
   store i32 %30, ptr %31, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %32 = load ptr, ptr %0, align 8
@@ -58,13 +58,13 @@ define ptr @Ivy_ManBalance(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0
 
 .critedge:                                        ; preds = %.lr.ph, %2
   %36 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #10
-  %37 = getelementptr inbounds i8, ptr %36, i64 4
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 4
   store i32 0, ptr %37, align 4
   store i32 50, ptr %36, align 8
   %38 = tail call noalias dereferenceable_or_null(400) ptr @malloc(i64 noundef 400) #10
-  %39 = getelementptr inbounds i8, ptr %36, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %36, i64 8
   store ptr %38, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr i8, ptr %41, i64 4
   %.val3239 = load i32, ptr %42, align 4
@@ -80,7 +80,7 @@ define ptr @Ivy_ManBalance(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0
   %46 = phi ptr [ %41, %.lr.ph41 ], [ %69, %45 ]
   %47 = getelementptr i8, ptr %46, i64 8
   %.val34 = load ptr, ptr %47, align 8
-  %48 = getelementptr inbounds ptr, ptr %.val34, i64 %indvars.iv43
+  %48 = getelementptr inbounds nuw ptr, ptr %.val34, i64 %indvars.iv43
   %49 = load ptr, ptr %48, align 8
   %50 = getelementptr i8, ptr %49, i64 16
   %.val35 = load ptr, ptr %50, align 8
@@ -124,13 +124,13 @@ define ptr @Ivy_ManBalance(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %81
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %81 ], [ 0, %.lr.ph.i.preheader ]
-  %75 = getelementptr inbounds ptr, ptr %.pre.pre, i64 %indvars.iv.i
+  %75 = getelementptr inbounds nuw ptr, ptr %.pre.pre, i64 %indvars.iv.i
   %76 = load ptr, ptr %75, align 8
   %.not.i = icmp eq ptr %76, null
   br i1 %.not.i, label %81, label %77
 
 77:                                               ; preds = %.lr.ph.i
-  %78 = getelementptr inbounds i8, ptr %76, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %76, i64 8
   %79 = load ptr, ptr %78, align 8
   %.not.i.i = icmp eq ptr %79, null
   br i1 %.not.i.i, label %Vec_PtrFree.exit.i, label %80
@@ -185,7 +185,7 @@ declare ptr @Ivy_ObjReal(ptr noundef) local_unnamed_addr #1
 define internal fastcc i32 @Ivy_NodeBalance_rec(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
   %.val = load i32, ptr %1, align 8
   %.not = icmp ne i32 %.val, 0
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %7 = load i32, ptr %6, align 4
   %.not39 = icmp eq i32 %7, 0
   %or.cond = select i1 %.not, i1 %.not39, i1 false
@@ -208,7 +208,7 @@ define internal fastcc i32 @Ivy_NodeBalance_rec(ptr noundef %0, ptr noundef %1, 
   br i1 %.not.i.not.i.i, label %Vec_PtrGrow.exit.i.i, label %13
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %2, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %15 = load ptr, ptr %14, align 8
   %.not9.i.i.i = icmp eq ptr %15, null
   %16 = sext i32 %11 to i64
@@ -237,7 +237,7 @@ Vec_PtrGrow.exit.i.i:                             ; preds = %22, %10
   br i1 %.not151.i.i, label %.loopexit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %Vec_PtrGrow.exit.i.i
-  %25 = getelementptr inbounds i8, ptr %2, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %26 = sext i32 %24 to i64
   br label %27
 
@@ -259,14 +259,14 @@ Vec_PtrGrow.exit.i.i:                             ; preds = %22, %10
   %31 = sext i32 %3 to i64
   %32 = getelementptr inbounds ptr, ptr %.val.i.i, i64 %31
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 4
   %35 = load i32, ptr %34, align 4
   %36 = load i32, ptr %33, align 8
   %37 = icmp eq i32 %35, %36
   br i1 %37, label %38, label %.Vec_PtrGrow.exit11_crit_edge.i.i.i
 
 .Vec_PtrGrow.exit11_crit_edge.i.i.i:              ; preds = %.loopexit.i
-  %.phi.trans.insert.i.i.i = getelementptr inbounds i8, ptr %33, i64 8
+  %.phi.trans.insert.i.i.i = getelementptr inbounds nuw i8, ptr %33, i64 8
   %.pre.i.i.i = load ptr, ptr %.phi.trans.insert.i.i.i, align 8
   br label %Vec_VecPush.exit.i
 
@@ -275,7 +275,7 @@ Vec_PtrGrow.exit.i.i:                             ; preds = %22, %10
   br i1 %39, label %40, label %48
 
 40:                                               ; preds = %38
-  %41 = getelementptr inbounds i8, ptr %33, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %42 = load ptr, ptr %41, align 8
   %.not9.i.i.i.i = icmp eq ptr %42, null
   br i1 %.not9.i.i.i.i, label %45, label %43
@@ -296,7 +296,7 @@ Vec_PtrGrow.exit.i.i.i:                           ; preds = %45, %43
 
 48:                                               ; preds = %38
   %49 = shl nuw nsw i32 %35, 1
-  %50 = getelementptr inbounds i8, ptr %33, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %51 = load ptr, ptr %50, align 8
   %.not9.i10.i.i.i = icmp eq ptr %51, null
   %52 = zext nneg i32 %49 to i64
@@ -333,7 +333,7 @@ Vec_VecPush.exit.i:                               ; preds = %58, %Vec_PtrGrow.ex
   %.val21.i = load ptr, ptr %66, align 8
   %67 = getelementptr inbounds ptr, ptr %.val21.i, i64 %.pre-phi.i
   %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 4
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 4
   store i32 0, ptr %69, align 4
   %70 = tail call i32 @Ivy_NodeBalanceCone_rec(ptr noundef nonnull %1, ptr noundef nonnull %1, ptr noundef %68)
   %.val22.i = load i32, ptr %69, align 4
@@ -347,12 +347,12 @@ Vec_VecPush.exit.i:                               ; preds = %58, %Vec_PtrGrow.ex
 73:                                               ; preds = %73, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %73 ]
   %.val19.i = load ptr, ptr %72, align 8
-  %74 = getelementptr inbounds ptr, ptr %.val19.i, i64 %indvars.iv.i
+  %74 = getelementptr inbounds nuw ptr, ptr %.val19.i, i64 %indvars.iv.i
   %75 = load ptr, ptr %74, align 8
   %76 = ptrtoint ptr %75 to i64
   %77 = and i64 %76, -2
   %78 = inttoptr i64 %77 to ptr
-  %79 = getelementptr inbounds i8, ptr %78, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
   %80 = load i32, ptr %79, align 8
   %81 = and i32 %80, -33
   store i32 %81, ptr %79, align 8
@@ -400,7 +400,7 @@ Ivy_NodeBalanceCone.exit:                         ; preds = %.critedge.i
   br i1 %100, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %97, %99
-  %101 = getelementptr inbounds i8, ptr %68, i64 8
+  %101 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %102 = add nsw i32 %3, 1
   %103 = getelementptr i8, ptr %0, i64 24
   br label %104
@@ -408,14 +408,14 @@ Ivy_NodeBalanceCone.exit:                         ; preds = %.critedge.i
 104:                                              ; preds = %.lr.ph, %104
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %104 ]
   %105 = load ptr, ptr %101, align 8
-  %106 = getelementptr inbounds ptr, ptr %105, i64 %indvars.iv
+  %106 = getelementptr inbounds nuw ptr, ptr %105, i64 %indvars.iv
   %107 = load ptr, ptr %106, align 8
   %108 = ptrtoint ptr %107 to i64
   %109 = and i64 %108, -2
   %110 = inttoptr i64 %109 to ptr
   %111 = tail call fastcc i32 @Ivy_NodeBalance_rec(ptr noundef %0, ptr noundef %110, ptr noundef %2, i32 noundef %102, i32 noundef %4)
   %112 = load ptr, ptr %101, align 8
-  %113 = getelementptr inbounds ptr, ptr %112, i64 %indvars.iv
+  %113 = getelementptr inbounds nuw ptr, ptr %112, i64 %indvars.iv
   %114 = load ptr, ptr %113, align 8
   %115 = ptrtoint ptr %114 to i64
   %116 = trunc i64 %115 to i32
@@ -477,14 +477,14 @@ define range(i32 -1, 2) i32 @Ivy_NodeCompareLevelsDecrease(ptr nocapture noundef
   %4 = ptrtoint ptr %3 to i64
   %5 = and i64 %4, -2
   %6 = inttoptr i64 %5 to ptr
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load i32, ptr %7, align 8
   %9 = lshr i32 %8, 11
   %10 = load ptr, ptr %1, align 8
   %11 = ptrtoint ptr %10 to i64
   %12 = and i64 %11, -2
   %13 = inttoptr i64 %12 to ptr
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load i32, ptr %14, align 8
   %16 = lshr i32 %15, 11
   %17 = sub nsw i32 %9, %16
@@ -513,13 +513,13 @@ define range(i32 -1, 2) i32 @Ivy_NodeCompareLevelsDecrease(ptr nocapture noundef
 
 ; Function Attrs: nounwind uwtable
 define ptr @Ivy_NodeBalanceBuildSuper(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4
   %7 = icmp slt i32 %6, 2
   br i1 %7, label %._crit_edge, label %Vec_PtrSort.exit
 
 Vec_PtrSort.exit:                                 ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = zext nneg i32 %6 to i64
   tail call void @qsort(ptr noundef %9, i64 noundef %10, i64 noundef 8, ptr noundef nonnull @Ivy_NodeCompareLevelsDecrease) #9
@@ -531,12 +531,12 @@ Vec_PtrSort.exit:                                 ; preds = %4
   %.not = icmp eq i32 %3, 0
   %12 = getelementptr i8, ptr %1, i64 8
   %.not21 = icmp eq i32 %2, 6
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = select i1 %.not21, i32 6, i32 5
-  %15 = getelementptr inbounds i8, ptr %0, i64 48
-  %16 = getelementptr inbounds i8, ptr %0, i64 56
-  %17 = getelementptr inbounds i8, ptr %0, i64 64
-  %18 = getelementptr inbounds i8, ptr %0, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %19
 
 19:                                               ; preds = %.lr.ph, %Ivy_NodeBalancePushUniqueOrderByLevel.exit
@@ -555,19 +555,19 @@ Vec_PtrSort.exit:                                 ; preds = %4
   %27 = ptrtoint ptr %26 to i64
   %28 = and i64 %27, -2
   %29 = inttoptr i64 %28 to ptr
-  %30 = getelementptr inbounds i8, ptr %29, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load i32, ptr %30, align 8
   %32 = zext nneg i32 %22 to i64
   br label %33
 
 33:                                               ; preds = %41, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %32, %.lr.ph.i ], [ %indvars.iv.next.i, %41 ]
-  %34 = getelementptr inbounds ptr, ptr %.val19.i, i64 %indvars.iv.i
+  %34 = getelementptr inbounds nuw ptr, ptr %.val19.i, i64 %indvars.iv.i
   %35 = load ptr, ptr %34, align 8
   %36 = ptrtoint ptr %35 to i64
   %37 = and i64 %36, -2
   %38 = inttoptr i64 %37 to ptr
-  %39 = getelementptr inbounds i8, ptr %38, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %40 = load i32, ptr %39, align 8
   %.not.unshifted.i = xor i32 %40, %31
   %.not.i = icmp ult i32 %.not.unshifted.i, 2048
@@ -761,7 +761,7 @@ Ivy_NodeBalancePermute.exit:                      ; preds = %82, %74, %Ivy_NodeB
 
 117:                                              ; preds = %116, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %116 ]
-  %118 = getelementptr inbounds ptr, ptr %115, i64 %indvars.iv.i.i
+  %118 = getelementptr inbounds nuw ptr, ptr %115, i64 %indvars.iv.i.i
   %119 = load ptr, ptr %118, align 8
   %120 = icmp eq ptr %119, %112
   br i1 %120, label %Ivy_NodeBalancePushUniqueOrderByLevel.exit, label %116
@@ -840,21 +840,21 @@ Vec_PtrGrow.exit.i.i.i:                           ; preds = %129, %127
   %indvars.iv.i19 = phi i64 [ %151, %.lr.ph.preheader.i ], [ %indvars.iv.next.i20, %170 ]
   %indvars.iv.next.i20 = add nsw i64 %indvars.iv.i19, -1
   %152 = load ptr, ptr %12, align 8
-  %153 = getelementptr inbounds ptr, ptr %152, i64 %indvars.iv.next.i20
+  %153 = getelementptr inbounds nuw ptr, ptr %152, i64 %indvars.iv.next.i20
   %154 = load ptr, ptr %153, align 8
   %155 = add nsw i64 %indvars.iv.i19, -2
-  %156 = getelementptr inbounds ptr, ptr %152, i64 %155
+  %156 = getelementptr inbounds nuw ptr, ptr %152, i64 %155
   %157 = load ptr, ptr %156, align 8
   %158 = ptrtoint ptr %154 to i64
   %159 = and i64 %158, -2
   %160 = inttoptr i64 %159 to ptr
-  %161 = getelementptr inbounds i8, ptr %160, i64 8
+  %161 = getelementptr inbounds nuw i8, ptr %160, i64 8
   %162 = load i32, ptr %161, align 8
   %163 = lshr i32 %162, 11
   %164 = ptrtoint ptr %157 to i64
   %165 = and i64 %164, -2
   %166 = inttoptr i64 %165 to ptr
-  %167 = getelementptr inbounds i8, ptr %166, i64 8
+  %167 = getelementptr inbounds nuw i8, ptr %166, i64 8
   %168 = load i32, ptr %167, align 8
   %169 = lshr i32 %168, 11
   %.not16.i = icmp samesign ugt i32 %163, %169
@@ -863,7 +863,7 @@ Vec_PtrGrow.exit.i.i.i:                           ; preds = %129, %127
 170:                                              ; preds = %.lr.ph.i18
   store ptr %157, ptr %153, align 8
   %171 = load ptr, ptr %12, align 8
-  %172 = getelementptr inbounds ptr, ptr %171, i64 %155
+  %172 = getelementptr inbounds nuw ptr, ptr %171, i64 %155
   store ptr %154, ptr %172, align 8
   %173 = icmp samesign ugt i64 %indvars.iv.i19, 2
   br i1 %173, label %.lr.ph.i18, label %Ivy_NodeBalancePushUniqueOrderByLevel.exit.loopexit, !llvm.loop !14
@@ -891,20 +891,20 @@ define range(i32 -1, 2) i32 @Ivy_NodeBalanceCone_rec(ptr noundef %0, ptr noundef
   %4 = ptrtoint ptr %1 to i64
   %5 = and i64 %4, -2
   %6 = inttoptr i64 %5 to ptr
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load i32, ptr %7, align 8
   %9 = and i32 %8, 32
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %29, label %.preheader47
 
 .preheader47:                                     ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %2, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %11 = load i32, ptr %10, align 4
   %12 = icmp sgt i32 %11, 0
   br i1 %12, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader47
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %wide.trip.count = zext nneg i32 %11 to i64
   br label %20
@@ -915,7 +915,7 @@ define range(i32 -1, 2) i32 @Ivy_NodeBalanceCone_rec(ptr noundef %0, ptr noundef
   br i1 %exitcond.not, label %.lr.ph52, label %20, !llvm.loop !16
 
 .lr.ph52:                                         ; preds = %15
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = xor i64 %4, 1
   %19 = inttoptr i64 %18 to ptr
@@ -924,7 +924,7 @@ define range(i32 -1, 2) i32 @Ivy_NodeBalanceCone_rec(ptr noundef %0, ptr noundef
 
 20:                                               ; preds = %.lr.ph, %15
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %15 ]
-  %21 = getelementptr inbounds ptr, ptr %14, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, %1
   br i1 %23, label %.loopexit, label %15
@@ -936,7 +936,7 @@ define range(i32 -1, 2) i32 @Ivy_NodeBalanceCone_rec(ptr noundef %0, ptr noundef
 
 25:                                               ; preds = %.lr.ph52, %24
   %indvars.iv58 = phi i64 [ 0, %.lr.ph52 ], [ %indvars.iv.next59, %24 ]
-  %26 = getelementptr inbounds ptr, ptr %17, i64 %indvars.iv58
+  %26 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv58
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, %19
   br i1 %28, label %.loopexit, label %24
@@ -973,14 +973,14 @@ define range(i32 -1, 2) i32 @Ivy_NodeBalanceCone_rec(ptr noundef %0, ptr noundef
   br i1 %42, label %43, label %77
 
 43:                                               ; preds = %40, %37, %32, %30
-  %44 = getelementptr inbounds i8, ptr %2, i64 4
+  %44 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %45 = load i32, ptr %44, align 4
   %46 = load i32, ptr %2, align 8
   %47 = icmp eq i32 %45, %46
   br i1 %47, label %48, label %.Vec_PtrGrow.exit11_crit_edge.i
 
 .Vec_PtrGrow.exit11_crit_edge.i:                  ; preds = %43
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
   br label %Vec_PtrPush.exit
 
@@ -989,7 +989,7 @@ define range(i32 -1, 2) i32 @Ivy_NodeBalanceCone_rec(ptr noundef %0, ptr noundef
   br i1 %49, label %50, label %58
 
 50:                                               ; preds = %48
-  %51 = getelementptr inbounds i8, ptr %2, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %52 = load ptr, ptr %51, align 8
   %.not9.i.i = icmp eq ptr %52, null
   br i1 %.not9.i.i, label %55, label %53
@@ -1010,7 +1010,7 @@ Vec_PtrGrow.exit.i:                               ; preds = %55, %53
 
 58:                                               ; preds = %48
   %59 = shl nuw nsw i32 %45, 1
-  %60 = getelementptr inbounds i8, ptr %2, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %61 = load ptr, ptr %60, align 8
   %.not9.i10.i = icmp eq ptr %61, null
   %62 = zext nneg i32 %59 to i64

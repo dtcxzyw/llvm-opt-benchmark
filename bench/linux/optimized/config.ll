@@ -87,10 +87,10 @@ define dso_local void @usb_release_interface_cache(ptr noundef %0) local_unnamed
   %8 = phi i32 [ 0, %5 ], [ %15, %7 ]
   %9 = sext i32 %8 to i64
   %10 = getelementptr [0 x %struct.usb_host_interface], ptr %6, i64 0, i64 %9
-  %11 = getelementptr inbounds i8, ptr %10, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %12 = load ptr, ptr %11, align 8
   tail call void @kfree(ptr noundef %12) #10
-  %13 = getelementptr inbounds i8, ptr %10, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %14 = load ptr, ptr %13, align 8
   tail call void @kfree(ptr noundef %14) #10
   %15 = add nuw i32 %8, 1
@@ -114,19 +114,19 @@ declare dso_local void @kfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @usb_destroy_configuration(ptr nocapture noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 928
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %73, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 1200
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1200
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %22, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %0, i64 913
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 913
   %11 = load i8, ptr %10, align 1
   %12 = icmp eq i8 %11, 0
   br i1 %12, label %.loopexit7, label %.preheader6
@@ -154,7 +154,7 @@ define dso_local void @usb_destroy_configuration(ptr nocapture noundef %0) local
   br label %22
 
 22:                                               ; preds = %.loopexit7, %5
-  %23 = getelementptr inbounds i8, ptr %0, i64 913
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 913
   %24 = load i8, ptr %23, align 1
   %25 = icmp eq i8 %24, 0
   br i1 %25, label %.loopexit5, label %.preheader
@@ -163,16 +163,16 @@ define dso_local void @usb_destroy_configuration(ptr nocapture noundef %0) local
   %26 = phi i64 [ %68, %.loopexit4 ], [ 0, %22 ]
   %27 = load ptr, ptr %2, align 8
   %28 = getelementptr %struct.usb_host_config, ptr %27, i64 %26
-  %29 = getelementptr inbounds i8, ptr %28, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %30 = load ptr, ptr %29, align 8
   tail call void @kfree(ptr noundef %30) #10
-  %31 = getelementptr inbounds i8, ptr %28, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 4
   %32 = load i8, ptr %31, align 4
   %33 = icmp eq i8 %32, 0
   br i1 %33, label %.loopexit4, label %34
 
 34:                                               ; preds = %.preheader
-  %35 = getelementptr inbounds i8, ptr %28, i64 408
+  %35 = getelementptr inbounds nuw i8, ptr %28, i64 408
   br label %36
 
 36:                                               ; preds = %.thread, %34
@@ -183,8 +183,8 @@ define dso_local void @usb_destroy_configuration(ptr nocapture noundef %0) local
   br i1 %40, label %.thread, label %41
 
 41:                                               ; preds = %36
-  %42 = getelementptr inbounds i8, ptr %39, i64 4
-  %43 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %42, i32 -1, ptr elementtype(i32) %42) #10, !srcloc !9
+  %42 = getelementptr inbounds nuw i8, ptr %39, i64 4
+  %43 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 -1, ptr nonnull elementtype(i32) %42) #10, !srcloc !9
   %44 = icmp eq i32 %43, 1
   br i1 %44, label %48, label %45
 
@@ -193,7 +193,7 @@ define dso_local void @usb_destroy_configuration(ptr nocapture noundef %0) local
   br i1 %46, label %.thread, label %47, !prof !10
 
 47:                                               ; preds = %45
-  tail call void @refcount_warn_saturate(ptr noundef %42, i32 noundef 3) #10
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %42, i32 noundef 3) #10
   br label %.thread
 
 48:                                               ; preds = %41
@@ -210,10 +210,10 @@ define dso_local void @usb_destroy_configuration(ptr nocapture noundef %0) local
   %54 = phi i32 [ 0, %51 ], [ %61, %53 ]
   %55 = sext i32 %54 to i64
   %56 = getelementptr [0 x %struct.usb_host_interface], ptr %52, i64 0, i64 %55
-  %57 = getelementptr inbounds i8, ptr %56, i64 24
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 24
   %58 = load ptr, ptr %57, align 8
   tail call void @kfree(ptr noundef %58) #10
-  %59 = getelementptr inbounds i8, ptr %56, i64 32
+  %59 = getelementptr inbounds nuw i8, ptr %56, i64 32
   %60 = load ptr, ptr %59, align 8
   tail call void @kfree(ptr noundef %60) #10
   %61 = add nuw i32 %54, 1
@@ -253,15 +253,15 @@ define dso_local void @usb_destroy_configuration(ptr nocapture noundef %0) local
 define dso_local range(i32 -2147483648, 1) i32 @usb_get_configuration(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = alloca [32 x i8], align 16
   %3 = alloca [32 x i8], align 16
-  %4 = getelementptr inbounds i8, ptr %0, i64 168
-  %5 = getelementptr inbounds i8, ptr %0, i64 913
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 913
   %6 = load i8, ptr %5, align 1
   %7 = zext i8 %6 to i32
   %8 = icmp ugt i8 %6, 8
   br i1 %8, label %.thread, label %9
 
 .thread:                                          ; preds = %1
-  tail call void (ptr, ptr, ...) @_dev_notice(ptr noundef %4, ptr noundef nonnull @.str, i32 noundef %7, i32 noundef 8) #11
+  tail call void (ptr, ptr, ...) @_dev_notice(ptr noundef nonnull %4, ptr noundef nonnull @.str, i32 noundef %7, i32 noundef 8) #11
   store i8 8, ptr %5, align 1
   br label %12
 
@@ -270,7 +270,7 @@ define dso_local range(i32 -2147483648, 1) i32 @usb_get_configuration(ptr nounde
   br i1 %10, label %11, label %12
 
 11:                                               ; preds = %9
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %4, ptr noundef nonnull @.str.1) #11
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %4, ptr noundef nonnull @.str.1) #11
   br label %890
 
 12:                                               ; preds = %.thread, %9
@@ -278,7 +278,7 @@ define dso_local range(i32 -2147483648, 1) i32 @usb_get_configuration(ptr nounde
   %14 = mul nuw nsw i32 %13, 680
   %15 = zext nneg i32 %14 to i64
   %16 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %15, i32 noundef 3520) #12
-  %17 = getelementptr inbounds i8, ptr %0, i64 928
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 928
   store ptr %16, ptr %17, align 8
   %18 = icmp eq ptr %16, null
   br i1 %18, label %890, label %19
@@ -287,7 +287,7 @@ define dso_local range(i32 -2147483648, 1) i32 @usb_get_configuration(ptr nounde
   %20 = shl nuw nsw i32 %13, 3
   %21 = zext nneg i32 %20 to i64
   %22 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %21, i32 noundef 3520) #12
-  %23 = getelementptr inbounds i8, ptr %0, i64 1200
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 1200
   store ptr %22, ptr %23, align 8
   %24 = icmp eq ptr %22, null
   br i1 %24, label %890, label %25
@@ -299,8 +299,8 @@ define dso_local range(i32 -2147483648, 1) i32 @usb_get_configuration(ptr nounde
   br i1 %28, label %890, label %29
 
 29:                                               ; preds = %25
-  %30 = getelementptr inbounds i8, ptr %27, i64 2
-  %31 = getelementptr inbounds i8, ptr %0, i64 1268
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 2
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 1268
   %32 = getelementptr i8, ptr %0, i64 28
   %33 = zext nneg i32 %13 to i64
   br label %34
@@ -314,12 +314,12 @@ define dso_local range(i32 -2147483648, 1) i32 @usb_get_configuration(ptr nounde
 
 39:                                               ; preds = %34
   %40 = trunc i64 %35 to i32
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %4, ptr noundef nonnull @.str.2, i32 noundef %40, ptr noundef nonnull @.str.3, i32 noundef %37) #11
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %4, ptr noundef nonnull @.str.2, i32 noundef %40, ptr noundef nonnull @.str.3, i32 noundef %37) #11
   %41 = icmp eq i32 %37, -32
   br i1 %41, label %42, label %.loopexit140
 
 42:                                               ; preds = %39
-  tail call void (ptr, ptr, ...) @_dev_notice(ptr noundef %4, ptr noundef nonnull @.str.4, i32 noundef %40) #11
+  tail call void (ptr, ptr, ...) @_dev_notice(ptr noundef nonnull %4, ptr noundef nonnull @.str.4, i32 noundef %40) #11
   store i8 %36, ptr %5, align 1
   br label %.loopexit140
 
@@ -329,7 +329,7 @@ define dso_local range(i32 -2147483648, 1) i32 @usb_get_configuration(ptr nounde
 
 45:                                               ; preds = %43
   %46 = trunc i64 %35 to i32
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %4, ptr noundef nonnull @.str.5, i32 noundef %46, i32 noundef 9, i32 noundef %37) #11
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %4, ptr noundef nonnull @.str.5, i32 noundef %46, i32 noundef 9, i32 noundef %37) #11
   br label %.loopexit140
 
 47:                                               ; preds = %43
@@ -358,7 +358,7 @@ define dso_local range(i32 -2147483648, 1) i32 @usb_get_configuration(ptr nounde
 
 62:                                               ; preds = %59
   %63 = trunc i64 %35 to i32
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %4, ptr noundef nonnull @.str.6, i32 noundef %63, ptr noundef nonnull @.str.7) #11
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %4, ptr noundef nonnull @.str.6, i32 noundef %63, ptr noundef nonnull @.str.7) #11
   tail call void @kfree(ptr noundef nonnull %52) #10
   br label %.loopexit140
 
@@ -368,7 +368,7 @@ define dso_local range(i32 -2147483648, 1) i32 @usb_get_configuration(ptr nounde
 
 66:                                               ; preds = %64
   %67 = trunc i64 %35 to i32
-  tail call void (ptr, ptr, ...) @_dev_notice(ptr noundef %4, ptr noundef nonnull @.str.5, i32 noundef %67, i32 noundef %50, i32 noundef %60) #11
+  tail call void (ptr, ptr, ...) @_dev_notice(ptr noundef nonnull %4, ptr noundef nonnull @.str.5, i32 noundef %67, i32 noundef %50, i32 noundef %60) #11
   br label %68
 
 68:                                               ; preds = %66, %64
@@ -383,11 +383,11 @@ define dso_local range(i32 -2147483648, 1) i32 @usb_get_configuration(ptr nounde
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, i8 0, i64 32, i1 false), !annotation !14
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(9) %73, ptr noundef nonnull align 8 dereferenceable(9) %52, i64 9, i1 false)
-  %74 = getelementptr inbounds i8, ptr %73, i64 4
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 4
   %75 = load i8, ptr %74, align 4
   %76 = zext i8 %75 to i32
   store i8 0, ptr %74, align 4
-  %77 = getelementptr inbounds i8, ptr %73, i64 1
+  %77 = getelementptr inbounds nuw i8, ptr %73, i64 1
   %78 = load i8, ptr %77, align 1
   %79 = icmp eq i8 %78, 2
   %.pre320 = load i8, ptr %73, align 8
@@ -407,11 +407,11 @@ define dso_local range(i32 -2147483648, 1) i32 @usb_get_configuration(ptr nounde
 split:                                            ; preds = %82, %._crit_edge321
   %.lcssa294 = phi i32 [ %81, %._crit_edge321 ], [ 2, %82 ]
   %86 = trunc i64 %35 to i32
-  tail call void (ptr, ptr, ...) @_dev_notice(ptr noundef %4, ptr noundef nonnull @.str.12, i32 noundef %86, i32 noundef %.lcssa294, i32 noundef %80) #11
+  tail call void (ptr, ptr, ...) @_dev_notice(ptr noundef nonnull %4, ptr noundef nonnull @.str.12, i32 noundef %86, i32 noundef %.lcssa294, i32 noundef %80) #11
   br label %.thread98
 
 87:                                               ; preds = %82
-  %88 = getelementptr inbounds i8, ptr %73, i64 5
+  %88 = getelementptr inbounds nuw i8, ptr %73, i64 5
   %89 = load i8, ptr %88, align 1
   %90 = zext i8 %89 to i32
   %91 = zext i8 %.pre320 to i64
@@ -425,20 +425,20 @@ split:                                            ; preds = %82, %._crit_edge321
   br i1 %.not427, label %.thread91, label %99
 
 .thread102:                                       ; preds = %87
-  tail call void (ptr, ptr, ...) @_dev_notice(ptr noundef %4, ptr noundef nonnull @.str.13, i32 noundef %90, i32 noundef %76, i32 noundef 32) #11
+  tail call void (ptr, ptr, ...) @_dev_notice(ptr noundef nonnull %4, ptr noundef nonnull @.str.13, i32 noundef %90, i32 noundef %76, i32 noundef 32) #11
   %.not428 = icmp eq i32 %93, 0
   br i1 %.not428, label %.thread91.thread, label %99
 
 .thread91.thread:                                 ; preds = %.thread102
   %96 = ptrtoint ptr %92 to i64
   %97 = zext i8 %.pre320 to i16
-  %98 = getelementptr inbounds i8, ptr %73, i64 2
+  %98 = getelementptr inbounds nuw i8, ptr %73, i64 2
   store i16 %97, ptr %98, align 2
   br label %.thread105
 
 99:                                               ; preds = %.thread102, %95
   %100 = phi i32 [ 32, %.thread102 ], [ %76, %95 ]
-  %101 = getelementptr inbounds i8, ptr %73, i64 24
+  %101 = getelementptr inbounds nuw i8, ptr %73, i64 24
   %102 = add nsw i32 %76, -1
   br label %103
 
@@ -451,7 +451,7 @@ split:                                            ; preds = %82, %._crit_edge321
   br i1 %108, label %109, label %110
 
 109:                                              ; preds = %103
-  tail call void (ptr, ptr, ...) @_dev_notice(ptr noundef %4, ptr noundef nonnull @.str.14, i32 noundef %90, i32 noundef 1, ptr noundef nonnull @.str.27) #11
+  tail call void (ptr, ptr, ...) @_dev_notice(ptr noundef nonnull %4, ptr noundef nonnull @.str.14, i32 noundef %90, i32 noundef 1, ptr noundef nonnull @.str.27) #11
   br label %.loopexit139
 
 110:                                              ; preds = %103
@@ -463,11 +463,11 @@ split:                                            ; preds = %82, %._crit_edge321
   br i1 %115, label %116, label %117
 
 116:                                              ; preds = %110
-  tail call void (ptr, ptr, ...) @_dev_notice(ptr noundef %4, ptr noundef nonnull @.str.15, i32 noundef %90, i32 noundef %112) #11
+  tail call void (ptr, ptr, ...) @_dev_notice(ptr noundef nonnull %4, ptr noundef nonnull @.str.15, i32 noundef %90, i32 noundef %112) #11
   br label %.loopexit139
 
 117:                                              ; preds = %110
-  %118 = getelementptr inbounds i8, ptr %106, i64 1
+  %118 = getelementptr inbounds nuw i8, ptr %106, i64 1
   %119 = load i8, ptr %118, align 1
   switch i8 %119, label %176 [
     i8 4, label %120
@@ -481,11 +481,11 @@ split:                                            ; preds = %82, %._crit_edge321
   br i1 %121, label %122, label %123
 
 122:                                              ; preds = %120
-  tail call void (ptr, ptr, ...) @_dev_notice(ptr noundef %4, ptr noundef nonnull @.str.16, i32 noundef %90, i32 noundef %112) #11
+  tail call void (ptr, ptr, ...) @_dev_notice(ptr noundef nonnull %4, ptr noundef nonnull @.str.16, i32 noundef %90, i32 noundef %112) #11
   br label %176
 
 123:                                              ; preds = %120
-  %124 = getelementptr inbounds i8, ptr %106, i64 2
+  %124 = getelementptr inbounds nuw i8, ptr %106, i64 2
   %125 = load i8, ptr %124, align 1
   %126 = zext i8 %125 to i32
   %127 = load i32, ptr %31, align 4
@@ -496,7 +496,7 @@ split:                                            ; preds = %82, %._crit_edge321
   br i1 %131, label %133, label %132
 
 132:                                              ; preds = %123
-  tail call void (ptr, ptr, ...) @_dev_notice(ptr noundef %4, ptr noundef nonnull @.str.17, i32 noundef %90, i32 noundef %126) #11
+  tail call void (ptr, ptr, ...) @_dev_notice(ptr noundef nonnull %4, ptr noundef nonnull @.str.17, i32 noundef %90, i32 noundef %126) #11
   br label %176
 
 133:                                              ; preds = %123
@@ -504,7 +504,7 @@ split:                                            ; preds = %82, %._crit_edge321
   br i1 %134, label %136, label %135
 
 135:                                              ; preds = %133
-  tail call void (ptr, ptr, ...) @_dev_notice(ptr noundef %4, ptr noundef nonnull @.str.18, i32 noundef %90, i32 noundef %126, i32 noundef %102) #11
+  tail call void (ptr, ptr, ...) @_dev_notice(ptr noundef nonnull %4, ptr noundef nonnull @.str.18, i32 noundef %90, i32 noundef %126, i32 noundef %102) #11
   br label %136
 
 136:                                              ; preds = %135, %133
@@ -566,7 +566,7 @@ split:                                            ; preds = %82, %._crit_edge321
   br i1 %165, label %166, label %167
 
 166:                                              ; preds = %164
-  tail call void (ptr, ptr, ...) @_dev_notice(ptr noundef %4, ptr noundef nonnull @.str.19, i32 noundef %90, i32 noundef %112) #11
+  tail call void (ptr, ptr, ...) @_dev_notice(ptr noundef nonnull %4, ptr noundef nonnull @.str.19, i32 noundef %90, i32 noundef %112) #11
   br label %176
 
 167:                                              ; preds = %164
@@ -574,7 +574,7 @@ split:                                            ; preds = %82, %._crit_edge321
   br i1 %168, label %169, label %170
 
 169:                                              ; preds = %167
-  tail call void (ptr, ptr, ...) @_dev_notice(ptr noundef %4, ptr noundef nonnull @.str.20, i32 noundef %90) #11
+  tail call void (ptr, ptr, ...) @_dev_notice(ptr noundef nonnull %4, ptr noundef nonnull @.str.20, i32 noundef %90) #11
   br label %176
 
 170:                                              ; preds = %167
@@ -586,7 +586,7 @@ split:                                            ; preds = %82, %._crit_edge321
 
 174:                                              ; preds = %117, %117
   %175 = zext nneg i8 %119 to i32
-  tail call void (ptr, ptr, ...) @_dev_notice(ptr noundef %4, ptr noundef nonnull @.str.21, i32 noundef %90, i32 noundef %175) #11
+  tail call void (ptr, ptr, ...) @_dev_notice(ptr noundef nonnull %4, ptr noundef nonnull @.str.21, i32 noundef %90, i32 noundef %175) #11
   br label %176
 
 176:                                              ; preds = %174, %170, %169, %166, %.thread90, %.loopexit130, %157, %.thread89, %132, %122, %117
@@ -610,7 +610,7 @@ split:                                            ; preds = %82, %._crit_edge321
   %191 = ptrtoint ptr %52 to i64
   %192 = sub i64 %187, %191
   %193 = trunc i64 %192 to i16
-  %194 = getelementptr inbounds i8, ptr %73, i64 2
+  %194 = getelementptr inbounds nuw i8, ptr %73, i64 2
   store i16 %193, ptr %194, align 2
   %195 = icmp eq i32 %185, %100
   br i1 %195, label %206, label %200
@@ -618,7 +618,7 @@ split:                                            ; preds = %82, %._crit_edge321
 .thread91:                                        ; preds = %95
   %196 = ptrtoint ptr %92 to i64
   %197 = zext i8 %.pre320 to i16
-  %198 = getelementptr inbounds i8, ptr %73, i64 2
+  %198 = getelementptr inbounds nuw i8, ptr %73, i64 2
   store i16 %197, ptr %198, align 2
   %199 = icmp eq i8 %75, 0
   br i1 %199, label %.thread93, label %.thread105
@@ -633,7 +633,7 @@ split:                                            ; preds = %82, %._crit_edge321
   %203 = phi i64 [ %196, %.thread91 ], [ %96, %.thread91.thread ], [ %188, %200 ]
   %204 = phi i32 [ 0, %.thread91 ], [ 0, %.thread91.thread ], [ %190, %200 ]
   %205 = phi ptr [ @.str.28, %.thread91 ], [ @.str.28, %.thread91.thread ], [ %spec.select106, %200 ]
-  tail call void (ptr, ptr, ...) @_dev_notice(ptr noundef %4, ptr noundef nonnull @.str.22, i32 noundef %90, i32 noundef %202, ptr noundef nonnull %205, i32 noundef %76) #11
+  tail call void (ptr, ptr, ...) @_dev_notice(ptr noundef nonnull %4, ptr noundef nonnull @.str.22, i32 noundef %90, i32 noundef %202, ptr noundef nonnull %205, i32 noundef %76) #11
   br label %210
 
 206:                                              ; preds = %.loopexit139
@@ -643,7 +643,7 @@ split:                                            ; preds = %82, %._crit_edge321
 .thread93:                                        ; preds = %206, %.thread91
   %208 = phi i64 [ %188, %206 ], [ %196, %.thread91 ]
   %209 = phi i32 [ %190, %206 ], [ 0, %.thread91 ]
-  tail call void (ptr, ptr, ...) @_dev_notice(ptr noundef %4, ptr noundef nonnull @.str.23, i32 noundef %90) #11
+  tail call void (ptr, ptr, ...) @_dev_notice(ptr noundef nonnull %4, ptr noundef nonnull @.str.23, i32 noundef %90) #11
   store i8 0, ptr %74, align 4
   br label %.loopexit138
 
@@ -668,7 +668,7 @@ split:                                            ; preds = %82, %._crit_edge321
   br i1 %222, label %235, label %.preheader128
 
 223:                                              ; preds = %235
-  %224 = getelementptr inbounds i8, ptr %73, i64 408
+  %224 = getelementptr inbounds nuw i8, ptr %73, i64 408
   br label %238
 
 .preheader128:                                    ; preds = %220, %228
@@ -689,7 +689,7 @@ split:                                            ; preds = %82, %._crit_edge321
   br i1 %234, label %235, label %.loopexit129
 
 .loopexit129:                                     ; preds = %.preheader128, %233
-  tail call void (ptr, ptr, ...) @_dev_notice(ptr noundef %4, ptr noundef nonnull @.str.24, i32 noundef %90, i32 noundef %221) #11
+  tail call void (ptr, ptr, ...) @_dev_notice(ptr noundef nonnull %4, ptr noundef nonnull @.str.24, i32 noundef %90, i32 noundef %221) #11
   br label %235
 
 235:                                              ; preds = %.loopexit129, %233, %220
@@ -709,7 +709,7 @@ split:                                            ; preds = %82, %._crit_edge321
   %245 = getelementptr [32 x i8], ptr %2, i64 0, i64 %239
   %246 = load i8, ptr %245, align 1
   %247 = zext i8 %246 to i32
-  tail call void (ptr, ptr, ...) @_dev_notice(ptr noundef %4, ptr noundef nonnull @.str.25, i32 noundef %90, i32 noundef %247, i32 noundef %242, i32 noundef 128) #11
+  tail call void (ptr, ptr, ...) @_dev_notice(ptr noundef nonnull %4, ptr noundef nonnull @.str.25, i32 noundef %90, i32 noundef %247, i32 noundef %242, i32 noundef 128) #11
   store i8 -128, ptr %240, align 1
   br label %248
 
@@ -725,7 +725,7 @@ split:                                            ; preds = %82, %._crit_edge321
   br i1 %255, label %.thread98, label %256
 
 256:                                              ; preds = %248
-  %257 = getelementptr inbounds i8, ptr %253, i64 4
+  %257 = getelementptr inbounds nuw i8, ptr %253, i64 4
   store volatile i32 1, ptr %257, align 4
   %258 = add nuw nsw i64 %239, 1
   %259 = icmp eq i64 %258, %219
@@ -736,7 +736,7 @@ split:                                            ; preds = %82, %._crit_edge321
   %261 = phi i32 [ 0, %.thread93 ], [ %213, %210 ], [ %213, %256 ]
   %262 = phi i64 [ %208, %.thread93 ], [ %212, %210 ], [ %212, %256 ]
   %263 = phi i32 [ %209, %.thread93 ], [ %211, %210 ], [ %211, %256 ]
-  %264 = getelementptr inbounds i8, ptr %73, i64 664
+  %264 = getelementptr inbounds nuw i8, ptr %73, i64 664
   store ptr %92, ptr %264, align 8
   %265 = icmp sgt i32 %263, 0
   br i1 %265, label %.preheader134, label %.loopexit135
@@ -744,7 +744,7 @@ split:                                            ; preds = %82, %._crit_edge321
 .preheader134:                                    ; preds = %.loopexit138, %271
   %266 = phi ptr [ %275, %271 ], [ %92, %.loopexit138 ]
   %267 = phi i32 [ %276, %271 ], [ %263, %.loopexit138 ]
-  %268 = getelementptr inbounds i8, ptr %266, i64 1
+  %268 = getelementptr inbounds nuw i8, ptr %266, i64 1
   %269 = load i8, ptr %268, align 1
   %270 = icmp eq i8 %269, 4
   br i1 %270, label %.loopexit135, label %271
@@ -763,7 +763,7 @@ split:                                            ; preds = %82, %._crit_edge321
   %279 = ptrtoint ptr %278 to i64
   %280 = sub i64 %279, %262
   %281 = trunc i64 %280 to i32
-  %282 = getelementptr inbounds i8, ptr %73, i64 672
+  %282 = getelementptr inbounds nuw i8, ptr %73, i64 672
   store i32 %281, ptr %282, align 8
   %283 = sub i32 %263, %281
   %284 = icmp sgt i32 %283, 0
@@ -773,14 +773,14 @@ split:                                            ; preds = %82, %._crit_edge321
   %286 = shl i64 %280, 32
   %287 = ashr exact i64 %286, 32
   %288 = getelementptr i8, ptr %92, i64 %287
-  %289 = getelementptr inbounds i8, ptr %73, i64 408
+  %289 = getelementptr inbounds nuw i8, ptr %73, i64 408
   br label %293
 
 .loopexit133:                                     ; preds = %842, %.loopexit135
   br i1 %260, label %290, label %.loopexit131
 
 290:                                              ; preds = %.loopexit133
-  %291 = getelementptr inbounds i8, ptr %73, i64 408
+  %291 = getelementptr inbounds nuw i8, ptr %73, i64 408
   %292 = zext nneg i32 %261 to i64
   br label %847
 
@@ -796,7 +796,7 @@ split:                                            ; preds = %82, %._crit_edge321
   br i1 %301, label %.thread94, label %302
 
 302:                                              ; preds = %293
-  %303 = getelementptr inbounds i8, ptr %295, i64 2
+  %303 = getelementptr inbounds nuw i8, ptr %295, i64 2
   %304 = load i8, ptr %303, align 1
   %305 = zext i8 %304 to i32
   %306 = load i8, ptr %74, align 4
@@ -835,23 +835,23 @@ split:                                            ; preds = %82, %._crit_edge321
   br i1 %328, label %329, label %.thread94
 
 329:                                              ; preds = %322
-  %330 = getelementptr inbounds i8, ptr %295, i64 3
+  %330 = getelementptr inbounds nuw i8, ptr %295, i64 3
   %331 = load i8, ptr %330, align 1
   %332 = zext i8 %331 to i32
-  %333 = getelementptr inbounds i8, ptr %320, i64 8
+  %333 = getelementptr inbounds nuw i8, ptr %320, i64 8
   %334 = icmp eq i32 %323, 0
   br i1 %334, label %.loopexit127, label %.preheader126
 
 .preheader126:                                    ; preds = %329, %341
   %335 = phi i32 [ %342, %341 ], [ 0, %329 ]
   %336 = phi ptr [ %343, %341 ], [ %333, %329 ]
-  %337 = getelementptr inbounds i8, ptr %336, i64 3
+  %337 = getelementptr inbounds nuw i8, ptr %336, i64 3
   %338 = load i8, ptr %337, align 1
   %339 = icmp eq i8 %338, %331
   br i1 %339, label %340, label %341
 
 340:                                              ; preds = %.preheader126
-  tail call void (ptr, ptr, ...) @_dev_notice(ptr noundef %4, ptr noundef nonnull @.str.29, i32 noundef %90, i32 noundef %305, i32 noundef %332) #11
+  tail call void (ptr, ptr, ...) @_dev_notice(ptr noundef nonnull %4, ptr noundef nonnull @.str.29, i32 noundef %90, i32 noundef %305, i32 noundef %332) #11
   br label %.thread94
 
 341:                                              ; preds = %.preheader126
@@ -865,7 +865,7 @@ split:                                            ; preds = %82, %._crit_edge321
   %346 = add nuw nsw i32 %323, 1
   store i32 %346, ptr %320, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(9) %345, ptr noundef align 1 dereferenceable(9) %295, i64 9, i1 false)
-  %347 = getelementptr inbounds i8, ptr %345, i64 16
+  %347 = getelementptr inbounds nuw i8, ptr %345, i64 16
   store ptr %299, ptr %347, align 8
   %348 = icmp sgt i32 %300, 0
   br i1 %348, label %.preheader123, label %.loopexit124
@@ -873,7 +873,7 @@ split:                                            ; preds = %82, %._crit_edge321
 .preheader123:                                    ; preds = %.loopexit127, %355
   %349 = phi ptr [ %359, %355 ], [ %299, %.loopexit127 ]
   %350 = phi i32 [ %360, %355 ], [ %300, %.loopexit127 ]
-  %351 = getelementptr inbounds i8, ptr %349, i64 1
+  %351 = getelementptr inbounds nuw i8, ptr %349, i64 1
   %352 = load i8, ptr %351, align 1
   %353 = and i8 %352, -2
   %354 = icmp eq i8 %353, 4
@@ -894,13 +894,13 @@ split:                                            ; preds = %82, %._crit_edge321
   %364 = ptrtoint ptr %299 to i64
   %365 = sub i64 %363, %364
   %366 = trunc i64 %365 to i32
-  %367 = getelementptr inbounds i8, ptr %345, i64 12
+  %367 = getelementptr inbounds nuw i8, ptr %345, i64 12
   store i32 %366, ptr %367, align 4
   %368 = shl i64 %365, 32
   %369 = ashr exact i64 %368, 32
   %370 = getelementptr i8, ptr %299, i64 %369
   %371 = sub i32 %300, %366
-  %372 = getelementptr inbounds i8, ptr %345, i64 4
+  %372 = getelementptr inbounds nuw i8, ptr %345, i64 4
   %373 = load i8, ptr %372, align 4
   %374 = zext i8 %373 to i32
   store i8 0, ptr %372, align 4
@@ -908,7 +908,7 @@ split:                                            ; preds = %82, %._crit_edge321
   br i1 %375, label %.thread95, label %376
 
 .thread95:                                        ; preds = %.loopexit124
-  tail call void (ptr, ptr, ...) @_dev_notice(ptr noundef %4, ptr noundef nonnull @.str.30, i32 noundef %90, i32 noundef %305, i32 noundef %332, i32 noundef %374, i32 noundef 30) #11
+  tail call void (ptr, ptr, ...) @_dev_notice(ptr noundef nonnull %4, ptr noundef nonnull @.str.30, i32 noundef %90, i32 noundef %305, i32 noundef %332, i32 noundef %374, i32 noundef 30) #11
   br label %378
 
 376:                                              ; preds = %.loopexit124
@@ -920,7 +920,7 @@ split:                                            ; preds = %82, %._crit_edge321
   %380 = mul nuw nsw i32 %379, 80
   %381 = zext nneg i32 %380 to i64
   %382 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %381, i32 noundef 3520) #12
-  %383 = getelementptr inbounds i8, ptr %345, i64 24
+  %383 = getelementptr inbounds nuw i8, ptr %345, i64 24
   store ptr %382, ptr %383, align 8
   %384 = icmp eq ptr %382, null
   br i1 %384, label %.thread98, label %385
@@ -931,7 +931,7 @@ split:                                            ; preds = %82, %._crit_edge321
   br i1 %387, label %388, label %.loopexit120
 
 388:                                              ; preds = %385
-  %389 = getelementptr inbounds i8, ptr %345, i64 24
+  %389 = getelementptr inbounds nuw i8, ptr %345, i64 24
   %390 = icmp eq i8 %331, 0
   br label %391
 
@@ -939,7 +939,7 @@ split:                                            ; preds = %82, %._crit_edge321
   %392 = phi ptr [ %370, %388 ], [ %806, %803 ]
   %393 = phi i32 [ %371, %388 ], [ %807, %803 ]
   %394 = phi i32 [ 0, %388 ], [ %804, %803 ]
-  %395 = getelementptr inbounds i8, ptr %392, i64 1
+  %395 = getelementptr inbounds nuw i8, ptr %392, i64 1
   %396 = load i8, ptr %395, align 1
   %397 = icmp eq i8 %396, 4
   br i1 %397, label %.loopexit120, label %398
@@ -958,12 +958,12 @@ split:                                            ; preds = %82, %._crit_edge321
   br i1 %406, label %408, label %407
 
 407:                                              ; preds = %405
-  tail call void (ptr, ptr, ...) @_dev_notice(ptr noundef %4, ptr noundef nonnull @.str.32, i32 noundef %90, i32 noundef %305, i32 noundef %332, i32 noundef %400) #11
+  tail call void (ptr, ptr, ...) @_dev_notice(ptr noundef nonnull %4, ptr noundef nonnull @.str.32, i32 noundef %90, i32 noundef %305, i32 noundef %332, i32 noundef %400) #11
   br label %779
 
 408:                                              ; preds = %405, %398
   %409 = phi i32 [ 9, %398 ], [ 7, %405 ]
-  %410 = getelementptr inbounds i8, ptr %392, i64 2
+  %410 = getelementptr inbounds nuw i8, ptr %392, i64 2
   %411 = load i8, ptr %410, align 1
   %412 = zext i8 %411 to i32
   %413 = and i32 %412, 127
@@ -972,7 +972,7 @@ split:                                            ; preds = %82, %._crit_edge321
   br i1 %415, label %416, label %417
 
 416:                                              ; preds = %408
-  tail call void (ptr, ptr, ...) @_dev_notice(ptr noundef %4, ptr noundef nonnull @.str.33, i32 noundef %90, i32 noundef %305, i32 noundef %332, i32 noundef %412) #11
+  tail call void (ptr, ptr, ...) @_dev_notice(ptr noundef nonnull %4, ptr noundef nonnull @.str.33, i32 noundef %90, i32 noundef %305, i32 noundef %332, i32 noundef %412) #11
   br label %779
 
 417:                                              ; preds = %408
@@ -987,7 +987,7 @@ split:                                            ; preds = %82, %._crit_edge321
   br i1 %.not, label %.critedge, label %423
 
 423:                                              ; preds = %421
-  %424 = getelementptr inbounds i8, ptr %392, i64 3
+  %424 = getelementptr inbounds nuw i8, ptr %392, i64 3
   %425 = zext i8 %422 to i64
   br label %426
 
@@ -1001,32 +1001,32 @@ split:                                            ; preds = %82, %._crit_edge321
   br i1 %432, label %.loopexit108, label %433
 
 433:                                              ; preds = %426
-  %434 = getelementptr inbounds i8, ptr %430, i64 8
+  %434 = getelementptr inbounds nuw i8, ptr %430, i64 8
   br label %435
 
 435:                                              ; preds = %.loopexit107, %433
   %436 = phi i32 [ 0, %433 ], [ %476, %.loopexit107 ]
   %437 = sext i32 %436 to i64
   %438 = getelementptr [0 x %struct.usb_host_interface], ptr %434, i64 0, i64 %437
-  %439 = getelementptr inbounds i8, ptr %438, i64 2
+  %439 = getelementptr inbounds nuw i8, ptr %438, i64 2
   %440 = load i8, ptr %439, align 2
   %441 = icmp eq i8 %440, %304
   br i1 %441, label %442, label %446
 
 442:                                              ; preds = %435
-  %443 = getelementptr inbounds i8, ptr %438, i64 3
+  %443 = getelementptr inbounds nuw i8, ptr %438, i64 3
   %444 = load i8, ptr %443, align 1
   %445 = icmp eq i8 %444, %331
   br i1 %445, label %446, label %.loopexit107
 
 446:                                              ; preds = %442, %435
-  %447 = getelementptr inbounds i8, ptr %438, i64 4
+  %447 = getelementptr inbounds nuw i8, ptr %438, i64 4
   %448 = load i8, ptr %447, align 4
   %449 = icmp eq i8 %448, 0
   br i1 %449, label %.loopexit107, label %450
 
 450:                                              ; preds = %446
-  %451 = getelementptr inbounds i8, ptr %438, i64 24
+  %451 = getelementptr inbounds nuw i8, ptr %438, i64 24
   %452 = load ptr, ptr %451, align 8
   %453 = zext i8 %448 to i64
   br label %454
@@ -1034,13 +1034,13 @@ split:                                            ; preds = %82, %._crit_edge321
 454:                                              ; preds = %473, %450
   %455 = phi i64 [ 0, %450 ], [ %474, %473 ]
   %456 = getelementptr %struct.usb_host_endpoint, ptr %452, i64 %455
-  %457 = getelementptr inbounds i8, ptr %456, i64 2
+  %457 = getelementptr inbounds nuw i8, ptr %456, i64 2
   %458 = load i8, ptr %457, align 1
   %459 = icmp eq i8 %458, %411
   br i1 %459, label %.loopexit, label %460
 
 460:                                              ; preds = %454
-  %461 = getelementptr inbounds i8, ptr %456, i64 3
+  %461 = getelementptr inbounds nuw i8, ptr %456, i64 3
   %462 = load i8, ptr %461, align 1
   %463 = and i8 %462, 3
   %464 = icmp eq i8 %463, 0
@@ -1079,7 +1079,7 @@ split:                                            ; preds = %82, %._crit_edge321
   br i1 %481, label %482, label %.critedge
 
 482:                                              ; preds = %.loopexit
-  tail call void (ptr, ptr, ...) @_dev_notice(ptr noundef %4, ptr noundef nonnull @.str.34, i32 noundef %90, i32 noundef %305, i32 noundef %332, i32 noundef %412) #11
+  tail call void (ptr, ptr, ...) @_dev_notice(ptr noundef nonnull %4, ptr noundef nonnull @.str.34, i32 noundef %90, i32 noundef %305, i32 noundef %332, i32 noundef %412) #11
   br label %779
 
 .critedge:                                        ; preds = %421, %.loopexit
@@ -1099,7 +1099,7 @@ split:                                            ; preds = %82, %._crit_edge321
 488:                                              ; preds = %486
   %489 = load i8, ptr %410, align 1
   %490 = zext i8 %489 to i32
-  tail call void (ptr, ptr, ...) @_dev_notice(ptr noundef %4, ptr noundef nonnull @.str.35, i32 noundef %90, i32 noundef %305, i32 noundef %332, i32 noundef %490) #11
+  tail call void (ptr, ptr, ...) @_dev_notice(ptr noundef nonnull %4, ptr noundef nonnull @.str.35, i32 noundef %90, i32 noundef %305, i32 noundef %332, i32 noundef %490) #11
   br label %779
 
 491:                                              ; preds = %._crit_edge, %.critedge
@@ -1111,11 +1111,11 @@ split:                                            ; preds = %82, %._crit_edge321
   store i8 %496, ptr %372, align 4
   %497 = zext nneg i32 %409 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 %495, ptr noundef align 1 %392, i64 %497, i1 false)
-  %498 = getelementptr inbounds i8, ptr %495, i64 24
+  %498 = getelementptr inbounds nuw i8, ptr %495, i64 24
   store volatile ptr %498, ptr %498, align 8
-  %499 = getelementptr inbounds i8, ptr %495, i64 32
+  %499 = getelementptr inbounds nuw i8, ptr %495, i64 32
   store volatile ptr %498, ptr %499, align 8
-  %500 = getelementptr inbounds i8, ptr %392, i64 3
+  %500 = getelementptr inbounds nuw i8, ptr %392, i64 3
   %501 = load i8, ptr %500, align 1
   %502 = and i8 %501, 3
   switch i8 %502, label %538 [
@@ -1132,7 +1132,7 @@ split:                                            ; preds = %82, %._crit_edge321
   ]
 
 505:                                              ; preds = %503, %503, %503
-  %506 = getelementptr inbounds i8, ptr %392, i64 6
+  %506 = getelementptr inbounds nuw i8, ptr %392, i64 6
   %507 = load i8, ptr %506, align 1
   %508 = zext i8 %507 to i32
   %509 = shl nuw nsw i32 %508, 3
@@ -1178,7 +1178,7 @@ split:                                            ; preds = %82, %._crit_edge321
   %539 = phi i32 [ %523, %522 ], [ %533, %528 ], [ 10, %503 ], [ %537, %534 ], [ %409, %491 ]
   %540 = phi i32 [ %524, %522 ], [ %533, %528 ], [ 1, %503 ], [ 1, %534 ], [ 0, %491 ]
   %541 = phi i32 [ %525, %522 ], [ %533, %528 ], [ 255, %503 ], [ 16, %534 ], [ 255, %491 ]
-  %542 = getelementptr inbounds i8, ptr %392, i64 6
+  %542 = getelementptr inbounds nuw i8, ptr %392, i64 6
   %543 = load i8, ptr %542, align 1
   %544 = zext i8 %543 to i32
   %545 = icmp samesign ugt i32 %540, %544
@@ -1189,9 +1189,9 @@ split:                                            ; preds = %82, %._crit_edge321
 548:                                              ; preds = %538
   %549 = load i8, ptr %410, align 1
   %550 = zext i8 %549 to i32
-  tail call void (ptr, ptr, ...) @_dev_notice(ptr noundef %4, ptr noundef nonnull @.str.36, i32 noundef %90, i32 noundef %305, i32 noundef %332, i32 noundef %550, i32 noundef %544, i32 noundef %539) #11
+  tail call void (ptr, ptr, ...) @_dev_notice(ptr noundef nonnull %4, ptr noundef nonnull @.str.36, i32 noundef %90, i32 noundef %305, i32 noundef %332, i32 noundef %550, i32 noundef %544, i32 noundef %539) #11
   %551 = trunc i32 %539 to i8
-  %552 = getelementptr inbounds i8, ptr %495, i64 6
+  %552 = getelementptr inbounds nuw i8, ptr %495, i64 6
   store i8 %551, ptr %552, align 2
   br label %553
 
@@ -1209,12 +1209,12 @@ split:                                            ; preds = %82, %._crit_edge321
 560:                                              ; preds = %556
   %561 = load i8, ptr %410, align 1
   %562 = zext i8 %561 to i32
-  tail call void (ptr, ptr, ...) @_dev_notice(ptr noundef %4, ptr noundef nonnull @.str.37, i32 noundef %90, i32 noundef %305, i32 noundef %332, i32 noundef %562) #11
-  %563 = getelementptr inbounds i8, ptr %495, i64 3
+  tail call void (ptr, ptr, ...) @_dev_notice(ptr noundef nonnull %4, ptr noundef nonnull @.str.37, i32 noundef %90, i32 noundef %305, i32 noundef %332, i32 noundef %562) #11
+  %563 = getelementptr inbounds nuw i8, ptr %495, i64 3
   store i8 3, ptr %563, align 1
-  %564 = getelementptr inbounds i8, ptr %495, i64 6
+  %564 = getelementptr inbounds nuw i8, ptr %495, i64 6
   store i8 1, ptr %564, align 2
-  %565 = getelementptr inbounds i8, ptr %495, i64 4
+  %565 = getelementptr inbounds nuw i8, ptr %495, i64 4
   %566 = load i16, ptr %565, align 1
   %567 = and i16 %566, 2047
   %568 = icmp samesign ugt i16 %567, 8
@@ -1225,7 +1225,7 @@ split:                                            ; preds = %82, %._crit_edge321
   br label %570
 
 570:                                              ; preds = %569, %560, %556, %553
-  %571 = getelementptr inbounds i8, ptr %495, i64 4
+  %571 = getelementptr inbounds nuw i8, ptr %495, i64 4
   %572 = load i16, ptr %571, align 4
   %573 = zext i16 %572 to i32
   %574 = icmp eq i16 %572, 0
@@ -1241,7 +1241,7 @@ split:                                            ; preds = %82, %._crit_edge321
 580:                                              ; preds = %575
   %581 = load i8, ptr %410, align 1
   %582 = zext i8 %581 to i32
-  tail call void (ptr, ptr, ...) @_dev_notice(ptr noundef %4, ptr noundef nonnull @.str.38, i32 noundef %90, i32 noundef %305, i32 noundef %332, i32 noundef %582) #11
+  tail call void (ptr, ptr, ...) @_dev_notice(ptr noundef nonnull %4, ptr noundef nonnull @.str.38, i32 noundef %90, i32 noundef %305, i32 noundef %332, i32 noundef %582) #11
   br label %583
 
 583:                                              ; preds = %580, %575, %570
@@ -1280,7 +1280,7 @@ split:                                            ; preds = %82, %._crit_edge321
   %595 = phi i16 [ 0, %593 ], [ 0, %585 ], [ 0, %583 ], [ %590, %589 ], [ 0, %592 ], [ 0, %586 ]
   %596 = phi i32 [ %573, %593 ], [ %573, %585 ], [ %573, %583 ], [ %591, %589 ], [ %573, %592 ], [ %573, %586 ]
   %597 = phi ptr [ @super_speed_maxpacket_maxes, %593 ], [ @full_speed_maxpacket_maxes, %585 ], [ @low_speed_maxpacket_maxes, %583 ], [ @high_speed_maxpacket_maxes, %589 ], [ @high_speed_maxpacket_maxes, %592 ], [ @high_speed_maxpacket_maxes, %586 ]
-  %598 = getelementptr inbounds i8, ptr %495, i64 3
+  %598 = getelementptr inbounds nuw i8, ptr %495, i64 3
   %599 = load i8, ptr %598, align 1
   %600 = and i8 %599, 3
   %601 = zext nneg i8 %600 to i64
@@ -1293,7 +1293,7 @@ split:                                            ; preds = %82, %._crit_edge321
 606:                                              ; preds = %594
   %607 = load i8, ptr %410, align 1
   %608 = zext i8 %607 to i32
-  tail call void (ptr, ptr, ...) @_dev_notice(ptr noundef %4, ptr noundef nonnull @.str.39, i32 noundef %90, i32 noundef %305, i32 noundef %332, i32 noundef %608, i32 noundef %596, i32 noundef %604) #11
+  tail call void (ptr, ptr, ...) @_dev_notice(ptr noundef nonnull %4, ptr noundef nonnull @.str.39, i32 noundef %90, i32 noundef %305, i32 noundef %332, i32 noundef %608, i32 noundef %596, i32 noundef %604) #11
   %609 = or i16 %603, %595
   store i16 %609, ptr %571, align 4
   %.pre306 = load i32, ptr %32, align 4
@@ -1316,7 +1316,7 @@ split:                                            ; preds = %82, %._crit_edge321
 620:                                              ; preds = %614
   %621 = load i8, ptr %410, align 1
   %622 = zext i8 %621 to i32
-  tail call void (ptr, ptr, ...) @_dev_notice(ptr noundef %4, ptr noundef nonnull @.str.40, i32 noundef %90, i32 noundef %305, i32 noundef %332, i32 noundef %622, i32 noundef %612) #11
+  tail call void (ptr, ptr, ...) @_dev_notice(ptr noundef nonnull %4, ptr noundef nonnull @.str.40, i32 noundef %90, i32 noundef %305, i32 noundef %332, i32 noundef %622, i32 noundef %612) #11
   %.pr.pre = load i32, ptr %32, align 4
   br label %thread-pre-split
 
@@ -1326,7 +1326,7 @@ thread-pre-split:                                 ; preds = %620, %610
   br i1 %624, label %625, label %thread-pre-split.thread
 
 625:                                              ; preds = %thread-pre-split
-  %626 = getelementptr inbounds i8, ptr %402, i64 1
+  %626 = getelementptr inbounds nuw i8, ptr %402, i64 1
   %627 = load i8, ptr %626, align 1
   %628 = icmp ne i8 %627, 48
   %629 = icmp slt i32 %403, 6
@@ -1334,13 +1334,13 @@ thread-pre-split:                                 ; preds = %620, %610
   br i1 %630, label %631, label %642
 
 631:                                              ; preds = %625
-  %632 = getelementptr inbounds i8, ptr %495, i64 2
+  %632 = getelementptr inbounds nuw i8, ptr %495, i64 2
   %633 = load i8, ptr %632, align 2
   %634 = zext i8 %633 to i32
-  tail call void (ptr, ptr, ...) @_dev_notice(ptr noundef %4, ptr noundef nonnull @.str.41, i32 noundef %90, i32 noundef %305, i32 noundef %332, i32 noundef %634) #11
-  %635 = getelementptr inbounds i8, ptr %495, i64 9
+  tail call void (ptr, ptr, ...) @_dev_notice(ptr noundef nonnull %4, ptr noundef nonnull @.str.41, i32 noundef %90, i32 noundef %305, i32 noundef %332, i32 noundef %634) #11
+  %635 = getelementptr inbounds nuw i8, ptr %495, i64 9
   store i8 6, ptr %635, align 1
-  %636 = getelementptr inbounds i8, ptr %495, i64 10
+  %636 = getelementptr inbounds nuw i8, ptr %495, i64 10
   store i8 48, ptr %636, align 1
   %637 = load i8, ptr %598, align 1
   %638 = and i8 %637, 3
@@ -1351,7 +1351,7 @@ thread-pre-split:                                 ; preds = %620, %610
 
 639:                                              ; preds = %631, %631
   %640 = load i16, ptr %571, align 4
-  %641 = getelementptr inbounds i8, ptr %495, i64 13
+  %641 = getelementptr inbounds nuw i8, ptr %495, i64 13
   store i16 %640, ptr %641, align 1
   br label %thread-pre-split.thread
 
@@ -1361,12 +1361,12 @@ thread-pre-split:                                 ; preds = %620, %610
   %645 = zext i8 %643 to i64
   %646 = getelementptr i8, ptr %402, i64 %645
   %647 = sub nsw i32 %403, %644
-  %648 = getelementptr inbounds i8, ptr %495, i64 9
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(6) %648, ptr noundef align 1 dereferenceable(6) %402, i64 6, i1 false)
+  %648 = getelementptr inbounds nuw i8, ptr %495, i64 9
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %648, ptr noundef align 1 dereferenceable(6) %402, i64 6, i1 false)
   %649 = load i8, ptr %598, align 1
   %650 = and i8 %649, 3
   %651 = icmp eq i8 %650, 0
-  %652 = getelementptr inbounds i8, ptr %402, i64 2
+  %652 = getelementptr inbounds nuw i8, ptr %402, i64 2
   %653 = load i8, ptr %652, align 1
   br i1 %651, label %654, label %656
 
@@ -1382,11 +1382,11 @@ thread-pre-split:                                 ; preds = %620, %610
   %659 = phi ptr [ @.str.42, %654 ], [ @.str.43, %656 ]
   %660 = phi i8 [ 0, %654 ], [ 15, %656 ]
   %661 = zext i8 %653 to i32
-  %662 = getelementptr inbounds i8, ptr %495, i64 2
+  %662 = getelementptr inbounds nuw i8, ptr %495, i64 2
   %663 = load i8, ptr %662, align 2
   %664 = zext i8 %663 to i32
-  tail call void (ptr, ptr, ...) @_dev_notice(ptr noundef %4, ptr noundef nonnull %659, i32 noundef %661, i32 noundef %90, i32 noundef %305, i32 noundef %332, i32 noundef %664) #11
-  %665 = getelementptr inbounds i8, ptr %495, i64 11
+  tail call void (ptr, ptr, ...) @_dev_notice(ptr noundef nonnull %4, ptr noundef nonnull %659, i32 noundef %661, i32 noundef %90, i32 noundef %305, i32 noundef %332, i32 noundef %664) #11
+  %665 = getelementptr inbounds nuw i8, ptr %495, i64 11
   store i8 %660, ptr %665, align 1
   %.pre310 = load i8, ptr %598, align 1
   br label %.thread324
@@ -1403,7 +1403,7 @@ thread-pre-split:                                 ; preds = %620, %610
   ]
 
 669:                                              ; preds = %.thread324, %.thread324
-  %670 = getelementptr inbounds i8, ptr %402, i64 3
+  %670 = getelementptr inbounds nuw i8, ptr %402, i64 3
   %671 = load i8, ptr %670, align 1
   %672 = icmp eq i8 %671, 0
   br i1 %672, label %.thread326, label %673
@@ -1411,37 +1411,37 @@ thread-pre-split:                                 ; preds = %620, %610
 673:                                              ; preds = %669
   %674 = select i1 %668, ptr @.str.45, ptr @.str.46
   %675 = zext i8 %671 to i32
-  %676 = getelementptr inbounds i8, ptr %495, i64 2
+  %676 = getelementptr inbounds nuw i8, ptr %495, i64 2
   %677 = load i8, ptr %676, align 2
   %678 = zext i8 %677 to i32
-  tail call void (ptr, ptr, ...) @_dev_notice(ptr noundef %4, ptr noundef nonnull @.str.44, ptr noundef nonnull %674, i32 noundef %675, i32 noundef %90, i32 noundef %305, i32 noundef %332, i32 noundef %678) #11
+  tail call void (ptr, ptr, ...) @_dev_notice(ptr noundef nonnull %4, ptr noundef nonnull @.str.44, ptr noundef nonnull %674, i32 noundef %675, i32 noundef %90, i32 noundef %305, i32 noundef %332, i32 noundef %678) #11
   br label %692
 
 679:                                              ; preds = %.thread324
-  %.phi.trans.insert315 = getelementptr inbounds i8, ptr %402, i64 3
+  %.phi.trans.insert315 = getelementptr inbounds nuw i8, ptr %402, i64 3
   %.pre316 = load i8, ptr %.phi.trans.insert315, align 1
   %680 = icmp ugt i8 %.pre316, 16
   br i1 %680, label %681, label %.thread326
 
 681:                                              ; preds = %679
-  %682 = getelementptr inbounds i8, ptr %495, i64 2
+  %682 = getelementptr inbounds nuw i8, ptr %495, i64 2
   %683 = load i8, ptr %682, align 2
   %684 = zext i8 %683 to i32
-  tail call void (ptr, ptr, ...) @_dev_notice(ptr noundef %4, ptr noundef nonnull @.str.47, i32 noundef %90, i32 noundef %305, i32 noundef %332, i32 noundef %684) #11
+  tail call void (ptr, ptr, ...) @_dev_notice(ptr noundef nonnull %4, ptr noundef nonnull @.str.47, i32 noundef %90, i32 noundef %305, i32 noundef %332, i32 noundef %684) #11
   br label %692
 
 685:                                              ; preds = %.thread324
-  %.phi.trans.insert312 = getelementptr inbounds i8, ptr %402, i64 3
+  %.phi.trans.insert312 = getelementptr inbounds nuw i8, ptr %402, i64 3
   %.pre313 = load i8, ptr %.phi.trans.insert312, align 1
   %686 = and i8 %.pre313, -125
   %687 = icmp eq i8 %686, 3
   br i1 %687, label %688, label %.thread326
 
 688:                                              ; preds = %685
-  %689 = getelementptr inbounds i8, ptr %495, i64 2
+  %689 = getelementptr inbounds nuw i8, ptr %495, i64 2
   %690 = load i8, ptr %689, align 2
   %691 = zext i8 %690 to i32
-  tail call void (ptr, ptr, ...) @_dev_notice(ptr noundef %4, ptr noundef nonnull @.str.48, i32 noundef 4, i32 noundef %90, i32 noundef %305, i32 noundef %332, i32 noundef %691) #11
+  tail call void (ptr, ptr, ...) @_dev_notice(ptr noundef nonnull %4, ptr noundef nonnull @.str.48, i32 noundef 4, i32 noundef %90, i32 noundef %305, i32 noundef %332, i32 noundef %691) #11
   br label %692
 
 default.unreachable323:                           ; preds = %.thread324
@@ -1449,7 +1449,7 @@ default.unreachable323:                           ; preds = %.thread324
 
 692:                                              ; preds = %688, %681, %673
   %693 = phi i8 [ 2, %688 ], [ 16, %681 ], [ 0, %673 ]
-  %694 = getelementptr inbounds i8, ptr %495, i64 12
+  %694 = getelementptr inbounds nuw i8, ptr %495, i64 12
   store i8 %693, ptr %694, align 1
   %.pre317 = load i8, ptr %598, align 1
   br label %.thread326
@@ -1461,11 +1461,11 @@ default.unreachable323:                           ; preds = %.thread324
   br i1 %697, label %698, label %713
 
 698:                                              ; preds = %.thread326
-  %699 = getelementptr inbounds i8, ptr %402, i64 2
+  %699 = getelementptr inbounds nuw i8, ptr %402, i64 2
   %700 = load i8, ptr %699, align 1
   %701 = zext i8 %700 to i32
   %702 = add nuw nsw i32 %701, 1
-  %703 = getelementptr inbounds i8, ptr %402, i64 3
+  %703 = getelementptr inbounds nuw i8, ptr %402, i64 3
   %704 = load i8, ptr %703, align 1
   %705 = and i8 %704, 3
   %706 = add nuw nsw i8 %705, 1
@@ -1485,7 +1485,7 @@ default.unreachable323:                           ; preds = %.thread324
   %716 = load i16, ptr %571, align 1
   %717 = and i16 %716, 2047
   %718 = zext nneg i16 %717 to i32
-  %719 = getelementptr inbounds i8, ptr %402, i64 2
+  %719 = getelementptr inbounds nuw i8, ptr %402, i64 2
   %720 = load i8, ptr %719, align 1
   %721 = zext i8 %720 to i32
   %722 = add nuw nsw i32 %721, 1
@@ -1494,7 +1494,7 @@ default.unreachable323:                           ; preds = %.thread324
 
 724:                                              ; preds = %715, %698
   %725 = phi i32 [ %712, %698 ], [ %723, %715 ]
-  %726 = getelementptr inbounds i8, ptr %402, i64 4
+  %726 = getelementptr inbounds nuw i8, ptr %402, i64 4
   %727 = load i16, ptr %726, align 1
   %728 = zext i16 %727 to i32
   %729 = icmp samesign ult i32 %725, %728
@@ -1502,12 +1502,12 @@ default.unreachable323:                           ; preds = %.thread324
 
 730:                                              ; preds = %724
   %731 = select i1 %697, ptr @.str.50, ptr @.str.51
-  %732 = getelementptr inbounds i8, ptr %495, i64 2
+  %732 = getelementptr inbounds nuw i8, ptr %495, i64 2
   %733 = load i8, ptr %732, align 2
   %734 = zext i8 %733 to i32
-  tail call void (ptr, ptr, ...) @_dev_notice(ptr noundef %4, ptr noundef nonnull @.str.49, ptr noundef nonnull %731, i32 noundef %728, i32 noundef %90, i32 noundef %305, i32 noundef %332, i32 noundef %734, i32 noundef %725) #11
+  tail call void (ptr, ptr, ...) @_dev_notice(ptr noundef nonnull %4, ptr noundef nonnull @.str.49, ptr noundef nonnull %731, i32 noundef %728, i32 noundef %90, i32 noundef %305, i32 noundef %332, i32 noundef %734, i32 noundef %725) #11
   %735 = trunc nuw i32 %725 to i16
-  %736 = getelementptr inbounds i8, ptr %495, i64 13
+  %736 = getelementptr inbounds nuw i8, ptr %495, i64 13
   store i16 %735, ptr %736, align 1
   %.pre318 = load i8, ptr %598, align 1
   br label %.thread96
@@ -1519,13 +1519,13 @@ default.unreachable323:                           ; preds = %.thread324
   br i1 %739, label %740, label %.thread327
 
 740:                                              ; preds = %.thread96
-  %741 = getelementptr inbounds i8, ptr %402, i64 3
+  %741 = getelementptr inbounds nuw i8, ptr %402, i64 3
   %742 = load i8, ptr %741, align 1
   %743 = icmp sgt i8 %742, -1
   br i1 %743, label %.thread327, label %744
 
 744:                                              ; preds = %740
-  %745 = getelementptr inbounds i8, ptr %646, i64 1
+  %745 = getelementptr inbounds nuw i8, ptr %646, i64 1
   %746 = load i8, ptr %745, align 1
   %747 = icmp ne i8 %746, 49
   %748 = icmp slt i32 %647, 8
@@ -1533,25 +1533,25 @@ default.unreachable323:                           ; preds = %.thread324
   br i1 %749, label %750, label %754
 
 750:                                              ; preds = %744
-  %751 = getelementptr inbounds i8, ptr %495, i64 2
+  %751 = getelementptr inbounds nuw i8, ptr %495, i64 2
   %752 = load i8, ptr %751, align 2
   %753 = zext i8 %752 to i32
-  tail call void (ptr, ptr, ...) @_dev_notice(ptr noundef %4, ptr noundef nonnull @.str.52, i32 noundef %90, i32 noundef %305, i32 noundef %332, i32 noundef %753) #11
+  tail call void (ptr, ptr, ...) @_dev_notice(ptr noundef nonnull %4, ptr noundef nonnull @.str.52, i32 noundef %90, i32 noundef %305, i32 noundef %332, i32 noundef %753) #11
   br label %.thread327
 
 754:                                              ; preds = %744
-  %755 = getelementptr inbounds i8, ptr %495, i64 15
+  %755 = getelementptr inbounds nuw i8, ptr %495, i64 15
   %756 = load i64, ptr %646, align 1
   store i64 %756, ptr %755, align 1
   br label %.thread327
 
 .thread327:                                       ; preds = %754, %750, %740, %.thread96
-  %757 = getelementptr inbounds i8, ptr %495, i64 56
+  %757 = getelementptr inbounds nuw i8, ptr %495, i64 56
   store ptr %402, ptr %757, align 8
   br label %.preheader112.preheader
 
 thread-pre-split.thread:                          ; preds = %614, %639, %631, %thread-pre-split
-  %758 = getelementptr inbounds i8, ptr %495, i64 56
+  %758 = getelementptr inbounds nuw i8, ptr %495, i64 56
   store ptr %402, ptr %758, align 8
   %759 = icmp sgt i32 %403, 0
   br i1 %759, label %.preheader112.preheader, label %.loopexit113
@@ -1562,7 +1562,7 @@ thread-pre-split.thread:                          ; preds = %614, %639, %631, %t
 .preheader112:                                    ; preds = %.preheader112.preheader, %766
   %760 = phi ptr [ %770, %766 ], [ %402, %.preheader112.preheader ]
   %761 = phi i32 [ %771, %766 ], [ %403, %.preheader112.preheader ]
-  %762 = getelementptr inbounds i8, ptr %760, i64 1
+  %762 = getelementptr inbounds nuw i8, ptr %760, i64 1
   %763 = load i8, ptr %762, align 1
   %764 = and i8 %763, -2
   %765 = icmp eq i8 %764, 4
@@ -1583,7 +1583,7 @@ thread-pre-split.thread:                          ; preds = %614, %639, %631, %t
   %775 = ptrtoint ptr %402 to i64
   %776 = sub i64 %774, %775
   %777 = trunc i64 %776 to i32
-  %778 = getelementptr inbounds i8, ptr %495, i64 64
+  %778 = getelementptr inbounds nuw i8, ptr %495, i64 64
   store i32 %777, ptr %778, align 8
   br label %799
 
@@ -1594,7 +1594,7 @@ thread-pre-split.thread:                          ; preds = %614, %639, %631, %t
 .preheader110:                                    ; preds = %779, %787
   %781 = phi ptr [ %791, %787 ], [ %402, %779 ]
   %782 = phi i32 [ %792, %787 ], [ %403, %779 ]
-  %783 = getelementptr inbounds i8, ptr %781, i64 1
+  %783 = getelementptr inbounds nuw i8, ptr %781, i64 1
   %784 = load i8, ptr %783, align 1
   %785 = and i8 %784, -2
   %786 = icmp eq i8 %785, 4
@@ -1640,7 +1640,7 @@ thread-pre-split.thread:                          ; preds = %614, %639, %631, %t
 812:                                              ; preds = %.loopexit120
   %813 = icmp eq i32 %809, 1
   %814 = select i1 %813, ptr @.str.27, ptr @.str.28
-  tail call void (ptr, ptr, ...) @_dev_notice(ptr noundef %4, ptr noundef nonnull @.str.31, i32 noundef %90, i32 noundef %305, i32 noundef %332, i32 noundef %809, ptr noundef nonnull %814, i32 noundef %374) #11
+  tail call void (ptr, ptr, ...) @_dev_notice(ptr noundef nonnull %4, ptr noundef nonnull @.str.31, i32 noundef %90, i32 noundef %305, i32 noundef %332, i32 noundef %809, ptr noundef nonnull %814, i32 noundef %374) #11
   br label %815
 
 815:                                              ; preds = %812, %.loopexit120
@@ -1657,7 +1657,7 @@ thread-pre-split.thread:                          ; preds = %614, %639, %631, %t
 .preheader117:                                    ; preds = %.thread94, %826
   %821 = phi ptr [ %830, %826 ], [ %299, %.thread94 ]
   %822 = phi i32 [ %831, %826 ], [ %300, %.thread94 ]
-  %823 = getelementptr inbounds i8, ptr %821, i64 1
+  %823 = getelementptr inbounds nuw i8, ptr %821, i64 1
   %824 = load i8, ptr %823, align 1
   %825 = icmp eq i8 %824, 4
   br i1 %825, label %.loopexit118, label %826
@@ -1735,7 +1735,7 @@ thread-pre-split.thread:                          ; preds = %614, %639, %631, %t
 .loopexit109:                                     ; preds = %.preheader, %871
   %873 = load i8, ptr %854, align 1
   %874 = zext i8 %873 to i32
-  tail call void (ptr, ptr, ...) @_dev_notice(ptr noundef %4, ptr noundef nonnull @.str.26, i32 noundef %90, i32 noundef %874, i32 noundef %858) #11
+  tail call void (ptr, ptr, ...) @_dev_notice(ptr noundef nonnull %4, ptr noundef nonnull @.str.26, i32 noundef %90, i32 noundef %874, i32 noundef %858) #11
   %.pre319 = load i32, ptr %850, align 8
   br label %875
 
@@ -1796,7 +1796,7 @@ declare dso_local void @msleep(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @usb_release_bos_descriptor(ptr nocapture noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 920
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 920
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %8, label %5
@@ -1815,7 +1815,7 @@ define dso_local void @usb_release_bos_descriptor(ptr nocapture noundef %0) loca
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @usb_get_bos_descriptor(ptr noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 168
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %3 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 24), align 8
   %4 = tail call noalias align 8 dereferenceable_or_null(5) ptr @kmalloc_trace(ptr noundef %3, i32 noundef 3520, i64 noundef 5) #13
   %5 = icmp eq ptr %4, null
@@ -1833,17 +1833,17 @@ define dso_local i32 @usb_get_bos_descriptor(ptr noundef %0) local_unnamed_addr 
   br i1 %12, label %13, label %16
 
 13:                                               ; preds = %9, %6
-  tail call void (ptr, ptr, ...) @_dev_notice(ptr noundef %2, ptr noundef nonnull @.str.8) #11
+  tail call void (ptr, ptr, ...) @_dev_notice(ptr noundef nonnull %2, ptr noundef nonnull @.str.8) #11
   %14 = icmp sgt i32 %7, -1
   %15 = select i1 %14, i32 -42, i32 %7
   tail call void @kfree(ptr noundef nonnull %4) #10
   br label %116
 
 16:                                               ; preds = %9
-  %17 = getelementptr inbounds i8, ptr %4, i64 2
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 2
   %18 = load i16, ptr %17, align 2
   %19 = zext i16 %18 to i32
-  %20 = getelementptr inbounds i8, ptr %4, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %21 = load i8, ptr %20, align 4
   %22 = zext i8 %21 to i32
   tail call void @kfree(ptr noundef nonnull %4) #10
@@ -1853,7 +1853,7 @@ define dso_local i32 @usb_get_bos_descriptor(ptr noundef %0) local_unnamed_addr 
 24:                                               ; preds = %16
   %25 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
   %26 = tail call noalias align 8 dereferenceable_or_null(48) ptr @kmalloc_trace(ptr noundef %25, i32 noundef 3520, i64 noundef 48) #13
-  %27 = getelementptr inbounds i8, ptr %0, i64 920
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store ptr %26, ptr %27, align 8
   %28 = icmp eq ptr %26, null
   br i1 %28, label %116, label %29
@@ -1872,7 +1872,7 @@ define dso_local i32 @usb_get_bos_descriptor(ptr noundef %0) local_unnamed_addr 
   br i1 %36, label %37, label %40
 
 37:                                               ; preds = %33
-  tail call void (ptr, ptr, ...) @_dev_notice(ptr noundef %2, ptr noundef nonnull @.str.9) #11
+  tail call void (ptr, ptr, ...) @_dev_notice(ptr noundef nonnull %2, ptr noundef nonnull @.str.9) #11
   %38 = icmp sgt i32 %35, -1
   %39 = select i1 %38, i32 -42, i32 %35
   br label %109
@@ -1901,7 +1901,7 @@ define dso_local i32 @usb_get_bos_descriptor(ptr noundef %0) local_unnamed_addr 
   br i1 %54, label %96, label %55
 
 55:                                               ; preds = %51
-  %56 = getelementptr inbounds i8, ptr %49, i64 2
+  %56 = getelementptr inbounds nuw i8, ptr %49, i64 2
   %57 = load i8, ptr %56, align 1
   %58 = zext i8 %57 to i64
   %59 = getelementptr [256 x i8], ptr @bos_desc_len, i64 0, i64 %58
@@ -1910,13 +1910,13 @@ define dso_local i32 @usb_get_bos_descriptor(ptr noundef %0) local_unnamed_addr 
   br i1 %61, label %96, label %62
 
 62:                                               ; preds = %55
-  %63 = getelementptr inbounds i8, ptr %49, i64 1
+  %63 = getelementptr inbounds nuw i8, ptr %49, i64 1
   %64 = load i8, ptr %63, align 1
   %65 = icmp eq i8 %64, 16
   br i1 %65, label %67, label %66
 
 66:                                               ; preds = %62
-  tail call void (ptr, ptr, ...) @_dev_notice(ptr noundef %2, ptr noundef nonnull @.str.10) #11
+  tail call void (ptr, ptr, ...) @_dev_notice(ptr noundef nonnull %2, ptr noundef nonnull @.str.10) #11
   br label %90
 
 67:                                               ; preds = %62
@@ -1930,18 +1930,18 @@ define dso_local i32 @usb_get_bos_descriptor(ptr noundef %0) local_unnamed_addr 
 
 68:                                               ; preds = %67
   %69 = load ptr, ptr %27, align 8
-  %70 = getelementptr inbounds i8, ptr %69, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
   store ptr %49, ptr %70, align 8
   br label %90
 
 71:                                               ; preds = %67
   %72 = load ptr, ptr %27, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 16
   store ptr %49, ptr %73, align 8
   br label %90
 
 74:                                               ; preds = %67
-  %75 = getelementptr inbounds i8, ptr %49, i64 4
+  %75 = getelementptr inbounds nuw i8, ptr %49, i64 4
   %76 = load i32, ptr %75, align 1
   %77 = shl i32 %76, 2
   %78 = and i32 %77, 124
@@ -1951,19 +1951,19 @@ define dso_local i32 @usb_get_bos_descriptor(ptr noundef %0) local_unnamed_addr 
 
 81:                                               ; preds = %74
   %82 = load ptr, ptr %27, align 8
-  %83 = getelementptr inbounds i8, ptr %82, i64 24
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 24
   store ptr %49, ptr %83, align 8
   br label %90
 
 84:                                               ; preds = %67
   %85 = load ptr, ptr %27, align 8
-  %86 = getelementptr inbounds i8, ptr %85, i64 32
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 32
   store ptr %49, ptr %86, align 8
   br label %90
 
 87:                                               ; preds = %67
   %88 = load ptr, ptr %27, align 8
-  %89 = getelementptr inbounds i8, ptr %88, i64 40
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 40
   store ptr %49, ptr %89, align 8
   br label %90
 
@@ -1979,7 +1979,7 @@ define dso_local i32 @usb_get_bos_descriptor(ptr noundef %0) local_unnamed_addr 
   %97 = trunc i32 %47 to i8
   %98 = load ptr, ptr %27, align 8
   %99 = load ptr, ptr %98, align 8
-  %100 = getelementptr inbounds i8, ptr %99, i64 4
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 4
   store i8 %97, ptr %100, align 1
   br label %.loopexit
 
@@ -1991,7 +1991,7 @@ define dso_local i32 @usb_get_bos_descriptor(ptr noundef %0) local_unnamed_addr 
   %105 = trunc i64 %104 to i16
   %106 = load ptr, ptr %27, align 8
   %107 = load ptr, ptr %106, align 8
-  %108 = getelementptr inbounds i8, ptr %107, i64 2
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 2
   store i16 %105, ptr %108, align 1
   br label %116
 

@@ -19,10 +19,10 @@ define void @lv_draw_rect_dsc_init(ptr noundef %0) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = tail call i24 @lv_color_white() #5
   store i24 %5, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 61
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 61
   %7 = tail call i24 @lv_color_black() #5
   store i24 %7, ptr %6, align 1
-  %8 = getelementptr inbounds i8, ptr %0, i64 65
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 65
   store i8 -1, ptr %8, align 1, !tbaa !3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 66
   store i8 2, ptr %9, align 2, !tbaa !8

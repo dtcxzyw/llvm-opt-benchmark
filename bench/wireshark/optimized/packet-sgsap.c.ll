@@ -225,7 +225,7 @@ define internal noundef zeroext i16 @de_sgsap_vlr_name(ptr noundef %0, ptr nound
 8:                                                ; preds = %7
   %9 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #6
   %10 = icmp ult i8 %9, 32
-  %11 = getelementptr inbounds i8, ptr %2, i64 408
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %12 = load ptr, ptr %11, align 8
   %. = select i1 %10, i32 84, i32 0
   %13 = tail call ptr @tvb_get_string_enc(ptr noundef %12, ptr noundef %0, i32 noundef %3, i32 noundef %4, i32 noundef %.) #6
@@ -271,7 +271,7 @@ define internal noundef zeroext i16 @de_sgsap_mme_name(ptr noundef %0, ptr nound
 8:                                                ; preds = %7
   %9 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #6
   %10 = icmp ult i8 %9, 32
-  %11 = getelementptr inbounds i8, ptr %2, i64 408
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %12 = load ptr, ptr %11, align 8
   %. = select i1 %10, i32 84, i32 0
   %13 = tail call ptr @tvb_get_string_enc(ptr noundef %12, ptr noundef %0, i32 noundef %3, i32 noundef %4, i32 noundef %.) #6
@@ -336,7 +336,7 @@ define internal noundef zeroext i16 @de_sgsap_imsi_det_non_eps(ptr noundef %0, p
 define internal noundef zeroext i16 @de_sgsap_imeisv(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly %5, i32 %6) #0 {
   %8 = alloca ptr, align 8
   %9 = load i32, ptr @hf_sgsap_imeisv, align 4
-  %10 = getelementptr inbounds i8, ptr %2, i64 408
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %11 = load ptr, ptr %10, align 8
   %12 = call ptr @proto_tree_add_item_ret_display_string(ptr noundef %1, i32 noundef %9, ptr noundef %0, i32 noundef %3, i32 noundef %4, i32 noundef -2147483580, ptr noundef %11, ptr noundef nonnull %8) #6
   %.not = icmp eq ptr %5, null
@@ -425,10 +425,10 @@ get_sgsap_msg_params.exit:                        ; preds = %7
   store volatile i32 %31, ptr %9, align 4
   store volatile i32 0, ptr %11, align 4
   call void @except_setup_try(ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull @de_sgsap_err_msg.catch_spec, i64 noundef 1) #6
-  %32 = getelementptr inbounds i8, ptr %13, i64 48
+  %32 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %33 = call i32 @_setjmp(ptr noundef nonnull %32) #7
   %.not38 = icmp eq i32 %33, 0
-  %34 = getelementptr inbounds i8, ptr %13, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %.sink = select i1 %.not38, ptr null, ptr %34
   store volatile ptr %.sink, ptr %10, align 8
   %.0..0..0..0. = load volatile i32, ptr %11, align 4
@@ -473,35 +473,35 @@ get_sgsap_msg_params.exit:                        ; preds = %7
 
 48:                                               ; preds = %47
   %.0..0..0..0.10 = load volatile ptr, ptr %10, align 8
-  %49 = getelementptr inbounds i8, ptr %.0..0..0..0.10, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.10, i64 8
   %50 = load volatile i64, ptr %49, align 8
   %51 = icmp eq i64 %50, 1
   br i1 %51, label %68, label %52
 
 52:                                               ; preds = %48
   %.0..0..0..0.11 = load volatile ptr, ptr %10, align 8
-  %53 = getelementptr inbounds i8, ptr %.0..0..0..0.11, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.11, i64 8
   %54 = load volatile i64, ptr %53, align 8
   %55 = icmp eq i64 %54, 4
   br i1 %55, label %68, label %56
 
 56:                                               ; preds = %52
   %.0..0..0..0.12 = load volatile ptr, ptr %10, align 8
-  %57 = getelementptr inbounds i8, ptr %.0..0..0..0.12, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.12, i64 8
   %58 = load volatile i64, ptr %57, align 8
   %59 = icmp eq i64 %58, 3
   br i1 %59, label %68, label %60
 
 60:                                               ; preds = %56
   %.0..0..0..0.13 = load volatile ptr, ptr %10, align 8
-  %61 = getelementptr inbounds i8, ptr %.0..0..0..0.13, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.13, i64 8
   %62 = load volatile i64, ptr %61, align 8
   %63 = icmp eq i64 %62, 2
   br i1 %63, label %68, label %64
 
 64:                                               ; preds = %60
   %.0..0..0..0.14 = load volatile ptr, ptr %10, align 8
-  %65 = getelementptr inbounds i8, ptr %.0..0..0..0.14, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.14, i64 8
   %66 = load volatile i64, ptr %65, align 8
   %67 = icmp eq i64 %66, 7
   br i1 %67, label %68, label %74
@@ -511,10 +511,10 @@ get_sgsap_msg_params.exit:                        ; preds = %7
   %69 = or i32 %.0..0..0..0.6, 1
   store volatile i32 %69, ptr %11, align 4
   %.0..0..0..0.15 = load volatile ptr, ptr %10, align 8
-  %70 = getelementptr inbounds i8, ptr %.0..0..0..0.15, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.15, i64 8
   %71 = load volatile i64, ptr %70, align 8
   %.0..0..0..0.16 = load volatile ptr, ptr %10, align 8
-  %72 = getelementptr inbounds i8, ptr %.0..0..0..0.16, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.16, i64 16
   %73 = load volatile ptr, ptr %72, align 8
   call void @show_exception(ptr noundef %0, ptr noundef %2, ptr noundef %1, i64 noundef %71, ptr noundef %73) #6
   br label %74
@@ -536,7 +536,7 @@ get_sgsap_msg_params.exit:                        ; preds = %7
   unreachable
 
 78:                                               ; preds = %76, %74
-  %79 = getelementptr inbounds i8, ptr %13, i64 40
+  %79 = getelementptr inbounds nuw i8, ptr %13, i64 40
   %80 = load volatile ptr, ptr %79, align 8
   call void @except_free(ptr noundef %80) #6
   %81 = call ptr @except_pop() #6
@@ -603,7 +603,7 @@ define internal noundef zeroext i16 @de_sgsap_selected_cs_dmn_op(ptr noundef %0,
 define hidden void @proto_register_sgsap() local_unnamed_addr #0 {
   %1 = alloca [72 x ptr], align 16
   store ptr @ett_sgsap, ptr %1, align 16
-  %2 = getelementptr inbounds i8, ptr %1, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr @ett_sgsap_sel_cs_dmn_op, ptr %2, align 8
   br label %3
 
@@ -659,7 +659,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 define internal i32 @dissect_sgsap(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca i32, align 4
   %6 = tail call i32 @tvb_reported_length(ptr noundef %0) #6
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void @col_set_str(ptr noundef %8, i32 noundef 34, ptr noundef nonnull @.str.42) #6
   %9 = load i32, ptr @proto_sgsap, align 4

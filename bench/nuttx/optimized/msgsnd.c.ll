@@ -27,16 +27,16 @@ define range(i32 -1, 1) i32 @msgsnd(i32 noundef %0, ptr noundef readonly %1, i64
   br i1 %10, label %msgsnd_wait.exit.thread56, label %11
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %9, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 64
   %13 = load i16, ptr %12, align 8
   %14 = zext i16 %13 to i64
   %15 = icmp ugt i64 %2, %14
   br i1 %15, label %msgsnd_wait.exit.thread56, label %16
 
 16:                                               ; preds = %11
-  %17 = getelementptr inbounds i8, ptr %9, i64 62
+  %17 = getelementptr inbounds nuw i8, ptr %9, i64 62
   %18 = load i16, ptr %17, align 2
-  %19 = getelementptr inbounds i8, ptr %9, i64 60
+  %19 = getelementptr inbounds nuw i8, ptr %9, i64 60
   %20 = load i16, ptr %19, align 4
   %.not = icmp slt i16 %18, %20
   br i1 %.not, label %msgsnd_wait.exit.thread, label %21
@@ -49,8 +49,8 @@ define range(i32 -1, 1) i32 @msgsnd(i32 noundef %0, ptr noundef readonly %1, i64
   br i1 %.not48, label %24, label %42
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds i8, ptr %9, i64 32
-  %26 = getelementptr inbounds i8, ptr %9, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %9, i64 16
   br i1 %.not16.i, label %.split.us.i, label %msgsnd_wait.exit.thread56
 
 .split.us.i:                                      ; preds = %24, %40
@@ -61,15 +61,15 @@ define range(i32 -1, 1) i32 @msgsnd(i32 noundef %0, ptr noundef readonly %1, i64
 
 29:                                               ; preds = %.split.us.i
   %30 = load ptr, ptr @g_readytorun, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 128
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 128
   store ptr %9, ptr %31, align 16
   %32 = load i16, ptr %25, align 8
   %33 = add i16 %32, 1
   store i16 %33, ptr %25, align 8
-  %34 = getelementptr inbounds i8, ptr %30, i64 68
+  %34 = getelementptr inbounds nuw i8, ptr %30, i64 68
   store i16 0, ptr %34, align 4
   %35 = call zeroext i1 @nxsched_remove_readytorun(ptr noundef %30, i1 noundef zeroext true) #5
-  %36 = getelementptr inbounds i8, ptr %30, i64 48
+  %36 = getelementptr inbounds nuw i8, ptr %30, i64 48
   store i8 8, ptr %36, align 16
   %37 = call zeroext i1 @nxsched_add_prioritized(ptr noundef %30, ptr noundef nonnull %26) #5
   br i1 %35, label %38, label %40
@@ -99,34 +99,34 @@ msgsnd_wait.exit.thread:                          ; preds = %.split.us.i, %42, %
 
 list_remove_head.exit:                            ; preds = %msgsnd_wait.exit.thread
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %45, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %48 = load ptr, ptr %47, align 8
   store ptr %46, ptr %48, align 8
   %49 = load ptr, ptr %47, align 8
-  %50 = getelementptr inbounds i8, ptr %46, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %46, i64 8
   store ptr %49, ptr %50, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %45, i8 0, i64 16, i1 false)
   %51 = trunc nuw i64 %2 to i16
-  %52 = getelementptr inbounds i8, ptr %45, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %45, i64 16
   store i16 %51, ptr %52, align 8
   %53 = load i64, ptr %1, align 8
-  %54 = getelementptr inbounds i8, ptr %45, i64 24
+  %54 = getelementptr inbounds nuw i8, ptr %45, i64 24
   store i64 %53, ptr %54, align 8
-  %55 = getelementptr inbounds i8, ptr %45, i64 32
-  %56 = getelementptr inbounds i8, ptr %1, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %45, i64 32
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %55, ptr nonnull align 8 %56, i64 %2, i1 false)
-  %57 = getelementptr inbounds i8, ptr %9, i64 40
+  %57 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %58 = load ptr, ptr %57, align 8
   store ptr %58, ptr %45, align 8
   store ptr %57, ptr %47, align 8
   %59 = load ptr, ptr %57, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
   store ptr %45, ptr %60, align 8
   store ptr %45, ptr %57, align 8
   %61 = load i16, ptr %17, align 2
   %62 = add i16 %61, 1
   store i16 %62, ptr %17, align 2
-  %63 = getelementptr inbounds i8, ptr %9, i64 34
+  %63 = getelementptr inbounds nuw i8, ptr %9, i64 34
   %64 = load i16, ptr %63, align 2
   %65 = icmp sgt i16 %64, 0
   br i1 %65, label %66, label %msgsnd_wait.exit.thread56
@@ -134,13 +134,13 @@ list_remove_head.exit:                            ; preds = %msgsnd_wait.exit.th
 66:                                               ; preds = %list_remove_head.exit
   %67 = load ptr, ptr @g_readytorun, align 8
   %68 = call ptr @dq_remfirst(ptr noundef nonnull %9) #5
-  %69 = getelementptr inbounds i8, ptr %68, i64 88
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 88
   %70 = load ptr, ptr %69, align 8
   %.not50 = icmp eq ptr %70, null
   br i1 %.not50, label %74, label %71
 
 71:                                               ; preds = %66
-  %72 = getelementptr inbounds i8, ptr %68, i64 72
+  %72 = getelementptr inbounds nuw i8, ptr %68, i64 72
   %73 = call i32 @wd_cancel(ptr noundef nonnull %72) #5
   br label %74
 
@@ -148,7 +148,7 @@ list_remove_head.exit:                            ; preds = %msgsnd_wait.exit.th
   %75 = load i16, ptr %63, align 2
   %76 = add i16 %75, -1
   store i16 %76, ptr %63, align 2
-  %77 = getelementptr inbounds i8, ptr %68, i64 128
+  %77 = getelementptr inbounds nuw i8, ptr %68, i64 128
   store ptr null, ptr %77, align 16
   %78 = call zeroext i1 @nxsched_add_readytorun(ptr noundef nonnull %68) #5
   br i1 %78, label %79, label %msgsnd_wait.exit.thread56

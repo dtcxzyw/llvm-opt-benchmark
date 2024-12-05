@@ -106,7 +106,7 @@ define internal zeroext i1 @df_func_ip_special_name(ptr nocapture noundef readon
   br i1 %5, label %31, label %.preheader
 
 .preheader:                                       ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %7 = load i32, ptr %6, align 8
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -144,7 +144,7 @@ lookup_block.exit:                                ; preds = %12, %16
 
 21:                                               ; preds = %lookup_block.exit
   %22 = tail call ptr @fvalue_new(i32 noundef 26) #4
-  %23 = getelementptr inbounds i8, ptr %.0.i, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
   %24 = load ptr, ptr %23, align 8
   tail call void @fvalue_set_string(ptr noundef %22, ptr noundef %24) #4
   tail call void @df_cell_append(ptr noundef %2, ptr noundef %22) #4
@@ -228,7 +228,7 @@ define internal zeroext i1 @df_func_ip_special_mask(ptr nocapture noundef readon
   br i1 %5, label %48, label %.preheader
 
 .preheader:                                       ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %7 = load i32, ptr %6, align 8
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -265,26 +265,26 @@ lookup_block.exit:                                ; preds = %12, %16
   br i1 %20, label %42, label %21
 
 21:                                               ; preds = %lookup_block.exit
-  %22 = getelementptr inbounds i8, ptr %.0.i, i64 48
+  %22 = getelementptr inbounds nuw i8, ptr %.0.i, i64 48
   %23 = load i32, ptr %22, align 8
   %24 = icmp sgt i32 %23, 0
   %spec.select = zext i1 %24 to i32
-  %25 = getelementptr inbounds i8, ptr %.0.i, i64 44
+  %25 = getelementptr inbounds nuw i8, ptr %.0.i, i64 44
   %26 = load i32, ptr %25, align 4
   %27 = icmp sgt i32 %26, 0
   %28 = or disjoint i32 %spec.select, 2
   %.1 = select i1 %27, i32 %28, i32 %spec.select
-  %29 = getelementptr inbounds i8, ptr %.0.i, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %.0.i, i64 40
   %30 = load i32, ptr %29, align 8
   %31 = icmp sgt i32 %30, 0
   %32 = or disjoint i32 %.1, 4
   %.2 = select i1 %31, i32 %32, i32 %.1
-  %33 = getelementptr inbounds i8, ptr %.0.i, i64 36
+  %33 = getelementptr inbounds nuw i8, ptr %.0.i, i64 36
   %34 = load i32, ptr %33, align 4
   %35 = icmp sgt i32 %34, 0
   %36 = or disjoint i32 %.2, 8
   %.3 = select i1 %35, i32 %36, i32 %.2
-  %37 = getelementptr inbounds i8, ptr %.0.i, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i, i64 32
   %38 = load i32, ptr %37, align 8
   %39 = icmp sgt i32 %38, 0
   %40 = or i32 %.3, 16
@@ -344,7 +344,7 @@ define internal zeroext i1 @df_func_ip_is_link_local(ptr nocapture noundef reado
   br i1 %4, label %df_func_ip_is_any.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %.val, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   %6 = load i32, ptr %5, align 8
   %.not.i = icmp eq i32 %6, 0
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
@@ -438,7 +438,7 @@ define internal zeroext i1 @df_func_ip_is_multicast(ptr nocapture noundef readon
   br i1 %4, label %df_func_ip_is_any.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %.val, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   %6 = load i32, ptr %5, align 8
   %.not.i = icmp eq i32 %6, 0
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
@@ -500,7 +500,7 @@ define internal zeroext i1 @df_func_ip_is_rfc1918(ptr nocapture noundef readonly
   br i1 %4, label %df_func_ip_is_any.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %.val, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   %6 = load i32, ptr %5, align 8
   %.not.i = icmp eq i32 %6, 0
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
@@ -570,7 +570,7 @@ define internal zeroext i1 @df_func_ip_is_ula(ptr nocapture noundef readonly %0,
   br i1 %4, label %df_func_ip_is_any.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %.val, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   %6 = load i32, ptr %5, align 8
   %.not.i = icmp eq i32 %6, 0
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i

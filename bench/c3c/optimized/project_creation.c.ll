@@ -72,7 +72,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @create_library(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 41120
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 41120
   %3 = load ptr, ptr %2, align 8
   %4 = tail call fastcc zeroext i1 @check_name(ptr noundef %3)
   br i1 %4, label %6, label %5
@@ -82,7 +82,7 @@ define dso_local void @create_library(ptr nocapture noundef readonly %0) local_u
   unreachable
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 41136
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 41136
   %8 = load ptr, ptr %7, align 8
   %9 = tail call zeroext i1 @dir_change(ptr noundef %8) #9
   br i1 %9, label %12, label %10
@@ -147,7 +147,7 @@ mkdir_or_fail.exit:                               ; preds = %create_file_or_fail
 
 mkdir_or_fail.exit24:                             ; preds = %mkdir_or_fail.exit, %30
   %indvars.iv = phi i64 [ 0, %mkdir_or_fail.exit ], [ %indvars.iv.next, %30 ]
-  %31 = getelementptr inbounds [14 x ptr], ptr @DEFAULT_TARGETS, i64 0, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [14 x ptr], ptr @DEFAULT_TARGETS, i64 0, i64 %indvars.iv
   %32 = load ptr, ptr %31, align 8
   %33 = load ptr, ptr @MANIFEST_TARGET, align 8
   tail call void (ptr, ...) @scratch_buffer_printf(ptr noundef %33, ptr noundef %32) #9
@@ -243,7 +243,7 @@ define internal fastcc noundef zeroext i1 @check_name(ptr nocapture noundef read
 
 5:                                                ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %6 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.next
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.next
   %7 = load i8, ptr %6, align 1
   %8 = icmp eq i8 %7, 0
   br i1 %8, label %char_is_alphanum_.exit, label %.lr.ph
@@ -342,7 +342,7 @@ declare ptr @scratch_buffer_copy() local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @module_name(ptr nocapture noundef readonly %0) unnamed_addr #0 {
   tail call void @scratch_buffer_clear() #9
-  %2 = getelementptr inbounds i8, ptr %0, i64 41120
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 41120
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #12
   %.not = icmp eq i64 %4, 0
@@ -401,7 +401,7 @@ declare ptr @scratch_buffer_to_string() local_unnamed_addr #3
 ; Function Attrs: noreturn nounwind uwtable
 define dso_local void @create_project(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
   %2 = alloca i64, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 41144
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 41144
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %8, label %5
@@ -439,7 +439,7 @@ define dso_local void @create_project(ptr nocapture noundef readonly %0) local_u
 
 22:                                               ; preds = %13, %20, %18, %8
   %.0 = phi ptr [ %9, %8 ], [ %14, %13 ], [ %19, %18 ], [ %21, %20 ]
-  %23 = getelementptr inbounds i8, ptr %0, i64 41120
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 41120
   %24 = load ptr, ptr %23, align 8
   %25 = call fastcc zeroext i1 @check_name(ptr noundef %24)
   br i1 %25, label %27, label %26
@@ -449,7 +449,7 @@ define dso_local void @create_project(ptr nocapture noundef readonly %0) local_u
   unreachable
 
 27:                                               ; preds = %22
-  %28 = getelementptr inbounds i8, ptr %0, i64 41136
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 41136
   %29 = load ptr, ptr %28, align 8
   %30 = call zeroext i1 @dir_change(ptr noundef %29) #9
   br i1 %30, label %33, label %31
@@ -520,13 +520,13 @@ declare zeroext i1 @file_touch(ptr noundef) local_unnamed_addr #3
 define internal void @delete_dir_and_exit(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ...) unnamed_addr #2 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %3)
-  %4 = getelementptr inbounds i8, ptr %0, i64 41136
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 41136
   %5 = load ptr, ptr %4, align 8
   %6 = call zeroext i1 @dir_change(ptr noundef %5) #9
   br i1 %6, label %7, label %11
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 41120
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 41120
   %9 = load ptr, ptr %8, align 8
   %10 = call i32 @rmdir(ptr noundef %9) #9
   br label %11

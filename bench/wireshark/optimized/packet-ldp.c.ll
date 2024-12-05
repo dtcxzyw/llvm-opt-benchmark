@@ -1526,10 +1526,10 @@ define internal i32 @dissect_ldp_tcp(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %.not79, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
-  %13 = getelementptr inbounds i8, ptr %1, i64 328
-  %14 = getelementptr inbounds i8, ptr %11, i64 48
-  %15 = getelementptr inbounds i8, ptr %11, i64 16
-  %16 = getelementptr inbounds i8, ptr %11, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 328
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 40
   br label %17
 
 17:                                               ; preds = %.lr.ph, %91
@@ -1567,9 +1567,9 @@ define internal i32 @dissect_ldp_tcp(ptr noundef %0, ptr noundef %1, ptr noundef
 
 30:                                               ; preds = %26
   %.0..0..0..0.34 = load volatile i32, ptr %6, align 4
-  %31 = getelementptr inbounds i8, ptr %1, i64 332
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 332
   store i32 %.0..0..0..0.34, ptr %31, align 4
-  %32 = getelementptr inbounds i8, ptr %1, i64 336
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 336
   store i32 268435455, ptr %32, align 8
   br label %.loopexit
 
@@ -1594,10 +1594,10 @@ define internal i32 @dissect_ldp_tcp(ptr noundef %0, ptr noundef %1, ptr noundef
 
 43:                                               ; preds = %39
   %.0..0..0..0.36 = load volatile i32, ptr %6, align 4
-  %44 = getelementptr inbounds i8, ptr %1, i64 332
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 332
   store i32 %.0..0..0..0.36, ptr %44, align 4
   %45 = sub i32 %41, %18
-  %46 = getelementptr inbounds i8, ptr %1, i64 336
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 336
   store i32 %45, ptr %46, align 8
   %47 = sub i32 0, %45
   br label %.loopexit
@@ -1656,28 +1656,28 @@ define internal i32 @dissect_ldp_tcp(ptr noundef %0, ptr noundef %1, ptr noundef
 
 65:                                               ; preds = %64
   %.0..0..0..0.10 = load volatile ptr, ptr %8, align 8
-  %66 = getelementptr inbounds i8, ptr %.0..0..0..0.10, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.10, i64 8
   %67 = load volatile i64, ptr %66, align 8
   %68 = icmp eq i64 %67, 3
   br i1 %68, label %81, label %69
 
 69:                                               ; preds = %65
   %.0..0..0..0.11 = load volatile ptr, ptr %8, align 8
-  %70 = getelementptr inbounds i8, ptr %.0..0..0..0.11, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.11, i64 8
   %71 = load volatile i64, ptr %70, align 8
   %72 = icmp eq i64 %71, 2
   br i1 %72, label %81, label %73
 
 73:                                               ; preds = %69
   %.0..0..0..0.12 = load volatile ptr, ptr %8, align 8
-  %74 = getelementptr inbounds i8, ptr %.0..0..0..0.12, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.12, i64 8
   %75 = load volatile i64, ptr %74, align 8
   %76 = icmp eq i64 %75, 7
   br i1 %76, label %81, label %77
 
 77:                                               ; preds = %73
   %.0..0..0..0.13 = load volatile ptr, ptr %8, align 8
-  %78 = getelementptr inbounds i8, ptr %.0..0..0..0.13, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.13, i64 8
   %79 = load volatile i64, ptr %78, align 8
   %80 = icmp eq i64 %79, 9
   br i1 %80, label %81, label %87
@@ -1687,10 +1687,10 @@ define internal i32 @dissect_ldp_tcp(ptr noundef %0, ptr noundef %1, ptr noundef
   %82 = or i32 %.0..0..0..0.6, 1
   store volatile i32 %82, ptr %9, align 4
   %.0..0..0..0.14 = load volatile ptr, ptr %8, align 8
-  %83 = getelementptr inbounds i8, ptr %.0..0..0..0.14, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.14, i64 8
   %84 = load volatile i64, ptr %83, align 8
   %.0..0..0..0.15 = load volatile ptr, ptr %8, align 8
-  %85 = getelementptr inbounds i8, ptr %.0..0..0..0.15, i64 16
+  %85 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.15, i64 16
   %86 = load volatile ptr, ptr %85, align 8
   call void @show_exception(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %84, ptr noundef %86) #5
   br label %87
@@ -1753,7 +1753,7 @@ declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) local_unnamed_addr 
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @dissect_ldp_pdu(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   tail call void @col_set_str(ptr noundef %5, i32 noundef 34, ptr noundef nonnull @.str.651) #5
   %6 = load ptr, ptr %4, align 8
@@ -2600,10 +2600,10 @@ define internal fastcc void @dissect_tlv_fec(ptr noundef %0, ptr noundef %1, i32
 .lr.ph816:                                        ; preds = %5
   %15 = zext i16 %12 to i32
   %invariant.op = add nuw nsw i32 %15, 10
-  %16 = getelementptr inbounds i8, ptr %1, i64 408
-  %17 = getelementptr inbounds i8, ptr %9, i64 4
-  %18 = getelementptr inbounds i8, ptr %9, i64 8
-  %19 = getelementptr inbounds i8, ptr %9, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 408
+  %17 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %9, i64 16
   br label %20
 
 20:                                               ; preds = %.lr.ph816, %.loopexit
@@ -3410,7 +3410,7 @@ define internal fastcc void @dissect_tlv_address_list(ptr noundef %0, ptr nounde
   %21 = add nsw i32 %4, -2
   %22 = load i32, ptr @ett_ldp_tlv_val, align 4
   %23 = tail call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %20, i32 noundef %21, i32 noundef %22, ptr noundef null, ptr noundef nonnull @.str.1017) #5
-  %24 = getelementptr inbounds i8, ptr %1, i64 408
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %25 = load ptr, ptr %24, align 8
   %26 = zext nneg i8 %.055 to i64
   %27 = tail call noalias ptr @wmem_alloc(ptr noundef %25, i64 noundef %26) #5
@@ -3419,9 +3419,9 @@ define internal fastcc void @dissect_tlv_address_list(ptr noundef %0, ptr nounde
   br i1 %.not60, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %19
-  %29 = getelementptr inbounds i8, ptr %6, i64 4
-  %30 = getelementptr inbounds i8, ptr %6, i64 8
-  %31 = getelementptr inbounds i8, ptr %6, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %6, i64 16
   br label %32
 
 32:                                               ; preds = %.lr.ph, %35
@@ -3470,7 +3470,7 @@ define internal fastcc void @dissect_tlv_path_vector(ptr noundef %0, ptr noundef
   br i1 %8, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %1, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %10
 
 10:                                               ; preds = %.lr.ph, %10

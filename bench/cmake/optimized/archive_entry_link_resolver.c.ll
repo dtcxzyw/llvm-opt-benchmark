@@ -10,7 +10,7 @@ define dso_local noalias noundef ptr @archive_entry_linkresolver_new() local_unn
   br i1 %2, label %8, label %3
 
 3:                                                ; preds = %0
-  %4 = getelementptr inbounds i8, ptr %1, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i64 1024, ptr %4, align 8
   %5 = tail call noalias dereferenceable_or_null(8192) ptr @calloc(i64 noundef 1024, i64 noundef 8) #6
   store ptr %5, ptr %1, align 8
@@ -51,14 +51,14 @@ define dso_local void @archive_entry_linkresolver_set_strategy(ptr nocapture nou
   ]
 
 6:                                                ; preds = %2, %2, %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 2, ptr %7, align 8
   br label %19
 
 8:                                                ; preds = %2
   %9 = and i32 %1, -2
   %switch = icmp eq i32 %9, 65540
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br i1 %switch, label %11, label %12
 
 11:                                               ; preds = %8
@@ -70,17 +70,17 @@ define dso_local void @archive_entry_linkresolver_set_strategy(ptr nocapture nou
   br label %19
 
 13:                                               ; preds = %2
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 1, ptr %14, align 8
   br label %19
 
 15:                                               ; preds = %2, %2, %2, %2
-  %16 = getelementptr inbounds i8, ptr %0, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 0, ptr %16, align 8
   br label %19
 
 17:                                               ; preds = %2
-  %18 = getelementptr inbounds i8, ptr %0, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 2, ptr %18, align 8
   br label %19
 
@@ -94,17 +94,17 @@ define dso_local void @archive_entry_linkresolver_free(ptr noundef %0) local_unn
   br i1 %2, label %58, label %.split5
 
 .split5:                                          ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %12, label %5
 
 5:                                                ; preds = %.split5
-  %6 = getelementptr inbounds i8, ptr %4, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %7 = load ptr, ptr %6, align 8
   tail call void @archive_entry_free(ptr noundef %7) #7
   %8 = load ptr, ptr %3, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %10 = load ptr, ptr %9, align 8
   tail call void @archive_entry_free(ptr noundef %10) #7
   %11 = load ptr, ptr %3, align 8
@@ -113,7 +113,7 @@ define dso_local void @archive_entry_linkresolver_free(ptr noundef %0) local_unn
   br label %12
 
 12:                                               ; preds = %5, %.split5
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load i64, ptr %13, align 8
   %.not89.i = icmp eq i64 %14, 0
   br i1 %.not89.i, label %._crit_edge, label %.lr.ph64.i
@@ -132,12 +132,12 @@ define dso_local void @archive_entry_linkresolver_free(ptr noundef %0) local_unn
 .split.us.i:                                      ; preds = %.lr.ph64.split.split.i
   %17 = load ptr, ptr %.02942.i, align 8
   %.not36.i = icmp eq ptr %17, null
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.02942.i, i64 8
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.02942.i, i64 8
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
   br i1 %.not36.i, label %.split.us._crit_edge.i, label %18
 
 18:                                               ; preds = %.split.us.i
-  %19 = getelementptr inbounds i8, ptr %17, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %.pre.i, ptr %19, align 8
   %.pre = load ptr, ptr %.02942.i, align 8
   br label %.split.us._crit_edge.i
@@ -163,17 +163,17 @@ define dso_local void @archive_entry_linkresolver_free(ptr noundef %0) local_unn
   br i1 %exitcond.not.i, label %._crit_edge, label %.lr.ph64.split.split.i, !llvm.loop !5
 
 .split.lr.ph:                                     ; preds = %22, %21
-  %27 = getelementptr inbounds i8, ptr %0, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %28 = load i64, ptr %27, align 8
   %29 = add i64 %28, -1
   store i64 %29, ptr %27, align 8
   store ptr %.02942.i, ptr %3, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %.split
 
 .split:                                           ; preds = %next_entry.exit21, %.split.lr.ph
   %phi.call27 = phi ptr [ %.02942.i, %.split.lr.ph ], [ %.02942.i11, %next_entry.exit21 ]
-  %31 = getelementptr inbounds i8, ptr %phi.call27, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %phi.call27, i64 24
   %32 = load ptr, ptr %31, align 8
   tail call void @archive_entry_free(ptr noundef %32) #7
   %33 = load ptr, ptr %3, align 8
@@ -181,11 +181,11 @@ define dso_local void @archive_entry_linkresolver_free(ptr noundef %0) local_unn
   br i1 %.not.i6, label %41, label %34
 
 34:                                               ; preds = %.split
-  %35 = getelementptr inbounds i8, ptr %33, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %36 = load ptr, ptr %35, align 8
   tail call void @archive_entry_free(ptr noundef %36) #7
   %37 = load ptr, ptr %3, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 24
   %39 = load ptr, ptr %38, align 8
   tail call void @archive_entry_free(ptr noundef %39) #7
   %40 = load ptr, ptr %3, align 8
@@ -212,12 +212,12 @@ define dso_local void @archive_entry_linkresolver_free(ptr noundef %0) local_unn
 .split.us.i13:                                    ; preds = %.lr.ph64.split.split.i9
   %45 = load ptr, ptr %.02942.i11, align 8
   %.not36.i14 = icmp eq ptr %45, null
-  %.phi.trans.insert.i15 = getelementptr inbounds i8, ptr %.02942.i11, i64 8
+  %.phi.trans.insert.i15 = getelementptr inbounds nuw i8, ptr %.02942.i11, i64 8
   %.pre.i16 = load ptr, ptr %.phi.trans.insert.i15, align 8
   br i1 %.not36.i14, label %.split.us._crit_edge.i17, label %46
 
 46:                                               ; preds = %.split.us.i13
-  %47 = getelementptr inbounds i8, ptr %45, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %45, i64 8
   store ptr %.pre.i16, ptr %47, align 8
   %.pre32 = load ptr, ptr %.02942.i11, align 8
   br label %.split.us._crit_edge.i17
@@ -261,17 +261,17 @@ next_entry.exit21:                                ; preds = %49, %50
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef ptr @next_entry(ptr nocapture noundef %0, i32 noundef range(i32 1, 4) %1) unnamed_addr #4 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %12, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %4, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %7 = load ptr, ptr %6, align 8
   tail call void @archive_entry_free(ptr noundef %7) #7
   %8 = load ptr, ptr %3, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %10 = load ptr, ptr %9, align 8
   tail call void @archive_entry_free(ptr noundef %10) #7
   %11 = load ptr, ptr %3, align 8
@@ -280,7 +280,7 @@ define internal fastcc noundef ptr @next_entry(ptr nocapture noundef %0, i32 nou
   br label %12
 
 12:                                               ; preds = %5, %2
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load i64, ptr %13, align 8
   %.not89 = icmp eq i64 %14, 0
   br i1 %.not89, label %.loopexit, label %.lr.ph64
@@ -304,7 +304,7 @@ define internal fastcc noundef ptr @next_entry(ptr nocapture noundef %0, i32 nou
 
 .lr.ph.us:                                        ; preds = %.lr.ph64.split.us.split, %22
   %.02944.us65 = phi ptr [ %.029.us67, %22 ], [ %.02942.us, %.lr.ph64.split.us.split ]
-  %20 = getelementptr inbounds i8, ptr %.02944.us65, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %.02944.us65, i64 24
   %21 = load ptr, ptr %20, align 8
   %.not35.us66.not = icmp eq ptr %21, null
   br i1 %.not35.us66.not, label %.split.us, label %22
@@ -336,7 +336,7 @@ define internal fastcc noundef ptr @next_entry(ptr nocapture noundef %0, i32 nou
 
 .lr.ph.us80:                                      ; preds = %.lr.ph64.split.split.us, %29
   %.02944.us.us81 = phi ptr [ %.029.us.us, %29 ], [ %.02942.us78, %.lr.ph64.split.split.us ]
-  %26 = getelementptr inbounds i8, ptr %.02944.us.us81, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %.02944.us.us81, i64 24
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, null
   br i1 %28, label %29, label %.split.us
@@ -358,12 +358,12 @@ define internal fastcc noundef ptr @next_entry(ptr nocapture noundef %0, i32 nou
   %.us-phi45 = phi ptr [ %.02944.us65, %.lr.ph.us ], [ %.02944.us.us81, %.lr.ph.us80 ], [ %.02942, %.lr.ph64.split.split ]
   %31 = load ptr, ptr %.us-phi45, align 8
   %.not36 = icmp eq ptr %31, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.us-phi45, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.us-phi45, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not36, label %.split.us._crit_edge, label %32
 
 32:                                               ; preds = %.split.us
-  %33 = getelementptr inbounds i8, ptr %31, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store ptr %.pre, ptr %33, align 8
   br label %.split.us._crit_edge
 
@@ -383,7 +383,7 @@ define internal fastcc noundef ptr @next_entry(ptr nocapture noundef %0, i32 nou
   br label %39
 
 39:                                               ; preds = %36, %35
-  %40 = getelementptr inbounds i8, ptr %0, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %41 = load i64, ptr %40, align 8
   %42 = add i64 %41, -1
   store i64 %42, ptr %40, align 8
@@ -415,7 +415,7 @@ define dso_local void @archive_entry_linkify(ptr nocapture noundef %0, ptr nocap
   br i1 %.not55, label %73, label %8
 
 8:                                                ; preds = %6
-  %9 = getelementptr inbounds i8, ptr %7, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %10 = load ptr, ptr %9, align 8
   store ptr %10, ptr %1, align 8
   store ptr null, ptr %9, align 8
@@ -445,7 +445,7 @@ define dso_local void @archive_entry_linkify(ptr nocapture noundef %0, ptr nocap
   br i1 %25, label %73, label %26
 
 26:                                               ; preds = %22
-  %27 = getelementptr inbounds i8, ptr %0, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %28 = load i32, ptr %27, align 8
   switch i32 %28, label %73 [
     i32 0, label %29
@@ -463,7 +463,7 @@ define dso_local void @archive_entry_linkify(ptr nocapture noundef %0, ptr nocap
 33:                                               ; preds = %29
   tail call void @archive_entry_unset_size(ptr noundef %32) #7
   %34 = load ptr, ptr %1, align 8
-  %35 = getelementptr inbounds i8, ptr %31, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %36 = load ptr, ptr %35, align 8
   %37 = tail call ptr @archive_entry_pathname(ptr noundef %36) #7
   tail call void @archive_entry_copy_hardlink(ptr noundef %34, ptr noundef %37) #7
@@ -481,7 +481,7 @@ define dso_local void @archive_entry_linkify(ptr nocapture noundef %0, ptr nocap
   br i1 %.not53, label %48, label %44
 
 44:                                               ; preds = %40
-  %45 = getelementptr inbounds i8, ptr %42, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %46 = load ptr, ptr %45, align 8
   %47 = tail call ptr @archive_entry_pathname(ptr noundef %46) #7
   tail call void @archive_entry_copy_hardlink(ptr noundef %43, ptr noundef %47) #7
@@ -499,18 +499,18 @@ define dso_local void @archive_entry_linkify(ptr nocapture noundef %0, ptr nocap
   br i1 %.not, label %67, label %54
 
 54:                                               ; preds = %50
-  %55 = getelementptr inbounds i8, ptr %52, i64 24
+  %55 = getelementptr inbounds nuw i8, ptr %52, i64 24
   %56 = load ptr, ptr %55, align 8
   store ptr %56, ptr %1, align 8
   store ptr %53, ptr %55, align 8
   %57 = load ptr, ptr %1, align 8
   tail call void @archive_entry_unset_size(ptr noundef %57) #7
   %58 = load ptr, ptr %1, align 8
-  %59 = getelementptr inbounds i8, ptr %52, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %60 = load ptr, ptr %59, align 8
   %61 = tail call ptr @archive_entry_pathname(ptr noundef %60) #7
   tail call void @archive_entry_copy_hardlink(ptr noundef %58, ptr noundef %61) #7
-  %62 = getelementptr inbounds i8, ptr %52, i64 40
+  %62 = getelementptr inbounds nuw i8, ptr %52, i64 40
   %63 = load i32, ptr %62, align 8
   %64 = icmp eq i32 %63, 0
   br i1 %64, label %65, label %73
@@ -528,7 +528,7 @@ define dso_local void @archive_entry_linkify(ptr nocapture noundef %0, ptr nocap
 
 70:                                               ; preds = %67
   %71 = load ptr, ptr %1, align 8
-  %72 = getelementptr inbounds i8, ptr %68, i64 24
+  %72 = getelementptr inbounds nuw i8, ptr %68, i64 24
   store ptr %71, ptr %72, align 8
   store ptr null, ptr %1, align 8
   br label %73
@@ -543,17 +543,17 @@ declare i32 @archive_entry_filetype(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @find_entry(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #4 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %12, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %4, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %7 = load ptr, ptr %6, align 8
   tail call void @archive_entry_free(ptr noundef %7) #7
   %8 = load ptr, ptr %3, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %10 = load ptr, ptr %9, align 8
   tail call void @archive_entry_free(ptr noundef %10) #7
   %11 = load ptr, ptr %3, align 8
@@ -565,7 +565,7 @@ define internal fastcc ptr @find_entry(ptr nocapture noundef %0, ptr noundef %1)
   %13 = tail call i64 @archive_entry_dev(ptr noundef %1) #7
   %14 = tail call i64 @archive_entry_ino64(ptr noundef %1) #7
   %15 = xor i64 %14, %13
-  %16 = getelementptr inbounds i8, ptr %0, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %17 = load i64, ptr %16, align 8
   %18 = add i64 %17, -1
   %19 = and i64 %18, %15
@@ -577,13 +577,13 @@ define internal fastcc ptr @find_entry(ptr nocapture noundef %0, ptr noundef %1)
 
 .lr.ph:                                           ; preds = %12, %57
   %.04052 = phi ptr [ %.040, %57 ], [ %.04050, %12 ]
-  %22 = getelementptr inbounds i8, ptr %.04052, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %.04052, i64 32
   %23 = load i64, ptr %22, align 8
   %24 = icmp eq i64 %23, %15
   br i1 %24, label %25, label %57
 
 25:                                               ; preds = %.lr.ph
-  %26 = getelementptr inbounds i8, ptr %.04052, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %.04052, i64 16
   %27 = load ptr, ptr %26, align 8
   %28 = tail call i64 @archive_entry_dev(ptr noundef %27) #7
   %29 = icmp eq i64 %13, %28
@@ -596,7 +596,7 @@ define internal fastcc ptr @find_entry(ptr nocapture noundef %0, ptr noundef %1)
   br i1 %33, label %34, label %57
 
 34:                                               ; preds = %30
-  %35 = getelementptr inbounds i8, ptr %.04052, i64 40
+  %35 = getelementptr inbounds nuw i8, ptr %.04052, i64 40
   %36 = load i32, ptr %35, align 8
   %37 = add i32 %36, -1
   store i32 %37, ptr %35, align 8
@@ -604,7 +604,7 @@ define internal fastcc ptr @find_entry(ptr nocapture noundef %0, ptr noundef %1)
   br i1 %.not45, label %38, label %.loopexit
 
 38:                                               ; preds = %34
-  %39 = getelementptr inbounds i8, ptr %.04052, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %.04052, i64 8
   %40 = load ptr, ptr %39, align 8
   %.not46 = icmp eq ptr %40, null
   %.pre = load ptr, ptr %.04052, align 8
@@ -620,7 +620,7 @@ define internal fastcc ptr @find_entry(ptr nocapture noundef %0, ptr noundef %1)
 
 43:                                               ; preds = %42
   %44 = load ptr, ptr %39, align 8
-  %45 = getelementptr inbounds i8, ptr %.pre, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
   store ptr %44, ptr %45, align 8
   br label %46
 
@@ -637,7 +637,7 @@ define internal fastcc ptr @find_entry(ptr nocapture noundef %0, ptr noundef %1)
   br label %53
 
 53:                                               ; preds = %51, %46
-  %54 = getelementptr inbounds i8, ptr %0, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %55 = load i64, ptr %54, align 8
   %56 = add i64 %55, -1
   store i64 %56, ptr %54, align 8
@@ -668,11 +668,11 @@ define internal fastcc noundef ptr @insert_entry(ptr nocapture noundef %0, ptr n
 
 5:                                                ; preds = %2
   %6 = tail call ptr @archive_entry_clone(ptr noundef %1) #7
-  %7 = getelementptr inbounds i8, ptr %3, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %6, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i64, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load i64, ptr %10, align 8
   %12 = shl i64 %11, 1
   %13 = icmp ule i64 %9, %12
@@ -708,7 +708,7 @@ define internal fastcc noundef ptr @insert_entry(ptr nocapture noundef %0, ptr n
   %24 = phi ptr [ %36, %33 ], [ %21, %.preheader.i ]
   %25 = load ptr, ptr %23, align 8
   store ptr %25, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %23, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 32
   %27 = load i64, ptr %26, align 8
   %28 = and i64 %27, %18
   %29 = getelementptr inbounds ptr, ptr %16, i64 %28
@@ -717,13 +717,13 @@ define internal fastcc noundef ptr @insert_entry(ptr nocapture noundef %0, ptr n
   br i1 %.not37.i, label %33, label %31
 
 31:                                               ; preds = %.lr.ph.i
-  %32 = getelementptr inbounds i8, ptr %30, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store ptr %23, ptr %32, align 8
   br label %33
 
 33:                                               ; preds = %31, %.lr.ph.i
   store ptr %30, ptr %23, align 8
-  %34 = getelementptr inbounds i8, ptr %23, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store ptr null, ptr %34, align 8
   store ptr %23, ptr %29, align 8
   %35 = load ptr, ptr %0, align 8
@@ -764,7 +764,7 @@ grow_hash.exit:                                   ; preds = %._crit_edge41.i, %1
   br i1 %.not, label %54, label %52
 
 52:                                               ; preds = %grow_hash.exit
-  %53 = getelementptr inbounds i8, ptr %51, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %51, i64 8
   store ptr %3, ptr %53, align 8
   %.pre = load ptr, ptr %0, align 8
   br label %54
@@ -777,14 +777,14 @@ grow_hash.exit:                                   ; preds = %._crit_edge41.i, %1
   %58 = getelementptr inbounds ptr, ptr %55, i64 %48
   %59 = load ptr, ptr %58, align 8
   store ptr %59, ptr %3, align 8
-  %60 = getelementptr inbounds i8, ptr %3, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr null, ptr %60, align 8
   store ptr %3, ptr %58, align 8
-  %61 = getelementptr inbounds i8, ptr %3, i64 32
+  %61 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i64 %45, ptr %61, align 8
   %62 = tail call i32 @archive_entry_nlink(ptr noundef %1) #7
   %63 = add i32 %62, -1
-  %64 = getelementptr inbounds i8, ptr %3, i64 40
+  %64 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i32 %63, ptr %64, align 8
   br label %65
 
@@ -794,17 +794,17 @@ grow_hash.exit:                                   ; preds = %._crit_edge41.i, %1
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @archive_entry_partial_links(ptr nocapture noundef %0, ptr noundef writeonly %1) local_unnamed_addr #4 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %12, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %4, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %7 = load ptr, ptr %6, align 8
   tail call void @archive_entry_free(ptr noundef %7) #7
   %8 = load ptr, ptr %3, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %10 = load ptr, ptr %9, align 8
   tail call void @archive_entry_free(ptr noundef %10) #7
   %11 = load ptr, ptr %3, align 8
@@ -818,13 +818,13 @@ define dso_local ptr @archive_entry_partial_links(ptr nocapture noundef %0, ptr 
   br i1 %.not18, label %21, label %14
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %13, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %16 = load ptr, ptr %15, align 8
   %.not20 = icmp eq ptr %1, null
   br i1 %.not20, label %20, label %17
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %13, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %13, i64 40
   %19 = load i32, ptr %18, align 8
   store i32 %19, ptr %1, align 4
   br label %20

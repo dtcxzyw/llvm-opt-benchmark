@@ -27,30 +27,33 @@ define noundef range(i64 0, -4611686018427387651) i64 @_Z44grpc_chttp2_base64_in
 entry:
   %0 = load ptr, ptr %slice, align 8
   %tobool.not = icmp eq ptr %0, null
-  %data = getelementptr inbounds i8, ptr %slice, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %slice, i64 8
   %1 = load i64, ptr %data, align 8
   %conv = and i64 %1, 255
   %cond = select i1 %tobool.not, i64 %conv, i64 %1
-  %bytes7 = getelementptr inbounds i8, ptr %slice, i64 16
+  %bytes7 = getelementptr inbounds nuw i8, ptr %slice, i64 16
   %2 = load ptr, ptr %bytes7, align 8
-  %bytes10 = getelementptr inbounds i8, ptr %slice, i64 9
+  %bytes10 = getelementptr inbounds nuw i8, ptr %slice, i64 9
   %cond12 = select i1 %tobool.not, ptr %bytes10, ptr %2
-  br label %while.cond
+  %invariant.gep = getelementptr i8, ptr %cond12, i64 -1
+  %cmp.not17 = icmp eq i64 %cond, 0
+  br i1 %cmp.not17, label %while.end, label %land.rhs
 
-while.cond:                                       ; preds = %land.rhs, %entry
-  %len.0 = phi i64 [ %cond, %entry ], [ %sub, %land.rhs ]
-  %cmp.not = icmp eq i64 %len.0, 0
-  br i1 %cmp.not, label %while.end, label %land.rhs
-
-land.rhs:                                         ; preds = %while.cond
-  %sub = add i64 %len.0, -1
-  %arrayidx = getelementptr inbounds i8, ptr %cond12, i64 %sub
-  %3 = load i8, ptr %arrayidx, align 1
+land.rhs:                                         ; preds = %entry, %while.body
+  %len.018 = phi i64 [ %dec, %while.body ], [ %cond, %entry ]
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %len.018
+  %3 = load i8, ptr %gep, align 1
   %cmp14 = icmp eq i8 %3, 61
-  br i1 %cmp14, label %while.cond, label %while.end, !llvm.loop !4
+  br i1 %cmp14, label %while.body, label %while.end
 
-while.end:                                        ; preds = %while.cond, %land.rhs
-  %sub26 = sub i64 %cond, %len.0
+while.body:                                       ; preds = %land.rhs
+  %dec = add i64 %len.018, -1
+  %cmp.not = icmp eq i64 %dec, 0
+  br i1 %cmp.not, label %while.end, label %land.rhs, !llvm.loop !4
+
+while.end:                                        ; preds = %land.rhs, %while.body, %entry
+  %len.0.lcssa = phi i64 [ 0, %entry ], [ 0, %while.body ], [ %len.018, %land.rhs ]
+  %sub26 = sub i64 %cond, %len.0.lcssa
   %cmp27 = icmp ugt i64 %sub26, 2
   br i1 %cmp27, label %if.then, label %if.end
 
@@ -59,18 +62,18 @@ if.then:                                          ; preds = %while.end
   br label %return
 
 if.end:                                           ; preds = %while.end
-  %rem = and i64 %len.0, 3
+  %rem = and i64 %len.0.lcssa, 3
   %cmp29 = icmp eq i64 %rem, 1
   br i1 %cmp29, label %if.then31, label %if.end32
 
 if.then31:                                        ; preds = %if.end
-  tail call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str, i32 noundef 99, i32 noundef 2, ptr noundef nonnull @.str.2, i64 noundef %len.0)
+  tail call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str, i32 noundef 99, i32 noundef 2, ptr noundef nonnull @.str.2, i64 noundef %len.0.lcssa)
   br label %return
 
 if.end32:                                         ; preds = %if.end
-  %div16 = lshr i64 %len.0, 2
+  %div16 = lshr i64 %len.0.lcssa, 2
   %mul = mul nuw i64 %div16, 3
-  %arrayidx33 = getelementptr inbounds [4 x i8], ptr @_ZL9tail_xtra, i64 0, i64 %rem
+  %arrayidx33 = getelementptr inbounds nuw [4 x i8], ptr @_ZL9tail_xtra, i64 0, i64 %rem
   %4 = load i8, ptr %arrayidx33, align 1
   %conv34 = zext i8 %4 to i64
   %add = add nuw i64 %mul, %conv34
@@ -87,33 +90,33 @@ declare void @gpr_log(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) l
 define noundef zeroext i1 @_Z26grpc_base64_decode_partialP26grpc_base64_decode_context(ptr nocapture noundef %ctx) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %ctx, align 8
-  %input_end = getelementptr inbounds i8, ptr %ctx, i64 8
+  %input_end = getelementptr inbounds nuw i8, ptr %ctx, i64 8
   %1 = load ptr, ptr %input_end, align 8
   %cmp = icmp ugt ptr %0, %1
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %output_cur = getelementptr inbounds i8, ptr %ctx, i64 16
+  %output_cur = getelementptr inbounds nuw i8, ptr %ctx, i64 16
   %2 = load ptr, ptr %output_cur, align 8
-  %output_end = getelementptr inbounds i8, ptr %ctx, i64 24
+  %output_end = getelementptr inbounds nuw i8, ptr %ctx, i64 24
   %3 = load ptr, ptr %output_end, align 8
   %cmp1 = icmp ugt ptr %2, %3
   br i1 %cmp1, label %return, label %while.cond.preheader
 
 while.cond.preheader:                             ; preds = %lor.lhs.false
-  %add.ptr77 = getelementptr inbounds i8, ptr %0, i64 4
+  %add.ptr77 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %cmp4.not78 = icmp ult ptr %1, %add.ptr77
   br i1 %cmp4.not78, label %while.end, label %land.rhs.preheader
 
 land.rhs.preheader:                               ; preds = %while.cond.preheader
   %4 = load ptr, ptr %output_end, align 8
-  %add.ptr793 = getelementptr inbounds i8, ptr %2, i64 3
+  %add.ptr793 = getelementptr inbounds nuw i8, ptr %2, i64 3
   %cmp8.not94 = icmp ult ptr %4, %add.ptr793
   br i1 %cmp8.not94, label %while.end, label %for.body.i.preheader
 
 land.rhs:                                         ; preds = %if.end11
   %5 = load ptr, ptr %output_end, align 8
-  %add.ptr7 = getelementptr inbounds i8, ptr %29, i64 6
+  %add.ptr7 = getelementptr inbounds nuw i8, ptr %29, i64 6
   %cmp8.not = icmp ult ptr %5, %add.ptr7
   br i1 %cmp8.not, label %while.end, label %for.body.i.preheader, !llvm.loop !6
 
@@ -129,10 +132,10 @@ for.cond.i:                                       ; preds = %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i.preheader, %for.cond.i
   %i.07.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %for.body.i.preheader ]
-  %arrayidx.i = getelementptr inbounds i8, ptr %6, i64 %i.07.i
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %6, i64 %i.07.i
   %8 = load i8, ptr %arrayidx.i, align 1
   %idxprom.i = zext i8 %8 to i64
-  %arrayidx1.i = getelementptr inbounds [256 x i8], ptr @_ZL12decode_table, i64 0, i64 %idxprom.i
+  %arrayidx1.i = getelementptr inbounds nuw [256 x i8], ptr @_ZL12decode_table, i64 0, i64 %idxprom.i
   %9 = load i8, ptr %arrayidx1.i, align 1
   %cmp2.not.i = icmp ult i8 %9, 64
   br i1 %cmp2.not.i, label %for.cond.i, label %_ZL14input_is_validPKhm.exit
@@ -146,58 +149,58 @@ _ZL14input_is_validPKhm.exit:                     ; preds = %for.body.i
 if.end11:                                         ; preds = %for.cond.i
   %11 = load i8, ptr %6, align 1
   %idxprom = zext i8 %11 to i64
-  %arrayidx13 = getelementptr inbounds [256 x i8], ptr @_ZL12decode_table, i64 0, i64 %idxprom
+  %arrayidx13 = getelementptr inbounds nuw [256 x i8], ptr @_ZL12decode_table, i64 0, i64 %idxprom
   %12 = load i8, ptr %arrayidx13, align 1
   %shl = shl i8 %12, 2
-  %arrayidx15 = getelementptr inbounds i8, ptr %6, i64 1
+  %arrayidx15 = getelementptr inbounds nuw i8, ptr %6, i64 1
   %13 = load i8, ptr %arrayidx15, align 1
   %idxprom16 = zext i8 %13 to i64
-  %arrayidx17 = getelementptr inbounds [256 x i8], ptr @_ZL12decode_table, i64 0, i64 %idxprom16
+  %arrayidx17 = getelementptr inbounds nuw [256 x i8], ptr @_ZL12decode_table, i64 0, i64 %idxprom16
   %14 = load i8, ptr %arrayidx17, align 1
   %15 = lshr i8 %14, 4
   %or = or i8 %15, %shl
   store i8 %or, ptr %7, align 1
   %16 = load ptr, ptr %ctx, align 8
-  %arrayidx23 = getelementptr inbounds i8, ptr %16, i64 1
+  %arrayidx23 = getelementptr inbounds nuw i8, ptr %16, i64 1
   %17 = load i8, ptr %arrayidx23, align 1
   %idxprom24 = zext i8 %17 to i64
-  %arrayidx25 = getelementptr inbounds [256 x i8], ptr @_ZL12decode_table, i64 0, i64 %idxprom24
+  %arrayidx25 = getelementptr inbounds nuw [256 x i8], ptr @_ZL12decode_table, i64 0, i64 %idxprom24
   %18 = load i8, ptr %arrayidx25, align 1
   %shl27 = shl i8 %18, 4
-  %arrayidx29 = getelementptr inbounds i8, ptr %16, i64 2
+  %arrayidx29 = getelementptr inbounds nuw i8, ptr %16, i64 2
   %19 = load i8, ptr %arrayidx29, align 1
   %idxprom30 = zext i8 %19 to i64
-  %arrayidx31 = getelementptr inbounds [256 x i8], ptr @_ZL12decode_table, i64 0, i64 %idxprom30
+  %arrayidx31 = getelementptr inbounds nuw [256 x i8], ptr @_ZL12decode_table, i64 0, i64 %idxprom30
   %20 = load i8, ptr %arrayidx31, align 1
   %21 = lshr i8 %20, 2
   %or34 = or i8 %21, %shl27
   %22 = load ptr, ptr %output_cur, align 8
-  %arrayidx37 = getelementptr inbounds i8, ptr %22, i64 1
+  %arrayidx37 = getelementptr inbounds nuw i8, ptr %22, i64 1
   store i8 %or34, ptr %arrayidx37, align 1
   %23 = load ptr, ptr %ctx, align 8
-  %arrayidx39 = getelementptr inbounds i8, ptr %23, i64 2
+  %arrayidx39 = getelementptr inbounds nuw i8, ptr %23, i64 2
   %24 = load i8, ptr %arrayidx39, align 1
   %idxprom40 = zext i8 %24 to i64
-  %arrayidx41 = getelementptr inbounds [256 x i8], ptr @_ZL12decode_table, i64 0, i64 %idxprom40
+  %arrayidx41 = getelementptr inbounds nuw [256 x i8], ptr @_ZL12decode_table, i64 0, i64 %idxprom40
   %25 = load i8, ptr %arrayidx41, align 1
   %shl43 = shl i8 %25, 6
-  %arrayidx45 = getelementptr inbounds i8, ptr %23, i64 3
+  %arrayidx45 = getelementptr inbounds nuw i8, ptr %23, i64 3
   %26 = load i8, ptr %arrayidx45, align 1
   %idxprom46 = zext i8 %26 to i64
-  %arrayidx47 = getelementptr inbounds [256 x i8], ptr @_ZL12decode_table, i64 0, i64 %idxprom46
+  %arrayidx47 = getelementptr inbounds nuw [256 x i8], ptr @_ZL12decode_table, i64 0, i64 %idxprom46
   %27 = load i8, ptr %arrayidx47, align 1
   %or49 = or i8 %27, %shl43
   %28 = load ptr, ptr %output_cur, align 8
-  %arrayidx52 = getelementptr inbounds i8, ptr %28, i64 2
+  %arrayidx52 = getelementptr inbounds nuw i8, ptr %28, i64 2
   store i8 %or49, ptr %arrayidx52, align 1
   %29 = load ptr, ptr %output_cur, align 8
-  %add.ptr54 = getelementptr inbounds i8, ptr %29, i64 3
+  %add.ptr54 = getelementptr inbounds nuw i8, ptr %29, i64 3
   store ptr %add.ptr54, ptr %output_cur, align 8
   %30 = load ptr, ptr %ctx, align 8
-  %add.ptr56 = getelementptr inbounds i8, ptr %30, i64 4
+  %add.ptr56 = getelementptr inbounds nuw i8, ptr %30, i64 4
   store ptr %add.ptr56, ptr %ctx, align 8
   %31 = load ptr, ptr %input_end, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %30, i64 8
+  %add.ptr = getelementptr inbounds nuw i8, ptr %30, i64 8
   %cmp4.not = icmp ult ptr %31, %add.ptr
   br i1 %cmp4.not, label %while.end, label %land.rhs, !llvm.loop !6
 
@@ -212,17 +215,17 @@ while.end:                                        ; preds = %if.end11, %land.rhs
   br i1 %cmp59, label %if.then60, label %if.else142
 
 if.then60:                                        ; preds = %while.end
-  %arrayidx62 = getelementptr inbounds i8, ptr %33, i64 3
+  %arrayidx62 = getelementptr inbounds nuw i8, ptr %33, i64 3
   %34 = load i8, ptr %arrayidx62, align 1
   %cmp64 = icmp eq i8 %34, 61
   br i1 %cmp64, label %if.then65, label %return
 
 if.then65:                                        ; preds = %if.then60
-  %arrayidx67 = getelementptr inbounds i8, ptr %33, i64 2
+  %arrayidx67 = getelementptr inbounds nuw i8, ptr %33, i64 2
   %35 = load i8, ptr %arrayidx67, align 1
   %cmp69 = icmp ne i8 %35, 61
   %.pre87 = load ptr, ptr %output_end, align 8
-  %add.ptr72 = getelementptr inbounds i8, ptr %32, i64 1
+  %add.ptr72 = getelementptr inbounds nuw i8, ptr %32, i64 1
   %cmp73.not = icmp ult ptr %.pre87, %add.ptr72
   %or.cond90 = select i1 %cmp69, i1 true, i1 %cmp73.not
   br i1 %or.cond90, label %if.else, label %if.then74
@@ -235,27 +238,27 @@ if.end78:                                         ; preds = %if.then74
   %36 = load ptr, ptr %ctx, align 8
   %37 = load i8, ptr %36, align 1
   %idxprom81 = zext i8 %37 to i64
-  %arrayidx82 = getelementptr inbounds [256 x i8], ptr @_ZL12decode_table, i64 0, i64 %idxprom81
+  %arrayidx82 = getelementptr inbounds nuw [256 x i8], ptr @_ZL12decode_table, i64 0, i64 %idxprom81
   %38 = load i8, ptr %arrayidx82, align 1
   %shl84 = shl i8 %38, 2
-  %arrayidx86 = getelementptr inbounds i8, ptr %36, i64 1
+  %arrayidx86 = getelementptr inbounds nuw i8, ptr %36, i64 1
   %39 = load i8, ptr %arrayidx86, align 1
   %idxprom87 = zext i8 %39 to i64
-  %arrayidx88 = getelementptr inbounds [256 x i8], ptr @_ZL12decode_table, i64 0, i64 %idxprom87
+  %arrayidx88 = getelementptr inbounds nuw [256 x i8], ptr @_ZL12decode_table, i64 0, i64 %idxprom87
   %40 = load i8, ptr %arrayidx88, align 1
   %41 = lshr i8 %40, 4
   %or91 = or i8 %41, %shl84
   %42 = load ptr, ptr %output_cur, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %42, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %42, i64 1
   store ptr %incdec.ptr, ptr %output_cur, align 8
   store i8 %or91, ptr %42, align 1
   %43 = load ptr, ptr %ctx, align 8
-  %add.ptr95 = getelementptr inbounds i8, ptr %43, i64 4
+  %add.ptr95 = getelementptr inbounds nuw i8, ptr %43, i64 4
   store ptr %add.ptr95, ptr %ctx, align 8
   br label %return
 
 if.else:                                          ; preds = %if.then65
-  %add.ptr98 = getelementptr inbounds i8, ptr %32, i64 2
+  %add.ptr98 = getelementptr inbounds nuw i8, ptr %32, i64 2
   %cmp99.not = icmp ult ptr %.pre87, %add.ptr98
   br i1 %cmp99.not, label %return, label %if.then100
 
@@ -267,45 +270,45 @@ if.end104:                                        ; preds = %if.then100
   %44 = load ptr, ptr %ctx, align 8
   %45 = load i8, ptr %44, align 1
   %idxprom107 = zext i8 %45 to i64
-  %arrayidx108 = getelementptr inbounds [256 x i8], ptr @_ZL12decode_table, i64 0, i64 %idxprom107
+  %arrayidx108 = getelementptr inbounds nuw [256 x i8], ptr @_ZL12decode_table, i64 0, i64 %idxprom107
   %46 = load i8, ptr %arrayidx108, align 1
   %shl110 = shl i8 %46, 2
-  %arrayidx112 = getelementptr inbounds i8, ptr %44, i64 1
+  %arrayidx112 = getelementptr inbounds nuw i8, ptr %44, i64 1
   %47 = load i8, ptr %arrayidx112, align 1
   %idxprom113 = zext i8 %47 to i64
-  %arrayidx114 = getelementptr inbounds [256 x i8], ptr @_ZL12decode_table, i64 0, i64 %idxprom113
+  %arrayidx114 = getelementptr inbounds nuw [256 x i8], ptr @_ZL12decode_table, i64 0, i64 %idxprom113
   %48 = load i8, ptr %arrayidx114, align 1
   %49 = lshr i8 %48, 4
   %or117 = or i8 %49, %shl110
   %50 = load ptr, ptr %output_cur, align 8
-  %incdec.ptr120 = getelementptr inbounds i8, ptr %50, i64 1
+  %incdec.ptr120 = getelementptr inbounds nuw i8, ptr %50, i64 1
   store ptr %incdec.ptr120, ptr %output_cur, align 8
   store i8 %or117, ptr %50, align 1
   %51 = load ptr, ptr %ctx, align 8
-  %arrayidx122 = getelementptr inbounds i8, ptr %51, i64 1
+  %arrayidx122 = getelementptr inbounds nuw i8, ptr %51, i64 1
   %52 = load i8, ptr %arrayidx122, align 1
   %idxprom123 = zext i8 %52 to i64
-  %arrayidx124 = getelementptr inbounds [256 x i8], ptr @_ZL12decode_table, i64 0, i64 %idxprom123
+  %arrayidx124 = getelementptr inbounds nuw [256 x i8], ptr @_ZL12decode_table, i64 0, i64 %idxprom123
   %53 = load i8, ptr %arrayidx124, align 1
   %shl126 = shl i8 %53, 4
-  %arrayidx128 = getelementptr inbounds i8, ptr %51, i64 2
+  %arrayidx128 = getelementptr inbounds nuw i8, ptr %51, i64 2
   %54 = load i8, ptr %arrayidx128, align 1
   %idxprom129 = zext i8 %54 to i64
-  %arrayidx130 = getelementptr inbounds [256 x i8], ptr @_ZL12decode_table, i64 0, i64 %idxprom129
+  %arrayidx130 = getelementptr inbounds nuw [256 x i8], ptr @_ZL12decode_table, i64 0, i64 %idxprom129
   %55 = load i8, ptr %arrayidx130, align 1
   %56 = lshr i8 %55, 2
   %or133 = or i8 %56, %shl126
   %57 = load ptr, ptr %output_cur, align 8
-  %incdec.ptr136 = getelementptr inbounds i8, ptr %57, i64 1
+  %incdec.ptr136 = getelementptr inbounds nuw i8, ptr %57, i64 1
   store ptr %incdec.ptr136, ptr %output_cur, align 8
   store i8 %or133, ptr %57, align 1
   %58 = load ptr, ptr %ctx, align 8
-  %add.ptr138 = getelementptr inbounds i8, ptr %58, i64 4
+  %add.ptr138 = getelementptr inbounds nuw i8, ptr %58, i64 4
   store ptr %add.ptr138, ptr %ctx, align 8
   br label %return
 
 if.else142:                                       ; preds = %while.end
-  %contains_tail = getelementptr inbounds i8, ptr %ctx, i64 32
+  %contains_tail = getelementptr inbounds nuw i8, ptr %ctx, i64 32
   %59 = load i8, ptr %contains_tail, align 8
   %tobool = trunc i8 %59 to i1
   %cmp144 = icmp ugt i64 %sub.ptr.sub, 1
@@ -317,7 +320,7 @@ if.then145:                                       ; preds = %if.else142
   %arrayidx148 = getelementptr inbounds [4 x i8], ptr @_ZL9tail_xtra, i64 0, i64 %sub.ptr.sub
   %61 = load i8, ptr %arrayidx148, align 1
   %idx.ext = zext i8 %61 to i64
-  %add.ptr150 = getelementptr inbounds i8, ptr %32, i64 %idx.ext
+  %add.ptr150 = getelementptr inbounds nuw i8, ptr %32, i64 %idx.ext
   %cmp151.not = icmp ult ptr %60, %add.ptr150
   br i1 %cmp151.not, label %return, label %for.body.i59
 
@@ -331,7 +334,7 @@ for.body.i59:                                     ; preds = %if.then145, %for.co
   %arrayidx.i61 = getelementptr inbounds i8, ptr %33, i64 %i.07.i60
   %62 = load i8, ptr %arrayidx.i61, align 1
   %idxprom.i62 = zext i8 %62 to i64
-  %arrayidx1.i63 = getelementptr inbounds [256 x i8], ptr @_ZL12decode_table, i64 0, i64 %idxprom.i62
+  %arrayidx1.i63 = getelementptr inbounds nuw [256 x i8], ptr @_ZL12decode_table, i64 0, i64 %idxprom.i62
   %63 = load i8, ptr %arrayidx1.i63, align 1
   %cmp2.not.i64 = icmp ult i8 %63, 64
   br i1 %cmp2.not.i64, label %for.cond.i68, label %_ZL14input_is_validPKhm.exit71
@@ -349,20 +352,20 @@ if.end156:                                        ; preds = %for.cond.i68
   ]
 
 sw.bb:                                            ; preds = %if.end156
-  %arrayidx158 = getelementptr inbounds i8, ptr %33, i64 1
+  %arrayidx158 = getelementptr inbounds nuw i8, ptr %33, i64 1
   %65 = load i8, ptr %arrayidx158, align 1
   %idxprom159 = zext i8 %65 to i64
-  %arrayidx160 = getelementptr inbounds [256 x i8], ptr @_ZL12decode_table, i64 0, i64 %idxprom159
+  %arrayidx160 = getelementptr inbounds nuw [256 x i8], ptr @_ZL12decode_table, i64 0, i64 %idxprom159
   %66 = load i8, ptr %arrayidx160, align 1
   %shl162 = shl i8 %66, 4
-  %arrayidx164 = getelementptr inbounds i8, ptr %33, i64 2
+  %arrayidx164 = getelementptr inbounds nuw i8, ptr %33, i64 2
   %67 = load i8, ptr %arrayidx164, align 1
   %idxprom165 = zext i8 %67 to i64
-  %arrayidx166 = getelementptr inbounds [256 x i8], ptr @_ZL12decode_table, i64 0, i64 %idxprom165
+  %arrayidx166 = getelementptr inbounds nuw [256 x i8], ptr @_ZL12decode_table, i64 0, i64 %idxprom165
   %68 = load i8, ptr %arrayidx166, align 1
   %69 = lshr i8 %68, 2
   %or169 = or i8 %69, %shl162
-  %arrayidx172 = getelementptr inbounds i8, ptr %32, i64 1
+  %arrayidx172 = getelementptr inbounds nuw i8, ptr %32, i64 1
   store i8 %or169, ptr %arrayidx172, align 1
   %.pre = load ptr, ptr %ctx, align 8
   %.pre84 = load ptr, ptr %output_cur, align 8
@@ -373,13 +376,13 @@ sw.bb173:                                         ; preds = %sw.bb, %if.end156
   %71 = phi ptr [ %.pre, %sw.bb ], [ %33, %if.end156 ]
   %72 = load i8, ptr %71, align 1
   %idxprom176 = zext i8 %72 to i64
-  %arrayidx177 = getelementptr inbounds [256 x i8], ptr @_ZL12decode_table, i64 0, i64 %idxprom176
+  %arrayidx177 = getelementptr inbounds nuw [256 x i8], ptr @_ZL12decode_table, i64 0, i64 %idxprom176
   %73 = load i8, ptr %arrayidx177, align 1
   %shl179 = shl i8 %73, 2
-  %arrayidx181 = getelementptr inbounds i8, ptr %71, i64 1
+  %arrayidx181 = getelementptr inbounds nuw i8, ptr %71, i64 1
   %74 = load i8, ptr %arrayidx181, align 1
   %idxprom182 = zext i8 %74 to i64
-  %arrayidx183 = getelementptr inbounds [256 x i8], ptr @_ZL12decode_table, i64 0, i64 %idxprom182
+  %arrayidx183 = getelementptr inbounds nuw [256 x i8], ptr @_ZL12decode_table, i64 0, i64 %idxprom182
   %75 = load i8, ptr %arrayidx183, align 1
   %76 = lshr i8 %75, 4
   %or186 = or i8 %76, %shl179
@@ -391,7 +394,7 @@ sw.bb173:                                         ; preds = %sw.bb, %if.end156
 sw.epilog:                                        ; preds = %sw.bb173, %if.end156
   %77 = phi ptr [ %.pre86, %sw.bb173 ], [ %33, %if.end156 ]
   %78 = phi ptr [ %.pre85, %sw.bb173 ], [ %32, %if.end156 ]
-  %add.ptr194 = getelementptr inbounds i8, ptr %78, i64 %idx.ext
+  %add.ptr194 = getelementptr inbounds nuw i8, ptr %78, i64 %idx.ext
   store ptr %add.ptr194, ptr %output_cur, align 8
   %add.ptr196 = getelementptr inbounds i8, ptr %77, i64 %sub.ptr.sub
   store ptr %add.ptr196, ptr %ctx, align 8
@@ -418,7 +421,7 @@ for.body:                                         ; preds = %entry, %for.cond
   %arrayidx = getelementptr inbounds i8, ptr %input_ptr, i64 %i.07
   %0 = load i8, ptr %arrayidx, align 1
   %idxprom = zext i8 %0 to i64
-  %arrayidx1 = getelementptr inbounds [256 x i8], ptr @_ZL12decode_table, i64 0, i64 %idxprom
+  %arrayidx1 = getelementptr inbounds nuw [256 x i8], ptr @_ZL12decode_table, i64 0, i64 %idxprom
   %1 = load i8, ptr %arrayidx1, align 1
   %cmp2.not = icmp ult i8 %1, 64
   br i1 %cmp2.not, label %for.cond, label %if.then
@@ -442,7 +445,7 @@ entry:
   %ref.tmp = alloca %struct.grpc_slice, align 8
   %0 = load ptr, ptr %input, align 8
   %tobool.not = icmp eq ptr %0, null
-  %data = getelementptr inbounds i8, ptr %input, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %input, i64 8
   %1 = load i64, ptr %data, align 8
   %conv = and i64 %1, 255
   %cond = select i1 %tobool.not, i64 %conv, i64 %1
@@ -463,9 +466,9 @@ if.end:                                           ; preds = %entry
   br i1 %cmp5.not, label %if.end37, label %if.then6
 
 if.then6:                                         ; preds = %if.end
-  %bytes = getelementptr inbounds i8, ptr %input, i64 16
+  %bytes = getelementptr inbounds nuw i8, ptr %input, i64 16
   %2 = load ptr, ptr %bytes, align 8
-  %bytes13 = getelementptr inbounds i8, ptr %input, i64 9
+  %bytes13 = getelementptr inbounds nuw i8, ptr %input, i64 9
   %cond15 = select i1 %tobool.not, ptr %bytes13, ptr %2
   %add.ptr = getelementptr inbounds i8, ptr %cond15, i64 %cond
   %incdec.ptr = getelementptr inbounds i8, ptr %add.ptr, i64 -1
@@ -487,33 +490,33 @@ if.end37:                                         ; preds = %if.then29, %if.then
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %output, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i64 32, i1 false)
   %5 = load ptr, ptr %input, align 8
   %tobool39.not = icmp eq ptr %5, null
-  %bytes42 = getelementptr inbounds i8, ptr %input, i64 16
+  %bytes42 = getelementptr inbounds nuw i8, ptr %input, i64 16
   %6 = load ptr, ptr %bytes42, align 8
-  %bytes45 = getelementptr inbounds i8, ptr %input, i64 9
+  %bytes45 = getelementptr inbounds nuw i8, ptr %input, i64 9
   %cond48 = select i1 %tobool39.not, ptr %bytes45, ptr %6
   store ptr %cond48, ptr %ctx, align 8
   %7 = load i64, ptr %data, align 8
   %conv68 = and i64 %7, 255
   %cond70 = select i1 %tobool39.not, i64 %conv68, i64 %7
   %add.ptr71 = getelementptr inbounds i8, ptr %cond48, i64 %cond70
-  %input_end72 = getelementptr inbounds i8, ptr %ctx, i64 8
+  %input_end72 = getelementptr inbounds nuw i8, ptr %ctx, i64 8
   store ptr %add.ptr71, ptr %input_end72, align 8
   %8 = load ptr, ptr %output, align 8
   %tobool74.not = icmp eq ptr %8, null
-  %data76 = getelementptr inbounds i8, ptr %output, i64 8
-  %bytes77 = getelementptr inbounds i8, ptr %output, i64 16
+  %data76 = getelementptr inbounds nuw i8, ptr %output, i64 8
+  %bytes77 = getelementptr inbounds nuw i8, ptr %output, i64 16
   %9 = load ptr, ptr %bytes77, align 8
-  %bytes80 = getelementptr inbounds i8, ptr %output, i64 9
+  %bytes80 = getelementptr inbounds nuw i8, ptr %output, i64 9
   %cond83 = select i1 %tobool74.not, ptr %bytes80, ptr %9
-  %output_cur = getelementptr inbounds i8, ptr %ctx, i64 16
+  %output_cur = getelementptr inbounds nuw i8, ptr %ctx, i64 16
   store ptr %cond83, ptr %output_cur, align 8
   %10 = load i64, ptr %data76, align 8
   %conv103 = and i64 %10, 255
   %cond105 = select i1 %tobool74.not, i64 %conv103, i64 %10
   %add.ptr106 = getelementptr inbounds i8, ptr %cond83, i64 %cond105
-  %output_end = getelementptr inbounds i8, ptr %ctx, i64 24
+  %output_end = getelementptr inbounds nuw i8, ptr %ctx, i64 24
   store ptr %add.ptr106, ptr %output_end, align 8
-  %contains_tail = getelementptr inbounds i8, ptr %ctx, i64 32
+  %contains_tail = getelementptr inbounds nuw i8, ptr %ctx, i64 32
   store i8 0, ptr %contains_tail, align 8
   %call = call noundef zeroext i1 @_Z26grpc_base64_decode_partialP26grpc_base64_decode_context(ptr noundef nonnull %ctx)
   br i1 %call, label %do.body, label %if.then108
@@ -532,7 +535,7 @@ if.then.i:                                        ; preds = %if.then108
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit
 
 if.then.i.i:                                      ; preds = %if.then.i
-  %destroyer_fn_.i.i = getelementptr inbounds i8, ptr %11, i64 8
+  %destroyer_fn_.i.i = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %destroyer_fn_.i.i, align 8
   call void %13(ptr noundef nonnull align 8 dereferenceable(16) %11)
   br label %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit
@@ -604,7 +607,7 @@ entry:
   %ctx = alloca %struct.grpc_base64_decode_context, align 8
   %0 = load ptr, ptr %input, align 8
   %tobool.not = icmp eq ptr %0, null
-  %data = getelementptr inbounds i8, ptr %input, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %input, i64 8
   %1 = load i64, ptr %data, align 8
   %conv = and i64 %1, 255
   %cond = select i1 %tobool.not, i64 %conv, i64 %1
@@ -626,7 +629,7 @@ if.then.i:                                        ; preds = %if.then
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit
 
 if.then.i.i:                                      ; preds = %if.then.i
-  %destroyer_fn_.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %destroyer_fn_.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load ptr, ptr %destroyer_fn_.i.i, align 8
   call void %4(ptr noundef nonnull align 8 dereferenceable(16) %2)
   br label %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit
@@ -638,7 +641,7 @@ _ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit: ; preds = %if
 if.end:                                           ; preds = %entry
   %div27 = lshr i64 %cond, 2
   %mul = mul nuw i64 %div27, 3
-  %arrayidx = getelementptr inbounds [4 x i8], ptr @_ZL9tail_xtra, i64 0, i64 %rem
+  %arrayidx = getelementptr inbounds nuw [4 x i8], ptr @_ZL9tail_xtra, i64 0, i64 %rem
   %5 = load i8, ptr %arrayidx, align 1
   %conv6 = zext i8 %5 to i64
   %add = add nuw i64 %mul, %conv6
@@ -659,7 +662,7 @@ if.then.i29:                                      ; preds = %if.then9
   br i1 %cmp.i.i30, label %if.then.i.i31, label %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit33
 
 if.then.i.i31:                                    ; preds = %if.then.i29
-  %destroyer_fn_.i.i32 = getelementptr inbounds i8, ptr %6, i64 8
+  %destroyer_fn_.i.i32 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %destroyer_fn_.i.i32, align 8
   call void %8(ptr noundef nonnull align 8 dereferenceable(16) %6)
   br label %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit33
@@ -671,33 +674,33 @@ _ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit33: ; preds = %
 if.end19:                                         ; preds = %if.end
   %9 = load ptr, ptr %input, align 8
   %tobool21.not = icmp eq ptr %9, null
-  %bytes = getelementptr inbounds i8, ptr %input, i64 16
+  %bytes = getelementptr inbounds nuw i8, ptr %input, i64 16
   %10 = load ptr, ptr %bytes, align 8
-  %bytes26 = getelementptr inbounds i8, ptr %input, i64 9
+  %bytes26 = getelementptr inbounds nuw i8, ptr %input, i64 9
   %cond28 = select i1 %tobool21.not, ptr %bytes26, ptr %10
   store ptr %cond28, ptr %ctx, align 8
   %11 = load i64, ptr %data, align 8
   %conv48 = and i64 %11, 255
   %cond50 = select i1 %tobool21.not, i64 %conv48, i64 %11
   %add.ptr = getelementptr inbounds i8, ptr %cond28, i64 %cond50
-  %input_end = getelementptr inbounds i8, ptr %ctx, i64 8
+  %input_end = getelementptr inbounds nuw i8, ptr %ctx, i64 8
   store ptr %add.ptr, ptr %input_end, align 8
   %12 = load ptr, ptr %output, align 8
   %tobool52.not = icmp eq ptr %12, null
-  %data54 = getelementptr inbounds i8, ptr %output, i64 8
-  %bytes55 = getelementptr inbounds i8, ptr %output, i64 16
+  %data54 = getelementptr inbounds nuw i8, ptr %output, i64 8
+  %bytes55 = getelementptr inbounds nuw i8, ptr %output, i64 16
   %13 = load ptr, ptr %bytes55, align 8
-  %bytes58 = getelementptr inbounds i8, ptr %output, i64 9
+  %bytes58 = getelementptr inbounds nuw i8, ptr %output, i64 9
   %cond61 = select i1 %tobool52.not, ptr %bytes58, ptr %13
-  %output_cur = getelementptr inbounds i8, ptr %ctx, i64 16
+  %output_cur = getelementptr inbounds nuw i8, ptr %ctx, i64 16
   store ptr %cond61, ptr %output_cur, align 8
   %14 = load i64, ptr %data54, align 8
   %conv81 = and i64 %14, 255
   %cond83 = select i1 %tobool52.not, i64 %conv81, i64 %14
   %add.ptr84 = getelementptr inbounds i8, ptr %cond61, i64 %cond83
-  %output_end = getelementptr inbounds i8, ptr %ctx, i64 24
+  %output_end = getelementptr inbounds nuw i8, ptr %ctx, i64 24
   store ptr %add.ptr84, ptr %output_end, align 8
-  %contains_tail = getelementptr inbounds i8, ptr %ctx, i64 32
+  %contains_tail = getelementptr inbounds nuw i8, ptr %ctx, i64 32
   store i8 1, ptr %contains_tail, align 8
   %call = call noundef zeroext i1 @_Z26grpc_base64_decode_partialP26grpc_base64_decode_context(ptr noundef nonnull %ctx)
   br i1 %call, label %do.body, label %if.then86
@@ -716,7 +719,7 @@ if.then.i35:                                      ; preds = %if.then86
   br i1 %cmp.i.i36, label %if.then.i.i37, label %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit39
 
 if.then.i.i37:                                    ; preds = %if.then.i35
-  %destroyer_fn_.i.i38 = getelementptr inbounds i8, ptr %15, i64 8
+  %destroyer_fn_.i.i38 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %destroyer_fn_.i.i38, align 8
   call void %17(ptr noundef nonnull align 8 dereferenceable(16) %15)
   br label %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit39

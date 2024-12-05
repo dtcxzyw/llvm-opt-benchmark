@@ -42,7 +42,7 @@ define void @Rwr_ManWriteToArray(ptr nocapture noundef readonly %0) local_unname
 8:                                                ; preds = %1
   %9 = load i64, ptr %3, align 8
   %.neg30 = mul i64 %9, -1000000
-  %10 = getelementptr inbounds i8, ptr %3, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %11 = load i64, ptr %10, align 8
   %.neg = sdiv i64 %11, -1000
   %.neg31 = add i64 %.neg, %.neg30
@@ -51,9 +51,9 @@ define void @Rwr_ManWriteToArray(ptr nocapture noundef readonly %0) local_unname
 Abc_Clock.exit:                                   ; preds = %1, %8
   %.0.i.neg = phi i64 [ %.neg31, %8 ], [ 1, %1 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  %12 = getelementptr inbounds i8, ptr %0, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %15 = load i32, ptr %14, align 4
   %16 = add i32 %15, -5
   %17 = call noalias ptr @fopen(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1)
@@ -78,12 +78,12 @@ Abc_Clock.exit:                                   ; preds = %1, %8
 
 25:                                               ; preds = %23, %.lr.ph
   %26 = load ptr, ptr %12, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds ptr, ptr %28, i64 %indvars.iv
-  %30 = getelementptr inbounds i8, ptr %29, i64 40
+  %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 40
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 24
   %33 = load ptr, ptr %32, align 8
   %34 = ptrtoint ptr %33 to i64
   %35 = and i64 %34, -2
@@ -94,7 +94,7 @@ Abc_Clock.exit:                                   ; preds = %1, %8
   %40 = and i32 %39, 1
   %41 = or disjoint i32 %40, %38
   store i32 %41, ptr %4, align 4
-  %42 = getelementptr inbounds i8, ptr %31, i64 32
+  %42 = getelementptr inbounds nuw i8, ptr %31, i64 32
   %43 = load ptr, ptr %42, align 8
   %44 = ptrtoint ptr %43 to i64
   %45 = and i64 %44, -2
@@ -105,7 +105,7 @@ Abc_Clock.exit:                                   ; preds = %1, %8
   %50 = and i32 %49, 1
   %51 = or disjoint i32 %50, %48
   store i32 %51, ptr %5, align 4
-  %52 = getelementptr inbounds i8, ptr %31, i64 14
+  %52 = getelementptr inbounds nuw i8, ptr %31, i64 14
   %53 = load i32, ptr %52, align 2
   %54 = call i32 @llvm.fshl.i32(i32 %41, i32 %53, i32 1)
   store i32 %54, ptr %4, align 4
@@ -143,7 +143,7 @@ Abc_Clock.exit:                                   ; preds = %1, %8
 65:                                               ; preds = %59
   %66 = load i64, ptr %2, align 8
   %67 = mul nsw i64 %66, 1000000
-  %68 = getelementptr inbounds i8, ptr %2, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %69 = load i64, ptr %68, align 8
   %70 = sdiv i64 %69, 1000
   %71 = add nsw i64 %70, %67
@@ -217,7 +217,7 @@ define void @Rwr_ManLoadFromArray(ptr noundef %0, i32 noundef %1) local_unnamed_
 7:                                                ; preds = %2
   %8 = load i64, ptr %4, align 8
   %.neg37 = mul i64 %8, -1000000
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load i64, ptr %9, align 8
   %.neg = sdiv i64 %10, -1000
   %.neg38 = add i64 %.neg, %.neg37
@@ -226,7 +226,7 @@ define void @Rwr_ManLoadFromArray(ptr noundef %0, i32 noundef %1) local_unnamed_
 Abc_Clock.exit:                                   ; preds = %2, %7
   %.0.i.neg = phi i64 [ %.neg38, %7 ], [ 1, %2 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  %11 = getelementptr inbounds i8, ptr %0, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
   br label %12
 
 12:                                               ; preds = %Abc_Clock.exit, %12
@@ -238,21 +238,21 @@ Abc_Clock.exit:                                   ; preds = %2, %7
   %17 = and i32 %16, 1
   %18 = lshr i32 %16, 1
   %19 = load ptr, ptr %11, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load ptr, ptr %20, align 8
   %22 = lshr i32 %16, 2
   %23 = zext nneg i32 %22 to i64
-  %24 = getelementptr inbounds ptr, ptr %21, i64 %23
+  %24 = getelementptr inbounds nuw ptr, ptr %21, i64 %23
   %25 = load ptr, ptr %24, align 8
   %26 = lshr i32 %15, 1
   %27 = zext nneg i32 %26 to i64
-  %28 = getelementptr inbounds ptr, ptr %21, i64 %27
+  %28 = getelementptr inbounds nuw ptr, ptr %21, i64 %27
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %25, i64 14
+  %30 = getelementptr inbounds nuw i8, ptr %25, i64 14
   %31 = load i32, ptr %30, align 2
   %32 = lshr i32 %31, 24
   %33 = and i32 %32, 63
-  %34 = getelementptr inbounds i8, ptr %29, i64 14
+  %34 = getelementptr inbounds nuw i8, ptr %29, i64 14
   %35 = load i32, ptr %34, align 2
   %36 = lshr i32 %35, 24
   %37 = and i32 %36, 63
@@ -274,10 +274,10 @@ Abc_Clock.exit:                                   ; preds = %2, %7
   %53 = call ptr @Rwr_ManAddNode(ptr noundef %0, ptr noundef %45, ptr noundef %50, i32 noundef %17, i32 noundef %39, i32 noundef %52) #14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %54 = shl nuw nsw i64 %indvars.iv.next, 1
-  %55 = getelementptr inbounds i16, ptr @s_RwtAigSubgraphs, i64 %54
+  %55 = getelementptr inbounds nuw i16, ptr @s_RwtAigSubgraphs, i64 %54
   %56 = load i16, ptr %55, align 4
   %57 = or disjoint i64 %54, 1
-  %58 = getelementptr inbounds i16, ptr @s_RwtAigSubgraphs, i64 %57
+  %58 = getelementptr inbounds nuw i16, ptr @s_RwtAigSubgraphs, i64 %57
   %59 = load i16, ptr %58, align 2
   %60 = icmp eq i16 %56, 0
   %61 = icmp eq i16 %59, 0
@@ -290,9 +290,9 @@ Abc_Clock.exit:                                   ; preds = %2, %7
 
 63:                                               ; preds = %62
   %64 = trunc nuw nsw i64 %indvars.iv to i32
-  %65 = getelementptr inbounds i8, ptr %0, i64 108
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %66 = load i32, ptr %65, align 4
-  %67 = getelementptr inbounds i8, ptr %0, i64 104
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %68 = load i32, ptr %67, align 8
   %69 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, i32 noundef %66, i32 noundef %68)
   %70 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12, i32 noundef %64)
@@ -305,7 +305,7 @@ Abc_Clock.exit:                                   ; preds = %2, %7
 73:                                               ; preds = %63
   %74 = load i64, ptr %3, align 8
   %75 = mul nsw i64 %74, 1000000
-  %76 = getelementptr inbounds i8, ptr %3, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %77 = load i64, ptr %76, align 8
   %78 = sdiv i64 %77, 1000
   %79 = add nsw i64 %78, %75
@@ -341,7 +341,7 @@ define void @Rwr_ManWriteToFile(ptr nocapture noundef readonly %0, ptr nocapture
 8:                                                ; preds = %2
   %9 = load i64, ptr %4, align 8
   %.neg28 = mul i64 %9, -1000000
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %11 = load i64, ptr %10, align 8
   %.neg = sdiv i64 %11, -1000
   %.neg29 = add i64 %.neg, %.neg28
@@ -350,9 +350,9 @@ define void @Rwr_ManWriteToFile(ptr nocapture noundef readonly %0, ptr nocapture
 Abc_Clock.exit:                                   ; preds = %2, %8
   %.0.i.neg = phi i64 [ %.neg29, %8 ], [ 1, %2 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  %12 = getelementptr inbounds i8, ptr %0, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %15 = load i32, ptr %14, align 4
   %16 = add nsw i32 %15, -5
   store i32 %16, ptr %5, align 4
@@ -364,17 +364,17 @@ Abc_Clock.exit:                                   ; preds = %2, %8
   br i1 %21, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %Abc_Clock.exit
-  %22 = getelementptr inbounds i8, ptr %13, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %23 = load ptr, ptr %22, align 8
-  %invariant.gep = getelementptr inbounds i8, ptr %23, i64 40
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %23, i64 40
   %wide.trip.count = zext nneg i32 %16 to i64
   br label %24
 
 24:                                               ; preds = %.lr.ph, %24
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %24 ]
-  %gep = getelementptr inbounds ptr, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw ptr, ptr %invariant.gep, i64 %indvars.iv
   %25 = load ptr, ptr %gep, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %27 = load ptr, ptr %26, align 8
   %28 = ptrtoint ptr %27 to i64
   %29 = and i64 %28, -2
@@ -385,8 +385,8 @@ Abc_Clock.exit:                                   ; preds = %2, %8
   %34 = and i32 %33, 1
   %35 = or disjoint i32 %34, %32
   %36 = shl nuw nsw i64 %indvars.iv, 1
-  %37 = getelementptr inbounds i32, ptr %20, i64 %36
-  %38 = getelementptr inbounds i8, ptr %25, i64 32
+  %37 = getelementptr inbounds nuw i32, ptr %20, i64 %36
+  %38 = getelementptr inbounds nuw i8, ptr %25, i64 32
   %39 = load ptr, ptr %38, align 8
   %40 = ptrtoint ptr %39 to i64
   %41 = and i64 %40, -2
@@ -397,9 +397,9 @@ Abc_Clock.exit:                                   ; preds = %2, %8
   %46 = and i32 %45, 1
   %47 = or disjoint i32 %46, %44
   %48 = or disjoint i64 %36, 1
-  %49 = getelementptr inbounds i32, ptr %20, i64 %48
+  %49 = getelementptr inbounds nuw i32, ptr %20, i64 %48
   store i32 %47, ptr %49, align 4
-  %50 = getelementptr inbounds i8, ptr %25, i64 14
+  %50 = getelementptr inbounds nuw i8, ptr %25, i64 14
   %51 = load i32, ptr %50, align 2
   %52 = call i32 @llvm.fshl.i32(i32 %35, i32 %51, i32 1)
   store i32 %52, ptr %37, align 4
@@ -433,7 +433,7 @@ Abc_Clock.exit:                                   ; preds = %2, %8
 65:                                               ; preds = %60
   %66 = load i64, ptr %3, align 8
   %67 = mul nsw i64 %66, 1000000
-  %68 = getelementptr inbounds i8, ptr %3, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %69 = load i64, ptr %68, align 8
   %70 = sdiv i64 %69, 1000
   %71 = add nsw i64 %70, %67
@@ -471,7 +471,7 @@ define void @Rwr_ManLoadFromFile(ptr noundef %0, ptr noundef %1) local_unnamed_a
 8:                                                ; preds = %2
   %9 = load i64, ptr %4, align 8
   %.neg47 = mul i64 %9, -1000000
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %11 = load i64, ptr %10, align 8
   %.neg = sdiv i64 %11, -1000
   %.neg48 = add i64 %.neg, %.neg47
@@ -501,37 +501,37 @@ Abc_Clock.exit:                                   ; preds = %2, %8
   br i1 %25, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %16
-  %26 = getelementptr inbounds i8, ptr %0, i64 64
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %wide.trip.count = zext nneg i32 %18 to i64
   br label %27
 
 27:                                               ; preds = %.lr.ph, %27
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %27 ]
   %28 = shl nuw nsw i64 %indvars.iv, 1
-  %29 = getelementptr inbounds i32, ptr %22, i64 %28
+  %29 = getelementptr inbounds nuw i32, ptr %22, i64 %28
   %30 = load i32, ptr %29, align 4
   %31 = and i32 %30, 1
   %32 = lshr i32 %30, 1
   store i32 %32, ptr %29, align 4
   %33 = load ptr, ptr %26, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %35 = load ptr, ptr %34, align 8
   %36 = lshr i32 %30, 2
   %37 = zext nneg i32 %36 to i64
-  %38 = getelementptr inbounds ptr, ptr %35, i64 %37
+  %38 = getelementptr inbounds nuw ptr, ptr %35, i64 %37
   %39 = load ptr, ptr %38, align 8
   %40 = or disjoint i64 %28, 1
-  %41 = getelementptr inbounds i32, ptr %22, i64 %40
+  %41 = getelementptr inbounds nuw i32, ptr %22, i64 %40
   %42 = load i32, ptr %41, align 4
   %43 = lshr i32 %42, 1
   %44 = zext nneg i32 %43 to i64
-  %45 = getelementptr inbounds ptr, ptr %35, i64 %44
+  %45 = getelementptr inbounds nuw ptr, ptr %35, i64 %44
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %39, i64 14
+  %47 = getelementptr inbounds nuw i8, ptr %39, i64 14
   %48 = load i32, ptr %47, align 2
   %49 = lshr i32 %48, 24
   %50 = and i32 %49, 63
-  %51 = getelementptr inbounds i8, ptr %46, i64 14
+  %51 = getelementptr inbounds nuw i8, ptr %46, i64 14
   %52 = load i32, ptr %51, align 2
   %53 = lshr i32 %52, 24
   %54 = and i32 %53, 63
@@ -564,9 +564,9 @@ Abc_Clock.exit:                                   ; preds = %2, %8
   br label %71
 
 71:                                               ; preds = %._crit_edge, %._crit_edge.thread
-  %72 = getelementptr inbounds i8, ptr %0, i64 108
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %73 = load i32, ptr %72, align 4
-  %74 = getelementptr inbounds i8, ptr %0, i64 104
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %75 = load i32, ptr %74, align 8
   %76 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, i32 noundef %73, i32 noundef %75)
   %77 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, i32 noundef %18)
@@ -579,7 +579,7 @@ Abc_Clock.exit:                                   ; preds = %2, %8
 80:                                               ; preds = %71
   %81 = load i64, ptr %3, align 8
   %82 = mul nsw i64 %81, 1000000
-  %83 = getelementptr inbounds i8, ptr %3, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %84 = load i64, ptr %83, align 8
   %85 = sdiv i64 %84, 1000
   %86 = add nsw i64 %85, %82
@@ -609,7 +609,7 @@ define void @Rwr_ListAddToTail(ptr nocapture noundef %0, ptr noundef %1) local_u
   %.06 = phi ptr [ %0, %2 ], [ %4, %3 ]
   %.0 = load ptr, ptr %.06, align 8
   %.not = icmp eq ptr %.0, null
-  %4 = getelementptr inbounds i8, ptr %.0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %.0, i64 40
   br i1 %.not, label %5, label %3, !llvm.loop !8
 
 5:                                                ; preds = %3
@@ -627,10 +627,10 @@ define noalias noundef ptr @Rwr_ManGetPractical(ptr nocapture noundef readonly %
 
 4:                                                ; preds = %1, %4
   %indvars.iv = phi i64 [ 1, %1 ], [ %indvars.iv.next, %4 ]
-  %5 = getelementptr inbounds [136 x i16], ptr @s_RwrPracticalClasses, i64 0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [136 x i16], ptr @s_RwrPracticalClasses, i64 0, i64 %indvars.iv
   %6 = load i16, ptr %5, align 2
   %7 = zext i16 %6 to i64
-  %8 = getelementptr inbounds i8, ptr %calloc, i64 %7
+  %8 = getelementptr inbounds nuw i8, ptr %calloc, i64 %7
   store i8 1, ptr %8, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %9 = icmp eq i64 %indvars.iv.next, 135

@@ -350,7 +350,7 @@ invoke.cont156.i:                                 ; preds = %invoke.cont154.i
 
 for.body.i:                                       ; preds = %for.inc.i, %invoke.cont156.i
   %__begin1.0.idx43.i = phi i64 [ 0, %invoke.cont156.i ], [ %__begin1.0.add.i, %for.inc.i ]
-  %__begin1.0.ptr.i = getelementptr inbounds i8, ptr @_ZN12_GLOBAL__N_112gUnicodeSetsE, i64 %__begin1.0.idx43.i
+  %__begin1.0.ptr.i = getelementptr inbounds nuw i8, ptr @_ZN12_GLOBAL__N_112gUnicodeSetsE, i64 %__begin1.0.idx43.i
   %19 = load ptr, ptr %__begin1.0.ptr.i, align 8
   %cmp158.not.i = icmp eq ptr %19, null
   br i1 %cmp158.not.i, label %for.inc.i, label %if.then159.i
@@ -413,14 +413,14 @@ _ZN12_GLOBAL__N_122initNumberParseUniSetsER10UErrorCode.exit: ; preds = %cleanup
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %ref.tmp103.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %ref.tmp131.i)
   %22 = load i32, ptr %localStatus, align 4
-  store i32 %22, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_127gNumberParseUniSetsInitOnceE, i64 4), align 4
+  store i32 %22, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_127gNumberParseUniSetsInitOnceE, i64 4), align 4
   call void @_ZN6icu_7521umtx_initImplPostInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8) @_ZN12_GLOBAL__N_127gNumberParseUniSetsInitOnceE)
   %.pr.old = load i32, ptr %localStatus, align 4
   %cmp.i.old = icmp slt i32 %.pr.old, 1
   br i1 %cmp.i.old, label %if.end, label %return
 
 if.else.i:                                        ; preds = %land.lhs.true.i, %if.end.i
-  %23 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_127gNumberParseUniSetsInitOnceE, i64 4), align 4
+  %23 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_127gNumberParseUniSetsInitOnceE, i64 4), align 4
   %cmp.i9.i = icmp slt i32 %23, 1
   %.pr = load i32, ptr %localStatus, align 4
   %cmp.i = icmp slt i32 %.pr, 1
@@ -528,7 +528,7 @@ for.body.preheader:                               ; preds = %if.then, %entry
 
 for.body:                                         ; preds = %for.body.preheader, %delete.end
   %indvars.iv = phi i64 [ %indvars.iv.next, %delete.end ], [ 0, %for.body.preheader ]
-  %arrayidx = getelementptr inbounds [24 x ptr], ptr @_ZN12_GLOBAL__N_112gUnicodeSetsE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [24 x ptr], ptr @_ZN12_GLOBAL__N_112gUnicodeSetsE, i64 0, i64 %indvars.iv
   %0 = load ptr, ptr %arrayidx, align 8
   %isnull = icmp eq ptr %0, null
   br i1 %isnull, label %delete.end, label %delete.notnull
@@ -588,13 +588,13 @@ lpad:                                             ; preds = %new.notnull
 
 if.end:                                           ; preds = %new.notnull
   %idxprom.i = zext nneg i32 %k1 to i64
-  %arrayidx.i = getelementptr inbounds [24 x ptr], ptr @_ZN12_GLOBAL__N_112gUnicodeSetsE, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [24 x ptr], ptr @_ZN12_GLOBAL__N_112gUnicodeSetsE, i64 0, i64 %idxprom.i
   %1 = load ptr, ptr %arrayidx.i, align 8
   %cmp.i = icmp eq ptr %1, null
   %_ZN12_GLOBAL__N_116gEmptyUnicodeSetE..i = select i1 %cmp.i, ptr @_ZN12_GLOBAL__N_116gEmptyUnicodeSetE, ptr %1
   %call2 = tail call noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7510UnicodeSet6addAllERKS0_(ptr noundef nonnull align 8 dereferenceable(200) %call, ptr noundef nonnull align 8 dereferenceable(200) %_ZN12_GLOBAL__N_116gEmptyUnicodeSetE..i)
   %idxprom.i6 = zext nneg i32 %k2 to i64
-  %arrayidx.i7 = getelementptr inbounds [24 x ptr], ptr @_ZN12_GLOBAL__N_112gUnicodeSetsE, i64 0, i64 %idxprom.i6
+  %arrayidx.i7 = getelementptr inbounds nuw [24 x ptr], ptr @_ZN12_GLOBAL__N_112gUnicodeSetsE, i64 0, i64 %idxprom.i6
   %2 = load ptr, ptr %arrayidx.i7, align 8
   %cmp.i8 = icmp eq ptr %2, null
   %_ZN12_GLOBAL__N_116gEmptyUnicodeSetE..i9 = select i1 %cmp.i8, ptr @_ZN12_GLOBAL__N_116gEmptyUnicodeSetE, ptr %2
@@ -633,7 +633,7 @@ if.end:                                           ; preds = %new.notnull
   %_ZN12_GLOBAL__N_116gEmptyUnicodeSetE..i = select i1 %cmp.i, ptr @_ZN12_GLOBAL__N_116gEmptyUnicodeSetE, ptr %1
   %call2 = tail call noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7510UnicodeSet6addAllERKS0_(ptr noundef nonnull align 8 dereferenceable(200) %call, ptr noundef nonnull align 8 dereferenceable(200) %_ZN12_GLOBAL__N_116gEmptyUnicodeSetE..i)
   %idxprom.i = zext nneg i32 %k2 to i64
-  %arrayidx.i = getelementptr inbounds [24 x ptr], ptr @_ZN12_GLOBAL__N_112gUnicodeSetsE, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [24 x ptr], ptr @_ZN12_GLOBAL__N_112gUnicodeSetsE, i64 0, i64 %idxprom.i
   %2 = load ptr, ptr %arrayidx.i, align 8
   %cmp.i5 = icmp eq ptr %2, null
   %_ZN12_GLOBAL__N_116gEmptyUnicodeSetE..i6 = select i1 %cmp.i5, ptr @_ZN12_GLOBAL__N_116gEmptyUnicodeSetE, ptr %2
@@ -715,7 +715,7 @@ entry:
   %str = alloca %"class.icu_75::UnicodeString", align 8
   store ptr %key, ptr %key.addr, align 8
   %vtable = load ptr, ptr %value, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 88
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 88
   %1 = load ptr, ptr %vfn, align 8
   call void %1(ptr nonnull sret(%"class.icu_75::ResourceTable") align 8 %contextsTable, ptr noundef nonnull align 8 dereferenceable(8) %value, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %2 = load i32, ptr %status, align 4
@@ -728,9 +728,9 @@ for.cond.preheader:                               ; preds = %entry
   br i1 %tobool3.not159, label %for.end131, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %length.i = getelementptr inbounds i8, ptr %array, i64 16
-  %fUnion.i.i.i = getelementptr inbounds i8, ptr %str, i64 8
-  %fLength.i.i = getelementptr inbounds i8, ptr %str, i64 12
+  %length.i = getelementptr inbounds nuw i8, ptr %array, i64 16
+  %fUnion.i.i.i = getelementptr inbounds nuw i8, ptr %str, i64 8
+  %fLength.i.i = getelementptr inbounds nuw i8, ptr %str, i64 12
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc129
@@ -742,7 +742,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 if.else:                                          ; preds = %for.body
   %vtable6 = load ptr, ptr %value, align 8
-  %vfn7 = getelementptr inbounds i8, ptr %vtable6, i64 88
+  %vfn7 = getelementptr inbounds nuw i8, ptr %vtable6, i64 88
   %4 = load ptr, ptr %vfn7, align 8
   call void %4(ptr nonnull sret(%"class.icu_75::ResourceTable") align 8 %strictnessTable, ptr noundef nonnull align 8 dereferenceable(8) %value, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %5 = load i32, ptr %status, align 4
@@ -760,7 +760,7 @@ for.body15:                                       ; preds = %for.cond12.preheade
   %call16 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(8) @.str.9) #10
   %cmp17 = icmp eq i32 %call16, 0
   %vtable18 = load ptr, ptr %value, align 8
-  %vfn19 = getelementptr inbounds i8, ptr %vtable18, i64 80
+  %vfn19 = getelementptr inbounds nuw i8, ptr %vtable18, i64 80
   %7 = load ptr, ptr %vfn19, align 8
   call void %7(ptr nonnull sret(%"class.icu_75::ResourceArray") align 8 %array, ptr noundef nonnull align 8 dereferenceable(8) %value, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %8 = load i32, ptr %status, align 4
@@ -774,9 +774,9 @@ for.cond24.preheader:                             ; preds = %for.body15
 
 for.body27.lr.ph:                                 ; preds = %for.cond24.preheader
   %cond = select i1 %cmp17, i64 4, i64 6
-  %arrayidx.i = getelementptr inbounds [24 x ptr], ptr @_ZN12_GLOBAL__N_112gUnicodeSetsE, i64 0, i64 %cond
+  %arrayidx.i = getelementptr inbounds nuw [24 x ptr], ptr @_ZN12_GLOBAL__N_112gUnicodeSetsE, i64 0, i64 %cond
   %cond45 = select i1 %cmp17, i64 3, i64 5
-  %arrayidx.i53 = getelementptr inbounds [24 x ptr], ptr @_ZN12_GLOBAL__N_112gUnicodeSetsE, i64 0, i64 %cond45
+  %arrayidx.i53 = getelementptr inbounds nuw [24 x ptr], ptr @_ZN12_GLOBAL__N_112gUnicodeSetsE, i64 0, i64 %cond45
   br label %for.body27
 
 for.body27:                                       ; preds = %for.body27.lr.ph, %for.inc
@@ -786,7 +786,7 @@ for.body27:                                       ; preds = %for.body27.lr.ph, %
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
   store i32 0, ptr %len.i, align 4, !noalias !6
   %vtable.i = load ptr, ptr %value, align 8, !noalias !6
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 32
   %10 = load ptr, ptr %vfn.i, align 8, !noalias !6
   %call.i = call noundef ptr %10(ptr noundef nonnull align 8 dereferenceable(8) %value, ptr noundef nonnull align 4 dereferenceable(4) %len.i, ptr noundef nonnull align 4 dereferenceable(4) %status), !noalias !6
   store ptr %call.i, ptr %agg.tmp.i, align 8, !noalias !6
@@ -920,7 +920,7 @@ lpad.i67:                                         ; preds = %new.notnull.i66
   br label %lpad.body
 
 _ZN12_GLOBAL__N_17saveSetEN6icu_757unisets3KeyERKNS0_13UnicodeStringER10UErrorCode.exit70: ; preds = %if.then51, %new.notnull.i66
-  store ptr %call.i64, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_112gUnicodeSetsE, i64 96), align 16
+  store ptr %call.i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_112gUnicodeSetsE, i64 96), align 16
   br label %if.end119
 
 if.else53:                                        ; preds = %invoke.cont48
@@ -953,7 +953,7 @@ lpad.i81:                                         ; preds = %new.notnull.i80
   br label %lpad.body
 
 _ZN12_GLOBAL__N_17saveSetEN6icu_757unisets3KeyERKNS0_13UnicodeStringER10UErrorCode.exit84: ; preds = %if.then57, %new.notnull.i80
-  store ptr %call.i78, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_112gUnicodeSetsE, i64 88), align 8
+  store ptr %call.i78, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_112gUnicodeSetsE, i64 88), align 8
   br label %if.end119
 
 if.else59:                                        ; preds = %invoke.cont54
@@ -986,7 +986,7 @@ lpad.i95:                                         ; preds = %new.notnull.i94
   br label %lpad.body
 
 _ZN12_GLOBAL__N_17saveSetEN6icu_757unisets3KeyERKNS0_13UnicodeStringER10UErrorCode.exit98: ; preds = %if.then63, %new.notnull.i94
-  store ptr %call.i92, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_112gUnicodeSetsE, i64 128), align 16
+  store ptr %call.i92, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_112gUnicodeSetsE, i64 128), align 16
   br label %if.end119
 
 if.else65:                                        ; preds = %invoke.cont60
@@ -1144,7 +1144,7 @@ new.notnull:                                      ; preds = %entry
 
 new.cont:                                         ; preds = %new.notnull, %entry
   %idxprom = zext nneg i32 %key to i64
-  %arrayidx = getelementptr inbounds [24 x ptr], ptr @_ZN12_GLOBAL__N_112gUnicodeSetsE, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [24 x ptr], ptr @_ZN12_GLOBAL__N_112gUnicodeSetsE, i64 0, i64 %idxprom
   store ptr %call, ptr %arrayidx, align 8
   ret void
 

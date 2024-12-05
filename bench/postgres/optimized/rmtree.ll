@@ -38,25 +38,25 @@ sub_0.lr.ph:                                      ; preds = %7, %.outer
 
 sub_0:                                            ; preds = %sub_0.lr.ph, %23
   %12 = phi ptr [ %11, %sub_0.lr.ph ], [ %24, %23 ]
-  %13 = getelementptr inbounds i8, ptr %12, i64 19
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 19
   %14 = load i8, ptr %13, align 1
   %.not77 = icmp eq i8 %14, 46
   br i1 %.not77, label %.tail, label %.tail47.thread
 
 .tail:                                            ; preds = %sub_0
-  %15 = getelementptr inbounds i8, ptr %12, i64 20
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %16 = load i8, ptr %15, align 1
   %17 = icmp eq i8 %16, 0
   br i1 %17, label %23, label %sub_149
 
 sub_149:                                          ; preds = %.tail
-  %18 = getelementptr inbounds i8, ptr %12, i64 20
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %19 = load i8, ptr %18, align 1
   %.not79 = icmp eq i8 %19, 46
   br i1 %.not79, label %.tail47, label %.tail47.thread
 
 .tail47:                                          ; preds = %sub_149
-  %20 = getelementptr inbounds i8, ptr %12, i64 21
+  %20 = getelementptr inbounds nuw i8, ptr %12, i64 21
   %21 = load i8, ptr %20, align 1
   %22 = icmp eq i8 %21, 0
   br i1 %22, label %23, label %.tail47.thread
@@ -68,7 +68,7 @@ sub_149:                                          ; preds = %.tail
   br i1 %.not, label %.outer._crit_edge, label %sub_0, !llvm.loop !5
 
 .tail47.thread:                                   ; preds = %sub_0, %sub_149, %.tail47
-  %25 = getelementptr inbounds i8, ptr %12, i64 19
+  %25 = getelementptr inbounds nuw i8, ptr %12, i64 19
   %26 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 1024, ptr noundef nonnull @.str.3, ptr noundef %0, ptr noundef nonnull %25) #4
   %27 = call i32 @get_dirent_type(ptr noundef nonnull %3, ptr noundef nonnull %12, i1 noundef zeroext false, i32 noundef 3) #4
   switch i32 %27, label %38 [

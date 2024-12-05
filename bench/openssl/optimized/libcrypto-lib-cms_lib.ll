@@ -45,9 +45,9 @@ cond.end:                                         ; preds = %entry
   br i1 %cmp.not.i, label %ossl_cms_ctx_get0_propq.exit, label %cond.true.i9
 
 cond.true.i9:                                     ; preds = %cond.end
-  %ctx.i = getelementptr inbounds i8, ptr %0, i64 16
+  %ctx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %1 = load ptr, ptr %ctx.i, align 8
-  %propq.i = getelementptr inbounds i8, ptr %0, i64 24
+  %propq.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   %2 = load ptr, ptr %propq.i, align 8
   br label %ossl_cms_ctx_get0_propq.exit
 
@@ -73,7 +73,7 @@ if.end:                                           ; preds = %if.then, %ossl_cms_
 define ptr @ossl_cms_get0_cmsctx(ptr noundef readnone %cms) local_unnamed_addr #2 {
 entry:
   %cmp.not = icmp eq ptr %cms, null
-  %ctx = getelementptr inbounds i8, ptr %cms, i64 16
+  %ctx = getelementptr inbounds nuw i8, ptr %cms, i64 16
   %cond = select i1 %cmp.not, ptr null, ptr %ctx
   ret ptr %cond
 }
@@ -102,7 +102,7 @@ entry:
   br i1 %cmp.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %entry
-  %propq = getelementptr inbounds i8, ptr %ctx, i64 8
+  %propq = getelementptr inbounds nuw i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %propq, align 8
   br label %cond.end
 
@@ -120,9 +120,9 @@ entry:
   br i1 %cmp.not.i, label %ossl_cms_ctx_get0_propq.exit, label %cond.true.i13
 
 cond.true.i13:                                    ; preds = %entry
-  %ctx.i = getelementptr inbounds i8, ptr %ci, i64 16
+  %ctx.i = getelementptr inbounds nuw i8, ptr %ci, i64 16
   %0 = load ptr, ptr %ctx.i, align 8
-  %propq.i = getelementptr inbounds i8, ptr %ci, i64 24
+  %propq.i = getelementptr inbounds nuw i8, ptr %ci, i64 24
   %1 = load ptr, ptr %propq.i, align 8
   br label %ossl_cms_ctx_get0_propq.exit
 
@@ -140,9 +140,9 @@ ossl_cms_ctx_get0_propq.exit:                     ; preds = %entry, %cond.true.i
   ]
 
 cms_get0_certificate_choices.exit.thread24:       ; preds = %ossl_cms_ctx_get0_propq.exit
-  %d.i = getelementptr inbounds i8, ptr %ci, i64 8
+  %d.i = getelementptr inbounds nuw i8, ptr %ci, i64 8
   %3 = load ptr, ptr %d.i, align 8
-  %certificates.i = getelementptr inbounds i8, ptr %3, i64 24
+  %certificates.i = getelementptr inbounds nuw i8, ptr %3, i64 24
   br label %for.cond.preheader
 
 cms_get0_certificate_choices.exit.thread:         ; preds = %ossl_cms_ctx_get0_propq.exit
@@ -152,9 +152,9 @@ cms_get0_certificate_choices.exit.thread:         ; preds = %ossl_cms_ctx_get0_p
   br label %if.end10
 
 cms_get0_certificate_choices.exit:                ; preds = %ossl_cms_ctx_get0_propq.exit, %ossl_cms_ctx_get0_propq.exit
-  %d2.i = getelementptr inbounds i8, ptr %ci, i64 8
+  %d2.i = getelementptr inbounds nuw i8, ptr %ci, i64 8
   %4 = load ptr, ptr %d2.i, align 8
-  %originatorInfo.i = getelementptr inbounds i8, ptr %4, i64 8
+  %originatorInfo.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   %5 = load ptr, ptr %originatorInfo.i, align 8
   %cmp.not = icmp eq ptr %5, null
   br i1 %cmp.not, label %if.end10, label %for.cond.preheader
@@ -175,7 +175,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   br i1 %cmp7, label %if.then8, label %for.inc
 
 if.then8:                                         ; preds = %for.body
-  %d = getelementptr inbounds i8, ptr %call.i16, i64 8
+  %d = getelementptr inbounds nuw i8, ptr %call.i16, i64 8
   %9 = load ptr, ptr %d, align 8
   %call9 = tail call i32 @ossl_x509_set0_libctx(ptr noundef %9, ptr noundef %cond.i1118, ptr noundef %cond.i14) #5
   br label %for.inc
@@ -212,9 +212,9 @@ entry:
   br i1 %cmp.not, label %if.end15, label %if.then
 
 if.then:                                          ; preds = %entry
-  %ctx = getelementptr inbounds i8, ptr %call1, i64 16
+  %ctx = getelementptr inbounds nuw i8, ptr %call1, i64 16
   store ptr %libctx, ptr %ctx, align 8
-  %propq4 = getelementptr inbounds i8, ptr %call1, i64 24
+  %propq4 = getelementptr inbounds nuw i8, ptr %call1, i64 24
   store ptr null, ptr %propq4, align 8
   %cmp5.not = icmp eq ptr %propq, null
   br i1 %cmp5.not, label %if.end15, label %if.then6
@@ -250,7 +250,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   tail call void @ossl_cms_env_enc_content_free(ptr noundef nonnull %cms) #5
-  %propq = getelementptr inbounds i8, ptr %cms, i64 24
+  %propq = getelementptr inbounds nuw i8, ptr %cms, i64 24
   %0 = load ptr, ptr %propq, align 8
   tail call void @CRYPTO_free(ptr noundef %0, ptr noundef nonnull @.str, i32 noundef 78) #5
   %call = tail call ptr @CMS_ContentInfo_it() #5
@@ -270,7 +270,7 @@ entry:
   br i1 %cmp.not.i, label %CMS_ContentInfo_new_ex.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %ctx.i = getelementptr inbounds i8, ptr %call1.i, i64 16
+  %ctx.i = getelementptr inbounds nuw i8, ptr %call1.i, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ctx.i, i8 0, i64 16, i1 false)
   br label %CMS_ContentInfo_new_ex.exit
 
@@ -324,7 +324,7 @@ if.end6.i:                                        ; preds = %if.end.i
 
 if.then8.i:                                       ; preds = %if.end6.i, %if.end.i
   %1 = phi ptr [ %call5.i, %if.end6.i ], [ %0, %if.end.i ]
-  %flags.i = getelementptr inbounds i8, ptr %1, i64 16
+  %flags.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   %2 = load i64, ptr %flags.i, align 8
   %or.i = or i64 %2, 32
   store i64 %or.i, ptr %flags.i, align 8
@@ -371,7 +371,7 @@ if.end6:                                          ; preds = %if.end2
 
 if.then8:                                         ; preds = %if.end2, %if.end6
   %1 = phi ptr [ %call5, %if.end6 ], [ %0, %if.end2 ]
-  %flags = getelementptr inbounds i8, ptr %1, i64 16
+  %flags = getelementptr inbounds nuw i8, ptr %1, i64 16
   %2 = load i64, ptr %flags, align 8
   %or = or i64 %2, 32
   store i64 %or, ptr %flags, align 8
@@ -406,7 +406,7 @@ if.then2:                                         ; preds = %if.end
   br label %return
 
 lor.lhs.false:                                    ; preds = %if.end
-  %flags = getelementptr inbounds i8, ptr %0, i64 16
+  %flags = getelementptr inbounds nuw i8, ptr %0, i64 16
   %1 = load i64, ptr %flags, align 8
   %cmp7 = icmp eq i64 %1, 32
   br i1 %cmp7, label %if.then8, label %if.end11
@@ -417,7 +417,7 @@ if.then8:                                         ; preds = %lor.lhs.false
   br label %return
 
 if.end11:                                         ; preds = %lor.lhs.false
-  %data = getelementptr inbounds i8, ptr %0, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = load ptr, ptr %data, align 8
   %3 = load i32, ptr %0, align 8
   %call12 = tail call ptr @BIO_new_mem_buf(ptr noundef %2, i32 noundef %3) #5
@@ -433,7 +433,7 @@ define ptr @CMS_get0_content(ptr noundef readonly %cms) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %cms, align 8
   %call = tail call i32 @OBJ_obj2nid(ptr noundef %0) #5
-  %d24 = getelementptr inbounds i8, ptr %cms, i64 8
+  %d24 = getelementptr inbounds nuw i8, ptr %cms, i64 8
   switch i32 %call, label %sw.default [
     i32 21, label %return
     i32 22, label %sw.bb1
@@ -447,51 +447,51 @@ entry:
 
 sw.bb1:                                           ; preds = %entry
   %1 = load ptr, ptr %d24, align 8
-  %encapContentInfo = getelementptr inbounds i8, ptr %1, i64 16
+  %encapContentInfo = getelementptr inbounds nuw i8, ptr %1, i64 16
   %2 = load ptr, ptr %encapContentInfo, align 8
-  %eContent = getelementptr inbounds i8, ptr %2, i64 8
+  %eContent = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %return
 
 sw.bb3:                                           ; preds = %entry
   %3 = load ptr, ptr %d24, align 8
-  %encryptedContentInfo = getelementptr inbounds i8, ptr %3, i64 24
+  %encryptedContentInfo = getelementptr inbounds nuw i8, ptr %3, i64 24
   %4 = load ptr, ptr %encryptedContentInfo, align 8
-  %encryptedContent = getelementptr inbounds i8, ptr %4, i64 16
+  %encryptedContent = getelementptr inbounds nuw i8, ptr %4, i64 16
   br label %return
 
 sw.bb5:                                           ; preds = %entry
   %5 = load ptr, ptr %d24, align 8
-  %encapContentInfo7 = getelementptr inbounds i8, ptr %5, i64 16
+  %encapContentInfo7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %6 = load ptr, ptr %encapContentInfo7, align 8
-  %eContent8 = getelementptr inbounds i8, ptr %6, i64 8
+  %eContent8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   br label %return
 
 sw.bb9:                                           ; preds = %entry
   %7 = load ptr, ptr %d24, align 8
-  %encryptedContentInfo11 = getelementptr inbounds i8, ptr %7, i64 8
+  %encryptedContentInfo11 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %8 = load ptr, ptr %encryptedContentInfo11, align 8
-  %encryptedContent12 = getelementptr inbounds i8, ptr %8, i64 16
+  %encryptedContent12 = getelementptr inbounds nuw i8, ptr %8, i64 16
   br label %return
 
 sw.bb13:                                          ; preds = %entry
   %9 = load ptr, ptr %d24, align 8
-  %authEncryptedContentInfo = getelementptr inbounds i8, ptr %9, i64 24
+  %authEncryptedContentInfo = getelementptr inbounds nuw i8, ptr %9, i64 24
   %10 = load ptr, ptr %authEncryptedContentInfo, align 8
-  %encryptedContent15 = getelementptr inbounds i8, ptr %10, i64 16
+  %encryptedContent15 = getelementptr inbounds nuw i8, ptr %10, i64 16
   br label %return
 
 sw.bb16:                                          ; preds = %entry
   %11 = load ptr, ptr %d24, align 8
-  %encapContentInfo18 = getelementptr inbounds i8, ptr %11, i64 40
+  %encapContentInfo18 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %12 = load ptr, ptr %encapContentInfo18, align 8
-  %eContent19 = getelementptr inbounds i8, ptr %12, i64 8
+  %eContent19 = getelementptr inbounds nuw i8, ptr %12, i64 8
   br label %return
 
 sw.bb20:                                          ; preds = %entry
   %13 = load ptr, ptr %d24, align 8
-  %encapContentInfo22 = getelementptr inbounds i8, ptr %13, i64 24
+  %encapContentInfo22 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %14 = load ptr, ptr %encapContentInfo22, align 8
-  %eContent23 = getelementptr inbounds i8, ptr %14, i64 8
+  %eContent23 = getelementptr inbounds nuw i8, ptr %14, i64 8
   br label %return
 
 sw.default:                                       ; preds = %entry
@@ -501,7 +501,7 @@ sw.default:                                       ; preds = %entry
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %sw.default
-  %value = getelementptr inbounds i8, ptr %15, i64 8
+  %value = getelementptr inbounds nuw i8, ptr %15, i64 8
   br label %return
 
 if.end:                                           ; preds = %sw.default
@@ -545,7 +545,7 @@ if.then2.i:                                       ; preds = %if.end.i
   br label %if.end
 
 lor.lhs.false.i:                                  ; preds = %if.end.i
-  %flags.i = getelementptr inbounds i8, ptr %0, i64 16
+  %flags.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %1 = load i64, ptr %flags.i, align 8
   %cmp7.i = icmp eq i64 %1, 32
   br i1 %cmp7.i, label %if.then8.i, label %if.end11.i
@@ -556,7 +556,7 @@ if.then8.i:                                       ; preds = %lor.lhs.false.i
   br label %if.end
 
 if.end11.i:                                       ; preds = %lor.lhs.false.i
-  %data.i = getelementptr inbounds i8, ptr %0, i64 8
+  %data.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = load ptr, ptr %data.i, align 8
   %3 = load i32, ptr %0, align 8
   %call12.i = tail call ptr @BIO_new_mem_buf(ptr noundef %2, i32 noundef %3) #5
@@ -676,7 +676,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %if.end11, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %flags = getelementptr inbounds i8, ptr %0, i64 16
+  %flags = getelementptr inbounds nuw i8, ptr %0, i64 16
   %1 = load i64, ptr %flags, align 8
   %and = and i64 %1, 32
   %tobool1.not = icmp eq i64 %and, 0
@@ -702,7 +702,7 @@ if.end6:                                          ; preds = %if.then2
   %conv = trunc i64 %call7 to i32
   call void @ASN1_STRING_set0(ptr noundef %2, ptr noundef %3, i32 noundef %conv) #5
   %4 = load ptr, ptr %call, align 8
-  %flags9 = getelementptr inbounds i8, ptr %4, i64 16
+  %flags9 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %5 = load i64, ptr %flags9, align 8
   %and10 = and i64 %5, -33
   store i64 %and10, ptr %flags9, align 8
@@ -796,51 +796,51 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %d = getelementptr inbounds i8, ptr %cms, i64 8
+  %d = getelementptr inbounds nuw i8, ptr %cms, i64 8
   %1 = load ptr, ptr %d, align 8
-  %encapContentInfo = getelementptr inbounds i8, ptr %1, i64 16
+  %encapContentInfo = getelementptr inbounds nuw i8, ptr %1, i64 16
   %2 = load ptr, ptr %encapContentInfo, align 8
   br label %return
 
 sw.bb1:                                           ; preds = %entry
-  %d2 = getelementptr inbounds i8, ptr %cms, i64 8
+  %d2 = getelementptr inbounds nuw i8, ptr %cms, i64 8
   %3 = load ptr, ptr %d2, align 8
-  %encryptedContentInfo = getelementptr inbounds i8, ptr %3, i64 24
+  %encryptedContentInfo = getelementptr inbounds nuw i8, ptr %3, i64 24
   %4 = load ptr, ptr %encryptedContentInfo, align 8
   br label %return
 
 sw.bb4:                                           ; preds = %entry
-  %d5 = getelementptr inbounds i8, ptr %cms, i64 8
+  %d5 = getelementptr inbounds nuw i8, ptr %cms, i64 8
   %5 = load ptr, ptr %d5, align 8
-  %encapContentInfo6 = getelementptr inbounds i8, ptr %5, i64 16
+  %encapContentInfo6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %6 = load ptr, ptr %encapContentInfo6, align 8
   br label %return
 
 sw.bb8:                                           ; preds = %entry
-  %d9 = getelementptr inbounds i8, ptr %cms, i64 8
+  %d9 = getelementptr inbounds nuw i8, ptr %cms, i64 8
   %7 = load ptr, ptr %d9, align 8
-  %encryptedContentInfo10 = getelementptr inbounds i8, ptr %7, i64 8
+  %encryptedContentInfo10 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %8 = load ptr, ptr %encryptedContentInfo10, align 8
   br label %return
 
 sw.bb12:                                          ; preds = %entry
-  %d13 = getelementptr inbounds i8, ptr %cms, i64 8
+  %d13 = getelementptr inbounds nuw i8, ptr %cms, i64 8
   %9 = load ptr, ptr %d13, align 8
-  %authEncryptedContentInfo = getelementptr inbounds i8, ptr %9, i64 24
+  %authEncryptedContentInfo = getelementptr inbounds nuw i8, ptr %9, i64 24
   %10 = load ptr, ptr %authEncryptedContentInfo, align 8
   br label %return
 
 sw.bb15:                                          ; preds = %entry
-  %d16 = getelementptr inbounds i8, ptr %cms, i64 8
+  %d16 = getelementptr inbounds nuw i8, ptr %cms, i64 8
   %11 = load ptr, ptr %d16, align 8
-  %encapContentInfo17 = getelementptr inbounds i8, ptr %11, i64 40
+  %encapContentInfo17 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %12 = load ptr, ptr %encapContentInfo17, align 8
   br label %return
 
 sw.bb19:                                          ; preds = %entry
-  %d20 = getelementptr inbounds i8, ptr %cms, i64 8
+  %d20 = getelementptr inbounds nuw i8, ptr %cms, i64 8
   %13 = load ptr, ptr %d20, align 8
-  %encapContentInfo21 = getelementptr inbounds i8, ptr %13, i64 24
+  %encapContentInfo21 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %14 = load ptr, ptr %encapContentInfo21, align 8
   br label %return
 
@@ -922,7 +922,7 @@ entry:
 
 cond.true.i10:                                    ; preds = %entry
   %1 = load ptr, ptr %ctx, align 8
-  %propq.i = getelementptr inbounds i8, ptr %ctx, i64 8
+  %propq.i = getelementptr inbounds nuw i8, ptr %ctx, i64 8
   %2 = load ptr, ptr %propq.i, align 8
   br label %ossl_cms_ctx_get0_propq.exit
 
@@ -1066,9 +1066,9 @@ entry:
   ]
 
 cms_get0_certificate_choices.exit.thread12:       ; preds = %entry
-  %d.i = getelementptr inbounds i8, ptr %cms, i64 8
+  %d.i = getelementptr inbounds nuw i8, ptr %cms, i64 8
   %1 = load ptr, ptr %d.i, align 8
-  %certificates.i = getelementptr inbounds i8, ptr %1, i64 24
+  %certificates.i = getelementptr inbounds nuw i8, ptr %1, i64 24
   br label %if.end
 
 cms_get0_certificate_choices.exit.thread:         ; preds = %entry
@@ -1078,9 +1078,9 @@ cms_get0_certificate_choices.exit.thread:         ; preds = %entry
   br label %return
 
 cms_get0_certificate_choices.exit:                ; preds = %entry, %entry
-  %.pn.in = getelementptr inbounds i8, ptr %cms, i64 8
+  %.pn.in = getelementptr inbounds nuw i8, ptr %cms, i64 8
   %.pn = load ptr, ptr %.pn.in, align 8
-  %retval.0.i.in = getelementptr inbounds i8, ptr %.pn, i64 8
+  %retval.0.i.in = getelementptr inbounds nuw i8, ptr %.pn, i64 8
   %retval.0.i = load ptr, ptr %retval.0.i.in, align 8
   %cmp = icmp eq ptr %retval.0.i, null
   br i1 %cmp, label %return, label %if.end
@@ -1135,9 +1135,9 @@ entry:
   ]
 
 cms_get0_certificate_choices.exit.thread19:       ; preds = %entry
-  %d.i = getelementptr inbounds i8, ptr %cms, i64 8
+  %d.i = getelementptr inbounds nuw i8, ptr %cms, i64 8
   %1 = load ptr, ptr %d.i, align 8
-  %certificates.i = getelementptr inbounds i8, ptr %1, i64 24
+  %certificates.i = getelementptr inbounds nuw i8, ptr %1, i64 24
   br label %for.cond.preheader
 
 cms_get0_certificate_choices.exit.thread:         ; preds = %entry
@@ -1147,9 +1147,9 @@ cms_get0_certificate_choices.exit.thread:         ; preds = %entry
   br label %return
 
 cms_get0_certificate_choices.exit:                ; preds = %entry, %entry
-  %d2.i = getelementptr inbounds i8, ptr %cms, i64 8
+  %d2.i = getelementptr inbounds nuw i8, ptr %cms, i64 8
   %2 = load ptr, ptr %d2.i, align 8
-  %originatorInfo.i = getelementptr inbounds i8, ptr %2, i64 8
+  %originatorInfo.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %3 = load ptr, ptr %originatorInfo.i, align 8
   %cmp = icmp eq ptr %3, null
   br i1 %cmp, label %return, label %for.cond.preheader
@@ -1170,7 +1170,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   br i1 %cmp4, label %if.then5, label %for.inc
 
 if.then5:                                         ; preds = %for.body
-  %d = getelementptr inbounds i8, ptr %call.i13, i64 8
+  %d = getelementptr inbounds nuw i8, ptr %call.i13, i64 8
   %7 = load ptr, ptr %d, align 8
   %call6 = tail call i32 @X509_cmp(ptr noundef %7, ptr noundef %cert) #5
   %cmp7 = icmp eq i32 %call6, 0
@@ -1194,7 +1194,7 @@ for.end:                                          ; preds = %for.inc, %for.cond.
 
 if.end13:                                         ; preds = %for.end
   store i32 0, ptr %call11, align 8
-  %d15 = getelementptr inbounds i8, ptr %call11, i64 8
+  %d15 = getelementptr inbounds nuw i8, ptr %call11, i64 8
   store ptr %cert, ptr %d15, align 8
   br label %return
 
@@ -1242,27 +1242,27 @@ entry:
   ]
 
 sw.bb.i:                                          ; preds = %entry
-  %d.i = getelementptr inbounds i8, ptr %cms, i64 8
+  %d.i = getelementptr inbounds nuw i8, ptr %cms, i64 8
   %1 = load ptr, ptr %d.i, align 8
-  %crls.i = getelementptr inbounds i8, ptr %1, i64 32
+  %crls.i = getelementptr inbounds nuw i8, ptr %1, i64 32
   br label %if.end
 
 sw.bb1.i:                                         ; preds = %entry
-  %d2.i = getelementptr inbounds i8, ptr %cms, i64 8
+  %d2.i = getelementptr inbounds nuw i8, ptr %cms, i64 8
   %2 = load ptr, ptr %d2.i, align 8
-  %originatorInfo.i = getelementptr inbounds i8, ptr %2, i64 8
+  %originatorInfo.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %3 = load ptr, ptr %originatorInfo.i, align 8
   %cmp.i = icmp eq ptr %3, null
-  %crls5.i = getelementptr inbounds i8, ptr %3, i64 8
+  %crls5.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   br i1 %cmp.i, label %return, label %if.end
 
 sw.bb6.i:                                         ; preds = %entry
-  %d7.i = getelementptr inbounds i8, ptr %cms, i64 8
+  %d7.i = getelementptr inbounds nuw i8, ptr %cms, i64 8
   %4 = load ptr, ptr %d7.i, align 8
-  %originatorInfo8.i = getelementptr inbounds i8, ptr %4, i64 8
+  %originatorInfo8.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   %5 = load ptr, ptr %originatorInfo8.i, align 8
   %cmp9.i = icmp eq ptr %5, null
-  %crls14.i = getelementptr inbounds i8, ptr %5, i64 8
+  %crls14.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   br i1 %cmp9.i, label %return, label %if.end
 
 sw.default.i:                                     ; preds = %entry
@@ -1320,7 +1320,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   store i32 0, ptr %call, align 8
-  %d = getelementptr inbounds i8, ptr %call, i64 8
+  %d = getelementptr inbounds nuw i8, ptr %call, i64 8
   store ptr %crl, ptr %d, align 8
   br label %return
 
@@ -1343,7 +1343,7 @@ if.end:                                           ; preds = %entry
 
 CMS_add0_crl.exit:                                ; preds = %if.end
   store i32 0, ptr %call.i, align 8
-  %d.i = getelementptr inbounds i8, ptr %call.i, i64 8
+  %d.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   store ptr %crl, ptr %d.i, align 8
   br label %return
 
@@ -1374,9 +1374,9 @@ entry:
   ]
 
 cms_get0_certificate_choices.exit.thread13:       ; preds = %entry
-  %d.i = getelementptr inbounds i8, ptr %cms, i64 8
+  %d.i = getelementptr inbounds nuw i8, ptr %cms, i64 8
   %1 = load ptr, ptr %d.i, align 8
-  %certificates.i = getelementptr inbounds i8, ptr %1, i64 24
+  %certificates.i = getelementptr inbounds nuw i8, ptr %1, i64 24
   br label %for.cond.preheader
 
 cms_get0_certificate_choices.exit.thread:         ; preds = %entry
@@ -1386,9 +1386,9 @@ cms_get0_certificate_choices.exit.thread:         ; preds = %entry
   br label %return
 
 cms_get0_certificate_choices.exit:                ; preds = %entry, %entry
-  %d2.i = getelementptr inbounds i8, ptr %cms, i64 8
+  %d2.i = getelementptr inbounds nuw i8, ptr %cms, i64 8
   %2 = load ptr, ptr %d2.i, align 8
-  %originatorInfo.i = getelementptr inbounds i8, ptr %2, i64 8
+  %originatorInfo.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %3 = load ptr, ptr %originatorInfo.i, align 8
   %cmp = icmp eq ptr %3, null
   br i1 %cmp, label %return, label %for.cond.preheader
@@ -1409,7 +1409,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   br i1 %cmp4, label %if.then5, label %for.inc
 
 if.then5:                                         ; preds = %for.body
-  %d = getelementptr inbounds i8, ptr %call.i7, i64 8
+  %d = getelementptr inbounds nuw i8, ptr %call.i7, i64 8
   %7 = load ptr, ptr %d, align 8
   %call6 = call i32 @ossl_x509_add_cert_new(ptr noundef nonnull %certs, ptr noundef %7, i32 noundef 1) #5
   %tobool.not = icmp eq i32 %call6, 0
@@ -1452,27 +1452,27 @@ entry:
   ]
 
 sw.bb.i:                                          ; preds = %entry
-  %d.i = getelementptr inbounds i8, ptr %cms, i64 8
+  %d.i = getelementptr inbounds nuw i8, ptr %cms, i64 8
   %1 = load ptr, ptr %d.i, align 8
-  %crls.i = getelementptr inbounds i8, ptr %1, i64 32
+  %crls.i = getelementptr inbounds nuw i8, ptr %1, i64 32
   br label %cms_get0_revocation_choices.exit
 
 sw.bb1.i:                                         ; preds = %entry
-  %d2.i = getelementptr inbounds i8, ptr %cms, i64 8
+  %d2.i = getelementptr inbounds nuw i8, ptr %cms, i64 8
   %2 = load ptr, ptr %d2.i, align 8
-  %originatorInfo.i = getelementptr inbounds i8, ptr %2, i64 8
+  %originatorInfo.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %3 = load ptr, ptr %originatorInfo.i, align 8
   %cmp.i = icmp eq ptr %3, null
-  %crls5.i = getelementptr inbounds i8, ptr %3, i64 8
+  %crls5.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   br i1 %cmp.i, label %return, label %cms_get0_revocation_choices.exit
 
 sw.bb6.i:                                         ; preds = %entry
-  %d7.i = getelementptr inbounds i8, ptr %cms, i64 8
+  %d7.i = getelementptr inbounds nuw i8, ptr %cms, i64 8
   %4 = load ptr, ptr %d7.i, align 8
-  %originatorInfo8.i = getelementptr inbounds i8, ptr %4, i64 8
+  %originatorInfo8.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   %5 = load ptr, ptr %originatorInfo8.i, align 8
   %cmp9.i = icmp eq ptr %5, null
-  %crls14.i = getelementptr inbounds i8, ptr %5, i64 8
+  %crls14.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   br i1 %cmp9.i, label %return, label %cms_get0_revocation_choices.exit
 
 sw.default.i:                                     ; preds = %entry
@@ -1508,7 +1508,7 @@ if.then9:                                         ; preds = %if.then7
 
 if.end14:                                         ; preds = %if.then9, %if.then7
   %crls.1 = phi ptr [ %call10, %if.then9 ], [ %crls.015, %if.then7 ]
-  %d = getelementptr inbounds i8, ptr %call5, i64 8
+  %d = getelementptr inbounds nuw i8, ptr %call5, i64 8
   %9 = load ptr, ptr %d, align 8
   %call17 = tail call i32 @OPENSSL_sk_push(ptr noundef nonnull %crls.1, ptr noundef %9) #5
   %tobool.not = icmp eq i32 %call17, 0
@@ -1553,7 +1553,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %serialNumber = getelementptr inbounds i8, ptr %ias, i64 8
+  %serialNumber = getelementptr inbounds nuw i8, ptr %ias, i64 8
   %1 = load ptr, ptr %serialNumber, align 8
   %call2 = tail call ptr @X509_get0_serialNumber(ptr noundef %cert) #5
   %call3 = tail call i32 @ASN1_INTEGER_cmp(ptr noundef %1, ptr noundef %call2) #5
@@ -1607,7 +1607,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool4.not, label %err, label %if.end6
 
 if.end6:                                          ; preds = %if.end
-  %serialNumber = getelementptr inbounds i8, ptr %call1, i64 8
+  %serialNumber = getelementptr inbounds nuw i8, ptr %call1, i64 8
   %0 = load ptr, ptr %serialNumber, align 8
   %call7 = tail call ptr @X509_get0_serialNumber(ptr noundef %cert) #5
   %call8 = tail call i32 @ASN1_STRING_copy(ptr noundef %0, ptr noundef %call7) #5

@@ -30,7 +30,7 @@ declare double @llvm.fmuladd.f64(double, double, double) #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @Ptriangulate(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = sext i32 %5 to i64
   %mul.ov.i = icmp slt i32 %5, 0
@@ -67,8 +67,8 @@ gv_calloc.exit.preheader:                         ; preds = %10
 
 gv_calloc.exit:                                   ; preds = %.lr.ph, %gv_calloc.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %gv_calloc.exit ]
-  %19 = getelementptr inbounds %struct.Pxy_t, ptr %14, i64 %indvars.iv
-  %20 = getelementptr inbounds ptr, ptr %12, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw %struct.Pxy_t, ptr %14, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv
   store ptr %19, ptr %20, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -107,19 +107,19 @@ define internal fastcc range(i32 -1, 1) i32 @triangulate(ptr nocapture noundef %
   %18 = getelementptr inbounds ptr, ptr %0, i64 %17
   %19 = load ptr, ptr %18, align 8
   %.sroa.0.0.copyload.i102 = load double, ptr %19, align 8
-  %.sroa.2.0..sroa_idx.i103 = getelementptr inbounds i8, ptr %19, i64 8
+  %.sroa.2.0..sroa_idx.i103 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %.sroa.2.0.copyload.i104 = load double, ptr %.sroa.2.0..sroa_idx.i103, align 8
-  %20 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv119
+  %20 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv119
   %21 = load ptr, ptr %20, align 8
   %.sroa.0.0.copyload.i97 = load double, ptr %21, align 8
-  %.sroa.2.0..sroa_idx.i98 = getelementptr inbounds i8, ptr %21, i64 8
+  %.sroa.2.0..sroa_idx.i98 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %.sroa.2.0.copyload.i99 = load double, ptr %.sroa.2.0..sroa_idx.i98, align 8
   %22 = and i64 %indvars.iv.next120, 4294967295
   %23 = select i1 %13, i64 0, i64 %22
-  %24 = getelementptr inbounds ptr, ptr %0, i64 %23
+  %24 = getelementptr inbounds nuw ptr, ptr %0, i64 %23
   %25 = load ptr, ptr %24, align 8
   %.sroa.0.0.copyload.i92 = load double, ptr %25, align 8
-  %.sroa.2.0..sroa_idx.i93 = getelementptr inbounds i8, ptr %25, i64 8
+  %.sroa.2.0..sroa_idx.i93 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %.sroa.2.0.copyload.i94 = load double, ptr %.sroa.2.0..sroa_idx.i93, align 8
   %26 = fsub double %.sroa.2.0.copyload.i104, %.sroa.2.0.copyload.i99
   %27 = fsub double %.sroa.0.0.copyload.i92, %.sroa.0.0.copyload.i97
@@ -130,10 +130,10 @@ define internal fastcc range(i32 -1, 1) i32 @triangulate(ptr nocapture noundef %
   %32 = tail call double @llvm.fmuladd.f64(double %26, double %27, double %31)
   %33 = fcmp olt double %32, 0.000000e+00
   %34 = zext nneg i32 %12 to i64
-  %35 = getelementptr inbounds ptr, ptr %0, i64 %34
+  %35 = getelementptr inbounds nuw ptr, ptr %0, i64 %34
   %36 = load ptr, ptr %35, align 8
   %.sroa.0.0.copyload.i82 = load double, ptr %36, align 8
-  %.sroa.2.0..sroa_idx.i83 = getelementptr inbounds i8, ptr %36, i64 8
+  %.sroa.2.0..sroa_idx.i83 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %.sroa.2.0.copyload.i84 = load double, ptr %.sroa.2.0..sroa_idx.i83, align 8
   %37 = fsub double %.sroa.2.0.copyload.i99, %.sroa.2.0.copyload.i84
   %38 = fsub double %.sroa.0.0.copyload.i97, %.sroa.0.0.copyload.i82
@@ -185,15 +185,15 @@ define internal fastcc range(i32 -1, 1) i32 @triangulate(ptr nocapture noundef %
   br i1 %or.cond104.i, label %72, label %66
 
 66:                                               ; preds = %.lr.ph.i
-  %67 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv
+  %67 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
   %68 = load ptr, ptr %67, align 8
   %.sroa.0.0.copyload.i42 = load double, ptr %68, align 8
-  %.sroa.2.0..sroa_idx.i43 = getelementptr inbounds i8, ptr %68, i64 8
+  %.sroa.2.0..sroa_idx.i43 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %.sroa.2.0.copyload.i44 = load double, ptr %.sroa.2.0..sroa_idx.i43, align 8
-  %69 = getelementptr inbounds ptr, ptr %0, i64 %62
+  %69 = getelementptr inbounds nuw ptr, ptr %0, i64 %62
   %70 = load ptr, ptr %69, align 8
   %.sroa.0.0.copyload.i = load double, ptr %70, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %70, i64 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %70, i64 8
   %.sroa.2.0.copyload.i = load double, ptr %.sroa.2.0..sroa_idx.i, align 8
   %71 = tail call zeroext i1 @intersects(double %.sroa.0.0.copyload.i97, double %.sroa.2.0.copyload.i99, double %.sroa.0.0.copyload.i82, double %.sroa.2.0.copyload.i84, double %.sroa.0.0.copyload.i42, double %.sroa.2.0.copyload.i44, double %.sroa.0.0.copyload.i, double %.sroa.2.0.copyload.i)
   br i1 %71, label %isdiagonal.exit, label %72
@@ -209,15 +209,15 @@ isdiagonal.exit:                                  ; preds = %66, %40, %46, %52
   %73 = trunc nuw nsw i64 %indvars.iv.next120 to i32
   %74 = urem i32 %73, %1
   %75 = and i64 %indvars.iv119, 4294967295
-  %76 = getelementptr inbounds ptr, ptr %0, i64 %75
+  %76 = getelementptr inbounds nuw ptr, ptr %0, i64 %75
   %77 = load ptr, ptr %76, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %77, i64 16, i1 false)
-  %78 = getelementptr inbounds i8, ptr %5, i64 16
+  %78 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %79 = zext nneg i32 %74 to i64
-  %80 = getelementptr inbounds ptr, ptr %0, i64 %79
+  %80 = getelementptr inbounds nuw ptr, ptr %0, i64 %79
   %81 = load ptr, ptr %80, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %78, ptr noundef nonnull align 8 dereferenceable(16) %81, i64 16, i1 false)
-  %82 = getelementptr inbounds i8, ptr %5, i64 32
+  %82 = getelementptr inbounds nuw i8, ptr %5, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %82, ptr noundef nonnull align 8 dereferenceable(16) %36, i64 16, i1 false)
   call void %2(ptr noundef %3, ptr noundef nonnull %5) #12
   br label %.lr.ph
@@ -229,7 +229,7 @@ isdiagonal.exit:                                  ; preds = %66, %40, %46, %52
   br i1 %.not, label %89, label %83
 
 83:                                               ; preds = %.lr.ph
-  %84 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv122
+  %84 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv122
   %85 = load ptr, ptr %84, align 8
   %86 = add nsw i32 %.0113, 1
   %87 = sext i32 %.0113 to i64
@@ -250,12 +250,12 @@ isdiagonal.exit:                                  ; preds = %66, %40, %46, %52
 91:                                               ; preds = %4
   %92 = load ptr, ptr %0, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %92, i64 16, i1 false)
-  %93 = getelementptr inbounds i8, ptr %5, i64 16
-  %94 = getelementptr inbounds i8, ptr %0, i64 8
+  %93 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %95 = load ptr, ptr %94, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %93, ptr noundef nonnull align 8 dereferenceable(16) %95, i64 16, i1 false)
-  %96 = getelementptr inbounds i8, ptr %5, i64 32
-  %97 = getelementptr inbounds i8, ptr %0, i64 16
+  %96 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %98 = load ptr, ptr %97, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %96, ptr noundef nonnull align 8 dereferenceable(16) %98, i64 16, i1 false)
   call void %2(ptr noundef %3, ptr noundef nonnull %5) #12

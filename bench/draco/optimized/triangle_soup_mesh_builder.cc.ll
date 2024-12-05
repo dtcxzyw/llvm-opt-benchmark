@@ -45,7 +45,7 @@ define void @_ZN5draco23TriangleSoupMeshBuilder5StartEi(ptr nocapture noundef no
           to label %5 unwind label %36
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   store ptr %4, ptr %6, align 8
   %.not.i.i.i.i = icmp eq ptr %7, null
@@ -53,7 +53,7 @@ define void @_ZN5draco23TriangleSoupMeshBuilder5StartEi(ptr nocapture noundef no
 
 _ZNKSt14default_deleteIN5draco4MeshEEclEPS1_.exit.i.i.i.i: ; preds = %5
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(216) %7) #14
   %.pre = load ptr, ptr %6, align 8
@@ -63,8 +63,8 @@ _ZNSt10unique_ptrIN5draco4MeshESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZN
   %11 = phi ptr [ %.pre, %_ZNKSt14default_deleteIN5draco4MeshEEclEPS1_.exit.i.i.i.i ], [ %4, %5 ]
   %12 = sext i32 %1 to i64
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3)
-  %13 = getelementptr inbounds i8, ptr %11, i64 192
-  %14 = getelementptr inbounds i8, ptr %11, i64 200
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 192
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 200
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %3, i8 0, i64 12, i1 false)
   %15 = load ptr, ptr %14, align 8
   %16 = load ptr, ptr %13, align 8
@@ -97,10 +97,10 @@ _ZN5draco4Mesh11SetNumFacesEm.exit:               ; preds = %22, %24, %26, %28
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3)
   %29 = load ptr, ptr %6, align 8
   %30 = mul nsw i32 %1, 3
-  %31 = getelementptr inbounds i8, ptr %29, i64 160
+  %31 = getelementptr inbounds nuw i8, ptr %29, i64 160
   store i32 %30, ptr %31, align 8
   %32 = load ptr, ptr %0, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %34 = load ptr, ptr %33, align 8
   %.not.i.i = icmp eq ptr %34, %32
   br i1 %.not.i.i, label %_ZNSt6vectorIaSaIaEE5clearEv.exit, label %35
@@ -144,9 +144,9 @@ define noundef i32 @_ZN5draco23TriangleSoupMeshBuilder12AddAttributeENS_17Geomet
   %9 = mul nsw i32 %7, %8
   %10 = sext i32 %9 to i64
   call void @_ZN5draco17GeometryAttribute4InitENS0_4TypeEPNS_10DataBufferEhNS_8DataTypeEbll(ptr noundef nonnull align 8 dereferenceable(64) %6, i32 noundef %1, ptr noundef null, i8 noundef zeroext %2, i32 noundef %3, i1 noundef zeroext %4, i64 noundef %10, i64 noundef 0)
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
   %.not.i.i = icmp eq ptr %12, %14
   br i1 %.not.i.i, label %18, label %15
@@ -154,7 +154,7 @@ define noundef i32 @_ZN5draco23TriangleSoupMeshBuilder12AddAttributeENS_17Geomet
 15:                                               ; preds = %5
   store i8 -1, ptr %12, align 1
   %16 = load ptr, ptr %11, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 1
   store ptr %17, ptr %11, align 8
   br label %_ZNSt6vectorIaSaIaEE9push_backEOa.exit
 
@@ -195,7 +195,7 @@ _ZNSt12_Vector_baseIaSaIaEE11_M_allocateEm.exit.i.i.i: ; preds = %29, %_ZNKSt6ve
   br label %_ZNSt6vectorIaSaIaEE11_S_relocateEPaS2_S2_RS0_.exit16.i.i.i
 
 _ZNSt6vectorIaSaIaEE11_S_relocateEPaS2_S2_RS0_.exit16.i.i.i: ; preds = %34, %_ZNSt12_Vector_baseIaSaIaEE11_M_allocateEm.exit.i.i.i
-  %35 = getelementptr inbounds i8, ptr %32, i64 1
+  %35 = getelementptr inbounds nuw i8, ptr %32, i64 1
   %.not.i17.i.i.i = icmp eq ptr %19, null
   br i1 %.not.i17.i.i.i, label %_ZNSt6vectorIaSaIaEE17_M_realloc_insertIJaEEEvN9__gnu_cxx17__normal_iteratorIPaS1_EEDpOT_.exit.i.i, label %36
 
@@ -206,14 +206,14 @@ _ZNSt6vectorIaSaIaEE11_S_relocateEPaS2_S2_RS0_.exit16.i.i.i: ; preds = %34, %_ZN
 _ZNSt6vectorIaSaIaEE17_M_realloc_insertIJaEEEvN9__gnu_cxx17__normal_iteratorIPaS1_EEDpOT_.exit.i.i: ; preds = %36, %_ZNSt6vectorIaSaIaEE11_S_relocateEPaS2_S2_RS0_.exit16.i.i.i
   store ptr %31, ptr %0, align 8
   store ptr %35, ptr %11, align 8
-  %37 = getelementptr inbounds i8, ptr %31, i64 %28
+  %37 = getelementptr inbounds nuw i8, ptr %31, i64 %28
   store ptr %37, ptr %13, align 8
   br label %_ZNSt6vectorIaSaIaEE9push_backEOa.exit
 
 _ZNSt6vectorIaSaIaEE9push_backEOa.exit:           ; preds = %15, %_ZNSt6vectorIaSaIaEE17_M_realloc_insertIJaEEEvN9__gnu_cxx17__normal_iteratorIPaS1_EEDpOT_.exit.i.i
-  %38 = getelementptr inbounds i8, ptr %0, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 160
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 160
   %41 = load i32, ptr %40, align 8
   %42 = call noundef i32 @_ZN5draco10PointCloud12AddAttributeERKNS_17GeometryAttributeEbj(ptr noundef nonnull align 8 dereferenceable(164) %39, ptr noundef nonnull align 8 dereferenceable(64) %6, i1 noundef zeroext true, i32 noundef %41)
   ret i32 %42
@@ -231,15 +231,15 @@ declare noundef i32 @_ZN5draco10PointCloud12AddAttributeERKNS_17GeometryAttribut
 define void @_ZN5draco23TriangleSoupMeshBuilder25SetAttributeValuesForFaceEiNS_9IndexTypeIjNS_19FaceIndex_tag_type_EEEPKvS5_S5_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, i32 noundef %1, i32 %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"struct.std::array", align 4
   %8 = mul i32 %2, 3
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = sext i32 %1 to i64
   %13 = load ptr, ptr %11, align 8
   %14 = getelementptr inbounds %"class.std::unique_ptr.54", ptr %13, i64 %12
   %15 = load ptr, ptr %14, align 8
   %16 = zext i32 %8 to i64
-  %17 = getelementptr inbounds i8, ptr %15, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 40
   %18 = load i64, ptr %17, align 8
   %19 = mul nsw i64 %18, %16
   %20 = load ptr, ptr %15, align 8
@@ -264,8 +264,8 @@ define void @_ZN5draco23TriangleSoupMeshBuilder25SetAttributeValuesForFaceEiNS_9
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %36, ptr align 1 %5, i64 %32, i1 false)
   %37 = load ptr, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %7)
-  %38 = getelementptr inbounds i8, ptr %37, i64 192
-  %39 = getelementptr inbounds i8, ptr %37, i64 200
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 192
+  %39 = getelementptr inbounds nuw i8, ptr %37, i64 200
   %40 = load ptr, ptr %39, align 8
   %41 = load ptr, ptr %38, align 8
   %42 = ptrtoint ptr %40 to i64
@@ -294,7 +294,7 @@ define void @_ZN5draco23TriangleSoupMeshBuilder25SetAttributeValuesForFaceEiNS_9
   br i1 %54, label %55, label %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEESt5arrayINS1_IjNS_20PointIndex_tag_type_EEELm3EEE6resizeEmRKS7_.exit.i
 
 55:                                               ; preds = %53
-  %56 = getelementptr inbounds %"struct.std::array", ptr %41, i64 %49
+  %56 = getelementptr inbounds nuw %"struct.std::array", ptr %41, i64 %49
   %.not.i.i.i.i = icmp eq ptr %40, %56
   br i1 %.not.i.i.i.i, label %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEESt5arrayINS1_IjNS_20PointIndex_tag_type_EEELm3EEE6resizeEmRKS7_.exit.i, label %57
 
@@ -305,11 +305,11 @@ define void @_ZN5draco23TriangleSoupMeshBuilder25SetAttributeValuesForFaceEiNS_9
 _ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEESt5arrayINS1_IjNS_20PointIndex_tag_type_EEELm3EEE6resizeEmRKS7_.exit.i: ; preds = %57, %55, %53, %51, %6
   %58 = phi ptr [ %41, %57 ], [ %41, %55 ], [ %41, %53 ], [ %.pre.i, %51 ], [ %41, %6 ]
   %59 = zext i32 %2 to i64
-  %60 = getelementptr inbounds %"struct.std::array", ptr %58, i64 %59
+  %60 = getelementptr inbounds nuw %"struct.std::array", ptr %58, i64 %59
   store i32 %8, ptr %60, align 4
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %60, i64 4
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %60, i64 4
   store i32 %23, ptr %.sroa.2.0..sroa_idx, align 4
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %60, i64 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %60, i64 8
   store i32 %30, ptr %.sroa.3.0..sroa_idx, align 4
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %7)
   %61 = load ptr, ptr %0, align 8
@@ -325,15 +325,15 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define void @_ZN5draco23TriangleSoupMeshBuilder31SetPerFaceAttributeValueForFaceEiNS_9IndexTypeIjNS_19FaceIndex_tag_type_EEEPKv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, i32 noundef %1, i32 %2, ptr nocapture noundef readonly %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.std::array", align 4
   %6 = mul i32 %2, 3
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = sext i32 %1 to i64
   %11 = load ptr, ptr %9, align 8
   %12 = getelementptr inbounds %"class.std::unique_ptr.54", ptr %11, i64 %10
   %13 = load ptr, ptr %12, align 8
   %14 = zext i32 %6 to i64
-  %15 = getelementptr inbounds i8, ptr %13, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 40
   %16 = load i64, ptr %15, align 8
   %17 = mul nsw i64 %16, %14
   %18 = load ptr, ptr %13, align 8
@@ -358,8 +358,8 @@ define void @_ZN5draco23TriangleSoupMeshBuilder31SetPerFaceAttributeValueForFace
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %34, ptr align 1 %3, i64 %30, i1 false)
   %35 = load ptr, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5)
-  %36 = getelementptr inbounds i8, ptr %35, i64 192
-  %37 = getelementptr inbounds i8, ptr %35, i64 200
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 192
+  %37 = getelementptr inbounds nuw i8, ptr %35, i64 200
   %38 = load ptr, ptr %37, align 8
   %39 = load ptr, ptr %36, align 8
   %40 = ptrtoint ptr %38 to i64
@@ -388,7 +388,7 @@ define void @_ZN5draco23TriangleSoupMeshBuilder31SetPerFaceAttributeValueForFace
   br i1 %52, label %53, label %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEESt5arrayINS1_IjNS_20PointIndex_tag_type_EEELm3EEE6resizeEmRKS7_.exit.i
 
 53:                                               ; preds = %51
-  %54 = getelementptr inbounds %"struct.std::array", ptr %39, i64 %47
+  %54 = getelementptr inbounds nuw %"struct.std::array", ptr %39, i64 %47
   %.not.i.i.i.i = icmp eq ptr %38, %54
   br i1 %.not.i.i.i.i, label %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEESt5arrayINS1_IjNS_20PointIndex_tag_type_EEELm3EEE6resizeEmRKS7_.exit.i, label %55
 
@@ -399,11 +399,11 @@ define void @_ZN5draco23TriangleSoupMeshBuilder31SetPerFaceAttributeValueForFace
 _ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEESt5arrayINS1_IjNS_20PointIndex_tag_type_EEELm3EEE6resizeEmRKS7_.exit.i: ; preds = %55, %53, %51, %49, %4
   %56 = phi ptr [ %39, %55 ], [ %39, %53 ], [ %39, %51 ], [ %.pre.i, %49 ], [ %39, %4 ]
   %57 = zext i32 %2 to i64
-  %58 = getelementptr inbounds %"struct.std::array", ptr %56, i64 %57
+  %58 = getelementptr inbounds nuw %"struct.std::array", ptr %56, i64 %57
   store i32 %6, ptr %58, align 4
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %58, i64 4
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %58, i64 4
   store i32 %21, ptr %.sroa.2.0..sroa_idx, align 4
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %58, i64 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %58, i64 8
   store i32 %28, ptr %.sroa.3.0..sroa_idx, align 4
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5)
   %59 = load ptr, ptr %0, align 8
@@ -422,10 +422,10 @@ _ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEESt5arrayINS
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5draco23TriangleSoupMeshBuilder8FinalizeEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(164) %4)
   br i1 %8, label %10, label %9
@@ -437,10 +437,10 @@ define void @_ZN5draco23TriangleSoupMeshBuilder8FinalizeEv(ptr dead_on_unwind no
 10:                                               ; preds = %2
   %11 = load ptr, ptr %3, align 8
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr noundef nonnull align 8 dereferenceable(164) %11)
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = load ptr, ptr %1, align 8
   %.not = icmp eq ptr %16, %17
@@ -458,7 +458,7 @@ define void @_ZN5draco23TriangleSoupMeshBuilder8FinalizeEv(ptr dead_on_unwind no
 23:                                               ; preds = %.lr.ph
   %24 = load ptr, ptr %3, align 8
   %25 = zext nneg i8 %21 to i32
-  %26 = getelementptr inbounds i8, ptr %24, i64 168
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 168
   %sext = shl i64 %.05, 32
   %27 = load ptr, ptr %26, align 8
   %28 = ashr exact i64 %sext, 30
@@ -490,14 +490,14 @@ define void @_ZN5draco23TriangleSoupMeshBuilder8FinalizeEv(ptr dead_on_unwind no
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZN5draco23TriangleSoupMeshBuilder20SetAttributeUniqueIdEij(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #7 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = sext i32 %1 to i64
   %8 = load ptr, ptr %6, align 8
   %9 = getelementptr inbounds %"class.std::unique_ptr.54", ptr %8, i64 %7
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 60
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 60
   store i32 %2, ptr %11, align 4
   ret void
 }
@@ -512,9 +512,9 @@ define linkonce_odr void @_ZNSt6vectorISt5arrayIN5draco9IndexTypeIjNS1_20PointIn
   br i1 %.not, label %_ZSt4fillIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EES5_EvT_S7_RKT0_.exit, label %5
 
 5:                                                ; preds = %4
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = ptrtoint ptr %7 to i64
   %11 = ptrtoint ptr %9 to i64
@@ -525,7 +525,7 @@ define linkonce_odr void @_ZNSt6vectorISt5arrayIN5draco9IndexTypeIjNS1_20PointIn
 
 14:                                               ; preds = %5
   %.sroa.1.8.copyload = load i8, ptr %3, align 4
-  %.sroa.6.8..sroa_idx = getelementptr inbounds i8, ptr %3, i64 1
+  %.sroa.6.8..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %.sroa.6, ptr noundef nonnull align 1 dereferenceable(11) %.sroa.6.8..sroa_idx, i64 11, i1 false)
   %15 = ptrtoint ptr %1 to i64
   %16 = sub i64 %11, %15
@@ -544,8 +544,8 @@ define linkonce_odr void @_ZNSt6vectorISt5arrayIN5draco9IndexTypeIjNS1_20PointIn
   %.013.i.i.i.i.i = phi ptr [ %23, %.lr.ph.i.i.i.i.i ], [ %9, %19 ]
   %.sroa.08.012.i.i.i.i.i = phi ptr [ %22, %.lr.ph.i.i.i.i.i ], [ %21, %19 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.013.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.08.012.i.i.i.i.i, i64 12, i1 false)
-  %22 = getelementptr inbounds i8, ptr %.sroa.08.012.i.i.i.i.i, i64 12
-  %23 = getelementptr inbounds i8, ptr %.013.i.i.i.i.i, i64 12
+  %22 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i, i64 12
+  %23 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 12
   %.not.i.i.i.i.i = icmp eq ptr %22, %9
   br i1 %.not.i.i.i.i.i, label %_ZSt22__uninitialized_move_aIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EES6_SaIS5_EET0_T_S9_S8_RT1_.exit.loopexit, label %.lr.ph.i.i.i.i.i, !llvm.loop !6
 
@@ -576,8 +576,8 @@ _ZSt22__uninitialized_move_aIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_t
 
 32:                                               ; preds = %32, %.lr.ph.i.i.i.i.i68
   %.05.i.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i.i68 ], [ %36, %32 ]
-  %33 = getelementptr inbounds [3 x %"class.draco::IndexType.53"], ptr %31, i64 0, i64 %.05.i.i.i.i.i.i
-  %34 = getelementptr inbounds [3 x %"class.draco::IndexType.53"], ptr %30, i64 0, i64 %.05.i.i.i.i.i.i
+  %33 = getelementptr inbounds nuw [3 x %"class.draco::IndexType.53"], ptr %31, i64 0, i64 %.05.i.i.i.i.i.i
+  %34 = getelementptr inbounds nuw [3 x %"class.draco::IndexType.53"], ptr %30, i64 0, i64 %.05.i.i.i.i.i.i
   %35 = load i32, ptr %34, align 4
   store i32 %35, ptr %33, align 4
   %36 = add nuw nsw i64 %.05.i.i.i.i.i.i, 1
@@ -596,9 +596,9 @@ _ZSt13move_backwardIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm
 .preheader.i.i.i:                                 ; preds = %_ZSt13move_backwardIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EES6_ET0_T_S8_S7_.exit, %.preheader.i.i.i
   %.06.i.i.i = phi ptr [ %40, %.preheader.i.i.i ], [ %1, %_ZSt13move_backwardIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EES6_ET0_T_S8_S7_.exit ]
   store i8 %.sroa.1.8.copyload, ptr %.06.i.i.i, align 4
-  %.sroa.6.8..06.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %.06.i.i.i, i64 1
+  %.sroa.6.8..06.i.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.06.i.i.i, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %.sroa.6.8..06.i.i.i.sroa_idx, ptr noundef nonnull align 1 dereferenceable(11) %.sroa.6, i64 11, i1 false)
-  %40 = getelementptr inbounds i8, ptr %.06.i.i.i, i64 12
+  %40 = getelementptr inbounds nuw i8, ptr %.06.i.i.i, i64 12
   %.not.i.i.i = icmp eq ptr %40, %39
   br i1 %.not.i.i.i, label %_ZSt4fillIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EES5_EvT_S7_RKT0_.exit, label %.preheader.i.i.i, !llvm.loop !9
 
@@ -611,10 +611,10 @@ _ZSt13move_backwardIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm
   %.09.i.i.i.i = phi ptr [ %44, %.lr.ph.i.i.i.i ], [ %9, %41 ]
   %.068.i.i.i.i = phi i64 [ %43, %.lr.ph.i.i.i.i ], [ %42, %41 ]
   store i8 %.sroa.1.8.copyload, ptr %.09.i.i.i.i, align 4
-  %.sroa.6.8..09.i.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %.09.i.i.i.i, i64 1
+  %.sroa.6.8..09.i.i.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %.sroa.6.8..09.i.i.i.i.sroa_idx, ptr noundef nonnull align 1 dereferenceable(11) %.sroa.6, i64 11, i1 false)
   %43 = add i64 %.068.i.i.i.i, -1
-  %44 = getelementptr inbounds i8, ptr %.09.i.i.i.i, i64 12
+  %44 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i, i64 12
   %.not.i.i.i.i69 = icmp eq i64 %43, 0
   br i1 %.not.i.i.i.i69, label %_ZSt24__uninitialized_fill_n_aIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EEmS5_S5_ET_S7_T0_RKT1_RSaIT2_E.exit, label %.lr.ph.i.i.i.i, !llvm.loop !10
 
@@ -633,8 +633,8 @@ _ZSt22__uninitialized_move_aIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_t
   %.013.i.i.i.i.i72 = phi ptr [ %48, %.lr.ph.i.i.i.i.i71 ], [ %45, %_ZSt24__uninitialized_fill_n_aIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EEmS5_S5_ET_S7_T0_RKT1_RSaIT2_E.exit ]
   %.sroa.08.012.i.i.i.i.i73 = phi ptr [ %47, %.lr.ph.i.i.i.i.i71 ], [ %1, %_ZSt24__uninitialized_fill_n_aIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EEmS5_S5_ET_S7_T0_RKT1_RSaIT2_E.exit ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.013.i.i.i.i.i72, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.08.012.i.i.i.i.i73, i64 12, i1 false)
-  %47 = getelementptr inbounds i8, ptr %.sroa.08.012.i.i.i.i.i73, i64 12
-  %48 = getelementptr inbounds i8, ptr %.013.i.i.i.i.i72, i64 12
+  %47 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i73, i64 12
+  %48 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i72, i64 12
   %.not.i.i.i.i.i74 = icmp eq ptr %47, %9
   br i1 %.not.i.i.i.i.i74, label %_ZSt22__uninitialized_move_aIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EES6_SaIS5_EET0_T_S9_S8_RT1_.exit76, label %.lr.ph.i.i.i.i.i71, !llvm.loop !6
 
@@ -647,9 +647,9 @@ _ZSt22__uninitialized_move_aIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_t
 .preheader.i.i.i78:                               ; preds = %_ZSt22__uninitialized_move_aIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EES6_SaIS5_EET0_T_S9_S8_RT1_.exit76, %.preheader.i.i.i78
   %.06.i.i.i79 = phi ptr [ %51, %.preheader.i.i.i78 ], [ %1, %_ZSt22__uninitialized_move_aIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EES6_SaIS5_EET0_T_S9_S8_RT1_.exit76 ]
   store i8 %.sroa.1.8.copyload, ptr %.06.i.i.i79, align 4
-  %.sroa.6.8..06.i.i.i79.sroa_idx = getelementptr inbounds i8, ptr %.06.i.i.i79, i64 1
+  %.sroa.6.8..06.i.i.i79.sroa_idx = getelementptr inbounds nuw i8, ptr %.06.i.i.i79, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %.sroa.6.8..06.i.i.i79.sroa_idx, ptr noundef nonnull align 1 dereferenceable(11) %.sroa.6, i64 11, i1 false)
-  %51 = getelementptr inbounds i8, ptr %.06.i.i.i79, i64 12
+  %51 = getelementptr inbounds nuw i8, ptr %.06.i.i.i79, i64 12
   %.not.i.i.i83 = icmp eq ptr %51, %9
   br i1 %.not.i.i.i83, label %_ZSt4fillIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EES5_EvT_S7_RKT0_.exit, label %.preheader.i.i.i78, !llvm.loop !9
 
@@ -692,7 +692,7 @@ _ZNSt12_Vector_baseISt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3
   %.068.i.i.i.i88 = phi i64 [ %71, %.lr.ph.i.i.i.i86 ], [ %2, %_ZNSt12_Vector_baseISt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EESaIS5_EE11_M_allocateEm.exit ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.09.i.i.i.i87, ptr noundef nonnull align 4 dereferenceable(12) %3, i64 12, i1 false)
   %71 = add i64 %.068.i.i.i.i88, -1
-  %72 = getelementptr inbounds i8, ptr %.09.i.i.i.i87, i64 12
+  %72 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i87, i64 12
   %.not.i.i.i.i89 = icmp eq i64 %71, 0
   br i1 %.not.i.i.i.i89, label %_ZSt24__uninitialized_fill_n_aIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EEmS5_S5_ET_S7_T0_RKT1_RSaIT2_E.exit91, label %.lr.ph.i.i.i.i86, !llvm.loop !10
 
@@ -704,8 +704,8 @@ _ZSt24__uninitialized_fill_n_aIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag
   %.013.i.i.i.i.i94 = phi ptr [ %74, %.lr.ph.i.i.i.i.i93 ], [ %69, %_ZSt24__uninitialized_fill_n_aIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EEmS5_S5_ET_S7_T0_RKT1_RSaIT2_E.exit91 ]
   %.sroa.08.012.i.i.i.i.i95 = phi ptr [ %73, %.lr.ph.i.i.i.i.i93 ], [ %53, %_ZSt24__uninitialized_fill_n_aIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EEmS5_S5_ET_S7_T0_RKT1_RSaIT2_E.exit91 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.013.i.i.i.i.i94, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.08.012.i.i.i.i.i95, i64 12, i1 false)
-  %73 = getelementptr inbounds i8, ptr %.sroa.08.012.i.i.i.i.i95, i64 12
-  %74 = getelementptr inbounds i8, ptr %.013.i.i.i.i.i94, i64 12
+  %73 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i95, i64 12
+  %74 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i94, i64 12
   %.not.i.i.i.i.i96 = icmp eq ptr %73, %1
   br i1 %.not.i.i.i.i.i96, label %_ZSt34__uninitialized_move_if_noexcept_aIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EES6_SaIS5_EET0_T_S9_S8_RT1_.exit, label %.lr.ph.i.i.i.i.i93, !llvm.loop !6
 
@@ -719,8 +719,8 @@ _ZSt34__uninitialized_move_if_noexcept_aIPSt5arrayIN5draco9IndexTypeIjNS1_20Poin
   %.013.i.i.i.i.i100 = phi ptr [ %77, %.lr.ph.i.i.i.i.i99 ], [ %75, %_ZSt34__uninitialized_move_if_noexcept_aIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EES6_SaIS5_EET0_T_S9_S8_RT1_.exit ]
   %.sroa.08.012.i.i.i.i.i101 = phi ptr [ %76, %.lr.ph.i.i.i.i.i99 ], [ %1, %_ZSt34__uninitialized_move_if_noexcept_aIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EES6_SaIS5_EET0_T_S9_S8_RT1_.exit ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.013.i.i.i.i.i100, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.08.012.i.i.i.i.i101, i64 12, i1 false)
-  %76 = getelementptr inbounds i8, ptr %.sroa.08.012.i.i.i.i.i101, i64 12
-  %77 = getelementptr inbounds i8, ptr %.013.i.i.i.i.i100, i64 12
+  %76 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i101, i64 12
+  %77 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i100, i64 12
   %.not.i.i.i.i.i102 = icmp eq ptr %76, %9
   br i1 %.not.i.i.i.i.i102, label %_ZSt34__uninitialized_move_if_noexcept_aIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EES6_SaIS5_EET0_T_S9_S8_RT1_.exit104, label %.lr.ph.i.i.i.i.i99, !llvm.loop !6
 
@@ -736,7 +736,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPSt5arrayIN5draco9IndexTypeIjNS1_20Poin
 _ZNSt12_Vector_baseISt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EES6_SaIS5_EET0_T_S9_S8_RT1_.exit104, %78
   store ptr %69, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i.i.i103, ptr %8, align 8
-  %79 = getelementptr inbounds %"struct.std::array", ptr %69, i64 %63
+  %79 = getelementptr inbounds nuw %"struct.std::array", ptr %69, i64 %63
   store ptr %79, ptr %6, align 8
   br label %_ZSt4fillIPSt5arrayIN5draco9IndexTypeIjNS1_20PointIndex_tag_type_EEELm3EES5_EvT_S7_RKT0_.exit
 

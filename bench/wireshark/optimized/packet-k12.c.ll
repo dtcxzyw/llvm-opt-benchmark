@@ -225,7 +225,7 @@ define internal noundef zeroext i1 @protos_chk_cb(ptr nocapture readnone %0, ptr
 define internal void @k12_protos_set_cb(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #5
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void @g_free(ptr noundef %9) #5
   store ptr %7, ptr %8, align 8
@@ -234,7 +234,7 @@ define internal void @k12_protos_set_cb(ptr nocapture noundef %0, ptr noundef %1
 
 ; Function Attrs: nounwind uwtable
 define internal void @k12_protos_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %13, label %8
@@ -273,9 +273,9 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_k12(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = load i32, ptr @proto_k12, align 4
-  %6 = getelementptr inbounds i8, ptr %1, i64 88
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr %7, align 8
   %11 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.45, ptr noundef %9, i32 noundef %10) #5
@@ -287,23 +287,23 @@ define internal i32 @dissect_k12(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %17 = tail call ptr @proto_tree_add_uint(ptr noundef %13, i32 noundef %14, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %16) #5
   %18 = load i32, ptr @hf_k12_port_name, align 4
   %19 = load ptr, ptr %6, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load ptr, ptr %20, align 8
   %22 = tail call ptr @proto_tree_add_string(ptr noundef %13, i32 noundef %18, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef %21) #5
   %23 = load i32, ptr @hf_k12_stack_file, align 4
   %24 = load ptr, ptr %6, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load ptr, ptr %25, align 8
   %27 = tail call ptr @proto_tree_add_string(ptr noundef %13, i32 noundef %23, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef %26) #5
   %28 = load i32, ptr @hf_k12_port_type, align 4
   %29 = load ptr, ptr %6, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 24
   %31 = load i32, ptr %30, align 8
   %32 = tail call ptr @proto_tree_add_uint(ptr noundef %13, i32 noundef %28, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %31) #5
   %33 = load i32, ptr @ett_port, align 4
   %34 = tail call ptr @proto_item_add_subtree(ptr noundef %32, i32 noundef %33) #5
   %35 = load ptr, ptr %6, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %37 = load i32, ptr %36, align 8
   switch i32 %37, label %76 [
     i32 65544, label %38
@@ -312,21 +312,21 @@ define internal i32 @dissect_k12(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 38:                                               ; preds = %4
   %39 = load i32, ptr @hf_k12_ts, align 4
-  %40 = getelementptr inbounds i8, ptr %35, i64 28
+  %40 = getelementptr inbounds nuw i8, ptr %35, i64 28
   %41 = load i32, ptr %40, align 4
   %42 = tail call ptr @proto_tree_add_uint(ptr noundef %34, i32 noundef %39, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %41) #5
   br label %76
 
 43:                                               ; preds = %4
-  %44 = getelementptr inbounds i8, ptr %1, i64 408
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %35, i64 28
+  %46 = getelementptr inbounds nuw i8, ptr %35, i64 28
   %47 = load i16, ptr %46, align 4
   %48 = zext i16 %47 to i32
-  %49 = getelementptr inbounds i8, ptr %35, i64 30
+  %49 = getelementptr inbounds nuw i8, ptr %35, i64 30
   %50 = load i16, ptr %49, align 2
   %51 = zext i16 %50 to i32
-  %52 = getelementptr inbounds i8, ptr %35, i64 32
+  %52 = getelementptr inbounds nuw i8, ptr %35, i64 32
   %53 = load i16, ptr %52, align 4
   %54 = zext i16 %53 to i32
   %55 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %45, ptr noundef nonnull @.str.46, i32 noundef %48, i32 noundef %51, i32 noundef %54) #5
@@ -334,18 +334,18 @@ define internal i32 @dissect_k12(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   tail call void @conversation_set_elements_by_id(ptr noundef nonnull %1, i32 noundef 0, i32 noundef %56) #5
   %57 = load i32, ptr @hf_k12_atm_vp, align 4
   %58 = load ptr, ptr %6, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 28
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 28
   %60 = load i16, ptr %59, align 4
   %61 = zext i16 %60 to i32
   %62 = tail call ptr @proto_tree_add_uint(ptr noundef %34, i32 noundef %57, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %61) #5
   %63 = load i32, ptr @hf_k12_atm_vc, align 4
   %64 = load ptr, ptr %6, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 30
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 30
   %66 = load i16, ptr %65, align 2
   %67 = zext i16 %66 to i32
   %68 = tail call ptr @proto_tree_add_uint(ptr noundef %34, i32 noundef %63, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %67) #5
   %69 = load ptr, ptr %6, align 8
-  %70 = getelementptr inbounds i8, ptr %69, i64 32
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 32
   %71 = load i16, ptr %70, align 4
   %.not = icmp eq i16 %71, 0
   br i1 %.not, label %76, label %72
@@ -379,7 +379,7 @@ define internal i32 @dissect_k12(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 .lr.ph:                                           ; preds = %.preheader104, %82
   %indvars.iv = phi i64 [ %indvars.iv.next, %82 ], [ 0, %.preheader104 ]
   %86 = load ptr, ptr %6, align 8
-  %87 = getelementptr inbounds i8, ptr %86, i64 16
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 16
   %88 = load ptr, ptr %87, align 8
   %89 = load ptr, ptr @k12_handles, align 8
   %90 = getelementptr %struct._k12_hdls_t, ptr %89, i64 %indvars.iv
@@ -390,7 +390,7 @@ define internal i32 @dissect_k12(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 93:                                               ; preds = %.lr.ph
   %94 = load ptr, ptr %6, align 8
-  %95 = getelementptr inbounds i8, ptr %94, i64 8
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 8
   %96 = load ptr, ptr %95, align 8
   %97 = load ptr, ptr @k12_handles, align 8
   %98 = getelementptr %struct._k12_hdls_t, ptr %97, i64 %indvars.iv
@@ -500,9 +500,9 @@ define internal i32 @dissect_k12(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %148 = load i32, ptr @proto_fp, align 4
   tail call void @p_add_proto_data(ptr noundef %147, ptr noundef %1, i32 noundef %148, i32 noundef 0, ptr noundef %146) #5
   %149 = load ptr, ptr %6, align 8
-  %150 = getelementptr inbounds i8, ptr %149, i64 40
+  %150 = getelementptr inbounds nuw i8, ptr %149, i64 40
   %151 = load ptr, ptr %150, align 8
-  %152 = getelementptr inbounds i8, ptr %149, i64 48
+  %152 = getelementptr inbounds nuw i8, ptr %149, i64 48
   %153 = load i32, ptr %152, align 8
   %.val.i = load i8, ptr %151, align 1
   %154 = getelementptr i8, ptr %151, i64 1
@@ -520,7 +520,7 @@ define internal i32 @dissect_k12(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %162 = getelementptr i8, ptr %151, i64 14
   %163 = load i8, ptr %162, align 1
   %164 = zext i8 %163 to i32
-  %165 = getelementptr inbounds i8, ptr %146, i64 4
+  %165 = getelementptr inbounds nuw i8, ptr %146, i64 4
   store i32 %164, ptr %165, align 4
   %166 = getelementptr i8, ptr %151, i64 2
   %.val73.i = load i8, ptr %166, align 1
@@ -533,17 +533,17 @@ define internal i32 @dissect_k12(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %172 = icmp eq i16 %171, 5
   %spec.select.i = select i1 %172, i32 8, i32 0
   store i32 0, ptr %146, align 8
-  %173 = getelementptr inbounds i8, ptr %146, i64 8
+  %173 = getelementptr inbounds nuw i8, ptr %146, i64 8
   store i8 0, ptr %173, align 8
-  %174 = getelementptr inbounds i8, ptr %146, i64 10
+  %174 = getelementptr inbounds nuw i8, ptr %146, i64 10
   store i16 0, ptr %174, align 2
-  %175 = getelementptr inbounds i8, ptr %146, i64 12
+  %175 = getelementptr inbounds nuw i8, ptr %146, i64 12
   store i8 0, ptr %175, align 4
   %176 = getelementptr i8, ptr %151, i64 15
   %177 = load i8, ptr %176, align 1
   %178 = icmp eq i8 %177, 1
   %spec.select83.i = zext i1 %178 to i32
-  %179 = getelementptr inbounds i8, ptr %146, i64 16
+  %179 = getelementptr inbounds nuw i8, ptr %146, i64 16
   store i32 %spec.select83.i, ptr %179, align 8
   switch i16 %158, label %.thread76.i [
     i16 17, label %182
@@ -551,7 +551,7 @@ define internal i32 @dissect_k12(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   ]
 
 .thread76.i:                                      ; preds = %161
-  %180 = getelementptr inbounds i8, ptr %146, i64 24
+  %180 = getelementptr inbounds nuw i8, ptr %146, i64 24
   store i8 2, ptr %180, align 8
   br label %fill_fp_info.exit
 
@@ -576,24 +576,24 @@ define internal i32 @dissect_k12(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   ]
 
 184:                                              ; preds = %182
-  %185 = getelementptr inbounds i8, ptr %146, i64 20
+  %185 = getelementptr inbounds nuw i8, ptr %146, i64 20
   store i32 11, ptr %185, align 4
   br label %213
 
 186:                                              ; preds = %182
-  %187 = getelementptr inbounds i8, ptr %146, i64 20
+  %187 = getelementptr inbounds nuw i8, ptr %146, i64 20
   store i32 9, ptr %187, align 4
-  %188 = getelementptr inbounds i8, ptr %146, i64 712
+  %188 = getelementptr inbounds nuw i8, ptr %146, i64 712
   store i32 0, ptr %188, align 8
   br label %213
 
 189:                                              ; preds = %182
-  %190 = getelementptr inbounds i8, ptr %146, i64 20
+  %190 = getelementptr inbounds nuw i8, ptr %146, i64 20
   store i32 10, ptr %190, align 4
   br label %213
 
 191:                                              ; preds = %182
-  %192 = getelementptr inbounds i8, ptr %146, i64 20
+  %192 = getelementptr inbounds nuw i8, ptr %146, i64 20
   switch i8 %163, label %195 [
     i8 1, label %193
     i8 2, label %194
@@ -613,7 +613,7 @@ define internal i32 @dissect_k12(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 196:                                              ; preds = %182
   %197 = icmp eq i8 %163, 1
-  %198 = getelementptr inbounds i8, ptr %146, i64 20
+  %198 = getelementptr inbounds nuw i8, ptr %146, i64 20
   br i1 %197, label %199, label %200
 
 199:                                              ; preds = %196
@@ -626,7 +626,7 @@ define internal i32 @dissect_k12(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 201:                                              ; preds = %182
   %202 = icmp eq i8 %163, 2
-  %203 = getelementptr inbounds i8, ptr %146, i64 20
+  %203 = getelementptr inbounds nuw i8, ptr %146, i64 20
   br i1 %202, label %204, label %205
 
 204:                                              ; preds = %201
@@ -639,7 +639,7 @@ define internal i32 @dissect_k12(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 206:                                              ; preds = %182
   %207 = icmp eq i8 %163, 1
-  %208 = getelementptr inbounds i8, ptr %146, i64 20
+  %208 = getelementptr inbounds nuw i8, ptr %146, i64 20
   br i1 %207, label %209, label %210
 
 209:                                              ; preds = %206
@@ -651,12 +651,12 @@ define internal i32 @dissect_k12(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %213
 
 211:                                              ; preds = %182
-  %212 = getelementptr inbounds i8, ptr %146, i64 20
+  %212 = getelementptr inbounds nuw i8, ptr %146, i64 20
   store i32 12, ptr %212, align 4
   br label %213
 
 213:                                              ; preds = %211, %210, %209, %205, %204, %200, %199, %195, %194, %193, %189, %186, %184, %182
-  %214 = getelementptr inbounds i8, ptr %146, i64 24
+  %214 = getelementptr inbounds nuw i8, ptr %146, i64 24
   store i8 2, ptr %214, align 8
   %215 = icmp eq i16 %158, 48
   br i1 %215, label %216, label %fill_fp_info.exit
@@ -667,7 +667,7 @@ define internal i32 @dissect_k12(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %219 = getelementptr i8, ptr %151, i64 %218
   %220 = load i8, ptr %219, align 1
   %221 = zext i8 %220 to i32
-  %222 = getelementptr inbounds i8, ptr %146, i64 28
+  %222 = getelementptr inbounds nuw i8, ptr %146, i64 28
   store i32 %221, ptr %222, align 4
   %.not81.i = icmp eq i8 %220, 0
   br i1 %.not81.i, label %fill_fp_info.exit, label %.lr.ph.i
@@ -677,10 +677,10 @@ define internal i32 @dissect_k12(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %224 = getelementptr i8, ptr %151, i64 28
   %225 = zext nneg i32 %spec.select.i to i64
   %invariant.gep.i = getelementptr i8, ptr %224, i64 %225
-  %226 = getelementptr inbounds i8, ptr %146, i64 32
+  %226 = getelementptr inbounds nuw i8, ptr %146, i64 32
   %227 = getelementptr i8, ptr %151, i64 32
   %invariant.gep79.i = getelementptr i8, ptr %227, i64 %225
-  %228 = getelementptr inbounds i8, ptr %146, i64 288
+  %228 = getelementptr inbounds nuw i8, ptr %146, i64 288
   %229 = zext nneg i32 %223 to i64
   %230 = zext i32 %153 to i64
   %wide.trip.count.i = zext i8 %220 to i64
@@ -757,7 +757,7 @@ declare ptr @uat_new(ptr noundef, i64 noundef, ptr noundef, i1 noundef zeroext, 
 
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @k12_copy_cb(ptr noundef returned %0, ptr nocapture noundef readonly %1, i64 %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr @g_strsplit(ptr noundef %5, ptr noundef nonnull @.str.42, i32 noundef 0) #5
   %7 = load ptr, ptr %6, align 8
@@ -787,14 +787,14 @@ define internal noundef ptr @k12_copy_cb(ptr noundef returned %0, ptr nocapture 
   %18 = load ptr, ptr %1, align 8
   %19 = tail call noalias ptr @g_strdup(ptr noundef %18) #5
   store ptr %19, ptr %0, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %21 = load ptr, ptr %20, align 8
   %22 = tail call noalias ptr @g_strdup(ptr noundef %21) #5
   store ptr %22, ptr %4, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %24 = load ptr, ptr %23, align 8
   %25 = tail call ptr @g_memdup2(ptr noundef %24, i64 noundef %.0.lcssa) #7
-  %26 = getelementptr inbounds i8, ptr %0, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %25, ptr %26, align 8
   tail call void @g_strfreev(ptr noundef nonnull %6) #5
   ret ptr %0
@@ -802,7 +802,7 @@ define internal noundef ptr @k12_copy_cb(ptr noundef returned %0, ptr nocapture 
 
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i1 @k12_update_cb(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = tail call ptr @g_strsplit(ptr noundef %4, ptr noundef nonnull @.str.42, i32 noundef 0) #5
   %6 = load ptr, ptr %5, align 8
@@ -823,7 +823,7 @@ define internal noundef zeroext i1 @k12_update_cb(ptr nocapture noundef %0, ptr 
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.029.lcssa = phi i32 [ 0, %2 ], [ %10, %.lr.ph ]
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load ptr, ptr %14, align 8
   tail call void @g_free(ptr noundef %15) #5
   %16 = add i32 %.029.lcssa, 1
@@ -893,10 +893,10 @@ define internal noundef zeroext i1 @k12_update_cb(ptr nocapture noundef %0, ptr 
 define internal void @k12_free_cb(ptr nocapture noundef readonly %0) #0 {
   %2 = load ptr, ptr %0, align 8
   tail call void @g_free(ptr noundef %2) #5
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call void @g_free(ptr noundef %4) #5
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call void @g_free(ptr noundef %6) #5
   ret void

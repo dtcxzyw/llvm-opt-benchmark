@@ -435,7 +435,7 @@ define range(i32 0, 2) i32 @slurm_verify_cpu_bind(ptr noundef %0, ptr noundef %1
   ]
 
 13:                                               ; preds = %11
-  %14 = getelementptr inbounds i8, ptr %storemerge, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %storemerge, i64 1
   %15 = tail call ptr @__ctype_b_loc() #15
   %16 = load ptr, ptr %15, align 8
   %17 = load i8, ptr %14, align 1
@@ -454,7 +454,7 @@ define range(i32 0, 2) i32 @slurm_verify_cpu_bind(ptr noundef %0, ptr noundef %1
   %25 = load i16, ptr %24, align 2
   %26 = and i16 %25, 4096
   %.not7.i = icmp eq i16 %26, 0
-  %27 = getelementptr inbounds i8, ptr %.0.i, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
   br i1 %.not7.i, label %_isvalue.exit, label %.preheader.i, !llvm.loop !6
 
 _isvalue.exit:                                    ; preds = %.preheader.i
@@ -470,7 +470,7 @@ _isvalue.exit:                                    ; preds = %.preheader.i
 
 _isvalue.exit.thread:                             ; preds = %_isvalue.exit, %_isvalue.exit, %13, %11, %28
   %29 = phi ptr [ %storemerge, %_isvalue.exit ], [ %storemerge, %_isvalue.exit ], [ %storemerge, %13 ], [ %storemerge, %11 ], [ %.pre, %28 ]
-  %30 = getelementptr inbounds i8, ptr %29, i64 1
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 1
   br label %11, !llvm.loop !8
 
 .lr.ph:                                           ; preds = %11
@@ -897,7 +897,7 @@ define internal fastcc ptr @_expand_mult(ptr noundef nonnull %0, ptr noundef %1,
   %12 = call i32 @xstrncmp(ptr noundef nonnull %.05189, ptr noundef nonnull @.str.79, i64 noundef 2) #13
   %.not62 = icmp eq i32 %12, 0
   %spec.select.idx = select i1 %.not62, i64 2, i64 0
-  %spec.select = getelementptr inbounds i8, ptr %.05189, i64 %spec.select.idx
+  %spec.select = getelementptr inbounds nuw i8, ptr %.05189, i64 %spec.select.idx
   br label %13
 
 13:                                               ; preds = %11, %.lr.ph91
@@ -907,7 +907,7 @@ define internal fastcc ptr @_expand_mult(ptr noundef nonnull %0, ptr noundef %1,
   br i1 %.not63, label %41, label %.preheader69
 
 .preheader69:                                     ; preds = %13
-  %15 = getelementptr inbounds i8, ptr %14, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 1
   %16 = load i8, ptr %15, align 1
   %.not6477 = icmp eq i8 %16, 0
   br i1 %.not6477, label %._crit_edge, label %.lr.ph
@@ -919,7 +919,7 @@ define internal fastcc ptr @_expand_mult(ptr noundef nonnull %0, ptr noundef %1,
 
 19:                                               ; preds = %22
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %20 = getelementptr inbounds i8, ptr %14, i64 %indvars.iv.next
+  %20 = getelementptr inbounds nuw i8, ptr %14, i64 %indvars.iv.next
   %21 = load i8, ptr %20, align 1
   %.not64 = icmp eq i8 %21, 0
   br i1 %.not64, label %._crit_edge, label %22, !llvm.loop !10
@@ -982,7 +982,7 @@ define internal fastcc ptr @_expand_mult(ptr noundef nonnull %0, ptr noundef %1,
   br i1 %.not66, label %46, label %51
 
 46:                                               ; preds = %.lr.ph82
-  %47 = getelementptr inbounds i8, ptr %.152, i64 %.04880
+  %47 = getelementptr inbounds nuw i8, ptr %.152, i64 %.04880
   %48 = load i8, ptr %47, align 1
   %49 = sext i8 %48 to i32
   %50 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.80, ptr noundef nonnull %.152, i32 noundef %49) #13
@@ -991,7 +991,7 @@ define internal fastcc ptr @_expand_mult(ptr noundef nonnull %0, ptr noundef %1,
 
 51:                                               ; preds = %.lr.ph82
   %52 = add nuw nsw i64 %.04880, 1
-  %53 = getelementptr inbounds i8, ptr %.152, i64 %52
+  %53 = getelementptr inbounds nuw i8, ptr %.152, i64 %52
   %54 = load i8, ptr %53, align 1
   %.not65 = icmp eq i8 %54, 0
   br i1 %.not65, label %.lr.ph85.preheader, label %.lr.ph82, !llvm.loop !12
@@ -1192,7 +1192,7 @@ define i32 @slurm_verify_mem_bind(ptr noundef %0, ptr noundef %1, ptr nocapture 
   ]
 
 13:                                               ; preds = %11
-  %14 = getelementptr inbounds i8, ptr %storemerge, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %storemerge, i64 1
   %15 = tail call ptr @__ctype_b_loc() #15
   %16 = load ptr, ptr %15, align 8
   %17 = load i8, ptr %14, align 1
@@ -1211,7 +1211,7 @@ define i32 @slurm_verify_mem_bind(ptr noundef %0, ptr noundef %1, ptr nocapture 
   %25 = load i16, ptr %24, align 2
   %26 = and i16 %25, 4096
   %.not7.i = icmp eq i16 %26, 0
-  %27 = getelementptr inbounds i8, ptr %.0.i, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
   br i1 %.not7.i, label %_isvalue.exit, label %.preheader.i, !llvm.loop !6
 
 _isvalue.exit:                                    ; preds = %.preheader.i
@@ -1227,7 +1227,7 @@ _isvalue.exit:                                    ; preds = %.preheader.i
 
 _isvalue.exit.thread:                             ; preds = %_isvalue.exit, %_isvalue.exit, %13, %11, %28
   %29 = phi ptr [ %storemerge, %_isvalue.exit ], [ %storemerge, %_isvalue.exit ], [ %storemerge, %13 ], [ %storemerge, %11 ], [ %.pre, %28 ]
-  %30 = getelementptr inbounds i8, ptr %29, i64 1
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 1
   br label %11, !llvm.loop !16
 
 .lr.ph.preheader:                                 ; preds = %11

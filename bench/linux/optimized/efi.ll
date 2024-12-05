@@ -92,7 +92,7 @@ define dso_local i32 @efi_memblock_x86_reserve_range() local_unnamed_addr #1 sec
   br i1 %4, label %5, label %44
 
 5:                                                ; preds = %0
-  %6 = getelementptr inbounds i8, ptr %1, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i64 0, ptr %6, align 8, !annotation !5
   %7 = load i32, ptr getelementptr inbounds (i8, ptr @boot_params, i64 464), align 4
   %8 = zext i32 %7 to i64
@@ -103,15 +103,15 @@ define dso_local i32 @efi_memblock_x86_reserve_range() local_unnamed_addr #1 sec
   store i64 %12, ptr %1, align 8
   %13 = load i32, ptr getelementptr inbounds (i8, ptr @boot_params, i64 468), align 4
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %14, ptr %15, align 8
   %16 = load i32, ptr getelementptr inbounds (i8, ptr @boot_params, i64 456), align 4
   %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds i8, ptr %1, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i64 %17, ptr %18, align 8
   %19 = load i32, ptr getelementptr inbounds (i8, ptr @boot_params, i64 460), align 4
   %20 = zext i32 %19 to i64
-  %21 = getelementptr inbounds i8, ptr %1, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i64 %20, ptr %21, align 8
   %22 = load volatile i64, ptr getelementptr inbounds (i8, ptr @efi, i64 264), align 8
   %23 = and i64 %22, 64
@@ -193,9 +193,9 @@ define internal fastcc void @do_add_efi_memmap() unnamed_addr #1 section ".init.
 
 .preheader:                                       ; preds = %4, %29
   %12 = phi ptr [ %32, %29 ], [ %5, %4 ]
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load i64, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %12, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %16 = load i64, ptr %15, align 8
   %17 = shl i64 %16, 12
   %18 = load i32, ptr %12, align 8
@@ -212,7 +212,7 @@ define internal fastcc void @do_add_efi_memmap() unnamed_addr #1 section ".init.
   ]
 
 19:                                               ; preds = %.preheader, %.preheader, %.preheader, %.preheader, %.preheader
-  %20 = getelementptr inbounds i8, ptr %12, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %21 = load i64, ptr %20, align 8
   %22 = and i64 %21, 8
   %23 = icmp eq i64 %22, 0
@@ -280,9 +280,9 @@ define dso_local void @efi_print_memmap() local_unnamed_addr #1 section ".init.t
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %1, i8 0, i64 64, i1 false), !annotation !5
   %11 = add i32 %10, 1
   %12 = call ptr @efi_md_typeattr_format(ptr noundef nonnull %1, i64 noundef 64, ptr noundef nonnull %9) #13
-  %13 = getelementptr inbounds i8, ptr %9, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %14 = load i64, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %9, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %16 = load i64, ptr %15, align 8
   %17 = shl i64 %16, 12
   %18 = add i64 %14, -1
@@ -360,7 +360,7 @@ define dso_local void @efi_init() local_unnamed_addr #1 section ".init.text" ali
   br label %38
 
 31:                                               ; preds = %26
-  %32 = getelementptr inbounds i8, ptr %27, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %33 = load i64, ptr %32, align 8
   %34 = and i64 %33, 1
   %35 = icmp eq i64 %34, 0
@@ -421,7 +421,7 @@ define internal fastcc i32 @efi_systab_init(i64 noundef %0) unnamed_addr #1 sect
   br i1 %17, label %35, label %18
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds i8, ptr %6, i64 88
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 88
   %20 = load i64, ptr %19, align 8
   store i64 %20, ptr @efi_runtime, align 8
   %21 = load i64, ptr @efi_setup, align 8
@@ -440,7 +440,7 @@ define internal fastcc i32 @efi_systab_init(i64 noundef %0) unnamed_addr #1 sect
 26:                                               ; preds = %23
   %27 = load i64, ptr %24, align 8
   store i64 %27, ptr @efi_fw_vendor, align 8
-  %28 = getelementptr inbounds i8, ptr %24, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %29 = load i64, ptr %28, align 8
   store i64 %29, ptr @efi_config_table, align 8
   tail call void @early_memunmap(ptr noundef nonnull %24, i64 noundef 96) #12
@@ -448,23 +448,23 @@ define internal fastcc i32 @efi_systab_init(i64 noundef %0) unnamed_addr #1 sect
   br label %49
 
 30:                                               ; preds = %18
-  %31 = getelementptr inbounds i8, ptr %6, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %32 = load i64, ptr %31, align 8
   store i64 %32, ptr @efi_fw_vendor, align 8
-  %33 = getelementptr inbounds i8, ptr %6, i64 112
+  %33 = getelementptr inbounds nuw i8, ptr %6, i64 112
   %34 = load i64, ptr %33, align 8
   br label %45
 
 35:                                               ; preds = %14
-  %36 = getelementptr inbounds i8, ptr %6, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %37 = load i32, ptr %36, align 8
   %38 = zext i32 %37 to i64
   store i64 %38, ptr @efi_fw_vendor, align 8
-  %39 = getelementptr inbounds i8, ptr %6, i64 56
+  %39 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %40 = load i32, ptr %39, align 8
   %41 = zext i32 %40 to i64
   store i64 %41, ptr @efi_runtime, align 8
-  %42 = getelementptr inbounds i8, ptr %6, i64 68
+  %42 = getelementptr inbounds nuw i8, ptr %6, i64 68
   %43 = load i32, ptr %42, align 4
   %44 = zext i32 %43 to i64
   br label %45
@@ -483,7 +483,7 @@ define internal fastcc i32 @efi_systab_init(i64 noundef %0) unnamed_addr #1 sect
   %53 = load i32, ptr %52, align 8
   %54 = zext i32 %53 to i64
   store i64 %54, ptr @efi_nr_tables, align 8
-  %55 = getelementptr inbounds i8, ptr %6, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %56 = load i32, ptr %55, align 8
   store i32 %56, ptr getelementptr inbounds (i8, ptr @efi, i64 8), align 8
   tail call void @efi_systab_report_header(ptr noundef nonnull %6, i64 noundef %50) #12
@@ -597,18 +597,18 @@ define internal fastcc void @efi_clean_memmap() unnamed_addr #1 section ".init.t
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %1) #12
   %29 = load i64, ptr getelementptr inbounds (i8, ptr @efi, i64 208), align 8
   store i64 %29, ptr %1, align 8
-  %30 = getelementptr inbounds i8, ptr %1, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %31 = load i32, ptr getelementptr inbounds (i8, ptr @efi, i64 232), align 8
   %32 = sub i32 %31, %21
   %33 = sext i32 %32 to i64
   %34 = mul i64 %20, %33
   store i64 %34, ptr %30, align 8
-  %35 = getelementptr inbounds i8, ptr %1, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %36 = load i64, ptr getelementptr inbounds (i8, ptr @efi, i64 240), align 8
   store i64 %36, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %1, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i64 %20, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %1, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i64 0, ptr %38, align 8
   %39 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.11, i32 noundef %21) #13
   %40 = call i32 @efi_memmap_install(ptr noundef nonnull %1) #13
@@ -638,10 +638,10 @@ define internal fastcc void @efi_remove_e820_mmio() unnamed_addr #1 section ".in
   br i1 %11, label %12, label %28
 
 12:                                               ; preds = %.preheader
-  %13 = getelementptr inbounds i8, ptr %8, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %14 = load i64, ptr %13, align 8
   %15 = shl i64 %14, 12
-  %16 = getelementptr inbounds i8, ptr %8, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %17 = load i64, ptr %16, align 8
   %18 = add i64 %15, -1
   %19 = add i64 %18, %17
@@ -1001,7 +1001,7 @@ define dso_local zeroext i16 @efi_attr_is_visible(ptr nocapture noundef readnone
   br i1 %21, label %25, label %22
 
 22:                                               ; preds = %17, %14, %5
-  %23 = getelementptr inbounds i8, ptr %1, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %24 = load i16, ptr %23, align 8
   br label %25
 
@@ -1031,10 +1031,10 @@ declare dso_local i32 @efi_config_parse_tables(ptr noundef, i32 noundef, ptr nou
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal fastcc noundef zeroext i1 @efi_memmap_entry_valid(ptr noundef %0, i32 noundef %1) unnamed_addr #1 section ".init.text" align 16 {
   %3 = alloca [64 x i8], align 16
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i64, ptr %4, align 8
   %6 = shl i64 %5, 12
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i64, ptr %7, align 8
   %9 = add i64 %8, -1
   %10 = add i64 %9, %6
@@ -1146,27 +1146,27 @@ define internal fastcc void @efi_merge_regions() unnamed_addr #11 section ".init
   br i1 %16, label %17, label %37
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %10, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %19 = load i64, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %11, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %21 = load i64, ptr %20, align 8
   %22 = icmp eq i64 %19, %21
   br i1 %22, label %23, label %37
 
 23:                                               ; preds = %17
-  %24 = getelementptr inbounds i8, ptr %10, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %25 = load i64, ptr %24, align 8
   %26 = shl i64 %25, 12
-  %27 = getelementptr inbounds i8, ptr %11, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %28 = load i64, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %10, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %30 = load i64, ptr %29, align 8
   %31 = add i64 %30, %26
   %32 = icmp eq i64 %28, %31
   br i1 %32, label %33, label %37
 
 33:                                               ; preds = %23
-  %34 = getelementptr inbounds i8, ptr %11, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %35 = load i64, ptr %34, align 8
   %36 = add i64 %35, %25
   store i64 %36, ptr %24, align 8
@@ -1237,7 +1237,7 @@ select.unfold:                                    ; preds = %24, %20, %23, %19
   br i1 %28, label %.thread, label %29
 
 29:                                               ; preds = %select.unfold
-  %30 = getelementptr inbounds i8, ptr %27, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 32
   %31 = load i64, ptr %30, align 8
   %32 = icmp sgt i64 %31, -1
   br i1 %32, label %33, label %42

@@ -167,7 +167,7 @@ entry:
   %splitter = alloca %class.MeshSplitter, align 4
   %s = alloca %"class.Assimp::JSONWriter", align 8
   %vtable = load ptr, ptr %io, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 32
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef ptr %0(ptr noundef nonnull align 8 dereferenceable(32) %io, ptr noundef %file, ptr noundef nonnull @.str)
   %cmp.i.not = icmp eq ptr %call, null
@@ -230,13 +230,13 @@ terminate.lpad.i:                                 ; preds = %invoke.cont14
   unreachable
 
 _ZN6Assimp10JSONWriterD2Ev.exit:                  ; preds = %invoke.cont14
-  %buff.i = getelementptr inbounds i8, ptr %s, i64 104
+  %buff.i = getelementptr inbounds nuw i8, ptr %s, i64 104
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %buff.i) #13
-  %space.i = getelementptr inbounds i8, ptr %s, i64 72
+  %space.i = getelementptr inbounds nuw i8, ptr %s, i64 72
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %space.i) #13
-  %newline.i = getelementptr inbounds i8, ptr %s, i64 40
+  %newline.i = getelementptr inbounds nuw i8, ptr %s, i64 40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %newline.i) #13
-  %indent.i = getelementptr inbounds i8, ptr %s, i64 8
+  %indent.i = getelementptr inbounds nuw i8, ptr %s, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %indent.i) #13
   %7 = load ptr, ptr %scenecopy_tmp, align 8
   invoke void @aiFreeScene(ptr noundef %7)
@@ -268,7 +268,7 @@ lpad15:                                           ; preds = %invoke.cont16, %cat
 
 _ZNSt10unique_ptrIN6Assimp8IOStreamESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZN6Assimp10JSONWriterD2Ev.exit
   %vtable.i.i = load ptr, ptr %call, align 8
-  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
+  %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 8
   %12 = load ptr, ptr %vfn.i.i, align 8
   call void %12(ptr noundef nonnull align 8 dereferenceable(8) %call) #13
   ret void
@@ -281,7 +281,7 @@ ehcleanup.thread21:                               ; preds = %if.end, %_ZN6Assimp
 _ZNKSt14default_deleteIN6Assimp8IOStreamEEclEPS1_.exit.i7: ; preds = %lpad15, %ehcleanup.thread21
   %.pn220 = phi { ptr, i32 } [ %lpad.thr_comm, %ehcleanup.thread21 ], [ %11, %lpad15 ]
   %vtable.i.i8 = load ptr, ptr %call, align 8
-  %vfn.i.i9 = getelementptr inbounds i8, ptr %vtable.i.i8, i64 8
+  %vfn.i.i9 = getelementptr inbounds nuw i8, ptr %vtable.i.i8, i64 8
   %13 = load ptr, ptr %vfn.i.i9, align 8
   call void %13(ptr noundef nonnull align 8 dereferenceable(8) %call) #13
   br label %_ZNSt10unique_ptrIN6Assimp8IOStreamESt14default_deleteIS1_EED2Ev.exit10
@@ -350,7 +350,7 @@ entry:
   %agg.tmp.ensured = alloca %"class.std::locale", align 8
   %ref.tmp13 = alloca %"class.std::locale", align 8
   store ptr %out, ptr %this, align 8
-  %indent = getelementptr inbounds i8, ptr %this, i64 8
+  %indent = getelementptr inbounds nuw i8, ptr %this, i64 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #13
   %call.i7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %indent)
           to label %call.i.noexc unwind label %lpad
@@ -371,7 +371,7 @@ lpad.i:                                           ; preds = %.noexc
 
 invoke.cont:                                      ; preds = %.noexc
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #13
-  %newline = getelementptr inbounds i8, ptr %this, i64 40
+  %newline = getelementptr inbounds nuw i8, ptr %this, i64 40
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3) #13
   %call.i12 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %newline)
           to label %call.i.noexc11 unwind label %lpad4
@@ -392,7 +392,7 @@ lpad.i10:                                         ; preds = %.noexc13
 
 invoke.cont5:                                     ; preds = %.noexc13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3) #13
-  %space = getelementptr inbounds i8, ptr %this, i64 72
+  %space = getelementptr inbounds nuw i8, ptr %this, i64 72
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6) #13
   %call.i20 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %space)
           to label %call.i.noexc19 unwind label %lpad7
@@ -413,14 +413,14 @@ lpad.i18:                                         ; preds = %.noexc21
 
 invoke.cont8:                                     ; preds = %.noexc21
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6) #13
-  %buff = getelementptr inbounds i8, ptr %this, i64 104
+  %buff = getelementptr inbounds nuw i8, ptr %this, i64 104
   invoke void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %buff)
           to label %invoke.cont10 unwind label %lpad9
 
 invoke.cont10:                                    ; preds = %invoke.cont8
-  %first = getelementptr inbounds i8, ptr %this, i64 496
+  %first = getelementptr inbounds nuw i8, ptr %this, i64 496
   store i8 0, ptr %first, align 8
-  %flags11 = getelementptr inbounds i8, ptr %this, i64 500
+  %flags11 = getelementptr inbounds nuw i8, ptr %this, i64 500
   store i32 %flags, ptr %flags11, align 4
   %vtable = load ptr, ptr %buff, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
@@ -713,13 +713,13 @@ entry:
   %ref.tmp91 = alloca %"class.std::allocator.25", align 1
   %ref.tmp110 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp111 = alloca %"class.std::allocator.25", align 1
-  %first5.i = getelementptr inbounds i8, ptr %out, i64 496
+  %first5.i = getelementptr inbounds nuw i8, ptr %out, i64 496
   store i8 1, ptr %first5.i, align 8
-  %add.ptr7.i = getelementptr inbounds i8, ptr %out, i64 120
+  %add.ptr7.i = getelementptr inbounds nuw i8, ptr %out, i64 120
   %call8.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr7.i, ptr noundef nonnull @.str.17)
-  %newline.i = getelementptr inbounds i8, ptr %out, i64 40
+  %newline.i = getelementptr inbounds nuw i8, ptr %out, i64 40
   %call9.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %call8.i, ptr noundef nonnull align 8 dereferenceable(32) %newline.i)
-  %indent.i1.i = getelementptr inbounds i8, ptr %out, i64 8
+  %indent.i1.i = getelementptr inbounds nuw i8, ptr %out, i64 8
   %call.i2.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %indent.i1.i, i8 noundef signext 9)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1) #13
   %call.i81 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
@@ -853,7 +853,7 @@ invoke.cont9.i:                                   ; preds = %invoke.cont7.i
   %call.i.i25.i = call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %indent.i1.i) #13
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i25.i, i64 -1
   %call7.i.i.i = call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEN9__gnu_cxx17__normal_iteratorIPKcS4_EE(ptr noundef nonnull align 8 dereferenceable(32) %indent.i1.i, ptr nonnull %add.ptr.i.i.i.i)
-  %flags.i.i.i = getelementptr inbounds i8, ptr %out, i64 500
+  %flags.i.i.i = getelementptr inbounds nuw i8, ptr %out, i64 500
   %7 = load i32, ptr %flags.i.i.i, align 4
   %8 = and i32 %7, 5
   %or.cond.i.i.i = icmp eq i32 %8, 0
@@ -928,7 +928,7 @@ invoke.cont7:                                     ; preds = %.noexc89
 invoke.cont9:                                     ; preds = %invoke.cont7
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp5) #13
-  %mRootNode = getelementptr inbounds i8, ptr %ai, i64 8
+  %mRootNode = getelementptr inbounds nuw i8, ptr %ai, i64 8
   %14 = load ptr, ptr %mRootNode, align 8
   call fastcc void @_ZN6AssimpL5WriteERNS_10JSONWriterERK6aiNodeb(ptr noundef nonnull align 8 dereferenceable(504) %out, ptr noundef nonnull align 8 dereferenceable(1144) %14, i1 noundef zeroext false)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp13) #13
@@ -959,10 +959,10 @@ invoke.cont17:                                    ; preds = %invoke.cont15
   %16 = load i32, ptr %ai, align 8
   %call.i.i100 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr7.i, i32 noundef %16)
   %call2.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr7.i, ptr noundef nonnull align 8 dereferenceable(32) %newline.i)
-  %mMeshes.i = getelementptr inbounds i8, ptr %ai, i64 24
+  %mMeshes.i = getelementptr inbounds nuw i8, ptr %ai, i64 24
   %17 = load ptr, ptr %mMeshes.i, align 8
   %cmp.not.i = icmp ne ptr %17, null
-  %mNumMeshes.i = getelementptr inbounds i8, ptr %ai, i64 16
+  %mNumMeshes.i = getelementptr inbounds nuw i8, ptr %ai, i64 16
   %18 = load i32, ptr %mNumMeshes.i, align 8
   %cmp2.i = icmp ne i32 %18, 0
   %19 = select i1 %cmp.not.i, i1 %cmp2.i, i1 false
@@ -1005,7 +1005,7 @@ invoke.cont25:                                    ; preds = %invoke.cont23
 for.body:                                         ; preds = %invoke.cont25, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %invoke.cont25 ]
   %22 = load ptr, ptr %mMeshes.i, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %22, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv
   %23 = load ptr, ptr %arrayidx, align 8
   call fastcc void @_ZN6AssimpL5WriteERNS_10JSONWriterERK6aiMeshb(ptr noundef nonnull align 8 dereferenceable(504) %out, ptr noundef nonnull align 8 dereferenceable(1320) %23)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1098,10 +1098,10 @@ _ZN6Assimp10JSONWriter8EndArrayEv.exit:           ; preds = %for.end, %if.then.i
   br label %if.end
 
 if.end:                                           ; preds = %_ZN6Assimp10JSONWriter8EndArrayEv.exit, %invoke.cont17
-  %mMaterials.i = getelementptr inbounds i8, ptr %ai, i64 40
+  %mMaterials.i = getelementptr inbounds nuw i8, ptr %ai, i64 40
   %36 = load ptr, ptr %mMaterials.i, align 8
   %cmp.not.i123 = icmp ne ptr %36, null
-  %mNumMaterials.i = getelementptr inbounds i8, ptr %ai, i64 32
+  %mNumMaterials.i = getelementptr inbounds nuw i8, ptr %ai, i64 32
   %37 = load i32, ptr %mNumMaterials.i, align 8
   %cmp2.i124 = icmp ne i32 %37, 0
   %38 = select i1 %cmp.not.i123, i1 %cmp2.i124, i1 false
@@ -1142,15 +1142,15 @@ invoke.cont35:                                    ; preds = %invoke.cont33
   br i1 %cmp401459.not, label %for.end46, label %for.body41.lr.ph
 
 for.body41.lr.ph:                                 ; preds = %invoke.cont35
-  %buff.i.i = getelementptr inbounds i8, ptr %out, i64 104
-  %data.i.i = getelementptr inbounds i8, ptr %s.i, i64 4
-  %space.i.i260.i = getelementptr inbounds i8, ptr %out, i64 72
+  %buff.i.i = getelementptr inbounds nuw i8, ptr %out, i64 104
+  %data.i.i = getelementptr inbounds nuw i8, ptr %s.i, i64 4
+  %space.i.i260.i = getelementptr inbounds nuw i8, ptr %out, i64 72
   br label %for.body41
 
 for.body41:                                       ; preds = %for.body41.lr.ph, %_ZN6AssimpL5WriteERNS_10JSONWriterERK10aiMaterialb.exit
   %indvars.iv1470 = phi i64 [ 0, %for.body41.lr.ph ], [ %indvars.iv.next1471, %_ZN6AssimpL5WriteERNS_10JSONWriterERK10aiMaterialb.exit ]
   %41 = load ptr, ptr %mMaterials.i, align 8
-  %arrayidx43 = getelementptr inbounds ptr, ptr %41, i64 %indvars.iv1470
+  %arrayidx43 = getelementptr inbounds nuw ptr, ptr %41, i64 %indvars.iv1470
   %42 = load ptr, ptr %arrayidx43, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i140)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp1.i141)
@@ -1238,7 +1238,7 @@ invoke.cont3.i160:                                ; preds = %invoke.cont.i158
   %call8.i79.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr7.i, ptr noundef nonnull @.str.30)
   %call9.i81.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %call8.i79.i, ptr noundef nonnull align 8 dereferenceable(32) %newline.i)
   %call.i2.i83.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %indent.i1.i, i8 noundef signext 9)
-  %mNumProperties.i = getelementptr inbounds i8, ptr %42, i64 8
+  %mNumProperties.i = getelementptr inbounds nuw i8, ptr %42, i64 8
   %49 = load i32, ptr %mNumProperties.i, align 8
   %cmp344.not.i = icmp eq i32 %49, 0
   br i1 %cmp344.not.i, label %for.end112.i, label %for.body.i
@@ -1246,7 +1246,7 @@ invoke.cont3.i160:                                ; preds = %invoke.cont.i158
 for.body.i:                                       ; preds = %invoke.cont3.i160, %_ZN6Assimp10JSONWriter6EndObjEv.exit.i
   %indvars.iv353.i = phi i64 [ %indvars.iv.next354.i, %_ZN6Assimp10JSONWriter6EndObjEv.exit.i ], [ 0, %invoke.cont3.i160 ]
   %50 = load ptr, ptr %42, align 8
-  %arrayidx.i = getelementptr inbounds ptr, ptr %50, i64 %indvars.iv353.i
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %50, i64 %indvars.iv353.i
   %51 = load ptr, ptr %arrayidx.i, align 8
   %52 = load i32, ptr %flags.i.i.i, align 4
   %53 = and i32 %52, 5
@@ -1417,12 +1417,12 @@ for.cond.preheader.i:                             ; preds = %invoke.cont9.i164
   br i1 %cmp17.not.i, label %for.end.i757, label %for.body.lr.ph.i749
 
 for.body.lr.ph.i749:                              ; preds = %for.cond.preheader.i
-  %data.i750 = getelementptr inbounds i8, ptr %51, i64 4
+  %data.i750 = getelementptr inbounds nuw i8, ptr %51, i64 4
   br label %for.body.i751
 
 for.body.i751:                                    ; preds = %for.inc.i, %for.body.lr.ph.i749
   %i.018.i = phi i64 [ 0, %for.body.lr.ph.i749 ], [ %inc.i755, %for.inc.i ]
-  %arrayidx.i752 = getelementptr inbounds [1024 x i8], ptr %data.i750, i64 0, i64 %i.018.i
+  %arrayidx.i752 = getelementptr inbounds nuw [1024 x i8], ptr %data.i750, i64 0, i64 %i.018.i
   %66 = load i8, ptr %arrayidx.i752, align 1
   switch i8 %66, label %if.end.i754 [
     i8 92, label %if.then.i753
@@ -1614,7 +1614,7 @@ invoke.cont17.i:                                  ; preds = %invoke.cont4.i719
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp2.i703)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp12.i) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp13.i) #13
-  %mSemantic.i = getelementptr inbounds i8, ptr %51, i64 1028
+  %mSemantic.i = getelementptr inbounds nuw i8, ptr %51, i64 1028
   %78 = load i32, ptr %mSemantic.i, align 4
   %call.i.i124.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr7.i, i32 noundef %78)
   %call2.i126.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr7.i, ptr noundef nonnull align 8 dereferenceable(32) %newline.i)
@@ -1751,7 +1751,7 @@ invoke.cont25.i:                                  ; preds = %invoke.cont4.i674
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp2.i658)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp20.i) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp21.i) #13
-  %mIndex.i = getelementptr inbounds i8, ptr %51, i64 1032
+  %mIndex.i = getelementptr inbounds nuw i8, ptr %51, i64 1032
   %88 = load i32, ptr %mIndex.i, align 4
   %call.i.i136.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr7.i, i32 noundef %88)
   %call2.i138.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr7.i, ptr noundef nonnull align 8 dereferenceable(32) %newline.i)
@@ -1888,7 +1888,7 @@ invoke.cont33.i:                                  ; preds = %invoke.cont4.i629
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp2.i613)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp28.i) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp29.i) #13
-  %mType.i = getelementptr inbounds i8, ptr %51, i64 1040
+  %mType.i = getelementptr inbounds nuw i8, ptr %51, i64 1040
   %98 = load i32, ptr %mType.i, align 4
   %call.i.i148.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr7.i, i32 noundef %98)
   %call2.i150.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr7.i, ptr noundef nonnull align 8 dereferenceable(32) %newline.i)
@@ -2121,7 +2121,7 @@ lpad40.i.body:                                    ; preds = %lpad40.i, %lpad2.i1
   br label %eh.resume.i155
 
 sw.bb.i:                                          ; preds = %invoke.cont41.i
-  %mDataLength.i = getelementptr inbounds i8, ptr %51, i64 1036
+  %mDataLength.i = getelementptr inbounds nuw i8, ptr %51, i64 1036
   %121 = load i32, ptr %mDataLength.i, align 4
   %cmp45.i = icmp ugt i32 %121, 7
   br i1 %cmp45.i, label %if.then.i, label %if.else.i
@@ -2136,13 +2136,13 @@ if.then.i:                                        ; preds = %sw.bb.i
   br i1 %cmp51342.not.i, label %for.end.i, label %for.body52.lr.ph.i
 
 for.body52.lr.ph.i:                               ; preds = %if.then.i
-  %mData.i = getelementptr inbounds i8, ptr %51, i64 1048
+  %mData.i = getelementptr inbounds nuw i8, ptr %51, i64 1048
   br label %for.body52.i
 
 for.body52.i:                                     ; preds = %_ZN6Assimp10JSONWriter7ElementIfEEvRKT_.exit.i, %for.body52.lr.ph.i
   %indvars.iv350.i = phi i64 [ 0, %for.body52.lr.ph.i ], [ %indvars.iv.next351.i, %_ZN6Assimp10JSONWriter7ElementIfEEvRKT_.exit.i ]
   %123 = load ptr, ptr %mData.i, align 8
-  %arrayidx54.i = getelementptr inbounds float, ptr %123, i64 %indvars.iv350.i
+  %arrayidx54.i = getelementptr inbounds nuw float, ptr %123, i64 %indvars.iv350.i
   %124 = load i32, ptr %flags.i.i.i, align 4
   %125 = and i32 %124, 5
   %or.cond.i.i167.i = icmp eq i32 %125, 0
@@ -2169,7 +2169,7 @@ if.else.i.i.i:                                    ; preds = %_ZN6Assimp10JSONWri
 _ZN6Assimp10JSONWriter7ElementIfEEvRKT_.exit.i:   ; preds = %if.else.i.i.i, %if.then.i1.i.i
   %127 = load float, ptr %arrayidx54.i, align 4
   %call.i171.i = call noundef nonnull align 8 dereferenceable(128) ptr @_ZN6Assimp10JSONWriter15LiteralToStringERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEf(ptr noundef nonnull align 8 dereferenceable(504) %out, ptr noundef nonnull align 8 dereferenceable(128) %buff.i.i, float noundef %127)
-  %add.ptr.i172.i = getelementptr inbounds i8, ptr %call.i171.i, i64 16
+  %add.ptr.i172.i = getelementptr inbounds nuw i8, ptr %call.i171.i, i64 16
   %call2.i174.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i172.i, ptr noundef nonnull align 8 dereferenceable(32) %newline.i)
   %indvars.iv.next351.i = add nuw nsw i64 %indvars.iv350.i, 1
   %128 = load i32, ptr %mDataLength.i, align 4
@@ -2198,16 +2198,16 @@ _ZN6Assimp10JSONWriter8EndArrayEv.exit.i:         ; preds = %if.then.i.i189.i, %
   br label %sw.epilog.i
 
 if.else.i:                                        ; preds = %sw.bb.i
-  %mData55.i = getelementptr inbounds i8, ptr %51, i64 1048
+  %mData55.i = getelementptr inbounds nuw i8, ptr %51, i64 1048
   %133 = load ptr, ptr %mData55.i, align 8
   %134 = load float, ptr %133, align 4
   %call.i193.i = call noundef nonnull align 8 dereferenceable(128) ptr @_ZN6Assimp10JSONWriter15LiteralToStringERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEf(ptr noundef nonnull align 8 dereferenceable(504) %out, ptr noundef nonnull align 8 dereferenceable(128) %buff.i.i, float noundef %134)
-  %add.ptr.i194.i = getelementptr inbounds i8, ptr %call.i193.i, i64 16
+  %add.ptr.i194.i = getelementptr inbounds nuw i8, ptr %call.i193.i, i64 16
   %call2.i196.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i194.i, ptr noundef nonnull align 8 dereferenceable(32) %newline.i)
   br label %sw.epilog.i
 
 sw.bb56.i:                                        ; preds = %invoke.cont41.i
-  %mDataLength57.i = getelementptr inbounds i8, ptr %51, i64 1036
+  %mDataLength57.i = getelementptr inbounds nuw i8, ptr %51, i64 1036
   %135 = load i32, ptr %mDataLength57.i, align 4
   %cmp60.i = icmp ugt i32 %135, 15
   br i1 %cmp60.i, label %if.then61.i, label %if.else76.i
@@ -2222,13 +2222,13 @@ if.then61.i:                                      ; preds = %sw.bb56.i
   br i1 %cmp68340.not.i, label %for.end75.i, label %for.body69.lr.ph.i
 
 for.body69.lr.ph.i:                               ; preds = %if.then61.i
-  %mData70.i = getelementptr inbounds i8, ptr %51, i64 1048
+  %mData70.i = getelementptr inbounds nuw i8, ptr %51, i64 1048
   br label %for.body69.i
 
 for.body69.i:                                     ; preds = %_ZN6Assimp10JSONWriter7ElementIdEEvRKT_.exit.i, %for.body69.lr.ph.i
   %indvars.iv347.i = phi i64 [ 0, %for.body69.lr.ph.i ], [ %indvars.iv.next348.i, %_ZN6Assimp10JSONWriter7ElementIdEEvRKT_.exit.i ]
   %137 = load ptr, ptr %mData70.i, align 8
-  %arrayidx72.i = getelementptr inbounds double, ptr %137, i64 %indvars.iv347.i
+  %arrayidx72.i = getelementptr inbounds nuw double, ptr %137, i64 %indvars.iv347.i
   %138 = load i32, ptr %flags.i.i.i, align 4
   %139 = and i32 %138, 5
   %or.cond.i.i205.i = icmp eq i32 %139, 0
@@ -2283,7 +2283,7 @@ _ZN6Assimp10JSONWriter8EndArrayEv.exit236.i:      ; preds = %if.then.i.i233.i, %
   br label %sw.epilog.i
 
 if.else76.i:                                      ; preds = %sw.bb56.i
-  %mData77.i = getelementptr inbounds i8, ptr %51, i64 1048
+  %mData77.i = getelementptr inbounds nuw i8, ptr %51, i64 1048
   %147 = load ptr, ptr %mData77.i, align 8
   %148 = load double, ptr %147, align 8
   %call.i.i238.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr7.i, double noundef %148)
@@ -2291,7 +2291,7 @@ if.else76.i:                                      ; preds = %sw.bb56.i
   br label %sw.epilog.i
 
 sw.bb79.i:                                        ; preds = %invoke.cont41.i
-  %mDataLength80.i = getelementptr inbounds i8, ptr %51, i64 1036
+  %mDataLength80.i = getelementptr inbounds nuw i8, ptr %51, i64 1036
   %149 = load i32, ptr %mDataLength80.i, align 4
   %cmp83.i = icmp ugt i32 %149, 7
   br i1 %cmp83.i, label %if.then84.i, label %if.else99.i
@@ -2306,13 +2306,13 @@ if.then84.i:                                      ; preds = %sw.bb79.i
   br i1 %cmp91338.not.i, label %for.end98.i, label %for.body92.lr.ph.i
 
 for.body92.lr.ph.i:                               ; preds = %if.then84.i
-  %mData93.i = getelementptr inbounds i8, ptr %51, i64 1048
+  %mData93.i = getelementptr inbounds nuw i8, ptr %51, i64 1048
   br label %for.body92.i
 
 for.body92.i:                                     ; preds = %_ZN6Assimp10JSONWriter7ElementIiEEvRKT_.exit.i, %for.body92.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %for.body92.lr.ph.i ], [ %indvars.iv.next.i, %_ZN6Assimp10JSONWriter7ElementIiEEvRKT_.exit.i ]
   %151 = load ptr, ptr %mData93.i, align 8
-  %arrayidx95.i = getelementptr inbounds i32, ptr %151, i64 %indvars.iv.i
+  %arrayidx95.i = getelementptr inbounds nuw i32, ptr %151, i64 %indvars.iv.i
   %152 = load i32, ptr %flags.i.i.i, align 4
   %153 = and i32 %152, 5
   %or.cond.i.i249.i = icmp eq i32 %153, 0
@@ -2367,7 +2367,7 @@ _ZN6Assimp10JSONWriter8EndArrayEv.exit281.i:      ; preds = %if.then.i.i278.i, %
   br label %sw.epilog.i
 
 if.else99.i:                                      ; preds = %sw.bb79.i
-  %mData100.i = getelementptr inbounds i8, ptr %51, i64 1048
+  %mData100.i = getelementptr inbounds nuw i8, ptr %51, i64 1048
   %161 = load ptr, ptr %mData100.i, align 8
   %162 = load i32, ptr %161, align 4
   %call.i.i283.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr7.i, i32 noundef %162)
@@ -2377,19 +2377,19 @@ if.else99.i:                                      ; preds = %sw.bb79.i
 sw.bb102.i:                                       ; preds = %invoke.cont41.i
   store i32 0, ptr %s.i, align 4
   store i8 0, ptr %data.i.i, align 4
-  %data.i = getelementptr inbounds i8, ptr %51, i64 4
+  %data.i = getelementptr inbounds nuw i8, ptr %51, i64 4
   %163 = load i32, ptr %mSemantic.i, align 4
   %164 = load i32, ptr %mIndex.i, align 8
   %call.i166 = call i32 @aiGetMaterialString(ptr noundef nonnull align 8 dereferenceable(16) %42, ptr noundef nonnull %data.i, i32 noundef %163, i32 noundef %164, ptr noundef nonnull %s.i)
   %call.i287.i = call noundef nonnull align 8 dereferenceable(128) ptr @_ZN6Assimp10JSONWriter15LiteralToStringERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEERK8aiString(ptr noundef nonnull align 8 dereferenceable(504) %out, ptr noundef nonnull align 8 dereferenceable(128) %buff.i.i, ptr noundef nonnull align 4 dereferenceable(1028) %s.i)
-  %add.ptr.i288.i = getelementptr inbounds i8, ptr %call.i287.i, i64 16
+  %add.ptr.i288.i = getelementptr inbounds nuw i8, ptr %call.i287.i, i64 16
   %call2.i290.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i288.i, ptr noundef nonnull align 8 dereferenceable(32) %newline.i)
   br label %sw.epilog.i
 
 sw.bb106.i:                                       ; preds = %invoke.cont41.i
-  %mData107.i = getelementptr inbounds i8, ptr %51, i64 1048
+  %mData107.i = getelementptr inbounds nuw i8, ptr %51, i64 1048
   %165 = load ptr, ptr %mData107.i, align 8
-  %mDataLength108.i = getelementptr inbounds i8, ptr %51, i64 1036
+  %mDataLength108.i = getelementptr inbounds nuw i8, ptr %51, i64 1036
   %166 = load i32, ptr %mDataLength108.i, align 4
   %conv109.i = zext i32 %166 to i64
   call void @_ZN6Assimp10JSONWriter11SimpleValueEPKvm(ptr noundef nonnull align 8 dereferenceable(504) %out, ptr noundef %165, i64 noundef %conv109.i)
@@ -2512,10 +2512,10 @@ _ZN6Assimp10JSONWriter8EndArrayEv.exit185:        ; preds = %for.end46, %if.then
   br label %if.end47
 
 if.end47:                                         ; preds = %_ZN6Assimp10JSONWriter8EndArrayEv.exit185, %if.end
-  %mAnimations.i = getelementptr inbounds i8, ptr %ai, i64 56
+  %mAnimations.i = getelementptr inbounds nuw i8, ptr %ai, i64 56
   %181 = load ptr, ptr %mAnimations.i, align 8
   %cmp.not.i186 = icmp ne ptr %181, null
-  %mNumAnimations.i = getelementptr inbounds i8, ptr %ai, i64 48
+  %mNumAnimations.i = getelementptr inbounds nuw i8, ptr %ai, i64 48
   %182 = load i32, ptr %mNumAnimations.i, align 8
   %cmp2.i187 = icmp ne i32 %182, 0
   %183 = select i1 %cmp.not.i186, i1 %cmp2.i187, i1 false
@@ -2556,14 +2556,14 @@ invoke.cont55:                                    ; preds = %invoke.cont53
   br i1 %cmp601461.not, label %for.end66, label %for.body61.lr.ph
 
 for.body61.lr.ph:                                 ; preds = %invoke.cont55
-  %buff.i.i232 = getelementptr inbounds i8, ptr %out, i64 104
-  %space.i.i.i.i = getelementptr inbounds i8, ptr %out, i64 72
+  %buff.i.i232 = getelementptr inbounds nuw i8, ptr %out, i64 104
+  %space.i.i.i.i = getelementptr inbounds nuw i8, ptr %out, i64 72
   br label %for.body61
 
 for.body61:                                       ; preds = %for.body61.lr.ph, %_ZN6AssimpL5WriteERNS_10JSONWriterERK11aiAnimationb.exit
   %indvars.iv1473 = phi i64 [ 0, %for.body61.lr.ph ], [ %indvars.iv.next1474, %_ZN6AssimpL5WriteERNS_10JSONWriterERK11aiAnimationb.exit ]
   %186 = load ptr, ptr %mAnimations.i, align 8
-  %arrayidx63 = getelementptr inbounds ptr, ptr %186, i64 %indvars.iv1473
+  %arrayidx63 = getelementptr inbounds nuw ptr, ptr %186, i64 %indvars.iv1473
   %187 = load ptr, ptr %arrayidx63, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i203)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp1.i204)
@@ -2643,7 +2643,7 @@ invoke.cont3.i231:                                ; preds = %invoke.cont.i229
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i203) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i204) #13
   %call.i30.i = call noundef nonnull align 8 dereferenceable(128) ptr @_ZN6Assimp10JSONWriter15LiteralToStringERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEERK8aiString(ptr noundef nonnull align 8 dereferenceable(504) %out, ptr noundef nonnull align 8 dereferenceable(128) %buff.i.i232, ptr noundef nonnull align 8 dereferenceable(1096) %187)
-  %add.ptr.i31.i = getelementptr inbounds i8, ptr %call.i30.i, i64 16
+  %add.ptr.i31.i = getelementptr inbounds nuw i8, ptr %call.i30.i, i64 16
   %call2.i.i233 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i31.i, ptr noundef nonnull align 8 dereferenceable(32) %newline.i)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp5.i206) #13
   %call.i3337.i = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4.i205)
@@ -2691,7 +2691,7 @@ invoke.cont7.i235:                                ; preds = %invoke.cont.i1083
 invoke.cont9.i237:                                ; preds = %invoke.cont7.i235
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4.i205) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp5.i206) #13
-  %mTicksPerSecond.i = getelementptr inbounds i8, ptr %187, i64 1040
+  %mTicksPerSecond.i = getelementptr inbounds nuw i8, ptr %187, i64 1040
   %197 = load double, ptr %mTicksPerSecond.i, align 8
   %call.i.i42.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr7.i, double noundef %197)
   %call2.i44.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr7.i, ptr noundef nonnull align 8 dereferenceable(32) %newline.i)
@@ -2741,7 +2741,7 @@ invoke.cont15.i239:                               ; preds = %invoke.cont.i1072
 invoke.cont17.i241:                               ; preds = %invoke.cont15.i239
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp12.i207) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp13.i208) #13
-  %mDuration.i = getelementptr inbounds i8, ptr %187, i64 1032
+  %mDuration.i = getelementptr inbounds nuw i8, ptr %187, i64 1032
   %201 = load double, ptr %mDuration.i, align 8
   %call.i.i54.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr7.i, double noundef %201)
   %call2.i56.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr7.i, ptr noundef nonnull align 8 dereferenceable(32) %newline.i)
@@ -2795,19 +2795,19 @@ invoke.cont25.i245:                               ; preds = %invoke.cont23.i243
   %call8.i67.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr7.i, ptr noundef nonnull @.str.30)
   %call9.i69.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %call8.i67.i, ptr noundef nonnull align 8 dereferenceable(32) %newline.i)
   %call.i2.i71.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %indent.i1.i, i8 noundef signext 9)
-  %mNumChannels.i = getelementptr inbounds i8, ptr %187, i64 1048
+  %mNumChannels.i = getelementptr inbounds nuw i8, ptr %187, i64 1048
   %205 = load i32, ptr %mNumChannels.i, align 8
   %cmp159.not.i = icmp eq i32 %205, 0
   br i1 %cmp159.not.i, label %for.end.i253, label %for.body.lr.ph.i246
 
 for.body.lr.ph.i246:                              ; preds = %invoke.cont25.i245
-  %mChannels.i = getelementptr inbounds i8, ptr %187, i64 1056
+  %mChannels.i = getelementptr inbounds nuw i8, ptr %187, i64 1056
   br label %for.body.i247
 
 for.body.i247:                                    ; preds = %_ZN6AssimpL5WriteERNS_10JSONWriterERK10aiNodeAnimb.exit.i, %for.body.lr.ph.i246
   %indvars.iv.i248 = phi i64 [ 0, %for.body.lr.ph.i246 ], [ %indvars.iv.next.i251, %_ZN6AssimpL5WriteERNS_10JSONWriterERK10aiNodeAnimb.exit.i ]
   %206 = load ptr, ptr %mChannels.i, align 8
-  %arrayidx.i249 = getelementptr inbounds ptr, ptr %206, i64 %indvars.iv.i248
+  %arrayidx.i249 = getelementptr inbounds nuw ptr, ptr %206, i64 %indvars.iv.i248
   %207 = load ptr, ptr %arrayidx.i249, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp1.i.i)
@@ -2990,12 +2990,12 @@ for.cond.preheader.i993:                          ; preds = %invoke.cont3.i.i
   br i1 %cmp17.not.i994, label %for.end.i1010, label %for.body.lr.ph.i995
 
 for.body.lr.ph.i995:                              ; preds = %for.cond.preheader.i993
-  %data.i996 = getelementptr inbounds i8, ptr %207, i64 4
+  %data.i996 = getelementptr inbounds nuw i8, ptr %207, i64 4
   br label %for.body.i997
 
 for.body.i997:                                    ; preds = %for.inc.i1006, %for.body.lr.ph.i995
   %i.018.i998 = phi i64 [ 0, %for.body.lr.ph.i995 ], [ %inc.i1007, %for.inc.i1006 ]
-  %arrayidx.i999 = getelementptr inbounds [1024 x i8], ptr %data.i996, i64 0, i64 %i.018.i998
+  %arrayidx.i999 = getelementptr inbounds nuw [1024 x i8], ptr %data.i996, i64 0, i64 %i.018.i998
   %222 = load i8, ptr %arrayidx.i999, align 1
   switch i8 %222, label %if.end.i1005 [
     i8 92, label %if.then.i1000
@@ -3187,7 +3187,7 @@ invoke.cont9.i.i:                                 ; preds = %invoke.cont4.i970
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp2.i954)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4.i.i) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp5.i.i) #13
-  %mPreState.i.i = getelementptr inbounds i8, ptr %207, i64 1072
+  %mPreState.i.i = getelementptr inbounds nuw i8, ptr %207, i64 1072
   %234 = load i32, ptr %mPreState.i.i, align 4
   %call.i.i77.i.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr7.i, i32 noundef %234)
   %call2.i79.i.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr7.i, ptr noundef nonnull align 8 dereferenceable(32) %newline.i)
@@ -3324,11 +3324,11 @@ invoke.cont17.i.i:                                ; preds = %invoke.cont4.i936
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp2.i920)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp12.i.i) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp13.i.i) #13
-  %mPostState.i.i = getelementptr inbounds i8, ptr %207, i64 1076
+  %mPostState.i.i = getelementptr inbounds nuw i8, ptr %207, i64 1076
   %244 = load i32, ptr %mPostState.i.i, align 4
   %call.i.i89.i.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr7.i, i32 noundef %244)
   %call2.i91.i.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr7.i, ptr noundef nonnull align 8 dereferenceable(32) %newline.i)
-  %mNumPositionKeys.i.i = getelementptr inbounds i8, ptr %207, i64 1028
+  %mNumPositionKeys.i.i = getelementptr inbounds nuw i8, ptr %207, i64 1028
   %245 = load i32, ptr %mNumPositionKeys.i.i, align 4
   %tobool20.not.i.i = icmp eq i32 %245, 0
   br i1 %tobool20.not.i.i, label %if.end.i.i, label %if.then.i.i250
@@ -3476,13 +3476,13 @@ invoke.cont26.i.i:                                ; preds = %invoke.cont4.i902
   br i1 %cmp356.not.i.i, label %for.end.i.i, label %for.body.lr.ph.i.i
 
 for.body.lr.ph.i.i:                               ; preds = %invoke.cont26.i.i
-  %mPositionKeys.i.i = getelementptr inbounds i8, ptr %207, i64 1032
+  %mPositionKeys.i.i = getelementptr inbounds nuw i8, ptr %207, i64 1032
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %_ZN6Assimp10JSONWriter8EndArrayEv.exit.i.i, %for.body.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %indvars.iv.next.i.i, %_ZN6Assimp10JSONWriter8EndArrayEv.exit.i.i ]
   %256 = load ptr, ptr %mPositionKeys.i.i, align 8
-  %arrayidx.i.i = getelementptr inbounds %struct.aiVectorKey, ptr %256, i64 %indvars.iv.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw %struct.aiVectorKey, ptr %256, i64 %indvars.iv.i.i
   %257 = load i32, ptr %flags.i.i.i, align 4
   %258 = and i32 %257, 5
   %or.cond.i.i108.i.i = icmp eq i32 %258, 0
@@ -3533,7 +3533,7 @@ _ZN6Assimp10JSONWriter7ElementIdEEvRKT_.exit.i.i: ; preds = %if.else.i.i.i.i, %i
   %263 = load double, ptr %arrayidx.i.i, align 8
   %call.i4.i.i.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr7.i, double noundef %263)
   %call2.i131.i.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr7.i, ptr noundef nonnull align 8 dereferenceable(32) %newline.i)
-  %mValue.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 8
+  %mValue.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 8
   call fastcc void @_ZN6AssimpL5WriteERNS_10JSONWriterERK10aiVector3tIfEb(ptr noundef nonnull align 8 dereferenceable(504) %out, ptr noundef nonnull align 4 dereferenceable(12) %mValue.i.i, i1 noundef zeroext true)
   %call.i.i137.i.i = call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %indent.i1.i) #13
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i137.i.i, i64 -1
@@ -3637,7 +3637,7 @@ _ZN6Assimp10JSONWriter8EndArrayEv.exit164.i.i:    ; preds = %if.then.i.i161.i.i,
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %_ZN6Assimp10JSONWriter8EndArrayEv.exit164.i.i, %invoke.cont17.i.i
-  %mNumRotationKeys.i.i = getelementptr inbounds i8, ptr %207, i64 1040
+  %mNumRotationKeys.i.i = getelementptr inbounds nuw i8, ptr %207, i64 1040
   %278 = load i32, ptr %mNumRotationKeys.i.i, align 8
   %tobool30.not.i.i = icmp eq i32 %278, 0
   br i1 %tobool30.not.i.i, label %if.end52.i.i, label %if.then31.i.i
@@ -3785,13 +3785,13 @@ invoke.cont37.i.i:                                ; preds = %invoke.cont4.i868
   br i1 %cmp43358.not.i.i, label %for.end51.i.i, label %for.body44.lr.ph.i.i
 
 for.body44.lr.ph.i.i:                             ; preds = %invoke.cont37.i.i
-  %mRotationKeys.i.i = getelementptr inbounds i8, ptr %207, i64 1048
+  %mRotationKeys.i.i = getelementptr inbounds nuw i8, ptr %207, i64 1048
   br label %for.body44.i.i
 
 for.body44.i.i:                                   ; preds = %_ZN6Assimp10JSONWriter8EndArrayEv.exit238.i.i, %for.body44.lr.ph.i.i
   %indvars.iv363.i.i = phi i64 [ 0, %for.body44.lr.ph.i.i ], [ %indvars.iv.next364.i.i, %_ZN6Assimp10JSONWriter8EndArrayEv.exit238.i.i ]
   %289 = load ptr, ptr %mRotationKeys.i.i, align 8
-  %arrayidx46.i.i = getelementptr inbounds %struct.aiQuatKey, ptr %289, i64 %indvars.iv363.i.i
+  %arrayidx46.i.i = getelementptr inbounds nuw %struct.aiQuatKey, ptr %289, i64 %indvars.iv363.i.i
   %290 = load i32, ptr %flags.i.i.i, align 4
   %291 = and i32 %290, 5
   %or.cond.i.i181.i.i = icmp eq i32 %291, 0
@@ -3842,7 +3842,7 @@ _ZN6Assimp10JSONWriter7ElementIdEEvRKT_.exit218.i.i: ; preds = %if.else.i.i211.i
   %296 = load double, ptr %arrayidx46.i.i, align 8
   %call.i4.i208.i.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr7.i, double noundef %296)
   %call2.i210.i.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr7.i, ptr noundef nonnull align 8 dereferenceable(32) %newline.i)
-  %mValue48.i.i = getelementptr inbounds i8, ptr %arrayidx46.i.i, i64 8
+  %mValue48.i.i = getelementptr inbounds nuw i8, ptr %arrayidx46.i.i, i64 8
   %297 = load i32, ptr %flags.i.i.i, align 4
   %298 = and i32 %297, 5
   %or.cond.i.i.i.i.i = icmp eq i32 %298, 0
@@ -3892,9 +3892,9 @@ if.else.i.i.i.i.i:                                ; preds = %_ZN6Assimp10JSONWri
 _ZN6Assimp10JSONWriter7ElementIfEEvRKT_.exit.i.i.i: ; preds = %if.else.i.i.i.i.i, %if.then.i1.i.i.i.i
   %303 = load float, ptr %mValue48.i.i, align 4
   %call.i13.i.i.i = call noundef nonnull align 8 dereferenceable(128) ptr @_ZN6Assimp10JSONWriter15LiteralToStringERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEf(ptr noundef nonnull align 8 dereferenceable(504) %out, ptr noundef nonnull align 8 dereferenceable(128) %buff.i.i232, float noundef %303)
-  %add.ptr.i14.i.i.i = getelementptr inbounds i8, ptr %call.i13.i.i.i, i64 16
+  %add.ptr.i14.i.i.i = getelementptr inbounds nuw i8, ptr %call.i13.i.i.i, i64 16
   %call2.i.i.i.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i14.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %newline.i)
-  %x.i.i.i = getelementptr inbounds i8, ptr %arrayidx46.i.i, i64 12
+  %x.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx46.i.i, i64 12
   %304 = load i32, ptr %flags.i.i.i, align 4
   %305 = and i32 %304, 5
   %or.cond.i.i21.i.i.i = icmp eq i32 %305, 0
@@ -3921,9 +3921,9 @@ if.else.i.i33.i.i.i:                              ; preds = %_ZN6Assimp10JSONWri
 _ZN6Assimp10JSONWriter7ElementIfEEvRKT_.exit40.i.i.i: ; preds = %if.else.i.i33.i.i.i, %if.then.i1.i26.i.i.i
   %307 = load float, ptr %x.i.i.i, align 4
   %call.i29.i.i.i = call noundef nonnull align 8 dereferenceable(128) ptr @_ZN6Assimp10JSONWriter15LiteralToStringERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEf(ptr noundef nonnull align 8 dereferenceable(504) %out, ptr noundef nonnull align 8 dereferenceable(128) %buff.i.i232, float noundef %307)
-  %add.ptr.i30.i.i.i = getelementptr inbounds i8, ptr %call.i29.i.i.i, i64 16
+  %add.ptr.i30.i.i.i = getelementptr inbounds nuw i8, ptr %call.i29.i.i.i, i64 16
   %call2.i32.i.i.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i30.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %newline.i)
-  %y.i.i.i = getelementptr inbounds i8, ptr %arrayidx46.i.i, i64 16
+  %y.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx46.i.i, i64 16
   %308 = load i32, ptr %flags.i.i.i, align 4
   %309 = and i32 %308, 5
   %or.cond.i.i42.i.i.i = icmp eq i32 %309, 0
@@ -3950,9 +3950,9 @@ if.else.i.i54.i.i.i:                              ; preds = %_ZN6Assimp10JSONWri
 _ZN6Assimp10JSONWriter7ElementIfEEvRKT_.exit61.i.i.i: ; preds = %if.else.i.i54.i.i.i, %if.then.i1.i47.i.i.i
   %311 = load float, ptr %y.i.i.i, align 4
   %call.i50.i.i.i = call noundef nonnull align 8 dereferenceable(128) ptr @_ZN6Assimp10JSONWriter15LiteralToStringERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEf(ptr noundef nonnull align 8 dereferenceable(504) %out, ptr noundef nonnull align 8 dereferenceable(128) %buff.i.i232, float noundef %311)
-  %add.ptr.i51.i.i.i = getelementptr inbounds i8, ptr %call.i50.i.i.i, i64 16
+  %add.ptr.i51.i.i.i = getelementptr inbounds nuw i8, ptr %call.i50.i.i.i, i64 16
   %call2.i53.i.i.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i51.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %newline.i)
-  %z.i.i.i = getelementptr inbounds i8, ptr %arrayidx46.i.i, i64 20
+  %z.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx46.i.i, i64 20
   %312 = load i32, ptr %flags.i.i.i, align 4
   %313 = and i32 %312, 5
   %or.cond.i.i63.i.i.i = icmp eq i32 %313, 0
@@ -3979,7 +3979,7 @@ if.else.i.i75.i.i.i:                              ; preds = %_ZN6Assimp10JSONWri
 _ZN6Assimp10JSONWriter7ElementIfEEvRKT_.exit82.i.i.i: ; preds = %if.else.i.i75.i.i.i, %if.then.i1.i68.i.i.i
   %315 = load float, ptr %z.i.i.i, align 4
   %call.i71.i.i.i = call noundef nonnull align 8 dereferenceable(128) ptr @_ZN6Assimp10JSONWriter15LiteralToStringERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEf(ptr noundef nonnull align 8 dereferenceable(504) %out, ptr noundef nonnull align 8 dereferenceable(128) %buff.i.i232, float noundef %315)
-  %add.ptr.i72.i.i.i = getelementptr inbounds i8, ptr %call.i71.i.i.i, i64 16
+  %add.ptr.i72.i.i.i = getelementptr inbounds nuw i8, ptr %call.i71.i.i.i, i64 16
   %call2.i74.i.i.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i72.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %newline.i)
   %call.i.i84.i.i.i = call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %indent.i1.i) #13
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i84.i.i.i, i64 -1
@@ -4054,7 +4054,7 @@ _ZN6Assimp10JSONWriter8EndArrayEv.exit254.i.i:    ; preds = %if.then.i.i251.i.i,
   br label %if.end52.i.i
 
 if.end52.i.i:                                     ; preds = %_ZN6Assimp10JSONWriter8EndArrayEv.exit254.i.i, %if.end.i.i
-  %mNumScalingKeys.i.i = getelementptr inbounds i8, ptr %207, i64 1056
+  %mNumScalingKeys.i.i = getelementptr inbounds nuw i8, ptr %207, i64 1056
   %326 = load i32, ptr %mNumScalingKeys.i.i, align 8
   %tobool53.not.i.i = icmp eq i32 %326, 0
   br i1 %tobool53.not.i.i, label %if.end75.i.i, label %if.then54.i.i
@@ -4202,13 +4202,13 @@ invoke.cont60.i.i:                                ; preds = %invoke.cont4.i834
   br i1 %cmp66360.not.i.i, label %for.end74.i.i, label %for.body67.lr.ph.i.i
 
 for.body67.lr.ph.i.i:                             ; preds = %invoke.cont60.i.i
-  %mScalingKeys.i.i = getelementptr inbounds i8, ptr %207, i64 1064
+  %mScalingKeys.i.i = getelementptr inbounds nuw i8, ptr %207, i64 1064
   br label %for.body67.i.i
 
 for.body67.i.i:                                   ; preds = %_ZN6Assimp10JSONWriter8EndArrayEv.exit324.i.i, %for.body67.lr.ph.i.i
   %indvars.iv366.i.i = phi i64 [ 0, %for.body67.lr.ph.i.i ], [ %indvars.iv.next367.i.i, %_ZN6Assimp10JSONWriter8EndArrayEv.exit324.i.i ]
   %337 = load ptr, ptr %mScalingKeys.i.i, align 8
-  %arrayidx69.i.i = getelementptr inbounds %struct.aiVectorKey, ptr %337, i64 %indvars.iv366.i.i
+  %arrayidx69.i.i = getelementptr inbounds nuw %struct.aiVectorKey, ptr %337, i64 %indvars.iv366.i.i
   %338 = load i32, ptr %flags.i.i.i, align 4
   %339 = and i32 %338, 5
   %or.cond.i.i271.i.i = icmp eq i32 %339, 0
@@ -4259,7 +4259,7 @@ _ZN6Assimp10JSONWriter7ElementIdEEvRKT_.exit308.i.i: ; preds = %if.else.i.i301.i
   %344 = load double, ptr %arrayidx69.i.i, align 8
   %call.i4.i298.i.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr7.i, double noundef %344)
   %call2.i300.i.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr7.i, ptr noundef nonnull align 8 dereferenceable(32) %newline.i)
-  %mValue71.i.i = getelementptr inbounds i8, ptr %arrayidx69.i.i, i64 8
+  %mValue71.i.i = getelementptr inbounds nuw i8, ptr %arrayidx69.i.i, i64 8
   call fastcc void @_ZN6AssimpL5WriteERNS_10JSONWriterERK10aiVector3tIfEb(ptr noundef nonnull align 8 dereferenceable(504) %out, ptr noundef nonnull align 4 dereferenceable(12) %mValue71.i.i, i1 noundef zeroext true)
   %call.i.i310.i.i = call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %indent.i1.i) #13
   %add.ptr.i.i.i311.i.i = getelementptr inbounds i8, ptr %call.i.i310.i.i, i64 -1
@@ -4485,10 +4485,10 @@ _ZN6Assimp10JSONWriter8EndArrayEv.exit275:        ; preds = %for.end66, %if.then
   br label %if.end67
 
 if.end67:                                         ; preds = %_ZN6Assimp10JSONWriter8EndArrayEv.exit275, %if.end47
-  %mLights.i = getelementptr inbounds i8, ptr %ai, i64 88
+  %mLights.i = getelementptr inbounds nuw i8, ptr %ai, i64 88
   %375 = load ptr, ptr %mLights.i, align 8
   %cmp.not.i276 = icmp ne ptr %375, null
-  %mNumLights.i = getelementptr inbounds i8, ptr %ai, i64 80
+  %mNumLights.i = getelementptr inbounds nuw i8, ptr %ai, i64 80
   %376 = load i32, ptr %mNumLights.i, align 8
   %cmp2.i277 = icmp ne i32 %376, 0
   %377 = select i1 %cmp.not.i276, i1 %cmp2.i277, i1 false
@@ -4529,13 +4529,13 @@ invoke.cont75:                                    ; preds = %invoke.cont73
   br i1 %cmp801463.not, label %for.end86, label %for.body81.lr.ph
 
 for.body81.lr.ph:                                 ; preds = %invoke.cont75
-  %buff.i.i319 = getelementptr inbounds i8, ptr %out, i64 104
+  %buff.i.i319 = getelementptr inbounds nuw i8, ptr %out, i64 104
   br label %for.body81
 
 for.body81:                                       ; preds = %for.body81.lr.ph, %_ZN6AssimpL5WriteERNS_10JSONWriterERK7aiLightb.exit
   %indvars.iv1476 = phi i64 [ 0, %for.body81.lr.ph ], [ %indvars.iv.next1477, %_ZN6AssimpL5WriteERNS_10JSONWriterERK7aiLightb.exit ]
   %380 = load ptr, ptr %mLights.i, align 8
-  %arrayidx83 = getelementptr inbounds ptr, ptr %380, i64 %indvars.iv1476
+  %arrayidx83 = getelementptr inbounds nuw ptr, ptr %380, i64 %indvars.iv1476
   %381 = load ptr, ptr %arrayidx83, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i293)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp1.i294)
@@ -4631,7 +4631,7 @@ invoke.cont3.i318:                                ; preds = %invoke.cont.i316
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i293) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i294) #13
   %call.i69.i = call noundef nonnull align 8 dereferenceable(128) ptr @_ZN6Assimp10JSONWriter15LiteralToStringERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEERK8aiString(ptr noundef nonnull align 8 dereferenceable(504) %out, ptr noundef nonnull align 8 dereferenceable(128) %buff.i.i319, ptr noundef nonnull align 4 dereferenceable(1132) %381)
-  %add.ptr.i70.i = getelementptr inbounds i8, ptr %call.i69.i, i64 16
+  %add.ptr.i70.i = getelementptr inbounds nuw i8, ptr %call.i69.i, i64 16
   %call2.i.i320 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i70.i, ptr noundef nonnull align 8 dereferenceable(32) %newline.i)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp5.i296) #13
   %call.i7276.i = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4.i295)
@@ -4679,7 +4679,7 @@ invoke.cont7.i322:                                ; preds = %invoke.cont.i1182
 invoke.cont9.i324:                                ; preds = %invoke.cont7.i322
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4.i295) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp5.i296) #13
-  %mType.i325 = getelementptr inbounds i8, ptr %381, i64 1028
+  %mType.i325 = getelementptr inbounds nuw i8, ptr %381, i64 1028
   %391 = load i32, ptr %mType.i325, align 4
   %call.i.i81.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr7.i, i32 noundef %391)
   %call2.i83.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr7.i, ptr noundef nonnull align 8 dereferenceable(32) %newline.i)
@@ -4736,10 +4736,10 @@ invoke.cont18.i:                                  ; preds = %invoke.cont.i1171
 invoke.cont20.i:                                  ; preds = %invoke.cont18.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp15.i) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp16.i) #13
-  %mAngleInnerCone.i = getelementptr inbounds i8, ptr %381, i64 1116
+  %mAngleInnerCone.i = getelementptr inbounds nuw i8, ptr %381, i64 1116
   %396 = load float, ptr %mAngleInnerCone.i, align 4
   %call.i93.i = call noundef nonnull align 8 dereferenceable(128) ptr @_ZN6Assimp10JSONWriter15LiteralToStringERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEf(ptr noundef nonnull align 8 dereferenceable(504) %out, ptr noundef nonnull align 8 dereferenceable(128) %buff.i.i319, float noundef %396)
-  %add.ptr.i94.i = getelementptr inbounds i8, ptr %call.i93.i, i64 16
+  %add.ptr.i94.i = getelementptr inbounds nuw i8, ptr %call.i93.i, i64 16
   %call2.i96.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i94.i, ptr noundef nonnull align 8 dereferenceable(32) %newline.i)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp24.i) #13
   %call.i97101.i = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp23.i)
@@ -4787,10 +4787,10 @@ invoke.cont26.i:                                  ; preds = %invoke.cont.i1160
 invoke.cont28.i:                                  ; preds = %invoke.cont26.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp23.i) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp24.i) #13
-  %mAngleOuterCone.i = getelementptr inbounds i8, ptr %381, i64 1120
+  %mAngleOuterCone.i = getelementptr inbounds nuw i8, ptr %381, i64 1120
   %400 = load float, ptr %mAngleOuterCone.i, align 4
   %call.i106.i = call noundef nonnull align 8 dereferenceable(128) ptr @_ZN6Assimp10JSONWriter15LiteralToStringERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEf(ptr noundef nonnull align 8 dereferenceable(504) %out, ptr noundef nonnull align 8 dereferenceable(128) %buff.i.i319, float noundef %400)
-  %add.ptr.i107.i = getelementptr inbounds i8, ptr %call.i106.i, i64 16
+  %add.ptr.i107.i = getelementptr inbounds nuw i8, ptr %call.i106.i, i64 16
   %call2.i109.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i107.i, ptr noundef nonnull align 8 dereferenceable(32) %newline.i)
   br label %if.end.i
 
@@ -4864,10 +4864,10 @@ invoke.cont34.i:                                  ; preds = %.noexc115.i
 invoke.cont36.i:                                  ; preds = %invoke.cont34.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp31.i) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp32.i) #13
-  %mAttenuationConstant.i = getelementptr inbounds i8, ptr %381, i64 1068
+  %mAttenuationConstant.i = getelementptr inbounds nuw i8, ptr %381, i64 1068
   %410 = load float, ptr %mAttenuationConstant.i, align 4
   %call.i119.i = call noundef nonnull align 8 dereferenceable(128) ptr @_ZN6Assimp10JSONWriter15LiteralToStringERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEf(ptr noundef nonnull align 8 dereferenceable(504) %out, ptr noundef nonnull align 8 dereferenceable(128) %buff.i.i319, float noundef %410)
-  %add.ptr.i120.i = getelementptr inbounds i8, ptr %call.i119.i, i64 16
+  %add.ptr.i120.i = getelementptr inbounds nuw i8, ptr %call.i119.i, i64 16
   %call2.i122.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i120.i, ptr noundef nonnull align 8 dereferenceable(32) %newline.i)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp40.i) #13
   %call.i123127.i = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp39.i)
@@ -4894,10 +4894,10 @@ invoke.cont42.i:                                  ; preds = %.noexc128.i
 invoke.cont44.i:                                  ; preds = %invoke.cont42.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp39.i) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp40.i) #13
-  %mAttenuationLinear.i = getelementptr inbounds i8, ptr %381, i64 1072
+  %mAttenuationLinear.i = getelementptr inbounds nuw i8, ptr %381, i64 1072
   %412 = load float, ptr %mAttenuationLinear.i, align 4
   %call.i132.i = call noundef nonnull align 8 dereferenceable(128) ptr @_ZN6Assimp10JSONWriter15LiteralToStringERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEf(ptr noundef nonnull align 8 dereferenceable(504) %out, ptr noundef nonnull align 8 dereferenceable(128) %buff.i.i319, float noundef %412)
-  %add.ptr.i133.i = getelementptr inbounds i8, ptr %call.i132.i, i64 16
+  %add.ptr.i133.i = getelementptr inbounds nuw i8, ptr %call.i132.i, i64 16
   %call2.i135.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i133.i, ptr noundef nonnull align 8 dereferenceable(32) %newline.i)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp48.i) #13
   %call.i136140.i = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp47.i)
@@ -4924,10 +4924,10 @@ invoke.cont50.i:                                  ; preds = %.noexc141.i
 invoke.cont52.i:                                  ; preds = %invoke.cont50.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp47.i) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp48.i) #13
-  %mAttenuationQuadratic.i = getelementptr inbounds i8, ptr %381, i64 1076
+  %mAttenuationQuadratic.i = getelementptr inbounds nuw i8, ptr %381, i64 1076
   %414 = load float, ptr %mAttenuationQuadratic.i, align 4
   %call.i145.i = call noundef nonnull align 8 dereferenceable(128) ptr @_ZN6Assimp10JSONWriter15LiteralToStringERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEf(ptr noundef nonnull align 8 dereferenceable(504) %out, ptr noundef nonnull align 8 dereferenceable(128) %buff.i.i319, float noundef %414)
-  %add.ptr.i146.i = getelementptr inbounds i8, ptr %call.i145.i, i64 16
+  %add.ptr.i146.i = getelementptr inbounds nuw i8, ptr %call.i145.i, i64 16
   %call2.i148.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i146.i, ptr noundef nonnull align 8 dereferenceable(32) %newline.i)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp56.i) #13
   %call.i149153.i = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp55.i)
@@ -4975,7 +4975,7 @@ invoke.cont58.i:                                  ; preds = %invoke.cont.i1149
 invoke.cont60.i:                                  ; preds = %invoke.cont58.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp55.i) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp56.i) #13
-  %mColorDiffuse.i = getelementptr inbounds i8, ptr %381, i64 1080
+  %mColorDiffuse.i = getelementptr inbounds nuw i8, ptr %381, i64 1080
   call fastcc void @_ZN6AssimpL5WriteERNS_10JSONWriterERK9aiColor3Db(ptr noundef nonnull align 8 dereferenceable(504) %out, ptr noundef nonnull align 4 dereferenceable(12) %mColorDiffuse.i)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp64.i) #13
   %call.i157161.i = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp63.i)
@@ -5023,7 +5023,7 @@ invoke.cont66.i:                                  ; preds = %invoke.cont.i1138
 invoke.cont68.i:                                  ; preds = %invoke.cont66.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp63.i) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp64.i) #13
-  %mColorSpecular.i = getelementptr inbounds i8, ptr %381, i64 1092
+  %mColorSpecular.i = getelementptr inbounds nuw i8, ptr %381, i64 1092
   call fastcc void @_ZN6AssimpL5WriteERNS_10JSONWriterERK9aiColor3Db(ptr noundef nonnull align 8 dereferenceable(504) %out, ptr noundef nonnull align 4 dereferenceable(12) %mColorSpecular.i)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp72.i) #13
   %call.i165169.i = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp71.i)
@@ -5071,7 +5071,7 @@ invoke.cont74.i:                                  ; preds = %invoke.cont.i1127
 invoke.cont76.i:                                  ; preds = %invoke.cont74.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp71.i) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp72.i) #13
-  %mColorAmbient.i = getelementptr inbounds i8, ptr %381, i64 1104
+  %mColorAmbient.i = getelementptr inbounds nuw i8, ptr %381, i64 1104
   call fastcc void @_ZN6AssimpL5WriteERNS_10JSONWriterERK9aiColor3Db(ptr noundef nonnull align 8 dereferenceable(504) %out, ptr noundef nonnull align 4 dereferenceable(12) %mColorAmbient.i)
   %424 = load i32, ptr %mType.i325, align 4
   %cmp80.not.i = icmp eq i32 %424, 2
@@ -5201,7 +5201,7 @@ lpad86.i:                                         ; preds = %invoke.cont85.i
 if.end90.i:                                       ; preds = %invoke.cont85.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp82.i) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp83.i) #13
-  %mDirection.i = getelementptr inbounds i8, ptr %381, i64 1044
+  %mDirection.i = getelementptr inbounds nuw i8, ptr %381, i64 1044
   call fastcc void @_ZN6AssimpL5WriteERNS_10JSONWriterERK10aiVector3tIfEb(ptr noundef nonnull align 8 dereferenceable(504) %out, ptr noundef nonnull align 4 dereferenceable(12) %mDirection.i, i1 noundef zeroext false)
   %.pr.i = load i32, ptr %mType.i325, align 4
   %cmp92.not.i = icmp eq i32 %.pr.i, 1
@@ -5254,7 +5254,7 @@ invoke.cont97.i:                                  ; preds = %invoke.cont.i1105
 invoke.cont99.i:                                  ; preds = %invoke.cont97.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp94.i) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp95.i) #13
-  %mPosition.i = getelementptr inbounds i8, ptr %381, i64 1032
+  %mPosition.i = getelementptr inbounds nuw i8, ptr %381, i64 1032
   call fastcc void @_ZN6AssimpL5WriteERNS_10JSONWriterERK10aiVector3tIfEb(ptr noundef nonnull align 8 dereferenceable(504) %out, ptr noundef nonnull align 4 dereferenceable(12) %mPosition.i, i1 noundef zeroext false)
   br label %if.end102.i
 
@@ -5358,10 +5358,10 @@ _ZN6Assimp10JSONWriter8EndArrayEv.exit348:        ; preds = %for.end86, %if.then
   br label %if.end87
 
 if.end87:                                         ; preds = %_ZN6Assimp10JSONWriter8EndArrayEv.exit348, %if.end67
-  %mCameras.i = getelementptr inbounds i8, ptr %ai, i64 104
+  %mCameras.i = getelementptr inbounds nuw i8, ptr %ai, i64 104
   %455 = load ptr, ptr %mCameras.i, align 8
   %cmp.not.i349 = icmp ne ptr %455, null
-  %mNumCameras.i = getelementptr inbounds i8, ptr %ai, i64 96
+  %mNumCameras.i = getelementptr inbounds nuw i8, ptr %ai, i64 96
   %456 = load i32, ptr %mNumCameras.i, align 8
   %cmp2.i350 = icmp ne i32 %456, 0
   %457 = select i1 %cmp.not.i349, i1 %cmp2.i350, i1 false
@@ -5402,13 +5402,13 @@ invoke.cont95:                                    ; preds = %invoke.cont93
   br i1 %cmp1001465.not, label %for.end106, label %for.body101.lr.ph
 
 for.body101.lr.ph:                                ; preds = %invoke.cont95
-  %buff.i.i401 = getelementptr inbounds i8, ptr %out, i64 104
+  %buff.i.i401 = getelementptr inbounds nuw i8, ptr %out, i64 104
   br label %for.body101
 
 for.body101:                                      ; preds = %for.body101.lr.ph, %_ZN6AssimpL5WriteERNS_10JSONWriterERK8aiCamerab.exit
   %indvars.iv1479 = phi i64 [ 0, %for.body101.lr.ph ], [ %indvars.iv.next1480, %_ZN6AssimpL5WriteERNS_10JSONWriterERK8aiCamerab.exit ]
   %460 = load ptr, ptr %mCameras.i, align 8
-  %arrayidx103 = getelementptr inbounds ptr, ptr %460, i64 %indvars.iv1479
+  %arrayidx103 = getelementptr inbounds nuw ptr, ptr %460, i64 %indvars.iv1479
   %461 = load ptr, ptr %arrayidx103, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i367)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp1.i368)
@@ -5494,7 +5494,7 @@ invoke.cont3.i400:                                ; preds = %invoke.cont.i398
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i367) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i368) #13
   %call.i40.i = call noundef nonnull align 8 dereferenceable(128) ptr @_ZN6Assimp10JSONWriter15LiteralToStringERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEERK8aiString(ptr noundef nonnull align 8 dereferenceable(504) %out, ptr noundef nonnull align 8 dereferenceable(128) %buff.i.i401, ptr noundef nonnull align 4 dereferenceable(1084) %461)
-  %add.ptr.i41.i = getelementptr inbounds i8, ptr %call.i40.i, i64 16
+  %add.ptr.i41.i = getelementptr inbounds nuw i8, ptr %call.i40.i, i64 16
   %call2.i.i402 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i41.i, ptr noundef nonnull align 8 dereferenceable(32) %newline.i)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp5.i370) #13
   %call.i4347.i = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4.i369)
@@ -5542,10 +5542,10 @@ invoke.cont7.i404:                                ; preds = %invoke.cont.i1259
 invoke.cont9.i406:                                ; preds = %invoke.cont7.i404
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4.i369) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp5.i370) #13
-  %mAspect.i = getelementptr inbounds i8, ptr %461, i64 1076
+  %mAspect.i = getelementptr inbounds nuw i8, ptr %461, i64 1076
   %471 = load float, ptr %mAspect.i, align 4
   %call.i52.i = call noundef nonnull align 8 dereferenceable(128) ptr @_ZN6Assimp10JSONWriter15LiteralToStringERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEf(ptr noundef nonnull align 8 dereferenceable(504) %out, ptr noundef nonnull align 8 dereferenceable(128) %buff.i.i401, float noundef %471)
-  %add.ptr.i53.i = getelementptr inbounds i8, ptr %call.i52.i, i64 16
+  %add.ptr.i53.i = getelementptr inbounds nuw i8, ptr %call.i52.i, i64 16
   %call2.i55.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i53.i, ptr noundef nonnull align 8 dereferenceable(32) %newline.i)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp13.i372) #13
   %call.i5660.i = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp12.i371)
@@ -5593,10 +5593,10 @@ invoke.cont15.i408:                               ; preds = %invoke.cont.i1248
 invoke.cont17.i410:                               ; preds = %invoke.cont15.i408
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp12.i371) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp13.i372) #13
-  %mClipPlaneFar.i = getelementptr inbounds i8, ptr %461, i64 1072
+  %mClipPlaneFar.i = getelementptr inbounds nuw i8, ptr %461, i64 1072
   %475 = load float, ptr %mClipPlaneFar.i, align 4
   %call.i65.i = call noundef nonnull align 8 dereferenceable(128) ptr @_ZN6Assimp10JSONWriter15LiteralToStringERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEf(ptr noundef nonnull align 8 dereferenceable(504) %out, ptr noundef nonnull align 8 dereferenceable(128) %buff.i.i401, float noundef %475)
-  %add.ptr.i66.i = getelementptr inbounds i8, ptr %call.i65.i, i64 16
+  %add.ptr.i66.i = getelementptr inbounds nuw i8, ptr %call.i65.i, i64 16
   %call2.i68.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i66.i, ptr noundef nonnull align 8 dereferenceable(32) %newline.i)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp21.i374) #13
   %call.i6973.i = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp20.i373)
@@ -5644,10 +5644,10 @@ invoke.cont23.i412:                               ; preds = %invoke.cont.i1237
 invoke.cont25.i414:                               ; preds = %invoke.cont23.i412
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp20.i373) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp21.i374) #13
-  %mClipPlaneNear.i = getelementptr inbounds i8, ptr %461, i64 1068
+  %mClipPlaneNear.i = getelementptr inbounds nuw i8, ptr %461, i64 1068
   %479 = load float, ptr %mClipPlaneNear.i, align 4
   %call.i78.i = call noundef nonnull align 8 dereferenceable(128) ptr @_ZN6Assimp10JSONWriter15LiteralToStringERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEf(ptr noundef nonnull align 8 dereferenceable(504) %out, ptr noundef nonnull align 8 dereferenceable(128) %buff.i.i401, float noundef %479)
-  %add.ptr.i79.i = getelementptr inbounds i8, ptr %call.i78.i, i64 16
+  %add.ptr.i79.i = getelementptr inbounds nuw i8, ptr %call.i78.i, i64 16
   %call2.i81.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i79.i, ptr noundef nonnull align 8 dereferenceable(32) %newline.i)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp29.i376) #13
   %call.i8286.i = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp28.i375)
@@ -5695,10 +5695,10 @@ invoke.cont31.i416:                               ; preds = %invoke.cont.i1226
 invoke.cont33.i418:                               ; preds = %invoke.cont31.i416
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp28.i375) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp29.i376) #13
-  %mHorizontalFOV.i = getelementptr inbounds i8, ptr %461, i64 1064
+  %mHorizontalFOV.i = getelementptr inbounds nuw i8, ptr %461, i64 1064
   %483 = load float, ptr %mHorizontalFOV.i, align 4
   %call.i91.i419 = call noundef nonnull align 8 dereferenceable(128) ptr @_ZN6Assimp10JSONWriter15LiteralToStringERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEf(ptr noundef nonnull align 8 dereferenceable(504) %out, ptr noundef nonnull align 8 dereferenceable(128) %buff.i.i401, float noundef %483)
-  %add.ptr.i92.i = getelementptr inbounds i8, ptr %call.i91.i419, i64 16
+  %add.ptr.i92.i = getelementptr inbounds nuw i8, ptr %call.i91.i419, i64 16
   %call2.i94.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i92.i, ptr noundef nonnull align 8 dereferenceable(32) %newline.i)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp37.i378) #13
   %call.i9599.i = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp36.i377)
@@ -5746,7 +5746,7 @@ invoke.cont39.i421:                               ; preds = %invoke.cont.i1215
 invoke.cont41.i423:                               ; preds = %invoke.cont39.i421
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp36.i377) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp37.i378) #13
-  %mUp.i = getelementptr inbounds i8, ptr %461, i64 1040
+  %mUp.i = getelementptr inbounds nuw i8, ptr %461, i64 1040
   call fastcc void @_ZN6AssimpL5WriteERNS_10JSONWriterERK10aiVector3tIfEb(ptr noundef nonnull align 8 dereferenceable(504) %out, ptr noundef nonnull align 4 dereferenceable(12) %mUp.i, i1 noundef zeroext false)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp45.i) #13
   %call.i103107.i = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp44.i)
@@ -5794,7 +5794,7 @@ invoke.cont47.i:                                  ; preds = %invoke.cont.i1204
 invoke.cont49.i:                                  ; preds = %invoke.cont47.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp44.i) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp45.i) #13
-  %mLookAt.i = getelementptr inbounds i8, ptr %461, i64 1052
+  %mLookAt.i = getelementptr inbounds nuw i8, ptr %461, i64 1052
   call fastcc void @_ZN6AssimpL5WriteERNS_10JSONWriterERK10aiVector3tIfEb(ptr noundef nonnull align 8 dereferenceable(504) %out, ptr noundef nonnull align 4 dereferenceable(12) %mLookAt.i, i1 noundef zeroext false)
   %call.i.i112.i = call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %indent.i1.i) #13
   %add.ptr.i.i.i.i425 = getelementptr inbounds i8, ptr %call.i.i112.i, i64 -1
@@ -5951,10 +5951,10 @@ _ZN6Assimp10JSONWriter8EndArrayEv.exit446:        ; preds = %for.end106, %if.the
   br label %if.end107
 
 if.end107:                                        ; preds = %_ZN6Assimp10JSONWriter8EndArrayEv.exit446, %if.end87
-  %mTextures.i = getelementptr inbounds i8, ptr %ai, i64 72
+  %mTextures.i = getelementptr inbounds nuw i8, ptr %ai, i64 72
   %512 = load ptr, ptr %mTextures.i, align 8
   %cmp.not.i447 = icmp ne ptr %512, null
-  %mNumTextures.i = getelementptr inbounds i8, ptr %ai, i64 64
+  %mNumTextures.i = getelementptr inbounds nuw i8, ptr %ai, i64 64
   %513 = load i32, ptr %mNumTextures.i, align 8
   %cmp2.i448 = icmp ne i32 %513, 0
   %514 = select i1 %cmp.not.i447, i1 %cmp2.i448, i1 false
@@ -5995,15 +5995,15 @@ invoke.cont115:                                   ; preds = %invoke.cont113
   br i1 %cmp1201467.not, label %for.end126, label %for.body121.lr.ph
 
 for.body121.lr.ph:                                ; preds = %invoke.cont115
-  %data.i.i507 = getelementptr inbounds i8, ptr %ref.tmp20.i471, i64 4
-  %buff.i.i509 = getelementptr inbounds i8, ptr %out, i64 104
-  %space.i.i.i = getelementptr inbounds i8, ptr %out, i64 72
+  %data.i.i507 = getelementptr inbounds nuw i8, ptr %ref.tmp20.i471, i64 4
+  %buff.i.i509 = getelementptr inbounds nuw i8, ptr %out, i64 104
+  %space.i.i.i = getelementptr inbounds nuw i8, ptr %out, i64 72
   br label %for.body121
 
 for.body121:                                      ; preds = %for.body121.lr.ph, %_ZN6AssimpL5WriteERNS_10JSONWriterERK9aiTextureb.exit
   %indvars.iv1482 = phi i64 [ 0, %for.body121.lr.ph ], [ %indvars.iv.next1483, %_ZN6AssimpL5WriteERNS_10JSONWriterERK9aiTextureb.exit ]
   %517 = load ptr, ptr %mTextures.i, align 8
-  %arrayidx123 = getelementptr inbounds ptr, ptr %517, i64 %indvars.iv1482
+  %arrayidx123 = getelementptr inbounds nuw ptr, ptr %517, i64 %indvars.iv1482
   %518 = load ptr, ptr %arrayidx123, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i465)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp1.i466)
@@ -6134,7 +6134,7 @@ invoke.cont7.i498:                                ; preds = %invoke.cont.i1303
 invoke.cont9.i500:                                ; preds = %invoke.cont7.i498
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4.i467) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp5.i468) #13
-  %mHeight.i = getelementptr inbounds i8, ptr %518, i64 4
+  %mHeight.i = getelementptr inbounds nuw i8, ptr %518, i64 4
   %529 = load i32, ptr %mHeight.i, align 4
   %call.i.i62.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr7.i, i32 noundef %529)
   %call2.i64.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr7.i, ptr noundef nonnull align 8 dereferenceable(32) %newline.i)
@@ -6184,7 +6184,7 @@ invoke.cont15.i503:                               ; preds = %invoke.cont.i1292
 invoke.cont17.i505:                               ; preds = %invoke.cont15.i503
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp12.i469) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp13.i470) #13
-  %achFormatHint.i = getelementptr inbounds i8, ptr %518, i64 8
+  %achFormatHint.i = getelementptr inbounds nuw i8, ptr %518, i64 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp22.i) #13
   %call.i7377.i = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp21.i472)
           to label %call.i73.noexc.i506 unwind label %lpad23.i
@@ -6216,13 +6216,13 @@ invoke.cont24.i:                                  ; preds = %.noexc78.i
   %534 = load i32, ptr %ref.tmp20.i471, align 4
   %conv10.i.i = zext i32 %534 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %data.i.i507, ptr align 1 %call8.i82.i, i64 %conv10.i.i, i1 false)
-  %arrayidx.i.i508 = getelementptr inbounds [1024 x i8], ptr %data.i.i507, i64 0, i64 %conv10.i.i
+  %arrayidx.i.i508 = getelementptr inbounds nuw [1024 x i8], ptr %data.i.i507, i64 0, i64 %conv10.i.i
   store i8 0, ptr %arrayidx.i.i508, align 1
   %call.i8387.i = invoke noundef nonnull align 8 dereferenceable(128) ptr @_ZN6Assimp10JSONWriter15LiteralToStringERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEERK8aiString(ptr noundef nonnull align 8 dereferenceable(504) %out, ptr noundef nonnull align 8 dereferenceable(128) %buff.i.i509, ptr noundef nonnull align 4 dereferenceable(1028) %ref.tmp20.i471)
           to label %call.i83.noexc.i unwind label %lpad25.i510
 
 call.i83.noexc.i:                                 ; preds = %invoke.cont24.i
-  %add.ptr.i84.i = getelementptr inbounds i8, ptr %call.i8387.i, i64 16
+  %add.ptr.i84.i = getelementptr inbounds nuw i8, ptr %call.i8387.i, i64 16
   %call2.i8688.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i84.i, ptr noundef nonnull align 8 dereferenceable(32) %newline.i)
           to label %invoke.cont27.i unwind label %lpad25.i510
 
@@ -6280,7 +6280,7 @@ invoke.cont35.i:                                  ; preds = %invoke.cont33.i512
   br i1 %tobool39.not.i, label %if.then.i533, label %if.else.i513
 
 if.then.i533:                                     ; preds = %invoke.cont35.i
-  %pcData.i = getelementptr inbounds i8, ptr %518, i64 24
+  %pcData.i = getelementptr inbounds nuw i8, ptr %518, i64 24
   %539 = load ptr, ptr %pcData.i, align 8
   %540 = load i32, ptr %518, align 8
   %conv.i = zext i32 %540 to i64
@@ -6352,7 +6352,7 @@ if.else.i513:                                     ; preds = %invoke.cont35.i
   br i1 %cmp272.not.i, label %for.end58.i, label %for.body.lr.ph.i515
 
 for.body.lr.ph.i515:                              ; preds = %if.else.i513
-  %pcData46.i = getelementptr inbounds i8, ptr %518, i64 24
+  %pcData46.i = getelementptr inbounds nuw i8, ptr %518, i64 24
   br label %for.body.i516
 
 for.body.i516:                                    ; preds = %_ZN6Assimp10JSONWriter8EndArrayEv.exit238.i, %for.body.lr.ph.i515
@@ -6391,7 +6391,7 @@ for.body45.i:                                     ; preds = %_ZN6Assimp10JSONWri
   %mul.i = mul i32 %556, %y.0273.i
   %add.i = add i32 %mul.i, %x.0271.i
   %idxprom.i = zext i32 %add.i to i64
-  %arrayidx.i517 = getelementptr inbounds %struct.aiTexel, ptr %557, i64 %idxprom.i
+  %arrayidx.i517 = getelementptr inbounds nuw %struct.aiTexel, ptr %557, i64 %idxprom.i
   %558 = load i32, ptr %flags.i.i.i, align 4
   %559 = and i32 %558, 5
   %or.cond.i.i124.i = icmp eq i32 %559, 0
@@ -6415,7 +6415,7 @@ _ZN6Assimp10JSONWriter10StartArrayEb.exit142.i:   ; preds = %if.then3.i128.i, %_
   %call8.i133.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr7.i, ptr noundef nonnull @.str.30)
   %call9.i135.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %call8.i133.i, ptr noundef nonnull align 8 dereferenceable(32) %newline.i)
   %call.i2.i137.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %indent.i1.i, i8 noundef signext 9)
-  %r.i = getelementptr inbounds i8, ptr %arrayidx.i517, i64 2
+  %r.i = getelementptr inbounds nuw i8, ptr %arrayidx.i517, i64 2
   %561 = load i8, ptr %r.i, align 1
   %conv49.i = zext i8 %561 to i32
   %562 = load i32, ptr %flags.i.i.i, align 4
@@ -6444,7 +6444,7 @@ if.else.i.i.i530:                                 ; preds = %_ZN6Assimp10JSONWri
 _ZN6Assimp10JSONWriter7ElementIjEEvRKT_.exit.i:   ; preds = %if.else.i.i.i530, %if.then.i1.i.i519
   %call.i4.i.i520 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr7.i, i32 noundef %conv49.i)
   %call2.i148.i521 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr7.i, ptr noundef nonnull align 8 dereferenceable(32) %newline.i)
-  %g.i = getelementptr inbounds i8, ptr %arrayidx.i517, i64 1
+  %g.i = getelementptr inbounds nuw i8, ptr %arrayidx.i517, i64 1
   %565 = load i8, ptr %g.i, align 1
   %conv51.i = zext i8 %565 to i32
   %566 = load i32, ptr %flags.i.i.i, align 4
@@ -6501,7 +6501,7 @@ if.else.i.i183.i:                                 ; preds = %_ZN6Assimp10JSONWri
 _ZN6Assimp10JSONWriter7ElementIjEEvRKT_.exit190.i: ; preds = %if.else.i.i183.i, %if.then.i1.i178.i
   %call.i4.i180.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr7.i, i32 noundef %conv53.i)
   %call2.i182.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr7.i, ptr noundef nonnull align 8 dereferenceable(32) %newline.i)
-  %a.i = getelementptr inbounds i8, ptr %arrayidx.i517, i64 3
+  %a.i = getelementptr inbounds nuw i8, ptr %arrayidx.i517, i64 3
   %573 = load i8, ptr %a.i, align 1
   %conv55.i = zext i8 %573 to i32
   %574 = load i32, ptr %flags.i.i.i, align 4
@@ -6694,13 +6694,13 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  %buff = getelementptr inbounds i8, ptr %this, i64 104
+  %buff = getelementptr inbounds nuw i8, ptr %this, i64 104
   tail call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %buff) #13
-  %space = getelementptr inbounds i8, ptr %this, i64 72
+  %space = getelementptr inbounds nuw i8, ptr %this, i64 72
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %space) #13
-  %newline = getelementptr inbounds i8, ptr %this, i64 40
+  %newline = getelementptr inbounds nuw i8, ptr %this, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %newline) #13
-  %indent = getelementptr inbounds i8, ptr %this, i64 8
+  %indent = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %indent) #13
   ret void
 
@@ -6862,23 +6862,23 @@ define linkonce_odr hidden void @_ZN6Assimp10JSONWriter3KeyERKNSt7__cxx1112basic
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.std::__cxx11::basic_string", align 8
-  %flags.i = getelementptr inbounds i8, ptr %this, i64 500
+  %flags.i = getelementptr inbounds nuw i8, ptr %this, i64 500
   %0 = load i32, ptr %flags.i, align 4
   %1 = and i32 %0, 5
   %or.cond.i = icmp eq i32 %1, 0
   br i1 %or.cond.i, label %if.then.i, label %_ZN6Assimp10JSONWriter14AddIndentationEv.exit
 
 if.then.i:                                        ; preds = %entry
-  %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 120
-  %indent.i = getelementptr inbounds i8, ptr %this, i64 8
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %this, i64 120
+  %indent.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %call.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(32) %indent.i)
   br label %_ZN6Assimp10JSONWriter14AddIndentationEv.exit
 
 _ZN6Assimp10JSONWriter14AddIndentationEv.exit:    ; preds = %entry, %if.then.i
-  %first.i = getelementptr inbounds i8, ptr %this, i64 496
+  %first.i = getelementptr inbounds nuw i8, ptr %this, i64 496
   %2 = load i8, ptr %first.i, align 8
   %tobool.i = trunc i8 %2 to i1
-  %add.ptr3.i = getelementptr inbounds i8, ptr %this, i64 120
+  %add.ptr3.i = getelementptr inbounds nuw i8, ptr %this, i64 120
   br i1 %tobool.i, label %if.else.i, label %if.then.i2
 
 if.then.i2:                                       ; preds = %_ZN6Assimp10JSONWriter14AddIndentationEv.exit
@@ -6886,7 +6886,7 @@ if.then.i2:                                       ; preds = %_ZN6Assimp10JSONWri
   br label %_ZN6Assimp10JSONWriter7DelimitEv.exit
 
 if.else.i:                                        ; preds = %_ZN6Assimp10JSONWriter14AddIndentationEv.exit
-  %space.i = getelementptr inbounds i8, ptr %this, i64 72
+  %space.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %call4.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr3.i, ptr noundef nonnull align 8 dereferenceable(32) %space.i)
   store i8 0, ptr %first.i, align 8
   br label %_ZN6Assimp10JSONWriter7DelimitEv.exit
@@ -6902,7 +6902,7 @@ invoke.cont:                                      ; preds = %_ZN6Assimp10JSONWri
           to label %invoke.cont4 unwind label %lpad3
 
 invoke.cont4:                                     ; preds = %invoke.cont
-  %space = getelementptr inbounds i8, ptr %this, i64 72
+  %space = getelementptr inbounds nuw i8, ptr %this, i64 72
   %call6 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %call, ptr noundef nonnull align 8 dereferenceable(32) %space)
           to label %invoke.cont5 unwind label %lpad3
 
@@ -6942,37 +6942,37 @@ entry:
   br i1 %is_elem, label %if.then.i, label %_ZN6Assimp10JSONWriter8StartObjEb.exit
 
 if.then.i:                                        ; preds = %entry
-  %flags.i.i = getelementptr inbounds i8, ptr %out, i64 500
+  %flags.i.i = getelementptr inbounds nuw i8, ptr %out, i64 500
   %0 = load i32, ptr %flags.i.i, align 4
   %1 = and i32 %0, 5
   %or.cond.i.i = icmp eq i32 %1, 0
   br i1 %or.cond.i.i, label %if.then.i.i, label %_ZN6Assimp10JSONWriter14AddIndentationEv.exit.i
 
 if.then.i.i:                                      ; preds = %if.then.i
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %out, i64 120
-  %indent.i.i = getelementptr inbounds i8, ptr %out, i64 8
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %out, i64 120
+  %indent.i.i = getelementptr inbounds nuw i8, ptr %out, i64 8
   %call.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i.i, ptr noundef nonnull align 8 dereferenceable(32) %indent.i.i)
   br label %_ZN6Assimp10JSONWriter14AddIndentationEv.exit.i
 
 _ZN6Assimp10JSONWriter14AddIndentationEv.exit.i:  ; preds = %if.then.i.i, %if.then.i
-  %first.i = getelementptr inbounds i8, ptr %out, i64 496
+  %first.i = getelementptr inbounds nuw i8, ptr %out, i64 496
   %2 = load i8, ptr %first.i, align 8
   %tobool2.i = trunc i8 %2 to i1
   br i1 %tobool2.i, label %_ZN6Assimp10JSONWriter8StartObjEb.exit, label %if.then3.i
 
 if.then3.i:                                       ; preds = %_ZN6Assimp10JSONWriter14AddIndentationEv.exit.i
-  %add.ptr.i = getelementptr inbounds i8, ptr %out, i64 120
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %out, i64 120
   %call.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i, i8 noundef signext 44)
   br label %_ZN6Assimp10JSONWriter8StartObjEb.exit
 
 _ZN6Assimp10JSONWriter8StartObjEb.exit:           ; preds = %entry, %_ZN6Assimp10JSONWriter14AddIndentationEv.exit.i, %if.then3.i
-  %first5.i = getelementptr inbounds i8, ptr %out, i64 496
+  %first5.i = getelementptr inbounds nuw i8, ptr %out, i64 496
   store i8 1, ptr %first5.i, align 8
-  %add.ptr7.i = getelementptr inbounds i8, ptr %out, i64 120
+  %add.ptr7.i = getelementptr inbounds nuw i8, ptr %out, i64 120
   %call8.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr7.i, ptr noundef nonnull @.str.17)
-  %newline.i = getelementptr inbounds i8, ptr %out, i64 40
+  %newline.i = getelementptr inbounds nuw i8, ptr %out, i64 40
   %call9.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %call8.i, ptr noundef nonnull align 8 dereferenceable(32) %newline.i)
-  %indent.i1.i = getelementptr inbounds i8, ptr %out, i64 8
+  %indent.i1.i = getelementptr inbounds nuw i8, ptr %out, i64 8
   %call.i2.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %indent.i1.i, i8 noundef signext 9)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1) #13
   %call.i3336 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
@@ -6999,9 +6999,9 @@ invoke.cont:                                      ; preds = %.noexc
 invoke.cont3:                                     ; preds = %invoke.cont
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1) #13
-  %buff.i = getelementptr inbounds i8, ptr %out, i64 104
+  %buff.i = getelementptr inbounds nuw i8, ptr %out, i64 104
   %call.i37 = call noundef nonnull align 8 dereferenceable(128) ptr @_ZN6Assimp10JSONWriter15LiteralToStringERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEERK8aiString(ptr noundef nonnull align 8 dereferenceable(504) %out, ptr noundef nonnull align 8 dereferenceable(128) %buff.i, ptr noundef nonnull align 4 dereferenceable(1028) %ai)
-  %add.ptr.i38 = getelementptr inbounds i8, ptr %call.i37, i64 16
+  %add.ptr.i38 = getelementptr inbounds nuw i8, ptr %call.i37, i64 16
   %call2.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i38, ptr noundef nonnull align 8 dereferenceable(32) %newline.i)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp5) #13
   %call.i4044 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4)
@@ -7028,9 +7028,9 @@ invoke.cont7:                                     ; preds = %.noexc45
 invoke.cont9:                                     ; preds = %invoke.cont7
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp5) #13
-  %mTransformation = getelementptr inbounds i8, ptr %ai, i64 1028
+  %mTransformation = getelementptr inbounds nuw i8, ptr %ai, i64 1028
   call fastcc void @_ZN6AssimpL5WriteERNS_10JSONWriterERK12aiMatrix4x4tIfEb(ptr noundef nonnull align 8 dereferenceable(504) %out, ptr noundef nonnull align 4 dereferenceable(64) %mTransformation)
-  %mNumMeshes = getelementptr inbounds i8, ptr %ai, i64 1120
+  %mNumMeshes = getelementptr inbounds nuw i8, ptr %ai, i64 1120
   %5 = load i32, ptr %mNumMeshes, align 8
   %tobool12.not = icmp eq i32 %5, 0
   br i1 %tobool12.not, label %if.end, label %if.then
@@ -7070,15 +7070,15 @@ invoke.cont18:                                    ; preds = %invoke.cont16
   br i1 %cmp132.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %invoke.cont18
-  %mMeshes = getelementptr inbounds i8, ptr %ai, i64 1128
-  %flags.i.i63 = getelementptr inbounds i8, ptr %out, i64 500
-  %space.i.i = getelementptr inbounds i8, ptr %out, i64 72
+  %mMeshes = getelementptr inbounds nuw i8, ptr %ai, i64 1128
+  %flags.i.i63 = getelementptr inbounds nuw i8, ptr %out, i64 500
+  %space.i.i = getelementptr inbounds nuw i8, ptr %out, i64 72
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN6Assimp10JSONWriter7ElementIjEEvRKT_.exit
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %_ZN6Assimp10JSONWriter7ElementIjEEvRKT_.exit ]
   %8 = load ptr, ptr %mMeshes, align 8
-  %arrayidx = getelementptr inbounds i32, ptr %8, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
   %9 = load i32, ptr %flags.i.i63, align 4
   %10 = and i32 %9, 5
   %or.cond.i.i64 = icmp eq i32 %10, 0
@@ -7149,7 +7149,7 @@ for.end:                                          ; preds = %_ZN6Assimp10JSONWri
   %call.i.i74 = call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %indent.i1.i) #13
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call.i.i74, i64 -1
   %call7.i.i = call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEN9__gnu_cxx17__normal_iteratorIPKcS4_EE(ptr noundef nonnull align 8 dereferenceable(32) %indent.i1.i, ptr nonnull %add.ptr.i.i.i)
-  %flags.i.i75 = getelementptr inbounds i8, ptr %out, i64 500
+  %flags.i.i75 = getelementptr inbounds nuw i8, ptr %out, i64 500
   %21 = load i32, ptr %flags.i.i75, align 4
   %22 = and i32 %21, 5
   %or.cond.i.i76 = icmp eq i32 %22, 0
@@ -7166,7 +7166,7 @@ _ZN6Assimp10JSONWriter8EndArrayEv.exit:           ; preds = %for.end, %if.then.i
   br label %if.end
 
 if.end:                                           ; preds = %_ZN6Assimp10JSONWriter8EndArrayEv.exit, %invoke.cont9
-  %mNumChildren = getelementptr inbounds i8, ptr %ai, i64 1104
+  %mNumChildren = getelementptr inbounds nuw i8, ptr %ai, i64 1104
   %23 = load i32, ptr %mNumChildren, align 8
   %tobool22.not = icmp eq i32 %23, 0
   br i1 %tobool22.not, label %if.end42, label %if.then23
@@ -7206,13 +7206,13 @@ invoke.cont29:                                    ; preds = %invoke.cont27
   br i1 %cmp35134.not, label %for.end41, label %for.body36.lr.ph
 
 for.body36.lr.ph:                                 ; preds = %invoke.cont29
-  %mChildren = getelementptr inbounds i8, ptr %ai, i64 1112
+  %mChildren = getelementptr inbounds nuw i8, ptr %ai, i64 1112
   br label %for.body36
 
 for.body36:                                       ; preds = %for.body36.lr.ph, %for.body36
   %indvars.iv137 = phi i64 [ 0, %for.body36.lr.ph ], [ %indvars.iv.next138, %for.body36 ]
   %26 = load ptr, ptr %mChildren, align 8
-  %arrayidx38 = getelementptr inbounds ptr, ptr %26, i64 %indvars.iv137
+  %arrayidx38 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv137
   %27 = load ptr, ptr %arrayidx38, align 8
   call fastcc void @_ZN6AssimpL5WriteERNS_10JSONWriterERK6aiNodeb(ptr noundef nonnull align 8 dereferenceable(504) %out, ptr noundef nonnull align 8 dereferenceable(1144) %27, i1 noundef zeroext true)
   %indvars.iv.next138 = add nuw nsw i64 %indvars.iv137, 1
@@ -7236,7 +7236,7 @@ for.end41:                                        ; preds = %for.body36, %invoke
   %call.i.i102 = call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %indent.i1.i) #13
   %add.ptr.i.i.i103 = getelementptr inbounds i8, ptr %call.i.i102, i64 -1
   %call7.i.i104 = call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEN9__gnu_cxx17__normal_iteratorIPKcS4_EE(ptr noundef nonnull align 8 dereferenceable(32) %indent.i1.i, ptr nonnull %add.ptr.i.i.i103)
-  %flags.i.i105 = getelementptr inbounds i8, ptr %out, i64 500
+  %flags.i.i105 = getelementptr inbounds nuw i8, ptr %out, i64 500
   %32 = load i32, ptr %flags.i.i105, align 4
   %33 = and i32 %32, 5
   %or.cond.i.i106 = icmp eq i32 %33, 0
@@ -7256,7 +7256,7 @@ if.end42:                                         ; preds = %_ZN6Assimp10JSONWri
   %call.i.i118 = call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %indent.i1.i) #13
   %add.ptr.i.i.i119 = getelementptr inbounds i8, ptr %call.i.i118, i64 -1
   %call7.i.i120 = call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEN9__gnu_cxx17__normal_iteratorIPKcS4_EE(ptr noundef nonnull align 8 dereferenceable(32) %indent.i1.i, ptr nonnull %add.ptr.i.i.i119)
-  %flags.i.i121 = getelementptr inbounds i8, ptr %out, i64 500
+  %flags.i.i121 = getelementptr inbounds nuw i8, ptr %out, i64 500
   %34 = load i32, ptr %flags.i.i121, align 4
   %35 = and i32 %34, 5
   %or.cond.i.i122 = icmp eq i32 %35, 0
@@ -7315,36 +7315,36 @@ entry:
   %ref.tmp231 = alloca %"class.std::allocator.25", align 1
   %ref.tmp249 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp250 = alloca %"class.std::allocator.25", align 1
-  %flags.i.i = getelementptr inbounds i8, ptr %out, i64 500
+  %flags.i.i = getelementptr inbounds nuw i8, ptr %out, i64 500
   %0 = load i32, ptr %flags.i.i, align 4
   %1 = and i32 %0, 5
   %or.cond.i.i = icmp eq i32 %1, 0
   br i1 %or.cond.i.i, label %if.then.i.i, label %_ZN6Assimp10JSONWriter14AddIndentationEv.exit.i
 
 if.then.i.i:                                      ; preds = %entry
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %out, i64 120
-  %indent.i.i = getelementptr inbounds i8, ptr %out, i64 8
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %out, i64 120
+  %indent.i.i = getelementptr inbounds nuw i8, ptr %out, i64 8
   %call.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i.i, ptr noundef nonnull align 8 dereferenceable(32) %indent.i.i)
   br label %_ZN6Assimp10JSONWriter14AddIndentationEv.exit.i
 
 _ZN6Assimp10JSONWriter14AddIndentationEv.exit.i:  ; preds = %if.then.i.i, %entry
-  %first.i = getelementptr inbounds i8, ptr %out, i64 496
+  %first.i = getelementptr inbounds nuw i8, ptr %out, i64 496
   %2 = load i8, ptr %first.i, align 8
   %tobool2.i = trunc i8 %2 to i1
   br i1 %tobool2.i, label %_ZN6Assimp10JSONWriter8StartObjEb.exit, label %if.then3.i
 
 if.then3.i:                                       ; preds = %_ZN6Assimp10JSONWriter14AddIndentationEv.exit.i
-  %add.ptr.i = getelementptr inbounds i8, ptr %out, i64 120
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %out, i64 120
   %call.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i, i8 noundef signext 44)
   br label %_ZN6Assimp10JSONWriter8StartObjEb.exit
 
 _ZN6Assimp10JSONWriter8StartObjEb.exit:           ; preds = %_ZN6Assimp10JSONWriter14AddIndentationEv.exit.i, %if.then3.i
   store i8 1, ptr %first.i, align 8
-  %add.ptr7.i = getelementptr inbounds i8, ptr %out, i64 120
+  %add.ptr7.i = getelementptr inbounds nuw i8, ptr %out, i64 120
   %call8.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr7.i, ptr noundef nonnull @.str.17)
-  %newline.i = getelementptr inbounds i8, ptr %out, i64 40
+  %newline.i = getelementptr inbounds nuw i8, ptr %out, i64 40
   %call9.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %call8.i, ptr noundef nonnull align 8 dereferenceable(32) %newline.i)
-  %indent.i1.i = getelementptr inbounds i8, ptr %out, i64 8
+  %indent.i1.i = getelementptr inbounds nuw i8, ptr %out, i64 8
   %call.i2.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %indent.i1.i, i8 noundef signext 9)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1) #13
   %call.i163166 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
@@ -7371,10 +7371,10 @@ invoke.cont:                                      ; preds = %.noexc
 invoke.cont3:                                     ; preds = %invoke.cont
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1) #13
-  %mName = getelementptr inbounds i8, ptr %ai, i64 236
-  %buff.i = getelementptr inbounds i8, ptr %out, i64 104
+  %mName = getelementptr inbounds nuw i8, ptr %ai, i64 236
+  %buff.i = getelementptr inbounds nuw i8, ptr %out, i64 104
   %call.i167 = call noundef nonnull align 8 dereferenceable(128) ptr @_ZN6Assimp10JSONWriter15LiteralToStringERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEERK8aiString(ptr noundef nonnull align 8 dereferenceable(504) %out, ptr noundef nonnull align 8 dereferenceable(128) %buff.i, ptr noundef nonnull align 4 dereferenceable(1028) %mName)
-  %add.ptr.i168 = getelementptr inbounds i8, ptr %call.i167, i64 16
+  %add.ptr.i168 = getelementptr inbounds nuw i8, ptr %call.i167, i64 16
   %call2.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i168, ptr noundef nonnull align 8 dereferenceable(32) %newline.i)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp5) #13
   %call.i170174 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4)
@@ -7401,7 +7401,7 @@ invoke.cont7:                                     ; preds = %.noexc175
 invoke.cont9:                                     ; preds = %invoke.cont7
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp5) #13
-  %mMaterialIndex = getelementptr inbounds i8, ptr %ai, i64 232
+  %mMaterialIndex = getelementptr inbounds nuw i8, ptr %ai, i64 232
   %5 = load i32, ptr %mMaterialIndex, align 8
   %call.i.i179 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr7.i, i32 noundef %5)
   %call2.i181 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr7.i, ptr noundef nonnull align 8 dereferenceable(32) %newline.i)
@@ -7462,20 +7462,20 @@ invoke.cont25:                                    ; preds = %invoke.cont23
   %call8.i204 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr7.i, ptr noundef nonnull @.str.30)
   %call9.i206 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %call8.i204, ptr noundef nonnull align 8 dereferenceable(32) %newline.i)
   %call.i2.i208 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %indent.i1.i, i8 noundef signext 9)
-  %mNumVertices = getelementptr inbounds i8, ptr %ai, i64 4
+  %mNumVertices = getelementptr inbounds nuw i8, ptr %ai, i64 4
   %9 = load i32, ptr %mNumVertices, align 4
   %cmp1046.not = icmp eq i32 %9, 0
   br i1 %cmp1046.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %invoke.cont25
-  %mVertices = getelementptr inbounds i8, ptr %ai, i64 16
-  %space.i.i = getelementptr inbounds i8, ptr %out, i64 72
+  %mVertices = getelementptr inbounds nuw i8, ptr %ai, i64 16
+  %space.i.i = getelementptr inbounds nuw i8, ptr %out, i64 72
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN6Assimp10JSONWriter7ElementIfEEvRKT_.exit263
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %_ZN6Assimp10JSONWriter7ElementIfEEvRKT_.exit263 ]
   %10 = load ptr, ptr %mVertices, align 8
-  %arrayidx = getelementptr inbounds %class.aiVector3t, ptr %10, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw %class.aiVector3t, ptr %10, i64 %indvars.iv
   %11 = load i32, ptr %flags.i.i, align 4
   %12 = and i32 %11, 5
   %or.cond.i.i210 = icmp eq i32 %12, 0
@@ -7502,10 +7502,10 @@ if.else.i.i:                                      ; preds = %_ZN6Assimp10JSONWri
 _ZN6Assimp10JSONWriter7ElementIfEEvRKT_.exit:     ; preds = %if.then.i1.i, %if.else.i.i
   %14 = load float, ptr %arrayidx, align 4
   %call.i214 = call noundef nonnull align 8 dereferenceable(128) ptr @_ZN6Assimp10JSONWriter15LiteralToStringERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEf(ptr noundef nonnull align 8 dereferenceable(504) %out, ptr noundef nonnull align 8 dereferenceable(128) %buff.i, float noundef %14)
-  %add.ptr.i215 = getelementptr inbounds i8, ptr %call.i214, i64 16
+  %add.ptr.i215 = getelementptr inbounds nuw i8, ptr %call.i214, i64 16
   %call2.i217 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i215, ptr noundef nonnull align 8 dereferenceable(32) %newline.i)
   %15 = load ptr, ptr %mVertices, align 8
-  %y = getelementptr inbounds %class.aiVector3t, ptr %15, i64 %indvars.iv, i32 1
+  %y = getelementptr inbounds nuw %class.aiVector3t, ptr %15, i64 %indvars.iv, i32 1
   %16 = load i32, ptr %flags.i.i, align 4
   %17 = and i32 %16, 5
   %or.cond.i.i223 = icmp eq i32 %17, 0
@@ -7532,10 +7532,10 @@ if.else.i.i235:                                   ; preds = %_ZN6Assimp10JSONWri
 _ZN6Assimp10JSONWriter7ElementIfEEvRKT_.exit242:  ; preds = %if.then.i1.i228, %if.else.i.i235
   %19 = load float, ptr %y, align 4
   %call.i231 = call noundef nonnull align 8 dereferenceable(128) ptr @_ZN6Assimp10JSONWriter15LiteralToStringERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEf(ptr noundef nonnull align 8 dereferenceable(504) %out, ptr noundef nonnull align 8 dereferenceable(128) %buff.i, float noundef %19)
-  %add.ptr.i232 = getelementptr inbounds i8, ptr %call.i231, i64 16
+  %add.ptr.i232 = getelementptr inbounds nuw i8, ptr %call.i231, i64 16
   %call2.i234 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i232, ptr noundef nonnull align 8 dereferenceable(32) %newline.i)
   %20 = load ptr, ptr %mVertices, align 8
-  %z = getelementptr inbounds %class.aiVector3t, ptr %20, i64 %indvars.iv, i32 2
+  %z = getelementptr inbounds nuw %class.aiVector3t, ptr %20, i64 %indvars.iv, i32 2
   %21 = load i32, ptr %flags.i.i, align 4
   %22 = and i32 %21, 5
   %or.cond.i.i244 = icmp eq i32 %22, 0
@@ -7562,7 +7562,7 @@ if.else.i.i256:                                   ; preds = %_ZN6Assimp10JSONWri
 _ZN6Assimp10JSONWriter7ElementIfEEvRKT_.exit263:  ; preds = %if.then.i1.i249, %if.else.i.i256
   %24 = load float, ptr %z, align 4
   %call.i252 = call noundef nonnull align 8 dereferenceable(128) ptr @_ZN6Assimp10JSONWriter15LiteralToStringERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEf(ptr noundef nonnull align 8 dereferenceable(504) %out, ptr noundef nonnull align 8 dereferenceable(128) %buff.i, float noundef %24)
-  %add.ptr.i253 = getelementptr inbounds i8, ptr %call.i252, i64 16
+  %add.ptr.i253 = getelementptr inbounds nuw i8, ptr %call.i252, i64 16
   %call2.i255 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i253, ptr noundef nonnull align 8 dereferenceable(32) %newline.i)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %25 = load i32, ptr %mNumVertices, align 4
@@ -7631,7 +7631,7 @@ _ZN6Assimp10JSONWriter8EndArrayEv.exit:           ; preds = %for.end, %if.then.i
   %call.i270 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr7.i, ptr noundef nonnull @.str.44)
   %call2.i272 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %call.i270, ptr noundef nonnull align 8 dereferenceable(32) %newline.i)
   store i8 0, ptr %first.i, align 8
-  %mNormals.i = getelementptr inbounds i8, ptr %ai, i64 24
+  %mNormals.i = getelementptr inbounds nuw i8, ptr %ai, i64 24
   %37 = load ptr, ptr %mNormals.i, align 8
   %cmp.not.i = icmp ne ptr %37, null
   %38 = load i32, ptr %mNumVertices, align 4
@@ -7674,13 +7674,13 @@ invoke.cont39:                                    ; preds = %invoke.cont37
   br i1 %cmp451048.not, label %for.end60, label %for.body46.lr.ph
 
 for.body46.lr.ph:                                 ; preds = %invoke.cont39
-  %space.i.i306 = getelementptr inbounds i8, ptr %out, i64 72
+  %space.i.i306 = getelementptr inbounds nuw i8, ptr %out, i64 72
   br label %for.body46
 
 for.body46:                                       ; preds = %for.body46.lr.ph, %_ZN6Assimp10JSONWriter7ElementIfEEvRKT_.exit354
   %indvars.iv1069 = phi i64 [ 0, %for.body46.lr.ph ], [ %indvars.iv.next1070, %_ZN6Assimp10JSONWriter7ElementIfEEvRKT_.exit354 ]
   %42 = load ptr, ptr %mNormals.i, align 8
-  %arrayidx48 = getelementptr inbounds %class.aiVector3t, ptr %42, i64 %indvars.iv1069
+  %arrayidx48 = getelementptr inbounds nuw %class.aiVector3t, ptr %42, i64 %indvars.iv1069
   %43 = load i32, ptr %flags.i.i, align 4
   %44 = and i32 %43, 5
   %or.cond.i.i293 = icmp eq i32 %44, 0
@@ -7707,10 +7707,10 @@ if.else.i.i305:                                   ; preds = %_ZN6Assimp10JSONWri
 _ZN6Assimp10JSONWriter7ElementIfEEvRKT_.exit312:  ; preds = %if.then.i1.i298, %if.else.i.i305
   %46 = load float, ptr %arrayidx48, align 4
   %call.i301 = call noundef nonnull align 8 dereferenceable(128) ptr @_ZN6Assimp10JSONWriter15LiteralToStringERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEf(ptr noundef nonnull align 8 dereferenceable(504) %out, ptr noundef nonnull align 8 dereferenceable(128) %buff.i, float noundef %46)
-  %add.ptr.i302 = getelementptr inbounds i8, ptr %call.i301, i64 16
+  %add.ptr.i302 = getelementptr inbounds nuw i8, ptr %call.i301, i64 16
   %call2.i304 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i302, ptr noundef nonnull align 8 dereferenceable(32) %newline.i)
   %47 = load ptr, ptr %mNormals.i, align 8
-  %y53 = getelementptr inbounds %class.aiVector3t, ptr %47, i64 %indvars.iv1069, i32 1
+  %y53 = getelementptr inbounds nuw %class.aiVector3t, ptr %47, i64 %indvars.iv1069, i32 1
   %48 = load i32, ptr %flags.i.i, align 4
   %49 = and i32 %48, 5
   %or.cond.i.i314 = icmp eq i32 %49, 0
@@ -7737,10 +7737,10 @@ if.else.i.i326:                                   ; preds = %_ZN6Assimp10JSONWri
 _ZN6Assimp10JSONWriter7ElementIfEEvRKT_.exit333:  ; preds = %if.then.i1.i319, %if.else.i.i326
   %51 = load float, ptr %y53, align 4
   %call.i322 = call noundef nonnull align 8 dereferenceable(128) ptr @_ZN6Assimp10JSONWriter15LiteralToStringERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEf(ptr noundef nonnull align 8 dereferenceable(504) %out, ptr noundef nonnull align 8 dereferenceable(128) %buff.i, float noundef %51)
-  %add.ptr.i323 = getelementptr inbounds i8, ptr %call.i322, i64 16
+  %add.ptr.i323 = getelementptr inbounds nuw i8, ptr %call.i322, i64 16
   %call2.i325 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i323, ptr noundef nonnull align 8 dereferenceable(32) %newline.i)
   %52 = load ptr, ptr %mNormals.i, align 8
-  %z57 = getelementptr inbounds %class.aiVector3t, ptr %52, i64 %indvars.iv1069, i32 2
+  %z57 = getelementptr inbounds nuw %class.aiVector3t, ptr %52, i64 %indvars.iv1069, i32 2
   %53 = load i32, ptr %flags.i.i, align 4
   %54 = and i32 %53, 5
   %or.cond.i.i335 = icmp eq i32 %54, 0
@@ -7767,7 +7767,7 @@ if.else.i.i347:                                   ; preds = %_ZN6Assimp10JSONWri
 _ZN6Assimp10JSONWriter7ElementIfEEvRKT_.exit354:  ; preds = %if.then.i1.i340, %if.else.i.i347
   %56 = load float, ptr %z57, align 4
   %call.i343 = call noundef nonnull align 8 dereferenceable(128) ptr @_ZN6Assimp10JSONWriter15LiteralToStringERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEf(ptr noundef nonnull align 8 dereferenceable(504) %out, ptr noundef nonnull align 8 dereferenceable(128) %buff.i, float noundef %56)
-  %add.ptr.i344 = getelementptr inbounds i8, ptr %call.i343, i64 16
+  %add.ptr.i344 = getelementptr inbounds nuw i8, ptr %call.i343, i64 16
   %call2.i346 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i344, ptr noundef nonnull align 8 dereferenceable(32) %newline.i)
   %indvars.iv.next1070 = add nuw nsw i64 %indvars.iv1069, 1
   %57 = load i32, ptr %mNumVertices, align 4
@@ -7808,10 +7808,10 @@ _ZN6Assimp10JSONWriter8EndArrayEv.exit370:        ; preds = %for.end60, %if.then
 
 if.end:                                           ; preds = %_ZN6Assimp10JSONWriter8EndArrayEv.exit370, %_ZN6Assimp10JSONWriter8EndArrayEv.exit
   %63 = phi i32 [ %.pre, %_ZN6Assimp10JSONWriter8EndArrayEv.exit370 ], [ %38, %_ZN6Assimp10JSONWriter8EndArrayEv.exit ]
-  %mTangents.i = getelementptr inbounds i8, ptr %ai, i64 32
+  %mTangents.i = getelementptr inbounds nuw i8, ptr %ai, i64 32
   %64 = load ptr, ptr %mTangents.i, align 8
   %cmp.not.i371 = icmp ne ptr %64, null
-  %mBitangents.i = getelementptr inbounds i8, ptr %ai, i64 40
+  %mBitangents.i = getelementptr inbounds nuw i8, ptr %ai, i64 40
   %65 = load ptr, ptr %mBitangents.i, align 8
   %cmp2.not.i = icmp ne ptr %65, null
   %or.cond.i.not1040 = select i1 %cmp.not.i371, i1 %cmp2.not.i, i1 false
@@ -7854,13 +7854,13 @@ invoke.cont68:                                    ; preds = %invoke.cont66
   br i1 %cmp741050.not, label %for.end89, label %for.body75.lr.ph
 
 for.body75.lr.ph:                                 ; preds = %invoke.cont68
-  %space.i.i402 = getelementptr inbounds i8, ptr %out, i64 72
+  %space.i.i402 = getelementptr inbounds nuw i8, ptr %out, i64 72
   br label %for.body75
 
 for.body75:                                       ; preds = %for.body75.lr.ph, %_ZN6Assimp10JSONWriter7ElementIfEEvRKT_.exit450
   %indvars.iv1072 = phi i64 [ 0, %for.body75.lr.ph ], [ %indvars.iv.next1073, %_ZN6Assimp10JSONWriter7ElementIfEEvRKT_.exit450 ]
   %68 = load ptr, ptr %mTangents.i, align 8
-  %arrayidx77 = getelementptr inbounds %class.aiVector3t, ptr %68, i64 %indvars.iv1072
+  %arrayidx77 = getelementptr inbounds nuw %class.aiVector3t, ptr %68, i64 %indvars.iv1072
   %69 = load i32, ptr %flags.i.i, align 4
   %70 = and i32 %69, 5
   %or.cond.i.i389 = icmp eq i32 %70, 0
@@ -7887,10 +7887,10 @@ if.else.i.i401:                                   ; preds = %_ZN6Assimp10JSONWri
 _ZN6Assimp10JSONWriter7ElementIfEEvRKT_.exit408:  ; preds = %if.then.i1.i394, %if.else.i.i401
   %72 = load float, ptr %arrayidx77, align 4
   %call.i397 = call noundef nonnull align 8 dereferenceable(128) ptr @_ZN6Assimp10JSONWriter15LiteralToStringERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEf(ptr noundef nonnull align 8 dereferenceable(504) %out, ptr noundef nonnull align 8 dereferenceable(128) %buff.i, float noundef %72)
-  %add.ptr.i398 = getelementptr inbounds i8, ptr %call.i397, i64 16
+  %add.ptr.i398 = getelementptr inbounds nuw i8, ptr %call.i397, i64 16
   %call2.i400 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i398, ptr noundef nonnull align 8 dereferenceable(32) %newline.i)
   %73 = load ptr, ptr %mTangents.i, align 8
-  %y82 = getelementptr inbounds %class.aiVector3t, ptr %73, i64 %indvars.iv1072, i32 1
+  %y82 = getelementptr inbounds nuw %class.aiVector3t, ptr %73, i64 %indvars.iv1072, i32 1
   %74 = load i32, ptr %flags.i.i, align 4
   %75 = and i32 %74, 5
   %or.cond.i.i410 = icmp eq i32 %75, 0
@@ -7917,10 +7917,10 @@ if.else.i.i422:                                   ; preds = %_ZN6Assimp10JSONWri
 _ZN6Assimp10JSONWriter7ElementIfEEvRKT_.exit429:  ; preds = %if.then.i1.i415, %if.else.i.i422
   %77 = load float, ptr %y82, align 4
   %call.i418 = call noundef nonnull align 8 dereferenceable(128) ptr @_ZN6Assimp10JSONWriter15LiteralToStringERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEf(ptr noundef nonnull align 8 dereferenceable(504) %out, ptr noundef nonnull align 8 dereferenceable(128) %buff.i, float noundef %77)
-  %add.ptr.i419 = getelementptr inbounds i8, ptr %call.i418, i64 16
+  %add.ptr.i419 = getelementptr inbounds nuw i8, ptr %call.i418, i64 16
   %call2.i421 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i419, ptr noundef nonnull align 8 dereferenceable(32) %newline.i)
   %78 = load ptr, ptr %mTangents.i, align 8
-  %z86 = getelementptr inbounds %class.aiVector3t, ptr %78, i64 %indvars.iv1072, i32 2
+  %z86 = getelementptr inbounds nuw %class.aiVector3t, ptr %78, i64 %indvars.iv1072, i32 2
   %79 = load i32, ptr %flags.i.i, align 4
   %80 = and i32 %79, 5
   %or.cond.i.i431 = icmp eq i32 %80, 0
@@ -7947,7 +7947,7 @@ if.else.i.i443:                                   ; preds = %_ZN6Assimp10JSONWri
 _ZN6Assimp10JSONWriter7ElementIfEEvRKT_.exit450:  ; preds = %if.then.i1.i436, %if.else.i.i443
   %82 = load float, ptr %z86, align 4
   %call.i439 = call noundef nonnull align 8 dereferenceable(128) ptr @_ZN6Assimp10JSONWriter15LiteralToStringERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEf(ptr noundef nonnull align 8 dereferenceable(504) %out, ptr noundef nonnull align 8 dereferenceable(128) %buff.i, float noundef %82)
-  %add.ptr.i440 = getelementptr inbounds i8, ptr %call.i439, i64 16
+  %add.ptr.i440 = getelementptr inbounds nuw i8, ptr %call.i439, i64 16
   %call2.i442 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i440, ptr noundef nonnull align 8 dereferenceable(32) %newline.i)
   %indvars.iv.next1073 = add nuw nsw i64 %indvars.iv1072, 1
   %83 = load i32, ptr %mNumVertices, align 4
@@ -8017,13 +8017,13 @@ invoke.cont95:                                    ; preds = %invoke.cont93
   br i1 %cmp1011052.not, label %for.end116, label %for.body102.lr.ph
 
 for.body102.lr.ph:                                ; preds = %invoke.cont95
-  %space.i.i496 = getelementptr inbounds i8, ptr %out, i64 72
+  %space.i.i496 = getelementptr inbounds nuw i8, ptr %out, i64 72
   br label %for.body102
 
 for.body102:                                      ; preds = %for.body102.lr.ph, %_ZN6Assimp10JSONWriter7ElementIfEEvRKT_.exit544
   %indvars.iv1075 = phi i64 [ 0, %for.body102.lr.ph ], [ %indvars.iv.next1076, %_ZN6Assimp10JSONWriter7ElementIfEEvRKT_.exit544 ]
   %91 = load ptr, ptr %mBitangents.i, align 8
-  %arrayidx104 = getelementptr inbounds %class.aiVector3t, ptr %91, i64 %indvars.iv1075
+  %arrayidx104 = getelementptr inbounds nuw %class.aiVector3t, ptr %91, i64 %indvars.iv1075
   %92 = load i32, ptr %flags.i.i, align 4
   %93 = and i32 %92, 5
   %or.cond.i.i483 = icmp eq i32 %93, 0
@@ -8050,10 +8050,10 @@ if.else.i.i495:                                   ; preds = %_ZN6Assimp10JSONWri
 _ZN6Assimp10JSONWriter7ElementIfEEvRKT_.exit502:  ; preds = %if.then.i1.i488, %if.else.i.i495
   %95 = load float, ptr %arrayidx104, align 4
   %call.i491 = call noundef nonnull align 8 dereferenceable(128) ptr @_ZN6Assimp10JSONWriter15LiteralToStringERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEf(ptr noundef nonnull align 8 dereferenceable(504) %out, ptr noundef nonnull align 8 dereferenceable(128) %buff.i, float noundef %95)
-  %add.ptr.i492 = getelementptr inbounds i8, ptr %call.i491, i64 16
+  %add.ptr.i492 = getelementptr inbounds nuw i8, ptr %call.i491, i64 16
   %call2.i494 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i492, ptr noundef nonnull align 8 dereferenceable(32) %newline.i)
   %96 = load ptr, ptr %mBitangents.i, align 8
-  %y109 = getelementptr inbounds %class.aiVector3t, ptr %96, i64 %indvars.iv1075, i32 1
+  %y109 = getelementptr inbounds nuw %class.aiVector3t, ptr %96, i64 %indvars.iv1075, i32 1
   %97 = load i32, ptr %flags.i.i, align 4
   %98 = and i32 %97, 5
   %or.cond.i.i504 = icmp eq i32 %98, 0
@@ -8080,10 +8080,10 @@ if.else.i.i516:                                   ; preds = %_ZN6Assimp10JSONWri
 _ZN6Assimp10JSONWriter7ElementIfEEvRKT_.exit523:  ; preds = %if.then.i1.i509, %if.else.i.i516
   %100 = load float, ptr %y109, align 4
   %call.i512 = call noundef nonnull align 8 dereferenceable(128) ptr @_ZN6Assimp10JSONWriter15LiteralToStringERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEf(ptr noundef nonnull align 8 dereferenceable(504) %out, ptr noundef nonnull align 8 dereferenceable(128) %buff.i, float noundef %100)
-  %add.ptr.i513 = getelementptr inbounds i8, ptr %call.i512, i64 16
+  %add.ptr.i513 = getelementptr inbounds nuw i8, ptr %call.i512, i64 16
   %call2.i515 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i513, ptr noundef nonnull align 8 dereferenceable(32) %newline.i)
   %101 = load ptr, ptr %mBitangents.i, align 8
-  %z113 = getelementptr inbounds %class.aiVector3t, ptr %101, i64 %indvars.iv1075, i32 2
+  %z113 = getelementptr inbounds nuw %class.aiVector3t, ptr %101, i64 %indvars.iv1075, i32 2
   %102 = load i32, ptr %flags.i.i, align 4
   %103 = and i32 %102, 5
   %or.cond.i.i525 = icmp eq i32 %103, 0
@@ -8110,7 +8110,7 @@ if.else.i.i537:                                   ; preds = %_ZN6Assimp10JSONWri
 _ZN6Assimp10JSONWriter7ElementIfEEvRKT_.exit544:  ; preds = %if.then.i1.i530, %if.else.i.i537
   %105 = load float, ptr %z113, align 4
   %call.i533 = call noundef nonnull align 8 dereferenceable(128) ptr @_ZN6Assimp10JSONWriter15LiteralToStringERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEf(ptr noundef nonnull align 8 dereferenceable(504) %out, ptr noundef nonnull align 8 dereferenceable(128) %buff.i, float noundef %105)
-  %add.ptr.i534 = getelementptr inbounds i8, ptr %call.i533, i64 16
+  %add.ptr.i534 = getelementptr inbounds nuw i8, ptr %call.i533, i64 16
   %call2.i536 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i534, ptr noundef nonnull align 8 dereferenceable(32) %newline.i)
   %indvars.iv.next1076 = add nuw nsw i64 %indvars.iv1075, 1
   %106 = load i32, ptr %mNumVertices, align 4
@@ -8149,12 +8149,12 @@ _ZN6Assimp10JSONWriter8EndArrayEv.exit560:        ; preds = %for.end116, %if.the
   br label %if.end117
 
 if.end117:                                        ; preds = %if.end, %_ZN6Assimp10JSONWriter8EndArrayEv.exit560
-  %mTextureCoords.i = getelementptr inbounds i8, ptr %ai, i64 112
+  %mTextureCoords.i = getelementptr inbounds nuw i8, ptr %ai, i64 112
   br label %land.rhs.i561
 
 land.rhs.i561:                                    ; preds = %while.body.i, %if.end117
   %indvars.iv.i = phi i64 [ 0, %if.end117 ], [ %indvars.iv.next.i, %while.body.i ]
-  %arrayidx.i = getelementptr inbounds [8 x ptr], ptr %mTextureCoords.i, i64 0, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds nuw [8 x ptr], ptr %mTextureCoords.i, i64 0, i64 %indvars.iv.i
   %112 = load ptr, ptr %arrayidx.i, align 8
   %tobool.not.i = icmp eq ptr %112, null
   br i1 %tobool.not.i, label %_ZNK6aiMesh16GetNumUVChannelsEv.exit, label %while.body.i
@@ -8198,8 +8198,8 @@ invoke.cont126:                                   ; preds = %invoke.cont124
   %call8.i572 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr7.i, ptr noundef nonnull @.str.30)
   %call9.i574 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %call8.i572, ptr noundef nonnull align 8 dereferenceable(32) %newline.i)
   %call.i2.i576 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %indent.i1.i, i8 noundef signext 9)
-  %mNumUVComponents = getelementptr inbounds i8, ptr %ai, i64 176
-  %space.i.i599 = getelementptr inbounds i8, ptr %out, i64 72
+  %mNumUVComponents = getelementptr inbounds nuw i8, ptr %ai, i64 176
+  %space.i.i599 = getelementptr inbounds nuw i8, ptr %out, i64 72
   br label %for.cond129
 
 for.cond129:                                      ; preds = %_ZN6Assimp10JSONWriter7ElementIjEEvRKT_.exit, %invoke.cont126
@@ -8208,7 +8208,7 @@ for.cond129:                                      ; preds = %_ZN6Assimp10JSONWri
 
 land.rhs.i578:                                    ; preds = %while.body.i582, %for.cond129
   %indvars.iv.i579 = phi i64 [ 0, %for.cond129 ], [ %indvars.iv.next.i583, %while.body.i582 ]
-  %arrayidx.i580 = getelementptr inbounds [8 x ptr], ptr %mTextureCoords.i, i64 0, i64 %indvars.iv.i579
+  %arrayidx.i580 = getelementptr inbounds nuw [8 x ptr], ptr %mTextureCoords.i, i64 0, i64 %indvars.iv.i579
   %114 = load ptr, ptr %arrayidx.i580, align 8
   %tobool.not.i581 = icmp eq ptr %114, null
   br i1 %tobool.not.i581, label %while.end.split.loop.exit6.i586, label %while.body.i582
@@ -8228,7 +8228,7 @@ _ZNK6aiMesh16GetNumUVChannelsEv.exit587:          ; preds = %while.body.i582, %w
   br i1 %cmp131, label %for.body132, label %for.end137
 
 for.body132:                                      ; preds = %_ZNK6aiMesh16GetNumUVChannelsEv.exit587
-  %arrayidx134 = getelementptr inbounds [8 x i32], ptr %mNumUVComponents, i64 0, i64 %indvars.iv1078
+  %arrayidx134 = getelementptr inbounds nuw [8 x i32], ptr %mNumUVComponents, i64 0, i64 %indvars.iv1078
   %116 = load i32, ptr %flags.i.i, align 4
   %117 = and i32 %116, 5
   %or.cond.i.i589 = icmp eq i32 %117, 0
@@ -8324,7 +8324,7 @@ for.cond147:                                      ; preds = %_ZN6Assimp10JSONWri
 
 land.rhs.i637:                                    ; preds = %while.body.i641, %for.cond147
   %indvars.iv.i638 = phi i64 [ 0, %for.cond147 ], [ %indvars.iv.next.i642, %while.body.i641 ]
-  %arrayidx.i639 = getelementptr inbounds [8 x ptr], ptr %mTextureCoords.i, i64 0, i64 %indvars.iv.i638
+  %arrayidx.i639 = getelementptr inbounds nuw [8 x ptr], ptr %mTextureCoords.i, i64 0, i64 %indvars.iv.i638
   %125 = load ptr, ptr %arrayidx.i639, align 8
   %tobool.not.i640 = icmp eq ptr %125, null
   br i1 %tobool.not.i640, label %while.end.split.loop.exit6.i645, label %while.body.i641
@@ -8344,7 +8344,7 @@ _ZNK6aiMesh16GetNumUVChannelsEv.exit646:          ; preds = %while.body.i641, %w
   br i1 %cmp149, label %for.body150, label %for.end179
 
 for.body150:                                      ; preds = %_ZNK6aiMesh16GetNumUVChannelsEv.exit646
-  %arrayidx153 = getelementptr inbounds [8 x i32], ptr %mNumUVComponents, i64 0, i64 %indvars.iv1084
+  %arrayidx153 = getelementptr inbounds nuw [8 x i32], ptr %mNumUVComponents, i64 0, i64 %indvars.iv1084
   %127 = load i32, ptr %arrayidx153, align 4
   %tobool154.not = icmp eq i32 %127, 0
   %128 = load i32, ptr %flags.i.i, align 4
@@ -8375,7 +8375,7 @@ _ZN6Assimp10JSONWriter10StartArrayEb.exit:        ; preds = %_ZN6Assimp10JSONWri
   br i1 %cmp1611055.not, label %for.end176, label %for.cond163.preheader.lr.ph
 
 for.cond163.preheader.lr.ph:                      ; preds = %_ZN6Assimp10JSONWriter10StartArrayEb.exit
-  %arrayidx167 = getelementptr inbounds [8 x ptr], ptr %mTextureCoords.i, i64 0, i64 %indvars.iv1084
+  %arrayidx167 = getelementptr inbounds nuw [8 x ptr], ptr %mTextureCoords.i, i64 0, i64 %indvars.iv1084
   %132 = call i32 @llvm.umax.i32(i32 %127, i32 1)
   %umax = select i1 %tobool154.not, i32 2, i32 %132
   br label %for.cond163.preheader
@@ -8387,18 +8387,18 @@ for.cond163.preheader:                            ; preds = %for.cond163.prehead
 for.body165:                                      ; preds = %for.cond163.preheader, %_ZN6Assimp10JSONWriter7ElementIfEEvRKT_.exit686
   %c.01054 = phi i32 [ 0, %for.cond163.preheader ], [ %inc172, %_ZN6Assimp10JSONWriter7ElementIfEEvRKT_.exit686 ]
   %133 = load ptr, ptr %arrayidx167, align 8
-  %arrayidx169 = getelementptr inbounds %class.aiVector3t, ptr %133, i64 %indvars.iv1081
+  %arrayidx169 = getelementptr inbounds nuw %class.aiVector3t, ptr %133, i64 %indvars.iv1081
   switch i32 %c.01054, label %_ZN10aiVector3tIfEixEj.exit [
     i32 2, label %sw.bb3.i
     i32 1, label %sw.bb2.i
   ]
 
 sw.bb2.i:                                         ; preds = %for.body165
-  %y.i = getelementptr inbounds i8, ptr %arrayidx169, i64 4
+  %y.i = getelementptr inbounds nuw i8, ptr %arrayidx169, i64 4
   br label %_ZN10aiVector3tIfEixEj.exit
 
 sw.bb3.i:                                         ; preds = %for.body165
-  %z.i = getelementptr inbounds i8, ptr %arrayidx169, i64 8
+  %z.i = getelementptr inbounds nuw i8, ptr %arrayidx169, i64 8
   br label %_ZN10aiVector3tIfEixEj.exit
 
 _ZN10aiVector3tIfEixEj.exit:                      ; preds = %for.body165, %sw.bb2.i, %sw.bb3.i
@@ -8429,7 +8429,7 @@ if.else.i.i679:                                   ; preds = %_ZN6Assimp10JSONWri
 _ZN6Assimp10JSONWriter7ElementIfEEvRKT_.exit686:  ; preds = %if.then.i1.i672, %if.else.i.i679
   %137 = load float, ptr %retval.0.i, align 4
   %call.i675 = call noundef nonnull align 8 dereferenceable(128) ptr @_ZN6Assimp10JSONWriter15LiteralToStringERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEf(ptr noundef nonnull align 8 dereferenceable(504) %out, ptr noundef nonnull align 8 dereferenceable(128) %buff.i, float noundef %137)
-  %add.ptr.i676 = getelementptr inbounds i8, ptr %call.i675, i64 16
+  %add.ptr.i676 = getelementptr inbounds nuw i8, ptr %call.i675, i64 16
   %call2.i678 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i676, ptr noundef nonnull align 8 dereferenceable(32) %newline.i)
   %inc172 = add nuw i32 %c.01054, 1
   %exitcond.not = icmp eq i32 %inc172, %umax
@@ -8493,12 +8493,12 @@ _ZN6Assimp10JSONWriter8EndArrayEv.exit718:        ; preds = %for.end179, %if.the
   br label %if.end180
 
 if.end180:                                        ; preds = %_ZN6Assimp10JSONWriter8EndArrayEv.exit718, %_ZNK6aiMesh16GetNumUVChannelsEv.exit
-  %mColors.i = getelementptr inbounds i8, ptr %ai, i64 48
+  %mColors.i = getelementptr inbounds nuw i8, ptr %ai, i64 48
   br label %land.rhs.i719
 
 land.rhs.i719:                                    ; preds = %while.body.i723, %if.end180
   %indvars.iv.i720 = phi i64 [ 0, %if.end180 ], [ %indvars.iv.next.i724, %while.body.i723 ]
-  %arrayidx.i721 = getelementptr inbounds [8 x ptr], ptr %mColors.i, i64 0, i64 %indvars.iv.i720
+  %arrayidx.i721 = getelementptr inbounds nuw [8 x ptr], ptr %mColors.i, i64 0, i64 %indvars.iv.i720
   %146 = load ptr, ptr %arrayidx.i721, align 8
   %tobool.not.i722 = icmp eq ptr %146, null
   br i1 %tobool.not.i722, label %_ZNK6aiMesh19GetNumColorChannelsEv.exit, label %while.body.i723
@@ -8542,7 +8542,7 @@ invoke.cont189:                                   ; preds = %invoke.cont187
   %call8.i738 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr7.i, ptr noundef nonnull @.str.30)
   %call9.i740 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %call8.i738, ptr noundef nonnull align 8 dereferenceable(32) %newline.i)
   %call.i2.i742 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %indent.i1.i, i8 noundef signext 9)
-  %space.i.i788 = getelementptr inbounds i8, ptr %out, i64 72
+  %space.i.i788 = getelementptr inbounds nuw i8, ptr %out, i64 72
   br label %for.cond193
 
 for.cond193:                                      ; preds = %_ZN6Assimp10JSONWriter8EndArrayEv.exit873, %invoke.cont189
@@ -8551,7 +8551,7 @@ for.cond193:                                      ; preds = %_ZN6Assimp10JSONWri
 
 land.rhs.i744:                                    ; preds = %while.body.i748, %for.cond193
   %indvars.iv.i745 = phi i64 [ 0, %for.cond193 ], [ %indvars.iv.next.i749, %while.body.i748 ]
-  %arrayidx.i746 = getelementptr inbounds [8 x ptr], ptr %mColors.i, i64 0, i64 %indvars.iv.i745
+  %arrayidx.i746 = getelementptr inbounds nuw [8 x ptr], ptr %mColors.i, i64 0, i64 %indvars.iv.i745
   %148 = load ptr, ptr %arrayidx.i746, align 8
   %tobool.not.i747 = icmp eq ptr %148, null
   br i1 %tobool.not.i747, label %while.end.split.loop.exit6.i752, label %while.body.i748
@@ -8599,13 +8599,13 @@ _ZN6Assimp10JSONWriter10StartArrayEb.exit773:     ; preds = %_ZN6Assimp10JSONWri
   br i1 %cmp2001057.not, label %for.end223, label %for.body201.lr.ph
 
 for.body201.lr.ph:                                ; preds = %_ZN6Assimp10JSONWriter10StartArrayEb.exit773
-  %arrayidx203 = getelementptr inbounds [8 x ptr], ptr %mColors.i, i64 0, i64 %indvars.iv1090
+  %arrayidx203 = getelementptr inbounds nuw [8 x ptr], ptr %mColors.i, i64 0, i64 %indvars.iv1090
   br label %for.body201
 
 for.body201:                                      ; preds = %for.body201.lr.ph, %_ZN6Assimp10JSONWriter7ElementIfEEvRKT_.exit857
   %indvars.iv1087 = phi i64 [ 0, %for.body201.lr.ph ], [ %indvars.iv.next1088, %_ZN6Assimp10JSONWriter7ElementIfEEvRKT_.exit857 ]
   %154 = load ptr, ptr %arrayidx203, align 8
-  %arrayidx205 = getelementptr inbounds %class.aiColor4t, ptr %154, i64 %indvars.iv1087
+  %arrayidx205 = getelementptr inbounds nuw %class.aiColor4t, ptr %154, i64 %indvars.iv1087
   %155 = load i32, ptr %flags.i.i, align 4
   %156 = and i32 %155, 5
   %or.cond.i.i775 = icmp eq i32 %156, 0
@@ -8632,10 +8632,10 @@ if.else.i.i787:                                   ; preds = %_ZN6Assimp10JSONWri
 _ZN6Assimp10JSONWriter7ElementIfEEvRKT_.exit794:  ; preds = %if.then.i1.i780, %if.else.i.i787
   %158 = load float, ptr %arrayidx205, align 4
   %call.i783 = call noundef nonnull align 8 dereferenceable(128) ptr @_ZN6Assimp10JSONWriter15LiteralToStringERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEf(ptr noundef nonnull align 8 dereferenceable(504) %out, ptr noundef nonnull align 8 dereferenceable(128) %buff.i, float noundef %158)
-  %add.ptr.i784 = getelementptr inbounds i8, ptr %call.i783, i64 16
+  %add.ptr.i784 = getelementptr inbounds nuw i8, ptr %call.i783, i64 16
   %call2.i786 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i784, ptr noundef nonnull align 8 dereferenceable(32) %newline.i)
   %159 = load ptr, ptr %arrayidx203, align 8
-  %g = getelementptr inbounds %class.aiColor4t, ptr %159, i64 %indvars.iv1087, i32 1
+  %g = getelementptr inbounds nuw %class.aiColor4t, ptr %159, i64 %indvars.iv1087, i32 1
   %160 = load i32, ptr %flags.i.i, align 4
   %161 = and i32 %160, 5
   %or.cond.i.i796 = icmp eq i32 %161, 0
@@ -8662,10 +8662,10 @@ if.else.i.i808:                                   ; preds = %_ZN6Assimp10JSONWri
 _ZN6Assimp10JSONWriter7ElementIfEEvRKT_.exit815:  ; preds = %if.then.i1.i801, %if.else.i.i808
   %163 = load float, ptr %g, align 4
   %call.i804 = call noundef nonnull align 8 dereferenceable(128) ptr @_ZN6Assimp10JSONWriter15LiteralToStringERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEf(ptr noundef nonnull align 8 dereferenceable(504) %out, ptr noundef nonnull align 8 dereferenceable(128) %buff.i, float noundef %163)
-  %add.ptr.i805 = getelementptr inbounds i8, ptr %call.i804, i64 16
+  %add.ptr.i805 = getelementptr inbounds nuw i8, ptr %call.i804, i64 16
   %call2.i807 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i805, ptr noundef nonnull align 8 dereferenceable(32) %newline.i)
   %164 = load ptr, ptr %arrayidx203, align 8
-  %b = getelementptr inbounds %class.aiColor4t, ptr %164, i64 %indvars.iv1087, i32 2
+  %b = getelementptr inbounds nuw %class.aiColor4t, ptr %164, i64 %indvars.iv1087, i32 2
   %165 = load i32, ptr %flags.i.i, align 4
   %166 = and i32 %165, 5
   %or.cond.i.i817 = icmp eq i32 %166, 0
@@ -8692,10 +8692,10 @@ if.else.i.i829:                                   ; preds = %_ZN6Assimp10JSONWri
 _ZN6Assimp10JSONWriter7ElementIfEEvRKT_.exit836:  ; preds = %if.then.i1.i822, %if.else.i.i829
   %168 = load float, ptr %b, align 4
   %call.i825 = call noundef nonnull align 8 dereferenceable(128) ptr @_ZN6Assimp10JSONWriter15LiteralToStringERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEf(ptr noundef nonnull align 8 dereferenceable(504) %out, ptr noundef nonnull align 8 dereferenceable(128) %buff.i, float noundef %168)
-  %add.ptr.i826 = getelementptr inbounds i8, ptr %call.i825, i64 16
+  %add.ptr.i826 = getelementptr inbounds nuw i8, ptr %call.i825, i64 16
   %call2.i828 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i826, ptr noundef nonnull align 8 dereferenceable(32) %newline.i)
   %169 = load ptr, ptr %arrayidx203, align 8
-  %a = getelementptr inbounds %class.aiColor4t, ptr %169, i64 %indvars.iv1087, i32 3
+  %a = getelementptr inbounds nuw %class.aiColor4t, ptr %169, i64 %indvars.iv1087, i32 3
   %170 = load i32, ptr %flags.i.i, align 4
   %171 = and i32 %170, 5
   %or.cond.i.i838 = icmp eq i32 %171, 0
@@ -8722,7 +8722,7 @@ if.else.i.i850:                                   ; preds = %_ZN6Assimp10JSONWri
 _ZN6Assimp10JSONWriter7ElementIfEEvRKT_.exit857:  ; preds = %if.then.i1.i843, %if.else.i.i850
   %173 = load float, ptr %a, align 4
   %call.i846 = call noundef nonnull align 8 dereferenceable(128) ptr @_ZN6Assimp10JSONWriter15LiteralToStringERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEf(ptr noundef nonnull align 8 dereferenceable(504) %out, ptr noundef nonnull align 8 dereferenceable(128) %buff.i, float noundef %173)
-  %add.ptr.i847 = getelementptr inbounds i8, ptr %call.i846, i64 16
+  %add.ptr.i847 = getelementptr inbounds nuw i8, ptr %call.i846, i64 16
   %call2.i849 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i847, ptr noundef nonnull align 8 dereferenceable(32) %newline.i)
   %indvars.iv.next1088 = add nuw nsw i64 %indvars.iv1087, 1
   %174 = load i32, ptr %mNumVertices, align 4
@@ -8781,7 +8781,7 @@ _ZN6Assimp10JSONWriter8EndArrayEv.exit889:        ; preds = %for.end226, %if.the
   br label %if.end227
 
 if.end227:                                        ; preds = %_ZN6Assimp10JSONWriter8EndArrayEv.exit889, %_ZNK6aiMesh19GetNumColorChannelsEv.exit
-  %mNumBones = getelementptr inbounds i8, ptr %ai, i64 216
+  %mNumBones = getelementptr inbounds nuw i8, ptr %ai, i64 216
   %182 = load i32, ptr %mNumBones, align 8
   %tobool228.not = icmp eq i32 %182, 0
   br i1 %tobool228.not, label %if.end248, label %if.then229
@@ -8821,14 +8821,14 @@ invoke.cont235:                                   ; preds = %invoke.cont233
   br i1 %cmp2411059.not, label %for.end247, label %for.body242.lr.ph
 
 for.body242.lr.ph:                                ; preds = %invoke.cont235
-  %mBones = getelementptr inbounds i8, ptr %ai, i64 224
-  %space.i.i.i = getelementptr inbounds i8, ptr %out, i64 72
+  %mBones = getelementptr inbounds nuw i8, ptr %ai, i64 224
+  %space.i.i.i = getelementptr inbounds nuw i8, ptr %out, i64 72
   br label %for.body242
 
 for.body242:                                      ; preds = %for.body242.lr.ph, %_ZN6AssimpL5WriteERNS_10JSONWriterERK6aiBoneb.exit
   %indvars.iv1093 = phi i64 [ 0, %for.body242.lr.ph ], [ %indvars.iv.next1094, %_ZN6AssimpL5WriteERNS_10JSONWriterERK6aiBoneb.exit ]
   %185 = load ptr, ptr %mBones, align 8
-  %arrayidx244 = getelementptr inbounds ptr, ptr %185, i64 %indvars.iv1093
+  %arrayidx244 = getelementptr inbounds nuw ptr, ptr %185, i64 %indvars.iv1093
   %186 = load ptr, ptr %arrayidx244, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp1.i)
@@ -8906,7 +8906,7 @@ invoke.cont3.i:                                   ; preds = %invoke.cont.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i) #13
   %call.i30.i = call noundef nonnull align 8 dereferenceable(128) ptr @_ZN6Assimp10JSONWriter15LiteralToStringERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEERK8aiString(ptr noundef nonnull align 8 dereferenceable(504) %out, ptr noundef nonnull align 8 dereferenceable(128) %buff.i, ptr noundef nonnull align 8 dereferenceable(1120) %186)
-  %add.ptr.i31.i = getelementptr inbounds i8, ptr %call.i30.i, i64 16
+  %add.ptr.i31.i = getelementptr inbounds nuw i8, ptr %call.i30.i, i64 16
   %call2.i.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i31.i, ptr noundef nonnull align 8 dereferenceable(32) %newline.i)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp5.i) #13
   %call.i3337.i = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4.i)
@@ -8954,7 +8954,7 @@ invoke.cont7.i:                                   ; preds = %invoke.cont.i1023
 invoke.cont9.i:                                   ; preds = %invoke.cont7.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4.i) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp5.i) #13
-  %mOffsetMatrix.i = getelementptr inbounds i8, ptr %186, i64 1056
+  %mOffsetMatrix.i = getelementptr inbounds nuw i8, ptr %186, i64 1056
   call fastcc void @_ZN6AssimpL5WriteERNS_10JSONWriterERK12aiMatrix4x4tIfEb(ptr noundef nonnull align 8 dereferenceable(504) %out, ptr noundef nonnull align 4 dereferenceable(64) %mOffsetMatrix.i)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp13.i) #13
   %call.i4145.i = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp12.i)
@@ -9006,13 +9006,13 @@ invoke.cont17.i:                                  ; preds = %invoke.cont15.i
   %call8.i51.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr7.i, ptr noundef nonnull @.str.30)
   %call9.i53.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %call8.i51.i, ptr noundef nonnull align 8 dereferenceable(32) %newline.i)
   %call.i2.i55.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %indent.i1.i, i8 noundef signext 9)
-  %mNumWeights.i = getelementptr inbounds i8, ptr %186, i64 1028
+  %mNumWeights.i = getelementptr inbounds nuw i8, ptr %186, i64 1028
   %199 = load i32, ptr %mNumWeights.i, align 4
   %cmp149.not.i = icmp eq i32 %199, 0
   br i1 %cmp149.not.i, label %for.end.i, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %invoke.cont17.i
-  %mWeights.i = getelementptr inbounds i8, ptr %186, i64 1048
+  %mWeights.i = getelementptr inbounds nuw i8, ptr %186, i64 1048
   br label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN6Assimp10JSONWriter8EndArrayEv.exit.i, %for.body.lr.ph.i
@@ -9041,7 +9041,7 @@ _ZN6Assimp10JSONWriter10StartArrayEb.exit.i:      ; preds = %if.then3.i61.i, %_Z
   %call9.i68.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %call8.i66.i, ptr noundef nonnull align 8 dereferenceable(32) %newline.i)
   %call.i2.i70.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %indent.i1.i, i8 noundef signext 9)
   %203 = load ptr, ptr %mWeights.i, align 8
-  %arrayidx.i910 = getelementptr inbounds %struct.aiVertexWeight, ptr %203, i64 %indvars.iv.i909
+  %arrayidx.i910 = getelementptr inbounds nuw %struct.aiVertexWeight, ptr %203, i64 %indvars.iv.i909
   %204 = load i32, ptr %flags.i.i, align 4
   %205 = and i32 %204, 5
   %or.cond.i.i76.i = icmp eq i32 %205, 0
@@ -9070,7 +9070,7 @@ _ZN6Assimp10JSONWriter7ElementIjEEvRKT_.exit.i:   ; preds = %if.else.i.i.i, %if.
   %call.i4.i.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr7.i, i32 noundef %207)
   %call2.i80.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr7.i, ptr noundef nonnull align 8 dereferenceable(32) %newline.i)
   %208 = load ptr, ptr %mWeights.i, align 8
-  %mWeight.i = getelementptr inbounds %struct.aiVertexWeight, ptr %208, i64 %indvars.iv.i909, i32 1
+  %mWeight.i = getelementptr inbounds nuw %struct.aiVertexWeight, ptr %208, i64 %indvars.iv.i909, i32 1
   %209 = load i32, ptr %flags.i.i, align 4
   %210 = and i32 %209, 5
   %or.cond.i.i86.i = icmp eq i32 %210, 0
@@ -9097,7 +9097,7 @@ if.else.i.i98.i:                                  ; preds = %_ZN6Assimp10JSONWri
 _ZN6Assimp10JSONWriter7ElementIfEEvRKT_.exit.i:   ; preds = %if.else.i.i98.i, %if.then.i1.i91.i
   %212 = load float, ptr %mWeight.i, align 4
   %call.i94.i = call noundef nonnull align 8 dereferenceable(128) ptr @_ZN6Assimp10JSONWriter15LiteralToStringERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEf(ptr noundef nonnull align 8 dereferenceable(504) %out, ptr noundef nonnull align 8 dereferenceable(128) %buff.i, float noundef %212)
-  %add.ptr.i95.i = getelementptr inbounds i8, ptr %call.i94.i, i64 16
+  %add.ptr.i95.i = getelementptr inbounds nuw i8, ptr %call.i94.i, i64 16
   %call2.i97.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i95.i, ptr noundef nonnull align 8 dereferenceable(32) %newline.i)
   %call.i.i106.i = call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %indent.i1.i) #13
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i106.i, i64 -1
@@ -9265,20 +9265,20 @@ invoke.cont254:                                   ; preds = %invoke.cont252
   %call8.i939 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr7.i, ptr noundef nonnull @.str.30)
   %call9.i941 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %call8.i939, ptr noundef nonnull align 8 dereferenceable(32) %newline.i)
   %call.i2.i943 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %indent.i1.i, i8 noundef signext 9)
-  %mNumFaces = getelementptr inbounds i8, ptr %ai, i64 8
+  %mNumFaces = getelementptr inbounds nuw i8, ptr %ai, i64 8
   %234 = load i32, ptr %mNumFaces, align 8
   %cmp2591061.not = icmp eq i32 %234, 0
   br i1 %cmp2591061.not, label %for.end265, label %for.body260.lr.ph
 
 for.body260.lr.ph:                                ; preds = %invoke.cont254
-  %mFaces = getelementptr inbounds i8, ptr %ai, i64 208
-  %space.i.i.i960 = getelementptr inbounds i8, ptr %out, i64 72
+  %mFaces = getelementptr inbounds nuw i8, ptr %ai, i64 208
+  %space.i.i.i960 = getelementptr inbounds nuw i8, ptr %out, i64 72
   br label %for.body260
 
 for.body260:                                      ; preds = %for.body260.lr.ph, %_ZN6AssimpL5WriteERNS_10JSONWriterERK6aiFaceb.exit
   %indvars.iv1096 = phi i64 [ 0, %for.body260.lr.ph ], [ %indvars.iv.next1097, %_ZN6AssimpL5WriteERNS_10JSONWriterERK6aiFaceb.exit ]
   %235 = load ptr, ptr %mFaces, align 8
-  %arrayidx262 = getelementptr inbounds %struct.aiFace, ptr %235, i64 %indvars.iv1096
+  %arrayidx262 = getelementptr inbounds nuw %struct.aiFace, ptr %235, i64 %indvars.iv1096
   %236 = load i32, ptr %flags.i.i, align 4
   %237 = and i32 %236, 5
   %or.cond.i.i.i945 = icmp eq i32 %237, 0
@@ -9307,13 +9307,13 @@ _ZN6Assimp10JSONWriter10StartArrayEb.exit.i952:   ; preds = %if.then3.i.i949, %_
   br i1 %cmp28.not.i, label %for.end.i971, label %for.body.lr.ph.i959
 
 for.body.lr.ph.i959:                              ; preds = %_ZN6Assimp10JSONWriter10StartArrayEb.exit.i952
-  %mIndices.i = getelementptr inbounds i8, ptr %arrayidx262, i64 8
+  %mIndices.i = getelementptr inbounds nuw i8, ptr %arrayidx262, i64 8
   br label %for.body.i961
 
 for.body.i961:                                    ; preds = %_ZN6Assimp10JSONWriter7ElementIjEEvRKT_.exit.i966, %for.body.lr.ph.i959
   %indvars.iv.i962 = phi i64 [ 0, %for.body.lr.ph.i959 ], [ %indvars.iv.next.i969, %_ZN6Assimp10JSONWriter7ElementIjEEvRKT_.exit.i966 ]
   %240 = load ptr, ptr %mIndices.i, align 8
-  %arrayidx.i963 = getelementptr inbounds i32, ptr %240, i64 %indvars.iv.i962
+  %arrayidx.i963 = getelementptr inbounds nuw i32, ptr %240, i64 %indvars.iv.i962
   %241 = load i32, ptr %flags.i.i, align 4
   %242 = and i32 %241, 5
   %or.cond.i.i7.i = icmp eq i32 %242, 0
@@ -9486,20 +9486,20 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef no
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZN6AssimpL5WriteERNS_10JSONWriterERK12aiMatrix4x4tIfEb(ptr noundef nonnull align 8 dereferenceable(504) initializes((496, 497)) %out, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %ai) unnamed_addr #0 {
 entry:
-  %first5.i = getelementptr inbounds i8, ptr %out, i64 496
+  %first5.i = getelementptr inbounds nuw i8, ptr %out, i64 496
   store i8 1, ptr %first5.i, align 8
-  %add.ptr7.i = getelementptr inbounds i8, ptr %out, i64 120
+  %add.ptr7.i = getelementptr inbounds nuw i8, ptr %out, i64 120
   %call8.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr7.i, ptr noundef nonnull @.str.30)
-  %newline.i = getelementptr inbounds i8, ptr %out, i64 40
+  %newline.i = getelementptr inbounds nuw i8, ptr %out, i64 40
   %call9.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %call8.i, ptr noundef nonnull align 8 dereferenceable(32) %newline.i)
-  %indent.i1.i = getelementptr inbounds i8, ptr %out, i64 8
+  %indent.i1.i = getelementptr inbounds nuw i8, ptr %out, i64 8
   %call.i2.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %indent.i1.i, i8 noundef signext 9)
-  %d1.i = getelementptr inbounds i8, ptr %ai, i64 48
-  %c1.i = getelementptr inbounds i8, ptr %ai, i64 32
-  %b1.i = getelementptr inbounds i8, ptr %ai, i64 16
-  %flags.i.i = getelementptr inbounds i8, ptr %out, i64 500
-  %space.i.i = getelementptr inbounds i8, ptr %out, i64 72
-  %buff.i = getelementptr inbounds i8, ptr %out, i64 104
+  %d1.i = getelementptr inbounds nuw i8, ptr %ai, i64 48
+  %c1.i = getelementptr inbounds nuw i8, ptr %ai, i64 32
+  %b1.i = getelementptr inbounds nuw i8, ptr %ai, i64 16
+  %flags.i.i = getelementptr inbounds nuw i8, ptr %out, i64 500
+  %space.i.i = getelementptr inbounds nuw i8, ptr %out, i64 72
+  %buff.i = getelementptr inbounds nuw i8, ptr %out, i64 104
   br label %for.cond1.preheader
 
 for.cond1.preheader:                              ; preds = %entry, %for.inc4
@@ -9529,7 +9529,7 @@ default.unreachable.i:                            ; preds = %if.end.i
 
 _ZNK12aiMatrix4x4tIfEixEj.exit:                   ; preds = %if.end.i, %sw.bb2.i, %sw.bb3.i, %sw.bb4.i
   %retval.0.i = phi ptr [ %d1.i, %sw.bb4.i ], [ %c1.i, %sw.bb3.i ], [ %b1.i, %sw.bb2.i ], [ %ai, %if.end.i ]
-  %arrayidx = getelementptr inbounds float, ptr %retval.0.i, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw float, ptr %retval.0.i, i64 %indvars.iv
   %0 = load i32, ptr %flags.i.i, align 4
   %1 = and i32 %0, 5
   %or.cond.i.i = icmp eq i32 %1, 0
@@ -9556,7 +9556,7 @@ if.else.i.i:                                      ; preds = %_ZN6Assimp10JSONWri
 _ZN6Assimp10JSONWriter7ElementIfEEvRKT_.exit:     ; preds = %if.then.i1.i, %if.else.i.i
   %3 = load float, ptr %arrayidx, align 4
   %call.i = tail call noundef nonnull align 8 dereferenceable(128) ptr @_ZN6Assimp10JSONWriter15LiteralToStringERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEf(ptr noundef nonnull align 8 dereferenceable(504) %out, ptr noundef nonnull align 8 dereferenceable(128) %buff.i, float noundef %3)
-  %add.ptr.i = getelementptr inbounds i8, ptr %call.i, i64 16
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
   %call2.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(32) %newline.i)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -9603,12 +9603,12 @@ for.cond.preheader:                               ; preds = %entry
   br i1 %cmp17.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %data = getelementptr inbounds i8, ptr %s, i64 4
+  %data = getelementptr inbounds nuw i8, ptr %s, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %i.018 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
-  %arrayidx = getelementptr inbounds [1024 x i8], ptr %data, i64 0, i64 %i.018
+  %arrayidx = getelementptr inbounds nuw [1024 x i8], ptr %data, i64 0, i64 %i.018
   %2 = load i8, ptr %arrayidx, align 1
   switch i8 %2, label %if.end [
     i8 92, label %if.then
@@ -9652,7 +9652,7 @@ for.inc:                                          ; preds = %if.end
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !9
 
 for.end:                                          ; preds = %for.inc, %for.cond.preheader
-  %add.ptr = getelementptr inbounds i8, ptr %stream, i64 16
+  %add.ptr = getelementptr inbounds nuw i8, ptr %stream, i64 16
   %call = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr, ptr noundef nonnull @.str.25)
           to label %invoke.cont19 unwind label %lpad.loopexit.split-lp
 
@@ -9685,11 +9685,11 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %flags = getelementptr inbounds i8, ptr %this, i64 500
+  %flags = getelementptr inbounds nuw i8, ptr %this, i64 500
   %1 = load i32, ptr %flags, align 4
   %and = and i32 %1, 2
   %tobool.not = icmp eq i32 %and, 0
-  %add.ptr13 = getelementptr inbounds i8, ptr %stream, i64 16
+  %add.ptr13 = getelementptr inbounds nuw i8, ptr %stream, i64 16
   br i1 %tobool.not, label %if.end, label %if.then3
 
 if.then3:                                         ; preds = %if.then
@@ -9763,11 +9763,11 @@ if.else:                                          ; preds = %entry
   br i1 %cmp15, label %if.then16, label %if.end27
 
 if.then16:                                        ; preds = %if.else
-  %flags17 = getelementptr inbounds i8, ptr %this, i64 500
+  %flags17 = getelementptr inbounds nuw i8, ptr %this, i64 500
   %6 = load i32, ptr %flags17, align 4
   %and18 = and i32 %6, 2
   %tobool19.not = icmp eq i32 %and18, 0
-  %add.ptr24 = getelementptr inbounds i8, ptr %stream, i64 16
+  %add.ptr24 = getelementptr inbounds nuw i8, ptr %stream, i64 16
   br i1 %tobool19.not, label %if.end23, label %if.then20
 
 if.then20:                                        ; preds = %if.then16
@@ -9779,7 +9779,7 @@ if.end23:                                         ; preds = %if.then16
   br label %return
 
 if.end27:                                         ; preds = %if.else
-  %add.ptr28 = getelementptr inbounds i8, ptr %stream, i64 16
+  %add.ptr28 = getelementptr inbounds nuw i8, ptr %stream, i64 16
   %call29 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr28, float noundef %f)
   br label %return
 
@@ -9832,15 +9832,15 @@ if.then:                                          ; preds = %for.cond
   br label %for.inc
 
 for.inc:                                          ; preds = %for.cond, %if.then
-  %incdec.ptr = getelementptr inbounds i8, ptr %cur.0, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %cur.0, i64 1
   br label %for.cond, !llvm.loop !75
 
 for.end:                                          ; preds = %for.cond
-  %add.ptr7 = getelementptr inbounds i8, ptr %this, i64 120
+  %add.ptr7 = getelementptr inbounds nuw i8, ptr %this, i64 120
   %call8 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr7, i8 noundef signext 34)
   %call9 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call8, ptr noundef nonnull %call3)
   %call10 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call9, ptr noundef nonnull @.str.25)
-  %newline = getelementptr inbounds i8, ptr %this, i64 40
+  %newline = getelementptr inbounds nuw i8, ptr %this, i64 40
   %call11 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %call10, ptr noundef nonnull align 8 dereferenceable(32) %newline)
   call void @_ZdaPv(ptr noundef nonnull %call3) #17
   ret void
@@ -9866,39 +9866,39 @@ entry:
   br i1 %is_elem, label %if.then.i, label %_ZN6Assimp10JSONWriter10StartArrayEb.exit
 
 if.then.i:                                        ; preds = %entry
-  %flags.i.i = getelementptr inbounds i8, ptr %out, i64 500
+  %flags.i.i = getelementptr inbounds nuw i8, ptr %out, i64 500
   %0 = load i32, ptr %flags.i.i, align 4
   %1 = and i32 %0, 5
   %or.cond.i.i = icmp eq i32 %1, 0
   br i1 %or.cond.i.i, label %if.then.i.i, label %_ZN6Assimp10JSONWriter14AddIndentationEv.exit.i
 
 if.then.i.i:                                      ; preds = %if.then.i
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %out, i64 120
-  %indent.i.i = getelementptr inbounds i8, ptr %out, i64 8
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %out, i64 120
+  %indent.i.i = getelementptr inbounds nuw i8, ptr %out, i64 8
   %call.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i.i, ptr noundef nonnull align 8 dereferenceable(32) %indent.i.i)
   br label %_ZN6Assimp10JSONWriter14AddIndentationEv.exit.i
 
 _ZN6Assimp10JSONWriter14AddIndentationEv.exit.i:  ; preds = %if.then.i.i, %if.then.i
-  %first.i = getelementptr inbounds i8, ptr %out, i64 496
+  %first.i = getelementptr inbounds nuw i8, ptr %out, i64 496
   %2 = load i8, ptr %first.i, align 8
   %tobool2.i = trunc i8 %2 to i1
   br i1 %tobool2.i, label %_ZN6Assimp10JSONWriter10StartArrayEb.exit, label %if.then3.i
 
 if.then3.i:                                       ; preds = %_ZN6Assimp10JSONWriter14AddIndentationEv.exit.i
-  %add.ptr.i = getelementptr inbounds i8, ptr %out, i64 120
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %out, i64 120
   %call.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i, i8 noundef signext 44)
   br label %_ZN6Assimp10JSONWriter10StartArrayEb.exit
 
 _ZN6Assimp10JSONWriter10StartArrayEb.exit:        ; preds = %entry, %_ZN6Assimp10JSONWriter14AddIndentationEv.exit.i, %if.then3.i
-  %first5.i = getelementptr inbounds i8, ptr %out, i64 496
+  %first5.i = getelementptr inbounds nuw i8, ptr %out, i64 496
   store i8 1, ptr %first5.i, align 8
-  %add.ptr7.i = getelementptr inbounds i8, ptr %out, i64 120
+  %add.ptr7.i = getelementptr inbounds nuw i8, ptr %out, i64 120
   %call8.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr7.i, ptr noundef nonnull @.str.30)
-  %newline.i = getelementptr inbounds i8, ptr %out, i64 40
+  %newline.i = getelementptr inbounds nuw i8, ptr %out, i64 40
   %call9.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %call8.i, ptr noundef nonnull align 8 dereferenceable(32) %newline.i)
-  %indent.i1.i = getelementptr inbounds i8, ptr %out, i64 8
+  %indent.i1.i = getelementptr inbounds nuw i8, ptr %out, i64 8
   %call.i2.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %indent.i1.i, i8 noundef signext 9)
-  %flags.i.i7 = getelementptr inbounds i8, ptr %out, i64 500
+  %flags.i.i7 = getelementptr inbounds nuw i8, ptr %out, i64 500
   %3 = load i32, ptr %flags.i.i7, align 4
   %4 = and i32 %3, 5
   %or.cond.i.i8 = icmp eq i32 %4, 0
@@ -9918,18 +9918,18 @@ if.then.i1.i:                                     ; preds = %_ZN6Assimp10JSONWri
   br label %_ZN6Assimp10JSONWriter7ElementIfEEvRKT_.exit
 
 if.else.i.i:                                      ; preds = %_ZN6Assimp10JSONWriter14AddIndentationEv.exit.i9
-  %space.i.i = getelementptr inbounds i8, ptr %out, i64 72
+  %space.i.i = getelementptr inbounds nuw i8, ptr %out, i64 72
   %call4.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr7.i, ptr noundef nonnull align 8 dereferenceable(32) %space.i.i)
   store i8 0, ptr %first5.i, align 8
   br label %_ZN6Assimp10JSONWriter7ElementIfEEvRKT_.exit
 
 _ZN6Assimp10JSONWriter7ElementIfEEvRKT_.exit:     ; preds = %if.then.i1.i, %if.else.i.i
-  %buff.i = getelementptr inbounds i8, ptr %out, i64 104
+  %buff.i = getelementptr inbounds nuw i8, ptr %out, i64 104
   %6 = load float, ptr %ai, align 4
   %call.i11 = tail call noundef nonnull align 8 dereferenceable(128) ptr @_ZN6Assimp10JSONWriter15LiteralToStringERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEf(ptr noundef nonnull align 8 dereferenceable(504) %out, ptr noundef nonnull align 8 dereferenceable(128) %buff.i, float noundef %6)
-  %add.ptr.i12 = getelementptr inbounds i8, ptr %call.i11, i64 16
+  %add.ptr.i12 = getelementptr inbounds nuw i8, ptr %call.i11, i64 16
   %call2.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i12, ptr noundef nonnull align 8 dereferenceable(32) %newline.i)
-  %y = getelementptr inbounds i8, ptr %ai, i64 4
+  %y = getelementptr inbounds nuw i8, ptr %ai, i64 4
   %7 = load i32, ptr %flags.i.i7, align 4
   %8 = and i32 %7, 5
   %or.cond.i.i19 = icmp eq i32 %8, 0
@@ -9949,7 +9949,7 @@ if.then.i1.i24:                                   ; preds = %_ZN6Assimp10JSONWri
   br label %_ZN6Assimp10JSONWriter7ElementIfEEvRKT_.exit38
 
 if.else.i.i31:                                    ; preds = %_ZN6Assimp10JSONWriter14AddIndentationEv.exit.i20
-  %space.i.i32 = getelementptr inbounds i8, ptr %out, i64 72
+  %space.i.i32 = getelementptr inbounds nuw i8, ptr %out, i64 72
   %call4.i.i33 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr7.i, ptr noundef nonnull align 8 dereferenceable(32) %space.i.i32)
   store i8 0, ptr %first5.i, align 8
   br label %_ZN6Assimp10JSONWriter7ElementIfEEvRKT_.exit38
@@ -9957,9 +9957,9 @@ if.else.i.i31:                                    ; preds = %_ZN6Assimp10JSONWri
 _ZN6Assimp10JSONWriter7ElementIfEEvRKT_.exit38:   ; preds = %if.then.i1.i24, %if.else.i.i31
   %10 = load float, ptr %y, align 4
   %call.i27 = tail call noundef nonnull align 8 dereferenceable(128) ptr @_ZN6Assimp10JSONWriter15LiteralToStringERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEf(ptr noundef nonnull align 8 dereferenceable(504) %out, ptr noundef nonnull align 8 dereferenceable(128) %buff.i, float noundef %10)
-  %add.ptr.i28 = getelementptr inbounds i8, ptr %call.i27, i64 16
+  %add.ptr.i28 = getelementptr inbounds nuw i8, ptr %call.i27, i64 16
   %call2.i30 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i28, ptr noundef nonnull align 8 dereferenceable(32) %newline.i)
-  %z = getelementptr inbounds i8, ptr %ai, i64 8
+  %z = getelementptr inbounds nuw i8, ptr %ai, i64 8
   %11 = load i32, ptr %flags.i.i7, align 4
   %12 = and i32 %11, 5
   %or.cond.i.i40 = icmp eq i32 %12, 0
@@ -9979,7 +9979,7 @@ if.then.i1.i45:                                   ; preds = %_ZN6Assimp10JSONWri
   br label %_ZN6Assimp10JSONWriter7ElementIfEEvRKT_.exit59
 
 if.else.i.i52:                                    ; preds = %_ZN6Assimp10JSONWriter14AddIndentationEv.exit.i41
-  %space.i.i53 = getelementptr inbounds i8, ptr %out, i64 72
+  %space.i.i53 = getelementptr inbounds nuw i8, ptr %out, i64 72
   %call4.i.i54 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr7.i, ptr noundef nonnull align 8 dereferenceable(32) %space.i.i53)
   store i8 0, ptr %first5.i, align 8
   br label %_ZN6Assimp10JSONWriter7ElementIfEEvRKT_.exit59
@@ -9987,7 +9987,7 @@ if.else.i.i52:                                    ; preds = %_ZN6Assimp10JSONWri
 _ZN6Assimp10JSONWriter7ElementIfEEvRKT_.exit59:   ; preds = %if.then.i1.i45, %if.else.i.i52
   %14 = load float, ptr %z, align 4
   %call.i48 = tail call noundef nonnull align 8 dereferenceable(128) ptr @_ZN6Assimp10JSONWriter15LiteralToStringERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEf(ptr noundef nonnull align 8 dereferenceable(504) %out, ptr noundef nonnull align 8 dereferenceable(128) %buff.i, float noundef %14)
-  %add.ptr.i49 = getelementptr inbounds i8, ptr %call.i48, i64 16
+  %add.ptr.i49 = getelementptr inbounds nuw i8, ptr %call.i48, i64 16
   %call2.i51 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i49, ptr noundef nonnull align 8 dereferenceable(32) %newline.i)
   %call.i.i61 = tail call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %indent.i1.i) #13
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call.i.i61, i64 -1
@@ -10011,15 +10011,15 @@ _ZN6Assimp10JSONWriter8EndArrayEv.exit:           ; preds = %_ZN6Assimp10JSONWri
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZN6AssimpL5WriteERNS_10JSONWriterERK9aiColor3Db(ptr noundef nonnull align 8 dereferenceable(504) initializes((496, 497)) %out, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %ai) unnamed_addr #0 {
 entry:
-  %first5.i = getelementptr inbounds i8, ptr %out, i64 496
+  %first5.i = getelementptr inbounds nuw i8, ptr %out, i64 496
   store i8 1, ptr %first5.i, align 8
-  %add.ptr7.i = getelementptr inbounds i8, ptr %out, i64 120
+  %add.ptr7.i = getelementptr inbounds nuw i8, ptr %out, i64 120
   %call8.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr7.i, ptr noundef nonnull @.str.30)
-  %newline.i = getelementptr inbounds i8, ptr %out, i64 40
+  %newline.i = getelementptr inbounds nuw i8, ptr %out, i64 40
   %call9.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %call8.i, ptr noundef nonnull align 8 dereferenceable(32) %newline.i)
-  %indent.i1.i = getelementptr inbounds i8, ptr %out, i64 8
+  %indent.i1.i = getelementptr inbounds nuw i8, ptr %out, i64 8
   %call.i2.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %indent.i1.i, i8 noundef signext 9)
-  %flags.i.i = getelementptr inbounds i8, ptr %out, i64 500
+  %flags.i.i = getelementptr inbounds nuw i8, ptr %out, i64 500
   %0 = load i32, ptr %flags.i.i, align 4
   %1 = and i32 %0, 5
   %or.cond.i.i = icmp eq i32 %1, 0
@@ -10039,18 +10039,18 @@ if.then.i1.i:                                     ; preds = %_ZN6Assimp10JSONWri
   br label %_ZN6Assimp10JSONWriter7ElementIfEEvRKT_.exit
 
 if.else.i.i:                                      ; preds = %_ZN6Assimp10JSONWriter14AddIndentationEv.exit.i
-  %space.i.i = getelementptr inbounds i8, ptr %out, i64 72
+  %space.i.i = getelementptr inbounds nuw i8, ptr %out, i64 72
   %call4.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr7.i, ptr noundef nonnull align 8 dereferenceable(32) %space.i.i)
   store i8 0, ptr %first5.i, align 8
   br label %_ZN6Assimp10JSONWriter7ElementIfEEvRKT_.exit
 
 _ZN6Assimp10JSONWriter7ElementIfEEvRKT_.exit:     ; preds = %if.then.i1.i, %if.else.i.i
-  %buff.i = getelementptr inbounds i8, ptr %out, i64 104
+  %buff.i = getelementptr inbounds nuw i8, ptr %out, i64 104
   %3 = load float, ptr %ai, align 4
   %call.i = tail call noundef nonnull align 8 dereferenceable(128) ptr @_ZN6Assimp10JSONWriter15LiteralToStringERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEf(ptr noundef nonnull align 8 dereferenceable(504) %out, ptr noundef nonnull align 8 dereferenceable(128) %buff.i, float noundef %3)
-  %add.ptr.i = getelementptr inbounds i8, ptr %call.i, i64 16
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
   %call2.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(32) %newline.i)
-  %g = getelementptr inbounds i8, ptr %ai, i64 4
+  %g = getelementptr inbounds nuw i8, ptr %ai, i64 4
   %4 = load i32, ptr %flags.i.i, align 4
   %5 = and i32 %4, 5
   %or.cond.i.i10 = icmp eq i32 %5, 0
@@ -10070,7 +10070,7 @@ if.then.i1.i15:                                   ; preds = %_ZN6Assimp10JSONWri
   br label %_ZN6Assimp10JSONWriter7ElementIfEEvRKT_.exit29
 
 if.else.i.i22:                                    ; preds = %_ZN6Assimp10JSONWriter14AddIndentationEv.exit.i11
-  %space.i.i23 = getelementptr inbounds i8, ptr %out, i64 72
+  %space.i.i23 = getelementptr inbounds nuw i8, ptr %out, i64 72
   %call4.i.i24 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr7.i, ptr noundef nonnull align 8 dereferenceable(32) %space.i.i23)
   store i8 0, ptr %first5.i, align 8
   br label %_ZN6Assimp10JSONWriter7ElementIfEEvRKT_.exit29
@@ -10078,9 +10078,9 @@ if.else.i.i22:                                    ; preds = %_ZN6Assimp10JSONWri
 _ZN6Assimp10JSONWriter7ElementIfEEvRKT_.exit29:   ; preds = %if.then.i1.i15, %if.else.i.i22
   %7 = load float, ptr %g, align 4
   %call.i18 = tail call noundef nonnull align 8 dereferenceable(128) ptr @_ZN6Assimp10JSONWriter15LiteralToStringERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEf(ptr noundef nonnull align 8 dereferenceable(504) %out, ptr noundef nonnull align 8 dereferenceable(128) %buff.i, float noundef %7)
-  %add.ptr.i19 = getelementptr inbounds i8, ptr %call.i18, i64 16
+  %add.ptr.i19 = getelementptr inbounds nuw i8, ptr %call.i18, i64 16
   %call2.i21 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i19, ptr noundef nonnull align 8 dereferenceable(32) %newline.i)
-  %b = getelementptr inbounds i8, ptr %ai, i64 8
+  %b = getelementptr inbounds nuw i8, ptr %ai, i64 8
   %8 = load i32, ptr %flags.i.i, align 4
   %9 = and i32 %8, 5
   %or.cond.i.i31 = icmp eq i32 %9, 0
@@ -10100,7 +10100,7 @@ if.then.i1.i36:                                   ; preds = %_ZN6Assimp10JSONWri
   br label %_ZN6Assimp10JSONWriter7ElementIfEEvRKT_.exit50
 
 if.else.i.i43:                                    ; preds = %_ZN6Assimp10JSONWriter14AddIndentationEv.exit.i32
-  %space.i.i44 = getelementptr inbounds i8, ptr %out, i64 72
+  %space.i.i44 = getelementptr inbounds nuw i8, ptr %out, i64 72
   %call4.i.i45 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr7.i, ptr noundef nonnull align 8 dereferenceable(32) %space.i.i44)
   store i8 0, ptr %first5.i, align 8
   br label %_ZN6Assimp10JSONWriter7ElementIfEEvRKT_.exit50
@@ -10108,7 +10108,7 @@ if.else.i.i43:                                    ; preds = %_ZN6Assimp10JSONWri
 _ZN6Assimp10JSONWriter7ElementIfEEvRKT_.exit50:   ; preds = %if.then.i1.i36, %if.else.i.i43
   %11 = load float, ptr %b, align 4
   %call.i39 = tail call noundef nonnull align 8 dereferenceable(128) ptr @_ZN6Assimp10JSONWriter15LiteralToStringERNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEf(ptr noundef nonnull align 8 dereferenceable(504) %out, ptr noundef nonnull align 8 dereferenceable(128) %buff.i, float noundef %11)
-  %add.ptr.i40 = getelementptr inbounds i8, ptr %call.i39, i64 16
+  %add.ptr.i40 = getelementptr inbounds nuw i8, ptr %call.i39, i64 16
   %call2.i42 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i40, ptr noundef nonnull align 8 dereferenceable(32) %newline.i)
   %call.i.i52 = tail call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %indent.i1.i) #13
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call.i.i52, i64 -1
@@ -10142,13 +10142,13 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define linkonce_odr hidden void @_ZN6Assimp10JSONWriter5FlushEv(ptr noundef nonnull align 8 dereferenceable(504) %this) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %s = alloca %"class.std::__cxx11::basic_string", align 8
-  %buff = getelementptr inbounds i8, ptr %this, i64 104
+  %buff = getelementptr inbounds nuw i8, ptr %this, i64 104
   call void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %s, ptr noundef nonnull align 8 dereferenceable(128) %buff)
   %0 = load ptr, ptr %this, align 8
   %call = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %s) #13
   %call2 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %s) #13
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 24
   %1 = load ptr, ptr %vfn, align 8
   %call3 = invoke noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %call, i64 noundef %call2, i64 noundef 1)
           to label %invoke.cont unwind label %lpad

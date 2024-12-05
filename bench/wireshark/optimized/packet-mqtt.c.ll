@@ -464,7 +464,7 @@ define internal void @message_decode_match_criteria_set_cb(ptr nocapture noundef
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #6
   store i32 0, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %9 = load ptr, ptr %8, align 8
   %.not15 = icmp eq ptr %9, null
   br i1 %.not15, label %._crit_edge, label %.lr.ph.preheader
@@ -479,7 +479,7 @@ define internal void @message_decode_match_criteria_set_cb(ptr nocapture noundef
   %11 = add i32 %.01621, 1
   %12 = zext i32 %11 to i64
   %13 = getelementptr %struct._value_string, ptr %3, i64 %12
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8
   %.not = icmp eq ptr %15, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
@@ -502,7 +502,7 @@ define internal void @message_decode_match_criteria_set_cb(ptr nocapture noundef
 
 ; Function Attrs: nounwind uwtable
 define internal void @message_decode_match_criteria_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not14 = icmp eq ptr %7, null
   br i1 %.not14, label %._crit_edge, label %.lr.ph
@@ -518,7 +518,7 @@ define internal void @message_decode_match_criteria_tostr_cb(ptr nocapture nound
   %11 = add i32 %.01519, 1
   %12 = zext i32 %11 to i64
   %13 = getelementptr %struct._value_string, ptr %3, i64 %12
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8
   %.not = icmp eq ptr %15, null
   br i1 %.not, label %._crit_edge, label %16, !llvm.loop !6
@@ -553,7 +553,7 @@ declare zeroext i1 @uat_fld_chk_str(ptr noundef, ptr noundef, i32 noundef, ptr n
 define internal void @message_decode_topic_pattern_set_cb(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #6
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void @g_free(ptr noundef %9) #6
   store ptr %7, ptr %8, align 8
@@ -562,7 +562,7 @@ define internal void @message_decode_topic_pattern_set_cb(ptr nocapture noundef 
 
 ; Function Attrs: nounwind uwtable
 define internal void @message_decode_topic_pattern_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %13, label %8
@@ -590,9 +590,9 @@ define internal void @message_decode_topic_pattern_tostr_cb(ptr nocapture nounde
 define internal void @message_decode_msg_decoding_set_cb(ptr nocapture noundef writeonly initializes((24, 28)) %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #6
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %10 = load ptr, ptr %9, align 8
   %.not15 = icmp eq ptr %10, null
   br i1 %.not15, label %._crit_edge, label %.lr.ph.preheader
@@ -607,7 +607,7 @@ define internal void @message_decode_msg_decoding_set_cb(ptr nocapture noundef w
   %12 = add i32 %.01621, 1
   %13 = zext i32 %12 to i64
   %14 = getelementptr %struct._value_string, ptr %3, i64 %13
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
@@ -630,13 +630,13 @@ define internal void @message_decode_msg_decoding_set_cb(ptr nocapture noundef w
 
 ; Function Attrs: nounwind uwtable
 define internal void @message_decode_msg_decoding_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not14 = icmp eq ptr %7, null
   br i1 %.not14, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load i32, ptr %8, align 8
   %10 = load i32, ptr %3, align 8
   %11 = icmp eq i32 %10, %9
@@ -647,7 +647,7 @@ define internal void @message_decode_msg_decoding_tostr_cb(ptr nocapture noundef
   %12 = add i32 %.01519, 1
   %13 = zext i32 %12 to i64
   %14 = getelementptr %struct._value_string, ptr %3, i64 %13
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %._crit_edge, label %17, !llvm.loop !8
@@ -686,7 +686,7 @@ define internal void @message_decode_payload_proto_set_cb(ptr nocapture noundef 
 6:                                                ; preds = %5
   %7 = zext i32 %2 to i64
   %8 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %7) #6
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %8, ptr %9, align 8
   %10 = tail call ptr @g_strchug(ptr noundef %8) #6
   %11 = tail call ptr @g_strchomp(ptr noundef %10) #6
@@ -696,20 +696,20 @@ define internal void @message_decode_payload_proto_set_cb(ptr nocapture noundef 
 
 14:                                               ; preds = %5
   %15 = tail call ptr @find_dissector(ptr noundef nonnull @.str.278) #6
-  %16 = getelementptr inbounds i8, ptr %0, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr null, ptr %16, align 8
   br label %17
 
 17:                                               ; preds = %14, %6
   %.sink = phi ptr [ %15, %14 ], [ %13, %6 ]
-  %18 = getelementptr inbounds i8, ptr %0, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.sink, ptr %18, align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @message_decode_payload_proto_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %12, label %8
@@ -738,30 +738,30 @@ declare ptr @uat_new(ptr noundef, i64 noundef, ptr noundef, i1 noundef zeroext, 
 define internal noundef ptr @mqtt_message_decode_copy_cb(ptr noundef returned writeonly initializes((0, 4), (8, 16), (24, 28), (32, 48)) %0, ptr nocapture noundef readonly %1, i64 %2) #0 {
   %4 = load i32, ptr %1, align 8
   store i32 %4, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noalias ptr @g_strdup(ptr noundef %6) #6
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %7, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load i32, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %10, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %13 = load ptr, ptr %12, align 8
   %14 = tail call noalias ptr @g_strdup(ptr noundef %13) #6
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %14, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %17, ptr %18, align 8
   ret ptr %0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i1 @mqtt_message_decode_update_cb(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %8, label %6
@@ -776,7 +776,7 @@ define internal noundef zeroext i1 @mqtt_message_decode_update_cb(ptr nocapture 
   br label %.sink.split
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
   br i1 %13, label %16, label %14
@@ -797,7 +797,7 @@ define internal noundef zeroext i1 @mqtt_message_decode_update_cb(ptr nocapture 
 
 21:                                               ; preds = %18
   %22 = tail call ptr @g_regex_new(ptr noundef nonnull %4, i32 noundef 8192, i32 noundef 0, ptr noundef null) #6
-  %23 = getelementptr inbounds i8, ptr %0, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %22, ptr %23, align 8
   %.not = icmp eq ptr %22, null
   br i1 %.not, label %24, label %27
@@ -819,10 +819,10 @@ define internal noundef zeroext i1 @mqtt_message_decode_update_cb(ptr nocapture 
 
 ; Function Attrs: nounwind uwtable
 define internal void @mqtt_message_decode_free_cb(ptr nocapture noundef readonly %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   tail call void @g_free(ptr noundef %3) #6
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %7, label %6
@@ -832,7 +832,7 @@ define internal void @mqtt_message_decode_free_cb(ptr nocapture noundef readonly
   br label %7
 
 7:                                                ; preds = %6, %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
   tail call void @g_free(ptr noundef %9) #6
   ret void
@@ -844,7 +844,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_mqtt_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_clear(ptr noundef %6, i32 noundef 25) #6
   tail call void @tcp_dissect_pdus(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 1, i32 noundef 2, ptr noundef nonnull @get_mqtt_pdu_len, ptr noundef nonnull @dissect_mqtt, ptr noundef %3) #6
@@ -945,7 +945,7 @@ define internal i32 @dissect_mqtt(ptr noundef %0, ptr noundef %1, ptr noundef %2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
   %14 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #6
   %15 = lshr i8 %14, 4
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load ptr, ptr %16, align 8
   tail call void @col_set_str(ptr noundef %17, i32 noundef 34, ptr noundef nonnull @.str.155) #6
   %18 = load ptr, ptr %16, align 8
@@ -972,7 +972,7 @@ define internal i32 @dissect_mqtt(ptr noundef %0, ptr noundef %1, ptr noundef %2
   tail call void @conversation_add_proto_data(ptr noundef nonnull %25, i32 noundef %34, ptr noundef nonnull %31) #6
   %35 = tail call ptr @wmem_file_scope() #6
   %36 = tail call noalias ptr @wmem_map_new(ptr noundef %35, ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal) #6
-  %37 = getelementptr inbounds i8, ptr %31, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store ptr %36, ptr %37, align 8
   br label %38
 
@@ -1273,15 +1273,15 @@ dissect_mqtt_reason_code.exit:                    ; preds = %174, %171
   %214 = load i32, ptr @hf_mqtt_property, align 4
   %215 = call fastcc i32 @dissect_mqtt_properties(ptr noundef %0, ptr noundef %24, i32 noundef %.7, i32 noundef %214, ptr noundef %11)
   %216 = add i32 %215, %.7
-  %217 = getelementptr inbounds i8, ptr %11, i64 8
+  %217 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %218 = load i32, ptr %217, align 8
   %.not373 = icmp eq i32 %218, 0
   br i1 %.not373, label %258, label %219
 
 219:                                              ; preds = %213
-  %220 = getelementptr inbounds i8, ptr %1, i64 80
+  %220 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %221 = load ptr, ptr %220, align 8
-  %222 = getelementptr inbounds i8, ptr %221, i64 50
+  %222 = getelementptr inbounds nuw i8, ptr %221, i64 50
   %223 = load i16, ptr %222, align 2
   %224 = and i16 %223, 8
   %225 = icmp eq i16 %224, 0
@@ -1294,7 +1294,7 @@ dissect_mqtt_reason_code.exit:                    ; preds = %174, %171
   %229 = call ptr @wmem_file_scope() #6
   %230 = load ptr, ptr %6, align 8
   %231 = call noalias ptr @wmem_strdup(ptr noundef %229, ptr noundef %230) #6
-  %232 = getelementptr inbounds i8, ptr %.0353, i64 8
+  %232 = getelementptr inbounds nuw i8, ptr %.0353, i64 8
   %233 = load ptr, ptr %232, align 8
   %234 = load i32, ptr %217, align 8
   %235 = zext i32 %234 to i64
@@ -1303,7 +1303,7 @@ dissect_mqtt_reason_code.exit:                    ; preds = %174, %171
   br label %258
 
 238:                                              ; preds = %219
-  %239 = getelementptr inbounds i8, ptr %.0353, i64 8
+  %239 = getelementptr inbounds nuw i8, ptr %.0353, i64 8
   %240 = load ptr, ptr %239, align 8
   %241 = zext i32 %218 to i64
   %242 = inttoptr i64 %241 to ptr
@@ -1327,13 +1327,13 @@ dissect_mqtt_reason_code.exit:                    ; preds = %174, %171
   br i1 %.not.i, label %proto_item_set_generated.exit, label %249
 
 249:                                              ; preds = %245
-  %250 = getelementptr inbounds i8, ptr %248, i64 32
+  %250 = getelementptr inbounds nuw i8, ptr %248, i64 32
   %251 = load ptr, ptr %250, align 8
   %.not5.i = icmp eq ptr %251, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %252
 
 252:                                              ; preds = %249
-  %253 = getelementptr inbounds i8, ptr %251, i64 28
+  %253 = getelementptr inbounds nuw i8, ptr %251, i64 28
   %254 = load i32, ptr %253, align 4
   %255 = or i32 %254, 2
   store i32 %255, ptr %253, align 4
@@ -1351,7 +1351,7 @@ proto_item_set_generated.exit:                    ; preds = %245, %249, %252
   %.0 = phi ptr [ %193, %228 ], [ %248, %256 ], [ %248, %proto_item_set_generated.exit ], [ %193, %213 ], [ %193, %210 ]
   %259 = load i32, ptr %9, align 4
   %260 = icmp eq i32 %259, 0
-  %261 = getelementptr inbounds i8, ptr %11, i64 8
+  %261 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %262 = load i32, ptr %261, align 8
   %263 = icmp eq i32 %262, 0
   %or.cond10 = select i1 %260, i1 %263, i1 false
@@ -1410,7 +1410,7 @@ proto_item_set_generated.exit:                    ; preds = %245, %249, %252
   ]
 
 285:                                              ; preds = %.lr.ph.i
-  %286 = getelementptr inbounds i8, ptr %283, i64 8
+  %286 = getelementptr inbounds nuw i8, ptr %283, i64 8
   %287 = load ptr, ptr %286, align 8
   %288 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %277, ptr noundef nonnull dereferenceable(1) %287) #7
   %289 = icmp eq i32 %288, 0
@@ -1418,7 +1418,7 @@ proto_item_set_generated.exit:                    ; preds = %245, %249, %252
   br label %324
 
 291:                                              ; preds = %.lr.ph.i
-  %292 = getelementptr inbounds i8, ptr %283, i64 8
+  %292 = getelementptr inbounds nuw i8, ptr %283, i64 8
   %293 = load ptr, ptr %292, align 8
   %294 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %277, ptr noundef nonnull dereferenceable(1) %293) #7
   %295 = icmp ne ptr %294, null
@@ -1426,7 +1426,7 @@ proto_item_set_generated.exit:                    ; preds = %245, %249, %252
   br label %324
 
 297:                                              ; preds = %.lr.ph.i
-  %298 = getelementptr inbounds i8, ptr %283, i64 8
+  %298 = getelementptr inbounds nuw i8, ptr %283, i64 8
   %299 = load ptr, ptr %298, align 8
   %300 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %299) #7
   %.not58.i = icmp ult i64 %278, %300
@@ -1439,7 +1439,7 @@ proto_item_set_generated.exit:                    ; preds = %245, %249, %252
   br label %324
 
 305:                                              ; preds = %.lr.ph.i
-  %306 = getelementptr inbounds i8, ptr %283, i64 8
+  %306 = getelementptr inbounds nuw i8, ptr %283, i64 8
   %307 = load ptr, ptr %306, align 8
   %308 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %307) #7
   %.not57.i = icmp ult i64 %278, %308
@@ -1454,7 +1454,7 @@ proto_item_set_generated.exit:                    ; preds = %245, %249, %252
   br label %324
 
 315:                                              ; preds = %.lr.ph.i
-  %316 = getelementptr inbounds i8, ptr %283, i64 16
+  %316 = getelementptr inbounds nuw i8, ptr %283, i64 16
   %317 = load ptr, ptr %316, align 8
   %.not56.i = icmp eq ptr %317, null
   br i1 %.not56.i, label %324, label %318
@@ -1486,7 +1486,7 @@ proto_item_set_generated.exit:                    ; preds = %245, %249, %252
   br i1 %.not.i386, label %mqtt_user_decode_message.exit, label %330
 
 330:                                              ; preds = %._crit_edge.i
-  %331 = getelementptr inbounds i8, ptr %283, i64 24
+  %331 = getelementptr inbounds nuw i8, ptr %283, i64 24
   %332 = load i32, ptr %331, align 8
   %333 = icmp eq i32 %332, 1
   br i1 %333, label %334, label %337
@@ -1508,27 +1508,27 @@ proto_item_set_generated.exit:                    ; preds = %245, %249, %252
 338:                                              ; preds = %337, %.thread61.i
   %.04764.i = phi ptr [ %336, %.thread61.i ], [ %276, %337 ]
   %339 = load i32, ptr @hf_mqtt_pubmsg_decoded, align 4
-  %340 = getelementptr inbounds i8, ptr %283, i64 32
+  %340 = getelementptr inbounds nuw i8, ptr %283, i64 32
   %341 = load ptr, ptr %340, align 8
   %342 = call ptr @proto_tree_add_string(ptr noundef %24, i32 noundef %339, ptr noundef nonnull %.04764.i, i32 noundef 0, i32 noundef -1, ptr noundef %341) #6
   %.not.i.i = icmp eq ptr %342, null
   br i1 %.not.i.i, label %proto_item_set_generated.exit.i, label %343
 
 343:                                              ; preds = %338
-  %344 = getelementptr inbounds i8, ptr %342, i64 32
+  %344 = getelementptr inbounds nuw i8, ptr %342, i64 32
   %345 = load ptr, ptr %344, align 8
   %.not5.i.i = icmp eq ptr %345, null
   br i1 %.not5.i.i, label %proto_item_set_generated.exit.i, label %346
 
 346:                                              ; preds = %343
-  %347 = getelementptr inbounds i8, ptr %345, i64 28
+  %347 = getelementptr inbounds nuw i8, ptr %345, i64 28
   %348 = load i32, ptr %347, align 4
   %349 = or i32 %348, 2
   store i32 %349, ptr %347, align 4
   br label %proto_item_set_generated.exit.i
 
 proto_item_set_generated.exit.i:                  ; preds = %346, %343, %338
-  %350 = getelementptr inbounds i8, ptr %283, i64 40
+  %350 = getelementptr inbounds nuw i8, ptr %283, i64 40
   %351 = load ptr, ptr %350, align 8
   %352 = call i32 @call_dissector(ptr noundef %351, ptr noundef nonnull %.04764.i, ptr noundef %1, ptr noundef %2) #6
   br label %mqtt_user_decode_message.exit
@@ -1900,7 +1900,7 @@ define internal fastcc noundef i32 @dissect_mqtt_properties(ptr noundef %0, ptr 
   br i1 %24, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5
-  %25 = getelementptr inbounds i8, ptr %4, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %26
 
 26:                                               ; preds = %.lr.ph, %91

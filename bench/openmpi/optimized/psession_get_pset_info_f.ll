@@ -40,9 +40,9 @@ define void @ompi_session_get_pset_info_f(ptr nocapture noundef readonly %0, ptr
   br i1 %.not, label %46, label %11
 
 11:                                               ; preds = %5
-  %12 = getelementptr inbounds i8, ptr %9, i64 248
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 248
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %9, i64 256
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 256
   %15 = load i32, ptr %14, align 8
   %16 = icmp sgt i32 %10, -1
   br i1 %16, label %ompi_errcode_get_mpi_code.exit, label %.preheader.i
@@ -81,7 +81,7 @@ define void @ompi_session_get_pset_info_f(ptr nocapture noundef readonly %0, ptr
 29:                                               ; preds = %27, %.lr.ph.i
   %30 = phi i8 [ %23, %.lr.ph.i ], [ %.pre.i.i, %27 ]
   %31 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_errcodes_intern, i64 112), align 8
-  %32 = getelementptr inbounds ptr, ptr %31, i64 %indvars.iv.i
+  %32 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv.i
   %33 = load ptr, ptr %32, align 8
   %34 = trunc i8 %30 to i1
   br i1 %34, label %35, label %opal_pointer_array_get_item.exit.i
@@ -93,13 +93,13 @@ define void @ompi_session_get_pset_info_f(ptr nocapture noundef readonly %0, ptr
 
 opal_pointer_array_get_item.exit.i:               ; preds = %35, %29
   %37 = phi i8 [ %30, %29 ], [ %.pre.i, %35 ]
-  %38 = getelementptr inbounds i8, ptr %33, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %39 = load i32, ptr %38, align 8
   %40 = icmp eq i32 %39, %10
   br i1 %40, label %41, label %19
 
 41:                                               ; preds = %opal_pointer_array_get_item.exit.i
-  %42 = getelementptr inbounds i8, ptr %33, i64 20
+  %42 = getelementptr inbounds nuw i8, ptr %33, i64 20
   %43 = load i32, ptr %42, align 4
   br label %ompi_errcode_get_mpi_code.exit
 

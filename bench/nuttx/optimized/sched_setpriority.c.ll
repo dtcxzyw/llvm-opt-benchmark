@@ -23,7 +23,7 @@ define range(i32 -22, 1) i32 @nxsched_set_priority(ptr noundef %0, i32 noundef %
   %6 = load i64, ptr %3, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !7
-  %7 = getelementptr inbounds i8, ptr %0, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load i8, ptr %7, align 16
   switch i8 %8, label %51 [
     i8 3, label %9
@@ -32,7 +32,7 @@ define range(i32 -22, 1) i32 @nxsched_set_priority(ptr noundef %0, i32 noundef %
 
 9:                                                ; preds = %5
   %10 = load ptr, ptr %0, align 16
-  %11 = getelementptr inbounds i8, ptr %10, i64 28
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 28
   %12 = load i8, ptr %11, align 4
   %13 = zext i8 %12 to i32
   %.not.i = icmp samesign ugt i32 %1, %13
@@ -40,7 +40,7 @@ define range(i32 -22, 1) i32 @nxsched_set_priority(ptr noundef %0, i32 noundef %
 
 14:                                               ; preds = %9
   %15 = load ptr, ptr @g_readytorun, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 66
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 66
   %17 = load i16, ptr %16, align 2
   %18 = icmp sgt i16 %17, 0
   br i1 %18, label %.preheader.preheader.i, label %29
@@ -53,16 +53,16 @@ define range(i32 -22, 1) i32 @nxsched_set_priority(ptr noundef %0, i32 noundef %
   %.0.i = phi ptr [ %23, %.preheader.i ], [ %10, %.preheader.preheader.i ]
   %20 = call zeroext i1 @nxsched_remove_readytorun(ptr noundef nonnull %.0.i, i1 noundef zeroext false) #4
   %21 = call zeroext i1 @nxsched_add_prioritized(ptr noundef nonnull %.0.i, ptr noundef nonnull @g_pendingtasks) #4
-  %22 = getelementptr inbounds i8, ptr %.0.i, i64 48
+  %22 = getelementptr inbounds nuw i8, ptr %.0.i, i64 48
   store i8 1, ptr %22, align 16
   %23 = load ptr, ptr %0, align 16
-  %24 = getelementptr inbounds i8, ptr %23, i64 28
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 28
   %25 = load i8, ptr %24, align 4
   %26 = icmp ugt i8 %25, %19
   br i1 %26, label %.preheader.i, label %27, !llvm.loop !8
 
 27:                                               ; preds = %.preheader.i
-  %28 = getelementptr inbounds i8, ptr %0, i64 28
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 %19, ptr %28, align 4
   br label %nxsched_running_setpriority.exit
 
@@ -77,13 +77,13 @@ define range(i32 -22, 1) i32 @nxsched_set_priority(ptr noundef %0, i32 noundef %
 
 33:                                               ; preds = %9
   %34 = trunc nuw i32 %1 to i8
-  %35 = getelementptr inbounds i8, ptr %0, i64 28
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 %34, ptr %35, align 4
   br label %nxsched_running_setpriority.exit
 
 36:                                               ; preds = %5
   %37 = load ptr, ptr @g_readytorun, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 28
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 28
   %39 = load i8, ptr %38, align 4
   %40 = zext i8 %39 to i32
   %41 = icmp samesign ugt i32 %1, %40
@@ -101,22 +101,22 @@ define range(i32 -22, 1) i32 @nxsched_set_priority(ptr noundef %0, i32 noundef %
 46:                                               ; preds = %36
   %47 = call zeroext i1 @nxsched_remove_readytorun(ptr noundef nonnull %0, i1 noundef zeroext false) #4
   %48 = trunc nuw i32 %1 to i8
-  %49 = getelementptr inbounds i8, ptr %0, i64 28
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 %48, ptr %49, align 4
   %50 = call zeroext i1 @nxsched_add_readytorun(ptr noundef nonnull %0) #4
   br label %nxsched_running_setpriority.exit
 
 51:                                               ; preds = %5
   %52 = zext i8 %8 to i64
-  %53 = getelementptr inbounds [10 x %struct.tasklist_s], ptr @g_tasklisttable, i64 0, i64 %52
-  %54 = getelementptr inbounds i8, ptr %53, i64 8
+  %53 = getelementptr inbounds nuw [10 x %struct.tasklist_s], ptr @g_tasklisttable, i64 0, i64 %52
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %55 = load i8, ptr %54, align 8
   %56 = and i8 %55, 8
   %.not.i12 = icmp eq i8 %56, 0
   br i1 %.not.i12, label %63, label %57
 
 57:                                               ; preds = %51
-  %58 = getelementptr inbounds i8, ptr %0, i64 128
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %59 = load ptr, ptr %58, align 16
   %60 = load ptr, ptr %53, align 16
   %61 = ptrtoint ptr %60 to i64
@@ -134,7 +134,7 @@ define range(i32 -22, 1) i32 @nxsched_set_priority(ptr noundef %0, i32 noundef %
   br i1 %.not27.i, label %76, label %68
 
 68:                                               ; preds = %65
-  %69 = getelementptr inbounds i8, ptr %0, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %70 = load ptr, ptr %69, align 8
   %71 = load ptr, ptr %0, align 8
   %.not28.i = icmp eq ptr %70, null
@@ -142,10 +142,10 @@ define range(i32 -22, 1) i32 @nxsched_set_priority(ptr noundef %0, i32 noundef %
   store ptr %71, ptr %..i, align 8
   %.not29.i = icmp eq ptr %71, null
   %.sink31.i = select i1 %.not29.i, ptr %66, ptr %71
-  %72 = getelementptr inbounds i8, ptr %.sink31.i, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %.sink31.i, i64 8
   store ptr %70, ptr %72, align 8
   %73 = trunc nuw i32 %1 to i8
-  %74 = getelementptr inbounds i8, ptr %0, i64 28
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 28
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   store i8 %73, ptr %74, align 4
   %75 = call zeroext i1 @nxsched_add_prioritized(ptr noundef nonnull %0, ptr noundef %66) #4
@@ -153,7 +153,7 @@ define range(i32 -22, 1) i32 @nxsched_set_priority(ptr noundef %0, i32 noundef %
 
 76:                                               ; preds = %65
   %77 = trunc nuw i32 %1 to i8
-  %78 = getelementptr inbounds i8, ptr %0, i64 28
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 %77, ptr %78, align 4
   br label %nxsched_running_setpriority.exit
 

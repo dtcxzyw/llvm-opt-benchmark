@@ -128,7 +128,7 @@ define internal i32 @dissect_xip_serval(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %7, label %89, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8
   tail call void @col_append_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.49) #3
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
@@ -164,7 +164,7 @@ define internal i32 @dissect_xip_serval(ptr noundef %0, ptr noundef %1, ptr noun
   br label %33
 
 33:                                               ; preds = %31, %25
-  %34 = getelementptr inbounds i8, ptr %5, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %14, ptr %34, align 8
   %35 = tail call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef 0, i32 noundef %14) #3
   store ptr %35, ptr %5, align 8

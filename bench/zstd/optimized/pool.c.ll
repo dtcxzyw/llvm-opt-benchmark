@@ -30,7 +30,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %customMem.val = load ptr, ptr %customMem, align 8
-  %0 = getelementptr inbounds i8, ptr %customMem, i64 16
+  %0 = getelementptr inbounds nuw i8, ptr %customMem, i64 16
   %tobool.not.i = icmp eq ptr %customMem.val, null
   br i1 %tobool.not.i, label %ZSTD_customCalloc.exit, label %if.then.i42
 
@@ -44,7 +44,7 @@ if.then.i42:                                      ; preds = %if.end
   %call.i = tail call ptr %customMem.val(ptr noundef %customMem.val36, i64 noundef 240) #9
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(240) %call.i, i8 0, i64 240, i1 false)
   %add = add i64 %queueSize, 1
-  %queueSize4 = getelementptr inbounds i8, ptr %call.i, i64 72
+  %queueSize4 = getelementptr inbounds nuw i8, ptr %call.i, i64 72
   store i64 %add, ptr %queueSize4, align 8
   %mul = shl i64 %add, 4
   %call.i43 = tail call ptr %customMem.val(ptr noundef %customMem.val36, i64 noundef %mul) #9
@@ -53,7 +53,7 @@ if.then.i42:                                      ; preds = %if.end
 
 if.end.i45:                                       ; preds = %ZSTD_customCalloc.exit
   %add59 = add i64 %queueSize, 1
-  %queueSize460 = getelementptr inbounds i8, ptr %call2.i, i64 72
+  %queueSize460 = getelementptr inbounds nuw i8, ptr %call2.i, i64 72
   store i64 %add59, ptr %queueSize460, align 8
   %mul61 = shl i64 %add59, 4
   %call2.i46 = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %mul61) #8
@@ -62,20 +62,20 @@ if.end.i45:                                       ; preds = %ZSTD_customCalloc.e
 ZSTD_customCalloc.exit47:                         ; preds = %if.then.i42, %if.end.i45
   %retval.0.i5762 = phi ptr [ %call.i, %if.then.i42 ], [ %call2.i, %if.end.i45 ]
   %retval.0.i44 = phi ptr [ %call.i43, %if.then.i42 ], [ %call2.i46, %if.end.i45 ]
-  %queue = getelementptr inbounds i8, ptr %retval.0.i5762, i64 48
+  %queue = getelementptr inbounds nuw i8, ptr %retval.0.i5762, i64 48
   store ptr %retval.0.i44, ptr %queue, align 8
-  %queueHead = getelementptr inbounds i8, ptr %retval.0.i5762, i64 56
-  %numThreadsBusy = getelementptr inbounds i8, ptr %retval.0.i5762, i64 80
+  %queueHead = getelementptr inbounds nuw i8, ptr %retval.0.i5762, i64 56
+  %numThreadsBusy = getelementptr inbounds nuw i8, ptr %retval.0.i5762, i64 80
   store i64 0, ptr %numThreadsBusy, align 8
-  %queueEmpty = getelementptr inbounds i8, ptr %retval.0.i5762, i64 88
+  %queueEmpty = getelementptr inbounds nuw i8, ptr %retval.0.i5762, i64 88
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %queueHead, i8 0, i64 16, i1 false)
   store i32 1, ptr %queueEmpty, align 8
-  %queueMutex = getelementptr inbounds i8, ptr %retval.0.i5762, i64 96
+  %queueMutex = getelementptr inbounds nuw i8, ptr %retval.0.i5762, i64 96
   %call7 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %queueMutex, ptr noundef null) #9
-  %queuePushCond = getelementptr inbounds i8, ptr %retval.0.i5762, i64 136
+  %queuePushCond = getelementptr inbounds nuw i8, ptr %retval.0.i5762, i64 136
   %call8 = tail call i32 @pthread_cond_init(ptr noundef nonnull %queuePushCond, ptr noundef null) #9
   %or9 = or i32 %call8, %call7
-  %queuePopCond = getelementptr inbounds i8, ptr %retval.0.i5762, i64 184
+  %queuePopCond = getelementptr inbounds nuw i8, ptr %retval.0.i5762, i64 184
   %call10 = tail call i32 @pthread_cond_init(ptr noundef nonnull %queuePopCond, ptr noundef null) #9
   %or11 = or i32 %or9, %call10
   %tobool12.not = icmp eq i32 %or11, 0
@@ -86,7 +86,7 @@ if.then13:                                        ; preds = %ZSTD_customCalloc.e
   br label %return
 
 if.end14:                                         ; preds = %ZSTD_customCalloc.exit47
-  %shutdown = getelementptr inbounds i8, ptr %retval.0.i5762, i64 232
+  %shutdown = getelementptr inbounds nuw i8, ptr %retval.0.i5762, i64 232
   store i32 0, ptr %shutdown, align 8
   %mul15 = shl i64 %numThreads, 3
   %customMem.val39 = load ptr, ptr %customMem, align 8
@@ -105,9 +105,9 @@ if.end.i52:                                       ; preds = %if.end14
 
 ZSTD_customCalloc.exit54:                         ; preds = %if.then.i49, %if.end.i52
   %retval.0.i51 = phi ptr [ %call.i50, %if.then.i49 ], [ %call2.i53, %if.end.i52 ]
-  %threads = getelementptr inbounds i8, ptr %retval.0.i5762, i64 24
+  %threads = getelementptr inbounds nuw i8, ptr %retval.0.i5762, i64 24
   store ptr %retval.0.i51, ptr %threads, align 8
-  %threadCapacity = getelementptr inbounds i8, ptr %retval.0.i5762, i64 32
+  %threadCapacity = getelementptr inbounds nuw i8, ptr %retval.0.i5762, i64 32
   store i64 0, ptr %threadCapacity, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %retval.0.i5762, ptr noundef nonnull align 8 dereferenceable(24) %customMem, i64 24, i1 false)
   %tobool19.not = icmp eq ptr %retval.0.i51, null
@@ -142,7 +142,7 @@ for.inc:                                          ; preds = %for.body
 
 for.end:                                          ; preds = %for.inc
   store i64 %numThreads, ptr %threadCapacity, align 8
-  %threadLimit = getelementptr inbounds i8, ptr %retval.0.i5762, i64 40
+  %threadLimit = getelementptr inbounds nuw i8, ptr %retval.0.i5762, i64 40
   store i64 %numThreads, ptr %threadLimit, align 8
   br label %return
 
@@ -164,22 +164,22 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %queueMutex.i = getelementptr inbounds i8, ptr %ctx, i64 96
+  %queueMutex.i = getelementptr inbounds nuw i8, ptr %ctx, i64 96
   %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %queueMutex.i) #9
-  %shutdown.i = getelementptr inbounds i8, ptr %ctx, i64 232
+  %shutdown.i = getelementptr inbounds nuw i8, ptr %ctx, i64 232
   store i32 1, ptr %shutdown.i, align 8
   %call2.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %queueMutex.i) #9
-  %queuePushCond.i = getelementptr inbounds i8, ptr %ctx, i64 136
+  %queuePushCond.i = getelementptr inbounds nuw i8, ptr %ctx, i64 136
   %call3.i = tail call i32 @pthread_cond_broadcast(ptr noundef nonnull %queuePushCond.i) #9
-  %queuePopCond.i = getelementptr inbounds i8, ptr %ctx, i64 184
+  %queuePopCond.i = getelementptr inbounds nuw i8, ptr %ctx, i64 184
   %call4.i = tail call i32 @pthread_cond_broadcast(ptr noundef nonnull %queuePopCond.i) #9
-  %threadCapacity.i = getelementptr inbounds i8, ptr %ctx, i64 32
+  %threadCapacity.i = getelementptr inbounds nuw i8, ptr %ctx, i64 32
   %0 = load i64, ptr %threadCapacity.i, align 8
   %cmp9.not.i = icmp eq i64 %0, 0
   br i1 %cmp9.not.i, label %POOL_join.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.end
-  %threads.i = getelementptr inbounds i8, ptr %ctx, i64 24
+  %threads.i = getelementptr inbounds nuw i8, ptr %ctx, i64 24
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
@@ -197,7 +197,7 @@ POOL_join.exit:                                   ; preds = %for.body.i, %if.end
   %call = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %queueMutex.i) #9
   %call1 = tail call i32 @pthread_cond_destroy(ptr noundef nonnull %queuePushCond.i) #9
   %call2 = tail call i32 @pthread_cond_destroy(ptr noundef nonnull %queuePopCond.i) #9
-  %queue = getelementptr inbounds i8, ptr %ctx, i64 48
+  %queue = getelementptr inbounds nuw i8, ptr %ctx, i64 48
   %4 = load ptr, ptr %queue, align 8
   %5 = getelementptr i8, ptr %ctx, i64 8
   %ctx.val = load ptr, ptr %5, align 8
@@ -226,7 +226,7 @@ ZSTD_customFree.exitthread-pre-split:             ; preds = %if.else.i, %if.then
 ZSTD_customFree.exit:                             ; preds = %ZSTD_customFree.exitthread-pre-split, %POOL_join.exit
   %ctx.val13 = phi ptr [ %ctx.val13.pre, %ZSTD_customFree.exitthread-pre-split ], [ %ctx.val11, %POOL_join.exit ]
   %ctx.val12 = phi ptr [ %ctx.val12.pr, %ZSTD_customFree.exitthread-pre-split ], [ %ctx.val, %POOL_join.exit ]
-  %threads = getelementptr inbounds i8, ptr %ctx, i64 24
+  %threads = getelementptr inbounds nuw i8, ptr %ctx, i64 24
   %7 = load ptr, ptr %threads, align 8
   %cmp.not.i16 = icmp eq ptr %7, null
   br i1 %cmp.not.i16, label %if.then.i23, label %if.then.i17
@@ -274,17 +274,17 @@ entry:
   br i1 %tobool.not, label %return, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %entry
-  %queueMutex = getelementptr inbounds i8, ptr %opaque, i64 96
-  %queueEmpty = getelementptr inbounds i8, ptr %opaque, i64 88
-  %numThreadsBusy = getelementptr inbounds i8, ptr %opaque, i64 80
-  %threadLimit = getelementptr inbounds i8, ptr %opaque, i64 40
-  %shutdown = getelementptr inbounds i8, ptr %opaque, i64 232
-  %queuePopCond = getelementptr inbounds i8, ptr %opaque, i64 184
-  %queue = getelementptr inbounds i8, ptr %opaque, i64 48
-  %queueHead = getelementptr inbounds i8, ptr %opaque, i64 56
-  %queueSize = getelementptr inbounds i8, ptr %opaque, i64 72
-  %queueTail = getelementptr inbounds i8, ptr %opaque, i64 64
-  %queuePushCond = getelementptr inbounds i8, ptr %opaque, i64 136
+  %queueMutex = getelementptr inbounds nuw i8, ptr %opaque, i64 96
+  %queueEmpty = getelementptr inbounds nuw i8, ptr %opaque, i64 88
+  %numThreadsBusy = getelementptr inbounds nuw i8, ptr %opaque, i64 80
+  %threadLimit = getelementptr inbounds nuw i8, ptr %opaque, i64 40
+  %shutdown = getelementptr inbounds nuw i8, ptr %opaque, i64 232
+  %queuePopCond = getelementptr inbounds nuw i8, ptr %opaque, i64 184
+  %queue = getelementptr inbounds nuw i8, ptr %opaque, i64 48
+  %queueHead = getelementptr inbounds nuw i8, ptr %opaque, i64 56
+  %queueSize = getelementptr inbounds nuw i8, ptr %opaque, i64 72
+  %queueTail = getelementptr inbounds nuw i8, ptr %opaque, i64 64
+  %queuePushCond = getelementptr inbounds nuw i8, ptr %opaque, i64 136
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.preheader, %while.end
@@ -320,7 +320,7 @@ while.end:                                        ; preds = %lor.rhs
   %5 = load i64, ptr %queueHead, align 8
   %arrayidx = getelementptr inbounds %struct.POOL_job_s, ptr %4, i64 %5
   %job.sroa.0.0.copyload = load ptr, ptr %arrayidx, align 8
-  %job.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %job.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %job.sroa.2.0.copyload = load ptr, ptr %job.sroa.2.0.arrayidx.sroa_idx, align 8
   %add = add i64 %5, 1
   %6 = load i64, ptr %queueSize, align 8
@@ -356,11 +356,11 @@ declare i32 @pthread_cond_destroy(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define void @POOL_joinJobs(ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
-  %queueMutex = getelementptr inbounds i8, ptr %ctx, i64 96
+  %queueMutex = getelementptr inbounds nuw i8, ptr %ctx, i64 96
   %call = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %queueMutex) #9
-  %numThreadsBusy = getelementptr inbounds i8, ptr %ctx, i64 80
-  %queueEmpty = getelementptr inbounds i8, ptr %ctx, i64 88
-  %queuePushCond = getelementptr inbounds i8, ptr %ctx, i64 136
+  %numThreadsBusy = getelementptr inbounds nuw i8, ptr %ctx, i64 80
+  %queueEmpty = getelementptr inbounds nuw i8, ptr %ctx, i64 88
+  %queuePushCond = getelementptr inbounds nuw i8, ptr %ctx, i64 136
   br label %while.cond
 
 while.cond:                                       ; preds = %while.body, %entry
@@ -404,11 +404,11 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %queueSize = getelementptr inbounds i8, ptr %ctx, i64 72
+  %queueSize = getelementptr inbounds nuw i8, ptr %ctx, i64 72
   %0 = load i64, ptr %queueSize, align 8
   %mul = shl i64 %0, 4
   %add = add i64 %mul, 240
-  %threadCapacity = getelementptr inbounds i8, ptr %ctx, i64 32
+  %threadCapacity = getelementptr inbounds nuw i8, ptr %ctx, i64 32
   %1 = load i64, ptr %threadCapacity, align 8
   %mul1 = shl i64 %1, 3
   %add2 = add i64 %add, %mul1
@@ -426,9 +426,9 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %queueMutex = getelementptr inbounds i8, ptr %ctx, i64 96
+  %queueMutex = getelementptr inbounds nuw i8, ptr %ctx, i64 96
   %call = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %queueMutex) #9
-  %threadCapacity.i = getelementptr inbounds i8, ptr %ctx, i64 32
+  %threadCapacity.i = getelementptr inbounds nuw i8, ptr %ctx, i64 32
   %0 = load i64, ptr %threadCapacity.i, align 8
   %cmp.not.i = icmp ugt i64 %numThreads, %0
   br i1 %cmp.not.i, label %if.end2.i, label %if.then.i
@@ -438,7 +438,7 @@ if.then.i:                                        ; preds = %if.end
   br i1 %tobool.not.i, label %POOL_resize_internal.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i
-  %threadLimit.i = getelementptr inbounds i8, ptr %ctx, i64 40
+  %threadLimit.i = getelementptr inbounds nuw i8, ptr %ctx, i64 40
   store i64 %numThreads, ptr %threadLimit.i, align 8
   br label %POOL_resize_internal.exit
 
@@ -465,7 +465,7 @@ ZSTD_customCalloc.exit.i:                         ; preds = %if.end.i.i, %if.the
   br i1 %tobool3.not.i, label %POOL_resize_internal.exit, label %if.end5.i
 
 if.end5.i:                                        ; preds = %ZSTD_customCalloc.exit.i
-  %threads.i = getelementptr inbounds i8, ptr %ctx, i64 24
+  %threads.i = getelementptr inbounds nuw i8, ptr %ctx, i64 24
   %2 = load ptr, ptr %threads.i, align 8
   %3 = load i64, ptr %threadCapacity.i, align 8
   %mul7.i = shl i64 %3, 3
@@ -513,13 +513,13 @@ for.inc.i:                                        ; preds = %for.body.i
 
 for.end.i:                                        ; preds = %for.inc.i, %ZSTD_customFree.exit.i
   store i64 %numThreads, ptr %threadCapacity.i, align 8
-  %threadLimit19.i = getelementptr inbounds i8, ptr %ctx, i64 40
+  %threadLimit19.i = getelementptr inbounds nuw i8, ptr %ctx, i64 40
   store i64 %numThreads, ptr %threadLimit19.i, align 8
   br label %POOL_resize_internal.exit
 
 POOL_resize_internal.exit:                        ; preds = %if.then.i, %if.end.i, %ZSTD_customCalloc.exit.i, %if.then15.i, %for.end.i
   %retval.0.i = phi i32 [ 0, %if.end.i ], [ 1, %if.then15.i ], [ 0, %for.end.i ], [ 1, %if.then.i ], [ 1, %ZSTD_customCalloc.exit.i ]
-  %queuePopCond = getelementptr inbounds i8, ptr %ctx, i64 184
+  %queuePopCond = getelementptr inbounds nuw i8, ptr %ctx, i64 184
   %call2 = tail call i32 @pthread_cond_broadcast(ptr noundef nonnull %queuePopCond) #9
   %call4 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %queueMutex) #9
   br label %return
@@ -535,16 +535,16 @@ declare i32 @pthread_cond_broadcast(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define void @POOL_add(ptr noundef %ctx, ptr noundef %function, ptr noundef %opaque) local_unnamed_addr #0 {
 entry:
-  %queueMutex = getelementptr inbounds i8, ptr %ctx, i64 96
+  %queueMutex = getelementptr inbounds nuw i8, ptr %ctx, i64 96
   %call = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %queueMutex) #9
-  %queueSize.i = getelementptr inbounds i8, ptr %ctx, i64 72
-  %numThreadsBusy.i = getelementptr inbounds i8, ptr %ctx, i64 80
-  %threadLimit.i = getelementptr inbounds i8, ptr %ctx, i64 40
-  %queueEmpty.i = getelementptr inbounds i8, ptr %ctx, i64 88
-  %queueHead.i = getelementptr inbounds i8, ptr %ctx, i64 56
-  %queueTail.i = getelementptr inbounds i8, ptr %ctx, i64 64
-  %shutdown = getelementptr inbounds i8, ptr %ctx, i64 232
-  %queuePushCond = getelementptr inbounds i8, ptr %ctx, i64 136
+  %queueSize.i = getelementptr inbounds nuw i8, ptr %ctx, i64 72
+  %numThreadsBusy.i = getelementptr inbounds nuw i8, ptr %ctx, i64 80
+  %threadLimit.i = getelementptr inbounds nuw i8, ptr %ctx, i64 40
+  %queueEmpty.i = getelementptr inbounds nuw i8, ptr %ctx, i64 88
+  %queueHead.i = getelementptr inbounds nuw i8, ptr %ctx, i64 56
+  %queueTail.i = getelementptr inbounds nuw i8, ptr %ctx, i64 64
+  %shutdown = getelementptr inbounds nuw i8, ptr %ctx, i64 232
+  %queuePushCond = getelementptr inbounds nuw i8, ptr %ctx, i64 136
   br label %while.cond
 
 while.cond:                                       ; preds = %while.body, %entry
@@ -587,19 +587,19 @@ while.end:                                        ; preds = %isQueueFull.exit, %
 
 if.end.i:                                         ; preds = %while.end
   store i32 0, ptr %queueEmpty.i, align 8
-  %queue.i = getelementptr inbounds i8, ptr %ctx, i64 48
+  %queue.i = getelementptr inbounds nuw i8, ptr %ctx, i64 48
   %8 = load ptr, ptr %queue.i, align 8
   %9 = load i64, ptr %queueTail.i, align 8
   %arrayidx.i = getelementptr inbounds %struct.POOL_job_s, ptr %8, i64 %9
   store ptr %function, ptr %arrayidx.i, align 8
-  %job.sroa.2.0.arrayidx.sroa_idx.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  %job.sroa.2.0.arrayidx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   store ptr %opaque, ptr %job.sroa.2.0.arrayidx.sroa_idx.i, align 8
   %10 = load i64, ptr %queueTail.i, align 8
   %add.i10 = add i64 %10, 1
   %11 = load i64, ptr %queueSize.i, align 8
   %rem.i12 = urem i64 %add.i10, %11
   store i64 %rem.i12, ptr %queueTail.i, align 8
-  %queuePopCond.i = getelementptr inbounds i8, ptr %ctx, i64 184
+  %queuePopCond.i = getelementptr inbounds nuw i8, ptr %ctx, i64 184
   %call.i = tail call i32 @pthread_cond_signal(ptr noundef nonnull %queuePopCond.i) #9
   br label %POOL_add_internal.exit
 
@@ -611,17 +611,17 @@ POOL_add_internal.exit:                           ; preds = %land.rhs, %while.en
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @POOL_tryAdd(ptr noundef %ctx, ptr noundef %function, ptr noundef %opaque) local_unnamed_addr #0 {
 entry:
-  %queueMutex = getelementptr inbounds i8, ptr %ctx, i64 96
+  %queueMutex = getelementptr inbounds nuw i8, ptr %ctx, i64 96
   %call = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %queueMutex) #9
-  %queueSize.i = getelementptr inbounds i8, ptr %ctx, i64 72
+  %queueSize.i = getelementptr inbounds nuw i8, ptr %ctx, i64 72
   %0 = load i64, ptr %queueSize.i, align 8
   %cmp.i = icmp ugt i64 %0, 1
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
-  %queueHead.i = getelementptr inbounds i8, ptr %ctx, i64 56
+  %queueHead.i = getelementptr inbounds nuw i8, ptr %ctx, i64 56
   %1 = load i64, ptr %queueHead.i, align 8
-  %queueTail.i = getelementptr inbounds i8, ptr %ctx, i64 64
+  %queueTail.i = getelementptr inbounds nuw i8, ptr %ctx, i64 64
   %2 = load i64, ptr %queueTail.i, align 8
   %add.i = add i64 %2, 1
   %rem.i = urem i64 %add.i, %0
@@ -629,42 +629,42 @@ if.then.i:                                        ; preds = %entry
   br i1 %cmp2.i, label %return, label %if.end
 
 if.else.i:                                        ; preds = %entry
-  %numThreadsBusy.i = getelementptr inbounds i8, ptr %ctx, i64 80
+  %numThreadsBusy.i = getelementptr inbounds nuw i8, ptr %ctx, i64 80
   %3 = load i64, ptr %numThreadsBusy.i, align 8
-  %threadLimit.i = getelementptr inbounds i8, ptr %ctx, i64 40
+  %threadLimit.i = getelementptr inbounds nuw i8, ptr %ctx, i64 40
   %4 = load i64, ptr %threadLimit.i, align 8
   %cmp3.i = icmp eq i64 %3, %4
   br i1 %cmp3.i, label %return, label %isQueueFull.exit
 
 isQueueFull.exit:                                 ; preds = %if.else.i
-  %queueEmpty.i = getelementptr inbounds i8, ptr %ctx, i64 88
+  %queueEmpty.i = getelementptr inbounds nuw i8, ptr %ctx, i64 88
   %5 = load i32, ptr %queueEmpty.i, align 8
   %tobool.not.i = icmp eq i32 %5, 0
   br i1 %tobool.not.i, label %return, label %if.end
 
 if.end:                                           ; preds = %if.then.i, %isQueueFull.exit
-  %shutdown.i = getelementptr inbounds i8, ptr %ctx, i64 232
+  %shutdown.i = getelementptr inbounds nuw i8, ptr %ctx, i64 232
   %6 = load i32, ptr %shutdown.i, align 8
   %tobool.not.i5 = icmp eq i32 %6, 0
   br i1 %tobool.not.i5, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %if.end
-  %queueEmpty.i6 = getelementptr inbounds i8, ptr %ctx, i64 88
+  %queueEmpty.i6 = getelementptr inbounds nuw i8, ptr %ctx, i64 88
   store i32 0, ptr %queueEmpty.i6, align 8
-  %queue.i = getelementptr inbounds i8, ptr %ctx, i64 48
+  %queue.i = getelementptr inbounds nuw i8, ptr %ctx, i64 48
   %7 = load ptr, ptr %queue.i, align 8
-  %queueTail.i7 = getelementptr inbounds i8, ptr %ctx, i64 64
+  %queueTail.i7 = getelementptr inbounds nuw i8, ptr %ctx, i64 64
   %8 = load i64, ptr %queueTail.i7, align 8
   %arrayidx.i = getelementptr inbounds %struct.POOL_job_s, ptr %7, i64 %8
   store ptr %function, ptr %arrayidx.i, align 8
-  %job.sroa.2.0.arrayidx.sroa_idx.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  %job.sroa.2.0.arrayidx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   store ptr %opaque, ptr %job.sroa.2.0.arrayidx.sroa_idx.i, align 8
   %9 = load i64, ptr %queueTail.i7, align 8
   %add.i8 = add i64 %9, 1
   %10 = load i64, ptr %queueSize.i, align 8
   %rem.i10 = urem i64 %add.i8, %10
   store i64 %rem.i10, ptr %queueTail.i7, align 8
-  %queuePopCond.i = getelementptr inbounds i8, ptr %ctx, i64 184
+  %queuePopCond.i = getelementptr inbounds nuw i8, ptr %ctx, i64 184
   %call.i = tail call i32 @pthread_cond_signal(ptr noundef nonnull %queuePopCond.i) #9
   br label %return
 

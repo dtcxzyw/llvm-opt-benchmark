@@ -111,15 +111,15 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_resp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.26) #2
   %7 = load ptr, ptr %5, align 8
   tail call void @col_clear(ptr noundef %7, i32 noundef 25) #2
   %8 = load ptr, ptr %5, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 292
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 292
   %10 = load i32, ptr %9, align 4
-  %11 = getelementptr inbounds i8, ptr %1, i64 284
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %12 = load i32, ptr %11, align 4
   %13 = icmp eq i32 %10, %12
   %14 = select i1 %13, ptr @.str.32, ptr @.str.33
@@ -174,14 +174,14 @@ define internal fastcc noundef i32 @dissect_resp_loop(ptr noundef %0, ptr nounde
 
 .lr.ph:                                           ; preds = %6
   %8 = icmp sgt i64 %5, -1
-  %9 = getelementptr inbounds i8, ptr %1, i64 328
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %10 = icmp sgt i32 %4, 30
-  %11 = getelementptr inbounds i8, ptr %1, i64 292
-  %12 = getelementptr inbounds i8, ptr %1, i64 284
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 292
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %13 = icmp eq i32 %4, 0
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = add nsw i32 %4, 1
-  %16 = getelementptr inbounds i8, ptr %1, i64 288
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %17 = icmp eq i32 %4, 1
   br label %18
 
@@ -205,9 +205,9 @@ define internal fastcc noundef i32 @dissect_resp_loop(ptr noundef %0, ptr nounde
   br i1 %29, label %30, label %33
 
 30:                                               ; preds = %21
-  %31 = getelementptr inbounds i8, ptr %1, i64 332
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 332
   store i32 %.02748, ptr %31, align 4
-  %32 = getelementptr inbounds i8, ptr %1, i64 336
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 336
   store i32 268435455, ptr %32, align 8
   br label %.loopexit
 
@@ -319,10 +319,10 @@ define internal fastcc noundef i32 @dissect_resp_loop(ptr noundef %0, ptr nounde
   br i1 %or.cond.i, label %102, label %110
 
 102:                                              ; preds = %97
-  %103 = getelementptr inbounds i8, ptr %1, i64 332
+  %103 = getelementptr inbounds nuw i8, ptr %1, i64 332
   store i32 %.02748, ptr %103, align 4
   %104 = sub i32 %95, %94
-  %105 = getelementptr inbounds i8, ptr %1, i64 336
+  %105 = getelementptr inbounds nuw i8, ptr %1, i64 336
   store i32 %104, ptr %105, align 8
   br label %dissect_resp_message.exit.thread
 
@@ -472,9 +472,9 @@ define internal fastcc noundef i32 @dissect_resp_loop(ptr noundef %0, ptr nounde
   br i1 %or.cond3.i, label %184, label %187
 
 184:                                              ; preds = %179
-  %185 = getelementptr inbounds i8, ptr %1, i64 332
+  %185 = getelementptr inbounds nuw i8, ptr %1, i64 332
   store i32 %.02748, ptr %185, align 4
-  %186 = getelementptr inbounds i8, ptr %1, i64 336
+  %186 = getelementptr inbounds nuw i8, ptr %1, i64 336
   store i32 268435455, ptr %186, align 8
   br label %dissect_resp_message.exit.thread
 
@@ -500,9 +500,9 @@ define internal fastcc noundef i32 @dissect_resp_loop(ptr noundef %0, ptr nounde
   br i1 %197, label %198, label %202
 
 198:                                              ; preds = %195
-  %199 = getelementptr inbounds i8, ptr %1, i64 332
+  %199 = getelementptr inbounds nuw i8, ptr %1, i64 332
   store i32 %.02748, ptr %199, align 4
-  %200 = getelementptr inbounds i8, ptr %1, i64 336
+  %200 = getelementptr inbounds nuw i8, ptr %1, i64 336
   store i32 268435455, ptr %200, align 8
   %201 = tail call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %160, ptr noundef nonnull @ei_resp_reassembled_in_next_frame) #2
   br label %dissect_resp_message.exit.thread

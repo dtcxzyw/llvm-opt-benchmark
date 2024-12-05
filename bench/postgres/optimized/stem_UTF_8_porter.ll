@@ -105,15 +105,15 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -2147483648, 2) i32 @porter_UTF_8_stem(ptr noundef initializes((20, 24)) %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 8
   store i32 0, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 20
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %6, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 12
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %9 = load i32, ptr %8, align 4
   %10 = icmp eq i32 %6, %9
   br i1 %10, label %24, label %11
@@ -129,7 +129,7 @@ define hidden range(i32 -2147483648, 2) i32 @porter_UTF_8_stem(ptr noundef initi
 16:                                               ; preds = %11
   %17 = add i32 %6, 1
   store i32 %17, ptr %5, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %17, ptr %18, align 8
   %19 = tail call i32 @slice_from_s(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull @s_21) #2
   %20 = icmp slt i32 %19, 0
@@ -143,7 +143,7 @@ define hidden range(i32 -2147483648, 2) i32 @porter_UTF_8_stem(ptr noundef initi
 
 24:                                               ; preds = %1, %11, %21
   store i32 %6, ptr %5, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %26
 
 26:                                               ; preds = %.backedge, %24
@@ -251,7 +251,7 @@ define hidden range(i32 -2147483648, 2) i32 @porter_UTF_8_stem(ptr noundef initi
   br label %79
 
 79:                                               ; preds = %70, %63, %58, %50, %75
-  %80 = getelementptr inbounds i8, ptr %0, i64 16
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %55, ptr %80, align 8
   %81 = load i32, ptr %8, align 4
   store i32 %81, ptr %5, align 8

@@ -116,13 +116,13 @@ define hidden void @_lib_imageinfo_update_message(ptr nocapture readnone %0, ptr
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
   %6 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !6
-  %7 = getelementptr inbounds i8, ptr %6, i64 1544
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 1544
   %8 = load i32, ptr %7, align 8, !tbaa !20
   %9 = icmp sgt i32 %8, 0
   br i1 %9, label %10, label %26
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %1, i64 280
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %12 = load ptr, ptr %11, align 8, !tbaa !42
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %3) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(512) %3, i8 0, i64 512, i1 false)
@@ -134,13 +134,13 @@ define hidden void @_lib_imageinfo_update_message(ptr nocapture readnone %0, ptr
   %13 = load ptr, ptr %5, align 8, !tbaa !46
   store ptr %3, ptr %13, align 8, !tbaa !47
   %14 = load ptr, ptr %5, align 8, !tbaa !46
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr @.str.6, ptr %15, align 8, !tbaa !49
-  %16 = getelementptr inbounds i8, ptr %14, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store i32 %8, ptr %16, align 8, !tbaa !50
-  %17 = getelementptr inbounds i8, ptr %14, i64 20
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 20
   store i32 0, ptr %17, align 4, !tbaa !51
-  %18 = getelementptr inbounds i8, ptr %14, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store i32 1, ptr %18, align 8, !tbaa !52
   %19 = call ptr @dt_conf_get_string(ptr noundef nonnull @.str.7) #8
   %20 = load ptr, ptr %5, align 8, !tbaa !46
@@ -193,10 +193,10 @@ define hidden void @_lib_imageinfo_update_message3(ptr nocapture readnone %0, i3
 ; Function Attrs: nounwind uwtable
 define void @gui_init(ptr noundef initializes((280, 288), (416, 424)) %0) local_unnamed_addr #1 {
   %2 = tail call noalias dereferenceable_or_null(8) ptr @g_malloc0(i64 noundef 8) #10
-  %3 = getelementptr inbounds i8, ptr %0, i64 280
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 280
   store ptr %2, ptr %3, align 8, !tbaa !42
   %4 = tail call ptr @gtk_event_box_new() #8
-  %5 = getelementptr inbounds i8, ptr %0, i64 416
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 416
   store ptr %4, ptr %5, align 8, !tbaa !55
   %6 = tail call ptr @gtk_label_new(ptr noundef nonnull @.str.8) #8
   store ptr %6, ptr %2, align 8, !tbaa !53
@@ -393,7 +393,7 @@ define void @gui_cleanup(ptr noundef %0) local_unnamed_addr #1 {
 30:                                               ; preds = %29, %25, %20
   %31 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 96), align 8, !tbaa !58
   tail call void @dt_control_signal_disconnect(ptr noundef %31, ptr noundef nonnull @_lib_imageinfo_update_message3, ptr noundef %0) #8
-  %32 = getelementptr inbounds i8, ptr %0, i64 280
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %33 = load ptr, ptr %32, align 8, !tbaa !42
   tail call void @g_free(ptr noundef %33) #8
   store ptr null, ptr %32, align 8, !tbaa !42

@@ -140,11 +140,11 @@ define dso_local { i64, i64 } @_ZNK4llvm19TargetFrameLowering22getFrameIndexRefe
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 200
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 200
   %11 = load ptr, ptr %10, align 8
   %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(288) %8) #9
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 608
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 608
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i32 %15(ptr noundef nonnull align 8 dereferenceable(308) %12, ptr noundef nonnull align 8 dereferenceable(1041) %1) #9
   store i32 %16, ptr %3, align 4
@@ -154,7 +154,7 @@ define dso_local { i64, i64 } @_ZNK4llvm19TargetFrameLowering22getFrameIndexRefe
   %20 = add i32 %19, %2
   %21 = zext i32 %20 to i64
   %22 = load ptr, ptr %17, align 8
-  %23 = getelementptr inbounds %"struct.llvm::MachineFrameInfo::StackObject", ptr %22, i64 %21
+  %23 = getelementptr inbounds nuw %"struct.llvm::MachineFrameInfo::StackObject", ptr %22, i64 %21
   %24 = load i64, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %26 = load i64, ptr %25, align 8
@@ -181,7 +181,7 @@ define dso_local { i64, i64 } @_ZNK4llvm19TargetFrameLowering28getFrameIndexRefe
   %9 = add i32 %8, %2
   %10 = zext i32 %9 to i64
   %11 = load ptr, ptr %6, align 8
-  %12 = getelementptr inbounds %"struct.llvm::MachineFrameInfo::StackObject", ptr %11, i64 %10
+  %12 = getelementptr inbounds nuw %"struct.llvm::MachineFrameInfo::StackObject", ptr %11, i64 %10
   %13 = load i64, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load i32, ptr %14, align 8
@@ -209,10 +209,10 @@ define dso_local void @_ZNK4llvm19TargetFrameLowering14getCalleeSavesERKNS_15Mac
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 200
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 200
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noundef ptr %8(ptr noundef nonnull align 8 dereferenceable(288) %5) #9
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load i32, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %13 = load i32, ptr %12, align 8
@@ -282,11 +282,11 @@ _ZN4llvm9BitVector6resizeEjb.exit:                ; preds = %_ZN4llvm9BitVector1
   %53 = lshr i32 %.sroa.0.0.copyload.i, 6
   %54 = zext nneg i32 %53 to i64
   %55 = load ptr, ptr %2, align 8
-  %56 = getelementptr inbounds i64, ptr %55, i64 %54
+  %56 = getelementptr inbounds nuw i64, ptr %55, i64 %54
   %57 = load i64, ptr %56, align 8
   %58 = or i64 %52, %57
   store i64 %58, ptr %56, align 8
-  %59 = getelementptr inbounds i8, ptr %.sroa.011.015, i64 12
+  %59 = getelementptr inbounds nuw i8, ptr %.sroa.011.015, i64 12
   %.not = icmp eq ptr %59, %49
   br i1 %.not, label %.loopexit, label %.lr.ph
 
@@ -299,10 +299,10 @@ define dso_local void @_ZNK4llvm19TargetFrameLowering20determineCalleeSavesERNS_
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 200
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 200
   %9 = load ptr, ptr %8, align 8
   %10 = tail call noundef ptr %9(ptr noundef nonnull align 8 dereferenceable(288) %6) #9
-  %11 = getelementptr inbounds i8, ptr %10, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load i32, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %14 = load i32, ptr %13, align 8
@@ -407,7 +407,7 @@ _ZN4llvm8dyn_castINS_8CallBaseEKNS_4UserEEEDcPT0_.exit.thread.i: ; preds = %_ZN4
 _ZN4llvm19TargetFrameLowering17isSafeForNoCSROptERKNS_8FunctionE.exit: ; preds = %_ZN4llvm8dyn_castINS_8CallBaseEKNS_4UserEEEDcPT0_.exit.thread.i, %56
   %65 = load ptr, ptr %1, align 8
   %66 = load ptr, ptr %0, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 352
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 352
   %68 = load ptr, ptr %67, align 8
   %69 = tail call noundef zeroext i1 %68(ptr noundef nonnull align 8 dereferenceable(21) %0, ptr noundef nonnull align 8 dereferenceable(136) %65) #9
   br i1 %69, label %.loopexit, label %_ZN4llvm19TargetFrameLowering17isSafeForNoCSROptERKNS_8FunctionE.exit.thread
@@ -446,7 +446,7 @@ _ZN4llvm19TargetFrameLowering17isSafeForNoCSROptERKNS_8FunctionE.exit.thread: ; 
 
 88:                                               ; preds = %85
   %89 = load ptr, ptr %0, align 8
-  %90 = getelementptr inbounds i8, ptr %89, i64 88
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 88
   %91 = load ptr, ptr %90, align 8
   %92 = tail call noundef zeroext i1 %91(ptr noundef nonnull align 8 dereferenceable(21) %0, ptr noundef nonnull align 8 dereferenceable(1041) %1) #9
   br i1 %92, label %.loopexit, label %93
@@ -473,13 +473,13 @@ _ZN4llvm19TargetFrameLowering17isSafeForNoCSROptERKNS_8FunctionE.exit.thread: ; 
   %104 = lshr i32 %100, 6
   %105 = zext nneg i32 %104 to i64
   %106 = load ptr, ptr %2, align 8
-  %107 = getelementptr inbounds i64, ptr %106, i64 %105
+  %107 = getelementptr inbounds nuw i64, ptr %106, i64 %105
   %108 = load i64, ptr %107, align 8
   %109 = or i64 %108, %103
   store i64 %109, ptr %107, align 8
   %110 = add i32 %.032.us, 1
   %111 = zext i32 %110 to i64
-  %112 = getelementptr inbounds i16, ptr %72, i64 %111
+  %112 = getelementptr inbounds nuw i16, ptr %72, i64 %111
   %113 = load i16, ptr %112, align 2
   %.not29.us = icmp eq i16 %113, 0
   br i1 %.not29.us, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !4
@@ -498,7 +498,7 @@ _ZN4llvm19TargetFrameLowering17isSafeForNoCSROptERKNS_8FunctionE.exit.thread: ; 
   %121 = lshr i32 %115, 6
   %122 = zext nneg i32 %121 to i64
   %123 = load ptr, ptr %2, align 8
-  %124 = getelementptr inbounds i64, ptr %123, i64 %122
+  %124 = getelementptr inbounds nuw i64, ptr %123, i64 %122
   %125 = load i64, ptr %124, align 8
   %126 = or i64 %125, %120
   store i64 %126, ptr %124, align 8
@@ -507,7 +507,7 @@ _ZN4llvm19TargetFrameLowering17isSafeForNoCSROptERKNS_8FunctionE.exit.thread: ; 
 127:                                              ; preds = %.lr.ph.split, %117
   %128 = add i32 %.032, 1
   %129 = zext i32 %128 to i64
-  %130 = getelementptr inbounds i16, ptr %72, i64 %129
+  %130 = getelementptr inbounds nuw i16, ptr %72, i64 %129
   %131 = load i16, ptr %130, align 2
   %.not29 = icmp eq i16 %131, 0
   br i1 %.not29, label %.loopexit, label %.lr.ph.split, !llvm.loop !4
@@ -578,7 +578,7 @@ declare noundef zeroext i1 @_ZNK4llvm19MachineRegisterInfo17isPhysRegModifiedENS
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZNK4llvm19TargetFrameLowering44allocateScavengingFrameIndexesNearIncomingSPERKNS_15MachineFunctionE(ptr noundef nonnull align 8 dereferenceable(21) %0, ptr noundef nonnull align 8 dereferenceable(1041) %1) unnamed_addr #3 align 2 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 200
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 200
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(21) %0, ptr noundef nonnull align 8 dereferenceable(1041) %1) #9
   br i1 %6, label %7, label %_ZNK4llvm18TargetRegisterInfo19hasStackRealignmentERKNS_15MachineFunctionE.exit
@@ -587,25 +587,25 @@ define dso_local noundef zeroext i1 @_ZNK4llvm19TargetFrameLowering44allocateSca
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 200
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 200
   %12 = load ptr, ptr %11, align 8
   %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(288) %9) #9
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 424
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 424
   %16 = load ptr, ptr %15, align 8
   %17 = tail call noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(308) %13, ptr noundef nonnull align 8 dereferenceable(1041) %1) #9
   br i1 %17, label %18, label %_ZNK4llvm18TargetRegisterInfo19hasStackRealignmentERKNS_15MachineFunctionE.exit
 
 18:                                               ; preds = %7
   %19 = load ptr, ptr %13, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 480
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 480
   %21 = load ptr, ptr %20, align 8
   %22 = tail call noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(308) %13, ptr noundef nonnull align 8 dereferenceable(1041) %1) #9
   br i1 %22, label %23, label %_ZNK4llvm18TargetRegisterInfo19hasStackRealignmentERKNS_15MachineFunctionE.exit
 
 23:                                               ; preds = %18
   %24 = load ptr, ptr %13, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 472
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 472
   %26 = load ptr, ptr %25, align 8
   %27 = tail call noundef zeroext i1 %26(ptr noundef nonnull align 8 dereferenceable(308) %13, ptr noundef nonnull align 8 dereferenceable(1041) %1) #9
   %28 = xor i1 %27, true
@@ -635,11 +635,11 @@ define dso_local { i32, i64 } @_ZNK4llvm19TargetFrameLowering17getDwarfFrameBase
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 200
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 200
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef ptr %7(ptr noundef nonnull align 8 dereferenceable(288) %4) #9
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 608
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 608
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i32 %11(ptr noundef nonnull align 8 dereferenceable(308) %8, ptr noundef nonnull align 8 dereferenceable(1041) %1) #9
   %.sroa.2.8.insert.ext = zext i32 %12 to i64
@@ -660,7 +660,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm19TargetFrameLowering25i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm19TargetFrameLowering27assignCalleeSavedSpillSlotsERNS_15MachineFunctionEPKNS_18TargetRegisterInfoERSt6vectorINS_15CalleeSavedInfoESaIS7_EERjSB_(ptr noundef nonnull align 8 dereferenceable(21) %0, ptr noundef nonnull align 8 dereferenceable(1041) %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 4 dereferenceable(4) %5) unnamed_addr #3 comdat align 2 {
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %9 = load ptr, ptr %8, align 8
   %10 = tail call noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(21) %0, ptr noundef nonnull align 8 dereferenceable(1041) %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(24) %3) #9
   ret i1 %10
@@ -747,7 +747,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm19TargetFrameLowering16k
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm19TargetFrameLowering20hasReservedCallFrameERKNS_15MachineFunctionE(ptr noundef nonnull align 8 dereferenceable(21) %0, ptr noundef nonnull align 8 dereferenceable(1041) %1) unnamed_addr #3 comdat align 2 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 200
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 200
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(21) %0, ptr noundef nonnull align 8 dereferenceable(1041) %1) #9
   %7 = xor i1 %6, true
@@ -757,14 +757,14 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm19TargetFrameLowering20h
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm19TargetFrameLowering27canSimplifyCallFramePseudosERKNS_15MachineFunctionE(ptr noundef nonnull align 8 dereferenceable(21) %0, ptr noundef nonnull align 8 dereferenceable(1041) %1) unnamed_addr #3 comdat align 2 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 208
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 208
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(21) %0, ptr noundef nonnull align 8 dereferenceable(1041) %1) #9
   br i1 %6, label %12, label %7
 
 7:                                                ; preds = %2
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 200
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 200
   %10 = load ptr, ptr %9, align 8
   %11 = tail call noundef zeroext i1 %10(ptr noundef nonnull align 8 dereferenceable(21) %0, ptr noundef nonnull align 8 dereferenceable(1041) %1) #9
   br label %12
@@ -777,7 +777,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm19TargetFrameLowering27c
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden { i64, i64 } @_ZNK4llvm19TargetFrameLowering30getFrameIndexReferencePreferSPERKNS_15MachineFunctionEiRNS_8RegisterEb(ptr noundef nonnull align 8 dereferenceable(21) %0, ptr noundef nonnull align 8 dereferenceable(1041) %1, i32 noundef %2, ptr noundef nonnull align 4 dereferenceable(4) %3, i1 noundef zeroext %4) unnamed_addr #3 comdat align 2 {
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 232
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 232
   %8 = load ptr, ptr %7, align 8
   %9 = tail call { i64, i64 } %8(ptr noundef nonnull align 8 dereferenceable(21) %0, ptr noundef nonnull align 8 dereferenceable(1041) %1, i32 noundef %2, ptr noundef nonnull align 4 dereferenceable(4) %3) #9
   ret { i64, i64 } %9
@@ -788,7 +788,7 @@ define linkonce_odr hidden { i64, i64 } @_ZNK4llvm19TargetFrameLowering30getNonL
   %4 = alloca %"class.llvm::Register", align 4
   store i32 0, ptr %4, align 4
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 232
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 232
   %7 = load ptr, ptr %6, align 8
   %8 = call { i64, i64 } %7(ptr noundef nonnull align 8 dereferenceable(21) %0, ptr noundef nonnull align 8 dereferenceable(1041) %1, i32 noundef %2, ptr noundef nonnull align 4 dereferenceable(4) %4) #9
   ret { i64, i64 } %8
@@ -879,7 +879,7 @@ define linkonce_odr hidden void @_ZN4llvm15SmallVectorImplImE6resizeEmm(ptr noun
   br i1 %.not.i.i.i, label %15, label %_ZN4llvm23SmallVectorTemplateBaseImLb1EE28reserveForParamAndGetAddressERmm.exit.i
 
 15:                                               ; preds = %10
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %16, i64 noundef %13, i64 noundef 8) #9
   br label %_ZN4llvm23SmallVectorTemplateBaseImLb1EE28reserveForParamAndGetAddressERmm.exit.i
 
@@ -897,7 +897,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE28reserveForParamAndGetAddressERmm.exit.
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %.lr.ph.i.i.i.i.i.i.i, %20
   %.06.i.i.i.i.i.i.i = phi ptr [ %23, %.lr.ph.i.i.i.i.i.i.i ], [ %21, %20 ]
   store i64 %2, ptr %.06.i.i.i.i.i.i.i, align 8
-  %23 = getelementptr inbounds i8, ptr %.06.i.i.i.i.i.i.i, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %23, %22
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN4llvm15SmallVectorImplImE6appendEmm.exit, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !6
 

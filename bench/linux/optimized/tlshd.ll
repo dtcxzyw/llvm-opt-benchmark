@@ -32,34 +32,34 @@ define dso_local i32 @tls_client_hello_anon(ptr nocapture noundef readonly %0, i
 
 5:                                                ; preds = %2
   %6 = tail call ptr @handshake_req_private(ptr noundef nonnull %3) #6
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load i32, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 20
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 20
   store i32 %8, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   store ptr %11, ptr %6, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %6, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %13, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %6, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr %16, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 36
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %19 = load i32, ptr %18, align 4
-  %20 = getelementptr inbounds i8, ptr %6, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store i32 %19, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %6, i64 52
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 52
   store i32 0, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %6, i64 44
+  %22 = getelementptr inbounds nuw i8, ptr %6, i64 44
   store i32 0, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %6, i64 48
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store i32 0, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %6, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 1, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %6, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i32 1, ptr %25, align 8
   %26 = load ptr, ptr %0, align 8
   %27 = tail call i32 @handshake_req_submit(ptr noundef %26, ptr noundef nonnull %3, i32 noundef %1) #6
@@ -90,39 +90,39 @@ define dso_local i32 @tls_client_hello_x509(ptr nocapture noundef readonly %0, i
 
 5:                                                ; preds = %2
   %6 = tail call ptr @handshake_req_private(ptr noundef nonnull %3) #6
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load i32, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 20
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 20
   store i32 %8, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   store ptr %11, ptr %6, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %6, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %13, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %6, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr %16, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 36
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %19 = load i32, ptr %18, align 4
-  %20 = getelementptr inbounds i8, ptr %6, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store i32 %19, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %6, i64 52
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 52
   store i32 0, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %6, i64 44
+  %22 = getelementptr inbounds nuw i8, ptr %6, i64 44
   store i32 0, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %6, i64 48
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store i32 0, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %6, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 1, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %6, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i32 3, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %27 = load i32, ptr %26, align 8
   store i32 %27, ptr %22, align 4
-  %28 = getelementptr inbounds i8, ptr %0, i64 44
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %29 = load i32, ptr %28, align 4
   store i32 %29, ptr %23, align 8
   %30 = load ptr, ptr %0, align 8
@@ -136,7 +136,7 @@ define dso_local i32 @tls_client_hello_x509(ptr nocapture noundef readonly %0, i
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @tls_client_hello_psk(ptr nocapture noundef readonly %0, i32 noundef %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i32, ptr %3, align 8
   %5 = add i32 %4, -6
   %6 = icmp ult i32 %5, -5
@@ -149,34 +149,34 @@ define dso_local i32 @tls_client_hello_psk(ptr nocapture noundef readonly %0, i3
 
 10:                                               ; preds = %7
   %11 = tail call ptr @handshake_req_private(ptr noundef nonnull %8) #6
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %13 = load i32, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %11, i64 20
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 20
   store i32 %13, ptr %14, align 4
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load ptr, ptr %15, align 8
   store ptr %16, ptr %11, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %11, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %18, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %11, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %11, i64 32
   store ptr %21, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 36
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %24 = load i32, ptr %23, align 4
-  %25 = getelementptr inbounds i8, ptr %11, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %11, i64 40
   store i32 %24, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %11, i64 52
+  %26 = getelementptr inbounds nuw i8, ptr %11, i64 52
   store i32 0, ptr %26, align 4
-  %27 = getelementptr inbounds i8, ptr %11, i64 44
+  %27 = getelementptr inbounds nuw i8, ptr %11, i64 44
   store i32 0, ptr %27, align 4
-  %28 = getelementptr inbounds i8, ptr %11, i64 48
+  %28 = getelementptr inbounds nuw i8, ptr %11, i64 48
   store i32 0, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %11, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i32 1, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %11, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store i32 2, ptr %30, align 8
   %31 = load i32, ptr %3, align 8
   store i32 %31, ptr %26, align 4
@@ -184,8 +184,8 @@ define dso_local i32 @tls_client_hello_psk(ptr nocapture noundef readonly %0, i3
   br i1 %32, label %.loopexit, label %33
 
 33:                                               ; preds = %10
-  %34 = getelementptr inbounds i8, ptr %0, i64 52
-  %35 = getelementptr inbounds i8, ptr %11, i64 56
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %35 = getelementptr inbounds nuw i8, ptr %11, i64 56
   br label %36
 
 36:                                               ; preds = %36, %33
@@ -218,39 +218,39 @@ define dso_local i32 @tls_server_hello_x509(ptr nocapture noundef readonly %0, i
 
 5:                                                ; preds = %2
   %6 = tail call ptr @handshake_req_private(ptr noundef nonnull %3) #6
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load i32, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 20
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 20
   store i32 %8, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   store ptr %11, ptr %6, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %6, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %13, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %6, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr %16, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 36
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %19 = load i32, ptr %18, align 4
-  %20 = getelementptr inbounds i8, ptr %6, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store i32 %19, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %6, i64 52
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 52
   store i32 0, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %6, i64 44
+  %22 = getelementptr inbounds nuw i8, ptr %6, i64 44
   store i32 0, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %6, i64 48
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store i32 0, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %6, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 2, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %6, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i32 3, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %27 = load i32, ptr %26, align 8
   store i32 %27, ptr %22, align 4
-  %28 = getelementptr inbounds i8, ptr %0, i64 44
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %29 = load i32, ptr %28, align 4
   store i32 %29, ptr %23, align 8
   %30 = load ptr, ptr %0, align 8
@@ -270,38 +270,38 @@ define dso_local i32 @tls_server_hello_psk(ptr nocapture noundef readonly %0, i3
 
 5:                                                ; preds = %2
   %6 = tail call ptr @handshake_req_private(ptr noundef nonnull %3) #6
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load i32, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 20
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 20
   store i32 %8, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   store ptr %11, ptr %6, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %6, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %13, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %6, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr %16, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 36
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %19 = load i32, ptr %18, align 4
-  %20 = getelementptr inbounds i8, ptr %6, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store i32 %19, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %6, i64 52
-  %22 = getelementptr inbounds i8, ptr %6, i64 44
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 52
+  %22 = getelementptr inbounds nuw i8, ptr %6, i64 44
   store i32 0, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %6, i64 48
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store i32 0, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %6, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 2, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %6, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i32 2, ptr %25, align 8
   store i32 1, ptr %21, align 4
-  %26 = getelementptr inbounds i8, ptr %0, i64 52
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %27 = load i32, ptr %26, align 4
-  %28 = getelementptr inbounds i8, ptr %6, i64 56
+  %28 = getelementptr inbounds nuw i8, ptr %6, i64 56
   store i32 %27, ptr %28, align 8
   %29 = load ptr, ptr %0, align 8
   %30 = tail call i32 @handshake_req_submit(ptr noundef %29, ptr noundef nonnull %3, i32 noundef %1) #6
@@ -323,15 +323,15 @@ declare dso_local zeroext i1 @handshake_req_cancel(ptr noundef) local_unnamed_ad
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @tls_handshake_close(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = tail call ptr @handshake_req_hash_lookup(ptr noundef %3) #6
   %5 = icmp eq ptr %4, null
   br i1 %5, label %13, label %6
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %4, i64 24
-  %8 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %7, i64 1, ptr elementtype(i64) %7) #6, !srcloc !8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %8 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %7, i64 1, ptr nonnull elementtype(i64) %7) #6, !srcloc !8
   %9 = icmp ult i8 %8, 2
   tail call void @llvm.assume(i1 %9)
   %10 = icmp eq i8 %8, 0
@@ -358,7 +358,7 @@ define internal range(i32 -2147483648, 1) i32 @tls_handshake_accept(ptr noundef 
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = tail call ptr @handshake_req_private(ptr noundef %0) #6
-  %9 = getelementptr inbounds i8, ptr %8, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %10 = load i32, ptr %9, align 8
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %.thread, label %12
@@ -428,7 +428,7 @@ define internal range(i32 -2147483648, 1) i32 @tls_handshake_accept(ptr noundef 
   br i1 %45, label %101, label %46
 
 46:                                               ; preds = %43
-  %47 = getelementptr inbounds i8, ptr %8, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %48 = load i32, ptr %47, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #6
   store i32 %48, ptr %6, align 4
@@ -438,7 +438,7 @@ define internal range(i32 -2147483648, 1) i32 @tls_handshake_accept(ptr noundef 
   br i1 %50, label %101, label %51
 
 51:                                               ; preds = %46
-  %52 = getelementptr inbounds i8, ptr %8, i64 32
+  %52 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %53 = load ptr, ptr %52, align 8
   %54 = icmp eq ptr %53, null
   br i1 %54, label %61, label %55
@@ -452,7 +452,7 @@ define internal range(i32 -2147483648, 1) i32 @tls_handshake_accept(ptr noundef 
   br i1 %60, label %101, label %61
 
 61:                                               ; preds = %55, %51
-  %62 = getelementptr inbounds i8, ptr %8, i64 20
+  %62 = getelementptr inbounds nuw i8, ptr %8, i64 20
   %63 = load i32, ptr %62, align 4
   %64 = icmp eq i32 %63, 0
   br i1 %64, label %68, label %65
@@ -466,7 +466,7 @@ define internal range(i32 -2147483648, 1) i32 @tls_handshake_accept(ptr noundef 
   br i1 %67, label %101, label %68
 
 68:                                               ; preds = %65, %61
-  %69 = getelementptr inbounds i8, ptr %8, i64 24
+  %69 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %70 = load i32, ptr %69, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #6
   store i32 %70, ptr %4, align 4
@@ -494,9 +494,9 @@ define internal range(i32 -2147483648, 1) i32 @tls_handshake_accept(ptr noundef 
 
 81:                                               ; preds = %78, %75, %73
   %82 = getelementptr i8, ptr %41, i64 -20
-  %83 = getelementptr inbounds i8, ptr %38, i64 192
+  %83 = getelementptr inbounds nuw i8, ptr %38, i64 192
   %84 = load ptr, ptr %83, align 8
-  %85 = getelementptr inbounds i8, ptr %38, i64 184
+  %85 = getelementptr inbounds nuw i8, ptr %38, i64 184
   %86 = load i32, ptr %85, align 8
   %87 = zext i32 %86 to i64
   %88 = getelementptr i8, ptr %84, i64 %87
@@ -505,11 +505,11 @@ define internal range(i32 -2147483648, 1) i32 @tls_handshake_accept(ptr noundef 
   %91 = sub i64 %89, %90
   %92 = trunc i64 %91 to i32
   store i32 %92, ptr %82, align 4
-  %93 = getelementptr inbounds i8, ptr %1, i64 40
+  %93 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %94 = load ptr, ptr %93, align 8
-  %95 = getelementptr inbounds i8, ptr %1, i64 4
+  %95 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %96 = load i32, ptr %95, align 4
-  %97 = getelementptr inbounds i8, ptr %94, i64 280
+  %97 = getelementptr inbounds nuw i8, ptr %94, i64 280
   %98 = load ptr, ptr %97, align 8
   %99 = call i32 @netlink_unicast(ptr noundef %98, ptr noundef nonnull %38, i32 noundef %96, i32 noundef 64) #6
   %100 = call i32 @llvm.smin.i32(i32 %99, i32 0)
@@ -522,7 +522,7 @@ define internal range(i32 -2147483648, 1) i32 @tls_handshake_accept(ptr noundef 
   br i1 %103, label %115, label %104
 
 104:                                              ; preds = %101
-  %105 = getelementptr inbounds i8, ptr %38, i64 200
+  %105 = getelementptr inbounds nuw i8, ptr %38, i64 200
   %106 = load ptr, ptr %105, align 8
   %107 = icmp ugt ptr %106, %102
   br i1 %107, label %108, label %109, !prof !10
@@ -551,13 +551,13 @@ define internal range(i32 -2147483648, 1) i32 @tls_handshake_accept(ptr noundef 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @tls_handshake_done(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2) #0 align 16 {
   %4 = tail call ptr @handshake_req_private(ptr noundef %0) #6
-  %5 = getelementptr inbounds i8, ptr %4, i64 56
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 56
   store i32 0, ptr %5, align 8
   %6 = icmp eq ptr %2, null
   br i1 %6, label %.critedge9, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %2, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr i8, ptr %9, i64 20
   %11 = load i32, ptr %9, align 4
@@ -577,7 +577,7 @@ define internal void @tls_handshake_done(ptr noundef %0, i32 noundef %1, ptr nou
   br i1 %or.cond, label %.critedge, label %20
 
 20:                                               ; preds = %.lr.ph
-  %21 = getelementptr inbounds i8, ptr %14, i64 2
+  %21 = getelementptr inbounds nuw i8, ptr %14, i64 2
   %22 = load i16, ptr %21, align 2
   %23 = and i16 %22, 16383
   %24 = icmp eq i16 %23, 3
@@ -598,7 +598,7 @@ define internal void @tls_handshake_done(ptr noundef %0, i32 noundef %1, ptr nou
 
 34:                                               ; preds = %.critedge
   %35 = tail call i32 @llvm.umin.i32(i32 %.lcssa, i32 5)
-  %36 = getelementptr inbounds i8, ptr %4, i64 52
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 52
   store i32 %35, ptr %36, align 4
   br label %.lr.ph13
 
@@ -614,7 +614,7 @@ define internal void @tls_handshake_done(ptr noundef %0, i32 noundef %1, ptr nou
   br i1 %or.cond10, label %.critedge9, label %43
 
 43:                                               ; preds = %.lr.ph13
-  %44 = getelementptr inbounds i8, ptr %37, i64 2
+  %44 = getelementptr inbounds nuw i8, ptr %37, i64 2
   %45 = load i16, ptr %44, align 2
   %46 = and i16 %45, 16383
   %47 = icmp eq i16 %46, 3
@@ -650,13 +650,13 @@ define internal void @tls_handshake_done(ptr noundef %0, i32 noundef %1, ptr nou
   br i1 %66, label %67, label %69
 
 67:                                               ; preds = %.critedge9
-  %68 = getelementptr inbounds i8, ptr %0, i64 24
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %68, i32 2, ptr elementtype(i8) %68) #6, !srcloc !16
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %68, i32 2, ptr nonnull elementtype(i8) %68) #6, !srcloc !16
   br label %69
 
 69:                                               ; preds = %67, %.critedge9
   %70 = load ptr, ptr %4, align 8
-  %71 = getelementptr inbounds i8, ptr %4, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %72 = load ptr, ptr %71, align 8
   %73 = sub i32 0, %1
   %74 = load i32, ptr %5, align 8
@@ -673,8 +673,8 @@ declare dso_local ptr @handshake_genl_put(ptr noundef, ptr noundef) local_unname
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc noundef range(i32 -90, 1) i32 @tls_handshake_put_peer_identity(ptr noundef nonnull %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 16 {
   %3 = alloca i32, align 4
-  %4 = getelementptr inbounds i8, ptr %1, i64 56
-  %5 = getelementptr inbounds i8, ptr %1, i64 52
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %6 = load i32, ptr %5, align 4
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %.loopexit, label %.preheader
@@ -706,21 +706,21 @@ define internal fastcc noundef range(i32 -90, 1) i32 @tls_handshake_put_peer_ide
 define internal fastcc noundef range(i32 -90, 1) i32 @tls_handshake_put_certificate(ptr noundef nonnull %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 16 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
-  %5 = getelementptr inbounds i8, ptr %1, i64 44
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %6 = load i32, ptr %5, align 4
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %1, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %10 = load i32, ptr %9, align 8
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %52, label %12
 
 12:                                               ; preds = %8, %2
-  %13 = getelementptr inbounds i8, ptr %0, i64 192
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 184
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %16 = load i32, ptr %15, align 8
   %17 = zext i32 %16 to i64
   %18 = getelementptr i8, ptr %14, i64 %17
@@ -740,7 +740,7 @@ define internal fastcc noundef range(i32 -90, 1) i32 @tls_handshake_put_certific
   br i1 %26, label %27, label %32
 
 27:                                               ; preds = %23
-  %28 = getelementptr inbounds i8, ptr %1, i64 48
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %29 = load i32, ptr %28, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #6
   store i32 %29, ptr %3, align 4
@@ -750,7 +750,7 @@ define internal fastcc noundef range(i32 -90, 1) i32 @tls_handshake_put_certific
   br i1 %31, label %43, label %32
 
 32:                                               ; preds = %27, %23
-  %33 = getelementptr inbounds i8, ptr %0, i64 200
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %34 = load ptr, ptr %33, align 8
   %35 = icmp ugt ptr %34, %18
   br i1 %35, label %36, label %37, !prof !10

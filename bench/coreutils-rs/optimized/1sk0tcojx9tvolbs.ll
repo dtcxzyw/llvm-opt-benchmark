@@ -40,48 +40,48 @@ define hidden void @_ZN7uu_echo13print_escaped17h826edcace459b5acE(ptr noalias n
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %29)
   %30 = getelementptr inbounds i8, ptr %1, i64 %2
   store ptr %1, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %29, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store ptr %30, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %29, i64 16
-  %33 = getelementptr inbounds i8, ptr %26, i64 8
-  %34 = getelementptr inbounds i8, ptr %27, i64 8
-  %35 = getelementptr inbounds i8, ptr %27, i64 32
-  %36 = getelementptr inbounds i8, ptr %27, i64 16
-  %37 = getelementptr inbounds i8, ptr %27, i64 24
-  %38 = getelementptr inbounds i8, ptr %16, i64 8
-  %39 = getelementptr inbounds i8, ptr %15, i64 8
-  %40 = getelementptr inbounds i8, ptr %23, i64 8
-  %41 = getelementptr inbounds i8, ptr %24, i64 8
-  %42 = getelementptr inbounds i8, ptr %24, i64 32
-  %43 = getelementptr inbounds i8, ptr %24, i64 16
-  %44 = getelementptr inbounds i8, ptr %24, i64 24
-  %45 = getelementptr inbounds i8, ptr %14, i64 8
-  %46 = getelementptr inbounds i8, ptr %13, i64 8
-  %47 = getelementptr inbounds i8, ptr %21, i64 8
-  %48 = getelementptr inbounds i8, ptr %21, i64 32
-  %49 = getelementptr inbounds i8, ptr %21, i64 16
-  %50 = getelementptr inbounds i8, ptr %21, i64 24
-  %51 = getelementptr inbounds i8, ptr %6, i64 8
-  %52 = getelementptr inbounds i8, ptr %5, i64 8
-  %53 = getelementptr inbounds i8, ptr %20, i64 8
-  %54 = getelementptr inbounds i8, ptr %20, i64 32
-  %55 = getelementptr inbounds i8, ptr %20, i64 16
-  %56 = getelementptr inbounds i8, ptr %20, i64 24
-  %57 = getelementptr inbounds i8, ptr %10, i64 8
-  %58 = getelementptr inbounds i8, ptr %9, i64 8
-  %59 = getelementptr inbounds i8, ptr %18, i64 8
-  %60 = getelementptr inbounds i8, ptr %19, i64 8
-  %61 = getelementptr inbounds i8, ptr %19, i64 32
-  %62 = getelementptr inbounds i8, ptr %19, i64 16
-  %63 = getelementptr inbounds i8, ptr %19, i64 24
-  %64 = getelementptr inbounds i8, ptr %8, i64 8
-  %65 = getelementptr inbounds i8, ptr %7, i64 8
-  %66 = getelementptr inbounds i8, ptr %17, i64 8
-  %67 = getelementptr inbounds i8, ptr %17, i64 32
-  %68 = getelementptr inbounds i8, ptr %17, i64 16
-  %69 = getelementptr inbounds i8, ptr %17, i64 24
-  %70 = getelementptr inbounds i8, ptr %12, i64 8
-  %71 = getelementptr inbounds i8, ptr %11, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %27, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %27, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %27, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %24, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %24, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %24, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %21, i64 32
+  %49 = getelementptr inbounds nuw i8, ptr %21, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %21, i64 24
+  %51 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %20, i64 32
+  %55 = getelementptr inbounds nuw i8, ptr %20, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %20, i64 24
+  %57 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %19, i64 32
+  %62 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %19, i64 24
+  %64 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %17, i64 32
+  %68 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %17, i64 24
+  %70 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %11, i64 8
   br label %72
 
 thread-pre-split:                                 ; preds = %302, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_fmt17h164b2d300dccc160E.exit111.thread", %192, %303
@@ -103,7 +103,7 @@ thread-pre-split:                                 ; preds = %302, %"_ZN3std2io5i
   br i1 %78, label %.thread, label %79
 
 79:                                               ; preds = %75
-  %80 = getelementptr inbounds i8, ptr %77, i64 1
+  %80 = getelementptr inbounds nuw i8, ptr %77, i64 1
   store ptr %80, ptr %29, align 8, !alias.scope !7
   %81 = load i8, ptr %77, align 1, !noalias !4, !noundef !10
   %82 = icmp sgt i8 %81, -1
@@ -114,7 +114,7 @@ thread-pre-split:                                 ; preds = %302, %"_ZN3std2io5i
   %84 = zext nneg i8 %83 to i32
   %85 = icmp ne ptr %80, %76
   call void @llvm.assume(i1 %85)
-  %86 = getelementptr inbounds i8, ptr %77, i64 2
+  %86 = getelementptr inbounds nuw i8, ptr %77, i64 2
   store ptr %86, ptr %29, align 8, !alias.scope !11
   %87 = load i8, ptr %80, align 1, !noalias !4, !noundef !10
   %88 = shl nuw nsw i32 %84, 6
@@ -131,7 +131,7 @@ thread-pre-split:                                 ; preds = %302, %"_ZN3std2io5i
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9b5763eb2ad3b950E.exit15.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9b5763eb2ad3b950E.exit13.i"
   %95 = icmp ne ptr %86, %76
   call void @llvm.assume(i1 %95)
-  %96 = getelementptr inbounds i8, ptr %77, i64 3
+  %96 = getelementptr inbounds nuw i8, ptr %77, i64 3
   store ptr %96, ptr %29, align 8, !alias.scope !14
   %97 = load i8, ptr %86, align 1, !noalias !4, !noundef !10
   %98 = shl nuw nsw i32 %90, 6
@@ -146,7 +146,7 @@ thread-pre-split:                                 ; preds = %302, %"_ZN3std2io5i
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9b5763eb2ad3b950E.exit17.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9b5763eb2ad3b950E.exit15.i"
   %105 = icmp ne ptr %96, %76
   call void @llvm.assume(i1 %105)
-  %106 = getelementptr inbounds i8, ptr %77, i64 4
+  %106 = getelementptr inbounds nuw i8, ptr %77, i64 4
   store ptr %106, ptr %29, align 8, !alias.scope !17
   %107 = load i8, ptr %96, align 1, !noalias !4, !noundef !10
   %108 = shl nuw nsw i32 %84, 18
@@ -171,7 +171,7 @@ _ZN4core3str11validations15next_code_point17h8b5abcbc5d7edfa9E.exit.thread.threa
   br i1 %115, label %117, label %159
 
 .thread:                                          ; preds = %75, %_ZN4core3str11validations15next_code_point17h8b5abcbc5d7edfa9E.exit.thread
-  %116 = getelementptr inbounds i8, ptr %0, i64 1
+  %116 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 0, ptr %116, align 1
   store i8 0, ptr %0, align 8
   br label %304
@@ -188,7 +188,7 @@ _ZN4core3str11validations15next_code_point17h8b5abcbc5d7edfa9E.exit.thread.threa
   br i1 %120, label %.thread143, label %121
 
 121:                                              ; preds = %117
-  %122 = getelementptr inbounds i8, ptr %119, i64 1
+  %122 = getelementptr inbounds nuw i8, ptr %119, i64 1
   store ptr %122, ptr %29, align 8, !alias.scope !34, !noalias !20
   %123 = load i8, ptr %119, align 1, !noalias !37, !noundef !10
   %124 = icmp sgt i8 %123, -1
@@ -199,7 +199,7 @@ _ZN4core3str11validations15next_code_point17h8b5abcbc5d7edfa9E.exit.thread.threa
   %126 = zext nneg i8 %125 to i32
   %127 = icmp ne ptr %122, %118
   call void @llvm.assume(i1 %127)
-  %128 = getelementptr inbounds i8, ptr %119, i64 2
+  %128 = getelementptr inbounds nuw i8, ptr %119, i64 2
   store ptr %128, ptr %29, align 8, !alias.scope !38, !noalias !20
   %129 = load i8, ptr %122, align 1, !noalias !37, !noundef !10
   %130 = shl nuw nsw i32 %126, 6
@@ -216,7 +216,7 @@ _ZN4core3str11validations15next_code_point17h8b5abcbc5d7edfa9E.exit.thread.threa
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9b5763eb2ad3b950E.exit15.i.i.i.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9b5763eb2ad3b950E.exit13.i.i.i.i"
   %137 = icmp ne ptr %128, %118
   call void @llvm.assume(i1 %137)
-  %138 = getelementptr inbounds i8, ptr %119, i64 3
+  %138 = getelementptr inbounds nuw i8, ptr %119, i64 3
   store ptr %138, ptr %29, align 8, !alias.scope !41, !noalias !20
   %139 = load i8, ptr %128, align 1, !noalias !37, !noundef !10
   %140 = shl nuw nsw i32 %132, 6
@@ -236,7 +236,7 @@ _ZN4core3str11validations15next_code_point17h8b5abcbc5d7edfa9E.exit.thread.threa
 "_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h77f28f8e4cbe858bE.exit": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9b5763eb2ad3b950E.exit15.i.i.i.i"
   %147 = icmp ne ptr %138, %118
   call void @llvm.assume(i1 %147)
-  %148 = getelementptr inbounds i8, ptr %119, i64 4
+  %148 = getelementptr inbounds nuw i8, ptr %119, i64 4
   store ptr %148, ptr %29, align 8, !alias.scope !44, !noalias !20
   %149 = load i8, ptr %138, align 1, !noalias !37, !noundef !10
   %150 = shl nuw nsw i32 %126, 18
@@ -283,7 +283,7 @@ select.unfold:                                    ; preds = %163
   %spec.select = select i1 %.not.i.i, ptr @anon.642ea48bf09cd07a66a4837d7004ef26.2.llvm.17840098253443372843, ptr %164
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16), !noalias !52
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %27)
-  %165 = getelementptr inbounds i8, ptr %0, i64 8
+  %165 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %spec.select, ptr %165, align 8
   store i8 1, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %26)
@@ -375,7 +375,7 @@ select.unfold144:                                 ; preds = %183
   %spec.select167 = select i1 %.not.i.i94, ptr @anon.642ea48bf09cd07a66a4837d7004ef26.2.llvm.17840098253443372843, ptr %184
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14), !noalias !79
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %24)
-  %185 = getelementptr inbounds i8, ptr %0, i64 8
+  %185 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %spec.select167, ptr %185, align 8
   store i8 1, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %23)
@@ -425,7 +425,7 @@ select.unfold144:                                 ; preds = %183
   br i1 %197, label %.thread150, label %198
 
 198:                                              ; preds = %194
-  %199 = getelementptr inbounds i8, ptr %196, i64 1
+  %199 = getelementptr inbounds nuw i8, ptr %196, i64 1
   store ptr %199, ptr %29, align 8, !alias.scope !102
   %200 = load i8, ptr %196, align 1, !noalias !99, !noundef !10
   %201 = icmp sgt i8 %200, -1
@@ -436,7 +436,7 @@ select.unfold144:                                 ; preds = %183
   %203 = zext nneg i8 %202 to i32
   %204 = icmp ne ptr %199, %195
   call void @llvm.assume(i1 %204)
-  %205 = getelementptr inbounds i8, ptr %196, i64 2
+  %205 = getelementptr inbounds nuw i8, ptr %196, i64 2
   store ptr %205, ptr %29, align 8, !alias.scope !105
   %206 = load i8, ptr %199, align 1, !noalias !99, !noundef !10
   %207 = shl nuw nsw i32 %203, 6
@@ -453,7 +453,7 @@ select.unfold144:                                 ; preds = %183
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9b5763eb2ad3b950E.exit15.i103": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9b5763eb2ad3b950E.exit13.i100"
   %214 = icmp ne ptr %205, %195
   call void @llvm.assume(i1 %214)
-  %215 = getelementptr inbounds i8, ptr %196, i64 3
+  %215 = getelementptr inbounds nuw i8, ptr %196, i64 3
   store ptr %215, ptr %29, align 8, !alias.scope !108
   %216 = load i8, ptr %205, align 1, !noalias !99, !noundef !10
   %217 = shl nuw nsw i32 %209, 6
@@ -468,7 +468,7 @@ select.unfold144:                                 ; preds = %183
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9b5763eb2ad3b950E.exit17.i104": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9b5763eb2ad3b950E.exit15.i103"
   %224 = icmp ne ptr %215, %195
   call void @llvm.assume(i1 %224)
-  %225 = getelementptr inbounds i8, ptr %196, i64 4
+  %225 = getelementptr inbounds nuw i8, ptr %196, i64 4
   store ptr %225, ptr %29, align 8, !alias.scope !111
   %226 = load i8, ptr %215, align 1, !noalias !99, !noundef !10
   %227 = shl nuw nsw i32 %203, 18
@@ -531,7 +531,7 @@ select.unfold153:                                 ; preds = %237
   %spec.select168 = select i1 %.not.i.i106, ptr @anon.642ea48bf09cd07a66a4837d7004ef26.2.llvm.17840098253443372843, ptr %238
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12), !noalias !114
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %17)
-  %239 = getelementptr inbounds i8, ptr %0, i64 8
+  %239 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %spec.select168, ptr %239, align 8
   store i8 1, ptr %0, align 8
   br label %193
@@ -593,7 +593,7 @@ select.unfold155:                                 ; preds = %250
   %spec.select169 = select i1 %.not.i.i112, ptr @anon.642ea48bf09cd07a66a4837d7004ef26.2.llvm.17840098253443372843, ptr %251
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10), !noalias !134
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %20)
-  %252 = getelementptr inbounds i8, ptr %0, i64 8
+  %252 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %spec.select169, ptr %252, align 8
   store i8 1, ptr %0, align 8
   br label %287
@@ -629,7 +629,7 @@ select.unfold155:                                 ; preds = %250
   br label %274
 
 261:                                              ; preds = %_ZN4core3str11validations15next_code_point17h8b5abcbc5d7edfa9E.exit105.thread.thread
-  %262 = getelementptr inbounds i8, ptr %0, i64 1
+  %262 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 1, ptr %262, align 1
   store i8 0, ptr %0, align 8
   br label %287
@@ -696,7 +696,7 @@ select.unfold157:                                 ; preds = %278
   %spec.select170 = select i1 %.not.i.i118, ptr @anon.642ea48bf09cd07a66a4837d7004ef26.2.llvm.17840098253443372843, ptr %279
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8), !noalias !159
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %19)
-  %280 = getelementptr inbounds i8, ptr %0, i64 8
+  %280 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %spec.select170, ptr %280, align 8
   store i8 1, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18)
@@ -758,7 +758,7 @@ select.unfold159:                                 ; preds = %292
   %spec.select171 = select i1 %.not.i.i124, ptr @anon.642ea48bf09cd07a66a4837d7004ef26.2.llvm.17840098253443372843, ptr %293
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !179
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %21)
-  %294 = getelementptr inbounds i8, ptr %0, i64 8
+  %294 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %spec.select171, ptr %294, align 8
   store i8 1, ptr %0, align 8
   br label %287

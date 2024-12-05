@@ -45,39 +45,39 @@ define dso_local void @gencontext_begin_module(ptr noundef %0) local_unnamed_add
   %3 = alloca [7 x ptr], align 16
   %4 = alloca [3 x ptr], align 16
   %5 = alloca [3 x ptr], align 16
-  %6 = getelementptr inbounds i8, ptr %0, i64 368
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 128
-  %9 = getelementptr inbounds i8, ptr %0, i64 144
-  %10 = getelementptr inbounds i8, ptr %0, i64 136
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 136
   tail call void @codegen_setup_object_names(ptr noundef %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10) #6
   %11 = load ptr, ptr getelementptr inbounds (i8, ptr @global_context, i64 352), align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 248
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 248
   store ptr %11, ptr %12, align 8
   %13 = load ptr, ptr getelementptr inbounds (i8, ptr @global_context, i64 360), align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 256
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 256
   store ptr %13, ptr %14, align 8
   %15 = load ptr, ptr %6, align 8
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %20 = load ptr, ptr %19, align 8
   %21 = tail call ptr @LLVMModuleCreateWithNameInContext(ptr noundef %18, ptr noundef %20) #6
-  %22 = getelementptr inbounds i8, ptr %0, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %21, ptr %22, align 8
   %23 = tail call ptr @llvm_target_machine_create() #6
-  %24 = getelementptr inbounds i8, ptr %0, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %23, ptr %24, align 8
   %25 = tail call ptr @LLVMCreateTargetDataLayout(ptr noundef %23) #6
-  %26 = getelementptr inbounds i8, ptr %0, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %25, ptr %26, align 8
   %27 = load ptr, ptr %22, align 8
   tail call void @LLVMSetModuleDataLayout(ptr noundef %27, ptr noundef %25) #6
   %28 = load ptr, ptr %22, align 8
   %29 = load ptr, ptr %6, align 8
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load ptr, ptr %31, align 8
   %33 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %32) #7
   tail call void @LLVMSetSourceFileName(ptr noundef %28, ptr noundef %32, i64 noundef %33) #6
@@ -133,10 +133,10 @@ define dso_local void @gencontext_begin_module(ptr noundef %0) local_unnamed_add
   %63 = load ptr, ptr %22, align 8
   %64 = load ptr, ptr @platform_target, align 8
   tail call void @LLVMSetTarget(ptr noundef %63, ptr noundef %64) #6
-  %65 = getelementptr inbounds i8, ptr %0, i64 288
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 288
   store i32 0, ptr %65, align 8
   %66 = tail call i32 (...) @target_alloca_addr_space() #6
-  %67 = getelementptr inbounds i8, ptr %0, i64 292
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 292
   store i32 %66, ptr %67, align 4
   %68 = load ptr, ptr getelementptr inbounds (i8, ptr @global_context, i64 40), align 8
   %.not = icmp eq ptr %68, null
@@ -155,9 +155,9 @@ define dso_local void @gencontext_begin_module(ptr noundef %0) local_unnamed_add
 .lr.ph106:                                        ; preds = %.lr.ph106.preheader, %91
   %indvars.iv110 = phi i64 [ 0, %.lr.ph106.preheader ], [ %indvars.iv.next111, %91 ]
   %72 = load ptr, ptr getelementptr inbounds (i8, ptr @global_context, i64 40), align 8
-  %73 = getelementptr inbounds ptr, ptr %72, i64 %indvars.iv110
+  %73 = getelementptr inbounds nuw ptr, ptr %72, i64 %indvars.iv110
   %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 32
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %75, i8 0, i64 24, i1 false)
   %76 = load i32, ptr %74, align 8
   switch i32 %76, label %91 [
@@ -169,9 +169,9 @@ define dso_local void @gencontext_begin_module(ptr noundef %0) local_unnamed_add
   ]
 
 77:                                               ; preds = %.lr.ph106, %.lr.ph106
-  %78 = getelementptr inbounds i8, ptr %74, i64 56
+  %78 = getelementptr inbounds nuw i8, ptr %74, i64 56
   %79 = load ptr, ptr %78, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 96
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 96
   %81 = load ptr, ptr %80, align 8
   %.not103 = icmp eq ptr %81, null
   br i1 %.not103, label %.loopexit, label %82
@@ -188,18 +188,18 @@ define dso_local void @gencontext_begin_module(ptr noundef %0) local_unnamed_add
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %85 = getelementptr inbounds ptr, ptr %81, i64 %indvars.iv
+  %85 = getelementptr inbounds nuw ptr, ptr %81, i64 %indvars.iv
   %86 = load ptr, ptr %85, align 8
-  %87 = getelementptr inbounds i8, ptr %86, i64 32
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 32
   store ptr null, ptr %87, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !7
 
 .loopexit:                                        ; preds = %.lr.ph, %77, %82, %.lr.ph106, %.lr.ph106, %.lr.ph106
-  %88 = getelementptr inbounds i8, ptr %74, i64 56
+  %88 = getelementptr inbounds nuw i8, ptr %74, i64 56
   %89 = load ptr, ptr %88, align 8
-  %90 = getelementptr inbounds i8, ptr %89, i64 32
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 32
   store ptr null, ptr %90, align 8
   br label %91
 
@@ -211,100 +211,100 @@ define dso_local void @gencontext_begin_module(ptr noundef %0) local_unnamed_add
 ._crit_edge:                                      ; preds = %91, %62, %69
   %92 = load ptr, ptr %19, align 8
   %93 = tail call ptr @LLVMInt1TypeInContext(ptr noundef %92) #6
-  %94 = getelementptr inbounds i8, ptr %0, i64 160
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store ptr %93, ptr %94, align 8
   %95 = load ptr, ptr %19, align 8
   %96 = tail call ptr @LLVMInt8TypeInContext(ptr noundef %95) #6
-  %97 = getelementptr inbounds i8, ptr %0, i64 168
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store ptr %96, ptr %97, align 8
   %98 = tail call ptr @LLVMPointerType(ptr noundef %96, i32 noundef 0) #6
-  %99 = getelementptr inbounds i8, ptr %0, i64 216
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 216
   store ptr %98, ptr %99, align 8
   %100 = load ptr, ptr @type_usz, align 8
   %101 = tail call ptr @llvm_get_type(ptr noundef %0, ptr noundef %100) #6
-  %102 = getelementptr inbounds i8, ptr %0, i64 192
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store ptr %101, ptr %102, align 8
   %103 = load ptr, ptr @type_typeid, align 8
   %104 = tail call ptr @llvm_get_type(ptr noundef %0, ptr noundef %103) #6
-  %105 = getelementptr inbounds i8, ptr %0, i64 200
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 200
   store ptr %104, ptr %105, align 8
   %106 = load ptr, ptr %99, align 8
   store ptr %106, ptr %4, align 16
-  %107 = getelementptr inbounds i8, ptr %4, i64 8
+  %107 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %106, ptr %107, align 8
-  %108 = getelementptr inbounds i8, ptr %4, i64 16
+  %108 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %106, ptr %108, align 16
   %109 = load ptr, ptr %19, align 8
   %110 = call ptr @LLVMStructTypeInContext(ptr noundef %109, ptr noundef nonnull %4, i32 noundef 3, i32 noundef 0) #6
-  %111 = getelementptr inbounds i8, ptr %0, i64 208
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 208
   store ptr %110, ptr %111, align 8
   %112 = load ptr, ptr @type_chars, align 8
   %113 = call ptr @llvm_get_type(ptr noundef %0, ptr noundef %112) #6
-  %114 = getelementptr inbounds i8, ptr %0, i64 224
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 224
   store ptr %113, ptr %114, align 8
   %115 = load ptr, ptr %19, align 8
   %116 = call ptr @LLVMInt32TypeInContext(ptr noundef %115) #6
   store ptr %116, ptr %5, align 16
-  %117 = getelementptr inbounds i8, ptr %5, i64 8
+  %117 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %118 = load ptr, ptr %99, align 8
   store ptr %118, ptr %117, align 8
-  %119 = getelementptr inbounds i8, ptr %5, i64 16
+  %119 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %118, ptr %119, align 16
   %120 = load ptr, ptr %19, align 8
   %121 = call ptr @LLVMStructTypeInContext(ptr noundef %120, ptr noundef nonnull %5, i32 noundef 3, i32 noundef 0) #6
-  %122 = getelementptr inbounds i8, ptr %0, i64 232
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 232
   store ptr %121, ptr %122, align 8
   %123 = load ptr, ptr %19, align 8
   %124 = call ptr @LLVMVoidTypeInContext(ptr noundef %123) #6
   %125 = call ptr @LLVMFunctionType(ptr noundef %124, ptr noundef null, i32 noundef 0, i32 noundef 0) #6
-  %126 = getelementptr inbounds i8, ptr %0, i64 240
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 240
   store ptr %125, ptr %126, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
   %127 = load ptr, ptr %19, align 8
   %128 = call ptr @LLVMStructCreateNamed(ptr noundef %127, ptr noundef nonnull @.str.9) #6
   %129 = load ptr, ptr %97, align 8
   store ptr %129, ptr %3, align 16
-  %130 = getelementptr inbounds i8, ptr %3, i64 8
+  %130 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %131 = load ptr, ptr %105, align 8
   store ptr %131, ptr %130, align 8
-  %132 = getelementptr inbounds i8, ptr %3, i64 16
+  %132 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %133 = load ptr, ptr %99, align 8
   store ptr %133, ptr %132, align 16
-  %134 = getelementptr inbounds i8, ptr %3, i64 24
+  %134 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %135 = load ptr, ptr %102, align 8
   store ptr %135, ptr %134, align 8
-  %136 = getelementptr inbounds i8, ptr %3, i64 32
+  %136 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr %131, ptr %136, align 16
-  %137 = getelementptr inbounds i8, ptr %3, i64 40
+  %137 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store ptr %135, ptr %137, align 8
-  %138 = getelementptr inbounds i8, ptr %3, i64 48
+  %138 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %139 = call ptr @LLVMArrayType(ptr noundef %131, i32 noundef 0) #6
   store ptr %139, ptr %138, align 16
   call void @LLVMStructSetBody(ptr noundef %128, ptr noundef nonnull %3, i32 noundef 7, i32 noundef 0) #6
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
-  %140 = getelementptr inbounds i8, ptr %0, i64 176
+  %140 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store ptr %128, ptr %140, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   %141 = load ptr, ptr %19, align 8
   %142 = call ptr @LLVMStructCreateNamed(ptr noundef %141, ptr noundef nonnull @.str.10) #6
   %143 = load ptr, ptr %105, align 8
   store ptr %143, ptr %2, align 16
-  %144 = getelementptr inbounds i8, ptr %2, i64 8
+  %144 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %145 = load ptr, ptr %114, align 8
   store ptr %145, ptr %144, align 8
-  %146 = getelementptr inbounds i8, ptr %2, i64 16
+  %146 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %147 = load ptr, ptr %102, align 8
   store ptr %147, ptr %146, align 16
   call void @LLVMStructSetBody(ptr noundef %142, ptr noundef nonnull %2, i32 noundef 3, i32 noundef 0) #6
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
-  %148 = getelementptr inbounds i8, ptr %0, i64 184
+  %148 = getelementptr inbounds nuw i8, ptr %0, i64 184
   store ptr %142, ptr %148, align 8
   %149 = load ptr, ptr %12, align 8
   %.not99 = icmp eq ptr %149, null
   br i1 %.not99, label %152, label %150
 
 150:                                              ; preds = %._crit_edge
-  %151 = getelementptr inbounds i8, ptr %149, i64 32
+  %151 = getelementptr inbounds nuw i8, ptr %149, i64 32
   store ptr null, ptr %151, align 8
   br label %152
 
@@ -314,7 +314,7 @@ define dso_local void @gencontext_begin_module(ptr noundef %0) local_unnamed_add
   br i1 %.not100, label %156, label %154
 
 154:                                              ; preds = %152
-  %155 = getelementptr inbounds i8, ptr %153, i64 32
+  %155 = getelementptr inbounds nuw i8, ptr %153, i64 32
   store ptr null, ptr %155, align 8
   br label %156
 
@@ -382,13 +382,13 @@ define dso_local void @gencontext_begin_module(ptr noundef %0) local_unnamed_add
   %202 = call ptr @LLVMValueAsMetadata(ptr noundef %201) #6
   %203 = load ptr, ptr %22, align 8
   call void @LLVMAddModuleFlag(ptr noundef %203, i32 noundef 0, ptr noundef nonnull @.str.6, i64 noundef 7, ptr noundef %202) #6
-  %204 = getelementptr inbounds i8, ptr %0, i64 296
+  %204 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %205 = load i16, ptr %204, align 8
   %206 = and i16 %205, -256
   store i16 %206, ptr %204, align 8
   %207 = load ptr, ptr %22, align 8
   %208 = call ptr @LLVMCreateDIBuilder(ptr noundef %207) #6
-  %209 = getelementptr inbounds i8, ptr %0, i64 304
+  %209 = getelementptr inbounds nuw i8, ptr %0, i64 304
   store ptr %208, ptr %209, align 8
   %210 = load i32, ptr getelementptr inbounds (i8, ptr @active_target, i64 216), align 8
   %211 = icmp ne i32 %210, 2
@@ -409,9 +409,9 @@ define dso_local void @gencontext_begin_module(ptr noundef %0) local_unnamed_add
 
 220:                                              ; preds = %192, %213, %156
   %221 = call ptr @LLVMCreateBuilder() #6
-  %222 = getelementptr inbounds i8, ptr %0, i64 16
+  %222 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %221, ptr %222, align 8
-  %223 = getelementptr inbounds i8, ptr %0, i64 64
+  %223 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %221, ptr %223, align 8
   ret void
 }
@@ -464,13 +464,13 @@ define dso_local void @gencontext_init_file_emit(ptr noundef %0, ptr nocapture n
   br i1 %.not, label %23, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load i16, ptr %6, align 8
   %8 = tail call ptr @llvm_get_debug_file(ptr noundef %0, i16 noundef zeroext %7) #6
-  %9 = getelementptr inbounds i8, ptr %1, i64 240
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 240
   store ptr %8, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 336
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %11 = load ptr, ptr %10, align 8
   %.not22 = icmp eq ptr %11, null
   br i1 %.not22, label %12, label %.sink.split
@@ -481,7 +481,7 @@ define dso_local void @gencontext_init_file_emit(ptr noundef %0, ptr nocapture n
   %15 = select i1 %14, i32 1, i32 2
   %16 = load i32, ptr getelementptr inbounds (i8, ptr @active_target, i64 184), align 8
   %17 = icmp ne i32 %16, 0
-  %18 = getelementptr inbounds i8, ptr %0, i64 304
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %19 = load ptr, ptr %18, align 8
   %20 = zext i1 %17 to i32
   %21 = tail call ptr @LLVMDIBuilderCreateCompileUnit(ptr noundef %19, i32 noundef 28, ptr noundef %8, ptr noundef nonnull @.str.8, i64 noundef 3, i32 noundef %20, ptr noundef nonnull @.str.7, i64 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.7, i64 noundef 0, i32 noundef %15, i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.7, i64 noundef 0, ptr noundef nonnull @.str.7, i64 noundef 0) #6
@@ -489,7 +489,7 @@ define dso_local void @gencontext_init_file_emit(ptr noundef %0, ptr nocapture n
 
 .sink.split:                                      ; preds = %4, %12
   %.sink = phi ptr [ %21, %12 ], [ %11, %4 ]
-  %22 = getelementptr inbounds i8, ptr %1, i64 248
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 248
   store ptr %.sink, ptr %22, align 8
   br label %23
 
@@ -508,7 +508,7 @@ define dso_local void @gencontext_end_file_emit(ptr nocapture noundef readnone %
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @gencontext_end_module(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   tail call void @LLVMDisposeModule(ptr noundef %3) #6
   ret void

@@ -37,15 +37,15 @@ define ptr @grpc_slice_to_c_string(ptr nocapture noundef readonly byval(%struct.
 entry:
   %0 = load ptr, ptr %slice, align 8
   %tobool.not = icmp eq ptr %0, null
-  %data = getelementptr inbounds i8, ptr %slice, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %slice, i64 8
   %1 = load i64, ptr %data, align 8
   %conv = and i64 %1, 255
   %cond = select i1 %tobool.not, i64 %conv, i64 %1
   %add = add i64 %cond, 1
   %call = tail call ptr @gpr_malloc(i64 noundef %add)
-  %bytes = getelementptr inbounds i8, ptr %slice, i64 16
+  %bytes = getelementptr inbounds nuw i8, ptr %slice, i64 16
   %2 = load ptr, ptr %bytes, align 8
-  %bytes9 = getelementptr inbounds i8, ptr %slice, i64 9
+  %bytes9 = getelementptr inbounds nuw i8, ptr %slice, i64 9
   %cond11 = select i1 %tobool.not, ptr %bytes9, ptr %2
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call, ptr align 1 %cond11, i64 %cond, i1 false)
   %arrayidx = getelementptr inbounds i8, ptr %call, i64 %cond
@@ -70,7 +70,7 @@ define void @grpc_slice_copy(ptr noalias nocapture sret(%struct.grpc_slice) alig
 entry:
   %0 = load ptr, ptr %s, align 8
   %tobool.not = icmp eq ptr %0, null
-  %data = getelementptr inbounds i8, ptr %s, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %s, i64 8
   %1 = load i64, ptr %data, align 8
   %conv = and i64 %1, 255
   %cond = select i1 %tobool.not, i64 %conv, i64 %1
@@ -80,9 +80,9 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %conv.i = trunc nuw nsw i64 %cond to i8
-  %data.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %data.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i8 %conv.i, ptr %data.i, align 8, !alias.scope !7
-  %bytes.phi.trans.insert = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %bytes.phi.trans.insert = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   %.pre = load ptr, ptr %bytes.phi.trans.insert, align 8
   br label %grpc_slice_malloc.exit
 
@@ -91,11 +91,11 @@ if.else.i:                                        ; preds = %entry
   %add.i.i = add i64 %cond, 16
   %call.i.i = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %add.i.i) #23, !noalias !13
   store i64 1, ptr %call.i.i, align 8, !noalias !13
-  %destroyer_fn_.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
+  %destroyer_fn_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 8
   store ptr @"_ZZ23grpc_slice_malloc_largeEN3$_08__invokeEP19grpc_slice_refcount", ptr %destroyer_fn_.i.i.i, align 8, !noalias !13
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
-  %data.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %bytes.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 16
+  %data.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
+  %bytes.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr %add.ptr.i.i, ptr %bytes.i.i, align 8, !alias.scope !13
   store i64 %cond, ptr %data.i.i, align 8, !alias.scope !13
   br label %grpc_slice_malloc.exit
@@ -105,11 +105,11 @@ grpc_slice_malloc.exit:                           ; preds = %if.then.i, %if.else
   %call.i.sink.i = phi ptr [ null, %if.then.i ], [ %call.i.i, %if.else.i ]
   store ptr %call.i.sink.i, ptr %agg.result, align 8, !alias.scope !7
   %tobool4.not = icmp eq ptr %call.i.sink.i, null
-  %bytes9 = getelementptr inbounds i8, ptr %agg.result, i64 9
+  %bytes9 = getelementptr inbounds nuw i8, ptr %agg.result, i64 9
   %cond11 = select i1 %tobool4.not, ptr %bytes9, ptr %2
-  %bytes16 = getelementptr inbounds i8, ptr %s, i64 16
+  %bytes16 = getelementptr inbounds nuw i8, ptr %s, i64 16
   %3 = load ptr, ptr %bytes16, align 8
-  %bytes19 = getelementptr inbounds i8, ptr %s, i64 9
+  %bytes19 = getelementptr inbounds nuw i8, ptr %s, i64 9
   %cond22 = select i1 %tobool.not, ptr %bytes19, ptr %3
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %cond11, ptr align 1 %cond22, i64 %cond, i1 false)
   ret void
@@ -123,7 +123,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %conv = trunc nuw nsw i64 %length to i8
-  %data = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i8 %conv, ptr %data, align 8
   br label %return
 
@@ -132,11 +132,11 @@ if.else:                                          ; preds = %entry
   %add.i = add i64 %length, 16
   %call.i = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %add.i) #23, !noalias !14
   store i64 1, ptr %call.i, align 8, !noalias !14
-  %destroyer_fn_.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
+  %destroyer_fn_.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   store ptr @"_ZZ23grpc_slice_malloc_largeEN3$_08__invokeEP19grpc_slice_refcount", ptr %destroyer_fn_.i.i, align 8, !noalias !14
-  %add.ptr.i = getelementptr inbounds i8, ptr %call.i, i64 16
-  %data.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %bytes.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
+  %data.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
+  %bytes.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr %add.ptr.i, ptr %bytes.i, align 8, !alias.scope !14
   store i64 %length, ptr %data.i, align 8, !alias.scope !14
   br label %return
@@ -152,7 +152,7 @@ define noundef i64 @_Z23grpc_slice_memory_usage10grpc_slice(ptr nocapture nounde
 entry:
   %0 = load ptr, ptr %s, align 8
   %switch = icmp ult ptr %0, inttoptr (i64 2 to ptr)
-  %data = getelementptr inbounds i8, ptr %s, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %s, i64 8
   %1 = load i64, ptr %data, align 8
   %retval.0 = select i1 %switch, i64 0, i64 %1
   ret i64 %retval.0
@@ -162,11 +162,11 @@ entry:
 define void @grpc_slice_from_static_buffer(ptr noalias nocapture writeonly sret(%struct.grpc_slice) align 8 initializes((0, 32)) %agg.result, ptr noundef %s, i64 noundef %len) local_unnamed_addr #3 {
 entry:
   store ptr inttoptr (i64 1 to ptr), ptr %agg.result, align 8
-  %ref.tmp.sroa.3.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %ref.tmp.sroa.3.0.agg.result.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i64 %len, ptr %ref.tmp.sroa.3.0.agg.result.sroa_idx, align 8
-  %ref.tmp.sroa.4.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %ref.tmp.sroa.4.0.agg.result.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr %s, ptr %ref.tmp.sroa.4.0.agg.result.sroa_idx, align 8
-  %ref.tmp.sroa.5.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %ref.tmp.sroa.5.0.agg.result.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store i64 0, ptr %ref.tmp.sroa.5.0.agg.result.sroa_idx, align 8
   ret void
 }
@@ -176,11 +176,11 @@ define void @grpc_slice_from_static_string(ptr noalias nocapture writeonly sret(
 entry:
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %s) #24, !noalias !17
   store ptr inttoptr (i64 1 to ptr), ptr %agg.result, align 8
-  %ref.tmp.sroa.3.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %ref.tmp.sroa.3.0.agg.result.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i64 %call.i, ptr %ref.tmp.sroa.3.0.agg.result.sroa_idx, align 8
-  %ref.tmp.sroa.4.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %ref.tmp.sroa.4.0.agg.result.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr %s, ptr %ref.tmp.sroa.4.0.agg.result.sroa_idx, align 8
-  %ref.tmp.sroa.5.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %ref.tmp.sroa.5.0.agg.result.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store i64 0, ptr %ref.tmp.sroa.5.0.agg.result.sroa_idx, align 8
   ret void
 }
@@ -190,15 +190,15 @@ define void @grpc_slice_new_with_user_data(ptr noalias nocapture writeonly sret(
 invoke.cont:
   %call = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
   store i64 1, ptr %call, align 8
-  %destroyer_fn_.i.i = getelementptr inbounds i8, ptr %call, i64 8
+  %destroyer_fn_.i.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   store ptr @_ZN9grpc_core16NewSliceRefcount7DestroyEP19grpc_slice_refcount, ptr %destroyer_fn_.i.i, align 8
-  %user_destroy_.i = getelementptr inbounds i8, ptr %call, i64 16
+  %user_destroy_.i = getelementptr inbounds nuw i8, ptr %call, i64 16
   store ptr %destroy, ptr %user_destroy_.i, align 8
-  %user_data_.i = getelementptr inbounds i8, ptr %call, i64 24
+  %user_data_.i = getelementptr inbounds nuw i8, ptr %call, i64 24
   store ptr %user_data, ptr %user_data_.i, align 8
   store ptr %call, ptr %agg.result, align 8
-  %data = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %bytes = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %data = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
+  %bytes = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr %p, ptr %bytes, align 8
   store i64 %len, ptr %data, align 8
   ret void
@@ -218,15 +218,15 @@ entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !20)
   %call.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23, !noalias !20
   store i64 1, ptr %call.i, align 8, !noalias !20
-  %destroyer_fn_.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
+  %destroyer_fn_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   store ptr @_ZN9grpc_core16NewSliceRefcount7DestroyEP19grpc_slice_refcount, ptr %destroyer_fn_.i.i.i, align 8, !noalias !20
-  %user_destroy_.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
+  %user_destroy_.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
   store ptr %destroy, ptr %user_destroy_.i.i, align 8, !noalias !20
-  %user_data_.i.i = getelementptr inbounds i8, ptr %call.i, i64 24
+  %user_data_.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 24
   store ptr %p, ptr %user_data_.i.i, align 8, !noalias !20
   store ptr %call.i, ptr %agg.result, align 8, !alias.scope !20
-  %data.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %bytes.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %data.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
+  %bytes.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr %p, ptr %bytes.i, align 8, !alias.scope !20
   store i64 %len, ptr %data.i, align 8, !alias.scope !20
   ret void
@@ -237,17 +237,17 @@ define void @grpc_slice_new_with_len(ptr noalias nocapture writeonly sret(%struc
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #23
   store i64 1, ptr %call, align 8
-  %destroyer_fn_.i.i = getelementptr inbounds i8, ptr %call, i64 8
+  %destroyer_fn_.i.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   store ptr @_ZN9grpc_core23NewWithLenSliceRefcount7DestroyEP19grpc_slice_refcount, ptr %destroyer_fn_.i.i, align 8
-  %user_data_.i = getelementptr inbounds i8, ptr %call, i64 16
+  %user_data_.i = getelementptr inbounds nuw i8, ptr %call, i64 16
   store ptr %p, ptr %user_data_.i, align 8
-  %user_length_.i = getelementptr inbounds i8, ptr %call, i64 24
+  %user_length_.i = getelementptr inbounds nuw i8, ptr %call, i64 24
   store i64 %len, ptr %user_length_.i, align 8
-  %user_destroy_.i = getelementptr inbounds i8, ptr %call, i64 32
+  %user_destroy_.i = getelementptr inbounds nuw i8, ptr %call, i64 32
   store ptr %destroy, ptr %user_destroy_.i, align 8
   store ptr %call, ptr %agg.result, align 8
-  %data = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %bytes = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %data = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
+  %bytes = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr %p, ptr %bytes, align 8
   store i64 %len, ptr %data, align 8
   ret void
@@ -270,9 +270,9 @@ if.end:                                           ; preds = %entry
 
 if.then.i:                                        ; preds = %if.end
   %conv.i = trunc nuw nsw i64 %len to i8
-  %data.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %data.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i8 %conv.i, ptr %data.i, align 8, !alias.scope !28
-  %bytes.phi.trans.insert = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %bytes.phi.trans.insert = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   %.pre = load ptr, ptr %bytes.phi.trans.insert, align 8
   br label %grpc_slice_malloc.exit
 
@@ -281,11 +281,11 @@ if.else.i:                                        ; preds = %if.end
   %add.i.i = add i64 %len, 16
   %call.i.i = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %add.i.i) #23, !noalias !34
   store i64 1, ptr %call.i.i, align 8, !noalias !34
-  %destroyer_fn_.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
+  %destroyer_fn_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 8
   store ptr @"_ZZ23grpc_slice_malloc_largeEN3$_08__invokeEP19grpc_slice_refcount", ptr %destroyer_fn_.i.i.i, align 8, !noalias !34
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
-  %data.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %bytes.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 16
+  %data.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
+  %bytes.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr %add.ptr.i.i, ptr %bytes.i.i, align 8, !alias.scope !34
   store i64 %len, ptr %data.i.i, align 8, !alias.scope !34
   br label %grpc_slice_malloc.exit
@@ -295,7 +295,7 @@ grpc_slice_malloc.exit:                           ; preds = %if.then.i, %if.else
   %call.i.sink.i = phi ptr [ null, %if.then.i ], [ %call.i.i, %if.else.i ]
   store ptr %call.i.sink.i, ptr %agg.result, align 8, !alias.scope !28
   %tobool.not = icmp eq ptr %call.i.sink.i, null
-  %bytes2 = getelementptr inbounds i8, ptr %agg.result, i64 9
+  %bytes2 = getelementptr inbounds nuw i8, ptr %agg.result, i64 9
   %cond = select i1 %tobool.not, ptr %bytes2, ptr %0
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %cond, ptr align 1 %source, i64 %len, i1 false)
   br label %return
@@ -323,9 +323,9 @@ if.end.i:                                         ; preds = %entry
 
 if.then.i.i:                                      ; preds = %if.end.i
   %conv.i.i = trunc nuw nsw i64 %call to i8
-  %data.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %data.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i8 %conv.i.i, ptr %data.i.i, align 8, !alias.scope !46
-  %bytes.phi.trans.insert.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %bytes.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   %.pre.i = load ptr, ptr %bytes.phi.trans.insert.i, align 8, !alias.scope !35
   br label %grpc_slice_malloc.exit.i
 
@@ -334,11 +334,11 @@ if.else.i.i:                                      ; preds = %if.end.i
   %add.i.i.i = add i64 %call, 16
   %call.i.i.i = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %add.i.i.i) #23, !noalias !50
   store i64 1, ptr %call.i.i.i, align 8, !noalias !50
-  %destroyer_fn_.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
+  %destroyer_fn_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 8
   store ptr @"_ZZ23grpc_slice_malloc_largeEN3$_08__invokeEP19grpc_slice_refcount", ptr %destroyer_fn_.i.i.i.i, align 8, !noalias !50
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 16
-  %data.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %bytes.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 16
+  %data.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
+  %bytes.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr %add.ptr.i.i.i, ptr %bytes.i.i.i, align 8, !alias.scope !50
   store i64 %call, ptr %data.i.i.i, align 8, !alias.scope !50
   br label %grpc_slice_malloc.exit.i
@@ -348,7 +348,7 @@ grpc_slice_malloc.exit.i:                         ; preds = %if.else.i.i, %if.th
   %call.i.sink.i.i = phi ptr [ null, %if.then.i.i ], [ %call.i.i.i, %if.else.i.i ]
   store ptr %call.i.sink.i.i, ptr %agg.result, align 8, !alias.scope !46
   %tobool.not.i = icmp eq ptr %call.i.sink.i.i, null
-  %bytes2.i = getelementptr inbounds i8, ptr %agg.result, i64 9
+  %bytes2.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 9
   %cond.i = select i1 %tobool.not.i, ptr %bytes2.i, ptr %0
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %cond.i, ptr readonly align 1 %source, i64 %call, i1 false)
   br label %grpc_slice_from_copied_buffer.exit
@@ -369,9 +369,9 @@ entry:
 
 if.then:                                          ; preds = %entry
   %conv = trunc nuw nsw i64 %len to i8
-  %data = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i8 %conv, ptr %data, align 8
-  %bytes4 = getelementptr inbounds i8, ptr %agg.result, i64 9
+  %bytes4 = getelementptr inbounds nuw i8, ptr %agg.result, i64 9
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %bytes4, ptr align 1 %0, i64 %len, i1 false)
   br label %if.end
 
@@ -379,13 +379,13 @@ if.else:                                          ; preds = %entry
   %1 = ptrtoint ptr %0 to i64
   %call5 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
   store i64 1, ptr %call5, align 8
-  %destroyer_fn_.i.i = getelementptr inbounds i8, ptr %call5, i64 8
+  %destroyer_fn_.i.i = getelementptr inbounds nuw i8, ptr %call5, i64 8
   store ptr @_ZN9grpc_core24MovedStringSliceRefCount7DestroyEP19grpc_slice_refcount, ptr %destroyer_fn_.i.i, align 8
-  %str_.i = getelementptr inbounds i8, ptr %call5, i64 16
+  %str_.i = getelementptr inbounds nuw i8, ptr %call5, i64 16
   store i64 %1, ptr %str_.i, align 8
   store ptr null, ptr %p, align 8
-  %data7 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %bytes8 = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %data7 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
+  %bytes8 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr %0, ptr %bytes8, align 8
   store i64 %len, ptr %data7, align 8
   br label %if.end
@@ -415,12 +415,12 @@ if.else.i:                                        ; preds = %entry
 
 invoke.cont.thread:                               ; preds = %if.else.i
   store i64 1, ptr %call5.i1, align 8, !noalias !51
-  %destroyer_fn_.i.i.i = getelementptr inbounds i8, ptr %call5.i1, i64 8
+  %destroyer_fn_.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i1, i64 8
   store ptr @_ZN9grpc_core24MovedStringSliceRefCount7DestroyEP19grpc_slice_refcount, ptr %destroyer_fn_.i.i.i, align 8, !noalias !51
-  %str_.i.i = getelementptr inbounds i8, ptr %call5.i1, i64 16
+  %str_.i.i = getelementptr inbounds nuw i8, ptr %call5.i1, i64 16
   store i64 %.cast, ptr %str_.i.i, align 8, !noalias !51
-  %data7.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %bytes8.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %data7.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
+  %bytes8.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr %0, ptr %bytes8.i, align 8, !alias.scope !51
   store i64 %call1, ptr %data7.i, align 8, !alias.scope !51
   store ptr %call5.i1, ptr %agg.result, align 8, !alias.scope !51
@@ -428,9 +428,9 @@ invoke.cont.thread:                               ; preds = %if.else.i
 
 invoke.cont:                                      ; preds = %entry
   %conv.i = trunc nuw nsw i64 %call1 to i8
-  %data.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %data.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i8 %conv.i, ptr %data.i, align 8, !alias.scope !51
-  %bytes4.i = getelementptr inbounds i8, ptr %agg.result, i64 9
+  %bytes4.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 9
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %bytes4.i, ptr align 1 %0, i64 %call1, i1 false)
   store ptr null, ptr %agg.result, align 8, !alias.scope !51
   %cmp.not.i = icmp eq ptr %0, null
@@ -490,9 +490,9 @@ entry:
 if.then:                                          ; preds = %entry
   %call1 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %str) #26
   %conv = trunc i64 %call1 to i8
-  %data = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i8 %conv, ptr %data, align 8
-  %bytes5 = getelementptr inbounds i8, ptr %agg.result, i64 9
+  %bytes5 = getelementptr inbounds nuw i8, ptr %agg.result, i64 9
   %call6 = tail call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %str) #26
   %call7 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %str) #26
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %bytes5, ptr align 1 %call6, i64 %call7, i1 false)
@@ -501,13 +501,13 @@ if.then:                                          ; preds = %entry
 if.else:                                          ; preds = %entry
   %call9 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #23
   store i64 1, ptr %call9, align 8
-  %destroyer_fn_.i.i = getelementptr inbounds i8, ptr %call9, i64 8
+  %destroyer_fn_.i.i = getelementptr inbounds nuw i8, ptr %call9, i64 8
   store ptr @_ZN9grpc_core27MovedCppStringSliceRefCount7DestroyEP19grpc_slice_refcount, ptr %destroyer_fn_.i.i, align 8
-  %str_.i = getelementptr inbounds i8, ptr %call9, i64 16
+  %str_.i = getelementptr inbounds nuw i8, ptr %call9, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %str_.i, ptr noundef nonnull align 8 dereferenceable(32) %str) #26
   %call.i = tail call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %str_.i) #26
-  %data11 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %bytes12 = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %data11 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
+  %bytes12 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr %call.i, ptr %bytes12, align 8
   %call.i5 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %str_.i) #26
   store i64 %call.i5, ptr %data11, align 8
@@ -531,12 +531,12 @@ entry:
   %add = add i64 %length, 16
   %call = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %add) #23
   store i64 1, ptr %call, align 8
-  %destroyer_fn_.i = getelementptr inbounds i8, ptr %call, i64 8
+  %destroyer_fn_.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   store ptr @"_ZZ23grpc_slice_malloc_largeEN3$_08__invokeEP19grpc_slice_refcount", ptr %destroyer_fn_.i, align 8
   store ptr %call, ptr %agg.result, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %call, i64 16
-  %data = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %bytes = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %add.ptr = getelementptr inbounds nuw i8, ptr %call, i64 16
+  %data = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
+  %bytes = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr %add.ptr, ptr %bytes, align 8
   store i64 %length, ptr %data, align 8
   ret void
@@ -559,7 +559,7 @@ if.then.i:                                        ; preds = %entry
 do.end.i:                                         ; preds = %entry
   %0 = load ptr, ptr %source, align 8, !noalias !54
   %cmp1.not.i = icmp eq ptr %0, null
-  %data17.i = getelementptr inbounds i8, ptr %source, i64 8
+  %data17.i = getelementptr inbounds nuw i8, ptr %source, i64 8
   br i1 %cmp1.not.i, label %do.body16.i, label %do.body3.i
 
 do.body3.i:                                       ; preds = %do.end.i
@@ -573,11 +573,11 @@ if.then6.i:                                       ; preds = %do.body3.i
 
 do.end8.i:                                        ; preds = %do.body3.i
   store ptr %0, ptr %agg.result, align 8, !alias.scope !54
-  %bytes.i = getelementptr inbounds i8, ptr %source, i64 16
+  %bytes.i = getelementptr inbounds nuw i8, ptr %source, i64 16
   %2 = load ptr, ptr %bytes.i, align 8, !noalias !54
   %add.ptr.i = getelementptr inbounds i8, ptr %2, i64 %begin
-  %data12.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %bytes13.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %data12.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
+  %bytes13.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr %add.ptr.i, ptr %bytes13.i, align 8, !alias.scope !54
   %sub.i = sub i64 %end, %begin
   store i64 %sub.i, ptr %data12.i, align 8, !alias.scope !54
@@ -597,10 +597,10 @@ do.end24.i:                                       ; preds = %do.body16.i
   store ptr null, ptr %agg.result, align 8, !alias.scope !54
   %sub26.i = sub i64 %end, %begin
   %conv27.i = trunc i64 %sub26.i to i8
-  %data28.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %data28.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i8 %conv27.i, ptr %data28.i, align 8, !alias.scope !54
-  %bytes31.i = getelementptr inbounds i8, ptr %agg.result, i64 9
-  %bytes33.i = getelementptr inbounds i8, ptr %source, i64 9
+  %bytes31.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 9
+  %bytes33.i = getelementptr inbounds nuw i8, ptr %source, i64 9
   %add.ptr35.i = getelementptr inbounds i8, ptr %bytes33.i, i64 %begin
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %bytes31.i, ptr nonnull readonly align 1 %add.ptr35.i, i64 %sub26.i, i1 false)
   br label %_ZL10sub_no_refRK10grpc_slicemm.exit
@@ -621,14 +621,14 @@ entry:
 if.then:                                          ; preds = %entry
   store ptr null, ptr %agg.result, align 8
   %conv = trunc nuw nsw i64 %sub to i8
-  %data = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i8 %conv, ptr %data, align 8
-  %bytes = getelementptr inbounds i8, ptr %agg.result, i64 9
+  %bytes = getelementptr inbounds nuw i8, ptr %agg.result, i64 9
   %0 = load ptr, ptr %source, align 8
   %tobool.not = icmp eq ptr %0, null
-  %bytes5 = getelementptr inbounds i8, ptr %source, i64 16
+  %bytes5 = getelementptr inbounds nuw i8, ptr %source, i64 16
   %1 = load ptr, ptr %bytes5, align 8
-  %bytes7 = getelementptr inbounds i8, ptr %source, i64 9
+  %bytes7 = getelementptr inbounds nuw i8, ptr %source, i64 9
   %cond = select i1 %tobool.not, ptr %bytes7, ptr %1
   %add.ptr = getelementptr inbounds i8, ptr %cond, i64 %begin
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %bytes, ptr align 1 %add.ptr, i64 %sub, i1 false)
@@ -649,7 +649,7 @@ if.then.i.i:                                      ; preds = %if.else
 do.end.i.i:                                       ; preds = %if.else
   %2 = load ptr, ptr %agg.tmp8, align 8, !noalias !63
   %cmp1.not.i.i = icmp eq ptr %2, null
-  %data17.i.i = getelementptr inbounds i8, ptr %agg.tmp8, i64 8
+  %data17.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp8, i64 8
   br i1 %cmp1.not.i.i, label %do.body16.i.i, label %do.body3.i.i
 
 do.body3.i.i:                                     ; preds = %do.end.i.i
@@ -674,26 +674,26 @@ if.then22.i.i:                                    ; preds = %do.body16.i.i
 grpc_slice_sub_no_ref.exit.thread:                ; preds = %do.body16.i.i
   %conv27.i.i = trunc i64 %sub to i8
   store i8 %conv27.i.i, ptr %ref.tmp.sroa.3, align 8, !alias.scope !63
-  %bytes33.i.i = getelementptr inbounds i8, ptr %agg.tmp8, i64 9
+  %bytes33.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp8, i64 9
   %add.ptr35.i.i = getelementptr inbounds i8, ptr %bytes33.i.i, i64 %begin
-  %ref.tmp.sroa.3.1.bytes31.i.i.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp.sroa.3, i64 1
+  %ref.tmp.sroa.3.1.bytes31.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp.sroa.3, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %ref.tmp.sroa.3.1.bytes31.i.i.sroa_idx, ptr nonnull readonly align 1 %add.ptr35.i.i, i64 %sub, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp8)
   store ptr null, ptr %agg.result, align 8
-  %ref.tmp.sroa.3.0.agg.result.sroa_idx10 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %ref.tmp.sroa.3.0.agg.result.sroa_idx10 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.3.0.agg.result.sroa_idx10, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.3, i64 24, i1 false)
   br label %if.then12
 
 grpc_slice_sub_no_ref.exit:                       ; preds = %do.body3.i.i
-  %bytes.i.i = getelementptr inbounds i8, ptr %agg.tmp8, i64 16
+  %bytes.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp8, i64 16
   %5 = load ptr, ptr %bytes.i.i, align 8, !noalias !63
   %add.ptr.i.i = getelementptr inbounds i8, ptr %5, i64 %begin
-  %ref.tmp.sroa.3.8.bytes13.i.i.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp.sroa.3, i64 8
+  %ref.tmp.sroa.3.8.bytes13.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp.sroa.3, i64 8
   store ptr %add.ptr.i.i, ptr %ref.tmp.sroa.3.8.bytes13.i.i.sroa_idx, align 8, !alias.scope !63
   store i64 %sub, ptr %ref.tmp.sroa.3, align 8, !alias.scope !63
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp8)
   store ptr %2, ptr %agg.result, align 8
-  %ref.tmp.sroa.3.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %ref.tmp.sroa.3.0.agg.result.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.3.0.agg.result.sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.3, i64 24, i1 false)
   %cmp11.not = icmp eq ptr %2, inttoptr (i64 1 to ptr)
   br i1 %cmp11.not, label %if.end15, label %if.then12
@@ -717,7 +717,7 @@ entry:
   ]
 
 do.body:                                          ; preds = %entry
-  %data = getelementptr inbounds i8, ptr %source, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %source, i64 8
   %1 = load i8, ptr %data, align 8
   %conv = zext i8 %1 to i64
   %cmp1.not = icmp ugt i64 %split, %conv
@@ -731,10 +731,10 @@ do.end:                                           ; preds = %do.body
   store ptr null, ptr %agg.result, align 8
   %2 = trunc i64 %split to i8
   %conv8 = sub i8 %1, %2
-  %data9 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %data9 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i8 %conv8, ptr %data9, align 8
-  %bytes = getelementptr inbounds i8, ptr %agg.result, i64 9
-  %bytes13 = getelementptr inbounds i8, ptr %source, i64 9
+  %bytes = getelementptr inbounds nuw i8, ptr %agg.result, i64 9
+  %bytes13 = getelementptr inbounds nuw i8, ptr %source, i64 9
   %add.ptr = getelementptr inbounds i8, ptr %bytes13, i64 %split
   %conv17 = zext i8 %conv8 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %bytes, ptr nonnull align 1 %add.ptr, i64 %conv17, i1 false)
@@ -743,12 +743,12 @@ do.end:                                           ; preds = %do.body
 
 if.then23:                                        ; preds = %entry
   store ptr inttoptr (i64 1 to ptr), ptr %agg.result, align 8
-  %data26 = getelementptr inbounds i8, ptr %source, i64 8
-  %bytes27 = getelementptr inbounds i8, ptr %source, i64 16
+  %data26 = getelementptr inbounds nuw i8, ptr %source, i64 8
+  %bytes27 = getelementptr inbounds nuw i8, ptr %source, i64 16
   %3 = load ptr, ptr %bytes27, align 8
   %add.ptr28 = getelementptr inbounds i8, ptr %3, i64 %split
-  %data29 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %bytes30 = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %data29 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
+  %bytes30 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr %add.ptr28, ptr %bytes30, align 8
   %4 = load i64, ptr %data26, align 8
   %sub33 = sub i64 %4, %split
@@ -757,7 +757,7 @@ if.then23:                                        ; preds = %entry
   br label %if.end92
 
 if.else38:                                        ; preds = %entry
-  %data39 = getelementptr inbounds i8, ptr %source, i64 8
+  %data39 = getelementptr inbounds nuw i8, ptr %source, i64 8
   %5 = load i64, ptr %data39, align 8
   %sub41 = sub i64 %5, %split
   %cmp45.not = icmp ult i64 %5, %split
@@ -776,10 +776,10 @@ do.end50:                                         ; preds = %if.else38
 if.then53:                                        ; preds = %do.end50
   store ptr null, ptr %agg.result, align 8
   %conv55 = trunc nuw nsw i64 %sub41 to i8
-  %data56 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %data56 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i8 %conv55, ptr %data56, align 8
-  %bytes59 = getelementptr inbounds i8, ptr %agg.result, i64 9
-  %bytes62 = getelementptr inbounds i8, ptr %source, i64 16
+  %bytes59 = getelementptr inbounds nuw i8, ptr %agg.result, i64 9
+  %bytes62 = getelementptr inbounds nuw i8, ptr %source, i64 16
   %6 = load ptr, ptr %bytes62, align 8
   %add.ptr63 = getelementptr inbounds i8, ptr %6, i64 %split
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %bytes59, ptr align 1 %add.ptr63, i64 %sub41, i1 false)
@@ -807,11 +807,11 @@ if.then78:                                        ; preds = %if.else64
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %if.then78, %sw.bb69, %sw.bb, %if.else64
-  %bytes82 = getelementptr inbounds i8, ptr %source, i64 16
+  %bytes82 = getelementptr inbounds nuw i8, ptr %source, i64 16
   %8 = load ptr, ptr %bytes82, align 8
   %add.ptr83 = getelementptr inbounds i8, ptr %8, i64 %split
-  %data84 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %bytes85 = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %data84 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
+  %bytes85 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr %add.ptr83, ptr %bytes85, align 8
   store i64 %sub41, ptr %data84, align 8
   br label %if.end88
@@ -839,7 +839,7 @@ entry:
   ]
 
 do.body.i:                                        ; preds = %entry
-  %data.i = getelementptr inbounds i8, ptr %source, i64 8
+  %data.i = getelementptr inbounds nuw i8, ptr %source, i64 8
   %1 = load i8, ptr %data.i, align 8, !noalias !64
   %conv.i = zext i8 %1 to i64
   %cmp1.not.i = icmp ugt i64 %split, %conv.i
@@ -853,10 +853,10 @@ do.end.i:                                         ; preds = %do.body.i
   store ptr null, ptr %agg.result, align 8, !alias.scope !64
   %2 = trunc i64 %split to i8
   %conv8.i = sub i8 %1, %2
-  %data9.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %data9.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i8 %conv8.i, ptr %data9.i, align 8, !alias.scope !64
-  %bytes.i = getelementptr inbounds i8, ptr %agg.result, i64 9
-  %bytes13.i = getelementptr inbounds i8, ptr %source, i64 9
+  %bytes.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 9
+  %bytes13.i = getelementptr inbounds nuw i8, ptr %source, i64 9
   %add.ptr.i = getelementptr inbounds i8, ptr %bytes13.i, i64 %split
   %conv17.i = zext i8 %conv8.i to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %bytes.i, ptr nonnull align 1 %add.ptr.i, i64 %conv17.i, i1 false)
@@ -865,12 +865,12 @@ do.end.i:                                         ; preds = %do.body.i
 
 if.then23.i:                                      ; preds = %entry
   store ptr inttoptr (i64 1 to ptr), ptr %agg.result, align 8, !alias.scope !64
-  %data26.i = getelementptr inbounds i8, ptr %source, i64 8
-  %bytes27.i = getelementptr inbounds i8, ptr %source, i64 16
+  %data26.i = getelementptr inbounds nuw i8, ptr %source, i64 8
+  %bytes27.i = getelementptr inbounds nuw i8, ptr %source, i64 16
   %3 = load ptr, ptr %bytes27.i, align 8, !noalias !64
   %add.ptr28.i = getelementptr inbounds i8, ptr %3, i64 %split
-  %data29.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %bytes30.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %data29.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
+  %bytes30.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr %add.ptr28.i, ptr %bytes30.i, align 8, !alias.scope !64
   %4 = load i64, ptr %data26.i, align 8, !noalias !64
   %sub33.i = sub i64 %4, %split
@@ -879,7 +879,7 @@ if.then23.i:                                      ; preds = %entry
   br label %grpc_slice_split_tail_maybe_ref.exit
 
 if.else38.i:                                      ; preds = %entry
-  %data39.i = getelementptr inbounds i8, ptr %source, i64 8
+  %data39.i = getelementptr inbounds nuw i8, ptr %source, i64 8
   %5 = load i64, ptr %data39.i, align 8, !noalias !64
   %sub41.i = sub i64 %5, %split
   %cmp45.not.i = icmp ult i64 %5, %split
@@ -895,10 +895,10 @@ do.end50.i:                                       ; preds = %if.else38.i
 
 if.then53.i:                                      ; preds = %do.end50.i
   %conv55.i = trunc nuw nsw i64 %sub41.i to i8
-  %data56.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %data56.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i8 %conv55.i, ptr %data56.i, align 8, !alias.scope !64
-  %bytes59.i = getelementptr inbounds i8, ptr %agg.result, i64 9
-  %bytes62.i = getelementptr inbounds i8, ptr %source, i64 16
+  %bytes59.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 9
+  %bytes62.i = getelementptr inbounds nuw i8, ptr %source, i64 16
   %6 = load ptr, ptr %bytes62.i, align 8, !noalias !64
   %add.ptr63.i = getelementptr inbounds i8, ptr %6, i64 %split
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %bytes59.i, ptr align 1 %add.ptr63.i, i64 %sub41.i, i1 false)
@@ -906,11 +906,11 @@ if.then53.i:                                      ; preds = %do.end50.i
 
 if.else64.i:                                      ; preds = %do.end50.i
   %7 = atomicrmw add ptr %0, i64 1 monotonic, align 8, !noalias !64
-  %bytes82.i = getelementptr inbounds i8, ptr %source, i64 16
+  %bytes82.i = getelementptr inbounds nuw i8, ptr %source, i64 16
   %8 = load ptr, ptr %bytes82.i, align 8, !noalias !64
   %add.ptr83.i = getelementptr inbounds i8, ptr %8, i64 %split
-  %data84.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %bytes85.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %data84.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
+  %bytes85.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr %add.ptr83.i, ptr %bytes85.i, align 8, !alias.scope !64
   store i64 %sub41.i, ptr %data84.i, align 8, !alias.scope !64
   br label %if.end88.i
@@ -933,7 +933,7 @@ entry:
   br i1 %cmp, label %do.body, label %if.else
 
 do.body:                                          ; preds = %entry
-  %data = getelementptr inbounds i8, ptr %source, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %source, i64 8
   %1 = load i8, ptr %data, align 8
   %conv = zext i8 %1 to i64
   %cmp1.not = icmp ugt i64 %split, %conv
@@ -946,10 +946,10 @@ if.then3:                                         ; preds = %do.body
 do.end:                                           ; preds = %do.body
   store ptr null, ptr %agg.result, align 8
   %conv5 = trunc i64 %split to i8
-  %data6 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %data6 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i8 %conv5, ptr %data6, align 8
-  %bytes = getelementptr inbounds i8, ptr %agg.result, i64 9
-  %bytes10 = getelementptr inbounds i8, ptr %source, i64 9
+  %bytes = getelementptr inbounds nuw i8, ptr %agg.result, i64 9
+  %bytes10 = getelementptr inbounds nuw i8, ptr %source, i64 9
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %bytes, ptr nonnull align 1 %bytes10, i64 %split, i1 false)
   %conv15 = sub i8 %1, %conv5
   store i8 %conv15, ptr %data, align 8
@@ -960,7 +960,7 @@ do.end:                                           ; preds = %do.body
 
 if.else:                                          ; preds = %entry
   %cmp27 = icmp ult i64 %split, 23
-  %data30 = getelementptr inbounds i8, ptr %source, i64 8
+  %data30 = getelementptr inbounds nuw i8, ptr %source, i64 8
   %2 = load i64, ptr %data30, align 8
   %cmp32.not = icmp ult i64 %2, %split
   br i1 %cmp27, label %do.body29, label %do.body54
@@ -975,13 +975,13 @@ if.then35:                                        ; preds = %do.body29
 do.end37:                                         ; preds = %do.body29
   store ptr null, ptr %agg.result, align 8
   %conv39 = trunc nuw nsw i64 %split to i8
-  %data40 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %data40 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i8 %conv39, ptr %data40, align 8
-  %bytes43 = getelementptr inbounds i8, ptr %agg.result, i64 9
-  %bytes46 = getelementptr inbounds i8, ptr %source, i64 16
+  %bytes43 = getelementptr inbounds nuw i8, ptr %agg.result, i64 9
+  %bytes46 = getelementptr inbounds nuw i8, ptr %source, i64 16
   %3 = load ptr, ptr %bytes46, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %bytes43, ptr align 1 %3, i64 %split, i1 false)
-  %add.ptr49 = getelementptr inbounds i8, ptr %3, i64 %split
+  %add.ptr49 = getelementptr inbounds nuw i8, ptr %3, i64 %split
   store ptr %add.ptr49, ptr %bytes46, align 8
   %sub52 = sub nuw i64 %2, %split
   store i64 %sub52, ptr %data30, align 8
@@ -1006,10 +1006,10 @@ if.then67:                                        ; preds = %do.end62
 
 if.end69:                                         ; preds = %if.then67, %do.end62
   %5 = phi i64 [ %.pre, %if.then67 ], [ %2, %do.end62 ]
-  %bytes71 = getelementptr inbounds i8, ptr %source, i64 16
+  %bytes71 = getelementptr inbounds nuw i8, ptr %source, i64 16
   %6 = load ptr, ptr %bytes71, align 8
-  %data72 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %bytes73 = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %data72 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
+  %bytes73 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr %6, ptr %bytes73, align 8
   store i64 %split, ptr %data72, align 8
   %add.ptr78 = getelementptr inbounds i8, ptr %6, i64 %split
@@ -1030,13 +1030,13 @@ define range(i32 0, 2) i32 @grpc_slice_eq(ptr nocapture noundef readonly byval(%
 entry:
   %0 = load ptr, ptr %a, align 8
   %tobool.not = icmp eq ptr %0, null
-  %data = getelementptr inbounds i8, ptr %a, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %a, i64 8
   %1 = load i64, ptr %data, align 8
   %conv = and i64 %1, 255
   %cond = select i1 %tobool.not, i64 %conv, i64 %1
   %2 = load ptr, ptr %b, align 8
   %tobool4.not = icmp eq ptr %2, null
-  %data6 = getelementptr inbounds i8, ptr %b, i64 8
+  %data6 = getelementptr inbounds nuw i8, ptr %b, i64 8
   %3 = load i64, ptr %data6, align 8
   %conv11 = and i64 %3, 255
   %cond13 = select i1 %tobool4.not, i64 %conv11, i64 %3
@@ -1048,13 +1048,13 @@ if.end:                                           ; preds = %entry
   br i1 %cmp25, label %return, label %if.end27
 
 if.end27:                                         ; preds = %if.end
-  %bytes = getelementptr inbounds i8, ptr %a, i64 16
+  %bytes = getelementptr inbounds nuw i8, ptr %a, i64 16
   %4 = load ptr, ptr %bytes, align 8
-  %bytes34 = getelementptr inbounds i8, ptr %a, i64 9
+  %bytes34 = getelementptr inbounds nuw i8, ptr %a, i64 9
   %cond36 = select i1 %tobool.not, ptr %bytes34, ptr %4
-  %bytes41 = getelementptr inbounds i8, ptr %b, i64 16
+  %bytes41 = getelementptr inbounds nuw i8, ptr %b, i64 16
   %5 = load ptr, ptr %bytes41, align 8
-  %bytes44 = getelementptr inbounds i8, ptr %b, i64 9
+  %bytes44 = getelementptr inbounds nuw i8, ptr %b, i64 9
   %cond47 = select i1 %tobool4.not, ptr %bytes44, ptr %5
   %bcmp = call i32 @bcmp(ptr %cond36, ptr %cond47, i64 %cond)
   %cmp59 = icmp eq i32 %bcmp, 0
@@ -1074,15 +1074,15 @@ define noundef i32 @_Z29grpc_slice_differs_refcountedRK10grpc_sliceS1_(ptr nound
 entry:
   %0 = load ptr, ptr %a, align 8
   %tobool.not = icmp eq ptr %0, null
-  %data = getelementptr inbounds i8, ptr %a, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %a, i64 8
   %1 = load i64, ptr %data, align 8
-  %bytes = getelementptr inbounds i8, ptr %a, i64 16
+  %bytes = getelementptr inbounds nuw i8, ptr %a, i64 16
   %2 = load ptr, ptr %bytes, align 8
   %conv = and i64 %1, 255
-  %bytes5 = getelementptr inbounds i8, ptr %a, i64 9
+  %bytes5 = getelementptr inbounds nuw i8, ptr %a, i64 9
   %a_len.0 = select i1 %tobool.not, i64 %conv, i64 %1
   %a_ptr.0 = select i1 %tobool.not, ptr %bytes5, ptr %2
-  %data6 = getelementptr inbounds i8, ptr %b_not_inline, i64 8
+  %data6 = getelementptr inbounds nuw i8, ptr %b_not_inline, i64 8
   %3 = load i64, ptr %data6, align 8
   %cmp.not = icmp eq i64 %a_len.0, %3
   br i1 %cmp.not, label %if.end9, label %return
@@ -1096,7 +1096,7 @@ if.end12:                                         ; preds = %if.end9
   br i1 %cmp13, label %return, label %if.end15
 
 if.end15:                                         ; preds = %if.end12
-  %bytes17 = getelementptr inbounds i8, ptr %b_not_inline, i64 16
+  %bytes17 = getelementptr inbounds nuw i8, ptr %b_not_inline, i64 16
   %4 = load ptr, ptr %bytes17, align 8
   %call = tail call i32 @memcmp(ptr noundef nonnull %a_ptr.0, ptr noundef %4, i64 noundef %a_len.0) #24
   br label %return
@@ -1111,13 +1111,13 @@ define i32 @grpc_slice_cmp(ptr nocapture noundef readonly byval(%struct.grpc_sli
 entry:
   %0 = load ptr, ptr %a, align 8
   %tobool.not = icmp eq ptr %0, null
-  %data = getelementptr inbounds i8, ptr %a, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %a, i64 8
   %1 = load i64, ptr %data, align 8
   %conv = and i64 %1, 255
   %cond = select i1 %tobool.not, i64 %conv, i64 %1
   %2 = load ptr, ptr %b, align 8
   %tobool4.not = icmp eq ptr %2, null
-  %data6 = getelementptr inbounds i8, ptr %b, i64 8
+  %data6 = getelementptr inbounds nuw i8, ptr %b, i64 8
   %3 = load i64, ptr %data6, align 8
   %conv11 = and i64 %3, 255
   %cond13 = select i1 %tobool4.not, i64 %conv11, i64 %3
@@ -1127,13 +1127,13 @@ entry:
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %bytes = getelementptr inbounds i8, ptr %a, i64 16
+  %bytes = getelementptr inbounds nuw i8, ptr %a, i64 16
   %4 = load ptr, ptr %bytes, align 8
-  %bytes21 = getelementptr inbounds i8, ptr %a, i64 9
+  %bytes21 = getelementptr inbounds nuw i8, ptr %a, i64 9
   %cond23 = select i1 %tobool.not, ptr %bytes21, ptr %4
-  %bytes28 = getelementptr inbounds i8, ptr %b, i64 16
+  %bytes28 = getelementptr inbounds nuw i8, ptr %b, i64 16
   %5 = load ptr, ptr %bytes28, align 8
-  %bytes31 = getelementptr inbounds i8, ptr %b, i64 9
+  %bytes31 = getelementptr inbounds nuw i8, ptr %b, i64 9
   %cond34 = select i1 %tobool4.not, ptr %bytes31, ptr %5
   %call = call i32 @memcmp(ptr noundef %cond23, ptr noundef %cond34, i64 noundef %cond) #24
   br label %return
@@ -1149,7 +1149,7 @@ entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %b) #24
   %0 = load ptr, ptr %a, align 8
   %tobool.not = icmp eq ptr %0, null
-  %data = getelementptr inbounds i8, ptr %a, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %a, i64 8
   %1 = load i64, ptr %data, align 8
   %conv = and i64 %1, 255
   %cond = select i1 %tobool.not, i64 %conv, i64 %1
@@ -1159,9 +1159,9 @@ entry:
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %bytes = getelementptr inbounds i8, ptr %a, i64 16
+  %bytes = getelementptr inbounds nuw i8, ptr %a, i64 16
   %2 = load ptr, ptr %bytes, align 8
-  %bytes10 = getelementptr inbounds i8, ptr %a, i64 9
+  %bytes10 = getelementptr inbounds nuw i8, ptr %a, i64 9
   %cond12 = select i1 %tobool.not, ptr %bytes10, ptr %2
   %call13 = call i32 @memcmp(ptr noundef %cond12, ptr noundef %b, i64 noundef %call) #24
   br label %return
@@ -1188,13 +1188,13 @@ if.then:                                          ; preds = %entry
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp3, ptr noundef nonnull align 8 dereferenceable(32) %b, i64 32, i1 false)
   %2 = load ptr, ptr %agg.tmp, align 8
   %tobool.not.i = icmp eq ptr %2, null
-  %data.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
+  %data.i = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 8
   %3 = load i64, ptr %data.i, align 8
   %conv.i = and i64 %3, 255
   %cond.i = select i1 %tobool.not.i, i64 %conv.i, i64 %3
   %4 = load ptr, ptr %agg.tmp3, align 8
   %tobool4.not.i = icmp eq ptr %4, null
-  %data6.i = getelementptr inbounds i8, ptr %agg.tmp3, i64 8
+  %data6.i = getelementptr inbounds nuw i8, ptr %agg.tmp3, i64 8
   %5 = load i64, ptr %data6.i, align 8
   %conv11.i = and i64 %5, 255
   %cond13.i = select i1 %tobool4.not.i, i64 %conv11.i, i64 %5
@@ -1206,27 +1206,27 @@ if.end.i:                                         ; preds = %if.then
   br i1 %cmp25.i, label %return, label %if.end27.i
 
 if.end27.i:                                       ; preds = %if.end.i
-  %bytes.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
+  %bytes.i = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 16
   %6 = load ptr, ptr %bytes.i, align 8
-  %bytes34.i = getelementptr inbounds i8, ptr %agg.tmp, i64 9
+  %bytes34.i = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 9
   %cond36.i = select i1 %tobool.not.i, ptr %bytes34.i, ptr %6
-  %bytes41.i = getelementptr inbounds i8, ptr %agg.tmp3, i64 16
+  %bytes41.i = getelementptr inbounds nuw i8, ptr %agg.tmp3, i64 16
   %7 = load ptr, ptr %bytes41.i, align 8
-  %bytes44.i = getelementptr inbounds i8, ptr %agg.tmp3, i64 9
+  %bytes44.i = getelementptr inbounds nuw i8, ptr %agg.tmp3, i64 9
   %cond47.i = select i1 %tobool4.not.i, ptr %bytes44.i, ptr %7
   %bcmp.i = call i32 @bcmp(ptr %cond36.i, ptr %cond47.i, i64 %cond.i)
   %cmp59.i = icmp eq i32 %bcmp.i, 0
   br label %return
 
 if.end:                                           ; preds = %entry
-  %data = getelementptr inbounds i8, ptr %a, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %a, i64 8
   %8 = load i64, ptr %data, align 8
-  %data4 = getelementptr inbounds i8, ptr %b, i64 8
+  %data4 = getelementptr inbounds nuw i8, ptr %b, i64 8
   %9 = load i64, ptr %data4, align 8
   %cmp6 = icmp eq i64 %8, %9
-  %bytes = getelementptr inbounds i8, ptr %a, i64 16
+  %bytes = getelementptr inbounds nuw i8, ptr %a, i64 16
   %10 = load ptr, ptr %bytes, align 8
-  %bytes9 = getelementptr inbounds i8, ptr %b, i64 16
+  %bytes9 = getelementptr inbounds nuw i8, ptr %b, i64 16
   %11 = load ptr, ptr %bytes9, align 8
   %cmp10 = icmp eq ptr %10, %11
   %12 = select i1 %cmp6, i1 %cmp10, i1 false
@@ -1243,7 +1243,7 @@ define range(i32 0, 2) i32 @grpc_slice_buf_start_eq(ptr nocapture noundef readon
 entry:
   %0 = load ptr, ptr %a, align 8
   %tobool.not = icmp eq ptr %0, null
-  %data = getelementptr inbounds i8, ptr %a, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %a, i64 8
   %1 = load i64, ptr %data, align 8
   %conv = and i64 %1, 255
   %cond = select i1 %tobool.not, i64 %conv, i64 %1
@@ -1251,9 +1251,9 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %bytes = getelementptr inbounds i8, ptr %a, i64 16
+  %bytes = getelementptr inbounds nuw i8, ptr %a, i64 16
   %2 = load ptr, ptr %bytes, align 8
-  %bytes9 = getelementptr inbounds i8, ptr %a, i64 9
+  %bytes9 = getelementptr inbounds nuw i8, ptr %a, i64 9
   %cond11 = select i1 %tobool.not, ptr %bytes9, ptr %2
   %bcmp = call i32 @bcmp(ptr %cond11, ptr %b, i64 %len)
   %cmp12 = icmp eq i32 %bcmp, 0
@@ -1270,10 +1270,10 @@ define range(i32 -2147483648, 2147483647) i32 @grpc_slice_rchr(ptr nocapture nou
 entry:
   %0 = load ptr, ptr %s, align 8
   %tobool.not = icmp eq ptr %0, null
-  %data = getelementptr inbounds i8, ptr %s, i64 8
-  %bytes = getelementptr inbounds i8, ptr %s, i64 16
+  %data = getelementptr inbounds nuw i8, ptr %s, i64 8
+  %bytes = getelementptr inbounds nuw i8, ptr %s, i64 16
   %1 = load ptr, ptr %bytes, align 8
-  %bytes2 = getelementptr inbounds i8, ptr %s, i64 9
+  %bytes2 = getelementptr inbounds nuw i8, ptr %s, i64 9
   %cond = select i1 %tobool.not, ptr %bytes2, ptr %1
   %2 = load i64, ptr %data, align 8
   %3 = shl i64 %2, 32
@@ -1308,10 +1308,10 @@ define noundef i32 @grpc_slice_chr(ptr noundef byval(%struct.grpc_slice) align 8
 entry:
   %0 = load ptr, ptr %s, align 8
   %tobool.not = icmp eq ptr %0, null
-  %data = getelementptr inbounds i8, ptr %s, i64 8
-  %bytes = getelementptr inbounds i8, ptr %s, i64 16
+  %data = getelementptr inbounds nuw i8, ptr %s, i64 8
+  %bytes = getelementptr inbounds nuw i8, ptr %s, i64 16
   %1 = load ptr, ptr %bytes, align 8
-  %bytes2 = getelementptr inbounds i8, ptr %s, i64 9
+  %bytes2 = getelementptr inbounds nuw i8, ptr %s, i64 9
   %cond = select i1 %tobool.not, ptr %bytes2, ptr %1
   %conv = sext i8 %c to i32
   %2 = load i64, ptr %data, align 8
@@ -1338,23 +1338,23 @@ entry:
   %agg.tmp46 = alloca %struct.grpc_slice, align 8
   %0 = load ptr, ptr %haystack, align 8
   %tobool.not = icmp eq ptr %0, null
-  %data = getelementptr inbounds i8, ptr %haystack, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %haystack, i64 8
   %1 = load i64, ptr %data, align 8
   %conv = and i64 %1, 255
   %cond = select i1 %tobool.not, i64 %conv, i64 %1
-  %bytes = getelementptr inbounds i8, ptr %haystack, i64 16
+  %bytes = getelementptr inbounds nuw i8, ptr %haystack, i64 16
   %2 = load ptr, ptr %bytes, align 8
-  %bytes9 = getelementptr inbounds i8, ptr %haystack, i64 9
+  %bytes9 = getelementptr inbounds nuw i8, ptr %haystack, i64 9
   %cond11 = select i1 %tobool.not, ptr %bytes9, ptr %2
   %3 = load ptr, ptr %needle, align 8
   %tobool13.not = icmp eq ptr %3, null
-  %data15 = getelementptr inbounds i8, ptr %needle, i64 8
+  %data15 = getelementptr inbounds nuw i8, ptr %needle, i64 8
   %4 = load i64, ptr %data15, align 8
   %conv20 = and i64 %4, 255
   %cond22 = select i1 %tobool13.not, i64 %conv20, i64 %4
-  %bytes27 = getelementptr inbounds i8, ptr %needle, i64 16
+  %bytes27 = getelementptr inbounds nuw i8, ptr %needle, i64 16
   %5 = load ptr, ptr %bytes27, align 8
-  %bytes30 = getelementptr inbounds i8, ptr %needle, i64 9
+  %bytes30 = getelementptr inbounds nuw i8, ptr %needle, i64 9
   %cond33 = select i1 %tobool13.not, ptr %bytes30, ptr %5
   %cmp = icmp eq i64 %cond, 0
   %6 = add i64 %cond22, -1
@@ -1371,13 +1371,13 @@ if.then39:                                        ; preds = %if.end37
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp40, ptr noundef nonnull align 8 dereferenceable(32) %needle, i64 32, i1 false)
   %8 = load ptr, ptr %agg.tmp, align 8
   %tobool.not.i = icmp eq ptr %8, null
-  %data.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
+  %data.i = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 8
   %9 = load i64, ptr %data.i, align 8
   %conv.i = and i64 %9, 255
   %cond.i = select i1 %tobool.not.i, i64 %conv.i, i64 %9
   %10 = load ptr, ptr %agg.tmp40, align 8
   %tobool4.not.i = icmp eq ptr %10, null
-  %data6.i = getelementptr inbounds i8, ptr %agg.tmp40, i64 8
+  %data6.i = getelementptr inbounds nuw i8, ptr %agg.tmp40, i64 8
   %11 = load i64, ptr %data6.i, align 8
   %conv11.i = and i64 %11, 255
   %cond13.i = select i1 %tobool4.not.i, i64 %conv11.i, i64 %11
@@ -1389,13 +1389,13 @@ if.end.i:                                         ; preds = %if.then39
   br i1 %cmp25.i, label %return, label %if.end27.i
 
 if.end27.i:                                       ; preds = %if.end.i
-  %bytes.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
+  %bytes.i = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 16
   %12 = load ptr, ptr %bytes.i, align 8
-  %bytes34.i = getelementptr inbounds i8, ptr %agg.tmp, i64 9
+  %bytes34.i = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 9
   %cond36.i = select i1 %tobool.not.i, ptr %bytes34.i, ptr %12
-  %bytes41.i = getelementptr inbounds i8, ptr %agg.tmp40, i64 16
+  %bytes41.i = getelementptr inbounds nuw i8, ptr %agg.tmp40, i64 16
   %13 = load ptr, ptr %bytes41.i, align 8
-  %bytes44.i = getelementptr inbounds i8, ptr %agg.tmp40, i64 9
+  %bytes44.i = getelementptr inbounds nuw i8, ptr %agg.tmp40, i64 9
   %cond47.i = select i1 %tobool4.not.i, ptr %bytes44.i, ptr %13
   %bcmp.i = call i32 @bcmp(ptr %cond36.i, ptr %cond47.i, i64 %cond.i)
   %cmp59.i = icmp ne i32 %bcmp.i, 0
@@ -1411,10 +1411,10 @@ if.then45:                                        ; preds = %if.end43
   %15 = load i8, ptr %cond33, align 1
   %16 = load ptr, ptr %agg.tmp46, align 8
   %tobool.not.i16 = icmp eq ptr %16, null
-  %data.i17 = getelementptr inbounds i8, ptr %agg.tmp46, i64 8
-  %bytes.i18 = getelementptr inbounds i8, ptr %agg.tmp46, i64 16
+  %data.i17 = getelementptr inbounds nuw i8, ptr %agg.tmp46, i64 8
+  %bytes.i18 = getelementptr inbounds nuw i8, ptr %agg.tmp46, i64 16
   %17 = load ptr, ptr %bytes.i18, align 8
-  %bytes2.i = getelementptr inbounds i8, ptr %agg.tmp46, i64 9
+  %bytes2.i = getelementptr inbounds nuw i8, ptr %agg.tmp46, i64 9
   %cond.i19 = select i1 %tobool.not.i16, ptr %bytes2.i, ptr %17
   %conv.i20 = sext i8 %15 to i32
   %18 = load i64, ptr %data.i17, align 8
@@ -1450,7 +1450,7 @@ if.then53:                                        ; preds = %for.body
   br label %return
 
 for.inc:                                          ; preds = %for.body
-  %incdec.ptr = getelementptr inbounds i8, ptr %cur.023, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %cur.023, i64 1
   %cmp50.not = icmp ugt ptr %incdec.ptr, %add.ptr49
   br i1 %cmp50.not, label %return, label %for.body, !llvm.loop !69
 
@@ -1464,7 +1464,7 @@ define void @grpc_slice_dup(ptr noalias nocapture sret(%struct.grpc_slice) align
 entry:
   %0 = load ptr, ptr %a, align 8
   %tobool.not = icmp eq ptr %0, null
-  %data = getelementptr inbounds i8, ptr %a, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %a, i64 8
   %1 = load i64, ptr %data, align 8
   %conv = and i64 %1, 255
   %cond = select i1 %tobool.not, i64 %conv, i64 %1
@@ -1474,9 +1474,9 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %conv.i = trunc nuw nsw i64 %cond to i8
-  %data.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %data.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i8 %conv.i, ptr %data.i, align 8, !alias.scope !70
-  %bytes.phi.trans.insert = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %bytes.phi.trans.insert = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   %.pre = load ptr, ptr %bytes.phi.trans.insert, align 8
   br label %grpc_slice_malloc.exit
 
@@ -1485,11 +1485,11 @@ if.else.i:                                        ; preds = %entry
   %add.i.i = add i64 %cond, 16
   %call.i.i = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %add.i.i) #23, !noalias !76
   store i64 1, ptr %call.i.i, align 8, !noalias !76
-  %destroyer_fn_.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
+  %destroyer_fn_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 8
   store ptr @"_ZZ23grpc_slice_malloc_largeEN3$_08__invokeEP19grpc_slice_refcount", ptr %destroyer_fn_.i.i.i, align 8, !noalias !76
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
-  %data.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %bytes.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 16
+  %data.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
+  %bytes.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr %add.ptr.i.i, ptr %bytes.i.i, align 8, !alias.scope !76
   store i64 %cond, ptr %data.i.i, align 8, !alias.scope !76
   br label %grpc_slice_malloc.exit
@@ -1499,11 +1499,11 @@ grpc_slice_malloc.exit:                           ; preds = %if.then.i, %if.else
   %call.i.sink.i = phi ptr [ null, %if.then.i ], [ %call.i.i, %if.else.i ]
   store ptr %call.i.sink.i, ptr %agg.result, align 8, !alias.scope !70
   %tobool4.not = icmp eq ptr %call.i.sink.i, null
-  %bytes9 = getelementptr inbounds i8, ptr %agg.result, i64 9
+  %bytes9 = getelementptr inbounds nuw i8, ptr %agg.result, i64 9
   %cond11 = select i1 %tobool4.not, ptr %bytes9, ptr %2
-  %bytes16 = getelementptr inbounds i8, ptr %a, i64 16
+  %bytes16 = getelementptr inbounds nuw i8, ptr %a, i64 16
   %3 = load ptr, ptr %bytes16, align 8
-  %bytes19 = getelementptr inbounds i8, ptr %a, i64 9
+  %bytes19 = getelementptr inbounds nuw i8, ptr %a, i64 9
   %cond22 = select i1 %tobool.not, ptr %bytes19, ptr %3
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %cond11, ptr align 1 %cond22, i64 %cond, i1 false)
   ret void
@@ -1538,7 +1538,7 @@ if.then.i:                                        ; preds = %entry
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit
 
 if.then.i.i:                                      ; preds = %if.then.i
-  %destroyer_fn_.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %destroyer_fn_.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = load ptr, ptr %destroyer_fn_.i.i, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(16) %0)
   br label %_ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit
@@ -1557,9 +1557,9 @@ entry:
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
-  %user_destroy_.i = getelementptr inbounds i8, ptr %arg, i64 16
+  %user_destroy_.i = getelementptr inbounds nuw i8, ptr %arg, i64 16
   %0 = load ptr, ptr %user_destroy_.i, align 8
-  %user_data_.i = getelementptr inbounds i8, ptr %arg, i64 24
+  %user_data_.i = getelementptr inbounds nuw i8, ptr %arg, i64 24
   %1 = load ptr, ptr %user_data_.i, align 8
   invoke void %0(ptr noundef %1)
           to label %_ZN9grpc_core16NewSliceRefcountD2Ev.exit unwind label %terminate.lpad.i
@@ -1598,11 +1598,11 @@ entry:
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
-  %user_destroy_.i = getelementptr inbounds i8, ptr %arg, i64 32
+  %user_destroy_.i = getelementptr inbounds nuw i8, ptr %arg, i64 32
   %0 = load ptr, ptr %user_destroy_.i, align 8
-  %user_data_.i = getelementptr inbounds i8, ptr %arg, i64 16
+  %user_data_.i = getelementptr inbounds nuw i8, ptr %arg, i64 16
   %1 = load ptr, ptr %user_data_.i, align 8
-  %user_length_.i = getelementptr inbounds i8, ptr %arg, i64 24
+  %user_length_.i = getelementptr inbounds nuw i8, ptr %arg, i64 24
   %2 = load i64, ptr %user_length_.i, align 8
   invoke void %0(ptr noundef %1, i64 noundef %2)
           to label %_ZN9grpc_core23NewWithLenSliceRefcountD2Ev.exit unwind label %terminate.lpad.i
@@ -1629,7 +1629,7 @@ entry:
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
-  %str_.i = getelementptr inbounds i8, ptr %arg, i64 16
+  %str_.i = getelementptr inbounds nuw i8, ptr %arg, i64 16
   %0 = load ptr, ptr %str_.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %_ZN9grpc_core24MovedStringSliceRefCountD2Ev.exit, label %if.end.i.i.i
@@ -1660,7 +1660,7 @@ entry:
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
-  %str_.i = getelementptr inbounds i8, ptr %arg, i64 16
+  %str_.i = getelementptr inbounds nuw i8, ptr %arg, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %str_.i) #26
   tail call void @_ZdlPv(ptr noundef nonnull %arg) #28
   br label %delete.end

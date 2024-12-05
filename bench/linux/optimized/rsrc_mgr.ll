@@ -18,7 +18,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_pccard_stati
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
 define dso_local noundef i32 @static_init(ptr nocapture noundef writeonly initializes((344, 345)) %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 344
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 344
   store i8 1, ptr %2, align 8
   ret i32 0
 }
@@ -31,14 +31,14 @@ define dso_local noalias noundef ptr @pcmcia_make_resource(i64 noundef %0, i64 n
   br i1 %7, label %14, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %6, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %3, ptr %9, align 8
   store i64 %0, ptr %6, align 8
   %10 = add i64 %0, -1
   %11 = add i64 %10, %1
-  %12 = getelementptr inbounds i8, ptr %6, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %11, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %6, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 %2, ptr %13, align 8
   br label %14
 
@@ -48,7 +48,7 @@ define dso_local noalias noundef ptr @pcmcia_make_resource(i64 noundef %0, i64 n
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
 define internal noundef range(i32 -22, 1) i32 @static_find_io(ptr nocapture noundef readonly %0, i32 %1, ptr nocapture noundef %2, i32 %3, i32 %4, ptr nocapture noundef writeonly %5) #2 align 16 {
-  %7 = getelementptr inbounds i8, ptr %0, i64 328
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %14, label %10

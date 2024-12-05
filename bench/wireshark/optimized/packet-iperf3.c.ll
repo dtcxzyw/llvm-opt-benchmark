@@ -154,9 +154,9 @@ define internal i32 @dissect_iperf3_tcp(ptr noundef %0, ptr noundef %1, ptr noun
   %14 = tail call ptr @wmem_file_scope() #5
   %15 = tail call noalias ptr @wmem_alloc0(ptr noundef %14, i64 noundef 12) #5
   store i8 0, ptr %15, align 4
-  %16 = getelementptr inbounds i8, ptr %15, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
   store i32 37, ptr %16, align 4
-  %17 = getelementptr inbounds i8, ptr %15, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i32 0, ptr %17, align 4
   %18 = call i32 @tvb_get_raw_bytes_as_stringz(ptr noundef %0, i32 noundef 0, i32 noundef 37, ptr noundef nonnull %6) #5
   %19 = icmp eq i32 %18, 36
@@ -191,9 +191,9 @@ define internal i32 @dissect_iperf3_tcp(ptr noundef %0, ptr noundef %1, ptr noun
 
 33:                                               ; preds = %30, %4
   %.0 = phi ptr [ %9, %4 ], [ %15, %30 ]
-  %34 = getelementptr inbounds i8, ptr %1, i64 80
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 50
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 50
   %37 = load i16, ptr %36, align 2
   %38 = and i16 %37, 8
   %.not37 = icmp eq i16 %38, 0
@@ -202,12 +202,12 @@ define internal i32 @dissect_iperf3_tcp(ptr noundef %0, ptr noundef %1, ptr noun
 39:                                               ; preds = %33
   %40 = call ptr @wmem_file_scope() #5
   %41 = call noalias ptr @wmem_alloc0(ptr noundef %40, i64 noundef 8) #5
-  %42 = getelementptr inbounds i8, ptr %.0, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %.0, i64 4
   %43 = load i32, ptr %42, align 4
   store i32 %43, ptr %41, align 4
-  %44 = getelementptr inbounds i8, ptr %.0, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %45 = load i32, ptr %44, align 4
-  %46 = getelementptr inbounds i8, ptr %41, i64 4
+  %46 = getelementptr inbounds nuw i8, ptr %41, i64 4
   store i32 %45, ptr %46, align 4
   %47 = call ptr @wmem_file_scope() #5
   %48 = load i32, ptr @proto_iperf3, align 4
@@ -224,11 +224,11 @@ define internal i32 @dissect_iperf3_tcp(ptr noundef %0, ptr noundef %1, ptr noun
 
 51:                                               ; preds = %49
   %52 = load i32, ptr %12, align 4
-  %53 = getelementptr inbounds i8, ptr %.0, i64 4
+  %53 = getelementptr inbounds nuw i8, ptr %.0, i64 4
   store i32 %52, ptr %53, align 4
-  %54 = getelementptr inbounds i8, ptr %12, i64 4
+  %54 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %55 = load i32, ptr %54, align 4
-  %56 = getelementptr inbounds i8, ptr %.0, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   store i32 %55, ptr %56, align 4
   br label %57
 
@@ -238,16 +238,16 @@ define internal i32 @dissect_iperf3_tcp(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %59, label %60, label %71
 
 60:                                               ; preds = %57
-  %61 = getelementptr inbounds i8, ptr %1, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %62 = load ptr, ptr %61, align 8
   call void @col_set_str(ptr noundef %62, i32 noundef 34, ptr noundef nonnull @.str.15) #5
   %63 = load ptr, ptr %61, align 8
   call void @col_clear(ptr noundef %63, i32 noundef 25) #5
   %64 = load ptr, ptr %61, align 8
-  %65 = getelementptr inbounds i8, ptr %1, i64 284
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %66 = load i32, ptr %65, align 4
   %67 = trunc i32 %66 to i16
-  %68 = getelementptr inbounds i8, ptr %1, i64 288
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %69 = load i32, ptr %68, align 8
   %70 = trunc i32 %69 to i16
   call void @col_append_ports(ptr noundef %64, i32 noundef 25, i32 noundef 2, i16 noundef zeroext %67, i16 noundef zeroext %70) #5
@@ -260,7 +260,7 @@ define internal i32 @dissect_iperf3_tcp(ptr noundef %0, ptr noundef %1, ptr noun
   %73 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %72, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #5
   %74 = load i32, ptr @ett_iperf3, align 4
   %75 = call ptr @proto_item_add_subtree(ptr noundef %73, i32 noundef %74) #5
-  %76 = getelementptr inbounds i8, ptr %.0, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %77 = load i32, ptr %76, align 4
   switch i32 %77, label %98 [
     i32 0, label %78
@@ -269,26 +269,26 @@ define internal i32 @dissect_iperf3_tcp(ptr noundef %0, ptr noundef %1, ptr noun
 
 78:                                               ; preds = %71
   %79 = load i32, ptr @hf_iperf3_cookie, align 4
-  %80 = getelementptr inbounds i8, ptr %1, i64 408
+  %80 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %81 = load ptr, ptr %80, align 8
   %82 = call ptr @proto_tree_add_item_ret_string(ptr noundef %75, i32 noundef %79, ptr noundef %0, i32 noundef 0, i32 noundef 37, i32 noundef 0, ptr noundef %81, ptr noundef nonnull %5) #5
-  %83 = getelementptr inbounds i8, ptr %1, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %84 = load ptr, ptr %83, align 8
   call void @col_set_str(ptr noundef %84, i32 noundef 34, ptr noundef nonnull @.str.15) #5
   %85 = load ptr, ptr %83, align 8
   call void @col_clear(ptr noundef %85, i32 noundef 25) #5
   %86 = load ptr, ptr %83, align 8
-  %87 = getelementptr inbounds i8, ptr %1, i64 284
+  %87 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %88 = load i32, ptr %87, align 4
   %89 = trunc i32 %88 to i16
-  %90 = getelementptr inbounds i8, ptr %1, i64 288
+  %90 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %91 = load i32, ptr %90, align 8
   %92 = trunc i32 %91 to i16
   call void @col_append_ports(ptr noundef %86, i32 noundef 25, i32 noundef 2, i16 noundef zeroext %89, i16 noundef zeroext %92) #5
   %93 = load ptr, ptr %83, align 8
   %94 = load ptr, ptr %5, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %93, i32 noundef 25, ptr noundef nonnull @.str.53, ptr noundef %94) #5
-  %95 = getelementptr inbounds i8, ptr %.0, i64 4
+  %95 = getelementptr inbounds nuw i8, ptr %.0, i64 4
   store i32 0, ptr %95, align 4
   store i32 8, ptr %76, align 4
   br label %dissect_iperf3_data_pdu.exit
@@ -333,16 +333,16 @@ define internal i32 @dissect_iperf3_udp(ptr noundef %0, ptr noundef %1, ptr noun
   ]
 
 13:                                               ; preds = %11, %11, %11, %11, %11, %11
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load ptr, ptr %14, align 8
   tail call void @col_set_str(ptr noundef %15, i32 noundef 34, ptr noundef nonnull @.str.15) #5
   %16 = load ptr, ptr %14, align 8
   tail call void @col_clear(ptr noundef %16, i32 noundef 25) #5
   %17 = load ptr, ptr %14, align 8
-  %18 = getelementptr inbounds i8, ptr %1, i64 284
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %19 = load i32, ptr %18, align 4
   %20 = trunc i32 %19 to i16
-  %21 = getelementptr inbounds i8, ptr %1, i64 288
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %22 = load i32, ptr %21, align 8
   %23 = trunc i32 %22 to i16
   tail call void @col_append_ports(ptr noundef %17, i32 noundef 25, i32 noundef 3, i16 noundef zeroext %20, i16 noundef zeroext %23) #5
@@ -362,16 +362,16 @@ define internal i32 @dissect_iperf3_udp(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %33, label %126, label %34
 
 34:                                               ; preds = %31
-  %35 = getelementptr inbounds i8, ptr %1, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %36 = load ptr, ptr %35, align 8
   tail call void @col_set_str(ptr noundef %36, i32 noundef 34, ptr noundef nonnull @.str.15) #5
   %37 = load ptr, ptr %35, align 8
   tail call void @col_clear(ptr noundef %37, i32 noundef 25) #5
   %38 = load ptr, ptr %35, align 8
-  %39 = getelementptr inbounds i8, ptr %1, i64 284
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %40 = load i32, ptr %39, align 4
   %41 = trunc i32 %40 to i16
-  %42 = getelementptr inbounds i8, ptr %1, i64 288
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %43 = load i32, ptr %42, align 8
   %44 = trunc i32 %43 to i16
   tail call void @col_append_ports(ptr noundef %38, i32 noundef 25, i32 noundef 3, i16 noundef zeroext %41, i16 noundef zeroext %44) #5
@@ -442,7 +442,7 @@ define internal i32 @dissect_iperf3_udp(ptr noundef %0, ptr noundef %1, ptr noun
   %90 = call noalias ptr @wmem_alloc0(ptr noundef %89, i64 noundef 16) #5
   %91 = call ptr @wmem_file_scope() #5
   %92 = call noalias ptr @wmem_map_new(ptr noundef %91, ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal) #5
-  %93 = getelementptr inbounds i8, ptr %90, i64 8
+  %93 = getelementptr inbounds nuw i8, ptr %90, i64 8
   store ptr %92, ptr %93, align 8
   store i64 0, ptr %90, align 8
   %94 = call ptr @find_conversation_pinfo(ptr noundef nonnull %1, i32 noundef 0) #5
@@ -452,9 +452,9 @@ define internal i32 @dissect_iperf3_udp(ptr noundef %0, ptr noundef %1, ptr noun
 
 96:                                               ; preds = %88, %82
   %.0.i = phi ptr [ %87, %82 ], [ %90, %88 ]
-  %97 = getelementptr inbounds i8, ptr %1, i64 80
+  %97 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %98 = load ptr, ptr %97, align 8
-  %99 = getelementptr inbounds i8, ptr %98, i64 50
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 50
   %100 = load i16, ptr %99, align 2
   %101 = and i16 %100, 8
   %.not16.i = icmp eq i16 %101, 0
@@ -468,9 +468,9 @@ define internal i32 @dissect_iperf3_udp(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %.not17.i, label %113, label %105
 
 105:                                              ; preds = %102
-  %106 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %106 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %107 = load ptr, ptr %106, align 8
-  %108 = getelementptr inbounds i8, ptr %1, i64 20
+  %108 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %109 = load i32, ptr %108, align 4
   %110 = zext i32 %109 to i64
   %111 = inttoptr i64 %110 to ptr
@@ -478,9 +478,9 @@ define internal i32 @dissect_iperf3_udp(ptr noundef %0, ptr noundef %1, ptr noun
   br label %113
 
 113:                                              ; preds = %105, %102, %96
-  %114 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %114 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %115 = load ptr, ptr %114, align 8
-  %116 = getelementptr inbounds i8, ptr %1, i64 20
+  %116 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %117 = load i32, ptr %116, align 4
   %118 = zext i32 %117 to i64
   %119 = inttoptr i64 %118 to ptr
@@ -555,7 +555,7 @@ declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i32 nounde
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @get_iperf3_pdu_len(ptr nocapture readnone %0, ptr noundef %1, i32 %2, ptr nocapture noundef readonly %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %3, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %6 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %7, label %9
@@ -576,7 +576,7 @@ define internal i32 @dissect_iperf3_control_pdu(ptr noundef %0, ptr noundef %1, 
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #5
   %8 = load i32, ptr @ett_iperf3, align 4
   %9 = tail call ptr @proto_item_add_subtree(ptr noundef %7, i32 noundef %8) #5
-  %10 = getelementptr inbounds i8, ptr %3, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %11 = load i32, ptr %10, align 4
   switch i32 %11, label %75 [
     i32 0, label %12
@@ -591,10 +591,10 @@ define internal i32 @dissect_iperf3_control_pdu(ptr noundef %0, ptr noundef %1, 
 
 12:                                               ; preds = %4
   %13 = load i32, ptr @hf_iperf3_cookie, align 4
-  %14 = getelementptr inbounds i8, ptr %1, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = call ptr @proto_tree_add_item_ret_string(ptr noundef %9, i32 noundef %13, ptr noundef %0, i32 noundef 0, i32 noundef 37, i32 noundef 0, ptr noundef %15, ptr noundef nonnull %5) #5
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8
   %19 = load ptr, ptr %5, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %18, i32 noundef 25, ptr noundef nonnull @.str.53, ptr noundef %19) #5
@@ -604,7 +604,7 @@ define internal i32 @dissect_iperf3_control_pdu(ptr noundef %0, ptr noundef %1, 
   %21 = tail call signext i8 @tvb_get_gint8(ptr noundef %0, i32 noundef 0) #5
   %22 = sext i8 %21 to i32
   %23 = tail call ptr @val_to_str(i32 noundef %22, ptr noundef nonnull @iperf3_state_vals, ptr noundef nonnull @.str.54) #5
-  %24 = getelementptr inbounds i8, ptr %1, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %25 = load ptr, ptr %24, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %25, i32 noundef 25, ptr noundef nonnull @.str.55, ptr noundef %23, i32 noundef %22) #5
   %26 = load ptr, ptr %24, align 8
@@ -621,7 +621,7 @@ define internal i32 @dissect_iperf3_control_pdu(ptr noundef %0, ptr noundef %1, 
 
 30:                                               ; preds = %4
   %31 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef 0, i32 noundef 0) #5
-  %32 = getelementptr inbounds i8, ptr %1, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %33 = load ptr, ptr %32, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %33, i32 noundef 25, ptr noundef nonnull @.str.56, i32 noundef %31) #5
   %34 = load i32, ptr @hf_iperf3_prejson, align 4
@@ -630,10 +630,10 @@ define internal i32 @dissect_iperf3_control_pdu(ptr noundef %0, ptr noundef %1, 
 
 36:                                               ; preds = %4
   %37 = tail call i32 @tvb_reported_length(ptr noundef %0) #5
-  %38 = getelementptr inbounds i8, ptr %1, i64 408
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %39 = load ptr, ptr %38, align 8
   %40 = tail call ptr @tvb_get_string_enc(ptr noundef %39, ptr noundef %0, i32 noundef 0, i32 noundef %37, i32 noundef 2) #5
-  %41 = getelementptr inbounds i8, ptr %1, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %42 = load ptr, ptr %41, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %42, i32 noundef 25, ptr noundef nonnull @.str.57, ptr noundef %40) #5
   %43 = load ptr, ptr @json_handle, align 8
@@ -642,7 +642,7 @@ define internal i32 @dissect_iperf3_control_pdu(ptr noundef %0, ptr noundef %1, 
 
 45:                                               ; preds = %4
   %46 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef 0, i32 noundef 0) #5
-  %47 = getelementptr inbounds i8, ptr %1, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %48 = load ptr, ptr %47, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %48, i32 noundef 25, ptr noundef nonnull @.str.56, i32 noundef %46) #5
   %49 = load i32, ptr @hf_iperf3_prejson, align 4
@@ -651,10 +651,10 @@ define internal i32 @dissect_iperf3_control_pdu(ptr noundef %0, ptr noundef %1, 
 
 51:                                               ; preds = %4
   %52 = tail call i32 @tvb_reported_length(ptr noundef %0) #5
-  %53 = getelementptr inbounds i8, ptr %1, i64 408
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %54 = load ptr, ptr %53, align 8
   %55 = tail call ptr @tvb_get_string_enc(ptr noundef %54, ptr noundef %0, i32 noundef 0, i32 noundef %52, i32 noundef 2) #5
-  %56 = getelementptr inbounds i8, ptr %1, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %57 = load ptr, ptr %56, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %57, i32 noundef 25, ptr noundef nonnull @.str.57, ptr noundef %55) #5
   %58 = load ptr, ptr @json_handle, align 8
@@ -663,7 +663,7 @@ define internal i32 @dissect_iperf3_control_pdu(ptr noundef %0, ptr noundef %1, 
 
 60:                                               ; preds = %4
   %61 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef 0, i32 noundef 0) #5
-  %62 = getelementptr inbounds i8, ptr %1, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %63 = load ptr, ptr %62, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %63, i32 noundef 25, ptr noundef nonnull @.str.56, i32 noundef %61) #5
   %64 = load i32, ptr @hf_iperf3_prejson, align 4
@@ -672,10 +672,10 @@ define internal i32 @dissect_iperf3_control_pdu(ptr noundef %0, ptr noundef %1, 
 
 66:                                               ; preds = %4
   %67 = tail call i32 @tvb_reported_length(ptr noundef %0) #5
-  %68 = getelementptr inbounds i8, ptr %1, i64 408
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %69 = load ptr, ptr %68, align 8
   %70 = tail call ptr @tvb_get_string_enc(ptr noundef %69, ptr noundef %0, i32 noundef 0, i32 noundef %67, i32 noundef 2) #5
-  %71 = getelementptr inbounds i8, ptr %1, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %72 = load ptr, ptr %71, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %72, i32 noundef 25, ptr noundef nonnull @.str.57, ptr noundef %70) #5
   %73 = load ptr, ptr @json_handle, align 8
@@ -689,7 +689,7 @@ define internal i32 @dissect_iperf3_control_pdu(ptr noundef %0, ptr noundef %1, 
 .sink.split:                                      ; preds = %20, %12, %30, %36, %45, %51, %60, %66, %29
   %.sink81 = phi i32 [ 4, %29 ], [ 1, %66 ], [ %61, %60 ], [ 4, %51 ], [ %46, %45 ], [ 1, %36 ], [ %31, %30 ], [ 1, %12 ], [ 4, %20 ]
   %.sink = phi i32 [ 4, %29 ], [ 1, %66 ], [ 7, %60 ], [ 6, %51 ], [ 5, %45 ], [ 1, %36 ], [ 3, %30 ], [ 1, %12 ], [ 2, %20 ]
-  %76 = getelementptr inbounds i8, ptr %3, i64 4
+  %76 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 %.sink81, ptr %76, align 4
   store i32 %.sink, ptr %10, align 4
   br label %77

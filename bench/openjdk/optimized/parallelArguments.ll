@@ -265,8 +265,8 @@ define hidden noundef ptr @_ZN17ParallelArguments11create_heapEv(ptr nocapture n
   %2 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 264, i8 noundef zeroext 5, i32 noundef 0) #6
   tail call void @_ZN13CollectedHeapC2Ev(ptr noundef nonnull align 8 dereferenceable(264) %2) #6
   store ptr getelementptr inbounds inrange(-16, 464) (i8, ptr @_ZTV20ParallelScavengeHeap, i64 16), ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 104
-  %4 = getelementptr inbounds i8, ptr %2, i64 144
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 104
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 144
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 40, i1 false)
   %5 = load i32, ptr @ParallelGCThreads, align 4
   tail call void @_ZN13WorkerThreadsC1EPKcj(ptr noundef nonnull align 8 dereferenceable(120) %4, ptr noundef nonnull @.str.5, i32 noundef %5) #6

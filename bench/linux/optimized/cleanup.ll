@@ -156,7 +156,7 @@ define dso_local noundef range(i32 0, 2) i32 @mtrr_trim_uncached_memory(i64 noun
 .preheader18:                                     ; preds = %21, %.preheader18
   %26 = phi i64 [ %37, %.preheader18 ], [ 0, %21 ]
   %27 = load ptr, ptr @mtrr_if, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %29 = load ptr, ptr %28, align 8
   %30 = trunc i64 %26 to i32
   call void %29(i32 noundef %30, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4) #8
@@ -164,10 +164,10 @@ define dso_local noundef range(i32 0, 2) i32 @mtrr_trim_uncached_memory(i64 noun
   %32 = getelementptr [256 x %struct.var_mtrr_range_state], ptr @range_state, i64 0, i64 %26
   store i64 %31, ptr %32, align 8
   %33 = load i64, ptr %3, align 8
-  %34 = getelementptr inbounds i8, ptr %32, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 8
   store i64 %33, ptr %34, align 8
   %35 = load i8, ptr %4, align 1
-  %36 = getelementptr inbounds i8, ptr %32, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %32, i64 16
   store i8 %35, ptr %36, align 8
   %37 = add nuw nsw i64 %26, 1
   %38 = load i32, ptr @num_var_ranges, align 4
@@ -179,7 +179,7 @@ define dso_local noundef range(i32 0, 2) i32 @mtrr_trim_uncached_memory(i64 noun
   %41 = phi i64 [ %55, %53 ], [ 0, %24 ]
   %42 = phi i64 [ %54, %53 ], [ 0, %24 ]
   %43 = getelementptr [256 x %struct.var_mtrr_range_state], ptr @range_state, i64 0, i64 %41
-  %44 = getelementptr inbounds i8, ptr %43, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %45 = load i8, ptr %44, align 8
   %46 = icmp eq i8 %45, 6
   br i1 %46, label %47, label %53
@@ -187,7 +187,7 @@ define dso_local noundef range(i32 0, 2) i32 @mtrr_trim_uncached_memory(i64 noun
 47:                                               ; preds = %.preheader17
   %48 = load i64, ptr %43, align 8
   store i64 %48, ptr %2, align 8
-  %49 = getelementptr inbounds i8, ptr %43, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %50 = load i64, ptr %49, align 8
   store i64 %50, ptr %3, align 8
   %51 = add i64 %50, %48
@@ -216,13 +216,13 @@ define dso_local noundef range(i32 0, 2) i32 @mtrr_trim_uncached_memory(i64 noun
 61:                                               ; preds = %76, %60
   %62 = phi i64 [ %78, %76 ], [ 0, %60 ]
   %63 = getelementptr [256 x %struct.var_mtrr_range_state], ptr @range_state, i64 0, i64 %62
-  %64 = getelementptr inbounds i8, ptr %63, i64 16
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 16
   %65 = load i8, ptr %64, align 8
   %66 = icmp ugt i8 %65, 6
   br i1 %66, label %76, label %67
 
 67:                                               ; preds = %61
-  %68 = getelementptr inbounds i8, ptr %63, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %63, i64 8
   %69 = load i64, ptr %68, align 8
   store i64 %69, ptr %3, align 8
   %70 = icmp eq i64 %69, 0
@@ -242,7 +242,7 @@ define dso_local noundef range(i32 0, 2) i32 @mtrr_trim_uncached_memory(i64 noun
 
 80:                                               ; preds = %76
   store i8 %77, ptr %4, align 1
-  %81 = getelementptr inbounds i8, ptr %5, i64 24
+  %81 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %82 = load i32, ptr %81, align 8
   %83 = icmp eq i32 %82, 0
   br i1 %83, label %.thread, label %84
@@ -250,7 +250,7 @@ define dso_local noundef range(i32 0, 2) i32 @mtrr_trim_uncached_memory(i64 noun
 84:                                               ; preds = %80
   %85 = load i32, ptr %5, align 16
   %86 = add i32 %85, %82
-  %87 = getelementptr inbounds i8, ptr %5, i64 28
+  %87 = getelementptr inbounds nuw i8, ptr %5, i64 28
   %88 = load i32, ptr %87, align 4
   %89 = sub i32 %38, %88
   %90 = icmp eq i32 %86, %89
@@ -385,14 +385,14 @@ define internal fastcc i32 @x86_get_mtrr_mem_range(i32 noundef %0) unnamed_addr 
   %6 = phi i32 [ %21, %18 ], [ 0, %1 ]
   %7 = sext i32 %6 to i64
   %8 = getelementptr [256 x %struct.var_mtrr_range_state], ptr @range_state, i64 0, i64 %7
-  %9 = getelementptr inbounds i8, ptr %8, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load i8, ptr %9, align 8
   %11 = icmp eq i8 %10, 6
   br i1 %11, label %12, label %18
 
 12:                                               ; preds = %.preheader12
   %13 = load i64, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %8, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %15 = load i64, ptr %14, align 8
   %16 = add i64 %15, %13
   %17 = tail call i32 @add_range_with_merge(ptr noundef nonnull @range, i32 noundef 256, i32 noundef %5, i64 noundef %13, i64 noundef %16) #8
@@ -439,7 +439,7 @@ define internal fastcc i32 @x86_get_mtrr_mem_range(i32 noundef %0) unnamed_addr 
 38:                                               ; preds = %34
   %39 = getelementptr %struct.range, ptr @range, i64 %36
   %40 = load i64, ptr %39, align 16
-  %41 = getelementptr inbounds i8, ptr %39, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %42 = load i64, ptr %41, align 8
   %43 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.5, i64 noundef %40, i64 noundef %42) #9
   %.pre14 = load i8, ptr @mtrr_debug, align 1, !range !20
@@ -455,7 +455,7 @@ define internal fastcc i32 @x86_get_mtrr_mem_range(i32 noundef %0) unnamed_addr 
   %48 = phi i32 [ %79, %78 ], [ 0, %.loopexit11 ]
   %49 = sext i32 %48 to i64
   %50 = getelementptr [256 x %struct.var_mtrr_range_state], ptr @range_state, i64 0, i64 %49
-  %51 = getelementptr inbounds i8, ptr %50, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %52 = load i8, ptr %51, align 8
   switch i8 %52, label %78 [
     i8 5, label %53
@@ -463,7 +463,7 @@ define internal fastcc i32 @x86_get_mtrr_mem_range(i32 noundef %0) unnamed_addr 
   ]
 
 53:                                               ; preds = %.preheader, %.preheader
-  %54 = getelementptr inbounds i8, ptr %50, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %55 = load i64, ptr %54, align 8
   %56 = icmp eq i64 %55, 0
   br i1 %56, label %78, label %57
@@ -524,7 +524,7 @@ define internal fastcc i32 @x86_get_mtrr_mem_range(i32 noundef %0) unnamed_addr 
   %87 = phi i8 [ %99, %98 ], [ %.ph, %.preheader21 ]
   %88 = phi i64 [ %100, %98 ], [ 0, %.preheader21 ]
   %89 = getelementptr %struct.range, ptr @range, i64 %88
-  %90 = getelementptr inbounds i8, ptr %89, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 8
   %91 = load i64, ptr %90, align 8
   %92 = icmp eq i64 %91, 0
   %93 = icmp eq i8 %87, 0
@@ -571,7 +571,7 @@ define internal fastcc i32 @x86_get_mtrr_mem_range(i32 noundef %0) unnamed_addr 
 116:                                              ; preds = %112
   %117 = getelementptr %struct.range, ptr @range, i64 %114
   %118 = load i64, ptr %117, align 16
-  %119 = getelementptr inbounds i8, ptr %117, i64 8
+  %119 = getelementptr inbounds nuw i8, ptr %117, i64 8
   %120 = load i64, ptr %119, align 8
   %121 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.5, i64 noundef %118, i64 noundef %120) #9
   %.pre18 = load i8, ptr @mtrr_debug, align 1, !range !20

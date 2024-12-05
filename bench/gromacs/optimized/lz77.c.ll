@@ -22,12 +22,12 @@ define void @Ptngc_comp_to_lz77(ptr nocapture noundef readonly %0, i32 noundef %
 
 12:                                               ; preds = %8, %12
   %indvars.iv = phi i64 [ 0, %8 ], [ %indvars.iv.next, %12 ]
-  %.idx = mul i64 %indvars.iv, 28
-  %13 = getelementptr inbounds i8, ptr %9, i64 %.idx
+  %.idx = mul nuw i64 %indvars.iv, 28
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx
   store i32 0, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %13, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
   store i32 0, ptr %14, align 4
-  %15 = getelementptr inbounds i8, ptr %13, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i32 -2, ptr %15, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 131072
@@ -49,7 +49,7 @@ define void @Ptngc_comp_to_lz77(ptr nocapture noundef readonly %0, i32 noundef %
   %20 = load i32, ptr %19, align 4
   %21 = mul i32 %20, 7
   %22 = zext i32 %21 to i64
-  %23 = getelementptr inbounds i32, ptr %9, i64 %22
+  %23 = getelementptr inbounds nuw i32, ptr %9, i64 %22
   %24 = load i32, ptr %23, align 4
   %25 = icmp sgt i32 %24, 0
   br i1 %25, label %.lr.ph, label %._crit_edge.thread
@@ -57,7 +57,7 @@ define void @Ptngc_comp_to_lz77(ptr nocapture noundef readonly %0, i32 noundef %
 .lr.ph:                                           ; preds = %17
   %26 = add i32 %21, 1
   %27 = zext i32 %26 to i64
-  %28 = getelementptr inbounds i32, ptr %9, i64 %27
+  %28 = getelementptr inbounds nuw i32, ptr %9, i64 %27
   %29 = load i32, ptr %28, align 4
   %spec.select = add i32 %21, 3
   %invariant.op = add i32 %29, %spec.select
@@ -82,7 +82,7 @@ define void @Ptngc_comp_to_lz77(ptr nocapture noundef readonly %0, i32 noundef %
   %.reass.us = add i32 %invariant.op, %34
   %38 = add i32 %.reass.us, %37
   %39 = zext i32 %38 to i64
-  %40 = getelementptr inbounds i32, ptr %9, i64 %39
+  %40 = getelementptr inbounds nuw i32, ptr %9, i64 %39
   %41 = load i32, ptr %40, align 4
   %42 = icmp slt i32 %41, %spec.store.select
   br i1 %42, label %._crit_edge, label %.preheader147.us
@@ -177,7 +177,7 @@ define void @Ptngc_comp_to_lz77(ptr nocapture noundef readonly %0, i32 noundef %
 65:                                               ; preds = %._crit_edge
   %66 = sub nsw i32 %.1125182, %.0112.lcssa
   %67 = icmp eq i32 %66, 1
-  %68 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv215
+  %68 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv215
   br i1 %67, label %69, label %70
 
 69:                                               ; preds = %65
@@ -258,7 +258,7 @@ add_circular.exit:                                ; preds = %.lr.ph179.add_circu
 
 ._crit_edge.thread:                               ; preds = %.lr.ph, %17, %._crit_edge
   %104 = add i32 %20, 2
-  %105 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv215
+  %105 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv215
   store i32 %104, ptr %105, align 4
   %106 = load i32, ptr %19, align 4
   %107 = mul nsw i32 %106, 7
@@ -296,7 +296,7 @@ add_circular.exit142:                             ; preds = %._crit_edge.thread,
 125:                                              ; preds = %.lr.ph187
   %126 = load i32, ptr %0, align 4
   %127 = add i32 %126, 2
-  %128 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv215
+  %128 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv215
   store i32 %127, ptr %128, align 4
   %129 = load i32, ptr %0, align 4
   %130 = mul nsw i32 %129, 7
@@ -370,7 +370,7 @@ define void @Ptngc_comp_from_lz77(ptr nocapture noundef readonly %0, i32 noundef
   %.02539 = phi i32 [ %.227, %.loopexit ], [ 0, %8 ]
   %.02838 = phi i32 [ %.129, %.loopexit ], [ 0, %8 ]
   %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 1
-  %10 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv45
+  %10 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv45
   %11 = load i32, ptr %10, align 4
   %12 = icmp ult i32 %11, 2
   br i1 %12, label %13, label %38

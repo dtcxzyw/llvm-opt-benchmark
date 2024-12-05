@@ -466,7 +466,7 @@ define internal i32 @dissect_nbns(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8
   tail call void @col_set_str(ptr noundef %12, i32 noundef 34, ptr noundef nonnull @.str.164) #8
   %13 = load ptr, ptr %11, align 8
@@ -707,7 +707,7 @@ define internal i32 @dissect_nbdgm(ptr noundef %0, ptr noundef %1, ptr noundef %
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void @col_set_str(ptr noundef %9, i32 noundef 34, ptr noundef nonnull @.str.167) #8
   %10 = load ptr, ptr %8, align 8
@@ -839,18 +839,18 @@ define internal i32 @dissect_nbss(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %5, label %170, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void @col_set_str(ptr noundef %8, i32 noundef 34, ptr noundef nonnull @.str.171) #8
   %9 = load ptr, ptr %7, align 8
   tail call void @col_clear(ptr noundef %9, i32 noundef 25) #8
   %10 = tail call i32 @tvb_captured_length(ptr noundef %0) #8
   %11 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #8
-  %12 = getelementptr inbounds i8, ptr %1, i64 292
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 292
   %13 = load i32, ptr %12, align 4
   %14 = icmp eq i32 %13, 445
   %. = zext i1 %14 to i32
-  %15 = getelementptr inbounds i8, ptr %3, i64 12
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %16 = load i32, ptr %15, align 4
   %.not = icmp eq i32 %16, 0
   br i1 %.not, label %17, label %96
@@ -869,15 +869,15 @@ define internal i32 @dissect_nbss(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %or.cond3, label %25, label %32
 
 25:                                               ; preds = %19
-  %26 = getelementptr inbounds i8, ptr %1, i64 328
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %27 = load i16, ptr %26, align 8
   %.not148 = icmp eq i16 %27, 0
   br i1 %.not148, label %32, label %28
 
 28:                                               ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %1, i64 332
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 332
   store i32 0, ptr %29, align 4
-  %30 = getelementptr inbounds i8, ptr %1, i64 336
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 336
   store i32 268435455, ptr %30, align 8
   %31 = tail call i32 @tvb_captured_length(ptr noundef %0) #8
   br label %170
@@ -1043,11 +1043,11 @@ dissect_continuation_packet.exit167:              ; preds = %64, %65
   br i1 %.not149184, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %96
-  %101 = getelementptr inbounds i8, ptr %1, i64 328
+  %101 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %.not151 = icmp eq i32 %.1, 0
-  %102 = getelementptr inbounds i8, ptr %1, i64 80
-  %103 = getelementptr inbounds i8, ptr %1, i64 340
-  %104 = getelementptr inbounds i8, ptr %1, i64 344
+  %102 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %103 = getelementptr inbounds nuw i8, ptr %1, i64 340
+  %104 = getelementptr inbounds nuw i8, ptr %1, i64 344
   br label %105
 
 105:                                              ; preds = %.lr.ph, %165
@@ -1065,9 +1065,9 @@ dissect_continuation_packet.exit167:              ; preds = %64, %65
   br i1 %or.cond5, label %112, label %116
 
 112:                                              ; preds = %108
-  %113 = getelementptr inbounds i8, ptr %1, i64 332
+  %113 = getelementptr inbounds nuw i8, ptr %1, i64 332
   store i32 %.0136185, ptr %113, align 4
-  %114 = getelementptr inbounds i8, ptr %1, i64 336
+  %114 = getelementptr inbounds nuw i8, ptr %1, i64 336
   store i32 268435455, ptr %114, align 8
   %115 = tail call i32 @tvb_captured_length(ptr noundef %0) #8
   br label %170
@@ -1095,7 +1095,7 @@ dissect_continuation_packet.exit167:              ; preds = %64, %65
   %.1134 = phi i32 [ %119, %118 ], [ %spec.select156, %120 ]
   %129 = add i32 %.1134, 4
   %130 = load ptr, ptr %102, align 8
-  %131 = getelementptr inbounds i8, ptr %130, i64 50
+  %131 = getelementptr inbounds nuw i8, ptr %130, i64 50
   %132 = load i16, ptr %131, align 2
   %133 = and i16 %132, 8
   %.not153 = icmp eq i16 %133, 0
@@ -1149,10 +1149,10 @@ dissect_continuation_packet.exit167:              ; preds = %64, %65
   br i1 %or.cond157, label %160, label %165
 
 160:                                              ; preds = %157
-  %161 = getelementptr inbounds i8, ptr %1, i64 332
+  %161 = getelementptr inbounds nuw i8, ptr %1, i64 332
   store i32 %.0136185, ptr %161, align 4
   %162 = sub nuw i32 %129, %106
-  %163 = getelementptr inbounds i8, ptr %1, i64 336
+  %163 = getelementptr inbounds nuw i8, ptr %1, i64 336
   store i32 %162, ptr %163, align 8
   %164 = tail call i32 @tvb_captured_length(ptr noundef %0) #8
   br label %170
@@ -1236,7 +1236,7 @@ define internal fastcc noundef i32 @dissect_answer_records(ptr noundef %0, ptr n
   %14 = icmp ne ptr %4, null
   %15 = icmp ne i32 %6, 7
   %or.cond.i = and i1 %14, %15
-  %16 = getelementptr inbounds i8, ptr %1, i64 408
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %17 = icmp eq i32 %6, 7
   br label %18
 
@@ -2096,7 +2096,7 @@ define internal fastcc void @dissect_nbss_packet(ptr noundef %0, ptr noundef %1,
 
 add_name_and_type.exit:                           ; preds = %44, %41, %36
   %46 = add i32 %37, 4
-  %47 = getelementptr inbounds i8, ptr %1, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %48 = load ptr, ptr %47, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %48, i32 noundef 25, ptr noundef nonnull @.str.271, ptr noundef %12) #8
   %49 = call fastcc i32 @get_nbns_name(ptr noundef %0, i32 noundef %46, i32 noundef %46, ptr noundef %12, i32 noundef 379, ptr noundef %6)
@@ -2127,7 +2127,7 @@ add_name_and_type.exit107:                        ; preds = %56, %53, %add_name_
   %61 = load i32, ptr @hf_nbss_error_code, align 4
   %62 = zext i8 %60 to i32
   %63 = call ptr @proto_tree_add_uint(ptr noundef %17, i32 noundef %61, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef %62) #8
-  %64 = getelementptr inbounds i8, ptr %1, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %65 = load ptr, ptr %64, align 8
   %66 = call ptr @val_to_str(i32 noundef %62, ptr noundef nonnull @nbss_error_codes, ptr noundef nonnull @.str.273) #8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %65, i32 noundef 25, ptr noundef nonnull @.str.248, ptr noundef %66) #8
@@ -2145,10 +2145,10 @@ add_name_and_type.exit107:                        ; preds = %56, %53, %add_name_
   %74 = load ptr, ptr %1, align 8
   store volatile i32 0, ptr %8, align 4
   call void @except_setup_try(ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull @dissect_nbss_packet.catch_spec, i64 noundef 1) #8
-  %75 = getelementptr inbounds i8, ptr %10, i64 48
+  %75 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %76 = call i32 @_setjmp(ptr noundef nonnull %75) #10
   %.not100 = icmp eq i32 %76, 0
-  %77 = getelementptr inbounds i8, ptr %10, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %.sink = select i1 %.not100, ptr null, ptr %77
   store volatile ptr %.sink, ptr %7, align 8
   %.0..0..0..0. = load volatile i32, ptr %8, align 4
@@ -2202,28 +2202,28 @@ dissect_netbios_payload.exit:                     ; preds = %86, %89
 
 94:                                               ; preds = %93
   %.0..0..0..0.9 = load volatile ptr, ptr %7, align 8
-  %95 = getelementptr inbounds i8, ptr %.0..0..0..0.9, i64 8
+  %95 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.9, i64 8
   %96 = load volatile i64, ptr %95, align 8
   %97 = icmp eq i64 %96, 3
   br i1 %97, label %110, label %98
 
 98:                                               ; preds = %94
   %.0..0..0..0.10 = load volatile ptr, ptr %7, align 8
-  %99 = getelementptr inbounds i8, ptr %.0..0..0..0.10, i64 8
+  %99 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.10, i64 8
   %100 = load volatile i64, ptr %99, align 8
   %101 = icmp eq i64 %100, 2
   br i1 %101, label %110, label %102
 
 102:                                              ; preds = %98
   %.0..0..0..0.11 = load volatile ptr, ptr %7, align 8
-  %103 = getelementptr inbounds i8, ptr %.0..0..0..0.11, i64 8
+  %103 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.11, i64 8
   %104 = load volatile i64, ptr %103, align 8
   %105 = icmp eq i64 %104, 7
   br i1 %105, label %110, label %106
 
 106:                                              ; preds = %102
   %.0..0..0..0.12 = load volatile ptr, ptr %7, align 8
-  %107 = getelementptr inbounds i8, ptr %.0..0..0..0.12, i64 8
+  %107 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.12, i64 8
   %108 = load volatile i64, ptr %107, align 8
   %109 = icmp eq i64 %108, 9
   br i1 %109, label %110, label %116
@@ -2233,10 +2233,10 @@ dissect_netbios_payload.exit:                     ; preds = %86, %89
   %111 = or i32 %.0..0..0..0.5, 1
   store volatile i32 %111, ptr %8, align 4
   %.0..0..0..0.13 = load volatile ptr, ptr %7, align 8
-  %112 = getelementptr inbounds i8, ptr %.0..0..0..0.13, i64 8
+  %112 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.13, i64 8
   %113 = load volatile i64, ptr %112, align 8
   %.0..0..0..0.14 = load volatile ptr, ptr %7, align 8
-  %114 = getelementptr inbounds i8, ptr %.0..0..0..0.14, i64 16
+  %114 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.14, i64 16
   %115 = load volatile ptr, ptr %114, align 8
   call void @show_exception(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i64 noundef %113, ptr noundef %115) #8
   store ptr %74, ptr %1, align 8
@@ -2259,7 +2259,7 @@ dissect_netbios_payload.exit:                     ; preds = %86, %89
   unreachable
 
 120:                                              ; preds = %118, %116
-  %121 = getelementptr inbounds i8, ptr %10, i64 40
+  %121 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %122 = load volatile ptr, ptr %121, align 8
   call void @except_free(ptr noundef %122) #8
   %123 = call ptr @except_pop() #8

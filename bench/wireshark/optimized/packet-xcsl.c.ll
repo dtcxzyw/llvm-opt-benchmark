@@ -92,7 +92,7 @@ define internal range(i32 0, 2) i32 @dissect_xcsl_tcp_heur(ptr noundef %0, ptr n
   br i1 %7, label %8, label %98
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %1, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = tail call ptr @tvb_get_string_enc(ptr noundef %10, ptr noundef %0, i32 noundef 0, i32 noundef 5, i32 noundef 0) #4
   %12 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(5) @.str.14, i64 noundef 4) #5
@@ -109,7 +109,7 @@ define internal range(i32 0, 2) i32 @dissect_xcsl_tcp_heur(ptr noundef %0, ptr n
 
 17:                                               ; preds = %14, %14
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
-  %18 = getelementptr inbounds i8, ptr %1, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %19 = load ptr, ptr %18, align 8
   tail call void @col_set_str(ptr noundef %19, i32 noundef 34, ptr noundef nonnull @.str.19) #4
   %20 = load ptr, ptr %18, align 8

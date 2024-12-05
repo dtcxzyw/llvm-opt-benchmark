@@ -99,7 +99,7 @@ _ZN4llvm11SmallPtrSetIPNS_2cl10SubCommandELj1EED2Ev.exit.i: ; preds = %12, %_ZNS
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %14 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %13) #9
   %15 = load ptr, ptr %13, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 80
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %17 = icmp eq ptr %15, %16
   br i1 %17, label %_ZN4llvm2cl6OptionD2Ev.exit, label %18
 
@@ -144,7 +144,7 @@ define dso_local noundef i32 @_ZN4llvm22ICallPromotionAnalysis32getProfitablePro
 
 7:                                                ; preds = %.lr.ph
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds %struct.InstrProfValueData, ptr %8, i64 %indvars.iv, i32 1
+  %9 = getelementptr inbounds nuw %struct.InstrProfValueData, ptr %8, i64 %indvars.iv, i32 1
   %10 = load i64, ptr %9, align 8
   %11 = mul i64 %10, 100
   %12 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL28ICPRemainingPercentThreshold, i64 128), align 8
@@ -186,7 +186,7 @@ define dso_local { ptr, i64 } @_ZN4llvm22ICallPromotionAnalysis36getPromotionCan
   %7 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplI18InstrProfValueDataEaSEOS2_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(80) %5)
   %8 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %5) #9
   %9 = load ptr, ptr %5, align 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %11 = icmp eq ptr %9, %10
   br i1 %11, label %_ZN4llvm11SmallVectorI18InstrProfValueDataLj4EED2Ev.exit, label %12
 
@@ -217,7 +217,7 @@ _ZN4llvm11SmallVectorI18InstrProfValueDataLj4EED2Ev.exit: ; preds = %4, %12
 
 20:                                               ; preds = %.lr.ph.i
   %21 = load ptr, ptr %0, align 8
-  %22 = getelementptr inbounds %struct.InstrProfValueData, ptr %21, i64 %indvars.iv.i, i32 1
+  %22 = getelementptr inbounds nuw %struct.InstrProfValueData, ptr %21, i64 %indvars.iv.i, i32 1
   %23 = load i64, ptr %22, align 8
   %24 = mul i64 %23, 100
   %25 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL28ICPRemainingPercentThreshold, i64 128), align 8
@@ -290,7 +290,7 @@ define linkonce_odr hidden void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagEN
   store i16 %14, ptr %5, align 2
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %17 = getelementptr inbounds i8, ptr %0, i64 80
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %15, i8 0, i64 52, i1 false)
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull %17, i64 noundef 1) #9
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -402,14 +402,14 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15S
 
 4:                                                ; preds = %2
   %5 = load ptr, ptr %1, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = icmp eq ptr %5, %6
   br i1 %7, label %21, label %8
 
 8:                                                ; preds = %4
   %9 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #9
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = icmp eq ptr %10, %11
   br i1 %12, label %_ZN4llvm15SmallVectorImplI18InstrProfValueDataE12assignRemoteEOS2_.exit, label %13
 
@@ -472,7 +472,7 @@ _ZSt4moveIP18InstrProfValueDataS1_ET0_T_S3_S2_.exit: ; preds = %29, %26, %24
   %37 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #9
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %39, i64 noundef %22, i64 noundef 16) #9
   br label %_ZSt4moveIP18InstrProfValueDataS1_ET0_T_S3_S2_.exit35
 
@@ -525,9 +525,9 @@ define internal void @_GLOBAL__sub_I_IndirectCallPromotionAnalysis.cpp() #7 sect
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   tail call void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE(ptr noundef nonnull align 8 dereferenceable(128) @_ZL28ICPRemainingPercentThreshold, i32 noundef 0, i32 noundef 0)
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZL28ICPRemainingPercentThreshold, i64 128), align 8
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZL28ICPRemainingPercentThreshold, i64 144), align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIjEE, i64 16), ptr getelementptr inbounds (i8, ptr @_ZL28ICPRemainingPercentThreshold, i64 136), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL28ICPRemainingPercentThreshold, i64 128), align 8
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL28ICPRemainingPercentThreshold, i64 144), align 8
+  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIjEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL28ICPRemainingPercentThreshold, i64 136), align 8
   store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIjLb0ENS0_6parserIjEEEE, i64 16), ptr @_ZL28ICPRemainingPercentThreshold, align 8
   tail call void @_ZN4llvm2cl12basic_parserIjEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @_ZL28ICPRemainingPercentThreshold, i64 152), ptr noundef nonnull align 8 dereferenceable(128) @_ZL28ICPRemainingPercentThreshold) #9
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIjEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL28ICPRemainingPercentThreshold, i64 152), align 8
@@ -544,13 +544,13 @@ define internal void @_GLOBAL__sub_I_IndirectCallPromotionAnalysis.cpp() #7 sect
   %7 = or disjoint i16 %6, 32
   store i16 %7, ptr getelementptr inbounds nuw (i8, ptr @_ZL28ICPRemainingPercentThreshold, i64 10), align 2
   store ptr @.str.1, ptr getelementptr inbounds nuw (i8, ptr @_ZL28ICPRemainingPercentThreshold, i64 32), align 8
-  store i64 91, ptr getelementptr inbounds (i8, ptr @_ZL28ICPRemainingPercentThreshold, i64 40), align 8
+  store i64 91, ptr getelementptr inbounds nuw (i8, ptr @_ZL28ICPRemainingPercentThreshold, i64 40), align 8
   call void @_ZN4llvm2cl3optIjLb0ENS0_6parserIjEEE4doneEv(ptr noundef nonnull align 8 dereferenceable(192) @_ZL28ICPRemainingPercentThreshold) #9
   %8 = call i32 @__cxa_atexit(ptr nonnull @_ZN4llvm2cl3optIjLb0ENS0_6parserIjEEED2Ev, ptr nonnull @_ZL28ICPRemainingPercentThreshold, ptr nonnull @__dso_handle) #9
   call void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE(ptr noundef nonnull align 8 dereferenceable(128) @_ZL24ICPTotalPercentThreshold, i32 noundef 0, i32 noundef 0)
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZL24ICPTotalPercentThreshold, i64 128), align 8
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZL24ICPTotalPercentThreshold, i64 144), align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIjEE, i64 16), ptr getelementptr inbounds (i8, ptr @_ZL24ICPTotalPercentThreshold, i64 136), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL24ICPTotalPercentThreshold, i64 128), align 8
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL24ICPTotalPercentThreshold, i64 144), align 8
+  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIjEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL24ICPTotalPercentThreshold, i64 136), align 8
   store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIjLb0ENS0_6parserIjEEEE, i64 16), ptr @_ZL24ICPTotalPercentThreshold, align 8
   call void @_ZN4llvm2cl12basic_parserIjEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @_ZL24ICPTotalPercentThreshold, i64 152), ptr noundef nonnull align 8 dereferenceable(128) @_ZL24ICPTotalPercentThreshold) #9
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIjEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL24ICPTotalPercentThreshold, i64 152), align 8
@@ -567,13 +567,13 @@ define internal void @_GLOBAL__sub_I_IndirectCallPromotionAnalysis.cpp() #7 sect
   %11 = or disjoint i16 %10, 32
   store i16 %11, ptr getelementptr inbounds nuw (i8, ptr @_ZL24ICPTotalPercentThreshold, i64 10), align 2
   store ptr @.str.4, ptr getelementptr inbounds nuw (i8, ptr @_ZL24ICPTotalPercentThreshold, i64 32), align 8
-  store i64 62, ptr getelementptr inbounds (i8, ptr @_ZL24ICPTotalPercentThreshold, i64 40), align 8
+  store i64 62, ptr getelementptr inbounds nuw (i8, ptr @_ZL24ICPTotalPercentThreshold, i64 40), align 8
   call void @_ZN4llvm2cl3optIjLb0ENS0_6parserIjEEE4doneEv(ptr noundef nonnull align 8 dereferenceable(192) @_ZL24ICPTotalPercentThreshold) #9
   %12 = call i32 @__cxa_atexit(ptr nonnull @_ZN4llvm2cl3optIjLb0ENS0_6parserIjEEED2Ev, ptr nonnull @_ZL24ICPTotalPercentThreshold, ptr nonnull @__dso_handle) #9
   call void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE(ptr noundef nonnull align 8 dereferenceable(128) @_ZL16MaxNumPromotions, i32 noundef 0, i32 noundef 0)
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZL16MaxNumPromotions, i64 128), align 8
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZL16MaxNumPromotions, i64 144), align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIjEE, i64 16), ptr getelementptr inbounds (i8, ptr @_ZL16MaxNumPromotions, i64 136), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL16MaxNumPromotions, i64 128), align 8
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL16MaxNumPromotions, i64 144), align 8
+  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIjEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL16MaxNumPromotions, i64 136), align 8
   store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIjLb0ENS0_6parserIjEEEE, i64 16), ptr @_ZL16MaxNumPromotions, align 8
   call void @_ZN4llvm2cl12basic_parserIjEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @_ZL16MaxNumPromotions, i64 152), ptr noundef nonnull align 8 dereferenceable(128) @_ZL16MaxNumPromotions) #9
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIjEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZL16MaxNumPromotions, i64 152), align 8
@@ -590,13 +590,13 @@ define internal void @_GLOBAL__sub_I_IndirectCallPromotionAnalysis.cpp() #7 sect
   %15 = or disjoint i16 %14, 32
   store i16 %15, ptr getelementptr inbounds nuw (i8, ptr @_ZL16MaxNumPromotions, i64 10), align 2
   store ptr @.str.7, ptr getelementptr inbounds nuw (i8, ptr @_ZL16MaxNumPromotions, i64 32), align 8
-  store i64 60, ptr getelementptr inbounds (i8, ptr @_ZL16MaxNumPromotions, i64 40), align 8
+  store i64 60, ptr getelementptr inbounds nuw (i8, ptr @_ZL16MaxNumPromotions, i64 40), align 8
   call void @_ZN4llvm2cl3optIjLb0ENS0_6parserIjEEE4doneEv(ptr noundef nonnull align 8 dereferenceable(192) @_ZL16MaxNumPromotions) #9
   %16 = call i32 @__cxa_atexit(ptr nonnull @_ZN4llvm2cl3optIjLb0ENS0_6parserIjEEED2Ev, ptr nonnull @_ZL16MaxNumPromotions, ptr nonnull @__dso_handle) #9
   call void @_ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE(ptr noundef nonnull align 8 dereferenceable(128) @MaxNumVTableAnnotations, i32 noundef 0, i32 noundef 0)
-  store i32 0, ptr getelementptr inbounds (i8, ptr @MaxNumVTableAnnotations, i64 128), align 8
-  store i64 0, ptr getelementptr inbounds (i8, ptr @MaxNumVTableAnnotations, i64 144), align 8
-  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIjEE, i64 16), ptr getelementptr inbounds (i8, ptr @MaxNumVTableAnnotations, i64 136), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @MaxNumVTableAnnotations, i64 128), align 8
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @MaxNumVTableAnnotations, i64 144), align 8
+  store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm2cl11OptionValueIjEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @MaxNumVTableAnnotations, i64 136), align 8
   store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIjLb0ENS0_6parserIjEEEE, i64 16), ptr @MaxNumVTableAnnotations, align 8
   call void @_ZN4llvm2cl12basic_parserIjEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds nuw (i8, ptr @MaxNumVTableAnnotations, i64 152), ptr noundef nonnull align 8 dereferenceable(128) @MaxNumVTableAnnotations) #9
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm2cl6parserIjEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @MaxNumVTableAnnotations, i64 152), align 8
@@ -613,7 +613,7 @@ define internal void @_GLOBAL__sub_I_IndirectCallPromotionAnalysis.cpp() #7 sect
   %19 = or disjoint i16 %18, 32
   store i16 %19, ptr getelementptr inbounds nuw (i8, ptr @MaxNumVTableAnnotations, i64 10), align 2
   store ptr @.str.10, ptr getelementptr inbounds nuw (i8, ptr @MaxNumVTableAnnotations, i64 32), align 8
-  store i64 62, ptr getelementptr inbounds (i8, ptr @MaxNumVTableAnnotations, i64 40), align 8
+  store i64 62, ptr getelementptr inbounds nuw (i8, ptr @MaxNumVTableAnnotations, i64 40), align 8
   call void @_ZN4llvm2cl3optIjLb0ENS0_6parserIjEEE4doneEv(ptr noundef nonnull align 8 dereferenceable(192) @MaxNumVTableAnnotations) #9
   %20 = call i32 @__cxa_atexit(ptr nonnull @_ZN4llvm2cl3optIjLb0ENS0_6parserIjEEED2Ev, ptr nonnull @MaxNumVTableAnnotations, ptr nonnull @__dso_handle) #9
   ret void

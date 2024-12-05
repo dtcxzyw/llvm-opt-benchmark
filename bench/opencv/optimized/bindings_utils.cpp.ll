@@ -136,7 +136,7 @@ define void @_ZN2cv5utils14dumpInputArrayB5cxx11ERKNS_11_InputArrayE(ptr dead_on
 
 36:                                               ; preds = %34
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #10
-  %37 = getelementptr inbounds i8, ptr %1, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %38 = load ptr, ptr %37, align 8
   %39 = icmp eq ptr %38, null
   br i1 %39, label %40, label %48
@@ -262,7 +262,7 @@ define void @_ZN2cv5utils14dumpInputArrayB5cxx11ERKNS_11_InputArrayE(ptr dead_on
           to label %78 unwind label %.loopexit
 
 78:                                               ; preds = %76, %.lr.ph
-  %79 = getelementptr inbounds [32 x i32], ptr %10, i64 0, i64 %indvars.iv
+  %79 = getelementptr inbounds nuw [32 x i32], ptr %10, i64 0, i64 %indvars.iv
   %80 = load i32, ptr %79, align 4
   %81 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef %80)
           to label %82 unwind label %.loopexit
@@ -484,7 +484,7 @@ define void @_ZN2cv5utils22dumpInputArrayOfArraysB5cxx11ERKNS_11_InputArrayE(ptr
 
 38:                                               ; preds = %36
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #10
-  %39 = getelementptr inbounds i8, ptr %1, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %40 = load ptr, ptr %39, align 8
   %41 = icmp eq ptr %40, null
   br i1 %41, label %.invoke, label %50
@@ -702,7 +702,7 @@ define void @_ZN2cv5utils22dumpInputArrayOfArraysB5cxx11ERKNS_11_InputArrayE(ptr
           to label %112 unwind label %.loopexit
 
 112:                                              ; preds = %110, %.lr.ph
-  %113 = getelementptr inbounds [32 x i32], ptr %13, i64 0, i64 %indvars.iv
+  %113 = getelementptr inbounds nuw [32 x i32], ptr %13, i64 0, i64 %indvars.iv
   %114 = load i32, ptr %113, align 4
   %115 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef %114)
           to label %116 unwind label %.loopexit
@@ -808,7 +808,7 @@ define void @_ZN2cv5utils20dumpInputOutputArrayB5cxx11ERKNS_17_InputOutputArrayE
 
 36:                                               ; preds = %34
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #10
-  %37 = getelementptr inbounds i8, ptr %1, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %38 = load ptr, ptr %37, align 8
   %39 = icmp eq ptr %38, null
   br i1 %39, label %40, label %48
@@ -934,7 +934,7 @@ define void @_ZN2cv5utils20dumpInputOutputArrayB5cxx11ERKNS_17_InputOutputArrayE
           to label %78 unwind label %.loopexit
 
 78:                                               ; preds = %76, %.lr.ph
-  %79 = getelementptr inbounds [32 x i32], ptr %10, i64 0, i64 %indvars.iv
+  %79 = getelementptr inbounds nuw [32 x i32], ptr %10, i64 0, i64 %indvars.iv
   %80 = load i32, ptr %79, align 4
   %81 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef %80)
           to label %82 unwind label %.loopexit
@@ -1091,7 +1091,7 @@ define void @_ZN2cv5utils28dumpInputOutputArrayOfArraysB5cxx11ERKNS_17_InputOutp
 
 38:                                               ; preds = %36
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #10
-  %39 = getelementptr inbounds i8, ptr %1, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %40 = load ptr, ptr %39, align 8
   %41 = icmp eq ptr %40, null
   br i1 %41, label %.invoke, label %50
@@ -1309,7 +1309,7 @@ define void @_ZN2cv5utils28dumpInputOutputArrayOfArraysB5cxx11ERKNS_17_InputOutp
           to label %112 unwind label %.loopexit
 
 112:                                              ; preds = %110, %.lr.ph
-  %113 = getelementptr inbounds [32 x i32], ptr %13, i64 0, i64 %indvars.iv
+  %113 = getelementptr inbounds nuw [32 x i32], ptr %13, i64 0, i64 %indvars.iv
   %114 = load i32, ptr %113, align 4
   %115 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef %114)
           to label %116 unwind label %.loopexit
@@ -1365,7 +1365,7 @@ define void @_ZN2cv5utils15dumpVectorOfIntB5cxx11ERKSt6vectorIiSaIiEE(ptr dead_o
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #10, !noalias !9
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #10, !noalias !9
   %8 = load ptr, ptr %1, align 8, !noalias !9
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8, !noalias !9
   %11 = icmp eq ptr %8, %10
   br i1 %11, label %.loopexit.i, label %12
@@ -1492,7 +1492,7 @@ define void @_ZN2cv5utils18dumpVectorOfDoubleB5cxx11ERKSt6vectorIdSaIdEE(ptr dea
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #10, !noalias !13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #10, !noalias !13
   %8 = load ptr, ptr %1, align 8, !noalias !13
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8, !noalias !13
   %11 = icmp eq ptr %8, %10
   br i1 %11, label %.loopexit.i, label %12
@@ -1621,7 +1621,7 @@ define void @_ZN2cv5utils16dumpVectorOfRectB5cxx11ERKSt6vectorINS_5Rect_IiEESaIS
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #10, !noalias !17
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #10, !noalias !17
   %8 = load ptr, ptr %1, align 8, !noalias !17
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8, !noalias !17
   %11 = icmp eq ptr %8, %10
   br i1 %11, label %.loopexit.i, label %12
@@ -1645,7 +1645,7 @@ define void @_ZN2cv5utils16dumpVectorOfRectB5cxx11ERKSt6vectorINS_5Rect_IiEESaIS
           to label %.noexc17.i unwind label %.loopexit.split-lp.i, !noalias !17
 
 .noexc17.i:                                       ; preds = %.noexc16.i
-  %20 = getelementptr inbounds i8, ptr %15, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %21 = load i32, ptr %20, align 4, !noalias !17
   %22 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %19, i32 noundef %21)
           to label %.noexc18.i unwind label %.loopexit.split-lp.i, !noalias !17
@@ -1655,7 +1655,7 @@ define void @_ZN2cv5utils16dumpVectorOfRectB5cxx11ERKSt6vectorINS_5Rect_IiEESaIS
           to label %.noexc19.i unwind label %.loopexit.split-lp.i, !noalias !17
 
 .noexc19.i:                                       ; preds = %.noexc18.i
-  %24 = getelementptr inbounds i8, ptr %15, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %25 = load i32, ptr %24, align 4, !noalias !17
   %26 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %23, i32 noundef %25)
           to label %.noexc20.i unwind label %.loopexit.split-lp.i, !noalias !17
@@ -1665,7 +1665,7 @@ define void @_ZN2cv5utils16dumpVectorOfRectB5cxx11ERKSt6vectorINS_5Rect_IiEESaIS
           to label %.noexc21.i unwind label %.loopexit.split-lp.i, !noalias !17
 
 .noexc21.i:                                       ; preds = %.noexc20.i
-  %28 = getelementptr inbounds i8, ptr %15, i64 12
+  %28 = getelementptr inbounds nuw i8, ptr %15, i64 12
   %29 = load i32, ptr %28, align 4, !noalias !17
   %30 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %27, i32 noundef %29)
           to label %.noexc22.i unwind label %.loopexit.split-lp.i, !noalias !17
@@ -1708,7 +1708,7 @@ _ZN2cv5utilslsERSoRKNS_5Rect_IiEE.exit.preheader.i: ; preds = %.noexc22.i
           to label %.noexc26.i unwind label %.loopexit1.i, !noalias !17
 
 .noexc26.i:                                       ; preds = %.noexc25.i
-  %48 = getelementptr inbounds i8, ptr %43, i64 4
+  %48 = getelementptr inbounds nuw i8, ptr %43, i64 4
   %49 = load i32, ptr %48, align 4, !noalias !17
   %50 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %47, i32 noundef %49)
           to label %.noexc27.i unwind label %.loopexit1.i, !noalias !17
@@ -1718,7 +1718,7 @@ _ZN2cv5utilslsERSoRKNS_5Rect_IiEE.exit.preheader.i: ; preds = %.noexc22.i
           to label %.noexc28.i unwind label %.loopexit1.i, !noalias !17
 
 .noexc28.i:                                       ; preds = %.noexc27.i
-  %52 = getelementptr inbounds i8, ptr %43, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %53 = load i32, ptr %52, align 4, !noalias !17
   %54 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %51, i32 noundef %53)
           to label %.noexc29.i unwind label %.loopexit1.i, !noalias !17
@@ -1728,7 +1728,7 @@ _ZN2cv5utilslsERSoRKNS_5Rect_IiEE.exit.preheader.i: ; preds = %.noexc22.i
           to label %.noexc30.i unwind label %.loopexit1.i, !noalias !17
 
 .noexc30.i:                                       ; preds = %.noexc29.i
-  %56 = getelementptr inbounds i8, ptr %43, i64 12
+  %56 = getelementptr inbounds nuw i8, ptr %43, i64 12
   %57 = load i32, ptr %56, align 4, !noalias !17
   %58 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %55, i32 noundef %57)
           to label %.noexc31.i unwind label %.loopexit1.i, !noalias !17
@@ -1813,7 +1813,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSt8ios_baseS0
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(216) ptr @_ZSt5fixedRSt8ios_base(ptr noundef nonnull align 8 dereferenceable(216) %0) #3 comdat {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, -261
   %5 = or disjoint i32 %4, 4

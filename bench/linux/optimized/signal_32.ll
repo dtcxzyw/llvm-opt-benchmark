@@ -25,7 +25,7 @@ define dso_local i64 @__ia32_compat_sys_sigreturn(ptr nocapture noundef readnone
   %2 = alloca %struct.sigset_t, align 8
   %3 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #6, !srcloc !6
   %4 = inttoptr i64 %3 to ptr
-  %5 = getelementptr inbounds i8, ptr %4, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load ptr, ptr %5, align 32
   %7 = ptrtoint ptr %6 to i64
   %8 = add i64 %7, 16384
@@ -42,9 +42,9 @@ define dso_local i64 @__ia32_compat_sys_sigreturn(ptr nocapture noundef readnone
 
 16:                                               ; preds = %1
   %17 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %18 = getelementptr inbounds i8, ptr %14, i64 8
-  %19 = getelementptr inbounds i8, ptr %14, i64 88
-  %20 = tail call { ptr, i32, i64 } asm sideeffect "call __get_user_nocheck_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr %19, i64 4, i64 %17) #7, !srcloc !9
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 88
+  %20 = tail call { ptr, i32, i64 } asm sideeffect "call __get_user_nocheck_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %19, i64 4, i64 %17) #7, !srcloc !9
   %21 = extractvalue { ptr, i32, i64 } %20, 0
   %22 = extractvalue { ptr, i32, i64 } %20, 1
   %23 = extractvalue { ptr, i32, i64 } %20, 2
@@ -58,14 +58,14 @@ define dso_local i64 @__ia32_compat_sys_sigreturn(ptr nocapture noundef readnone
 
 28:                                               ; preds = %16
   %29 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %30 = getelementptr inbounds i8, ptr %14, i64 720
-  %31 = tail call { ptr, i32, i64 } asm sideeffect "call __get_user_nocheck_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr %30, i64 4, i64 %29) #7, !srcloc !10
+  %30 = getelementptr inbounds nuw i8, ptr %14, i64 720
+  %31 = tail call { ptr, i32, i64 } asm sideeffect "call __get_user_nocheck_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %30, i64 4, i64 %29) #7, !srcloc !10
   %32 = extractvalue { ptr, i32, i64 } %31, 0
   %33 = extractvalue { ptr, i32, i64 } %31, 1
   %34 = extractvalue { ptr, i32, i64 } %31, 2
   %35 = ptrtoint ptr %32 to i64
   tail call void @llvm.write_register.i64(metadata !0, i64 %34)
-  %36 = getelementptr inbounds i8, ptr %2, i64 4
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %33, ptr %36, align 4
   %37 = and i64 %35, 4294967295
   %38 = icmp eq i64 %37, 0
@@ -73,7 +73,7 @@ define dso_local i64 @__ia32_compat_sys_sigreturn(ptr nocapture noundef readnone
 
 39:                                               ; preds = %28
   call void @set_current_blocked(ptr noundef nonnull %2) #7
-  %40 = call fastcc zeroext i1 @ia32_restore_sigcontext(ptr noundef %10, ptr noundef %18)
+  %40 = call fastcc zeroext i1 @ia32_restore_sigcontext(ptr noundef %10, ptr noundef nonnull %18)
   br i1 %40, label %41, label %44
 
 41:                                               ; preds = %39
@@ -96,7 +96,7 @@ define dso_local i64 @__ia32_compat_sys_rt_sigreturn(ptr nocapture noundef readn
   %2 = alloca %struct.sigset_t, align 8
   %3 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #6, !srcloc !6
   %4 = inttoptr i64 %3 to ptr
-  %5 = getelementptr inbounds i8, ptr %4, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load ptr, ptr %5, align 32
   %7 = ptrtoint ptr %6 to i64
   %8 = add i64 %7, 16384
@@ -113,8 +113,8 @@ define dso_local i64 @__ia32_compat_sys_rt_sigreturn(ptr nocapture noundef readn
 
 16:                                               ; preds = %1
   %17 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %18 = getelementptr inbounds i8, ptr %14, i64 252
-  %19 = tail call { ptr, i64, i64 } asm sideeffect "call __get_user_nocheck_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr %18, i64 8, i64 %17) #7, !srcloc !11
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 252
+  %19 = tail call { ptr, i64, i64 } asm sideeffect "call __get_user_nocheck_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %18, i64 8, i64 %17) #7, !srcloc !11
   %20 = extractvalue { ptr, i64, i64 } %19, 0
   %21 = extractvalue { ptr, i64, i64 } %19, 1
   %22 = extractvalue { ptr, i64, i64 } %19, 2
@@ -127,13 +127,13 @@ define dso_local i64 @__ia32_compat_sys_rt_sigreturn(ptr nocapture noundef readn
 
 26:                                               ; preds = %16
   call void @set_current_blocked(ptr noundef nonnull %2) #7
-  %27 = getelementptr inbounds i8, ptr %14, i64 164
-  %28 = call fastcc zeroext i1 @ia32_restore_sigcontext(ptr noundef %10, ptr noundef %27)
+  %27 = getelementptr inbounds nuw i8, ptr %14, i64 164
+  %28 = call fastcc zeroext i1 @ia32_restore_sigcontext(ptr noundef %10, ptr noundef nonnull %27)
   br i1 %28, label %29, label %36
 
 29:                                               ; preds = %26
-  %30 = getelementptr inbounds i8, ptr %14, i64 152
-  %31 = call i32 @compat_restore_altstack(ptr noundef %30) #7
+  %30 = getelementptr inbounds nuw i8, ptr %14, i64 152
+  %31 = call i32 @compat_restore_altstack(ptr noundef nonnull %30) #7
   %32 = icmp eq i32 %31, 0
   br i1 %32, label %33, label %36
 
@@ -157,15 +157,15 @@ define dso_local noundef range(i32 -14, 1) i32 @ia32_setup_frame(ptr noundef %0,
   %3 = alloca ptr, align 8
   %4 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #6, !srcloc !6
   %5 = inttoptr i64 %4 to ptr
-  %6 = getelementptr inbounds i8, ptr %5, i64 1896
-  %7 = getelementptr inbounds i8, ptr %5, i64 1248
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 1896
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 1248
   %8 = load i16, ptr %7, align 32
   %9 = and i16 %8, 16
   %10 = icmp eq i16 %9, 0
   br i1 %10, label %13, label %11, !prof !8
 
 11:                                               ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %5, i64 1912
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 1912
   br label %13
 
 13:                                               ; preds = %11, %2
@@ -173,21 +173,21 @@ define dso_local noundef range(i32 -14, 1) i32 @ia32_setup_frame(ptr noundef %0,
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #7
   store ptr null, ptr %3, align 8
   %15 = call ptr @get_sigframe(ptr noundef %0, ptr noundef %1, i64 noundef 736, ptr noundef nonnull %3) #7
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load i64, ptr %16, align 8
   %18 = and i64 %17, 67108864
   %19 = icmp eq i64 %18, 0
   br i1 %19, label %23, label %20
 
 20:                                               ; preds = %13
-  %21 = getelementptr inbounds i8, ptr %0, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load ptr, ptr %21, align 8
   br label %34
 
 23:                                               ; preds = %13
-  %24 = getelementptr inbounds i8, ptr %5, i64 1192
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 1192
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 1096
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 1096
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, null
   br i1 %28, label %32, label %29
@@ -198,7 +198,7 @@ define dso_local noundef range(i32 -14, 1) i32 @ia32_setup_frame(ptr noundef %0,
   br label %34
 
 32:                                               ; preds = %23
-  %33 = getelementptr inbounds i8, ptr %15, i64 724
+  %33 = getelementptr inbounds nuw i8, ptr %15, i64 724
   br label %34
 
 34:                                               ; preds = %32, %29, %20
@@ -209,182 +209,182 @@ define dso_local noundef range(i32 -14, 1) i32 @ia32_setup_frame(ptr noundef %0,
 37:                                               ; preds = %34
   call void asm sideeffect "# ALT: oldnstr\0A661:\0A\09\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 9*32+20)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09.byte 0x0f,0x01,0xcb\0A6651:\0A.popsection\0A", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !12
   call void asm sideeffect "# ALT: oldnstr\0A661:\0A\09\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (20*32+ 2)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09lfence\0A6651:\0A.popsection\0A", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !13
-  %38 = getelementptr inbounds i8, ptr %0, i64 80
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %39 = load i32, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %15, i64 4
-  callbr void asm sideeffect "\0A1:\09movl $0,$1\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "ir,*m,!i,~{dirflag},~{fpsr},~{flags}"(i32 %39, ptr elementtype(%struct.__large_struct) %40) #7
+  %40 = getelementptr inbounds nuw i8, ptr %15, i64 4
+  callbr void asm sideeffect "\0A1:\09movl $0,$1\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "ir,*m,!i,~{dirflag},~{fpsr},~{flags}"(i32 %39, ptr nonnull elementtype(%struct.__large_struct) %40) #7
           to label %41 [label %157], !srcloc !14
 
 41:                                               ; preds = %37
-  %42 = getelementptr inbounds i8, ptr %15, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %43 = load ptr, ptr %3, align 8
   %44 = load i32, ptr %14, align 4
   %45 = call i32 asm "mov %gs,$0", "=r,~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !15
-  callbr void asm sideeffect "\0A1:\09movl $0,$1\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "ir,*m,!i,~{dirflag},~{fpsr},~{flags}"(i32 %45, ptr elementtype(%struct.__large_struct) %42) #7
+  callbr void asm sideeffect "\0A1:\09movl $0,$1\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "ir,*m,!i,~{dirflag},~{fpsr},~{flags}"(i32 %45, ptr nonnull elementtype(%struct.__large_struct) %42) #7
           to label %46 [label %157], !srcloc !16
 
 46:                                               ; preds = %41
   %47 = call i32 asm "mov %fs,$0", "=r,~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !17
-  %48 = getelementptr inbounds i8, ptr %15, i64 12
-  callbr void asm sideeffect "\0A1:\09movl $0,$1\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "ir,*m,!i,~{dirflag},~{fpsr},~{flags}"(i32 %47, ptr elementtype(%struct.__large_struct) %48) #7
+  %48 = getelementptr inbounds nuw i8, ptr %15, i64 12
+  callbr void asm sideeffect "\0A1:\09movl $0,$1\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "ir,*m,!i,~{dirflag},~{fpsr},~{flags}"(i32 %47, ptr nonnull elementtype(%struct.__large_struct) %48) #7
           to label %49 [label %157], !srcloc !18
 
 49:                                               ; preds = %46
   %50 = call i32 asm "mov %ds,$0", "=r,~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !19
-  %51 = getelementptr inbounds i8, ptr %15, i64 20
-  callbr void asm sideeffect "\0A1:\09movl $0,$1\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "ir,*m,!i,~{dirflag},~{fpsr},~{flags}"(i32 %50, ptr elementtype(%struct.__large_struct) %51) #7
+  %51 = getelementptr inbounds nuw i8, ptr %15, i64 20
+  callbr void asm sideeffect "\0A1:\09movl $0,$1\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "ir,*m,!i,~{dirflag},~{fpsr},~{flags}"(i32 %50, ptr nonnull elementtype(%struct.__large_struct) %51) #7
           to label %52 [label %157], !srcloc !20
 
 52:                                               ; preds = %49
   %53 = call i32 asm "mov %es,$0", "=r,~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !21
-  %54 = getelementptr inbounds i8, ptr %15, i64 16
-  callbr void asm sideeffect "\0A1:\09movl $0,$1\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "ir,*m,!i,~{dirflag},~{fpsr},~{flags}"(i32 %53, ptr elementtype(%struct.__large_struct) %54) #7
+  %54 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  callbr void asm sideeffect "\0A1:\09movl $0,$1\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "ir,*m,!i,~{dirflag},~{fpsr},~{flags}"(i32 %53, ptr nonnull elementtype(%struct.__large_struct) %54) #7
           to label %55 [label %157], !srcloc !22
 
 55:                                               ; preds = %52
-  %56 = getelementptr inbounds i8, ptr %1, i64 112
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %57 = load i64, ptr %56, align 8
   %58 = trunc i64 %57 to i32
-  %59 = getelementptr inbounds i8, ptr %15, i64 24
-  callbr void asm sideeffect "\0A1:\09movl $0,$1\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "ir,*m,!i,~{dirflag},~{fpsr},~{flags}"(i32 %58, ptr elementtype(%struct.__large_struct) %59) #7
+  %59 = getelementptr inbounds nuw i8, ptr %15, i64 24
+  callbr void asm sideeffect "\0A1:\09movl $0,$1\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "ir,*m,!i,~{dirflag},~{fpsr},~{flags}"(i32 %58, ptr nonnull elementtype(%struct.__large_struct) %59) #7
           to label %60 [label %157], !srcloc !23
 
 60:                                               ; preds = %55
-  %61 = getelementptr inbounds i8, ptr %1, i64 104
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %62 = load i64, ptr %61, align 8
   %63 = trunc i64 %62 to i32
-  %64 = getelementptr inbounds i8, ptr %15, i64 28
-  callbr void asm sideeffect "\0A1:\09movl $0,$1\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "ir,*m,!i,~{dirflag},~{fpsr},~{flags}"(i32 %63, ptr elementtype(%struct.__large_struct) %64) #7
+  %64 = getelementptr inbounds nuw i8, ptr %15, i64 28
+  callbr void asm sideeffect "\0A1:\09movl $0,$1\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "ir,*m,!i,~{dirflag},~{fpsr},~{flags}"(i32 %63, ptr nonnull elementtype(%struct.__large_struct) %64) #7
           to label %65 [label %157], !srcloc !24
 
 65:                                               ; preds = %60
-  %66 = getelementptr inbounds i8, ptr %1, i64 32
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %67 = load i64, ptr %66, align 8
   %68 = trunc i64 %67 to i32
-  %69 = getelementptr inbounds i8, ptr %15, i64 32
-  callbr void asm sideeffect "\0A1:\09movl $0,$1\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "ir,*m,!i,~{dirflag},~{fpsr},~{flags}"(i32 %68, ptr elementtype(%struct.__large_struct) %69) #7
+  %69 = getelementptr inbounds nuw i8, ptr %15, i64 32
+  callbr void asm sideeffect "\0A1:\09movl $0,$1\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "ir,*m,!i,~{dirflag},~{fpsr},~{flags}"(i32 %68, ptr nonnull elementtype(%struct.__large_struct) %69) #7
           to label %70 [label %157], !srcloc !25
 
 70:                                               ; preds = %65
-  %71 = getelementptr inbounds i8, ptr %1, i64 152
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %72 = load i64, ptr %71, align 8
   %73 = trunc i64 %72 to i32
-  %74 = getelementptr inbounds i8, ptr %15, i64 36
-  callbr void asm sideeffect "\0A1:\09movl $0,$1\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "ir,*m,!i,~{dirflag},~{fpsr},~{flags}"(i32 %73, ptr elementtype(%struct.__large_struct) %74) #7
+  %74 = getelementptr inbounds nuw i8, ptr %15, i64 36
+  callbr void asm sideeffect "\0A1:\09movl $0,$1\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "ir,*m,!i,~{dirflag},~{fpsr},~{flags}"(i32 %73, ptr nonnull elementtype(%struct.__large_struct) %74) #7
           to label %75 [label %157], !srcloc !26
 
 75:                                               ; preds = %70
-  %76 = getelementptr inbounds i8, ptr %1, i64 40
+  %76 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %77 = load i64, ptr %76, align 8
   %78 = trunc i64 %77 to i32
-  %79 = getelementptr inbounds i8, ptr %15, i64 40
-  callbr void asm sideeffect "\0A1:\09movl $0,$1\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "ir,*m,!i,~{dirflag},~{fpsr},~{flags}"(i32 %78, ptr elementtype(%struct.__large_struct) %79) #7
+  %79 = getelementptr inbounds nuw i8, ptr %15, i64 40
+  callbr void asm sideeffect "\0A1:\09movl $0,$1\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "ir,*m,!i,~{dirflag},~{fpsr},~{flags}"(i32 %78, ptr nonnull elementtype(%struct.__large_struct) %79) #7
           to label %80 [label %157], !srcloc !27
 
 80:                                               ; preds = %75
-  %81 = getelementptr inbounds i8, ptr %1, i64 96
+  %81 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %82 = load i64, ptr %81, align 8
   %83 = trunc i64 %82 to i32
-  %84 = getelementptr inbounds i8, ptr %15, i64 44
-  callbr void asm sideeffect "\0A1:\09movl $0,$1\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "ir,*m,!i,~{dirflag},~{fpsr},~{flags}"(i32 %83, ptr elementtype(%struct.__large_struct) %84) #7
+  %84 = getelementptr inbounds nuw i8, ptr %15, i64 44
+  callbr void asm sideeffect "\0A1:\09movl $0,$1\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "ir,*m,!i,~{dirflag},~{fpsr},~{flags}"(i32 %83, ptr nonnull elementtype(%struct.__large_struct) %84) #7
           to label %85 [label %157], !srcloc !28
 
 85:                                               ; preds = %80
-  %86 = getelementptr inbounds i8, ptr %1, i64 88
+  %86 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %87 = load i64, ptr %86, align 8
   %88 = trunc i64 %87 to i32
-  %89 = getelementptr inbounds i8, ptr %15, i64 48
-  callbr void asm sideeffect "\0A1:\09movl $0,$1\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "ir,*m,!i,~{dirflag},~{fpsr},~{flags}"(i32 %88, ptr elementtype(%struct.__large_struct) %89) #7
+  %89 = getelementptr inbounds nuw i8, ptr %15, i64 48
+  callbr void asm sideeffect "\0A1:\09movl $0,$1\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "ir,*m,!i,~{dirflag},~{fpsr},~{flags}"(i32 %88, ptr nonnull elementtype(%struct.__large_struct) %89) #7
           to label %90 [label %157], !srcloc !29
 
 90:                                               ; preds = %85
-  %91 = getelementptr inbounds i8, ptr %1, i64 80
+  %91 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %92 = load i64, ptr %91, align 8
   %93 = trunc i64 %92 to i32
-  %94 = getelementptr inbounds i8, ptr %15, i64 52
-  callbr void asm sideeffect "\0A1:\09movl $0,$1\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "ir,*m,!i,~{dirflag},~{fpsr},~{flags}"(i32 %93, ptr elementtype(%struct.__large_struct) %94) #7
+  %94 = getelementptr inbounds nuw i8, ptr %15, i64 52
+  callbr void asm sideeffect "\0A1:\09movl $0,$1\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "ir,*m,!i,~{dirflag},~{fpsr},~{flags}"(i32 %93, ptr nonnull elementtype(%struct.__large_struct) %94) #7
           to label %95 [label %157], !srcloc !30
 
 95:                                               ; preds = %90
-  %96 = getelementptr inbounds i8, ptr %5, i64 2928
+  %96 = getelementptr inbounds nuw i8, ptr %5, i64 2928
   %97 = load i64, ptr %96, align 16
   %98 = trunc i64 %97 to i32
-  %99 = getelementptr inbounds i8, ptr %15, i64 56
-  callbr void asm sideeffect "\0A1:\09movl $0,$1\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "ir,*m,!i,~{dirflag},~{fpsr},~{flags}"(i32 %98, ptr elementtype(%struct.__large_struct) %99) #7
+  %99 = getelementptr inbounds nuw i8, ptr %15, i64 56
+  callbr void asm sideeffect "\0A1:\09movl $0,$1\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "ir,*m,!i,~{dirflag},~{fpsr},~{flags}"(i32 %98, ptr nonnull elementtype(%struct.__large_struct) %99) #7
           to label %100 [label %157], !srcloc !31
 
 100:                                              ; preds = %95
-  %101 = getelementptr inbounds i8, ptr %5, i64 2936
+  %101 = getelementptr inbounds nuw i8, ptr %5, i64 2936
   %102 = load i64, ptr %101, align 8
   %103 = trunc i64 %102 to i32
-  %104 = getelementptr inbounds i8, ptr %15, i64 60
-  callbr void asm sideeffect "\0A1:\09movl $0,$1\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "ir,*m,!i,~{dirflag},~{fpsr},~{flags}"(i32 %103, ptr elementtype(%struct.__large_struct) %104) #7
+  %104 = getelementptr inbounds nuw i8, ptr %15, i64 60
+  callbr void asm sideeffect "\0A1:\09movl $0,$1\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "ir,*m,!i,~{dirflag},~{fpsr},~{flags}"(i32 %103, ptr nonnull elementtype(%struct.__large_struct) %104) #7
           to label %105 [label %157], !srcloc !32
 
 105:                                              ; preds = %100
-  %106 = getelementptr inbounds i8, ptr %1, i64 128
+  %106 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %107 = load i64, ptr %106, align 8
   %108 = trunc i64 %107 to i32
-  %109 = getelementptr inbounds i8, ptr %15, i64 64
-  callbr void asm sideeffect "\0A1:\09movl $0,$1\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "ir,*m,!i,~{dirflag},~{fpsr},~{flags}"(i32 %108, ptr elementtype(%struct.__large_struct) %109) #7
+  %109 = getelementptr inbounds nuw i8, ptr %15, i64 64
+  callbr void asm sideeffect "\0A1:\09movl $0,$1\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "ir,*m,!i,~{dirflag},~{fpsr},~{flags}"(i32 %108, ptr nonnull elementtype(%struct.__large_struct) %109) #7
           to label %110 [label %157], !srcloc !33
 
 110:                                              ; preds = %105
-  %111 = getelementptr inbounds i8, ptr %1, i64 136
+  %111 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %112 = load i64, ptr %111, align 8
   %113 = trunc i64 %112 to i32
-  %114 = getelementptr inbounds i8, ptr %15, i64 68
-  callbr void asm sideeffect "\0A1:\09movl $0,$1\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "ir,*m,!i,~{dirflag},~{fpsr},~{flags}"(i32 %113, ptr elementtype(%struct.__large_struct) %114) #7
+  %114 = getelementptr inbounds nuw i8, ptr %15, i64 68
+  callbr void asm sideeffect "\0A1:\09movl $0,$1\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "ir,*m,!i,~{dirflag},~{fpsr},~{flags}"(i32 %113, ptr nonnull elementtype(%struct.__large_struct) %114) #7
           to label %115 [label %157], !srcloc !34
 
 115:                                              ; preds = %110
-  %116 = getelementptr inbounds i8, ptr %1, i64 144
+  %116 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %117 = load i64, ptr %116, align 8
   %118 = trunc i64 %117 to i32
-  %119 = getelementptr inbounds i8, ptr %15, i64 72
-  callbr void asm sideeffect "\0A1:\09movl $0,$1\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "ir,*m,!i,~{dirflag},~{fpsr},~{flags}"(i32 %118, ptr elementtype(%struct.__large_struct) %119) #7
+  %119 = getelementptr inbounds nuw i8, ptr %15, i64 72
+  callbr void asm sideeffect "\0A1:\09movl $0,$1\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "ir,*m,!i,~{dirflag},~{fpsr},~{flags}"(i32 %118, ptr nonnull elementtype(%struct.__large_struct) %119) #7
           to label %120 [label %157], !srcloc !35
 
 120:                                              ; preds = %115
   %121 = load i64, ptr %71, align 8
   %122 = trunc i64 %121 to i32
-  %123 = getelementptr inbounds i8, ptr %15, i64 76
-  callbr void asm sideeffect "\0A1:\09movl $0,$1\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "ir,*m,!i,~{dirflag},~{fpsr},~{flags}"(i32 %122, ptr elementtype(%struct.__large_struct) %123) #7
+  %123 = getelementptr inbounds nuw i8, ptr %15, i64 76
+  callbr void asm sideeffect "\0A1:\09movl $0,$1\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "ir,*m,!i,~{dirflag},~{fpsr},~{flags}"(i32 %122, ptr nonnull elementtype(%struct.__large_struct) %123) #7
           to label %124 [label %157], !srcloc !36
 
 124:                                              ; preds = %120
-  %125 = getelementptr inbounds i8, ptr %1, i64 160
+  %125 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %126 = load i64, ptr %125, align 8
   %127 = trunc i64 %126 to i32
-  %128 = getelementptr inbounds i8, ptr %15, i64 80
-  callbr void asm sideeffect "\0A1:\09movl $0,$1\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "ir,*m,!i,~{dirflag},~{fpsr},~{flags}"(i32 %127, ptr elementtype(%struct.__large_struct) %128) #7
+  %128 = getelementptr inbounds nuw i8, ptr %15, i64 80
+  callbr void asm sideeffect "\0A1:\09movl $0,$1\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "ir,*m,!i,~{dirflag},~{fpsr},~{flags}"(i32 %127, ptr nonnull elementtype(%struct.__large_struct) %128) #7
           to label %129 [label %157], !srcloc !37
 
 129:                                              ; preds = %124
   %130 = ptrtoint ptr %43 to i64
   %131 = trunc i64 %130 to i32
-  %132 = getelementptr inbounds i8, ptr %15, i64 84
-  callbr void asm sideeffect "\0A1:\09movl $0,$1\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "ir,*m,!i,~{dirflag},~{fpsr},~{flags}"(i32 %131, ptr elementtype(%struct.__large_struct) %132) #7
+  %132 = getelementptr inbounds nuw i8, ptr %15, i64 84
+  callbr void asm sideeffect "\0A1:\09movl $0,$1\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "ir,*m,!i,~{dirflag},~{fpsr},~{flags}"(i32 %131, ptr nonnull elementtype(%struct.__large_struct) %132) #7
           to label %133 [label %157], !srcloc !38
 
 133:                                              ; preds = %129
-  %134 = getelementptr inbounds i8, ptr %15, i64 88
-  callbr void asm sideeffect "\0A1:\09movl $0,$1\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "ir,*m,!i,~{dirflag},~{fpsr},~{flags}"(i32 %44, ptr elementtype(%struct.__large_struct) %134) #7
+  %134 = getelementptr inbounds nuw i8, ptr %15, i64 88
+  callbr void asm sideeffect "\0A1:\09movl $0,$1\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "ir,*m,!i,~{dirflag},~{fpsr},~{flags}"(i32 %44, ptr nonnull elementtype(%struct.__large_struct) %134) #7
           to label %135 [label %157], !srcloc !39
 
 135:                                              ; preds = %133
-  %136 = getelementptr inbounds i8, ptr %5, i64 2920
+  %136 = getelementptr inbounds nuw i8, ptr %5, i64 2920
   %137 = load i64, ptr %136, align 8
   %138 = trunc i64 %137 to i32
-  %139 = getelementptr inbounds i8, ptr %15, i64 92
-  callbr void asm sideeffect "\0A1:\09movl $0,$1\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "ir,*m,!i,~{dirflag},~{fpsr},~{flags}"(i32 %138, ptr elementtype(%struct.__large_struct) %139) #7
+  %139 = getelementptr inbounds nuw i8, ptr %15, i64 92
+  callbr void asm sideeffect "\0A1:\09movl $0,$1\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "ir,*m,!i,~{dirflag},~{fpsr},~{flags}"(i32 %138, ptr nonnull elementtype(%struct.__large_struct) %139) #7
           to label %140 [label %157], !srcloc !40
 
 140:                                              ; preds = %135
   %141 = getelementptr i8, ptr %14, i64 4
   %142 = load i32, ptr %141, align 4
-  %143 = getelementptr inbounds i8, ptr %15, i64 720
-  callbr void asm sideeffect "\0A1:\09movl $0,$1\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "ir,*m,!i,~{dirflag},~{fpsr},~{flags}"(i32 %142, ptr elementtype(%struct.__large_struct) %143) #7
+  %143 = getelementptr inbounds nuw i8, ptr %15, i64 720
+  callbr void asm sideeffect "\0A1:\09movl $0,$1\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "ir,*m,!i,~{dirflag},~{fpsr},~{flags}"(i32 %142, ptr nonnull elementtype(%struct.__large_struct) %143) #7
           to label %144 [label %157], !srcloc !41
 
 144:                                              ; preds = %140
@@ -394,8 +394,8 @@ define dso_local noundef range(i32 -14, 1) i32 @ia32_setup_frame(ptr noundef %0,
           to label %147 [label %157], !srcloc !42
 
 147:                                              ; preds = %144
-  %148 = getelementptr inbounds i8, ptr %15, i64 724
-  callbr void asm sideeffect "\0A1:\09movq $0,$1\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "er,*m,!i,~{dirflag},~{fpsr},~{flags}"(i64 -9165669666621245352, ptr elementtype(%struct.__large_struct) %148) #7
+  %148 = getelementptr inbounds nuw i8, ptr %15, i64 724
+  callbr void asm sideeffect "\0A1:\09movq $0,$1\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "er,*m,!i,~{dirflag},~{fpsr},~{flags}"(i64 -9165669666621245352, ptr nonnull elementtype(%struct.__large_struct) %148) #7
           to label %149 [label %157], !srcloc !43
 
 149:                                              ; preds = %147
@@ -408,7 +408,7 @@ define dso_local noundef range(i32 -14, 1) i32 @ia32_setup_frame(ptr noundef %0,
   %153 = load i32, ptr %38, align 8
   %154 = sext i32 %153 to i64
   store i64 %154, ptr %91, align 8
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %86, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %86, i8 0, i64 16, i1 false)
   %155 = call i16 asm sideeffect "\09\09\09\09\09\09\0A1:\09movl ${0:k},%ds\09\09\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (1b) - .\0A.macro extable_type_reg type:req reg:req\0A.set .Lfound, 0\0A.set .Lregnr, 0\0A.irp rs,rax,rcx,rdx,rbx,rsp,rbp,rsi,rdi,r8,r9,r10,r11,r12,r13,r14,r15\0A.ifc \\reg, %\\rs\0A.set .Lfound, .Lfound+1\0A.long \\type + (.Lregnr << 8)\0A.endif\0A.set .Lregnr, .Lregnr+1\0A.endr\0A.set .Lregnr, 0\0A.irp rs,eax,ecx,edx,ebx,esp,ebp,esi,edi,r8d,r9d,r10d,r11d,r12d,r13d,r14d,r15d\0A.ifc \\reg, %\\rs\0A.set .Lfound, .Lfound+1\0A.long \\type + (.Lregnr << 8)\0A.endif\0A.set .Lregnr, .Lregnr+1\0A.endr\0A.if (.Lfound != 1)\0A.error \22extable_type_reg: bad register argument\22\0A.endif\0A.endm\0Aextable_type_reg reg=${0:k}, type=(17 $| ((0) << 16)) \0A.purgem extable_type_reg\0A .popsection\0A", "=r,0,~{memory},~{dirflag},~{fpsr},~{flags}"(i16 43) #7, !srcloc !45
   %156 = call i16 asm sideeffect "\09\09\09\09\09\09\0A1:\09movl ${0:k},%es\09\09\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (1b) - .\0A.macro extable_type_reg type:req reg:req\0A.set .Lfound, 0\0A.set .Lregnr, 0\0A.irp rs,rax,rcx,rdx,rbx,rsp,rbp,rsi,rdi,r8,r9,r10,r11,r12,r13,r14,r15\0A.ifc \\reg, %\\rs\0A.set .Lfound, .Lfound+1\0A.long \\type + (.Lregnr << 8)\0A.endif\0A.set .Lregnr, .Lregnr+1\0A.endr\0A.set .Lregnr, 0\0A.irp rs,eax,ecx,edx,ebx,esp,ebp,esi,edi,r8d,r9d,r10d,r11d,r12d,r13d,r14d,r15d\0A.ifc \\reg, %\\rs\0A.set .Lfound, .Lfound+1\0A.long \\type + (.Lregnr << 8)\0A.endif\0A.set .Lregnr, .Lregnr+1\0A.endr\0A.if (.Lfound != 1)\0A.error \22extable_type_reg: bad register argument\22\0A.endif\0A.endm\0Aextable_type_reg reg=${0:k}, type=(17 $| ((0) << 16)) \0A.purgem extable_type_reg\0A .popsection\0A", "=r,0,~{memory},~{dirflag},~{fpsr},~{flags}"(i16 43) #7, !srcloc !46
   store i64 35, ptr %111, align 8
@@ -439,15 +439,15 @@ define dso_local noundef range(i32 -14, 1) i32 @ia32_setup_rt_frame(ptr noundef 
   %3 = alloca ptr, align 8
   %4 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #6, !srcloc !6
   %5 = inttoptr i64 %4 to ptr
-  %6 = getelementptr inbounds i8, ptr %5, i64 1896
-  %7 = getelementptr inbounds i8, ptr %5, i64 1248
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 1896
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 1248
   %8 = load i16, ptr %7, align 32
   %9 = and i16 %8, 16
   %10 = icmp eq i16 %9, 0
   br i1 %10, label %13, label %11, !prof !8
 
 11:                                               ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %5, i64 1912
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 1912
   br label %13
 
 13:                                               ; preds = %11, %2
@@ -461,26 +461,26 @@ define dso_local noundef range(i32 -14, 1) i32 @ia32_setup_rt_frame(ptr noundef 
 17:                                               ; preds = %13
   call void asm sideeffect "# ALT: oldnstr\0A661:\0A\09\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 9*32+20)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09.byte 0x0f,0x01,0xcb\0A6651:\0A.popsection\0A", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !12
   call void asm sideeffect "# ALT: oldnstr\0A661:\0A\09\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (20*32+ 2)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09lfence\0A6651:\0A.popsection\0A", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !13
-  %18 = getelementptr inbounds i8, ptr %0, i64 80
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %19 = load i32, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %15, i64 4
-  callbr void asm sideeffect "\0A1:\09movl $0,$1\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "ir,*m,!i,~{dirflag},~{fpsr},~{flags}"(i32 %19, ptr elementtype(%struct.__large_struct) %20) #7
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 4
+  callbr void asm sideeffect "\0A1:\09movl $0,$1\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "ir,*m,!i,~{dirflag},~{fpsr},~{flags}"(i32 %19, ptr nonnull elementtype(%struct.__large_struct) %20) #7
           to label %21 [label %185], !srcloc !47
 
 21:                                               ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %15, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %23 = ptrtoint ptr %22 to i64
   %24 = trunc i64 %23 to i32
-  %25 = getelementptr inbounds i8, ptr %15, i64 8
-  callbr void asm sideeffect "\0A1:\09movl $0,$1\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "ir,*m,!i,~{dirflag},~{fpsr},~{flags}"(i32 %24, ptr elementtype(%struct.__large_struct) %25) #7
+  %25 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  callbr void asm sideeffect "\0A1:\09movl $0,$1\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "ir,*m,!i,~{dirflag},~{fpsr},~{flags}"(i32 %24, ptr nonnull elementtype(%struct.__large_struct) %25) #7
           to label %26 [label %185], !srcloc !48
 
 26:                                               ; preds = %21
-  %27 = getelementptr inbounds i8, ptr %15, i64 144
+  %27 = getelementptr inbounds nuw i8, ptr %15, i64 144
   %28 = ptrtoint ptr %27 to i64
   %29 = trunc i64 %28 to i32
-  %30 = getelementptr inbounds i8, ptr %15, i64 12
-  callbr void asm sideeffect "\0A1:\09movl $0,$1\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "ir,*m,!i,~{dirflag},~{fpsr},~{flags}"(i32 %29, ptr elementtype(%struct.__large_struct) %30) #7
+  %30 = getelementptr inbounds nuw i8, ptr %15, i64 12
+  callbr void asm sideeffect "\0A1:\09movl $0,$1\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "ir,*m,!i,~{dirflag},~{fpsr},~{flags}"(i32 %29, ptr nonnull elementtype(%struct.__large_struct) %30) #7
           to label %31 [label %185], !srcloc !49
 
 31:                                               ; preds = %26
@@ -488,57 +488,57 @@ define dso_local noundef range(i32 -14, 1) i32 @ia32_setup_rt_frame(ptr noundef 
           to label %33 [label %33, label %32], !srcloc !50
 
 32:                                               ; preds = %31
-  callbr void asm sideeffect "\0A1:\09movl $0,$1\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "ir,*m,!i,~{dirflag},~{fpsr},~{flags}"(i32 0, ptr elementtype(%struct.__large_struct) %27) #7
+  callbr void asm sideeffect "\0A1:\09movl $0,$1\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "ir,*m,!i,~{dirflag},~{fpsr},~{flags}"(i32 0, ptr nonnull elementtype(%struct.__large_struct) %27) #7
           to label %34 [label %185], !srcloc !51
 
 33:                                               ; preds = %31, %31
-  callbr void asm sideeffect "\0A1:\09movl $0,$1\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "ir,*m,!i,~{dirflag},~{fpsr},~{flags}"(i32 1, ptr elementtype(%struct.__large_struct) %27) #7
+  callbr void asm sideeffect "\0A1:\09movl $0,$1\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "ir,*m,!i,~{dirflag},~{fpsr},~{flags}"(i32 1, ptr nonnull elementtype(%struct.__large_struct) %27) #7
           to label %34 [label %185], !srcloc !52
 
 34:                                               ; preds = %33, %32
-  %35 = getelementptr inbounds i8, ptr %15, i64 148
-  callbr void asm sideeffect "\0A1:\09movl $0,$1\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "ir,*m,!i,~{dirflag},~{fpsr},~{flags}"(i32 0, ptr elementtype(%struct.__large_struct) %35) #7
+  %35 = getelementptr inbounds nuw i8, ptr %15, i64 148
+  callbr void asm sideeffect "\0A1:\09movl $0,$1\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "ir,*m,!i,~{dirflag},~{fpsr},~{flags}"(i32 0, ptr nonnull elementtype(%struct.__large_struct) %35) #7
           to label %36 [label %185], !srcloc !53
 
 36:                                               ; preds = %34
-  %37 = getelementptr inbounds i8, ptr %15, i64 152
-  %38 = getelementptr inbounds i8, ptr %5, i64 1944
+  %37 = getelementptr inbounds nuw i8, ptr %15, i64 152
+  %38 = getelementptr inbounds nuw i8, ptr %5, i64 1944
   %39 = load i64, ptr %38, align 8
   %40 = trunc i64 %39 to i32
-  callbr void asm sideeffect "\0A1:\09movl $0,$1\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "ir,*m,!i,~{dirflag},~{fpsr},~{flags}"(i32 %40, ptr elementtype(%struct.__large_struct) %37) #7
+  callbr void asm sideeffect "\0A1:\09movl $0,$1\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "ir,*m,!i,~{dirflag},~{fpsr},~{flags}"(i32 %40, ptr nonnull elementtype(%struct.__large_struct) %37) #7
           to label %41 [label %185], !srcloc !54
 
 41:                                               ; preds = %36
-  %42 = getelementptr inbounds i8, ptr %5, i64 1960
+  %42 = getelementptr inbounds nuw i8, ptr %5, i64 1960
   %43 = load i32, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %15, i64 156
-  callbr void asm sideeffect "\0A1:\09movl $0,$1\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "ir,*m,!i,~{dirflag},~{fpsr},~{flags}"(i32 %43, ptr elementtype(%struct.__large_struct) %44) #7
+  %44 = getelementptr inbounds nuw i8, ptr %15, i64 156
+  callbr void asm sideeffect "\0A1:\09movl $0,$1\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "ir,*m,!i,~{dirflag},~{fpsr},~{flags}"(i32 %43, ptr nonnull elementtype(%struct.__large_struct) %44) #7
           to label %45 [label %185], !srcloc !55
 
 45:                                               ; preds = %41
-  %46 = getelementptr inbounds i8, ptr %5, i64 1952
+  %46 = getelementptr inbounds nuw i8, ptr %5, i64 1952
   %47 = load i64, ptr %46, align 32
   %48 = trunc i64 %47 to i32
-  %49 = getelementptr inbounds i8, ptr %15, i64 160
-  callbr void asm sideeffect "\0A1:\09movl $0,$1\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "ir,*m,!i,~{dirflag},~{fpsr},~{flags}"(i32 %48, ptr elementtype(%struct.__large_struct) %49) #7
+  %49 = getelementptr inbounds nuw i8, ptr %15, i64 160
+  callbr void asm sideeffect "\0A1:\09movl $0,$1\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "ir,*m,!i,~{dirflag},~{fpsr},~{flags}"(i32 %48, ptr nonnull elementtype(%struct.__large_struct) %49) #7
           to label %50 [label %185], !srcloc !56
 
 50:                                               ; preds = %45
-  %51 = getelementptr inbounds i8, ptr %0, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %52 = load i64, ptr %51, align 8
   %53 = and i64 %52, 67108864
   %54 = icmp eq i64 %53, 0
   br i1 %54, label %58, label %55
 
 55:                                               ; preds = %50
-  %56 = getelementptr inbounds i8, ptr %0, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %57 = load ptr, ptr %56, align 8
   br label %65
 
 58:                                               ; preds = %50
-  %59 = getelementptr inbounds i8, ptr %5, i64 1192
+  %59 = getelementptr inbounds nuw i8, ptr %5, i64 1192
   %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 1096
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 1096
   %62 = load ptr, ptr %61, align 8
   %63 = load i64, ptr getelementptr inbounds (i8, ptr @vdso_image_32, i64 112), align 8
   %64 = getelementptr i8, ptr %62, i64 %63
@@ -552,185 +552,185 @@ define dso_local noundef range(i32 -14, 1) i32 @ia32_setup_rt_frame(ptr noundef 
           to label %69 [label %185], !srcloc !57
 
 69:                                               ; preds = %65
-  %70 = getelementptr inbounds i8, ptr %15, i64 260
-  callbr void asm sideeffect "\0A1:\09movq $0,$1\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "er,*m,!i,~{dirflag},~{fpsr},~{flags}"(i64 36254196902702520, ptr elementtype(%struct.__large_struct) %70) #7
+  %70 = getelementptr inbounds nuw i8, ptr %15, i64 260
+  callbr void asm sideeffect "\0A1:\09movq $0,$1\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "er,*m,!i,~{dirflag},~{fpsr},~{flags}"(i64 36254196902702520, ptr nonnull elementtype(%struct.__large_struct) %70) #7
           to label %71 [label %185], !srcloc !58
 
 71:                                               ; preds = %69
-  %72 = getelementptr inbounds i8, ptr %15, i64 164
+  %72 = getelementptr inbounds nuw i8, ptr %15, i64 164
   %73 = load ptr, ptr %3, align 8
   %74 = load i32, ptr %14, align 4
   %75 = call i32 asm "mov %gs,$0", "=r,~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !15
-  callbr void asm sideeffect "\0A1:\09movl $0,$1\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "ir,*m,!i,~{dirflag},~{fpsr},~{flags}"(i32 %75, ptr elementtype(%struct.__large_struct) %72) #7
+  callbr void asm sideeffect "\0A1:\09movl $0,$1\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "ir,*m,!i,~{dirflag},~{fpsr},~{flags}"(i32 %75, ptr nonnull elementtype(%struct.__large_struct) %72) #7
           to label %76 [label %185], !srcloc !16
 
 76:                                               ; preds = %71
   %77 = call i32 asm "mov %fs,$0", "=r,~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !17
-  %78 = getelementptr inbounds i8, ptr %15, i64 168
-  callbr void asm sideeffect "\0A1:\09movl $0,$1\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "ir,*m,!i,~{dirflag},~{fpsr},~{flags}"(i32 %77, ptr elementtype(%struct.__large_struct) %78) #7
+  %78 = getelementptr inbounds nuw i8, ptr %15, i64 168
+  callbr void asm sideeffect "\0A1:\09movl $0,$1\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "ir,*m,!i,~{dirflag},~{fpsr},~{flags}"(i32 %77, ptr nonnull elementtype(%struct.__large_struct) %78) #7
           to label %79 [label %185], !srcloc !18
 
 79:                                               ; preds = %76
   %80 = call i32 asm "mov %ds,$0", "=r,~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !19
-  %81 = getelementptr inbounds i8, ptr %15, i64 176
-  callbr void asm sideeffect "\0A1:\09movl $0,$1\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "ir,*m,!i,~{dirflag},~{fpsr},~{flags}"(i32 %80, ptr elementtype(%struct.__large_struct) %81) #7
+  %81 = getelementptr inbounds nuw i8, ptr %15, i64 176
+  callbr void asm sideeffect "\0A1:\09movl $0,$1\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "ir,*m,!i,~{dirflag},~{fpsr},~{flags}"(i32 %80, ptr nonnull elementtype(%struct.__large_struct) %81) #7
           to label %82 [label %185], !srcloc !20
 
 82:                                               ; preds = %79
   %83 = call i32 asm "mov %es,$0", "=r,~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !21
-  %84 = getelementptr inbounds i8, ptr %15, i64 172
-  callbr void asm sideeffect "\0A1:\09movl $0,$1\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "ir,*m,!i,~{dirflag},~{fpsr},~{flags}"(i32 %83, ptr elementtype(%struct.__large_struct) %84) #7
+  %84 = getelementptr inbounds nuw i8, ptr %15, i64 172
+  callbr void asm sideeffect "\0A1:\09movl $0,$1\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "ir,*m,!i,~{dirflag},~{fpsr},~{flags}"(i32 %83, ptr nonnull elementtype(%struct.__large_struct) %84) #7
           to label %85 [label %185], !srcloc !22
 
 85:                                               ; preds = %82
-  %86 = getelementptr inbounds i8, ptr %1, i64 112
+  %86 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %87 = load i64, ptr %86, align 8
   %88 = trunc i64 %87 to i32
-  %89 = getelementptr inbounds i8, ptr %15, i64 180
-  callbr void asm sideeffect "\0A1:\09movl $0,$1\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "ir,*m,!i,~{dirflag},~{fpsr},~{flags}"(i32 %88, ptr elementtype(%struct.__large_struct) %89) #7
+  %89 = getelementptr inbounds nuw i8, ptr %15, i64 180
+  callbr void asm sideeffect "\0A1:\09movl $0,$1\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "ir,*m,!i,~{dirflag},~{fpsr},~{flags}"(i32 %88, ptr nonnull elementtype(%struct.__large_struct) %89) #7
           to label %90 [label %185], !srcloc !23
 
 90:                                               ; preds = %85
-  %91 = getelementptr inbounds i8, ptr %1, i64 104
+  %91 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %92 = load i64, ptr %91, align 8
   %93 = trunc i64 %92 to i32
-  %94 = getelementptr inbounds i8, ptr %15, i64 184
-  callbr void asm sideeffect "\0A1:\09movl $0,$1\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "ir,*m,!i,~{dirflag},~{fpsr},~{flags}"(i32 %93, ptr elementtype(%struct.__large_struct) %94) #7
+  %94 = getelementptr inbounds nuw i8, ptr %15, i64 184
+  callbr void asm sideeffect "\0A1:\09movl $0,$1\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "ir,*m,!i,~{dirflag},~{fpsr},~{flags}"(i32 %93, ptr nonnull elementtype(%struct.__large_struct) %94) #7
           to label %95 [label %185], !srcloc !24
 
 95:                                               ; preds = %90
-  %96 = getelementptr inbounds i8, ptr %1, i64 32
+  %96 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %97 = load i64, ptr %96, align 8
   %98 = trunc i64 %97 to i32
-  %99 = getelementptr inbounds i8, ptr %15, i64 188
-  callbr void asm sideeffect "\0A1:\09movl $0,$1\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "ir,*m,!i,~{dirflag},~{fpsr},~{flags}"(i32 %98, ptr elementtype(%struct.__large_struct) %99) #7
+  %99 = getelementptr inbounds nuw i8, ptr %15, i64 188
+  callbr void asm sideeffect "\0A1:\09movl $0,$1\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "ir,*m,!i,~{dirflag},~{fpsr},~{flags}"(i32 %98, ptr nonnull elementtype(%struct.__large_struct) %99) #7
           to label %100 [label %185], !srcloc !25
 
 100:                                              ; preds = %95
-  %101 = getelementptr inbounds i8, ptr %1, i64 152
+  %101 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %102 = load i64, ptr %101, align 8
   %103 = trunc i64 %102 to i32
-  %104 = getelementptr inbounds i8, ptr %15, i64 192
-  callbr void asm sideeffect "\0A1:\09movl $0,$1\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "ir,*m,!i,~{dirflag},~{fpsr},~{flags}"(i32 %103, ptr elementtype(%struct.__large_struct) %104) #7
+  %104 = getelementptr inbounds nuw i8, ptr %15, i64 192
+  callbr void asm sideeffect "\0A1:\09movl $0,$1\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "ir,*m,!i,~{dirflag},~{fpsr},~{flags}"(i32 %103, ptr nonnull elementtype(%struct.__large_struct) %104) #7
           to label %105 [label %185], !srcloc !26
 
 105:                                              ; preds = %100
-  %106 = getelementptr inbounds i8, ptr %1, i64 40
+  %106 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %107 = load i64, ptr %106, align 8
   %108 = trunc i64 %107 to i32
-  %109 = getelementptr inbounds i8, ptr %15, i64 196
-  callbr void asm sideeffect "\0A1:\09movl $0,$1\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "ir,*m,!i,~{dirflag},~{fpsr},~{flags}"(i32 %108, ptr elementtype(%struct.__large_struct) %109) #7
+  %109 = getelementptr inbounds nuw i8, ptr %15, i64 196
+  callbr void asm sideeffect "\0A1:\09movl $0,$1\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "ir,*m,!i,~{dirflag},~{fpsr},~{flags}"(i32 %108, ptr nonnull elementtype(%struct.__large_struct) %109) #7
           to label %110 [label %185], !srcloc !27
 
 110:                                              ; preds = %105
-  %111 = getelementptr inbounds i8, ptr %1, i64 96
+  %111 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %112 = load i64, ptr %111, align 8
   %113 = trunc i64 %112 to i32
-  %114 = getelementptr inbounds i8, ptr %15, i64 200
-  callbr void asm sideeffect "\0A1:\09movl $0,$1\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "ir,*m,!i,~{dirflag},~{fpsr},~{flags}"(i32 %113, ptr elementtype(%struct.__large_struct) %114) #7
+  %114 = getelementptr inbounds nuw i8, ptr %15, i64 200
+  callbr void asm sideeffect "\0A1:\09movl $0,$1\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "ir,*m,!i,~{dirflag},~{fpsr},~{flags}"(i32 %113, ptr nonnull elementtype(%struct.__large_struct) %114) #7
           to label %115 [label %185], !srcloc !28
 
 115:                                              ; preds = %110
-  %116 = getelementptr inbounds i8, ptr %1, i64 88
+  %116 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %117 = load i64, ptr %116, align 8
   %118 = trunc i64 %117 to i32
-  %119 = getelementptr inbounds i8, ptr %15, i64 204
-  callbr void asm sideeffect "\0A1:\09movl $0,$1\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "ir,*m,!i,~{dirflag},~{fpsr},~{flags}"(i32 %118, ptr elementtype(%struct.__large_struct) %119) #7
+  %119 = getelementptr inbounds nuw i8, ptr %15, i64 204
+  callbr void asm sideeffect "\0A1:\09movl $0,$1\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "ir,*m,!i,~{dirflag},~{fpsr},~{flags}"(i32 %118, ptr nonnull elementtype(%struct.__large_struct) %119) #7
           to label %120 [label %185], !srcloc !29
 
 120:                                              ; preds = %115
-  %121 = getelementptr inbounds i8, ptr %1, i64 80
+  %121 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %122 = load i64, ptr %121, align 8
   %123 = trunc i64 %122 to i32
-  %124 = getelementptr inbounds i8, ptr %15, i64 208
-  callbr void asm sideeffect "\0A1:\09movl $0,$1\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "ir,*m,!i,~{dirflag},~{fpsr},~{flags}"(i32 %123, ptr elementtype(%struct.__large_struct) %124) #7
+  %124 = getelementptr inbounds nuw i8, ptr %15, i64 208
+  callbr void asm sideeffect "\0A1:\09movl $0,$1\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "ir,*m,!i,~{dirflag},~{fpsr},~{flags}"(i32 %123, ptr nonnull elementtype(%struct.__large_struct) %124) #7
           to label %125 [label %185], !srcloc !30
 
 125:                                              ; preds = %120
-  %126 = getelementptr inbounds i8, ptr %5, i64 2928
+  %126 = getelementptr inbounds nuw i8, ptr %5, i64 2928
   %127 = load i64, ptr %126, align 16
   %128 = trunc i64 %127 to i32
-  %129 = getelementptr inbounds i8, ptr %15, i64 212
-  callbr void asm sideeffect "\0A1:\09movl $0,$1\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "ir,*m,!i,~{dirflag},~{fpsr},~{flags}"(i32 %128, ptr elementtype(%struct.__large_struct) %129) #7
+  %129 = getelementptr inbounds nuw i8, ptr %15, i64 212
+  callbr void asm sideeffect "\0A1:\09movl $0,$1\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "ir,*m,!i,~{dirflag},~{fpsr},~{flags}"(i32 %128, ptr nonnull elementtype(%struct.__large_struct) %129) #7
           to label %130 [label %185], !srcloc !31
 
 130:                                              ; preds = %125
-  %131 = getelementptr inbounds i8, ptr %5, i64 2936
+  %131 = getelementptr inbounds nuw i8, ptr %5, i64 2936
   %132 = load i64, ptr %131, align 8
   %133 = trunc i64 %132 to i32
-  %134 = getelementptr inbounds i8, ptr %15, i64 216
-  callbr void asm sideeffect "\0A1:\09movl $0,$1\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "ir,*m,!i,~{dirflag},~{fpsr},~{flags}"(i32 %133, ptr elementtype(%struct.__large_struct) %134) #7
+  %134 = getelementptr inbounds nuw i8, ptr %15, i64 216
+  callbr void asm sideeffect "\0A1:\09movl $0,$1\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "ir,*m,!i,~{dirflag},~{fpsr},~{flags}"(i32 %133, ptr nonnull elementtype(%struct.__large_struct) %134) #7
           to label %135 [label %185], !srcloc !32
 
 135:                                              ; preds = %130
-  %136 = getelementptr inbounds i8, ptr %1, i64 128
+  %136 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %137 = load i64, ptr %136, align 8
   %138 = trunc i64 %137 to i32
-  %139 = getelementptr inbounds i8, ptr %15, i64 220
-  callbr void asm sideeffect "\0A1:\09movl $0,$1\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "ir,*m,!i,~{dirflag},~{fpsr},~{flags}"(i32 %138, ptr elementtype(%struct.__large_struct) %139) #7
+  %139 = getelementptr inbounds nuw i8, ptr %15, i64 220
+  callbr void asm sideeffect "\0A1:\09movl $0,$1\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "ir,*m,!i,~{dirflag},~{fpsr},~{flags}"(i32 %138, ptr nonnull elementtype(%struct.__large_struct) %139) #7
           to label %140 [label %185], !srcloc !33
 
 140:                                              ; preds = %135
-  %141 = getelementptr inbounds i8, ptr %1, i64 136
+  %141 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %142 = load i64, ptr %141, align 8
   %143 = trunc i64 %142 to i32
-  %144 = getelementptr inbounds i8, ptr %15, i64 224
-  callbr void asm sideeffect "\0A1:\09movl $0,$1\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "ir,*m,!i,~{dirflag},~{fpsr},~{flags}"(i32 %143, ptr elementtype(%struct.__large_struct) %144) #7
+  %144 = getelementptr inbounds nuw i8, ptr %15, i64 224
+  callbr void asm sideeffect "\0A1:\09movl $0,$1\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "ir,*m,!i,~{dirflag},~{fpsr},~{flags}"(i32 %143, ptr nonnull elementtype(%struct.__large_struct) %144) #7
           to label %145 [label %185], !srcloc !34
 
 145:                                              ; preds = %140
-  %146 = getelementptr inbounds i8, ptr %1, i64 144
+  %146 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %147 = load i64, ptr %146, align 8
   %148 = trunc i64 %147 to i32
-  %149 = getelementptr inbounds i8, ptr %15, i64 228
-  callbr void asm sideeffect "\0A1:\09movl $0,$1\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "ir,*m,!i,~{dirflag},~{fpsr},~{flags}"(i32 %148, ptr elementtype(%struct.__large_struct) %149) #7
+  %149 = getelementptr inbounds nuw i8, ptr %15, i64 228
+  callbr void asm sideeffect "\0A1:\09movl $0,$1\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "ir,*m,!i,~{dirflag},~{fpsr},~{flags}"(i32 %148, ptr nonnull elementtype(%struct.__large_struct) %149) #7
           to label %150 [label %185], !srcloc !35
 
 150:                                              ; preds = %145
   %151 = load i64, ptr %101, align 8
   %152 = trunc i64 %151 to i32
-  %153 = getelementptr inbounds i8, ptr %15, i64 232
-  callbr void asm sideeffect "\0A1:\09movl $0,$1\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "ir,*m,!i,~{dirflag},~{fpsr},~{flags}"(i32 %152, ptr elementtype(%struct.__large_struct) %153) #7
+  %153 = getelementptr inbounds nuw i8, ptr %15, i64 232
+  callbr void asm sideeffect "\0A1:\09movl $0,$1\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "ir,*m,!i,~{dirflag},~{fpsr},~{flags}"(i32 %152, ptr nonnull elementtype(%struct.__large_struct) %153) #7
           to label %154 [label %185], !srcloc !36
 
 154:                                              ; preds = %150
-  %155 = getelementptr inbounds i8, ptr %1, i64 160
+  %155 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %156 = load i64, ptr %155, align 8
   %157 = trunc i64 %156 to i32
-  %158 = getelementptr inbounds i8, ptr %15, i64 236
-  callbr void asm sideeffect "\0A1:\09movl $0,$1\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "ir,*m,!i,~{dirflag},~{fpsr},~{flags}"(i32 %157, ptr elementtype(%struct.__large_struct) %158) #7
+  %158 = getelementptr inbounds nuw i8, ptr %15, i64 236
+  callbr void asm sideeffect "\0A1:\09movl $0,$1\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "ir,*m,!i,~{dirflag},~{fpsr},~{flags}"(i32 %157, ptr nonnull elementtype(%struct.__large_struct) %158) #7
           to label %159 [label %185], !srcloc !37
 
 159:                                              ; preds = %154
   %160 = ptrtoint ptr %73 to i64
   %161 = trunc i64 %160 to i32
-  %162 = getelementptr inbounds i8, ptr %15, i64 240
-  callbr void asm sideeffect "\0A1:\09movl $0,$1\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "ir,*m,!i,~{dirflag},~{fpsr},~{flags}"(i32 %161, ptr elementtype(%struct.__large_struct) %162) #7
+  %162 = getelementptr inbounds nuw i8, ptr %15, i64 240
+  callbr void asm sideeffect "\0A1:\09movl $0,$1\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "ir,*m,!i,~{dirflag},~{fpsr},~{flags}"(i32 %161, ptr nonnull elementtype(%struct.__large_struct) %162) #7
           to label %163 [label %185], !srcloc !38
 
 163:                                              ; preds = %159
-  %164 = getelementptr inbounds i8, ptr %15, i64 244
-  callbr void asm sideeffect "\0A1:\09movl $0,$1\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "ir,*m,!i,~{dirflag},~{fpsr},~{flags}"(i32 %74, ptr elementtype(%struct.__large_struct) %164) #7
+  %164 = getelementptr inbounds nuw i8, ptr %15, i64 244
+  callbr void asm sideeffect "\0A1:\09movl $0,$1\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "ir,*m,!i,~{dirflag},~{fpsr},~{flags}"(i32 %74, ptr nonnull elementtype(%struct.__large_struct) %164) #7
           to label %165 [label %185], !srcloc !39
 
 165:                                              ; preds = %163
-  %166 = getelementptr inbounds i8, ptr %5, i64 2920
+  %166 = getelementptr inbounds nuw i8, ptr %5, i64 2920
   %167 = load i64, ptr %166, align 8
   %168 = trunc i64 %167 to i32
-  %169 = getelementptr inbounds i8, ptr %15, i64 248
-  callbr void asm sideeffect "\0A1:\09movl $0,$1\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "ir,*m,!i,~{dirflag},~{fpsr},~{flags}"(i32 %168, ptr elementtype(%struct.__large_struct) %169) #7
+  %169 = getelementptr inbounds nuw i8, ptr %15, i64 248
+  callbr void asm sideeffect "\0A1:\09movl $0,$1\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "ir,*m,!i,~{dirflag},~{fpsr},~{flags}"(i32 %168, ptr nonnull elementtype(%struct.__large_struct) %169) #7
           to label %170 [label %185], !srcloc !40
 
 170:                                              ; preds = %165
   %171 = load i64, ptr %14, align 8
-  %172 = getelementptr inbounds i8, ptr %15, i64 252
-  callbr void asm sideeffect "\0A1:\09movq $0,$1\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "er,*m,!i,~{dirflag},~{fpsr},~{flags}"(i64 %171, ptr elementtype(%struct.__large_struct) %172) #7
+  %172 = getelementptr inbounds nuw i8, ptr %15, i64 252
+  callbr void asm sideeffect "\0A1:\09movq $0,$1\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (${2:l}) - .\0A .long 3 \0A .popsection\0A", "er,*m,!i,~{dirflag},~{fpsr},~{flags}"(i64 %171, ptr nonnull elementtype(%struct.__large_struct) %172) #7
           to label %173 [label %185], !srcloc !59
 
 173:                                              ; preds = %170
   call void asm sideeffect "# ALT: oldnstr\0A661:\0A\09\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 9*32+20)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09.byte 0x0f,0x01,0xca\0A6651:\0A.popsection\0A", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !44
-  %174 = getelementptr inbounds i8, ptr %0, i64 32
-  %175 = call i32 @__copy_siginfo_to_user32(ptr noundef %22, ptr noundef %174) #7
+  %174 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %175 = call i32 @__copy_siginfo_to_user32(ptr noundef nonnull %22, ptr noundef nonnull %174) #7
   %176 = icmp eq i32 %175, 0
   br i1 %176, label %177, label %186
 
@@ -784,80 +784,80 @@ define internal fastcc zeroext i1 @ia32_restore_sigcontext(ptr nocapture noundef
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %4, i8 0, i64 88, i1 false), !annotation !7
   %5 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #6, !srcloc !6
   %6 = inttoptr i64 %5 to ptr
-  %7 = getelementptr inbounds i8, ptr %6, i64 1272
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 1272
   store ptr @do_no_restart_syscall, ptr %7, align 8
   %8 = call i64 @_copy_from_user(ptr noundef nonnull %4, ptr noundef %1, i64 noundef 88) #7
   %9 = icmp eq i64 %8, 0
   br i1 %9, label %10, label %111, !prof !8
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %4, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %12 = load i32, ptr %11, align 4
   %13 = zext i32 %12 to i64
-  %14 = getelementptr inbounds i8, ptr %0, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %13, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %4, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %16 = load i32, ptr %15, align 4
   %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds i8, ptr %0, i64 88
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i64 %17, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %4, i64 36
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 36
   %20 = load i32, ptr %19, align 4
   %21 = zext i32 %20 to i64
-  %22 = getelementptr inbounds i8, ptr %0, i64 96
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i64 %21, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %4, i64 20
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 20
   %24 = load i32, ptr %23, align 4
   %25 = zext i32 %24 to i64
-  %26 = getelementptr inbounds i8, ptr %0, i64 104
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i64 %25, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %4, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %28 = load i32, ptr %27, align 4
   %29 = zext i32 %28 to i64
-  %30 = getelementptr inbounds i8, ptr %0, i64 112
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i64 %29, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %4, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %32 = load i32, ptr %31, align 4
   %33 = zext i32 %32 to i64
-  %34 = getelementptr inbounds i8, ptr %0, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %33, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %4, i64 44
+  %35 = getelementptr inbounds nuw i8, ptr %4, i64 44
   %36 = load i32, ptr %35, align 4
   %37 = zext i32 %36 to i64
-  %38 = getelementptr inbounds i8, ptr %0, i64 80
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i64 %37, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %4, i64 28
+  %39 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %40 = load i32, ptr %39, align 4
   %41 = zext i32 %40 to i64
-  %42 = getelementptr inbounds i8, ptr %0, i64 152
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store i64 %41, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %4, i64 56
+  %43 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %44 = load i32, ptr %43, align 4
   %45 = zext i32 %44 to i64
-  %46 = getelementptr inbounds i8, ptr %0, i64 128
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i64 %45, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %4, i64 60
+  %47 = getelementptr inbounds nuw i8, ptr %4, i64 60
   %48 = load i16, ptr %47, align 4
   %49 = or i16 %48, 3
   %50 = zext i16 %49 to i64
-  %51 = getelementptr inbounds i8, ptr %0, i64 136
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store i64 %50, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %4, i64 72
+  %52 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %53 = load i16, ptr %52, align 4
   %54 = or i16 %53, 3
   %55 = zext i16 %54 to i64
-  %56 = getelementptr inbounds i8, ptr %0, i64 160
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store i64 %55, ptr %56, align 8
-  %57 = getelementptr inbounds i8, ptr %0, i64 144
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %58 = load i64, ptr %57, align 8
   %59 = and i64 %58, -331222
-  %60 = getelementptr inbounds i8, ptr %4, i64 64
+  %60 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %61 = load i32, ptr %60, align 4
   %62 = and i32 %61, 331221
   %63 = zext nneg i32 %62 to i64
   %64 = or disjoint i64 %59, %63
   store i64 %64, ptr %57, align 8
-  %65 = getelementptr inbounds i8, ptr %0, i64 120
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i64 -1, ptr %65, align 8
   %66 = call i32 asm "mov %gs,$0", "=r,~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !62
   %67 = load i16, ptr %4, align 4
@@ -892,7 +892,7 @@ define internal fastcc zeroext i1 @ia32_restore_sigcontext(ptr nocapture noundef
 
 79:                                               ; preds = %78, %76, %72, %10
   %80 = call i32 asm "mov %fs,$0", "=r,~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !67
-  %81 = getelementptr inbounds i8, ptr %4, i64 4
+  %81 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %82 = load i16, ptr %81, align 4
   %83 = or i16 %82, 3
   %84 = zext i16 %83 to i32
@@ -905,7 +905,7 @@ define internal fastcc zeroext i1 @ia32_restore_sigcontext(ptr nocapture noundef
 
 87:                                               ; preds = %86, %79
   %88 = call i32 asm "mov %ds,$0", "=r,~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !69
-  %89 = getelementptr inbounds i8, ptr %4, i64 12
+  %89 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %90 = load i16, ptr %89, align 4
   %91 = or i16 %90, 3
   %92 = zext i16 %91 to i32
@@ -918,7 +918,7 @@ define internal fastcc zeroext i1 @ia32_restore_sigcontext(ptr nocapture noundef
 
 96:                                               ; preds = %94, %87
   %97 = call i32 asm "mov %es,$0", "=r,~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !71
-  %98 = getelementptr inbounds i8, ptr %4, i64 8
+  %98 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %99 = load i16, ptr %98, align 4
   %100 = or i16 %99, 3
   %101 = zext i16 %100 to i32
@@ -930,7 +930,7 @@ define internal fastcc zeroext i1 @ia32_restore_sigcontext(ptr nocapture noundef
   br label %105
 
 105:                                              ; preds = %103, %96
-  %106 = getelementptr inbounds i8, ptr %4, i64 76
+  %106 = getelementptr inbounds nuw i8, ptr %4, i64 76
   %107 = load i32, ptr %106, align 4
   %108 = zext i32 %107 to i64
   %109 = inttoptr i64 %108 to ptr

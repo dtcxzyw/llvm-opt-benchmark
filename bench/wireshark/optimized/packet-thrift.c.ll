@@ -394,13 +394,13 @@ define internal fastcc i32 @dissect_thrift_raw_bool(ptr noundef %0, ptr noundef 
   br i1 %14, label %proto_item_set_generated.exit, label %15
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %4, i64 52
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 52
   store i32 1, ptr %16, align 4
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %48, label %17
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds i8, ptr %4, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %19 = load i32, ptr %18, align 8
   %20 = and i32 %19, 4
   %.not67 = icmp eq i32 %20, 0
@@ -451,13 +451,13 @@ define internal fastcc i32 @dissect_thrift_raw_bool(ptr noundef %0, ptr noundef 
   br i1 %.not.i, label %proto_item_set_generated.exit, label %41
 
 41:                                               ; preds = %39
-  %42 = getelementptr inbounds i8, ptr %40, i64 32
+  %42 = getelementptr inbounds nuw i8, ptr %40, i64 32
   %43 = load ptr, ptr %42, align 8
   %.not5.i = icmp eq ptr %43, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %44
 
 44:                                               ; preds = %41
-  %45 = getelementptr inbounds i8, ptr %43, i64 28
+  %45 = getelementptr inbounds nuw i8, ptr %43, i64 28
   %46 = load i32, ptr %45, align 4
   %47 = or i32 %46, 2
   store i32 %47, ptr %45, align 4
@@ -494,7 +494,7 @@ define internal fastcc i32 @dissect_thrift_raw_bool(ptr noundef %0, ptr noundef 
 
 61:                                               ; preds = %59
   %62 = sext i32 %6 to i64
-  %63 = getelementptr inbounds i8, ptr %4, i64 24
+  %63 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 %62, ptr %63, align 8
   br label %proto_item_set_generated.exit
 
@@ -540,7 +540,7 @@ define range(i32 1, 0) i32 @dissect_thrift_t_i8(ptr noundef %0, ptr noundef %1, 
   br i1 %21, label %dissect_thrift_raw_i8.exit, label %22
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %4, i64 52
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 52
   store i32 1, ptr %23, align 4
   %24 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %.033.i, i32 noundef 1, i32 noundef 0) #7
   %25 = add nuw i32 %.033.i, 1
@@ -548,7 +548,7 @@ define range(i32 1, 0) i32 @dissect_thrift_t_i8(ptr noundef %0, ptr noundef %1, 
 
 26:                                               ; preds = %22
   %27 = sext i32 %6 to i64
-  %28 = getelementptr inbounds i8, ptr %4, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 %27, ptr %28, align 8
   br label %dissect_thrift_raw_i8.exit
 
@@ -586,7 +586,7 @@ define internal fastcc range(i32 1, 0) i32 @dissect_thrift_raw_i8(ptr noundef %0
   br i1 %20, label %32, label %21
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %4, i64 52
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 52
   store i32 1, ptr %22, align 4
   %.not36 = icmp eq ptr %8, null
   br i1 %.not36, label %.thread, label %23
@@ -609,7 +609,7 @@ define internal fastcc range(i32 1, 0) i32 @dissect_thrift_raw_i8(ptr noundef %0
 
 29:                                               ; preds = %27
   %30 = sext i32 %6 to i64
-  %31 = getelementptr inbounds i8, ptr %4, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 %30, ptr %31, align 8
   br label %32
 
@@ -668,9 +668,9 @@ define internal fastcc i32 @dissect_thrift_raw_i16(ptr noundef %0, ptr noundef %
   br i1 %19, label %50, label %20
 
 20:                                               ; preds = %17
-  %21 = getelementptr inbounds i8, ptr %4, i64 52
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 52
   store i32 1, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %4, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %23 = load i32, ptr %22, align 8
   %24 = and i32 %23, 4
   %.not36 = icmp eq i32 %24, 0
@@ -721,7 +721,7 @@ define internal fastcc i32 @dissect_thrift_raw_i16(ptr noundef %0, ptr noundef %
 
 45:                                               ; preds = %44
   %46 = sext i32 %6 to i64
-  %47 = getelementptr inbounds i8, ptr %4, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 %46, ptr %47, align 8
   br label %48
 
@@ -784,9 +784,9 @@ define internal fastcc i32 @dissect_thrift_raw_i32(ptr noundef %0, ptr noundef %
   br i1 %19, label %50, label %20
 
 20:                                               ; preds = %17
-  %21 = getelementptr inbounds i8, ptr %4, i64 52
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 52
   store i32 1, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %4, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %23 = load i32, ptr %22, align 8
   %24 = and i32 %23, 4
   %.not36 = icmp eq i32 %24, 0
@@ -837,7 +837,7 @@ define internal fastcc i32 @dissect_thrift_raw_i32(ptr noundef %0, ptr noundef %
 
 45:                                               ; preds = %44
   %46 = sext i32 %6 to i64
-  %47 = getelementptr inbounds i8, ptr %4, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 %46, ptr %47, align 8
   br label %48
 
@@ -900,9 +900,9 @@ define internal fastcc i32 @dissect_thrift_raw_i64(ptr noundef %0, ptr noundef %
   br i1 %19, label %50, label %20
 
 20:                                               ; preds = %17
-  %21 = getelementptr inbounds i8, ptr %4, i64 52
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 52
   store i32 1, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %4, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %23 = load i32, ptr %22, align 8
   %24 = and i32 %23, 4
   %.not36 = icmp eq i32 %24, 0
@@ -953,7 +953,7 @@ define internal fastcc i32 @dissect_thrift_raw_i64(ptr noundef %0, ptr noundef %
 
 45:                                               ; preds = %44
   %46 = sext i32 %6 to i64
-  %47 = getelementptr inbounds i8, ptr %4, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 %46, ptr %47, align 8
   br label %48
 
@@ -1003,9 +1003,9 @@ define range(i32 8, 0) i32 @dissect_thrift_t_double(ptr noundef %0, ptr noundef 
   br i1 %21, label %dissect_thrift_raw_double.exit, label %22
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %4, i64 52
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 52
   store i32 1, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %4, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %25 = load i32, ptr %24, align 8
   %26 = shl i32 %25, 29
   %..i = and i32 %26, -2147483648
@@ -1015,7 +1015,7 @@ define range(i32 8, 0) i32 @dissect_thrift_t_double(ptr noundef %0, ptr noundef 
 
 29:                                               ; preds = %22
   %30 = sext i32 %6 to i64
-  %31 = getelementptr inbounds i8, ptr %4, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 %30, ptr %31, align 8
   br label %dissect_thrift_raw_double.exit
 
@@ -1053,13 +1053,13 @@ define internal fastcc range(i32 8, 0) i32 @dissect_thrift_raw_double(ptr nounde
   br i1 %20, label %66, label %21
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %4, i64 52
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 52
   store i32 1, ptr %22, align 4
   %.not69 = icmp eq ptr %8, null
   br i1 %.not69, label %.thread, label %23
 
 23:                                               ; preds = %21
-  %24 = getelementptr inbounds i8, ptr %4, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %25 = load i32, ptr %24, align 8
   %26 = and i32 %25, 4
   %.not70 = icmp eq i32 %26, 0
@@ -1114,7 +1114,7 @@ define internal fastcc range(i32 8, 0) i32 @dissect_thrift_raw_double(ptr nounde
   br i1 %.not71, label %61, label %.thread
 
 .thread:                                          ; preds = %21, %55
-  %57 = getelementptr inbounds i8, ptr %4, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %58 = load i32, ptr %57, align 8
   %59 = shl i32 %58, 29
   %. = and i32 %59, -2147483648
@@ -1127,7 +1127,7 @@ define internal fastcc range(i32 8, 0) i32 @dissect_thrift_raw_double(ptr nounde
 
 63:                                               ; preds = %61
   %64 = sext i32 %6 to i64
-  %65 = getelementptr inbounds i8, ptr %4, i64 24
+  %65 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 %64, ptr %65, align 8
   br label %66
 
@@ -1173,7 +1173,7 @@ define range(i32 16, 0) i32 @dissect_thrift_t_uuid(ptr noundef %0, ptr noundef %
   br i1 %21, label %dissect_thrift_raw_uuid.exit, label %22
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %4, i64 52
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 52
   store i32 1, ptr %23, align 4
   %24 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %.033.i, i32 noundef 16, i32 noundef 0) #7
   %25 = add nuw i32 %.033.i, 16
@@ -1181,7 +1181,7 @@ define range(i32 16, 0) i32 @dissect_thrift_t_uuid(ptr noundef %0, ptr noundef %
 
 26:                                               ; preds = %22
   %27 = sext i32 %6 to i64
-  %28 = getelementptr inbounds i8, ptr %4, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 %27, ptr %28, align 8
   br label %dissect_thrift_raw_uuid.exit
 
@@ -1219,7 +1219,7 @@ define internal fastcc range(i32 16, 0) i32 @dissect_thrift_raw_uuid(ptr noundef
   br i1 %20, label %32, label %21
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %4, i64 52
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 52
   store i32 1, ptr %22, align 4
   %.not36 = icmp eq ptr %8, null
   br i1 %.not36, label %.thread, label %23
@@ -1242,7 +1242,7 @@ define internal fastcc range(i32 16, 0) i32 @dissect_thrift_raw_uuid(ptr noundef
 
 29:                                               ; preds = %27
   %30 = sext i32 %6 to i64
-  %31 = getelementptr inbounds i8, ptr %4, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 %30, ptr %31, align 8
   br label %32
 
@@ -1306,7 +1306,7 @@ define internal fastcc i32 @dissect_thrift_raw_binary(ptr noundef %0, ptr nounde
   br i1 %22, label %thrift_get_varint_enc.exit.thread, label %23
 
 23:                                               ; preds = %21
-  %24 = getelementptr inbounds i8, ptr %4, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %25 = load i32, ptr %24, align 8
   %26 = and i32 %25, 4
   %.not69 = icmp eq i32 %26, 0
@@ -1411,7 +1411,7 @@ thread-pre-split:                                 ; preds = %57, %48, %61, %45
   br i1 %75, label %thrift_get_varint_enc.exit.thread, label %76
 
 76:                                               ; preds = %72
-  %77 = getelementptr inbounds i8, ptr %4, i64 52
+  %77 = getelementptr inbounds nuw i8, ptr %4, i64 52
   store i32 1, ptr %77, align 4
   %.not73 = icmp eq ptr %9, null
   br i1 %.not73, label %.thread, label %78
@@ -1440,7 +1440,7 @@ thread-pre-split:                                 ; preds = %57, %48, %61, %45
 
 86:                                               ; preds = %83
   %87 = sext i32 %6 to i64
-  %88 = getelementptr inbounds i8, ptr %4, i64 24
+  %88 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 %87, ptr %88, align 8
   br label %thrift_get_varint_enc.exit.thread
 
@@ -1568,7 +1568,7 @@ define i32 @dissect_thrift_t_raw_data(ptr noundef %0, ptr noundef %1, ptr nounde
 
 ; Function Attrs: nounwind uwtable
 define i32 @dissect_thrift_t_list(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, ptr nocapture noundef readonly %9) local_unnamed_addr #0 {
-  %11 = getelementptr inbounds i8, ptr %4, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 4
   %.not = icmp eq i32 %13, 0
@@ -1589,7 +1589,7 @@ define i32 @dissect_thrift_t_list(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 19:                                               ; preds = %18
   %20 = sext i32 %6 to i64
-  %21 = getelementptr inbounds i8, ptr %4, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 %20, ptr %21, align 8
   br label %22
 
@@ -1627,7 +1627,7 @@ define internal fastcc i32 @dissect_thrift_c_list_set(ptr noundef %0, ptr nounde
   unreachable
 
 24:                                               ; preds = %20
-  %25 = getelementptr inbounds i8, ptr %4, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %26 = load i32, ptr %25, align 8
   %27 = and i32 %26, 4
   %.not109 = icmp eq i32 %27, 0
@@ -1656,7 +1656,7 @@ define internal fastcc i32 @dissect_thrift_c_list_set(ptr noundef %0, ptr nounde
   br i1 %36, label %thrift_get_varint_enc.exit.thread, label %37
 
 37:                                               ; preds = %34
-  %38 = getelementptr inbounds i8, ptr %4, i64 48
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %39 = load i32, ptr %38, align 8
   %.not111 = icmp ult i32 %16, %39
   br i1 %.not111, label %43, label %40
@@ -1694,13 +1694,13 @@ define internal fastcc i32 @dissect_thrift_c_list_set(ptr noundef %0, ptr nounde
 
 switch.lookup:                                    ; preds = %58
   %60 = zext nneg i32 %51 to i64
-  %switch.gep = getelementptr inbounds [14 x i32], ptr @switch.table.compact_struct_type_to_generic_type, i64 0, i64 %60
+  %switch.gep = getelementptr inbounds nuw [14 x i32], ptr @switch.table.compact_struct_type_to_generic_type, i64 0, i64 %60
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %compact_struct_type_to_generic_type.exit
 
 compact_struct_type_to_generic_type.exit:         ; preds = %58, %switch.lookup
   %.0.i = phi i32 [ %switch.load, %switch.lookup ], [ 1, %58 ]
-  %61 = getelementptr inbounds i8, ptr %9, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %62 = load i32, ptr %61, align 8
   %.not113 = icmp eq i32 %.0.i, %62
   br i1 %.not113, label %69, label %63
@@ -1849,7 +1849,7 @@ define internal fastcc i32 @dissect_thrift_b_linear(ptr noundef %0, ptr noundef 
   unreachable
 
 21:                                               ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %4, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %23 = load i32, ptr %22, align 8
   %24 = and i32 %23, 4
   %25 = icmp eq i32 %24, 0
@@ -1869,7 +1869,7 @@ define internal fastcc i32 @dissect_thrift_b_linear(ptr noundef %0, ptr noundef 
 
 30:                                               ; preds = %28, %27
   %.095 = phi i32 [ %29, %28 ], [ %3, %27 ]
-  %31 = getelementptr inbounds i8, ptr %4, i64 48
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %32 = load i32, ptr %31, align 8
   %.not103 = icmp ult i32 %15, %32
   br i1 %.not103, label %36, label %33
@@ -1910,7 +1910,7 @@ define internal fastcc i32 @dissect_thrift_b_linear(ptr noundef %0, ptr noundef 
   br label %54
 
 54:                                               ; preds = %51, %47
-  %55 = getelementptr inbounds i8, ptr %9, i64 16
+  %55 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %56 = load i32, ptr %55, align 8
   %.not105 = icmp eq i32 %56, %49
   br i1 %.not105, label %59, label %57
@@ -1942,7 +1942,7 @@ define internal fastcc i32 @dissect_thrift_b_linear(ptr noundef %0, ptr noundef 
   br label %71
 
 71:                                               ; preds = %68, %64
-  %72 = getelementptr inbounds i8, ptr %10, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %73 = load i32, ptr %72, align 8
   %.not107 = icmp eq i32 %73, %66
   br i1 %.not107, label %76, label %74
@@ -2042,7 +2042,7 @@ switch.lookup:                                    ; preds = %80
 
 ; Function Attrs: nounwind uwtable
 define i32 @dissect_thrift_t_set(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, ptr nocapture noundef readonly %9) local_unnamed_addr #0 {
-  %11 = getelementptr inbounds i8, ptr %4, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 4
   %.not = icmp eq i32 %13, 0
@@ -2063,7 +2063,7 @@ define i32 @dissect_thrift_t_set(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 19:                                               ; preds = %18
   %20 = sext i32 %6 to i64
-  %21 = getelementptr inbounds i8, ptr %4, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 %20, ptr %21, align 8
   br label %22
 
@@ -2091,7 +2091,7 @@ define i32 @dissect_thrift_t_map(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   unreachable
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds i8, ptr %4, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %20 = load i32, ptr %19, align 8
   %21 = and i32 %20, 4
   %22 = icmp eq i32 %21, 0
@@ -2156,7 +2156,7 @@ thrift_get_varint_enc.exit.thread147:             ; preds = %40
 50:                                               ; preds = %43
   %51 = trunc nuw i64 %44 to i32
   %52 = add i32 %39, %.0122
-  %53 = getelementptr inbounds i8, ptr %4, i64 48
+  %53 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %54 = load i32, ptr %53, align 8
   %.not139 = icmp ult i32 %27, %54
   br i1 %.not139, label %58, label %55
@@ -2211,7 +2211,7 @@ thrift_get_varint_enc.exit.thread147:             ; preds = %40
   %.0127 = phi ptr [ %83, %75 ], [ null, %69 ]
   %.0126 = phi ptr [ %80, %75 ], [ null, %69 ]
   %85 = call fastcc i32 @compact_struct_type_to_generic_type(i32 noundef %72)
-  %86 = getelementptr inbounds i8, ptr %9, i64 16
+  %86 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %87 = load i32, ptr %86, align 8
   %.not141 = icmp eq i32 %85, %87
   br i1 %.not141, label %94, label %88
@@ -2231,7 +2231,7 @@ thrift_get_varint_enc.exit.thread147:             ; preds = %40
 
 94:                                               ; preds = %84
   %95 = call fastcc i32 @compact_struct_type_to_generic_type(i32 noundef %73)
-  %96 = getelementptr inbounds i8, ptr %10, i64 16
+  %96 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %97 = load i32, ptr %96, align 8
   %.not142 = icmp eq i32 %95, %97
   br i1 %.not142, label %.lr.ph.preheader, label %99
@@ -2288,7 +2288,7 @@ thrift_get_varint_enc.exit.thread147:             ; preds = %40
 
 116:                                              ; preds = %115
   %117 = sext i32 %6 to i64
-  %118 = getelementptr inbounds i8, ptr %4, i64 24
+  %118 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 %117, ptr %118, align 8
   br label %thrift_get_varint_enc.exit.thread
 
@@ -2327,7 +2327,7 @@ define internal fastcc i32 @dissect_thrift_t_field_header(ptr noundef %0, ptr no
   br label %56
 
 21:                                               ; preds = %14
-  %22 = getelementptr inbounds i8, ptr %4, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %23 = load i32, ptr %22, align 8
   %24 = and i32 %23, 4
   %.not26 = icmp eq i32 %24, 0
@@ -2399,14 +2399,14 @@ compact_struct_type_to_generic_type.exit.thread:  ; preds = %26, %37, %compact_s
   br label %56
 
 42:                                               ; preds = %compact_struct_type_to_generic_type.exit
-  %43 = getelementptr inbounds i8, ptr %10, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %44 = load i64, ptr %43, align 8
   %45 = sext i32 %6 to i64
   %.not28 = icmp eq i64 %44, %45
   br i1 %.not28, label %50, label %46
 
 46:                                               ; preds = %42
-  %47 = getelementptr inbounds i8, ptr %10, i64 32
+  %47 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %48 = load ptr, ptr %47, align 8
   %49 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %48, ptr noundef nonnull @ei_thrift_wrong_field_id, ptr noundef nonnull @.str.142, i32 noundef %6, i64 noundef %44) #7
   br label %50
@@ -2416,7 +2416,7 @@ compact_struct_type_to_generic_type.exit.thread:  ; preds = %26, %37, %compact_s
   br i1 %.not29, label %54, label %51
 
 51:                                               ; preds = %50
-  %52 = getelementptr inbounds i8, ptr %10, i64 40
+  %52 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %53 = load ptr, ptr %52, align 8
   store ptr %53, ptr %7, align 8
   br label %54
@@ -2455,7 +2455,7 @@ define internal fastcc range(i32 0, 17) i32 @compact_struct_type_to_generic_type
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds [14 x i32], ptr @switch.table.compact_struct_type_to_generic_type, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw [14 x i32], ptr @switch.table.compact_struct_type_to_generic_type, i64 0, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %4
 
@@ -2466,7 +2466,7 @@ switch.lookup:                                    ; preds = %1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @dissect_thrift_t_member(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4, i32 noundef range(i32 0, 2) %5, ptr nocapture noundef readonly %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %6, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %9 = load i32, ptr %8, align 8
   switch i32 %9, label %172 [
     i32 0, label %10
@@ -2517,96 +2517,96 @@ define internal fastcc i32 @dissect_thrift_t_member(ptr noundef %0, ptr noundef 
   br label %dissect_thrift_t_stop.exit
 
 26:                                               ; preds = %7
-  %27 = getelementptr inbounds i8, ptr %6, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %28 = load i16, ptr %27, align 8
   %29 = sext i16 %28 to i32
   %30 = load ptr, ptr %6, align 8
   %31 = load i32, ptr %30, align 4
-  %32 = getelementptr inbounds i8, ptr %6, i64 48
+  %32 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %33 = load ptr, ptr %32, align 8
   %34 = tail call fastcc i32 @dissect_thrift_raw_bool(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %29, i32 noundef %31, ptr noundef %33)
   br label %dissect_thrift_t_stop.exit
 
 35:                                               ; preds = %7
-  %36 = getelementptr inbounds i8, ptr %6, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %37 = load i16, ptr %36, align 8
   %38 = sext i16 %37 to i32
   %39 = load ptr, ptr %6, align 8
   %40 = load i32, ptr %39, align 4
-  %41 = getelementptr inbounds i8, ptr %6, i64 48
+  %41 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %42 = load ptr, ptr %41, align 8
   %43 = tail call fastcc i32 @dissect_thrift_raw_i8(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %38, i32 noundef %40, ptr noundef %42)
   br label %dissect_thrift_t_stop.exit
 
 44:                                               ; preds = %7
-  %45 = getelementptr inbounds i8, ptr %6, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %46 = load i16, ptr %45, align 8
   %47 = sext i16 %46 to i32
   %48 = load ptr, ptr %6, align 8
   %49 = load i32, ptr %48, align 4
-  %50 = getelementptr inbounds i8, ptr %6, i64 48
+  %50 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %51 = load ptr, ptr %50, align 8
   %52 = tail call fastcc i32 @dissect_thrift_raw_i16(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %47, i32 noundef %49, ptr noundef %51)
   br label %dissect_thrift_t_stop.exit
 
 53:                                               ; preds = %7
-  %54 = getelementptr inbounds i8, ptr %6, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %55 = load i16, ptr %54, align 8
   %56 = sext i16 %55 to i32
   %57 = load ptr, ptr %6, align 8
   %58 = load i32, ptr %57, align 4
-  %59 = getelementptr inbounds i8, ptr %6, i64 48
+  %59 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %60 = load ptr, ptr %59, align 8
   %61 = tail call fastcc i32 @dissect_thrift_raw_i32(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %56, i32 noundef %58, ptr noundef %60)
   br label %dissect_thrift_t_stop.exit
 
 62:                                               ; preds = %7
-  %63 = getelementptr inbounds i8, ptr %6, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %64 = load i16, ptr %63, align 8
   %65 = sext i16 %64 to i32
   %66 = load ptr, ptr %6, align 8
   %67 = load i32, ptr %66, align 4
-  %68 = getelementptr inbounds i8, ptr %6, i64 48
+  %68 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %69 = load ptr, ptr %68, align 8
   %70 = tail call fastcc i32 @dissect_thrift_raw_i64(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %65, i32 noundef %67, ptr noundef %69)
   br label %dissect_thrift_t_stop.exit
 
 71:                                               ; preds = %7
-  %72 = getelementptr inbounds i8, ptr %6, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %73 = load i16, ptr %72, align 8
   %74 = sext i16 %73 to i32
   %75 = load ptr, ptr %6, align 8
   %76 = load i32, ptr %75, align 4
-  %77 = getelementptr inbounds i8, ptr %6, i64 48
+  %77 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %78 = load ptr, ptr %77, align 8
   %79 = tail call fastcc i32 @dissect_thrift_raw_double(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %74, i32 noundef %76, ptr noundef %78)
   br label %dissect_thrift_t_stop.exit
 
 80:                                               ; preds = %7
-  %81 = getelementptr inbounds i8, ptr %6, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %82 = load i16, ptr %81, align 8
   %83 = sext i16 %82 to i32
   %84 = load ptr, ptr %6, align 8
   %85 = load i32, ptr %84, align 4
-  %86 = getelementptr inbounds i8, ptr %6, i64 32
+  %86 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %87 = load i32, ptr %86, align 8
-  %88 = getelementptr inbounds i8, ptr %6, i64 48
+  %88 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %89 = load ptr, ptr %88, align 8
   %90 = tail call fastcc i32 @dissect_thrift_raw_binary(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %83, i32 noundef %85, i32 noundef %87, ptr noundef %89)
   br label %dissect_thrift_t_stop.exit
 
 91:                                               ; preds = %7
-  %92 = getelementptr inbounds i8, ptr %6, i64 8
+  %92 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %93 = load i16, ptr %92, align 8
   %94 = sext i16 %93 to i32
   %95 = load ptr, ptr %6, align 8
   %96 = load i32, ptr %95, align 4
-  %97 = getelementptr inbounds i8, ptr %6, i64 24
+  %97 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %98 = load ptr, ptr %97, align 8
   %99 = load i32, ptr %98, align 4
-  %100 = getelementptr inbounds i8, ptr %6, i64 32
+  %100 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %101 = load ptr, ptr %100, align 8
-  %102 = getelementptr inbounds i8, ptr %4, i64 8
+  %102 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %103 = load i32, ptr %102, align 8
   %104 = and i32 %103, 4
   %.not.i120 = icmp eq i32 %104, 0
@@ -2627,22 +2627,22 @@ define internal fastcc i32 @dissect_thrift_t_member(ptr noundef %0, ptr noundef 
 
 110:                                              ; preds = %109
   %111 = sext i16 %93 to i64
-  %112 = getelementptr inbounds i8, ptr %4, i64 24
+  %112 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 %111, ptr %112, align 8
   br label %dissect_thrift_t_stop.exit
 
 113:                                              ; preds = %7
-  %114 = getelementptr inbounds i8, ptr %6, i64 8
+  %114 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %115 = load i16, ptr %114, align 8
   %116 = sext i16 %115 to i32
   %117 = load ptr, ptr %6, align 8
   %118 = load i32, ptr %117, align 4
-  %119 = getelementptr inbounds i8, ptr %6, i64 24
+  %119 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %120 = load ptr, ptr %119, align 8
   %121 = load i32, ptr %120, align 4
-  %122 = getelementptr inbounds i8, ptr %6, i64 32
+  %122 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %123 = load ptr, ptr %122, align 8
-  %124 = getelementptr inbounds i8, ptr %4, i64 8
+  %124 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %125 = load i32, ptr %124, align 8
   %126 = and i32 %125, 4
   %.not.i122 = icmp eq i32 %126, 0
@@ -2663,49 +2663,49 @@ define internal fastcc i32 @dissect_thrift_t_member(ptr noundef %0, ptr noundef 
 
 132:                                              ; preds = %131
   %133 = sext i16 %115 to i64
-  %134 = getelementptr inbounds i8, ptr %4, i64 24
+  %134 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 %133, ptr %134, align 8
   br label %dissect_thrift_t_stop.exit
 
 135:                                              ; preds = %7
-  %136 = getelementptr inbounds i8, ptr %6, i64 8
+  %136 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %137 = load i16, ptr %136, align 8
   %138 = sext i16 %137 to i32
   %139 = load ptr, ptr %6, align 8
   %140 = load i32, ptr %139, align 4
-  %141 = getelementptr inbounds i8, ptr %6, i64 24
+  %141 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %142 = load ptr, ptr %141, align 8
   %143 = load i32, ptr %142, align 4
-  %144 = getelementptr inbounds i8, ptr %6, i64 32
+  %144 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %145 = load ptr, ptr %144, align 8
-  %146 = getelementptr inbounds i8, ptr %6, i64 40
+  %146 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %147 = load ptr, ptr %146, align 8
   %148 = tail call i32 @dissect_thrift_t_map(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4, i32 noundef %5, i32 noundef %138, i32 noundef %140, i32 noundef %143, ptr noundef %145, ptr noundef %147)
   br label %dissect_thrift_t_stop.exit
 
 149:                                              ; preds = %7
-  %150 = getelementptr inbounds i8, ptr %6, i64 8
+  %150 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %151 = load i16, ptr %150, align 8
   %152 = sext i16 %151 to i32
   %153 = load ptr, ptr %6, align 8
   %154 = load i32, ptr %153, align 4
-  %155 = getelementptr inbounds i8, ptr %6, i64 24
+  %155 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %156 = load ptr, ptr %155, align 8
   %157 = load i32, ptr %156, align 4
-  %158 = getelementptr inbounds i8, ptr %6, i64 32
+  %158 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %159 = load ptr, ptr %158, align 8
-  %160 = getelementptr inbounds i8, ptr %6, i64 40
+  %160 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %161 = load ptr, ptr %160, align 8
   %162 = tail call fastcc i32 @dissect_thrift_t_struct_expert(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4, i32 noundef %5, i32 noundef %152, i32 noundef %154, i32 noundef %157, ptr noundef %159, ptr noundef %161)
   br label %dissect_thrift_t_stop.exit
 
 163:                                              ; preds = %7
-  %164 = getelementptr inbounds i8, ptr %6, i64 8
+  %164 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %165 = load i16, ptr %164, align 8
   %166 = sext i16 %165 to i32
   %167 = load ptr, ptr %6, align 8
   %168 = load i32, ptr %167, align 4
-  %169 = getelementptr inbounds i8, ptr %6, i64 48
+  %169 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %170 = load ptr, ptr %169, align 8
   %171 = tail call fastcc i32 @dissect_thrift_raw_uuid(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %166, i32 noundef %168, ptr noundef %170)
   br label %dissect_thrift_t_stop.exit
@@ -2777,7 +2777,7 @@ thread-pre-split:                                 ; preds = %24, %25
   br i1 %16, label %34, label %45
 
 34:                                               ; preds = %33
-  %35 = getelementptr inbounds i8, ptr %4, i64 48
+  %35 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %36 = load i32, ptr %35, align 8
   %.not95 = icmp ult i32 %18, %36
   br i1 %.not95, label %40, label %37
@@ -2799,19 +2799,19 @@ thread-pre-split:                                 ; preds = %24, %25
   %.1 = phi ptr [ %44, %40 ], [ %2, %33 ]
   %.082 = phi ptr [ %43, %40 ], [ null, %33 ]
   %.0 = phi i32 [ %42, %40 ], [ %18, %33 ]
-  %46 = getelementptr inbounds i8, ptr %4, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 0, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %9, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %48 = load i32, ptr %47, align 8
   %.not96109 = icmp eq i32 %48, 0
   br i1 %.not96109, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %45
-  %49 = getelementptr inbounds i8, ptr %13, i64 8
-  %50 = getelementptr inbounds i8, ptr %13, i64 32
-  %51 = getelementptr inbounds i8, ptr %4, i64 8
-  %52 = getelementptr inbounds i8, ptr %13, i64 40
-  %53 = getelementptr inbounds i8, ptr %13, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %13, i64 32
+  %51 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %13, i64 40
+  %53 = getelementptr inbounds nuw i8, ptr %13, i64 24
   br label %54
 
 54:                                               ; preds = %.lr.ph, %.backedge
@@ -2835,7 +2835,7 @@ thread-pre-split:                                 ; preds = %24, %25
   br i1 %64, label %65, label %73
 
 65:                                               ; preds = %62
-  %66 = getelementptr inbounds i8, ptr %.084110, i64 12
+  %66 = getelementptr inbounds nuw i8, ptr %.084110, i64 12
   %67 = load i32, ptr %66, align 4
   %.not103 = icmp eq i32 %67, 0
   br i1 %.not103, label %71, label %.backedge
@@ -2854,14 +2854,14 @@ thread-pre-split:                                 ; preds = %24, %25
 
 73:                                               ; preds = %62
   %74 = load i64, ptr %49, align 8
-  %75 = getelementptr inbounds i8, ptr %.084110, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %.084110, i64 8
   %76 = load i16, ptr %75, align 8
   %77 = sext i16 %76 to i64
   %.not98 = icmp eq i64 %74, %77
   br i1 %.not98, label %83, label %78
 
 78:                                               ; preds = %73
-  %79 = getelementptr inbounds i8, ptr %.084110, i64 12
+  %79 = getelementptr inbounds nuw i8, ptr %.084110, i64 12
   %80 = load i32, ptr %79, align 4
   %.not102 = icmp eq i32 %80, 0
   br i1 %.not102, label %81, label %.backedge
@@ -3045,7 +3045,7 @@ define internal i32 @dissect_thrift_transport(ptr noundef %0, ptr noundef %1, pt
   %6 = tail call i32 @tvb_reported_length(ptr noundef %0) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, i8 0, i64 64, i1 false)
   %7 = load i32, ptr @nested_type_depth, align 4
-  %8 = getelementptr inbounds i8, ptr %5, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store i32 %7, ptr %8, align 8
   %9 = icmp slt i32 %6, 4
   br i1 %9, label %10, label %14
@@ -3080,7 +3080,7 @@ define internal i32 @dissect_thrift_transport(ptr noundef %0, ptr noundef %1, pt
 
 25:                                               ; preds = %23
   %26 = sub i32 %21, %20
-  %27 = getelementptr inbounds i8, ptr %1, i64 336
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 336
   store i32 %26, ptr %27, align 8
   br label %is_thrift_strict_version.exit.thread
 
@@ -3091,7 +3091,7 @@ define internal i32 @dissect_thrift_transport(ptr noundef %0, ptr noundef %1, pt
 
 31:                                               ; preds = %28
   store i32 -2147362182, ptr %5, align 8
-  %32 = getelementptr inbounds i8, ptr %5, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 0, ptr %32, align 8
   %33 = add i32 %21, 10
   %34 = icmp slt i32 %6, %33
@@ -3126,16 +3126,16 @@ define internal i32 @dissect_thrift_transport(ptr noundef %0, ptr noundef %1, pt
 .sink.split:                                      ; preds = %48, %44
   %.sink = phi i32 [ 2, %44 ], [ 4, %48 ]
   store i32 -2147362182, ptr %5, align 8
-  %51 = getelementptr inbounds i8, ptr %5, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %.sink, ptr %51, align 8
   br label %.critedge
 
 .critedge52:                                      ; preds = %40, %37
   %.sink.ph = phi i32 [ 3, %40 ], [ 1, %37 ]
   store i32 -2147362182, ptr %5, align 8
-  %52 = getelementptr inbounds i8, ptr %5, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %.sink.ph, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %1, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %54 = load ptr, ptr %53, align 8
   tail call void @col_set_str(ptr noundef %54, i32 noundef 34, ptr noundef nonnull @.str.181) #7
   %55 = load ptr, ptr %53, align 8
@@ -3146,7 +3146,7 @@ define internal i32 @dissect_thrift_transport(ptr noundef %0, ptr noundef %1, pt
   br label %is_thrift_strict_version.exit.thread
 
 .critedge:                                        ; preds = %31, %.sink.split
-  %58 = getelementptr inbounds i8, ptr %1, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %59 = load ptr, ptr %58, align 8
   tail call void @col_set_str(ptr noundef %59, i32 noundef 34, ptr noundef nonnull @.str.181) #7
   %60 = load ptr, ptr %58, align 8
@@ -3155,9 +3155,9 @@ define internal i32 @dissect_thrift_transport(ptr noundef %0, ptr noundef %1, pt
   br label %is_thrift_strict_version.exit.thread
 
 .thread:                                          ; preds = %10, %31, %19, %14
-  %62 = getelementptr inbounds i8, ptr %1, i64 332
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 332
   store i32 0, ptr %62, align 4
-  %63 = getelementptr inbounds i8, ptr %1, i64 336
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 336
   store i32 268435455, ptr %63, align 8
   br label %is_thrift_strict_version.exit.thread
 
@@ -3172,7 +3172,7 @@ define internal range(i32 0, 2) i32 @dissect_thrift_heur(ptr noundef %0, ptr nou
   %6 = alloca %struct._thrift_option_data_t, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %6, i8 0, i64 64, i1 false)
   %7 = load i32, ptr @nested_type_depth, align 4
-  %8 = getelementptr inbounds i8, ptr %6, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store i32 %7, ptr %8, align 8
   %9 = tail call i32 @tvb_captured_length(ptr noundef %0) #7
   %10 = icmp ult i32 %9, 8
@@ -3193,7 +3193,7 @@ define internal range(i32 0, 2) i32 @dissect_thrift_heur(ptr noundef %0, ptr nou
 18:                                               ; preds = %14, %11
   %.037.i = phi i32 [ 0, %11 ], [ 4, %14 ]
   %.036.i = phi i32 [ 0, %11 ], [ %15, %14 ]
-  %19 = getelementptr inbounds i8, ptr %6, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %20 = icmp ne i32 %.036.i, 0
   %spec.select.i = select i1 %20, i32 3, i32 2
   store i32 %spec.select.i, ptr %19, align 8
@@ -3256,13 +3256,13 @@ test_thrift_strict.exit:                          ; preds = %38
   br i1 %or.cond.i18, label %test_thrift_compact.exit.thread, label %52
 
 52:                                               ; preds = %48
-  %53 = getelementptr inbounds i8, ptr %6, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 5, ptr %53, align 8
   %54 = add nuw i32 %49, 4
   br label %57
 
 55:                                               ; preds = %45
-  %56 = getelementptr inbounds i8, ptr %6, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 4, ptr %56, align 8
   br label %57
 
@@ -3335,7 +3335,7 @@ test_thrift_compact.exit:                         ; preds = %86
 
 89:                                               ; preds = %test_thrift_compact.exit, %test_thrift_strict.exit
   %90 = phi i32 [ %58, %test_thrift_compact.exit ], [ %spec.select.i, %test_thrift_strict.exit ]
-  %91 = getelementptr inbounds i8, ptr %1, i64 8
+  %91 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %92 = load ptr, ptr %91, align 8
   call void @col_set_str(ptr noundef %92, i32 noundef 34, ptr noundef nonnull @.str.181) #7
   %93 = load ptr, ptr %91, align 8
@@ -3451,7 +3451,7 @@ thrift_get_varint_enc.exit.thread:                ; preds = %13, %16, %8
   br i1 %21, label %22, label %136
 
 22:                                               ; preds = %thrift_get_varint_enc.exit.thread
-  %23 = getelementptr inbounds i8, ptr %1, i64 328
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %24 = load i16, ptr %23, align 8
   %25 = icmp eq i16 %24, 0
   br i1 %25, label %26, label %28
@@ -3462,9 +3462,9 @@ thrift_get_varint_enc.exit.thread:                ; preds = %13, %16, %8
 
 28:                                               ; preds = %26, %22
   %29 = load i32, ptr %3, align 4
-  %30 = getelementptr inbounds i8, ptr %4, i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i32 %29, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %4, i64 44
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 44
   store i32 %5, ptr %31, align 4
   store i32 -1, ptr %3, align 4
   br label %136
@@ -3503,13 +3503,13 @@ thrift_get_varint_enc.exit.thread:                ; preds = %13, %16, %8
   %49 = getelementptr i8, ptr %44, i64 1
   store i8 %48, ptr %49, align 1
   %50 = call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef nonnull %44, i32 noundef 2, i32 noundef 2) #7
-  %51 = getelementptr inbounds i8, ptr %4, i64 52
+  %51 = getelementptr inbounds nuw i8, ptr %4, i64 52
   store i32 0, ptr %51, align 4
   %52 = call i32 %7(ptr noundef %50, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %4) #7
   br label %53
 
 53:                                               ; preds = %42, %41
-  %54 = getelementptr inbounds i8, ptr %4, i64 52
+  %54 = getelementptr inbounds nuw i8, ptr %4, i64 52
   %55 = load i32, ptr %54, align 4
   %.not98 = icmp eq i32 %55, 0
   br i1 %.not98, label %133, label %56
@@ -3559,13 +3559,13 @@ thrift_get_varint_enc.exit.thread:                ; preds = %13, %16, %8
   %84 = getelementptr i8, ptr %73, i64 3
   store i8 %83, ptr %84, align 1
   %85 = call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef nonnull %73, i32 noundef 4, i32 noundef 4) #7
-  %86 = getelementptr inbounds i8, ptr %4, i64 52
+  %86 = getelementptr inbounds nuw i8, ptr %4, i64 52
   store i32 0, ptr %86, align 4
   %87 = call i32 %7(ptr noundef %85, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %4) #7
   br label %88
 
 88:                                               ; preds = %71, %70
-  %89 = getelementptr inbounds i8, ptr %4, i64 52
+  %89 = getelementptr inbounds nuw i8, ptr %4, i64 52
   %90 = load i32, ptr %89, align 4
   %.not96 = icmp eq i32 %90, 0
   br i1 %.not96, label %133, label %91
@@ -3616,13 +3616,13 @@ thrift_get_varint_enc.exit.thread:                ; preds = %13, %16, %8
   %122 = getelementptr i8, ptr %99, i64 7
   store i8 %121, ptr %122, align 1
   %123 = call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef nonnull %99, i32 noundef 8, i32 noundef 8) #7
-  %124 = getelementptr inbounds i8, ptr %4, i64 52
+  %124 = getelementptr inbounds nuw i8, ptr %4, i64 52
   store i32 0, ptr %124, align 4
   %125 = call i32 %7(ptr noundef %123, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %4) #7
   br label %126
 
 126:                                              ; preds = %97, %96
-  %127 = getelementptr inbounds i8, ptr %4, i64 52
+  %127 = getelementptr inbounds nuw i8, ptr %4, i64 52
   %128 = load i32, ptr %127, align 4
   %.not100 = icmp eq i32 %128, 0
   br i1 %.not100, label %133, label %129
@@ -3667,7 +3667,7 @@ define internal fastcc i32 @dissect_thrift_field_header(ptr noundef %0, ptr noun
   br i1 %13, label %14, label %24
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %1, i64 328
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %16 = load i16, ptr %15, align 8
   %17 = icmp eq i16 %16, 0
   br i1 %17, label %18, label %20
@@ -3678,9 +3678,9 @@ define internal fastcc i32 @dissect_thrift_field_header(ptr noundef %0, ptr noun
 
 20:                                               ; preds = %18, %14
   %21 = load i32, ptr %3, align 4
-  %22 = getelementptr inbounds i8, ptr %4, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i32 %21, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %4, i64 44
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 44
   store i32 1, ptr %23, align 4
   store i32 -1, ptr %3, align 4
   br label %277
@@ -3691,7 +3691,7 @@ define internal fastcc i32 @dissect_thrift_field_header(ptr noundef %0, ptr noun
   store i64 0, ptr %8, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, i8 0, i64 48, i1 false)
   %27 = load i32, ptr %3, align 4
-  %28 = getelementptr inbounds i8, ptr %5, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %27, ptr %28, align 4
   %29 = add i32 %27, 1
   store i32 %29, ptr %3, align 4
@@ -3704,13 +3704,13 @@ define internal fastcc i32 @dissect_thrift_field_header(ptr noundef %0, ptr noun
   %33 = load i32, ptr @hf_thrift_type, align 4
   %34 = load i32, ptr %28, align 4
   %35 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %33, ptr noundef %0, i32 noundef %34, i32 noundef 1, i32 noundef 0) #7
-  %36 = getelementptr inbounds i8, ptr %5, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %35, ptr %36, align 8
   %37 = load i32, ptr %3, align 4
   br label %277
 
 38:                                               ; preds = %24
-  %39 = getelementptr inbounds i8, ptr %4, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %40 = load i32, ptr %39, align 8
   %41 = and i32 %40, 4
   %.not = icmp eq i32 %41, 0
@@ -3724,7 +3724,7 @@ define internal fastcc i32 @dissect_thrift_field_header(ptr noundef %0, ptr noun
 
 45:                                               ; preds = %42
   %46 = load i32, ptr %3, align 4
-  %47 = getelementptr inbounds i8, ptr %5, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 %46, ptr %47, align 8
   %48 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %46) #7
   %49 = icmp slt i32 %48, 1
@@ -3742,17 +3742,17 @@ define internal fastcc i32 @dissect_thrift_field_header(ptr noundef %0, ptr noun
 
 thrift_get_varint_enc.exit.thread216:             ; preds = %54
   %56 = call ptr @proto_tree_add_expert(ptr noundef null, ptr noundef %1, ptr noundef nonnull @ei_thrift_varint_too_large, ptr noundef %0, i32 noundef %46, i32 noundef 3) #7
-  %57 = getelementptr inbounds i8, ptr %5, i64 20
+  %57 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i32 0, ptr %57, align 4
   br label %74
 
 thrift_get_varint_enc.exit.thread:                ; preds = %45, %54
-  %58 = getelementptr inbounds i8, ptr %5, i64 20
+  %58 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i32 -1, ptr %58, align 4
   br label %60
 
 thrift_get_varint_enc.exit:                       ; preds = %50
-  %59 = getelementptr inbounds i8, ptr %5, i64 20
+  %59 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i32 %52, ptr %59, align 4
   %cond = icmp eq i32 %52, -1
   br i1 %cond, label %60, label %74
@@ -3764,7 +3764,7 @@ thrift_get_varint_enc.exit:                       ; preds = %50
   br i1 %63, label %64, label %277
 
 64:                                               ; preds = %60
-  %65 = getelementptr inbounds i8, ptr %1, i64 328
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %66 = load i16, ptr %65, align 8
   %67 = icmp eq i16 %66, 0
   br i1 %67, label %68, label %70
@@ -3775,16 +3775,16 @@ thrift_get_varint_enc.exit:                       ; preds = %50
 
 70:                                               ; preds = %68, %64
   %71 = load i32, ptr %3, align 4
-  %72 = getelementptr inbounds i8, ptr %4, i64 40
+  %72 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i32 %71, ptr %72, align 8
-  %73 = getelementptr inbounds i8, ptr %4, i64 44
+  %73 = getelementptr inbounds nuw i8, ptr %4, i64 44
   store i32 3, ptr %73, align 4
   store i32 -1, ptr %3, align 4
   br label %277
 
 74:                                               ; preds = %thrift_get_varint_enc.exit.thread216, %thrift_get_varint_enc.exit
   %75 = load i64, ptr %8, align 8
-  %76 = getelementptr inbounds i8, ptr %5, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %75, ptr %76, align 8
   br label %98
 
@@ -3794,7 +3794,7 @@ thrift_get_varint_enc.exit:                       ; preds = %50
   br i1 %79, label %80, label %90
 
 80:                                               ; preds = %77
-  %81 = getelementptr inbounds i8, ptr %1, i64 328
+  %81 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %82 = load i16, ptr %81, align 8
   %83 = icmp eq i16 %82, 0
   br i1 %83, label %84, label %86
@@ -3805,9 +3805,9 @@ thrift_get_varint_enc.exit:                       ; preds = %50
 
 86:                                               ; preds = %84, %80
   %87 = load i32, ptr %3, align 4
-  %88 = getelementptr inbounds i8, ptr %4, i64 40
+  %88 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i32 %87, ptr %88, align 8
-  %89 = getelementptr inbounds i8, ptr %4, i64 44
+  %89 = getelementptr inbounds nuw i8, ptr %4, i64 44
   store i32 2, ptr %89, align 4
   store i32 -1, ptr %3, align 4
   br label %277
@@ -3817,12 +3817,12 @@ thrift_get_varint_enc.exit:                       ; preds = %50
   %91 = load i32, ptr %3, align 4
   %92 = tail call signext i16 @tvb_get_ntohis(ptr noundef %0, i32 noundef %91) #7
   %93 = sext i16 %92 to i64
-  %94 = getelementptr inbounds i8, ptr %5, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %93, ptr %94, align 8
   %95 = load i32, ptr %3, align 4
-  %96 = getelementptr inbounds i8, ptr %5, i64 16
+  %96 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 %95, ptr %96, align 8
-  %97 = getelementptr inbounds i8, ptr %5, i64 20
+  %97 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i32 2, ptr %97, align 4
   br label %98
 
@@ -3836,16 +3836,16 @@ thrift_get_varint_enc.exit:                       ; preds = %50
 
 .thread220:                                       ; preds = %42
   %101 = lshr i32 %30, 4
-  %102 = getelementptr inbounds i8, ptr %4, i64 24
+  %102 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %103 = load i64, ptr %102, align 8
   %104 = zext nneg i32 %101 to i64
   %105 = add i64 %103, %104
-  %106 = getelementptr inbounds i8, ptr %5, i64 8
+  %106 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %105, ptr %106, align 8
   %107 = load i32, ptr %28, align 4
-  %108 = getelementptr inbounds i8, ptr %5, i64 16
+  %108 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 %107, ptr %108, align 8
-  %109 = getelementptr inbounds i8, ptr %5, i64 20
+  %109 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i32 1, ptr %109, align 4
   %.not195222 = icmp eq ptr %2, null
   br i1 %.not195222, label %253, label %110
@@ -3854,7 +3854,7 @@ thrift_get_varint_enc.exit:                       ; preds = %50
   %.0180223 = phi i1 [ false, %.thread220 ], [ true, %98 ]
   %111 = load i32, ptr @proto_thrift, align 4
   %112 = call i32 @p_get_proto_depth(ptr noundef %1, i32 noundef %111) #7
-  %113 = getelementptr inbounds i8, ptr %4, i64 48
+  %113 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %114 = load i32, ptr %113, align 8
   %.not196 = icmp ult i32 %112, %114
   br i1 %.not196, label %118, label %115
@@ -3869,10 +3869,10 @@ thrift_get_varint_enc.exit:                       ; preds = %50
   %120 = load i32, ptr %3, align 4
   %121 = sub i32 %120, %119
   %122 = load i32, ptr @ett_thrift_field, align 4
-  %123 = getelementptr inbounds i8, ptr %5, i64 8
+  %123 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %124 = load i64, ptr %123, align 8
   %125 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef nonnull %2, ptr noundef %0, i32 noundef %119, i32 noundef %121, i32 noundef %122, ptr noundef null, ptr noundef nonnull @.str.144, i64 noundef %124) #7
-  %126 = getelementptr inbounds i8, ptr %5, i64 40
+  %126 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store ptr %125, ptr %126, align 8
   %127 = load i32, ptr %39, align 8
   %128 = and i32 %127, 4
@@ -3885,14 +3885,14 @@ thrift_get_varint_enc.exit:                       ; preds = %50
   %132 = shl i32 %129, 3
   %133 = or disjoint i32 %132, 4
   %134 = call ptr @proto_tree_add_bits_item(ptr noundef %125, i32 noundef %131, ptr noundef %0, i32 noundef %133, i32 noundef 4, i32 noundef 0) #7
-  %135 = getelementptr inbounds i8, ptr %5, i64 24
+  %135 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %134, ptr %135, align 8
   %136 = load ptr, ptr %126, align 8
   %137 = load i32, ptr @hf_thrift_fid_delta, align 4
   %138 = load i32, ptr %28, align 4
   %139 = shl i32 %138, 3
   %140 = call ptr @proto_tree_add_bits_item(ptr noundef %136, i32 noundef %137, ptr noundef %0, i32 noundef %139, i32 noundef 4, i32 noundef 0) #7
-  %141 = getelementptr inbounds i8, ptr %5, i64 32
+  %141 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr %140, ptr %141, align 8
   br i1 %.0180223, label %142, label %143
 
@@ -3920,13 +3920,13 @@ thrift_get_varint_enc.exit:                       ; preds = %50
   br i1 %.not.i, label %proto_item_set_generated.exit, label %154
 
 154:                                              ; preds = %148
-  %155 = getelementptr inbounds i8, ptr %153, i64 32
+  %155 = getelementptr inbounds nuw i8, ptr %153, i64 32
   %156 = load ptr, ptr %155, align 8
   %.not5.i = icmp eq ptr %156, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %157
 
 157:                                              ; preds = %154
-  %158 = getelementptr inbounds i8, ptr %156, i64 28
+  %158 = getelementptr inbounds nuw i8, ptr %156, i64 28
   %159 = load i32, ptr %158, align 4
   %160 = or i32 %159, 2
   store i32 %160, ptr %158, align 4
@@ -3948,13 +3948,13 @@ proto_item_set_generated.exit:                    ; preds = %144, %148, %154, %1
   br i1 %.not.i205, label %.critedge, label %170
 
 170:                                              ; preds = %164
-  %171 = getelementptr inbounds i8, ptr %169, i64 32
+  %171 = getelementptr inbounds nuw i8, ptr %169, i64 32
   %172 = load ptr, ptr %171, align 8
   %.not5.i206 = icmp eq ptr %172, null
   br i1 %.not5.i206, label %.critedge, label %173
 
 173:                                              ; preds = %170
-  %174 = getelementptr inbounds i8, ptr %172, i64 28
+  %174 = getelementptr inbounds nuw i8, ptr %172, i64 28
   %175 = load i32, ptr %174, align 4
   %176 = or i32 %175, 2
   store i32 %176, ptr %174, align 4
@@ -3963,7 +3963,7 @@ proto_item_set_generated.exit:                    ; preds = %144, %148, %154, %1
 177:                                              ; preds = %118
   %178 = load i32, ptr @hf_thrift_type, align 4
   %179 = call ptr @proto_tree_add_item(ptr noundef %125, i32 noundef %178, ptr noundef %0, i32 noundef %129, i32 noundef 1, i32 noundef 0) #7
-  %180 = getelementptr inbounds i8, ptr %5, i64 24
+  %180 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %179, ptr %180, align 8
   br label %.critedge
 
@@ -3972,22 +3972,22 @@ proto_item_set_generated.exit:                    ; preds = %144, %148, %154, %1
   br i1 %.0180223, label %182, label %196
 
 182:                                              ; preds = %.critedge
-  %183 = getelementptr inbounds i8, ptr %5, i64 20
+  %183 = getelementptr inbounds nuw i8, ptr %5, i64 20
   %184 = load i32, ptr %183, align 4
   %185 = icmp sgt i32 %184, 0
   br i1 %185, label %186, label %192
 
 186:                                              ; preds = %182
   %187 = load i32, ptr @hf_thrift_fid, align 4
-  %188 = getelementptr inbounds i8, ptr %5, i64 16
+  %188 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %189 = load i32, ptr %188, align 8
   %190 = call ptr @proto_tree_add_item(ptr noundef %181, i32 noundef %187, ptr noundef %0, i32 noundef %189, i32 noundef %184, i32 noundef 0) #7
-  %191 = getelementptr inbounds i8, ptr %5, i64 32
+  %191 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr %190, ptr %191, align 8
   br label %proto_item_set_generated.exit210
 
 192:                                              ; preds = %182
-  %193 = getelementptr inbounds i8, ptr %5, i64 16
+  %193 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %194 = load i32, ptr %193, align 8
   %195 = call ptr @proto_tree_add_expert(ptr noundef %181, ptr noundef %1, ptr noundef nonnull @ei_thrift_varint_too_large, ptr noundef %0, i32 noundef %194, i32 noundef 3) #7
   br label %277
@@ -3996,16 +3996,16 @@ proto_item_set_generated.exit:                    ; preds = %144, %148, %154, %1
   %197 = load i64, ptr %123, align 8
   %198 = add i64 %197, -32768
   %or.cond = icmp ult i64 %198, -65536
-  %199 = getelementptr inbounds i8, ptr %5, i64 16
+  %199 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %200 = load i32, ptr %199, align 8
-  %201 = getelementptr inbounds i8, ptr %5, i64 20
+  %201 = getelementptr inbounds nuw i8, ptr %5, i64 20
   %202 = load i32, ptr %201, align 4
   br i1 %or.cond, label %203, label %208
 
 203:                                              ; preds = %196
   %204 = load i32, ptr @hf_thrift_i64, align 4
   %205 = call ptr @proto_tree_add_int64(ptr noundef %181, i32 noundef %204, ptr noundef %0, i32 noundef %200, i32 noundef %202, i64 noundef %197) #7
-  %206 = getelementptr inbounds i8, ptr %5, i64 32
+  %206 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr %205, ptr %206, align 8
   %207 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %205, ptr noundef nonnull @ei_thrift_varint_too_large) #7
   %.pre228 = load ptr, ptr %206, align 8
@@ -4015,7 +4015,7 @@ proto_item_set_generated.exit:                    ; preds = %144, %148, %154, %1
   %209 = load i32, ptr @hf_thrift_fid, align 4
   %210 = trunc i64 %197 to i32
   %211 = call ptr @proto_tree_add_int(ptr noundef %181, i32 noundef %209, ptr noundef %0, i32 noundef %200, i32 noundef %202, i32 noundef %210) #7
-  %212 = getelementptr inbounds i8, ptr %5, i64 32
+  %212 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr %211, ptr %212, align 8
   br label %213
 
@@ -4025,13 +4025,13 @@ proto_item_set_generated.exit:                    ; preds = %144, %148, %154, %1
   br i1 %.not.i208, label %proto_item_set_generated.exit210, label %215
 
 215:                                              ; preds = %213
-  %216 = getelementptr inbounds i8, ptr %214, i64 32
+  %216 = getelementptr inbounds nuw i8, ptr %214, i64 32
   %217 = load ptr, ptr %216, align 8
   %.not5.i209 = icmp eq ptr %217, null
   br i1 %.not5.i209, label %proto_item_set_generated.exit210, label %218
 
 218:                                              ; preds = %215
-  %219 = getelementptr inbounds i8, ptr %217, i64 28
+  %219 = getelementptr inbounds nuw i8, ptr %217, i64 28
   %220 = load i32, ptr %219, align 4
   %221 = or i32 %220, 2
   store i32 %221, ptr %219, align 4
@@ -4039,7 +4039,7 @@ proto_item_set_generated.exit:                    ; preds = %144, %148, %154, %1
 
 proto_item_set_generated.exit210:                 ; preds = %218, %215, %213, %186
   %222 = load i64, ptr %123, align 8
-  %223 = getelementptr inbounds i8, ptr %4, i64 24
+  %223 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %224 = load i64, ptr %223, align 8
   %225 = icmp slt i64 %222, %224
   br i1 %225, label %228, label %226
@@ -4055,36 +4055,36 @@ proto_item_set_generated.exit210:                 ; preds = %218, %215, %213, %1
   br i1 %229, label %230, label %.thread
 
 230:                                              ; preds = %228
-  %231 = getelementptr inbounds i8, ptr %5, i64 32
+  %231 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %232 = load ptr, ptr %231, align 8
   %233 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %232, ptr noundef nonnull @ei_thrift_negative_field_id) #7
   br label %proto_item_set_generated.exit213
 
 .thread:                                          ; preds = %226, %228
-  %234 = getelementptr inbounds i8, ptr %5, i64 32
+  %234 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %235 = load ptr, ptr %234, align 8
   %236 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %235, ptr noundef nonnull @ei_thrift_unordered_field_id) #7
   br label %proto_item_set_generated.exit213
 
 237:                                              ; preds = %98
-  %238 = getelementptr inbounds i8, ptr %5, i64 20
+  %238 = getelementptr inbounds nuw i8, ptr %5, i64 20
   %239 = load i32, ptr %238, align 4
   %240 = icmp sgt i32 %239, 0
   br i1 %240, label %241, label %249
 
 241:                                              ; preds = %237
-  %242 = getelementptr inbounds i8, ptr %5, i64 40
+  %242 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %243 = load ptr, ptr %242, align 8
   %244 = load i32, ptr @hf_thrift_fid, align 4
-  %245 = getelementptr inbounds i8, ptr %5, i64 16
+  %245 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %246 = load i32, ptr %245, align 8
   %247 = call ptr @proto_tree_add_item(ptr noundef %243, i32 noundef %244, ptr noundef %0, i32 noundef %246, i32 noundef %239, i32 noundef 0) #7
-  %248 = getelementptr inbounds i8, ptr %5, i64 32
+  %248 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr %247, ptr %248, align 8
   br label %proto_item_set_generated.exit213
 
 249:                                              ; preds = %237
-  %250 = getelementptr inbounds i8, ptr %5, i64 16
+  %250 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %251 = load i32, ptr %250, align 8
   %252 = call ptr @proto_tree_add_expert(ptr noundef null, ptr noundef %1, ptr noundef nonnull @ei_thrift_varint_too_large, ptr noundef %0, i32 noundef %251, i32 noundef 3) #7
   br label %277
@@ -4092,14 +4092,14 @@ proto_item_set_generated.exit210:                 ; preds = %218, %215, %213, %1
 253:                                              ; preds = %.thread220
   %254 = add i64 %105, -32768
   %or.cond204 = icmp ult i64 %254, -65536
-  %255 = getelementptr inbounds i8, ptr %5, i64 40
+  %255 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %256 = load ptr, ptr %255, align 8
   br i1 %or.cond204, label %257, label %262
 
 257:                                              ; preds = %253
   %258 = load i32, ptr @hf_thrift_i64, align 4
   %259 = tail call ptr @proto_tree_add_int64(ptr noundef %256, i32 noundef %258, ptr noundef %0, i32 noundef %107, i32 noundef 1, i64 noundef %105) #7
-  %260 = getelementptr inbounds i8, ptr %5, i64 32
+  %260 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr %259, ptr %260, align 8
   %261 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %259, ptr noundef nonnull @ei_thrift_varint_too_large) #7
   %.pre = load ptr, ptr %260, align 8
@@ -4109,7 +4109,7 @@ proto_item_set_generated.exit210:                 ; preds = %218, %215, %213, %1
   %263 = load i32, ptr @hf_thrift_fid, align 4
   %264 = trunc i64 %105 to i32
   %265 = tail call ptr @proto_tree_add_int(ptr noundef %256, i32 noundef %263, ptr noundef %0, i32 noundef %107, i32 noundef 1, i32 noundef %264) #7
-  %266 = getelementptr inbounds i8, ptr %5, i64 32
+  %266 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr %265, ptr %266, align 8
   br label %267
 
@@ -4119,13 +4119,13 @@ proto_item_set_generated.exit210:                 ; preds = %218, %215, %213, %1
   br i1 %.not.i211, label %proto_item_set_generated.exit213, label %269
 
 269:                                              ; preds = %267
-  %270 = getelementptr inbounds i8, ptr %268, i64 32
+  %270 = getelementptr inbounds nuw i8, ptr %268, i64 32
   %271 = load ptr, ptr %270, align 8
   %.not5.i212 = icmp eq ptr %271, null
   br i1 %.not5.i212, label %proto_item_set_generated.exit213, label %272
 
 272:                                              ; preds = %269
-  %273 = getelementptr inbounds i8, ptr %271, i64 28
+  %273 = getelementptr inbounds nuw i8, ptr %271, i64 28
   %274 = load i32, ptr %273, align 4
   %275 = or i32 %274, 2
   store i32 %275, ptr %273, align 4
@@ -4182,7 +4182,7 @@ define internal fastcc i32 @dissect_thrift_compact_type(ptr noundef %0, ptr noun
   br i1 %15, label %16, label %26
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %1, i64 328
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %18 = load i16, ptr %17, align 8
   %19 = icmp eq i16 %18, 0
   br i1 %19, label %20, label %22
@@ -4193,9 +4193,9 @@ define internal fastcc i32 @dissect_thrift_compact_type(ptr noundef %0, ptr noun
 
 22:                                               ; preds = %20, %16
   %23 = load i32, ptr %3, align 4
-  %24 = getelementptr inbounds i8, ptr %4, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i32 %23, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %4, i64 44
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 44
   store i32 1, ptr %25, align 4
   store i32 -1, ptr %3, align 4
   br label %dissect_thrift_compact_struct.exit.thread
@@ -4213,7 +4213,7 @@ define internal fastcc i32 @dissect_thrift_compact_type(ptr noundef %0, ptr noun
   br i1 %33, label %34, label %44
 
 34:                                               ; preds = %30
-  %35 = getelementptr inbounds i8, ptr %1, i64 328
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %36 = load i16, ptr %35, align 8
   %37 = icmp eq i16 %36, 0
   br i1 %37, label %38, label %40
@@ -4224,9 +4224,9 @@ define internal fastcc i32 @dissect_thrift_compact_type(ptr noundef %0, ptr noun
 
 40:                                               ; preds = %38, %34
   %41 = load i32, ptr %3, align 4
-  %42 = getelementptr inbounds i8, ptr %4, i64 40
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i32 %41, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %4, i64 44
+  %43 = getelementptr inbounds nuw i8, ptr %4, i64 44
   store i32 1, ptr %43, align 4
   store i32 -1, ptr %3, align 4
   br label %dissect_thrift_compact_struct.exit.thread
@@ -4262,7 +4262,7 @@ define internal fastcc i32 @dissect_thrift_compact_type(ptr noundef %0, ptr noun
   br i1 %63, label %64, label %74
 
 64:                                               ; preds = %60
-  %65 = getelementptr inbounds i8, ptr %1, i64 328
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %66 = load i16, ptr %65, align 8
   %67 = icmp eq i16 %66, 0
   br i1 %67, label %68, label %70
@@ -4273,9 +4273,9 @@ define internal fastcc i32 @dissect_thrift_compact_type(ptr noundef %0, ptr noun
 
 70:                                               ; preds = %68, %64
   %71 = load i32, ptr %3, align 4
-  %72 = getelementptr inbounds i8, ptr %4, i64 40
+  %72 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i32 %71, ptr %72, align 8
-  %73 = getelementptr inbounds i8, ptr %4, i64 44
+  %73 = getelementptr inbounds nuw i8, ptr %4, i64 44
   store i32 8, ptr %73, align 4
   store i32 -1, ptr %3, align 4
   br label %dissect_thrift_compact_struct.exit.thread
@@ -4293,7 +4293,7 @@ define internal fastcc i32 @dissect_thrift_compact_type(ptr noundef %0, ptr noun
   br i1 %81, label %82, label %92
 
 82:                                               ; preds = %78
-  %83 = getelementptr inbounds i8, ptr %1, i64 328
+  %83 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %84 = load i16, ptr %83, align 8
   %85 = icmp eq i16 %84, 0
   br i1 %85, label %86, label %88
@@ -4304,9 +4304,9 @@ define internal fastcc i32 @dissect_thrift_compact_type(ptr noundef %0, ptr noun
 
 88:                                               ; preds = %86, %82
   %89 = load i32, ptr %3, align 4
-  %90 = getelementptr inbounds i8, ptr %4, i64 40
+  %90 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i32 %89, ptr %90, align 8
-  %91 = getelementptr inbounds i8, ptr %4, i64 44
+  %91 = getelementptr inbounds nuw i8, ptr %4, i64 44
   store i32 16, ptr %91, align 4
   store i32 -1, ptr %3, align 4
   br label %dissect_thrift_compact_struct.exit.thread
@@ -4349,7 +4349,7 @@ thrift_get_varint_enc.exit.thread.i:              ; preds = %104, %101, %96
   br i1 %109, label %110, label %dissect_thrift_compact_binary.exit.thread
 
 110:                                              ; preds = %thrift_get_varint_enc.exit.thread.i
-  %111 = getelementptr inbounds i8, ptr %1, i64 328
+  %111 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %112 = load i16, ptr %111, align 8
   %113 = icmp eq i16 %112, 0
   br i1 %113, label %114, label %116
@@ -4360,9 +4360,9 @@ thrift_get_varint_enc.exit.thread.i:              ; preds = %104, %101, %96
 
 116:                                              ; preds = %114, %110
   %117 = load i32, ptr %3, align 4
-  %118 = getelementptr inbounds i8, ptr %4, i64 40
+  %118 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i32 %117, ptr %118, align 8
-  %119 = getelementptr inbounds i8, ptr %4, i64 44
+  %119 = getelementptr inbounds nuw i8, ptr %4, i64 44
   store i32 5, ptr %119, align 4
   store i32 -1, ptr %3, align 4
   br label %dissect_thrift_compact_binary.exit.thread
@@ -4435,7 +4435,7 @@ dissect_thrift_compact_binary.exit:               ; preds = %134
   br i1 %155, label %156, label %166
 
 156:                                              ; preds = %150
-  %157 = getelementptr inbounds i8, ptr %1, i64 328
+  %157 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %158 = load i16, ptr %157, align 8
   %159 = icmp eq i16 %158, 0
   br i1 %159, label %160, label %162
@@ -4446,15 +4446,15 @@ dissect_thrift_compact_binary.exit:               ; preds = %134
 
 162:                                              ; preds = %160, %156
   %163 = load i32, ptr %3, align 4
-  %164 = getelementptr inbounds i8, ptr %4, i64 40
+  %164 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i32 %163, ptr %164, align 8
-  %165 = getelementptr inbounds i8, ptr %4, i64 44
+  %165 = getelementptr inbounds nuw i8, ptr %4, i64 44
   store i32 1, ptr %165, align 4
   store i32 -1, ptr %3, align 4
   br label %dissect_thrift_compact_map.exit.thread
 
 166:                                              ; preds = %150
-  %167 = getelementptr inbounds i8, ptr %4, i64 48
+  %167 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %168 = load i32, ptr %167, align 8
   %.not.i93 = icmp ult i32 %152, %168
   br i1 %.not.i93, label %172, label %169
@@ -4501,7 +4501,7 @@ thrift_get_varint_enc.exit.thread:                ; preds = %183, %186, %172
   br i1 %191, label %192, label %dissect_thrift_compact_map.exit.thread
 
 192:                                              ; preds = %thrift_get_varint_enc.exit.thread
-  %193 = getelementptr inbounds i8, ptr %1, i64 328
+  %193 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %194 = load i16, ptr %193, align 8
   %195 = icmp eq i16 %194, 0
   br i1 %195, label %196, label %198
@@ -4512,9 +4512,9 @@ thrift_get_varint_enc.exit.thread:                ; preds = %183, %186, %172
 
 198:                                              ; preds = %196, %192
   %199 = load i32, ptr %3, align 4
-  %200 = getelementptr inbounds i8, ptr %4, i64 40
+  %200 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i32 %199, ptr %200, align 8
-  %201 = getelementptr inbounds i8, ptr %4, i64 44
+  %201 = getelementptr inbounds nuw i8, ptr %4, i64 44
   store i32 5, ptr %201, align 4
   store i32 -1, ptr %3, align 4
   br label %dissect_thrift_compact_map.exit.thread
@@ -4604,7 +4604,7 @@ dissect_thrift_compact_map.exit:                  ; preds = %dissect_thrift_comp
   br i1 %248, label %249, label %259
 
 249:                                              ; preds = %243
-  %250 = getelementptr inbounds i8, ptr %1, i64 328
+  %250 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %251 = load i16, ptr %250, align 8
   %252 = icmp eq i16 %251, 0
   br i1 %252, label %253, label %255
@@ -4615,15 +4615,15 @@ dissect_thrift_compact_map.exit:                  ; preds = %dissect_thrift_comp
 
 255:                                              ; preds = %253, %249
   %256 = load i32, ptr %3, align 4
-  %257 = getelementptr inbounds i8, ptr %4, i64 40
+  %257 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i32 %256, ptr %257, align 8
-  %258 = getelementptr inbounds i8, ptr %4, i64 44
+  %258 = getelementptr inbounds nuw i8, ptr %4, i64 44
   store i32 1, ptr %258, align 4
   store i32 -1, ptr %3, align 4
   br label %dissect_thrift_compact_struct.exit.thread
 
 259:                                              ; preds = %243
-  %260 = getelementptr inbounds i8, ptr %4, i64 48
+  %260 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %261 = load i32, ptr %260, align 8
   %.not.i95 = icmp ult i32 %245, %261
   br i1 %.not.i95, label %265, label %262
@@ -4644,16 +4644,16 @@ dissect_thrift_compact_map.exit:                  ; preds = %dissect_thrift_comp
   %272 = tail call ptr @proto_item_add_subtree(ptr noundef %270, i32 noundef %271) #7
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %9, i8 0, i64 48, i1 false)
-  %273 = getelementptr inbounds i8, ptr %4, i64 24
+  %273 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 0, ptr %273, align 8
   %274 = call fastcc i32 @dissect_thrift_field_header(ptr noundef %0, ptr noundef %1, ptr noundef %272, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef %9, i32 noundef 1)
   %275 = icmp eq i32 %274, -1
   br i1 %275, label %dissect_thrift_compact_fields.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %265
-  %276 = getelementptr inbounds i8, ptr %9, i64 40
-  %277 = getelementptr inbounds i8, ptr %9, i64 24
-  %278 = getelementptr inbounds i8, ptr %9, i64 8
+  %276 = getelementptr inbounds nuw i8, ptr %9, i64 40
+  %277 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %278 = getelementptr inbounds nuw i8, ptr %9, i64 8
   br label %279
 
 279:                                              ; preds = %.lr.ph, %289
@@ -4743,7 +4743,7 @@ define internal fastcc i32 @dissect_thrift_binary_type(ptr noundef %0, ptr nound
   br i1 %14, label %15, label %.sink.split
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %1, i64 328
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %17 = load i16, ptr %16, align 8
   %18 = icmp eq i16 %17, 0
   br i1 %18, label %19, label %21
@@ -4754,9 +4754,9 @@ define internal fastcc i32 @dissect_thrift_binary_type(ptr noundef %0, ptr nound
 
 21:                                               ; preds = %19, %15
   %22 = load i32, ptr %3, align 4
-  %23 = getelementptr inbounds i8, ptr %4, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i32 %22, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %4, i64 44
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 44
   store i32 1, ptr %24, align 4
   store i32 -1, ptr %3, align 4
   br label %dissect_thrift_binary_struct.exit.thread
@@ -4768,7 +4768,7 @@ define internal fastcc i32 @dissect_thrift_binary_type(ptr noundef %0, ptr nound
   br i1 %28, label %29, label %.sink.split
 
 29:                                               ; preds = %25
-  %30 = getelementptr inbounds i8, ptr %1, i64 328
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %31 = load i16, ptr %30, align 8
   %32 = icmp eq i16 %31, 0
   br i1 %32, label %33, label %35
@@ -4779,9 +4779,9 @@ define internal fastcc i32 @dissect_thrift_binary_type(ptr noundef %0, ptr nound
 
 35:                                               ; preds = %33, %29
   %36 = load i32, ptr %3, align 4
-  %37 = getelementptr inbounds i8, ptr %4, i64 40
+  %37 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i32 %36, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %4, i64 44
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 44
   store i32 1, ptr %38, align 4
   store i32 -1, ptr %3, align 4
   br label %dissect_thrift_binary_struct.exit.thread
@@ -4793,7 +4793,7 @@ define internal fastcc i32 @dissect_thrift_binary_type(ptr noundef %0, ptr nound
   br i1 %42, label %43, label %.sink.split
 
 43:                                               ; preds = %39
-  %44 = getelementptr inbounds i8, ptr %1, i64 328
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %45 = load i16, ptr %44, align 8
   %46 = icmp eq i16 %45, 0
   br i1 %46, label %47, label %49
@@ -4804,9 +4804,9 @@ define internal fastcc i32 @dissect_thrift_binary_type(ptr noundef %0, ptr nound
 
 49:                                               ; preds = %47, %43
   %50 = load i32, ptr %3, align 4
-  %51 = getelementptr inbounds i8, ptr %4, i64 40
+  %51 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i32 %50, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %4, i64 44
+  %52 = getelementptr inbounds nuw i8, ptr %4, i64 44
   store i32 2, ptr %52, align 4
   store i32 -1, ptr %3, align 4
   br label %dissect_thrift_binary_struct.exit.thread
@@ -4818,7 +4818,7 @@ define internal fastcc i32 @dissect_thrift_binary_type(ptr noundef %0, ptr nound
   br i1 %56, label %57, label %.sink.split
 
 57:                                               ; preds = %53
-  %58 = getelementptr inbounds i8, ptr %1, i64 328
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %59 = load i16, ptr %58, align 8
   %60 = icmp eq i16 %59, 0
   br i1 %60, label %61, label %63
@@ -4829,9 +4829,9 @@ define internal fastcc i32 @dissect_thrift_binary_type(ptr noundef %0, ptr nound
 
 63:                                               ; preds = %61, %57
   %64 = load i32, ptr %3, align 4
-  %65 = getelementptr inbounds i8, ptr %4, i64 40
+  %65 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i32 %64, ptr %65, align 8
-  %66 = getelementptr inbounds i8, ptr %4, i64 44
+  %66 = getelementptr inbounds nuw i8, ptr %4, i64 44
   store i32 4, ptr %66, align 4
   store i32 -1, ptr %3, align 4
   br label %dissect_thrift_binary_struct.exit.thread
@@ -4843,7 +4843,7 @@ define internal fastcc i32 @dissect_thrift_binary_type(ptr noundef %0, ptr nound
   br i1 %70, label %71, label %.sink.split
 
 71:                                               ; preds = %67
-  %72 = getelementptr inbounds i8, ptr %1, i64 328
+  %72 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %73 = load i16, ptr %72, align 8
   %74 = icmp eq i16 %73, 0
   br i1 %74, label %75, label %77
@@ -4854,9 +4854,9 @@ define internal fastcc i32 @dissect_thrift_binary_type(ptr noundef %0, ptr nound
 
 77:                                               ; preds = %75, %71
   %78 = load i32, ptr %3, align 4
-  %79 = getelementptr inbounds i8, ptr %4, i64 40
+  %79 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i32 %78, ptr %79, align 8
-  %80 = getelementptr inbounds i8, ptr %4, i64 44
+  %80 = getelementptr inbounds nuw i8, ptr %4, i64 44
   store i32 8, ptr %80, align 4
   store i32 -1, ptr %3, align 4
   br label %dissect_thrift_binary_struct.exit.thread
@@ -4868,7 +4868,7 @@ define internal fastcc i32 @dissect_thrift_binary_type(ptr noundef %0, ptr nound
   br i1 %84, label %85, label %.sink.split
 
 85:                                               ; preds = %81
-  %86 = getelementptr inbounds i8, ptr %1, i64 328
+  %86 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %87 = load i16, ptr %86, align 8
   %88 = icmp eq i16 %87, 0
   br i1 %88, label %89, label %91
@@ -4879,9 +4879,9 @@ define internal fastcc i32 @dissect_thrift_binary_type(ptr noundef %0, ptr nound
 
 91:                                               ; preds = %89, %85
   %92 = load i32, ptr %3, align 4
-  %93 = getelementptr inbounds i8, ptr %4, i64 40
+  %93 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i32 %92, ptr %93, align 8
-  %94 = getelementptr inbounds i8, ptr %4, i64 44
+  %94 = getelementptr inbounds nuw i8, ptr %4, i64 44
   store i32 8, ptr %94, align 4
   store i32 -1, ptr %3, align 4
   br label %dissect_thrift_binary_struct.exit.thread
@@ -4893,7 +4893,7 @@ define internal fastcc i32 @dissect_thrift_binary_type(ptr noundef %0, ptr nound
   br i1 %98, label %99, label %.sink.split
 
 99:                                               ; preds = %95
-  %100 = getelementptr inbounds i8, ptr %1, i64 328
+  %100 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %101 = load i16, ptr %100, align 8
   %102 = icmp eq i16 %101, 0
   br i1 %102, label %103, label %105
@@ -4904,9 +4904,9 @@ define internal fastcc i32 @dissect_thrift_binary_type(ptr noundef %0, ptr nound
 
 105:                                              ; preds = %103, %99
   %106 = load i32, ptr %3, align 4
-  %107 = getelementptr inbounds i8, ptr %4, i64 40
+  %107 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i32 %106, ptr %107, align 8
-  %108 = getelementptr inbounds i8, ptr %4, i64 44
+  %108 = getelementptr inbounds nuw i8, ptr %4, i64 44
   store i32 16, ptr %108, align 4
   store i32 -1, ptr %3, align 4
   br label %dissect_thrift_binary_struct.exit.thread
@@ -4919,7 +4919,7 @@ define internal fastcc i32 @dissect_thrift_binary_type(ptr noundef %0, ptr nound
   br i1 %112, label %113, label %123
 
 113:                                              ; preds = %109
-  %114 = getelementptr inbounds i8, ptr %1, i64 328
+  %114 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %115 = load i16, ptr %114, align 8
   %116 = icmp eq i16 %115, 0
   br i1 %116, label %117, label %119
@@ -4930,9 +4930,9 @@ define internal fastcc i32 @dissect_thrift_binary_type(ptr noundef %0, ptr nound
 
 119:                                              ; preds = %117, %113
   %120 = load i32, ptr %3, align 4
-  %121 = getelementptr inbounds i8, ptr %4, i64 40
+  %121 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i32 %120, ptr %121, align 8
-  %122 = getelementptr inbounds i8, ptr %4, i64 44
+  %122 = getelementptr inbounds nuw i8, ptr %4, i64 44
   store i32 4, ptr %122, align 4
   store i32 -1, ptr %3, align 4
   br label %dissect_thrift_binary_binary.exit.thread
@@ -4998,7 +4998,7 @@ dissect_thrift_binary_binary.exit:                ; preds = %133
   br i1 %154, label %155, label %165
 
 155:                                              ; preds = %149
-  %156 = getelementptr inbounds i8, ptr %1, i64 328
+  %156 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %157 = load i16, ptr %156, align 8
   %158 = icmp eq i16 %157, 0
   br i1 %158, label %159, label %161
@@ -5009,15 +5009,15 @@ dissect_thrift_binary_binary.exit:                ; preds = %133
 
 161:                                              ; preds = %159, %155
   %162 = load i32, ptr %3, align 4
-  %163 = getelementptr inbounds i8, ptr %4, i64 40
+  %163 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i32 %162, ptr %163, align 8
-  %164 = getelementptr inbounds i8, ptr %4, i64 44
+  %164 = getelementptr inbounds nuw i8, ptr %4, i64 44
   store i32 1, ptr %164, align 4
   store i32 -1, ptr %3, align 4
   br label %dissect_thrift_binary_struct.exit.thread
 
 165:                                              ; preds = %149
-  %166 = getelementptr inbounds i8, ptr %4, i64 48
+  %166 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %167 = load i32, ptr %166, align 8
   %.not.i114 = icmp ult i32 %151, %167
   br i1 %.not.i114, label %171, label %168
@@ -5038,10 +5038,10 @@ dissect_thrift_binary_binary.exit:                ; preds = %133
   %178 = tail call ptr @proto_item_add_subtree(ptr noundef %176, i32 noundef %177) #7
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %9, i8 0, i64 48, i1 false)
-  %179 = getelementptr inbounds i8, ptr %4, i64 24
+  %179 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 0, ptr %179, align 8
-  %180 = getelementptr inbounds i8, ptr %9, i64 40
-  %181 = getelementptr inbounds i8, ptr %9, i64 24
+  %180 = getelementptr inbounds nuw i8, ptr %9, i64 40
+  %181 = getelementptr inbounds nuw i8, ptr %9, i64 24
   br label %182
 
 182:                                              ; preds = %188, %171
@@ -5111,7 +5111,7 @@ define internal fastcc i32 @dissect_thrift_string_as_preferred(ptr noundef %0, p
   br i1 %9, label %10, label %20
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %1, i64 328
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %12 = load i16, ptr %11, align 8
   %13 = icmp eq i16 %12, 0
   br i1 %13, label %14, label %16
@@ -5122,9 +5122,9 @@ define internal fastcc i32 @dissect_thrift_string_as_preferred(ptr noundef %0, p
 
 16:                                               ; preds = %14, %10
   %17 = load i32, ptr %3, align 4
-  %18 = getelementptr inbounds i8, ptr %4, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i32 %17, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %4, i64 44
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 44
   store i32 %5, ptr %19, align 4
   br label %44
 
@@ -5345,7 +5345,7 @@ define internal fastcc i32 @dissect_thrift_compact_list_set(ptr noundef %0, ptr 
   br i1 %17, label %18, label %28
 
 18:                                               ; preds = %6
-  %19 = getelementptr inbounds i8, ptr %1, i64 328
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %20 = load i16, ptr %19, align 8
   %21 = icmp eq i16 %20, 0
   br i1 %21, label %22, label %24
@@ -5356,9 +5356,9 @@ define internal fastcc i32 @dissect_thrift_compact_list_set(ptr noundef %0, ptr 
 
 24:                                               ; preds = %22, %18
   %25 = load i32, ptr %3, align 4
-  %26 = getelementptr inbounds i8, ptr %4, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i32 %25, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %4, i64 44
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 44
   store i32 1, ptr %27, align 4
   store i32 -1, ptr %3, align 4
   br label %.loopexit
@@ -5379,7 +5379,7 @@ define internal fastcc i32 @dissect_thrift_compact_list_set(ptr noundef %0, ptr 
   %.087 = phi i32 [ %31, %29 ], [ %10, %28 ]
   %.086 = phi i32 [ %32, %29 ], [ %11, %28 ]
   %.085 = phi i32 [ %33, %29 ], [ %12, %28 ]
-  %35 = getelementptr inbounds i8, ptr %4, i64 48
+  %35 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %36 = load i32, ptr %35, align 8
   %.not95 = icmp ult i32 %14, %36
   br i1 %.not95, label %40, label %37
@@ -5441,7 +5441,7 @@ thrift_get_varint_enc.exit.thread:                ; preds = %63, %66, %57
   br i1 %71, label %72, label %.loopexit
 
 72:                                               ; preds = %thrift_get_varint_enc.exit.thread
-  %73 = getelementptr inbounds i8, ptr %1, i64 328
+  %73 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %74 = load i16, ptr %73, align 8
   %75 = icmp eq i16 %74, 0
   br i1 %75, label %76, label %78
@@ -5452,9 +5452,9 @@ thrift_get_varint_enc.exit.thread:                ; preds = %63, %66, %57
 
 78:                                               ; preds = %76, %72
   %79 = load i32, ptr %3, align 4
-  %80 = getelementptr inbounds i8, ptr %4, i64 40
+  %80 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i32 %79, ptr %80, align 8
-  %81 = getelementptr inbounds i8, ptr %4, i64 44
+  %81 = getelementptr inbounds nuw i8, ptr %4, i64 44
   store i32 5, ptr %81, align 4
   store i32 -1, ptr %3, align 4
   br label %.loopexit
@@ -5516,16 +5516,16 @@ thrift_get_varint_enc.exit.thread:                ; preds = %63, %66, %57
 define internal fastcc i32 @dissect_thrift_compact_fields(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull %3, ptr noundef nonnull initializes((24, 32)) %4) unnamed_addr #0 {
   %6 = alloca %struct._thrift_field_header_t, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, i8 0, i64 48, i1 false)
-  %7 = getelementptr inbounds i8, ptr %4, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 0, ptr %7, align 8
   %8 = call fastcc i32 @dissect_thrift_field_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %6, i32 noundef 1)
   %9 = icmp eq i32 %8, -1
   br i1 %9, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %6, i64 40
-  %11 = getelementptr inbounds i8, ptr %6, i64 24
-  %12 = getelementptr inbounds i8, ptr %6, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 8
   br label %13
 
 13:                                               ; preds = %.lr.ph, %23
@@ -5599,7 +5599,7 @@ default.unreachable74:                            ; preds = %6
   br i1 %19, label %20, label %30
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %1, i64 328
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %22 = load i16, ptr %21, align 8
   %23 = icmp eq i16 %22, 0
   br i1 %23, label %24, label %26
@@ -5610,15 +5610,15 @@ default.unreachable74:                            ; preds = %6
 
 26:                                               ; preds = %24, %20
   %27 = load i32, ptr %3, align 4
-  %28 = getelementptr inbounds i8, ptr %4, i64 40
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i32 %27, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %4, i64 44
+  %29 = getelementptr inbounds nuw i8, ptr %4, i64 44
   store i32 %.063, ptr %29, align 4
   store i32 -1, ptr %3, align 4
   br label %.loopexit
 
 30:                                               ; preds = %16
-  %31 = getelementptr inbounds i8, ptr %4, i64 48
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %32 = load i32, ptr %31, align 8
   %.not = icmp ult i32 %12, %32
   br i1 %.not, label %36, label %33
@@ -5724,10 +5724,10 @@ declare ptr @proto_tree_add_item_ret_uint(ptr noundef, i32 noundef, ptr noundef,
 define internal fastcc i32 @dissect_thrift_binary_fields(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull initializes((24, 32)) %4) unnamed_addr #0 {
   %6 = alloca %struct._thrift_field_header_t, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, i8 0, i64 48, i1 false)
-  %7 = getelementptr inbounds i8, ptr %4, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 0, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %6, i64 40
-  %9 = getelementptr inbounds i8, ptr %6, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 24
   br label %10
 
 10:                                               ; preds = %16, %5
@@ -5795,7 +5795,7 @@ define internal i32 @dissect_thrift_framed(ptr noundef %0, ptr noundef %1, ptr n
   unreachable
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %3, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %13 = load i32, ptr %12, align 8
   %14 = and i32 %13, 1
   %.not35 = icmp eq i32 %14, 0
@@ -5821,16 +5821,16 @@ define internal i32 @dissect_thrift_framed(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %22, label %23, label %33
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds i8, ptr %3, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %3, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %27 = load i32, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %3, i64 44
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 44
   %29 = load i32, ptr %28, align 4
   %30 = tail call ptr @proto_tree_add_expert(ptr noundef %25, ptr noundef %1, ptr noundef nonnull @ei_thrift_frame_too_short, ptr noundef %0, i32 noundef %27, i32 noundef %29) #7
-  %31 = getelementptr inbounds i8, ptr %1, i64 332
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 332
   store i32 %5, ptr %31, align 4
-  %32 = getelementptr inbounds i8, ptr %1, i64 336
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 336
   store i32 0, ptr %32, align 8
   br label %43
 
@@ -5844,7 +5844,7 @@ define internal i32 @dissect_thrift_framed(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %37, label %38, label %43
 
 38:                                               ; preds = %35
-  %39 = getelementptr inbounds i8, ptr %3, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %40 = load ptr, ptr %39, align 8
   %41 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %21) #7
   %42 = tail call ptr @proto_tree_add_expert(ptr noundef %40, ptr noundef %1, ptr noundef nonnull @ei_thrift_frame_too_long, ptr noundef %0, i32 noundef %21, i32 noundef %41) #7
@@ -5866,7 +5866,7 @@ define internal fastcc i32 @dissect_thrift_loop(ptr noundef %0, ptr noundef %1, 
   br i1 %8, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader
-  %9 = getelementptr inbounds i8, ptr %3, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %11
 
 10:                                               ; preds = %4
@@ -5933,9 +5933,9 @@ is_thrift_strict_version.exit:                    ; preds = %19
   br i1 %38, label %11, label %.loopexit, !llvm.loop !13
 
 39:                                               ; preds = %32, %11
-  %40 = getelementptr inbounds i8, ptr %1, i64 332
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 332
   store i32 %.04149, ptr %40, align 4
-  %41 = getelementptr inbounds i8, ptr %1, i64 336
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 336
   store i32 268435455, ptr %41, align 8
   %42 = tail call i32 @tvb_reported_length(ptr noundef %0) #7
   br label %.loopexit
@@ -5961,7 +5961,7 @@ define internal fastcc i32 @dissect_thrift_common(ptr noundef %0, ptr noundef %1
   unreachable
 
 14:                                               ; preds = %5
-  %15 = getelementptr inbounds i8, ptr %4, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %16 = load i32, ptr %15, align 8
   %17 = and i32 %16, 1
   %.not = icmp eq i32 %17, 0
@@ -6102,7 +6102,7 @@ thrift_get_varint_enc.exit250:                    ; preds = %71
   br i1 %93, label %304, label %94
 
 94:                                               ; preds = %90
-  %95 = getelementptr inbounds i8, ptr %1, i64 408
+  %95 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %96 = load ptr, ptr %95, align 8
   %97 = call ptr @tvb_get_string_enc(ptr noundef %96, ptr noundef %0, i32 noundef %91, i32 noundef %86, i32 noundef 2) #7
   %98 = add i32 %91, %86
@@ -6140,7 +6140,7 @@ thrift_get_varint_enc.exit250:                    ; preds = %71
 
 118:                                              ; preds = %115
   %119 = add i32 %36, 8
-  %120 = getelementptr inbounds i8, ptr %1, i64 408
+  %120 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %121 = load ptr, ptr %120, align 8
   %122 = tail call ptr @tvb_get_string_enc(ptr noundef %121, ptr noundef %0, i32 noundef %119, i32 noundef %111, i32 noundef 2) #7
   %123 = add i32 %111, %119
@@ -6168,7 +6168,7 @@ thrift_get_varint_enc.exit250:                    ; preds = %71
 
 136:                                              ; preds = %133
   %137 = add i32 %36, 4
-  %138 = getelementptr inbounds i8, ptr %1, i64 408
+  %138 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %139 = load ptr, ptr %138, align 8
   %140 = tail call ptr @tvb_get_string_enc(ptr noundef %139, ptr noundef %0, i32 noundef %137, i32 noundef %129, i32 noundef 2) #7
   %141 = add i32 %129, %137
@@ -6191,16 +6191,16 @@ thrift_get_varint_enc.exit250:                    ; preds = %71
   %.0221 = phi i32 [ %124, %118 ], [ %147, %136 ], [ %68, %94 ]
   %.0220 = phi ptr [ %122, %118 ], [ %140, %136 ], [ %97, %94 ]
   store i32 %.sink, ptr %6, align 4
-  %150 = getelementptr inbounds i8, ptr %4, i64 32
+  %150 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr %22, ptr %150, align 8
-  %151 = getelementptr inbounds i8, ptr %4, i64 40
+  %151 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i32 %3, ptr %151, align 8
-  %152 = getelementptr inbounds i8, ptr %4, i64 44
+  %152 = getelementptr inbounds nuw i8, ptr %4, i64 44
   store i32 -1, ptr %152, align 4
   %153 = zext nneg i8 %.0224 to i32
-  %154 = getelementptr inbounds i8, ptr %4, i64 4
+  %154 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %153, ptr %154, align 4
-  %155 = getelementptr inbounds i8, ptr %1, i64 8
+  %155 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %156 = load ptr, ptr %155, align 8
   %157 = call ptr @val_to_str(i32 noundef %153, ptr noundef nonnull @thrift_mtype_vals, ptr noundef nonnull @.str.187) #7
   call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %156, i32 noundef 25, ptr noundef nonnull @.str.185, ptr noundef nonnull @.str.186, ptr noundef %157, ptr noundef %.0220) #7
@@ -6311,7 +6311,7 @@ thrift_get_varint_enc.exit250:                    ; preds = %71
   br i1 %234, label %304, label %235
 
 235:                                              ; preds = %232
-  %236 = getelementptr inbounds i8, ptr %4, i64 24
+  %236 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 0, ptr %236, align 8
   %237 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.sink) #7
   %238 = load i32, ptr %154, align 4
@@ -6329,11 +6329,11 @@ thrift_get_varint_enc.exit250:                    ; preds = %71
   ]
 
 242:                                              ; preds = %240
-  %243 = getelementptr inbounds i8, ptr %9, i64 8
+  %243 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %244 = load i64, ptr %243, align 8
-  %245 = getelementptr inbounds i8, ptr %4, i64 16
+  %245 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 %244, ptr %245, align 8
-  %246 = getelementptr inbounds i8, ptr %9, i64 32
+  %246 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %247 = load ptr, ptr %246, align 8
   %.pr = load i32, ptr %154, align 4
   br label %248
@@ -6345,7 +6345,7 @@ thrift_get_varint_enc.exit250:                    ; preds = %71
   br i1 %.not245, label %261, label %250
 
 250:                                              ; preds = %248
-  %251 = getelementptr inbounds i8, ptr %1, i64 328
+  %251 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %252 = load i16, ptr %251, align 8
   %.not246 = icmp eq i16 %252, 0
   br i1 %.not246, label %255, label %253
@@ -6405,7 +6405,7 @@ thrift_get_varint_enc.exit250:                    ; preds = %71
   %279 = load i32, ptr @ett_thrift_params, align 4
   %280 = call ptr @proto_tree_add_subtree(ptr noundef %22, ptr noundef %0, i32 noundef %.sink, i32 noundef -1, i32 noundef %279, ptr noundef nonnull %7, ptr noundef nonnull @.str.190) #7
   store i32 1, ptr %152, align 4
-  %281 = getelementptr inbounds i8, ptr %4, i64 16
+  %281 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %282 = load i64, ptr %281, align 8
   %.not248 = icmp eq i64 %282, 0
   br i1 %.not248, label %287, label %283
@@ -6463,9 +6463,9 @@ thrift_get_varint_enc.exit250:                    ; preds = %71
   br label %307
 
 307:                                              ; preds = %293, %272, %304
-  %308 = getelementptr inbounds i8, ptr %1, i64 332
+  %308 = getelementptr inbounds nuw i8, ptr %1, i64 332
   store i32 %3, ptr %308, align 4
-  %309 = getelementptr inbounds i8, ptr %1, i64 336
+  %309 = getelementptr inbounds nuw i8, ptr %1, i64 336
   store i32 268435455, ptr %309, align 8
   br label %thrift_get_varint_enc.exit.thread
 

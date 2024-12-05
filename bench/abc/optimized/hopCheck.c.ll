@@ -32,7 +32,7 @@ define range(i32 0, 2) i32 @Hop_ManCheck(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %exitcond.not, label %.critedge.preheader, label %12, !llvm.loop !4
 
 .critedge.preheader:                              ; preds = %6, %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr i8, ptr %8, i64 4
   %.val55 = load i32, ptr %9, align 4
@@ -47,7 +47,7 @@ define range(i32 0, 2) i32 @Hop_ManCheck(ptr noundef %0) local_unnamed_addr #0 {
 
 12:                                               ; preds = %.lr.ph, %6
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %6 ]
-  %13 = getelementptr inbounds ptr, ptr %.val56, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw ptr, ptr %.val56, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr i8, ptr %14, i64 16
   %.val58 = load ptr, ptr %15, align 8
@@ -70,18 +70,18 @@ define range(i32 0, 2) i32 @Hop_ManCheck(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %exitcond97.not, label %.critedge2.preheader, label %24, !llvm.loop !6
 
 .critedge2.preheader:                             ; preds = %.critedge, %.critedge.preheader
-  %20 = getelementptr inbounds i8, ptr %0, i64 112
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %21 = load i32, ptr %20, align 8
   %22 = icmp sgt i32 %21, 0
   br i1 %22, label %.lr.ph83, label %.critedge2._crit_edge
 
 .lr.ph83:                                         ; preds = %.critedge2.preheader
-  %23 = getelementptr inbounds i8, ptr %0, i64 104
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 104
   br label %34
 
 24:                                               ; preds = %.lr.ph81, %.critedge
   %indvars.iv93 = phi i64 [ 0, %.lr.ph81 ], [ %indvars.iv.next94, %.critedge ]
-  %25 = getelementptr inbounds ptr, ptr %.val57, i64 %indvars.iv93
+  %25 = getelementptr inbounds nuw ptr, ptr %.val57, i64 %indvars.iv93
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr i8, ptr %26, i64 16
   %.val59 = load ptr, ptr %27, align 8
@@ -106,7 +106,7 @@ define range(i32 0, 2) i32 @Hop_ManCheck(ptr noundef %0) local_unnamed_addr #0 {
   %35 = phi i32 [ %21, %.lr.ph83 ], [ %63, %.critedge2 ]
   %indvars.iv98 = phi i64 [ 0, %.lr.ph83 ], [ %indvars.iv.next99, %.critedge2 ]
   %36 = load ptr, ptr %23, align 8
-  %37 = getelementptr inbounds ptr, ptr %36, i64 %indvars.iv98
+  %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv98
   %38 = load ptr, ptr %37, align 8
   %39 = icmp eq ptr %38, null
   br i1 %39, label %.critedge2, label %40
@@ -134,9 +134,9 @@ define range(i32 0, 2) i32 @Hop_ManCheck(ptr noundef %0) local_unnamed_addr #0 {
 
 51:                                               ; preds = %45
   %52 = inttoptr i64 %48 to ptr
-  %53 = getelementptr inbounds i8, ptr %44, i64 36
+  %53 = getelementptr inbounds nuw i8, ptr %44, i64 36
   %54 = load i32, ptr %53, align 4
-  %55 = getelementptr inbounds i8, ptr %52, i64 36
+  %55 = getelementptr inbounds nuw i8, ptr %52, i64 36
   %56 = load i32, ptr %55, align 4
   %.not49 = icmp slt i32 %54, %56
   br i1 %.not49, label %59, label %57

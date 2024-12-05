@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 define void @Gia_ManFanoutStart(ptr nocapture noundef initializes((232, 244)) %0) local_unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 24
   %.val = load i32, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 240
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %4 = tail call i32 @llvm.smax.i32(i32 %.val, i32 2048)
   %spec.select = shl nuw i32 %4, 1
   store i32 %spec.select, ptr %3, align 8
@@ -20,7 +20,7 @@ define void @Gia_ManFanoutStart(ptr nocapture noundef initializes((232, 244)) %0
   %6 = sext i32 %5 to i64
   %7 = shl nsw i64 %6, 2
   %8 = tail call noalias ptr @malloc(i64 noundef %7) #13
-  %9 = getelementptr inbounds i8, ptr %0, i64 232
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 232
   store ptr %8, ptr %9, align 8
   %10 = sext i32 %spec.select to i64
   %11 = mul nsw i64 %10, 20
@@ -32,7 +32,7 @@ define void @Gia_ManFanoutStart(ptr nocapture noundef initializes((232, 244)) %0
 .lr.ph:                                           ; preds = %1, %34
   %indvars.iv = phi i64 [ %indvars.iv.next, %34 ], [ 0, %1 ]
   %.val23 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val23, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw %struct.Gia_Obj_t_, ptr %.val23, i64 %indvars.iv
   %.not = icmp eq ptr %.val23, null
   br i1 %.not, label %.critedge, label %15
 
@@ -94,7 +94,7 @@ define void @Gia_ObjAddFanout(ptr nocapture noundef %0, ptr noundef %1, ptr noun
   %7 = sub i64 %5, %6
   %8 = sdiv exact i64 %7, 12
   %9 = trunc i64 %8 to i32
-  %10 = getelementptr inbounds i8, ptr %0, i64 240
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %11 = load i32, ptr %10, align 8
   %.not = icmp sgt i32 %11, %9
   %12 = ptrtoint ptr %2 to i64
@@ -108,7 +108,7 @@ define void @Gia_ObjAddFanout(ptr nocapture noundef %0, ptr noundef %1, ptr noun
 ._crit_edge:                                      ; preds = %3
   %16 = tail call noundef i32 @llvm.smax.i32(i32 %9, i32 %15)
   %17 = shl nsw i32 %16, 1
-  %18 = getelementptr inbounds i8, ptr %0, i64 232
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %19 = load ptr, ptr %18, align 8
   %.not53 = icmp eq ptr %19, null
   %20 = mul nsw i32 %16, 10
@@ -169,7 +169,7 @@ define void @Gia_ObjAddFanout(ptr nocapture noundef %0, ptr noundef %1, ptr noun
   br i1 %47, label %Gia_ObjWhatFanin.exit, label %48
 
 48:                                               ; preds = %42
-  %49 = getelementptr inbounds i8, ptr %0, i64 40
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %50 = load ptr, ptr %49, align 8
   %.not.i.i = icmp eq ptr %50, null
   br i1 %.not.i.i, label %Gia_ObjFanin2.exit.i, label %51
@@ -194,18 +194,18 @@ Gia_ObjWhatFanin.exit:                            ; preds = %36, %42, %Gia_ObjFa
   %.0.i = phi i32 [ 0, %36 ], [ 1, %42 ], [ %..i, %Gia_ObjFanin2.exit.i ]
   %60 = shl i32 %.pre-phi68, 1
   %61 = or i32 %.0.i, %60
-  %62 = getelementptr inbounds i8, ptr %0, i64 232
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %63 = load ptr, ptr %62, align 8
   %64 = ashr i32 %61, 1
   %65 = mul nsw i32 %64, 5
   %66 = sext i32 %65 to i64
   %67 = getelementptr inbounds i32, ptr %63, i64 %66
-  %68 = getelementptr inbounds i8, ptr %67, i64 4
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 4
   %69 = and i32 %.0.i, 1
   %70 = zext nneg i32 %69 to i64
-  %71 = getelementptr inbounds i32, ptr %68, i64 %70
-  %72 = getelementptr inbounds i8, ptr %67, i64 12
-  %73 = getelementptr inbounds i32, ptr %72, i64 %70
+  %71 = getelementptr inbounds nuw i32, ptr %68, i64 %70
+  %72 = getelementptr inbounds nuw i8, ptr %67, i64 12
+  %73 = getelementptr inbounds nuw i32, ptr %72, i64 %70
   %74 = sub i64 %5, %.pre-phi62
   %75 = sdiv exact i64 %74, 12
   %sext = mul i64 %75, 21474836480
@@ -226,19 +226,19 @@ Gia_ObjWhatFanin.exit:                            ; preds = %36, %42, %Gia_ObjFa
   %83 = mul nsw i32 %82, 5
   %84 = sext i32 %83 to i64
   %85 = getelementptr inbounds i32, ptr %63, i64 %84
-  %86 = getelementptr inbounds i8, ptr %85, i64 4
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 4
   %87 = and i32 %78, 1
   %88 = zext nneg i32 %87 to i64
-  %89 = getelementptr inbounds i32, ptr %86, i64 %88
+  %89 = getelementptr inbounds nuw i32, ptr %86, i64 %88
   %90 = load i32, ptr %89, align 4
   %91 = ashr i32 %90, 1
   %92 = mul nsw i32 %91, 5
   %93 = sext i32 %92 to i64
   %94 = getelementptr inbounds i32, ptr %63, i64 %93
-  %95 = getelementptr inbounds i8, ptr %94, i64 12
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 12
   %96 = and i32 %90, 1
   %97 = zext nneg i32 %96 to i64
-  %98 = getelementptr inbounds i32, ptr %95, i64 %97
+  %98 = getelementptr inbounds nuw i32, ptr %95, i64 %97
   store i32 %90, ptr %71, align 4
   %99 = load i32, ptr %77, align 4
   store i32 %99, ptr %73, align 4
@@ -252,7 +252,7 @@ Gia_ObjWhatFanin.exit:                            ; preds = %36, %42, %Gia_ObjFa
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define void @Gia_ManFanoutStop(ptr nocapture noundef initializes((240, 244)) %0) local_unnamed_addr #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 232
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %4
@@ -263,7 +263,7 @@ define void @Gia_ManFanoutStop(ptr nocapture noundef initializes((240, 244)) %0)
   br label %5
 
 5:                                                ; preds = %1, %4
-  %6 = getelementptr inbounds i8, ptr %0, i64 240
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 240
   store i32 0, ptr %6, align 8
   ret void
 }
@@ -299,7 +299,7 @@ define void @Gia_ObjRemoveFanout(ptr nocapture noundef readonly %0, ptr noundef 
   br i1 %20, label %Gia_ObjWhatFanin.exit, label %21
 
 21:                                               ; preds = %15
-  %22 = getelementptr inbounds i8, ptr %0, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %23 = load ptr, ptr %22, align 8
   %.not.i.i = icmp eq ptr %23, null
   br i1 %.not.i.i, label %Gia_ObjFanin2.exit.i, label %24
@@ -324,27 +324,27 @@ Gia_ObjWhatFanin.exit:                            ; preds = %3, %15, %Gia_ObjFan
   %.0.i = phi i32 [ 0, %3 ], [ 1, %15 ], [ %..i, %Gia_ObjFanin2.exit.i ]
   %33 = shl i32 %9, 1
   %34 = or i32 %.0.i, %33
-  %35 = getelementptr inbounds i8, ptr %0, i64 232
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %36 = load ptr, ptr %35, align 8
   %37 = ashr i32 %34, 1
   %38 = mul nsw i32 %37, 5
   %39 = sext i32 %38 to i64
   %40 = getelementptr inbounds i32, ptr %36, i64 %39
-  %41 = getelementptr inbounds i8, ptr %40, i64 4
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 4
   %42 = and i32 %.0.i, 1
   %43 = zext nneg i32 %42 to i64
-  %44 = getelementptr inbounds i32, ptr %41, i64 %43
-  %45 = getelementptr inbounds i8, ptr %40, i64 12
-  %46 = getelementptr inbounds i32, ptr %45, i64 %43
+  %44 = getelementptr inbounds nuw i32, ptr %41, i64 %43
+  %45 = getelementptr inbounds nuw i8, ptr %40, i64 12
+  %46 = getelementptr inbounds nuw i32, ptr %45, i64 %43
   %47 = load i32, ptr %46, align 4
   %48 = ashr i32 %47, 1
   %49 = mul nsw i32 %48, 5
   %50 = sext i32 %49 to i64
   %51 = getelementptr inbounds i32, ptr %36, i64 %50
-  %52 = getelementptr inbounds i8, ptr %51, i64 4
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 4
   %53 = and i32 %47, 1
   %54 = zext nneg i32 %53 to i64
-  %55 = getelementptr inbounds i32, ptr %52, i64 %54
+  %55 = getelementptr inbounds nuw i32, ptr %52, i64 %54
   %56 = load i32, ptr %44, align 4
   %57 = ptrtoint ptr %1 to i64
   %58 = sub i64 %57, %6
@@ -382,10 +382,10 @@ Gia_ObjWhatFanin.exit:                            ; preds = %3, %15, %Gia_ObjFan
   %73 = mul nsw i32 %72, 5
   %74 = sext i32 %73 to i64
   %75 = getelementptr inbounds i32, ptr %36, i64 %74
-  %76 = getelementptr inbounds i8, ptr %75, i64 12
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 12
   %77 = and i32 %56, 1
   %78 = zext nneg i32 %77 to i64
-  %79 = getelementptr inbounds i32, ptr %76, i64 %78
+  %79 = getelementptr inbounds nuw i32, ptr %76, i64 %78
   store i32 %storemerge, ptr %79, align 4
   store i32 0, ptr %44, align 4
   store i32 0, ptr %46, align 4
@@ -399,11 +399,11 @@ define noalias noundef ptr @Gia_ManStartFanoutMap(ptr nocapture noundef readonly
   %4 = getelementptr i8, ptr %0, i64 52
   %.val22 = load i32, ptr %4, align 4
   %5 = add nsw i32 %.val22, %.val
-  %6 = getelementptr inbounds i8, ptr %0, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr i8, ptr %7, i64 4
   %.val.i = load i32, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr i8, ptr %10, i64 4
   %.val3.i = load i32, ptr %11, align 4
@@ -420,13 +420,13 @@ define noalias noundef ptr @Gia_ManStartFanoutMap(ptr nocapture noundef readonly
   %21 = add i32 %19, -1
   %or.cond.i.i = icmp ult i32 %21, 15
   %spec.store.select.i.i = select i1 %or.cond.i.i, i32 16, i32 %19
-  %22 = getelementptr inbounds i8, ptr %20, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 4
   store i32 %spec.store.select.i.i, ptr %20, align 8
   %.not.i.i = icmp eq i32 %spec.store.select.i.i, 0
   br i1 %.not.i.i, label %Vec_IntAlloc.exit.thread.i, label %Vec_IntAlloc.exit.i
 
 Vec_IntAlloc.exit.thread.i:                       ; preds = %2
-  %23 = getelementptr inbounds i8, ptr %20, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store ptr null, ptr %23, align 8
   store i32 %19, ptr %22, align 4
   br label %Vec_IntStart.exit
@@ -435,7 +435,7 @@ Vec_IntAlloc.exit.i:                              ; preds = %2
   %24 = sext i32 %spec.store.select.i.i to i64
   %25 = shl nsw i64 %24, 2
   %26 = tail call noalias ptr @malloc(i64 noundef %25) #13
-  %27 = getelementptr inbounds i8, ptr %20, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store ptr %26, ptr %27, align 8
   store i32 %19, ptr %22, align 4
   %.not.i = icmp eq ptr %26, null
@@ -466,7 +466,7 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
   br i1 %.not, label %.critedge, label %36
 
 36:                                               ; preds = %35
-  %37 = getelementptr inbounds i32, ptr %.val25, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw i32, ptr %.val25, i64 %indvars.iv
   store i32 %.028, ptr %37, align 4
   %.val26 = load ptr, ptr %33, align 8
   %sext = shl nuw i64 %indvars.iv, 32
@@ -484,7 +484,7 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
 
 ; Function Attrs: nounwind uwtable
 define void @Gia_ManStaticFanoutStart(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 144
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %3 = load ptr, ptr %2, align 8
   store ptr null, ptr %2, align 8
   tail call void @Gia_ManCreateRefs(ptr noundef %0) #15
@@ -492,29 +492,29 @@ define void @Gia_ManStaticFanoutStart(ptr noundef %0) local_unnamed_addr #0 {
   %5 = getelementptr i8, ptr %0, i64 24
   %.val71 = load i32, ptr %5, align 8
   %6 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #13
-  %7 = getelementptr inbounds i8, ptr %6, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 %.val71, ptr %7, align 4
   store i32 %.val71, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %6, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %4, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 248
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 248
   store ptr %6, ptr %9, align 8
   store ptr %3, ptr %2, align 8
   %10 = tail call ptr @Gia_ManStartFanoutMap(ptr noundef %0, ptr noundef nonnull %6)
-  %11 = getelementptr inbounds i8, ptr %0, i64 256
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 256
   store ptr %10, ptr %11, align 8
   %.val = load i32, ptr %5, align 8
   %12 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #13
   %13 = add i32 %.val, -1
   %or.cond.i.i = icmp ult i32 %13, 15
   %spec.store.select.i.i = select i1 %or.cond.i.i, i32 16, i32 %.val
-  %14 = getelementptr inbounds i8, ptr %12, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store i32 %spec.store.select.i.i, ptr %12, align 8
   %.not.i.i = icmp eq i32 %spec.store.select.i.i, 0
   br i1 %.not.i.i, label %Vec_IntAlloc.exit.thread.i, label %Vec_IntAlloc.exit.i
 
 Vec_IntAlloc.exit.thread.i:                       ; preds = %1
-  %15 = getelementptr inbounds i8, ptr %12, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr null, ptr %15, align 8
   store i32 %.val, ptr %14, align 4
   br label %Vec_IntStart.exit
@@ -523,7 +523,7 @@ Vec_IntAlloc.exit.i:                              ; preds = %1
   %16 = sext i32 %spec.store.select.i.i to i64
   %17 = shl nsw i64 %16, 2
   %18 = tail call noalias ptr @malloc(i64 noundef %17) #13
-  %19 = getelementptr inbounds i8, ptr %12, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %18, ptr %19, align 8
   store i32 %.val, ptr %14, align 4
   %.not.i = icmp eq ptr %18, null
@@ -549,7 +549,7 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
 26:                                               ; preds = %.lr.ph, %Gia_ObjIsMux.exit.thread
   %.val73 = phi ptr [ %.val73.pre, %.lr.ph ], [ %.val73133, %Gia_ObjIsMux.exit.thread ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Gia_ObjIsMux.exit.thread ]
-  %27 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val73, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw %struct.Gia_Obj_t_, ptr %.val73, i64 %indvars.iv
   %.not = icmp eq ptr %.val73, null
   br i1 %.not, label %.critedge2, label %28
 
@@ -704,7 +704,7 @@ Gia_ObjIsMux.exit.thread:                         ; preds = %.thread, %Gia_ObjIs
   br i1 %121, label %26, label %.critedge2, !llvm.loop !7
 
 .critedge2:                                       ; preds = %Gia_ObjIsMux.exit.thread, %26, %Vec_IntStart.exit
-  %122 = getelementptr inbounds i8, ptr %12, i64 8
+  %122 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %123 = load ptr, ptr %122, align 8
   %.not.i110 = icmp eq ptr %123, null
   br i1 %.not.i110, label %Vec_IntFree.exit, label %124
@@ -729,7 +729,7 @@ define noalias noundef ptr @Gia_ManStartMappingFanoutMap(ptr nocapture noundef r
   %6 = add i32 %4, -1
   %or.cond.i = icmp ult i32 %6, 15
   %spec.store.select.i = select i1 %or.cond.i, i32 16, i32 %4
-  %7 = getelementptr inbounds i8, ptr %5, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 0, ptr %7, align 4
   store i32 %spec.store.select.i, ptr %5, align 8
   %.not.i = icmp eq i32 %spec.store.select.i, 0
@@ -739,13 +739,13 @@ Vec_IntAlloc.exit:                                ; preds = %2
   %8 = sext i32 %spec.store.select.i to i64
   %9 = shl nsw i64 %8, 2
   %10 = tail call noalias ptr @malloc(i64 noundef %9) #13
-  %11 = getelementptr inbounds i8, ptr %5, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %10, ptr %11, align 8
   %.not.i.i = icmp slt i32 %spec.store.select.i, %.val
   br i1 %.not.i.i, label %15, label %Vec_IntGrow.exit.i
 
 Vec_IntAlloc.exit.thread:                         ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %5, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr null, ptr %12, align 8
   %.not.i.i33 = icmp sgt i32 %.val, 0
   br i1 %.not.i.i33, label %.thread, label %Vec_IntFill.exit
@@ -791,7 +791,7 @@ Vec_IntGrow.exit.i:                               ; preds = %24, %Vec_IntAlloc.e
 30:                                               ; preds = %30, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %30 ]
   %31 = load ptr, ptr %28, align 8
-  %32 = getelementptr inbounds i32, ptr %31, i64 %indvars.iv.i
+  %32 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv.i
   store i32 0, ptr %32, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -821,17 +821,17 @@ Vec_IntFill.exit:                                 ; preds = %30, %Vec_IntAlloc.e
 
 42:                                               ; preds = %39
   %.val23 = load ptr, ptr %38, align 8
-  %43 = getelementptr inbounds i32, ptr %.val23, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw i32, ptr %.val23, i64 %indvars.iv
   %44 = load i32, ptr %43, align 4
   %45 = icmp eq i32 %44, 0
   br i1 %45, label %Vec_IntFillExtra.exit, label %46
 
 46:                                               ; preds = %42
   %.val21 = load ptr, ptr %34, align 8
-  %47 = getelementptr inbounds i32, ptr %.val21, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw i32, ptr %.val21, i64 %indvars.iv
   store i32 %.01935, ptr %47, align 4
   %.val22 = load ptr, ptr %38, align 8
-  %48 = getelementptr inbounds i32, ptr %.val22, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw i32, ptr %.val22, i64 %indvars.iv
   %49 = load i32, ptr %48, align 4
   %50 = add nsw i32 %49, %.01935
   %.not.i24 = icmp sgt i32 %50, %41
@@ -892,7 +892,7 @@ define void @Gia_ObjCheckDupMappingFanins(ptr nocapture noundef readonly %0, i32
 
 ; Function Attrs: nounwind uwtable
 define void @Gia_ManStaticMappingFanoutStart(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 152
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %4 = load ptr, ptr %3, align 8
   store ptr null, ptr %3, align 8
   tail call void @Gia_ManSetLutRefs(ptr noundef %0) #15
@@ -900,16 +900,16 @@ define void @Gia_ManStaticMappingFanoutStart(ptr noundef %0, ptr noundef %1) loc
   %6 = getelementptr i8, ptr %0, i64 24
   %.val85 = load i32, ptr %6, align 8
   %7 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #13
-  %8 = getelementptr inbounds i8, ptr %7, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 %.val85, ptr %8, align 4
   store i32 %.val85, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %7, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %5, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 248
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 248
   store ptr %7, ptr %10, align 8
   store ptr %4, ptr %3, align 8
   %11 = tail call ptr @Gia_ManStartMappingFanoutMap(ptr noundef %0, ptr noundef nonnull %7)
-  %12 = getelementptr inbounds i8, ptr %0, i64 256
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 256
   store ptr %11, ptr %12, align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %26, label %13
@@ -921,13 +921,13 @@ define void @Gia_ManStaticMappingFanoutStart(ptr noundef %0, ptr noundef %1) loc
   %16 = add i32 %.val90, -1
   %or.cond.i.i = icmp ult i32 %16, 15
   %spec.store.select.i.i = select i1 %or.cond.i.i, i32 16, i32 %.val90
-  %17 = getelementptr inbounds i8, ptr %15, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 4
   store i32 %spec.store.select.i.i, ptr %15, align 8
   %.not.i.i = icmp eq i32 %spec.store.select.i.i, 0
   br i1 %.not.i.i, label %Vec_IntAlloc.exit.thread.i, label %Vec_IntAlloc.exit.i
 
 Vec_IntAlloc.exit.thread.i:                       ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %15, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr null, ptr %18, align 8
   store i32 %.val90, ptr %17, align 4
   br label %Vec_IntStart.exit
@@ -936,7 +936,7 @@ Vec_IntAlloc.exit.i:                              ; preds = %13
   %19 = sext i32 %spec.store.select.i.i to i64
   %20 = shl nsw i64 %19, 2
   %21 = tail call noalias ptr @malloc(i64 noundef %20) #13
-  %22 = getelementptr inbounds i8, ptr %15, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %21, ptr %22, align 8
   store i32 %.val90, ptr %17, align 4
   %.not.i = icmp eq ptr %21, null
@@ -991,7 +991,7 @@ Vec_IntStart.exit115:                             ; preds = %26, %Vec_IntAlloc.e
   %indvars.iv136 = phi i64 [ %indvars.iv.next137, %.critedge.us ], [ 1, %.lr.ph126 ]
   %38 = getelementptr i8, ptr %.val105.us, i64 8
   %.val105.val.us = load ptr, ptr %38, align 8
-  %39 = getelementptr inbounds i32, ptr %.val105.val.us, i64 %indvars.iv136
+  %39 = getelementptr inbounds nuw i32, ptr %.val105.val.us, i64 %indvars.iv136
   %40 = load i32, ptr %39, align 4
   %.not118.us = icmp eq i32 %40, 0
   br i1 %.not118.us, label %.critedge.us, label %41
@@ -999,7 +999,7 @@ Vec_IntStart.exit115:                             ; preds = %26, %Vec_IntAlloc.e
 41:                                               ; preds = %.lr.ph126.split.us
   %42 = getelementptr i8, ptr %.val104119.us, i64 8
   %.val104.val120.us = load ptr, ptr %42, align 8
-  %43 = getelementptr inbounds i32, ptr %.val104.val120.us, i64 %indvars.iv136
+  %43 = getelementptr inbounds nuw i32, ptr %.val104.val120.us, i64 %indvars.iv136
   %44 = load i32, ptr %43, align 4
   %45 = sext i32 %44 to i64
   %46 = getelementptr inbounds i32, ptr %.val104.val120.us, i64 %45
@@ -1023,7 +1023,7 @@ Vec_IntStart.exit115:                             ; preds = %26, %Vec_IntAlloc.e
 
 .lr.ph.us:                                        ; preds = %41
   %.val89.us = load ptr, ptr %37, align 8
-  %51 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val89.us, i64 %indvars.iv136
+  %51 = getelementptr inbounds nuw %struct.Gia_Obj_t_, ptr %.val89.us, i64 %indvars.iv136
   %52 = ptrtoint ptr %51 to i64
   %53 = add i32 %44, 1
   %.not83.us.us170 = icmp eq i32 %53, 0
@@ -1066,7 +1066,7 @@ Vec_IntStart.exit115:                             ; preds = %26, %Vec_IntAlloc.e
   %.val104.us.us = load ptr, ptr %36, align 8
   %78 = getelementptr i8, ptr %.val104.us.us, i64 8
   %.val104.val.us.us = load ptr, ptr %78, align 8
-  %79 = getelementptr inbounds i32, ptr %.val104.val.us.us, i64 %indvars.iv136
+  %79 = getelementptr inbounds nuw i32, ptr %.val104.val.us.us, i64 %indvars.iv136
   %80 = load i32, ptr %79, align 4
   %81 = sext i32 %80 to i64
   %82 = getelementptr inbounds i32, ptr %.val104.val.us.us, i64 %81
@@ -1076,7 +1076,7 @@ Vec_IntStart.exit115:                             ; preds = %26, %Vec_IntAlloc.e
 
 .preheader:                                       ; preds = %.critedge, %.critedge.us, %Vec_IntStart.exit115
   %85 = getelementptr i8, ptr %0, i64 32
-  %86 = getelementptr inbounds i8, ptr %0, i64 72
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %87 = load ptr, ptr %86, align 8
   %88 = getelementptr i8, ptr %87, i64 4
   %.val91127 = load i32, ptr %88, align 4
@@ -1090,7 +1090,7 @@ Vec_IntStart.exit115:                             ; preds = %26, %Vec_IntAlloc.e
   %indvars.iv = phi i64 [ %indvars.iv.next, %.critedge ], [ 1, %.lr.ph126 ]
   %90 = getelementptr i8, ptr %.val105, i64 8
   %.val105.val = load ptr, ptr %90, align 8
-  %91 = getelementptr inbounds i32, ptr %.val105.val, i64 %indvars.iv
+  %91 = getelementptr inbounds nuw i32, ptr %.val105.val, i64 %indvars.iv
   %92 = load i32, ptr %91, align 4
   %.not118 = icmp eq i32 %92, 0
   br i1 %.not118, label %.critedge, label %93
@@ -1098,7 +1098,7 @@ Vec_IntStart.exit115:                             ; preds = %26, %Vec_IntAlloc.e
 93:                                               ; preds = %.lr.ph126.split
   %94 = getelementptr i8, ptr %.val104119, i64 8
   %.val104.val120 = load ptr, ptr %94, align 8
-  %95 = getelementptr inbounds i32, ptr %.val104.val120, i64 %indvars.iv
+  %95 = getelementptr inbounds nuw i32, ptr %.val104.val120, i64 %indvars.iv
   %96 = load i32, ptr %95, align 4
   %97 = sext i32 %96 to i64
   %98 = getelementptr inbounds i32, ptr %.val104.val120, i64 %97
@@ -1108,7 +1108,7 @@ Vec_IntStart.exit115:                             ; preds = %26, %Vec_IntAlloc.e
 
 .lr.ph:                                           ; preds = %93
   %.val89 = load ptr, ptr %37, align 8
-  %101 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val89, i64 %indvars.iv
+  %101 = getelementptr inbounds nuw %struct.Gia_Obj_t_, ptr %.val89, i64 %indvars.iv
   %102 = ptrtoint ptr %101 to i64
   %103 = add i32 %96, 1
   %.not83165 = icmp eq i32 %103, 0
@@ -1163,7 +1163,7 @@ Vec_IntStart.exit115:                             ; preds = %26, %Vec_IntAlloc.e
   %.val104 = load ptr, ptr %36, align 8
   %137 = getelementptr i8, ptr %.val104, i64 8
   %.val104.val = load ptr, ptr %137, align 8
-  %138 = getelementptr inbounds i32, ptr %.val104.val, i64 %indvars.iv
+  %138 = getelementptr inbounds nuw i32, ptr %.val104.val, i64 %indvars.iv
   %139 = load i32, ptr %138, align 4
   %140 = sext i32 %139 to i64
   %141 = getelementptr inbounds i32, ptr %.val104.val, i64 %140
@@ -1195,7 +1195,7 @@ Vec_IntStart.exit115:                             ; preds = %26, %Vec_IntAlloc.e
 147:                                              ; preds = %.lr.ph129
   %148 = getelementptr i8, ptr %146, i64 8
   %.val107.val = load ptr, ptr %148, align 8
-  %149 = getelementptr inbounds i32, ptr %.val107.val, i64 %indvars.iv139
+  %149 = getelementptr inbounds nuw i32, ptr %.val107.val, i64 %indvars.iv139
   %150 = load i32, ptr %149, align 4
   %151 = sext i32 %150 to i64
   %152 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val106, i64 %151
@@ -1243,13 +1243,13 @@ declare void @Gia_ManSetLutRefs(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define void @Gia_ManStaticFanoutStop(ptr nocapture noundef %0) local_unnamed_addr #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 248
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %Vec_IntFreeP.exit, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not.i = icmp eq ptr %7, null
   br i1 %.not.i, label %.thread.i, label %8
@@ -1257,7 +1257,7 @@ define void @Gia_ManStaticFanoutStop(ptr nocapture noundef %0) local_unnamed_add
 8:                                                ; preds = %5
   tail call void @free(ptr noundef nonnull %7) #15
   %9 = load ptr, ptr %2, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr null, ptr %10, align 8
   %.pre.i = load ptr, ptr %2, align 8
   %.not9.i = icmp eq ptr %.pre.i, null
@@ -1270,13 +1270,13 @@ define void @Gia_ManStaticFanoutStop(ptr nocapture noundef %0) local_unnamed_add
   br label %Vec_IntFreeP.exit
 
 Vec_IntFreeP.exit:                                ; preds = %1, %8, %.thread.i
-  %12 = getelementptr inbounds i8, ptr %0, i64 256
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %Vec_IntFreeP.exit6, label %15
 
 15:                                               ; preds = %Vec_IntFreeP.exit
-  %16 = getelementptr inbounds i8, ptr %13, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %17 = load ptr, ptr %16, align 8
   %.not.i2 = icmp eq ptr %17, null
   br i1 %.not.i2, label %.thread.i5, label %18
@@ -1284,7 +1284,7 @@ Vec_IntFreeP.exit:                                ; preds = %1, %8, %.thread.i
 18:                                               ; preds = %15
   tail call void @free(ptr noundef nonnull %17) #15
   %19 = load ptr, ptr %12, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr null, ptr %20, align 8
   %.pre.i3 = load ptr, ptr %12, align 8
   %.not9.i4 = icmp eq ptr %.pre.i3, null
@@ -1304,7 +1304,7 @@ Vec_IntFreeP.exit6:                               ; preds = %Vec_IntFreeP.exit, 
 define void @Gia_ManStaticFanoutTest(ptr noundef %0) local_unnamed_addr #0 {
   tail call void @Gia_ManStaticFanoutStart(ptr noundef %0)
   %2 = getelementptr i8, ptr %0, i64 32
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph33, label %.critedge
@@ -1321,7 +1321,7 @@ define void @Gia_ManStaticFanoutTest(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %.critedge, label %9
 
 9:                                                ; preds = %8
-  %10 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw %struct.Gia_Obj_t_, ptr %.val, i64 %indvars.iv
   tail call void @Gia_ObjPrint(ptr noundef nonnull %0, ptr noundef nonnull %10) #15
   %11 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str)
   %12 = ptrtoint ptr %10 to i64
@@ -1376,13 +1376,13 @@ define void @Gia_ManStaticFanoutTest(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %41, label %8, label %.critedge, !llvm.loop !15
 
 .critedge:                                        ; preds = %8, %.critedge2, %1
-  %42 = getelementptr inbounds i8, ptr %0, i64 248
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %43 = load ptr, ptr %42, align 8
   %44 = icmp eq ptr %43, null
   br i1 %44, label %Vec_IntFreeP.exit.i, label %45
 
 45:                                               ; preds = %.critedge
-  %46 = getelementptr inbounds i8, ptr %43, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %47 = load ptr, ptr %46, align 8
   %.not.i.i = icmp eq ptr %47, null
   br i1 %.not.i.i, label %.thread.i.i, label %48
@@ -1390,7 +1390,7 @@ define void @Gia_ManStaticFanoutTest(ptr noundef %0) local_unnamed_addr #0 {
 48:                                               ; preds = %45
   tail call void @free(ptr noundef nonnull %47) #15
   %49 = load ptr, ptr %42, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   store ptr null, ptr %50, align 8
   %.pre.i.i = load ptr, ptr %42, align 8
   %.not9.i.i = icmp eq ptr %.pre.i.i, null
@@ -1403,13 +1403,13 @@ define void @Gia_ManStaticFanoutTest(ptr noundef %0) local_unnamed_addr #0 {
   br label %Vec_IntFreeP.exit.i
 
 Vec_IntFreeP.exit.i:                              ; preds = %.thread.i.i, %48, %.critedge
-  %52 = getelementptr inbounds i8, ptr %0, i64 256
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %53 = load ptr, ptr %52, align 8
   %54 = icmp eq ptr %53, null
   br i1 %54, label %Gia_ManStaticFanoutStop.exit, label %55
 
 55:                                               ; preds = %Vec_IntFreeP.exit.i
-  %56 = getelementptr inbounds i8, ptr %53, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %57 = load ptr, ptr %56, align 8
   %.not.i2.i = icmp eq ptr %57, null
   br i1 %.not.i2.i, label %.thread.i5.i, label %58
@@ -1417,7 +1417,7 @@ Vec_IntFreeP.exit.i:                              ; preds = %.thread.i.i, %48, %
 58:                                               ; preds = %55
   tail call void @free(ptr noundef nonnull %57) #15
   %59 = load ptr, ptr %52, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
   store ptr null, ptr %60, align 8
   %.pre.i3.i = load ptr, ptr %52, align 8
   %.not9.i4.i = icmp eq ptr %.pre.i3.i, null

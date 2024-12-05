@@ -12,7 +12,7 @@ define dso_local noundef range(i32 -22, 1) i32 @ext4fs_dirhash(ptr noundef %0, p
   %5 = alloca [8 x i32], align 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %5, i8 0, i64 32, i1 false), !annotation !5
-  %6 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %.loopexit5, label %.preheader4
@@ -31,11 +31,11 @@ define dso_local noundef range(i32 -22, 1) i32 @ext4fs_dirhash(ptr noundef %0, p
 
 16:                                               ; preds = %.preheader4
   %17 = load i32, ptr %7, align 4
-  %18 = getelementptr inbounds i8, ptr %7, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %19 = load i32, ptr %18, align 4
-  %20 = getelementptr inbounds i8, ptr %7, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %21 = load i32, ptr %20, align 4
-  %22 = getelementptr inbounds i8, ptr %7, i64 12
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %23 = load i32, ptr %22, align 4
   br label %.loopexit5
 
@@ -44,7 +44,7 @@ define dso_local noundef range(i32 -22, 1) i32 @ext4fs_dirhash(ptr noundef %0, p
   %25 = phi i32 [ -271733879, %4 ], [ %19, %16 ], [ -271733879, %9 ]
   %26 = phi i32 [ -1732584194, %4 ], [ %21, %16 ], [ -1732584194, %9 ]
   %27 = phi i32 [ 271733878, %4 ], [ %23, %16 ], [ 271733878, %9 ]
-  %28 = getelementptr inbounds i8, ptr %3, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %29 = load i32, ptr %28, align 8
   switch i32 %29, label %306 [
     i32 3, label %30
@@ -117,13 +117,13 @@ define dso_local noundef range(i32 -22, 1) i32 @ext4fs_dirhash(ptr noundef %0, p
   br i1 %71, label %72, label %.loopexit
 
 72:                                               ; preds = %69
-  %73 = getelementptr inbounds i8, ptr %5, i64 4
-  %74 = getelementptr inbounds i8, ptr %5, i64 8
-  %75 = getelementptr inbounds i8, ptr %5, i64 12
-  %76 = getelementptr inbounds i8, ptr %5, i64 16
-  %77 = getelementptr inbounds i8, ptr %5, i64 20
-  %78 = getelementptr inbounds i8, ptr %5, i64 24
-  %79 = getelementptr inbounds i8, ptr %5, i64 28
+  %73 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %74 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %5, i64 12
+  %76 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %5, i64 20
+  %78 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %79 = getelementptr inbounds nuw i8, ptr %5, i64 28
   br label %80
 
 80:                                               ; preds = %80, %72
@@ -316,9 +316,9 @@ define dso_local noundef range(i32 -22, 1) i32 @ext4fs_dirhash(ptr noundef %0, p
   br i1 %261, label %262, label %.loopexit
 
 262:                                              ; preds = %259
-  %263 = getelementptr inbounds i8, ptr %5, i64 4
-  %264 = getelementptr inbounds i8, ptr %5, i64 8
-  %265 = getelementptr inbounds i8, ptr %5, i64 12
+  %263 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %264 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %265 = getelementptr inbounds nuw i8, ptr %5, i64 12
   br label %266
 
 266:                                              ; preds = %299, %262
@@ -373,9 +373,9 @@ define dso_local noundef range(i32 -22, 1) i32 @ext4fs_dirhash(ptr noundef %0, p
 
 306:                                              ; preds = %.loopexit5
   store i32 0, ptr %3, align 8
-  %307 = getelementptr inbounds i8, ptr %3, i64 4
+  %307 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 0, ptr %307, align 4
-  %308 = getelementptr inbounds i8, ptr %0, i64 40
+  %308 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %309 = load ptr, ptr %308, align 8
   tail call void (ptr, ptr, i32, ptr, ...) @__ext4_warning(ptr noundef %309, ptr noundef nonnull @__func__.__ext4fs_dirhash, i32 noundef 283, ptr noundef nonnull @.str.1, i32 noundef %29) #7
   br label %315
@@ -386,7 +386,7 @@ define dso_local noundef range(i32 -22, 1) i32 @ext4fs_dirhash(ptr noundef %0, p
   %312 = call i32 @llvm.umin.i32(i32 %310, i32 -3)
   %313 = and i32 %312, -2
   store i32 %313, ptr %3, align 8
-  %314 = getelementptr inbounds i8, ptr %3, i64 4
+  %314 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 %311, ptr %314, align 4
   br label %315
 

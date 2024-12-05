@@ -18,12 +18,12 @@ define i32 @CrcUpdate(i32 noundef %0, ptr nocapture noundef readonly %1, i64 nou
   %.08.tr = trunc i32 %.0810 to i8
   %.narrow = xor i8 %4, %.08.tr
   %5 = zext i8 %.narrow to i64
-  %6 = getelementptr inbounds [256 x i32], ptr @g_CrcTable, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw [256 x i32], ptr @g_CrcTable, i64 0, i64 %5
   %7 = load i32, ptr %6, align 4
   %8 = lshr i32 %.0810, 8
   %9 = xor i32 %7, %8
   %10 = add i64 %.0711, -1
-  %11 = getelementptr inbounds i8, ptr %.012, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %.012, i64 1
   %.not = icmp eq i64 %10, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -45,12 +45,12 @@ define i32 @CrcCalc(ptr nocapture noundef readonly %0, i64 noundef %1) local_unn
   %.08.tr.i = trunc i32 %.0810.i to i8
   %.narrow.i = xor i8 %3, %.08.tr.i
   %4 = zext i8 %.narrow.i to i64
-  %5 = getelementptr inbounds [256 x i32], ptr @g_CrcTable, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw [256 x i32], ptr @g_CrcTable, i64 0, i64 %4
   %6 = load i32, ptr %5, align 4
   %7 = lshr i32 %.0810.i, 8
   %8 = xor i32 %6, %7
   %9 = add i64 %.0711.i, -1
-  %10 = getelementptr inbounds i8, ptr %.012.i, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %.012.i, i64 1
   %.not.i = icmp eq i64 %9, 0
   br i1 %.not.i, label %CrcUpdate.exit.loopexit, label %.lr.ph.i
 

@@ -932,7 +932,7 @@ define internal range(i32 0, -2147483648) i32 @dissect_ecmp_tcp(ptr noundef %0, 
   br i1 %7, label %159, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8
   tail call void @col_set_str(ptr noundef %10, i32 noundef 34, ptr noundef nonnull @.str.335) #4
   %11 = load ptr, ptr %9, align 8
@@ -1318,7 +1318,7 @@ define internal i32 @dissect_ecmp_udp(ptr noundef %0, ptr nocapture noundef read
   br i1 %6, label %52, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void @col_set_str(ptr noundef %9, i32 noundef 34, ptr noundef nonnull @.str.335) #4
   %10 = load ptr, ptr %8, align 8
@@ -1537,7 +1537,7 @@ define internal fastcc void @add_attributes(ptr noundef %0, i32 noundef %1, ptr 
 
 .lr.ph116:                                        ; preds = %5
   %.not = icmp eq i32 %4, 0
-  %11 = getelementptr inbounds i8, ptr %0, i64 408
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 408
   br i1 %.not, label %.lr.ph116.split.us, label %.lr.ph116.split
 
 .lr.ph116.split.us:                               ; preds = %.lr.ph116, %84
@@ -2617,8 +2617,8 @@ define internal fastcc void @modbus_pdu(i32 noundef %0, i32 noundef range(i32 0,
   %8 = load i32, ptr @hf_ecmp_modbus_pdu_size, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %8, ptr noundef %2, i32 noundef %0, i32 noundef 2, i32 noundef 0) #4
   %10 = add i32 %0, 2
-  %11 = getelementptr inbounds i8, ptr %6, i64 4
-  %12 = getelementptr inbounds i8, ptr %6, i64 6
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 6
   %13 = zext i16 %7 to i32
   %. = xor i32 %1, 1
   store i32 %., ptr %6, align 4
@@ -3476,14 +3476,14 @@ define internal fastcc void @display_raw_cyclic_data(i8 noundef zeroext range(i8
   %.081 = phi i32 [ 8, %13 ], [ 16, %12 ]
   %.078 = phi i64 [ 73, %13 ], [ 81, %12 ]
   %15 = lshr i16 %2, %.sink
-  %16 = getelementptr inbounds i8, ptr %4, i64 408
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 408
   %17 = load ptr, ptr %16, align 8
   %18 = tail call noalias ptr @wmem_alloc(ptr noundef %17, i64 noundef %.078) #4
   %.not181 = icmp eq i16 %15, 0
   br i1 %.not181, label %._crit_edge.thread, label %.lr.ph.split
 
 .thread.us.preheader:                             ; preds = %12
-  %19 = getelementptr inbounds i8, ptr %4, i64 408
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 408
   %20 = load ptr, ptr %19, align 8
   %21 = tail call noalias ptr @wmem_alloc(ptr noundef %20, i64 noundef 49) #4
   br label %.thread.us

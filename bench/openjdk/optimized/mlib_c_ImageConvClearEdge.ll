@@ -71,7 +71,7 @@ define hidden i32 @mlib_ImageConvClearEdge(ptr noundef %0, i32 noundef %1, i32 n
   br i1 %35, label %.loopexit, label %36
 
 36:                                               ; preds = %33
-  %37 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv.next454
+  %37 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.next454
   %38 = load i32, ptr %37, align 4
   %39 = trunc i32 %38 to i8
   br i1 %22, label %.preheader276.lr.ph, label %.preheader279
@@ -242,7 +242,7 @@ define hidden i32 @mlib_ImageConvClearEdge(ptr noundef %0, i32 noundef %1, i32 n
   br i1 %97, label %.loopexit286, label %98
 
 98:                                               ; preds = %95
-  %99 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv.next423
+  %99 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.next423
   %100 = load i32, ptr %99, align 4
   %101 = trunc i32 %100 to i16
   br i1 %84, label %.preheader284.lr.ph, label %.preheader288
@@ -413,7 +413,7 @@ define hidden i32 @mlib_ImageConvClearEdge(ptr noundef %0, i32 noundef %1, i32 n
   br i1 %159, label %.loopexit295, label %160
 
 160:                                              ; preds = %157
-  %161 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv.next392
+  %161 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.next392
   %162 = load i32, ptr %161, align 4
   br i1 %146, label %.preheader293.lr.ph, label %.preheader297
 

@@ -599,9 +599,9 @@ define void @cgroup_free_limits(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %6, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @slurm_xfree(ptr noundef nonnull %4) #12
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @slurm_xfree(ptr noundef nonnull %5) #12
   call void @slurm_xfree(ptr noundef nonnull %2) #12
   br label %6
@@ -619,21 +619,21 @@ define void @cgroup_init_limits(ptr noundef writeonly %0) local_unnamed_addr #5 
 
 2:                                                ; preds = %1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %0, i8 0, i64 56, i1 false)
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 -2, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 52
-  %5 = getelementptr inbounds i8, ptr %0, i64 60
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 60
   store i32 0, ptr %5, align 4
   store i32 -2, ptr %4, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 -2, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i64 -2, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 72
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i64 -2, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i64 -2, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 88
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i64 -2, ptr %10, align 8
   br label %11
 
@@ -663,7 +663,7 @@ define ptr @cgroup_get_conf_list() local_unnamed_addr #0 {
   store ptr %7, ptr %6, align 8
   %8 = load ptr, ptr @slurm_cgroup_conf, align 8
   %9 = tail call ptr @xstrdup(ptr noundef %8) #12
-  %10 = getelementptr inbounds i8, ptr %6, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %9, ptr %10, align 8
   tail call void @list_append(ptr noundef %5, ptr noundef nonnull %6) #12
   %11 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.14, i32 noundef 562, ptr noundef nonnull @__func__.cgroup_get_conf_list) #12
@@ -673,7 +673,7 @@ define ptr @cgroup_get_conf_list() local_unnamed_addr #0 {
   %14 = trunc i8 %13 to i1
   %15 = select i1 %14, ptr @.str.20, ptr @.str.21
   %16 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.19, ptr noundef nonnull %15) #12
-  %17 = getelementptr inbounds i8, ptr %11, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %16, ptr %17, align 8
   tail call void @list_append(ptr noundef %5, ptr noundef nonnull %11) #12
   %18 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.14, i32 noundef 568, ptr noundef nonnull @__func__.cgroup_get_conf_list) #12
@@ -683,7 +683,7 @@ define ptr @cgroup_get_conf_list() local_unnamed_addr #0 {
   %21 = trunc i8 %20 to i1
   %22 = select i1 %21, ptr @.str.20, ptr @.str.21
   %23 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.19, ptr noundef nonnull %22) #12
-  %24 = getelementptr inbounds i8, ptr %18, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr %23, ptr %24, align 8
   tail call void @list_append(ptr noundef %5, ptr noundef nonnull %18) #12
   %25 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.14, i32 noundef 574, ptr noundef nonnull @__func__.cgroup_get_conf_list) #12
@@ -692,7 +692,7 @@ define ptr @cgroup_get_conf_list() local_unnamed_addr #0 {
   %27 = load float, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 20), align 4
   %28 = fpext float %27 to double
   %29 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.24, double noundef %28) #12
-  %30 = getelementptr inbounds i8, ptr %25, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store ptr %29, ptr %30, align 8
   tail call void @list_append(ptr noundef %5, ptr noundef nonnull %25) #12
   %31 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.14, i32 noundef 579, ptr noundef nonnull @__func__.cgroup_get_conf_list) #12
@@ -701,7 +701,7 @@ define ptr @cgroup_get_conf_list() local_unnamed_addr #0 {
   %33 = load float, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 24), align 8
   %34 = fpext float %33 to double
   %35 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.24, double noundef %34) #12
-  %36 = getelementptr inbounds i8, ptr %31, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store ptr %35, ptr %36, align 8
   tail call void @list_append(ptr noundef %5, ptr noundef nonnull %31) #12
   %37 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.14, i32 noundef 584, ptr noundef nonnull @__func__.cgroup_get_conf_list) #12
@@ -709,7 +709,7 @@ define ptr @cgroup_get_conf_list() local_unnamed_addr #0 {
   store ptr %38, ptr %37, align 8
   %39 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 32), align 8
   %40 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.27, i64 noundef %39) #12
-  %41 = getelementptr inbounds i8, ptr %37, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store ptr %40, ptr %41, align 8
   tail call void @list_append(ptr noundef %5, ptr noundef nonnull %37) #12
   %42 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.14, i32 noundef 590, ptr noundef nonnull @__func__.cgroup_get_conf_list) #12
@@ -719,7 +719,7 @@ define ptr @cgroup_get_conf_list() local_unnamed_addr #0 {
   %45 = trunc i8 %44 to i1
   %46 = select i1 %45, ptr @.str.20, ptr @.str.21
   %47 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.19, ptr noundef nonnull %46) #12
-  %48 = getelementptr inbounds i8, ptr %42, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %42, i64 8
   store ptr %47, ptr %48, align 8
   tail call void @list_append(ptr noundef %5, ptr noundef nonnull %42) #12
   %49 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.14, i32 noundef 596, ptr noundef nonnull @__func__.cgroup_get_conf_list) #12
@@ -728,7 +728,7 @@ define ptr @cgroup_get_conf_list() local_unnamed_addr #0 {
   %51 = load float, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 44), align 4
   %52 = fpext float %51 to double
   %53 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.24, double noundef %52) #12
-  %54 = getelementptr inbounds i8, ptr %49, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %49, i64 8
   store ptr %53, ptr %54, align 8
   tail call void @list_append(ptr noundef %5, ptr noundef nonnull %49) #12
   %55 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.14, i32 noundef 601, ptr noundef nonnull @__func__.cgroup_get_conf_list) #12
@@ -737,7 +737,7 @@ define ptr @cgroup_get_conf_list() local_unnamed_addr #0 {
   %57 = load float, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 48), align 8
   %58 = fpext float %57 to double
   %59 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.24, double noundef %58) #12
-  %60 = getelementptr inbounds i8, ptr %55, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %55, i64 8
   store ptr %59, ptr %60, align 8
   tail call void @list_append(ptr noundef %5, ptr noundef nonnull %55) #12
   %61 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.14, i32 noundef 606, ptr noundef nonnull @__func__.cgroup_get_conf_list) #12
@@ -747,7 +747,7 @@ define ptr @cgroup_get_conf_list() local_unnamed_addr #0 {
   %64 = trunc i8 %63 to i1
   %65 = select i1 %64, ptr @.str.20, ptr @.str.21
   %66 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.19, ptr noundef nonnull %65) #12
-  %67 = getelementptr inbounds i8, ptr %61, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %61, i64 8
   store ptr %66, ptr %67, align 8
   tail call void @list_append(ptr noundef %5, ptr noundef nonnull %61) #12
   %68 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.14, i32 noundef 612, ptr noundef nonnull @__func__.cgroup_get_conf_list) #12
@@ -759,7 +759,7 @@ define ptr @cgroup_get_conf_list() local_unnamed_addr #0 {
 
 71:                                               ; preds = %4
   %72 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.33, i64 noundef %70) #12
-  %73 = getelementptr inbounds i8, ptr %68, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %68, i64 8
   store ptr %72, ptr %73, align 8
   br label %74
 
@@ -770,7 +770,7 @@ define ptr @cgroup_get_conf_list() local_unnamed_addr #0 {
   store ptr %76, ptr %75, align 8
   %77 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 72), align 8
   %78 = tail call ptr @xstrdup(ptr noundef %77) #12
-  %79 = getelementptr inbounds i8, ptr %75, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %75, i64 8
   store ptr %78, ptr %79, align 8
   tail call void @list_append(ptr noundef %5, ptr noundef nonnull %75) #12
   %80 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.14, i32 noundef 624, ptr noundef nonnull @__func__.cgroup_get_conf_list) #12
@@ -780,7 +780,7 @@ define ptr @cgroup_get_conf_list() local_unnamed_addr #0 {
   %83 = trunc i8 %82 to i1
   %84 = select i1 %83, ptr @.str.20, ptr @.str.21
   %85 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.19, ptr noundef nonnull %84) #12
-  %86 = getelementptr inbounds i8, ptr %80, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %80, i64 8
   store ptr %85, ptr %86, align 8
   tail call void @list_append(ptr noundef %5, ptr noundef nonnull %80) #12
   %87 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.14, i32 noundef 631, ptr noundef nonnull @__func__.cgroup_get_conf_list) #12
@@ -790,7 +790,7 @@ define ptr @cgroup_get_conf_list() local_unnamed_addr #0 {
   %90 = trunc i8 %89 to i1
   %91 = select i1 %90, ptr @.str.20, ptr @.str.21
   %92 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.19, ptr noundef nonnull %91) #12
-  %93 = getelementptr inbounds i8, ptr %87, i64 8
+  %93 = getelementptr inbounds nuw i8, ptr %87, i64 8
   store ptr %92, ptr %93, align 8
   tail call void @list_append(ptr noundef %5, ptr noundef nonnull %87) #12
   %94 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.14, i32 noundef 638, ptr noundef nonnull @__func__.cgroup_get_conf_list) #12
@@ -800,7 +800,7 @@ define ptr @cgroup_get_conf_list() local_unnamed_addr #0 {
   %97 = trunc i8 %96 to i1
   %98 = select i1 %97, ptr @.str.20, ptr @.str.21
   %99 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.19, ptr noundef nonnull %98) #12
-  %100 = getelementptr inbounds i8, ptr %94, i64 8
+  %100 = getelementptr inbounds nuw i8, ptr %94, i64 8
   store ptr %99, ptr %100, align 8
   tail call void @list_append(ptr noundef %5, ptr noundef nonnull %94) #12
   tail call void @list_sort(ptr noundef %5, ptr noundef nonnull @sort_key_pairs) #12
@@ -852,7 +852,7 @@ define range(i32 -1, 1) i32 @cgroup_write_conf(i32 noundef %0) local_unnamed_add
 
 6:                                                ; preds = %1
   %7 = load ptr, ptr @cg_conf_buf, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 20
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %9 = load i32, ptr %8, align 4
   store i32 %9, ptr %2, align 4
   br label %.lr.ph.split.us
@@ -896,7 +896,7 @@ define range(i32 -1, 1) i32 @cgroup_write_conf(i32 noundef %0) local_unnamed_add
   %.us-phi = phi i64 [ %11, %.lr.ph.split.us ], [ %18, %17 ]
   %.us-phi55 = phi i32 [ %12, %.lr.ph.split.us ], [ %19, %17 ]
   %24 = and i64 %.us-phi, 2147483647
-  %25 = getelementptr inbounds i8, ptr %.031.ph64, i64 %24
+  %25 = getelementptr inbounds nuw i8, ptr %.031.ph64, i64 %24
   %26 = sub nsw i32 %.030.ph66, %.us-phi55
   %27 = icmp sgt i32 %26, 0
   br i1 %27, label %28, label %.outer45._crit_edge
@@ -919,7 +919,7 @@ define range(i32 -1, 1) i32 @cgroup_write_conf(i32 noundef %0) local_unnamed_add
 
 .lr.ph68.preheader:                               ; preds = %.outer45._crit_edge
   %33 = load ptr, ptr @cg_conf_buf, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %35 = load ptr, ptr %34, align 8
   br label %.lr.ph68.split.us
 
@@ -962,7 +962,7 @@ define range(i32 -1, 1) i32 @cgroup_write_conf(i32 noundef %0) local_unnamed_add
   %.us-phi72 = phi i64 [ %37, %.lr.ph68.split.us ], [ %44, %43 ]
   %.us-phi73 = phi i32 [ %38, %.lr.ph68.split.us ], [ %45, %43 ]
   %50 = and i64 %.us-phi72, 2147483647
-  %51 = getelementptr inbounds i8, ptr %.032.ph85, i64 %50
+  %51 = getelementptr inbounds nuw i8, ptr %.032.ph85, i64 %50
   %52 = sub nsw i32 %.033.ph83, %.us-phi73
   %53 = icmp sgt i32 %52, 0
   br i1 %53, label %54, label %.outer._crit_edge
@@ -1056,7 +1056,7 @@ define range(i32 -1, 1) i32 @cgroup_read_conf(i32 noundef %0) local_unnamed_addr
   %.us-phi92 = phi i64 [ %27, %.lr.ph116.preheader.preheader ], [ %27, %.lr.ph132.preheader ], [ %43, %.lr.ph116.preheader ], [ %35, %.lr.ph132 ]
   %.us-phi93 = phi i32 [ %28, %.lr.ph116.preheader.preheader ], [ %28, %.lr.ph132.preheader ], [ %44, %.lr.ph116.preheader ], [ %36, %.lr.ph132 ]
   %17 = and i64 %.us-phi92, 2147483647
-  %18 = getelementptr inbounds i8, ptr %.051.ph134, i64 %17
+  %18 = getelementptr inbounds nuw i8, ptr %.051.ph134, i64 %17
   %19 = sub nsw i32 %.048.ph136, %.us-phi93
   %20 = icmp sgt i32 %19, 0
   br i1 %20, label %21, label %.outer69._crit_edge
@@ -1146,7 +1146,7 @@ define range(i32 -1, 1) i32 @cgroup_read_conf(i32 noundef %0) local_unnamed_addr
   br i1 %48, label %.lr.ph138.preheader, label %.outer._crit_edge
 
 .lr.ph138.preheader:                              ; preds = %.outer69._crit_edge
-  %49 = getelementptr inbounds i8, ptr %47, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %50 = load ptr, ptr %49, align 8
   br label %.lr.ph138
 
@@ -1248,7 +1248,7 @@ define range(i32 -1, 1) i32 @cgroup_read_conf(i32 noundef %0) local_unnamed_addr
   %.us-phi145 = phi i64 [ %53, %.lr.ph170.preheader.preheader ], [ %53, %.lr.ph186.preheader ], [ %69, %.lr.ph170.preheader ], [ %61, %.lr.ph186 ]
   %.us-phi146 = phi i32 [ %54, %.lr.ph170.preheader.preheader ], [ %54, %.lr.ph186.preheader ], [ %70, %.lr.ph170.preheader ], [ %62, %.lr.ph186 ]
   %81 = and i64 %.us-phi145, 2147483647
-  %82 = getelementptr inbounds i8, ptr %.049.ph191, i64 %81
+  %82 = getelementptr inbounds nuw i8, ptr %.049.ph191, i64 %81
   %83 = sub nsw i32 %.050.ph189, %.us-phi146
   %84 = icmp sgt i32 %83, 0
   br i1 %84, label %85, label %.outer._crit_edge

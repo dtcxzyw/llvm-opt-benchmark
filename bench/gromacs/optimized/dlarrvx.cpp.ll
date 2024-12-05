@@ -114,7 +114,7 @@ define void @dlarrvx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapt
   %.0445639 = phi double [ 0.000000e+00, %.lr.ph641 ], [ %.1, %._crit_edge630 ]
   %.0449638 = phi i32 [ 1, %.lr.ph641 ], [ %.1450, %._crit_edge630 ]
   %.0451637 = phi i32 [ 1, %.lr.ph641 ], [ %.1452, %._crit_edge630 ]
-  %81 = getelementptr inbounds i32, ptr %41, i64 %indvars.iv707
+  %81 = getelementptr inbounds nuw i32, ptr %41, i64 %indvars.iv707
   %82 = load i32, ptr %81, align 4
   %83 = add i32 %.0449638, -1
   %84 = load i32, ptr %4, align 4
@@ -160,7 +160,7 @@ define void @dlarrvx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapt
   %gep634 = getelementptr i32, ptr %invariant.gep633, i64 %104
   store i32 %.0451637, ptr %gep634, align 4
   %105 = zext nneg i32 %103 to i64
-  %106 = getelementptr inbounds i32, ptr %49, i64 %105
+  %106 = getelementptr inbounds nuw i32, ptr %49, i64 %105
   store i32 %.0451637, ptr %106, align 4
   %107 = add nuw nsw i32 %.0483.lcssa, 1
   br label %._crit_edge630
@@ -179,7 +179,7 @@ define void @dlarrvx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapt
   %115 = add i32 %reass.sub, 1
   store i32 %115, ptr %25, align 4
   %116 = zext nneg i32 %.0449638 to i64
-  %117 = getelementptr inbounds double, ptr %42, i64 %116
+  %117 = getelementptr inbounds nuw double, ptr %42, i64 %116
   call void @dcopy_(ptr noundef nonnull %25, ptr noundef nonnull %117, ptr noundef nonnull %21, ptr noundef %13, ptr noundef nonnull %21)
   %118 = load i32, ptr %25, align 4
   %.not493.not525 = icmp sgt i32 %118, 1
@@ -191,7 +191,7 @@ define void @dlarrvx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapt
 
 .lr.ph528:                                        ; preds = %.lr.ph528.preheader, %.lr.ph528
   %indvars.iv649 = phi i64 [ 1, %.lr.ph528.preheader ], [ %indvars.iv.next650, %.lr.ph528 ]
-  %119 = getelementptr inbounds double, ptr %50, i64 %indvars.iv649
+  %119 = getelementptr inbounds nuw double, ptr %50, i64 %indvars.iv649
   %120 = load double, ptr %119, align 8
   %121 = call noundef double @llvm.fabs.f64(double %120)
   %122 = fmul double %121, 0x3CB0000000000000

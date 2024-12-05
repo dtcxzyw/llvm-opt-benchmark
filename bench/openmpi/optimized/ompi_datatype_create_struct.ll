@@ -22,7 +22,7 @@ define i32 @ompi_datatype_create_struct(i32 noundef %0, ptr nocapture noundef re
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %10
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %10 ]
-  %7 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %8 = load i32, ptr %7, align 4
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %.critedge.loopexit
@@ -47,17 +47,17 @@ define i32 @ompi_datatype_create_struct(i32 noundef %0, ptr nocapture noundef re
 
 14:                                               ; preds = %.critedge
   %15 = zext nneg i32 %.0109.lcssa to i64
-  %16 = getelementptr inbounds ptr, ptr %3, i64 %15
+  %16 = getelementptr inbounds nuw ptr, ptr %3, i64 %15
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i32, ptr %1, i64 %15
+  %18 = getelementptr inbounds nuw i32, ptr %1, i64 %15
   %19 = load i32, ptr %18, align 4
   %20 = sext i32 %19 to i64
-  %21 = getelementptr inbounds i8, ptr %17, i64 56
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 56
   %22 = load i64, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %17, i64 48
+  %23 = getelementptr inbounds nuw i8, ptr %17, i64 48
   %24 = load i64, ptr %23, align 8
   %25 = sub nsw i64 %22, %24
-  %26 = getelementptr inbounds i64, ptr %2, i64 %15
+  %26 = getelementptr inbounds nuw i64, ptr %2, i64 %15
   %27 = load i64, ptr %26, align 8
   %28 = mul i64 %25, %20
   %29 = add i64 %28, %27
@@ -77,17 +77,17 @@ define i32 @ompi_datatype_create_struct(i32 noundef %0, ptr nocapture noundef re
   %.0120139 = phi i64 [ %27, %.lr.ph144.preheader ], [ %.1121, %61 ]
   %.0124138 = phi i64 [ %25, %.lr.ph144.preheader ], [ %.1125, %61 ]
   %.0128137 = phi i64 [ %29, %.lr.ph144.preheader ], [ %.1129, %61 ]
-  %33 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv162
+  %33 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv162
   %34 = load ptr, ptr %33, align 8
   %35 = icmp eq ptr %34, %.0112141
-  %36 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv162
+  %36 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv162
   %37 = load i64, ptr %36, align 8
   %38 = icmp eq i64 %37, %.0128137
   %or.cond = select i1 %35, i1 %38, i1 false
   br i1 %or.cond, label %39, label %.lr.ph144._crit_edge
 
 39:                                               ; preds = %.lr.ph144
-  %40 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv162
+  %40 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv162
   %41 = load i32, ptr %40, align 4
   %42 = sext i32 %41 to i64
   %43 = add i64 %.0143, %42
@@ -96,18 +96,18 @@ define i32 @ompi_datatype_create_struct(i32 noundef %0, ptr nocapture noundef re
   br label %61
 
 .lr.ph144._crit_edge:                             ; preds = %.lr.ph144
-  %46 = getelementptr inbounds i8, ptr %.0112141, i64 152
+  %46 = getelementptr inbounds nuw i8, ptr %.0112141, i64 152
   %47 = load i64, ptr %46, align 8
   %48 = add i64 %47, %.0116140
   %49 = icmp ugt i64 %.0143, 1
   %50 = add nsw i64 %48, 2
   %spec.select = select i1 %49, i64 %50, i64 %48
-  %51 = getelementptr inbounds i8, ptr %34, i64 56
+  %51 = getelementptr inbounds nuw i8, ptr %34, i64 56
   %52 = load i64, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %34, i64 48
+  %53 = getelementptr inbounds nuw i8, ptr %34, i64 48
   %54 = load i64, ptr %53, align 8
   %55 = sub nsw i64 %52, %54
-  %56 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv162
+  %56 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv162
   %57 = load i32, ptr %56, align 4
   %58 = sext i32 %57 to i64
   %59 = mul i64 %55, %58
@@ -130,7 +130,7 @@ define i32 @ompi_datatype_create_struct(i32 noundef %0, ptr nocapture noundef re
   %.0116.lcssa = phi i64 [ 0, %14 ], [ %.2118, %61 ]
   %.0112.lcssa = phi ptr [ %17, %14 ], [ %.1113, %61 ]
   %.0.lcssa = phi i64 [ %20, %14 ], [ %.1, %61 ]
-  %64 = getelementptr inbounds i8, ptr %.0112.lcssa, i64 152
+  %64 = getelementptr inbounds nuw i8, ptr %.0112.lcssa, i64 152
   %65 = load i64, ptr %64, align 8
   %66 = add i64 %65, %.0116.lcssa
   %.not = icmp eq i64 %.0.lcssa, 1
@@ -151,19 +151,19 @@ define i32 @ompi_datatype_create_struct(i32 noundef %0, ptr nocapture noundef re
   %.2122150 = phi i64 [ %27, %.lr.ph155.preheader ], [ %.3123, %100 ]
   %.2126149 = phi i64 [ %25, %.lr.ph155.preheader ], [ %.3127, %100 ]
   %.2130148 = phi i64 [ %29, %.lr.ph155.preheader ], [ %.3131, %100 ]
-  %71 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv165
+  %71 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv165
   %72 = load ptr, ptr %71, align 8
   %73 = icmp eq ptr %72, %.2114151
   br i1 %73, label %74, label %85
 
 74:                                               ; preds = %.lr.ph155
-  %75 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv165
+  %75 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv165
   %76 = load i64, ptr %75, align 8
   %77 = icmp eq i64 %76, %.2130148
   br i1 %77, label %78, label %85
 
 78:                                               ; preds = %74
-  %79 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv165
+  %79 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv165
   %80 = load i32, ptr %79, align 4
   %81 = sext i32 %80 to i64
   %82 = add i64 %.2153, %81
@@ -174,15 +174,15 @@ define i32 @ompi_datatype_create_struct(i32 noundef %0, ptr nocapture noundef re
 85:                                               ; preds = %74, %.lr.ph155
   %86 = tail call i32 @opal_datatype_add(ptr noundef %69, ptr noundef %.2114151, i64 noundef %.2153, i64 noundef %.2122150, i64 noundef %.2126149) #2
   %87 = load ptr, ptr %71, align 8
-  %88 = getelementptr inbounds i8, ptr %87, i64 56
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 56
   %89 = load i64, ptr %88, align 8
-  %90 = getelementptr inbounds i8, ptr %87, i64 48
+  %90 = getelementptr inbounds nuw i8, ptr %87, i64 48
   %91 = load i64, ptr %90, align 8
   %92 = sub nsw i64 %89, %91
-  %93 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv165
+  %93 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv165
   %94 = load i32, ptr %93, align 4
   %95 = sext i32 %94 to i64
-  %96 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv165
+  %96 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv165
   %97 = load i64, ptr %96, align 8
   %98 = mul i64 %92, %95
   %99 = add i64 %98, %97

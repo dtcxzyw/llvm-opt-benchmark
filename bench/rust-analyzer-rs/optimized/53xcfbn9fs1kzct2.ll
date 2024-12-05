@@ -22,9 +22,9 @@ define internal fastcc noundef zeroext i1 @"_ZN4core3str7pattern13simd_contains2
   %5 = load ptr, ptr %0, align 8, !nonnull !4, !align !5, !noundef !4
   %6 = getelementptr i8, ptr %5, i64 %1
   %invariant.gep = getelementptr i8, ptr %6, i64 1
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8, !nonnull !4, !align !5, !noundef !4
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load i64, ptr %9, align 8, !noundef !4
   %11 = icmp ult i64 %10, 4
   %12 = getelementptr i8, ptr %8, i64 %10
@@ -47,8 +47,8 @@ define internal fastcc noundef zeroext i1 @"_ZN4core3str7pattern13simd_contains2
 
 17:                                               ; preds = %16
   %18 = add nuw nsw i64 %.sroa.9.0.i.us, 1
-  %19 = getelementptr inbounds i8, ptr %gep.us, i64 %.sroa.9.0.i.us
-  %20 = getelementptr inbounds i8, ptr %8, i64 %.sroa.9.0.i.us
+  %19 = getelementptr inbounds nuw i8, ptr %gep.us, i64 %.sroa.9.0.i.us
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 %.sroa.9.0.i.us
   %21 = load i8, ptr %19, align 1, !alias.scope !6, !noalias !9, !noundef !4
   %22 = load i8, ptr %20, align 1, !alias.scope !9, !noalias !6, !noundef !4
   %.not21.i.us = icmp eq i8 %21, %22
@@ -82,8 +82,8 @@ _ZN4core3str7pattern14small_slice_eq17h3a53943bb1188393E.exit.thread.loopexit.us
   br i1 %.not.i, label %31, label %_ZN4core3str7pattern14small_slice_eq17h3a53943bb1188393E.exit.thread
 
 31:                                               ; preds = %.lr.ph.i
-  %32 = getelementptr inbounds i8, ptr %.01829.i, i64 4
-  %33 = getelementptr inbounds i8, ptr %.01730.i, i64 4
+  %32 = getelementptr inbounds nuw i8, ptr %.01829.i, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %.01730.i, i64 4
   %34 = icmp ult ptr %32, %29
   br i1 %34, label %.lr.ph.i, label %_ZN4core3str7pattern14small_slice_eq17h3a53943bb1188393E.exit
 
@@ -132,15 +132,15 @@ define hidden noundef i64 @_ZN6parser9shortcuts18n_attached_trivias17h4589d607ed
 
 5:                                                ; preds = %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2
   %.sroa.15.32.copyload = load ptr, ptr %1, align 8
-  %.sroa.18.32..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.18.32..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.18.32.copyload = load i64, ptr %.sroa.18.32..sroa_idx, align 8
-  %.sroa.20.32..sroa_idx = getelementptr inbounds i8, ptr %1, i64 16
+  %.sroa.20.32..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.20.32.copyload = load i64, ptr %.sroa.20.32..sroa_idx, align 8
-  %6 = getelementptr inbounds i8, ptr %.sroa.15.32.copyload, i64 16
-  %7 = getelementptr inbounds i8, ptr %.sroa.15.32.copyload, i64 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 16
-  %10 = getelementptr inbounds i8, ptr %4, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %.sroa.15.32.copyload, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %.sroa.15.32.copyload, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 24
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %thread-pre-split.backedge, %5
@@ -220,7 +220,7 @@ thread-pre-split:                                 ; preds = %thread-pre-split.ba
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4), !noalias !37
   store ptr %.sroa.8.151, ptr %4, align 8, !noalias !37
   store i64 %.sroa.10.154, ptr %8, align 8, !noalias !37
-  store ptr getelementptr inbounds (i8, ptr @anon.d4739f4442136ec9c59c44b5f8840570.23, i64 1), ptr %9, align 8, !noalias !37
+  store ptr getelementptr inbounds nuw (i8, ptr @anon.d4739f4442136ec9c59c44b5f8840570.23, i64 1), ptr %9, align 8, !noalias !37
   store i64 1, ptr %10, align 8, !noalias !37
   %41 = icmp ugt i64 %.sroa.10.154, 65
   br i1 %41, label %.lr.ph.i.i, label %._crit_edge.i.i
@@ -255,7 +255,7 @@ thread-pre-split:                                 ; preds = %thread-pre-split.ba
   %.sroa.025.042.i.i = phi i64 [ %50, %54 ], [ 0, %62 ]
   %.241.i.i = phi i8 [ %.3.i.i, %54 ], [ %.06443.i.i, %62 ]
   %50 = add nuw nsw i64 %.sroa.025.042.i.i, 1
-  %51 = getelementptr inbounds [4 x i16], ptr %3, i64 0, i64 %.sroa.025.042.i.i
+  %51 = getelementptr inbounds nuw [4 x i16], ptr %3, i64 0, i64 %.sroa.025.042.i.i
   %52 = load i16, ptr %51, align 2, !noalias !37, !noundef !4
   %53 = icmp eq i16 %52, 0
   br i1 %53, label %54, label %55
@@ -280,12 +280,12 @@ thread-pre-split:                                 ; preds = %thread-pre-split.ba
   %64 = shl nuw nsw i64 %.sroa.019.040.i.i, 4
   %gep.i.i = getelementptr i8, ptr %invariant.gep.i.i, i64 %64
   %.0.copyload.i.i.i = load <16 x i8>, ptr %gep.i.i, align 1, !alias.scope !37, !noalias !38
-  %65 = getelementptr inbounds i8, ptr %gep.i.i, i64 1
+  %65 = getelementptr inbounds nuw i8, ptr %gep.i.i, i64 1
   %.0.copyload2.i.i.i = load <16 x i8>, ptr %65, align 1, !alias.scope !37, !noalias !38
   %66 = icmp eq <16 x i8> %.0.copyload.i.i.i, splat (i8 10)
   %67 = icmp eq <16 x i8> %.0.copyload2.i.i.i, splat (i8 10)
   %68 = and <16 x i1> %67, %66
-  %69 = getelementptr inbounds [4 x i16], ptr %3, i64 0, i64 %.sroa.019.040.i.i
+  %69 = getelementptr inbounds nuw [4 x i16], ptr %3, i64 0, i64 %.sroa.019.040.i.i
   store <16 x i1> %68, ptr %69, align 2, !noalias !37
   %exitcond.not.i.i = icmp eq i64 %63, 4
   br i1 %exitcond.not.i.i, label %.preheader.i.i, label %62
@@ -301,7 +301,7 @@ thread-pre-split:                                 ; preds = %thread-pre-split.ba
   %71 = add i64 %.sroa.10.154, -17
   %72 = getelementptr inbounds i8, ptr %.sroa.8.151, i64 %71
   %.0.copyload.i81.i.i = load <16 x i8>, ptr %72, align 1, !alias.scope !37, !noalias !41
-  %73 = getelementptr inbounds i8, ptr %72, i64 1
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 1
   %.0.copyload2.i82.i.i = load <16 x i8>, ptr %73, align 1, !alias.scope !37, !noalias !41
   %74 = icmp eq <16 x i8> %.0.copyload.i81.i.i, splat (i8 10)
   %75 = icmp eq <16 x i8> %.0.copyload2.i82.i.i, splat (i8 10)
@@ -313,7 +313,7 @@ thread-pre-split:                                 ; preds = %thread-pre-split.ba
 79:                                               ; preds = %.lr.ph52.i.i
   %80 = getelementptr inbounds i8, ptr %.sroa.8.151, i64 %.16350.i.i
   %.0.copyload.i83.i.i = load <16 x i8>, ptr %80, align 1, !alias.scope !37, !noalias !44
-  %81 = getelementptr inbounds i8, ptr %80, i64 1
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 1
   %.0.copyload2.i84.i.i = load <16 x i8>, ptr %81, align 1, !alias.scope !37, !noalias !44
   %82 = icmp eq <16 x i8> %.0.copyload.i83.i.i, splat (i8 10)
   %83 = icmp eq <16 x i8> %.0.copyload2.i84.i.i, splat (i8 10)
@@ -354,7 +354,7 @@ thread-pre-split:                                 ; preds = %thread-pre-split.ba
 
 "_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17hdc03bb69f51c7ffcE.exit.us.i.i.i": ; preds = %.critedge.backedge.us.i.i.i
   %100 = add i64 %.in.i.i, -1
-  %101 = getelementptr inbounds i8, ptr %.pn.i.i, i64 1
+  %101 = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 1
   %bcmp.i.i.i.us.i.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(2) %101, ptr noundef nonnull readonly align 1 dereferenceable(2) @anon.d4739f4442136ec9c59c44b5f8840570.23, i64 2), !alias.scope !47, !noalias !51
   %.not29.i.i.i = icmp eq i32 %bcmp.i.i.i.us.i.i.i, 0
   br i1 %.not29.i.i.i, label %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h04515ee06e6bece1E.exit.thread", label %.critedge.backedge.us.i.i.i

@@ -52,9 +52,9 @@ $_ZN9Semaphore25wait_with_safepoint_checkEP10JavaThread = comdat any
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN14ZDriverRequestC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) initializes((0, 12)) %0) unnamed_addr #0 align 2 {
   store i32 11, ptr %0, align 4
-  %2 = getelementptr inbounds i8, ptr %0, i64 4
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %2, align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %3, align 4
   ret void
 }
@@ -62,9 +62,9 @@ define hidden void @_ZN14ZDriverRequestC2Ev(ptr nocapture noundef nonnull writeo
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN14ZDriverRequestC2EN7GCCause5CauseEjj(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) initializes((0, 12)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 align 2 {
   store i32 %1, ptr %0, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %2, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %3, ptr %6, align 4
   ret void
 }
@@ -85,14 +85,14 @@ define hidden noundef i32 @_ZNK14ZDriverRequest5causeEv(ptr nocapture noundef no
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef i32 @_ZNK14ZDriverRequest14young_nworkersEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %0) local_unnamed_addr #1 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 4
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef i32 @_ZNK14ZDriverRequest12old_nworkersEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %0) local_unnamed_addr #1 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 4
   ret i32 %3
 }
@@ -101,17 +101,17 @@ define hidden noundef i32 @_ZNK14ZDriverRequest12old_nworkersEv(ptr nocapture no
 define hidden void @_ZN11ZDriverPortC2Ev(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 88)) %0) unnamed_addr #2 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %0, i8 0, i64 88, i1 false)
   tail call void @_ZN15PlatformMonitorC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) #9
-  %2 = getelementptr inbounds i8, ptr %0, i64 88
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i8 0, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 92
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 92
   store i32 11, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 96
-  %5 = getelementptr inbounds i8, ptr %0, i64 112
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 112
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   store ptr %5, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 120
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr %5, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 128
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i64 0, ptr %7, align 8
   ret void
 }
@@ -123,7 +123,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 define hidden noundef zeroext i1 @_ZNK11ZDriverPort7is_busyEv(ptr noundef nonnull align 8 dereferenceable(136) %0) local_unnamed_addr #2 align 2 {
 _ZN7ZLockerI14ZConditionLockED2Ev.exit:
   %1 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(88) %0) #9
-  %2 = getelementptr inbounds i8, ptr %0, i64 88
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
   %5 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(88) %0) #9
@@ -135,44 +135,44 @@ define hidden void @_ZN11ZDriverPort9send_syncERK14ZDriverRequest(ptr noundef no
 _ZN7ZLockerI14ZConditionLockED2Ev.exit:
   %2 = alloca %class.ZDriverPortEntry, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %2, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false)
-  %3 = getelementptr inbounds i8, ptr %2, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 0, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %2, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 24
   call void @_ZN14PosixSemaphoreC1Ej(ptr noundef nonnull align 8 dereferenceable(44) %4, i32 noundef 0) #9
-  %5 = getelementptr inbounds i8, ptr %2, i64 56
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store i32 11, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 60
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 60
   store i32 0, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %2, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store i32 0, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 72
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 72
   store ptr %8, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 80
   store ptr %8, ptr %9, align 8
   %10 = call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(88) %0) #9
-  %11 = getelementptr inbounds i8, ptr %0, i64 104
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %12 = load i64, ptr %11, align 8
   store i64 %12, ptr %3, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 120
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %14 = load ptr, ptr %13, align 8
   store ptr %14, ptr %9, align 8
   %15 = load ptr, ptr %14, align 8
   store ptr %15, ptr %8, align 8
   store ptr %8, ptr %14, align 8
   %16 = load ptr, ptr %8, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %8, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 128
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %19 = load i64, ptr %18, align 8
   %20 = add i64 %19, 1
   store i64 %20, ptr %18, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %22 = call i32 @pthread_cond_signal(ptr noundef nonnull %21) #9
   %23 = call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(88) %0) #9
   %24 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %25 = load ptr, ptr %24, align 8
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 56
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 56
   %28 = load ptr, ptr %27, align 8
   %29 = call noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(888) %25) #9
   br i1 %29, label %30, label %31
@@ -195,16 +195,16 @@ _ZN7ZLockerI14ZConditionLockED2Ev.exit4:          ; preds = %30, %31
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN11ZDriverPort10send_asyncERK14ZDriverRequest(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %1) local_unnamed_addr #2 align 2 {
   %3 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(88) %0) #9
-  %4 = getelementptr inbounds i8, ptr %0, i64 88
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %5 = load i8, ptr %4, align 8
   %6 = trunc i8 %5 to i1
   br i1 %6, label %_ZN7ZLockerI14ZConditionLockED2Ev.exit, label %7
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 92
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 92
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %8, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false)
   store i8 1, ptr %4, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = tail call i32 @pthread_cond_signal(ptr noundef nonnull %9) #9
   br label %_ZN7ZLockerI14ZConditionLockED2Ev.exit
 
@@ -219,23 +219,23 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden { i64, i32 } @_ZN11ZDriverPort7receiveEv(ptr noundef nonnull align 8 dereferenceable(136) %0) local_unnamed_addr #2 align 2 {
   %2 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(88) %0) #9
-  %3 = getelementptr inbounds i8, ptr %0, i64 88
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
   br i1 %5, label %.critedge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 128
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 128
   br label %10
 
 .critedge.thread:                                 ; preds = %13, %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 104
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %8 = load i64, ptr %7, align 8
   %9 = add i64 %8, 1
   store i64 %9, ptr %7, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 92
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 92
   %.sroa.05.0.copyload.pre = load i64, ptr %.phi.trans.insert, align 4
-  %.sroa.26.0..sroa_idx.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 100
+  %.sroa.26.0..sroa_idx.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 100
   %.sroa.26.0.copyload.pre = load i32, ptr %.sroa.26.0..sroa_idx.phi.trans.insert, align 4
   br label %_ZN7ZLockerI14ZConditionLockED2Ev.exit
 
@@ -251,21 +251,21 @@ define hidden { i64, i32 } @_ZN11ZDriverPort7receiveEv(ptr noundef nonnull align
   br i1 %16, label %.critedge.thread, label %10, !llvm.loop !6
 
 17:                                               ; preds = %10
-  %18 = getelementptr inbounds i8, ptr %0, i64 104
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %19 = load i64, ptr %18, align 8
   %20 = add i64 %19, 1
   store i64 %20, ptr %18, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 112
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %22 = load ptr, ptr %21, align 8
   %23 = ptrtoint ptr %22 to i64
   %24 = add i64 %23, -72
   %25 = inttoptr i64 %24 to ptr
   %.sroa.01.0.copyload.i = load i64, ptr %25, align 8
-  %.sroa.22.0..sroa_idx.i = getelementptr inbounds i8, ptr %25, i64 8
+  %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %25, i64 8
   %.sroa.22.0.copyload.i = load i32, ptr %.sroa.22.0..sroa_idx.i, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 92
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 92
   store i64 %.sroa.01.0.copyload.i, ptr %26, align 4
-  %.sroa.24.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 100
+  %.sroa.24.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 100
   store i32 %.sroa.22.0.copyload.i, ptr %.sroa.24.0..sroa_idx, align 4
   store i8 1, ptr %3, align 8
   br label %_ZN7ZLockerI14ZConditionLockED2Ev.exit
@@ -282,14 +282,14 @@ _ZN7ZLockerI14ZConditionLockED2Ev.exit:           ; preds = %.critedge.thread, %
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN11ZDriverPort3ackEv(ptr noundef nonnull align 8 dereferenceable(136) %0) local_unnamed_addr #2 align 2 {
   %2 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(88) %0) #9
-  %3 = getelementptr inbounds i8, ptr %0, i64 88
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
   br i1 %5, label %6, label %_ZN7ZLockerI14ZConditionLockED2Ev.exit
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 112
-  %8 = getelementptr inbounds i8, ptr %0, i64 128
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %9 = load i64, ptr %8, align 8
   %10 = icmp eq i64 %9, 0
   %11 = load ptr, ptr %7, align 8
@@ -300,15 +300,15 @@ define hidden void @_ZN11ZDriverPort3ackEv(ptr noundef nonnull align 8 dereferen
   br i1 %.not.i.not26, label %_ZN17ZListIteratorImplI16ZDriverPortEntryLb1EE4nextEPPS0_.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %0, i64 92
-  %15 = getelementptr inbounds i8, ptr %0, i64 104
-  %.sroa.22.0..sroa_idx.i8 = getelementptr inbounds i8, ptr %0, i64 100
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 92
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %.sroa.22.0..sroa_idx.i8 = getelementptr inbounds nuw i8, ptr %0, i64 100
   br label %16
 
 16:                                               ; preds = %.lr.ph, %.critedge
   %.sroa.2.027.in = phi i64 [ %13, %.lr.ph ], [ %21, %.critedge ]
   %.sroa.2.027 = inttoptr i64 %.sroa.2.027.in to ptr
-  %17 = getelementptr inbounds i8, ptr %.sroa.2.027, i64 72
+  %17 = getelementptr inbounds nuw i8, ptr %.sroa.2.027, i64 72
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, %7
   %20 = ptrtoint ptr %18 to i64
@@ -320,18 +320,18 @@ define hidden void @_ZN11ZDriverPort3ackEv(ptr noundef nonnull align 8 dereferen
   br i1 %23, label %24, label %.critedge
 
 24:                                               ; preds = %16
-  %25 = getelementptr inbounds i8, ptr %.sroa.2.027, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %.sroa.2.027, i64 16
   %26 = load i64, ptr %25, align 8
   %27 = load i64, ptr %15, align 8
   %28 = icmp ult i64 %26, %27
   br i1 %28, label %29, label %.critedge
 
 29:                                               ; preds = %24
-  %30 = getelementptr inbounds i8, ptr %.sroa.2.027, i64 80
+  %30 = getelementptr inbounds nuw i8, ptr %.sroa.2.027, i64 80
   %31 = load ptr, ptr %30, align 8
   %32 = load ptr, ptr %31, align 8
   store ptr %32, ptr %17, align 8
-  %33 = getelementptr inbounds i8, ptr %18, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %34 = load ptr, ptr %33, align 8
   store ptr %34, ptr %30, align 8
   store ptr %31, ptr %33, align 8
@@ -339,12 +339,12 @@ define hidden void @_ZN11ZDriverPort3ackEv(ptr noundef nonnull align 8 dereferen
   %35 = load i64, ptr %8, align 8
   %36 = add i64 %35, -1
   store i64 %36, ptr %8, align 8
-  %37 = getelementptr inbounds i8, ptr %.sroa.2.027, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %.sroa.2.027, i64 24
   %.sroa.01.0.copyload.i7 = load i64, ptr %14, align 4
   %.sroa.22.0.copyload.i9 = load i32, ptr %.sroa.22.0..sroa_idx.i8, align 4
-  %38 = getelementptr inbounds i8, ptr %.sroa.2.027, i64 56
+  %38 = getelementptr inbounds nuw i8, ptr %.sroa.2.027, i64 56
   store i64 %.sroa.01.0.copyload.i7, ptr %38, align 8
-  %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %.sroa.2.027, i64 64
+  %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.sroa.2.027, i64 64
   store i32 %.sroa.22.0.copyload.i9, ptr %.sroa.22.0..sroa_idx.i.i, align 8
   tail call void @_ZN14PosixSemaphore6signalEj(ptr noundef nonnull align 8 dereferenceable(44) %37, i32 noundef 1) #9
   br label %.critedge
@@ -373,11 +373,11 @@ _ZN17ZListIteratorImplI16ZDriverPortEntryLb1EE4nextEPPS0_.exit: ; preds = %_ZN17
   %45 = add i64 %44, -72
   %46 = inttoptr i64 %45 to ptr
   %.sroa.01.0.copyload.i10 = load i64, ptr %46, align 8
-  %.sroa.22.0..sroa_idx.i11 = getelementptr inbounds i8, ptr %46, i64 8
+  %.sroa.22.0..sroa_idx.i11 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %.sroa.22.0.copyload.i12 = load i32, ptr %.sroa.22.0..sroa_idx.i11, align 8
-  %47 = getelementptr inbounds i8, ptr %0, i64 92
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 92
   store i64 %.sroa.01.0.copyload.i10, ptr %47, align 4
-  %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 100
+  %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 100
   store i32 %.sroa.22.0.copyload.i12, ptr %.sroa.22.0..sroa_idx, align 4
   br label %_ZN7ZLockerI14ZConditionLockED2Ev.exit
 
@@ -481,12 +481,12 @@ declare i32 @pthread_cond_signal(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN9Semaphore25wait_with_safepoint_checkEP10JavaThread(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) local_unnamed_addr #2 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 928
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #9
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !9
-  %4 = getelementptr inbounds i8, ptr %1, i64 1092
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 1092
   store volatile i32 10, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %1, i64 792
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 792
   %6 = load ptr, ptr %5, align 8
   %7 = load volatile i32, ptr %6, align 8
   store volatile i32 4, ptr %6, align 8
@@ -495,7 +495,7 @@ define linkonce_odr hidden void @_ZN9Semaphore25wait_with_safepoint_checkEP10Jav
   store volatile i32 6, ptr %4, align 4
   tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !10
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !9
-  %8 = getelementptr inbounds i8, ptr %1, i64 1096
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 1096
   %9 = load volatile i64, ptr %8, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !9
   %10 = and i64 %9, 1
@@ -508,7 +508,7 @@ define linkonce_odr hidden void @_ZN9Semaphore25wait_with_safepoint_checkEP10Jav
   br i1 %.not5.i.i, label %13, label %19
 
 13:                                               ; preds = %11
-  %14 = getelementptr inbounds i8, ptr %1, i64 1384
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 1384
   %15 = tail call noundef zeroext i1 @_ZN14HandshakeState13has_operationEbb(ptr noundef nonnull align 8 dereferenceable(131) %14, i1 noundef zeroext false, i1 noundef zeroext false) #9
   br i1 %15, label %19, label %16
 

@@ -60,7 +60,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %env1 = getelementptr inbounds i8, ptr %call.i, i64 10176
+  %env1 = getelementptr inbounds nuw i8, ptr %call.i, i64 10176
   %idxprom = sext i32 %n to i64
   %arrayidx = getelementptr [32 x i64], ptr %env1, i64 0, i64 %idxprom
   br label %if.end5
@@ -70,13 +70,13 @@ if.else:                                          ; preds = %entry
   br i1 %cmp2, label %if.then3, label %return
 
 if.then3:                                         ; preds = %if.else
-  %pc = getelementptr inbounds i8, ptr %call.i, i64 14832
+  %pc = getelementptr inbounds nuw i8, ptr %call.i, i64 14832
   br label %if.end5
 
 if.end5:                                          ; preds = %if.then3, %if.then
   %tmp.0.in = phi ptr [ %arrayidx, %if.then ], [ %pc, %if.then3 ]
   %tmp.0 = load i64, ptr %tmp.0.in, align 8
-  %misa_mxl_max = getelementptr inbounds i8, ptr %call.i, i64 15188
+  %misa_mxl_max = getelementptr inbounds nuw i8, ptr %call.i, i64 15188
   %0 = load i32, ptr %misa_mxl_max, align 4
   switch i32 %0, label %do.body [
     i32 1, label %sw.bb
@@ -115,8 +115,8 @@ declare void @g_assertion_message_expr(ptr noundef, ptr noundef, i32 noundef, pt
 define dso_local range(i32 4, 9) i32 @riscv_cpu_gdb_write_register(ptr noundef %cs, ptr nocapture noundef readonly %mem_buf, i32 noundef %n) local_unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %cs, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 46, ptr noundef nonnull @__func__.RISCV_CPU) #8
-  %env1 = getelementptr inbounds i8, ptr %call.i, i64 10176
-  %misa_mxl_max = getelementptr inbounds i8, ptr %call.i, i64 15188
+  %env1 = getelementptr inbounds nuw i8, ptr %call.i, i64 10176
+  %misa_mxl_max = getelementptr inbounds nuw i8, ptr %call.i, i64 15188
   %0 = load i32, ptr %misa_mxl_max, align 4
   switch i32 %0, label %do.body [
     i32 1, label %sw.bb
@@ -130,7 +130,7 @@ sw.bb:                                            ; preds = %entry
   br label %sw.epilog
 
 sw.bb3:                                           ; preds = %entry, %entry
-  %xl = getelementptr inbounds i8, ptr %call.i, i64 15200
+  %xl = getelementptr inbounds nuw i8, ptr %call.i, i64 15200
   %1 = load i32, ptr %xl, align 16
   %cmp = icmp ult i32 %1, 2
   %mem_buf.val10 = load i64, ptr %mem_buf, align 1
@@ -163,7 +163,7 @@ if.else14:                                        ; preds = %sw.epilog
   br i1 %cmp15, label %if.then17, label %if.end19
 
 if.then17:                                        ; preds = %if.else14
-  %pc = getelementptr inbounds i8, ptr %call.i, i64 14832
+  %pc = getelementptr inbounds nuw i8, ptr %call.i, i64 14832
   store i64 %tmp.0, ptr %pc, align 16
   br label %if.end19
 
@@ -175,7 +175,7 @@ if.end19:                                         ; preds = %if.else14, %if.then
 define dso_local void @riscv_cpu_register_gdb_regs_for_features(ptr noundef %cs) local_unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %cs, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 46, ptr noundef nonnull @__func__.RISCV_CPU) #8
-  %misa_ext = getelementptr inbounds i8, ptr %call.i, i64 15192
+  %misa_ext = getelementptr inbounds nuw i8, ptr %call.i, i64 15192
   %0 = load i32, ptr %misa_ext, align 8
   %conv = zext i32 %0 to i64
   %and = and i64 %conv, 8
@@ -199,12 +199,12 @@ if.end7:                                          ; preds = %if.end7.sink.split,
   br i1 %tobool11.not, label %if.end14, label %if.then12
 
 if.then12:                                        ; preds = %if.end7
-  %gdb_num_regs = getelementptr inbounds i8, ptr %cs, i64 560
+  %gdb_num_regs = getelementptr inbounds nuw i8, ptr %cs, i64 560
   %3 = load i32, ptr %gdb_num_regs, align 16
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %cs, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 46, ptr noundef nonnull @__func__.RISCV_CPU) #8
   %call1.i = tail call ptr @g_string_new(ptr noundef null) #8
   %call2.i = tail call ptr @g_string_new(ptr noundef nonnull @.str.9) #8
-  %vlen.i = getelementptr inbounds i8, ptr %call.i.i, i64 15464
+  %vlen.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 15464
   %4 = load i16, ptr %vlen.i, align 8
   %conv.i = zext i16 %4 to i32
   tail call void (ptr, ptr, ...) @g_string_printf(ptr noundef %call1.i, ptr noundef nonnull @.str.10) #8
@@ -215,10 +215,10 @@ if.then12:                                        ; preds = %if.end7
 for.body.i:                                       ; preds = %for.body.i, %if.then12
   %indvars.iv.i = phi i64 [ 0, %if.then12 ], [ %indvars.iv.next.i, %for.body.i ]
   %arrayidx.i = getelementptr [5 x %struct.TypeSize], ptr @vec_lanes, i64 0, i64 %indvars.iv.i
-  %size.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
+  %size.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 16
   %5 = load i32, ptr %size.i, align 8
   %div.i = sdiv i32 %conv.i, %5
-  %id.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  %id.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   %6 = load ptr, ptr %id.i, align 8
   tail call void (ptr, ptr, ...) @g_string_printf(ptr noundef %call2.i, ptr noundef nonnull @.str.13, ptr noundef %6) #8
   %7 = load ptr, ptr %call2.i, align 8
@@ -235,10 +235,10 @@ for.end.i:                                        ; preds = %for.body.i
 for.body13.i:                                     ; preds = %for.body13.i, %for.end.i
   %indvars.iv31.i = phi i64 [ 0, %for.end.i ], [ %indvars.iv.next32.i, %for.body13.i ]
   %arrayidx15.i = getelementptr [5 x %struct.TypeSize], ptr @vec_lanes, i64 0, i64 %indvars.iv31.i
-  %suffix.i = getelementptr inbounds i8, ptr %arrayidx15.i, i64 20
+  %suffix.i = getelementptr inbounds nuw i8, ptr %arrayidx15.i, i64 20
   %9 = load i8, ptr %suffix.i, align 4
   %conv16.i = sext i8 %9 to i32
-  %id19.i = getelementptr inbounds i8, ptr %arrayidx15.i, i64 8
+  %id19.i = getelementptr inbounds nuw i8, ptr %arrayidx15.i, i64 8
   %10 = load ptr, ptr %id19.i, align 8
   tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %call1.i, ptr noundef nonnull @.str.16, i32 noundef %conv16.i, ptr noundef %10) #8
   %indvars.iv.next32.i = add nuw nsw i64 %indvars.iv31.i, 1
@@ -261,14 +261,14 @@ for.body27.i:                                     ; preds = %for.body27.i, %for.
 ricsv_gen_dynamic_vector_xml.exit:                ; preds = %for.body27.i
   tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %call1.i, ptr noundef nonnull @.str.19) #8
   %call33.i = tail call ptr @g_string_free(ptr noundef %call1.i, i32 noundef 0) #8
-  %dyn_vreg_xml.i = getelementptr inbounds i8, ptr %call.i.i, i64 15304
+  %dyn_vreg_xml.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 15304
   store ptr %call33.i, ptr %dyn_vreg_xml.i, align 8
   %call.i.i.i.i = tail call ptr @g_string_free(ptr noundef nonnull %call2.i, i32 noundef 1) #8
   tail call void @gdb_register_coprocessor(ptr noundef %cs, ptr noundef nonnull @riscv_gdb_get_vector, ptr noundef nonnull @riscv_gdb_set_vector, i32 noundef 32, ptr noundef nonnull @.str.3, i32 noundef 0) #8
   br label %if.end14
 
 if.end14:                                         ; preds = %ricsv_gen_dynamic_vector_xml.exit, %if.end7
-  %misa_mxl_max = getelementptr inbounds i8, ptr %call.i, i64 15188
+  %misa_mxl_max = getelementptr inbounds nuw i8, ptr %call.i, i64 15188
   %11 = load i32, ptr %misa_mxl_max, align 4
   %switch.tableidx = add i32 %11, -1
   %12 = icmp ult i32 %switch.tableidx, 3
@@ -280,42 +280,42 @@ do.body:                                          ; preds = %if.end14
 
 switch.lookup:                                    ; preds = %if.end14
   %13 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table.riscv_cpu_register_gdb_regs_for_features, i64 0, i64 %13
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.riscv_cpu_register_gdb_regs_for_features, i64 0, i64 %13
   %switch.load = load ptr, ptr %switch.gep, align 8
   tail call void @gdb_register_coprocessor(ptr noundef %cs, ptr noundef nonnull @riscv_gdb_get_virtual, ptr noundef nonnull @riscv_gdb_set_virtual, i32 noundef 1, ptr noundef nonnull %switch.load, i32 noundef 0) #8
-  %ext_zicsr = getelementptr inbounds i8, ptr %call.i, i64 15338
+  %ext_zicsr = getelementptr inbounds nuw i8, ptr %call.i, i64 15338
   %14 = load i8, ptr %ext_zicsr, align 2
   %tobool16 = trunc i8 %14 to i1
   br i1 %tobool16, label %if.then17, label %if.end21
 
 if.then17:                                        ; preds = %switch.lookup
-  %gdb_num_regs19 = getelementptr inbounds i8, ptr %cs, i64 560
+  %gdb_num_regs19 = getelementptr inbounds nuw i8, ptr %cs, i64 560
   %15 = load i32, ptr %gdb_num_regs19, align 16
   %call.i.i15 = tail call ptr @object_dynamic_cast_assert(ptr noundef %cs, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 46, ptr noundef nonnull @__func__.RISCV_CPU) #8
-  %env1.i = getelementptr inbounds i8, ptr %call.i.i15, i64 10176
+  %env1.i = getelementptr inbounds nuw i8, ptr %call.i.i15, i64 10176
   %call2.i16 = tail call ptr @g_string_new(ptr noundef null) #8
-  %misa_mxl_max.i = getelementptr inbounds i8, ptr %call.i.i15, i64 15188
+  %misa_mxl_max.i = getelementptr inbounds nuw i8, ptr %call.i.i15, i64 15188
   %16 = load i32, ptr %misa_mxl_max.i, align 4
   %shl.i = shl i32 16, %16
   %spec.store.select.i = tail call i32 @llvm.smin.i32(i32 %shl.i, i32 64)
   tail call void (ptr, ptr, ...) @g_string_printf(ptr noundef %call2.i16, ptr noundef nonnull @.str.10) #8
   tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %call2.i16, ptr noundef nonnull @.str.30) #8
   tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %call2.i16, ptr noundef nonnull @.str.31) #8
-  %priv_ver.i = getelementptr inbounds i8, ptr %call.i.i15, i64 15160
+  %priv_ver.i = getelementptr inbounds nuw i8, ptr %call.i.i15, i64 15160
   br label %for.body.i17
 
 for.body.i17:                                     ; preds = %for.inc.i, %if.then17
   %indvars.iv.i18 = phi i64 [ 0, %if.then17 ], [ %indvars.iv.next.i21, %for.inc.i ]
   %17 = load i64, ptr %priv_ver.i, align 8
   %arrayidx.i19 = getelementptr [4096 x %struct.riscv_csr_operations], ptr @csr_ops, i64 0, i64 %indvars.iv.i18
-  %min_priv_ver.i = getelementptr inbounds i8, ptr %arrayidx.i19, i64 56
+  %min_priv_ver.i = getelementptr inbounds nuw i8, ptr %arrayidx.i19, i64 56
   %18 = load i32, ptr %min_priv_ver.i, align 8
   %conv.i20 = zext i32 %18 to i64
   %cmp4.i = icmp ult i64 %17, %conv.i20
   br i1 %cmp4.i, label %for.inc.i, label %if.end7.i
 
 if.end7.i:                                        ; preds = %for.body.i17
-  %predicate10.i = getelementptr inbounds i8, ptr %arrayidx.i19, i64 8
+  %predicate10.i = getelementptr inbounds nuw i8, ptr %arrayidx.i19, i64 8
   %19 = load ptr, ptr %predicate10.i, align 8
   %tobool.not.i = icmp eq ptr %19, null
   br i1 %tobool.not.i, label %for.inc.i, label %land.lhs.true.i
@@ -353,7 +353,7 @@ for.inc.i:                                        ; preds = %if.end22.i, %land.l
 riscv_gen_dynamic_csr_xml.exit:                   ; preds = %for.inc.i
   tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %call2.i16, ptr noundef nonnull @.str.19) #8
   %call24.i = tail call ptr @g_string_free(ptr noundef %call2.i16, i32 noundef 0) #8
-  %dyn_csr_xml.i = getelementptr inbounds i8, ptr %call.i.i15, i64 15296
+  %dyn_csr_xml.i = getelementptr inbounds nuw i8, ptr %call.i.i15, i64 15296
   store ptr %call24.i, ptr %dyn_csr_xml.i, align 16
   tail call void @gdb_register_coprocessor(ptr noundef %cs, ptr noundef nonnull @riscv_gdb_get_csr, ptr noundef nonnull @riscv_gdb_set_csr, i32 noundef 4096, ptr noundef nonnull @.str.6, i32 noundef 0) #8
   br label %if.end21
@@ -373,7 +373,7 @@ entry:
   br i1 %cmp, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
-  %misa_ext = getelementptr inbounds i8, ptr %env, i64 5016
+  %misa_ext = getelementptr inbounds nuw i8, ptr %env, i64 5016
   %0 = load i32, ptr %misa_ext, align 8
   %conv = zext i32 %0 to i64
   %and = and i64 %conv, 8
@@ -381,7 +381,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool.not, label %if.end, label %if.then1
 
 if.then1:                                         ; preds = %if.then
-  %fpr = getelementptr inbounds i8, ptr %env, i64 4680
+  %fpr = getelementptr inbounds nuw i8, ptr %env, i64 4680
   %idxprom = sext i32 %n to i64
   %arrayidx = getelementptr [32 x i64], ptr %fpr, i64 0, i64 %idxprom
   %1 = load i64, ptr %arrayidx, align 8
@@ -397,7 +397,7 @@ if.end:                                           ; preds = %if.then
   br i1 %tobool5.not, label %return, label %if.then6
 
 if.then6:                                         ; preds = %if.end
-  %fpr7 = getelementptr inbounds i8, ptr %env, i64 4680
+  %fpr7 = getelementptr inbounds nuw i8, ptr %env, i64 4680
   %idxprom8 = sext i32 %n to i64
   %arrayidx9 = getelementptr [32 x i64], ptr %fpr7, i64 0, i64 %idxprom8
   %2 = load i64, ptr %arrayidx9, align 8
@@ -421,7 +421,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %mem_buf.val = load i64, ptr %mem_buf, align 1
-  %fpr = getelementptr inbounds i8, ptr %env, i64 4680
+  %fpr = getelementptr inbounds nuw i8, ptr %env, i64 4680
   %idxprom = sext i32 %n to i64
   %arrayidx = getelementptr [32 x i64], ptr %fpr, i64 0, i64 %idxprom
   store i64 %mem_buf.val, ptr %arrayidx, align 8
@@ -448,7 +448,7 @@ for.cond.preheader:                               ; preds = %entry
   br i1 %cmp47.not, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %vreg = getelementptr inbounds i8, ptr %env, i64 512
+  %vreg = getelementptr inbounds nuw i8, ptr %env, i64 512
   %mul = mul i32 %n, %conv3
   br label %for.body
 
@@ -487,7 +487,7 @@ for.cond.preheader:                               ; preds = %entry
   br i1 %cmp48.not, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %vreg = getelementptr inbounds i8, ptr %env, i64 512
+  %vreg = getelementptr inbounds nuw i8, ptr %env, i64 512
   %mul = mul i32 %n, %conv3
   %2 = zext nneg i16 %1 to i64
   br label %for.body

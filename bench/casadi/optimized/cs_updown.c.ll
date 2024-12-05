@@ -9,7 +9,7 @@ define range(i32 0, 2) i32 @cs_updown(ptr noundef readonly %0, i32 noundef %1, p
   br i1 %.not, label %128, label %5
 
 5:                                                ; preds = %4
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, -1
   %9 = icmp ne ptr %2, null
@@ -17,7 +17,7 @@ define range(i32 0, 2) i32 @cs_updown(ptr noundef readonly %0, i32 noundef %1, p
   br i1 %or.cond, label %10, label %128
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %2, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %12 = load i32, ptr %11, align 8
   %13 = icmp eq i32 %12, -1
   %14 = icmp ne ptr %3, null
@@ -25,26 +25,26 @@ define range(i32 0, 2) i32 @cs_updown(ptr noundef readonly %0, i32 noundef %1, p
   br i1 %or.cond3, label %15, label %128
 
 15:                                               ; preds = %10
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %2, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %2, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %2, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %27 = load ptr, ptr %26, align 8
   %28 = load i32, ptr %23, align 4
-  %29 = getelementptr inbounds i8, ptr %23, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %30 = load i32, ptr %29, align 4
   %.not122 = icmp slt i32 %28, %30
   br i1 %.not122, label %31, label %128
 
 31:                                               ; preds = %15
-  %32 = getelementptr inbounds i8, ptr %0, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %33 = load i32, ptr %32, align 8
   %34 = tail call ptr @cs_malloc(i32 noundef %33, i64 noundef 8) #5
   %.not123 = icmp eq ptr %34, null

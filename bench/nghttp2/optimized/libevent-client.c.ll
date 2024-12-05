@@ -56,11 +56,11 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %2 = getelementptr inbounds i8, ptr %act, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %act, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %2, i8 0, i64 144, i1 false)
   store ptr inttoptr (i64 1 to ptr), ptr %act, align 8
   %call1 = call i32 @sigaction(i32 noundef 13, ptr noundef nonnull %act, ptr noundef null) #20
-  %arrayidx = getelementptr inbounds i8, ptr %argv, i64 8
+  %arrayidx = getelementptr inbounds nuw i8, ptr %argv, i64 8
   %3 = load ptr, ptr %arrayidx, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %u.i)
   %call.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #21
@@ -73,18 +73,18 @@ if.then.i:                                        ; preds = %if.end
   unreachable
 
 if.end.i:                                         ; preds = %if.end
-  %arrayidx.i = getelementptr inbounds i8, ptr %u.i, i64 8
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %u.i, i64 8
   %4 = load i16, ptr %arrayidx.i, align 2
   %idxprom.i = zext i16 %4 to i64
-  %arrayidx2.i = getelementptr inbounds i8, ptr %3, i64 %idxprom.i
-  %len.i = getelementptr inbounds i8, ptr %u.i, i64 10
+  %arrayidx2.i = getelementptr inbounds nuw i8, ptr %3, i64 %idxprom.i
+  %len.i = getelementptr inbounds nuw i8, ptr %u.i, i64 10
   %5 = load i16, ptr %len.i, align 2
   %conv.i = zext i16 %5 to i64
   %call5.i = call noalias ptr @strndup(ptr noundef %arrayidx2.i, i64 noundef %conv.i) #20
   %6 = load i16, ptr %u.i, align 2
   %7 = and i16 %6, 4
   %tobool.not.i = icmp eq i16 %7, 0
-  %port8.i = getelementptr inbounds i8, ptr %u.i, i64 2
+  %port8.i = getelementptr inbounds nuw i8, ptr %u.i, i64 2
   %8 = load i16, ptr %port8.i, align 2
   %port.0.i = select i1 %tobool.not.i, i16 443, i16 %8
   %call.i.i = call ptr @TLS_client_method() #20
@@ -104,25 +104,25 @@ create_ssl_ctx.exit.i:                            ; preds = %if.end.i
   %call11.i = call ptr @event_base_new() #20
   %calloc.i.i = call dereferenceable_or_null(32) ptr @calloc(i64 1, i64 32)
   %call1.i11.i = call ptr @evdns_base_new(ptr noundef %call11.i, i32 noundef 1) #20
-  %dnsbase.i.i = getelementptr inbounds i8, ptr %calloc.i.i, i64 8
+  %dnsbase.i.i = getelementptr inbounds nuw i8, ptr %calloc.i.i, i64 8
   store ptr %call1.i11.i, ptr %dnsbase.i.i, align 8
   %call.i12.i = call noalias dereferenceable_or_null(56) ptr @malloc(i64 noundef 56) #23
   store ptr %3, ptr %call.i12.i, align 8
-  %u2.i.i = getelementptr inbounds i8, ptr %call.i12.i, i64 8
+  %u2.i.i = getelementptr inbounds nuw i8, ptr %call.i12.i, i64 8
   store ptr %u.i, ptr %u2.i.i, align 8
-  %stream_id.i.i = getelementptr inbounds i8, ptr %call.i12.i, i64 48
+  %stream_id.i.i = getelementptr inbounds nuw i8, ptr %call.i12.i, i64 48
   store i32 -1, ptr %stream_id.i.i, align 8
   %9 = load i16, ptr %len.i, align 2
   %conv.i.i = zext i16 %9 to i64
-  %authoritylen.i.i = getelementptr inbounds i8, ptr %call.i12.i, i64 32
+  %authoritylen.i.i = getelementptr inbounds nuw i8, ptr %call.i12.i, i64 32
   store i64 %conv.i.i, ptr %authoritylen.i.i, align 8
   %add.i.i = add nuw nsw i64 %conv.i.i, 7
   %call4.i13.i = call noalias ptr @malloc(i64 noundef %add.i.i) #23
-  %authority.i.i = getelementptr inbounds i8, ptr %call.i12.i, i64 16
+  %authority.i.i = getelementptr inbounds nuw i8, ptr %call.i12.i, i64 16
   store ptr %call4.i13.i, ptr %authority.i.i, align 8
   %10 = load i16, ptr %arrayidx.i, align 2
   %idxprom.i.i = zext i16 %10 to i64
-  %arrayidx8.i.i = getelementptr inbounds i8, ptr %3, i64 %idxprom.i.i
+  %arrayidx8.i.i = getelementptr inbounds nuw i8, ptr %3, i64 %idxprom.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call4.i13.i, ptr align 1 %arrayidx8.i.i, i64 %conv.i.i, i1 false)
   %11 = load i16, ptr %u.i, align 2
   %12 = and i16 %11, 4
@@ -130,7 +130,7 @@ create_ssl_ctx.exit.i:                            ; preds = %if.end.i
   br i1 %tobool.not.i14.i, label %if.end.i.i, label %if.then.i15.i
 
 if.then.i15.i:                                    ; preds = %create_ssl_ctx.exit.i
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %call4.i13.i, i64 %conv.i.i
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %call4.i13.i, i64 %conv.i.i
   %13 = load i16, ptr %port8.i, align 2
   %conv19.i.i = zext i16 %13 to i32
   %call20.i.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %add.ptr.i.i, i64 noundef 7, ptr noundef nonnull @.str.4, i32 noundef %conv19.i.i) #20
@@ -142,14 +142,14 @@ if.then.i15.i:                                    ; preds = %create_ssl_ctx.exit
 
 if.end.i.i:                                       ; preds = %if.then.i15.i, %create_ssl_ctx.exit.i
   %14 = phi i16 [ %.pre.i.i, %if.then.i15.i ], [ %11, %create_ssl_ctx.exit.i ]
-  %pathlen.i.i = getelementptr inbounds i8, ptr %call.i12.i, i64 40
+  %pathlen.i.i = getelementptr inbounds nuw i8, ptr %call.i12.i, i64 40
   store i64 1, ptr %pathlen.i.i, align 8
   %15 = and i16 %14, 8
   %tobool27.not.i.i = icmp eq i16 %15, 0
   br i1 %tobool27.not.i.i, label %if.end34.i.i, label %if.then28.i.i
 
 if.then28.i.i:                                    ; preds = %if.end.i.i
-  %len31.i.i = getelementptr inbounds i8, ptr %u.i, i64 18
+  %len31.i.i = getelementptr inbounds nuw i8, ptr %u.i, i64 18
   %16 = load i16, ptr %len31.i.i, align 2
   %conv32.i.i = zext i16 %16 to i64
   store i64 %conv32.i.i, ptr %pathlen.i.i, align 8
@@ -162,7 +162,7 @@ if.end34.i.i:                                     ; preds = %if.then28.i.i, %if.
   br i1 %tobool38.not.i.i, label %if.end48.i.i, label %if.then39.i.i
 
 if.then39.i.i:                                    ; preds = %if.end34.i.i
-  %len42.i.i = getelementptr inbounds i8, ptr %u.i, i64 22
+  %len42.i.i = getelementptr inbounds nuw i8, ptr %u.i, i64 22
   %19 = load i16, ptr %len42.i.i, align 2
   %conv43.i.i = zext i16 %19 to i64
   %add44.i.i = add nuw nsw i64 %17, 1
@@ -173,16 +173,16 @@ if.then39.i.i:                                    ; preds = %if.end34.i.i
 if.end48.i.i:                                     ; preds = %if.then39.i.i, %if.end34.i.i
   %20 = phi i64 [ %add47.i.i, %if.then39.i.i ], [ %17, %if.end34.i.i ]
   %call50.i.i = call noalias ptr @malloc(i64 noundef %20) #23
-  %path.i.i = getelementptr inbounds i8, ptr %call.i12.i, i64 24
+  %path.i.i = getelementptr inbounds nuw i8, ptr %call.i12.i, i64 24
   store ptr %call50.i.i, ptr %path.i.i, align 8
   br i1 %tobool27.not.i.i, label %if.else.i.i, label %if.then55.i.i
 
 if.then55.i.i:                                    ; preds = %if.end48.i.i
-  %arrayidx58.i.i = getelementptr inbounds i8, ptr %u.i, i64 16
+  %arrayidx58.i.i = getelementptr inbounds nuw i8, ptr %u.i, i64 16
   %21 = load i16, ptr %arrayidx58.i.i, align 2
   %idxprom60.i.i = zext i16 %21 to i64
-  %arrayidx61.i.i = getelementptr inbounds i8, ptr %3, i64 %idxprom60.i.i
-  %len64.i.i = getelementptr inbounds i8, ptr %u.i, i64 18
+  %arrayidx61.i.i = getelementptr inbounds nuw i8, ptr %3, i64 %idxprom60.i.i
+  %len64.i.i = getelementptr inbounds nuw i8, ptr %u.i, i64 18
   %22 = load i16, ptr %len64.i.i, align 2
   %conv65.i.i = zext i16 %22 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call50.i.i, ptr align 1 %arrayidx61.i.i, i64 %conv65.i.i, i1 false)
@@ -196,8 +196,8 @@ if.end68.i.i:                                     ; preds = %if.else.i.i, %if.th
   br i1 %tobool38.not.i.i, label %create_http2_stream_data.exit.i, label %if.then73.i.i
 
 if.then73.i.i:                                    ; preds = %if.end68.i.i
-  %arrayidx77.i.i = getelementptr inbounds i8, ptr %u.i, i64 20
-  %len78.i.i = getelementptr inbounds i8, ptr %u.i, i64 22
+  %arrayidx77.i.i = getelementptr inbounds nuw i8, ptr %u.i, i64 20
+  %len78.i.i = getelementptr inbounds nuw i8, ptr %u.i, i64 22
   %23 = load i16, ptr %len78.i.i, align 2
   %conv79.i.i = zext i16 %23 to i64
   %24 = xor i64 %conv79.i.i, -1
@@ -208,12 +208,12 @@ if.then73.i.i:                                    ; preds = %if.end68.i.i
   %add.ptr90.i.i = getelementptr inbounds i8, ptr %25, i64 %idx.neg.i.i
   %26 = load i16, ptr %arrayidx77.i.i, align 2
   %idxprom94.i.i = zext i16 %26 to i64
-  %arrayidx95.i.i = getelementptr inbounds i8, ptr %3, i64 %idxprom94.i.i
+  %arrayidx95.i.i = getelementptr inbounds nuw i8, ptr %3, i64 %idxprom94.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr90.i.i, ptr align 1 %arrayidx95.i.i, i64 %conv79.i.i, i1 false)
   br label %create_http2_stream_data.exit.i
 
 create_http2_stream_data.exit.i:                  ; preds = %if.then73.i.i, %if.end68.i.i
-  %stream_data.i = getelementptr inbounds i8, ptr %calloc.i.i, i64 24
+  %stream_data.i = getelementptr inbounds nuw i8, ptr %calloc.i.i, i64 24
   store ptr %call.i12.i, ptr %stream_data.i, align 8
   %call.i.i.i = call ptr @SSL_new(ptr noundef nonnull %call1.i.i) #20
   %tobool.not.i.i.i = icmp eq ptr %call.i.i.i, null
@@ -240,7 +240,7 @@ if.then.i21.i:                                    ; preds = %create_ssl.exit.i.i
   unreachable
 
 run.exit:                                         ; preds = %create_ssl.exit.i.i
-  %bev5.i.i = getelementptr inbounds i8, ptr %calloc.i.i, i64 16
+  %bev5.i.i = getelementptr inbounds nuw i8, ptr %calloc.i.i, i64 16
   store ptr %call1.i16.i, ptr %bev5.i.i, align 8
   call void @free(ptr noundef %call5.i) #20
   %call14.i = call i32 @event_base_loop(ptr noundef %call11.i, i32 noundef 0) #20
@@ -373,7 +373,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %cmp3, label %land.lhs.true4, label %if.end
 
 land.lhs.true4:                                   ; preds = %land.lhs.true
-  %bev5 = getelementptr inbounds i8, ptr %ptr, i64 16
+  %bev5 = getelementptr inbounds nuw i8, ptr %ptr, i64 16
   %2 = load ptr, ptr %bev5, align 8
   %call6 = tail call ptr @bufferevent_get_output(ptr noundef %2) #20
   %call7 = tail call i64 @evbuffer_get_length(ptr noundef %call6) #20
@@ -405,7 +405,7 @@ if.end:                                           ; preds = %entry
   store i32 0, ptr %alpnlen, align 4
   %1 = load ptr, ptr @stderr, align 8
   %2 = tail call i64 @fwrite(ptr nonnull @.str.9, i64 10, i64 1, ptr %1) #18
-  %bev2 = getelementptr inbounds i8, ptr %ptr, i64 16
+  %bev2 = getelementptr inbounds nuw i8, ptr %ptr, i64 16
   %3 = load ptr, ptr %bev2, align 8
   %call3 = tail call ptr @bufferevent_openssl_get_ssl(ptr noundef %3) #20
   call void @SSL_get0_alpn_selected(ptr noundef %call3, ptr noundef nonnull %alpn, ptr noundef nonnull %alpnlen) #20
@@ -489,7 +489,7 @@ declare ptr @nghttp2_strerror(i32 noundef) local_unnamed_addr #5
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @delete_http2_session_data(ptr nocapture noundef %session_data) unnamed_addr #0 {
 entry:
-  %bev = getelementptr inbounds i8, ptr %session_data, i64 16
+  %bev = getelementptr inbounds nuw i8, ptr %session_data, i64 16
   %0 = load ptr, ptr %bev, align 8
   %call = tail call ptr @bufferevent_openssl_get_ssl(ptr noundef %0) #20
   %tobool.not = icmp eq ptr %call, null
@@ -503,23 +503,23 @@ if.end:                                           ; preds = %if.then, %entry
   %1 = load ptr, ptr %bev, align 8
   tail call void @bufferevent_free(ptr noundef %1) #20
   store ptr null, ptr %bev, align 8
-  %dnsbase = getelementptr inbounds i8, ptr %session_data, i64 8
+  %dnsbase = getelementptr inbounds nuw i8, ptr %session_data, i64 8
   %2 = load ptr, ptr %dnsbase, align 8
   tail call void @evdns_base_free(ptr noundef %2, i32 noundef 1) #20
   store ptr null, ptr %dnsbase, align 8
   %3 = load ptr, ptr %session_data, align 8
   tail call void @nghttp2_session_del(ptr noundef %3) #20
   store ptr null, ptr %session_data, align 8
-  %stream_data = getelementptr inbounds i8, ptr %session_data, i64 24
+  %stream_data = getelementptr inbounds nuw i8, ptr %session_data, i64 24
   %4 = load ptr, ptr %stream_data, align 8
   %tobool6.not = icmp eq ptr %4, null
   br i1 %tobool6.not, label %if.end10, label %if.then7
 
 if.then7:                                         ; preds = %if.end
-  %path.i = getelementptr inbounds i8, ptr %4, i64 24
+  %path.i = getelementptr inbounds nuw i8, ptr %4, i64 24
   %5 = load ptr, ptr %path.i, align 8
   tail call void @free(ptr noundef %5) #20
-  %authority.i = getelementptr inbounds i8, ptr %4, i64 16
+  %authority.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %authority.i, align 8
   tail call void @free(ptr noundef %6) #20
   tail call void @free(ptr noundef nonnull %4) #20
@@ -620,64 +620,64 @@ if.end:                                           ; preds = %entry
 define internal fastcc void @submit_request(ptr nocapture noundef readonly %session_data) unnamed_addr #12 {
 entry:
   %hdrs = alloca [4 x %struct.nghttp2_nv], align 16
-  %stream_data1 = getelementptr inbounds i8, ptr %session_data, i64 24
+  %stream_data1 = getelementptr inbounds nuw i8, ptr %session_data, i64 24
   %0 = load ptr, ptr %stream_data1, align 8
   %1 = load ptr, ptr %0, align 8
-  %u3 = getelementptr inbounds i8, ptr %0, i64 8
+  %u3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = load ptr, ptr %u3, align 8
   store ptr @.str.21, ptr %hdrs, align 16
-  %value = getelementptr inbounds i8, ptr %hdrs, i64 8
+  %value = getelementptr inbounds nuw i8, ptr %hdrs, i64 8
   store ptr @.str.22, ptr %value, align 8
-  %namelen = getelementptr inbounds i8, ptr %hdrs, i64 16
+  %namelen = getelementptr inbounds nuw i8, ptr %hdrs, i64 16
   store i64 7, ptr %namelen, align 16
-  %valuelen = getelementptr inbounds i8, ptr %hdrs, i64 24
+  %valuelen = getelementptr inbounds nuw i8, ptr %hdrs, i64 24
   store i64 3, ptr %valuelen, align 8
-  %flags = getelementptr inbounds i8, ptr %hdrs, i64 32
+  %flags = getelementptr inbounds nuw i8, ptr %hdrs, i64 32
   store i8 0, ptr %flags, align 16
-  %arrayinit.element = getelementptr inbounds i8, ptr %hdrs, i64 40
+  %arrayinit.element = getelementptr inbounds nuw i8, ptr %hdrs, i64 40
   store ptr @.str.23, ptr %arrayinit.element, align 8
-  %value5 = getelementptr inbounds i8, ptr %hdrs, i64 48
-  %field_data = getelementptr inbounds i8, ptr %2, i64 4
+  %value5 = getelementptr inbounds nuw i8, ptr %hdrs, i64 48
+  %field_data = getelementptr inbounds nuw i8, ptr %2, i64 4
   %3 = load i16, ptr %field_data, align 2
   %idxprom = zext i16 %3 to i64
-  %arrayidx6 = getelementptr inbounds i8, ptr %1, i64 %idxprom
+  %arrayidx6 = getelementptr inbounds nuw i8, ptr %1, i64 %idxprom
   store ptr %arrayidx6, ptr %value5, align 16
-  %namelen7 = getelementptr inbounds i8, ptr %hdrs, i64 56
+  %namelen7 = getelementptr inbounds nuw i8, ptr %hdrs, i64 56
   store i64 7, ptr %namelen7, align 8
-  %valuelen8 = getelementptr inbounds i8, ptr %hdrs, i64 64
-  %len = getelementptr inbounds i8, ptr %2, i64 6
+  %valuelen8 = getelementptr inbounds nuw i8, ptr %hdrs, i64 64
+  %len = getelementptr inbounds nuw i8, ptr %2, i64 6
   %4 = load i16, ptr %len, align 2
   %conv = zext i16 %4 to i64
   store i64 %conv, ptr %valuelen8, align 16
-  %flags11 = getelementptr inbounds i8, ptr %hdrs, i64 72
+  %flags11 = getelementptr inbounds nuw i8, ptr %hdrs, i64 72
   store i8 0, ptr %flags11, align 8
-  %arrayinit.element12 = getelementptr inbounds i8, ptr %hdrs, i64 80
+  %arrayinit.element12 = getelementptr inbounds nuw i8, ptr %hdrs, i64 80
   store ptr @.str.24, ptr %arrayinit.element12, align 16
-  %value14 = getelementptr inbounds i8, ptr %hdrs, i64 88
-  %authority = getelementptr inbounds i8, ptr %0, i64 16
+  %value14 = getelementptr inbounds nuw i8, ptr %hdrs, i64 88
+  %authority = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %authority, align 8
   store ptr %5, ptr %value14, align 8
-  %namelen15 = getelementptr inbounds i8, ptr %hdrs, i64 96
+  %namelen15 = getelementptr inbounds nuw i8, ptr %hdrs, i64 96
   store i64 10, ptr %namelen15, align 16
-  %valuelen16 = getelementptr inbounds i8, ptr %hdrs, i64 104
-  %authoritylen = getelementptr inbounds i8, ptr %0, i64 32
+  %valuelen16 = getelementptr inbounds nuw i8, ptr %hdrs, i64 104
+  %authoritylen = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load i64, ptr %authoritylen, align 8
   store i64 %6, ptr %valuelen16, align 8
-  %flags17 = getelementptr inbounds i8, ptr %hdrs, i64 112
+  %flags17 = getelementptr inbounds nuw i8, ptr %hdrs, i64 112
   store i8 0, ptr %flags17, align 16
-  %arrayinit.element18 = getelementptr inbounds i8, ptr %hdrs, i64 120
+  %arrayinit.element18 = getelementptr inbounds nuw i8, ptr %hdrs, i64 120
   store ptr @.str.25, ptr %arrayinit.element18, align 8
-  %value20 = getelementptr inbounds i8, ptr %hdrs, i64 128
-  %path = getelementptr inbounds i8, ptr %0, i64 24
+  %value20 = getelementptr inbounds nuw i8, ptr %hdrs, i64 128
+  %path = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %path, align 8
   store ptr %7, ptr %value20, align 16
-  %namelen21 = getelementptr inbounds i8, ptr %hdrs, i64 136
+  %namelen21 = getelementptr inbounds nuw i8, ptr %hdrs, i64 136
   store i64 5, ptr %namelen21, align 8
-  %valuelen22 = getelementptr inbounds i8, ptr %hdrs, i64 144
-  %pathlen = getelementptr inbounds i8, ptr %0, i64 40
+  %valuelen22 = getelementptr inbounds nuw i8, ptr %hdrs, i64 144
+  %pathlen = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load i64, ptr %pathlen, align 8
   store i64 %8, ptr %valuelen22, align 16
-  %flags23 = getelementptr inbounds i8, ptr %hdrs, i64 152
+  %flags23 = getelementptr inbounds nuw i8, ptr %hdrs, i64 152
   store i8 0, ptr %flags23, align 8
   %9 = load ptr, ptr @stderr, align 8
   %10 = tail call i64 @fwrite(ptr nonnull @.str.26, i64 17, i64 1, ptr %9) #18
@@ -686,13 +686,13 @@ entry:
 
 for.body.i:                                       ; preds = %for.body.i, %entry
   %i.010.i = phi i64 [ 0, %entry ], [ %inc.i, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds %struct.nghttp2_nv, ptr %hdrs, i64 %i.010.i
+  %arrayidx.i = getelementptr inbounds nuw %struct.nghttp2_nv, ptr %hdrs, i64 %i.010.i
   %12 = load ptr, ptr %arrayidx.i, align 8
-  %namelen.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
+  %namelen.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 16
   %13 = load i64, ptr %namelen.i, align 8
-  %value.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  %value.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   %14 = load ptr, ptr %value.i, align 8
-  %valuelen.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 24
+  %valuelen.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 24
   %15 = load i64, ptr %valuelen.i, align 8
   %call.i.i = tail call i64 @fwrite(ptr noundef %12, i64 noundef 1, i64 noundef %13, ptr noundef %11) #18
   %16 = tail call i64 @fwrite(ptr nonnull @.str.17, i64 2, i64 1, ptr %11) #18
@@ -715,7 +715,7 @@ if.then:                                          ; preds = %print_headers.exit
   unreachable
 
 if.end:                                           ; preds = %print_headers.exit
-  %stream_id28 = getelementptr inbounds i8, ptr %0, i64 48
+  %stream_id28 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 %call25, ptr %stream_id28, align 8
   ret void
 }
@@ -727,7 +727,7 @@ declare void @nghttp2_session_callbacks_set_send_callback(ptr noundef, ptr nound
 ; Function Attrs: nounwind uwtable
 define internal noundef i64 @send_callback(ptr nocapture readnone %session, ptr noundef %data, i64 noundef returned %length, i32 %flags, ptr nocapture noundef readonly %user_data) #0 {
 entry:
-  %bev1 = getelementptr inbounds i8, ptr %user_data, i64 16
+  %bev1 = getelementptr inbounds nuw i8, ptr %user_data, i64 16
   %0 = load ptr, ptr %bev1, align 8
   %call = tail call i32 @bufferevent_write(ptr noundef %0, ptr noundef %data, i64 noundef %length) #20
   ret i64 %length
@@ -738,23 +738,23 @@ declare void @nghttp2_session_callbacks_set_on_frame_recv_callback(ptr noundef, 
 ; Function Attrs: nofree nounwind uwtable
 define internal noundef i32 @on_frame_recv_callback(ptr nocapture readnone %session, ptr nocapture noundef readonly %frame, ptr nocapture noundef readonly %user_data) #13 {
 entry:
-  %type = getelementptr inbounds i8, ptr %frame, i64 12
+  %type = getelementptr inbounds nuw i8, ptr %frame, i64 12
   %0 = load i8, ptr %type, align 4
   %cond = icmp eq i8 %0, 1
   br i1 %cond, label %sw.bb, label %sw.epilog
 
 sw.bb:                                            ; preds = %entry
-  %cat = getelementptr inbounds i8, ptr %frame, i64 56
+  %cat = getelementptr inbounds nuw i8, ptr %frame, i64 56
   %1 = load i32, ptr %cat, align 8
   %cmp = icmp eq i32 %1, 1
   br i1 %cmp, label %land.lhs.true, label %sw.epilog
 
 land.lhs.true:                                    ; preds = %sw.bb
-  %stream_data = getelementptr inbounds i8, ptr %user_data, i64 24
+  %stream_data = getelementptr inbounds nuw i8, ptr %user_data, i64 24
   %2 = load ptr, ptr %stream_data, align 8
-  %stream_id = getelementptr inbounds i8, ptr %2, i64 48
+  %stream_id = getelementptr inbounds nuw i8, ptr %2, i64 48
   %3 = load i32, ptr %stream_id, align 8
-  %stream_id2 = getelementptr inbounds i8, ptr %frame, i64 8
+  %stream_id2 = getelementptr inbounds nuw i8, ptr %frame, i64 8
   %4 = load i32, ptr %stream_id2, align 8
   %cmp3 = icmp eq i32 %3, %4
   br i1 %cmp3, label %if.then, label %sw.epilog
@@ -773,9 +773,9 @@ declare void @nghttp2_session_callbacks_set_on_data_chunk_recv_callback(ptr noun
 ; Function Attrs: nofree nounwind uwtable
 define internal noundef i32 @on_data_chunk_recv_callback(ptr nocapture readnone %session, i8 zeroext %flags, i32 noundef %stream_id, ptr nocapture noundef %data, i64 noundef %len, ptr nocapture noundef readonly %user_data) #13 {
 entry:
-  %stream_data = getelementptr inbounds i8, ptr %user_data, i64 24
+  %stream_data = getelementptr inbounds nuw i8, ptr %user_data, i64 24
   %0 = load ptr, ptr %stream_data, align 8
-  %stream_id1 = getelementptr inbounds i8, ptr %0, i64 48
+  %stream_id1 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %1 = load i32, ptr %stream_id1, align 8
   %cmp = icmp eq i32 %1, %stream_id
   br i1 %cmp, label %if.then, label %if.end
@@ -794,9 +794,9 @@ declare void @nghttp2_session_callbacks_set_on_stream_close_callback(ptr noundef
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -902, 1) i32 @on_stream_close_callback(ptr noundef %session, i32 noundef %stream_id, i32 noundef %error_code, ptr nocapture noundef readonly %user_data) #0 {
 entry:
-  %stream_data = getelementptr inbounds i8, ptr %user_data, i64 24
+  %stream_data = getelementptr inbounds nuw i8, ptr %user_data, i64 24
   %0 = load ptr, ptr %stream_data, align 8
-  %stream_id1 = getelementptr inbounds i8, ptr %0, i64 48
+  %stream_id1 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %1 = load i32, ptr %stream_id1, align 8
   %cmp = icmp eq i32 %1, %stream_id
   br i1 %cmp, label %if.then, label %if.end5
@@ -821,23 +821,23 @@ declare void @nghttp2_session_callbacks_set_on_header_callback(ptr noundef, ptr 
 ; Function Attrs: nofree nounwind uwtable
 define internal noundef i32 @on_header_callback(ptr nocapture readnone %session, ptr nocapture noundef readonly %frame, ptr nocapture noundef %name, i64 noundef %namelen, ptr nocapture noundef %value, i64 noundef %valuelen, i8 zeroext %flags, ptr nocapture noundef readonly %user_data) #13 {
 entry:
-  %type = getelementptr inbounds i8, ptr %frame, i64 12
+  %type = getelementptr inbounds nuw i8, ptr %frame, i64 12
   %0 = load i8, ptr %type, align 4
   %cond = icmp eq i8 %0, 1
   br i1 %cond, label %sw.bb, label %sw.epilog
 
 sw.bb:                                            ; preds = %entry
-  %cat = getelementptr inbounds i8, ptr %frame, i64 56
+  %cat = getelementptr inbounds nuw i8, ptr %frame, i64 56
   %1 = load i32, ptr %cat, align 8
   %cmp = icmp eq i32 %1, 1
   br i1 %cmp, label %land.lhs.true, label %sw.epilog
 
 land.lhs.true:                                    ; preds = %sw.bb
-  %stream_data = getelementptr inbounds i8, ptr %user_data, i64 24
+  %stream_data = getelementptr inbounds nuw i8, ptr %user_data, i64 24
   %2 = load ptr, ptr %stream_data, align 8
-  %stream_id = getelementptr inbounds i8, ptr %2, i64 48
+  %stream_id = getelementptr inbounds nuw i8, ptr %2, i64 48
   %3 = load i32, ptr %stream_id, align 8
-  %stream_id2 = getelementptr inbounds i8, ptr %frame, i64 8
+  %stream_id2 = getelementptr inbounds nuw i8, ptr %frame, i64 8
   %4 = load i32, ptr %stream_id2, align 8
   %cmp3 = icmp eq i32 %3, %4
   br i1 %cmp3, label %if.then, label %sw.epilog
@@ -859,23 +859,23 @@ declare void @nghttp2_session_callbacks_set_on_begin_headers_callback(ptr nounde
 ; Function Attrs: nofree nounwind uwtable
 define internal noundef i32 @on_begin_headers_callback(ptr nocapture readnone %session, ptr nocapture noundef readonly %frame, ptr nocapture noundef readonly %user_data) #13 {
 entry:
-  %type = getelementptr inbounds i8, ptr %frame, i64 12
+  %type = getelementptr inbounds nuw i8, ptr %frame, i64 12
   %0 = load i8, ptr %type, align 4
   %cond = icmp eq i8 %0, 1
   br i1 %cond, label %sw.bb, label %sw.epilog
 
 sw.bb:                                            ; preds = %entry
-  %cat = getelementptr inbounds i8, ptr %frame, i64 56
+  %cat = getelementptr inbounds nuw i8, ptr %frame, i64 56
   %1 = load i32, ptr %cat, align 8
   %cmp = icmp eq i32 %1, 1
   br i1 %cmp, label %land.lhs.true, label %sw.epilog
 
 land.lhs.true:                                    ; preds = %sw.bb
-  %stream_data = getelementptr inbounds i8, ptr %user_data, i64 24
+  %stream_data = getelementptr inbounds nuw i8, ptr %user_data, i64 24
   %2 = load ptr, ptr %stream_data, align 8
-  %stream_id = getelementptr inbounds i8, ptr %2, i64 48
+  %stream_id = getelementptr inbounds nuw i8, ptr %2, i64 48
   %3 = load i32, ptr %stream_id, align 8
-  %stream_id2 = getelementptr inbounds i8, ptr %frame, i64 8
+  %stream_id2 = getelementptr inbounds nuw i8, ptr %frame, i64 8
   %4 = load i32, ptr %stream_id2, align 8
   %cmp3 = icmp eq i32 %3, %4
   br i1 %cmp3, label %if.then, label %sw.epilog

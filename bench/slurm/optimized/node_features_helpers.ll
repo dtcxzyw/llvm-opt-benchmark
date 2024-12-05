@@ -189,7 +189,7 @@ define dso_local range(i32 -1, 1) i32 @init() local_unnamed_addr #0 {
 .preheader.i.i:                                   ; preds = %38, %44
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %44 ], [ 0, %38 ]
   %.012.i.i = phi i32 [ %.1.i.i, %44 ], [ 0, %38 ]
-  %40 = getelementptr inbounds i8, ptr %39, i64 %indvars.iv.i.i
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 %indvars.iv.i.i
   %41 = load i8, ptr %40, align 1
   switch i8 %41, label %44 [
     i8 0, label %45
@@ -259,7 +259,7 @@ _make_uid_array.exit.i:                           ; preds = %._crit_edge.i.i, %3
 .lr.ph.i:                                         ; preds = %61, %_exclusive_register.exit.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_exclusive_register.exit.i ], [ 0, %61 ]
   %65 = load ptr, ptr %8, align 8
-  %66 = getelementptr inbounds ptr, ptr %65, i64 %indvars.iv.i
+  %66 = getelementptr inbounds nuw ptr, ptr %65, i64 %indvars.iv.i
   %67 = load ptr, ptr %66, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
@@ -512,11 +512,11 @@ define dso_local range(i32 -1, 1) i32 @node_features_p_node_set(ptr noundef %0) 
   br i1 %.not14, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
-  %10 = getelementptr inbounds i8, ptr %5, i64 12
-  %11 = getelementptr inbounds i8, ptr %5, i64 48
-  %12 = getelementptr inbounds i8, ptr %5, i64 24
-  %13 = getelementptr inbounds i8, ptr %5, i64 32
-  %14 = getelementptr inbounds i8, ptr %5, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 40
   br label %15
 
 15:                                               ; preds = %.lr.ph, %41
@@ -546,7 +546,7 @@ define dso_local range(i32 -1, 1) i32 @node_features_p_node_set(ptr noundef %0) 
   %24 = mul i32 %23, 1000
   store i32 %24, ptr %10, align 4
   store ptr %4, ptr %11, align 8
-  %25 = getelementptr inbounds i8, ptr %17, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %26 = load ptr, ptr %25, align 8
   %.not.i = icmp eq ptr %26, null
   br i1 %.not.i, label %_feature_set_state.exit.thread, label %27
@@ -566,7 +566,7 @@ _feature_set_state.exit.thread:                   ; preds = %22
   store ptr %30, ptr %28, align 8
   %31 = load ptr, ptr %17, align 8
   %32 = call ptr @xstrdup(ptr noundef %31) #10
-  %33 = getelementptr inbounds i8, ptr %28, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store ptr %32, ptr %33, align 8
   store ptr %28, ptr %12, align 8
   %34 = load ptr, ptr %25, align 8
@@ -645,7 +645,7 @@ define dso_local void @node_features_p_node_state(ptr noundef %0, ptr noundef %1
 
 15:                                               ; preds = %6, %9, %12
   %16 = tail call ptr @list_create(ptr noundef nonnull @xfree_ptr) #10
-  %17 = getelementptr inbounds i8, ptr %3, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %16, ptr %17, align 8
   store ptr %0, ptr %3, align 8
   %18 = load ptr, ptr @helper_features, align 8
@@ -700,7 +700,7 @@ define internal noundef i32 @_foreach_helper_get_modes(ptr nocapture noundef rea
   %5 = alloca i32, align 4
   %6 = alloca %struct.run_command_args_t, align 8
   %7 = load ptr, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -709,25 +709,25 @@ define internal noundef i32 @_foreach_helper_get_modes(ptr nocapture noundef rea
   store i32 0, ptr %5, align 4
   %10 = tail call ptr @list_create(ptr noundef nonnull @xfree_ptr) #10
   store ptr null, ptr %6, align 8
-  %11 = getelementptr inbounds i8, ptr %6, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 0, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %6, i64 12
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %13 = load i32, ptr @exec_time, align 4
   %14 = mul i32 %13, 1000
   store i32 %14, ptr %12, align 4
-  %15 = getelementptr inbounds i8, ptr %6, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i8 0, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %6, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr null, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %6, i64 32
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load ptr, ptr %18, align 8
   store ptr %19, ptr %17, align 8
-  %20 = getelementptr inbounds i8, ptr %6, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store ptr @.str.38, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %6, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store ptr %5, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %6, i64 56
+  %22 = getelementptr inbounds nuw i8, ptr %6, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %22, i8 0, i64 17, i1 false)
   %23 = call ptr @run_command(ptr noundef nonnull %6) #10
   store ptr %23, ptr %4, align 8
@@ -999,7 +999,7 @@ define dso_local ptr @node_features_p_job_xlate(ptr noundef %0, ptr noundef %1, 
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store ptr null, ptr %4, align 8
-  %14 = getelementptr inbounds i8, ptr %4, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %2, ptr %14, align 8
   %15 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %16 = and i64 %15, 140737488355328
@@ -1086,7 +1086,7 @@ define dso_local void @node_features_p_get_config(ptr noundef %0) local_unnamed_
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   tail call void @_xstrcat(ptr noundef %0, ptr noundef nonnull @plugin_type) #10
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr @helper_features, align 8
   %7 = tail call i32 @list_for_each(ptr noundef %6, ptr noundef nonnull @_make_features_config, ptr noundef %5) #10
@@ -1119,7 +1119,7 @@ define dso_local void @node_features_p_get_config(ptr noundef %0) local_unnamed_
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.0810.i = phi ptr [ @.str.37, %.lr.ph.preheader.i ], [ @.str.3, %.lr.ph.i ]
-  %18 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv.i
   %19 = load i32, ptr %18, align 4
   %20 = call ptr @uid_to_string(i32 noundef %19) #10
   store ptr %20, ptr %2, align 8
@@ -1138,7 +1138,7 @@ _make_uid_str.exit:                               ; preds = %.preheader.i, %16, 
   %.09.i = phi ptr [ %17, %16 ], [ %.pre.i, %._crit_edge.loopexit.i ], [ null, %.preheader.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  %22 = getelementptr inbounds i8, ptr %10, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %.09.i, ptr %22, align 8
   call void @list_append(ptr noundef %5, ptr noundef nonnull %10) #10
   %23 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.12, i32 noundef 996, ptr noundef nonnull @__func__.node_features_p_get_config) #10
@@ -1146,7 +1146,7 @@ _make_uid_str.exit:                               ; preds = %.preheader.i, %16, 
   store ptr %24, ptr %23, align 8
   %25 = load i32, ptr @boot_time, align 4
   %26 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.15, i32 noundef %25) #10
-  %27 = getelementptr inbounds i8, ptr %23, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store ptr %26, ptr %27, align 8
   call void @list_append(ptr noundef %5, ptr noundef nonnull %23) #10
   %28 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.12, i32 noundef 1001, ptr noundef nonnull @__func__.node_features_p_get_config) #10
@@ -1154,7 +1154,7 @@ _make_uid_str.exit:                               ; preds = %.preheader.i, %16, 
   store ptr %29, ptr %28, align 8
   %30 = load i32, ptr @exec_time, align 4
   %31 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.15, i32 noundef %30) #10
-  %32 = getelementptr inbounds i8, ptr %28, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store ptr %31, ptr %32, align 8
   call void @list_append(ptr noundef %5, ptr noundef nonnull %28) #10
   ret void
@@ -1176,7 +1176,7 @@ define internal noundef i32 @_make_features_config(ptr nocapture noundef readonl
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.45, ptr noundef %.val, ptr noundef %.val7) #10
   %7 = load ptr, ptr %3, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  %8 = getelementptr inbounds i8, ptr %4, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %7, ptr %8, align 8
   call void @list_append(ptr noundef %1, ptr noundef nonnull %4) #10
   ret i32 0
@@ -1193,7 +1193,7 @@ define internal noundef i32 @_make_exclusive_config(ptr noundef %0, ptr noundef 
   %6 = call i32 @list_for_each(ptr noundef %0, ptr noundef nonnull @_list_make_str, ptr noundef nonnull %3) #10
   %7 = load ptr, ptr %3, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  %8 = getelementptr inbounds i8, ptr %4, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %7, ptr %8, align 8
   call void @list_append(ptr noundef %1, ptr noundef nonnull %4) #10
   ret i32 0
@@ -1245,7 +1245,7 @@ define dso_local noundef zeroext i1 @node_features_p_user_update(i32 noundef %0)
 
 7:                                                ; preds = %.lr.ph, %6
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %6 ]
-  %8 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4
   %10 = icmp eq i32 %9, %0
   br i1 %10, label %.loopexit, label %6
@@ -1307,7 +1307,7 @@ define internal void @_feature_destroy(ptr noundef %0) #0 {
 
 3:                                                ; preds = %1
   tail call void @slurm_xfree(ptr noundef nonnull %0) #10
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @slurm_xfree(ptr noundef nonnull %4) #10
   call void @slurm_xfree(ptr noundef nonnull %2) #10
   br label %5
@@ -1337,7 +1337,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_config_features(ptr nocaptu
 
 .lr.ph25:                                         ; preds = %.lr.ph25.preheader, %._crit_edge
   %indvars.iv = phi i64 [ 0, %.lr.ph25.preheader ], [ %indvars.iv.next, %._crit_edge ]
-  %6 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %7, align 8
   %9 = call ptr @xstrdup(ptr noundef %8) #10
@@ -1347,7 +1347,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_config_features(ptr nocaptu
   br i1 %.not21, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph25
-  %11 = getelementptr inbounds i8, ptr %7, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
   br label %12
 
 12:                                               ; preds = %.lr.ph, %60
@@ -1374,7 +1374,7 @@ switch.early.test.i:                              ; preds = %15
   ]
 
 .preheader.i:                                     ; preds = %switch.early.test.i, %switch.early.test.i, %15
-  %22 = getelementptr inbounds i8, ptr %.022, i64 1
+  %22 = getelementptr inbounds nuw i8, ptr %.022, i64 1
   %23 = load i8, ptr %22, align 1
   %.not2234.i = icmp eq i8 %23, 0
   br i1 %.not2234.i, label %_is_feature_valid.exit, label %.lr.ph.i
@@ -1399,7 +1399,7 @@ switch.early.test31.i:                            ; preds = %.lr.ph.i
 
 29:                                               ; preds = %switch.early.test31.i, %switch.early.test31.i, %switch.early.test31.i, %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %30 = getelementptr inbounds i8, ptr %.022, i64 %indvars.iv.next.i
+  %30 = getelementptr inbounds nuw i8, ptr %.022, i64 %indvars.iv.next.i
   %31 = load i8, ptr %30, align 1
   %.not22.i = icmp eq i8 %31, 0
   br i1 %.not22.i, label %_is_feature_valid.exit, label %.lr.ph.i, !llvm.loop !18
@@ -1420,7 +1420,7 @@ _is_feature_valid.exit:                           ; preds = %29, %.preheader.i
   br i1 %36, label %60, label %37
 
 37:                                               ; preds = %35
-  %38 = getelementptr inbounds i8, ptr %34, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %39 = load ptr, ptr %38, align 8
   %40 = call i32 @xstrcmp(ptr noundef %39, ptr noundef %32) #10
   %.not13.i = icmp eq i32 %40, 0
@@ -1441,7 +1441,7 @@ _is_feature_valid.exit:                           ; preds = %29, %.preheader.i
   %48 = call ptr @xstrdup(ptr noundef nonnull %.022) #10
   store ptr %48, ptr %47, align 8
   %49 = call ptr @xstrdup(ptr noundef %32) #10
-  %50 = getelementptr inbounds i8, ptr %47, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %47, i64 8
   store ptr %49, ptr %50, align 8
   %51 = call i32 @get_log_level() #10
   %52 = icmp sgt i32 %51, 2
@@ -1525,7 +1525,7 @@ define internal range(i32 -1, 2) i32 @_parse_feature(ptr nocapture noundef write
   %24 = call ptr @xstrdup(ptr noundef %21) #10
   store ptr %24, ptr %23, align 8
   %25 = call ptr @xstrdup(ptr noundef %22) #10
-  %26 = getelementptr inbounds i8, ptr %23, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store ptr %25, ptr %26, align 8
   store ptr %23, ptr %0, align 8
   call void @slurm_xfree(ptr noundef nonnull %7) #10
@@ -1552,7 +1552,7 @@ define internal range(i32 -1, 2) i32 @_parse_feature_node(ptr nocapture noundef 
 
 8:                                                ; preds = %6
   %9 = load ptr, ptr @conf, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 4272
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 4272
   %11 = load ptr, ptr %10, align 8
   %12 = icmp ne ptr %11, null
   %13 = icmp ne ptr %3, null
@@ -1566,7 +1566,7 @@ define internal range(i32 -1, 2) i32 @_parse_feature_node(ptr nocapture noundef 
 
 16:                                               ; preds = %14
   %17 = load ptr, ptr @conf, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 4272
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 4272
   %19 = load ptr, ptr %18, align 8
   %20 = tail call i32 @hostlist_find(ptr noundef nonnull %15, ptr noundef %19) #10
   %21 = icmp sgt i32 %20, -1
@@ -1630,7 +1630,7 @@ declare i32 @list_count(ptr noundef) local_unnamed_addr #1
 define internal range(i32 -1, 1) i32 @_count_exclusivity(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca %struct.excl_count_t, align 8
   store ptr %1, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 0, ptr %4, align 8
   %5 = call i32 @list_for_each(ptr noundef %0, ptr noundef nonnull @_get_list_excl_count, ptr noundef nonnull %3) #10
   %6 = load i32, ptr %4, align 8
@@ -1650,13 +1650,13 @@ define internal noundef i32 @_get_list_excl_count(ptr noundef %0, ptr nocapture 
   %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #12
   %6 = tail call ptr @__ctype_b_loc() #13
   %7 = and i64 %5, 4294967295
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %9
 
 9:                                                ; preds = %.lr.ph, %.backedge
   %.037 = phi ptr [ %4, %.lr.ph ], [ %17, %.backedge ]
   %10 = load ptr, ptr %6, align 8
-  %11 = getelementptr inbounds i8, ptr %.037, i64 %7
+  %11 = getelementptr inbounds nuw i8, ptr %.037, i64 %7
   %12 = load i8, ptr %11, align 1
   %13 = sext i8 %12 to i64
   %14 = getelementptr inbounds i16, ptr %10, i64 %13
@@ -1739,8 +1739,8 @@ define internal range(i32 -1, 1) i32 @_reconcile_job_features(ptr noundef %0, pt
   %3 = alloca %struct.build_valid_feature_set_args_t, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   store ptr %8, ptr %6, align 8
   %9 = tail call ptr @list_create(ptr noundef nonnull @xfree_ptr) #10
@@ -1800,16 +1800,16 @@ define internal range(i32 -1, 1) i32 @_reconcile_job_features(ptr noundef %0, pt
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @_build_valid_feature_set(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 @bit_super_set(ptr noundef %4, ptr noundef %6) #10
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %16, label %8
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 10
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 10
   %10 = load i8, ptr %9, align 2
   %11 = trunc i8 %10 to i1
   br i1 %11, label %12, label %24

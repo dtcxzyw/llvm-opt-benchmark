@@ -88,7 +88,7 @@ define noundef ptr @_Z6rtodmsPcmdii(ptr noundef returned %0, i64 noundef %1, dou
 
 12:                                               ; preds = %9
   %13 = add i64 %1, -1
-  %14 = getelementptr inbounds i8, ptr %0, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 45, ptr %0, align 1
   br label %15
 
@@ -143,7 +143,7 @@ define noundef ptr @_Z6rtodmsPcmdii(ptr noundef returned %0, i64 noundef %1, dou
   br label %.loopexit85
 
 41:                                               ; preds = %38
-  %42 = getelementptr inbounds i8, ptr %.063, i64 1
+  %42 = getelementptr inbounds nuw i8, ptr %.063, i64 1
   br label %38, !llvm.loop !6
 
 .loopexit85:                                      ; preds = %38, %40
@@ -180,7 +180,7 @@ define noundef ptr @_Z6rtodmsPcmdii(ptr noundef returned %0, i64 noundef %1, dou
 
 52:                                               ; preds = %.loopexit
   %.2.ptr = getelementptr inbounds i8, ptr %47, i64 %.2.idx
-  %53 = getelementptr inbounds i8, ptr %47, i64 1
+  %53 = getelementptr inbounds nuw i8, ptr %47, i64 1
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(2) %.2.ptr, ptr noundef nonnull align 1 dereferenceable(2) %53, i64 %36, i1 false)
   br label %59
 

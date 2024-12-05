@@ -13,58 +13,58 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define hidden void @packet_range_init(ptr noundef initializes((0, 240)) %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %0, i8 0, i64 240, i1 false)
   store ptr %1, ptr %4, align 8
   %5 = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal) #8
-  %6 = getelementptr inbounds i8, ptr %0, i64 168
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store ptr %5, ptr %6, align 8
   %7 = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal) #8
-  %8 = getelementptr inbounds i8, ptr %0, i64 176
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store ptr %7, ptr %8, align 8
   %9 = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal) #8
-  %10 = getelementptr inbounds i8, ptr %0, i64 184
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 184
   store ptr %9, ptr %10, align 8
   %11 = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal) #8
-  %12 = getelementptr inbounds i8, ptr %0, i64 192
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store ptr %11, ptr %12, align 8
   %13 = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal) #8
-  %14 = getelementptr inbounds i8, ptr %0, i64 200
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 200
   store ptr %13, ptr %14, align 8
   %15 = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal) #8
-  %16 = getelementptr inbounds i8, ptr %0, i64 208
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 208
   store ptr %15, ptr %16, align 8
   %17 = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal) #8
-  %18 = getelementptr inbounds i8, ptr %0, i64 216
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 216
   store ptr %17, ptr %18, align 8
   %19 = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal) #8
-  %20 = getelementptr inbounds i8, ptr %0, i64 224
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 224
   store ptr %19, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 56
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 0, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 84
-  %23 = getelementptr inbounds i8, ptr %0, i64 88
-  %24 = getelementptr inbounds i8, ptr %0, i64 92
-  %25 = getelementptr inbounds i8, ptr %0, i64 104
-  %26 = getelementptr inbounds i8, ptr %0, i64 112
-  %27 = getelementptr inbounds i8, ptr %0, i64 116
-  %28 = getelementptr inbounds i8, ptr %0, i64 108
-  %29 = getelementptr inbounds i8, ptr %0, i64 128
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 84
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 92
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 116
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 108
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i32 0, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 144
-  %31 = getelementptr inbounds i8, ptr %0, i64 148
-  %32 = getelementptr inbounds i8, ptr %0, i64 152
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 148
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 152
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %22, i8 0, i64 36, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %30, i8 0, i64 20, i1 false)
   %33 = load ptr, ptr %4, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 280
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 280
   %35 = load ptr, ptr %34, align 8
   %.not.i = icmp eq ptr %35, null
   br i1 %.not.i, label %packet_range_calc.exit, label %.preheader125.i
 
 .preheader125.i:                                  ; preds = %2
-  %36 = getelementptr inbounds i8, ptr %33, i64 80
+  %36 = getelementptr inbounds nuw i8, ptr %33, i64 80
   %37 = load i32, ptr %36, align 8
   %.not104126.i = icmp eq i32 %37, 0
   br i1 %.not104126.i, label %._crit_edge.i, label %.lr.ph.i
@@ -80,11 +80,11 @@ define hidden void @packet_range_init(ptr noundef initializes((0, 240)) %0, ptr 
   %.096129.i = phi i32 [ %.197.i, %107 ], [ 0, %.preheader125.i ]
   %.099128.i = phi i32 [ %.1100.i, %107 ], [ 0, %.preheader125.i ]
   %.0102127.i = phi i32 [ %108, %107 ], [ 1, %.preheader125.i ]
-  %40 = getelementptr inbounds i8, ptr %39, i64 280
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 280
   %41 = load ptr, ptr %40, align 8
   %42 = tail call ptr @frame_data_sequence_find(ptr noundef %41, i32 noundef %.0102127.i) #8
   %43 = load ptr, ptr %4, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 376
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 376
   %45 = load ptr, ptr %44, align 8
   %46 = icmp eq ptr %45, %42
   br i1 %46, label %47, label %52
@@ -99,7 +99,7 @@ define hidden void @packet_range_init(ptr noundef initializes((0, 240)) %0, ptr 
   br label %52
 
 52:                                               ; preds = %50, %47, %.lr.ph.i
-  %53 = getelementptr inbounds i8, ptr %42, i64 50
+  %53 = getelementptr inbounds nuw i8, ptr %42, i64 50
   %54 = load i16, ptr %53, align 2
   %55 = and i16 %54, 1
   %.not113.i = icmp eq i16 %55, 0
@@ -170,7 +170,7 @@ define hidden void @packet_range_init(ptr noundef initializes((0, 240)) %0, ptr 
   %.3.i = tail call i32 @llvm.umax.i32(i32 %.0102127.i, i32 %.0131.i)
   %86 = load ptr, ptr %8, align 8
   %87 = load ptr, ptr %4, align 8
-  %88 = getelementptr inbounds i8, ptr %87, i64 280
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 280
   %89 = load ptr, ptr %88, align 8
   tail call fastcc void @depended_frames_add(ptr noundef %86, ptr noundef %89, ptr noundef nonnull %42)
   br label %90
@@ -183,7 +183,7 @@ define hidden void @packet_range_init(ptr noundef initializes((0, 240)) %0, ptr 
   %.298.i = tail call i32 @llvm.umax.i32(i32 %.0102127.i, i32 %.096129.i)
   %92 = load ptr, ptr %6, align 8
   %93 = load ptr, ptr %4, align 8
-  %94 = getelementptr inbounds i8, ptr %93, i64 280
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 280
   %95 = load ptr, ptr %94, align 8
   tail call fastcc void @depended_frames_add(ptr noundef %92, ptr noundef %95, ptr noundef nonnull %42)
   %.pre140.i = load i16, ptr %53, align 2
@@ -217,7 +217,7 @@ define hidden void @packet_range_init(ptr noundef initializes((0, 240)) %0, ptr 
 107:                                              ; preds = %104, %99, %96
   %108 = add i32 %.0102127.i, 1
   %109 = load ptr, ptr %4, align 8
-  %110 = getelementptr inbounds i8, ptr %109, i64 80
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 80
   %111 = load i32, ptr %110, align 8
   %.not104.i = icmp ugt i32 %108, %111
   br i1 %.not104.i, label %.preheader.i, label %.lr.ph.i, !llvm.loop !4
@@ -225,7 +225,7 @@ define hidden void @packet_range_init(ptr noundef initializes((0, 240)) %0, ptr 
 .lr.ph137.i:                                      ; preds = %.preheader.i, %148
   %112 = phi ptr [ %150, %148 ], [ %109, %.preheader.i ]
   %.1103136.i = phi i32 [ %149, %148 ], [ 1, %.preheader.i ]
-  %113 = getelementptr inbounds i8, ptr %112, i64 280
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 280
   %114 = load ptr, ptr %113, align 8
   %115 = tail call ptr @frame_data_sequence_find(ptr noundef %114, i32 noundef %.1103136.i) #8
   %.not106.i = icmp ult i32 %.1103136.i, %.1100.i
@@ -237,7 +237,7 @@ define hidden void @packet_range_init(ptr noundef initializes((0, 240)) %0, ptr 
   %117 = load i32, ptr %21, align 8
   %118 = add i32 %117, 1
   store i32 %118, ptr %21, align 8
-  %119 = getelementptr inbounds i8, ptr %115, i64 50
+  %119 = getelementptr inbounds nuw i8, ptr %115, i64 50
   %120 = load i16, ptr %119, align 2
   %121 = and i16 %120, 64
   %.not108.i = icmp eq i16 %121, 0
@@ -252,7 +252,7 @@ define hidden void @packet_range_init(ptr noundef initializes((0, 240)) %0, ptr 
 125:                                              ; preds = %122, %116
   %126 = load ptr, ptr %10, align 8
   %127 = load ptr, ptr %4, align 8
-  %128 = getelementptr inbounds i8, ptr %127, i64 280
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 280
   %129 = load ptr, ptr %128, align 8
   tail call fastcc void @depended_frames_add(ptr noundef %126, ptr noundef %129, ptr noundef nonnull %115)
   br label %130
@@ -264,7 +264,7 @@ define hidden void @packet_range_init(ptr noundef initializes((0, 240)) %0, ptr 
   br i1 %or.cond124.i, label %148, label %131
 
 131:                                              ; preds = %130
-  %132 = getelementptr inbounds i8, ptr %115, i64 50
+  %132 = getelementptr inbounds nuw i8, ptr %115, i64 50
   %133 = load i16, ptr %132, align 2
   %134 = and i16 %133, 1
   %.not111.i = icmp eq i16 %134, 0
@@ -288,7 +288,7 @@ define hidden void @packet_range_init(ptr noundef initializes((0, 240)) %0, ptr 
 143:                                              ; preds = %140, %135, %131
   %144 = load ptr, ptr %12, align 8
   %145 = load ptr, ptr %4, align 8
-  %146 = getelementptr inbounds i8, ptr %145, i64 280
+  %146 = getelementptr inbounds nuw i8, ptr %145, i64 280
   %147 = load ptr, ptr %146, align 8
   tail call fastcc void @depended_frames_add(ptr noundef %144, ptr noundef %147, ptr noundef nonnull %115)
   br label %148
@@ -296,7 +296,7 @@ define hidden void @packet_range_init(ptr noundef initializes((0, 240)) %0, ptr 
 148:                                              ; preds = %143, %130
   %149 = add i32 %.1103136.i, 1
   %150 = load ptr, ptr %4, align 8
-  %151 = getelementptr inbounds i8, ptr %150, i64 80
+  %151 = getelementptr inbounds nuw i8, ptr %150, i64 80
   %152 = load i32, ptr %151, align 8
   %.not105.i = icmp ugt i32 %149, %152
   br i1 %.not105.i, label %._crit_edge.i, label %.lr.ph137.i, !llvm.loop !6
@@ -304,15 +304,15 @@ define hidden void @packet_range_init(ptr noundef initializes((0, 240)) %0, ptr 
 ._crit_edge.i:                                    ; preds = %148, %.preheader.i, %.preheader125.i
   %153 = load ptr, ptr %6, align 8
   %154 = tail call i32 @g_hash_table_size(ptr noundef %153) #8
-  %155 = getelementptr inbounds i8, ptr %0, i64 68
+  %155 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i32 %154, ptr %155, align 4
   %156 = load ptr, ptr %8, align 8
   %157 = tail call i32 @g_hash_table_size(ptr noundef %156) #8
-  %158 = getelementptr inbounds i8, ptr %0, i64 124
+  %158 = getelementptr inbounds nuw i8, ptr %0, i64 124
   store i32 %157, ptr %158, align 4
   %159 = load ptr, ptr %10, align 8
   %160 = tail call i32 @g_hash_table_size(ptr noundef %159) #8
-  %161 = getelementptr inbounds i8, ptr %0, i64 72
+  %161 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 %160, ptr %161, align 8
   %162 = load ptr, ptr %12, align 8
   %163 = tail call i32 @g_hash_table_size(ptr noundef %162) #8
@@ -338,39 +338,39 @@ declare i32 @g_direct_equal(ptr noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @packet_range_calc_user(ptr nocapture noundef initializes((60, 64), (96, 100), (120, 124), (132, 136), (156, 160)) %0) unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 60
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 60
   store i32 0, ptr %2, align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 96
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i32 0, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 120
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i32 0, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 132
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 132
   store i32 0, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 156
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 156
   store i32 0, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 280
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 280
   %10 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %64, label %.preheader
 
 .preheader:                                       ; preds = %1
-  %11 = getelementptr inbounds i8, ptr %8, i64 80
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 80
   %12 = load i32, ptr %11, align 8
   %.not2934 = icmp eq i32 %12, 0
   br i1 %.not2934, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
-  %14 = getelementptr inbounds i8, ptr %0, i64 200
-  %15 = getelementptr inbounds i8, ptr %0, i64 208
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 208
   br label %16
 
 16:                                               ; preds = %.lr.ph, %52
   %17 = phi ptr [ %8, %.lr.ph ], [ %54, %52 ]
   %.035 = phi i32 [ 1, %.lr.ph ], [ %53, %52 ]
-  %18 = getelementptr inbounds i8, ptr %17, i64 280
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 280
   %19 = load ptr, ptr %18, align 8
   %20 = tail call ptr @frame_data_sequence_find(ptr noundef %19, i32 noundef %.035) #8
   %21 = load ptr, ptr %13, align 8
@@ -382,7 +382,7 @@ define internal fastcc void @packet_range_calc_user(ptr nocapture noundef initia
   %24 = load i32, ptr %2, align 4
   %25 = add i32 %24, 1
   store i32 %25, ptr %2, align 4
-  %26 = getelementptr inbounds i8, ptr %20, i64 50
+  %26 = getelementptr inbounds nuw i8, ptr %20, i64 50
   %27 = load i16, ptr %26, align 2
   %28 = and i16 %27, 64
   %.not31 = icmp eq i16 %28, 0
@@ -397,7 +397,7 @@ define internal fastcc void @packet_range_calc_user(ptr nocapture noundef initia
 32:                                               ; preds = %29, %23
   %33 = load ptr, ptr %14, align 8
   %34 = load ptr, ptr %7, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 280
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 280
   %36 = load ptr, ptr %35, align 8
   tail call fastcc void @depended_frames_add(ptr noundef %33, ptr noundef %36, ptr noundef nonnull %20)
   %37 = load i16, ptr %26, align 2
@@ -423,7 +423,7 @@ define internal fastcc void @packet_range_calc_user(ptr nocapture noundef initia
 47:                                               ; preds = %44, %39
   %48 = load ptr, ptr %15, align 8
   %49 = load ptr, ptr %7, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 280
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 280
   %51 = load ptr, ptr %50, align 8
   tail call fastcc void @depended_frames_add(ptr noundef %48, ptr noundef %51, ptr noundef nonnull %20)
   br label %52
@@ -431,18 +431,18 @@ define internal fastcc void @packet_range_calc_user(ptr nocapture noundef initia
 52:                                               ; preds = %16, %47, %32
   %53 = add i32 %.035, 1
   %54 = load ptr, ptr %7, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 80
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 80
   %56 = load i32, ptr %55, align 8
   %.not29 = icmp ugt i32 %53, %56
   br i1 %.not29, label %._crit_edge, label %16, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %52, %.preheader
-  %57 = getelementptr inbounds i8, ptr %0, i64 200
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %58 = load ptr, ptr %57, align 8
   %59 = tail call i32 @g_hash_table_size(ptr noundef %58) #8
-  %60 = getelementptr inbounds i8, ptr %0, i64 76
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 76
   store i32 %59, ptr %60, align 4
-  %61 = getelementptr inbounds i8, ptr %0, i64 208
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %62 = load ptr, ptr %61, align 8
   %63 = tail call i32 @g_hash_table_size(ptr noundef %62) #8
   store i32 %63, ptr %5, align 4
@@ -454,37 +454,37 @@ define internal fastcc void @packet_range_calc_user(ptr nocapture noundef initia
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @packet_range_calc_selection(ptr nocapture noundef initializes((64, 68), (100, 104), (136, 140), (160, 164)) %0) unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 64
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 0, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 100
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 100
   store i32 0, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 136
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store i32 0, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 160
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store i32 0, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 280
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 280
   %9 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %64, label %.preheader
 
 .preheader:                                       ; preds = %1
-  %10 = getelementptr inbounds i8, ptr %7, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 80
   %11 = load i32, ptr %10, align 8
   %.not2833 = icmp eq i32 %11, 0
   br i1 %.not2833, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
-  %13 = getelementptr inbounds i8, ptr %0, i64 216
-  %14 = getelementptr inbounds i8, ptr %0, i64 224
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 216
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 224
   br label %15
 
 15:                                               ; preds = %.lr.ph, %51
   %16 = phi ptr [ %7, %.lr.ph ], [ %53, %51 ]
   %.034 = phi i32 [ 1, %.lr.ph ], [ %52, %51 ]
-  %17 = getelementptr inbounds i8, ptr %16, i64 280
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 280
   %18 = load ptr, ptr %17, align 8
   %19 = tail call ptr @frame_data_sequence_find(ptr noundef %18, i32 noundef %.034) #8
   %20 = load ptr, ptr %12, align 8
@@ -496,7 +496,7 @@ define internal fastcc void @packet_range_calc_selection(ptr nocapture noundef i
   %23 = load i32, ptr %2, align 8
   %24 = add i32 %23, 1
   store i32 %24, ptr %2, align 8
-  %25 = getelementptr inbounds i8, ptr %19, i64 50
+  %25 = getelementptr inbounds nuw i8, ptr %19, i64 50
   %26 = load i16, ptr %25, align 2
   %27 = and i16 %26, 64
   %.not30 = icmp eq i16 %27, 0
@@ -511,7 +511,7 @@ define internal fastcc void @packet_range_calc_selection(ptr nocapture noundef i
 31:                                               ; preds = %28, %22
   %32 = load ptr, ptr %13, align 8
   %33 = load ptr, ptr %6, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 280
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 280
   %35 = load ptr, ptr %34, align 8
   tail call fastcc void @depended_frames_add(ptr noundef %32, ptr noundef %35, ptr noundef nonnull %19)
   %36 = load i16, ptr %25, align 2
@@ -537,7 +537,7 @@ define internal fastcc void @packet_range_calc_selection(ptr nocapture noundef i
 46:                                               ; preds = %43, %38
   %47 = load ptr, ptr %14, align 8
   %48 = load ptr, ptr %6, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 280
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 280
   %50 = load ptr, ptr %49, align 8
   tail call fastcc void @depended_frames_add(ptr noundef %47, ptr noundef %50, ptr noundef nonnull %19)
   br label %51
@@ -545,21 +545,21 @@ define internal fastcc void @packet_range_calc_selection(ptr nocapture noundef i
 51:                                               ; preds = %15, %46, %31
   %52 = add i32 %.034, 1
   %53 = load ptr, ptr %6, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 80
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 80
   %55 = load i32, ptr %54, align 8
   %.not28 = icmp ugt i32 %52, %55
   br i1 %.not28, label %._crit_edge, label %15, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %51, %.preheader
-  %56 = getelementptr inbounds i8, ptr %0, i64 216
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %57 = load ptr, ptr %56, align 8
   %58 = tail call i32 @g_hash_table_size(ptr noundef %57) #8
-  %59 = getelementptr inbounds i8, ptr %0, i64 80
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 %58, ptr %59, align 8
-  %60 = getelementptr inbounds i8, ptr %0, i64 224
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %61 = load ptr, ptr %60, align 8
   %62 = tail call i32 @g_hash_table_size(ptr noundef %61) #8
-  %63 = getelementptr inbounds i8, ptr %0, i64 140
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 140
   store i32 %62, ptr %63, align 4
   br label %64
 
@@ -569,34 +569,34 @@ define internal fastcc void @packet_range_calc_selection(ptr nocapture noundef i
 
 ; Function Attrs: nounwind uwtable
 define hidden void @packet_range_cleanup(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   tail call void @wmem_free(ptr noundef null, ptr noundef %3) #8
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
   tail call void @wmem_free(ptr noundef null, ptr noundef %5) #8
-  %6 = getelementptr inbounds i8, ptr %0, i64 168
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %7 = load ptr, ptr %6, align 8
   tail call void @g_hash_table_destroy(ptr noundef %7) #8
-  %8 = getelementptr inbounds i8, ptr %0, i64 176
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %9 = load ptr, ptr %8, align 8
   tail call void @g_hash_table_destroy(ptr noundef %9) #8
-  %10 = getelementptr inbounds i8, ptr %0, i64 184
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %11 = load ptr, ptr %10, align 8
   tail call void @g_hash_table_destroy(ptr noundef %11) #8
-  %12 = getelementptr inbounds i8, ptr %0, i64 192
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %13 = load ptr, ptr %12, align 8
   tail call void @g_hash_table_destroy(ptr noundef %13) #8
-  %14 = getelementptr inbounds i8, ptr %0, i64 200
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %15 = load ptr, ptr %14, align 8
   tail call void @g_hash_table_destroy(ptr noundef %15) #8
-  %16 = getelementptr inbounds i8, ptr %0, i64 208
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %17 = load ptr, ptr %16, align 8
   tail call void @g_hash_table_destroy(ptr noundef %17) #8
-  %18 = getelementptr inbounds i8, ptr %0, i64 216
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %19 = load ptr, ptr %18, align 8
   tail call void @g_hash_table_destroy(ptr noundef %19) #8
-  %20 = getelementptr inbounds i8, ptr %0, i64 224
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %21 = load ptr, ptr %20, align 8
   tail call void @g_hash_table_destroy(ptr noundef %21) #8
   ret void
@@ -615,20 +615,20 @@ define hidden i32 @packet_range_check(ptr nocapture noundef readonly %0) local_u
   ]
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %.thread.sink.split, label %.thread
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %.thread.sink.split, label %.thread
 
 .thread.sink.split:                               ; preds = %7, %3
   %.sink6 = phi i64 [ 24, %3 ], [ 40, %7 ]
-  %11 = getelementptr inbounds i8, ptr %0, i64 %.sink6
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink6
   %12 = load i32, ptr %11, align 8
   br label %.thread
 
@@ -639,15 +639,15 @@ define hidden i32 @packet_range_check(ptr nocapture noundef readonly %0) local_u
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @packet_range_process_init(ptr nocapture noundef initializes((232, 236)) %0) local_unnamed_addr #5 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 232
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 232
   store i32 0, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, 0
   %. = select i1 %5, i64 56, i64 116
-  %6 = getelementptr inbounds i8, ptr %0, i64 %.
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 %.
   %.sink = load i32, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 236
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 236
   store i32 %.sink, ptr %7, align 4
   ret void
 }
@@ -659,13 +659,13 @@ define hidden range(i32 0, 2) i32 @packet_range_process_all(ptr nocapture nounde
   br i1 %3, label %4, label %11
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %7, label %11
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i32, ptr %8, align 8
   %.not3 = icmp eq i32 %9, 0
   %10 = zext i1 %.not3 to i32
@@ -678,20 +678,20 @@ define hidden range(i32 0, 2) i32 @packet_range_process_all(ptr nocapture nounde
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 3) i32 @packet_range_process_packet(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %9, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 50
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 50
   %7 = load i16, ptr %6, align 2
   %8 = and i16 %7, 64
   %.not21 = icmp eq i16 %8, 0
   br i1 %.not21, label %9, label %packet_range_process_packet_include_depends.exit
 
 9:                                                ; preds = %5, %2
-  %10 = getelementptr inbounds i8, ptr %0, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %11 = load i32, ptr %10, align 4
   %.not22 = icmp eq i32 %11, 0
   %12 = load i32, ptr %0, align 8
@@ -707,20 +707,20 @@ define hidden range(i32 0, 3) i32 @packet_range_process_packet(ptr nocapture nou
   ]
 
 14:                                               ; preds = %13
-  %15 = getelementptr inbounds i8, ptr %0, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %16 = load i32, ptr %15, align 4
   %.not35.i = icmp eq i32 %16, 0
   br i1 %.not35.i, label %79, label %17
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %1, i64 50
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 50
   %19 = load i16, ptr %18, align 2
   %20 = and i16 %19, 3
   %21 = icmp eq i16 %20, 0
   br i1 %21, label %packet_range_process_packet_include_depends.exit, label %79
 
 22:                                               ; preds = %13
-  %23 = getelementptr inbounds i8, ptr %0, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %24 = load i32, ptr %23, align 4
   %.not32.i = icmp eq i32 %24, 0
   %25 = load i32, ptr %1, align 8
@@ -729,21 +729,21 @@ define hidden range(i32 0, 3) i32 @packet_range_process_packet(ptr nocapture nou
   br i1 %.not32.i, label %32, label %28
 
 28:                                               ; preds = %22
-  %29 = getelementptr inbounds i8, ptr %0, i64 224
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %30 = load ptr, ptr %29, align 8
   %31 = tail call i32 @g_hash_table_contains(ptr noundef %30, ptr noundef %27) #8
   %.not34.i = icmp eq i32 %31, 0
   br i1 %.not34.i, label %packet_range_process_packet_include_depends.exit, label %79
 
 32:                                               ; preds = %22
-  %33 = getelementptr inbounds i8, ptr %0, i64 216
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %34 = load ptr, ptr %33, align 8
   %35 = tail call i32 @g_hash_table_contains(ptr noundef %34, ptr noundef %27) #8
   %.not33.i = icmp eq i32 %35, 0
   br i1 %.not33.i, label %packet_range_process_packet_include_depends.exit, label %79
 
 36:                                               ; preds = %13
-  %37 = getelementptr inbounds i8, ptr %0, i64 4
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %38 = load i32, ptr %37, align 4
   %.not29.i = icmp eq i32 %38, 0
   %39 = load i32, ptr %1, align 8
@@ -752,21 +752,21 @@ define hidden range(i32 0, 3) i32 @packet_range_process_packet(ptr nocapture nou
   br i1 %.not29.i, label %46, label %42
 
 42:                                               ; preds = %36
-  %43 = getelementptr inbounds i8, ptr %0, i64 176
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %44 = load ptr, ptr %43, align 8
   %45 = tail call i32 @g_hash_table_contains(ptr noundef %44, ptr noundef %41) #8
   %.not31.i = icmp eq i32 %45, 0
   br i1 %.not31.i, label %packet_range_process_packet_include_depends.exit, label %79
 
 46:                                               ; preds = %36
-  %47 = getelementptr inbounds i8, ptr %0, i64 168
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %48 = load ptr, ptr %47, align 8
   %49 = tail call i32 @g_hash_table_contains(ptr noundef %48, ptr noundef %41) #8
   %.not30.i = icmp eq i32 %49, 0
   br i1 %.not30.i, label %packet_range_process_packet_include_depends.exit, label %79
 
 50:                                               ; preds = %13
-  %51 = getelementptr inbounds i8, ptr %0, i64 4
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %52 = load i32, ptr %51, align 4
   %.not26.i = icmp eq i32 %52, 0
   %53 = load i32, ptr %1, align 8
@@ -775,21 +775,21 @@ define hidden range(i32 0, 3) i32 @packet_range_process_packet(ptr nocapture nou
   br i1 %.not26.i, label %60, label %56
 
 56:                                               ; preds = %50
-  %57 = getelementptr inbounds i8, ptr %0, i64 192
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %58 = load ptr, ptr %57, align 8
   %59 = tail call i32 @g_hash_table_contains(ptr noundef %58, ptr noundef %55) #8
   %.not28.i = icmp eq i32 %59, 0
   br i1 %.not28.i, label %packet_range_process_packet_include_depends.exit, label %79
 
 60:                                               ; preds = %50
-  %61 = getelementptr inbounds i8, ptr %0, i64 184
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %62 = load ptr, ptr %61, align 8
   %63 = tail call i32 @g_hash_table_contains(ptr noundef %62, ptr noundef %55) #8
   %.not27.i = icmp eq i32 %63, 0
   br i1 %.not27.i, label %packet_range_process_packet_include_depends.exit, label %79
 
 64:                                               ; preds = %13
-  %65 = getelementptr inbounds i8, ptr %0, i64 4
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %66 = load i32, ptr %65, align 4
   %.not.i = icmp eq i32 %66, 0
   %67 = load i32, ptr %1, align 8
@@ -798,14 +798,14 @@ define hidden range(i32 0, 3) i32 @packet_range_process_packet(ptr nocapture nou
   br i1 %.not.i, label %74, label %70
 
 70:                                               ; preds = %64
-  %71 = getelementptr inbounds i8, ptr %0, i64 208
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %72 = load ptr, ptr %71, align 8
   %73 = tail call i32 @g_hash_table_contains(ptr noundef %72, ptr noundef %69) #8
   %.not25.i = icmp eq i32 %73, 0
   br i1 %.not25.i, label %packet_range_process_packet_include_depends.exit, label %79
 
 74:                                               ; preds = %64
-  %75 = getelementptr inbounds i8, ptr %0, i64 200
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %76 = load ptr, ptr %75, align 8
   %77 = tail call i32 @g_hash_table_contains(ptr noundef %76, ptr noundef %69) #8
   %.not24.i = icmp eq i32 %77, 0
@@ -828,7 +828,7 @@ define hidden range(i32 0, 3) i32 @packet_range_process_packet(ptr nocapture nou
   ]
 
 81:                                               ; preds = %80
-  %82 = getelementptr inbounds i8, ptr %0, i64 32
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %83 = load ptr, ptr %82, align 8
   %84 = load i32, ptr %1, align 8
   %85 = tail call i32 @value_is_in_range(ptr noundef %83, i32 noundef %84) #8
@@ -836,24 +836,24 @@ define hidden range(i32 0, 3) i32 @packet_range_process_packet(ptr nocapture nou
   br i1 %86, label %packet_range_process_packet_include_depends.exit, label %117
 
 87:                                               ; preds = %80
-  %88 = getelementptr inbounds i8, ptr %1, i64 50
+  %88 = getelementptr inbounds nuw i8, ptr %1, i64 50
   %89 = load i16, ptr %88, align 2
   %90 = and i16 %89, 16
   %91 = icmp eq i16 %90, 0
   br i1 %91, label %packet_range_process_packet_include_depends.exit, label %117
 
 92:                                               ; preds = %80
-  %93 = getelementptr inbounds i8, ptr %0, i64 236
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %94 = load i32, ptr %93, align 4
   %95 = icmp eq i32 %94, 0
   br i1 %95, label %packet_range_process_packet_include_depends.exit, label %96
 
 96:                                               ; preds = %92
-  %97 = getelementptr inbounds i8, ptr %1, i64 50
+  %97 = getelementptr inbounds nuw i8, ptr %1, i64 50
   %98 = load i16, ptr %97, align 2
   %99 = and i16 %98, 16
   %.not23 = icmp eq i16 %99, 0
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 232
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 232
   br i1 %.not23, label %100, label %.thread
 
 .thread:                                          ; preds = %96
@@ -866,7 +866,7 @@ define hidden range(i32 0, 3) i32 @packet_range_process_packet(ptr nocapture nou
   br i1 %101, label %packet_range_process_packet_include_depends.exit, label %102
 
 102:                                              ; preds = %.thread, %100
-  %103 = getelementptr inbounds i8, ptr %0, i64 4
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %104 = load i32, ptr %103, align 4
   %.not24 = icmp eq i32 %104, 0
   br i1 %.not24, label %108, label %105
@@ -883,7 +883,7 @@ define hidden range(i32 0, 3) i32 @packet_range_process_packet(ptr nocapture nou
   br label %117
 
 110:                                              ; preds = %80
-  %111 = getelementptr inbounds i8, ptr %0, i64 16
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %112 = load ptr, ptr %111, align 8
   %113 = load i32, ptr %1, align 8
   %114 = tail call i32 @value_is_in_range(ptr noundef %112, i32 noundef %113) #8
@@ -895,13 +895,13 @@ define hidden range(i32 0, 3) i32 @packet_range_process_packet(ptr nocapture nou
   unreachable
 
 117:                                              ; preds = %110, %105, %108, %87, %81, %80
-  %118 = getelementptr inbounds i8, ptr %0, i64 4
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %119 = load i32, ptr %118, align 4
   %.not26 = icmp eq i32 %119, 0
   br i1 %.not26, label %125, label %120
 
 120:                                              ; preds = %117
-  %121 = getelementptr inbounds i8, ptr %1, i64 50
+  %121 = getelementptr inbounds nuw i8, ptr %1, i64 50
   %122 = load i16, ptr %121, align 2
   %123 = and i16 %122, 1
   %124 = icmp eq i16 %123, 0
@@ -923,7 +923,7 @@ declare void @ws_log_fatal_full(ptr noundef, i32 noundef, ptr noundef, i64 nound
 ; Function Attrs: nounwind uwtable
 define hidden void @packet_range_convert_str(ptr nocapture noundef initializes((60, 64), (96, 100), (120, 124), (132, 136), (156, 160)) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %7, label %6
@@ -933,9 +933,9 @@ define hidden void @packet_range_convert_str(ptr nocapture noundef initializes((
   br label %7
 
 7:                                                ; preds = %6, %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 80
   %11 = load i32, ptr %10, align 8
   %12 = call i32 @range_convert_str(ptr noundef null, ptr noundef nonnull %3, ptr noundef %1, i32 noundef %11) #8
   %.not18 = icmp eq i32 %12, 0
@@ -943,29 +943,29 @@ define hidden void @packet_range_convert_str(ptr nocapture noundef initializes((
 
 13:                                               ; preds = %7
   store ptr null, ptr %4, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %12, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 60
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 60
   store i32 0, ptr %15, align 4
-  %16 = getelementptr inbounds i8, ptr %0, i64 76
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 76
   store i32 0, ptr %16, align 4
-  %17 = getelementptr inbounds i8, ptr %0, i64 96
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i32 0, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 120
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i32 0, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 156
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 156
   store i32 0, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %0, i64 132
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 132
   store i32 0, ptr %20, align 4
   br label %27
 
 21:                                               ; preds = %7
   %22 = load ptr, ptr %3, align 8
   store ptr %22, ptr %4, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 200
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %24 = load ptr, ptr %23, align 8
   call void @g_hash_table_remove_all(ptr noundef %24) #8
-  %25 = getelementptr inbounds i8, ptr %0, i64 208
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %26 = load ptr, ptr %25, align 8
   call void @g_hash_table_remove_all(ptr noundef %26) #8
   call fastcc void @packet_range_calc_user(ptr noundef nonnull %0)
@@ -982,7 +982,7 @@ declare void @g_hash_table_remove_all(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define hidden void @packet_range_convert_selection_str(ptr nocapture noundef initializes((64, 68), (100, 104), (136, 140), (160, 164)) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %7, label %6
@@ -992,9 +992,9 @@ define hidden void @packet_range_convert_selection_str(ptr nocapture noundef ini
   br label %7
 
 7:                                                ; preds = %6, %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 80
   %11 = load i32, ptr %10, align 8
   %12 = call i32 @range_convert_str(ptr noundef null, ptr noundef nonnull %3, ptr noundef %1, i32 noundef %11) #8
   %.not18 = icmp eq i32 %12, 0
@@ -1002,29 +1002,29 @@ define hidden void @packet_range_convert_selection_str(ptr nocapture noundef ini
 
 13:                                               ; preds = %7
   store ptr null, ptr %4, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 %12, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 0, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 80
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 0, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 100
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 100
   store i32 0, ptr %17, align 4
-  %18 = getelementptr inbounds i8, ptr %0, i64 136
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store i32 0, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 140
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 140
   store i32 0, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %0, i64 160
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store i32 0, ptr %20, align 8
   br label %27
 
 21:                                               ; preds = %7
   %22 = load ptr, ptr %3, align 8
   store ptr %22, ptr %4, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 216
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %24 = load ptr, ptr %23, align 8
   call void @g_hash_table_remove_all(ptr noundef %24) #8
-  %25 = getelementptr inbounds i8, ptr %0, i64 224
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %26 = load ptr, ptr %25, align 8
   call void @g_hash_table_remove_all(ptr noundef %26) #8
   call fastcc void @packet_range_calc_selection(ptr noundef nonnull %0)
@@ -1050,7 +1050,7 @@ define internal fastcc void @depended_frames_add(ptr noundef %0, ptr noundef %1,
   br i1 %.not, label %.loopexit, label %10
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %2, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %12 = load ptr, ptr %11, align 8
   %.not8 = icmp eq ptr %12, null
   br i1 %.not8, label %.loopexit, label %13

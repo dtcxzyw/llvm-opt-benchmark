@@ -23,9 +23,9 @@ define hidden void @"_ZN13logos_codegen6parser6Parser15try_parse_logos13NESTED_L
   br i1 %.not, label %7, label %10
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false)
-  %9 = getelementptr inbounds i8, ptr %1, i64 200
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 200
   invoke void @"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$proc_macro2..TokenStream$GT$$GT$17h5ffc465f52a5866eE"(ptr nonnull align 8 %9)
           to label %12 unwind label %17
 
@@ -67,7 +67,7 @@ define hidden void @"_ZN13logos_codegen6parser6Parser15try_parse_logos13NESTED_L
   br i1 %26, label %27, label %16
 
 27:                                               ; preds = %24
-  %28 = getelementptr inbounds i8, ptr %3, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 8
   tail call void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h42e110f8c7741f7dE"(ptr nonnull align 8 %28)
   br label %15
 
@@ -81,7 +81,7 @@ define hidden void @"_ZN13logos_codegen6parser6Parser15try_parse_logos13NESTED_L
   resume { ptr, i32 } %.pn6
 
 .thread9:                                         ; preds = %.thread
-  %31 = getelementptr inbounds i8, ptr %3, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 8
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h42e110f8c7741f7dE"(ptr nonnull align 8 %31) #5
           to label %30 unwind label %32
 
@@ -105,7 +105,7 @@ define hidden void @"_ZN13logos_codegen6parser6Parser15try_parse_logos13NESTED_L
   br i1 %.not10, label %12, label %14
 
 12:                                               ; preds = %4
-  %13 = getelementptr inbounds i8, ptr %3, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %13, i64 32, i1 false)
   invoke void @_ZN5quote9to_tokens8ToTokens17into_token_stream17ha41922ca85579488E(ptr nonnull sret([32 x i8]) align 8 %6, ptr nonnull align 8 %10)
           to label %16 unwind label %45
@@ -124,7 +124,7 @@ define hidden void @"_ZN13logos_codegen6parser6Parser15try_parse_logos13NESTED_L
           to label %18 unwind label %45
 
 18:                                               ; preds = %16
-  %19 = getelementptr inbounds i8, ptr %1, i64 168
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 168
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %10, i64 32, i1 false)
   invoke void @_ZN13logos_codegen4util9MaybeVoid7replace17h83b027c4d82091f4E(ptr nonnull sret([32 x i8]) align 8 %9, ptr nonnull align 8 %19, ptr nonnull align 8 %8)
           to label %20 unwind label %.thread13
@@ -180,7 +180,7 @@ define hidden void @"_ZN13logos_codegen6parser6Parser15try_parse_logos13NESTED_L
   ret void
 
 38:                                               ; preds = %46
-  %39 = getelementptr inbounds i8, ptr %3, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %3, i64 8
   tail call void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h42e110f8c7741f7dE"(ptr nonnull align 8 %39)
   br label %37
 
@@ -218,7 +218,7 @@ define hidden void @"_ZN13logos_codegen6parser6Parser15try_parse_logos13NESTED_L
   resume { ptr, i32 } %.pn.pn21
 
 .thread24:                                        ; preds = %.thread.thread
-  %51 = getelementptr inbounds i8, ptr %3, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %3, i64 8
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h42e110f8c7741f7dE"(ptr nonnull align 8 %51) #5
           to label %50 unwind label %32
 }
@@ -236,7 +236,7 @@ define hidden void @"_ZN13logos_codegen6parser6Parser15try_parse_logos13NESTED_L
   br i1 %.not10, label %12, label %14
 
 12:                                               ; preds = %4
-  %13 = getelementptr inbounds i8, ptr %3, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %13, i64 32, i1 false)
   invoke void @_ZN5quote9to_tokens8ToTokens17into_token_stream17ha41922ca85579488E(ptr nonnull sret([32 x i8]) align 8 %6, ptr nonnull align 8 %10)
           to label %16 unwind label %45
@@ -255,7 +255,7 @@ define hidden void @"_ZN13logos_codegen6parser6Parser15try_parse_logos13NESTED_L
           to label %18 unwind label %45
 
 18:                                               ; preds = %16
-  %19 = getelementptr inbounds i8, ptr %1, i64 136
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %10, i64 32, i1 false)
   invoke void @_ZN13logos_codegen4util9MaybeVoid7replace17h83b027c4d82091f4E(ptr nonnull sret([32 x i8]) align 8 %9, ptr nonnull align 8 %19, ptr nonnull align 8 %8)
           to label %20 unwind label %.thread13
@@ -311,7 +311,7 @@ define hidden void @"_ZN13logos_codegen6parser6Parser15try_parse_logos13NESTED_L
   ret void
 
 38:                                               ; preds = %46
-  %39 = getelementptr inbounds i8, ptr %3, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %3, i64 8
   tail call void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h42e110f8c7741f7dE"(ptr nonnull align 8 %39)
   br label %37
 
@@ -349,7 +349,7 @@ define hidden void @"_ZN13logos_codegen6parser6Parser15try_parse_logos13NESTED_L
   resume { ptr, i32 } %.pn.pn21
 
 .thread24:                                        ; preds = %.thread.thread
-  %51 = getelementptr inbounds i8, ptr %3, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %3, i64 8
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h42e110f8c7741f7dE"(ptr nonnull align 8 %51) #5
           to label %50 unwind label %32
 }
@@ -363,7 +363,7 @@ define hidden void @"_ZN13logos_codegen6parser6Parser15try_parse_logos13NESTED_L
   br i1 %.not6, label %8, label %10
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %3, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
   invoke void @"_ZN3syn3lit5value31_$LT$impl$u20$syn..lit..Lit$GT$3new17h00b222356863b13eE"(ptr nonnull sret([24 x i8]) align 8 %5, ptr nonnull align 8 %6)
           to label %16 unwind label %12
@@ -390,7 +390,7 @@ define hidden void @"_ZN13logos_codegen6parser6Parser15try_parse_logos13NESTED_L
 
 20:                                               ; preds = %18
   %21 = extractvalue { i64, ptr } %17, 1
-  %22 = getelementptr inbounds i8, ptr %1, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 24
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17ha54bff72d7bb7cecE"(ptr nonnull align 8 %22, i64 %19, ptr %21)
           to label %23 unwind label %12
 
@@ -407,7 +407,7 @@ define hidden void @"_ZN13logos_codegen6parser6Parser15try_parse_logos13NESTED_L
   ret void
 
 28:                                               ; preds = %30
-  %29 = getelementptr inbounds i8, ptr %3, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 8
   tail call void @"_ZN4core3ptr41drop_in_place$LT$proc_macro2..Literal$GT$17hf1b5a8db4b1639a6E"(ptr nonnull align 8 %29)
   br label %27
 
@@ -427,7 +427,7 @@ define hidden void @"_ZN13logos_codegen6parser6Parser15try_parse_logos13NESTED_L
   resume { ptr, i32 } %13
 
 36:                                               ; preds = %33
-  %37 = getelementptr inbounds i8, ptr %3, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 8
   invoke void @"_ZN4core3ptr41drop_in_place$LT$proc_macro2..Literal$GT$17hf1b5a8db4b1639a6E"(ptr nonnull align 8 %37) #5
           to label %35 unwind label %38
 
@@ -450,7 +450,7 @@ define hidden void @"_ZN13logos_codegen6parser6Parser15try_parse_logos13NESTED_L
   br i1 %.not10, label %10, label %12
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %3, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 32, i1 false)
   invoke void @_ZN5quote9to_tokens8ToTokens17into_token_stream17ha41922ca85579488E(ptr nonnull sret([32 x i8]) align 8 %6, ptr nonnull align 8 %8)
           to label %15 unwind label %42
@@ -469,9 +469,9 @@ define hidden void @"_ZN13logos_codegen6parser6Parser15try_parse_logos13NESTED_L
           to label %17 unwind label %42
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds i8, ptr %1, i64 104
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %.sroa.0.0.copyload = load i64, ptr %18, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 112
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 112
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.3, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.3.0..sroa_idx, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false)
   %.not = icmp eq i64 %.sroa.0.0.copyload, -9223372036854775807
@@ -479,7 +479,7 @@ define hidden void @"_ZN13logos_codegen6parser6Parser15try_parse_logos13NESTED_L
 
 19:                                               ; preds = %17
   store i64 %.sroa.0.0.copyload, ptr %7, align 8
-  %.sroa.3.0..sroa_idx29 = getelementptr inbounds i8, ptr %7, i64 8
+  %.sroa.3.0..sroa_idx29 = getelementptr inbounds nuw i8, ptr %7, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.3.0..sroa_idx29, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.3, i64 24, i1 false)
   %20 = invoke align 8 ptr @_ZN13logos_codegen5error6Errors3err17hfe641ffc7d3ca420E(ptr nonnull align 8 %1, ptr nonnull align 1 @anon.6177f42d22f570acfa2deddb7c55daa2.7, i64 31, i32 %16)
           to label %23 unwind label %21
@@ -525,7 +525,7 @@ define hidden void @"_ZN13logos_codegen6parser6Parser15try_parse_logos13NESTED_L
   ret void
 
 35:                                               ; preds = %43
-  %36 = getelementptr inbounds i8, ptr %3, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %3, i64 8
   tail call void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h42e110f8c7741f7dE"(ptr nonnull align 8 %36)
   br label %34
 
@@ -563,7 +563,7 @@ define hidden void @"_ZN13logos_codegen6parser6Parser15try_parse_logos13NESTED_L
   resume { ptr, i32 } %.pn.pn22
 
 .thread25:                                        ; preds = %.thread.thread
-  %48 = getelementptr inbounds i8, ptr %3, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %3, i64 8
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h42e110f8c7741f7dE"(ptr nonnull align 8 %48) #5
           to label %47 unwind label %29
 }
@@ -578,10 +578,10 @@ define hidden void @"_ZN13logos_codegen6parser6Parser15try_parse_logos13NESTED_L
   br i1 %9, label %13, label %10
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %3, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
-  %12 = getelementptr inbounds i8, ptr %1, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 48
   invoke void @_ZN13logos_codegen6parser10subpattern11Subpatterns3add17hf4e12256ebde5edfE(ptr nonnull align 8 %12, ptr nonnull align 8 %6, ptr nonnull align 8 %5, ptr align 8 %1)
           to label %20 unwind label %15
 
@@ -621,7 +621,7 @@ define hidden void @"_ZN13logos_codegen6parser6Parser15try_parse_logos13NESTED_L
   br i1 %30, label %31, label %24
 
 31:                                               ; preds = %27
-  %32 = getelementptr inbounds i8, ptr %3, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 32
   invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h833339f276f31dc6E"(ptr nonnull align 8 %32)
           to label %26 unwind label %33
 
@@ -649,7 +649,7 @@ define hidden void @"_ZN13logos_codegen6parser6Parser15try_parse_logos13NESTED_L
           to label %.critedge unwind label %35
 
 39:                                               ; preds = %37
-  %40 = getelementptr inbounds i8, ptr %3, i64 32
+  %40 = getelementptr inbounds nuw i8, ptr %3, i64 32
   invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h833339f276f31dc6E"(ptr nonnull align 8 %40) #5
           to label %41 unwind label %35
 
@@ -668,10 +668,10 @@ define hidden void @"_ZN13logos_codegen6parser6Parser15try_parse_logos13NESTED_L
   br i1 %9, label %13, label %10
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %3, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
-  %12 = getelementptr inbounds i8, ptr %1, i64 72
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 72
   invoke void @_ZN13logos_codegen6parser11type_params10TypeParams3set17h9d86ca7e00cb5c2aE(ptr nonnull align 8 %12, ptr nonnull align 8 %6, ptr nonnull align 8 %5, ptr align 8 %1)
           to label %20 unwind label %15
 
@@ -711,7 +711,7 @@ define hidden void @"_ZN13logos_codegen6parser6Parser15try_parse_logos13NESTED_L
   br i1 %30, label %31, label %24
 
 31:                                               ; preds = %27
-  %32 = getelementptr inbounds i8, ptr %3, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 32
   invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h833339f276f31dc6E"(ptr nonnull align 8 %32)
           to label %26 unwind label %33
 
@@ -739,7 +739,7 @@ define hidden void @"_ZN13logos_codegen6parser6Parser15try_parse_logos13NESTED_L
           to label %.critedge unwind label %35
 
 39:                                               ; preds = %37
-  %40 = getelementptr inbounds i8, ptr %3, i64 32
+  %40 = getelementptr inbounds nuw i8, ptr %3, i64 32
   invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h833339f276f31dc6E"(ptr nonnull align 8 %40) #5
           to label %41 unwind label %35
 
@@ -751,7 +751,7 @@ define hidden void @"_ZN13logos_codegen6parser6Parser15try_parse_logos13NESTED_L
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden { ptr, i64 } @"_ZN13logos_codegen6parser6Parser15try_parse_logos28_$u7b$$u7b$closure$u7d$$u7d$17had7c8c193ff18ca3E"(ptr nocapture readnone align 1 %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 {
   %3 = load ptr, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = insertvalue { ptr, i64 } poison, ptr %3, 0
   %7 = insertvalue { ptr, i64 } %6, i64 %5, 1
@@ -767,7 +767,7 @@ define hidden void @"_ZN13logos_codegen6parser6Parser8get_type28_$u7b$$u7b$closu
   br i1 %6, label %7, label %10
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %1, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %9 = load i32, ptr %8, align 8
   %.not = icmp eq i32 %9, 2
   br i1 %.not, label %11, label %10
@@ -777,9 +777,9 @@ define hidden void @"_ZN13logos_codegen6parser6Parser8get_type28_$u7b$$u7b$closu
   ret void
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 72
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 72
   call void @_ZN13logos_codegen6parser11type_params10TypeParams4find17heb66bd44e1fb4a5fE(ptr nonnull sret([224 x i8]) align 8 %4, ptr nonnull align 8 %14, ptr nonnull align 8 %12)
   %15 = load i64, ptr %4, align 8
   %.not2 = icmp eq i64 %15, 17

@@ -115,7 +115,7 @@ entry:
   %bf.clear4 = or disjoint i32 %bf.value.masked, %bf.clear
   %bf.set5 = or disjoint i32 %bf.clear4, %bf.value2
   store i32 %bf.set5, ptr %call, align 8
-  %args = getelementptr inbounds i8, ptr %call, i64 32
+  %args = getelementptr inbounds nuw i8, ptr %call, i64 32
   store i64 %r, ptr %args, align 8
   %arrayidx7 = getelementptr i8, ptr %call, i64 40
   store i64 %a, ptr %arrayidx7, align 8
@@ -137,7 +137,7 @@ entry:
   %bf.clear4 = or disjoint i32 %bf.value.masked, %bf.clear
   %bf.set5 = or disjoint i32 %bf.clear4, %bf.value2
   store i32 %bf.set5, ptr %call, align 8
-  %args = getelementptr inbounds i8, ptr %call, i64 32
+  %args = getelementptr inbounds nuw i8, ptr %call, i64 32
   store i64 %r, ptr %args, align 8
   %arrayidx7 = getelementptr i8, ptr %call, i64 40
   store i64 %a, ptr %arrayidx7, align 8
@@ -159,7 +159,7 @@ entry:
   %bf.clear4 = or disjoint i32 %bf.value.masked, %bf.clear
   %bf.set5 = or disjoint i32 %bf.clear4, %bf.value2
   store i32 %bf.set5, ptr %call, align 8
-  %args = getelementptr inbounds i8, ptr %call, i64 32
+  %args = getelementptr inbounds nuw i8, ptr %call, i64 32
   store i64 %r, ptr %args, align 8
   %arrayidx7 = getelementptr i8, ptr %call, i64 40
   store i64 %a, ptr %arrayidx7, align 8
@@ -203,7 +203,7 @@ if.then:                                          ; preds = %entry
   %bf.value.masked.i.i = and i32 %bf.value.i.i, 16711680
   %bf.clear4.i.i = or disjoint i32 %bf.value.masked.i.i, %bf.clear.i.i
   store i32 %bf.clear4.i.i, ptr %call.i.i, align 8
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %8, ptr %args.i.i, align 8
   %arrayidx7.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %9, ptr %arrayidx7.i.i, align 8
@@ -253,7 +253,7 @@ if.then.i:                                        ; preds = %entry
   %bf.value.masked.i.i.i = and i32 %bf.value.i.i.i, 16711680
   %bf.clear4.i.i.i = or disjoint i32 %bf.value.masked.i.i.i, %bf.clear.i.i.i
   store i32 %bf.clear4.i.i.i, ptr %call.i.i.i, align 8
-  %args.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
+  %args.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
   store i64 %11, ptr %args.i.i.i, align 8
   %arrayidx7.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
   store i64 %12, ptr %arrayidx7.i.i.i, align 8
@@ -287,7 +287,7 @@ entry:
   %bf.clear4.i = or disjoint i32 %bf.value.masked.i, %bf.clear.i
   %bf.set5.i = or disjoint i32 %bf.clear4.i, %bf.value2.i
   store i32 %bf.set5.i, ptr %call.i, align 8
-  %args.i = getelementptr inbounds i8, ptr %call.i, i64 32
+  %args.i = getelementptr inbounds nuw i8, ptr %call.i, i64 32
   store i64 %3, ptr %args.i, align 8
   %arrayidx7.i = getelementptr i8, ptr %call.i, i64 40
   store i64 %6, ptr %arrayidx7.i, align 8
@@ -316,7 +316,7 @@ entry:
   %bf.clear4.i = or disjoint i32 %bf.value.masked.i, %bf.clear.i
   %bf.set5.i = or disjoint i32 %bf.clear4.i, %bf.value2.i
   store i32 %bf.set5.i, ptr %call.i, align 8
-  %args.i = getelementptr inbounds i8, ptr %call.i, i64 32
+  %args.i = getelementptr inbounds nuw i8, ptr %call.i, i64 32
   store i64 %3, ptr %args.i, align 8
   %arrayidx7.i = getelementptr i8, ptr %call.i, i64 40
   store i64 %5, ptr %arrayidx7.i, align 8
@@ -345,7 +345,7 @@ entry:
   %bf.clear4.i = or disjoint i32 %bf.value.masked.i, %bf.clear.i
   %bf.set5.i = or disjoint i32 %bf.clear4.i, %bf.value2.i
   store i32 %bf.set5.i, ptr %call.i, align 8
-  %args.i = getelementptr inbounds i8, ptr %call.i, i64 32
+  %args.i = getelementptr inbounds nuw i8, ptr %call.i, i64 32
   store i64 %3, ptr %args.i, align 8
   %arrayidx7.i = getelementptr i8, ptr %call.i, i64 40
   store i64 %5, ptr %arrayidx7.i, align 8
@@ -374,7 +374,7 @@ entry:
   %bf.value.masked.i.i = and i32 %bf.value.i.i, 16711680
   %bf.clear4.i.i = or disjoint i32 %bf.value.masked.i.i, %bf.clear.i.i
   store i32 %bf.clear4.i.i, ptr %call.i.i, align 8
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %3, ptr %args.i.i, align 8
   %arrayidx7.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %5, ptr %arrayidx7.i.i, align 8
@@ -403,7 +403,7 @@ entry:
   %bf.value.masked.i.i = and i32 %bf.value.i.i, 16711680
   %bf.clear4.i.i = or disjoint i32 %bf.value.masked.i.i, %bf.clear.i.i
   store i32 %bf.clear4.i.i, ptr %call.i.i, align 8
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %3, ptr %args.i.i, align 8
   %arrayidx7.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %5, ptr %arrayidx7.i.i, align 8
@@ -439,7 +439,7 @@ entry:
   %bf.value.masked.i = and i32 %bf.value.i, 16711680
   %bf.clear4.i = or disjoint i32 %bf.clear.i, %bf.value.masked.i
   store i32 %bf.clear4.i, ptr %call.i, align 8
-  %args.i = getelementptr inbounds i8, ptr %call.i, i64 32
+  %args.i = getelementptr inbounds nuw i8, ptr %call.i, i64 32
   store i64 %3, ptr %args.i, align 8
   %arrayidx7.i = getelementptr i8, ptr %call.i, i64 40
   store i64 %5, ptr %arrayidx7.i, align 8
@@ -486,7 +486,7 @@ entry:
   %bf.value.masked.i.i = and i32 %bf.value.i.i, 16711680
   %bf.clear4.i.i = or disjoint i32 %bf.clear.i.i, %bf.value.masked.i.i
   store i32 %bf.clear4.i.i, ptr %call.i.i, align 8
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %11, ptr %args.i.i, align 8
   %arrayidx7.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %12, ptr %arrayidx7.i.i, align 8
@@ -533,7 +533,7 @@ entry:
   %bf.value.masked.i.i = and i32 %bf.value.i.i, 16711680
   %bf.clear4.i.i = or disjoint i32 %bf.clear.i.i, %bf.value.masked.i.i
   store i32 %bf.clear4.i.i, ptr %call.i.i, align 8
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %11, ptr %args.i.i, align 8
   %arrayidx7.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %12, ptr %arrayidx7.i.i, align 8
@@ -580,7 +580,7 @@ entry:
   %bf.value.masked.i.i = and i32 %bf.value.i.i, 16711680
   %bf.clear4.i.i = or disjoint i32 %bf.clear.i.i, %bf.value.masked.i.i
   store i32 %bf.clear4.i.i, ptr %call.i.i, align 8
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %11, ptr %args.i.i, align 8
   %arrayidx7.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %12, ptr %arrayidx7.i.i, align 8
@@ -627,7 +627,7 @@ entry:
   %bf.value.masked.i.i = and i32 %bf.value.i.i, 16711680
   %bf.clear4.i.i = or disjoint i32 %bf.clear.i.i, %bf.value.masked.i.i
   store i32 %bf.clear4.i.i, ptr %call.i.i, align 8
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %11, ptr %args.i.i, align 8
   %arrayidx7.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %12, ptr %arrayidx7.i.i, align 8
@@ -680,7 +680,7 @@ if.then:                                          ; preds = %entry
   %bf.value.masked.i.i = and i32 %bf.value.i.i, 16711680
   %bf.clear4.i.i = or disjoint i32 %bf.clear.i.i, %bf.value.masked.i.i
   store i32 %bf.clear4.i.i, ptr %call.i.i, align 8
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %13, ptr %args.i.i, align 8
   %arrayidx7.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %14, ptr %arrayidx7.i.i, align 8
@@ -722,7 +722,7 @@ if.then.i:                                        ; preds = %if.else
   %bf.value.masked.i.i.i = and i32 %bf.value.i.i.i, 16711680
   %bf.clear4.i.i.i = or disjoint i32 %bf.value.masked.i.i.i, %bf.clear.i.i.i
   store i32 %bf.clear4.i.i.i, ptr %call.i.i.i, align 8
-  %args.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
+  %args.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
   store i64 %26, ptr %args.i.i.i, align 8
   %arrayidx7.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
   store i64 %27, ptr %arrayidx7.i.i.i, align 8
@@ -765,7 +765,7 @@ if.else.i:                                        ; preds = %if.else
   %bf.value.masked.i.i.i.i = and i32 %bf.value.i.i.i.i, 16711680
   %bf.clear4.i.i.i.i = or disjoint i32 %bf.clear.i.i.i.i, %bf.value.masked.i.i.i.i
   store i32 %bf.clear4.i.i.i.i, ptr %call.i.i.i.i, align 8
-  %args.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 32
+  %args.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 32
   store i64 %39, ptr %args.i.i.i.i, align 8
   %arrayidx7.i.i.i.i = getelementptr i8, ptr %call.i.i.i.i, i64 40
   store i64 %40, ptr %arrayidx7.i.i.i.i, align 8
@@ -809,7 +809,7 @@ tcg_gen_not_vec.exit:                             ; preds = %if.then.i, %if.else
   %bf.value.masked.i.i.i17 = and i32 %bf.value.i.i.i15, 16711680
   %bf.clear4.i.i.i18 = or disjoint i32 %bf.clear.i.i.i16, %bf.value.masked.i.i.i17
   store i32 %bf.clear4.i.i.i18, ptr %call.i.i.i12, align 8
-  %args.i.i.i19 = getelementptr inbounds i8, ptr %call.i.i.i12, i64 32
+  %args.i.i.i19 = getelementptr inbounds nuw i8, ptr %call.i.i.i12, i64 32
   store i64 %51, ptr %args.i.i.i19, align 8
   %arrayidx7.i.i.i20 = getelementptr i8, ptr %call.i.i.i12, i64 40
   store i64 %52, ptr %arrayidx7.i.i.i20, align 8
@@ -859,7 +859,7 @@ if.then:                                          ; preds = %entry
   %bf.value.masked.i.i = and i32 %bf.value.i.i, 16711680
   %bf.clear4.i.i = or disjoint i32 %bf.value.masked.i.i, %bf.clear.i.i
   store i32 %bf.clear4.i.i, ptr %call.i.i, align 8
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %10, ptr %args.i.i, align 8
   %arrayidx7.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %11, ptr %arrayidx7.i.i, align 8
@@ -902,7 +902,7 @@ if.else:                                          ; preds = %entry
   %bf.value.masked.i.i.i = and i32 %bf.value.i.i.i, 16711680
   %bf.clear4.i.i.i = or disjoint i32 %bf.clear.i.i.i, %bf.value.masked.i.i.i
   store i32 %bf.clear4.i.i.i, ptr %call.i.i.i, align 8
-  %args.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
+  %args.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
   store i64 %23, ptr %args.i.i.i, align 8
   %arrayidx7.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
   store i64 %24, ptr %arrayidx7.i.i.i, align 8
@@ -960,7 +960,7 @@ if.then:                                          ; preds = %entry
   %bf.clear.i.i = and i32 %bf.load.i.i, 65535
   %bf.clear4.i.i = or disjoint i32 %bf.clear.i.i, %bf.value.masked.i.i
   store i32 %bf.clear4.i.i, ptr %call.i.i, align 8
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %13, ptr %args.i.i, align 8
   %arrayidx7.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %14, ptr %arrayidx7.i.i, align 8
@@ -974,7 +974,7 @@ if.else:                                          ; preds = %entry
   %bf.clear.i.i.i = and i32 %bf.load.i.i.i, 65535
   %bf.clear4.i.i.i = or disjoint i32 %bf.clear.i.i.i, %bf.value.masked.i.i
   store i32 %bf.clear4.i.i.i, ptr %call.i.i.i, align 8
-  %args.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
+  %args.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
   store i64 %13, ptr %args.i.i.i, align 8
   %arrayidx7.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
   store i64 %14, ptr %arrayidx7.i.i.i, align 8
@@ -998,7 +998,7 @@ if.then.i:                                        ; preds = %if.else
   %bf.value.masked.i.i.i16 = and i32 %bf.value.i.i.i14, 16711680
   %bf.clear4.i.i.i17 = or disjoint i32 %bf.value.masked.i.i.i16, %bf.clear.i.i.i15
   store i32 %bf.clear4.i.i.i17, ptr %call.i.i.i11, align 8
-  %args.i.i.i18 = getelementptr inbounds i8, ptr %call.i.i.i11, i64 32
+  %args.i.i.i18 = getelementptr inbounds nuw i8, ptr %call.i.i.i11, i64 32
   store i64 %20, ptr %args.i.i.i18, align 8
   %arrayidx7.i.i.i19 = getelementptr i8, ptr %call.i.i.i11, i64 40
   store i64 %20, ptr %arrayidx7.i.i.i19, align 8
@@ -1030,7 +1030,7 @@ if.else.i:                                        ; preds = %if.else
   %bf.value.masked.i.i.i.i = and i32 %bf.value.i.i.i.i, 16711680
   %bf.clear4.i.i.i.i = or disjoint i32 %bf.value.masked.i.i.i.i, %bf.clear.i.i.i.i
   store i32 %bf.clear4.i.i.i.i, ptr %call.i.i.i.i, align 8
-  %args.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 32
+  %args.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 32
   store i64 %27, ptr %args.i.i.i.i, align 8
   %arrayidx7.i.i.i.i = getelementptr i8, ptr %call.i.i.i.i, i64 40
   store i64 %27, ptr %arrayidx7.i.i.i.i, align 8
@@ -1086,7 +1086,7 @@ if.then:                                          ; preds = %entry
   %bf.clear.i.i = and i32 %bf.load.i.i, 65535
   %bf.clear4.i.i = or disjoint i32 %bf.clear.i.i, %bf.value.masked.i.i
   store i32 %bf.clear4.i.i, ptr %call.i.i, align 8
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %13, ptr %args.i.i, align 8
   %arrayidx7.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %14, ptr %arrayidx7.i.i, align 8
@@ -1100,7 +1100,7 @@ if.else:                                          ; preds = %entry
   %bf.clear.i.i.i = and i32 %bf.load.i.i.i, 65535
   %bf.clear4.i.i.i = or disjoint i32 %bf.clear.i.i.i, %bf.value.masked.i.i
   store i32 %bf.clear4.i.i.i, ptr %call.i.i.i, align 8
-  %args.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
+  %args.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
   store i64 %13, ptr %args.i.i.i, align 8
   %arrayidx7.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
   store i64 %14, ptr %arrayidx7.i.i.i, align 8
@@ -1124,7 +1124,7 @@ if.then.i:                                        ; preds = %if.else
   %bf.value.masked.i.i.i16 = and i32 %bf.value.i.i.i14, 16711680
   %bf.clear4.i.i.i17 = or disjoint i32 %bf.value.masked.i.i.i16, %bf.clear.i.i.i15
   store i32 %bf.clear4.i.i.i17, ptr %call.i.i.i11, align 8
-  %args.i.i.i18 = getelementptr inbounds i8, ptr %call.i.i.i11, i64 32
+  %args.i.i.i18 = getelementptr inbounds nuw i8, ptr %call.i.i.i11, i64 32
   store i64 %20, ptr %args.i.i.i18, align 8
   %arrayidx7.i.i.i19 = getelementptr i8, ptr %call.i.i.i11, i64 40
   store i64 %20, ptr %arrayidx7.i.i.i19, align 8
@@ -1156,7 +1156,7 @@ if.else.i:                                        ; preds = %if.else
   %bf.value.masked.i.i.i.i = and i32 %bf.value.i.i.i.i, 16711680
   %bf.clear4.i.i.i.i = or disjoint i32 %bf.value.masked.i.i.i.i, %bf.clear.i.i.i.i
   store i32 %bf.clear4.i.i.i.i, ptr %call.i.i.i.i, align 8
-  %args.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 32
+  %args.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 32
   store i64 %27, ptr %args.i.i.i.i, align 8
   %arrayidx7.i.i.i.i = getelementptr i8, ptr %call.i.i.i.i, i64 40
   store i64 %27, ptr %arrayidx7.i.i.i.i, align 8
@@ -1212,7 +1212,7 @@ if.then:                                          ; preds = %entry
   %bf.clear.i.i = and i32 %bf.load.i.i, 65535
   %bf.clear4.i.i = or disjoint i32 %bf.clear.i.i, %bf.value.masked.i.i
   store i32 %bf.clear4.i.i, ptr %call.i.i, align 8
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %13, ptr %args.i.i, align 8
   %arrayidx7.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %14, ptr %arrayidx7.i.i, align 8
@@ -1226,7 +1226,7 @@ if.else:                                          ; preds = %entry
   %bf.clear.i.i.i = and i32 %bf.load.i.i.i, 65535
   %bf.clear4.i.i.i = or disjoint i32 %bf.clear.i.i.i, %bf.value.masked.i.i
   store i32 %bf.clear4.i.i.i, ptr %call.i.i.i, align 8
-  %args.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
+  %args.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
   store i64 %13, ptr %args.i.i.i, align 8
   %arrayidx7.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
   store i64 %14, ptr %arrayidx7.i.i.i, align 8
@@ -1250,7 +1250,7 @@ if.then.i:                                        ; preds = %if.else
   %bf.value.masked.i.i.i16 = and i32 %bf.value.i.i.i14, 16711680
   %bf.clear4.i.i.i17 = or disjoint i32 %bf.value.masked.i.i.i16, %bf.clear.i.i.i15
   store i32 %bf.clear4.i.i.i17, ptr %call.i.i.i11, align 8
-  %args.i.i.i18 = getelementptr inbounds i8, ptr %call.i.i.i11, i64 32
+  %args.i.i.i18 = getelementptr inbounds nuw i8, ptr %call.i.i.i11, i64 32
   store i64 %20, ptr %args.i.i.i18, align 8
   %arrayidx7.i.i.i19 = getelementptr i8, ptr %call.i.i.i11, i64 40
   store i64 %20, ptr %arrayidx7.i.i.i19, align 8
@@ -1282,7 +1282,7 @@ if.else.i:                                        ; preds = %if.else
   %bf.value.masked.i.i.i.i = and i32 %bf.value.i.i.i.i, 16711680
   %bf.clear4.i.i.i.i = or disjoint i32 %bf.value.masked.i.i.i.i, %bf.clear.i.i.i.i
   store i32 %bf.clear4.i.i.i.i, ptr %call.i.i.i.i, align 8
-  %args.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 32
+  %args.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 32
   store i64 %27, ptr %args.i.i.i.i, align 8
   %arrayidx7.i.i.i.i = getelementptr i8, ptr %call.i.i.i.i, i64 40
   store i64 %27, ptr %arrayidx7.i.i.i.i, align 8
@@ -1342,7 +1342,7 @@ if.then21.i.i.i:                                  ; preds = %entry
   %bf.clear4.i.i.i.i = or disjoint i32 %bf.value.masked.i.i.i.i, %bf.clear.i.i.i.i
   %bf.set5.i.i.i.i = or disjoint i32 %bf.clear4.i.i.i.i, %bf.value2.i.i.i.i
   store i32 %bf.set5.i.i.i.i, ptr %call.i.i.i.i, align 8
-  %args.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 32
+  %args.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 32
   store i64 %5, ptr %args.i.i.i.i, align 8
   %arrayidx7.i.i.i.i = getelementptr i8, ptr %call.i.i.i.i, i64 40
   store i64 %6, ptr %arrayidx7.i.i.i.i, align 8
@@ -1405,7 +1405,7 @@ if.then21.i.i:                                    ; preds = %entry
   %bf.clear4.i.i.i = or disjoint i32 %bf.value.masked.i.i.i, %bf.clear.i.i.i
   %bf.set5.i.i.i = or disjoint i32 %bf.clear4.i.i.i, %bf.value2.i.i.i
   store i32 %bf.set5.i.i.i, ptr %call.i.i.i, align 8
-  %args.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
+  %args.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
   store i64 %5, ptr %args.i.i.i, align 8
   %arrayidx7.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
   store i64 %6, ptr %arrayidx7.i.i.i, align 8
@@ -1459,7 +1459,7 @@ if.then10.i:                                      ; preds = %entry
   %bf.clear4.i.i = or disjoint i32 %bf.value.masked.i.i, %bf.clear.i.i
   %bf.set5.i.i = or disjoint i32 %bf.clear4.i.i, %bf.value2.i.i
   store i32 %bf.set5.i.i, ptr %call.i.i, align 8
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %4, ptr %args.i.i, align 8
   %arrayidx7.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %5, ptr %arrayidx7.i.i, align 8
@@ -1530,7 +1530,7 @@ if.then21.i.i.i.i:                                ; preds = %if.then7
   %bf.clear4.i.i.i.i.i = or disjoint i32 %bf.value.masked.i.i.i.i.i, %bf.clear.i.i.i.i.i
   %bf.set5.i.i.i.i.i = or disjoint i32 %bf.clear4.i.i.i.i.i, %bf.value2.i.i.i.i.i
   store i32 %bf.set5.i.i.i.i.i, ptr %call.i.i.i.i.i, align 8
-  %args.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 32
+  %args.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i, i64 32
   store i64 %16, ptr %args.i.i.i.i.i, align 8
   %arrayidx7.i.i.i.i.i = getelementptr i8, ptr %call.i.i.i.i.i, i64 40
   store i64 %17, ptr %arrayidx7.i.i.i.i.i, align 8
@@ -1603,7 +1603,7 @@ if.then21.i:                                      ; preds = %if.else11
   %bf.clear4.i.i44 = or disjoint i32 %bf.value.masked.i.i43, %bf.clear.i.i41
   %bf.set5.i.i45 = or disjoint i32 %bf.clear4.i.i44, %bf.value2.i.i42
   store i32 %bf.set5.i.i45, ptr %call.i.i37, align 8
-  %args.i.i46 = getelementptr inbounds i8, ptr %call.i.i37, i64 32
+  %args.i.i46 = getelementptr inbounds nuw i8, ptr %call.i.i37, i64 32
   store i64 %28, ptr %args.i.i46, align 8
   %arrayidx7.i.i47 = getelementptr i8, ptr %call.i.i37, i64 40
   store i64 %29, ptr %arrayidx7.i.i47, align 8
@@ -1652,7 +1652,7 @@ if.end13:                                         ; preds = %if.else.i36, %if.th
   %bf.value.masked.i.i.i = and i32 %bf.value.i.i.i, 16711680
   %bf.clear4.i.i.i = or disjoint i32 %bf.clear.i.i.i, %bf.value.masked.i.i.i
   store i32 %bf.clear4.i.i.i, ptr %call.i.i.i, align 8
-  %args.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
+  %args.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
   store i64 %44, ptr %args.i.i.i, align 8
   %arrayidx7.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
   store i64 %45, ptr %arrayidx7.i.i.i, align 8
@@ -1688,7 +1688,7 @@ if.then21.i.i.i:                                  ; preds = %if.end13
   %bf.clear4.i.i.i.i = or disjoint i32 %bf.value.masked.i.i.i.i, %bf.clear.i.i.i.i
   %bf.set5.i.i.i.i = or disjoint i32 %bf.clear4.i.i.i.i, %bf.value2.i.i.i.i
   store i32 %bf.set5.i.i.i.i, ptr %call.i.i.i.i, align 8
-  %args.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 32
+  %args.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 32
   store i64 %48, ptr %args.i.i.i.i, align 8
   %arrayidx7.i.i.i.i = getelementptr i8, ptr %call.i.i.i.i, i64 40
   store i64 %48, ptr %arrayidx7.i.i.i.i, align 8
@@ -1772,7 +1772,7 @@ if.then21:                                        ; preds = %entry
   %bf.clear4.i = or disjoint i32 %bf.value.masked.i, %bf.clear.i
   %bf.set5.i = or disjoint i32 %bf.clear4.i, %bf.value2.i
   store i32 %bf.set5.i, ptr %call.i, align 8
-  %args.i = getelementptr inbounds i8, ptr %call.i, i64 32
+  %args.i = getelementptr inbounds nuw i8, ptr %call.i, i64 32
   store i64 %5, ptr %args.i, align 8
   %arrayidx7.i = getelementptr i8, ptr %call.i, i64 40
   store i64 %6, ptr %arrayidx7.i, align 8
@@ -1842,7 +1842,7 @@ if.then.i:                                        ; preds = %if.then17
   %bf.value.masked.i.i.i = and i32 %bf.value.i.i.i, 16711680
   %bf.clear4.i.i.i = or disjoint i32 %bf.clear.i.i.i, %bf.value.masked.i.i.i
   store i32 %bf.clear4.i.i.i, ptr %call.i.i.i, align 8
-  %args.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
+  %args.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
   store i64 %4, ptr %args.i.i.i, align 8
   %arrayidx7.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
   store i64 %5, ptr %arrayidx7.i.i.i, align 8
@@ -1864,7 +1864,7 @@ if.then22:                                        ; preds = %if.end18
   %bf.clear4.i = or disjoint i32 %bf.value.masked.i, %bf.clear.i
   %bf.set5.i = or disjoint i32 %bf.clear4.i, %bf.value2.i
   store i32 %bf.set5.i, ptr %call.i, align 8
-  %args.i = getelementptr inbounds i8, ptr %call.i, i64 32
+  %args.i = getelementptr inbounds nuw i8, ptr %call.i, i64 32
   store i64 %4, ptr %args.i, align 8
   %arrayidx7.i = getelementptr i8, ptr %call.i, i64 40
   store i64 %5, ptr %arrayidx7.i, align 8
@@ -1960,7 +1960,7 @@ if.then21.i.i:                                    ; preds = %entry
   %bf.clear4.i.i.i = or disjoint i32 %bf.value.masked.i.i.i, %bf.clear.i.i.i
   %bf.set5.i.i.i = or disjoint i32 %bf.clear4.i.i.i, %bf.value2.i.i.i
   store i32 %bf.set5.i.i.i, ptr %call.i.i.i, align 8
-  %args.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
+  %args.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
   store i64 %5, ptr %args.i.i.i, align 8
   %arrayidx7.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
   store i64 %6, ptr %arrayidx7.i.i.i, align 8
@@ -2023,7 +2023,7 @@ if.then21.i.i:                                    ; preds = %entry
   %bf.clear4.i.i.i = or disjoint i32 %bf.value.masked.i.i.i, %bf.clear.i.i.i
   %bf.set5.i.i.i = or disjoint i32 %bf.clear4.i.i.i, %bf.value2.i.i.i
   store i32 %bf.set5.i.i.i, ptr %call.i.i.i, align 8
-  %args.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
+  %args.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
   store i64 %5, ptr %args.i.i.i, align 8
   %arrayidx7.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
   store i64 %6, ptr %arrayidx7.i.i.i, align 8
@@ -2086,7 +2086,7 @@ if.then21.i.i:                                    ; preds = %entry
   %bf.clear4.i.i.i = or disjoint i32 %bf.value.masked.i.i.i, %bf.clear.i.i.i
   %bf.set5.i.i.i = or disjoint i32 %bf.clear4.i.i.i, %bf.value2.i.i.i
   store i32 %bf.set5.i.i.i, ptr %call.i.i.i, align 8
-  %args.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
+  %args.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
   store i64 %5, ptr %args.i.i.i, align 8
   %arrayidx7.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
   store i64 %6, ptr %arrayidx7.i.i.i, align 8
@@ -2149,7 +2149,7 @@ if.then21.i:                                      ; preds = %entry
   %bf.clear4.i.i = or disjoint i32 %bf.value.masked.i.i, %bf.clear.i.i
   %bf.set5.i.i = or disjoint i32 %bf.clear4.i.i, %bf.value2.i.i
   store i32 %bf.set5.i.i, ptr %call.i.i, align 8
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %5, ptr %args.i.i, align 8
   %arrayidx7.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %6, ptr %arrayidx7.i.i, align 8
@@ -2197,7 +2197,7 @@ if.then.i:                                        ; preds = %if.then
   %bf.value.masked.i.i.i = and i32 %bf.value.i.i.i, 16711680
   %bf.clear4.i.i.i = or disjoint i32 %bf.value.masked.i.i.i, %bf.clear.i.i.i
   store i32 %bf.clear4.i.i.i, ptr %call.i.i.i, align 8
-  %args.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
+  %args.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
   store i64 %22, ptr %args.i.i.i, align 8
   %arrayidx7.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
   store i64 %23, ptr %arrayidx7.i.i.i, align 8
@@ -2238,7 +2238,7 @@ if.else.i13:                                      ; preds = %if.then
   %bf.value.masked.i.i.i.i = and i32 %bf.value.i.i.i.i, 16711680
   %bf.clear4.i.i.i.i = or disjoint i32 %bf.clear.i.i.i.i, %bf.value.masked.i.i.i.i
   store i32 %bf.clear4.i.i.i.i, ptr %call.i.i.i.i, align 8
-  %args.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 32
+  %args.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 32
   store i64 %33, ptr %args.i.i.i.i, align 8
   %arrayidx7.i.i.i.i = getelementptr i8, ptr %call.i.i.i.i, i64 40
   store i64 %34, ptr %arrayidx7.i.i.i.i, align 8
@@ -2287,7 +2287,7 @@ if.then21.i.i.i:                                  ; preds = %tcg_gen_not_vec.exi
   %bf.clear4.i.i.i.i25 = or disjoint i32 %bf.value.masked.i.i.i.i24, %bf.clear.i.i.i.i23
   %bf.set5.i.i.i.i = or disjoint i32 %bf.clear4.i.i.i.i25, %bf.value2.i.i.i.i
   store i32 %bf.set5.i.i.i.i, ptr %call.i.i.i.i19, align 8
-  %args.i.i.i.i26 = getelementptr inbounds i8, ptr %call.i.i.i.i19, i64 32
+  %args.i.i.i.i26 = getelementptr inbounds nuw i8, ptr %call.i.i.i.i19, i64 32
   store i64 %37, ptr %args.i.i.i.i26, align 8
   %arrayidx7.i.i.i.i27 = getelementptr i8, ptr %call.i.i.i.i19, i64 40
   store i64 %38, ptr %arrayidx7.i.i.i.i27, align 8
@@ -2361,7 +2361,7 @@ if.then21.i.i:                                    ; preds = %entry
   %bf.clear4.i.i.i = or disjoint i32 %bf.value.masked.i.i.i, %bf.clear.i.i.i
   %bf.set5.i.i.i = or disjoint i32 %bf.clear4.i.i.i, %bf.value2.i.i.i
   store i32 %bf.set5.i.i.i, ptr %call.i.i.i, align 8
-  %args.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
+  %args.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
   store i64 %5, ptr %args.i.i.i, align 8
   %arrayidx7.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
   store i64 %6, ptr %arrayidx7.i.i.i, align 8
@@ -2424,7 +2424,7 @@ if.then21.i:                                      ; preds = %entry
   %bf.clear4.i.i = or disjoint i32 %bf.value.masked.i.i, %bf.clear.i.i
   %bf.set5.i.i = or disjoint i32 %bf.clear4.i.i, %bf.value2.i.i
   store i32 %bf.set5.i.i, ptr %call.i.i, align 8
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %5, ptr %args.i.i, align 8
   %arrayidx7.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %6, ptr %arrayidx7.i.i, align 8
@@ -2482,7 +2482,7 @@ if.then21.i.i.i:                                  ; preds = %if.then
   %bf.clear4.i.i.i.i = or disjoint i32 %bf.value.masked.i.i.i.i, %bf.clear.i.i.i.i
   %bf.set5.i.i.i.i = or disjoint i32 %bf.clear4.i.i.i.i, %bf.value2.i.i.i.i
   store i32 %bf.set5.i.i.i.i, ptr %call.i.i.i.i, align 8
-  %args.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 32
+  %args.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 32
   store i64 %16, ptr %args.i.i.i.i, align 8
   %arrayidx7.i.i.i.i = getelementptr i8, ptr %call.i.i.i.i, i64 40
   store i64 %17, ptr %arrayidx7.i.i.i.i, align 8
@@ -2563,7 +2563,7 @@ if.then21.i:                                      ; preds = %entry
   %bf.clear4.i.i = or disjoint i32 %bf.value.masked.i.i, %bf.clear.i.i
   %bf.set5.i.i = or disjoint i32 %bf.clear4.i.i, %bf.value2.i.i
   store i32 %bf.set5.i.i, ptr %call.i.i, align 8
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %5, ptr %args.i.i, align 8
   %arrayidx7.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %6, ptr %arrayidx7.i.i, align 8
@@ -2632,7 +2632,7 @@ if.then21.i.i:                                    ; preds = %entry
   %bf.clear4.i.i.i = or disjoint i32 %bf.value.masked.i.i.i, %bf.clear.i.i.i
   %bf.set5.i.i.i = or disjoint i32 %bf.clear4.i.i.i, %bf.value2.i.i.i
   store i32 %bf.set5.i.i.i, ptr %call.i.i.i, align 8
-  %args.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
+  %args.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
   store i64 %5, ptr %args.i.i.i, align 8
   %arrayidx7.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
   store i64 %6, ptr %arrayidx7.i.i.i, align 8
@@ -2695,7 +2695,7 @@ if.then21.i.i:                                    ; preds = %entry
   %bf.clear4.i.i.i = or disjoint i32 %bf.value.masked.i.i.i, %bf.clear.i.i.i
   %bf.set5.i.i.i = or disjoint i32 %bf.clear4.i.i.i, %bf.value2.i.i.i
   store i32 %bf.set5.i.i.i, ptr %call.i.i.i, align 8
-  %args.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
+  %args.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
   store i64 %5, ptr %args.i.i.i, align 8
   %arrayidx7.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
   store i64 %6, ptr %arrayidx7.i.i.i, align 8
@@ -2758,7 +2758,7 @@ if.then21.i.i:                                    ; preds = %entry
   %bf.clear4.i.i.i = or disjoint i32 %bf.value.masked.i.i.i, %bf.clear.i.i.i
   %bf.set5.i.i.i = or disjoint i32 %bf.clear4.i.i.i, %bf.value2.i.i.i
   store i32 %bf.set5.i.i.i, ptr %call.i.i.i, align 8
-  %args.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
+  %args.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
   store i64 %5, ptr %args.i.i.i, align 8
   %arrayidx7.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
   store i64 %6, ptr %arrayidx7.i.i.i, align 8
@@ -2821,7 +2821,7 @@ if.then21.i.i:                                    ; preds = %entry
   %bf.clear4.i.i.i = or disjoint i32 %bf.value.masked.i.i.i, %bf.clear.i.i.i
   %bf.set5.i.i.i = or disjoint i32 %bf.clear4.i.i.i, %bf.value2.i.i.i
   store i32 %bf.set5.i.i.i, ptr %call.i.i.i, align 8
-  %args.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
+  %args.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
   store i64 %5, ptr %args.i.i.i, align 8
   %arrayidx7.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
   store i64 %6, ptr %arrayidx7.i.i.i, align 8
@@ -2884,7 +2884,7 @@ if.then21.i.i:                                    ; preds = %entry
   %bf.clear4.i.i.i = or disjoint i32 %bf.value.masked.i.i.i, %bf.clear.i.i.i
   %bf.set5.i.i.i = or disjoint i32 %bf.clear4.i.i.i, %bf.value2.i.i.i
   store i32 %bf.set5.i.i.i, ptr %call.i.i.i, align 8
-  %args.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
+  %args.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
   store i64 %5, ptr %args.i.i.i, align 8
   %arrayidx7.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
   store i64 %6, ptr %arrayidx7.i.i.i, align 8
@@ -2941,7 +2941,7 @@ if.then12.i:                                      ; preds = %entry
   %bf.clear4.i.i = or disjoint i32 %bf.value.masked.i.i, %bf.clear.i.i
   %bf.set5.i.i = or disjoint i32 %bf.clear4.i.i, %bf.value2.i.i
   store i32 %bf.set5.i.i, ptr %call.i.i, align 8
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %5, ptr %args.i.i, align 8
   %arrayidx7.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %6, ptr %arrayidx7.i.i, align 8
@@ -3004,7 +3004,7 @@ if.then12.i:                                      ; preds = %entry
   %bf.clear4.i.i = or disjoint i32 %bf.value.masked.i.i, %bf.clear.i.i
   %bf.set5.i.i = or disjoint i32 %bf.clear4.i.i, %bf.value2.i.i
   store i32 %bf.set5.i.i, ptr %call.i.i, align 8
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %5, ptr %args.i.i, align 8
   %arrayidx7.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %6, ptr %arrayidx7.i.i, align 8
@@ -3067,7 +3067,7 @@ if.then12.i:                                      ; preds = %entry
   %bf.clear4.i.i = or disjoint i32 %bf.value.masked.i.i, %bf.clear.i.i
   %bf.set5.i.i = or disjoint i32 %bf.clear4.i.i, %bf.value2.i.i
   store i32 %bf.set5.i.i, ptr %call.i.i, align 8
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %5, ptr %args.i.i, align 8
   %arrayidx7.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %6, ptr %arrayidx7.i.i, align 8
@@ -3130,7 +3130,7 @@ if.then12.i:                                      ; preds = %entry
   %bf.clear4.i.i = or disjoint i32 %bf.value.masked.i.i, %bf.clear.i.i
   %bf.set5.i.i = or disjoint i32 %bf.clear4.i.i, %bf.value2.i.i
   store i32 %bf.set5.i.i, ptr %call.i.i, align 8
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %5, ptr %args.i.i, align 8
   %arrayidx7.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %6, ptr %arrayidx7.i.i, align 8
@@ -3207,7 +3207,7 @@ if.then28:                                        ; preds = %entry
   %bf.value.masked.i = and i32 %bf.value.i, 16711680
   %bf.clear4.i = or disjoint i32 %bf.clear.i, %bf.value.masked.i
   store i32 %bf.clear4.i, ptr %call.i, align 8
-  %args.i = getelementptr inbounds i8, ptr %call.i, i64 32
+  %args.i = getelementptr inbounds nuw i8, ptr %call.i, i64 32
   store i64 %16, ptr %args.i, align 8
   %arrayidx7.i = getelementptr i8, ptr %call.i, i64 40
   store i64 %17, ptr %arrayidx7.i, align 8
@@ -3251,7 +3251,7 @@ if.else:                                          ; preds = %entry
   %bf.value.masked.i.i.i = and i32 %bf.value.i.i.i, 16711680
   %bf.clear4.i.i.i = or disjoint i32 %bf.clear.i.i.i, %bf.value.masked.i.i.i
   store i32 %bf.clear4.i.i.i, ptr %call.i.i.i, align 8
-  %args.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
+  %args.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 32
   store i64 %28, ptr %args.i.i.i, align 8
   %arrayidx7.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
   store i64 %29, ptr %arrayidx7.i.i.i, align 8
@@ -3288,7 +3288,7 @@ if.else:                                          ; preds = %entry
   %bf.value.masked.i.i.i37 = and i32 %bf.value.i.i.i35, 16711680
   %bf.clear4.i.i.i38 = or disjoint i32 %bf.clear.i.i.i36, %bf.value.masked.i.i.i37
   store i32 %bf.clear4.i.i.i38, ptr %call.i.i.i32, align 8
-  %args.i.i.i39 = getelementptr inbounds i8, ptr %call.i.i.i32, i64 32
+  %args.i.i.i39 = getelementptr inbounds nuw i8, ptr %call.i.i.i32, i64 32
   store i64 %38, ptr %args.i.i.i39, align 8
   %arrayidx7.i.i.i40 = getelementptr i8, ptr %call.i.i.i32, i64 40
   store i64 %39, ptr %arrayidx7.i.i.i40, align 8
@@ -3317,7 +3317,7 @@ if.else:                                          ; preds = %entry
   %bf.value.masked.i.i.i58 = and i32 %bf.value.i.i.i56, 16711680
   %bf.clear4.i.i.i59 = or disjoint i32 %bf.value.masked.i.i.i58, %bf.clear.i.i.i57
   store i32 %bf.clear4.i.i.i59, ptr %call.i.i.i53, align 8
-  %args.i.i.i60 = getelementptr inbounds i8, ptr %call.i.i.i53, i64 32
+  %args.i.i.i60 = getelementptr inbounds nuw i8, ptr %call.i.i.i53, i64 32
   store i64 %46, ptr %args.i.i.i60, align 8
   %arrayidx7.i.i.i61 = getelementptr i8, ptr %call.i.i.i53, i64 40
   store i64 %46, ptr %arrayidx7.i.i.i61, align 8
@@ -3394,7 +3394,7 @@ if.then44:                                        ; preds = %entry
   %bf.clear4.i = or disjoint i32 %bf.value.masked.i, %bf.clear.i
   %bf.set5.i = or disjoint i32 %bf.clear4.i, %bf.value2.i
   store i32 %bf.set5.i, ptr %call.i, align 8
-  %args.i = getelementptr inbounds i8, ptr %call.i, i64 32
+  %args.i = getelementptr inbounds nuw i8, ptr %call.i, i64 32
   store i64 %7, ptr %args.i, align 8
   %arrayidx7.i = getelementptr i8, ptr %call.i, i64 40
   store i64 %8, ptr %arrayidx7.i, align 8
@@ -3458,7 +3458,7 @@ if.then21.i:                                      ; preds = %if.else48
   %bf.clear4.i.i = or disjoint i32 %bf.value.masked.i.i, %bf.clear.i.i
   %bf.set5.i.i = or disjoint i32 %bf.clear4.i.i, %bf.value2.i.i
   store i32 %bf.set5.i.i, ptr %call.i.i, align 8
-  %args.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %args.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store i64 %24, ptr %args.i.i, align 8
   %arrayidx7.i.i = getelementptr i8, ptr %call.i.i, i64 40
   store i64 %25, ptr %arrayidx7.i.i, align 8

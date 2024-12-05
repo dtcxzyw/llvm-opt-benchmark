@@ -142,12 +142,12 @@ target triple = "x86_64-pc-linux-gnu"
 define void @Java_sun_java2d_loops_GraphicsPrimitiveMgr_initIDs(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12) local_unnamed_addr #0 {
   tail call void (...) @initAlphaTables() #6
   %14 = load ptr, ptr %0, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 168
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 168
   %16 = load ptr, ptr %15, align 8
   %17 = tail call ptr %16(ptr noundef nonnull %0, ptr noundef %1) #6
   store ptr %17, ptr @GraphicsPrimitiveMgr, align 8
   %18 = load ptr, ptr %0, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 168
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 168
   %20 = load ptr, ptr %19, align 8
   %21 = tail call ptr %20(ptr noundef nonnull %0, ptr noundef %2) #6
   store ptr %21, ptr @GraphicsPrimitive, align 8
@@ -168,9 +168,9 @@ define void @Java_sun_java2d_loops_GraphicsPrimitiveMgr_initIDs(ptr noundef %0, 
 
 .preheader:                                       ; preds = %13, %26
   %.028.idx34.i = phi i64 [ %.028.add.i, %26 ], [ 0, %13 ]
-  %.028.ptr35.i = getelementptr inbounds i8, ptr @PrimitiveTypes, i64 %.028.idx34.i
+  %.028.ptr35.i = getelementptr inbounds nuw i8, ptr @PrimitiveTypes, i64 %.028.idx34.i
   %28 = load ptr, ptr %0, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 48
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 48
   %30 = load ptr, ptr %29, align 8
   %31 = load ptr, ptr %.028.ptr35.i, align 8
   %32 = tail call ptr %30(ptr noundef nonnull %0, ptr noundef %31) #6
@@ -179,19 +179,19 @@ define void @Java_sun_java2d_loops_GraphicsPrimitiveMgr_initIDs(ptr noundef %0, 
 
 34:                                               ; preds = %.preheader
   %35 = load ptr, ptr %0, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 168
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 168
   %37 = load ptr, ptr %36, align 8
   %38 = tail call ptr %37(ptr noundef nonnull %0, ptr noundef nonnull %32) #6
-  %39 = getelementptr inbounds i8, ptr %.028.ptr35.i, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %.028.ptr35.i, i64 16
   store ptr %38, ptr %39, align 8
   %40 = load ptr, ptr %0, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 264
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 264
   %42 = load ptr, ptr %41, align 8
   %43 = tail call ptr %42(ptr noundef nonnull %0, ptr noundef nonnull %32, ptr noundef nonnull @.str.92, ptr noundef nonnull @.str.93) #6
-  %44 = getelementptr inbounds i8, ptr %.028.ptr35.i, i64 24
+  %44 = getelementptr inbounds nuw i8, ptr %.028.ptr35.i, i64 24
   store ptr %43, ptr %44, align 8
   %45 = load ptr, ptr %0, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 184
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 184
   %47 = load ptr, ptr %46, align 8
   tail call void %47(ptr noundef nonnull %0, ptr noundef nonnull %32) #6
   %48 = load ptr, ptr %39, align 8
@@ -208,22 +208,22 @@ define void @Java_sun_java2d_loops_GraphicsPrimitiveMgr_initIDs(ptr noundef %0, 
 
 53:                                               ; preds = %.preheader115, %60
   %.1.idx36.i = phi i64 [ %.1.add.i, %60 ], [ 0, %.preheader115 ]
-  %.1.ptr37.i = getelementptr inbounds i8, ptr @PrimitiveTypes, i64 %.1.idx36.i
-  %54 = getelementptr inbounds i8, ptr %.1.ptr37.i, i64 16
+  %.1.ptr37.i = getelementptr inbounds nuw i8, ptr @PrimitiveTypes, i64 %.1.idx36.i
+  %54 = getelementptr inbounds nuw i8, ptr %.1.ptr37.i, i64 16
   %55 = load ptr, ptr %54, align 8
   %.not.i = icmp eq ptr %55, null
   br i1 %.not.i, label %60, label %56
 
 56:                                               ; preds = %53
   %57 = load ptr, ptr %0, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 176
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 176
   %59 = load ptr, ptr %58, align 8
   tail call void %59(ptr noundef nonnull %0, ptr noundef nonnull %55) #6
   store ptr null, ptr %54, align 8
   br label %60
 
 60:                                               ; preds = %56, %53
-  %61 = getelementptr inbounds i8, ptr %.1.ptr37.i, i64 24
+  %61 = getelementptr inbounds nuw i8, ptr %.1.ptr37.i, i64 24
   store ptr null, ptr %61, align 8
   %.1.add.i = add nuw nsw i64 %.1.idx36.i, 32
   %62 = icmp samesign ult i64 %.1.idx36.i, 544
@@ -232,7 +232,7 @@ define void @Java_sun_java2d_loops_GraphicsPrimitiveMgr_initIDs(ptr noundef %0, 
 .lr.ph.i.i:                                       ; preds = %26, %86
   %.03542.i.i = phi ptr [ %89, %86 ], [ @SurfaceTypes, %26 ]
   %63 = load ptr, ptr %0, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 1152
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 1152
   %65 = load ptr, ptr %64, align 8
   %66 = load ptr, ptr %.03542.i.i, align 8
   %67 = tail call ptr %65(ptr noundef nonnull %0, ptr noundef %3, ptr noundef %66, ptr noundef nonnull @.str.94) #6
@@ -244,7 +244,7 @@ define void @Java_sun_java2d_loops_GraphicsPrimitiveMgr_initIDs(ptr noundef %0, 
 
 69:                                               ; preds = %.lr.ph.i.i
   %70 = load ptr, ptr %0, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 1160
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 1160
   %72 = load ptr, ptr %71, align 8
   %73 = tail call ptr %72(ptr noundef nonnull %0, ptr noundef %3, ptr noundef nonnull %67) #6
   %74 = icmp eq ptr %73, null
@@ -252,13 +252,13 @@ define void @Java_sun_java2d_loops_GraphicsPrimitiveMgr_initIDs(ptr noundef %0, 
 
 75:                                               ; preds = %69
   %76 = load ptr, ptr %0, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 168
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 168
   %78 = load ptr, ptr %77, align 8
   %79 = tail call ptr %78(ptr noundef nonnull %0, ptr noundef nonnull %73) #6
-  %80 = getelementptr inbounds i8, ptr %.03542.i.i, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %.03542.i.i, i64 8
   store ptr %79, ptr %80, align 8
   %81 = load ptr, ptr %0, align 8
-  %82 = getelementptr inbounds i8, ptr %81, i64 184
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 184
   %83 = load ptr, ptr %82, align 8
   tail call void %83(ptr noundef nonnull %0, ptr noundef nonnull %73) #6
   %84 = load ptr, ptr %80, align 8
@@ -274,14 +274,14 @@ define void @Java_sun_java2d_loops_GraphicsPrimitiveMgr_initIDs(ptr noundef %0, 
 
 .lr.ph44.i.i:                                     ; preds = %.lr.ph44.i.i.preheader, %97
   %.143.i.i = phi ptr [ %100, %97 ], [ @SurfaceTypes, %.lr.ph44.i.i.preheader ]
-  %91 = getelementptr inbounds i8, ptr %.143.i.i, i64 8
+  %91 = getelementptr inbounds nuw i8, ptr %.143.i.i, i64 8
   %92 = load ptr, ptr %91, align 8
   %.not.i.i = icmp eq ptr %92, null
   br i1 %.not.i.i, label %97, label %93
 
 93:                                               ; preds = %.lr.ph44.i.i
   %94 = load ptr, ptr %0, align 8
-  %95 = getelementptr inbounds i8, ptr %94, i64 176
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 176
   %96 = load ptr, ptr %95, align 8
   tail call void %96(ptr noundef nonnull %0, ptr noundef nonnull %92) #6
   store ptr null, ptr %91, align 8
@@ -297,7 +297,7 @@ define void @Java_sun_java2d_loops_GraphicsPrimitiveMgr_initIDs(ptr noundef %0, 
 .lr.ph.i.i94:                                     ; preds = %86, %125
   %.03542.i.i95 = phi ptr [ %128, %125 ], [ @CompositeTypes, %86 ]
   %102 = load ptr, ptr %0, align 8
-  %103 = getelementptr inbounds i8, ptr %102, i64 1152
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 1152
   %104 = load ptr, ptr %103, align 8
   %105 = load ptr, ptr %.03542.i.i95, align 8
   %106 = tail call ptr %104(ptr noundef nonnull %0, ptr noundef %4, ptr noundef %105, ptr noundef nonnull @.str.95) #6
@@ -309,7 +309,7 @@ define void @Java_sun_java2d_loops_GraphicsPrimitiveMgr_initIDs(ptr noundef %0, 
 
 108:                                              ; preds = %.lr.ph.i.i94
   %109 = load ptr, ptr %0, align 8
-  %110 = getelementptr inbounds i8, ptr %109, i64 1160
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 1160
   %111 = load ptr, ptr %110, align 8
   %112 = tail call ptr %111(ptr noundef nonnull %0, ptr noundef %4, ptr noundef nonnull %106) #6
   %113 = icmp eq ptr %112, null
@@ -317,13 +317,13 @@ define void @Java_sun_java2d_loops_GraphicsPrimitiveMgr_initIDs(ptr noundef %0, 
 
 114:                                              ; preds = %108
   %115 = load ptr, ptr %0, align 8
-  %116 = getelementptr inbounds i8, ptr %115, i64 168
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 168
   %117 = load ptr, ptr %116, align 8
   %118 = tail call ptr %117(ptr noundef nonnull %0, ptr noundef nonnull %112) #6
-  %119 = getelementptr inbounds i8, ptr %.03542.i.i95, i64 8
+  %119 = getelementptr inbounds nuw i8, ptr %.03542.i.i95, i64 8
   store ptr %118, ptr %119, align 8
   %120 = load ptr, ptr %0, align 8
-  %121 = getelementptr inbounds i8, ptr %120, i64 184
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 184
   %122 = load ptr, ptr %121, align 8
   tail call void %122(ptr noundef nonnull %0, ptr noundef nonnull %112) #6
   %123 = load ptr, ptr %119, align 8
@@ -339,14 +339,14 @@ define void @Java_sun_java2d_loops_GraphicsPrimitiveMgr_initIDs(ptr noundef %0, 
 
 .lr.ph44.i.i98:                                   ; preds = %.lr.ph44.i.i98.preheader, %136
   %.143.i.i99 = phi ptr [ %139, %136 ], [ @CompositeTypes, %.lr.ph44.i.i98.preheader ]
-  %130 = getelementptr inbounds i8, ptr %.143.i.i99, i64 8
+  %130 = getelementptr inbounds nuw i8, ptr %.143.i.i99, i64 8
   %131 = load ptr, ptr %130, align 8
   %.not.i.i100 = icmp eq ptr %131, null
   br i1 %.not.i.i100, label %136, label %132
 
 132:                                              ; preds = %.lr.ph44.i.i98
   %133 = load ptr, ptr %0, align 8
-  %134 = getelementptr inbounds i8, ptr %133, i64 176
+  %134 = getelementptr inbounds nuw i8, ptr %133, i64 176
   %135 = load ptr, ptr %134, align 8
   tail call void %135(ptr noundef nonnull %0, ptr noundef nonnull %131) #6
   store ptr null, ptr %130, align 8
@@ -361,7 +361,7 @@ define void @Java_sun_java2d_loops_GraphicsPrimitiveMgr_initIDs(ptr noundef %0, 
 
 InitCompositeTypes.exit:                          ; preds = %125
   %141 = load ptr, ptr %0, align 8
-  %142 = getelementptr inbounds i8, ptr %141, i64 904
+  %142 = getelementptr inbounds nuw i8, ptr %141, i64 904
   %143 = load ptr, ptr %142, align 8
   %144 = tail call ptr %143(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str.90, ptr noundef nonnull @.str.91) #6
   store ptr %144, ptr @RegisterID, align 8
@@ -370,7 +370,7 @@ InitCompositeTypes.exit:                          ; preds = %125
 
 146:                                              ; preds = %InitCompositeTypes.exit
   %147 = load ptr, ptr %0, align 8
-  %148 = getelementptr inbounds i8, ptr %147, i64 752
+  %148 = getelementptr inbounds nuw i8, ptr %147, i64 752
   %149 = load ptr, ptr %148, align 8
   %150 = tail call ptr %149(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #6
   store ptr %150, ptr @pNativePrimID, align 8
@@ -379,7 +379,7 @@ InitCompositeTypes.exit:                          ; preds = %125
 
 152:                                              ; preds = %146
   %153 = load ptr, ptr %0, align 8
-  %154 = getelementptr inbounds i8, ptr %153, i64 752
+  %154 = getelementptr inbounds nuw i8, ptr %153, i64 752
   %155 = load ptr, ptr %154, align 8
   %156 = tail call ptr %155(ptr noundef nonnull %0, ptr noundef %5, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4) #6
   store ptr %156, ptr @pixelID, align 8
@@ -388,7 +388,7 @@ InitCompositeTypes.exit:                          ; preds = %125
 
 158:                                              ; preds = %152
   %159 = load ptr, ptr %0, align 8
-  %160 = getelementptr inbounds i8, ptr %159, i64 752
+  %160 = getelementptr inbounds nuw i8, ptr %159, i64 752
   %161 = load ptr, ptr %160, align 8
   %162 = tail call ptr %161(ptr noundef nonnull %0, ptr noundef %5, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.4) #6
   store ptr %162, ptr @eargbID, align 8
@@ -397,7 +397,7 @@ InitCompositeTypes.exit:                          ; preds = %125
 
 164:                                              ; preds = %158
   %165 = load ptr, ptr %0, align 8
-  %166 = getelementptr inbounds i8, ptr %165, i64 752
+  %166 = getelementptr inbounds nuw i8, ptr %165, i64 752
   %167 = load ptr, ptr %166, align 8
   %168 = tail call ptr %167(ptr noundef nonnull %0, ptr noundef %5, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7) #6
   store ptr %168, ptr @clipRegionID, align 8
@@ -406,7 +406,7 @@ InitCompositeTypes.exit:                          ; preds = %125
 
 170:                                              ; preds = %164
   %171 = load ptr, ptr %0, align 8
-  %172 = getelementptr inbounds i8, ptr %171, i64 752
+  %172 = getelementptr inbounds nuw i8, ptr %171, i64 752
   %173 = load ptr, ptr %172, align 8
   %174 = tail call ptr %173(ptr noundef nonnull %0, ptr noundef %5, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9) #6
   store ptr %174, ptr @compositeID, align 8
@@ -415,7 +415,7 @@ InitCompositeTypes.exit:                          ; preds = %125
 
 176:                                              ; preds = %170
   %177 = load ptr, ptr %0, align 8
-  %178 = getelementptr inbounds i8, ptr %177, i64 752
+  %178 = getelementptr inbounds nuw i8, ptr %177, i64 752
   %179 = load ptr, ptr %178, align 8
   %180 = tail call ptr %179(ptr noundef nonnull %0, ptr noundef %5, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.4) #6
   store ptr %180, ptr @lcdTextContrastID, align 8
@@ -424,7 +424,7 @@ InitCompositeTypes.exit:                          ; preds = %125
 
 182:                                              ; preds = %176
   %183 = load ptr, ptr %0, align 8
-  %184 = getelementptr inbounds i8, ptr %183, i64 264
+  %184 = getelementptr inbounds nuw i8, ptr %183, i64 264
   %185 = load ptr, ptr %184, align 8
   %186 = tail call ptr %185(ptr noundef nonnull %0, ptr noundef %6, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12) #6
   store ptr %186, ptr @getRgbID, align 8
@@ -433,7 +433,7 @@ InitCompositeTypes.exit:                          ; preds = %125
 
 188:                                              ; preds = %182
   %189 = load ptr, ptr %0, align 8
-  %190 = getelementptr inbounds i8, ptr %189, i64 752
+  %190 = getelementptr inbounds nuw i8, ptr %189, i64 752
   %191 = load ptr, ptr %190, align 8
   %192 = tail call ptr %191(ptr noundef nonnull %0, ptr noundef %8, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.4) #6
   store ptr %192, ptr @xorPixelID, align 8
@@ -442,7 +442,7 @@ InitCompositeTypes.exit:                          ; preds = %125
 
 194:                                              ; preds = %188
   %195 = load ptr, ptr %0, align 8
-  %196 = getelementptr inbounds i8, ptr %195, i64 752
+  %196 = getelementptr inbounds nuw i8, ptr %195, i64 752
   %197 = load ptr, ptr %196, align 8
   %198 = tail call ptr %197(ptr noundef nonnull %0, ptr noundef %8, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15) #6
   store ptr %198, ptr @xorColorID, align 8
@@ -451,7 +451,7 @@ InitCompositeTypes.exit:                          ; preds = %125
 
 200:                                              ; preds = %194
   %201 = load ptr, ptr %0, align 8
-  %202 = getelementptr inbounds i8, ptr %201, i64 752
+  %202 = getelementptr inbounds nuw i8, ptr %201, i64 752
   %203 = load ptr, ptr %202, align 8
   %204 = tail call ptr %203(ptr noundef nonnull %0, ptr noundef %8, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.4) #6
   store ptr %204, ptr @alphaMaskID, align 8
@@ -460,7 +460,7 @@ InitCompositeTypes.exit:                          ; preds = %125
 
 206:                                              ; preds = %200
   %207 = load ptr, ptr %0, align 8
-  %208 = getelementptr inbounds i8, ptr %207, i64 752
+  %208 = getelementptr inbounds nuw i8, ptr %207, i64 752
   %209 = load ptr, ptr %208, align 8
   %210 = tail call ptr %209(ptr noundef nonnull %0, ptr noundef %9, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.4) #6
   store ptr %210, ptr @ruleID, align 8
@@ -469,7 +469,7 @@ InitCompositeTypes.exit:                          ; preds = %125
 
 212:                                              ; preds = %206
   %213 = load ptr, ptr %0, align 8
-  %214 = getelementptr inbounds i8, ptr %213, i64 752
+  %214 = getelementptr inbounds nuw i8, ptr %213, i64 752
   %215 = load ptr, ptr %214, align 8
   %216 = tail call ptr %215(ptr noundef nonnull %0, ptr noundef %9, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19) #6
   store ptr %216, ptr @extraAlphaID, align 8
@@ -478,7 +478,7 @@ InitCompositeTypes.exit:                          ; preds = %125
 
 218:                                              ; preds = %212
   %219 = load ptr, ptr %0, align 8
-  %220 = getelementptr inbounds i8, ptr %219, i64 752
+  %220 = getelementptr inbounds nuw i8, ptr %219, i64 752
   %221 = load ptr, ptr %220, align 8
   %222 = tail call ptr %221(ptr noundef nonnull %0, ptr noundef %7, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.21) #6
   store ptr %222, ptr @m00ID, align 8
@@ -487,7 +487,7 @@ InitCompositeTypes.exit:                          ; preds = %125
 
 224:                                              ; preds = %218
   %225 = load ptr, ptr %0, align 8
-  %226 = getelementptr inbounds i8, ptr %225, i64 752
+  %226 = getelementptr inbounds nuw i8, ptr %225, i64 752
   %227 = load ptr, ptr %226, align 8
   %228 = tail call ptr %227(ptr noundef nonnull %0, ptr noundef %7, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.21) #6
   store ptr %228, ptr @m01ID, align 8
@@ -496,7 +496,7 @@ InitCompositeTypes.exit:                          ; preds = %125
 
 230:                                              ; preds = %224
   %231 = load ptr, ptr %0, align 8
-  %232 = getelementptr inbounds i8, ptr %231, i64 752
+  %232 = getelementptr inbounds nuw i8, ptr %231, i64 752
   %233 = load ptr, ptr %232, align 8
   %234 = tail call ptr %233(ptr noundef nonnull %0, ptr noundef %7, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.21) #6
   store ptr %234, ptr @m02ID, align 8
@@ -505,7 +505,7 @@ InitCompositeTypes.exit:                          ; preds = %125
 
 236:                                              ; preds = %230
   %237 = load ptr, ptr %0, align 8
-  %238 = getelementptr inbounds i8, ptr %237, i64 752
+  %238 = getelementptr inbounds nuw i8, ptr %237, i64 752
   %239 = load ptr, ptr %238, align 8
   %240 = tail call ptr %239(ptr noundef nonnull %0, ptr noundef %7, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.21) #6
   store ptr %240, ptr @m10ID, align 8
@@ -514,7 +514,7 @@ InitCompositeTypes.exit:                          ; preds = %125
 
 242:                                              ; preds = %236
   %243 = load ptr, ptr %0, align 8
-  %244 = getelementptr inbounds i8, ptr %243, i64 752
+  %244 = getelementptr inbounds nuw i8, ptr %243, i64 752
   %245 = load ptr, ptr %244, align 8
   %246 = tail call ptr %245(ptr noundef nonnull %0, ptr noundef %7, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.21) #6
   store ptr %246, ptr @m11ID, align 8
@@ -523,7 +523,7 @@ InitCompositeTypes.exit:                          ; preds = %125
 
 248:                                              ; preds = %242
   %249 = load ptr, ptr %0, align 8
-  %250 = getelementptr inbounds i8, ptr %249, i64 752
+  %250 = getelementptr inbounds nuw i8, ptr %249, i64 752
   %251 = load ptr, ptr %250, align 8
   %252 = tail call ptr %251(ptr noundef nonnull %0, ptr noundef %7, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.21) #6
   store ptr %252, ptr @m12ID, align 8
@@ -532,7 +532,7 @@ InitCompositeTypes.exit:                          ; preds = %125
 
 254:                                              ; preds = %248
   %255 = load ptr, ptr %0, align 8
-  %256 = getelementptr inbounds i8, ptr %255, i64 752
+  %256 = getelementptr inbounds nuw i8, ptr %255, i64 752
   %257 = load ptr, ptr %256, align 8
   %258 = tail call ptr %257(ptr noundef nonnull %0, ptr noundef %10, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.28) #6
   store ptr %258, ptr @path2DTypesID, align 8
@@ -541,7 +541,7 @@ InitCompositeTypes.exit:                          ; preds = %125
 
 260:                                              ; preds = %254
   %261 = load ptr, ptr %0, align 8
-  %262 = getelementptr inbounds i8, ptr %261, i64 752
+  %262 = getelementptr inbounds nuw i8, ptr %261, i64 752
   %263 = load ptr, ptr %262, align 8
   %264 = tail call ptr %263(ptr noundef nonnull %0, ptr noundef %10, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.4) #6
   store ptr %264, ptr @path2DNumTypesID, align 8
@@ -550,7 +550,7 @@ InitCompositeTypes.exit:                          ; preds = %125
 
 266:                                              ; preds = %260
   %267 = load ptr, ptr %0, align 8
-  %268 = getelementptr inbounds i8, ptr %267, i64 752
+  %268 = getelementptr inbounds nuw i8, ptr %267, i64 752
   %269 = load ptr, ptr %268, align 8
   %270 = tail call ptr %269(ptr noundef nonnull %0, ptr noundef %10, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.4) #6
   store ptr %270, ptr @path2DWindingRuleID, align 8
@@ -559,7 +559,7 @@ InitCompositeTypes.exit:                          ; preds = %125
 
 272:                                              ; preds = %266
   %273 = load ptr, ptr %0, align 8
-  %274 = getelementptr inbounds i8, ptr %273, i64 752
+  %274 = getelementptr inbounds nuw i8, ptr %273, i64 752
   %275 = load ptr, ptr %274, align 8
   %276 = tail call ptr %275(ptr noundef nonnull %0, ptr noundef %11, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.32) #6
   store ptr %276, ptr @path2DFloatCoordsID, align 8
@@ -568,7 +568,7 @@ InitCompositeTypes.exit:                          ; preds = %125
 
 278:                                              ; preds = %272
   %279 = load ptr, ptr %0, align 8
-  %280 = getelementptr inbounds i8, ptr %279, i64 752
+  %280 = getelementptr inbounds nuw i8, ptr %279, i64 752
   %281 = load ptr, ptr %280, align 8
   %282 = tail call ptr %281(ptr noundef nonnull %0, ptr noundef %5, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.4) #6
   store ptr %282, ptr @sg2dStrokeHintID, align 8
@@ -577,7 +577,7 @@ InitCompositeTypes.exit:                          ; preds = %125
 
 284:                                              ; preds = %278
   %285 = load ptr, ptr %0, align 8
-  %286 = getelementptr inbounds i8, ptr %285, i64 1152
+  %286 = getelementptr inbounds nuw i8, ptr %285, i64 1152
   %287 = load ptr, ptr %286, align 8
   %288 = tail call ptr %287(ptr noundef nonnull %0, ptr noundef %12, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.4) #6
   %289 = icmp eq ptr %288, null
@@ -585,7 +585,7 @@ InitCompositeTypes.exit:                          ; preds = %125
 
 290:                                              ; preds = %284
   %291 = load ptr, ptr %0, align 8
-  %292 = getelementptr inbounds i8, ptr %291, i64 1200
+  %292 = getelementptr inbounds nuw i8, ptr %291, i64 1200
   %293 = load ptr, ptr %292, align 8
   %294 = tail call i32 %293(ptr noundef nonnull %0, ptr noundef %12, ptr noundef nonnull %288) #6
   store i32 %294, ptr @sunHints_INTVAL_STROKE_PURE, align 4
@@ -605,7 +605,7 @@ define hidden void @GrPrim_RefineBounds(ptr nocapture noundef %0, i32 noundef %1
   br i1 %6, label %7, label %56
 
 7:                                                ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %3, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %9 = load float, ptr %3, align 4
   %10 = fpext float %9 to double
   %11 = fadd double %10, 5.000000e-01
@@ -625,8 +625,8 @@ define hidden void @GrPrim_RefineBounds(ptr nocapture noundef %0, i32 noundef %1
   %.05067 = phi i32 [ %13, %7 ], [ %.151, %19 ]
   %.05366 = phi i32 [ %18, %7 ], [ %.154, %19 ]
   %.05565 = phi i32 [ %13, %7 ], [ %spec.select, %19 ]
-  %.0 = getelementptr inbounds i8, ptr %.pn70, i64 8
-  %20 = getelementptr inbounds i8, ptr %.pn70, i64 12
+  %.0 = getelementptr inbounds nuw i8, ptr %.pn70, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %.pn70, i64 12
   %21 = load float, ptr %.0, align 4
   %22 = fpext float %21 to double
   %23 = fadd double %22, 5.000000e-01
@@ -661,7 +661,7 @@ define hidden void @GrPrim_RefineBounds(ptr nocapture noundef %0, i32 noundef %1
   br label %41
 
 41:                                               ; preds = %40, %33
-  %42 = getelementptr inbounds i8, ptr %0, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %43 = load i32, ptr %42, align 4
   %44 = icmp slt i32 %43, %.154
   br i1 %44, label %45, label %46
@@ -671,7 +671,7 @@ define hidden void @GrPrim_RefineBounds(ptr nocapture noundef %0, i32 noundef %1
   br label %46
 
 46:                                               ; preds = %45, %41
-  %47 = getelementptr inbounds i8, ptr %0, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %48 = load i32, ptr %47, align 4
   %49 = icmp sgt i32 %48, %spec.select64
   br i1 %49, label %50, label %51
@@ -681,7 +681,7 @@ define hidden void @GrPrim_RefineBounds(ptr nocapture noundef %0, i32 noundef %1
   br label %51
 
 51:                                               ; preds = %50, %46
-  %52 = getelementptr inbounds i8, ptr %0, i64 12
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %53 = load i32, ptr %52, align 4
   %54 = icmp sgt i32 %53, %.2
   br i1 %54, label %55, label %62
@@ -692,11 +692,11 @@ define hidden void @GrPrim_RefineBounds(ptr nocapture noundef %0, i32 noundef %1
 
 56:                                               ; preds = %5
   %57 = load i32, ptr %0, align 4
-  %58 = getelementptr inbounds i8, ptr %0, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %57, ptr %58, align 4
-  %59 = getelementptr inbounds i8, ptr %0, i64 4
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %60 = load i32, ptr %59, align 4
-  %61 = getelementptr inbounds i8, ptr %0, i64 12
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %60, ptr %61, align 4
   br label %62
 
@@ -900,7 +900,7 @@ declare zeroext i8 @RegisterFourByteAbgrPre(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define hidden zeroext range(i8 0, 2) i8 @RegisterPrimitives(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 1376
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 1376
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr @GraphicsPrimitive, align 8
   %8 = tail call ptr %6(ptr noundef nonnull %0, i32 noundef %2, ptr noundef %7, ptr noundef null) #6
@@ -915,27 +915,27 @@ define hidden zeroext range(i8 0, 2) i8 @RegisterPrimitives(ptr noundef %0, ptr 
   %.06476 = phi ptr [ %81, %79 ], [ %1, %.preheader ]
   %.06575 = phi i32 [ %80, %79 ], [ 0, %.preheader ]
   %11 = load ptr, ptr %.06476, align 8
-  %12 = getelementptr inbounds i8, ptr %.06476, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.06476, i64 8
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %.06476, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %.06476, i64 16
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %.06476, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %.06476, i64 24
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %.06476, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %.06476, i64 40
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %.06476, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %.06476, i64 32
   store ptr %19, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %.06476, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %.06476, i64 48
   %22 = load i32, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %.06476, i64 52
+  %23 = getelementptr inbounds nuw i8, ptr %.06476, i64 52
   %24 = load i32, ptr %23, align 4
-  %25 = getelementptr inbounds i8, ptr %11, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %26 = load i32, ptr %25, align 8
   %27 = or i32 %26, %22
-  %28 = getelementptr inbounds i8, ptr %11, i64 12
+  %28 = getelementptr inbounds nuw i8, ptr %11, i64 12
   %29 = load i32, ptr %28, align 4
   %30 = or i32 %29, %24
-  %31 = getelementptr inbounds i8, ptr %15, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %32 = load i32, ptr %31, align 8
   %33 = or i32 %30, %32
   %34 = and i32 %27, 1
@@ -943,7 +943,7 @@ define hidden zeroext range(i8 0, 2) i8 @RegisterPrimitives(ptr noundef %0, ptr 
   br i1 %.not, label %39, label %35
 
 35:                                               ; preds = %.lr.ph
-  %36 = getelementptr inbounds i8, ptr %13, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %37 = load i32, ptr %36, align 8
   %38 = or i32 %37, %27
   br label %39
@@ -955,7 +955,7 @@ define hidden zeroext range(i8 0, 2) i8 @RegisterPrimitives(ptr noundef %0, ptr 
   br i1 %.not70, label %45, label %41
 
 41:                                               ; preds = %39
-  %42 = getelementptr inbounds i8, ptr %17, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %43 = load i32, ptr %42, align 8
   %44 = or i32 %43, %33
   br label %45
@@ -967,7 +967,7 @@ define hidden zeroext range(i8 0, 2) i8 @RegisterPrimitives(ptr noundef %0, ptr 
   br i1 %.not71, label %51, label %47
 
 47:                                               ; preds = %45
-  %48 = getelementptr inbounds i8, ptr %17, i64 28
+  %48 = getelementptr inbounds nuw i8, ptr %17, i64 28
   %49 = load i32, ptr %48, align 4
   %50 = or i32 %49, %.067
   br label %51
@@ -977,18 +977,18 @@ define hidden zeroext range(i8 0, 2) i8 @RegisterPrimitives(ptr noundef %0, ptr 
   store i32 %.066, ptr %21, align 8
   store i32 %.1, ptr %23, align 4
   %52 = load ptr, ptr %0, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 224
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 224
   %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %11, i64 16
+  %55 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %11, i64 24
+  %57 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %58 = load ptr, ptr %57, align 8
   %59 = ptrtoint ptr %.06476 to i64
-  %60 = getelementptr inbounds i8, ptr %13, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %15, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %63 = load ptr, ptr %62, align 8
-  %64 = getelementptr inbounds i8, ptr %17, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %65 = load ptr, ptr %64, align 8
   %66 = tail call ptr (ptr, ptr, ptr, ...) %54(ptr noundef nonnull %0, ptr noundef %56, ptr noundef %58, i64 noundef %59, ptr noundef %61, ptr noundef %63, ptr noundef %65) #6
   %67 = icmp eq ptr %66, null
@@ -996,15 +996,15 @@ define hidden zeroext range(i8 0, 2) i8 @RegisterPrimitives(ptr noundef %0, ptr 
 
 68:                                               ; preds = %51
   %69 = load ptr, ptr %0, align 8
-  %70 = getelementptr inbounds i8, ptr %69, i64 1392
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 1392
   %71 = load ptr, ptr %70, align 8
   tail call void %71(ptr noundef nonnull %0, ptr noundef nonnull %8, i32 noundef %.06575, ptr noundef nonnull %66) #6
   %72 = load ptr, ptr %0, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 184
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 184
   %74 = load ptr, ptr %73, align 8
   tail call void %74(ptr noundef nonnull %0, ptr noundef nonnull %66) #6
   %75 = load ptr, ptr %0, align 8
-  %76 = getelementptr inbounds i8, ptr %75, i64 1824
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 1824
   %77 = load ptr, ptr %76, align 8
   %78 = tail call zeroext i8 %77(ptr noundef nonnull %0) #6
   %.not72 = icmp eq i8 %78, 0
@@ -1012,13 +1012,13 @@ define hidden zeroext range(i8 0, 2) i8 @RegisterPrimitives(ptr noundef %0, ptr 
 
 79:                                               ; preds = %68
   %80 = add nuw nsw i32 %.06575, 1
-  %81 = getelementptr inbounds i8, ptr %.06476, i64 56
+  %81 = getelementptr inbounds nuw i8, ptr %.06476, i64 56
   %exitcond.not = icmp eq i32 %80, %2
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %79, %.preheader
   %82 = load ptr, ptr %0, align 8
-  %83 = getelementptr inbounds i8, ptr %82, i64 1128
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 1128
   %84 = load ptr, ptr %83, align 8
   %85 = load ptr, ptr @GraphicsPrimitiveMgr, align 8
   %86 = load ptr, ptr @RegisterID, align 8
@@ -1027,11 +1027,11 @@ define hidden zeroext range(i8 0, 2) i8 @RegisterPrimitives(ptr noundef %0, ptr 
 
 .thread:                                          ; preds = %51, %68, %._crit_edge
   %87 = load ptr, ptr %0, align 8
-  %88 = getelementptr inbounds i8, ptr %87, i64 184
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 184
   %89 = load ptr, ptr %88, align 8
   tail call void %89(ptr noundef nonnull %0, ptr noundef nonnull %8) #6
   %90 = load ptr, ptr %0, align 8
-  %91 = getelementptr inbounds i8, ptr %90, i64 1824
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 1824
   %92 = load ptr, ptr %91, align 8
   %93 = tail call zeroext i8 %92(ptr noundef nonnull %0) #6
   %.not74 = icmp eq i8 %93, 0
@@ -1046,7 +1046,7 @@ define hidden zeroext range(i8 0, 2) i8 @RegisterPrimitives(ptr noundef %0, ptr 
 ; Function Attrs: nounwind uwtable
 define ptr @GetNativePrim(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 808
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 808
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr @pNativePrimID, align 8
   %7 = tail call i64 %5(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %6) #6
@@ -1067,17 +1067,17 @@ declare void @JNU_ThrowInternalError(ptr noundef, ptr noundef) local_unnamed_add
 ; Function Attrs: nounwind uwtable
 define void @GrPrim_Sg2dGetCompInfo(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 760
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 760
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr @compositeID, align 8
   %9 = tail call ptr %7(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %8) #6
-  %10 = getelementptr inbounds i8, ptr %2, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
   tail call void %13(ptr noundef nonnull %0, ptr noundef %3, ptr noundef %9) #6
   %14 = load ptr, ptr %0, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 184
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 184
   %16 = load ptr, ptr %15, align 8
   tail call void %16(ptr noundef nonnull %0, ptr noundef %9) #6
   ret void
@@ -1086,17 +1086,17 @@ define void @GrPrim_Sg2dGetCompInfo(ptr noundef %0, ptr noundef %1, ptr nocaptur
 ; Function Attrs: nounwind uwtable
 define hidden i32 @GrPrim_CompGetXorColor(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 760
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 760
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr @xorColorID, align 8
   %7 = tail call ptr %5(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %6) #6
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 392
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 392
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr @getRgbID, align 8
   %12 = tail call i32 (ptr, ptr, ptr, ...) %10(ptr noundef nonnull %0, ptr noundef %7, ptr noundef %11) #6
   %13 = load ptr, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 184
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 184
   %15 = load ptr, ptr %14, align 8
   tail call void %15(ptr noundef nonnull %0, ptr noundef %7) #6
   ret i32 %12
@@ -1105,7 +1105,7 @@ define hidden i32 @GrPrim_CompGetXorColor(ptr noundef %0, ptr noundef %1) local_
 ; Function Attrs: nounwind uwtable
 define void @GrPrim_Sg2dGetClip(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 760
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 760
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr @clipRegionID, align 8
   %8 = tail call ptr %6(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %7) #6
@@ -1118,7 +1118,7 @@ declare void @Region_GetBounds(ptr noundef, ptr noundef, ptr noundef) local_unna
 ; Function Attrs: nounwind uwtable
 define i32 @GrPrim_Sg2dGetPixel(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 800
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 800
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr @pixelID, align 8
   %7 = tail call i32 %5(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %6) #6
@@ -1128,7 +1128,7 @@ define i32 @GrPrim_Sg2dGetPixel(ptr noundef %0, ptr noundef %1) local_unnamed_ad
 ; Function Attrs: nounwind uwtable
 define i32 @GrPrim_Sg2dGetEaRGB(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 800
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 800
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr @eargbID, align 8
   %7 = tail call i32 %5(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %6) #6
@@ -1138,7 +1138,7 @@ define i32 @GrPrim_Sg2dGetEaRGB(ptr noundef %0, ptr noundef %1) local_unnamed_ad
 ; Function Attrs: nounwind uwtable
 define i32 @GrPrim_Sg2dGetLCDTextContrast(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 800
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 800
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr @lcdTextContrastID, align 8
   %7 = tail call i32 %5(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %6) #6
@@ -1148,45 +1148,45 @@ define i32 @GrPrim_Sg2dGetLCDTextContrast(ptr noundef %0, ptr noundef %1) local_
 ; Function Attrs: nounwind uwtable
 define hidden void @Transform_GetInfo(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 48)) %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 824
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 824
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr @m00ID, align 8
   %8 = tail call double %6(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %7) #6
   store double %8, ptr %2, align 8
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 824
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 824
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr @m01ID, align 8
   %13 = tail call double %11(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %12) #6
-  %14 = getelementptr inbounds i8, ptr %2, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store double %13, ptr %14, align 8
   %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 824
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 824
   %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr @m02ID, align 8
   %19 = tail call double %17(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %18) #6
-  %20 = getelementptr inbounds i8, ptr %2, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store double %19, ptr %20, align 8
   %21 = load ptr, ptr %0, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 824
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 824
   %23 = load ptr, ptr %22, align 8
   %24 = load ptr, ptr @m10ID, align 8
   %25 = tail call double %23(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %24) #6
-  %26 = getelementptr inbounds i8, ptr %2, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store double %25, ptr %26, align 8
   %27 = load ptr, ptr %0, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 824
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 824
   %29 = load ptr, ptr %28, align 8
   %30 = load ptr, ptr @m11ID, align 8
   %31 = tail call double %29(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %30) #6
-  %32 = getelementptr inbounds i8, ptr %2, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store double %31, ptr %32, align 8
   %33 = load ptr, ptr %0, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 824
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 824
   %35 = load ptr, ptr %34, align 8
   %36 = load ptr, ptr @m12ID, align 8
   %37 = tail call double %35(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %36) #6
-  %38 = getelementptr inbounds i8, ptr %2, i64 40
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store double %37, ptr %38, align 8
   ret void
 }
@@ -1196,21 +1196,21 @@ define hidden void @Transform_transform(ptr nocapture noundef readonly %0, ptr n
   %4 = load double, ptr %1, align 8
   %5 = load double, ptr %2, align 8
   %6 = load double, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load double, ptr %7, align 8
   %9 = fmul double %5, %8
   %10 = tail call double @llvm.fmuladd.f64(double %6, double %4, double %9)
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load double, ptr %11, align 8
   %13 = fadd double %12, %10
   store double %13, ptr %1, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %15 = load double, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %17 = load double, ptr %16, align 8
   %18 = fmul double %5, %17
   %19 = tail call double @llvm.fmuladd.f64(double %15, double %4, double %18)
-  %20 = getelementptr inbounds i8, ptr %0, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %21 = load double, ptr %20, align 8
   %22 = fadd double %21, %19
   store double %22, ptr %2, align 8
@@ -1257,17 +1257,17 @@ declare i32 @PixelForFourByteAbgrPre(ptr noundef, i32 noundef) #1
 ; Function Attrs: nounwind uwtable
 define internal void @GrPrim_CompGetAlphaInfo(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr noundef %2) #0 {
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 800
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 800
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr @ruleID, align 8
   %8 = tail call i32 %6(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %7) #6
   store i32 %8, ptr %1, align 4
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 816
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 816
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr @extraAlphaID, align 8
   %13 = tail call float %11(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %12) #6
-  %14 = getelementptr inbounds i8, ptr %1, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store float %13, ptr %14, align 4
   ret void
 }
@@ -1276,18 +1276,18 @@ define internal void @GrPrim_CompGetAlphaInfo(ptr noundef %0, ptr nocapture noun
 define internal void @GrPrim_CompGetXorInfo(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 12)) %1, ptr noundef %2) #0 {
   store i32 0, ptr %1, align 4
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 800
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 800
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr @xorPixelID, align 8
   %8 = tail call i32 %6(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %7) #6
-  %9 = getelementptr inbounds i8, ptr %1, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 %8, ptr %9, align 4
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 800
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 800
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr @alphaMaskID, align 8
   %14 = tail call i32 %12(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %13) #6
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %14, ptr %15, align 4
   ret void
 }

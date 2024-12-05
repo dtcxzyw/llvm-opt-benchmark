@@ -97,12 +97,12 @@ entry:
   %call.i.i = call ptr @fdt_getprop(ptr noundef %fdt, i32 noundef %parent, ptr noundef nonnull @.str, ptr noundef nonnull %len.i.i) #4
   %tobool.not.i.i = icmp eq ptr %call.i.i, null
   %0 = load i32, ptr %len.i.i, align 4
-  %.sink.sroa.gep = getelementptr inbounds i8, ptr %data, i64 7
-  %.sink.sroa.gep92 = getelementptr inbounds i8, ptr %data, i64 3
-  %.sink87.sroa.gep = getelementptr inbounds i8, ptr %data, i64 6
-  %.sink87.sroa.gep93 = getelementptr inbounds i8, ptr %data, i64 2
-  %.sink88.sroa.gep = getelementptr inbounds i8, ptr %data, i64 5
-  %.sink88.sroa.gep94 = getelementptr inbounds i8, ptr %data, i64 1
+  %.sink.sroa.gep = getelementptr inbounds nuw i8, ptr %data, i64 7
+  %.sink.sroa.gep92 = getelementptr inbounds nuw i8, ptr %data, i64 3
+  %.sink87.sroa.gep = getelementptr inbounds nuw i8, ptr %data, i64 6
+  %.sink87.sroa.gep93 = getelementptr inbounds nuw i8, ptr %data, i64 2
+  %.sink88.sroa.gep = getelementptr inbounds nuw i8, ptr %data, i64 5
+  %.sink88.sroa.gep94 = getelementptr inbounds nuw i8, ptr %data, i64 1
   br i1 %tobool.not.i.i, label %fdt_cells.exit.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %entry
@@ -192,19 +192,19 @@ if.then13:                                        ; preds = %if.end4
   store i8 %conv.i35, ptr %data, align 16
   %shr1.i36 = lshr i64 %addr, 48
   %conv2.i37 = trunc i64 %shr1.i36 to i8
-  %arrayidx3.i38 = getelementptr inbounds i8, ptr %data, i64 1
+  %arrayidx3.i38 = getelementptr inbounds nuw i8, ptr %data, i64 1
   store i8 %conv2.i37, ptr %arrayidx3.i38, align 1
   %shr4.i39 = lshr i64 %addr, 40
   %conv6.i40 = trunc i64 %shr4.i39 to i8
-  %arrayidx7.i41 = getelementptr inbounds i8, ptr %data, i64 2
+  %arrayidx7.i41 = getelementptr inbounds nuw i8, ptr %data, i64 2
   store i8 %conv6.i40, ptr %arrayidx7.i41, align 2
   %shr8.i = lshr i64 %addr, 32
   %conv10.i = trunc i64 %shr8.i to i8
-  %arrayidx11.i = getelementptr inbounds i8, ptr %data, i64 3
+  %arrayidx11.i = getelementptr inbounds nuw i8, ptr %data, i64 3
   store i8 %conv10.i, ptr %arrayidx11.i, align 1
   %shr12.i = lshr i64 %addr, 24
   %conv14.i = trunc i64 %shr12.i to i8
-  %arrayidx15.i = getelementptr inbounds i8, ptr %data, i64 4
+  %arrayidx15.i = getelementptr inbounds nuw i8, ptr %data, i64 4
   store i8 %conv14.i, ptr %arrayidx15.i, align 4
   br label %if.end16
 

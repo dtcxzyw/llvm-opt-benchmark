@@ -41,8 +41,8 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nonlazybind uwtable
 define zeroext i1 @"_ZN68_$LT$anki_io..error..FileIoError$u20$as$u20$core..cmp..PartialEq$GT$2eq17h56d25fad0e4df40bE"(ptr align 8 %0, ptr align 8 %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
-  %4 = getelementptr inbounds i8, ptr %1, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %5 = tail call zeroext i1 @"_ZN59_$LT$std..path..PathBuf$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd3b82180fa039a29E"(ptr nonnull align 8 %3, ptr nonnull align 8 %4)
   br i1 %5, label %6, label %"_ZN63_$LT$anki_io..error..FileOp$u20$as$u20$core..cmp..PartialEq$GT$2eq17h589b94486d63965dE.exit"
 
@@ -57,8 +57,8 @@ define zeroext i1 @"_ZN68_$LT$anki_io..error..FileIoError$u20$as$u20$core..cmp..
   br i1 %11, label %12, label %"_ZN63_$LT$anki_io..error..FileOp$u20$as$u20$core..cmp..PartialEq$GT$2eq17h589b94486d63965dE.exit"
 
 12:                                               ; preds = %10
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = tail call zeroext i1 @"_ZN59_$LT$std..path..PathBuf$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd3b82180fa039a29E"(ptr nonnull align 8 %13, ptr nonnull align 8 %14)
   br label %"_ZN63_$LT$anki_io..error..FileOp$u20$as$u20$core..cmp..PartialEq$GT$2eq17h589b94486d63965dE.exit"
 
@@ -128,13 +128,13 @@ default.unreachable22:                            ; preds = %2
   br label %42
 
 29:                                               ; preds = %2
-  %30 = getelementptr inbounds i8, ptr %1, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %31 = load ptr, ptr %30, align 8, !nonnull !4, !noundef !4
-  %32 = getelementptr inbounds i8, ptr %1, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %33 = load i64, ptr %32, align 8, !noundef !4
   call void @_ZN3std3sys4unix6os_str5Slice15to_string_lossy17hba5e288525fcdac4E(ptr nonnull sret({ ptr, [2 x i64] }) align 8 %13, ptr nonnull align 1 %31, i64 %33)
   store ptr %13, ptr %14, align 8
-  %34 = getelementptr inbounds i8, ptr %14, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr @"_ZN66_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17he10677da14f35f99E", ptr %34, align 8
   invoke void @_ZN4core3fmt9Arguments6new_v117h19168a4b61eae307E(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8 %15, ptr nonnull align 8 @anon.18d8ebd1006d6aa5282af026be118e58.11, i64 2, ptr nonnull align 8 %14, i64 1)
           to label %49 unwind label %47
@@ -156,9 +156,9 @@ default.unreachable22:                            ; preds = %2
   br label %42
 
 39:                                               ; preds = %2
-  %40 = getelementptr inbounds i8, ptr %1, i64 56
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 56
   store ptr %40, ptr %17, align 8
-  %41 = getelementptr inbounds i8, ptr %17, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr @"_ZN60_$LT$std..io..error..Error$u20$as$u20$core..fmt..Display$GT$3fmt17h903d2f90598a70cbE", ptr %41, align 8
   call void @_ZN4core3fmt9Arguments6new_v117h19168a4b61eae307E(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8 %18, ptr nonnull align 8 @anon.18d8ebd1006d6aa5282af026be118e58.17, i64 1, ptr nonnull align 8 %17, i64 1)
   call void @_ZN5alloc3fmt6format17hadbe2d17989e8836E(ptr sret({ { { ptr, i64 }, i64 } }) align 8 %0, ptr nonnull align 8 %18)
@@ -167,9 +167,9 @@ default.unreachable22:                            ; preds = %2
 42:                                               ; preds = %50, %38, %37, %36, %35, %28, %27, %26, %25, %24
   %.sink = phi ptr [ %11, %38 ], [ %3, %37 ], [ %4, %36 ], [ %5, %35 ], [ %6, %28 ], [ %7, %27 ], [ %8, %26 ], [ %10, %25 ], [ %9, %24 ], [ %16, %50 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef nonnull align 8 dereferenceable(24) %.sink, i64 24, i1 false)
-  %43 = getelementptr inbounds i8, ptr %1, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %44 = load ptr, ptr %43, align 8, !nonnull !4, !noundef !4
-  %45 = getelementptr inbounds i8, ptr %1, i64 48
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %46 = load i64, ptr %45, align 8, !noundef !4
   invoke void @_ZN3std3sys4unix6os_str5Slice15to_string_lossy17hba5e288525fcdac4E(ptr nonnull sret({ ptr, [2 x i64] }) align 8 %12, ptr nonnull align 1 %44, i64 %46)
           to label %59 unwind label %57
@@ -215,17 +215,17 @@ default.unreachable22:                            ; preds = %2
   br label %56
 
 59:                                               ; preds = %42
-  %60 = getelementptr inbounds i8, ptr %1, i64 56
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 56
   store ptr %19, ptr %20, align 8
-  %61 = getelementptr inbounds i8, ptr %20, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store ptr @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..fmt..Display$GT$3fmt17h9ed898fa128764d3E", ptr %61, align 8
-  %62 = getelementptr inbounds i8, ptr %20, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %20, i64 16
   store ptr %12, ptr %62, align 8
-  %63 = getelementptr inbounds i8, ptr %20, i64 24
+  %63 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store ptr @"_ZN66_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17he10677da14f35f99E", ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %20, i64 32
+  %64 = getelementptr inbounds nuw i8, ptr %20, i64 32
   store ptr %60, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %20, i64 40
+  %65 = getelementptr inbounds nuw i8, ptr %20, i64 40
   store ptr @"_ZN60_$LT$std..io..error..Error$u20$as$u20$core..fmt..Display$GT$3fmt17h903d2f90598a70cbE", ptr %65, align 8
   invoke void @_ZN4core3fmt9Arguments6new_v117h19168a4b61eae307E(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8 %21, ptr nonnull align 8 @anon.18d8ebd1006d6aa5282af026be118e58.3, i64 3, ptr nonnull align 8 %20, i64 3)
           to label %68 unwind label %66
@@ -274,7 +274,7 @@ default.unreachable22:                            ; preds = %2
 
 ; Function Attrs: nonlazybind uwtable
 define zeroext i1 @_ZN7anki_io5error11FileIoError12is_not_found17h747df81d20689175E(ptr align 8 %0) unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = tail call i8 @_ZN3std2io5error5Error4kind17hdbb26176fbbc0d89E(ptr nonnull align 8 %2), !range !5
   %4 = icmp eq i8 %3, 0
   ret i1 %4
@@ -283,9 +283,9 @@ define zeroext i1 @_ZN7anki_io5error11FileIoError12is_not_found17h747df81d206891
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN107_$LT$anki_io..error..FileIoError$u20$as$u20$core..convert..From$LT$tempfile..file..PathPersistError$GT$$GT$4from17h19da8f26b2e7bf7fE"(ptr nocapture writeonly sret({ { i64, [3 x i64] }, { { { { { ptr, i64 }, i64 } } } }, ptr }) align 8 %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { { { { { ptr, i64 }, i64 } } } }, align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8, !nonnull !4, !align !6, !noundef !4
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load i64, ptr %6, align 8, !noundef !4
   invoke void @_ZN3std4path4Path11to_path_buf17h17bc91be873f9c7aE(ptr nonnull sret({ { { { { ptr, i64 }, i64 } } } }) align 8 %3, ptr nonnull align 1 %5, i64 %7)
           to label %10 unwind label %8
@@ -298,10 +298,10 @@ define void @"_ZN107_$LT$anki_io..error..FileIoError$u20$as$u20$core..convert..F
 
 10:                                               ; preds = %2
   %11 = load ptr, ptr %1, align 8, !nonnull !4, !noundef !4
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   store i64 6, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %11, ptr %13, align 8
   call void @"_ZN4core3ptr45drop_in_place$LT$tempfile..file..TempPath$GT$17haefefe3117b52df0E"(ptr nonnull align 8 %4)
   ret void
@@ -319,9 +319,9 @@ define void @"_ZN107_$LT$anki_io..error..FileIoError$u20$as$u20$core..convert..F
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN103_$LT$anki_io..error..FileIoError$u20$as$u20$core..convert..From$LT$tempfile..file..PersistError$GT$$GT$4from17hae21f7e76690a2e8E"(ptr nocapture writeonly sret({ { i64, [3 x i64] }, { { { { { ptr, i64 }, i64 } } } }, ptr }) align 8 %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { { { ptr, i64 }, i64 } }, align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8, !nonnull !4, !align !6, !noundef !4
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load i64, ptr %6, align 8, !noundef !4
   invoke void @_ZN3std3sys4unix6os_str5Slice8to_owned17h2ca8b8fae4b3b09dE(ptr nonnull sret({ { { ptr, i64 }, i64 } }) align 8 %3, ptr nonnull align 1 %5, i64 %7)
           to label %10 unwind label %8
@@ -334,10 +334,10 @@ define void @"_ZN103_$LT$anki_io..error..FileIoError$u20$as$u20$core..convert..F
 
 10:                                               ; preds = %2
   %11 = load ptr, ptr %1, align 8, !nonnull !4, !noundef !4
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   store i64 6, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %11, ptr %13, align 8
   call void @"_ZN4core3ptr50drop_in_place$LT$tempfile..file..NamedTempFile$GT$17h560f14ccc226b14bE"(ptr nonnull align 8 %4)
   ret void
@@ -359,7 +359,7 @@ define { ptr, i64 } @"_ZN66_$LT$anki_io..error..FileIoError$u20$as$u20$core..err
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define { ptr, ptr } @"_ZN66_$LT$anki_io..error..FileIoError$u20$as$u20$core..error..Error$GT$5cause17h7f5d5e4f55121e3cE"(ptr align 8 %0) unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = insertvalue { ptr, ptr } poison, ptr %2, 0
   %4 = insertvalue { ptr, ptr } %3, ptr @anon.18d8ebd1006d6aa5282af026be118e58.20, 1
   ret { ptr, ptr } %4
@@ -367,7 +367,7 @@ define { ptr, ptr } @"_ZN66_$LT$anki_io..error..FileIoError$u20$as$u20$core..err
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define { ptr, ptr } @"_ZN66_$LT$anki_io..error..FileIoError$u20$as$u20$core..error..Error$GT$6source17h3f1d37291601ab97E"(ptr align 8 %0) unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = insertvalue { ptr, ptr } poison, ptr %2, 0
   %4 = insertvalue { ptr, ptr } %3, ptr @anon.18d8ebd1006d6aa5282af026be118e58.20, 1
   ret { ptr, ptr } %4
@@ -385,14 +385,14 @@ define zeroext i1 @"_ZN66_$LT$anki_io..error..FileIoError$u20$as$u20$core..fmt..
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   store ptr %0, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %7, ptr %5, align 8
   store ptr %6, ptr %3, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h29facc6d934b6ca4E", ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %5, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h1eceb560ee6839c7E", ptr %10, align 8
   call void @_ZN4core3fmt9Arguments6new_v117h19168a4b61eae307E(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8 %4, ptr nonnull align 8 @anon.18d8ebd1006d6aa5282af026be118e58.22, i64 2, ptr nonnull align 8 %3, i64 2)
   %11 = call zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17h0cba6524210e2a11E(ptr align 8 %1, ptr nonnull align 8 %4)
@@ -441,7 +441,7 @@ default.unreachable1:                             ; preds = %2
   br label %28
 
 15:                                               ; preds = %2
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %16, ptr %3, align 8
   %17 = call zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h4a66e96f470c4e9dE(ptr align 8 %1, ptr nonnull align 1 @anon.18d8ebd1006d6aa5282af026be118e58.28, i64 8, ptr nonnull align 1 %3, ptr nonnull align 8 @anon.18d8ebd1006d6aa5282af026be118e58.29)
   br label %28

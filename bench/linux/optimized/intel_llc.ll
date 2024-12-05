@@ -10,9 +10,9 @@ define dso_local void @intel_llc_enable(ptr noundef %0) local_unnamed_addr #0 al
   %2 = getelementptr i8, ptr %0, i64 -3592
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %0, i64 104
-  %5 = getelementptr inbounds i8, ptr %3, i64 7168
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 7168
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 28
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 28
   %8 = load i64, ptr %7, align 4
   %9 = and i64 %8, 524296
   %10 = icmp eq i64 %9, 524288
@@ -24,7 +24,7 @@ define dso_local void @intel_llc_enable(ptr noundef %0) local_unnamed_addr #0 al
   br i1 %13, label %17, label %14
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %12, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %16 = load i32, ptr %15, align 8
   tail call void @cpufreq_cpu_put(ptr noundef nonnull %12) #4
   br label %19
@@ -38,7 +38,7 @@ define dso_local void @intel_llc_enable(ptr noundef %0) local_unnamed_addr #0 al
   %21 = udiv i32 %20, 1000
   %22 = getelementptr i8, ptr %0, i64 -3568
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 144
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 144
   %25 = load ptr, ptr %24, align 8
   %26 = tail call i32 %25(ptr noundef %23, i32 1334788, i1 noundef zeroext true) #4
   %27 = trunc i32 %26 to i8
@@ -60,7 +60,7 @@ define dso_local void @intel_llc_enable(ptr noundef %0) local_unnamed_addr #0 al
   %38 = phi i32 [ %75, %67 ], [ %35, %19 ]
   %39 = load ptr, ptr %2, align 8
   %40 = sub i32 %35, %38
-  %41 = getelementptr inbounds i8, ptr %39, i64 7176
+  %41 = getelementptr inbounds nuw i8, ptr %39, i64 7176
   %42 = load i8, ptr %41, align 8
   %43 = icmp ugt i8 %42, 8
   br i1 %43, label %67, label %44
@@ -74,7 +74,7 @@ define dso_local void @intel_llc_enable(ptr noundef %0) local_unnamed_addr #0 al
   br label %67
 
 48:                                               ; preds = %44
-  %49 = getelementptr inbounds i8, ptr %39, i64 7184
+  %49 = getelementptr inbounds nuw i8, ptr %39, i64 7184
   %50 = load i32, ptr %49, align 4
   %51 = and i32 %50, 4194304
   %52 = icmp eq i32 %51, 0

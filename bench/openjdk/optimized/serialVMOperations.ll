@@ -25,18 +25,18 @@ $_ZNK18VM_SerialGCCollect4typeEv = comdat any
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN29VM_SerialCollectForAllocation4doitEv(ptr nocapture noundef nonnull align 8 dereferenceable(57) initializes((48, 56)) %0) unnamed_addr #0 align 2 {
   %2 = tail call noundef ptr @_ZN10SerialHeap4heapEv() #2
-  %3 = getelementptr inbounds i8, ptr %0, i64 28
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %2, i64 80
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %6 = load i32, ptr %5, align 8
   tail call void @_ZN13CollectedHeap12set_gc_causeEN7GCCause5CauseE(ptr noundef nonnull align 8 dereferenceable(104) %2, i32 noundef %4) #2
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %10 = load i8, ptr %9, align 8
   %11 = trunc i8 %10 to i1
   %12 = tail call noundef ptr @_ZN10SerialHeap25satisfy_failed_allocationEmb(ptr noundef nonnull align 8 dereferenceable(192) %2, i64 noundef %8, i1 noundef zeroext %11) #2
-  %13 = getelementptr inbounds i8, ptr %0, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %12, ptr %13, align 8
   %14 = icmp eq ptr %12, null
   br i1 %14, label %15, label %_ZN8GCLocker22is_active_and_needs_gcEv.exit.thread
@@ -52,7 +52,7 @@ _ZN8GCLocker22is_active_and_needs_gcEv.exit:      ; preds = %15
   br i1 %19, label %20, label %_ZN8GCLocker22is_active_and_needs_gcEv.exit.thread
 
 20:                                               ; preds = %_ZN8GCLocker22is_active_and_needs_gcEv.exit
-  %21 = getelementptr inbounds i8, ptr %0, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i8 1, ptr %21, align 8
   br label %_ZN8GCLocker22is_active_and_needs_gcEv.exit.thread
 
@@ -68,12 +68,12 @@ declare noundef ptr @_ZN10SerialHeap25satisfy_failed_allocationEmb(ptr noundef n
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN18VM_SerialGCCollect4doitEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(33) %0) unnamed_addr #0 align 2 {
   %2 = tail call noundef ptr @_ZN10SerialHeap4heapEv() #2
-  %3 = getelementptr inbounds i8, ptr %0, i64 28
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %2, i64 80
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %6 = load i32, ptr %5, align 8
   tail call void @_ZN13CollectedHeap12set_gc_causeEN7GCCause5CauseE(ptr noundef nonnull align 8 dereferenceable(104) %2, i32 noundef %4) #2
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load i8, ptr %7, align 8
   %9 = trunc i8 %8 to i1
   tail call void @_ZN10SerialHeap24try_collect_at_safepointEb(ptr noundef nonnull align 8 dereferenceable(192) %2, i1 noundef zeroext %9) #2
@@ -112,11 +112,11 @@ declare void @_ZNK12VM_Operation14print_on_errorEP12outputStream(ptr noundef non
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNK12VM_Operation4nameEv(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef i32 %4(ptr noundef nonnull align 8 dereferenceable(16) %0) #2
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds [0 x ptr], ptr @_ZN12VM_Operation6_namesE, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw [0 x ptr], ptr @_ZN12VM_Operation6_namesE, i64 0, i64 %6
   %8 = load ptr, ptr %7, align 8
   ret ptr %8
 }

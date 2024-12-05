@@ -57,23 +57,23 @@ $_ZN3zmq11mechanism_t17zap_msg_availableEv = comdat any
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3zmq14plain_server_tC2EPNS_14session_base_tERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_9options_tE(ptr noundef nonnull align 8 dereferenceable(1576) %this, ptr noundef %vtt, ptr noundef %session_, ptr noundef nonnull align 8 dereferenceable(32) %peer_address_, ptr noundef nonnull align 8 dereferenceable(1336) %options_) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = getelementptr inbounds i8, ptr %vtt, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %vtt, i64 8
   tail call void @_ZN3zmq29zap_client_common_handshake_tC2EPNS_14session_base_tERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_9options_tENS0_7state_tE(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull %0, ptr noundef %session_, ptr noundef nonnull align 8 dereferenceable(32) %peer_address_, ptr noundef nonnull align 8 dereferenceable(1336) %options_, i32 noundef 1)
   %1 = load ptr, ptr %vtt, align 8
   store ptr %1, ptr %this, align 8
-  %2 = getelementptr inbounds i8, ptr %vtt, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %vtt, i64 40
   %3 = load ptr, ptr %2, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %1, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 %vbase.offset
   store ptr %3, ptr %add.ptr, align 8
-  %zap_enforce_domain = getelementptr inbounds i8, ptr %this, i64 1080
+  %zap_enforce_domain = getelementptr inbounds nuw i8, ptr %this, i64 1080
   %4 = load i8, ptr %zap_enforce_domain, align 8
   %tobool = trunc i8 %4 to i1
   br i1 %tobool, label %do.body, label %if.end11
 
 do.body:                                          ; preds = %entry
-  %add.ptr3 = getelementptr inbounds i8, ptr %this, i64 80
+  %add.ptr3 = getelementptr inbounds nuw i8, ptr %this, i64 80
   %call = invoke noundef zeroext i1 @_ZNK3zmq16mechanism_base_t12zap_requiredEv(ptr noundef nonnull align 8 dereferenceable(1496) %add.ptr3)
           to label %invoke.cont unwind label %lpad
 
@@ -115,18 +115,18 @@ declare void @_ZN3zmq9zmq_abortEPKc(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3zmq29zap_client_common_handshake_tD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %vtt) unnamed_addr #3 comdat align 2 {
 entry:
-  %0 = getelementptr inbounds i8, ptr %vtt, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %vtt, i64 8
   %1 = load ptr, ptr %0, align 8
   store ptr %1, ptr %this, align 8
-  %2 = getelementptr inbounds i8, ptr %vtt, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %vtt, i64 16
   %3 = load ptr, ptr %2, align 8
   %vbase.offset.ptr.i = getelementptr i8, ptr %1, i64 -24
   %vbase.offset.i = load i64, ptr %vbase.offset.ptr.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 %vbase.offset.i
   store ptr %3, ptr %add.ptr.i, align 8
-  %status_code.i = getelementptr inbounds i8, ptr %this, i64 40
+  %status_code.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %status_code.i) #13
-  %peer_address.i = getelementptr inbounds i8, ptr %this, i64 8
+  %peer_address.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %peer_address.i) #13
   ret void
 }
@@ -134,7 +134,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3zmq14plain_server_tC1EPNS_14session_base_tERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_9options_tE(ptr noundef nonnull align 8 dereferenceable(1576) %this, ptr noundef %session_, ptr noundef nonnull align 8 dereferenceable(32) %peer_address_, ptr noundef nonnull align 8 dereferenceable(1336) %options_) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = getelementptr inbounds i8, ptr %this, i64 80
+  %0 = getelementptr inbounds nuw i8, ptr %this, i64 80
   tail call void @_ZN3zmq16mechanism_base_tC2EPNS_14session_base_tERKNS_9options_tE(ptr noundef nonnull align 8 dereferenceable(1496) %0, ptr noundef %session_, ptr noundef nonnull align 8 dereferenceable(1336) %options_)
   invoke void @_ZN3zmq29zap_client_common_handshake_tC2EPNS_14session_base_tERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_9options_tENS0_7state_tE(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3zmq14plain_server_tE, i64 8), ptr noundef %session_, ptr noundef nonnull align 8 dereferenceable(32) %peer_address_, ptr noundef nonnull align 8 dereferenceable(1336) %options_, i32 noundef 1)
           to label %invoke.cont unwind label %lpad
@@ -142,7 +142,7 @@ entry:
 invoke.cont:                                      ; preds = %entry
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq14plain_server_tE, i64 24), ptr %this, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq14plain_server_tE, i64 168), ptr %0, align 8
-  %zap_enforce_domain = getelementptr inbounds i8, ptr %this, i64 1080
+  %zap_enforce_domain = getelementptr inbounds nuw i8, ptr %this, i64 1080
   %1 = load i8, ptr %zap_enforce_domain, align 8
   %tobool = trunc i8 %1 to i1
   br i1 %tobool, label %do.body, label %if.end12
@@ -187,18 +187,18 @@ declare void @_ZN3zmq16mechanism_base_tC2EPNS_14session_base_tERKNS_9options_tE(
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3zmq14plain_server_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1576) initializes((0, 8)) %this, ptr nocapture noundef readonly %vtt) unnamed_addr #3 align 2 {
 entry:
-  %0 = getelementptr inbounds i8, ptr %vtt, i64 16
+  %0 = getelementptr inbounds nuw i8, ptr %vtt, i64 16
   %1 = load ptr, ptr %0, align 8
   store ptr %1, ptr %this, align 8
-  %2 = getelementptr inbounds i8, ptr %vtt, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %vtt, i64 24
   %3 = load ptr, ptr %2, align 8
   %vbase.offset.ptr.i.i = getelementptr i8, ptr %1, i64 -24
   %vbase.offset.i.i = load i64, ptr %vbase.offset.ptr.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 %vbase.offset.i.i
   store ptr %3, ptr %add.ptr.i.i, align 8
-  %status_code.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %status_code.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %status_code.i.i) #13
-  %peer_address.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %peer_address.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %peer_address.i.i) #13
   ret void
 }
@@ -207,11 +207,11 @@ entry:
 define void @_ZN3zmq14plain_server_tD1Ev(ptr noundef nonnull align 8 dereferenceable(1576) initializes((0, 8), (80, 88)) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTCN3zmq14plain_server_tE0_NS_12zap_client_tE, i64 24), ptr %this, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
+  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   store ptr getelementptr inbounds (i8, ptr @_ZTCN3zmq14plain_server_tE0_NS_12zap_client_tE, i64 136), ptr %add.ptr.i.i.i, align 8
-  %status_code.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %status_code.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %status_code.i.i.i) #13
-  %peer_address.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %peer_address.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %peer_address.i.i.i) #13
   tail call void @_ZN3zmq11mechanism_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1496) %add.ptr.i.i.i) #13
   ret void
@@ -225,11 +225,11 @@ entry:
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
   store ptr getelementptr inbounds (i8, ptr @_ZTCN3zmq14plain_server_tE0_NS_12zap_client_tE, i64 24), ptr %3, align 8
-  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 80
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 80
   store ptr getelementptr inbounds (i8, ptr @_ZTCN3zmq14plain_server_tE0_NS_12zap_client_tE, i64 136), ptr %add.ptr.i.i.i.i, align 8
-  %status_code.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 40
+  %status_code.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %status_code.i.i.i.i) #13
-  %peer_address.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
+  %peer_address.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %peer_address.i.i.i.i) #13
   tail call void @_ZN3zmq11mechanism_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1496) %add.ptr.i.i.i.i) #13
   ret void
@@ -239,11 +239,11 @@ entry:
 define void @_ZN3zmq14plain_server_tD0Ev(ptr noundef nonnull align 8 dereferenceable(1576) initializes((0, 8), (80, 88)) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTCN3zmq14plain_server_tE0_NS_12zap_client_tE, i64 24), ptr %this, align 8
-  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   store ptr getelementptr inbounds (i8, ptr @_ZTCN3zmq14plain_server_tE0_NS_12zap_client_tE, i64 136), ptr %add.ptr.i.i.i.i, align 8
-  %status_code.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %status_code.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %status_code.i.i.i.i) #13
-  %peer_address.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %peer_address.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %peer_address.i.i.i.i) #13
   tail call void @_ZN3zmq11mechanism_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1496) %add.ptr.i.i.i.i) #13
   tail call void @_ZdlPv(ptr noundef nonnull %this) #14
@@ -261,11 +261,11 @@ entry:
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
   store ptr getelementptr inbounds (i8, ptr @_ZTCN3zmq14plain_server_tE0_NS_12zap_client_tE, i64 24), ptr %3, align 8
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 80
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 80
   store ptr getelementptr inbounds (i8, ptr @_ZTCN3zmq14plain_server_tE0_NS_12zap_client_tE, i64 136), ptr %add.ptr.i.i.i.i.i, align 8
-  %status_code.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 40
+  %status_code.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %status_code.i.i.i.i.i) #13
-  %peer_address.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
+  %peer_address.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %peer_address.i.i.i.i.i) #13
   tail call void @_ZN3zmq11mechanism_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1496) %add.ptr.i.i.i.i.i) #13
   tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(1576) %3) #14
@@ -275,7 +275,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define noundef range(i32 -1, 1) i32 @_ZN3zmq14plain_server_t22next_handshake_commandEPNS_5msg_tE(ptr noundef nonnull align 8 dereferenceable(1576) %this, ptr noundef %msg_) unnamed_addr #0 align 2 {
 entry:
-  %state = getelementptr inbounds i8, ptr %this, i64 72
+  %state = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = load i32, ptr %state, align 8
   switch i32 %0, label %sw.default [
     i32 1, label %sw.bb
@@ -289,7 +289,7 @@ sw.bb:                                            ; preds = %entry
   br label %sw.epilog
 
 sw.bb3:                                           ; preds = %entry
-  %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 80
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   tail call void @_ZNK3zmq11mechanism_t34make_command_with_basic_propertiesEPNS_5msg_tEPKcm(ptr noundef nonnull align 8 dereferenceable(1488) %add.ptr.i, ptr noundef %msg_, ptr noundef nonnull @_ZN3zmqL12ready_prefixE, i64 noundef 6)
   store i32 7, ptr %state, align 8
   br label %sw.epilog
@@ -336,7 +336,7 @@ do.end:                                           ; preds = %entry, %if.then
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK3zmq14plain_server_t13produce_readyEPNS_5msg_tE(ptr noundef nonnull align 8 dereferenceable(1576) %this, ptr noundef %msg_) local_unnamed_addr #0 align 2 {
 entry:
-  %add.ptr = getelementptr inbounds i8, ptr %this, i64 80
+  %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 80
   tail call void @_ZNK3zmq11mechanism_t34make_command_with_basic_propertiesEPNS_5msg_tEPKcm(ptr noundef nonnull align 8 dereferenceable(1488) %add.ptr, ptr noundef %msg_, ptr noundef nonnull @_ZN3zmqL12ready_prefixE, i64 noundef 6)
   ret void
 }
@@ -344,7 +344,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK3zmq14plain_server_t13produce_errorEPNS_5msg_tE(ptr noundef nonnull align 8 dereferenceable(1576) %this, ptr noundef %msg_) local_unnamed_addr #0 align 2 {
 entry:
-  %status_code = getelementptr inbounds i8, ptr %this, i64 40
+  %status_code = getelementptr inbounds nuw i8, ptr %this, i64 40
   %call = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %status_code) #13
   %cmp.not = icmp eq i64 %call, 3
   br i1 %cmp.not, label %do.end, label %if.then
@@ -373,9 +373,9 @@ if.then8:                                         ; preds = %do.end
 do.end12:                                         ; preds = %do.end, %if.then8
   %call13 = tail call noundef ptr @_ZN3zmq5msg_t4dataEv(ptr noundef nonnull align 8 dereferenceable(64) %msg_)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %call13, ptr noundef nonnull align 1 dereferenceable(5) @_ZN3zmqL12error_prefixE, i64 5, i1 false)
-  %arrayidx = getelementptr inbounds i8, ptr %call13, i64 5
+  %arrayidx = getelementptr inbounds nuw i8, ptr %call13, i64 5
   store i8 3, ptr %arrayidx, align 1
-  %add.ptr14 = getelementptr inbounds i8, ptr %call13, i64 6
+  %add.ptr14 = getelementptr inbounds nuw i8, ptr %call13, i64 6
   %call16 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %status_code) #13
   %call18 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %status_code) #13
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr14, ptr align 1 %call16, i64 %call18, i1 false)
@@ -392,7 +392,7 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -32
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  %state.i = getelementptr inbounds i8, ptr %3, i64 72
+  %state.i = getelementptr inbounds nuw i8, ptr %3, i64 72
   %4 = load i32, ptr %state.i, align 8
   switch i32 %4, label %sw.default.i [
     i32 1, label %sw.bb.i
@@ -406,7 +406,7 @@ sw.bb.i:                                          ; preds = %entry
   br label %_ZN3zmq14plain_server_t22next_handshake_commandEPNS_5msg_tE.exit
 
 sw.bb3.i:                                         ; preds = %entry
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %3, i64 80
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %3, i64 80
   tail call void @_ZNK3zmq11mechanism_t34make_command_with_basic_propertiesEPNS_5msg_tEPKcm(ptr noundef nonnull align 8 dereferenceable(1488) %add.ptr.i.i, ptr noundef %msg_, ptr noundef nonnull @_ZN3zmqL12ready_prefixE, i64 noundef 6)
   store i32 7, ptr %state.i, align 8
   br label %_ZN3zmq14plain_server_t22next_handshake_commandEPNS_5msg_tE.exit
@@ -429,7 +429,7 @@ _ZN3zmq14plain_server_t22next_handshake_commandEPNS_5msg_tE.exit: ; preds = %sw.
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZN3zmq14plain_server_t25process_handshake_commandEPNS_5msg_tE(ptr noundef nonnull align 8 dereferenceable(1576) %this, ptr noundef %msg_) unnamed_addr #0 align 2 {
 entry:
-  %state = getelementptr inbounds i8, ptr %this, i64 72
+  %state = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = load i32, ptr %state, align 8
   switch i32 %0, label %sw.epilog.thread [
     i32 0, label %sw.bb
@@ -445,7 +445,7 @@ sw.bb2:                                           ; preds = %entry
   br label %sw.epilog
 
 sw.epilog.thread:                                 ; preds = %entry
-  %session = getelementptr inbounds i8, ptr %this, i64 1568
+  %session = getelementptr inbounds nuw i8, ptr %this, i64 1568
   %1 = load ptr, ptr %session, align 8
   %call4 = tail call noundef ptr @_ZNK3zmq14session_base_t10get_socketEv(ptr noundef nonnull align 8 dereferenceable(1624) %1)
   %2 = load ptr, ptr %session, align 8
@@ -504,7 +504,7 @@ entry:
   %ref.tmp = alloca %"class.std::allocator", align 1
   %password = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp73 = alloca %"class.std::allocator", align 1
-  %add.ptr = getelementptr inbounds i8, ptr %this, i64 80
+  %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 80
   %call = tail call noundef i32 @_ZNK3zmq16mechanism_base_t29check_basic_command_structureEPNS_5msg_tE(ptr noundef nonnull align 8 dereferenceable(1496) %add.ptr, ptr noundef %msg_)
   %cmp = icmp eq i32 %call, -1
   br i1 %cmp, label %return, label %if.end
@@ -521,7 +521,7 @@ lor.lhs.false:                                    ; preds = %if.end
   br i1 %cmp6.not, label %if.end14, label %if.then7
 
 if.then7:                                         ; preds = %lor.lhs.false, %if.end
-  %session = getelementptr inbounds i8, ptr %this, i64 1568
+  %session = getelementptr inbounds nuw i8, ptr %this, i64 1568
   %0 = load ptr, ptr %session, align 8
   %call9 = tail call noundef ptr @_ZNK3zmq14session_base_t10get_socketEv(ptr noundef nonnull align 8 dereferenceable(1624) %0)
   %1 = load ptr, ptr %session, align 8
@@ -536,7 +536,7 @@ if.end14:                                         ; preds = %lor.lhs.false
   br i1 %cmp16, label %if.then17, label %if.end25
 
 if.then17:                                        ; preds = %if.end14
-  %session19 = getelementptr inbounds i8, ptr %this, i64 1568
+  %session19 = getelementptr inbounds nuw i8, ptr %this, i64 1568
   %2 = load ptr, ptr %session19, align 8
   %call20 = tail call noundef ptr @_ZNK3zmq14session_base_t10get_socketEv(ptr noundef nonnull align 8 dereferenceable(1624) %2)
   %3 = load ptr, ptr %session19, align 8
@@ -547,8 +547,8 @@ if.then17:                                        ; preds = %if.end14
   br label %return
 
 if.end25:                                         ; preds = %if.end14
-  %add.ptr15 = getelementptr inbounds i8, ptr %call2, i64 6
-  %incdec.ptr = getelementptr inbounds i8, ptr %call2, i64 7
+  %add.ptr15 = getelementptr inbounds nuw i8, ptr %call2, i64 6
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %call2, i64 7
   %4 = load i8, ptr %add.ptr15, align 1
   %sub26 = add i64 %call3, -7
   %conv = zext i8 %4 to i64
@@ -556,7 +556,7 @@ if.end25:                                         ; preds = %if.end14
   br i1 %cmp27, label %if.then28, label %if.end36
 
 if.then28:                                        ; preds = %if.end25
-  %session30 = getelementptr inbounds i8, ptr %this, i64 1568
+  %session30 = getelementptr inbounds nuw i8, ptr %this, i64 1568
   %5 = load ptr, ptr %session30, align 8
   %call31 = tail call noundef ptr @_ZNK3zmq14session_base_t10get_socketEv(ptr noundef nonnull align 8 dereferenceable(1624) %5)
   %6 = load ptr, ptr %session30, align 8
@@ -577,7 +577,7 @@ invoke.cont:                                      ; preds = %if.end36
   br i1 %cmp42, label %if.then43, label %if.end55
 
 if.then43:                                        ; preds = %invoke.cont
-  %session45 = getelementptr inbounds i8, ptr %this, i64 1568
+  %session45 = getelementptr inbounds nuw i8, ptr %this, i64 1568
   %7 = load ptr, ptr %session45, align 8
   %call48 = invoke noundef ptr @_ZNK3zmq14session_base_t10get_socketEv(ptr noundef nonnull align 8 dereferenceable(1624) %7)
           to label %invoke.cont47 unwind label %lpad46
@@ -608,7 +608,7 @@ lpad46:                                           ; preds = %invoke.cont67, %inv
   br label %ehcleanup
 
 if.end55:                                         ; preds = %invoke.cont
-  %add.ptr39 = getelementptr inbounds i8, ptr %incdec.ptr, i64 %conv
+  %add.ptr39 = getelementptr inbounds nuw i8, ptr %incdec.ptr, i64 %conv
   %11 = load i8, ptr %add.ptr39, align 1
   %12 = xor i64 %conv, -1
   %sub57 = add i64 %sub26, %12
@@ -617,7 +617,7 @@ if.end55:                                         ; preds = %invoke.cont
   br i1 %cmp59.not, label %if.end71, label %if.then60
 
 if.then60:                                        ; preds = %if.end55
-  %session62 = getelementptr inbounds i8, ptr %this, i64 1568
+  %session62 = getelementptr inbounds nuw i8, ptr %this, i64 1568
   %13 = load ptr, ptr %session62, align 8
   %call64 = invoke noundef ptr @_ZNK3zmq14session_base_t10get_socketEv(ptr noundef nonnull align 8 dereferenceable(1624) %13)
           to label %invoke.cont63 unwind label %lpad46
@@ -637,14 +637,14 @@ invoke.cont69:                                    ; preds = %invoke.cont67
   br label %cleanup97
 
 if.end71:                                         ; preds = %if.end55
-  %incdec.ptr56 = getelementptr inbounds i8, ptr %add.ptr39, i64 1
+  %incdec.ptr56 = getelementptr inbounds nuw i8, ptr %add.ptr39, i64 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp73) #13
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %password, ptr noundef nonnull %incdec.ptr56, i64 noundef %sub57, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp73)
           to label %invoke.cont75 unwind label %lpad74
 
 invoke.cont75:                                    ; preds = %if.end71
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp73) #13
-  %session77 = getelementptr inbounds i8, ptr %this, i64 1568
+  %session77 = getelementptr inbounds nuw i8, ptr %this, i64 1568
   %15 = load ptr, ptr %session77, align 8
   %call80 = invoke noundef i32 @_ZN3zmq14session_base_t11zap_connectEv(ptr noundef nonnull align 8 dereferenceable(1624) %15)
           to label %invoke.cont79 unwind label %lpad78
@@ -684,7 +684,7 @@ if.end92:                                         ; preds = %invoke.cont79
           to label %invoke.cont93 unwind label %lpad78
 
 invoke.cont93:                                    ; preds = %if.end92
-  %state = getelementptr inbounds i8, ptr %this, i64 72
+  %state = getelementptr inbounds nuw i8, ptr %this, i64 72
   store i32 3, ptr %state, align 8
   %call95 = invoke noundef i32 @_ZN3zmq29zap_client_common_handshake_t29receive_and_process_zap_replyEv(ptr noundef nonnull align 8 dereferenceable(80) %this)
           to label %invoke.cont94 unwind label %lpad78
@@ -732,7 +732,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp4.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %lor.lhs.false, %entry
-  %session = getelementptr inbounds i8, ptr %this, i64 1568
+  %session = getelementptr inbounds nuw i8, ptr %this, i64 1568
   %0 = load ptr, ptr %session, align 8
   %call5 = tail call noundef ptr @_ZNK3zmq14session_base_t10get_socketEv(ptr noundef nonnull align 8 dereferenceable(1624) %0)
   %1 = load ptr, ptr %session, align 8
@@ -743,15 +743,15 @@ if.then:                                          ; preds = %lor.lhs.false, %ent
   br label %return
 
 if.end:                                           ; preds = %lor.lhs.false
-  %add.ptr10 = getelementptr inbounds i8, ptr %this, i64 80
-  %add.ptr11 = getelementptr inbounds i8, ptr %call, i64 9
+  %add.ptr10 = getelementptr inbounds nuw i8, ptr %this, i64 80
+  %add.ptr11 = getelementptr inbounds nuw i8, ptr %call, i64 9
   %sub = add i64 %call2, -9
   %call12 = tail call noundef i32 @_ZN3zmq11mechanism_t14parse_metadataEPKhmb(ptr noundef nonnull align 8 dereferenceable(1488) %add.ptr10, ptr noundef nonnull %add.ptr11, i64 noundef %sub, i1 noundef zeroext false)
   %cmp13 = icmp eq i32 %call12, 0
   br i1 %cmp13, label %if.then14, label %return
 
 if.then14:                                        ; preds = %if.end
-  %state = getelementptr inbounds i8, ptr %this, i64 72
+  %state = getelementptr inbounds nuw i8, ptr %this, i64 72
   store i32 4, ptr %state, align 8
   br label %return
 
@@ -810,12 +810,12 @@ entry:
   %plain_mechanism_name = alloca [6 x i8], align 1
   %call = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %username_) #13
   store ptr %call, ptr %credentials, align 16
-  %arrayinit.element = getelementptr inbounds i8, ptr %credentials, i64 8
+  %arrayinit.element = getelementptr inbounds nuw i8, ptr %credentials, i64 8
   %call2 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %password_) #13
   store ptr %call2, ptr %arrayinit.element, align 8
   %call4 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %username_) #13
   store i64 %call4, ptr %credentials_sizes, align 16
-  %arrayinit.element5 = getelementptr inbounds i8, ptr %credentials_sizes, i64 8
+  %arrayinit.element5 = getelementptr inbounds nuw i8, ptr %credentials_sizes, i64 8
   %call6 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %password_) #13
   store i64 %call6, ptr %arrayinit.element5, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %plain_mechanism_name, ptr noundef nonnull align 1 dereferenceable(6) @__const._ZN3zmq14plain_server_t16send_zap_requestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.plain_mechanism_name, i64 6, i1 false)

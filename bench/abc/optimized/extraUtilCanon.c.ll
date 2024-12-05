@@ -50,15 +50,15 @@ define internal fastcc i32 @Extra_TruthCanonN_rec(i32 noundef %0, ptr noundef %1
 11:                                               ; preds = %5
   %12 = load i8, ptr %1, align 1
   %13 = zext i8 %12 to i64
-  %14 = getelementptr inbounds [256 x i32], ptr @s_Truths3, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw [256 x i32], ptr @s_Truths3, i64 0, i64 %13
   store ptr %14, ptr %2, align 8
   %15 = load i8, ptr %1, align 1
   %16 = zext i8 %15 to i64
-  %17 = getelementptr inbounds [256 x [9 x i8]], ptr @s_Phases3, i64 0, i64 %16, i64 1
+  %17 = getelementptr inbounds nuw [256 x [9 x i8]], ptr @s_Phases3, i64 0, i64 %16, i64 1
   store ptr %17, ptr %3, align 8
   %18 = load i8, ptr %1, align 1
   %19 = zext i8 %18 to i64
-  %20 = getelementptr inbounds [256 x [9 x i8]], ptr @s_Phases3, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw [256 x [9 x i8]], ptr @s_Phases3, i64 0, i64 %19
   %21 = load i8, ptr %20, align 1
   %22 = sext i8 %21 to i32
   br label %214
@@ -96,7 +96,7 @@ define internal fastcc i32 @Extra_TruthCanonN_rec(i32 noundef %0, ptr noundef %1
   br i1 %48, label %49, label %72
 
 49:                                               ; preds = %47
-  %50 = getelementptr inbounds i8, ptr %1, i64 1
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %51 = load i8, ptr %50, align 1
   %52 = zext i8 %51 to i32
   %53 = shl nuw i32 %52, 24
@@ -107,7 +107,7 @@ define internal fastcc i32 @Extra_TruthCanonN_rec(i32 noundef %0, ptr noundef %1
   %58 = or disjoint i32 %57, %53
   %59 = or disjoint i32 %58, %56
   %60 = or disjoint i32 %59, %55
-  %61 = getelementptr inbounds i8, ptr %28, i64 1
+  %61 = getelementptr inbounds nuw i8, ptr %28, i64 1
   %62 = load i8, ptr %61, align 1
   %63 = zext i8 %62 to i32
   %64 = shl nuw i32 %63, 24
@@ -149,10 +149,10 @@ define internal fastcc i32 @Extra_TruthCanonN_rec(i32 noundef %0, ptr noundef %1
 
 87:                                               ; preds = %.lr.ph231, %87
   %indvars.iv284 = phi i64 [ 0, %.lr.ph231 ], [ %indvars.iv.next285, %87 ]
-  %88 = getelementptr inbounds i8, ptr %86, i64 %indvars.iv284
+  %88 = getelementptr inbounds nuw i8, ptr %86, i64 %indvars.iv284
   %89 = load i8, ptr %88, align 1
   %indvars.iv.next285 = add nuw nsw i64 %indvars.iv284, 1
-  %90 = getelementptr inbounds i8, ptr %79, i64 %indvars.iv284
+  %90 = getelementptr inbounds nuw i8, ptr %79, i64 %indvars.iv284
   store i8 %89, ptr %90, align 1
   %exitcond290.not = icmp eq i64 %indvars.iv.next285, %wide.trip.count289
   br i1 %exitcond290.not, label %.loopexit, label %87, !llvm.loop !4
@@ -176,11 +176,11 @@ define internal fastcc i32 @Extra_TruthCanonN_rec(i32 noundef %0, ptr noundef %1
 
 100:                                              ; preds = %.lr.ph226, %100
   %indvars.iv277 = phi i64 [ 0, %.lr.ph226 ], [ %indvars.iv.next278, %100 ]
-  %101 = getelementptr inbounds i8, ptr %98, i64 %indvars.iv277
+  %101 = getelementptr inbounds nuw i8, ptr %98, i64 %indvars.iv277
   %102 = load i8, ptr %101, align 1
   %103 = or i8 %102, %99
   %indvars.iv.next278 = add nuw nsw i64 %indvars.iv277, 1
-  %104 = getelementptr inbounds i8, ptr %79, i64 %indvars.iv277
+  %104 = getelementptr inbounds nuw i8, ptr %79, i64 %indvars.iv277
   store i8 %103, ptr %104, align 1
   %exitcond283.not = icmp eq i64 %indvars.iv.next278, %wide.trip.count282
   br i1 %exitcond283.not, label %.loopexit, label %100, !llvm.loop !6
@@ -204,11 +204,11 @@ define internal fastcc i32 @Extra_TruthCanonN_rec(i32 noundef %0, ptr noundef %1
 
 114:                                              ; preds = %.lr.ph221, %114
   %indvars.iv270 = phi i64 [ 0, %.lr.ph221 ], [ %indvars.iv.next271, %114 ]
-  %115 = getelementptr inbounds i8, ptr %112, i64 %indvars.iv270
+  %115 = getelementptr inbounds nuw i8, ptr %112, i64 %indvars.iv270
   %116 = load i8, ptr %115, align 1
   %117 = or i8 %116, %113
   %indvars.iv.next271 = add nuw nsw i64 %indvars.iv270, 1
-  %118 = getelementptr inbounds i8, ptr %79, i64 %indvars.iv270
+  %118 = getelementptr inbounds nuw i8, ptr %79, i64 %indvars.iv270
   store i8 %117, ptr %118, align 1
   %exitcond276.not = icmp eq i64 %indvars.iv.next271, %wide.trip.count275
   br i1 %exitcond276.not, label %.loopexit, label %114, !llvm.loop !7
@@ -231,10 +231,10 @@ define internal fastcc i32 @Extra_TruthCanonN_rec(i32 noundef %0, ptr noundef %1
 
 127:                                              ; preds = %.lr.ph216, %127
   %indvars.iv263 = phi i64 [ 0, %.lr.ph216 ], [ %indvars.iv.next264, %127 ]
-  %128 = getelementptr inbounds i8, ptr %126, i64 %indvars.iv263
+  %128 = getelementptr inbounds nuw i8, ptr %126, i64 %indvars.iv263
   %129 = load i8, ptr %128, align 1
   %indvars.iv.next264 = add nuw nsw i64 %indvars.iv263, 1
-  %130 = getelementptr inbounds i8, ptr %79, i64 %indvars.iv263
+  %130 = getelementptr inbounds nuw i8, ptr %79, i64 %indvars.iv263
   store i8 %129, ptr %130, align 1
   %exitcond269.not = icmp eq i64 %indvars.iv.next264, %wide.trip.count268
   br i1 %exitcond269.not, label %.loopexit, label %127, !llvm.loop !8
@@ -262,7 +262,7 @@ define internal fastcc i32 @Extra_TruthCanonN_rec(i32 noundef %0, ptr noundef %1
   %indvars.iv258 = phi i64 [ 0, %.lr.ph209 ], [ %indvars.iv.next259, %156 ]
   %.5167207 = phi i32 [ 0, %.lr.ph209 ], [ %.6168, %156 ]
   %.1173206 = phi i32 [ -1, %.lr.ph209 ], [ %.2174, %156 ]
-  %142 = getelementptr inbounds i8, ptr %140, i64 %indvars.iv258
+  %142 = getelementptr inbounds nuw i8, ptr %140, i64 %indvars.iv258
   %143 = load i8, ptr %142, align 1
   %144 = sext i8 %143 to i32
   %145 = tail call i32 @Extra_TruthPolarize(i32 noundef %.0170, i32 noundef %144, i32 noundef %24) #5
@@ -320,7 +320,7 @@ define internal fastcc i32 @Extra_TruthCanonN_rec(i32 noundef %0, ptr noundef %1
   %indvars.iv253 = phi i64 [ 0, %.lr.ph202 ], [ %indvars.iv.next254, %181 ]
   %.7169200 = phi i32 [ 0, %.lr.ph202 ], [ %.8, %181 ]
   %.3175199 = phi i32 [ -1, %.lr.ph202 ], [ %.4176, %181 ]
-  %165 = getelementptr inbounds i8, ptr %162, i64 %indvars.iv253
+  %165 = getelementptr inbounds nuw i8, ptr %162, i64 %indvars.iv253
   %166 = load i8, ptr %165, align 1
   %167 = sext i8 %166 to i32
   %168 = tail call i32 @Extra_TruthPolarize(i32 noundef %.0177, i32 noundef %167, i32 noundef %24) #5
@@ -367,10 +367,10 @@ define internal fastcc i32 @Extra_TruthCanonN_rec(i32 noundef %0, ptr noundef %1
 
 186:                                              ; preds = %.lr.ph, %186
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %186 ]
-  %187 = getelementptr inbounds i8, ptr %160, i64 %indvars.iv
+  %187 = getelementptr inbounds nuw i8, ptr %160, i64 %indvars.iv
   %188 = load i8, ptr %187, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %189 = getelementptr inbounds i8, ptr %79, i64 %indvars.iv
+  %189 = getelementptr inbounds nuw i8, ptr %79, i64 %indvars.iv
   store i8 %188, ptr %189, align 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.preheader191, label %186, !llvm.loop !11
@@ -378,11 +378,11 @@ define internal fastcc i32 @Extra_TruthCanonN_rec(i32 noundef %0, ptr noundef %1
 190:                                              ; preds = %.lr.ph197, %190
   %indvars.iv246 = phi i64 [ %185, %.lr.ph197 ], [ %indvars.iv.next247, %190 ]
   %indvars.iv244 = phi i64 [ 0, %.lr.ph197 ], [ %indvars.iv.next245, %190 ]
-  %191 = getelementptr inbounds i8, ptr %183, i64 %indvars.iv244
+  %191 = getelementptr inbounds nuw i8, ptr %183, i64 %indvars.iv244
   %192 = load i8, ptr %191, align 1
   %193 = or i8 %192, %184
   %indvars.iv.next247 = add nuw nsw i64 %indvars.iv246, 1
-  %194 = getelementptr inbounds i8, ptr %79, i64 %indvars.iv246
+  %194 = getelementptr inbounds nuw i8, ptr %79, i64 %indvars.iv246
   store i8 %193, ptr %194, align 1
   %indvars.iv.next245 = add nuw nsw i64 %indvars.iv244, 1
   %exitcond252.not = icmp eq i64 %indvars.iv.next245, %wide.trip.count251
@@ -437,7 +437,7 @@ define internal fastcc i32 @Extra_TruthCanonN_rec(i32 noundef %0, ptr noundef %1
 
 211:                                              ; preds = %206
   store i32 %.0172, ptr %78, align 8
-  %212 = getelementptr inbounds i8, ptr %78, i64 4
+  %212 = getelementptr inbounds nuw i8, ptr %78, i64 4
   store i32 %.0171, ptr %212, align 4
   br label %213
 
@@ -472,7 +472,7 @@ define void @Map_Var3Print() local_unnamed_addr #0 {
 8:                                                ; preds = %7, %4
   %9 = load ptr, ptr @stdout, align 8
   %10 = load ptr, ptr %1, align 8
-  %11 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv
   call void @Extra_PrintHex(ptr noundef %9, ptr noundef %11, i32 noundef 5) #5
   %12 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -486,13 +486,13 @@ define void @Map_Var3Print() local_unnamed_addr #0 {
 14:                                               ; preds = %13, %._crit_edge
   %indvars.iv24 = phi i64 [ 0, %13 ], [ %indvars.iv.next25, %._crit_edge ]
   %15 = load ptr, ptr %3, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 %indvars.iv24
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 %indvars.iv24
   %17 = load i8, ptr %16, align 1
   %18 = sext i8 %17 to i32
   %19 = trunc nuw nsw i64 %indvars.iv24 to i32
   %20 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %19, i32 noundef %18)
   %21 = load ptr, ptr %3, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 %indvars.iv24
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 %indvars.iv24
   %23 = load i8, ptr %22, align 1
   %24 = icmp sgt i8 %23, 0
   br i1 %24, label %.lr.ph, label %._crit_edge
@@ -502,15 +502,15 @@ define void @Map_Var3Print() local_unnamed_addr #0 {
   %.not = icmp eq i64 %indvars.iv21, 0
   %25 = select i1 %.not, ptr @.str.4, ptr @.str.1
   %26 = load ptr, ptr %2, align 8
-  %27 = getelementptr inbounds ptr, ptr %26, i64 %indvars.iv24
+  %27 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv24
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 %indvars.iv21
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 %indvars.iv21
   %30 = load i8, ptr %29, align 1
   %31 = sext i8 %30 to i32
   %32 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, ptr noundef nonnull %25, i32 noundef %31)
   %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
   %33 = load ptr, ptr %3, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 %indvars.iv24
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 %indvars.iv24
   %35 = load i8, ptr %34, align 1
   %36 = sext i8 %35 to i64
   %37 = icmp slt i64 %indvars.iv.next22, %36

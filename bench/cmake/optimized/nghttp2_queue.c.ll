@@ -21,7 +21,7 @@ define dso_local void @nghttp2_queue_free(ptr noundef readonly %0) local_unnamed
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.09 = phi ptr [ %5, %.lr.ph ], [ %3, %2 ]
-  %4 = getelementptr inbounds i8, ptr %.09, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %.09, i64 8
   %5 = load ptr, ptr %4, align 8
   tail call void @free(ptr noundef nonnull %.09) #9
   %.not7 = icmp eq ptr %5, null
@@ -42,15 +42,15 @@ define dso_local range(i32 -901, 1) i32 @nghttp2_queue_push(ptr nocapture nounde
 
 4:                                                ; preds = %2
   store ptr %1, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr null, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not14 = icmp eq ptr %7, null
   br i1 %.not14, label %10, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %7, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %3, ptr %9, align 8
   store ptr %3, ptr %6, align 8
   br label %11
@@ -71,10 +71,10 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define dso_local void @nghttp2_queue_pop(ptr nocapture noundef %0) local_unnamed_addr #5 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load ptr, ptr %3, align 8
   store ptr %4, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %2, %6
   br i1 %7, label %8, label %9
@@ -97,7 +97,7 @@ define dso_local ptr @nghttp2_queue_front(ptr nocapture noundef readonly %0) loc
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local ptr @nghttp2_queue_back(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
   ret ptr %4

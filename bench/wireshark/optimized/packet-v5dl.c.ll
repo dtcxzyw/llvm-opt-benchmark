@@ -135,7 +135,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_v5dl(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.41) #2
   %7 = load ptr, ptr %5, align 8
@@ -148,7 +148,7 @@ define internal i32 @dissect_v5dl(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %13 = lshr i16 %8, 3
   %14 = and i16 %13, 8064
   %15 = or disjoint i16 %14, %12
-  %16 = getelementptr inbounds i8, ptr %1, i64 348
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 348
   %17 = load i32, ptr %16, align 4
   switch i32 %17, label %22 [
     i32 1, label %18
@@ -192,13 +192,13 @@ define internal i32 @dissect_v5dl(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %.not.i, label %proto_item_set_generated.exit, label %34
 
 34:                                               ; preds = %30
-  %35 = getelementptr inbounds i8, ptr %33, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %33, i64 32
   %36 = load ptr, ptr %35, align 8
   %.not5.i = icmp eq ptr %36, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %37
 
 37:                                               ; preds = %34
-  %38 = getelementptr inbounds i8, ptr %36, i64 28
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 28
   %39 = load i32, ptr %38, align 4
   %40 = or i32 %39, 2
   store i32 %40, ptr %38, align 4

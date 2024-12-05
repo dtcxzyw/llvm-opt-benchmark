@@ -146,25 +146,25 @@ define internal ptr @libpqrcv_connect(ptr noundef %0, i1 noundef zeroext %1, i1 
   tail call void @libpqrcv_check_conninfo(ptr noundef %0, i1 noundef zeroext %3)
   store ptr @.str.2, ptr %7, align 16
   store ptr %0, ptr %8, align 16
-  %.sink60.sroa.gep = getelementptr inbounds i8, ptr %8, i64 24
-  %.sink60.sroa.gep61 = getelementptr inbounds i8, ptr %8, i64 16
+  %.sink60.sroa.gep = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %.sink60.sroa.gep61 = getelementptr inbounds nuw i8, ptr %8, i64 16
   br i1 %1, label %10, label %20
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %7, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr @.str.3, ptr %11, align 8
   %12 = select i1 %2, ptr @.str.4, ptr @.str.5
-  %13 = getelementptr inbounds i8, ptr %8, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %12, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %7, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 16
   br i1 %2, label %15, label %19
 
 15:                                               ; preds = %10
   store ptr @.str.6, ptr %14, align 16
   %16 = tail call ptr @GetDatabaseEncodingName() #11
-  %17 = getelementptr inbounds i8, ptr %8, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %16, ptr %17, align 16
-  %18 = getelementptr inbounds i8, ptr %7, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr @.str.7, ptr %18, align 8
   br label %.sink.split
 
@@ -284,7 +284,7 @@ define internal ptr @libpqrcv_connect(ptr noundef %0, i1 noundef zeroext %1, i1 
   br label %77
 
 71:                                               ; preds = %62, %61
-  %72 = getelementptr inbounds i8, ptr %28, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store i8 %9, ptr %72, align 8
   br label %79
 
@@ -347,7 +347,7 @@ define internal void @libpqrcv_check_conninfo(ptr noundef %0, i1 noundef zeroext
 .lr.ph:                                           ; preds = %.preheader, %27
   %18 = phi ptr [ %29, %27 ], [ %17, %.preheader ]
   %.01219 = phi ptr [ %28, %27 ], [ %4, %.preheader ]
-  %19 = getelementptr inbounds i8, ptr %.01219, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %.01219, i64 24
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
   br i1 %21, label %27, label %22
@@ -398,7 +398,7 @@ define internal ptr @libpqrcv_get_conninfo(ptr nocapture noundef readonly %0) #1
   br i1 %.not18, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %7 = getelementptr inbounds i8, ptr %2, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %12
 
 8:                                                ; preds = %1
@@ -412,14 +412,14 @@ define internal ptr @libpqrcv_get_conninfo(ptr nocapture noundef readonly %0) #1
 12:                                               ; preds = %.lr.ph, %29
   %13 = phi ptr [ %6, %.lr.ph ], [ %31, %29 ]
   %.019 = phi ptr [ %4, %.lr.ph ], [ %30, %29 ]
-  %14 = getelementptr inbounds i8, ptr %.019, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %.019, i64 40
   %15 = load ptr, ptr %14, align 8
   %16 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %15, i32 noundef 68) #12
   %.not16 = icmp eq ptr %16, null
   br i1 %.not16, label %17, label %29
 
 17:                                               ; preds = %12
-  %18 = getelementptr inbounds i8, ptr %.019, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %.019, i64 24
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
   br i1 %20, label %29, label %21
@@ -447,7 +447,7 @@ define internal ptr @libpqrcv_get_conninfo(ptr nocapture noundef readonly %0) #1
 
 ._crit_edge:                                      ; preds = %29, %.preheader
   call void @PQconninfoFree(ptr noundef nonnull %4) #11
-  %32 = getelementptr inbounds i8, ptr %2, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %33 = load i64, ptr %32, align 8
   %34 = icmp eq i64 %33, 0
   br i1 %34, label %38, label %35
@@ -597,7 +597,7 @@ define internal ptr @libpqrcv_get_dbname_from_conninfo(ptr noundef %0) #1 {
   br i1 %18, label %19, label %29
 
 19:                                               ; preds = %.lr.ph
-  %20 = getelementptr inbounds i8, ptr %.025, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %.025, i64 24
   %21 = load ptr, ptr %20, align 8
   %.not19 = icmp eq ptr %21, null
   br i1 %.not19, label %29, label %22
@@ -708,7 +708,7 @@ define internal noundef zeroext i1 @libpqrcv_startstreaming(ptr nocapture nounde
   %4 = alloca %struct.StringInfoData, align 8
   call void @initStringInfo(ptr noundef nonnull %4) #11
   call void @appendStringInfoString(ptr noundef nonnull %4, ptr noundef nonnull @.str.31) #11
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %8, label %7
@@ -727,7 +727,7 @@ define internal noundef zeroext i1 @libpqrcv_startstreaming(ptr nocapture nounde
   br label %12
 
 12:                                               ; preds = %11, %8
-  %13 = getelementptr inbounds i8, ptr %1, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %14 = load i64, ptr %13, align 8
   %15 = lshr i64 %14, 32
   %16 = trunc nuw i64 %15 to i32
@@ -739,10 +739,10 @@ define internal noundef zeroext i1 @libpqrcv_startstreaming(ptr nocapture nounde
 
 20:                                               ; preds = %12
   call void @appendStringInfoString(ptr noundef nonnull %4, ptr noundef nonnull @.str.35) #11
-  %21 = getelementptr inbounds i8, ptr %1, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %22 = load i32, ptr %21, align 8
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %4, ptr noundef nonnull @.str.36, i32 noundef %22) #11
-  %23 = getelementptr inbounds i8, ptr %1, i64 48
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %24 = load ptr, ptr %23, align 8
   %.not42 = icmp eq ptr %24, null
   br i1 %.not42, label %26, label %25
@@ -752,7 +752,7 @@ define internal noundef zeroext i1 @libpqrcv_startstreaming(ptr nocapture nounde
   br label %26
 
 26:                                               ; preds = %25, %20
-  %27 = getelementptr inbounds i8, ptr %1, i64 56
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %28 = load i8, ptr %27, align 8
   %29 = trunc i8 %28 to i1
   br i1 %29, label %30, label %35
@@ -768,7 +768,7 @@ define internal noundef zeroext i1 @libpqrcv_startstreaming(ptr nocapture nounde
   br label %35
 
 35:                                               ; preds = %34, %30, %26
-  %36 = getelementptr inbounds i8, ptr %1, i64 64
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %37 = load ptr, ptr %36, align 8
   %.not43 = icmp eq ptr %37, null
   br i1 %.not43, label %44, label %38
@@ -785,7 +785,7 @@ define internal noundef zeroext i1 @libpqrcv_startstreaming(ptr nocapture nounde
   br label %44
 
 44:                                               ; preds = %42, %38, %35
-  %45 = getelementptr inbounds i8, ptr %1, i64 32
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %46 = load ptr, ptr %45, align 8
   %47 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
@@ -794,8 +794,8 @@ define internal noundef zeroext i1 @libpqrcv_startstreaming(ptr nocapture nounde
   br i1 %.not.i, label %stringlist_to_identifierstr.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %44
-  %48 = getelementptr inbounds i8, ptr %46, i64 4
-  %49 = getelementptr inbounds i8, ptr %46, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %46, i64 4
+  %49 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %50 = load i32, ptr %48, align 4
   %51 = icmp sgt i32 %50, 0
   br i1 %51, label %.lr.ph26.i, label %stringlist_to_identifierstr.exit
@@ -806,7 +806,7 @@ define internal noundef zeroext i1 @libpqrcv_startstreaming(ptr nocapture nounde
   %52 = load ptr, ptr %49, align 8
   %53 = getelementptr %union.ListCell, ptr %52, i64 %indvars.iv.i
   %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %56 = load ptr, ptr %55, align 8
   br i1 %.0142224.i, label %58, label %57
 
@@ -874,7 +874,7 @@ stringlist_to_identifierstr.exit:                 ; preds = %62, %44, %.lr.ph.i
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %4, ptr noundef nonnull @.str.41, ptr noundef nonnull %77) #11
   call void @PQfreemem(ptr noundef nonnull %77) #11
   call void @pfree(ptr noundef nonnull %66) #11
-  %86 = getelementptr inbounds i8, ptr %1, i64 40
+  %86 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %87 = load i8, ptr %86, align 8
   %88 = trunc i8 %87 to i1
   br i1 %88, label %89, label %94
@@ -894,7 +894,7 @@ stringlist_to_identifierstr.exit:                 ; preds = %62, %44, %.lr.ph.i
   br label %98
 
 95:                                               ; preds = %12
-  %96 = getelementptr inbounds i8, ptr %1, i64 24
+  %96 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %97 = load i32, ptr %96, align 8
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %4, ptr noundef nonnull @.str.43, i32 noundef %97) #11
   br label %98
@@ -1060,7 +1060,7 @@ define internal void @libpqrcv_endstreaming(ptr nocapture noundef readonly %0, p
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, -2147483648) i32 @libpqrcv_receive(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) #1 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   tail call void @PQfreemem(ptr noundef %5) #11
   store ptr null, ptr %4, align 8
@@ -1219,7 +1219,7 @@ define internal ptr @libpqrcv_create_slot(ptr nocapture noundef readonly %0, ptr
   br label %13
 
 13:                                               ; preds = %12, %7
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load i8, ptr %14, align 8
   %16 = trunc i8 %15 to i1
   br i1 %16, label %17, label %28
@@ -1286,7 +1286,7 @@ define internal ptr @libpqrcv_create_slot(ptr nocapture noundef readonly %0, ptr
 
 switch.lookup:                                    ; preds = %.thread31
   %26 = zext nneg i32 %5 to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table.libpqrcv_create_slot, i64 0, i64 %26
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.libpqrcv_create_slot, i64 0, i64 %26
   %switch.load = load ptr, ptr %switch.gep, align 8
   call void @appendStringInfoString(ptr noundef nonnull %8, ptr noundef nonnull %switch.load) #11
   br label %27
@@ -1449,10 +1449,10 @@ define internal ptr @libpqrcv_exec(ptr nocapture noundef readonly %0, ptr nounde
 24:                                               ; preds = %17
   %25 = load i32, ptr @work_mem, align 4
   %26 = tail call ptr @tuplestore_begin_heap(i1 noundef zeroext true, i1 noundef zeroext false, i32 noundef %25) #11
-  %27 = getelementptr inbounds i8, ptr %6, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %26, ptr %27, align 8
   %28 = tail call ptr @CreateTemplateTupleDesc(i32 noundef %2) #11
-  %29 = getelementptr inbounds i8, ptr %6, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %28, ptr %29, align 8
   %30 = icmp sgt i32 %2, 0
   br i1 %30, label %.lr.ph.preheader.i, label %._crit_edge.i
@@ -1578,13 +1578,13 @@ libpqrcv_processTuples.exit:                      ; preds = %._crit_edge.i, %._c
 
 70:                                               ; preds = %13
   store i32 0, ptr %6, align 8
-  %71 = getelementptr inbounds i8, ptr %6, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr @.str.70, ptr %71, align 8
   br label %114
 
 72:                                               ; preds = %13, %13
   store i32 0, ptr %6, align 8
-  %73 = getelementptr inbounds i8, ptr %6, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr @.str.71, ptr %73, align 8
   br label %114
 
@@ -1593,7 +1593,7 @@ libpqrcv_processTuples.exit:                      ; preds = %._crit_edge.i, %._c
   %75 = load ptr, ptr %0, align 8
   %76 = tail call ptr @PQerrorMessage(ptr noundef %75) #11
   %77 = tail call ptr @pchomp(ptr noundef %76) #11
-  %78 = getelementptr inbounds i8, ptr %6, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %77, ptr %78, align 8
   %79 = tail call ptr @PQresultErrorField(ptr noundef %15, i32 noundef 67) #11
   %.not = icmp eq ptr %79, null
@@ -1632,7 +1632,7 @@ libpqrcv_processTuples.exit:                      ; preds = %._crit_edge.i, %._c
   %110 = zext nneg i8 %109 to i32
   %111 = shl nuw nsw i32 %110, 24
   %112 = or disjoint i32 %105, %111
-  %113 = getelementptr inbounds i8, ptr %6, i64 4
+  %113 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 %112, ptr %113, align 4
   br label %114
 
@@ -1645,7 +1645,7 @@ libpqrcv_processTuples.exit:                      ; preds = %._crit_edge.i, %._c
 define internal void @libpqrcv_disconnect(ptr noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   tail call void @PQfinish(ptr noundef %2) #11
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   tail call void @PQfreemem(ptr noundef %4) #11
   tail call void @pfree(ptr noundef nonnull %0) #11

@@ -101,7 +101,7 @@ define void @_ZNK5boost4urls22implementation_defined12query_rule_t5parseERPKcS4_
   br i1 %or.cond, label %.loopexit, label %34
 
 34:                                               ; preds = %29
-  %35 = getelementptr inbounds i8, ptr %13, i64 1
+  %35 = getelementptr inbounds nuw i8, ptr %13, i64 1
   %36 = load i8, ptr %35, align 1, !tbaa !10
   %.fr45 = freeze i8 %36
   %37 = add i8 %.fr45, -48
@@ -125,7 +125,7 @@ switch.early.test:                                ; preds = %34
   ]
 
 _ZNK5boost4urls7grammar22implementation_defined14hexdig_chars_tclEc.exit.thread: ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %34
-  %38 = getelementptr inbounds i8, ptr %13, i64 2
+  %38 = getelementptr inbounds nuw i8, ptr %13, i64 2
   %39 = load i8, ptr %38, align 1, !tbaa !10
   %.fr46 = freeze i8 %39
   %40 = add i8 %.fr46, -48
@@ -149,7 +149,7 @@ switch.early.test43:                              ; preds = %_ZNK5boost4urls7gra
   ]
 
 _ZNK5boost4urls7grammar22implementation_defined14hexdig_chars_tclEc.exit36.thread: ; preds = %switch.early.test43, %switch.early.test43, %switch.early.test43, %switch.early.test43, %switch.early.test43, %switch.early.test43, %switch.early.test43, %switch.early.test43, %switch.early.test43, %switch.early.test43, %switch.early.test43, %switch.early.test43, %_ZNK5boost4urls7grammar22implementation_defined14hexdig_chars_tclEc.exit.thread
-  %41 = getelementptr inbounds i8, ptr %13, i64 3
+  %41 = getelementptr inbounds nuw i8, ptr %13, i64 3
   store ptr %41, ptr %2, align 8, !tbaa !3
   %42 = add i64 %.0.ph4869, 2
   %.not59 = icmp eq ptr %41, %3

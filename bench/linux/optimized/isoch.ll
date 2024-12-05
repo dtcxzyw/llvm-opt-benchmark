@@ -28,7 +28,7 @@ define dso_local noundef range(i32 -19, 1) i32 @agp_3_5_enable(ptr nocapture nou
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
   %13 = alloca i16, align 2
-  %14 = getelementptr inbounds i8, ptr %0, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %15 = load ptr, ptr %14, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #7
   store i8 0, ptr %9, align 1, !annotation !5
@@ -40,7 +40,7 @@ define dso_local noundef range(i32 -19, 1) i32 @agp_3_5_enable(ptr nocapture nou
   store i32 0, ptr %12, align 4, !annotation !5
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %13) #7
   store i16 0, ptr %13, align 2, !annotation !5
-  %16 = getelementptr inbounds i8, ptr %0, i64 144
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %17 = load i32, ptr %16, align 8
   %18 = add i32 %17, 4
   %19 = call i32 @pci_read_config_dword(ptr noundef %15, i32 noundef %18, ptr noundef nonnull %10) #7
@@ -57,7 +57,7 @@ define dso_local noundef range(i32 -19, 1) i32 @agp_3_5_enable(ptr nocapture nou
 
 27:                                               ; preds = %23
   store volatile ptr %25, ptr %25, align 8
-  %28 = getelementptr inbounds i8, ptr %25, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store volatile ptr %25, ptr %28, align 8
   %29 = call ptr @pci_get_device(i32 noundef -1, i32 noundef -1, ptr noundef null) #7
   %30 = icmp eq ptr %29, null
@@ -82,7 +82,7 @@ define dso_local noundef range(i32 -19, 1) i32 @agp_3_5_enable(ptr nocapture nou
   br i1 %39, label %58, label %40
 
 40:                                               ; preds = %36
-  %41 = getelementptr inbounds i8, ptr %37, i64 68
+  %41 = getelementptr inbounds nuw i8, ptr %37, i64 68
   %42 = load i32, ptr %41, align 4
   %43 = lshr i32 %42, 8
   %44 = trunc i32 %43 to i16
@@ -99,13 +99,13 @@ define dso_local noundef range(i32 -19, 1) i32 @agp_3_5_enable(ptr nocapture nou
   br i1 %49, label %.loopexit40, label %50
 
 50:                                               ; preds = %46
-  %51 = getelementptr inbounds i8, ptr %48, i64 24
+  %51 = getelementptr inbounds nuw i8, ptr %48, i64 24
   store ptr %37, ptr %51, align 8
   %52 = load ptr, ptr %25, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
   store ptr %48, ptr %53, align 8
   store ptr %52, ptr %48, align 8
-  %54 = getelementptr inbounds i8, ptr %48, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %48, i64 8
   store ptr %25, ptr %54, align 8
   store volatile ptr %48, ptr %25, align 8
   %55 = add i32 %32, 1
@@ -120,7 +120,7 @@ define dso_local noundef range(i32 -19, 1) i32 @agp_3_5_enable(ptr nocapture nou
 
 .preheader36:                                     ; preds = %.loopexit38, %122
   %61 = phi ptr [ %123, %122 ], [ %34, %.loopexit38 ]
-  %62 = getelementptr inbounds i8, ptr %61, i64 24
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 24
   %63 = load ptr, ptr %62, align 8
   %64 = call i32 @pci_read_config_word(ptr noundef %63, i32 noundef 6, ptr noundef nonnull %13) #7
   %65 = load i16, ptr %13, align 2
@@ -157,20 +157,20 @@ define dso_local noundef range(i32 -19, 1) i32 @agp_3_5_enable(ptr nocapture nou
   br i1 %82, label %.thread25, label %92
 
 .thread25:                                        ; preds = %68, %.loopexit35, %78
-  %83 = getelementptr inbounds i8, ptr %15, i64 184
-  %84 = getelementptr inbounds i8, ptr %63, i64 264
+  %83 = getelementptr inbounds nuw i8, ptr %15, i64 184
+  %84 = getelementptr inbounds nuw i8, ptr %63, i64 264
   %85 = load ptr, ptr %84, align 8
   %86 = icmp eq ptr %85, null
   br i1 %86, label %87, label %90
 
 87:                                               ; preds = %.thread25
-  %88 = getelementptr inbounds i8, ptr %63, i64 184
+  %88 = getelementptr inbounds nuw i8, ptr %63, i64 184
   %89 = load ptr, ptr %88, align 8
   br label %90
 
 90:                                               ; preds = %87, %.thread25
   %91 = phi ptr [ %89, %87 ], [ %85, %.thread25 ]
-  call void (ptr, ptr, ...) @_dev_err(ptr noundef %83, ptr noundef nonnull @.str.1, ptr noundef %91) #9
+  call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %83, ptr noundef nonnull @.str.1, ptr noundef %91) #9
   br label %.loopexit40
 
 92:                                               ; preds = %.loopexit35
@@ -179,24 +179,24 @@ define dso_local noundef range(i32 -19, 1) i32 @agp_3_5_enable(ptr nocapture nou
   br i1 %94, label %95, label %105
 
 95:                                               ; preds = %92
-  %96 = getelementptr inbounds i8, ptr %15, i64 184
-  %97 = getelementptr inbounds i8, ptr %63, i64 264
+  %96 = getelementptr inbounds nuw i8, ptr %15, i64 184
+  %97 = getelementptr inbounds nuw i8, ptr %63, i64 264
   %98 = load ptr, ptr %97, align 8
   %99 = icmp eq ptr %98, null
   br i1 %99, label %100, label %103
 
 100:                                              ; preds = %95
-  %101 = getelementptr inbounds i8, ptr %63, i64 184
+  %101 = getelementptr inbounds nuw i8, ptr %63, i64 184
   %102 = load ptr, ptr %101, align 8
   br label %103
 
 103:                                              ; preds = %100, %95
   %104 = phi ptr [ %102, %100 ], [ %98, %95 ]
-  call void (ptr, ptr, ...) @_dev_err(ptr noundef %96, ptr noundef nonnull @.str.2, ptr noundef %104) #9
+  call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %96, ptr noundef nonnull @.str.2, ptr noundef %104) #9
   br label %.loopexit40
 
 105:                                              ; preds = %92
-  %106 = getelementptr inbounds i8, ptr %61, i64 16
+  %106 = getelementptr inbounds nuw i8, ptr %61, i64 16
   store i8 %.pr, ptr %106, align 8
   %107 = add nuw nsw i32 %81, 4
   %108 = call i32 @pci_read_config_dword(ptr noundef %63, i32 noundef %107, ptr noundef nonnull %11) #7
@@ -206,20 +206,20 @@ define dso_local noundef range(i32 -19, 1) i32 @agp_3_5_enable(ptr nocapture nou
   br i1 %111, label %112, label %122
 
 112:                                              ; preds = %105
-  %113 = getelementptr inbounds i8, ptr %15, i64 184
-  %114 = getelementptr inbounds i8, ptr %63, i64 264
+  %113 = getelementptr inbounds nuw i8, ptr %15, i64 184
+  %114 = getelementptr inbounds nuw i8, ptr %63, i64 264
   %115 = load ptr, ptr %114, align 8
   %116 = icmp eq ptr %115, null
   br i1 %116, label %117, label %120
 
 117:                                              ; preds = %112
-  %118 = getelementptr inbounds i8, ptr %63, i64 184
+  %118 = getelementptr inbounds nuw i8, ptr %63, i64 184
   %119 = load ptr, ptr %118, align 8
   br label %120
 
 120:                                              ; preds = %117, %112
   %121 = phi ptr [ %119, %117 ], [ %115, %112 ]
-  call void (ptr, ptr, ...) @_dev_err(ptr noundef %113, ptr noundef nonnull @.str.3, ptr noundef %121) #9
+  call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %113, ptr noundef nonnull @.str.3, ptr noundef %121) #9
   br label %.loopexit40
 
 122:                                              ; preds = %105, %.preheader36
@@ -258,9 +258,9 @@ define dso_local noundef range(i32 -19, 1) i32 @agp_3_5_enable(ptr nocapture nou
 
 .preheader32:                                     ; preds = %130, %154
   %133 = phi ptr [ %145, %154 ], [ %131, %130 ]
-  %134 = getelementptr inbounds i8, ptr %133, i64 24
+  %134 = getelementptr inbounds nuw i8, ptr %133, i64 24
   %135 = load ptr, ptr %134, align 8
-  %136 = getelementptr inbounds i8, ptr %133, i64 16
+  %136 = getelementptr inbounds nuw i8, ptr %133, i64 16
   %137 = load i8, ptr %136, align 8
   %138 = zext i8 %137 to i32
   %139 = add nuw nsw i32 %138, 12
@@ -268,7 +268,7 @@ define dso_local noundef range(i32 -19, 1) i32 @agp_3_5_enable(ptr nocapture nou
   %141 = load i32, ptr %2, align 4
   %142 = lshr i32 %141, 16
   %143 = and i32 %142, 255
-  %144 = getelementptr inbounds i8, ptr %133, i64 20
+  %144 = getelementptr inbounds nuw i8, ptr %133, i64 20
   store i32 %143, ptr %144, align 4
   %145 = load ptr, ptr %133, align 8
   br label %146
@@ -280,17 +280,17 @@ define dso_local noundef range(i32 -19, 1) i32 @agp_3_5_enable(ptr nocapture nou
   br i1 %149, label %154, label %150
 
 150:                                              ; preds = %146
-  %151 = getelementptr inbounds i8, ptr %148, i64 20
+  %151 = getelementptr inbounds nuw i8, ptr %148, i64 20
   %152 = load i32, ptr %151, align 4
   %153 = icmp ugt i32 %152, %143
   br i1 %153, label %154, label %146, !llvm.loop !11
 
 154:                                              ; preds = %150, %146
-  %155 = getelementptr inbounds i8, ptr %148, i64 8
+  %155 = getelementptr inbounds nuw i8, ptr %148, i64 8
   %156 = load ptr, ptr %155, align 8
   store ptr %133, ptr %155, align 8
   store ptr %148, ptr %133, align 8
-  %157 = getelementptr inbounds i8, ptr %133, i64 8
+  %157 = getelementptr inbounds nuw i8, ptr %133, i64 8
   store ptr %156, ptr %157, align 8
   store volatile ptr %133, ptr %156, align 8
   %158 = icmp eq ptr %145, %25
@@ -320,9 +320,9 @@ define dso_local noundef range(i32 -19, 1) i32 @agp_3_5_enable(ptr nocapture nou
   %175 = phi i32 [ %198, %.preheader31 ], [ %169, %.loopexit33 ]
   %176 = phi i32 [ %197, %.preheader31 ], [ 0, %.loopexit33 ]
   %177 = phi i32 [ %199, %.preheader31 ], [ 0, %.loopexit33 ]
-  %178 = getelementptr inbounds i8, ptr %174, i64 24
+  %178 = getelementptr inbounds nuw i8, ptr %174, i64 24
   %179 = load ptr, ptr %178, align 8
-  %180 = getelementptr inbounds i8, ptr %174, i64 16
+  %180 = getelementptr inbounds nuw i8, ptr %174, i64 16
   %181 = load i8, ptr %180, align 8
   %182 = zext i8 %181 to i32
   %183 = add nuw nsw i32 %182, 12
@@ -335,13 +335,13 @@ define dso_local noundef range(i32 -19, 1) i32 @agp_3_5_enable(ptr nocapture nou
   store i32 %187, ptr %189, align 8
   %190 = lshr i32 %185, 8
   %191 = and i32 %190, 255
-  %192 = getelementptr inbounds i8, ptr %189, i64 4
+  %192 = getelementptr inbounds nuw i8, ptr %189, i64 4
   store i32 %191, ptr %192, align 4
   %193 = lshr i32 %185, 6
   %194 = and i32 %193, 3
-  %195 = getelementptr inbounds i8, ptr %189, i64 8
+  %195 = getelementptr inbounds nuw i8, ptr %189, i64 8
   store i32 %194, ptr %195, align 8
-  %196 = getelementptr inbounds i8, ptr %189, i64 24
+  %196 = getelementptr inbounds nuw i8, ptr %189, i64 24
   store ptr %174, ptr %196, align 8
   %197 = add i32 %187, %176
   %198 = call i32 @llvm.umax.i32(i32 %175, i32 %194)
@@ -385,11 +385,11 @@ define dso_local noundef range(i32 -19, 1) i32 @agp_3_5_enable(ptr nocapture nou
   %226 = phi i64 [ 0, %223 ], [ %234, %225 ]
   %227 = phi i32 [ 0, %223 ], [ %233, %225 ]
   %228 = getelementptr %struct.isoch_data, ptr %128, i64 %226
-  %229 = getelementptr inbounds i8, ptr %228, i64 8
+  %229 = getelementptr inbounds nuw i8, ptr %228, i64 8
   store i32 %204, ptr %229, align 8
   %230 = load i32, ptr %228, align 8
   %231 = udiv i32 %230, %224
-  %232 = getelementptr inbounds i8, ptr %228, i64 4
+  %232 = getelementptr inbounds nuw i8, ptr %228, i64 4
   store i32 %231, ptr %232, align 4
   %233 = add i32 %231, %227
   %234 = add nuw nsw i64 %226, 1
@@ -404,11 +404,11 @@ define dso_local noundef range(i32 -19, 1) i32 @agp_3_5_enable(ptr nocapture nou
   %238 = phi i64 [ %253, %250 ], [ 0, %236 ]
   %239 = phi i32 [ %252, %250 ], [ 0, %236 ]
   %240 = getelementptr %struct.isoch_data, ptr %128, i64 %238
-  %241 = getelementptr inbounds i8, ptr %240, i64 4
+  %241 = getelementptr inbounds nuw i8, ptr %240, i64 4
   %242 = load i32, ptr %241, align 4
-  %243 = getelementptr inbounds i8, ptr %240, i64 16
+  %243 = getelementptr inbounds nuw i8, ptr %240, i64 16
   store i32 %242, ptr %243, align 8
-  %244 = getelementptr inbounds i8, ptr %240, i64 8
+  %244 = getelementptr inbounds nuw i8, ptr %240, i64 8
   %245 = load i32, ptr %244, align 8
   %246 = icmp ugt i32 %245, 1
   br i1 %246, label %247, label %250
@@ -458,17 +458,17 @@ define dso_local noundef range(i32 -19, 1) i32 @agp_3_5_enable(ptr nocapture nou
 275:                                              ; preds = %275, %266
   %276 = phi i64 [ 0, %266 ], [ %322, %275 ]
   %277 = getelementptr %struct.isoch_data, ptr %128, i64 %276
-  %278 = getelementptr inbounds i8, ptr %277, i64 24
+  %278 = getelementptr inbounds nuw i8, ptr %277, i64 24
   %279 = load ptr, ptr %278, align 8
-  %280 = getelementptr inbounds i8, ptr %279, i64 24
+  %280 = getelementptr inbounds nuw i8, ptr %279, i64 24
   %281 = load ptr, ptr %280, align 8
   %282 = icmp eq i64 %276, %259
   %283 = select i1 %282, i32 %272, i32 %268
-  %284 = getelementptr inbounds i8, ptr %277, i64 16
+  %284 = getelementptr inbounds nuw i8, ptr %277, i64 16
   %285 = load i32, ptr %284, align 8
   %286 = add i32 %285, %283
   store i32 %286, ptr %284, align 8
-  %287 = getelementptr inbounds i8, ptr %279, i64 16
+  %287 = getelementptr inbounds nuw i8, ptr %279, i64 16
   %288 = load i8, ptr %287, align 8
   %289 = zext i8 %288 to i32
   %290 = add nuw nsw i32 %289, 32
@@ -481,12 +481,12 @@ define dso_local noundef range(i32 -19, 1) i32 @agp_3_5_enable(ptr nocapture nou
   %297 = and i16 %296, 63
   %298 = load i32, ptr %6, align 4
   %299 = and i32 %298, 16777215
-  %300 = getelementptr inbounds i8, ptr %277, i64 4
+  %300 = getelementptr inbounds nuw i8, ptr %277, i64 4
   %301 = load i32, ptr %300, align 4
   %302 = trunc i32 %301 to i16
   %303 = shl i16 %302, 8
   %304 = or disjoint i16 %303, %297
-  %305 = getelementptr inbounds i8, ptr %277, i64 8
+  %305 = getelementptr inbounds nuw i8, ptr %277, i64 8
   %306 = load i32, ptr %305, align 8
   %307 = trunc i32 %306 to i16
   %308 = shl i16 %307, 6
@@ -521,8 +521,8 @@ define dso_local noundef range(i32 -19, 1) i32 @agp_3_5_enable(ptr nocapture nou
 
 324:                                              ; preds = %202, %236, %.thread28
   %325 = phi ptr [ @.str.6, %202 ], [ @.str.7, %236 ], [ @.str.8, %.thread28 ]
-  %326 = getelementptr inbounds i8, ptr %125, i64 184
-  call void (ptr, ptr, ...) @_dev_err(ptr noundef %326, ptr noundef nonnull %325) #9
+  %326 = getelementptr inbounds nuw i8, ptr %125, i64 184
+  call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %326, ptr noundef nonnull %325) #9
   call void @kfree(ptr noundef nonnull %128) #7
   br label %.thread29
 
@@ -534,8 +534,8 @@ define dso_local noundef range(i32 -19, 1) i32 @agp_3_5_enable(ptr nocapture nou
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #7
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #7
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #7
-  %328 = getelementptr inbounds i8, ptr %15, i64 184
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %328, ptr noundef nonnull @.str.4) #9
+  %328 = getelementptr inbounds nuw i8, ptr %15, i64 184
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %328, ptr noundef nonnull @.str.4) #9
   %.val = load ptr, ptr %14, align 8
   %.val24 = load i32, ptr %16, align 8
   call fastcc void @agp_3_5_nonisochronous_node_enable(ptr %.val, i32 %.val24, ptr noundef nonnull %25, i32 noundef %33)
@@ -617,9 +617,9 @@ define internal fastcc void @agp_3_5_nonisochronous_node_enable(ptr %.48.val, i3
   %14 = phi ptr [ %0, %2 ], [ %16, %13 ]
   %15 = phi i32 [ 0, %2 ], [ %36, %13 ]
   %16 = load ptr, ptr %14, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %16, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %20 = load i8, ptr %19, align 8
   %21 = zext i8 %20 to i32
   %22 = add nuw nsw i32 %21, 8

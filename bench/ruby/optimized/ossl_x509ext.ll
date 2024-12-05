@@ -95,7 +95,7 @@ define i64 @ossl_x509ext_new(ptr noundef %0) local_unnamed_addr #0 {
 
 11:                                               ; preds = %8
   %12 = inttoptr i64 %3 to ptr
-  %13 = getelementptr inbounds i8, ptr %12, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 32
   store ptr %.0, ptr %13, align 8
   ret i64 %3
 }
@@ -211,7 +211,7 @@ define internal i64 @ossl_x509extfactory_alloc(i64 noundef %0) #0 {
 6:                                                ; preds = %1
   tail call void @X509V3_set_ctx(ptr noundef nonnull %3, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i32 noundef 0) #4
   %7 = inttoptr i64 %2 to ptr
-  %8 = getelementptr inbounds i8, ptr %7, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr %3, ptr %8, align 8
   %9 = tail call i64 @rb_iv_set(i64 noundef %2, ptr noundef nonnull @.str.27, i64 noundef 4) #4
   ret i64 %2
@@ -243,7 +243,7 @@ define internal noundef i64 @ossl_x509extfactory_initialize(i32 noundef %0, ptr 
 ossl_x509extfactory_set_issuer_cert.exit:         ; preds = %11
   %15 = call i64 @rb_iv_set(i64 noundef %2, ptr noundef nonnull @.str.31, i64 noundef %9) #4
   %16 = call ptr @GetX509CertPtr(i64 noundef %9) #4
-  %17 = getelementptr inbounds i8, ptr %12, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %16, ptr %17, align 8
   br label %18
 
@@ -265,7 +265,7 @@ ossl_x509extfactory_set_issuer_cert.exit:         ; preds = %11
 ossl_x509extfactory_set_subject_cert.exit:        ; preds = %21
   %25 = call i64 @rb_iv_set(i64 noundef %2, ptr noundef nonnull @.str.32, i64 noundef %19) #4
   %26 = call ptr @GetX509CertPtr(i64 noundef %19) #4
-  %27 = getelementptr inbounds i8, ptr %22, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %22, i64 16
   store ptr %26, ptr %27, align 8
   br label %28
 
@@ -287,7 +287,7 @@ ossl_x509extfactory_set_subject_cert.exit:        ; preds = %21
 ossl_x509extfactory_set_subject_req.exit:         ; preds = %31
   %35 = call i64 @rb_iv_set(i64 noundef %2, ptr noundef nonnull @.str.33, i64 noundef %29) #4
   %36 = call ptr @GetX509ReqPtr(i64 noundef %29) #4
-  %37 = getelementptr inbounds i8, ptr %32, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %32, i64 24
   store ptr %36, ptr %37, align 8
   br label %38
 
@@ -309,7 +309,7 @@ ossl_x509extfactory_set_subject_req.exit:         ; preds = %31
 ossl_x509extfactory_set_crl.exit:                 ; preds = %41
   %45 = call i64 @rb_iv_set(i64 noundef %2, ptr noundef nonnull @.str.34, i64 noundef %39) #4
   %46 = call ptr @GetX509CRLPtr(i64 noundef %39) #4
-  %47 = getelementptr inbounds i8, ptr %42, i64 32
+  %47 = getelementptr inbounds nuw i8, ptr %42, i64 32
   store ptr %46, ptr %47, align 8
   br label %48
 
@@ -335,7 +335,7 @@ define internal noundef i64 @ossl_x509extfactory_set_issuer_cert(i64 noundef %0,
 6:                                                ; preds = %2
   %7 = tail call i64 @rb_iv_set(i64 noundef %0, ptr noundef nonnull @.str.31, i64 noundef %1) #4
   %8 = tail call ptr @GetX509CertPtr(i64 noundef %1) #4
-  %9 = getelementptr inbounds i8, ptr %3, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %8, ptr %9, align 8
   ret i64 %1
 }
@@ -354,7 +354,7 @@ define internal noundef i64 @ossl_x509extfactory_set_subject_cert(i64 noundef %0
 6:                                                ; preds = %2
   %7 = tail call i64 @rb_iv_set(i64 noundef %0, ptr noundef nonnull @.str.32, i64 noundef %1) #4
   %8 = tail call ptr @GetX509CertPtr(i64 noundef %1) #4
-  %9 = getelementptr inbounds i8, ptr %3, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %8, ptr %9, align 8
   ret i64 %1
 }
@@ -373,7 +373,7 @@ define internal noundef i64 @ossl_x509extfactory_set_subject_req(i64 noundef %0,
 6:                                                ; preds = %2
   %7 = tail call i64 @rb_iv_set(i64 noundef %0, ptr noundef nonnull @.str.33, i64 noundef %1) #4
   %8 = tail call ptr @GetX509ReqPtr(i64 noundef %1) #4
-  %9 = getelementptr inbounds i8, ptr %3, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %8, ptr %9, align 8
   ret i64 %1
 }
@@ -392,7 +392,7 @@ define internal noundef i64 @ossl_x509extfactory_set_crl(i64 noundef %0, i64 nou
 6:                                                ; preds = %2
   %7 = tail call i64 @rb_iv_set(i64 noundef %0, ptr noundef nonnull @.str.34, i64 noundef %1) #4
   %8 = tail call ptr @GetX509CRLPtr(i64 noundef %1) #4
-  %9 = getelementptr inbounds i8, ptr %3, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr %8, ptr %9, align 8
   ret i64 %1
 }
@@ -462,7 +462,7 @@ define internal i64 @ossl_x509extfactory_create_ext(i32 noundef %0, ptr noundef 
   %40 = load i64, ptr %39, align 8, !noalias !6
   %41 = and i64 %40, 8192
   %.not.i.i = icmp eq i64 %41, 0
-  %42 = getelementptr inbounds i8, ptr %39, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %39, i64 24
   br i1 %.not.i.i, label %RSTRING_PTR.exit, label %43
 
 43:                                               ; preds = %36
@@ -472,7 +472,7 @@ define internal i64 @ossl_x509extfactory_create_ext(i32 noundef %0, ptr noundef 
 RSTRING_PTR.exit:                                 ; preds = %36, %43
   %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %43 ], [ %42, %36 ]
   %44 = call ptr @X509V3_EXT_nconf(ptr noundef %37, ptr noundef nonnull %26, ptr noundef %.0, ptr noundef %.sroa.2.0.i) #4
-  %45 = getelementptr inbounds i8, ptr %26, i64 48
+  %45 = getelementptr inbounds nuw i8, ptr %26, i64 48
   store ptr null, ptr %45, align 8
   %.not24 = icmp eq ptr %44, null
   br i1 %.not24, label %46, label %50
@@ -486,7 +486,7 @@ RSTRING_PTR.exit:                                 ; preds = %36, %43
 
 50:                                               ; preds = %RSTRING_PTR.exit
   %51 = inttoptr i64 %31 to ptr
-  %52 = getelementptr inbounds i8, ptr %51, i64 32
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 32
   store ptr %44, ptr %52, align 8
   ret i64 %31
 }
@@ -505,7 +505,7 @@ define internal i64 @ossl_x509ext_alloc(i64 noundef %0) #0 {
 
 6:                                                ; preds = %1
   %7 = inttoptr i64 %2 to ptr
-  %8 = getelementptr inbounds i8, ptr %7, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr %3, ptr %8, align 8
   ret i64 %2
 }
@@ -542,7 +542,7 @@ define internal noundef i64 @ossl_x509ext_initialize(i32 noundef %0, ptr noundef
   %21 = load i64, ptr %20, align 8, !noalias !9
   %22 = and i64 %21, 8192
   %.not.i.i = icmp eq i64 %22, 0
-  %23 = getelementptr inbounds i8, ptr %20, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 24
   br i1 %.not.i.i, label %RSTRING_PTR.exit, label %24
 
 24:                                               ; preds = %15
@@ -552,12 +552,12 @@ define internal noundef i64 @ossl_x509ext_initialize(i32 noundef %0, ptr noundef
 RSTRING_PTR.exit:                                 ; preds = %15, %24
   %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %24 ], [ %23, %15 ]
   store ptr %.sroa.2.0.i, ptr %7, align 8
-  %25 = getelementptr inbounds i8, ptr %20, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %26 = load i64, ptr %25, align 8
   %27 = call ptr @d2i_X509_EXTENSION(ptr noundef nonnull %8, ptr noundef nonnull %7, i64 noundef %26) #4
   %28 = load ptr, ptr %8, align 8
   %29 = inttoptr i64 %2 to ptr
-  %30 = getelementptr inbounds i8, ptr %29, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 32
   store ptr %28, ptr %30, align 8
   %.not14 = icmp eq ptr %27, null
   br i1 %.not14, label %31, label %45
@@ -673,7 +673,7 @@ rb_check_frozen_inline.exit:                      ; preds = %7
   unreachable
 
 25:                                               ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %8, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store ptr %22, ptr %26, align 8
   tail call void @X509_EXTENSION_free(ptr noundef nonnull %14) #4
   ret i64 %0
@@ -741,7 +741,7 @@ define internal i64 @ossl_x509ext_set_value(i64 noundef %0, i64 noundef %1) #0 {
   %13 = load i64, ptr %12, align 8, !noalias !14
   %14 = and i64 %13, 8192
   %.not.i.i = icmp eq i64 %14, 0
-  %15 = getelementptr inbounds i8, ptr %12, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 24
   br i1 %.not.i.i, label %RSTRING_PTR.exit, label %16
 
 16:                                               ; preds = %7
@@ -750,7 +750,7 @@ define internal i64 @ossl_x509ext_set_value(i64 noundef %0, i64 noundef %1) #0 {
 
 RSTRING_PTR.exit:                                 ; preds = %7, %16
   %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %16 ], [ %15, %7 ]
-  %17 = getelementptr inbounds i8, ptr %12, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %18 = load i64, ptr %17, align 8
   %19 = add i64 %18, 2147483648
   %.not.i.i4 = icmp ult i64 %19, 4294967296
@@ -897,7 +897,7 @@ define internal i64 @ossl_x509ext_get_value_der(i64 noundef %0) #0 {
   unreachable
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %6, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr %6, align 8
   %14 = sext i32 %13 to i64
@@ -952,7 +952,7 @@ define internal i64 @ossl_x509ext_to_der(i64 noundef %0) #0 {
   %15 = load i64, ptr %14, align 8, !noalias !18
   %16 = and i64 %15, 8192
   %.not.i.i = icmp eq i64 %16, 0
-  %17 = getelementptr inbounds i8, ptr %14, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 24
   br i1 %.not.i.i, label %RSTRING_PTR.exit, label %18
 
 18:                                               ; preds = %11

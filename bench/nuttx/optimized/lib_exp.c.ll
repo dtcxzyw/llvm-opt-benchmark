@@ -23,7 +23,7 @@ define double @exp(double noundef %0) local_unnamed_addr #0 {
   %.026 = phi i64 [ 0, %3 ], [ %14, %9 ]
   %.01825 = phi double [ 1.000000e+00, %3 ], [ %13, %9 ]
   %.01924 = phi double [ 0.000000e+00, %3 ], [ %12, %9 ]
-  %10 = getelementptr inbounds [19 x double], ptr @_dbl_inv_fact, i64 0, i64 %.026
+  %10 = getelementptr inbounds nuw [19 x double], ptr @_dbl_inv_fact, i64 0, i64 %.026
   %11 = load double, ptr %10, align 8
   %12 = tail call double @llvm.fmuladd.f64(double %.01825, double %11, double %.01924)
   %13 = fmul double %8, %.01825

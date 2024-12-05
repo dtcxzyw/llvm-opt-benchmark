@@ -128,10 +128,10 @@ define hidden void @WebPConvertARGBToUV_C(ptr nocapture noundef readonly %0, ptr
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
   %indvars.iv75 = phi i64 [ %indvars.iv.next76, %.lr.ph.split.us ], [ 0, %.lr.ph ]
   %8 = shl nuw nsw i64 %indvars.iv75, 1
-  %9 = getelementptr inbounds i32, ptr %0, i64 %8
+  %9 = getelementptr inbounds nuw i32, ptr %0, i64 %8
   %10 = load i32, ptr %9, align 4
   %11 = or disjoint i64 %8, 1
-  %12 = getelementptr inbounds i32, ptr %0, i64 %11
+  %12 = getelementptr inbounds nuw i32, ptr %0, i64 %11
   %13 = load i32, ptr %12, align 4
   %14 = lshr i32 %10, 15
   %15 = and i32 %14, 510
@@ -162,7 +162,7 @@ define hidden void @WebPConvertARGBToUV_C(ptr nocapture noundef readonly %0, ptr
   %37 = add nsw i32 %36, %.neg.i67.us
   %38 = add nsw i32 %37, %.neg5.i.us
   %39 = lshr i32 %38, 18
-  %40 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv75
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv75
   %41 = load i8, ptr %40, align 1
   %42 = zext i8 %41 to i32
   %43 = add nuw nsw i32 %34, 1
@@ -170,7 +170,7 @@ define hidden void @WebPConvertARGBToUV_C(ptr nocapture noundef readonly %0, ptr
   %45 = lshr i32 %44, 1
   %46 = trunc nuw i32 %45 to i8
   store i8 %46, ptr %40, align 1
-  %47 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv75
+  %47 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv75
   %48 = load i8, ptr %47, align 1
   %49 = zext i8 %48 to i32
   %50 = add nuw nsw i32 %39, 1
@@ -185,10 +185,10 @@ define hidden void @WebPConvertARGBToUV_C(ptr nocapture noundef readonly %0, ptr
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ 0, %.lr.ph ]
   %54 = shl nuw nsw i64 %indvars.iv, 1
-  %55 = getelementptr inbounds i32, ptr %0, i64 %54
+  %55 = getelementptr inbounds nuw i32, ptr %0, i64 %54
   %56 = load i32, ptr %55, align 4
   %57 = or disjoint i64 %54, 1
-  %58 = getelementptr inbounds i32, ptr %0, i64 %57
+  %58 = getelementptr inbounds nuw i32, ptr %0, i64 %57
   %59 = load i32, ptr %58, align 4
   %60 = lshr i32 %56, 15
   %61 = and i32 %60, 510
@@ -220,10 +220,10 @@ define hidden void @WebPConvertARGBToUV_C(ptr nocapture noundef readonly %0, ptr
   %84 = add i32 %83, %.neg5.i
   %85 = lshr i32 %84, 18
   %86 = trunc i32 %80 to i8
-  %87 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
+  %87 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   store i8 %86, ptr %87, align 1
   %88 = trunc i32 %85 to i8
-  %89 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv
+  %89 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   store i8 %88, ptr %89, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count78
@@ -238,7 +238,7 @@ define hidden void @WebPConvertARGBToUV_C(ptr nocapture noundef readonly %0, ptr
 91:                                               ; preds = %._crit_edge
   %92 = shl nuw nsw i32 %.0.lcssa, 1
   %93 = zext nneg i32 %92 to i64
-  %94 = getelementptr inbounds i32, ptr %0, i64 %93
+  %94 = getelementptr inbounds nuw i32, ptr %0, i64 %93
   %95 = load i32, ptr %94, align 4
   %96 = lshr i32 %95, 14
   %97 = and i32 %96, 1020
@@ -266,16 +266,16 @@ define hidden void @WebPConvertARGBToUV_C(ptr nocapture noundef readonly %0, ptr
 113:                                              ; preds = %91
   %114 = trunc nuw i32 %107 to i8
   %115 = zext nneg i32 %.0.lcssa to i64
-  %116 = getelementptr inbounds i8, ptr %1, i64 %115
+  %116 = getelementptr inbounds nuw i8, ptr %1, i64 %115
   store i8 %114, ptr %116, align 1
   %117 = trunc nuw i32 %112 to i8
-  %118 = getelementptr inbounds i8, ptr %2, i64 %115
+  %118 = getelementptr inbounds nuw i8, ptr %2, i64 %115
   store i8 %117, ptr %118, align 1
   br label %135
 
 119:                                              ; preds = %91
   %120 = zext nneg i32 %.0.lcssa to i64
-  %121 = getelementptr inbounds i8, ptr %1, i64 %120
+  %121 = getelementptr inbounds nuw i8, ptr %1, i64 %120
   %122 = load i8, ptr %121, align 1
   %123 = zext i8 %122 to i32
   %124 = add nuw nsw i32 %107, 1
@@ -283,7 +283,7 @@ define hidden void @WebPConvertARGBToUV_C(ptr nocapture noundef readonly %0, ptr
   %126 = lshr i32 %125, 1
   %127 = trunc nuw i32 %126 to i8
   store i8 %127, ptr %121, align 1
-  %128 = getelementptr inbounds i8, ptr %2, i64 %120
+  %128 = getelementptr inbounds nuw i8, ptr %2, i64 %120
   %129 = load i8, ptr %128, align 1
   %130 = zext i8 %129 to i32
   %131 = add nuw nsw i32 %112, 1
@@ -311,10 +311,10 @@ define hidden void @WebPConvertRGBA32ToUV_C(ptr nocapture noundef readonly %0, p
   %.019 = phi ptr [ %0, %.lr.ph.preheader ], [ %33, %.lr.ph ]
   %6 = load i16, ptr %.019, align 2
   %7 = zext i16 %6 to i32
-  %8 = getelementptr inbounds i8, ptr %.019, i64 2
+  %8 = getelementptr inbounds nuw i8, ptr %.019, i64 2
   %9 = load i16, ptr %8, align 2
   %10 = zext i16 %9 to i32
-  %11 = getelementptr inbounds i8, ptr %.019, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %.019, i64 4
   %12 = load i16, ptr %11, align 2
   %13 = zext i16 %12 to i32
   %14 = mul nsw i32 %7, -9719
@@ -327,7 +327,7 @@ define hidden void @WebPConvertRGBA32ToUV_C(ptr nocapture noundef readonly %0, p
   %20 = tail call i32 @llvm.smax.i32(i32 %19, i32 0)
   %21 = tail call range(i32 0, 256) i32 @llvm.umin.i32(i32 %20, i32 255)
   %22 = trunc nuw i32 %21 to i8
-  %23 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   store i8 %22, ptr %23, align 1
   %24 = mul nuw nsw i32 %7, 28800
   %.neg.i17 = mul nsw i32 %10, -24116
@@ -339,10 +339,10 @@ define hidden void @WebPConvertRGBA32ToUV_C(ptr nocapture noundef readonly %0, p
   %29 = tail call i32 @llvm.smax.i32(i32 %28, i32 0)
   %30 = tail call range(i32 0, 256) i32 @llvm.umin.i32(i32 %29, i32 255)
   %31 = trunc nuw i32 %30 to i8
-  %32 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   store i8 %31, ptr %32, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %33 = getelementptr inbounds i8, ptr %.019, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %.019, i64 8
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
@@ -446,7 +446,7 @@ define internal void @YuvToRgbRow(ptr nocapture noundef readonly %0, ptr nocaptu
   %38 = select i1 %37, i32 0, i32 255
   %39 = select i1 %35, i32 %36, i32 %38
   %40 = trunc i32 %39 to i8
-  %41 = getelementptr inbounds i8, ptr %.02134, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %.02134, i64 1
   store i8 %40, ptr %41, align 1
   %42 = mul nuw nsw i32 %13, 33050
   %43 = lshr i32 %42, 8
@@ -458,16 +458,16 @@ define internal void @YuvToRgbRow(ptr nocapture noundef readonly %0, ptr nocaptu
   %49 = select i1 %48, i32 0, i32 255
   %50 = select i1 %46, i32 %47, i32 %49
   %51 = trunc i32 %50 to i8
-  %52 = getelementptr inbounds i8, ptr %.02134, i64 2
+  %52 = getelementptr inbounds nuw i8, ptr %.02134, i64 2
   store i8 %51, ptr %52, align 1
-  %53 = getelementptr inbounds i8, ptr %.036, i64 1
+  %53 = getelementptr inbounds nuw i8, ptr %.036, i64 1
   %54 = load i8, ptr %53, align 1
   %55 = zext i8 %54 to i32
   %56 = load i8, ptr %.02035, align 1
   %57 = zext i8 %56 to i32
   %58 = load i8, ptr %.02233, align 1
   %59 = zext i8 %58 to i32
-  %60 = getelementptr inbounds i8, ptr %.02134, i64 3
+  %60 = getelementptr inbounds nuw i8, ptr %.02134, i64 3
   %61 = mul nuw nsw i32 %55, 19077
   %62 = lshr i32 %61, 8
   %63 = mul nuw nsw i32 %59, 26149
@@ -494,7 +494,7 @@ define internal void @YuvToRgbRow(ptr nocapture noundef readonly %0, ptr nocaptu
   %83 = select i1 %82, i32 0, i32 255
   %84 = select i1 %80, i32 %81, i32 %83
   %85 = trunc i32 %84 to i8
-  %86 = getelementptr inbounds i8, ptr %.02134, i64 4
+  %86 = getelementptr inbounds nuw i8, ptr %.02134, i64 4
   store i8 %85, ptr %86, align 1
   %87 = mul nuw nsw i32 %57, 33050
   %88 = lshr i32 %87, 8
@@ -506,12 +506,12 @@ define internal void @YuvToRgbRow(ptr nocapture noundef readonly %0, ptr nocaptu
   %94 = select i1 %93, i32 0, i32 255
   %95 = select i1 %91, i32 %92, i32 %94
   %96 = trunc i32 %95 to i8
-  %97 = getelementptr inbounds i8, ptr %.02134, i64 5
+  %97 = getelementptr inbounds nuw i8, ptr %.02134, i64 5
   store i8 %96, ptr %97, align 1
-  %98 = getelementptr inbounds i8, ptr %.036, i64 2
-  %99 = getelementptr inbounds i8, ptr %.02035, i64 1
-  %100 = getelementptr inbounds i8, ptr %.02233, i64 1
-  %101 = getelementptr inbounds i8, ptr %.02134, i64 6
+  %98 = getelementptr inbounds nuw i8, ptr %.036, i64 2
+  %99 = getelementptr inbounds nuw i8, ptr %.02035, i64 1
+  %100 = getelementptr inbounds nuw i8, ptr %.02233, i64 1
+  %101 = getelementptr inbounds nuw i8, ptr %.02134, i64 6
   %.not = icmp eq ptr %101, %9
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
@@ -557,7 +557,7 @@ define internal void @YuvToRgbRow(ptr nocapture noundef readonly %0, ptr nocaptu
   %132 = select i1 %131, i32 0, i32 255
   %133 = select i1 %129, i32 %130, i32 %132
   %134 = trunc i32 %133 to i8
-  %135 = getelementptr inbounds i8, ptr %.021.lcssa, i64 1
+  %135 = getelementptr inbounds nuw i8, ptr %.021.lcssa, i64 1
   store i8 %134, ptr %135, align 1
   %136 = mul nuw nsw i32 %107, 33050
   %137 = lshr i32 %136, 8
@@ -569,7 +569,7 @@ define internal void @YuvToRgbRow(ptr nocapture noundef readonly %0, ptr nocaptu
   %143 = select i1 %142, i32 0, i32 255
   %144 = select i1 %140, i32 %141, i32 %143
   %145 = trunc i32 %144 to i8
-  %146 = getelementptr inbounds i8, ptr %.021.lcssa, i64 2
+  %146 = getelementptr inbounds nuw i8, ptr %.021.lcssa, i64 2
   store i8 %145, ptr %146, align 1
   br label %147
 
@@ -623,7 +623,7 @@ define internal void @YuvToRgbaRow(ptr nocapture noundef readonly %0, ptr nocapt
   %38 = select i1 %37, i32 0, i32 255
   %39 = select i1 %35, i32 %36, i32 %38
   %40 = trunc i32 %39 to i8
-  %41 = getelementptr inbounds i8, ptr %.02134, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %.02134, i64 1
   store i8 %40, ptr %41, align 1
   %42 = mul nuw nsw i32 %14, 33050
   %43 = lshr i32 %42, 8
@@ -635,15 +635,15 @@ define internal void @YuvToRgbaRow(ptr nocapture noundef readonly %0, ptr nocapt
   %49 = select i1 %48, i32 0, i32 255
   %50 = select i1 %46, i32 %47, i32 %49
   %51 = trunc i32 %50 to i8
-  %52 = getelementptr inbounds i8, ptr %.02134, i64 2
+  %52 = getelementptr inbounds nuw i8, ptr %.02134, i64 2
   store i8 %51, ptr %52, align 1
-  %53 = getelementptr inbounds i8, ptr %.02134, i64 3
+  %53 = getelementptr inbounds nuw i8, ptr %.02134, i64 3
   store i8 -1, ptr %53, align 1
-  %54 = getelementptr inbounds i8, ptr %.036, i64 1
+  %54 = getelementptr inbounds nuw i8, ptr %.036, i64 1
   %55 = load i8, ptr %54, align 1
   %56 = load i8, ptr %.02035, align 1
   %57 = load i8, ptr %.02233, align 1
-  %58 = getelementptr inbounds i8, ptr %.02134, i64 4
+  %58 = getelementptr inbounds nuw i8, ptr %.02134, i64 4
   %59 = zext i8 %55 to i32
   %60 = zext i8 %56 to i32
   %61 = zext i8 %57 to i32
@@ -673,7 +673,7 @@ define internal void @YuvToRgbaRow(ptr nocapture noundef readonly %0, ptr nocapt
   %84 = select i1 %83, i32 0, i32 255
   %85 = select i1 %81, i32 %82, i32 %84
   %86 = trunc i32 %85 to i8
-  %87 = getelementptr inbounds i8, ptr %.02134, i64 5
+  %87 = getelementptr inbounds nuw i8, ptr %.02134, i64 5
   store i8 %86, ptr %87, align 1
   %88 = mul nuw nsw i32 %60, 33050
   %89 = lshr i32 %88, 8
@@ -685,14 +685,14 @@ define internal void @YuvToRgbaRow(ptr nocapture noundef readonly %0, ptr nocapt
   %95 = select i1 %94, i32 0, i32 255
   %96 = select i1 %92, i32 %93, i32 %95
   %97 = trunc i32 %96 to i8
-  %98 = getelementptr inbounds i8, ptr %.02134, i64 6
+  %98 = getelementptr inbounds nuw i8, ptr %.02134, i64 6
   store i8 %97, ptr %98, align 1
-  %99 = getelementptr inbounds i8, ptr %.02134, i64 7
+  %99 = getelementptr inbounds nuw i8, ptr %.02134, i64 7
   store i8 -1, ptr %99, align 1
-  %100 = getelementptr inbounds i8, ptr %.036, i64 2
-  %101 = getelementptr inbounds i8, ptr %.02035, i64 1
-  %102 = getelementptr inbounds i8, ptr %.02233, i64 1
-  %103 = getelementptr inbounds i8, ptr %.02134, i64 8
+  %100 = getelementptr inbounds nuw i8, ptr %.036, i64 2
+  %101 = getelementptr inbounds nuw i8, ptr %.02035, i64 1
+  %102 = getelementptr inbounds nuw i8, ptr %.02233, i64 1
+  %103 = getelementptr inbounds nuw i8, ptr %.02134, i64 8
   %.not = icmp eq ptr %103, %9
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
@@ -738,7 +738,7 @@ define internal void @YuvToRgbaRow(ptr nocapture noundef readonly %0, ptr nocapt
   %134 = select i1 %133, i32 0, i32 255
   %135 = select i1 %131, i32 %132, i32 %134
   %136 = trunc i32 %135 to i8
-  %137 = getelementptr inbounds i8, ptr %.021.lcssa, i64 1
+  %137 = getelementptr inbounds nuw i8, ptr %.021.lcssa, i64 1
   store i8 %136, ptr %137, align 1
   %138 = mul nuw nsw i32 %110, 33050
   %139 = lshr i32 %138, 8
@@ -750,9 +750,9 @@ define internal void @YuvToRgbaRow(ptr nocapture noundef readonly %0, ptr nocapt
   %145 = select i1 %144, i32 0, i32 255
   %146 = select i1 %142, i32 %143, i32 %145
   %147 = trunc i32 %146 to i8
-  %148 = getelementptr inbounds i8, ptr %.021.lcssa, i64 2
+  %148 = getelementptr inbounds nuw i8, ptr %.021.lcssa, i64 2
   store i8 %147, ptr %148, align 1
-  %149 = getelementptr inbounds i8, ptr %.021.lcssa, i64 3
+  %149 = getelementptr inbounds nuw i8, ptr %.021.lcssa, i64 3
   store i8 -1, ptr %149, align 1
   br label %150
 
@@ -806,7 +806,7 @@ define internal void @YuvToBgrRow(ptr nocapture noundef readonly %0, ptr nocaptu
   %38 = select i1 %37, i32 0, i32 255
   %39 = select i1 %35, i32 %36, i32 %38
   %40 = trunc i32 %39 to i8
-  %41 = getelementptr inbounds i8, ptr %.02134, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %.02134, i64 1
   store i8 %40, ptr %41, align 1
   %42 = mul nuw nsw i32 %15, 26149
   %43 = lshr i32 %42, 8
@@ -818,16 +818,16 @@ define internal void @YuvToBgrRow(ptr nocapture noundef readonly %0, ptr nocaptu
   %49 = select i1 %48, i32 0, i32 255
   %50 = select i1 %46, i32 %47, i32 %49
   %51 = trunc i32 %50 to i8
-  %52 = getelementptr inbounds i8, ptr %.02134, i64 2
+  %52 = getelementptr inbounds nuw i8, ptr %.02134, i64 2
   store i8 %51, ptr %52, align 1
-  %53 = getelementptr inbounds i8, ptr %.036, i64 1
+  %53 = getelementptr inbounds nuw i8, ptr %.036, i64 1
   %54 = load i8, ptr %53, align 1
   %55 = zext i8 %54 to i32
   %56 = load i8, ptr %.02035, align 1
   %57 = zext i8 %56 to i32
   %58 = load i8, ptr %.02233, align 1
   %59 = zext i8 %58 to i32
-  %60 = getelementptr inbounds i8, ptr %.02134, i64 3
+  %60 = getelementptr inbounds nuw i8, ptr %.02134, i64 3
   %61 = mul nuw nsw i32 %55, 19077
   %62 = lshr i32 %61, 8
   %63 = mul nuw nsw i32 %57, 33050
@@ -854,7 +854,7 @@ define internal void @YuvToBgrRow(ptr nocapture noundef readonly %0, ptr nocaptu
   %83 = select i1 %82, i32 0, i32 255
   %84 = select i1 %80, i32 %81, i32 %83
   %85 = trunc i32 %84 to i8
-  %86 = getelementptr inbounds i8, ptr %.02134, i64 4
+  %86 = getelementptr inbounds nuw i8, ptr %.02134, i64 4
   store i8 %85, ptr %86, align 1
   %87 = mul nuw nsw i32 %59, 26149
   %88 = lshr i32 %87, 8
@@ -866,12 +866,12 @@ define internal void @YuvToBgrRow(ptr nocapture noundef readonly %0, ptr nocaptu
   %94 = select i1 %93, i32 0, i32 255
   %95 = select i1 %91, i32 %92, i32 %94
   %96 = trunc i32 %95 to i8
-  %97 = getelementptr inbounds i8, ptr %.02134, i64 5
+  %97 = getelementptr inbounds nuw i8, ptr %.02134, i64 5
   store i8 %96, ptr %97, align 1
-  %98 = getelementptr inbounds i8, ptr %.036, i64 2
-  %99 = getelementptr inbounds i8, ptr %.02035, i64 1
-  %100 = getelementptr inbounds i8, ptr %.02233, i64 1
-  %101 = getelementptr inbounds i8, ptr %.02134, i64 6
+  %98 = getelementptr inbounds nuw i8, ptr %.036, i64 2
+  %99 = getelementptr inbounds nuw i8, ptr %.02035, i64 1
+  %100 = getelementptr inbounds nuw i8, ptr %.02233, i64 1
+  %101 = getelementptr inbounds nuw i8, ptr %.02134, i64 6
   %.not = icmp eq ptr %101, %9
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
@@ -917,7 +917,7 @@ define internal void @YuvToBgrRow(ptr nocapture noundef readonly %0, ptr nocaptu
   %132 = select i1 %131, i32 0, i32 255
   %133 = select i1 %129, i32 %130, i32 %132
   %134 = trunc i32 %133 to i8
-  %135 = getelementptr inbounds i8, ptr %.021.lcssa, i64 1
+  %135 = getelementptr inbounds nuw i8, ptr %.021.lcssa, i64 1
   store i8 %134, ptr %135, align 1
   %136 = mul nuw nsw i32 %109, 26149
   %137 = lshr i32 %136, 8
@@ -929,7 +929,7 @@ define internal void @YuvToBgrRow(ptr nocapture noundef readonly %0, ptr nocaptu
   %143 = select i1 %142, i32 0, i32 255
   %144 = select i1 %140, i32 %141, i32 %143
   %145 = trunc i32 %144 to i8
-  %146 = getelementptr inbounds i8, ptr %.021.lcssa, i64 2
+  %146 = getelementptr inbounds nuw i8, ptr %.021.lcssa, i64 2
   store i8 %145, ptr %146, align 1
   br label %147
 
@@ -983,7 +983,7 @@ define internal void @YuvToBgraRow(ptr nocapture noundef readonly %0, ptr nocapt
   %38 = select i1 %37, i32 0, i32 255
   %39 = select i1 %35, i32 %36, i32 %38
   %40 = trunc i32 %39 to i8
-  %41 = getelementptr inbounds i8, ptr %.02134, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %.02134, i64 1
   store i8 %40, ptr %41, align 1
   %42 = mul nuw nsw i32 %15, 26149
   %43 = lshr i32 %42, 8
@@ -995,15 +995,15 @@ define internal void @YuvToBgraRow(ptr nocapture noundef readonly %0, ptr nocapt
   %49 = select i1 %48, i32 0, i32 255
   %50 = select i1 %46, i32 %47, i32 %49
   %51 = trunc i32 %50 to i8
-  %52 = getelementptr inbounds i8, ptr %.02134, i64 2
+  %52 = getelementptr inbounds nuw i8, ptr %.02134, i64 2
   store i8 %51, ptr %52, align 1
-  %53 = getelementptr inbounds i8, ptr %.02134, i64 3
+  %53 = getelementptr inbounds nuw i8, ptr %.02134, i64 3
   store i8 -1, ptr %53, align 1
-  %54 = getelementptr inbounds i8, ptr %.036, i64 1
+  %54 = getelementptr inbounds nuw i8, ptr %.036, i64 1
   %55 = load i8, ptr %54, align 1
   %56 = load i8, ptr %.02035, align 1
   %57 = load i8, ptr %.02233, align 1
-  %58 = getelementptr inbounds i8, ptr %.02134, i64 4
+  %58 = getelementptr inbounds nuw i8, ptr %.02134, i64 4
   %59 = zext i8 %55 to i32
   %60 = zext i8 %56 to i32
   %61 = zext i8 %57 to i32
@@ -1033,7 +1033,7 @@ define internal void @YuvToBgraRow(ptr nocapture noundef readonly %0, ptr nocapt
   %84 = select i1 %83, i32 0, i32 255
   %85 = select i1 %81, i32 %82, i32 %84
   %86 = trunc i32 %85 to i8
-  %87 = getelementptr inbounds i8, ptr %.02134, i64 5
+  %87 = getelementptr inbounds nuw i8, ptr %.02134, i64 5
   store i8 %86, ptr %87, align 1
   %88 = mul nuw nsw i32 %61, 26149
   %89 = lshr i32 %88, 8
@@ -1045,14 +1045,14 @@ define internal void @YuvToBgraRow(ptr nocapture noundef readonly %0, ptr nocapt
   %95 = select i1 %94, i32 0, i32 255
   %96 = select i1 %92, i32 %93, i32 %95
   %97 = trunc i32 %96 to i8
-  %98 = getelementptr inbounds i8, ptr %.02134, i64 6
+  %98 = getelementptr inbounds nuw i8, ptr %.02134, i64 6
   store i8 %97, ptr %98, align 1
-  %99 = getelementptr inbounds i8, ptr %.02134, i64 7
+  %99 = getelementptr inbounds nuw i8, ptr %.02134, i64 7
   store i8 -1, ptr %99, align 1
-  %100 = getelementptr inbounds i8, ptr %.036, i64 2
-  %101 = getelementptr inbounds i8, ptr %.02035, i64 1
-  %102 = getelementptr inbounds i8, ptr %.02233, i64 1
-  %103 = getelementptr inbounds i8, ptr %.02134, i64 8
+  %100 = getelementptr inbounds nuw i8, ptr %.036, i64 2
+  %101 = getelementptr inbounds nuw i8, ptr %.02035, i64 1
+  %102 = getelementptr inbounds nuw i8, ptr %.02233, i64 1
+  %103 = getelementptr inbounds nuw i8, ptr %.02134, i64 8
   %.not = icmp eq ptr %103, %9
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
@@ -1098,7 +1098,7 @@ define internal void @YuvToBgraRow(ptr nocapture noundef readonly %0, ptr nocapt
   %134 = select i1 %133, i32 0, i32 255
   %135 = select i1 %131, i32 %132, i32 %134
   %136 = trunc i32 %135 to i8
-  %137 = getelementptr inbounds i8, ptr %.021.lcssa, i64 1
+  %137 = getelementptr inbounds nuw i8, ptr %.021.lcssa, i64 1
   store i8 %136, ptr %137, align 1
   %138 = mul nuw nsw i32 %111, 26149
   %139 = lshr i32 %138, 8
@@ -1110,9 +1110,9 @@ define internal void @YuvToBgraRow(ptr nocapture noundef readonly %0, ptr nocapt
   %145 = select i1 %144, i32 0, i32 255
   %146 = select i1 %142, i32 %143, i32 %145
   %147 = trunc i32 %146 to i8
-  %148 = getelementptr inbounds i8, ptr %.021.lcssa, i64 2
+  %148 = getelementptr inbounds nuw i8, ptr %.021.lcssa, i64 2
   store i8 %147, ptr %148, align 1
-  %149 = getelementptr inbounds i8, ptr %.021.lcssa, i64 3
+  %149 = getelementptr inbounds nuw i8, ptr %.021.lcssa, i64 3
   store i8 -1, ptr %149, align 1
   br label %150
 
@@ -1141,7 +1141,7 @@ define internal void @YuvToArgbRow(ptr nocapture noundef readonly %0, ptr nocapt
   %13 = zext i8 %10 to i32
   %14 = zext i8 %11 to i32
   %15 = zext i8 %12 to i32
-  %16 = getelementptr inbounds i8, ptr %.02134, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %.02134, i64 1
   %17 = mul nuw nsw i32 %13, 19077
   %18 = lshr i32 %17, 8
   %19 = mul nuw nsw i32 %15, 26149
@@ -1168,7 +1168,7 @@ define internal void @YuvToArgbRow(ptr nocapture noundef readonly %0, ptr nocapt
   %39 = select i1 %38, i32 0, i32 255
   %40 = select i1 %36, i32 %37, i32 %39
   %41 = trunc i32 %40 to i8
-  %42 = getelementptr inbounds i8, ptr %.02134, i64 2
+  %42 = getelementptr inbounds nuw i8, ptr %.02134, i64 2
   store i8 %41, ptr %42, align 1
   %43 = mul nuw nsw i32 %14, 33050
   %44 = lshr i32 %43, 8
@@ -1180,18 +1180,18 @@ define internal void @YuvToArgbRow(ptr nocapture noundef readonly %0, ptr nocapt
   %50 = select i1 %49, i32 0, i32 255
   %51 = select i1 %47, i32 %48, i32 %50
   %52 = trunc i32 %51 to i8
-  %53 = getelementptr inbounds i8, ptr %.02134, i64 3
+  %53 = getelementptr inbounds nuw i8, ptr %.02134, i64 3
   store i8 %52, ptr %53, align 1
-  %54 = getelementptr inbounds i8, ptr %.036, i64 1
+  %54 = getelementptr inbounds nuw i8, ptr %.036, i64 1
   %55 = load i8, ptr %54, align 1
   %56 = load i8, ptr %.02035, align 1
   %57 = load i8, ptr %.02233, align 1
-  %58 = getelementptr inbounds i8, ptr %.02134, i64 4
+  %58 = getelementptr inbounds nuw i8, ptr %.02134, i64 4
   store i8 -1, ptr %58, align 1
   %59 = zext i8 %55 to i32
   %60 = zext i8 %56 to i32
   %61 = zext i8 %57 to i32
-  %62 = getelementptr inbounds i8, ptr %.02134, i64 5
+  %62 = getelementptr inbounds nuw i8, ptr %.02134, i64 5
   %63 = mul nuw nsw i32 %59, 19077
   %64 = lshr i32 %63, 8
   %65 = mul nuw nsw i32 %61, 26149
@@ -1218,7 +1218,7 @@ define internal void @YuvToArgbRow(ptr nocapture noundef readonly %0, ptr nocapt
   %85 = select i1 %84, i32 0, i32 255
   %86 = select i1 %82, i32 %83, i32 %85
   %87 = trunc i32 %86 to i8
-  %88 = getelementptr inbounds i8, ptr %.02134, i64 6
+  %88 = getelementptr inbounds nuw i8, ptr %.02134, i64 6
   store i8 %87, ptr %88, align 1
   %89 = mul nuw nsw i32 %60, 33050
   %90 = lshr i32 %89, 8
@@ -1230,12 +1230,12 @@ define internal void @YuvToArgbRow(ptr nocapture noundef readonly %0, ptr nocapt
   %96 = select i1 %95, i32 0, i32 255
   %97 = select i1 %93, i32 %94, i32 %96
   %98 = trunc i32 %97 to i8
-  %99 = getelementptr inbounds i8, ptr %.02134, i64 7
+  %99 = getelementptr inbounds nuw i8, ptr %.02134, i64 7
   store i8 %98, ptr %99, align 1
-  %100 = getelementptr inbounds i8, ptr %.036, i64 2
-  %101 = getelementptr inbounds i8, ptr %.02035, i64 1
-  %102 = getelementptr inbounds i8, ptr %.02233, i64 1
-  %103 = getelementptr inbounds i8, ptr %.02134, i64 8
+  %100 = getelementptr inbounds nuw i8, ptr %.036, i64 2
+  %101 = getelementptr inbounds nuw i8, ptr %.02035, i64 1
+  %102 = getelementptr inbounds nuw i8, ptr %.02233, i64 1
+  %103 = getelementptr inbounds nuw i8, ptr %.02134, i64 8
   %.not = icmp eq ptr %103, %9
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
@@ -1256,7 +1256,7 @@ define internal void @YuvToArgbRow(ptr nocapture noundef readonly %0, ptr nocapt
   %109 = zext i8 %106 to i32
   %110 = zext i8 %107 to i32
   %111 = zext i8 %108 to i32
-  %112 = getelementptr inbounds i8, ptr %.021.lcssa, i64 1
+  %112 = getelementptr inbounds nuw i8, ptr %.021.lcssa, i64 1
   %113 = mul nuw nsw i32 %109, 19077
   %114 = lshr i32 %113, 8
   %115 = mul nuw nsw i32 %111, 26149
@@ -1283,7 +1283,7 @@ define internal void @YuvToArgbRow(ptr nocapture noundef readonly %0, ptr nocapt
   %135 = select i1 %134, i32 0, i32 255
   %136 = select i1 %132, i32 %133, i32 %135
   %137 = trunc i32 %136 to i8
-  %138 = getelementptr inbounds i8, ptr %.021.lcssa, i64 2
+  %138 = getelementptr inbounds nuw i8, ptr %.021.lcssa, i64 2
   store i8 %137, ptr %138, align 1
   %139 = mul nuw nsw i32 %110, 33050
   %140 = lshr i32 %139, 8
@@ -1295,7 +1295,7 @@ define internal void @YuvToArgbRow(ptr nocapture noundef readonly %0, ptr nocapt
   %146 = select i1 %145, i32 0, i32 255
   %147 = select i1 %143, i32 %144, i32 %146
   %148 = trunc i32 %147 to i8
-  %149 = getelementptr inbounds i8, ptr %.021.lcssa, i64 3
+  %149 = getelementptr inbounds nuw i8, ptr %.021.lcssa, i64 3
   store i8 %148, ptr %149, align 1
   br label %150
 
@@ -1361,16 +1361,16 @@ define internal void @YuvToRgba4444Row(ptr nocapture noundef readonly %0, ptr no
   store i8 %50, ptr %.02134, align 1
   %51 = trunc i32 %46 to i8
   %52 = or i8 %51, 15
-  %53 = getelementptr inbounds i8, ptr %.02134, i64 1
+  %53 = getelementptr inbounds nuw i8, ptr %.02134, i64 1
   store i8 %52, ptr %53, align 1
-  %54 = getelementptr inbounds i8, ptr %.036, i64 1
+  %54 = getelementptr inbounds nuw i8, ptr %.036, i64 1
   %55 = load i8, ptr %54, align 1
   %56 = zext i8 %55 to i32
   %57 = load i8, ptr %.02035, align 1
   %58 = zext i8 %57 to i32
   %59 = load i8, ptr %.02233, align 1
   %60 = zext i8 %59 to i32
-  %61 = getelementptr inbounds i8, ptr %.02134, i64 2
+  %61 = getelementptr inbounds nuw i8, ptr %.02134, i64 2
   %62 = mul nuw nsw i32 %56, 19077
   %63 = lshr i32 %62, 8
   %64 = mul nuw nsw i32 %60, 26149
@@ -1409,12 +1409,12 @@ define internal void @YuvToRgba4444Row(ptr nocapture noundef readonly %0, ptr no
   store i8 %96, ptr %61, align 1
   %97 = trunc i32 %92 to i8
   %98 = or i8 %97, 15
-  %99 = getelementptr inbounds i8, ptr %.02134, i64 3
+  %99 = getelementptr inbounds nuw i8, ptr %.02134, i64 3
   store i8 %98, ptr %99, align 1
-  %100 = getelementptr inbounds i8, ptr %.036, i64 2
-  %101 = getelementptr inbounds i8, ptr %.02035, i64 1
-  %102 = getelementptr inbounds i8, ptr %.02233, i64 1
-  %103 = getelementptr inbounds i8, ptr %.02134, i64 4
+  %100 = getelementptr inbounds nuw i8, ptr %.036, i64 2
+  %101 = getelementptr inbounds nuw i8, ptr %.02035, i64 1
+  %102 = getelementptr inbounds nuw i8, ptr %.02233, i64 1
+  %103 = getelementptr inbounds nuw i8, ptr %.02134, i64 4
   %.not = icmp eq ptr %103, %9
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
@@ -1472,7 +1472,7 @@ define internal void @YuvToRgba4444Row(ptr nocapture noundef readonly %0, ptr no
   store i8 %146, ptr %.021.lcssa, align 1
   %147 = trunc i32 %142 to i8
   %148 = or i8 %147, 15
-  %149 = getelementptr inbounds i8, ptr %.021.lcssa, i64 1
+  %149 = getelementptr inbounds nuw i8, ptr %.021.lcssa, i64 1
   store i8 %148, ptr %149, align 1
   br label %150
 
@@ -1541,16 +1541,16 @@ define internal void @YuvToRgb565Row(ptr nocapture noundef readonly %0, ptr noca
   %54 = trunc i32 %50 to i8
   store i8 %54, ptr %.02134, align 1
   %55 = trunc i32 %53 to i8
-  %56 = getelementptr inbounds i8, ptr %.02134, i64 1
+  %56 = getelementptr inbounds nuw i8, ptr %.02134, i64 1
   store i8 %55, ptr %56, align 1
-  %57 = getelementptr inbounds i8, ptr %.036, i64 1
+  %57 = getelementptr inbounds nuw i8, ptr %.036, i64 1
   %58 = load i8, ptr %57, align 1
   %59 = zext i8 %58 to i32
   %60 = load i8, ptr %.02035, align 1
   %61 = zext i8 %60 to i32
   %62 = load i8, ptr %.02233, align 1
   %63 = zext i8 %62 to i32
-  %64 = getelementptr inbounds i8, ptr %.02134, i64 2
+  %64 = getelementptr inbounds nuw i8, ptr %.02134, i64 2
   %65 = mul nuw nsw i32 %59, 19077
   %66 = lshr i32 %65, 8
   %67 = mul nuw nsw i32 %63, 26149
@@ -1592,12 +1592,12 @@ define internal void @YuvToRgb565Row(ptr nocapture noundef readonly %0, ptr noca
   %103 = trunc i32 %99 to i8
   store i8 %103, ptr %64, align 1
   %104 = trunc i32 %102 to i8
-  %105 = getelementptr inbounds i8, ptr %.02134, i64 3
+  %105 = getelementptr inbounds nuw i8, ptr %.02134, i64 3
   store i8 %104, ptr %105, align 1
-  %106 = getelementptr inbounds i8, ptr %.036, i64 2
-  %107 = getelementptr inbounds i8, ptr %.02035, i64 1
-  %108 = getelementptr inbounds i8, ptr %.02233, i64 1
-  %109 = getelementptr inbounds i8, ptr %.02134, i64 4
+  %106 = getelementptr inbounds nuw i8, ptr %.036, i64 2
+  %107 = getelementptr inbounds nuw i8, ptr %.02035, i64 1
+  %108 = getelementptr inbounds nuw i8, ptr %.02233, i64 1
+  %109 = getelementptr inbounds nuw i8, ptr %.02134, i64 4
   %.not = icmp eq ptr %109, %9
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
@@ -1658,7 +1658,7 @@ define internal void @YuvToRgb565Row(ptr nocapture noundef readonly %0, ptr noca
   %156 = trunc i32 %152 to i8
   store i8 %156, ptr %.021.lcssa, align 1
   %157 = trunc i32 %155 to i8
-  %158 = getelementptr inbounds i8, ptr %.021.lcssa, i64 1
+  %158 = getelementptr inbounds nuw i8, ptr %.021.lcssa, i64 1
   store i8 %157, ptr %158, align 1
   br label %159
 
@@ -1681,7 +1681,7 @@ define internal void @ConvertARGBToY_C(ptr nocapture noundef readonly %0, ptr no
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %5 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
   %6 = load i32, ptr %5, align 4
   %7 = lshr i32 %6, 16
   %8 = and i32 %7, 255
@@ -1696,7 +1696,7 @@ define internal void @ConvertARGBToY_C(ptr nocapture noundef readonly %0, ptr no
   %17 = add nuw nsw i32 %16, %13
   %18 = lshr i32 %17, 16
   %19 = trunc nuw i32 %18 to i8
-  %20 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   store i8 %19, ptr %20, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1720,10 +1720,10 @@ define internal void @ConvertRGB24ToY_C(ptr nocapture noundef readonly %0, ptr n
   %.089 = phi ptr [ %0, %.lr.ph.preheader ], [ %22, %.lr.ph ]
   %5 = load i8, ptr %.089, align 1
   %6 = zext i8 %5 to i32
-  %7 = getelementptr inbounds i8, ptr %.089, i64 1
+  %7 = getelementptr inbounds nuw i8, ptr %.089, i64 1
   %8 = load i8, ptr %7, align 1
   %9 = zext i8 %8 to i32
-  %10 = getelementptr inbounds i8, ptr %.089, i64 2
+  %10 = getelementptr inbounds nuw i8, ptr %.089, i64 2
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i32
   %13 = mul nuw nsw i32 %6, 16839
@@ -1734,10 +1734,10 @@ define internal void @ConvertRGB24ToY_C(ptr nocapture noundef readonly %0, ptr n
   %18 = add nuw nsw i32 %17, %15
   %19 = lshr i32 %18, 16
   %20 = trunc nuw i32 %19 to i8
-  %21 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   store i8 %20, ptr %21, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %22 = getelementptr inbounds i8, ptr %.089, i64 3
+  %22 = getelementptr inbounds nuw i8, ptr %.089, i64 3
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
@@ -1757,10 +1757,10 @@ define internal void @ConvertBGR24ToY_C(ptr nocapture noundef readonly %0, ptr n
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.089 = phi ptr [ %0, %.lr.ph.preheader ], [ %22, %.lr.ph ]
-  %5 = getelementptr inbounds i8, ptr %.089, i64 2
+  %5 = getelementptr inbounds nuw i8, ptr %.089, i64 2
   %6 = load i8, ptr %5, align 1
   %7 = zext i8 %6 to i32
-  %8 = getelementptr inbounds i8, ptr %.089, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %.089, i64 1
   %9 = load i8, ptr %8, align 1
   %10 = zext i8 %9 to i32
   %11 = load i8, ptr %.089, align 1
@@ -1773,10 +1773,10 @@ define internal void @ConvertBGR24ToY_C(ptr nocapture noundef readonly %0, ptr n
   %18 = add nuw nsw i32 %17, %15
   %19 = lshr i32 %18, 16
   %20 = trunc nuw i32 %19 to i8
-  %21 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   store i8 %20, ptr %21, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %22 = getelementptr inbounds i8, ptr %.089, i64 3
+  %22 = getelementptr inbounds nuw i8, ptr %.089, i64 3
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 

@@ -89,13 +89,13 @@ $_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE = co
 
 ; Function Attrs: mustprogress uwtable
 define noundef range(i32 0, 280) i32 @_Z30_gmx_sel_lexer_process_pendingP7YYSTYPEPN3gmx17SelectionLocationEP15gmx_sel_lexer_t(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 112
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 112
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %39, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %2, i64 104
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %8 = load i32, ptr %7, align 8
   %9 = icmp sgt i32 %8, 0
   br i1 %9, label %10, label %16
@@ -103,16 +103,16 @@ define noundef range(i32 0, 280) i32 @_Z30_gmx_sel_lexer_process_pendingP7YYSTYP
 10:                                               ; preds = %6
   %11 = add nsw i32 %8, -1
   store i32 %11, ptr %7, align 8
-  %12 = getelementptr inbounds i8, ptr %2, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %13 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %12) #15
   %14 = trunc i64 %13 to i32
-  %15 = getelementptr inbounds i8, ptr %1, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 %14, ptr %15, align 4
   store i32 %14, ptr %1, align 4
   br label %_ZL16init_param_tokenP7YYSTYPEP18gmx_ana_selparam_tb.exit
 
 16:                                               ; preds = %6
-  %17 = getelementptr inbounds i8, ptr %2, i64 120
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 120
   %18 = load i8, ptr %17, align 8
   %19 = trunc i8 %18 to i1
   store ptr null, ptr %4, align 8
@@ -137,10 +137,10 @@ define noundef range(i32 0, 280) i32 @_Z30_gmx_sel_lexer_process_pendingP7YYSTYP
   store ptr %27, ptr %0, align 8
   store i8 110, ptr %27, align 1
   %28 = load ptr, ptr %0, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 1
   store i8 111, ptr %29, align 1
   %30 = load ptr, ptr %0, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 2
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 2
   %32 = load ptr, ptr %5, align 8
   %33 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %31, ptr noundef nonnull dereferenceable(1) %32) #15
   br label %_ZL16init_param_tokenP7YYSTYPEP18gmx_ana_selparam_tb.exit
@@ -158,7 +158,7 @@ define noundef range(i32 0, 280) i32 @_Z30_gmx_sel_lexer_process_pendingP7YYSTYP
   br label %_ZL16init_param_tokenP7YYSTYPEP18gmx_ana_selparam_tb.exit
 
 39:                                               ; preds = %3
-  %40 = getelementptr inbounds i8, ptr %2, i64 136
+  %40 = getelementptr inbounds nuw i8, ptr %2, i64 136
   %41 = load i32, ptr %40, align 8
   %42 = icmp sgt i32 %41, 0
   br i1 %42, label %43, label %45
@@ -169,7 +169,7 @@ define noundef range(i32 0, 280) i32 @_Z30_gmx_sel_lexer_process_pendingP7YYSTYP
   br label %45
 
 45:                                               ; preds = %43, %39
-  %46 = getelementptr inbounds i8, ptr %2, i64 128
+  %46 = getelementptr inbounds nuw i8, ptr %2, i64 128
   %47 = load ptr, ptr %46, align 8
   %.not28 = icmp eq ptr %47, null
   br i1 %.not28, label %_ZL16init_param_tokenP7YYSTYPEP18gmx_ana_selparam_tb.exit, label %48
@@ -186,10 +186,10 @@ _ZL16init_param_tokenP7YYSTYPEP18gmx_ana_selparam_tb.exit: ; preds = %37, %24, %
 
 ; Function Attrs: mustprogress uwtable
 define void @_Z24_gmx_sel_lexer_add_tokenPN3gmx17SelectionLocationEPKciP15gmx_sel_lexer_t(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %3, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %6 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #15
   %7 = trunc i64 %6 to i32
-  %8 = getelementptr inbounds i8, ptr %0, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %7, ptr %8, align 4
   store i32 %7, ptr %0, align 4
   %9 = icmp eq ptr %1, null
@@ -205,7 +205,7 @@ define void @_Z24_gmx_sel_lexer_add_tokenPN3gmx17SelectionLocationEPKciP15gmx_se
   ]
 
 12:                                               ; preds = %11
-  %13 = getelementptr inbounds i8, ptr %1, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %14 = load i8, ptr %13, align 1
   %15 = icmp eq i8 %14, 0
   br i1 %15, label %16, label %22
@@ -254,18 +254,18 @@ define internal fastcc noundef range(i32 269, 278) i32 @_ZL17init_method_tokenP7
   br i1 %3, label %22, label %13
 
 13:                                               ; preds = %5
-  %14 = getelementptr inbounds i8, ptr %12, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %15 = load i32, ptr %14, align 8
   %.not = icmp eq i32 %15, 4
   br i1 %.not, label %22, label %16
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %4, i64 128
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 128
   store ptr %2, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %4, i64 48
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %19 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %18) #15
   %20 = trunc i64 %19 to i32
-  %21 = getelementptr inbounds i8, ptr %1, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 %20, ptr %21, align 4
   store i32 %20, ptr %1, align 4
   br label %97
@@ -275,20 +275,20 @@ define internal fastcc noundef range(i32 269, 278) i32 @_ZL17init_method_tokenP7
   %24 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %23) #15
   tail call void @_Z24_gmx_sel_lexer_add_tokenPN3gmx17SelectionLocationEPKciP15gmx_sel_lexer_t(ptr noundef %1, ptr noundef %24, i32 noundef -1, ptr noundef %4)
   store ptr %12, ptr %0, align 8
-  %25 = getelementptr inbounds i8, ptr %12, i64 12
+  %25 = getelementptr inbounds nuw i8, ptr %12, i64 12
   %26 = load i32, ptr %25, align 4
   %27 = and i32 %26, 256
   %.not53 = icmp eq i32 %27, 0
   br i1 %.not53, label %28, label %48
 
 28:                                               ; preds = %22
-  %29 = getelementptr inbounds i8, ptr %12, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %30 = load i32, ptr %29, align 8
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %32, label %55
 
 32:                                               ; preds = %28
-  %33 = getelementptr inbounds i8, ptr %12, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %34 = load i32, ptr %33, align 8
   switch i32 %34, label %38 [
     i32 1, label %35
@@ -298,7 +298,7 @@ define internal fastcc noundef range(i32 269, 278) i32 @_ZL17init_method_tokenP7
   ]
 
 35:                                               ; preds = %32, %32
-  %36 = getelementptr inbounds i8, ptr %4, i64 140
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 140
   store i8 1, ptr %36, align 4
   br label %97
 
@@ -317,11 +317,11 @@ define internal fastcc noundef range(i32 269, 278) i32 @_ZL17init_method_tokenP7
 41:                                               ; preds = %40
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13InternalErrorE, i64 16), ptr %6, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %8, align 8
-  %42 = getelementptr inbounds i8, ptr %8, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr @__PRETTY_FUNCTION__._ZL17init_method_tokenP7YYSTYPEPN3gmx17SelectionLocationEPKNS1_21SelectionParserSymbolEbP15gmx_sel_lexer_t, ptr %42, align 8
-  %.sroa.265.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 16
+  %.sroa.265.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr @.str.1, ptr %.sroa.265.0..sroa_idx, align 8
-  %.sroa.366.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 24
+  %.sroa.366.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i32 133, ptr %.sroa.366.0..sroa_idx, align 8
   invoke void @_ZN3gmxlsINS_13InternalErrorENS_22ExceptionInfoLocation_ENS_13ThrowLocationEEENSt9enable_ifIXsr3std10is_base_ofINS_16GromacsExceptionET_EE5valueES6_E4typeES6_RKNS_13ExceptionInfoIT0_T1_EE(ptr dead_on_unwind writable sret(%"class.gmx::InternalError") align 8 %39, ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(32) %8)
           to label %43 unwind label %46
@@ -351,17 +351,17 @@ define internal fastcc noundef range(i32 269, 278) i32 @_ZL17init_method_tokenP7
   br i1 %.040, label %.sink.split84, label %98
 
 48:                                               ; preds = %22
-  %49 = getelementptr inbounds i8, ptr %4, i64 96
+  %49 = getelementptr inbounds nuw i8, ptr %4, i64 96
   store i32 -1, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %12, i64 24
+  %50 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 48
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 48
   %53 = load ptr, ptr %52, align 8
   %54 = icmp eq ptr %53, null
   br i1 %54, label %.sink.split, label %61
 
 55:                                               ; preds = %28
-  %56 = getelementptr inbounds i8, ptr %12, i64 24
+  %56 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %57 = load ptr, ptr %56, align 8
   %58 = load ptr, ptr %57, align 8
   %59 = icmp eq ptr %58, null
@@ -369,29 +369,29 @@ define internal fastcc noundef range(i32 269, 278) i32 @_ZL17init_method_tokenP7
 
 .sink.split:                                      ; preds = %55, %48
   %.sink = phi ptr [ %52, %48 ], [ %57, %55 ]
-  %60 = getelementptr inbounds i8, ptr %4, i64 112
+  %60 = getelementptr inbounds nuw i8, ptr %4, i64 112
   store ptr %.sink, ptr %60, align 8
   br label %61
 
 61:                                               ; preds = %.sink.split, %55, %48
-  %62 = getelementptr inbounds i8, ptr %4, i64 96
+  %62 = getelementptr inbounds nuw i8, ptr %4, i64 96
   %63 = load i32, ptr %62, align 8
   %64 = add nsw i32 %63, 1
   store i32 %64, ptr %62, align 8
-  %65 = getelementptr inbounds i8, ptr %4, i64 100
+  %65 = getelementptr inbounds nuw i8, ptr %4, i64 100
   %66 = load i32, ptr %65, align 4
   %.not57 = icmp slt i32 %64, %66
   br i1 %.not57, label %._crit_edge, label %67
 
 ._crit_edge:                                      ; preds = %61
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 88
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 88
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br label %73
 
 67:                                               ; preds = %61
   %68 = add nsw i32 %66, 10
   store i32 %68, ptr %65, align 4
-  %69 = getelementptr inbounds i8, ptr %4, i64 88
+  %69 = getelementptr inbounds nuw i8, ptr %4, i64 88
   %70 = sext i32 %68 to i64
   %71 = load ptr, ptr %69, align 8
   %72 = tail call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 159, ptr noundef %71, i64 noundef range(i64 -2147483638, 2147483648) %70, i64 noundef 8)
@@ -411,7 +411,7 @@ define internal fastcc noundef range(i32 269, 278) i32 @_ZL17init_method_tokenP7
   br i1 %.not58, label %80, label %97
 
 80:                                               ; preds = %73
-  %81 = getelementptr inbounds i8, ptr %12, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %82 = load i32, ptr %81, align 8
   %switch.tableidx = add i32 %82, -1
   %83 = icmp ult i32 %switch.tableidx, 5
@@ -432,11 +432,11 @@ define internal fastcc noundef range(i32 269, 278) i32 @_ZL17init_method_tokenP7
 89:                                               ; preds = %88
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13InternalErrorE, i64 16), ptr %9, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %11, align 8
-  %90 = getelementptr inbounds i8, ptr %11, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr @__PRETTY_FUNCTION__._ZL17init_method_tokenP7YYSTYPEPN3gmx17SelectionLocationEPKNS1_21SelectionParserSymbolEbP15gmx_sel_lexer_t, ptr %90, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %11, i64 16
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr @.str.1, ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %11, i64 24
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 24
   store i32 172, ptr %.sroa.3.0..sroa_idx, align 8
   invoke void @_ZN3gmxlsINS_13InternalErrorENS_22ExceptionInfoLocation_ENS_13ThrowLocationEEENSt9enable_ifIXsr3std10is_base_ofINS_16GromacsExceptionET_EE5valueES6_E4typeES6_RKNS_13ExceptionInfoIT0_T1_EE(ptr dead_on_unwind writable sret(%"class.gmx::InternalError") align 8 %87, ptr noundef nonnull %9, ptr noundef nonnull align 8 dereferenceable(32) %11)
           to label %91 unwind label %94
@@ -473,7 +473,7 @@ switch.hole_check:                                ; preds = %80
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %96 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [5 x i32], ptr @switch.table._ZL17init_method_tokenP7YYSTYPEPN3gmx17SelectionLocationEPKNS1_21SelectionParserSymbolEbP15gmx_sel_lexer_t, i64 0, i64 %96
+  %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table._ZL17init_method_tokenP7YYSTYPEPN3gmx17SelectionLocationEPKNS1_21SelectionParserSymbolEbP15gmx_sel_lexer_t, i64 0, i64 %96
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %97
 
@@ -525,8 +525,8 @@ define linkonce_odr void @_ZN3gmxlsINS_13InternalErrorENS_22ExceptionInfoLocatio
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %6 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #18
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
   store ptr %6, ptr %4, align 8
   store ptr @_ZTIN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, ptr %5, align 8
@@ -540,7 +540,7 @@ define linkonce_odr void @_ZN3gmxlsINS_13InternalErrorENS_22ExceptionInfoLocatio
 
 _ZNKSt14default_deleteIN3gmx8internal14IExceptionInfoEEclEPS2_.exit.i.i: ; preds = %9
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
   call void %13(ptr noundef nonnull align 8 dereferenceable(8) %10) #15
   br label %_ZN3gmx16GromacsException7setInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEEvRKNS_13ExceptionInfoIT_T0_EE.exit
@@ -554,7 +554,7 @@ _ZNKSt14default_deleteIN3gmx8internal14IExceptionInfoEEclEPS2_.exit.i.i: ; preds
 
 _ZNKSt14default_deleteIN3gmx8internal14IExceptionInfoEEclEPS2_.exit.i4.i: ; preds = %14
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8
   call void %19(ptr noundef nonnull align 8 dereferenceable(8) %16) #15
   br label %_ZNSt10unique_ptrIN3gmx8internal14IExceptionInfoESt14default_deleteIS2_EED2Ev.exit5.i
@@ -565,12 +565,12 @@ _ZNSt10unique_ptrIN3gmx8internal14IExceptionInfoESt14default_deleteIS2_EED2Ev.ex
 _ZN3gmx16GromacsException7setInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEEvRKNS_13ExceptionInfoIT_T0_EE.exit: ; preds = %9, %_ZNKSt14default_deleteIN3gmx8internal14IExceptionInfoEEclEPS2_.exit.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %22 = load ptr, ptr %21, align 8
   store ptr %22, ptr %20, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 16
-  %24 = getelementptr inbounds i8, ptr %1, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %25 = load ptr, ptr %24, align 8
   store ptr null, ptr %24, align 8
   store ptr %25, ptr %23, align 8
@@ -615,7 +615,7 @@ define linkonce_odr void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnul
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %10
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #15
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, i8 0, i64 24, i1 false)
   ret void
 
@@ -635,13 +635,13 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3gmx13InternalErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx16GromacsExceptionE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i, label %_ZN3gmx16GromacsExceptionD2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load atomic i64, ptr %5 acquire, align 8
   %7 = icmp eq i64 %6, 4294967297
   %8 = trunc i64 %6 to i32
@@ -649,10 +649,10 @@ define linkonce_odr void @_ZN3gmx13InternalErrorD2Ev(ptr noundef nonnull align 8
 
 9:                                                ; preds = %4
   store i32 0, ptr %5, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 0, ptr %10, align 4
   %11 = load ptr, ptr %3, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #15
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
@@ -678,10 +678,10 @@ define linkonce_odr void @_ZN3gmx13InternalErrorD2Ev(ptr noundef nonnull align 8
 
 22:                                               ; preds = %20
   %23 = load ptr, ptr %3, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load ptr, ptr %24, align 8
   tail call void %25(ptr noundef nonnull align 8 dereferenceable(16) %3) #15
-  %26 = getelementptr inbounds i8, ptr %3, i64 12
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %27 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i = icmp eq i8 %27, 0
   br i1 %.not.i.i.i.i.i.i.i, label %31, label %28
@@ -703,7 +703,7 @@ define linkonce_odr void @_ZN3gmx13InternalErrorD2Ev(ptr noundef nonnull align 8
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i: ; preds = %33, %9
   %35 = load ptr, ptr %3, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %37 = load ptr, ptr %36, align 8
   tail call void %37(ptr noundef nonnull align 8 dereferenceable(16) %3) #15
   br label %_ZN3gmx16GromacsExceptionD2Ev.exit
@@ -724,9 +724,9 @@ define linkonce_odr void @_ZN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
   %.not4.i.i.i.i = icmp eq ptr %3, %5
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
@@ -742,7 +742,7 @@ define linkonce_odr void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull 
   br label %_ZSt8_DestroyINSt15__exception_ptr13exception_ptrEEvPT_.exit.i.i.i.i
 
 _ZSt8_DestroyINSt15__exception_ptr13exception_ptrEEvPT_.exit.i.i.i.i: ; preds = %7, %.lr.ph.i.i.i.i
-  %8 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 8
   %.not.i.i.i.i = icmp eq ptr %8, %5
   br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !5
 
@@ -929,33 +929,33 @@ define noundef range(i32 258, 280) i32 @_Z33_gmx_sel_lexer_process_identifierP7Y
   %15 = alloca %"class.gmx::InternalError", align 8
   %16 = alloca %"class.gmx::ExceptionInitializer", align 8
   %17 = alloca %"class.gmx::ExceptionInfo", align 8
-  %18 = getelementptr inbounds i8, ptr %4, i64 96
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 96
   %19 = load i32, ptr %18, align 8
   %20 = icmp sgt i32 %19, -1
   br i1 %20, label %.preheader184, label %.split.us
 
 .preheader184:                                    ; preds = %5
-  %21 = getelementptr inbounds i8, ptr %2, i64 2
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %22 = add i64 %3, -2
-  %23 = getelementptr inbounds i8, ptr %4, i64 88
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 88
   %24 = load ptr, ptr %23, align 8
   %25 = icmp ugt i64 %3, 2
-  %26 = getelementptr inbounds i8, ptr %2, i64 1
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 1
   br i1 %25, label %.preheader.us, label %.preheader
 
 .preheader.us:                                    ; preds = %.preheader184, %._crit_edge.us
   %.0129196.us = phi i32 [ %spec.select.us, %._crit_edge.us ], [ %19, %.preheader184 ]
   %27 = zext nneg i32 %.0129196.us to i64
-  %28 = getelementptr inbounds ptr, ptr %24, i64 %27
+  %28 = getelementptr inbounds nuw ptr, ptr %24, i64 %27
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %31 = load i32, ptr %30, align 8
   %32 = icmp sgt i32 %31, 0
   br i1 %32, label %.lr.ph.us, label %._crit_edge.us
 
 33:                                               ; preds = %.lr.ph.us, %55
   %indvars.iv210 = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next211, %55 ]
-  %34 = getelementptr inbounds %struct.gmx_ana_selparam_t, ptr %57, i64 %indvars.iv210
+  %34 = getelementptr inbounds nuw %struct.gmx_ana_selparam_t, ptr %57, i64 %indvars.iv210
   %35 = load ptr, ptr %34, align 8
   %36 = icmp eq ptr %35, null
   br i1 %36, label %55, label %37
@@ -971,7 +971,7 @@ define noundef range(i32 258, 280) i32 @_Z33_gmx_sel_lexer_process_identifierP7Y
   br i1 %.not151.us200, label %._crit_edge.us.thread, label %42
 
 42:                                               ; preds = %40
-  %43 = getelementptr inbounds i8, ptr %34, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %44 = load i32, ptr %43, align 8
   %45 = icmp eq i32 %44, 0
   br i1 %45, label %46, label %55
@@ -1002,7 +1002,7 @@ define noundef range(i32 258, 280) i32 @_Z33_gmx_sel_lexer_process_identifierP7Y
   br i1 %exitcond214.not, label %._crit_edge.us, label %33, !llvm.loop !8
 
 .lr.ph.us:                                        ; preds = %.preheader.us
-  %56 = getelementptr inbounds i8, ptr %29, i64 24
+  %56 = getelementptr inbounds nuw i8, ptr %29, i64 24
   %57 = load ptr, ptr %56, align 8
   %wide.trip.count213 = zext nneg i32 %31 to i64
   br label %33
@@ -1010,22 +1010,22 @@ define noundef range(i32 258, 280) i32 @_Z33_gmx_sel_lexer_process_identifierP7Y
 .preheader:                                       ; preds = %.preheader184, %._crit_edge187.split.us
   %.0129196 = phi i32 [ %spec.select, %._crit_edge187.split.us ], [ %19, %.preheader184 ]
   %58 = zext nneg i32 %.0129196 to i64
-  %59 = getelementptr inbounds ptr, ptr %24, i64 %58
+  %59 = getelementptr inbounds nuw ptr, ptr %24, i64 %58
   %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 16
   %62 = load i32, ptr %61, align 8
   %63 = icmp sgt i32 %62, 0
   br i1 %63, label %.lr.ph, label %._crit_edge187.split.us
 
 .lr.ph:                                           ; preds = %.preheader
-  %64 = getelementptr inbounds i8, ptr %60, i64 24
+  %64 = getelementptr inbounds nuw i8, ptr %60, i64 24
   %65 = load ptr, ptr %64, align 8
   %wide.trip.count = zext nneg i32 %62 to i64
   br label %66
 
 66:                                               ; preds = %75, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %75 ], [ 0, %.lr.ph ]
-  %67 = getelementptr inbounds %struct.gmx_ana_selparam_t, ptr %65, i64 %indvars.iv
+  %67 = getelementptr inbounds nuw %struct.gmx_ana_selparam_t, ptr %65, i64 %indvars.iv
   %68 = load ptr, ptr %67, align 8
   %69 = icmp eq ptr %68, null
   br i1 %69, label %75, label %70
@@ -1054,7 +1054,7 @@ define noundef range(i32 258, 280) i32 @_Z33_gmx_sel_lexer_process_identifierP7Y
   %.us-phi206231 = phi ptr [ %34, %40 ], [ %34, %52 ], [ %67, %73 ]
   %.us-phi205230 = phi i8 [ 1, %52 ], [ 0, %40 ], [ 0, %73 ]
   %.us-phi229 = phi i32 [ %.0129196.us, %40 ], [ %.0129196.us, %52 ], [ %.0129196, %73 ]
-  %77 = getelementptr inbounds i8, ptr %.us-phi206231, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %.us-phi206231, i64 8
   %78 = load i32, ptr %77, align 8
   %79 = icmp eq i32 %78, 0
   br i1 %79, label %80, label %84
@@ -1064,7 +1064,7 @@ define noundef range(i32 258, 280) i32 @_Z33_gmx_sel_lexer_process_identifierP7Y
   br i1 %81, label %84, label %82
 
 82:                                               ; preds = %80
-  %83 = getelementptr inbounds i8, ptr %4, i64 141
+  %83 = getelementptr inbounds nuw i8, ptr %4, i64 141
   store i8 1, ptr %83, align 1
   br label %84
 
@@ -1075,11 +1075,11 @@ define noundef range(i32 258, 280) i32 @_Z33_gmx_sel_lexer_process_identifierP7Y
 86:                                               ; preds = %84
   %87 = xor i32 %.us-phi229, -1
   %88 = add i32 %19, %87
-  %89 = getelementptr inbounds i8, ptr %4, i64 104
+  %89 = getelementptr inbounds nuw i8, ptr %4, i64 104
   store i32 %88, ptr %89, align 8
-  %90 = getelementptr inbounds i8, ptr %4, i64 112
+  %90 = getelementptr inbounds nuw i8, ptr %4, i64 112
   store ptr %.us-phi206231, ptr %90, align 8
-  %91 = getelementptr inbounds i8, ptr %4, i64 120
+  %91 = getelementptr inbounds nuw i8, ptr %4, i64 120
   store i8 %.us-phi205230, ptr %91, align 8
   br label %_ZL16init_param_tokenP7YYSTYPEP18gmx_ana_selparam_tb.exit
 
@@ -1105,10 +1105,10 @@ define noundef range(i32 258, 280) i32 @_Z33_gmx_sel_lexer_process_identifierP7Y
   store ptr %101, ptr %0, align 8
   store i8 110, ptr %101, align 1
   %102 = load ptr, ptr %0, align 8
-  %103 = getelementptr inbounds i8, ptr %102, i64 1
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 1
   store i8 111, ptr %103, align 1
   %104 = load ptr, ptr %0, align 8
-  %105 = getelementptr inbounds i8, ptr %104, i64 2
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 2
   %106 = load ptr, ptr %.us-phi206231, align 8
   %107 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %105, ptr noundef nonnull dereferenceable(1) %106) #15
   br label %_ZL16init_param_tokenP7YYSTYPEP18gmx_ana_selparam_tb.exit
@@ -1127,7 +1127,7 @@ define noundef range(i32 258, 280) i32 @_Z33_gmx_sel_lexer_process_identifierP7Y
 
 .split.us:                                        ; preds = %._crit_edge187.split.us, %._crit_edge.us, %5
   %113 = load ptr, ptr %4, align 8
-  %114 = getelementptr inbounds i8, ptr %113, i64 104
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 104
   %115 = load ptr, ptr %114, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #15
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef %2, i64 noundef %3, ptr noundef nonnull align 1 dereferenceable(1) %7)
@@ -1172,7 +1172,7 @@ define noundef range(i32 258, 280) i32 @_Z33_gmx_sel_lexer_process_identifierP7Y
   br i1 %129, label %130, label %135
 
 130:                                              ; preds = %127
-  %131 = getelementptr inbounds i8, ptr %4, i64 136
+  %131 = getelementptr inbounds nuw i8, ptr %4, i64 136
   %132 = load i32, ptr %131, align 8
   %133 = icmp sgt i32 %132, 0
   %134 = call fastcc noundef i32 @_ZL17init_method_tokenP7YYSTYPEPN3gmx17SelectionLocationEPKNS1_21SelectionParserSymbolEbP15gmx_sel_lexer_t(ptr noundef %0, ptr noundef %1, ptr noundef %117, i1 noundef zeroext %133, ptr noundef nonnull %4)
@@ -1203,7 +1203,7 @@ define noundef range(i32 258, 280) i32 @_Z33_gmx_sel_lexer_process_identifierP7Y
           to label %144 unwind label %.thread167
 
 144:                                              ; preds = %143
-  %145 = getelementptr inbounds i8, ptr %9, i64 32
+  %145 = getelementptr inbounds nuw i8, ptr %9, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %145, i8 0, i64 24, i1 false)
   invoke void @_ZN3gmx16GromacsExceptionC2ERKNS_20ExceptionInitializerE(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(56) %9)
           to label %146 unwind label %151
@@ -1211,11 +1211,11 @@ define noundef range(i32 258, 280) i32 @_Z33_gmx_sel_lexer_process_identifierP7Y
 146:                                              ; preds = %144
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13InternalErrorE, i64 16), ptr %8, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %11, align 8
-  %147 = getelementptr inbounds i8, ptr %11, i64 8
+  %147 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr @__PRETTY_FUNCTION__._Z33_gmx_sel_lexer_process_identifierP7YYSTYPEPN3gmx17SelectionLocationEPcmP15gmx_sel_lexer_t, ptr %147, align 8
-  %.sroa.2161.0..sroa_idx = getelementptr inbounds i8, ptr %11, i64 16
+  %.sroa.2161.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr @.str.1, ptr %.sroa.2161.0..sroa_idx, align 8
-  %.sroa.3162.0..sroa_idx = getelementptr inbounds i8, ptr %11, i64 24
+  %.sroa.3162.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 24
   store i32 285, ptr %.sroa.3162.0..sroa_idx, align 8
   invoke void @_ZN3gmxlsINS_13InternalErrorENS_22ExceptionInfoLocation_ENS_13ThrowLocationEEENSt9enable_ifIXsr3std10is_base_ofINS_16GromacsExceptionET_EE5valueES6_E4typeES6_RKNS_13ExceptionInfoIT0_T1_EE(ptr dead_on_unwind writable sret(%"class.gmx::InternalError") align 8 %139, ptr noundef nonnull %8, ptr noundef nonnull align 8 dereferenceable(32) %11)
           to label %148 unwind label %153
@@ -1268,7 +1268,7 @@ define noundef range(i32 258, 280) i32 @_Z33_gmx_sel_lexer_process_identifierP7Y
   br i1 %161, label %162, label %184
 
 162:                                              ; preds = %157
-  %163 = getelementptr inbounds i8, ptr %159, i64 8
+  %163 = getelementptr inbounds nuw i8, ptr %159, i64 8
   %164 = load i32, ptr %163, align 8
   switch i32 %164, label %173 [
     i32 1, label %165
@@ -1277,14 +1277,14 @@ define noundef range(i32 258, 280) i32 @_Z33_gmx_sel_lexer_process_identifierP7Y
   ]
 
 165:                                              ; preds = %162
-  %166 = getelementptr inbounds i8, ptr %159, i64 16
+  %166 = getelementptr inbounds nuw i8, ptr %159, i64 16
   %167 = load ptr, ptr %166, align 8
   %168 = load i32, ptr %167, align 4
   store i32 %168, ptr %0, align 8
   br label %_ZL16init_param_tokenP7YYSTYPEP18gmx_ana_selparam_tb.exit
 
 169:                                              ; preds = %162
-  %170 = getelementptr inbounds i8, ptr %159, i64 16
+  %170 = getelementptr inbounds nuw i8, ptr %159, i64 16
   %171 = load ptr, ptr %170, align 8
   %172 = load float, ptr %171, align 4
   store float %172, ptr %0, align 8
@@ -1302,11 +1302,11 @@ define noundef range(i32 258, 280) i32 @_Z33_gmx_sel_lexer_process_identifierP7Y
 176:                                              ; preds = %175
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13InternalErrorE, i64 16), ptr %12, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %14, align 8
-  %177 = getelementptr inbounds i8, ptr %14, i64 8
+  %177 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr @__PRETTY_FUNCTION__._Z33_gmx_sel_lexer_process_identifierP7YYSTYPEPN3gmx17SelectionLocationEPcmP15gmx_sel_lexer_t, ptr %177, align 8
-  %.sroa.2157.0..sroa_idx = getelementptr inbounds i8, ptr %14, i64 16
+  %.sroa.2157.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 16
   store ptr @.str.1, ptr %.sroa.2157.0..sroa_idx, align 8
-  %.sroa.3158.0..sroa_idx = getelementptr inbounds i8, ptr %14, i64 24
+  %.sroa.3158.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 24
   store i32 299, ptr %.sroa.3158.0..sroa_idx, align 8
   invoke void @_ZN3gmxlsINS_13InternalErrorENS_22ExceptionInfoLocation_ENS_13ThrowLocationEEENSt9enable_ifIXsr3std10is_base_ofINS_16GromacsExceptionET_EE5valueES6_E4typeES6_RKNS_13ExceptionInfoIT0_T1_EE(ptr dead_on_unwind writable sret(%"class.gmx::InternalError") align 8 %174, ptr noundef nonnull %12, ptr noundef nonnull align 8 dereferenceable(32) %14)
           to label %178 unwind label %181
@@ -1343,15 +1343,15 @@ define noundef range(i32 258, 280) i32 @_Z33_gmx_sel_lexer_process_identifierP7Y
 184:                                              ; preds = %162, %157
   %185 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #18
   store ptr %159, ptr %185, align 8
-  %186 = getelementptr inbounds i8, ptr %185, i64 8
-  %187 = getelementptr inbounds i8, ptr %158, i64 8
+  %186 = getelementptr inbounds nuw i8, ptr %185, i64 8
+  %187 = getelementptr inbounds nuw i8, ptr %158, i64 8
   %188 = load ptr, ptr %187, align 8
   store ptr %188, ptr %186, align 8
   %.not.i.i.i = icmp eq ptr %188, null
   br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit, label %189
 
 189:                                              ; preds = %184
-  %190 = getelementptr inbounds i8, ptr %188, i64 8
+  %190 = getelementptr inbounds nuw i8, ptr %188, i64 8
   %191 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i = icmp eq i8 %191, 0
   br i1 %.not.i.i.i.i, label %195, label %192
@@ -1369,7 +1369,7 @@ define noundef range(i32 258, 280) i32 @_Z33_gmx_sel_lexer_process_identifierP7Y
 _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit: ; preds = %184, %192, %195
   store ptr %185, ptr %0, align 8
   %197 = load ptr, ptr %158, align 8
-  %198 = getelementptr inbounds i8, ptr %197, i64 8
+  %198 = getelementptr inbounds nuw i8, ptr %197, i64 8
   %199 = load i32, ptr %198, align 8
   %switch.tableidx = add i32 %199, -1
   %200 = icmp ult i32 %switch.tableidx, 5
@@ -1389,11 +1389,11 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit: ; preds = %184, %1
 204:                                              ; preds = %203
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13InternalErrorE, i64 16), ptr %15, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %17, align 8
-  %205 = getelementptr inbounds i8, ptr %17, i64 8
+  %205 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr @__PRETTY_FUNCTION__._Z33_gmx_sel_lexer_process_identifierP7YYSTYPEPN3gmx17SelectionLocationEPcmP15gmx_sel_lexer_t, ptr %205, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %17, i64 16
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 16
   store ptr @.str.1, ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %17, i64 24
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 24
   store i32 309, ptr %.sroa.3.0..sroa_idx, align 8
   invoke void @_ZN3gmxlsINS_13InternalErrorENS_22ExceptionInfoLocation_ENS_13ThrowLocationEEENSt9enable_ifIXsr3std10is_base_ofINS_16GromacsExceptionET_EE5valueES6_E4typeES6_RKNS_13ExceptionInfoIT0_T1_EE(ptr dead_on_unwind writable sret(%"class.gmx::InternalError") align 8 %202, ptr noundef nonnull %15, ptr noundef nonnull align 8 dereferenceable(32) %17)
           to label %206 unwind label %209
@@ -1428,13 +1428,13 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit: ; preds = %184, %1
   br label %219
 
 212:                                              ; preds = %135
-  %213 = getelementptr inbounds i8, ptr %4, i64 140
+  %213 = getelementptr inbounds nuw i8, ptr %4, i64 140
   store i8 1, ptr %213, align 4
   %214 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK3gmx21SelectionParserSymbol4nameB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(8) %117)
   %215 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %214) #15
   %216 = call noundef ptr @_Z10gmx_strdupPKc(ptr noundef %215)
   store ptr %216, ptr %0, align 8
-  %217 = getelementptr inbounds i8, ptr %4, i64 136
+  %217 = getelementptr inbounds nuw i8, ptr %4, i64 136
   store i32 2, ptr %217, align 8
   br label %_ZL16init_param_tokenP7YYSTYPEP18gmx_ana_selparam_tb.exit
 
@@ -1446,7 +1446,7 @@ switch.hole_check:                                ; preds = %_ZNSt10shared_ptrIN
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %218 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [5 x i32], ptr @switch.table._Z33_gmx_sel_lexer_process_identifierP7YYSTYPEPN3gmx17SelectionLocationEPcmP15gmx_sel_lexer_t, i64 0, i64 %218
+  %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table._Z33_gmx_sel_lexer_process_identifierP7YYSTYPEPN3gmx17SelectionLocationEPcmP15gmx_sel_lexer_t, i64 0, i64 %218
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZL16init_param_tokenP7YYSTYPEP18gmx_ana_selparam_tb.exit
 
@@ -1479,13 +1479,13 @@ declare noundef nonnull align 8 dereferenceable(16) ptr @_ZNK3gmx21SelectionPars
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i, label %_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load atomic i64, ptr %5 acquire, align 8
   %7 = icmp eq i64 %6, 4294967297
   %8 = trunc i64 %6 to i32
@@ -1493,10 +1493,10 @@ define linkonce_odr void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(pt
 
 9:                                                ; preds = %4
   store i32 0, ptr %5, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 0, ptr %10, align 4
   %11 = load ptr, ptr %3, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #15
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i
@@ -1522,10 +1522,10 @@ define linkonce_odr void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(pt
 
 22:                                               ; preds = %20
   %23 = load ptr, ptr %3, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load ptr, ptr %24, align 8
   tail call void %25(ptr noundef nonnull align 8 dereferenceable(16) %3) #15
-  %26 = getelementptr inbounds i8, ptr %3, i64 12
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %27 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i = icmp eq i8 %27, 0
   br i1 %.not.i.i.i.i.i, label %31, label %28
@@ -1547,7 +1547,7 @@ define linkonce_odr void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(pt
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i: ; preds = %33, %9
   %35 = load ptr, ptr %3, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %37 = load ptr, ptr %36, align 8
   tail call void %37(ptr noundef nonnull align 8 dereferenceable(16) %3) #15
   br label %_ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
@@ -1590,11 +1590,11 @@ define void @_Z19_gmx_sel_init_lexerPPvP23gmx_ana_selcollection_tPN3gmx10TextWri
 14:                                               ; preds = %13
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13InternalErrorE, i64 16), ptr %7, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %9, align 8
-  %15 = getelementptr inbounds i8, ptr %9, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr @__PRETTY_FUNCTION__._Z19_gmx_sel_init_lexerPPvP23gmx_ana_selcollection_tPN3gmx10TextWriterEibP19gmx_ana_indexgrps_t, ptr %15, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 16
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr @.str.1, ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 24
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i32 356, ptr %.sroa.3.0..sroa_idx, align 8
   invoke void @_ZN3gmxlsINS_13InternalErrorENS_22ExceptionInfoLocation_ENS_13ThrowLocationEEENSt9enable_ifIXsr3std10is_base_ofINS_16GromacsExceptionET_EE5valueES6_E4typeES6_RKNS_13ExceptionInfoIT0_T1_EE(ptr dead_on_unwind writable sret(%"class.gmx::InternalError") align 8 %12, ptr noundef nonnull %7, ptr noundef nonnull align 8 dereferenceable(32) %9)
           to label %16 unwind label %19
@@ -1631,21 +1631,21 @@ define void @_Z19_gmx_sel_init_lexerPPvP23gmx_ana_selcollection_tPN3gmx10TextWri
 22:                                               ; preds = %6
   %23 = zext i1 %4 to i8
   %24 = tail call noalias noundef nonnull dereferenceable(152) ptr @_Znwm(i64 noundef 152) #18
-  %25 = getelementptr inbounds i8, ptr %24, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store ptr null, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %24, i64 48
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 48
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %26) #15
   store ptr %1, ptr %24, align 8
-  %27 = getelementptr inbounds i8, ptr %24, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 16
   store i8 %23, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %24, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %24, i64 24
   store ptr %5, ptr %28, align 8
   %29 = icmp sgt i32 %3, 0
   br i1 %29, label %30, label %41
 
 30:                                               ; preds = %22
-  %31 = getelementptr inbounds i8, ptr %1, i64 24
-  %32 = getelementptr inbounds i8, ptr %1, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %33 = load ptr, ptr %32, align 8
   %34 = load ptr, ptr %31, align 8
   %35 = ptrtoint ptr %33 to i64
@@ -1658,32 +1658,32 @@ define void @_Z19_gmx_sel_init_lexerPPvP23gmx_ana_selcollection_tPN3gmx10TextWri
 
 41:                                               ; preds = %22, %30
   %42 = phi i32 [ %40, %30 ], [ -1, %22 ]
-  %43 = getelementptr inbounds i8, ptr %24, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %24, i64 32
   store i32 %42, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %24, i64 40
+  %44 = getelementptr inbounds nuw i8, ptr %24, i64 40
   store ptr %2, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %24, i64 80
+  %45 = getelementptr inbounds nuw i8, ptr %24, i64 80
   store i32 0, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %24, i64 84
+  %46 = getelementptr inbounds nuw i8, ptr %24, i64 84
   store i32 0, ptr %46, align 4
-  %47 = getelementptr inbounds i8, ptr %24, i64 88
+  %47 = getelementptr inbounds nuw i8, ptr %24, i64 88
   %48 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 371, i64 noundef 20, i64 noundef 8)
   store ptr %48, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %24, i64 100
+  %49 = getelementptr inbounds nuw i8, ptr %24, i64 100
   store i32 20, ptr %49, align 4
-  %50 = getelementptr inbounds i8, ptr %24, i64 96
+  %50 = getelementptr inbounds nuw i8, ptr %24, i64 96
   store i32 -1, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %24, i64 104
+  %51 = getelementptr inbounds nuw i8, ptr %24, i64 104
   store i32 0, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %24, i64 112
+  %52 = getelementptr inbounds nuw i8, ptr %24, i64 112
   store ptr null, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %24, i64 128
-  %54 = getelementptr inbounds i8, ptr %24, i64 120
+  %53 = getelementptr inbounds nuw i8, ptr %24, i64 128
+  %54 = getelementptr inbounds nuw i8, ptr %24, i64 120
   store i8 0, ptr %54, align 8
-  %55 = getelementptr inbounds i8, ptr %24, i64 142
+  %55 = getelementptr inbounds nuw i8, ptr %24, i64 142
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %53, i8 0, i64 14, i1 false)
   store i8 1, ptr %55, align 2
-  %56 = getelementptr inbounds i8, ptr %24, i64 143
+  %56 = getelementptr inbounds nuw i8, ptr %24, i64 143
   store i8 0, ptr %56, align 1
   %57 = load ptr, ptr %0, align 8
   tail call void @_Z20_gmx_sel_yyset_extraP15gmx_sel_lexer_tPv(ptr noundef nonnull %24, ptr noundef %57)
@@ -1707,24 +1707,24 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noun
 ; Function Attrs: mustprogress uwtable
 define void @_Z19_gmx_sel_free_lexerPv(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call noundef ptr @_Z20_gmx_sel_yyget_extraPv(ptr noundef %0)
-  %3 = getelementptr inbounds i8, ptr %2, i64 88
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %4 = load ptr, ptr %3, align 8
   tail call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 391, ptr noundef %4)
-  %5 = getelementptr inbounds i8, ptr %2, i64 143
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 143
   %6 = load i8, ptr %5, align 1
   %7 = trunc i8 %6 to i1
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %2, i64 144
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 144
   %10 = load ptr, ptr %9, align 8
   tail call void @_Z25_gmx_sel_yy_delete_bufferP15yy_buffer_statePv(ptr noundef %10, ptr noundef %0)
   br label %11
 
 11:                                               ; preds = %1, %8
-  %12 = getelementptr inbounds i8, ptr %2, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 48
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #15
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %.not.i.i = icmp eq ptr %14, null
   br i1 %.not.i.i, label %16, label %15
@@ -1751,7 +1751,7 @@ declare void @_Z9save_freePKcS0_iPv(ptr noundef, ptr noundef, i32 noundef, ptr n
 define void @_Z28_gmx_sel_lexer_set_exceptionPvRKNSt15__exception_ptr13exception_ptrE(ptr noundef %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) local_unnamed_addr #0 {
   %3 = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %4 = tail call noundef ptr @_Z20_gmx_sel_yyget_extraPv(ptr noundef %0)
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %6 = load ptr, ptr %1, align 8
   store ptr %6, ptr %3, align 8
@@ -1789,7 +1789,7 @@ define void @_Z44_gmx_sel_lexer_rethrow_exception_if_occurredPv(ptr noundef %0) 
   %3 = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %4 = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %5 = tail call noundef ptr @_Z20_gmx_sel_yyget_extraPv(ptr noundef %0)
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %18, label %_ZNSt15__exception_ptr13exception_ptrC2ERKS0_.exit
@@ -1859,7 +1859,7 @@ declare void @_ZSt17rethrow_exceptionNSt15__exception_ptr13exception_ptrE(ptr no
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_Z32_gmx_sel_lexer_get_status_writerPv(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call noundef ptr @_Z20_gmx_sel_yyget_extraPv(ptr noundef %0)
-  %3 = getelementptr inbounds i8, ptr %2, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %4 = load ptr, ptr %3, align 8
   ret ptr %4
 }
@@ -1874,7 +1874,7 @@ define noundef ptr @_Z28_gmx_sel_lexer_selcollectionPv(ptr noundef %0) local_unn
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_Z29_gmx_sel_lexer_has_groups_setPv(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call noundef ptr @_Z20_gmx_sel_yyget_extraPv(ptr noundef %0)
-  %3 = getelementptr inbounds i8, ptr %2, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
   ret i1 %5
@@ -1883,7 +1883,7 @@ define noundef zeroext i1 @_Z29_gmx_sel_lexer_has_groups_setPv(ptr noundef %0) l
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_Z24_gmx_sel_lexer_indexgrpsPv(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call noundef ptr @_Z20_gmx_sel_yyget_extraPv(ptr noundef %0)
-  %3 = getelementptr inbounds i8, ptr %2, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %4 = load ptr, ptr %3, align 8
   ret ptr %4
 }
@@ -1891,7 +1891,7 @@ define noundef ptr @_Z24_gmx_sel_lexer_indexgrpsPv(ptr noundef %0) local_unnamed
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_Z27_gmx_sel_lexer_exp_selcountPv(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call noundef ptr @_Z20_gmx_sel_yyget_extraPv(ptr noundef %0)
-  %3 = getelementptr inbounds i8, ptr %2, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %4 = load i32, ptr %3, align 8
   ret i32 %4
 }
@@ -1899,7 +1899,7 @@ define noundef i32 @_Z27_gmx_sel_lexer_exp_selcountPv(ptr noundef %0) local_unna
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_Z22_gmx_sel_lexer_pselstrPv(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call noundef ptr @_Z20_gmx_sel_yyget_extraPv(ptr noundef %0)
-  %3 = getelementptr inbounds i8, ptr %2, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %4 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #15
   ret ptr %4
 }
@@ -1907,7 +1907,7 @@ define noundef ptr @_Z22_gmx_sel_lexer_pselstrPv(ptr noundef %0) local_unnamed_a
 ; Function Attrs: mustprogress uwtable
 define void @_Z35_gmx_sel_lexer_set_current_locationPvRKN3gmx17SelectionLocationE(ptr noundef %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1) local_unnamed_addr #0 {
   %3 = tail call noundef ptr @_Z20_gmx_sel_yyget_extraPv(ptr noundef %0)
-  %4 = getelementptr inbounds i8, ptr %3, i64 80
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %5 = load i64, ptr %1, align 4
   store i64 %5, ptr %4, align 8
   ret void
@@ -1916,17 +1916,17 @@ define void @_Z35_gmx_sel_lexer_set_current_locationPvRKN3gmx17SelectionLocation
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull align 4 dereferenceable(8) ptr @_Z35_gmx_sel_lexer_get_current_locationPv(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call noundef ptr @_Z20_gmx_sel_yyget_extraPv(ptr noundef %0)
-  %3 = getelementptr inbounds i8, ptr %2, i64 80
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 80
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_Z31_gmx_sel_lexer_get_current_textB5cxx11Pv(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call noundef ptr @_Z20_gmx_sel_yyget_extraPv(ptr noundef %1)
-  %4 = getelementptr inbounds i8, ptr %3, i64 80
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %5 = tail call noundef ptr @_Z20_gmx_sel_yyget_extraPv(ptr noundef %1), !noalias !9
   %6 = load i32, ptr %4, align 4, !noalias !9
-  %7 = getelementptr inbounds i8, ptr %3, i64 84
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 84
   %8 = load i32, ptr %7, align 4, !noalias !9
   %.not.i = icmp slt i32 %6, %8
   br i1 %.not.i, label %10, label %9
@@ -1936,7 +1936,7 @@ define void @_Z31_gmx_sel_lexer_get_current_textB5cxx11Pv(ptr dead_on_unwind noa
   br label %_Z23_gmx_sel_lexer_get_textB5cxx11PvRKN3gmx17SelectionLocationE.exit
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %5, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %12 = sext i32 %6 to i64
   %13 = sub nsw i32 %8, %6
   %14 = sext i32 %13 to i64
@@ -1951,7 +1951,7 @@ _Z23_gmx_sel_lexer_get_textB5cxx11PvRKN3gmx17SelectionLocationE.exit: ; preds = 
 define void @_Z23_gmx_sel_lexer_get_textB5cxx11PvRKN3gmx17SelectionLocationE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %2) local_unnamed_addr #0 {
   %4 = tail call noundef ptr @_Z20_gmx_sel_yyget_extraPv(ptr noundef %1)
   %5 = load i32, ptr %2, align 4
-  %6 = getelementptr inbounds i8, ptr %2, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %7 = load i32, ptr %6, align 4
   %.not = icmp slt i32 %5, %7
   br i1 %.not, label %9, label %8
@@ -1961,7 +1961,7 @@ define void @_Z23_gmx_sel_lexer_get_textB5cxx11PvRKN3gmx17SelectionLocationE(ptr
   br label %14
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %4, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %11 = sext i32 %5 to i64
   %12 = sub nsw i32 %7, %5
   %13 = sext i32 %12 to i64
@@ -1977,7 +1977,7 @@ declare void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(p
 ; Function Attrs: mustprogress uwtable
 define void @_Z28_gmx_sel_lexer_clear_pselstrPv(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call noundef ptr @_Z20_gmx_sel_yyget_extraPv(ptr noundef %0)
-  %3 = getelementptr inbounds i8, ptr %2, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 48
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #15
   ret void
 }
@@ -1988,7 +1988,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr 
 ; Function Attrs: mustprogress uwtable
 define void @_Z33_gmx_sel_lexer_clear_method_stackPv(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call noundef ptr @_Z20_gmx_sel_yyget_extraPv(ptr noundef %0)
-  %3 = getelementptr inbounds i8, ptr %2, i64 96
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 96
   store i32 -1, ptr %3, align 8
   ret void
 }
@@ -1996,7 +1996,7 @@ define void @_Z33_gmx_sel_lexer_clear_method_stackPv(ptr noundef %0) local_unnam
 ; Function Attrs: mustprogress uwtable
 define void @_Z22_gmx_sel_finish_methodPv(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call noundef ptr @_Z20_gmx_sel_yyget_extraPv(ptr noundef %0)
-  %3 = getelementptr inbounds i8, ptr %2, i64 96
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, -1
   br i1 %5, label %6, label %8
@@ -2013,10 +2013,10 @@ define void @_Z22_gmx_sel_finish_methodPv(ptr noundef %0) local_unnamed_addr #0 
 ; Function Attrs: mustprogress uwtable
 define void @_Z27_gmx_sel_set_lex_input_filePvP8_IO_FILE(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call noundef ptr @_Z20_gmx_sel_yyget_extraPv(ptr noundef %0)
-  %4 = getelementptr inbounds i8, ptr %3, i64 143
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 143
   store i8 1, ptr %4, align 1
   %5 = tail call noundef ptr @_Z25_gmx_sel_yy_create_bufferP8_IO_FILEiPv(ptr noundef %1, i32 noundef 16384, ptr noundef %0)
-  %6 = getelementptr inbounds i8, ptr %3, i64 144
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 144
   store ptr %5, ptr %6, align 8
   tail call void @_Z28_gmx_sel_yy_switch_to_bufferP15yy_buffer_statePv(ptr noundef %5, ptr noundef %0)
   ret void
@@ -2029,13 +2029,13 @@ declare void @_Z28_gmx_sel_yy_switch_to_bufferP15yy_buffer_statePv(ptr noundef, 
 ; Function Attrs: mustprogress uwtable
 define void @_Z26_gmx_sel_set_lex_input_strPvPKc(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call noundef ptr @_Z20_gmx_sel_yyget_extraPv(ptr noundef %0)
-  %4 = getelementptr inbounds i8, ptr %3, i64 143
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 143
   %5 = load i8, ptr %4, align 1
   %6 = trunc i8 %5 to i1
   br i1 %6, label %7, label %10
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %3, i64 144
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 144
   %9 = load ptr, ptr %8, align 8
   tail call void @_Z25_gmx_sel_yy_delete_bufferP15yy_buffer_statePv(ptr noundef %9, ptr noundef %0)
   br label %10
@@ -2043,7 +2043,7 @@ define void @_Z26_gmx_sel_set_lex_input_strPvPKc(ptr noundef %0, ptr noundef %1)
 10:                                               ; preds = %7, %2
   store i8 1, ptr %4, align 1
   %11 = tail call noundef ptr @_Z23_gmx_sel_yy_scan_stringPKcPv(ptr noundef %1, ptr noundef %0)
-  %12 = getelementptr inbounds i8, ptr %3, i64 144
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 144
   store ptr %11, ptr %12, align 8
   ret void
 }

@@ -11,18 +11,18 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @opal_bitmap_construct(ptr nocapture noundef writeonly initializes((16, 32)) %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr null, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 28
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 2147483647, ptr %4, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define internal void @opal_bitmap_destruct(ptr nocapture noundef %0) #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %4
@@ -46,7 +46,7 @@ define range(i32 -5, 1) i32 @opal_bitmap_set_max_size(ptr noundef writeonly %0, 
   %6 = add nsw i64 %5, 63
   %7 = lshr i64 %6, 6
   %8 = trunc i64 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %0, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %8, ptr %9, align 4
   br label %10
 
@@ -63,7 +63,7 @@ define range(i32 -5, 1) i32 @opal_bitmap_init(ptr noundef %0, i32 noundef %1) lo
   br i1 %or.cond, label %opal_bitmap_clear_all_bits.exit, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 28
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %7 = load i32, ptr %6, align 4
   %8 = icmp sgt i32 %1, %7
   br i1 %8, label %opal_bitmap_clear_all_bits.exit, label %9
@@ -71,9 +71,9 @@ define range(i32 -5, 1) i32 @opal_bitmap_init(ptr noundef %0, i32 noundef %1) lo
 9:                                                ; preds = %5
   %10 = add nuw i32 %1, 63
   %11 = lshr i32 %10, 6
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %11, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %20, label %15
@@ -116,9 +116,9 @@ define range(i32 -5, 1) i32 @opal_bitmap_clear_all_bits(ptr noundef readonly %0)
   br i1 %2, label %10, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load i32, ptr %6, align 8
   %8 = sext i32 %7 to i64
   %9 = shl nsw i64 %8, 3
@@ -138,7 +138,7 @@ define range(i32 -5, 1) i32 @opal_bitmap_set_bit(ptr noundef %0, i32 noundef %1)
   br i1 %or.cond, label %37, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 28
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %7 = load i32, ptr %6, align 4
   %8 = icmp sgt i32 %1, %7
   br i1 %8, label %37, label %9
@@ -146,13 +146,13 @@ define range(i32 -5, 1) i32 @opal_bitmap_set_bit(ptr noundef %0, i32 noundef %1)
 9:                                                ; preds = %5
   %10 = lshr i32 %1, 6
   %11 = and i32 %1, 63
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load i32, ptr %12, align 8
   %.not = icmp slt i32 %10, %13
   br i1 %.not, label %._crit_edge, label %14
 
 ._crit_edge:                                      ; preds = %9
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 16
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br label %29
 
@@ -160,7 +160,7 @@ define range(i32 -5, 1) i32 @opal_bitmap_set_bit(ptr noundef %0, i32 noundef %1)
   %15 = add nuw nsw i32 %10, 1
   %.not33 = icmp samesign ult i32 %10, %7
   %spec.select = select i1 %.not33, i32 %15, i32 %7
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = zext nneg i32 %spec.select to i64
   %19 = shl nuw nsw i64 %18, 3
@@ -185,7 +185,7 @@ define range(i32 -5, 1) i32 @opal_bitmap_set_bit(ptr noundef %0, i32 noundef %1)
   %31 = zext nneg i32 %11 to i64
   %32 = shl nuw i64 1, %31
   %33 = zext nneg i32 %10 to i64
-  %34 = getelementptr inbounds i64, ptr %30, i64 %33
+  %34 = getelementptr inbounds nuw i64, ptr %30, i64 %33
   %35 = load i64, ptr %34, align 8
   %36 = or i64 %35, %32
   store i64 %36, ptr %34, align 8
@@ -210,7 +210,7 @@ define range(i32 -5, 1) i32 @opal_bitmap_clear_bit(ptr noundef readonly %0, i32 
   br i1 %or.cond, label %21, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load i32, ptr %6, align 8
   %8 = shl nsw i32 %7, 6
   %.not = icmp slt i32 %1, %8
@@ -222,10 +222,10 @@ define range(i32 -5, 1) i32 @opal_bitmap_clear_bit(ptr noundef readonly %0, i32 
   %12 = zext nneg i32 %11 to i64
   %13 = shl nuw i64 1, %12
   %14 = xor i64 %13, -1
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = zext nneg i32 %10 to i64
-  %18 = getelementptr inbounds i64, ptr %16, i64 %17
+  %18 = getelementptr inbounds nuw i64, ptr %16, i64 %17
   %19 = load i64, ptr %18, align 8
   %20 = and i64 %19, %14
   store i64 %20, ptr %18, align 8
@@ -244,7 +244,7 @@ define zeroext i1 @opal_bitmap_is_set_bit(ptr noundef readonly %0, i32 noundef %
   br i1 %or.cond, label %20, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load i32, ptr %6, align 8
   %8 = shl nsw i32 %7, 6
   %.not = icmp slt i32 %1, %8
@@ -253,10 +253,10 @@ define zeroext i1 @opal_bitmap_is_set_bit(ptr noundef readonly %0, i32 noundef %
 9:                                                ; preds = %5
   %10 = lshr i32 %1, 6
   %11 = and i32 %1, 63
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = zext nneg i32 %10 to i64
-  %15 = getelementptr inbounds i64, ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw i64, ptr %13, i64 %14
   %16 = load i64, ptr %15, align 8
   %17 = zext nneg i32 %11 to i64
   %18 = shl nuw i64 1, %17
@@ -275,9 +275,9 @@ define range(i32 -5, 1) i32 @opal_bitmap_set_all_bits(ptr noundef readonly %0) l
   br i1 %2, label %10, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load i32, ptr %6, align 8
   %8 = sext i32 %7 to i64
   %9 = shl nsw i64 %8, 3
@@ -296,20 +296,20 @@ define range(i32 -5, 1) i32 @opal_bitmap_find_and_set_first_unset_bit(ptr nounde
 
 4:                                                ; preds = %2
   store i32 0, ptr %1, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i32, ptr %5, align 8
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
   %wide.trip.count = zext nneg i32 %6 to i64
   br label %10
 
 10:                                               ; preds = %.lr.ph, %14
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %14 ]
-  %11 = getelementptr inbounds i64, ptr %9, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i64, ptr %9, i64 %indvars.iv
   %12 = load i64, ptr %11, align 8
   %13 = icmp eq i64 %12, -1
   br i1 %13, label %14, label %.critedge.loopexit
@@ -335,7 +335,7 @@ define range(i32 -5, 1) i32 @opal_bitmap_find_and_set_first_unset_bit(ptr nounde
   br i1 %18, label %opal_bitmap_set_bit.exit, label %19
 
 19:                                               ; preds = %.critedge.thread
-  %20 = getelementptr inbounds i8, ptr %0, i64 28
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %21 = load i32, ptr %20, align 4
   %22 = icmp sgt i32 %17, %21
   br i1 %22, label %opal_bitmap_set_bit.exit, label %23
@@ -347,7 +347,7 @@ define range(i32 -5, 1) i32 @opal_bitmap_find_and_set_first_unset_bit(ptr nounde
   br i1 %.not.i, label %._crit_edge.i, label %26
 
 ._crit_edge.i:                                    ; preds = %23
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %0, i64 16
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
   br label %41
 
@@ -355,7 +355,7 @@ define range(i32 -5, 1) i32 @opal_bitmap_find_and_set_first_unset_bit(ptr nounde
   %27 = add nuw nsw i32 %24, 1
   %.not33.i = icmp samesign ult i32 %24, %21
   %spec.select.i = select i1 %.not33.i, i32 %27, i32 %21
-  %28 = getelementptr inbounds i8, ptr %0, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %29 = load ptr, ptr %28, align 8
   %30 = zext nneg i32 %spec.select.i to i64
   %31 = shl nuw nsw i64 %30, 3
@@ -378,23 +378,23 @@ define range(i32 -5, 1) i32 @opal_bitmap_find_and_set_first_unset_bit(ptr nounde
 41:                                               ; preds = %34, %._crit_edge.i
   %42 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %32, %34 ]
   %43 = zext nneg i32 %24 to i64
-  %44 = getelementptr inbounds i64, ptr %42, i64 %43
+  %44 = getelementptr inbounds nuw i64, ptr %42, i64 %43
   %45 = load i64, ptr %44, align 8
   %46 = or i64 %45, 1
   store i64 %46, ptr %44, align 8
   br label %opal_bitmap_set_bit.exit
 
 47:                                               ; preds = %.critedge
-  %48 = getelementptr inbounds i8, ptr %0, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %49 = load ptr, ptr %48, align 8
   %50 = zext nneg i32 %.029.lcssa to i64
-  %51 = getelementptr inbounds i64, ptr %49, i64 %50
+  %51 = getelementptr inbounds nuw i64, ptr %49, i64 %50
   %52 = load i64, ptr %51, align 8
   %53 = add i64 %52, 1
   %54 = or i64 %53, %52
   store i64 %54, ptr %51, align 8
   %55 = load ptr, ptr %48, align 8
-  %56 = getelementptr inbounds i64, ptr %55, i64 %50
+  %56 = getelementptr inbounds nuw i64, ptr %55, i64 %50
   %57 = load i64, ptr %56, align 8
   %58 = xor i64 %57, %52
   %59 = and i64 %58, 1
@@ -431,9 +431,9 @@ define range(i32 -5, 1) i32 @opal_bitmap_bitwise_and_inplace(ptr noundef readonl
   br i1 %or.cond, label %.loopexit, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load i32, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %9 = load i32, ptr %8, align 8
   %.not = icmp eq i32 %7, %9
   br i1 %.not, label %.preheader, label %.loopexit
@@ -443,17 +443,17 @@ define range(i32 -5, 1) i32 @opal_bitmap_bitwise_and_inplace(ptr noundef readonl
   br i1 %10, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %13
 
 13:                                               ; preds = %.lr.ph, %13
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %13 ]
   %14 = load ptr, ptr %11, align 8
-  %15 = getelementptr inbounds i64, ptr %14, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw i64, ptr %14, i64 %indvars.iv
   %16 = load i64, ptr %15, align 8
   %17 = load ptr, ptr %12, align 8
-  %18 = getelementptr inbounds i64, ptr %17, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw i64, ptr %17, i64 %indvars.iv
   %19 = load i64, ptr %18, align 8
   %20 = and i64 %19, %16
   store i64 %20, ptr %18, align 8
@@ -476,9 +476,9 @@ define range(i32 -5, 1) i32 @opal_bitmap_bitwise_or_inplace(ptr noundef readonly
   br i1 %or.cond, label %.loopexit, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load i32, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %9 = load i32, ptr %8, align 8
   %.not = icmp eq i32 %7, %9
   br i1 %.not, label %.preheader, label %.loopexit
@@ -488,17 +488,17 @@ define range(i32 -5, 1) i32 @opal_bitmap_bitwise_or_inplace(ptr noundef readonly
   br i1 %10, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %13
 
 13:                                               ; preds = %.lr.ph, %13
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %13 ]
   %14 = load ptr, ptr %11, align 8
-  %15 = getelementptr inbounds i64, ptr %14, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw i64, ptr %14, i64 %indvars.iv
   %16 = load i64, ptr %15, align 8
   %17 = load ptr, ptr %12, align 8
-  %18 = getelementptr inbounds i64, ptr %17, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw i64, ptr %17, i64 %indvars.iv
   %19 = load i64, ptr %18, align 8
   %20 = or i64 %19, %16
   store i64 %20, ptr %18, align 8
@@ -521,9 +521,9 @@ define range(i32 -5, 1) i32 @opal_bitmap_bitwise_xor_inplace(ptr noundef readonl
   br i1 %or.cond, label %.loopexit, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load i32, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %9 = load i32, ptr %8, align 8
   %.not = icmp eq i32 %7, %9
   br i1 %.not, label %.preheader, label %.loopexit
@@ -533,17 +533,17 @@ define range(i32 -5, 1) i32 @opal_bitmap_bitwise_xor_inplace(ptr noundef readonl
   br i1 %10, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %13
 
 13:                                               ; preds = %.lr.ph, %13
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %13 ]
   %14 = load ptr, ptr %11, align 8
-  %15 = getelementptr inbounds i64, ptr %14, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw i64, ptr %14, i64 %indvars.iv
   %16 = load i64, ptr %15, align 8
   %17 = load ptr, ptr %12, align 8
-  %18 = getelementptr inbounds i64, ptr %17, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw i64, ptr %17, i64 %indvars.iv
   %19 = load i64, ptr %18, align 8
   %20 = xor i64 %19, %16
   store i64 %20, ptr %18, align 8
@@ -578,18 +578,18 @@ define noundef zeroext i1 @opal_bitmap_are_different(ptr noundef readonly %0, pt
   br i1 %8, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load ptr, ptr %11, align 8
   %wide.trip.count = zext nneg i32 %.val to i64
   br label %13
 
 13:                                               ; preds = %13, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %13 ]
-  %14 = getelementptr inbounds i64, ptr %10, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw i64, ptr %10, i64 %indvars.iv
   %15 = load i64, ptr %14, align 8
-  %16 = getelementptr inbounds i64, ptr %12, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw i64, ptr %12, i64 %indvars.iv
   %17 = load i64, ptr %16, align 8
   %.not15.not = icmp ne i64 %15, %17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -608,7 +608,7 @@ define noalias noundef ptr @opal_bitmap_get_string(ptr noundef readonly %0) loca
   br i1 %2, label %.loopexit, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8
   %6 = shl nsw i32 %5, 6
   %7 = or disjoint i32 %6, 1
@@ -625,7 +625,7 @@ define noalias noundef ptr @opal_bitmap_get_string(ptr noundef readonly %0) loca
   br i1 %14, label %opal_bitmap_is_set_bit.exit.lr.ph, label %.loopexit
 
 opal_bitmap_is_set_bit.exit.lr.ph:                ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load ptr, ptr %15, align 8
   %smax = tail call i32 @llvm.smax.i32(i32 %6, i32 1)
   %wide.trip.count = zext nneg i32 %smax to i64
@@ -636,13 +636,13 @@ opal_bitmap_is_set_bit.exit:                      ; preds = %opal_bitmap_is_set_
   %17 = lshr i64 %indvars.iv, 6
   %18 = and i64 %indvars.iv, 63
   %19 = and i64 %17, 67108863
-  %20 = getelementptr inbounds i64, ptr %16, i64 %19
+  %20 = getelementptr inbounds nuw i64, ptr %16, i64 %19
   %21 = load i64, ptr %20, align 8
   %22 = shl nuw i64 1, %18
   %23 = and i64 %21, %22
   %.not12.i.not = icmp eq i64 %23, 0
   %spec.select = select i1 %.not12.i.not, i8 95, i8 88
-  %24 = getelementptr inbounds i8, ptr %9, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw i8, ptr %9, i64 %indvars.iv
   store i8 %spec.select, ptr %24, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -659,7 +659,7 @@ define i32 @opal_bitmap_num_unset_bits(ptr nocapture noundef readonly %0, i32 no
   br i1 %3, label %.lr.ph.i, label %opal_bitmap_num_set_bits.exit
 
 .lr.ph.i:                                         ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %wide.trip.count.i = zext nneg i32 %1 to i64
   br label %6
@@ -667,7 +667,7 @@ define i32 @opal_bitmap_num_unset_bits(ptr nocapture noundef readonly %0, i32 no
 6:                                                ; preds = %.loopexit.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %.loopexit.i ]
   %.01115.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %.loopexit.i ]
-  %7 = getelementptr inbounds i64, ptr %5, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv.i
   %8 = load i64, ptr %7, align 8
   %.not.i = icmp eq i64 %8, 0
   br i1 %.not.i, label %.loopexit.i, label %.preheader.i
@@ -699,7 +699,7 @@ define i32 @opal_bitmap_num_set_bits(ptr nocapture noundef readonly %0, i32 noun
   br i1 %3, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %wide.trip.count = zext nneg i32 %1 to i64
   br label %6
@@ -707,7 +707,7 @@ define i32 @opal_bitmap_num_set_bits(ptr nocapture noundef readonly %0, i32 noun
 6:                                                ; preds = %.lr.ph, %.loopexit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.loopexit ]
   %.01115 = phi i32 [ 0, %.lr.ph ], [ %.1, %.loopexit ]
-  %7 = getelementptr inbounds i64, ptr %5, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv
   %8 = load i64, ptr %7, align 8
   %.not = icmp eq i64 %8, 0
   br i1 %.not, label %.loopexit, label %.preheader
@@ -734,20 +734,20 @@ define i32 @opal_bitmap_num_set_bits(ptr nocapture noundef readonly %0, i32 noun
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define noundef zeroext i1 @opal_bitmap_is_clear(ptr nocapture noundef readonly %0) local_unnamed_addr #11 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8
   %4 = icmp slt i32 %3, 1
   br i1 %4, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   %wide.trip.count = zext nneg i32 %3 to i64
   br label %7
 
 7:                                                ; preds = %7, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
-  %8 = getelementptr inbounds i64, ptr %6, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv
   %9 = load i64, ptr %8, align 8
   %.not = icmp eq i64 %9, 0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

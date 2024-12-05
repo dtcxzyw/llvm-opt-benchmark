@@ -57,7 +57,7 @@ entry:
   %ref.tmp.i.i = alloca %"class.hermes::vm::TwineChar16", align 8
   %ch.addr.i = alloca i16, align 2
   %ref.tmp.i = alloca %"class.hermes::vm::TwineChar16", align 8
-  %end_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %end_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %.pre = load ptr, ptr %this, align 8
   br label %while.cond
 
@@ -83,7 +83,7 @@ land.rhs:                                         ; preds = %_ZN6hermes11UTF16St
   ]
 
 while.body:                                       ; preds = %land.rhs, %land.rhs, %land.rhs, %land.rhs
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %2, i64 2
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %2, i64 2
   store ptr %incdec.ptr.i, ptr %this, align 8
   br label %while.cond, !llvm.loop !4
 
@@ -102,17 +102,17 @@ _ZN6hermes11UTF16Stream7hasCharEv.exit6.if.end_crit_edge: ; preds = %_ZN6hermes1
   br label %if.end
 
 if.then:                                          ; preds = %_ZN6hermes11UTF16Stream7hasCharEv.exit6
-  %token_ = getelementptr inbounds i8, ptr %this, i64 72
+  %token_ = getelementptr inbounds nuw i8, ptr %this, i64 72
   store i32 11, ptr %token_, align 8
-  %firstChar_.i = getelementptr inbounds i8, ptr %this, i64 104
+  %firstChar_.i = getelementptr inbounds nuw i8, ptr %this, i64 104
   store i16 0, ptr %firstChar_.i, align 8
   br label %return
 
 if.end:                                           ; preds = %_ZN6hermes11UTF16Stream7hasCharEv.exit6.if.end_crit_edge, %while.end
   %6 = phi ptr [ %.pre21, %_ZN6hermes11UTF16Stream7hasCharEv.exit6.if.end_crit_edge ], [ %4, %while.end ]
-  %token_9 = getelementptr inbounds i8, ptr %this, i64 72
+  %token_9 = getelementptr inbounds nuw i8, ptr %this, i64 72
   %7 = load i16, ptr %6, align 2
-  %firstChar_.i7 = getelementptr inbounds i8, ptr %this, i64 104
+  %firstChar_.i7 = getelementptr inbounds nuw i8, ptr %this, i64 104
   store i16 %7, ptr %firstChar_.i7, align 8
   switch i16 %7, label %_ZN6hermes2vm9JSONLexer13errorWithCharERKNS0_11TwineChar16EDs.exit [
     i16 123, label %sw.bb
@@ -140,37 +140,37 @@ if.end:                                           ; preds = %_ZN6hermes11UTF16St
 
 sw.bb:                                            ; preds = %if.end
   store i32 5, ptr %token_9, align 8
-  %incdec.ptr.i8 = getelementptr inbounds i8, ptr %6, i64 2
+  %incdec.ptr.i8 = getelementptr inbounds nuw i8, ptr %6, i64 2
   store ptr %incdec.ptr.i8, ptr %this, align 8
   br label %return
 
 sw.bb17:                                          ; preds = %if.end
   store i32 6, ptr %token_9, align 8
-  %incdec.ptr.i9 = getelementptr inbounds i8, ptr %6, i64 2
+  %incdec.ptr.i9 = getelementptr inbounds nuw i8, ptr %6, i64 2
   store ptr %incdec.ptr.i9, ptr %this, align 8
   br label %return
 
 sw.bb21:                                          ; preds = %if.end
   store i32 7, ptr %token_9, align 8
-  %incdec.ptr.i10 = getelementptr inbounds i8, ptr %6, i64 2
+  %incdec.ptr.i10 = getelementptr inbounds nuw i8, ptr %6, i64 2
   store ptr %incdec.ptr.i10, ptr %this, align 8
   br label %return
 
 sw.bb25:                                          ; preds = %if.end
   store i32 8, ptr %token_9, align 8
-  %incdec.ptr.i11 = getelementptr inbounds i8, ptr %6, i64 2
+  %incdec.ptr.i11 = getelementptr inbounds nuw i8, ptr %6, i64 2
   store ptr %incdec.ptr.i11, ptr %this, align 8
   br label %return
 
 sw.bb29:                                          ; preds = %if.end
   store i32 9, ptr %token_9, align 8
-  %incdec.ptr.i12 = getelementptr inbounds i8, ptr %6, i64 2
+  %incdec.ptr.i12 = getelementptr inbounds nuw i8, ptr %6, i64 2
   store ptr %incdec.ptr.i12, ptr %this, align 8
   br label %return
 
 sw.bb33:                                          ; preds = %if.end
   store i32 10, ptr %token_9, align 8
-  %incdec.ptr.i13 = getelementptr inbounds i8, ptr %6, i64 2
+  %incdec.ptr.i13 = getelementptr inbounds nuw i8, ptr %6, i64 2
   store ptr %incdec.ptr.i13, ptr %this, align 8
   br label %return
 
@@ -204,32 +204,32 @@ if.else:                                          ; preds = %sw.bb45
 _ZN6hermes2vm9JSONLexer13errorWithCharERKNS0_11TwineChar16EDs.exit: ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %ch.addr.i)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i)
-  %rightChild_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
+  %rightChild_.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 16
   store ptr %ch.addr.i, ptr %rightChild_.i.i.i, align 8, !alias.scope !6
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i.i)
   store i16 %7, ptr %ch.addr.i, align 2
   store ptr @.str, ptr %ref.tmp.i, align 8
-  %8 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   store i32 4, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 24
   store i32 4, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 32
   store i64 22, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 40
   store i64 1, ptr %11, align 8
   store i32 12, ptr %token_9, align 8
-  %.in.i = getelementptr inbounds i8, ptr %this, i64 64
+  %.in.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %12 = load ptr, ptr %.in.i, align 8
   store ptr @.str.8, ptr %ref.tmp.i.i, align 8, !alias.scope !9
-  %leftKind_.i22.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
+  %leftKind_.i22.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 8
   store i32 3, ptr %leftKind_.i22.i.i.i, align 8, !alias.scope !9
-  %rightChild_.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 16
+  %rightChild_.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 16
   store ptr %ref.tmp.i, ptr %rightChild_.i.i.i.i, align 8, !alias.scope !9
-  %rightKind_.i23.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 24
+  %rightKind_.i23.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 24
   store i32 2, ptr %rightKind_.i23.i.i.i, align 8, !alias.scope !9
-  %leftSize_.i24.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 32
+  %leftSize_.i24.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 32
   store i64 18, ptr %leftSize_.i24.i.i.i, align 8, !alias.scope !9
-  %rightSize_.i25.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 40
+  %rightSize_.i25.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 40
   store i64 23, ptr %rightSize_.i25.i.i.i, align 8, !alias.scope !9
   %call.i.i = call noundef i32 @_ZN6hermes2vm7Runtime16raiseSyntaxErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %12, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i.i) #11
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i.i)
@@ -261,7 +261,7 @@ entry:
   br i1 %tobool.not37, label %if.end14, label %land.rhs.lr.ph
 
 land.rhs.lr.ph:                                   ; preds = %entry
-  %end_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %end_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %.pre = load ptr, ptr %this, align 8
   br label %land.rhs
 
@@ -294,33 +294,33 @@ while.body:                                       ; preds = %_ZN6hermes11UTF16St
 _ZN6hermes2vm9JSONLexer13errorWithCharERKNS0_11TwineChar16EDs.exit: ; preds = %while.body
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %ch.addr.i)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i)
-  %rightChild_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
+  %rightChild_.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 16
   store ptr %ch.addr.i, ptr %rightChild_.i.i.i, align 8, !alias.scope !12
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i.i)
   store i16 %6, ptr %ch.addr.i, align 2
   store ptr @.str, ptr %ref.tmp.i, align 8
-  %7 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   store i32 4, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 24
   store i32 4, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 32
   store i64 22, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 40
   store i64 1, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %this, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %this, i64 72
   store i32 12, ptr %11, align 8
-  %.in.i = getelementptr inbounds i8, ptr %this, i64 64
+  %.in.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %12 = load ptr, ptr %.in.i, align 8
   store ptr @.str.8, ptr %ref.tmp.i.i, align 8, !alias.scope !15
-  %leftKind_.i22.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
+  %leftKind_.i22.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 8
   store i32 3, ptr %leftKind_.i22.i.i.i, align 8, !alias.scope !15
-  %rightChild_.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 16
+  %rightChild_.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 16
   store ptr %ref.tmp.i, ptr %rightChild_.i.i.i.i, align 8, !alias.scope !15
-  %rightKind_.i23.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 24
+  %rightKind_.i23.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 24
   store i32 2, ptr %rightKind_.i23.i.i.i, align 8, !alias.scope !15
-  %leftSize_.i24.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 32
+  %leftSize_.i24.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 32
   store i64 18, ptr %leftSize_.i24.i.i.i, align 8, !alias.scope !15
-  %rightSize_.i25.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 40
+  %rightSize_.i25.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 40
   store i64 23, ptr %rightSize_.i25.i.i.i, align 8, !alias.scope !15
   %call.i.i = call noundef i32 @_ZN6hermes2vm7Runtime16raiseSyntaxErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %12, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i.i) #11
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i.i)
@@ -329,9 +329,9 @@ _ZN6hermes2vm9JSONLexer13errorWithCharERKNS0_11TwineChar16EDs.exit: ; preds = %w
   br label %return
 
 if.end:                                           ; preds = %while.body
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %5, i64 2
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %5, i64 2
   store ptr %incdec.ptr.i, ptr %this, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %word.addr.038, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %word.addr.038, i64 1
   %13 = load i8, ptr %incdec.ptr, align 1
   %tobool.not = icmp eq i8 %13, 0
   br i1 %tobool.not, label %if.end14, label %land.rhs, !llvm.loop !18
@@ -343,27 +343,27 @@ while.end:                                        ; preds = %_ZN6hermes11UTF16St
 
 _ZN6hermes2vm9JSONLexer5errorERKNS0_11TwineChar16E.exit: ; preds = %while.end
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i17)
-  %runtime_.i33 = getelementptr inbounds i8, ptr %this, i64 64
+  %runtime_.i33 = getelementptr inbounds nuw i8, ptr %this, i64 64
   %14 = load ptr, ptr %runtime_.i33, align 8
-  %rightChild_.i.i.i24 = getelementptr inbounds i8, ptr %ref.tmp.i17, i64 16
+  %rightChild_.i.i.i24 = getelementptr inbounds nuw i8, ptr %ref.tmp.i17, i64 16
   store ptr @.str.4, ptr %rightChild_.i.i.i24, align 8, !alias.scope !19
-  %15 = getelementptr inbounds i8, ptr %this, i64 72
+  %15 = getelementptr inbounds nuw i8, ptr %this, i64 72
   store i32 12, ptr %15, align 8
   store ptr @.str.8, ptr %ref.tmp.i17, align 8
-  %16 = getelementptr inbounds i8, ptr %ref.tmp.i17, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %ref.tmp.i17, i64 8
   store i32 3, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %ref.tmp.i17, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %ref.tmp.i17, i64 24
   store i32 4, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %ref.tmp.i17, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %ref.tmp.i17, i64 32
   store i64 18, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %ref.tmp.i17, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %ref.tmp.i17, i64 40
   store i64 23, ptr %19, align 8
   %call.i19 = call noundef i32 @_ZN6hermes2vm7Runtime16raiseSyntaxErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %14, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i17) #11
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i17)
   br label %return
 
 if.end14:                                         ; preds = %if.end, %entry, %while.end
-  %token_ = getelementptr inbounds i8, ptr %this, i64 72
+  %token_ = getelementptr inbounds nuw i8, ptr %this, i64 72
   store i32 %kind, ptr %token_, align 8
   br label %return
 
@@ -383,13 +383,13 @@ entry:
   %ref.tmp.i = alloca %"class.hermes::vm::TwineChar16", align 8
   %str8 = alloca %"class.llvh::SmallVector", align 8
   %endPtr = alloca ptr, align 8
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %str8, i64 16
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %str8, i64 16
   store ptr %add.ptr.i.i.i.i.i, ptr %str8, align 8
-  %Size.i.i.i.i.i = getelementptr inbounds i8, ptr %str8, i64 8
+  %Size.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %str8, i64 8
   store i32 0, ptr %Size.i.i.i.i.i, align 8
-  %Capacity2.i.i.i.i.i = getelementptr inbounds i8, ptr %str8, i64 12
+  %Capacity2.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %str8, i64 12
   store i32 32, ptr %Capacity2.i.i.i.i.i, align 4
-  %end_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %end_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %.pre = load ptr, ptr %this, align 8
   br label %while.cond
 
@@ -440,13 +440,13 @@ _ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit: ; preds = %if.end, 
   %8 = phi i32 [ %.pre.i, %if.then.i ], [ %6, %if.end ]
   %9 = load ptr, ptr %str8, align 8
   %conv.i3.i = zext i32 %8 to i64
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %9, i64 %conv.i3.i
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %9, i64 %conv.i3.i
   store i8 %conv17, ptr %add.ptr.i.i, align 1
   %10 = load i32, ptr %Size.i.i.i.i.i, align 8
   %add.i = add i32 %10, 1
   store i32 %add.i, ptr %Size.i.i.i.i.i, align 8
   %11 = load ptr, ptr %this, align 8
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %11, i64 2
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %11, i64 2
   store ptr %incdec.ptr.i, ptr %this, align 8
   br label %while.cond, !llvm.loop !22
 
@@ -461,7 +461,7 @@ while.end:                                        ; preds = %lor.lhs.false9, %_Z
   br i1 %or.cond3, label %land.lhs.true26, label %if.end39
 
 land.lhs.true26:                                  ; preds = %while.end
-  %arrayidx.i59 = getelementptr inbounds i8, ptr %13, i64 1
+  %arrayidx.i59 = getelementptr inbounds nuw i8, ptr %13, i64 1
   %15 = load i8, ptr %arrayidx.i59, align 1
   %16 = add i8 %15, -48
   %or.cond11 = icmp ult i8 %16, 10
@@ -470,34 +470,34 @@ land.lhs.true26:                                  ; preds = %while.end
 _ZN6hermes2vm9JSONLexer13errorWithCharERKNS0_11TwineChar16EDs.exit: ; preds = %land.lhs.true26
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %ch.addr.i)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i)
-  %rightChild_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
+  %rightChild_.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 16
   store ptr %ch.addr.i, ptr %rightChild_.i.i.i, align 8, !alias.scope !23
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i.i)
   %conv3782 = zext nneg i8 %15 to i16
   store i16 %conv3782, ptr %ch.addr.i, align 2
   store ptr @.str.3, ptr %ref.tmp.i, align 8
-  %17 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   store i32 4, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 24
   store i32 4, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 32
   store i64 32, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 40
   store i64 1, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %this, i64 72
+  %21 = getelementptr inbounds nuw i8, ptr %this, i64 72
   store i32 12, ptr %21, align 8
-  %.in.i = getelementptr inbounds i8, ptr %this, i64 64
+  %.in.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %22 = load ptr, ptr %.in.i, align 8
   store ptr @.str.8, ptr %ref.tmp.i.i, align 8, !alias.scope !26
-  %leftKind_.i22.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
+  %leftKind_.i22.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 8
   store i32 3, ptr %leftKind_.i22.i.i.i, align 8, !alias.scope !26
-  %rightChild_.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 16
+  %rightChild_.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 16
   store ptr %ref.tmp.i, ptr %rightChild_.i.i.i.i, align 8, !alias.scope !26
-  %rightKind_.i23.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 24
+  %rightKind_.i23.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 24
   store i32 2, ptr %rightKind_.i23.i.i.i, align 8, !alias.scope !26
-  %leftSize_.i24.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 32
+  %leftSize_.i24.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 32
   store i64 18, ptr %leftSize_.i24.i.i.i, align 8, !alias.scope !26
-  %rightSize_.i25.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 40
+  %rightSize_.i25.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 40
   store i64 33, ptr %rightSize_.i25.i.i.i, align 8, !alias.scope !26
   %call.i.i = call noundef i32 @_ZN6hermes2vm7Runtime16raiseSyntaxErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %22, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i.i) #11
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i.i)
@@ -520,7 +520,7 @@ if.then.i16:                                      ; preds = %if.end39
 _ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit22: ; preds = %if.end39, %if.then.i16
   %conv.i3.i19.pre-phi = phi i64 [ %conv.i, %if.end39 ], [ %.pre95, %if.then.i16 ]
   %24 = phi ptr [ %13, %if.end39 ], [ %.pre94, %if.then.i16 ]
-  %add.ptr.i.i20 = getelementptr inbounds i8, ptr %24, i64 %conv.i3.i19.pre-phi
+  %add.ptr.i.i20 = getelementptr inbounds nuw i8, ptr %24, i64 %conv.i3.i19.pre-phi
   store i8 0, ptr %add.ptr.i.i20, align 1
   %25 = load i32, ptr %Size.i.i.i.i.i, align 8
   %add.i21 = add i32 %25, 1
@@ -529,7 +529,7 @@ _ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit22: ; preds = %if.end
   %call42 = call double @hermes_g_strtod(ptr noundef %26, ptr noundef nonnull %endPtr) #11
   %27 = load ptr, ptr %endPtr, align 8
   %28 = load ptr, ptr %str8, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %28, i64 %conv.i
+  %add.ptr = getelementptr inbounds nuw i8, ptr %28, i64 %conv.i
   %cmp44.not = icmp eq ptr %27, %add.ptr
   br i1 %cmp44.not, label %if.end49, label %_ZN6hermes2vm9JSONLexer13errorWithCharERKNS0_11TwineChar16EDs.exit78
 
@@ -537,34 +537,34 @@ _ZN6hermes2vm9JSONLexer13errorWithCharERKNS0_11TwineChar16EDs.exit78: ; preds = 
   %29 = load i8, ptr %27, align 1
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %ch.addr.i37)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i38)
-  %rightChild_.i.i.i72 = getelementptr inbounds i8, ptr %ref.tmp.i38, i64 16
+  %rightChild_.i.i.i72 = getelementptr inbounds nuw i8, ptr %ref.tmp.i38, i64 16
   store ptr %ch.addr.i37, ptr %rightChild_.i.i.i72, align 8, !alias.scope !29
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i.i36)
   %conv4785 = sext i8 %29 to i16
   store i16 %conv4785, ptr %ch.addr.i37, align 2
   store ptr @.str.3, ptr %ref.tmp.i38, align 8
-  %30 = getelementptr inbounds i8, ptr %ref.tmp.i38, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %ref.tmp.i38, i64 8
   store i32 4, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %ref.tmp.i38, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %ref.tmp.i38, i64 24
   store i32 4, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %ref.tmp.i38, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %ref.tmp.i38, i64 32
   store i64 32, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %ref.tmp.i38, i64 40
+  %33 = getelementptr inbounds nuw i8, ptr %ref.tmp.i38, i64 40
   store i64 1, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %this, i64 72
+  %34 = getelementptr inbounds nuw i8, ptr %this, i64 72
   store i32 12, ptr %34, align 8
-  %.in.i46 = getelementptr inbounds i8, ptr %this, i64 64
+  %.in.i46 = getelementptr inbounds nuw i8, ptr %this, i64 64
   %35 = load ptr, ptr %.in.i46, align 8
   store ptr @.str.8, ptr %ref.tmp.i.i36, align 8, !alias.scope !32
-  %leftKind_.i22.i.i.i47 = getelementptr inbounds i8, ptr %ref.tmp.i.i36, i64 8
+  %leftKind_.i22.i.i.i47 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i36, i64 8
   store i32 3, ptr %leftKind_.i22.i.i.i47, align 8, !alias.scope !32
-  %rightChild_.i.i.i.i48 = getelementptr inbounds i8, ptr %ref.tmp.i.i36, i64 16
+  %rightChild_.i.i.i.i48 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i36, i64 16
   store ptr %ref.tmp.i38, ptr %rightChild_.i.i.i.i48, align 8, !alias.scope !32
-  %rightKind_.i23.i.i.i49 = getelementptr inbounds i8, ptr %ref.tmp.i.i36, i64 24
+  %rightKind_.i23.i.i.i49 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i36, i64 24
   store i32 2, ptr %rightKind_.i23.i.i.i49, align 8, !alias.scope !32
-  %leftSize_.i24.i.i.i50 = getelementptr inbounds i8, ptr %ref.tmp.i.i36, i64 32
+  %leftSize_.i24.i.i.i50 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i36, i64 32
   store i64 18, ptr %leftSize_.i24.i.i.i50, align 8, !alias.scope !32
-  %rightSize_.i25.i.i.i51 = getelementptr inbounds i8, ptr %ref.tmp.i.i36, i64 40
+  %rightSize_.i25.i.i.i51 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i36, i64 40
   store i64 33, ptr %rightSize_.i25.i.i.i51, align 8, !alias.scope !32
   %call.i.i52 = call noundef i32 @_ZN6hermes2vm7Runtime16raiseSyntaxErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %35, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i.i36) #11
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i.i36)
@@ -573,9 +573,9 @@ _ZN6hermes2vm9JSONLexer13errorWithCharERKNS0_11TwineChar16EDs.exit78: ; preds = 
   br label %cleanup
 
 if.end49:                                         ; preds = %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit22
-  %token_ = getelementptr inbounds i8, ptr %this, i64 72
+  %token_ = getelementptr inbounds nuw i8, ptr %this, i64 72
   store i32 0, ptr %token_, align 8
-  %numberValue_.i = getelementptr inbounds i8, ptr %this, i64 80
+  %numberValue_.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   store double %call42, ptr %numberValue_.i, align 8
   br label %cleanup
 
@@ -602,16 +602,16 @@ entry:
   %tmpStorage = alloca %"class.hermes::vm::SmallXString", align 8
   %ref.tmp89 = alloca %"class.hermes::vm::TwineChar16", align 8
   %0 = load ptr, ptr %this, align 8
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %0, i64 2
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %0, i64 2
   store ptr %incdec.ptr.i, ptr %this, align 8
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %tmpStorage, i64 16
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %tmpStorage, i64 16
   store ptr %add.ptr.i.i.i.i.i.i, ptr %tmpStorage, align 8
-  %Size.i.i.i.i.i.i = getelementptr inbounds i8, ptr %tmpStorage, i64 8
+  %Size.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %tmpStorage, i64 8
   store i32 0, ptr %Size.i.i.i.i.i.i, align 8
-  %Capacity2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %tmpStorage, i64 12
+  %Capacity2.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %tmpStorage, i64 12
   store i32 32, ptr %Capacity2.i.i.i.i.i.i, align 4
   call void @_ZN6hermes11UTF16Stream12beginCaptureEv(ptr noundef nonnull align 8 dereferenceable(64) %this) #11
-  %end_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %end_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   br label %while.cond
 
 while.cond:                                       ; preds = %if.end102, %entry
@@ -658,20 +658,20 @@ cond.end:                                         ; preds = %cond.false, %cond.t
   %call7.pn = phi { ptr, i64 } [ %.fca.1.insert.i, %cond.true ], [ %call9, %cond.false ]
   %strRef.sroa.3.0 = extractvalue { ptr, i64 } %call7.pn, 1
   %strRef.sroa.0.0 = extractvalue { ptr, i64 } %call7.pn, 0
-  %incdec.ptr.i5 = getelementptr inbounds i8, ptr %7, i64 2
+  %incdec.ptr.i5 = getelementptr inbounds nuw i8, ptr %7, i64 2
   store ptr %incdec.ptr.i5, ptr %this, align 8
-  %runtime_ = getelementptr inbounds i8, ptr %this, i64 64
+  %runtime_ = getelementptr inbounds nuw i8, ptr %this, i64 64
   %8 = load ptr, ptr %runtime_, align 8
-  %identifierTable_.i = getelementptr inbounds i8, ptr %8, i64 9264
+  %identifierTable_.i = getelementptr inbounds nuw i8, ptr %8, i64 9264
   %call14 = call ptr @_ZN6hermes2vm15IdentifierTable15getSymbolHandleERNS0_7RuntimeEN4llvh8ArrayRefIDsEEj(ptr noundef nonnull align 8 dereferenceable(84) %identifierTable_.i, ptr noundef nonnull align 8 dereferenceable(9832) %8, ptr %strRef.sroa.0.0, i64 %strRef.sroa.3.0, i32 noundef %hash.0) #11
   %cmp.i.i.not = icmp eq ptr %call14, inttoptr (i64 -1 to ptr)
   br i1 %cmp.i.i.not, label %_ZN4llvh6detail10scope_exitIZN6hermes2vm9JSONLexer10scanStringISt17integral_constantIbLb1EEEENS3_15ExecutionStatusEvEUlvE_ED2Ev.exit, label %if.end
 
 if.end:                                           ; preds = %cond.end
-  %token_ = getelementptr inbounds i8, ptr %this, i64 72
+  %token_ = getelementptr inbounds nuw i8, ptr %this, i64 72
   store i32 1, ptr %token_, align 8
   %retval.sroa.0.0.copyload.i.i.i.i.i = load i64, ptr %call14, align 8
-  %symbolValue_.i = getelementptr inbounds i8, ptr %this, i64 96
+  %symbolValue_.i = getelementptr inbounds nuw i8, ptr %this, i64 96
   %conv.i.i.i.i.i = and i64 %retval.sroa.0.0.copyload.i.i.i.i.i, 4294967295
   %or.i.i.i.i.i.i = or disjoint i64 %conv.i.i.i.i.i, -1266637395197952
   %9 = load ptr, ptr %symbolValue_.i, align 8
@@ -684,20 +684,20 @@ if.else:                                          ; preds = %while.body
 
 _ZN6hermes2vm9JSONLexer5errorERKNS0_11TwineChar16E.exit: ; preds = %if.else
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i)
-  %runtime_.i187 = getelementptr inbounds i8, ptr %this, i64 64
+  %runtime_.i187 = getelementptr inbounds nuw i8, ptr %this, i64 64
   %10 = load ptr, ptr %runtime_.i187, align 8
-  %rightChild_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
+  %rightChild_.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 16
   store ptr @.str.9, ptr %rightChild_.i.i.i, align 8, !alias.scope !35
-  %11 = getelementptr inbounds i8, ptr %this, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %this, i64 72
   store i32 12, ptr %11, align 8
   store ptr @.str.8, ptr %ref.tmp.i, align 8
-  %12 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   store i32 3, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 24
   store i32 4, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 32
   store i64 18, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 40
   store i64 43, ptr %15, align 8
   %call.i7 = call noundef i32 @_ZN6hermes2vm7Runtime16raiseSyntaxErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %10, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i) #11
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
@@ -738,7 +738,7 @@ if.end.i.i:                                       ; preds = %if.then38
 if.then.i.i.i:                                    ; preds = %if.end.i.i, %if.end.i.thread.i
   %conv.i9.i.i.pre-phi = phi i64 [ %conv.i5.i.i, %if.end.i.i ], [ %.pre224, %if.end.i.thread.i ]
   %20 = load ptr, ptr %tmpStorage, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i16, ptr %20, i64 %conv.i9.i.i.pre-phi
+  %add.ptr.i.i.i = getelementptr inbounds nuw i16, ptr %20, i64 %conv.i9.i.i.pre-phi
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i.i, ptr align 2 %16, i64 %add.ptr.i.idx.i, i1 false)
   %.pre.i.i = load i32, ptr %Size.i.i.i.i.i.i, align 8
   br label %_ZN6hermes2vm12SmallXStringIDsLj32EE6appendEN4llvh8ArrayRefIDsEE.exit
@@ -753,7 +753,7 @@ _ZN6hermes2vm12SmallXStringIDsLj32EE6appendEN4llvh8ArrayRefIDsEE.exit: ; preds =
 
 if.end43:                                         ; preds = %_ZN6hermes2vm12SmallXStringIDsLj32EE6appendEN4llvh8ArrayRefIDsEE.exit, %if.then36
   %23 = phi ptr [ %.pre221, %_ZN6hermes2vm12SmallXStringIDsLj32EE6appendEN4llvh8ArrayRefIDsEE.exit ], [ %3, %if.then36 ]
-  %incdec.ptr.i9 = getelementptr inbounds i8, ptr %23, i64 2
+  %incdec.ptr.i9 = getelementptr inbounds nuw i8, ptr %23, i64 2
   store ptr %incdec.ptr.i9, ptr %this, align 8
   %24 = load ptr, ptr %end_.i, align 8
   %cmp.not.i11 = icmp eq ptr %incdec.ptr.i9, %24
@@ -769,20 +769,20 @@ _ZN6hermes11UTF16Stream7hasCharEv.exit14.if.end51_crit_edge: ; preds = %_ZN6herm
 
 if.then48:                                        ; preds = %_ZN6hermes11UTF16Stream7hasCharEv.exit14
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i16)
-  %token_.i17190 = getelementptr inbounds i8, ptr %this, i64 72
+  %token_.i17190 = getelementptr inbounds nuw i8, ptr %this, i64 72
   store i32 12, ptr %token_.i17190, align 8
-  %runtime_.i18191 = getelementptr inbounds i8, ptr %this, i64 64
+  %runtime_.i18191 = getelementptr inbounds nuw i8, ptr %this, i64 64
   %25 = load ptr, ptr %runtime_.i18191, align 8
   store ptr @.str.8, ptr %ref.tmp.i16, align 8, !alias.scope !38
-  %leftKind_.i22.i.i39 = getelementptr inbounds i8, ptr %ref.tmp.i16, i64 8
+  %leftKind_.i22.i.i39 = getelementptr inbounds nuw i8, ptr %ref.tmp.i16, i64 8
   store i32 3, ptr %leftKind_.i22.i.i39, align 8, !alias.scope !38
-  %rightChild_.i.i.i40 = getelementptr inbounds i8, ptr %ref.tmp.i16, i64 16
+  %rightChild_.i.i.i40 = getelementptr inbounds nuw i8, ptr %ref.tmp.i16, i64 16
   store ptr @.str.1, ptr %rightChild_.i.i.i40, align 8, !alias.scope !38
-  %rightKind_.i23.i.i41 = getelementptr inbounds i8, ptr %ref.tmp.i16, i64 24
+  %rightKind_.i23.i.i41 = getelementptr inbounds nuw i8, ptr %ref.tmp.i16, i64 24
   store i32 3, ptr %rightKind_.i23.i.i41, align 8, !alias.scope !38
-  %leftSize_.i24.i.i42 = getelementptr inbounds i8, ptr %ref.tmp.i16, i64 32
+  %leftSize_.i24.i.i42 = getelementptr inbounds nuw i8, ptr %ref.tmp.i16, i64 32
   store i64 18, ptr %leftSize_.i24.i.i42, align 8, !alias.scope !38
-  %rightSize_.i25.i.i43 = getelementptr inbounds i8, ptr %ref.tmp.i16, i64 40
+  %rightSize_.i25.i.i43 = getelementptr inbounds nuw i8, ptr %ref.tmp.i16, i64 40
   store i64 23, ptr %rightSize_.i25.i.i43, align 8, !alias.scope !38
   %call.i25 = call noundef i32 @_ZN6hermes2vm7Runtime16raiseSyntaxErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %25, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i16) #11
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i16)
@@ -818,13 +818,13 @@ _ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit: ; preds = %sw.bb,
   %30 = phi i32 [ %.pre.i, %if.then.i ], [ %28, %sw.bb ]
   %31 = load ptr, ptr %tmpStorage, align 8
   %conv.i3.i = zext i32 %30 to i64
-  %add.ptr.i.i = getelementptr inbounds i16, ptr %31, i64 %conv.i3.i
+  %add.ptr.i.i = getelementptr inbounds nuw i16, ptr %31, i64 %conv.i3.i
   store i16 %27, ptr %add.ptr.i.i, align 1
   %32 = load i32, ptr %Size.i.i.i.i.i.i, align 8
   %add.i = add i32 %32, 1
   store i32 %add.i, ptr %Size.i.i.i.i.i.i, align 8
   %33 = load ptr, ptr %this, align 8
-  %incdec.ptr.i47 = getelementptr inbounds i8, ptr %33, i64 2
+  %incdec.ptr.i47 = getelementptr inbounds nuw i8, ptr %33, i64 2
   store ptr %incdec.ptr.i47, ptr %this, align 8
   br label %sw.epilog
 
@@ -843,13 +843,13 @@ _ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit57: ; preds = %sw.b
   %36 = phi i32 [ %.pre.i53, %if.then.i51 ], [ %34, %sw.bb60 ]
   %37 = load ptr, ptr %tmpStorage, align 8
   %conv.i3.i54 = zext i32 %36 to i64
-  %add.ptr.i.i55 = getelementptr inbounds i16, ptr %37, i64 %conv.i3.i54
+  %add.ptr.i.i55 = getelementptr inbounds nuw i16, ptr %37, i64 %conv.i3.i54
   store i16 8, ptr %add.ptr.i.i55, align 1
   %38 = load i32, ptr %Size.i.i.i.i.i.i, align 8
   %add.i56 = add i32 %38, 1
   store i32 %add.i56, ptr %Size.i.i.i.i.i.i, align 8
   %39 = load ptr, ptr %this, align 8
-  %incdec.ptr.i58 = getelementptr inbounds i8, ptr %39, i64 2
+  %incdec.ptr.i58 = getelementptr inbounds nuw i8, ptr %39, i64 2
   store ptr %incdec.ptr.i58, ptr %this, align 8
   br label %sw.epilog
 
@@ -868,13 +868,13 @@ _ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit68: ; preds = %sw.b
   %42 = phi i32 [ %.pre.i64, %if.then.i62 ], [ %40, %sw.bb64 ]
   %43 = load ptr, ptr %tmpStorage, align 8
   %conv.i3.i65 = zext i32 %42 to i64
-  %add.ptr.i.i66 = getelementptr inbounds i16, ptr %43, i64 %conv.i3.i65
+  %add.ptr.i.i66 = getelementptr inbounds nuw i16, ptr %43, i64 %conv.i3.i65
   store i16 12, ptr %add.ptr.i.i66, align 1
   %44 = load i32, ptr %Size.i.i.i.i.i.i, align 8
   %add.i67 = add i32 %44, 1
   store i32 %add.i67, ptr %Size.i.i.i.i.i.i, align 8
   %45 = load ptr, ptr %this, align 8
-  %incdec.ptr.i69 = getelementptr inbounds i8, ptr %45, i64 2
+  %incdec.ptr.i69 = getelementptr inbounds nuw i8, ptr %45, i64 2
   store ptr %incdec.ptr.i69, ptr %this, align 8
   br label %sw.epilog
 
@@ -893,13 +893,13 @@ _ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit79: ; preds = %sw.b
   %48 = phi i32 [ %.pre.i75, %if.then.i73 ], [ %46, %sw.bb68 ]
   %49 = load ptr, ptr %tmpStorage, align 8
   %conv.i3.i76 = zext i32 %48 to i64
-  %add.ptr.i.i77 = getelementptr inbounds i16, ptr %49, i64 %conv.i3.i76
+  %add.ptr.i.i77 = getelementptr inbounds nuw i16, ptr %49, i64 %conv.i3.i76
   store i16 10, ptr %add.ptr.i.i77, align 1
   %50 = load i32, ptr %Size.i.i.i.i.i.i, align 8
   %add.i78 = add i32 %50, 1
   store i32 %add.i78, ptr %Size.i.i.i.i.i.i, align 8
   %51 = load ptr, ptr %this, align 8
-  %incdec.ptr.i80 = getelementptr inbounds i8, ptr %51, i64 2
+  %incdec.ptr.i80 = getelementptr inbounds nuw i8, ptr %51, i64 2
   store ptr %incdec.ptr.i80, ptr %this, align 8
   br label %sw.epilog
 
@@ -918,13 +918,13 @@ _ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit90: ; preds = %sw.b
   %54 = phi i32 [ %.pre.i86, %if.then.i84 ], [ %52, %sw.bb72 ]
   %55 = load ptr, ptr %tmpStorage, align 8
   %conv.i3.i87 = zext i32 %54 to i64
-  %add.ptr.i.i88 = getelementptr inbounds i16, ptr %55, i64 %conv.i3.i87
+  %add.ptr.i.i88 = getelementptr inbounds nuw i16, ptr %55, i64 %conv.i3.i87
   store i16 13, ptr %add.ptr.i.i88, align 1
   %56 = load i32, ptr %Size.i.i.i.i.i.i, align 8
   %add.i89 = add i32 %56, 1
   store i32 %add.i89, ptr %Size.i.i.i.i.i.i, align 8
   %57 = load ptr, ptr %this, align 8
-  %incdec.ptr.i91 = getelementptr inbounds i8, ptr %57, i64 2
+  %incdec.ptr.i91 = getelementptr inbounds nuw i8, ptr %57, i64 2
   store ptr %incdec.ptr.i91, ptr %this, align 8
   br label %sw.epilog
 
@@ -943,18 +943,18 @@ _ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit101: ; preds = %sw.
   %60 = phi i32 [ %.pre.i97, %if.then.i95 ], [ %58, %sw.bb76 ]
   %61 = load ptr, ptr %tmpStorage, align 8
   %conv.i3.i98 = zext i32 %60 to i64
-  %add.ptr.i.i99 = getelementptr inbounds i16, ptr %61, i64 %conv.i3.i98
+  %add.ptr.i.i99 = getelementptr inbounds nuw i16, ptr %61, i64 %conv.i3.i98
   store i16 9, ptr %add.ptr.i.i99, align 1
   %62 = load i32, ptr %Size.i.i.i.i.i.i, align 8
   %add.i100 = add i32 %62, 1
   store i32 %add.i100, ptr %Size.i.i.i.i.i.i, align 8
   %63 = load ptr, ptr %this, align 8
-  %incdec.ptr.i102 = getelementptr inbounds i8, ptr %63, i64 2
+  %incdec.ptr.i102 = getelementptr inbounds nuw i8, ptr %63, i64 2
   store ptr %incdec.ptr.i102, ptr %this, align 8
   br label %sw.epilog
 
 sw.bb80:                                          ; preds = %if.end51
-  %incdec.ptr.i103 = getelementptr inbounds i8, ptr %26, i64 2
+  %incdec.ptr.i103 = getelementptr inbounds nuw i8, ptr %26, i64 2
   store ptr %incdec.ptr.i103, ptr %this, align 8
   %call83 = call i64 @_ZN6hermes2vm9JSONLexer14consumeUnicodeEv(ptr noundef nonnull align 8 dereferenceable(112) %this)
   %cr.sroa.2.0.extract.shift = lshr i64 %call83, 32
@@ -978,7 +978,7 @@ _ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit114: ; preds = %if.
   %67 = phi i32 [ %.pre.i110, %if.then.i108 ], [ %65, %if.end87 ]
   %68 = load ptr, ptr %tmpStorage, align 8
   %conv.i3.i111 = zext i32 %67 to i64
-  %add.ptr.i.i112 = getelementptr inbounds i16, ptr %68, i64 %conv.i3.i111
+  %add.ptr.i.i112 = getelementptr inbounds nuw i16, ptr %68, i64 %conv.i3.i111
   store i16 %cr.sroa.2.0.extract.trunc, ptr %add.ptr.i.i112, align 1
   %69 = load i32, ptr %Size.i.i.i.i.i.i, align 8
   %add.i113 = add i32 %69, 1
@@ -986,14 +986,14 @@ _ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit114: ; preds = %if.
   br label %sw.epilog
 
 _ZN6hermes2vm11TwineChar16C2EPKDs.exit127:        ; preds = %if.end51
-  %rightKind_.i115 = getelementptr inbounds i8, ptr %ref.tmp89, i64 24
+  %rightKind_.i115 = getelementptr inbounds nuw i8, ptr %ref.tmp89, i64 24
   store i32 1, ptr %rightKind_.i115, align 8
-  %leftSize_.i122 = getelementptr inbounds i8, ptr %ref.tmp89, i64 32
+  %leftSize_.i122 = getelementptr inbounds nuw i8, ptr %ref.tmp89, i64 32
   store i64 25, ptr %leftSize_.i122, align 8
-  %rightSize_.i123 = getelementptr inbounds i8, ptr %ref.tmp89, i64 40
+  %rightSize_.i123 = getelementptr inbounds nuw i8, ptr %ref.tmp89, i64 40
   store i64 0, ptr %rightSize_.i123, align 8
   store ptr @.str.10, ptr %ref.tmp89, align 8
-  %70 = getelementptr inbounds i8, ptr %ref.tmp89, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %ref.tmp89, i64 8
   store i32 4, ptr %70, align 8
   %71 = load i16, ptr %26, align 2
   %call92 = call noundef i32 @_ZN6hermes2vm9JSONLexer13errorWithCharERKNS0_11TwineChar16EDs(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp89, i16 noundef zeroext %71)
@@ -1003,7 +1003,7 @@ sw.epilog:                                        ; preds = %_ZN4llvh23SmallVect
   %72 = phi i32 [ %add.i113, %_ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit114 ], [ %add.i100, %_ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit101 ], [ %add.i89, %_ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit90 ], [ %add.i78, %_ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit79 ], [ %add.i67, %_ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit68 ], [ %add.i56, %_ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit57 ], [ %add.i, %_ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit ]
   %73 = load ptr, ptr %tmpStorage, align 8
   %conv.i.i129 = zext i32 %72 to i64
-  %add.ptr.i.i130 = getelementptr inbounds i16, ptr %73, i64 %conv.i.i129
+  %add.ptr.i.i130 = getelementptr inbounds nuw i16, ptr %73, i64 %conv.i.i129
   %arrayidx.i = getelementptr inbounds i8, ptr %add.ptr.i.i130, i64 -2
   %74 = load i16, ptr %arrayidx.i, align 2
   br label %if.end102
@@ -1026,7 +1026,7 @@ _ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit140: ; preds = %if.
   %77 = phi i32 [ %.pre.i136, %if.then.i134 ], [ %75, %if.then98 ]
   %78 = load ptr, ptr %tmpStorage, align 8
   %conv.i3.i137 = zext i32 %77 to i64
-  %add.ptr.i.i138 = getelementptr inbounds i16, ptr %78, i64 %conv.i3.i137
+  %add.ptr.i.i138 = getelementptr inbounds nuw i16, ptr %78, i64 %conv.i3.i137
   store i16 %4, ptr %add.ptr.i.i138, align 1
   %79 = load i32, ptr %Size.i.i.i.i.i.i, align 8
   %add.i139 = add i32 %79, 1
@@ -1036,7 +1036,7 @@ _ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit140: ; preds = %if.
 
 if.end99:                                         ; preds = %_ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit140, %if.else94
   %80 = phi ptr [ %.pre220, %_ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit140 ], [ %3, %if.else94 ]
-  %incdec.ptr.i141 = getelementptr inbounds i8, ptr %80, i64 2
+  %incdec.ptr.i141 = getelementptr inbounds nuw i8, ptr %80, i64 2
   store ptr %incdec.ptr.i141, ptr %this, align 8
   br label %if.end102
 
@@ -1052,20 +1052,20 @@ if.end102:                                        ; preds = %if.end99, %sw.epilo
 
 while.end:                                        ; preds = %_ZN6hermes11UTF16Stream7hasCharEv.exit
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i152)
-  %token_.i153194 = getelementptr inbounds i8, ptr %this, i64 72
+  %token_.i153194 = getelementptr inbounds nuw i8, ptr %this, i64 72
   store i32 12, ptr %token_.i153194, align 8
-  %runtime_.i154195 = getelementptr inbounds i8, ptr %this, i64 64
+  %runtime_.i154195 = getelementptr inbounds nuw i8, ptr %this, i64 64
   %81 = load ptr, ptr %runtime_.i154195, align 8
   store ptr @.str.8, ptr %ref.tmp.i152, align 8, !alias.scope !42
-  %leftKind_.i22.i.i175 = getelementptr inbounds i8, ptr %ref.tmp.i152, i64 8
+  %leftKind_.i22.i.i175 = getelementptr inbounds nuw i8, ptr %ref.tmp.i152, i64 8
   store i32 3, ptr %leftKind_.i22.i.i175, align 8, !alias.scope !42
-  %rightChild_.i.i.i176 = getelementptr inbounds i8, ptr %ref.tmp.i152, i64 16
+  %rightChild_.i.i.i176 = getelementptr inbounds nuw i8, ptr %ref.tmp.i152, i64 16
   store ptr @.str.1, ptr %rightChild_.i.i.i176, align 8, !alias.scope !42
-  %rightKind_.i23.i.i177 = getelementptr inbounds i8, ptr %ref.tmp.i152, i64 24
+  %rightKind_.i23.i.i177 = getelementptr inbounds nuw i8, ptr %ref.tmp.i152, i64 24
   store i32 3, ptr %rightKind_.i23.i.i177, align 8, !alias.scope !42
-  %leftSize_.i24.i.i178 = getelementptr inbounds i8, ptr %ref.tmp.i152, i64 32
+  %leftSize_.i24.i.i178 = getelementptr inbounds nuw i8, ptr %ref.tmp.i152, i64 32
   store i64 18, ptr %leftSize_.i24.i.i178, align 8, !alias.scope !42
-  %rightSize_.i25.i.i179 = getelementptr inbounds i8, ptr %ref.tmp.i152, i64 40
+  %rightSize_.i25.i.i179 = getelementptr inbounds nuw i8, ptr %ref.tmp.i152, i64 40
   store i64 23, ptr %rightSize_.i25.i.i179, align 8, !alias.scope !42
   %call.i161 = call noundef i32 @_ZN6hermes2vm7Runtime16raiseSyntaxErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %81, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i152) #11
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i152)
@@ -1096,16 +1096,16 @@ entry:
   %tmpStorage = alloca %"class.hermes::vm::SmallXString", align 8
   %ref.tmp92 = alloca %"class.hermes::vm::TwineChar16", align 8
   %0 = load ptr, ptr %this, align 8
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %0, i64 2
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %0, i64 2
   store ptr %incdec.ptr.i, ptr %this, align 8
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %tmpStorage, i64 16
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %tmpStorage, i64 16
   store ptr %add.ptr.i.i.i.i.i.i, ptr %tmpStorage, align 8
-  %Size.i.i.i.i.i.i = getelementptr inbounds i8, ptr %tmpStorage, i64 8
+  %Size.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %tmpStorage, i64 8
   store i32 0, ptr %Size.i.i.i.i.i.i, align 8
-  %Capacity2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %tmpStorage, i64 12
+  %Capacity2.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %tmpStorage, i64 12
   store i32 32, ptr %Capacity2.i.i.i.i.i.i, align 4
   call void @_ZN6hermes11UTF16Stream12beginCaptureEv(ptr noundef nonnull align 8 dereferenceable(64) %this) #11
-  %end_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %end_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   br label %while.cond
 
 while.cond:                                       ; preds = %if.end105, %entry
@@ -1152,9 +1152,9 @@ cond.end:                                         ; preds = %cond.false, %cond.t
   %call7.pn = phi { ptr, i64 } [ %.fca.1.insert.i, %cond.true ], [ %call9, %cond.false ]
   %strRef.sroa.3.0 = extractvalue { ptr, i64 } %call7.pn, 1
   %strRef.sroa.0.0 = extractvalue { ptr, i64 } %call7.pn, 0
-  %incdec.ptr.i6 = getelementptr inbounds i8, ptr %7, i64 2
+  %incdec.ptr.i6 = getelementptr inbounds nuw i8, ptr %7, i64 2
   store ptr %incdec.ptr.i6, ptr %this, align 8
-  %runtime_ = getelementptr inbounds i8, ptr %this, i64 64
+  %runtime_ = getelementptr inbounds nuw i8, ptr %this, i64 64
   %8 = load ptr, ptr %runtime_, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   %9 = and i64 %strRef.sroa.3.0, 4294901760
@@ -1166,9 +1166,9 @@ if.then.i:                                        ; preds = %cond.end
   br label %_ZN6hermes2vm15StringPrimitive23createWithKnownEncodingERNS0_7RuntimeEN4llvh8ArrayRefIDsEEb.exit
 
 if.then.i.i.i.i:                                  ; preds = %cond.end
-  %10 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 16
   store ptr %10, ptr %ref.tmp.i, align 8, !alias.scope !45
-  %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
+  %_M_string_length.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   store i64 0, ptr %_M_string_length.i.i.i, align 8, !alias.scope !45
   %cmp.i.i.i.i.i = icmp ugt i64 %strRef.sroa.3.0, 2305843009213693951
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %if.end.i.i.i.i
@@ -1185,7 +1185,7 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i.i
   store i64 %strRef.sroa.3.0, ptr %10, align 8, !alias.scope !45
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %call5.i.i.i.i.i.i.i, ptr align 2 %strRef.sroa.0.0, i64 %add.ptr.i.idx.i.i, i1 false)
   store i64 %strRef.sroa.3.0, ptr %_M_string_length.i.i.i, align 8, !alias.scope !45
-  %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i, i64 %add.ptr.i.idx.i.i
+  %arrayidx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i, i64 %add.ptr.i.idx.i.i
   store i16 0, ptr %arrayidx.i.i.i.i.i, align 2
   %call5.i = call { i32, i64 } @_ZN6hermes2vm23ExternalStringPrimitiveIDsE6createINSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEEEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEERNS0_7RuntimeEOT_(ptr noundef nonnull align 8 dereferenceable(9832) %8, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #11
   %11 = load ptr, ptr %ref.tmp.i, align 8
@@ -1211,21 +1211,21 @@ _ZN6hermes2vm15StringPrimitive23createWithKnownEncodingERNS0_7RuntimeEN4llvh8Arr
 
 if.end:                                           ; preds = %_ZN6hermes2vm15StringPrimitive23createWithKnownEncodingERNS0_7RuntimeEN4llvh8ArrayRefIDsEEb.exit
   %14 = extractvalue { i32, i64 } %call3.pn.i, 1
-  %token_ = getelementptr inbounds i8, ptr %this, i64 72
+  %token_ = getelementptr inbounds nuw i8, ptr %this, i64 72
   %15 = load ptr, ptr %runtime_, align 8
   %and.i.i.i = and i64 %14, 281474976710655
   %or.i.i.i.i.i = or disjoint i64 %and.i.i.i, -844424930131968
-  %topGCScope_.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 8
+  %topGCScope_.i.i.i.i = getelementptr inbounds nuw i8, ptr %15, i64 8
   %16 = load ptr, ptr %topGCScope_.i.i.i.i, align 8
-  %next_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %16, i64 192
+  %next_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %16, i64 192
   %17 = load ptr, ptr %next_.i.i.i.i.i.i.i, align 8
-  %curChunkEnd_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %16, i64 200
+  %curChunkEnd_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %16, i64 200
   %18 = load ptr, ptr %curChunkEnd_.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i = icmp ult ptr %17, %18
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.end
-  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %17, i64 8
+  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %incdec.ptr.i.i.i.i.i.i, ptr %next_.i.i.i.i.i.i.i, align 8
   store i64 %or.i.i.i.i.i, ptr %17, align 8
   br label %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15StringPrimitiveEEENS0_6HandleIT_EENS0_11HermesValueE.exit
@@ -1239,7 +1239,7 @@ _ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15StringPrimitiveEEENS0_6HandleIT
   store i32 1, ptr %token_, align 8
   %retval.sroa.0.0.copyload.i.i.i = load i64, ptr %retval.0.i.i.i.i.i.i, align 8
   %and.i.i.i.i.i = and i64 %retval.sroa.0.0.copyload.i.i.i, 281474976710655
-  %stringValue_.i = getelementptr inbounds i8, ptr %this, i64 88
+  %stringValue_.i = getelementptr inbounds nuw i8, ptr %this, i64 88
   %or.i.i.i.i.i.i = or disjoint i64 %and.i.i.i.i.i, -844424930131968
   %19 = load ptr, ptr %stringValue_.i, align 8
   store i64 %or.i.i.i.i.i.i, ptr %19, align 8
@@ -1251,20 +1251,20 @@ if.else:                                          ; preds = %while.body
 
 _ZN6hermes2vm9JSONLexer5errorERKNS0_11TwineChar16E.exit: ; preds = %if.else
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i8)
-  %runtime_.i190 = getelementptr inbounds i8, ptr %this, i64 64
+  %runtime_.i190 = getelementptr inbounds nuw i8, ptr %this, i64 64
   %20 = load ptr, ptr %runtime_.i190, align 8
-  %rightChild_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i8, i64 16
+  %rightChild_.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i8, i64 16
   store ptr @.str.9, ptr %rightChild_.i.i.i, align 8, !alias.scope !48
-  %21 = getelementptr inbounds i8, ptr %this, i64 72
+  %21 = getelementptr inbounds nuw i8, ptr %this, i64 72
   store i32 12, ptr %21, align 8
   store ptr @.str.8, ptr %ref.tmp.i8, align 8
-  %22 = getelementptr inbounds i8, ptr %ref.tmp.i8, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %ref.tmp.i8, i64 8
   store i32 3, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %ref.tmp.i8, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %ref.tmp.i8, i64 24
   store i32 4, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %ref.tmp.i8, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %ref.tmp.i8, i64 32
   store i64 18, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %ref.tmp.i8, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %ref.tmp.i8, i64 40
   store i64 43, ptr %25, align 8
   %call.i9 = call noundef i32 @_ZN6hermes2vm7Runtime16raiseSyntaxErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %20, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i8) #11
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i8)
@@ -1305,7 +1305,7 @@ if.end.i.i:                                       ; preds = %if.then41
 if.then.i.i.i10:                                  ; preds = %if.end.i.i, %if.end.i.thread.i
   %conv.i9.i.i.pre-phi = phi i64 [ %conv.i5.i.i, %if.end.i.i ], [ %.pre227, %if.end.i.thread.i ]
   %30 = load ptr, ptr %tmpStorage, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i16, ptr %30, i64 %conv.i9.i.i.pre-phi
+  %add.ptr.i.i.i = getelementptr inbounds nuw i16, ptr %30, i64 %conv.i9.i.i.pre-phi
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i.i, ptr align 2 %26, i64 %add.ptr.i.idx.i, i1 false)
   %.pre.i.i = load i32, ptr %Size.i.i.i.i.i.i, align 8
   br label %_ZN6hermes2vm12SmallXStringIDsLj32EE6appendEN4llvh8ArrayRefIDsEE.exit
@@ -1320,7 +1320,7 @@ _ZN6hermes2vm12SmallXStringIDsLj32EE6appendEN4llvh8ArrayRefIDsEE.exit: ; preds =
 
 if.end46:                                         ; preds = %_ZN6hermes2vm12SmallXStringIDsLj32EE6appendEN4llvh8ArrayRefIDsEE.exit, %if.then39
   %33 = phi ptr [ %.pre224, %_ZN6hermes2vm12SmallXStringIDsLj32EE6appendEN4llvh8ArrayRefIDsEE.exit ], [ %3, %if.then39 ]
-  %incdec.ptr.i11 = getelementptr inbounds i8, ptr %33, i64 2
+  %incdec.ptr.i11 = getelementptr inbounds nuw i8, ptr %33, i64 2
   store ptr %incdec.ptr.i11, ptr %this, align 8
   %34 = load ptr, ptr %end_.i, align 8
   %cmp.not.i13 = icmp eq ptr %incdec.ptr.i11, %34
@@ -1336,20 +1336,20 @@ _ZN6hermes11UTF16Stream7hasCharEv.exit16.if.end54_crit_edge: ; preds = %_ZN6herm
 
 if.then51:                                        ; preds = %_ZN6hermes11UTF16Stream7hasCharEv.exit16
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i18)
-  %token_.i19193 = getelementptr inbounds i8, ptr %this, i64 72
+  %token_.i19193 = getelementptr inbounds nuw i8, ptr %this, i64 72
   store i32 12, ptr %token_.i19193, align 8
-  %runtime_.i20194 = getelementptr inbounds i8, ptr %this, i64 64
+  %runtime_.i20194 = getelementptr inbounds nuw i8, ptr %this, i64 64
   %35 = load ptr, ptr %runtime_.i20194, align 8
   store ptr @.str.8, ptr %ref.tmp.i18, align 8, !alias.scope !51
-  %leftKind_.i22.i.i41 = getelementptr inbounds i8, ptr %ref.tmp.i18, i64 8
+  %leftKind_.i22.i.i41 = getelementptr inbounds nuw i8, ptr %ref.tmp.i18, i64 8
   store i32 3, ptr %leftKind_.i22.i.i41, align 8, !alias.scope !51
-  %rightChild_.i.i.i42 = getelementptr inbounds i8, ptr %ref.tmp.i18, i64 16
+  %rightChild_.i.i.i42 = getelementptr inbounds nuw i8, ptr %ref.tmp.i18, i64 16
   store ptr @.str.1, ptr %rightChild_.i.i.i42, align 8, !alias.scope !51
-  %rightKind_.i23.i.i43 = getelementptr inbounds i8, ptr %ref.tmp.i18, i64 24
+  %rightKind_.i23.i.i43 = getelementptr inbounds nuw i8, ptr %ref.tmp.i18, i64 24
   store i32 3, ptr %rightKind_.i23.i.i43, align 8, !alias.scope !51
-  %leftSize_.i24.i.i44 = getelementptr inbounds i8, ptr %ref.tmp.i18, i64 32
+  %leftSize_.i24.i.i44 = getelementptr inbounds nuw i8, ptr %ref.tmp.i18, i64 32
   store i64 18, ptr %leftSize_.i24.i.i44, align 8, !alias.scope !51
-  %rightSize_.i25.i.i45 = getelementptr inbounds i8, ptr %ref.tmp.i18, i64 40
+  %rightSize_.i25.i.i45 = getelementptr inbounds nuw i8, ptr %ref.tmp.i18, i64 40
   store i64 23, ptr %rightSize_.i25.i.i45, align 8, !alias.scope !51
   %call.i27 = call noundef i32 @_ZN6hermes2vm7Runtime16raiseSyntaxErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %35, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i18) #11
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i18)
@@ -1385,13 +1385,13 @@ _ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit: ; preds = %sw.bb,
   %40 = phi i32 [ %.pre.i, %if.then.i49 ], [ %38, %sw.bb ]
   %41 = load ptr, ptr %tmpStorage, align 8
   %conv.i3.i = zext i32 %40 to i64
-  %add.ptr.i.i = getelementptr inbounds i16, ptr %41, i64 %conv.i3.i
+  %add.ptr.i.i = getelementptr inbounds nuw i16, ptr %41, i64 %conv.i3.i
   store i16 %37, ptr %add.ptr.i.i, align 1
   %42 = load i32, ptr %Size.i.i.i.i.i.i, align 8
   %add.i = add i32 %42, 1
   store i32 %add.i, ptr %Size.i.i.i.i.i.i, align 8
   %43 = load ptr, ptr %this, align 8
-  %incdec.ptr.i50 = getelementptr inbounds i8, ptr %43, i64 2
+  %incdec.ptr.i50 = getelementptr inbounds nuw i8, ptr %43, i64 2
   store ptr %incdec.ptr.i50, ptr %this, align 8
   br label %sw.epilog
 
@@ -1410,13 +1410,13 @@ _ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit60: ; preds = %sw.b
   %46 = phi i32 [ %.pre.i56, %if.then.i54 ], [ %44, %sw.bb63 ]
   %47 = load ptr, ptr %tmpStorage, align 8
   %conv.i3.i57 = zext i32 %46 to i64
-  %add.ptr.i.i58 = getelementptr inbounds i16, ptr %47, i64 %conv.i3.i57
+  %add.ptr.i.i58 = getelementptr inbounds nuw i16, ptr %47, i64 %conv.i3.i57
   store i16 8, ptr %add.ptr.i.i58, align 1
   %48 = load i32, ptr %Size.i.i.i.i.i.i, align 8
   %add.i59 = add i32 %48, 1
   store i32 %add.i59, ptr %Size.i.i.i.i.i.i, align 8
   %49 = load ptr, ptr %this, align 8
-  %incdec.ptr.i61 = getelementptr inbounds i8, ptr %49, i64 2
+  %incdec.ptr.i61 = getelementptr inbounds nuw i8, ptr %49, i64 2
   store ptr %incdec.ptr.i61, ptr %this, align 8
   br label %sw.epilog
 
@@ -1435,13 +1435,13 @@ _ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit71: ; preds = %sw.b
   %52 = phi i32 [ %.pre.i67, %if.then.i65 ], [ %50, %sw.bb67 ]
   %53 = load ptr, ptr %tmpStorage, align 8
   %conv.i3.i68 = zext i32 %52 to i64
-  %add.ptr.i.i69 = getelementptr inbounds i16, ptr %53, i64 %conv.i3.i68
+  %add.ptr.i.i69 = getelementptr inbounds nuw i16, ptr %53, i64 %conv.i3.i68
   store i16 12, ptr %add.ptr.i.i69, align 1
   %54 = load i32, ptr %Size.i.i.i.i.i.i, align 8
   %add.i70 = add i32 %54, 1
   store i32 %add.i70, ptr %Size.i.i.i.i.i.i, align 8
   %55 = load ptr, ptr %this, align 8
-  %incdec.ptr.i72 = getelementptr inbounds i8, ptr %55, i64 2
+  %incdec.ptr.i72 = getelementptr inbounds nuw i8, ptr %55, i64 2
   store ptr %incdec.ptr.i72, ptr %this, align 8
   br label %sw.epilog
 
@@ -1460,13 +1460,13 @@ _ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit82: ; preds = %sw.b
   %58 = phi i32 [ %.pre.i78, %if.then.i76 ], [ %56, %sw.bb71 ]
   %59 = load ptr, ptr %tmpStorage, align 8
   %conv.i3.i79 = zext i32 %58 to i64
-  %add.ptr.i.i80 = getelementptr inbounds i16, ptr %59, i64 %conv.i3.i79
+  %add.ptr.i.i80 = getelementptr inbounds nuw i16, ptr %59, i64 %conv.i3.i79
   store i16 10, ptr %add.ptr.i.i80, align 1
   %60 = load i32, ptr %Size.i.i.i.i.i.i, align 8
   %add.i81 = add i32 %60, 1
   store i32 %add.i81, ptr %Size.i.i.i.i.i.i, align 8
   %61 = load ptr, ptr %this, align 8
-  %incdec.ptr.i83 = getelementptr inbounds i8, ptr %61, i64 2
+  %incdec.ptr.i83 = getelementptr inbounds nuw i8, ptr %61, i64 2
   store ptr %incdec.ptr.i83, ptr %this, align 8
   br label %sw.epilog
 
@@ -1485,13 +1485,13 @@ _ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit93: ; preds = %sw.b
   %64 = phi i32 [ %.pre.i89, %if.then.i87 ], [ %62, %sw.bb75 ]
   %65 = load ptr, ptr %tmpStorage, align 8
   %conv.i3.i90 = zext i32 %64 to i64
-  %add.ptr.i.i91 = getelementptr inbounds i16, ptr %65, i64 %conv.i3.i90
+  %add.ptr.i.i91 = getelementptr inbounds nuw i16, ptr %65, i64 %conv.i3.i90
   store i16 13, ptr %add.ptr.i.i91, align 1
   %66 = load i32, ptr %Size.i.i.i.i.i.i, align 8
   %add.i92 = add i32 %66, 1
   store i32 %add.i92, ptr %Size.i.i.i.i.i.i, align 8
   %67 = load ptr, ptr %this, align 8
-  %incdec.ptr.i94 = getelementptr inbounds i8, ptr %67, i64 2
+  %incdec.ptr.i94 = getelementptr inbounds nuw i8, ptr %67, i64 2
   store ptr %incdec.ptr.i94, ptr %this, align 8
   br label %sw.epilog
 
@@ -1510,18 +1510,18 @@ _ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit104: ; preds = %sw.
   %70 = phi i32 [ %.pre.i100, %if.then.i98 ], [ %68, %sw.bb79 ]
   %71 = load ptr, ptr %tmpStorage, align 8
   %conv.i3.i101 = zext i32 %70 to i64
-  %add.ptr.i.i102 = getelementptr inbounds i16, ptr %71, i64 %conv.i3.i101
+  %add.ptr.i.i102 = getelementptr inbounds nuw i16, ptr %71, i64 %conv.i3.i101
   store i16 9, ptr %add.ptr.i.i102, align 1
   %72 = load i32, ptr %Size.i.i.i.i.i.i, align 8
   %add.i103 = add i32 %72, 1
   store i32 %add.i103, ptr %Size.i.i.i.i.i.i, align 8
   %73 = load ptr, ptr %this, align 8
-  %incdec.ptr.i105 = getelementptr inbounds i8, ptr %73, i64 2
+  %incdec.ptr.i105 = getelementptr inbounds nuw i8, ptr %73, i64 2
   store ptr %incdec.ptr.i105, ptr %this, align 8
   br label %sw.epilog
 
 sw.bb83:                                          ; preds = %if.end54
-  %incdec.ptr.i106 = getelementptr inbounds i8, ptr %36, i64 2
+  %incdec.ptr.i106 = getelementptr inbounds nuw i8, ptr %36, i64 2
   store ptr %incdec.ptr.i106, ptr %this, align 8
   %call86 = call i64 @_ZN6hermes2vm9JSONLexer14consumeUnicodeEv(ptr noundef nonnull align 8 dereferenceable(112) %this)
   %cr.sroa.2.0.extract.shift = lshr i64 %call86, 32
@@ -1545,7 +1545,7 @@ _ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit118: ; preds = %if.
   %77 = phi i32 [ %.pre.i114, %if.then.i112 ], [ %75, %if.end90 ]
   %78 = load ptr, ptr %tmpStorage, align 8
   %conv.i3.i115 = zext i32 %77 to i64
-  %add.ptr.i.i116 = getelementptr inbounds i16, ptr %78, i64 %conv.i3.i115
+  %add.ptr.i.i116 = getelementptr inbounds nuw i16, ptr %78, i64 %conv.i3.i115
   store i16 %cr.sroa.2.0.extract.trunc, ptr %add.ptr.i.i116, align 1
   %79 = load i32, ptr %Size.i.i.i.i.i.i, align 8
   %add.i117 = add i32 %79, 1
@@ -1553,14 +1553,14 @@ _ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit118: ; preds = %if.
   br label %sw.epilog
 
 _ZN6hermes2vm11TwineChar16C2EPKDs.exit131:        ; preds = %if.end54
-  %rightKind_.i119 = getelementptr inbounds i8, ptr %ref.tmp92, i64 24
+  %rightKind_.i119 = getelementptr inbounds nuw i8, ptr %ref.tmp92, i64 24
   store i32 1, ptr %rightKind_.i119, align 8
-  %leftSize_.i126 = getelementptr inbounds i8, ptr %ref.tmp92, i64 32
+  %leftSize_.i126 = getelementptr inbounds nuw i8, ptr %ref.tmp92, i64 32
   store i64 25, ptr %leftSize_.i126, align 8
-  %rightSize_.i127 = getelementptr inbounds i8, ptr %ref.tmp92, i64 40
+  %rightSize_.i127 = getelementptr inbounds nuw i8, ptr %ref.tmp92, i64 40
   store i64 0, ptr %rightSize_.i127, align 8
   store ptr @.str.10, ptr %ref.tmp92, align 8
-  %80 = getelementptr inbounds i8, ptr %ref.tmp92, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %ref.tmp92, i64 8
   store i32 4, ptr %80, align 8
   %81 = load i16, ptr %36, align 2
   %call95 = call noundef i32 @_ZN6hermes2vm9JSONLexer13errorWithCharERKNS0_11TwineChar16EDs(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp92, i16 noundef zeroext %81)
@@ -1570,7 +1570,7 @@ sw.epilog:                                        ; preds = %_ZN4llvh23SmallVect
   %82 = phi i32 [ %add.i117, %_ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit118 ], [ %add.i103, %_ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit104 ], [ %add.i92, %_ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit93 ], [ %add.i81, %_ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit82 ], [ %add.i70, %_ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit71 ], [ %add.i59, %_ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit60 ], [ %add.i, %_ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit ]
   %83 = load ptr, ptr %tmpStorage, align 8
   %conv.i.i133 = zext i32 %82 to i64
-  %add.ptr.i.i134 = getelementptr inbounds i16, ptr %83, i64 %conv.i.i133
+  %add.ptr.i.i134 = getelementptr inbounds nuw i16, ptr %83, i64 %conv.i.i133
   %arrayidx.i = getelementptr inbounds i8, ptr %add.ptr.i.i134, i64 -2
   %84 = load i16, ptr %arrayidx.i, align 2
   br label %if.end105
@@ -1593,7 +1593,7 @@ _ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit144: ; preds = %if.
   %87 = phi i32 [ %.pre.i140, %if.then.i138 ], [ %85, %if.then101 ]
   %88 = load ptr, ptr %tmpStorage, align 8
   %conv.i3.i141 = zext i32 %87 to i64
-  %add.ptr.i.i142 = getelementptr inbounds i16, ptr %88, i64 %conv.i3.i141
+  %add.ptr.i.i142 = getelementptr inbounds nuw i16, ptr %88, i64 %conv.i3.i141
   store i16 %4, ptr %add.ptr.i.i142, align 1
   %89 = load i32, ptr %Size.i.i.i.i.i.i, align 8
   %add.i143 = add i32 %89, 1
@@ -1603,7 +1603,7 @@ _ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit144: ; preds = %if.
 
 if.end102:                                        ; preds = %_ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit144, %if.else97
   %90 = phi ptr [ %.pre223, %_ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit144 ], [ %3, %if.else97 ]
-  %incdec.ptr.i145 = getelementptr inbounds i8, ptr %90, i64 2
+  %incdec.ptr.i145 = getelementptr inbounds nuw i8, ptr %90, i64 2
   store ptr %incdec.ptr.i145, ptr %this, align 8
   br label %if.end105
 
@@ -1616,20 +1616,20 @@ if.end105:                                        ; preds = %if.end102, %sw.epil
 
 while.end:                                        ; preds = %_ZN6hermes11UTF16Stream7hasCharEv.exit
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i155)
-  %token_.i156197 = getelementptr inbounds i8, ptr %this, i64 72
+  %token_.i156197 = getelementptr inbounds nuw i8, ptr %this, i64 72
   store i32 12, ptr %token_.i156197, align 8
-  %runtime_.i157198 = getelementptr inbounds i8, ptr %this, i64 64
+  %runtime_.i157198 = getelementptr inbounds nuw i8, ptr %this, i64 64
   %91 = load ptr, ptr %runtime_.i157198, align 8
   store ptr @.str.8, ptr %ref.tmp.i155, align 8, !alias.scope !55
-  %leftKind_.i22.i.i178 = getelementptr inbounds i8, ptr %ref.tmp.i155, i64 8
+  %leftKind_.i22.i.i178 = getelementptr inbounds nuw i8, ptr %ref.tmp.i155, i64 8
   store i32 3, ptr %leftKind_.i22.i.i178, align 8, !alias.scope !55
-  %rightChild_.i.i.i179 = getelementptr inbounds i8, ptr %ref.tmp.i155, i64 16
+  %rightChild_.i.i.i179 = getelementptr inbounds nuw i8, ptr %ref.tmp.i155, i64 16
   store ptr @.str.1, ptr %rightChild_.i.i.i179, align 8, !alias.scope !55
-  %rightKind_.i23.i.i180 = getelementptr inbounds i8, ptr %ref.tmp.i155, i64 24
+  %rightKind_.i23.i.i180 = getelementptr inbounds nuw i8, ptr %ref.tmp.i155, i64 24
   store i32 3, ptr %rightKind_.i23.i.i180, align 8, !alias.scope !55
-  %leftSize_.i24.i.i181 = getelementptr inbounds i8, ptr %ref.tmp.i155, i64 32
+  %leftSize_.i24.i.i181 = getelementptr inbounds nuw i8, ptr %ref.tmp.i155, i64 32
   store i64 18, ptr %leftSize_.i24.i.i181, align 8, !alias.scope !55
-  %rightSize_.i25.i.i182 = getelementptr inbounds i8, ptr %ref.tmp.i155, i64 40
+  %rightSize_.i25.i.i182 = getelementptr inbounds nuw i8, ptr %ref.tmp.i155, i64 40
   store i64 23, ptr %rightSize_.i25.i.i182, align 8, !alias.scope !55
   %call.i164 = call noundef i32 @_ZN6hermes2vm7Runtime16raiseSyntaxErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %91, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i155) #11
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i155)
@@ -1658,7 +1658,7 @@ entry:
   %ref.tmp = alloca %"class.hermes::vm::TwineChar16", align 8
   store i16 %ch, ptr %ch.addr, align 2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !58)
-  %leftKind_.i.i = getelementptr inbounds i8, ptr %msg, i64 8
+  %leftKind_.i.i = getelementptr inbounds nuw i8, ptr %msg, i64 8
   %0 = load i32, ptr %leftKind_.i.i, align 8, !noalias !58
   switch i32 %0, label %_ZNK6hermes2vm11TwineChar166concatERKS1_.exit [
     i32 0, label %_ZNK6hermes2vm11TwineChar166concatERKS1_.exit.thread10
@@ -1666,66 +1666,66 @@ entry:
   ]
 
 _ZNK6hermes2vm11TwineChar166concatERKS1_.exit.thread10: ; preds = %entry
-  %leftKind_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %leftKind_.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   store i32 0, ptr %leftKind_.i.i.i, align 8, !alias.scope !61
-  %rightKind_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
+  %rightKind_.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 24
   store i32 1, ptr %rightKind_.i.i.i, align 8, !alias.scope !61
-  %leftSize_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
+  %leftSize_.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %leftSize_.i.i.i, i8 0, i64 16, i1 false), !alias.scope !61
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i)
-  %token_.i13 = getelementptr inbounds i8, ptr %this, i64 72
+  %token_.i13 = getelementptr inbounds nuw i8, ptr %this, i64 72
   store i32 12, ptr %token_.i13, align 8
-  %runtime_.i14 = getelementptr inbounds i8, ptr %this, i64 64
+  %runtime_.i14 = getelementptr inbounds nuw i8, ptr %this, i64 64
   %1 = load ptr, ptr %runtime_.i14, align 8
-  %leftKind_.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
+  %leftKind_.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   store i32 0, ptr %leftKind_.i.i.i.i, align 8, !alias.scope !64
-  %rightKind_.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
+  %rightKind_.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 24
   store i32 1, ptr %rightKind_.i.i.i.i, align 8, !alias.scope !64
-  %leftSize_.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 32
+  %leftSize_.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %leftSize_.i.i.i.i, i8 0, i64 16, i1 false), !alias.scope !64
   br label %_ZN6hermes2vm9JSONLexer5errorERKNS0_11TwineChar16E.exit
 
 _ZNK6hermes2vm11TwineChar166concatERKS1_.exit:    ; preds = %entry
-  %leftSize_.i.i = getelementptr inbounds i8, ptr %msg, i64 32
+  %leftSize_.i.i = getelementptr inbounds nuw i8, ptr %msg, i64 32
   %2 = load i64, ptr %leftSize_.i.i, align 8, !noalias !58
-  %rightSize_.i.i = getelementptr inbounds i8, ptr %msg, i64 40
+  %rightSize_.i.i = getelementptr inbounds nuw i8, ptr %msg, i64 40
   %3 = load i64, ptr %rightSize_.i.i, align 8, !noalias !58
   %add.i.i = add i64 %3, %2
-  %rightKind_.i.i = getelementptr inbounds i8, ptr %msg, i64 24
+  %rightKind_.i.i = getelementptr inbounds nuw i8, ptr %msg, i64 24
   %4 = load i32, ptr %rightKind_.i.i, align 8, !noalias !58
   %cmp.i17.i = icmp eq i32 %4, 1
   %newLeft.sroa.0.0.copyload.i = load ptr, ptr %msg, align 8, !noalias !58
   %newLeftKind.0.i = select i1 %cmp.i17.i, i32 %0, i32 2
   %newLeft.sroa.0.0.i = select i1 %cmp.i17.i, ptr %newLeft.sroa.0.0.copyload.i, ptr %msg
   store ptr %newLeft.sroa.0.0.i, ptr %ref.tmp, align 8, !alias.scope !58
-  %leftKind_.i22.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %leftKind_.i22.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   store i32 %newLeftKind.0.i, ptr %leftKind_.i22.i, align 8, !alias.scope !58
-  %rightChild_.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %rightChild_.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   store ptr %ch.addr, ptr %rightChild_.i.i, align 8, !alias.scope !58
-  %rightKind_.i23.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
+  %rightKind_.i23.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 24
   store i32 4, ptr %rightKind_.i23.i, align 8, !alias.scope !58
-  %leftSize_.i24.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
+  %leftSize_.i24.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 32
   store i64 %add.i.i, ptr %leftSize_.i24.i, align 8, !alias.scope !58
-  %rightSize_.i25.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
+  %rightSize_.i25.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 40
   store i64 1, ptr %rightSize_.i25.i, align 8, !alias.scope !58
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i)
-  %token_.i = getelementptr inbounds i8, ptr %this, i64 72
+  %token_.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   store i32 12, ptr %token_.i, align 8
   %add.i16.i.i = add i64 %add.i.i, 1
   br label %6
 
 5:                                                ; preds = %entry
   store ptr %ch.addr, ptr %ref.tmp, align 8
-  %ref.tmp2.sroa.2.0.ref.tmp.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %ref.tmp2.sroa.2.0.ref.tmp.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   store i32 4, ptr %ref.tmp2.sroa.2.0.ref.tmp.sroa_idx, align 8
-  %ref.tmp2.sroa.31.0.ref.tmp.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp, i64 24
+  %ref.tmp2.sroa.31.0.ref.tmp.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 24
   store i32 1, ptr %ref.tmp2.sroa.31.0.ref.tmp.sroa_idx, align 8
-  %ref.tmp2.sroa.42.0.ref.tmp.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp, i64 32
+  %ref.tmp2.sroa.42.0.ref.tmp.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 32
   store i64 1, ptr %ref.tmp2.sroa.42.0.ref.tmp.sroa_idx, align 8
-  %ref.tmp2.sroa.5.0.ref.tmp.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp, i64 40
+  %ref.tmp2.sroa.5.0.ref.tmp.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 40
   store i64 0, ptr %ref.tmp2.sroa.5.0.ref.tmp.sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i)
-  %token_.i6 = getelementptr inbounds i8, ptr %this, i64 72
+  %token_.i6 = getelementptr inbounds nuw i8, ptr %this, i64 72
   store i32 12, ptr %token_.i6, align 8
   br label %6
 
@@ -1733,18 +1733,18 @@ _ZNK6hermes2vm11TwineChar166concatERKS1_.exit:    ; preds = %entry
   %7 = phi i32 [ 4, %5 ], [ 2, %_ZNK6hermes2vm11TwineChar166concatERKS1_.exit ]
   %add.i16.i.i2227 = phi i64 [ 1, %5 ], [ %add.i16.i.i, %_ZNK6hermes2vm11TwineChar166concatERKS1_.exit ]
   %8 = phi ptr [ %ch.addr, %5 ], [ %ref.tmp, %_ZNK6hermes2vm11TwineChar166concatERKS1_.exit ]
-  %.in = getelementptr inbounds i8, ptr %this, i64 64
+  %.in = getelementptr inbounds nuw i8, ptr %this, i64 64
   %9 = load ptr, ptr %.in, align 8
   store ptr @.str.8, ptr %ref.tmp.i, align 8, !alias.scope !69
-  %leftKind_.i22.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
+  %leftKind_.i22.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   store i32 3, ptr %leftKind_.i22.i.i, align 8, !alias.scope !69
-  %rightChild_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
+  %rightChild_.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 16
   store ptr %8, ptr %rightChild_.i.i.i, align 8, !alias.scope !69
-  %rightKind_.i23.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
+  %rightKind_.i23.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 24
   store i32 %7, ptr %rightKind_.i23.i.i, align 8, !alias.scope !69
-  %leftSize_.i24.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 32
+  %leftSize_.i24.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 32
   store i64 18, ptr %leftSize_.i24.i.i, align 8, !alias.scope !69
-  %rightSize_.i25.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 40
+  %rightSize_.i25.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 40
   store i64 %add.i16.i.i2227, ptr %rightSize_.i25.i.i, align 8, !alias.scope !69
   br label %_ZN6hermes2vm9JSONLexer5errorERKNS0_11TwineChar16E.exit
 
@@ -1762,7 +1762,7 @@ entry:
   %ch.addr.i = alloca i16, align 2
   %ref.tmp.i11 = alloca %"class.hermes::vm::TwineChar16", align 8
   %ref.tmp.i = alloca %"class.hermes::vm::TwineChar16", align 8
-  %end_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %end_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %.pre = load ptr, ptr %this, align 8
   br label %for.body
 
@@ -1784,20 +1784,20 @@ _ZN6hermes11UTF16Stream7hasCharEv.exit.if.end_crit_edge: ; preds = %_ZN6hermes11
 
 if.then:                                          ; preds = %_ZN6hermes11UTF16Stream7hasCharEv.exit
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i)
-  %token_.i22 = getelementptr inbounds i8, ptr %this, i64 72
+  %token_.i22 = getelementptr inbounds nuw i8, ptr %this, i64 72
   store i32 12, ptr %token_.i22, align 8
-  %runtime_.i23 = getelementptr inbounds i8, ptr %this, i64 64
+  %runtime_.i23 = getelementptr inbounds nuw i8, ptr %this, i64 64
   %2 = load ptr, ptr %runtime_.i23, align 8
   store ptr @.str.8, ptr %ref.tmp.i, align 8, !alias.scope !70
-  %leftKind_.i22.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
+  %leftKind_.i22.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   store i32 3, ptr %leftKind_.i22.i.i, align 8, !alias.scope !70
-  %rightChild_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
+  %rightChild_.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 16
   store ptr @.str.1, ptr %rightChild_.i.i.i, align 8, !alias.scope !70
-  %rightKind_.i23.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
+  %rightKind_.i23.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 24
   store i32 3, ptr %rightKind_.i23.i.i, align 8, !alias.scope !70
-  %leftSize_.i24.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 32
+  %leftSize_.i24.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 32
   store i64 18, ptr %leftSize_.i24.i.i, align 8, !alias.scope !70
-  %rightSize_.i25.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 40
+  %rightSize_.i25.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 40
   store i64 23, ptr %rightSize_.i25.i.i, align 8, !alias.scope !70
   %call.i10 = call noundef i32 @_ZN6hermes2vm7Runtime16raiseSyntaxErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %2, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i) #11
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
@@ -1823,33 +1823,33 @@ if.then11:                                        ; preds = %if.else
 _ZN6hermes2vm9JSONLexer13errorWithCharERKNS0_11TwineChar16EDs.exit: ; preds = %if.else
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %ch.addr.i)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i11)
-  %rightChild_.i.i.i17 = getelementptr inbounds i8, ptr %ref.tmp.i11, i64 16
+  %rightChild_.i.i.i17 = getelementptr inbounds nuw i8, ptr %ref.tmp.i11, i64 16
   store ptr %ch.addr.i, ptr %rightChild_.i.i.i17, align 8, !alias.scope !73
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i.i)
   store i16 %4, ptr %ch.addr.i, align 2
   store ptr @.str.2, ptr %ref.tmp.i11, align 8
-  %8 = getelementptr inbounds i8, ptr %ref.tmp.i11, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %ref.tmp.i11, i64 8
   store i32 4, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %ref.tmp.i11, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %ref.tmp.i11, i64 24
   store i32 4, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %ref.tmp.i11, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %ref.tmp.i11, i64 32
   store i64 33, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %ref.tmp.i11, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %ref.tmp.i11, i64 40
   store i64 1, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %this, i64 72
+  %12 = getelementptr inbounds nuw i8, ptr %this, i64 72
   store i32 12, ptr %12, align 8
-  %.in.i = getelementptr inbounds i8, ptr %this, i64 64
+  %.in.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %13 = load ptr, ptr %.in.i, align 8
   store ptr @.str.8, ptr %ref.tmp.i.i, align 8, !alias.scope !76
-  %leftKind_.i22.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
+  %leftKind_.i22.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 8
   store i32 3, ptr %leftKind_.i22.i.i.i, align 8, !alias.scope !76
-  %rightChild_.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 16
+  %rightChild_.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 16
   store ptr %ref.tmp.i11, ptr %rightChild_.i.i.i.i, align 8, !alias.scope !76
-  %rightKind_.i23.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 24
+  %rightKind_.i23.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 24
   store i32 2, ptr %rightKind_.i23.i.i.i, align 8, !alias.scope !76
-  %leftSize_.i24.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 32
+  %leftSize_.i24.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 32
   store i64 18, ptr %leftSize_.i24.i.i.i, align 8, !alias.scope !76
-  %rightSize_.i25.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 40
+  %rightSize_.i25.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 40
   store i64 34, ptr %rightSize_.i25.i.i.i, align 8, !alias.scope !76
   %call.i.i12 = call noundef i32 @_ZN6hermes2vm7Runtime16raiseSyntaxErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %13, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i.i) #11
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i.i)
@@ -1861,7 +1861,7 @@ if.end19:                                         ; preds = %if.end, %if.then11
   %ch.0 = phi i16 [ %sub12, %if.then11 ], [ %6, %if.end ]
   %shl = shl i16 %val.029, 4
   %add = add nuw i16 %ch.0, %shl
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %3, i64 2
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %3, i64 2
   store ptr %incdec.ptr.i, ptr %this, align 8
   %inc = add nuw nsw i32 %i.030, 1
   %exitcond.not = icmp eq i32 %inc, 4

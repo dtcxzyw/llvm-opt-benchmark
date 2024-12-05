@@ -36,7 +36,7 @@ define hidden noundef nonnull ptr @_ZN13CPUTimeGroups9to_stringENS_11CPUTimeType
 
 switch.lookup:                                    ; preds = %1
   %5 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds [7 x ptr], ptr @switch.table._ZN15CPUTimeCounters14create_counterE9CounterNSN13CPUTimeGroups11CPUTimeTypeE, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @switch.table._ZN15CPUTimeCounters14create_counterE9CounterNSN13CPUTimeGroups11CPUTimeTypeE, i64 0, i64 %5
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -54,7 +54,7 @@ define hidden noundef zeroext i1 @_ZN13CPUTimeGroups13is_gc_counterENS_11CPUTime
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define hidden void @_ZN15CPUTimeCountersC2Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 56)) %0) unnamed_addr #3 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store volatile i64 0, ptr %2, align 8
   ret void
 }
@@ -65,7 +65,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN15CPUTimeCounters21inc_gc_total_cpu_timeEl(i64 noundef %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr @_ZN15CPUTimeCounters9_instanceE, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 56
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %4 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %0, ptr nonnull %3) #9, !srcloc !6
   ret void
 }
@@ -73,7 +73,7 @@ define hidden void @_ZN15CPUTimeCounters21inc_gc_total_cpu_timeEl(i64 noundef %0
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN15CPUTimeCounters25publish_gc_total_cpu_timeEv() local_unnamed_addr #0 align 2 {
   %1 = load ptr, ptr @_ZN15CPUTimeCounters9_instanceE, align 8
-  %2 = getelementptr inbounds i8, ptr %1, i64 56
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %3 = load volatile i64, ptr %2, align 8
   br label %4
 
@@ -86,7 +86,7 @@ define hidden void @_ZN15CPUTimeCounters25publish_gc_total_cpu_timeEv() local_un
 6:                                                ; preds = %4
   %7 = load ptr, ptr @_ZN15CPUTimeCounters9_instanceE, align 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %10 = load ptr, ptr %9, align 8
   %11 = load i64, ptr %10, align 8
   %12 = add nsw i64 %11, %.0
@@ -129,11 +129,11 @@ switch.lookup:                                    ; preds = %8
   %12 = load ptr, ptr @_ZN15CPUTimeCounters9_instanceE, align 8
   %13 = load ptr, ptr %3, align 8
   %14 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds [7 x ptr], ptr @switch.table._ZN15CPUTimeCounters14create_counterE9CounterNSN13CPUTimeGroups11CPUTimeTypeE, i64 0, i64 %14
+  %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @switch.table._ZN15CPUTimeCounters14create_counterE9CounterNSN13CPUTimeGroups11CPUTimeTypeE, i64 0, i64 %14
   %switch.load = load ptr, ptr %switch.gep, align 8
   %15 = call noundef ptr @_ZN15PerfDataManager19create_long_counterE9CounterNSPKcN8PerfData5UnitsElP10JavaThread(i32 noundef %0, ptr noundef nonnull %switch.load, i32 noundef 3, i64 noundef 0, ptr noundef %13) #9
   %16 = zext nneg i32 %1 to i64
-  %17 = getelementptr inbounds [7 x ptr], ptr %12, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw [7 x ptr], ptr %12, i64 0, i64 %16
   store ptr %15, ptr %17, align 8
   call void @_ZN13ExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #9
   br label %18
@@ -161,7 +161,7 @@ define hidden void @_ZN15CPUTimeCounters14update_counterEN13CPUTimeGroups11CPUTi
   %4 = sext i32 %0 to i64
   %5 = getelementptr inbounds [7 x ptr], ptr %3, i64 0, i64 %4
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %8 = load ptr, ptr %7, align 8
   %9 = load i64, ptr %8, align 8
   store i64 %1, ptr %8, align 8
@@ -172,7 +172,7 @@ define hidden void @_ZN15CPUTimeCounters14update_counterEN13CPUTimeGroups11CPUTi
 10:                                               ; preds = %2
   %11 = sub nsw i64 %1, %9
   %12 = load ptr, ptr @_ZN15CPUTimeCounters9_instanceE, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 56
   %14 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %11, ptr nonnull %13) #9, !srcloc !6
   br label %15
 
@@ -183,15 +183,15 @@ define hidden void @_ZN15CPUTimeCounters14update_counterEN13CPUTimeGroups11CPUTi
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN25ThreadTotalCPUTimeClosureD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(20) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV25ThreadTotalCPUTimeClosure, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = load ptr, ptr @_ZN15CPUTimeCounters9_instanceE, align 8
   %7 = sext i32 %3 to i64
   %8 = getelementptr inbounds [7 x ptr], ptr %6, i64 0, i64 %7
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %11 = load ptr, ptr %10, align 8
   %12 = load i64, ptr %11, align 8
   store i64 %5, ptr %11, align 8
@@ -202,7 +202,7 @@ define hidden void @_ZN25ThreadTotalCPUTimeClosureD2Ev(ptr nocapture noundef non
 13:                                               ; preds = %1
   %14 = sub nsw i64 %5, %12
   %15 = load ptr, ptr @_ZN15CPUTimeCounters9_instanceE, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 56
   %17 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %14, ptr nonnull %16) #9, !srcloc !6
   br label %_ZN15CPUTimeCounters14update_counterEN13CPUTimeGroups11CPUTimeTypeEl.exit
 
@@ -213,7 +213,7 @@ _ZN15CPUTimeCounters14update_counterEN13CPUTimeGroups11CPUTimeTypeEl.exit: ; pre
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN25ThreadTotalCPUTimeClosure9do_threadEP6Thread(ptr nocapture noundef nonnull align 8 dereferenceable(20) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = tail call noundef i64 @_ZN2os15thread_cpu_timeEP6Thread(ptr noundef %1) #9
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = add nsw i64 %5, %3
   store i64 %6, ptr %4, align 8

@@ -50,7 +50,7 @@ define internal fastcc void @_ZN8facebook5velox12_GLOBAL__N_116succinctDurationB
 entry:
   %out.i = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %idxprom = zext nneg i32 %unitOffset to i64
-  %arrayidx = getelementptr inbounds [4 x i64], ptr @_ZN8facebook5veloxL18kTimeUnitsInSecondE, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [4 x i64], ptr @_ZN8facebook5veloxL18kTimeUnitsInSecondE, i64 0, i64 %idxprom
   %0 = load i64, ptr %arrayidx, align 8
   %mul = mul i64 %0, 60
   %cmp = icmp ugt i64 %duration, %mul
@@ -70,7 +70,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then
-  %add.ptr.i = getelementptr inbounds i8, ptr %out.i, i64 16
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %out.i, i64 16
   %call.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i, i32 noundef %conv1.i)
           to label %invoke.cont.i unwind label %lpad.i, !noalias !4
 
@@ -103,7 +103,7 @@ if.end16.i:                                       ; preds = %if.then12.i, %if.en
   %sub3348.i = phi i64 [ %sub26.i, %if.then12.i ], [ %conv6, %if.end.i ]
   %div63547.i = phi i64 [ %div627.i, %if.then12.i ], [ %div6.i, %if.end.i ]
   %conv73646.i = phi i32 [ %conv728.i, %if.then12.i ], [ %conv7.i, %if.end.i ]
-  %add.ptr17.i = getelementptr inbounds i8, ptr %out.i, i64 16
+  %add.ptr17.i = getelementptr inbounds nuw i8, ptr %out.i, i64 16
   %call19.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr17.i, i32 noundef %conv73646.i)
           to label %invoke.cont18.i unwind label %lpad.i, !noalias !4
 
@@ -130,7 +130,7 @@ if.end40.i:                                       ; preds = %if.then36.i, %if.en
   %sub256576.i = phi i64 [ %sub2557.i, %if.then36.i ], [ %conv6, %if.end22.i ]
   %div276875.i = phi i64 [ %div2758.i, %if.then36.i ], [ %div27.i, %if.end22.i ]
   %conv286974.i = phi i32 [ %conv2859.i, %if.then36.i ], [ %conv28.i, %if.end22.i ]
-  %add.ptr41.i = getelementptr inbounds i8, ptr %out.i, i64 16
+  %add.ptr41.i = getelementptr inbounds nuw i8, ptr %out.i, i64 16
   %call43.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr41.i, i32 noundef %conv286974.i)
           to label %invoke.cont42.i unwind label %lpad.i, !noalias !4
 
@@ -148,7 +148,7 @@ if.end52.i:                                       ; preds = %if.then48.i, %if.en
   %sext21.i = mul i64 %div2767.i, 257698037760
   %conv54.i = ashr exact i64 %sext21.i, 32
   %sub55.i = sub i64 %sub2564.i, %conv54.i
-  %add.ptr56.i = getelementptr inbounds i8, ptr %out.i, i64 16
+  %add.ptr56.i = getelementptr inbounds nuw i8, ptr %out.i, i64 16
   %call58.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr56.i, i64 noundef %sub55.i)
           to label %invoke.cont57.i unwind label %lpad.i, !noalias !4
 
@@ -215,7 +215,7 @@ while.cond:                                       ; preds = %while.cond, %entry
   br i1 %0, label %while.cond, label %while.end, !llvm.loop !7
 
 while.end:                                        ; preds = %while.cond
-  %add.ptr = getelementptr inbounds i8, ptr %out, i64 16
+  %add.ptr = getelementptr inbounds nuw i8, ptr %out, i64 16
   %call = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSt8ios_baseS0_E(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr, ptr noundef nonnull @_ZSt5fixedRSt8ios_base)
           to label %invoke.cont unwind label %lpad
 
@@ -231,9 +231,9 @@ invoke.cont9:                                     ; preds = %invoke.cont
 
 invoke.cont11:                                    ; preds = %invoke.cont9
   %idxprom = zext nneg i32 %offset.0 to i64
-  %arrayidx = getelementptr inbounds %"class.std::basic_string_view", ptr %units, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %units, i64 %idxprom
   %agg.tmp13.sroa.0.0.copyload = load i64, ptr %arrayidx, align 8
-  %agg.tmp13.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %agg.tmp13.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %agg.tmp13.sroa.2.0.copyload = load ptr, ptr %agg.tmp13.sroa.2.0.arrayidx.sroa_idx, align 8
   %call2.i8 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %call12, ptr noundef %agg.tmp13.sroa.2.0.copyload, i64 noundef %agg.tmp13.sroa.0.0.copyload)
           to label %invoke.cont14 unwind label %lpad
@@ -278,7 +278,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSt8ios_baseS0
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(216) ptr @_ZSt5fixedRSt8ios_base(ptr noundef nonnull align 8 dereferenceable(216) %__base) #0 comdat {
 entry:
-  %_M_flags.i = getelementptr inbounds i8, ptr %__base, i64 24
+  %_M_flags.i = getelementptr inbounds nuw i8, ptr %__base, i64 24
   %0 = load i32, ptr %_M_flags.i, align 8
   %and.i.i.i = and i32 %0, -261
   %or.i.i.i = or disjoint i32 %and.i.i.i, 4

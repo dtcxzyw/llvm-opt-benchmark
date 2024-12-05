@@ -11,17 +11,17 @@ define i32 @file_mmap(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 nounde
   %8 = alloca %struct.mm_map_entry_s, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %8)
   store ptr null, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %1, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %8, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i64 %2, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %8, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i32 %5, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %8, i64 28
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 28
   store i32 %3, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %8, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store i32 %4, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %8, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %15 = and i32 %4, 16
   %.not.i = icmp eq i32 %15, 0
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
@@ -57,15 +57,15 @@ define i32 @file_mmap(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 nounde
   br i1 %.old32.i, label %file_mmap_.exit, label %29
 
 29:                                               ; preds = %28, %22
-  %30 = getelementptr inbounds i8, ptr %0, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %31 = load ptr, ptr %30, align 8
   %.not26.i = icmp eq ptr %31, null
   br i1 %.not26.i, label %file_mmap_.exit, label %32
 
 32:                                               ; preds = %29
-  %33 = getelementptr inbounds i8, ptr %31, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %31, i64 32
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 48
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 48
   %36 = load ptr, ptr %35, align 8
   %.not27.i = icmp eq ptr %36, null
   br i1 %.not27.i, label %file_mmap_.exit, label %37
@@ -113,17 +113,17 @@ thread-pre-split:                                 ; preds = %9
   %13 = phi ptr [ %.pr, %thread-pre-split ], [ null, %6 ]
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7)
   store ptr null, ptr %7, align 8
-  %14 = getelementptr inbounds i8, ptr %7, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %0, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %7, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 %1, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %7, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i32 %5, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %7, i64 28
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 28
   store i32 %2, ptr %17, align 4
-  %18 = getelementptr inbounds i8, ptr %7, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store i32 %3, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %7, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %20 = and i32 %3, 16
   %.not.i = icmp eq i32 %20, 0
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, i8 0, i64 16, i1 false)
@@ -159,15 +159,15 @@ thread-pre-split:                                 ; preds = %9
   br i1 %.old32.i, label %file_mmap_.exit.thread, label %34
 
 34:                                               ; preds = %33, %27
-  %35 = getelementptr inbounds i8, ptr %13, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %36 = load ptr, ptr %35, align 8
   %.not26.i = icmp eq ptr %36, null
   br i1 %.not26.i, label %file_mmap_.exit.thread, label %37
 
 37:                                               ; preds = %34
-  %38 = getelementptr inbounds i8, ptr %36, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 32
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 48
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 48
   %41 = load ptr, ptr %40, align 8
   %.not27.i = icmp eq ptr %41, null
   br i1 %.not27.i, label %file_mmap_.exit.thread, label %42

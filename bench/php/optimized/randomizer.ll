@@ -48,10 +48,10 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_Random_Randomizer___construct(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
   %3 = alloca %struct._zval_struct, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 -24
-  %7 = getelementptr inbounds i8, ptr %0, i64 44
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %8 = load i32, ptr %7, align 4
   %9 = icmp ugt i32 %8, 1
   br i1 %9, label %10, label %11
@@ -65,9 +65,9 @@ define hidden void @zim_Random_Randomizer___construct(ptr noundef %0, ptr nocapt
   br i1 %12, label %42, label %13
 
 13:                                               ; preds = %11
-  %14 = getelementptr inbounds i8, ptr %0, i64 80
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %15 = load ptr, ptr @random_ce_Random_Engine, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 88
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %17 = load i8, ptr %16, align 8
   %18 = icmp eq i8 %17, 8
   br i1 %18, label %19, label %.critedge
@@ -78,7 +78,7 @@ define hidden void @zim_Random_Randomizer___construct(ptr noundef %0, ptr nocapt
   br i1 %.not, label %34, label %20
 
 20:                                               ; preds = %19
-  %21 = getelementptr inbounds i8, ptr %.pre94, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %.pre94, i64 16
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, %15
   br i1 %23, label %34, label %24
@@ -106,9 +106,9 @@ define hidden void @zim_Random_Randomizer___construct(ptr noundef %0, ptr nocapt
   br i1 %.not74, label %33, label %29
 
 29:                                               ; preds = %27
-  %30 = getelementptr inbounds i8, ptr %28, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 24
   br label %33
 
 33:                                               ; preds = %10, %29, %27
@@ -124,7 +124,7 @@ define hidden void @zim_Random_Randomizer___construct(ptr noundef %0, ptr nocapt
   %35 = phi ptr [ %.pre93, %._crit_edge ], [ %.pre94, %20 ], [ %.pre94, %19 ]
   %36 = load i32, ptr %16, align 8
   store ptr %35, ptr %3, align 8
-  %37 = getelementptr inbounds i8, ptr %3, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %36, ptr %37, align 8
   %38 = and i32 %36, 65280
   %.not77 = icmp eq i32 %38, 0
@@ -159,7 +159,7 @@ define hidden void @zim_Random_Randomizer___construct(ptr noundef %0, ptr nocapt
   br label %60
 
 54:                                               ; preds = %45
-  %55 = getelementptr inbounds i8, ptr %48, i64 4
+  %55 = getelementptr inbounds nuw i8, ptr %48, i64 4
   %56 = load i32, ptr %55, align 4
   %57 = and i32 %56, -1008
   %58 = icmp eq i32 %57, 0
@@ -196,7 +196,7 @@ declare void @zend_update_property(ptr noundef, ptr noundef, ptr noundef, i64 no
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @randomizer_common_init(ptr nocapture noundef writeonly initializes((0, 16)) %0, ptr noundef %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = load i8, ptr %4, align 8
   %6 = icmp eq i8 %5, 1
@@ -210,22 +210,22 @@ define internal fastcc void @randomizer_common_init(ptr nocapture noundef writeo
 9:                                                ; preds = %2
   %10 = tail call ptr @php_random_status_alloc(ptr noundef nonnull @php_random_algo_user, i1 noundef zeroext false) #7
   store ptr @php_random_algo_user, ptr %0, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %10, ptr %.sroa.2.0..sroa_idx, align 8
   %11 = tail call noalias ptr @_emalloc_40() #7
   store i32 1, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %11, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
   store i32 22, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %11, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 0, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %11, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i64 8, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %11, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store i64 7310575239085057383, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %11, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 32
   store i8 0, ptr %16, align 1
   %17 = load ptr, ptr %3, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 64
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 64
   %19 = tail call ptr @zend_hash_find(ptr noundef nonnull %18, ptr noundef nonnull %11) #7
   %.not = icmp eq ptr %19, null
   br i1 %.not, label %22, label %20
@@ -265,9 +265,9 @@ define internal fastcc void @randomizer_common_init(ptr nocapture noundef writeo
 
 34:                                               ; preds = %25, %33, %32, %22
   store ptr %1, ptr %10, align 8
-  %35 = getelementptr inbounds i8, ptr %10, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %.0, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 1, ptr %36, align 8
   br label %37
 
@@ -277,11 +277,11 @@ define internal fastcc void @randomizer_common_init(ptr nocapture noundef writeo
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_Random_Randomizer_nextFloat(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %.sroa.28.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 -16
   %.sroa.28.0.copyload = load ptr, ptr %.sroa.28.0..sroa_idx, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 44
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %.preheader, label %9
@@ -289,7 +289,7 @@ define hidden void @zim_Random_Randomizer_nextFloat(ptr nocapture noundef readon
 .preheader:                                       ; preds = %2
   %7 = getelementptr inbounds i8, ptr %4, i64 -24
   %.sroa.07.0.copyload = load ptr, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %.sroa.07.0.copyload, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.copyload, i64 8
   br label %10
 
 9:                                                ; preds = %2
@@ -320,7 +320,7 @@ define hidden void @zim_Random_Randomizer_nextFloat(ptr nocapture noundef readon
   %24 = uitofp nneg i64 %23 to double
   %25 = fmul double %24, 0x3CA0000000000000
   store double %25, ptr %1, align 8
-  %26 = getelementptr inbounds i8, ptr %1, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 5, ptr %26, align 8
   br label %.loopexit
 
@@ -337,10 +337,10 @@ declare void @zend_wrong_parameters_none_error() local_unnamed_addr #1
 define hidden void @zim_Random_Randomizer_getFloat(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca double, align 8
   %4 = alloca double, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 -24
-  %8 = getelementptr inbounds i8, ptr %0, i64 44
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %9 = load i32, ptr %8, align 4
   %10 = and i32 %9, -2
   %or.cond.not = icmp eq i32 %10, 2
@@ -351,8 +351,8 @@ define hidden void @zim_Random_Randomizer_getFloat(ptr noundef %0, ptr nocapture
   br label %49
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %0, i64 80
-  %14 = getelementptr inbounds i8, ptr %0, i64 88
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %15 = load i8, ptr %14, align 8
   %16 = icmp eq i8 %15, 5
   br i1 %16, label %.critedge155, label %18
@@ -367,8 +367,8 @@ define hidden void @zim_Random_Randomizer_getFloat(ptr noundef %0, ptr nocapture
   br i1 %19, label %20, label %49
 
 20:                                               ; preds = %18, %.critedge155
-  %21 = getelementptr inbounds i8, ptr %0, i64 96
-  %22 = getelementptr inbounds i8, ptr %0, i64 104
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %23 = load i8, ptr %22, align 8
   %24 = icmp eq i8 %23, 5
   br i1 %24, label %.critedge157, label %26
@@ -387,9 +387,9 @@ define hidden void @zim_Random_Randomizer_getFloat(ptr noundef %0, ptr nocapture
   br i1 %29, label %50, label %30
 
 30:                                               ; preds = %28
-  %31 = getelementptr inbounds i8, ptr %0, i64 112
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %32 = load ptr, ptr @random_ce_Random_IntervalBoundary, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 120
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %34 = load i8, ptr %33, align 8
   %35 = icmp eq i8 %34, 8
   br i1 %35, label %36, label %43
@@ -400,7 +400,7 @@ define hidden void @zim_Random_Randomizer_getFloat(ptr noundef %0, ptr nocapture
   br i1 %.not, label %50, label %37
 
 37:                                               ; preds = %36
-  %38 = getelementptr inbounds i8, ptr %.pre174, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %.pre174, i64 16
   %39 = load ptr, ptr %38, align 8
   %40 = icmp eq ptr %39, %32
   br i1 %40, label %50, label %41
@@ -423,9 +423,9 @@ thread-pre-split:                                 ; preds = %41
   br i1 %.not151, label %49, label %45
 
 45:                                               ; preds = %43
-  %46 = getelementptr inbounds i8, ptr %44, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 24
   br label %49
 
 49:                                               ; preds = %11, %45, %18, %26, %43
@@ -469,19 +469,19 @@ thread-pre-split:                                 ; preds = %41
   br i1 %.not153, label %82, label %65
 
 65:                                               ; preds = %64
-  %66 = getelementptr inbounds i8, ptr %.0136, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %.0136, i64 16
   %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds i8, ptr %67, i64 28
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 28
   %69 = load i32, ptr %68, align 4
   %70 = and i32 %69, 268435456
   %71 = icmp ne i32 %70, 0
   call void @llvm.assume(i1 %71)
-  %72 = getelementptr inbounds i8, ptr %.0136, i64 40
+  %72 = getelementptr inbounds nuw i8, ptr %.0136, i64 40
   %73 = load ptr, ptr %72, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i64 24
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 24
   %75 = load i8, ptr %74, align 8
   %76 = sext i8 %75 to i64
-  %77 = getelementptr inbounds i8, ptr %73, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %73, i64 16
   %78 = load i64, ptr %77, align 8
   %79 = add i64 %78, %76
   %80 = trunc i64 %79 to i32
@@ -515,7 +515,7 @@ thread-pre-split:                                 ; preds = %41
   %92 = load ptr, ptr %91, align 8
   %93 = call double @php_random_gammasection_closed_open(ptr %90, ptr %92, double noundef %51, double noundef %58) #7
   store double %93, ptr %1, align 8
-  %94 = getelementptr inbounds i8, ptr %1, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 5, ptr %94, align 8
   br label %133
 
@@ -536,7 +536,7 @@ thread-pre-split:                                 ; preds = %41
   %103 = load ptr, ptr %102, align 8
   %104 = call double @php_random_gammasection_closed_closed(ptr %101, ptr %103, double noundef %51, double noundef %58) #7
   store double %104, ptr %1, align 8
-  %105 = getelementptr inbounds i8, ptr %1, i64 8
+  %105 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 5, ptr %105, align 8
   br label %133
 
@@ -557,7 +557,7 @@ thread-pre-split:                                 ; preds = %41
   %114 = load ptr, ptr %113, align 8
   %115 = call double @php_random_gammasection_open_closed(ptr %112, ptr %114, double noundef %51, double noundef %58) #7
   store double %115, ptr %1, align 8
-  %116 = getelementptr inbounds i8, ptr %1, i64 8
+  %116 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 5, ptr %116, align 8
   br label %133
 
@@ -578,7 +578,7 @@ thread-pre-split:                                 ; preds = %41
   %125 = load ptr, ptr %124, align 8
   %126 = call double @php_random_gammasection_open_open(ptr %123, ptr %125, double noundef %51, double noundef %58) #7
   store double %126, ptr %1, align 8
-  %127 = getelementptr inbounds i8, ptr %1, i64 8
+  %127 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 5, ptr %127, align 8
   %128 = fcmp uno double %126, 0.000000e+00
   br i1 %128, label %129, label %133
@@ -611,7 +611,7 @@ declare void @zend_value_error(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_Random_Randomizer_nextInt(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 44
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %6, label %5
@@ -621,13 +621,13 @@ define hidden void @zim_Random_Randomizer_nextInt(ptr nocapture noundef readonly
   br label %26
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 -24
   %.sroa.23.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 -16
   %.sroa.23.0.copyload = load ptr, ptr %.sroa.23.0..sroa_idx, align 8
   %.sroa.02.0.copyload = load ptr, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %.sroa.02.0.copyload, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.02.0.copyload, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = tail call { i64, i64 } %11(ptr noundef %.sroa.23.0.copyload) #7
   %13 = extractvalue { i64, i64 } %12, 0
@@ -651,7 +651,7 @@ define hidden void @zim_Random_Randomizer_nextInt(ptr nocapture noundef readonly
 23:                                               ; preds = %15
   %24 = lshr i64 %13, 1
   store i64 %24, ptr %1, align 8
-  %25 = getelementptr inbounds i8, ptr %1, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 4, ptr %25, align 8
   br label %26
 
@@ -665,13 +665,13 @@ declare ptr @zend_throw_exception(ptr noundef, ptr noundef, i64 noundef) local_u
 define hidden void @zim_Random_Randomizer_getInt(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 -24
   %.sroa.047.0.copyload = load ptr, ptr %7, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 -16
   %.sroa.3.0.copyload = load ptr, ptr %.sroa.3.0..sroa_idx, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 44
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %9 = load i32, ptr %8, align 4
   %.not = icmp eq i32 %9, 2
   br i1 %.not, label %11, label %10
@@ -681,8 +681,8 @@ define hidden void @zim_Random_Randomizer_getInt(ptr noundef %0, ptr nocapture n
   br label %.thread126
 
 11:                                               ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %0, i64 80
-  %13 = getelementptr inbounds i8, ptr %0, i64 88
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %14 = load i8, ptr %13, align 8
   %15 = icmp eq i8 %14, 4
   br i1 %15, label %.critedge, label %17
@@ -697,8 +697,8 @@ define hidden void @zim_Random_Randomizer_getInt(ptr noundef %0, ptr nocapture n
   br i1 %18, label %19, label %.thread126
 
 19:                                               ; preds = %17, %.critedge
-  %20 = getelementptr inbounds i8, ptr %0, i64 96
-  %21 = getelementptr inbounds i8, ptr %0, i64 104
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %22 = load i8, ptr %21, align 8
   %23 = icmp eq i8 %22, 4
   br i1 %23, label %.thread122, label %25
@@ -738,14 +738,14 @@ define hidden void @zim_Random_Randomizer_getInt(ptr noundef %0, ptr nocapture n
   br label %62
 
 33:                                               ; preds = %.thread140
-  %34 = getelementptr inbounds i8, ptr %.sroa.047.0.copyload, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %.sroa.047.0.copyload, i64 16
   %35 = load ptr, ptr %34, align 8
   %36 = load ptr, ptr getelementptr inbounds (i8, ptr @php_random_algo_mt19937, i64 16), align 8
   %37 = icmp eq ptr %35, %36
   br i1 %37, label %38, label %.critedge117
 
 38:                                               ; preds = %33
-  %39 = getelementptr inbounds i8, ptr %.sroa.3.0.copyload, i64 2500
+  %39 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.copyload, i64 2500
   %40 = load i8, ptr %39, align 4
   %.not141 = icmp eq i8 %40, 0
   br i1 %.not141, label %.critedge117, label %41
@@ -780,7 +780,7 @@ define hidden void @zim_Random_Randomizer_getInt(ptr noundef %0, ptr nocapture n
 
 60:                                               ; preds = %58
   store i64 %.0105, ptr %1, align 8
-  %61 = getelementptr inbounds i8, ptr %1, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 4, ptr %61, align 8
   br label %62
 
@@ -791,20 +791,20 @@ define hidden void @zim_Random_Randomizer_getInt(ptr noundef %0, ptr nocapture n
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_Random_Randomizer_getBytes(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 -24
   %.sroa.042.0.copyload = load ptr, ptr %6, align 8
   %.sroa.243.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 -16
   %.sroa.243.0.copyload = load ptr, ptr %.sroa.243.0..sroa_idx, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 44
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %8 = load i32, ptr %7, align 4
   %cond = icmp eq i32 %8, 1
   br i1 %cond, label %9, label %.thread160
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %0, i64 80
-  %11 = getelementptr inbounds i8, ptr %0, i64 88
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %12 = load i8, ptr %11, align 8
   %13 = icmp eq i8 %12, 4
   br i1 %13, label %.thread150, label %15
@@ -851,19 +851,19 @@ define hidden void @zim_Random_Randomizer_getBytes(ptr noundef %0, ptr nocapture
   %25 = add nuw i64 %24, 32
   %26 = call noalias ptr @_emalloc(i64 noundef %25) #8
   store i32 1, ptr %26, align 4
-  %27 = getelementptr inbounds i8, ptr %26, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 4
   store i32 22, ptr %27, align 4
-  %28 = getelementptr inbounds i8, ptr %26, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store i64 0, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %26, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   store i64 %18, ptr %29, align 8
   %30 = load i64, ptr %3, align 8
   %.not = icmp eq i64 %30, 0
   br i1 %.not, label %._crit_edge177, label %.lr.ph176
 
 .lr.ph176:                                        ; preds = %23
-  %31 = getelementptr inbounds i8, ptr %.sroa.042.0.copyload, i64 8
-  %32 = getelementptr inbounds i8, ptr %26, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %.sroa.042.0.copyload, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %26, i64 24
   br label %33
 
 33:                                               ; preds = %.lr.ph176, %._crit_edge
@@ -929,7 +929,7 @@ define hidden void @zim_Random_Randomizer_getBytes(ptr noundef %0, ptr nocapture
 
 ._crit_edge177:                                   ; preds = %._crit_edge, %23
   %.lcssa = phi i64 [ 0, %23 ], [ %.pre182, %._crit_edge ]
-  %57 = getelementptr inbounds i8, ptr %26, i64 24
+  %57 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %58 = getelementptr inbounds [1 x i8], ptr %57, i64 0, i64 %.lcssa
   store i8 0, ptr %58, align 1
   store ptr %26, ptr %1, align 8
@@ -937,7 +937,7 @@ define hidden void @zim_Random_Randomizer_getBytes(ptr noundef %0, ptr nocapture
   %60 = and i32 %59, 64
   %.not140 = icmp eq i32 %60, 0
   %61 = select i1 %.not140, i32 262, i32 6
-  %62 = getelementptr inbounds i8, ptr %1, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %61, ptr %62, align 8
   br label %63
 
@@ -947,10 +947,10 @@ define hidden void @zim_Random_Randomizer_getBytes(ptr noundef %0, ptr nocapture
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_Random_Randomizer_shuffleArray(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 -24
-  %6 = getelementptr inbounds i8, ptr %0, i64 44
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %7 = load i32, ptr %6, align 4
   %cond = icmp eq i32 %7, 1
   br i1 %cond, label %9, label %8
@@ -960,8 +960,8 @@ define hidden void @zim_Random_Randomizer_shuffleArray(ptr noundef %0, ptr nound
   br label %13
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %0, i64 80
-  %11 = getelementptr inbounds i8, ptr %0, i64 88
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %12 = load i8, ptr %11, align 8
   %.not67 = icmp eq i8 %12, 7
   br i1 %.not67, label %14, label %13
@@ -1000,7 +1000,7 @@ define hidden void @zim_Random_Randomizer_shuffleArray(ptr noundef %0, ptr nound
   %.sink81 = phi ptr [ %20, %19 ], [ %15, %21 ], [ %15, %23 ]
   %.sink = phi i32 [ 775, %19 ], [ %16, %21 ], [ %16, %23 ]
   store ptr %.sink81, ptr %1, align 8
-  %27 = getelementptr inbounds i8, ptr %1, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %.sink, ptr %27, align 8
   %28 = load ptr, ptr %5, align 8
   %29 = getelementptr inbounds i8, ptr %4, i64 -16
@@ -1025,10 +1025,10 @@ declare zeroext i1 @php_array_data_shuffle(ptr, ptr, ptr noundef) local_unnamed_
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_Random_Randomizer_shuffleBytes(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 -24
-  %7 = getelementptr inbounds i8, ptr %0, i64 44
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %8 = load i32, ptr %7, align 4
   %cond = icmp eq i32 %8, 1
   br i1 %cond, label %10, label %9
@@ -1038,8 +1038,8 @@ define hidden void @zim_Random_Randomizer_shuffleBytes(ptr noundef %0, ptr nocap
   br label %.thread155
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %0, i64 80
-  %12 = getelementptr inbounds i8, ptr %0, i64 88
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %13 = load i8, ptr %12, align 8
   %14 = icmp eq i8 %13, 6
   br i1 %14, label %.thread144, label %16
@@ -1068,21 +1068,21 @@ define hidden void @zim_Random_Randomizer_shuffleBytes(ptr noundef %0, ptr nocap
 
 .thread148:                                       ; preds = %..thread148_crit_edge, %.thread144
   %18 = phi ptr [ %.pre, %..thread148_crit_edge ], [ %15, %.thread144 ]
-  %19 = getelementptr inbounds i8, ptr %18, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load i64, ptr %19, align 8
   %21 = icmp ult i64 %20, 2
   br i1 %21, label %22, label %32
 
 22:                                               ; preds = %.thread148
   store ptr %18, ptr %1, align 8
-  %23 = getelementptr inbounds i8, ptr %18, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %24 = load i32, ptr %23, align 4
   %25 = and i32 %24, 64
   %.not130 = icmp eq i32 %25, 0
   br i1 %.not130, label %28, label %26
 
 26:                                               ; preds = %22
-  %27 = getelementptr inbounds i8, ptr %1, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 6, ptr %27, align 8
   br label %51
 
@@ -1090,28 +1090,28 @@ define hidden void @zim_Random_Randomizer_shuffleBytes(ptr noundef %0, ptr nocap
   %29 = load i32, ptr %18, align 4
   %30 = add i32 %29, 1
   store i32 %30, ptr %18, align 4
-  %31 = getelementptr inbounds i8, ptr %1, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 262, ptr %31, align 8
   br label %51
 
 32:                                               ; preds = %.thread148
-  %33 = getelementptr inbounds i8, ptr %18, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %34 = and i64 %20, -8
   %35 = add i64 %34, 32
   %36 = call noalias ptr @_emalloc(i64 noundef %35) #8
   store i32 1, ptr %36, align 4
-  %37 = getelementptr inbounds i8, ptr %36, i64 4
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 4
   store i32 22, ptr %37, align 4
-  %38 = getelementptr inbounds i8, ptr %36, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 8
   store i64 0, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %36, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %36, i64 16
   store i64 %20, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %36, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %36, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %40, ptr nonnull align 1 %33, i64 %20, i1 false)
   %41 = getelementptr inbounds [1 x i8], ptr %40, i64 0, i64 %20
   store i8 0, ptr %41, align 1
   store ptr %36, ptr %1, align 8
-  %42 = getelementptr inbounds i8, ptr %1, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 262, ptr %42, align 8
   %43 = load i64, ptr %39, align 8
   %44 = load ptr, ptr %6, align 8
@@ -1136,10 +1136,10 @@ declare zeroext i1 @php_binary_string_shuffle(ptr, ptr, ptr noundef, i64 noundef
 define hidden void @zim_Random_Randomizer_pickArrayKeys(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = alloca i64, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 -24
-  %8 = getelementptr inbounds i8, ptr %0, i64 44
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %9 = load i32, ptr %8, align 4
   %.not = icmp eq i32 %9, 2
   br i1 %.not, label %11, label %10
@@ -1149,15 +1149,15 @@ define hidden void @zim_Random_Randomizer_pickArrayKeys(ptr noundef %0, ptr noun
   br label %.thread117
 
 11:                                               ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %0, i64 80
-  %13 = getelementptr inbounds i8, ptr %0, i64 88
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %14 = load i8, ptr %13, align 8
   %.not105 = icmp eq i8 %14, 7
   br i1 %.not105, label %15, label %.thread117
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %0, i64 96
-  %17 = getelementptr inbounds i8, ptr %0, i64 104
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %18 = load i8, ptr %17, align 8
   %19 = icmp eq i8 %18, 4
   br i1 %19, label %.thread113, label %21
@@ -1199,7 +1199,7 @@ define hidden void @zim_Random_Randomizer_pickArrayKeys(ptr noundef %0, ptr noun
   br label %40
 
 31:                                               ; preds = %.thread137
-  %32 = getelementptr inbounds i8, ptr %1, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %33 = load i8, ptr %32, align 8
   %.not107 = icmp eq i8 %33, 7
   br i1 %.not107, label %40, label %34
@@ -1208,7 +1208,7 @@ define hidden void @zim_Random_Randomizer_pickArrayKeys(ptr noundef %0, ptr noun
   %35 = load ptr, ptr %1, align 8
   %36 = load i32, ptr %32, align 8
   store ptr %35, ptr %3, align 8
-  %37 = getelementptr inbounds i8, ptr %3, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %36, ptr %37, align 8
   %38 = call ptr @_zend_new_array_0() #7
   store ptr %38, ptr %1, align 8
@@ -1230,13 +1230,13 @@ declare ptr @zend_hash_next_index_insert(ptr noundef, ptr noundef) local_unnamed
 define hidden void @zim_Random_Randomizer_getBytesFromString(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca ptr, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 -24
   %.sroa.078.0.copyload = load ptr, ptr %7, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 -16
   %.sroa.3.0.copyload = load ptr, ptr %.sroa.3.0..sroa_idx, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 44
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %9 = load i32, ptr %8, align 4
   %.not = icmp eq i32 %9, 2
   br i1 %.not, label %11, label %10
@@ -1246,8 +1246,8 @@ define hidden void @zim_Random_Randomizer_getBytesFromString(ptr noundef %0, ptr
   br label %.thread236
 
 11:                                               ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %0, i64 80
-  %13 = getelementptr inbounds i8, ptr %0, i64 88
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %14 = load i8, ptr %13, align 8
   %15 = icmp eq i8 %14, 6
   br i1 %15, label %.critedge, label %17
@@ -1262,8 +1262,8 @@ define hidden void @zim_Random_Randomizer_getBytesFromString(ptr noundef %0, ptr
   br i1 %18, label %19, label %.thread236
 
 19:                                               ; preds = %17, %.critedge
-  %20 = getelementptr inbounds i8, ptr %0, i64 96
-  %21 = getelementptr inbounds i8, ptr %0, i64 104
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %22 = load i8, ptr %21, align 8
   %23 = icmp eq i8 %22, 4
   br i1 %23, label %.thread232, label %25
@@ -1288,7 +1288,7 @@ define hidden void @zim_Random_Randomizer_getBytesFromString(ptr noundef %0, ptr
 
 .thread253:                                       ; preds = %25, %.thread232
   %27 = load ptr, ptr %4, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %29 = load i64, ptr %28, align 8
   %30 = add i64 %29, -1
   %31 = icmp eq i64 %29, 0
@@ -1318,11 +1318,11 @@ define hidden void @zim_Random_Randomizer_getBytesFromString(ptr noundef %0, ptr
   %43 = add nuw i64 %42, 32
   %44 = call noalias ptr @_emalloc(i64 noundef %43) #8
   store i32 1, ptr %44, align 4
-  %45 = getelementptr inbounds i8, ptr %44, i64 4
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 4
   store i32 22, ptr %45, align 4
-  %46 = getelementptr inbounds i8, ptr %44, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %44, i64 8
   store i64 0, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %44, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %44, i64 16
   store i64 %36, ptr %47, align 8
   %48 = icmp ugt i64 %30, 255
   br i1 %48, label %.preheader, label %75
@@ -1333,8 +1333,8 @@ define hidden void @zim_Random_Randomizer_getBytesFromString(ptr noundef %0, ptr
   br i1 %.not271, label %.loopexit, label %.lr.ph268
 
 .lr.ph268:                                        ; preds = %.preheader
-  %50 = getelementptr inbounds i8, ptr %.sroa.078.0.copyload, i64 16
-  %51 = getelementptr inbounds i8, ptr %44, i64 24
+  %50 = getelementptr inbounds nuw i8, ptr %.sroa.078.0.copyload, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %44, i64 24
   br label %52
 
 52:                                               ; preds = %.lr.ph268, %66
@@ -1373,7 +1373,7 @@ define hidden void @zim_Random_Randomizer_getBytesFromString(ptr noundef %0, ptr
 
 66:                                               ; preds = %52
   %67 = load ptr, ptr %4, align 8
-  %68 = getelementptr inbounds i8, ptr %67, i64 24
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 24
   %69 = getelementptr inbounds [1 x i8], ptr %68, i64 0, i64 %54
   %70 = load i8, ptr %69, align 1
   %71 = add nuw i64 %.0196267, 1
@@ -1395,8 +1395,8 @@ define hidden void @zim_Random_Randomizer_getBytesFromString(ptr noundef %0, ptr
   br i1 %.not269, label %.loopexit, label %.lr.ph266
 
 .lr.ph266:                                        ; preds = %75
-  %83 = getelementptr inbounds i8, ptr %.sroa.078.0.copyload, i64 8
-  %84 = getelementptr inbounds i8, ptr %44, i64 24
+  %83 = getelementptr inbounds nuw i8, ptr %.sroa.078.0.copyload, i64 8
+  %84 = getelementptr inbounds nuw i8, ptr %44, i64 24
   br label %85
 
 85:                                               ; preds = %.lr.ph266, %._crit_edge
@@ -1417,7 +1417,7 @@ define hidden void @zim_Random_Randomizer_getBytesFromString(ptr noundef %0, ptr
 
 .lr.ph:                                           ; preds = %.preheader254
   %91 = load ptr, ptr %4, align 8
-  %92 = getelementptr inbounds i8, ptr %91, i64 24
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 24
   br label %103
 
 93:                                               ; preds = %85
@@ -1489,7 +1489,7 @@ define hidden void @zim_Random_Randomizer_getBytesFromString(ptr noundef %0, ptr
   br label %137
 
 122:                                              ; preds = %103
-  %123 = getelementptr inbounds [1 x i8], ptr %92, i64 0, i64 %106
+  %123 = getelementptr inbounds nuw [1 x i8], ptr %92, i64 0, i64 %106
   %124 = load i8, ptr %123, align 1
   %125 = add i64 %.2258, 1
   %126 = getelementptr inbounds [1 x i8], ptr %84, i64 0, i64 %.2258
@@ -1512,7 +1512,7 @@ define hidden void @zim_Random_Randomizer_getBytesFromString(ptr noundef %0, ptr
 
 .loopexit:                                        ; preds = %._crit_edge, %66, %75, %.preheader
   %130 = phi i64 [ 0, %75 ], [ 0, %.preheader ], [ %73, %66 ], [ %.pre273, %._crit_edge ]
-  %131 = getelementptr inbounds i8, ptr %44, i64 24
+  %131 = getelementptr inbounds nuw i8, ptr %44, i64 24
   %132 = getelementptr inbounds [1 x i8], ptr %131, i64 0, i64 %130
   store i8 0, ptr %132, align 1
   store ptr %44, ptr %1, align 8
@@ -1520,7 +1520,7 @@ define hidden void @zim_Random_Randomizer_getBytesFromString(ptr noundef %0, ptr
   %134 = and i32 %133, 64
   %.not223 = icmp eq i32 %134, 0
   %135 = select i1 %.not223, i32 262, i32 6
-  %136 = getelementptr inbounds i8, ptr %1, i64 8
+  %136 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %135, ptr %136, align 8
   br label %137
 
@@ -1533,7 +1533,7 @@ declare void @zend_throw_error(ptr noundef, ptr noundef, ...) local_unnamed_addr
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_Random_Randomizer___serialize(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct._zval_struct, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 44
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %7, label %6
@@ -1543,15 +1543,15 @@ define hidden void @zim_Random_Randomizer___serialize(ptr nocapture noundef read
   br label %18
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
   %10 = tail call ptr @_zend_new_array_0() #7
   store ptr %10, ptr %1, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 775, ptr %11, align 8
   %12 = tail call ptr @zend_std_get_properties(ptr noundef nonnull %9) #7
   store ptr %12, ptr %3, align 8
-  %13 = getelementptr inbounds i8, ptr %3, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 775, ptr %13, align 8
   %14 = load i32, ptr %12, align 4
   %15 = add i32 %14, 1
@@ -1568,10 +1568,10 @@ declare ptr @zend_std_get_properties(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zim_Random_Randomizer___unserialize(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 -24
-  %6 = getelementptr inbounds i8, ptr %0, i64 44
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %7 = load i32, ptr %6, align 4
   %cond = icmp eq i32 %7, 1
   br i1 %cond, label %8, label %.thread
@@ -1581,8 +1581,8 @@ define hidden void @zim_Random_Randomizer___unserialize(ptr noundef %0, ptr noca
   br label %12
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 80
-  %10 = getelementptr inbounds i8, ptr %0, i64 88
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %11 = load i8, ptr %10, align 8
   %.not87 = icmp eq i8 %11, 7
   br i1 %.not87, label %13, label %12
@@ -1597,7 +1597,7 @@ define hidden void @zim_Random_Randomizer___unserialize(ptr noundef %0, ptr noca
 
 13:                                               ; preds = %8
   %14 = load ptr, ptr %9, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 28
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 28
   %16 = load i32, ptr %15, align 4
   %.not89 = icmp eq i32 %16, 1
   br i1 %.not89, label %21, label %17
@@ -1615,7 +1615,7 @@ define hidden void @zim_Random_Randomizer___unserialize(ptr noundef %0, ptr noca
   br i1 %.not90, label %26, label %23
 
 23:                                               ; preds = %21
-  %24 = getelementptr inbounds i8, ptr %22, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %25 = load i8, ptr %24, align 8
   %.not91 = icmp eq i8 %25, 7
   br i1 %.not91, label %30, label %26
@@ -1642,17 +1642,17 @@ define hidden void @zim_Random_Randomizer___unserialize(ptr noundef %0, ptr noca
   br label %56
 
 37:                                               ; preds = %30
-  %38 = getelementptr inbounds i8, ptr %4, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %39 = load ptr, ptr %38, align 8
   %40 = tail call ptr @zend_read_property(ptr noundef %39, ptr noundef nonnull %4, ptr noundef nonnull @.str, i64 noundef 6, i1 noundef zeroext true, ptr noundef null) #7
-  %41 = getelementptr inbounds i8, ptr %40, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %42 = load i8, ptr %41, align 8
   %.not93 = icmp eq i8 %42, 8
   br i1 %.not93, label %43, label %51
 
 43:                                               ; preds = %37
   %44 = load ptr, ptr %40, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %46 = load ptr, ptr %45, align 8
   %47 = load ptr, ptr @random_ce_Random_Engine, align 8
   %48 = icmp eq ptr %46, %47

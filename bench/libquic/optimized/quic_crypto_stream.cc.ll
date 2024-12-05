@@ -51,26 +51,26 @@ $_ZTIN3net28CryptoFramerVisitorInterfaceE = comdat any
 define dso_local void @_ZN3net16QuicCryptoStreamC2EPNS_11QuicSessionE(ptr noundef nonnull align 8 dereferenceable(1048) %this, ptr noundef %session) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN3net18ReliableQuicStreamC2EjPNS_11QuicSessionE(ptr noundef nonnull align 8 dereferenceable(377) %this, i32 noundef 1, ptr noundef %session)
-  %0 = getelementptr inbounds i8, ptr %this, i64 384
+  %0 = getelementptr inbounds nuw i8, ptr %this, i64 384
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net16QuicCryptoStreamE, i64 16), ptr %this, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net16QuicCryptoStreamE, i64 168), ptr %0, align 8
-  %encryption_established_ = getelementptr inbounds i8, ptr %this, i64 392
+  %encryption_established_ = getelementptr inbounds nuw i8, ptr %this, i64 392
   store i8 0, ptr %encryption_established_, align 8
-  %handshake_confirmed_ = getelementptr inbounds i8, ptr %this, i64 393
+  %handshake_confirmed_ = getelementptr inbounds nuw i8, ptr %this, i64 393
   store i8 0, ptr %handshake_confirmed_, align 1
-  %crypto_negotiated_params_ = getelementptr inbounds i8, ptr %this, i64 400
+  %crypto_negotiated_params_ = getelementptr inbounds nuw i8, ptr %this, i64 400
   invoke void @_ZN3net30QuicCryptoNegotiatedParametersC1Ev(ptr noundef nonnull align 8 dereferenceable(433) %crypto_negotiated_params_)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %crypto_framer_ = getelementptr inbounds i8, ptr %this, i64 840
+  %crypto_framer_ = getelementptr inbounds nuw i8, ptr %this, i64 840
   invoke void @_ZN3net12CryptoFramerC1Ev(ptr noundef nonnull align 8 dereferenceable(208) %crypto_framer_)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
-  %visitor_.i = getelementptr inbounds i8, ptr %this, i64 848
+  %visitor_.i = getelementptr inbounds nuw i8, ptr %this, i64 848
   store ptr %0, ptr %visitor_.i, align 8
-  %stream_contributes_to_connection_flow_control_.i = getelementptr inbounds i8, ptr %this, i64 376
+  %stream_contributes_to_connection_flow_control_.i = getelementptr inbounds nuw i8, ptr %this, i64 376
   store i8 0, ptr %stream_contributes_to_connection_flow_control_.i, align 8
   ret void
 
@@ -132,10 +132,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net16QuicCryptoStream18OnHandshakeMessageERKNS_22CryptoHandshakeMessageE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1048) %this, ptr noundef nonnull align 8 dereferenceable(72) %message) unnamed_addr #0 align 2 {
 entry:
-  %session_.i = getelementptr inbounds i8, ptr %this, i64 224
+  %session_.i = getelementptr inbounds nuw i8, ptr %this, i64 224
   %0 = load ptr, ptr %session_.i, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 224
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 224
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(2044) %0, ptr noundef nonnull align 8 dereferenceable(72) %message)
   ret void
@@ -147,7 +147,7 @@ entry:
   %session_.i.i = getelementptr inbounds i8, ptr %this, i64 -160
   %0 = load ptr, ptr %session_.i.i, align 8
   %vtable.i = load ptr, ptr %0, align 8
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 224
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 224
   %1 = load ptr, ptr %vfn.i, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(2044) %0, ptr noundef nonnull align 8 dereferenceable(72) %message)
   ret void
@@ -158,15 +158,15 @@ define dso_local void @_ZN3net16QuicCryptoStream15OnDataAvailableEv(ptr noundef 
 entry:
   %iov = alloca %struct.iovec, align 8
   %data = alloca %"class.base::BasicStringPiece", align 8
-  %sequencer_.i = getelementptr inbounds i8, ptr %this, i64 40
+  %sequencer_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %call22 = call noundef i32 @_ZNK3net19QuicStreamSequencer18GetReadableRegionsEP5iovecm(ptr noundef nonnull align 8 dereferenceable(169) %sequencer_.i, ptr noundef nonnull %iov, i64 noundef 1)
   %cmp.not3 = icmp eq i32 %call22, 1
   br i1 %cmp.not3, label %if.end.lr.ph, label %while.end
 
 if.end.lr.ph:                                     ; preds = %entry
-  %iov_len = getelementptr inbounds i8, ptr %iov, i64 8
-  %crypto_framer_ = getelementptr inbounds i8, ptr %this, i64 840
-  %agg.tmp.sroa.2.0.data.sroa_idx = getelementptr inbounds i8, ptr %data, i64 8
+  %iov_len = getelementptr inbounds nuw i8, ptr %iov, i64 8
+  %crypto_framer_ = getelementptr inbounds nuw i8, ptr %this, i64 840
+  %agg.tmp.sroa.2.0.data.sroa_idx = getelementptr inbounds nuw i8, ptr %data, i64 8
   br label %if.end
 
 if.end:                                           ; preds = %if.end.lr.ph, %if.end9
@@ -179,11 +179,11 @@ if.end:                                           ; preds = %if.end.lr.ph, %if.e
   br i1 %call3, label %if.end9, label %if.then4
 
 if.then4:                                         ; preds = %if.end
-  %error_.i = getelementptr inbounds i8, ptr %this, i64 856
+  %error_.i = getelementptr inbounds nuw i8, ptr %this, i64 856
   %2 = load i32, ptr %error_.i, align 8
-  %error_detail_.i = getelementptr inbounds i8, ptr %this, i64 976
+  %error_detail_.i = getelementptr inbounds nuw i8, ptr %this, i64 976
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 72
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 72
   %3 = load ptr, ptr %vfn, align 8
   call void %3(ptr noundef nonnull align 8 dereferenceable(377) %this, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %error_detail_.i)
   br label %while.end
@@ -211,24 +211,24 @@ declare void @_ZN3net19QuicStreamSequencer12MarkConsumedEm(ptr noundef nonnull a
 define dso_local void @_ZN3net16QuicCryptoStream20SendHandshakeMessageERKNS_22CryptoHandshakeMessageE(ptr noundef nonnull align 8 dereferenceable(1048) %this, ptr noundef nonnull align 8 dereferenceable(72) %message) local_unnamed_addr #0 align 2 {
 entry:
   %agg.tmp = alloca %"class.base::BasicStringPiece", align 8
-  %session_.i = getelementptr inbounds i8, ptr %this, i64 224
+  %session_.i = getelementptr inbounds nuw i8, ptr %this, i64 224
   %0 = load ptr, ptr %session_.i, align 8
-  %connection_.i = getelementptr inbounds i8, ptr %0, i64 56
+  %connection_.i = getelementptr inbounds nuw i8, ptr %0, i64 56
   %1 = load ptr, ptr %connection_.i, align 8
   tail call void @_ZN3net14QuicConnection24NeuterUnencryptedPacketsEv(ptr noundef nonnull align 8 dereferenceable(3372) %1)
   %2 = load ptr, ptr %session_.i, align 8
   %vtable = load ptr, ptr %2, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 216
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 216
   %3 = load ptr, ptr %vfn, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(2044) %2, ptr noundef nonnull align 8 dereferenceable(72) %message)
   %call4 = tail call noundef nonnull align 8 dereferenceable(25) ptr @_ZNK3net22CryptoHandshakeMessage13GetSerializedEv(ptr noundef nonnull align 8 dereferenceable(72) %message)
-  %buffer_.i = getelementptr inbounds i8, ptr %call4, i64 8
+  %buffer_.i = getelementptr inbounds nuw i8, ptr %call4, i64 8
   %4 = load ptr, ptr %buffer_.i, align 8
-  %length_.i = getelementptr inbounds i8, ptr %call4, i64 16
+  %length_.i = getelementptr inbounds nuw i8, ptr %call4, i64 16
   %5 = load i64, ptr %length_.i, align 8
   call void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1EPKcm(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef %4, i64 noundef %5)
   %6 = load ptr, ptr %agg.tmp, align 8
-  %7 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 8
   %8 = load i64, ptr %7, align 8
   call void @_ZN3net18ReliableQuicStream17WriteOrBufferDataEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbPNS_24QuicAckListenerInterfaceE(ptr noundef nonnull align 8 dereferenceable(377) %this, ptr %6, i64 %8, i1 noundef zeroext false, ptr noundef null)
   ret void
@@ -244,16 +244,16 @@ declare void @_ZN3net18ReliableQuicStream17WriteOrBufferDataEN4base16BasicString
 define dso_local noundef zeroext i1 @_ZNK3net16QuicCryptoStream20ExportKeyingMaterialEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_mPS8_(ptr noundef nonnull align 8 dereferenceable(1048) %this, ptr %label.coerce0, i64 %label.coerce1, ptr %context.coerce0, i64 %context.coerce1, i64 noundef %result_len, ptr noundef %result) local_unnamed_addr #0 align 2 {
 entry:
   %agg.tmp = alloca %"class.base::BasicStringPiece", align 8
-  %handshake_confirmed_.i = getelementptr inbounds i8, ptr %this, i64 393
+  %handshake_confirmed_.i = getelementptr inbounds nuw i8, ptr %this, i64 393
   %0 = load i8, ptr %handshake_confirmed_.i, align 1
   %tobool.i = trunc i8 %0 to i1
   br i1 %tobool.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %subkey_secret = getelementptr inbounds i8, ptr %this, i64 504
+  %subkey_secret = getelementptr inbounds nuw i8, ptr %this, i64 504
   call void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1ERKS6_(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %subkey_secret)
   %1 = load ptr, ptr %agg.tmp, align 8
-  %2 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 8
   %3 = load i64, ptr %2, align 8
   %call4 = call noundef zeroext i1 @_ZN3net11CryptoUtils20ExportKeyingMaterialEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_S9_mPS8_(ptr %1, i64 %3, ptr %label.coerce0, i64 %label.coerce1, ptr %context.coerce0, i64 %context.coerce1, i64 noundef %result_len, ptr noundef %result)
   br label %return
@@ -274,7 +274,7 @@ entry:
   %agg.tmp = alloca %"class.base::BasicStringPiece", align 8
   %agg.tmp13 = alloca %"class.base::BasicStringPiece", align 8
   %agg.tmp14 = alloca %"class.base::BasicStringPiece", align 8
-  %encryption_established_.i = getelementptr inbounds i8, ptr %this, i64 392
+  %encryption_established_.i = getelementptr inbounds nuw i8, ptr %this, i64 392
   %0 = load i8, ptr %encryption_established_.i, align 8
   %tobool.i = trunc i8 %0 to i1
   br i1 %tobool.i, label %if.end, label %if.then
@@ -285,7 +285,7 @@ if.then:                                          ; preds = %entry
 
 cond.false:                                       ; preds = %if.then
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp3, ptr noundef nonnull @.str, i32 noundef 100, i32 noundef 2)
-  %stream_.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 8
+  %stream_.i = getelementptr inbounds nuw i8, ptr %ref.tmp3, i64 8
   %call6 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i, ptr noundef nonnull @.str.1)
           to label %invoke.cont5 unwind label %lpad
 
@@ -304,18 +304,18 @@ lpad:                                             ; preds = %invoke.cont5, %cond
   resume { ptr, i32 } %1
 
 if.end:                                           ; preds = %entry
-  %initial_subkey_secret = getelementptr inbounds i8, ptr %this, i64 472
+  %initial_subkey_secret = getelementptr inbounds nuw i8, ptr %this, i64 472
   call void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1ERKS6_(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %initial_subkey_secret)
   call void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp13, ptr noundef nonnull @.str.3)
   call void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp14, ptr noundef nonnull @.str.4)
   %2 = load ptr, ptr %agg.tmp, align 8
-  %3 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = load ptr, ptr %agg.tmp13, align 8
-  %6 = getelementptr inbounds i8, ptr %agg.tmp13, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %agg.tmp13, i64 8
   %7 = load i64, ptr %6, align 8
   %8 = load ptr, ptr %agg.tmp14, align 8
-  %9 = getelementptr inbounds i8, ptr %agg.tmp14, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %agg.tmp14, i64 8
   %10 = load i64, ptr %9, align 8
   %call15 = call noundef zeroext i1 @_ZN3net11CryptoUtils20ExportKeyingMaterialEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_S9_mPS8_(ptr %2, i64 %4, ptr %5, i64 %7, ptr %8, i64 %10, i64 noundef 32, ptr noundef %result)
   br label %return
@@ -339,7 +339,7 @@ declare void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_tra
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef nonnull align 8 dereferenceable(433) ptr @_ZNK3net16QuicCryptoStream24crypto_negotiated_paramsEv(ptr noundef nonnull readnone align 8 dereferenceable(1048) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %crypto_negotiated_params_ = getelementptr inbounds i8, ptr %this, i64 400
+  %crypto_negotiated_params_ = getelementptr inbounds nuw i8, ptr %this, i64 400
   ret ptr %crypto_negotiated_params_
 }
 
@@ -347,11 +347,11 @@ entry:
 define linkonce_odr dso_local void @_ZN3net16QuicCryptoStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(1048) %this) unnamed_addr #5 comdat align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net16QuicCryptoStreamE, i64 16), ptr %this, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %this, i64 384
+  %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 384
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net16QuicCryptoStreamE, i64 168), ptr %add.ptr, align 8
-  %crypto_framer_ = getelementptr inbounds i8, ptr %this, i64 840
+  %crypto_framer_ = getelementptr inbounds nuw i8, ptr %this, i64 840
   tail call void @_ZN3net12CryptoFramerD1Ev(ptr noundef nonnull align 8 dereferenceable(208) %crypto_framer_) #8
-  %crypto_negotiated_params_ = getelementptr inbounds i8, ptr %this, i64 400
+  %crypto_negotiated_params_ = getelementptr inbounds nuw i8, ptr %this, i64 400
   tail call void @_ZN3net30QuicCryptoNegotiatedParametersD1Ev(ptr noundef nonnull align 8 dereferenceable(433) %crypto_negotiated_params_) #8
   tail call void @_ZN3net18ReliableQuicStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(377) %this) #8
   ret void
@@ -361,11 +361,11 @@ entry:
 define linkonce_odr dso_local void @_ZN3net16QuicCryptoStreamD0Ev(ptr noundef nonnull align 8 dereferenceable(1048) %this) unnamed_addr #5 comdat align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net16QuicCryptoStreamE, i64 16), ptr %this, align 8
-  %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 384
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %this, i64 384
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net16QuicCryptoStreamE, i64 168), ptr %add.ptr.i, align 8
-  %crypto_framer_.i = getelementptr inbounds i8, ptr %this, i64 840
+  %crypto_framer_.i = getelementptr inbounds nuw i8, ptr %this, i64 840
   tail call void @_ZN3net12CryptoFramerD1Ev(ptr noundef nonnull align 8 dereferenceable(208) %crypto_framer_.i) #8
-  %crypto_negotiated_params_.i = getelementptr inbounds i8, ptr %this, i64 400
+  %crypto_negotiated_params_.i = getelementptr inbounds nuw i8, ptr %this, i64 400
   tail call void @_ZN3net30QuicCryptoNegotiatedParametersD1Ev(ptr noundef nonnull align 8 dereferenceable(433) %crypto_negotiated_params_.i) #8
   tail call void @_ZN3net18ReliableQuicStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(1048) %this) #8
   tail call void @_ZdlPv(ptr noundef nonnull %this) #9
@@ -402,9 +402,9 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -384
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net16QuicCryptoStreamE, i64 16), ptr %0, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net16QuicCryptoStreamE, i64 168), ptr %this, align 8
-  %crypto_framer_.i = getelementptr inbounds i8, ptr %this, i64 456
+  %crypto_framer_.i = getelementptr inbounds nuw i8, ptr %this, i64 456
   tail call void @_ZN3net12CryptoFramerD1Ev(ptr noundef nonnull align 8 dereferenceable(208) %crypto_framer_.i) #8
-  %crypto_negotiated_params_.i = getelementptr inbounds i8, ptr %this, i64 16
+  %crypto_negotiated_params_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @_ZN3net30QuicCryptoNegotiatedParametersD1Ev(ptr noundef nonnull align 8 dereferenceable(433) %crypto_negotiated_params_.i) #8
   tail call void @_ZN3net18ReliableQuicStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(1048) %0) #8
   ret void
@@ -416,9 +416,9 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -384
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net16QuicCryptoStreamE, i64 16), ptr %0, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net16QuicCryptoStreamE, i64 168), ptr %this, align 8
-  %crypto_framer_.i.i = getelementptr inbounds i8, ptr %this, i64 456
+  %crypto_framer_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 456
   tail call void @_ZN3net12CryptoFramerD1Ev(ptr noundef nonnull align 8 dereferenceable(208) %crypto_framer_.i.i) #8
-  %crypto_negotiated_params_.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %crypto_negotiated_params_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @_ZN3net30QuicCryptoNegotiatedParametersD1Ev(ptr noundef nonnull align 8 dereferenceable(433) %crypto_negotiated_params_.i.i) #8
   tail call void @_ZN3net18ReliableQuicStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(1048) %0) #8
   tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(1048) %0) #9

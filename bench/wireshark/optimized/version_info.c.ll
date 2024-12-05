@@ -51,7 +51,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define void @ws_init_version_info(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call ptr @g_string_new(ptr noundef nonnull @.str.25) #12
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = icmp eq i64 %6, 0
   br i1 %7, label %13, label %8
@@ -116,7 +116,7 @@ end_string.exit:                                  ; preds = %.critedge.thread.i,
   %32 = tail call ptr @g_string_free(ptr noundef %4, i32 noundef 0) #12
   store ptr %32, ptr @copyright_info, align 8
   %33 = tail call ptr @g_string_new(ptr noundef nonnull @.str.26) #12
-  %34 = getelementptr inbounds i8, ptr %33, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %35 = load i64, ptr %34, align 8
   %36 = icmp eq i64 %35, 0
   br i1 %36, label %42, label %37
@@ -248,7 +248,7 @@ define noundef ptr @get_compiled_version_info(ptr noundef readonly %0) local_unn
   call void @g_list_foreach(ptr noundef %11, ptr noundef nonnull @feature_to_gstring, ptr noundef %3) #12
   %12 = call ptr @g_string_append(ptr noundef %3, ptr noundef nonnull @.str.10) #12
   %13 = call ptr @g_string_append(ptr noundef %3, ptr noundef nonnull @.str.11) #12
-  %14 = getelementptr inbounds i8, ptr %3, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %15 = load i64, ptr %14, align 8
   %16 = icmp eq i64 %15, 0
   br i1 %16, label %22, label %17
@@ -325,9 +325,9 @@ define noundef ptr @get_runtime_version_info(ptr noundef readonly %0) local_unna
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %2)
   %5 = call i32 @sysinfo(ptr noundef nonnull %2) #12
   %6 = icmp eq i32 %5, 0
-  %7 = getelementptr inbounds i8, ptr %2, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 104
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %10 = load i32, ptr %9, align 8
   %11 = zext i32 %10 to i64
   %12 = mul i64 %8, %11
@@ -375,10 +375,10 @@ get_mem_info.exit:                                ; preds = %1, %14
   br label %29
 
 29:                                               ; preds = %27, %25
-  %30 = getelementptr inbounds i8, ptr %4, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %31 = load i64, ptr %30, align 8
   %32 = add i64 %31, 1
-  %33 = getelementptr inbounds i8, ptr %4, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %34 = load i64, ptr %33, align 8
   %35 = icmp ult i64 %32, %34
   br i1 %35, label %36, label %42
@@ -496,7 +496,7 @@ declare void @g_list_foreach(ptr noundef, ptr noundef, ptr noundef) local_unname
 
 ; Function Attrs: nounwind uwtable
 define internal void @feature_to_gstring(ptr noundef %0, ptr noundef %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8
   %.not = icmp eq i64 %4, 0
   br i1 %.not, label %7, label %5

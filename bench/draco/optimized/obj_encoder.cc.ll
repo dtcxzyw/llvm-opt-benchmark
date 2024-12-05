@@ -116,36 +116,36 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5draco10ObjEncoderC2Ev(ptr noundef nonnull align 8 dereferenceable(256) initializes((0, 48), (72, 96)) %0) unnamed_addr #3 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 72
-  %3 = getelementptr inbounds i8, ptr %0, i64 96
-  %4 = getelementptr inbounds i8, ptr %0, i64 144
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 144
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 0, i64 48, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   store ptr %4, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 104
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i64 1, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 112
-  %7 = getelementptr inbounds i8, ptr %0, i64 128
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 128
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 136
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
-  %9 = getelementptr inbounds i8, ptr %0, i64 152
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store i32 -1, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 160
-  %11 = getelementptr inbounds i8, ptr %0, i64 208
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 208
   store ptr %11, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 168
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store i64 1, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 176
-  %14 = getelementptr inbounds i8, ptr %0, i64 192
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 192
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 200
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 200
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
-  %16 = getelementptr inbounds i8, ptr %0, i64 216
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 216
   store i32 -1, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 224
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 224
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #20
   ret void
 }
@@ -163,7 +163,7 @@ define noundef zeroext i1 @_ZN5draco10ObjEncoder12EncodeToFileERKNS_10PointCloud
   br i1 %.not, label %_ZNSt10unique_ptrIN5draco19FileWriterInterfaceESt14default_deleteIS1_EED2Ev.exit, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 224
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %9 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %10 unwind label %18
 
@@ -172,19 +172,19 @@ define noundef zeroext i1 @_ZN5draco10ObjEncoder12EncodeToFileERKNS_10PointCloud
           to label %11 unwind label %18
 
 11:                                               ; preds = %10
-  %12 = getelementptr inbounds i8, ptr %0, i64 80
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %1, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 72
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %5, ptr %13, align 8
   %14 = invoke noundef zeroext i1 @_ZN5draco10ObjEncoder14EncodeInternalEv(ptr noundef nonnull align 8 dereferenceable(256) %0)
           to label %15 unwind label %20
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %0, i64 152
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 152
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %0, i8 0, i64 48, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, i8 0, i64 24, i1 false)
   store i32 -1, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 216
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 216
   store i32 -1, ptr %17, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #20
   br i1 %14, label %22, label %34
@@ -203,19 +203,19 @@ define noundef zeroext i1 @_ZN5draco10ObjEncoder12EncodeToFileERKNS_10PointCloud
 22:                                               ; preds = %15
   %23 = load ptr, ptr %4, align 8
   %24 = load ptr, ptr %5, align 8
-  %25 = getelementptr inbounds i8, ptr %5, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = ptrtoint ptr %26 to i64
   %28 = ptrtoint ptr %24 to i64
   %29 = sub i64 %27, %28
   %30 = load ptr, ptr %23, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %32 = load ptr, ptr %31, align 8
   %33 = invoke noundef zeroext i1 %32(ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef %24, i64 noundef %29)
           to label %34 unwind label %20
 
 34:                                               ; preds = %22, %15
-  %35 = getelementptr inbounds i8, ptr %5, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %36 = load ptr, ptr %35, align 8
   %.not.i.i = icmp eq ptr %36, null
   br i1 %.not.i.i, label %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit.i, label %_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i.i
@@ -242,7 +242,7 @@ _ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2E
 
 _ZNKSt14default_deleteIN5draco19FileWriterInterfaceEEclEPS1_.exit.i: ; preds = %39
   %40 = load ptr, ptr %.pr, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %42 = load ptr, ptr %41, align 8
   call void %42(ptr noundef nonnull align 8 dereferenceable(8) %.pr) #20
   br label %_ZNSt10unique_ptrIN5draco19FileWriterInterfaceESt14default_deleteIS1_EED2Ev.exit
@@ -259,7 +259,7 @@ _ZNSt10unique_ptrIN5draco19FileWriterInterfaceESt14default_deleteIS1_EED2Ev.exit
 
 _ZNKSt14default_deleteIN5draco19FileWriterInterfaceEEclEPS1_.exit.i10: ; preds = %43
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %47 = load ptr, ptr %46, align 8
   call void %47(ptr noundef nonnull align 8 dereferenceable(8) %44) #20
   br label %_ZNSt10unique_ptrIN5draco19FileWriterInterfaceESt14default_deleteIS1_EED2Ev.exit11
@@ -278,25 +278,25 @@ declare void @_ZN5draco13EncoderBufferC1Ev(ptr noundef nonnull align 8 dereferen
 
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN5draco10ObjEncoder14EncodeToBufferERKNS_10PointCloudEPNS_13EncoderBufferE(ptr noundef nonnull align 8 dereferenceable(256) initializes((0, 48), (72, 88), (152, 156), (216, 220)) %0, ptr noundef nonnull align 8 dereferenceable(164) %1, ptr noundef %2) local_unnamed_addr #4 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 80
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 72
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %2, ptr %5, align 8
   %6 = tail call noundef zeroext i1 @_ZN5draco10ObjEncoder14EncodeInternalEv(ptr noundef nonnull align 8 dereferenceable(256) %0)
-  %7 = getelementptr inbounds i8, ptr %0, i64 152
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 152
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %0, i8 0, i64 48, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   store i32 -1, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 216
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 216
   store i32 -1, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 224
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 224
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #20
   ret i1 %6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5draco13EncoderBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %_ZNSt10unique_ptrIN5draco13EncoderBuffer10BitEncoderESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIN5draco13EncoderBuffer10BitEncoderEEclEPS2_.exit.i
@@ -322,7 +322,7 @@ _ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %_ZNSt10unique_ptrIN
 
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN5draco10ObjEncoder12EncodeToFileERKNS_4MeshERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(256) initializes((88, 96)) %0, ptr noundef nonnull align 8 dereferenceable(216) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #4 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 88
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr %1, ptr %4, align 8
   %5 = tail call noundef zeroext i1 @_ZN5draco10ObjEncoder12EncodeToFileERKNS_10PointCloudERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef nonnull align 8 dereferenceable(164) %1, ptr noundef nonnull align 8 dereferenceable(32) %2)
   ret i1 %5
@@ -330,16 +330,16 @@ define noundef zeroext i1 @_ZN5draco10ObjEncoder12EncodeToFileERKNS_4MeshERKNSt7
 
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN5draco10ObjEncoder14EncodeInternalEv(ptr noundef nonnull align 8 dereferenceable(256) initializes((0, 48), (152, 156), (216, 220)) %0) local_unnamed_addr #4 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 152
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 0, i64 48, i1 false)
   store i32 -1, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 216
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 216
   store i32 -1, ptr %3, align 8
   %4 = tail call noundef zeroext i1 @_ZN5draco10ObjEncoder13GetSubObjectsEv(ptr noundef nonnull align 8 dereferenceable(256) %0)
   br i1 %4, label %5, label %22
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 88
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %10, label %8
@@ -380,34 +380,34 @@ define noundef zeroext i1 @_ZN5draco10ObjEncoder14EncodeInternalEv(ptr noundef n
 
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef zeroext i1 @_ZN5draco10ObjEncoder14ExitAndCleanupEb(ptr noundef nonnull align 8 dereferenceable(256) initializes((0, 48), (72, 96), (152, 156), (216, 220)) %0, i1 noundef returned zeroext %1) local_unnamed_addr #3 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 72
-  %4 = getelementptr inbounds i8, ptr %0, i64 152
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 152
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 0, i64 48, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   store i32 -1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 216
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 216
   store i32 -1, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 224
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 224
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #20
   ret i1 %1
 }
 
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN5draco10ObjEncoder14EncodeToBufferERKNS_4MeshEPNS_13EncoderBufferE(ptr noundef nonnull align 8 dereferenceable(256) initializes((0, 48), (72, 96), (152, 156), (216, 220)) %0, ptr noundef nonnull align 8 dereferenceable(216) %1, ptr noundef %2) local_unnamed_addr #4 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 88
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr %1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 80
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %1, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 72
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %2, ptr %6, align 8
   %7 = tail call noundef zeroext i1 @_ZN5draco10ObjEncoder14EncodeInternalEv(ptr noundef nonnull align 8 dereferenceable(256) %0)
-  %8 = getelementptr inbounds i8, ptr %0, i64 152
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 152
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %0, i8 0, i64 48, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   store i32 -1, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 216
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 216
   store i32 -1, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 224
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 224
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #20
   ret i1 %7
 }
@@ -419,9 +419,9 @@ define noundef zeroext i1 @_ZN5draco10ObjEncoder13GetSubObjectsEv(ptr noundef no
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator.2", align 1
   %6 = alloca i32, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %65, label %11
@@ -504,8 +504,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit27: ; 
   resume { ptr, i32 } %.pn.pn
 
 26:                                               ; preds = %19
-  %27 = getelementptr inbounds i8, ptr %0, i64 96
-  %28 = getelementptr inbounds i8, ptr %0, i64 112
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %29 = load ptr, ptr %28, align 8
   %.not5.i.i.i = icmp eq ptr %29, null
   br i1 %.not5.i.i.i, label %_ZNSt13unordered_mapIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE5clearEv.exit, label %.lr.ph.i.i.i
@@ -513,7 +513,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit27: ; 
 .lr.ph.i.i.i:                                     ; preds = %26, %.lr.ph.i.i.i
   %.06.i.i.i = phi ptr [ %30, %.lr.ph.i.i.i ], [ %29, %26 ]
   %30 = load ptr, ptr %.06.i.i.i, align 8
-  %31 = getelementptr inbounds i8, ptr %.06.i.i.i, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %.06.i.i.i, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %31) #20
   call void @_ZdlPv(ptr noundef nonnull %.06.i.i.i) #21
   %.not.i.i.i = icmp eq ptr %30, null
@@ -521,22 +521,22 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit27: ; 
 
 _ZNSt13unordered_mapIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE5clearEv.exit: ; preds = %.lr.ph.i.i.i, %26
   %32 = load ptr, ptr %27, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 104
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %34 = load i64, ptr %33, align 8
   %35 = shl i64 %34, 3
   call void @llvm.memset.p0.i64(ptr align 8 %32, i8 0, i64 %35, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %28, i8 0, i64 16, i1 false)
-  %36 = getelementptr inbounds i8, ptr %18, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %18, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %.not3132 = icmp eq ptr %37, %38
   br i1 %.not3132, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNSt13unordered_mapIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE5clearEv.exit, %_ZNK5draco10EntryValue8GetValueIiEEbPT_.exit
   %.sroa.028.033 = phi ptr [ %51, %_ZNK5draco10EntryValue8GetValueIiEEbPT_.exit ], [ %37, %_ZNSt13unordered_mapIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE5clearEv.exit ]
   store i32 0, ptr %6, align 4
-  %39 = getelementptr inbounds i8, ptr %.sroa.028.033, i64 64
-  %40 = getelementptr inbounds i8, ptr %.sroa.028.033, i64 72
+  %39 = getelementptr inbounds nuw i8, ptr %.sroa.028.033, i64 64
+  %40 = getelementptr inbounds nuw i8, ptr %.sroa.028.033, i64 72
   %41 = load ptr, ptr %40, align 8
   %42 = load ptr, ptr %39, align 8
   %43 = ptrtoint ptr %41 to i64
@@ -546,7 +546,7 @@ _ZNSt13unordered_mapIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4has
   br i1 %.not.i, label %46, label %_ZNK5draco10EntryValue8GetValueIiEEbPT_.exit
 
 46:                                               ; preds = %.lr.ph
-  %47 = getelementptr inbounds i8, ptr %.sroa.028.033, i64 32
+  %47 = getelementptr inbounds nuw i8, ptr %.sroa.028.033, i64 32
   %48 = load i32, ptr %42, align 1
   store i32 %48, ptr %6, align 4
   %49 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt8__detail9_Map_baseIiSt4pairIKiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS9_ENS_10_Select1stESt8equal_toIiESt4hashIiENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb0ELb0ELb1EEELb1EEixERS2_(ptr noundef nonnull align 8 dereferenceable(56) %27, ptr noundef nonnull align 4 dereferenceable(4) %6)
@@ -560,22 +560,22 @@ _ZNK5draco10EntryValue8GetValueIiEEbPT_.exit:     ; preds = %.lr.ph, %46
 
 ._crit_edge:                                      ; preds = %_ZNK5draco10EntryValue8GetValueIiEEbPT_.exit, %_ZNSt13unordered_mapIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE5clearEv.exit
   %52 = load ptr, ptr %7, align 8
-  %53 = getelementptr inbounds i8, ptr %18, i64 96
+  %53 = getelementptr inbounds nuw i8, ptr %18, i64 96
   %54 = load i32, ptr %53, align 8
   %55 = call noundef ptr @_ZNK5draco10PointCloud22GetAttributeByUniqueIdEj(ptr noundef nonnull align 8 dereferenceable(164) %52, i32 noundef %54)
-  %56 = getelementptr inbounds i8, ptr %0, i64 32
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %55, ptr %56, align 8
   %57 = icmp eq ptr %55, null
   br i1 %57, label %65, label %58
 
 58:                                               ; preds = %._crit_edge
-  %59 = getelementptr inbounds i8, ptr %55, i64 96
+  %59 = getelementptr inbounds nuw i8, ptr %55, i64 96
   %60 = load i32, ptr %59, align 8
   %61 = icmp eq i32 %60, 0
   br i1 %61, label %65, label %62
 
 62:                                               ; preds = %58
-  %63 = getelementptr inbounds i8, ptr %55, i64 24
+  %63 = getelementptr inbounds nuw i8, ptr %55, i64 24
   %64 = load i8, ptr %63, align 8
   %.not21 = icmp eq i8 %64, 1
   br label %65
@@ -591,9 +591,9 @@ define noundef zeroext i1 @_ZN5draco10ObjEncoder13GetAddedEdgesEv(ptr nocapture 
   %3 = alloca %"class.std::allocator.2", align 1
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator.2", align 1
-  %6 = getelementptr inbounds i8, ptr %0, i64 88
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %41, label %10
@@ -650,22 +650,22 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit26: ; 
 
 19:                                               ; preds = %18
   %20 = load ptr, ptr %6, align 8
-  %21 = getelementptr inbounds i8, ptr %17, i64 96
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 96
   %22 = load i32, ptr %21, align 8
   %23 = call noundef ptr @_ZNK5draco10PointCloud22GetAttributeByUniqueIdEj(ptr noundef nonnull align 8 dereferenceable(164) %20, i32 noundef %22)
-  %24 = getelementptr inbounds i8, ptr %23, i64 96
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 96
   %25 = load i32, ptr %24, align 8
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %41, label %27
 
 27:                                               ; preds = %19
-  %28 = getelementptr inbounds i8, ptr %23, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %23, i64 24
   %29 = load i8, ptr %28, align 8
   %.not19 = icmp eq i8 %29, 1
   br i1 %.not19, label %30, label %41
 
 30:                                               ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %23, i64 28
+  %31 = getelementptr inbounds nuw i8, ptr %23, i64 28
   %32 = load i32, ptr %31, align 4
   %.not20 = icmp eq i32 %32, 2
   br i1 %.not20, label %39, label %41
@@ -698,7 +698,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit26: ; 
   resume { ptr, i32 } %.pn.pn
 
 39:                                               ; preds = %30
-  %40 = getelementptr inbounds i8, ptr %0, i64 40
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %23, ptr %40, align 8
   br label %41
 
@@ -718,9 +718,9 @@ define noundef zeroext i1 @_ZN5draco10ObjEncoder22EncodeMaterialFileNameEv(ptr n
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.std::allocator.2", align 1
   %10 = alloca i32, align 4
-  %11 = getelementptr inbounds i8, ptr %0, i64 80
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %30, label %15
@@ -853,15 +853,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit40: ; 
   br label %119
 
 41:                                               ; preds = %36
-  %42 = getelementptr inbounds i8, ptr %0, i64 72
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 32
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 32
   %45 = load i64, ptr %44, align 8
   %46 = icmp slt i64 %45, 1
   br i1 %46, label %47, label %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit
 
 47:                                               ; preds = %41
-  %48 = getelementptr inbounds i8, ptr %43, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %49 = load ptr, ptr %48, align 8
   %50 = load ptr, ptr %43, align 8
   %51 = ptrtoint ptr %49 to i64
@@ -879,13 +879,13 @@ _ZN5draco13EncoderBuffer6EncodeEPKvm.exit:        ; preds = %._ZN5draco13Encoder
   %55 = phi ptr [ %.pre, %._ZN5draco13EncoderBuffer6EncodeEPKvm.exit_crit_edge ], [ %43, %41 ]
   %56 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #20
   %57 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #20
-  %58 = getelementptr inbounds i8, ptr %55, i64 32
+  %58 = getelementptr inbounds nuw i8, ptr %55, i64 32
   %59 = load i64, ptr %58, align 8
   %60 = icmp slt i64 %59, 1
   br i1 %60, label %61, label %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit43
 
 61:                                               ; preds = %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit
-  %62 = getelementptr inbounds i8, ptr %55, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %56, i64 %57
   %65 = load ptr, ptr %55, align 8
@@ -898,13 +898,13 @@ _ZN5draco13EncoderBuffer6EncodeEPKvm.exit:        ; preds = %._ZN5draco13Encoder
 
 _ZN5draco13EncoderBuffer6EncodeEPKvm.exit43:      ; preds = %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit, %61
   %70 = load ptr, ptr %42, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 32
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 32
   %72 = load i64, ptr %71, align 8
   %73 = icmp slt i64 %72, 1
   br i1 %73, label %74, label %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit45
 
 74:                                               ; preds = %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit43
-  %75 = getelementptr inbounds i8, ptr %70, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %76 = load ptr, ptr %75, align 8
   %77 = load ptr, ptr %70, align 8
   %78 = ptrtoint ptr %76 to i64
@@ -915,8 +915,8 @@ _ZN5draco13EncoderBuffer6EncodeEPKvm.exit43:      ; preds = %_ZN5draco13EncoderB
           to label %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit45 unwind label %.loopexit.split-lp
 
 _ZN5draco13EncoderBuffer6EncodeEPKvm.exit45:      ; preds = %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit43, %74
-  %82 = getelementptr inbounds i8, ptr %0, i64 160
-  %83 = getelementptr inbounds i8, ptr %0, i64 176
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %84 = load ptr, ptr %83, align 8
   %.not5.i.i.i = icmp eq ptr %84, null
   br i1 %.not5.i.i.i, label %_ZNSt13unordered_mapIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE5clearEv.exit, label %.lr.ph.i.i.i
@@ -924,7 +924,7 @@ _ZN5draco13EncoderBuffer6EncodeEPKvm.exit45:      ; preds = %_ZN5draco13EncoderB
 .lr.ph.i.i.i:                                     ; preds = %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit45, %.lr.ph.i.i.i
   %.06.i.i.i = phi ptr [ %85, %.lr.ph.i.i.i ], [ %84, %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit45 ]
   %85 = load ptr, ptr %.06.i.i.i, align 8
-  %86 = getelementptr inbounds i8, ptr %.06.i.i.i, i64 16
+  %86 = getelementptr inbounds nuw i8, ptr %.06.i.i.i, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %86) #20
   call void @_ZdlPv(ptr noundef nonnull %.06.i.i.i) #21
   %.not.i.i.i = icmp eq ptr %85, null
@@ -932,23 +932,23 @@ _ZN5draco13EncoderBuffer6EncodeEPKvm.exit45:      ; preds = %_ZN5draco13EncoderB
 
 _ZNSt13unordered_mapIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE5clearEv.exit: ; preds = %.lr.ph.i.i.i, %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit45
   %87 = load ptr, ptr %82, align 8
-  %88 = getelementptr inbounds i8, ptr %0, i64 168
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %89 = load i64, ptr %88, align 8
   %90 = shl i64 %89, 3
   call void @llvm.memset.p0.i64(ptr align 8 %87, i8 0, i64 %90, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %83, i8 0, i64 16, i1 false)
-  %91 = getelementptr inbounds i8, ptr %.013, i64 24
+  %91 = getelementptr inbounds nuw i8, ptr %.013, i64 24
   %92 = load ptr, ptr %91, align 8
-  %93 = getelementptr inbounds i8, ptr %.013, i64 8
+  %93 = getelementptr inbounds nuw i8, ptr %.013, i64 8
   %.not5051 = icmp eq ptr %92, %93
   br i1 %.not5051, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNSt13unordered_mapIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE5clearEv.exit, %_ZNK5draco10EntryValue8GetValueIiEEbPT_.exit
   %.sroa.047.052 = phi ptr [ %106, %_ZNK5draco10EntryValue8GetValueIiEEbPT_.exit ], [ %92, %_ZNSt13unordered_mapIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE5clearEv.exit ]
-  %94 = getelementptr inbounds i8, ptr %.sroa.047.052, i64 32
+  %94 = getelementptr inbounds nuw i8, ptr %.sroa.047.052, i64 32
   store i32 0, ptr %10, align 4
-  %95 = getelementptr inbounds i8, ptr %.sroa.047.052, i64 64
-  %96 = getelementptr inbounds i8, ptr %.sroa.047.052, i64 72
+  %95 = getelementptr inbounds nuw i8, ptr %.sroa.047.052, i64 64
+  %96 = getelementptr inbounds nuw i8, ptr %.sroa.047.052, i64 72
   %97 = load ptr, ptr %96, align 8
   %98 = load ptr, ptr %95, align 8
   %99 = ptrtoint ptr %97 to i64
@@ -984,19 +984,19 @@ _ZNK5draco10EntryValue8GetValueIiEEbPT_.exit:     ; preds = %.lr.ph, %_ZNSt13uno
 
 ._crit_edge:                                      ; preds = %_ZNK5draco10EntryValue8GetValueIiEEbPT_.exit, %_ZNSt13unordered_mapIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE5clearEv.exit
   %107 = load ptr, ptr %11, align 8
-  %108 = getelementptr inbounds i8, ptr %.013, i64 96
+  %108 = getelementptr inbounds nuw i8, ptr %.013, i64 96
   %109 = load i32, ptr %108, align 8
   %110 = invoke noundef ptr @_ZNK5draco10PointCloud22GetAttributeByUniqueIdEj(ptr noundef nonnull align 8 dereferenceable(164) %107, i32 noundef %109)
           to label %111 unwind label %.loopexit.split-lp
 
 111:                                              ; preds = %._crit_edge
-  %112 = getelementptr inbounds i8, ptr %0, i64 24
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %110, ptr %112, align 8
   %113 = icmp eq ptr %110, null
   br i1 %113, label %118, label %114
 
 114:                                              ; preds = %111
-  %115 = getelementptr inbounds i8, ptr %110, i64 96
+  %115 = getelementptr inbounds nuw i8, ptr %110, i64 96
   %116 = load i32, ptr %115, align 8
   %117 = icmp ne i32 %116, 0
   br label %118
@@ -1021,20 +1021,20 @@ _ZNK5draco10EntryValue8GetValueIiEEbPT_.exit:     ; preds = %.lr.ph, %_ZNSt13uno
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN5draco10ObjEncoder15EncodePositionsEv(ptr noundef nonnull align 8 dereferenceable(256) %0) local_unnamed_addr #4 align 2 {
   %2 = alloca %"struct.std::array", align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 80
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef ptr @_ZNK5draco10PointCloud17GetNamedAttributeENS_17GeometryAttribute4TypeE(ptr noundef nonnull align 8 dereferenceable(164) %4, i32 noundef 0)
   %6 = icmp eq ptr %5, null
   br i1 %6, label %.loopexit, label %7
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %5, i64 96
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 96
   %9 = load i32, ptr %8, align 8
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %0, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 72
   br label %12
 
 12:                                               ; preds = %.lr.ph, %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit8
@@ -1044,13 +1044,13 @@ define noundef zeroext i1 @_ZN5draco10ObjEncoder15EncodePositionsEv(ptr noundef 
 
 14:                                               ; preds = %12
   %15 = load ptr, ptr %11, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %17 = load i64, ptr %16, align 8
   %18 = icmp slt i64 %17, 1
   br i1 %18, label %19, label %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit
 
 19:                                               ; preds = %14
-  %20 = getelementptr inbounds i8, ptr %15, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %21 = load ptr, ptr %20, align 8
   %22 = load ptr, ptr %15, align 8
   %23 = ptrtoint ptr %21 to i64
@@ -1063,13 +1063,13 @@ define noundef zeroext i1 @_ZN5draco10ObjEncoder15EncodePositionsEv(ptr noundef 
 _ZN5draco13EncoderBuffer6EncodeEPKvm.exit:        ; preds = %14, %19
   call void @_ZN5draco10ObjEncoder15EncodeFloatListEPfi(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef nonnull %2, i32 noundef 3)
   %27 = load ptr, ptr %11, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 32
   %29 = load i64, ptr %28, align 8
   %30 = icmp slt i64 %29, 1
   br i1 %30, label %31, label %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit8
 
 31:                                               ; preds = %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit
-  %32 = getelementptr inbounds i8, ptr %27, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %33 = load ptr, ptr %32, align 8
   %34 = load ptr, ptr %27, align 8
   %35 = ptrtoint ptr %33 to i64
@@ -1097,20 +1097,20 @@ _ZN5draco13EncoderBuffer6EncodeEPKvm.exit8:       ; preds = %_ZN5draco13EncoderB
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN5draco10ObjEncoder24EncodeTextureCoordinatesEv(ptr noundef nonnull align 8 dereferenceable(256) %0) local_unnamed_addr #4 align 2 {
   %2 = alloca %"struct.std::array.84", align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 80
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef ptr @_ZNK5draco10PointCloud17GetNamedAttributeENS_17GeometryAttribute4TypeE(ptr noundef nonnull align 8 dereferenceable(164) %4, i32 noundef 3)
   %6 = icmp eq ptr %5, null
   br i1 %6, label %.loopexit, label %7
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %5, i64 96
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 96
   %9 = load i32, ptr %8, align 8
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %0, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 72
   br label %12
 
 12:                                               ; preds = %.lr.ph, %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit8
@@ -1120,13 +1120,13 @@ define noundef zeroext i1 @_ZN5draco10ObjEncoder24EncodeTextureCoordinatesEv(ptr
 
 14:                                               ; preds = %12
   %15 = load ptr, ptr %11, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %17 = load i64, ptr %16, align 8
   %18 = icmp slt i64 %17, 1
   br i1 %18, label %19, label %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit
 
 19:                                               ; preds = %14
-  %20 = getelementptr inbounds i8, ptr %15, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %21 = load ptr, ptr %20, align 8
   %22 = load ptr, ptr %15, align 8
   %23 = ptrtoint ptr %21 to i64
@@ -1139,13 +1139,13 @@ define noundef zeroext i1 @_ZN5draco10ObjEncoder24EncodeTextureCoordinatesEv(ptr
 _ZN5draco13EncoderBuffer6EncodeEPKvm.exit:        ; preds = %14, %19
   call void @_ZN5draco10ObjEncoder15EncodeFloatListEPfi(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef nonnull %2, i32 noundef 2)
   %27 = load ptr, ptr %11, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 32
   %29 = load i64, ptr %28, align 8
   %30 = icmp slt i64 %29, 1
   br i1 %30, label %31, label %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit8
 
 31:                                               ; preds = %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit
-  %32 = getelementptr inbounds i8, ptr %27, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %33 = load ptr, ptr %32, align 8
   %34 = load ptr, ptr %27, align 8
   %35 = ptrtoint ptr %33 to i64
@@ -1162,7 +1162,7 @@ _ZN5draco13EncoderBuffer6EncodeEPKvm.exit8:       ; preds = %_ZN5draco13EncoderB
   br i1 %41, label %12, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit8
-  %42 = getelementptr inbounds i8, ptr %0, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %5, ptr %42, align 8
   br label %.loopexit
 
@@ -1174,20 +1174,20 @@ _ZN5draco13EncoderBuffer6EncodeEPKvm.exit8:       ; preds = %_ZN5draco13EncoderB
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN5draco10ObjEncoder13EncodeNormalsEv(ptr noundef nonnull align 8 dereferenceable(256) %0) local_unnamed_addr #4 align 2 {
   %2 = alloca %"struct.std::array", align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 80
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef ptr @_ZNK5draco10PointCloud17GetNamedAttributeENS_17GeometryAttribute4TypeE(ptr noundef nonnull align 8 dereferenceable(164) %4, i32 noundef 1)
   %6 = icmp eq ptr %5, null
   br i1 %6, label %.loopexit, label %7
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %5, i64 96
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 96
   %9 = load i32, ptr %8, align 8
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %0, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 72
   br label %12
 
 12:                                               ; preds = %.lr.ph, %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit8
@@ -1197,13 +1197,13 @@ define noundef zeroext i1 @_ZN5draco10ObjEncoder13EncodeNormalsEv(ptr noundef no
 
 14:                                               ; preds = %12
   %15 = load ptr, ptr %11, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %17 = load i64, ptr %16, align 8
   %18 = icmp slt i64 %17, 1
   br i1 %18, label %19, label %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit
 
 19:                                               ; preds = %14
-  %20 = getelementptr inbounds i8, ptr %15, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %21 = load ptr, ptr %20, align 8
   %22 = load ptr, ptr %15, align 8
   %23 = ptrtoint ptr %21 to i64
@@ -1216,13 +1216,13 @@ define noundef zeroext i1 @_ZN5draco10ObjEncoder13EncodeNormalsEv(ptr noundef no
 _ZN5draco13EncoderBuffer6EncodeEPKvm.exit:        ; preds = %14, %19
   call void @_ZN5draco10ObjEncoder15EncodeFloatListEPfi(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef nonnull %2, i32 noundef 3)
   %27 = load ptr, ptr %11, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 32
   %29 = load i64, ptr %28, align 8
   %30 = icmp slt i64 %29, 1
   br i1 %30, label %31, label %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit8
 
 31:                                               ; preds = %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit
-  %32 = getelementptr inbounds i8, ptr %27, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %33 = load ptr, ptr %32, align 8
   %34 = load ptr, ptr %27, align 8
   %35 = ptrtoint ptr %33 to i64
@@ -1239,7 +1239,7 @@ _ZN5draco13EncoderBuffer6EncodeEPKvm.exit8:       ; preds = %_ZN5draco13EncoderB
   br i1 %41, label %12, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit8
-  %42 = getelementptr inbounds i8, ptr %0, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %5, ptr %42, align 8
   br label %.loopexit
 
@@ -1251,16 +1251,16 @@ _ZN5draco13EncoderBuffer6EncodeEPKvm.exit8:       ; preds = %_ZN5draco13EncoderB
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN5draco10ObjEncoder11EncodeFacesEv(ptr noundef nonnull align 8 dereferenceable(256) %0) local_unnamed_addr #4 align 2 {
   %2 = alloca i8, align 1
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %.preheader, label %20
 
 .preheader:                                       ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 88
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 192
-  %8 = getelementptr inbounds i8, ptr %6, i64 200
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 192
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 200
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %7, align 8
   %11 = ptrtoint ptr %9 to i64
@@ -1272,10 +1272,10 @@ define noundef zeroext i1 @_ZN5draco10ObjEncoder11EncodeFacesEv(ptr noundef nonn
   br i1 %.not13, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %16 = getelementptr inbounds i8, ptr %0, i64 32
-  %17 = getelementptr inbounds i8, ptr %0, i64 24
-  %18 = getelementptr inbounds i8, ptr %0, i64 72
-  %19 = getelementptr inbounds i8, ptr %2, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 1
   br label %22
 
 20:                                               ; preds = %1
@@ -1313,13 +1313,13 @@ define noundef zeroext i1 @_ZN5draco10ObjEncoder11EncodeFacesEv(ptr noundef nonn
 _ZN5draco10ObjEncoder20EncodeFaceAttributesENS_9IndexTypeIjNS_19FaceIndex_tag_type_EEE.exit: ; preds = %29, %28, %24
   %31 = load ptr, ptr %18, align 8
   store i8 102, ptr %2, align 1
-  %32 = getelementptr inbounds i8, ptr %31, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 32
   %33 = load i64, ptr %32, align 8
   %34 = icmp slt i64 %33, 1
   br i1 %34, label %35, label %_ZN5draco13EncoderBuffer6EncodeIcEEbRKT_.exit.preheader
 
 35:                                               ; preds = %_ZN5draco10ObjEncoder20EncodeFaceAttributesENS_9IndexTypeIjNS_19FaceIndex_tag_type_EEE.exit
-  %36 = getelementptr inbounds i8, ptr %31, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %37 = load ptr, ptr %36, align 8
   %38 = load ptr, ptr %31, align 8
   %39 = ptrtoint ptr %37 to i64
@@ -1335,10 +1335,10 @@ _ZN5draco13EncoderBuffer6EncodeIcEEbRKT_.exit.preheader: ; preds = %_ZN5draco10O
 _ZN5draco13EncoderBuffer6EncodeIcEEbRKT_.exit:    ; preds = %_ZN5draco13EncoderBuffer6EncodeIcEEbRKT_.exit.preheader, %_ZN5draco13EncoderBuffer6EncodeIcEEbRKT_.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN5draco13EncoderBuffer6EncodeIcEEbRKT_.exit ], [ 0, %_ZN5draco13EncoderBuffer6EncodeIcEEbRKT_.exit.preheader ]
   %43 = load ptr, ptr %5, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 192
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 192
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds %"struct.std::array.133", ptr %45, i64 %indvars.iv15
-  %47 = getelementptr inbounds [3 x %"class.draco::IndexType.132"], ptr %46, i64 0, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw %"struct.std::array.133", ptr %45, i64 %indvars.iv15
+  %47 = getelementptr inbounds nuw [3 x %"class.draco::IndexType.132"], ptr %46, i64 0, i64 %indvars.iv
   %.sroa.02.0.copyload.i = load i32, ptr %47, align 4
   %48 = call noundef zeroext i1 @_ZN5draco10ObjEncoder16EncodeFaceCornerENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE(ptr noundef nonnull align 8 dereferenceable(256) %0, i32 %.sroa.02.0.copyload.i)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1347,13 +1347,13 @@ _ZN5draco13EncoderBuffer6EncodeIcEEbRKT_.exit:    ; preds = %_ZN5draco13EncoderB
 
 49:                                               ; preds = %_ZN5draco13EncoderBuffer6EncodeIcEEbRKT_.exit
   %50 = load ptr, ptr %18, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 32
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 32
   %52 = load i64, ptr %51, align 8
   %53 = icmp slt i64 %52, 1
   br i1 %53, label %54, label %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit
 
 54:                                               ; preds = %49
-  %55 = getelementptr inbounds i8, ptr %50, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %56 = load ptr, ptr %55, align 8
   %57 = load ptr, ptr %50, align 8
   %58 = ptrtoint ptr %56 to i64
@@ -1366,8 +1366,8 @@ _ZN5draco13EncoderBuffer6EncodeIcEEbRKT_.exit:    ; preds = %_ZN5draco13EncoderB
 _ZN5draco13EncoderBuffer6EncodeEPKvm.exit:        ; preds = %49, %54
   %indvars.iv.next16 = add nuw nsw i64 %indvars.iv15, 1
   %62 = load ptr, ptr %5, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 192
-  %64 = getelementptr inbounds i8, ptr %62, i64 200
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 192
+  %64 = getelementptr inbounds nuw i8, ptr %62, i64 200
   %65 = load ptr, ptr %64, align 8
   %66 = load ptr, ptr %63, align 8
   %67 = ptrtoint ptr %65 to i64
@@ -1418,9 +1418,9 @@ define void @_ZN5draco10ObjEncoder15EncodeFloatListEPfi(ptr noundef nonnull alig
   br i1 %5, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 72
-  %7 = getelementptr inbounds i8, ptr %4, i64 1
-  %8 = getelementptr inbounds i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %wide.trip.count = zext nneg i32 %2 to i64
   br label %9
 
@@ -1432,13 +1432,13 @@ define void @_ZN5draco10ObjEncoder15EncodeFloatListEPfi(ptr noundef nonnull alig
 10:                                               ; preds = %9
   %11 = load ptr, ptr %6, align 8
   store i8 32, ptr %4, align 1
-  %12 = getelementptr inbounds i8, ptr %11, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %13 = load i64, ptr %12, align 8
   %14 = icmp slt i64 %13, 1
   br i1 %14, label %15, label %_ZN5draco13EncoderBuffer6EncodeIcEEbRKT_.exit
 
 15:                                               ; preds = %10
-  %16 = getelementptr inbounds i8, ptr %11, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr %11, align 8
   %19 = ptrtoint ptr %17 to i64
@@ -1449,19 +1449,19 @@ define void @_ZN5draco10ObjEncoder15EncodeFloatListEPfi(ptr noundef nonnull alig
   br label %_ZN5draco13EncoderBuffer6EncodeIcEEbRKT_.exit
 
 _ZN5draco13EncoderBuffer6EncodeIcEEbRKT_.exit:    ; preds = %15, %10, %9
-  %23 = getelementptr inbounds float, ptr %1, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
   %24 = load float, ptr %23, align 4
   %25 = fpext float %24 to double
   %26 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 20, ptr noundef nonnull @.str.12, double noundef %25) #20
   %27 = load ptr, ptr %6, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 32
   %29 = load i64, ptr %28, align 8
   %30 = icmp slt i64 %29, 1
   br i1 %30, label %31, label %_ZN5draco10ObjEncoder11EncodeFloatEf.exit
 
 31:                                               ; preds = %_ZN5draco13EncoderBuffer6EncodeIcEEbRKT_.exit
   %32 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #22
-  %33 = getelementptr inbounds i8, ptr %27, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds i8, ptr %8, i64 %32
   %36 = load ptr, ptr %27, align 8
@@ -1487,10 +1487,10 @@ define noundef zeroext i1 @_ZN5draco10ObjEncoder20EncodePolygonalFacesEv(ptr nou
   %3 = alloca %"class.std::map.93", align 8
   %4 = alloca %"class.std::unique_ptr.101", align 8
   %5 = alloca i8, align 1
-  %6 = getelementptr inbounds i8, ptr %0, i64 88
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 192
-  %9 = getelementptr inbounds i8, ptr %7, i64 200
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 192
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 200
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %8, align 8
   %12 = ptrtoint ptr %10 to i64
@@ -1499,13 +1499,13 @@ define noundef zeroext i1 @_ZN5draco10ObjEncoder20EncodePolygonalFacesEv(ptr nou
   %15 = sdiv exact i64 %14, 12
   %16 = and i64 %15, 4294967295
   store ptr null, ptr %2, align 8
-  %17 = getelementptr inbounds i8, ptr %2, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 0, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %2, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr null, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %2, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 0, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %2, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store ptr null, ptr %20, align 8
   %.not.i.i = icmp eq i64 %16, 0
   br i1 %.not.i.i, label %_ZNSt6vectorIbSaIbEEC2EmRKbRKS0_.exit, label %21
@@ -1517,13 +1517,13 @@ define noundef zeroext i1 @_ZN5draco10ObjEncoder20EncodePolygonalFacesEv(ptr nou
   %25 = and i64 %24, 1073741816
   %26 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %25) #23
   %27 = lshr i64 %23, 6
-  %28 = getelementptr inbounds i64, ptr %26, i64 %27
+  %28 = getelementptr inbounds nuw i64, ptr %26, i64 %27
   store ptr %28, ptr %20, align 8
   store ptr %26, ptr %2, align 8
   store i32 0, ptr %17, align 8
   %29 = lshr i64 %15, 6
   %.zext = and i64 %29, 67108863
-  %30 = getelementptr inbounds i64, ptr %26, i64 %.zext
+  %30 = getelementptr inbounds nuw i64, ptr %26, i64 %.zext
   %31 = and i32 %22, 63
   store ptr %30, ptr %18, align 8
   store i32 %31, ptr %19, align 8
@@ -1533,23 +1533,23 @@ define noundef zeroext i1 @_ZN5draco10ObjEncoder20EncodePolygonalFacesEv(ptr nou
 
 _ZNSt6vectorIbSaIbEEC2EmRKbRKS0_.exit:            ; preds = %21, %1
   %32 = phi ptr [ %26, %21 ], [ null, %1 ]
-  %33 = getelementptr inbounds i8, ptr %3, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 0, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %3, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr null, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %3, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %33, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %3, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr %33, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %3, i64 40
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 0, ptr %37, align 8
   invoke void @_ZN5draco38CreateCornerTableFromPositionAttributeEPKNS_4MeshE(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.101") align 8 %4, ptr noundef nonnull %7)
           to label %.preheader unwind label %68
 
 .preheader:                                       ; preds = %_ZNSt6vectorIbSaIbEEC2EmRKbRKS0_.exit
   %38 = load ptr, ptr %6, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 192
-  %40 = getelementptr inbounds i8, ptr %38, i64 200
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 192
+  %40 = getelementptr inbounds nuw i8, ptr %38, i64 200
   %41 = load ptr, ptr %40, align 8
   %42 = load ptr, ptr %39, align 8
   %43 = ptrtoint ptr %41 to i64
@@ -1561,10 +1561,10 @@ _ZNSt6vectorIbSaIbEEC2EmRKbRKS0_.exit:            ; preds = %21, %1
   br i1 %.not39, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %48 = getelementptr inbounds i8, ptr %0, i64 32
-  %49 = getelementptr inbounds i8, ptr %0, i64 24
-  %50 = getelementptr inbounds i8, ptr %0, i64 72
-  %51 = getelementptr inbounds i8, ptr %5, i64 1
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %51 = getelementptr inbounds nuw i8, ptr %5, i64 1
   br label %52
 
 52:                                               ; preds = %.lr.ph, %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit
@@ -1641,17 +1641,17 @@ _ZNSt3mapIN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEENS1_IjNS0_20P
 
 70:                                               ; preds = %65
   %71 = load ptr, ptr %35, align 8
-  %72 = getelementptr inbounds i8, ptr %71, i64 32
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 32
   %73 = load i32, ptr %72, align 4
   %74 = load ptr, ptr %50, align 8
   store i8 102, ptr %5, align 1
-  %75 = getelementptr inbounds i8, ptr %74, i64 32
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 32
   %76 = load i64, ptr %75, align 8
   %77 = icmp slt i64 %76, 1
   br i1 %77, label %78, label %_ZN5draco13EncoderBuffer6EncodeIcEEbRKT_.exit.preheader
 
 78:                                               ; preds = %70
-  %79 = getelementptr inbounds i8, ptr %74, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %74, i64 8
   %80 = load ptr, ptr %79, align 8
   %81 = load ptr, ptr %74, align 8
   %82 = ptrtoint ptr %80 to i64
@@ -1673,12 +1673,12 @@ _ZN5draco13EncoderBuffer6EncodeIcEEbRKT_.exit:    ; preds = %_ZN5draco13EncoderB
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN5draco13EncoderBuffer6EncodeIcEEbRKT_.exit, %.lr.ph.i.i.i.i
   %.012.i.i.i.i = phi ptr [ %.1.i.i.i.i, %.lr.ph.i.i.i.i ], [ %86, %_ZN5draco13EncoderBuffer6EncodeIcEEbRKT_.exit ]
   %.0811.i.i.i.i = phi ptr [ %.19.i.i.i.i, %.lr.ph.i.i.i.i ], [ %33, %_ZN5draco13EncoderBuffer6EncodeIcEEbRKT_.exit ]
-  %87 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 32
+  %87 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 32
   %88 = load i32, ptr %87, align 4
   %89 = icmp ult i32 %88, %.sroa.025.0
   %.19.i.i.i.i = select i1 %89, ptr %.0811.i.i.i.i, ptr %.012.i.i.i.i
   %.1.in.v.i.i.i.i = select i1 %89, i64 24, i64 16
-  %.1.in.i.i.i.i = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 %.1.in.v.i.i.i.i
+  %.1.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 %.1.in.v.i.i.i.i
   %.1.i.i.i.i = load ptr, ptr %.1.in.i.i.i.i, align 8
   %.not.i.i.i.i = icmp eq ptr %.1.i.i.i.i, null
   br i1 %.not.i.i.i.i, label %_ZNSt3mapIN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEENS1_IjNS0_20PointIndex_tag_type_EEESt4lessIS3_ESaISt4pairIKS3_S5_EEE11lower_boundERS9_.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !12
@@ -1689,7 +1689,7 @@ _ZNSt3mapIN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEENS1_IjNS0_20P
 
 91:                                               ; preds = %_ZNSt3mapIN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEENS1_IjNS0_20PointIndex_tag_type_EEESt4lessIS3_ESaISt4pairIKS3_S5_EEE11lower_boundERS9_.exit.i
   %.19.i.i.i.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %89, ptr %.0811.i.i.i.i, ptr %.012.i.i.i.i
-  %.19.i.i.i.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %.19.i.i.i.i.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 32
+  %.19.i.i.i.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 32
   %92 = load i32, ptr %.19.i.i.i.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 4
   %93 = icmp ult i32 %.sroa.025.0, %92
   br i1 %93, label %.critedge.i, label %113
@@ -1700,9 +1700,9 @@ _ZNSt3mapIN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEENS1_IjNS0_20P
           to label %.noexc14 unwind label %.loopexit
 
 .noexc14:                                         ; preds = %.critedge.i
-  %95 = getelementptr inbounds i8, ptr %94, i64 32
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 32
   store i32 %.sroa.025.0, ptr %95, align 4
-  %96 = getelementptr inbounds i8, ptr %94, i64 36
+  %96 = getelementptr inbounds nuw i8, ptr %94, i64 36
   store i32 0, ptr %96, align 4
   %97 = invoke { ptr, ptr } @_ZNSt8_Rb_treeIN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEESt4pairIKS3_NS1_IjNS0_20PointIndex_tag_type_EEEESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS5_(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr %.08.lcssa.i.i.i12.i, ptr noundef nonnull align 4 dereferenceable(4) %95)
           to label %98 unwind label %_ZNSt8_Rb_treeIN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEESt4pairIKS3_NS1_IjNS0_20PointIndex_tag_type_EEEESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE10_Auto_nodeD2Ev.exit.i.i
@@ -1720,7 +1720,7 @@ _ZNSt3mapIN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEENS1_IjNS0_20P
   br i1 %or.cond.i.i.i.i, label %.thread.i.i, label %103
 
 103:                                              ; preds = %101
-  %104 = getelementptr inbounds i8, ptr %100, i64 32
+  %104 = getelementptr inbounds nuw i8, ptr %100, i64 32
   %105 = load i32, ptr %95, align 4
   %106 = load i32, ptr %104, align 4
   %107 = icmp ult i32 %105, %106
@@ -1746,23 +1746,23 @@ _ZNSt8_Rb_treeIN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEESt4pairI
 
 113:                                              ; preds = %112, %.thread.i.i, %91
   %.sroa.07.0.i = phi ptr [ %.19.i.i.i.i, %91 ], [ %94, %.thread.i.i ], [ %99, %112 ]
-  %114 = getelementptr inbounds i8, ptr %.sroa.07.0.i, i64 36
+  %114 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i, i64 36
   %.sroa.02.0.copyload = load i32, ptr %114, align 4
   %115 = invoke noundef zeroext i1 @_ZN5draco10ObjEncoder16EncodeFaceCornerENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE(ptr noundef nonnull align 8 dereferenceable(256) %0, i32 %.sroa.02.0.copyload)
           to label %116 unwind label %.loopexit
 
 116:                                              ; preds = %113
   %117 = load ptr, ptr %0, align 8
-  %118 = getelementptr inbounds i8, ptr %117, i64 100
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 100
   %119 = load i8, ptr %118, align 4
   %120 = trunc i8 %119 to i1
   br i1 %120, label %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit, label %121
 
 121:                                              ; preds = %116
-  %122 = getelementptr inbounds i8, ptr %117, i64 72
+  %122 = getelementptr inbounds nuw i8, ptr %117, i64 72
   %123 = zext i32 %.sroa.02.0.copyload to i64
   %124 = load ptr, ptr %122, align 8
-  %125 = getelementptr inbounds %"class.draco::IndexType", ptr %124, i64 %123
+  %125 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %124, i64 %123
   %126 = load i32, ptr %125, align 4
   br label %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit
 
@@ -1773,13 +1773,13 @@ _ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type
 
 127:                                              ; preds = %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit
   %128 = load ptr, ptr %50, align 8
-  %129 = getelementptr inbounds i8, ptr %128, i64 32
+  %129 = getelementptr inbounds nuw i8, ptr %128, i64 32
   %130 = load i64, ptr %129, align 8
   %131 = icmp slt i64 %130, 1
   br i1 %131, label %132, label %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit
 
 132:                                              ; preds = %127
-  %133 = getelementptr inbounds i8, ptr %128, i64 8
+  %133 = getelementptr inbounds nuw i8, ptr %128, i64 8
   %134 = load ptr, ptr %133, align 8
   %135 = load ptr, ptr %128, align 8
   %136 = ptrtoint ptr %134 to i64
@@ -1792,8 +1792,8 @@ _ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type
 _ZN5draco13EncoderBuffer6EncodeEPKvm.exit:        ; preds = %127, %132, %65
   %140 = add nuw i32 %.sroa.030.038, 1
   %141 = load ptr, ptr %6, align 8
-  %142 = getelementptr inbounds i8, ptr %141, i64 192
-  %143 = getelementptr inbounds i8, ptr %141, i64 200
+  %142 = getelementptr inbounds nuw i8, ptr %141, i64 192
+  %143 = getelementptr inbounds nuw i8, ptr %141, i64 200
   %144 = load ptr, ptr %143, align 8
   %145 = load ptr, ptr %142, align 8
   %146 = ptrtoint ptr %144 to i64
@@ -1870,7 +1870,7 @@ _ZNSt6vectorIbSaIbEED2Ev.exit:                    ; preds = %_ZNSt3mapIN5draco9I
 
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN5draco10ObjEncoder20EncodeFaceAttributesENS_9IndexTypeIjNS_19FaceIndex_tag_type_EEE(ptr nocapture noundef nonnull align 8 dereferenceable(256) %0, i32 %1) local_unnamed_addr #4 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %7, label %5
@@ -1880,7 +1880,7 @@ define noundef zeroext i1 @_ZN5draco10ObjEncoder20EncodeFaceAttributesENS_9Index
   br i1 %6, label %7, label %13
 
 7:                                                ; preds = %5, %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8
   %.not5 = icmp eq ptr %9, null
   br i1 %.not5, label %12, label %10
@@ -1899,12 +1899,12 @@ define noundef zeroext i1 @_ZN5draco10ObjEncoder20EncodeFaceAttributesENS_9Index
 
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN5draco10ObjEncoder16EncodeFaceCornerENS_9IndexTypeIjNS_19FaceIndex_tag_type_EEEi(ptr noundef nonnull align 8 dereferenceable(256) %0, i32 %1, i32 noundef %2) local_unnamed_addr #4 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 88
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 192
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 192
   %7 = zext i32 %1 to i64
   %8 = load ptr, ptr %6, align 8
-  %9 = getelementptr inbounds %"struct.std::array.133", ptr %8, i64 %7
+  %9 = getelementptr inbounds nuw %"struct.std::array.133", ptr %8, i64 %7
   %10 = sext i32 %2 to i64
   %11 = getelementptr inbounds [3 x %"class.draco::IndexType.132"], ptr %9, i64 0, i64 %10
   %.sroa.02.0.copyload = load i32, ptr %11, align 4
@@ -1922,7 +1922,7 @@ define void @_ZN5draco10ObjEncoder21FindOriginalFaceEdgesENS_9IndexTypeIjNS_19Fa
   %9 = load ptr, ptr %3, align 8
   %10 = lshr i32 %1, 6
   %.zext = zext nneg i32 %10 to i64
-  %11 = getelementptr inbounds i64, ptr %9, i64 %.zext
+  %11 = getelementptr inbounds nuw i64, ptr %9, i64 %.zext
   %12 = and i64 %8, 63
   %13 = shl nuw i64 1, %12
   %14 = load i64, ptr %11, align 8
@@ -1933,20 +1933,20 @@ define void @_ZN5draco10ObjEncoder21FindOriginalFaceEdgesENS_9IndexTypeIjNS_19Fa
 16:                                               ; preds = %5
   %17 = or i64 %14, %13
   store i64 %17, ptr %11, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 88
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 192
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 192
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds %"struct.std::array.133", ptr %21, i64 %8
+  %22 = getelementptr inbounds nuw %"struct.std::array.133", ptr %21, i64 %8
   %23 = icmp eq i32 %1, -1
   %24 = mul i32 %1, 3
   %spec.select.i = select i1 %23, i32 -1, i32 %24
-  %25 = getelementptr inbounds i8, ptr %0, i64 40
-  %26 = getelementptr inbounds i8, ptr %2, i64 24
-  %27 = getelementptr inbounds i8, ptr %4, i64 16
-  %28 = getelementptr inbounds i8, ptr %4, i64 8
-  %29 = getelementptr inbounds i8, ptr %4, i64 24
-  %30 = getelementptr inbounds i8, ptr %4, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 40
   br label %31
 
 31:                                               ; preds = %16, %_ZNSt3mapIN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEENS1_IjNS0_20PointIndex_tag_type_EEESt4lessIS3_ESaISt4pairIKS3_S5_EEE6insertEOSA_.exit
@@ -1963,7 +1963,7 @@ _ZNK5draco11CornerTable8OppositeENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.ex
 _ZNK5draco11CornerTable8OppositeENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit: ; preds = %31
   %35 = zext i32 %33 to i64
   %36 = load ptr, ptr %26, align 8
-  %37 = getelementptr inbounds %"class.draco::IndexType.136", ptr %36, i64 %35
+  %37 = getelementptr inbounds nuw %"class.draco::IndexType.136", ptr %36, i64 %35
   %.sroa.0.0.in.sroa.speculate.load..i = load i32, ptr %37, align 4
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7)
   %38 = icmp slt i32 %33, 0
@@ -1972,13 +1972,13 @@ _ZNK5draco11CornerTable8OppositeENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.ex
 39:                                               ; preds = %_ZNK5draco11CornerTable8OppositeENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit
   %40 = load ptr, ptr %18, align 8
   %41 = udiv i32 %33, 3
-  %42 = getelementptr inbounds i8, ptr %40, i64 192
+  %42 = getelementptr inbounds nuw i8, ptr %40, i64 192
   %43 = zext nneg i32 %41 to i64
   %44 = load ptr, ptr %42, align 8
-  %45 = getelementptr inbounds %"struct.std::array.133", ptr %44, i64 %43
+  %45 = getelementptr inbounds nuw %"struct.std::array.133", ptr %44, i64 %43
   %46 = urem i32 %33, 3
   %47 = zext nneg i32 %46 to i64
-  %48 = getelementptr inbounds [3 x %"class.draco::IndexType.132"], ptr %45, i64 0, i64 %47
+  %48 = getelementptr inbounds nuw [3 x %"class.draco::IndexType.132"], ptr %45, i64 0, i64 %47
   %.sroa.0.0.copyload4.i.i.i = load i32, ptr %48, align 4
   br label %_ZNK5draco4Mesh15CornerToPointIdENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit.i
 
@@ -1994,24 +1994,24 @@ _ZNK5draco10ObjEncoder9IsNewEdgeERKNS_11CornerTableENS_9IndexTypeIjNS_21CornerIn
   br label %71
 
 50:                                               ; preds = %_ZNK5draco4Mesh15CornerToPointIdENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit.i
-  %51 = getelementptr inbounds i8, ptr %49, i64 100
+  %51 = getelementptr inbounds nuw i8, ptr %49, i64 100
   %52 = load i8, ptr %51, align 4
   %53 = trunc i8 %52 to i1
   br i1 %53, label %_ZNK5draco10ObjEncoder9IsNewEdgeERKNS_11CornerTableENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit, label %54
 
 54:                                               ; preds = %50
-  %55 = getelementptr inbounds i8, ptr %49, i64 72
+  %55 = getelementptr inbounds nuw i8, ptr %49, i64 72
   %56 = zext i32 %.sroa.0.0.i.i.i to i64
   %57 = load ptr, ptr %55, align 8
-  %58 = getelementptr inbounds %"class.draco::IndexType", ptr %57, i64 %56
+  %58 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %57, i64 %56
   %59 = load i32, ptr %58, align 4
   br label %_ZNK5draco10ObjEncoder9IsNewEdgeERKNS_11CornerTableENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit
 
 _ZNK5draco10ObjEncoder9IsNewEdgeERKNS_11CornerTableENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit: ; preds = %50, %54
   %.sroa.02.0.i.i.i = phi i32 [ %59, %54 ], [ %.sroa.0.0.i.i.i, %50 ]
-  %60 = getelementptr inbounds i8, ptr %49, i64 48
+  %60 = getelementptr inbounds nuw i8, ptr %49, i64 48
   %61 = load i64, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %49, i64 40
+  %62 = getelementptr inbounds nuw i8, ptr %49, i64 40
   %63 = load i64, ptr %62, align 8
   %64 = zext i32 %.sroa.02.0.i.i.i to i64
   %65 = mul nsw i64 %63, %64
@@ -2037,13 +2037,13 @@ _ZNK5draco10ObjEncoder9IsNewEdgeERKNS_11CornerTableENS_9IndexTypeIjNS_21CornerIn
 74:                                               ; preds = %72
   %75 = load ptr, ptr %18, align 8
   %76 = udiv i32 %.sroa.0.0.in.sroa.speculated.i64, 3
-  %77 = getelementptr inbounds i8, ptr %75, i64 192
+  %77 = getelementptr inbounds nuw i8, ptr %75, i64 192
   %78 = zext nneg i32 %76 to i64
   %79 = load ptr, ptr %77, align 8
-  %80 = getelementptr inbounds %"struct.std::array.133", ptr %79, i64 %78
+  %80 = getelementptr inbounds nuw %"struct.std::array.133", ptr %79, i64 %78
   %81 = urem i32 %.sroa.0.0.in.sroa.speculated.i64, 3
   %82 = zext nneg i32 %81 to i64
-  %83 = getelementptr inbounds [3 x %"class.draco::IndexType.132"], ptr %80, i64 0, i64 %82
+  %83 = getelementptr inbounds nuw [3 x %"class.draco::IndexType.132"], ptr %80, i64 0, i64 %82
   %.sroa.0.0.copyload4.i.i.i37 = load i32, ptr %83, align 4
   br label %_ZNK5draco4Mesh15CornerToPointIdENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit.i38
 
@@ -2056,24 +2056,24 @@ _ZNK5draco4Mesh15CornerToPointIdENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.ex
   br label %.thread68
 
 84:                                               ; preds = %_ZNK5draco4Mesh15CornerToPointIdENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit.i38
-  %85 = getelementptr inbounds i8, ptr %49, i64 100
+  %85 = getelementptr inbounds nuw i8, ptr %49, i64 100
   %86 = load i8, ptr %85, align 4
   %87 = trunc i8 %86 to i1
   br i1 %87, label %94, label %88
 
 88:                                               ; preds = %84
-  %89 = getelementptr inbounds i8, ptr %49, i64 72
+  %89 = getelementptr inbounds nuw i8, ptr %49, i64 72
   %90 = zext i32 %.sroa.0.0.i.i.i39 to i64
   %91 = load ptr, ptr %89, align 8
-  %92 = getelementptr inbounds %"class.draco::IndexType", ptr %91, i64 %90
+  %92 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %91, i64 %90
   %93 = load i32, ptr %92, align 4
   br label %94
 
 94:                                               ; preds = %84, %88
   %.sroa.02.0.i.i.i42 = phi i32 [ %93, %88 ], [ %.sroa.0.0.i.i.i39, %84 ]
-  %95 = getelementptr inbounds i8, ptr %49, i64 48
+  %95 = getelementptr inbounds nuw i8, ptr %49, i64 48
   %96 = load i64, ptr %95, align 8
-  %97 = getelementptr inbounds i8, ptr %49, i64 40
+  %97 = getelementptr inbounds nuw i8, ptr %49, i64 40
   %98 = load i64, ptr %97, align 8
   %99 = zext i32 %.sroa.02.0.i.i.i42 to i64
   %100 = mul nsw i64 %98, %99
@@ -2101,7 +2101,7 @@ _ZNK5draco4Mesh15CornerToPointIdENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.ex
   %108 = add nuw nsw i64 %.079, 1
   %.cmp.not = icmp eq i64 %.079, 2
   %109 = select i1 %.cmp.not, i64 0, i64 %108
-  %110 = getelementptr inbounds [3 x %"class.draco::IndexType.132"], ptr %22, i64 0, i64 %109
+  %110 = getelementptr inbounds nuw [3 x %"class.draco::IndexType.132"], ptr %22, i64 0, i64 %109
   %.sroa.02.0.copyload = load i32, ptr %110, align 4
   %.urem74 = add nsw i64 %.079, -1
   %.cmp75 = icmp eq i64 %.079, 0
@@ -2109,16 +2109,16 @@ _ZNK5draco4Mesh15CornerToPointIdENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.ex
   %112 = getelementptr inbounds [3 x %"class.draco::IndexType.132"], ptr %22, i64 0, i64 %111
   %113 = load i32, ptr %112, align 4
   %114 = load ptr, ptr %0, align 8
-  %115 = getelementptr inbounds i8, ptr %114, i64 100
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 100
   %116 = load i8, ptr %115, align 4
   %117 = trunc i8 %116 to i1
   br i1 %117, label %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit, label %118
 
 118:                                              ; preds = %.thread68
-  %119 = getelementptr inbounds i8, ptr %114, i64 72
+  %119 = getelementptr inbounds nuw i8, ptr %114, i64 72
   %120 = zext i32 %.sroa.02.0.copyload to i64
   %121 = load ptr, ptr %119, align 8
-  %122 = getelementptr inbounds %"class.draco::IndexType", ptr %121, i64 %120
+  %122 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %121, i64 %120
   %123 = load i32, ptr %122, align 4
   br label %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit
 
@@ -2130,11 +2130,11 @@ _ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type
 
 .lr.ph.i.i.i:                                     ; preds = %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit, %.lr.ph.i.i.i
   %.02024.i.i.i = phi ptr [ %.020.i.i.i, %.lr.ph.i.i.i ], [ %.02022.i.i.i, %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit ]
-  %124 = getelementptr inbounds i8, ptr %.02024.i.i.i, i64 32
+  %124 = getelementptr inbounds nuw i8, ptr %.02024.i.i.i, i64 32
   %125 = load i32, ptr %124, align 4
   %126 = icmp ult i32 %.sroa.02.0.i46, %125
   %.in.v.i.i.i = select i1 %126, i64 16, i64 24
-  %.in.i.i.i = getelementptr inbounds i8, ptr %.02024.i.i.i, i64 %.in.v.i.i.i
+  %.in.i.i.i = getelementptr inbounds nuw i8, ptr %.02024.i.i.i, i64 %.in.v.i.i.i
   %.020.i.i.i = load ptr, ptr %.in.i.i.i, align 8
   %.not.i.i.i = icmp eq ptr %.020.i.i.i, null
   br i1 %.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !15
@@ -2150,7 +2150,7 @@ _ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type
 
 129:                                              ; preds = %._crit_edge.thread.i.i.i
   %130 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i.i.i) #22
-  %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %130, i64 32
+  %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %130, i64 32
   %.pre.i.i = load i32, ptr %.phi.trans.insert.i.i, align 4
   br label %131
 
@@ -2166,7 +2166,7 @@ select.unfold.i.i:                                ; preds = %131, %._crit_edge.t
   br i1 %134, label %_ZNSt8_Rb_treeIN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEESt4pairIKS3_NS1_IjNS0_20PointIndex_tag_type_EEEESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE10_M_insert_IS8_NSE_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS8_EPSt18_Rb_tree_node_baseSK_OT_RT0_.exit.i.i, label %135
 
 135:                                              ; preds = %select.unfold.i.i
-  %136 = getelementptr inbounds i8, ptr %.sroa.4.0.i.ph.i.i, i64 32
+  %136 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.i.ph.i.i, i64 32
   %137 = load i32, ptr %136, align 4
   %138 = icmp ult i32 %.sroa.02.0.i46, %137
   br label %_ZNSt8_Rb_treeIN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEESt4pairIKS3_NS1_IjNS0_20PointIndex_tag_type_EEEESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE10_M_insert_IS8_NSE_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS8_EPSt18_Rb_tree_node_baseSK_OT_RT0_.exit.i.i
@@ -2174,7 +2174,7 @@ select.unfold.i.i:                                ; preds = %131, %._crit_edge.t
 _ZNSt8_Rb_treeIN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEESt4pairIKS3_NS1_IjNS0_20PointIndex_tag_type_EEEESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE10_M_insert_IS8_NSE_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS8_EPSt18_Rb_tree_node_baseSK_OT_RT0_.exit.i.i: ; preds = %135, %select.unfold.i.i
   %139 = phi i1 [ true, %select.unfold.i.i ], [ %138, %135 ]
   %140 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #23
-  %141 = getelementptr inbounds i8, ptr %140, i64 32
+  %141 = getelementptr inbounds nuw i8, ptr %140, i64 32
   %.sroa.5.0.insert.ext = zext i32 %113 to i64
   %.sroa.5.0.insert.shift = shl nuw i64 %.sroa.5.0.insert.ext, 32
   %.sroa.047.0.insert.ext = zext i32 %.sroa.02.0.i46 to i64
@@ -2200,18 +2200,18 @@ define noundef zeroext i1 @_ZN5draco10ObjEncoder16EncodeFaceCornerENS_9IndexType
   %3 = alloca i8, align 1
   %4 = alloca i8, align 1
   %5 = alloca i8, align 1
-  %6 = getelementptr inbounds i8, ptr %0, i64 72
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %7 = load ptr, ptr %6, align 8
   store i8 32, ptr %3, align 1
-  %8 = getelementptr inbounds i8, ptr %7, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %9 = load i64, ptr %8, align 8
   %10 = icmp slt i64 %9, 1
   br i1 %10, label %11, label %_ZN5draco13EncoderBuffer6EncodeIcEEbRKT_.exit
 
 11:                                               ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %7, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %3, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %15 = load ptr, ptr %7, align 8
   %16 = ptrtoint ptr %13 to i64
   %17 = ptrtoint ptr %15 to i64
@@ -2222,33 +2222,33 @@ define noundef zeroext i1 @_ZN5draco10ObjEncoder16EncodeFaceCornerENS_9IndexType
 
 _ZN5draco13EncoderBuffer6EncodeIcEEbRKT_.exit:    ; preds = %2, %11
   %20 = load ptr, ptr %0, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 100
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 100
   %22 = load i8, ptr %21, align 4
   %23 = trunc i8 %22 to i1
   br i1 %23, label %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit, label %24
 
 24:                                               ; preds = %_ZN5draco13EncoderBuffer6EncodeIcEEbRKT_.exit
-  %25 = getelementptr inbounds i8, ptr %20, i64 72
+  %25 = getelementptr inbounds nuw i8, ptr %20, i64 72
   %26 = zext i32 %1 to i64
   %27 = load ptr, ptr %25, align 8
-  %28 = getelementptr inbounds %"class.draco::IndexType", ptr %27, i64 %26
+  %28 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %27, i64 %26
   %29 = load i32, ptr %28, align 4
   br label %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit
 
 _ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit: ; preds = %_ZN5draco13EncoderBuffer6EncodeIcEEbRKT_.exit, %24
   %.sroa.02.0.i = phi i32 [ %29, %24 ], [ %1, %_ZN5draco13EncoderBuffer6EncodeIcEEbRKT_.exit ]
   %30 = add i32 %.sroa.02.0.i, 1
-  %31 = getelementptr inbounds i8, ptr %0, i64 48
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %32 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %31, i64 noundef 20, ptr noundef nonnull @.str.13, i32 noundef %30) #20
   %33 = load ptr, ptr %6, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 32
   %35 = load i64, ptr %34, align 8
   %36 = icmp slt i64 %35, 1
   br i1 %36, label %37, label %_ZN5draco10ObjEncoder9EncodeIntEi.exit
 
 37:                                               ; preds = %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit
   %38 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %31) #22
-  %39 = getelementptr inbounds i8, ptr %33, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr inbounds i8, ptr %31, i64 %38
   %42 = load ptr, ptr %33, align 8
@@ -2260,10 +2260,10 @@ _ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type
   br label %_ZN5draco10ObjEncoder9EncodeIntEi.exit
 
 _ZN5draco10ObjEncoder9EncodeIntEi.exit:           ; preds = %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit, %37
-  %47 = getelementptr inbounds i8, ptr %0, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %48 = load ptr, ptr %47, align 8
   %.not = icmp eq ptr %48, null
-  %49 = getelementptr inbounds i8, ptr %0, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %50 = load ptr, ptr %49, align 8
   %.not6 = icmp eq ptr %50, null
   %or.cond = select i1 %.not, i1 %.not6, i1 false
@@ -2272,15 +2272,15 @@ _ZN5draco10ObjEncoder9EncodeIntEi.exit:           ; preds = %_ZNK5draco14PointAt
 51:                                               ; preds = %_ZN5draco10ObjEncoder9EncodeIntEi.exit
   %52 = load ptr, ptr %6, align 8
   store i8 47, ptr %4, align 1
-  %53 = getelementptr inbounds i8, ptr %52, i64 32
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 32
   %54 = load i64, ptr %53, align 8
   %55 = icmp slt i64 %54, 1
   br i1 %55, label %56, label %_ZN5draco13EncoderBuffer6EncodeIcEEbRKT_.exit10
 
 56:                                               ; preds = %51
-  %57 = getelementptr inbounds i8, ptr %52, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %4, i64 1
+  %59 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %60 = load ptr, ptr %52, align 8
   %61 = ptrtoint ptr %58 to i64
   %62 = ptrtoint ptr %60 to i64
@@ -2296,16 +2296,16 @@ _ZN5draco13EncoderBuffer6EncodeIcEEbRKT_.exit10:  ; preds = %51, %56
   br i1 %.not7, label %_ZN5draco10ObjEncoder9EncodeIntEi.exit13, label %66
 
 66:                                               ; preds = %_ZN5draco13EncoderBuffer6EncodeIcEEbRKT_.exit10
-  %67 = getelementptr inbounds i8, ptr %65, i64 100
+  %67 = getelementptr inbounds nuw i8, ptr %65, i64 100
   %68 = load i8, ptr %67, align 4
   %69 = trunc i8 %68 to i1
   br i1 %69, label %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit12, label %70
 
 70:                                               ; preds = %66
-  %71 = getelementptr inbounds i8, ptr %65, i64 72
+  %71 = getelementptr inbounds nuw i8, ptr %65, i64 72
   %72 = zext i32 %1 to i64
   %73 = load ptr, ptr %71, align 8
-  %74 = getelementptr inbounds %"class.draco::IndexType", ptr %73, i64 %72
+  %74 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %73, i64 %72
   %75 = load i32, ptr %74, align 4
   br label %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit12
 
@@ -2314,14 +2314,14 @@ _ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type
   %76 = add i32 %.sroa.02.0.i11, 1
   %77 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %31, i64 noundef 20, ptr noundef nonnull @.str.13, i32 noundef %76) #20
   %78 = load ptr, ptr %6, align 8
-  %79 = getelementptr inbounds i8, ptr %78, i64 32
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 32
   %80 = load i64, ptr %79, align 8
   %81 = icmp slt i64 %80, 1
   br i1 %81, label %82, label %_ZN5draco10ObjEncoder9EncodeIntEi.exit13
 
 82:                                               ; preds = %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit12
   %83 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %31) #22
-  %84 = getelementptr inbounds i8, ptr %78, i64 8
+  %84 = getelementptr inbounds nuw i8, ptr %78, i64 8
   %85 = load ptr, ptr %84, align 8
   %86 = getelementptr inbounds i8, ptr %31, i64 %83
   %87 = load ptr, ptr %78, align 8
@@ -2340,15 +2340,15 @@ _ZN5draco10ObjEncoder9EncodeIntEi.exit13:         ; preds = %82, %_ZNK5draco14Po
 93:                                               ; preds = %_ZN5draco10ObjEncoder9EncodeIntEi.exit13
   %94 = load ptr, ptr %6, align 8
   store i8 47, ptr %5, align 1
-  %95 = getelementptr inbounds i8, ptr %94, i64 32
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 32
   %96 = load i64, ptr %95, align 8
   %97 = icmp slt i64 %96, 1
   br i1 %97, label %98, label %_ZN5draco13EncoderBuffer6EncodeIcEEbRKT_.exit14
 
 98:                                               ; preds = %93
-  %99 = getelementptr inbounds i8, ptr %94, i64 8
+  %99 = getelementptr inbounds nuw i8, ptr %94, i64 8
   %100 = load ptr, ptr %99, align 8
-  %101 = getelementptr inbounds i8, ptr %5, i64 1
+  %101 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %102 = load ptr, ptr %94, align 8
   %103 = ptrtoint ptr %100 to i64
   %104 = ptrtoint ptr %102 to i64
@@ -2360,16 +2360,16 @@ _ZN5draco10ObjEncoder9EncodeIntEi.exit13:         ; preds = %82, %_ZNK5draco14Po
 
 _ZN5draco13EncoderBuffer6EncodeIcEEbRKT_.exit14:  ; preds = %93, %98
   %107 = phi ptr [ %92, %93 ], [ %.pre20, %98 ]
-  %108 = getelementptr inbounds i8, ptr %107, i64 100
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 100
   %109 = load i8, ptr %108, align 4
   %110 = trunc i8 %109 to i1
   br i1 %110, label %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit16, label %111
 
 111:                                              ; preds = %_ZN5draco13EncoderBuffer6EncodeIcEEbRKT_.exit14
-  %112 = getelementptr inbounds i8, ptr %107, i64 72
+  %112 = getelementptr inbounds nuw i8, ptr %107, i64 72
   %113 = zext i32 %1 to i64
   %114 = load ptr, ptr %112, align 8
-  %115 = getelementptr inbounds %"class.draco::IndexType", ptr %114, i64 %113
+  %115 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %114, i64 %113
   %116 = load i32, ptr %115, align 4
   br label %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit16
 
@@ -2378,14 +2378,14 @@ _ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type
   %117 = add i32 %.sroa.02.0.i15, 1
   %118 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %31, i64 noundef 20, ptr noundef nonnull @.str.13, i32 noundef %117) #20
   %119 = load ptr, ptr %6, align 8
-  %120 = getelementptr inbounds i8, ptr %119, i64 32
+  %120 = getelementptr inbounds nuw i8, ptr %119, i64 32
   %121 = load i64, ptr %120, align 8
   %122 = icmp slt i64 %121, 1
   br i1 %122, label %123, label %_ZN5draco10ObjEncoder9EncodeIntEi.exit17
 
 123:                                              ; preds = %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit16
   %124 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %31) #22
-  %125 = getelementptr inbounds i8, ptr %119, i64 8
+  %125 = getelementptr inbounds nuw i8, ptr %119, i64 8
   %126 = load ptr, ptr %125, align 8
   %127 = getelementptr inbounds i8, ptr %31, i64 %124
   %128 = load ptr, ptr %119, align 8
@@ -2418,7 +2418,7 @@ _ZNKSt14default_deleteIN5draco11CornerTableEEclEPS1_.exit: ; preds = %1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt3mapIN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEENS1_IjNS0_20PointIndex_tag_type_EEESt4lessIS3_ESaISt4pairIKS3_S5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   invoke void @_ZNSt8_Rb_treeIN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEESt4pairIKS3_NS1_IjNS0_20PointIndex_tag_type_EEEESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %3)
           to label %_ZNSt8_Rb_treeIN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEESt4pairIKS3_NS1_IjNS0_20PointIndex_tag_type_EEEESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EED2Ev.exit unwind label %4
@@ -2438,52 +2438,52 @@ _ZNSt8_Rb_treeIN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEESt4pairI
 define noundef zeroext i1 @_ZN5draco10ObjEncoder15EncodeSubObjectENS_9IndexTypeIjNS_19FaceIndex_tag_type_EEE(ptr nocapture noundef nonnull align 8 dereferenceable(256) %0, i32 %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i32, align 4
   store i32 0, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 88
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 192
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 192
   %7 = zext i32 %1 to i64
   %8 = load ptr, ptr %6, align 8
-  %9 = getelementptr inbounds %"struct.std::array.133", ptr %8, i64 %7
+  %9 = getelementptr inbounds nuw %"struct.std::array.133", ptr %8, i64 %7
   %.sroa.04.0.copyload = load i32, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 100
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 100
   %13 = load i8, ptr %12, align 4
   %14 = trunc i8 %13 to i1
   br i1 %14, label %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit, label %15
 
 15:                                               ; preds = %2
-  %16 = getelementptr inbounds i8, ptr %11, i64 72
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 72
   %17 = zext i32 %.sroa.04.0.copyload to i64
   %18 = load ptr, ptr %16, align 8
-  %19 = getelementptr inbounds %"class.draco::IndexType", ptr %18, i64 %17
+  %19 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %18, i64 %17
   %20 = load i32, ptr %19, align 4
   br label %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit
 
 _ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit: ; preds = %2, %15
   %.sroa.02.0.i = phi i32 [ %20, %15 ], [ %.sroa.04.0.copyload, %2 ]
-  %21 = getelementptr inbounds i8, ptr %11, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %22 = load i8, ptr %21, align 8
   %23 = call noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertValueIiEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEaPT_(ptr noundef nonnull align 8 dereferenceable(64) %11, i32 %.sroa.02.0.i, i8 noundef signext %22, ptr noundef nonnull %3)
   br i1 %23, label %24, label %_ZNSt13unordered_mapIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE4findERSB_.exit.thread
 
 24:                                               ; preds = %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit
   %25 = load i32, ptr %3, align 4
-  %26 = getelementptr inbounds i8, ptr %0, i64 152
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %27 = load i32, ptr %26, align 8
   %.not = icmp eq i32 %25, %27
   br i1 %.not, label %_ZNSt13unordered_mapIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE4findERSB_.exit.thread, label %28
 
 28:                                               ; preds = %24
-  %29 = getelementptr inbounds i8, ptr %0, i64 72
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 32
   %32 = load i64, ptr %31, align 8
   %33 = icmp slt i64 %32, 1
   br i1 %33, label %34, label %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit
 
 34:                                               ; preds = %28
-  %35 = getelementptr inbounds i8, ptr %30, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %36 = load ptr, ptr %35, align 8
   %37 = load ptr, ptr %30, align 8
   %38 = ptrtoint ptr %36 to i64
@@ -2494,14 +2494,14 @@ _ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type
   br label %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit
 
 _ZN5draco13EncoderBuffer6EncodeEPKvm.exit:        ; preds = %28, %34
-  %42 = getelementptr inbounds i8, ptr %0, i64 120
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %43 = load i64, ptr %42, align 8
   %.not.not.i.i = icmp eq i64 %43, 0
   %44 = load i32, ptr %3, align 4
   br i1 %.not.not.i.i, label %45, label %52
 
 45:                                               ; preds = %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit
-  %46 = getelementptr inbounds i8, ptr %0, i64 112
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 112
   br label %47
 
 47:                                               ; preds = %48, %45
@@ -2511,15 +2511,15 @@ _ZN5draco13EncoderBuffer6EncodeEPKvm.exit:        ; preds = %28, %34
   br i1 %.not.i.i, label %_ZNSt13unordered_mapIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE4findERSB_.exit.thread, label %48
 
 48:                                               ; preds = %47
-  %49 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i, i64 8
   %50 = load i32, ptr %49, align 4
   %51 = icmp eq i32 %44, %50
   br i1 %51, label %_ZNSt13unordered_mapIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE4findERSB_.exit, label %47, !llvm.loop !17
 
 52:                                               ; preds = %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit
-  %53 = getelementptr inbounds i8, ptr %0, i64 96
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %54 = sext i32 %44 to i64
-  %55 = getelementptr inbounds i8, ptr %0, i64 104
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %56 = load i64, ptr %55, align 8
   %57 = urem i64 %54, %56
   %58 = load ptr, ptr %53, align 8
@@ -2530,7 +2530,7 @@ _ZN5draco13EncoderBuffer6EncodeEPKvm.exit:        ; preds = %28, %34
 
 61:                                               ; preds = %52
   %62 = load ptr, ptr %60, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %64 = load i32, ptr %63, align 4
   %65 = icmp eq i32 %44, %64
   br i1 %65, label %_ZNSt13unordered_mapIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE4findERSB_.exit, label %.lr.ph.i.i.i.i
@@ -2546,7 +2546,7 @@ _ZN5draco13EncoderBuffer6EncodeEPKvm.exit:        ; preds = %28, %34
   br i1 %.not16.i.i.i.i, label %_ZNSt13unordered_mapIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE4findERSB_.exit.thread, label %69
 
 69:                                               ; preds = %.lr.ph.i.i.i.i
-  %70 = getelementptr inbounds i8, ptr %68, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %71 = load i32, ptr %70, align 4
   %72 = sext i32 %71 to i64
   %73 = urem i64 %72, %56
@@ -2556,16 +2556,16 @@ _ZN5draco13EncoderBuffer6EncodeEPKvm.exit:        ; preds = %28, %34
 _ZNSt13unordered_mapIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE4findERSB_.exit: ; preds = %66, %48, %61
   %.sroa.06.1.i.i = phi ptr [ %62, %61 ], [ %.sroa.06.0.i.i, %48 ], [ %68, %66 ]
   %74 = load ptr, ptr %29, align 8
-  %75 = getelementptr inbounds i8, ptr %.sroa.06.1.i.i, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 16
   %76 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %75) #20
   %77 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %75) #20
-  %78 = getelementptr inbounds i8, ptr %74, i64 32
+  %78 = getelementptr inbounds nuw i8, ptr %74, i64 32
   %79 = load i64, ptr %78, align 8
   %80 = icmp slt i64 %79, 1
   br i1 %80, label %81, label %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit7
 
 81:                                               ; preds = %_ZNSt13unordered_mapIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE4findERSB_.exit
-  %82 = getelementptr inbounds i8, ptr %74, i64 8
+  %82 = getelementptr inbounds nuw i8, ptr %74, i64 8
   %83 = load ptr, ptr %82, align 8
   %84 = getelementptr inbounds i8, ptr %76, i64 %77
   %85 = load ptr, ptr %74, align 8
@@ -2578,13 +2578,13 @@ _ZNSt13unordered_mapIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4has
 
 _ZN5draco13EncoderBuffer6EncodeEPKvm.exit7:       ; preds = %_ZNSt13unordered_mapIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE4findERSB_.exit, %81
   %90 = load ptr, ptr %29, align 8
-  %91 = getelementptr inbounds i8, ptr %90, i64 32
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 32
   %92 = load i64, ptr %91, align 8
   %93 = icmp slt i64 %92, 1
   br i1 %93, label %94, label %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit8
 
 94:                                               ; preds = %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit7
-  %95 = getelementptr inbounds i8, ptr %90, i64 8
+  %95 = getelementptr inbounds nuw i8, ptr %90, i64 8
   %96 = load ptr, ptr %95, align 8
   %97 = load ptr, ptr %90, align 8
   %98 = ptrtoint ptr %96 to i64
@@ -2608,52 +2608,52 @@ _ZNSt13unordered_mapIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4has
 define noundef zeroext i1 @_ZN5draco10ObjEncoder14EncodeMaterialENS_9IndexTypeIjNS_19FaceIndex_tag_type_EEE(ptr nocapture noundef nonnull align 8 dereferenceable(256) %0, i32 %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i32, align 4
   store i32 0, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 88
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 192
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 192
   %7 = zext i32 %1 to i64
   %8 = load ptr, ptr %6, align 8
-  %9 = getelementptr inbounds %"struct.std::array.133", ptr %8, i64 %7
+  %9 = getelementptr inbounds nuw %"struct.std::array.133", ptr %8, i64 %7
   %.sroa.04.0.copyload = load i32, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 100
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 100
   %13 = load i8, ptr %12, align 4
   %14 = trunc i8 %13 to i1
   br i1 %14, label %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit, label %15
 
 15:                                               ; preds = %2
-  %16 = getelementptr inbounds i8, ptr %11, i64 72
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 72
   %17 = zext i32 %.sroa.04.0.copyload to i64
   %18 = load ptr, ptr %16, align 8
-  %19 = getelementptr inbounds %"class.draco::IndexType", ptr %18, i64 %17
+  %19 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %18, i64 %17
   %20 = load i32, ptr %19, align 4
   br label %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit
 
 _ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit: ; preds = %2, %15
   %.sroa.02.0.i = phi i32 [ %20, %15 ], [ %.sroa.04.0.copyload, %2 ]
-  %21 = getelementptr inbounds i8, ptr %11, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %22 = load i8, ptr %21, align 8
   %23 = call noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertValueIiEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEaPT_(ptr noundef nonnull align 8 dereferenceable(64) %11, i32 %.sroa.02.0.i, i8 noundef signext %22, ptr noundef nonnull %3)
   br i1 %23, label %24, label %_ZNSt13unordered_mapIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE4findERSB_.exit.thread
 
 24:                                               ; preds = %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit
   %25 = load i32, ptr %3, align 4
-  %26 = getelementptr inbounds i8, ptr %0, i64 216
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %27 = load i32, ptr %26, align 8
   %.not = icmp eq i32 %25, %27
   br i1 %.not, label %_ZNSt13unordered_mapIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE4findERSB_.exit.thread, label %28
 
 28:                                               ; preds = %24
-  %29 = getelementptr inbounds i8, ptr %0, i64 72
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 32
   %32 = load i64, ptr %31, align 8
   %33 = icmp slt i64 %32, 1
   br i1 %33, label %34, label %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit
 
 34:                                               ; preds = %28
-  %35 = getelementptr inbounds i8, ptr %30, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %36 = load ptr, ptr %35, align 8
   %37 = load ptr, ptr %30, align 8
   %38 = ptrtoint ptr %36 to i64
@@ -2664,14 +2664,14 @@ _ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type
   br label %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit
 
 _ZN5draco13EncoderBuffer6EncodeEPKvm.exit:        ; preds = %28, %34
-  %42 = getelementptr inbounds i8, ptr %0, i64 184
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %43 = load i64, ptr %42, align 8
   %.not.not.i.i = icmp eq i64 %43, 0
   %44 = load i32, ptr %3, align 4
   br i1 %.not.not.i.i, label %45, label %52
 
 45:                                               ; preds = %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit
-  %46 = getelementptr inbounds i8, ptr %0, i64 176
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 176
   br label %47
 
 47:                                               ; preds = %48, %45
@@ -2681,15 +2681,15 @@ _ZN5draco13EncoderBuffer6EncodeEPKvm.exit:        ; preds = %28, %34
   br i1 %.not.i.i, label %_ZNSt13unordered_mapIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE4findERSB_.exit.thread, label %48
 
 48:                                               ; preds = %47
-  %49 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i, i64 8
   %50 = load i32, ptr %49, align 4
   %51 = icmp eq i32 %44, %50
   br i1 %51, label %_ZNSt13unordered_mapIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE4findERSB_.exit, label %47, !llvm.loop !17
 
 52:                                               ; preds = %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit
-  %53 = getelementptr inbounds i8, ptr %0, i64 160
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %54 = sext i32 %44 to i64
-  %55 = getelementptr inbounds i8, ptr %0, i64 168
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %56 = load i64, ptr %55, align 8
   %57 = urem i64 %54, %56
   %58 = load ptr, ptr %53, align 8
@@ -2700,7 +2700,7 @@ _ZN5draco13EncoderBuffer6EncodeEPKvm.exit:        ; preds = %28, %34
 
 61:                                               ; preds = %52
   %62 = load ptr, ptr %60, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %64 = load i32, ptr %63, align 4
   %65 = icmp eq i32 %44, %64
   br i1 %65, label %_ZNSt13unordered_mapIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE4findERSB_.exit, label %.lr.ph.i.i.i.i
@@ -2716,7 +2716,7 @@ _ZN5draco13EncoderBuffer6EncodeEPKvm.exit:        ; preds = %28, %34
   br i1 %.not16.i.i.i.i, label %_ZNSt13unordered_mapIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE4findERSB_.exit.thread, label %69
 
 69:                                               ; preds = %.lr.ph.i.i.i.i
-  %70 = getelementptr inbounds i8, ptr %68, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %71 = load i32, ptr %70, align 4
   %72 = sext i32 %71 to i64
   %73 = urem i64 %72, %56
@@ -2726,16 +2726,16 @@ _ZN5draco13EncoderBuffer6EncodeEPKvm.exit:        ; preds = %28, %34
 _ZNSt13unordered_mapIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE4findERSB_.exit: ; preds = %66, %48, %61
   %.sroa.06.1.i.i = phi ptr [ %62, %61 ], [ %.sroa.06.0.i.i, %48 ], [ %68, %66 ]
   %74 = load ptr, ptr %29, align 8
-  %75 = getelementptr inbounds i8, ptr %.sroa.06.1.i.i, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 16
   %76 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %75) #20
   %77 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %75) #20
-  %78 = getelementptr inbounds i8, ptr %74, i64 32
+  %78 = getelementptr inbounds nuw i8, ptr %74, i64 32
   %79 = load i64, ptr %78, align 8
   %80 = icmp slt i64 %79, 1
   br i1 %80, label %81, label %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit7
 
 81:                                               ; preds = %_ZNSt13unordered_mapIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE4findERSB_.exit
-  %82 = getelementptr inbounds i8, ptr %74, i64 8
+  %82 = getelementptr inbounds nuw i8, ptr %74, i64 8
   %83 = load ptr, ptr %82, align 8
   %84 = getelementptr inbounds i8, ptr %76, i64 %77
   %85 = load ptr, ptr %74, align 8
@@ -2748,13 +2748,13 @@ _ZNSt13unordered_mapIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4has
 
 _ZN5draco13EncoderBuffer6EncodeEPKvm.exit7:       ; preds = %_ZNSt13unordered_mapIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE4findERSB_.exit, %81
   %90 = load ptr, ptr %29, align 8
-  %91 = getelementptr inbounds i8, ptr %90, i64 32
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 32
   %92 = load i64, ptr %91, align 8
   %93 = icmp slt i64 %92, 1
   br i1 %93, label %94, label %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit8
 
 94:                                               ; preds = %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit7
-  %95 = getelementptr inbounds i8, ptr %90, i64 8
+  %95 = getelementptr inbounds nuw i8, ptr %90, i64 8
   %96 = load ptr, ptr %95, align 8
   %97 = load ptr, ptr %90, align 8
   %98 = ptrtoint ptr %96 to i64
@@ -2776,18 +2776,18 @@ _ZNSt13unordered_mapIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4has
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5draco10ObjEncoder9EncodeIntEi(ptr noundef nonnull align 8 dereferenceable(256) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 20, ptr noundef nonnull @.str.13, i32 noundef %1) #20
-  %5 = getelementptr inbounds i8, ptr %0, i64 72
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %8 = load i64, ptr %7, align 8
   %9 = icmp slt i64 %8, 1
   br i1 %9, label %10, label %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit
 
 10:                                               ; preds = %2
   %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #22
-  %12 = getelementptr inbounds i8, ptr %6, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %3, i64 %11
   %15 = load ptr, ptr %6, align 8
@@ -2804,19 +2804,19 @@ _ZN5draco13EncoderBuffer6EncodeEPKvm.exit:        ; preds = %2, %10
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5draco10ObjEncoder11EncodeFloatEf(ptr noundef nonnull align 8 dereferenceable(256) %0, float noundef %1) local_unnamed_addr #4 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = fpext float %1 to double
   %5 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 20, ptr noundef nonnull @.str.12, double noundef %4) #20
-  %6 = getelementptr inbounds i8, ptr %0, i64 72
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %9 = load i64, ptr %8, align 8
   %10 = icmp slt i64 %9, 1
   br i1 %10, label %11, label %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit
 
 11:                                               ; preds = %2
   %12 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #22
-  %13 = getelementptr inbounds i8, ptr %7, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %3, i64 %12
   %16 = load ptr, ptr %7, align 8
@@ -2844,45 +2844,45 @@ define noundef zeroext i1 @_ZNK5draco10ObjEncoder9IsNewEdgeERKNS_11CornerTableEN
   br i1 %5, label %_ZNK5draco4Mesh15CornerToPointIdENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 88
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %8 = load ptr, ptr %7, align 8
   %9 = udiv i32 %2, 3
-  %10 = getelementptr inbounds i8, ptr %8, i64 192
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 192
   %11 = zext nneg i32 %9 to i64
   %12 = load ptr, ptr %10, align 8
-  %13 = getelementptr inbounds %"struct.std::array.133", ptr %12, i64 %11
+  %13 = getelementptr inbounds nuw %"struct.std::array.133", ptr %12, i64 %11
   %14 = urem i32 %2, 3
   %15 = zext nneg i32 %14 to i64
-  %16 = getelementptr inbounds [3 x %"class.draco::IndexType.132"], ptr %13, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw [3 x %"class.draco::IndexType.132"], ptr %13, i64 0, i64 %15
   %.sroa.0.0.copyload4.i.i = load i32, ptr %16, align 4
   br label %_ZNK5draco4Mesh15CornerToPointIdENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit
 
 _ZNK5draco4Mesh15CornerToPointIdENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit: ; preds = %3, %6
   %.sroa.0.0.i.i = phi i32 [ %.sroa.0.0.copyload4.i.i, %6 ], [ -1, %3 ]
-  %17 = getelementptr inbounds i8, ptr %0, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %18 = load ptr, ptr %17, align 8
   %.not = icmp eq ptr %18, null
   br i1 %.not, label %40, label %19
 
 19:                                               ; preds = %_ZNK5draco4Mesh15CornerToPointIdENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit
-  %20 = getelementptr inbounds i8, ptr %18, i64 100
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 100
   %21 = load i8, ptr %20, align 4
   %22 = trunc i8 %21 to i1
   br i1 %22, label %_ZNK5draco14PointAttribute14GetMappedValueENS_9IndexTypeIjNS_20PointIndex_tag_type_EEEPv.exit, label %23
 
 23:                                               ; preds = %19
-  %24 = getelementptr inbounds i8, ptr %18, i64 72
+  %24 = getelementptr inbounds nuw i8, ptr %18, i64 72
   %25 = zext i32 %.sroa.0.0.i.i to i64
   %26 = load ptr, ptr %24, align 8
-  %27 = getelementptr inbounds %"class.draco::IndexType", ptr %26, i64 %25
+  %27 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %26, i64 %25
   %28 = load i32, ptr %27, align 4
   br label %_ZNK5draco14PointAttribute14GetMappedValueENS_9IndexTypeIjNS_20PointIndex_tag_type_EEEPv.exit
 
 _ZNK5draco14PointAttribute14GetMappedValueENS_9IndexTypeIjNS_20PointIndex_tag_type_EEEPv.exit: ; preds = %19, %23
   %.sroa.02.0.i.i = phi i32 [ %28, %23 ], [ %.sroa.0.0.i.i, %19 ]
-  %29 = getelementptr inbounds i8, ptr %18, i64 48
+  %29 = getelementptr inbounds nuw i8, ptr %18, i64 48
   %30 = load i64, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %18, i64 40
+  %31 = getelementptr inbounds nuw i8, ptr %18, i64 40
   %32 = load i64, ptr %31, align 8
   %33 = zext i32 %.sroa.02.0.i.i to i64
   %34 = mul nsw i64 %32, %33
@@ -2927,9 +2927,9 @@ define linkonce_odr void @_ZNSt6vectorIcSaIcEE15_M_range_insertIPKhEEvN9__gnu_cx
   %6 = ptrtoint ptr %3 to i64
   %7 = ptrtoint ptr %2 to i64
   %8 = sub i64 %6, %7
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = ptrtoint ptr %10 to i64
   %14 = ptrtoint ptr %12 to i64
@@ -2979,8 +2979,8 @@ _ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit:       ; preds = %_ZSt22__uninitializ
   %.0910.i.i.i.i.i = phi ptr [ %33, %.lr.ph.i.i.i.i.i ], [ %2, %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit ]
   %32 = load i8, ptr %.0910.i.i.i.i.i, align 1
   store i8 %32, ptr %.0811.i.i.i.i.i, align 1
-  %33 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i, i64 1
-  %34 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i, i64 1
+  %33 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 1
+  %34 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 1
   %35 = add nsw i64 %.012.i.i.i.i.i, -1
   %36 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
   br i1 %36, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIPKhN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEET0_T_SA_S9_.exit, !llvm.loop !19
@@ -2998,8 +2998,8 @@ _ZSt7advanceIPKhmEvRT_T0_.exit:                   ; preds = %16
   %.0910.i.i.i.i.i.i.i.i = phi ptr [ %42, %.lr.ph.i.i.i.i.i.i.i.i ], [ %37, %_ZSt7advanceIPKhmEvRT_T0_.exit ]
   %41 = load i8, ptr %.0910.i.i.i.i.i.i.i.i, align 1
   store i8 %41, ptr %.0811.i.i.i.i.i.i.i.i, align 1
-  %42 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i.i.i.i, i64 1
-  %43 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i.i.i.i, i64 1
+  %42 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i.i.i, i64 1
+  %43 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i.i.i, i64 1
   %44 = add nsw i64 %.012.i.i.i.i.i.i.i.i, -1
   %45 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.i.i, 1
   br i1 %45, label %.lr.ph.i.i.i.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aIPKhPccET0_T_S4_S3_RSaIT1_E.exit.loopexit, !llvm.loop !19
@@ -3034,8 +3034,8 @@ _ZSt22__uninitialized_move_aIPcS0_SaIcEET0_T_S3_S2_RT1_.exit56: ; preds = %_ZSt2
   %.0910.i.i.i.i.i61 = phi ptr [ %54, %.lr.ph.i.i.i.i.i58 ], [ %2, %_ZSt22__uninitialized_move_aIPcS0_SaIcEET0_T_S3_S2_RT1_.exit56 ]
   %53 = load i8, ptr %.0910.i.i.i.i.i61, align 1
   store i8 %53, ptr %.0811.i.i.i.i.i60, align 1
-  %54 = getelementptr inbounds i8, ptr %.0910.i.i.i.i.i61, i64 1
-  %55 = getelementptr inbounds i8, ptr %.0811.i.i.i.i.i60, i64 1
+  %54 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i61, i64 1
+  %55 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i60, i64 1
   %56 = add nsw i64 %.012.i.i.i.i.i59, -1
   %57 = icmp samesign ugt i64 %.012.i.i.i.i.i59, 1
   br i1 %57, label %.lr.ph.i.i.i.i.i58, label %_ZSt4copyIPKhN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEET0_T_SA_S9_.exit, !llvm.loop !19
@@ -3111,7 +3111,7 @@ _ZSt22__uninitialized_copy_aIPKhPccET0_T_S4_S3_RSaIT1_E.exit69: ; preds = %.lr.p
 _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit: ; preds = %83, %85
   store ptr %71, ptr %0, align 8
   store ptr %84, ptr %11, align 8
-  %86 = getelementptr inbounds i8, ptr %71, i64 %68
+  %86 = getelementptr inbounds nuw i8, ptr %71, i64 %68
   store ptr %86, ptr %9, align 8
   br label %_ZSt4copyIPKhN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEET0_T_SA_S9_.exit
 
@@ -3145,10 +3145,10 @@ define linkonce_odr void @_ZNSt8_Rb_treeIN5draco9IndexTypeIjNS0_29AttributeValue
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.07 = phi ptr [ %6, %.lr.ph ], [ %1, %2 ]
-  %3 = getelementptr inbounds i8, ptr %.07, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %.07, i64 24
   %4 = load ptr, ptr %3, align 8
   tail call void @_ZNSt8_Rb_treeIN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEESt4pairIKS3_NS1_IjNS0_20PointIndex_tag_type_EEEESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %4)
-  %5 = getelementptr inbounds i8, ptr %.07, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %.07, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %.07) #21
   %.not = icmp eq ptr %6, null
@@ -3260,7 +3260,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt8__det
   %3 = alloca %"struct.std::_Hashtable<int, std::pair<const int, std::__cxx11::basic_string<char>>, std::allocator<std::pair<const int, std::__cxx11::basic_string<char>>>, std::__detail::_Select1st, std::equal_to<int>, std::hash<int>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true>>::_Scoped_node", align 8
   %4 = load i32, ptr %1, align 4
   %5 = sext i32 %4 to i64
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8
   %8 = urem i64 %5, %7
   %9 = load ptr, ptr %0, align 8
@@ -3271,7 +3271,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt8__det
 
 12:                                               ; preds = %2
   %13 = load ptr, ptr %11, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load i32, ptr %14, align 4
   %16 = icmp eq i32 %4, %15
   br i1 %16, label %_ZNKSt10_HashtableIiSt4pairIKiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE12_M_find_nodeEmRS1_m.exit, label %.lr.ph.i.i
@@ -3287,7 +3287,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt8__det
   br i1 %.not16.i.i, label %.loopexit, label %20
 
 20:                                               ; preds = %.lr.ph.i.i
-  %21 = getelementptr inbounds i8, ptr %19, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %22 = load i32, ptr %21, align 4
   %23 = sext i32 %22 to i64
   %24 = urem i64 %23, %7
@@ -3296,12 +3296,12 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt8__det
 
 .loopexit:                                        ; preds = %20, %.lr.ph.i.i, %2
   store ptr %0, ptr %3, align 8
-  %25 = getelementptr inbounds i8, ptr %3, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %26 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #23
   store ptr null, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store i32 %4, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %26, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %28) #20
   store ptr %26, ptr %25, align 8
   %29 = invoke ptr @_ZNSt10_HashtableIiSt4pairIKiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNSA_10_Hash_nodeIS8_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %8, i64 noundef %5, ptr noundef nonnull %26, i64 noundef 1)
@@ -3315,18 +3315,18 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt8__det
 
 _ZNKSt10_HashtableIiSt4pairIKiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE12_M_find_nodeEmRS1_m.exit: ; preds = %17, %.loopexit, %12
   %.0.i.pn = phi ptr [ %13, %12 ], [ %29, %.loopexit ], [ %19, %17 ]
-  %.0 = getelementptr inbounds i8, ptr %.0.i.pn, i64 16
+  %.0 = getelementptr inbounds nuw i8, ptr %.0.i.pn, i64 16
   ret ptr %.0
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr ptr @_ZNSt10_HashtableIiSt4pairIKiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNSA_10_Hash_nodeIS8_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load i64, ptr %11, align 8
   %13 = tail call { i8, i64 } @_ZNKSt8__detail20_Prime_rehash_policy14_M_need_rehashEmmm(ptr noundef nonnull align 8 dereferenceable(16) %6, i64 noundef %10, i64 noundef %12, i64 noundef %4)
   %14 = extractvalue { i8, i64 } %13, 0
@@ -3389,7 +3389,7 @@ _ZNSt10_HashtableIiSt4pairIKiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE
   br label %_ZNSt10_HashtableIiSt4pairIKiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE22_M_insert_bucket_beginEmPNSA_10_Hash_nodeIS8_Lb0EEE.exit
 
 40:                                               ; preds = %31
-  %41 = getelementptr inbounds i8, ptr %0, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %42 = load ptr, ptr %41, align 8
   store ptr %42, ptr %3, align 8
   store ptr %3, ptr %41, align 8
@@ -3399,7 +3399,7 @@ _ZNSt10_HashtableIiSt4pairIKiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE
 
 44:                                               ; preds = %40
   %45 = load ptr, ptr %0, align 8
-  %46 = getelementptr inbounds i8, ptr %43, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %47 = load i64, ptr %9, align 8
   %48 = load i32, ptr %46, align 4
   %49 = sext i32 %48 to i64
@@ -3423,13 +3423,13 @@ _ZNSt10_HashtableIiSt4pairIKiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt10_HashtableIiSt4pairIKiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %6, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %3, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #20
   tail call void @_ZdlPv(ptr noundef nonnull %3) #21
   br label %6
@@ -3446,7 +3446,7 @@ define linkonce_odr void @_ZNSt10_HashtableIiSt4pairIKiNSt7__cxx1112basic_string
   br i1 %3, label %4, label %6
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr null, ptr %5, align 8
   br label %_ZNSt10_HashtableIiSt4pairIKiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit
 
@@ -3474,7 +3474,7 @@ _ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKiNSt7__cxx1112basic
 
 _ZNSt10_HashtableIiSt4pairIKiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit: ; preds = %4, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEELb0EEEEE19_M_allocate_bucketsEm.exit.i
   %.0.i = phi ptr [ %5, %4 ], [ %11, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEELb0EEEEE19_M_allocate_bucketsEm.exit.i ]
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
   store ptr null, ptr %12, align 8
   %.not29 = icmp eq ptr %13, null
@@ -3484,7 +3484,7 @@ _ZNSt10_HashtableIiSt4pairIKiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE
   %.031 = phi ptr [ %14, %29 ], [ %13, %_ZNSt10_HashtableIiSt4pairIKiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %.02530 = phi i64 [ %.1, %29 ], [ 0, %_ZNSt10_HashtableIiSt4pairIKiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %14 = load ptr, ptr %.031, align 8
-  %15 = getelementptr inbounds i8, ptr %.031, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %.031, i64 8
   %16 = load i32, ptr %15, align 4
   %17 = sext i32 %16 to i64
   %18 = urem i64 %17, %1
@@ -3521,7 +3521,7 @@ _ZNSt10_HashtableIiSt4pairIKiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE
 
 ._crit_edge:                                      ; preds = %29, %_ZNSt10_HashtableIiSt4pairIKiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit
   %30 = load ptr, ptr %0, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 48
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %32 = icmp eq ptr %30, %31
   br i1 %32, label %_ZNSt10_HashtableIiSt4pairIKiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit, label %33
 
@@ -3530,7 +3530,7 @@ _ZNSt10_HashtableIiSt4pairIKiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE
   br label %_ZNSt10_HashtableIiSt4pairIKiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit
 
 _ZNSt10_HashtableIiSt4pairIKiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit: ; preds = %._crit_edge, %33
-  %34 = getelementptr inbounds i8, ptr %0, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %1, ptr %34, align 8
   store ptr %.0.i, ptr %0, align 8
   ret void
@@ -3542,7 +3542,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
   br i1 %5, label %_ZNK5draco17GeometryAttribute17ConvertTypedValueIafEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhPT0_.exit, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %0, i64 28
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %8 = load i32, ptr %7, align 4
   switch i32 %8, label %_ZNK5draco17GeometryAttribute17ConvertTypedValueIafEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhPT0_.exit [
     i32 1, label %9
@@ -3559,7 +3559,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
   ]
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load i8, ptr %10, align 8
   %.sroa.speculated24.i = tail call i8 @llvm.umin.i8(i8 %2, i8 %11)
   %12 = icmp eq i8 %.sroa.speculated24.i, 0
@@ -3568,22 +3568,22 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
 .lr.ph.i:                                         ; preds = %9
   %13 = load ptr, ptr %0, align 8
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %16 = load i64, ptr %15, align 8
   %17 = zext i32 %1 to i64
   %18 = mul nsw i64 %16, %17
   %19 = getelementptr i8, ptr %14, i64 %18
-  %20 = getelementptr inbounds i8, ptr %0, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %21 = load i64, ptr %20, align 8
   %22 = getelementptr i8, ptr %19, i64 %21
-  %23 = getelementptr inbounds i8, ptr %0, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %24
 
 24:                                               ; preds = %29, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %29 ]
   %.01525.i = phi ptr [ %22, %.lr.ph.i ], [ %36, %29 ]
   %25 = load ptr, ptr %0, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load ptr, ptr %26, align 8
   %28 = icmp ugt ptr %27, %.01525.i
   br i1 %28, label %29, label %_ZNK5draco17GeometryAttribute17ConvertTypedValueIafEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhPT0_.exit
@@ -3592,12 +3592,12 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
   %30 = load i8, ptr %.01525.i, align 1
   %31 = load i8, ptr %23, align 8
   %32 = trunc i8 %31 to i1
-  %33 = getelementptr inbounds float, ptr %3, i64 %indvars.iv.i
+  %33 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv.i
   %34 = sitofp i8 %30 to float
   %35 = fdiv float %34, 1.270000e+02
   %storemerge.i.i = select i1 %32, float %35, float %34
   store float %storemerge.i.i, ptr %33, align 4
-  %36 = getelementptr inbounds i8, ptr %.01525.i, i64 1
+  %36 = getelementptr inbounds nuw i8, ptr %.01525.i, i64 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %37 = load i8, ptr %10, align 8
   %.sroa.speculated.i = tail call i8 @llvm.umin.i8(i8 %2, i8 %37)
@@ -3611,7 +3611,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
   br i1 %39, label %_ZNK5draco17GeometryAttribute17ConvertTypedValueIafEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhPT0_.exit.sink.split, label %_ZNK5draco17GeometryAttribute17ConvertTypedValueIafEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhPT0_.exit
 
 40:                                               ; preds = %6
-  %41 = getelementptr inbounds i8, ptr %0, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %42 = load i8, ptr %41, align 8
   %.sroa.speculated24.i46 = tail call i8 @llvm.umin.i8(i8 %2, i8 %42)
   %43 = icmp eq i8 %.sroa.speculated24.i46, 0
@@ -3620,22 +3620,22 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
 .lr.ph.i47:                                       ; preds = %40
   %44 = load ptr, ptr %0, align 8
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %0, i64 40
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %47 = load i64, ptr %46, align 8
   %48 = zext i32 %1 to i64
   %49 = mul nsw i64 %47, %48
   %50 = getelementptr i8, ptr %45, i64 %49
-  %51 = getelementptr inbounds i8, ptr %0, i64 48
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %52 = load i64, ptr %51, align 8
   %53 = getelementptr i8, ptr %50, i64 %52
-  %54 = getelementptr inbounds i8, ptr %0, i64 32
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %55
 
 55:                                               ; preds = %60, %.lr.ph.i47
   %indvars.iv.i48 = phi i64 [ 0, %.lr.ph.i47 ], [ %indvars.iv.next.i51, %60 ]
   %.01525.i49 = phi ptr [ %53, %.lr.ph.i47 ], [ %67, %60 ]
   %56 = load ptr, ptr %0, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %58 = load ptr, ptr %57, align 8
   %59 = icmp ugt ptr %58, %.01525.i49
   br i1 %59, label %60, label %_ZNK5draco17GeometryAttribute17ConvertTypedValueIafEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhPT0_.exit
@@ -3644,12 +3644,12 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
   %61 = load i8, ptr %.01525.i49, align 1
   %62 = load i8, ptr %54, align 8
   %63 = trunc i8 %62 to i1
-  %64 = getelementptr inbounds float, ptr %3, i64 %indvars.iv.i48
+  %64 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv.i48
   %65 = uitofp i8 %61 to float
   %66 = fdiv float %65, 2.550000e+02
   %storemerge.i.i50 = select i1 %63, float %66, float %65
   store float %storemerge.i.i50, ptr %64, align 4
-  %67 = getelementptr inbounds i8, ptr %.01525.i49, i64 1
+  %67 = getelementptr inbounds nuw i8, ptr %.01525.i49, i64 1
   %indvars.iv.next.i51 = add nuw nsw i64 %indvars.iv.i48, 1
   %68 = load i8, ptr %41, align 8
   %.sroa.speculated.i52 = tail call i8 @llvm.umin.i8(i8 %2, i8 %68)
@@ -3663,7 +3663,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
   br i1 %70, label %_ZNK5draco17GeometryAttribute17ConvertTypedValueIafEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhPT0_.exit.sink.split, label %_ZNK5draco17GeometryAttribute17ConvertTypedValueIafEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhPT0_.exit
 
 71:                                               ; preds = %6
-  %72 = getelementptr inbounds i8, ptr %0, i64 24
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %73 = load i8, ptr %72, align 8
   %.sroa.speculated24.i58 = tail call i8 @llvm.umin.i8(i8 %2, i8 %73)
   %74 = icmp eq i8 %.sroa.speculated24.i58, 0
@@ -3672,22 +3672,22 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
 .lr.ph.i59:                                       ; preds = %71
   %75 = load ptr, ptr %0, align 8
   %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds i8, ptr %0, i64 40
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %78 = load i64, ptr %77, align 8
   %79 = zext i32 %1 to i64
   %80 = mul nsw i64 %78, %79
   %81 = getelementptr i8, ptr %76, i64 %80
-  %82 = getelementptr inbounds i8, ptr %0, i64 48
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %83 = load i64, ptr %82, align 8
   %84 = getelementptr i8, ptr %81, i64 %83
-  %85 = getelementptr inbounds i8, ptr %0, i64 32
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %86
 
 86:                                               ; preds = %91, %.lr.ph.i59
   %indvars.iv.i60 = phi i64 [ 0, %.lr.ph.i59 ], [ %indvars.iv.next.i63, %91 ]
   %.01525.i61 = phi ptr [ %84, %.lr.ph.i59 ], [ %98, %91 ]
   %87 = load ptr, ptr %0, align 8
-  %88 = getelementptr inbounds i8, ptr %87, i64 8
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
   %89 = load ptr, ptr %88, align 8
   %90 = icmp ugt ptr %89, %.01525.i61
   br i1 %90, label %91, label %_ZNK5draco17GeometryAttribute17ConvertTypedValueIafEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhPT0_.exit
@@ -3696,12 +3696,12 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
   %92 = load i16, ptr %.01525.i61, align 2
   %93 = load i8, ptr %85, align 8
   %94 = trunc i8 %93 to i1
-  %95 = getelementptr inbounds float, ptr %3, i64 %indvars.iv.i60
+  %95 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv.i60
   %96 = sitofp i16 %92 to float
   %97 = fdiv float %96, 3.276700e+04
   %storemerge.i.i62 = select i1 %94, float %97, float %96
   store float %storemerge.i.i62, ptr %95, align 4
-  %98 = getelementptr inbounds i8, ptr %.01525.i61, i64 2
+  %98 = getelementptr inbounds nuw i8, ptr %.01525.i61, i64 2
   %indvars.iv.next.i63 = add nuw nsw i64 %indvars.iv.i60, 1
   %99 = load i8, ptr %72, align 8
   %.sroa.speculated.i64 = tail call i8 @llvm.umin.i8(i8 %2, i8 %99)
@@ -3715,7 +3715,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
   br i1 %101, label %_ZNK5draco17GeometryAttribute17ConvertTypedValueIafEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhPT0_.exit.sink.split, label %_ZNK5draco17GeometryAttribute17ConvertTypedValueIafEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhPT0_.exit
 
 102:                                              ; preds = %6
-  %103 = getelementptr inbounds i8, ptr %0, i64 24
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %104 = load i8, ptr %103, align 8
   %.sroa.speculated24.i70 = tail call i8 @llvm.umin.i8(i8 %2, i8 %104)
   %105 = icmp eq i8 %.sroa.speculated24.i70, 0
@@ -3724,22 +3724,22 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
 .lr.ph.i71:                                       ; preds = %102
   %106 = load ptr, ptr %0, align 8
   %107 = load ptr, ptr %106, align 8
-  %108 = getelementptr inbounds i8, ptr %0, i64 40
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %109 = load i64, ptr %108, align 8
   %110 = zext i32 %1 to i64
   %111 = mul nsw i64 %109, %110
   %112 = getelementptr i8, ptr %107, i64 %111
-  %113 = getelementptr inbounds i8, ptr %0, i64 48
+  %113 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %114 = load i64, ptr %113, align 8
   %115 = getelementptr i8, ptr %112, i64 %114
-  %116 = getelementptr inbounds i8, ptr %0, i64 32
+  %116 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %117
 
 117:                                              ; preds = %122, %.lr.ph.i71
   %indvars.iv.i72 = phi i64 [ 0, %.lr.ph.i71 ], [ %indvars.iv.next.i75, %122 ]
   %.01525.i73 = phi ptr [ %115, %.lr.ph.i71 ], [ %129, %122 ]
   %118 = load ptr, ptr %0, align 8
-  %119 = getelementptr inbounds i8, ptr %118, i64 8
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 8
   %120 = load ptr, ptr %119, align 8
   %121 = icmp ugt ptr %120, %.01525.i73
   br i1 %121, label %122, label %_ZNK5draco17GeometryAttribute17ConvertTypedValueIafEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhPT0_.exit
@@ -3748,12 +3748,12 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
   %123 = load i16, ptr %.01525.i73, align 2
   %124 = load i8, ptr %116, align 8
   %125 = trunc i8 %124 to i1
-  %126 = getelementptr inbounds float, ptr %3, i64 %indvars.iv.i72
+  %126 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv.i72
   %127 = uitofp i16 %123 to float
   %128 = fdiv float %127, 6.553500e+04
   %storemerge.i.i74 = select i1 %125, float %128, float %127
   store float %storemerge.i.i74, ptr %126, align 4
-  %129 = getelementptr inbounds i8, ptr %.01525.i73, i64 2
+  %129 = getelementptr inbounds nuw i8, ptr %.01525.i73, i64 2
   %indvars.iv.next.i75 = add nuw nsw i64 %indvars.iv.i72, 1
   %130 = load i8, ptr %103, align 8
   %.sroa.speculated.i76 = tail call i8 @llvm.umin.i8(i8 %2, i8 %130)
@@ -3767,7 +3767,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
   br i1 %132, label %_ZNK5draco17GeometryAttribute17ConvertTypedValueIafEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhPT0_.exit.sink.split, label %_ZNK5draco17GeometryAttribute17ConvertTypedValueIafEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhPT0_.exit
 
 133:                                              ; preds = %6
-  %134 = getelementptr inbounds i8, ptr %0, i64 24
+  %134 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %135 = load i8, ptr %134, align 8
   %.sroa.speculated24.i82 = tail call i8 @llvm.umin.i8(i8 %2, i8 %135)
   %136 = icmp eq i8 %.sroa.speculated24.i82, 0
@@ -3776,22 +3776,22 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
 .lr.ph.i83:                                       ; preds = %133
   %137 = load ptr, ptr %0, align 8
   %138 = load ptr, ptr %137, align 8
-  %139 = getelementptr inbounds i8, ptr %0, i64 40
+  %139 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %140 = load i64, ptr %139, align 8
   %141 = zext i32 %1 to i64
   %142 = mul nsw i64 %140, %141
   %143 = getelementptr i8, ptr %138, i64 %142
-  %144 = getelementptr inbounds i8, ptr %0, i64 48
+  %144 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %145 = load i64, ptr %144, align 8
   %146 = getelementptr i8, ptr %143, i64 %145
-  %147 = getelementptr inbounds i8, ptr %0, i64 32
+  %147 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %148
 
 148:                                              ; preds = %153, %.lr.ph.i83
   %indvars.iv.i84 = phi i64 [ 0, %.lr.ph.i83 ], [ %indvars.iv.next.i87, %153 ]
   %.01525.i85 = phi ptr [ %146, %.lr.ph.i83 ], [ %160, %153 ]
   %149 = load ptr, ptr %0, align 8
-  %150 = getelementptr inbounds i8, ptr %149, i64 8
+  %150 = getelementptr inbounds nuw i8, ptr %149, i64 8
   %151 = load ptr, ptr %150, align 8
   %152 = icmp ugt ptr %151, %.01525.i85
   br i1 %152, label %153, label %_ZNK5draco17GeometryAttribute17ConvertTypedValueIafEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhPT0_.exit
@@ -3800,12 +3800,12 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
   %154 = load i32, ptr %.01525.i85, align 4
   %155 = load i8, ptr %147, align 8
   %156 = trunc i8 %155 to i1
-  %157 = getelementptr inbounds float, ptr %3, i64 %indvars.iv.i84
+  %157 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv.i84
   %158 = sitofp i32 %154 to float
   %159 = fmul float %158, 0x3E00000000000000
   %storemerge.i.i86 = select i1 %156, float %159, float %158
   store float %storemerge.i.i86, ptr %157, align 4
-  %160 = getelementptr inbounds i8, ptr %.01525.i85, i64 4
+  %160 = getelementptr inbounds nuw i8, ptr %.01525.i85, i64 4
   %indvars.iv.next.i87 = add nuw nsw i64 %indvars.iv.i84, 1
   %161 = load i8, ptr %134, align 8
   %.sroa.speculated.i88 = tail call i8 @llvm.umin.i8(i8 %2, i8 %161)
@@ -3819,7 +3819,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
   br i1 %163, label %_ZNK5draco17GeometryAttribute17ConvertTypedValueIafEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhPT0_.exit.sink.split, label %_ZNK5draco17GeometryAttribute17ConvertTypedValueIafEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhPT0_.exit
 
 164:                                              ; preds = %6
-  %165 = getelementptr inbounds i8, ptr %0, i64 24
+  %165 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %166 = load i8, ptr %165, align 8
   %.sroa.speculated24.i94 = tail call i8 @llvm.umin.i8(i8 %2, i8 %166)
   %167 = icmp eq i8 %.sroa.speculated24.i94, 0
@@ -3828,22 +3828,22 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
 .lr.ph.i95:                                       ; preds = %164
   %168 = load ptr, ptr %0, align 8
   %169 = load ptr, ptr %168, align 8
-  %170 = getelementptr inbounds i8, ptr %0, i64 40
+  %170 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %171 = load i64, ptr %170, align 8
   %172 = zext i32 %1 to i64
   %173 = mul nsw i64 %171, %172
   %174 = getelementptr i8, ptr %169, i64 %173
-  %175 = getelementptr inbounds i8, ptr %0, i64 48
+  %175 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %176 = load i64, ptr %175, align 8
   %177 = getelementptr i8, ptr %174, i64 %176
-  %178 = getelementptr inbounds i8, ptr %0, i64 32
+  %178 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %179
 
 179:                                              ; preds = %184, %.lr.ph.i95
   %indvars.iv.i96 = phi i64 [ 0, %.lr.ph.i95 ], [ %indvars.iv.next.i99, %184 ]
   %.01525.i97 = phi ptr [ %177, %.lr.ph.i95 ], [ %191, %184 ]
   %180 = load ptr, ptr %0, align 8
-  %181 = getelementptr inbounds i8, ptr %180, i64 8
+  %181 = getelementptr inbounds nuw i8, ptr %180, i64 8
   %182 = load ptr, ptr %181, align 8
   %183 = icmp ugt ptr %182, %.01525.i97
   br i1 %183, label %184, label %_ZNK5draco17GeometryAttribute17ConvertTypedValueIafEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhPT0_.exit
@@ -3852,12 +3852,12 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
   %185 = load i32, ptr %.01525.i97, align 4
   %186 = load i8, ptr %178, align 8
   %187 = trunc i8 %186 to i1
-  %188 = getelementptr inbounds float, ptr %3, i64 %indvars.iv.i96
+  %188 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv.i96
   %189 = uitofp i32 %185 to float
   %190 = fmul float %189, 0x3DF0000000000000
   %storemerge.i.i98 = select i1 %187, float %190, float %189
   store float %storemerge.i.i98, ptr %188, align 4
-  %191 = getelementptr inbounds i8, ptr %.01525.i97, i64 4
+  %191 = getelementptr inbounds nuw i8, ptr %.01525.i97, i64 4
   %indvars.iv.next.i99 = add nuw nsw i64 %indvars.iv.i96, 1
   %192 = load i8, ptr %165, align 8
   %.sroa.speculated.i100 = tail call i8 @llvm.umin.i8(i8 %2, i8 %192)
@@ -3871,7 +3871,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
   br i1 %194, label %_ZNK5draco17GeometryAttribute17ConvertTypedValueIafEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhPT0_.exit.sink.split, label %_ZNK5draco17GeometryAttribute17ConvertTypedValueIafEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhPT0_.exit
 
 195:                                              ; preds = %6
-  %196 = getelementptr inbounds i8, ptr %0, i64 24
+  %196 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %197 = load i8, ptr %196, align 8
   %.sroa.speculated24.i106 = tail call i8 @llvm.umin.i8(i8 %2, i8 %197)
   %198 = icmp eq i8 %.sroa.speculated24.i106, 0
@@ -3880,22 +3880,22 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
 .lr.ph.i107:                                      ; preds = %195
   %199 = load ptr, ptr %0, align 8
   %200 = load ptr, ptr %199, align 8
-  %201 = getelementptr inbounds i8, ptr %0, i64 40
+  %201 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %202 = load i64, ptr %201, align 8
   %203 = zext i32 %1 to i64
   %204 = mul nsw i64 %202, %203
   %205 = getelementptr i8, ptr %200, i64 %204
-  %206 = getelementptr inbounds i8, ptr %0, i64 48
+  %206 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %207 = load i64, ptr %206, align 8
   %208 = getelementptr i8, ptr %205, i64 %207
-  %209 = getelementptr inbounds i8, ptr %0, i64 32
+  %209 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %210
 
 210:                                              ; preds = %215, %.lr.ph.i107
   %indvars.iv.i108 = phi i64 [ 0, %.lr.ph.i107 ], [ %indvars.iv.next.i111, %215 ]
   %.01525.i109 = phi ptr [ %208, %.lr.ph.i107 ], [ %222, %215 ]
   %211 = load ptr, ptr %0, align 8
-  %212 = getelementptr inbounds i8, ptr %211, i64 8
+  %212 = getelementptr inbounds nuw i8, ptr %211, i64 8
   %213 = load ptr, ptr %212, align 8
   %214 = icmp ugt ptr %213, %.01525.i109
   br i1 %214, label %215, label %_ZNK5draco17GeometryAttribute17ConvertTypedValueIafEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhPT0_.exit
@@ -3904,12 +3904,12 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
   %216 = load i64, ptr %.01525.i109, align 8
   %217 = load i8, ptr %209, align 8
   %218 = trunc i8 %217 to i1
-  %219 = getelementptr inbounds float, ptr %3, i64 %indvars.iv.i108
+  %219 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv.i108
   %220 = sitofp i64 %216 to float
   %221 = fmul float %220, 0x3C00000000000000
   %storemerge.i.i110 = select i1 %218, float %221, float %220
   store float %storemerge.i.i110, ptr %219, align 4
-  %222 = getelementptr inbounds i8, ptr %.01525.i109, i64 8
+  %222 = getelementptr inbounds nuw i8, ptr %.01525.i109, i64 8
   %indvars.iv.next.i111 = add nuw nsw i64 %indvars.iv.i108, 1
   %223 = load i8, ptr %196, align 8
   %.sroa.speculated.i112 = tail call i8 @llvm.umin.i8(i8 %2, i8 %223)
@@ -3923,7 +3923,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
   br i1 %225, label %_ZNK5draco17GeometryAttribute17ConvertTypedValueIafEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhPT0_.exit.sink.split, label %_ZNK5draco17GeometryAttribute17ConvertTypedValueIafEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhPT0_.exit
 
 226:                                              ; preds = %6
-  %227 = getelementptr inbounds i8, ptr %0, i64 24
+  %227 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %228 = load i8, ptr %227, align 8
   %.sroa.speculated24.i118 = tail call i8 @llvm.umin.i8(i8 %2, i8 %228)
   %229 = icmp eq i8 %.sroa.speculated24.i118, 0
@@ -3932,22 +3932,22 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
 .lr.ph.i119:                                      ; preds = %226
   %230 = load ptr, ptr %0, align 8
   %231 = load ptr, ptr %230, align 8
-  %232 = getelementptr inbounds i8, ptr %0, i64 40
+  %232 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %233 = load i64, ptr %232, align 8
   %234 = zext i32 %1 to i64
   %235 = mul nsw i64 %233, %234
   %236 = getelementptr i8, ptr %231, i64 %235
-  %237 = getelementptr inbounds i8, ptr %0, i64 48
+  %237 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %238 = load i64, ptr %237, align 8
   %239 = getelementptr i8, ptr %236, i64 %238
-  %240 = getelementptr inbounds i8, ptr %0, i64 32
+  %240 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %241
 
 241:                                              ; preds = %246, %.lr.ph.i119
   %indvars.iv.i120 = phi i64 [ 0, %.lr.ph.i119 ], [ %indvars.iv.next.i123, %246 ]
   %.01525.i121 = phi ptr [ %239, %.lr.ph.i119 ], [ %253, %246 ]
   %242 = load ptr, ptr %0, align 8
-  %243 = getelementptr inbounds i8, ptr %242, i64 8
+  %243 = getelementptr inbounds nuw i8, ptr %242, i64 8
   %244 = load ptr, ptr %243, align 8
   %245 = icmp ugt ptr %244, %.01525.i121
   br i1 %245, label %246, label %_ZNK5draco17GeometryAttribute17ConvertTypedValueIafEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhPT0_.exit
@@ -3956,12 +3956,12 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
   %247 = load i64, ptr %.01525.i121, align 8
   %248 = load i8, ptr %240, align 8
   %249 = trunc i8 %248 to i1
-  %250 = getelementptr inbounds float, ptr %3, i64 %indvars.iv.i120
+  %250 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv.i120
   %251 = uitofp i64 %247 to float
   %252 = fmul float %251, 0x3BF0000000000000
   %storemerge.i.i122 = select i1 %249, float %252, float %251
   store float %storemerge.i.i122, ptr %250, align 4
-  %253 = getelementptr inbounds i8, ptr %.01525.i121, i64 8
+  %253 = getelementptr inbounds nuw i8, ptr %.01525.i121, i64 8
   %indvars.iv.next.i123 = add nuw nsw i64 %indvars.iv.i120, 1
   %254 = load i8, ptr %227, align 8
   %.sroa.speculated.i124 = tail call i8 @llvm.umin.i8(i8 %2, i8 %254)
@@ -3975,7 +3975,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
   br i1 %256, label %_ZNK5draco17GeometryAttribute17ConvertTypedValueIafEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhPT0_.exit.sink.split, label %_ZNK5draco17GeometryAttribute17ConvertTypedValueIafEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhPT0_.exit
 
 257:                                              ; preds = %6
-  %258 = getelementptr inbounds i8, ptr %0, i64 24
+  %258 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %259 = load i8, ptr %258, align 8
   %.sroa.speculated24.i130 = tail call i8 @llvm.umin.i8(i8 %2, i8 %259)
   %260 = icmp eq i8 %.sroa.speculated24.i130, 0
@@ -3984,12 +3984,12 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
 .lr.ph.preheader.i:                               ; preds = %257
   %261 = load ptr, ptr %0, align 8
   %262 = load ptr, ptr %261, align 8
-  %263 = getelementptr inbounds i8, ptr %0, i64 40
+  %263 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %264 = load i64, ptr %263, align 8
   %265 = zext i32 %1 to i64
   %266 = mul nsw i64 %264, %265
   %267 = getelementptr i8, ptr %262, i64 %266
-  %268 = getelementptr inbounds i8, ptr %0, i64 48
+  %268 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %269 = load i64, ptr %268, align 8
   %270 = getelementptr i8, ptr %267, i64 %269
   br label %.lr.ph.i131
@@ -3998,16 +3998,16 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
   %indvars.iv.i132 = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i134, %275 ]
   %.01525.i133 = phi ptr [ %270, %.lr.ph.preheader.i ], [ %278, %275 ]
   %271 = load ptr, ptr %0, align 8
-  %272 = getelementptr inbounds i8, ptr %271, i64 8
+  %272 = getelementptr inbounds nuw i8, ptr %271, i64 8
   %273 = load ptr, ptr %272, align 8
   %274 = icmp ugt ptr %273, %.01525.i133
   br i1 %274, label %275, label %_ZNK5draco17GeometryAttribute17ConvertTypedValueIafEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhPT0_.exit
 
 275:                                              ; preds = %.lr.ph.i131
   %276 = load float, ptr %.01525.i133, align 4
-  %277 = getelementptr inbounds float, ptr %3, i64 %indvars.iv.i132
+  %277 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv.i132
   store float %276, ptr %277, align 4
-  %278 = getelementptr inbounds i8, ptr %.01525.i133, i64 4
+  %278 = getelementptr inbounds nuw i8, ptr %.01525.i133, i64 4
   %indvars.iv.next.i134 = add nuw nsw i64 %indvars.iv.i132, 1
   %279 = load i8, ptr %258, align 8
   %.sroa.speculated.i135 = tail call i8 @llvm.umin.i8(i8 %2, i8 %279)
@@ -4021,7 +4021,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
   br i1 %281, label %_ZNK5draco17GeometryAttribute17ConvertTypedValueIafEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhPT0_.exit.sink.split, label %_ZNK5draco17GeometryAttribute17ConvertTypedValueIafEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhPT0_.exit
 
 282:                                              ; preds = %6
-  %283 = getelementptr inbounds i8, ptr %0, i64 24
+  %283 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %284 = load i8, ptr %283, align 8
   %.sroa.speculated24.i141 = tail call i8 @llvm.umin.i8(i8 %2, i8 %284)
   %285 = icmp eq i8 %.sroa.speculated24.i141, 0
@@ -4030,12 +4030,12 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
 .lr.ph.preheader.i142:                            ; preds = %282
   %286 = load ptr, ptr %0, align 8
   %287 = load ptr, ptr %286, align 8
-  %288 = getelementptr inbounds i8, ptr %0, i64 40
+  %288 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %289 = load i64, ptr %288, align 8
   %290 = zext i32 %1 to i64
   %291 = mul nsw i64 %289, %290
   %292 = getelementptr i8, ptr %287, i64 %291
-  %293 = getelementptr inbounds i8, ptr %0, i64 48
+  %293 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %294 = load i64, ptr %293, align 8
   %295 = getelementptr i8, ptr %292, i64 %294
   br label %.lr.ph.i143
@@ -4044,17 +4044,17 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
   %indvars.iv.i144 = phi i64 [ 0, %.lr.ph.preheader.i142 ], [ %indvars.iv.next.i146, %300 ]
   %.01525.i145 = phi ptr [ %295, %.lr.ph.preheader.i142 ], [ %304, %300 ]
   %296 = load ptr, ptr %0, align 8
-  %297 = getelementptr inbounds i8, ptr %296, i64 8
+  %297 = getelementptr inbounds nuw i8, ptr %296, i64 8
   %298 = load ptr, ptr %297, align 8
   %299 = icmp ugt ptr %298, %.01525.i145
   br i1 %299, label %300, label %_ZNK5draco17GeometryAttribute17ConvertTypedValueIafEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhPT0_.exit
 
 300:                                              ; preds = %.lr.ph.i143
   %301 = load double, ptr %.01525.i145, align 8
-  %302 = getelementptr inbounds float, ptr %3, i64 %indvars.iv.i144
+  %302 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv.i144
   %303 = fptrunc double %301 to float
   store float %303, ptr %302, align 4
-  %304 = getelementptr inbounds i8, ptr %.01525.i145, i64 8
+  %304 = getelementptr inbounds nuw i8, ptr %.01525.i145, i64 8
   %indvars.iv.next.i146 = add nuw nsw i64 %indvars.iv.i144, 1
   %305 = load i8, ptr %283, align 8
   %.sroa.speculated.i147 = tail call i8 @llvm.umin.i8(i8 %2, i8 %305)
@@ -4068,7 +4068,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
   br i1 %307, label %_ZNK5draco17GeometryAttribute17ConvertTypedValueIafEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhPT0_.exit.sink.split, label %_ZNK5draco17GeometryAttribute17ConvertTypedValueIafEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhPT0_.exit
 
 308:                                              ; preds = %6
-  %309 = getelementptr inbounds i8, ptr %0, i64 24
+  %309 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %310 = load i8, ptr %309, align 8
   %.sroa.speculated24.i153 = tail call i8 @llvm.umin.i8(i8 %2, i8 %310)
   %311 = icmp eq i8 %.sroa.speculated24.i153, 0
@@ -4077,12 +4077,12 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
 .lr.ph.preheader.i154:                            ; preds = %308
   %312 = load ptr, ptr %0, align 8
   %313 = load ptr, ptr %312, align 8
-  %314 = getelementptr inbounds i8, ptr %0, i64 40
+  %314 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %315 = load i64, ptr %314, align 8
   %316 = zext i32 %1 to i64
   %317 = mul nsw i64 %315, %316
   %318 = getelementptr i8, ptr %313, i64 %317
-  %319 = getelementptr inbounds i8, ptr %0, i64 48
+  %319 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %320 = load i64, ptr %319, align 8
   %321 = getelementptr i8, ptr %318, i64 %320
   br label %.lr.ph.i155
@@ -4091,18 +4091,18 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
   %indvars.iv.i156 = phi i64 [ 0, %.lr.ph.preheader.i154 ], [ %indvars.iv.next.i158, %326 ]
   %.01525.i157 = phi ptr [ %321, %.lr.ph.preheader.i154 ], [ %331, %326 ]
   %322 = load ptr, ptr %0, align 8
-  %323 = getelementptr inbounds i8, ptr %322, i64 8
+  %323 = getelementptr inbounds nuw i8, ptr %322, i64 8
   %324 = load ptr, ptr %323, align 8
   %325 = icmp ugt ptr %324, %.01525.i157
   br i1 %325, label %326, label %_ZNK5draco17GeometryAttribute17ConvertTypedValueIafEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhPT0_.exit
 
 326:                                              ; preds = %.lr.ph.i155
   %327 = load i8, ptr %.01525.i157, align 1
-  %328 = getelementptr inbounds float, ptr %3, i64 %indvars.iv.i156
+  %328 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv.i156
   %329 = trunc i8 %327 to i1
   %330 = uitofp i1 %329 to float
   store float %330, ptr %328, align 4
-  %331 = getelementptr inbounds i8, ptr %.01525.i157, i64 1
+  %331 = getelementptr inbounds nuw i8, ptr %.01525.i157, i64 1
   %indvars.iv.next.i158 = add nuw nsw i64 %indvars.iv.i156, 1
   %332 = load i8, ptr %309, align 8
   %.sroa.speculated.i159 = tail call i8 @llvm.umin.i8(i8 %2, i8 %332)
@@ -4136,7 +4136,7 @@ _ZNK5draco17GeometryAttribute17ConvertTypedValueIafEEbNS_9IndexTypeIjNS_29Attrib
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5draco11CornerTableD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 144
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i.i, label %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_21VertexIndex_tag_type_EEEiED2Ev.exit.i, label %4
@@ -4146,7 +4146,7 @@ define linkonce_odr void @_ZN5draco11CornerTableD2Ev(ptr noundef nonnull align 8
   br label %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_21VertexIndex_tag_type_EEEiED2Ev.exit.i
 
 _ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_21VertexIndex_tag_type_EEEiED2Ev.exit.i: ; preds = %4, %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 120
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %6 = load ptr, ptr %5, align 8
   %.not.i.i.i.i1.i = icmp eq ptr %6, null
   br i1 %.not.i.i.i.i1.i, label %_ZN5draco12ValenceCacheINS_11CornerTableEED2Ev.exit, label %7
@@ -4156,7 +4156,7 @@ _ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_21VertexIndex_tag_type_EEEiED2Ev.ex
   br label %_ZN5draco12ValenceCacheINS_11CornerTableEED2Ev.exit
 
 _ZN5draco12ValenceCacheINS_11CornerTableEED2Ev.exit: ; preds = %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_21VertexIndex_tag_type_EEEiED2Ev.exit.i, %7
-  %8 = getelementptr inbounds i8, ptr %0, i64 88
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i = icmp eq ptr %9, null
   br i1 %.not.i.i.i.i, label %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_21VertexIndex_tag_type_EEES3_ED2Ev.exit, label %10
@@ -4166,7 +4166,7 @@ _ZN5draco12ValenceCacheINS_11CornerTableEED2Ev.exit: ; preds = %_ZN5draco15Index
   br label %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_21VertexIndex_tag_type_EEES3_ED2Ev.exit
 
 _ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_21VertexIndex_tag_type_EEES3_ED2Ev.exit: ; preds = %_ZN5draco12ValenceCacheINS_11CornerTableEED2Ev.exit, %10
-  %11 = getelementptr inbounds i8, ptr %0, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %12 = load ptr, ptr %11, align 8
   %.not.i.i.i.i1 = icmp eq ptr %12, null
   br i1 %.not.i.i.i.i1, label %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_21VertexIndex_tag_type_EEENS1_IjNS_21CornerIndex_tag_type_EEEED2Ev.exit, label %13
@@ -4176,7 +4176,7 @@ _ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_21VertexIndex_tag_type_EEES3_ED2Ev.
   br label %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_21VertexIndex_tag_type_EEENS1_IjNS_21CornerIndex_tag_type_EEEED2Ev.exit
 
 _ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_21VertexIndex_tag_type_EEENS1_IjNS_21CornerIndex_tag_type_EEEED2Ev.exit: ; preds = %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_21VertexIndex_tag_type_EEES3_ED2Ev.exit, %13
-  %14 = getelementptr inbounds i8, ptr %0, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %15 = load ptr, ptr %14, align 8
   %.not.i.i.i.i2 = icmp eq ptr %15, null
   br i1 %.not.i.i.i.i2, label %_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_21CornerIndex_tag_type_EEES3_ED2Ev.exit, label %16
@@ -4200,27 +4200,27 @@ _ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_21CornerIndex_tag_type_EEENS1_IjNS_
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEESt4pairIKS3_NS1_IjNS0_20PointIndex_tag_type_EEEESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS8_ERS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 4 dereferenceable(4) %2) local_unnamed_addr #4 comdat align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %32
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load i64, ptr %7, align 8
   %.not = icmp eq i64 %8, 0
   br i1 %.not, label %16, label %9
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %13 = load i32, ptr %12, align 4
   %14 = load i32, ptr %2, align 4
   %15 = icmp ult i32 %13, %14
   br i1 %15, label %_ZNSt8_Rb_treeIN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEESt4pairIKS3_NS1_IjNS0_20PointIndex_tag_type_EEEESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE24_M_get_insert_unique_posERS5_.exit, label %16
 
 16:                                               ; preds = %9, %6
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.02022.i = load ptr, ptr %17, align 8
   %.not23.i = icmp eq ptr %.02022.i, null
   br i1 %.not23.i, label %._crit_edge.thread.i, label %.lr.ph.i
@@ -4231,11 +4231,11 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIN5draco9IndexTypeIjNS0_29Attrib
 
 19:                                               ; preds = %19, %.lr.ph.i
   %.02024.i = phi ptr [ %.02022.i, %.lr.ph.i ], [ %.020.i, %19 ]
-  %20 = getelementptr inbounds i8, ptr %.02024.i, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %.02024.i, i64 32
   %21 = load i32, ptr %20, align 4
   %22 = icmp ult i32 %18, %21
   %.in.v.i = select i1 %22, i64 16, i64 24
-  %.in.i = getelementptr inbounds i8, ptr %.02024.i, i64 %.in.v.i
+  %.in.i = getelementptr inbounds nuw i8, ptr %.02024.i, i64 %.in.v.i
   %.020.i = load ptr, ptr %.in.i, align 8
   %.not.i = icmp eq ptr %.020.i, null
   br i1 %.not.i, label %._crit_edge.i, label %19, !llvm.loop !15
@@ -4245,14 +4245,14 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIN5draco9IndexTypeIjNS0_29Attrib
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %16
   %.019.lcssa28.i = phi ptr [ %.02024.i, %._crit_edge.i ], [ %4, %16 ]
-  %23 = getelementptr inbounds i8, ptr %0, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %24 = load ptr, ptr %23, align 8
   %25 = icmp eq ptr %.019.lcssa28.i, %24
   br i1 %25, label %_ZNSt8_Rb_treeIN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEESt4pairIKS3_NS1_IjNS0_20PointIndex_tag_type_EEEESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE24_M_get_insert_unique_posERS5_.exit, label %26
 
 26:                                               ; preds = %._crit_edge.thread.i
   %27 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i) #22
-  %.phi.trans.insert80 = getelementptr inbounds i8, ptr %27, i64 32
+  %.phi.trans.insert80 = getelementptr inbounds nuw i8, ptr %27, i64 32
   %.pre81 = load i32, ptr %.phi.trans.insert80, align 4
   %.pre82 = load i32, ptr %2, align 4
   br label %28
@@ -4268,27 +4268,27 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIN5draco9IndexTypeIjNS0_29Attrib
   br label %_ZNSt8_Rb_treeIN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEESt4pairIKS3_NS1_IjNS0_20PointIndex_tag_type_EEEESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE24_M_get_insert_unique_posERS5_.exit
 
 32:                                               ; preds = %3
-  %33 = getelementptr inbounds i8, ptr %1, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %34 = load i32, ptr %2, align 4
   %35 = load i32, ptr %33, align 4
   %36 = icmp ult i32 %34, %35
   br i1 %36, label %37, label %61
 
 37:                                               ; preds = %32
-  %38 = getelementptr inbounds i8, ptr %0, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %39 = load ptr, ptr %38, align 8
   %40 = icmp eq ptr %39, %1
   br i1 %40, label %_ZNSt8_Rb_treeIN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEESt4pairIKS3_NS1_IjNS0_20PointIndex_tag_type_EEEESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE24_M_get_insert_unique_posERS5_.exit, label %41
 
 41:                                               ; preds = %37
   %42 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %1) #22
-  %43 = getelementptr inbounds i8, ptr %42, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 32
   %44 = load i32, ptr %43, align 4
   %45 = icmp ult i32 %44, %34
   br i1 %45, label %46, label %50
 
 46:                                               ; preds = %41
-  %47 = getelementptr inbounds i8, ptr %42, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %42, i64 24
   %48 = load ptr, ptr %47, align 8
   %49 = icmp eq ptr %48, null
   %spec.select = select i1 %49, ptr null, ptr %1
@@ -4296,18 +4296,18 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIN5draco9IndexTypeIjNS0_29Attrib
   br label %_ZNSt8_Rb_treeIN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEESt4pairIKS3_NS1_IjNS0_20PointIndex_tag_type_EEEESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE24_M_get_insert_unique_posERS5_.exit
 
 50:                                               ; preds = %41
-  %51 = getelementptr inbounds i8, ptr %0, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.02022.i10 = load ptr, ptr %51, align 8
   %.not23.i11 = icmp eq ptr %.02022.i10, null
   br i1 %.not23.i11, label %._crit_edge.thread.i27, label %.lr.ph.i12
 
 .lr.ph.i12:                                       ; preds = %50, %.lr.ph.i12
   %.02024.i13 = phi ptr [ %.020.i16, %.lr.ph.i12 ], [ %.02022.i10, %50 ]
-  %52 = getelementptr inbounds i8, ptr %.02024.i13, i64 32
+  %52 = getelementptr inbounds nuw i8, ptr %.02024.i13, i64 32
   %53 = load i32, ptr %52, align 4
   %54 = icmp ult i32 %34, %53
   %.in.v.i14 = select i1 %54, i64 16, i64 24
-  %.in.i15 = getelementptr inbounds i8, ptr %.02024.i13, i64 %.in.v.i14
+  %.in.i15 = getelementptr inbounds nuw i8, ptr %.02024.i13, i64 %.in.v.i14
   %.020.i16 = load ptr, ptr %.in.i15, align 8
   %.not.i17 = icmp eq ptr %.020.i16, null
   br i1 %.not.i17, label %._crit_edge.i18, label %.lr.ph.i12, !llvm.loop !15
@@ -4322,7 +4322,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIN5draco9IndexTypeIjNS0_29Attrib
 
 56:                                               ; preds = %._crit_edge.thread.i27
   %57 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i28) #22
-  %.phi.trans.insert78 = getelementptr inbounds i8, ptr %57, i64 32
+  %.phi.trans.insert78 = getelementptr inbounds nuw i8, ptr %57, i64 32
   %.pre79 = load i32, ptr %.phi.trans.insert78, align 4
   br label %58
 
@@ -4340,20 +4340,20 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIN5draco9IndexTypeIjNS0_29Attrib
   br i1 %62, label %63, label %_ZNSt8_Rb_treeIN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEESt4pairIKS3_NS1_IjNS0_20PointIndex_tag_type_EEEESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE24_M_get_insert_unique_posERS5_.exit
 
 63:                                               ; preds = %61
-  %64 = getelementptr inbounds i8, ptr %0, i64 32
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %65 = load ptr, ptr %64, align 8
   %66 = icmp eq ptr %65, %1
   br i1 %66, label %_ZNSt8_Rb_treeIN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEESt4pairIKS3_NS1_IjNS0_20PointIndex_tag_type_EEEESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE24_M_get_insert_unique_posERS5_.exit, label %67
 
 67:                                               ; preds = %63
   %68 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %1) #22
-  %69 = getelementptr inbounds i8, ptr %68, i64 32
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 32
   %70 = load i32, ptr %69, align 4
   %71 = icmp ult i32 %34, %70
   br i1 %71, label %72, label %76
 
 72:                                               ; preds = %67
-  %73 = getelementptr inbounds i8, ptr %1, i64 24
+  %73 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %74 = load ptr, ptr %73, align 8
   %75 = icmp eq ptr %74, null
   %spec.select72 = select i1 %75, ptr null, ptr %68
@@ -4361,18 +4361,18 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIN5draco9IndexTypeIjNS0_29Attrib
   br label %_ZNSt8_Rb_treeIN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEESt4pairIKS3_NS1_IjNS0_20PointIndex_tag_type_EEEESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE24_M_get_insert_unique_posERS5_.exit
 
 76:                                               ; preds = %67
-  %77 = getelementptr inbounds i8, ptr %0, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.02022.i30 = load ptr, ptr %77, align 8
   %.not23.i31 = icmp eq ptr %.02022.i30, null
   br i1 %.not23.i31, label %._crit_edge.thread.i47, label %.lr.ph.i32
 
 .lr.ph.i32:                                       ; preds = %76, %.lr.ph.i32
   %.02024.i33 = phi ptr [ %.020.i36, %.lr.ph.i32 ], [ %.02022.i30, %76 ]
-  %78 = getelementptr inbounds i8, ptr %.02024.i33, i64 32
+  %78 = getelementptr inbounds nuw i8, ptr %.02024.i33, i64 32
   %79 = load i32, ptr %78, align 4
   %80 = icmp ult i32 %34, %79
   %.in.v.i34 = select i1 %80, i64 16, i64 24
-  %.in.i35 = getelementptr inbounds i8, ptr %.02024.i33, i64 %.in.v.i34
+  %.in.i35 = getelementptr inbounds nuw i8, ptr %.02024.i33, i64 %.in.v.i34
   %.020.i36 = load ptr, ptr %.in.i35, align 8
   %.not.i37 = icmp eq ptr %.020.i36, null
   br i1 %.not.i37, label %._crit_edge.i38, label %.lr.ph.i32, !llvm.loop !15
@@ -4382,14 +4382,14 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIN5draco9IndexTypeIjNS0_29Attrib
 
 ._crit_edge.thread.i47:                           ; preds = %._crit_edge.i38, %76
   %.019.lcssa28.i48 = phi ptr [ %.02024.i33, %._crit_edge.i38 ], [ %4, %76 ]
-  %81 = getelementptr inbounds i8, ptr %0, i64 24
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %82 = load ptr, ptr %81, align 8
   %83 = icmp eq ptr %.019.lcssa28.i48, %82
   br i1 %83, label %_ZNSt8_Rb_treeIN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEESt4pairIKS3_NS1_IjNS0_20PointIndex_tag_type_EEEESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE24_M_get_insert_unique_posERS5_.exit, label %84
 
 84:                                               ; preds = %._crit_edge.thread.i47
   %85 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i48) #22
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %85, i64 32
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %85, i64 32
   %.pre = load i32, ptr %.phi.trans.insert, align 4
   br label %86
 
@@ -4425,7 +4425,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
   br i1 %5, label %_ZNK5draco17GeometryAttribute17ConvertTypedValueIaiEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhPT0_.exit, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %0, i64 28
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %8 = load i32, ptr %7, align 4
   switch i32 %8, label %_ZNK5draco17GeometryAttribute17ConvertTypedValueIaiEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhPT0_.exit [
     i32 1, label %9
@@ -4442,7 +4442,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
   ]
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load i8, ptr %10, align 8
   %.sroa.speculated24.i = tail call i8 @llvm.umin.i8(i8 %2, i8 %11)
   %12 = icmp eq i8 %.sroa.speculated24.i, 0
@@ -4451,12 +4451,12 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
 .lr.ph.preheader.i:                               ; preds = %9
   %13 = load ptr, ptr %0, align 8
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %16 = load i64, ptr %15, align 8
   %17 = zext i32 %1 to i64
   %18 = mul nsw i64 %16, %17
   %19 = getelementptr i8, ptr %14, i64 %18
-  %20 = getelementptr inbounds i8, ptr %0, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %21 = load i64, ptr %20, align 8
   %22 = getelementptr i8, ptr %19, i64 %21
   br label %.lr.ph.i
@@ -4465,17 +4465,17 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %27 ]
   %.01525.i = phi ptr [ %22, %.lr.ph.preheader.i ], [ %31, %27 ]
   %23 = load ptr, ptr %0, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load ptr, ptr %24, align 8
   %26 = icmp ugt ptr %25, %.01525.i
   br i1 %26, label %27, label %_ZNK5draco17GeometryAttribute17ConvertTypedValueIaiEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhPT0_.exit
 
 27:                                               ; preds = %.lr.ph.i
   %28 = load i8, ptr %.01525.i, align 1
-  %29 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv.i
+  %29 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.i
   %30 = sext i8 %28 to i32
   store i32 %30, ptr %29, align 4
-  %31 = getelementptr inbounds i8, ptr %.01525.i, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %.01525.i, i64 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %32 = load i8, ptr %10, align 8
   %.sroa.speculated.i = tail call i8 @llvm.umin.i8(i8 %2, i8 %32)
@@ -4489,7 +4489,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
   br i1 %34, label %_ZNK5draco17GeometryAttribute17ConvertTypedValueIaiEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhPT0_.exit.sink.split, label %_ZNK5draco17GeometryAttribute17ConvertTypedValueIaiEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhPT0_.exit
 
 35:                                               ; preds = %6
-  %36 = getelementptr inbounds i8, ptr %0, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %37 = load i8, ptr %36, align 8
   %.sroa.speculated24.i46 = tail call i8 @llvm.umin.i8(i8 %2, i8 %37)
   %38 = icmp eq i8 %.sroa.speculated24.i46, 0
@@ -4498,12 +4498,12 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
 .lr.ph.preheader.i47:                             ; preds = %35
   %39 = load ptr, ptr %0, align 8
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 40
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %42 = load i64, ptr %41, align 8
   %43 = zext i32 %1 to i64
   %44 = mul nsw i64 %42, %43
   %45 = getelementptr i8, ptr %40, i64 %44
-  %46 = getelementptr inbounds i8, ptr %0, i64 48
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %47 = load i64, ptr %46, align 8
   %48 = getelementptr i8, ptr %45, i64 %47
   br label %.lr.ph.i48
@@ -4512,17 +4512,17 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
   %indvars.iv.i49 = phi i64 [ 0, %.lr.ph.preheader.i47 ], [ %indvars.iv.next.i51, %53 ]
   %.01525.i50 = phi ptr [ %48, %.lr.ph.preheader.i47 ], [ %57, %53 ]
   %49 = load ptr, ptr %0, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %51 = load ptr, ptr %50, align 8
   %52 = icmp ugt ptr %51, %.01525.i50
   br i1 %52, label %53, label %_ZNK5draco17GeometryAttribute17ConvertTypedValueIaiEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhPT0_.exit
 
 53:                                               ; preds = %.lr.ph.i48
   %54 = load i8, ptr %.01525.i50, align 1
-  %55 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv.i49
+  %55 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.i49
   %56 = zext i8 %54 to i32
   store i32 %56, ptr %55, align 4
-  %57 = getelementptr inbounds i8, ptr %.01525.i50, i64 1
+  %57 = getelementptr inbounds nuw i8, ptr %.01525.i50, i64 1
   %indvars.iv.next.i51 = add nuw nsw i64 %indvars.iv.i49, 1
   %58 = load i8, ptr %36, align 8
   %.sroa.speculated.i52 = tail call i8 @llvm.umin.i8(i8 %2, i8 %58)
@@ -4536,7 +4536,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
   br i1 %60, label %_ZNK5draco17GeometryAttribute17ConvertTypedValueIaiEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhPT0_.exit.sink.split, label %_ZNK5draco17GeometryAttribute17ConvertTypedValueIaiEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhPT0_.exit
 
 61:                                               ; preds = %6
-  %62 = getelementptr inbounds i8, ptr %0, i64 24
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %63 = load i8, ptr %62, align 8
   %.sroa.speculated24.i58 = tail call i8 @llvm.umin.i8(i8 %2, i8 %63)
   %64 = icmp eq i8 %.sroa.speculated24.i58, 0
@@ -4545,12 +4545,12 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
 .lr.ph.preheader.i59:                             ; preds = %61
   %65 = load ptr, ptr %0, align 8
   %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %0, i64 40
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %68 = load i64, ptr %67, align 8
   %69 = zext i32 %1 to i64
   %70 = mul nsw i64 %68, %69
   %71 = getelementptr i8, ptr %66, i64 %70
-  %72 = getelementptr inbounds i8, ptr %0, i64 48
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %73 = load i64, ptr %72, align 8
   %74 = getelementptr i8, ptr %71, i64 %73
   br label %.lr.ph.i60
@@ -4559,17 +4559,17 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
   %indvars.iv.i61 = phi i64 [ 0, %.lr.ph.preheader.i59 ], [ %indvars.iv.next.i63, %79 ]
   %.01525.i62 = phi ptr [ %74, %.lr.ph.preheader.i59 ], [ %83, %79 ]
   %75 = load ptr, ptr %0, align 8
-  %76 = getelementptr inbounds i8, ptr %75, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
   %77 = load ptr, ptr %76, align 8
   %78 = icmp ugt ptr %77, %.01525.i62
   br i1 %78, label %79, label %_ZNK5draco17GeometryAttribute17ConvertTypedValueIaiEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhPT0_.exit
 
 79:                                               ; preds = %.lr.ph.i60
   %80 = load i16, ptr %.01525.i62, align 2
-  %81 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv.i61
+  %81 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.i61
   %82 = sext i16 %80 to i32
   store i32 %82, ptr %81, align 4
-  %83 = getelementptr inbounds i8, ptr %.01525.i62, i64 2
+  %83 = getelementptr inbounds nuw i8, ptr %.01525.i62, i64 2
   %indvars.iv.next.i63 = add nuw nsw i64 %indvars.iv.i61, 1
   %84 = load i8, ptr %62, align 8
   %.sroa.speculated.i64 = tail call i8 @llvm.umin.i8(i8 %2, i8 %84)
@@ -4583,7 +4583,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
   br i1 %86, label %_ZNK5draco17GeometryAttribute17ConvertTypedValueIaiEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhPT0_.exit.sink.split, label %_ZNK5draco17GeometryAttribute17ConvertTypedValueIaiEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhPT0_.exit
 
 87:                                               ; preds = %6
-  %88 = getelementptr inbounds i8, ptr %0, i64 24
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %89 = load i8, ptr %88, align 8
   %.sroa.speculated24.i70 = tail call i8 @llvm.umin.i8(i8 %2, i8 %89)
   %90 = icmp eq i8 %.sroa.speculated24.i70, 0
@@ -4592,12 +4592,12 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
 .lr.ph.preheader.i71:                             ; preds = %87
   %91 = load ptr, ptr %0, align 8
   %92 = load ptr, ptr %91, align 8
-  %93 = getelementptr inbounds i8, ptr %0, i64 40
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %94 = load i64, ptr %93, align 8
   %95 = zext i32 %1 to i64
   %96 = mul nsw i64 %94, %95
   %97 = getelementptr i8, ptr %92, i64 %96
-  %98 = getelementptr inbounds i8, ptr %0, i64 48
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %99 = load i64, ptr %98, align 8
   %100 = getelementptr i8, ptr %97, i64 %99
   br label %.lr.ph.i72
@@ -4606,17 +4606,17 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
   %indvars.iv.i73 = phi i64 [ 0, %.lr.ph.preheader.i71 ], [ %indvars.iv.next.i75, %105 ]
   %.01525.i74 = phi ptr [ %100, %.lr.ph.preheader.i71 ], [ %109, %105 ]
   %101 = load ptr, ptr %0, align 8
-  %102 = getelementptr inbounds i8, ptr %101, i64 8
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 8
   %103 = load ptr, ptr %102, align 8
   %104 = icmp ugt ptr %103, %.01525.i74
   br i1 %104, label %105, label %_ZNK5draco17GeometryAttribute17ConvertTypedValueIaiEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhPT0_.exit
 
 105:                                              ; preds = %.lr.ph.i72
   %106 = load i16, ptr %.01525.i74, align 2
-  %107 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv.i73
+  %107 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.i73
   %108 = zext i16 %106 to i32
   store i32 %108, ptr %107, align 4
-  %109 = getelementptr inbounds i8, ptr %.01525.i74, i64 2
+  %109 = getelementptr inbounds nuw i8, ptr %.01525.i74, i64 2
   %indvars.iv.next.i75 = add nuw nsw i64 %indvars.iv.i73, 1
   %110 = load i8, ptr %88, align 8
   %.sroa.speculated.i76 = tail call i8 @llvm.umin.i8(i8 %2, i8 %110)
@@ -4630,7 +4630,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
   br i1 %112, label %_ZNK5draco17GeometryAttribute17ConvertTypedValueIaiEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhPT0_.exit.sink.split, label %_ZNK5draco17GeometryAttribute17ConvertTypedValueIaiEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhPT0_.exit
 
 113:                                              ; preds = %6
-  %114 = getelementptr inbounds i8, ptr %0, i64 24
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %115 = load i8, ptr %114, align 8
   %.sroa.speculated24.i82 = tail call i8 @llvm.umin.i8(i8 %2, i8 %115)
   %116 = icmp eq i8 %.sroa.speculated24.i82, 0
@@ -4639,12 +4639,12 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
 .lr.ph.preheader.i83:                             ; preds = %113
   %117 = load ptr, ptr %0, align 8
   %118 = load ptr, ptr %117, align 8
-  %119 = getelementptr inbounds i8, ptr %0, i64 40
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %120 = load i64, ptr %119, align 8
   %121 = zext i32 %1 to i64
   %122 = mul nsw i64 %120, %121
   %123 = getelementptr i8, ptr %118, i64 %122
-  %124 = getelementptr inbounds i8, ptr %0, i64 48
+  %124 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %125 = load i64, ptr %124, align 8
   %126 = getelementptr i8, ptr %123, i64 %125
   br label %.lr.ph.i84
@@ -4653,16 +4653,16 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
   %indvars.iv.i85 = phi i64 [ 0, %.lr.ph.preheader.i83 ], [ %indvars.iv.next.i87, %131 ]
   %.01525.i86 = phi ptr [ %126, %.lr.ph.preheader.i83 ], [ %134, %131 ]
   %127 = load ptr, ptr %0, align 8
-  %128 = getelementptr inbounds i8, ptr %127, i64 8
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 8
   %129 = load ptr, ptr %128, align 8
   %130 = icmp ugt ptr %129, %.01525.i86
   br i1 %130, label %131, label %_ZNK5draco17GeometryAttribute17ConvertTypedValueIaiEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhPT0_.exit
 
 131:                                              ; preds = %.lr.ph.i84
   %132 = load i32, ptr %.01525.i86, align 4
-  %133 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv.i85
+  %133 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.i85
   store i32 %132, ptr %133, align 4
-  %134 = getelementptr inbounds i8, ptr %.01525.i86, i64 4
+  %134 = getelementptr inbounds nuw i8, ptr %.01525.i86, i64 4
   %indvars.iv.next.i87 = add nuw nsw i64 %indvars.iv.i85, 1
   %135 = load i8, ptr %114, align 8
   %.sroa.speculated.i88 = tail call i8 @llvm.umin.i8(i8 %2, i8 %135)
@@ -4676,7 +4676,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
   br i1 %137, label %_ZNK5draco17GeometryAttribute17ConvertTypedValueIaiEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhPT0_.exit.sink.split, label %_ZNK5draco17GeometryAttribute17ConvertTypedValueIaiEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhPT0_.exit
 
 138:                                              ; preds = %6
-  %139 = getelementptr inbounds i8, ptr %0, i64 24
+  %139 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %140 = load i8, ptr %139, align 8
   %.sroa.speculated24.i94 = tail call i8 @llvm.umin.i8(i8 %2, i8 %140)
   %141 = icmp eq i8 %.sroa.speculated24.i94, 0
@@ -4685,12 +4685,12 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
 .lr.ph.preheader.i95:                             ; preds = %138
   %142 = load ptr, ptr %0, align 8
   %143 = load ptr, ptr %142, align 8
-  %144 = getelementptr inbounds i8, ptr %0, i64 40
+  %144 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %145 = load i64, ptr %144, align 8
   %146 = zext i32 %1 to i64
   %147 = mul nsw i64 %145, %146
   %148 = getelementptr i8, ptr %143, i64 %147
-  %149 = getelementptr inbounds i8, ptr %0, i64 48
+  %149 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %150 = load i64, ptr %149, align 8
   %151 = getelementptr i8, ptr %148, i64 %150
   br label %.lr.ph.i96
@@ -4699,7 +4699,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
   %indvars.iv.i97 = phi i64 [ 0, %.lr.ph.preheader.i95 ], [ %indvars.iv.next.i99, %159 ]
   %.01525.i98 = phi ptr [ %151, %.lr.ph.preheader.i95 ], [ %161, %159 ]
   %152 = load ptr, ptr %0, align 8
-  %153 = getelementptr inbounds i8, ptr %152, i64 8
+  %153 = getelementptr inbounds nuw i8, ptr %152, i64 8
   %154 = load ptr, ptr %153, align 8
   %155 = icmp ugt ptr %154, %.01525.i98
   br i1 %155, label %156, label %_ZNK5draco17GeometryAttribute17ConvertTypedValueIaiEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhPT0_.exit
@@ -4710,9 +4710,9 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
   br i1 %158, label %159, label %_ZNK5draco17GeometryAttribute17ConvertTypedValueIaiEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhPT0_.exit
 
 159:                                              ; preds = %156
-  %160 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv.i97
+  %160 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.i97
   store i32 %157, ptr %160, align 4
-  %161 = getelementptr inbounds i8, ptr %.01525.i98, i64 4
+  %161 = getelementptr inbounds nuw i8, ptr %.01525.i98, i64 4
   %indvars.iv.next.i99 = add nuw nsw i64 %indvars.iv.i97, 1
   %162 = load i8, ptr %139, align 8
   %.sroa.speculated.i100 = tail call i8 @llvm.umin.i8(i8 %2, i8 %162)
@@ -4726,7 +4726,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
   br i1 %164, label %_ZNK5draco17GeometryAttribute17ConvertTypedValueIaiEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhPT0_.exit.sink.split, label %_ZNK5draco17GeometryAttribute17ConvertTypedValueIaiEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhPT0_.exit
 
 165:                                              ; preds = %6
-  %166 = getelementptr inbounds i8, ptr %0, i64 24
+  %166 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %167 = load i8, ptr %166, align 8
   %.sroa.speculated24.i106 = tail call i8 @llvm.umin.i8(i8 %2, i8 %167)
   %168 = icmp eq i8 %.sroa.speculated24.i106, 0
@@ -4735,12 +4735,12 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
 .lr.ph.preheader.i107:                            ; preds = %165
   %169 = load ptr, ptr %0, align 8
   %170 = load ptr, ptr %169, align 8
-  %171 = getelementptr inbounds i8, ptr %0, i64 40
+  %171 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %172 = load i64, ptr %171, align 8
   %173 = zext i32 %1 to i64
   %174 = mul nsw i64 %172, %173
   %175 = getelementptr i8, ptr %170, i64 %174
-  %176 = getelementptr inbounds i8, ptr %0, i64 48
+  %176 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %177 = load i64, ptr %176, align 8
   %178 = getelementptr i8, ptr %175, i64 %177
   br label %.lr.ph.i108
@@ -4749,7 +4749,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
   %indvars.iv.i109 = phi i64 [ 0, %.lr.ph.preheader.i107 ], [ %indvars.iv.next.i111, %186 ]
   %.01525.i110 = phi ptr [ %178, %.lr.ph.preheader.i107 ], [ %189, %186 ]
   %179 = load ptr, ptr %0, align 8
-  %180 = getelementptr inbounds i8, ptr %179, i64 8
+  %180 = getelementptr inbounds nuw i8, ptr %179, i64 8
   %181 = load ptr, ptr %180, align 8
   %182 = icmp ugt ptr %181, %.01525.i110
   br i1 %182, label %183, label %_ZNK5draco17GeometryAttribute17ConvertTypedValueIaiEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhPT0_.exit
@@ -4761,10 +4761,10 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
   br i1 %or.cond.i.i, label %186, label %_ZNK5draco17GeometryAttribute17ConvertTypedValueIaiEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhPT0_.exit
 
 186:                                              ; preds = %183
-  %187 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv.i109
+  %187 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.i109
   %188 = trunc i64 %184 to i32
   store i32 %188, ptr %187, align 4
-  %189 = getelementptr inbounds i8, ptr %.01525.i110, i64 8
+  %189 = getelementptr inbounds nuw i8, ptr %.01525.i110, i64 8
   %indvars.iv.next.i111 = add nuw nsw i64 %indvars.iv.i109, 1
   %190 = load i8, ptr %166, align 8
   %.sroa.speculated.i112 = tail call i8 @llvm.umin.i8(i8 %2, i8 %190)
@@ -4778,7 +4778,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
   br i1 %192, label %_ZNK5draco17GeometryAttribute17ConvertTypedValueIaiEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhPT0_.exit.sink.split, label %_ZNK5draco17GeometryAttribute17ConvertTypedValueIaiEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhPT0_.exit
 
 193:                                              ; preds = %6
-  %194 = getelementptr inbounds i8, ptr %0, i64 24
+  %194 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %195 = load i8, ptr %194, align 8
   %.sroa.speculated24.i118 = tail call i8 @llvm.umin.i8(i8 %2, i8 %195)
   %196 = icmp eq i8 %.sroa.speculated24.i118, 0
@@ -4787,12 +4787,12 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
 .lr.ph.preheader.i119:                            ; preds = %193
   %197 = load ptr, ptr %0, align 8
   %198 = load ptr, ptr %197, align 8
-  %199 = getelementptr inbounds i8, ptr %0, i64 40
+  %199 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %200 = load i64, ptr %199, align 8
   %201 = zext i32 %1 to i64
   %202 = mul nsw i64 %200, %201
   %203 = getelementptr i8, ptr %198, i64 %202
-  %204 = getelementptr inbounds i8, ptr %0, i64 48
+  %204 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %205 = load i64, ptr %204, align 8
   %206 = getelementptr i8, ptr %203, i64 %205
   br label %.lr.ph.i120
@@ -4801,7 +4801,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
   %indvars.iv.i121 = phi i64 [ 0, %.lr.ph.preheader.i119 ], [ %indvars.iv.next.i123, %214 ]
   %.01525.i122 = phi ptr [ %206, %.lr.ph.preheader.i119 ], [ %217, %214 ]
   %207 = load ptr, ptr %0, align 8
-  %208 = getelementptr inbounds i8, ptr %207, i64 8
+  %208 = getelementptr inbounds nuw i8, ptr %207, i64 8
   %209 = load ptr, ptr %208, align 8
   %210 = icmp ugt ptr %209, %.01525.i122
   br i1 %210, label %211, label %_ZNK5draco17GeometryAttribute17ConvertTypedValueIaiEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhPT0_.exit
@@ -4812,10 +4812,10 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
   br i1 %213, label %214, label %_ZNK5draco17GeometryAttribute17ConvertTypedValueIaiEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhPT0_.exit
 
 214:                                              ; preds = %211
-  %215 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv.i121
+  %215 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.i121
   %216 = trunc nuw i64 %212 to i32
   store i32 %216, ptr %215, align 4
-  %217 = getelementptr inbounds i8, ptr %.01525.i122, i64 8
+  %217 = getelementptr inbounds nuw i8, ptr %.01525.i122, i64 8
   %indvars.iv.next.i123 = add nuw nsw i64 %indvars.iv.i121, 1
   %218 = load i8, ptr %194, align 8
   %.sroa.speculated.i124 = tail call i8 @llvm.umin.i8(i8 %2, i8 %218)
@@ -4829,7 +4829,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
   br i1 %220, label %_ZNK5draco17GeometryAttribute17ConvertTypedValueIaiEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhPT0_.exit.sink.split, label %_ZNK5draco17GeometryAttribute17ConvertTypedValueIaiEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhPT0_.exit
 
 221:                                              ; preds = %6
-  %222 = getelementptr inbounds i8, ptr %0, i64 24
+  %222 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %223 = load i8, ptr %222, align 8
   %.sroa.speculated25.i = tail call i8 @llvm.umin.i8(i8 %2, i8 %223)
   %224 = icmp eq i8 %.sroa.speculated25.i, 0
@@ -4838,29 +4838,29 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
 .lr.ph.i130:                                      ; preds = %221
   %225 = load ptr, ptr %0, align 8
   %226 = load ptr, ptr %225, align 8
-  %227 = getelementptr inbounds i8, ptr %0, i64 40
+  %227 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %228 = load i64, ptr %227, align 8
   %229 = zext i32 %1 to i64
   %230 = mul nsw i64 %228, %229
   %231 = getelementptr i8, ptr %226, i64 %230
-  %232 = getelementptr inbounds i8, ptr %0, i64 48
+  %232 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %233 = load i64, ptr %232, align 8
   %234 = getelementptr i8, ptr %231, i64 %233
-  %235 = getelementptr inbounds i8, ptr %0, i64 32
+  %235 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %236
 
 236:                                              ; preds = %260, %.lr.ph.i130
   %indvars.iv.i131 = phi i64 [ 0, %.lr.ph.i130 ], [ %indvars.iv.next.i132, %260 ]
   %.01526.i = phi ptr [ %234, %.lr.ph.i130 ], [ %261, %260 ]
   %237 = load ptr, ptr %0, align 8
-  %238 = getelementptr inbounds i8, ptr %237, i64 8
+  %238 = getelementptr inbounds nuw i8, ptr %237, i64 8
   %239 = load ptr, ptr %238, align 8
   %240 = icmp ugt ptr %239, %.01526.i
   br i1 %240, label %241, label %_ZNK5draco17GeometryAttribute17ConvertTypedValueIaiEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhPT0_.exit
 
 241:                                              ; preds = %236
   %242 = load float, ptr %.01526.i, align 4
-  %243 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv.i131
+  %243 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.i131
   %244 = tail call float @llvm.fabs.f32(float %242)
   %or.cond13.i.i = fcmp one float %244, 0x7FF0000000000000
   %245 = fcmp uge float %242, 0xC1E0000000000000
@@ -4894,7 +4894,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
 260:                                              ; preds = %258, %253
   %storemerge.i.i = phi i32 [ %259, %258 ], [ %257, %253 ]
   store i32 %storemerge.i.i, ptr %243, align 4
-  %261 = getelementptr inbounds i8, ptr %.01526.i, i64 4
+  %261 = getelementptr inbounds nuw i8, ptr %.01526.i, i64 4
   %indvars.iv.next.i132 = add nuw nsw i64 %indvars.iv.i131, 1
   %262 = load i8, ptr %222, align 8
   %.sroa.speculated.i133 = tail call i8 @llvm.umin.i8(i8 %2, i8 %262)
@@ -4908,7 +4908,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
   br i1 %264, label %_ZNK5draco17GeometryAttribute17ConvertTypedValueIaiEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhPT0_.exit.sink.split, label %_ZNK5draco17GeometryAttribute17ConvertTypedValueIaiEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhPT0_.exit
 
 265:                                              ; preds = %6
-  %266 = getelementptr inbounds i8, ptr %0, i64 24
+  %266 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %267 = load i8, ptr %266, align 8
   %.sroa.speculated25.i138 = tail call i8 @llvm.umin.i8(i8 %2, i8 %267)
   %268 = icmp eq i8 %.sroa.speculated25.i138, 0
@@ -4917,29 +4917,29 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
 .lr.ph.i139:                                      ; preds = %265
   %269 = load ptr, ptr %0, align 8
   %270 = load ptr, ptr %269, align 8
-  %271 = getelementptr inbounds i8, ptr %0, i64 40
+  %271 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %272 = load i64, ptr %271, align 8
   %273 = zext i32 %1 to i64
   %274 = mul nsw i64 %272, %273
   %275 = getelementptr i8, ptr %270, i64 %274
-  %276 = getelementptr inbounds i8, ptr %0, i64 48
+  %276 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %277 = load i64, ptr %276, align 8
   %278 = getelementptr i8, ptr %275, i64 %277
-  %279 = getelementptr inbounds i8, ptr %0, i64 32
+  %279 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %280
 
 280:                                              ; preds = %300, %.lr.ph.i139
   %indvars.iv.i140 = phi i64 [ 0, %.lr.ph.i139 ], [ %indvars.iv.next.i146, %300 ]
   %.01526.i141 = phi ptr [ %278, %.lr.ph.i139 ], [ %301, %300 ]
   %281 = load ptr, ptr %0, align 8
-  %282 = getelementptr inbounds i8, ptr %281, i64 8
+  %282 = getelementptr inbounds nuw i8, ptr %281, i64 8
   %283 = load ptr, ptr %282, align 8
   %284 = icmp ugt ptr %283, %.01526.i141
   br i1 %284, label %285, label %_ZNK5draco17GeometryAttribute17ConvertTypedValueIaiEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhPT0_.exit
 
 285:                                              ; preds = %280
   %286 = load double, ptr %.01526.i141, align 8
-  %287 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv.i140
+  %287 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.i140
   %288 = tail call double @llvm.fabs.f64(double %286)
   %or.cond13.i.i142 = fcmp one double %288, 0x7FF0000000000000
   %289 = fcmp uge double %286, 0xC1E0000000000000
@@ -4968,7 +4968,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
   %storemerge.in.i.i = phi double [ %299, %297 ], [ %286, %291 ]
   %storemerge.i.i145 = fptosi double %storemerge.in.i.i to i32
   store i32 %storemerge.i.i145, ptr %287, align 4
-  %301 = getelementptr inbounds i8, ptr %.01526.i141, i64 8
+  %301 = getelementptr inbounds nuw i8, ptr %.01526.i141, i64 8
   %indvars.iv.next.i146 = add nuw nsw i64 %indvars.iv.i140, 1
   %302 = load i8, ptr %266, align 8
   %.sroa.speculated.i147 = tail call i8 @llvm.umin.i8(i8 %2, i8 %302)
@@ -4982,7 +4982,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
   br i1 %304, label %_ZNK5draco17GeometryAttribute17ConvertTypedValueIaiEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhPT0_.exit.sink.split, label %_ZNK5draco17GeometryAttribute17ConvertTypedValueIaiEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhPT0_.exit
 
 305:                                              ; preds = %6
-  %306 = getelementptr inbounds i8, ptr %0, i64 24
+  %306 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %307 = load i8, ptr %306, align 8
   %.sroa.speculated24.i154 = tail call i8 @llvm.umin.i8(i8 %2, i8 %307)
   %308 = icmp eq i8 %.sroa.speculated24.i154, 0
@@ -4991,12 +4991,12 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
 .lr.ph.preheader.i155:                            ; preds = %305
   %309 = load ptr, ptr %0, align 8
   %310 = load ptr, ptr %309, align 8
-  %311 = getelementptr inbounds i8, ptr %0, i64 40
+  %311 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %312 = load i64, ptr %311, align 8
   %313 = zext i32 %1 to i64
   %314 = mul nsw i64 %312, %313
   %315 = getelementptr i8, ptr %310, i64 %314
-  %316 = getelementptr inbounds i8, ptr %0, i64 48
+  %316 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %317 = load i64, ptr %316, align 8
   %318 = getelementptr i8, ptr %315, i64 %317
   br label %.lr.ph.i156
@@ -5005,7 +5005,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
   %indvars.iv.i157 = phi i64 [ 0, %.lr.ph.preheader.i155 ], [ %indvars.iv.next.i159, %323 ]
   %.01525.i158 = phi ptr [ %318, %.lr.ph.preheader.i155 ], [ %328, %323 ]
   %319 = load ptr, ptr %0, align 8
-  %320 = getelementptr inbounds i8, ptr %319, i64 8
+  %320 = getelementptr inbounds nuw i8, ptr %319, i64 8
   %321 = load ptr, ptr %320, align 8
   %322 = icmp ugt ptr %321, %.01525.i158
   br i1 %322, label %323, label %_ZNK5draco17GeometryAttribute17ConvertTypedValueIaiEEbNS_9IndexTypeIjNS_29AttributeValueIndex_tag_type_EEEhPT0_.exit
@@ -5013,10 +5013,10 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
 323:                                              ; preds = %.lr.ph.i156
   %324 = load i8, ptr %.01525.i158, align 1
   %325 = and i8 %324, 1
-  %326 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv.i157
+  %326 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.i157
   %327 = zext nneg i8 %325 to i32
   store i32 %327, ptr %326, align 4
-  %328 = getelementptr inbounds i8, ptr %.01525.i158, i64 1
+  %328 = getelementptr inbounds nuw i8, ptr %.01525.i158, i64 1
   %indvars.iv.next.i159 = add nuw nsw i64 %indvars.iv.i157, 1
   %329 = load i8, ptr %306, align 8
   %.sroa.speculated.i160 = tail call i8 @llvm.umin.i8(i8 %2, i8 %329)

@@ -13,7 +13,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define void @_ZN5arrow8internal13ChunkResolverC2ERKSt6vectorISt10shared_ptrINS_5ArrayEESaIS5_EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %chunks) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
-  %_M_finish.i.i = getelementptr inbounds i8, ptr %chunks, i64 8
+  %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %chunks, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8, !noalias !4
   %1 = load ptr, ptr %chunks, align 8, !noalias !4
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -38,7 +38,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %_ZNSt6vectorIlSaIlE
   %call5.i.i.i.i2.i.i5.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i.i) #6, !noalias !4
   store ptr %call5.i.i.i.i2.i.i5.i, ptr %this, align 8, !alias.scope !4
   %add.ptr.i.i.i.i = getelementptr i64, ptr %call5.i.i.i.i2.i.i5.i, i64 %add.i
-  %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_end_of_storage.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %add.ptr.i.i.i.i, ptr %_M_end_of_storage.i.i.i.i, align 8, !alias.scope !4
   store i64 0, ptr %call5.i.i.i.i2.i.i5.i, align 8, !noalias !4
   %incdec.ptr.i.i.i.i.i.i = getelementptr i8, ptr %call5.i.i.i.i2.i.i5.i, i64 8
@@ -53,7 +53,7 @@ if.end.i.i.i.i.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i.i
 invoke.cont.i:                                    ; preds = %if.end.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i, %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i.i
   %3 = phi ptr [ %call5.i.i.i.i2.i.i5.i, %if.then.i.i.i.i.i.i ], [ %call5.i.i.i.i2.i.i5.i, %if.end.i.i.i.i.i.i.i.i ], [ null, %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i.i ]
   %__first.addr.0.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %if.then.i.i.i.i.i.i ], [ %add.ptr.i.i.i.i, %if.end.i.i.i.i.i.i.i.i ], [ null, %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i.i ]
-  %_M_finish.i.i7.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_finish.i.i7.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %__first.addr.0.i.i.i.i.i.i, ptr %_M_finish.i.i7.i.i, align 8, !alias.scope !4
   %cmp.i.not5.i.i = icmp eq ptr %1, %0
   br i1 %cmp.i.not5.i.i, label %_ZN5arrow8internal12_GLOBAL__N_117MakeChunksOffsetsISt10shared_ptrINS_5ArrayEEEESt6vectorIlSaIlEERKS6_IT_SaIS9_EE.exit, label %for.body.i.i
@@ -69,8 +69,8 @@ for.body.i.i:                                     ; preds = %invoke.cont.i, %for
   %call4.val.val.val.i.i = load i64, ptr %5, align 8, !noalias !4
   %add.i.i.i = add nsw i64 %call4.val.val.val.i.i, %offset.0.i
   store i64 %offset.0.i, ptr %__result.sroa.0.06.i.i, align 8, !noalias !4
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.07.i.i, i64 16
-  %incdec.ptr.i1.i.i = getelementptr inbounds i8, ptr %__result.sroa.0.06.i.i, i64 8
+  %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.07.i.i, i64 16
+  %incdec.ptr.i1.i.i = getelementptr inbounds nuw i8, ptr %__result.sroa.0.06.i.i, i64 8
   %cmp.i.not.i.i = icmp eq ptr %incdec.ptr.i.i.i, %0
   br i1 %cmp.i.not.i.i, label %_ZN5arrow8internal12_GLOBAL__N_117MakeChunksOffsetsISt10shared_ptrINS_5ArrayEEEESt6vectorIlSaIlEERKS6_IT_SaIS9_EE.exit, label %for.body.i.i, !llvm.loop !7
 
@@ -79,7 +79,7 @@ _ZN5arrow8internal12_GLOBAL__N_117MakeChunksOffsetsISt10shared_ptrINS_5ArrayEEEE
   %6 = ashr exact i64 %sub.ptr.sub.i.i, 1
   %add.ptr.i.i = getelementptr inbounds i8, ptr %3, i64 %6
   store i64 %offset.1.i, ptr %add.ptr.i.i, align 8, !noalias !4
-  %cached_chunk_ = getelementptr inbounds i8, ptr %this, i64 24
+  %cached_chunk_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i64 0, ptr %cached_chunk_, align 8
   ret void
 }
@@ -88,7 +88,7 @@ _ZN5arrow8internal12_GLOBAL__N_117MakeChunksOffsetsISt10shared_ptrINS_5ArrayEEEE
 define void @_ZN5arrow8internal13ChunkResolverC2ERKSt6vectorIPKNS_5ArrayESaIS5_EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %chunks) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9)
-  %_M_finish.i.i = getelementptr inbounds i8, ptr %chunks, i64 8
+  %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %chunks, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8, !noalias !9
   %1 = load ptr, ptr %chunks, align 8, !noalias !9
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -113,7 +113,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %_ZNSt6vectorIlSaIlE
   %call5.i.i.i.i2.i.i5.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i.i) #6, !noalias !9
   store ptr %call5.i.i.i.i2.i.i5.i, ptr %this, align 8, !alias.scope !9
   %add.ptr.i.i.i.i = getelementptr i64, ptr %call5.i.i.i.i2.i.i5.i, i64 %add.i
-  %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_end_of_storage.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %add.ptr.i.i.i.i, ptr %_M_end_of_storage.i.i.i.i, align 8, !alias.scope !9
   store i64 0, ptr %call5.i.i.i.i2.i.i5.i, align 8, !noalias !9
   %incdec.ptr.i.i.i.i.i.i = getelementptr i8, ptr %call5.i.i.i.i2.i.i5.i, i64 8
@@ -128,7 +128,7 @@ if.end.i.i.i.i.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i.i
 invoke.cont.i:                                    ; preds = %if.end.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i, %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i.i
   %3 = phi ptr [ %call5.i.i.i.i2.i.i5.i, %if.then.i.i.i.i.i.i ], [ %call5.i.i.i.i2.i.i5.i, %if.end.i.i.i.i.i.i.i.i ], [ null, %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i.i ]
   %__first.addr.0.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %if.then.i.i.i.i.i.i ], [ %add.ptr.i.i.i.i, %if.end.i.i.i.i.i.i.i.i ], [ null, %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i.i ]
-  %_M_finish.i.i7.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_finish.i.i7.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %__first.addr.0.i.i.i.i.i.i, ptr %_M_finish.i.i7.i.i, align 8, !alias.scope !9
   %cmp.i.not5.i.i = icmp eq ptr %1, %0
   br i1 %cmp.i.not5.i.i, label %_ZN5arrow8internal12_GLOBAL__N_117MakeChunksOffsetsIPKNS_5ArrayEEESt6vectorIlSaIlEERKS6_IT_SaIS9_EE.exit, label %for.body.i.i
@@ -144,8 +144,8 @@ for.body.i.i:                                     ; preds = %invoke.cont.i, %for
   %call4.val.val.val.i.i = load i64, ptr %5, align 8, !noalias !9
   %add.i.i.i = add nsw i64 %call4.val.val.val.i.i, %offset.0.i
   store i64 %offset.0.i, ptr %__result.sroa.0.06.i.i, align 8, !noalias !9
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.07.i.i, i64 8
-  %incdec.ptr.i1.i.i = getelementptr inbounds i8, ptr %__result.sroa.0.06.i.i, i64 8
+  %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.07.i.i, i64 8
+  %incdec.ptr.i1.i.i = getelementptr inbounds nuw i8, ptr %__result.sroa.0.06.i.i, i64 8
   %cmp.i.not.i.i = icmp eq ptr %incdec.ptr.i.i.i, %0
   br i1 %cmp.i.not.i.i, label %_ZN5arrow8internal12_GLOBAL__N_117MakeChunksOffsetsIPKNS_5ArrayEEESt6vectorIlSaIlEERKS6_IT_SaIS9_EE.exit, label %for.body.i.i, !llvm.loop !12
 
@@ -153,7 +153,7 @@ _ZN5arrow8internal12_GLOBAL__N_117MakeChunksOffsetsIPKNS_5ArrayEEESt6vectorIlSaI
   %offset.1.i = phi i64 [ 0, %invoke.cont.i ], [ %add.i.i.i, %for.body.i.i ]
   %add.ptr.i.i = getelementptr inbounds i8, ptr %3, i64 %sub.ptr.sub.i.i
   store i64 %offset.1.i, ptr %add.ptr.i.i, align 8, !noalias !9
-  %cached_chunk_ = getelementptr inbounds i8, ptr %this, i64 24
+  %cached_chunk_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i64 0, ptr %cached_chunk_, align 8
   ret void
 }
@@ -162,7 +162,7 @@ _ZN5arrow8internal12_GLOBAL__N_117MakeChunksOffsetsIPKNS_5ArrayEEESt6vectorIlSaI
 define void @_ZN5arrow8internal13ChunkResolverC2ERKSt6vectorISt10shared_ptrINS_11RecordBatchEESaIS5_EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %batches) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13)
-  %_M_finish.i.i = getelementptr inbounds i8, ptr %batches, i64 8
+  %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %batches, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8, !noalias !13
   %1 = load ptr, ptr %batches, align 8, !noalias !13
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -187,7 +187,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %_ZNSt6vectorIlSaIlE
   %call5.i.i.i.i2.i.i5.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i.i) #6, !noalias !13
   store ptr %call5.i.i.i.i2.i.i5.i, ptr %this, align 8, !alias.scope !13
   %add.ptr.i.i.i.i = getelementptr i64, ptr %call5.i.i.i.i2.i.i5.i, i64 %add.i
-  %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_end_of_storage.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %add.ptr.i.i.i.i, ptr %_M_end_of_storage.i.i.i.i, align 8, !alias.scope !13
   store i64 0, ptr %call5.i.i.i.i2.i.i5.i, align 8, !noalias !13
   %incdec.ptr.i.i.i.i.i.i = getelementptr i8, ptr %call5.i.i.i.i2.i.i5.i, i64 8
@@ -202,7 +202,7 @@ if.end.i.i.i.i.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i.i
 invoke.cont.i:                                    ; preds = %if.end.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i, %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i.i
   %3 = phi ptr [ %call5.i.i.i.i2.i.i5.i, %if.then.i.i.i.i.i.i ], [ %call5.i.i.i.i2.i.i5.i, %if.end.i.i.i.i.i.i.i.i ], [ null, %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i.i ]
   %__first.addr.0.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %if.then.i.i.i.i.i.i ], [ %add.ptr.i.i.i.i, %if.end.i.i.i.i.i.i.i.i ], [ null, %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i.i ]
-  %_M_finish.i.i7.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_finish.i.i7.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %__first.addr.0.i.i.i.i.i.i, ptr %_M_finish.i.i7.i.i, align 8, !alias.scope !13
   %cmp.i.not5.i.i = icmp eq ptr %1, %0
   br i1 %cmp.i.not5.i.i, label %_ZN5arrow8internal12_GLOBAL__N_117MakeChunksOffsetsISt10shared_ptrINS_11RecordBatchEEEESt6vectorIlSaIlEERKS6_IT_SaIS9_EE.exit, label %for.body.i.i
@@ -216,8 +216,8 @@ for.body.i.i:                                     ; preds = %invoke.cont.i, %for
   %call4.val.val.i.i = load i64, ptr %4, align 8, !noalias !13
   %add.i.i.i = add nsw i64 %call4.val.val.i.i, %offset.0.i
   store i64 %offset.0.i, ptr %__result.sroa.0.06.i.i, align 8, !noalias !13
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.07.i.i, i64 16
-  %incdec.ptr.i1.i.i = getelementptr inbounds i8, ptr %__result.sroa.0.06.i.i, i64 8
+  %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.07.i.i, i64 16
+  %incdec.ptr.i1.i.i = getelementptr inbounds nuw i8, ptr %__result.sroa.0.06.i.i, i64 8
   %cmp.i.not.i.i = icmp eq ptr %incdec.ptr.i.i.i, %0
   br i1 %cmp.i.not.i.i, label %_ZN5arrow8internal12_GLOBAL__N_117MakeChunksOffsetsISt10shared_ptrINS_11RecordBatchEEEESt6vectorIlSaIlEERKS6_IT_SaIS9_EE.exit, label %for.body.i.i, !llvm.loop !16
 
@@ -226,7 +226,7 @@ _ZN5arrow8internal12_GLOBAL__N_117MakeChunksOffsetsISt10shared_ptrINS_11RecordBa
   %5 = ashr exact i64 %sub.ptr.sub.i.i, 1
   %add.ptr.i.i = getelementptr inbounds i8, ptr %3, i64 %5
   store i64 %offset.1.i, ptr %add.ptr.i.i, align 8, !noalias !13
-  %cached_chunk_ = getelementptr inbounds i8, ptr %this, i64 24
+  %cached_chunk_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i64 0, ptr %cached_chunk_, align 8
   ret void
 }

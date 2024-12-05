@@ -118,7 +118,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm25AArch64ExternalSymbolizer24tryAdd
 48:                                               ; preds = %37
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %41, ptr noundef nonnull align 1 dereferenceable(17) @.str, i64 17, i1 false)
   %49 = load ptr, ptr %40, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 17
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 17
   store ptr %50, ptr %40, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -173,7 +173,7 @@ _ZN4llvm9StringRefC2EPKc.exit.i:                  ; preds = %_ZN4llvm11raw_ostre
 78:                                               ; preds = %67
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(14) %71, ptr noundef nonnull align 1 dereferenceable(14) @.str.1, i64 14, i1 false)
   %79 = load ptr, ptr %70, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 14
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 14
   store ptr %80, ptr %70, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit125
 
@@ -236,7 +236,7 @@ _ZN4llvm9StringRefC2EPKc.exit.i127:               ; preds = %_ZN4llvm11raw_ostre
   %111 = getelementptr inbounds nuw i8, ptr %103, i64 96
   %112 = load ptr, ptr %111, align 8
   %113 = zext i32 %110 to i64
-  %114 = getelementptr inbounds i16, ptr %112, i64 %113
+  %114 = getelementptr inbounds nuw i16, ptr %112, i64 %113
   %115 = load i16, ptr %114, align 2
   %116 = zext i16 %115 to i64
   %117 = load ptr, ptr %16, align 8
@@ -290,19 +290,19 @@ _ZN4llvm9StringRefC2EPKc.exit.i127:               ; preds = %_ZN4llvm11raw_ostre
   %148 = shl i64 %3, 10
   %149 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %150 = load ptr, ptr %149, align 8
-  %151 = getelementptr inbounds i8, ptr %150, i64 24
+  %151 = getelementptr inbounds nuw i8, ptr %150, i64 24
   %152 = load i32, ptr %151, align 8
   %153 = getelementptr inbounds nuw i8, ptr %147, i64 96
   %154 = load ptr, ptr %153, align 8
   %155 = zext i32 %152 to i64
-  %156 = getelementptr inbounds i16, ptr %154, i64 %155
+  %156 = getelementptr inbounds nuw i16, ptr %154, i64 %155
   %157 = load i16, ptr %156, align 2
   %158 = zext i16 %157 to i64
   %159 = shl nuw nsw i64 %158, 5
   %160 = getelementptr inbounds nuw i8, ptr %150, i64 8
   %161 = load i32, ptr %160, align 8
   %162 = zext i32 %161 to i64
-  %163 = getelementptr inbounds i16, ptr %154, i64 %162
+  %163 = getelementptr inbounds nuw i16, ptr %154, i64 %162
   %164 = load i16, ptr %163, align 2
   %165 = zext i16 %164 to i64
   %166 = load ptr, ptr %16, align 8
@@ -564,7 +564,7 @@ _ZN4llvm9StringRefC2EPKc.exit134:                 ; preds = %239
   br i1 %.not.i.i.i.i, label %292, label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit
 
 292:                                              ; preds = %287
-  %293 = getelementptr inbounds i8, ptr %1, i64 32
+  %293 = getelementptr inbounds nuw i8, ptr %1, i64 32
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %288, ptr noundef nonnull %293, i64 noundef %290, i64 noundef 16) #8
   br label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit
 
@@ -573,7 +573,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %287, %292
   %295 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %288) #8
   %296 = getelementptr inbounds %"class.llvm::MCOperand", ptr %294, i64 %295
   store i8 5, ptr %296, align 1
-  %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %296, i64 8
+  %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %296, i64 8
   store i64 %.fca.1.load.cast.i, ptr %.sroa.22.0..sroa_idx.i.i, align 1
   %297 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %288) #8
   %298 = add i64 %297, 1

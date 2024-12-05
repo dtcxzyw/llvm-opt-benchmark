@@ -99,19 +99,19 @@ define noalias noundef ptr @SpbcgMalloc(i32 noundef %0, ptr noundef %1) local_un
 
 35:                                               ; preds = %31
   store i32 %0, ptr %32, align 8
-  %36 = getelementptr inbounds i8, ptr %32, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %32, i64 8
   store ptr %5, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %32, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %32, i64 16
   store ptr %8, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %32, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %32, i64 24
   store ptr %12, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %32, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %32, i64 32
   store ptr %16, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %32, i64 40
+  %40 = getelementptr inbounds nuw i8, ptr %32, i64 40
   store ptr %20, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %32, i64 48
+  %41 = getelementptr inbounds nuw i8, ptr %32, i64 48
   store ptr %24, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %32, i64 56
+  %42 = getelementptr inbounds nuw i8, ptr %32, i64 56
   store ptr %28, ptr %42, align 8
   br label %43
 
@@ -134,19 +134,19 @@ define range(i32 -3, 5) i32 @SpbcgSolve(ptr noundef readonly %0, ptr noundef %1,
 
 16:                                               ; preds = %14
   %17 = load i32, ptr %0, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 48
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 56
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %31 = load ptr, ptr %30, align 8
   store i32 0, ptr %13, align 4
   store i32 0, ptr %12, align 4
@@ -454,25 +454,25 @@ define void @SpbcgFree(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %2, label %18, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   tail call void @N_VDestroy(ptr noundef %5) #4
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   tail call void @N_VDestroy(ptr noundef %7) #4
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8
   tail call void @N_VDestroy(ptr noundef %9) #4
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load ptr, ptr %10, align 8
   tail call void @N_VDestroy(ptr noundef %11) #4
-  %12 = getelementptr inbounds i8, ptr %0, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %13 = load ptr, ptr %12, align 8
   tail call void @N_VDestroy(ptr noundef %13) #4
-  %14 = getelementptr inbounds i8, ptr %0, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %15 = load ptr, ptr %14, align 8
   tail call void @N_VDestroy(ptr noundef %15) #4
-  %16 = getelementptr inbounds i8, ptr %0, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %17 = load ptr, ptr %16, align 8
   tail call void @N_VDestroy(ptr noundef %17) #4
   tail call void @free(ptr noundef nonnull %0) #4

@@ -64,12 +64,12 @@ define range(i32 23, 22) i32 @cli_scannulsft(ptr noundef %0, i64 noundef %1) loc
   %4 = alloca %struct.nsis_st, align 8
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(45848) %4, i8 0, i64 45848, i1 false)
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 %1, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = tail call ptr @cli_gentemp_with_prefix(ptr noundef %7, ptr noundef nonnull @.str.1) #10
-  %9 = getelementptr inbounds i8, ptr %4, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr %8, ptr %9, align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %205, label %10
@@ -85,13 +85,13 @@ define range(i32 23, 22) i32 @cli_scannulsft(ptr noundef %0, i64 noundef %1) loc
   br label %205
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %0, i64 96
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %4, i64 44816
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 44816
   store ptr %15, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 40
   %20 = load i32, ptr %19, align 8
   %.not22 = icmp eq i32 %20, 0
   br i1 %.not22, label %22, label %21
@@ -101,18 +101,18 @@ define range(i32 23, 22) i32 @cli_scannulsft(ptr noundef %0, i64 noundef %1) loc
   br label %22
 
 22:                                               ; preds = %21, %13
-  %23 = getelementptr inbounds i8, ptr %4, i64 48
-  %24 = getelementptr inbounds i8, ptr %4, i64 44
-  %25 = getelementptr inbounds i8, ptr %4, i64 40
-  %26 = getelementptr inbounds i8, ptr %4, i64 24
-  %27 = getelementptr inbounds i8, ptr %4, i64 52
-  %28 = getelementptr inbounds i8, ptr %4, i64 53
-  %29 = getelementptr inbounds i8, ptr %3, i64 1
-  %30 = getelementptr inbounds i8, ptr %3, i64 2
-  %31 = getelementptr inbounds i8, ptr %3, i64 3
-  %32 = getelementptr inbounds i8, ptr %4, i64 12
-  %33 = getelementptr inbounds i8, ptr %4, i64 8
-  %34 = getelementptr inbounds i8, ptr %4, i64 44824
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 44
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 52
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 53
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 1
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 2
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 3
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 12
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 44824
   br label %35
 
 35:                                               ; preds = %select.unfold, %22
@@ -129,21 +129,21 @@ define range(i32 23, 22) i32 @cli_scannulsft(ptr noundef %0, i64 noundef %1) loc
   store i32 0, ptr %3, align 4
   %40 = load ptr, ptr %16, align 8
   %41 = load i64, ptr %5, align 8
-  %42 = getelementptr inbounds i8, ptr %40, i64 104
+  %42 = getelementptr inbounds nuw i8, ptr %40, i64 104
   %43 = load ptr, ptr %42, align 8
   %44 = call ptr %43(ptr noundef %40, i64 noundef %41, i64 noundef 28, i32 noundef 0) #10
   %.not.i.i = icmp eq ptr %44, null
   br i1 %.not.i.i, label %nsis_headers.exit.i, label %45
 
 45:                                               ; preds = %39
-  %46 = getelementptr inbounds i8, ptr %44, i64 20
+  %46 = getelementptr inbounds nuw i8, ptr %44, i64 20
   %47 = load i32, ptr %46, align 1
   store i32 %47, ptr %24, align 4
-  %48 = getelementptr inbounds i8, ptr %44, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %44, i64 24
   %49 = load i32, ptr %48, align 1
   store i32 %49, ptr %25, align 8
   %50 = load ptr, ptr %16, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 88
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 88
   %52 = load i64, ptr %51, align 8
   store i64 %52, ptr %26, align 8
   %53 = load i32, ptr %44, align 1
@@ -181,7 +181,7 @@ define range(i32 23, 22) i32 @cli_scannulsft(ptr noundef %0, i64 noundef %1) loc
   br i1 %.not94.i.i, label %.loopexit._crit_edge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %67
-  %70 = getelementptr inbounds i8, ptr %44, i64 28
+  %70 = getelementptr inbounds nuw i8, ptr %44, i64 28
   br label %71
 
 71:                                               ; preds = %122, %.lr.ph.i.i
@@ -189,7 +189,7 @@ define range(i32 23, 22) i32 @cli_scannulsft(ptr noundef %0, i64 noundef %1) loc
   %.06092.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %118, %122 ]
   %.06191.i.i = phi ptr [ %70, %.lr.ph.i.i ], [ %125, %122 ]
   %72 = load ptr, ptr %16, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 104
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 104
   %74 = load ptr, ptr %73, align 8
   %75 = getelementptr i8, ptr %72, i64 16
   %.val.i.i.i = load ptr, ptr %75, align 8
@@ -223,9 +223,9 @@ nsis_detcomp.exit.i.i:                            ; preds = %82
   br i1 %.not75.i.i, label %115, label %89
 
 89:                                               ; preds = %88
-  %90 = getelementptr inbounds i8, ptr %81, i64 4
+  %90 = getelementptr inbounds nuw i8, ptr %81, i64 4
   %91 = load ptr, ptr %16, align 8
-  %92 = getelementptr inbounds i8, ptr %91, i64 104
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 104
   %93 = load ptr, ptr %92, align 8
   %94 = getelementptr i8, ptr %91, i64 16
   %.val.i79.i.i = load ptr, ptr %94, align 8
@@ -254,7 +254,7 @@ nsis_detcomp.exit.i.i:                            ; preds = %82
 
 nsis_detcomp.exit83.i.i:                          ; preds = %105, %101
   %.0.i82.i.i = phi i64 [ 1, %101 ], [ %109, %105 ]
-  %110 = getelementptr inbounds [4 x i8], ptr %3, i64 0, i64 %.0.i82.i.i
+  %110 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 0, i64 %.0.i82.i.i
   %111 = load i8, ptr %110, align 1
   %112 = add i8 %111, 1
   store i8 %112, ptr %110, align 1
@@ -277,7 +277,7 @@ nsis_detcomp.exit83.i.i:                          ; preds = %105, %101
   br label %.loopexit.i.i
 
 122:                                              ; preds = %115
-  %123 = getelementptr inbounds i8, ptr %116, i64 4
+  %123 = getelementptr inbounds nuw i8, ptr %116, i64 4
   %124 = sext i32 %.0.i.i to i64
   %125 = getelementptr inbounds i8, ptr %123, i64 %124
   %126 = add nuw nsw i32 %.05993.i.i, 1
@@ -381,7 +381,7 @@ cli_nsis_unpack.exit:                             ; preds = %37, %nsis_headers.e
   %173 = load i32, ptr %33, align 8
   %174 = call i32 @close(i32 noundef %173) #10
   %175 = load ptr, ptr %17, align 8
-  %176 = getelementptr inbounds i8, ptr %175, i64 40
+  %176 = getelementptr inbounds nuw i8, ptr %175, i64 40
   %177 = load i32, ptr %176, align 8
   %.not24 = icmp eq i32 %177, 0
   br i1 %.not24, label %178, label %select.unfold
@@ -416,7 +416,7 @@ select.unfold:                                    ; preds = %178, %182, %172, %c
 
 .thread.thread33:                                 ; preds = %178, %.thread, %.thread.thread
   %186 = phi i32 [ 0, %.thread.thread ], [ %.030.fr, %.thread ], [ 10, %178 ]
-  %187 = getelementptr inbounds i8, ptr %4, i64 54
+  %187 = getelementptr inbounds nuw i8, ptr %4, i64 54
   %188 = load i8, ptr %187, align 2
   %.not.i27 = icmp eq i8 %188, 0
   br i1 %.not.i27, label %nsis_shutdown.exit, label %189
@@ -429,12 +429,12 @@ select.unfold:                                    ; preds = %178, %182, %172, %c
   ]
 
 191:                                              ; preds = %189
-  %192 = getelementptr inbounds i8, ptr %4, i64 88
+  %192 = getelementptr inbounds nuw i8, ptr %4, i64 88
   %193 = call i32 @nsis_BZ2_bzDecompressEnd(ptr noundef nonnull %192) #10
   br label %196
 
 194:                                              ; preds = %189
-  %195 = getelementptr inbounds i8, ptr %4, i64 168
+  %195 = getelementptr inbounds nuw i8, ptr %4, i64 168
   call void @cli_LzmaShutdown(ptr noundef nonnull %195) #10
   br label %196
 
@@ -444,7 +444,7 @@ select.unfold:                                    ; preds = %178, %182, %172, %c
 
 nsis_shutdown.exit:                               ; preds = %.thread.thread33, %196
   %197 = load ptr, ptr %17, align 8
-  %198 = getelementptr inbounds i8, ptr %197, i64 40
+  %198 = getelementptr inbounds nuw i8, ptr %197, i64 40
   %199 = load i32, ptr %198, align 8
   %.not26 = icmp eq i32 %199, 0
   br i1 %.not26, label %200, label %203
@@ -490,13 +490,13 @@ declare i32 @cli_unlink(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @nsis_shutdown(ptr noundef nonnull %0) unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 54
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 54
   %3 = load i8, ptr %2, align 2
   %.not = icmp eq i8 %3, 0
   br i1 %.not, label %13, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 52
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %6 = load i8, ptr %5, align 4
   switch i8 %6, label %12 [
     i8 1, label %7
@@ -504,12 +504,12 @@ define internal fastcc void @nsis_shutdown(ptr noundef nonnull %0) unnamed_addr 
   ]
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 88
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %9 = tail call i32 @nsis_BZ2_bzDecompressEnd(ptr noundef nonnull %8) #10
   br label %12
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %0, i64 168
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 168
   tail call void @cli_LzmaShutdown(ptr noundef nonnull %11) #10
   br label %12
 
@@ -527,7 +527,7 @@ declare i32 @cli_rmdirs(ptr noundef) local_unnamed_addr #1
 define internal fastcc i32 @nsis_unpack_next(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca [8192 x i8], align 16
-  %5 = getelementptr inbounds i8, ptr %0, i64 55
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 55
   %6 = load i8, ptr %5, align 1
   %.not = icmp eq i8 %6, 0
   br i1 %.not, label %8, label %7
@@ -542,11 +542,11 @@ define internal fastcc i32 @nsis_unpack_next(ptr noundef nonnull %0, ptr noundef
   br i1 %.not154, label %10, label %255
 
 10:                                               ; preds = %8
-  %11 = getelementptr inbounds i8, ptr %0, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %12 = load i32, ptr %11, align 8
   %.not155 = icmp eq i32 %12, 0
-  %13 = getelementptr inbounds i8, ptr %0, i64 44824
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 44824
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %15 = load ptr, ptr %14, align 8
   br i1 %.not155, label %18, label %16
 
@@ -562,18 +562,18 @@ define internal fastcc i32 @nsis_unpack_next(ptr noundef nonnull %0, ptr noundef
   %21 = load i32, ptr %11, align 8
   %22 = add i32 %21, 1
   store i32 %22, ptr %11, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 12
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 0, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %0, i64 53
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 53
   %25 = load i8, ptr %24, align 1
   %.not156 = icmp eq i8 %25, 0
   br i1 %.not156, label %26, label %137
 
 26:                                               ; preds = %20
-  %27 = getelementptr inbounds i8, ptr %0, i64 44816
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 44816
   %28 = load ptr, ptr %27, align 8
   %29 = load i64, ptr %0, align 8
-  %30 = getelementptr inbounds i8, ptr %28, i64 88
+  %30 = getelementptr inbounds nuw i8, ptr %28, i64 88
   %31 = load i64, ptr %30, align 8
   %or.cond208.not = icmp ult i64 %29, %31
   br i1 %or.cond208.not, label %32, label %fmap_readn.exit.thread
@@ -581,7 +581,7 @@ define internal fastcc i32 @nsis_unpack_next(ptr noundef nonnull %0, ptr noundef
 32:                                               ; preds = %26
   %33 = sub nuw i64 %31, %29
   %spec.select.i = tail call i64 @llvm.umin.i64(i64 %33, i64 4)
-  %34 = getelementptr inbounds i8, ptr %28, i64 104
+  %34 = getelementptr inbounds nuw i8, ptr %28, i64 104
   %35 = load ptr, ptr %34, align 8
   %36 = tail call ptr %35(ptr noundef nonnull %28, i64 noundef %29, i64 noundef range(i64 0, 4294967296) %spec.select.i, i32 noundef 0) #10
   %.not26.i = icmp eq ptr %36, null
@@ -600,7 +600,7 @@ fmap_readn.exit.thread:                           ; preds = %32, %26, %fmap_read
   %38 = load i64, ptr %0, align 8
   %39 = add i64 %38, 4
   store i64 %39, ptr %0, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 40
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %41 = load i32, ptr %40, align 8
   %42 = icmp eq i32 %41, 4
   br i1 %42, label %43, label %44
@@ -647,7 +647,7 @@ fmap_readn.exit.thread:                           ; preds = %32, %26, %fmap_read
 59:                                               ; preds = %52
   %60 = load ptr, ptr %27, align 8
   %61 = load i64, ptr %0, align 8
-  %62 = getelementptr inbounds i8, ptr %60, i64 104
+  %62 = getelementptr inbounds nuw i8, ptr %60, i64 104
   %63 = load ptr, ptr %62, align 8
   %64 = tail call ptr %63(ptr noundef %60, i64 noundef %61, i64 noundef range(i64 0, 4294967296) %54, i32 noundef 0) #10
   %.not160 = icmp eq ptr %64, null
@@ -658,9 +658,9 @@ fmap_readn.exit.thread:                           ; preds = %32, %26, %fmap_read
   br label %255
 
 66:                                               ; preds = %59
-  %67 = getelementptr inbounds i8, ptr %0, i64 44824
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 44824
   %68 = tail call i32 (ptr, i32, ...) @open(ptr noundef nonnull %67, i32 noundef 578, i32 noundef 384) #10
-  %69 = getelementptr inbounds i8, ptr %0, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %68, ptr %69, align 8
   %70 = icmp eq i32 %68, -1
   br i1 %70, label %71, label %72
@@ -700,13 +700,13 @@ fmap_readn.exit.thread:                           ; preds = %32, %26, %fmap_read
   br label %255
 
 86:                                               ; preds = %81
-  %87 = getelementptr inbounds i8, ptr %0, i64 56
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 %45, ptr %87, align 8
-  %88 = getelementptr inbounds i8, ptr %0, i64 64
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %64, ptr %88, align 8
-  %89 = getelementptr inbounds i8, ptr %0, i64 80
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %4, ptr %89, align 8
-  %90 = getelementptr inbounds i8, ptr %0, i64 72
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 8192, ptr %90, align 8
   %91 = call fastcc i32 @nsis_decomp(ptr noundef %0)
   %92 = icmp eq i32 %91, 0
@@ -818,18 +818,18 @@ fmap_readn.exit.thread:                           ; preds = %32, %26, %fmap_read
   br label %255
 
 137:                                              ; preds = %20
-  %138 = getelementptr inbounds i8, ptr %0, i64 44808
+  %138 = getelementptr inbounds nuw i8, ptr %0, i64 44808
   %139 = load ptr, ptr %138, align 8
   %.not169 = icmp eq ptr %139, null
   br i1 %.not169, label %140, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %137
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 56
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 56
   %.pre = load i32, ptr %.phi.trans.insert, align 8
   br label %177
 
 140:                                              ; preds = %137
-  %141 = getelementptr inbounds i8, ptr %0, i64 52
+  %141 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %142 = load i8, ptr %141, align 4
   switch i8 %142, label %161 [
     i8 1, label %143
@@ -838,44 +838,44 @@ fmap_readn.exit.thread:                           ; preds = %32, %26, %fmap_read
   ]
 
 143:                                              ; preds = %140
-  %144 = getelementptr inbounds i8, ptr %0, i64 88
+  %144 = getelementptr inbounds nuw i8, ptr %0, i64 88
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %144, i8 0, i64 80, i1 false)
   %145 = tail call i32 @nsis_BZ2_bzDecompressInit(ptr noundef nonnull %144, i32 noundef 0, i32 noundef 0) #10
   %.not20.i = icmp eq i32 %145, 0
   br i1 %.not20.i, label %.sink.split.i, label %nsis_init.exit
 
 146:                                              ; preds = %140
-  %147 = getelementptr inbounds i8, ptr %0, i64 168
+  %147 = getelementptr inbounds nuw i8, ptr %0, i64 168
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %147, i8 0, i64 200, i1 false)
   %148 = tail call i32 @cli_LzmaInit(ptr noundef nonnull %147, i64 noundef -1) #10
   %.not.i184 = icmp eq i32 %148, 0
   br i1 %.not.i184, label %.sink.split.i, label %nsis_init.exit
 
 149:                                              ; preds = %140
-  %150 = getelementptr inbounds i8, ptr %0, i64 368
-  %151 = getelementptr inbounds i8, ptr %0, i64 2588
+  %150 = getelementptr inbounds nuw i8, ptr %0, i64 368
+  %151 = getelementptr inbounds nuw i8, ptr %0, i64 2588
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %150, i8 0, i64 112, i1 false)
   store i32 9, ptr %151, align 4
-  %152 = getelementptr inbounds i8, ptr %0, i64 2592
+  %152 = getelementptr inbounds nuw i8, ptr %0, i64 2592
   store i32 5, ptr %152, align 8
-  %153 = getelementptr inbounds i8, ptr %0, i64 4920
+  %153 = getelementptr inbounds nuw i8, ptr %0, i64 4920
   store i32 8, ptr %153, align 8
-  %154 = getelementptr inbounds i8, ptr %0, i64 6240
+  %154 = getelementptr inbounds nuw i8, ptr %0, i64 6240
   store i64 0, ptr %154, align 8
-  %155 = getelementptr inbounds i8, ptr %0, i64 6236
+  %155 = getelementptr inbounds nuw i8, ptr %0, i64 6236
   store i32 0, ptr %155, align 4
-  %156 = getelementptr inbounds i8, ptr %0, i64 12008
-  %157 = getelementptr inbounds i8, ptr %0, i64 44792
+  %156 = getelementptr inbounds nuw i8, ptr %0, i64 12008
+  %157 = getelementptr inbounds nuw i8, ptr %0, i64 44792
   store ptr %156, ptr %157, align 8
-  %158 = getelementptr inbounds i8, ptr %0, i64 44784
+  %158 = getelementptr inbounds nuw i8, ptr %0, i64 44784
   store ptr %156, ptr %158, align 8
-  %159 = getelementptr inbounds i8, ptr %0, i64 44776
+  %159 = getelementptr inbounds nuw i8, ptr %0, i64 44776
   store ptr %159, ptr %159, align 8
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %149, %146, %143
   %.sink.i = phi i8 [ 0, %149 ], [ 1, %143 ], [ 1, %146 ]
-  %160 = getelementptr inbounds i8, ptr %0, i64 54
+  %160 = getelementptr inbounds nuw i8, ptr %0, i64 54
   store i8 %.sink.i, ptr %160, align 2
   br label %161
 
@@ -884,13 +884,13 @@ nsis_init.exit:                                   ; preds = %146, %143
   br label %255
 
 161:                                              ; preds = %140, %.sink.split.i
-  %162 = getelementptr inbounds i8, ptr %0, i64 44816
+  %162 = getelementptr inbounds nuw i8, ptr %0, i64 44816
   %163 = load ptr, ptr %162, align 8
   %164 = load i64, ptr %0, align 8
-  %165 = getelementptr inbounds i8, ptr %0, i64 40
+  %165 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %166 = load i32, ptr %165, align 8
   %167 = zext i32 %166 to i64
-  %168 = getelementptr inbounds i8, ptr %163, i64 104
+  %168 = getelementptr inbounds nuw i8, ptr %163, i64 104
   %169 = load ptr, ptr %168, align 8
   %170 = tail call ptr %169(ptr noundef %163, i64 noundef %164, i64 noundef range(i64 0, 4294967296) %167, i32 noundef 0) #10
   store ptr %170, ptr %138, align 8
@@ -903,8 +903,8 @@ nsis_init.exit:                                   ; preds = %146, %143
   br label %255
 
 173:                                              ; preds = %161
-  %174 = getelementptr inbounds i8, ptr %0, i64 56
-  %175 = getelementptr inbounds i8, ptr %0, i64 64
+  %174 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %175 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %170, ptr %175, align 8
   %176 = load i32, ptr %165, align 8
   store i32 %176, ptr %174, align 8
@@ -920,9 +920,9 @@ nsis_init.exit:                                   ; preds = %146, %143
   br label %255
 
 181:                                              ; preds = %177
-  %182 = getelementptr inbounds i8, ptr %0, i64 80
+  %182 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %4, ptr %182, align 8
-  %183 = getelementptr inbounds i8, ptr %0, i64 72
+  %183 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 4, ptr %183, align 8
   %184 = ptrtoint ptr %4 to i64
   br label %185
@@ -972,9 +972,9 @@ nsis_init.exit:                                   ; preds = %146, %143
   store ptr %4, ptr %182, align 8
   %203 = call i32 @llvm.umin.i32(i32 %196, i32 8192)
   store i32 %203, ptr %183, align 8
-  %204 = getelementptr inbounds i8, ptr %0, i64 44824
+  %204 = getelementptr inbounds nuw i8, ptr %0, i64 44824
   %205 = call i32 (ptr, i32, ...) @open(ptr noundef nonnull %204, i32 noundef 578, i32 noundef 384) #10
-  %206 = getelementptr inbounds i8, ptr %0, i64 8
+  %206 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %205, ptr %206, align 8
   %207 = icmp eq i32 %205, -1
   br i1 %207, label %208, label %.lr.ph.preheader
@@ -1110,7 +1110,7 @@ declare i64 @cli_writen(i32 noundef, ptr noundef, i64 noundef) local_unnamed_add
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 8) i32 @nsis_init(ptr noundef nonnull %0) unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 52
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %3 = load i8, ptr %2, align 4
   switch i8 %3, label %22 [
     i8 1, label %4
@@ -1119,44 +1119,44 @@ define internal fastcc range(i32 0, 8) i32 @nsis_init(ptr noundef nonnull %0) un
   ]
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 88
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %5, i8 0, i64 80, i1 false)
   %6 = tail call i32 @nsis_BZ2_bzDecompressInit(ptr noundef nonnull %5, i32 noundef 0, i32 noundef 0) #10
   %.not20 = icmp eq i32 %6, 0
   br i1 %.not20, label %.sink.split, label %22
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 168
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 168
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %8, i8 0, i64 200, i1 false)
   %9 = tail call i32 @cli_LzmaInit(ptr noundef nonnull %8, i64 noundef -1) #10
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %.sink.split, label %22
 
 10:                                               ; preds = %1
-  %11 = getelementptr inbounds i8, ptr %0, i64 368
-  %12 = getelementptr inbounds i8, ptr %0, i64 2588
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 368
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 2588
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %11, i8 0, i64 112, i1 false)
   store i32 9, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %0, i64 2592
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 2592
   store i32 5, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 4920
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 4920
   store i32 8, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 6240
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 6240
   store i64 0, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 6236
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 6236
   store i32 0, ptr %16, align 4
-  %17 = getelementptr inbounds i8, ptr %0, i64 12008
-  %18 = getelementptr inbounds i8, ptr %0, i64 44792
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 12008
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 44792
   store ptr %17, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 44784
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 44784
   store ptr %17, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 44776
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 44776
   store ptr %20, ptr %20, align 8
   br label %.sink.split
 
 .sink.split:                                      ; preds = %7, %4, %10
   %.sink = phi i8 [ 0, %10 ], [ 1, %4 ], [ 1, %7 ]
-  %21 = getelementptr inbounds i8, ptr %0, i64 54
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 54
   store i8 %.sink, ptr %21, align 2
   br label %22
 
@@ -1167,7 +1167,7 @@ define internal fastcc range(i32 0, 8) i32 @nsis_init(ptr noundef nonnull %0) un
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 27) i32 @nsis_decomp(ptr noundef nonnull %0) unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 52
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %3 = load i8, ptr %2, align 4
   switch i8 %3, label %63 [
     i8 1, label %4
@@ -1176,21 +1176,21 @@ define internal fastcc range(i32 0, 27) i32 @nsis_decomp(ptr noundef nonnull %0)
   ]
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 56
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load i32, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 88
-  %8 = getelementptr inbounds i8, ptr %0, i64 96
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i32 %6, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %10 = load ptr, ptr %9, align 8
   store ptr %10, ptr %7, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %12 = load i32, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 120
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i32 %12, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 80
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 112
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr %15, ptr %16, align 8
   %17 = tail call i32 @nsis_BZ2_bzDecompress(ptr noundef nonnull %7) #10
   %switch.selectcmp = icmp eq i32 %17, 4
@@ -1208,24 +1208,24 @@ define internal fastcc range(i32 0, 27) i32 @nsis_decomp(ptr noundef nonnull %0)
   br label %63
 
 22:                                               ; preds = %1
-  %23 = getelementptr inbounds i8, ptr %0, i64 56
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %24 = load i32, ptr %23, align 8
   %25 = zext i32 %24 to i64
-  %26 = getelementptr inbounds i8, ptr %0, i64 168
-  %27 = getelementptr inbounds i8, ptr %0, i64 352
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 352
   store i64 %25, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 64
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 336
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 336
   store ptr %29, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 72
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %32 = load i32, ptr %31, align 8
   %33 = zext i32 %32 to i64
-  %34 = getelementptr inbounds i8, ptr %0, i64 360
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 360
   store i64 %33, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 80
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %0, i64 344
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 344
   store ptr %36, ptr %37, align 8
   %38 = tail call i32 @cli_LzmaDecode(ptr noundef nonnull %26) #10
   %switch.selectcmp54 = icmp eq i32 %38, 2
@@ -1245,21 +1245,21 @@ define internal fastcc range(i32 0, 27) i32 @nsis_decomp(ptr noundef nonnull %0)
   br label %63
 
 45:                                               ; preds = %1
-  %46 = getelementptr inbounds i8, ptr %0, i64 56
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %47 = load i32, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %0, i64 368
-  %49 = getelementptr inbounds i8, ptr %0, i64 376
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 368
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 376
   store i32 %47, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %0, i64 64
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %51 = load ptr, ptr %50, align 8
   store ptr %51, ptr %48, align 8
-  %52 = getelementptr inbounds i8, ptr %0, i64 72
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %53 = load i32, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %0, i64 400
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 400
   store i32 %53, ptr %54, align 8
-  %55 = getelementptr inbounds i8, ptr %0, i64 80
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %0, i64 392
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 392
   store ptr %56, ptr %57, align 8
   %58 = tail call i32 @nsis_inflate(ptr noundef nonnull %48) #10
   %switch.selectcmp58 = icmp eq i32 %58, 1

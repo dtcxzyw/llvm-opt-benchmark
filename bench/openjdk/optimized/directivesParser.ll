@@ -154,11 +154,11 @@ $_ZN25ControlIntrinsicValidatorC2EPKcb = comdat any
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZN16DirectivesParser8push_tmpEP18CompilerDirectives(ptr nocapture noundef nonnull align 8 dereferenceable(132) %0, ptr noundef initializes((0, 8)) %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 128
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %4 = load i32, ptr %3, align 8
   %5 = add nsw i32 %4, 1
   store i32 %5, ptr %3, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 120
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %7 = load ptr, ptr %6, align 8
   store ptr %7, ptr %1, align 8
   store ptr %1, ptr %6, align 8
@@ -167,7 +167,7 @@ define hidden void @_ZN16DirectivesParser8push_tmpEP18CompilerDirectives(ptr noc
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN16DirectivesParser7pop_tmpEv(ptr nocapture noundef nonnull align 8 dereferenceable(132) %0) local_unnamed_addr #1 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 120
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %10, label %5
@@ -176,7 +176,7 @@ define hidden noundef ptr @_ZN16DirectivesParser7pop_tmpEv(ptr nocapture noundef
   %6 = tail call noundef ptr @_ZN18CompilerDirectives4nextEv(ptr noundef nonnull align 8 dereferenceable(40) %3) #17
   store ptr %6, ptr %2, align 8
   store ptr null, ptr %3, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 128
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %8 = load i32, ptr %7, align 8
   %9 = add nsw i32 %8, -1
   store i32 %9, ptr %7, align 8
@@ -190,7 +190,7 @@ declare noundef ptr @_ZN18CompilerDirectives4nextEv(ptr noundef nonnull align 8 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN16DirectivesParser9clean_tmpEv(ptr nocapture noundef nonnull align 8 dereferenceable(132) %0) local_unnamed_addr #1 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 120
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = load ptr, ptr %2, align 8
   %cond = icmp eq ptr %3, null
   br i1 %cond, label %._crit_edge, label %_ZN16DirectivesParser7pop_tmpEv.exit
@@ -199,7 +199,7 @@ _ZN16DirectivesParser7pop_tmpEv.exit:             ; preds = %1
   %4 = tail call noundef ptr @_ZN18CompilerDirectives4nextEv(ptr noundef nonnull align 8 dereferenceable(40) %3) #17
   store ptr %4, ptr %2, align 8
   store ptr null, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 128
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %storemerge.in8 = load i32, ptr %5, align 8
   %storemerge9 = add nsw i32 %storemerge.in8, -1
   store i32 %storemerge9, ptr %5, align 8
@@ -235,9 +235,9 @@ define hidden noundef i32 @_ZN16DirectivesParser12parse_stringEPKcP12outputStrea
   %4 = alloca %class.DirectivesParser, align 8
   call void @_ZN4JSONC2EPKcbP12outputStream(ptr noundef nonnull align 8 dereferenceable(132) %4, ptr noundef %0, i1 noundef zeroext %2, ptr noundef %1) #17
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV16DirectivesParser, i64 16), ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 96
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 96
   store i32 0, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 104
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %6, i8 0, i64 28, i1 false)
   call void @_ZN4JSON5parseEv(ptr noundef nonnull align 8 dereferenceable(132) %4) #17
   %7 = call noundef zeroext i1 @_ZN4JSON5validEv(ptr noundef nonnull align 8 dereferenceable(54) %4) #17
@@ -248,7 +248,7 @@ define hidden noundef i32 @_ZN16DirectivesParser12parse_stringEPKcP12outputStrea
   br label %21
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %4, i64 120
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 120
   %12 = load ptr, ptr %11, align 8
   %cond.i = icmp eq ptr %12, null
   br i1 %cond.i, label %_ZN16DirectivesParser9clean_tmpEv.exit, label %_ZN16DirectivesParser7pop_tmpEv.exit.i
@@ -257,7 +257,7 @@ _ZN16DirectivesParser7pop_tmpEv.exit.i:           ; preds = %10
   %13 = call noundef ptr @_ZN18CompilerDirectives4nextEv(ptr noundef nonnull align 8 dereferenceable(40) %12) #17
   store ptr %13, ptr %11, align 8
   store ptr null, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %4, i64 128
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 128
   %storemerge.in.i5 = load i32, ptr %14, align 8
   %storemerge.i6 = add nsw i32 %storemerge.in.i5, -1
   store i32 %storemerge.i6, ptr %14, align 8
@@ -297,12 +297,12 @@ declare noundef zeroext i1 @_ZN4JSON5validEv(ptr noundef nonnull align 8 derefer
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i32 @_ZN16DirectivesParser18install_directivesEv(ptr nocapture noundef nonnull align 8 dereferenceable(132) %0) local_unnamed_addr #1 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 128
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load i32, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noundef zeroext i1 @_ZN15DirectivesStack14check_capacityEiP12outputStream(i32 noundef %3, ptr noundef %5) #17
-  %7 = getelementptr inbounds i8, ptr %0, i64 120
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %8 = load ptr, ptr %7, align 8
   %cond = icmp eq ptr %8, null
   br i1 %6, label %15, label %9
@@ -419,15 +419,15 @@ define hidden noundef zeroext i1 @_ZN16DirectivesParser21parse_from_file_innerEP
   %4 = alloca %struct.stat, align 8
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 800
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 800
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %8, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %8, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %8, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %16 = load i64, ptr %15, align 8
   %17 = call noundef i32 @_ZN2os4statEPKcP4stat(ptr noundef %0, ptr noundef nonnull %4) #17
   %18 = icmp eq i32 %17, 0
@@ -439,7 +439,7 @@ define hidden noundef zeroext i1 @_ZN16DirectivesParser21parse_from_file_innerEP
   br i1 %.not, label %34, label %21
 
 21:                                               ; preds = %19
-  %22 = getelementptr inbounds i8, ptr %4, i64 48
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %23 = load i64, ptr %22, align 8
   %24 = add nsw i64 %23, 1
   %25 = call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef %24, i32 noundef 0) #17
@@ -450,7 +450,7 @@ define hidden noundef zeroext i1 @_ZN16DirectivesParser21parse_from_file_innerEP
   br i1 %29, label %30, label %34
 
 30:                                               ; preds = %21
-  %31 = getelementptr inbounds i8, ptr %25, i64 %27
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 %27
   store i8 0, ptr %31, align 1
   %32 = call noundef i32 @_ZN16DirectivesParser12parse_stringEPKcP12outputStreamb(ptr noundef %25, ptr noundef %1, i1 noundef zeroext %2)
   %33 = icmp sgt i32 %32, 0
@@ -503,9 +503,9 @@ declare void @_ZN15DirectivesStack5printEP12outputStream(ptr noundef) local_unna
 define hidden void @_ZN16DirectivesParserC2EPKcP12outputStreamb(ptr noundef nonnull align 8 dereferenceable(132) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #1 align 2 {
   tail call void @_ZN4JSONC2EPKcbP12outputStream(ptr noundef nonnull align 8 dereferenceable(54) %0, ptr noundef %1, i1 noundef zeroext %3, ptr noundef %2) #17
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV16DirectivesParser, i64 16), ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 96
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i32 0, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 104
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %6, i8 0, i64 28, i1 false)
   tail call void @_ZN4JSON5parseEv(ptr noundef nonnull align 8 dereferenceable(54) %0) #17
   ret void
@@ -532,9 +532,9 @@ define hidden noundef range(i32 1, -2147483647) i32 @_ZN16DirectivesParser4maskE
 define linkonce_odr hidden void @_ZN12DirectiveSet10set_EnableEPv(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef %1) #1 comdat align 2 {
   %3 = load i8, ptr %1, align 1
   %4 = and i8 %3, 1
-  %5 = getelementptr inbounds i8, ptr %0, i64 203
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 203
   store i8 %4, ptr %5, align 1
-  %6 = getelementptr inbounds i8, ptr %0, i64 176
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store i8 1, ptr %6, align 8
   ret void
 }
@@ -543,9 +543,9 @@ define linkonce_odr hidden void @_ZN12DirectiveSet10set_EnableEPv(ptr noundef no
 define linkonce_odr hidden void @_ZN12DirectiveSet11set_ExcludeEPv(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef %1) #1 comdat align 2 {
   %3 = load i8, ptr %1, align 1
   %4 = and i8 %3, 1
-  %5 = getelementptr inbounds i8, ptr %0, i64 204
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 204
   store i8 %4, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 177
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 177
   store i8 1, ptr %6, align 1
   ret void
 }
@@ -554,9 +554,9 @@ define linkonce_odr hidden void @_ZN12DirectiveSet11set_ExcludeEPv(ptr noundef n
 define linkonce_odr hidden void @_ZN12DirectiveSet18set_BreakAtExecuteEPv(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef %1) #1 comdat align 2 {
   %3 = load i8, ptr %1, align 1
   %4 = and i8 %3, 1
-  %5 = getelementptr inbounds i8, ptr %0, i64 205
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 205
   store i8 %4, ptr %5, align 1
-  %6 = getelementptr inbounds i8, ptr %0, i64 178
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 178
   store i8 1, ptr %6, align 2
   ret void
 }
@@ -565,9 +565,9 @@ define linkonce_odr hidden void @_ZN12DirectiveSet18set_BreakAtExecuteEPv(ptr no
 define linkonce_odr hidden void @_ZN12DirectiveSet18set_BreakAtCompileEPv(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef %1) #1 comdat align 2 {
   %3 = load i8, ptr %1, align 1
   %4 = and i8 %3, 1
-  %5 = getelementptr inbounds i8, ptr %0, i64 206
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 206
   store i8 %4, ptr %5, align 2
-  %6 = getelementptr inbounds i8, ptr %0, i64 179
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 179
   store i8 1, ptr %6, align 1
   ret void
 }
@@ -576,9 +576,9 @@ define linkonce_odr hidden void @_ZN12DirectiveSet18set_BreakAtCompileEPv(ptr no
 define linkonce_odr hidden void @_ZN12DirectiveSet7set_LogEPv(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef %1) #1 comdat align 2 {
   %3 = load i8, ptr %1, align 1
   %4 = and i8 %3, 1
-  %5 = getelementptr inbounds i8, ptr %0, i64 207
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 207
   store i8 %4, ptr %5, align 1
-  %6 = getelementptr inbounds i8, ptr %0, i64 180
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 180
   store i8 1, ptr %6, align 4
   ret void
 }
@@ -586,9 +586,9 @@ define linkonce_odr hidden void @_ZN12DirectiveSet7set_LogEPv(ptr noundef nonnul
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN12DirectiveSet12set_MemLimitEPv(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef %1) #1 comdat align 2 {
   %3 = load i64, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 208
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 208
   store i64 %3, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 181
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 181
   store i8 1, ptr %5, align 1
   ret void
 }
@@ -596,9 +596,9 @@ define linkonce_odr hidden void @_ZN12DirectiveSet12set_MemLimitEPv(ptr noundef 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN12DirectiveSet11set_MemStatEPv(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef %1) #1 comdat align 2 {
   %3 = load i64, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 216
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 216
   store i64 %3, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 182
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 182
   store i8 1, ptr %5, align 2
   ret void
 }
@@ -607,9 +607,9 @@ define linkonce_odr hidden void @_ZN12DirectiveSet11set_MemStatEPv(ptr noundef n
 define linkonce_odr hidden void @_ZN12DirectiveSet17set_PrintAssemblyEPv(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef %1) #1 comdat align 2 {
   %3 = load i8, ptr %1, align 1
   %4 = and i8 %3, 1
-  %5 = getelementptr inbounds i8, ptr %0, i64 224
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 224
   store i8 %4, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 183
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 183
   store i8 1, ptr %6, align 1
   ret void
 }
@@ -618,9 +618,9 @@ define linkonce_odr hidden void @_ZN12DirectiveSet17set_PrintAssemblyEPv(ptr nou
 define linkonce_odr hidden void @_ZN12DirectiveSet20set_PrintCompilationEPv(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef %1) #1 comdat align 2 {
   %3 = load i8, ptr %1, align 1
   %4 = and i8 %3, 1
-  %5 = getelementptr inbounds i8, ptr %0, i64 225
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 225
   store i8 %4, ptr %5, align 1
-  %6 = getelementptr inbounds i8, ptr %0, i64 184
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 184
   store i8 1, ptr %6, align 8
   ret void
 }
@@ -629,9 +629,9 @@ define linkonce_odr hidden void @_ZN12DirectiveSet20set_PrintCompilationEPv(ptr 
 define linkonce_odr hidden void @_ZN12DirectiveSet17set_PrintInliningEPv(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef %1) #1 comdat align 2 {
   %3 = load i8, ptr %1, align 1
   %4 = and i8 %3, 1
-  %5 = getelementptr inbounds i8, ptr %0, i64 226
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 226
   store i8 %4, ptr %5, align 2
-  %6 = getelementptr inbounds i8, ptr %0, i64 185
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 185
   store i8 1, ptr %6, align 1
   ret void
 }
@@ -640,9 +640,9 @@ define linkonce_odr hidden void @_ZN12DirectiveSet17set_PrintInliningEPv(ptr nou
 define linkonce_odr hidden void @_ZN12DirectiveSet17set_PrintNMethodsEPv(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef %1) #1 comdat align 2 {
   %3 = load i8, ptr %1, align 1
   %4 = and i8 %3, 1
-  %5 = getelementptr inbounds i8, ptr %0, i64 227
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 227
   store i8 %4, ptr %5, align 1
-  %6 = getelementptr inbounds i8, ptr %0, i64 186
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 186
   store i8 1, ptr %6, align 2
   ret void
 }
@@ -651,9 +651,9 @@ define linkonce_odr hidden void @_ZN12DirectiveSet17set_PrintNMethodsEPv(ptr nou
 define linkonce_odr hidden void @_ZN12DirectiveSet25set_BackgroundCompilationEPv(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef %1) #1 comdat align 2 {
   %3 = load i8, ptr %1, align 1
   %4 = and i8 %3, 1
-  %5 = getelementptr inbounds i8, ptr %0, i64 228
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 228
   store i8 %4, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 187
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 187
   store i8 1, ptr %6, align 1
   ret void
 }
@@ -662,9 +662,9 @@ define linkonce_odr hidden void @_ZN12DirectiveSet25set_BackgroundCompilationEPv
 define linkonce_odr hidden void @_ZN12DirectiveSet16set_ReplayInlineEPv(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef %1) #1 comdat align 2 {
   %3 = load i8, ptr %1, align 1
   %4 = and i8 %3, 1
-  %5 = getelementptr inbounds i8, ptr %0, i64 229
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 229
   store i8 %4, ptr %5, align 1
-  %6 = getelementptr inbounds i8, ptr %0, i64 188
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 188
   store i8 1, ptr %6, align 4
   ret void
 }
@@ -673,9 +673,9 @@ define linkonce_odr hidden void @_ZN12DirectiveSet16set_ReplayInlineEPv(ptr noun
 define linkonce_odr hidden void @_ZN12DirectiveSet14set_DumpReplayEPv(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef %1) #1 comdat align 2 {
   %3 = load i8, ptr %1, align 1
   %4 = and i8 %3, 1
-  %5 = getelementptr inbounds i8, ptr %0, i64 230
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 230
   store i8 %4, ptr %5, align 2
-  %6 = getelementptr inbounds i8, ptr %0, i64 189
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 189
   store i8 1, ptr %6, align 1
   ret void
 }
@@ -684,9 +684,9 @@ define linkonce_odr hidden void @_ZN12DirectiveSet14set_DumpReplayEPv(ptr nounde
 define linkonce_odr hidden void @_ZN12DirectiveSet14set_DumpInlineEPv(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef %1) #1 comdat align 2 {
   %3 = load i8, ptr %1, align 1
   %4 = and i8 %3, 1
-  %5 = getelementptr inbounds i8, ptr %0, i64 231
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 231
   store i8 %4, ptr %5, align 1
-  %6 = getelementptr inbounds i8, ptr %0, i64 190
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 190
   store i8 1, ptr %6, align 2
   ret void
 }
@@ -695,9 +695,9 @@ define linkonce_odr hidden void @_ZN12DirectiveSet14set_DumpInlineEPv(ptr nounde
 define linkonce_odr hidden void @_ZN12DirectiveSet43set_CompilerDirectivesIgnoreCompileCommandsEPv(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef %1) #1 comdat align 2 {
   %3 = load i8, ptr %1, align 1
   %4 = and i8 %3, 1
-  %5 = getelementptr inbounds i8, ptr %0, i64 232
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 232
   store i8 %4, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 191
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 191
   store i8 1, ptr %6, align 1
   ret void
 }
@@ -705,29 +705,29 @@ define linkonce_odr hidden void @_ZN12DirectiveSet43set_CompilerDirectivesIgnore
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN12DirectiveSet21set_RepeatCompilationEPv(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef %1) #1 comdat align 2 {
   %3 = load i64, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 240
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 240
   store i64 %3, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 192
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store i8 1, ptr %5, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN12DirectiveSet20set_DisableIntrinsicEPv(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef %1) #1 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 193
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 193
   %4 = load i8, ptr %3, align 1
   %5 = trunc i8 %4 to i1
   br i1 %5, label %6, label %9
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 248
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %8 = load ptr, ptr %7, align 8
   tail call void @_ZN2os4freeEPv(ptr noundef %8) #17
   br label %9
 
 9:                                                ; preds = %6, %2
   %10 = load ptr, ptr %1, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 248
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 248
   store ptr %10, ptr %11, align 8
   store i8 1, ptr %3, align 1
   ret void
@@ -735,20 +735,20 @@ define linkonce_odr hidden void @_ZN12DirectiveSet20set_DisableIntrinsicEPv(ptr 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN12DirectiveSet20set_ControlIntrinsicEPv(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef %1) #1 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 194
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 194
   %4 = load i8, ptr %3, align 2
   %5 = trunc i8 %4 to i1
   br i1 %5, label %6, label %9
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 256
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %8 = load ptr, ptr %7, align 8
   tail call void @_ZN2os4freeEPv(ptr noundef %8) #17
   br label %9
 
 9:                                                ; preds = %6, %2
   %10 = load ptr, ptr %1, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 256
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 256
   store ptr %10, ptr %11, align 8
   store i8 1, ptr %3, align 2
   ret void
@@ -758,9 +758,9 @@ define linkonce_odr hidden void @_ZN12DirectiveSet20set_ControlIntrinsicEPv(ptr 
 define linkonce_odr hidden void @_ZN12DirectiveSet26set_BlockLayoutByFrequencyEPv(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef %1) #1 comdat align 2 {
   %3 = load i8, ptr %1, align 1
   %4 = and i8 %3, 1
-  %5 = getelementptr inbounds i8, ptr %0, i64 264
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 264
   store i8 %4, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 195
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 195
   store i8 1, ptr %6, align 1
   ret void
 }
@@ -769,9 +769,9 @@ define linkonce_odr hidden void @_ZN12DirectiveSet26set_BlockLayoutByFrequencyEP
 define linkonce_odr hidden void @_ZN12DirectiveSet21set_PrintOptoAssemblyEPv(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef %1) #1 comdat align 2 {
   %3 = load i8, ptr %1, align 1
   %4 = and i8 %3, 1
-  %5 = getelementptr inbounds i8, ptr %0, i64 265
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 265
   store i8 %4, ptr %5, align 1
-  %6 = getelementptr inbounds i8, ptr %0, i64 196
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 196
   store i8 1, ptr %6, align 4
   ret void
 }
@@ -780,9 +780,9 @@ define linkonce_odr hidden void @_ZN12DirectiveSet21set_PrintOptoAssemblyEPv(ptr
 define linkonce_odr hidden void @_ZN12DirectiveSet19set_PrintIntrinsicsEPv(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef %1) #1 comdat align 2 {
   %3 = load i8, ptr %1, align 1
   %4 = and i8 %3, 1
-  %5 = getelementptr inbounds i8, ptr %0, i64 266
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 266
   store i8 %4, ptr %5, align 2
-  %6 = getelementptr inbounds i8, ptr %0, i64 197
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 197
   store i8 1, ptr %6, align 1
   ret void
 }
@@ -791,9 +791,9 @@ define linkonce_odr hidden void @_ZN12DirectiveSet19set_PrintIntrinsicsEPv(ptr n
 define linkonce_odr hidden void @_ZN12DirectiveSet17set_TraceSpillingEPv(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef %1) #1 comdat align 2 {
   %3 = load i8, ptr %1, align 1
   %4 = and i8 %3, 1
-  %5 = getelementptr inbounds i8, ptr %0, i64 267
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 267
   store i8 %4, ptr %5, align 1
-  %6 = getelementptr inbounds i8, ptr %0, i64 198
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 198
   store i8 1, ptr %6, align 2
   ret void
 }
@@ -802,9 +802,9 @@ define linkonce_odr hidden void @_ZN12DirectiveSet17set_TraceSpillingEPv(ptr nou
 define linkonce_odr hidden void @_ZN12DirectiveSet13set_VectorizeEPv(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef %1) #1 comdat align 2 {
   %3 = load i8, ptr %1, align 1
   %4 = and i8 %3, 1
-  %5 = getelementptr inbounds i8, ptr %0, i64 268
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 268
   store i8 %4, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 199
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 199
   store i8 1, ptr %6, align 1
   ret void
 }
@@ -813,9 +813,9 @@ define linkonce_odr hidden void @_ZN12DirectiveSet13set_VectorizeEPv(ptr noundef
 define linkonce_odr hidden void @_ZN12DirectiveSet17set_CloneMapDebugEPv(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef %1) #1 comdat align 2 {
   %3 = load i8, ptr %1, align 1
   %4 = and i8 %3, 1
-  %5 = getelementptr inbounds i8, ptr %0, i64 269
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 269
   store i8 %4, ptr %5, align 1
-  %6 = getelementptr inbounds i8, ptr %0, i64 200
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 200
   store i8 1, ptr %6, align 8
   ret void
 }
@@ -824,9 +824,9 @@ define linkonce_odr hidden void @_ZN12DirectiveSet17set_CloneMapDebugEPv(ptr nou
 define linkonce_odr hidden void @_ZN12DirectiveSet33set_IncrementalInlineForceCleanupEPv(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef %1) #1 comdat align 2 {
   %3 = load i8, ptr %1, align 1
   %4 = and i8 %3, 1
-  %5 = getelementptr inbounds i8, ptr %0, i64 270
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 270
   store i8 %4, ptr %5, align 2
-  %6 = getelementptr inbounds i8, ptr %0, i64 201
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 201
   store i8 1, ptr %6, align 1
   ret void
 }
@@ -834,9 +834,9 @@ define linkonce_odr hidden void @_ZN12DirectiveSet33set_IncrementalInlineForceCl
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN12DirectiveSet16set_MaxNodeLimitEPv(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef %1) #1 comdat align 2 {
   %3 = load i64, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 272
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 272
   store i64 %3, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 202
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 202
   store i8 1, ptr %5, align 2
   ret void
 }
@@ -852,7 +852,7 @@ define hidden noundef ptr @_ZN16DirectivesParser10lookup_keyEPKcm(ptr nocapture 
 
 5:                                                ; preds = %2, %3
   %.07 = phi i64 [ 0, %2 ], [ %4, %3 ]
-  %6 = getelementptr inbounds [31 x %"struct.DirectivesParser::key"], ptr @_ZN16DirectivesParser4keysE, i64 0, i64 %.07
+  %6 = getelementptr inbounds nuw [31 x %"struct.DirectivesParser::key"], ptr @_ZN16DirectivesParser4keysE, i64 0, i64 %.07
   %7 = load ptr, ptr %6, align 16
   %8 = tail call i32 @strncasecmp(ptr noundef %7, ptr noundef %0, i64 noundef %1) #18
   %9 = icmp eq i32 %8, 0
@@ -877,7 +877,7 @@ define hidden noundef zeroext i1 @_ZN16DirectivesParser8push_keyEPKcm(ptr nounde
 
 6:                                                ; preds = %4, %3
   %.07.i = phi i64 [ 0, %3 ], [ %5, %4 ]
-  %7 = getelementptr inbounds [31 x %"struct.DirectivesParser::key"], ptr @_ZN16DirectivesParser4keysE, i64 0, i64 %.07.i
+  %7 = getelementptr inbounds nuw [31 x %"struct.DirectivesParser::key"], ptr @_ZN16DirectivesParser4keysE, i64 0, i64 %.07.i
   %8 = load ptr, ptr %7, align 16
   %9 = tail call i32 @strncasecmp(ptr noundef %8, ptr noundef readonly %1, i64 noundef %2) #18
   %10 = icmp eq i32 %9, 0
@@ -894,7 +894,7 @@ define hidden noundef zeroext i1 @_ZN16DirectivesParser8push_keyEPKcm(ptr nounde
   br label %_ZN16DirectivesParser8push_keyEPKNS_3keyE.exit
 
 _ZN16DirectivesParser10lookup_keyEPKcm.exit:      ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %0, i64 96
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %17 = load i32, ptr %16, align 8
   %18 = icmp ugt i32 %17, 4
   br i1 %18, label %19, label %20
@@ -908,7 +908,7 @@ _ZN16DirectivesParser10lookup_keyEPKcm.exit:      ; preds = %6
   br i1 %21, label %22, label %27
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds i8, ptr %7, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %24 = load i32, ptr %23, align 8
   %25 = and i32 %24, 1
   %.not.i = icmp eq i32 %25, 0
@@ -919,14 +919,14 @@ _ZN16DirectivesParser10lookup_keyEPKcm.exit:      ; preds = %6
   br label %_ZN16DirectivesParser8push_keyEPKNS_3keyE.exit
 
 27:                                               ; preds = %20
-  %28 = getelementptr inbounds i8, ptr %0, i64 56
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %29 = add nsw i32 %17, -1
   %30 = zext nneg i32 %29 to i64
-  %31 = getelementptr inbounds [5 x ptr], ptr %28, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw [5 x ptr], ptr %28, i64 0, i64 %30
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %7, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %34 = load i32, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %32, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %36 = load i32, ptr %35, align 8
   %37 = add nsw i32 %36, 1
   %38 = shl nuw i32 1, %37
@@ -940,9 +940,9 @@ _ZN16DirectivesParser10lookup_keyEPKcm.exit:      ; preds = %6
   br label %_ZN16DirectivesParser8push_keyEPKNS_3keyE.exit
 
 .thread.i:                                        ; preds = %27, %22
-  %42 = getelementptr inbounds i8, ptr %0, i64 56
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %43 = zext nneg i32 %17 to i64
-  %44 = getelementptr inbounds [5 x ptr], ptr %42, i64 0, i64 %43
+  %44 = getelementptr inbounds nuw [5 x ptr], ptr %42, i64 0, i64 %43
   store ptr %7, ptr %44, align 8
   %45 = load i32, ptr %16, align 8
   %46 = add i32 %45, 1
@@ -965,7 +965,7 @@ declare void @_Z8FreeHeapPv(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN16DirectivesParser8push_keyEPKNS_3keyE(ptr noundef nonnull align 8 dereferenceable(132) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 96
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %4 = load i32, ptr %3, align 8
   %5 = icmp ugt i32 %4, 4
   br i1 %5, label %6, label %7
@@ -979,7 +979,7 @@ define hidden noundef zeroext i1 @_ZN16DirectivesParser8push_keyEPKNS_3keyE(ptr 
   br i1 %8, label %9, label %15
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %1, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %11 = load i32, ptr %10, align 8
   %12 = and i32 %11, 1
   %.not = icmp eq i32 %12, 0
@@ -991,14 +991,14 @@ define hidden noundef zeroext i1 @_ZN16DirectivesParser8push_keyEPKNS_3keyE(ptr 
   br label %36
 
 15:                                               ; preds = %7
-  %16 = getelementptr inbounds i8, ptr %0, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %17 = add nsw i32 %4, -1
   %18 = zext nneg i32 %17 to i64
-  %19 = getelementptr inbounds [5 x ptr], ptr %16, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw [5 x ptr], ptr %16, i64 0, i64 %18
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %22 = load i32, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %20, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %24 = load i32, ptr %23, align 8
   %25 = add nsw i32 %24, 1
   %26 = shl nuw i32 1, %25
@@ -1013,9 +1013,9 @@ define hidden noundef zeroext i1 @_ZN16DirectivesParser8push_keyEPKNS_3keyE(ptr 
   br label %36
 
 .thread:                                          ; preds = %9, %15
-  %31 = getelementptr inbounds i8, ptr %0, i64 56
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %32 = zext nneg i32 %4 to i64
-  %33 = getelementptr inbounds [5 x ptr], ptr %31, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw [5 x ptr], ptr %31, i64 0, i64 %32
   store ptr %1, ptr %33, align 8
   %34 = load i32, ptr %3, align 8
   %35 = add i32 %34, 1
@@ -1029,16 +1029,16 @@ define hidden noundef zeroext i1 @_ZN16DirectivesParser8push_keyEPKNS_3keyE(ptr 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef ptr @_ZN16DirectivesParser11current_keyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(132) %0) local_unnamed_addr #11 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 96
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %11, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %7 = add i32 %3, -1
   %8 = zext i32 %7 to i64
-  %9 = getelementptr inbounds [5 x ptr], ptr %6, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw [5 x ptr], ptr %6, i64 0, i64 %8
   %10 = load ptr, ptr %9, align 8
   br label %11
 
@@ -1049,7 +1049,7 @@ define hidden noundef ptr @_ZN16DirectivesParser11current_keyEv(ptr nocapture no
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN16DirectivesParser7pop_keyEv(ptr noundef nonnull align 8 dereferenceable(132) %0) local_unnamed_addr #1 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 96
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %5, label %6
@@ -1061,9 +1061,9 @@ define hidden noundef ptr @_ZN16DirectivesParser7pop_keyEv(ptr noundef nonnull a
 6:                                                ; preds = %1
   %7 = add i32 %3, -1
   store i32 %7, ptr %2, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %9 = zext i32 %7 to i64
-  %10 = getelementptr inbounds [5 x ptr], ptr %8, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw [5 x ptr], ptr %8, i64 0, i64 %9
   %11 = load ptr, ptr %10, align 8
   br label %12
 
@@ -1083,9 +1083,9 @@ define hidden noundef zeroext i1 @_ZN16DirectivesParser15set_option_flagEN4JSON9
   %12 = alloca ptr, align 8
   %13 = alloca %class.ControlIntrinsicValidator, align 8
   %14 = alloca %class.ControlIntrinsicValidator, align 8
-  %15 = getelementptr inbounds i8, ptr %3, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %.unpack = load i64, ptr %15, align 8
-  %.elt92 = getelementptr inbounds i8, ptr %3, i64 32
+  %.elt92 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.unpack93 = load i64, ptr %.elt92, align 8
   switch i32 %1, label %171 [
     i32 9, label %16
@@ -1096,14 +1096,14 @@ define hidden noundef zeroext i1 @_ZN16DirectivesParser15set_option_flagEN4JSON9
   ]
 
 16:                                               ; preds = %5
-  %17 = getelementptr inbounds i8, ptr %3, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %18 = load i32, ptr %17, align 8
   %.not103 = icmp eq i32 %18, 0
   br i1 %.not103, label %23, label %19
 
 19:                                               ; preds = %16
   %20 = zext i32 %18 to i64
-  %21 = getelementptr inbounds [7 x ptr], ptr @_ZL15flag_type_names, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw [7 x ptr], ptr @_ZL15flag_type_names, i64 0, i64 %20
   %22 = load ptr, ptr %21, align 8
   tail call void (ptr, i32, ptr, ...) @_ZN4JSON5errorENS_10JSON_ERROREPKcz(ptr noundef nonnull align 8 dereferenceable(54) %0, i32 noundef 3, ptr noundef nonnull @.str.48, ptr noundef %22) #17
   br label %171
@@ -1132,14 +1132,14 @@ define hidden noundef zeroext i1 @_ZN16DirectivesParser15set_option_flagEN4JSON9
   br label %171
 
 35:                                               ; preds = %5
-  %36 = getelementptr inbounds i8, ptr %3, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %37 = load i32, ptr %36, align 8
   %.not101 = icmp eq i32 %37, 0
   br i1 %.not101, label %42, label %38
 
 38:                                               ; preds = %35
   %39 = zext i32 %37 to i64
-  %40 = getelementptr inbounds [7 x ptr], ptr @_ZL15flag_type_names, i64 0, i64 %39
+  %40 = getelementptr inbounds nuw [7 x ptr], ptr @_ZL15flag_type_names, i64 0, i64 %39
   %41 = load ptr, ptr %40, align 8
   tail call void (ptr, i32, ptr, ...) @_ZN4JSON5errorENS_10JSON_ERROREPKcz(ptr noundef nonnull align 8 dereferenceable(54) %0, i32 noundef 3, ptr noundef nonnull @.str.48, ptr noundef %41) #17
   br label %171
@@ -1168,7 +1168,7 @@ define hidden noundef zeroext i1 @_ZN16DirectivesParser15set_option_flagEN4JSON9
   br label %171
 
 54:                                               ; preds = %5
-  %55 = getelementptr inbounds i8, ptr %3, i64 40
+  %55 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %56 = load i32, ptr %55, align 8
   switch i32 %56, label %97 [
     i32 1, label %57
@@ -1251,20 +1251,20 @@ define hidden noundef zeroext i1 @_ZN16DirectivesParser15set_option_flagEN4JSON9
 
 97:                                               ; preds = %54
   %98 = zext i32 %56 to i64
-  %99 = getelementptr inbounds [7 x ptr], ptr @_ZL15flag_type_names, i64 0, i64 %98
+  %99 = getelementptr inbounds nuw [7 x ptr], ptr @_ZL15flag_type_names, i64 0, i64 %98
   %100 = load ptr, ptr %99, align 8
   tail call void (ptr, i32, ptr, ...) @_ZN4JSON5errorENS_10JSON_ERROREPKcz(ptr noundef nonnull align 8 dereferenceable(54) %0, i32 noundef 3, ptr noundef nonnull @.str.49, ptr noundef %100) #17
   br label %171
 
 101:                                              ; preds = %5
-  %102 = getelementptr inbounds i8, ptr %3, i64 40
+  %102 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %103 = load i32, ptr %102, align 8
   %.not96 = icmp eq i32 %103, 3
   br i1 %.not96, label %108, label %104
 
 104:                                              ; preds = %101
   %105 = zext i32 %103 to i64
-  %106 = getelementptr inbounds [7 x ptr], ptr @_ZL15flag_type_names, i64 0, i64 %105
+  %106 = getelementptr inbounds nuw [7 x ptr], ptr @_ZL15flag_type_names, i64 0, i64 %105
   %107 = load ptr, ptr %106, align 8
   tail call void (ptr, i32, ptr, ...) @_ZN4JSON5errorENS_10JSON_ERROREPKcz(ptr noundef nonnull align 8 dereferenceable(54) %0, i32 noundef 3, ptr noundef nonnull @.str.50, ptr noundef %107) #17
   br label %171
@@ -1294,7 +1294,7 @@ define hidden noundef zeroext i1 @_ZN16DirectivesParser15set_option_flagEN4JSON9
   br label %171
 
 121:                                              ; preds = %5
-  %122 = getelementptr inbounds i8, ptr %3, i64 40
+  %122 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %123 = load i32, ptr %122, align 8
   %124 = and i32 %123, -2
   %switch = icmp eq i32 %124, 4
@@ -1302,13 +1302,13 @@ define hidden noundef zeroext i1 @_ZN16DirectivesParser15set_option_flagEN4JSON9
 
 125:                                              ; preds = %121
   %126 = zext i32 %123 to i64
-  %127 = getelementptr inbounds [7 x ptr], ptr @_ZL15flag_type_names, i64 0, i64 %126
+  %127 = getelementptr inbounds nuw [7 x ptr], ptr @_ZL15flag_type_names, i64 0, i64 %126
   %128 = load ptr, ptr %127, align 8
   tail call void (ptr, i32, ptr, ...) @_ZN4JSON5errorENS_10JSON_ERROREPKcz(ptr noundef nonnull align 8 dereferenceable(54) %0, i32 noundef 3, ptr noundef nonnull @.str.51, ptr noundef %128) #17
   br label %171
 
 129:                                              ; preds = %121
-  %130 = getelementptr inbounds i8, ptr %2, i64 8
+  %130 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %131 = load i64, ptr %130, align 8
   %132 = add i64 %131, 1
   %133 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %132, i8 noundef zeroext 7, i32 noundef 0) #17
@@ -1329,7 +1329,7 @@ define hidden noundef zeroext i1 @_ZN16DirectivesParser15set_option_flagEN4JSON9
   call void @_ZN25ControlIntrinsicValidatorC2EPKcb(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull %133, i1 noundef zeroext false)
   %144 = load i8, ptr %13, align 8
   %145 = trunc i8 %144 to i1
-  %146 = getelementptr inbounds i8, ptr %13, i64 8
+  %146 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %147 = load ptr, ptr %146, align 8
   br i1 %145, label %148, label %.thread
 
@@ -1352,7 +1352,7 @@ define hidden noundef zeroext i1 @_ZN16DirectivesParser15set_option_flagEN4JSON9
   call void @_ZN25ControlIntrinsicValidatorC2EPKcb(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull %133, i1 noundef zeroext true)
   %154 = load i8, ptr %14, align 8
   %155 = trunc i8 %154 to i1
-  %156 = getelementptr inbounds i8, ptr %14, i64 8
+  %156 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %157 = load ptr, ptr %156, align 8
   br i1 %155, label %158, label %.thread109
 
@@ -1414,10 +1414,10 @@ declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) 
 define linkonce_odr hidden void @_ZN25ControlIntrinsicValidatorC2EPKcb(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #1 comdat align 2 {
   %4 = alloca %class.ControlIntrinsicIter, align 8
   store i8 1, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %5, align 8
   call void @_ZN20ControlIntrinsicIterC1EPKcb(ptr noundef nonnull align 8 dereferenceable(33) %4, ptr noundef %1, i1 noundef zeroext %2) #17
-  %6 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not4 = icmp eq ptr %7, null
   br i1 %.not4, label %.critedge, label %.lr.ph
@@ -1460,7 +1460,7 @@ define linkonce_odr hidden void @_ZN25ControlIntrinsicValidatorC2EPKcb(ptr nound
 define hidden noundef zeroext i1 @_ZN16DirectivesParser10set_optionEN4JSON9JSON_TYPEEPNS0_8JSON_VALE(ptr noundef nonnull align 8 dereferenceable(132) %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #1 align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 96
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %9, label %10
@@ -1473,9 +1473,9 @@ define hidden noundef zeroext i1 @_ZN16DirectivesParser10set_optionEN4JSON9JSON_
 10:                                               ; preds = %3
   %11 = add i32 %7, -1
   store i32 %11, ptr %6, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %13 = zext i32 %11 to i64
-  %14 = getelementptr inbounds [5 x ptr], ptr %12, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw [5 x ptr], ptr %12, i64 0, i64 %13
   %15 = load ptr, ptr %14, align 8
   br label %_ZN16DirectivesParser7pop_keyEv.exit
 
@@ -1486,18 +1486,18 @@ _ZN16DirectivesParser7pop_keyEv.exit:             ; preds = %9, %10
   br i1 %17, label %_ZN16DirectivesParser11current_keyEv.exit, label %_ZN16DirectivesParser11current_keyEv.exit.thread
 
 _ZN16DirectivesParser11current_keyEv.exit:        ; preds = %_ZN16DirectivesParser7pop_keyEv.exit
-  %18 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %19 = load i32, ptr %18, align 8
   %20 = icmp eq i32 %19, 9
   br i1 %20, label %29, label %_ZN16DirectivesParser8push_keyEPKNS_3keyE.exit60
 
 _ZN16DirectivesParser11current_keyEv.exit.thread: ; preds = %_ZN16DirectivesParser7pop_keyEv.exit
-  %21 = getelementptr inbounds i8, ptr %0, i64 56
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %22 = add i32 %16, -1
   %23 = zext i32 %22 to i64
-  %24 = getelementptr inbounds [5 x ptr], ptr %21, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw [5 x ptr], ptr %21, i64 0, i64 %23
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %27 = load i32, ptr %26, align 8
   %28 = icmp eq i32 %27, 9
   br i1 %28, label %30, label %_ZN16DirectivesParser8push_keyEPKNS_3keyE.exit60
@@ -1519,10 +1519,10 @@ _ZN16DirectivesParser7pop_keyEv.exit53:           ; preds = %29, %30
   br i1 %33, label %41, label %_ZN16DirectivesParser11current_keyEv.exit55
 
 _ZN16DirectivesParser11current_keyEv.exit55:      ; preds = %_ZN16DirectivesParser7pop_keyEv.exit53
-  %34 = getelementptr inbounds i8, ptr %0, i64 56
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %35 = add i32 %32, -1
   %36 = zext i32 %35 to i64
-  %37 = getelementptr inbounds [5 x ptr], ptr %34, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw [5 x ptr], ptr %34, i64 0, i64 %36
   %38 = load ptr, ptr %37, align 8
   %39 = icmp ugt i32 %32, 4
   br i1 %39, label %40, label %47
@@ -1532,7 +1532,7 @@ _ZN16DirectivesParser11current_keyEv.exit55:      ; preds = %_ZN16DirectivesPars
   br label %_ZN16DirectivesParser8push_keyEPKNS_3keyE.exitthread-pre-split
 
 41:                                               ; preds = %_ZN16DirectivesParser7pop_keyEv.exit53
-  %42 = getelementptr inbounds i8, ptr %.0.i52, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %.0.i52, i64 16
   %43 = load i32, ptr %42, align 8
   %44 = and i32 %43, 1
   %.not.i = icmp eq i32 %44, 0
@@ -1544,9 +1544,9 @@ _ZN16DirectivesParser11current_keyEv.exit55:      ; preds = %_ZN16DirectivesPars
   br label %_ZN16DirectivesParser8push_keyEPKNS_3keyE.exitthread-pre-split
 
 47:                                               ; preds = %_ZN16DirectivesParser11current_keyEv.exit55
-  %48 = getelementptr inbounds i8, ptr %.0.i52, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %.0.i52, i64 16
   %49 = load i32, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %38, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %51 = load i32, ptr %50, align 8
   %52 = add nsw i32 %51, 1
   %53 = shl nuw i32 1, %52
@@ -1562,9 +1562,9 @@ _ZN16DirectivesParser11current_keyEv.exit55:      ; preds = %_ZN16DirectivesPars
 
 .thread.i:                                        ; preds = %47, %41
   %.0.i546569 = phi ptr [ %38, %47 ], [ null, %41 ]
-  %58 = getelementptr inbounds i8, ptr %0, i64 56
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %59 = zext nneg i32 %32 to i64
-  %60 = getelementptr inbounds [5 x ptr], ptr %58, i64 0, i64 %59
+  %60 = getelementptr inbounds nuw [5 x ptr], ptr %58, i64 0, i64 %59
   store ptr %.0.i52, ptr %60, align 8
   %61 = load i32, ptr %6, align 8
   %62 = add i32 %61, 1
@@ -1587,9 +1587,9 @@ _ZN16DirectivesParser8push_keyEPKNS_3keyE.exit:   ; preds = %_ZN16DirectivesPars
   br label %_ZN16DirectivesParser8push_keyEPKNS_3keyE.exit60
 
 .thread.i58:                                      ; preds = %_ZN16DirectivesParser8push_keyEPKNS_3keyE.exit
-  %66 = getelementptr inbounds i8, ptr %0, i64 56
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %67 = zext nneg i32 %63 to i64
-  %68 = getelementptr inbounds [5 x ptr], ptr %66, i64 0, i64 %67
+  %68 = getelementptr inbounds nuw [5 x ptr], ptr %66, i64 0, i64 %67
   store ptr @_ZN16DirectivesParser15value_array_keyE, ptr %68, align 8
   %69 = load i32, ptr %6, align 8
   %70 = add i32 %69, 1
@@ -1599,7 +1599,7 @@ _ZN16DirectivesParser8push_keyEPKNS_3keyE.exit:   ; preds = %_ZN16DirectivesPars
 _ZN16DirectivesParser8push_keyEPKNS_3keyE.exit60: ; preds = %.thread.i58, %65, %_ZN16DirectivesParser11current_keyEv.exit.thread, %_ZN16DirectivesParser11current_keyEv.exit
   %.046 = phi ptr [ null, %_ZN16DirectivesParser11current_keyEv.exit ], [ %25, %_ZN16DirectivesParser11current_keyEv.exit.thread ], [ %.0.i5464, %65 ], [ %.0.i5464, %.thread.i58 ]
   %.045 = phi ptr [ %.0.i, %_ZN16DirectivesParser11current_keyEv.exit ], [ %.0.i, %_ZN16DirectivesParser11current_keyEv.exit.thread ], [ %.0.i52, %65 ], [ %.0.i52, %.thread.i58 ]
-  %71 = getelementptr inbounds i8, ptr %.045, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %.045, i64 8
   %72 = load i32, ptr %71, align 8
   switch i32 %72, label %158 [
     i32 6, label %73
@@ -1610,22 +1610,22 @@ _ZN16DirectivesParser8push_keyEPKNS_3keyE.exit60: ; preds = %.thread.i58, %65, %
   ]
 
 73:                                               ; preds = %_ZN16DirectivesParser8push_keyEPKNS_3keyE.exit60
-  %74 = getelementptr inbounds i8, ptr %0, i64 112
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %75 = load ptr, ptr %74, align 8
   %76 = icmp eq ptr %75, null
   br i1 %76, label %77, label %88
 
 77:                                               ; preds = %73
-  %78 = getelementptr inbounds i8, ptr %0, i64 104
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %79 = load ptr, ptr %78, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 24
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 24
   %81 = load ptr, ptr %80, align 8
   %82 = tail call noundef zeroext i1 @_ZN16DirectivesParser15set_option_flagEN4JSON9JSON_TYPEEPNS0_8JSON_VALEPKNS_3keyEP12DirectiveSet(ptr noundef nonnull align 8 dereferenceable(132) %0, i32 noundef %1, ptr noundef %2, ptr noundef nonnull %.045, ptr noundef %81)
   br i1 %82, label %83, label %159
 
 83:                                               ; preds = %77
   %84 = load ptr, ptr %78, align 8
-  %85 = getelementptr inbounds i8, ptr %84, i64 32
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 32
   %86 = load ptr, ptr %85, align 8
   %87 = tail call noundef zeroext i1 @_ZN16DirectivesParser15set_option_flagEN4JSON9JSON_TYPEEPNS0_8JSON_VALEPKNS_3keyEP12DirectiveSet(ptr noundef nonnull align 8 dereferenceable(132) %0, i32 noundef %1, ptr noundef %2, ptr noundef nonnull %.045, ptr noundef %86)
   br i1 %87, label %158, label %159
@@ -1644,7 +1644,7 @@ _ZN16DirectivesParser8push_keyEPKNS_3keyE.exit60: ; preds = %.thread.i58, %65, %
   br label %159
 
 93:                                               ; preds = %90
-  %94 = getelementptr inbounds i8, ptr %.046, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %.046, i64 8
   %95 = load i32, ptr %94, align 8
   %.not50 = icmp eq i32 %95, 8
   br i1 %.not50, label %97, label %96
@@ -1654,7 +1654,7 @@ _ZN16DirectivesParser8push_keyEPKNS_3keyE.exit60: ; preds = %.thread.i58, %65, %
   br label %159
 
 97:                                               ; preds = %93
-  %98 = getelementptr inbounds i8, ptr %2, i64 8
+  %98 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %99 = load i64, ptr %98, align 8
   %100 = add i64 %99, 1
   %101 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %100, i8 noundef zeroext 7, i32 noundef 0) #17
@@ -1665,7 +1665,7 @@ _ZN16DirectivesParser8push_keyEPKNS_3keyE.exit60: ; preds = %.thread.i58, %65, %
   %106 = getelementptr inbounds i8, ptr %101, i64 %105
   store i8 0, ptr %106, align 1
   store ptr null, ptr %4, align 8
-  %107 = getelementptr inbounds i8, ptr %0, i64 104
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %108 = load ptr, ptr %107, align 8
   %109 = call noundef zeroext i1 @_ZN18CompilerDirectives9add_matchEPcRPKc(ptr noundef nonnull align 8 dereferenceable(40) %108, ptr noundef %101, ptr noundef nonnull align 8 dereferenceable(8) %4) #17
   br i1 %109, label %.sink.split71, label %.sink.split71.sink.split
@@ -1680,7 +1680,7 @@ _ZN16DirectivesParser8push_keyEPKNS_3keyE.exit60: ; preds = %.thread.i58, %65, %
   br label %159
 
 113:                                              ; preds = %110
-  %114 = getelementptr inbounds i8, ptr %2, i64 8
+  %114 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %115 = load i64, ptr %114, align 8
   %116 = add i64 %115, 1
   %117 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %116, i8 noundef zeroext 7, i32 noundef 0) #17
@@ -1691,22 +1691,22 @@ _ZN16DirectivesParser8push_keyEPKNS_3keyE.exit60: ; preds = %.thread.i58, %65, %
   %122 = getelementptr inbounds i8, ptr %117, i64 %121
   store i8 0, ptr %122, align 1
   store ptr null, ptr %5, align 8
-  %123 = getelementptr inbounds i8, ptr %0, i64 112
+  %123 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %124 = load ptr, ptr %123, align 8
   %125 = icmp eq ptr %124, null
   br i1 %125, label %126, label %137
 
 126:                                              ; preds = %113
-  %127 = getelementptr inbounds i8, ptr %0, i64 104
+  %127 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %128 = load ptr, ptr %127, align 8
-  %129 = getelementptr inbounds i8, ptr %128, i64 24
+  %129 = getelementptr inbounds nuw i8, ptr %128, i64 24
   %130 = load ptr, ptr %129, align 8
   %131 = call noundef zeroext i1 @_ZN12DirectiveSet20parse_and_add_inlineEPcRPKc(ptr noundef nonnull align 8 dereferenceable(280) %130, ptr noundef nonnull %117, ptr noundef nonnull align 8 dereferenceable(8) %5) #17
   br i1 %131, label %132, label %.sink.split71.sink.split
 
 132:                                              ; preds = %126
   %133 = load ptr, ptr %127, align 8
-  %134 = getelementptr inbounds i8, ptr %133, i64 32
+  %134 = getelementptr inbounds nuw i8, ptr %133, i64 32
   %135 = load ptr, ptr %134, align 8
   %136 = call noundef zeroext i1 @_ZN12DirectiveSet20parse_and_add_inlineEPcRPKc(ptr noundef nonnull align 8 dereferenceable(280) %135, ptr noundef nonnull %117, ptr noundef nonnull align 8 dereferenceable(8) %5) #17
   br i1 %136, label %.sink.split71, label %.sink.split71.sink.split
@@ -1716,11 +1716,11 @@ _ZN16DirectivesParser8push_keyEPKNS_3keyE.exit60: ; preds = %.thread.i58, %65, %
   br i1 %138, label %.sink.split71, label %.sink.split71.sink.split
 
 139:                                              ; preds = %_ZN16DirectivesParser8push_keyEPKNS_3keyE.exit60
-  %140 = getelementptr inbounds i8, ptr %0, i64 104
+  %140 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %141 = load ptr, ptr %140, align 8
-  %142 = getelementptr inbounds i8, ptr %141, i64 24
+  %142 = getelementptr inbounds nuw i8, ptr %141, i64 24
   %143 = load ptr, ptr %142, align 8
-  %144 = getelementptr inbounds i8, ptr %0, i64 112
+  %144 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr %143, ptr %144, align 8
   %145 = add i32 %1, -11
   %or.cond = icmp ult i32 %145, -2
@@ -1732,11 +1732,11 @@ _ZN16DirectivesParser8push_keyEPKNS_3keyE.exit60: ; preds = %.thread.i58, %65, %
   br label %159
 
 148:                                              ; preds = %_ZN16DirectivesParser8push_keyEPKNS_3keyE.exit60
-  %149 = getelementptr inbounds i8, ptr %0, i64 104
+  %149 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %150 = load ptr, ptr %149, align 8
-  %151 = getelementptr inbounds i8, ptr %150, i64 32
+  %151 = getelementptr inbounds nuw i8, ptr %150, i64 32
   %152 = load ptr, ptr %151, align 8
-  %153 = getelementptr inbounds i8, ptr %0, i64 112
+  %153 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr %152, ptr %153, align 8
   %154 = add i32 %1, -11
   %or.cond3 = icmp ult i32 %154, -2
@@ -1773,7 +1773,7 @@ declare noundef zeroext i1 @_ZN12DirectiveSet20parse_and_add_inlineEPcRPKc(ptr n
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN16DirectivesParser8callbackEN4JSON9JSON_TYPEEPNS0_8JSON_VALEj(ptr noundef nonnull align 8 dereferenceable(132) %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 %3) unnamed_addr #1 align 2 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 96
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %6 = load i32, ptr %5, align 8
   switch i32 %6, label %51 [
     i32 0, label %7
@@ -1787,13 +1787,13 @@ define hidden noundef zeroext i1 @_ZN16DirectivesParser8callbackEN4JSON9JSON_TYP
   ]
 
 _ZN16DirectivesParser8push_keyEPKNS_3keyE.exit:   ; preds = %7
-  %8 = getelementptr inbounds i8, ptr %0, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr @_ZN16DirectivesParser13dir_array_keyE, ptr %8, align 8
   store i32 1, ptr %5, align 8
   br label %_ZN16DirectivesParser8push_keyEPKNS_3keyE.exit28
 
 .thread39:                                        ; preds = %7
-  %9 = getelementptr inbounds i8, ptr %0, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr @_ZN16DirectivesParser13dir_array_keyE, ptr %9, align 8
   store i32 1, ptr %5, align 8
   br label %12
@@ -1811,7 +1811,7 @@ _ZN16DirectivesParser8push_keyEPKNS_3keyE.exit:   ; preds = %7
 12:                                               ; preds = %.thread39, %11
   %13 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 40, i8 noundef zeroext 7, i32 noundef 0) #17
   tail call void @_ZN18CompilerDirectivesC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %13) #17
-  %14 = getelementptr inbounds i8, ptr %0, i64 104
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr %13, ptr %14, align 8
   %15 = load i32, ptr %5, align 8
   %16 = icmp ugt i32 %15, 4
@@ -1826,7 +1826,7 @@ _ZN16DirectivesParser8push_keyEPKNS_3keyE.exit:   ; preds = %7
   br i1 %19, label %20, label %25
 
 20:                                               ; preds = %18
-  %21 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN16DirectivesParser7dir_keyE, i64 16), align 8
+  %21 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN16DirectivesParser7dir_keyE, i64 16), align 8
   %22 = and i32 %21, 1
   %.not.i = icmp eq i32 %22, 0
   br i1 %.not.i, label %23, label %.thread.i26
@@ -1837,13 +1837,13 @@ _ZN16DirectivesParser8push_keyEPKNS_3keyE.exit:   ; preds = %7
   br label %_ZN16DirectivesParser8push_keyEPKNS_3keyE.exit28
 
 25:                                               ; preds = %18
-  %26 = getelementptr inbounds i8, ptr %0, i64 56
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %27 = add nsw i32 %15, -1
   %28 = zext nneg i32 %27 to i64
-  %29 = getelementptr inbounds [5 x ptr], ptr %26, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw [5 x ptr], ptr %26, i64 0, i64 %28
   %30 = load ptr, ptr %29, align 8
-  %31 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN16DirectivesParser7dir_keyE, i64 16), align 8
-  %32 = getelementptr inbounds i8, ptr %30, i64 8
+  %31 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN16DirectivesParser7dir_keyE, i64 16), align 8
+  %32 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %33 = load i32, ptr %32, align 8
   %34 = add nsw i32 %33, 1
   %35 = shl nuw i32 1, %34
@@ -1858,9 +1858,9 @@ _ZN16DirectivesParser8push_keyEPKNS_3keyE.exit:   ; preds = %7
   br label %_ZN16DirectivesParser8push_keyEPKNS_3keyE.exit28
 
 .thread.i26:                                      ; preds = %25, %20
-  %40 = getelementptr inbounds i8, ptr %0, i64 56
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %41 = zext nneg i32 %15 to i64
-  %42 = getelementptr inbounds [5 x ptr], ptr %40, i64 0, i64 %41
+  %42 = getelementptr inbounds nuw [5 x ptr], ptr %40, i64 0, i64 %41
   store ptr @_ZN16DirectivesParser7dir_keyE, ptr %42, align 8
   %43 = load i32, ptr %5, align 8
   %44 = add i32 %43, 1
@@ -1869,9 +1869,9 @@ _ZN16DirectivesParser8push_keyEPKNS_3keyE.exit:   ; preds = %7
 
 _ZN16DirectivesParser7pop_keyEv.exit:             ; preds = %11
   store i32 0, ptr %5, align 8
-  %45 = getelementptr inbounds i8, ptr %0, i64 56
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %48 = load i32, ptr %47, align 8
   %.not20 = icmp eq i32 %48, 7
   br i1 %.not20, label %_ZN16DirectivesParser8push_keyEPKNS_3keyE.exit28, label %49
@@ -1900,12 +1900,12 @@ _ZN16DirectivesParser7pop_keyEv.exit:             ; preds = %11
   ]
 
 _ZN16DirectivesParser11current_keyEv.exit:        ; preds = %51
-  %52 = getelementptr inbounds i8, ptr %0, i64 56
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %53 = add i32 %6, -1
   %54 = zext i32 %53 to i64
-  %55 = getelementptr inbounds [5 x ptr], ptr %52, i64 0, i64 %54
+  %55 = getelementptr inbounds nuw [5 x ptr], ptr %52, i64 0, i64 %54
   %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %58 = load i32, ptr %57, align 8
   switch i32 %58, label %73 [
     i32 0, label %59
@@ -1914,20 +1914,20 @@ _ZN16DirectivesParser11current_keyEv.exit:        ; preds = %51
   ]
 
 59:                                               ; preds = %_ZN16DirectivesParser11current_keyEv.exit
-  %60 = getelementptr inbounds i8, ptr %0, i64 104
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 24
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 24
   %63 = load ptr, ptr %62, align 8
-  %64 = getelementptr inbounds i8, ptr %0, i64 112
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr %63, ptr %64, align 8
   br label %_ZN16DirectivesParser8push_keyEPKNS_3keyE.exit28
 
 65:                                               ; preds = %_ZN16DirectivesParser11current_keyEv.exit
-  %66 = getelementptr inbounds i8, ptr %0, i64 104
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds i8, ptr %67, i64 32
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 32
   %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %0, i64 112
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr %69, ptr %70, align 8
   br label %_ZN16DirectivesParser8push_keyEPKNS_3keyE.exit28
 
@@ -1943,11 +1943,11 @@ _ZN16DirectivesParser11current_keyEv.exit:        ; preds = %51
 _ZN16DirectivesParser7pop_keyEv.exit32:           ; preds = %51
   %75 = add i32 %6, -1
   store i32 %75, ptr %5, align 8
-  %76 = getelementptr inbounds i8, ptr %0, i64 56
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %77 = zext i32 %75 to i64
-  %78 = getelementptr inbounds [5 x ptr], ptr %76, i64 0, i64 %77
+  %78 = getelementptr inbounds nuw [5 x ptr], ptr %76, i64 0, i64 %77
   %79 = load ptr, ptr %78, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %79, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %79, i64 8
   %.pre = load i32, ptr %.phi.trans.insert, align 8
   switch i32 %.pre, label %98 [
     i32 0, label %80
@@ -1956,14 +1956,14 @@ _ZN16DirectivesParser7pop_keyEv.exit32:           ; preds = %51
   ]
 
 80:                                               ; preds = %_ZN16DirectivesParser7pop_keyEv.exit32, %_ZN16DirectivesParser7pop_keyEv.exit32
-  %81 = getelementptr inbounds i8, ptr %0, i64 112
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr null, ptr %81, align 8
   br label %_ZN16DirectivesParser8push_keyEPKNS_3keyE.exit28
 
 82:                                               ; preds = %_ZN16DirectivesParser7pop_keyEv.exit32
-  %83 = getelementptr inbounds i8, ptr %0, i64 104
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %84 = load ptr, ptr %83, align 8
-  %85 = getelementptr inbounds i8, ptr %84, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 8
   %86 = load ptr, ptr %85, align 8
   %87 = icmp eq ptr %86, null
   br i1 %87, label %88, label %89
@@ -1973,15 +1973,15 @@ _ZN16DirectivesParser7pop_keyEv.exit32:           ; preds = %51
   br label %_ZN16DirectivesParser8push_keyEPKNS_3keyE.exit28
 
 89:                                               ; preds = %82
-  %90 = getelementptr inbounds i8, ptr %0, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %91 = load ptr, ptr %90, align 8
   tail call void @_ZN18CompilerDirectives8finalizeEP12outputStream(ptr noundef nonnull align 8 dereferenceable(40) %84, ptr noundef %91) #17
   %92 = load ptr, ptr %83, align 8
-  %93 = getelementptr inbounds i8, ptr %0, i64 128
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %94 = load i32, ptr %93, align 8
   %95 = add nsw i32 %94, 1
   store i32 %95, ptr %93, align 8
-  %96 = getelementptr inbounds i8, ptr %0, i64 120
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %97 = load ptr, ptr %96, align 8
   store ptr %97, ptr %92, align 8
   store ptr %92, ptr %96, align 8
@@ -1997,19 +1997,19 @@ _ZN16DirectivesParser7pop_keyEv.exit32:           ; preds = %51
   unreachable
 
 _ZN16DirectivesParser11current_keyEv.exit34:      ; preds = %51
-  %101 = getelementptr inbounds i8, ptr %0, i64 56
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %102 = add i32 %6, -1
   %103 = zext i32 %102 to i64
-  %104 = getelementptr inbounds [5 x ptr], ptr %101, i64 0, i64 %103
+  %104 = getelementptr inbounds nuw [5 x ptr], ptr %101, i64 0, i64 %103
   %105 = load ptr, ptr %104, align 8
-  %106 = getelementptr inbounds i8, ptr %105, i64 12
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 12
   %107 = load i8, ptr %106, align 4
   %108 = and i8 %107, 1
   %.not = icmp eq i8 %108, 0
   br i1 %.not, label %109, label %116
 
 109:                                              ; preds = %_ZN16DirectivesParser11current_keyEv.exit34
-  %110 = getelementptr inbounds i8, ptr %105, i64 8
+  %110 = getelementptr inbounds nuw i8, ptr %105, i64 8
   %111 = load i32, ptr %110, align 8
   %112 = icmp eq i32 %111, 7
   br i1 %112, label %113, label %114
@@ -2034,7 +2034,7 @@ _ZN16DirectivesParser11current_keyEv.exit34:      ; preds = %51
 
 120:                                              ; preds = %51
   %121 = load ptr, ptr %2, align 8
-  %122 = getelementptr inbounds i8, ptr %2, i64 8
+  %122 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %123 = load i64, ptr %122, align 8
   %124 = tail call noundef zeroext i1 @_ZN16DirectivesParser8push_keyEPKcm(ptr noundef nonnull align 8 dereferenceable(132) %0, ptr noundef %121, i64 noundef %123)
   br label %_ZN16DirectivesParser8push_keyEPKNS_3keyE.exit28

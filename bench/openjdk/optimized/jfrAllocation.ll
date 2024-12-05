@@ -34,7 +34,7 @@ define hidden void @_ZN11JfrCHeapObj20on_memory_allocationEPKvm(ptr noundef read
   br i1 %5, label %9, label %6
 
 6:                                                ; preds = %4
-  %7 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 72), align 8
+  %7 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 72), align 8
   %.not.i = icmp eq ptr %7, null
   br i1 %.not.i, label %_ZL22hook_memory_allocationPKcm.exit, label %8
 
@@ -72,7 +72,7 @@ define hidden noundef ptr @_ZN11JfrCHeapObjnwEm(i64 noundef %0) local_unnamed_ad
   br i1 %10, label %14, label %11
 
 11:                                               ; preds = %9
-  %12 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 72), align 8
+  %12 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 72), align 8
   %.not.i.i = icmp eq ptr %12, null
   br i1 %.not.i.i, label %_ZN11JfrCHeapObjnwEmRKSt9nothrow_t.exit, label %13
 
@@ -110,7 +110,7 @@ define hidden noundef ptr @_ZN11JfrCHeapObjnwEmRKSt9nothrow_t(i64 noundef %0, pt
   br i1 %11, label %15, label %12
 
 12:                                               ; preds = %10
-  %13 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 72), align 8
+  %13 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 72), align 8
   %.not.i = icmp eq ptr %13, null
   br i1 %.not.i, label %_ZL22hook_memory_allocationPKcm.exit, label %14
 
@@ -150,7 +150,7 @@ define hidden noundef ptr @_ZN11JfrCHeapObjnaEm(i64 noundef %0) local_unnamed_ad
   br i1 %10, label %14, label %11
 
 11:                                               ; preds = %9
-  %12 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 72), align 8
+  %12 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 72), align 8
   %.not.i.i = icmp eq ptr %12, null
   br i1 %.not.i.i, label %_ZN11JfrCHeapObjnaEmRKSt9nothrow_t.exit, label %13
 
@@ -188,7 +188,7 @@ define hidden noundef ptr @_ZN11JfrCHeapObjnaEmRKSt9nothrow_t(i64 noundef %0, pt
   br i1 %11, label %15, label %12
 
 12:                                               ; preds = %10
-  %13 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 72), align 8
+  %13 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 72), align 8
   %.not.i = icmp eq ptr %13, null
   br i1 %.not.i, label %_ZL22hook_memory_allocationPKcm.exit, label %14
 
@@ -227,7 +227,7 @@ define hidden noundef ptr @_ZN11JfrCHeapObj13realloc_arrayEPcm(ptr noundef %0, i
   br i1 %6, label %10, label %7
 
 7:                                                ; preds = %5
-  %8 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 72), align 8
+  %8 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 72), align 8
   %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %_ZL22hook_memory_allocationPKcm.exit, label %9
 

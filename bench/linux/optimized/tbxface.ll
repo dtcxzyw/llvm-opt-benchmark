@@ -119,14 +119,14 @@ define dso_local i32 @acpi_reallocate_root_table() local_unnamed_addr #2 section
   %13 = phi ptr [ %23, %21 ], [ %.pre4, %.preheader2.preheader ]
   %14 = phi i64 [ %24, %21 ], [ 0, %.preheader2.preheader ]
   %15 = getelementptr %struct.acpi_table_desc, ptr %13, i64 %14
-  %16 = getelementptr inbounds i8, ptr %15, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, null
   br i1 %18, label %21, label %19
 
 19:                                               ; preds = %.preheader2
-  %20 = getelementptr inbounds i8, ptr %15, i64 20
-  tail call void (ptr, i32, ptr, ...) @acpi_error(ptr noundef nonnull @_acpi_module_name, i32 noundef 163, ptr noundef nonnull @.str, ptr noundef %20) #6
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 20
+  tail call void (ptr, i32, ptr, ...) @acpi_error(ptr noundef nonnull @_acpi_module_name, i32 noundef 163, ptr noundef nonnull @.str, ptr noundef nonnull %20) #6
   %.pre = load ptr, ptr @acpi_gbl_root_table_list, align 8
   %.pre5 = load i32, ptr getelementptr inbounds (i8, ptr @acpi_gbl_root_table_list, i64 8), align 8
   br label %21
@@ -162,7 +162,7 @@ define dso_local i32 @acpi_reallocate_root_table() local_unnamed_addr #2 section
   %33 = phi i64 [ %45, %44 ], [ 0, %31 ]
   %34 = load ptr, ptr @acpi_gbl_root_table_list, align 8
   %35 = getelementptr %struct.acpi_table_desc, ptr %34, i64 %33
-  %36 = getelementptr inbounds i8, ptr %35, i64 26
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 26
   %37 = load i8, ptr %36, align 2
   %38 = and i8 %37, 4
   %39 = icmp eq i8 %38, 0
@@ -238,7 +238,7 @@ define dso_local noundef range(i32 0, 4098) i32 @acpi_get_table_header(ptr nound
   %15 = phi i64 [ 0, %10 ], [ %41, %39 ]
   %16 = phi i32 [ 0, %10 ], [ %40, %39 ]
   %17 = getelementptr %struct.acpi_table_desc, ptr %11, i64 %15
-  %18 = getelementptr inbounds i8, ptr %17, i64 20
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 20
   %19 = load i32, ptr %18, align 4
   %20 = icmp eq i32 %19, %12
   br i1 %20, label %21, label %39
@@ -249,13 +249,13 @@ define dso_local noundef range(i32 0, 4098) i32 @acpi_get_table_header(ptr nound
   br i1 %23, label %39, label %24
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds i8, ptr %17, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, null
   br i1 %27, label %28, label %38
 
 28:                                               ; preds = %24
-  %29 = getelementptr inbounds i8, ptr %17, i64 26
+  %29 = getelementptr inbounds nuw i8, ptr %17, i64 26
   %30 = load i8, ptr %29, align 2
   %31 = and i8 %30, 3
   %32 = icmp eq i8 %31, 1
@@ -320,7 +320,7 @@ define dso_local i32 @acpi_get_table(ptr noundef readonly %0, i32 noundef %1, pt
   %16 = phi i64 [ 0, %11 ], [ %29, %27 ]
   %17 = phi i32 [ 0, %11 ], [ %28, %27 ]
   %18 = getelementptr %struct.acpi_table_desc, ptr %12, i64 %16
-  %19 = getelementptr inbounds i8, ptr %18, i64 20
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 20
   %20 = load i32, ptr %19, align 4
   %21 = icmp eq i32 %20, %13
   br i1 %21, label %22, label %27
@@ -377,7 +377,7 @@ define dso_local void @acpi_put_table(ptr noundef readnone %0) #0 align 16 {
 12:                                               ; preds = %10, %7
   %indvars.iv = phi i64 [ %indvars.iv.next, %10 ], [ 0, %7 ]
   %13 = getelementptr %struct.acpi_table_desc, ptr %8, i64 %indvars.iv
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, %0
   br i1 %16, label %17, label %10

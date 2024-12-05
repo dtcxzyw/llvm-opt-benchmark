@@ -168,7 +168,7 @@ define internal i32 @dissect_mc_nmf(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 16:                                               ; preds = %12, %8
   %.0 = phi ptr [ %11, %8 ], [ %14, %12 ]
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8
   tail call void @col_set_str(ptr noundef %18, i32 noundef 34, ptr noundef nonnull @.str.42) #3
   %19 = load ptr, ptr %17, align 8
@@ -177,19 +177,19 @@ define internal i32 @dissect_mc_nmf(ptr noundef %0, ptr noundef %1, ptr noundef 
   %21 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %20, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #3
   %22 = load i32, ptr @ett_mc_nmf, align 4
   %23 = tail call ptr @proto_item_add_subtree(ptr noundef %21, i32 noundef %22) #3
-  %24 = getelementptr inbounds i8, ptr %.0, i64 12
+  %24 = getelementptr inbounds nuw i8, ptr %.0, i64 12
   %25 = load i32, ptr %24, align 4
   %.not117 = icmp eq i32 %25, 0
   br i1 %.not117, label %54, label %26
 
 26:                                               ; preds = %16
-  %27 = getelementptr inbounds i8, ptr %1, i64 20
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %28 = load i32, ptr %27, align 4
   %29 = icmp ult i32 %25, %28
   br i1 %29, label %30, label %54
 
 30:                                               ; preds = %26
-  %31 = getelementptr inbounds i8, ptr %.0, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %.0, i64 4
   %32 = load i32, ptr %31, align 4
   %.not118 = icmp eq i32 %32, 0
   br i1 %.not118, label %42, label %33
@@ -206,7 +206,7 @@ define internal i32 @dissect_mc_nmf(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %.loopexit
 
 42:                                               ; preds = %30
-  %43 = getelementptr inbounds i8, ptr %.0, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %44 = load i32, ptr %43, align 4
   %.not120 = icmp eq i32 %44, 0
   br i1 %.not120, label %54, label %45
@@ -228,10 +228,10 @@ define internal i32 @dissect_mc_nmf(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %.not347, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %54
-  %56 = getelementptr inbounds i8, ptr %1, i64 20
-  %57 = getelementptr inbounds i8, ptr %1, i64 408
-  %58 = getelementptr inbounds i8, ptr %.0, i64 8
-  %59 = getelementptr inbounds i8, ptr %.0, i64 4
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 408
+  %58 = getelementptr inbounds nuw i8, ptr %.0, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %.0, i64 4
   br label %60
 
 60:                                               ; preds = %.lr.ph, %288

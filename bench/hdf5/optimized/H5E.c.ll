@@ -1413,7 +1413,7 @@ define i32 @H5Ewalk2(i64 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef
 31:                                               ; preds = %25, %27
   %.013 = phi ptr [ %29, %27 ], [ @H5E_stack_g, %25 ]
   store i32 2, ptr %5, align 8
-  %32 = getelementptr inbounds i8, ptr %5, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %2, ptr %32, align 8
   %33 = call i32 @H5E__walk(ptr noundef nonnull %.013, i32 noundef %1, ptr noundef nonnull %5, ptr noundef %3) #5
   %34 = icmp slt i32 %33, 0
@@ -1508,7 +1508,7 @@ define range(i32 -1, 1) i32 @H5Eget_auto2(i64 noundef %0, ptr noundef writeonly 
   br label %.thread36
 
 41:                                               ; preds = %34
-  %42 = getelementptr inbounds i8, ptr %4, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %43 = load i8, ptr %42, align 4
   %44 = trunc i8 %43 to i1
   %45 = load i32, ptr %4, align 8
@@ -1527,7 +1527,7 @@ define range(i32 -1, 1) i32 @H5Eget_auto2(i64 noundef %0, ptr noundef writeonly 
   br i1 %.not, label %56, label %52
 
 52:                                               ; preds = %51
-  %53 = getelementptr inbounds i8, ptr %4, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %54 = load ptr, ptr %53, align 8
   store ptr %54, ptr %1, align 8
   br label %56
@@ -1612,14 +1612,14 @@ define range(i32 -1, 1) i32 @H5Eset_auto2(i64 noundef %0, ptr noundef %1, ptr no
   br label %.thread33
 
 41:                                               ; preds = %34
-  %42 = getelementptr inbounds i8, ptr %4, i64 32
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %43 = load ptr, ptr %42, align 8
   %.not = icmp eq ptr %1, %43
   %spec.select = zext i1 %.not to i8
-  %44 = getelementptr inbounds i8, ptr %4, i64 4
+  %44 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i8 %spec.select, ptr %44, align 4
   store i32 2, ptr %4, align 8
-  %45 = getelementptr inbounds i8, ptr %4, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %1, ptr %45, align 8
   %46 = call i32 @H5E__set_auto(ptr noundef nonnull %.016, ptr noundef nonnull %4, ptr noundef %2) #5
   %47 = icmp slt i32 %46, 0
@@ -1697,7 +1697,7 @@ define range(i32 -1, 1) i32 @H5Eauto_is_v2(i64 noundef %0, ptr noundef writeonly
   br i1 %.not, label %.thread30, label %29
 
 29:                                               ; preds = %28
-  %30 = getelementptr inbounds i8, ptr %.012, i64 2056
+  %30 = getelementptr inbounds nuw i8, ptr %.012, i64 2056
   %31 = load i32, ptr %30, align 8
   %32 = icmp ugt i32 %31, 1
   %33 = zext i1 %32 to i32

@@ -103,7 +103,7 @@ define internal void @acpi_pm_check_blacklist(ptr nocapture noundef readonly %0)
   br i1 %2, label %9, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 72
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = load i8, ptr %4, align 8
   %6 = icmp ult i8 %5, 3
   br i1 %6, label %7, label %9

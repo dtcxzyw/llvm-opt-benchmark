@@ -290,7 +290,7 @@ land.lhs.true:                                    ; preds = %land.lhs.true.i
   call void @llvm.va_copy.p0(ptr nonnull %copy_ap.i, ptr %ap)
   call void @strbuf_vaddf(ptr noundef nonnull %buf.i, ptr noundef nonnull %fmt, ptr noundef nonnull %copy_ap.i) #7
   call void @llvm.va_end.p0(ptr nonnull %copy_ap.i)
-  %buf4.i = getelementptr inbounds i8, ptr %buf.i, i64 16
+  %buf4.i = getelementptr inbounds nuw i8, ptr %buf.i, i64 16
   %1 = load ptr, ptr %buf4.i, align 8
   call void @jw_object_string(ptr noundef nonnull %jw, ptr noundef nonnull @.str.22, ptr noundef %1) #7
   call void @strbuf_release(ptr noundef nonnull %buf.i) #7
@@ -340,7 +340,7 @@ entry:
 while.body:                                       ; preds = %entry, %while.body
   %1 = phi ptr [ %2, %while.body ], [ %0, %entry ]
   %parent_names.addr.02 = phi ptr [ %incdec.ptr, %while.body ], [ %parent_names, %entry ]
-  %incdec.ptr = getelementptr inbounds i8, ptr %parent_names.addr.02, i64 8
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %parent_names.addr.02, i64 8
   call void @jw_array_string(ptr noundef nonnull %jw, ptr noundef nonnull %1) #7
   %2 = load ptr, ptr %incdec.ptr, align 8
   %tobool.not = icmp eq ptr %2, null
@@ -419,11 +419,11 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %jw, ptr noundef nonnull align 8 dereferenceable(56) @__const.fn_counter.jw, i64 56, i1 false)
   call void @jw_object_begin(ptr noundef nonnull %jw, i32 noundef 0) #7
   call fastcc void @event_fmt_prepare(ptr noundef nonnull @.str.33, ptr noundef %file, i32 noundef %line, ptr noundef null, ptr noundef %jw)
-  %trace2_child_id = getelementptr inbounds i8, ptr %cmd, i64 52
+  %trace2_child_id = getelementptr inbounds nuw i8, ptr %cmd, i64 52
   %0 = load i32, ptr %trace2_child_id, align 4
   %conv = sext i32 %0 to i64
   call void @jw_object_intmax(ptr noundef nonnull %jw, ptr noundef nonnull @.str.34, i64 noundef %conv) #7
-  %trace2_hook_name = getelementptr inbounds i8, ptr %cmd, i64 72
+  %trace2_hook_name = getelementptr inbounds nuw i8, ptr %cmd, i64 72
   %1 = load ptr, ptr %trace2_hook_name, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.else, label %if.then
@@ -435,7 +435,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %trace2_child_class = getelementptr inbounds i8, ptr %cmd, i64 64
+  %trace2_child_class = getelementptr inbounds nuw i8, ptr %cmd, i64 64
   %3 = load ptr, ptr %trace2_child_class, align 8
   %tobool2.not = icmp eq ptr %3, null
   %spec.select = select i1 %tobool2.not, ptr @.str.38, ptr %3
@@ -443,7 +443,7 @@ if.else:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
-  %dir = getelementptr inbounds i8, ptr %cmd, i64 96
+  %dir = getelementptr inbounds nuw i8, ptr %cmd, i64 96
   %4 = load ptr, ptr %dir, align 8
   %tobool4.not = icmp eq ptr %4, null
   br i1 %tobool4.not, label %if.end7, label %if.then5
@@ -453,7 +453,7 @@ if.then5:                                         ; preds = %if.end
   br label %if.end7
 
 if.end7:                                          ; preds = %if.then5, %if.end
-  %use_shell = getelementptr inbounds i8, ptr %cmd, i64 104
+  %use_shell = getelementptr inbounds nuw i8, ptr %cmd, i64 104
   %bf.load = load i16, ptr %use_shell, align 8
   %bf.lshr = lshr i16 %bf.load, 5
   %bf.clear = and i16 %bf.lshr, 1
@@ -599,7 +599,7 @@ define internal void @fn_param_fl(ptr noundef %file, i32 noundef %line, ptr noun
 entry:
   %jw = alloca %struct.json_writer, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %jw, ptr noundef nonnull align 8 dereferenceable(56) @__const.fn_counter.jw, i64 56, i1 false)
-  %scope1 = getelementptr inbounds i8, ptr %kvi, i64 16
+  %scope1 = getelementptr inbounds nuw i8, ptr %kvi, i64 16
   %0 = load i32, ptr %scope1, align 8
   %call = tail call ptr @config_scope_name(i32 noundef %0) #7
   call void @jw_object_begin(ptr noundef nonnull %jw, i32 noundef 0) #7
@@ -620,7 +620,7 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %jw, ptr noundef nonnull align 8 dereferenceable(56) @__const.fn_counter.jw, i64 56, i1 false)
   call void @jw_object_begin(ptr noundef nonnull %jw, i32 noundef 0) #7
   call fastcc void @event_fmt_prepare(ptr noundef nonnull @.str.56, ptr noundef %file, i32 noundef %line, ptr noundef %repo, ptr noundef %jw)
-  %worktree = getelementptr inbounds i8, ptr %repo, i64 128
+  %worktree = getelementptr inbounds nuw i8, ptr %repo, i64 128
   %0 = load ptr, ptr %worktree, align 8
   call void @jw_object_string(ptr noundef nonnull %jw, ptr noundef nonnull @.str.57, ptr noundef %0) #7
   call void @jw_end(ptr noundef nonnull %jw) #7
@@ -636,7 +636,7 @@ entry:
   %buf.i = alloca %struct.strbuf, align 8
   %jw = alloca %struct.json_writer, align 8
   %call = tail call ptr @tr2tls_get_self() #7
-  %nr_open_regions = getelementptr inbounds i8, ptr %call, i64 24
+  %nr_open_regions = getelementptr inbounds nuw i8, ptr %call, i64 24
   %0 = load i64, ptr %nr_open_regions, align 8
   %1 = load i32, ptr @tr2env_event_max_nesting_levels, align 4
   %conv = zext nneg i32 %1 to i64
@@ -680,7 +680,7 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   call void @llvm.va_copy.p0(ptr nonnull %copy_ap.i, ptr %ap)
   call void @strbuf_vaddf(ptr noundef nonnull %buf.i, ptr noundef nonnull %fmt, ptr noundef nonnull %copy_ap.i) #7
   call void @llvm.va_end.p0(ptr nonnull %copy_ap.i)
-  %buf4.i = getelementptr inbounds i8, ptr %buf.i, i64 16
+  %buf4.i = getelementptr inbounds nuw i8, ptr %buf.i, i64 16
   %4 = load ptr, ptr %buf4.i, align 8
   call void @jw_object_string(ptr noundef nonnull %jw, ptr noundef nonnull @.str.22, ptr noundef %4) #7
   call void @strbuf_release(ptr noundef nonnull %buf.i) #7
@@ -705,7 +705,7 @@ entry:
   %buf.i = alloca %struct.strbuf, align 8
   %jw = alloca %struct.json_writer, align 8
   %call = tail call ptr @tr2tls_get_self() #7
-  %nr_open_regions = getelementptr inbounds i8, ptr %call, i64 24
+  %nr_open_regions = getelementptr inbounds nuw i8, ptr %call, i64 24
   %0 = load i64, ptr %nr_open_regions, align 8
   %1 = load i32, ptr @tr2env_event_max_nesting_levels, align 4
   %conv = zext nneg i32 %1 to i64
@@ -752,7 +752,7 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   call void @llvm.va_copy.p0(ptr nonnull %copy_ap.i, ptr %ap)
   call void @strbuf_vaddf(ptr noundef nonnull %buf.i, ptr noundef nonnull %fmt, ptr noundef nonnull %copy_ap.i) #7
   call void @llvm.va_end.p0(ptr nonnull %copy_ap.i)
-  %buf4.i = getelementptr inbounds i8, ptr %buf.i, i64 16
+  %buf4.i = getelementptr inbounds nuw i8, ptr %buf.i, i64 16
   %4 = load ptr, ptr %buf4.i, align 8
   call void @jw_object_string(ptr noundef nonnull %jw, ptr noundef nonnull @.str.22, ptr noundef %4) #7
   call void @strbuf_release(ptr noundef nonnull %buf.i) #7
@@ -775,7 +775,7 @@ define internal void @fn_data_fl(ptr noundef %file, i32 noundef %line, i64 nound
 entry:
   %jw = alloca %struct.json_writer, align 8
   %call = tail call ptr @tr2tls_get_self() #7
-  %nr_open_regions = getelementptr inbounds i8, ptr %call, i64 24
+  %nr_open_regions = getelementptr inbounds nuw i8, ptr %call, i64 24
   %0 = load i64, ptr %nr_open_regions, align 8
   %1 = load i32, ptr @tr2env_event_max_nesting_levels, align 4
   %conv = zext nneg i32 %1 to i64
@@ -811,7 +811,7 @@ define internal void @fn_data_json_fl(ptr noundef %file, i32 noundef %line, i64 
 entry:
   %jw = alloca %struct.json_writer, align 8
   %call = tail call ptr @tr2tls_get_self() #7
-  %nr_open_regions = getelementptr inbounds i8, ptr %call, i64 24
+  %nr_open_regions = getelementptr inbounds nuw i8, ptr %call, i64 24
   %0 = load i64, ptr %nr_open_regions, align 8
   %1 = load i32, ptr @tr2env_event_max_nesting_levels, align 4
   %conv = zext nneg i32 %1 to i64
@@ -852,11 +852,11 @@ entry:
   %0 = load i64, ptr %timer, align 8
   %conv = uitofp i64 %0 to double
   %div = fdiv double %conv, 1.000000e+09
-  %min_ns = getelementptr inbounds i8, ptr %timer, i64 8
+  %min_ns = getelementptr inbounds nuw i8, ptr %timer, i64 8
   %1 = load i64, ptr %min_ns, align 8
   %conv1 = uitofp i64 %1 to double
   %div2 = fdiv double %conv1, 1.000000e+09
-  %max_ns = getelementptr inbounds i8, ptr %timer, i64 16
+  %max_ns = getelementptr inbounds nuw i8, ptr %timer, i64 16
   %2 = load i64, ptr %max_ns, align 8
   %conv3 = uitofp i64 %2 to double
   %div4 = fdiv double %conv3, 1.000000e+09
@@ -864,10 +864,10 @@ entry:
   call fastcc void @event_fmt_prepare(ptr noundef nonnull %cond, ptr noundef nonnull @.str.19, i32 noundef 636, ptr noundef null, ptr noundef %jw)
   %3 = load ptr, ptr %meta, align 8
   call void @jw_object_string(ptr noundef nonnull %jw, ptr noundef nonnull @.str.60, ptr noundef %3) #7
-  %name = getelementptr inbounds i8, ptr %meta, i64 8
+  %name = getelementptr inbounds nuw i8, ptr %meta, i64 8
   %4 = load ptr, ptr %name, align 8
   call void @jw_object_string(ptr noundef nonnull %jw, ptr noundef nonnull @.str.29, ptr noundef %4) #7
-  %interval_count = getelementptr inbounds i8, ptr %timer, i64 32
+  %interval_count = getelementptr inbounds nuw i8, ptr %timer, i64 32
   %5 = load i64, ptr %interval_count, align 8
   call void @jw_object_intmax(ptr noundef nonnull %jw, ptr noundef nonnull @.str.68, i64 noundef %5) #7
   call void @jw_object_double(ptr noundef nonnull %jw, ptr noundef nonnull @.str.69, i32 noundef 6, double noundef %div) #7
@@ -890,7 +890,7 @@ entry:
   call fastcc void @event_fmt_prepare(ptr noundef nonnull %cond, ptr noundef nonnull @.str.19, i32 noundef 657, ptr noundef null, ptr noundef %jw)
   %0 = load ptr, ptr %meta, align 8
   call void @jw_object_string(ptr noundef nonnull %jw, ptr noundef nonnull @.str.60, ptr noundef %0) #7
-  %name = getelementptr inbounds i8, ptr %meta, i64 8
+  %name = getelementptr inbounds nuw i8, ptr %meta, i64 8
   %1 = load ptr, ptr %name, align 8
   call void @jw_object_string(ptr noundef nonnull %jw, ptr noundef nonnull @.str.29, ptr noundef %1) #7
   %2 = load i64, ptr %counter, align 8
@@ -966,7 +966,7 @@ if.end13:                                         ; preds = %lor.lhs.false4, %if
   br i1 %tobool14.not, label %if.end17, label %if.then15
 
 if.then15:                                        ; preds = %if.end13
-  %trace2_repo_id = getelementptr inbounds i8, ptr %repo, i64 268
+  %trace2_repo_id = getelementptr inbounds nuw i8, ptr %repo, i64 268
   %4 = load i32, ptr %trace2_repo_id, align 4
   %conv16 = sext i32 %4 to i64
   call void @jw_object_intmax(ptr noundef nonnull %jw, ptr noundef nonnull @.str.11, i64 noundef %conv16) #7

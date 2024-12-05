@@ -24,7 +24,7 @@ define dso_local void @_ZN20btCollisionAlgorithmC2ERK36btCollisionAlgorithmConst
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV20btCollisionAlgorithm, i64 16), ptr %this, align 8
   %0 = load ptr, ptr %ci, align 8
-  %m_dispatcher = getelementptr inbounds i8, ptr %this, i64 8
+  %m_dispatcher = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %0, ptr %m_dispatcher, align 8
   ret void
 }

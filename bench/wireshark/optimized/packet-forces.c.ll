@@ -452,7 +452,7 @@ define internal fastcc void @dissect_forces(ptr noundef %0, ptr noundef %1, ptr 
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
   tail call void @col_set_str(ptr noundef %11, i32 noundef 34, ptr noundef nonnull @.str.79) #4
   %12 = load ptr, ptr %10, align 8
@@ -535,22 +535,22 @@ define internal fastcc void @dissect_forces(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %75, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %41
-  %76 = getelementptr inbounds i8, ptr %1, i64 208
-  %77 = getelementptr inbounds i8, ptr %1, i64 212
-  %78 = getelementptr inbounds i8, ptr %1, i64 216
-  %79 = getelementptr inbounds i8, ptr %1, i64 160
-  %80 = getelementptr inbounds i8, ptr %1, i64 164
-  %81 = getelementptr inbounds i8, ptr %1, i64 168
-  %82 = getelementptr inbounds i8, ptr %1, i64 232
-  %83 = getelementptr inbounds i8, ptr %1, i64 236
-  %84 = getelementptr inbounds i8, ptr %1, i64 240
-  %85 = getelementptr inbounds i8, ptr %1, i64 184
-  %86 = getelementptr inbounds i8, ptr %1, i64 188
-  %87 = getelementptr inbounds i8, ptr %1, i64 192
-  %88 = getelementptr inbounds i8, ptr %1, i64 224
-  %89 = getelementptr inbounds i8, ptr %1, i64 176
-  %90 = getelementptr inbounds i8, ptr %1, i64 248
-  %91 = getelementptr inbounds i8, ptr %1, i64 200
+  %76 = getelementptr inbounds nuw i8, ptr %1, i64 208
+  %77 = getelementptr inbounds nuw i8, ptr %1, i64 212
+  %78 = getelementptr inbounds nuw i8, ptr %1, i64 216
+  %79 = getelementptr inbounds nuw i8, ptr %1, i64 160
+  %80 = getelementptr inbounds nuw i8, ptr %1, i64 164
+  %81 = getelementptr inbounds nuw i8, ptr %1, i64 168
+  %82 = getelementptr inbounds nuw i8, ptr %1, i64 232
+  %83 = getelementptr inbounds nuw i8, ptr %1, i64 236
+  %84 = getelementptr inbounds nuw i8, ptr %1, i64 240
+  %85 = getelementptr inbounds nuw i8, ptr %1, i64 184
+  %86 = getelementptr inbounds nuw i8, ptr %1, i64 188
+  %87 = getelementptr inbounds nuw i8, ptr %1, i64 192
+  %88 = getelementptr inbounds nuw i8, ptr %1, i64 224
+  %89 = getelementptr inbounds nuw i8, ptr %1, i64 176
+  %90 = getelementptr inbounds nuw i8, ptr %1, i64 248
+  %91 = getelementptr inbounds nuw i8, ptr %1, i64 200
   br label %92
 
 92:                                               ; preds = %.lr.ph, %dissect_lfbselecttlv.exit

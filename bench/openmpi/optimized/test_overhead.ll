@@ -139,7 +139,7 @@ default.unreachable:                              ; preds = %20
 
 50:                                               ; preds = %.preheader, %50
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %50 ], [ 0, %.preheader ]
-  %51 = getelementptr inbounds double, ptr %5, i64 %indvars.iv.i
+  %51 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv.i
   call void %.140(ptr noundef nonnull %51, ptr noundef %.2, i32 noundef %.046, i32 noundef 201, ptr noundef %47) #12
   %52 = call i32 @MPI_Barrier(ptr noundef nonnull @ompi_mpi_comm_world) #12
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -205,7 +205,7 @@ do_bench.exit:                                    ; preds = %53, %54
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.03544 = phi double [ 0.000000e+00, %.lr.ph.preheader ], [ %95, %.lr.ph ]
-  %93 = getelementptr inbounds double, ptr %19, i64 %indvars.iv
+  %93 = getelementptr inbounds nuw double, ptr %19, i64 %indvars.iv
   %94 = load double, ptr %93, align 8
   %95 = fadd double %.03544, %94
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -283,10 +283,10 @@ define internal void @op_send(ptr nocapture noundef writeonly initializes((0, 8)
   %27 = call i32 @clock_gettime(i32 noundef 4, ptr noundef nonnull %8) #12
   %28 = call i32 @MPI_Wait(ptr noundef nonnull %6, ptr noundef null) #12
   %.val = load i64, ptr %7, align 8
-  %29 = getelementptr inbounds i8, ptr %7, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %.val6 = load i64, ptr %29, align 8
   %.val7 = load i64, ptr %8, align 8
-  %30 = getelementptr inbounds i8, ptr %8, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %.val8 = load i64, ptr %30, align 8
   %31 = sub nsw i64 %.val7, %.val
   %32 = sitofp i64 %31 to double
@@ -307,10 +307,10 @@ define internal void @op_coll(ptr nocapture noundef writeonly initializes((0, 8)
   %10 = call i32 @MPI_Bcast(ptr noundef %1, i32 noundef %2, ptr noundef nonnull @ompi_mpi_byte, i32 noundef 0, ptr noundef nonnull @ompi_mpi_comm_world) #12
   %11 = call i32 @clock_gettime(i32 noundef 4, ptr noundef nonnull %7) #12
   %.val = load i64, ptr %6, align 8
-  %12 = getelementptr inbounds i8, ptr %6, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.val2 = load i64, ptr %12, align 8
   %.val3 = load i64, ptr %7, align 8
-  %13 = getelementptr inbounds i8, ptr %7, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %.val4 = load i64, ptr %13, align 8
   %14 = sub nsw i64 %.val3, %.val
   %15 = sitofp i64 %14 to double
@@ -331,10 +331,10 @@ define internal void @op_a2a(ptr nocapture noundef writeonly initializes((0, 8))
   %10 = call i32 @MPI_Alltoall(ptr noundef %1, i32 noundef %2, ptr noundef nonnull @ompi_mpi_byte, ptr noundef %4, i32 noundef %2, ptr noundef nonnull @ompi_mpi_byte, ptr noundef nonnull @ompi_mpi_comm_world) #12
   %11 = call i32 @clock_gettime(i32 noundef 4, ptr noundef nonnull %7) #12
   %.val = load i64, ptr %6, align 8
-  %12 = getelementptr inbounds i8, ptr %6, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.val4 = load i64, ptr %12, align 8
   %.val5 = load i64, ptr %7, align 8
-  %13 = getelementptr inbounds i8, ptr %7, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %.val6 = load i64, ptr %13, align 8
   %14 = sub nsw i64 %.val5, %.val
   %15 = sitofp i64 %14 to double
@@ -386,10 +386,10 @@ define internal void @op_send_pingpong(ptr nocapture noundef writeonly initializ
 
 35:                                               ; preds = %23, %11
   %.val = load i64, ptr %6, align 8
-  %36 = getelementptr inbounds i8, ptr %6, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.val24 = load i64, ptr %36, align 8
   %.val25 = load i64, ptr %7, align 8
-  %37 = getelementptr inbounds i8, ptr %7, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %.val26 = load i64, ptr %37, align 8
   %38 = sub nsw i64 %.val25, %.val
   %39 = sitofp i64 %38 to double
@@ -418,10 +418,10 @@ define internal void @op_put(ptr nocapture noundef writeonly initializes((0, 8))
   %17 = call i32 @MPI_Win_unlock(i32 noundef %15, ptr noundef %16) #12
   %18 = call i32 @clock_gettime(i32 noundef 4, ptr noundef nonnull %7) #12
   %.val = load i64, ptr %6, align 8
-  %19 = getelementptr inbounds i8, ptr %6, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.val3 = load i64, ptr %19, align 8
   %.val4 = load i64, ptr %7, align 8
-  %20 = getelementptr inbounds i8, ptr %7, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %.val5 = load i64, ptr %20, align 8
   %21 = sub nsw i64 %.val4, %.val
   %22 = sitofp i64 %21 to double
@@ -449,10 +449,10 @@ define internal void @op_get(ptr nocapture noundef writeonly initializes((0, 8))
   %17 = call i32 @MPI_Win_unlock(i32 noundef %15, ptr noundef %16) #12
   %18 = call i32 @clock_gettime(i32 noundef 4, ptr noundef nonnull %7) #12
   %.val = load i64, ptr %6, align 8
-  %19 = getelementptr inbounds i8, ptr %6, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.val3 = load i64, ptr %19, align 8
   %.val4 = load i64, ptr %7, align 8
-  %20 = getelementptr inbounds i8, ptr %7, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %.val5 = load i64, ptr %20, align 8
   %21 = sub nsw i64 %.val4, %.val
   %22 = sitofp i64 %21 to double

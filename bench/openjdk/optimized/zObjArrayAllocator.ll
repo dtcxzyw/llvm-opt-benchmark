@@ -50,15 +50,15 @@ $_ZN9LogPrefixILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = c
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN18ZObjArrayAllocatorC2EP5KlassmibP6Thread(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(37) initializes((0, 37)) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, i1 noundef zeroext %4, ptr noundef %5) unnamed_addr #0 align 2 {
   %7 = zext i1 %4 to i8
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %5, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %1, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %2, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 %3, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 36
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i8 %7, ptr %12, align 4
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV18ZObjArrayAllocator, i64 16), ptr %0, align 8
   ret void
@@ -66,17 +66,17 @@ define hidden void @_ZN18ZObjArrayAllocatorC2EP5KlassmibP6Thread(ptr nocapture n
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK18ZObjArrayAllocator19yield_for_safepointEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(37) %0) local_unnamed_addr #1 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 928
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %4) #5
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !6
-  %5 = getelementptr inbounds i8, ptr %3, i64 1092
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 1092
   store volatile i32 10, ptr %5, align 4
   store volatile i32 6, ptr %5, align 4
   tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !7
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !6
-  %6 = getelementptr inbounds i8, ptr %3, i64 1096
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 1096
   %7 = load volatile i64, ptr %6, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !6
   %8 = and i64 %7, 1
@@ -89,7 +89,7 @@ define hidden void @_ZNK18ZObjArrayAllocator19yield_for_safepointEv(ptr nocaptur
   br i1 %.not5.i.i, label %11, label %17
 
 11:                                               ; preds = %9
-  %12 = getelementptr inbounds i8, ptr %3, i64 1384
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 1384
   %13 = tail call noundef zeroext i1 @_ZN14HandshakeState13has_operationEbb(ptr noundef nonnull align 8 dereferenceable(131) %12, i1 noundef zeroext false, i1 noundef zeroext false) #5
   br i1 %13, label %17, label %14
 
@@ -130,7 +130,7 @@ define hidden noundef ptr @_ZNK18ZObjArrayAllocator10initializeEPP12HeapWordImpl
   %12 = alloca i8, align 1
   %13 = alloca %class.anon.9, align 8
   store ptr %1, ptr %3, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 36
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %15 = load i8, ptr %14, align 4
   %16 = trunc i8 %15 to i1
   br i1 %16, label %19, label %17
@@ -141,7 +141,7 @@ define hidden noundef ptr @_ZNK18ZObjArrayAllocator10initializeEPP12HeapWordImpl
 
 19:                                               ; preds = %2
   store i64 8192, ptr %4, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %21 = load i64, ptr %20, align 8
   %.not = icmp ugt i64 %21, 8192
   br i1 %.not, label %24, label %22
@@ -152,9 +152,9 @@ define hidden noundef ptr @_ZNK18ZObjArrayAllocator10initializeEPP12HeapWordImpl
 
 24:                                               ; preds = %19
   store i64 3, ptr %1, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %1, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %28 = load i8, ptr @UseCompressedClassPointers, align 1
   %29 = trunc i8 %28 to i1
   br i1 %29, label %30, label %39
@@ -178,19 +178,19 @@ define hidden noundef ptr @_ZNK18ZObjArrayAllocator10initializeEPP12HeapWordImpl
   br label %_ZN7oopDesc17release_set_klassEPP12HeapWordImplP5Klass.exit
 
 _ZN7oopDesc17release_set_klassEPP12HeapWordImplP5Klass.exit: ; preds = %30, %39
-  %40 = getelementptr inbounds i8, ptr %0, i64 32
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %41 = load i32, ptr %40, align 8
   %42 = load i8, ptr @UseCompressedClassPointers, align 1
   %43 = trunc i8 %42 to i1
   %44 = select i1 %43, i64 12, i64 16
-  %45 = getelementptr inbounds i8, ptr %1, i64 %44
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 %44
   store i32 %41, ptr %45, align 4
-  %46 = getelementptr inbounds i8, ptr %0, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 376
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 376
   store ptr %3, ptr %48, align 8
   %49 = load ptr, ptr %25, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %51 = load i32, ptr %50, align 8
   %52 = lshr i32 %51, 8
   %53 = trunc i32 %52 to i8
@@ -227,7 +227,7 @@ _ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit: ; preds = %58, %_ZN12ar
   br i1 %.not8, label %69, label %67
 
 67:                                               ; preds = %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit
-  %68 = getelementptr inbounds i8, ptr %1, i64 %64
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 %64
   store i32 0, ptr %68, align 4
   br label %69
 
@@ -238,35 +238,35 @@ _ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit: ; preds = %58, %_ZN12ar
   %72 = sub i64 %71, %70
   store i64 %72, ptr %7, align 8
   %73 = load ptr, ptr @_ZN11ZGeneration4_oldE, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i64 3220
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 3220
   %75 = load i32, ptr %74, align 4
   store i32 %75, ptr %8, align 4
   %76 = load ptr, ptr @_ZN11ZGeneration6_youngE, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 3220
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 3220
   %78 = load i32, ptr %77, align 4
   store i32 %78, ptr %9, align 4
   %79 = load i64, ptr @ZPointerStoreGoodMask, align 8
   store i64 %79, ptr %10, align 8
   store ptr %8, ptr %11, align 8
-  %80 = getelementptr inbounds i8, ptr %11, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %9, ptr %80, align 8
-  %81 = getelementptr inbounds i8, ptr %11, i64 16
+  %81 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr %10, ptr %81, align 8
   store i8 0, ptr %12, align 1
   store ptr %7, ptr %13, align 8
-  %82 = getelementptr inbounds i8, ptr %13, i64 8
+  %82 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %4, ptr %82, align 8
-  %83 = getelementptr inbounds i8, ptr %13, i64 16
+  %83 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr %3, ptr %83, align 8
-  %84 = getelementptr inbounds i8, ptr %13, i64 24
+  %84 = getelementptr inbounds nuw i8, ptr %13, i64 24
   store ptr %6, ptr %84, align 8
-  %85 = getelementptr inbounds i8, ptr %13, i64 32
+  %85 = getelementptr inbounds nuw i8, ptr %13, i64 32
   store ptr %12, ptr %85, align 8
-  %86 = getelementptr inbounds i8, ptr %13, i64 40
+  %86 = getelementptr inbounds nuw i8, ptr %13, i64 40
   store ptr %5, ptr %86, align 8
-  %87 = getelementptr inbounds i8, ptr %13, i64 48
+  %87 = getelementptr inbounds nuw i8, ptr %13, i64 48
   store ptr %0, ptr %87, align 8
-  %88 = getelementptr inbounds i8, ptr %13, i64 56
+  %88 = getelementptr inbounds nuw i8, ptr %13, i64 56
   store ptr %11, ptr %88, align 8
   %89 = call fastcc noundef zeroext i1 @"_ZZNK18ZObjArrayAllocator10initializeEPP12HeapWordImplENK3$_0clEv"(ptr noundef nonnull align 8 dereferenceable(64) %13)
   br i1 %89, label %92, label %90
@@ -277,7 +277,7 @@ _ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit: ; preds = %58, %_ZN12ar
 
 92:                                               ; preds = %90, %69
   %93 = load ptr, ptr %46, align 8
-  %94 = getelementptr inbounds i8, ptr %93, i64 376
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 376
   store ptr null, ptr %94, align 8
   %95 = load ptr, ptr %3, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !6
@@ -294,7 +294,7 @@ declare noundef ptr @_ZNK17ObjArrayAllocator10initializeEPP12HeapWordImpl(ptr no
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef zeroext i1 @"_ZZNK18ZObjArrayAllocator10initializeEPP12HeapWordImplENK3$_0clEv"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0) unnamed_addr #1 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %0, align 8
   %5 = load i64, ptr %4, align 8
@@ -302,12 +302,12 @@ define internal fastcc noundef zeroext i1 @"_ZZNK18ZObjArrayAllocator10initializ
   br i1 %6, label %.loopexit, label %_Z17is_reference_type9BasicTypeb.exit.lr.ph
 
 _Z17is_reference_type9BasicTypeb.exit.lr.ph:      ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
-  %11 = getelementptr inbounds i8, ptr %0, i64 40
-  %12 = getelementptr inbounds i8, ptr %0, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %.pre = load ptr, ptr %9, align 8
   %.pre18 = load i64, ptr %.pre, align 8
   %.pre19 = load ptr, ptr %11, align 8
@@ -355,23 +355,23 @@ _Z17is_reference_type9BasicTypeb.exit:            ; preds = %_Z17is_reference_ty
   %40 = load ptr, ptr %39, align 8
   %41 = load i32, ptr %40, align 4
   %42 = load ptr, ptr @_ZN11ZGeneration4_oldE, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 3220
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 3220
   %44 = load i32, ptr %43, align 4
   %.not.i = icmp eq i32 %41, %44
   br i1 %.not.i, label %45, label %"_ZZNK18ZObjArrayAllocator10initializeEPP12HeapWordImplENK3$_1clEv.exit.thread"
 
 45:                                               ; preds = %38
-  %46 = getelementptr inbounds i8, ptr %39, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %47 = load ptr, ptr %46, align 8
   %48 = load i32, ptr %47, align 4
   %49 = load ptr, ptr @_ZN11ZGeneration6_youngE, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 3220
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 3220
   %51 = load i32, ptr %50, align 4
   %.not1.i = icmp eq i32 %48, %51
   br i1 %.not1.i, label %"_ZZNK18ZObjArrayAllocator10initializeEPP12HeapWordImplENK3$_1clEv.exit", label %"_ZZNK18ZObjArrayAllocator10initializeEPP12HeapWordImplENK3$_1clEv.exit.thread"
 
 "_ZZNK18ZObjArrayAllocator10initializeEPP12HeapWordImplENK3$_1clEv.exit": ; preds = %45
-  %52 = getelementptr inbounds i8, ptr %39, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %53 = load ptr, ptr %52, align 8
   %54 = load i64, ptr %53, align 8
   %55 = load i64, ptr @ZPointerStoreGoodMask, align 8

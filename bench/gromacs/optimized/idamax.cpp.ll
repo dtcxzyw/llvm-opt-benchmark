@@ -34,7 +34,7 @@ define i32 @idamax_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
   %indvars.iv55 = phi i64 [ 1, %.lr.ph51.preheader ], [ %indvars.iv.next56, %.lr.ph51 ]
   %.03149 = phi double [ %12, %.lr.ph51.preheader ], [ %.132, %.lr.ph51 ]
   %.03348 = phi i32 [ 1, %.lr.ph51.preheader ], [ %.134, %.lr.ph51 ]
-  %15 = getelementptr inbounds double, ptr %1, i64 %indvars.iv55
+  %15 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv55
   %16 = load double, ptr %15, align 8
   %17 = tail call noundef double @llvm.fabs.f64(double %16)
   %18 = fcmp ogt double %17, %.03149
@@ -50,7 +50,7 @@ define i32 @idamax_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
   %.147 = phi i32 [ 1, %.lr.ph.preheader ], [ %26, %.lr.ph ]
   %.246 = phi double [ %12, %.lr.ph.preheader ], [ %.3, %.lr.ph ]
   %.33645 = phi i32 [ 1, %.lr.ph.preheader ], [ %.4, %.lr.ph ]
-  %20 = getelementptr inbounds double, ptr %1, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv
   %21 = load double, ptr %20, align 8
   %22 = tail call noundef double @llvm.fabs.f64(double %21)
   %23 = fcmp ogt double %22, %.246

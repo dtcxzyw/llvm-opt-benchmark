@@ -201,7 +201,7 @@ define internal i32 @dissect_credssp(ptr noundef %0, ptr noundef %1, ptr noundef
 
 11:                                               ; preds = %6, %4
   %.0 = phi ptr [ %10, %6 ], [ null, %4 ]
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8
   tail call void @col_set_str(ptr noundef %13, i32 noundef 34, ptr noundef nonnull @.str.72) #5
   %14 = load ptr, ptr %12, align 8
@@ -309,12 +309,12 @@ define internal range(i32 0, 2) i32 @dissect_credssp_heur(ptr noundef %0, ptr no
 45:                                               ; preds = %42
   %46 = call ptr @export_pdu_create_common_tags(ptr noundef %1, ptr noundef nonnull @.str.73, i16 noundef zeroext 12) #5
   %47 = call i32 @tvb_captured_length(ptr noundef %0) #5
-  %48 = getelementptr inbounds i8, ptr %46, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %46, i64 16
   store i32 %47, ptr %48, align 8
   %49 = call i32 @tvb_reported_length(ptr noundef %0) #5
-  %50 = getelementptr inbounds i8, ptr %46, i64 20
+  %50 = getelementptr inbounds nuw i8, ptr %46, i64 20
   store i32 %49, ptr %50, align 4
-  %51 = getelementptr inbounds i8, ptr %46, i64 24
+  %51 = getelementptr inbounds nuw i8, ptr %46, i64 24
   store ptr %0, ptr %51, align 8
   %52 = load i32, ptr @exported_pdu_tap, align 4
   call void @tap_queue_packet(i32 noundef %52, ptr noundef %1, ptr noundef %46) #5
@@ -366,10 +366,10 @@ define internal i32 @dissect_credssp_T_authInfo(i1 noundef zeroext %0, ptr nound
   store i16 1, ptr %8, align 8
   %10 = load ptr, ptr @gssapi_wrap_handle, align 8
   %11 = load ptr, ptr %7, align 8
-  %12 = getelementptr inbounds i8, ptr %3, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = call i32 @call_dissector_with_data(ptr noundef %10, ptr noundef %11, ptr noundef %13, ptr noundef %4, ptr noundef nonnull %8) #5
-  %15 = getelementptr inbounds i8, ptr %8, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %21, label %17
@@ -394,10 +394,10 @@ define internal i32 @dissect_credssp_T_pubKeyAuth(i1 noundef zeroext %0, ptr nou
   store i16 1, ptr %8, align 8
   %10 = load ptr, ptr @gssapi_wrap_handle, align 8
   %11 = load ptr, ptr %7, align 8
-  %12 = getelementptr inbounds i8, ptr %3, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = call i32 @call_dissector_with_data(ptr noundef %10, ptr noundef %11, ptr noundef %13, ptr noundef %4, ptr noundef nonnull %8) #5
-  %15 = getelementptr inbounds i8, ptr %8, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %20, label %17
@@ -463,7 +463,7 @@ define internal i32 @dissect_credssp_T_negoToken(i1 noundef zeroext %0, ptr noun
 
 10:                                               ; preds = %6
   %11 = load ptr, ptr @gssapi_handle, align 8
-  %12 = getelementptr inbounds i8, ptr %3, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = call i32 @call_dissector(ptr noundef %11, ptr noundef nonnull %9, ptr noundef %13, ptr noundef %4) #5
   br label %15
@@ -613,7 +613,7 @@ define internal i32 @dissect_credssp_T_credBuffer(i1 noundef zeroext %0, ptr nou
   ]
 
 12:                                               ; preds = %10
-  %13 = getelementptr inbounds i8, ptr %3, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %14 = load ptr, ptr %13, align 8
   %15 = load i32, ptr @ett_credssp_RGC_CredBuffer, align 4
   %16 = call ptr @proto_item_add_subtree(ptr noundef %14, i32 noundef %15) #5
@@ -622,7 +622,7 @@ define internal i32 @dissect_credssp_T_credBuffer(i1 noundef zeroext %0, ptr nou
   br label %26
 
 19:                                               ; preds = %10
-  %20 = getelementptr inbounds i8, ptr %3, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %21 = load ptr, ptr %20, align 8
   %22 = load i32, ptr @ett_credssp_RGC_CredBuffer, align 4
   %23 = call ptr @proto_item_add_subtree(ptr noundef %21, i32 noundef %22) #5

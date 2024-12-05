@@ -117,9 +117,9 @@ define internal fastcc void @draw_vector(ptr noundef %0) unnamed_addr #0 {
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15) #4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %15, ptr noundef nonnull align 16 dereferenceable(24) @__const.draw_shapes.pts, i64 24, i1 false)
   call void @lv_vector_path_move_to(ptr noundef %23, ptr noundef nonnull %15) #4
-  %24 = getelementptr inbounds i8, ptr %15, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %15, i64 8
   call void @lv_vector_path_line_to(ptr noundef %23, ptr noundef nonnull %24) #4
-  %25 = getelementptr inbounds i8, ptr %15, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %15, i64 16
   call void @lv_vector_path_line_to(ptr noundef %23, ptr noundef nonnull %25) #4
   call void @lv_vector_path_close(ptr noundef %23) #4
   %26 = call i24 @lv_color_make(i8 noundef zeroext -1, i8 noundef zeroext 0, i8 noundef zeroext 0) #4
@@ -158,9 +158,9 @@ define internal fastcc void @draw_vector(ptr noundef %0) unnamed_addr #0 {
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13) #4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %13, ptr noundef nonnull align 16 dereferenceable(32) @__const.draw_lines.pts, i64 32, i1 false)
   call void @lv_vector_path_move_to(ptr noundef %23, ptr noundef nonnull %13) #4
-  %30 = getelementptr inbounds i8, ptr %13, i64 8
-  %31 = getelementptr inbounds i8, ptr %13, i64 16
-  %32 = getelementptr inbounds i8, ptr %13, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %13, i64 24
   call void @lv_vector_path_cubic_to(ptr noundef %23, ptr noundef nonnull %30, ptr noundef nonnull %31, ptr noundef nonnull %32) #4
   %33 = call i24 @lv_color_make(i8 noundef zeroext 0, i8 noundef zeroext -1, i8 noundef zeroext 0) #4
   call void @lv_vector_dsc_set_stroke_color(ptr noundef %20, i24 %33) #4
@@ -180,10 +180,10 @@ define internal fastcc void @draw_vector(ptr noundef %0) unnamed_addr #0 {
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %11, ptr noundef nonnull align 16 dereferenceable(32) @__const.draw_pattern.pts, i64 32, i1 false)
   call void @lv_vector_path_move_to(ptr noundef %23, ptr noundef nonnull %11) #4
-  %34 = getelementptr inbounds i8, ptr %11, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %11, i64 8
   call void @lv_vector_path_line_to(ptr noundef %23, ptr noundef nonnull %34) #4
-  %35 = getelementptr inbounds i8, ptr %11, i64 16
-  %36 = getelementptr inbounds i8, ptr %11, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %11, i64 24
   call void @lv_vector_path_quad_to(ptr noundef %23, ptr noundef nonnull %35, ptr noundef nonnull %36) #4
   call void @lv_vector_path_close(ptr noundef %23) #4
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %12) #4
@@ -204,11 +204,11 @@ define internal fastcc void @draw_vector(ptr noundef %0) unnamed_addr #0 {
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %9, ptr noundef nonnull align 16 dereferenceable(32) @__const.draw_radial_gradient.pts, i64 32, i1 false)
   call void @lv_vector_path_move_to(ptr noundef %23, ptr noundef nonnull %9) #4
-  %39 = getelementptr inbounds i8, ptr %9, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %9, i64 8
   call void @lv_vector_path_line_to(ptr noundef %23, ptr noundef nonnull %39) #4
-  %40 = getelementptr inbounds i8, ptr %9, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %9, i64 16
   call void @lv_vector_path_line_to(ptr noundef %23, ptr noundef nonnull %40) #4
-  %41 = getelementptr inbounds i8, ptr %9, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %9, i64 24
   call void @lv_vector_path_line_to(ptr noundef %23, ptr noundef nonnull %41) #4
   call void @lv_vector_path_close(ptr noundef %23) #4
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %10) #4
@@ -219,12 +219,12 @@ define internal fastcc void @draw_vector(ptr noundef %0) unnamed_addr #0 {
   store i8 -1, ptr %43, align 1, !tbaa !18
   %44 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store i8 0, ptr %44, align 4, !tbaa !20
-  %45 = getelementptr inbounds i8, ptr %10, i64 5
+  %45 = getelementptr inbounds nuw i8, ptr %10, i64 5
   %46 = call i24 @lv_color_hex(i32 noundef 255) #4
   store i24 %46, ptr %45, align 1
-  %47 = getelementptr inbounds i8, ptr %10, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i8 -1, ptr %47, align 4, !tbaa !18
-  %48 = getelementptr inbounds i8, ptr %10, i64 9
+  %48 = getelementptr inbounds nuw i8, ptr %10, i64 9
   store i8 -1, ptr %48, align 1, !tbaa !20
   call void @lv_vector_dsc_set_fill_radial_gradient(ptr noundef %20, float noundef 4.500000e+02, float noundef 1.000000e+02, float noundef 2.000000e+01) #4
   call void @lv_vector_dsc_set_fill_gradient_color_stops(ptr noundef %20, ptr noundef nonnull %10, i16 noundef zeroext 2) #4
@@ -237,8 +237,8 @@ define internal fastcc void @draw_vector(ptr noundef %0) unnamed_addr #0 {
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %6, ptr noundef nonnull align 16 dereferenceable(24) @__const.draw_gradient.pts, i64 24, i1 false)
   call void @lv_vector_path_move_to(ptr noundef %23, ptr noundef nonnull %6) #4
-  %49 = getelementptr inbounds i8, ptr %6, i64 8
-  %50 = getelementptr inbounds i8, ptr %6, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %6, i64 16
   call void @lv_vector_path_quad_to(ptr noundef %23, ptr noundef nonnull %49, ptr noundef nonnull %50) #4
   call void @lv_vector_path_close(ptr noundef %23) #4
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %7) #4
@@ -249,12 +249,12 @@ define internal fastcc void @draw_vector(ptr noundef %0) unnamed_addr #0 {
   store i8 -1, ptr %52, align 1, !tbaa !18
   %53 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i8 0, ptr %53, align 4, !tbaa !20
-  %54 = getelementptr inbounds i8, ptr %7, i64 5
+  %54 = getelementptr inbounds nuw i8, ptr %7, i64 5
   %55 = call i24 @lv_color_hex(i32 noundef 65280) #4
   store i24 %55, ptr %54, align 1
-  %56 = getelementptr inbounds i8, ptr %7, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i8 -1, ptr %56, align 4, !tbaa !18
-  %57 = getelementptr inbounds i8, ptr %7, i64 9
+  %57 = getelementptr inbounds nuw i8, ptr %7, i64 9
   store i8 -1, ptr %57, align 1, !tbaa !20
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %8) #4
   call void @lv_matrix_identity(ptr noundef nonnull %8) #4
@@ -272,9 +272,9 @@ define internal fastcc void @draw_vector(ptr noundef %0) unnamed_addr #0 {
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %5, ptr noundef nonnull align 16 dereferenceable(32) @__const.draw_blend.pts, i64 32, i1 false)
   call void @lv_vector_path_move_to(ptr noundef %23, ptr noundef nonnull %5) #4
-  %58 = getelementptr inbounds i8, ptr %5, i64 8
-  %59 = getelementptr inbounds i8, ptr %5, i64 16
-  %60 = getelementptr inbounds i8, ptr %5, i64 24
+  %58 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %60 = getelementptr inbounds nuw i8, ptr %5, i64 24
   call void @lv_vector_path_cubic_to(ptr noundef %23, ptr noundef nonnull %58, ptr noundef nonnull %59, ptr noundef nonnull %60) #4
   call void @lv_vector_path_close(ptr noundef %23) #4
   %61 = call i24 @lv_color_make(i8 noundef zeroext -1, i8 noundef zeroext 0, i8 noundef zeroext -1) #4

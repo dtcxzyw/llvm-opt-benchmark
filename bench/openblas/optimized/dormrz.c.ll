@@ -134,9 +134,9 @@ define void @dormrz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 85:                                               ; preds = %82
   store i32 1, ptr %17, align 4, !tbaa !3
   store ptr %0, ptr %15, align 16, !tbaa !7
-  %86 = getelementptr inbounds i8, ptr %17, i64 4
+  %86 = getelementptr inbounds nuw i8, ptr %17, i64 4
   store i32 1, ptr %86, align 4, !tbaa !3
-  %87 = getelementptr inbounds i8, ptr %15, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %1, ptr %87, align 8, !tbaa !7
   %88 = load i32, ptr @c__2, align 4, !tbaa !3
   %89 = icmp sgt i32 %88, 0
@@ -158,7 +158,7 @@ define void @dormrz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %96 = phi i64 [ %119, %.loopexit28 ], [ 0, %85 ]
   %97 = phi ptr [ %118, %.loopexit28 ], [ %18, %85 ]
   %98 = phi i32 [ %102, %.loopexit28 ], [ 2, %85 ]
-  %99 = getelementptr inbounds [2 x i32], ptr %17, i64 0, i64 %96
+  %99 = getelementptr inbounds nuw [2 x i32], ptr %17, i64 0, i64 %96
   %100 = load i32, ptr %99, align 4, !tbaa !3
   %101 = call i32 @llvm.smin.i32(i32 %100, i32 %98)
   %102 = sub nsw i32 %98, %101
@@ -166,19 +166,19 @@ define void @dormrz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %103, label %104, label %.loopexit28
 
 104:                                              ; preds = %.preheader29
-  %105 = getelementptr inbounds [2 x ptr], ptr %15, i64 0, i64 %96
+  %105 = getelementptr inbounds nuw [2 x ptr], ptr %15, i64 0, i64 %96
   %106 = load ptr, ptr %105, align 8, !tbaa !7
-  %107 = add nsw i32 %101, -1
-  %108 = zext nneg i32 %107 to i64
-  %109 = getelementptr i8, ptr %97, i64 %108
+  %107 = zext nneg i32 %101 to i64
+  %108 = getelementptr i8, ptr %97, i64 %107
+  %109 = getelementptr i8, ptr %108, i64 -1
   br label %110
 
 110:                                              ; preds = %110, %104
   %111 = phi ptr [ %115, %110 ], [ %97, %104 ]
   %112 = phi ptr [ %113, %110 ], [ %106, %104 ]
-  %113 = getelementptr inbounds i8, ptr %112, i64 1
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 1
   %114 = load i8, ptr %112, align 1, !tbaa !9
-  %115 = getelementptr inbounds i8, ptr %111, i64 1
+  %115 = getelementptr inbounds nuw i8, ptr %111, i64 1
   store i8 %114, ptr %111, align 1, !tbaa !9
   %116 = icmp eq ptr %111, %109
   br i1 %116, label %.loopexit28.loopexit, label %110, !llvm.loop !10
@@ -258,9 +258,9 @@ define void @dormrz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %154 = sdiv i32 %153, %42
   store i32 1, ptr %17, align 4, !tbaa !3
   store ptr %0, ptr %15, align 16, !tbaa !7
-  %155 = getelementptr inbounds i8, ptr %17, i64 4
+  %155 = getelementptr inbounds nuw i8, ptr %17, i64 4
   store i32 1, ptr %155, align 4, !tbaa !3
-  %156 = getelementptr inbounds i8, ptr %15, i64 8
+  %156 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %1, ptr %156, align 8, !tbaa !7
   %157 = load i32, ptr @c__2, align 4, !tbaa !3
   %158 = icmp sgt i32 %157, 0
@@ -282,7 +282,7 @@ define void @dormrz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %165 = phi i64 [ %188, %.loopexit27 ], [ 0, %152 ]
   %166 = phi ptr [ %187, %.loopexit27 ], [ %18, %152 ]
   %167 = phi i32 [ %171, %.loopexit27 ], [ 2, %152 ]
-  %168 = getelementptr inbounds [2 x i32], ptr %17, i64 0, i64 %165
+  %168 = getelementptr inbounds nuw [2 x i32], ptr %17, i64 0, i64 %165
   %169 = load i32, ptr %168, align 4, !tbaa !3
   %170 = call i32 @llvm.smin.i32(i32 %169, i32 %167)
   %171 = sub nsw i32 %167, %170
@@ -290,19 +290,19 @@ define void @dormrz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %172, label %173, label %.loopexit27
 
 173:                                              ; preds = %.preheader
-  %174 = getelementptr inbounds [2 x ptr], ptr %15, i64 0, i64 %165
+  %174 = getelementptr inbounds nuw [2 x ptr], ptr %15, i64 0, i64 %165
   %175 = load ptr, ptr %174, align 8, !tbaa !7
-  %176 = add nsw i32 %170, -1
-  %177 = zext nneg i32 %176 to i64
-  %178 = getelementptr i8, ptr %166, i64 %177
+  %176 = zext nneg i32 %170 to i64
+  %177 = getelementptr i8, ptr %166, i64 %176
+  %178 = getelementptr i8, ptr %177, i64 -1
   br label %179
 
 179:                                              ; preds = %179, %173
   %180 = phi ptr [ %184, %179 ], [ %166, %173 ]
   %181 = phi ptr [ %182, %179 ], [ %175, %173 ]
-  %182 = getelementptr inbounds i8, ptr %181, i64 1
+  %182 = getelementptr inbounds nuw i8, ptr %181, i64 1
   %183 = load i8, ptr %181, align 1, !tbaa !9
-  %184 = getelementptr inbounds i8, ptr %180, i64 1
+  %184 = getelementptr inbounds nuw i8, ptr %180, i64 1
   store i8 %183, ptr %180, align 1, !tbaa !9
   %185 = icmp eq ptr %180, %178
   br i1 %185, label %.loopexit27.loopexit, label %179, !llvm.loop !16

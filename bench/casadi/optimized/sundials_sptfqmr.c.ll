@@ -152,25 +152,25 @@ define noalias noundef ptr @SptfqmrMalloc(i32 noundef %0, ptr noundef %1) local_
 
 48:                                               ; preds = %44
   store i32 %0, ptr %45, align 8
-  %49 = getelementptr inbounds i8, ptr %45, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %45, i64 8
   store ptr %6, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %45, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %45, i64 16
   store ptr %9, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %45, i64 24
+  %51 = getelementptr inbounds nuw i8, ptr %45, i64 24
   store ptr %13, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %45, i64 32
+  %52 = getelementptr inbounds nuw i8, ptr %45, i64 32
   store ptr %17, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %45, i64 40
+  %53 = getelementptr inbounds nuw i8, ptr %45, i64 40
   store ptr %21, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %45, i64 48
+  %54 = getelementptr inbounds nuw i8, ptr %45, i64 48
   store ptr %25, ptr %54, align 8
-  %55 = getelementptr inbounds i8, ptr %45, i64 56
+  %55 = getelementptr inbounds nuw i8, ptr %45, i64 56
   store ptr %29, ptr %55, align 8
-  %56 = getelementptr inbounds i8, ptr %45, i64 64
+  %56 = getelementptr inbounds nuw i8, ptr %45, i64 64
   store ptr %33, ptr %56, align 8
-  %57 = getelementptr inbounds i8, ptr %45, i64 72
+  %57 = getelementptr inbounds nuw i8, ptr %45, i64 72
   store ptr %37, ptr %57, align 8
-  %58 = getelementptr inbounds i8, ptr %45, i64 80
+  %58 = getelementptr inbounds nuw i8, ptr %45, i64 80
   store ptr %41, ptr %58, align 8
   br label %59
 
@@ -208,7 +208,7 @@ define range(i32 -3, 5) i32 @SptfqmrSolve(ptr noundef readonly %0, ptr noundef %
   %.not398 = icmp eq ptr %8, null
   %19 = tail call double @N_VDotProd(ptr noundef %2, ptr noundef %2) #5
   %20 = fcmp oeq double %19, 0.000000e+00
-  %21 = getelementptr inbounds i8, ptr %0, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = load ptr, ptr %21, align 8
   br i1 %20, label %23, label %24
 
@@ -232,9 +232,9 @@ define range(i32 -3, 5) i32 @SptfqmrSolve(ptr noundef readonly %0, ptr noundef %
   br label %31
 
 31:                                               ; preds = %29, %23
-  %32 = getelementptr inbounds i8, ptr %0, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 64
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %35 = load ptr, ptr %34, align 8
   br i1 %.not396, label %43, label %36
 
@@ -256,9 +256,9 @@ define range(i32 -3, 5) i32 @SptfqmrSolve(ptr noundef readonly %0, ptr noundef %
   br label %44
 
 44:                                               ; preds = %36, %43
-  %45 = getelementptr inbounds i8, ptr %0, i64 64
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %0, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %48 = load ptr, ptr %47, align 8
   br i1 %.not398, label %50, label %49
 
@@ -271,7 +271,7 @@ define range(i32 -3, 5) i32 @SptfqmrSolve(ptr noundef readonly %0, ptr noundef %
   br label %51
 
 51:                                               ; preds = %50, %49
-  %52 = getelementptr inbounds i8, ptr %0, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %53 = load ptr, ptr %52, align 8
   %54 = tail call double @N_VDotProd(ptr noundef %53, ptr noundef %53) #5
   %55 = tail call double @SUNRsqrt(double noundef %54) #5
@@ -281,7 +281,7 @@ define range(i32 -3, 5) i32 @SptfqmrSolve(ptr noundef readonly %0, ptr noundef %
 
 57:                                               ; preds = %51
   %58 = load ptr, ptr %52, align 8
-  %59 = getelementptr inbounds i8, ptr %0, i64 64
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %60 = load ptr, ptr %59, align 8
   br i1 %.not397, label %62, label %61
 
@@ -297,9 +297,9 @@ define range(i32 -3, 5) i32 @SptfqmrSolve(ptr noundef readonly %0, ptr noundef %
   br i1 %.not, label %77, label %64
 
 64:                                               ; preds = %63
-  %65 = getelementptr inbounds i8, ptr %0, i64 64
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %0, i64 32
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %68 = load ptr, ptr %67, align 8
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %66, ptr noundef %68) #5
   %69 = load ptr, ptr %67, align 8
@@ -317,9 +317,9 @@ define range(i32 -3, 5) i32 @SptfqmrSolve(ptr noundef readonly %0, ptr noundef %
   br label %.loopexit
 
 77:                                               ; preds = %64, %63
-  %78 = getelementptr inbounds i8, ptr %0, i64 64
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %79 = load ptr, ptr %78, align 8
-  %80 = getelementptr inbounds i8, ptr %0, i64 32
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %81 = load ptr, ptr %80, align 8
   %82 = tail call i32 %9(ptr noundef %1, ptr noundef %79, ptr noundef %81) #5
   %.not402 = icmp eq i32 %82, 0
@@ -367,19 +367,19 @@ define range(i32 -3, 5) i32 @SptfqmrSolve(ptr noundef readonly %0, ptr noundef %
 
 102:                                              ; preds = %101, %100
   %103 = load ptr, ptr %52, align 8
-  %104 = getelementptr inbounds i8, ptr %0, i64 48
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %105 = load ptr, ptr %104, align 8
   %106 = load ptr, ptr %105, align 8
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %103, ptr noundef %106) #5
   %107 = load ptr, ptr %52, align 8
-  %108 = getelementptr inbounds i8, ptr %0, i64 56
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %109 = load ptr, ptr %108, align 8
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %107, ptr noundef %109) #5
   %110 = load ptr, ptr %52, align 8
-  %111 = getelementptr inbounds i8, ptr %0, i64 40
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %112 = load ptr, ptr %111, align 8
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %110, ptr noundef %112) #5
-  %113 = getelementptr inbounds i8, ptr %0, i64 24
+  %113 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %114 = load ptr, ptr %113, align 8
   tail call void @N_VConst(double noundef 0.000000e+00, ptr noundef %114) #5
   %115 = load i32, ptr %0, align 8
@@ -387,9 +387,9 @@ define range(i32 -3, 5) i32 @SptfqmrSolve(ptr noundef readonly %0, ptr noundef %
   br i1 %116, label %.lr.ph, label %.thread
 
 .lr.ph:                                           ; preds = %102
-  %117 = getelementptr inbounds i8, ptr %0, i64 16
-  %118 = getelementptr inbounds i8, ptr %0, i64 72
-  %119 = getelementptr inbounds i8, ptr %0, i64 80
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 80
   br label %120
 
 120:                                              ; preds = %.lr.ph, %345
@@ -415,14 +415,14 @@ define range(i32 -3, 5) i32 @SptfqmrSolve(ptr noundef readonly %0, ptr noundef %
   %131 = load ptr, ptr %108, align 8
   %132 = load ptr, ptr %117, align 8
   %133 = load ptr, ptr %104, align 8
-  %134 = getelementptr inbounds i8, ptr %133, i64 8
+  %134 = getelementptr inbounds nuw i8, ptr %133, i64 8
   %135 = load ptr, ptr %134, align 8
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %131, double noundef 1.000000e+00, ptr noundef %132, ptr noundef %135) #5
   br i1 %.not397, label %140, label %136
 
 136:                                              ; preds = %120
   %137 = load ptr, ptr %104, align 8
-  %138 = getelementptr inbounds i8, ptr %137, i64 8
+  %138 = getelementptr inbounds nuw i8, ptr %137, i64 8
   %139 = load ptr, ptr %138, align 8
   tail call void @N_VDiv(ptr noundef %139, ptr noundef nonnull %7, ptr noundef %139) #5
   br label %140
@@ -432,13 +432,13 @@ define range(i32 -3, 5) i32 @SptfqmrSolve(ptr noundef readonly %0, ptr noundef %
 
 141:                                              ; preds = %140
   %142 = load ptr, ptr %104, align 8
-  %143 = getelementptr inbounds i8, ptr %142, i64 8
+  %143 = getelementptr inbounds nuw i8, ptr %142, i64 8
   %144 = load ptr, ptr %143, align 8
   %145 = load ptr, ptr %78, align 8
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %144, ptr noundef %145) #5
   %146 = load ptr, ptr %78, align 8
   %147 = load ptr, ptr %104, align 8
-  %148 = getelementptr inbounds i8, ptr %147, i64 8
+  %148 = getelementptr inbounds nuw i8, ptr %147, i64 8
   %149 = load ptr, ptr %148, align 8
   %150 = tail call i32 %10(ptr noundef %6, ptr noundef %146, ptr noundef %149, i32 noundef 2) #5
   %151 = load i32, ptr %13, align 4
@@ -454,7 +454,7 @@ define range(i32 -3, 5) i32 @SptfqmrSolve(ptr noundef readonly %0, ptr noundef %
 
 156:                                              ; preds = %141, %140
   %157 = load ptr, ptr %104, align 8
-  %158 = getelementptr inbounds i8, ptr %157, i64 8
+  %158 = getelementptr inbounds nuw i8, ptr %157, i64 8
   %159 = load ptr, ptr %158, align 8
   %160 = load ptr, ptr %78, align 8
   %161 = tail call i32 %9(ptr noundef %1, ptr noundef %159, ptr noundef %160) #5
@@ -469,7 +469,7 @@ define range(i32 -3, 5) i32 @SptfqmrSolve(ptr noundef readonly %0, ptr noundef %
 165:                                              ; preds = %156
   %166 = load ptr, ptr %78, align 8
   %167 = load ptr, ptr %104, align 8
-  %168 = getelementptr inbounds i8, ptr %167, i64 8
+  %168 = getelementptr inbounds nuw i8, ptr %167, i64 8
   %169 = load ptr, ptr %168, align 8
   br i1 %.not396, label %177, label %170
 
@@ -492,7 +492,7 @@ define range(i32 -3, 5) i32 @SptfqmrSolve(ptr noundef readonly %0, ptr noundef %
 
 178:                                              ; preds = %170, %177
   %179 = load ptr, ptr %104, align 8
-  %180 = getelementptr inbounds i8, ptr %179, i64 8
+  %180 = getelementptr inbounds nuw i8, ptr %179, i64 8
   %181 = load ptr, ptr %180, align 8
   %182 = load ptr, ptr %78, align 8
   br i1 %.not398, label %184, label %183
@@ -509,7 +509,7 @@ define range(i32 -3, 5) i32 @SptfqmrSolve(ptr noundef readonly %0, ptr noundef %
   %186 = load ptr, ptr %104, align 8
   %187 = load ptr, ptr %186, align 8
   %188 = load ptr, ptr %78, align 8
-  %189 = getelementptr inbounds i8, ptr %186, i64 8
+  %189 = getelementptr inbounds nuw i8, ptr %186, i64 8
   %190 = load ptr, ptr %189, align 8
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %187, double noundef %128, ptr noundef %188, ptr noundef %190) #5
   br label %191
@@ -527,7 +527,7 @@ define range(i32 -3, 5) i32 @SptfqmrSolve(ptr noundef readonly %0, ptr noundef %
 
 194:                                              ; preds = %191
   %195 = load ptr, ptr %104, align 8
-  %196 = getelementptr inbounds i8, ptr %195, i64 8
+  %196 = getelementptr inbounds nuw i8, ptr %195, i64 8
   %197 = load ptr, ptr %196, align 8
   %198 = tail call double @N_VDotProd(ptr noundef %197, ptr noundef %197) #5
   %199 = tail call double @SUNRsqrt(double noundef %198) #5
@@ -712,12 +712,12 @@ define range(i32 -3, 5) i32 @SptfqmrSolve(ptr noundef readonly %0, ptr noundef %
   %.4358562 = phi double [ %.4358, %289 ], [ %221, %227 ]
   %290 = load ptr, ptr %52, align 8
   %291 = load ptr, ptr %104, align 8
-  %292 = getelementptr inbounds i8, ptr %291, i64 8
+  %292 = getelementptr inbounds nuw i8, ptr %291, i64 8
   %293 = load ptr, ptr %292, align 8
   %294 = tail call double @N_VDotProd(ptr noundef %290, ptr noundef %293) #5
   %295 = fdiv double %294, %.sroa.0.0502
   %296 = load ptr, ptr %104, align 8
-  %297 = getelementptr inbounds i8, ptr %296, i64 8
+  %297 = getelementptr inbounds nuw i8, ptr %296, i64 8
   %298 = load ptr, ptr %297, align 8
   %299 = load ptr, ptr %117, align 8
   %300 = load ptr, ptr %108, align 8
@@ -811,7 +811,7 @@ define range(i32 -3, 5) i32 @SptfqmrSolve(ptr noundef readonly %0, ptr noundef %
 
 345:                                              ; preds = %344, %343
   %346 = load ptr, ptr %104, align 8
-  %347 = getelementptr inbounds i8, ptr %346, i64 8
+  %347 = getelementptr inbounds nuw i8, ptr %346, i64 8
   %348 = load ptr, ptr %347, align 8
   %349 = load ptr, ptr %346, align 8
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %348, ptr noundef %349) #5
@@ -878,34 +878,34 @@ define void @SptfqmrFree(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %2, label %24, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   tail call void @N_VDestroy(ptr noundef %5) #5
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   tail call void @N_VDestroy(ptr noundef %7) #5
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8
   tail call void @N_VDestroy(ptr noundef %9) #5
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load ptr, ptr %10, align 8
   tail call void @N_VDestroy(ptr noundef %11) #5
-  %12 = getelementptr inbounds i8, ptr %0, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %13 = load ptr, ptr %12, align 8
   tail call void @N_VDestroy(ptr noundef %13) #5
-  %14 = getelementptr inbounds i8, ptr %0, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %15 = load ptr, ptr %14, align 8
   tail call void @N_VDestroyVectorArray(ptr noundef %15, i32 noundef 2) #5
-  %16 = getelementptr inbounds i8, ptr %0, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %17 = load ptr, ptr %16, align 8
   tail call void @N_VDestroy(ptr noundef %17) #5
-  %18 = getelementptr inbounds i8, ptr %0, i64 64
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %19 = load ptr, ptr %18, align 8
   tail call void @N_VDestroy(ptr noundef %19) #5
-  %20 = getelementptr inbounds i8, ptr %0, i64 72
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %21 = load ptr, ptr %20, align 8
   tail call void @N_VDestroy(ptr noundef %21) #5
-  %22 = getelementptr inbounds i8, ptr %0, i64 80
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %23 = load ptr, ptr %22, align 8
   tail call void @N_VDestroy(ptr noundef %23) #5
   tail call void @free(ptr noundef nonnull %0) #5

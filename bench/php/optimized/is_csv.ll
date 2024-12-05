@@ -12,12 +12,12 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -1, 2) i32 @file_is_csv(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 152
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 160
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %8 = load i64, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %6, i64 %8
-  %10 = getelementptr inbounds i8, ptr %0, i64 68
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %11 = load i32, ptr %10, align 4
   %12 = and i32 %11, 1040
   %.not = icmp ne i32 %2, 0
@@ -33,7 +33,7 @@ define hidden range(i32 -1, 2) i32 @file_is_csv(ptr noundef %0, ptr nocapture no
   %.01835.i = phi i64 [ %.119.i, %eatquote.exit.i ], [ 0, %4 ]
   %.02034.i = phi i64 [ %.121.i, %eatquote.exit.i ], [ 0, %4 ]
   %.02333.i = phi ptr [ %.124.i, %eatquote.exit.i ], [ %6, %4 ]
-  %15 = getelementptr inbounds i8, ptr %.02333.i, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %.02333.i, i64 1
   %16 = load i8, ptr %.02333.i, align 1
   switch i8 %16, label %eatquote.exit.i [
     i8 34, label %17
@@ -48,7 +48,7 @@ define hidden range(i32 -1, 2) i32 @file_is_csv(ptr noundef %0, ptr nocapture no
 .lr.ph.i.i:                                       ; preds = %17, %.backedge.i.i
   %.not1114.i.i = phi i1 [ %.not11.be.i.i, %.backedge.i.i ], [ true, %17 ]
   %.0913.i.i = phi ptr [ %19, %.backedge.i.i ], [ %15, %17 ]
-  %19 = getelementptr inbounds i8, ptr %.0913.i.i, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %.0913.i.i, i64 1
   %20 = load i8, ptr %.0913.i.i, align 1
   %.not.i.i = icmp eq i8 %20, 34
   br i1 %.not.i.i, label %22, label %21

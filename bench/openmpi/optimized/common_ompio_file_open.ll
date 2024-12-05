@@ -63,9 +63,9 @@ target triple = "x86_64-pc-linux-gnu"
 define i32 @mca_common_ompio_file_open(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef initializes((40, 48), (264, 272)) %4, i1 noundef zeroext %5) local_unnamed_addr #0 {
   %7 = alloca [4097 x i8], align 16
   %8 = alloca i64, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 264
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 264
   store ptr @ompi_mpi_datatype_null, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store ptr @ompi_mpi_comm_null, ptr %10, align 8
   %11 = and i32 %2, 2
   %.lobit = lshr exact i32 %11, 1
@@ -95,20 +95,20 @@ define i32 @mca_common_ompio_file_open(ptr noundef %0, ptr noundef %1, i32 nound
 21:                                               ; preds = %18
   %22 = getelementptr i8, ptr %0, i64 220
   %.val = load i32, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %4, i64 20
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i32 %.val, ptr %23, align 4
   %24 = getelementptr i8, ptr %0, i64 248
   %.val120 = load ptr, ptr %24, align 8
   %25 = getelementptr i8, ptr %.val120, i64 16
   %.val120.val = load i32, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %4, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i32 %.val120.val, ptr %26, align 8
   %27 = load i32, ptr @opal_local_arch, align 4
   %28 = tail call ptr @opal_convertor_create(i32 noundef %27, i32 noundef 0) #12
-  %29 = getelementptr inbounds i8, ptr %4, i64 72
+  %29 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr %28, ptr %29, align 8
   %30 = tail call ptr @opal_convertor_create(i32 noundef %27, i32 noundef 0) #12
-  %31 = getelementptr inbounds i8, ptr %4, i64 80
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr %30, ptr %31, align 8
   br i1 %5, label %32, label %34
 
@@ -122,26 +122,26 @@ define i32 @mca_common_ompio_file_open(ptr noundef %0, ptr noundef %1, i32 nound
   br label %35
 
 35:                                               ; preds = %32, %34
-  %36 = getelementptr inbounds i8, ptr %4, i64 148
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 148
   store i32 0, ptr %36, align 4
-  %37 = getelementptr inbounds i8, ptr %4, i64 28
+  %37 = getelementptr inbounds nuw i8, ptr %4, i64 28
   store i32 %2, ptr %37, align 4
-  %38 = getelementptr inbounds i8, ptr %4, i64 88
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 88
   store ptr %3, ptr %38, align 8
   %39 = load ptr, ptr @generate_current_file_view_fn, align 8
-  %40 = getelementptr inbounds i8, ptr %4, i64 448
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 448
   store ptr %39, ptr %40, align 8
   %41 = load ptr, ptr @get_mca_parameter_value_fn, align 8
-  %42 = getelementptr inbounds i8, ptr %4, i64 456
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 456
   store ptr %41, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %4, i64 48
+  %43 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store ptr %1, ptr %43, align 8
   %44 = tail call zeroext i1 @opal_path_is_absolute(ptr noundef %1) #12
   br i1 %44, label %45, label %48
 
 45:                                               ; preds = %35
   %46 = tail call noalias ptr @strdup(ptr noundef %1) #12
-  %47 = getelementptr inbounds i8, ptr %4, i64 56
+  %47 = getelementptr inbounds nuw i8, ptr %4, i64 56
   store ptr %46, ptr %47, align 8
   br label %54
 
@@ -152,20 +152,20 @@ define i32 @mca_common_ompio_file_open(ptr noundef %0, ptr noundef %1, i32 nound
 
 50:                                               ; preds = %48
   %51 = call noalias ptr (i32, ...) @opal_os_path(i32 noundef 0, ptr noundef nonnull %7, ptr noundef %1, ptr noundef null) #12
-  %52 = getelementptr inbounds i8, ptr %4, i64 56
+  %52 = getelementptr inbounds nuw i8, ptr %4, i64 56
   store ptr %51, ptr %52, align 8
   %53 = icmp eq ptr %51, null
   br i1 %53, label %110, label %54
 
 54:                                               ; preds = %50, %45
   %55 = call i32 @mca_common_ompio_set_file_defaults(ptr noundef nonnull %4)
-  %56 = getelementptr inbounds i8, ptr %4, i64 152
+  %56 = getelementptr inbounds nuw i8, ptr %4, i64 152
   store ptr null, ptr %56, align 8
-  %57 = getelementptr inbounds i8, ptr %4, i64 160
+  %57 = getelementptr inbounds nuw i8, ptr %4, i64 160
   store i8 0, ptr %57, align 8
-  %58 = getelementptr inbounds i8, ptr %4, i64 376
+  %58 = getelementptr inbounds nuw i8, ptr %4, i64 376
   %59 = call i32 @mca_common_ompio_initialize_print_queue(ptr noundef nonnull %58) #12
-  %60 = getelementptr inbounds i8, ptr %4, i64 384
+  %60 = getelementptr inbounds nuw i8, ptr %4, i64 384
   %61 = call i32 @mca_common_ompio_initialize_print_queue(ptr noundef nonnull %60) #12
   %62 = load ptr, ptr %42, align 8
   %63 = call i32 %62(ptr noundef nonnull @.str, i32 noundef 16) #12
@@ -183,11 +183,11 @@ define i32 @mca_common_ompio_file_open(ptr noundef %0, ptr noundef %1, i32 nound
   br i1 %.not110, label %67, label %.sink.split
 
 67:                                               ; preds = %65
-  %68 = getelementptr inbounds i8, ptr %4, i64 336
+  %68 = getelementptr inbounds nuw i8, ptr %4, i64 336
   store ptr null, ptr %68, align 8
-  %69 = getelementptr inbounds i8, ptr %4, i64 368
+  %69 = getelementptr inbounds nuw i8, ptr %4, i64 368
   store ptr null, ptr %69, align 8
-  %70 = getelementptr inbounds i8, ptr %4, i64 168
+  %70 = getelementptr inbounds nuw i8, ptr %4, i64 168
   store ptr null, ptr %70, align 8
   br i1 %5, label %71, label %75
 
@@ -203,16 +203,16 @@ define i32 @mca_common_ompio_file_open(ptr noundef %0, ptr noundef %1, i32 nound
   br label %79
 
 75:                                               ; preds = %67
-  %76 = getelementptr inbounds i8, ptr %4, i64 16
+  %76 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %77 = load i32, ptr %76, align 8
   %78 = or i32 %77, 64
   store i32 %78, ptr %76, align 8
   br label %79
 
 79:                                               ; preds = %71, %73, %75
-  %80 = getelementptr inbounds i8, ptr %4, i64 344
+  %80 = getelementptr inbounds nuw i8, ptr %4, i64 344
   %81 = load ptr, ptr %80, align 8
-  %82 = getelementptr inbounds i8, ptr %81, i64 16
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 16
   %83 = load ptr, ptr %82, align 8
   %84 = call i32 %83(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %.088, ptr noundef %3, ptr noundef nonnull %4) #12
   %.not112 = icmp eq i32 %84, 0
@@ -227,7 +227,7 @@ define i32 @mca_common_ompio_file_open(ptr noundef %0, ptr noundef %1, i32 nound
   br i1 %.not113, label %92, label %88
 
 88:                                               ; preds = %86
-  %89 = getelementptr inbounds i8, ptr %87, i64 112
+  %89 = getelementptr inbounds nuw i8, ptr %87, i64 112
   %90 = load ptr, ptr %89, align 8
   %91 = call i32 %90(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %.088, ptr noundef %3, ptr noundef nonnull %4) #12
   %.not114 = icmp eq i32 %91, 0
@@ -242,7 +242,7 @@ define i32 @mca_common_ompio_file_open(ptr noundef %0, ptr noundef %1, i32 nound
 
 96:                                               ; preds = %92
   %97 = load ptr, ptr %80, align 8
-  %98 = getelementptr inbounds i8, ptr %97, i64 48
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 48
   %99 = load ptr, ptr %98, align 8
   %100 = call i32 %99(ptr noundef nonnull %4, ptr noundef nonnull %8) #12
   %101 = load i64, ptr %8, align 8
@@ -255,7 +255,7 @@ define i32 @mca_common_ompio_file_open(ptr noundef %0, ptr noundef %1, i32 nound
   br i1 %.not116, label %110, label %105
 
 105:                                              ; preds = %103
-  %106 = getelementptr inbounds i8, ptr %104, i64 16
+  %106 = getelementptr inbounds nuw i8, ptr %104, i64 16
   %107 = load ptr, ptr %106, align 8
   %108 = load i64, ptr %8, align 8
   %109 = call i32 %107(ptr noundef nonnull %4, i64 noundef %108, i32 noundef 600) #12
@@ -298,18 +298,18 @@ define range(i32 -1, 1) i32 @mca_common_ompio_set_file_defaults(ptr noundef %0) 
 
 7:                                                ; preds = %1
   store i64 4294967297, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 -1, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 296
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 296
   store ptr null, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 456
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 456
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i32 %12(ptr noundef nonnull @.str.11, i32 noundef 14) #12
-  %14 = getelementptr inbounds i8, ptr %0, i64 144
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i32 %13, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 88
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %16 = load ptr, ptr %15, align 8
   %17 = call i32 @opal_info_get(ptr noundef %16, ptr noundef nonnull @.str.12, ptr noundef nonnull %2, ptr noundef nonnull %6) #12
   %18 = load i32, ptr %6, align 4
@@ -318,7 +318,7 @@ define range(i32 -1, 1) i32 @mca_common_ompio_set_file_defaults(ptr noundef %0) 
 
 19:                                               ; preds = %7
   %20 = load ptr, ptr %2, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 25
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 25
   %22 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %21, ptr noundef nonnull @.str.13, ptr noundef nonnull %14) #12
   %23 = load ptr, ptr %11, align 8
   %24 = call i32 %23(ptr noundef nonnull @.str.14, i32 noundef 20) #12
@@ -328,22 +328,22 @@ define range(i32 -1, 1) i32 @mca_common_ompio_set_file_defaults(ptr noundef %0) 
   ]
 
 25:                                               ; preds = %19
-  %26 = getelementptr inbounds i8, ptr %0, i64 20
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %27 = load i32, ptr %26, align 4
   %28 = icmp eq i32 %27, 0
   br i1 %28, label %.sink.split, label %34
 
 .sink.split:                                      ; preds = %19, %25
-  %29 = getelementptr inbounds i8, ptr %0, i64 48
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %30 = load ptr, ptr %29, align 8
   %31 = load ptr, ptr %2, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 25
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 25
   %33 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.15, ptr noundef %30, ptr noundef nonnull @.str.12, ptr noundef nonnull %32, ptr noundef nonnull @.str.16)
   br label %34
 
 34:                                               ; preds = %.sink.split, %25, %19
   %35 = load ptr, ptr %2, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %37 = load i8, ptr @opal_uses_threads, align 1
   %38 = trunc i8 %37 to i1
   br i1 %38, label %39, label %42
@@ -367,7 +367,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %39, %42
 
 47:                                               ; preds = %opal_thread_add_fetch_32.exit
   %48 = load ptr, ptr %35, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 48
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 48
   %50 = load ptr, ptr %49, align 8
   %51 = load ptr, ptr %50, align 8
   %.not6.i = icmp eq ptr %51, null
@@ -377,7 +377,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %39, %42
   %52 = phi ptr [ %54, %.lr.ph.i ], [ %51, %47 ]
   %.07.i = phi ptr [ %53, %.lr.ph.i ], [ %50, %47 ]
   call void %52(ptr noundef nonnull %35) #12
-  %53 = getelementptr inbounds i8, ptr %.07.i, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
   %54 = load ptr, ptr %53, align 8
   %.not.i = icmp eq ptr %54, null
   br i1 %.not.i, label %opal_obj_run_destructors.exit.loopexit, label %.lr.ph.i, !llvm.loop !4
@@ -393,47 +393,47 @@ opal_obj_run_destructors.exit:                    ; preds = %opal_obj_run_destru
   br label %56
 
 56:                                               ; preds = %opal_obj_run_destructors.exit, %opal_thread_add_fetch_32.exit, %7
-  %57 = getelementptr inbounds i8, ptr %0, i64 104
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i32 4096, ptr %57, align 8
-  %58 = getelementptr inbounds i8, ptr %0, i64 108
-  %59 = getelementptr inbounds i8, ptr %0, i64 176
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 108
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store i32 0, ptr %59, align 8
-  %60 = getelementptr inbounds i8, ptr %0, i64 184
-  %61 = getelementptr inbounds i8, ptr %0, i64 216
-  %62 = getelementptr inbounds i8, ptr %0, i64 264
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 216
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 264
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %58, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %60, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %61, i8 0, i64 20, i1 false)
   store ptr @ompi_mpi_datatype_null, ptr %62, align 8
-  %63 = getelementptr inbounds i8, ptr %0, i64 272
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 272
   store ptr @ompi_mpi_datatype_null, ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %0, i64 280
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 280
   store ptr @ompi_mpi_datatype_null, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %0, i64 288
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 288
   store ptr @ompi_mpi_datatype_null, ptr %65, align 8
-  %66 = getelementptr inbounds i8, ptr %0, i64 404
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 404
   store i32 -1, ptr %66, align 4
-  %67 = getelementptr inbounds i8, ptr %0, i64 408
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 408
   store ptr null, ptr %67, align 8
-  %68 = getelementptr inbounds i8, ptr %0, i64 440
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 440
   store i32 -1, ptr %68, align 8
-  %69 = getelementptr inbounds i8, ptr %0, i64 432
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 432
   store ptr null, ptr %69, align 8
-  %70 = getelementptr inbounds i8, ptr %0, i64 400
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 400
   store i32 -1, ptr %70, align 8
-  %71 = getelementptr inbounds i8, ptr %0, i64 392
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 392
   store ptr null, ptr %71, align 8
-  %72 = getelementptr inbounds i8, ptr %0, i64 424
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 424
   store i32 -1, ptr %72, align 8
-  %73 = getelementptr inbounds i8, ptr %0, i64 416
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 416
   store ptr null, ptr %73, align 8
-  %74 = getelementptr inbounds i8, ptr %0, i64 64
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr null, ptr %74, align 8
   store ptr @ompi_mpi_long, ptr %3, align 16
-  %75 = getelementptr inbounds i8, ptr %3, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @ompi_mpi_long, ptr %75, align 8
   store i64 0, ptr %5, align 16
-  %76 = getelementptr inbounds i8, ptr %5, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 8, ptr %76, align 8
   %77 = call i32 @ompi_datatype_create_struct(i32 noundef 2, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %3, ptr noundef nonnull %62) #12
   %.val = load ptr, ptr %62, align 8
@@ -462,21 +462,21 @@ declare i32 @mca_common_ompio_set_explicit_offset(ptr noundef, i64 noundef) loca
 ; Function Attrs: nounwind uwtable
 define i32 @mca_common_ompio_file_close(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca [256 x i8], align 16
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %175, label %6
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %4, i64 328
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 328
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %175, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %8, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 96
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %8, i64 104
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 104
   %14 = load ptr, ptr %13, align 8
   %15 = tail call i32 %12(ptr noundef nonnull %4, ptr noundef %14) #12
   %.not = icmp eq i32 %15, 0
@@ -487,7 +487,7 @@ define i32 @mca_common_ompio_file_close(ptr noundef %0) local_unnamed_addr #0 {
   br label %175
 
 17:                                               ; preds = %10
-  %18 = getelementptr inbounds i8, ptr %0, i64 456
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 456
   %19 = load ptr, ptr %18, align 8
   %20 = tail call i32 %19(ptr noundef nonnull @.str.7, i32 noundef 17) #12
   %.not105 = icmp eq i32 %20, 0
@@ -495,7 +495,7 @@ define i32 @mca_common_ompio_file_close(ptr noundef %0) local_unnamed_addr #0 {
 
 21:                                               ; preds = %17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(6) %2, ptr noundef nonnull align 1 dereferenceable(6) @.str.8, i64 6, i1 false) #12
-  %22 = getelementptr inbounds i8, ptr %0, i64 376
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %23 = load ptr, ptr %22, align 8
   %24 = tail call i32 @mca_common_ompio_empty_print_queue(ptr noundef %23) #12
   %.not106 = icmp eq i32 %24, 0
@@ -514,7 +514,7 @@ define i32 @mca_common_ompio_file_close(ptr noundef %0) local_unnamed_addr #0 {
 30:                                               ; preds = %25, %28, %21
   %.1 = phi i32 [ 0, %21 ], [ %27, %28 ], [ 0, %25 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(5) %2, ptr noundef nonnull align 1 dereferenceable(5) @.str.10, i64 5, i1 false) #12
-  %31 = getelementptr inbounds i8, ptr %0, i64 384
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %32 = load ptr, ptr %31, align 8
   %33 = call i32 @mca_common_ompio_empty_print_queue(ptr noundef %32) #12
   %.not108 = icmp eq i32 %33, 0
@@ -532,30 +532,30 @@ define i32 @mca_common_ompio_file_close(ptr noundef %0) local_unnamed_addr #0 {
 
 39:                                               ; preds = %30, %37, %34, %17
   %.082 = phi i32 [ %.1, %30 ], [ %36, %37 ], [ 0, %34 ], [ 0, %17 ]
-  %40 = getelementptr inbounds i8, ptr %0, i64 28
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %41 = load i32, ptr %40, align 4
   %42 = and i32 %41, 16
   %.not110 = icmp eq i32 %42, 0
-  %43 = getelementptr inbounds i8, ptr %0, i64 368
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %44 = load ptr, ptr %43, align 8
   %.not111 = icmp eq ptr %44, null
   br i1 %.not111, label %49, label %45
 
 45:                                               ; preds = %39
-  %46 = getelementptr inbounds i8, ptr %44, i64 120
+  %46 = getelementptr inbounds nuw i8, ptr %44, i64 120
   %47 = load ptr, ptr %46, align 8
   %48 = call i32 %47(ptr noundef nonnull %0) #12
   br label %49
 
 49:                                               ; preds = %45, %39
   %.2 = phi i32 [ %48, %45 ], [ %.082, %39 ]
-  %50 = getelementptr inbounds i8, ptr %0, i64 344
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %51 = load ptr, ptr %50, align 8
   %.not112 = icmp eq ptr %51, null
   br i1 %.not112, label %56, label %52
 
 52:                                               ; preds = %49
-  %53 = getelementptr inbounds i8, ptr %51, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %51, i64 24
   %54 = load ptr, ptr %53, align 8
   %55 = call i32 %54(ptr noundef nonnull %0) #12
   br label %56
@@ -565,7 +565,7 @@ define i32 @mca_common_ompio_file_close(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not110, label %61, label %57
 
 57:                                               ; preds = %56
-  %58 = getelementptr inbounds i8, ptr %0, i64 56
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %59 = load ptr, ptr %58, align 8
   %60 = call i32 @mca_common_ompio_file_delete(ptr noundef %59, ptr nonnull poison)
   br label %61
@@ -581,7 +581,7 @@ define i32 @mca_common_ompio_file_close(ptr noundef %0) local_unnamed_addr #0 {
   br label %65
 
 65:                                               ; preds = %63, %61
-  %66 = getelementptr inbounds i8, ptr %0, i64 360
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %67 = load ptr, ptr %66, align 8
   %.not115 = icmp eq ptr %67, null
   br i1 %.not115, label %70, label %68
@@ -591,7 +591,7 @@ define i32 @mca_common_ompio_file_close(ptr noundef %0) local_unnamed_addr #0 {
   br label %70
 
 70:                                               ; preds = %68, %65
-  %71 = getelementptr inbounds i8, ptr %0, i64 352
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %72 = load ptr, ptr %71, align 8
   %.not116 = icmp eq ptr %72, null
   br i1 %.not116, label %75, label %73
@@ -610,7 +610,7 @@ define i32 @mca_common_ompio_file_close(ptr noundef %0) local_unnamed_addr #0 {
   br label %79
 
 79:                                               ; preds = %77, %75
-  %80 = getelementptr inbounds i8, ptr %0, i64 296
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %81 = load ptr, ptr %80, align 8
   %.not118 = icmp eq ptr %81, null
   br i1 %.not118, label %83, label %82
@@ -621,7 +621,7 @@ define i32 @mca_common_ompio_file_close(ptr noundef %0) local_unnamed_addr #0 {
   br label %83
 
 83:                                               ; preds = %82, %79
-  %84 = getelementptr inbounds i8, ptr %0, i64 392
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %85 = load ptr, ptr %84, align 8
   %.not119 = icmp eq ptr %85, null
   br i1 %.not119, label %87, label %86
@@ -632,7 +632,7 @@ define i32 @mca_common_ompio_file_close(ptr noundef %0) local_unnamed_addr #0 {
   br label %87
 
 87:                                               ; preds = %86, %83
-  %88 = getelementptr inbounds i8, ptr %0, i64 416
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %89 = load ptr, ptr %88, align 8
   %.not120 = icmp eq ptr %89, null
   br i1 %.not120, label %91, label %90
@@ -643,7 +643,7 @@ define i32 @mca_common_ompio_file_close(ptr noundef %0) local_unnamed_addr #0 {
   br label %91
 
 91:                                               ; preds = %90, %87
-  %92 = getelementptr inbounds i8, ptr %0, i64 408
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %93 = load ptr, ptr %92, align 8
   %.not121 = icmp eq ptr %93, null
   br i1 %.not121, label %95, label %94
@@ -654,7 +654,7 @@ define i32 @mca_common_ompio_file_close(ptr noundef %0) local_unnamed_addr #0 {
   br label %95
 
 95:                                               ; preds = %94, %91
-  %96 = getelementptr inbounds i8, ptr %0, i64 432
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %97 = load ptr, ptr %96, align 8
   %.not122 = icmp eq ptr %97, null
   br i1 %.not122, label %99, label %98
@@ -665,7 +665,7 @@ define i32 @mca_common_ompio_file_close(ptr noundef %0) local_unnamed_addr #0 {
   br label %99
 
 99:                                               ; preds = %98, %95
-  %100 = getelementptr inbounds i8, ptr %0, i64 200
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %101 = load ptr, ptr %100, align 8
   %.not123 = icmp eq ptr %101, null
   br i1 %.not123, label %103, label %102
@@ -676,32 +676,32 @@ define i32 @mca_common_ompio_file_close(ptr noundef %0) local_unnamed_addr #0 {
   br label %103
 
 103:                                              ; preds = %102, %99
-  %104 = getelementptr inbounds i8, ptr %0, i64 72
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %105 = load ptr, ptr %104, align 8
   %.not124 = icmp eq ptr %105, null
   br i1 %.not124, label %118, label %106
 
 106:                                              ; preds = %103
-  %107 = getelementptr inbounds i8, ptr %105, i64 64
+  %107 = getelementptr inbounds nuw i8, ptr %105, i64 64
   %108 = load i32, ptr %107, align 8
   %109 = icmp ugt i32 %108, 5
   br i1 %109, label %110, label %opal_convertor_cleanup.exit
 
 110:                                              ; preds = %106
-  %111 = getelementptr inbounds i8, ptr %105, i64 80
+  %111 = getelementptr inbounds nuw i8, ptr %105, i64 80
   %112 = load ptr, ptr %111, align 8
   call void @free(ptr noundef %112) #12
-  %113 = getelementptr inbounds i8, ptr %105, i64 144
+  %113 = getelementptr inbounds nuw i8, ptr %105, i64 144
   store ptr %113, ptr %111, align 8
   store i32 5, ptr %107, align 8
   br label %opal_convertor_cleanup.exit
 
 opal_convertor_cleanup.exit:                      ; preds = %106, %110
-  %114 = getelementptr inbounds i8, ptr %105, i64 40
+  %114 = getelementptr inbounds nuw i8, ptr %105, i64 40
   store ptr null, ptr %114, align 8
-  %115 = getelementptr inbounds i8, ptr %105, i64 104
+  %115 = getelementptr inbounds nuw i8, ptr %105, i64 104
   store i32 0, ptr %115, align 8
-  %116 = getelementptr inbounds i8, ptr %105, i64 20
+  %116 = getelementptr inbounds nuw i8, ptr %105, i64 20
   store i32 134217760, ptr %116, align 4
   %117 = load ptr, ptr %104, align 8
   call void @free(ptr noundef %117) #12
@@ -709,32 +709,32 @@ opal_convertor_cleanup.exit:                      ; preds = %106, %110
   br label %118
 
 118:                                              ; preds = %opal_convertor_cleanup.exit, %103
-  %119 = getelementptr inbounds i8, ptr %0, i64 80
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %120 = load ptr, ptr %119, align 8
   %.not125 = icmp eq ptr %120, null
   br i1 %.not125, label %133, label %121
 
 121:                                              ; preds = %118
-  %122 = getelementptr inbounds i8, ptr %120, i64 64
+  %122 = getelementptr inbounds nuw i8, ptr %120, i64 64
   %123 = load i32, ptr %122, align 8
   %124 = icmp ugt i32 %123, 5
   br i1 %124, label %125, label %opal_convertor_cleanup.exit135
 
 125:                                              ; preds = %121
-  %126 = getelementptr inbounds i8, ptr %120, i64 80
+  %126 = getelementptr inbounds nuw i8, ptr %120, i64 80
   %127 = load ptr, ptr %126, align 8
   call void @free(ptr noundef %127) #12
-  %128 = getelementptr inbounds i8, ptr %120, i64 144
+  %128 = getelementptr inbounds nuw i8, ptr %120, i64 144
   store ptr %128, ptr %126, align 8
   store i32 5, ptr %122, align 8
   br label %opal_convertor_cleanup.exit135
 
 opal_convertor_cleanup.exit135:                   ; preds = %121, %125
-  %129 = getelementptr inbounds i8, ptr %120, i64 40
+  %129 = getelementptr inbounds nuw i8, ptr %120, i64 40
   store ptr null, ptr %129, align 8
-  %130 = getelementptr inbounds i8, ptr %120, i64 104
+  %130 = getelementptr inbounds nuw i8, ptr %120, i64 104
   store i32 0, ptr %130, align 8
-  %131 = getelementptr inbounds i8, ptr %120, i64 20
+  %131 = getelementptr inbounds nuw i8, ptr %120, i64 20
   store i32 134217760, ptr %131, align 4
   %132 = load ptr, ptr %119, align 8
   call void @free(ptr noundef %132) #12
@@ -742,7 +742,7 @@ opal_convertor_cleanup.exit135:                   ; preds = %121, %125
   br label %133
 
 133:                                              ; preds = %opal_convertor_cleanup.exit135, %118
-  %134 = getelementptr inbounds i8, ptr %0, i64 64
+  %134 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %135 = load ptr, ptr %134, align 8
   %.not126 = icmp eq ptr %135, null
   br i1 %.not126, label %137, label %136
@@ -753,7 +753,7 @@ opal_convertor_cleanup.exit135:                   ; preds = %121, %125
   br label %137
 
 137:                                              ; preds = %136, %133
-  %138 = getelementptr inbounds i8, ptr %0, i64 376
+  %138 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %139 = load ptr, ptr %138, align 8
   %.not127 = icmp eq ptr %139, null
   br i1 %.not127, label %141, label %140
@@ -764,10 +764,10 @@ opal_convertor_cleanup.exit135:                   ; preds = %121, %125
   br label %141
 
 141:                                              ; preds = %140, %137
-  %142 = getelementptr inbounds i8, ptr %0, i64 56
+  %142 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %143 = load ptr, ptr %142, align 8
   call void @free(ptr noundef %143) #12
-  %144 = getelementptr inbounds i8, ptr %0, i64 384
+  %144 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %145 = load ptr, ptr %144, align 8
   %.not128 = icmp eq ptr %145, null
   br i1 %.not128, label %147, label %146
@@ -778,7 +778,7 @@ opal_convertor_cleanup.exit135:                   ; preds = %121, %125
   br label %147
 
 147:                                              ; preds = %146, %141
-  %148 = getelementptr inbounds i8, ptr %0, i64 264
+  %148 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %149 = load ptr, ptr %148, align 8
   %.not129 = icmp eq ptr %149, @ompi_mpi_datatype_null
   br i1 %.not129, label %152, label %150
@@ -789,7 +789,7 @@ opal_convertor_cleanup.exit135:                   ; preds = %121, %125
   br label %152
 
 152:                                              ; preds = %150, %147
-  %153 = getelementptr inbounds i8, ptr %0, i64 272
+  %153 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %154 = load ptr, ptr %153, align 8
   %.not130 = icmp eq ptr %154, @ompi_mpi_datatype_null
   br i1 %.not130, label %157, label %155
@@ -799,7 +799,7 @@ opal_convertor_cleanup.exit135:                   ; preds = %121, %125
   br label %157
 
 157:                                              ; preds = %155, %152
-  %158 = getelementptr inbounds i8, ptr %0, i64 280
+  %158 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %159 = load ptr, ptr %158, align 8
   %.not131 = icmp eq ptr %159, @ompi_mpi_datatype_null
   br i1 %.not131, label %162, label %160
@@ -809,7 +809,7 @@ opal_convertor_cleanup.exit135:                   ; preds = %121, %125
   br label %162
 
 162:                                              ; preds = %160, %157
-  %163 = getelementptr inbounds i8, ptr %0, i64 288
+  %163 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %164 = load ptr, ptr %163, align 8
   %.not132 = icmp eq ptr %164, @ompi_mpi_datatype_null
   br i1 %.not132, label %167, label %165
@@ -824,7 +824,7 @@ opal_convertor_cleanup.exit135:                   ; preds = %121, %125
   br i1 %.not133, label %175, label %169
 
 169:                                              ; preds = %167
-  %170 = getelementptr inbounds i8, ptr %0, i64 16
+  %170 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %171 = load i32, ptr %170, align 8
   %172 = and i32 %171, 64
   %.not134 = icmp eq i32 %172, 0
@@ -865,9 +865,9 @@ define i32 @mca_common_ompio_file_delete(ptr noundef %0, ptr nocapture readnone 
   br label %mca_common_ompio_create_incomplete_file_handle.exit.thread
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %6, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store ptr @ompi_mpi_comm_null, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %6, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store ptr %0, ptr %11, align 8
   %12 = tail call i32 @mca_fs_base_file_select(ptr noundef nonnull %6, ptr noundef null) #12
   %.not11 = icmp eq i32 %12, 0
@@ -879,9 +879,9 @@ define i32 @mca_common_ompio_file_delete(ptr noundef %0, ptr nocapture readnone 
   br label %mca_common_ompio_create_incomplete_file_handle.exit.thread
 
 14:                                               ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %6, i64 344
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 344
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %18 = load ptr, ptr %17, align 8
   %19 = tail call i32 %18(ptr noundef nonnull %0, ptr noundef null) #12
   tail call void @free(ptr noundef nonnull %6) #12
@@ -909,9 +909,9 @@ declare i32 @ompi_comm_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @mca_common_ompio_file_get_size(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 344
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 %6(ptr noundef %0, ptr noundef %1) #12
   ret i32 %7
@@ -919,33 +919,33 @@ define i32 @mca_common_ompio_file_get_size(ptr noundef %0, ptr noundef %1) local
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef i32 @mca_common_ompio_file_get_position(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #5 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 240
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %4 = load i64, ptr %3, align 8
   %5 = icmp eq i64 %4, 0
   br i1 %5, label %27, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 248
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %8 = load i64, ptr %7, align 8
   %9 = icmp eq i64 %8, 0
   br i1 %9, label %27, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %0, i64 256
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %12 = load i64, ptr %11, align 8
   %13 = icmp eq i64 %12, 0
   br i1 %13, label %27, label %14
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %0, i64 184
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %16 = load i64, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 192
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %18 = load i64, ptr %17, align 8
   %19 = sub nsw i64 %16, %18
   %20 = sdiv i64 %19, %4
   %21 = udiv i64 %8, %12
   %22 = mul i64 %21, %20
-  %23 = getelementptr inbounds i8, ptr %0, i64 224
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %24 = load i64, ptr %23, align 8
   %25 = udiv i64 %24, %12
   %26 = add i64 %25, %22
@@ -986,9 +986,9 @@ define range(i32 -2, 1) i32 @mca_common_ompio_create_incomplete_file_handle(ptr 
   br label %12
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %6, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store ptr @ompi_mpi_comm_null, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %6, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store ptr %0, ptr %11, align 8
   store ptr %6, ptr %1, align 8
   br label %12
@@ -1017,7 +1017,7 @@ define range(i32 -2, 1) i32 @mca_common_ompio_decode_datatype(ptr nocapture noun
   br label %opal_convertor_cleanup.exit
 
 16:                                               ; preds = %8
-  %17 = getelementptr inbounds i8, ptr %1, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %18 = load i64, ptr %17, align 8
   %19 = icmp eq i64 %18, 0
   br i1 %19, label %20, label %21
@@ -1079,7 +1079,7 @@ define range(i32 -2, 1) i32 @mca_common_ompio_decode_datatype(ptr nocapture noun
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %42 = getelementptr inbounds %struct.iovec, ptr %22, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw %struct.iovec, ptr %22, i64 %indvars.iv
   %43 = load ptr, ptr %42, align 8
   %44 = load ptr, ptr %6, align 8
   %45 = load i32, ptr %7, align 4
@@ -1087,15 +1087,15 @@ define range(i32 -2, 1) i32 @mca_common_ompio_decode_datatype(ptr nocapture noun
   %47 = sub i32 %46, %40
   %48 = add i32 %47, %45
   %49 = zext i32 %48 to i64
-  %50 = getelementptr inbounds %struct.iovec, ptr %44, i64 %49
+  %50 = getelementptr inbounds nuw %struct.iovec, ptr %44, i64 %49
   store ptr %43, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %42, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %52 = load i64, ptr %51, align 8
   %53 = load ptr, ptr %6, align 8
   %54 = load i32, ptr %7, align 4
   %55 = add i32 %47, %54
   %56 = zext i32 %55 to i64
-  %57 = getelementptr inbounds %struct.iovec, ptr %53, i64 %56, i32 1
+  %57 = getelementptr inbounds nuw %struct.iovec, ptr %53, i64 %56, i32 1
   store i64 %52, ptr %57, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1148,7 +1148,7 @@ define range(i32 -2, 1) i32 @mca_common_ompio_decode_datatype(ptr nocapture noun
 
 .lr.ph76:                                         ; preds = %.lr.ph76.preheader, %.lr.ph76
   %indvars.iv81 = phi i64 [ 0, %.lr.ph76.preheader ], [ %indvars.iv.next82, %.lr.ph76 ]
-  %77 = getelementptr inbounds %struct.iovec, ptr %22, i64 %indvars.iv81
+  %77 = getelementptr inbounds nuw %struct.iovec, ptr %22, i64 %indvars.iv81
   %78 = load ptr, ptr %77, align 8
   %79 = load ptr, ptr %6, align 8
   %80 = load i32, ptr %7, align 4
@@ -1156,15 +1156,15 @@ define range(i32 -2, 1) i32 @mca_common_ompio_decode_datatype(ptr nocapture noun
   %82 = sub i32 %81, %.pre
   %83 = add i32 %82, %80
   %84 = zext i32 %83 to i64
-  %85 = getelementptr inbounds %struct.iovec, ptr %79, i64 %84
+  %85 = getelementptr inbounds nuw %struct.iovec, ptr %79, i64 %84
   store ptr %78, ptr %85, align 8
-  %86 = getelementptr inbounds i8, ptr %77, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %77, i64 8
   %87 = load i64, ptr %86, align 8
   %88 = load ptr, ptr %6, align 8
   %89 = load i32, ptr %7, align 4
   %90 = add i32 %82, %89
   %91 = zext i32 %90 to i64
-  %92 = getelementptr inbounds %struct.iovec, ptr %88, i64 %91, i32 1
+  %92 = getelementptr inbounds nuw %struct.iovec, ptr %88, i64 %91, i32 1
   store i64 %87, ptr %92, align 8
   %indvars.iv.next82 = add nuw nsw i64 %indvars.iv81, 1
   %exitcond85.not = icmp eq i64 %indvars.iv.next82, %wide.trip.count84
@@ -1182,13 +1182,13 @@ define range(i32 -2, 1) i32 @mca_common_ompio_decode_datatype(ptr nocapture noun
 
 97:                                               ; preds = %94, %._crit_edge77
   call void @free(ptr noundef %22) #12
-  %98 = getelementptr inbounds i8, ptr %9, i64 64
+  %98 = getelementptr inbounds nuw i8, ptr %9, i64 64
   %99 = load i32, ptr %98, align 8
   %100 = icmp ugt i32 %99, 5
   br i1 %100, label %101, label %opal_convertor_cleanup.exit
 
 101:                                              ; preds = %97
-  %102 = getelementptr inbounds i8, ptr %9, i64 80
+  %102 = getelementptr inbounds nuw i8, ptr %9, i64 80
   %103 = load ptr, ptr %102, align 8
   call void @free(ptr noundef %103) #12
   br label %opal_convertor_cleanup.exit

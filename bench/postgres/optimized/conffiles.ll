@@ -151,7 +151,7 @@ AbsoluteConfigLocation.exit:                      ; preds = %20, %27
 
 41:                                               ; preds = %.lr.ph, %.backedge
   %42 = phi ptr [ %40, %.lr.ph ], [ %46, %.backedge ]
-  %43 = getelementptr inbounds i8, ptr %42, i64 19
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 19
   %44 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %43) #6
   %45 = icmp ult i64 %44, 6
   br i1 %45, label %.backedge, label %47

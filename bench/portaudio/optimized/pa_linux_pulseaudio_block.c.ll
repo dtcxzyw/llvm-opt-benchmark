@@ -349,7 +349,7 @@ define range(i32 -9992, 1) i32 @PaPulseAudio_WriteStreamBlock(ptr noundef %0, pt
   tail call void @pa_operation_unref(ptr noundef nonnull %60) #3
   %105 = load ptr, ptr %15, align 8
   tail call void @PaPulseAudio_UnLock(ptr noundef %105) #3
-  %106 = getelementptr inbounds i8, ptr %.065126, i64 %spec.select
+  %106 = getelementptr inbounds nuw i8, ptr %.065126, i64 %spec.select
   %107 = sub nsw i64 %.0127, %spec.select
   %108 = icmp sgt i64 %107, 0
   br i1 %108, label %109, label %._crit_edge130

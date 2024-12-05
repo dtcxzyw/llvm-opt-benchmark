@@ -10,33 +10,33 @@ define hidden noundef i32 @WebPRescalerInit(ptr nocapture noundef writeonly init
   store i32 %11, ptr %0, align 8
   %12 = icmp slt i32 %2, %5
   %13 = zext i1 %12 to i32
-  %14 = getelementptr inbounds i8, ptr %0, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %13, ptr %14, align 4
-  %15 = getelementptr inbounds i8, ptr %0, i64 44
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i32 %1, ptr %15, align 4
-  %16 = getelementptr inbounds i8, ptr %0, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 %2, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 52
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i32 %4, ptr %17, align 4
-  %18 = getelementptr inbounds i8, ptr %0, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 %5, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 60
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 60
   store i32 0, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %0, i64 64
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 0, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 72
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %3, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 80
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 %6, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %7, ptr %23, align 8
   %24 = add nsw i32 %4, -1
   %25 = select i1 %10, i32 %24, i32 %1
-  %26 = getelementptr inbounds i8, ptr %0, i64 36
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 %25, ptr %26, align 4
   %27 = add nsw i32 %1, -1
   %28 = select i1 %10, i32 %27, i32 %4
-  %29 = getelementptr inbounds i8, ptr %0, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 %28, ptr %29, align 8
   br i1 %10, label %35, label %30
 
@@ -44,19 +44,19 @@ define hidden noundef i32 @WebPRescalerInit(ptr nocapture noundef writeonly init
   %31 = sext i32 %4 to i64
   %32 = udiv i64 4294967296, %31
   %33 = trunc i64 %32 to i32
-  %34 = getelementptr inbounds i8, ptr %0, i64 12
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %33, ptr %34, align 4
   br label %35
 
 35:                                               ; preds = %30, %9
   %36 = sext i1 %12 to i32
   %37 = add nsw i32 %2, %36
-  %38 = getelementptr inbounds i8, ptr %0, i64 28
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %37, ptr %38, align 4
   %39 = add nsw i32 %5, %36
-  %40 = getelementptr inbounds i8, ptr %0, i64 32
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 %39, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br i1 %12, label %50, label %42
 
 42:                                               ; preds = %35
@@ -69,7 +69,7 @@ define hidden noundef i32 @WebPRescalerInit(ptr nocapture noundef writeonly init
   %48 = udiv i64 %44, %47
   %spec.select85 = tail call i64 @llvm.umin.i64(i64 %48, i64 4294967296)
   %spec.select = trunc i64 %spec.select85 to i32
-  %49 = getelementptr inbounds i8, ptr %0, i64 20
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %spec.select, ptr %49, align 4
   br label %51
 
@@ -82,18 +82,18 @@ define hidden noundef i32 @WebPRescalerInit(ptr nocapture noundef writeonly init
   %52 = sext i32 %.sink84 to i64
   %53 = udiv i64 4294967296, %52
   %54 = trunc i64 %53 to i32
-  %55 = getelementptr inbounds i8, ptr %0, i64 16
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %54, ptr %55, align 8
   %56 = sext i32 %4 to i64
   %57 = sext i32 %7 to i64
   %58 = shl nsw i64 %56, 3
   %59 = mul i64 %58, %57
-  %60 = getelementptr inbounds i8, ptr %0, i64 88
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr %8, ptr %60, align 8
   %61 = mul nsw i32 %7, %4
   %62 = sext i32 %61 to i64
   %63 = getelementptr inbounds i32, ptr %8, i64 %62
-  %64 = getelementptr inbounds i8, ptr %0, i64 96
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %63, ptr %64, align 8
   tail call void @llvm.memset.p0.i64(ptr align 4 %8, i8 0, i64 %59, i1 false)
   tail call void @WebPRescalerDspInit() #6
@@ -164,9 +164,9 @@ define hidden range(i32 0, 2) i32 @WebPRescalerGetScaledDimensions(i32 noundef %
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden i32 @WebPRescaleNeededLines(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #4 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load i32, ptr %5, align 8
   %7 = add i32 %4, -1
   %8 = add i32 %7, %6
@@ -177,21 +177,21 @@ define hidden i32 @WebPRescaleNeededLines(ptr nocapture noundef readonly %0, i32
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @WebPRescalerImport(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = icmp sgt i32 %1, 0
   br i1 %6, label %.lr.ph34, label %.critedge
 
 .lr.ph34:                                         ; preds = %4
   %7 = getelementptr i8, ptr %0, i64 56
   %8 = getelementptr i8, ptr %0, i64 64
-  %9 = getelementptr inbounds i8, ptr %0, i64 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 88
-  %11 = getelementptr inbounds i8, ptr %0, i64 96
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 52
-  %14 = getelementptr inbounds i8, ptr %0, i64 60
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %15 = sext i32 %3 to i64
-  %16 = getelementptr inbounds i8, ptr %0, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %17
 
 17:                                               ; preds = %.lr.ph34, %.loopexit
@@ -235,10 +235,10 @@ WebPRescalerHasPendingOutput.exit.thread:         ; preds = %17, %WebPRescalerHa
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %30 = load ptr, ptr %11, align 8
-  %31 = getelementptr inbounds i32, ptr %30, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv
   %32 = load i32, ptr %31, align 4
   %33 = load ptr, ptr %10, align 8
-  %34 = getelementptr inbounds i32, ptr %33, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw i32, ptr %33, i64 %indvars.iv
   %35 = load i32, ptr %34, align 4
   %36 = add i32 %35, %32
   store i32 %36, ptr %34, align 4
@@ -272,7 +272,7 @@ declare void @WebPRescalerImportRow(ptr noundef, ptr noundef) local_unnamed_addr
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @WebPRescalerExport(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = getelementptr i8, ptr %0, i64 56
   %4 = getelementptr i8, ptr %0, i64 64
   %.val.i4 = load i32, ptr %3, align 8

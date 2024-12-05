@@ -61,20 +61,20 @@ $_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8
 define hidden void @_ZN5ceres8internal11ContextImplC2Ev(ptr noundef nonnull align 8 dereferenceable(1040) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN5ceres7ContextC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5ceres8internal11ContextImplE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   invoke void @_ZN5ceres8internal10ThreadPoolC1Ev(ptr noundef nonnull align 8 dereferenceable(240) %2)
           to label %3 unwind label %9
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 248
-  %5 = getelementptr inbounds i8, ptr %0, i64 292
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 248
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 292
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %4, i8 0, i64 41, i1 false)
   store i32 -1, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 1024
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1024
   store i8 0, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 1028
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1028
   store i32 0, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 1032
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1032
   store i32 0, ptr %8, align 8
   ret void
 
@@ -96,7 +96,7 @@ declare void @_ZN5ceres7ContextD2Ev(ptr noundef nonnull align 8 dereferenceable(
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN5ceres8internal11ContextImpl8TearDownEv(ptr nocapture noundef nonnull align 8 dereferenceable(1040) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 248
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %6, label %4
@@ -107,7 +107,7 @@ define hidden void @_ZN5ceres8internal11ContextImpl8TearDownEv(ptr nocapture nou
   br label %6
 
 6:                                                ; preds = %4, %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 256
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %8 = load ptr, ptr %7, align 8
   %.not14 = icmp eq ptr %8, null
   br i1 %.not14, label %11, label %9
@@ -118,7 +118,7 @@ define hidden void @_ZN5ceres8internal11ContextImpl8TearDownEv(ptr nocapture nou
   br label %11
 
 11:                                               ; preds = %9, %6
-  %12 = getelementptr inbounds i8, ptr %0, i64 280
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %13 = load ptr, ptr %12, align 8
   %.not15 = icmp eq ptr %13, null
   br i1 %.not15, label %16, label %14
@@ -129,7 +129,7 @@ define hidden void @_ZN5ceres8internal11ContextImpl8TearDownEv(ptr nocapture nou
   br label %16
 
 16:                                               ; preds = %14, %11
-  %.0.ptr19 = getelementptr inbounds i8, ptr %0, i64 264
+  %.0.ptr19 = getelementptr inbounds nuw i8, ptr %0, i64 264
   br label %17
 
 17:                                               ; preds = %16, %21
@@ -146,12 +146,12 @@ define hidden void @_ZN5ceres8internal11ContextImpl8TearDownEv(ptr nocapture nou
 
 21:                                               ; preds = %17, %19
   %.0.add = add nuw nsw i64 %.0.idx20, 8
-  %.0.ptr = getelementptr inbounds i8, ptr %0, i64 %.0.add
+  %.0.ptr = getelementptr inbounds nuw i8, ptr %0, i64 %.0.add
   %.not16 = icmp eq i64 %.0.add, 280
   br i1 %.not16, label %22, label %17
 
 22:                                               ; preds = %21
-  %23 = getelementptr inbounds i8, ptr %0, i64 288
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 288
   store i8 0, ptr %23, align 8
   ret void
 }
@@ -168,14 +168,14 @@ declare i32 @cudaStreamDestroy(ptr noundef) local_unnamed_addr #1
 define hidden void @_ZNK5ceres8internal11ContextImpl18CudaConfigAsStringB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(1040) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 1028
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 1028
   %6 = load i32, ptr %5, align 4
-  %7 = getelementptr inbounds i8, ptr %1, i64 1032
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 1032
   %8 = load i32, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 292
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 292
   %10 = load i32, ptr %9, align 4
-  %11 = getelementptr inbounds i8, ptr %1, i64 296
-  %12 = getelementptr inbounds i8, ptr %1, i64 584
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 296
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 584
   %13 = load i64, ptr %12, align 8
   %14 = uitofp i64 %13 to double
   %15 = fmul double %14, 0x3F50000000000000
@@ -189,29 +189,29 @@ define hidden void @_ZNK5ceres8internal11ContextImpl18CudaConfigAsStringB5cxx11E
   %19 = uitofp i64 %18 to double
   %20 = fmul double %19, 0x3F50000000000000
   %21 = fmul double %20, 0x3F50000000000000
-  %22 = getelementptr inbounds i8, ptr %1, i64 656
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 656
   %23 = load i32, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %1, i64 660
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 660
   %25 = load i32, ptr %24, align 4
-  %26 = getelementptr inbounds i8, ptr %1, i64 604
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 604
   %27 = load i32, ptr %26, align 4
-  %28 = getelementptr inbounds i8, ptr %1, i64 616
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 616
   %29 = load i32, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %1, i64 620
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 620
   %31 = load i32, ptr %30, align 4
-  %32 = getelementptr inbounds i8, ptr %1, i64 624
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 624
   %33 = load i32, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %1, i64 628
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 628
   %35 = load i32, ptr %34, align 4
-  %36 = getelementptr inbounds i8, ptr %1, i64 632
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 632
   %37 = load i32, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %1, i64 636
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 636
   %39 = load i32, ptr %38, align 4
-  %40 = getelementptr inbounds i8, ptr %1, i64 640
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 640
   %41 = load i32, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %1, i64 684
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 684
   %43 = load i32, ptr %42, align 4
-  %44 = getelementptr inbounds i8, ptr %1, i64 1024
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 1024
   %45 = load i8, ptr %44, align 8
   %46 = trunc i8 %45 to i1
   %47 = select i1 %46, ptr @.str.1, ptr @.str.2
@@ -265,13 +265,13 @@ define hidden noundef zeroext i1 @_ZN5ceres8internal11ContextImpl8InitCudaEPNSt7
   %31 = alloca %"class.std::allocator.3", align 1
   %32 = alloca %"class.std::__cxx11::basic_string", align 8
   %33 = alloca %"class.std::allocator.3", align 1
-  %34 = getelementptr inbounds i8, ptr %0, i64 288
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %35 = load i8, ptr %34, align 8
   %36 = trunc i8 %35 to i1
   br i1 %36, label %302, label %37
 
 37:                                               ; preds = %2
-  %38 = getelementptr inbounds i8, ptr %0, i64 292
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 292
   %39 = tail call i32 @cudaGetDevice(ptr noundef nonnull %38)
   %40 = icmp eq i32 %39, 0
   br i1 %40, label %_ZN6google12Check_EQImplI9cudaErrorS1_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.thread, label %41
@@ -390,15 +390,15 @@ _ZN6google12Check_EQImplI9cudaErrorS1_EEPNSt7__cxx1112basic_stringIcSt11char_tra
 72:                                               ; preds = %_ZN6google12Check_EQImplI9cudaErrorS1_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit66.thread, %_ZN6google12Check_EQImplI9cudaErrorS1_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit66
   %73 = load i32, ptr %11, align 4
   %74 = sdiv i32 %73, 1000
-  %75 = getelementptr inbounds i8, ptr %0, i64 1028
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 1028
   store i32 %74, ptr %75, align 4
   %76 = srem i32 %73, 1000
   %.lhs.trunc = trunc nsw i32 %76 to i16
   %77 = sdiv i16 %.lhs.trunc, 10
   %.sext = sext i16 %77 to i32
-  %78 = getelementptr inbounds i8, ptr %0, i64 1032
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 1032
   store i32 %.sext, ptr %78, align 8
-  %79 = getelementptr inbounds i8, ptr %0, i64 296
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %80 = load i32, ptr %38, align 4
   %81 = call i32 @cudaGetDeviceProperties(ptr noundef nonnull %79, i32 noundef %80)
   %82 = icmp eq i32 %81, 0
@@ -515,7 +515,7 @@ _ZN6google12Check_EQImplI9cudaErrorS1_EEPNSt7__cxx1112basic_stringIcSt11char_tra
 115:                                              ; preds = %_ZN6google12Check_EQImplI9cudaErrorS1_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit76.thread, %_ZN6google12Check_EQImplI9cudaErrorS1_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit76
   %116 = load i32, ptr %16, align 4
   %117 = icmp eq i32 %116, 1
-  %118 = getelementptr inbounds i8, ptr %0, i64 1024
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 1024
   %119 = zext i1 %117 to i8
   store i8 %119, ptr %118, align 8
   %120 = load ptr, ptr @_ZZN5ceres8internal11ContextImpl8InitCudaEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8vlocal__, align 8
@@ -544,7 +544,7 @@ _ZN6google12Check_EQImplI9cudaErrorS1_EEPNSt7__cxx1112basic_stringIcSt11char_tra
   %132 = load i32, ptr %75, align 4, !noalias !4
   %133 = load i32, ptr %78, align 8, !noalias !4
   %134 = load i32, ptr %38, align 4, !noalias !4
-  %135 = getelementptr inbounds i8, ptr %0, i64 584
+  %135 = getelementptr inbounds nuw i8, ptr %0, i64 584
   %136 = load i64, ptr %135, align 8, !noalias !4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !4
@@ -561,27 +561,27 @@ _ZN6google12Check_EQImplI9cudaErrorS1_EEPNSt7__cxx1112basic_stringIcSt11char_tra
   %142 = uitofp i64 %141 to double
   %143 = fmul double %142, 0x3F50000000000000
   %144 = fmul double %143, 0x3F50000000000000
-  %145 = getelementptr inbounds i8, ptr %0, i64 656
+  %145 = getelementptr inbounds nuw i8, ptr %0, i64 656
   %146 = load i32, ptr %145, align 8, !noalias !4
-  %147 = getelementptr inbounds i8, ptr %0, i64 660
+  %147 = getelementptr inbounds nuw i8, ptr %0, i64 660
   %148 = load i32, ptr %147, align 4, !noalias !4
-  %149 = getelementptr inbounds i8, ptr %0, i64 604
+  %149 = getelementptr inbounds nuw i8, ptr %0, i64 604
   %150 = load i32, ptr %149, align 4, !noalias !4
-  %151 = getelementptr inbounds i8, ptr %0, i64 616
+  %151 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %152 = load i32, ptr %151, align 8, !noalias !4
-  %153 = getelementptr inbounds i8, ptr %0, i64 620
+  %153 = getelementptr inbounds nuw i8, ptr %0, i64 620
   %154 = load i32, ptr %153, align 4, !noalias !4
-  %155 = getelementptr inbounds i8, ptr %0, i64 624
+  %155 = getelementptr inbounds nuw i8, ptr %0, i64 624
   %156 = load i32, ptr %155, align 8, !noalias !4
-  %157 = getelementptr inbounds i8, ptr %0, i64 628
+  %157 = getelementptr inbounds nuw i8, ptr %0, i64 628
   %158 = load i32, ptr %157, align 4, !noalias !4
-  %159 = getelementptr inbounds i8, ptr %0, i64 632
+  %159 = getelementptr inbounds nuw i8, ptr %0, i64 632
   %160 = load i32, ptr %159, align 8, !noalias !4
-  %161 = getelementptr inbounds i8, ptr %0, i64 636
+  %161 = getelementptr inbounds nuw i8, ptr %0, i64 636
   %162 = load i32, ptr %161, align 4, !noalias !4
-  %163 = getelementptr inbounds i8, ptr %0, i64 640
+  %163 = getelementptr inbounds nuw i8, ptr %0, i64 640
   %164 = load i32, ptr %163, align 8, !noalias !4
-  %165 = getelementptr inbounds i8, ptr %0, i64 684
+  %165 = getelementptr inbounds nuw i8, ptr %0, i64 684
   %166 = load i32, ptr %165, align 4, !noalias !4
   %167 = load i8, ptr %118, align 8, !noalias !4
   %168 = trunc i8 %167 to i1
@@ -624,7 +624,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 174:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %22) #12
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %23) #12
-  %175 = getelementptr inbounds i8, ptr %0, i64 256
+  %175 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %176 = invoke i32 @cublasCreate_v2(ptr noundef nonnull %175)
           to label %177 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -718,7 +718,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit84: ; 
 194:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit84
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %24) #12
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %25) #12
-  %195 = getelementptr inbounds i8, ptr %0, i64 248
+  %195 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %196 = invoke i32 @cusolverDnCreate(ptr noundef nonnull %195)
           to label %197 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -757,7 +757,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit84: ; 
   br label %208
 
 208:                                              ; preds = %.noexc86, %204
-  %209 = getelementptr inbounds i8, ptr %0, i64 280
+  %209 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %210 = load ptr, ptr %209, align 8
   %.not15.i = icmp eq ptr %210, null
   br i1 %.not15.i, label %213, label %211
@@ -771,7 +771,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit84: ; 
   br label %213
 
 213:                                              ; preds = %.noexc87, %208
-  %.0.ptr19.i = getelementptr inbounds i8, ptr %0, i64 264
+  %.0.ptr19.i = getelementptr inbounds nuw i8, ptr %0, i64 264
   br label %214
 
 214:                                              ; preds = %218, %213
@@ -791,7 +791,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit84: ; 
 
 218:                                              ; preds = %.noexc88, %214
   %.0.add.i = add nuw nsw i64 %.0.idx20.i, 8
-  %.0.ptr.i = getelementptr inbounds i8, ptr %0, i64 %.0.add.i
+  %.0.ptr.i = getelementptr inbounds nuw i8, ptr %0, i64 %.0.add.i
   %.not16.i = icmp eq i64 %.0.add.i, 280
   br i1 %.not16.i, label %_ZN5ceres8internal11ContextImpl8TearDownEv.exit, label %214
 
@@ -841,7 +841,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit93: ; 
 227:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit93
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %26) #12
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %27) #12
-  %228 = getelementptr inbounds i8, ptr %0, i64 280
+  %228 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %229 = invoke i32 @cusparseCreate(ptr noundef nonnull %228)
           to label %230 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -893,7 +893,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit93: ; 
   br label %245
 
 245:                                              ; preds = %.noexc106, %241
-  %.0.ptr19.i97 = getelementptr inbounds i8, ptr %0, i64 264
+  %.0.ptr19.i97 = getelementptr inbounds nuw i8, ptr %0, i64 264
   br label %246
 
 246:                                              ; preds = %250, %245
@@ -913,7 +913,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit93: ; 
 
 250:                                              ; preds = %.noexc107, %246
   %.0.add.i101 = add nuw nsw i64 %.0.idx20.i99, 8
-  %.0.ptr.i102 = getelementptr inbounds i8, ptr %0, i64 %.0.add.i101
+  %.0.ptr.i102 = getelementptr inbounds nuw i8, ptr %0, i64 %.0.add.i101
   %.not16.i103 = icmp eq i64 %.0.add.i101, 280
   br i1 %.not16.i103, label %_ZN5ceres8internal11ContextImpl8TearDownEv.exit108, label %246
 
@@ -972,7 +972,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit113: ;
 
 261:                                              ; preds = %259, %260
   %.024.idx142 = phi i64 [ 264, %259 ], [ %.024.add, %260 ]
-  %.024.ptr = getelementptr inbounds i8, ptr %0, i64 %.024.idx142
+  %.024.ptr = getelementptr inbounds nuw i8, ptr %0, i64 %.024.idx142
   %262 = invoke i32 @cudaStreamCreateWithFlags(ptr noundef nonnull %.024.ptr, i32 noundef 1)
           to label %263 unwind label %.loopexit
 
@@ -1018,7 +1018,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit113: ;
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %30) #12
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %31) #12
   %273 = load ptr, ptr %195, align 8
-  %274 = getelementptr inbounds i8, ptr %0, i64 264
+  %274 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %275 = load ptr, ptr %274, align 8
   %276 = invoke i32 @cusolverDnSetStream(ptr noundef %273, ptr noundef %275)
           to label %277 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
@@ -1199,7 +1199,7 @@ declare void @_ZN5ceres8internal11EventLoggerD1Ev(ptr noundef nonnull align 8 de
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN5ceres8internal11ContextImplD2Ev(ptr noundef nonnull align 8 dereferenceable(1040) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 248
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %6, label %4
@@ -1213,7 +1213,7 @@ define hidden void @_ZN5ceres8internal11ContextImplD2Ev(ptr noundef nonnull alig
   br label %6
 
 6:                                                ; preds = %.noexc, %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 256
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %8 = load ptr, ptr %7, align 8
   %.not14.i = icmp eq ptr %8, null
   br i1 %.not14.i, label %11, label %9
@@ -1227,7 +1227,7 @@ define hidden void @_ZN5ceres8internal11ContextImplD2Ev(ptr noundef nonnull alig
   br label %11
 
 11:                                               ; preds = %.noexc1, %6
-  %12 = getelementptr inbounds i8, ptr %0, i64 280
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %13 = load ptr, ptr %12, align 8
   %.not15.i = icmp eq ptr %13, null
   br i1 %.not15.i, label %16, label %14
@@ -1241,7 +1241,7 @@ define hidden void @_ZN5ceres8internal11ContextImplD2Ev(ptr noundef nonnull alig
   br label %16
 
 16:                                               ; preds = %.noexc2, %11
-  %.0.ptr19.i = getelementptr inbounds i8, ptr %0, i64 264
+  %.0.ptr19.i = getelementptr inbounds nuw i8, ptr %0, i64 264
   br label %17
 
 17:                                               ; preds = %21, %16
@@ -1261,14 +1261,14 @@ define hidden void @_ZN5ceres8internal11ContextImplD2Ev(ptr noundef nonnull alig
 
 21:                                               ; preds = %.noexc3, %17
   %.0.add.i = add nuw nsw i64 %.0.idx20.i, 8
-  %.0.ptr.i = getelementptr inbounds i8, ptr %0, i64 %.0.add.i
+  %.0.ptr.i = getelementptr inbounds nuw i8, ptr %0, i64 %.0.add.i
   %.not16.i = icmp eq i64 %.0.add.i, 280
   br i1 %.not16.i, label %22, label %17
 
 22:                                               ; preds = %21
-  %23 = getelementptr inbounds i8, ptr %0, i64 288
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 288
   store i8 0, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZN5ceres8internal10ThreadPoolD1Ev(ptr noundef nonnull align 8 dereferenceable(240) %24) #12
   tail call void @_ZN5ceres7ContextD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #12
   ret void
@@ -1317,7 +1317,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN5ceres8internal11ContextImpl20EnsureMinimumThreadsEi(ptr noundef nonnull align 8 dereferenceable(1040) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZN5ceres8internal10ThreadPool6ResizeEi(ptr noundef nonnull align 8 dereferenceable(240) %3, i32 noundef %1)
   ret void
 }

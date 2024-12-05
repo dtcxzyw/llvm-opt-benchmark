@@ -128,7 +128,7 @@ define hidden noundef nonnull ptr @dfvm_opcode_tostr(i32 noundef %0) local_unnam
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds [50 x ptr], ptr @switch.table.dfvm_dump_str, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw [50 x ptr], ptr @switch.table.dfvm_dump_str, i64 0, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -143,7 +143,7 @@ define hidden noundef ptr @dfvm_value_ref(ptr noundef returned %0) local_unnamed
   br i1 %2, label %7, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = add i32 %5, 1
   store i32 %6, ptr %4, align 8
@@ -155,7 +155,7 @@ define hidden noundef ptr @dfvm_value_ref(ptr noundef returned %0) local_unnamed
 
 ; Function Attrs: nounwind uwtable
 define hidden void @dfvm_value_unref(ptr noundef %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = add i32 %3, -1
   store i32 %4, ptr %2, align 8
@@ -171,19 +171,19 @@ define hidden void @dfvm_value_unref(ptr noundef %0) local_unnamed_addr #2 {
   ]
 
 8:                                                ; preds = %6
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8
   tail call void @g_ptr_array_unref(ptr noundef %10) #11
   br label %dfvm_value_free.exit
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8
   tail call void @drange_free(ptr noundef %13) #11
   br label %dfvm_value_free.exit
 
 14:                                               ; preds = %6
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load ptr, ptr %15, align 8
   tail call void @ws_regex_free(ptr noundef %16) #11
   br label %dfvm_value_free.exit
@@ -199,9 +199,9 @@ dfvm_value_free.exit:                             ; preds = %6, %8, %11, %14
 ; Function Attrs: nounwind uwtable
 define hidden noalias noundef ptr @dfvm_insn_new(i32 noundef %0) local_unnamed_addr #2 {
   %2 = tail call noalias dereferenceable_or_null(32) ptr @g_malloc_n(i64 noundef 1, i64 noundef 32) #12
-  %3 = getelementptr inbounds i8, ptr %2, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %0, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   ret ptr %2
 }
@@ -211,13 +211,13 @@ declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define hidden void @dfvm_insn_replace_no_op(ptr nocapture noundef initializes((4, 8)) %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %20, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %3, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %6 = load i32, ptr %5, align 8
   %7 = add i32 %6, -1
   store i32 %7, ptr %5, align 8
@@ -233,19 +233,19 @@ define hidden void @dfvm_insn_replace_no_op(ptr nocapture noundef initializes((4
   ]
 
 11:                                               ; preds = %9
-  %12 = getelementptr inbounds i8, ptr %3, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %13 = load ptr, ptr %12, align 8
   tail call void @g_ptr_array_unref(ptr noundef %13) #11
   br label %dfvm_value_free.exit.i
 
 14:                                               ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %3, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %16 = load ptr, ptr %15, align 8
   tail call void @drange_free(ptr noundef %16) #11
   br label %dfvm_value_free.exit.i
 
 17:                                               ; preds = %9
-  %18 = getelementptr inbounds i8, ptr %3, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %19 = load ptr, ptr %18, align 8
   tail call void @ws_regex_free(ptr noundef %19) #11
   br label %dfvm_value_free.exit.i
@@ -259,13 +259,13 @@ dfvm_value_unref.exit:                            ; preds = %4, %dfvm_value_free
   br label %20
 
 20:                                               ; preds = %dfvm_value_unref.exit, %1
-  %21 = getelementptr inbounds i8, ptr %0, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load ptr, ptr %21, align 8
   %.not12 = icmp eq ptr %22, null
   br i1 %.not12, label %39, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds i8, ptr %22, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %25 = load i32, ptr %24, align 8
   %26 = add i32 %25, -1
   store i32 %26, ptr %24, align 8
@@ -281,19 +281,19 @@ dfvm_value_unref.exit:                            ; preds = %4, %dfvm_value_free
   ]
 
 30:                                               ; preds = %28
-  %31 = getelementptr inbounds i8, ptr %22, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %32 = load ptr, ptr %31, align 8
   tail call void @g_ptr_array_unref(ptr noundef %32) #11
   br label %dfvm_value_free.exit.i14
 
 33:                                               ; preds = %28
-  %34 = getelementptr inbounds i8, ptr %22, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %35 = load ptr, ptr %34, align 8
   tail call void @drange_free(ptr noundef %35) #11
   br label %dfvm_value_free.exit.i14
 
 36:                                               ; preds = %28
-  %37 = getelementptr inbounds i8, ptr %22, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %38 = load ptr, ptr %37, align 8
   tail call void @ws_regex_free(ptr noundef %38) #11
   br label %dfvm_value_free.exit.i14
@@ -307,13 +307,13 @@ dfvm_value_unref.exit15:                          ; preds = %23, %dfvm_value_fre
   br label %39
 
 39:                                               ; preds = %dfvm_value_unref.exit15, %20
-  %40 = getelementptr inbounds i8, ptr %0, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %41 = load ptr, ptr %40, align 8
   %.not13 = icmp eq ptr %41, null
   br i1 %.not13, label %58, label %42
 
 42:                                               ; preds = %39
-  %43 = getelementptr inbounds i8, ptr %41, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %44 = load i32, ptr %43, align 8
   %45 = add i32 %44, -1
   store i32 %45, ptr %43, align 8
@@ -329,19 +329,19 @@ dfvm_value_unref.exit15:                          ; preds = %23, %dfvm_value_fre
   ]
 
 49:                                               ; preds = %47
-  %50 = getelementptr inbounds i8, ptr %41, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %51 = load ptr, ptr %50, align 8
   tail call void @g_ptr_array_unref(ptr noundef %51) #11
   br label %dfvm_value_free.exit.i16
 
 52:                                               ; preds = %47
-  %53 = getelementptr inbounds i8, ptr %41, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %54 = load ptr, ptr %53, align 8
   tail call void @drange_free(ptr noundef %54) #11
   br label %dfvm_value_free.exit.i16
 
 55:                                               ; preds = %47
-  %56 = getelementptr inbounds i8, ptr %41, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %57 = load ptr, ptr %56, align 8
   tail call void @ws_regex_free(ptr noundef %57) #11
   br label %dfvm_value_free.exit.i16
@@ -355,20 +355,20 @@ dfvm_value_unref.exit17:                          ; preds = %42, %dfvm_value_fre
   br label %58
 
 58:                                               ; preds = %dfvm_value_unref.exit17, %39
-  %59 = getelementptr inbounds i8, ptr %0, i64 4
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 49, ptr %59, align 4
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden void @dfvm_insn_free(ptr noundef %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %dfvm_value_unref.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %3, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %6 = load i32, ptr %5, align 8
   %7 = add i32 %6, -1
   store i32 %7, ptr %5, align 8
@@ -384,19 +384,19 @@ define hidden void @dfvm_insn_free(ptr noundef %0) local_unnamed_addr #2 {
   ]
 
 11:                                               ; preds = %9
-  %12 = getelementptr inbounds i8, ptr %3, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %13 = load ptr, ptr %12, align 8
   tail call void @g_ptr_array_unref(ptr noundef %13) #11
   br label %dfvm_value_free.exit.i
 
 14:                                               ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %3, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %16 = load ptr, ptr %15, align 8
   tail call void @drange_free(ptr noundef %16) #11
   br label %dfvm_value_free.exit.i
 
 17:                                               ; preds = %9
-  %18 = getelementptr inbounds i8, ptr %3, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %19 = load ptr, ptr %18, align 8
   tail call void @ws_regex_free(ptr noundef %19) #11
   br label %dfvm_value_free.exit.i
@@ -406,13 +406,13 @@ dfvm_value_free.exit.i:                           ; preds = %17, %14, %11, %9
   br label %dfvm_value_unref.exit
 
 dfvm_value_unref.exit:                            ; preds = %dfvm_value_free.exit.i, %4, %1
-  %20 = getelementptr inbounds i8, ptr %0, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %21 = load ptr, ptr %20, align 8
   %.not9 = icmp eq ptr %21, null
   br i1 %.not9, label %dfvm_value_unref.exit12, label %22
 
 22:                                               ; preds = %dfvm_value_unref.exit
-  %23 = getelementptr inbounds i8, ptr %21, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %24 = load i32, ptr %23, align 8
   %25 = add i32 %24, -1
   store i32 %25, ptr %23, align 8
@@ -428,19 +428,19 @@ dfvm_value_unref.exit:                            ; preds = %dfvm_value_free.exi
   ]
 
 29:                                               ; preds = %27
-  %30 = getelementptr inbounds i8, ptr %21, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %31 = load ptr, ptr %30, align 8
   tail call void @g_ptr_array_unref(ptr noundef %31) #11
   br label %dfvm_value_free.exit.i11
 
 32:                                               ; preds = %27
-  %33 = getelementptr inbounds i8, ptr %21, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %34 = load ptr, ptr %33, align 8
   tail call void @drange_free(ptr noundef %34) #11
   br label %dfvm_value_free.exit.i11
 
 35:                                               ; preds = %27
-  %36 = getelementptr inbounds i8, ptr %21, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %37 = load ptr, ptr %36, align 8
   tail call void @ws_regex_free(ptr noundef %37) #11
   br label %dfvm_value_free.exit.i11
@@ -450,13 +450,13 @@ dfvm_value_free.exit.i11:                         ; preds = %35, %32, %29, %27
   br label %dfvm_value_unref.exit12
 
 dfvm_value_unref.exit12:                          ; preds = %dfvm_value_free.exit.i11, %22, %dfvm_value_unref.exit
-  %38 = getelementptr inbounds i8, ptr %0, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %39 = load ptr, ptr %38, align 8
   %.not10 = icmp eq ptr %39, null
   br i1 %.not10, label %dfvm_value_unref.exit14, label %40
 
 40:                                               ; preds = %dfvm_value_unref.exit12
-  %41 = getelementptr inbounds i8, ptr %39, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %42 = load i32, ptr %41, align 8
   %43 = add i32 %42, -1
   store i32 %43, ptr %41, align 8
@@ -472,19 +472,19 @@ dfvm_value_unref.exit12:                          ; preds = %dfvm_value_free.exi
   ]
 
 47:                                               ; preds = %45
-  %48 = getelementptr inbounds i8, ptr %39, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %49 = load ptr, ptr %48, align 8
   tail call void @g_ptr_array_unref(ptr noundef %49) #11
   br label %dfvm_value_free.exit.i13
 
 50:                                               ; preds = %45
-  %51 = getelementptr inbounds i8, ptr %39, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %52 = load ptr, ptr %51, align 8
   tail call void @drange_free(ptr noundef %52) #11
   br label %dfvm_value_free.exit.i13
 
 53:                                               ; preds = %45
-  %54 = getelementptr inbounds i8, ptr %39, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %55 = load ptr, ptr %54, align 8
   tail call void @ws_regex_free(ptr noundef %55) #11
   br label %dfvm_value_free.exit.i13
@@ -504,7 +504,7 @@ declare void @g_free(ptr noundef) #4
 define hidden noalias noundef ptr @dfvm_value_new(i32 noundef %0) local_unnamed_addr #2 {
   %2 = tail call noalias dereferenceable_or_null(24) ptr @g_malloc_n(i64 noundef 1, i64 noundef 24) #12
   store i32 %0, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 0, ptr %3, align 8
   ret ptr %2
 }
@@ -513,10 +513,10 @@ define hidden noalias noundef ptr @dfvm_value_new(i32 noundef %0) local_unnamed_
 define hidden noalias noundef ptr @dfvm_value_new_fvalue(ptr noundef %0) local_unnamed_addr #2 {
   %2 = tail call noalias noundef dereferenceable_or_null(24) ptr @g_malloc_n(i64 noundef 1, i64 noundef 24) #12
   store i32 1, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 0, ptr %3, align 8
   %4 = tail call ptr @g_ptr_array_new_full(i32 noundef 1, ptr noundef nonnull @fvalue_free) #11
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %4, ptr %5, align 8
   tail call void @g_ptr_array_add(ptr noundef %4, ptr noundef %0) #11
   ret ptr %2
@@ -531,11 +531,11 @@ declare void @g_ptr_array_add(ptr noundef, ptr noundef) local_unnamed_addr #4
 ; Function Attrs: nounwind uwtable
 define hidden noalias noundef ptr @dfvm_value_new_hfinfo(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #2 {
   %3 = tail call noalias noundef dereferenceable_or_null(24) ptr @g_malloc_n(i64 noundef 1, i64 noundef 24) #12
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %. = select i1 %1, i32 3, i32 2
   store i32 %., ptr %3, align 8
   store i32 0, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %0, ptr %5, align 8
   ret ptr %3
 }
@@ -544,9 +544,9 @@ define hidden noalias noundef ptr @dfvm_value_new_hfinfo(ptr noundef %0, i1 noun
 define hidden noalias noundef ptr @dfvm_value_new_register(i32 noundef %0) local_unnamed_addr #2 {
   %2 = tail call noalias noundef dereferenceable_or_null(24) ptr @g_malloc_n(i64 noundef 1, i64 noundef 24) #12
   store i32 5, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 0, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %0, ptr %4, align 8
   ret ptr %2
 }
@@ -555,9 +555,9 @@ define hidden noalias noundef ptr @dfvm_value_new_register(i32 noundef %0) local
 define hidden noalias noundef ptr @dfvm_value_new_drange(ptr noundef %0) local_unnamed_addr #2 {
   %2 = tail call noalias noundef dereferenceable_or_null(24) ptr @g_malloc_n(i64 noundef 1, i64 noundef 24) #12
   store i32 7, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 0, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %0, ptr %4, align 8
   ret ptr %2
 }
@@ -566,9 +566,9 @@ define hidden noalias noundef ptr @dfvm_value_new_drange(ptr noundef %0) local_u
 define hidden noalias noundef ptr @dfvm_value_new_funcdef(ptr noundef %0) local_unnamed_addr #2 {
   %2 = tail call noalias noundef dereferenceable_or_null(24) ptr @g_malloc_n(i64 noundef 1, i64 noundef 24) #12
   store i32 8, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 0, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %0, ptr %4, align 8
   ret ptr %2
 }
@@ -577,9 +577,9 @@ define hidden noalias noundef ptr @dfvm_value_new_funcdef(ptr noundef %0) local_
 define hidden noalias noundef ptr @dfvm_value_new_pcre(ptr noundef %0) local_unnamed_addr #2 {
   %2 = tail call noalias noundef dereferenceable_or_null(24) ptr @g_malloc_n(i64 noundef 1, i64 noundef 24) #12
   store i32 9, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 0, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %0, ptr %4, align 8
   ret ptr %2
 }
@@ -588,9 +588,9 @@ define hidden noalias noundef ptr @dfvm_value_new_pcre(ptr noundef %0) local_unn
 define hidden noalias noundef ptr @dfvm_value_new_guint(i32 noundef %0) local_unnamed_addr #2 {
   %2 = tail call noalias noundef dereferenceable_or_null(24) ptr @g_malloc_n(i64 noundef 1, i64 noundef 24) #12
   store i32 6, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 0, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %0, ptr %4, align 8
   ret ptr %2
 }
@@ -603,7 +603,7 @@ define hidden ptr @dfvm_dump_str(ptr noundef %0, ptr nocapture noundef readonly 
   br i1 %.not, label %.critedge, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %1, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 @g_hash_table_size(ptr noundef %8) #11
   %.not32 = icmp eq i32 %9, 0
@@ -621,7 +621,7 @@ define hidden ptr @dfvm_dump_str(ptr noundef %0, ptr nocapture noundef readonly 
 
 13:                                               ; preds = %10, %12
   tail call void @wmem_strbuf_append_c(ptr noundef %4, i8 noundef signext 10) #11
-  %14 = getelementptr inbounds i8, ptr %1, i64 72
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i32 @g_hash_table_size(ptr noundef %15) #11
   %.not33 = icmp eq i32 %16, 0
@@ -644,13 +644,13 @@ define hidden ptr @dfvm_dump_str(ptr noundef %0, ptr nocapture noundef readonly 
 .critedge:                                        ; preds = %3, %20
   tail call void @wmem_strbuf_append(ptr noundef %4, ptr noundef nonnull @.str.55) #11
   %21 = load ptr, ptr %1, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load i32, ptr %22, align 8
   %24 = icmp sgt i32 %23, 0
   br i1 %24, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.critedge
-  %25 = getelementptr inbounds i8, ptr %4, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %26 = and i16 %2, 2
   %27 = icmp ne i16 %26, 0
   %wide.trip.count = zext nneg i32 %23 to i64
@@ -664,14 +664,14 @@ define hidden ptr @dfvm_dump_str(ptr noundef %0, ptr nocapture noundef readonly 
   %31 = getelementptr ptr, ptr %30, i64 %indvars.iv
   %32 = load ptr, ptr %31, align 8
   %33 = load i64, ptr %25, align 8
-  %34 = getelementptr inbounds i8, ptr %32, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 4
   %35 = load i32, ptr %34, align 4
   %36 = icmp ult i32 %35, 50
   br i1 %36, label %switch.lookup, label %dfvm_opcode_tostr.exit
 
 switch.lookup:                                    ; preds = %28
   %37 = zext nneg i32 %35 to i64
-  %switch.gep = getelementptr inbounds [50 x ptr], ptr @switch.table.dfvm_dump_str, i64 0, i64 %37
+  %switch.gep = getelementptr inbounds nuw [50 x ptr], ptr @switch.table.dfvm_dump_str, i64 0, i64 %37
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %dfvm_opcode_tostr.exit
 
@@ -698,11 +698,11 @@ dfvm_opcode_tostr.exit:                           ; preds = %28, %switch.lookup
   br label %indent.exit
 
 indent.exit:                                      ; preds = %40, %43
-  %45 = getelementptr inbounds i8, ptr %32, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %32, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %32, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %32, i64 24
   %50 = load ptr, ptr %49, align 8
   %51 = tail call fastcc ptr @dfvm_value_tostr(ptr noundef %46)
   %52 = tail call fastcc ptr @dfvm_value_tostr(ptr noundef %48)
@@ -854,7 +854,7 @@ indent.exit246.i:                                 ; preds = %84, %81
   br label %append_op_args.exit
 
 86:                                               ; preds = %indent.exit
-  %87 = getelementptr inbounds i8, ptr %50, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %88 = load i32, ptr %87, align 8
   tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef nonnull %4, ptr noundef nonnull @.str.101, ptr noundef %51) #11
   %.not.i247.i = icmp eq i32 %88, 0
@@ -872,12 +872,12 @@ indent.exit246.i:                                 ; preds = %84, %81
   %91 = tail call ptr @g_string_prepend(ptr noundef %90, ptr noundef nonnull %.025.i.i) #11
   %92 = load ptr, ptr %.02024.i.i, align 8
   %93 = tail call ptr @g_string_prepend(ptr noundef %90, ptr noundef %92) #11
-  %94 = getelementptr inbounds i8, ptr %.02024.i.i, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %.02024.i.i, i64 8
   %95 = load ptr, ptr %94, align 8
   %96 = load ptr, ptr %95, align 8
   %97 = tail call ptr @g_string_prepend(ptr noundef %90, ptr noundef %96) #11
   %98 = add nuw i32 %.02123.i.i, 1
-  %99 = getelementptr inbounds i8, ptr %95, i64 8
+  %99 = getelementptr inbounds nuw i8, ptr %95, i64 8
   %100 = load ptr, ptr %99, align 8
   %101 = icmp ne ptr %100, null
   %102 = icmp ult i32 %98, %88
@@ -916,7 +916,7 @@ indent.exit249.i:                                 ; preds = %108, %append_call_f
 
 115:                                              ; preds = %indent.exit
   tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef nonnull %4, ptr noundef nonnull @.str.70, ptr noundef %51) #11
-  %116 = getelementptr inbounds i8, ptr %46, i64 8
+  %116 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %117 = load i32, ptr %116, align 8
   %.not10.i.i = icmp eq ptr %.03739, null
   %.not911.i.i = icmp eq i32 %117, 0
@@ -1155,7 +1155,7 @@ indent.exit271.i:                                 ; preds = %185, %182
   br label %append_op_args.exit
 
 187:                                              ; preds = %indent.exit, %indent.exit
-  %188 = getelementptr inbounds i8, ptr %46, i64 8
+  %188 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %189 = load i32, ptr %188, align 8
   tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef nonnull %4, ptr noundef nonnull @.str.91, i32 noundef %189) #11
   br label %append_op_args.exit
@@ -1215,11 +1215,11 @@ define internal fastcc void @append_references(ptr noundef %0, ptr noundef %1, i
 
 .lr.ph22.split.us:                                ; preds = %.lr.ph22, %._crit_edge.us
   %8 = load ptr, ptr %5, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %6, align 8
   call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %0, ptr noundef nonnull @.str.61, ptr noundef %10) #11
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load i32, ptr %12, align 8
   %.not25 = icmp eq i32 %13, 0
   br i1 %.not25, label %._crit_edge.us, label %.lr.ph.us
@@ -1243,7 +1243,7 @@ define internal fastcc void @append_references(ptr noundef %0, ptr noundef %1, i
   %17 = load ptr, ptr %11, align 8
   %18 = getelementptr ptr, ptr %17, i64 %indvars.iv28
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load ptr, ptr %20, align 8
   %22 = call ptr @fvalue_to_string_repr(ptr noundef null, ptr noundef %21, i32 noundef 1, i32 noundef 0) #11
   %23 = load ptr, ptr %20, align 8
@@ -1258,11 +1258,11 @@ define internal fastcc void @append_references(ptr noundef %0, ptr noundef %1, i
 
 .lr.ph22.split:                                   ; preds = %.lr.ph22, %._crit_edge
   %28 = load ptr, ptr %5, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load ptr, ptr %29, align 8
   %31 = load ptr, ptr %6, align 8
   call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %0, ptr noundef nonnull @.str.62, ptr noundef %30) #11
-  %32 = getelementptr inbounds i8, ptr %31, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %33 = load i32, ptr %32, align 8
   %.not24 = icmp eq i32 %33, 0
   br i1 %.not24, label %._crit_edge, label %.lr.ph
@@ -1280,7 +1280,7 @@ define internal fastcc void @append_references(ptr noundef %0, ptr noundef %1, i
   %36 = load ptr, ptr %31, align 8
   %37 = getelementptr ptr, ptr %36, i64 %indvars.iv
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %40 = load ptr, ptr %39, align 8
   %41 = call ptr @fvalue_to_string_repr(ptr noundef null, ptr noundef %40, i32 noundef 1, i32 noundef 0) #11
   %42 = load ptr, ptr %39, align 8
@@ -1328,16 +1328,16 @@ declare void @wmem_free(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef ptr @dfvm_get_raw_fvalue(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = tail call i32 @tvb_captured_length_remaining(ptr noundef %3, i32 noundef %5) #11
   %7 = icmp slt i32 %6, 0
   br i1 %7, label %17, label %8
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %0, i64 12
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %10 = load i32, ptr %9, align 4
   %spec.select = tail call i32 @llvm.smin.i32(i32 %10, i32 %6)
   %11 = tail call ptr @g_byte_array_new() #11
@@ -1381,15 +1381,15 @@ define hidden zeroext i1 @dfvm_apply_full(ptr nocapture noundef %0, ptr noundef 
   %14 = alloca %struct.df_cell_iter_t, align 8
   %15 = alloca %struct.df_cell_iter_t, align 8
   %16 = load ptr, ptr %0, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load i32, ptr %17, align 8
   %19 = icmp sgt i32 %18, 0
   br i1 %19, label %.preheader.lr.ph, label %._crit_edge
 
 .preheader.lr.ph:                                 ; preds = %3
   %.phi.trans.insert.i321 = getelementptr i8, ptr %0, i64 16
-  %20 = getelementptr inbounds i8, ptr %0, i64 96
-  %21 = getelementptr inbounds i8, ptr %0, i64 88
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 88
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %stack_pop.exit
@@ -1405,9 +1405,9 @@ define hidden zeroext i1 @dfvm_apply_full(ptr nocapture noundef %0, ptr noundef 
   %26 = sext i32 %.1 to i64
   %27 = getelementptr ptr, ptr %23, i64 %26
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %28, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 4
   %32 = load i32, ptr %31, align 4
   switch i32 %32, label %stack_pop.exit [
     i32 3, label %33
@@ -1476,19 +1476,19 @@ define hidden zeroext i1 @dfvm_apply_full(ptr nocapture noundef %0, ptr noundef 
   br i1 %37, label %check_exists_finfos.exit.thread.us.i, label %38
 
 38:                                               ; preds = %.lr.ph.split.us.i
-  %39 = getelementptr inbounds i8, ptr %36, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %40 = load i32, ptr %39, align 8
   %41 = icmp eq i32 %40, 0
   br i1 %41, label %check_exists_finfos.exit.thread.us.i, label %stack_pop.exit
 
 check_exists_finfos.exit.thread.us.i:             ; preds = %38, %.lr.ph.split.us.i
-  %42 = getelementptr inbounds i8, ptr %.096.us.i, i64 64
+  %42 = getelementptr inbounds nuw i8, ptr %.096.us.i, i64 64
   %43 = load ptr, ptr %42, align 8
   %.not12.us.not.i = icmp eq ptr %43, null
   br i1 %.not12.us.not.i, label %stack_pop.exit, label %.lr.ph.split.us.i, !llvm.loop !10
 
 44:                                               ; preds = %25
-  %45 = getelementptr inbounds i8, ptr %28, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %46 = load ptr, ptr %45, align 8
   %47 = getelementptr i8, ptr %30, i64 8
   %.val164 = load ptr, ptr %47, align 8
@@ -1496,7 +1496,7 @@ check_exists_finfos.exit.thread.us.i:             ; preds = %38, %.lr.ph.split.u
   br i1 %.not.i, label %.thread.i, label %48
 
 48:                                               ; preds = %44
-  %49 = getelementptr inbounds i8, ptr %46, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %50 = load ptr, ptr %49, align 8
   %51 = freeze ptr %50
   %.not125.not.i = icmp eq ptr %.val164, null
@@ -1522,13 +1522,13 @@ check_exists_finfos.exit.thread.us.i:             ; preds = %38, %.lr.ph.split.u
   br i1 %55, label %check_exists_finfos.exit.thread.us.i204, label %56
 
 56:                                               ; preds = %.lr.ph.split.us.i201
-  %57 = getelementptr inbounds i8, ptr %54, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %58 = load i32, ptr %57, align 8
   %59 = icmp eq i32 %58, 0
   br i1 %59, label %check_exists_finfos.exit.thread.us.i204, label %stack_pop.exit
 
 check_exists_finfos.exit.thread.us.i204:          ; preds = %56, %.lr.ph.split.us.i201
-  %60 = getelementptr inbounds i8, ptr %.096.us.i202, i64 64
+  %60 = getelementptr inbounds nuw i8, ptr %.096.us.i202, i64 64
   %61 = load ptr, ptr %60, align 8
   %.not12.us.not.i205 = icmp eq ptr %61, null
   br i1 %.not12.us.not.i205, label %stack_pop.exit, label %.lr.ph.split.us.i201, !llvm.loop !10
@@ -1542,7 +1542,7 @@ check_exists_finfos.exit.thread.us.i204:          ; preds = %56, %.lr.ph.split.u
   br i1 %64, label %check_exists_finfos.exit.thread.i, label %65
 
 65:                                               ; preds = %.lr.ph.split.i
-  %66 = getelementptr inbounds i8, ptr %63, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %63, i64 8
   %67 = load i32, ptr %66, align 8
   %68 = icmp eq i32 %67, 0
   br i1 %68, label %check_exists_finfos.exit.thread.i, label %check_exists_finfos.exit.i
@@ -1553,13 +1553,13 @@ check_exists_finfos.exit.i:                       ; preds = %65
   br i1 %.not4.i, label %check_exists_finfos.exit.thread.i, label %stack_pop.exit
 
 check_exists_finfos.exit.thread.i:                ; preds = %check_exists_finfos.exit.i, %65, %.lr.ph.split.i
-  %70 = getelementptr inbounds i8, ptr %.096.i, i64 64
+  %70 = getelementptr inbounds nuw i8, ptr %.096.i, i64 64
   %71 = load ptr, ptr %70, align 8
   %.not12.not.i = icmp eq ptr %71, null
   br i1 %.not12.not.i, label %stack_pop.exit, label %.lr.ph.split.i, !llvm.loop !10
 
 72:                                               ; preds = %25
-  %73 = getelementptr inbounds i8, ptr %28, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %74 = load ptr, ptr %73, align 8
   %.val165 = load i32, ptr %30, align 8
   %75 = getelementptr i8, ptr %30, i64 8
@@ -1571,9 +1571,9 @@ check_exists_finfos.exit.thread.i:                ; preds = %check_exists_finfos
   br label %stack_pop.exit
 
 79:                                               ; preds = %25
-  %80 = getelementptr inbounds i8, ptr %28, i64 16
+  %80 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %81 = load ptr, ptr %80, align 8
-  %82 = getelementptr inbounds i8, ptr %28, i64 24
+  %82 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %83 = load ptr, ptr %82, align 8
   %.val168 = load i32, ptr %30, align 8
   %84 = getelementptr i8, ptr %30, i64 8
@@ -1585,7 +1585,7 @@ check_exists_finfos.exit.thread.i:                ; preds = %check_exists_finfos
   br label %stack_pop.exit
 
 88:                                               ; preds = %25
-  %89 = getelementptr inbounds i8, ptr %28, i64 16
+  %89 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %90 = load ptr, ptr %89, align 8
   %.val171 = load i32, ptr %30, align 8
   %91 = getelementptr i8, ptr %30, i64 8
@@ -1597,9 +1597,9 @@ check_exists_finfos.exit.thread.i:                ; preds = %check_exists_finfos
   br label %stack_pop.exit
 
 95:                                               ; preds = %25
-  %96 = getelementptr inbounds i8, ptr %28, i64 16
+  %96 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %97 = load ptr, ptr %96, align 8
-  %98 = getelementptr inbounds i8, ptr %28, i64 24
+  %98 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %99 = load ptr, ptr %98, align 8
   %.val174 = load i32, ptr %30, align 8
   %100 = getelementptr i8, ptr %30, i64 8
@@ -1611,7 +1611,7 @@ check_exists_finfos.exit.thread.i:                ; preds = %check_exists_finfos
   br label %stack_pop.exit
 
 104:                                              ; preds = %25
-  %105 = getelementptr inbounds i8, ptr %28, i64 16
+  %105 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %106 = load ptr, ptr %105, align 8
   %.val177 = load ptr, ptr %.phi.trans.insert.i321, align 8
   %107 = getelementptr i8, ptr %106, i64 8
@@ -1619,7 +1619,7 @@ check_exists_finfos.exit.thread.i:                ; preds = %check_exists_finfos
   %108 = zext i32 %.val178 to i64
   %109 = getelementptr %struct.df_cell_t, ptr %.val177, i64 %108
   call void @df_cell_init(ptr noundef %109, i1 noundef zeroext false) #11
-  %110 = getelementptr inbounds i8, ptr %30, i64 8
+  %110 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %111 = load ptr, ptr %110, align 8
   %112 = load ptr, ptr %111, align 8
   %113 = load ptr, ptr %112, align 8
@@ -1627,9 +1627,9 @@ check_exists_finfos.exit.thread.i:                ; preds = %check_exists_finfos
   br label %stack_pop.exit
 
 114:                                              ; preds = %25
-  %115 = getelementptr inbounds i8, ptr %28, i64 16
+  %115 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %116 = load ptr, ptr %115, align 8
-  %117 = getelementptr inbounds i8, ptr %28, i64 24
+  %117 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %118 = load ptr, ptr %117, align 8
   %119 = getelementptr i8, ptr %30, i64 8
   %.val179 = load ptr, ptr %119, align 8
@@ -1641,7 +1641,7 @@ check_exists_finfos.exit.thread.i:                ; preds = %check_exists_finfos
   %123 = zext i32 %.val180 to i64
   %124 = getelementptr %struct.df_cell_t, ptr %122, i64 %123
   call void @df_cell_init(ptr noundef %124, i1 noundef zeroext true) #11
-  %125 = getelementptr inbounds i8, ptr %.val179, i64 8
+  %125 = getelementptr inbounds nuw i8, ptr %.val179, i64 8
   %126 = load ptr, ptr %125, align 8
   %127 = load ptr, ptr %21, align 8
   %128 = call zeroext i1 %126(ptr noundef %127, i32 noundef %.val181, ptr noundef %124) #11
@@ -1656,14 +1656,14 @@ check_exists_finfos.exit.thread.i:                ; preds = %check_exists_finfos
   ]
 
 132:                                              ; preds = %130
-  %133 = getelementptr inbounds i8, ptr %30, i64 8
+  %133 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %134 = load ptr, ptr %133, align 8
   %135 = call ptr @g_ptr_array_ref(ptr noundef %134) #11
   br label %stack_push.exit
 
 136:                                              ; preds = %130
   %137 = load ptr, ptr %.phi.trans.insert.i321, align 8
-  %138 = getelementptr inbounds i8, ptr %30, i64 8
+  %138 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %139 = load i32, ptr %138, align 8
   %140 = zext i32 %139 to i64
   %141 = getelementptr %struct.df_cell_t, ptr %137, i64 %140
@@ -1712,9 +1712,9 @@ stack_push.exit:                                  ; preds = %132, %136
   br i1 %exitcond.not.i, label %stack_pop.exit, label %148, !llvm.loop !11
 
 156:                                              ; preds = %25
-  %157 = getelementptr inbounds i8, ptr %28, i64 16
+  %157 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %158 = load ptr, ptr %157, align 8
-  %159 = getelementptr inbounds i8, ptr %28, i64 24
+  %159 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %160 = load ptr, ptr %159, align 8
   %161 = getelementptr i8, ptr %158, i64 8
   %.val183 = load i32, ptr %161, align 8
@@ -1724,11 +1724,11 @@ stack_push.exit:                                  ; preds = %132, %136
   %164 = getelementptr %struct.df_cell_t, ptr %162, i64 %163
   call void @df_cell_init(ptr noundef %164, i1 noundef zeroext true) #11
   %165 = load ptr, ptr %.phi.trans.insert.i321, align 8
-  %166 = getelementptr inbounds i8, ptr %30, i64 8
+  %166 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %167 = load i32, ptr %166, align 8
   %168 = zext i32 %167 to i64
   %169 = getelementptr %struct.df_cell_t, ptr %165, i64 %168
-  %170 = getelementptr inbounds i8, ptr %160, i64 8
+  %170 = getelementptr inbounds nuw i8, ptr %160, i64 8
   %171 = load ptr, ptr %170, align 8
   call void @df_cell_iter_init(ptr noundef %169, ptr noundef nonnull %15) #11
   %172 = call ptr @df_cell_iter_next(ptr noundef nonnull %15) #11
@@ -1748,7 +1748,7 @@ mk_slice.exit:                                    ; preds = %.lr.ph.i210, %156
   br label %stack_pop.exit
 
 176:                                              ; preds = %25
-  %177 = getelementptr inbounds i8, ptr %28, i64 16
+  %177 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %178 = load ptr, ptr %177, align 8
   %179 = getelementptr i8, ptr %178, i64 8
   %.val184 = load i32, ptr %179, align 8
@@ -1758,7 +1758,7 @@ mk_slice.exit:                                    ; preds = %.lr.ph.i210, %156
   %182 = getelementptr %struct.df_cell_t, ptr %180, i64 %181
   call void @df_cell_init(ptr noundef %182, i1 noundef zeroext true) #11
   %183 = load ptr, ptr %.phi.trans.insert.i321, align 8
-  %184 = getelementptr inbounds i8, ptr %30, i64 8
+  %184 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %185 = load i32, ptr %184, align 8
   %186 = zext i32 %185 to i64
   %187 = getelementptr %struct.df_cell_t, ptr %183, i64 %186
@@ -1783,9 +1783,9 @@ mk_length.exit:                                   ; preds = %.lr.ph.i213, %176
   br label %stack_pop.exit
 
 194:                                              ; preds = %25
-  %195 = getelementptr inbounds i8, ptr %28, i64 16
+  %195 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %196 = load ptr, ptr %195, align 8
-  %197 = getelementptr inbounds i8, ptr %28, i64 24
+  %197 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %198 = load ptr, ptr %197, align 8
   %199 = getelementptr i8, ptr %30, i64 8
   %.val185 = load ptr, ptr %199, align 8
@@ -1798,7 +1798,7 @@ mk_length.exit:                                   ; preds = %.lr.ph.i213, %176
   %203 = getelementptr %struct.df_cell_t, ptr %201, i64 %202
   call void @df_cell_init(ptr noundef %203, i1 noundef zeroext true) #11
   %204 = load ptr, ptr %.phi.trans.insert.i321, align 8
-  %205 = getelementptr inbounds i8, ptr %196, i64 8
+  %205 = getelementptr inbounds nuw i8, ptr %196, i64 8
   %206 = load i32, ptr %205, align 8
   %207 = zext i32 %206 to i64
   %208 = getelementptr %struct.df_cell_t, ptr %204, i64 %207
@@ -1808,8 +1808,8 @@ mk_length.exit:                                   ; preds = %.lr.ph.i213, %176
   br i1 %.not5.i, label %mk_value_string.exit, label %.lr.ph.i215
 
 .lr.ph.i215:                                      ; preds = %194
-  %210 = getelementptr inbounds i8, ptr %.val185, i64 20
-  %211 = getelementptr inbounds i8, ptr %.val185, i64 24
+  %210 = getelementptr inbounds nuw i8, ptr %.val185, i64 20
+  %211 = getelementptr inbounds nuw i8, ptr %.val185, i64 24
   br label %212
 
 212:                                              ; preds = %261, %.lr.ph.i215
@@ -1872,7 +1872,7 @@ try_value_string.exit.thread.i:                   ; preds = %212
   br i1 %241, label %242, label %253
 
 242:                                              ; preds = %240
-  %243 = getelementptr inbounds i8, ptr %.val185, i64 16
+  %243 = getelementptr inbounds nuw i8, ptr %.val185, i64 16
   %244 = load i32, ptr %243, align 8
   switch i32 %244, label %252 [
     i32 12, label %245
@@ -1949,7 +1949,7 @@ mk_value_string.exit:                             ; preds = %261, %194
   br label %stack_pop.exit
 
 266:                                              ; preds = %25
-  %267 = getelementptr inbounds i8, ptr %28, i64 16
+  %267 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %268 = load ptr, ptr %267, align 8
   %269 = load i32, ptr %30, align 8
   switch i32 %269, label %278 [
@@ -1959,14 +1959,14 @@ mk_value_string.exit:                             ; preds = %261, %194
 
 270:                                              ; preds = %266
   %271 = load ptr, ptr %.phi.trans.insert.i321, align 8
-  %272 = getelementptr inbounds i8, ptr %30, i64 8
+  %272 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %273 = load i32, ptr %272, align 8
   %274 = zext i32 %273 to i64
   %275 = getelementptr %struct.df_cell_t, ptr %271, i64 %274
   br label %279
 
 276:                                              ; preds = %266
-  %277 = getelementptr inbounds i8, ptr %30, i64 8
+  %277 = getelementptr inbounds nuw i8, ptr %30, i64 8
   br label %279
 
 278:                                              ; preds = %266
@@ -1984,14 +1984,14 @@ mk_value_string.exit:                             ; preds = %261, %194
 
 281:                                              ; preds = %279
   %282 = load ptr, ptr %.phi.trans.insert.i321, align 8
-  %283 = getelementptr inbounds i8, ptr %268, i64 8
+  %283 = getelementptr inbounds nuw i8, ptr %268, i64 8
   %284 = load i32, ptr %283, align 8
   %285 = zext i32 %284 to i64
   %286 = getelementptr %struct.df_cell_t, ptr %282, i64 %285
   br label %290
 
 287:                                              ; preds = %279
-  %288 = getelementptr inbounds i8, ptr %268, i64 8
+  %288 = getelementptr inbounds nuw i8, ptr %268, i64 8
   br label %290
 
 289:                                              ; preds = %279
@@ -2001,13 +2001,13 @@ mk_value_string.exit:                             ; preds = %261, %194
 290:                                              ; preds = %287, %281
   %.0.in.i330 = phi ptr [ %286, %281 ], [ %288, %287 ]
   %.0.i331 = load ptr, ptr %.0.in.i330, align 8
-  %291 = getelementptr inbounds i8, ptr %.013.i, i64 8
+  %291 = getelementptr inbounds nuw i8, ptr %.013.i, i64 8
   %292 = load i32, ptr %291, align 8
   %.not44.i.i = icmp eq i32 %292, 0
   br i1 %.not44.i.i, label %stack_pop.exit, label %.preheader.lr.ph.i.i332
 
 .preheader.lr.ph.i.i332:                          ; preds = %290
-  %293 = getelementptr inbounds i8, ptr %.0.i331, i64 8
+  %293 = getelementptr inbounds nuw i8, ptr %.0.i331, i64 8
   %.pre50.i.i = load i32, ptr %293, align 8
   br label %.preheader.i.i333
 
@@ -2049,7 +2049,7 @@ mk_value_string.exit:                             ; preds = %261, %194
   br i1 %312, label %.preheader.i.i333, label %stack_pop.exit, !llvm.loop !16
 
 313:                                              ; preds = %25
-  %314 = getelementptr inbounds i8, ptr %28, i64 16
+  %314 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %315 = load ptr, ptr %314, align 8
   %316 = load i32, ptr %30, align 8
   switch i32 %316, label %325 [
@@ -2059,14 +2059,14 @@ mk_value_string.exit:                             ; preds = %261, %194
 
 317:                                              ; preds = %313
   %318 = load ptr, ptr %.phi.trans.insert.i321, align 8
-  %319 = getelementptr inbounds i8, ptr %30, i64 8
+  %319 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %320 = load i32, ptr %319, align 8
   %321 = zext i32 %320 to i64
   %322 = getelementptr %struct.df_cell_t, ptr %318, i64 %321
   br label %326
 
 323:                                              ; preds = %313
-  %324 = getelementptr inbounds i8, ptr %30, i64 8
+  %324 = getelementptr inbounds nuw i8, ptr %30, i64 8
   br label %326
 
 325:                                              ; preds = %313
@@ -2084,14 +2084,14 @@ mk_value_string.exit:                             ; preds = %261, %194
 
 328:                                              ; preds = %326
   %329 = load ptr, ptr %.phi.trans.insert.i321, align 8
-  %330 = getelementptr inbounds i8, ptr %315, i64 8
+  %330 = getelementptr inbounds nuw i8, ptr %315, i64 8
   %331 = load i32, ptr %330, align 8
   %332 = zext i32 %331 to i64
   %333 = getelementptr %struct.df_cell_t, ptr %329, i64 %332
   br label %337
 
 334:                                              ; preds = %326
-  %335 = getelementptr inbounds i8, ptr %315, i64 8
+  %335 = getelementptr inbounds nuw i8, ptr %315, i64 8
   br label %337
 
 336:                                              ; preds = %326
@@ -2101,13 +2101,13 @@ mk_value_string.exit:                             ; preds = %261, %194
 337:                                              ; preds = %334, %328
   %.0.in.i339 = phi ptr [ %333, %328 ], [ %335, %334 ]
   %.0.i340 = load ptr, ptr %.0.in.i339, align 8
-  %338 = getelementptr inbounds i8, ptr %.013.i338, i64 8
+  %338 = getelementptr inbounds nuw i8, ptr %.013.i338, i64 8
   %339 = load i32, ptr %338, align 8
   %.not44.i.i341 = icmp eq i32 %339, 0
   br i1 %.not44.i.i341, label %stack_pop.exit, label %.preheader.lr.ph.i.i342
 
 .preheader.lr.ph.i.i342:                          ; preds = %337
-  %340 = getelementptr inbounds i8, ptr %.0.i340, i64 8
+  %340 = getelementptr inbounds nuw i8, ptr %.0.i340, i64 8
   %.pre50.i.i343 = load i32, ptr %340, align 8
   br label %.preheader.us.us.i.i
 
@@ -2149,7 +2149,7 @@ mk_value_string.exit:                             ; preds = %261, %194
   br i1 %359, label %.lr.ph.us.us.i.i, label %._crit_edge.split.us.split.us34.us.loopexit.i.i, !llvm.loop !15
 
 360:                                              ; preds = %25
-  %361 = getelementptr inbounds i8, ptr %28, i64 16
+  %361 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %362 = load ptr, ptr %361, align 8
   %363 = load i32, ptr %30, align 8
   switch i32 %363, label %372 [
@@ -2159,14 +2159,14 @@ mk_value_string.exit:                             ; preds = %261, %194
 
 364:                                              ; preds = %360
   %365 = load ptr, ptr %.phi.trans.insert.i321, align 8
-  %366 = getelementptr inbounds i8, ptr %30, i64 8
+  %366 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %367 = load i32, ptr %366, align 8
   %368 = zext i32 %367 to i64
   %369 = getelementptr %struct.df_cell_t, ptr %365, i64 %368
   br label %373
 
 370:                                              ; preds = %360
-  %371 = getelementptr inbounds i8, ptr %30, i64 8
+  %371 = getelementptr inbounds nuw i8, ptr %30, i64 8
   br label %373
 
 372:                                              ; preds = %360
@@ -2184,14 +2184,14 @@ mk_value_string.exit:                             ; preds = %261, %194
 
 375:                                              ; preds = %373
   %376 = load ptr, ptr %.phi.trans.insert.i321, align 8
-  %377 = getelementptr inbounds i8, ptr %362, i64 8
+  %377 = getelementptr inbounds nuw i8, ptr %362, i64 8
   %378 = load i32, ptr %377, align 8
   %379 = zext i32 %378 to i64
   %380 = getelementptr %struct.df_cell_t, ptr %376, i64 %379
   br label %384
 
 381:                                              ; preds = %373
-  %382 = getelementptr inbounds i8, ptr %362, i64 8
+  %382 = getelementptr inbounds nuw i8, ptr %362, i64 8
   br label %384
 
 383:                                              ; preds = %373
@@ -2201,13 +2201,13 @@ mk_value_string.exit:                             ; preds = %261, %194
 384:                                              ; preds = %381, %375
   %.0.in.i348 = phi ptr [ %380, %375 ], [ %382, %381 ]
   %.0.i349 = load ptr, ptr %.0.in.i348, align 8
-  %385 = getelementptr inbounds i8, ptr %.013.i347, i64 8
+  %385 = getelementptr inbounds nuw i8, ptr %.013.i347, i64 8
   %386 = load i32, ptr %385, align 8
   %.not44.i.i350 = icmp eq i32 %386, 0
   br i1 %.not44.i.i350, label %stack_pop.exit, label %.preheader.lr.ph.i.i351
 
 .preheader.lr.ph.i.i351:                          ; preds = %384
-  %387 = getelementptr inbounds i8, ptr %.0.i349, i64 8
+  %387 = getelementptr inbounds nuw i8, ptr %.0.i349, i64 8
   %.pre50.i.i352 = load i32, ptr %387, align 8
   br label %.preheader.i.i353
 
@@ -2249,7 +2249,7 @@ mk_value_string.exit:                             ; preds = %261, %194
   br i1 %406, label %.preheader.i.i353, label %stack_pop.exit, !llvm.loop !16
 
 407:                                              ; preds = %25
-  %408 = getelementptr inbounds i8, ptr %28, i64 16
+  %408 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %409 = load ptr, ptr %408, align 8
   %410 = load i32, ptr %30, align 8
   switch i32 %410, label %419 [
@@ -2259,14 +2259,14 @@ mk_value_string.exit:                             ; preds = %261, %194
 
 411:                                              ; preds = %407
   %412 = load ptr, ptr %.phi.trans.insert.i321, align 8
-  %413 = getelementptr inbounds i8, ptr %30, i64 8
+  %413 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %414 = load i32, ptr %413, align 8
   %415 = zext i32 %414 to i64
   %416 = getelementptr %struct.df_cell_t, ptr %412, i64 %415
   br label %420
 
 417:                                              ; preds = %407
-  %418 = getelementptr inbounds i8, ptr %30, i64 8
+  %418 = getelementptr inbounds nuw i8, ptr %30, i64 8
   br label %420
 
 419:                                              ; preds = %407
@@ -2284,14 +2284,14 @@ mk_value_string.exit:                             ; preds = %261, %194
 
 422:                                              ; preds = %420
   %423 = load ptr, ptr %.phi.trans.insert.i321, align 8
-  %424 = getelementptr inbounds i8, ptr %409, i64 8
+  %424 = getelementptr inbounds nuw i8, ptr %409, i64 8
   %425 = load i32, ptr %424, align 8
   %426 = zext i32 %425 to i64
   %427 = getelementptr %struct.df_cell_t, ptr %423, i64 %426
   br label %431
 
 428:                                              ; preds = %420
-  %429 = getelementptr inbounds i8, ptr %409, i64 8
+  %429 = getelementptr inbounds nuw i8, ptr %409, i64 8
   br label %431
 
 430:                                              ; preds = %420
@@ -2301,13 +2301,13 @@ mk_value_string.exit:                             ; preds = %261, %194
 431:                                              ; preds = %428, %422
   %.0.in.i365 = phi ptr [ %427, %422 ], [ %429, %428 ]
   %.0.i366 = load ptr, ptr %.0.in.i365, align 8
-  %432 = getelementptr inbounds i8, ptr %.013.i364, i64 8
+  %432 = getelementptr inbounds nuw i8, ptr %.013.i364, i64 8
   %433 = load i32, ptr %432, align 8
   %.not44.i.i367 = icmp eq i32 %433, 0
   br i1 %.not44.i.i367, label %stack_pop.exit, label %.preheader.lr.ph.i.i368
 
 .preheader.lr.ph.i.i368:                          ; preds = %431
-  %434 = getelementptr inbounds i8, ptr %.0.i366, i64 8
+  %434 = getelementptr inbounds nuw i8, ptr %.0.i366, i64 8
   %.pre50.i.i369 = load i32, ptr %434, align 8
   br label %.preheader.us.us.i.i370
 
@@ -2349,7 +2349,7 @@ mk_value_string.exit:                             ; preds = %261, %194
   br i1 %453, label %.lr.ph.us.us.i.i373, label %._crit_edge.split.us.split.us34.us.loopexit.i.i375, !llvm.loop !15
 
 454:                                              ; preds = %25
-  %455 = getelementptr inbounds i8, ptr %28, i64 16
+  %455 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %456 = load ptr, ptr %455, align 8
   %457 = load i32, ptr %30, align 8
   switch i32 %457, label %466 [
@@ -2359,14 +2359,14 @@ mk_value_string.exit:                             ; preds = %261, %194
 
 458:                                              ; preds = %454
   %459 = load ptr, ptr %.phi.trans.insert.i321, align 8
-  %460 = getelementptr inbounds i8, ptr %30, i64 8
+  %460 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %461 = load i32, ptr %460, align 8
   %462 = zext i32 %461 to i64
   %463 = getelementptr %struct.df_cell_t, ptr %459, i64 %462
   br label %467
 
 464:                                              ; preds = %454
-  %465 = getelementptr inbounds i8, ptr %30, i64 8
+  %465 = getelementptr inbounds nuw i8, ptr %30, i64 8
   br label %467
 
 466:                                              ; preds = %454
@@ -2384,14 +2384,14 @@ mk_value_string.exit:                             ; preds = %261, %194
 
 469:                                              ; preds = %467
   %470 = load ptr, ptr %.phi.trans.insert.i321, align 8
-  %471 = getelementptr inbounds i8, ptr %456, i64 8
+  %471 = getelementptr inbounds nuw i8, ptr %456, i64 8
   %472 = load i32, ptr %471, align 8
   %473 = zext i32 %472 to i64
   %474 = getelementptr %struct.df_cell_t, ptr %470, i64 %473
   br label %478
 
 475:                                              ; preds = %467
-  %476 = getelementptr inbounds i8, ptr %456, i64 8
+  %476 = getelementptr inbounds nuw i8, ptr %456, i64 8
   br label %478
 
 477:                                              ; preds = %467
@@ -2401,13 +2401,13 @@ mk_value_string.exit:                             ; preds = %261, %194
 478:                                              ; preds = %475, %469
   %.0.in.i382 = phi ptr [ %474, %469 ], [ %476, %475 ]
   %.0.i383 = load ptr, ptr %.0.in.i382, align 8
-  %479 = getelementptr inbounds i8, ptr %.013.i381, i64 8
+  %479 = getelementptr inbounds nuw i8, ptr %.013.i381, i64 8
   %480 = load i32, ptr %479, align 8
   %.not44.i.i384 = icmp eq i32 %480, 0
   br i1 %.not44.i.i384, label %stack_pop.exit, label %.preheader.lr.ph.i.i385
 
 .preheader.lr.ph.i.i385:                          ; preds = %478
-  %481 = getelementptr inbounds i8, ptr %.0.i383, i64 8
+  %481 = getelementptr inbounds nuw i8, ptr %.0.i383, i64 8
   %.pre50.i.i386 = load i32, ptr %481, align 8
   br label %.preheader.i.i387
 
@@ -2449,7 +2449,7 @@ mk_value_string.exit:                             ; preds = %261, %194
   br i1 %500, label %.preheader.i.i387, label %stack_pop.exit, !llvm.loop !16
 
 501:                                              ; preds = %25
-  %502 = getelementptr inbounds i8, ptr %28, i64 16
+  %502 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %503 = load ptr, ptr %502, align 8
   %504 = load i32, ptr %30, align 8
   switch i32 %504, label %513 [
@@ -2459,14 +2459,14 @@ mk_value_string.exit:                             ; preds = %261, %194
 
 505:                                              ; preds = %501
   %506 = load ptr, ptr %.phi.trans.insert.i321, align 8
-  %507 = getelementptr inbounds i8, ptr %30, i64 8
+  %507 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %508 = load i32, ptr %507, align 8
   %509 = zext i32 %508 to i64
   %510 = getelementptr %struct.df_cell_t, ptr %506, i64 %509
   br label %514
 
 511:                                              ; preds = %501
-  %512 = getelementptr inbounds i8, ptr %30, i64 8
+  %512 = getelementptr inbounds nuw i8, ptr %30, i64 8
   br label %514
 
 513:                                              ; preds = %501
@@ -2484,14 +2484,14 @@ mk_value_string.exit:                             ; preds = %261, %194
 
 516:                                              ; preds = %514
   %517 = load ptr, ptr %.phi.trans.insert.i321, align 8
-  %518 = getelementptr inbounds i8, ptr %503, i64 8
+  %518 = getelementptr inbounds nuw i8, ptr %503, i64 8
   %519 = load i32, ptr %518, align 8
   %520 = zext i32 %519 to i64
   %521 = getelementptr %struct.df_cell_t, ptr %517, i64 %520
   br label %525
 
 522:                                              ; preds = %514
-  %523 = getelementptr inbounds i8, ptr %503, i64 8
+  %523 = getelementptr inbounds nuw i8, ptr %503, i64 8
   br label %525
 
 524:                                              ; preds = %514
@@ -2501,13 +2501,13 @@ mk_value_string.exit:                             ; preds = %261, %194
 525:                                              ; preds = %522, %516
   %.0.in.i399 = phi ptr [ %521, %516 ], [ %523, %522 ]
   %.0.i400 = load ptr, ptr %.0.in.i399, align 8
-  %526 = getelementptr inbounds i8, ptr %.013.i398, i64 8
+  %526 = getelementptr inbounds nuw i8, ptr %.013.i398, i64 8
   %527 = load i32, ptr %526, align 8
   %.not44.i.i401 = icmp eq i32 %527, 0
   br i1 %.not44.i.i401, label %stack_pop.exit, label %.preheader.lr.ph.i.i402
 
 .preheader.lr.ph.i.i402:                          ; preds = %525
-  %528 = getelementptr inbounds i8, ptr %.0.i400, i64 8
+  %528 = getelementptr inbounds nuw i8, ptr %.0.i400, i64 8
   %.pre50.i.i403 = load i32, ptr %528, align 8
   br label %.preheader.us.us.i.i404
 
@@ -2549,7 +2549,7 @@ mk_value_string.exit:                             ; preds = %261, %194
   br i1 %547, label %.lr.ph.us.us.i.i407, label %._crit_edge.split.us.split.us34.us.loopexit.i.i409, !llvm.loop !15
 
 548:                                              ; preds = %25
-  %549 = getelementptr inbounds i8, ptr %28, i64 16
+  %549 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %550 = load ptr, ptr %549, align 8
   %551 = load i32, ptr %30, align 8
   switch i32 %551, label %560 [
@@ -2559,14 +2559,14 @@ mk_value_string.exit:                             ; preds = %261, %194
 
 552:                                              ; preds = %548
   %553 = load ptr, ptr %.phi.trans.insert.i321, align 8
-  %554 = getelementptr inbounds i8, ptr %30, i64 8
+  %554 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %555 = load i32, ptr %554, align 8
   %556 = zext i32 %555 to i64
   %557 = getelementptr %struct.df_cell_t, ptr %553, i64 %556
   br label %561
 
 558:                                              ; preds = %548
-  %559 = getelementptr inbounds i8, ptr %30, i64 8
+  %559 = getelementptr inbounds nuw i8, ptr %30, i64 8
   br label %561
 
 560:                                              ; preds = %548
@@ -2584,14 +2584,14 @@ mk_value_string.exit:                             ; preds = %261, %194
 
 563:                                              ; preds = %561
   %564 = load ptr, ptr %.phi.trans.insert.i321, align 8
-  %565 = getelementptr inbounds i8, ptr %550, i64 8
+  %565 = getelementptr inbounds nuw i8, ptr %550, i64 8
   %566 = load i32, ptr %565, align 8
   %567 = zext i32 %566 to i64
   %568 = getelementptr %struct.df_cell_t, ptr %564, i64 %567
   br label %572
 
 569:                                              ; preds = %561
-  %570 = getelementptr inbounds i8, ptr %550, i64 8
+  %570 = getelementptr inbounds nuw i8, ptr %550, i64 8
   br label %572
 
 571:                                              ; preds = %561
@@ -2601,13 +2601,13 @@ mk_value_string.exit:                             ; preds = %261, %194
 572:                                              ; preds = %569, %563
   %.0.in.i416 = phi ptr [ %568, %563 ], [ %570, %569 ]
   %.0.i417 = load ptr, ptr %.0.in.i416, align 8
-  %573 = getelementptr inbounds i8, ptr %.013.i415, i64 8
+  %573 = getelementptr inbounds nuw i8, ptr %.013.i415, i64 8
   %574 = load i32, ptr %573, align 8
   %.not44.i.i418 = icmp eq i32 %574, 0
   br i1 %.not44.i.i418, label %stack_pop.exit, label %.preheader.lr.ph.i.i419
 
 .preheader.lr.ph.i.i419:                          ; preds = %572
-  %575 = getelementptr inbounds i8, ptr %.0.i417, i64 8
+  %575 = getelementptr inbounds nuw i8, ptr %.0.i417, i64 8
   %.pre50.i.i420 = load i32, ptr %575, align 8
   br label %.preheader.i.i421
 
@@ -2649,7 +2649,7 @@ mk_value_string.exit:                             ; preds = %261, %194
   br i1 %594, label %.preheader.i.i421, label %stack_pop.exit, !llvm.loop !16
 
 595:                                              ; preds = %25
-  %596 = getelementptr inbounds i8, ptr %28, i64 16
+  %596 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %597 = load ptr, ptr %596, align 8
   %598 = load i32, ptr %30, align 8
   switch i32 %598, label %607 [
@@ -2659,14 +2659,14 @@ mk_value_string.exit:                             ; preds = %261, %194
 
 599:                                              ; preds = %595
   %600 = load ptr, ptr %.phi.trans.insert.i321, align 8
-  %601 = getelementptr inbounds i8, ptr %30, i64 8
+  %601 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %602 = load i32, ptr %601, align 8
   %603 = zext i32 %602 to i64
   %604 = getelementptr %struct.df_cell_t, ptr %600, i64 %603
   br label %608
 
 605:                                              ; preds = %595
-  %606 = getelementptr inbounds i8, ptr %30, i64 8
+  %606 = getelementptr inbounds nuw i8, ptr %30, i64 8
   br label %608
 
 607:                                              ; preds = %595
@@ -2684,14 +2684,14 @@ mk_value_string.exit:                             ; preds = %261, %194
 
 610:                                              ; preds = %608
   %611 = load ptr, ptr %.phi.trans.insert.i321, align 8
-  %612 = getelementptr inbounds i8, ptr %597, i64 8
+  %612 = getelementptr inbounds nuw i8, ptr %597, i64 8
   %613 = load i32, ptr %612, align 8
   %614 = zext i32 %613 to i64
   %615 = getelementptr %struct.df_cell_t, ptr %611, i64 %614
   br label %619
 
 616:                                              ; preds = %608
-  %617 = getelementptr inbounds i8, ptr %597, i64 8
+  %617 = getelementptr inbounds nuw i8, ptr %597, i64 8
   br label %619
 
 618:                                              ; preds = %608
@@ -2701,13 +2701,13 @@ mk_value_string.exit:                             ; preds = %261, %194
 619:                                              ; preds = %616, %610
   %.0.in.i433 = phi ptr [ %615, %610 ], [ %617, %616 ]
   %.0.i434 = load ptr, ptr %.0.in.i433, align 8
-  %620 = getelementptr inbounds i8, ptr %.013.i432, i64 8
+  %620 = getelementptr inbounds nuw i8, ptr %.013.i432, i64 8
   %621 = load i32, ptr %620, align 8
   %.not44.i.i435 = icmp eq i32 %621, 0
   br i1 %.not44.i.i435, label %stack_pop.exit, label %.preheader.lr.ph.i.i436
 
 .preheader.lr.ph.i.i436:                          ; preds = %619
-  %622 = getelementptr inbounds i8, ptr %.0.i434, i64 8
+  %622 = getelementptr inbounds nuw i8, ptr %.0.i434, i64 8
   %.pre50.i.i437 = load i32, ptr %622, align 8
   br label %.preheader.us.us.i.i438
 
@@ -2749,7 +2749,7 @@ mk_value_string.exit:                             ; preds = %261, %194
   br i1 %641, label %.lr.ph.us.us.i.i441, label %._crit_edge.split.us.split.us34.us.loopexit.i.i443, !llvm.loop !15
 
 642:                                              ; preds = %25
-  %643 = getelementptr inbounds i8, ptr %28, i64 16
+  %643 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %644 = load ptr, ptr %643, align 8
   %645 = load i32, ptr %30, align 8
   switch i32 %645, label %654 [
@@ -2759,14 +2759,14 @@ mk_value_string.exit:                             ; preds = %261, %194
 
 646:                                              ; preds = %642
   %647 = load ptr, ptr %.phi.trans.insert.i321, align 8
-  %648 = getelementptr inbounds i8, ptr %30, i64 8
+  %648 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %649 = load i32, ptr %648, align 8
   %650 = zext i32 %649 to i64
   %651 = getelementptr %struct.df_cell_t, ptr %647, i64 %650
   br label %655
 
 652:                                              ; preds = %642
-  %653 = getelementptr inbounds i8, ptr %30, i64 8
+  %653 = getelementptr inbounds nuw i8, ptr %30, i64 8
   br label %655
 
 654:                                              ; preds = %642
@@ -2784,14 +2784,14 @@ mk_value_string.exit:                             ; preds = %261, %194
 
 657:                                              ; preds = %655
   %658 = load ptr, ptr %.phi.trans.insert.i321, align 8
-  %659 = getelementptr inbounds i8, ptr %644, i64 8
+  %659 = getelementptr inbounds nuw i8, ptr %644, i64 8
   %660 = load i32, ptr %659, align 8
   %661 = zext i32 %660 to i64
   %662 = getelementptr %struct.df_cell_t, ptr %658, i64 %661
   br label %666
 
 663:                                              ; preds = %655
-  %664 = getelementptr inbounds i8, ptr %644, i64 8
+  %664 = getelementptr inbounds nuw i8, ptr %644, i64 8
   br label %666
 
 665:                                              ; preds = %655
@@ -2801,13 +2801,13 @@ mk_value_string.exit:                             ; preds = %261, %194
 666:                                              ; preds = %663, %657
   %.0.in.i450 = phi ptr [ %662, %657 ], [ %664, %663 ]
   %.0.i451 = load ptr, ptr %.0.in.i450, align 8
-  %667 = getelementptr inbounds i8, ptr %.013.i449, i64 8
+  %667 = getelementptr inbounds nuw i8, ptr %.013.i449, i64 8
   %668 = load i32, ptr %667, align 8
   %.not44.i.i452 = icmp eq i32 %668, 0
   br i1 %.not44.i.i452, label %stack_pop.exit, label %.preheader.lr.ph.i.i453
 
 .preheader.lr.ph.i.i453:                          ; preds = %666
-  %669 = getelementptr inbounds i8, ptr %.0.i451, i64 8
+  %669 = getelementptr inbounds nuw i8, ptr %.0.i451, i64 8
   %.pre50.i.i454 = load i32, ptr %669, align 8
   br label %.preheader.i.i455
 
@@ -2849,7 +2849,7 @@ mk_value_string.exit:                             ; preds = %261, %194
   br i1 %688, label %.preheader.i.i455, label %stack_pop.exit, !llvm.loop !16
 
 689:                                              ; preds = %25
-  %690 = getelementptr inbounds i8, ptr %28, i64 16
+  %690 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %691 = load ptr, ptr %690, align 8
   %692 = load i32, ptr %30, align 8
   switch i32 %692, label %701 [
@@ -2859,14 +2859,14 @@ mk_value_string.exit:                             ; preds = %261, %194
 
 693:                                              ; preds = %689
   %694 = load ptr, ptr %.phi.trans.insert.i321, align 8
-  %695 = getelementptr inbounds i8, ptr %30, i64 8
+  %695 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %696 = load i32, ptr %695, align 8
   %697 = zext i32 %696 to i64
   %698 = getelementptr %struct.df_cell_t, ptr %694, i64 %697
   br label %702
 
 699:                                              ; preds = %689
-  %700 = getelementptr inbounds i8, ptr %30, i64 8
+  %700 = getelementptr inbounds nuw i8, ptr %30, i64 8
   br label %702
 
 701:                                              ; preds = %689
@@ -2884,14 +2884,14 @@ mk_value_string.exit:                             ; preds = %261, %194
 
 704:                                              ; preds = %702
   %705 = load ptr, ptr %.phi.trans.insert.i321, align 8
-  %706 = getelementptr inbounds i8, ptr %691, i64 8
+  %706 = getelementptr inbounds nuw i8, ptr %691, i64 8
   %707 = load i32, ptr %706, align 8
   %708 = zext i32 %707 to i64
   %709 = getelementptr %struct.df_cell_t, ptr %705, i64 %708
   br label %713
 
 710:                                              ; preds = %702
-  %711 = getelementptr inbounds i8, ptr %691, i64 8
+  %711 = getelementptr inbounds nuw i8, ptr %691, i64 8
   br label %713
 
 712:                                              ; preds = %702
@@ -2901,13 +2901,13 @@ mk_value_string.exit:                             ; preds = %261, %194
 713:                                              ; preds = %710, %704
   %.0.in.i467 = phi ptr [ %709, %704 ], [ %711, %710 ]
   %.0.i468 = load ptr, ptr %.0.in.i467, align 8
-  %714 = getelementptr inbounds i8, ptr %.013.i466, i64 8
+  %714 = getelementptr inbounds nuw i8, ptr %.013.i466, i64 8
   %715 = load i32, ptr %714, align 8
   %.not44.i.i469 = icmp eq i32 %715, 0
   br i1 %.not44.i.i469, label %stack_pop.exit, label %.preheader.lr.ph.i.i470
 
 .preheader.lr.ph.i.i470:                          ; preds = %713
-  %716 = getelementptr inbounds i8, ptr %.0.i468, i64 8
+  %716 = getelementptr inbounds nuw i8, ptr %.0.i468, i64 8
   %.pre50.i.i471 = load i32, ptr %716, align 8
   br label %.preheader.us.us.i.i472
 
@@ -2949,7 +2949,7 @@ mk_value_string.exit:                             ; preds = %261, %194
   br i1 %735, label %.lr.ph.us.us.i.i475, label %._crit_edge.split.us.split.us34.us.loopexit.i.i477, !llvm.loop !15
 
 736:                                              ; preds = %25
-  %737 = getelementptr inbounds i8, ptr %28, i64 16
+  %737 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %738 = load ptr, ptr %737, align 8
   %739 = load i32, ptr %30, align 8
   switch i32 %739, label %748 [
@@ -2959,14 +2959,14 @@ mk_value_string.exit:                             ; preds = %261, %194
 
 740:                                              ; preds = %736
   %741 = load ptr, ptr %.phi.trans.insert.i321, align 8
-  %742 = getelementptr inbounds i8, ptr %30, i64 8
+  %742 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %743 = load i32, ptr %742, align 8
   %744 = zext i32 %743 to i64
   %745 = getelementptr %struct.df_cell_t, ptr %741, i64 %744
   br label %749
 
 746:                                              ; preds = %736
-  %747 = getelementptr inbounds i8, ptr %30, i64 8
+  %747 = getelementptr inbounds nuw i8, ptr %30, i64 8
   br label %749
 
 748:                                              ; preds = %736
@@ -2984,14 +2984,14 @@ mk_value_string.exit:                             ; preds = %261, %194
 
 751:                                              ; preds = %749
   %752 = load ptr, ptr %.phi.trans.insert.i321, align 8
-  %753 = getelementptr inbounds i8, ptr %738, i64 8
+  %753 = getelementptr inbounds nuw i8, ptr %738, i64 8
   %754 = load i32, ptr %753, align 8
   %755 = zext i32 %754 to i64
   %756 = getelementptr %struct.df_cell_t, ptr %752, i64 %755
   br label %760
 
 757:                                              ; preds = %749
-  %758 = getelementptr inbounds i8, ptr %738, i64 8
+  %758 = getelementptr inbounds nuw i8, ptr %738, i64 8
   br label %760
 
 759:                                              ; preds = %749
@@ -3001,13 +3001,13 @@ mk_value_string.exit:                             ; preds = %261, %194
 760:                                              ; preds = %757, %751
   %.0.in.i484 = phi ptr [ %756, %751 ], [ %758, %757 ]
   %.0.i485 = load ptr, ptr %.0.in.i484, align 8
-  %761 = getelementptr inbounds i8, ptr %.013.i483, i64 8
+  %761 = getelementptr inbounds nuw i8, ptr %.013.i483, i64 8
   %762 = load i32, ptr %761, align 8
   %.not44.i.i486 = icmp eq i32 %762, 0
   br i1 %.not44.i.i486, label %stack_pop.exit, label %.preheader.lr.ph.i.i487
 
 .preheader.lr.ph.i.i487:                          ; preds = %760
-  %763 = getelementptr inbounds i8, ptr %.0.i485, i64 8
+  %763 = getelementptr inbounds nuw i8, ptr %.0.i485, i64 8
   %.pre50.i.i488 = load i32, ptr %763, align 8
   br label %.preheader.i.i489
 
@@ -3049,7 +3049,7 @@ mk_value_string.exit:                             ; preds = %261, %194
   br i1 %782, label %.preheader.i.i489, label %stack_pop.exit, !llvm.loop !16
 
 783:                                              ; preds = %25
-  %784 = getelementptr inbounds i8, ptr %28, i64 16
+  %784 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %785 = load ptr, ptr %784, align 8
   %786 = load i32, ptr %30, align 8
   switch i32 %786, label %795 [
@@ -3059,14 +3059,14 @@ mk_value_string.exit:                             ; preds = %261, %194
 
 787:                                              ; preds = %783
   %788 = load ptr, ptr %.phi.trans.insert.i321, align 8
-  %789 = getelementptr inbounds i8, ptr %30, i64 8
+  %789 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %790 = load i32, ptr %789, align 8
   %791 = zext i32 %790 to i64
   %792 = getelementptr %struct.df_cell_t, ptr %788, i64 %791
   br label %796
 
 793:                                              ; preds = %783
-  %794 = getelementptr inbounds i8, ptr %30, i64 8
+  %794 = getelementptr inbounds nuw i8, ptr %30, i64 8
   br label %796
 
 795:                                              ; preds = %783
@@ -3084,14 +3084,14 @@ mk_value_string.exit:                             ; preds = %261, %194
 
 798:                                              ; preds = %796
   %799 = load ptr, ptr %.phi.trans.insert.i321, align 8
-  %800 = getelementptr inbounds i8, ptr %785, i64 8
+  %800 = getelementptr inbounds nuw i8, ptr %785, i64 8
   %801 = load i32, ptr %800, align 8
   %802 = zext i32 %801 to i64
   %803 = getelementptr %struct.df_cell_t, ptr %799, i64 %802
   br label %807
 
 804:                                              ; preds = %796
-  %805 = getelementptr inbounds i8, ptr %785, i64 8
+  %805 = getelementptr inbounds nuw i8, ptr %785, i64 8
   br label %807
 
 806:                                              ; preds = %796
@@ -3101,13 +3101,13 @@ mk_value_string.exit:                             ; preds = %261, %194
 807:                                              ; preds = %804, %798
   %.0.in.i501 = phi ptr [ %803, %798 ], [ %805, %804 ]
   %.0.i502 = load ptr, ptr %.0.in.i501, align 8
-  %808 = getelementptr inbounds i8, ptr %.013.i500, i64 8
+  %808 = getelementptr inbounds nuw i8, ptr %.013.i500, i64 8
   %809 = load i32, ptr %808, align 8
   %.not44.i.i503 = icmp eq i32 %809, 0
   br i1 %.not44.i.i503, label %stack_pop.exit, label %.preheader.lr.ph.i.i504
 
 .preheader.lr.ph.i.i504:                          ; preds = %807
-  %810 = getelementptr inbounds i8, ptr %.0.i502, i64 8
+  %810 = getelementptr inbounds nuw i8, ptr %.0.i502, i64 8
   %.pre50.i.i505 = load i32, ptr %810, align 8
   br label %.preheader.us.us.i.i506
 
@@ -3149,9 +3149,9 @@ mk_value_string.exit:                             ; preds = %261, %194
   br i1 %829, label %.lr.ph.us.us.i.i509, label %._crit_edge.split.us.split.us34.us.loopexit.i.i511, !llvm.loop !15
 
 830:                                              ; preds = %25
-  %831 = getelementptr inbounds i8, ptr %28, i64 16
+  %831 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %832 = load ptr, ptr %831, align 8
-  %833 = getelementptr inbounds i8, ptr %28, i64 24
+  %833 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %834 = load ptr, ptr %833, align 8
   %835 = load i32, ptr %30, align 8
   switch i32 %835, label %844 [
@@ -3161,14 +3161,14 @@ mk_value_string.exit:                             ; preds = %261, %194
 
 836:                                              ; preds = %830
   %837 = load ptr, ptr %.phi.trans.insert.i321, align 8
-  %838 = getelementptr inbounds i8, ptr %30, i64 8
+  %838 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %839 = load i32, ptr %838, align 8
   %840 = zext i32 %839 to i64
   %841 = getelementptr %struct.df_cell_t, ptr %837, i64 %840
   br label %845
 
 842:                                              ; preds = %830
-  %843 = getelementptr inbounds i8, ptr %30, i64 8
+  %843 = getelementptr inbounds nuw i8, ptr %30, i64 8
   br label %845
 
 844:                                              ; preds = %830
@@ -3186,14 +3186,14 @@ mk_value_string.exit:                             ; preds = %261, %194
 
 847:                                              ; preds = %845
   %848 = load ptr, ptr %.phi.trans.insert.i321, align 8
-  %849 = getelementptr inbounds i8, ptr %832, i64 8
+  %849 = getelementptr inbounds nuw i8, ptr %832, i64 8
   %850 = load i32, ptr %849, align 8
   %851 = zext i32 %850 to i64
   %852 = getelementptr %struct.df_cell_t, ptr %848, i64 %851
   br label %856
 
 853:                                              ; preds = %845
-  %854 = getelementptr inbounds i8, ptr %832, i64 8
+  %854 = getelementptr inbounds nuw i8, ptr %832, i64 8
   %.pre.i218 = load ptr, ptr %.phi.trans.insert.i321, align 8
   br label %856
 
@@ -3205,20 +3205,20 @@ mk_value_string.exit:                             ; preds = %261, %194
   %857 = phi ptr [ %848, %847 ], [ %.pre.i218, %853 ]
   %.017.in.i = phi ptr [ %852, %847 ], [ %854, %853 ]
   %.017.i = load ptr, ptr %.017.in.i, align 8
-  %858 = getelementptr inbounds i8, ptr %834, i64 8
+  %858 = getelementptr inbounds nuw i8, ptr %834, i64 8
   %859 = load i32, ptr %858, align 8
   %860 = zext i32 %859 to i64
   %861 = getelementptr %struct.df_cell_t, ptr %857, i64 %860
   call void @df_cell_init(ptr noundef %861, i1 noundef zeroext true) #11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   store ptr null, ptr %10, align 8
-  %862 = getelementptr inbounds i8, ptr %.0.i217, i64 8
+  %862 = getelementptr inbounds nuw i8, ptr %.0.i217, i64 8
   %863 = load i32, ptr %862, align 8
   %.not.i.i219 = icmp eq i32 %863, 0
   br i1 %.not.i.i219, label %mk_binary.exit, label %.preheader.lr.ph.i.i
 
 .preheader.lr.ph.i.i:                             ; preds = %856
-  %864 = getelementptr inbounds i8, ptr %.017.i, i64 8
+  %864 = getelementptr inbounds nuw i8, ptr %.017.i, i64 8
   %.pre.i.i = load i32, ptr %864, align 8
   br label %.preheader.i.i
 
@@ -3285,9 +3285,9 @@ mk_binary.exit:                                   ; preds = %._crit_edge.i.i, %8
   br label %stack_pop.exit
 
 896:                                              ; preds = %25
-  %897 = getelementptr inbounds i8, ptr %28, i64 16
+  %897 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %898 = load ptr, ptr %897, align 8
-  %899 = getelementptr inbounds i8, ptr %28, i64 24
+  %899 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %900 = load ptr, ptr %899, align 8
   %901 = load i32, ptr %30, align 8
   switch i32 %901, label %910 [
@@ -3297,14 +3297,14 @@ mk_binary.exit:                                   ; preds = %._crit_edge.i.i, %8
 
 902:                                              ; preds = %896
   %903 = load ptr, ptr %.phi.trans.insert.i321, align 8
-  %904 = getelementptr inbounds i8, ptr %30, i64 8
+  %904 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %905 = load i32, ptr %904, align 8
   %906 = zext i32 %905 to i64
   %907 = getelementptr %struct.df_cell_t, ptr %903, i64 %906
   br label %911
 
 908:                                              ; preds = %896
-  %909 = getelementptr inbounds i8, ptr %30, i64 8
+  %909 = getelementptr inbounds nuw i8, ptr %30, i64 8
   br label %911
 
 910:                                              ; preds = %896
@@ -3322,14 +3322,14 @@ mk_binary.exit:                                   ; preds = %._crit_edge.i.i, %8
 
 913:                                              ; preds = %911
   %914 = load ptr, ptr %.phi.trans.insert.i321, align 8
-  %915 = getelementptr inbounds i8, ptr %898, i64 8
+  %915 = getelementptr inbounds nuw i8, ptr %898, i64 8
   %916 = load i32, ptr %915, align 8
   %917 = zext i32 %916 to i64
   %918 = getelementptr %struct.df_cell_t, ptr %914, i64 %917
   br label %922
 
 919:                                              ; preds = %911
-  %920 = getelementptr inbounds i8, ptr %898, i64 8
+  %920 = getelementptr inbounds nuw i8, ptr %898, i64 8
   %.pre.i223 = load ptr, ptr %.phi.trans.insert.i321, align 8
   br label %922
 
@@ -3341,20 +3341,20 @@ mk_binary.exit:                                   ; preds = %._crit_edge.i.i, %8
   %923 = phi ptr [ %914, %913 ], [ %.pre.i223, %919 ]
   %.017.in.i224 = phi ptr [ %918, %913 ], [ %920, %919 ]
   %.017.i225 = load ptr, ptr %.017.in.i224, align 8
-  %924 = getelementptr inbounds i8, ptr %900, i64 8
+  %924 = getelementptr inbounds nuw i8, ptr %900, i64 8
   %925 = load i32, ptr %924, align 8
   %926 = zext i32 %925 to i64
   %927 = getelementptr %struct.df_cell_t, ptr %923, i64 %926
   call void @df_cell_init(ptr noundef %927, i1 noundef zeroext true) #11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr null, ptr %9, align 8
-  %928 = getelementptr inbounds i8, ptr %.0.i221, i64 8
+  %928 = getelementptr inbounds nuw i8, ptr %.0.i221, i64 8
   %929 = load i32, ptr %928, align 8
   %.not.i.i226 = icmp eq i32 %929, 0
   br i1 %.not.i.i226, label %mk_binary.exit237, label %.preheader.lr.ph.i.i227
 
 .preheader.lr.ph.i.i227:                          ; preds = %922
-  %930 = getelementptr inbounds i8, ptr %.017.i225, i64 8
+  %930 = getelementptr inbounds nuw i8, ptr %.017.i225, i64 8
   %.pre.i.i228 = load i32, ptr %930, align 8
   br label %.preheader.i.i229
 
@@ -3421,9 +3421,9 @@ mk_binary.exit237:                                ; preds = %._crit_edge.i.i236,
   br label %stack_pop.exit
 
 962:                                              ; preds = %25
-  %963 = getelementptr inbounds i8, ptr %28, i64 16
+  %963 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %964 = load ptr, ptr %963, align 8
-  %965 = getelementptr inbounds i8, ptr %28, i64 24
+  %965 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %966 = load ptr, ptr %965, align 8
   %967 = load i32, ptr %30, align 8
   switch i32 %967, label %976 [
@@ -3433,14 +3433,14 @@ mk_binary.exit237:                                ; preds = %._crit_edge.i.i236,
 
 968:                                              ; preds = %962
   %969 = load ptr, ptr %.phi.trans.insert.i321, align 8
-  %970 = getelementptr inbounds i8, ptr %30, i64 8
+  %970 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %971 = load i32, ptr %970, align 8
   %972 = zext i32 %971 to i64
   %973 = getelementptr %struct.df_cell_t, ptr %969, i64 %972
   br label %977
 
 974:                                              ; preds = %962
-  %975 = getelementptr inbounds i8, ptr %30, i64 8
+  %975 = getelementptr inbounds nuw i8, ptr %30, i64 8
   br label %977
 
 976:                                              ; preds = %962
@@ -3458,14 +3458,14 @@ mk_binary.exit237:                                ; preds = %._crit_edge.i.i236,
 
 979:                                              ; preds = %977
   %980 = load ptr, ptr %.phi.trans.insert.i321, align 8
-  %981 = getelementptr inbounds i8, ptr %964, i64 8
+  %981 = getelementptr inbounds nuw i8, ptr %964, i64 8
   %982 = load i32, ptr %981, align 8
   %983 = zext i32 %982 to i64
   %984 = getelementptr %struct.df_cell_t, ptr %980, i64 %983
   br label %988
 
 985:                                              ; preds = %977
-  %986 = getelementptr inbounds i8, ptr %964, i64 8
+  %986 = getelementptr inbounds nuw i8, ptr %964, i64 8
   %.pre.i241 = load ptr, ptr %.phi.trans.insert.i321, align 8
   br label %988
 
@@ -3477,20 +3477,20 @@ mk_binary.exit237:                                ; preds = %._crit_edge.i.i236,
   %989 = phi ptr [ %980, %979 ], [ %.pre.i241, %985 ]
   %.017.in.i242 = phi ptr [ %984, %979 ], [ %986, %985 ]
   %.017.i243 = load ptr, ptr %.017.in.i242, align 8
-  %990 = getelementptr inbounds i8, ptr %966, i64 8
+  %990 = getelementptr inbounds nuw i8, ptr %966, i64 8
   %991 = load i32, ptr %990, align 8
   %992 = zext i32 %991 to i64
   %993 = getelementptr %struct.df_cell_t, ptr %989, i64 %992
   call void @df_cell_init(ptr noundef %993, i1 noundef zeroext true) #11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   store ptr null, ptr %8, align 8
-  %994 = getelementptr inbounds i8, ptr %.0.i239, i64 8
+  %994 = getelementptr inbounds nuw i8, ptr %.0.i239, i64 8
   %995 = load i32, ptr %994, align 8
   %.not.i.i244 = icmp eq i32 %995, 0
   br i1 %.not.i.i244, label %mk_binary.exit255, label %.preheader.lr.ph.i.i245
 
 .preheader.lr.ph.i.i245:                          ; preds = %988
-  %996 = getelementptr inbounds i8, ptr %.017.i243, i64 8
+  %996 = getelementptr inbounds nuw i8, ptr %.017.i243, i64 8
   %.pre.i.i246 = load i32, ptr %996, align 8
   br label %.preheader.i.i247
 
@@ -3557,9 +3557,9 @@ mk_binary.exit255:                                ; preds = %._crit_edge.i.i254,
   br label %stack_pop.exit
 
 1028:                                             ; preds = %25
-  %1029 = getelementptr inbounds i8, ptr %28, i64 16
+  %1029 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %1030 = load ptr, ptr %1029, align 8
-  %1031 = getelementptr inbounds i8, ptr %28, i64 24
+  %1031 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %1032 = load ptr, ptr %1031, align 8
   %1033 = load i32, ptr %30, align 8
   switch i32 %1033, label %1042 [
@@ -3569,14 +3569,14 @@ mk_binary.exit255:                                ; preds = %._crit_edge.i.i254,
 
 1034:                                             ; preds = %1028
   %1035 = load ptr, ptr %.phi.trans.insert.i321, align 8
-  %1036 = getelementptr inbounds i8, ptr %30, i64 8
+  %1036 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %1037 = load i32, ptr %1036, align 8
   %1038 = zext i32 %1037 to i64
   %1039 = getelementptr %struct.df_cell_t, ptr %1035, i64 %1038
   br label %1043
 
 1040:                                             ; preds = %1028
-  %1041 = getelementptr inbounds i8, ptr %30, i64 8
+  %1041 = getelementptr inbounds nuw i8, ptr %30, i64 8
   br label %1043
 
 1042:                                             ; preds = %1028
@@ -3594,14 +3594,14 @@ mk_binary.exit255:                                ; preds = %._crit_edge.i.i254,
 
 1045:                                             ; preds = %1043
   %1046 = load ptr, ptr %.phi.trans.insert.i321, align 8
-  %1047 = getelementptr inbounds i8, ptr %1030, i64 8
+  %1047 = getelementptr inbounds nuw i8, ptr %1030, i64 8
   %1048 = load i32, ptr %1047, align 8
   %1049 = zext i32 %1048 to i64
   %1050 = getelementptr %struct.df_cell_t, ptr %1046, i64 %1049
   br label %1054
 
 1051:                                             ; preds = %1043
-  %1052 = getelementptr inbounds i8, ptr %1030, i64 8
+  %1052 = getelementptr inbounds nuw i8, ptr %1030, i64 8
   %.pre.i259 = load ptr, ptr %.phi.trans.insert.i321, align 8
   br label %1054
 
@@ -3613,20 +3613,20 @@ mk_binary.exit255:                                ; preds = %._crit_edge.i.i254,
   %1055 = phi ptr [ %1046, %1045 ], [ %.pre.i259, %1051 ]
   %.017.in.i260 = phi ptr [ %1050, %1045 ], [ %1052, %1051 ]
   %.017.i261 = load ptr, ptr %.017.in.i260, align 8
-  %1056 = getelementptr inbounds i8, ptr %1032, i64 8
+  %1056 = getelementptr inbounds nuw i8, ptr %1032, i64 8
   %1057 = load i32, ptr %1056, align 8
   %1058 = zext i32 %1057 to i64
   %1059 = getelementptr %struct.df_cell_t, ptr %1055, i64 %1058
   call void @df_cell_init(ptr noundef %1059, i1 noundef zeroext true) #11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   store ptr null, ptr %7, align 8
-  %1060 = getelementptr inbounds i8, ptr %.0.i257, i64 8
+  %1060 = getelementptr inbounds nuw i8, ptr %.0.i257, i64 8
   %1061 = load i32, ptr %1060, align 8
   %.not.i.i262 = icmp eq i32 %1061, 0
   br i1 %.not.i.i262, label %mk_binary.exit273, label %.preheader.lr.ph.i.i263
 
 .preheader.lr.ph.i.i263:                          ; preds = %1054
-  %1062 = getelementptr inbounds i8, ptr %.017.i261, i64 8
+  %1062 = getelementptr inbounds nuw i8, ptr %.017.i261, i64 8
   %.pre.i.i264 = load i32, ptr %1062, align 8
   br label %.preheader.i.i265
 
@@ -3693,9 +3693,9 @@ mk_binary.exit273:                                ; preds = %._crit_edge.i.i272,
   br label %stack_pop.exit
 
 1094:                                             ; preds = %25
-  %1095 = getelementptr inbounds i8, ptr %28, i64 16
+  %1095 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %1096 = load ptr, ptr %1095, align 8
-  %1097 = getelementptr inbounds i8, ptr %28, i64 24
+  %1097 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %1098 = load ptr, ptr %1097, align 8
   %1099 = load i32, ptr %30, align 8
   switch i32 %1099, label %1108 [
@@ -3705,14 +3705,14 @@ mk_binary.exit273:                                ; preds = %._crit_edge.i.i272,
 
 1100:                                             ; preds = %1094
   %1101 = load ptr, ptr %.phi.trans.insert.i321, align 8
-  %1102 = getelementptr inbounds i8, ptr %30, i64 8
+  %1102 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %1103 = load i32, ptr %1102, align 8
   %1104 = zext i32 %1103 to i64
   %1105 = getelementptr %struct.df_cell_t, ptr %1101, i64 %1104
   br label %1109
 
 1106:                                             ; preds = %1094
-  %1107 = getelementptr inbounds i8, ptr %30, i64 8
+  %1107 = getelementptr inbounds nuw i8, ptr %30, i64 8
   br label %1109
 
 1108:                                             ; preds = %1094
@@ -3730,14 +3730,14 @@ mk_binary.exit273:                                ; preds = %._crit_edge.i.i272,
 
 1111:                                             ; preds = %1109
   %1112 = load ptr, ptr %.phi.trans.insert.i321, align 8
-  %1113 = getelementptr inbounds i8, ptr %1096, i64 8
+  %1113 = getelementptr inbounds nuw i8, ptr %1096, i64 8
   %1114 = load i32, ptr %1113, align 8
   %1115 = zext i32 %1114 to i64
   %1116 = getelementptr %struct.df_cell_t, ptr %1112, i64 %1115
   br label %1120
 
 1117:                                             ; preds = %1109
-  %1118 = getelementptr inbounds i8, ptr %1096, i64 8
+  %1118 = getelementptr inbounds nuw i8, ptr %1096, i64 8
   %.pre.i277 = load ptr, ptr %.phi.trans.insert.i321, align 8
   br label %1120
 
@@ -3749,20 +3749,20 @@ mk_binary.exit273:                                ; preds = %._crit_edge.i.i272,
   %1121 = phi ptr [ %1112, %1111 ], [ %.pre.i277, %1117 ]
   %.017.in.i278 = phi ptr [ %1116, %1111 ], [ %1118, %1117 ]
   %.017.i279 = load ptr, ptr %.017.in.i278, align 8
-  %1122 = getelementptr inbounds i8, ptr %1098, i64 8
+  %1122 = getelementptr inbounds nuw i8, ptr %1098, i64 8
   %1123 = load i32, ptr %1122, align 8
   %1124 = zext i32 %1123 to i64
   %1125 = getelementptr %struct.df_cell_t, ptr %1121, i64 %1124
   call void @df_cell_init(ptr noundef %1125, i1 noundef zeroext true) #11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store ptr null, ptr %6, align 8
-  %1126 = getelementptr inbounds i8, ptr %.0.i275, i64 8
+  %1126 = getelementptr inbounds nuw i8, ptr %.0.i275, i64 8
   %1127 = load i32, ptr %1126, align 8
   %.not.i.i280 = icmp eq i32 %1127, 0
   br i1 %.not.i.i280, label %mk_binary.exit291, label %.preheader.lr.ph.i.i281
 
 .preheader.lr.ph.i.i281:                          ; preds = %1120
-  %1128 = getelementptr inbounds i8, ptr %.017.i279, i64 8
+  %1128 = getelementptr inbounds nuw i8, ptr %.017.i279, i64 8
   %.pre.i.i282 = load i32, ptr %1128, align 8
   br label %.preheader.i.i283
 
@@ -3829,9 +3829,9 @@ mk_binary.exit291:                                ; preds = %._crit_edge.i.i290,
   br label %stack_pop.exit
 
 1160:                                             ; preds = %25
-  %1161 = getelementptr inbounds i8, ptr %28, i64 16
+  %1161 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %1162 = load ptr, ptr %1161, align 8
-  %1163 = getelementptr inbounds i8, ptr %28, i64 24
+  %1163 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %1164 = load ptr, ptr %1163, align 8
   %1165 = load i32, ptr %30, align 8
   switch i32 %1165, label %1174 [
@@ -3841,14 +3841,14 @@ mk_binary.exit291:                                ; preds = %._crit_edge.i.i290,
 
 1166:                                             ; preds = %1160
   %1167 = load ptr, ptr %.phi.trans.insert.i321, align 8
-  %1168 = getelementptr inbounds i8, ptr %30, i64 8
+  %1168 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %1169 = load i32, ptr %1168, align 8
   %1170 = zext i32 %1169 to i64
   %1171 = getelementptr %struct.df_cell_t, ptr %1167, i64 %1170
   br label %1175
 
 1172:                                             ; preds = %1160
-  %1173 = getelementptr inbounds i8, ptr %30, i64 8
+  %1173 = getelementptr inbounds nuw i8, ptr %30, i64 8
   br label %1175
 
 1174:                                             ; preds = %1160
@@ -3866,14 +3866,14 @@ mk_binary.exit291:                                ; preds = %._crit_edge.i.i290,
 
 1177:                                             ; preds = %1175
   %1178 = load ptr, ptr %.phi.trans.insert.i321, align 8
-  %1179 = getelementptr inbounds i8, ptr %1162, i64 8
+  %1179 = getelementptr inbounds nuw i8, ptr %1162, i64 8
   %1180 = load i32, ptr %1179, align 8
   %1181 = zext i32 %1180 to i64
   %1182 = getelementptr %struct.df_cell_t, ptr %1178, i64 %1181
   br label %1186
 
 1183:                                             ; preds = %1175
-  %1184 = getelementptr inbounds i8, ptr %1162, i64 8
+  %1184 = getelementptr inbounds nuw i8, ptr %1162, i64 8
   %.pre.i295 = load ptr, ptr %.phi.trans.insert.i321, align 8
   br label %1186
 
@@ -3885,20 +3885,20 @@ mk_binary.exit291:                                ; preds = %._crit_edge.i.i290,
   %1187 = phi ptr [ %1178, %1177 ], [ %.pre.i295, %1183 ]
   %.017.in.i296 = phi ptr [ %1182, %1177 ], [ %1184, %1183 ]
   %.017.i297 = load ptr, ptr %.017.in.i296, align 8
-  %1188 = getelementptr inbounds i8, ptr %1164, i64 8
+  %1188 = getelementptr inbounds nuw i8, ptr %1164, i64 8
   %1189 = load i32, ptr %1188, align 8
   %1190 = zext i32 %1189 to i64
   %1191 = getelementptr %struct.df_cell_t, ptr %1187, i64 %1190
   call void @df_cell_init(ptr noundef %1191, i1 noundef zeroext true) #11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr null, ptr %5, align 8
-  %1192 = getelementptr inbounds i8, ptr %.0.i293, i64 8
+  %1192 = getelementptr inbounds nuw i8, ptr %.0.i293, i64 8
   %1193 = load i32, ptr %1192, align 8
   %.not.i.i298 = icmp eq i32 %1193, 0
   br i1 %.not.i.i298, label %mk_binary.exit309, label %.preheader.lr.ph.i.i299
 
 .preheader.lr.ph.i.i299:                          ; preds = %1186
-  %1194 = getelementptr inbounds i8, ptr %.017.i297, i64 8
+  %1194 = getelementptr inbounds nuw i8, ptr %.017.i297, i64 8
   %.pre.i.i300 = load i32, ptr %1194, align 8
   br label %.preheader.i.i301
 
@@ -3988,7 +3988,7 @@ mk_binary.exit309:                                ; preds = %._crit_edge.i.i308,
   br i1 %1237, label %1233, label %stack_pop.exit
 
 1238:                                             ; preds = %25
-  %1239 = getelementptr inbounds i8, ptr %28, i64 16
+  %1239 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %1240 = load ptr, ptr %1239, align 8
   %1241 = load i32, ptr %30, align 8
   switch i32 %1241, label %1250 [
@@ -3998,14 +3998,14 @@ mk_binary.exit309:                                ; preds = %._crit_edge.i.i308,
 
 1242:                                             ; preds = %1238
   %1243 = load ptr, ptr %.phi.trans.insert.i321, align 8
-  %1244 = getelementptr inbounds i8, ptr %30, i64 8
+  %1244 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %1245 = load i32, ptr %1244, align 8
   %1246 = zext i32 %1245 to i64
   %1247 = getelementptr %struct.df_cell_t, ptr %1243, i64 %1246
   br label %1251
 
 1248:                                             ; preds = %1238
-  %1249 = getelementptr inbounds i8, ptr %30, i64 8
+  %1249 = getelementptr inbounds nuw i8, ptr %30, i64 8
   br label %1251
 
 1250:                                             ; preds = %1238
@@ -4023,14 +4023,14 @@ mk_binary.exit309:                                ; preds = %._crit_edge.i.i308,
 
 1253:                                             ; preds = %1251
   %1254 = load ptr, ptr %.phi.trans.insert.i321, align 8
-  %1255 = getelementptr inbounds i8, ptr %1240, i64 8
+  %1255 = getelementptr inbounds nuw i8, ptr %1240, i64 8
   %1256 = load i32, ptr %1255, align 8
   %1257 = zext i32 %1256 to i64
   %1258 = getelementptr %struct.df_cell_t, ptr %1254, i64 %1257
   br label %1262
 
 1259:                                             ; preds = %1251
-  %1260 = getelementptr inbounds i8, ptr %1240, i64 8
+  %1260 = getelementptr inbounds nuw i8, ptr %1240, i64 8
   br label %1262
 
 1261:                                             ; preds = %1251
@@ -4040,13 +4040,13 @@ mk_binary.exit309:                                ; preds = %._crit_edge.i.i308,
 1262:                                             ; preds = %1259, %1253
   %.0.in.i518 = phi ptr [ %1258, %1253 ], [ %1260, %1259 ]
   %.0.i519 = load ptr, ptr %.0.in.i518, align 8
-  %1263 = getelementptr inbounds i8, ptr %.013.i517, i64 8
+  %1263 = getelementptr inbounds nuw i8, ptr %.013.i517, i64 8
   %1264 = load i32, ptr %1263, align 8
   %.not44.i.i520 = icmp eq i32 %1264, 0
   br i1 %.not44.i.i520, label %stack_pop.exit, label %.preheader.lr.ph.i.i521
 
 .preheader.lr.ph.i.i521:                          ; preds = %1262
-  %1265 = getelementptr inbounds i8, ptr %.0.i519, i64 8
+  %1265 = getelementptr inbounds nuw i8, ptr %.0.i519, i64 8
   %.pre50.i.i522 = load i32, ptr %1265, align 8
   br label %.preheader.i.i523
 
@@ -4088,7 +4088,7 @@ mk_binary.exit309:                                ; preds = %._crit_edge.i.i308,
   br i1 %1284, label %.preheader.i.i523, label %stack_pop.exit, !llvm.loop !16
 
 1285:                                             ; preds = %25
-  %1286 = getelementptr inbounds i8, ptr %28, i64 16
+  %1286 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %1287 = load ptr, ptr %1286, align 8
   %1288 = load i32, ptr %30, align 8
   switch i32 %1288, label %1297 [
@@ -4098,14 +4098,14 @@ mk_binary.exit309:                                ; preds = %._crit_edge.i.i308,
 
 1289:                                             ; preds = %1285
   %1290 = load ptr, ptr %.phi.trans.insert.i321, align 8
-  %1291 = getelementptr inbounds i8, ptr %30, i64 8
+  %1291 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %1292 = load i32, ptr %1291, align 8
   %1293 = zext i32 %1292 to i64
   %1294 = getelementptr %struct.df_cell_t, ptr %1290, i64 %1293
   br label %1298
 
 1295:                                             ; preds = %1285
-  %1296 = getelementptr inbounds i8, ptr %30, i64 8
+  %1296 = getelementptr inbounds nuw i8, ptr %30, i64 8
   br label %1298
 
 1297:                                             ; preds = %1285
@@ -4123,14 +4123,14 @@ mk_binary.exit309:                                ; preds = %._crit_edge.i.i308,
 
 1300:                                             ; preds = %1298
   %1301 = load ptr, ptr %.phi.trans.insert.i321, align 8
-  %1302 = getelementptr inbounds i8, ptr %1287, i64 8
+  %1302 = getelementptr inbounds nuw i8, ptr %1287, i64 8
   %1303 = load i32, ptr %1302, align 8
   %1304 = zext i32 %1303 to i64
   %1305 = getelementptr %struct.df_cell_t, ptr %1301, i64 %1304
   br label %1309
 
 1306:                                             ; preds = %1298
-  %1307 = getelementptr inbounds i8, ptr %1287, i64 8
+  %1307 = getelementptr inbounds nuw i8, ptr %1287, i64 8
   br label %1309
 
 1308:                                             ; preds = %1298
@@ -4140,13 +4140,13 @@ mk_binary.exit309:                                ; preds = %._crit_edge.i.i308,
 1309:                                             ; preds = %1306, %1300
   %.0.in.i535 = phi ptr [ %1305, %1300 ], [ %1307, %1306 ]
   %.0.i536 = load ptr, ptr %.0.in.i535, align 8
-  %1310 = getelementptr inbounds i8, ptr %.013.i534, i64 8
+  %1310 = getelementptr inbounds nuw i8, ptr %.013.i534, i64 8
   %1311 = load i32, ptr %1310, align 8
   %.not44.i.i537 = icmp eq i32 %1311, 0
   br i1 %.not44.i.i537, label %stack_pop.exit, label %.preheader.lr.ph.i.i538
 
 .preheader.lr.ph.i.i538:                          ; preds = %1309
-  %1312 = getelementptr inbounds i8, ptr %.0.i536, i64 8
+  %1312 = getelementptr inbounds nuw i8, ptr %.0.i536, i64 8
   %.pre50.i.i539 = load i32, ptr %1312, align 8
   br label %.preheader.us.us.i.i540
 
@@ -4188,7 +4188,7 @@ mk_binary.exit309:                                ; preds = %._crit_edge.i.i308,
   br i1 %1331, label %.lr.ph.us.us.i.i543, label %._crit_edge.split.us.split.us34.us.loopexit.i.i545, !llvm.loop !15
 
 1332:                                             ; preds = %25
-  %1333 = getelementptr inbounds i8, ptr %28, i64 16
+  %1333 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %1334 = load ptr, ptr %1333, align 8
   %.val189 = load ptr, ptr %.phi.trans.insert.i321, align 8
   %1335 = getelementptr i8, ptr %30, i64 8
@@ -4216,7 +4216,7 @@ mk_binary.exit309:                                ; preds = %._crit_edge.i.i308,
   br i1 %1347, label %1342, label %stack_pop.exit
 
 1348:                                             ; preds = %25
-  %1349 = getelementptr inbounds i8, ptr %28, i64 16
+  %1349 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %1350 = load ptr, ptr %1349, align 8
   %.val192 = load ptr, ptr %.phi.trans.insert.i321, align 8
   %1351 = getelementptr i8, ptr %30, i64 8
@@ -4252,12 +4252,12 @@ mk_binary.exit309:                                ; preds = %._crit_edge.i.i308,
   ]
 
 1367:                                             ; preds = %1364
-  %1368 = getelementptr inbounds i8, ptr %30, i64 8
+  %1368 = getelementptr inbounds nuw i8, ptr %30, i64 8
   br label %set_push.exit
 
 1369:                                             ; preds = %1364
   %1370 = load ptr, ptr %.phi.trans.insert.i321, align 8
-  %1371 = getelementptr inbounds i8, ptr %30, i64 8
+  %1371 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %1372 = load i32, ptr %1371, align 8
   %1373 = zext i32 %1372 to i64
   %1374 = getelementptr %struct.df_cell_t, ptr %1370, i64 %1373
@@ -4277,7 +4277,7 @@ set_push.exit:                                    ; preds = %1367, %1369
   br label %stack_pop.exit
 
 1378:                                             ; preds = %25
-  %1379 = getelementptr inbounds i8, ptr %28, i64 16
+  %1379 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %1380 = load ptr, ptr %1379, align 8
   %1381 = call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 2, i64 noundef 8) #12
   %1382 = load i32, ptr %30, align 8
@@ -4287,12 +4287,12 @@ set_push.exit:                                    ; preds = %1367, %1369
   ]
 
 1383:                                             ; preds = %1378
-  %1384 = getelementptr inbounds i8, ptr %30, i64 8
+  %1384 = getelementptr inbounds nuw i8, ptr %30, i64 8
   br label %1392
 
 1385:                                             ; preds = %1378
   %1386 = load ptr, ptr %.phi.trans.insert.i321, align 8
-  %1387 = getelementptr inbounds i8, ptr %30, i64 8
+  %1387 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %1388 = load i32, ptr %1387, align 8
   %1389 = zext i32 %1388 to i64
   %1390 = getelementptr %struct.df_cell_t, ptr %1386, i64 %1389
@@ -4317,12 +4317,12 @@ set_push.exit:                                    ; preds = %1367, %1369
   ]
 
 1395:                                             ; preds = %1393
-  %1396 = getelementptr inbounds i8, ptr %1380, i64 8
+  %1396 = getelementptr inbounds nuw i8, ptr %1380, i64 8
   br label %.sink.split.i
 
 1397:                                             ; preds = %1393
   %1398 = load ptr, ptr %.phi.trans.insert.i321, align 8
-  %1399 = getelementptr inbounds i8, ptr %1380, i64 8
+  %1399 = getelementptr inbounds nuw i8, ptr %1380, i64 8
   %1400 = load i32, ptr %1399, align 8
   %1401 = zext i32 %1400 to i64
   %1402 = getelementptr %struct.df_cell_t, ptr %1398, i64 %1401
@@ -4382,7 +4382,7 @@ set_push.exit320:                                 ; preds = %1392, %.sink.split.
   br label %stack_pop.exit
 
 1427:                                             ; preds = %25
-  %1428 = getelementptr inbounds i8, ptr %28, i64 16
+  %1428 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %1429 = load ptr, ptr %1428, align 8
   %1430 = load i32, ptr %30, align 8
   switch i32 %1430, label %1439 [
@@ -4392,14 +4392,14 @@ set_push.exit320:                                 ; preds = %1392, %.sink.split.
 
 1431:                                             ; preds = %1427
   %1432 = load ptr, ptr %.phi.trans.insert.i321, align 8
-  %1433 = getelementptr inbounds i8, ptr %30, i64 8
+  %1433 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %1434 = load i32, ptr %1433, align 8
   %1435 = zext i32 %1434 to i64
   %1436 = getelementptr %struct.df_cell_t, ptr %1432, i64 %1435
   br label %1440
 
 1437:                                             ; preds = %1427
-  %1438 = getelementptr inbounds i8, ptr %30, i64 8
+  %1438 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %.pre.i322 = load ptr, ptr %.phi.trans.insert.i321, align 8
   br label %1440
 
@@ -4411,14 +4411,14 @@ set_push.exit320:                                 ; preds = %1392, %.sink.split.
   %1441 = phi ptr [ %1432, %1431 ], [ %.pre.i322, %1437 ]
   %.0.in.i323 = phi ptr [ %1436, %1431 ], [ %1438, %1437 ]
   %.0.i324 = load ptr, ptr %.0.in.i323, align 8
-  %1442 = getelementptr inbounds i8, ptr %1429, i64 8
+  %1442 = getelementptr inbounds nuw i8, ptr %1429, i64 8
   %1443 = load i32, ptr %1442, align 8
   %1444 = zext i32 %1443 to i64
   %1445 = getelementptr %struct.df_cell_t, ptr %1441, i64 %1444
   call void @df_cell_init(ptr noundef %1445, i1 noundef zeroext true) #11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr null, ptr %4, align 8
-  %1446 = getelementptr inbounds i8, ptr %.0.i324, i64 8
+  %1446 = getelementptr inbounds nuw i8, ptr %.0.i324, i64 8
   %1447 = load i32, ptr %1446, align 8
   %.not.i.i325 = icmp eq i32 %1447, 0
   br i1 %.not.i.i325, label %mk_minus.exit, label %.lr.ph.i.i326
@@ -4465,7 +4465,7 @@ mk_minus.exit:                                    ; preds = %1456, %1440
 
 1466:                                             ; preds = %1463
   %1467 = load ptr, ptr %.phi.trans.insert.i321, align 8
-  %1468 = getelementptr inbounds i8, ptr %30, i64 8
+  %1468 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %1469 = load i32, ptr %1468, align 8
   %1470 = zext i32 %1469 to i64
   %1471 = getelementptr %struct.df_cell_t, ptr %1467, i64 %1470
@@ -4480,7 +4480,7 @@ mk_minus.exit:                                    ; preds = %1456, %1440
   br label %1476
 
 1476:                                             ; preds = %1466, %1474, %1463
-  %1477 = getelementptr inbounds i8, ptr %0, i64 8
+  %1477 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1478 = load i32, ptr %1477, align 8
   %.not.i327 = icmp eq i32 %1478, 0
   br i1 %.not.i327, label %free_register_overhead.exit, label %.lr.ph.i328
@@ -4503,7 +4503,7 @@ free_register_overhead.exit:                      ; preds = %.lr.ph.i328, %1476
   br i1 %24, label %.backedge, label %stack_pop.exit
 
 .backedge:                                        ; preds = %1485, %1484
-  %.1.be.in = getelementptr inbounds i8, ptr %30, i64 8
+  %.1.be.in = getelementptr inbounds nuw i8, ptr %30, i64 8
   %.1.be = load i32, ptr %.1.be.in, align 8
   br label %25
 
@@ -4532,14 +4532,14 @@ define internal fastcc zeroext i1 @read_tree(ptr nocapture noundef readonly %0, 
   br i1 %.not, label %9, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %2, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = freeze ptr %7
   br label %9
 
 9:                                                ; preds = %5, %3
   %.021 = phi ptr [ %8, %5 ], [ null, %3 ]
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load ptr, ptr %10, align 8
   %12 = sext i32 %.8.val1 to i64
   %13 = getelementptr %struct.df_cell_t, ptr %11, i64 %12
@@ -4567,7 +4567,7 @@ define internal fastcc zeroext i1 @read_tree(ptr nocapture noundef readonly %0, 
   br i1 %18, label %read_tree_finfos.exit.us.us, label %19
 
 19:                                               ; preds = %.lr.ph.split.us.split.us
-  %20 = getelementptr inbounds i8, ptr %17, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %21 = load i32, ptr %20, align 8
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %read_tree_finfos.exit.us.us, label %.lr.ph.split.us.i.us.us
@@ -4577,16 +4577,16 @@ define internal fastcc zeroext i1 @read_tree(ptr nocapture noundef readonly %0, 
   %23 = load ptr, ptr %17, align 8
   %24 = getelementptr ptr, ptr %23, i64 %indvars.iv5.i.us.us
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 40
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %25, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %29 = load i32, ptr %28, align 8
   %30 = tail call i32 @tvb_captured_length_remaining(ptr noundef %27, i32 noundef %29) #11
   %31 = icmp slt i32 %30, 0
   br i1 %31, label %dfvm_get_raw_fvalue.exit.us.i.us.us, label %32
 
 32:                                               ; preds = %.lr.ph.split.us.i.us.us
-  %33 = getelementptr inbounds i8, ptr %25, i64 12
+  %33 = getelementptr inbounds nuw i8, ptr %25, i64 12
   %34 = load i32, ptr %33, align 4
   %spec.select.i.us.i.us.us = tail call i32 @llvm.smin.i32(i32 %34, i32 %30)
   %35 = tail call ptr @g_byte_array_new() #11
@@ -4608,7 +4608,7 @@ dfvm_get_raw_fvalue.exit.us.i.us.us:              ; preds = %32, %.lr.ph.split.u
   br i1 %43, label %.lr.ph.split.us.i.us.us, label %read_tree_finfos.exit.us.us, !llvm.loop !25
 
 read_tree_finfos.exit.us.us:                      ; preds = %dfvm_get_raw_fvalue.exit.us.i.us.us, %19, %.lr.ph.split.us.split.us
-  %44 = getelementptr inbounds i8, ptr %.0205.us.us, i64 64
+  %44 = getelementptr inbounds nuw i8, ptr %.0205.us.us, i64 64
   %45 = load ptr, ptr %44, align 8
   %.not23.us.us = icmp eq ptr %45, null
   br i1 %.not23.us.us, label %._crit_edge, label %.lr.ph.split.us.split.us, !llvm.loop !26
@@ -4622,7 +4622,7 @@ read_tree_finfos.exit.us.us:                      ; preds = %dfvm_get_raw_fvalue
   br i1 %48, label %read_tree_finfos.exit.us, label %49
 
 49:                                               ; preds = %.lr.ph.split.us.split
-  %50 = getelementptr inbounds i8, ptr %47, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %51 = load i32, ptr %50, align 8
   %52 = icmp eq i32 %51, 0
   br i1 %52, label %read_tree_finfos.exit.us, label %dfvm_get_raw_fvalue.exit.i.us
@@ -4632,7 +4632,7 @@ dfvm_get_raw_fvalue.exit.i.us:                    ; preds = %49, %dfvm_get_raw_f
   %53 = load ptr, ptr %47, align 8
   %54 = getelementptr ptr, ptr %53, i64 %indvars.iv.i.us
   %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 48
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 48
   %57 = load ptr, ptr %56, align 8
   tail call void @df_cell_append(ptr noundef %13, ptr noundef %57) #11
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
@@ -4642,7 +4642,7 @@ dfvm_get_raw_fvalue.exit.i.us:                    ; preds = %49, %dfvm_get_raw_f
   br i1 %60, label %dfvm_get_raw_fvalue.exit.i.us, label %read_tree_finfos.exit.us, !llvm.loop !25
 
 read_tree_finfos.exit.us:                         ; preds = %dfvm_get_raw_fvalue.exit.i.us, %49, %.lr.ph.split.us.split
-  %61 = getelementptr inbounds i8, ptr %.0205.us, i64 64
+  %61 = getelementptr inbounds nuw i8, ptr %.0205.us, i64 64
   %62 = load ptr, ptr %61, align 8
   %.not23.us = icmp eq ptr %62, null
   br i1 %.not23.us, label %._crit_edge, label %.lr.ph.split.us.split, !llvm.loop !26
@@ -4656,7 +4656,7 @@ read_tree_finfos.exit.us:                         ; preds = %dfvm_get_raw_fvalue
   br i1 %65, label %read_tree_finfos.exit, label %66
 
 66:                                               ; preds = %.lr.ph.split
-  %67 = getelementptr inbounds i8, ptr %64, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %68 = load i32, ptr %67, align 8
   %69 = icmp eq i32 %68, 0
   br i1 %69, label %read_tree_finfos.exit, label %70
@@ -4666,7 +4666,7 @@ read_tree_finfos.exit.us:                         ; preds = %dfvm_get_raw_fvalue
   br label %read_tree_finfos.exit
 
 read_tree_finfos.exit:                            ; preds = %.lr.ph.split, %66, %70
-  %72 = getelementptr inbounds i8, ptr %.0205, i64 64
+  %72 = getelementptr inbounds nuw i8, ptr %.0205, i64 64
   %73 = load ptr, ptr %72, align 8
   %.not23 = icmp eq ptr %73, null
   br i1 %.not23, label %._crit_edge, label %.lr.ph.split, !llvm.loop !26
@@ -4684,13 +4684,13 @@ define internal fastcc zeroext i1 @read_reference(ptr nocapture noundef readonly
   br i1 %.not, label %7, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   br label %7
 
 7:                                                ; preds = %4, %2
   %.019 = phi ptr [ %6, %4 ], [ null, %2 ]
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = sext i32 %.8.val1 to i64
   %11 = getelementptr %struct.df_cell_t, ptr %9, i64 %10
@@ -4704,14 +4704,14 @@ define internal fastcc zeroext i1 @read_reference(ptr nocapture noundef readonly
 
 16:                                               ; preds = %7
   %.in.v = select i1 %3, i64 72, i64 64
-  %.in = getelementptr inbounds i8, ptr %0, i64 %.in.v
+  %.in = getelementptr inbounds nuw i8, ptr %0, i64 %.in.v
   %17 = load ptr, ptr %.in, align 8
   %18 = tail call ptr @g_hash_table_lookup(ptr noundef %17, ptr noundef %.8.val) #11
   %19 = icmp eq ptr %18, null
   br i1 %19, label %filter_refs_fvalues.exit, label %20
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %18, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %22 = load i32, ptr %21, align 8
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %filter_refs_fvalues.exit, label %24
@@ -4728,7 +4728,7 @@ define internal fastcc zeroext i1 @read_reference(ptr nocapture noundef readonly
   %29 = zext i32 %28 to i64
   %30 = getelementptr ptr, ptr %27, i64 %29
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %33 = load i32, ptr %32, align 8
   %34 = icmp eq ptr %.019, null
   %35 = add i32 %33, 1
@@ -4739,7 +4739,7 @@ drange_contains_layer.exit.thread.us.i:           ; preds = %.lr.ph.i, %drange_c
   %36 = load ptr, ptr %18, align 8
   %37 = getelementptr ptr, ptr %36, i64 %indvars.iv37.i
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %40 = load ptr, ptr %39, align 8
   tail call void @df_cell_append(ptr noundef %11, ptr noundef %40) #11
   %indvars.iv.next38.i = add nuw nsw i64 %indvars.iv37.i, 1
@@ -4756,7 +4756,7 @@ drange_contains_layer.exit.thread.us.i:           ; preds = %.lr.ph.i, %drange_c
   %45 = load ptr, ptr %18, align 8
   %46 = getelementptr ptr, ptr %45, i64 %indvars.iv.i
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %49 = load i32, ptr %48, align 8
   %50 = icmp eq i32 %.035.i, %49
   br i1 %50, label %51, label %52
@@ -4770,7 +4770,7 @@ drange_contains_layer.exit.thread.us.i:           ; preds = %.lr.ph.i, %drange_c
   br i1 %.not29.not.i.i, label %drange_contains_layer.exit.thread.i, label %.lr.ph.i.i
 
 53:                                               ; preds = %70
-  %54 = getelementptr inbounds i8, ptr %.02030.i.i, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %.02030.i.i, i64 8
   %.020.i.i = load ptr, ptr %54, align 8
   %.not.not.i.i = icmp eq ptr %.020.i.i, null
   br i1 %.not.not.i.i, label %drange_contains_layer.exit.thread.i, label %.lr.ph.i.i, !llvm.loop !28
@@ -4782,7 +4782,7 @@ drange_contains_layer.exit.thread.us.i:           ; preds = %.lr.ph.i, %drange_c
   %57 = icmp slt i32 %56, 0
   %58 = select i1 %57, i32 %35, i32 0
   %.019.i.i = add i32 %58, %56
-  %59 = getelementptr inbounds i8, ptr %55, i64 12
+  %59 = getelementptr inbounds nuw i8, ptr %55, i64 12
   %60 = load i32, ptr %59, align 4
   switch i32 %60, label %69 [
     i32 1, label %61
@@ -4791,14 +4791,14 @@ drange_contains_layer.exit.thread.us.i:           ; preds = %.lr.ph.i, %drange_c
   ]
 
 61:                                               ; preds = %.lr.ph.i.i
-  %62 = getelementptr inbounds i8, ptr %55, i64 4
+  %62 = getelementptr inbounds nuw i8, ptr %55, i64 4
   %63 = load i32, ptr %62, align 4
   %64 = add i32 %.019.i.i, -1
   %65 = add i32 %64, %63
   br label %70
 
 66:                                               ; preds = %.lr.ph.i.i
-  %67 = getelementptr inbounds i8, ptr %55, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %68 = load i32, ptr %67, align 4
   br label %70
 
@@ -4815,7 +4815,7 @@ drange_contains_layer.exit.thread.us.i:           ; preds = %.lr.ph.i, %drange_c
 
 drange_contains_layer.exit.thread.sink.split.i:   ; preds = %70, %51
   %.1.ph.i = phi i32 [ %.035.i, %51 ], [ %49, %70 ]
-  %71 = getelementptr inbounds i8, ptr %47, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %72 = load ptr, ptr %71, align 8
   tail call void @df_cell_append(ptr noundef %11, ptr noundef %72) #11
   %.pre = load i32, ptr %21, align 8
@@ -4865,18 +4865,18 @@ declare zeroext i1 @fvalue_contains(ptr noundef, ptr noundef) local_unnamed_addr
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef zeroext i1 @all_in(ptr nocapture noundef readonly %0, i32 %.8.val) unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = zext i32 %.8.val to i64
   %5 = getelementptr %struct.df_cell_t, ptr %3, i64 %4
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %.critedge, label %.lr.ph13
 
 .lr.ph13:                                         ; preds = %1
-  %10 = getelementptr inbounds i8, ptr %0, i64 96
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 96
   br label %11
 
 11:                                               ; preds = %.lr.ph13, %test_in_internal.exit
@@ -4898,13 +4898,13 @@ define internal fastcc noundef zeroext i1 @all_in(ptr nocapture noundef readonly
   br i1 %.not.i, label %.preheader.i, label %.preheader4.i
 
 .preheader4.i:                                    ; preds = %.lr.ph
-  %17 = getelementptr inbounds i8, ptr %.val16, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %.val16, i64 8
   %18 = load i32, ptr %17, align 8
   %.not16.i = icmp eq i32 %18, 0
   br i1 %.not16.i, label %.loopexit, label %.lr.ph.i
 
 .preheader.i:                                     ; preds = %.lr.ph
-  %19 = getelementptr inbounds i8, ptr %.val, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   %20 = load i32, ptr %19, align 8
   %.not18.i = icmp eq i32 %20, 0
   br i1 %.not18.i, label %.loopexit, label %.lr.ph12.i
@@ -4925,7 +4925,7 @@ define internal fastcc noundef zeroext i1 @all_in(ptr nocapture noundef readonly
   br i1 %28, label %.preheader1.i, label %21
 
 .preheader1.i:                                    ; preds = %.lr.ph.i
-  %29 = getelementptr inbounds i8, ptr %.val, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   %30 = load i32, ptr %29, align 8
   %.not17.i = icmp eq i32 %30, 0
   br i1 %.not17.i, label %.loopexit, label %.lr.ph8.i
@@ -4961,7 +4961,7 @@ define internal fastcc noundef zeroext i1 @all_in(ptr nocapture noundef readonly
   br i1 %46, label %test_in_internal.exit, label %39
 
 .loopexit:                                        ; preds = %21, %31, %39, %.preheader.i, %.preheader1.i, %.preheader4.i
-  %47 = getelementptr inbounds i8, ptr %.0149, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %.0149, i64 8
   %.014 = load ptr, ptr %47, align 8
   %.not.not = icmp eq ptr %.014, null
   br i1 %.not.not, label %.critedge, label %.lr.ph, !llvm.loop !32
@@ -4980,18 +4980,18 @@ test_in_internal.exit:                            ; preds = %.lr.ph8.i, %.lr.ph1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef zeroext i1 @any_in(ptr nocapture noundef readonly %0, i32 %.8.val) unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = zext i32 %.8.val to i64
   %5 = getelementptr %struct.df_cell_t, ptr %3, i64 %4
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load i32, ptr %7, align 8
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %test_in_internal.exit, label %.lr.ph12
 
 .lr.ph12:                                         ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %0, i64 96
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %test_in_internal.exit, label %.lr.ph12.split
@@ -5020,13 +5020,13 @@ define internal fastcc noundef zeroext i1 @any_in(ptr nocapture noundef readonly
   br i1 %.not.i, label %.preheader.i, label %.preheader4.i
 
 .preheader4.i:                                    ; preds = %.lr.ph
-  %18 = getelementptr inbounds i8, ptr %.val16, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %.val16, i64 8
   %19 = load i32, ptr %18, align 8
   %.not16.i = icmp eq i32 %19, 0
   br i1 %.not16.i, label %.loopexit, label %.lr.ph.i
 
 .preheader.i:                                     ; preds = %.lr.ph
-  %20 = getelementptr inbounds i8, ptr %.val, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   %21 = load i32, ptr %20, align 8
   %.not18.i = icmp eq i32 %21, 0
   br i1 %.not18.i, label %.loopexit, label %.lr.ph12.i
@@ -5047,7 +5047,7 @@ define internal fastcc noundef zeroext i1 @any_in(ptr nocapture noundef readonly
   br i1 %29, label %.preheader1.i, label %22
 
 .preheader1.i:                                    ; preds = %.lr.ph.i
-  %30 = getelementptr inbounds i8, ptr %.val, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   %31 = load i32, ptr %30, align 8
   %.not17.i = icmp eq i32 %31, 0
   br i1 %.not17.i, label %.loopexit, label %.lr.ph8.i
@@ -5083,7 +5083,7 @@ define internal fastcc noundef zeroext i1 @any_in(ptr nocapture noundef readonly
   br i1 %47, label %test_in_internal.exit, label %40
 
 .loopexit:                                        ; preds = %22, %32, %40, %.preheader.i, %.preheader1.i, %.preheader4.i
-  %48 = getelementptr inbounds i8, ptr %.01410, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %.01410, i64 8
   %.014 = load ptr, ptr %48, align 8
   %.not.not = icmp eq ptr %.014, null
   br i1 %.not.not, label %.critedge.loopexit, label %.lr.ph, !llvm.loop !34
@@ -5154,23 +5154,23 @@ define internal fastcc ptr @dfvm_value_tostr(ptr noundef readonly %0) unnamed_ad
   ]
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noalias ptr @wmem_strdup(ptr noundef null, ptr noundef %8) #11
   br label %50
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.92, ptr noundef %14) #11
   br label %50
 
 16:                                               ; preds = %2
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load ptr, ptr %17, align 8
   %19 = load ptr, ptr %18, align 8
   %20 = load ptr, ptr %19, align 8
@@ -5178,33 +5178,33 @@ define internal fastcc ptr @dfvm_value_tostr(ptr noundef readonly %0) unnamed_ad
   br label %50
 
 22:                                               ; preds = %2
-  %23 = getelementptr inbounds i8, ptr %0, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load ptr, ptr %23, align 8
   %25 = tail call ptr @drange_tostr(ptr noundef %24) #11
   br label %50
 
 26:                                               ; preds = %2
-  %27 = getelementptr inbounds i8, ptr %0, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %28 = load ptr, ptr %27, align 8
   %29 = tail call ptr @ws_regex_pattern(ptr noundef %28) #11
   %30 = tail call noalias ptr @wmem_strdup(ptr noundef null, ptr noundef %29) #11
   br label %50
 
 31:                                               ; preds = %2
-  %32 = getelementptr inbounds i8, ptr %0, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %33 = load i32, ptr %32, align 8
   %34 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.93, i32 noundef %33) #11
   br label %50
 
 35:                                               ; preds = %2
-  %36 = getelementptr inbounds i8, ptr %0, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %37 = load ptr, ptr %36, align 8
   %38 = load ptr, ptr %37, align 8
   %39 = tail call noalias ptr @wmem_strdup(ptr noundef null, ptr noundef %38) #11
   br label %50
 
 40:                                               ; preds = %2
-  %41 = getelementptr inbounds i8, ptr %0, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %42 = load i32, ptr %41, align 8
   %43 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.91, i32 noundef %42) #11
   br label %50
@@ -5214,7 +5214,7 @@ define internal fastcc ptr @dfvm_value_tostr(ptr noundef readonly %0) unnamed_ad
   br label %50
 
 46:                                               ; preds = %2
-  %47 = getelementptr inbounds i8, ptr %0, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %48 = load i32, ptr %47, align 8
   %49 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.95, i32 noundef %48) #11
   br label %50
@@ -5244,15 +5244,15 @@ define internal fastcc noalias ptr @value_type_tostr(ptr noundef readonly %0, i1
   ]
 
 7:                                                ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load i32, ptr %10, align 8
   %12 = tail call ptr @ftype_name(i32 noundef %11) #11
   br label %28
 
 13:                                               ; preds = %5
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = load ptr, ptr %15, align 8
   %17 = load ptr, ptr %16, align 8
@@ -5260,9 +5260,9 @@ define internal fastcc noalias ptr @value_type_tostr(ptr noundef readonly %0, i1
   br label %28
 
 19:                                               ; preds = %5
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %23 = load i32, ptr %22, align 8
   %.not11 = icmp eq i32 %23, 0
   br i1 %.not11, label %28, label %24
@@ -5312,7 +5312,7 @@ declare ptr @proto_get_finfo_ptr_array(ptr noundef, i32 noundef) local_unnamed_a
 ; Function Attrs: nounwind uwtable
 define internal fastcc i64 @filter_finfo_fvalues(ptr noundef %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull readonly %2, i1 noundef zeroext %3) unnamed_addr #2 {
   tail call void @g_ptr_array_sort(ptr noundef nonnull %1, ptr noundef nonnull @compare_finfo_layer) #11
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i32, ptr %5, align 8
   %.not53 = icmp eq i32 %6, 0
   br i1 %.not53, label %._crit_edge, label %.lr.ph
@@ -5323,7 +5323,7 @@ define internal fastcc i64 @filter_finfo_fvalues(ptr noundef %0, ptr noundef non
   %9 = zext i32 %8 to i64
   %10 = getelementptr ptr, ptr %7, i64 %9
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 60
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 60
   %13 = load i32, ptr %12, align 4
   %14 = add i32 %13, 1
   %.not = icmp eq ptr %0, null
@@ -5337,7 +5337,7 @@ define internal fastcc i64 @filter_finfo_fvalues(ptr noundef %0, ptr noundef non
   %16 = load ptr, ptr %1, align 8
   %17 = getelementptr ptr, ptr %16, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 60
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 60
   %20 = load i32, ptr %19, align 4
   %21 = icmp eq i32 %.03749, %20
   br i1 %21, label %22, label %46
@@ -5352,16 +5352,16 @@ define internal fastcc i64 @filter_finfo_fvalues(ptr noundef %0, ptr noundef non
   br i1 %3, label %25, label %41
 
 25:                                               ; preds = %24
-  %26 = getelementptr inbounds i8, ptr %18, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %18, i64 40
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %18, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %29 = load i32, ptr %28, align 8
   %30 = tail call i32 @tvb_captured_length_remaining(ptr noundef %27, i32 noundef %29) #11
   %31 = icmp slt i32 %30, 0
   br i1 %31, label %dfvm_get_raw_fvalue.exit, label %32
 
 32:                                               ; preds = %25
-  %33 = getelementptr inbounds i8, ptr %18, i64 12
+  %33 = getelementptr inbounds nuw i8, ptr %18, i64 12
   %34 = load i32, ptr %33, align 4
   %spec.select.i = tail call i32 @llvm.smin.i32(i32 %34, i32 %30)
   %35 = tail call ptr @g_byte_array_new() #11
@@ -5374,7 +5374,7 @@ define internal fastcc i64 @filter_finfo_fvalues(ptr noundef %0, ptr noundef non
   br label %dfvm_get_raw_fvalue.exit
 
 41:                                               ; preds = %24
-  %42 = getelementptr inbounds i8, ptr %18, i64 48
+  %42 = getelementptr inbounds nuw i8, ptr %18, i64 48
   %43 = load ptr, ptr %42, align 8
   br label %dfvm_get_raw_fvalue.exit
 
@@ -5393,7 +5393,7 @@ dfvm_get_raw_fvalue.exit:                         ; preds = %32, %25, %41
   br i1 %.not29.not.i, label %drange_contains_layer.exit.thread, label %.lr.ph.i
 
 47:                                               ; preds = %64
-  %48 = getelementptr inbounds i8, ptr %.02030.i, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %.02030.i, i64 8
   %.020.i = load ptr, ptr %48, align 8
   %.not.not.i = icmp eq ptr %.020.i, null
   br i1 %.not.not.i, label %drange_contains_layer.exit.thread, label %.lr.ph.i, !llvm.loop !28
@@ -5405,7 +5405,7 @@ dfvm_get_raw_fvalue.exit:                         ; preds = %32, %25, %41
   %51 = icmp slt i32 %50, 0
   %52 = select i1 %51, i32 %14, i32 0
   %.019.i = add i32 %52, %50
-  %53 = getelementptr inbounds i8, ptr %49, i64 12
+  %53 = getelementptr inbounds nuw i8, ptr %49, i64 12
   %54 = load i32, ptr %53, align 4
   switch i32 %54, label %63 [
     i32 1, label %55
@@ -5414,14 +5414,14 @@ dfvm_get_raw_fvalue.exit:                         ; preds = %32, %25, %41
   ]
 
 55:                                               ; preds = %.lr.ph.i
-  %56 = getelementptr inbounds i8, ptr %49, i64 4
+  %56 = getelementptr inbounds nuw i8, ptr %49, i64 4
   %57 = load i32, ptr %56, align 4
   %58 = add i32 %.019.i, -1
   %59 = add i32 %58, %57
   br label %64
 
 60:                                               ; preds = %.lr.ph.i
-  %61 = getelementptr inbounds i8, ptr %49, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %62 = load i32, ptr %61, align 4
   br label %64
 
@@ -5443,16 +5443,16 @@ dfvm_get_raw_fvalue.exit:                         ; preds = %32, %25, %41
   br i1 %3, label %67, label %83
 
 67:                                               ; preds = %66
-  %68 = getelementptr inbounds i8, ptr %18, i64 40
+  %68 = getelementptr inbounds nuw i8, ptr %18, i64 40
   %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %18, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %71 = load i32, ptr %70, align 8
   %72 = tail call i32 @tvb_captured_length_remaining(ptr noundef %69, i32 noundef %71) #11
   %73 = icmp slt i32 %72, 0
   br i1 %73, label %dfvm_get_raw_fvalue.exit46, label %74
 
 74:                                               ; preds = %67
-  %75 = getelementptr inbounds i8, ptr %18, i64 12
+  %75 = getelementptr inbounds nuw i8, ptr %18, i64 12
   %76 = load i32, ptr %75, align 4
   %spec.select.i44 = tail call i32 @llvm.smin.i32(i32 %76, i32 %72)
   %77 = tail call ptr @g_byte_array_new() #11
@@ -5465,7 +5465,7 @@ dfvm_get_raw_fvalue.exit:                         ; preds = %32, %25, %41
   br label %dfvm_get_raw_fvalue.exit46
 
 83:                                               ; preds = %66
-  %84 = getelementptr inbounds i8, ptr %18, i64 48
+  %84 = getelementptr inbounds nuw i8, ptr %18, i64 48
   %85 = load ptr, ptr %84, align 8
   br label %dfvm_get_raw_fvalue.exit46
 
@@ -5499,9 +5499,9 @@ declare void @g_ptr_array_sort(ptr noundef, ptr noundef) local_unnamed_addr #4
 define internal i32 @compare_finfo_layer(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #7 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 60
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 60
   %6 = load i32, ptr %5, align 4
-  %7 = getelementptr inbounds i8, ptr %4, i64 60
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 60
   %8 = load i32, ptr %7, align 4
   %9 = sub i32 %6, %8
   ret i32 %9

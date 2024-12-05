@@ -103,11 +103,11 @@ if.end:                                           ; preds = %if.end8.i, %if.end1
   br i1 %tobool1.not, label %if.end7, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  %argv.i = getelementptr inbounds i8, ptr %c, i64 96
+  %argv.i = getelementptr inbounds nuw i8, ptr %c, i64 96
   %3 = load ptr, ptr %argv.i, align 8
-  %arrayidx.i = getelementptr inbounds i8, ptr %3, i64 8
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %4 = load ptr, ptr %arrayidx.i, align 8
-  %resp.i = getelementptr inbounds i8, ptr %c, i64 24
+  %resp.i = getelementptr inbounds nuw i8, ptr %c, i64 24
   %5 = load i32, ptr %resp.i, align 8
   %idxprom.i = sext i32 %5 to i64
   %arrayidx1.i = getelementptr inbounds [4 x ptr], ptr getelementptr inbounds (i8, ptr @shared, i64 64), i64 0, i64 %idxprom.i
@@ -126,7 +126,7 @@ if.end4.i:                                        ; preds = %if.end.i60
   br label %if.end7
 
 if.end7:                                          ; preds = %if.then2, %if.end4.i, %if.end
-  %db = getelementptr inbounds i8, ptr %c, i64 32
+  %db = getelementptr inbounds nuw i8, ptr %c, i64 32
   %7 = load ptr, ptr %db, align 8
   %call8 = call ptr @lookupKeyWrite(ptr noundef %7, ptr noundef %key) #10
   %cmp9 = icmp ne ptr %call8, null
@@ -149,7 +149,7 @@ if.then21:                                        ; preds = %if.then18
   br i1 %tobool22.not, label %cond.false, label %cond.end
 
 cond.false:                                       ; preds = %if.then21
-  %resp = getelementptr inbounds i8, ptr %c, i64 24
+  %resp = getelementptr inbounds nuw i8, ptr %c, i64 24
   %8 = load i32, ptr %resp, align 8
   %idxprom = sext i32 %8 to i64
   %arrayidx = getelementptr inbounds [4 x ptr], ptr getelementptr inbounds (i8, ptr @shared, i64 64), i64 0, i64 %idxprom
@@ -174,7 +174,7 @@ if.end24:                                         ; preds = %lor.lhs.false
   %inc = add nsw i64 %12, 1
   store i64 %inc, ptr getelementptr inbounds (i8, ptr @server, i64 4104), align 8
   %13 = load ptr, ptr %db, align 8
-  %id = getelementptr inbounds i8, ptr %13, i64 48
+  %id = getelementptr inbounds nuw i8, ptr %13, i64 48
   %14 = load i32, ptr %id, align 8
   call void @notifyKeyspaceEvent(i32 noundef 8, ptr noundef nonnull @.str, ptr noundef %key, i32 noundef %14) #10
   br i1 %tobool, label %if.then35, label %if.end44.thread
@@ -198,7 +198,7 @@ if.then39:                                        ; preds = %if.then35
 
 if.end44:                                         ; preds = %if.then35, %if.then39
   %20 = load ptr, ptr %db, align 8
-  %id43 = getelementptr inbounds i8, ptr %20, i64 48
+  %id43 = getelementptr inbounds nuw i8, ptr %20, i64 48
   %21 = load i32, ptr %id43, align 8
   call void @notifyKeyspaceEvent(i32 noundef 4, ptr noundef nonnull @.str.1, ptr noundef %key, i32 noundef %21) #10
   br i1 %tobool1.not, label %if.end53.thread, label %if.end117
@@ -214,7 +214,7 @@ if.end53.thread:                                  ; preds = %if.end44.thread, %i
   br label %if.end117
 
 if.then58:                                        ; preds = %if.end44.thread
-  %argc59 = getelementptr inbounds i8, ptr %c, i64 88
+  %argc59 = getelementptr inbounds nuw i8, ptr %c, i64 88
   %23 = load i32, ptr %argc59, align 8
   %sub = add nsw i32 %23, -1
   %conv60 = sext i32 %sub to i64
@@ -225,7 +225,7 @@ if.then58:                                        ; preds = %if.end44.thread
   br i1 %cmp6367, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %if.then58
-  %argv65 = getelementptr inbounds i8, ptr %c, i64 96
+  %argv65 = getelementptr inbounds nuw i8, ptr %c, i64 96
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -233,9 +233,9 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %argc.068 = phi i32 [ 0, %for.body.lr.ph ], [ %argc.1, %for.inc ]
   %26 = load ptr, ptr %argv65, align 8
-  %arrayidx67 = getelementptr inbounds ptr, ptr %26, i64 %indvars.iv
+  %arrayidx67 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv
   %27 = load ptr, ptr %arrayidx67, align 8
-  %ptr = getelementptr inbounds i8, ptr %27, i64 8
+  %ptr = getelementptr inbounds nuw i8, ptr %27, i64 8
   %28 = load ptr, ptr %ptr, align 8
   %cmp68 = icmp samesign ugt i64 %indvars.iv, 2
   br i1 %cmp68, label %land.lhs.true70, label %if.end106
@@ -248,7 +248,7 @@ land.lhs.true70:                                  ; preds = %for.body
   ]
 
 land.lhs.true80:                                  ; preds = %land.lhs.true70, %land.lhs.true70
-  %arrayidx81 = getelementptr inbounds i8, ptr %28, i64 1
+  %arrayidx81 = getelementptr inbounds nuw i8, ptr %28, i64 1
   %30 = load i8, ptr %arrayidx81, align 1
   switch i8 %30, label %if.end106 [
     i8 101, label %land.lhs.true90
@@ -256,7 +256,7 @@ land.lhs.true80:                                  ; preds = %land.lhs.true70, %l
   ]
 
 land.lhs.true90:                                  ; preds = %land.lhs.true80, %land.lhs.true80
-  %arrayidx91 = getelementptr inbounds i8, ptr %28, i64 2
+  %arrayidx91 = getelementptr inbounds nuw i8, ptr %28, i64 2
   %31 = load i8, ptr %arrayidx91, align 1
   switch i8 %31, label %if.end106 [
     i8 116, label %land.lhs.true100
@@ -264,7 +264,7 @@ land.lhs.true90:                                  ; preds = %land.lhs.true80, %l
   ]
 
 land.lhs.true100:                                 ; preds = %land.lhs.true90, %land.lhs.true90
-  %arrayidx101 = getelementptr inbounds i8, ptr %28, i64 3
+  %arrayidx101 = getelementptr inbounds nuw i8, ptr %28, i64 3
   %32 = load i8, ptr %arrayidx101, align 1
   %cmp103 = icmp eq i8 %32, 0
   br i1 %cmp103, label %for.inc, label %if.end106
@@ -298,11 +298,11 @@ if.end117:                                        ; preds = %if.end44, %if.end53
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, 1) i32 @getGenericCommand(ptr noundef %c) local_unnamed_addr #0 {
 entry:
-  %argv = getelementptr inbounds i8, ptr %c, i64 96
+  %argv = getelementptr inbounds nuw i8, ptr %c, i64 96
   %0 = load ptr, ptr %argv, align 8
-  %arrayidx = getelementptr inbounds i8, ptr %0, i64 8
+  %arrayidx = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1 = load ptr, ptr %arrayidx, align 8
-  %resp = getelementptr inbounds i8, ptr %c, i64 24
+  %resp = getelementptr inbounds nuw i8, ptr %c, i64 24
   %2 = load i32, ptr %resp, align 8
   %idxprom = sext i32 %2 to i64
   %arrayidx1 = getelementptr inbounds [4 x ptr], ptr getelementptr inbounds (i8, ptr @shared, i64 64), i64 0, i64 %idxprom
@@ -353,13 +353,13 @@ define dso_local range(i32 -1, 1) i32 @parseExtendedStringArgumentsOrReply(ptr n
 entry:
   %cmp = icmp eq i32 %command_type, 0
   %cond = select i1 %cmp, i32 2, i32 3
-  %argc = getelementptr inbounds i8, ptr %c, i64 88
+  %argc = getelementptr inbounds nuw i8, ptr %c, i64 88
   %0 = load i32, ptr %argc, align 8
   %cmp1142 = icmp slt i32 %cond, %0
   br i1 %cmp1142, label %for.body.lr.ph, label %return
 
 for.body.lr.ph:                                   ; preds = %entry
-  %argv = getelementptr inbounds i8, ptr %c, i64 96
+  %argv = getelementptr inbounds nuw i8, ptr %c, i64 96
   %cmp31 = icmp eq i32 %command_type, 1
   br label %for.body
 
@@ -370,7 +370,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %idxprom = sext i32 %j.0143 to i64
   %arrayidx = getelementptr inbounds ptr, ptr %2, i64 %idxprom
   %3 = load ptr, ptr %arrayidx, align 8
-  %ptr = getelementptr inbounds i8, ptr %3, i64 8
+  %ptr = getelementptr inbounds nuw i8, ptr %3, i64 8
   %4 = load ptr, ptr %ptr, align 8
   %sub = add nsw i32 %1, -1
   %cmp3 = icmp eq i32 %j.0143, %sub
@@ -394,7 +394,7 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   ]
 
 land.lhs.true:                                    ; preds = %cond.end, %cond.end
-  %arrayidx15 = getelementptr inbounds i8, ptr %4, i64 1
+  %arrayidx15 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %7 = load i8, ptr %arrayidx15, align 1
   switch i8 %7, label %if.else [
     i8 120, label %land.lhs.true24
@@ -402,7 +402,7 @@ land.lhs.true:                                    ; preds = %cond.end, %cond.end
   ]
 
 land.lhs.true24:                                  ; preds = %land.lhs.true, %land.lhs.true
-  %arrayidx25 = getelementptr inbounds i8, ptr %4, i64 2
+  %arrayidx25 = getelementptr inbounds nuw i8, ptr %4, i64 2
   %8 = load i8, ptr %arrayidx25, align 1
   %cmp27 = icmp eq i8 %8, 0
   br i1 %cmp27, label %land.lhs.true29, label %if.else
@@ -426,7 +426,7 @@ if.else:                                          ; preds = %land.lhs.true, %lan
   ]
 
 land.lhs.true42:                                  ; preds = %cond.end, %cond.end, %if.else
-  %arrayidx43 = getelementptr inbounds i8, ptr %4, i64 1
+  %arrayidx43 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %10 = load i8, ptr %arrayidx43, align 1
   switch i8 %10, label %if.else65 [
     i8 120, label %land.lhs.true52
@@ -434,7 +434,7 @@ land.lhs.true42:                                  ; preds = %cond.end, %cond.end
   ]
 
 land.lhs.true52:                                  ; preds = %land.lhs.true42, %land.lhs.true42
-  %arrayidx53 = getelementptr inbounds i8, ptr %4, i64 2
+  %arrayidx53 = getelementptr inbounds nuw i8, ptr %4, i64 2
   %11 = load i8, ptr %arrayidx53, align 1
   %cmp55 = icmp eq i8 %11, 0
   br i1 %cmp55, label %land.lhs.true57, label %if.else65
@@ -456,7 +456,7 @@ if.else65:                                        ; preds = %land.lhs.true42, %l
   br i1 %cond151, label %land.lhs.true75, label %if.else105
 
 land.lhs.true75:                                  ; preds = %if.else65, %if.else, %cond.end, %cond.end
-  %arrayidx76 = getelementptr inbounds i8, ptr %4, i64 1
+  %arrayidx76 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %13 = load i8, ptr %arrayidx76, align 1
   switch i8 %13, label %if.else105 [
     i8 101, label %land.lhs.true85
@@ -464,7 +464,7 @@ land.lhs.true75:                                  ; preds = %if.else65, %if.else
   ]
 
 land.lhs.true85:                                  ; preds = %land.lhs.true75, %land.lhs.true75
-  %arrayidx86 = getelementptr inbounds i8, ptr %4, i64 2
+  %arrayidx86 = getelementptr inbounds nuw i8, ptr %4, i64 2
   %14 = load i8, ptr %arrayidx86, align 1
   switch i8 %14, label %if.else105 [
     i8 116, label %land.lhs.true95
@@ -472,7 +472,7 @@ land.lhs.true85:                                  ; preds = %land.lhs.true75, %l
   ]
 
 land.lhs.true95:                                  ; preds = %land.lhs.true85, %land.lhs.true85
-  %arrayidx96 = getelementptr inbounds i8, ptr %4, i64 3
+  %arrayidx96 = getelementptr inbounds nuw i8, ptr %4, i64 3
   %15 = load i8, ptr %arrayidx96, align 1
   %cmp98 = icmp eq i8 %15, 0
   %or.cond2 = and i1 %cmp31, %cmp98
@@ -532,7 +532,7 @@ if.else150:                                       ; preds = %land.lhs.true133, %
   ]
 
 land.lhs.true160:                                 ; preds = %if.else150, %if.else150
-  %arrayidx161 = getelementptr inbounds i8, ptr %4, i64 1
+  %arrayidx161 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %22 = load i8, ptr %arrayidx161, align 1
   switch i8 %22, label %if.else194 [
     i8 120, label %land.lhs.true170
@@ -540,7 +540,7 @@ land.lhs.true160:                                 ; preds = %if.else150, %if.els
   ]
 
 land.lhs.true170:                                 ; preds = %land.lhs.true160, %land.lhs.true160
-  %arrayidx171 = getelementptr inbounds i8, ptr %4, i64 2
+  %arrayidx171 = getelementptr inbounds nuw i8, ptr %4, i64 2
   %23 = load i8, ptr %arrayidx171, align 1
   %cmp173 = icmp eq i8 %23, 0
   br i1 %cmp173, label %land.lhs.true175, label %if.else194
@@ -573,7 +573,7 @@ if.else194:                                       ; preds = %land.lhs.true160, %
   ]
 
 land.lhs.true204:                                 ; preds = %if.else150, %if.else150, %if.else194
-  %arrayidx205 = getelementptr inbounds i8, ptr %4, i64 1
+  %arrayidx205 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %26 = load i8, ptr %arrayidx205, align 1
   switch i8 %26, label %if.else239 [
     i8 120, label %land.lhs.true214
@@ -581,7 +581,7 @@ land.lhs.true204:                                 ; preds = %if.else150, %if.els
   ]
 
 land.lhs.true214:                                 ; preds = %land.lhs.true204, %land.lhs.true204
-  %arrayidx215 = getelementptr inbounds i8, ptr %4, i64 2
+  %arrayidx215 = getelementptr inbounds nuw i8, ptr %4, i64 2
   %27 = load i8, ptr %arrayidx215, align 1
   %cmp217 = icmp eq i8 %27, 0
   br i1 %cmp217, label %land.lhs.true219, label %if.else239
@@ -622,7 +622,7 @@ land.lhs.true249:                                 ; preds = %if.else194, %if.els
   ]
 
 land.lhs.true259:                                 ; preds = %land.lhs.true249, %land.lhs.true249
-  %arrayidx260 = getelementptr inbounds i8, ptr %4, i64 2
+  %arrayidx260 = getelementptr inbounds nuw i8, ptr %4, i64 2
   %31 = load i8, ptr %arrayidx260, align 1
   switch i8 %31, label %if.else304 [
     i8 97, label %land.lhs.true269
@@ -630,7 +630,7 @@ land.lhs.true259:                                 ; preds = %land.lhs.true249, %
   ]
 
 land.lhs.true269:                                 ; preds = %land.lhs.true259, %land.lhs.true259
-  %arrayidx270 = getelementptr inbounds i8, ptr %4, i64 3
+  %arrayidx270 = getelementptr inbounds nuw i8, ptr %4, i64 3
   %32 = load i8, ptr %arrayidx270, align 1
   switch i8 %32, label %if.else304 [
     i8 116, label %land.lhs.true279
@@ -638,7 +638,7 @@ land.lhs.true269:                                 ; preds = %land.lhs.true259, %
   ]
 
 land.lhs.true279:                                 ; preds = %land.lhs.true269, %land.lhs.true269
-  %arrayidx280 = getelementptr inbounds i8, ptr %4, i64 4
+  %arrayidx280 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %33 = load i8, ptr %arrayidx280, align 1
   %cmp282 = icmp eq i8 %33, 0
   br i1 %cmp282, label %land.lhs.true284, label %if.else304
@@ -675,7 +675,7 @@ land.lhs.true314:                                 ; preds = %if.else239, %if.els
   ]
 
 land.lhs.true324:                                 ; preds = %land.lhs.true314, %land.lhs.true314
-  %arrayidx325 = getelementptr inbounds i8, ptr %4, i64 2
+  %arrayidx325 = getelementptr inbounds nuw i8, ptr %4, i64 2
   %37 = load i8, ptr %arrayidx325, align 1
   switch i8 %37, label %if.else369 [
     i8 97, label %land.lhs.true334
@@ -683,7 +683,7 @@ land.lhs.true324:                                 ; preds = %land.lhs.true314, %
   ]
 
 land.lhs.true334:                                 ; preds = %land.lhs.true324, %land.lhs.true324
-  %arrayidx335 = getelementptr inbounds i8, ptr %4, i64 3
+  %arrayidx335 = getelementptr inbounds nuw i8, ptr %4, i64 3
   %38 = load i8, ptr %arrayidx335, align 1
   switch i8 %38, label %if.else369 [
     i8 116, label %land.lhs.true344
@@ -691,7 +691,7 @@ land.lhs.true334:                                 ; preds = %land.lhs.true324, %
   ]
 
 land.lhs.true344:                                 ; preds = %land.lhs.true334, %land.lhs.true334
-  %arrayidx345 = getelementptr inbounds i8, ptr %4, i64 4
+  %arrayidx345 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %39 = load i8, ptr %arrayidx345, align 1
   %cmp347 = icmp eq i8 %39, 0
   br i1 %cmp347, label %land.lhs.true349, label %if.else369
@@ -753,19 +753,19 @@ entry:
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %argv = getelementptr inbounds i8, ptr %c, i64 96
+  %argv = getelementptr inbounds nuw i8, ptr %c, i64 96
   %0 = load ptr, ptr %argv, align 8
-  %arrayidx = getelementptr inbounds i8, ptr %0, i64 16
+  %arrayidx = getelementptr inbounds nuw i8, ptr %0, i64 16
   %1 = load ptr, ptr %arrayidx, align 8
   %call1 = tail call ptr @tryObjectEncoding(ptr noundef %1) #10
   %2 = load ptr, ptr %argv, align 8
-  %arrayidx3 = getelementptr inbounds i8, ptr %2, i64 16
+  %arrayidx3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %call1, ptr %arrayidx3, align 8
   %3 = load i32, ptr %flags, align 4
   %4 = load ptr, ptr %argv, align 8
-  %arrayidx5 = getelementptr inbounds i8, ptr %4, i64 8
+  %arrayidx5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %5 = load ptr, ptr %arrayidx5, align 8
-  %arrayidx7 = getelementptr inbounds i8, ptr %4, i64 16
+  %arrayidx7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %arrayidx7, align 8
   %7 = load ptr, ptr %expire, align 8
   %8 = load i32, ptr %unit, align 4
@@ -781,18 +781,18 @@ declare ptr @tryObjectEncoding(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local void @setnxCommand(ptr noundef %c) local_unnamed_addr #0 {
 entry:
-  %argv = getelementptr inbounds i8, ptr %c, i64 96
+  %argv = getelementptr inbounds nuw i8, ptr %c, i64 96
   %0 = load ptr, ptr %argv, align 8
-  %arrayidx = getelementptr inbounds i8, ptr %0, i64 16
+  %arrayidx = getelementptr inbounds nuw i8, ptr %0, i64 16
   %1 = load ptr, ptr %arrayidx, align 8
   %call = tail call ptr @tryObjectEncoding(ptr noundef %1) #10
   %2 = load ptr, ptr %argv, align 8
-  %arrayidx2 = getelementptr inbounds i8, ptr %2, i64 16
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %call, ptr %arrayidx2, align 8
   %3 = load ptr, ptr %argv, align 8
-  %arrayidx4 = getelementptr inbounds i8, ptr %3, i64 8
+  %arrayidx4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %4 = load ptr, ptr %arrayidx4, align 8
-  %arrayidx6 = getelementptr inbounds i8, ptr %3, i64 16
+  %arrayidx6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load ptr, ptr %arrayidx6, align 8
   %6 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 32), align 8
   %7 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 24), align 8
@@ -803,20 +803,20 @@ entry:
 ; Function Attrs: nounwind uwtable
 define dso_local void @setexCommand(ptr noundef %c) local_unnamed_addr #0 {
 entry:
-  %argv = getelementptr inbounds i8, ptr %c, i64 96
+  %argv = getelementptr inbounds nuw i8, ptr %c, i64 96
   %0 = load ptr, ptr %argv, align 8
-  %arrayidx = getelementptr inbounds i8, ptr %0, i64 24
+  %arrayidx = getelementptr inbounds nuw i8, ptr %0, i64 24
   %1 = load ptr, ptr %arrayidx, align 8
   %call = tail call ptr @tryObjectEncoding(ptr noundef %1) #10
   %2 = load ptr, ptr %argv, align 8
-  %arrayidx2 = getelementptr inbounds i8, ptr %2, i64 24
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %call, ptr %arrayidx2, align 8
   %3 = load ptr, ptr %argv, align 8
-  %arrayidx4 = getelementptr inbounds i8, ptr %3, i64 8
+  %arrayidx4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %4 = load ptr, ptr %arrayidx4, align 8
-  %arrayidx6 = getelementptr inbounds i8, ptr %3, i64 24
+  %arrayidx6 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load ptr, ptr %arrayidx6, align 8
-  %arrayidx8 = getelementptr inbounds i8, ptr %3, i64 16
+  %arrayidx8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %6 = load ptr, ptr %arrayidx8, align 8
   tail call void @setGenericCommand(ptr noundef %c, i32 noundef 4, ptr noundef %4, ptr noundef %5, ptr noundef %6, i32 noundef 0, ptr noundef null, ptr noundef null)
   ret void
@@ -825,20 +825,20 @@ entry:
 ; Function Attrs: nounwind uwtable
 define dso_local void @psetexCommand(ptr noundef %c) local_unnamed_addr #0 {
 entry:
-  %argv = getelementptr inbounds i8, ptr %c, i64 96
+  %argv = getelementptr inbounds nuw i8, ptr %c, i64 96
   %0 = load ptr, ptr %argv, align 8
-  %arrayidx = getelementptr inbounds i8, ptr %0, i64 24
+  %arrayidx = getelementptr inbounds nuw i8, ptr %0, i64 24
   %1 = load ptr, ptr %arrayidx, align 8
   %call = tail call ptr @tryObjectEncoding(ptr noundef %1) #10
   %2 = load ptr, ptr %argv, align 8
-  %arrayidx2 = getelementptr inbounds i8, ptr %2, i64 24
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %call, ptr %arrayidx2, align 8
   %3 = load ptr, ptr %argv, align 8
-  %arrayidx4 = getelementptr inbounds i8, ptr %3, i64 8
+  %arrayidx4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %4 = load ptr, ptr %arrayidx4, align 8
-  %arrayidx6 = getelementptr inbounds i8, ptr %3, i64 24
+  %arrayidx6 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load ptr, ptr %arrayidx6, align 8
-  %arrayidx8 = getelementptr inbounds i8, ptr %3, i64 16
+  %arrayidx8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %6 = load ptr, ptr %arrayidx8, align 8
   tail call void @setGenericCommand(ptr noundef %c, i32 noundef 8, ptr noundef %4, ptr noundef %5, ptr noundef %6, i32 noundef 1, ptr noundef null, ptr noundef null)
   ret void
@@ -853,11 +853,11 @@ declare void @addReplyBulk(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local void @getCommand(ptr noundef %c) local_unnamed_addr #0 {
 entry:
-  %argv.i = getelementptr inbounds i8, ptr %c, i64 96
+  %argv.i = getelementptr inbounds nuw i8, ptr %c, i64 96
   %0 = load ptr, ptr %argv.i, align 8
-  %arrayidx.i = getelementptr inbounds i8, ptr %0, i64 8
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1 = load ptr, ptr %arrayidx.i, align 8
-  %resp.i = getelementptr inbounds i8, ptr %c, i64 24
+  %resp.i = getelementptr inbounds nuw i8, ptr %c, i64 24
   %2 = load i32, ptr %resp.i, align 8
   %idxprom.i = sext i32 %2 to i64
   %arrayidx1.i = getelementptr inbounds [4 x ptr], ptr getelementptr inbounds (i8, ptr @shared, i64 64), i64 0, i64 %idxprom.i
@@ -894,11 +894,11 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.end78
 
 if.end:                                           ; preds = %entry
-  %argv = getelementptr inbounds i8, ptr %c, i64 96
+  %argv = getelementptr inbounds nuw i8, ptr %c, i64 96
   %0 = load ptr, ptr %argv, align 8
-  %arrayidx = getelementptr inbounds i8, ptr %0, i64 8
+  %arrayidx = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1 = load ptr, ptr %arrayidx, align 8
-  %resp = getelementptr inbounds i8, ptr %c, i64 24
+  %resp = getelementptr inbounds nuw i8, ptr %c, i64 24
   %2 = load i32, ptr %resp, align 8
   %idxprom = sext i32 %2 to i64
   %arrayidx1 = getelementptr inbounds [4 x ptr], ptr getelementptr inbounds (i8, ptr @shared, i64 64), i64 0, i64 %idxprom
@@ -974,10 +974,10 @@ land.lhs.true17:                                  ; preds = %if.end13
   br i1 %tobool19.not, label %if.else, label %if.then20
 
 if.then20:                                        ; preds = %land.lhs.true17
-  %db = getelementptr inbounds i8, ptr %c, i64 32
+  %db = getelementptr inbounds nuw i8, ptr %c, i64 32
   %11 = load ptr, ptr %db, align 8
   %12 = load ptr, ptr %argv, align 8
-  %arrayidx22 = getelementptr inbounds i8, ptr %12, i64 8
+  %arrayidx22 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %13 = load ptr, ptr %arrayidx22, align 8
   %14 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 5332), align 4
   %call23 = call i32 @dbGenericDelete(ptr noundef %11, ptr noundef %13, i32 noundef %14, i32 noundef 2) #10
@@ -996,19 +996,19 @@ cond.end:                                         ; preds = %if.then20
   %17 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 400), align 8
   %cond = select i1 %tobool27.not, ptr %17, ptr %16
   %18 = load ptr, ptr %argv, align 8
-  %arrayidx32 = getelementptr inbounds i8, ptr %18, i64 8
+  %arrayidx32 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %19 = load ptr, ptr %arrayidx32, align 8
   call void (ptr, i32, ...) @rewriteClientCommandVector(ptr noundef nonnull %c, i32 noundef 2, ptr noundef %cond, ptr noundef %19) #10
   %20 = load ptr, ptr %db, align 8
   %21 = load ptr, ptr %argv, align 8
-  %arrayidx35 = getelementptr inbounds i8, ptr %21, i64 8
+  %arrayidx35 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %22 = load ptr, ptr %arrayidx35, align 8
   call void @signalModifiedKey(ptr noundef nonnull %c, ptr noundef %20, ptr noundef %22) #10
   %23 = load ptr, ptr %argv, align 8
-  %arrayidx37 = getelementptr inbounds i8, ptr %23, i64 8
+  %arrayidx37 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %24 = load ptr, ptr %arrayidx37, align 8
   %25 = load ptr, ptr %db, align 8
-  %id = getelementptr inbounds i8, ptr %25, i64 48
+  %id = getelementptr inbounds nuw i8, ptr %25, i64 48
   %26 = load i32, ptr %id, align 8
   call void @notifyKeyspaceEvent(i32 noundef 4, ptr noundef nonnull @.str.6, ptr noundef %24, i32 noundef %26) #10
   %27 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 4104), align 8
@@ -1020,10 +1020,10 @@ if.else:                                          ; preds = %if.end13, %land.lhs
   br i1 %tobool9.not, label %if.else55, label %if.then40
 
 if.then40:                                        ; preds = %if.else
-  %db41 = getelementptr inbounds i8, ptr %c, i64 32
+  %db41 = getelementptr inbounds nuw i8, ptr %c, i64 32
   %28 = load ptr, ptr %db41, align 8
   %29 = load ptr, ptr %argv, align 8
-  %arrayidx43 = getelementptr inbounds i8, ptr %29, i64 8
+  %arrayidx43 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %30 = load ptr, ptr %arrayidx43, align 8
   %31 = load i64, ptr %milliseconds, align 8
   call void @setExpire(ptr noundef nonnull %c, ptr noundef %28, ptr noundef %30, i64 noundef %31) #10
@@ -1031,20 +1031,20 @@ if.then40:                                        ; preds = %if.else
   %call44 = call ptr @createStringObjectFromLongLong(i64 noundef %32) #10
   %33 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 592), align 8
   %34 = load ptr, ptr %argv, align 8
-  %arrayidx46 = getelementptr inbounds i8, ptr %34, i64 8
+  %arrayidx46 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %35 = load ptr, ptr %arrayidx46, align 8
   call void (ptr, i32, ...) @rewriteClientCommandVector(ptr noundef nonnull %c, i32 noundef 3, ptr noundef %33, ptr noundef %35, ptr noundef %call44) #10
   call void @decrRefCount(ptr noundef %call44) #10
   %36 = load ptr, ptr %db41, align 8
   %37 = load ptr, ptr %argv, align 8
-  %arrayidx49 = getelementptr inbounds i8, ptr %37, i64 8
+  %arrayidx49 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %38 = load ptr, ptr %arrayidx49, align 8
   call void @signalModifiedKey(ptr noundef nonnull %c, ptr noundef %36, ptr noundef %38) #10
   %39 = load ptr, ptr %argv, align 8
-  %arrayidx51 = getelementptr inbounds i8, ptr %39, i64 8
+  %arrayidx51 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %40 = load ptr, ptr %arrayidx51, align 8
   %41 = load ptr, ptr %db41, align 8
-  %id53 = getelementptr inbounds i8, ptr %41, i64 48
+  %id53 = getelementptr inbounds nuw i8, ptr %41, i64 48
   %42 = load i32, ptr %id53, align 8
   call void @notifyKeyspaceEvent(i32 noundef 4, ptr noundef nonnull @.str.1, ptr noundef %40, i32 noundef %42) #10
   %43 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 4104), align 8
@@ -1058,10 +1058,10 @@ if.else55:                                        ; preds = %if.else
   br i1 %tobool57.not, label %if.end78, label %if.then58
 
 if.then58:                                        ; preds = %if.else55
-  %db59 = getelementptr inbounds i8, ptr %c, i64 32
+  %db59 = getelementptr inbounds nuw i8, ptr %c, i64 32
   %44 = load ptr, ptr %db59, align 8
   %45 = load ptr, ptr %argv, align 8
-  %arrayidx61 = getelementptr inbounds i8, ptr %45, i64 8
+  %arrayidx61 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %46 = load ptr, ptr %arrayidx61, align 8
   %call62 = call i32 @removeExpire(ptr noundef %44, ptr noundef %46) #10
   %tobool63.not = icmp eq i32 %call62, 0
@@ -1070,19 +1070,19 @@ if.then58:                                        ; preds = %if.else55
 if.then64:                                        ; preds = %if.then58
   %47 = load ptr, ptr %db59, align 8
   %48 = load ptr, ptr %argv, align 8
-  %arrayidx67 = getelementptr inbounds i8, ptr %48, i64 8
+  %arrayidx67 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %49 = load ptr, ptr %arrayidx67, align 8
   call void @signalModifiedKey(ptr noundef nonnull %c, ptr noundef %47, ptr noundef %49) #10
   %50 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 576), align 8
   %51 = load ptr, ptr %argv, align 8
-  %arrayidx69 = getelementptr inbounds i8, ptr %51, i64 8
+  %arrayidx69 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %52 = load ptr, ptr %arrayidx69, align 8
   call void (ptr, i32, ...) @rewriteClientCommandVector(ptr noundef nonnull %c, i32 noundef 2, ptr noundef %50, ptr noundef %52) #10
   %53 = load ptr, ptr %argv, align 8
-  %arrayidx71 = getelementptr inbounds i8, ptr %53, i64 8
+  %arrayidx71 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %54 = load ptr, ptr %arrayidx71, align 8
   %55 = load ptr, ptr %db59, align 8
-  %id73 = getelementptr inbounds i8, ptr %55, i64 48
+  %id73 = getelementptr inbounds nuw i8, ptr %55, i64 48
   %56 = load i32, ptr %id73, align 8
   call void @notifyKeyspaceEvent(i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef %54, i32 noundef %56) #10
   %57 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 4104), align 8
@@ -1110,11 +1110,11 @@ declare i32 @removeExpire(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local void @getdelCommand(ptr noundef %c) local_unnamed_addr #0 {
 entry:
-  %argv.i = getelementptr inbounds i8, ptr %c, i64 96
+  %argv.i = getelementptr inbounds nuw i8, ptr %c, i64 96
   %0 = load ptr, ptr %argv.i, align 8
-  %arrayidx.i = getelementptr inbounds i8, ptr %0, i64 8
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1 = load ptr, ptr %arrayidx.i, align 8
-  %resp.i = getelementptr inbounds i8, ptr %c, i64 24
+  %resp.i = getelementptr inbounds nuw i8, ptr %c, i64 24
   %2 = load i32, ptr %resp.i, align 8
   %idxprom.i = sext i32 %2 to i64
   %arrayidx1.i = getelementptr inbounds [4 x ptr], ptr getelementptr inbounds (i8, ptr @shared, i64 64), i64 0, i64 %idxprom.i
@@ -1133,10 +1133,10 @@ if.end4.i:                                        ; preds = %if.end.i
   br label %if.end
 
 if.end:                                           ; preds = %if.end4.i, %entry
-  %db = getelementptr inbounds i8, ptr %c, i64 32
+  %db = getelementptr inbounds nuw i8, ptr %c, i64 32
   %4 = load ptr, ptr %db, align 8
   %5 = load ptr, ptr %argv.i, align 8
-  %arrayidx = getelementptr inbounds i8, ptr %5, i64 8
+  %arrayidx = getelementptr inbounds nuw i8, ptr %5, i64 8
   %6 = load ptr, ptr %arrayidx, align 8
   %call1 = tail call i32 @dbSyncDelete(ptr noundef %4, ptr noundef %6) #10
   %tobool.not = icmp eq i32 %call1, 0
@@ -1145,19 +1145,19 @@ if.end:                                           ; preds = %if.end4.i, %entry
 if.then2:                                         ; preds = %if.end
   %7 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 400), align 8
   %8 = load ptr, ptr %argv.i, align 8
-  %arrayidx4 = getelementptr inbounds i8, ptr %8, i64 8
+  %arrayidx4 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %9 = load ptr, ptr %arrayidx4, align 8
   tail call void (ptr, i32, ...) @rewriteClientCommandVector(ptr noundef nonnull %c, i32 noundef 2, ptr noundef %7, ptr noundef %9) #10
   %10 = load ptr, ptr %db, align 8
   %11 = load ptr, ptr %argv.i, align 8
-  %arrayidx7 = getelementptr inbounds i8, ptr %11, i64 8
+  %arrayidx7 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %12 = load ptr, ptr %arrayidx7, align 8
   tail call void @signalModifiedKey(ptr noundef nonnull %c, ptr noundef %10, ptr noundef %12) #10
   %13 = load ptr, ptr %argv.i, align 8
-  %arrayidx9 = getelementptr inbounds i8, ptr %13, i64 8
+  %arrayidx9 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %14 = load ptr, ptr %arrayidx9, align 8
   %15 = load ptr, ptr %db, align 8
-  %id = getelementptr inbounds i8, ptr %15, i64 48
+  %id = getelementptr inbounds nuw i8, ptr %15, i64 48
   %16 = load i32, ptr %id, align 8
   tail call void @notifyKeyspaceEvent(i32 noundef 4, ptr noundef nonnull @.str.6, ptr noundef %14, i32 noundef %16) #10
   %17 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 4104), align 8
@@ -1174,11 +1174,11 @@ declare i32 @dbSyncDelete(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local void @getsetCommand(ptr noundef %c) local_unnamed_addr #0 {
 entry:
-  %argv.i = getelementptr inbounds i8, ptr %c, i64 96
+  %argv.i = getelementptr inbounds nuw i8, ptr %c, i64 96
   %0 = load ptr, ptr %argv.i, align 8
-  %arrayidx.i = getelementptr inbounds i8, ptr %0, i64 8
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1 = load ptr, ptr %arrayidx.i, align 8
-  %resp.i = getelementptr inbounds i8, ptr %c, i64 24
+  %resp.i = getelementptr inbounds nuw i8, ptr %c, i64 24
   %2 = load i32, ptr %resp.i, align 8
   %idxprom.i = sext i32 %2 to i64
   %arrayidx1.i = getelementptr inbounds [4 x ptr], ptr getelementptr inbounds (i8, ptr @shared, i64 64), i64 0, i64 %idxprom.i
@@ -1198,25 +1198,25 @@ if.end4.i:                                        ; preds = %if.end.i
 
 if.end:                                           ; preds = %if.end4.i, %entry
   %4 = load ptr, ptr %argv.i, align 8
-  %arrayidx = getelementptr inbounds i8, ptr %4, i64 16
+  %arrayidx = getelementptr inbounds nuw i8, ptr %4, i64 16
   %5 = load ptr, ptr %arrayidx, align 8
   %call1 = tail call ptr @tryObjectEncoding(ptr noundef %5) #10
   %6 = load ptr, ptr %argv.i, align 8
-  %arrayidx3 = getelementptr inbounds i8, ptr %6, i64 16
+  %arrayidx3 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %call1, ptr %arrayidx3, align 8
-  %db = getelementptr inbounds i8, ptr %c, i64 32
+  %db = getelementptr inbounds nuw i8, ptr %c, i64 32
   %7 = load ptr, ptr %db, align 8
   %8 = load ptr, ptr %argv.i, align 8
-  %arrayidx5 = getelementptr inbounds i8, ptr %8, i64 8
+  %arrayidx5 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %9 = load ptr, ptr %arrayidx5, align 8
-  %arrayidx7 = getelementptr inbounds i8, ptr %8, i64 16
+  %arrayidx7 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load ptr, ptr %arrayidx7, align 8
   tail call void @setKey(ptr noundef nonnull %c, ptr noundef %7, ptr noundef %9, ptr noundef %10, i32 noundef 0) #10
   %11 = load ptr, ptr %argv.i, align 8
-  %arrayidx9 = getelementptr inbounds i8, ptr %11, i64 8
+  %arrayidx9 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %12 = load ptr, ptr %arrayidx9, align 8
   %13 = load ptr, ptr %db, align 8
-  %id = getelementptr inbounds i8, ptr %13, i64 48
+  %id = getelementptr inbounds nuw i8, ptr %13, i64 48
   %14 = load i32, ptr %id, align 8
   tail call void @notifyKeyspaceEvent(i32 noundef 8, ptr noundef nonnull @.str, ptr noundef %12, i32 noundef %14) #10
   %15 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 4104), align 8
@@ -1236,13 +1236,13 @@ declare void @rewriteClientCommandArgument(ptr noundef, i32 noundef, ptr noundef
 define dso_local void @setrangeCommand(ptr noundef %c) local_unnamed_addr #0 {
 entry:
   %offset = alloca i64, align 8
-  %argv = getelementptr inbounds i8, ptr %c, i64 96
+  %argv = getelementptr inbounds nuw i8, ptr %c, i64 96
   %0 = load ptr, ptr %argv, align 8
-  %arrayidx = getelementptr inbounds i8, ptr %0, i64 24
+  %arrayidx = getelementptr inbounds nuw i8, ptr %0, i64 24
   %1 = load ptr, ptr %arrayidx, align 8
-  %ptr = getelementptr inbounds i8, ptr %1, i64 8
+  %ptr = getelementptr inbounds nuw i8, ptr %1, i64 8
   %2 = load ptr, ptr %ptr, align 8
-  %arrayidx2 = getelementptr inbounds i8, ptr %0, i64 16
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %arrayidx2, align 8
   %call = call i32 @getLongFromObjectOrReply(ptr noundef %c, ptr noundef %3, ptr noundef nonnull %offset, ptr noundef null) #10
   %cmp.not = icmp eq i32 %call, 0
@@ -1258,10 +1258,10 @@ if.then4:                                         ; preds = %if.end
   br label %return
 
 if.end5:                                          ; preds = %if.end
-  %db = getelementptr inbounds i8, ptr %c, i64 32
+  %db = getelementptr inbounds nuw i8, ptr %c, i64 32
   %5 = load ptr, ptr %db, align 8
   %6 = load ptr, ptr %argv, align 8
-  %arrayidx7 = getelementptr inbounds i8, ptr %6, i64 8
+  %arrayidx7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %7 = load ptr, ptr %arrayidx7, align 8
   %call8 = call ptr @lookupKeyWrite(ptr noundef %5, ptr noundef %7) #10
   %cmp9 = icmp eq ptr %call8, null
@@ -1427,7 +1427,7 @@ sdslen.exit75:                                    ; preds = %if.end19, %sw.bb.i7
   %call22 = call ptr @createObject(i32 noundef 0, ptr noundef %call21) #10
   %26 = load ptr, ptr %db, align 8
   %27 = load ptr, ptr %argv, align 8
-  %arrayidx25 = getelementptr inbounds i8, ptr %27, i64 8
+  %arrayidx25 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %28 = load ptr, ptr %arrayidx25, align 8
   call void @dbAdd(ptr noundef %26, ptr noundef %28, ptr noundef %call22) #10
   br label %if.end43
@@ -1552,7 +1552,7 @@ checkStringLength.exit125:                        ; preds = %if.end.i117
 if.end38:                                         ; preds = %sdslen.exit113, %if.end.i117
   %40 = load ptr, ptr %db, align 8
   %41 = load ptr, ptr %argv, align 8
-  %arrayidx41 = getelementptr inbounds i8, ptr %41, i64 8
+  %arrayidx41 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %42 = load ptr, ptr %arrayidx41, align 8
   %call42 = call ptr @dbUnshareStringValue(ptr noundef %40, ptr noundef %42, ptr noundef nonnull %call8) #10
   br label %if.end43
@@ -1605,7 +1605,7 @@ sdslen.exit144:                                   ; preds = %sw.bb.i141, %sw.bb3
   br i1 %cmp45.not, label %if.end60, label %if.then46
 
 if.then46:                                        ; preds = %sdslen.exit144
-  %ptr47 = getelementptr inbounds i8, ptr %o.0, i64 8
+  %ptr47 = getelementptr inbounds nuw i8, ptr %o.0, i64 8
   %48 = load ptr, ptr %ptr47, align 8
   %49 = load i64, ptr %offset, align 8
   switch i32 %and.i128, label %default.unreachable212 [
@@ -1698,14 +1698,14 @@ sdslen.exit182:                                   ; preds = %sdslen.exit163, %sw
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr, ptr nonnull align 1 %2, i64 %retval.0.i169, i1 false)
   %60 = load ptr, ptr %db, align 8
   %61 = load ptr, ptr %argv, align 8
-  %arrayidx56 = getelementptr inbounds i8, ptr %61, i64 8
+  %arrayidx56 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %62 = load ptr, ptr %arrayidx56, align 8
   call void @signalModifiedKey(ptr noundef nonnull %c, ptr noundef %60, ptr noundef %62) #10
   %63 = load ptr, ptr %argv, align 8
-  %arrayidx58 = getelementptr inbounds i8, ptr %63, i64 8
+  %arrayidx58 = getelementptr inbounds nuw i8, ptr %63, i64 8
   %64 = load ptr, ptr %arrayidx58, align 8
   %65 = load ptr, ptr %db, align 8
-  %id = getelementptr inbounds i8, ptr %65, i64 48
+  %id = getelementptr inbounds nuw i8, ptr %65, i64 48
   %66 = load i32, ptr %id, align 8
   call void @notifyKeyspaceEvent(i32 noundef 8, ptr noundef nonnull @.str.9, ptr noundef %64, i32 noundef %66) #10
   %67 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 4104), align 8
@@ -1714,7 +1714,7 @@ sdslen.exit182:                                   ; preds = %sdslen.exit163, %sw
   br label %if.end60
 
 if.end60:                                         ; preds = %if.end43, %sdslen.exit182, %sdslen.exit144
-  %ptr61 = getelementptr inbounds i8, ptr %o.0, i64 8
+  %ptr61 = getelementptr inbounds nuw i8, ptr %o.0, i64 8
   %68 = load ptr, ptr %ptr61, align 8
   %arrayidx.i183 = getelementptr inbounds i8, ptr %68, i64 -1
   %69 = load i8, ptr %arrayidx.i183, align 1
@@ -1840,9 +1840,9 @@ entry:
   %start = alloca i64, align 8
   %end = alloca i64, align 8
   %llbuf = alloca [32 x i8], align 16
-  %argv = getelementptr inbounds i8, ptr %c, i64 96
+  %argv = getelementptr inbounds nuw i8, ptr %c, i64 96
   %0 = load ptr, ptr %argv, align 8
-  %arrayidx = getelementptr inbounds i8, ptr %0, i64 16
+  %arrayidx = getelementptr inbounds nuw i8, ptr %0, i64 16
   %1 = load ptr, ptr %arrayidx, align 8
   %call = call i32 @getLongLongFromObjectOrReply(ptr noundef %c, ptr noundef %1, ptr noundef nonnull %start, ptr noundef null) #10
   %cmp.not = icmp eq i32 %call, 0
@@ -1850,7 +1850,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %2 = load ptr, ptr %argv, align 8
-  %arrayidx2 = getelementptr inbounds i8, ptr %2, i64 24
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %3 = load ptr, ptr %arrayidx2, align 8
   %call3 = call i32 @getLongLongFromObjectOrReply(ptr noundef nonnull %c, ptr noundef %3, ptr noundef nonnull %end, ptr noundef null) #10
   %cmp4.not = icmp eq i32 %call3, 0
@@ -1858,7 +1858,7 @@ if.end:                                           ; preds = %entry
 
 if.end6:                                          ; preds = %if.end
   %4 = load ptr, ptr %argv, align 8
-  %arrayidx8 = getelementptr inbounds i8, ptr %4, i64 8
+  %arrayidx8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %5 = load ptr, ptr %arrayidx8, align 8
   %6 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 16), align 8
   %call9 = call ptr @lookupKeyReadOrReply(ptr noundef nonnull %c, ptr noundef %5, ptr noundef %6) #10
@@ -1874,7 +1874,7 @@ if.end13:                                         ; preds = %lor.lhs.false
   %bf.load = load i32, ptr %call9, align 8
   %7 = and i32 %bf.load, 240
   %cmp14 = icmp eq i32 %7, 16
-  %ptr = getelementptr inbounds i8, ptr %call9, i64 8
+  %ptr = getelementptr inbounds nuw i8, ptr %call9, i64 8
   %8 = load ptr, ptr %ptr, align 8
   br i1 %cmp14, label %if.then15, label %if.else
 
@@ -1957,7 +1957,7 @@ if.then56:                                        ; preds = %21
   br label %if.end60
 
 if.else57:                                        ; preds = %21
-  %add.ptr = getelementptr inbounds i8, ptr %str.0, i64 %16
+  %add.ptr = getelementptr inbounds nuw i8, ptr %str.0, i64 %16
   %reass.sub = sub nsw i64 %18, %16
   %add59 = add i64 %reass.sub, 1
   call void @addReplyBulkCBuffer(ptr noundef nonnull %c, ptr noundef %add.ptr, i64 noundef %add59) #10
@@ -1976,7 +1976,7 @@ declare void @addReplyBulkCBuffer(ptr noundef, ptr noundef, i64 noundef) local_u
 ; Function Attrs: nounwind uwtable
 define dso_local void @mgetCommand(ptr noundef %c) local_unnamed_addr #0 {
 entry:
-  %argc = getelementptr inbounds i8, ptr %c, i64 88
+  %argc = getelementptr inbounds nuw i8, ptr %c, i64 88
   %0 = load i32, ptr %argc, align 8
   %sub = add nsw i32 %0, -1
   %conv = sext i32 %sub to i64
@@ -1986,15 +1986,15 @@ entry:
   br i1 %cmp12, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %db = getelementptr inbounds i8, ptr %c, i64 32
-  %argv = getelementptr inbounds i8, ptr %c, i64 96
+  %db = getelementptr inbounds nuw i8, ptr %c, i64 32
+  %argv = getelementptr inbounds nuw i8, ptr %c, i64 96
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 1, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %2 = load ptr, ptr %db, align 8
   %3 = load ptr, ptr %argv, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
   %4 = load ptr, ptr %arrayidx, align 8
   %call = tail call ptr @lookupKeyRead(ptr noundef %2, ptr noundef %4) #10
   %cmp3 = icmp eq ptr %call, null
@@ -2038,7 +2038,7 @@ declare void @addReplyNull(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local void @msetGenericCommand(ptr noundef %c, i32 noundef %nx) local_unnamed_addr #0 {
 entry:
-  %argc = getelementptr inbounds i8, ptr %c, i64 88
+  %argc = getelementptr inbounds nuw i8, ptr %c, i64 88
   %0 = load i32, ptr %argc, align 8
   %1 = and i32 %0, 1
   %cmp = icmp eq i32 %1, 0
@@ -2057,8 +2057,8 @@ for.cond.preheader:                               ; preds = %if.end
   br i1 %cmp113150, label %for.body.lr.ph, label %for.end39
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %db = getelementptr inbounds i8, ptr %c, i64 32
-  %argv = getelementptr inbounds i8, ptr %c, i64 96
+  %db = getelementptr inbounds nuw i8, ptr %c, i64 32
+  %argv = getelementptr inbounds nuw i8, ptr %c, i64 96
   br label %for.body
 
 for.cond:                                         ; preds = %for.body
@@ -2072,7 +2072,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %indvars.iv = phi i64 [ 1, %for.body.lr.ph ], [ %indvars.iv.next, %for.cond ]
   %4 = load ptr, ptr %db, align 8
   %5 = load ptr, ptr %argv, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %5, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
   %6 = load ptr, ptr %arrayidx, align 8
   %call = tail call ptr @lookupKeyWrite(ptr noundef %4, ptr noundef %6) #10
   %cmp4.not = icmp eq ptr %call, null
@@ -2091,37 +2091,37 @@ if.end7.thread48:                                 ; preds = %if.end
   br i1 %cmp113150, label %for.body12.lr.ph.thread, label %for.end39
 
 for.body12.lr.ph.thread:                          ; preds = %if.end7.thread48
-  %argv1353 = getelementptr inbounds i8, ptr %c, i64 96
-  %db2254 = getelementptr inbounds i8, ptr %c, i64 32
+  %argv1353 = getelementptr inbounds nuw i8, ptr %c, i64 96
+  %db2254 = getelementptr inbounds nuw i8, ptr %c, i64 32
   br label %for.body12.us
 
 for.body12.lr.ph:                                 ; preds = %if.end7
-  %argv13 = getelementptr inbounds i8, ptr %c, i64 96
-  %db22 = getelementptr inbounds i8, ptr %c, i64 32
+  %argv13 = getelementptr inbounds nuw i8, ptr %c, i64 96
+  %db22 = getelementptr inbounds nuw i8, ptr %c, i64 32
   br label %for.body12
 
 for.body12.us:                                    ; preds = %for.body12.lr.ph.thread, %for.body12.us
   %indvars.iv42 = phi i64 [ 1, %for.body12.lr.ph.thread ], [ %indvars.iv.next43, %for.body12.us ]
   %8 = load ptr, ptr %argv1353, align 8
   %9 = add nuw nsw i64 %indvars.iv42, 1
-  %arrayidx16.us = getelementptr inbounds ptr, ptr %8, i64 %9
+  %arrayidx16.us = getelementptr inbounds nuw ptr, ptr %8, i64 %9
   %10 = load ptr, ptr %arrayidx16.us, align 8
   %call17.us = tail call ptr @tryObjectEncoding(ptr noundef %10) #10
   %11 = load ptr, ptr %argv1353, align 8
-  %arrayidx21.us = getelementptr inbounds ptr, ptr %11, i64 %9
+  %arrayidx21.us = getelementptr inbounds nuw ptr, ptr %11, i64 %9
   store ptr %call17.us, ptr %arrayidx21.us, align 8
   %12 = load ptr, ptr %db2254, align 8
   %13 = load ptr, ptr %argv1353, align 8
-  %arrayidx25.us = getelementptr inbounds ptr, ptr %13, i64 %indvars.iv42
+  %arrayidx25.us = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv42
   %14 = load ptr, ptr %arrayidx25.us, align 8
-  %arrayidx29.us = getelementptr inbounds ptr, ptr %13, i64 %9
+  %arrayidx29.us = getelementptr inbounds nuw ptr, ptr %13, i64 %9
   %15 = load ptr, ptr %arrayidx29.us, align 8
   tail call void @setKey(ptr noundef nonnull %c, ptr noundef %12, ptr noundef %14, ptr noundef %15, i32 noundef 0) #10
   %16 = load ptr, ptr %argv1353, align 8
-  %arrayidx32.us = getelementptr inbounds ptr, ptr %16, i64 %indvars.iv42
+  %arrayidx32.us = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv42
   %17 = load ptr, ptr %arrayidx32.us, align 8
   %18 = load ptr, ptr %db2254, align 8
-  %id.us = getelementptr inbounds i8, ptr %18, i64 48
+  %id.us = getelementptr inbounds nuw i8, ptr %18, i64 48
   %19 = load i32, ptr %id.us, align 8
   tail call void @notifyKeyspaceEvent(i32 noundef 8, ptr noundef nonnull @.str, ptr noundef %17, i32 noundef %19) #10
   %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 2
@@ -2135,24 +2135,24 @@ for.body12:                                       ; preds = %for.body12.lr.ph, %
   %setkey_flags.033 = phi i32 [ 16, %for.body12 ], [ 8, %for.body12.lr.ph ]
   %22 = load ptr, ptr %argv13, align 8
   %23 = add nuw nsw i64 %indvars.iv38, 1
-  %arrayidx16 = getelementptr inbounds ptr, ptr %22, i64 %23
+  %arrayidx16 = getelementptr inbounds nuw ptr, ptr %22, i64 %23
   %24 = load ptr, ptr %arrayidx16, align 8
   %call17 = tail call ptr @tryObjectEncoding(ptr noundef %24) #10
   %25 = load ptr, ptr %argv13, align 8
-  %arrayidx21 = getelementptr inbounds ptr, ptr %25, i64 %23
+  %arrayidx21 = getelementptr inbounds nuw ptr, ptr %25, i64 %23
   store ptr %call17, ptr %arrayidx21, align 8
   %26 = load ptr, ptr %db22, align 8
   %27 = load ptr, ptr %argv13, align 8
-  %arrayidx25 = getelementptr inbounds ptr, ptr %27, i64 %indvars.iv38
+  %arrayidx25 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv38
   %28 = load ptr, ptr %arrayidx25, align 8
-  %arrayidx29 = getelementptr inbounds ptr, ptr %27, i64 %23
+  %arrayidx29 = getelementptr inbounds nuw ptr, ptr %27, i64 %23
   %29 = load ptr, ptr %arrayidx29, align 8
   tail call void @setKey(ptr noundef nonnull %c, ptr noundef %26, ptr noundef %28, ptr noundef %29, i32 noundef %setkey_flags.033) #10
   %30 = load ptr, ptr %argv13, align 8
-  %arrayidx32 = getelementptr inbounds ptr, ptr %30, i64 %indvars.iv38
+  %arrayidx32 = getelementptr inbounds nuw ptr, ptr %30, i64 %indvars.iv38
   %31 = load ptr, ptr %arrayidx32, align 8
   %32 = load ptr, ptr %db22, align 8
-  %id = getelementptr inbounds i8, ptr %32, i64 48
+  %id = getelementptr inbounds nuw i8, ptr %32, i64 48
   %33 = load i32, ptr %id, align 8
   tail call void @notifyKeyspaceEvent(i32 noundef 8, ptr noundef nonnull @.str, ptr noundef %31, i32 noundef %33) #10
   %indvars.iv.next39 = add nuw nsw i64 %indvars.iv38, 2
@@ -2199,11 +2199,11 @@ entry:
 define dso_local void @incrDecrCommand(ptr noundef %c, i64 noundef %incr) local_unnamed_addr #0 {
 entry:
   %value = alloca i64, align 8
-  %db = getelementptr inbounds i8, ptr %c, i64 32
+  %db = getelementptr inbounds nuw i8, ptr %c, i64 32
   %0 = load ptr, ptr %db, align 8
-  %argv = getelementptr inbounds i8, ptr %c, i64 96
+  %argv = getelementptr inbounds nuw i8, ptr %c, i64 96
   %1 = load ptr, ptr %argv, align 8
-  %arrayidx = getelementptr inbounds i8, ptr %1, i64 8
+  %arrayidx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %2 = load ptr, ptr %arrayidx, align 8
   %call = tail call ptr @lookupKeyWrite(ptr noundef %0, ptr noundef %2) #10
   %call1 = tail call i32 @checkType(ptr noundef %c, ptr noundef %call, i32 noundef 0) #10
@@ -2245,7 +2245,7 @@ if.end16:                                         ; preds = %lor.lhs.false
   br i1 %tobool17.not, label %if.else37, label %land.lhs.true18
 
 land.lhs.true18:                                  ; preds = %if.end16
-  %refcount = getelementptr inbounds i8, ptr %call, i64 4
+  %refcount = getelementptr inbounds nuw i8, ptr %call, i64 4
   %4 = load i32, ptr %refcount, align 4
   %cmp19 = icmp eq i32 %4, 1
   br i1 %cmp19, label %land.lhs.true20, label %if.then33
@@ -2260,7 +2260,7 @@ land.lhs.true20:                                  ; preds = %land.lhs.true18
 
 if.then30:                                        ; preds = %land.lhs.true20
   %6 = inttoptr i64 %add to ptr
-  %ptr = getelementptr inbounds i8, ptr %call, i64 8
+  %ptr = getelementptr inbounds nuw i8, ptr %call, i64 8
   store ptr %6, ptr %ptr, align 8
   br label %if.end42
 
@@ -2268,7 +2268,7 @@ if.then33:                                        ; preds = %land.lhs.true20, %l
   %call3137 = call ptr @createStringObjectFromLongLongForValue(i64 noundef %add) #10
   %7 = load ptr, ptr %db, align 8
   %8 = load ptr, ptr %argv, align 8
-  %arrayidx36 = getelementptr inbounds i8, ptr %8, i64 8
+  %arrayidx36 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %9 = load ptr, ptr %arrayidx36, align 8
   call void @dbReplaceValue(ptr noundef %7, ptr noundef %9, ptr noundef %call3137) #10
   br label %if.end42
@@ -2277,7 +2277,7 @@ if.else37:                                        ; preds = %if.end16
   %call31 = call ptr @createStringObjectFromLongLongForValue(i64 noundef %add) #10
   %10 = load ptr, ptr %db, align 8
   %11 = load ptr, ptr %argv, align 8
-  %arrayidx40 = getelementptr inbounds i8, ptr %11, i64 8
+  %arrayidx40 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %12 = load ptr, ptr %arrayidx40, align 8
   call void @dbAdd(ptr noundef %10, ptr noundef %12, ptr noundef %call31) #10
   br label %if.end42
@@ -2285,14 +2285,14 @@ if.else37:                                        ; preds = %if.end16
 if.end42:                                         ; preds = %if.then33, %if.else37, %if.then30
   %13 = load ptr, ptr %db, align 8
   %14 = load ptr, ptr %argv, align 8
-  %arrayidx45 = getelementptr inbounds i8, ptr %14, i64 8
+  %arrayidx45 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %15 = load ptr, ptr %arrayidx45, align 8
   call void @signalModifiedKey(ptr noundef nonnull %c, ptr noundef %13, ptr noundef %15) #10
   %16 = load ptr, ptr %argv, align 8
-  %arrayidx47 = getelementptr inbounds i8, ptr %16, i64 8
+  %arrayidx47 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %17 = load ptr, ptr %arrayidx47, align 8
   %18 = load ptr, ptr %db, align 8
-  %id = getelementptr inbounds i8, ptr %18, i64 48
+  %id = getelementptr inbounds nuw i8, ptr %18, i64 48
   %19 = load i32, ptr %id, align 8
   call void @notifyKeyspaceEvent(i32 noundef 8, ptr noundef nonnull @.str.11, ptr noundef %17, i32 noundef %19) #10
   %20 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 4104), align 8
@@ -2328,9 +2328,9 @@ entry:
 define dso_local void @incrbyCommand(ptr noundef %c) local_unnamed_addr #0 {
 entry:
   %incr = alloca i64, align 8
-  %argv = getelementptr inbounds i8, ptr %c, i64 96
+  %argv = getelementptr inbounds nuw i8, ptr %c, i64 96
   %0 = load ptr, ptr %argv, align 8
-  %arrayidx = getelementptr inbounds i8, ptr %0, i64 16
+  %arrayidx = getelementptr inbounds nuw i8, ptr %0, i64 16
   %1 = load ptr, ptr %arrayidx, align 8
   %call = call i32 @getLongLongFromObjectOrReply(ptr noundef %c, ptr noundef %1, ptr noundef nonnull %incr, ptr noundef null) #10
   %cmp.not = icmp eq i32 %call, 0
@@ -2349,9 +2349,9 @@ return:                                           ; preds = %entry, %if.end
 define dso_local void @decrbyCommand(ptr noundef %c) local_unnamed_addr #0 {
 entry:
   %incr = alloca i64, align 8
-  %argv = getelementptr inbounds i8, ptr %c, i64 96
+  %argv = getelementptr inbounds nuw i8, ptr %c, i64 96
   %0 = load ptr, ptr %argv, align 8
-  %arrayidx = getelementptr inbounds i8, ptr %0, i64 16
+  %arrayidx = getelementptr inbounds nuw i8, ptr %0, i64 16
   %1 = load ptr, ptr %arrayidx, align 8
   %call = call i32 @getLongLongFromObjectOrReply(ptr noundef %c, ptr noundef %1, ptr noundef nonnull %incr, ptr noundef null) #10
   %cmp.not = icmp eq i32 %call, 0
@@ -2380,11 +2380,11 @@ define dso_local void @incrbyfloatCommand(ptr noundef %c) local_unnamed_addr #0 
 entry:
   %incr = alloca x86_fp80, align 16
   %value = alloca x86_fp80, align 16
-  %db = getelementptr inbounds i8, ptr %c, i64 32
+  %db = getelementptr inbounds nuw i8, ptr %c, i64 32
   %0 = load ptr, ptr %db, align 8
-  %argv = getelementptr inbounds i8, ptr %c, i64 96
+  %argv = getelementptr inbounds nuw i8, ptr %c, i64 96
   %1 = load ptr, ptr %argv, align 8
-  %arrayidx = getelementptr inbounds i8, ptr %1, i64 8
+  %arrayidx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %2 = load ptr, ptr %arrayidx, align 8
   %call = tail call ptr @lookupKeyWrite(ptr noundef %0, ptr noundef %2) #10
   %call1 = tail call i32 @checkType(ptr noundef %c, ptr noundef %call, i32 noundef 0) #10
@@ -2398,7 +2398,7 @@ if.end:                                           ; preds = %entry
 
 lor.lhs.false:                                    ; preds = %if.end
   %3 = load ptr, ptr %argv, align 8
-  %arrayidx4 = getelementptr inbounds i8, ptr %3, i64 16
+  %arrayidx4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %4 = load ptr, ptr %arrayidx4, align 8
   %call5 = call i32 @getLongDoubleFromObjectOrReply(ptr noundef nonnull %c, ptr noundef %4, ptr noundef nonnull %incr, ptr noundef null) #10
   %cmp6.not = icmp eq i32 %call5, 0
@@ -2422,7 +2422,7 @@ if.end12:                                         ; preds = %if.end8
   %tobool14.not = icmp eq ptr %call, null
   %8 = load ptr, ptr %db, align 8
   %9 = load ptr, ptr %argv, align 8
-  %arrayidx21 = getelementptr inbounds i8, ptr %9, i64 8
+  %arrayidx21 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %10 = load ptr, ptr %arrayidx21, align 8
   br i1 %tobool14.not, label %if.else, label %if.then15
 
@@ -2437,14 +2437,14 @@ if.else:                                          ; preds = %if.end12
 if.end22:                                         ; preds = %if.else, %if.then15
   %11 = load ptr, ptr %db, align 8
   %12 = load ptr, ptr %argv, align 8
-  %arrayidx25 = getelementptr inbounds i8, ptr %12, i64 8
+  %arrayidx25 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %13 = load ptr, ptr %arrayidx25, align 8
   call void @signalModifiedKey(ptr noundef nonnull %c, ptr noundef %11, ptr noundef %13) #10
   %14 = load ptr, ptr %argv, align 8
-  %arrayidx27 = getelementptr inbounds i8, ptr %14, i64 8
+  %arrayidx27 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %15 = load ptr, ptr %arrayidx27, align 8
   %16 = load ptr, ptr %db, align 8
-  %id = getelementptr inbounds i8, ptr %16, i64 48
+  %id = getelementptr inbounds nuw i8, ptr %16, i64 48
   %17 = load i32, ptr %id, align 8
   call void @notifyKeyspaceEvent(i32 noundef 8, ptr noundef nonnull @.str.14, ptr noundef %15, i32 noundef %17) #10
   %18 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 4104), align 8
@@ -2472,11 +2472,11 @@ declare ptr @createStringObjectFromLongDouble(x86_fp80 noundef, i32 noundef) loc
 ; Function Attrs: nounwind uwtable
 define dso_local void @appendCommand(ptr noundef %c) local_unnamed_addr #0 {
 entry:
-  %db = getelementptr inbounds i8, ptr %c, i64 32
+  %db = getelementptr inbounds nuw i8, ptr %c, i64 32
   %0 = load ptr, ptr %db, align 8
-  %argv = getelementptr inbounds i8, ptr %c, i64 96
+  %argv = getelementptr inbounds nuw i8, ptr %c, i64 96
   %1 = load ptr, ptr %argv, align 8
-  %arrayidx = getelementptr inbounds i8, ptr %1, i64 8
+  %arrayidx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %2 = load ptr, ptr %arrayidx, align 8
   %call = tail call ptr @lookupKeyWrite(ptr noundef %0, ptr noundef %2) #10
   %cmp = icmp eq ptr %call, null
@@ -2484,25 +2484,25 @@ entry:
 
 if.then:                                          ; preds = %entry
   %3 = load ptr, ptr %argv, align 8
-  %arrayidx2 = getelementptr inbounds i8, ptr %3, i64 16
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %4 = load ptr, ptr %arrayidx2, align 8
   %call3 = tail call ptr @tryObjectEncoding(ptr noundef %4) #10
   %5 = load ptr, ptr %argv, align 8
-  %arrayidx5 = getelementptr inbounds i8, ptr %5, i64 16
+  %arrayidx5 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %call3, ptr %arrayidx5, align 8
   %6 = load ptr, ptr %db, align 8
   %7 = load ptr, ptr %argv, align 8
-  %arrayidx8 = getelementptr inbounds i8, ptr %7, i64 8
+  %arrayidx8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %8 = load ptr, ptr %arrayidx8, align 8
-  %arrayidx10 = getelementptr inbounds i8, ptr %7, i64 16
+  %arrayidx10 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load ptr, ptr %arrayidx10, align 8
   tail call void @dbAdd(ptr noundef %6, ptr noundef %8, ptr noundef %9) #10
   %10 = load ptr, ptr %argv, align 8
-  %arrayidx12 = getelementptr inbounds i8, ptr %10, i64 16
+  %arrayidx12 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %11 = load ptr, ptr %arrayidx12, align 8
   tail call void @incrRefCount(ptr noundef %11) #10
   %12 = load ptr, ptr %argv, align 8
-  %arrayidx14 = getelementptr inbounds i8, ptr %12, i64 16
+  %arrayidx14 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %13 = load ptr, ptr %arrayidx14, align 8
   %call15 = tail call i64 @stringObjectLen(ptr noundef %13) #10
   br label %if.end38
@@ -2514,10 +2514,10 @@ if.else:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.else
   %14 = load ptr, ptr %argv, align 8
-  %arrayidx19 = getelementptr inbounds i8, ptr %14, i64 16
+  %arrayidx19 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %15 = load ptr, ptr %arrayidx19, align 8
   %call20 = tail call i64 @stringObjectLen(ptr noundef nonnull %call) #10
-  %ptr = getelementptr inbounds i8, ptr %15, i64 8
+  %ptr = getelementptr inbounds nuw i8, ptr %15, i64 8
   %16 = load ptr, ptr %ptr, align 8
   %arrayidx.i = getelementptr inbounds i8, ptr %16, i64 -1
   %17 = load i8, ptr %arrayidx.i, align 1
@@ -2582,10 +2582,10 @@ checkStringLength.exit:                           ; preds = %if.end.i
 if.end25:                                         ; preds = %sdslen.exit, %if.end.i
   %23 = load ptr, ptr %db, align 8
   %24 = load ptr, ptr %argv, align 8
-  %arrayidx28 = getelementptr inbounds i8, ptr %24, i64 8
+  %arrayidx28 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %25 = load ptr, ptr %arrayidx28, align 8
   %call29 = tail call ptr @dbUnshareStringValue(ptr noundef %23, ptr noundef %25, ptr noundef nonnull %call) #10
-  %ptr30 = getelementptr inbounds i8, ptr %call29, i64 8
+  %ptr30 = getelementptr inbounds nuw i8, ptr %call29, i64 8
   %26 = load ptr, ptr %ptr30, align 8
   %27 = load ptr, ptr %ptr, align 8
   %arrayidx.i29 = getelementptr inbounds i8, ptr %27, i64 -1
@@ -2676,14 +2676,14 @@ if.end38:                                         ; preds = %sw.bb13.i51, %sw.bb
   %totlen.0 = phi i64 [ %call15, %if.then ], [ %37, %sw.bb13.i51 ], [ %conv12.i56, %sw.bb9.i54 ], [ %conv8.i59, %sw.bb5.i57 ], [ %conv4.i62, %sw.bb3.i60 ], [ %conv2.i65, %sw.bb.i63 ], [ 0, %sdslen.exit47 ]
   %38 = load ptr, ptr %db, align 8
   %39 = load ptr, ptr %argv, align 8
-  %arrayidx41 = getelementptr inbounds i8, ptr %39, i64 8
+  %arrayidx41 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %40 = load ptr, ptr %arrayidx41, align 8
   tail call void @signalModifiedKey(ptr noundef nonnull %c, ptr noundef %38, ptr noundef %40) #10
   %41 = load ptr, ptr %argv, align 8
-  %arrayidx43 = getelementptr inbounds i8, ptr %41, i64 8
+  %arrayidx43 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %42 = load ptr, ptr %arrayidx43, align 8
   %43 = load ptr, ptr %db, align 8
-  %id = getelementptr inbounds i8, ptr %43, i64 48
+  %id = getelementptr inbounds nuw i8, ptr %43, i64 48
   %44 = load i32, ptr %id, align 8
   tail call void @notifyKeyspaceEvent(i32 noundef 8, ptr noundef nonnull @.str.15, ptr noundef %42, i32 noundef %44) #10
   %45 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 4104), align 8
@@ -2701,9 +2701,9 @@ declare ptr @sdscatlen(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr
 ; Function Attrs: nounwind uwtable
 define dso_local void @strlenCommand(ptr noundef %c) local_unnamed_addr #0 {
 entry:
-  %argv = getelementptr inbounds i8, ptr %c, i64 96
+  %argv = getelementptr inbounds nuw i8, ptr %c, i64 96
   %0 = load ptr, ptr %argv, align 8
-  %arrayidx = getelementptr inbounds i8, ptr %0, i64 8
+  %arrayidx = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1 = load ptr, ptr %arrayidx, align 8
   %2 = load ptr, ptr getelementptr inbounds (i8, ptr @shared, i64 24), align 8
   %call = tail call ptr @lookupKeyReadOrReply(ptr noundef %c, ptr noundef %1, ptr noundef %2) #10
@@ -2729,16 +2729,16 @@ define dso_local void @lcsCommand(ptr noundef %c) local_unnamed_addr #0 {
 entry:
   %minmatchlen = alloca i64, align 8
   store i64 0, ptr %minmatchlen, align 8
-  %db = getelementptr inbounds i8, ptr %c, i64 32
+  %db = getelementptr inbounds nuw i8, ptr %c, i64 32
   %0 = load ptr, ptr %db, align 8
-  %argv = getelementptr inbounds i8, ptr %c, i64 96
+  %argv = getelementptr inbounds nuw i8, ptr %c, i64 96
   %1 = load ptr, ptr %argv, align 8
-  %arrayidx = getelementptr inbounds i8, ptr %1, i64 8
+  %arrayidx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %2 = load ptr, ptr %arrayidx, align 8
   %call = tail call ptr @lookupKeyRead(ptr noundef %0, ptr noundef %2) #10
   %3 = load ptr, ptr %db, align 8
   %4 = load ptr, ptr %argv, align 8
-  %arrayidx3 = getelementptr inbounds i8, ptr %4, i64 16
+  %arrayidx3 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %5 = load ptr, ptr %arrayidx3, align 8
   %call4 = tail call ptr @lookupKeyRead(ptr noundef %3, ptr noundef %5) #10
   %tobool.not = icmp eq ptr %call, null
@@ -2789,11 +2789,11 @@ cond.false16:                                     ; preds = %cond.end
 
 cond.end18:                                       ; preds = %cond.false16, %cond.true14
   %cond19 = phi ptr [ %call15, %cond.true14 ], [ %call17, %cond.false16 ]
-  %ptr = getelementptr inbounds i8, ptr %cond, i64 8
+  %ptr = getelementptr inbounds nuw i8, ptr %cond, i64 8
   %6 = load ptr, ptr %ptr, align 8
-  %ptr20 = getelementptr inbounds i8, ptr %cond19, i64 8
+  %ptr20 = getelementptr inbounds nuw i8, ptr %cond19, i64 8
   %7 = load ptr, ptr %ptr20, align 8
-  %argc = getelementptr inbounds i8, ptr %c, i64 88
+  %argc = getelementptr inbounds nuw i8, ptr %c, i64 88
   %8 = load i32, ptr %argc, align 8
   %cmp21263 = icmp ugt i32 %8, 3
   br i1 %cmp21263, label %for.body, label %if.end63
@@ -2806,9 +2806,9 @@ for.body:                                         ; preds = %cond.end18, %for.in
   %withmatchlen.0264 = phi i32 [ %withmatchlen.1, %for.inc ], [ 0, %cond.end18 ]
   %10 = load ptr, ptr %argv, align 8
   %idxprom = zext i32 %j.0267 to i64
-  %arrayidx23 = getelementptr inbounds ptr, ptr %10, i64 %idxprom
+  %arrayidx23 = getelementptr inbounds nuw ptr, ptr %10, i64 %idxprom
   %11 = load ptr, ptr %arrayidx23, align 8
-  %ptr24 = getelementptr inbounds i8, ptr %11, i64 8
+  %ptr24 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %12 = load ptr, ptr %ptr24, align 8
   %.neg = add nuw i32 %j.0267, 1
   %call27 = call i32 @strcasecmp(ptr noundef %12, ptr noundef nonnull @.str.18) #12
@@ -2834,7 +2834,7 @@ if.else37:                                        ; preds = %if.else33
 
 if.then42:                                        ; preds = %if.else37
   %idxprom44 = zext i32 %.neg to i64
-  %arrayidx45 = getelementptr inbounds ptr, ptr %10, i64 %idxprom44
+  %arrayidx45 = getelementptr inbounds nuw ptr, ptr %10, i64 %idxprom44
   %13 = load ptr, ptr %arrayidx45, align 8
   %call46 = call i32 @getLongLongFromObjectOrReply(ptr noundef nonnull %c, ptr noundef %13, ptr noundef nonnull %minmatchlen, ptr noundef null) #10
   %cmp47.not = icmp eq i32 %call46, 0
@@ -3056,14 +3056,14 @@ for.cond100.preheader:                            ; preds = %for.cond100.prehead
   %36 = trunc nuw i64 %indvars.iv291 to i32
   %sub116 = add i32 %36, -1
   %idxprom117 = zext i32 %sub116 to i64
-  %arrayidx118 = getelementptr inbounds i8, ptr %6, i64 %idxprom117
+  %arrayidx118 = getelementptr inbounds nuw i8, ptr %6, i64 %idxprom117
   %mul143 = mul i32 %sub116, %add76
   %mul149 = mul i32 %add76, %36
   br i1 %cmp104, label %for.body103.us.preheader, label %for.body103.preheader
 
 for.body103.preheader:                            ; preds = %for.cond100.preheader
   %idxprom113 = zext i32 %mul149 to i64
-  %arrayidx114 = getelementptr inbounds i32, ptr %call89, i64 %idxprom113
+  %arrayidx114 = getelementptr inbounds nuw i32, ptr %call89, i64 %idxprom113
   br label %for.body103
 
 for.body103.us.preheader:                         ; preds = %for.cond100.preheader
@@ -3084,7 +3084,7 @@ if.else115:                                       ; preds = %for.body103
   %38 = trunc nuw i64 %indvars.iv to i32
   %sub120 = add i32 %38, -1
   %idxprom121 = zext i32 %sub120 to i64
-  %arrayidx122 = getelementptr inbounds i8, ptr %7, i64 %idxprom121
+  %arrayidx122 = getelementptr inbounds nuw i8, ptr %7, i64 %idxprom121
   %39 = load i8, ptr %arrayidx122, align 1
   %cmp124 = icmp eq i8 %37, %39
   br i1 %cmp124, label %if.then126, label %if.else140
@@ -3092,28 +3092,28 @@ if.else115:                                       ; preds = %for.body103
 if.then126:                                       ; preds = %if.else115
   %add131 = add i32 %sub120, %mul143
   %idxprom132 = zext i32 %add131 to i64
-  %arrayidx133 = getelementptr inbounds i32, ptr %call89, i64 %idxprom132
+  %arrayidx133 = getelementptr inbounds nuw i32, ptr %call89, i64 %idxprom132
   %40 = load i32, ptr %arrayidx133, align 4
   %add134 = add i32 %40, 1
   %add137 = add i32 %mul149, %38
   %idxprom138 = zext i32 %add137 to i64
-  %arrayidx139 = getelementptr inbounds i32, ptr %call89, i64 %idxprom138
+  %arrayidx139 = getelementptr inbounds nuw i32, ptr %call89, i64 %idxprom138
   store i32 %add134, ptr %arrayidx139, align 4
   br label %for.inc166
 
 if.else140:                                       ; preds = %if.else115
   %add144 = add i32 %mul143, %38
   %idxprom145 = zext i32 %add144 to i64
-  %arrayidx146 = getelementptr inbounds i32, ptr %call89, i64 %idxprom145
+  %arrayidx146 = getelementptr inbounds nuw i32, ptr %call89, i64 %idxprom145
   %41 = load i32, ptr %arrayidx146, align 4
   %add150 = add i32 %sub120, %mul149
   %idxprom151 = zext i32 %add150 to i64
-  %arrayidx152 = getelementptr inbounds i32, ptr %call89, i64 %idxprom151
+  %arrayidx152 = getelementptr inbounds nuw i32, ptr %call89, i64 %idxprom151
   %42 = load i32, ptr %arrayidx152, align 4
   %cond158 = call i32 @llvm.umax.i32(i32 %41, i32 %42)
   %add161 = add i32 %mul149, %38
   %idxprom162 = zext i32 %add161 to i64
-  %arrayidx163 = getelementptr inbounds i32, ptr %call89, i64 %idxprom162
+  %arrayidx163 = getelementptr inbounds nuw i32, ptr %call89, i64 %idxprom162
   store i32 %cond158, ptr %arrayidx163, align 4
   br label %for.inc166
 
@@ -3131,7 +3131,7 @@ for.end171:                                       ; preds = %for.inc169
   %mul173 = mul i32 %add76, %conv
   %add174 = add i32 %mul173, %conv73
   %idxprom175 = zext i32 %add174 to i64
-  %arrayidx176 = getelementptr inbounds i32, ptr %call89, i64 %idxprom175
+  %arrayidx176 = getelementptr inbounds nuw i32, ptr %call89, i64 %idxprom175
   %43 = load i32, ptr %arrayidx176, align 4
   %lnot = xor i1 %getlen.0.lcssa303, true
   %44 = or i1 %getidx.0.lcssa302, %lnot
@@ -3175,11 +3175,11 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %idx.0276 = phi i32 [ %43, %while.body.lr.ph ], [ %idx.1238, %if.end292 ]
   %sub194 = add i32 %i.0283, -1
   %idxprom195 = zext i32 %sub194 to i64
-  %arrayidx196 = getelementptr inbounds i8, ptr %6, i64 %idxprom195
+  %arrayidx196 = getelementptr inbounds nuw i8, ptr %6, i64 %idxprom195
   %46 = load i8, ptr %arrayidx196, align 1
   %sub198 = add i32 %j.2282, -1
   %idxprom199 = zext i32 %sub198 to i64
-  %arrayidx200 = getelementptr inbounds i8, ptr %7, i64 %idxprom199
+  %arrayidx200 = getelementptr inbounds nuw i8, ptr %7, i64 %idxprom199
   %47 = load i8, ptr %arrayidx200, align 1
   %cmp202 = icmp eq i8 %46, %47
   br i1 %cmp202, label %if.then204, label %if.end265
@@ -3187,7 +3187,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
 if.then204:                                       ; preds = %while.body
   %sub208 = add i32 %idx.0276, -1
   %idxprom209 = zext i32 %sub208 to i64
-  %arrayidx210 = getelementptr inbounds i8, ptr %call182, i64 %idxprom209
+  %arrayidx210 = getelementptr inbounds nuw i8, ptr %call182, i64 %idxprom209
   store i8 %46, ptr %arrayidx210, align 1
   %cmp211 = icmp eq i32 %arange_start.0277, %conv
   br i1 %cmp211, label %if.end228, label %if.else218
@@ -3215,12 +3215,12 @@ if.end265:                                        ; preds = %while.body
   %mul243 = mul i32 %sub194, %add76
   %add244 = add i32 %mul243, %j.2282
   %idxprom245 = zext i32 %add244 to i64
-  %arrayidx246 = getelementptr inbounds i32, ptr %call89, i64 %idxprom245
+  %arrayidx246 = getelementptr inbounds nuw i32, ptr %call89, i64 %idxprom245
   %48 = load i32, ptr %arrayidx246, align 4
   %mul250 = mul i32 %i.0283, %add76
   %add251 = add i32 %mul250, %sub198
   %idxprom252 = zext i32 %add251 to i64
-  %arrayidx253 = getelementptr inbounds i32, ptr %call89, i64 %idxprom252
+  %arrayidx253 = getelementptr inbounds nuw i32, ptr %call89, i64 %idxprom252
   %49 = load i32, ptr %arrayidx253, align 4
   %cmp254 = icmp ugt i32 %48, %49
   %j.4 = select i1 %cmp254, i32 %j.2282, i32 %sub198

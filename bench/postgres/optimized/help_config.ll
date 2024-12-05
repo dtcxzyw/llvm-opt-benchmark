@@ -39,18 +39,18 @@ define dso_local void @GucInfoMain() local_unnamed_addr #0 {
 
 10:                                               ; preds = %.lr.ph
   %11 = load ptr, ptr %7, align 8
-  %12 = getelementptr inbounds i8, ptr %7, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %13 = load i32, ptr %12, align 8
   %14 = zext i32 %13 to i64
   %15 = getelementptr [0 x ptr], ptr @GucContext_Names, i64 0, i64 %14
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %7, i64 12
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %18 = load i32, ptr %17, align 4
   %19 = zext i32 %18 to i64
   %20 = getelementptr [0 x ptr], ptr @config_group_names, i64 0, i64 %19
   %21 = load ptr, ptr %20, align 8
   %22 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str, ptr noundef %11, ptr noundef %16, ptr noundef %21) #3
-  %23 = getelementptr inbounds i8, ptr %7, i64 36
+  %23 = getelementptr inbounds nuw i8, ptr %7, i64 36
   %24 = load i32, ptr %23, align 4
   switch i32 %24, label %57 [
     i32 0, label %25
@@ -61,7 +61,7 @@ define dso_local void @GucInfoMain() local_unnamed_addr #0 {
   ]
 
 25:                                               ; preds = %10
-  %26 = getelementptr inbounds i8, ptr %7, i64 184
+  %26 = getelementptr inbounds nuw i8, ptr %7, i64 184
   %27 = load i8, ptr %26, align 8
   %28 = and i8 %27, 1
   %29 = icmp eq i8 %28, 0
@@ -70,27 +70,27 @@ define dso_local void @GucInfoMain() local_unnamed_addr #0 {
   br label %printMixedStruct.exit
 
 32:                                               ; preds = %10
-  %33 = getelementptr inbounds i8, ptr %7, i64 192
+  %33 = getelementptr inbounds nuw i8, ptr %7, i64 192
   %34 = load i32, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %7, i64 156
+  %35 = getelementptr inbounds nuw i8, ptr %7, i64 156
   %36 = load i32, ptr %35, align 4
-  %37 = getelementptr inbounds i8, ptr %7, i64 160
+  %37 = getelementptr inbounds nuw i8, ptr %7, i64 160
   %38 = load i32, ptr %37, align 8
   %39 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.4, i32 noundef %34, i32 noundef %36, i32 noundef %38) #3
   br label %printMixedStruct.exit
 
 40:                                               ; preds = %10
-  %41 = getelementptr inbounds i8, ptr %7, i64 200
+  %41 = getelementptr inbounds nuw i8, ptr %7, i64 200
   %42 = load double, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %7, i64 160
+  %43 = getelementptr inbounds nuw i8, ptr %7, i64 160
   %44 = load double, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %7, i64 168
+  %45 = getelementptr inbounds nuw i8, ptr %7, i64 168
   %46 = load double, ptr %45, align 8
   %47 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.5, double noundef %42, double noundef %44, double noundef %46) #3
   br label %printMixedStruct.exit
 
 48:                                               ; preds = %10
-  %49 = getelementptr inbounds i8, ptr %7, i64 152
+  %49 = getelementptr inbounds nuw i8, ptr %7, i64 152
   %50 = load ptr, ptr %49, align 8
   %.not.i5 = icmp eq ptr %50, null
   %spec.select.i = select i1 %.not.i5, ptr @.str.7, ptr %50
@@ -98,7 +98,7 @@ define dso_local void @GucInfoMain() local_unnamed_addr #0 {
   br label %printMixedStruct.exit
 
 52:                                               ; preds = %10
-  %53 = getelementptr inbounds i8, ptr %7, i64 152
+  %53 = getelementptr inbounds nuw i8, ptr %7, i64 152
   %54 = load i32, ptr %53, align 8
   %55 = call ptr @config_enum_lookup_by_value(ptr noundef nonnull %7, i32 noundef %54) #3
   %56 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.8, ptr noundef %55) #3
@@ -109,11 +109,11 @@ define dso_local void @GucInfoMain() local_unnamed_addr #0 {
   br label %printMixedStruct.exit
 
 printMixedStruct.exit:                            ; preds = %25, %32, %40, %48, %52, %57
-  %58 = getelementptr inbounds i8, ptr %7, i64 16
+  %58 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %59 = load ptr, ptr %58, align 8
   %60 = icmp eq ptr %59, null
   %spec.select21.i = select i1 %60, ptr @.str.7, ptr %59
-  %61 = getelementptr inbounds i8, ptr %7, i64 24
+  %61 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %62 = load ptr, ptr %61, align 8
   %63 = icmp eq ptr %62, null
   %64 = select i1 %63, ptr @.str.7, ptr %62

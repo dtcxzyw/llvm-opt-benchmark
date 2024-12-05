@@ -132,7 +132,7 @@ define noundef zeroext i1 @_ZNK5boost13serialization13typeid_system27extended_ty
   %15 = load i8, ptr %10, align 1, !tbaa !12
   %16 = icmp eq i8 %15, 42
   %.idx.i.i.i = zext i1 %16 to i64
-  %17 = getelementptr inbounds i8, ptr %10, i64 %.idx.i.i.i
+  %17 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx.i.i.i
   %18 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(1) %17) #15
   %19 = icmp eq i32 %18, 0
   br label %_ZNKSt9type_infoneERKS_.exit
@@ -185,17 +185,17 @@ define void @_ZN5boost13serialization13typeid_system27extended_type_info_typeid_
   br i1 %.not.i.i, label %_ZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE20get_mutable_instanceEv.exit, label %8
 
 8:                                                ; preds = %6
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE12get_instanceEvE1t, i64 8), align 8, !tbaa !16
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE12get_instanceEvE1t, i64 16), align 8, !tbaa !21
-  store ptr getelementptr inbounds (i8, ptr @_ZZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE12get_instanceEvE1t, i64 8), ptr getelementptr inbounds (i8, ptr @_ZZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE12get_instanceEvE1t, i64 24), align 8, !tbaa !22
-  store ptr getelementptr inbounds (i8, ptr @_ZZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE12get_instanceEvE1t, i64 8), ptr getelementptr inbounds (i8, ptr @_ZZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE12get_instanceEvE1t, i64 32), align 8, !tbaa !23
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE12get_instanceEvE1t, i64 40), align 8, !tbaa !24
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE12get_instanceEvE1t, i64 8), align 8, !tbaa !16
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE12get_instanceEvE1t, i64 16), align 8, !tbaa !21
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE12get_instanceEvE1t, i64 8), ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE12get_instanceEvE1t, i64 24), align 8, !tbaa !22
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE12get_instanceEvE1t, i64 8), ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE12get_instanceEvE1t, i64 32), align 8, !tbaa !23
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE12get_instanceEvE1t, i64 40), align 8, !tbaa !24
   %9 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5boost13serialization6detail17singleton_wrapperISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS4_12type_compareESaIS7_EEED2Ev, ptr nonnull @_ZZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE12get_instanceEvE1t, ptr nonnull @__dso_handle) #15
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE12get_instanceEvE1t) #15
   br label %_ZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE20get_mutable_instanceEv.exit
 
 _ZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE20get_mutable_instanceEv.exit: ; preds = %2, %6, %8
-  %.078.i.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE12get_instanceEvE1t, i64 16), align 8, !tbaa !25
+  %.078.i.i.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE12get_instanceEvE1t, i64 16), align 8, !tbaa !25
   %.not9.i.i.i = icmp eq ptr %.078.i.i.i, null
   br i1 %.not9.i.i.i, label %_ZNSt8multisetIPKN5boost13serialization13typeid_system27extended_type_info_typeid_0ENS2_12type_compareESaIS5_EE6insertEOS5_.exit, label %.lr.ph.i.i.i
 
@@ -213,7 +213,7 @@ _ZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_t
   br i1 %.not.i.i.i, label %_ZNSt8_Rb_treeIPKN5boost13serialization13typeid_system27extended_type_info_typeid_0ES5_St9_IdentityIS5_ENS2_12type_compareESaIS5_EE23_M_get_insert_equal_posERKS5_.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !26
 
 _ZNSt8_Rb_treeIPKN5boost13serialization13typeid_system27extended_type_info_typeid_0ES5_St9_IdentityIS5_ENS2_12type_compareESaIS5_EE23_M_get_insert_equal_posERKS5_.exit.i.i: ; preds = %.lr.ph.i.i.i
-  %15 = icmp eq ptr %.0710.i.i.i, getelementptr inbounds (i8, ptr @_ZZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE12get_instanceEvE1t, i64 8)
+  %15 = icmp eq ptr %.0710.i.i.i, getelementptr inbounds nuw (i8, ptr @_ZZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE12get_instanceEvE1t, i64 8)
   br i1 %15, label %_ZNSt8multisetIPKN5boost13serialization13typeid_system27extended_type_info_typeid_0ENS2_12type_compareESaIS5_EE6insertEOS5_.exit, label %16
 
 16:                                               ; preds = %_ZNSt8_Rb_treeIPKN5boost13serialization13typeid_system27extended_type_info_typeid_0ES5_St9_IdentityIS5_ENS2_12type_compareESaIS5_EE23_M_get_insert_equal_posERKS5_.exit.i.i
@@ -225,15 +225,15 @@ _ZNSt8_Rb_treeIPKN5boost13serialization13typeid_system27extended_type_info_typei
   br label %_ZNSt8multisetIPKN5boost13serialization13typeid_system27extended_type_info_typeid_0ENS2_12type_compareESaIS5_EE6insertEOS5_.exit
 
 _ZNSt8multisetIPKN5boost13serialization13typeid_system27extended_type_info_typeid_0ENS2_12type_compareESaIS5_EE6insertEOS5_.exit: ; preds = %_ZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE20get_mutable_instanceEv.exit, %_ZNSt8_Rb_treeIPKN5boost13serialization13typeid_system27extended_type_info_typeid_0ES5_St9_IdentityIS5_ENS2_12type_compareESaIS5_EE23_M_get_insert_equal_posERKS5_.exit.i.i, %16
-  %.0.lcssa.i10.i.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE12get_instanceEvE1t, i64 8), %_ZNSt8_Rb_treeIPKN5boost13serialization13typeid_system27extended_type_info_typeid_0ES5_St9_IdentityIS5_ENS2_12type_compareESaIS5_EE23_M_get_insert_equal_posERKS5_.exit.i.i ], [ %.0710.i.i.i, %16 ], [ getelementptr inbounds (i8, ptr @_ZZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE12get_instanceEvE1t, i64 8), %_ZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE20get_mutable_instanceEv.exit ]
+  %.0.lcssa.i10.i.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE12get_instanceEvE1t, i64 8), %_ZNSt8_Rb_treeIPKN5boost13serialization13typeid_system27extended_type_info_typeid_0ES5_St9_IdentityIS5_ENS2_12type_compareESaIS5_EE23_M_get_insert_equal_posERKS5_.exit.i.i ], [ %.0710.i.i.i, %16 ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE12get_instanceEvE1t, i64 8), %_ZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE20get_mutable_instanceEv.exit ]
   %22 = phi i1 [ true, %_ZNSt8_Rb_treeIPKN5boost13serialization13typeid_system27extended_type_info_typeid_0ES5_St9_IdentityIS5_ENS2_12type_compareESaIS5_EE23_M_get_insert_equal_posERKS5_.exit.i.i ], [ %21, %16 ], [ true, %_ZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE20get_mutable_instanceEv.exit ]
   %23 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #17
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 32
   store ptr %0, ptr %24, align 8, !tbaa !25
-  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %22, ptr noundef nonnull %23, ptr noundef nonnull %.0.lcssa.i10.i.i, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE12get_instanceEvE1t, i64 8)) #15
-  %25 = load i64, ptr getelementptr inbounds (i8, ptr @_ZZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE12get_instanceEvE1t, i64 40), align 8, !tbaa !24
+  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %22, ptr noundef nonnull %23, ptr noundef nonnull %.0.lcssa.i10.i.i, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE12get_instanceEvE1t, i64 8)) #15
+  %25 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE12get_instanceEvE1t, i64 40), align 8, !tbaa !24
   %26 = add i64 %25, 1
-  store i64 %26, ptr getelementptr inbounds (i8, ptr @_ZZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE12get_instanceEvE1t, i64 40), align 8, !tbaa !24
+  store i64 %26, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE12get_instanceEvE1t, i64 40), align 8, !tbaa !24
   ret void
 }
 
@@ -266,23 +266,23 @@ define void @_ZN5boost13serialization13typeid_system27extended_type_info_typeid_
   br i1 %.not.i.i, label %_ZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE20get_mutable_instanceEv.exit, label %12
 
 12:                                               ; preds = %10
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE12get_instanceEvE1t, i64 8), align 8, !tbaa !16
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE12get_instanceEvE1t, i64 16), align 8, !tbaa !21
-  store ptr getelementptr inbounds (i8, ptr @_ZZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE12get_instanceEvE1t, i64 8), ptr getelementptr inbounds (i8, ptr @_ZZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE12get_instanceEvE1t, i64 24), align 8, !tbaa !22
-  store ptr getelementptr inbounds (i8, ptr @_ZZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE12get_instanceEvE1t, i64 8), ptr getelementptr inbounds (i8, ptr @_ZZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE12get_instanceEvE1t, i64 32), align 8, !tbaa !23
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE12get_instanceEvE1t, i64 40), align 8, !tbaa !24
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE12get_instanceEvE1t, i64 8), align 8, !tbaa !16
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE12get_instanceEvE1t, i64 16), align 8, !tbaa !21
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE12get_instanceEvE1t, i64 8), ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE12get_instanceEvE1t, i64 24), align 8, !tbaa !22
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE12get_instanceEvE1t, i64 8), ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE12get_instanceEvE1t, i64 32), align 8, !tbaa !23
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE12get_instanceEvE1t, i64 40), align 8, !tbaa !24
   %13 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5boost13serialization6detail17singleton_wrapperISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS4_12type_compareESaIS7_EEED2Ev, ptr nonnull @_ZZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE12get_instanceEvE1t, ptr nonnull @__dso_handle) #15
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE12get_instanceEvE1t) #15
   br label %_ZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE20get_mutable_instanceEv.exit
 
 _ZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE20get_mutable_instanceEv.exit: ; preds = %7, %10, %12
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE12get_instanceEvE1t, i64 16), align 8, !tbaa !21
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE12get_instanceEvE1t, i64 16), align 8, !tbaa !21
   %.not10.i.i.i12 = icmp eq ptr %14, null
   br i1 %.not10.i.i.i12, label %.thread, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE20get_mutable_instanceEv.exit, %.lr.ph.i.i.i.backedge
   %.012.i.i.i = phi ptr [ %.012.i.i.i.be, %.lr.ph.i.i.i.backedge ], [ %14, %_ZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE20get_mutable_instanceEv.exit ]
-  %.0811.i.i.i = phi ptr [ %.0811.i.i.i.be, %.lr.ph.i.i.i.backedge ], [ getelementptr inbounds (i8, ptr @_ZZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE12get_instanceEvE1t, i64 8), %_ZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE20get_mutable_instanceEv.exit ]
+  %.0811.i.i.i = phi ptr [ %.0811.i.i.i.be, %.lr.ph.i.i.i.backedge ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE12get_instanceEvE1t, i64 8), %_ZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE20get_mutable_instanceEv.exit ]
   %15 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %16 = load ptr, ptr %15, align 8, !tbaa !25
   %17 = load ptr, ptr %16, align 8, !tbaa !13
@@ -297,11 +297,11 @@ _ZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_t
 
 .lr.ph.i.i.i.backedge:                            ; preds = %.lr.ph.i.i.i, %27
   %.012.i.i.i.be = phi ptr [ %.1.i.i.i, %.lr.ph.i.i.i ], [ %31, %27 ]
-  %.0811.i.i.i.be = phi ptr [ %.19.i.i.i, %.lr.ph.i.i.i ], [ getelementptr inbounds (i8, ptr @_ZZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE12get_instanceEvE1t, i64 8), %27 ]
+  %.0811.i.i.i.be = phi ptr [ %.19.i.i.i, %.lr.ph.i.i.i ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE12get_instanceEvE1t, i64 8), %27 ]
   br label %.lr.ph.i.i.i, !llvm.loop !32
 
 _ZNSt8_Rb_treeIPKN5boost13serialization13typeid_system27extended_type_info_typeid_0ES5_St9_IdentityIS5_ENS2_12type_compareESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRKS5_.exit.i.i: ; preds = %.lr.ph.i.i.i
-  %20 = icmp eq ptr %.19.i.i.i, getelementptr inbounds (i8, ptr @_ZZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE12get_instanceEvE1t, i64 8)
+  %20 = icmp eq ptr %.19.i.i.i, getelementptr inbounds nuw (i8, ptr @_ZZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE12get_instanceEvE1t, i64 8)
   br i1 %20, label %.thread, label %21
 
 21:                                               ; preds = %_ZNSt8_Rb_treeIPKN5boost13serialization13typeid_system27extended_type_info_typeid_0ES5_St9_IdentityIS5_ENS2_12type_compareESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRKS5_.exit.i.i
@@ -313,12 +313,12 @@ _ZNSt8_Rb_treeIPKN5boost13serialization13typeid_system27extended_type_info_typei
   br i1 %26, label %.thread, label %27
 
 27:                                               ; preds = %21
-  %28 = tail call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef %.19.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE12get_instanceEvE1t, i64 8)) #15
+  %28 = tail call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef %.19.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE12get_instanceEvE1t, i64 8)) #15
   tail call void @_ZdlPvm(ptr noundef nonnull %28, i64 noundef 40) #18
-  %29 = load i64, ptr getelementptr inbounds (i8, ptr @_ZZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE12get_instanceEvE1t, i64 40), align 8, !tbaa !24
+  %29 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE12get_instanceEvE1t, i64 40), align 8, !tbaa !24
   %30 = add i64 %29, -1
-  store i64 %30, ptr getelementptr inbounds (i8, ptr @_ZZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE12get_instanceEvE1t, i64 40), align 8, !tbaa !24
-  %31 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE12get_instanceEvE1t, i64 16), align 8, !tbaa !21
+  store i64 %30, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE12get_instanceEvE1t, i64 40), align 8, !tbaa !24
+  %31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE12get_instanceEvE1t, i64 16), align 8, !tbaa !21
   %.not10.i.i.i = icmp eq ptr %31, null
   br i1 %.not10.i.i.i, label %.thread, label %.lr.ph.i.i.i.backedge
 
@@ -345,23 +345,23 @@ define noundef ptr @_ZNK5boost13serialization13typeid_system27extended_type_info
   br i1 %.not.i.i, label %_ZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE18get_const_instanceEv.exit, label %9
 
 9:                                                ; preds = %7
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE12get_instanceEvE1t, i64 8), align 8, !tbaa !16
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE12get_instanceEvE1t, i64 16), align 8, !tbaa !21
-  store ptr getelementptr inbounds (i8, ptr @_ZZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE12get_instanceEvE1t, i64 8), ptr getelementptr inbounds (i8, ptr @_ZZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE12get_instanceEvE1t, i64 24), align 8, !tbaa !22
-  store ptr getelementptr inbounds (i8, ptr @_ZZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE12get_instanceEvE1t, i64 8), ptr getelementptr inbounds (i8, ptr @_ZZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE12get_instanceEvE1t, i64 32), align 8, !tbaa !23
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE12get_instanceEvE1t, i64 40), align 8, !tbaa !24
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE12get_instanceEvE1t, i64 8), align 8, !tbaa !16
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE12get_instanceEvE1t, i64 16), align 8, !tbaa !21
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE12get_instanceEvE1t, i64 8), ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE12get_instanceEvE1t, i64 24), align 8, !tbaa !22
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE12get_instanceEvE1t, i64 8), ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE12get_instanceEvE1t, i64 32), align 8, !tbaa !23
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE12get_instanceEvE1t, i64 40), align 8, !tbaa !24
   %10 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost13serialization6detail17singleton_wrapperISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS4_12type_compareESaIS7_EEED2Ev, ptr nonnull @_ZZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE12get_instanceEvE1t, ptr nonnull @__dso_handle) #15
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE12get_instanceEvE1t) #15
   br label %_ZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE18get_const_instanceEv.exit
 
 _ZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE18get_const_instanceEv.exit: ; preds = %9, %7, %2
-  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE12get_instanceEvE1t, i64 16), align 8, !tbaa !21
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE12get_instanceEvE1t, i64 16), align 8, !tbaa !21
   %.not10.i.i.i = icmp eq ptr %11, null
   br i1 %.not10.i.i.i, label %_ZNKSt8multisetIPKN5boost13serialization13typeid_system27extended_type_info_typeid_0ENS2_12type_compareESaIS5_EE4findERKS5_.exit.thread, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE18get_const_instanceEv.exit, %.noexc
   %.012.i.i.i = phi ptr [ %.1.i.i.i, %.noexc ], [ %11, %_ZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE18get_const_instanceEv.exit ]
-  %.0811.i.i.i = phi ptr [ %.19.i.i.i, %.noexc ], [ getelementptr inbounds (i8, ptr @_ZZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE12get_instanceEvE1t, i64 8), %_ZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE18get_const_instanceEv.exit ]
+  %.0811.i.i.i = phi ptr [ %.19.i.i.i, %.noexc ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE12get_instanceEvE1t, i64 8), %_ZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE18get_const_instanceEv.exit ]
   %12 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %13 = load ptr, ptr %12, align 8, !tbaa !25
   %14 = load ptr, ptr %13, align 8, !tbaa !13
@@ -378,7 +378,7 @@ _ZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_t
   br i1 %.not.i.i.i, label %_ZNKSt8_Rb_treeIPKN5boost13serialization13typeid_system27extended_type_info_typeid_0ES5_St9_IdentityIS5_ENS2_12type_compareESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRKS5_.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !33
 
 _ZNKSt8_Rb_treeIPKN5boost13serialization13typeid_system27extended_type_info_typeid_0ES5_St9_IdentityIS5_ENS2_12type_compareESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRKS5_.exit.i.i: ; preds = %.noexc
-  %17 = icmp eq ptr %.19.i.i.i, getelementptr inbounds (i8, ptr @_ZZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE12get_instanceEvE1t, i64 8)
+  %17 = icmp eq ptr %.19.i.i.i, getelementptr inbounds nuw (i8, ptr @_ZZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE12get_instanceEvE1t, i64 8)
   br i1 %17, label %_ZNKSt8multisetIPKN5boost13serialization13typeid_system27extended_type_info_typeid_0ENS2_12type_compareESaIS5_EE4findERKS5_.exit.thread, label %18
 
 18:                                               ; preds = %_ZNKSt8_Rb_treeIPKN5boost13serialization13typeid_system27extended_type_info_typeid_0ES5_St9_IdentityIS5_ENS2_12type_compareESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRKS5_.exit.i.i
@@ -447,7 +447,7 @@ define linkonce_odr hidden noundef ptr @_ZNK5boost13serialization13typeid_system
   %8 = load i8, ptr %7, align 1, !tbaa !12
   %9 = icmp eq i8 %8, 42
   %.idx.i = zext i1 %9 to i64
-  %10 = getelementptr inbounds i8, ptr %7, i64 %.idx.i
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx.i
   br label %11
 
 11:                                               ; preds = %1, %5
@@ -475,11 +475,11 @@ define internal void @__cxx_global_var_init() #8 section ".text.startup" comdat(
   br i1 %.not.i, label %_ZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE12get_instanceEv.exit, label %8
 
 8:                                                ; preds = %6
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE12get_instanceEvE1t, i64 8), align 8, !tbaa !16
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE12get_instanceEvE1t, i64 16), align 8, !tbaa !21
-  store ptr getelementptr inbounds (i8, ptr @_ZZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE12get_instanceEvE1t, i64 8), ptr getelementptr inbounds (i8, ptr @_ZZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE12get_instanceEvE1t, i64 24), align 8, !tbaa !22
-  store ptr getelementptr inbounds (i8, ptr @_ZZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE12get_instanceEvE1t, i64 8), ptr getelementptr inbounds (i8, ptr @_ZZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE12get_instanceEvE1t, i64 32), align 8, !tbaa !23
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE12get_instanceEvE1t, i64 40), align 8, !tbaa !24
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE12get_instanceEvE1t, i64 8), align 8, !tbaa !16
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE12get_instanceEvE1t, i64 16), align 8, !tbaa !21
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE12get_instanceEvE1t, i64 8), ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE12get_instanceEvE1t, i64 24), align 8, !tbaa !22
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE12get_instanceEvE1t, i64 8), ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE12get_instanceEvE1t, i64 32), align 8, !tbaa !23
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE12get_instanceEvE1t, i64 40), align 8, !tbaa !24
   %9 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5boost13serialization6detail17singleton_wrapperISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS4_12type_compareESaIS7_EEED2Ev, ptr nonnull @_ZZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE12get_instanceEvE1t, ptr nonnull @__dso_handle) #15
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE12get_instanceEvE1t) #15
   br label %_ZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE12get_instanceEv.exit
@@ -524,7 +524,7 @@ declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #11
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost13serialization6detail17singleton_wrapperISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS4_12type_compareESaIS7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   store i8 1, ptr @_ZZN5boost13serialization6detail17singleton_wrapperISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS4_12type_compareESaIS7_EEE16get_is_destroyedEvE17is_destroyed_flag, align 1, !tbaa !28
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !21
   invoke void @_ZNSt8_Rb_treeIPKN5boost13serialization13typeid_system27extended_type_info_typeid_0ES5_St9_IdentityIS5_ENS2_12type_compareESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %3)
           to label %_ZNSt8multisetIPKN5boost13serialization13typeid_system27extended_type_info_typeid_0ENS2_12type_compareESaIS5_EED2Ev.exit unwind label %4

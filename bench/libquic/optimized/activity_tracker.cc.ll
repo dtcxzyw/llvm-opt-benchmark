@@ -83,14 +83,14 @@ entry:
   %call = tail call i64 @_ZN4base9TimeTicks3NowEv()
   store i64 %call, ptr %activity, align 8
   %0 = ptrtoint ptr %origin to i64
-  %origin_address = getelementptr inbounds i8, ptr %activity, i64 8
+  %origin_address = getelementptr inbounds nuw i8, ptr %activity, i64 8
   store i64 %0, ptr %origin_address, align 8
-  %activity_type = getelementptr inbounds i8, ptr %activity, i64 96
+  %activity_type = getelementptr inbounds nuw i8, ptr %activity, i64 96
   store i8 %type, ptr %activity_type, align 8
-  %data3 = getelementptr inbounds i8, ptr %activity, i64 104
+  %data3 = getelementptr inbounds nuw i8, ptr %activity, i64 104
   %1 = load i64, ptr %data, align 8
   store i64 %1, ptr %data3, align 8
-  %call_stack = getelementptr inbounds i8, ptr %activity, i64 16
+  %call_stack = getelementptr inbounds nuw i8, ptr %activity, i64 16
   store i64 0, ptr %call_stack, align 8
   ret void
 }
@@ -104,7 +104,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define dso_local void @_ZN4base5debug16ActivitySnapshotC2Ev(ptr noundef nonnull align 8 dereferenceable(76) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #18
-  %process_id = getelementptr inbounds i8, ptr %this, i64 32
+  %process_id = getelementptr inbounds nuw i8, ptr %this, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %process_id, i8 0, i64 44, i1 false)
   ret void
 }
@@ -115,7 +115,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noun
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4base5debug16ActivitySnapshotD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %activity_stack = getelementptr inbounds i8, ptr %this, i64 48
+  %activity_stack = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %activity_stack, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN4base5debug8ActivityESaIS2_EED2Ev.exit, label %if.then.i.i.i
@@ -136,17 +136,17 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 define dso_local void @_ZN4base5debug21ThreadActivityTrackerC2EPvm(ptr nocapture noundef nonnull align 8 dereferenceable(30) initializes((0, 29)) %this, ptr noundef %base, i64 noundef %size) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4base5debug21ThreadActivityTrackerE, i64 16), ptr %this, align 8
-  %header_ = getelementptr inbounds i8, ptr %this, i64 8
+  %header_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %base, ptr %header_, align 8
-  %stack_ = getelementptr inbounds i8, ptr %this, i64 16
-  %add.ptr = getelementptr inbounds i8, ptr %base, i64 88
+  %stack_ = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %add.ptr = getelementptr inbounds nuw i8, ptr %base, i64 88
   store ptr %add.ptr, ptr %stack_, align 8
-  %stack_slots_ = getelementptr inbounds i8, ptr %this, i64 24
+  %stack_slots_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %sub = add i64 %size, -88
   %div = udiv i64 %sub, 112
   %conv = trunc i64 %div to i32
   store i32 %conv, ptr %stack_slots_, align 8
-  %valid_ = getelementptr inbounds i8, ptr %this, i64 28
+  %valid_ = getelementptr inbounds nuw i8, ptr %this, i64 28
   store i8 0, ptr %valid_, align 4
   %tobool = icmp eq ptr %base, null
   %0 = add i64 %size, -481036337240
@@ -162,27 +162,27 @@ if.end:                                           ; preds = %entry
 if.end115:                                        ; preds = %if.end
   %call117 = tail call i64 @_ZN4base14PlatformThread13CurrentHandleEv()
   %3 = load ptr, ptr %header_, align 8
-  %thread_ref = getelementptr inbounds i8, ptr %3, i64 16
+  %thread_ref = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 %call117, ptr %thread_ref, align 8
   %4 = load ptr, ptr %header_, align 8
   %call121 = tail call noundef i32 @_ZN4base16GetCurrentProcIdEv()
   %conv122 = sext i32 %call121 to i64
-  %process_id = getelementptr inbounds i8, ptr %4, i64 8
+  %process_id = getelementptr inbounds nuw i8, ptr %4, i64 8
   store atomic i64 %conv122, ptr %process_id monotonic, align 8
   %call124 = tail call i64 @_ZN4base4Time3NowEv()
   %5 = load ptr, ptr %header_, align 8
-  %start_time = getelementptr inbounds i8, ptr %5, i64 24
+  %start_time = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 %call124, ptr %start_time, align 8
   %call130 = tail call i64 @_ZN4base9TimeTicks3NowEv()
   %6 = load ptr, ptr %header_, align 8
-  %start_ticks = getelementptr inbounds i8, ptr %6, i64 32
+  %start_ticks = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i64 %call130, ptr %start_ticks, align 8
   %7 = load i32, ptr %stack_slots_, align 8
   %8 = load ptr, ptr %header_, align 8
-  %stack_slots = getelementptr inbounds i8, ptr %8, i64 40
+  %stack_slots = getelementptr inbounds nuw i8, ptr %8, i64 40
   store i32 %7, ptr %stack_slots, align 8
   %9 = load ptr, ptr %header_, align 8
-  %thread_name = getelementptr inbounds i8, ptr %9, i64 52
+  %thread_name = getelementptr inbounds nuw i8, ptr %9, i64 52
   %call138 = tail call noundef ptr @_ZN4base14PlatformThread7GetNameEv()
   %call139 = tail call noundef i64 @_ZN4base7strlcpyEPcPKcm(ptr noundef nonnull %thread_name, ptr noundef %call138, i64 noundef 32)
   %10 = load ptr, ptr %header_, align 8
@@ -197,38 +197,38 @@ if.else143:                                       ; preds = %if.end
 
 lor.lhs.false.i:                                  ; preds = %if.else143
   %12 = load ptr, ptr %header_, align 8
-  %process_id.i = getelementptr inbounds i8, ptr %12, i64 8
+  %process_id.i = getelementptr inbounds nuw i8, ptr %12, i64 8
   %13 = load atomic i64, ptr %process_id.i monotonic, align 8
   %cmp4.i = icmp eq i64 %13, 0
   br i1 %cmp4.i, label %if.end147.sink.split, label %lor.lhs.false5.i
 
 lor.lhs.false5.i:                                 ; preds = %lor.lhs.false.i
-  %thread_ref.i = getelementptr inbounds i8, ptr %12, i64 16
+  %thread_ref.i = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load i64, ptr %thread_ref.i, align 8
   %cmp7.i = icmp eq i64 %14, 0
   br i1 %cmp7.i, label %if.end147.sink.split, label %lor.lhs.false8.i
 
 lor.lhs.false8.i:                                 ; preds = %lor.lhs.false5.i
-  %start_time.i = getelementptr inbounds i8, ptr %12, i64 24
+  %start_time.i = getelementptr inbounds nuw i8, ptr %12, i64 24
   %15 = load i64, ptr %start_time.i, align 8
   %cmp10.i = icmp eq i64 %15, 0
   br i1 %cmp10.i, label %if.end147.sink.split, label %lor.lhs.false11.i
 
 lor.lhs.false11.i:                                ; preds = %lor.lhs.false8.i
-  %start_ticks.i = getelementptr inbounds i8, ptr %12, i64 32
+  %start_ticks.i = getelementptr inbounds nuw i8, ptr %12, i64 32
   %16 = load i64, ptr %start_ticks.i, align 8
   %cmp13.i = icmp eq i64 %16, 0
   br i1 %cmp13.i, label %if.end147.sink.split, label %lor.lhs.false14.i
 
 lor.lhs.false14.i:                                ; preds = %lor.lhs.false11.i
-  %stack_slots.i = getelementptr inbounds i8, ptr %12, i64 40
+  %stack_slots.i = getelementptr inbounds nuw i8, ptr %12, i64 40
   %17 = load i32, ptr %stack_slots.i, align 8
   %18 = load i32, ptr %stack_slots_, align 8
   %cmp16.not.i = icmp eq i32 %17, %18
   br i1 %cmp16.not.i, label %lor.lhs.false17.i, label %if.end147.sink.split
 
 lor.lhs.false17.i:                                ; preds = %lor.lhs.false14.i
-  %arrayidx.i = getelementptr inbounds i8, ptr %12, i64 83
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %12, i64 83
   %19 = load i8, ptr %arrayidx.i, align 1
   %cmp19.not.i = icmp eq i8 %19, 0
   br i1 %cmp19.not.i, label %if.end.i, label %if.end147.sink.split
@@ -262,7 +262,7 @@ declare noundef ptr @_ZN4base14PlatformThread7GetNameEv() local_unnamed_addr #2
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZNK4base5debug21ThreadActivityTracker7IsValidEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(30) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %header_ = getelementptr inbounds i8, ptr %this, i64 8
+  %header_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %header_, align 8
   %1 = load atomic i32, ptr %0 acquire, align 4
   %cmp.not = icmp eq i32 %1, -1073571034
@@ -270,45 +270,45 @@ entry:
 
 lor.lhs.false:                                    ; preds = %entry
   %2 = load ptr, ptr %header_, align 8
-  %process_id = getelementptr inbounds i8, ptr %2, i64 8
+  %process_id = getelementptr inbounds nuw i8, ptr %2, i64 8
   %3 = load atomic i64, ptr %process_id monotonic, align 8
   %cmp4 = icmp eq i64 %3, 0
   br i1 %cmp4, label %return, label %lor.lhs.false5
 
 lor.lhs.false5:                                   ; preds = %lor.lhs.false
-  %thread_ref = getelementptr inbounds i8, ptr %2, i64 16
+  %thread_ref = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load i64, ptr %thread_ref, align 8
   %cmp7 = icmp eq i64 %4, 0
   br i1 %cmp7, label %return, label %lor.lhs.false8
 
 lor.lhs.false8:                                   ; preds = %lor.lhs.false5
-  %start_time = getelementptr inbounds i8, ptr %2, i64 24
+  %start_time = getelementptr inbounds nuw i8, ptr %2, i64 24
   %5 = load i64, ptr %start_time, align 8
   %cmp10 = icmp eq i64 %5, 0
   br i1 %cmp10, label %return, label %lor.lhs.false11
 
 lor.lhs.false11:                                  ; preds = %lor.lhs.false8
-  %start_ticks = getelementptr inbounds i8, ptr %2, i64 32
+  %start_ticks = getelementptr inbounds nuw i8, ptr %2, i64 32
   %6 = load i64, ptr %start_ticks, align 8
   %cmp13 = icmp eq i64 %6, 0
   br i1 %cmp13, label %return, label %lor.lhs.false14
 
 lor.lhs.false14:                                  ; preds = %lor.lhs.false11
-  %stack_slots = getelementptr inbounds i8, ptr %2, i64 40
+  %stack_slots = getelementptr inbounds nuw i8, ptr %2, i64 40
   %7 = load i32, ptr %stack_slots, align 8
-  %stack_slots_ = getelementptr inbounds i8, ptr %this, i64 24
+  %stack_slots_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %8 = load i32, ptr %stack_slots_, align 8
   %cmp16.not = icmp eq i32 %7, %8
   br i1 %cmp16.not, label %lor.lhs.false17, label %return
 
 lor.lhs.false17:                                  ; preds = %lor.lhs.false14
-  %arrayidx = getelementptr inbounds i8, ptr %2, i64 83
+  %arrayidx = getelementptr inbounds nuw i8, ptr %2, i64 83
   %9 = load i8, ptr %arrayidx, align 1
   %cmp19.not = icmp eq i8 %9, 0
   br i1 %cmp19.not, label %if.end, label %return
 
 if.end:                                           ; preds = %lor.lhs.false17
-  %valid_ = getelementptr inbounds i8, ptr %this, i64 28
+  %valid_ = getelementptr inbounds nuw i8, ptr %this, i64 28
   %10 = load i8, ptr %valid_, align 4
   %tobool = trunc i8 %10 to i1
   br label %return
@@ -337,11 +337,11 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #8
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4base5debug21ThreadActivityTracker12PushActivityEPKvNS0_8Activity4TypeERKNS0_12ActivityDataE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(30) %this, ptr noundef %origin, i8 noundef zeroext %type, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %data) local_unnamed_addr #1 align 2 {
 entry:
-  %header_ = getelementptr inbounds i8, ptr %this, i64 8
+  %header_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %header_, align 8
-  %current_depth = getelementptr inbounds i8, ptr %0, i64 44
+  %current_depth = getelementptr inbounds nuw i8, ptr %0, i64 44
   %1 = load atomic i32, ptr %current_depth monotonic, align 4
-  %stack_slots_ = getelementptr inbounds i8, ptr %this, i64 24
+  %stack_slots_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %2 = load i32, ptr %stack_slots_, align 8
   %cmp.not = icmp ult i32 %1, %2
   br i1 %cmp.not, label %if.end, label %if.then
@@ -352,25 +352,25 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %stack_ = getelementptr inbounds i8, ptr %this, i64 16
+  %stack_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %3 = load ptr, ptr %stack_, align 8
   %idxprom = zext i32 %1 to i64
-  %arrayidx = getelementptr inbounds %"struct.base::debug::Activity", ptr %3, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw %"struct.base::debug::Activity", ptr %3, i64 %idxprom
   %call.i = tail call i64 @_ZN4base9TimeTicks3NowEv()
   store i64 %call.i, ptr %arrayidx, align 8
   %4 = ptrtoint ptr %origin to i64
-  %origin_address.i = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %origin_address.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   store i64 %4, ptr %origin_address.i, align 8
-  %activity_type.i = getelementptr inbounds i8, ptr %arrayidx, i64 96
+  %activity_type.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 96
   store i8 %type, ptr %activity_type.i, align 8
-  %data3.i = getelementptr inbounds i8, ptr %arrayidx, i64 104
+  %data3.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 104
   %5 = load i64, ptr %data, align 8
   store i64 %5, ptr %data3.i, align 8
-  %call_stack.i = getelementptr inbounds i8, ptr %arrayidx, i64 16
+  %call_stack.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 16
   store i64 0, ptr %call_stack.i, align 8
   %6 = load ptr, ptr %header_, align 8
   %add6 = add nuw i32 %1, 1
-  %current_depth5 = getelementptr inbounds i8, ptr %6, i64 44
+  %current_depth5 = getelementptr inbounds nuw i8, ptr %6, i64 44
   store atomic i32 %add6, ptr %current_depth5 release, align 4
   br label %return
 
@@ -381,26 +381,26 @@ return:                                           ; preds = %if.end, %if.then
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @_ZN4base5debug21ThreadActivityTracker14ChangeActivityENS0_8Activity4TypeERKNS0_12ActivityDataE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(30) %this, i8 noundef zeroext %type, ptr noundef nonnull readonly align 8 dereferenceable(8) %data) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 if.end:
-  %header_ = getelementptr inbounds i8, ptr %this, i64 8
+  %header_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %header_, align 8
-  %current_depth = getelementptr inbounds i8, ptr %0, i64 44
+  %current_depth = getelementptr inbounds nuw i8, ptr %0, i64 44
   %1 = load atomic i32, ptr %current_depth acquire, align 4
-  %stack_slots_ = getelementptr inbounds i8, ptr %this, i64 24
+  %stack_slots_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %2 = load i32, ptr %stack_slots_, align 8
   %cmp.not = icmp ugt i32 %1, %2
   br i1 %cmp.not, label %if.end23, label %if.then5
 
 if.then5:                                         ; preds = %if.end
-  %stack_ = getelementptr inbounds i8, ptr %this, i64 16
+  %stack_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %3 = load ptr, ptr %stack_, align 8
   %sub = add i32 %1, -1
   %idxprom = zext i32 %sub to i64
-  %arrayidx = getelementptr inbounds %"struct.base::debug::Activity", ptr %3, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw %"struct.base::debug::Activity", ptr %3, i64 %idxprom
   %cmp6.not = icmp eq i8 %type, 0
   br i1 %cmp6.not, label %if.end18, label %if.end17
 
 if.end17:                                         ; preds = %if.then5
-  %activity_type = getelementptr inbounds i8, ptr %arrayidx, i64 96
+  %activity_type = getelementptr inbounds nuw i8, ptr %arrayidx, i64 96
   store i8 %type, ptr %activity_type, align 8
   br label %if.end18
 
@@ -409,7 +409,7 @@ if.end18:                                         ; preds = %if.end17, %if.then5
   br i1 %cmp19.not, label %if.end23, label %if.then20
 
 if.then20:                                        ; preds = %if.end18
-  %data21 = getelementptr inbounds i8, ptr %arrayidx, i64 104
+  %data21 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 104
   %4 = load i64, ptr %data, align 8
   store i64 %4, ptr %data21, align 8
   br label %if.end23
@@ -421,12 +421,12 @@ if.end23:                                         ; preds = %if.end18, %if.then2
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @_ZN4base5debug21ThreadActivityTracker11PopActivityEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(30) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 if.end:
-  %header_ = getelementptr inbounds i8, ptr %this, i64 8
+  %header_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %header_, align 8
-  %current_depth = getelementptr inbounds i8, ptr %0, i64 44
+  %current_depth = getelementptr inbounds nuw i8, ptr %0, i64 44
   %1 = atomicrmw sub ptr %current_depth, i32 1 monotonic, align 4
   %2 = load ptr, ptr %header_, align 8
-  %stack_unchanged = getelementptr inbounds i8, ptr %2, i64 48
+  %stack_unchanged = getelementptr inbounds nuw i8, ptr %2, i64 48
   store atomic i32 0, ptr %stack_unchanged release, align 4
   ret void
 }
@@ -436,7 +436,7 @@ define dso_local noundef zeroext i1 @_ZNK4base5debug21ThreadActivityTracker8Snap
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp23 = alloca %"class.std::allocator", align 1
-  %header_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %header_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %header_.i, align 8
   %1 = load atomic i32, ptr %0 acquire, align 4
   %cmp.not.i = icmp eq i32 %1, -1073571034
@@ -444,53 +444,53 @@ entry:
 
 lor.lhs.false.i:                                  ; preds = %entry
   %2 = load ptr, ptr %header_.i, align 8
-  %process_id.i = getelementptr inbounds i8, ptr %2, i64 8
+  %process_id.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %3 = load atomic i64, ptr %process_id.i monotonic, align 8
   %cmp4.i = icmp eq i64 %3, 0
   br i1 %cmp4.i, label %return, label %lor.lhs.false5.i
 
 lor.lhs.false5.i:                                 ; preds = %lor.lhs.false.i
-  %thread_ref.i = getelementptr inbounds i8, ptr %2, i64 16
+  %thread_ref.i = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load i64, ptr %thread_ref.i, align 8
   %cmp7.i = icmp eq i64 %4, 0
   br i1 %cmp7.i, label %return, label %lor.lhs.false8.i
 
 lor.lhs.false8.i:                                 ; preds = %lor.lhs.false5.i
-  %start_time.i = getelementptr inbounds i8, ptr %2, i64 24
+  %start_time.i = getelementptr inbounds nuw i8, ptr %2, i64 24
   %5 = load i64, ptr %start_time.i, align 8
   %cmp10.i = icmp eq i64 %5, 0
   br i1 %cmp10.i, label %return, label %lor.lhs.false11.i
 
 lor.lhs.false11.i:                                ; preds = %lor.lhs.false8.i
-  %start_ticks.i = getelementptr inbounds i8, ptr %2, i64 32
+  %start_ticks.i = getelementptr inbounds nuw i8, ptr %2, i64 32
   %6 = load i64, ptr %start_ticks.i, align 8
   %cmp13.i = icmp eq i64 %6, 0
   br i1 %cmp13.i, label %return, label %lor.lhs.false14.i
 
 lor.lhs.false14.i:                                ; preds = %lor.lhs.false11.i
-  %stack_slots.i = getelementptr inbounds i8, ptr %2, i64 40
+  %stack_slots.i = getelementptr inbounds nuw i8, ptr %2, i64 40
   %7 = load i32, ptr %stack_slots.i, align 8
-  %stack_slots_.i = getelementptr inbounds i8, ptr %this, i64 24
+  %stack_slots_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %8 = load i32, ptr %stack_slots_.i, align 8
   %cmp16.not.i = icmp eq i32 %7, %8
   br i1 %cmp16.not.i, label %lor.lhs.false17.i, label %return
 
 lor.lhs.false17.i:                                ; preds = %lor.lhs.false14.i
-  %arrayidx.i = getelementptr inbounds i8, ptr %2, i64 83
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %2, i64 83
   %9 = load i8, ptr %arrayidx.i, align 1
   %cmp19.not.i = icmp eq i8 %9, 0
   br i1 %cmp19.not.i, label %_ZNK4base5debug21ThreadActivityTracker7IsValidEv.exit, label %return
 
 _ZNK4base5debug21ThreadActivityTracker7IsValidEv.exit: ; preds = %lor.lhs.false17.i
-  %valid_.i = getelementptr inbounds i8, ptr %this, i64 28
+  %valid_.i = getelementptr inbounds nuw i8, ptr %this, i64 28
   %10 = load i8, ptr %valid_.i, align 4
   %tobool.i = trunc i8 %10 to i1
   br i1 %tobool.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZNK4base5debug21ThreadActivityTracker7IsValidEv.exit
-  %activity_stack = getelementptr inbounds i8, ptr %output_snapshot, i64 48
+  %activity_stack = getelementptr inbounds nuw i8, ptr %output_snapshot, i64 48
   %conv = zext i32 %7 to i64
-  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %output_snapshot, i64 64
+  %_M_end_of_storage.i.i = getelementptr inbounds nuw i8, ptr %output_snapshot, i64 64
   %11 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %12 = load ptr, ptr %activity_stack, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %11 to i64
@@ -501,7 +501,7 @@ if.end:                                           ; preds = %_ZNK4base5debug21Th
   br i1 %cmp3.i, label %_ZNSt12_Vector_baseIN4base5debug8ActivityESaIS2_EE11_M_allocateEm.exit.i, label %_ZNSt6vectorIN4base5debug8ActivityESaIS2_EE7reserveEm.exit
 
 _ZNSt12_Vector_baseIN4base5debug8ActivityESaIS2_EE11_M_allocateEm.exit.i: ; preds = %if.end
-  %_M_finish.i.i = getelementptr inbounds i8, ptr %output_snapshot, i64 56
+  %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %output_snapshot, i64 56
   %13 = load ptr, ptr %_M_finish.i.i, align 8
   %sub.ptr.lhs.cast.i6.i = ptrtoint ptr %13 to i64
   %sub.ptr.sub.i8.i = sub i64 %sub.ptr.lhs.cast.i6.i, %sub.ptr.rhs.cast.i.i
@@ -526,30 +526,30 @@ _ZNSt12_Vector_baseIN4base5debug8ActivityESaIS2_EE13_M_deallocateEPS2_m.exit.i: 
   store ptr %call5.i.i.i.i, ptr %activity_stack, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 %sub.ptr.sub.i8.i
   store ptr %add.ptr.i, ptr %_M_finish.i.i, align 8
-  %add.ptr21.i = getelementptr inbounds %"struct.base::debug::Activity", ptr %call5.i.i.i.i, i64 %conv
+  %add.ptr21.i = getelementptr inbounds nuw %"struct.base::debug::Activity", ptr %call5.i.i.i.i, i64 %conv
   store ptr %add.ptr21.i, ptr %_M_end_of_storage.i.i, align 8
   br label %_ZNSt6vectorIN4base5debug8ActivityESaIS2_EE7reserveEm.exit
 
 _ZNSt6vectorIN4base5debug8ActivityESaIS2_EE7reserveEm.exit: ; preds = %if.end, %_ZNSt12_Vector_baseIN4base5debug8ActivityESaIS2_EE13_M_deallocateEPS2_m.exit.i
-  %_M_finish.i.i25 = getelementptr inbounds i8, ptr %output_snapshot, i64 56
-  %stack_ = getelementptr inbounds i8, ptr %this, i64 16
-  %activity_stack_depth = getelementptr inbounds i8, ptr %output_snapshot, i64 72
-  %thread_id = getelementptr inbounds i8, ptr %output_snapshot, i64 40
-  %process_id31 = getelementptr inbounds i8, ptr %output_snapshot, i64 32
+  %_M_finish.i.i25 = getelementptr inbounds nuw i8, ptr %output_snapshot, i64 56
+  %stack_ = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %activity_stack_depth = getelementptr inbounds nuw i8, ptr %output_snapshot, i64 72
+  %thread_id = getelementptr inbounds nuw i8, ptr %output_snapshot, i64 40
+  %process_id31 = getelementptr inbounds nuw i8, ptr %output_snapshot, i64 32
   br label %for.body
 
 for.body:                                         ; preds = %_ZNSt6vectorIN4base5debug8ActivityESaIS2_EE7reserveEm.exit, %for.inc70
   %attempt.071 = phi i32 [ 0, %_ZNSt6vectorIN4base5debug8ActivityESaIS2_EE7reserveEm.exit ], [ %inc, %for.inc70 ]
   %14 = load ptr, ptr %header_.i, align 8
-  %process_id = getelementptr inbounds i8, ptr %14, i64 8
+  %process_id = getelementptr inbounds nuw i8, ptr %14, i64 8
   %15 = load atomic i64, ptr %process_id acquire, align 8
   %16 = load ptr, ptr %header_.i, align 8
-  %thread_ref = getelementptr inbounds i8, ptr %16, i64 16
+  %thread_ref = getelementptr inbounds nuw i8, ptr %16, i64 16
   %17 = load i64, ptr %thread_ref, align 8
-  %stack_unchanged = getelementptr inbounds i8, ptr %16, i64 48
+  %stack_unchanged = getelementptr inbounds nuw i8, ptr %16, i64 48
   store atomic i32 1, ptr %stack_unchanged seq_cst, align 4
   %18 = load ptr, ptr %header_.i, align 8
-  %current_depth = getelementptr inbounds i8, ptr %18, i64 44
+  %current_depth = getelementptr inbounds nuw i8, ptr %18, i64 44
   %19 = load atomic i32, ptr %current_depth acquire, align 4
   %20 = load i32, ptr %stack_slots_.i, align 8
   %.sroa.speculated = call i32 @llvm.umin.i32(i32 %20, i32 %19)
@@ -573,7 +573,7 @@ if.else.i:                                        ; preds = %for.body
   br i1 %cmp4.i31, label %if.then5.i, label %_ZNSt6vectorIN4base5debug8ActivityESaIS2_EE6resizeEm.exit
 
 if.then5.i:                                       ; preds = %if.else.i
-  %add.ptr.i32 = getelementptr inbounds %"struct.base::debug::Activity", ptr %22, i64 %conv10
+  %add.ptr.i32 = getelementptr inbounds nuw %"struct.base::debug::Activity", ptr %22, i64 %conv10
   %tobool.not.i.i33 = icmp eq ptr %21, %add.ptr.i32
   br i1 %tobool.not.i.i33, label %_ZNSt6vectorIN4base5debug8ActivityESaIS2_EE6resizeEm.exit, label %invoke.cont.i.i
 
@@ -594,7 +594,7 @@ if.then12:                                        ; preds = %_ZNSt6vectorIN4base
 
 if.end16:                                         ; preds = %if.then12, %_ZNSt6vectorIN4base5debug8ActivityESaIS2_EE6resizeEm.exit
   %25 = load ptr, ptr %header_.i, align 8
-  %stack_unchanged18 = getelementptr inbounds i8, ptr %25, i64 48
+  %stack_unchanged18 = getelementptr inbounds nuw i8, ptr %25, i64 48
   %26 = load atomic i32, ptr %stack_unchanged18 seq_cst, align 4
   %tobool.not = icmp eq i32 %26, 0
   br i1 %tobool.not, label %for.inc70, label %if.end21
@@ -602,7 +602,7 @@ if.end16:                                         ; preds = %if.then12, %_ZNSt6v
 if.end21:                                         ; preds = %if.end16
   store i32 %19, ptr %activity_stack_depth, align 8
   %27 = load ptr, ptr %header_.i, align 8
-  %thread_name = getelementptr inbounds i8, ptr %27, i64 52
+  %thread_name = getelementptr inbounds nuw i8, ptr %27, i64 52
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp23) #18
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %thread_name, i64 noundef 31, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp23)
           to label %invoke.cont unwind label %lpad
@@ -612,11 +612,11 @@ invoke.cont:                                      ; preds = %if.end21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #18
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp23) #18
   %28 = load ptr, ptr %header_.i, align 8
-  %thread_ref27 = getelementptr inbounds i8, ptr %28, i64 16
+  %thread_ref27 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %29 = load i64, ptr %thread_ref27, align 8
   store i64 %29, ptr %thread_id, align 8
   %30 = load ptr, ptr %header_.i, align 8
-  %process_id29 = getelementptr inbounds i8, ptr %30, i64 8
+  %process_id29 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %31 = load atomic i64, ptr %process_id29 seq_cst, align 8
   store i64 %31, ptr %process_id31, align 8
   %call34 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %output_snapshot) #18
@@ -645,38 +645,38 @@ if.end41:                                         ; preds = %lor.lhs.false
 
 lor.lhs.false.i38:                                ; preds = %if.end41
   %37 = load ptr, ptr %header_.i, align 8
-  %process_id.i39 = getelementptr inbounds i8, ptr %37, i64 8
+  %process_id.i39 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %38 = load atomic i64, ptr %process_id.i39 monotonic, align 8
   %cmp4.i40 = icmp eq i64 %38, 0
   br i1 %cmp4.i40, label %return, label %lor.lhs.false5.i41
 
 lor.lhs.false5.i41:                               ; preds = %lor.lhs.false.i38
-  %thread_ref.i42 = getelementptr inbounds i8, ptr %37, i64 16
+  %thread_ref.i42 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %39 = load i64, ptr %thread_ref.i42, align 8
   %cmp7.i43 = icmp eq i64 %39, 0
   br i1 %cmp7.i43, label %return, label %lor.lhs.false8.i44
 
 lor.lhs.false8.i44:                               ; preds = %lor.lhs.false5.i41
-  %start_time.i45 = getelementptr inbounds i8, ptr %37, i64 24
+  %start_time.i45 = getelementptr inbounds nuw i8, ptr %37, i64 24
   %40 = load i64, ptr %start_time.i45, align 8
   %cmp10.i46 = icmp eq i64 %40, 0
   br i1 %cmp10.i46, label %return, label %lor.lhs.false11.i47
 
 lor.lhs.false11.i47:                              ; preds = %lor.lhs.false8.i44
-  %start_ticks.i48 = getelementptr inbounds i8, ptr %37, i64 32
+  %start_ticks.i48 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %41 = load i64, ptr %start_ticks.i48, align 8
   %cmp13.i49 = icmp eq i64 %41, 0
   br i1 %cmp13.i49, label %return, label %lor.lhs.false14.i50
 
 lor.lhs.false14.i50:                              ; preds = %lor.lhs.false11.i47
-  %stack_slots.i51 = getelementptr inbounds i8, ptr %37, i64 40
+  %stack_slots.i51 = getelementptr inbounds nuw i8, ptr %37, i64 40
   %42 = load i32, ptr %stack_slots.i51, align 8
   %43 = load i32, ptr %stack_slots_.i, align 8
   %cmp16.not.i53 = icmp eq i32 %42, %43
   br i1 %cmp16.not.i53, label %lor.lhs.false17.i54, label %return
 
 lor.lhs.false17.i54:                              ; preds = %lor.lhs.false14.i50
-  %arrayidx.i55 = getelementptr inbounds i8, ptr %37, i64 83
+  %arrayidx.i55 = getelementptr inbounds nuw i8, ptr %37, i64 83
   %44 = load i8, ptr %arrayidx.i55, align 1
   %cmp19.not.i56 = icmp eq i8 %44, 0
   br i1 %cmp19.not.i56, label %_ZNK4base5debug21ThreadActivityTracker7IsValidEv.exit60, label %return
@@ -698,7 +698,7 @@ for.body58:                                       ; preds = %if.end44, %for.body
   %sub = sub nsw i64 %48, %41
   %call.i = call noundef i64 @_ZN4base13time_internal12SaturatedAddENS_9TimeDeltaEl(i64 %sub, i64 noundef %40)
   store i64 %call.i, ptr %__begin3.sroa.0.073, align 8
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.073, i64 112
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin3.sroa.0.073, i64 112
   %cmp.i61.not = icmp eq ptr %incdec.ptr.i, %47
   br i1 %cmp.i61.not, label %return, label %for.body58
 
@@ -745,9 +745,9 @@ define dso_local void @_ZN4base5debug21GlobalActivityTracker22ManagedActivityTra
 entry:
   tail call void @_ZN4base5debug21ThreadActivityTrackerC2EPvm(ptr noundef nonnull align 8 dereferenceable(30) %this, ptr noundef %base, i64 noundef %size)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4base5debug21GlobalActivityTracker22ManagedActivityTrackerE, i64 16), ptr %this, align 8
-  %mem_reference_ = getelementptr inbounds i8, ptr %this, i64 32
+  %mem_reference_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   store i32 %mem_reference, ptr %mem_reference_, align 8
-  %mem_base_ = getelementptr inbounds i8, ptr %this, i64 40
+  %mem_base_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %base, ptr %mem_base_, align 8
   ret void
 }
@@ -757,34 +757,34 @@ define dso_local void @_ZN4base5debug21GlobalActivityTracker22ManagedActivityTra
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4base5debug21GlobalActivityTracker22ManagedActivityTrackerE, i64 16), ptr %this, align 8
   %0 = load ptr, ptr @_ZN4base5debug21GlobalActivityTracker10g_tracker_E, align 8
-  %mem_reference_.i = getelementptr inbounds i8, ptr %this, i64 32
+  %mem_reference_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %1 = load i32, ptr %mem_reference_.i, align 8
-  %mem_base_.i = getelementptr inbounds i8, ptr %this, i64 40
+  %mem_base_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %2 = load ptr, ptr %mem_base_.i, align 8
-  %stack_memory_size_.i = getelementptr inbounds i8, ptr %0, i64 8
+  %stack_memory_size_.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %stack_memory_size_.i, align 8
   tail call void @llvm.memset.p0.i64(ptr align 1 %2, i8 0, i64 %3, i1 false)
-  %thread_tracker_count_.i = getelementptr inbounds i8, ptr %0, i64 24
+  %thread_tracker_count_.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = atomicrmw sub ptr %thread_tracker_count_.i, i32 1 monotonic, align 4
   %5 = load ptr, ptr %0, align 8
   %call6.i1 = invoke noundef zeroext i1 @_ZN4base25PersistentMemoryAllocator10ChangeTypeEjjj(ptr noundef nonnull align 8 dereferenceable(48) %5, i32 noundef %1, i32 noundef 1057125116, i32 noundef 1567850928)
           to label %call6.i.noexc unwind label %terminate.lpad
 
 call6.i.noexc:                                    ; preds = %entry
-  %lock_.i.i = getelementptr inbounds i8, ptr %0, i64 56
+  %lock_.i.i = getelementptr inbounds nuw i8, ptr %0, i64 56
   invoke void @_ZN4base8internal8LockImpl4LockEv(ptr noundef nonnull align 8 dereferenceable(40) %lock_.i.i)
           to label %.noexc unwind label %terminate.lpad
 
 .noexc:                                           ; preds = %call6.i.noexc
-  %available_memories_.i = getelementptr inbounds i8, ptr %0, i64 32
-  %used_.i.i = getelementptr inbounds i8, ptr %0, i64 48
+  %available_memories_.i = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %used_.i.i = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load i64, ptr %used_.i.i, align 8
   %7 = load i64, ptr %available_memories_.i, align 8
   %cmp.i.not.i = icmp eq i64 %6, %7
   br i1 %cmp.i.not.i, label %cleanup.i.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %.noexc
-  %values_.i.i = getelementptr inbounds i8, ptr %0, i64 40
+  %values_.i.i = getelementptr inbounds nuw i8, ptr %0, i64 40
   %inc.i.i = add i64 %6, 1
   store i64 %inc.i.i, ptr %used_.i.i, align 8
   %8 = load ptr, ptr %values_.i.i, align 8
@@ -817,28 +817,28 @@ terminate.lpad:                                   ; preds = %call6.i.noexc, %ent
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4base5debug21GlobalActivityTracker19ReturnTrackerMemoryEPNS1_22ManagedActivityTrackerE(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr nocapture noundef readonly %tracker) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 monotonic.i:
-  %mem_reference_ = getelementptr inbounds i8, ptr %tracker, i64 32
+  %mem_reference_ = getelementptr inbounds nuw i8, ptr %tracker, i64 32
   %0 = load i32, ptr %mem_reference_, align 8
-  %mem_base_ = getelementptr inbounds i8, ptr %tracker, i64 40
+  %mem_base_ = getelementptr inbounds nuw i8, ptr %tracker, i64 40
   %1 = load ptr, ptr %mem_base_, align 8
-  %stack_memory_size_ = getelementptr inbounds i8, ptr %this, i64 8
+  %stack_memory_size_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load i64, ptr %stack_memory_size_, align 8
   tail call void @llvm.memset.p0.i64(ptr align 1 %1, i8 0, i64 %2, i1 false)
-  %thread_tracker_count_ = getelementptr inbounds i8, ptr %this, i64 24
+  %thread_tracker_count_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %3 = atomicrmw sub ptr %thread_tracker_count_, i32 1 monotonic, align 4
   %4 = load ptr, ptr %this, align 8
   %call6 = tail call noundef zeroext i1 @_ZN4base25PersistentMemoryAllocator10ChangeTypeEjjj(ptr noundef nonnull align 8 dereferenceable(48) %4, i32 noundef %0, i32 noundef 1057125116, i32 noundef 1567850928)
-  %available_memories_ = getelementptr inbounds i8, ptr %this, i64 32
-  %lock_.i = getelementptr inbounds i8, ptr %this, i64 56
+  %available_memories_ = getelementptr inbounds nuw i8, ptr %this, i64 32
+  %lock_.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   tail call void @_ZN4base8internal8LockImpl4LockEv(ptr noundef nonnull align 8 dereferenceable(40) %lock_.i)
-  %used_.i = getelementptr inbounds i8, ptr %this, i64 48
+  %used_.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %5 = load i64, ptr %used_.i, align 8
   %6 = load i64, ptr %available_memories_, align 8
   %cmp.i.not = icmp eq i64 %5, %6
   br i1 %cmp.i.not, label %cleanup.i, label %if.end.i
 
 if.end.i:                                         ; preds = %monotonic.i
-  %values_.i = getelementptr inbounds i8, ptr %this, i64 40
+  %values_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %inc.i = add i64 %5, 1
   store i64 %inc.i, ptr %used_.i, align 8
   %7 = load ptr, ptr %values_.i, align 8
@@ -878,34 +878,34 @@ define dso_local void @_ZN4base5debug21GlobalActivityTracker22ManagedActivityTra
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4base5debug21GlobalActivityTracker22ManagedActivityTrackerE, i64 16), ptr %this, align 8
   %0 = load ptr, ptr @_ZN4base5debug21GlobalActivityTracker10g_tracker_E, align 8
-  %mem_reference_.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %mem_reference_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %1 = load i32, ptr %mem_reference_.i.i, align 8
-  %mem_base_.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %mem_base_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %2 = load ptr, ptr %mem_base_.i.i, align 8
-  %stack_memory_size_.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %stack_memory_size_.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %stack_memory_size_.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr align 1 %2, i8 0, i64 %3, i1 false)
-  %thread_tracker_count_.i.i = getelementptr inbounds i8, ptr %0, i64 24
+  %thread_tracker_count_.i.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = atomicrmw sub ptr %thread_tracker_count_.i.i, i32 1 monotonic, align 4
   %5 = load ptr, ptr %0, align 8
   %call6.i1.i = invoke noundef zeroext i1 @_ZN4base25PersistentMemoryAllocator10ChangeTypeEjjj(ptr noundef nonnull align 8 dereferenceable(48) %5, i32 noundef %1, i32 noundef 1057125116, i32 noundef 1567850928)
           to label %call6.i.noexc.i unwind label %terminate.lpad.i
 
 call6.i.noexc.i:                                  ; preds = %entry
-  %lock_.i.i.i = getelementptr inbounds i8, ptr %0, i64 56
+  %lock_.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 56
   invoke void @_ZN4base8internal8LockImpl4LockEv(ptr noundef nonnull align 8 dereferenceable(40) %lock_.i.i.i)
           to label %.noexc.i unwind label %terminate.lpad.i
 
 .noexc.i:                                         ; preds = %call6.i.noexc.i
-  %available_memories_.i.i = getelementptr inbounds i8, ptr %0, i64 32
-  %used_.i.i.i = getelementptr inbounds i8, ptr %0, i64 48
+  %available_memories_.i.i = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %used_.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load i64, ptr %used_.i.i.i, align 8
   %7 = load i64, ptr %available_memories_.i.i, align 8
   %cmp.i.not.i.i = icmp eq i64 %6, %7
   br i1 %cmp.i.not.i.i, label %cleanup.i.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %.noexc.i
-  %values_.i.i.i = getelementptr inbounds i8, ptr %0, i64 40
+  %values_.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 40
   %inc.i.i.i = add i64 %6, 1
   store i64 %inc.i.i.i, ptr %used_.i.i.i, align 8
   %8 = load ptr, ptr %values_.i.i.i, align 8
@@ -954,7 +954,7 @@ invoke.cont:                                      ; preds = %entry
 
 _ZNKSt14default_deleteIN4base25PersistentMemoryAllocatorEEclEPS1_.exit.i: ; preds = %invoke.cont
   %vtable.i.i = load ptr, ptr %1, align 8
-  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
+  %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 8
   %2 = load ptr, ptr %vfn.i.i, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(48) %1) #18
   br label %_ZNSt10unique_ptrIN4base25PersistentMemoryAllocatorESt14default_deleteIS1_EED2Ev.exit
@@ -972,7 +972,7 @@ lpad:                                             ; preds = %entry
 
 _ZNKSt14default_deleteIN4base25PersistentMemoryAllocatorEEclEPS1_.exit.i2: ; preds = %lpad
   %vtable.i.i3 = load ptr, ptr %4, align 8
-  %vfn.i.i4 = getelementptr inbounds i8, ptr %vtable.i.i3, i64 8
+  %vfn.i.i4 = getelementptr inbounds nuw i8, ptr %vtable.i.i3, i64 8
   %5 = load ptr, ptr %vfn.i.i4, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(48) %4) #18
   br label %_ZNSt10unique_ptrIN4base25PersistentMemoryAllocatorESt14default_deleteIS1_EED2Ev.exit5
@@ -989,9 +989,9 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #12
 define dso_local noundef ptr @_ZN4base5debug21GlobalActivityTracker29CreateTrackerForCurrentThreadEv(ptr noundef nonnull align 8 dereferenceable(96) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %iter = alloca %"class.base::PersistentMemoryAllocator::Iterator", align 8
-  %lock_.i = getelementptr inbounds i8, ptr %this, i64 56
-  %used_.i = getelementptr inbounds i8, ptr %this, i64 48
-  %values_.i = getelementptr inbounds i8, ptr %this, i64 40
+  %lock_.i = getelementptr inbounds nuw i8, ptr %this, i64 56
+  %used_.i = getelementptr inbounds nuw i8, ptr %this, i64 48
+  %values_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   br label %while.body
 
 while.body:                                       ; preds = %if.end, %entry
@@ -1035,7 +1035,7 @@ while.end:                                        ; preds = %if.end, %_ZN4base5d
 
 if.then6:                                         ; preds = %while.end
   %6 = load ptr, ptr %this, align 8
-  %stack_memory_size_ = getelementptr inbounds i8, ptr %this, i64 8
+  %stack_memory_size_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %7 = load i64, ptr %stack_memory_size_, align 8
   %call9 = tail call noundef i32 @_ZN4base25PersistentMemoryAllocator8AllocateEmj(ptr noundef nonnull align 8 dereferenceable(48) %6, i64 noundef %7, i32 noundef 1567850928)
   %tobool10.not = icmp eq i32 %call9, 0
@@ -1074,10 +1074,10 @@ if.then29:                                        ; preds = %do.body26
 
 if.end31:                                         ; preds = %if.then29, %do.body26
   %histogram_pointer.0 = phi ptr [ %11, %do.body26 ], [ %call30, %if.then29 ]
-  %thread_tracker_count_ = getelementptr inbounds i8, ptr %this, i64 24
+  %thread_tracker_count_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %13 = load atomic i32, ptr %thread_tracker_count_ monotonic, align 8
   %vtable = load ptr, ptr %histogram_pointer.0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 40
   %14 = load ptr, ptr %vfn, align 8
   call void %14(ptr noundef nonnull align 8 dereferenceable(44) %histogram_pointer.0, i32 noundef %13)
   br label %return
@@ -1087,20 +1087,20 @@ if.end45:                                         ; preds = %while.body17, %whil
   %15 = load ptr, ptr %this, align 8
   %call.i.i = call noundef ptr @_ZNK4base25PersistentMemoryAllocator12GetBlockDataEjjj(ptr noundef nonnull align 8 dereferenceable(48) %15, i32 noundef %mem_reference.1, i32 noundef 1567850928, i32 noundef 1)
   %call46 = call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #20
-  %stack_memory_size_47 = getelementptr inbounds i8, ptr %this, i64 8
+  %stack_memory_size_47 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %16 = load i64, ptr %stack_memory_size_47, align 8
   invoke void @_ZN4base5debug21ThreadActivityTrackerC2EPvm(ptr noundef nonnull align 8 dereferenceable(48) %call46, ptr noundef %call.i.i, i64 noundef %16)
           to label %invoke.cont49 unwind label %lpad48
 
 invoke.cont49:                                    ; preds = %if.end45
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4base5debug21GlobalActivityTracker22ManagedActivityTrackerE, i64 16), ptr %call46, align 8
-  %mem_reference_.i = getelementptr inbounds i8, ptr %call46, i64 32
+  %mem_reference_.i = getelementptr inbounds nuw i8, ptr %call46, i64 32
   store i32 %mem_reference.1, ptr %mem_reference_.i, align 8
-  %mem_base_.i = getelementptr inbounds i8, ptr %call46, i64 40
+  %mem_base_.i = getelementptr inbounds nuw i8, ptr %call46, i64 40
   store ptr %call.i.i, ptr %mem_base_.i, align 8
-  %this_thread_tracker_ = getelementptr inbounds i8, ptr %this, i64 16
+  %this_thread_tracker_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   call void @_ZN4base18ThreadLocalStorage4Slot3SetEPv(ptr noundef nonnull align 4 dereferenceable(8) %this_thread_tracker_, ptr noundef nonnull %call46)
-  %thread_tracker_count_50 = getelementptr inbounds i8, ptr %this, i64 24
+  %thread_tracker_count_50 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %17 = atomicrmw add ptr %thread_tracker_count_50, i32 1 monotonic, align 4
   %18 = load atomic volatile i64, ptr @_ZZN4base5debug21GlobalActivityTracker29CreateTrackerForCurrentThreadEvE24atomic_histogram_pointer_0 acquire, align 8
   %19 = inttoptr i64 %18 to ptr
@@ -1123,7 +1123,7 @@ if.end59:                                         ; preds = %if.then57, %invoke.
   %histogram_pointer54.0 = phi ptr [ %19, %invoke.cont49 ], [ %call58, %if.then57 ]
   %add = add nsw i32 %17, 1
   %vtable60 = load ptr, ptr %histogram_pointer54.0, align 8
-  %vfn61 = getelementptr inbounds i8, ptr %vtable60, i64 40
+  %vfn61 = getelementptr inbounds nuw i8, ptr %vtable60, i64 40
   %22 = load ptr, ptr %vfn61, align 8
   call void %22(ptr noundef nonnull align 8 dereferenceable(44) %histogram_pointer54.0, i32 noundef %add)
   br label %return
@@ -1153,7 +1153,7 @@ invoke.cont5:                                     ; preds = %if.end
 
 invoke.cont8:                                     ; preds = %invoke.cont5
   store i64 0, ptr %ref.tmp9, align 8
-  %size10 = getelementptr inbounds i8, ptr %ref.tmp9, i64 8
+  %size10 = getelementptr inbounds nuw i8, ptr %ref.tmp9, i64 8
   store i64 %size, ptr %size10, align 8
   %call13 = invoke noundef zeroext i1 @_ZN4base16MemoryMappedFile10InitializeENS_4FileERKNS0_6RegionENS0_6AccessE(ptr noundef nonnull align 8 dereferenceable(72) %call3, ptr noundef nonnull %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp9, i32 noundef 2)
           to label %invoke.cont12 unwind label %lpad11
@@ -1206,7 +1206,7 @@ invoke.cont.i7:                                   ; preds = %call.i.noexc9
 
 _ZNKSt14default_deleteIN4base25PersistentMemoryAllocatorEEclEPS1_.exit.i.i: ; preds = %invoke.cont.i7
   %vtable.i.i.i = load ptr, ptr %4, align 8
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
+  %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 8
   %5 = load ptr, ptr %vfn.i.i.i, align 8
   call void %5(ptr noundef nonnull align 8 dereferenceable(48) %4) #18
   br label %_ZNSt10unique_ptrIN4base25PersistentMemoryAllocatorESt14default_deleteIS1_EED2Ev.exit.i
@@ -1229,7 +1229,7 @@ lpad.i6:                                          ; preds = %call.i.noexc9
 
 _ZNKSt14default_deleteIN4base25PersistentMemoryAllocatorEEclEPS1_.exit.i2.i: ; preds = %lpad.i6
   %vtable.i.i3.i = load ptr, ptr %8, align 8
-  %vfn.i.i4.i = getelementptr inbounds i8, ptr %vtable.i.i3.i, i64 8
+  %vfn.i.i4.i = getelementptr inbounds nuw i8, ptr %vtable.i.i3.i, i64 8
   %9 = load ptr, ptr %vfn.i.i4.i, align 8
   call void %9(ptr noundef nonnull align 8 dereferenceable(48) %8) #18
   br label %lpad18.body.thread
@@ -1263,7 +1263,7 @@ _ZNKSt14default_deleteIN4base25PersistentMemoryAllocatorEEclEPS1_.exit.i18: ; pr
   %13 = landingpad { ptr, i32 }
           cleanup
   %vtable.i.i19 = load ptr, ptr %call.i3, align 8
-  %vfn.i.i20 = getelementptr inbounds i8, ptr %vtable.i.i19, i64 8
+  %vfn.i.i20 = getelementptr inbounds nuw i8, ptr %vtable.i.i19, i64 8
   %14 = load ptr, ptr %vfn.i.i20, align 8
   call void %14(ptr noundef nonnull align 8 dereferenceable(48) %call.i3) #18
   br label %ehcleanup
@@ -1340,7 +1340,7 @@ invoke.cont.i:                                    ; preds = %call.i1.noexc
 
 _ZNKSt14default_deleteIN4base25PersistentMemoryAllocatorEEclEPS1_.exit.i.i: ; preds = %invoke.cont.i
   %vtable.i.i.i = load ptr, ptr %2, align 8
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
+  %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 8
   %3 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(48) %2) #18
   br label %_ZNSt10unique_ptrIN4base25PersistentMemoryAllocatorESt14default_deleteIS1_EED2Ev.exit.i
@@ -1359,7 +1359,7 @@ lpad.i2:                                          ; preds = %call.i1.noexc
 
 _ZNKSt14default_deleteIN4base25PersistentMemoryAllocatorEEclEPS1_.exit.i2.i: ; preds = %lpad.i2
   %vtable.i.i3.i = load ptr, ptr %5, align 8
-  %vfn.i.i4.i = getelementptr inbounds i8, ptr %vtable.i.i3.i, i64 8
+  %vfn.i.i4.i = getelementptr inbounds nuw i8, ptr %vtable.i.i3.i, i64 8
   %6 = load ptr, ptr %vfn.i.i4.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(48) %5) #18
   br label %lpad.body.thread
@@ -1372,7 +1372,7 @@ _ZNKSt14default_deleteIN4base25PersistentMemoryAllocatorEEclEPS1_.exit.i9: ; pre
   %7 = landingpad { ptr, i32 }
           cleanup
   %vtable.i.i10 = load ptr, ptr %call.i, align 8
-  %vfn.i.i11 = getelementptr inbounds i8, ptr %vtable.i.i10, i64 8
+  %vfn.i.i11 = getelementptr inbounds nuw i8, ptr %vtable.i.i10, i64 8
   %8 = load ptr, ptr %vfn.i.i11, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(48) %call.i) #18
   br label %common.resume
@@ -1397,14 +1397,14 @@ declare noundef ptr @_ZN4base15LinearHistogram10FactoryGetEPKciiji(ptr noundef, 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4base5debug21GlobalActivityTracker40ReleaseTrackerForCurrentThreadForTestingEv(ptr noundef nonnull align 8 dereferenceable(96) %this) local_unnamed_addr #1 align 2 {
 entry:
-  %this_thread_tracker_ = getelementptr inbounds i8, ptr %this, i64 16
+  %this_thread_tracker_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %call = tail call noundef ptr @_ZNK4base18ThreadLocalStorage4Slot3GetEv(ptr noundef nonnull align 4 dereferenceable(8) %this_thread_tracker_)
   %tobool.not = icmp eq ptr %call, null
   br i1 %tobool.not, label %if.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
   %vtable = load ptr, ptr %call, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 8
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(30) %call) #18
   br label %if.end
@@ -1421,29 +1421,29 @@ entry:
   %0 = load i64, ptr %allocator, align 8
   store i64 %0, ptr %this, align 8
   store ptr null, ptr %allocator, align 8
-  %stack_memory_size_ = getelementptr inbounds i8, ptr %this, i64 8
+  %stack_memory_size_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %conv.i = sext i32 %stack_depth to i64
   %mul.i = mul nsw i64 %conv.i, 112
   %add.i = add nsw i64 %mul.i, 88
   store i64 %add.i, ptr %stack_memory_size_, align 8
-  %this_thread_tracker_ = getelementptr inbounds i8, ptr %this, i64 16
+  %this_thread_tracker_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   invoke void @_ZN4base18ThreadLocalStorage4SlotC1EPFvPvE(ptr noundef nonnull align 4 dereferenceable(8) %this_thread_tracker_, ptr noundef nonnull @_ZN4base5debug21GlobalActivityTracker12OnTLSDestroyEPv)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %thread_tracker_count_ = getelementptr inbounds i8, ptr %this, i64 24
+  %thread_tracker_count_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i32 0, ptr %thread_tracker_count_, align 8
-  %available_memories_ = getelementptr inbounds i8, ptr %this, i64 32
+  %available_memories_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   store i64 100, ptr %available_memories_, align 8
-  %values_.i = getelementptr inbounds i8, ptr %this, i64 40
+  %values_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %call.i2 = invoke noalias noundef nonnull dereferenceable(400) ptr @_Znam(i64 noundef 400) #20
           to label %call.i.noexc unwind label %lpad2
 
 call.i.noexc:                                     ; preds = %invoke.cont
   store ptr %call.i2, ptr %values_.i, align 8
-  %used_.i = getelementptr inbounds i8, ptr %this, i64 48
+  %used_.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   store i64 0, ptr %used_.i, align 8
-  %lock_.i = getelementptr inbounds i8, ptr %this, i64 56
+  %lock_.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   invoke void @_ZN4base8internal8LockImplC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %lock_.i)
           to label %invoke.cont3 unwind label %lpad.i
 
@@ -1489,7 +1489,7 @@ ehcleanup:                                        ; preds = %lpad2.body, %lpad
 
 _ZNKSt14default_deleteIN4base25PersistentMemoryAllocatorEEclEPS1_.exit.i: ; preds = %ehcleanup
   %vtable.i.i = load ptr, ptr %5, align 8
-  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
+  %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 8
   %6 = load ptr, ptr %vfn.i.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(48) %5) #18
   br label %_ZNSt10unique_ptrIN4base25PersistentMemoryAllocatorESt14default_deleteIS1_EED2Ev.exit
@@ -1507,7 +1507,7 @@ entry:
 
 delete.notnull:                                   ; preds = %entry
   %vtable = load ptr, ptr %value, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 8
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(48) %value) #18
   br label %delete.end
@@ -1525,9 +1525,9 @@ declare void @_ZN4base18ThreadLocalStorage4SlotD1Ev(ptr noundef nonnull align 4 
 define dso_local void @_ZN4base5debug21GlobalActivityTrackerD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 if.end20:
   store ptr null, ptr @_ZN4base5debug21GlobalActivityTracker10g_tracker_E, align 8
-  %lock_.i = getelementptr inbounds i8, ptr %this, i64 56
+  %lock_.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   tail call void @_ZN4base8internal8LockImplD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %lock_.i) #18
-  %values_.i = getelementptr inbounds i8, ptr %this, i64 40
+  %values_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %values_.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %_ZN4base5debug21GlobalActivityTracker15ThreadSafeStackIjED2Ev.exit, label %_ZNKSt14default_deleteIA_jEclIjEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i
@@ -1538,7 +1538,7 @@ _ZNKSt14default_deleteIA_jEclIjEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
 
 _ZN4base5debug21GlobalActivityTracker15ThreadSafeStackIjED2Ev.exit: ; preds = %if.end20, %_ZNKSt14default_deleteIA_jEclIjEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i
   store ptr null, ptr %values_.i, align 8
-  %this_thread_tracker_ = getelementptr inbounds i8, ptr %this, i64 16
+  %this_thread_tracker_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @_ZN4base18ThreadLocalStorage4SlotD1Ev(ptr noundef nonnull align 4 dereferenceable(8) %this_thread_tracker_) #18
   %1 = load ptr, ptr %this, align 8
   %cmp.not.i = icmp eq ptr %1, null
@@ -1546,7 +1546,7 @@ _ZN4base5debug21GlobalActivityTracker15ThreadSafeStackIjED2Ev.exit: ; preds = %i
 
 _ZNKSt14default_deleteIN4base25PersistentMemoryAllocatorEEclEPS1_.exit.i: ; preds = %_ZN4base5debug21GlobalActivityTracker15ThreadSafeStackIjED2Ev.exit
   %vtable.i.i = load ptr, ptr %1, align 8
-  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
+  %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 8
   %2 = load ptr, ptr %vfn.i.i, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(48) %1) #18
   br label %_ZNSt10unique_ptrIN4base25PersistentMemoryAllocatorESt14default_deleteIS1_EED2Ev.exit
@@ -1562,7 +1562,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4base5debug14ScopedActivityC2ERKN15tracked_objects8LocationEhji(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %location, i8 noundef zeroext %action, i32 noundef %id, i32 noundef %info) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %program_counter_.i = getelementptr inbounds i8, ptr %location, i64 24
+  %program_counter_.i = getelementptr inbounds nuw i8, ptr %location, i64 24
   %0 = load ptr, ptr %program_counter_.i, align 8
   %1 = or i8 %action, -16
   %retval.sroa.2.0.insert.ext.i = zext i32 %info to i64
@@ -1578,7 +1578,7 @@ _ZN4base5debug21GlobalActivityTracker20ScopedThreadActivity18GetOrCreateTrackerE
   br label %if.end
 
 if.end.i.i:                                       ; preds = %entry
-  %this_thread_tracker_.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 16
+  %this_thread_tracker_.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 16
   %call.i.i.i.i = tail call noundef ptr @_ZNK4base18ThreadLocalStorage4Slot3GetEv(ptr noundef nonnull align 4 dereferenceable(8) %this_thread_tracker_.i.i.i.i)
   %tobool.not.i.i.i = icmp eq ptr %call.i.i.i.i, null
   br i1 %tobool.not.i.i.i, label %_ZN4base5debug21GlobalActivityTracker20ScopedThreadActivity18GetOrCreateTrackerEb.exit.i, label %_ZN4base5debug21GlobalActivityTracker20ScopedThreadActivity18GetOrCreateTrackerEb.exit.i.thread
@@ -1595,11 +1595,11 @@ _ZN4base5debug21GlobalActivityTracker20ScopedThreadActivity18GetOrCreateTrackerE
 
 if.then.i.i:                                      ; preds = %_ZN4base5debug21GlobalActivityTracker20ScopedThreadActivity18GetOrCreateTrackerEb.exit.i.thread, %_ZN4base5debug21GlobalActivityTracker20ScopedThreadActivity18GetOrCreateTrackerEb.exit.i
   %retval.0.i.i9 = phi ptr [ %call.i.i.i.i, %_ZN4base5debug21GlobalActivityTracker20ScopedThreadActivity18GetOrCreateTrackerEb.exit.i.thread ], [ %call2.i.i.i, %_ZN4base5debug21GlobalActivityTracker20ScopedThreadActivity18GetOrCreateTrackerEb.exit.i ]
-  %header_.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i9, i64 8
+  %header_.i.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i9, i64 8
   %3 = load ptr, ptr %header_.i.i.i, align 8
-  %current_depth.i.i.i = getelementptr inbounds i8, ptr %3, i64 44
+  %current_depth.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 44
   %4 = load atomic i32, ptr %current_depth.i.i.i monotonic, align 4
-  %stack_slots_.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i9, i64 24
+  %stack_slots_.i.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i9, i64 24
   %5 = load i32, ptr %stack_slots_.i.i.i, align 8
   %cmp.not.i.i.i = icmp ult i32 %4, %5
   br i1 %cmp.not.i.i.i, label %if.end.i.i3.i, label %if.then.i.i.i
@@ -1610,29 +1610,29 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   br label %if.end
 
 if.end.i.i3.i:                                    ; preds = %if.then.i.i
-  %stack_.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i9, i64 16
+  %stack_.i.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i9, i64 16
   %6 = load ptr, ptr %stack_.i.i.i, align 8
   %idxprom.i.i.i = zext i32 %4 to i64
-  %arrayidx.i.i.i = getelementptr inbounds %"struct.base::debug::Activity", ptr %6, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw %"struct.base::debug::Activity", ptr %6, i64 %idxprom.i.i.i
   %call.i.i.i4.i = tail call i64 @_ZN4base9TimeTicks3NowEv()
   store i64 %call.i.i.i4.i, ptr %arrayidx.i.i.i, align 8
   %7 = ptrtoint ptr %0 to i64
-  %origin_address.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 8
+  %origin_address.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i, i64 8
   store i64 %7, ptr %origin_address.i.i.i.i, align 8
-  %activity_type.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 96
+  %activity_type.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i, i64 96
   store i8 %1, ptr %activity_type.i.i.i.i, align 8
-  %data3.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 104
+  %data3.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i, i64 104
   store i64 %retval.sroa.0.0.insert.insert.i, ptr %data3.i.i.i.i, align 8
-  %call_stack.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 16
+  %call_stack.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i, i64 16
   store i64 0, ptr %call_stack.i.i.i.i, align 8
   %8 = load ptr, ptr %header_.i.i.i, align 8
   %add6.i.i.i = add nuw i32 %4, 1
-  %current_depth5.i.i.i = getelementptr inbounds i8, ptr %8, i64 44
+  %current_depth5.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 44
   store atomic i32 %add6.i.i.i, ptr %current_depth5.i.i.i release, align 4
   br label %if.end
 
 if.end:                                           ; preds = %if.end.i.i3.i, %if.then.i.i.i, %_ZN4base5debug21GlobalActivityTracker20ScopedThreadActivity18GetOrCreateTrackerEb.exit.i, %_ZN4base5debug21GlobalActivityTracker20ScopedThreadActivity18GetOrCreateTrackerEb.exit.thread.i
-  %id_ = getelementptr inbounds i8, ptr %this, i64 8
+  %id_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %id, ptr %id_, align 8
   ret void
 }
@@ -1646,21 +1646,21 @@ if.end:
   br i1 %tobool.not.i1, label %_ZN4base5debug21ThreadActivityTracker14ScopedActivity17ChangeTypeAndDataENS0_8Activity4TypeERKNS0_12ActivityDataE.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
-  %header_.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %header_.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %2 = load ptr, ptr %header_.i.i, align 8
-  %current_depth.i.i = getelementptr inbounds i8, ptr %2, i64 44
+  %current_depth.i.i = getelementptr inbounds nuw i8, ptr %2, i64 44
   %3 = load atomic i32, ptr %current_depth.i.i acquire, align 4
-  %stack_slots_.i.i = getelementptr inbounds i8, ptr %1, i64 24
+  %stack_slots_.i.i = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load i32, ptr %stack_slots_.i.i, align 8
   %cmp.not.i.i = icmp ugt i32 %3, %4
   br i1 %cmp.not.i.i, label %_ZN4base5debug21ThreadActivityTracker14ScopedActivity17ChangeTypeAndDataENS0_8Activity4TypeERKNS0_12ActivityDataE.exit, label %if.then5.i.i
 
 if.then5.i.i:                                     ; preds = %if.then.i
-  %stack_.i.i = getelementptr inbounds i8, ptr %1, i64 16
+  %stack_.i.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load ptr, ptr %stack_.i.i, align 8
   %sub.i.i = add i32 %3, -1
   %idxprom.i.i = zext i32 %sub.i.i to i64
-  %activity_type.i.i = getelementptr inbounds %"struct.base::debug::Activity", ptr %5, i64 %idxprom.i.i, i32 3
+  %activity_type.i.i = getelementptr inbounds nuw %"struct.base::debug::Activity", ptr %5, i64 %idxprom.i.i, i32 3
   store i8 %0, ptr %activity_type.i.i, align 8
   br label %_ZN4base5debug21ThreadActivityTracker14ScopedActivity17ChangeTypeAndDataENS0_8Activity4TypeERKNS0_12ActivityDataE.exit
 
@@ -1671,7 +1671,7 @@ _ZN4base5debug21ThreadActivityTracker14ScopedActivity17ChangeTypeAndDataENS0_8Ac
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @_ZN4base5debug14ScopedActivity10ChangeInfoEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this, i32 noundef %info) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %id_ = getelementptr inbounds i8, ptr %this, i64 8
+  %id_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %id_, align 8
   %retval.sroa.2.0.insert.ext.i = zext i32 %info to i64
   %retval.sroa.2.0.insert.shift.i = shl nuw i64 %retval.sroa.2.0.insert.ext.i, 32
@@ -1682,21 +1682,21 @@ entry:
   br i1 %tobool.not.i, label %_ZN4base5debug21ThreadActivityTracker14ScopedActivity17ChangeTypeAndDataENS0_8Activity4TypeERKNS0_12ActivityDataE.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %header_.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %header_.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %2 = load ptr, ptr %header_.i.i, align 8
-  %current_depth.i.i = getelementptr inbounds i8, ptr %2, i64 44
+  %current_depth.i.i = getelementptr inbounds nuw i8, ptr %2, i64 44
   %3 = load atomic i32, ptr %current_depth.i.i acquire, align 4
-  %stack_slots_.i.i = getelementptr inbounds i8, ptr %1, i64 24
+  %stack_slots_.i.i = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load i32, ptr %stack_slots_.i.i, align 8
   %cmp.not.i.i = icmp ugt i32 %3, %4
   br i1 %cmp.not.i.i, label %_ZN4base5debug21ThreadActivityTracker14ScopedActivity17ChangeTypeAndDataENS0_8Activity4TypeERKNS0_12ActivityDataE.exit, label %if.then5.i.i
 
 if.then5.i.i:                                     ; preds = %if.then.i
-  %stack_.i.i = getelementptr inbounds i8, ptr %1, i64 16
+  %stack_.i.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load ptr, ptr %stack_.i.i, align 8
   %sub.i.i = add i32 %3, -1
   %idxprom.i.i = zext i32 %sub.i.i to i64
-  %data21.i.i = getelementptr inbounds %"struct.base::debug::Activity", ptr %5, i64 %idxprom.i.i, i32 5
+  %data21.i.i = getelementptr inbounds nuw %"struct.base::debug::Activity", ptr %5, i64 %idxprom.i.i, i32 5
   store i64 %retval.sroa.0.0.insert.insert.i, ptr %data21.i.i, align 8
   br label %_ZN4base5debug21ThreadActivityTracker14ScopedActivity17ChangeTypeAndDataENS0_8Activity4TypeERKNS0_12ActivityDataE.exit
 
@@ -1708,7 +1708,7 @@ _ZN4base5debug21ThreadActivityTracker14ScopedActivity17ChangeTypeAndDataENS0_8Ac
 define dso_local void @_ZN4base5debug14ScopedActivity19ChangeActionAndInfoEhi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this, i8 noundef zeroext %action, i32 noundef %info) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 if.end:
   %0 = or i8 %action, -16
-  %id_ = getelementptr inbounds i8, ptr %this, i64 8
+  %id_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i32, ptr %id_, align 8
   %retval.sroa.2.0.insert.ext.i = zext i32 %info to i64
   %retval.sroa.2.0.insert.shift.i = shl nuw i64 %retval.sroa.2.0.insert.ext.i, 32
@@ -1719,24 +1719,24 @@ if.end:
   br i1 %tobool.not.i1, label %_ZN4base5debug21ThreadActivityTracker14ScopedActivity17ChangeTypeAndDataENS0_8Activity4TypeERKNS0_12ActivityDataE.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
-  %header_.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %header_.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %3 = load ptr, ptr %header_.i.i, align 8
-  %current_depth.i.i = getelementptr inbounds i8, ptr %3, i64 44
+  %current_depth.i.i = getelementptr inbounds nuw i8, ptr %3, i64 44
   %4 = load atomic i32, ptr %current_depth.i.i acquire, align 4
-  %stack_slots_.i.i = getelementptr inbounds i8, ptr %2, i64 24
+  %stack_slots_.i.i = getelementptr inbounds nuw i8, ptr %2, i64 24
   %5 = load i32, ptr %stack_slots_.i.i, align 8
   %cmp.not.i.i = icmp ugt i32 %4, %5
   br i1 %cmp.not.i.i, label %_ZN4base5debug21ThreadActivityTracker14ScopedActivity17ChangeTypeAndDataENS0_8Activity4TypeERKNS0_12ActivityDataE.exit, label %if.then5.i.i
 
 if.then5.i.i:                                     ; preds = %if.then.i
-  %stack_.i.i = getelementptr inbounds i8, ptr %2, i64 16
+  %stack_.i.i = getelementptr inbounds nuw i8, ptr %2, i64 16
   %6 = load ptr, ptr %stack_.i.i, align 8
   %sub.i.i = add i32 %4, -1
   %idxprom.i.i = zext i32 %sub.i.i to i64
-  %arrayidx.i.i = getelementptr inbounds %"struct.base::debug::Activity", ptr %6, i64 %idxprom.i.i
-  %activity_type.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 96
+  %arrayidx.i.i = getelementptr inbounds nuw %"struct.base::debug::Activity", ptr %6, i64 %idxprom.i.i
+  %activity_type.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 96
   store i8 %0, ptr %activity_type.i.i, align 8
-  %data21.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 104
+  %data21.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 104
   store i64 %retval.sroa.0.0.insert.insert.i, ptr %data21.i.i, align 8
   br label %_ZN4base5debug21ThreadActivityTracker14ScopedActivity17ChangeTypeAndDataENS0_8Activity4TypeERKNS0_12ActivityDataE.exit
 
@@ -1747,9 +1747,9 @@ _ZN4base5debug21ThreadActivityTracker14ScopedActivity17ChangeTypeAndDataENS0_8Ac
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4base5debug21ScopedTaskRunActivityC2ERKNS_11PendingTaskE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(70) %task) unnamed_addr #1 align 2 {
 entry:
-  %program_counter_.i = getelementptr inbounds i8, ptr %task, i64 56
+  %program_counter_.i = getelementptr inbounds nuw i8, ptr %task, i64 56
   %0 = load ptr, ptr %program_counter_.i, align 8
-  %sequence_num = getelementptr inbounds i8, ptr %task, i64 64
+  %sequence_num = getelementptr inbounds nuw i8, ptr %task, i64 64
   %1 = load i32, ptr %sequence_num, align 8
   %conv = sext i32 %1 to i64
   %2 = load ptr, ptr @_ZN4base5debug21GlobalActivityTracker10g_tracker_E, align 8
@@ -1761,7 +1761,7 @@ _ZN4base5debug21GlobalActivityTracker20ScopedThreadActivity18GetOrCreateTrackerE
   br label %_ZN4base5debug21GlobalActivityTracker20ScopedThreadActivityC2EPKvNS0_8Activity4TypeERKNS0_12ActivityDataEb.exit
 
 if.end.i.i:                                       ; preds = %entry
-  %this_thread_tracker_.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 16
+  %this_thread_tracker_.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 16
   %call.i.i.i.i = tail call noundef ptr @_ZNK4base18ThreadLocalStorage4Slot3GetEv(ptr noundef nonnull align 4 dereferenceable(8) %this_thread_tracker_.i.i.i.i)
   %tobool.not.i.i.i = icmp eq ptr %call.i.i.i.i, null
   br i1 %tobool.not.i.i.i, label %_ZN4base5debug21GlobalActivityTracker20ScopedThreadActivity18GetOrCreateTrackerEb.exit.i, label %_ZN4base5debug21GlobalActivityTracker20ScopedThreadActivity18GetOrCreateTrackerEb.exit.i.thread
@@ -1778,11 +1778,11 @@ _ZN4base5debug21GlobalActivityTracker20ScopedThreadActivity18GetOrCreateTrackerE
 
 if.then.i.i:                                      ; preds = %_ZN4base5debug21GlobalActivityTracker20ScopedThreadActivity18GetOrCreateTrackerEb.exit.i.thread, %_ZN4base5debug21GlobalActivityTracker20ScopedThreadActivity18GetOrCreateTrackerEb.exit.i
   %retval.0.i.i4 = phi ptr [ %call.i.i.i.i, %_ZN4base5debug21GlobalActivityTracker20ScopedThreadActivity18GetOrCreateTrackerEb.exit.i.thread ], [ %call2.i.i.i, %_ZN4base5debug21GlobalActivityTracker20ScopedThreadActivity18GetOrCreateTrackerEb.exit.i ]
-  %header_.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i4, i64 8
+  %header_.i.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i4, i64 8
   %3 = load ptr, ptr %header_.i.i.i, align 8
-  %current_depth.i.i.i = getelementptr inbounds i8, ptr %3, i64 44
+  %current_depth.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 44
   %4 = load atomic i32, ptr %current_depth.i.i.i monotonic, align 4
-  %stack_slots_.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i4, i64 24
+  %stack_slots_.i.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i4, i64 24
   %5 = load i32, ptr %stack_slots_.i.i.i, align 8
   %cmp.not.i.i.i = icmp ult i32 %4, %5
   br i1 %cmp.not.i.i.i, label %if.end.i.i3.i, label %if.then.i.i.i
@@ -1793,24 +1793,24 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   br label %_ZN4base5debug21GlobalActivityTracker20ScopedThreadActivityC2EPKvNS0_8Activity4TypeERKNS0_12ActivityDataEb.exit
 
 if.end.i.i3.i:                                    ; preds = %if.then.i.i
-  %stack_.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i4, i64 16
+  %stack_.i.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i4, i64 16
   %6 = load ptr, ptr %stack_.i.i.i, align 8
   %idxprom.i.i.i = zext i32 %4 to i64
-  %arrayidx.i.i.i = getelementptr inbounds %"struct.base::debug::Activity", ptr %6, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw %"struct.base::debug::Activity", ptr %6, i64 %idxprom.i.i.i
   %call.i.i.i4.i = tail call i64 @_ZN4base9TimeTicks3NowEv()
   store i64 %call.i.i.i4.i, ptr %arrayidx.i.i.i, align 8
   %7 = ptrtoint ptr %0 to i64
-  %origin_address.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 8
+  %origin_address.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i, i64 8
   store i64 %7, ptr %origin_address.i.i.i.i, align 8
-  %activity_type.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 96
+  %activity_type.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i, i64 96
   store i8 16, ptr %activity_type.i.i.i.i, align 8
-  %data3.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 104
+  %data3.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i, i64 104
   store i64 %conv, ptr %data3.i.i.i.i, align 8
-  %call_stack.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 16
+  %call_stack.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i, i64 16
   store i64 0, ptr %call_stack.i.i.i.i, align 8
   %8 = load ptr, ptr %header_.i.i.i, align 8
   %add6.i.i.i = add nuw i32 %4, 1
-  %current_depth5.i.i.i = getelementptr inbounds i8, ptr %8, i64 44
+  %current_depth5.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 44
   store atomic i32 %add6.i.i.i, ptr %current_depth5.i.i.i release, align 4
   br label %_ZN4base5debug21GlobalActivityTracker20ScopedThreadActivityC2EPKvNS0_8Activity4TypeERKNS0_12ActivityDataEb.exit
 
@@ -1831,18 +1831,18 @@ _ZN4base5debug21GlobalActivityTracker20ScopedThreadActivity18GetOrCreateTrackerE
   br label %_ZN4base5debug21GlobalActivityTracker20ScopedThreadActivityC2EPKvNS0_8Activity4TypeERKNS0_12ActivityDataEb.exit
 
 if.end.i.i:                                       ; preds = %entry
-  %this_thread_tracker_.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 16
+  %this_thread_tracker_.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   %call.i.i.i.i = tail call noundef ptr @_ZNK4base18ThreadLocalStorage4Slot3GetEv(ptr noundef nonnull align 4 dereferenceable(8) %this_thread_tracker_.i.i.i.i)
   store ptr %call.i.i.i.i, ptr %this, align 8
   %tobool.not.i1.i = icmp eq ptr %call.i.i.i.i, null
   br i1 %tobool.not.i1.i, label %_ZN4base5debug21GlobalActivityTracker20ScopedThreadActivityC2EPKvNS0_8Activity4TypeERKNS0_12ActivityDataEb.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i.i
-  %header_.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
+  %header_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 8
   %2 = load ptr, ptr %header_.i.i.i, align 8
-  %current_depth.i.i.i = getelementptr inbounds i8, ptr %2, i64 44
+  %current_depth.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 44
   %3 = load atomic i32, ptr %current_depth.i.i.i monotonic, align 4
-  %stack_slots_.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 24
+  %stack_slots_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 24
   %4 = load i32, ptr %stack_slots_.i.i.i, align 8
   %cmp.not.i.i.i = icmp ult i32 %3, %4
   br i1 %cmp.not.i.i.i, label %if.end.i.i3.i, label %if.then.i.i.i
@@ -1853,23 +1853,23 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   br label %_ZN4base5debug21GlobalActivityTracker20ScopedThreadActivityC2EPKvNS0_8Activity4TypeERKNS0_12ActivityDataEb.exit
 
 if.end.i.i3.i:                                    ; preds = %if.then.i.i
-  %stack_.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 16
+  %stack_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 16
   %5 = load ptr, ptr %stack_.i.i.i, align 8
   %idxprom.i.i.i = zext i32 %3 to i64
-  %arrayidx.i.i.i = getelementptr inbounds %"struct.base::debug::Activity", ptr %5, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw %"struct.base::debug::Activity", ptr %5, i64 %idxprom.i.i.i
   %call.i.i.i4.i = tail call i64 @_ZN4base9TimeTicks3NowEv()
   store i64 %call.i.i.i4.i, ptr %arrayidx.i.i.i, align 8
-  %origin_address.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 8
+  %origin_address.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i, i64 8
   store i64 0, ptr %origin_address.i.i.i.i, align 8
-  %activity_type.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 96
+  %activity_type.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i, i64 96
   store i8 32, ptr %activity_type.i.i.i.i, align 8
-  %data3.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 104
+  %data3.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i, i64 104
   store i64 %0, ptr %data3.i.i.i.i, align 8
-  %call_stack.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 16
+  %call_stack.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i, i64 16
   store i64 0, ptr %call_stack.i.i.i.i, align 8
   %6 = load ptr, ptr %header_.i.i.i, align 8
   %add6.i.i.i = add nuw i32 %3, 1
-  %current_depth5.i.i.i = getelementptr inbounds i8, ptr %6, i64 44
+  %current_depth5.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 44
   store atomic i32 %add6.i.i.i, ptr %current_depth5.i.i.i release, align 4
   br label %_ZN4base5debug21GlobalActivityTracker20ScopedThreadActivityC2EPKvNS0_8Activity4TypeERKNS0_12ActivityDataEb.exit
 
@@ -1890,7 +1890,7 @@ _ZN4base5debug21GlobalActivityTracker20ScopedThreadActivity18GetOrCreateTrackerE
   br label %_ZN4base5debug21GlobalActivityTracker20ScopedThreadActivityC2EPKvNS0_8Activity4TypeERKNS0_12ActivityDataEb.exit
 
 if.end.i.i:                                       ; preds = %entry
-  %this_thread_tracker_.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 16
+  %this_thread_tracker_.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   %call.i.i.i.i = tail call noundef ptr @_ZNK4base18ThreadLocalStorage4Slot3GetEv(ptr noundef nonnull align 4 dereferenceable(8) %this_thread_tracker_.i.i.i.i)
   %tobool.not.i.i.i = icmp eq ptr %call.i.i.i.i, null
   br i1 %tobool.not.i.i.i, label %_ZN4base5debug21GlobalActivityTracker20ScopedThreadActivity18GetOrCreateTrackerEb.exit.i, label %_ZN4base5debug21GlobalActivityTracker20ScopedThreadActivity18GetOrCreateTrackerEb.exit.i.thread
@@ -1907,11 +1907,11 @@ _ZN4base5debug21GlobalActivityTracker20ScopedThreadActivity18GetOrCreateTrackerE
 
 if.then.i.i:                                      ; preds = %_ZN4base5debug21GlobalActivityTracker20ScopedThreadActivity18GetOrCreateTrackerEb.exit.i.thread, %_ZN4base5debug21GlobalActivityTracker20ScopedThreadActivity18GetOrCreateTrackerEb.exit.i
   %retval.0.i.i3 = phi ptr [ %call.i.i.i.i, %_ZN4base5debug21GlobalActivityTracker20ScopedThreadActivity18GetOrCreateTrackerEb.exit.i.thread ], [ %call2.i.i.i, %_ZN4base5debug21GlobalActivityTracker20ScopedThreadActivity18GetOrCreateTrackerEb.exit.i ]
-  %header_.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i3, i64 8
+  %header_.i.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i3, i64 8
   %2 = load ptr, ptr %header_.i.i.i, align 8
-  %current_depth.i.i.i = getelementptr inbounds i8, ptr %2, i64 44
+  %current_depth.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 44
   %3 = load atomic i32, ptr %current_depth.i.i.i monotonic, align 4
-  %stack_slots_.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i3, i64 24
+  %stack_slots_.i.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i3, i64 24
   %4 = load i32, ptr %stack_slots_.i.i.i, align 8
   %cmp.not.i.i.i = icmp ult i32 %3, %4
   br i1 %cmp.not.i.i.i, label %if.end.i.i3.i, label %if.then.i.i.i
@@ -1922,23 +1922,23 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   br label %_ZN4base5debug21GlobalActivityTracker20ScopedThreadActivityC2EPKvNS0_8Activity4TypeERKNS0_12ActivityDataEb.exit
 
 if.end.i.i3.i:                                    ; preds = %if.then.i.i
-  %stack_.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i3, i64 16
+  %stack_.i.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i3, i64 16
   %5 = load ptr, ptr %stack_.i.i.i, align 8
   %idxprom.i.i.i = zext i32 %3 to i64
-  %arrayidx.i.i.i = getelementptr inbounds %"struct.base::debug::Activity", ptr %5, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw %"struct.base::debug::Activity", ptr %5, i64 %idxprom.i.i.i
   %call.i.i.i4.i = tail call i64 @_ZN4base9TimeTicks3NowEv()
   store i64 %call.i.i.i4.i, ptr %arrayidx.i.i.i, align 8
-  %origin_address.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 8
+  %origin_address.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i, i64 8
   store i64 0, ptr %origin_address.i.i.i.i, align 8
-  %activity_type.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 96
+  %activity_type.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i, i64 96
   store i8 48, ptr %activity_type.i.i.i.i, align 8
-  %data3.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 104
+  %data3.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i, i64 104
   store i64 %0, ptr %data3.i.i.i.i, align 8
-  %call_stack.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 16
+  %call_stack.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i, i64 16
   store i64 0, ptr %call_stack.i.i.i.i, align 8
   %6 = load ptr, ptr %header_.i.i.i, align 8
   %add6.i.i.i = add nuw i32 %3, 1
-  %current_depth5.i.i.i = getelementptr inbounds i8, ptr %6, i64 44
+  %current_depth5.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 44
   store atomic i32 %add6.i.i.i, ptr %current_depth5.i.i.i release, align 4
   br label %_ZN4base5debug21GlobalActivityTracker20ScopedThreadActivityC2EPKvNS0_8Activity4TypeERKNS0_12ActivityDataEb.exit
 
@@ -1959,7 +1959,7 @@ _ZN4base5debug21GlobalActivityTracker20ScopedThreadActivity18GetOrCreateTrackerE
   br label %_ZN4base5debug21GlobalActivityTracker20ScopedThreadActivityC2EPKvNS0_8Activity4TypeERKNS0_12ActivityDataEb.exit
 
 if.end.i.i:                                       ; preds = %entry
-  %this_thread_tracker_.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 16
+  %this_thread_tracker_.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   %call.i.i.i.i = tail call noundef ptr @_ZNK4base18ThreadLocalStorage4Slot3GetEv(ptr noundef nonnull align 4 dereferenceable(8) %this_thread_tracker_.i.i.i.i)
   %tobool.not.i.i.i = icmp eq ptr %call.i.i.i.i, null
   br i1 %tobool.not.i.i.i, label %_ZN4base5debug21GlobalActivityTracker20ScopedThreadActivity18GetOrCreateTrackerEb.exit.i, label %_ZN4base5debug21GlobalActivityTracker20ScopedThreadActivity18GetOrCreateTrackerEb.exit.i.thread
@@ -1976,11 +1976,11 @@ _ZN4base5debug21GlobalActivityTracker20ScopedThreadActivity18GetOrCreateTrackerE
 
 if.then.i.i:                                      ; preds = %_ZN4base5debug21GlobalActivityTracker20ScopedThreadActivity18GetOrCreateTrackerEb.exit.i.thread, %_ZN4base5debug21GlobalActivityTracker20ScopedThreadActivity18GetOrCreateTrackerEb.exit.i
   %retval.0.i.i3 = phi ptr [ %call.i.i.i.i, %_ZN4base5debug21GlobalActivityTracker20ScopedThreadActivity18GetOrCreateTrackerEb.exit.i.thread ], [ %call2.i.i.i, %_ZN4base5debug21GlobalActivityTracker20ScopedThreadActivity18GetOrCreateTrackerEb.exit.i ]
-  %header_.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i3, i64 8
+  %header_.i.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i3, i64 8
   %2 = load ptr, ptr %header_.i.i.i, align 8
-  %current_depth.i.i.i = getelementptr inbounds i8, ptr %2, i64 44
+  %current_depth.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 44
   %3 = load atomic i32, ptr %current_depth.i.i.i monotonic, align 4
-  %stack_slots_.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i3, i64 24
+  %stack_slots_.i.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i3, i64 24
   %4 = load i32, ptr %stack_slots_.i.i.i, align 8
   %cmp.not.i.i.i = icmp ult i32 %3, %4
   br i1 %cmp.not.i.i.i, label %if.end.i.i3.i, label %if.then.i.i.i
@@ -1991,23 +1991,23 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   br label %_ZN4base5debug21GlobalActivityTracker20ScopedThreadActivityC2EPKvNS0_8Activity4TypeERKNS0_12ActivityDataEb.exit
 
 if.end.i.i3.i:                                    ; preds = %if.then.i.i
-  %stack_.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i3, i64 16
+  %stack_.i.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i3, i64 16
   %5 = load ptr, ptr %stack_.i.i.i, align 8
   %idxprom.i.i.i = zext i32 %3 to i64
-  %arrayidx.i.i.i = getelementptr inbounds %"struct.base::debug::Activity", ptr %5, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw %"struct.base::debug::Activity", ptr %5, i64 %idxprom.i.i.i
   %call.i.i.i4.i = tail call i64 @_ZN4base9TimeTicks3NowEv()
   store i64 %call.i.i.i4.i, ptr %arrayidx.i.i.i, align 8
-  %origin_address.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 8
+  %origin_address.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i, i64 8
   store i64 0, ptr %origin_address.i.i.i.i, align 8
-  %activity_type.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 96
+  %activity_type.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i, i64 96
   store i8 65, ptr %activity_type.i.i.i.i, align 8
-  %data3.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 104
+  %data3.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i, i64 104
   store i64 %0, ptr %data3.i.i.i.i, align 8
-  %call_stack.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 16
+  %call_stack.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i, i64 16
   store i64 0, ptr %call_stack.i.i.i.i, align 8
   %6 = load ptr, ptr %header_.i.i.i, align 8
   %add6.i.i.i = add nuw i32 %3, 1
-  %current_depth5.i.i.i = getelementptr inbounds i8, ptr %6, i64 44
+  %current_depth5.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 44
   store atomic i32 %add6.i.i.i, ptr %current_depth5.i.i.i release, align 4
   br label %_ZN4base5debug21GlobalActivityTracker20ScopedThreadActivityC2EPKvNS0_8Activity4TypeERKNS0_12ActivityDataEb.exit
 
@@ -2029,7 +2029,7 @@ _ZN4base5debug21GlobalActivityTracker20ScopedThreadActivity18GetOrCreateTrackerE
   br label %_ZN4base5debug21GlobalActivityTracker20ScopedThreadActivityC2EPKvNS0_8Activity4TypeERKNS0_12ActivityDataEb.exit
 
 if.end.i.i:                                       ; preds = %entry
-  %this_thread_tracker_.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 16
+  %this_thread_tracker_.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %call.i.i.i.i = tail call noundef ptr @_ZNK4base18ThreadLocalStorage4Slot3GetEv(ptr noundef nonnull align 4 dereferenceable(8) %this_thread_tracker_.i.i.i.i)
   %tobool.not.i.i.i = icmp eq ptr %call.i.i.i.i, null
   br i1 %tobool.not.i.i.i, label %_ZN4base5debug21GlobalActivityTracker20ScopedThreadActivity18GetOrCreateTrackerEb.exit.i, label %_ZN4base5debug21GlobalActivityTracker20ScopedThreadActivity18GetOrCreateTrackerEb.exit.i.thread
@@ -2046,11 +2046,11 @@ _ZN4base5debug21GlobalActivityTracker20ScopedThreadActivity18GetOrCreateTrackerE
 
 if.then.i.i:                                      ; preds = %_ZN4base5debug21GlobalActivityTracker20ScopedThreadActivity18GetOrCreateTrackerEb.exit.i.thread, %_ZN4base5debug21GlobalActivityTracker20ScopedThreadActivity18GetOrCreateTrackerEb.exit.i
   %retval.0.i.i3 = phi ptr [ %call.i.i.i.i, %_ZN4base5debug21GlobalActivityTracker20ScopedThreadActivity18GetOrCreateTrackerEb.exit.i.thread ], [ %call2.i.i.i, %_ZN4base5debug21GlobalActivityTracker20ScopedThreadActivity18GetOrCreateTrackerEb.exit.i ]
-  %header_.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i3, i64 8
+  %header_.i.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i3, i64 8
   %1 = load ptr, ptr %header_.i.i.i, align 8
-  %current_depth.i.i.i = getelementptr inbounds i8, ptr %1, i64 44
+  %current_depth.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 44
   %2 = load atomic i32, ptr %current_depth.i.i.i monotonic, align 4
-  %stack_slots_.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i3, i64 24
+  %stack_slots_.i.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i3, i64 24
   %3 = load i32, ptr %stack_slots_.i.i.i, align 8
   %cmp.not.i.i.i = icmp ult i32 %2, %3
   br i1 %cmp.not.i.i.i, label %if.end.i.i3.i, label %if.then.i.i.i
@@ -2061,23 +2061,23 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   br label %_ZN4base5debug21GlobalActivityTracker20ScopedThreadActivityC2EPKvNS0_8Activity4TypeERKNS0_12ActivityDataEb.exit
 
 if.end.i.i3.i:                                    ; preds = %if.then.i.i
-  %stack_.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i3, i64 16
+  %stack_.i.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i3, i64 16
   %4 = load ptr, ptr %stack_.i.i.i, align 8
   %idxprom.i.i.i = zext i32 %2 to i64
-  %arrayidx.i.i.i = getelementptr inbounds %"struct.base::debug::Activity", ptr %4, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw %"struct.base::debug::Activity", ptr %4, i64 %idxprom.i.i.i
   %call.i.i.i4.i = tail call i64 @_ZN4base9TimeTicks3NowEv()
   store i64 %call.i.i.i4.i, ptr %arrayidx.i.i.i, align 8
-  %origin_address.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 8
+  %origin_address.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i, i64 8
   store i64 0, ptr %origin_address.i.i.i.i, align 8
-  %activity_type.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 96
+  %activity_type.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i, i64 96
   store i8 81, ptr %activity_type.i.i.i.i, align 8
-  %data3.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 104
+  %data3.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i, i64 104
   store i64 %conv, ptr %data3.i.i.i.i, align 8
-  %call_stack.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 16
+  %call_stack.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i, i64 16
   store i64 0, ptr %call_stack.i.i.i.i, align 8
   %5 = load ptr, ptr %header_.i.i.i, align 8
   %add6.i.i.i = add nuw i32 %2, 1
-  %current_depth5.i.i.i = getelementptr inbounds i8, ptr %5, i64 44
+  %current_depth5.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 44
   store atomic i32 %add6.i.i.i, ptr %current_depth5.i.i.i release, align 4
   br label %_ZN4base5debug21GlobalActivityTracker20ScopedThreadActivityC2EPKvNS0_8Activity4TypeERKNS0_12ActivityDataEb.exit
 
@@ -2100,14 +2100,14 @@ entry:
   br i1 %cmp.not, label %if.end44, label %if.then
 
 if.then:                                          ; preds = %entry
-  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 112
-  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %2 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.lhs.cast.i
@@ -2122,7 +2122,7 @@ if.then:                                          ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %0, i8 0, i64 112, i1 false)
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %0, i64 112
+  %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 112
   %cmp.i.i.i.i.i = icmp eq i64 %__n, 1
   br i1 %cmp.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIPN4base5debug8ActivityEmS2_ET_S4_T0_RSaIT1_E.exit, label %if.end.i.i.i.i.i
 
@@ -2133,7 +2133,7 @@ if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i
 for.body.i.i.i.i.i.i.i:                           ; preds = %for.body.i.i.i.i.i.i.i, %if.end.i.i.i.i.i
   %__first.addr.04.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i, %if.end.i.i.i.i.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %__first.addr.04.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(112) %0, i64 112, i1 false)
-  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i.i, i64 112
+  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i.i.i.i, i64 112
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i, %add.ptr.i.i.i.i.i
   br i1 %cmp.not.i.i.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIPN4base5debug8ActivityEmS2_ET_S4_T0_RSaIT1_E.exit, label %for.body.i.i.i.i.i.i.i, !llvm.loop !15
 
@@ -2162,14 +2162,14 @@ _ZNKSt6vectorIN4base5debug8ActivityESaIS2_EE12_M_check_lenEmPKc.exit: ; preds = 
   br i1 %cmp.i.i.i.i.i24, label %try.cont, label %if.end.i.i.i.i.i25
 
 if.end.i.i.i.i.i25:                               ; preds = %_ZNKSt6vectorIN4base5debug8ActivityESaIS2_EE12_M_check_lenEmPKc.exit
-  %incdec.ptr.i.i.i23 = getelementptr inbounds i8, ptr %add.ptr, i64 112
+  %incdec.ptr.i.i.i23 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 112
   %add.ptr.i.i.i.i.i26 = getelementptr %"struct.base::debug::Activity", ptr %add.ptr, i64 %__n
   br label %for.body.i.i.i.i.i.i.i27
 
 for.body.i.i.i.i.i.i.i27:                         ; preds = %for.body.i.i.i.i.i.i.i27, %if.end.i.i.i.i.i25
   %__first.addr.04.i.i.i.i.i.i.i28 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i29, %for.body.i.i.i.i.i.i.i27 ], [ %incdec.ptr.i.i.i23, %if.end.i.i.i.i.i25 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %__first.addr.04.i.i.i.i.i.i.i28, ptr noundef nonnull align 8 dereferenceable(112) %add.ptr, i64 112, i1 false)
-  %incdec.ptr.i.i.i.i.i.i.i29 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i.i28, i64 112
+  %incdec.ptr.i.i.i.i.i.i.i29 = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i.i.i.i28, i64 112
   %cmp.not.i.i.i.i.i.i.i30 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i29, %add.ptr.i.i.i.i.i26
   br i1 %cmp.not.i.i.i.i.i.i.i30, label %try.cont, label %for.body.i.i.i.i.i.i.i27, !llvm.loop !15
 
@@ -2193,7 +2193,7 @@ _ZNSt12_Vector_baseIN4base5debug8ActivityESaIS2_EE13_M_deallocateEPS2_m.exit37: 
   store ptr %call5.i.i.i, ptr %this, align 8
   %add.ptr37 = getelementptr inbounds %"struct.base::debug::Activity", ptr %add.ptr, i64 %__n
   store ptr %add.ptr37, ptr %_M_finish.i, align 8
-  %add.ptr40 = getelementptr inbounds %"struct.base::debug::Activity", ptr %call5.i.i.i, i64 %3
+  %add.ptr40 = getelementptr inbounds nuw %"struct.base::debug::Activity", ptr %call5.i.i.i, i64 %3
   store ptr %add.ptr40, ptr %_M_end_of_storage, align 8
   br label %if.end44
 

@@ -205,8 +205,8 @@ define linkonce_odr hidden void @_ZN5boost6locale19mb2_iconv_converterC2ERKNSt7_
 
 .preheader:                                       ; preds = %35
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %37 = getelementptr inbounds i8, ptr %10, i64 1
-  %38 = getelementptr inbounds i8, ptr %12, i64 4
+  %37 = getelementptr inbounds nuw i8, ptr %10, i64 1
+  %38 = getelementptr inbounds nuw i8, ptr %12, i64 4
   br label %65
 
 39:                                               ; preds = %35
@@ -762,7 +762,7 @@ define linkonce_odr hidden noundef i32 @_ZN5boost6locale19mb2_iconv_converter10t
   br label %52
 
 20:                                               ; preds = %12
-  %21 = getelementptr inbounds i8, ptr %10, i64 1
+  %21 = getelementptr inbounds nuw i8, ptr %10, i64 1
   %22 = icmp eq ptr %21, %2
   br i1 %22, label %52, label %23
 
@@ -794,11 +794,11 @@ _ZN5boost6locale19mb2_iconv_converter4openERNS0_12iconv_handleEPKcS5_.exit: ; pr
   %34 = phi ptr [ %10, %23 ], [ %.pre, %_ZN5boost6locale12iconv_handleaSEPv.exit.i ]
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %6) #20
   store i8 %13, ptr %6, align 1, !tbaa !20
-  %35 = getelementptr inbounds i8, ptr %6, i64 1
-  %36 = getelementptr inbounds i8, ptr %34, i64 1
+  %35 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %36 = getelementptr inbounds nuw i8, ptr %34, i64 1
   %37 = load i8, ptr %36, align 1, !tbaa !20
   store i8 %37, ptr %35, align 1, !tbaa !20
-  %38 = getelementptr inbounds i8, ptr %6, i64 2
+  %38 = getelementptr inbounds nuw i8, ptr %6, i64 2
   store i8 0, ptr %38, align 1, !tbaa !20
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #20
   store i64 3, ptr %7, align 8, !tbaa !19
@@ -818,7 +818,7 @@ _ZN5boost6locale19mb2_iconv_converter4openERNS0_12iconv_handleEPKcS5_.exit: ; pr
   %42 = load i64, ptr %7, align 8
   %43 = icmp eq i64 %42, 0
   %or.cond = select i1 %41, i1 %43, i1 false
-  %44 = getelementptr inbounds i8, ptr %8, i64 4
+  %44 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %45 = load i32, ptr %44, align 4
   %46 = icmp eq i32 %45, 0
   %or.cond4 = select i1 %or.cond, i1 %46, i1 false
@@ -826,7 +826,7 @@ _ZN5boost6locale19mb2_iconv_converter4openERNS0_12iconv_handleEPKcS5_.exit: ; pr
 
 47:                                               ; preds = %_ZN5boost6locale19mb2_iconv_converter4openERNS0_12iconv_handleEPKcS5_.exit
   %48 = load ptr, ptr %1, align 8, !tbaa !23
-  %49 = getelementptr inbounds i8, ptr %48, i64 2
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 2
   store ptr %49, ptr %1, align 8, !tbaa !23
   %50 = load i32, ptr %8, align 8, !tbaa !24
   br label %51
@@ -889,7 +889,7 @@ _ZN5boost6locale19mb2_iconv_converter4openERNS0_12iconv_handleEPKcS5_.exit: ; pr
   %24 = phi ptr [ %16, %14 ], [ %20, %_ZN5boost6locale12iconv_handleaSEPv.exit.i ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #20
   store i32 %1, ptr %7, align 4, !tbaa !24
-  %25 = getelementptr inbounds i8, ptr %7, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 0, ptr %25, align 4, !tbaa !24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #20
   store i64 8, ptr %8, align 8, !tbaa !19

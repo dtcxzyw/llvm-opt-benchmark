@@ -121,10 +121,10 @@ define hidden noundef zeroext i1 @_ZN14AsyncLogWriter6Buffer9push_backEP19LogFil
   %7 = add i64 %6, 64
   %.not = icmp eq ptr %1, null
   %.neg = select i1 %.not, i64 0, i64 -64
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i64, ptr %8, align 8
   %10 = add i64 %7, %9
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load i64, ptr %11, align 8
   %13 = add i64 %12, %.neg
   %.not12 = icmp ule i64 %10, %13
@@ -134,9 +134,9 @@ define hidden noundef zeroext i1 @_ZN14AsyncLogWriter6Buffer9push_backEP19LogFil
   %15 = load ptr, ptr %0, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 %9
   store ptr %1, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %17, ptr noundef nonnull align 8 dereferenceable(48) %2, i64 48, i1 false)
-  %18 = getelementptr inbounds i8, ptr %16, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 56
   %19 = add i64 %5, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %18, ptr align 1 %3, i64 %19, i1 false)
   %20 = load i64, ptr %8, align 8
@@ -153,10 +153,10 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN14AsyncLogWriter6Buffer16push_flush_tokenEv(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #3 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %4 = add i64 %3, 64
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8
   %.not12.i.not = icmp ugt i64 %4, %6
   br i1 %.not12.i.not, label %_ZN14AsyncLogWriter6Buffer9push_backEP19LogFileStreamOutputRK14LogDecorationsPKc.exit, label %7
@@ -166,9 +166,9 @@ define hidden void @_ZN14AsyncLogWriter6Buffer16push_flush_tokenEv(ptr nocapture
   %9 = load ptr, ptr %0, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 %3
   store ptr null, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %11, ptr noundef nonnull readonly align 8 dereferenceable(48) %8, i64 48, i1 false)
-  %12 = getelementptr inbounds i8, ptr %10, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 56
   store i8 0, ptr %12, align 8
   %13 = load i64, ptr %2, align 8
   %14 = add i64 %13, 64
@@ -181,31 +181,31 @@ _ZN14AsyncLogWriter6Buffer9push_backEP19LogFileStreamOutputRK14LogDecorationsPKc
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN14AsyncLogWriter14enqueue_lockedEP19LogFileStreamOutputRK14LogDecorationsPKc(ptr noundef nonnull align 8 dereferenceable(1184) %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %2, ptr nocapture noundef readonly %3) local_unnamed_addr #4 align 2 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 1168
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1168
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %3) #15
   %8 = and i64 %7, -8
   %9 = add i64 %8, 64
   %.not.i = icmp eq ptr %1, null
   %.neg.i = select i1 %.not.i, i64 0, i64 -64
-  %10 = getelementptr inbounds i8, ptr %6, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %11 = load i64, ptr %10, align 8
   %12 = add i64 %9, %11
-  %13 = getelementptr inbounds i8, ptr %6, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %14 = load i64, ptr %13, align 8
   %15 = add i64 %14, %.neg.i
   %.not12.i.not = icmp ugt i64 %12, %15
   br i1 %.not12.i.not, label %_ZN14AsyncLogWriter6Buffer9push_backEP19LogFileStreamOutputRK14LogDecorationsPKc.exit, label %49
 
 _ZN14AsyncLogWriter6Buffer9push_backEP19LogFileStreamOutputRK14LogDecorationsPKc.exit: ; preds = %4
-  %16 = getelementptr inbounds i8, ptr %0, i64 1024
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 1024
   %17 = ptrtoint ptr %1 to i64
   %18 = trunc i64 %17 to i32
   %19 = lshr i32 %18, 3
   %20 = xor i32 %19, %18
   %21 = urem i32 %20, 17
   %22 = zext nneg i32 %21 to i64
-  %23 = getelementptr inbounds ptr, ptr %16, i64 %22
+  %23 = getelementptr inbounds nuw ptr, ptr %16, i64 %22
   %24 = load ptr, ptr %23, align 8
   %.not11.i.i = icmp eq ptr %24, null
   br i1 %.not11.i.i, label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj17EP19LogFileStreamOutputjES2_jLN6AnyObj15allocation_typeE2EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE11lookup_nodeEjRKS2_.exit.thread.i, label %.lr.ph.i.i
@@ -217,19 +217,19 @@ _ZN14AsyncLogWriter6Buffer9push_backEP19LogFileStreamOutputRK14LogDecorationsPKc
   br i1 %26, label %27, label %31
 
 27:                                               ; preds = %.lr.ph.i.i
-  %28 = getelementptr inbounds i8, ptr %.pr.i, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %.pr.i, i64 8
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq ptr %1, %29
   br i1 %30, label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj17EP19LogFileStreamOutputjES2_jLN6AnyObj15allocation_typeE2EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE13put_if_absentERKS2_RKjPb.exit, label %31
 
 31:                                               ; preds = %27, %.lr.ph.i.i
-  %32 = getelementptr inbounds i8, ptr %.pr.i, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %.pr.i, i64 24
   %33 = load ptr, ptr %32, align 8
   %.not.i.i = icmp eq ptr %33, null
   br i1 %.not.i.i, label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj17EP19LogFileStreamOutputjES2_jLN6AnyObj15allocation_typeE2EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE11lookup_nodeEjRKS2_.exit.thread.i.loopexit, label %.lr.ph.i.i, !llvm.loop !6
 
 _ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj17EP19LogFileStreamOutputjES2_jLN6AnyObj15allocation_typeE2EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE11lookup_nodeEjRKS2_.exit.thread.i.loopexit: ; preds = %31
-  %34 = getelementptr inbounds i8, ptr %.pr.i, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %.pr.i, i64 24
   br label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj17EP19LogFileStreamOutputjES2_jLN6AnyObj15allocation_typeE2EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE11lookup_nodeEjRKS2_.exit.thread.i
 
 _ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj17EP19LogFileStreamOutputjES2_jLN6AnyObj15allocation_typeE2EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE11lookup_nodeEjRKS2_.exit.thread.i: ; preds = %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj17EP19LogFileStreamOutputjES2_jLN6AnyObj15allocation_typeE2EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE11lookup_nodeEjRKS2_.exit.thread.i.loopexit, %_ZN14AsyncLogWriter6Buffer9push_backEP19LogFileStreamOutputRK14LogDecorationsPKc.exit
@@ -240,17 +240,17 @@ _ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj17EP19LogFileStream
 
 37:                                               ; preds = %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj17EP19LogFileStreamOutputjES2_jLN6AnyObj15allocation_typeE2EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE11lookup_nodeEjRKS2_.exit.thread.i
   store i32 %20, ptr %35, align 8
-  %38 = getelementptr inbounds i8, ptr %35, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store ptr %1, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %35, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %35, i64 16
   store i32 0, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %35, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %35, i64 24
   store ptr null, ptr %40, align 8
   br label %41
 
 41:                                               ; preds = %37, %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj17EP19LogFileStreamOutputjES2_jLN6AnyObj15allocation_typeE2EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE11lookup_nodeEjRKS2_.exit.thread.i
   store ptr %35, ptr %.0.lcssa.i12.i, align 8
-  %42 = getelementptr inbounds i8, ptr %0, i64 1160
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 1160
   %43 = load i32, ptr %42, align 8
   %44 = add nsw i32 %43, 1
   store i32 %44, ptr %42, align 8
@@ -259,7 +259,7 @@ _ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj17EP19LogFileStream
 
 _ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj17EP19LogFileStreamOutputjES2_jLN6AnyObj15allocation_typeE2EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE13put_if_absentERKS2_RKjPb.exit: ; preds = %27, %41
   %45 = phi ptr [ %.pre, %41 ], [ %.pr.i, %27 ]
-  %46 = getelementptr inbounds i8, ptr %45, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %47 = load i32, ptr %46, align 4
   %48 = add i32 %47, 1
   store i32 %48, ptr %46, align 4
@@ -269,17 +269,17 @@ _ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj17EP19LogFileStream
   %50 = load ptr, ptr %6, align 8
   %51 = getelementptr inbounds i8, ptr %50, i64 %11
   store ptr %1, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %52, ptr noundef nonnull readonly align 8 dereferenceable(48) %2, i64 48, i1 false)
-  %53 = getelementptr inbounds i8, ptr %51, i64 56
+  %53 = getelementptr inbounds nuw i8, ptr %51, i64 56
   %54 = add i64 %7, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %53, ptr readonly align 1 %3, i64 %54, i1 false)
   %55 = load i64, ptr %10, align 8
   %56 = add i64 %55, %9
   store i64 %56, ptr %10, align 8
-  %57 = getelementptr inbounds i8, ptr %0, i64 1016
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 1016
   store i8 1, ptr %57, align 8
-  %58 = getelementptr inbounds i8, ptr %0, i64 968
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 968
   %59 = tail call i32 @pthread_cond_signal(ptr noundef nonnull %58) #16
   br label %60
 
@@ -290,11 +290,11 @@ _ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj17EP19LogFileStream
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN14AsyncLogWriter7enqueueER19LogFileStreamOutputRK14LogDecorationsPKc(ptr noundef nonnull align 8 dereferenceable(1184) %0, ptr noundef nonnull align 8 dereferenceable(264) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %2, ptr nocapture noundef readonly %3) local_unnamed_addr #4 align 2 {
   %5 = load ptr, ptr @_ZN14AsyncLogWriter9_instanceE, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 928
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 928
   %7 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %6) #16
   tail call void @_ZN14AsyncLogWriter14enqueue_lockedEP19LogFileStreamOutputRK14LogDecorationsPKc(ptr noundef nonnull align 8 dereferenceable(1184) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef %3)
   %8 = load ptr, ptr @_ZN14AsyncLogWriter9_instanceE, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 928
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 928
   %10 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %9) #16
   ret void
 }
@@ -302,35 +302,35 @@ define hidden void @_ZN14AsyncLogWriter7enqueueER19LogFileStreamOutputRK14LogDec
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN14AsyncLogWriter7enqueueER19LogFileStreamOutputN16LogMessageBuffer8IteratorE(ptr noundef nonnull align 8 dereferenceable(1184) %0, ptr noundef nonnull align 8 dereferenceable(264) %1, ptr noundef byval(%"class.LogMessageBuffer::Iterator") align 8 %2) local_unnamed_addr #4 align 2 {
   %4 = load ptr, ptr @_ZN14AsyncLogWriter9_instanceE, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 928
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 928
   %6 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %5) #16
-  %7 = getelementptr inbounds i8, ptr %2, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %8 = load i64, ptr %7, align 8
   %9 = load ptr, ptr %2, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %11 = load i64, ptr %10, align 8
   %12 = icmp eq i64 %8, %11
   br i1 %12, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
-  %13 = getelementptr inbounds i8, ptr %2, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 24
   br label %14
 
 14:                                               ; preds = %.lr.ph, %14
   %15 = phi ptr [ %9, %.lr.ph ], [ %36, %14 ]
   %16 = phi i64 [ %8, %.lr.ph ], [ %35, %14 ]
   %17 = load ptr, ptr %13, align 8
-  %18 = getelementptr inbounds i8, ptr %15, i64 48
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 48
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds %"struct.LogMessageBuffer::LogLine", ptr %19, i64 %16
   %21 = load i32, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %17, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %17, i64 32
   store i32 %21, ptr %22, align 8
   %23 = load ptr, ptr %13, align 8
   %24 = load ptr, ptr %2, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %24, i64 48
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 48
   %28 = load ptr, ptr %27, align 8
   %29 = load i64, ptr %7, align 8
   %30 = getelementptr inbounds %"struct.LogMessageBuffer::LogLine", ptr %28, i64 %29, i32 1
@@ -343,14 +343,14 @@ define hidden void @_ZN14AsyncLogWriter7enqueueER19LogFileStreamOutputN16LogMess
   call void @_ZN16LogMessageBuffer8Iterator30skip_messages_with_finer_levelEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #16
   %35 = load i64, ptr %7, align 8
   %36 = load ptr, ptr %2, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 32
   %38 = load i64, ptr %37, align 8
   %39 = icmp eq i64 %35, %38
   br i1 %39, label %._crit_edge, label %14, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %14, %3
   %40 = load ptr, ptr @_ZN14AsyncLogWriter9_instanceE, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 928
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 928
   %42 = call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %41) #16
   ret void
 }
@@ -359,22 +359,22 @@ define hidden void @_ZN14AsyncLogWriter7enqueueER19LogFileStreamOutputN16LogMess
 define hidden void @_ZN14AsyncLogWriterC2Ev(ptr noundef nonnull align 8 dereferenceable(1184) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN13NonJavaThreadC2Ev(ptr noundef nonnull align 8 dereferenceable(896) %0) #16
   store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTV14AsyncLogWriter, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 896
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 896
   tail call void @_ZN14PosixSemaphoreC1Ej(ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 0) #16
-  %3 = getelementptr inbounds i8, ptr %0, i64 928
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 928
   tail call void @_ZN15PlatformMonitorC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %3) #16
-  %4 = getelementptr inbounds i8, ptr %0, i64 1016
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1016
   store i8 0, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 1017
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1017
   store volatile i8 0, ptr %5, align 1
-  %6 = getelementptr inbounds i8, ptr %0, i64 1024
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1024
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(140) %6, i8 0, i64 140, i1 false)
   %7 = load i64, ptr @AsyncLogBufferSize, align 8
   %8 = lshr i64 %7, 1
   %9 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 24, i8 noundef zeroext 17, i32 noundef 0) #16
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 0, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %9, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i64 %8, ptr %11, align 8
   %12 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %8, i8 noundef zeroext 17, i32 noundef 0) #16
   store ptr %12, ptr %9, align 8
@@ -383,12 +383,12 @@ define hidden void @_ZN14AsyncLogWriterC2Ev(ptr noundef nonnull align 8 derefere
   %15 = and i64 %14, -8
   %16 = sub i64 %15, %13
   store i64 %16, ptr %10, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 1168
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 1168
   store ptr %9, ptr %17, align 8
   %18 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 24, i8 noundef zeroext 17, i32 noundef 0) #16
-  %19 = getelementptr inbounds i8, ptr %18, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i64 0, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %18, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store i64 %8, ptr %20, align 8
   %21 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %8, i8 noundef zeroext 17, i32 noundef 0) #16
   store ptr %21, ptr %18, align 8
@@ -397,9 +397,9 @@ define hidden void @_ZN14AsyncLogWriterC2Ev(ptr noundef nonnull align 8 derefere
   %24 = and i64 %23, -8
   %25 = sub i64 %24, %22
   store i64 %25, ptr %19, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 1176
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 1176
   store ptr %18, ptr %26, align 8
-  %27 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE76ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %27 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE76ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not = icmp eq ptr %27, null
   br i1 %.not, label %30, label %28
 
@@ -417,7 +417,7 @@ define hidden void @_ZN14AsyncLogWriterC2Ev(ptr noundef nonnull align 8 derefere
   br label %36
 
 33:                                               ; preds = %30
-  %34 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE76ELS1_159ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 72), align 8
+  %34 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE76ELS1_159ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 72), align 8
   %.not9 = icmp eq ptr %34, null
   br i1 %.not9, label %36, label %35
 
@@ -457,9 +457,9 @@ define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE76ELS1_159ELS1_0ELS1
 define hidden void @_ZN14AsyncLogWriter5writeER17ResourceHashtableIP19LogFileStreamOutputjLj17ELN6AnyObj15allocation_typeE1EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbS9_S9_EEE(ptr noundef nonnull align 8 dereferenceable(1184) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(140) %1) local_unnamed_addr #4 align 2 {
   %3 = alloca %class.stringStream, align 8
   %4 = alloca %class.LogDecorations, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 1176
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1176
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load i64, ptr %7, align 8
   %.not = icmp eq i64 %8, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -470,7 +470,7 @@ define hidden void @_ZN14AsyncLogWriter5writeER17ResourceHashtableIP19LogFileStr
   %.sroa.3.010 = phi i64 [ %17, %28 ], [ 0, %2 ]
   %10 = load ptr, ptr %6, align 8
   %11 = getelementptr inbounds i8, ptr %10, i64 %.sroa.3.010
-  %12 = getelementptr inbounds i8, ptr %11, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 56
   %13 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %12) #15
   %14 = and i64 %13, -8
   %15 = add i64 %.sroa.3.010, 64
@@ -481,9 +481,9 @@ define hidden void @_ZN14AsyncLogWriter5writeER17ResourceHashtableIP19LogFileStr
   br i1 %19, label %26, label %20
 
 20:                                               ; preds = %.lr.ph
-  %21 = getelementptr inbounds i8, ptr %11, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %22 = load ptr, ptr %18, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 72
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 72
   %24 = load ptr, ptr %23, align 8
   %25 = tail call noundef i32 %24(ptr noundef nonnull align 8 dereferenceable(264) %18, ptr noundef nonnull align 8 dereferenceable(48) %21, ptr noundef nonnull %12) #16
   %.pre = load i64, ptr %7, align 8
@@ -502,19 +502,19 @@ define hidden void @_ZN14AsyncLogWriter5writeER17ResourceHashtableIP19LogFileStr
 ._crit_edge:                                      ; preds = %28, %2
   %.0.lcssa = phi i32 [ 0, %2 ], [ %.1, %28 ]
   call void @_ZN14LogDecorationsC1EN8LogLevel4typeERK9LogTagSetRK13LogDecorators(ptr noundef nonnull align 8 dereferenceable(48) %4, i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(112) @_ZN16LogTagSetMappingILN6LogTag4typeE0ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr noundef nonnull align 4 dereferenceable(4) @_ZN13LogDecorators3AllE) #16
-  %31 = getelementptr inbounds i8, ptr %1, i64 136
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %32 = load i32, ptr %31, align 8
   %33 = icmp sgt i32 %32, 0
   br i1 %33, label %.preheader.lr.ph.i, label %"_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj17EP19LogFileStreamOutputjES2_jLN6AnyObj15allocation_typeE1EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE7iterateIZN14AsyncLogWriter5writeER17ResourceHashtableIS2_jLj17ELS5_1ELS6_17EXadL_ZS7_IS2_EjSA_EEXadL_ZSB_IS2_EbSA_SA_EEEE3$_0EEvS8_.exit"
 
 .preheader.lr.ph.i:                               ; preds = %._crit_edge
-  %34 = getelementptr inbounds i8, ptr %3, i64 56
+  %34 = getelementptr inbounds nuw i8, ptr %3, i64 56
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %._crit_edge.i, %.preheader.lr.ph.i
   %.0.idx18.i = phi i64 [ 0, %.preheader.lr.ph.i ], [ %.0.add.i, %._crit_edge.i ]
   %.01217.i = phi i32 [ %32, %.preheader.lr.ph.i ], [ %.1.lcssa.i, %._crit_edge.i ]
-  %.0.ptr19.i = getelementptr inbounds i8, ptr %1, i64 %.0.idx18.i
+  %.0.ptr19.i = getelementptr inbounds nuw i8, ptr %1, i64 %.0.idx18.i
   %.01113.i = load ptr, ptr %.0.ptr19.i, align 8
   %.not14.i = icmp eq ptr %.01113.i, null
   br i1 %.not14.i, label %._crit_edge.i, label %.lr.ph.i
@@ -522,9 +522,9 @@ define hidden void @_ZN14AsyncLogWriter5writeER17ResourceHashtableIP19LogFileStr
 .lr.ph.i:                                         ; preds = %.preheader.i, %"_ZZN14AsyncLogWriter5writeER17ResourceHashtableIP19LogFileStreamOutputjLj17ELN6AnyObj15allocation_typeE1EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbS9_S9_EEEENK3$_0clES2_Rj.exit.i"
   %.01116.i = phi ptr [ %.011.i, %"_ZZN14AsyncLogWriter5writeER17ResourceHashtableIP19LogFileStreamOutputjLj17ELN6AnyObj15allocation_typeE1EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbS9_S9_EEEENK3$_0clES2_Rj.exit.i" ], [ %.01113.i, %.preheader.i ]
   %.115.i = phi i32 [ %47, %"_ZZN14AsyncLogWriter5writeER17ResourceHashtableIP19LogFileStreamOutputjLj17ELN6AnyObj15allocation_typeE1EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbS9_S9_EEEENK3$_0clES2_Rj.exit.i" ], [ %.01217.i, %.preheader.i ]
-  %35 = getelementptr inbounds i8, ptr %.01116.i, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %.01116.i, i64 8
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %.01116.i, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %.01116.i, i64 16
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %3)
   %38 = load i32, ptr %37, align 4
   %.not.i.i = icmp eq i32 %38, 0
@@ -536,7 +536,7 @@ define hidden void @_ZN14AsyncLogWriter5writeER17ResourceHashtableIP19LogFileStr
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull @.str.15, i32 noundef %40) #16
   %41 = load ptr, ptr %34, align 8
   %42 = load ptr, ptr %36, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 72
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 72
   %44 = load ptr, ptr %43, align 8
   %45 = call noundef i32 %44(ptr noundef nonnull align 8 dereferenceable(264) %36, ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef %41) #16
   call void @_ZN12stringStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(129) %3) #16
@@ -544,7 +544,7 @@ define hidden void @_ZN14AsyncLogWriter5writeER17ResourceHashtableIP19LogFileStr
 
 "_ZZN14AsyncLogWriter5writeER17ResourceHashtableIP19LogFileStreamOutputjLj17ELN6AnyObj15allocation_typeE1EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbS9_S9_EEEENK3$_0clES2_Rj.exit.i": ; preds = %39, %.lr.ph.i
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %3)
-  %46 = getelementptr inbounds i8, ptr %.01116.i, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %.01116.i, i64 24
   %47 = add nsw i32 %.115.i, -1
   %.011.i = load ptr, ptr %46, align 8
   %.not.i = icmp eq ptr %.011.i, null
@@ -563,7 +563,7 @@ define hidden void @_ZN14AsyncLogWriter5writeER17ResourceHashtableIP19LogFileStr
   br i1 %50, label %51, label %53
 
 51:                                               ; preds = %"_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj17EP19LogFileStreamOutputjES2_jLN6AnyObj15allocation_typeE1EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE7iterateIZN14AsyncLogWriter5writeER17ResourceHashtableIS2_jLj17ELS5_1ELS6_17EXadL_ZS7_IS2_EjSA_EEXadL_ZSB_IS2_EbSA_SA_EEEE3$_0EEvS8_.exit"
-  %52 = getelementptr inbounds i8, ptr %0, i64 896
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 896
   call void @_ZN14PosixSemaphore6signalEj(ptr noundef nonnull align 8 dereferenceable(32) %52, i32 noundef %.0.lcssa) #16
   br label %53
 
@@ -577,32 +577,32 @@ define hidden void @_ZN14AsyncLogWriter3runEv(ptr noundef nonnull align 8 derefe
   %3 = alloca %class.LogDecorations, align 8
   %4 = alloca %class.ResourceHashtable.4, align 8
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
-  %6 = getelementptr inbounds i8, ptr %0, i64 1016
-  %7 = getelementptr inbounds i8, ptr %0, i64 928
-  %8 = getelementptr inbounds i8, ptr %0, i64 1176
-  %9 = getelementptr inbounds i8, ptr %0, i64 1168
-  %10 = getelementptr inbounds i8, ptr %0, i64 1024
-  %11 = getelementptr inbounds i8, ptr %0, i64 1160
-  %12 = getelementptr inbounds i8, ptr %4, i64 136
-  %13 = getelementptr inbounds i8, ptr %2, i64 56
-  %14 = getelementptr inbounds i8, ptr %0, i64 896
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1016
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 928
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1176
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1168
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 1024
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 1160
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 136
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 896
   br label %_ZN12ResourceMarkD2Ev.exit
 
 _ZN12ResourceMarkD2Ev.exit:                       ; preds = %_ZN12ResourceMarkD2Ev.exit.backedge, %1
   %15 = load ptr, ptr %5, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 800
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 800
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %17, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 32
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %17, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %17, i64 40
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %17, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %25 = load i64, ptr %24, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(140) %4, i8 0, i64 140, i1 false)
   %26 = load ptr, ptr @_ZN14AsyncLogWriter9_instanceE, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 928
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 928
   %28 = call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %27) #16
   %29 = load i8, ptr %6, align 8
   %30 = trunc i8 %29 to i1
@@ -621,7 +621,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %_ZN12ResourceMarkD2
   %37 = add i64 %36, 7
   %38 = and i64 %37, -8
   %39 = sub i64 %38, %36
-  %40 = getelementptr inbounds i8, ptr %34, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store i64 %39, ptr %40, align 8
   %41 = load ptr, ptr %9, align 8
   %42 = load ptr, ptr %8, align 8
@@ -635,7 +635,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %_ZN12ResourceMarkD2
   %.lcssa17 = phi i32 [ %.lcssa16, %._crit_edge.i ], [ 0, %._crit_edge ]
   %.0.idx20.i = phi i64 [ %.0.add.i, %._crit_edge.i ], [ 0, %._crit_edge ]
   %.01219.i = phi i32 [ %.1.lcssa.i, %._crit_edge.i ], [ %43, %._crit_edge ]
-  %.0.ptr21.i = getelementptr inbounds i8, ptr %10, i64 %.0.idx20.i
+  %.0.ptr21.i = getelementptr inbounds nuw i8, ptr %10, i64 %.0.idx20.i
   %.01115.i = load ptr, ptr %.0.ptr21.i, align 8
   %.not16.i = icmp eq ptr %.01115.i, null
   br i1 %.not16.i, label %._crit_edge.i, label %.lr.ph.i
@@ -644,9 +644,9 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %_ZN12ResourceMarkD2
   %45 = phi i32 [ %77, %"_ZZN14AsyncLogWriter3runEvENK3$_0clEP19LogFileStreamOutputRj.exit.i" ], [ %.lcssa17, %.preheader.i ]
   %.01118.i = phi ptr [ %.011.i, %"_ZZN14AsyncLogWriter3runEvENK3$_0clEP19LogFileStreamOutputRj.exit.i" ], [ %.01115.i, %.preheader.i ]
   %.117.i = phi i32 [ %79, %"_ZZN14AsyncLogWriter3runEvENK3$_0clEP19LogFileStreamOutputRj.exit.i" ], [ %.01219.i, %.preheader.i ]
-  %46 = getelementptr inbounds i8, ptr %.01118.i, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %.01118.i, i64 8
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %.01118.i, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %.01118.i, i64 16
   %49 = load i32, ptr %48, align 4
   %.not.i.i = icmp eq i32 %49, 0
   br i1 %.not.i.i, label %"_ZZN14AsyncLogWriter3runEvENK3$_0clEP19LogFileStreamOutputRj.exit.i", label %50
@@ -658,7 +658,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %_ZN12ResourceMarkD2
   %54 = xor i32 %53, %52
   %55 = urem i32 %54, 17
   %56 = zext nneg i32 %55 to i64
-  %57 = getelementptr inbounds ptr, ptr %4, i64 %56
+  %57 = getelementptr inbounds nuw ptr, ptr %4, i64 %56
   %58 = load ptr, ptr %57, align 8
   %.not11.i.i.i.i = icmp eq ptr %58, null
   br i1 %.not11.i.i.i.i, label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj17EP19LogFileStreamOutputjES2_jLN6AnyObj15allocation_typeE1EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE11lookup_nodeEjRKS2_.exit.thread.i.i.i, label %.lr.ph.i.i.i.i
@@ -670,36 +670,36 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %_ZN12ResourceMarkD2
   br i1 %60, label %61, label %65
 
 61:                                               ; preds = %.lr.ph.i.i.i.i
-  %62 = getelementptr inbounds i8, ptr %.pr.i.i.i, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %.pr.i.i.i, i64 8
   %63 = load ptr, ptr %62, align 8
   %64 = icmp eq ptr %47, %63
   br i1 %64, label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj17EP19LogFileStreamOutputjES2_jLN6AnyObj15allocation_typeE1EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE11lookup_nodeEjRKS2_.exit.i.i.i, label %65
 
 65:                                               ; preds = %61, %.lr.ph.i.i.i.i
-  %66 = getelementptr inbounds i8, ptr %.pr.i.i.i, i64 24
+  %66 = getelementptr inbounds nuw i8, ptr %.pr.i.i.i, i64 24
   %67 = load ptr, ptr %66, align 8
   %.not.i.i.i.i = icmp eq ptr %67, null
   br i1 %.not.i.i.i.i, label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj17EP19LogFileStreamOutputjES2_jLN6AnyObj15allocation_typeE1EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE11lookup_nodeEjRKS2_.exit.thread.i.i.i.loopexit, label %.lr.ph.i.i.i.i, !llvm.loop !13
 
 _ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj17EP19LogFileStreamOutputjES2_jLN6AnyObj15allocation_typeE1EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE11lookup_nodeEjRKS2_.exit.i.i.i: ; preds = %61
-  %68 = getelementptr inbounds i8, ptr %.pr.i.i.i, i64 16
+  %68 = getelementptr inbounds nuw i8, ptr %.pr.i.i.i, i64 16
   store i32 %49, ptr %68, align 8
   br label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj17EP19LogFileStreamOutputjES2_jLN6AnyObj15allocation_typeE1EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE3putERKS2_RKj.exit.i.i
 
 _ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj17EP19LogFileStreamOutputjES2_jLN6AnyObj15allocation_typeE1EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE11lookup_nodeEjRKS2_.exit.thread.i.i.i.loopexit: ; preds = %65
-  %69 = getelementptr inbounds i8, ptr %.pr.i.i.i, i64 24
+  %69 = getelementptr inbounds nuw i8, ptr %.pr.i.i.i, i64 24
   br label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj17EP19LogFileStreamOutputjES2_jLN6AnyObj15allocation_typeE1EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE11lookup_nodeEjRKS2_.exit.thread.i.i.i
 
 _ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj17EP19LogFileStreamOutputjES2_jLN6AnyObj15allocation_typeE1EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE11lookup_nodeEjRKS2_.exit.thread.i.i.i: ; preds = %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj17EP19LogFileStreamOutputjES2_jLN6AnyObj15allocation_typeE1EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE11lookup_nodeEjRKS2_.exit.thread.i.i.i.loopexit, %50
   %.0.lcssa.i14.i.i.i = phi ptr [ %57, %50 ], [ %69, %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj17EP19LogFileStreamOutputjES2_jLN6AnyObj15allocation_typeE1EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE11lookup_nodeEjRKS2_.exit.thread.i.i.i.loopexit ]
   %70 = call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i32 noundef 0) #16
   store i32 %54, ptr %70, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
   store ptr %47, ptr %71, align 8
-  %72 = getelementptr inbounds i8, ptr %70, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %70, i64 16
   %73 = load i32, ptr %48, align 4
   store i32 %73, ptr %72, align 8
-  %74 = getelementptr inbounds i8, ptr %70, i64 24
+  %74 = getelementptr inbounds nuw i8, ptr %70, i64 24
   store ptr null, ptr %74, align 8
   store ptr %70, ptr %.0.lcssa.i14.i.i.i, align 8
   %75 = add nsw i32 %45, 1
@@ -712,7 +712,7 @@ _ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj17EP19LogFileStream
 
 "_ZZN14AsyncLogWriter3runEvENK3$_0clEP19LogFileStreamOutputRj.exit.i": ; preds = %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj17EP19LogFileStreamOutputjES2_jLN6AnyObj15allocation_typeE1EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE3putERKS2_RKj.exit.i.i, %.lr.ph.i
   %77 = phi i32 [ %76, %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj17EP19LogFileStreamOutputjES2_jLN6AnyObj15allocation_typeE1EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE3putERKS2_RKj.exit.i.i ], [ %45, %.lr.ph.i ]
-  %78 = getelementptr inbounds i8, ptr %.01118.i, i64 24
+  %78 = getelementptr inbounds nuw i8, ptr %.01118.i, i64 24
   %79 = add nsw i32 %.117.i, -1
   %.011.i = load ptr, ptr %78, align 8
   %.not.i = icmp eq ptr %.011.i, null
@@ -735,11 +735,11 @@ _ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj17EP19LogFileStream
   %82 = phi i32 [ %.lcssa16, %"_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj17EP19LogFileStreamOutputjES2_jLN6AnyObj15allocation_typeE2EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE7iterateIZN14AsyncLogWriter3runEvE3$_0EEvS8_.exit.loopexit" ], [ 0, %._crit_edge ]
   store i8 0, ptr %6, align 8
   %83 = load ptr, ptr @_ZN14AsyncLogWriter9_instanceE, align 8
-  %84 = getelementptr inbounds i8, ptr %83, i64 928
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 928
   %85 = call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %84) #16
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
   %86 = load ptr, ptr %8, align 8
-  %87 = getelementptr inbounds i8, ptr %86, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 8
   %88 = load i64, ptr %87, align 8
   %.not.i1 = icmp eq i64 %88, 0
   br i1 %.not.i1, label %._crit_edge.i4, label %.lr.ph.i2
@@ -750,7 +750,7 @@ _ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj17EP19LogFileStream
   %.sroa.3.010.i = phi i64 [ %97, %108 ], [ 0, %"_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj17EP19LogFileStreamOutputjES2_jLN6AnyObj15allocation_typeE2EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE7iterateIZN14AsyncLogWriter3runEvE3$_0EEvS8_.exit" ]
   %90 = load ptr, ptr %86, align 8
   %91 = getelementptr inbounds i8, ptr %90, i64 %.sroa.3.010.i
-  %92 = getelementptr inbounds i8, ptr %91, i64 56
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 56
   %93 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %92) #15
   %94 = and i64 %93, -8
   %95 = add i64 %.sroa.3.010.i, 64
@@ -761,9 +761,9 @@ _ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj17EP19LogFileStream
   br i1 %99, label %106, label %100
 
 100:                                              ; preds = %.lr.ph.i2
-  %101 = getelementptr inbounds i8, ptr %91, i64 8
+  %101 = getelementptr inbounds nuw i8, ptr %91, i64 8
   %102 = load ptr, ptr %98, align 8
-  %103 = getelementptr inbounds i8, ptr %102, i64 72
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 72
   %104 = load ptr, ptr %103, align 8
   %105 = call noundef i32 %104(ptr noundef nonnull align 8 dereferenceable(264) %98, ptr noundef nonnull align 8 dereferenceable(48) %101, ptr noundef nonnull %92) #16
   %.pre.i = load i64, ptr %87, align 8
@@ -788,7 +788,7 @@ _ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj17EP19LogFileStream
 .preheader.i.i:                                   ; preds = %._crit_edge.i4, %._crit_edge.i.i
   %.0.idx18.i.i = phi i64 [ %.0.add.i.i, %._crit_edge.i.i ], [ 0, %._crit_edge.i4 ]
   %.01217.i.i = phi i32 [ %.1.lcssa.i.i, %._crit_edge.i.i ], [ %82, %._crit_edge.i4 ]
-  %.0.ptr19.i.i = getelementptr inbounds i8, ptr %4, i64 %.0.idx18.i.i
+  %.0.ptr19.i.i = getelementptr inbounds nuw i8, ptr %4, i64 %.0.idx18.i.i
   %.01113.i.i = load ptr, ptr %.0.ptr19.i.i, align 8
   %.not14.i.i = icmp eq ptr %.01113.i.i, null
   br i1 %.not14.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
@@ -796,9 +796,9 @@ _ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj17EP19LogFileStream
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %"_ZZN14AsyncLogWriter5writeER17ResourceHashtableIP19LogFileStreamOutputjLj17ELN6AnyObj15allocation_typeE1EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbS9_S9_EEEENK3$_0clES2_Rj.exit.i.i"
   %.01116.i.i = phi ptr [ %.011.i.i, %"_ZZN14AsyncLogWriter5writeER17ResourceHashtableIP19LogFileStreamOutputjLj17ELN6AnyObj15allocation_typeE1EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbS9_S9_EEEENK3$_0clES2_Rj.exit.i.i" ], [ %.01113.i.i, %.preheader.i.i ]
   %.115.i.i = phi i32 [ %124, %"_ZZN14AsyncLogWriter5writeER17ResourceHashtableIP19LogFileStreamOutputjLj17ELN6AnyObj15allocation_typeE1EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbS9_S9_EEEENK3$_0clES2_Rj.exit.i.i" ], [ %.01217.i.i, %.preheader.i.i ]
-  %112 = getelementptr inbounds i8, ptr %.01116.i.i, i64 8
+  %112 = getelementptr inbounds nuw i8, ptr %.01116.i.i, i64 8
   %113 = load ptr, ptr %112, align 8
-  %114 = getelementptr inbounds i8, ptr %.01116.i.i, i64 16
+  %114 = getelementptr inbounds nuw i8, ptr %.01116.i.i, i64 16
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %2)
   %115 = load i32, ptr %114, align 4
   %.not.i.i.i = icmp eq i32 %115, 0
@@ -810,7 +810,7 @@ _ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj17EP19LogFileStream
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull @.str.15, i32 noundef %117) #16
   %118 = load ptr, ptr %13, align 8
   %119 = load ptr, ptr %113, align 8
-  %120 = getelementptr inbounds i8, ptr %119, i64 72
+  %120 = getelementptr inbounds nuw i8, ptr %119, i64 72
   %121 = load ptr, ptr %120, align 8
   %122 = call noundef i32 %121(ptr noundef nonnull align 8 dereferenceable(264) %113, ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef %118) #16
   call void @_ZN12stringStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(129) %2) #16
@@ -818,7 +818,7 @@ _ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj17EP19LogFileStream
 
 "_ZZN14AsyncLogWriter5writeER17ResourceHashtableIP19LogFileStreamOutputjLj17ELN6AnyObj15allocation_typeE1EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbS9_S9_EEEENK3$_0clES2_Rj.exit.i.i": ; preds = %116, %.lr.ph.i.i
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %2)
-  %123 = getelementptr inbounds i8, ptr %.01116.i.i, i64 24
+  %123 = getelementptr inbounds nuw i8, ptr %.01116.i.i, i64 24
   %124 = add nsw i32 %.115.i.i, -1
   %.011.i.i = load ptr, ptr %123, align 8
   %.not.i.i5 = icmp eq ptr %.011.i.i, null
@@ -877,7 +877,7 @@ define hidden void @_ZN14AsyncLogWriter10initializeEv() local_unnamed_addr #4 al
 3:                                                ; preds = %0
   %4 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 1184, i8 noundef zeroext 2, i32 noundef 0) #16
   tail call void @_ZN14AsyncLogWriterC2Ev(ptr noundef nonnull align 8 dereferenceable(1184) %4)
-  %5 = getelementptr inbounds i8, ptr %4, i64 1017
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 1017
   %6 = load volatile i8, ptr %5, align 1
   %7 = trunc i8 %6 to i1
   br i1 %7, label %8, label %13
@@ -890,7 +890,7 @@ define hidden void @_ZN14AsyncLogWriter10initializeEv() local_unnamed_addr #4 al
 
 .lr.ph:                                           ; preds = %8, %.lr.ph
   %.013 = phi ptr [ %.0, %.lr.ph ], [ %.011, %8 ]
-  %10 = getelementptr inbounds i8, ptr %.013, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %.013, i64 40
   tail call void @_ZNK13LogOutputList21wait_until_no_readersEv(ptr noundef nonnull align 8 dereferenceable(52) %10) #16
   %.0 = load ptr, ptr %.013, align 8
   %.not = icmp eq ptr %.0, null
@@ -898,7 +898,7 @@ define hidden void @_ZN14AsyncLogWriter10initializeEv() local_unnamed_addr #4 al
 
 ._crit_edge:                                      ; preds = %.lr.ph, %8
   tail call void @_ZN2os12start_threadEP6Thread(ptr noundef nonnull %4) #16
-  %11 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE76ELS1_159ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %11 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE76ELS1_159ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not10 = icmp eq ptr %11, null
   br i1 %.not10, label %17, label %12
 
@@ -908,7 +908,7 @@ define hidden void @_ZN14AsyncLogWriter10initializeEv() local_unnamed_addr #4 al
 
 13:                                               ; preds = %3
   %14 = load ptr, ptr %4, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8
   tail call void %16(ptr noundef nonnull align 8 dereferenceable(1184) %4) #16
   br label %17
@@ -941,15 +941,15 @@ define hidden void @_ZN14AsyncLogWriter5flushEv() local_unnamed_addr #4 align 2 
   br i1 %.not, label %30, label %2
 
 2:                                                ; preds = %0
-  %3 = getelementptr inbounds i8, ptr %1, i64 928
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 928
   %4 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %3) #16
   %5 = load ptr, ptr @_ZN14AsyncLogWriter9_instanceE, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 1168
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 1168
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load i64, ptr %8, align 8
   %10 = add i64 %9, 64
-  %11 = getelementptr inbounds i8, ptr %7, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %12 = load i64, ptr %11, align 8
   %.not12.i.not.i = icmp ugt i64 %10, %12
   br i1 %.not12.i.not.i, label %_ZN14AsyncLogWriter6Buffer16push_flush_tokenEv.exit, label %13
@@ -959,9 +959,9 @@ define hidden void @_ZN14AsyncLogWriter5flushEv() local_unnamed_addr #4 align 2 
   %15 = load ptr, ptr %7, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 %9
   store ptr null, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %17, ptr noundef nonnull readonly align 8 dereferenceable(48) %14, i64 48, i1 false)
-  %18 = getelementptr inbounds i8, ptr %16, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 56
   store i8 0, ptr %18, align 8
   %19 = load i64, ptr %8, align 8
   %20 = add i64 %19, 64
@@ -971,15 +971,15 @@ define hidden void @_ZN14AsyncLogWriter5flushEv() local_unnamed_addr #4 align 2 
 
 _ZN14AsyncLogWriter6Buffer16push_flush_tokenEv.exit: ; preds = %2, %13
   %21 = phi ptr [ %5, %2 ], [ %.pre, %13 ]
-  %22 = getelementptr inbounds i8, ptr %21, i64 1016
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 1016
   store i8 1, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %21, i64 968
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 968
   %24 = tail call i32 @pthread_cond_signal(ptr noundef nonnull %23) #16
   %25 = load ptr, ptr @_ZN14AsyncLogWriter9_instanceE, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 928
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 928
   %27 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %26) #16
   %28 = load ptr, ptr @_ZN14AsyncLogWriter9_instanceE, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 896
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 896
   tail call void @_ZN14PosixSemaphore4waitEv(ptr noundef nonnull align 8 dereferenceable(32) %29) #16
   br label %30
 
@@ -990,20 +990,20 @@ _ZN14AsyncLogWriter6Buffer16push_flush_tokenEv.exit: ; preds = %2, %13
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN14AsyncLogWriter13BufferUpdaterC2Em(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, i64 noundef %1) unnamed_addr #4 align 2 {
   %3 = load ptr, ptr @_ZN14AsyncLogWriter9_instanceE, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 928
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 928
   %5 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %4) #16
   %6 = load ptr, ptr @_ZN14AsyncLogWriter9_instanceE, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 1168
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 1168
   %8 = load ptr, ptr %7, align 8
   store ptr %8, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 1176
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 1176
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %10, ptr %11, align 8
   %12 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 24, i8 noundef zeroext 17, i32 noundef 0) #16
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i64 0, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %12, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i64 %1, ptr %14, align 8
   %15 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %1, i8 noundef zeroext 17, i32 noundef 0) #16
   store ptr %15, ptr %12, align 8
@@ -1014,9 +1014,9 @@ define hidden void @_ZN14AsyncLogWriter13BufferUpdaterC2Em(ptr nocapture noundef
   store i64 %19, ptr %13, align 8
   store ptr %12, ptr %7, align 8
   %20 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 24, i8 noundef zeroext 17, i32 noundef 0) #16
-  %21 = getelementptr inbounds i8, ptr %20, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store i64 0, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %20, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 16
   store i64 %1, ptr %22, align 8
   %23 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %1, i8 noundef zeroext 17, i32 noundef 0) #16
   store ptr %23, ptr %20, align 8
@@ -1027,7 +1027,7 @@ define hidden void @_ZN14AsyncLogWriter13BufferUpdaterC2Em(ptr nocapture noundef
   store i64 %27, ptr %21, align 8
   store ptr %20, ptr %9, align 8
   %28 = load ptr, ptr @_ZN14AsyncLogWriter9_instanceE, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 928
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 928
   %30 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %29) #16
   ret void
 }
@@ -1039,15 +1039,15 @@ define hidden void @_ZN14AsyncLogWriter13BufferUpdaterD2Ev(ptr nocapture noundef
   br i1 %.not.i, label %_ZN14AsyncLogWriter5flushEv.exit, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %2, i64 928
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 928
   %5 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %4) #16
   %6 = load ptr, ptr @_ZN14AsyncLogWriter9_instanceE, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 1168
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 1168
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load i64, ptr %9, align 8
   %11 = add i64 %10, 64
-  %12 = getelementptr inbounds i8, ptr %8, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %13 = load i64, ptr %12, align 8
   %.not12.i.not.i.i = icmp ugt i64 %11, %13
   br i1 %.not12.i.not.i.i, label %_ZN14AsyncLogWriter6Buffer16push_flush_tokenEv.exit.i, label %14
@@ -1057,9 +1057,9 @@ define hidden void @_ZN14AsyncLogWriter13BufferUpdaterD2Ev(ptr nocapture noundef
   %16 = load ptr, ptr %8, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 %10
   store ptr null, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %18, ptr noundef nonnull readonly align 8 dereferenceable(48) %15, i64 48, i1 false)
-  %19 = getelementptr inbounds i8, ptr %17, i64 56
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 56
   store i8 0, ptr %19, align 8
   %20 = load i64, ptr %9, align 8
   %21 = add i64 %20, 64
@@ -1069,24 +1069,24 @@ define hidden void @_ZN14AsyncLogWriter13BufferUpdaterD2Ev(ptr nocapture noundef
 
 _ZN14AsyncLogWriter6Buffer16push_flush_tokenEv.exit.i: ; preds = %14, %3
   %22 = phi ptr [ %6, %3 ], [ %.pre.i, %14 ]
-  %23 = getelementptr inbounds i8, ptr %22, i64 1016
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 1016
   store i8 1, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %22, i64 968
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 968
   %25 = tail call i32 @pthread_cond_signal(ptr noundef nonnull %24) #16
   %26 = load ptr, ptr @_ZN14AsyncLogWriter9_instanceE, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 928
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 928
   %28 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %27) #16
   %29 = load ptr, ptr @_ZN14AsyncLogWriter9_instanceE, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 896
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 896
   tail call void @_ZN14PosixSemaphore4waitEv(ptr noundef nonnull align 8 dereferenceable(32) %30) #16
   %.pre = load ptr, ptr @_ZN14AsyncLogWriter9_instanceE, align 8
   br label %_ZN14AsyncLogWriter5flushEv.exit
 
 _ZN14AsyncLogWriter5flushEv.exit:                 ; preds = %1, %_ZN14AsyncLogWriter6Buffer16push_flush_tokenEv.exit.i
   %31 = phi ptr [ null, %1 ], [ %.pre, %_ZN14AsyncLogWriter6Buffer16push_flush_tokenEv.exit.i ]
-  %32 = getelementptr inbounds i8, ptr %31, i64 928
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 928
   %33 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %32) #16
-  %34 = getelementptr inbounds i8, ptr %31, i64 1168
+  %34 = getelementptr inbounds nuw i8, ptr %31, i64 1168
   %35 = load ptr, ptr %34, align 8
   %36 = icmp eq ptr %35, null
   br i1 %36, label %39, label %37
@@ -1098,7 +1098,7 @@ _ZN14AsyncLogWriter5flushEv.exit:                 ; preds = %1, %_ZN14AsyncLogWr
   br label %39
 
 39:                                               ; preds = %37, %_ZN14AsyncLogWriter5flushEv.exit
-  %40 = getelementptr inbounds i8, ptr %31, i64 1176
+  %40 = getelementptr inbounds nuw i8, ptr %31, i64 1176
   %41 = load ptr, ptr %40, align 8
   %42 = icmp eq ptr %41, null
   br i1 %42, label %45, label %43
@@ -1112,11 +1112,11 @@ _ZN14AsyncLogWriter5flushEv.exit:                 ; preds = %1, %_ZN14AsyncLogWr
 45:                                               ; preds = %43, %39
   %46 = load ptr, ptr %0, align 8
   store ptr %46, ptr %34, align 8
-  %47 = getelementptr inbounds i8, ptr %0, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %48 = load ptr, ptr %47, align 8
   store ptr %48, ptr %40, align 8
   %49 = load ptr, ptr @_ZN14AsyncLogWriter9_instanceE, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 928
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 928
   %51 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %50) #16
   ret void
 }
@@ -1129,19 +1129,19 @@ define linkonce_odr hidden void @_ZN12ThreadShadow22unused_initial_virtualEv(ptr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN14AsyncLogWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(1184) %0) unnamed_addr #4 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTV14AsyncLogWriter, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 1024
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1024
   br label %3
 
 3:                                                ; preds = %._crit_edge.i.i, %1
   %.0.idx11.i.i = phi i64 [ 0, %1 ], [ %.0.add.i.i, %._crit_edge.i.i ]
-  %.0.ptr.i.i = getelementptr inbounds i8, ptr %2, i64 %.0.idx11.i.i
+  %.0.ptr.i.i = getelementptr inbounds nuw i8, ptr %2, i64 %.0.idx11.i.i
   %4 = load ptr, ptr %.0.ptr.i.i, align 8
   %.not9.i.i = icmp eq ptr %4, null
   br i1 %.not9.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %3, %.lr.ph.i.i
   %.0810.i.i = phi ptr [ %6, %.lr.ph.i.i ], [ %4, %3 ]
-  %5 = getelementptr inbounds i8, ptr %.0810.i.i, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %.0810.i.i, i64 24
   %6 = load ptr, ptr %5, align 8
   tail call void @_ZN6AnyObjdlEPv(ptr noundef nonnull %.0810.i.i) #16
   %.not.i.i = icmp eq ptr %6, null
@@ -1153,9 +1153,9 @@ define linkonce_odr hidden void @_ZN14AsyncLogWriterD2Ev(ptr noundef nonnull ali
   br i1 %7, label %3, label %_ZN17ResourceHashtableIP19LogFileStreamOutputjLj17ELN6AnyObj15allocation_typeE2EL8MEMFLAGS17EXadL_Z14primitive_hashIS1_EjRKT_EEXadL_Z16primitive_equalsIS1_EbS8_S8_EEED2Ev.exit, !llvm.loop !20
 
 _ZN17ResourceHashtableIP19LogFileStreamOutputjLj17ELN6AnyObj15allocation_typeE2EL8MEMFLAGS17EXadL_Z14primitive_hashIS1_EjRKT_EEXadL_Z16primitive_equalsIS1_EbS8_S8_EEED2Ev.exit: ; preds = %._crit_edge.i.i
-  %8 = getelementptr inbounds i8, ptr %0, i64 928
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 928
   tail call void @_ZN15PlatformMonitorD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %8) #16
-  %9 = getelementptr inbounds i8, ptr %0, i64 896
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 896
   tail call void @_ZN14PosixSemaphoreD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #16
   tail call void @_ZN13NonJavaThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(896) %0) #16
   ret void
@@ -1164,19 +1164,19 @@ _ZN17ResourceHashtableIP19LogFileStreamOutputjLj17ELN6AnyObj15allocation_typeE2E
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN14AsyncLogWriterD0Ev(ptr noundef nonnull align 8 dereferenceable(1184) %0) unnamed_addr #4 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTV14AsyncLogWriter, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 1024
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1024
   br label %3
 
 3:                                                ; preds = %._crit_edge.i.i.i, %1
   %.0.idx11.i.i.i = phi i64 [ 0, %1 ], [ %.0.add.i.i.i, %._crit_edge.i.i.i ]
-  %.0.ptr.i.i.i = getelementptr inbounds i8, ptr %2, i64 %.0.idx11.i.i.i
+  %.0.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 %.0.idx11.i.i.i
   %4 = load ptr, ptr %.0.ptr.i.i.i, align 8
   %.not9.i.i.i = icmp eq ptr %4, null
   br i1 %.not9.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %3, %.lr.ph.i.i.i
   %.0810.i.i.i = phi ptr [ %6, %.lr.ph.i.i.i ], [ %4, %3 ]
-  %5 = getelementptr inbounds i8, ptr %.0810.i.i.i, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i, i64 24
   %6 = load ptr, ptr %5, align 8
   tail call void @_ZN6AnyObjdlEPv(ptr noundef nonnull %.0810.i.i.i) #16
   %.not.i.i.i = icmp eq ptr %6, null
@@ -1188,9 +1188,9 @@ define linkonce_odr hidden void @_ZN14AsyncLogWriterD0Ev(ptr noundef nonnull ali
   br i1 %7, label %3, label %_ZN14AsyncLogWriterD2Ev.exit, !llvm.loop !20
 
 _ZN14AsyncLogWriterD2Ev.exit:                     ; preds = %._crit_edge.i.i.i
-  %8 = getelementptr inbounds i8, ptr %0, i64 928
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 928
   tail call void @_ZN15PlatformMonitorD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %8) #16
-  %9 = getelementptr inbounds i8, ptr %0, i64 896
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 896
   tail call void @_ZN14PosixSemaphoreD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #16
   tail call void @_ZN13NonJavaThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(1184) %0) #16
   tail call void @_Z8FreeHeapPv(ptr noundef nonnull %0) #16
@@ -1200,7 +1200,7 @@ _ZN14AsyncLogWriterD2Ev.exit:                     ; preds = %._crit_edge.i.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN14AsyncLogWriter7pre_runEv(ptr noundef nonnull align 8 dereferenceable(1184) %0) unnamed_addr #4 comdat align 2 {
   tail call void @_ZN13NonJavaThread7pre_runEv(ptr noundef nonnull align 8 dereferenceable(896) %0) #16
-  %2 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE76ELS1_159ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %2 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE76ELS1_159ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %5, label %3
 
@@ -1310,7 +1310,7 @@ define linkonce_odr hidden void @_ZN6Thread14oops_do_framesEP10OopClosureP14NMet
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK14AsyncLogWriter8print_onEP12outputStream(ptr noundef nonnull align 8 dereferenceable(1184) %0, ptr noundef %1) unnamed_addr #4 comdat align 2 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 168
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 168
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noundef ptr %5(ptr noundef nonnull align 8 dereferenceable(1184) %0) #16
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.14, ptr noundef %6) #16

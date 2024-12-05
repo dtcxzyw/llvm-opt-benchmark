@@ -59,16 +59,16 @@ define noundef i32 @position(ptr nocapture noundef readnone %0) local_unnamed_ad
 ; Function Attrs: nounwind uwtable
 define void @gui_init(ptr noundef initializes((280, 288), (416, 424)) %0) local_unnamed_addr #1 {
   %2 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #9
-  %3 = getelementptr inbounds i8, ptr %0, i64 280
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 280
   store ptr %2, ptr %3, align 8, !tbaa !6
   %4 = tail call ptr @gtk_box_new(i32 noundef 0, i32 noundef 0) #8
-  %5 = getelementptr inbounds i8, ptr %0, i64 416
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 416
   store ptr %4, ptr %5, align 8, !tbaa !13
   store ptr %4, ptr %2, align 8, !tbaa !14
   %6 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 80), align 8, !tbaa !16
-  %7 = getelementptr inbounds i8, ptr %6, i64 288
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 288
   store ptr %0, ptr %7, align 8, !tbaa !26
-  %8 = getelementptr inbounds i8, ptr %6, i64 296
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 296
   store ptr @_lib_module_toolbox_add, ptr %8, align 8, !tbaa !40
   ret void
 }
@@ -80,7 +80,7 @@ declare ptr @gtk_box_new(i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal void @_lib_module_toolbox_add(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) #1 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 280
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %5 = load ptr, ptr %4, align 8, !tbaa !6
   %6 = load ptr, ptr %5, align 8, !tbaa !14
   %7 = tail call i64 @gtk_box_get_type() #10
@@ -89,9 +89,9 @@ define internal void @_lib_module_toolbox_add(ptr nocapture noundef readonly %0,
   tail call void @gtk_widget_show_all(ptr noundef %1) #8
   %9 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #9
   store ptr %1, ptr %9, align 8, !tbaa !41
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 %2, ptr %10, align 8, !tbaa !43
-  %11 = getelementptr inbounds i8, ptr %5, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %12 = load ptr, ptr %11, align 8, !tbaa !44
   %13 = tail call ptr @g_list_prepend(ptr noundef %12, ptr noundef nonnull %9) #8
   store ptr %13, ptr %11, align 8, !tbaa !44
@@ -100,9 +100,9 @@ define internal void @_lib_module_toolbox_add(ptr nocapture noundef readonly %0,
 
 ; Function Attrs: nounwind uwtable
 define void @gui_cleanup(ptr nocapture noundef %0) local_unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 280
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %3 = load ptr, ptr %2, align 8, !tbaa !6
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !44
   tail call void @g_list_free_full(ptr noundef %5, ptr noundef nonnull @free) #8
   %6 = load ptr, ptr %2, align 8, !tbaa !6
@@ -120,12 +120,12 @@ declare void @g_free(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define void @view_enter(ptr nocapture noundef readonly %0, ptr nocapture noundef readnone %1, ptr noundef %2) local_unnamed_addr #1 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 280
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %5 = load ptr, ptr %4, align 8, !tbaa !6
-  %6 = getelementptr inbounds i8, ptr %2, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %7 = load ptr, ptr %6, align 8, !tbaa !45
   %8 = tail call i32 %7(ptr noundef %2) #8
-  %9 = getelementptr inbounds i8, ptr %5, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !48
   %11 = icmp eq ptr %10, null
   br i1 %11, label %.loopexit, label %.preheader
@@ -136,7 +136,7 @@ define void @view_enter(ptr nocapture noundef readonly %0, ptr nocapture noundef
 .preheader:                                       ; preds = %3, %21
   %12 = phi ptr [ %23, %21 ], [ %10, %3 ]
   %13 = load ptr, ptr %12, align 8, !tbaa !49
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load i32, ptr %14, align 8, !tbaa !43
   %16 = and i32 %15, %8
   %17 = icmp eq i32 %16, 0
@@ -152,7 +152,7 @@ define void @view_enter(ptr nocapture noundef readonly %0, ptr nocapture noundef
   br label %21
 
 21:                                               ; preds = %20, %19
-  %22 = getelementptr inbounds i8, ptr %12, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %23 = load ptr, ptr %22, align 8, !tbaa !48
   %24 = icmp eq ptr %23, null
   br i1 %24, label %.loopexit, label %.preheader

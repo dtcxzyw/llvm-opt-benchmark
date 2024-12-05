@@ -14,10 +14,10 @@ define void @lv_draw_triangle_dsc_init(ptr noundef %0) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %5 = tail call i24 @lv_color_white() #4
   store i24 %5, ptr %4, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 57
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 57
   %7 = tail call i24 @lv_color_black() #4
   store i24 %7, ptr %6, align 1
-  %8 = getelementptr inbounds i8, ptr %0, i64 61
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 61
   store i8 -1, ptr %8, align 1, !tbaa !3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 62
   store i8 2, ptr %9, align 2, !tbaa !8
@@ -67,11 +67,11 @@ define void @lv_draw_triangle(ptr noundef %0, ptr noundef %1) local_unnamed_addr
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #4
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %9 = load float, ptr %8, align 8, !tbaa !21
-  %10 = getelementptr inbounds i8, ptr %1, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %11 = load float, ptr %10, align 8, !tbaa !21
   %12 = fcmp olt float %9, %11
   %. = select i1 %12, float %9, float %11
-  %13 = getelementptr inbounds i8, ptr %1, i64 80
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %14 = load float, ptr %13, align 8, !tbaa !21
   %15 = fcmp olt float %., %14
   %16 = select i1 %15, float %., float %14
@@ -79,11 +79,11 @@ define void @lv_draw_triangle(ptr noundef %0, ptr noundef %1) local_unnamed_addr
   store i32 %17, ptr %3, align 4, !tbaa !24
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %19 = load float, ptr %18, align 4, !tbaa !25
-  %20 = getelementptr inbounds i8, ptr %1, i64 76
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 76
   %21 = load float, ptr %20, align 4, !tbaa !25
   %22 = fcmp olt float %19, %21
   %.68 = select i1 %22, float %19, float %21
-  %23 = getelementptr inbounds i8, ptr %1, i64 84
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 84
   %24 = load float, ptr %23, align 4, !tbaa !25
   %25 = fcmp olt float %.68, %24
   %26 = select i1 %25, float %.68, float %24

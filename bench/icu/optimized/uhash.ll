@@ -38,27 +38,27 @@ if.end3:                                          ; preds = %if.end
   br i1 %cmp.i.i, label %if.end.i.i, label %_ZL11_uhash_initP10UHashtablePFi8UElementEPFaS1_S1_ES5_iP10UErrorCode.exit.thread
 
 if.end.i.i:                                       ; preds = %if.end3
-  %keyHasher.i = getelementptr inbounds i8, ptr %call1, i64 8
+  %keyHasher.i = getelementptr inbounds nuw i8, ptr %call1, i64 8
   store ptr %keyHash, ptr %keyHasher.i, align 8
-  %keyComparator.i = getelementptr inbounds i8, ptr %call1, i64 16
+  %keyComparator.i = getelementptr inbounds nuw i8, ptr %call1, i64 16
   store ptr %keyComp, ptr %keyComparator.i, align 8
-  %valueComparator.i = getelementptr inbounds i8, ptr %call1, i64 24
+  %valueComparator.i = getelementptr inbounds nuw i8, ptr %call1, i64 24
   store ptr %valueComp, ptr %valueComparator.i, align 8
-  %keyDeleter.i = getelementptr inbounds i8, ptr %call1, i64 32
-  %allocated.i = getelementptr inbounds i8, ptr %call1, i64 73
+  %keyDeleter.i = getelementptr inbounds nuw i8, ptr %call1, i64 32
+  %allocated.i = getelementptr inbounds nuw i8, ptr %call1, i64 73
   store i8 0, ptr %allocated.i, align 1
-  %lowWaterRatio.i.i = getelementptr inbounds i8, ptr %call1, i64 68
+  %lowWaterRatio.i.i = getelementptr inbounds nuw i8, ptr %call1, i64 68
   store float 0.000000e+00, ptr %lowWaterRatio.i.i, align 4
-  %highWaterRatio.i.i = getelementptr inbounds i8, ptr %call1, i64 64
+  %highWaterRatio.i.i = getelementptr inbounds nuw i8, ptr %call1, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %keyDeleter.i, i8 0, i64 16, i1 false)
   store float 5.000000e-01, ptr %highWaterRatio.i.i, align 8
   %conv.i11.i = trunc i32 %primeIndex to i8
-  %primeIndex1.i.i = getelementptr inbounds i8, ptr %call1, i64 72
+  %primeIndex1.i.i = getelementptr inbounds nuw i8, ptr %call1, i64 72
   store i8 %conv.i11.i, ptr %primeIndex1.i.i, align 8
   %idxprom.i.i = sext i32 %primeIndex to i64
   %arrayidx.i.i = getelementptr inbounds [29 x i32], ptr @_ZL6PRIMES, i64 0, i64 %idxprom.i.i
   %2 = load i32, ptr %arrayidx.i.i, align 4
-  %length.i.i = getelementptr inbounds i8, ptr %call1, i64 52
+  %length.i.i = getelementptr inbounds nuw i8, ptr %call1, i64 52
   store i32 %2, ptr %length.i.i, align 4
   %conv3.i.i = sext i32 %2 to i64
   %mul.i.i = mul nsw i64 %conv3.i.i, 24
@@ -77,31 +77,31 @@ while.body.i.i.preheader:                         ; preds = %if.end.i.i
 
 while.body.i.i:                                   ; preds = %while.body.i.i.preheader, %while.body.i.i
   %p.022.i.i = phi ptr [ %incdec.ptr.i.i, %while.body.i.i ], [ %call4.i.i, %while.body.i.i.preheader ]
-  %value.i.i = getelementptr inbounds i8, ptr %p.022.i.i, i64 8
+  %value.i.i = getelementptr inbounds nuw i8, ptr %p.022.i.i, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %value.i.i, i8 0, i64 16, i1 false)
   store i32 -2147483647, ptr %p.022.i.i, align 8
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %p.022.i.i, i64 24
+  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %p.022.i.i, i64 24
   %cmp9.i.i = icmp ult ptr %incdec.ptr.i.i, %add.ptr.i.i
   br i1 %cmp9.i.i, label %while.body.i.i, label %_ZL11_uhash_initP10UHashtablePFi8UElementEPFaS1_S1_ES5_iP10UErrorCode.exit, !llvm.loop !4
 
 _ZL11_uhash_initP10UHashtablePFi8UElementEPFaS1_S1_ES5_iP10UErrorCode.exit.thread: ; preds = %if.end3, %if.then6.i.i
-  %allocated11 = getelementptr inbounds i8, ptr %call1, i64 73
+  %allocated11 = getelementptr inbounds nuw i8, ptr %call1, i64 73
   store i8 1, ptr %allocated11, align 1
   br label %if.then7
 
 _ZL11_uhash_initP10UHashtablePFi8UElementEPFaS1_S1_ES5_iP10UErrorCode.exit: ; preds = %while.body.i.i
-  %count.i.i = getelementptr inbounds i8, ptr %call1, i64 48
+  %count.i.i = getelementptr inbounds nuw i8, ptr %call1, i64 48
   store i32 0, ptr %count.i.i, align 8
   %conv11.i.i = sitofp i32 %2 to float
-  %lowWaterMark.i.i = getelementptr inbounds i8, ptr %call1, i64 60
+  %lowWaterMark.i.i = getelementptr inbounds nuw i8, ptr %call1, i64 60
   store i32 0, ptr %lowWaterMark.i.i, align 4
   %mul16.i.i = fmul float %conv11.i.i, 5.000000e-01
   %conv17.i.i = fptosi float %mul16.i.i to i32
-  %highWaterMark.i.i = getelementptr inbounds i8, ptr %call1, i64 56
+  %highWaterMark.i.i = getelementptr inbounds nuw i8, ptr %call1, i64 56
   store i32 %conv17.i.i, ptr %highWaterMark.i.i, align 8
   %.pre = load i32, ptr %status, align 4
   %3 = icmp slt i32 %.pre, 1
-  %allocated = getelementptr inbounds i8, ptr %call1, i64 73
+  %allocated = getelementptr inbounds nuw i8, ptr %call1, i64 73
   store i8 1, ptr %allocated, align 1
   br i1 %3, label %return, label %if.then7
 
@@ -121,7 +121,7 @@ entry:
 
 land.rhs:                                         ; preds = %entry, %while.body
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %while.body ]
-  %arrayidx = getelementptr inbounds [29 x i32], ptr @_ZL6PRIMES, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [29 x i32], ptr @_ZL6PRIMES, i64 0, i64 %indvars.iv
   %0 = load i32, ptr %arrayidx, align 4
   %cmp1 = icmp slt i32 %0, %size
   br i1 %cmp1, label %while.body, label %while.end.split.loop.exit6
@@ -149,18 +149,18 @@ entry:
   br i1 %cmp.i.i, label %if.end.i, label %_ZL11_uhash_initP10UHashtablePFi8UElementEPFaS1_S1_ES5_iP10UErrorCode.exit
 
 if.end.i:                                         ; preds = %entry
-  %keyHasher.i = getelementptr inbounds i8, ptr %fillinResult, i64 8
+  %keyHasher.i = getelementptr inbounds nuw i8, ptr %fillinResult, i64 8
   store ptr %keyHash, ptr %keyHasher.i, align 8
-  %keyComparator.i = getelementptr inbounds i8, ptr %fillinResult, i64 16
+  %keyComparator.i = getelementptr inbounds nuw i8, ptr %fillinResult, i64 16
   store ptr %keyComp, ptr %keyComparator.i, align 8
-  %valueComparator.i = getelementptr inbounds i8, ptr %fillinResult, i64 24
+  %valueComparator.i = getelementptr inbounds nuw i8, ptr %fillinResult, i64 24
   store ptr %valueComp, ptr %valueComparator.i, align 8
-  %keyDeleter.i = getelementptr inbounds i8, ptr %fillinResult, i64 32
-  %allocated.i = getelementptr inbounds i8, ptr %fillinResult, i64 73
+  %keyDeleter.i = getelementptr inbounds nuw i8, ptr %fillinResult, i64 32
+  %allocated.i = getelementptr inbounds nuw i8, ptr %fillinResult, i64 73
   store i8 0, ptr %allocated.i, align 1
-  %lowWaterRatio.i.i = getelementptr inbounds i8, ptr %fillinResult, i64 68
+  %lowWaterRatio.i.i = getelementptr inbounds nuw i8, ptr %fillinResult, i64 68
   store float 0.000000e+00, ptr %lowWaterRatio.i.i, align 4
-  %highWaterRatio.i.i = getelementptr inbounds i8, ptr %fillinResult, i64 64
+  %highWaterRatio.i.i = getelementptr inbounds nuw i8, ptr %fillinResult, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %keyDeleter.i, i8 0, i64 16, i1 false)
   store float 5.000000e-01, ptr %highWaterRatio.i.i, align 8
   %1 = load i32, ptr %status, align 4
@@ -168,9 +168,9 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp.i.i.i, label %if.end.i.i, label %_ZL11_uhash_initP10UHashtablePFi8UElementEPFaS1_S1_ES5_iP10UErrorCode.exit
 
 if.end.i.i:                                       ; preds = %if.end.i
-  %primeIndex1.i.i = getelementptr inbounds i8, ptr %fillinResult, i64 72
+  %primeIndex1.i.i = getelementptr inbounds nuw i8, ptr %fillinResult, i64 72
   store i8 4, ptr %primeIndex1.i.i, align 8
-  %length.i.i = getelementptr inbounds i8, ptr %fillinResult, i64 52
+  %length.i.i = getelementptr inbounds nuw i8, ptr %fillinResult, i64 52
   store i32 127, ptr %length.i.i, align 4
   %call4.i.i = tail call noalias dereferenceable_or_null(3048) ptr @uprv_malloc_75(i64 noundef 3048) #11
   store ptr %call4.i.i, ptr %fillinResult, align 8
@@ -190,26 +190,26 @@ if.end7.i.i:                                      ; preds = %if.end.i.i
 
 while.body.i.i:                                   ; preds = %if.end7.i.i, %while.body.i.i
   %p.022.i.i = phi ptr [ %incdec.ptr.i.i, %while.body.i.i ], [ %call4.i.i, %if.end7.i.i ]
-  %value.i.i = getelementptr inbounds i8, ptr %p.022.i.i, i64 8
+  %value.i.i = getelementptr inbounds nuw i8, ptr %p.022.i.i, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %value.i.i, i8 0, i64 16, i1 false)
   store i32 -2147483647, ptr %p.022.i.i, align 8
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %p.022.i.i, i64 24
+  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %p.022.i.i, i64 24
   %cmp9.i.i = icmp ult ptr %incdec.ptr.i.i, %add.ptr.i.i
   br i1 %cmp9.i.i, label %while.body.i.i, label %while.end.i.i, !llvm.loop !4
 
 while.end.i.i:                                    ; preds = %while.body.i.i, %if.end7.i.i
-  %count.i.i = getelementptr inbounds i8, ptr %fillinResult, i64 48
+  %count.i.i = getelementptr inbounds nuw i8, ptr %fillinResult, i64 48
   store i32 0, ptr %count.i.i, align 8
   %conv11.i.i = sitofp i32 %2 to float
   %3 = load float, ptr %lowWaterRatio.i.i, align 4
   %mul12.i.i = fmul float %3, %conv11.i.i
   %conv13.i.i = fptosi float %mul12.i.i to i32
-  %lowWaterMark.i.i = getelementptr inbounds i8, ptr %fillinResult, i64 60
+  %lowWaterMark.i.i = getelementptr inbounds nuw i8, ptr %fillinResult, i64 60
   store i32 %conv13.i.i, ptr %lowWaterMark.i.i, align 4
   %4 = load float, ptr %highWaterRatio.i.i, align 8
   %mul16.i.i = fmul float %4, %conv11.i.i
   %conv17.i.i = fptosi float %mul16.i.i to i32
-  %highWaterMark.i.i = getelementptr inbounds i8, ptr %fillinResult, i64 56
+  %highWaterMark.i.i = getelementptr inbounds nuw i8, ptr %fillinResult, i64 56
   store i32 %conv17.i.i, ptr %highWaterMark.i.i, align 8
   %.pre.i = load i32, ptr %status, align 4
   %5 = icmp slt i32 %.pre.i, 1
@@ -228,7 +228,7 @@ entry:
 
 land.rhs:                                         ; preds = %entry, %while.body
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %while.body ]
-  %arrayidx = getelementptr inbounds [29 x i32], ptr @_ZL6PRIMES, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [29 x i32], ptr @_ZL6PRIMES, i64 0, i64 %indvars.iv
   %0 = load i32, ptr %arrayidx, align 4
   %cmp1 = icmp slt i32 %0, %size
   br i1 %cmp1, label %while.body, label %while.end.split.loop.exit6
@@ -249,18 +249,18 @@ while.end:                                        ; preds = %while.body, %while.
   br i1 %cmp.i.i, label %if.end.i, label %_ZL11_uhash_initP10UHashtablePFi8UElementEPFaS1_S1_ES5_iP10UErrorCode.exit
 
 if.end.i:                                         ; preds = %while.end
-  %keyHasher.i = getelementptr inbounds i8, ptr %fillinResult, i64 8
+  %keyHasher.i = getelementptr inbounds nuw i8, ptr %fillinResult, i64 8
   store ptr %keyHash, ptr %keyHasher.i, align 8
-  %keyComparator.i = getelementptr inbounds i8, ptr %fillinResult, i64 16
+  %keyComparator.i = getelementptr inbounds nuw i8, ptr %fillinResult, i64 16
   store ptr %keyComp, ptr %keyComparator.i, align 8
-  %valueComparator.i = getelementptr inbounds i8, ptr %fillinResult, i64 24
+  %valueComparator.i = getelementptr inbounds nuw i8, ptr %fillinResult, i64 24
   store ptr %valueComp, ptr %valueComparator.i, align 8
-  %keyDeleter.i = getelementptr inbounds i8, ptr %fillinResult, i64 32
-  %allocated.i = getelementptr inbounds i8, ptr %fillinResult, i64 73
+  %keyDeleter.i = getelementptr inbounds nuw i8, ptr %fillinResult, i64 32
+  %allocated.i = getelementptr inbounds nuw i8, ptr %fillinResult, i64 73
   store i8 0, ptr %allocated.i, align 1
-  %lowWaterRatio.i.i = getelementptr inbounds i8, ptr %fillinResult, i64 68
+  %lowWaterRatio.i.i = getelementptr inbounds nuw i8, ptr %fillinResult, i64 68
   store float 0.000000e+00, ptr %lowWaterRatio.i.i, align 4
-  %highWaterRatio.i.i = getelementptr inbounds i8, ptr %fillinResult, i64 64
+  %highWaterRatio.i.i = getelementptr inbounds nuw i8, ptr %fillinResult, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %keyDeleter.i, i8 0, i64 16, i1 false)
   store float 5.000000e-01, ptr %highWaterRatio.i.i, align 8
   %3 = load i32, ptr %status, align 4
@@ -269,12 +269,12 @@ if.end.i:                                         ; preds = %while.end
 
 if.end.i.i:                                       ; preds = %if.end.i
   %conv.i11.i = trunc i32 %i.0.lcssa to i8
-  %primeIndex1.i.i = getelementptr inbounds i8, ptr %fillinResult, i64 72
+  %primeIndex1.i.i = getelementptr inbounds nuw i8, ptr %fillinResult, i64 72
   store i8 %conv.i11.i, ptr %primeIndex1.i.i, align 8
   %idxprom.i.i = zext nneg i32 %i.0.lcssa to i64
-  %arrayidx.i.i = getelementptr inbounds [29 x i32], ptr @_ZL6PRIMES, i64 0, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [29 x i32], ptr @_ZL6PRIMES, i64 0, i64 %idxprom.i.i
   %4 = load i32, ptr %arrayidx.i.i, align 4
-  %length.i.i = getelementptr inbounds i8, ptr %fillinResult, i64 52
+  %length.i.i = getelementptr inbounds nuw i8, ptr %fillinResult, i64 52
   store i32 %4, ptr %length.i.i, align 4
   %conv3.i.i = sext i32 %4 to i64
   %mul.i.i = mul nsw i64 %conv3.i.i, 24
@@ -296,26 +296,26 @@ if.end7.i.i:                                      ; preds = %if.end.i.i
 
 while.body.i.i:                                   ; preds = %if.end7.i.i, %while.body.i.i
   %p.022.i.i = phi ptr [ %incdec.ptr.i.i, %while.body.i.i ], [ %call4.i.i, %if.end7.i.i ]
-  %value.i.i = getelementptr inbounds i8, ptr %p.022.i.i, i64 8
+  %value.i.i = getelementptr inbounds nuw i8, ptr %p.022.i.i, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %value.i.i, i8 0, i64 16, i1 false)
   store i32 -2147483647, ptr %p.022.i.i, align 8
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %p.022.i.i, i64 24
+  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %p.022.i.i, i64 24
   %cmp9.i.i = icmp ult ptr %incdec.ptr.i.i, %add.ptr.i.i
   br i1 %cmp9.i.i, label %while.body.i.i, label %while.end.i.i, !llvm.loop !4
 
 while.end.i.i:                                    ; preds = %while.body.i.i, %if.end7.i.i
-  %count.i.i = getelementptr inbounds i8, ptr %fillinResult, i64 48
+  %count.i.i = getelementptr inbounds nuw i8, ptr %fillinResult, i64 48
   store i32 0, ptr %count.i.i, align 8
   %conv11.i.i = sitofp i32 %5 to float
   %6 = load float, ptr %lowWaterRatio.i.i, align 4
   %mul12.i.i = fmul float %6, %conv11.i.i
   %conv13.i.i = fptosi float %mul12.i.i to i32
-  %lowWaterMark.i.i = getelementptr inbounds i8, ptr %fillinResult, i64 60
+  %lowWaterMark.i.i = getelementptr inbounds nuw i8, ptr %fillinResult, i64 60
   store i32 %conv13.i.i, ptr %lowWaterMark.i.i, align 4
   %7 = load float, ptr %highWaterRatio.i.i, align 8
   %mul16.i.i = fmul float %7, %conv11.i.i
   %conv17.i.i = fptosi float %mul16.i.i to i32
-  %highWaterMark.i.i = getelementptr inbounds i8, ptr %fillinResult, i64 56
+  %highWaterMark.i.i = getelementptr inbounds nuw i8, ptr %fillinResult, i64 56
   store i32 %conv17.i.i, ptr %highWaterMark.i.i, align 8
   %.pre.i = load i32, ptr %status, align 4
   %8 = icmp slt i32 %.pre.i, 1
@@ -339,20 +339,20 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1.not, label %if.end25, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  %keyDeleter = getelementptr inbounds i8, ptr %hash, i64 32
+  %keyDeleter = getelementptr inbounds nuw i8, ptr %hash, i64 32
   %1 = load ptr, ptr %keyDeleter, align 8
   %cmp3.not = icmp eq ptr %1, null
   br i1 %cmp3.not, label %lor.lhs.false, label %if.then5
 
 lor.lhs.false:                                    ; preds = %if.then2
-  %valueDeleter = getelementptr inbounds i8, ptr %hash, i64 40
+  %valueDeleter = getelementptr inbounds nuw i8, ptr %hash, i64 40
   %2 = load ptr, ptr %valueDeleter, align 8
   %cmp4.not = icmp eq ptr %2, null
   br i1 %cmp4.not, label %if.end22, label %if.then5
 
 if.then5:                                         ; preds = %lor.lhs.false, %if.then2
-  %length.i = getelementptr inbounds i8, ptr %hash, i64 52
-  %valueDeleter14 = getelementptr inbounds i8, ptr %hash, i64 40
+  %length.i = getelementptr inbounds nuw i8, ptr %hash, i64 52
+  %valueDeleter14 = getelementptr inbounds nuw i8, ptr %hash, i64 40
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond.backedge, %if.then5
@@ -382,7 +382,7 @@ do.body:                                          ; preds = %for.body.i
   br i1 %cmp8.not, label %if.end13, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %do.body
-  %key = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
+  %key = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 16
   %9 = load ptr, ptr %key, align 8
   %cmp9.not = icmp eq ptr %9, null
   br i1 %cmp9.not, label %if.end13, label %if.then10
@@ -400,7 +400,7 @@ while.cond.backedge:                              ; preds = %if.end13, %land.lhs
   br label %while.cond, !llvm.loop !9
 
 land.lhs.true16:                                  ; preds = %if.end13
-  %value = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  %value = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   %11 = load ptr, ptr %value, align 8
   %cmp17.not = icmp eq ptr %11, null
   br i1 %cmp17.not, label %while.cond.backedge, label %if.then18
@@ -416,7 +416,7 @@ if.end22:                                         ; preds = %for.cond.i, %lor.lh
   br label %if.end25
 
 if.end25:                                         ; preds = %if.end22, %if.end
-  %allocated = getelementptr inbounds i8, ptr %hash, i64 73
+  %allocated = getelementptr inbounds nuw i8, ptr %hash, i64 73
   %13 = load i8, ptr %allocated, align 1
   %tobool.not = icmp eq i8 %13, 0
   br i1 %tobool.not, label %if.end27, label %if.then26
@@ -433,7 +433,7 @@ if.end27:                                         ; preds = %entry, %if.then26, 
 define ptr @uhash_nextElement_75(ptr nocapture noundef readonly %hash, ptr nocapture noundef %pos) local_unnamed_addr #1 {
 entry:
   %0 = load i32, ptr %pos, align 4
-  %length = getelementptr inbounds i8, ptr %hash, i64 52
+  %length = getelementptr inbounds nuw i8, ptr %hash, i64 52
   %1 = load i32, ptr %length, align 4
   %2 = sext i32 %0 to i64
   %3 = sext i32 %1 to i64
@@ -469,7 +469,7 @@ declare void @uprv_free_75(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define ptr @uhash_setKeyHasher_75(ptr nocapture noundef %hash, ptr noundef %fn) local_unnamed_addr #3 {
 entry:
-  %keyHasher = getelementptr inbounds i8, ptr %hash, i64 8
+  %keyHasher = getelementptr inbounds nuw i8, ptr %hash, i64 8
   %0 = load ptr, ptr %keyHasher, align 8
   store ptr %fn, ptr %keyHasher, align 8
   ret ptr %0
@@ -478,7 +478,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define ptr @uhash_setKeyComparator_75(ptr nocapture noundef %hash, ptr noundef %fn) local_unnamed_addr #3 {
 entry:
-  %keyComparator = getelementptr inbounds i8, ptr %hash, i64 16
+  %keyComparator = getelementptr inbounds nuw i8, ptr %hash, i64 16
   %0 = load ptr, ptr %keyComparator, align 8
   store ptr %fn, ptr %keyComparator, align 8
   ret ptr %0
@@ -487,7 +487,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define ptr @uhash_setValueComparator_75(ptr nocapture noundef %hash, ptr noundef %fn) local_unnamed_addr #3 {
 entry:
-  %valueComparator = getelementptr inbounds i8, ptr %hash, i64 24
+  %valueComparator = getelementptr inbounds nuw i8, ptr %hash, i64 24
   %0 = load ptr, ptr %valueComparator, align 8
   store ptr %fn, ptr %valueComparator, align 8
   ret ptr %0
@@ -496,7 +496,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define ptr @uhash_setKeyDeleter_75(ptr nocapture noundef %hash, ptr noundef %fn) local_unnamed_addr #3 {
 entry:
-  %keyDeleter = getelementptr inbounds i8, ptr %hash, i64 32
+  %keyDeleter = getelementptr inbounds nuw i8, ptr %hash, i64 32
   %0 = load ptr, ptr %keyDeleter, align 8
   store ptr %fn, ptr %keyDeleter, align 8
   ret ptr %0
@@ -505,7 +505,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define ptr @uhash_setValueDeleter_75(ptr nocapture noundef %hash, ptr noundef %fn) local_unnamed_addr #3 {
 entry:
-  %valueDeleter = getelementptr inbounds i8, ptr %hash, i64 40
+  %valueDeleter = getelementptr inbounds nuw i8, ptr %hash, i64 40
   %0 = load ptr, ptr %valueDeleter, align 8
   store ptr %fn, ptr %valueDeleter, align 8
   ret ptr %0
@@ -520,24 +520,24 @@ entry:
   %idxprom.i = sext i32 %mul.i to i64
   %arrayidx.i = getelementptr inbounds [6 x float], ptr @_ZL25RESIZE_POLICY_RATIO_TABLE, i64 0, i64 %idxprom.i
   %0 = load float, ptr %arrayidx.i, align 8
-  %lowWaterRatio.i = getelementptr inbounds i8, ptr %hash, i64 68
+  %lowWaterRatio.i = getelementptr inbounds nuw i8, ptr %hash, i64 68
   store float %0, ptr %lowWaterRatio.i, align 4
   %add.i = or disjoint i32 %mul.i, 1
   %idxprom2.i = sext i32 %add.i to i64
   %arrayidx3.i = getelementptr inbounds [6 x float], ptr @_ZL25RESIZE_POLICY_RATIO_TABLE, i64 0, i64 %idxprom2.i
   %1 = load float, ptr %arrayidx3.i, align 4
-  %highWaterRatio.i = getelementptr inbounds i8, ptr %hash, i64 64
+  %highWaterRatio.i = getelementptr inbounds nuw i8, ptr %hash, i64 64
   store float %1, ptr %highWaterRatio.i, align 8
-  %length = getelementptr inbounds i8, ptr %hash, i64 52
+  %length = getelementptr inbounds nuw i8, ptr %hash, i64 52
   %2 = load i32, ptr %length, align 4
   %conv = sitofp i32 %2 to float
   %mul = fmul float %0, %conv
   %conv1 = fptosi float %mul to i32
-  %lowWaterMark = getelementptr inbounds i8, ptr %hash, i64 60
+  %lowWaterMark = getelementptr inbounds nuw i8, ptr %hash, i64 60
   store i32 %conv1, ptr %lowWaterMark, align 4
   %mul4 = fmul float %1, %conv
   %conv5 = fptosi float %mul4 to i32
-  %highWaterMark = getelementptr inbounds i8, ptr %hash, i64 56
+  %highWaterMark = getelementptr inbounds nuw i8, ptr %hash, i64 56
   store i32 %conv5, ptr %highWaterMark, align 8
   call fastcc void @_ZL13_uhash_rehashP10UHashtableP10UErrorCode(ptr noundef %hash, ptr noundef nonnull %status)
   ret void
@@ -547,14 +547,14 @@ entry:
 define internal fastcc void @_ZL13_uhash_rehashP10UHashtableP10UErrorCode(ptr nocapture noundef %hash, ptr nocapture noundef %status) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %hash, align 8
-  %length = getelementptr inbounds i8, ptr %hash, i64 52
+  %length = getelementptr inbounds nuw i8, ptr %hash, i64 52
   %1 = load i32, ptr %length, align 4
-  %primeIndex = getelementptr inbounds i8, ptr %hash, i64 72
+  %primeIndex = getelementptr inbounds nuw i8, ptr %hash, i64 72
   %2 = load i8, ptr %primeIndex, align 8
   %conv = sext i8 %2 to i32
-  %count = getelementptr inbounds i8, ptr %hash, i64 48
+  %count = getelementptr inbounds nuw i8, ptr %hash, i64 48
   %3 = load i32, ptr %count, align 8
-  %highWaterMark = getelementptr inbounds i8, ptr %hash, i64 56
+  %highWaterMark = getelementptr inbounds nuw i8, ptr %hash, i64 56
   %4 = load i32, ptr %highWaterMark, align 8
   %cmp = icmp sgt i32 %3, %4
   br i1 %cmp, label %if.then, label %if.else
@@ -565,7 +565,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp1, label %return, label %if.end11
 
 if.else:                                          ; preds = %entry
-  %lowWaterMark = getelementptr inbounds i8, ptr %hash, i64 60
+  %lowWaterMark = getelementptr inbounds nuw i8, ptr %hash, i64 60
   %5 = load i32, ptr %lowWaterMark, align 4
   %cmp4 = icmp sge i32 %3, %5
   %dec = add nsw i32 %conv, -1
@@ -606,23 +606,23 @@ if.end7.i:                                        ; preds = %if.end.i
 
 while.body.i:                                     ; preds = %if.end7.i, %while.body.i
   %p.022.i = phi ptr [ %incdec.ptr.i, %while.body.i ], [ %call4.i, %if.end7.i ]
-  %value.i = getelementptr inbounds i8, ptr %p.022.i, i64 8
+  %value.i = getelementptr inbounds nuw i8, ptr %p.022.i, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %value.i, i8 0, i64 16, i1 false)
   store i32 -2147483647, ptr %p.022.i, align 8
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %p.022.i, i64 24
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %p.022.i, i64 24
   %cmp9.i = icmp ult ptr %incdec.ptr.i, %add.ptr.i
   br i1 %cmp9.i, label %while.body.i, label %_ZL15_uhash_allocateP10UHashtableiP10UErrorCode.exit, !llvm.loop !4
 
 _ZL15_uhash_allocateP10UHashtableiP10UErrorCode.exit: ; preds = %while.body.i, %if.end7.i
   store i32 0, ptr %count, align 8
   %conv11.i = sitofp i32 %8 to float
-  %lowWaterRatio.i = getelementptr inbounds i8, ptr %hash, i64 68
+  %lowWaterRatio.i = getelementptr inbounds nuw i8, ptr %hash, i64 68
   %9 = load float, ptr %lowWaterRatio.i, align 4
   %mul12.i = fmul float %9, %conv11.i
   %conv13.i = fptosi float %mul12.i to i32
-  %lowWaterMark.i = getelementptr inbounds i8, ptr %hash, i64 60
+  %lowWaterMark.i = getelementptr inbounds nuw i8, ptr %hash, i64 60
   store i32 %conv13.i, ptr %lowWaterMark.i, align 4
-  %highWaterRatio.i = getelementptr inbounds i8, ptr %hash, i64 64
+  %highWaterRatio.i = getelementptr inbounds nuw i8, ptr %hash, i64 64
   %10 = load float, ptr %highWaterRatio.i, align 8
   %mul16.i = fmul float %10, %conv11.i
   %conv17.i = fptosi float %mul16.i to i32
@@ -636,7 +636,7 @@ for.cond.preheader:                               ; preds = %_ZL15_uhash_allocat
   br i1 %cmp1648, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %keyComparator.i = getelementptr inbounds i8, ptr %hash, i64 16
+  %keyComparator.i = getelementptr inbounds nuw i8, ptr %hash, i64 16
   %12 = zext nneg i32 %1 to i64
   br label %for.body
 
@@ -648,13 +648,13 @@ if.then12:                                        ; preds = %if.then6.i, %if.end
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ %12, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %arrayidx = getelementptr inbounds %struct.UHashElement, ptr %0, i64 %indvars.iv.next
+  %arrayidx = getelementptr inbounds nuw %struct.UHashElement, ptr %0, i64 %indvars.iv.next
   %13 = load i32, ptr %arrayidx, align 8
   %cmp17 = icmp slt i32 %13, 0
   br i1 %cmp17, label %for.inc, label %if.then18
 
 if.then18:                                        ; preds = %for.body
-  %key = getelementptr inbounds i8, ptr %arrayidx, i64 16
+  %key = getelementptr inbounds nuw i8, ptr %arrayidx, i64 16
   %agg.tmp.sroa.0.0.copyload = load ptr, ptr %key, align 8
   %14 = load ptr, ptr %hash, align 8
   %xor.i = xor i32 %13, 67108864
@@ -668,14 +668,14 @@ do.body.i:                                        ; preds = %if.end28.i, %if.the
   %theIndex.0.i = phi i32 [ %rem.i, %if.then18 ], [ %rem31.i, %if.end28.i ]
   %firstDeleted.0.i = phi i32 [ -1, %if.then18 ], [ %firstDeleted.1.i, %if.end28.i ]
   %idxprom.i36 = zext nneg i32 %theIndex.0.i to i64
-  %arrayidx.i37 = getelementptr inbounds %struct.UHashElement, ptr %14, i64 %idxprom.i36
+  %arrayidx.i37 = getelementptr inbounds nuw %struct.UHashElement, ptr %14, i64 %idxprom.i36
   %16 = load i32, ptr %arrayidx.i37, align 8
   %cmp.i38 = icmp eq i32 %16, %13
   br i1 %cmp.i38, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %do.body.i
   %17 = load ptr, ptr %keyComparator.i, align 8
-  %key6.i = getelementptr inbounds i8, ptr %arrayidx.i37, i64 16
+  %key6.i = getelementptr inbounds nuw i8, ptr %arrayidx.i37, i64 16
   %agg.tmp3.sroa.0.0.copyload.i = load ptr, ptr %key6.i, align 8
   %call.i = tail call noundef signext i8 %17(ptr %agg.tmp.sroa.0.0.copyload, ptr %agg.tmp3.sroa.0.0.copyload.i)
   %tobool.not.i = icmp eq i8 %call.i, 0
@@ -729,16 +729,16 @@ if.then37.i:                                      ; preds = %if.else35.i
 if.end39.i:                                       ; preds = %if.else14.i, %if.else35.i, %do.end.i
   %theIndex.2.i = phi i32 [ %rem.i, %if.else35.i ], [ %firstDeleted.1.i, %do.end.i ], [ %spec.select29.i, %if.else14.i ]
   %idxprom40.i = zext nneg i32 %theIndex.2.i to i64
-  %arrayidx41.i = getelementptr inbounds %struct.UHashElement, ptr %14, i64 %idxprom40.i
+  %arrayidx41.i = getelementptr inbounds nuw %struct.UHashElement, ptr %14, i64 %idxprom40.i
   br label %_ZL11_uhash_findPK10UHashtable8UElementi.exit
 
 _ZL11_uhash_findPK10UHashtable8UElementi.exit:    ; preds = %if.then.i, %if.end39.i
   %retval.0.i = phi ptr [ %arrayidx41.i, %if.end39.i ], [ %arrayidx.i37, %if.then.i ]
-  %key28 = getelementptr inbounds i8, ptr %retval.0.i, i64 16
+  %key28 = getelementptr inbounds nuw i8, ptr %retval.0.i, i64 16
   %18 = load i64, ptr %key, align 8
   store i64 %18, ptr %key28, align 8
-  %value = getelementptr inbounds i8, ptr %arrayidx, i64 8
-  %value31 = getelementptr inbounds i8, ptr %retval.0.i, i64 8
+  %value = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
+  %value31 = getelementptr inbounds nuw i8, ptr %retval.0.i, i64 8
   %19 = load i64, ptr %value, align 8
   store i64 %19, ptr %value31, align 8
   %20 = load i32, ptr %arrayidx, align 8
@@ -763,7 +763,7 @@ return:                                           ; preds = %if.else, %if.then, 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @uhash_count_75(ptr nocapture noundef readonly %hash) local_unnamed_addr #4 {
 entry:
-  %count = getelementptr inbounds i8, ptr %hash, i64 48
+  %count = getelementptr inbounds nuw i8, ptr %hash, i64 48
   %0 = load i32, ptr %count, align 8
   ret i32 %0
 }
@@ -771,16 +771,16 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define ptr @uhash_get_75(ptr nocapture noundef readonly %hash, ptr noundef %key) local_unnamed_addr #0 {
 entry:
-  %keyHasher = getelementptr inbounds i8, ptr %hash, i64 8
+  %keyHasher = getelementptr inbounds nuw i8, ptr %hash, i64 8
   %0 = load ptr, ptr %keyHasher, align 8
   %call = tail call noundef i32 %0(ptr %key)
   %1 = load ptr, ptr %hash, align 8
   %and.i = and i32 %call, 2147483647
   %xor.i = xor i32 %and.i, 67108864
-  %length.i = getelementptr inbounds i8, ptr %hash, i64 52
+  %length.i = getelementptr inbounds nuw i8, ptr %hash, i64 52
   %2 = load i32, ptr %length.i, align 4
   %rem.i = srem i32 %xor.i, %2
-  %keyComparator.i = getelementptr inbounds i8, ptr %hash, i64 16
+  %keyComparator.i = getelementptr inbounds nuw i8, ptr %hash, i64 16
   br label %do.body.i
 
 do.body.i:                                        ; preds = %if.end28.i, %entry
@@ -789,14 +789,14 @@ do.body.i:                                        ; preds = %if.end28.i, %entry
   %theIndex.0.i = phi i32 [ %rem.i, %entry ], [ %rem31.i, %if.end28.i ]
   %firstDeleted.0.i = phi i32 [ -1, %entry ], [ %firstDeleted.1.i, %if.end28.i ]
   %idxprom.i = zext nneg i32 %theIndex.0.i to i64
-  %arrayidx.i = getelementptr inbounds %struct.UHashElement, ptr %1, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw %struct.UHashElement, ptr %1, i64 %idxprom.i
   %3 = load i32, ptr %arrayidx.i, align 8
   %cmp.i = icmp eq i32 %3, %and.i
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %do.body.i
   %4 = load ptr, ptr %keyComparator.i, align 8
-  %key6.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
+  %key6.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 16
   %agg.tmp3.sroa.0.0.copyload.i = load ptr, ptr %key6.i, align 8
   %call.i = tail call noundef signext i8 %4(ptr %key, ptr %agg.tmp3.sroa.0.0.copyload.i)
   %tobool.not.i = icmp eq i8 %call.i, 0
@@ -854,7 +854,7 @@ if.end39.i:                                       ; preds = %if.else14.i, %if.el
 
 _ZL11_uhash_findPK10UHashtable8UElementi.exit:    ; preds = %if.then.i, %if.end39.i
   %5 = phi i64 [ %idxprom40.i, %if.end39.i ], [ %idxprom.i, %if.then.i ]
-  %value = getelementptr inbounds %struct.UHashElement, ptr %1, i64 %5, i32 1
+  %value = getelementptr inbounds nuw %struct.UHashElement, ptr %1, i64 %5, i32 1
   %6 = load ptr, ptr %value, align 8
   ret ptr %6
 }
@@ -864,16 +864,16 @@ define ptr @uhash_iget_75(ptr nocapture noundef readonly %hash, i32 noundef %key
 entry:
   %keyholder.sroa.0.0.insert.ext = zext i32 %key to i64
   %0 = inttoptr i64 %keyholder.sroa.0.0.insert.ext to ptr
-  %keyHasher = getelementptr inbounds i8, ptr %hash, i64 8
+  %keyHasher = getelementptr inbounds nuw i8, ptr %hash, i64 8
   %1 = load ptr, ptr %keyHasher, align 8
   %call = tail call noundef i32 %1(ptr %0)
   %2 = load ptr, ptr %hash, align 8
   %and.i = and i32 %call, 2147483647
   %xor.i = xor i32 %and.i, 67108864
-  %length.i = getelementptr inbounds i8, ptr %hash, i64 52
+  %length.i = getelementptr inbounds nuw i8, ptr %hash, i64 52
   %3 = load i32, ptr %length.i, align 4
   %rem.i = srem i32 %xor.i, %3
-  %keyComparator.i = getelementptr inbounds i8, ptr %hash, i64 16
+  %keyComparator.i = getelementptr inbounds nuw i8, ptr %hash, i64 16
   br label %do.body.i
 
 do.body.i:                                        ; preds = %if.end28.i, %entry
@@ -882,14 +882,14 @@ do.body.i:                                        ; preds = %if.end28.i, %entry
   %theIndex.0.i = phi i32 [ %rem.i, %entry ], [ %rem31.i, %if.end28.i ]
   %firstDeleted.0.i = phi i32 [ -1, %entry ], [ %firstDeleted.1.i, %if.end28.i ]
   %idxprom.i = zext nneg i32 %theIndex.0.i to i64
-  %arrayidx.i = getelementptr inbounds %struct.UHashElement, ptr %2, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw %struct.UHashElement, ptr %2, i64 %idxprom.i
   %4 = load i32, ptr %arrayidx.i, align 8
   %cmp.i = icmp eq i32 %4, %and.i
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %do.body.i
   %5 = load ptr, ptr %keyComparator.i, align 8
-  %key6.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
+  %key6.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 16
   %agg.tmp3.sroa.0.0.copyload.i = load ptr, ptr %key6.i, align 8
   %call.i = tail call noundef signext i8 %5(ptr %0, ptr %agg.tmp3.sroa.0.0.copyload.i)
   %tobool.not.i = icmp eq i8 %call.i, 0
@@ -947,7 +947,7 @@ if.end39.i:                                       ; preds = %if.else14.i, %if.el
 
 _ZL11_uhash_findPK10UHashtable8UElementi.exit:    ; preds = %if.then.i, %if.end39.i
   %6 = phi i64 [ %idxprom40.i, %if.end39.i ], [ %idxprom.i, %if.then.i ]
-  %value = getelementptr inbounds %struct.UHashElement, ptr %2, i64 %6, i32 1
+  %value = getelementptr inbounds nuw %struct.UHashElement, ptr %2, i64 %6, i32 1
   %7 = load ptr, ptr %value, align 8
   ret ptr %7
 }
@@ -955,16 +955,16 @@ _ZL11_uhash_findPK10UHashtable8UElementi.exit:    ; preds = %if.then.i, %if.end3
 ; Function Attrs: mustprogress uwtable
 define i32 @uhash_geti_75(ptr nocapture noundef readonly %hash, ptr noundef %key) local_unnamed_addr #0 {
 entry:
-  %keyHasher = getelementptr inbounds i8, ptr %hash, i64 8
+  %keyHasher = getelementptr inbounds nuw i8, ptr %hash, i64 8
   %0 = load ptr, ptr %keyHasher, align 8
   %call = tail call noundef i32 %0(ptr %key)
   %1 = load ptr, ptr %hash, align 8
   %and.i = and i32 %call, 2147483647
   %xor.i = xor i32 %and.i, 67108864
-  %length.i = getelementptr inbounds i8, ptr %hash, i64 52
+  %length.i = getelementptr inbounds nuw i8, ptr %hash, i64 52
   %2 = load i32, ptr %length.i, align 4
   %rem.i = srem i32 %xor.i, %2
-  %keyComparator.i = getelementptr inbounds i8, ptr %hash, i64 16
+  %keyComparator.i = getelementptr inbounds nuw i8, ptr %hash, i64 16
   br label %do.body.i
 
 do.body.i:                                        ; preds = %if.end28.i, %entry
@@ -973,14 +973,14 @@ do.body.i:                                        ; preds = %if.end28.i, %entry
   %theIndex.0.i = phi i32 [ %rem.i, %entry ], [ %rem31.i, %if.end28.i ]
   %firstDeleted.0.i = phi i32 [ -1, %entry ], [ %firstDeleted.1.i, %if.end28.i ]
   %idxprom.i = zext nneg i32 %theIndex.0.i to i64
-  %arrayidx.i = getelementptr inbounds %struct.UHashElement, ptr %1, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw %struct.UHashElement, ptr %1, i64 %idxprom.i
   %3 = load i32, ptr %arrayidx.i, align 8
   %cmp.i = icmp eq i32 %3, %and.i
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %do.body.i
   %4 = load ptr, ptr %keyComparator.i, align 8
-  %key6.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
+  %key6.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 16
   %agg.tmp3.sroa.0.0.copyload.i = load ptr, ptr %key6.i, align 8
   %call.i = tail call noundef signext i8 %4(ptr %key, ptr %agg.tmp3.sroa.0.0.copyload.i)
   %tobool.not.i = icmp eq i8 %call.i, 0
@@ -1038,7 +1038,7 @@ if.end39.i:                                       ; preds = %if.else14.i, %if.el
 
 _ZL11_uhash_findPK10UHashtable8UElementi.exit:    ; preds = %if.then.i, %if.end39.i
   %5 = phi i64 [ %idxprom40.i, %if.end39.i ], [ %idxprom.i, %if.then.i ]
-  %value = getelementptr inbounds %struct.UHashElement, ptr %1, i64 %5, i32 1
+  %value = getelementptr inbounds nuw %struct.UHashElement, ptr %1, i64 %5, i32 1
   %6 = load i32, ptr %value, align 8
   ret i32 %6
 }
@@ -1048,16 +1048,16 @@ define i32 @uhash_igeti_75(ptr nocapture noundef readonly %hash, i32 noundef %ke
 entry:
   %keyholder.sroa.0.0.insert.ext = zext i32 %key to i64
   %0 = inttoptr i64 %keyholder.sroa.0.0.insert.ext to ptr
-  %keyHasher = getelementptr inbounds i8, ptr %hash, i64 8
+  %keyHasher = getelementptr inbounds nuw i8, ptr %hash, i64 8
   %1 = load ptr, ptr %keyHasher, align 8
   %call = tail call noundef i32 %1(ptr %0)
   %2 = load ptr, ptr %hash, align 8
   %and.i = and i32 %call, 2147483647
   %xor.i = xor i32 %and.i, 67108864
-  %length.i = getelementptr inbounds i8, ptr %hash, i64 52
+  %length.i = getelementptr inbounds nuw i8, ptr %hash, i64 52
   %3 = load i32, ptr %length.i, align 4
   %rem.i = srem i32 %xor.i, %3
-  %keyComparator.i = getelementptr inbounds i8, ptr %hash, i64 16
+  %keyComparator.i = getelementptr inbounds nuw i8, ptr %hash, i64 16
   br label %do.body.i
 
 do.body.i:                                        ; preds = %if.end28.i, %entry
@@ -1066,14 +1066,14 @@ do.body.i:                                        ; preds = %if.end28.i, %entry
   %theIndex.0.i = phi i32 [ %rem.i, %entry ], [ %rem31.i, %if.end28.i ]
   %firstDeleted.0.i = phi i32 [ -1, %entry ], [ %firstDeleted.1.i, %if.end28.i ]
   %idxprom.i = zext nneg i32 %theIndex.0.i to i64
-  %arrayidx.i = getelementptr inbounds %struct.UHashElement, ptr %2, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw %struct.UHashElement, ptr %2, i64 %idxprom.i
   %4 = load i32, ptr %arrayidx.i, align 8
   %cmp.i = icmp eq i32 %4, %and.i
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %do.body.i
   %5 = load ptr, ptr %keyComparator.i, align 8
-  %key6.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
+  %key6.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 16
   %agg.tmp3.sroa.0.0.copyload.i = load ptr, ptr %key6.i, align 8
   %call.i = tail call noundef signext i8 %5(ptr %0, ptr %agg.tmp3.sroa.0.0.copyload.i)
   %tobool.not.i = icmp eq i8 %call.i, 0
@@ -1131,7 +1131,7 @@ if.end39.i:                                       ; preds = %if.else14.i, %if.el
 
 _ZL11_uhash_findPK10UHashtable8UElementi.exit:    ; preds = %if.then.i, %if.end39.i
   %6 = phi i64 [ %idxprom40.i, %if.end39.i ], [ %idxprom.i, %if.then.i ]
-  %value = getelementptr inbounds %struct.UHashElement, ptr %2, i64 %6, i32 1
+  %value = getelementptr inbounds nuw %struct.UHashElement, ptr %2, i64 %6, i32 1
   %7 = load i32, ptr %value, align 8
   ret i32 %7
 }
@@ -1139,16 +1139,16 @@ _ZL11_uhash_findPK10UHashtable8UElementi.exit:    ; preds = %if.then.i, %if.end3
 ; Function Attrs: mustprogress uwtable
 define i32 @uhash_getiAndFound_75(ptr nocapture noundef readonly %hash, ptr noundef %key, ptr nocapture noundef writeonly %found) local_unnamed_addr #0 {
 entry:
-  %keyHasher = getelementptr inbounds i8, ptr %hash, i64 8
+  %keyHasher = getelementptr inbounds nuw i8, ptr %hash, i64 8
   %0 = load ptr, ptr %keyHasher, align 8
   %call = tail call noundef i32 %0(ptr %key)
   %1 = load ptr, ptr %hash, align 8
   %and.i = and i32 %call, 2147483647
   %xor.i = xor i32 %and.i, 67108864
-  %length.i = getelementptr inbounds i8, ptr %hash, i64 52
+  %length.i = getelementptr inbounds nuw i8, ptr %hash, i64 52
   %2 = load i32, ptr %length.i, align 4
   %rem.i = srem i32 %xor.i, %2
-  %keyComparator.i = getelementptr inbounds i8, ptr %hash, i64 16
+  %keyComparator.i = getelementptr inbounds nuw i8, ptr %hash, i64 16
   br label %do.body.i
 
 do.body.i:                                        ; preds = %if.end28.i, %entry
@@ -1157,14 +1157,14 @@ do.body.i:                                        ; preds = %if.end28.i, %entry
   %theIndex.0.i = phi i32 [ %rem.i, %entry ], [ %rem31.i, %if.end28.i ]
   %firstDeleted.0.i = phi i32 [ -1, %entry ], [ %firstDeleted.1.i, %if.end28.i ]
   %idxprom.i = zext nneg i32 %theIndex.0.i to i64
-  %arrayidx.i = getelementptr inbounds %struct.UHashElement, ptr %1, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw %struct.UHashElement, ptr %1, i64 %idxprom.i
   %3 = load i32, ptr %arrayidx.i, align 8
   %cmp.i = icmp eq i32 %3, %and.i
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %do.body.i
   %4 = load ptr, ptr %keyComparator.i, align 8
-  %key6.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
+  %key6.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 16
   %agg.tmp3.sroa.0.0.copyload.i = load ptr, ptr %key6.i, align 8
   %call.i = tail call noundef signext i8 %4(ptr %key, ptr %agg.tmp3.sroa.0.0.copyload.i)
   %tobool.not.i = icmp eq i8 %call.i, 0
@@ -1218,7 +1218,7 @@ if.then37.i:                                      ; preds = %if.else35.i
 if.end39.i:                                       ; preds = %if.else14.i, %if.else35.i, %do.end.i
   %theIndex.2.i = phi i32 [ %rem.i, %if.else35.i ], [ %firstDeleted.1.i, %do.end.i ], [ %spec.select29.i, %if.else14.i ]
   %idxprom40.i = zext nneg i32 %theIndex.2.i to i64
-  %arrayidx41.i = getelementptr inbounds %struct.UHashElement, ptr %1, i64 %idxprom40.i
+  %arrayidx41.i = getelementptr inbounds nuw %struct.UHashElement, ptr %1, i64 %idxprom40.i
   br label %_ZL11_uhash_findPK10UHashtable8UElementi.exit
 
 _ZL11_uhash_findPK10UHashtable8UElementi.exit:    ; preds = %if.then.i, %if.end39.i
@@ -1227,7 +1227,7 @@ _ZL11_uhash_findPK10UHashtable8UElementi.exit:    ; preds = %if.then.i, %if.end3
   %cmp = icmp sgt i32 %5, -1
   %conv = zext i1 %cmp to i8
   store i8 %conv, ptr %found, align 1
-  %value = getelementptr inbounds i8, ptr %retval.0.i, i64 8
+  %value = getelementptr inbounds nuw i8, ptr %retval.0.i, i64 8
   %6 = load i32, ptr %value, align 8
   ret i32 %6
 }
@@ -1237,16 +1237,16 @@ define i32 @uhash_igetiAndFound_75(ptr nocapture noundef readonly %hash, i32 nou
 entry:
   %keyholder.sroa.0.0.insert.ext = zext i32 %key to i64
   %0 = inttoptr i64 %keyholder.sroa.0.0.insert.ext to ptr
-  %keyHasher = getelementptr inbounds i8, ptr %hash, i64 8
+  %keyHasher = getelementptr inbounds nuw i8, ptr %hash, i64 8
   %1 = load ptr, ptr %keyHasher, align 8
   %call = tail call noundef i32 %1(ptr %0)
   %2 = load ptr, ptr %hash, align 8
   %and.i = and i32 %call, 2147483647
   %xor.i = xor i32 %and.i, 67108864
-  %length.i = getelementptr inbounds i8, ptr %hash, i64 52
+  %length.i = getelementptr inbounds nuw i8, ptr %hash, i64 52
   %3 = load i32, ptr %length.i, align 4
   %rem.i = srem i32 %xor.i, %3
-  %keyComparator.i = getelementptr inbounds i8, ptr %hash, i64 16
+  %keyComparator.i = getelementptr inbounds nuw i8, ptr %hash, i64 16
   br label %do.body.i
 
 do.body.i:                                        ; preds = %if.end28.i, %entry
@@ -1255,14 +1255,14 @@ do.body.i:                                        ; preds = %if.end28.i, %entry
   %theIndex.0.i = phi i32 [ %rem.i, %entry ], [ %rem31.i, %if.end28.i ]
   %firstDeleted.0.i = phi i32 [ -1, %entry ], [ %firstDeleted.1.i, %if.end28.i ]
   %idxprom.i = zext nneg i32 %theIndex.0.i to i64
-  %arrayidx.i = getelementptr inbounds %struct.UHashElement, ptr %2, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw %struct.UHashElement, ptr %2, i64 %idxprom.i
   %4 = load i32, ptr %arrayidx.i, align 8
   %cmp.i = icmp eq i32 %4, %and.i
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %do.body.i
   %5 = load ptr, ptr %keyComparator.i, align 8
-  %key6.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
+  %key6.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 16
   %agg.tmp3.sroa.0.0.copyload.i = load ptr, ptr %key6.i, align 8
   %call.i = tail call noundef signext i8 %5(ptr %0, ptr %agg.tmp3.sroa.0.0.copyload.i)
   %tobool.not.i = icmp eq i8 %call.i, 0
@@ -1316,7 +1316,7 @@ if.then37.i:                                      ; preds = %if.else35.i
 if.end39.i:                                       ; preds = %if.else14.i, %if.else35.i, %do.end.i
   %theIndex.2.i = phi i32 [ %rem.i, %if.else35.i ], [ %firstDeleted.1.i, %do.end.i ], [ %spec.select29.i, %if.else14.i ]
   %idxprom40.i = zext nneg i32 %theIndex.2.i to i64
-  %arrayidx41.i = getelementptr inbounds %struct.UHashElement, ptr %2, i64 %idxprom40.i
+  %arrayidx41.i = getelementptr inbounds nuw %struct.UHashElement, ptr %2, i64 %idxprom40.i
   br label %_ZL11_uhash_findPK10UHashtable8UElementi.exit
 
 _ZL11_uhash_findPK10UHashtable8UElementi.exit:    ; preds = %if.then.i, %if.end39.i
@@ -1325,7 +1325,7 @@ _ZL11_uhash_findPK10UHashtable8UElementi.exit:    ; preds = %if.then.i, %if.end3
   %cmp = icmp sgt i32 %6, -1
   %conv = zext i1 %cmp to i8
   store i8 %conv, ptr %found, align 1
-  %value = getelementptr inbounds i8, ptr %retval.0.i, i64 8
+  %value = getelementptr inbounds nuw i8, ptr %retval.0.i, i64 8
   %7 = load i32, ptr %value, align 8
   ret i32 %7
 }
@@ -1366,9 +1366,9 @@ if.then7:                                         ; preds = %cond.false, %cond.t
   br label %return
 
 if.end11:                                         ; preds = %cond.false, %cond.true
-  %count = getelementptr inbounds i8, ptr %hash, i64 48
+  %count = getelementptr inbounds nuw i8, ptr %hash, i64 48
   %4 = load i32, ptr %count, align 8
-  %highWaterMark = getelementptr inbounds i8, ptr %hash, i64 56
+  %highWaterMark = getelementptr inbounds nuw i8, ptr %hash, i64 56
   %5 = load i32, ptr %highWaterMark, align 8
   %cmp12 = icmp sgt i32 %4, %5
   br i1 %cmp12, label %if.then13, label %if.end18
@@ -1380,16 +1380,16 @@ if.then13:                                        ; preds = %if.end11
   br i1 %cmp.i28, label %if.end18, label %do.body
 
 if.end18:                                         ; preds = %if.then13, %if.end11
-  %keyHasher = getelementptr inbounds i8, ptr %hash, i64 8
+  %keyHasher = getelementptr inbounds nuw i8, ptr %hash, i64 8
   %7 = load ptr, ptr %keyHasher, align 8
   %call21 = tail call noundef i32 %7(ptr %key.coerce)
   %8 = load ptr, ptr %hash, align 8
   %and.i = and i32 %call21, 2147483647
   %xor.i = xor i32 %and.i, 67108864
-  %length.i = getelementptr inbounds i8, ptr %hash, i64 52
+  %length.i = getelementptr inbounds nuw i8, ptr %hash, i64 52
   %9 = load i32, ptr %length.i, align 4
   %rem.i = srem i32 %xor.i, %9
-  %keyComparator.i = getelementptr inbounds i8, ptr %hash, i64 16
+  %keyComparator.i = getelementptr inbounds nuw i8, ptr %hash, i64 16
   br label %do.body.i
 
 do.body.i:                                        ; preds = %if.end28.i, %if.end18
@@ -1398,14 +1398,14 @@ do.body.i:                                        ; preds = %if.end28.i, %if.end
   %theIndex.0.i = phi i32 [ %rem.i, %if.end18 ], [ %rem31.i, %if.end28.i ]
   %firstDeleted.0.i = phi i32 [ -1, %if.end18 ], [ %firstDeleted.1.i, %if.end28.i ]
   %idxprom.i = zext nneg i32 %theIndex.0.i to i64
-  %arrayidx.i = getelementptr inbounds %struct.UHashElement, ptr %8, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw %struct.UHashElement, ptr %8, i64 %idxprom.i
   %10 = load i32, ptr %arrayidx.i, align 8
   %cmp.i30 = icmp eq i32 %10, %and.i
   br i1 %cmp.i30, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %do.body.i
   %11 = load ptr, ptr %keyComparator.i, align 8
-  %key6.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
+  %key6.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 16
   %agg.tmp3.sroa.0.0.copyload.i = load ptr, ptr %key6.i, align 8
   %call.i = tail call noundef signext i8 %11(ptr %key.coerce, ptr %agg.tmp3.sroa.0.0.copyload.i)
   %tobool.not.i = icmp eq i8 %call.i, 0
@@ -1459,7 +1459,7 @@ if.then37.i:                                      ; preds = %if.else35.i
 if.end39.i:                                       ; preds = %if.else14.i, %if.else35.i, %do.end.i
   %theIndex.2.i = phi i32 [ %rem.i, %if.else35.i ], [ %firstDeleted.1.i, %do.end.i ], [ %spec.select29.i, %if.else14.i ]
   %idxprom40.i = zext nneg i32 %theIndex.2.i to i64
-  %arrayidx41.i = getelementptr inbounds %struct.UHashElement, ptr %8, i64 %idxprom40.i
+  %arrayidx41.i = getelementptr inbounds nuw %struct.UHashElement, ptr %8, i64 %idxprom40.i
   br label %_ZL11_uhash_findPK10UHashtable8UElementi.exit
 
 _ZL11_uhash_findPK10UHashtable8UElementi.exit:    ; preds = %if.then.i, %if.end39.i
@@ -1482,15 +1482,15 @@ if.then31:                                        ; preds = %if.then27
   br label %do.body
 
 if.end34:                                         ; preds = %if.then27, %_ZL11_uhash_findPK10UHashtable8UElementi.exit
-  %value2.i = getelementptr inbounds i8, ptr %retval.0.i, i64 8
+  %value2.i = getelementptr inbounds nuw i8, ptr %retval.0.i, i64 8
   %retval.sroa.0.0.copyload.i = load ptr, ptr %value2.i, align 8
-  %keyDeleter.i = getelementptr inbounds i8, ptr %hash, i64 32
+  %keyDeleter.i = getelementptr inbounds nuw i8, ptr %hash, i64 32
   %15 = load ptr, ptr %keyDeleter.i, align 8
   %cmp.not.i = icmp eq ptr %15, null
   br i1 %cmp.not.i, label %if.end.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end34
-  %key3.i = getelementptr inbounds i8, ptr %retval.0.i, i64 16
+  %key3.i = getelementptr inbounds nuw i8, ptr %retval.0.i, i64 16
   %16 = load ptr, ptr %key3.i, align 8
   %cmp4.not.i = icmp eq ptr %16, null
   %cmp7.not.i = icmp eq ptr %16, %key.coerce
@@ -1502,7 +1502,7 @@ if.then.i31:                                      ; preds = %land.lhs.true.i
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i31, %land.lhs.true.i, %if.end34
-  %valueDeleter.i = getelementptr inbounds i8, ptr %hash, i64 40
+  %valueDeleter.i = getelementptr inbounds nuw i8, ptr %hash, i64 40
   %17 = load ptr, ptr %valueDeleter.i, align 8
   %cmp10.not.i = icmp eq ptr %17, null
   br i1 %cmp10.not.i, label %_ZL17_uhash_setElementP10UHashtableP12UHashElementi8UElementS3_a.exit, label %if.then11.i
@@ -1519,14 +1519,14 @@ if.then15.i:                                      ; preds = %if.then11.i
 
 _ZL17_uhash_setElementP10UHashtableP12UHashElementi8UElementS3_a.exit: ; preds = %if.end.i, %if.then11.i, %if.then15.i
   %retval.sroa.0.0.i = phi ptr [ %retval.sroa.0.0.copyload.i, %if.end.i ], [ null, %if.then15.i ], [ null, %if.then11.i ]
-  %18 = getelementptr inbounds i8, ptr %retval.0.i, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %retval.0.i, i64 16
   store ptr %key.coerce, ptr %18, align 8
   store ptr %value.coerce, ptr %value2.i, align 8
   store i32 %and.i, ptr %retval.0.i, align 8
   br label %return
 
 do.body:                                          ; preds = %if.then31, %entry, %if.then13
-  %keyDeleter = getelementptr inbounds i8, ptr %hash, i64 32
+  %keyDeleter = getelementptr inbounds nuw i8, ptr %hash, i64 32
   %19 = load ptr, ptr %keyDeleter, align 8
   %cmp42 = icmp ne ptr %19, null
   %cmp44 = icmp ne ptr %key.coerce, null
@@ -1538,7 +1538,7 @@ if.then45:                                        ; preds = %do.body
   br label %if.end47
 
 if.end47:                                         ; preds = %if.then45, %do.body
-  %valueDeleter = getelementptr inbounds i8, ptr %hash, i64 40
+  %valueDeleter = getelementptr inbounds nuw i8, ptr %hash, i64 40
   %20 = load ptr, ptr %valueDeleter, align 8
   %cmp48 = icmp ne ptr %20, null
   %cmp50 = icmp ne ptr %value.coerce, null
@@ -1622,16 +1622,16 @@ entry:
 define internal fastcc ptr @_ZL13_uhash_removeP10UHashtable8UElement(ptr nocapture noundef %hash, ptr %key.coerce) unnamed_addr #0 {
 entry:
   %status = alloca i32, align 4
-  %keyHasher = getelementptr inbounds i8, ptr %hash, i64 8
+  %keyHasher = getelementptr inbounds nuw i8, ptr %hash, i64 8
   %0 = load ptr, ptr %keyHasher, align 8
   %call = tail call noundef i32 %0(ptr %key.coerce)
   %1 = load ptr, ptr %hash, align 8
   %and.i = and i32 %call, 2147483647
   %xor.i = xor i32 %and.i, 67108864
-  %length.i = getelementptr inbounds i8, ptr %hash, i64 52
+  %length.i = getelementptr inbounds nuw i8, ptr %hash, i64 52
   %2 = load i32, ptr %length.i, align 4
   %rem.i = srem i32 %xor.i, %2
-  %keyComparator.i = getelementptr inbounds i8, ptr %hash, i64 16
+  %keyComparator.i = getelementptr inbounds nuw i8, ptr %hash, i64 16
   br label %do.body.i
 
 do.body.i:                                        ; preds = %if.end28.i, %entry
@@ -1640,14 +1640,14 @@ do.body.i:                                        ; preds = %if.end28.i, %entry
   %theIndex.0.i = phi i32 [ %rem.i, %entry ], [ %rem31.i, %if.end28.i ]
   %firstDeleted.0.i = phi i32 [ -1, %entry ], [ %firstDeleted.1.i, %if.end28.i ]
   %idxprom.i = zext nneg i32 %theIndex.0.i to i64
-  %arrayidx.i = getelementptr inbounds %struct.UHashElement, ptr %1, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw %struct.UHashElement, ptr %1, i64 %idxprom.i
   %3 = load i32, ptr %arrayidx.i, align 8
   %cmp.i = icmp eq i32 %3, %and.i
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %do.body.i
   %4 = load ptr, ptr %keyComparator.i, align 8
-  %key6.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
+  %key6.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 16
   %agg.tmp3.sroa.0.0.copyload.i = load ptr, ptr %key6.i, align 8
   %call.i = tail call noundef signext i8 %4(ptr %key.coerce, ptr %agg.tmp3.sroa.0.0.copyload.i)
   %tobool.not.i = icmp eq i8 %call.i, 0
@@ -1701,7 +1701,7 @@ if.then37.i:                                      ; preds = %if.else35.i
 if.end39.i:                                       ; preds = %if.else14.i, %if.else35.i, %do.end.i
   %theIndex.2.i = phi i32 [ %rem.i, %if.else35.i ], [ %firstDeleted.1.i, %do.end.i ], [ %spec.select29.i, %if.else14.i ]
   %idxprom40.i = zext nneg i32 %theIndex.2.i to i64
-  %arrayidx41.i = getelementptr inbounds %struct.UHashElement, ptr %1, i64 %idxprom40.i
+  %arrayidx41.i = getelementptr inbounds nuw %struct.UHashElement, ptr %1, i64 %idxprom40.i
   br label %_ZL11_uhash_findPK10UHashtable8UElementi.exit
 
 _ZL11_uhash_findPK10UHashtable8UElementi.exit:    ; preds = %if.then.i, %if.end39.i
@@ -1711,19 +1711,19 @@ _ZL11_uhash_findPK10UHashtable8UElementi.exit:    ; preds = %if.then.i, %if.end3
   br i1 %cmp, label %if.end9, label %if.then
 
 if.then:                                          ; preds = %_ZL11_uhash_findPK10UHashtable8UElementi.exit
-  %count.i = getelementptr inbounds i8, ptr %hash, i64 48
+  %count.i = getelementptr inbounds nuw i8, ptr %hash, i64 48
   %6 = load i32, ptr %count.i, align 8
   %dec.i = add nsw i32 %6, -1
   store i32 %dec.i, ptr %count.i, align 8
-  %value2.i.i = getelementptr inbounds i8, ptr %retval.0.i, i64 8
+  %value2.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i, i64 8
   %retval.sroa.0.0.copyload.i.i = load ptr, ptr %value2.i.i, align 8
-  %keyDeleter.i.i = getelementptr inbounds i8, ptr %hash, i64 32
+  %keyDeleter.i.i = getelementptr inbounds nuw i8, ptr %hash, i64 32
   %7 = load ptr, ptr %keyDeleter.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %7, null
   br i1 %cmp.not.i.i, label %if.end.i.i, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.then
-  %key3.i.i = getelementptr inbounds i8, ptr %retval.0.i, i64 16
+  %key3.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i, i64 16
   %8 = load ptr, ptr %key3.i.i, align 8
   %cmp7.not.i.i = icmp eq ptr %8, null
   br i1 %cmp7.not.i.i, label %if.end.i.i, label %if.then.i.i
@@ -1733,7 +1733,7 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i, %land.lhs.true.i.i, %if.then
-  %valueDeleter.i.i = getelementptr inbounds i8, ptr %hash, i64 40
+  %valueDeleter.i.i = getelementptr inbounds nuw i8, ptr %hash, i64 40
   %9 = load ptr, ptr %valueDeleter.i.i, align 8
   %cmp10.not.i.i = icmp eq ptr %9, null
   br i1 %cmp10.not.i.i, label %_ZL28_uhash_internalRemoveElementP10UHashtableP12UHashElement.exit, label %if.then11.i.i
@@ -1751,7 +1751,7 @@ _ZL28_uhash_internalRemoveElementP10UHashtableP12UHashElement.exit: ; preds = %i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %value2.i.i, i8 0, i64 16, i1 false)
   store i32 -2147483648, ptr %retval.0.i, align 8
   %10 = load i32, ptr %count.i, align 8
-  %lowWaterMark = getelementptr inbounds i8, ptr %hash, i64 60
+  %lowWaterMark = getelementptr inbounds nuw i8, ptr %hash, i64 60
   %11 = load i32, ptr %lowWaterMark, align 4
   %cmp7 = icmp slt i32 %10, %11
   br i1 %cmp7, label %if.then8, label %if.end9
@@ -1798,15 +1798,15 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @uhash_removeAll_75(ptr nocapture noundef %hash) local_unnamed_addr #0 {
 entry:
-  %count = getelementptr inbounds i8, ptr %hash, i64 48
+  %count = getelementptr inbounds nuw i8, ptr %hash, i64 48
   %0 = load i32, ptr %count, align 8
   %cmp.not = icmp eq i32 %0, 0
   br i1 %cmp.not, label %if.end, label %while.cond.preheader
 
 while.cond.preheader:                             ; preds = %entry
-  %length.i = getelementptr inbounds i8, ptr %hash, i64 52
-  %keyDeleter.i.i.i = getelementptr inbounds i8, ptr %hash, i64 32
-  %valueDeleter.i.i.i = getelementptr inbounds i8, ptr %hash, i64 40
+  %length.i = getelementptr inbounds nuw i8, ptr %hash, i64 52
+  %keyDeleter.i.i.i = getelementptr inbounds nuw i8, ptr %hash, i64 32
+  %valueDeleter.i.i.i = getelementptr inbounds nuw i8, ptr %hash, i64 40
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond.preheader, %uhash_removeElement_75.exit
@@ -1834,14 +1834,14 @@ if.then.i4:                                       ; preds = %for.body.i
   %6 = load i32, ptr %count, align 8
   %dec.i.i = add nsw i32 %6, -1
   store i32 %dec.i.i, ptr %count, align 8
-  %value2.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  %value2.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   %retval.sroa.0.0.copyload.i.i.i = load ptr, ptr %value2.i.i.i, align 8
   %7 = load ptr, ptr %keyDeleter.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %7, null
   br i1 %cmp.not.i.i.i, label %if.end.i.i.i, label %land.lhs.true.i.i.i
 
 land.lhs.true.i.i.i:                              ; preds = %if.then.i4
-  %key3.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
+  %key3.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 16
   %8 = load ptr, ptr %key3.i.i.i, align 8
   %cmp7.not.i.i.i = icmp eq ptr %8, null
   br i1 %cmp7.not.i.i.i, label %if.end.i.i.i, label %if.then.i.i.i
@@ -1878,19 +1878,19 @@ entry:
   br i1 %cmp, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %count.i = getelementptr inbounds i8, ptr %hash, i64 48
+  %count.i = getelementptr inbounds nuw i8, ptr %hash, i64 48
   %1 = load i32, ptr %count.i, align 8
   %dec.i = add nsw i32 %1, -1
   store i32 %dec.i, ptr %count.i, align 8
-  %value2.i.i = getelementptr inbounds i8, ptr %e, i64 8
+  %value2.i.i = getelementptr inbounds nuw i8, ptr %e, i64 8
   %retval.sroa.0.0.copyload.i.i = load ptr, ptr %value2.i.i, align 8
-  %keyDeleter.i.i = getelementptr inbounds i8, ptr %hash, i64 32
+  %keyDeleter.i.i = getelementptr inbounds nuw i8, ptr %hash, i64 32
   %2 = load ptr, ptr %keyDeleter.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %2, null
   br i1 %cmp.not.i.i, label %if.end.i.i, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.then
-  %key3.i.i = getelementptr inbounds i8, ptr %e, i64 16
+  %key3.i.i = getelementptr inbounds nuw i8, ptr %e, i64 16
   %3 = load ptr, ptr %key3.i.i, align 8
   %cmp7.not.i.i = icmp eq ptr %3, null
   br i1 %cmp7.not.i.i, label %if.end.i.i, label %if.then.i.i
@@ -1900,7 +1900,7 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i, %land.lhs.true.i.i, %if.then
-  %valueDeleter.i.i = getelementptr inbounds i8, ptr %hash, i64 40
+  %valueDeleter.i.i = getelementptr inbounds nuw i8, ptr %hash, i64 40
   %4 = load ptr, ptr %valueDeleter.i.i, align 8
   %cmp10.not.i.i = icmp eq ptr %4, null
   br i1 %cmp10.not.i.i, label %_ZL28_uhash_internalRemoveElementP10UHashtableP12UHashElement.exit, label %if.then11.i.i
@@ -1927,16 +1927,16 @@ return:                                           ; preds = %entry, %_ZL28_uhash
 ; Function Attrs: mustprogress uwtable
 define signext range(i8 0, 2) i8 @uhash_containsKey_75(ptr nocapture noundef readonly %hash, ptr noundef %key) local_unnamed_addr #0 {
 entry:
-  %keyHasher = getelementptr inbounds i8, ptr %hash, i64 8
+  %keyHasher = getelementptr inbounds nuw i8, ptr %hash, i64 8
   %0 = load ptr, ptr %keyHasher, align 8
   %call = tail call noundef i32 %0(ptr %key)
   %1 = load ptr, ptr %hash, align 8
   %and.i = and i32 %call, 2147483647
   %xor.i = xor i32 %and.i, 67108864
-  %length.i = getelementptr inbounds i8, ptr %hash, i64 52
+  %length.i = getelementptr inbounds nuw i8, ptr %hash, i64 52
   %2 = load i32, ptr %length.i, align 4
   %rem.i = srem i32 %xor.i, %2
-  %keyComparator.i = getelementptr inbounds i8, ptr %hash, i64 16
+  %keyComparator.i = getelementptr inbounds nuw i8, ptr %hash, i64 16
   br label %do.body.i
 
 do.body.i:                                        ; preds = %if.end28.i, %entry
@@ -1945,14 +1945,14 @@ do.body.i:                                        ; preds = %if.end28.i, %entry
   %theIndex.0.i = phi i32 [ %rem.i, %entry ], [ %rem31.i, %if.end28.i ]
   %firstDeleted.0.i = phi i32 [ -1, %entry ], [ %firstDeleted.1.i, %if.end28.i ]
   %idxprom.i = zext nneg i32 %theIndex.0.i to i64
-  %arrayidx.i = getelementptr inbounds %struct.UHashElement, ptr %1, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw %struct.UHashElement, ptr %1, i64 %idxprom.i
   %3 = load i32, ptr %arrayidx.i, align 8
   %cmp.i = icmp eq i32 %3, %and.i
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %do.body.i
   %4 = load ptr, ptr %keyComparator.i, align 8
-  %key6.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
+  %key6.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 16
   %agg.tmp3.sroa.0.0.copyload.i = load ptr, ptr %key6.i, align 8
   %call.i = tail call noundef signext i8 %4(ptr %key, ptr %agg.tmp3.sroa.0.0.copyload.i)
   %tobool.not.i = icmp eq i8 %call.i, 0
@@ -2006,7 +2006,7 @@ if.then37.i:                                      ; preds = %if.else35.i
 if.end39.i:                                       ; preds = %if.else14.i, %if.else35.i, %do.end.i
   %theIndex.2.i = phi i32 [ %rem.i, %if.else35.i ], [ %firstDeleted.1.i, %do.end.i ], [ %spec.select29.i, %if.else14.i ]
   %idxprom40.i = zext nneg i32 %theIndex.2.i to i64
-  %arrayidx41.i = getelementptr inbounds %struct.UHashElement, ptr %1, i64 %idxprom40.i
+  %arrayidx41.i = getelementptr inbounds nuw %struct.UHashElement, ptr %1, i64 %idxprom40.i
   br label %_ZL11_uhash_findPK10UHashtable8UElementi.exit
 
 _ZL11_uhash_findPK10UHashtable8UElementi.exit:    ; preds = %if.then.i, %if.end39.i
@@ -2022,16 +2022,16 @@ define signext range(i8 0, 2) i8 @uhash_icontainsKey_75(ptr nocapture noundef re
 entry:
   %keyholder.sroa.0.0.insert.ext = zext i32 %key to i64
   %0 = inttoptr i64 %keyholder.sroa.0.0.insert.ext to ptr
-  %keyHasher = getelementptr inbounds i8, ptr %hash, i64 8
+  %keyHasher = getelementptr inbounds nuw i8, ptr %hash, i64 8
   %1 = load ptr, ptr %keyHasher, align 8
   %call = tail call noundef i32 %1(ptr %0)
   %2 = load ptr, ptr %hash, align 8
   %and.i = and i32 %call, 2147483647
   %xor.i = xor i32 %and.i, 67108864
-  %length.i = getelementptr inbounds i8, ptr %hash, i64 52
+  %length.i = getelementptr inbounds nuw i8, ptr %hash, i64 52
   %3 = load i32, ptr %length.i, align 4
   %rem.i = srem i32 %xor.i, %3
-  %keyComparator.i = getelementptr inbounds i8, ptr %hash, i64 16
+  %keyComparator.i = getelementptr inbounds nuw i8, ptr %hash, i64 16
   br label %do.body.i
 
 do.body.i:                                        ; preds = %if.end28.i, %entry
@@ -2040,14 +2040,14 @@ do.body.i:                                        ; preds = %if.end28.i, %entry
   %theIndex.0.i = phi i32 [ %rem.i, %entry ], [ %rem31.i, %if.end28.i ]
   %firstDeleted.0.i = phi i32 [ -1, %entry ], [ %firstDeleted.1.i, %if.end28.i ]
   %idxprom.i = zext nneg i32 %theIndex.0.i to i64
-  %arrayidx.i = getelementptr inbounds %struct.UHashElement, ptr %2, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw %struct.UHashElement, ptr %2, i64 %idxprom.i
   %4 = load i32, ptr %arrayidx.i, align 8
   %cmp.i = icmp eq i32 %4, %and.i
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %do.body.i
   %5 = load ptr, ptr %keyComparator.i, align 8
-  %key6.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
+  %key6.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 16
   %agg.tmp3.sroa.0.0.copyload.i = load ptr, ptr %key6.i, align 8
   %call.i = tail call noundef signext i8 %5(ptr %0, ptr %agg.tmp3.sroa.0.0.copyload.i)
   %tobool.not.i = icmp eq i8 %call.i, 0
@@ -2101,7 +2101,7 @@ if.then37.i:                                      ; preds = %if.else35.i
 if.end39.i:                                       ; preds = %if.else14.i, %if.else35.i, %do.end.i
   %theIndex.2.i = phi i32 [ %rem.i, %if.else35.i ], [ %firstDeleted.1.i, %do.end.i ], [ %spec.select29.i, %if.else14.i ]
   %idxprom40.i = zext nneg i32 %theIndex.2.i to i64
-  %arrayidx41.i = getelementptr inbounds %struct.UHashElement, ptr %2, i64 %idxprom40.i
+  %arrayidx41.i = getelementptr inbounds nuw %struct.UHashElement, ptr %2, i64 %idxprom40.i
   br label %_ZL11_uhash_findPK10UHashtable8UElementi.exit
 
 _ZL11_uhash_findPK10UHashtable8UElementi.exit:    ; preds = %if.then.i, %if.end39.i
@@ -2115,16 +2115,16 @@ _ZL11_uhash_findPK10UHashtable8UElementi.exit:    ; preds = %if.then.i, %if.end3
 ; Function Attrs: mustprogress uwtable
 define ptr @uhash_find_75(ptr nocapture noundef readonly %hash, ptr noundef %key) local_unnamed_addr #0 {
 entry:
-  %keyHasher = getelementptr inbounds i8, ptr %hash, i64 8
+  %keyHasher = getelementptr inbounds nuw i8, ptr %hash, i64 8
   %0 = load ptr, ptr %keyHasher, align 8
   %call = tail call noundef i32 %0(ptr %key)
   %1 = load ptr, ptr %hash, align 8
   %and.i = and i32 %call, 2147483647
   %xor.i = xor i32 %and.i, 67108864
-  %length.i = getelementptr inbounds i8, ptr %hash, i64 52
+  %length.i = getelementptr inbounds nuw i8, ptr %hash, i64 52
   %2 = load i32, ptr %length.i, align 4
   %rem.i = srem i32 %xor.i, %2
-  %keyComparator.i = getelementptr inbounds i8, ptr %hash, i64 16
+  %keyComparator.i = getelementptr inbounds nuw i8, ptr %hash, i64 16
   br label %do.body.i
 
 do.body.i:                                        ; preds = %if.end28.i, %entry
@@ -2133,14 +2133,14 @@ do.body.i:                                        ; preds = %if.end28.i, %entry
   %theIndex.0.i = phi i32 [ %rem.i, %entry ], [ %rem31.i, %if.end28.i ]
   %firstDeleted.0.i = phi i32 [ -1, %entry ], [ %firstDeleted.1.i, %if.end28.i ]
   %idxprom.i = zext nneg i32 %theIndex.0.i to i64
-  %arrayidx.i = getelementptr inbounds %struct.UHashElement, ptr %1, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw %struct.UHashElement, ptr %1, i64 %idxprom.i
   %3 = load i32, ptr %arrayidx.i, align 8
   %cmp.i = icmp eq i32 %3, %and.i
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %do.body.i
   %4 = load ptr, ptr %keyComparator.i, align 8
-  %key6.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
+  %key6.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 16
   %agg.tmp3.sroa.0.0.copyload.i = load ptr, ptr %key6.i, align 8
   %call.i = tail call noundef signext i8 %4(ptr %key, ptr %agg.tmp3.sroa.0.0.copyload.i)
   %tobool.not.i = icmp eq i8 %call.i, 0
@@ -2194,7 +2194,7 @@ if.then37.i:                                      ; preds = %if.else35.i
 if.end39.i:                                       ; preds = %if.else14.i, %if.else35.i, %do.end.i
   %theIndex.2.i = phi i32 [ %rem.i, %if.else35.i ], [ %firstDeleted.1.i, %do.end.i ], [ %spec.select29.i, %if.else14.i ]
   %idxprom40.i = zext nneg i32 %theIndex.2.i to i64
-  %arrayidx41.i = getelementptr inbounds %struct.UHashElement, ptr %1, i64 %idxprom40.i
+  %arrayidx41.i = getelementptr inbounds nuw %struct.UHashElement, ptr %1, i64 %idxprom40.i
   br label %_ZL11_uhash_findPK10UHashtable8UElementi.exit
 
 _ZL11_uhash_findPK10UHashtable8UElementi.exit:    ; preds = %if.then.i, %if.end39.i
@@ -2279,17 +2279,17 @@ if.end:                                           ; preds = %entry
   br i1 %or.cond, label %return, label %lor.lhs.false3
 
 lor.lhs.false3:                                   ; preds = %if.end
-  %keyComparator = getelementptr inbounds i8, ptr %hash1, i64 16
+  %keyComparator = getelementptr inbounds nuw i8, ptr %hash1, i64 16
   %0 = load ptr, ptr %keyComparator, align 8
-  %keyComparator4 = getelementptr inbounds i8, ptr %hash2, i64 16
+  %keyComparator4 = getelementptr inbounds nuw i8, ptr %hash2, i64 16
   %1 = load ptr, ptr %keyComparator4, align 8
   %cmp5.not = icmp eq ptr %0, %1
   br i1 %cmp5.not, label %lor.lhs.false6, label %return
 
 lor.lhs.false6:                                   ; preds = %lor.lhs.false3
-  %valueComparator = getelementptr inbounds i8, ptr %hash1, i64 24
+  %valueComparator = getelementptr inbounds nuw i8, ptr %hash1, i64 24
   %2 = load ptr, ptr %valueComparator, align 8
-  %valueComparator7 = getelementptr inbounds i8, ptr %hash2, i64 24
+  %valueComparator7 = getelementptr inbounds nuw i8, ptr %hash2, i64 24
   %3 = load ptr, ptr %valueComparator7, align 8
   %cmp8.not = icmp ne ptr %2, %3
   %cmp11 = icmp eq ptr %2, null
@@ -2297,9 +2297,9 @@ lor.lhs.false6:                                   ; preds = %lor.lhs.false3
   br i1 %or.cond17, label %return, label %if.end13
 
 if.end13:                                         ; preds = %lor.lhs.false6
-  %count.i = getelementptr inbounds i8, ptr %hash1, i64 48
+  %count.i = getelementptr inbounds nuw i8, ptr %hash1, i64 48
   %4 = load i32, ptr %count.i, align 8
-  %count.i18 = getelementptr inbounds i8, ptr %hash2, i64 48
+  %count.i18 = getelementptr inbounds nuw i8, ptr %hash2, i64 48
   %5 = load i32, ptr %count.i18, align 8
   %cmp15.not = icmp eq i32 %4, %5
   br i1 %cmp15.not, label %for.cond.preheader, label %return
@@ -2309,9 +2309,9 @@ for.cond.preheader:                               ; preds = %if.end13
   br i1 %cmp1832, label %for.body.lr.ph, label %return
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %length.i = getelementptr inbounds i8, ptr %hash1, i64 52
-  %keyHasher = getelementptr inbounds i8, ptr %hash2, i64 8
-  %length.i19 = getelementptr inbounds i8, ptr %hash2, i64 52
+  %length.i = getelementptr inbounds nuw i8, ptr %hash1, i64 52
+  %keyHasher = getelementptr inbounds nuw i8, ptr %hash2, i64 8
+  %length.i19 = getelementptr inbounds nuw i8, ptr %hash2, i64 52
   br label %for.body
 
 for.cond:                                         ; preds = %_ZL11_uhash_findPK10UHashtable8UElementi.exit
@@ -2340,9 +2340,9 @@ for.cond.i:                                       ; preds = %for.cond.i, %for.bo
   br i1 %cmp1.i, label %for.cond.i, label %if.then.i, !llvm.loop !8
 
 if.then.i:                                        ; preds = %for.cond.i
-  %key = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
+  %key = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 16
   %key1.sroa.0.0.copyload = load ptr, ptr %key, align 8
-  %value = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  %value = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   %val1.sroa.0.0.copyload = load ptr, ptr %value, align 8
   %11 = load ptr, ptr %keyHasher, align 8
   %call21 = tail call noundef i32 %11(ptr %key1.sroa.0.0.copyload)
@@ -2359,14 +2359,14 @@ do.body.i:                                        ; preds = %if.end28.i, %if.the
   %theIndex.0.i = phi i32 [ %rem.i, %if.then.i ], [ %rem31.i, %if.end28.i ]
   %firstDeleted.0.i = phi i32 [ -1, %if.then.i ], [ %firstDeleted.1.i, %if.end28.i ]
   %idxprom.i = zext nneg i32 %theIndex.0.i to i64
-  %arrayidx.i20 = getelementptr inbounds %struct.UHashElement, ptr %12, i64 %idxprom.i
+  %arrayidx.i20 = getelementptr inbounds nuw %struct.UHashElement, ptr %12, i64 %idxprom.i
   %14 = load i32, ptr %arrayidx.i20, align 8
   %cmp.i21 = icmp eq i32 %14, %and.i
   br i1 %cmp.i21, label %if.then.i23, label %if.else.i
 
 if.then.i23:                                      ; preds = %do.body.i
   %15 = load ptr, ptr %keyComparator4, align 8
-  %key6.i = getelementptr inbounds i8, ptr %arrayidx.i20, i64 16
+  %key6.i = getelementptr inbounds nuw i8, ptr %arrayidx.i20, i64 16
   %agg.tmp3.sroa.0.0.copyload.i = load ptr, ptr %key6.i, align 8
   %call.i = tail call noundef signext i8 %15(ptr %key1.sroa.0.0.copyload, ptr %agg.tmp3.sroa.0.0.copyload.i)
   %tobool.not.i = icmp eq i8 %call.i, 0
@@ -2424,7 +2424,7 @@ if.end39.i:                                       ; preds = %if.else14.i, %if.el
 
 _ZL11_uhash_findPK10UHashtable8UElementi.exit:    ; preds = %if.then.i23, %if.end39.i
   %16 = phi i64 [ %idxprom40.i, %if.end39.i ], [ %idxprom.i, %if.then.i23 ]
-  %value24 = getelementptr inbounds %struct.UHashElement, ptr %12, i64 %16, i32 1
+  %value24 = getelementptr inbounds nuw %struct.UHashElement, ptr %12, i64 %16, i32 1
   %val2.sroa.0.0.copyload = load ptr, ptr %value24, align 8
   %17 = load ptr, ptr %valueComparator, align 8
   %call30 = tail call noundef signext i8 %17(ptr %val1.sroa.0.0.copyload, ptr %val2.sroa.0.0.copyload)
@@ -2462,8 +2462,8 @@ land.rhs:                                         ; preds = %while.cond.preheade
   br i1 %cmp9, label %while.body, label %while.end
 
 while.body:                                       ; preds = %land.rhs
-  %incdec.ptr = getelementptr inbounds i8, ptr %p1.011, i64 2
-  %incdec.ptr10 = getelementptr inbounds i8, ptr %p2.012, i64 2
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %p1.011, i64 2
+  %incdec.ptr10 = getelementptr inbounds nuw i8, ptr %p2.012, i64 2
   %3 = load i16, ptr %incdec.ptr, align 2
   %cmp6.not = icmp eq i16 %3, 0
   br i1 %cmp6.not, label %while.end, label %land.rhs, !llvm.loop !14
@@ -2507,8 +2507,8 @@ land.rhs:                                         ; preds = %while.cond.preheade
   br i1 %cmp9, label %while.body, label %while.end
 
 while.body:                                       ; preds = %land.rhs
-  %incdec.ptr = getelementptr inbounds i8, ptr %p1.011, i64 1
-  %incdec.ptr10 = getelementptr inbounds i8, ptr %p2.012, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %p1.011, i64 1
+  %incdec.ptr10 = getelementptr inbounds nuw i8, ptr %p2.012, i64 1
   %3 = load i8, ptr %incdec.ptr, align 1
   %cmp6.not = icmp eq i8 %3, 0
   br i1 %cmp6.not, label %while.end, label %land.rhs, !llvm.loop !15
@@ -2558,8 +2558,8 @@ land.rhs.while.end.loopexit_crit_edge:            ; preds = %land.rhs
   br label %while.end
 
 while.body:                                       ; preds = %land.rhs
-  %incdec.ptr = getelementptr inbounds i8, ptr %p1.011, i64 1
-  %incdec.ptr11 = getelementptr inbounds i8, ptr %p2.012, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %p1.011, i64 1
+  %incdec.ptr11 = getelementptr inbounds nuw i8, ptr %p2.012, i64 1
   %3 = load i8, ptr %incdec.ptr, align 1
   %cmp6.not = icmp eq i8 %3, 0
   br i1 %cmp6.not, label %while.end, label %land.rhs, !llvm.loop !16

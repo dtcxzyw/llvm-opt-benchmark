@@ -22,34 +22,34 @@ define dso_local i32 @idma32_dma_probe(ptr noundef %0) #0 align 16 {
   br i1 %4, label %25, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 104
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 104
   %9 = load i32, ptr %8, align 4
   %10 = and i32 %9, 1
   %11 = icmp eq i32 %10, 0
-  %12 = getelementptr inbounds i8, ptr %3, i64 480
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 480
   %13 = select i1 %11, ptr @idma32_initialize_chan_generic, ptr @idma32_initialize_chan_xbar
   store ptr %13, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %3, i64 488
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store ptr @idma32_suspend_chan, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %3, i64 496
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store ptr @idma32_resume_chan, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %3, i64 504
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 504
   store ptr @idma32_prepare_ctllo, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %3, i64 512
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 512
   store ptr @idma32_encode_maxburst, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %3, i64 520
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 520
   store ptr @idma32_bytes2block, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %3, i64 528
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 528
   store ptr @idma32_block2bytes, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %3, i64 536
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 536
   store ptr @idma32_set_device_name, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %3, i64 544
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 544
   store ptr @idma32_disable, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %3, i64 552
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 552
   store ptr @idma32_enable, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %3, ptr %23, align 8
   %24 = tail call i32 @do_dma_probe(ptr noundef %0) #11
   br label %25
@@ -62,12 +62,12 @@ define dso_local i32 @idma32_dma_probe(ptr noundef %0) #0 align 16 {
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @idma32_initialize_chan_xbar(ptr nocapture noundef readonly %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 408
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 5120
   %6 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %5) #11, !srcloc !5
   %7 = and i32 %6, -8
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load i32, ptr %8, align 8
   %10 = or i32 %7, %9
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %10, ptr elementtype(i32) %5) #11, !srcloc !6
@@ -78,7 +78,7 @@ define internal void @idma32_initialize_chan_xbar(ptr nocapture noundef readonly
   %15 = getelementptr i8, ptr %4, i64 %14
   %16 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %15) #11, !srcloc !5
   %17 = and i32 %16, -892
-  %18 = getelementptr inbounds i8, ptr %0, i64 124
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 124
   %19 = load i32, ptr %18, align 4
   switch i32 %19, label %92 [
     i32 1, label %21
@@ -104,13 +104,13 @@ define internal void @idma32_initialize_chan_xbar(ptr nocapture noundef readonly
   %33 = getelementptr i8, ptr %4, i64 %32
   %34 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %33) #11, !srcloc !5
   %35 = and i32 %34, -65536
-  %36 = getelementptr inbounds i8, ptr %0, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %37 = load ptr, ptr %36, align 8
   %38 = icmp eq ptr %37, null
   br i1 %38, label %46, label %39
 
 39:                                               ; preds = %21
-  %40 = getelementptr inbounds i8, ptr %37, i64 96
+  %40 = getelementptr inbounds nuw i8, ptr %37, i64 96
   %41 = load ptr, ptr %40, align 8
   %42 = icmp eq ptr %41, @pci_bus_type
   br i1 %42, label %43, label %46
@@ -154,12 +154,12 @@ define internal void @idma32_initialize_chan_xbar(ptr nocapture noundef readonly
 62:                                               ; preds = %54
   %63 = load i32, ptr %8, align 8
   %64 = trunc i32 %63 to i8
-  %65 = getelementptr inbounds i8, ptr %0, i64 208
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %66 = load i8, ptr %65, align 8
   br label %72
 
 67:                                               ; preds = %54
-  %68 = getelementptr inbounds i8, ptr %0, i64 209
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 209
   %69 = load i8, ptr %68, align 1
   %70 = load i32, ptr %8, align 8
   %71 = trunc i32 %70 to i8
@@ -180,13 +180,13 @@ define internal void @idma32_initialize_chan_xbar(ptr nocapture noundef readonly
   %84 = shl nuw i32 %78, 24
   %85 = and i32 %84, 805306368
   %86 = or disjoint i32 %83, %85
-  %87 = getelementptr inbounds i8, ptr %0, i64 112
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %88 = load ptr, ptr %87, align 8
-  %89 = getelementptr inbounds i8, ptr %88, i64 64
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 3, ptr elementtype(i32) %89) #11, !srcloc !6
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 64
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 3, ptr nonnull elementtype(i32) %89) #11, !srcloc !6
   %90 = load ptr, ptr %87, align 8
-  %91 = getelementptr inbounds i8, ptr %90, i64 68
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %86, ptr elementtype(i32) %91) #11, !srcloc !6
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 68
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %86, ptr nonnull elementtype(i32) %91) #11, !srcloc !6
   br label %92
 
 92:                                               ; preds = %72, %54, %46, %1
@@ -195,12 +195,12 @@ define internal void @idma32_initialize_chan_xbar(ptr nocapture noundef readonly
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @idma32_initialize_chan_generic(ptr nocapture noundef readonly %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 209
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 209
   %3 = load i8, ptr %2, align 1
   %4 = zext i8 %3 to i32
   %5 = shl nuw nsw i32 %4, 4
   %6 = and i32 %5, 240
-  %7 = getelementptr inbounds i8, ptr %0, i64 208
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %8 = load i8, ptr %7, align 8
   %9 = zext i8 %8 to i32
   %10 = and i32 %9, 15
@@ -211,48 +211,48 @@ define internal void @idma32_initialize_chan_generic(ptr nocapture noundef reado
   %15 = shl nuw i32 %9, 24
   %16 = and i32 %15, 805306368
   %17 = or disjoint i32 %14, %16
-  %18 = getelementptr inbounds i8, ptr %0, i64 112
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 64
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 3, ptr elementtype(i32) %20) #11, !srcloc !6
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 64
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 3, ptr nonnull elementtype(i32) %20) #11, !srcloc !6
   %21 = load ptr, ptr %18, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 68
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %17, ptr elementtype(i32) %22) #11, !srcloc !6
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 68
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %17, ptr nonnull elementtype(i32) %22) #11, !srcloc !6
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @idma32_suspend_chan(ptr nocapture noundef readonly %0, i1 noundef zeroext %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 112
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 64
-  %6 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %5) #11, !srcloc !5
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 64
+  %6 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %5) #11, !srcloc !5
   %7 = or i32 %6, 1024
   %8 = select i1 %1, i32 %7, i32 %6
   %9 = or i32 %8, 256
   %10 = load ptr, ptr %3, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 64
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %9, ptr elementtype(i32) %11) #11, !srcloc !6
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 64
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %9, ptr nonnull elementtype(i32) %11) #11, !srcloc !6
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @idma32_resume_chan(ptr nocapture noundef readonly %0, i1 noundef zeroext %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 112
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 64
-  %6 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %5) #11, !srcloc !5
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 64
+  %6 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %5) #11, !srcloc !5
   %.v = select i1 %1, i32 -1281, i32 -257
   %7 = and i32 %6, %.v
   %8 = load ptr, ptr %3, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 64
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %7, ptr elementtype(i32) %9) #11, !srcloc !6
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 64
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %7, ptr nonnull elementtype(i32) %9) #11, !srcloc !6
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
 define internal range(i32 402653184, 406847488) i32 @idma32_prepare_ctllo(ptr nocapture noundef readonly %0) #1 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 124
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 124
   %3 = load i32, ptr %2, align 4
   switch i32 %3, label %14 [
     i32 2, label %.thread
@@ -260,14 +260,14 @@ define internal range(i32 402653184, 406847488) i32 @idma32_prepare_ctllo(ptr no
   ]
 
 .thread:                                          ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 248
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %5 = load i32, ptr %4, align 8
   %6 = shl i32 %5, 14
   %7 = and i32 %6, 4177920
   br label %14
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %0, i64 252
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 252
   %10 = load i32, ptr %9, align 4
   %11 = shl i32 %10, 11
   %12 = and i32 %11, 522240
@@ -299,7 +299,7 @@ define internal void @idma32_encode_maxburst(ptr nocapture readnone %0, ptr noca
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
 define internal i32 @idma32_bytes2block(ptr nocapture noundef readonly %0, i64 noundef %1, i32 %2, ptr nocapture noundef writeonly initializes((0, 8)) %3) #3 align 16 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 188
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 188
   %6 = load i32, ptr %5, align 4
   %7 = zext i32 %6 to i64
   %8 = icmp ugt i64 %1, %7
@@ -319,41 +319,41 @@ define internal range(i64 0, 131072) i64 @idma32_block2bytes(ptr nocapture readn
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
 define internal void @idma32_set_device_name(ptr nocapture noundef writeonly %0, i32 noundef %1) #5 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 384
-  %4 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %3, i64 noundef 20, ptr noundef nonnull @.str, i32 noundef %1) #11
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 384
+  %4 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 20, ptr noundef nonnull @.str, i32 noundef %1) #11
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @idma32_disable(ptr noundef %0) #0 align 16 {
   tail call void @do_dw_dma_off(ptr noundef %0) #11
-  %2 = getelementptr inbounds i8, ptr %0, i64 408
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 1032
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 1032
   %5 = getelementptr i8, ptr %3, i64 1036
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 67633216, ptr elementtype(i32) %5) #11, !srcloc !6
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 67633216, ptr elementtype(i32) %4) #11, !srcloc !6
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 67633216, ptr nonnull elementtype(i32) %4) #11, !srcloc !6
   %6 = load ptr, ptr %2, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 1024
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 1024
   %8 = getelementptr i8, ptr %6, i64 1028
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 67633216, ptr elementtype(i32) %8) #11, !srcloc !6
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 67633216, ptr elementtype(i32) %7) #11, !srcloc !6
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 67633216, ptr nonnull elementtype(i32) %7) #11, !srcloc !6
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @idma32_enable(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 408
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 1032
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 1032
   %5 = getelementptr i8, ptr %3, i64 1036
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 67633216, ptr elementtype(i32) %5) #11, !srcloc !6
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 67633216, ptr elementtype(i32) %4) #11, !srcloc !6
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 67633216, ptr nonnull elementtype(i32) %4) #11, !srcloc !6
   %6 = load ptr, ptr %2, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 1024
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 1024
   %8 = getelementptr i8, ptr %6, i64 1028
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 67633216, ptr elementtype(i32) %8) #11, !srcloc !6
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 67633216, ptr elementtype(i32) %7) #11, !srcloc !6
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 67633216, ptr nonnull elementtype(i32) %7) #11, !srcloc !6
   tail call void @do_dw_dma_on(ptr noundef %0) #11
   ret void
 }

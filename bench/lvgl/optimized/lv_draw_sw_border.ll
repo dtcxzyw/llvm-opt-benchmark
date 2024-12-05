@@ -209,7 +209,7 @@ draw_border_simple.exit:                          ; preds = %98, %102
 
 113:                                              ; preds = %107
   call void @lv_draw_sw_mask_radius_init(ptr noundef nonnull %8, ptr noundef nonnull %2, i32 noundef range(i32 -2147483648, 1073741824) %spec.select, i1 noundef zeroext false) #5
-  %114 = getelementptr inbounds i8, ptr %6, i64 8
+  %114 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %8, ptr %114, align 8, !tbaa !25
   br label %115
 

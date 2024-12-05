@@ -17,17 +17,17 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @pmix_thread_construct(ptr nocapture noundef writeonly initializes((120, 128), (136, 144)) %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 120
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr null, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 136
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store i64 -1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @pmix_thread_start(ptr noundef %0) local_unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 136
-  %3 = getelementptr inbounds i8, ptr %0, i64 120
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 @pthread_create(ptr noundef nonnull %2, ptr noundef null, ptr noundef %4, ptr noundef %0) #11
   %6 = icmp ne i32 %5, 0
@@ -40,7 +40,7 @@ declare i32 @pthread_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef) 
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @pmix_thread_join(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 136
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %4 = load i64, ptr %3, align 8
   %5 = tail call i32 @pthread_join(i64 noundef %4, ptr noundef %1) #11
   store i64 -1, ptr %3, align 8
@@ -53,7 +53,7 @@ declare i32 @pthread_join(i64 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: read) uwtable
 define zeroext i1 @pmix_thread_self_compare(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 136
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %3 = load i64, ptr %2, align 8
   %4 = tail call i64 @pthread_self() #12
   %5 = icmp eq i64 %3, %4
@@ -82,15 +82,15 @@ define noundef ptr @pmix_thread_get_self() local_unnamed_addr #1 {
 
 7:                                                ; preds = %6
   %8 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %2, ptr noundef null) #11
-  %9 = getelementptr inbounds i8, ptr %2, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store ptr @pmix_thread_t_class, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %2, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store i32 1, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %2, i64 56
-  %12 = getelementptr inbounds i8, ptr %2, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 0, i64 32, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
-  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_thread_t_class, i64 40), align 8
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_thread_t_class, i64 40), align 8
   %14 = load ptr, ptr %13, align 8
   %.not6.i.i = icmp eq ptr %14, null
   br i1 %.not6.i.i, label %pmix_obj_new_tma.exit, label %.lr.ph.i.i
@@ -99,21 +99,21 @@ define noundef ptr @pmix_thread_get_self() local_unnamed_addr #1 {
   %15 = phi ptr [ %17, %.lr.ph.i.i ], [ %14, %7 ]
   %.07.i.i = phi ptr [ %16, %.lr.ph.i.i ], [ %13, %7 ]
   tail call void %15(ptr noundef nonnull %2) #11
-  %16 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %.07.i.i, i64 8
   %17 = load ptr, ptr %16, align 8
   %.not.i.i = icmp eq ptr %17, null
   br i1 %.not.i.i, label %pmix_obj_new_tma.exit, label %.lr.ph.i.i, !llvm.loop !4
 
 pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %6, %7
   %18 = tail call i64 @pthread_self() #12
-  %19 = getelementptr inbounds i8, ptr %2, i64 136
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 136
   store i64 %18, ptr %19, align 8
   ret ptr %2
 }
 
 ; Function Attrs: nounwind uwtable
 define void @pmix_thread_kill(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 136
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %4 = load i64, ptr %3, align 8
   %5 = tail call i32 @pthread_kill(i64 noundef %4, i32 noundef %1) #11
   ret void
@@ -174,11 +174,11 @@ define noundef i32 @pmix_tsd_keys_destruct() local_unnamed_addr #1 {
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %15
   %3 = phi ptr [ %.pre11, %.lr.ph.preheader ], [ %16, %15 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %15 ]
-  %4 = getelementptr inbounds %struct.pmix_tsd_key_value, ptr %3, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw %struct.pmix_tsd_key_value, ptr %3, i64 %indvars.iv
   %5 = load i32, ptr %4, align 8
   %6 = tail call ptr @pthread_getspecific(i32 noundef %5) #11
   %7 = load ptr, ptr @pmix_tsd_key_values, align 8
-  %8 = getelementptr inbounds %struct.pmix_tsd_key_value, ptr %7, i64 %indvars.iv, i32 1
+  %8 = getelementptr inbounds nuw %struct.pmix_tsd_key_value, ptr %7, i64 %indvars.iv, i32 1
   %9 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %15, label %10
@@ -186,7 +186,7 @@ define noundef i32 @pmix_tsd_keys_destruct() local_unnamed_addr #1 {
 10:                                               ; preds = %.lr.ph
   tail call void %9(ptr noundef %6) #11
   %11 = load ptr, ptr @pmix_tsd_key_values, align 8
-  %12 = getelementptr inbounds %struct.pmix_tsd_key_value, ptr %11, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw %struct.pmix_tsd_key_value, ptr %11, i64 %indvars.iv
   %13 = load i32, ptr %12, align 8
   %14 = tail call i32 @pthread_setspecific(i32 noundef %13, ptr noundef null) #11
   %.pre = load ptr, ptr @pmix_tsd_key_values, align 8

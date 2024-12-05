@@ -14,7 +14,7 @@ define void @embed_graph(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noc
   %8 = tail call fastcc ptr @gv_calloc(i64 noundef %7, i64 noundef 4)
   %9 = sext i32 %1 to i64
   %10 = tail call fastcc ptr @gv_calloc(i64 noundef %9, i64 noundef 4)
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = sext i32 %2 to i64
   %14 = tail call fastcc ptr @gv_calloc(i64 noundef %13, i64 noundef 8)
@@ -30,7 +30,7 @@ define void @embed_graph(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noc
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %16 = mul nsw i64 %indvars.iv, %9
   %17 = getelementptr inbounds i32, ptr %8, i64 %16
-  %18 = getelementptr inbounds ptr, ptr %14, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv
   store ptr %17, ptr %18, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -83,7 +83,7 @@ define void @embed_graph(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noc
 .lr.ph105.us.us:                                  ; preds = %.lr.ph110.split.us, %._crit_edge106.us.us
   %indvars.iv147 = phi i64 [ %indvars.iv.next148, %._crit_edge106.us.us ], [ 1, %.lr.ph110.split.us ]
   %.286108.us.us = phi i32 [ %.4.us.us, %._crit_edge106.us.us ], [ %spec.select, %.lr.ph110.split.us ]
-  %35 = getelementptr inbounds ptr, ptr %14, i64 %indvars.iv147
+  %35 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv147
   %36 = load ptr, ptr %35, align 8
   tail call void @bfs(i32 noundef %.286108.us.us, ptr noundef %0, i32 noundef %1, ptr noundef %36) #12
   %37 = load ptr, ptr %35, align 8
@@ -93,9 +93,9 @@ define void @embed_graph(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noc
   %indvars.iv142 = phi i64 [ %indvars.iv.next143, %38 ], [ 0, %.lr.ph105.us.us ]
   %.2103.us.us = phi i32 [ %.3.us.us, %38 ], [ 0, %.lr.ph105.us.us ]
   %.387101.us.us = phi i32 [ %.4.us.us, %38 ], [ %.286108.us.us, %.lr.ph105.us.us ]
-  %39 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv142
+  %39 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv142
   %40 = load i32, ptr %39, align 4
-  %41 = getelementptr inbounds i32, ptr %37, i64 %indvars.iv142
+  %41 = getelementptr inbounds nuw i32, ptr %37, i64 %indvars.iv142
   %42 = load i32, ptr %41, align 4
   %..us.us = tail call i32 @llvm.smin.i32(i32 %40, i32 %42)
   store i32 %..us.us, ptr %39, align 4
@@ -115,7 +115,7 @@ define void @embed_graph(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noc
 .lr.ph105.us:                                     ; preds = %.lr.ph110.split.us, %._crit_edge106.us
   %indvars.iv137 = phi i64 [ %indvars.iv.next138, %._crit_edge106.us ], [ 1, %.lr.ph110.split.us ]
   %.286108.us = phi i32 [ %.4.us, %._crit_edge106.us ], [ %spec.select, %.lr.ph110.split.us ]
-  %45 = getelementptr inbounds ptr, ptr %14, i64 %indvars.iv137
+  %45 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv137
   %46 = load ptr, ptr %45, align 8
   tail call void @dijkstra(i32 noundef %.286108.us, ptr noundef %0, i32 noundef %1, ptr noundef %46) #12
   %47 = load ptr, ptr %45, align 8
@@ -125,9 +125,9 @@ define void @embed_graph(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noc
   %indvars.iv132 = phi i64 [ 0, %.lr.ph105.us ], [ %indvars.iv.next133, %48 ]
   %.2103.us = phi i32 [ 0, %.lr.ph105.us ], [ %.3.us, %48 ]
   %.387101.us = phi i32 [ %.286108.us, %.lr.ph105.us ], [ %.4.us, %48 ]
-  %49 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv132
+  %49 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv132
   %50 = load i32, ptr %49, align 4
-  %51 = getelementptr inbounds i32, ptr %47, i64 %indvars.iv132
+  %51 = getelementptr inbounds nuw i32, ptr %47, i64 %indvars.iv132
   %52 = load i32, ptr %51, align 4
   %..us = tail call i32 @llvm.smin.i32(i32 %50, i32 %52)
   store i32 %..us, ptr %49, align 4
@@ -150,7 +150,7 @@ define void @embed_graph(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noc
 
 .lr.ph110.split.split.us:                         ; preds = %.lr.ph110.split, %.lr.ph110.split.split.us
   %indvars.iv127 = phi i64 [ %indvars.iv.next128, %.lr.ph110.split.split.us ], [ 1, %.lr.ph110.split ]
-  %55 = getelementptr inbounds ptr, ptr %14, i64 %indvars.iv127
+  %55 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv127
   %56 = load ptr, ptr %55, align 8
   tail call void @bfs(i32 noundef %28, ptr noundef %0, i32 noundef %1, ptr noundef %56) #12
   %indvars.iv.next128 = add nuw nsw i64 %indvars.iv127, 1
@@ -161,7 +161,7 @@ define void @embed_graph(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noc
   %indvars.iv117 = phi i64 [ 0, %.lr.ph100 ], [ %indvars.iv.next118, %57 ]
   %.098 = phi i32 [ 0, %.lr.ph100 ], [ %spec.select94, %57 ]
   %.08496 = phi i32 [ %28, %.lr.ph100 ], [ %spec.select, %57 ]
-  %58 = getelementptr inbounds i32, ptr %30, i64 %indvars.iv117
+  %58 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv117
   %59 = load i32, ptr %58, align 4
   %60 = icmp sgt i32 %59, %.098
   %61 = trunc nuw nsw i64 %indvars.iv117 to i32
@@ -173,7 +173,7 @@ define void @embed_graph(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noc
 
 .lr.ph110.split.split:                            ; preds = %.lr.ph110.split, %.lr.ph110.split.split
   %indvars.iv122 = phi i64 [ %indvars.iv.next123, %.lr.ph110.split.split ], [ 1, %.lr.ph110.split ]
-  %62 = getelementptr inbounds ptr, ptr %14, i64 %indvars.iv122
+  %62 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv122
   %63 = load ptr, ptr %62, align 8
   tail call void @dijkstra(i32 noundef %28, ptr noundef %0, i32 noundef %1, ptr noundef %63) #12
   %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 1
@@ -260,14 +260,14 @@ define void @center_coordinate(ptr nocapture noundef readonly %0, i32 noundef %1
 
 .preheader.us.us:                                 ; preds = %.preheader.us.us.preheader, %._crit_edge26.us.us
   %indvars.iv42 = phi i64 [ 0, %.preheader.us.us.preheader ], [ %indvars.iv.next43, %._crit_edge26.us.us ]
-  %7 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv42
+  %7 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv42
   %8 = load ptr, ptr %7, align 8
   br label %14
 
 9:                                                ; preds = %9, %._crit_edge.us.us
   %indvars.iv37 = phi i64 [ %indvars.iv.next38, %9 ], [ 0, %._crit_edge.us.us ]
   %10 = load ptr, ptr %7, align 8
-  %11 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv37
+  %11 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv37
   %12 = load i32, ptr %11, align 4
   %13 = sub nsw i32 %12, %20
   store i32 %13, ptr %11, align 4
@@ -278,7 +278,7 @@ define void @center_coordinate(ptr nocapture noundef readonly %0, i32 noundef %1
 14:                                               ; preds = %.preheader.us.us, %14
   %indvars.iv = phi i64 [ 0, %.preheader.us.us ], [ %indvars.iv.next, %14 ]
   %.01822.us.us = phi double [ 0.000000e+00, %.preheader.us.us ], [ %18, %14 ]
-  %15 = getelementptr inbounds i32, ptr %8, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
   %16 = load i32, ptr %15, align 4
   %17 = sitofp i32 %16 to double
   %18 = fadd double %.01822.us.us, %17

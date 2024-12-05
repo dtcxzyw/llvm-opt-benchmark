@@ -197,13 +197,13 @@ _get_system_gpu_list_fake.exit.thread:            ; preds = %17
   br i1 %.not37.i.i, label %._crit_edge40.i.i, label %.lr.ph39.i.i
 
 .lr.ph39.i.i:                                     ; preds = %.preheader.i.i
-  %30 = getelementptr inbounds i8, ptr %5, i64 72
-  %31 = getelementptr inbounds i8, ptr %5, i64 40
-  %32 = getelementptr inbounds i8, ptr %5, i64 48
-  %33 = getelementptr inbounds i8, ptr %5, i64 24
-  %34 = getelementptr inbounds i8, ptr %5, i64 16
-  %35 = getelementptr inbounds i8, ptr %5, i64 64
-  %36 = getelementptr inbounds i8, ptr %5, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 72
+  %31 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 48
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %5, i64 64
+  %36 = getelementptr inbounds nuw i8, ptr %5, i64 32
   br label %39
 
 37:                                               ; preds = %25
@@ -381,7 +381,7 @@ _get_system_gpu_list_fake.exit:                   ; preds = %37, %._crit_edge40.
   br label %102
 
 94:                                               ; preds = %_get_system_gpu_list_fake.exit.thread, %_get_system_gpu_list_fake.exit
-  %95 = getelementptr inbounds i8, ptr %1, i64 16
+  %95 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %96 = load i8, ptr %95, align 8
   %97 = trunc i8 %96 to i1
   br i1 %97, label %98, label %.thread
@@ -437,14 +437,14 @@ _merge_system_gres_conf.exit.thread:              ; preds = %105
 
 .lr.ph149.i:                                      ; preds = %115, %.backedge139.i
   %118 = phi ptr [ %134, %.backedge139.i ], [ %117, %115 ]
-  %119 = getelementptr inbounds i8, ptr %118, i64 8
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 8
   %120 = load i64, ptr %119, align 8
   %121 = trunc i64 %120 to i32
   %.not125.i = icmp eq i64 %120, 0
   br i1 %.not125.i, label %.backedge139.i, label %122
 
 122:                                              ; preds = %.lr.ph149.i
-  %123 = getelementptr inbounds i8, ptr %118, i64 56
+  %123 = getelementptr inbounds nuw i8, ptr %118, i64 56
   %124 = load ptr, ptr %123, align 8
   %125 = call i32 @slurm_xstrcasecmp(ptr noundef %124, ptr noundef nonnull @.str.14) #14
   %.not126.i = icmp eq i32 %125, 0
@@ -457,7 +457,7 @@ _merge_system_gres_conf.exit.thread:              ; preds = %105
   br i1 %129, label %130, label %133
 
 130:                                              ; preds = %126
-  %131 = getelementptr inbounds i8, ptr %127, i64 56
+  %131 = getelementptr inbounds nuw i8, ptr %127, i64 56
   %132 = load ptr, ptr %131, align 8
   call void (i32, ptr, ...) @slurm_log_var(i32 noundef 6, ptr noundef nonnull @.str.24, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._merge_system_gres_conf, ptr noundef %132) #14
   br label %133
@@ -482,7 +482,7 @@ _merge_system_gres_conf.exit.thread:              ; preds = %105
   br label %.backedge139.i
 
 140:                                              ; preds = %135
-  %141 = getelementptr inbounds i8, ptr %118, i64 40
+  %141 = getelementptr inbounds nuw i8, ptr %118, i64 40
   %142 = load ptr, ptr %141, align 8
   %.not127.i = icmp eq ptr %142, null
   br i1 %.not127.i, label %143, label %147
@@ -557,17 +557,17 @@ _merge_system_gres_conf.exit.thread:              ; preds = %105
 
 .lr.ph.split.us.i.i:                              ; preds = %.lr.ph.i.i35, %.backedge.us.i.i
   %161 = phi ptr [ %178, %.backedge.us.i.i ], [ %160, %.lr.ph.i.i35 ]
-  %162 = getelementptr inbounds i8, ptr %161, i64 64
+  %162 = getelementptr inbounds nuw i8, ptr %161, i64 64
   %163 = load ptr, ptr %162, align 8
   %164 = call ptr @slurm_list_find_first(ptr noundef nonnull %109, ptr noundef nonnull @_find_type_in_gres_list, ptr noundef %163) #14
   %.not29.us.i.i = icmp eq ptr %164, null
   br i1 %.not29.us.i.i, label %170, label %165
 
 165:                                              ; preds = %.lr.ph.split.us.i.i
-  %166 = getelementptr inbounds i8, ptr %164, i64 8
+  %166 = getelementptr inbounds nuw i8, ptr %164, i64 8
   store i64 0, ptr %166, align 8
   call void @slurm_xfree(ptr noundef nonnull %162) #14
-  %167 = getelementptr inbounds i8, ptr %164, i64 64
+  %167 = getelementptr inbounds nuw i8, ptr %164, i64 64
   %168 = load ptr, ptr %167, align 8
   %169 = call ptr @slurm_xstrdup(ptr noundef %168) #14
   store ptr %169, ptr %162, align 8
@@ -597,7 +597,7 @@ _merge_system_gres_conf.exit.thread:              ; preds = %105
 
 .lr.ph.split.i.i:                                 ; preds = %.lr.ph.i.i35, %.backedge.i.i36
   %179 = phi ptr [ %183, %.backedge.i.i36 ], [ %160, %.lr.ph.i.i35 ]
-  %180 = getelementptr inbounds i8, ptr %179, i64 64
+  %180 = getelementptr inbounds nuw i8, ptr %179, i64 64
   %181 = load ptr, ptr %180, align 8
   %182 = call ptr @slurm_list_find_first(ptr noundef nonnull %109, ptr noundef nonnull @_find_type_in_gres_list, ptr noundef %181) #14
   %.not29.i.i = icmp eq ptr %182, null
@@ -609,10 +609,10 @@ _merge_system_gres_conf.exit.thread:              ; preds = %105
   br i1 %.not27.i.i, label %._crit_edge.i.i37, label %.lr.ph.split.i.i, !llvm.loop !12
 
 184:                                              ; preds = %.lr.ph.split.i.i
-  %185 = getelementptr inbounds i8, ptr %182, i64 8
+  %185 = getelementptr inbounds nuw i8, ptr %182, i64 8
   store i64 0, ptr %185, align 8
   call void @slurm_xfree(ptr noundef nonnull %180) #14
-  %186 = getelementptr inbounds i8, ptr %182, i64 64
+  %186 = getelementptr inbounds nuw i8, ptr %182, i64 64
   %187 = load ptr, ptr %186, align 8
   %188 = call ptr @slurm_xstrdup(ptr noundef %187) #14
   store ptr %188, ptr %180, align 8
@@ -627,7 +627,7 @@ _merge_system_gres_conf.exit.thread:              ; preds = %105
 
 .lr.ph33.i.i:                                     ; preds = %._crit_edge.i.i37, %.lr.ph33.i.i
   %191 = phi ptr [ %193, %.lr.ph33.i.i ], [ %190, %._crit_edge.i.i37 ]
-  %192 = getelementptr inbounds i8, ptr %191, i64 8
+  %192 = getelementptr inbounds nuw i8, ptr %191, i64 8
   store i64 1, ptr %192, align 8
   %193 = call ptr @slurm_list_next(ptr noundef %189) #14
   %.not28.i.i = icmp eq ptr %193, null
@@ -654,13 +654,13 @@ _normalize_sys_gres_types.exit.i:                 ; preds = %._crit_edge34.i.i, 
   br i1 %.not120151.i, label %.critedge.i, label %.lr.ph153.i
 
 .lr.ph153.i:                                      ; preds = %.lr.ph155.i
-  %199 = getelementptr inbounds i8, ptr %197, i64 64
-  %200 = getelementptr inbounds i8, ptr %197, i64 40
+  %199 = getelementptr inbounds nuw i8, ptr %197, i64 64
+  %200 = getelementptr inbounds nuw i8, ptr %197, i64 40
   br label %201
 
 201:                                              ; preds = %_match_gres.exit.i, %.lr.ph153.i
   %202 = phi ptr [ %198, %.lr.ph153.i ], [ %218, %_match_gres.exit.i ]
-  %203 = getelementptr inbounds i8, ptr %202, i64 8
+  %203 = getelementptr inbounds nuw i8, ptr %202, i64 8
   %204 = load i64, ptr %203, align 8
   %205 = icmp eq i64 %204, 0
   br i1 %205, label %_match_gres.exit.i, label %206
@@ -671,7 +671,7 @@ _normalize_sys_gres_types.exit.i:                 ; preds = %._crit_edge34.i.i, 
   br i1 %.not.i130.i, label %212, label %208
 
 208:                                              ; preds = %206
-  %209 = getelementptr inbounds i8, ptr %202, i64 64
+  %209 = getelementptr inbounds nuw i8, ptr %202, i64 64
   %210 = load ptr, ptr %209, align 8
   %211 = call i32 @slurm_xstrcmp(ptr noundef nonnull %207, ptr noundef %210) #14
   %.not9.i.i = icmp eq i32 %211, 0
@@ -683,7 +683,7 @@ _normalize_sys_gres_types.exit.i:                 ; preds = %._crit_edge34.i.i, 
   br i1 %.not10.i.i, label %219, label %214
 
 214:                                              ; preds = %212
-  %215 = getelementptr inbounds i8, ptr %202, i64 40
+  %215 = getelementptr inbounds nuw i8, ptr %202, i64 40
   %216 = load ptr, ptr %215, align 8
   %217 = call i32 @slurm_xstrcmp(ptr noundef nonnull %213, ptr noundef %216) #14
   %.not11.i.i = icmp eq i32 %217, 0
@@ -695,11 +695,11 @@ _match_gres.exit.i:                               ; preds = %214, %208, %201
   br i1 %.not120.i, label %.critedge.i, label %201, !llvm.loop !14
 
 219:                                              ; preds = %214, %212
-  %220 = getelementptr inbounds i8, ptr %202, i64 8
-  %221 = getelementptr inbounds i8, ptr %197, i64 24
+  %220 = getelementptr inbounds nuw i8, ptr %202, i64 8
+  %221 = getelementptr inbounds nuw i8, ptr %197, i64 24
   %222 = load ptr, ptr %221, align 8
   %.not.i131.i = icmp eq ptr %222, null
-  %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %197, i64 32
+  %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %197, i64 32
   %.pre.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8
   %.not15.i.i = icmp eq ptr %.pre.i.i, null
   br i1 %.not.i131.i, label %224, label %223
@@ -711,7 +711,7 @@ _match_gres.exit.i:                               ; preds = %214, %208, %201
   br i1 %.not15.i.i, label %229, label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %224, %223
-  %225 = getelementptr inbounds i8, ptr %202, i64 32
+  %225 = getelementptr inbounds nuw i8, ptr %202, i64 32
   %226 = load ptr, ptr %225, align 8
   %.not16.i.i = icmp eq ptr %226, null
   br i1 %.not16.i.i, label %229, label %227
@@ -722,13 +722,13 @@ _match_gres.exit.i:                               ; preds = %214, %208, %201
   br i1 %.not17.i.i, label %.critedge137.i, label %229
 
 229:                                              ; preds = %227, %.thread.i.i, %224
-  %230 = getelementptr inbounds i8, ptr %197, i64 48
+  %230 = getelementptr inbounds nuw i8, ptr %197, i64 48
   %231 = load ptr, ptr %230, align 8
   %.not18.i.i = icmp eq ptr %231, null
   br i1 %.not18.i.i, label %_validate_cpus_links.exitthread-pre-split.i, label %232
 
 232:                                              ; preds = %229
-  %233 = getelementptr inbounds i8, ptr %202, i64 48
+  %233 = getelementptr inbounds nuw i8, ptr %202, i64 48
   %234 = load ptr, ptr %233, align 8
   %.not19.i.i = icmp eq ptr %234, null
   br i1 %.not19.i.i, label %_validate_cpus_links.exitthread-pre-split.i, label %235
@@ -789,7 +789,7 @@ _validate_cpus_links.exitthread-pre-split.i:      ; preds = %235, %232, %229
   br i1 %.not112.i, label %._crit_edge156.i, label %.lr.ph155.i, !llvm.loop !15
 
 .critedge.i:                                      ; preds = %_match_gres.exit.i, %.lr.ph155.i
-  %257 = getelementptr inbounds i8, ptr %197, i64 40
+  %257 = getelementptr inbounds nuw i8, ptr %197, i64 40
   %258 = load ptr, ptr %257, align 8
   %.not123.i = icmp eq ptr %258, null
   br i1 %.not123.i, label %265, label %259
@@ -823,7 +823,7 @@ _validate_cpus_links.exitthread-pre-split.i:      ; preds = %235, %232, %229
 
 .lr.ph159.i:                                      ; preds = %._crit_edge156.i, %273
   %268 = phi ptr [ %274, %273 ], [ %267, %._crit_edge156.i ]
-  %269 = getelementptr inbounds i8, ptr %268, i64 8
+  %269 = getelementptr inbounds nuw i8, ptr %268, i64 8
   %270 = load i64, ptr %269, align 8
   %271 = icmp eq i64 %270, 0
   br i1 %271, label %272, label %273
@@ -957,27 +957,27 @@ declare void @slurm_fatal(ptr noundef, ...) local_unnamed_addr #2
 define void @gres_p_job_set_env(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.common_gres_env_t, align 8
   store ptr %1, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %0, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 %3, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 20
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i32 0, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %5, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr null, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i64 %2, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %12 = load i32, ptr @node_flags, align 4
   store i32 %12, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %5, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %14 = load ptr, ptr @gres_devices, align 8
   store ptr %14, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %5, i64 56
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store i8 1, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %5, i64 57
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 57
   store i8 0, ptr %16, align 1
-  %17 = getelementptr inbounds i8, ptr %5, i64 64
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %17, i8 0, i64 25, i1 false)
   call void @gres_common_gpu_set_env(ptr noundef nonnull %5) #14
   ret void
@@ -989,27 +989,27 @@ declare void @gres_common_gpu_set_env(ptr noundef) local_unnamed_addr #1
 define void @gres_p_step_set_env(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.common_gres_env_t, align 8
   store ptr %1, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %0, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 %3, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 20
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i32 0, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %5, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr null, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i64 %2, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %12 = load i32, ptr @node_flags, align 4
   store i32 %12, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %5, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %14 = load ptr, ptr @gres_devices, align 8
   store ptr %14, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %5, i64 56
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store i8 0, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %5, i64 57
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 57
   store i8 0, ptr %16, align 1
-  %17 = getelementptr inbounds i8, ptr %5, i64 64
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %17, i8 0, i64 25, i1 false)
   call void @gres_common_gpu_set_env(ptr noundef nonnull %5) #14
   ret void
@@ -1019,31 +1019,31 @@ define void @gres_p_step_set_env(ptr noundef %0, ptr noundef %1, i64 noundef %2,
 define void @gres_p_task_set_env(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.common_gres_env_t, align 8
   store ptr %1, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %0, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %6, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 %4, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 20
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 20
   store i32 0, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %6, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr null, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %6, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i64 %2, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %6, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %13 = load i32, ptr @node_flags, align 4
   store i32 %13, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %6, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %15 = load ptr, ptr @gres_devices, align 8
   store ptr %15, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %6, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 56
   store i8 0, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %6, i64 57
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 57
   store i8 1, ptr %17, align 1
-  %18 = getelementptr inbounds i8, ptr %6, i64 64
-  %19 = getelementptr inbounds i8, ptr %6, i64 80
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 64
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, i8 0, i64 16, i1 false)
   store ptr %3, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %6, i64 88
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 88
   store i8 0, ptr %20, align 8
   call void @gres_common_gpu_set_env(ptr noundef nonnull %6) #14
   ret void
@@ -1102,20 +1102,20 @@ define ptr @gres_p_get_devices() local_unnamed_addr #4 {
 ; Function Attrs: nounwind uwtable
 define ptr @gres_p_prep_build_env(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 32, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.9, i32 noundef 997, ptr noundef nonnull @__func__.gres_p_prep_build_env) #14
-  %3 = getelementptr inbounds i8, ptr %0, i64 120
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i32, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %4, ptr %5, align 4
   %6 = zext i32 %4 to i64
   %7 = tail call ptr @slurm_xcalloc(i64 noundef %6, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.9, i32 noundef 1000, ptr noundef nonnull @__func__.gres_p_prep_build_env) #14
-  %8 = getelementptr inbounds i8, ptr %2, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %7, ptr %8, align 8
   %9 = load i32, ptr %5, align 4
   %.not18 = icmp eq i32 %9, 0
   br i1 %.not18, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
-  %10 = getelementptr inbounds i8, ptr %0, i64 128
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %._crit_edge, label %.lr.ph.split
@@ -1132,7 +1132,7 @@ define ptr @gres_p_prep_build_env(ptr nocapture noundef readonly %0) local_unnam
   br i1 %.not, label %22, label %15
 
 15:                                               ; preds = %.lr.ph.split
-  %16 = getelementptr inbounds ptr, ptr %13, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8
   %.not16 = icmp eq ptr %17, null
   br i1 %.not16, label %22, label %18
@@ -1140,7 +1140,7 @@ define ptr @gres_p_prep_build_env(ptr nocapture noundef readonly %0) local_unnam
 18:                                               ; preds = %15
   %19 = tail call ptr @slurm_bit_copy(ptr noundef nonnull %17) #14
   %20 = load ptr, ptr %8, align 8
-  %21 = getelementptr inbounds ptr, ptr %20, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv
   store ptr %19, ptr %21, align 8
   %.pre = load i32, ptr %5, align 4
   br label %22
@@ -1245,9 +1245,9 @@ declare void @slurm_list_sort(ptr noundef, ptr noundef) local_unnamed_addr #1
 define internal i32 @_sort_gpu_by_file(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %6, null
   %10 = icmp ne ptr %8, null
@@ -1286,10 +1286,10 @@ declare i32 @slurm_list_flush(ptr noundef) local_unnamed_addr #1
 define internal i32 @_sort_gpu_by_links_order(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
-  %7 = getelementptr inbounds i8, ptr %4, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %8 = load ptr, ptr %7, align 8
   %.not13 = icmp eq ptr %8, null
   br i1 %.not, label %9, label %10
@@ -1302,7 +1302,7 @@ define internal i32 @_sort_gpu_by_links_order(ptr nocapture noundef readonly %0,
 
 .thread:                                          ; preds = %9, %10
   %11 = tail call i32 @gres_links_validate(ptr noundef %6) #14
-  %12 = getelementptr inbounds i8, ptr %4, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %13 = load ptr, ptr %12, align 8
   %14 = tail call i32 @gres_links_validate(ptr noundef %13) #14
   %15 = icmp slt i32 %11, -1
@@ -1333,7 +1333,7 @@ define internal range(i32 0, 2) i32 @_find_nonnull_type_in_gres_list(ptr noundef
   br i1 %.not, label %9, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
   %.not6 = icmp eq ptr %5, null
   br i1 %.not6, label %8, label %6
@@ -1355,10 +1355,10 @@ define internal range(i32 0, 2) i32 @_find_nonnull_type_in_gres_list(ptr noundef
 define internal i32 @_sort_gpu_by_type_name(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
-  %7 = getelementptr inbounds i8, ptr %4, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %8 = load ptr, ptr %7, align 8
   %.not21 = icmp ne ptr %8, null
   br i1 %.not, label %9, label %10
@@ -1385,9 +1385,9 @@ define internal i32 @_sort_gpu_by_type_name(ptr nocapture noundef readonly %0, p
   br i1 %19, label %20, label %_sort_string_null_last.exit
 
 20:                                               ; preds = %17
-  %21 = getelementptr inbounds i8, ptr %3, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %4, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %24 = load ptr, ptr %23, align 8
   %25 = icmp eq ptr %22, null
   %26 = icmp ne ptr %24, null
@@ -1418,13 +1418,13 @@ define internal range(i32 0, 2) i32 @_find_type_in_gres_list(ptr noundef readonl
   br i1 %.not, label %11, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = icmp eq i64 %5, 0
   br i1 %6, label %11, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %9 = load ptr, ptr %8, align 8
   %10 = tail call ptr @slurm_xstrcasestr(ptr noundef %1, ptr noundef %9) #14
   %.not7 = icmp ne ptr %10, null

@@ -16,10 +16,10 @@ define void @_Z11rotate_confiPA3_fS0_fff(i32 noundef %0, ptr noundef %1, ptr nou
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %8 = getelementptr inbounds [3 x float], ptr %1, i64 %indvars.iv.i
-  %9 = getelementptr inbounds i8, ptr %8, i64 4
+  %8 = getelementptr inbounds nuw [3 x float], ptr %1, i64 %indvars.iv.i
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %10 = load float, ptr %9, align 4
-  %11 = getelementptr inbounds i8, ptr %8, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load float, ptr %11, align 4
   %13 = tail call noundef float @cosf(float noundef %3) #5
   %14 = tail call noundef float @sinf(float noundef %3) #5
@@ -73,10 +73,10 @@ _ZL15low_rotate_confiPA3_ffff.exit:               ; preds = %.lr.ph.i, %6
 
 .lr.ph.i15:                                       ; preds = %.lr.ph.i15, %.lr.ph.preheader.i13
   %indvars.iv.i16 = phi i64 [ 0, %.lr.ph.preheader.i13 ], [ %indvars.iv.next.i17, %.lr.ph.i15 ]
-  %44 = getelementptr inbounds [3 x float], ptr %2, i64 %indvars.iv.i16
-  %45 = getelementptr inbounds i8, ptr %44, i64 4
+  %44 = getelementptr inbounds nuw [3 x float], ptr %2, i64 %indvars.iv.i16
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 4
   %46 = load float, ptr %45, align 4
-  %47 = getelementptr inbounds i8, ptr %44, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %48 = load float, ptr %47, align 4
   %49 = tail call noundef float @cosf(float noundef %3) #5
   %50 = tail call noundef float @sinf(float noundef %3) #5
@@ -152,14 +152,14 @@ define void @_Z12make_new_boxiPA3_fS0_PKfb(i32 noundef %0, ptr nocapture noundef
 
 8:                                                ; preds = %.preheader51, %8
   %indvars.iv = phi i64 [ 0, %.preheader51 ], [ %indvars.iv.next, %8 ]
-  %9 = getelementptr inbounds [3 x float], ptr %5, i64 0, i64 %indvars.iv
-  %10 = getelementptr inbounds [3 x float], ptr %1, i64 %indvars.iv61, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [3 x float], ptr %5, i64 0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [3 x float], ptr %1, i64 %indvars.iv61, i64 %indvars.iv
   %11 = load float, ptr %10, align 4
   %12 = load float, ptr %9, align 4
   %13 = fcmp olt float %11, %12
   %14 = select i1 %13, float %11, float %12
   store float %14, ptr %9, align 4
-  %15 = getelementptr inbounds [3 x float], ptr %6, i64 0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [3 x float], ptr %6, i64 0, i64 %indvars.iv
   %16 = load float, ptr %15, align 4
   %17 = fcmp olt float %16, %11
   %18 = select i1 %17, float %11, float %16
@@ -178,15 +178,15 @@ define void @_Z12make_new_boxiPA3_fS0_PKfb(i32 noundef %0, ptr nocapture noundef
 
 .preheader50:                                     ; preds = %.preheader50.preheader, %.preheader50
   %indvars.iv65 = phi i64 [ %indvars.iv.next66, %.preheader50 ], [ 0, %.preheader50.preheader ]
-  %20 = getelementptr inbounds [3 x float], ptr %6, i64 0, i64 %indvars.iv65
+  %20 = getelementptr inbounds nuw [3 x float], ptr %6, i64 0, i64 %indvars.iv65
   %21 = load float, ptr %20, align 4
-  %22 = getelementptr inbounds [3 x float], ptr %5, i64 0, i64 %indvars.iv65
+  %22 = getelementptr inbounds nuw [3 x float], ptr %5, i64 0, i64 %indvars.iv65
   %23 = load float, ptr %22, align 4
   %24 = fsub float %21, %23
-  %25 = getelementptr inbounds float, ptr %3, i64 %indvars.iv65
+  %25 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv65
   %26 = load float, ptr %25, align 4
   %27 = tail call float @llvm.fmuladd.f32(float %26, float 2.000000e+00, float %24)
-  %28 = getelementptr inbounds [3 x float], ptr %2, i64 %indvars.iv65, i64 %indvars.iv65
+  %28 = getelementptr inbounds nuw [3 x float], ptr %2, i64 %indvars.iv65, i64 %indvars.iv65
   store float %27, ptr %28, align 4
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
   %exitcond68.not = icmp eq i64 %indvars.iv.next66, 3
@@ -207,16 +207,16 @@ define void @_Z12make_new_boxiPA3_fS0_PKfb(i32 noundef %0, ptr nocapture noundef
 
 31:                                               ; preds = %.preheader, %31
   %indvars.iv69 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next70, %31 ]
-  %32 = getelementptr inbounds [3 x float], ptr %2, i64 %indvars.iv69, i64 %indvars.iv69
+  %32 = getelementptr inbounds nuw [3 x float], ptr %2, i64 %indvars.iv69, i64 %indvars.iv69
   %33 = load float, ptr %32, align 4
-  %34 = getelementptr inbounds [3 x float], ptr %5, i64 0, i64 %indvars.iv69
+  %34 = getelementptr inbounds nuw [3 x float], ptr %5, i64 0, i64 %indvars.iv69
   %35 = load float, ptr %34, align 4
   %36 = fsub float %33, %35
-  %37 = getelementptr inbounds [3 x float], ptr %6, i64 0, i64 %indvars.iv69
+  %37 = getelementptr inbounds nuw [3 x float], ptr %6, i64 0, i64 %indvars.iv69
   %38 = load float, ptr %37, align 4
   %39 = fsub float %36, %38
   %40 = fpext float %39 to double
-  %41 = getelementptr inbounds [3 x float], ptr %1, i64 %indvars.iv73, i64 %indvars.iv69
+  %41 = getelementptr inbounds nuw [3 x float], ptr %1, i64 %indvars.iv73, i64 %indvars.iv69
   %42 = load float, ptr %41, align 4
   %43 = fpext float %42 to double
   %44 = tail call double @llvm.fmuladd.f64(double %40, double 5.000000e-01, double %43)

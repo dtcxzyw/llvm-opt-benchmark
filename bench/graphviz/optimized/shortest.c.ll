@@ -35,7 +35,7 @@ define range(i32 -2, 1) i32 @Pshortestpath(ptr nocapture noundef readonly %0, pt
   %7 = alloca %struct.triangle_t, align 8
   %8 = alloca [2 x %struct.pointnlink_t], align 16
   %9 = alloca %struct.deque_t, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load i32, ptr %10, align 8
   %12 = sext i32 %11 to i64
   %13 = tail call noalias ptr @calloc(i64 noundef %12, i64 noundef 16) #12
@@ -63,9 +63,9 @@ define range(i32 -2, 1) i32 @Pshortestpath(ptr nocapture noundef readonly %0, pt
 
 25:                                               ; preds = %19
   store i64 0, ptr @tris.1, align 8
-  %26 = getelementptr inbounds i8, ptr %9, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store i64 0, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %9, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %28 = load i32, ptr %10, align 8
   %29 = sext i32 %28 to i64
   %30 = shl nsw i64 %29, 1
@@ -84,10 +84,10 @@ define range(i32 -2, 1) i32 @Pshortestpath(ptr nocapture noundef readonly %0, pt
 
 36:                                               ; preds = %25
   %37 = and i64 %29, 9223372036854775807
-  %38 = getelementptr inbounds i8, ptr %9, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i64 %37, ptr %38, align 8
   %39 = add nsw i64 %37, -1
-  %40 = getelementptr inbounds i8, ptr %9, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i64 %39, ptr %40, align 8
   %41 = icmp sgt i32 %28, 0
   %.pre = load ptr, ptr %0, align 8
@@ -106,7 +106,7 @@ define range(i32 -2, 1) i32 @Pshortestpath(ptr nocapture noundef readonly %0, pt
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %43 ]
   %.0213314 = phi i32 [ -1, %.lr.ph ], [ %.1214.fr, %43 ]
   %.0215313 = phi double [ 0x7FF0000000000000, %.lr.ph ], [ %.1216, %43 ]
-  %44 = getelementptr inbounds %struct.Pxy_t, ptr %.pre, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw %struct.Pxy_t, ptr %.pre, i64 %indvars.iv
   %45 = load double, ptr %44, align 8
   %46 = fcmp ogt double %.0215313, %45
   %.1216 = select i1 %46, double %45, double %.0215313
@@ -120,7 +120,7 @@ define range(i32 -2, 1) i32 @Pshortestpath(ptr nocapture noundef readonly %0, pt
 ._crit_edge:                                      ; preds = %43
   %48 = sext i32 %.1214.fr to i64
   %49 = getelementptr inbounds %struct.Pxy_t, ptr %.pre, i64 %48
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %49, i64 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %49, i64 8
   %50 = icmp eq i32 %.1214.fr, 0
   %spec.select = select i1 %50, i32 %28, i32 %.1214.fr
   %51 = sext i32 %spec.select to i64
@@ -143,7 +143,7 @@ define range(i32 -2, 1) i32 @Pshortestpath(ptr nocapture noundef readonly %0, pt
   %60 = sext i32 %59 to i64
   %61 = getelementptr inbounds %struct.Pxy_t, ptr %.pre, i64 %60
   %.sroa.0.0.copyload = load double, ptr %61, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %61, i64 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %61, i64 8
   %.sroa.3.0.copyload = load double, ptr %.sroa.3.0..sroa_idx, align 8
   %62 = fcmp oeq double %.sroa.0133.0.copyload, %.sroa.0129.0.copyload414
   %63 = fcmp oeq double %.sroa.0129.0.copyload414, %.sroa.0.0.copyload
@@ -188,30 +188,30 @@ define range(i32 -2, 1) i32 @Pshortestpath(ptr nocapture noundef readonly %0, pt
   br i1 %73, label %74, label %86
 
 74:                                               ; preds = %.lr.ph325
-  %75 = getelementptr inbounds %struct.Pxy_t, ptr %.pre395.pre, i64 %indvars.iv.next377
+  %75 = getelementptr inbounds nuw %struct.Pxy_t, ptr %.pre395.pre, i64 %indvars.iv.next377
   %76 = load double, ptr %75, align 8
-  %77 = getelementptr inbounds %struct.Pxy_t, ptr %.pre395.pre, i64 %indvars.iv376
+  %77 = getelementptr inbounds nuw %struct.Pxy_t, ptr %.pre395.pre, i64 %indvars.iv376
   %78 = load double, ptr %77, align 8
   %79 = fcmp oeq double %76, %78
   br i1 %79, label %80, label %86
 
 80:                                               ; preds = %74
-  %81 = getelementptr inbounds i8, ptr %75, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %75, i64 8
   %82 = load double, ptr %81, align 8
-  %83 = getelementptr inbounds i8, ptr %77, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %77, i64 8
   %84 = load double, ptr %83, align 8
   %85 = fcmp oeq double %82, %84
   br i1 %85, label %96, label %86
 
 86:                                               ; preds = %80, %74, %.lr.ph325
-  %87 = getelementptr inbounds %struct.Pxy_t, ptr %.pre395.pre, i64 %indvars.iv.next377
+  %87 = getelementptr inbounds nuw %struct.Pxy_t, ptr %.pre395.pre, i64 %indvars.iv.next377
   %88 = sext i32 %.0210321 to i64
   %89 = getelementptr inbounds %struct.pointnlink_t, ptr %13, i64 %88
   store ptr %87, ptr %89, align 8
   %90 = srem i32 %.0210321, %69
   %91 = sext i32 %90 to i64
   %92 = getelementptr inbounds %struct.pointnlink_t, ptr %13, i64 %91
-  %93 = getelementptr inbounds i8, ptr %89, i64 8
+  %93 = getelementptr inbounds nuw i8, ptr %89, i64 8
   store ptr %92, ptr %93, align 8
   %94 = getelementptr inbounds ptr, ptr %20, i64 %88
   store ptr %89, ptr %94, align 8
@@ -230,7 +230,7 @@ define range(i32 -2, 1) i32 @Pshortestpath(ptr nocapture noundef readonly %0, pt
   br i1 %.not235, label %110, label %98
 
 98:                                               ; preds = %.lr.ph318
-  %99 = getelementptr inbounds %struct.Pxy_t, ptr %.pre393.pre, i64 %indvars.iv371
+  %99 = getelementptr inbounds nuw %struct.Pxy_t, ptr %.pre393.pre, i64 %indvars.iv371
   %100 = load double, ptr %99, align 8
   %101 = getelementptr i8, ptr %99, i64 -16
   %102 = load double, ptr %101, align 8
@@ -238,7 +238,7 @@ define range(i32 -2, 1) i32 @Pshortestpath(ptr nocapture noundef readonly %0, pt
   br i1 %103, label %104, label %110
 
 104:                                              ; preds = %98
-  %105 = getelementptr inbounds i8, ptr %99, i64 8
+  %105 = getelementptr inbounds nuw i8, ptr %99, i64 8
   %106 = load double, ptr %105, align 8
   %107 = getelementptr i8, ptr %99, i64 -8
   %108 = load double, ptr %107, align 8
@@ -246,14 +246,14 @@ define range(i32 -2, 1) i32 @Pshortestpath(ptr nocapture noundef readonly %0, pt
   br i1 %109, label %120, label %110
 
 110:                                              ; preds = %104, %98, %.lr.ph318
-  %111 = getelementptr inbounds %struct.Pxy_t, ptr %.pre393.pre, i64 %indvars.iv371
+  %111 = getelementptr inbounds nuw %struct.Pxy_t, ptr %.pre393.pre, i64 %indvars.iv371
   %112 = sext i32 %.3316 to i64
   %113 = getelementptr inbounds %struct.pointnlink_t, ptr %13, i64 %112
   store ptr %111, ptr %113, align 8
   %114 = srem i32 %.3316, %.pre394
   %115 = sext i32 %114 to i64
   %116 = getelementptr inbounds %struct.pointnlink_t, ptr %13, i64 %115
-  %117 = getelementptr inbounds i8, ptr %113, i64 8
+  %117 = getelementptr inbounds nuw i8, ptr %113, i64 8
   store ptr %116, ptr %117, align 8
   %118 = getelementptr inbounds ptr, ptr %20, i64 %112
   store ptr %113, ptr %118, align 8
@@ -305,13 +305,13 @@ tailrecurse.loopexit.i:                           ; preds = %.lr.ph.i, %loadtria
 130:                                              ; preds = %125
   %131 = urem i32 %126, %indvars74.i
   %132 = zext nneg i32 %.031.i to i64
-  %133 = getelementptr inbounds ptr, ptr %20, i64 %132
+  %133 = getelementptr inbounds nuw ptr, ptr %20, i64 %132
   %134 = load ptr, ptr %133, align 8
   %135 = zext nneg i32 %131 to i64
-  %136 = getelementptr inbounds ptr, ptr %20, i64 %135
+  %136 = getelementptr inbounds nuw ptr, ptr %20, i64 %135
   %137 = load ptr, ptr %136, align 8
   %138 = zext nneg i32 %128 to i64
-  %139 = getelementptr inbounds ptr, ptr %20, i64 %138
+  %139 = getelementptr inbounds nuw ptr, ptr %20, i64 %138
   %140 = load ptr, ptr %139, align 8
   %141 = load i64, ptr @tris.1, align 8
   %142 = load i64, ptr @tris.2, align 8
@@ -353,23 +353,23 @@ loadtriangle.exit.i:                              ; preds = %152, %._crit_edge.i
   %159 = phi ptr [ %.pre.i.i.i, %._crit_edge.i.i.i ], [ %150, %152 ]
   %160 = getelementptr inbounds %struct.triangle_t, ptr %159, i64 %158
   store i64 0, ptr %160, align 8
-  %.sroa.47.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %160, i64 8
+  %.sroa.47.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %160, i64 8
   store ptr %134, ptr %.sroa.47.0..sroa_idx.i.i, align 8
-  %.sroa.58.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %160, i64 16
+  %.sroa.58.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %160, i64 16
   store ptr %137, ptr %.sroa.58.0..sroa_idx.i.i, align 8
-  %.sroa.69.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %160, i64 24
+  %.sroa.69.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %160, i64 24
   store i64 -1, ptr %.sroa.69.0..sroa_idx.i.i, align 8
-  %.sroa.710.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %160, i64 32
+  %.sroa.710.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %160, i64 32
   store ptr %137, ptr %.sroa.710.0..sroa_idx.i.i, align 8
-  %.sroa.811.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %160, i64 40
+  %.sroa.811.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %160, i64 40
   store ptr %140, ptr %.sroa.811.0..sroa_idx.i.i, align 8
-  %.sroa.912.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %160, i64 48
+  %.sroa.912.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %160, i64 48
   store i64 -1, ptr %.sroa.912.0..sroa_idx.i.i, align 8
-  %.sroa.1013.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %160, i64 56
+  %.sroa.1013.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %160, i64 56
   store ptr %140, ptr %.sroa.1013.0..sroa_idx.i.i, align 8
-  %.sroa.11.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %160, i64 64
+  %.sroa.11.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %160, i64 64
   store ptr %134, ptr %.sroa.11.0..sroa_idx.i.i, align 8
-  %.sroa.12.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %160, i64 72
+  %.sroa.12.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %160, i64 72
   store i64 -1, ptr %.sroa.12.0..sroa_idx.i.i, align 8
   %161 = add i64 %158, 1
   store i64 %161, ptr @tris.1, align 8
@@ -385,9 +385,9 @@ loadtriangle.exit.i:                              ; preds = %152, %._crit_edge.i
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv72.i = phi i64 [ %163, %.lr.ph.preheader.i ], [ %indvars.iv.next73.i, %.lr.ph.i ]
   %indvars.iv.next73.i = add nuw nsw i64 %indvars.iv72.i, 1
-  %164 = getelementptr inbounds ptr, ptr %20, i64 %indvars.iv.next73.i
+  %164 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv.next73.i
   %165 = load ptr, ptr %164, align 8
-  %166 = getelementptr inbounds ptr, ptr %20, i64 %indvars.iv72.i
+  %166 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv72.i
   store ptr %165, ptr %166, align 8
   %167 = trunc nuw i64 %indvars.iv.next73.i to i32
   %168 = icmp slt i32 %167, %indvars.i
@@ -402,9 +402,9 @@ loadtriangle.exit.i:                              ; preds = %152, %._crit_edge.i
 tailrecurse._crit_edge.i:                         ; preds = %tailrecurse.loopexit.i, %.loopexit305.tailrecurse._crit_edge.i_crit_edge
   %172 = phi i64 [ %.pre396, %.loopexit305.tailrecurse._crit_edge.i_crit_edge ], [ %161, %tailrecurse.loopexit.i ]
   %173 = load ptr, ptr %20, align 8
-  %174 = getelementptr inbounds i8, ptr %20, i64 8
+  %174 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %175 = load ptr, ptr %174, align 8
-  %176 = getelementptr inbounds i8, ptr %20, i64 16
+  %176 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %177 = load ptr, ptr %176, align 8
   %178 = load i64, ptr @tris.2, align 8
   %179 = icmp eq i64 %172, %178
@@ -445,23 +445,23 @@ loadtriangle.exit51.thread.i:                     ; preds = %188, %._crit_edge.i
   %195 = phi ptr [ %.pre.i.i36.i, %._crit_edge.i.i35.i ], [ %186, %188 ]
   %196 = getelementptr inbounds %struct.triangle_t, ptr %195, i64 %194
   store i64 0, ptr %196, align 8
-  %.sroa.47.0..sroa_idx.i38.i = getelementptr inbounds i8, ptr %196, i64 8
+  %.sroa.47.0..sroa_idx.i38.i = getelementptr inbounds nuw i8, ptr %196, i64 8
   store ptr %173, ptr %.sroa.47.0..sroa_idx.i38.i, align 8
-  %.sroa.58.0..sroa_idx.i39.i = getelementptr inbounds i8, ptr %196, i64 16
+  %.sroa.58.0..sroa_idx.i39.i = getelementptr inbounds nuw i8, ptr %196, i64 16
   store ptr %175, ptr %.sroa.58.0..sroa_idx.i39.i, align 8
-  %.sroa.69.0..sroa_idx.i40.i = getelementptr inbounds i8, ptr %196, i64 24
+  %.sroa.69.0..sroa_idx.i40.i = getelementptr inbounds nuw i8, ptr %196, i64 24
   store i64 -1, ptr %.sroa.69.0..sroa_idx.i40.i, align 8
-  %.sroa.710.0..sroa_idx.i41.i = getelementptr inbounds i8, ptr %196, i64 32
+  %.sroa.710.0..sroa_idx.i41.i = getelementptr inbounds nuw i8, ptr %196, i64 32
   store ptr %175, ptr %.sroa.710.0..sroa_idx.i41.i, align 8
-  %.sroa.811.0..sroa_idx.i42.i = getelementptr inbounds i8, ptr %196, i64 40
+  %.sroa.811.0..sroa_idx.i42.i = getelementptr inbounds nuw i8, ptr %196, i64 40
   store ptr %177, ptr %.sroa.811.0..sroa_idx.i42.i, align 8
-  %.sroa.912.0..sroa_idx.i43.i = getelementptr inbounds i8, ptr %196, i64 48
+  %.sroa.912.0..sroa_idx.i43.i = getelementptr inbounds nuw i8, ptr %196, i64 48
   store i64 -1, ptr %.sroa.912.0..sroa_idx.i43.i, align 8
-  %.sroa.1013.0..sroa_idx.i44.i = getelementptr inbounds i8, ptr %196, i64 56
+  %.sroa.1013.0..sroa_idx.i44.i = getelementptr inbounds nuw i8, ptr %196, i64 56
   store ptr %177, ptr %.sroa.1013.0..sroa_idx.i44.i, align 8
-  %.sroa.11.0..sroa_idx.i45.i = getelementptr inbounds i8, ptr %196, i64 64
+  %.sroa.11.0..sroa_idx.i45.i = getelementptr inbounds nuw i8, ptr %196, i64 64
   store ptr %173, ptr %.sroa.11.0..sroa_idx.i45.i, align 8
-  %.sroa.12.0..sroa_idx.i46.i = getelementptr inbounds i8, ptr %196, i64 72
+  %.sroa.12.0..sroa_idx.i46.i = getelementptr inbounds nuw i8, ptr %196, i64 72
   store i64 -1, ptr %.sroa.12.0..sroa_idx.i46.i, align 8
   %197 = add i64 %194, 1
   store i64 %197, ptr @tris.1, align 8
@@ -490,9 +490,9 @@ loadtriangle.exit.thread.i:                       ; preds = %144, %147, %180, %1
   br i1 %203, label %pointintri.exit._crit_edge.thread, label %.lr.ph333
 
 .lr.ph333:                                        ; preds = %.preheader304
-  %204 = getelementptr inbounds i8, ptr %6, i64 8
-  %205 = getelementptr inbounds i8, ptr %7, i64 16
-  %206 = getelementptr inbounds i8, ptr %1, i64 8
+  %204 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %205 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %206 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %244
 
 .lr.ph331:                                        ; preds = %triangulate.exit, %.loopexit
@@ -532,16 +532,16 @@ loadtriangle.exit.thread.i:                       ; preds = %144, %147, %180, %1
   br i1 %218, label %219, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %210
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %215, i64 8
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %215, i64 8
   %.pre36.i = load ptr, ptr %.phi.trans.insert.i, align 8
   %.pre37.i = load ptr, ptr %.pre36.i, align 8
   br label %227
 
 219:                                              ; preds = %210
-  %220 = getelementptr inbounds i8, ptr %212, i64 8
+  %220 = getelementptr inbounds nuw i8, ptr %212, i64 8
   %221 = load ptr, ptr %220, align 8
   %222 = load ptr, ptr %221, align 8
-  %223 = getelementptr inbounds i8, ptr %215, i64 8
+  %223 = getelementptr inbounds nuw i8, ptr %215, i64 8
   %224 = load ptr, ptr %223, align 8
   %225 = load ptr, ptr %224, align 8
   %226 = icmp eq ptr %222, %225
@@ -553,16 +553,16 @@ loadtriangle.exit.thread.i:                       ; preds = %144, %147, %180, %1
   br i1 %229, label %230, label %238
 
 230:                                              ; preds = %227
-  %231 = getelementptr inbounds i8, ptr %212, i64 8
+  %231 = getelementptr inbounds nuw i8, ptr %212, i64 8
   %232 = load ptr, ptr %231, align 8
   %233 = load ptr, ptr %232, align 8
   %234 = icmp eq ptr %233, %217
   br i1 %234, label %235, label %238
 
 235:                                              ; preds = %230, %219
-  %236 = getelementptr inbounds i8, ptr %212, i64 16
+  %236 = getelementptr inbounds nuw i8, ptr %212, i64 16
   store i64 %.0228327, ptr %236, align 8
-  %237 = getelementptr inbounds i8, ptr %215, i64 16
+  %237 = getelementptr inbounds nuw i8, ptr %215, i64 16
   store i64 %.0217330, ptr %237, align 8
   %.pre.i = load ptr, ptr @tris.0, align 8
   br label %238
@@ -598,7 +598,7 @@ connecttris.exit:                                 ; preds = %240
   %246 = load ptr, ptr @tris.0, align 8, !noalias !4
   %247 = getelementptr inbounds %struct.triangle_t, ptr %246, i64 %.1218332
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %6, ptr noundef nonnull align 8 dereferenceable(80) %247, i64 80, i1 false)
-  %248 = getelementptr inbounds [3 x %struct.tedge_t], ptr %204, i64 0, i64 %indvars.iv.i260
+  %248 = getelementptr inbounds nuw [3 x %struct.tedge_t], ptr %204, i64 0, i64 %indvars.iv.i260
   %249 = load ptr, ptr %248, align 8
   %250 = load ptr, ptr %249, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %7, ptr noundef nonnull align 8 dereferenceable(80) %247, i64 80, i1 false)
@@ -607,10 +607,10 @@ connecttris.exit:                                 ; preds = %240
   %252 = load ptr, ptr %251, align 8
   %253 = load ptr, ptr %252, align 8
   %254 = load double, ptr %250, align 8
-  %255 = getelementptr inbounds i8, ptr %250, i64 8
+  %255 = getelementptr inbounds nuw i8, ptr %250, i64 8
   %256 = load double, ptr %255, align 8
   %257 = load double, ptr %253, align 8
-  %258 = getelementptr inbounds i8, ptr %253, i64 8
+  %258 = getelementptr inbounds nuw i8, ptr %253, i64 8
   %259 = load double, ptr %258, align 8
   %260 = load double, ptr %1, align 8
   %261 = load double, ptr %206, align 8
@@ -651,10 +651,10 @@ pointintri.exit._crit_edge:                       ; preds = %264, %pointintri.ex
   br i1 %.not362, label %pointintri.exit270._crit_edge.thread, label %.lr.ph340
 
 .lr.ph340:                                        ; preds = %.preheader
-  %269 = getelementptr inbounds i8, ptr %1, i64 16
-  %270 = getelementptr inbounds i8, ptr %4, i64 8
-  %271 = getelementptr inbounds i8, ptr %5, i64 16
-  %272 = getelementptr inbounds i8, ptr %1, i64 24
+  %269 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %270 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %271 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %272 = getelementptr inbounds nuw i8, ptr %1, i64 24
   br label %276
 
 pointintri.exit._crit_edge.thread:                ; preds = %triangulate.exit, %.preheader304, %pointintri.exit._crit_edge
@@ -678,7 +678,7 @@ pointintri.exit._crit_edge.thread:                ; preds = %triangulate.exit, %
   %278 = load ptr, ptr @tris.0, align 8, !noalias !7
   %279 = getelementptr inbounds %struct.triangle_t, ptr %278, i64 %.2219339
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %4, ptr noundef nonnull align 8 dereferenceable(80) %279, i64 80, i1 false)
-  %280 = getelementptr inbounds [3 x %struct.tedge_t], ptr %270, i64 0, i64 %indvars.iv.i263
+  %280 = getelementptr inbounds nuw [3 x %struct.tedge_t], ptr %270, i64 0, i64 %indvars.iv.i263
   %281 = load ptr, ptr %280, align 8
   %282 = load ptr, ptr %281, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %5, ptr noundef nonnull align 8 dereferenceable(80) %279, i64 80, i1 false)
@@ -687,10 +687,10 @@ pointintri.exit._crit_edge.thread:                ; preds = %triangulate.exit, %
   %284 = load ptr, ptr %283, align 8
   %285 = load ptr, ptr %284, align 8
   %286 = load double, ptr %282, align 8
-  %287 = getelementptr inbounds i8, ptr %282, i64 8
+  %287 = getelementptr inbounds nuw i8, ptr %282, i64 8
   %288 = load double, ptr %287, align 8
   %289 = load double, ptr %285, align 8
-  %290 = getelementptr inbounds i8, ptr %285, i64 8
+  %290 = getelementptr inbounds nuw i8, ptr %285, i64 8
   %291 = load double, ptr %290, align 8
   %292 = load double, ptr %269, align 8
   %293 = load double, ptr %272, align 8
@@ -747,12 +747,12 @@ pointintri.exit270._crit_edge.thread:             ; preds = %.preheader, %pointi
   br i1 %.not239, label %311, label %483
 
 311:                                              ; preds = %306
-  %312 = getelementptr inbounds i8, ptr %2, i64 8
+  %312 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 2, ptr %312, align 8
   %313 = load ptr, ptr @ops, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %313, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
-  %314 = getelementptr inbounds i8, ptr %313, i64 16
-  %315 = getelementptr inbounds i8, ptr %1, i64 16
+  %314 = getelementptr inbounds nuw i8, ptr %313, i64 16
+  %315 = getelementptr inbounds nuw i8, ptr %1, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %314, ptr noundef nonnull align 8 dereferenceable(16) %315, i64 16, i1 false)
   store ptr %313, ptr %2, align 8
   br label %483
@@ -788,23 +788,23 @@ growops.exit:                                     ; preds = %321
 
 327:                                              ; preds = %324, %318
   %328 = phi ptr [ %322, %324 ], [ %.pre407, %318 ]
-  %329 = getelementptr inbounds i8, ptr %2, i64 8
+  %329 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 2, ptr %329, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %328, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
-  %330 = getelementptr inbounds i8, ptr %328, i64 16
-  %331 = getelementptr inbounds i8, ptr %1, i64 16
+  %330 = getelementptr inbounds nuw i8, ptr %328, i64 16
+  %331 = getelementptr inbounds nuw i8, ptr %1, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %330, ptr noundef nonnull align 8 dereferenceable(16) %331, i64 16, i1 false)
   store ptr %328, ptr %2, align 8
   br label %483
 
 332:                                              ; preds = %316
   store ptr %1, ptr %8, align 16
-  %333 = getelementptr inbounds i8, ptr %8, i64 8
+  %333 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr null, ptr %333, align 8
-  %334 = getelementptr inbounds i8, ptr %1, i64 16
-  %335 = getelementptr inbounds i8, ptr %8, i64 16
+  %334 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %335 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %334, ptr %335, align 16
-  %336 = getelementptr inbounds i8, ptr %8, i64 24
+  %336 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr null, ptr %336, align 8
   %337 = load i64, ptr %40, align 8
   %338 = load i64, ptr %38, align 8
@@ -823,13 +823,13 @@ add2dq.exit:                                      ; preds = %332, %339
   store i64 %342, ptr %38, align 8
   %343 = getelementptr inbounds ptr, ptr %.pre404, i64 %342
   store ptr %8, ptr %343, align 8
-  %344 = getelementptr inbounds i8, ptr %9, i64 32
+  %344 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store i64 %342, ptr %344, align 8
   %.not240352 = icmp eq i64 %.1218.lcssa.ph, -1
   br i1 %.not240352, label %._crit_edge355, label %.lr.ph354
 
 .lr.ph354:                                        ; preds = %add2dq.exit
-  %345 = getelementptr inbounds i8, ptr %1, i64 24
+  %345 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.pre405 = load ptr, ptr @tris.0, align 8
   br label %.loopexit438
 
@@ -841,14 +841,14 @@ add2dq.exit:                                      ; preds = %332, %339
   %349 = phi i64 [ %342, %.lr.ph354 ], [ %448, %455 ]
   %350 = getelementptr inbounds %struct.triangle_t, ptr %346, i64 %.3220353
   store i32 2, ptr %350, align 8
-  %invariant.gep = getelementptr inbounds i8, ptr %350, i64 24
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %350, i64 24
   %351 = load ptr, ptr @tris.0, align 8
   br label %352
 
 352:                                              ; preds = %.loopexit438, %358
   %indvars.iv383 = phi i64 [ 0, %.loopexit438 ], [ %indvars.iv.next384, %358 ]
   %353 = mul nuw nsw i64 %indvars.iv383, 24
-  %gep = getelementptr inbounds i8, ptr %invariant.gep, i64 %353
+  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %353
   %354 = load i64, ptr %gep, align 8
   %.not245 = icmp eq i64 %354, -1
   br i1 %.not245, label %358, label %355
@@ -874,10 +874,10 @@ add2dq.exit:                                      ; preds = %332, %339
   %366 = load double, ptr %334, align 8
   %367 = load double, ptr %345, align 8
   %368 = load double, ptr %362, align 8
-  %369 = getelementptr inbounds i8, ptr %362, i64 8
+  %369 = getelementptr inbounds nuw i8, ptr %362, i64 8
   %370 = load double, ptr %369, align 8
   %371 = load double, ptr %365, align 8
-  %372 = getelementptr inbounds i8, ptr %365, i64 8
+  %372 = getelementptr inbounds nuw i8, ptr %365, i64 8
   %373 = load double, ptr %372, align 8
   %374 = call i32 @ccw(double %366, double %367, double %368, double %370, double %371, double %373) #14
   %375 = icmp eq i32 %374, 1
@@ -888,30 +888,30 @@ add2dq.exit:                                      ; preds = %332, %339
 
 .thread:                                          ; preds = %355
   %377 = trunc nuw nsw i64 %indvars.iv383 to i32
-  %378 = getelementptr inbounds i8, ptr %350, i64 8
+  %378 = getelementptr inbounds nuw i8, ptr %350, i64 8
   %379 = add nuw nsw i32 %377, 1
   %380 = urem i32 %379, 3
   %narrow246 = mul nuw nsw i32 %380, 24
   %381 = zext nneg i32 %narrow246 to i64
-  %382 = getelementptr inbounds i8, ptr %378, i64 %381
-  %383 = getelementptr inbounds i8, ptr %382, i64 8
+  %382 = getelementptr inbounds nuw i8, ptr %378, i64 %381
+  %383 = getelementptr inbounds nuw i8, ptr %382, i64 8
   %384 = load ptr, ptr %383, align 8
   %385 = and i64 %indvars.iv383, 4294967295
-  %386 = getelementptr inbounds [3 x %struct.tedge_t], ptr %378, i64 0, i64 %385
+  %386 = getelementptr inbounds nuw [3 x %struct.tedge_t], ptr %378, i64 0, i64 %385
   %387 = load ptr, ptr %386, align 8
   %388 = load ptr, ptr %387, align 8
   %389 = load ptr, ptr %384, align 8
-  %390 = getelementptr inbounds i8, ptr %386, i64 8
+  %390 = getelementptr inbounds nuw i8, ptr %386, i64 8
   %391 = load ptr, ptr %390, align 8
   %392 = load ptr, ptr %391, align 8
   %393 = load double, ptr %388, align 8
-  %394 = getelementptr inbounds i8, ptr %388, i64 8
+  %394 = getelementptr inbounds nuw i8, ptr %388, i64 8
   %395 = load double, ptr %394, align 8
   %396 = load double, ptr %389, align 8
-  %397 = getelementptr inbounds i8, ptr %389, i64 8
+  %397 = getelementptr inbounds nuw i8, ptr %389, i64 8
   %398 = load double, ptr %397, align 8
   %399 = load double, ptr %392, align 8
-  %400 = getelementptr inbounds i8, ptr %392, i64 8
+  %400 = getelementptr inbounds nuw i8, ptr %392, i64 8
   %401 = load double, ptr %400, align 8
   %402 = call i32 @ccw(double %393, double %395, double %396, double %398, double %399, double %401) #14
   %403 = icmp eq i32 %402, 1
@@ -940,7 +940,7 @@ add2dq.exit:                                      ; preds = %332, %339
 413:                                              ; preds = %412
   %414 = getelementptr inbounds ptr, ptr %.pre404, i64 %348
   %415 = load ptr, ptr %414, align 8
-  %416 = getelementptr inbounds i8, ptr %.0225, i64 8
+  %416 = getelementptr inbounds nuw i8, ptr %.0225, i64 8
   store ptr %415, ptr %416, align 8
   br label %add2dq.exit275
 
@@ -955,7 +955,7 @@ add2dq.exit275:                                   ; preds = %412, %413
 419:                                              ; preds = %add2dq.exit275
   %420 = getelementptr inbounds ptr, ptr %.pre404, i64 %347
   %421 = load ptr, ptr %420, align 8
-  %422 = getelementptr inbounds i8, ptr %.0224, i64 8
+  %422 = getelementptr inbounds nuw i8, ptr %.0224, i64 8
   store ptr %421, ptr %422, align 8
   br label %add2dq.exit278
 
@@ -986,7 +986,7 @@ add2dq.exit278:                                   ; preds = %add2dq.exit275, %41
 433:                                              ; preds = %431
   %434 = getelementptr inbounds ptr, ptr %.pre404, i64 %432
   %435 = load ptr, ptr %434, align 8
-  %436 = getelementptr inbounds i8, ptr %.0224, i64 8
+  %436 = getelementptr inbounds nuw i8, ptr %.0224, i64 8
   store ptr %435, ptr %436, align 8
   br label %add2dq.exit281
 
@@ -1007,7 +1007,7 @@ add2dq.exit281:                                   ; preds = %431, %433
 441:                                              ; preds = %439
   %442 = getelementptr inbounds ptr, ptr %.pre404, i64 %440
   %443 = load ptr, ptr %442, align 8
-  %444 = getelementptr inbounds i8, ptr %.0225, i64 8
+  %444 = getelementptr inbounds nuw i8, ptr %.0225, i64 8
   store ptr %443, ptr %444, align 8
   br label %add2dq.exit284
 
@@ -1030,7 +1030,7 @@ add2dq.exit284:                                   ; preds = %439, %441
 452:                                              ; preds = %447, %458
   %indvars.iv388 = phi i64 [ 0, %447 ], [ %indvars.iv.next389, %458 ]
   %453 = mul nuw nsw i64 %indvars.iv388, 24
-  %gep349 = getelementptr inbounds i8, ptr %invariant.gep, i64 %453
+  %gep349 = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %453
   %454 = load i64, ptr %gep349, align 8
   %.not252 = icmp eq i64 %454, -1
   br i1 %.not252, label %458, label %455
@@ -1054,7 +1054,7 @@ add2dq.exit284:                                   ; preds = %439, %441
   %.0357 = phi i64 [ 0, %._crit_edge355 ], [ %460, %459 ]
   %.0222356 = phi ptr [ %335, %._crit_edge355 ], [ %462, %459 ]
   %460 = add i64 %.0357, 1
-  %461 = getelementptr inbounds i8, ptr %.0222356, i64 8
+  %461 = getelementptr inbounds nuw i8, ptr %.0222356, i64 8
   %462 = load ptr, ptr %461, align 8
   %.not241 = icmp eq ptr %462, null
   br i1 %.not241, label %463, label %459
@@ -1086,7 +1086,7 @@ add2dq.exit284:                                   ; preds = %439, %441
 473:                                              ; preds = %469, %463
   %474 = phi ptr [ %467, %469 ], [ %.pre406, %463 ]
   %475 = trunc i64 %460 to i32
-  %476 = getelementptr inbounds i8, ptr %2, i64 8
+  %476 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %475, ptr %476, align 8
   br label %477
 
@@ -1097,7 +1097,7 @@ add2dq.exit284:                                   ; preds = %439, %441
   %478 = getelementptr inbounds %struct.Pxy_t, ptr %474, i64 %.1
   %479 = load ptr, ptr %.1223358, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %478, ptr noundef nonnull align 8 dereferenceable(16) %479, i64 16, i1 false)
-  %480 = getelementptr inbounds i8, ptr %.1223358, i64 8
+  %480 = getelementptr inbounds nuw i8, ptr %.1223358, i64 8
   %481 = load ptr, ptr %480, align 8
   %.not243 = icmp eq ptr %481, null
   br i1 %.not243, label %482, label %477
@@ -1146,8 +1146,8 @@ define internal fastcc noundef zeroext i1 @marktripath(i64 noundef %0, i64 nound
   br i1 %8, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %7
-  %9 = getelementptr inbounds i8, ptr %3, i64 24
-  %10 = getelementptr inbounds i8, ptr %4, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %.pre20 = load ptr, ptr @tris.0, align 8, !noalias !13
   br label %11
 
@@ -1216,9 +1216,9 @@ define internal fastcc range(i32 -1, 1) i32 @growops(i64 noundef %0) unnamed_add
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i64 @finddqsplit(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %6
 
 6:                                                ; preds = %9, %2
@@ -1238,20 +1238,20 @@ define internal fastcc i64 @finddqsplit(ptr nocapture noundef nonnull readonly %
   %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr %1, align 8
   %19 = load double, ptr %14, align 8
-  %20 = getelementptr inbounds i8, ptr %14, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %21 = load double, ptr %20, align 8
   %22 = load double, ptr %17, align 8
-  %23 = getelementptr inbounds i8, ptr %17, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %24 = load double, ptr %23, align 8
   %25 = load double, ptr %18, align 8
-  %26 = getelementptr inbounds i8, ptr %18, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %27 = load double, ptr %26, align 8
   %28 = tail call i32 @ccw(double %19, double %21, double %22, double %24, double %25, double %27) #14
   %29 = icmp eq i32 %28, 1
   br i1 %29, label %.loopexit, label %6
 
 30:                                               ; preds = %6
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load i64, ptr %31, align 8
   %33 = icmp ugt i64 %32, %7
   br i1 %33, label %.lr.ph, label %.loopexit
@@ -1267,13 +1267,13 @@ define internal fastcc i64 @finddqsplit(ptr nocapture noundef nonnull readonly %
   %40 = load ptr, ptr %39, align 8
   %41 = load ptr, ptr %1, align 8
   %42 = load double, ptr %38, align 8
-  %43 = getelementptr inbounds i8, ptr %38, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %44 = load double, ptr %43, align 8
   %45 = load double, ptr %40, align 8
-  %46 = getelementptr inbounds i8, ptr %40, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %47 = load double, ptr %46, align 8
   %48 = load double, ptr %41, align 8
-  %49 = getelementptr inbounds i8, ptr %41, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %50 = load double, ptr %49, align 8
   %51 = tail call i32 @ccw(double %42, double %44, double %45, double %47, double %48, double %50) #14
   %52 = icmp eq i32 %51, 2
@@ -1299,7 +1299,7 @@ define internal { double, double } @point_indexer(ptr nocapture noundef readonly
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
   %.sroa.0.0.copyload = load double, ptr %6, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.2.0.copyload = load double, ptr %.sroa.2.0..sroa_idx, align 8
   %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.0.0.copyload, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.2.0.copyload, 1

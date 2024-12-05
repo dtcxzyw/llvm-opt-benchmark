@@ -38,7 +38,7 @@ $_ZThn16_N16TabnavTreeWidgetD0Ev = comdat any
 define void @_ZN16TabnavTreeWidgetC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   tail call void @_ZN11QTreeWidgetC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1)
   store ptr getelementptr inbounds (i8, ptr @_ZTV16TabnavTreeWidget, i64 16), ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTV16TabnavTreeWidget, i64 848), ptr %3, align 8
   ret void
 }
@@ -52,11 +52,11 @@ define void @_ZN16TabnavTreeWidget10moveCursorEN17QAbstractItemView12CursorActio
   call void @_ZNK17QAbstractItemView12currentIndexEv(ptr dead_on_unwind nonnull writable sret(%class.QModelIndex) align 8 %5, ptr noundef nonnull align 8 dereferenceable(40) %1)
   %7 = load i32, ptr %5, align 8
   %8 = icmp sgt i32 %7, -1
-  %9 = getelementptr inbounds i8, ptr %5, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = icmp sgt i32 %10, -1
   %or.cond.i = select i1 %8, i1 %11, i1 false
-  %12 = getelementptr inbounds i8, ptr %5, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = icmp ne ptr %13, null
   %or.cond = select i1 %or.cond.i, i1 %14, i1 false
@@ -71,12 +71,12 @@ define void @_ZN16TabnavTreeWidget10moveCursorEN17QAbstractItemView12CursorActio
 16:                                               ; preds = %15
   %17 = call noundef ptr @_ZNK17QAbstractItemView5modelEv(ptr noundef nonnull align 8 dereferenceable(40) %1)
   store i32 -1, ptr %6, align 8
-  %18 = getelementptr inbounds i8, ptr %6, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 -1, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %6, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, i8 0, i64 16, i1 false)
   %20 = load ptr, ptr %17, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 128
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 128
   %22 = load ptr, ptr %21, align 8
   %23 = call noundef i32 %22(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(24) %6)
   %24 = icmp slt i32 %10, %23
@@ -93,16 +93,16 @@ define void @_ZN16TabnavTreeWidget10moveCursorEN17QAbstractItemView12CursorActio
 29:                                               ; preds = %25
   %30 = add i32 %27, 1
   %31 = load ptr, ptr %28, align 8, !noalias !4
-  %32 = getelementptr inbounds i8, ptr %31, i64 112
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 112
   %33 = load ptr, ptr %32, align 8, !noalias !4
   call void %33(ptr dead_on_unwind writable sret(%class.QModelIndex) align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %28, i32 noundef %26, i32 noundef %30, ptr noundef nonnull align 8 dereferenceable(24) %5)
   br label %_ZNK11QModelIndex7siblingEii.exit
 
 34:                                               ; preds = %25
   store i32 -1, ptr %0, align 8, !alias.scope !4
-  %35 = getelementptr inbounds i8, ptr %0, i64 4
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 -1, ptr %35, align 4, !alias.scope !4
-  %36 = getelementptr inbounds i8, ptr %0, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %36, i8 0, i64 16, i1 false), !alias.scope !4
   br label %_ZNK11QModelIndex7siblingEii.exit
 
@@ -117,7 +117,7 @@ define void @_ZN16TabnavTreeWidget10moveCursorEN17QAbstractItemView12CursorActio
 39:                                               ; preds = %38
   %40 = add nsw i32 %10, -1
   %41 = load ptr, ptr %13, align 8, !noalias !7
-  %42 = getelementptr inbounds i8, ptr %41, i64 112
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 112
   %43 = load ptr, ptr %42, align 8, !noalias !7
   call void %43(ptr dead_on_unwind writable sret(%class.QModelIndex) align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %13, i32 noundef %7, i32 noundef %40, ptr noundef nonnull align 8 dereferenceable(24) %5)
   br label %_ZNK11QModelIndex7siblingEii.exit

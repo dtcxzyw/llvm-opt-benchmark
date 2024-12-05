@@ -92,27 +92,27 @@ define dso_local noundef i32 @snd_hda_parse_pin_defcfg(ptr noundef %0, ptr nound
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %6, i8 0, i64 20, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %7, i8 0, i64 20, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %8, i8 0, i64 20, i1 false)
-  %9 = getelementptr inbounds i8, ptr %0, i64 828
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 828
   %10 = load i16, ptr %9, align 4
-  %11 = getelementptr inbounds i8, ptr %0, i64 830
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 830
   %12 = load i16, ptr %11, align 2
   %13 = icmp ult i16 %10, %12
   br i1 %13, label %14, label %.loopexit54
 
 14:                                               ; preds = %4
-  %15 = getelementptr inbounds i8, ptr %0, i64 824
-  %16 = getelementptr inbounds i8, ptr %0, i64 1144
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 824
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 1144
   %17 = icmp eq ptr %2, null
-  %18 = getelementptr inbounds i8, ptr %1, i64 280
-  %19 = getelementptr inbounds i8, ptr %1, i64 292
-  %20 = getelementptr inbounds i8, ptr %1, i64 272
-  %21 = getelementptr inbounds i8, ptr %1, i64 276
-  %22 = getelementptr inbounds i8, ptr %1, i64 284
-  %23 = getelementptr inbounds i8, ptr %1, i64 52
-  %24 = getelementptr inbounds i8, ptr %1, i64 56
-  %25 = getelementptr inbounds i8, ptr %1, i64 32
-  %26 = getelementptr inbounds i8, ptr %1, i64 16
-  %27 = getelementptr inbounds i8, ptr %1, i64 282
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 280
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 292
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 272
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 276
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 284
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 52
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 282
   %28 = zext i16 %10 to i32
   %invariant.gep = getelementptr i8, ptr %1, i64 60
   %invariant.gep57 = getelementptr i8, ptr %1, i64 64
@@ -491,7 +491,7 @@ define dso_local noundef i32 @snd_hda_parse_pin_defcfg(ptr noundef %0, ptr nound
   %231 = and i8 %230, 1
   %232 = lshr i8 %229, 3
   %233 = and i8 %232, 1
-  %234 = getelementptr inbounds i8, ptr %1, i64 52
+  %234 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %235 = and i8 %229, 12
   %.not = icmp eq i8 %235, 0
   br i1 %.not, label %.loopexit50, label %236
@@ -499,7 +499,7 @@ define dso_local noundef i32 @snd_hda_parse_pin_defcfg(ptr noundef %0, ptr nound
 236:                                              ; preds = %228
   %237 = icmp eq i8 %233, 0
   %238 = icmp eq i8 %231, 0
-  %239 = getelementptr inbounds i8, ptr %1, i64 56
+  %239 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %invariant.gep71 = getelementptr i8, ptr %1, i64 64
   br label %240
 
@@ -519,13 +519,13 @@ define dso_local noundef i32 @snd_hda_parse_pin_defcfg(ptr noundef %0, ptr nound
 
 250:                                              ; preds = %249
   %251 = getelementptr [18 x %struct.auto_pin_cfg_item], ptr %239, i64 0, i64 %241
-  %252 = getelementptr inbounds i8, ptr %251, i64 4
+  %252 = getelementptr inbounds nuw i8, ptr %251, i64 4
   %253 = load i32, ptr %252, align 4
   %254 = icmp eq i32 %253, 0
   br i1 %254, label %255, label %274
 
 255:                                              ; preds = %250
-  %256 = getelementptr inbounds i8, ptr %251, i64 8
+  %256 = getelementptr inbounds nuw i8, ptr %251, i64 8
   %257 = load i8, ptr %256, align 4
   %258 = and i8 %257, 3
   %259 = icmp eq i8 %258, 0
@@ -554,13 +554,13 @@ define dso_local noundef i32 @snd_hda_parse_pin_defcfg(ptr noundef %0, ptr nound
 
 275:                                              ; preds = %274
   %276 = getelementptr [18 x %struct.auto_pin_cfg_item], ptr %239, i64 0, i64 %241
-  %277 = getelementptr inbounds i8, ptr %276, i64 4
+  %277 = getelementptr inbounds nuw i8, ptr %276, i64 4
   %278 = load i32, ptr %277, align 4
   %279 = icmp eq i32 %278, 0
   br i1 %279, label %280, label %305
 
 280:                                              ; preds = %275
-  %281 = getelementptr inbounds i8, ptr %276, i64 8
+  %281 = getelementptr inbounds nuw i8, ptr %276, i64 8
   %282 = load i8, ptr %281, align 4
   %283 = and i8 %282, 3
   %284 = icmp eq i8 %283, 0
@@ -617,7 +617,7 @@ define dso_local noundef i32 @snd_hda_parse_pin_defcfg(ptr noundef %0, ptr nound
   br i1 %320, label %.loopexit49, label %321
 
 321:                                              ; preds = %.loopexit50
-  %322 = getelementptr inbounds i8, ptr %1, i64 56
+  %322 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %invariant.gep73 = getelementptr i8, ptr %1, i64 64
   br label %323
 
@@ -634,13 +634,13 @@ define dso_local noundef i32 @snd_hda_parse_pin_defcfg(ptr noundef %0, ptr nound
 
 332:                                              ; preds = %323
   %333 = getelementptr [18 x %struct.auto_pin_cfg_item], ptr %322, i64 0, i64 %324
-  %334 = getelementptr inbounds i8, ptr %333, i64 4
+  %334 = getelementptr inbounds nuw i8, ptr %333, i64 4
   %335 = load i32, ptr %334, align 4
   %336 = icmp eq i32 %335, 0
   br i1 %336, label %337, label %361
 
 337:                                              ; preds = %332
-  %338 = getelementptr inbounds i8, ptr %333, i64 8
+  %338 = getelementptr inbounds nuw i8, ptr %333, i64 8
   %339 = load i8, ptr %338, align 4
   %340 = and i8 %339, 3
   %341 = icmp eq i8 %340, 0
@@ -691,7 +691,7 @@ define dso_local noundef i32 @snd_hda_parse_pin_defcfg(ptr noundef %0, ptr nound
   br i1 %371, label %372, label %thread-pre-split
 
 372:                                              ; preds = %.loopexit49
-  %373 = getelementptr inbounds i8, ptr %1, i64 32
+  %373 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %374 = load i32, ptr %373, align 4
   %375 = icmp sgt i32 %374, 1
   %376 = and i32 %3, 1
@@ -700,7 +700,7 @@ define dso_local noundef i32 @snd_hda_parse_pin_defcfg(ptr noundef %0, ptr nound
   br i1 %378, label %.preheader47, label %thread-pre-split.thread
 
 thread-pre-split.thread:                          ; preds = %372
-  %379 = getelementptr inbounds i8, ptr %1, i64 4
+  %379 = getelementptr inbounds nuw i8, ptr %1, i64 4
   call void @sort(ptr noundef nonnull %6, i64 noundef 0, i64 noundef 4, ptr noundef nonnull @compare_seq, ptr noundef null) #11
   br label %.loopexit45
 
@@ -765,13 +765,13 @@ thread-pre-split.thread:                          ; preds = %372
   br i1 %409, label %410, label %thread-pre-split
 
 410:                                              ; preds = %.loopexit46
-  %411 = getelementptr inbounds i8, ptr %1, i64 36
+  %411 = getelementptr inbounds nuw i8, ptr %1, i64 36
   store i32 2, ptr %411, align 4
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %410, %.loopexit46, %.loopexit49
   %412 = phi i32 [ %370, %.loopexit49 ], [ %.pr84, %.loopexit46 ], [ %.pr84, %410 ]
-  %413 = getelementptr inbounds i8, ptr %1, i64 4
+  %413 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %414 = sext i32 %412 to i64
   call void @sort(ptr noundef nonnull %6, i64 noundef %414, i64 noundef 4, ptr noundef nonnull @compare_seq, ptr noundef null) #11
   %415 = icmp sgt i32 %412, 0
@@ -793,8 +793,8 @@ thread-pre-split:                                 ; preds = %410, %.loopexit46, 
 
 .loopexit45:                                      ; preds = %418, %thread-pre-split.thread, %thread-pre-split
   %425 = phi ptr [ %379, %thread-pre-split.thread ], [ %413, %thread-pre-split ], [ %413, %418 ]
-  %426 = getelementptr inbounds i8, ptr %1, i64 20
-  %427 = getelementptr inbounds i8, ptr %1, i64 16
+  %426 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %427 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %428 = load i32, ptr %427, align 4
   %429 = sext i32 %428 to i64
   call void @sort(ptr noundef nonnull %7, i64 noundef %429, i64 noundef 4, ptr noundef nonnull @compare_seq, ptr noundef null) #11
@@ -816,8 +816,8 @@ thread-pre-split:                                 ; preds = %410, %.loopexit46, 
   br i1 %439, label %.loopexit44, label %433, !llvm.loop !13
 
 .loopexit44:                                      ; preds = %433, %.loopexit45
-  %440 = getelementptr inbounds i8, ptr %1, i64 40
-  %441 = getelementptr inbounds i8, ptr %1, i64 32
+  %440 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %441 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %442 = load i32, ptr %441, align 4
   %443 = sext i32 %442 to i64
   call void @sort(ptr noundef nonnull %8, i64 noundef %443, i64 noundef 4, ptr noundef nonnull @compare_seq, ptr noundef null) #11
@@ -852,9 +852,9 @@ thread-pre-split:                                 ; preds = %410, %.loopexit46, 
 
 461:                                              ; preds = %458
   store i32 %459, ptr %1, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(10) %425, ptr noundef align 4 dereferenceable(10) %426, i64 10, i1 false)
-  %462 = getelementptr inbounds i8, ptr %1, i64 36
-  call void @llvm.memset.p0.i64(ptr noundef align 4 dereferenceable(14) %427, i8 0, i64 14, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(10) %425, ptr noundef nonnull align 4 dereferenceable(10) %426, i64 10, i1 false)
+  %462 = getelementptr inbounds nuw i8, ptr %1, i64 36
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(14) %427, i8 0, i64 14, i1 false)
   store i32 1, ptr %462, align 4
   br label %468
 
@@ -865,10 +865,10 @@ thread-pre-split:                                 ; preds = %410, %.loopexit46, 
 
 466:                                              ; preds = %463
   store i32 %464, ptr %1, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(10) %425, ptr noundef align 4 dereferenceable(10) %440, i64 10, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(10) %425, ptr noundef nonnull align 4 dereferenceable(10) %440, i64 10, i1 false)
   store i32 0, ptr %441, align 4
-  call void @llvm.memset.p0.i64(ptr noundef align 4 dereferenceable(10) %440, i8 0, i64 10, i1 false)
-  %467 = getelementptr inbounds i8, ptr %1, i64 36
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(10) %440, i8 0, i64 10, i1 false)
+  %467 = getelementptr inbounds nuw i8, ptr %1, i64 36
   store i32 2, ptr %467, align 4
   br label %468
 
@@ -918,12 +918,12 @@ thread-pre-split:                                 ; preds = %410, %.loopexit46, 
   br label %495
 
 495:                                              ; preds = %490, %486
-  %496 = getelementptr inbounds i8, ptr %1, i64 56
-  %497 = getelementptr inbounds i8, ptr %1, i64 52
+  %496 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %497 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %498 = load i32, ptr %497, align 4
   %499 = sext i32 %498 to i64
-  call void @sort(ptr noundef %496, i64 noundef %499, i64 noundef 12, ptr noundef nonnull @compare_input_type, ptr noundef null) #11
-  %500 = getelementptr inbounds i8, ptr %0, i64 808
+  call void @sort(ptr noundef nonnull %496, i64 noundef %499, i64 noundef 12, ptr noundef nonnull @compare_input_type, ptr noundef null) #11
+  %500 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %501 = load ptr, ptr %500, align 8
   %502 = load i32, ptr %1, align 4
   %503 = load i16, ptr %425, align 4
@@ -940,7 +940,7 @@ thread-pre-split:                                 ; preds = %410, %.loopexit46, 
   %514 = getelementptr i8, ptr %1, i64 12
   %515 = load i16, ptr %514, align 4
   %516 = zext i16 %515 to i32
-  %517 = getelementptr inbounds i8, ptr %1, i64 36
+  %517 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %518 = load i32, ptr %517, align 4
   %519 = icmp eq i32 %518, 2
   %520 = icmp eq i32 %518, 1
@@ -979,17 +979,17 @@ thread-pre-split:                                 ; preds = %410, %.loopexit46, 
   %551 = load i16, ptr %550, align 4
   %552 = zext i16 %551 to i32
   call void (ptr, ptr, ...) @_dev_info(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %538, i32 noundef %540, i32 noundef %543, i32 noundef %546, i32 noundef %549, i32 noundef %552) #12
-  %553 = getelementptr inbounds i8, ptr %1, i64 282
+  %553 = getelementptr inbounds nuw i8, ptr %1, i64 282
   %554 = load i16, ptr %553, align 2
   %555 = zext i16 %554 to i32
   call void (ptr, ptr, ...) @_dev_info(ptr noundef %0, ptr noundef nonnull @.str.9, i32 noundef %555) #12
-  %556 = getelementptr inbounds i8, ptr %1, i64 272
+  %556 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %557 = load i32, ptr %556, align 4
   %558 = icmp eq i32 %557, 0
   br i1 %558, label %566, label %559
 
 559:                                              ; preds = %495
-  %560 = getelementptr inbounds i8, ptr %1, i64 276
+  %560 = getelementptr inbounds nuw i8, ptr %1, i64 276
   %561 = load i16, ptr %560, align 4
   %562 = zext i16 %561 to i32
   %563 = getelementptr i8, ptr %1, i64 278
@@ -1019,7 +1019,7 @@ thread-pre-split:                                 ; preds = %410, %.loopexit46, 
   br i1 %578, label %.preheader, label %.loopexit, !llvm.loop !14
 
 .loopexit:                                        ; preds = %.preheader, %566
-  %579 = getelementptr inbounds i8, ptr %1, i64 280
+  %579 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %580 = load i16, ptr %579, align 4
   %581 = icmp eq i16 %580, 0
   br i1 %581, label %584, label %582
@@ -1062,9 +1062,9 @@ declare dso_local void @sort(ptr noundef, i64 noundef, i64 noundef, ptr noundef,
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
 define internal i32 @compare_input_type(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4
   %7 = icmp eq i32 %4, %6
   br i1 %7, label %10, label %8
@@ -1074,14 +1074,14 @@ define internal i32 @compare_input_type(ptr nocapture noundef readonly %0, ptr n
   br label %32
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load i8, ptr %11, align 4
   %13 = and i8 %12, 1
   %14 = icmp eq i8 %13, 0
   br i1 %14, label %20, label %15
 
 15:                                               ; preds = %10
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load i8, ptr %16, align 4
   %18 = and i8 %17, 2
   %19 = icmp eq i8 %18, 0
@@ -1090,7 +1090,7 @@ define internal i32 @compare_input_type(ptr nocapture noundef readonly %0, ptr n
 20:                                               ; preds = %15, %10
   %21 = and i8 %12, 2
   %22 = icmp eq i8 %21, 0
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre = load i8, ptr %.phi.trans.insert, align 4
   %23 = and i8 %.pre, 1
   %24 = icmp eq i8 %23, 0
@@ -1114,10 +1114,10 @@ define internal i32 @compare_input_type(ptr nocapture noundef readonly %0, ptr n
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @hda_get_autocfg_input_label(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %5 = sext i32 %2 to i64
   %6 = getelementptr [18 x %struct.auto_pin_cfg_item], ptr %4, i64 0, i64 %5
-  %7 = getelementptr inbounds i8, ptr %6, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %8 = load i32, ptr %7, align 4
   %9 = icmp sgt i32 %2, 0
   br i1 %9, label %10, label %17
@@ -1133,7 +1133,7 @@ define dso_local ptr @hda_get_autocfg_input_label(ptr noundef %0, ptr noundef %1
   br i1 %16, label %29, label %17
 
 17:                                               ; preds = %10, %3
-  %18 = getelementptr inbounds i8, ptr %1, i64 52
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %19 = load i32, ptr %18, align 4
   %20 = add i32 %19, -1
   %21 = icmp sgt i32 %20, %2
@@ -1177,7 +1177,7 @@ define dso_local ptr @hda_get_autocfg_input_label(ptr noundef %0, ptr noundef %1
   br i1 %44, label %.thread, label %45
 
 45:                                               ; preds = %42
-  %46 = getelementptr inbounds i8, ptr %1, i64 52
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %47 = load i32, ptr %46, align 4
   %48 = icmp sgt i32 %47, 0
   br i1 %48, label %.preheader, label %.thread
@@ -1223,7 +1223,7 @@ define dso_local ptr @hda_get_autocfg_input_label(ptr noundef %0, ptr noundef %1
 
 .thread:                                          ; preds = %.thread5, %61, %17, %22, %45, %42, %40, %40, %31, %29
   %74 = phi i32 [ 1, %29 ], [ 1, %42 ], [ 1, %40 ], [ 1, %40 ], [ 1, %31 ], [ 0, %45 ], [ 0, %22 ], [ 0, %17 ], [ 1, %61 ], [ 0, %.thread5 ]
-  %75 = getelementptr inbounds i8, ptr %0, i64 1432
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 1432
   %76 = load i32, ptr %75, align 8
   %77 = lshr i32 %76, 18
   %78 = and i32 %77, 1
@@ -1288,7 +1288,7 @@ define internal fastcc ptr @hda_get_input_pin_label(ptr noundef %0, ptr noundef 
   br i1 %9, label %20, label %10
 
 10:                                               ; preds = %8
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load i8, ptr %11, align 4
   %13 = and i8 %12, 1
   %14 = icmp eq i8 %13, 0
@@ -1419,8 +1419,8 @@ define dso_local noundef range(i32 0, 2) i32 @snd_hda_get_pin_label(ptr noundef 
   br i1 %24, label %25, label %hda_get_input_pin_label.exit.thread
 
 25:                                               ; preds = %19
-  %26 = getelementptr inbounds i8, ptr %2, i64 276
-  %27 = getelementptr inbounds i8, ptr %2, i64 272
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 276
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 272
   %28 = load i32, ptr %27, align 4
   %29 = icmp sgt i32 %28, 0
   br i1 %29, label %.preheader, label %hda_get_input_pin_label.exit.thread
@@ -1457,13 +1457,13 @@ define dso_local noundef range(i32 0, 2) i32 @snd_hda_get_pin_label(ptr noundef 
   br i1 %46, label %.loopexit, label %47
 
 47:                                               ; preds = %45
-  %48 = getelementptr inbounds i8, ptr %2, i64 52
+  %48 = getelementptr inbounds nuw i8, ptr %2, i64 52
   %49 = load i32, ptr %48, align 4
   %50 = icmp sgt i32 %49, 0
   br i1 %50, label %51, label %.loopexit
 
 51:                                               ; preds = %47
-  %52 = getelementptr inbounds i8, ptr %2, i64 56
+  %52 = getelementptr inbounds nuw i8, ptr %2, i64 56
   br label %53
 
 53:                                               ; preds = %63, %51
@@ -1629,7 +1629,7 @@ define internal fastcc void @fill_audio_out_name(ptr noundef %0, i16 noundef zer
   br i1 %36, label %.thread25, label %37
 
 37:                                               ; preds = %34
-  %38 = getelementptr inbounds i8, ptr %2, i64 4
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %39 = load i32, ptr %2, align 4
   %40 = icmp sgt i32 %39, 0
   br i1 %40, label %41, label %.thread21
@@ -1678,8 +1678,8 @@ define internal fastcc void @fill_audio_out_name(ptr noundef %0, i16 noundef zer
   br label %.thread25
 
 .thread21:                                        ; preds = %48, %37, %51
-  %65 = getelementptr inbounds i8, ptr %2, i64 20
-  %66 = getelementptr inbounds i8, ptr %2, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %2, i64 20
+  %66 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %67 = load i32, ptr %66, align 4
   %68 = icmp sgt i32 %67, 0
   br i1 %68, label %69, label %.thread27
@@ -1728,8 +1728,8 @@ define internal fastcc void @fill_audio_out_name(ptr noundef %0, i16 noundef zer
   br label %.thread25
 
 .thread27:                                        ; preds = %76, %.thread21, %79
-  %93 = getelementptr inbounds i8, ptr %2, i64 40
-  %94 = getelementptr inbounds i8, ptr %2, i64 32
+  %93 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %94 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %95 = load i32, ptr %94, align 4
   %96 = tail call i32 @snd_hda_codec_get_pincfg(ptr noundef %0, i16 noundef zeroext %1) #11
   %.fr = freeze i32 %96
@@ -1867,8 +1867,8 @@ declare dso_local i64 @strscpy(ptr noundef, ptr noundef, i64 noundef) local_unna
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -12, 1) i32 @snd_hda_add_verbs(ptr noundef %0, ptr noundef %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 1624
-  %4 = tail call ptr @snd_array_new(ptr noundef %3) #11
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1624
+  %4 = tail call ptr @snd_array_new(ptr noundef nonnull %3) #11
   %5 = icmp eq ptr %4, null
   br i1 %5, label %7, label %6
 
@@ -1886,15 +1886,15 @@ declare dso_local ptr @snd_array_new(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @snd_hda_apply_verbs(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1624
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1624
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %.loopexit, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 1640
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1640
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 1632
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1632
   br label %9
 
 9:                                                ; preds = %9, %5
@@ -1928,7 +1928,7 @@ define dso_local void @snd_hda_apply_pincfgs(ptr noundef %0, ptr nocapture nound
 .preheader:                                       ; preds = %2, %.preheader
   %5 = phi i16 [ %11, %.preheader ], [ %3, %2 ]
   %6 = phi ptr [ %10, %.preheader ], [ %1, %2 ]
-  %7 = getelementptr inbounds i8, ptr %6, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %8 = load i32, ptr %7, align 4
   %9 = tail call i32 @snd_hda_codec_set_pincfg(ptr noundef %0, i16 noundef zeroext %5, i32 noundef %8) #11
   %10 = getelementptr i8, ptr %6, i64 8
@@ -1945,11 +1945,11 @@ declare dso_local i32 @snd_hda_codec_set_pincfg(ptr noundef, i16 noundef zeroext
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @__snd_hda_apply_fixup(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) #0 align 16 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 1608
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1608
   %6 = icmp eq i32 %2, 1
-  %7 = getelementptr inbounds i8, ptr %0, i64 1624
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1624
   %8 = icmp eq i32 %2, 0
-  %9 = getelementptr inbounds i8, ptr %0, i64 808
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %10 = icmp sgt i32 %1, -1
   br i1 %10, label %.lr.ph, label %.thread
 
@@ -1964,14 +1964,14 @@ define dso_local void @__snd_hda_apply_fixup(ptr noundef %0, i32 noundef %1, i32
   br i1 %17, label %.thread, label %18
 
 18:                                               ; preds = %.lr.ph
-  %19 = getelementptr inbounds i8, ptr %15, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %20 = load i8, ptr %19, align 4
   %21 = and i8 %20, 2
   %22 = icmp eq i8 %21, 0
   br i1 %22, label %27, label %23
 
 23:                                               ; preds = %18
-  %24 = getelementptr inbounds i8, ptr %15, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %25 = load i32, ptr %24, align 8
   %26 = add i32 %12, 2
   tail call void @__snd_hda_apply_fixup(ptr noundef %0, i32 noundef %25, i32 noundef %2, i32 noundef %26)
@@ -1990,7 +1990,7 @@ define dso_local void @__snd_hda_apply_fixup(ptr noundef %0, i32 noundef %1, i32
   br i1 %8, label %30, label %.loopexit
 
 30:                                               ; preds = %29
-  %31 = getelementptr inbounds i8, ptr %15, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %32 = load ptr, ptr %31, align 8
   %33 = icmp eq ptr %32, null
   br i1 %33, label %.loopexit, label %34
@@ -2003,7 +2003,7 @@ define dso_local void @__snd_hda_apply_fixup(ptr noundef %0, i32 noundef %1, i32
 .preheader:                                       ; preds = %34, %.preheader
   %37 = phi i16 [ %43, %.preheader ], [ %35, %34 ]
   %38 = phi ptr [ %42, %.preheader ], [ %32, %34 ]
-  %39 = getelementptr inbounds i8, ptr %38, i64 4
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 4
   %40 = load i32, ptr %39, align 4
   %41 = tail call i32 @snd_hda_codec_set_pincfg(ptr noundef %0, i16 noundef zeroext %37, i32 noundef %40) #11
   %42 = getelementptr i8, ptr %38, i64 8
@@ -2015,13 +2015,13 @@ define dso_local void @__snd_hda_apply_fixup(ptr noundef %0, i32 noundef %1, i32
   br i1 %6, label %46, label %.loopexit
 
 46:                                               ; preds = %45
-  %47 = getelementptr inbounds i8, ptr %15, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %48 = load ptr, ptr %47, align 8
   %49 = icmp eq ptr %48, null
   br i1 %49, label %.loopexit, label %50
 
 50:                                               ; preds = %46
-  %51 = tail call ptr @snd_array_new(ptr noundef %7) #11
+  %51 = tail call ptr @snd_array_new(ptr noundef nonnull %7) #11
   %52 = icmp eq ptr %51, null
   br i1 %52, label %.loopexit, label %53
 
@@ -2030,7 +2030,7 @@ define dso_local void @__snd_hda_apply_fixup(ptr noundef %0, i32 noundef %1, i32
   br label %.loopexit
 
 54:                                               ; preds = %27
-  %55 = getelementptr inbounds i8, ptr %15, i64 16
+  %55 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %56 = load ptr, ptr %55, align 8
   %57 = icmp eq ptr %56, null
   br i1 %57, label %.loopexit, label %58
@@ -2043,7 +2043,7 @@ define dso_local void @__snd_hda_apply_fixup(ptr noundef %0, i32 noundef %1, i32
   br i1 %6, label %60, label %.loopexit
 
 60:                                               ; preds = %59
-  %61 = getelementptr inbounds i8, ptr %15, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %62 = load ptr, ptr %61, align 8
   %63 = icmp eq ptr %62, null
   br i1 %63, label %.loopexit, label %64
@@ -2056,7 +2056,7 @@ define dso_local void @__snd_hda_apply_fixup(ptr noundef %0, i32 noundef %1, i32
 .preheader8:                                      ; preds = %64, %.preheader8
   %67 = phi i16 [ %73, %.preheader8 ], [ %65, %64 ]
   %68 = phi ptr [ %72, %.preheader8 ], [ %62, %64 ]
-  %69 = getelementptr inbounds i8, ptr %68, i64 4
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 4
   %70 = load i32, ptr %69, align 4
   %71 = tail call i32 @_snd_hda_set_pin_ctl(ptr noundef %0, i16 noundef zeroext %67, i32 noundef %70, i1 noundef zeroext true) #11
   %72 = getelementptr i8, ptr %68, i64 8
@@ -2076,7 +2076,7 @@ define dso_local void @__snd_hda_apply_fixup(ptr noundef %0, i32 noundef %1, i32
   br i1 %79, label %80, label %.thread
 
 80:                                               ; preds = %.loopexit
-  %81 = getelementptr inbounds i8, ptr %15, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %82 = load i32, ptr %81, align 8
   %83 = icmp sgt i32 %82, -1
   br i1 %83, label %.lr.ph, label %.thread
@@ -2090,13 +2090,13 @@ declare dso_local void @_dev_err(ptr noundef, ptr noundef, ...) local_unnamed_ad
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @snd_hda_apply_fixup(ptr noundef %0, i32 noundef %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 1608
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1608
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %9, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 1604
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1604
   %8 = load i32, ptr %7, align 4
   tail call void @__snd_hda_apply_fixup(ptr noundef %0, i32 noundef %8, i32 noundef %1, i32 noundef 0)
   br label %9
@@ -2107,25 +2107,25 @@ define dso_local void @snd_hda_apply_fixup(ptr noundef %0, i32 noundef %1) #0 al
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, argmem: readwrite, inaccessiblemem: none)
 define dso_local void @snd_hda_pick_pin_fixup(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i1 noundef zeroext %3) #8 align 16 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 1604
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1604
   %6 = load i32, ptr %5, align 4
   %7 = icmp eq i32 %6, -1
   br i1 %7, label %8, label %.loopexit10
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %1, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %10 = load i16, ptr %9, align 4
   %11 = icmp eq i16 %10, 0
   br i1 %11, label %.loopexit10, label %12
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %0, i64 776
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 776
   %14 = load i32, ptr %13, align 8
   %15 = and i32 %14, -65536
-  %16 = getelementptr inbounds i8, ptr %0, i64 772
-  %17 = getelementptr inbounds i8, ptr %0, i64 1320
-  %18 = getelementptr inbounds i8, ptr %0, i64 1336
-  %19 = getelementptr inbounds i8, ptr %0, i64 1328
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 772
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 1320
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 1336
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 1328
   br label %20
 
 20:                                               ; preds = %.critedge20, %12
@@ -2143,7 +2143,7 @@ define dso_local void @snd_hda_pick_pin_fixup(ptr nocapture noundef %0, ptr noca
   br i1 %29, label %30, label %.critedge20
 
 30:                                               ; preds = %26
-  %31 = getelementptr inbounds i8, ptr %22, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %32 = load ptr, ptr %31, align 8
   %33 = load i32, ptr %17, align 8
   %34 = icmp eq i32 %33, 0
@@ -2196,7 +2196,7 @@ define dso_local void @snd_hda_pick_pin_fixup(ptr nocapture noundef %0, ptr noca
   %54 = phi i32 [ %80, %.thread ], [ 0, %35 ]
   %55 = phi ptr [ %84, %.thread ], [ %36, %35 ]
   %56 = load i16, ptr %55, align 4
-  %57 = getelementptr inbounds i8, ptr %55, i64 4
+  %57 = getelementptr inbounds nuw i8, ptr %55, i64 4
   %58 = load i32, ptr %57, align 4
   %59 = icmp eq i16 %37, %56
   br i1 %59, label %.loopexit9, label %.preheader
@@ -2207,7 +2207,7 @@ define dso_local void @snd_hda_pick_pin_fixup(ptr nocapture noundef %0, ptr noca
 
 .loopexit9:                                       ; preds = %60, %.split
   %62 = phi ptr [ %32, %.split ], [ %74, %60 ]
-  %63 = getelementptr inbounds i8, ptr %62, i64 4
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 4
   %64 = load i32, ptr %63, align 4
   %65 = xor i32 %64, %58
   %66 = icmp ult i32 %65, 256
@@ -2249,10 +2249,10 @@ define dso_local void @snd_hda_pick_pin_fixup(ptr nocapture noundef %0, ptr noca
   br i1 %.us-phi, label %.critedge, label %.critedge20
 
 .critedge:                                        ; preds = %.thread.us.lr.ph, %..split14.us_crit_edge, %30, %.split14.us, %.thread.us
-  %87 = getelementptr inbounds i8, ptr %22, i64 16
+  %87 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %88 = load i32, ptr %87, align 8
   store i32 %88, ptr %5, align 4
-  %89 = getelementptr inbounds i8, ptr %0, i64 1608
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 1608
   store ptr %2, ptr %89, align 8
   br label %.loopexit10
 
@@ -2273,7 +2273,7 @@ define dso_local void @snd_hda_pick_fixup(ptr nocapture noundef %0, ptr noundef 
   %6 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #11
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #11
-  %7 = getelementptr inbounds i8, ptr %0, i64 1604
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1604
   %8 = load i32, ptr %7, align 4
   %9 = icmp eq i32 %8, -1
   br i1 %9, label %10, label %69
@@ -2281,7 +2281,7 @@ define dso_local void @snd_hda_pick_fixup(ptr nocapture noundef %0, ptr noundef 
 10:                                               ; preds = %4
   store i32 0, ptr %5, align 4, !annotation !8
   store i32 0, ptr %6, align 4, !annotation !8
-  %11 = getelementptr inbounds i8, ptr %0, i64 984
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 984
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
   br i1 %13, label %.thread8, label %14
@@ -2296,7 +2296,7 @@ define dso_local void @snd_hda_pick_fixup(ptr nocapture noundef %0, ptr noundef 
   br i1 %.not, label %.loopexit, label %18
 
 18:                                               ; preds = %17
-  %19 = getelementptr inbounds i8, ptr %1, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
   br i1 %21, label %.loopexit, label %.preheader
@@ -2342,16 +2342,16 @@ define dso_local void @snd_hda_pick_fixup(ptr nocapture noundef %0, ptr noundef 
   br i1 %44, label %.thread9, label %59
 
 .thread9:                                         ; preds = %.thread8, %38, %35
-  %45 = getelementptr inbounds i8, ptr %0, i64 952
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 1328
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 1328
   %48 = load ptr, ptr %47, align 8
   %49 = call ptr @snd_pci_quirk_lookup(ptr noundef %48, ptr noundef nonnull %2) #11
   %50 = icmp eq ptr %49, null
   br i1 %50, label %51, label %59
 
 51:                                               ; preds = %.thread9
-  %52 = getelementptr inbounds i8, ptr %0, i64 776
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 776
   %53 = load i32, ptr %52, align 8
   %54 = lshr i32 %53, 16
   %55 = trunc nuw i32 %54 to i16
@@ -2362,7 +2362,7 @@ define dso_local void @snd_hda_pick_fixup(ptr nocapture noundef %0, ptr noundef 
 
 59:                                               ; preds = %51, %.thread9, %38
   %60 = phi ptr [ %43, %38 ], [ %49, %.thread9 ], [ %57, %51 ]
-  %61 = getelementptr inbounds i8, ptr %60, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %62 = load i32, ptr %61, align 4
   br label %63
 
@@ -2371,9 +2371,9 @@ define dso_local void @snd_hda_pick_fixup(ptr nocapture noundef %0, ptr noundef 
   %65 = phi i32 [ %27, %26 ], [ %62, %59 ], [ -2, %14 ]
   %66 = phi ptr [ %22, %26 ], [ null, %59 ], [ null, %14 ]
   store i32 %65, ptr %7, align 4
-  %67 = getelementptr inbounds i8, ptr %0, i64 1608
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 1608
   store ptr %64, ptr %67, align 8
-  %68 = getelementptr inbounds i8, ptr %0, i64 1616
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 1616
   store ptr %66, ptr %68, align 8
   br label %69
 
@@ -2403,10 +2403,10 @@ declare dso_local zeroext i1 @snd_hda_check_amp_caps(ptr noundef, i16 noundef ze
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
 define internal range(i32 -65535, 65536) i32 @compare_seq(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 2
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %4 = load i16, ptr %3, align 2
   %5 = sext i16 %4 to i32
-  %6 = getelementptr inbounds i8, ptr %1, i64 2
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %7 = load i16, ptr %6, align 2
   %8 = sext i16 %7 to i32
   %9 = sub nsw i32 %5, %8

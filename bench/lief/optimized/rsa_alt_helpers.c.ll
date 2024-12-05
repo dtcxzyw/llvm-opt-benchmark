@@ -17,13 +17,13 @@ define hidden i32 @mbedtls_rsa_deduce_primes(ptr noundef %0, ptr noundef %1, ptr
   br i1 %or.cond, label %89, label %10
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %3, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %12 = load ptr, ptr %11, align 8
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %13, label %89
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %4, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %15 = load ptr, ptr %14, align 8
   %.not54 = icmp eq ptr %15, null
   br i1 %.not54, label %16, label %89
@@ -78,14 +78,14 @@ define hidden i32 @mbedtls_rsa_deduce_primes(ptr noundef %0, ptr noundef %1, ptr
   br i1 %.not57, label %.split.preheader, label %.loopexit
 
 .split.preheader:                                 ; preds = %39
-  %42 = getelementptr inbounds i8, ptr %0, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %43 = load ptr, ptr %42, align 8
   %44 = load i64, ptr %43, align 8
   %45 = and i64 %44, 7
   %46 = icmp eq i64 %45, 1
   %47 = trunc i64 %36 to i16
   %48 = zext i1 %46 to i64
-  %49 = getelementptr inbounds [54 x i8], ptr @__const.mbedtls_rsa_deduce_primes.primes, i64 0, i64 %48
+  %49 = getelementptr inbounds nuw [54 x i8], ptr @__const.mbedtls_rsa_deduce_primes.primes, i64 0, i64 %48
   %50 = load i8, ptr %49, align 1
   %51 = zext i8 %50 to i64
   %52 = call i32 @mbedtls_mpi_lset(ptr noundef nonnull %7, i64 noundef %51) #2
@@ -172,7 +172,7 @@ define hidden i32 @mbedtls_rsa_deduce_primes(ptr noundef %0, ptr noundef %1, ptr
 .split.backedge:                                  ; preds = %82, %._crit_edge
   %.03973.be = add nuw nsw i16 %.0397387, 1
   %83 = zext nneg i16 %.03973.be to i64
-  %84 = getelementptr inbounds [54 x i8], ptr @__const.mbedtls_rsa_deduce_primes.primes, i64 0, i64 %83
+  %84 = getelementptr inbounds nuw [54 x i8], ptr @__const.mbedtls_rsa_deduce_primes.primes, i64 0, i64 %83
   %85 = load i8, ptr %84, align 1
   %86 = zext i8 %85 to i64
   %87 = call i32 @mbedtls_mpi_lset(ptr noundef nonnull %7, i64 noundef %86) #2

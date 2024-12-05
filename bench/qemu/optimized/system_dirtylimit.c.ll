@@ -64,7 +64,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local i64 @vcpu_dirty_rate_get(i32 noundef %cpu_index) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @vcpu_dirty_rate_stat, align 8
-  %rates1 = getelementptr inbounds i8, ptr %0, i64 8
+  %rates1 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1 = load ptr, ptr %rates1, align 8
   %idxprom = sext i32 %cpu_index to i64
   %dirty_rate = getelementptr %struct.DirtyRateVcpu, ptr %1, i64 %idxprom, i32 1
@@ -76,14 +76,14 @@ entry:
 define dso_local void @vcpu_dirty_rate_stat_start() local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr @vcpu_dirty_rate_stat, align 8
-  %running = getelementptr inbounds i8, ptr %0, i64 16
+  %running = getelementptr inbounds nuw i8, ptr %0, i64 16
   %1 = load atomic i8, ptr %running monotonic, align 8
   %tobool = trunc i8 %1 to i1
   br i1 %tobool, label %return, label %while.end7
 
 while.end7:                                       ; preds = %entry
   store atomic i8 1, ptr %running monotonic, align 8
-  %thread = getelementptr inbounds i8, ptr %0, i64 24
+  %thread = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @qemu_thread_create(ptr noundef nonnull %thread, ptr noundef nonnull @.str.1, ptr noundef nonnull @vcpu_dirty_rate_stat_thread, ptr noundef null, i32 noundef 0) #10
   br label %return
 
@@ -100,13 +100,13 @@ entry:
   tail call void @rcu_register_thread() #10
   tail call void @global_dirty_log_change(i32 noundef 4, i1 noundef zeroext true) #10
   %0 = load ptr, ptr @vcpu_dirty_rate_stat, align 8
-  %running1 = getelementptr inbounds i8, ptr %0, i64 16
+  %running1 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %1 = load atomic i8, ptr %running1 monotonic, align 8
   %tobool2 = trunc i8 %1 to i1
   br i1 %tobool2, label %while.body3.lr.ph, label %while.end4
 
 while.body3.lr.ph:                                ; preds = %entry
-  %rates5.i = getelementptr inbounds i8, ptr %stat.i, i64 8
+  %rates5.i = getelementptr inbounds nuw i8, ptr %stat.i, i64 8
   br label %while.body3
 
 while.body3:                                      ; preds = %while.body3.lr.ph, %if.end
@@ -120,7 +120,7 @@ land.lhs.true.i:                                  ; preds = %while.body3
   br i1 %call2.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  %x_vcpu_dirty_limit_period.i = getelementptr inbounds i8, ptr %call.i, i64 744
+  %x_vcpu_dirty_limit_period.i = getelementptr inbounds nuw i8, ptr %call.i, i64 744
   %2 = load i64, ptr %x_vcpu_dirty_limit_period.i, align 8
   br label %if.end.i
 
@@ -134,7 +134,7 @@ if.end.i:                                         ; preds = %if.then.i, %land.lh
 for.body.i:                                       ; preds = %if.end.i, %for.body.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i ], [ 0, %if.end.i ]
   %4 = load ptr, ptr @vcpu_dirty_rate_stat, align 8
-  %rates.i = getelementptr inbounds i8, ptr %4, i64 8
+  %rates.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   %5 = load ptr, ptr %rates.i, align 8
   %arrayidx.i = getelementptr %struct.DirtyRateVcpu, ptr %5, i64 %indvars.iv.i
   store i64 %indvars.iv.i, ptr %arrayidx.i, align 8
@@ -142,7 +142,7 @@ for.body.i:                                       ; preds = %if.end.i, %for.body
   %dirty_rate.i = getelementptr %struct.DirtyRateVcpu, ptr %6, i64 %indvars.iv.i, i32 1
   %7 = load i64, ptr %dirty_rate.i, align 8
   %8 = load ptr, ptr @vcpu_dirty_rate_stat, align 8
-  %rates9.i = getelementptr inbounds i8, ptr %8, i64 8
+  %rates9.i = getelementptr inbounds nuw i8, ptr %8, i64 8
   %9 = load ptr, ptr %rates9.i, align 8
   %dirty_rate12.i = getelementptr %struct.DirtyRateVcpu, ptr %9, i64 %indvars.iv.i, i32 1
   store i64 %7, ptr %dirty_rate12.i, align 8
@@ -166,7 +166,7 @@ if.then:                                          ; preds = %vcpu_dirty_rate_sta
 
 if.end:                                           ; preds = %if.then, %vcpu_dirty_rate_stat_collect.exit
   %14 = load ptr, ptr @vcpu_dirty_rate_stat, align 8
-  %running = getelementptr inbounds i8, ptr %14, i64 16
+  %running = getelementptr inbounds nuw i8, ptr %14, i64 16
   %15 = load atomic i8, ptr %running monotonic, align 8
   %tobool = trunc i8 %15 to i1
   br i1 %tobool, label %while.body3, label %while.end4, !llvm.loop !7
@@ -181,12 +181,12 @@ while.end4:                                       ; preds = %if.end, %entry
 define dso_local void @vcpu_dirty_rate_stat_stop() local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr @vcpu_dirty_rate_stat, align 8
-  %running = getelementptr inbounds i8, ptr %0, i64 16
+  %running = getelementptr inbounds nuw i8, ptr %0, i64 16
   store atomic i8 0, ptr %running monotonic, align 8
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull @dirtylimit_mutex, ptr noundef nonnull @.str, i32 noundef 188) #10
   tail call void @qemu_mutex_unlock_iothread() #10
   %1 = load ptr, ptr @vcpu_dirty_rate_stat, align 8
-  %thread = getelementptr inbounds i8, ptr %1, i64 24
+  %thread = getelementptr inbounds nuw i8, ptr %1, i64 24
   %call = tail call ptr @qemu_thread_join(ptr noundef nonnull %thread) #10
   tail call void @qemu_mutex_lock_iothread_impl(ptr noundef nonnull @.str, i32 noundef 153) #10
   %2 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
@@ -222,7 +222,7 @@ define dso_local void @vcpu_dirty_rate_stat_initialize() local_unnamed_addr #1 {
 entry:
   %call = tail call ptr @qdev_get_machine() #10
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE) #10
-  %max_cpus2 = getelementptr inbounds i8, ptr %call.i, i64 320
+  %max_cpus2 = getelementptr inbounds nuw i8, ptr %call.i, i64 320
   %0 = load i32, ptr %max_cpus2, align 8
   %call3 = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0(i64 noundef 32) #11
   store ptr %call3, ptr @vcpu_dirty_rate_stat, align 8
@@ -230,9 +230,9 @@ entry:
   %conv = sext i32 %0 to i64
   %call4 = tail call noalias ptr @g_malloc0_n(i64 noundef %conv, i64 noundef 16) #12
   %1 = load ptr, ptr @vcpu_dirty_rate_stat, align 8
-  %rates = getelementptr inbounds i8, ptr %1, i64 8
+  %rates = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %call4, ptr %rates, align 8
-  %running = getelementptr inbounds i8, ptr %1, i64 16
+  %running = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i8 0, ptr %running, align 8
   ret void
 }
@@ -249,11 +249,11 @@ declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #4
 define dso_local void @vcpu_dirty_rate_stat_finalize() local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr @vcpu_dirty_rate_stat, align 8
-  %rates = getelementptr inbounds i8, ptr %0, i64 8
+  %rates = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1 = load ptr, ptr %rates, align 8
   tail call void @g_free(ptr noundef %1) #10
   %2 = load ptr, ptr @vcpu_dirty_rate_stat, align 8
-  %rates2 = getelementptr inbounds i8, ptr %2, i64 8
+  %rates2 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr null, ptr %rates2, align 8
   tail call void @g_free(ptr noundef %2) #10
   store ptr null, ptr @vcpu_dirty_rate_stat, align 8
@@ -279,7 +279,7 @@ entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %call = tail call ptr @qdev_get_machine() #10
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE) #10
-  %max_cpus2 = getelementptr inbounds i8, ptr %call.i, i64 320
+  %max_cpus2 = getelementptr inbounds nuw i8, ptr %call.i, i64 320
   %0 = load i32, ptr %max_cpus2, align 8
   %call3 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #11
   store ptr %call3, ptr @dirtylimit_state, align 8
@@ -307,7 +307,7 @@ for.body:                                         ; preds = %for.body.preheader,
 
 for.end:                                          ; preds = %for.body, %entry
   %5 = load ptr, ptr @dirtylimit_state, align 8
-  %max_cpus7 = getelementptr inbounds i8, ptr %5, i64 8
+  %max_cpus7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %0, ptr %max_cpus7, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %6 = load i32, ptr @trace_events_enabled_count, align 4
@@ -332,7 +332,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #10
   %call10.i.i = tail call i32 @qemu_get_thread_id() #10
   %10 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %11 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.14, i32 noundef %call10.i.i, i64 noundef %10, i64 noundef %11, i32 noundef %0) #10
   br label %trace_dirtylimit_state_initialize.exit
@@ -381,7 +381,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #10
   %call10.i.i = tail call i32 @qemu_get_thread_id() #10
   %8 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %9 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.16, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9) #10
   br label %trace_dirtylimit_state_finalize.exit
@@ -412,7 +412,7 @@ entry:
   br i1 %cmp, label %lor.end, label %lor.rhs
 
 lor.rhs:                                          ; preds = %entry
-  %max_cpus = getelementptr inbounds i8, ptr %call.i, i64 320
+  %max_cpus = getelementptr inbounds nuw i8, ptr %call.i, i64 320
   %0 = load i32, ptr %max_cpus, align 8
   %cmp2 = icmp ult i32 %cpu_index, %0
   br label %lor.end
@@ -445,13 +445,13 @@ while.end7:                                       ; preds = %if.then
   br i1 %tobool9.not5, label %if.end20.sink.split, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %while.end7
-  %tv_usec.i.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i.i, i64 8
+  %tv_usec.i.i.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i.i.i, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %while.end18
   %cpu.06.in = phi i64 [ %4, %for.body.lr.ph ], [ %24, %while.end18 ]
   %cpu.06 = inttoptr i64 %cpu.06.in to ptr
-  %cpu_index = getelementptr inbounds i8, ptr %cpu.06, i64 712
+  %cpu_index = getelementptr inbounds nuw i8, ptr %cpu.06, i64 712
   %5 = load i32, ptr %cpu_index, align 8
   %6 = load ptr, ptr @dirtylimit_state, align 8
   %7 = load ptr, ptr %6, align 8
@@ -465,7 +465,7 @@ if.end13:                                         ; preds = %for.body
   %quota2.i = getelementptr %struct.VcpuDirtyLimitState, ptr %7, i64 %idxprom.i, i32 2
   %9 = load i64, ptr %quota2.i, align 8
   %10 = load ptr, ptr @vcpu_dirty_rate_stat, align 8
-  %rates1.i.i = getelementptr inbounds i8, ptr %10, i64 8
+  %rates1.i.i = getelementptr inbounds nuw i8, ptr %10, i64 8
   %11 = load ptr, ptr %rates1.i.i, align 8
   %dirty_rate.i.i = getelementptr %struct.DirtyRateVcpu, ptr %11, i64 %idxprom.i, i32 1
   %12 = load atomic i64, ptr %dirty_rate.i.i monotonic, align 8
@@ -480,7 +480,7 @@ if.then.i:                                        ; preds = %if.end13
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
-  %throttle_us_per_full.i.i = getelementptr inbounds i8, ptr %cpu.06, i64 752
+  %throttle_us_per_full.i.i = getelementptr inbounds nuw i8, ptr %cpu.06, i64 752
   store i64 0, ptr %throttle_us_per_full.i.i, align 16
   br label %while.end18
 
@@ -504,7 +504,7 @@ dirtylimit_dirty_ring_full_time.exit.i.i:         ; preds = %if.then.i.i.i, %if.
   %div.i37.i.i = udiv i64 %mul.i36.i.i, %cond6.i.i
   %cmp7.i.i.i = icmp ugt i64 %div.i37.i.i, 50
   %cmp3.i.i = icmp ult i64 %9, %12
-  %throttle_us_per_full10.i.i = getelementptr inbounds i8, ptr %cpu.06, i64 752
+  %throttle_us_per_full10.i.i = getelementptr inbounds nuw i8, ptr %cpu.06, i64 752
   %15 = load i64, ptr %throttle_us_per_full10.i.i, align 16
   br i1 %cmp7.i.i.i, label %if.then2.i.i, label %if.else23.i.i
 
@@ -601,7 +601,7 @@ if.end35.i.i:                                     ; preds = %if.else30.i.i, %if.
   br label %while.end18
 
 while.end18:                                      ; preds = %if.end35.i.i, %if.then.i.i, %if.end13, %for.body
-  %node = getelementptr inbounds i8, ptr %cpu.06, i64 568
+  %node = getelementptr inbounds nuw i8, ptr %cpu.06, i64 568
   %24 = load atomic i64, ptr %node monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !10
   %tobool9.not = icmp eq i64 %24, 0
@@ -651,7 +651,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #10
   %call10.i.i = tail call i32 @qemu_get_thread_id() #10
   %4 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.20, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, i32 noundef %cpu_index, i64 noundef %quota) #10
   br label %trace_dirtylimit_set_vcpu.exit
@@ -690,7 +690,7 @@ if.end16.sink.split:                              ; preds = %if.else, %if.then
   %.sink = phi ptr [ %8, %if.then ], [ %11, %if.else ]
   %.sink8 = phi i32 [ 1, %if.then ], [ -1, %if.else ]
   %.ph = phi ptr [ %9, %if.then ], [ %12, %if.else ]
-  %limited_nvcpu14 = getelementptr inbounds i8, ptr %.sink, i64 12
+  %limited_nvcpu14 = getelementptr inbounds nuw i8, ptr %.sink, i64 12
   %14 = load i32, ptr %limited_nvcpu14, align 4
   %dec = add i32 %14, %.sink8
   store i32 %dec, ptr %limited_nvcpu14, align 4
@@ -709,7 +709,7 @@ define dso_local void @dirtylimit_set_all(i64 noundef %quota, i1 noundef zeroext
 entry:
   %call = tail call ptr @qdev_get_machine() #10
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE) #10
-  %max_cpus2 = getelementptr inbounds i8, ptr %call.i, i64 320
+  %max_cpus2 = getelementptr inbounds nuw i8, ptr %call.i, i64 320
   %0 = load i32, ptr %max_cpus2, align 8
   %cmp3 = icmp sgt i32 %0, 0
   br i1 %cmp3, label %for.body, label %for.end
@@ -729,7 +729,7 @@ for.end:                                          ; preds = %for.body, %entry
 define dso_local void @dirtylimit_vcpu_execute(ptr nocapture noundef readonly %cpu) local_unnamed_addr #1 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %throttle_us_per_full = getelementptr inbounds i8, ptr %cpu, i64 752
+  %throttle_us_per_full = getelementptr inbounds nuw i8, ptr %cpu, i64 752
   %0 = load i64, ptr %throttle_us_per_full, align 16
   %tobool.not = icmp eq i64 %0, 0
   br i1 %tobool.not, label %if.end7, label %if.then
@@ -743,7 +743,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool.i.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.then
-  %cpu_index = getelementptr inbounds i8, ptr %cpu, i64 712
+  %cpu_index = getelementptr inbounds nuw i8, ptr %cpu, i64 712
   %4 = load i32, ptr %cpu_index, align 8
   %5 = load ptr, ptr %3, align 8
   %idxprom.i = sext i32 %4 to i64
@@ -779,7 +779,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #10
   %call10.i.i = tail call i32 @qemu_get_thread_id() #10
   %13 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %14 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.22, i32 noundef %call10.i.i, i64 noundef %13, i64 noundef %14, i32 noundef %7, i64 noundef %8) #10
   br label %trace_dirtylimit_vcpu_execute.exit
@@ -826,7 +826,7 @@ land.lhs.true:                                    ; preds = %if.end
   br i1 %cmp.i, label %if.then3, label %dirtylimit_vcpu_index_valid.exit
 
 dirtylimit_vcpu_index_valid.exit:                 ; preds = %land.lhs.true
-  %max_cpus.i = getelementptr inbounds i8, ptr %call.i.i, i64 320
+  %max_cpus.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 320
   %1 = load i32, ptr %max_cpus.i, align 8
   %cmp2.i = icmp ugt i32 %1, %conv
   br i1 %cmp2.i, label %if.end4, label %if.then3
@@ -837,13 +837,13 @@ if.then3:                                         ; preds = %land.lhs.true, %dir
 
 if.end4:                                          ; preds = %dirtylimit_vcpu_index_valid.exit, %if.end
   %call.i4 = tail call ptr @migrate_get_current() #10
-  %state.i = getelementptr inbounds i8, ptr %call.i4, i64 776
+  %state.i = getelementptr inbounds nuw i8, ptr %call.i4, i64 776
   %2 = load i32, ptr %state.i, align 8
   %call1.i = tail call zeroext i1 @migration_is_running(i32 noundef %2) #10
   br i1 %call1.i, label %land.lhs.true.i, label %if.end7thread-pre-split
 
 land.lhs.true.i:                                  ; preds = %if.end4
-  %thread.i = getelementptr inbounds i8, ptr %call.i4, i64 160
+  %thread.i = getelementptr inbounds nuw i8, ptr %call.i4, i64 160
   %call2.i = tail call zeroext i1 @qemu_thread_is_self(ptr noundef nonnull %thread.i) #10
   br i1 %call2.i, label %if.end7thread-pre-split, label %land.lhs.true3.i
 
@@ -881,7 +881,7 @@ if.then12:                                        ; preds = %if.end10
 if.else:                                          ; preds = %if.end10
   %call.i5 = tail call ptr @qdev_get_machine() #10
   %call.i.i6 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i5, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE) #10
-  %max_cpus2.i = getelementptr inbounds i8, ptr %call.i.i6, i64 320
+  %max_cpus2.i = getelementptr inbounds nuw i8, ptr %call.i.i6, i64 320
   %7 = load i32, ptr %max_cpus2.i, align 8
   %cmp3.i = icmp sgt i32 %7, 0
   br i1 %cmp3.i, label %for.body.i, label %if.end14
@@ -895,7 +895,7 @@ for.body.i:                                       ; preds = %if.else, %for.body.
 
 if.end14:                                         ; preds = %for.body.i, %if.else, %if.then12
   %8 = load ptr, ptr @dirtylimit_state, align 8
-  %limited_nvcpu = getelementptr inbounds i8, ptr %8, i64 12
+  %limited_nvcpu = getelementptr inbounds nuw i8, ptr %8, i64 12
   %9 = load i32, ptr %limited_nvcpu, align 4
   %tobool15.not = icmp eq i32 %9, 0
   br i1 %tobool15.not, label %if.then16, label %if.end17
@@ -920,23 +920,23 @@ declare void @error_setg_internal(ptr noundef, ptr noundef, i32 noundef, ptr nou
 define internal fastcc void @dirtylimit_cleanup() unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr @vcpu_dirty_rate_stat, align 8
-  %running.i = getelementptr inbounds i8, ptr %0, i64 16
+  %running.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   store atomic i8 0, ptr %running.i monotonic, align 8
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull @dirtylimit_mutex, ptr noundef nonnull @.str, i32 noundef 188) #10
   tail call void @qemu_mutex_unlock_iothread() #10
   %1 = load ptr, ptr @vcpu_dirty_rate_stat, align 8
-  %thread.i = getelementptr inbounds i8, ptr %1, i64 24
+  %thread.i = getelementptr inbounds nuw i8, ptr %1, i64 24
   %call.i = tail call ptr @qemu_thread_join(ptr noundef nonnull %thread.i) #10
   tail call void @qemu_mutex_lock_iothread_impl(ptr noundef nonnull @.str, i32 noundef 153) #10
   %2 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %3 = inttoptr i64 %2 to ptr
   tail call void %3(ptr noundef nonnull @dirtylimit_mutex, ptr noundef nonnull @.str, i32 noundef 183) #10
   %4 = load ptr, ptr @vcpu_dirty_rate_stat, align 8
-  %rates.i = getelementptr inbounds i8, ptr %4, i64 8
+  %rates.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   %5 = load ptr, ptr %rates.i, align 8
   tail call void @g_free(ptr noundef %5) #10
   %6 = load ptr, ptr @vcpu_dirty_rate_stat, align 8
-  %rates2.i = getelementptr inbounds i8, ptr %6, i64 8
+  %rates2.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr null, ptr %rates2.i, align 8
   tail call void @g_free(ptr noundef %6) #10
   store ptr null, ptr @vcpu_dirty_rate_stat, align 8
@@ -1001,7 +1001,7 @@ land.lhs.true:                                    ; preds = %if.end
   br i1 %cmp.i, label %if.then3, label %dirtylimit_vcpu_index_valid.exit
 
 dirtylimit_vcpu_index_valid.exit:                 ; preds = %land.lhs.true
-  %max_cpus.i = getelementptr inbounds i8, ptr %call.i.i, i64 320
+  %max_cpus.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 320
   %1 = load i32, ptr %max_cpus.i, align 8
   %cmp2.i = icmp ugt i32 %1, %conv
   br i1 %cmp2.i, label %if.end4, label %if.then3
@@ -1012,13 +1012,13 @@ if.then3:                                         ; preds = %land.lhs.true, %dir
 
 if.end4:                                          ; preds = %dirtylimit_vcpu_index_valid.exit, %if.end
   %call.i10 = tail call ptr @migrate_get_current() #10
-  %state.i = getelementptr inbounds i8, ptr %call.i10, i64 776
+  %state.i = getelementptr inbounds nuw i8, ptr %call.i10, i64 776
   %2 = load i32, ptr %state.i, align 8
   %call1.i = tail call zeroext i1 @migration_is_running(i32 noundef %2) #10
   br i1 %call1.i, label %land.lhs.true.i, label %if.end7
 
 land.lhs.true.i:                                  ; preds = %if.end4
-  %thread.i = getelementptr inbounds i8, ptr %call.i10, i64 160
+  %thread.i = getelementptr inbounds nuw i8, ptr %call.i10, i64 160
   %call2.i = tail call zeroext i1 @qemu_thread_is_self(ptr noundef nonnull %thread.i) #10
   br i1 %call2.i, label %if.end7, label %land.lhs.true3.i
 
@@ -1054,7 +1054,7 @@ if.then13:                                        ; preds = %if.end11
   store atomic i8 0, ptr @dirtylimit_quit monotonic, align 1
   %call.i.i11 = tail call ptr @qdev_get_machine() #10
   %call.i.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i.i11, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE) #10
-  %max_cpus2.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 320
+  %max_cpus2.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 320
   %7 = load i32, ptr %max_cpus2.i.i, align 8
   %call3.i.i = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0(i64 noundef 32) #11
   store ptr %call3.i.i, ptr @vcpu_dirty_rate_stat, align 8
@@ -1062,9 +1062,9 @@ if.then13:                                        ; preds = %if.end11
   %conv.i.i = sext i32 %7 to i64
   %call4.i.i = tail call noalias ptr @g_malloc0_n(i64 noundef %conv.i.i, i64 noundef 16) #12
   %8 = load ptr, ptr @vcpu_dirty_rate_stat, align 8
-  %rates.i.i = getelementptr inbounds i8, ptr %8, i64 8
+  %rates.i.i = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %call4.i.i, ptr %rates.i.i, align 8
-  %running.i.i = getelementptr inbounds i8, ptr %8, i64 16
+  %running.i.i = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i8 0, ptr %running.i.i, align 8
   %9 = load atomic i8, ptr %running.i.i monotonic, align 8
   %tobool.i.i12 = trunc i8 %9 to i1
@@ -1072,7 +1072,7 @@ if.then13:                                        ; preds = %if.end11
 
 while.end7.i.i:                                   ; preds = %if.then13
   store atomic i8 1, ptr %running.i.i monotonic, align 8
-  %thread.i.i = getelementptr inbounds i8, ptr %8, i64 24
+  %thread.i.i = getelementptr inbounds nuw i8, ptr %8, i64 24
   tail call void @qemu_thread_create(ptr noundef nonnull %thread.i.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @vcpu_dirty_rate_stat_thread, ptr noundef null, i32 noundef 0) #10
   br label %if.end14
 
@@ -1087,7 +1087,7 @@ if.then16:                                        ; preds = %if.end14
 if.else:                                          ; preds = %if.end14
   %call.i13 = tail call ptr @qdev_get_machine() #10
   %call.i.i14 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i13, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE) #10
-  %max_cpus2.i = getelementptr inbounds i8, ptr %call.i.i14, i64 320
+  %max_cpus2.i = getelementptr inbounds nuw i8, ptr %call.i.i14, i64 320
   %10 = load i32, ptr %max_cpus2.i, align 8
   %cmp3.i = icmp sgt i32 %10, 0
   br i1 %cmp3.i, label %for.body.i, label %if.end18
@@ -1146,10 +1146,10 @@ for.body:                                         ; preds = %entry, %for.body
   %cpu.0.in7 = phi i64 [ %2, %for.body ], [ %0, %entry ]
   %max.06 = phi i64 [ %spec.select, %for.body ], [ 0, %entry ]
   %cpu.0 = inttoptr i64 %cpu.0.in7 to ptr
-  %throttle_us_per_full = getelementptr inbounds i8, ptr %cpu.0, i64 752
+  %throttle_us_per_full = getelementptr inbounds nuw i8, ptr %cpu.0, i64 752
   %1 = load i64, ptr %throttle_us_per_full, align 16
   %spec.select = tail call i64 @llvm.smax.i64(i64 %1, i64 %max.06)
-  %node = getelementptr inbounds i8, ptr %cpu.0, i64 568
+  %node = getelementptr inbounds nuw i8, ptr %cpu.0, i64 568
   %2 = load atomic i64, ptr %node monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !14
   %tobool.not = icmp eq i64 %2, 0
@@ -1173,17 +1173,17 @@ for.body:                                         ; preds = %entry, %while.end6
   %curr_rate.011 = phi i64 [ %curr_rate.1, %while.end6 ], [ 0, %entry ]
   %nvcpus.010 = phi i32 [ %nvcpus.1, %while.end6 ], [ 0, %entry ]
   %cpu.012 = inttoptr i64 %cpu.012.in to ptr
-  %running = getelementptr inbounds i8, ptr %cpu.012, i64 188
+  %running = getelementptr inbounds nuw i8, ptr %cpu.012, i64 188
   %1 = load i8, ptr %running, align 4
   %tobool1 = trunc i8 %1 to i1
   br i1 %tobool1, label %if.then, label %while.end6
 
 if.then:                                          ; preds = %for.body
   %inc = add i32 %nvcpus.010, 1
-  %cpu_index = getelementptr inbounds i8, ptr %cpu.012, i64 712
+  %cpu_index = getelementptr inbounds nuw i8, ptr %cpu.012, i64 712
   %2 = load i32, ptr %cpu_index, align 8
   %3 = load ptr, ptr @vcpu_dirty_rate_stat, align 8
-  %rates1.i = getelementptr inbounds i8, ptr %3, i64 8
+  %rates1.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %4 = load ptr, ptr %rates1.i, align 8
   %idxprom.i = sext i32 %2 to i64
   %dirty_rate.i = getelementptr %struct.DirtyRateVcpu, ptr %4, i64 %idxprom.i, i32 1
@@ -1194,7 +1194,7 @@ if.then:                                          ; preds = %for.body
 while.end6:                                       ; preds = %for.body, %if.then
   %nvcpus.1 = phi i32 [ %inc, %if.then ], [ %nvcpus.010, %for.body ]
   %curr_rate.1 = phi i64 [ %add, %if.then ], [ %curr_rate.011, %for.body ]
-  %node = getelementptr inbounds i8, ptr %cpu.012, i64 568
+  %node = getelementptr inbounds nuw i8, ptr %cpu.012, i64 568
   %6 = load atomic i64, ptr %node monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !17
   %tobool.not = icmp eq i64 %6, 0
@@ -1245,7 +1245,7 @@ entry:
   br i1 %tobool.i.not.i, label %dirtylimit_query_all.exit, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %entry
-  %max_cpus6.i = getelementptr inbounds i8, ptr %2, i64 8
+  %max_cpus6.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %3 = load i32, ptr %max_cpus6.i, align 8
   %cmp7.i = icmp sgt i32 %3, 0
   br i1 %cmp7.i, label %for.body.i, label %dirtylimit_query_all.exit
@@ -1270,18 +1270,18 @@ if.then2.i:                                       ; preds = %for.body.i
   %9 = load ptr, ptr %8, align 8
   %quota.i.i = getelementptr %struct.VcpuDirtyLimitState, ptr %9, i64 %idxprom.i.i, i32 2
   %10 = load i64, ptr %quota.i.i, align 8
-  %limit_rate.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
+  %limit_rate.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 8
   store i64 %10, ptr %limit_rate.i.i, align 8
   %11 = load ptr, ptr @vcpu_dirty_rate_stat, align 8
-  %rates1.i.i.i = getelementptr inbounds i8, ptr %11, i64 8
+  %rates1.i.i.i = getelementptr inbounds nuw i8, ptr %11, i64 8
   %12 = load ptr, ptr %rates1.i.i.i, align 8
   %dirty_rate.i.i.i = getelementptr %struct.DirtyRateVcpu, ptr %12, i64 %idxprom.i.i, i32 1
   %13 = load atomic i64, ptr %dirty_rate.i.i.i monotonic, align 8
-  %current_rate.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
+  %current_rate.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 16
   store i64 %13, ptr %current_rate.i.i, align 8
   %call4.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #11
   store ptr %call4.i, ptr %tail.09.i, align 8
-  %value.i = getelementptr inbounds i8, ptr %call4.i, i64 8
+  %value.i = getelementptr inbounds nuw i8, ptr %call4.i, i64 8
   store ptr %call.i.i, ptr %value.i, align 8
   %14 = load ptr, ptr %tail.09.i, align 8
   %.pre.i = load ptr, ptr @dirtylimit_state, align 8
@@ -1291,7 +1291,7 @@ for.inc.i:                                        ; preds = %if.then2.i, %for.bo
   %15 = phi ptr [ %.pre.i, %if.then2.i ], [ %4, %for.body.i ]
   %tail.1.i = phi ptr [ %14, %if.then2.i ], [ %tail.09.i, %for.body.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %max_cpus.i = getelementptr inbounds i8, ptr %15, i64 8
+  %max_cpus.i = getelementptr inbounds nuw i8, ptr %15, i64 8
   %16 = load i32, ptr %max_cpus.i, align 8
   %17 = sext i32 %16 to i64
   %cmp.i = icmp slt i64 %indvars.iv.next.i, %17
@@ -1326,12 +1326,12 @@ if.end:                                           ; preds = %entry
 
 for.body:                                         ; preds = %if.end, %for.body
   %info.010 = phi ptr [ %5, %for.body ], [ %call2, %if.end ]
-  %value = getelementptr inbounds i8, ptr %info.010, i64 8
+  %value = getelementptr inbounds nuw i8, ptr %info.010, i64 8
   %1 = load ptr, ptr %value, align 8
   %2 = load i64, ptr %1, align 8
-  %limit_rate = getelementptr inbounds i8, ptr %1, i64 8
+  %limit_rate = getelementptr inbounds nuw i8, ptr %1, i64 8
   %3 = load i64, ptr %limit_rate, align 8
-  %current_rate = getelementptr inbounds i8, ptr %1, i64 16
+  %current_rate = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i64, ptr %current_rate, align 8
   %call8 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.11, i64 noundef %2, i64 noundef %3, i64 noundef %4) #10
   %5 = load ptr, ptr %info.010, align 8

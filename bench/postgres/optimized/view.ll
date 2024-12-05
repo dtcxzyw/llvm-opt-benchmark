@@ -40,13 +40,13 @@ define dso_local { i64, i32 } @DefineView(ptr nocapture noundef %0, ptr noundef 
   %6 = alloca i32, align 4
   %7 = tail call noundef ptr @palloc0(i64 noundef 24) #6
   store i32 121, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %7, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %9, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %7, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i32 %2, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %7, i64 20
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 20
   store i32 %3, ptr %12, align 4
   %13 = tail call ptr @parse_analyze_fixedparams(ptr noundef nonnull %7, ptr noundef %1, ptr noundef null, i32 noundef 0, ptr noundef null) #6
   %14 = load i32, ptr %13, align 4
@@ -61,7 +61,7 @@ define dso_local { i64, i32 } @DefineView(ptr nocapture noundef %0, ptr noundef 
   unreachable
 
 19:                                               ; preds = %4
-  %20 = getelementptr inbounds i8, ptr %13, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %21 = load ptr, ptr %20, align 8
   %.not = icmp eq ptr %21, null
   br i1 %.not, label %29, label %22
@@ -80,7 +80,7 @@ define dso_local { i64, i32 } @DefineView(ptr nocapture noundef %0, ptr noundef 
   unreachable
 
 29:                                               ; preds = %22, %19
-  %30 = getelementptr inbounds i8, ptr %13, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %31 = load i32, ptr %30, align 4
   %.not76 = icmp eq i32 %31, 1
   br i1 %.not76, label %35, label %32
@@ -93,7 +93,7 @@ define dso_local { i64, i32 } @DefineView(ptr nocapture noundef %0, ptr noundef 
   unreachable
 
 35:                                               ; preds = %29
-  %36 = getelementptr inbounds i8, ptr %13, i64 50
+  %36 = getelementptr inbounds nuw i8, ptr %13, i64 50
   %37 = load i8, ptr %36, align 2
   %38 = trunc i8 %37 to i1
   br i1 %38, label %39, label %43
@@ -107,9 +107,9 @@ define dso_local { i64, i32 } @DefineView(ptr nocapture noundef %0, ptr noundef 
   unreachable
 
 43:                                               ; preds = %35
-  %44 = getelementptr inbounds i8, ptr %0, i64 48
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %45 = load i32, ptr %44, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 40
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   switch i32 %45, label %._crit_edge170 [
     i32 1, label %._crit_edge170.sink.split
@@ -129,18 +129,18 @@ define dso_local { i64, i32 } @DefineView(ptr nocapture noundef %0, ptr noundef 
 
 ._crit_edge170:                                   ; preds = %._crit_edge170.sink.split, %43
   %50 = phi ptr [ %.pre, %43 ], [ %49, %._crit_edge170.sink.split ]
-  %51 = getelementptr inbounds i8, ptr %0, i64 40
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.not77 = icmp eq ptr %50, null
   br i1 %.not77, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %._crit_edge170
-  %52 = getelementptr inbounds i8, ptr %50, i64 4
+  %52 = getelementptr inbounds nuw i8, ptr %50, i64 4
   %53 = load i32, ptr %52, align 4
   %54 = icmp sgt i32 %53, 0
   br i1 %54, label %.lr.ph130, label %.critedge
 
 .lr.ph130:                                        ; preds = %.lr.ph
-  %55 = getelementptr inbounds i8, ptr %50, i64 16
+  %55 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %56 = load ptr, ptr %55, align 8
   %wide.trip.count = zext nneg i32 %53 to i64
   br label %57
@@ -150,7 +150,7 @@ define dso_local { i64, i32 } @DefineView(ptr nocapture noundef %0, ptr noundef 
   %.064124128 = phi i1 [ false, %.lr.ph130 ], [ %spec.select, %57 ]
   %58 = getelementptr %union.ListCell, ptr %56, i64 %indvars.iv
   %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 16
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %61 = load ptr, ptr %60, align 8
   %62 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %61, ptr noundef nonnull dereferenceable(13) @.str.4) #8
   %63 = icmp eq i32 %62, 0
@@ -177,7 +177,7 @@ define dso_local { i64, i32 } @DefineView(ptr nocapture noundef %0, ptr noundef 
   unreachable
 
 .critedge:                                        ; preds = %._crit_edge170, %.lr.ph, %64, %._crit_edge
-  %71 = getelementptr inbounds i8, ptr %0, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %72 = load ptr, ptr %71, align 8
   %.not80 = icmp eq ptr %72, null
   br i1 %.not80, label %.thread92, label %73
@@ -185,14 +185,14 @@ define dso_local { i64, i32 } @DefineView(ptr nocapture noundef %0, ptr noundef 
 73:                                               ; preds = %.critedge
   %74 = getelementptr i8, ptr %72, i64 16
   %.val = load ptr, ptr %74, align 8
-  %75 = getelementptr inbounds i8, ptr %13, i64 104
+  %75 = getelementptr inbounds nuw i8, ptr %13, i64 104
   %76 = load ptr, ptr %75, align 8
   %.not81 = icmp eq ptr %76, null
   br i1 %.not81, label %._crit_edge136, label %.lr.ph135
 
 .lr.ph135:                                        ; preds = %73
-  %77 = getelementptr inbounds i8, ptr %76, i64 4
-  %78 = getelementptr inbounds i8, ptr %76, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 4
+  %78 = getelementptr inbounds nuw i8, ptr %76, i64 16
   %79 = load i32, ptr %77, align 4
   %80 = icmp sgt i32 %79, 0
   br i1 %80, label %.lr.ph144, label %._crit_edge136
@@ -204,17 +204,17 @@ define dso_local { i64, i32 } @DefineView(ptr nocapture noundef %0, ptr noundef 
   %82 = load ptr, ptr %78, align 8
   %83 = getelementptr %union.ListCell, ptr %82, i64 %indvars.iv167
   %84 = load ptr, ptr %83, align 8
-  %85 = getelementptr inbounds i8, ptr %84, i64 42
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 42
   %86 = load i8, ptr %85, align 2
   %87 = trunc i8 %86 to i1
   br i1 %87, label %103, label %88
 
 88:                                               ; preds = %.lr.ph144
   %89 = load ptr, ptr %.065133142, align 8
-  %90 = getelementptr inbounds i8, ptr %89, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 8
   %91 = load ptr, ptr %90, align 8
   %92 = tail call ptr @pstrdup(ptr noundef %91) #6
-  %93 = getelementptr inbounds i8, ptr %84, i64 24
+  %93 = getelementptr inbounds nuw i8, ptr %84, i64 24
   store ptr %92, ptr %93, align 8
   %94 = load ptr, ptr %71, align 8
   %95 = getelementptr i8, ptr %94, i64 4
@@ -255,9 +255,9 @@ define dso_local { i64, i32 } @DefineView(ptr nocapture noundef %0, ptr noundef 
   unreachable
 
 .thread92:                                        ; preds = %88, %._crit_edge136, %.critedge
-  %111 = getelementptr inbounds i8, ptr %0, i64 8
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %112 = load ptr, ptr %111, align 8
-  %113 = getelementptr inbounds i8, ptr %112, i64 33
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 33
   %114 = load i8, ptr %113, align 1
   %115 = icmp eq i8 %114, 117
   br i1 %115, label %116, label %120
@@ -272,7 +272,7 @@ define dso_local { i64, i32 } @DefineView(ptr nocapture noundef %0, ptr noundef 
 
 120:                                              ; preds = %.thread92
   %121 = tail call ptr @copyObjectImpl(ptr noundef nonnull %112) #6
-  %122 = getelementptr inbounds i8, ptr %121, i64 33
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 33
   %123 = load i8, ptr %122, align 1
   %124 = icmp eq i8 %123, 112
   br i1 %124, label %125, label %133
@@ -287,16 +287,16 @@ define dso_local { i64, i32 } @DefineView(ptr nocapture noundef %0, ptr noundef 
   br i1 %128, label %129, label %133
 
 129:                                              ; preds = %127
-  %130 = getelementptr inbounds i8, ptr %121, i64 24
+  %130 = getelementptr inbounds nuw i8, ptr %121, i64 24
   %131 = load ptr, ptr %130, align 8
   %132 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11, ptr noundef %131) #6
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 497, ptr noundef nonnull @__func__.DefineView) #6
   br label %133
 
 133:                                              ; preds = %129, %127, %125, %120
-  %134 = getelementptr inbounds i8, ptr %13, i64 104
+  %134 = getelementptr inbounds nuw i8, ptr %13, i64 104
   %135 = load ptr, ptr %134, align 8
-  %136 = getelementptr inbounds i8, ptr %0, i64 32
+  %136 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %137 = load i8, ptr %136, align 8
   %138 = trunc i8 %137 to i1
   %139 = load ptr, ptr %51, align 8
@@ -308,8 +308,8 @@ define dso_local { i64, i32 } @DefineView(ptr nocapture noundef %0, ptr noundef 
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %133
-  %141 = getelementptr inbounds i8, ptr %135, i64 4
-  %142 = getelementptr inbounds i8, ptr %135, i64 16
+  %141 = getelementptr inbounds nuw i8, ptr %135, i64 4
+  %142 = getelementptr inbounds nuw i8, ptr %135, i64 16
   %143 = load i32, ptr %141, align 4
   %144 = icmp sgt i32 %143, 0
   br i1 %144, label %.lr.ph131.i, label %._crit_edge.i
@@ -321,15 +321,15 @@ define dso_local { i64, i32 } @DefineView(ptr nocapture noundef %0, ptr noundef 
   %146 = load ptr, ptr %142, align 8
   %147 = getelementptr %union.ListCell, ptr %146, i64 %indvars.iv.i
   %148 = load ptr, ptr %147, align 8
-  %149 = getelementptr inbounds i8, ptr %148, i64 42
+  %149 = getelementptr inbounds nuw i8, ptr %148, i64 42
   %150 = load i8, ptr %149, align 2
   %151 = trunc i8 %150 to i1
   br i1 %151, label %177, label %152
 
 152:                                              ; preds = %.lr.ph131.i
-  %153 = getelementptr inbounds i8, ptr %148, i64 24
+  %153 = getelementptr inbounds nuw i8, ptr %148, i64 24
   %154 = load ptr, ptr %153, align 8
-  %155 = getelementptr inbounds i8, ptr %148, i64 8
+  %155 = getelementptr inbounds nuw i8, ptr %148, i64 8
   %156 = load ptr, ptr %155, align 8
   %157 = tail call i32 @exprType(ptr noundef %156) #6
   %158 = load ptr, ptr %155, align 8
@@ -343,7 +343,7 @@ define dso_local { i64, i32 } @DefineView(ptr nocapture noundef %0, ptr noundef 
   br i1 %165, label %166, label %175
 
 166:                                              ; preds = %152
-  %167 = getelementptr inbounds i8, ptr %162, i64 96
+  %167 = getelementptr inbounds nuw i8, ptr %162, i64 96
   %168 = load i32, ptr %167, align 8
   %.not86.i = icmp eq i32 %168, 0
   br i1 %.not86.i, label %.split.i, label %175
@@ -352,7 +352,7 @@ define dso_local { i64, i32 } @DefineView(ptr nocapture noundef %0, ptr noundef 
   %169 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
   tail call void @llvm.assume(i1 %169)
   %170 = tail call i32 @errcode(i32 noundef 34209924) #6
-  %171 = getelementptr inbounds i8, ptr %162, i64 8
+  %171 = getelementptr inbounds nuw i8, ptr %162, i64 8
   %172 = load ptr, ptr %171, align 8
   %173 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.12, ptr noundef %172) #6
   %174 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.13) #6
@@ -383,9 +383,9 @@ define dso_local { i64, i32 } @DefineView(ptr nocapture noundef %0, ptr noundef 
 
 184:                                              ; preds = %._crit_edge.i
   %185 = call ptr @relation_open(i32 noundef %183, i32 noundef 0) #6
-  %186 = getelementptr inbounds i8, ptr %185, i64 56
+  %186 = getelementptr inbounds nuw i8, ptr %185, i64 56
   %187 = load ptr, ptr %186, align 8
-  %188 = getelementptr inbounds i8, ptr %187, i64 115
+  %188 = getelementptr inbounds nuw i8, ptr %187, i64 115
   %189 = load i8, ptr %188, align 1
   %.not83.i = icmp eq i8 %189, 118
   br i1 %.not83.i, label %196, label %190
@@ -395,7 +395,7 @@ define dso_local { i64, i32 } @DefineView(ptr nocapture noundef %0, ptr noundef 
   call void @llvm.assume(i1 %191)
   %192 = call i32 @errcode(i32 noundef 151027844) #6
   %193 = load ptr, ptr %186, align 8
-  %194 = getelementptr inbounds i8, ptr %193, i64 4
+  %194 = getelementptr inbounds nuw i8, ptr %193, i64 4
   %195 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.14, ptr noundef nonnull %194) #6
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 120, ptr noundef nonnull @__func__.DefineVirtualRelation) #6
   unreachable
@@ -403,7 +403,7 @@ define dso_local { i64, i32 } @DefineView(ptr nocapture noundef %0, ptr noundef 
 196:                                              ; preds = %184
   call void @CheckTableNotInUse(ptr noundef nonnull %185, ptr noundef nonnull @.str.15) #6
   %197 = call ptr @BuildDescForRelation(ptr noundef %.0.lcssa.i) #6
-  %198 = getelementptr inbounds i8, ptr %185, i64 64
+  %198 = getelementptr inbounds nuw i8, ptr %185, i64 64
   %199 = load ptr, ptr %198, align 8
   %200 = load i32, ptr %197, align 8
   %201 = load i32, ptr %199, align 8
@@ -415,8 +415,8 @@ define dso_local { i64, i32 } @DefineView(ptr nocapture noundef %0, ptr noundef 
   br i1 %203, label %.lr.ph.i.i, label %checkViewTupleDesc.exit.i
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i
-  %204 = getelementptr inbounds i8, ptr %197, i64 24
-  %205 = getelementptr inbounds i8, ptr %199, i64 24
+  %204 = getelementptr inbounds nuw i8, ptr %197, i64 24
+  %205 = getelementptr inbounds nuw i8, ptr %199, i64 24
   %wide.trip.count.i.i = zext nneg i32 %201 to i64
   br label %211
 
@@ -437,9 +437,9 @@ define dso_local { i64, i32 } @DefineView(ptr nocapture noundef %0, ptr noundef 
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %210 ]
   %212 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %204, i64 0, i64 %indvars.iv.i.i
   %213 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %205, i64 0, i64 %indvars.iv.i.i
-  %214 = getelementptr inbounds i8, ptr %212, i64 95
+  %214 = getelementptr inbounds nuw i8, ptr %212, i64 95
   %215 = load i8, ptr %214, align 1
-  %216 = getelementptr inbounds i8, ptr %213, i64 95
+  %216 = getelementptr inbounds nuw i8, ptr %213, i64 95
   %217 = load i8, ptr %216, align 1
   %218 = xor i8 %217, %215
   %219 = and i8 %218, 1
@@ -455,8 +455,8 @@ define dso_local { i64, i32 } @DefineView(ptr nocapture noundef %0, ptr noundef 
   unreachable
 
 224:                                              ; preds = %211
-  %225 = getelementptr inbounds i8, ptr %212, i64 4
-  %226 = getelementptr inbounds i8, ptr %213, i64 4
+  %225 = getelementptr inbounds nuw i8, ptr %212, i64 4
+  %226 = getelementptr inbounds nuw i8, ptr %213, i64 4
   %227 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %225, ptr noundef nonnull dereferenceable(1) %226) #8
   %.not28.i.i = icmp eq i32 %227, 0
   br i1 %.not28.i.i, label %233, label %228
@@ -471,33 +471,33 @@ define dso_local { i64, i32 } @DefineView(ptr nocapture noundef %0, ptr noundef 
   unreachable
 
 233:                                              ; preds = %224
-  %234 = getelementptr inbounds i8, ptr %212, i64 68
+  %234 = getelementptr inbounds nuw i8, ptr %212, i64 68
   %235 = load i32, ptr %234, align 4
-  %236 = getelementptr inbounds i8, ptr %213, i64 68
+  %236 = getelementptr inbounds nuw i8, ptr %213, i64 68
   %237 = load i32, ptr %236, align 4
   %.not29.i.i = icmp eq i32 %235, %237
   br i1 %.not29.i.i, label %238, label %243
 
 238:                                              ; preds = %233
-  %239 = getelementptr inbounds i8, ptr %212, i64 80
+  %239 = getelementptr inbounds nuw i8, ptr %212, i64 80
   %240 = load i32, ptr %239, align 4
-  %241 = getelementptr inbounds i8, ptr %213, i64 80
+  %241 = getelementptr inbounds nuw i8, ptr %213, i64 80
   %242 = load i32, ptr %241, align 4
   %.not30.i.i = icmp eq i32 %240, %242
   br i1 %.not30.i.i, label %257, label %243
 
 243:                                              ; preds = %238, %233
-  %244 = getelementptr inbounds i8, ptr %212, i64 68
-  %245 = getelementptr inbounds i8, ptr %213, i64 68
+  %244 = getelementptr inbounds nuw i8, ptr %212, i64 68
+  %245 = getelementptr inbounds nuw i8, ptr %213, i64 68
   %246 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
   call void @llvm.assume(i1 %246)
   %247 = call i32 @errcode(i32 noundef 101056644) #6
   %248 = load i32, ptr %245, align 4
-  %249 = getelementptr inbounds i8, ptr %213, i64 80
+  %249 = getelementptr inbounds nuw i8, ptr %213, i64 80
   %250 = load i32, ptr %249, align 4
   %251 = call ptr @format_type_with_typemod(i32 noundef %248, i32 noundef %250) #6
   %252 = load i32, ptr %244, align 4
-  %253 = getelementptr inbounds i8, ptr %212, i64 80
+  %253 = getelementptr inbounds nuw i8, ptr %212, i64 80
   %254 = load i32, ptr %253, align 4
   %255 = call ptr @format_type_with_typemod(i32 noundef %252, i32 noundef %254) #6
   %256 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.19, ptr noundef nonnull %226, ptr noundef %251, ptr noundef %255) #6
@@ -505,16 +505,16 @@ define dso_local { i64, i32 } @DefineView(ptr nocapture noundef %0, ptr noundef 
   unreachable
 
 257:                                              ; preds = %238
-  %258 = getelementptr inbounds i8, ptr %212, i64 100
+  %258 = getelementptr inbounds nuw i8, ptr %212, i64 100
   %259 = load i32, ptr %258, align 4
-  %260 = getelementptr inbounds i8, ptr %213, i64 100
+  %260 = getelementptr inbounds nuw i8, ptr %213, i64 100
   %261 = load i32, ptr %260, align 4
   %.not31.i.i = icmp eq i32 %259, %261
   br i1 %.not31.i.i, label %210, label %262
 
 262:                                              ; preds = %257
-  %263 = getelementptr inbounds i8, ptr %212, i64 100
-  %264 = getelementptr inbounds i8, ptr %213, i64 100
+  %263 = getelementptr inbounds nuw i8, ptr %212, i64 100
+  %264 = getelementptr inbounds nuw i8, ptr %213, i64 100
   %265 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
   call void @llvm.assume(i1 %265)
   %266 = call i32 @errcode(i32 noundef 101056644) #6
@@ -535,13 +535,13 @@ list_length.exit.i:                               ; preds = %checkViewTupleDesc.
   br i1 %272, label %._crit_edge141.i, label %295
 
 list_length.exit.thread.i:                        ; preds = %checkViewTupleDesc.exit.i
-  %273 = getelementptr inbounds i8, ptr %.0.lcssa.i, i64 4
+  %273 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i, i64 4
   %274 = load i32, ptr %273, align 4
   %275 = icmp sgt i32 %274, %201
   br i1 %275, label %.lr.ph140.i, label %295
 
 .lr.ph140.i:                                      ; preds = %list_length.exit.thread.i
-  %276 = getelementptr inbounds i8, ptr %.0.lcssa.i, i64 16
+  %276 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i, i64 16
   %277 = icmp sgt i32 %274, 0
   br i1 %277, label %.lr.ph150.i, label %._crit_edge141.i
 
@@ -562,10 +562,10 @@ list_length.exit.thread.i:                        ; preds = %checkViewTupleDesc.
   %284 = getelementptr %union.ListCell, ptr %283, i64 %indvars.iv170.i
   %285 = call noundef ptr @palloc0(i64 noundef 48) #6
   store i32 133, ptr %285, align 4
-  %286 = getelementptr inbounds i8, ptr %285, i64 4
+  %286 = getelementptr inbounds nuw i8, ptr %285, i64 4
   store i32 1, ptr %286, align 4
   %287 = load ptr, ptr %284, align 8
-  %288 = getelementptr inbounds i8, ptr %285, i64 32
+  %288 = getelementptr inbounds nuw i8, ptr %285, i64 32
   store ptr %287, ptr %288, align 8
   %289 = call ptr @lappend(ptr noundef %.072139147.i, ptr noundef nonnull %285) #6
   %.pre173.i = load i32, ptr %273, align 4
@@ -595,18 +595,18 @@ list_length.exit.thread.i:                        ; preds = %checkViewTupleDesc.
   call void @CommandCounterIncrement() #6
   %300 = call noundef ptr @palloc0(i64 noundef 48) #6
   store i32 133, ptr %300, align 4
-  %301 = getelementptr inbounds i8, ptr %300, i64 4
+  %301 = getelementptr inbounds nuw i8, ptr %300, i64 4
   store i32 37, ptr %301, align 4
-  %302 = getelementptr inbounds i8, ptr %300, i64 32
+  %302 = getelementptr inbounds nuw i8, ptr %300, i64 32
   store ptr %139, ptr %302, align 8
   %303 = call ptr @list_make1_impl(i32 noundef 1, ptr nonnull %300) #6
   %304 = load i32, ptr %6, align 4
   call void @AlterTableInternal(i32 noundef %304, ptr noundef %303, i1 noundef zeroext true) #6
   store i32 1259, ptr %5, align 8
   %305 = load i32, ptr %6, align 4
-  %306 = getelementptr inbounds i8, ptr %5, i64 4
+  %306 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %305, ptr %306, align 4
-  %307 = getelementptr inbounds i8, ptr %5, i64 8
+  %307 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 0, ptr %307, align 8
   call void @recordDependencyOnCurrentExtension(ptr noundef nonnull %5, i1 noundef zeroext true) #6
   call void @relation_close(ptr noundef %185, i32 noundef 0) #6
@@ -617,21 +617,21 @@ list_length.exit.thread.i:                        ; preds = %checkViewTupleDesc.
   br label %DefineVirtualRelation.exit
 
 310:                                              ; preds = %._crit_edge.i
-  %311 = getelementptr inbounds i8, ptr %140, i64 8
+  %311 = getelementptr inbounds nuw i8, ptr %140, i64 8
   store ptr %121, ptr %311, align 8
-  %312 = getelementptr inbounds i8, ptr %140, i64 16
+  %312 = getelementptr inbounds nuw i8, ptr %140, i64 16
   store ptr %.0.lcssa.i, ptr %312, align 8
-  %313 = getelementptr inbounds i8, ptr %140, i64 24
+  %313 = getelementptr inbounds nuw i8, ptr %140, i64 24
   store ptr null, ptr %313, align 8
-  %314 = getelementptr inbounds i8, ptr %140, i64 56
+  %314 = getelementptr inbounds nuw i8, ptr %140, i64 56
   store ptr null, ptr %314, align 8
-  %315 = getelementptr inbounds i8, ptr %140, i64 72
+  %315 = getelementptr inbounds nuw i8, ptr %140, i64 72
   store ptr %139, ptr %315, align 8
-  %316 = getelementptr inbounds i8, ptr %140, i64 80
+  %316 = getelementptr inbounds nuw i8, ptr %140, i64 80
   store i32 0, ptr %316, align 8
-  %317 = getelementptr inbounds i8, ptr %140, i64 88
+  %317 = getelementptr inbounds nuw i8, ptr %140, i64 88
   store ptr null, ptr %317, align 8
-  %318 = getelementptr inbounds i8, ptr %140, i64 104
+  %318 = getelementptr inbounds nuw i8, ptr %140, i64 104
   store i8 0, ptr %318, align 8
   %319 = call { i64, i32 } @DefineRelation(ptr noundef nonnull %140, i8 noundef signext 118, i32 noundef 0, ptr noundef null, ptr noundef null) #6
   %.fca.0.extract.i = extractvalue { i64, i32 } %319, 0

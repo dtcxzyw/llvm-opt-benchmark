@@ -103,10 +103,10 @@ $_ZNSt6vectorIN7msdfgen28MultiAndTrueDistanceSelectorESaIS1_EE17_M_default_appen
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN7msdfgen21SimpleContourCombinerINS_20TrueDistanceSelectorEEC2ERKNS_5ShapeE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(25) %shape) unnamed_addr #0 comdat($_ZN7msdfgen21SimpleContourCombinerINS_20TrueDistanceSelectorEEC5ERKNS_5ShapeE) align 2 {
 entry:
-  %minDistance.i = getelementptr inbounds i8, ptr %this, i64 16
+  %minDistance.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %this, i8 0, i64 16, i1 false)
   store double 0xFFEFFFFFFFFFFFFF, ptr %minDistance.i, align 8
-  %dot.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %dot.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store double 0.000000e+00, ptr %dot.i.i, align 8
   ret void
 }
@@ -139,7 +139,7 @@ declare noundef double @_ZNK7msdfgen20TrueDistanceSelector8distanceEv(ptr nounde
 define weak_odr dso_local void @_ZN7msdfgen21SimpleContourCombinerINS_22PseudoDistanceSelectorEEC2ERKNS_5ShapeE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(25) %shape) unnamed_addr #0 comdat($_ZN7msdfgen21SimpleContourCombinerINS_22PseudoDistanceSelectorEEC5ERKNS_5ShapeE) align 2 {
 entry:
   tail call void @_ZN7msdfgen26PseudoDistanceSelectorBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this)
-  %p.i = getelementptr inbounds i8, ptr %this, i64 48
+  %p.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %p.i, i8 0, i64 16, i1 false)
   ret void
 }
@@ -171,12 +171,12 @@ declare noundef double @_ZNK7msdfgen22PseudoDistanceSelector8distanceEv(ptr noun
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN7msdfgen21SimpleContourCombinerINS_21MultiDistanceSelectorEEC2ERKNS_5ShapeE(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef nonnull align 8 dereferenceable(25) %shape) unnamed_addr #0 comdat($_ZN7msdfgen21SimpleContourCombinerINS_21MultiDistanceSelectorEEC5ERKNS_5ShapeE) align 2 {
 entry:
-  %r.i = getelementptr inbounds i8, ptr %this, i64 16
+  %r.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %this, i8 0, i64 16, i1 false)
   tail call void @_ZN7msdfgen26PseudoDistanceSelectorBaseC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %r.i)
-  %g.i = getelementptr inbounds i8, ptr %this, i64 64
+  %g.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   tail call void @_ZN7msdfgen26PseudoDistanceSelectorBaseC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %g.i)
-  %b.i = getelementptr inbounds i8, ptr %this, i64 112
+  %b.i = getelementptr inbounds nuw i8, ptr %this, i64 112
   tail call void @_ZN7msdfgen26PseudoDistanceSelectorBaseC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %b.i)
   ret void
 }
@@ -208,12 +208,12 @@ declare void @_ZNK7msdfgen21MultiDistanceSelector8distanceEv(ptr sret(%"struct.m
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN7msdfgen21SimpleContourCombinerINS_28MultiAndTrueDistanceSelectorEEC2ERKNS_5ShapeE(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef nonnull align 8 dereferenceable(25) %shape) unnamed_addr #0 comdat($_ZN7msdfgen21SimpleContourCombinerINS_28MultiAndTrueDistanceSelectorEEC5ERKNS_5ShapeE) align 2 {
 entry:
-  %r.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %r.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %this, i8 0, i64 16, i1 false)
   tail call void @_ZN7msdfgen26PseudoDistanceSelectorBaseC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %r.i.i)
-  %g.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  %g.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   tail call void @_ZN7msdfgen26PseudoDistanceSelectorBaseC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %g.i.i)
-  %b.i.i = getelementptr inbounds i8, ptr %this, i64 112
+  %b.i.i = getelementptr inbounds nuw i8, ptr %this, i64 112
   tail call void @_ZN7msdfgen26PseudoDistanceSelectorBaseC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %b.i.i)
   ret void
 }
@@ -243,9 +243,9 @@ declare void @_ZNK7msdfgen28MultiAndTrueDistanceSelector8distanceEv(ptr sret(%"s
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN7msdfgen26OverlappingContourCombinerINS_20TrueDistanceSelectorEEC2ERKNS_5ShapeE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(25) %shape) unnamed_addr #0 comdat($_ZN7msdfgen26OverlappingContourCombinerINS_20TrueDistanceSelectorEEC5ERKNS_5ShapeE) align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %windings = getelementptr inbounds i8, ptr %this, i64 16
-  %edgeSelectors = getelementptr inbounds i8, ptr %this, i64 40
-  %_M_finish.i = getelementptr inbounds i8, ptr %shape, i64 8
+  %windings = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %edgeSelectors = getelementptr inbounds nuw i8, ptr %this, i64 40
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %shape, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %this, i8 0, i64 64, i1 false)
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %shape, align 8
@@ -265,7 +265,7 @@ if.then.i.cont:                                   ; preds = %if.then.i.invoke
   unreachable
 
 if.end.i:                                         ; preds = %entry
-  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %_M_end_of_storage.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %cmp3.i.not = icmp eq ptr %0, %1
   br i1 %cmp3.i.not, label %invoke.cont, label %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i
 
@@ -275,10 +275,10 @@ _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i: ; preds = %if.end.i
           to label %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i unwind label %lpad.loopexit.split-lp
 
 _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i: ; preds = %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i
-  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr %call5.i.i.i.i4, ptr %windings, align 8
   store ptr %call5.i.i.i.i4, ptr %_M_finish.i.i, align 8
-  %add.ptr21.i = getelementptr inbounds i32, ptr %call5.i.i.i.i4, i64 %sub.ptr.div.i
+  %add.ptr21.i = getelementptr inbounds nuw i32, ptr %call5.i.i.i.i4, i64 %sub.ptr.div.i
   store ptr %add.ptr21.i, ptr %_M_end_of_storage.i.i, align 8
   %.pre = load ptr, ptr %shape, align 8
   %.pre39 = load ptr, ptr %_M_finish.i, align 8
@@ -291,7 +291,7 @@ invoke.cont:                                      ; preds = %_ZNSt12_Vector_base
   br i1 %cmp.i6.not36, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %invoke.cont
-  %_M_finish.i.i7 = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_finish.i.i7 = getelementptr inbounds nuw i8, ptr %this, i64 24
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -308,7 +308,7 @@ invoke.cont12:                                    ; preds = %for.body
 if.then.i.i9:                                     ; preds = %invoke.cont12
   store i32 %call13, ptr %5, align 4
   %7 = load ptr, ptr %_M_finish.i.i7, align 8
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %7, i64 4
+  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %7, i64 4
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i7, align 8
   br label %for.inc
 
@@ -327,28 +327,24 @@ _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %if.else.i.i
   %cmp7.i.i.i.i = icmp ult i64 %add.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   %9 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i.i, i64 2305843009213693951)
   %cond.i.i.i.i = select i1 %cmp7.i.i.i.i, i64 2305843009213693951, i64 %9
-  %cmp.not.i.i.i.i = icmp eq i64 %cond.i.i.i.i, 0
-  br i1 %cmp.not.i.i.i.i, label %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i.i, label %cond.true.i.i.i.i
-
-cond.true.i.i.i.i:                                ; preds = %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i
+  %cmp.not.i.i.i.i = icmp ne i64 %cond.i.i.i.i, 0
+  tail call void @llvm.assume(i1 %cmp.not.i.i.i.i)
   %mul.i.i.i.i.i.i = shl nuw nsw i64 %cond.i.i.i.i, 2
   %call5.i.i.i.i.i.i11 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #14
-          to label %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i.i unwind label %lpad.loopexit
+          to label %call5.i.i.i.i.i.i.noexc unwind label %lpad.loopexit
 
-_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i.i: ; preds = %cond.true.i.i.i.i, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i
-  %cond.i10.i.i.i = phi ptr [ null, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i ], [ %call5.i.i.i.i.i.i11, %cond.true.i.i.i.i ]
-  %add.ptr.i.i.i = getelementptr inbounds i32, ptr %cond.i10.i.i.i, i64 %sub.ptr.div.i.i.i.i.i
+call5.i.i.i.i.i.i.noexc:                          ; preds = %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i11, i64 %sub.ptr.sub.i.i.i.i.i
   store i32 %call13, ptr %add.ptr.i.i.i, align 4
   %cmp.i.i.i.i.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit17.i.i.i
 
-if.then.i.i.i.i.i.i:                              ; preds = %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %cond.i10.i.i.i, ptr align 4 %8, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
+if.then.i.i.i.i.i.i:                              ; preds = %call5.i.i.i.i.i.i.noexc
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %call5.i.i.i.i.i.i11, ptr align 4 %8, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
   br label %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit17.i.i.i
 
-_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit17.i.i.i: ; preds = %if.then.i.i.i.i.i.i, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i.i
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i10.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i, i64 4
+_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit17.i.i.i: ; preds = %if.then.i.i.i.i.i.i, %call5.i.i.i.i.i.i.noexc
+  %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i, i64 4
   %tobool.not.i.i.i.i = icmp eq ptr %8, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i, label %if.then.i18.i.i.i
 
@@ -357,19 +353,19 @@ if.then.i18.i.i.i:                                ; preds = %_ZNSt6vectorIiSaIiE
   br label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i: ; preds = %if.then.i18.i.i.i, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit17.i.i.i
-  store ptr %cond.i10.i.i.i, ptr %windings, align 8
+  store ptr %call5.i.i.i.i.i.i11, ptr %windings, align 8
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i7, align 8
-  %add.ptr19.i.i.i = getelementptr inbounds i32, ptr %cond.i10.i.i.i, i64 %cond.i.i.i.i
+  %add.ptr19.i.i.i = getelementptr inbounds nuw i32, ptr %call5.i.i.i.i.i.i11, i64 %cond.i.i.i.i
   store ptr %add.ptr19.i.i.i, ptr %_M_end_of_storage.i.i, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i, %if.then.i.i9
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %contour.sroa.0.037, i64 24
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %contour.sroa.0.037, i64 24
   %10 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i6.not = icmp eq ptr %incdec.ptr.i, %10
   br i1 %cmp.i6.not, label %for.end.loopexit, label %for.body, !llvm.loop !5
 
-lpad.loopexit:                                    ; preds = %for.body, %cond.true.i.i.i.i
+lpad.loopexit:                                    ; preds = %for.body, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i
   %lpad.loopexit32 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
@@ -403,7 +399,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt6vectorIN7msdf
 
 for.end.loopexit:                                 ; preds = %for.inc
   %.pre40 = load ptr, ptr %shape, align 8
-  %_M_finish.i.i19.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 48
+  %_M_finish.i.i19.phi.trans.insert = getelementptr inbounds nuw i8, ptr %this, i64 48
   %.pre41 = load ptr, ptr %_M_finish.i.i19.phi.trans.insert, align 8
   %.pre42 = load ptr, ptr %edgeSelectors, align 8
   br label %for.end
@@ -417,7 +413,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
   %sub.ptr.rhs.cast.i16 = ptrtoint ptr %15 to i64
   %sub.ptr.sub.i17 = sub i64 %sub.ptr.lhs.cast.i15, %sub.ptr.rhs.cast.i16
   %sub.ptr.div.i18 = sdiv exact i64 %sub.ptr.sub.i17, 24
-  %_M_finish.i.i19 = getelementptr inbounds i8, ptr %this, i64 48
+  %_M_finish.i.i19 = getelementptr inbounds nuw i8, ptr %this, i64 48
   %sub.ptr.lhs.cast.i.i20 = ptrtoint ptr %14 to i64
   %sub.ptr.rhs.cast.i.i21 = ptrtoint ptr %13 to i64
   %sub.ptr.sub.i.i22 = sub i64 %sub.ptr.lhs.cast.i.i20, %sub.ptr.rhs.cast.i.i21
@@ -455,9 +451,9 @@ declare noundef i32 @_ZNK7msdfgen7Contour7windingEv(ptr noundef nonnull align 8 
 define weak_odr dso_local void @_ZN7msdfgen26OverlappingContourCombinerINS_20TrueDistanceSelectorEE5resetERKNS_7Vector2E(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(16) %p) local_unnamed_addr #0 comdat align 2 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %p, i64 16, i1 false)
-  %edgeSelectors = getelementptr inbounds i8, ptr %this, i64 40
+  %edgeSelectors = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %edgeSelectors, align 8
-  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 48
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not4 = icmp eq ptr %0, %1
   br i1 %cmp.i.not4, label %for.end, label %for.body
@@ -465,7 +461,7 @@ entry:
 for.body:                                         ; preds = %entry, %for.body
   %contourEdgeSelector.sroa.0.05 = phi ptr [ %incdec.ptr.i, %for.body ], [ %0, %entry ]
   tail call void @_ZN7msdfgen20TrueDistanceSelector5resetERKNS_7Vector2E(ptr noundef nonnull align 8 dereferenceable(32) %contourEdgeSelector.sroa.0.05, ptr noundef nonnull align 8 dereferenceable(16) %p)
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %contourEdgeSelector.sroa.0.05, i64 32
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %contourEdgeSelector.sroa.0.05, i64 32
   %2 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %2
   br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !7
@@ -480,7 +476,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN7msdfgen26OverlappingContourCombinerINS_20TrueDistanceSelectorEE12edgeSelectorEi(ptr noundef nonnull align 8 dereferenceable(64) %this, i32 noundef %i) local_unnamed_addr #2 comdat align 2 {
 entry:
-  %edgeSelectors = getelementptr inbounds i8, ptr %this, i64 40
+  %edgeSelectors = getelementptr inbounds nuw i8, ptr %this, i64 40
   %conv = sext i32 %i to i64
   %0 = load ptr, ptr %edgeSelectors, align 8
   %add.ptr.i = getelementptr inbounds %"class.msdfgen::TrueDistanceSelector", ptr %0, i64 %conv
@@ -493,8 +489,8 @@ entry:
   %shapeEdgeSelector = alloca %"class.msdfgen::TrueDistanceSelector", align 8
   %innerEdgeSelector = alloca %"class.msdfgen::TrueDistanceSelector", align 8
   %outerEdgeSelector = alloca %"class.msdfgen::TrueDistanceSelector", align 8
-  %edgeSelectors = getelementptr inbounds i8, ptr %this, i64 40
-  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 48
+  %edgeSelectors = getelementptr inbounds nuw i8, ptr %this, i64 40
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %edgeSelectors, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
@@ -502,20 +498,20 @@ entry:
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = lshr i64 %sub.ptr.sub.i, 5
   %conv = trunc i64 %sub.ptr.div.i to i32
-  %minDistance.i = getelementptr inbounds i8, ptr %shapeEdgeSelector, i64 16
+  %minDistance.i = getelementptr inbounds nuw i8, ptr %shapeEdgeSelector, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %shapeEdgeSelector, i8 0, i64 16, i1 false)
   store double 0xFFEFFFFFFFFFFFFF, ptr %minDistance.i, align 8
-  %dot.i.i = getelementptr inbounds i8, ptr %shapeEdgeSelector, i64 24
+  %dot.i.i = getelementptr inbounds nuw i8, ptr %shapeEdgeSelector, i64 24
   store double 0.000000e+00, ptr %dot.i.i, align 8
-  %minDistance.i38 = getelementptr inbounds i8, ptr %innerEdgeSelector, i64 16
+  %minDistance.i38 = getelementptr inbounds nuw i8, ptr %innerEdgeSelector, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %innerEdgeSelector, i8 0, i64 16, i1 false)
   store double 0xFFEFFFFFFFFFFFFF, ptr %minDistance.i38, align 8
-  %dot.i.i39 = getelementptr inbounds i8, ptr %innerEdgeSelector, i64 24
+  %dot.i.i39 = getelementptr inbounds nuw i8, ptr %innerEdgeSelector, i64 24
   store double 0.000000e+00, ptr %dot.i.i39, align 8
-  %minDistance.i40 = getelementptr inbounds i8, ptr %outerEdgeSelector, i64 16
+  %minDistance.i40 = getelementptr inbounds nuw i8, ptr %outerEdgeSelector, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %outerEdgeSelector, i8 0, i64 16, i1 false)
   store double 0xFFEFFFFFFFFFFFFF, ptr %minDistance.i40, align 8
-  %dot.i.i41 = getelementptr inbounds i8, ptr %outerEdgeSelector, i64 24
+  %dot.i.i41 = getelementptr inbounds nuw i8, ptr %outerEdgeSelector, i64 24
   store double 0.000000e+00, ptr %dot.i.i41, align 8
   call void @_ZN7msdfgen20TrueDistanceSelector5resetERKNS_7Vector2E(ptr noundef nonnull align 8 dereferenceable(32) %shapeEdgeSelector, ptr noundef nonnull align 8 dereferenceable(16) %this)
   call void @_ZN7msdfgen20TrueDistanceSelector5resetERKNS_7Vector2E(ptr noundef nonnull align 8 dereferenceable(32) %innerEdgeSelector, ptr noundef nonnull align 8 dereferenceable(16) %this)
@@ -524,20 +520,20 @@ entry:
   br i1 %cmp62, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %windings = getelementptr inbounds i8, ptr %this, i64 16
+  %windings = getelementptr inbounds nuw i8, ptr %this, i64 16
   %wide.trip.count = and i64 %sub.ptr.div.i, 2147483647
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %2 = load ptr, ptr %edgeSelectors, align 8
-  %add.ptr.i = getelementptr inbounds %"class.msdfgen::TrueDistanceSelector", ptr %2, i64 %indvars.iv
+  %add.ptr.i = getelementptr inbounds nuw %"class.msdfgen::TrueDistanceSelector", ptr %2, i64 %indvars.iv
   %call7 = call noundef double @_ZNK7msdfgen20TrueDistanceSelector8distanceEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i)
   %3 = load ptr, ptr %edgeSelectors, align 8
-  %add.ptr.i42 = getelementptr inbounds %"class.msdfgen::TrueDistanceSelector", ptr %3, i64 %indvars.iv
+  %add.ptr.i42 = getelementptr inbounds nuw %"class.msdfgen::TrueDistanceSelector", ptr %3, i64 %indvars.iv
   call void @_ZN7msdfgen20TrueDistanceSelector5mergeERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %shapeEdgeSelector, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i42)
   %4 = load ptr, ptr %windings, align 8
-  %add.ptr.i43 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv
+  %add.ptr.i43 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
   %5 = load i32, ptr %add.ptr.i43, align 4
   %cmp13 = icmp slt i32 %5, 1
   %cmp15 = fcmp ult double %call7, 0.000000e+00
@@ -546,10 +542,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 if.then:                                          ; preds = %for.body
   %6 = load ptr, ptr %edgeSelectors, align 8
-  %add.ptr.i44 = getelementptr inbounds %"class.msdfgen::TrueDistanceSelector", ptr %6, i64 %indvars.iv
+  %add.ptr.i44 = getelementptr inbounds nuw %"class.msdfgen::TrueDistanceSelector", ptr %6, i64 %indvars.iv
   call void @_ZN7msdfgen20TrueDistanceSelector5mergeERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %innerEdgeSelector, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i44)
   %.pre = load ptr, ptr %windings, align 8
-  %add.ptr.i45.phi.trans.insert = getelementptr inbounds i32, ptr %.pre, i64 %indvars.iv
+  %add.ptr.i45.phi.trans.insert = getelementptr inbounds nuw i32, ptr %.pre, i64 %indvars.iv
   %.pre92 = load i32, ptr %add.ptr.i45.phi.trans.insert, align 4
   br label %if.end
 
@@ -562,7 +558,7 @@ if.end:                                           ; preds = %if.then, %for.body
 
 if.then26:                                        ; preds = %if.end
   %8 = load ptr, ptr %edgeSelectors, align 8
-  %add.ptr.i46 = getelementptr inbounds %"class.msdfgen::TrueDistanceSelector", ptr %8, i64 %indvars.iv
+  %add.ptr.i46 = getelementptr inbounds nuw %"class.msdfgen::TrueDistanceSelector", ptr %8, i64 %indvars.iv
   call void @_ZN7msdfgen20TrueDistanceSelector5mergeERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %outerEdgeSelector, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i46)
   br label %for.inc
 
@@ -588,7 +584,7 @@ for.cond41.preheader:                             ; preds = %land.lhs.true37
   br i1 %cmp62, label %for.body43.lr.ph, label %for.end124
 
 for.body43.lr.ph:                                 ; preds = %for.cond41.preheader
-  %windings44 = getelementptr inbounds i8, ptr %this, i64 16
+  %windings44 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %wide.trip.count80 = and i64 %sub.ptr.div.i, 2147483647
   br label %for.body43
 
@@ -596,14 +592,14 @@ for.body43:                                       ; preds = %for.body43.lr.ph, %
   %indvars.iv77 = phi i64 [ 0, %for.body43.lr.ph ], [ %indvars.iv.next78, %for.inc62 ]
   %distance.065 = phi double [ %call32, %for.body43.lr.ph ], [ %distance.1, %for.inc62 ]
   %11 = load ptr, ptr %windings44, align 8
-  %add.ptr.i47 = getelementptr inbounds i32, ptr %11, i64 %indvars.iv77
+  %add.ptr.i47 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv77
   %12 = load i32, ptr %add.ptr.i47, align 4
   %cmp47 = icmp sgt i32 %12, 0
   br i1 %cmp47, label %if.then48, label %for.inc62
 
 if.then48:                                        ; preds = %for.body43
   %13 = load ptr, ptr %edgeSelectors, align 8
-  %add.ptr.i48 = getelementptr inbounds %"class.msdfgen::TrueDistanceSelector", ptr %13, i64 %indvars.iv77
+  %add.ptr.i48 = getelementptr inbounds nuw %"class.msdfgen::TrueDistanceSelector", ptr %13, i64 %indvars.iv77
   %call52 = call noundef double @_ZNK7msdfgen20TrueDistanceSelector8distanceEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i48)
   %14 = call double @llvm.fabs.f64(double %call52)
   %cmp54 = fcmp olt double %14, %10
@@ -634,7 +630,7 @@ for.cond70.preheader:                             ; preds = %land.lhs.true66
   br i1 %cmp62, label %for.body72.lr.ph, label %for.end124
 
 for.body72.lr.ph:                                 ; preds = %for.cond70.preheader
-  %windings73 = getelementptr inbounds i8, ptr %this, i64 16
+  %windings73 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %wide.trip.count85 = and i64 %sub.ptr.div.i, 2147483647
   br label %for.body72
 
@@ -642,14 +638,14 @@ for.body72:                                       ; preds = %for.body72.lr.ph, %
   %indvars.iv82 = phi i64 [ 0, %for.body72.lr.ph ], [ %indvars.iv.next83, %for.inc92 ]
   %distance.368 = phi double [ %call33, %for.body72.lr.ph ], [ %distance.4, %for.inc92 ]
   %17 = load ptr, ptr %windings73, align 8
-  %add.ptr.i49 = getelementptr inbounds i32, ptr %17, i64 %indvars.iv82
+  %add.ptr.i49 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv82
   %18 = load i32, ptr %add.ptr.i49, align 4
   %cmp76 = icmp slt i32 %18, 0
   br i1 %cmp76, label %if.then77, label %for.inc92
 
 if.then77:                                        ; preds = %for.body72
   %19 = load ptr, ptr %edgeSelectors, align 8
-  %add.ptr.i50 = getelementptr inbounds %"class.msdfgen::TrueDistanceSelector", ptr %19, i64 %indvars.iv82
+  %add.ptr.i50 = getelementptr inbounds nuw %"class.msdfgen::TrueDistanceSelector", ptr %19, i64 %indvars.iv82
   %call82 = call noundef double @_ZNK7msdfgen20TrueDistanceSelector8distanceEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i50)
   %20 = call double @llvm.fabs.f64(double %call82)
   %cmp84 = fcmp olt double %20, %16
@@ -672,7 +668,7 @@ if.end97:                                         ; preds = %for.inc62, %for.inc
   br i1 %cmp62, label %for.body101.lr.ph, label %for.end124
 
 for.body101.lr.ph:                                ; preds = %if.end97
-  %windings102 = getelementptr inbounds i8, ptr %this, i64 16
+  %windings102 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %wide.trip.count90 = and i64 %sub.ptr.div.i, 2147483647
   br label %for.body101
 
@@ -680,14 +676,14 @@ for.body101:                                      ; preds = %for.body101.lr.ph, 
   %indvars.iv87 = phi i64 [ 0, %for.body101.lr.ph ], [ %indvars.iv.next88, %for.inc122 ]
   %distance.572 = phi double [ %distance.2, %for.body101.lr.ph ], [ %distance.6, %for.inc122 ]
   %21 = load ptr, ptr %windings102, align 8
-  %add.ptr.i51 = getelementptr inbounds i32, ptr %21, i64 %indvars.iv87
+  %add.ptr.i51 = getelementptr inbounds nuw i32, ptr %21, i64 %indvars.iv87
   %22 = load i32, ptr %add.ptr.i51, align 4
   %cmp105.not = icmp eq i32 %22, %winding.0
   br i1 %cmp105.not, label %for.inc122, label %if.then106
 
 if.then106:                                       ; preds = %for.body101
   %23 = load ptr, ptr %edgeSelectors, align 8
-  %add.ptr.i52 = getelementptr inbounds %"class.msdfgen::TrueDistanceSelector", ptr %23, i64 %indvars.iv87
+  %add.ptr.i52 = getelementptr inbounds nuw %"class.msdfgen::TrueDistanceSelector", ptr %23, i64 %indvars.iv87
   %call111 = call noundef double @_ZNK7msdfgen20TrueDistanceSelector8distanceEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i52)
   %mul = fmul double %distance.572, %call111
   %cmp114 = fcmp ult double %mul, 0.000000e+00
@@ -729,9 +725,9 @@ declare double @llvm.fabs.f64(double) #4
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN7msdfgen26OverlappingContourCombinerINS_22PseudoDistanceSelectorEEC2ERKNS_5ShapeE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(25) %shape) unnamed_addr #0 comdat($_ZN7msdfgen26OverlappingContourCombinerINS_22PseudoDistanceSelectorEEC5ERKNS_5ShapeE) align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %windings = getelementptr inbounds i8, ptr %this, i64 16
-  %edgeSelectors = getelementptr inbounds i8, ptr %this, i64 40
-  %_M_finish.i = getelementptr inbounds i8, ptr %shape, i64 8
+  %windings = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %edgeSelectors = getelementptr inbounds nuw i8, ptr %this, i64 40
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %shape, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %this, i8 0, i64 64, i1 false)
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %shape, align 8
@@ -751,7 +747,7 @@ if.then.i.cont:                                   ; preds = %if.then.i.invoke
   unreachable
 
 if.end.i:                                         ; preds = %entry
-  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %_M_end_of_storage.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %cmp3.i.not = icmp eq ptr %0, %1
   br i1 %cmp3.i.not, label %invoke.cont, label %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i
 
@@ -761,10 +757,10 @@ _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i: ; preds = %if.end.i
           to label %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i unwind label %lpad.loopexit.split-lp
 
 _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i: ; preds = %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i
-  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr %call5.i.i.i.i4, ptr %windings, align 8
   store ptr %call5.i.i.i.i4, ptr %_M_finish.i.i, align 8
-  %add.ptr21.i = getelementptr inbounds i32, ptr %call5.i.i.i.i4, i64 %sub.ptr.div.i
+  %add.ptr21.i = getelementptr inbounds nuw i32, ptr %call5.i.i.i.i4, i64 %sub.ptr.div.i
   store ptr %add.ptr21.i, ptr %_M_end_of_storage.i.i, align 8
   %.pre = load ptr, ptr %shape, align 8
   %.pre39 = load ptr, ptr %_M_finish.i, align 8
@@ -777,7 +773,7 @@ invoke.cont:                                      ; preds = %_ZNSt12_Vector_base
   br i1 %cmp.i6.not36, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %invoke.cont
-  %_M_finish.i.i7 = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_finish.i.i7 = getelementptr inbounds nuw i8, ptr %this, i64 24
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -794,7 +790,7 @@ invoke.cont12:                                    ; preds = %for.body
 if.then.i.i9:                                     ; preds = %invoke.cont12
   store i32 %call13, ptr %5, align 4
   %7 = load ptr, ptr %_M_finish.i.i7, align 8
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %7, i64 4
+  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %7, i64 4
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i7, align 8
   br label %for.inc
 
@@ -813,28 +809,24 @@ _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %if.else.i.i
   %cmp7.i.i.i.i = icmp ult i64 %add.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   %9 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i.i, i64 2305843009213693951)
   %cond.i.i.i.i = select i1 %cmp7.i.i.i.i, i64 2305843009213693951, i64 %9
-  %cmp.not.i.i.i.i = icmp eq i64 %cond.i.i.i.i, 0
-  br i1 %cmp.not.i.i.i.i, label %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i.i, label %cond.true.i.i.i.i
-
-cond.true.i.i.i.i:                                ; preds = %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i
+  %cmp.not.i.i.i.i = icmp ne i64 %cond.i.i.i.i, 0
+  tail call void @llvm.assume(i1 %cmp.not.i.i.i.i)
   %mul.i.i.i.i.i.i = shl nuw nsw i64 %cond.i.i.i.i, 2
   %call5.i.i.i.i.i.i11 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #14
-          to label %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i.i unwind label %lpad.loopexit
+          to label %call5.i.i.i.i.i.i.noexc unwind label %lpad.loopexit
 
-_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i.i: ; preds = %cond.true.i.i.i.i, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i
-  %cond.i10.i.i.i = phi ptr [ null, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i ], [ %call5.i.i.i.i.i.i11, %cond.true.i.i.i.i ]
-  %add.ptr.i.i.i = getelementptr inbounds i32, ptr %cond.i10.i.i.i, i64 %sub.ptr.div.i.i.i.i.i
+call5.i.i.i.i.i.i.noexc:                          ; preds = %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i11, i64 %sub.ptr.sub.i.i.i.i.i
   store i32 %call13, ptr %add.ptr.i.i.i, align 4
   %cmp.i.i.i.i.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit17.i.i.i
 
-if.then.i.i.i.i.i.i:                              ; preds = %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %cond.i10.i.i.i, ptr align 4 %8, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
+if.then.i.i.i.i.i.i:                              ; preds = %call5.i.i.i.i.i.i.noexc
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %call5.i.i.i.i.i.i11, ptr align 4 %8, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
   br label %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit17.i.i.i
 
-_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit17.i.i.i: ; preds = %if.then.i.i.i.i.i.i, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i.i
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i10.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i, i64 4
+_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit17.i.i.i: ; preds = %if.then.i.i.i.i.i.i, %call5.i.i.i.i.i.i.noexc
+  %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i, i64 4
   %tobool.not.i.i.i.i = icmp eq ptr %8, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i, label %if.then.i18.i.i.i
 
@@ -843,19 +835,19 @@ if.then.i18.i.i.i:                                ; preds = %_ZNSt6vectorIiSaIiE
   br label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i: ; preds = %if.then.i18.i.i.i, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit17.i.i.i
-  store ptr %cond.i10.i.i.i, ptr %windings, align 8
+  store ptr %call5.i.i.i.i.i.i11, ptr %windings, align 8
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i7, align 8
-  %add.ptr19.i.i.i = getelementptr inbounds i32, ptr %cond.i10.i.i.i, i64 %cond.i.i.i.i
+  %add.ptr19.i.i.i = getelementptr inbounds nuw i32, ptr %call5.i.i.i.i.i.i11, i64 %cond.i.i.i.i
   store ptr %add.ptr19.i.i.i, ptr %_M_end_of_storage.i.i, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i, %if.then.i.i9
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %contour.sroa.0.037, i64 24
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %contour.sroa.0.037, i64 24
   %10 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i6.not = icmp eq ptr %incdec.ptr.i, %10
   br i1 %cmp.i6.not, label %for.end.loopexit, label %for.body, !llvm.loop !12
 
-lpad.loopexit:                                    ; preds = %for.body, %cond.true.i.i.i.i
+lpad.loopexit:                                    ; preds = %for.body, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i
   %lpad.loopexit32 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
@@ -889,7 +881,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt6vectorIN7msdf
 
 for.end.loopexit:                                 ; preds = %for.inc
   %.pre40 = load ptr, ptr %shape, align 8
-  %_M_finish.i.i19.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 48
+  %_M_finish.i.i19.phi.trans.insert = getelementptr inbounds nuw i8, ptr %this, i64 48
   %.pre41 = load ptr, ptr %_M_finish.i.i19.phi.trans.insert, align 8
   %.pre42 = load ptr, ptr %edgeSelectors, align 8
   br label %for.end
@@ -903,7 +895,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
   %sub.ptr.rhs.cast.i16 = ptrtoint ptr %15 to i64
   %sub.ptr.sub.i17 = sub i64 %sub.ptr.lhs.cast.i15, %sub.ptr.rhs.cast.i16
   %sub.ptr.div.i18 = sdiv exact i64 %sub.ptr.sub.i17, 24
-  %_M_finish.i.i19 = getelementptr inbounds i8, ptr %this, i64 48
+  %_M_finish.i.i19 = getelementptr inbounds nuw i8, ptr %this, i64 48
   %sub.ptr.lhs.cast.i.i20 = ptrtoint ptr %14 to i64
   %sub.ptr.rhs.cast.i.i21 = ptrtoint ptr %13 to i64
   %sub.ptr.sub.i.i22 = sub i64 %sub.ptr.lhs.cast.i.i20, %sub.ptr.rhs.cast.i.i21
@@ -937,9 +929,9 @@ invoke.cont19:                                    ; preds = %invoke.cont.i.i, %i
 define weak_odr dso_local void @_ZN7msdfgen26OverlappingContourCombinerINS_22PseudoDistanceSelectorEE5resetERKNS_7Vector2E(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(16) %p) local_unnamed_addr #0 comdat align 2 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %p, i64 16, i1 false)
-  %edgeSelectors = getelementptr inbounds i8, ptr %this, i64 40
+  %edgeSelectors = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %edgeSelectors, align 8
-  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 48
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not4 = icmp eq ptr %0, %1
   br i1 %cmp.i.not4, label %for.end, label %for.body
@@ -947,7 +939,7 @@ entry:
 for.body:                                         ; preds = %entry, %for.body
   %contourEdgeSelector.sroa.0.05 = phi ptr [ %incdec.ptr.i, %for.body ], [ %0, %entry ]
   tail call void @_ZN7msdfgen22PseudoDistanceSelector5resetERKNS_7Vector2E(ptr noundef nonnull align 8 dereferenceable(64) %contourEdgeSelector.sroa.0.05, ptr noundef nonnull align 8 dereferenceable(16) %p)
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %contourEdgeSelector.sroa.0.05, i64 64
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %contourEdgeSelector.sroa.0.05, i64 64
   %2 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %2
   br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !13
@@ -959,7 +951,7 @@ for.end:                                          ; preds = %for.body, %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef nonnull align 8 dereferenceable(64) ptr @_ZN7msdfgen26OverlappingContourCombinerINS_22PseudoDistanceSelectorEE12edgeSelectorEi(ptr noundef nonnull align 8 dereferenceable(64) %this, i32 noundef %i) local_unnamed_addr #2 comdat align 2 {
 entry:
-  %edgeSelectors = getelementptr inbounds i8, ptr %this, i64 40
+  %edgeSelectors = getelementptr inbounds nuw i8, ptr %this, i64 40
   %conv = sext i32 %i to i64
   %0 = load ptr, ptr %edgeSelectors, align 8
   %add.ptr.i = getelementptr inbounds %"class.msdfgen::PseudoDistanceSelector", ptr %0, i64 %conv
@@ -972,8 +964,8 @@ entry:
   %shapeEdgeSelector = alloca %"class.msdfgen::PseudoDistanceSelector", align 8
   %innerEdgeSelector = alloca %"class.msdfgen::PseudoDistanceSelector", align 8
   %outerEdgeSelector = alloca %"class.msdfgen::PseudoDistanceSelector", align 8
-  %edgeSelectors = getelementptr inbounds i8, ptr %this, i64 40
-  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 48
+  %edgeSelectors = getelementptr inbounds nuw i8, ptr %this, i64 40
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %edgeSelectors, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
@@ -982,13 +974,13 @@ entry:
   %sub.ptr.div.i = lshr i64 %sub.ptr.sub.i, 6
   %conv = trunc i64 %sub.ptr.div.i to i32
   call void @_ZN7msdfgen26PseudoDistanceSelectorBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %shapeEdgeSelector)
-  %p.i = getelementptr inbounds i8, ptr %shapeEdgeSelector, i64 48
+  %p.i = getelementptr inbounds nuw i8, ptr %shapeEdgeSelector, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %p.i, i8 0, i64 16, i1 false)
   call void @_ZN7msdfgen26PseudoDistanceSelectorBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %innerEdgeSelector)
-  %p.i38 = getelementptr inbounds i8, ptr %innerEdgeSelector, i64 48
+  %p.i38 = getelementptr inbounds nuw i8, ptr %innerEdgeSelector, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %p.i38, i8 0, i64 16, i1 false)
   call void @_ZN7msdfgen26PseudoDistanceSelectorBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %outerEdgeSelector)
-  %p.i39 = getelementptr inbounds i8, ptr %outerEdgeSelector, i64 48
+  %p.i39 = getelementptr inbounds nuw i8, ptr %outerEdgeSelector, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %p.i39, i8 0, i64 16, i1 false)
   call void @_ZN7msdfgen22PseudoDistanceSelector5resetERKNS_7Vector2E(ptr noundef nonnull align 8 dereferenceable(64) %shapeEdgeSelector, ptr noundef nonnull align 8 dereferenceable(16) %this)
   call void @_ZN7msdfgen22PseudoDistanceSelector5resetERKNS_7Vector2E(ptr noundef nonnull align 8 dereferenceable(64) %innerEdgeSelector, ptr noundef nonnull align 8 dereferenceable(16) %this)
@@ -997,20 +989,20 @@ entry:
   br i1 %cmp60, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %windings = getelementptr inbounds i8, ptr %this, i64 16
+  %windings = getelementptr inbounds nuw i8, ptr %this, i64 16
   %wide.trip.count = and i64 %sub.ptr.div.i, 2147483647
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %2 = load ptr, ptr %edgeSelectors, align 8
-  %add.ptr.i = getelementptr inbounds %"class.msdfgen::PseudoDistanceSelector", ptr %2, i64 %indvars.iv
+  %add.ptr.i = getelementptr inbounds nuw %"class.msdfgen::PseudoDistanceSelector", ptr %2, i64 %indvars.iv
   %call7 = call noundef double @_ZNK7msdfgen22PseudoDistanceSelector8distanceEv(ptr noundef nonnull align 8 dereferenceable(64) %add.ptr.i)
   %3 = load ptr, ptr %edgeSelectors, align 8
-  %add.ptr.i40 = getelementptr inbounds %"class.msdfgen::PseudoDistanceSelector", ptr %3, i64 %indvars.iv
+  %add.ptr.i40 = getelementptr inbounds nuw %"class.msdfgen::PseudoDistanceSelector", ptr %3, i64 %indvars.iv
   call void @_ZN7msdfgen26PseudoDistanceSelectorBase5mergeERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %shapeEdgeSelector, ptr noundef nonnull align 8 dereferenceable(48) %add.ptr.i40)
   %4 = load ptr, ptr %windings, align 8
-  %add.ptr.i41 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv
+  %add.ptr.i41 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
   %5 = load i32, ptr %add.ptr.i41, align 4
   %cmp13 = icmp slt i32 %5, 1
   %cmp15 = fcmp ult double %call7, 0.000000e+00
@@ -1019,10 +1011,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 if.then:                                          ; preds = %for.body
   %6 = load ptr, ptr %edgeSelectors, align 8
-  %add.ptr.i42 = getelementptr inbounds %"class.msdfgen::PseudoDistanceSelector", ptr %6, i64 %indvars.iv
+  %add.ptr.i42 = getelementptr inbounds nuw %"class.msdfgen::PseudoDistanceSelector", ptr %6, i64 %indvars.iv
   call void @_ZN7msdfgen26PseudoDistanceSelectorBase5mergeERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %innerEdgeSelector, ptr noundef nonnull align 8 dereferenceable(48) %add.ptr.i42)
   %.pre = load ptr, ptr %windings, align 8
-  %add.ptr.i43.phi.trans.insert = getelementptr inbounds i32, ptr %.pre, i64 %indvars.iv
+  %add.ptr.i43.phi.trans.insert = getelementptr inbounds nuw i32, ptr %.pre, i64 %indvars.iv
   %.pre90 = load i32, ptr %add.ptr.i43.phi.trans.insert, align 4
   br label %if.end
 
@@ -1035,7 +1027,7 @@ if.end:                                           ; preds = %if.then, %for.body
 
 if.then26:                                        ; preds = %if.end
   %8 = load ptr, ptr %edgeSelectors, align 8
-  %add.ptr.i44 = getelementptr inbounds %"class.msdfgen::PseudoDistanceSelector", ptr %8, i64 %indvars.iv
+  %add.ptr.i44 = getelementptr inbounds nuw %"class.msdfgen::PseudoDistanceSelector", ptr %8, i64 %indvars.iv
   call void @_ZN7msdfgen26PseudoDistanceSelectorBase5mergeERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %outerEdgeSelector, ptr noundef nonnull align 8 dereferenceable(48) %add.ptr.i44)
   br label %for.inc
 
@@ -1061,7 +1053,7 @@ for.cond41.preheader:                             ; preds = %land.lhs.true37
   br i1 %cmp60, label %for.body43.lr.ph, label %for.end124
 
 for.body43.lr.ph:                                 ; preds = %for.cond41.preheader
-  %windings44 = getelementptr inbounds i8, ptr %this, i64 16
+  %windings44 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %wide.trip.count78 = and i64 %sub.ptr.div.i, 2147483647
   br label %for.body43
 
@@ -1069,14 +1061,14 @@ for.body43:                                       ; preds = %for.body43.lr.ph, %
   %indvars.iv75 = phi i64 [ 0, %for.body43.lr.ph ], [ %indvars.iv.next76, %for.inc62 ]
   %distance.063 = phi double [ %call32, %for.body43.lr.ph ], [ %distance.1, %for.inc62 ]
   %11 = load ptr, ptr %windings44, align 8
-  %add.ptr.i45 = getelementptr inbounds i32, ptr %11, i64 %indvars.iv75
+  %add.ptr.i45 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv75
   %12 = load i32, ptr %add.ptr.i45, align 4
   %cmp47 = icmp sgt i32 %12, 0
   br i1 %cmp47, label %if.then48, label %for.inc62
 
 if.then48:                                        ; preds = %for.body43
   %13 = load ptr, ptr %edgeSelectors, align 8
-  %add.ptr.i46 = getelementptr inbounds %"class.msdfgen::PseudoDistanceSelector", ptr %13, i64 %indvars.iv75
+  %add.ptr.i46 = getelementptr inbounds nuw %"class.msdfgen::PseudoDistanceSelector", ptr %13, i64 %indvars.iv75
   %call52 = call noundef double @_ZNK7msdfgen22PseudoDistanceSelector8distanceEv(ptr noundef nonnull align 8 dereferenceable(64) %add.ptr.i46)
   %14 = call double @llvm.fabs.f64(double %call52)
   %cmp54 = fcmp olt double %14, %10
@@ -1107,7 +1099,7 @@ for.cond70.preheader:                             ; preds = %land.lhs.true66
   br i1 %cmp60, label %for.body72.lr.ph, label %for.end124
 
 for.body72.lr.ph:                                 ; preds = %for.cond70.preheader
-  %windings73 = getelementptr inbounds i8, ptr %this, i64 16
+  %windings73 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %wide.trip.count83 = and i64 %sub.ptr.div.i, 2147483647
   br label %for.body72
 
@@ -1115,14 +1107,14 @@ for.body72:                                       ; preds = %for.body72.lr.ph, %
   %indvars.iv80 = phi i64 [ 0, %for.body72.lr.ph ], [ %indvars.iv.next81, %for.inc92 ]
   %distance.366 = phi double [ %call33, %for.body72.lr.ph ], [ %distance.4, %for.inc92 ]
   %17 = load ptr, ptr %windings73, align 8
-  %add.ptr.i47 = getelementptr inbounds i32, ptr %17, i64 %indvars.iv80
+  %add.ptr.i47 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv80
   %18 = load i32, ptr %add.ptr.i47, align 4
   %cmp76 = icmp slt i32 %18, 0
   br i1 %cmp76, label %if.then77, label %for.inc92
 
 if.then77:                                        ; preds = %for.body72
   %19 = load ptr, ptr %edgeSelectors, align 8
-  %add.ptr.i48 = getelementptr inbounds %"class.msdfgen::PseudoDistanceSelector", ptr %19, i64 %indvars.iv80
+  %add.ptr.i48 = getelementptr inbounds nuw %"class.msdfgen::PseudoDistanceSelector", ptr %19, i64 %indvars.iv80
   %call82 = call noundef double @_ZNK7msdfgen22PseudoDistanceSelector8distanceEv(ptr noundef nonnull align 8 dereferenceable(64) %add.ptr.i48)
   %20 = call double @llvm.fabs.f64(double %call82)
   %cmp84 = fcmp olt double %20, %16
@@ -1145,7 +1137,7 @@ if.end97:                                         ; preds = %for.inc62, %for.inc
   br i1 %cmp60, label %for.body101.lr.ph, label %for.end124
 
 for.body101.lr.ph:                                ; preds = %if.end97
-  %windings102 = getelementptr inbounds i8, ptr %this, i64 16
+  %windings102 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %wide.trip.count88 = and i64 %sub.ptr.div.i, 2147483647
   br label %for.body101
 
@@ -1153,14 +1145,14 @@ for.body101:                                      ; preds = %for.body101.lr.ph, 
   %indvars.iv85 = phi i64 [ 0, %for.body101.lr.ph ], [ %indvars.iv.next86, %for.inc122 ]
   %distance.570 = phi double [ %distance.2, %for.body101.lr.ph ], [ %distance.6, %for.inc122 ]
   %21 = load ptr, ptr %windings102, align 8
-  %add.ptr.i49 = getelementptr inbounds i32, ptr %21, i64 %indvars.iv85
+  %add.ptr.i49 = getelementptr inbounds nuw i32, ptr %21, i64 %indvars.iv85
   %22 = load i32, ptr %add.ptr.i49, align 4
   %cmp105.not = icmp eq i32 %22, %winding.0
   br i1 %cmp105.not, label %for.inc122, label %if.then106
 
 if.then106:                                       ; preds = %for.body101
   %23 = load ptr, ptr %edgeSelectors, align 8
-  %add.ptr.i50 = getelementptr inbounds %"class.msdfgen::PseudoDistanceSelector", ptr %23, i64 %indvars.iv85
+  %add.ptr.i50 = getelementptr inbounds nuw %"class.msdfgen::PseudoDistanceSelector", ptr %23, i64 %indvars.iv85
   %call111 = call noundef double @_ZNK7msdfgen22PseudoDistanceSelector8distanceEv(ptr noundef nonnull align 8 dereferenceable(64) %add.ptr.i50)
   %mul = fmul double %distance.570, %call111
   %cmp114 = fcmp ult double %mul, 0.000000e+00
@@ -1199,9 +1191,9 @@ declare void @_ZN7msdfgen26PseudoDistanceSelectorBase5mergeERKS0_(ptr noundef no
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN7msdfgen26OverlappingContourCombinerINS_21MultiDistanceSelectorEEC2ERKNS_5ShapeE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(25) %shape) unnamed_addr #0 comdat($_ZN7msdfgen26OverlappingContourCombinerINS_21MultiDistanceSelectorEEC5ERKNS_5ShapeE) align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %windings = getelementptr inbounds i8, ptr %this, i64 16
-  %edgeSelectors = getelementptr inbounds i8, ptr %this, i64 40
-  %_M_finish.i = getelementptr inbounds i8, ptr %shape, i64 8
+  %windings = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %edgeSelectors = getelementptr inbounds nuw i8, ptr %this, i64 40
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %shape, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %this, i8 0, i64 64, i1 false)
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %shape, align 8
@@ -1221,7 +1213,7 @@ if.then.i.cont:                                   ; preds = %if.then.i.invoke
   unreachable
 
 if.end.i:                                         ; preds = %entry
-  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %_M_end_of_storage.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %cmp3.i.not = icmp eq ptr %0, %1
   br i1 %cmp3.i.not, label %invoke.cont, label %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i
 
@@ -1231,10 +1223,10 @@ _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i: ; preds = %if.end.i
           to label %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i unwind label %lpad.loopexit.split-lp
 
 _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i: ; preds = %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i
-  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr %call5.i.i.i.i4, ptr %windings, align 8
   store ptr %call5.i.i.i.i4, ptr %_M_finish.i.i, align 8
-  %add.ptr21.i = getelementptr inbounds i32, ptr %call5.i.i.i.i4, i64 %sub.ptr.div.i
+  %add.ptr21.i = getelementptr inbounds nuw i32, ptr %call5.i.i.i.i4, i64 %sub.ptr.div.i
   store ptr %add.ptr21.i, ptr %_M_end_of_storage.i.i, align 8
   %.pre = load ptr, ptr %shape, align 8
   %.pre39 = load ptr, ptr %_M_finish.i, align 8
@@ -1247,7 +1239,7 @@ invoke.cont:                                      ; preds = %_ZNSt12_Vector_base
   br i1 %cmp.i6.not36, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %invoke.cont
-  %_M_finish.i.i7 = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_finish.i.i7 = getelementptr inbounds nuw i8, ptr %this, i64 24
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -1264,7 +1256,7 @@ invoke.cont12:                                    ; preds = %for.body
 if.then.i.i9:                                     ; preds = %invoke.cont12
   store i32 %call13, ptr %5, align 4
   %7 = load ptr, ptr %_M_finish.i.i7, align 8
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %7, i64 4
+  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %7, i64 4
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i7, align 8
   br label %for.inc
 
@@ -1283,28 +1275,24 @@ _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %if.else.i.i
   %cmp7.i.i.i.i = icmp ult i64 %add.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   %9 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i.i, i64 2305843009213693951)
   %cond.i.i.i.i = select i1 %cmp7.i.i.i.i, i64 2305843009213693951, i64 %9
-  %cmp.not.i.i.i.i = icmp eq i64 %cond.i.i.i.i, 0
-  br i1 %cmp.not.i.i.i.i, label %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i.i, label %cond.true.i.i.i.i
-
-cond.true.i.i.i.i:                                ; preds = %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i
+  %cmp.not.i.i.i.i = icmp ne i64 %cond.i.i.i.i, 0
+  tail call void @llvm.assume(i1 %cmp.not.i.i.i.i)
   %mul.i.i.i.i.i.i = shl nuw nsw i64 %cond.i.i.i.i, 2
   %call5.i.i.i.i.i.i11 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #14
-          to label %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i.i unwind label %lpad.loopexit
+          to label %call5.i.i.i.i.i.i.noexc unwind label %lpad.loopexit
 
-_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i.i: ; preds = %cond.true.i.i.i.i, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i
-  %cond.i10.i.i.i = phi ptr [ null, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i ], [ %call5.i.i.i.i.i.i11, %cond.true.i.i.i.i ]
-  %add.ptr.i.i.i = getelementptr inbounds i32, ptr %cond.i10.i.i.i, i64 %sub.ptr.div.i.i.i.i.i
+call5.i.i.i.i.i.i.noexc:                          ; preds = %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i11, i64 %sub.ptr.sub.i.i.i.i.i
   store i32 %call13, ptr %add.ptr.i.i.i, align 4
   %cmp.i.i.i.i.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit17.i.i.i
 
-if.then.i.i.i.i.i.i:                              ; preds = %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %cond.i10.i.i.i, ptr align 4 %8, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
+if.then.i.i.i.i.i.i:                              ; preds = %call5.i.i.i.i.i.i.noexc
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %call5.i.i.i.i.i.i11, ptr align 4 %8, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
   br label %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit17.i.i.i
 
-_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit17.i.i.i: ; preds = %if.then.i.i.i.i.i.i, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i.i
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i10.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i, i64 4
+_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit17.i.i.i: ; preds = %if.then.i.i.i.i.i.i, %call5.i.i.i.i.i.i.noexc
+  %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i, i64 4
   %tobool.not.i.i.i.i = icmp eq ptr %8, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i, label %if.then.i18.i.i.i
 
@@ -1313,19 +1301,19 @@ if.then.i18.i.i.i:                                ; preds = %_ZNSt6vectorIiSaIiE
   br label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i: ; preds = %if.then.i18.i.i.i, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit17.i.i.i
-  store ptr %cond.i10.i.i.i, ptr %windings, align 8
+  store ptr %call5.i.i.i.i.i.i11, ptr %windings, align 8
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i7, align 8
-  %add.ptr19.i.i.i = getelementptr inbounds i32, ptr %cond.i10.i.i.i, i64 %cond.i.i.i.i
+  %add.ptr19.i.i.i = getelementptr inbounds nuw i32, ptr %call5.i.i.i.i.i.i11, i64 %cond.i.i.i.i
   store ptr %add.ptr19.i.i.i, ptr %_M_end_of_storage.i.i, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i, %if.then.i.i9
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %contour.sroa.0.037, i64 24
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %contour.sroa.0.037, i64 24
   %10 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i6.not = icmp eq ptr %incdec.ptr.i, %10
   br i1 %cmp.i6.not, label %for.end.loopexit, label %for.body, !llvm.loop !18
 
-lpad.loopexit:                                    ; preds = %for.body, %cond.true.i.i.i.i
+lpad.loopexit:                                    ; preds = %for.body, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i
   %lpad.loopexit32 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
@@ -1359,7 +1347,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt6vectorIN7msdf
 
 for.end.loopexit:                                 ; preds = %for.inc
   %.pre40 = load ptr, ptr %shape, align 8
-  %_M_finish.i.i19.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 48
+  %_M_finish.i.i19.phi.trans.insert = getelementptr inbounds nuw i8, ptr %this, i64 48
   %.pre41 = load ptr, ptr %_M_finish.i.i19.phi.trans.insert, align 8
   %.pre42 = load ptr, ptr %edgeSelectors, align 8
   br label %for.end
@@ -1373,7 +1361,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
   %sub.ptr.rhs.cast.i16 = ptrtoint ptr %15 to i64
   %sub.ptr.sub.i17 = sub i64 %sub.ptr.lhs.cast.i15, %sub.ptr.rhs.cast.i16
   %sub.ptr.div.i18 = sdiv exact i64 %sub.ptr.sub.i17, 24
-  %_M_finish.i.i19 = getelementptr inbounds i8, ptr %this, i64 48
+  %_M_finish.i.i19 = getelementptr inbounds nuw i8, ptr %this, i64 48
   %sub.ptr.lhs.cast.i.i20 = ptrtoint ptr %14 to i64
   %sub.ptr.rhs.cast.i.i21 = ptrtoint ptr %13 to i64
   %sub.ptr.sub.i.i22 = sub i64 %sub.ptr.lhs.cast.i.i20, %sub.ptr.rhs.cast.i.i21
@@ -1407,9 +1395,9 @@ invoke.cont19:                                    ; preds = %invoke.cont.i.i, %i
 define weak_odr dso_local void @_ZN7msdfgen26OverlappingContourCombinerINS_21MultiDistanceSelectorEE5resetERKNS_7Vector2E(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(16) %p) local_unnamed_addr #0 comdat align 2 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %p, i64 16, i1 false)
-  %edgeSelectors = getelementptr inbounds i8, ptr %this, i64 40
+  %edgeSelectors = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %edgeSelectors, align 8
-  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 48
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not4 = icmp eq ptr %0, %1
   br i1 %cmp.i.not4, label %for.end, label %for.body
@@ -1417,7 +1405,7 @@ entry:
 for.body:                                         ; preds = %entry, %for.body
   %contourEdgeSelector.sroa.0.05 = phi ptr [ %incdec.ptr.i, %for.body ], [ %0, %entry ]
   tail call void @_ZN7msdfgen21MultiDistanceSelector5resetERKNS_7Vector2E(ptr noundef nonnull align 8 dereferenceable(160) %contourEdgeSelector.sroa.0.05, ptr noundef nonnull align 8 dereferenceable(16) %p)
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %contourEdgeSelector.sroa.0.05, i64 160
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %contourEdgeSelector.sroa.0.05, i64 160
   %2 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %2
   br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !19
@@ -1429,7 +1417,7 @@ for.end:                                          ; preds = %for.body, %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef nonnull align 8 dereferenceable(160) ptr @_ZN7msdfgen26OverlappingContourCombinerINS_21MultiDistanceSelectorEE12edgeSelectorEi(ptr noundef nonnull align 8 dereferenceable(64) %this, i32 noundef %i) local_unnamed_addr #2 comdat align 2 {
 entry:
-  %edgeSelectors = getelementptr inbounds i8, ptr %this, i64 40
+  %edgeSelectors = getelementptr inbounds nuw i8, ptr %this, i64 40
   %conv = sext i32 %i to i64
   %0 = load ptr, ptr %edgeSelectors, align 8
   %add.ptr.i = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %0, i64 %conv
@@ -1449,8 +1437,8 @@ entry:
   %contourDistance = alloca %"struct.msdfgen::MultiDistance", align 8
   %contourDistance73 = alloca %"struct.msdfgen::MultiDistance", align 8
   %contourDistance101 = alloca %"struct.msdfgen::MultiDistance", align 8
-  %edgeSelectors = getelementptr inbounds i8, ptr %this, i64 40
-  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 48
+  %edgeSelectors = getelementptr inbounds nuw i8, ptr %this, i64 40
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %edgeSelectors, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
@@ -1458,26 +1446,26 @@ entry:
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 160
   %conv = trunc i64 %sub.ptr.div.i to i32
-  %r.i = getelementptr inbounds i8, ptr %shapeEdgeSelector, i64 16
+  %r.i = getelementptr inbounds nuw i8, ptr %shapeEdgeSelector, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %shapeEdgeSelector, i8 0, i64 16, i1 false)
   call void @_ZN7msdfgen26PseudoDistanceSelectorBaseC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %r.i)
-  %g.i = getelementptr inbounds i8, ptr %shapeEdgeSelector, i64 64
+  %g.i = getelementptr inbounds nuw i8, ptr %shapeEdgeSelector, i64 64
   call void @_ZN7msdfgen26PseudoDistanceSelectorBaseC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %g.i)
-  %b.i = getelementptr inbounds i8, ptr %shapeEdgeSelector, i64 112
+  %b.i = getelementptr inbounds nuw i8, ptr %shapeEdgeSelector, i64 112
   call void @_ZN7msdfgen26PseudoDistanceSelectorBaseC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %b.i)
-  %r.i27 = getelementptr inbounds i8, ptr %innerEdgeSelector, i64 16
+  %r.i27 = getelementptr inbounds nuw i8, ptr %innerEdgeSelector, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %innerEdgeSelector, i8 0, i64 16, i1 false)
   call void @_ZN7msdfgen26PseudoDistanceSelectorBaseC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %r.i27)
-  %g.i28 = getelementptr inbounds i8, ptr %innerEdgeSelector, i64 64
+  %g.i28 = getelementptr inbounds nuw i8, ptr %innerEdgeSelector, i64 64
   call void @_ZN7msdfgen26PseudoDistanceSelectorBaseC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %g.i28)
-  %b.i29 = getelementptr inbounds i8, ptr %innerEdgeSelector, i64 112
+  %b.i29 = getelementptr inbounds nuw i8, ptr %innerEdgeSelector, i64 112
   call void @_ZN7msdfgen26PseudoDistanceSelectorBaseC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %b.i29)
-  %r.i30 = getelementptr inbounds i8, ptr %outerEdgeSelector, i64 16
+  %r.i30 = getelementptr inbounds nuw i8, ptr %outerEdgeSelector, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %outerEdgeSelector, i8 0, i64 16, i1 false)
   call void @_ZN7msdfgen26PseudoDistanceSelectorBaseC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %r.i30)
-  %g.i31 = getelementptr inbounds i8, ptr %outerEdgeSelector, i64 64
+  %g.i31 = getelementptr inbounds nuw i8, ptr %outerEdgeSelector, i64 64
   call void @_ZN7msdfgen26PseudoDistanceSelectorBaseC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %g.i31)
-  %b.i32 = getelementptr inbounds i8, ptr %outerEdgeSelector, i64 112
+  %b.i32 = getelementptr inbounds nuw i8, ptr %outerEdgeSelector, i64 112
   call void @_ZN7msdfgen26PseudoDistanceSelectorBaseC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %b.i32)
   call void @_ZN7msdfgen21MultiDistanceSelector5resetERKNS_7Vector2E(ptr noundef nonnull align 8 dereferenceable(160) %shapeEdgeSelector, ptr noundef nonnull align 8 dereferenceable(16) %this)
   call void @_ZN7msdfgen21MultiDistanceSelector5resetERKNS_7Vector2E(ptr noundef nonnull align 8 dereferenceable(160) %innerEdgeSelector, ptr noundef nonnull align 8 dereferenceable(16) %this)
@@ -1486,22 +1474,22 @@ entry:
   br i1 %cmp229, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %windings = getelementptr inbounds i8, ptr %this, i64 16
-  %g.i35 = getelementptr inbounds i8, ptr %edgeDistance, i64 8
-  %b.i36 = getelementptr inbounds i8, ptr %edgeDistance, i64 16
+  %windings = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %g.i35 = getelementptr inbounds nuw i8, ptr %edgeDistance, i64 8
+  %b.i36 = getelementptr inbounds nuw i8, ptr %edgeDistance, i64 16
   %wide.trip.count = and i64 %sub.ptr.div.i, 2147483647
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %2 = load ptr, ptr %edgeSelectors, align 8
-  %add.ptr.i = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %2, i64 %indvars.iv
+  %add.ptr.i = getelementptr inbounds nuw %"class.msdfgen::MultiDistanceSelector", ptr %2, i64 %indvars.iv
   call void @_ZNK7msdfgen21MultiDistanceSelector8distanceEv(ptr nonnull sret(%"struct.msdfgen::MultiDistance") align 8 %edgeDistance, ptr noundef nonnull align 8 dereferenceable(160) %add.ptr.i)
   %3 = load ptr, ptr %edgeSelectors, align 8
-  %add.ptr.i33 = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %3, i64 %indvars.iv
+  %add.ptr.i33 = getelementptr inbounds nuw %"class.msdfgen::MultiDistanceSelector", ptr %3, i64 %indvars.iv
   call void @_ZN7msdfgen21MultiDistanceSelector5mergeERKS0_(ptr noundef nonnull align 8 dereferenceable(160) %shapeEdgeSelector, ptr noundef nonnull align 8 dereferenceable(160) %add.ptr.i33)
   %4 = load ptr, ptr %windings, align 8
-  %add.ptr.i34 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv
+  %add.ptr.i34 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
   %5 = load i32, ptr %add.ptr.i34, align 4
   %cmp12 = icmp sgt i32 %5, 0
   br i1 %cmp12, label %land.lhs.true, label %if.end
@@ -1523,10 +1511,10 @@ land.lhs.true:                                    ; preds = %for.body
 
 if.then:                                          ; preds = %land.lhs.true
   %9 = load ptr, ptr %edgeSelectors, align 8
-  %add.ptr.i37 = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %9, i64 %indvars.iv
+  %add.ptr.i37 = getelementptr inbounds nuw %"class.msdfgen::MultiDistanceSelector", ptr %9, i64 %indvars.iv
   call void @_ZN7msdfgen21MultiDistanceSelector5mergeERKS0_(ptr noundef nonnull align 8 dereferenceable(160) %innerEdgeSelector, ptr noundef nonnull align 8 dereferenceable(160) %add.ptr.i37)
   %.pre = load ptr, ptr %windings, align 8
-  %add.ptr.i38.phi.trans.insert = getelementptr inbounds i32, ptr %.pre, i64 %indvars.iv
+  %add.ptr.i38.phi.trans.insert = getelementptr inbounds nuw i32, ptr %.pre, i64 %indvars.iv
   %.pre271 = load i32, ptr %add.ptr.i38.phi.trans.insert, align 4
   br label %if.end
 
@@ -1552,7 +1540,7 @@ land.lhs.true22:                                  ; preds = %if.end
 
 if.then25:                                        ; preds = %land.lhs.true22
   %14 = load ptr, ptr %edgeSelectors, align 8
-  %add.ptr.i49 = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %14, i64 %indvars.iv
+  %add.ptr.i49 = getelementptr inbounds nuw %"class.msdfgen::MultiDistanceSelector", ptr %14, i64 %indvars.iv
   call void @_ZN7msdfgen21MultiDistanceSelector5mergeERKS0_(ptr noundef nonnull align 8 dereferenceable(160) %outerEdgeSelector, ptr noundef nonnull align 8 dereferenceable(160) %add.ptr.i49)
   br label %for.inc
 
@@ -1566,9 +1554,9 @@ for.end:                                          ; preds = %for.inc, %entry
   call void @_ZNK7msdfgen21MultiDistanceSelector8distanceEv(ptr nonnull sret(%"struct.msdfgen::MultiDistance") align 8 %innerDistance, ptr noundef nonnull align 8 dereferenceable(160) %innerEdgeSelector)
   call void @_ZNK7msdfgen21MultiDistanceSelector8distanceEv(ptr nonnull sret(%"struct.msdfgen::MultiDistance") align 8 %outerDistance, ptr noundef nonnull align 8 dereferenceable(160) %outerEdgeSelector)
   %15 = load double, ptr %innerDistance, align 8
-  %g.i50 = getelementptr inbounds i8, ptr %innerDistance, i64 8
+  %g.i50 = getelementptr inbounds nuw i8, ptr %innerDistance, i64 8
   %16 = load double, ptr %g.i50, align 8
-  %b.i51 = getelementptr inbounds i8, ptr %innerDistance, i64 16
+  %b.i51 = getelementptr inbounds nuw i8, ptr %innerDistance, i64 16
   %17 = load double, ptr %b.i51, align 8
   %cmp.i.i.i52 = fcmp olt double %16, %15
   %cond.i.i.i53 = select i1 %cmp.i.i.i52, double %16, double %15
@@ -1579,9 +1567,9 @@ for.end:                                          ; preds = %for.inc, %entry
   %cmp.i7.i.i58 = fcmp olt double %cond.i.i.i53, %cond.i6.i.i57
   %cond.i8.i.i59 = select i1 %cmp.i7.i.i58, double %cond.i6.i.i57, double %cond.i.i.i53
   %18 = load double, ptr %outerDistance, align 8
-  %g.i60 = getelementptr inbounds i8, ptr %outerDistance, i64 8
+  %g.i60 = getelementptr inbounds nuw i8, ptr %outerDistance, i64 8
   %19 = load double, ptr %g.i60, align 8
-  %b.i61 = getelementptr inbounds i8, ptr %outerDistance, i64 16
+  %b.i61 = getelementptr inbounds nuw i8, ptr %outerDistance, i64 16
   %20 = load double, ptr %b.i61, align 8
   %cmp.i.i.i62 = fcmp olt double %19, %18
   %cond.i.i.i63 = select i1 %cmp.i.i.i62, double %19, double %18
@@ -1604,9 +1592,9 @@ for.cond37.preheader:                             ; preds = %land.lhs.true33
   br i1 %cmp229, label %for.body39.lr.ph, label %for.end117
 
 for.body39.lr.ph:                                 ; preds = %for.cond37.preheader
-  %windings40 = getelementptr inbounds i8, ptr %this, i64 16
-  %g.i74 = getelementptr inbounds i8, ptr %contourDistance, i64 8
-  %b.i75 = getelementptr inbounds i8, ptr %contourDistance, i64 16
+  %windings40 = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %g.i74 = getelementptr inbounds nuw i8, ptr %contourDistance, i64 8
+  %b.i75 = getelementptr inbounds nuw i8, ptr %contourDistance, i64 16
   %wide.trip.count259 = and i64 %sub.ptr.div.i, 2147483647
   br label %for.body39
 
@@ -1616,14 +1604,14 @@ for.body39:                                       ; preds = %for.body39.lr.ph, %
   %distance.sroa.13.0233 = phi double [ %16, %for.body39.lr.ph ], [ %distance.sroa.13.1, %for.inc57 ]
   %distance.sroa.19.0232 = phi double [ %17, %for.body39.lr.ph ], [ %distance.sroa.19.1, %for.inc57 ]
   %23 = load ptr, ptr %windings40, align 8
-  %add.ptr.i72 = getelementptr inbounds i32, ptr %23, i64 %indvars.iv256
+  %add.ptr.i72 = getelementptr inbounds nuw i32, ptr %23, i64 %indvars.iv256
   %24 = load i32, ptr %add.ptr.i72, align 4
   %cmp43 = icmp sgt i32 %24, 0
   br i1 %cmp43, label %if.then44, label %for.inc57
 
 if.then44:                                        ; preds = %for.body39
   %25 = load ptr, ptr %edgeSelectors, align 8
-  %add.ptr.i73 = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %25, i64 %indvars.iv256
+  %add.ptr.i73 = getelementptr inbounds nuw %"class.msdfgen::MultiDistanceSelector", ptr %25, i64 %indvars.iv256
   call void @_ZNK7msdfgen21MultiDistanceSelector8distanceEv(ptr nonnull sret(%"struct.msdfgen::MultiDistance") align 8 %contourDistance, ptr noundef nonnull align 8 dereferenceable(160) %add.ptr.i73)
   %26 = load double, ptr %contourDistance, align 8
   %27 = load double, ptr %g.i74, align 8
@@ -1677,9 +1665,9 @@ for.cond65.preheader:                             ; preds = %land.lhs.true61
   br i1 %cmp229, label %for.body67.lr.ph, label %for.end117
 
 for.body67.lr.ph:                                 ; preds = %for.cond65.preheader
-  %windings68 = getelementptr inbounds i8, ptr %this, i64 16
-  %g.i106 = getelementptr inbounds i8, ptr %contourDistance73, i64 8
-  %b.i107 = getelementptr inbounds i8, ptr %contourDistance73, i64 16
+  %windings68 = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %g.i106 = getelementptr inbounds nuw i8, ptr %contourDistance73, i64 8
+  %b.i107 = getelementptr inbounds nuw i8, ptr %contourDistance73, i64 16
   %wide.trip.count264 = and i64 %sub.ptr.div.i, 2147483647
   br label %for.body67
 
@@ -1689,14 +1677,14 @@ for.body67:                                       ; preds = %for.body67.lr.ph, %
   %distance.sroa.13.3240 = phi double [ %19, %for.body67.lr.ph ], [ %distance.sroa.13.4, %for.inc86 ]
   %distance.sroa.19.3239 = phi double [ %20, %for.body67.lr.ph ], [ %distance.sroa.19.4, %for.inc86 ]
   %32 = load ptr, ptr %windings68, align 8
-  %add.ptr.i104 = getelementptr inbounds i32, ptr %32, i64 %indvars.iv261
+  %add.ptr.i104 = getelementptr inbounds nuw i32, ptr %32, i64 %indvars.iv261
   %33 = load i32, ptr %add.ptr.i104, align 4
   %cmp71 = icmp slt i32 %33, 0
   br i1 %cmp71, label %if.then72, label %for.inc86
 
 if.then72:                                        ; preds = %for.body67
   %34 = load ptr, ptr %edgeSelectors, align 8
-  %add.ptr.i105 = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %34, i64 %indvars.iv261
+  %add.ptr.i105 = getelementptr inbounds nuw %"class.msdfgen::MultiDistanceSelector", ptr %34, i64 %indvars.iv261
   call void @_ZNK7msdfgen21MultiDistanceSelector8distanceEv(ptr nonnull sret(%"struct.msdfgen::MultiDistance") align 8 %contourDistance73, ptr noundef nonnull align 8 dereferenceable(160) %add.ptr.i105)
   %35 = load double, ptr %contourDistance73, align 8
   %36 = load double, ptr %g.i106, align 8
@@ -1748,9 +1736,9 @@ if.end91:                                         ; preds = %for.inc57, %for.inc
   br i1 %cmp229, label %for.body95.lr.ph, label %for.end117
 
 for.body95.lr.ph:                                 ; preds = %if.end91
-  %windings96 = getelementptr inbounds i8, ptr %this, i64 16
-  %g.i138 = getelementptr inbounds i8, ptr %contourDistance101, i64 8
-  %b.i139 = getelementptr inbounds i8, ptr %contourDistance101, i64 16
+  %windings96 = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %g.i138 = getelementptr inbounds nuw i8, ptr %contourDistance101, i64 8
+  %b.i139 = getelementptr inbounds nuw i8, ptr %contourDistance101, i64 16
   %wide.trip.count269 = and i64 %sub.ptr.div.i, 2147483647
   br label %for.body95
 
@@ -1760,14 +1748,14 @@ for.body95:                                       ; preds = %for.body95.lr.ph, %
   %distance.sroa.13.5248 = phi double [ %distance.sroa.13.2, %for.body95.lr.ph ], [ %distance.sroa.13.6, %for.inc115 ]
   %distance.sroa.19.5247 = phi double [ %distance.sroa.19.2, %for.body95.lr.ph ], [ %distance.sroa.19.6, %for.inc115 ]
   %39 = load ptr, ptr %windings96, align 8
-  %add.ptr.i136 = getelementptr inbounds i32, ptr %39, i64 %indvars.iv266
+  %add.ptr.i136 = getelementptr inbounds nuw i32, ptr %39, i64 %indvars.iv266
   %40 = load i32, ptr %add.ptr.i136, align 4
   %cmp99.not = icmp eq i32 %40, %winding.0
   br i1 %cmp99.not, label %for.inc115, label %if.then100
 
 if.then100:                                       ; preds = %for.body95
   %41 = load ptr, ptr %edgeSelectors, align 8
-  %add.ptr.i137 = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %41, i64 %indvars.iv266
+  %add.ptr.i137 = getelementptr inbounds nuw %"class.msdfgen::MultiDistanceSelector", ptr %41, i64 %indvars.iv266
   call void @_ZNK7msdfgen21MultiDistanceSelector8distanceEv(ptr nonnull sret(%"struct.msdfgen::MultiDistance") align 8 %contourDistance101, ptr noundef nonnull align 8 dereferenceable(160) %add.ptr.i137)
   %42 = load double, ptr %contourDistance101, align 8
   %43 = load double, ptr %g.i138, align 8
@@ -1822,9 +1810,9 @@ for.end117:                                       ; preds = %for.inc115, %for.co
   %cmp.i7.i.i186 = fcmp olt double %cond.i.i.i181, %cond.i6.i.i185
   %cond.i8.i.i187 = select i1 %cmp.i7.i.i186, double %cond.i6.i.i185, double %cond.i.i.i181
   %47 = load double, ptr %shapeDistance, align 8
-  %g.i188 = getelementptr inbounds i8, ptr %shapeDistance, i64 8
+  %g.i188 = getelementptr inbounds nuw i8, ptr %shapeDistance, i64 8
   %48 = load double, ptr %g.i188, align 8
-  %b.i189 = getelementptr inbounds i8, ptr %shapeDistance, i64 16
+  %b.i189 = getelementptr inbounds nuw i8, ptr %shapeDistance, i64 16
   %49 = load double, ptr %b.i189, align 8
   %cmp.i.i.i190 = fcmp olt double %48, %47
   %cond.i.i.i191 = select i1 %cmp.i.i.i190, double %48, double %47
@@ -1839,9 +1827,9 @@ for.end117:                                       ; preds = %for.inc115, %for.co
   %distance.sroa.13.7 = select i1 %cmp120, double %48, double %distance.sroa.13.5.lcssa
   %distance.sroa.0.7 = select i1 %cmp120, double %47, double %distance.sroa.0.5.lcssa
   store double %distance.sroa.0.7, ptr %agg.result, align 8
-  %distance.sroa.13.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %distance.sroa.13.0.agg.result.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store double %distance.sroa.13.7, ptr %distance.sroa.13.0.agg.result.sroa_idx, align 8
-  %distance.sroa.19.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %distance.sroa.19.0.agg.result.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store double %distance.sroa.19.7, ptr %distance.sroa.19.0.agg.result.sroa_idx, align 8
   br label %return
 
@@ -1854,9 +1842,9 @@ declare void @_ZN7msdfgen21MultiDistanceSelector5mergeERKS0_(ptr noundef nonnull
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN7msdfgen26OverlappingContourCombinerINS_28MultiAndTrueDistanceSelectorEEC2ERKNS_5ShapeE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(25) %shape) unnamed_addr #0 comdat($_ZN7msdfgen26OverlappingContourCombinerINS_28MultiAndTrueDistanceSelectorEEC5ERKNS_5ShapeE) align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %windings = getelementptr inbounds i8, ptr %this, i64 16
-  %edgeSelectors = getelementptr inbounds i8, ptr %this, i64 40
-  %_M_finish.i = getelementptr inbounds i8, ptr %shape, i64 8
+  %windings = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %edgeSelectors = getelementptr inbounds nuw i8, ptr %this, i64 40
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %shape, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %this, i8 0, i64 64, i1 false)
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %shape, align 8
@@ -1876,7 +1864,7 @@ if.then.i.cont:                                   ; preds = %if.then.i.invoke
   unreachable
 
 if.end.i:                                         ; preds = %entry
-  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %_M_end_of_storage.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %cmp3.i.not = icmp eq ptr %0, %1
   br i1 %cmp3.i.not, label %invoke.cont, label %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i
 
@@ -1886,10 +1874,10 @@ _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i: ; preds = %if.end.i
           to label %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i unwind label %lpad.loopexit.split-lp
 
 _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i: ; preds = %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i
-  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr %call5.i.i.i.i4, ptr %windings, align 8
   store ptr %call5.i.i.i.i4, ptr %_M_finish.i.i, align 8
-  %add.ptr21.i = getelementptr inbounds i32, ptr %call5.i.i.i.i4, i64 %sub.ptr.div.i
+  %add.ptr21.i = getelementptr inbounds nuw i32, ptr %call5.i.i.i.i4, i64 %sub.ptr.div.i
   store ptr %add.ptr21.i, ptr %_M_end_of_storage.i.i, align 8
   %.pre = load ptr, ptr %shape, align 8
   %.pre39 = load ptr, ptr %_M_finish.i, align 8
@@ -1902,7 +1890,7 @@ invoke.cont:                                      ; preds = %_ZNSt12_Vector_base
   br i1 %cmp.i6.not36, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %invoke.cont
-  %_M_finish.i.i7 = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_finish.i.i7 = getelementptr inbounds nuw i8, ptr %this, i64 24
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -1919,7 +1907,7 @@ invoke.cont12:                                    ; preds = %for.body
 if.then.i.i9:                                     ; preds = %invoke.cont12
   store i32 %call13, ptr %5, align 4
   %7 = load ptr, ptr %_M_finish.i.i7, align 8
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %7, i64 4
+  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %7, i64 4
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i7, align 8
   br label %for.inc
 
@@ -1938,28 +1926,24 @@ _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %if.else.i.i
   %cmp7.i.i.i.i = icmp ult i64 %add.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   %9 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i.i, i64 2305843009213693951)
   %cond.i.i.i.i = select i1 %cmp7.i.i.i.i, i64 2305843009213693951, i64 %9
-  %cmp.not.i.i.i.i = icmp eq i64 %cond.i.i.i.i, 0
-  br i1 %cmp.not.i.i.i.i, label %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i.i, label %cond.true.i.i.i.i
-
-cond.true.i.i.i.i:                                ; preds = %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i
+  %cmp.not.i.i.i.i = icmp ne i64 %cond.i.i.i.i, 0
+  tail call void @llvm.assume(i1 %cmp.not.i.i.i.i)
   %mul.i.i.i.i.i.i = shl nuw nsw i64 %cond.i.i.i.i, 2
   %call5.i.i.i.i.i.i11 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #14
-          to label %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i.i unwind label %lpad.loopexit
+          to label %call5.i.i.i.i.i.i.noexc unwind label %lpad.loopexit
 
-_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i.i: ; preds = %cond.true.i.i.i.i, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i
-  %cond.i10.i.i.i = phi ptr [ null, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i ], [ %call5.i.i.i.i.i.i11, %cond.true.i.i.i.i ]
-  %add.ptr.i.i.i = getelementptr inbounds i32, ptr %cond.i10.i.i.i, i64 %sub.ptr.div.i.i.i.i.i
+call5.i.i.i.i.i.i.noexc:                          ; preds = %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i11, i64 %sub.ptr.sub.i.i.i.i.i
   store i32 %call13, ptr %add.ptr.i.i.i, align 4
   %cmp.i.i.i.i.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit17.i.i.i
 
-if.then.i.i.i.i.i.i:                              ; preds = %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %cond.i10.i.i.i, ptr align 4 %8, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
+if.then.i.i.i.i.i.i:                              ; preds = %call5.i.i.i.i.i.i.noexc
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %call5.i.i.i.i.i.i11, ptr align 4 %8, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
   br label %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit17.i.i.i
 
-_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit17.i.i.i: ; preds = %if.then.i.i.i.i.i.i, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i.i
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i10.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i, i64 4
+_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit17.i.i.i: ; preds = %if.then.i.i.i.i.i.i, %call5.i.i.i.i.i.i.noexc
+  %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i, i64 4
   %tobool.not.i.i.i.i = icmp eq ptr %8, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i, label %if.then.i18.i.i.i
 
@@ -1968,19 +1952,19 @@ if.then.i18.i.i.i:                                ; preds = %_ZNSt6vectorIiSaIiE
   br label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i: ; preds = %if.then.i18.i.i.i, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit17.i.i.i
-  store ptr %cond.i10.i.i.i, ptr %windings, align 8
+  store ptr %call5.i.i.i.i.i.i11, ptr %windings, align 8
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i7, align 8
-  %add.ptr19.i.i.i = getelementptr inbounds i32, ptr %cond.i10.i.i.i, i64 %cond.i.i.i.i
+  %add.ptr19.i.i.i = getelementptr inbounds nuw i32, ptr %call5.i.i.i.i.i.i11, i64 %cond.i.i.i.i
   store ptr %add.ptr19.i.i.i, ptr %_M_end_of_storage.i.i, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i, %if.then.i.i9
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %contour.sroa.0.037, i64 24
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %contour.sroa.0.037, i64 24
   %10 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i6.not = icmp eq ptr %incdec.ptr.i, %10
   br i1 %cmp.i6.not, label %for.end.loopexit, label %for.body, !llvm.loop !24
 
-lpad.loopexit:                                    ; preds = %for.body, %cond.true.i.i.i.i
+lpad.loopexit:                                    ; preds = %for.body, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i
   %lpad.loopexit32 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
@@ -2014,7 +1998,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt6vectorIN7msdf
 
 for.end.loopexit:                                 ; preds = %for.inc
   %.pre40 = load ptr, ptr %shape, align 8
-  %_M_finish.i.i19.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 48
+  %_M_finish.i.i19.phi.trans.insert = getelementptr inbounds nuw i8, ptr %this, i64 48
   %.pre41 = load ptr, ptr %_M_finish.i.i19.phi.trans.insert, align 8
   %.pre42 = load ptr, ptr %edgeSelectors, align 8
   br label %for.end
@@ -2028,7 +2012,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
   %sub.ptr.rhs.cast.i16 = ptrtoint ptr %15 to i64
   %sub.ptr.sub.i17 = sub i64 %sub.ptr.lhs.cast.i15, %sub.ptr.rhs.cast.i16
   %sub.ptr.div.i18 = sdiv exact i64 %sub.ptr.sub.i17, 24
-  %_M_finish.i.i19 = getelementptr inbounds i8, ptr %this, i64 48
+  %_M_finish.i.i19 = getelementptr inbounds nuw i8, ptr %this, i64 48
   %sub.ptr.lhs.cast.i.i20 = ptrtoint ptr %14 to i64
   %sub.ptr.rhs.cast.i.i21 = ptrtoint ptr %13 to i64
   %sub.ptr.sub.i.i22 = sub i64 %sub.ptr.lhs.cast.i.i20, %sub.ptr.rhs.cast.i.i21
@@ -2062,9 +2046,9 @@ invoke.cont19:                                    ; preds = %invoke.cont.i.i, %i
 define weak_odr dso_local void @_ZN7msdfgen26OverlappingContourCombinerINS_28MultiAndTrueDistanceSelectorEE5resetERKNS_7Vector2E(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(16) %p) local_unnamed_addr #0 comdat align 2 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %p, i64 16, i1 false)
-  %edgeSelectors = getelementptr inbounds i8, ptr %this, i64 40
+  %edgeSelectors = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %edgeSelectors, align 8
-  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 48
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not4 = icmp eq ptr %0, %1
   br i1 %cmp.i.not4, label %for.end, label %for.body
@@ -2072,7 +2056,7 @@ entry:
 for.body:                                         ; preds = %entry, %for.body
   %contourEdgeSelector.sroa.0.05 = phi ptr [ %incdec.ptr.i, %for.body ], [ %0, %entry ]
   tail call void @_ZN7msdfgen21MultiDistanceSelector5resetERKNS_7Vector2E(ptr noundef nonnull align 8 dereferenceable(160) %contourEdgeSelector.sroa.0.05, ptr noundef nonnull align 8 dereferenceable(16) %p)
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %contourEdgeSelector.sroa.0.05, i64 160
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %contourEdgeSelector.sroa.0.05, i64 160
   %2 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %2
   br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !25
@@ -2084,7 +2068,7 @@ for.end:                                          ; preds = %for.body, %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef nonnull align 8 dereferenceable(160) ptr @_ZN7msdfgen26OverlappingContourCombinerINS_28MultiAndTrueDistanceSelectorEE12edgeSelectorEi(ptr noundef nonnull align 8 dereferenceable(64) %this, i32 noundef %i) local_unnamed_addr #2 comdat align 2 {
 entry:
-  %edgeSelectors = getelementptr inbounds i8, ptr %this, i64 40
+  %edgeSelectors = getelementptr inbounds nuw i8, ptr %this, i64 40
   %conv = sext i32 %i to i64
   %0 = load ptr, ptr %edgeSelectors, align 8
   %add.ptr.i = getelementptr inbounds %"class.msdfgen::MultiAndTrueDistanceSelector", ptr %0, i64 %conv
@@ -2104,8 +2088,8 @@ entry:
   %contourDistance = alloca %"struct.msdfgen::MultiAndTrueDistance", align 8
   %contourDistance73 = alloca %"struct.msdfgen::MultiAndTrueDistance", align 8
   %contourDistance101 = alloca %"struct.msdfgen::MultiAndTrueDistance", align 8
-  %edgeSelectors = getelementptr inbounds i8, ptr %this, i64 40
-  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 48
+  %edgeSelectors = getelementptr inbounds nuw i8, ptr %this, i64 40
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %edgeSelectors, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
@@ -2113,26 +2097,26 @@ entry:
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 160
   %conv = trunc i64 %sub.ptr.div.i to i32
-  %r.i.i = getelementptr inbounds i8, ptr %shapeEdgeSelector, i64 16
+  %r.i.i = getelementptr inbounds nuw i8, ptr %shapeEdgeSelector, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %shapeEdgeSelector, i8 0, i64 16, i1 false)
   call void @_ZN7msdfgen26PseudoDistanceSelectorBaseC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %r.i.i)
-  %g.i.i = getelementptr inbounds i8, ptr %shapeEdgeSelector, i64 64
+  %g.i.i = getelementptr inbounds nuw i8, ptr %shapeEdgeSelector, i64 64
   call void @_ZN7msdfgen26PseudoDistanceSelectorBaseC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %g.i.i)
-  %b.i.i = getelementptr inbounds i8, ptr %shapeEdgeSelector, i64 112
+  %b.i.i = getelementptr inbounds nuw i8, ptr %shapeEdgeSelector, i64 112
   call void @_ZN7msdfgen26PseudoDistanceSelectorBaseC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %b.i.i)
-  %r.i.i27 = getelementptr inbounds i8, ptr %innerEdgeSelector, i64 16
+  %r.i.i27 = getelementptr inbounds nuw i8, ptr %innerEdgeSelector, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %innerEdgeSelector, i8 0, i64 16, i1 false)
   call void @_ZN7msdfgen26PseudoDistanceSelectorBaseC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %r.i.i27)
-  %g.i.i28 = getelementptr inbounds i8, ptr %innerEdgeSelector, i64 64
+  %g.i.i28 = getelementptr inbounds nuw i8, ptr %innerEdgeSelector, i64 64
   call void @_ZN7msdfgen26PseudoDistanceSelectorBaseC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %g.i.i28)
-  %b.i.i29 = getelementptr inbounds i8, ptr %innerEdgeSelector, i64 112
+  %b.i.i29 = getelementptr inbounds nuw i8, ptr %innerEdgeSelector, i64 112
   call void @_ZN7msdfgen26PseudoDistanceSelectorBaseC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %b.i.i29)
-  %r.i.i30 = getelementptr inbounds i8, ptr %outerEdgeSelector, i64 16
+  %r.i.i30 = getelementptr inbounds nuw i8, ptr %outerEdgeSelector, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %outerEdgeSelector, i8 0, i64 16, i1 false)
   call void @_ZN7msdfgen26PseudoDistanceSelectorBaseC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %r.i.i30)
-  %g.i.i31 = getelementptr inbounds i8, ptr %outerEdgeSelector, i64 64
+  %g.i.i31 = getelementptr inbounds nuw i8, ptr %outerEdgeSelector, i64 64
   call void @_ZN7msdfgen26PseudoDistanceSelectorBaseC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %g.i.i31)
-  %b.i.i32 = getelementptr inbounds i8, ptr %outerEdgeSelector, i64 112
+  %b.i.i32 = getelementptr inbounds nuw i8, ptr %outerEdgeSelector, i64 112
   call void @_ZN7msdfgen26PseudoDistanceSelectorBaseC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %b.i.i32)
   call void @_ZN7msdfgen21MultiDistanceSelector5resetERKNS_7Vector2E(ptr noundef nonnull align 8 dereferenceable(160) %shapeEdgeSelector, ptr noundef nonnull align 8 dereferenceable(16) %this)
   call void @_ZN7msdfgen21MultiDistanceSelector5resetERKNS_7Vector2E(ptr noundef nonnull align 8 dereferenceable(160) %innerEdgeSelector, ptr noundef nonnull align 8 dereferenceable(16) %this)
@@ -2141,22 +2125,22 @@ entry:
   br i1 %cmp233, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %windings = getelementptr inbounds i8, ptr %this, i64 16
-  %g.i = getelementptr inbounds i8, ptr %edgeDistance, i64 8
-  %b.i = getelementptr inbounds i8, ptr %edgeDistance, i64 16
+  %windings = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %g.i = getelementptr inbounds nuw i8, ptr %edgeDistance, i64 8
+  %b.i = getelementptr inbounds nuw i8, ptr %edgeDistance, i64 16
   %wide.trip.count = and i64 %sub.ptr.div.i, 2147483647
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %2 = load ptr, ptr %edgeSelectors, align 8
-  %add.ptr.i = getelementptr inbounds %"class.msdfgen::MultiAndTrueDistanceSelector", ptr %2, i64 %indvars.iv
+  %add.ptr.i = getelementptr inbounds nuw %"class.msdfgen::MultiAndTrueDistanceSelector", ptr %2, i64 %indvars.iv
   call void @_ZNK7msdfgen28MultiAndTrueDistanceSelector8distanceEv(ptr nonnull sret(%"struct.msdfgen::MultiAndTrueDistance") align 8 %edgeDistance, ptr noundef nonnull align 8 dereferenceable(160) %add.ptr.i)
   %3 = load ptr, ptr %edgeSelectors, align 8
-  %add.ptr.i33 = getelementptr inbounds %"class.msdfgen::MultiAndTrueDistanceSelector", ptr %3, i64 %indvars.iv
+  %add.ptr.i33 = getelementptr inbounds nuw %"class.msdfgen::MultiAndTrueDistanceSelector", ptr %3, i64 %indvars.iv
   call void @_ZN7msdfgen21MultiDistanceSelector5mergeERKS0_(ptr noundef nonnull align 8 dereferenceable(160) %shapeEdgeSelector, ptr noundef nonnull align 8 dereferenceable(160) %add.ptr.i33)
   %4 = load ptr, ptr %windings, align 8
-  %add.ptr.i34 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv
+  %add.ptr.i34 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
   %5 = load i32, ptr %add.ptr.i34, align 4
   %cmp12 = icmp sgt i32 %5, 0
   br i1 %cmp12, label %land.lhs.true, label %if.end
@@ -2178,10 +2162,10 @@ land.lhs.true:                                    ; preds = %for.body
 
 if.then:                                          ; preds = %land.lhs.true
   %9 = load ptr, ptr %edgeSelectors, align 8
-  %add.ptr.i35 = getelementptr inbounds %"class.msdfgen::MultiAndTrueDistanceSelector", ptr %9, i64 %indvars.iv
+  %add.ptr.i35 = getelementptr inbounds nuw %"class.msdfgen::MultiAndTrueDistanceSelector", ptr %9, i64 %indvars.iv
   call void @_ZN7msdfgen21MultiDistanceSelector5mergeERKS0_(ptr noundef nonnull align 8 dereferenceable(160) %innerEdgeSelector, ptr noundef nonnull align 8 dereferenceable(160) %add.ptr.i35)
   %.pre = load ptr, ptr %windings, align 8
-  %add.ptr.i36.phi.trans.insert = getelementptr inbounds i32, ptr %.pre, i64 %indvars.iv
+  %add.ptr.i36.phi.trans.insert = getelementptr inbounds nuw i32, ptr %.pre, i64 %indvars.iv
   %.pre281 = load i32, ptr %add.ptr.i36.phi.trans.insert, align 4
   br label %if.end
 
@@ -2207,7 +2191,7 @@ land.lhs.true22:                                  ; preds = %if.end
 
 if.then25:                                        ; preds = %land.lhs.true22
   %14 = load ptr, ptr %edgeSelectors, align 8
-  %add.ptr.i47 = getelementptr inbounds %"class.msdfgen::MultiAndTrueDistanceSelector", ptr %14, i64 %indvars.iv
+  %add.ptr.i47 = getelementptr inbounds nuw %"class.msdfgen::MultiAndTrueDistanceSelector", ptr %14, i64 %indvars.iv
   call void @_ZN7msdfgen21MultiDistanceSelector5mergeERKS0_(ptr noundef nonnull align 8 dereferenceable(160) %outerEdgeSelector, ptr noundef nonnull align 8 dereferenceable(160) %add.ptr.i47)
   br label %for.inc
 
@@ -2221,9 +2205,9 @@ for.end:                                          ; preds = %for.inc, %entry
   call void @_ZNK7msdfgen28MultiAndTrueDistanceSelector8distanceEv(ptr nonnull sret(%"struct.msdfgen::MultiAndTrueDistance") align 8 %innerDistance, ptr noundef nonnull align 8 dereferenceable(160) %innerEdgeSelector)
   call void @_ZNK7msdfgen28MultiAndTrueDistanceSelector8distanceEv(ptr nonnull sret(%"struct.msdfgen::MultiAndTrueDistance") align 8 %outerDistance, ptr noundef nonnull align 8 dereferenceable(160) %outerEdgeSelector)
   %15 = load double, ptr %innerDistance, align 8
-  %g.i48 = getelementptr inbounds i8, ptr %innerDistance, i64 8
+  %g.i48 = getelementptr inbounds nuw i8, ptr %innerDistance, i64 8
   %16 = load double, ptr %g.i48, align 8
-  %b.i49 = getelementptr inbounds i8, ptr %innerDistance, i64 16
+  %b.i49 = getelementptr inbounds nuw i8, ptr %innerDistance, i64 16
   %17 = load double, ptr %b.i49, align 8
   %cmp.i.i.i50 = fcmp olt double %16, %15
   %cond.i.i.i51 = select i1 %cmp.i.i.i50, double %16, double %15
@@ -2234,9 +2218,9 @@ for.end:                                          ; preds = %for.inc, %entry
   %cmp.i7.i.i56 = fcmp olt double %cond.i.i.i51, %cond.i6.i.i55
   %cond.i8.i.i57 = select i1 %cmp.i7.i.i56, double %cond.i6.i.i55, double %cond.i.i.i51
   %18 = load double, ptr %outerDistance, align 8
-  %g.i58 = getelementptr inbounds i8, ptr %outerDistance, i64 8
+  %g.i58 = getelementptr inbounds nuw i8, ptr %outerDistance, i64 8
   %19 = load double, ptr %g.i58, align 8
-  %b.i59 = getelementptr inbounds i8, ptr %outerDistance, i64 16
+  %b.i59 = getelementptr inbounds nuw i8, ptr %outerDistance, i64 16
   %20 = load double, ptr %b.i59, align 8
   %cmp.i.i.i60 = fcmp olt double %19, %18
   %cond.i.i.i61 = select i1 %cmp.i.i.i60, double %19, double %18
@@ -2256,15 +2240,15 @@ land.lhs.true33:                                  ; preds = %for.end
   br i1 %cmp34, label %if.else, label %if.then35
 
 if.then35:                                        ; preds = %land.lhs.true33
-  %distance.sroa.25.0.innerDistance.sroa_idx = getelementptr inbounds i8, ptr %innerDistance, i64 24
+  %distance.sroa.25.0.innerDistance.sroa_idx = getelementptr inbounds nuw i8, ptr %innerDistance, i64 24
   %distance.sroa.25.0.copyload = load double, ptr %distance.sroa.25.0.innerDistance.sroa_idx, align 8
   br i1 %cmp233, label %for.body39.lr.ph, label %for.end117
 
 for.body39.lr.ph:                                 ; preds = %if.then35
-  %windings40 = getelementptr inbounds i8, ptr %this, i64 16
-  %g.i72 = getelementptr inbounds i8, ptr %contourDistance, i64 8
-  %b.i73 = getelementptr inbounds i8, ptr %contourDistance, i64 16
-  %distance.sroa.25.0.contourDistance.sroa_idx = getelementptr inbounds i8, ptr %contourDistance, i64 24
+  %windings40 = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %g.i72 = getelementptr inbounds nuw i8, ptr %contourDistance, i64 8
+  %b.i73 = getelementptr inbounds nuw i8, ptr %contourDistance, i64 16
+  %distance.sroa.25.0.contourDistance.sroa_idx = getelementptr inbounds nuw i8, ptr %contourDistance, i64 24
   %wide.trip.count269 = and i64 %sub.ptr.div.i, 2147483647
   br label %for.body39
 
@@ -2275,14 +2259,14 @@ for.body39:                                       ; preds = %for.body39.lr.ph, %
   %distance.sroa.19.0237 = phi double [ %17, %for.body39.lr.ph ], [ %distance.sroa.19.1, %for.inc57 ]
   %distance.sroa.25.0236 = phi double [ %distance.sroa.25.0.copyload, %for.body39.lr.ph ], [ %distance.sroa.25.1, %for.inc57 ]
   %23 = load ptr, ptr %windings40, align 8
-  %add.ptr.i70 = getelementptr inbounds i32, ptr %23, i64 %indvars.iv266
+  %add.ptr.i70 = getelementptr inbounds nuw i32, ptr %23, i64 %indvars.iv266
   %24 = load i32, ptr %add.ptr.i70, align 4
   %cmp43 = icmp sgt i32 %24, 0
   br i1 %cmp43, label %if.then44, label %for.inc57
 
 if.then44:                                        ; preds = %for.body39
   %25 = load ptr, ptr %edgeSelectors, align 8
-  %add.ptr.i71 = getelementptr inbounds %"class.msdfgen::MultiAndTrueDistanceSelector", ptr %25, i64 %indvars.iv266
+  %add.ptr.i71 = getelementptr inbounds nuw %"class.msdfgen::MultiAndTrueDistanceSelector", ptr %25, i64 %indvars.iv266
   call void @_ZNK7msdfgen28MultiAndTrueDistanceSelector8distanceEv(ptr nonnull sret(%"struct.msdfgen::MultiAndTrueDistance") align 8 %contourDistance, ptr noundef nonnull align 8 dereferenceable(160) %add.ptr.i71)
   %26 = load double, ptr %contourDistance, align 8
   %27 = load double, ptr %g.i72, align 8
@@ -2335,15 +2319,15 @@ land.lhs.true61:                                  ; preds = %if.else
   br i1 %cmp62, label %if.then63, label %if.else89
 
 if.then63:                                        ; preds = %land.lhs.true61
-  %distance.sroa.25.0.outerDistance.sroa_idx = getelementptr inbounds i8, ptr %outerDistance, i64 24
+  %distance.sroa.25.0.outerDistance.sroa_idx = getelementptr inbounds nuw i8, ptr %outerDistance, i64 24
   %distance.sroa.25.0.copyload227 = load double, ptr %distance.sroa.25.0.outerDistance.sroa_idx, align 8
   br i1 %cmp233, label %for.body67.lr.ph, label %for.end117
 
 for.body67.lr.ph:                                 ; preds = %if.then63
-  %windings68 = getelementptr inbounds i8, ptr %this, i64 16
-  %g.i104 = getelementptr inbounds i8, ptr %contourDistance73, i64 8
-  %b.i105 = getelementptr inbounds i8, ptr %contourDistance73, i64 16
-  %distance.sroa.25.0.contourDistance73.sroa_idx = getelementptr inbounds i8, ptr %contourDistance73, i64 24
+  %windings68 = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %g.i104 = getelementptr inbounds nuw i8, ptr %contourDistance73, i64 8
+  %b.i105 = getelementptr inbounds nuw i8, ptr %contourDistance73, i64 16
+  %distance.sroa.25.0.contourDistance73.sroa_idx = getelementptr inbounds nuw i8, ptr %contourDistance73, i64 24
   %wide.trip.count274 = and i64 %sub.ptr.div.i, 2147483647
   br label %for.body67
 
@@ -2354,14 +2338,14 @@ for.body67:                                       ; preds = %for.body67.lr.ph, %
   %distance.sroa.19.3246 = phi double [ %20, %for.body67.lr.ph ], [ %distance.sroa.19.4, %for.inc86 ]
   %distance.sroa.25.3245 = phi double [ %distance.sroa.25.0.copyload227, %for.body67.lr.ph ], [ %distance.sroa.25.4, %for.inc86 ]
   %32 = load ptr, ptr %windings68, align 8
-  %add.ptr.i102 = getelementptr inbounds i32, ptr %32, i64 %indvars.iv271
+  %add.ptr.i102 = getelementptr inbounds nuw i32, ptr %32, i64 %indvars.iv271
   %33 = load i32, ptr %add.ptr.i102, align 4
   %cmp71 = icmp slt i32 %33, 0
   br i1 %cmp71, label %if.then72, label %for.inc86
 
 if.then72:                                        ; preds = %for.body67
   %34 = load ptr, ptr %edgeSelectors, align 8
-  %add.ptr.i103 = getelementptr inbounds %"class.msdfgen::MultiAndTrueDistanceSelector", ptr %34, i64 %indvars.iv271
+  %add.ptr.i103 = getelementptr inbounds nuw %"class.msdfgen::MultiAndTrueDistanceSelector", ptr %34, i64 %indvars.iv271
   call void @_ZNK7msdfgen28MultiAndTrueDistanceSelector8distanceEv(ptr nonnull sret(%"struct.msdfgen::MultiAndTrueDistance") align 8 %contourDistance73, ptr noundef nonnull align 8 dereferenceable(160) %add.ptr.i103)
   %35 = load double, ptr %contourDistance73, align 8
   %36 = load double, ptr %g.i104, align 8
@@ -2416,10 +2400,10 @@ if.end91:                                         ; preds = %for.inc57, %for.inc
   br i1 %cmp233, label %for.body95.lr.ph, label %for.end117
 
 for.body95.lr.ph:                                 ; preds = %if.end91
-  %windings96 = getelementptr inbounds i8, ptr %this, i64 16
-  %g.i136 = getelementptr inbounds i8, ptr %contourDistance101, i64 8
-  %b.i137 = getelementptr inbounds i8, ptr %contourDistance101, i64 16
-  %distance.sroa.25.0.contourDistance101.sroa_idx = getelementptr inbounds i8, ptr %contourDistance101, i64 24
+  %windings96 = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %g.i136 = getelementptr inbounds nuw i8, ptr %contourDistance101, i64 8
+  %b.i137 = getelementptr inbounds nuw i8, ptr %contourDistance101, i64 16
+  %distance.sroa.25.0.contourDistance101.sroa_idx = getelementptr inbounds nuw i8, ptr %contourDistance101, i64 24
   %wide.trip.count279 = and i64 %sub.ptr.div.i, 2147483647
   br label %for.body95
 
@@ -2430,14 +2414,14 @@ for.body95:                                       ; preds = %for.body95.lr.ph, %
   %distance.sroa.19.5256 = phi double [ %distance.sroa.19.2, %for.body95.lr.ph ], [ %distance.sroa.19.6, %for.inc115 ]
   %distance.sroa.25.5255 = phi double [ %distance.sroa.25.2, %for.body95.lr.ph ], [ %distance.sroa.25.6, %for.inc115 ]
   %39 = load ptr, ptr %windings96, align 8
-  %add.ptr.i134 = getelementptr inbounds i32, ptr %39, i64 %indvars.iv276
+  %add.ptr.i134 = getelementptr inbounds nuw i32, ptr %39, i64 %indvars.iv276
   %40 = load i32, ptr %add.ptr.i134, align 4
   %cmp99.not = icmp eq i32 %40, %winding.0
   br i1 %cmp99.not, label %for.inc115, label %if.then100
 
 if.then100:                                       ; preds = %for.body95
   %41 = load ptr, ptr %edgeSelectors, align 8
-  %add.ptr.i135 = getelementptr inbounds %"class.msdfgen::MultiAndTrueDistanceSelector", ptr %41, i64 %indvars.iv276
+  %add.ptr.i135 = getelementptr inbounds nuw %"class.msdfgen::MultiAndTrueDistanceSelector", ptr %41, i64 %indvars.iv276
   call void @_ZNK7msdfgen28MultiAndTrueDistanceSelector8distanceEv(ptr nonnull sret(%"struct.msdfgen::MultiAndTrueDistance") align 8 %contourDistance101, ptr noundef nonnull align 8 dereferenceable(160) %add.ptr.i135)
   %42 = load double, ptr %contourDistance101, align 8
   %43 = load double, ptr %g.i136, align 8
@@ -2495,9 +2479,9 @@ for.end117:                                       ; preds = %for.inc115, %if.the
   %cmp.i7.i.i184 = fcmp olt double %cond.i.i.i179, %cond.i6.i.i183
   %cond.i8.i.i185 = select i1 %cmp.i7.i.i184, double %cond.i6.i.i183, double %cond.i.i.i179
   %47 = load double, ptr %shapeDistance, align 8
-  %g.i186 = getelementptr inbounds i8, ptr %shapeDistance, i64 8
+  %g.i186 = getelementptr inbounds nuw i8, ptr %shapeDistance, i64 8
   %48 = load double, ptr %g.i186, align 8
-  %b.i187 = getelementptr inbounds i8, ptr %shapeDistance, i64 16
+  %b.i187 = getelementptr inbounds nuw i8, ptr %shapeDistance, i64 16
   %49 = load double, ptr %b.i187, align 8
   %cmp.i.i.i188 = fcmp olt double %48, %47
   %cond.i.i.i189 = select i1 %cmp.i.i.i188, double %48, double %47
@@ -2511,7 +2495,7 @@ for.end117:                                       ; preds = %for.inc115, %if.the
   br i1 %cmp120, label %if.then121, label %if.end122
 
 if.then121:                                       ; preds = %for.end117
-  %distance.sroa.25.0.shapeDistance.sroa_idx = getelementptr inbounds i8, ptr %shapeDistance, i64 24
+  %distance.sroa.25.0.shapeDistance.sroa_idx = getelementptr inbounds nuw i8, ptr %shapeDistance, i64 24
   %distance.sroa.25.0.copyload230 = load double, ptr %distance.sroa.25.0.shapeDistance.sroa_idx, align 8
   br label %if.end122
 
@@ -2521,11 +2505,11 @@ if.end122:                                        ; preds = %if.then121, %for.en
   %distance.sroa.13.7 = phi double [ %48, %if.then121 ], [ %distance.sroa.13.5.lcssa, %for.end117 ]
   %distance.sroa.0.7 = phi double [ %47, %if.then121 ], [ %distance.sroa.0.5.lcssa, %for.end117 ]
   store double %distance.sroa.0.7, ptr %agg.result, align 8
-  %distance.sroa.13.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %distance.sroa.13.0.agg.result.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store double %distance.sroa.13.7, ptr %distance.sroa.13.0.agg.result.sroa_idx, align 8
-  %distance.sroa.19.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %distance.sroa.19.0.agg.result.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store double %distance.sroa.19.7, ptr %distance.sroa.19.0.agg.result.sroa_idx, align 8
-  %distance.sroa.25.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %distance.sroa.25.0.agg.result.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store double %distance.sroa.25.7, ptr %distance.sroa.25.0.agg.result.sroa_idx, align 8
   br label %return
 
@@ -2568,14 +2552,14 @@ entry:
   br i1 %cmp.not, label %if.end44, label %if.then
 
 if.then:                                          ; preds = %entry
-  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 5
-  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %2 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.lhs.cast.i
@@ -2591,13 +2575,13 @@ if.then:                                          ; preds = %entry
 for.inc.i.i.i:                                    ; preds = %if.then, %for.inc.i.i.i
   %__cur.08.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.inc.i.i.i ], [ %0, %if.then ]
   %__n.addr.07.i.i.i = phi i64 [ %dec.i.i.i, %for.inc.i.i.i ], [ %__n, %if.then ]
-  %minDistance.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.08.i.i.i, i64 16
+  %minDistance.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.08.i.i.i, i8 0, i64 16, i1 false)
   store double 0xFFEFFFFFFFFFFFFF, ptr %minDistance.i.i.i.i.i, align 8
-  %dot.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.08.i.i.i, i64 24
+  %dot.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i, i64 24
   store double 0.000000e+00, ptr %dot.i.i.i.i.i.i, align 8
   %dec.i.i.i = add i64 %__n.addr.07.i.i.i, -1
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__cur.08.i.i.i, i64 32
+  %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i, i64 32
   %cmp.not.i.i.i = icmp eq i64 %dec.i.i.i, 0
   br i1 %cmp.not.i.i.i, label %_ZSt27__uninitialized_default_n_aIPN7msdfgen20TrueDistanceSelectorEmS1_ET_S3_T0_RSaIT1_E.exit, label %for.inc.i.i.i, !llvm.loop !30
 
@@ -2625,13 +2609,13 @@ _ZNKSt6vectorIN7msdfgen20TrueDistanceSelectorESaIS1_EE12_M_check_lenEmPKc.exit: 
 for.inc.i.i.i21:                                  ; preds = %_ZNKSt6vectorIN7msdfgen20TrueDistanceSelectorESaIS1_EE12_M_check_lenEmPKc.exit, %for.inc.i.i.i21
   %__cur.08.i.i.i22 = phi ptr [ %incdec.ptr.i.i.i27, %for.inc.i.i.i21 ], [ %add.ptr, %_ZNKSt6vectorIN7msdfgen20TrueDistanceSelectorESaIS1_EE12_M_check_lenEmPKc.exit ]
   %__n.addr.07.i.i.i23 = phi i64 [ %dec.i.i.i26, %for.inc.i.i.i21 ], [ %__n, %_ZNKSt6vectorIN7msdfgen20TrueDistanceSelectorESaIS1_EE12_M_check_lenEmPKc.exit ]
-  %minDistance.i.i.i.i.i24 = getelementptr inbounds i8, ptr %__cur.08.i.i.i22, i64 16
+  %minDistance.i.i.i.i.i24 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i22, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.08.i.i.i22, i8 0, i64 16, i1 false)
   store double 0xFFEFFFFFFFFFFFFF, ptr %minDistance.i.i.i.i.i24, align 8
-  %dot.i.i.i.i.i.i25 = getelementptr inbounds i8, ptr %__cur.08.i.i.i22, i64 24
+  %dot.i.i.i.i.i.i25 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i22, i64 24
   store double 0.000000e+00, ptr %dot.i.i.i.i.i.i25, align 8
   %dec.i.i.i26 = add i64 %__n.addr.07.i.i.i23, -1
-  %incdec.ptr.i.i.i27 = getelementptr inbounds i8, ptr %__cur.08.i.i.i22, i64 32
+  %incdec.ptr.i.i.i27 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i22, i64 32
   %cmp.not.i.i.i28 = icmp eq i64 %dec.i.i.i26, 0
   br i1 %cmp.not.i.i.i28, label %try.cont, label %for.inc.i.i.i21, !llvm.loop !30
 
@@ -2643,8 +2627,8 @@ for.body.i.i.i:                                   ; preds = %try.cont, %for.body
   %__cur.07.i.i.i = phi ptr [ %incdec.ptr1.i.i.i, %for.body.i.i.i ], [ %call5.i.i.i, %try.cont ]
   %__first.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i32, %for.body.i.i.i ], [ %1, %try.cont ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__cur.07.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i, i64 32, i1 false), !alias.scope !31
-  %incdec.ptr.i.i.i32 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 32
-  %incdec.ptr1.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 32
+  %incdec.ptr.i.i.i32 = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i, i64 32
+  %incdec.ptr1.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i, i64 32
   %cmp.not.i.i.i33 = icmp eq ptr %incdec.ptr.i.i.i32, %0
   br i1 %cmp.not.i.i.i33, label %_ZNSt6vectorIN7msdfgen20TrueDistanceSelectorESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, label %for.body.i.i.i, !llvm.loop !35
 
@@ -2660,7 +2644,7 @@ _ZNSt12_Vector_baseIN7msdfgen20TrueDistanceSelectorESaIS1_EE13_M_deallocateEPS1_
   store ptr %call5.i.i.i, ptr %this, align 8
   %add.ptr37 = getelementptr inbounds %"class.msdfgen::TrueDistanceSelector", ptr %add.ptr, i64 %__n
   store ptr %add.ptr37, ptr %_M_finish.i, align 8
-  %add.ptr40 = getelementptr inbounds %"class.msdfgen::TrueDistanceSelector", ptr %call5.i.i.i, i64 %3
+  %add.ptr40 = getelementptr inbounds nuw %"class.msdfgen::TrueDistanceSelector", ptr %call5.i.i.i, i64 %3
   store ptr %add.ptr40, ptr %_M_end_of_storage, align 8
   br label %if.end44
 
@@ -2682,14 +2666,14 @@ entry:
   br i1 %cmp.not, label %if.end44, label %if.then
 
 if.then:                                          ; preds = %entry
-  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 6
-  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %2 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.lhs.cast.i
@@ -2710,10 +2694,10 @@ for.body.i.i.i:                                   ; preds = %if.then, %for.inc.i
           to label %for.inc.i.i.i unwind label %invoke.cont2.i.i.i
 
 for.inc.i.i.i:                                    ; preds = %for.body.i.i.i
-  %p.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.09.i.i.i, i64 48
+  %p.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.09.i.i.i, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %p.i.i.i.i.i, i8 0, i64 16, i1 false)
   %dec.i.i.i = add i64 %__n.addr.08.i.i.i, -1
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__cur.09.i.i.i, i64 64
+  %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.09.i.i.i, i64 64
   %cmp.not.i.i.i = icmp eq i64 %dec.i.i.i, 0
   br i1 %cmp.not.i.i.i, label %_ZSt27__uninitialized_default_n_aIPN7msdfgen22PseudoDistanceSelectorEmS1_ET_S3_T0_RSaIT1_E.exit, label %for.body.i.i.i, !llvm.loop !36
 
@@ -2774,10 +2758,10 @@ for.body.i.i.i21:                                 ; preds = %_ZNKSt6vectorIN7msd
           to label %for.inc.i.i.i29 unwind label %invoke.cont2.i.i.i24
 
 for.inc.i.i.i29:                                  ; preds = %for.body.i.i.i21
-  %p.i.i.i.i.i30 = getelementptr inbounds i8, ptr %__cur.09.i.i.i22, i64 48
+  %p.i.i.i.i.i30 = getelementptr inbounds nuw i8, ptr %__cur.09.i.i.i22, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %p.i.i.i.i.i30, i8 0, i64 16, i1 false)
   %dec.i.i.i31 = add i64 %__n.addr.08.i.i.i23, -1
-  %incdec.ptr.i.i.i32 = getelementptr inbounds i8, ptr %__cur.09.i.i.i22, i64 64
+  %incdec.ptr.i.i.i32 = getelementptr inbounds nuw i8, ptr %__cur.09.i.i.i22, i64 64
   %cmp.not.i.i.i33 = icmp eq i64 %dec.i.i.i31, 0
   br i1 %cmp.not.i.i.i33, label %try.cont, label %for.body.i.i.i21, !llvm.loop !36
 
@@ -2826,8 +2810,8 @@ for.body.i.i.i37:                                 ; preds = %try.cont, %for.body
   %__cur.07.i.i.i = phi ptr [ %incdec.ptr1.i.i.i, %for.body.i.i.i37 ], [ %call5.i.i.i, %try.cont ]
   %__first.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i38, %for.body.i.i.i37 ], [ %1, %try.cont ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %__cur.07.i.i.i, ptr noundef nonnull align 8 dereferenceable(64) %__first.addr.06.i.i.i, i64 64, i1 false), !alias.scope !37
-  %incdec.ptr.i.i.i38 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 64
-  %incdec.ptr1.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 64
+  %incdec.ptr.i.i.i38 = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i, i64 64
+  %incdec.ptr1.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i, i64 64
   %cmp.not.i.i.i39 = icmp eq ptr %incdec.ptr.i.i.i38, %0
   br i1 %cmp.not.i.i.i39, label %_ZNSt6vectorIN7msdfgen22PseudoDistanceSelectorESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, label %for.body.i.i.i37, !llvm.loop !41
 
@@ -2843,7 +2827,7 @@ _ZNSt12_Vector_baseIN7msdfgen22PseudoDistanceSelectorESaIS1_EE13_M_deallocateEPS
   store ptr %call5.i.i.i, ptr %this, align 8
   %add.ptr37 = getelementptr inbounds %"class.msdfgen::PseudoDistanceSelector", ptr %add.ptr, i64 %__n
   store ptr %add.ptr37, ptr %_M_finish.i, align 8
-  %add.ptr40 = getelementptr inbounds %"class.msdfgen::PseudoDistanceSelector", ptr %call5.i.i.i, i64 %9
+  %add.ptr40 = getelementptr inbounds nuw %"class.msdfgen::PseudoDistanceSelector", ptr %call5.i.i.i, i64 %9
   store ptr %add.ptr40, ptr %_M_end_of_storage, align 8
   br label %if.end44
 
@@ -2868,14 +2852,14 @@ entry:
   br i1 %cmp.not, label %if.end44, label %if.then
 
 if.then:                                          ; preds = %entry
-  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 160
-  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %2 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.lhs.cast.i
@@ -2891,24 +2875,24 @@ if.then:                                          ; preds = %entry
 for.body.i.i.i:                                   ; preds = %if.then, %for.inc.i.i.i
   %__cur.011.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.inc.i.i.i ], [ %0, %if.then ]
   %__n.addr.010.i.i.i = phi i64 [ %dec.i.i.i, %for.inc.i.i.i ], [ %__n, %if.then ]
-  %r.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.011.i.i.i, i64 16
+  %r.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.011.i.i.i, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %__cur.011.i.i.i, i8 0, i64 160, i1 false)
   invoke void @_ZN7msdfgen26PseudoDistanceSelectorBaseC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %r.i.i.i.i.i)
           to label %.noexc.i.i.i unwind label %invoke.cont2.i.i.i
 
 .noexc.i.i.i:                                     ; preds = %for.body.i.i.i
-  %g.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.011.i.i.i, i64 64
+  %g.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.011.i.i.i, i64 64
   invoke void @_ZN7msdfgen26PseudoDistanceSelectorBaseC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %g.i.i.i.i.i)
           to label %.noexc6.i.i.i unwind label %invoke.cont2.i.i.i
 
 .noexc6.i.i.i:                                    ; preds = %.noexc.i.i.i
-  %b.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.011.i.i.i, i64 112
+  %b.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.011.i.i.i, i64 112
   invoke void @_ZN7msdfgen26PseudoDistanceSelectorBaseC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %b.i.i.i.i.i)
           to label %for.inc.i.i.i unwind label %invoke.cont2.i.i.i
 
 for.inc.i.i.i:                                    ; preds = %.noexc6.i.i.i
   %dec.i.i.i = add i64 %__n.addr.010.i.i.i, -1
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__cur.011.i.i.i, i64 160
+  %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.011.i.i.i, i64 160
   %cmp.not.i.i.i = icmp eq i64 %dec.i.i.i, 0
   br i1 %cmp.not.i.i.i, label %_ZSt27__uninitialized_default_n_aIPN7msdfgen21MultiDistanceSelectorEmS1_ET_S3_T0_RSaIT1_E.exit, label %for.body.i.i.i, !llvm.loop !42
 
@@ -2964,24 +2948,24 @@ _ZNKSt6vectorIN7msdfgen21MultiDistanceSelectorESaIS1_EE12_M_check_lenEmPKc.exit:
 for.body.i.i.i21:                                 ; preds = %_ZNKSt6vectorIN7msdfgen21MultiDistanceSelectorESaIS1_EE12_M_check_lenEmPKc.exit, %for.inc.i.i.i34
   %__cur.011.i.i.i22 = phi ptr [ %incdec.ptr.i.i.i36, %for.inc.i.i.i34 ], [ %add.ptr, %_ZNKSt6vectorIN7msdfgen21MultiDistanceSelectorESaIS1_EE12_M_check_lenEmPKc.exit ]
   %__n.addr.010.i.i.i23 = phi i64 [ %dec.i.i.i35, %for.inc.i.i.i34 ], [ %__n, %_ZNKSt6vectorIN7msdfgen21MultiDistanceSelectorESaIS1_EE12_M_check_lenEmPKc.exit ]
-  %r.i.i.i.i.i24 = getelementptr inbounds i8, ptr %__cur.011.i.i.i22, i64 16
+  %r.i.i.i.i.i24 = getelementptr inbounds nuw i8, ptr %__cur.011.i.i.i22, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %__cur.011.i.i.i22, i8 0, i64 160, i1 false)
   invoke void @_ZN7msdfgen26PseudoDistanceSelectorBaseC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %r.i.i.i.i.i24)
           to label %.noexc.i.i.i30 unwind label %invoke.cont2.i.i.i25
 
 .noexc.i.i.i30:                                   ; preds = %for.body.i.i.i21
-  %g.i.i.i.i.i31 = getelementptr inbounds i8, ptr %__cur.011.i.i.i22, i64 64
+  %g.i.i.i.i.i31 = getelementptr inbounds nuw i8, ptr %__cur.011.i.i.i22, i64 64
   invoke void @_ZN7msdfgen26PseudoDistanceSelectorBaseC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %g.i.i.i.i.i31)
           to label %.noexc6.i.i.i32 unwind label %invoke.cont2.i.i.i25
 
 .noexc6.i.i.i32:                                  ; preds = %.noexc.i.i.i30
-  %b.i.i.i.i.i33 = getelementptr inbounds i8, ptr %__cur.011.i.i.i22, i64 112
+  %b.i.i.i.i.i33 = getelementptr inbounds nuw i8, ptr %__cur.011.i.i.i22, i64 112
   invoke void @_ZN7msdfgen26PseudoDistanceSelectorBaseC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %b.i.i.i.i.i33)
           to label %for.inc.i.i.i34 unwind label %invoke.cont2.i.i.i25
 
 for.inc.i.i.i34:                                  ; preds = %.noexc6.i.i.i32
   %dec.i.i.i35 = add i64 %__n.addr.010.i.i.i23, -1
-  %incdec.ptr.i.i.i36 = getelementptr inbounds i8, ptr %__cur.011.i.i.i22, i64 160
+  %incdec.ptr.i.i.i36 = getelementptr inbounds nuw i8, ptr %__cur.011.i.i.i22, i64 160
   %cmp.not.i.i.i37 = icmp eq i64 %dec.i.i.i35, 0
   br i1 %cmp.not.i.i.i37, label %try.cont, label %for.body.i.i.i21, !llvm.loop !42
 
@@ -3030,8 +3014,8 @@ for.body.i.i.i41:                                 ; preds = %try.cont, %for.body
   %__cur.07.i.i.i = phi ptr [ %incdec.ptr1.i.i.i, %for.body.i.i.i41 ], [ %call5.i.i.i, %try.cont ]
   %__first.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i42, %for.body.i.i.i41 ], [ %1, %try.cont ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %__cur.07.i.i.i, ptr noundef nonnull align 8 dereferenceable(160) %__first.addr.06.i.i.i, i64 160, i1 false), !alias.scope !43
-  %incdec.ptr.i.i.i42 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 160
-  %incdec.ptr1.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 160
+  %incdec.ptr.i.i.i42 = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i, i64 160
+  %incdec.ptr1.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i, i64 160
   %cmp.not.i.i.i43 = icmp eq ptr %incdec.ptr.i.i.i42, %0
   br i1 %cmp.not.i.i.i43, label %_ZNSt6vectorIN7msdfgen21MultiDistanceSelectorESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, label %for.body.i.i.i41, !llvm.loop !47
 
@@ -3047,7 +3031,7 @@ _ZNSt12_Vector_baseIN7msdfgen21MultiDistanceSelectorESaIS1_EE13_M_deallocateEPS1
   store ptr %call5.i.i.i, ptr %this, align 8
   %add.ptr37 = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %add.ptr, i64 %__n
   store ptr %add.ptr37, ptr %_M_finish.i, align 8
-  %add.ptr40 = getelementptr inbounds %"class.msdfgen::MultiDistanceSelector", ptr %call5.i.i.i, i64 %9
+  %add.ptr40 = getelementptr inbounds nuw %"class.msdfgen::MultiDistanceSelector", ptr %call5.i.i.i, i64 %9
   store ptr %add.ptr40, ptr %_M_end_of_storage, align 8
   br label %if.end44
 
@@ -3072,14 +3056,14 @@ entry:
   br i1 %cmp.not, label %if.end44, label %if.then
 
 if.then:                                          ; preds = %entry
-  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 160
-  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %2 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.lhs.cast.i
@@ -3095,24 +3079,24 @@ if.then:                                          ; preds = %entry
 for.body.i.i.i:                                   ; preds = %if.then, %for.inc.i.i.i
   %__cur.011.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.inc.i.i.i ], [ %0, %if.then ]
   %__n.addr.010.i.i.i = phi i64 [ %dec.i.i.i, %for.inc.i.i.i ], [ %__n, %if.then ]
-  %r.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.011.i.i.i, i64 16
+  %r.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.011.i.i.i, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %__cur.011.i.i.i, i8 0, i64 160, i1 false)
   invoke void @_ZN7msdfgen26PseudoDistanceSelectorBaseC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %r.i.i.i.i.i.i)
           to label %.noexc.i.i.i unwind label %invoke.cont2.i.i.i
 
 .noexc.i.i.i:                                     ; preds = %for.body.i.i.i
-  %g.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.011.i.i.i, i64 64
+  %g.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.011.i.i.i, i64 64
   invoke void @_ZN7msdfgen26PseudoDistanceSelectorBaseC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %g.i.i.i.i.i.i)
           to label %.noexc6.i.i.i unwind label %invoke.cont2.i.i.i
 
 .noexc6.i.i.i:                                    ; preds = %.noexc.i.i.i
-  %b.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.011.i.i.i, i64 112
+  %b.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.011.i.i.i, i64 112
   invoke void @_ZN7msdfgen26PseudoDistanceSelectorBaseC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %b.i.i.i.i.i.i)
           to label %for.inc.i.i.i unwind label %invoke.cont2.i.i.i
 
 for.inc.i.i.i:                                    ; preds = %.noexc6.i.i.i
   %dec.i.i.i = add i64 %__n.addr.010.i.i.i, -1
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__cur.011.i.i.i, i64 160
+  %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.011.i.i.i, i64 160
   %cmp.not.i.i.i = icmp eq i64 %dec.i.i.i, 0
   br i1 %cmp.not.i.i.i, label %_ZSt27__uninitialized_default_n_aIPN7msdfgen28MultiAndTrueDistanceSelectorEmS1_ET_S3_T0_RSaIT1_E.exit, label %for.body.i.i.i, !llvm.loop !48
 
@@ -3168,24 +3152,24 @@ _ZNKSt6vectorIN7msdfgen28MultiAndTrueDistanceSelectorESaIS1_EE12_M_check_lenEmPK
 for.body.i.i.i21:                                 ; preds = %_ZNKSt6vectorIN7msdfgen28MultiAndTrueDistanceSelectorESaIS1_EE12_M_check_lenEmPKc.exit, %for.inc.i.i.i34
   %__cur.011.i.i.i22 = phi ptr [ %incdec.ptr.i.i.i36, %for.inc.i.i.i34 ], [ %add.ptr, %_ZNKSt6vectorIN7msdfgen28MultiAndTrueDistanceSelectorESaIS1_EE12_M_check_lenEmPKc.exit ]
   %__n.addr.010.i.i.i23 = phi i64 [ %dec.i.i.i35, %for.inc.i.i.i34 ], [ %__n, %_ZNKSt6vectorIN7msdfgen28MultiAndTrueDistanceSelectorESaIS1_EE12_M_check_lenEmPKc.exit ]
-  %r.i.i.i.i.i.i24 = getelementptr inbounds i8, ptr %__cur.011.i.i.i22, i64 16
+  %r.i.i.i.i.i.i24 = getelementptr inbounds nuw i8, ptr %__cur.011.i.i.i22, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %__cur.011.i.i.i22, i8 0, i64 160, i1 false)
   invoke void @_ZN7msdfgen26PseudoDistanceSelectorBaseC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %r.i.i.i.i.i.i24)
           to label %.noexc.i.i.i30 unwind label %invoke.cont2.i.i.i25
 
 .noexc.i.i.i30:                                   ; preds = %for.body.i.i.i21
-  %g.i.i.i.i.i.i31 = getelementptr inbounds i8, ptr %__cur.011.i.i.i22, i64 64
+  %g.i.i.i.i.i.i31 = getelementptr inbounds nuw i8, ptr %__cur.011.i.i.i22, i64 64
   invoke void @_ZN7msdfgen26PseudoDistanceSelectorBaseC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %g.i.i.i.i.i.i31)
           to label %.noexc6.i.i.i32 unwind label %invoke.cont2.i.i.i25
 
 .noexc6.i.i.i32:                                  ; preds = %.noexc.i.i.i30
-  %b.i.i.i.i.i.i33 = getelementptr inbounds i8, ptr %__cur.011.i.i.i22, i64 112
+  %b.i.i.i.i.i.i33 = getelementptr inbounds nuw i8, ptr %__cur.011.i.i.i22, i64 112
   invoke void @_ZN7msdfgen26PseudoDistanceSelectorBaseC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %b.i.i.i.i.i.i33)
           to label %for.inc.i.i.i34 unwind label %invoke.cont2.i.i.i25
 
 for.inc.i.i.i34:                                  ; preds = %.noexc6.i.i.i32
   %dec.i.i.i35 = add i64 %__n.addr.010.i.i.i23, -1
-  %incdec.ptr.i.i.i36 = getelementptr inbounds i8, ptr %__cur.011.i.i.i22, i64 160
+  %incdec.ptr.i.i.i36 = getelementptr inbounds nuw i8, ptr %__cur.011.i.i.i22, i64 160
   %cmp.not.i.i.i37 = icmp eq i64 %dec.i.i.i35, 0
   br i1 %cmp.not.i.i.i37, label %try.cont, label %for.body.i.i.i21, !llvm.loop !48
 
@@ -3234,8 +3218,8 @@ for.body.i.i.i41:                                 ; preds = %try.cont, %for.body
   %__cur.07.i.i.i = phi ptr [ %incdec.ptr1.i.i.i, %for.body.i.i.i41 ], [ %call5.i.i.i, %try.cont ]
   %__first.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i42, %for.body.i.i.i41 ], [ %1, %try.cont ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %__cur.07.i.i.i, ptr noundef nonnull align 8 dereferenceable(160) %__first.addr.06.i.i.i, i64 160, i1 false), !alias.scope !49
-  %incdec.ptr.i.i.i42 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 160
-  %incdec.ptr1.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 160
+  %incdec.ptr.i.i.i42 = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i, i64 160
+  %incdec.ptr1.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i, i64 160
   %cmp.not.i.i.i43 = icmp eq ptr %incdec.ptr.i.i.i42, %0
   br i1 %cmp.not.i.i.i43, label %_ZNSt6vectorIN7msdfgen28MultiAndTrueDistanceSelectorESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, label %for.body.i.i.i41, !llvm.loop !53
 
@@ -3251,7 +3235,7 @@ _ZNSt12_Vector_baseIN7msdfgen28MultiAndTrueDistanceSelectorESaIS1_EE13_M_dealloc
   store ptr %call5.i.i.i, ptr %this, align 8
   %add.ptr37 = getelementptr inbounds %"class.msdfgen::MultiAndTrueDistanceSelector", ptr %add.ptr, i64 %__n
   store ptr %add.ptr37, ptr %_M_finish.i, align 8
-  %add.ptr40 = getelementptr inbounds %"class.msdfgen::MultiAndTrueDistanceSelector", ptr %call5.i.i.i, i64 %9
+  %add.ptr40 = getelementptr inbounds nuw %"class.msdfgen::MultiAndTrueDistanceSelector", ptr %call5.i.i.i, i64 %9
   store ptr %add.ptr40, ptr %_M_end_of_storage, align 8
   br label %if.end44
 

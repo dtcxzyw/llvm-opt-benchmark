@@ -77,12 +77,12 @@ define hidden void @OGLTR_EnableGlyphVertexCache(ptr noundef %0) local_unnamed_a
   tail call void %9(i32 noundef 3553) #5
   %10 = load ptr, ptr @j2d_glBindTexture, align 8
   %11 = load ptr, ptr @glyphCacheAA, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load i32, ptr %12, align 8
   tail call void %10(i32 noundef 3553, i32 noundef %13) #5
   %14 = load ptr, ptr @j2d_glPixelStorei, align 8
   tail call void %14(i32 noundef 3317, i32 noundef 1) #5
-  %15 = getelementptr inbounds i8, ptr %0, i64 52
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %16 = load i32, ptr %15, align 4
   %.not4 = icmp eq i32 %16, 8448
   br i1 %.not4, label %19, label %17
@@ -116,7 +116,7 @@ define internal fastcc zeroext range(i8 0, 2) i8 @OGLTR_InitGlyphCache(i8 nounde
   %7 = select i1 %.not, i32 6409, i32 6407
   %8 = select i1 %.not, i32 32843, i32 32849
   %9 = load ptr, ptr @j2d_glGenTextures, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
   tail call void %9(i32 noundef 1, ptr noundef nonnull %10) #5
   %11 = load ptr, ptr @j2d_glBindTexture, align 8
   %12 = load i32, ptr %10, align 8
@@ -183,20 +183,20 @@ define hidden void @OGLTR_DrawGlyphList(ptr nocapture readnone %0, ptr noundef %
 19:                                               ; preds = %16
   store i32 0, ptr @glyphMode, align 4
   store i1 false, ptr @isCachedDestValid, align 1
-  %20 = getelementptr inbounds i8, ptr %1, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %21 = load i32, ptr %20, align 8
   %22 = and i32 %21, 2097152
   %.not = icmp eq i32 %22, 0
   br i1 %.not, label %30, label %23
 
 23:                                               ; preds = %19
-  %24 = getelementptr inbounds i8, ptr %2, i64 112
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 112
   %25 = load i32, ptr %24, align 8
   %26 = icmp eq i32 %25, 3553
   br i1 %26, label %27, label %30
 
 27:                                               ; preds = %23
-  %28 = getelementptr inbounds i8, ptr %2, i64 100
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 100
   %29 = load i32, ptr %28, align 4
   br label %30
 
@@ -209,13 +209,13 @@ define hidden void @OGLTR_DrawGlyphList(ptr nocapture readnone %0, ptr noundef %
   %.not125 = icmp eq i8 %5, 0
   %.not.i133 = icmp eq i8 %6, 0
   %32 = select i1 %.not.i133, i32 32992, i32 6407
-  %33 = getelementptr inbounds i8, ptr %1, i64 48
-  %34 = getelementptr inbounds i8, ptr %2, i64 84
-  %35 = getelementptr inbounds i8, ptr %2, i64 88
-  %36 = getelementptr inbounds i8, ptr %2, i64 96
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 84
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 88
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %37 = icmp eq i32 %.0106, 0
-  %38 = getelementptr inbounds i8, ptr %2, i64 104
-  %39 = getelementptr inbounds i8, ptr %2, i64 108
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 104
+  %39 = getelementptr inbounds nuw i8, ptr %2, i64 108
   br label %40
 
 40:                                               ; preds = %.lr.ph, %OGLTR_DrawGrayscaleGlyphViaCache.exit.thread
@@ -224,7 +224,7 @@ define hidden void @OGLTR_DrawGlyphList(ptr nocapture readnone %0, ptr noundef %
   %.097156 = phi ptr [ %10, %.lr.ph ], [ %41, %OGLTR_DrawGrayscaleGlyphViaCache.exit.thread ]
   %.098155 = phi ptr [ %11, %.lr.ph ], [ %.199, %OGLTR_DrawGrayscaleGlyphViaCache.exit.thread ]
   %.0107151 = phi i32 [ 0, %.lr.ph ], [ %505, %OGLTR_DrawGrayscaleGlyphViaCache.exit.thread ]
-  %41 = getelementptr inbounds i8, ptr %.097156, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %.097156, i64 8
   %42 = load i64, ptr %.097156, align 8
   %43 = inttoptr i64 %42 to ptr
   %44 = icmp eq i64 %42, 0
@@ -239,15 +239,15 @@ define hidden void @OGLTR_DrawGlyphList(ptr nocapture readnone %0, ptr noundef %
 
 47:                                               ; preds = %46
   %48 = load float, ptr %.098155, align 4
-  %49 = getelementptr inbounds i8, ptr %.098155, i64 8
-  %50 = getelementptr inbounds i8, ptr %.098155, i64 4
+  %49 = getelementptr inbounds nuw i8, ptr %.098155, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %.098155, i64 4
   %51 = load float, ptr %50, align 4
   %52 = fadd float %.0158, %48
-  %53 = getelementptr inbounds i8, ptr %43, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %54 = load float, ptr %53, align 8
   %55 = fadd float %52, %54
   %56 = fadd float %.095157, %51
-  %57 = getelementptr inbounds i8, ptr %43, i64 20
+  %57 = getelementptr inbounds nuw i8, ptr %43, i64 20
   %58 = load float, ptr %57, align 4
   %59 = fadd float %56, %58
   %60 = fcmp olt float %55, 0.000000e+00
@@ -261,10 +261,10 @@ define hidden void @OGLTR_DrawGlyphList(ptr nocapture readnone %0, ptr noundef %
   br label %81
 
 65:                                               ; preds = %46
-  %66 = getelementptr inbounds i8, ptr %43, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %67 = load float, ptr %66, align 8
   %68 = fadd float %.0158, %67
-  %69 = getelementptr inbounds i8, ptr %43, i64 20
+  %69 = getelementptr inbounds nuw i8, ptr %43, i64 20
   %70 = load float, ptr %69, align 4
   %71 = fadd float %.095157, %70
   %72 = fcmp olt float %68, 0.000000e+00
@@ -275,7 +275,7 @@ define hidden void @OGLTR_DrawGlyphList(ptr nocapture readnone %0, ptr noundef %
   %.1103.in = select i1 %74, float %75, float %71
   %76 = load float, ptr %43, align 8
   %77 = fadd float %.0158, %76
-  %78 = getelementptr inbounds i8, ptr %43, i64 4
+  %78 = getelementptr inbounds nuw i8, ptr %43, i64 4
   %79 = load float, ptr %78, align 4
   %80 = fadd float %.095157, %79
   br label %81
@@ -290,22 +290,22 @@ define hidden void @OGLTR_DrawGlyphList(ptr nocapture readnone %0, ptr noundef %
   %.0102 = fptosi float %.0102.in to i32
   %82 = sub i32 0, %.0102
   %.1105 = fptosi float %.1105.in to i32
-  %83 = getelementptr inbounds i8, ptr %43, i64 32
+  %83 = getelementptr inbounds nuw i8, ptr %43, i64 32
   %84 = load ptr, ptr %83, align 8
   %85 = icmp eq ptr %84, null
   br i1 %85, label %OGLTR_DrawGrayscaleGlyphViaCache.exit.thread, label %86
 
 86:                                               ; preds = %81
-  %87 = getelementptr inbounds i8, ptr %43, i64 12
+  %87 = getelementptr inbounds nuw i8, ptr %43, i64 12
   %88 = load i16, ptr %87, align 4
-  %89 = getelementptr inbounds i8, ptr %43, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %90 = load i16, ptr %89, align 8
   %91 = icmp eq i16 %88, %90
   br i1 %91, label %92, label %184
 
 92:                                               ; preds = %86
   %93 = icmp ult i16 %88, 33
-  %94 = getelementptr inbounds i8, ptr %43, i64 10
+  %94 = getelementptr inbounds nuw i8, ptr %43, i64 10
   %95 = load i16, ptr %94, align 2
   br i1 %93, label %96, label %._crit_edge
 
@@ -355,7 +355,7 @@ OGLTR_DisableGlyphModeState.exit.i:               ; preds = %102, %98
   br label %110
 
 110:                                              ; preds = %OGLTR_DisableGlyphModeState.exit.i, %98
-  %111 = getelementptr inbounds i8, ptr %43, i64 24
+  %111 = getelementptr inbounds nuw i8, ptr %43, i64 24
   %112 = load ptr, ptr %111, align 8
   %113 = icmp eq ptr %112, null
   br i1 %113, label %114, label %133
@@ -378,9 +378,9 @@ OGLTR_DisableGlyphModeState.exit.i:               ; preds = %102, %98
 
 OGLTR_AddToGlyphCache.exit.i:                     ; preds = %119
   %122 = load ptr, ptr @j2d_glTexSubImage2D, align 8
-  %123 = getelementptr inbounds i8, ptr %121, i64 36
+  %123 = getelementptr inbounds nuw i8, ptr %121, i64 36
   %124 = load i32, ptr %123, align 4
-  %125 = getelementptr inbounds i8, ptr %121, i64 40
+  %125 = getelementptr inbounds nuw i8, ptr %121, i64 40
   %126 = load i32, ptr %125, align 8
   %127 = load i16, ptr %89, align 8
   %128 = zext i16 %127 to i32
@@ -394,7 +394,7 @@ OGLTR_AddToGlyphCache.exit.i:                     ; preds = %119
 
 133:                                              ; preds = %OGLTR_AddToGlyphCache.exit.i, %110
   %134 = phi ptr [ %.pr.pre.i, %OGLTR_AddToGlyphCache.exit.i ], [ %112, %110 ]
-  %135 = getelementptr inbounds i8, ptr %134, i64 32
+  %135 = getelementptr inbounds nuw i8, ptr %134, i64 32
   %136 = load i32, ptr %135, align 8
   %137 = add nsw i32 %136, 1
   store i32 %137, ptr %135, align 8
@@ -406,13 +406,13 @@ OGLTR_AddToGlyphCache.exit.i:                     ; preds = %119
   %143 = load i16, ptr %94, align 2
   %144 = uitofp i16 %143 to float
   %145 = fadd float %139, %144
-  %146 = getelementptr inbounds i8, ptr %134, i64 52
+  %146 = getelementptr inbounds nuw i8, ptr %134, i64 52
   %147 = load float, ptr %146, align 4
-  %148 = getelementptr inbounds i8, ptr %134, i64 56
+  %148 = getelementptr inbounds nuw i8, ptr %134, i64 56
   %149 = load float, ptr %148, align 8
-  %150 = getelementptr inbounds i8, ptr %134, i64 60
+  %150 = getelementptr inbounds nuw i8, ptr %134, i64 60
   %151 = load float, ptr %150, align 4
-  %152 = getelementptr inbounds i8, ptr %134, i64 64
+  %152 = getelementptr inbounds nuw i8, ptr %134, i64 64
   %153 = load float, ptr %152, align 8
   tail call void @OGLVertexCache_AddGlyphQuad(ptr noundef nonnull %1, float noundef %147, float noundef %149, float noundef %151, float noundef %153, float noundef %138, float noundef %139, float noundef %142, float noundef %145) #5
   br label %OGLTR_DrawGrayscaleGlyphViaCache.exit.thread
@@ -545,7 +545,7 @@ OGLTR_DrawColorGlyphNoCache.exit:                 ; preds = %189, %OGLTR_Disable
   %207 = load ptr, ptr @j2d_glDrawPixels, align 8
   %208 = load i16, ptr %89, align 8
   %209 = zext i16 %208 to i32
-  %210 = getelementptr inbounds i8, ptr %43, i64 10
+  %210 = getelementptr inbounds nuw i8, ptr %43, i64 10
   %211 = load i16, ptr %210, align 2
   %212 = zext i16 %211 to i32
   %213 = load ptr, ptr %83, align 8
@@ -577,7 +577,7 @@ OGLTR_DrawColorGlyphNoCache.exit:                 ; preds = %189, %OGLTR_Disable
   br i1 %225, label %226, label %412
 
 226:                                              ; preds = %.thread
-  %227 = getelementptr inbounds i8, ptr %43, i64 10
+  %227 = getelementptr inbounds nuw i8, ptr %43, i64 10
   %228 = load i16, ptr %227, align 2
   %229 = icmp ult i16 %228, 33
   br i1 %229, label %230, label %412
@@ -641,7 +641,7 @@ OGLTR_DisableGlyphModeState.exit.i130:            ; preds = %232, %230
 
 250:                                              ; preds = %249, %247
   %251 = phi ptr [ %.pre.i, %249 ], [ %.pre3.i, %247 ]
-  %252 = getelementptr inbounds i8, ptr %251, i64 16
+  %252 = getelementptr inbounds nuw i8, ptr %251, i64 16
   %253 = load i32, ptr %252, align 8
   %254 = tail call fastcc zeroext i8 @OGLTR_EnableLCDGlyphModeState(i32 noundef %253, i32 noundef %.0106, i32 noundef %7)
   %.not78.i = icmp eq i8 %254, 0
@@ -652,7 +652,7 @@ OGLTR_DisableGlyphModeState.exit.i130:            ; preds = %232, %230
   br label %256
 
 256:                                              ; preds = %255, %230
-  %257 = getelementptr inbounds i8, ptr %43, i64 24
+  %257 = getelementptr inbounds nuw i8, ptr %43, i64 24
   %258 = load ptr, ptr %257, align 8
   %259 = icmp eq ptr %258, null
   br i1 %259, label %260, label %285
@@ -682,9 +682,9 @@ OGLTR_DisableGlyphModeState.exit.i130:            ; preds = %232, %230
 
 273:                                              ; preds = %270
   %274 = load ptr, ptr @j2d_glTexSubImage2D, align 8
-  %275 = getelementptr inbounds i8, ptr %272, i64 36
+  %275 = getelementptr inbounds nuw i8, ptr %272, i64 36
   %276 = load i32, ptr %275, align 4
-  %277 = getelementptr inbounds i8, ptr %272, i64 40
+  %277 = getelementptr inbounds nuw i8, ptr %272, i64 40
   %278 = load i32, ptr %277, align 8
   %279 = load i16, ptr %89, align 8
   %280 = zext i16 %279 to i32
@@ -701,7 +701,7 @@ OGLTR_AddToGlyphCache.exit.i132:                  ; preds = %273, %267, %260
 
 285:                                              ; preds = %OGLTR_AddToGlyphCache.exit.i132, %256
   %286 = phi ptr [ %.pr.i, %OGLTR_AddToGlyphCache.exit.i132 ], [ %258, %256 ]
-  %287 = getelementptr inbounds i8, ptr %286, i64 32
+  %287 = getelementptr inbounds nuw i8, ptr %286, i64 32
   %288 = load i32, ptr %287, align 8
   %289 = add nsw i32 %288, 1
   store i32 %289, ptr %287, align 8
@@ -864,9 +864,9 @@ OGLTR_UpdateCachedDestination.exit.i:             ; preds = %338, %313, %310, %3
   %386 = load ptr, ptr @j2d_glBegin, align 8
   tail call void %386(i32 noundef 7) #5
   %387 = load ptr, ptr @j2d_glMultiTexCoord2fARB, align 8
-  %388 = getelementptr inbounds i8, ptr %286, i64 52
+  %388 = getelementptr inbounds nuw i8, ptr %286, i64 52
   %389 = load float, ptr %388, align 4
-  %390 = getelementptr inbounds i8, ptr %286, i64 56
+  %390 = getelementptr inbounds nuw i8, ptr %286, i64 56
   %391 = load float, ptr %390, align 8
   tail call void %387(i32 noundef 33984, float noundef %389, float noundef %391) #5
   %392 = load ptr, ptr @j2d_glMultiTexCoord2fARB, align 8
@@ -874,7 +874,7 @@ OGLTR_UpdateCachedDestination.exit.i:             ; preds = %338, %313, %310, %3
   %393 = load ptr, ptr @j2d_glVertex2i, align 8
   tail call void %393(i32 noundef %.3142, i32 noundef %.0102) #5
   %394 = load ptr, ptr @j2d_glMultiTexCoord2fARB, align 8
-  %395 = getelementptr inbounds i8, ptr %286, i64 60
+  %395 = getelementptr inbounds nuw i8, ptr %286, i64 60
   %396 = load float, ptr %395, align 4
   %397 = load float, ptr %390, align 8
   tail call void %394(i32 noundef 33984, float noundef %396, float noundef %397) #5
@@ -884,7 +884,7 @@ OGLTR_UpdateCachedDestination.exit.i:             ; preds = %338, %313, %310, %3
   tail call void %399(i32 noundef %292, i32 noundef %.0102) #5
   %400 = load ptr, ptr @j2d_glMultiTexCoord2fARB, align 8
   %401 = load float, ptr %395, align 4
-  %402 = getelementptr inbounds i8, ptr %286, i64 64
+  %402 = getelementptr inbounds nuw i8, ptr %286, i64 64
   %403 = load float, ptr %402, align 8
   tail call void %400(i32 noundef 33984, float noundef %401, float noundef %403) #5
   %404 = load ptr, ptr @j2d_glMultiTexCoord2fARB, align 8
@@ -906,7 +906,7 @@ OGLTR_UpdateCachedDestination.exit.i:             ; preds = %338, %313, %310, %3
 412:                                              ; preds = %226, %.thread, %221
   %.094144 = phi i32 [ 0, %226 ], [ 0, %.thread ], [ %222, %221 ]
   %.3143 = phi i32 [ %.3142, %226 ], [ %.3142, %.thread ], [ %223, %221 ]
-  %413 = getelementptr inbounds i8, ptr %43, i64 10
+  %413 = getelementptr inbounds nuw i8, ptr %43, i64 10
   %414 = load i16, ptr %413, align 2
   %415 = zext i16 %414 to i32
   %416 = load i32, ptr @glyphMode, align 4
@@ -1131,7 +1131,7 @@ declare void @J2dTraceImpl(i32 noundef, i8 noundef zeroext, ptr noundef, ...) lo
 ; Function Attrs: nounwind uwtable
 define void @Java_sun_java2d_opengl_OGLTextRenderer_drawGlyphList(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2, i8 noundef zeroext %3, i8 noundef zeroext %4, i8 noundef zeroext %5, i32 noundef %6, float noundef %7, float noundef %8, ptr noundef %9, ptr noundef %10) local_unnamed_addr #0 {
   %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 1776
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 1776
   %14 = load ptr, ptr %13, align 8
   %15 = tail call ptr %14(ptr noundef nonnull %0, ptr noundef %9, ptr noundef null) #5
   %.not = icmp eq ptr %15, null
@@ -1145,7 +1145,7 @@ define void @Java_sun_java2d_opengl_OGLTextRenderer_drawGlyphList(ptr noundef %0
 
 19:                                               ; preds = %16
   %20 = load ptr, ptr %0, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 1776
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 1776
   %22 = load ptr, ptr %21, align 8
   %23 = tail call ptr %22(ptr noundef nonnull %0, ptr noundef %10, ptr noundef null) #5
   %.not43 = icmp eq ptr %23, null
@@ -1154,7 +1154,7 @@ define void @Java_sun_java2d_opengl_OGLTextRenderer_drawGlyphList(ptr noundef %0
 24:                                               ; preds = %19
   tail call void @OGLTR_DrawGlyphList(ptr nonnull poison, ptr noundef %17, ptr noundef %18, i32 noundef %2, i8 noundef zeroext %3, i8 noundef zeroext %4, i8 noundef zeroext %5, i32 noundef %6, float noundef %7, float noundef %8, ptr noundef nonnull %15, ptr noundef nonnull %23)
   %25 = load ptr, ptr %0, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 1784
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 1784
   %27 = load ptr, ptr %26, align 8
   tail call void %27(ptr noundef nonnull %0, ptr noundef %10, ptr noundef nonnull %23, i32 noundef 2) #5
   br label %29
@@ -1175,7 +1175,7 @@ define void @Java_sun_java2d_opengl_OGLTextRenderer_drawGlyphList(ptr noundef %0
 
 32:                                               ; preds = %30, %29
   %33 = load ptr, ptr %0, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 1784
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 1784
   %35 = load ptr, ptr %34, align 8
   tail call void %35(ptr noundef nonnull %0, ptr noundef %9, ptr noundef nonnull %15, i32 noundef 2) #5
   br label %36
@@ -1296,12 +1296,12 @@ OGLTR_CreateLCDTextProgram.exit:                  ; preds = %20
   %49 = fpext float %48 to double
   %50 = call double @pow(double noundef %49, double noundef %.pre11) #5
   %51 = fptrunc double %50 to float
-  %52 = getelementptr inbounds i8, ptr %4, i64 4
+  %52 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %53 = load float, ptr %52, align 4
   %54 = fpext float %53 to double
   %55 = call double @pow(double noundef %54, double noundef %.pre11) #5
   %56 = fptrunc double %55 to float
-  %57 = getelementptr inbounds i8, ptr %4, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %58 = load float, ptr %57, align 8
   %59 = fpext float %58 to double
   %60 = call double @pow(double noundef %59, double noundef %.pre11) #5

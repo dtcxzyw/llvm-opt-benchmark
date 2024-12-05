@@ -51,28 +51,28 @@ define dso_local void @intel_dvo_init(ptr noundef %0) local_unnamed_addr #0 alig
   br label %149
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %4, i64 432
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 432
   store ptr %7, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 200
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 200
   store ptr @intel_disable_dvo, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %4, i64 192
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 192
   store ptr @intel_enable_dvo, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %4, i64 248
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 248
   store ptr @intel_dvo_get_hw_state, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %4, i64 256
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 256
   store ptr @intel_dvo_get_config, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %4, i64 160
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 160
   store ptr @intel_dvo_compute_config, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %4, i64 184
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 184
   store ptr @intel_dvo_pre_enable, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %7, i64 1992
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 1992
   store ptr @intel_dvo_connector_get_hw_state, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %4, i64 384
-  %20 = getelementptr inbounds i8, ptr %0, i64 2624
-  %21 = getelementptr inbounds i8, ptr %0, i64 2638
-  %22 = getelementptr inbounds i8, ptr %0, i64 7368
-  %23 = getelementptr inbounds i8, ptr %0, i64 7512
-  %24 = getelementptr inbounds i8, ptr %0, i64 7544
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 384
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 2624
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 2638
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 7368
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 7512
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 7544
   br label %29
 
 25:                                               ; preds = %97
@@ -87,13 +87,13 @@ define dso_local void @intel_dvo_init(ptr noundef %0) local_unnamed_addr #0 alig
   %32 = getelementptr [7 x %struct.intel_dvo_device], ptr @intel_dvo_devices, i64 0, i64 %30
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %2, i8 0, i64 16, i1 false), !annotation !8
-  %33 = getelementptr inbounds i8, ptr %32, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %34 = load i32, ptr %33, align 16
   %35 = tail call zeroext i1 @intel_gmbus_is_valid_pin(ptr noundef %0, i32 noundef %34) #7
   br i1 %35, label %41, label %36
 
 36:                                               ; preds = %29
-  %37 = getelementptr inbounds i8, ptr %32, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %38 = load i32, ptr %37, align 8
   %39 = icmp eq i32 %38, 1
   %40 = select i1 %39, i32 1, i32 5
@@ -102,7 +102,7 @@ define dso_local void @intel_dvo_init(ptr noundef %0) local_unnamed_addr #0 alig
 41:                                               ; preds = %36, %29
   %42 = phi i32 [ %40, %36 ], [ %34, %29 ]
   %43 = tail call ptr @intel_gmbus_get_adapter(ptr noundef %0, i32 noundef %42) #7
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(48) %19, ptr noundef align 16 dereferenceable(48) %32, i64 48, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %19, ptr noundef align 16 dereferenceable(48) %32, i64 48, i1 false)
   tail call void @intel_gmbus_force_bit(ptr noundef %43, i1 noundef zeroext true) #7
   br label %44
 
@@ -118,7 +118,7 @@ define dso_local void @intel_dvo_init(ptr noundef %0) local_unnamed_addr #0 alig
 51:                                               ; preds = %44
   %52 = icmp eq i64 %45, 0
   %53 = load ptr, ptr %20, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 32
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 32
   %55 = load i32, ptr %54, align 4
   %56 = trunc i64 %45 to i32
   %57 = mul i32 %56, 24
@@ -126,10 +126,10 @@ define dso_local void @intel_dvo_init(ptr noundef %0) local_unnamed_addr #0 alig
   %59 = select i1 %52, i32 24596, i32 %58
   %60 = add i32 %55, %59
   %61 = load ptr, ptr %23, align 8
-  %62 = tail call i32 %61(ptr noundef %22, i32 %60, i1 noundef zeroext true) #7
+  %62 = tail call i32 %61(ptr noundef nonnull %22, i32 %60, i1 noundef zeroext true) #7
   %63 = or i32 %62, 1073741824
   %64 = load ptr, ptr %24, align 8
-  tail call void %64(ptr noundef %22, i32 %60, i32 noundef %63, i1 noundef zeroext true) #7
+  tail call void %64(ptr noundef nonnull %22, i32 %60, i32 noundef %63, i1 noundef zeroext true) #7
   %65 = getelementptr [4 x i32], ptr %2, i64 0, i64 %45
   store i32 %62, ptr %65, align 4
   br label %66
@@ -140,10 +140,10 @@ define dso_local void @intel_dvo_init(ptr noundef %0) local_unnamed_addr #0 alig
   br i1 %68, label %69, label %44, !llvm.loop !9
 
 69:                                               ; preds = %66
-  %70 = getelementptr inbounds i8, ptr %32, i64 24
+  %70 = getelementptr inbounds nuw i8, ptr %32, i64 24
   %71 = load ptr, ptr %70, align 8
   %72 = load ptr, ptr %71, align 8
-  %73 = tail call zeroext i1 %72(ptr noundef %19, ptr noundef %43) #7
+  %73 = tail call zeroext i1 %72(ptr noundef nonnull %19, ptr noundef %43) #7
   br label %74
 
 74:                                               ; preds = %94, %69
@@ -158,7 +158,7 @@ define dso_local void @intel_dvo_init(ptr noundef %0) local_unnamed_addr #0 alig
 81:                                               ; preds = %74
   %82 = icmp eq i64 %75, 0
   %83 = load ptr, ptr %20, align 8
-  %84 = getelementptr inbounds i8, ptr %83, i64 32
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 32
   %85 = load i32, ptr %84, align 4
   %86 = trunc i64 %75 to i32
   %87 = mul i32 %86, 24
@@ -168,7 +168,7 @@ define dso_local void @intel_dvo_init(ptr noundef %0) local_unnamed_addr #0 alig
   %91 = getelementptr [4 x i32], ptr %2, i64 0, i64 %75
   %92 = load i32, ptr %91, align 4
   %93 = load ptr, ptr %24, align 8
-  tail call void %93(ptr noundef %22, i32 %90, i32 noundef %92, i1 noundef zeroext true) #7
+  tail call void %93(ptr noundef nonnull %22, i32 %90, i32 noundef %92, i1 noundef zeroext true) #7
   br label %94
 
 94:                                               ; preds = %81, %74
@@ -191,25 +191,25 @@ define dso_local void @intel_dvo_init(ptr noundef %0) local_unnamed_addr #0 alig
   br label %149
 
 101:                                              ; preds = %98
-  %102 = getelementptr inbounds i8, ptr %4, i64 396
+  %102 = getelementptr inbounds nuw i8, ptr %4, i64 396
   %103 = load i32, ptr %102, align 4
   %104 = tail call zeroext i1 @assert_port_valid(ptr noundef %0, i32 noundef %103) #7
-  %105 = getelementptr inbounds i8, ptr %4, i64 128
+  %105 = getelementptr inbounds nuw i8, ptr %4, i64 128
   store i32 2, ptr %105, align 8
-  %106 = getelementptr inbounds i8, ptr %4, i64 372
+  %106 = getelementptr inbounds nuw i8, ptr %4, i64 372
   store i32 43, ptr %106, align 4
   %107 = load i32, ptr %102, align 4
-  %108 = getelementptr inbounds i8, ptr %4, i64 132
+  %108 = getelementptr inbounds nuw i8, ptr %4, i64 132
   store i32 %107, ptr %108, align 4
-  %109 = getelementptr inbounds i8, ptr %4, i64 138
+  %109 = getelementptr inbounds nuw i8, ptr %4, i64 138
   store i8 -1, ptr %109, align 2
-  %110 = getelementptr inbounds i8, ptr %4, i64 392
+  %110 = getelementptr inbounds nuw i8, ptr %4, i64 392
   %111 = load i32, ptr %110, align 8
   %112 = icmp eq i32 %111, 1
   br i1 %112, label %.thread, label %113
 
 113:                                              ; preds = %101
-  %114 = getelementptr inbounds i8, ptr %4, i64 136
+  %114 = getelementptr inbounds nuw i8, ptr %4, i64 136
   store i16 6, ptr %114, align 8
   switch i32 %111, label %115 [
     i32 2, label %118
@@ -240,15 +240,15 @@ define dso_local void @intel_dvo_init(ptr noundef %0) local_unnamed_addr #0 alig
   br i1 %123, label %127, label %124
 
 124:                                              ; preds = %118
-  %125 = getelementptr inbounds i8, ptr %0, i64 8
+  %125 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %126 = load ptr, ptr %125, align 8
   br label %127
 
 127:                                              ; preds = %124, %118
   %128 = phi ptr [ %126, %124 ], [ null, %118 ]
-  %129 = getelementptr inbounds i8, ptr %4, i64 24
+  %129 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %130 = load i32, ptr %129, align 8
-  %131 = getelementptr inbounds i8, ptr %4, i64 56
+  %131 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %132 = load ptr, ptr %131, align 8
   %133 = load ptr, ptr %19, align 8
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %128, i32 noundef 2, ptr noundef nonnull @.str.1, i32 noundef %130, ptr noundef %132, ptr noundef %133) #7
@@ -260,7 +260,7 @@ define dso_local void @intel_dvo_init(ptr noundef %0) local_unnamed_addr #0 alig
   ]
 
 .thread8:                                         ; preds = %127
-  %135 = getelementptr inbounds i8, ptr %7, i64 2412
+  %135 = getelementptr inbounds nuw i8, ptr %7, i64 2412
   store i8 6, ptr %135, align 4
   br label %139
 
@@ -279,9 +279,9 @@ define dso_local void @intel_dvo_init(ptr noundef %0) local_unnamed_addr #0 alig
   %140 = phi i32 [ 0, %136 ], [ 2, %.thread8 ], [ 7, %127 ], [ 7, %127 ]
   %141 = tail call ptr @intel_gmbus_get_adapter(ptr noundef %0, i32 noundef 4) #7
   %142 = tail call i32 @drm_connector_init_with_ddc(ptr noundef %0, ptr noundef nonnull %7, ptr noundef nonnull @intel_dvo_connector_funcs, i32 noundef %140, ptr noundef %141) #7
-  %143 = getelementptr inbounds i8, ptr %7, i64 1544
+  %143 = getelementptr inbounds nuw i8, ptr %7, i64 1544
   store ptr @intel_dvo_connector_helper_funcs, ptr %143, align 8
-  %144 = getelementptr inbounds i8, ptr %7, i64 212
+  %144 = getelementptr inbounds nuw i8, ptr %7, i64 212
   store i32 1, ptr %144, align 4
   tail call void @intel_connector_attach_encoder(ptr noundef nonnull %7, ptr noundef nonnull %4) #7
   %145 = load i32, ptr %110, align 8
@@ -309,72 +309,72 @@ declare dso_local void @kfree(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @intel_disable_dvo(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3) #0 align 16 {
   %5 = load ptr, ptr %1, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 132
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 132
   %7 = load i32, ptr %6, align 4
-  %8 = getelementptr inbounds i8, ptr %1, i64 384
-  %9 = getelementptr inbounds i8, ptr %1, i64 408
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 384
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load ptr, ptr %11, align 8
-  tail call void %12(ptr noundef %8, i1 noundef zeroext false) #7
+  tail call void %12(ptr noundef nonnull %8, i1 noundef zeroext false) #7
   %13 = shl i32 %7, 5
   %14 = add i32 %13, 397600
-  %15 = getelementptr inbounds i8, ptr %5, i64 7368
-  %16 = getelementptr inbounds i8, ptr %5, i64 7512
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 7368
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 7512
   %17 = load ptr, ptr %16, align 8
-  %18 = tail call i32 %17(ptr noundef %15, i32 %14, i1 noundef zeroext true) #7
+  %18 = tail call i32 %17(ptr noundef nonnull %15, i32 %14, i1 noundef zeroext true) #7
   %19 = and i32 %18, 2147483647
-  %20 = getelementptr inbounds i8, ptr %5, i64 7544
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 7544
   %21 = load ptr, ptr %20, align 8
-  tail call void %21(ptr noundef %15, i32 %14, i32 noundef %19, i1 noundef zeroext true) #7
+  tail call void %21(ptr noundef nonnull %15, i32 %14, i32 noundef %19, i1 noundef zeroext true) #7
   %22 = load ptr, ptr %16, align 8
-  %23 = tail call i32 %22(ptr noundef %15, i32 %14, i1 noundef zeroext false) #7
+  %23 = tail call i32 %22(ptr noundef nonnull %15, i32 %14, i1 noundef zeroext false) #7
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @intel_enable_dvo(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 align 16 {
   %5 = load ptr, ptr %1, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 132
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 132
   %7 = load i32, ptr %6, align 4
-  %8 = getelementptr inbounds i8, ptr %1, i64 384
-  %9 = getelementptr inbounds i8, ptr %1, i64 408
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 384
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %2, i64 368
-  %14 = getelementptr inbounds i8, ptr %2, i64 608
-  tail call void %12(ptr noundef %8, ptr noundef %13, ptr noundef %14) #7
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 368
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 608
+  tail call void %12(ptr noundef nonnull %8, ptr noundef nonnull %13, ptr noundef nonnull %14) #7
   %15 = shl i32 %7, 5
   %16 = add i32 %15, 397600
-  %17 = getelementptr inbounds i8, ptr %5, i64 7368
-  %18 = getelementptr inbounds i8, ptr %5, i64 7512
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 7368
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 7512
   %19 = load ptr, ptr %18, align 8
-  %20 = tail call i32 %19(ptr noundef %17, i32 %16, i1 noundef zeroext true) #7
+  %20 = tail call i32 %19(ptr noundef nonnull %17, i32 %16, i1 noundef zeroext true) #7
   %21 = or i32 %20, -2147483648
-  %22 = getelementptr inbounds i8, ptr %5, i64 7544
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 7544
   %23 = load ptr, ptr %22, align 8
-  tail call void %23(ptr noundef %17, i32 %16, i32 noundef %21, i1 noundef zeroext true) #7
+  tail call void %23(ptr noundef nonnull %17, i32 %16, i32 noundef %21, i1 noundef zeroext true) #7
   %24 = load ptr, ptr %18, align 8
-  %25 = tail call i32 %24(ptr noundef %17, i32 %16, i1 noundef zeroext false) #7
+  %25 = tail call i32 %24(ptr noundef nonnull %17, i32 %16, i1 noundef zeroext false) #7
   %26 = load ptr, ptr %9, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %28 = load ptr, ptr %27, align 8
-  tail call void %28(ptr noundef %8, i1 noundef zeroext true) #7
+  tail call void %28(ptr noundef nonnull %8, i1 noundef zeroext true) #7
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal zeroext i1 @intel_dvo_get_hw_state(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) #0 align 16 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 132
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %5 = load i32, ptr %4, align 4
   %6 = shl i32 %5, 5
   %7 = add i32 %6, 397600
-  %8 = getelementptr inbounds i8, ptr %3, i64 7368
-  %9 = getelementptr inbounds i8, ptr %3, i64 7512
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 7368
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 7512
   %10 = load ptr, ptr %9, align 8
-  %11 = tail call i32 %10(ptr noundef %8, i32 %7, i1 noundef zeroext true) #7
+  %11 = tail call i32 %10(ptr noundef nonnull %8, i32 %7, i1 noundef zeroext true) #7
   %12 = lshr i32 %11, 30
   %13 = and i32 %12, 1
   store i32 %13, ptr %1, align 4
@@ -385,32 +385,32 @@ define internal zeroext i1 @intel_dvo_get_hw_state(ptr nocapture noundef readonl
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @intel_dvo_get_config(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((636, 640)) %1) #0 align 16 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 132
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %5 = load i32, ptr %4, align 4
-  %6 = getelementptr inbounds i8, ptr %1, i64 872
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 872
   %7 = load i32, ptr %6, align 8
   %8 = or i32 %7, 4
   store i32 %8, ptr %6, align 8
   %9 = shl i32 %5, 5
   %10 = add i32 %9, 397600
-  %11 = getelementptr inbounds i8, ptr %3, i64 7368
-  %12 = getelementptr inbounds i8, ptr %3, i64 7512
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 7368
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 7512
   %13 = load ptr, ptr %12, align 8
-  %14 = tail call i32 %13(ptr noundef %11, i32 %10, i1 noundef zeroext true) #7
+  %14 = tail call i32 %13(ptr noundef nonnull %11, i32 %10, i1 noundef zeroext true) #7
   %15 = and i32 %14, 8
   %16 = icmp eq i32 %15, 0
   %17 = select i1 %16, i32 2, i32 1
   %18 = and i32 %14, 16
   %19 = icmp eq i32 %18, 0
   %20 = select i1 %19, i32 8, i32 4
-  %21 = getelementptr inbounds i8, ptr %1, i64 632
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 632
   %22 = load i32, ptr %21, align 8
   %23 = or i32 %20, %22
   %24 = or i32 %23, %17
   store i32 %24, ptr %21, align 8
-  %25 = getelementptr inbounds i8, ptr %1, i64 1448
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 1448
   %26 = load i32, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %1, i64 636
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 636
   store i32 %26, ptr %27, align 4
   ret void
 }
@@ -418,29 +418,29 @@ define internal void @intel_dvo_get_config(ptr nocapture noundef readonly %0, pt
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @intel_dvo_compute_config(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 align 16 {
   %4 = load ptr, ptr %2, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 608
-  %6 = getelementptr inbounds i8, ptr %0, i64 432
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 608
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %7 = load ptr, ptr %6, align 8
-  %8 = tail call ptr @intel_panel_fixed_mode(ptr noundef %7, ptr noundef %5) #7
+  %8 = tail call ptr @intel_panel_fixed_mode(ptr noundef %7, ptr noundef nonnull %5) #7
   %9 = icmp eq ptr %8, null
   br i1 %9, label %13, label %10
 
 10:                                               ; preds = %3
-  %11 = tail call i32 @intel_panel_compute_config(ptr noundef %4, ptr noundef %5) #7
+  %11 = tail call i32 @intel_panel_compute_config(ptr noundef %4, ptr noundef nonnull %5) #7
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %13, label %21
 
 13:                                               ; preds = %10, %3
-  %14 = getelementptr inbounds i8, ptr %1, i64 632
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 632
   %15 = load i32, ptr %14, align 8
   %16 = and i32 %15, 32
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %18, label %21
 
 18:                                               ; preds = %13
-  %19 = getelementptr inbounds i8, ptr %1, i64 4748
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 4748
   store i32 0, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %1, i64 4744
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 4744
   store i32 0, ptr %20, align 8
   br label %21
 
@@ -453,21 +453,21 @@ define internal i32 @intel_dvo_compute_config(ptr nocapture noundef readonly %0,
 define internal void @intel_dvo_pre_enable(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3) #0 align 16 {
   %5 = load ptr, ptr %1, align 8
   %6 = load ptr, ptr %2, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 132
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 132
   %8 = load i32, ptr %7, align 4
-  %9 = getelementptr inbounds i8, ptr %6, i64 1648
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 1648
   %10 = load i32, ptr %9, align 8
   %11 = shl i32 %8, 5
   %12 = add i32 %11, 397600
-  %13 = getelementptr inbounds i8, ptr %5, i64 7368
-  %14 = getelementptr inbounds i8, ptr %5, i64 7512
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 7368
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 7512
   %15 = load ptr, ptr %14, align 8
-  %16 = tail call i32 %15(ptr noundef %13, i32 %12, i1 noundef zeroext true) #7
+  %16 = tail call i32 %15(ptr noundef nonnull %13, i32 %12, i1 noundef zeroext true) #7
   %17 = and i32 %16, 117440576
   %18 = shl i32 %10, 30
   %19 = and i32 %18, 1073741824
   %20 = or disjoint i32 %17, %19
-  %21 = getelementptr inbounds i8, ptr %2, i64 632
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 632
   %22 = load i32, ptr %21, align 8
   %23 = and i32 %22, 1
   %24 = icmp eq i32 %23, 0
@@ -477,47 +477,47 @@ define internal void @intel_dvo_pre_enable(ptr nocapture readnone %0, ptr nocapt
   %28 = or disjoint i32 %20, %27
   %29 = or disjoint i32 %28, %25
   %30 = add i32 %11, 397604
-  %31 = getelementptr inbounds i8, ptr %2, i64 640
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 640
   %32 = load i16, ptr %31, align 8
   %33 = zext i16 %32 to i32
   %34 = shl nuw nsw i32 %33, 12
   %35 = and i32 %34, 8384512
-  %36 = getelementptr inbounds i8, ptr %2, i64 654
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 654
   %37 = load i16, ptr %36, align 2
   %38 = and i16 %37, 2047
   %39 = zext nneg i16 %38 to i32
   %40 = or disjoint i32 %35, %39
-  %41 = getelementptr inbounds i8, ptr %5, i64 7544
+  %41 = getelementptr inbounds nuw i8, ptr %5, i64 7544
   %42 = load ptr, ptr %41, align 8
-  tail call void %42(ptr noundef %13, i32 %30, i32 noundef %40, i1 noundef zeroext true) #7
+  tail call void %42(ptr noundef nonnull %13, i32 %30, i32 noundef %40, i1 noundef zeroext true) #7
   %43 = load ptr, ptr %41, align 8
-  tail call void %43(ptr noundef %13, i32 %12, i32 noundef %29, i1 noundef zeroext true) #7
+  tail call void %43(ptr noundef nonnull %13, i32 %12, i32 noundef %29, i1 noundef zeroext true) #7
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal zeroext i1 @intel_dvo_connector_get_hw_state(ptr nocapture noundef readonly %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 1976
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1976
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 132
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 132
   %6 = load i32, ptr %5, align 4
   %7 = shl i32 %6, 5
   %8 = add i32 %7, 397600
-  %9 = getelementptr inbounds i8, ptr %2, i64 7368
-  %10 = getelementptr inbounds i8, ptr %2, i64 7512
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 7368
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 7512
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call i32 %11(ptr noundef %9, i32 %8, i1 noundef zeroext true) #7
+  %12 = tail call i32 %11(ptr noundef nonnull %9, i32 %8, i1 noundef zeroext true) #7
   %13 = icmp sgt i32 %12, -1
   br i1 %13, label %21, label %14
 
 14:                                               ; preds = %1
-  %15 = getelementptr inbounds i8, ptr %4, i64 384
-  %16 = getelementptr inbounds i8, ptr %4, i64 408
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 384
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 408
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 64
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 64
   %19 = load ptr, ptr %18, align 8
-  %20 = tail call zeroext i1 %19(ptr noundef %15) #7
+  %20 = tail call zeroext i1 %19(ptr noundef nonnull %15) #7
   br label %21
 
 21:                                               ; preds = %14, %1
@@ -578,16 +578,16 @@ declare dso_local void @intel_gmbus_force_bit(ptr noundef, i1 noundef zeroext) l
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @intel_dvo_enc_destroy(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 408
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 80
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %9, label %7
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 384
-  tail call void %5(ptr noundef %8) #7
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 384
+  tail call void %5(ptr noundef nonnull %8) #7
   br label %9
 
 9:                                                ; preds = %7, %1
@@ -604,33 +604,33 @@ declare dso_local void @__warn_printk(ptr noundef, ...) local_unnamed_addr #2
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @intel_dvo_detect(ptr nocapture noundef readonly %0, i1 zeroext %1) #0 align 16 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 1976
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1976
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %3, null
   br i1 %6, label %10, label %7
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %9 = load ptr, ptr %8, align 8
   br label %10
 
 10:                                               ; preds = %7, %2
   %11 = phi ptr [ %9, %7 ], [ null, %2 ]
-  %12 = getelementptr inbounds i8, ptr %0, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %13 = load i32, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 96
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %15 = load ptr, ptr %14, align 8
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %11, i32 noundef 2, ptr noundef nonnull @.str.12, i32 noundef %13, ptr noundef %15) #7
   %16 = tail call zeroext i1 @intel_display_device_enabled(ptr noundef %3) #7
   br i1 %16, label %17, label %24
 
 17:                                               ; preds = %10
-  %18 = getelementptr inbounds i8, ptr %5, i64 384
-  %19 = getelementptr inbounds i8, ptr %5, i64 408
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 384
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 408
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 56
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 56
   %22 = load ptr, ptr %21, align 8
-  %23 = tail call i32 %22(ptr noundef %18) #7
+  %23 = tail call i32 %22(ptr noundef nonnull %18) #7
   br label %24
 
 24:                                               ; preds = %17, %10
@@ -661,7 +661,7 @@ declare dso_local zeroext i1 @intel_display_device_enabled(ptr noundef) local_un
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @intel_dvo_get_modes(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1872
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1872
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i32 @intel_ddc_get_modes(ptr noundef %0, ptr noundef %3) #7
   %5 = icmp eq i32 %4, 0
@@ -679,11 +679,11 @@ define internal i32 @intel_dvo_get_modes(ptr noundef %0) #0 align 16 {
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @intel_dvo_mode_valid(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 1976
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1976
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr @intel_panel_fixed_mode(ptr noundef %0, ptr noundef %1) #7
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8076
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8076
   %9 = load i32, ptr %8, align 4
   %10 = load i32, ptr %1, align 8
   %11 = tail call i32 @intel_cpu_transcoder_mode_valid(ptr noundef %3, ptr noundef %1) #7
@@ -691,7 +691,7 @@ define internal i32 @intel_dvo_mode_valid(ptr noundef %0, ptr noundef %1) #0 ali
   br i1 %12, label %13, label %34
 
 13:                                               ; preds = %2
-  %14 = getelementptr inbounds i8, ptr %1, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %15 = load i32, ptr %14, align 8
   %16 = and i32 %15, 32
   %17 = icmp eq i32 %16, 0
@@ -716,12 +716,12 @@ define internal i32 @intel_dvo_mode_valid(ptr noundef %0, ptr noundef %1) #0 ali
   br i1 %26, label %34, label %27
 
 27:                                               ; preds = %24
-  %28 = getelementptr inbounds i8, ptr %5, i64 384
-  %29 = getelementptr inbounds i8, ptr %5, i64 408
+  %28 = getelementptr inbounds nuw i8, ptr %5, i64 384
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 408
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 24
   %32 = load ptr, ptr %31, align 8
-  %33 = tail call i32 %32(ptr noundef %28, ptr noundef %1) #7
+  %33 = tail call i32 %32(ptr noundef nonnull %28, ptr noundef %1) #7
   br label %34
 
 34:                                               ; preds = %20, %27, %24, %13, %2

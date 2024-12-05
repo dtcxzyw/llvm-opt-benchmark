@@ -184,7 +184,7 @@ define i32 @cli_scanhfsplus(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %.thread73, label %8
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %0, i64 96
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %10 = load ptr, ptr %9, align 8
   %.not34 = icmp eq ptr %10, null
   br i1 %.not34, label %.thread73, label %11
@@ -196,7 +196,7 @@ define i32 @cli_scanhfsplus(ptr noundef %0) local_unnamed_addr #0 {
 11:                                               ; preds = %8
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1) #12
   %.val = load ptr, ptr %9, align 8
-  %12 = getelementptr inbounds i8, ptr %.val, i64 88
+  %12 = getelementptr inbounds nuw i8, ptr %.val, i64 88
   %13 = load i64, ptr %12, align 8
   %14 = icmp ult i64 %13, 1536
   br i1 %14, label %15, label %16
@@ -206,7 +206,7 @@ define i32 @cli_scanhfsplus(ptr noundef %0) local_unnamed_addr #0 {
   br label %.thread78
 
 16:                                               ; preds = %11
-  %17 = getelementptr inbounds i8, ptr %.val, i64 104
+  %17 = getelementptr inbounds nuw i8, ptr %.val, i64 104
   %18 = load ptr, ptr %17, align 8
   %19 = tail call ptr %18(ptr noundef nonnull %.val, i64 noundef 1024, i64 noundef 512, i32 noundef 0) #12
   %.not.i = icmp eq ptr %19, null
@@ -230,7 +230,7 @@ define i32 @cli_scanhfsplus(ptr noundef %0) local_unnamed_addr #0 {
   %25 = load i16, ptr %22, align 1
   %rev.i = tail call i16 @llvm.bswap.i16(i16 %25)
   store i16 %rev.i, ptr %22, align 1
-  %26 = getelementptr inbounds i8, ptr %22, i64 2
+  %26 = getelementptr inbounds nuw i8, ptr %22, i64 2
   %27 = load i16, ptr %26, align 1
   %rev69.i = tail call i16 @llvm.bswap.i16(i16 %27)
   store i16 %rev69.i, ptr %26, align 1
@@ -252,23 +252,23 @@ define i32 @cli_scanhfsplus(ptr noundef %0) local_unnamed_addr #0 {
 34:                                               ; preds = %30, %24
   %.str.15.sink.i = phi ptr [ @.str.14, %24 ], [ @.str.15, %30 ]
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull %.str.15.sink.i) #12
-  %35 = getelementptr inbounds i8, ptr %22, i64 4
+  %35 = getelementptr inbounds nuw i8, ptr %22, i64 4
   %36 = load i32, ptr %35, align 1
   %37 = tail call i32 @llvm.bswap.i32(i32 %36)
   store i32 %37, ptr %35, align 1
-  %38 = getelementptr inbounds i8, ptr %22, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %39 = load i32, ptr %38, align 1
   %40 = tail call i32 @llvm.bswap.i32(i32 %39)
   store i32 %40, ptr %38, align 1
-  %41 = getelementptr inbounds i8, ptr %22, i64 36
+  %41 = getelementptr inbounds nuw i8, ptr %22, i64 36
   %42 = load i32, ptr %41, align 1
   %43 = tail call i32 @llvm.bswap.i32(i32 %42)
   store i32 %43, ptr %41, align 1
-  %44 = getelementptr inbounds i8, ptr %22, i64 40
+  %44 = getelementptr inbounds nuw i8, ptr %22, i64 40
   %45 = load i32, ptr %44, align 1
   %46 = tail call i32 @llvm.bswap.i32(i32 %45)
   store i32 %46, ptr %44, align 1
-  %47 = getelementptr inbounds i8, ptr %22, i64 44
+  %47 = getelementptr inbounds nuw i8, ptr %22, i64 44
   %48 = load i32, ptr %47, align 1
   %49 = tail call i32 @llvm.bswap.i32(i32 %48)
   store i32 %49, ptr %47, align 1
@@ -305,28 +305,28 @@ define i32 @cli_scanhfsplus(ptr noundef %0) local_unnamed_addr #0 {
   br label %.thread69
 
 63:                                               ; preds = %60
-  %64 = getelementptr inbounds i8, ptr %22, i64 112
+  %64 = getelementptr inbounds nuw i8, ptr %22, i64 112
   %65 = load i64, ptr %64, align 1
   %66 = tail call i64 @llvm.bswap.i64(i64 %65)
   store i64 %66, ptr %64, align 1
-  %67 = getelementptr inbounds i8, ptr %22, i64 120
+  %67 = getelementptr inbounds nuw i8, ptr %22, i64 120
   %68 = load i32, ptr %67, align 1
   %69 = tail call i32 @llvm.bswap.i32(i32 %68)
   store i32 %69, ptr %67, align 1
-  %70 = getelementptr inbounds i8, ptr %22, i64 124
+  %70 = getelementptr inbounds nuw i8, ptr %22, i64 124
   %71 = load i32, ptr %70, align 1
   %72 = tail call i32 @llvm.bswap.i32(i32 %71)
   store i32 %72, ptr %70, align 1
-  %73 = getelementptr inbounds i8, ptr %22, i64 128
+  %73 = getelementptr inbounds nuw i8, ptr %22, i64 128
   br label %74
 
 74:                                               ; preds = %74, %63
   %indvars.iv.i.i = phi i64 [ 0, %63 ], [ %indvars.iv.next.i.i, %74 ]
-  %75 = getelementptr inbounds [8 x %struct.hfsPlusExtentDescriptor], ptr %73, i64 0, i64 %indvars.iv.i.i
+  %75 = getelementptr inbounds nuw [8 x %struct.hfsPlusExtentDescriptor], ptr %73, i64 0, i64 %indvars.iv.i.i
   %76 = load i32, ptr %75, align 1
   %77 = tail call i32 @llvm.bswap.i32(i32 %76)
   store i32 %77, ptr %75, align 1
-  %78 = getelementptr inbounds i8, ptr %75, i64 4
+  %78 = getelementptr inbounds nuw i8, ptr %75, i64 4
   %79 = load i32, ptr %78, align 1
   %80 = tail call i32 @llvm.bswap.i32(i32 %79)
   store i32 %80, ptr %78, align 1
@@ -335,28 +335,28 @@ define i32 @cli_scanhfsplus(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %exitcond.not.i.i, label %forkdata_to_host.exit.i, label %74
 
 forkdata_to_host.exit.i:                          ; preds = %74
-  %81 = getelementptr inbounds i8, ptr %22, i64 192
+  %81 = getelementptr inbounds nuw i8, ptr %22, i64 192
   %82 = load i64, ptr %81, align 1
   %83 = tail call i64 @llvm.bswap.i64(i64 %82)
   store i64 %83, ptr %81, align 1
-  %84 = getelementptr inbounds i8, ptr %22, i64 200
+  %84 = getelementptr inbounds nuw i8, ptr %22, i64 200
   %85 = load i32, ptr %84, align 1
   %86 = tail call i32 @llvm.bswap.i32(i32 %85)
   store i32 %86, ptr %84, align 1
-  %87 = getelementptr inbounds i8, ptr %22, i64 204
+  %87 = getelementptr inbounds nuw i8, ptr %22, i64 204
   %88 = load i32, ptr %87, align 1
   %89 = tail call i32 @llvm.bswap.i32(i32 %88)
   store i32 %89, ptr %87, align 1
-  %90 = getelementptr inbounds i8, ptr %22, i64 208
+  %90 = getelementptr inbounds nuw i8, ptr %22, i64 208
   br label %91
 
 91:                                               ; preds = %91, %forkdata_to_host.exit.i
   %indvars.iv.i88.i = phi i64 [ 0, %forkdata_to_host.exit.i ], [ %indvars.iv.next.i89.i, %91 ]
-  %92 = getelementptr inbounds [8 x %struct.hfsPlusExtentDescriptor], ptr %90, i64 0, i64 %indvars.iv.i88.i
+  %92 = getelementptr inbounds nuw [8 x %struct.hfsPlusExtentDescriptor], ptr %90, i64 0, i64 %indvars.iv.i88.i
   %93 = load i32, ptr %92, align 1
   %94 = tail call i32 @llvm.bswap.i32(i32 %93)
   store i32 %94, ptr %92, align 1
-  %95 = getelementptr inbounds i8, ptr %92, i64 4
+  %95 = getelementptr inbounds nuw i8, ptr %92, i64 4
   %96 = load i32, ptr %95, align 1
   %97 = tail call i32 @llvm.bswap.i32(i32 %96)
   store i32 %97, ptr %95, align 1
@@ -365,28 +365,28 @@ forkdata_to_host.exit.i:                          ; preds = %74
   br i1 %exitcond.not.i90.i, label %forkdata_to_host.exit91.i, label %91
 
 forkdata_to_host.exit91.i:                        ; preds = %91
-  %98 = getelementptr inbounds i8, ptr %22, i64 272
+  %98 = getelementptr inbounds nuw i8, ptr %22, i64 272
   %99 = load i64, ptr %98, align 1
   %100 = tail call i64 @llvm.bswap.i64(i64 %99)
   store i64 %100, ptr %98, align 1
-  %101 = getelementptr inbounds i8, ptr %22, i64 280
+  %101 = getelementptr inbounds nuw i8, ptr %22, i64 280
   %102 = load i32, ptr %101, align 1
   %103 = tail call i32 @llvm.bswap.i32(i32 %102)
   store i32 %103, ptr %101, align 1
-  %104 = getelementptr inbounds i8, ptr %22, i64 284
+  %104 = getelementptr inbounds nuw i8, ptr %22, i64 284
   %105 = load i32, ptr %104, align 1
   %106 = tail call i32 @llvm.bswap.i32(i32 %105)
   store i32 %106, ptr %104, align 1
-  %107 = getelementptr inbounds i8, ptr %22, i64 288
+  %107 = getelementptr inbounds nuw i8, ptr %22, i64 288
   br label %108
 
 108:                                              ; preds = %108, %forkdata_to_host.exit91.i
   %indvars.iv.i92.i = phi i64 [ 0, %forkdata_to_host.exit91.i ], [ %indvars.iv.next.i93.i, %108 ]
-  %109 = getelementptr inbounds [8 x %struct.hfsPlusExtentDescriptor], ptr %107, i64 0, i64 %indvars.iv.i92.i
+  %109 = getelementptr inbounds nuw [8 x %struct.hfsPlusExtentDescriptor], ptr %107, i64 0, i64 %indvars.iv.i92.i
   %110 = load i32, ptr %109, align 1
   %111 = tail call i32 @llvm.bswap.i32(i32 %110)
   store i32 %111, ptr %109, align 1
-  %112 = getelementptr inbounds i8, ptr %109, i64 4
+  %112 = getelementptr inbounds nuw i8, ptr %109, i64 4
   %113 = load i32, ptr %112, align 1
   %114 = tail call i32 @llvm.bswap.i32(i32 %113)
   store i32 %114, ptr %112, align 1
@@ -395,28 +395,28 @@ forkdata_to_host.exit91.i:                        ; preds = %91
   br i1 %exitcond.not.i94.i, label %forkdata_to_host.exit95.i, label %108
 
 forkdata_to_host.exit95.i:                        ; preds = %108
-  %115 = getelementptr inbounds i8, ptr %22, i64 352
+  %115 = getelementptr inbounds nuw i8, ptr %22, i64 352
   %116 = load i64, ptr %115, align 1
   %117 = tail call i64 @llvm.bswap.i64(i64 %116)
   store i64 %117, ptr %115, align 1
-  %118 = getelementptr inbounds i8, ptr %22, i64 360
+  %118 = getelementptr inbounds nuw i8, ptr %22, i64 360
   %119 = load i32, ptr %118, align 1
   %120 = tail call i32 @llvm.bswap.i32(i32 %119)
   store i32 %120, ptr %118, align 1
-  %121 = getelementptr inbounds i8, ptr %22, i64 364
+  %121 = getelementptr inbounds nuw i8, ptr %22, i64 364
   %122 = load i32, ptr %121, align 1
   %123 = tail call i32 @llvm.bswap.i32(i32 %122)
   store i32 %123, ptr %121, align 1
-  %124 = getelementptr inbounds i8, ptr %22, i64 368
+  %124 = getelementptr inbounds nuw i8, ptr %22, i64 368
   br label %125
 
 125:                                              ; preds = %125, %forkdata_to_host.exit95.i
   %indvars.iv.i96.i = phi i64 [ 0, %forkdata_to_host.exit95.i ], [ %indvars.iv.next.i97.i, %125 ]
-  %126 = getelementptr inbounds [8 x %struct.hfsPlusExtentDescriptor], ptr %124, i64 0, i64 %indvars.iv.i96.i
+  %126 = getelementptr inbounds nuw [8 x %struct.hfsPlusExtentDescriptor], ptr %124, i64 0, i64 %indvars.iv.i96.i
   %127 = load i32, ptr %126, align 1
   %128 = tail call i32 @llvm.bswap.i32(i32 %127)
   store i32 %128, ptr %126, align 1
-  %129 = getelementptr inbounds i8, ptr %126, i64 4
+  %129 = getelementptr inbounds nuw i8, ptr %126, i64 4
   %130 = load i32, ptr %129, align 1
   %131 = tail call i32 @llvm.bswap.i32(i32 %130)
   store i32 %131, ptr %129, align 1
@@ -425,28 +425,28 @@ forkdata_to_host.exit95.i:                        ; preds = %108
   br i1 %exitcond.not.i98.i, label %forkdata_to_host.exit99.i, label %125
 
 forkdata_to_host.exit99.i:                        ; preds = %125
-  %132 = getelementptr inbounds i8, ptr %22, i64 432
+  %132 = getelementptr inbounds nuw i8, ptr %22, i64 432
   %133 = load i64, ptr %132, align 1
   %134 = tail call i64 @llvm.bswap.i64(i64 %133)
   store i64 %134, ptr %132, align 1
-  %135 = getelementptr inbounds i8, ptr %22, i64 440
+  %135 = getelementptr inbounds nuw i8, ptr %22, i64 440
   %136 = load i32, ptr %135, align 1
   %137 = tail call i32 @llvm.bswap.i32(i32 %136)
   store i32 %137, ptr %135, align 1
-  %138 = getelementptr inbounds i8, ptr %22, i64 444
+  %138 = getelementptr inbounds nuw i8, ptr %22, i64 444
   %139 = load i32, ptr %138, align 1
   %140 = tail call i32 @llvm.bswap.i32(i32 %139)
   store i32 %140, ptr %138, align 1
-  %141 = getelementptr inbounds i8, ptr %22, i64 448
+  %141 = getelementptr inbounds nuw i8, ptr %22, i64 448
   br label %142
 
 142:                                              ; preds = %142, %forkdata_to_host.exit99.i
   %indvars.iv.i100.i = phi i64 [ 0, %forkdata_to_host.exit99.i ], [ %indvars.iv.next.i101.i, %142 ]
-  %143 = getelementptr inbounds [8 x %struct.hfsPlusExtentDescriptor], ptr %141, i64 0, i64 %indvars.iv.i100.i
+  %143 = getelementptr inbounds nuw [8 x %struct.hfsPlusExtentDescriptor], ptr %141, i64 0, i64 %indvars.iv.i100.i
   %144 = load i32, ptr %143, align 1
   %145 = tail call i32 @llvm.bswap.i32(i32 %144)
   store i32 %145, ptr %143, align 1
-  %146 = getelementptr inbounds i8, ptr %143, i64 4
+  %146 = getelementptr inbounds nuw i8, ptr %143, i64 4
   %147 = load i32, ptr %146, align 1
   %148 = tail call i32 @llvm.bswap.i32(i32 %147)
   store i32 %148, ptr %146, align 1
@@ -480,7 +480,7 @@ hfsplus_volumeheader.exit:                        ; preds = %150, %forkdata_to_h
 154:                                              ; preds = %152
   %155 = call fastcc i32 @hfsplus_readheader(ptr noundef %0, ptr noundef nonnull %22, ptr noundef %6, ptr noundef %7, i32 noundef 4, ptr noundef nonnull @.str.4)
   %.not41 = icmp eq i32 %155, 0
-  %156 = getelementptr inbounds i8, ptr %0, i64 16
+  %156 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %157 = load ptr, ptr %156, align 8
   %158 = tail call ptr @cli_gentemp_with_prefix(ptr noundef %157, ptr noundef nonnull @.str.5) #12
   %.not38 = icmp eq ptr %158, null
@@ -501,9 +501,9 @@ hfsplus_volumeheader.exit:                        ; preds = %150, %forkdata_to_h
 
 163:                                              ; preds = %160
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.8, ptr noundef nonnull %158) #12
-  %164 = getelementptr inbounds i8, ptr %3, i64 18
+  %164 = getelementptr inbounds nuw i8, ptr %3, i64 18
   %.val45 = load i16, ptr %164, align 1
-  %165 = getelementptr inbounds i8, ptr %3, i64 22
+  %165 = getelementptr inbounds nuw i8, ptr %3, i64 22
   %.val46 = load i32, ptr %165, align 1
   %166 = tail call fastcc i32 @hfsplus_validate_catalog(ptr noundef nonnull %22, i16 %.val45, i32 %.val46)
   %167 = icmp eq i32 %166, 0
@@ -522,9 +522,9 @@ hfsplus_volumeheader.exit:                        ; preds = %150, %forkdata_to_h
 
 173:                                              ; preds = %162, %171, %168
   %.026 = phi i32 [ 18, %162 ], [ %170, %168 ], [ %166, %171 ]
-  %174 = getelementptr inbounds i8, ptr %0, i64 48
+  %174 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %175 = load ptr, ptr %174, align 8
-  %176 = getelementptr inbounds i8, ptr %175, i64 40
+  %176 = getelementptr inbounds nuw i8, ptr %175, i64 40
   %177 = load i32, ptr %176, align 8
   %.not43 = icmp eq i32 %177, 0
   br i1 %.not43, label %178, label %.thread61
@@ -554,7 +554,7 @@ declare void @cli_dbgmsg(ptr noundef, ...) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 27) i32 @hfsplus_readheader(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull %3, i32 noundef range(i32 2, 5) %4, ptr noundef %5) unnamed_addr #0 {
 switch.lookup:
-  %6 = getelementptr inbounds i8, ptr %1, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %7 = load i32, ptr %6, align 1
   %switch.tableidx = add nsw i32 %4, -2
   %switch.idx.cast = zext i32 %switch.tableidx to i64
@@ -562,15 +562,15 @@ switch.lookup:
   %8 = sext i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table.hfsplus_readheader, i64 0, i64 %8
   %switch.load = load i32, ptr %switch.gep, align 4
-  %9 = getelementptr inbounds i8, ptr %1, i64 %switch.idx.mult
-  %10 = getelementptr inbounds i8, ptr %9, i64 208
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 %switch.idx.mult
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 208
   %11 = load i32, ptr %10, align 1
   %12 = mul i32 %7, %11
   %.053 = zext i32 %12 to i64
-  %13 = getelementptr inbounds i8, ptr %0, i64 96
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %14 = load ptr, ptr %13, align 8
   %15 = zext i32 %7 to i64
-  %16 = getelementptr inbounds i8, ptr %14, i64 104
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 104
   %17 = load ptr, ptr %16, align 8
   %18 = tail call ptr %17(ptr noundef %14, i64 noundef range(i64 0, 8589934590) %.053, i64 noundef range(i64 0, 4294967296) %15, i32 noundef 0) #12
   %.not = icmp eq ptr %18, null
@@ -581,18 +581,18 @@ switch.lookup:
   %20 = load i32, ptr %2, align 1
   %21 = tail call i32 @llvm.bswap.i32(i32 %20)
   store i32 %21, ptr %2, align 1
-  %22 = getelementptr inbounds i8, ptr %2, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %23 = load i32, ptr %22, align 1
   %24 = tail call i32 @llvm.bswap.i32(i32 %23)
   store i32 %24, ptr %22, align 1
-  %25 = getelementptr inbounds i8, ptr %2, i64 10
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 10
   %26 = load i16, ptr %25, align 1
   %rev.i = tail call i16 @llvm.bswap.i16(i16 %26)
   store i16 %rev.i, ptr %25, align 1
-  %27 = getelementptr inbounds i8, ptr %2, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %28 = load i8, ptr %27, align 1
   %29 = sext i8 %28 to i32
-  %30 = getelementptr inbounds i8, ptr %2, i64 9
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 9
   %31 = load i8, ptr %30, align 1
   %32 = zext i8 %31 to i32
   %33 = zext i16 %rev.i to i32
@@ -617,44 +617,44 @@ switch.lookup:
   br i1 %.not61, label %41, label %.sink.split
 
 41:                                               ; preds = %39
-  %42 = getelementptr inbounds i8, ptr %18, i64 14
+  %42 = getelementptr inbounds nuw i8, ptr %18, i64 14
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(106) %3, ptr noundef nonnull align 1 dereferenceable(106) %42, i64 106, i1 false)
   %43 = load i16, ptr %3, align 1
   %rev.i65 = tail call i16 @llvm.bswap.i16(i16 %43)
   store i16 %rev.i65, ptr %3, align 1
-  %44 = getelementptr inbounds i8, ptr %3, i64 2
+  %44 = getelementptr inbounds nuw i8, ptr %3, i64 2
   %45 = load i32, ptr %44, align 1
   %46 = tail call i32 @llvm.bswap.i32(i32 %45)
   store i32 %46, ptr %44, align 1
-  %47 = getelementptr inbounds i8, ptr %3, i64 6
+  %47 = getelementptr inbounds nuw i8, ptr %3, i64 6
   %48 = load i32, ptr %47, align 1
   %49 = tail call i32 @llvm.bswap.i32(i32 %48)
   store i32 %49, ptr %47, align 1
-  %50 = getelementptr inbounds i8, ptr %3, i64 10
+  %50 = getelementptr inbounds nuw i8, ptr %3, i64 10
   %51 = load i32, ptr %50, align 1
   %52 = tail call i32 @llvm.bswap.i32(i32 %51)
   store i32 %52, ptr %50, align 1
-  %53 = getelementptr inbounds i8, ptr %3, i64 14
+  %53 = getelementptr inbounds nuw i8, ptr %3, i64 14
   %54 = load i32, ptr %53, align 1
   %55 = tail call i32 @llvm.bswap.i32(i32 %54)
   store i32 %55, ptr %53, align 1
-  %56 = getelementptr inbounds i8, ptr %3, i64 18
+  %56 = getelementptr inbounds nuw i8, ptr %3, i64 18
   %57 = load i16, ptr %56, align 1
   %rev56.i = tail call i16 @llvm.bswap.i16(i16 %57)
   store i16 %rev56.i, ptr %56, align 1
-  %58 = getelementptr inbounds i8, ptr %3, i64 20
+  %58 = getelementptr inbounds nuw i8, ptr %3, i64 20
   %59 = load i16, ptr %58, align 1
   %rev57.i = tail call i16 @llvm.bswap.i16(i16 %59)
   store i16 %rev57.i, ptr %58, align 1
-  %60 = getelementptr inbounds i8, ptr %3, i64 22
+  %60 = getelementptr inbounds nuw i8, ptr %3, i64 22
   %61 = load i32, ptr %60, align 1
   %62 = tail call i32 @llvm.bswap.i32(i32 %61)
   store i32 %62, ptr %60, align 1
-  %63 = getelementptr inbounds i8, ptr %3, i64 26
+  %63 = getelementptr inbounds nuw i8, ptr %3, i64 26
   %64 = load i32, ptr %63, align 1
   %65 = tail call i32 @llvm.bswap.i32(i32 %64)
   store i32 %65, ptr %63, align 1
-  %66 = getelementptr inbounds i8, ptr %3, i64 38
+  %66 = getelementptr inbounds nuw i8, ptr %3, i64 38
   %67 = load i32, ptr %66, align 1
   %68 = tail call i32 @llvm.bswap.i32(i32 %67)
   store i32 %68, ptr %66, align 1
@@ -665,7 +665,7 @@ switch.lookup:
   %72 = zext i16 %71 to i32
   %73 = load i32, ptr %60, align 1
   %74 = load i32, ptr %63, align 1
-  %75 = getelementptr inbounds i8, ptr %3, i64 36
+  %75 = getelementptr inbounds nuw i8, ptr %3, i64 36
   %76 = load i8, ptr %75, align 1
   %77 = zext i8 %76 to i32
   %78 = load i32, ptr %66, align 1
@@ -723,17 +723,17 @@ declare noundef i32 @mkdir(ptr nocapture noundef readonly, i32 noundef) local_un
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 27) i32 @hfsplus_validate_catalog(ptr nocapture noundef readonly %0, i16 %.18.val, i32 %.22.val) unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 284
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 284
   %3 = load i32, ptr %2, align 1
-  %4 = getelementptr inbounds i8, ptr %0, i64 44
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 1
   %.not = icmp ult i32 %3, %5
   br i1 %.not, label %6, label %.sink.split
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 272
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %8 = load i64, ptr %7, align 1
-  %9 = getelementptr inbounds i8, ptr %0, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load i32, ptr %9, align 1
   %11 = mul i32 %10, %3
   %12 = zext i32 %11 to i64
@@ -783,11 +783,11 @@ define internal fastcc i32 @hfsplus_walk_catalog(ptr noundef nonnull %0, ptr noc
   store i32 -1, ptr %13, align 4
   store ptr null, ptr %14, align 8
   store i64 0, ptr %15, align 8
-  %23 = getelementptr inbounds i8, ptr %2, i64 22
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 22
   %24 = load i32, ptr %23, align 1
-  %25 = getelementptr inbounds i8, ptr %2, i64 10
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 10
   %26 = load i32, ptr %25, align 1
-  %27 = getelementptr inbounds i8, ptr %2, i64 18
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 18
   %28 = load i16, ptr %27, align 1
   %29 = zext i16 %28 to i64
   %30 = tail call ptr @cli_max_malloc(i64 noundef %29) #12
@@ -796,54 +796,54 @@ define internal fastcc i32 @hfsplus_walk_catalog(ptr noundef nonnull %0, ptr noc
 
 .preheader78:                                     ; preds = %5
   %spec.select = tail call i32 @llvm.umin.i32(i32 %24, i32 1000)
-  %31 = getelementptr inbounds i8, ptr %1, i64 272
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %30, i64 4
-  %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %30, i64 8
-  %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %30, i64 9
-  %.sroa.12.0..sroa_idx = getelementptr inbounds i8, ptr %30, i64 10
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 272
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %30, i64 4
+  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %30, i64 8
+  %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %30, i64 9
+  %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %30, i64 10
   %32 = lshr i16 %28, 2
-  %invariant.gep = getelementptr inbounds i8, ptr %30, i64 6
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %30, i64 6
   %33 = add i16 %28, -2
-  %34 = getelementptr inbounds i8, ptr %16, i64 8
-  %35 = getelementptr inbounds i8, ptr %16, i64 42
-  %36 = getelementptr inbounds i8, ptr %16, i64 88
-  %37 = getelementptr inbounds i8, ptr %16, i64 96
-  %38 = getelementptr inbounds i8, ptr %16, i64 100
-  %39 = getelementptr inbounds i8, ptr %16, i64 104
-  %40 = getelementptr inbounds i8, ptr %16, i64 168
-  %41 = getelementptr inbounds i8, ptr %16, i64 176
-  %42 = getelementptr inbounds i8, ptr %16, i64 180
-  %43 = getelementptr inbounds i8, ptr %16, i64 184
+  %34 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %16, i64 42
+  %36 = getelementptr inbounds nuw i8, ptr %16, i64 88
+  %37 = getelementptr inbounds nuw i8, ptr %16, i64 96
+  %38 = getelementptr inbounds nuw i8, ptr %16, i64 100
+  %39 = getelementptr inbounds nuw i8, ptr %16, i64 104
+  %40 = getelementptr inbounds nuw i8, ptr %16, i64 168
+  %41 = getelementptr inbounds nuw i8, ptr %16, i64 176
+  %42 = getelementptr inbounds nuw i8, ptr %16, i64 180
+  %43 = getelementptr inbounds nuw i8, ptr %16, i64 184
   %.not.i = icmp eq ptr %3, null
-  %44 = getelementptr inbounds i8, ptr %3, i64 22
-  %45 = getelementptr inbounds i8, ptr %3, i64 10
-  %46 = getelementptr inbounds i8, ptr %3, i64 18
-  %47 = getelementptr inbounds i8, ptr %1, i64 352
-  %.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %17, i64 4
-  %.sroa.17.0..sroa_idx = getelementptr inbounds i8, ptr %17, i64 8
-  %48 = getelementptr inbounds i8, ptr %6, i64 4
-  %49 = getelementptr inbounds i8, ptr %6, i64 8
-  %50 = getelementptr inbounds i8, ptr %6, i64 12
-  %51 = getelementptr inbounds i8, ptr %7, i64 22
-  %52 = getelementptr inbounds i8, ptr %7, i64 24
-  %53 = getelementptr inbounds i8, ptr %7, i64 26
-  %54 = getelementptr inbounds i8, ptr %7, i64 28
-  %55 = getelementptr inbounds i8, ptr %8, i64 4
-  %56 = getelementptr inbounds i8, ptr %8, i64 6
-  %57 = getelementptr inbounds i8, ptr %9, i64 5
-  %58 = getelementptr inbounds i8, ptr %9, i64 6
-  %59 = getelementptr inbounds i8, ptr %9, i64 7
-  %60 = getelementptr inbounds i8, ptr %22, i64 64
-  %61 = getelementptr inbounds i8, ptr %22, i64 8
-  %62 = getelementptr inbounds i8, ptr %22, i64 32
-  %63 = getelementptr inbounds i8, ptr %22, i64 24
-  %64 = getelementptr inbounds i8, ptr %0, i64 48
-  %65 = getelementptr inbounds i8, ptr %17, i64 16
-  %66 = getelementptr inbounds i8, ptr %18, i64 64
-  %67 = getelementptr inbounds i8, ptr %18, i64 8
-  %68 = getelementptr inbounds i8, ptr %18, i64 32
-  %69 = getelementptr inbounds i8, ptr %18, i64 24
-  %70 = getelementptr inbounds i8, ptr %17, i64 17
+  %44 = getelementptr inbounds nuw i8, ptr %3, i64 22
+  %45 = getelementptr inbounds nuw i8, ptr %3, i64 10
+  %46 = getelementptr inbounds nuw i8, ptr %3, i64 18
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 352
+  %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 4
+  %.sroa.17.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %49 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %6, i64 12
+  %51 = getelementptr inbounds nuw i8, ptr %7, i64 22
+  %52 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %7, i64 26
+  %54 = getelementptr inbounds nuw i8, ptr %7, i64 28
+  %55 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  %56 = getelementptr inbounds nuw i8, ptr %8, i64 6
+  %57 = getelementptr inbounds nuw i8, ptr %9, i64 5
+  %58 = getelementptr inbounds nuw i8, ptr %9, i64 6
+  %59 = getelementptr inbounds nuw i8, ptr %9, i64 7
+  %60 = getelementptr inbounds nuw i8, ptr %22, i64 64
+  %61 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %22, i64 32
+  %63 = getelementptr inbounds nuw i8, ptr %22, i64 24
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %65 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %18, i64 64
+  %67 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %18, i64 32
+  %69 = getelementptr inbounds nuw i8, ptr %18, i64 24
+  %70 = getelementptr inbounds nuw i8, ptr %17, i64 17
   %71 = add nuw nsw i32 %spec.select, 1
   br label %74
 
@@ -943,11 +943,11 @@ define internal fastcc i32 @hfsplus_walk_catalog(ptr noundef nonnull %0, ptr noc
   %106 = shl i16 %105, 1
   %107 = sub i16 %33, %106
   %108 = zext i16 %107 to i64
-  %109 = getelementptr inbounds i8, ptr %30, i64 %108
+  %109 = getelementptr inbounds nuw i8, ptr %30, i64 %108
   %110 = load i8, ptr %109, align 1
   %111 = zext i8 %110 to i16
   %112 = shl nuw i16 %111, 8
-  %113 = getelementptr inbounds i8, ptr %109, i64 1
+  %113 = getelementptr inbounds nuw i8, ptr %109, i64 1
   %114 = load i8, ptr %113, align 1
   %115 = zext i8 %114 to i16
   %116 = or disjoint i16 %112, %115
@@ -963,11 +963,11 @@ define internal fastcc i32 @hfsplus_walk_catalog(ptr noundef nonnull %0, ptr noc
 
 120:                                              ; preds = %103
   %121 = zext i16 %116 to i64
-  %122 = getelementptr inbounds i8, ptr %30, i64 %121
+  %122 = getelementptr inbounds nuw i8, ptr %30, i64 %121
   %123 = load i8, ptr %122, align 1
   %124 = zext i8 %123 to i32
   %125 = shl nuw nsw i32 %124, 8
-  %126 = getelementptr inbounds i8, ptr %122, i64 1
+  %126 = getelementptr inbounds nuw i8, ptr %122, i64 1
   %127 = load i8, ptr %126, align 1
   %128 = zext i8 %127 to i32
   %129 = or disjoint i32 %125, %128
@@ -988,15 +988,15 @@ define internal fastcc i32 @hfsplus_walk_catalog(ptr noundef nonnull %0, ptr noc
   br i1 %137, label %138, label %156
 
 138:                                              ; preds = %136
-  %gep = getelementptr inbounds i8, ptr %invariant.gep, i64 %121
+  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %121
   %139 = load i8, ptr %gep, align 1
   %140 = zext i8 %139 to i32
   %141 = shl nuw nsw i32 %140, 8
-  %142 = getelementptr inbounds i8, ptr %122, i64 7
+  %142 = getelementptr inbounds nuw i8, ptr %122, i64 7
   %143 = load i8, ptr %142, align 1
   %144 = zext i8 %143 to i32
   %145 = or disjoint i32 %141, %144
-  %146 = getelementptr inbounds i8, ptr %122, i64 8
+  %146 = getelementptr inbounds nuw i8, ptr %122, i64 8
   %.not299 = icmp eq i32 %145, 0
   br i1 %.not299, label %156, label %147
 
@@ -1029,7 +1029,7 @@ define internal fastcc i32 @hfsplus_walk_catalog(ptr noundef nonnull %0, ptr noc
 156:                                              ; preds = %138, %147, %154, %136
   %157 = add nuw nsw i32 %133, 2
   %158 = zext nneg i32 %157 to i64
-  %159 = getelementptr inbounds i8, ptr %30, i64 %158
+  %159 = getelementptr inbounds nuw i8, ptr %30, i64 %158
   %.0.copyload302 = load i16, ptr %159, align 1
   %rev = call i16 @llvm.bswap.i16(i16 %.0.copyload302)
   %160 = sext i16 %rev to i32
@@ -1078,11 +1078,11 @@ define internal fastcc i32 @hfsplus_walk_catalog(ptr noundef nonnull %0, ptr noc
 
 180:                                              ; preds = %180, %173
   %indvars.iv.i = phi i64 [ 0, %173 ], [ %indvars.iv.next.i, %180 ]
-  %181 = getelementptr inbounds [8 x %struct.hfsPlusExtentDescriptor], ptr %39, i64 0, i64 %indvars.iv.i
+  %181 = getelementptr inbounds nuw [8 x %struct.hfsPlusExtentDescriptor], ptr %39, i64 0, i64 %indvars.iv.i
   %182 = load i32, ptr %181, align 4
   %183 = call i32 @llvm.bswap.i32(i32 %182)
   store i32 %183, ptr %181, align 4
-  %184 = getelementptr inbounds i8, ptr %181, i64 4
+  %184 = getelementptr inbounds nuw i8, ptr %181, i64 4
   %185 = load i32, ptr %184, align 4
   %186 = call i32 @llvm.bswap.i32(i32 %185)
   store i32 %186, ptr %184, align 4
@@ -1096,13 +1096,13 @@ forkdata_to_host.exit:                            ; preds = %180
 
 187:                                              ; preds = %191, %forkdata_to_host.exit
   %indvars.iv.i363 = phi i64 [ 0, %forkdata_to_host.exit ], [ %indvars.iv.next.i364, %191 ]
-  %188 = getelementptr inbounds [8 x %struct.hfsPlusExtentDescriptor], ptr %39, i64 0, i64 %indvars.iv.i363
+  %188 = getelementptr inbounds nuw [8 x %struct.hfsPlusExtentDescriptor], ptr %39, i64 0, i64 %indvars.iv.i363
   %189 = load i32, ptr %188, align 4
   %190 = icmp eq i32 %189, 0
   br i1 %190, label %forkdata_print.exit, label %191
 
 191:                                              ; preds = %187
-  %192 = getelementptr inbounds i8, ptr %188, i64 4
+  %192 = getelementptr inbounds nuw i8, ptr %188, i64 4
   %193 = load i32, ptr %192, align 4
   %194 = trunc nuw nsw i64 %indvars.iv.i363 to i32
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.57, i32 noundef %194, i32 noundef %189, i32 noundef %193) #12
@@ -1124,11 +1124,11 @@ forkdata_print.exit:                              ; preds = %187, %191
 
 201:                                              ; preds = %201, %forkdata_print.exit
   %indvars.iv.i366 = phi i64 [ 0, %forkdata_print.exit ], [ %indvars.iv.next.i367, %201 ]
-  %202 = getelementptr inbounds [8 x %struct.hfsPlusExtentDescriptor], ptr %43, i64 0, i64 %indvars.iv.i366
+  %202 = getelementptr inbounds nuw [8 x %struct.hfsPlusExtentDescriptor], ptr %43, i64 0, i64 %indvars.iv.i366
   %203 = load i32, ptr %202, align 4
   %204 = call i32 @llvm.bswap.i32(i32 %203)
   store i32 %204, ptr %202, align 4
-  %205 = getelementptr inbounds i8, ptr %202, i64 4
+  %205 = getelementptr inbounds nuw i8, ptr %202, i64 4
   %206 = load i32, ptr %205, align 4
   %207 = call i32 @llvm.bswap.i32(i32 %206)
   store i32 %207, ptr %205, align 4
@@ -1142,13 +1142,13 @@ forkdata_to_host.exit369:                         ; preds = %201
 
 208:                                              ; preds = %212, %forkdata_to_host.exit369
   %indvars.iv.i370 = phi i64 [ 0, %forkdata_to_host.exit369 ], [ %indvars.iv.next.i371, %212 ]
-  %209 = getelementptr inbounds [8 x %struct.hfsPlusExtentDescriptor], ptr %43, i64 0, i64 %indvars.iv.i370
+  %209 = getelementptr inbounds nuw [8 x %struct.hfsPlusExtentDescriptor], ptr %43, i64 0, i64 %indvars.iv.i370
   %210 = load i32, ptr %209, align 4
   %211 = icmp eq i32 %210, 0
   br i1 %211, label %forkdata_print.exit373, label %212
 
 212:                                              ; preds = %208
-  %213 = getelementptr inbounds i8, ptr %209, i64 4
+  %213 = getelementptr inbounds nuw i8, ptr %209, i64 4
   %214 = load i32, ptr %213, align 4
   %215 = trunc nuw nsw i64 %indvars.iv.i370 to i32
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.58, i32 noundef %215, i32 noundef %210, i32 noundef %214) #12
@@ -1171,10 +1171,10 @@ forkdata_print.exit373:                           ; preds = %208, %212
 
 .preheader.i:                                     ; preds = %216
   %222 = icmp eq i32 %218, 0
-  %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %221, i64 4
-  %.sroa.7.0..sroa_idx.i = getelementptr inbounds i8, ptr %221, i64 8
-  %.sroa.9.0..sroa_idx.i = getelementptr inbounds i8, ptr %221, i64 9
-  %.sroa.11.0..sroa_idx.i = getelementptr inbounds i8, ptr %221, i64 10
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %221, i64 4
+  %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %221, i64 8
+  %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %221, i64 9
+  %.sroa.11.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %221, i64 10
   %223 = lshr i16 %219, 2
   %224 = add i16 %219, -2
   br i1 %222, label %.thread51, label %.preheader.split.preheader.i
@@ -1249,11 +1249,11 @@ forkdata_print.exit373:                           ; preds = %208, %212
   %251 = shl i16 %250, 1
   %252 = sub i16 %224, %251
   %253 = zext i16 %252 to i64
-  %254 = getelementptr inbounds i8, ptr %221, i64 %253
+  %254 = getelementptr inbounds nuw i8, ptr %221, i64 %253
   %255 = load i8, ptr %254, align 1
   %256 = zext i8 %255 to i16
   %257 = shl nuw i16 %256, 8
-  %258 = getelementptr inbounds i8, ptr %254, i64 1
+  %258 = getelementptr inbounds nuw i8, ptr %254, i64 1
   %259 = load i8, ptr %258, align 1
   %260 = zext i8 %259 to i16
   %261 = or disjoint i16 %257, %260
@@ -1282,11 +1282,11 @@ forkdata_print.exit373:                           ; preds = %208, %212
   br label %hfsplus_check_attribute.exit.thread43
 
 273:                                              ; preds = %267
-  %274 = getelementptr inbounds i8, ptr %221, i64 %268
+  %274 = getelementptr inbounds nuw i8, ptr %221, i64 %268
   %.sroa.016.0.copyload.i = load i16, ptr %274, align 1
-  %.sroa.519.0..sroa_idx.i = getelementptr inbounds i8, ptr %274, i64 4
+  %.sroa.519.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %274, i64 4
   %.sroa.519.0.copyload.i = load i32, ptr %.sroa.519.0..sroa_idx.i, align 1
-  %.sroa.16.0..sroa_idx.i = getelementptr inbounds i8, ptr %274, i64 12
+  %.sroa.16.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %274, i64 12
   %.sroa.16.0.copyload.i = load i16, ptr %.sroa.16.0..sroa_idx.i, align 1
   %rev.i375 = call i16 @llvm.bswap.i16(i16 %.sroa.016.0.copyload.i)
   %275 = zext i16 %rev.i375 to i32
@@ -1320,13 +1320,13 @@ forkdata_print.exit373:                           ; preds = %208, %212
   br i1 %or.cond150.i, label %289, label %300
 
 289:                                              ; preds = %286
-  %290 = getelementptr inbounds i8, ptr %274, i64 14
+  %290 = getelementptr inbounds nuw i8, ptr %274, i64 14
   %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(34) %290, ptr noundef nonnull readonly dereferenceable(34) @__const.hfsplus_walk_catalog.COMPRESSED_ATTR, i64 34)
   %291 = icmp eq i32 %bcmp.i, 0
   br i1 %291, label %292, label %300
 
 292:                                              ; preds = %289
-  %293 = getelementptr inbounds i8, ptr %274, i64 48
+  %293 = getelementptr inbounds nuw i8, ptr %274, i64 48
   %.sroa.0.0.copyload.i = load i32, ptr %293, align 1
   %.not148.i = icmp eq i32 %.sroa.0.0.copyload.i, 268435456
   br i1 %.not148.i, label %296, label %294
@@ -1337,7 +1337,7 @@ forkdata_print.exit373:                           ; preds = %208, %212
   br label %300
 
 296:                                              ; preds = %292
-  %.sroa.89.0..sroa_idx.i = getelementptr inbounds i8, ptr %274, i64 60
+  %.sroa.89.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %274, i64 60
   %.sroa.89.0.copyload.i = load i32, ptr %.sroa.89.0..sroa_idx.i, align 1
   %297 = call i32 @llvm.bswap.i32(i32 %.sroa.89.0.copyload.i)
   %298 = zext i32 %297 to i64
@@ -1369,7 +1369,7 @@ hfsplus_check_attribute.exit.thread43:            ; preds = %284, %278, %270, %2
   br label %545
 
 302:                                              ; preds = %296
-  %303 = getelementptr inbounds i8, ptr %274, i64 64
+  %303 = getelementptr inbounds nuw i8, ptr %274, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %17, ptr nonnull align 1 %303, i64 %298, i1 false)
   call void @free(ptr noundef nonnull %221) #12
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.60) #12
@@ -1760,11 +1760,11 @@ hfsplus_read_block_table.exit:                    ; preds = %._crit_edge
   %.0213489 = phi i64 [ %.1214.lcssa, %hfsplus_read_block_table.exit ], [ 0, %hfsplus_read_block_table.exit.preheader ]
   %.6227488 = phi i1 [ %.7228.lcssa, %hfsplus_read_block_table.exit ], [ %.1222497, %hfsplus_read_block_table.exit.preheader ]
   %455 = zext i32 %.0210490 to i64
-  %456 = getelementptr inbounds %struct.hfsPlusResourceBlockTable, ptr %441, i64 %455
+  %456 = getelementptr inbounds nuw %struct.hfsPlusResourceBlockTable, ptr %441, i64 %455
   %457 = load i32, ptr %456, align 1
   %458 = add i32 %457, %435
   %459 = zext i32 %458 to i64
-  %460 = getelementptr inbounds i8, ptr %456, i64 4
+  %460 = getelementptr inbounds nuw i8, ptr %456, i64 4
   %461 = load i32, ptr %460, align 1
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.83, i32 noundef %.0210490, i32 noundef %454, i64 noundef %459, i32 noundef %461) #12
   %462 = call i64 @lseek(i32 noundef %366, i64 noundef %459, i32 noundef 0) #12
@@ -1772,7 +1772,7 @@ hfsplus_read_block_table.exit:                    ; preds = %._crit_edge
   br i1 %.not327, label %.preheader77, label %466
 
 .preheader77:                                     ; preds = %.lr.ph491
-  %463 = getelementptr inbounds %struct.hfsPlusResourceBlockTable, ptr %441, i64 %455, i32 1
+  %463 = getelementptr inbounds nuw %struct.hfsPlusResourceBlockTable, ptr %441, i64 %455, i32 1
   %464 = load i32, ptr %463, align 1
   %.not524 = icmp eq i32 %464, 0
   br i1 %.not524, label %._crit_edge, label %.lr.ph486.preheader
@@ -1897,7 +1897,7 @@ hfsplus_read_block_table.exit:                    ; preds = %._crit_edge
   %499 = load i32, ptr %13, align 4
   %not..not330 = xor i1 %.not330484, true
   %500 = zext i1 %not..not330 to i64
-  %501 = getelementptr inbounds [4096 x i8], ptr %20, i64 0, i64 %500
+  %501 = getelementptr inbounds nuw [4096 x i8], ptr %20, i64 0, i64 %500
   %502 = sub nsw i64 %spec.store.select, %500
   %503 = call i64 @cli_writen(i32 noundef %499, ptr noundef nonnull %501, i64 noundef %502) #12
   %.not333 = icmp eq i64 %503, %502
@@ -1944,7 +1944,7 @@ hfsplus_read_block_table.exit._crit_edge:         ; preds = %hfsplus_read_block_
   %.10231 = phi i1 [ %.1222497, %._crit_edge.thread.i ], [ %.1222497, %450 ], [ %.6227.lcssa, %hfsplus_read_block_table.exit._crit_edge ]
   %.6 = phi i32 [ %.0.i379.ph, %._crit_edge.thread.i ], [ %.031.ph.i, %450 ], [ 0, %hfsplus_read_block_table.exit._crit_edge ]
   %515 = load ptr, ptr %64, align 8
-  %516 = getelementptr inbounds i8, ptr %515, i64 40
+  %516 = getelementptr inbounds nuw i8, ptr %515, i64 40
   %517 = load i32, ptr %516, align 8
   %.not336 = icmp eq i32 %517, 0
   br i1 %.not336, label %518, label %521
@@ -1994,7 +1994,7 @@ hfsplus_read_block_table.exit._crit_edge:         ; preds = %hfsplus_read_block_
   %.pre848 = phi ptr [ %.pre848.pre, %._crit_edge852 ], [ %525, %526 ]
   %.8 = phi i32 [ 0, %._crit_edge852 ], [ %.5, %526 ]
   %533 = load ptr, ptr %64, align 8
-  %534 = getelementptr inbounds i8, ptr %533, i64 40
+  %534 = getelementptr inbounds nuw i8, ptr %533, i64 40
   %535 = load i32, ptr %534, align 8
   %.not344 = icmp eq i32 %535, 0
   br i1 %.not344, label %536, label %538
@@ -2129,7 +2129,7 @@ hfsplus_read_block_table.exit._crit_edge:         ; preds = %hfsplus_read_block_
 
 570:                                              ; preds = %568
   %571 = load ptr, ptr %64, align 8
-  %572 = getelementptr inbounds i8, ptr %571, i64 40
+  %572 = getelementptr inbounds nuw i8, ptr %571, i64 40
   %573 = load i32, ptr %572, align 8
   %.not356.us = icmp eq i32 %573, 0
   br i1 %.not356.us, label %574, label %576
@@ -2151,7 +2151,7 @@ hfsplus_read_block_table.exit._crit_edge:         ; preds = %hfsplus_read_block_
 
 580:                                              ; preds = %578
   %581 = load ptr, ptr %64, align 8
-  %582 = getelementptr inbounds i8, ptr %581, i64 40
+  %582 = getelementptr inbounds nuw i8, ptr %581, i64 40
   %583 = load i32, ptr %582, align 8
   %.not358.us = icmp eq i32 %583, 0
   br i1 %.not358.us, label %584, label %.split.us
@@ -2180,7 +2180,7 @@ hfsplus_read_block_table.exit._crit_edge:         ; preds = %hfsplus_read_block_
 
 592:                                              ; preds = %590
   %593 = load ptr, ptr %64, align 8
-  %594 = getelementptr inbounds i8, ptr %593, i64 40
+  %594 = getelementptr inbounds nuw i8, ptr %593, i64 40
   %595 = load i32, ptr %594, align 8
   %.not356 = icmp eq i32 %595, 0
   br i1 %.not356, label %596, label %598
@@ -2202,7 +2202,7 @@ hfsplus_read_block_table.exit._crit_edge:         ; preds = %hfsplus_read_block_
 
 602:                                              ; preds = %600
   %603 = load ptr, ptr %64, align 8
-  %604 = getelementptr inbounds i8, ptr %603, i64 40
+  %604 = getelementptr inbounds nuw i8, ptr %603, i64 40
   %605 = load i32, ptr %604, align 8
   %.not358 = icmp eq i32 %605, 0
   br i1 %.not358, label %606, label %.split.us
@@ -2258,23 +2258,23 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @forkdata_print(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = load i64, ptr %1, align 1
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i32, ptr %4, align 1
-  %6 = getelementptr inbounds i8, ptr %1, i64 12
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %7 = load i32, ptr %6, align 1
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.28, ptr noundef %0, i64 noundef %3, i32 noundef %5, i32 noundef %7) #12
-  %8 = getelementptr inbounds i8, ptr %1, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br label %9
 
 9:                                                ; preds = %2, %13
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %13 ]
-  %10 = getelementptr inbounds [8 x %struct.hfsPlusExtentDescriptor], ptr %8, i64 0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x %struct.hfsPlusExtentDescriptor], ptr %8, i64 0, i64 %indvars.iv
   %11 = load i32, ptr %10, align 1
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %17, label %13
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %10, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %15 = load i32, ptr %14, align 1
   %16 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.29, ptr noundef %0, i32 noundef %16, i32 noundef %11, i32 noundef %15) #12
@@ -2290,7 +2290,7 @@ declare ptr @cli_max_malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 27) i32 @hfsplus_fetch_node(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readonly %2, ptr nocapture noundef readonly %3, i32 noundef range(i32 1, 0) %4, ptr nocapture noundef writeonly %5, i64 noundef range(i64 0, 65536) %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %2, i64 22
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 22
   %9 = load i32, ptr %8, align 1
   %.not = icmp ult i32 %4, %9
   br i1 %.not, label %11, label %10
@@ -2301,11 +2301,11 @@ define internal fastcc range(i32 0, 27) i32 @hfsplus_fetch_node(ptr nocapture no
 
 11:                                               ; preds = %7
   %12 = zext i32 %4 to i64
-  %13 = getelementptr inbounds i8, ptr %2, i64 18
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 18
   %14 = load i16, ptr %13, align 1
   %15 = zext i16 %14 to i64
   %16 = mul nuw nsw i64 %15, %12
-  %17 = getelementptr inbounds i8, ptr %1, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %18 = load i32, ptr %17, align 1
   %19 = zext i32 %18 to i64
   %20 = udiv i64 %16, %19
@@ -2319,7 +2319,7 @@ define internal fastcc range(i32 0, 27) i32 @hfsplus_fetch_node(ptr nocapture no
   %28 = trunc nuw i64 %27 to i32
   %29 = add nuw i32 %28, 1
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.100, i32 noundef %21) #12
-  %30 = getelementptr inbounds i8, ptr %3, i64 12
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %31 = load i32, ptr %30, align 1
   %.not82 = icmp ugt i32 %31, %21
   %.not83 = icmp ugt i32 %31, %26
@@ -2331,9 +2331,9 @@ define internal fastcc range(i32 0, 27) i32 @hfsplus_fetch_node(ptr nocapture no
   br i1 %.not8415, label %.loopexit, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %.preheader4
-  %32 = getelementptr inbounds i8, ptr %3, i64 16
-  %33 = getelementptr inbounds i8, ptr %1, i64 44
-  %34 = getelementptr inbounds i8, ptr %0, i64 96
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 44
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %35 = trunc nuw nsw i64 %6 to i32
   br label %.preheader
 
@@ -2354,14 +2354,14 @@ define internal fastcc range(i32 0, 27) i32 @hfsplus_fetch_node(ptr nocapture no
 39:                                               ; preds = %.preheader, %55
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %55 ]
   %.06814 = phi i32 [ %.07316, %.preheader ], [ %57, %55 ]
-  %40 = getelementptr inbounds [8 x %struct.hfsPlusExtentDescriptor], ptr %32, i64 0, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [8 x %struct.hfsPlusExtentDescriptor], ptr %32, i64 0, i64 %indvars.iv
   %41 = load i32, ptr %40, align 1
   %42 = icmp eq i32 %41, 0
   %43 = trunc nuw nsw i64 %indvars.iv to i32
   br i1 %42, label %48, label %44
 
 44:                                               ; preds = %39
-  %45 = getelementptr inbounds i8, ptr %40, i64 4
+  %45 = getelementptr inbounds nuw i8, ptr %40, i64 4
   %46 = load i32, ptr %45, align 1
   %47 = icmp eq i32 %46, 0
   br i1 %47, label %48, label %49
@@ -2430,9 +2430,9 @@ define internal fastcc range(i32 0, 27) i32 @hfsplus_fetch_node(ptr nocapture no
 74:                                               ; preds = %64
   %75 = load ptr, ptr %34, align 8
   %76 = zext i32 %.06717 to i64
-  %77 = getelementptr inbounds i8, ptr %5, i64 %76
+  %77 = getelementptr inbounds nuw i8, ptr %5, i64 %76
   %78 = zext i32 %.070 to i64
-  %79 = getelementptr inbounds i8, ptr %75, i64 88
+  %79 = getelementptr inbounds nuw i8, ptr %75, i64 88
   %80 = load i64, ptr %79, align 8
   %81 = icmp ne i64 %.069, %80
   %82 = icmp ne i32 %.070, 0
@@ -2446,7 +2446,7 @@ define internal fastcc range(i32 0, 27) i32 @hfsplus_fetch_node(ptr nocapture no
 85:                                               ; preds = %83
   %86 = sub nuw i64 %80, %.069
   %spec.select.i = tail call i64 @llvm.umin.i64(i64 range(i64 0, 4294967296) %78, i64 %86)
-  %87 = getelementptr inbounds i8, ptr %75, i64 104
+  %87 = getelementptr inbounds nuw i8, ptr %75, i64 104
   %88 = load ptr, ptr %87, align 8
   %89 = tail call ptr %88(ptr noundef nonnull %75, i64 noundef range(i64 0, 8589934590) %.069, i64 noundef range(i64 0, 4294967296) %spec.select.i, i32 noundef 0) #12
   %.not.i = icmp eq ptr %89, null
@@ -2497,7 +2497,7 @@ define internal fastcc i32 @hfsplus_scanfile(ptr noundef nonnull %0, ptr nocaptu
   br i1 %10, label %15, label %11
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %2, i64 12
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %13 = load i32, ptr %12, align 1
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %15, label %16
@@ -2523,10 +2523,10 @@ define internal fastcc i32 @hfsplus_scanfile(ptr noundef nonnull %0, ptr nocaptu
 21:                                               ; preds = %18
   %22 = load ptr, ptr %7, align 8
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.126, ptr noundef %22) #12
-  %23 = getelementptr inbounds i8, ptr %2, i64 16
-  %24 = getelementptr inbounds i8, ptr %1, i64 44
-  %25 = getelementptr inbounds i8, ptr %1, i64 40
-  %26 = getelementptr inbounds i8, ptr %0, i64 96
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 44
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %27 = load i32, ptr %12, align 1
   %28 = icmp eq i32 %27, 0
   br i1 %28, label %._crit_edge, label %.lr.ph
@@ -2544,7 +2544,7 @@ define internal fastcc i32 @hfsplus_scanfile(ptr noundef nonnull %0, ptr nocaptu
 
 29:                                               ; preds = %.lr.ph
   %30 = trunc nuw nsw i64 %indvars.iv56 to i32
-  %31 = getelementptr inbounds [8 x %struct.hfsPlusExtentDescriptor], ptr %23, i64 0, i64 %indvars.iv56
+  %31 = getelementptr inbounds nuw [8 x %struct.hfsPlusExtentDescriptor], ptr %23, i64 0, i64 %indvars.iv56
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.129, i32 noundef %30) #12
   %32 = load i32, ptr %31, align 1
   %33 = icmp eq i32 %32, 0
@@ -2555,7 +2555,7 @@ define internal fastcc i32 @hfsplus_scanfile(ptr noundef nonnull %0, ptr nocaptu
   br label %83
 
 35:                                               ; preds = %29
-  %36 = getelementptr inbounds i8, ptr %31, i64 4
+  %36 = getelementptr inbounds nuw i8, ptr %31, i64 4
   %37 = load i32, ptr %36, align 1
   %38 = icmp eq i32 %37, 0
   br i1 %38, label %39, label %40
@@ -2602,7 +2602,7 @@ define internal fastcc i32 @hfsplus_scanfile(ptr noundef nonnull %0, ptr nocaptu
   %55 = mul i32 %53, %.070
   %56 = zext i32 %55 to i64
   %57 = load ptr, ptr %26, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 104
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 104
   %59 = load ptr, ptr %58, align 8
   %60 = call ptr %59(ptr noundef %57, i64 noundef range(i64 0, 8589934590) %56, i64 noundef range(i64 0, 4294967296) %54, i32 noundef 0) #12
   %.not94 = icmp eq ptr %60, null
@@ -2684,9 +2684,9 @@ define internal fastcc i32 @hfsplus_scanfile(ptr noundef nonnull %0, ptr nocaptu
   br i1 %or.cond3, label %93, label %102
 
 93:                                               ; preds = %88
-  %94 = getelementptr inbounds i8, ptr %0, i64 48
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %95 = load ptr, ptr %94, align 8
-  %96 = getelementptr inbounds i8, ptr %95, i64 40
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 40
   %97 = load i32, ptr %96, align 8
   %.not97 = icmp eq i32 %97, 0
   br i1 %.not97, label %98, label %100

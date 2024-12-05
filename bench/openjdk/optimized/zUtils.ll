@@ -11,12 +11,12 @@ define hidden noundef ptr @_ZN6ZUtils11thread_nameEv() local_unnamed_addr #0 ali
   %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %2 = load ptr, ptr %1, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 112
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 112
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(888) %2) #3
   %7 = load ptr, ptr %2, align 8
   %. = select i1 %6, i64 168, i64 176
-  %8 = getelementptr inbounds i8, ptr %7, i64 %.
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 %.
   %9 = load ptr, ptr %8, align 8
   %10 = tail call noundef ptr %9(ptr noundef nonnull align 8 dereferenceable(888) %2) #3
   ret ptr %10
@@ -34,7 +34,7 @@ define hidden void @_ZN6ZUtils4fillEPmmm(ptr noundef writeonly %0, i64 noundef %
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i, %5
   %.06.i.i.i.i = phi ptr [ %7, %.lr.ph.i.i.i.i ], [ %0, %5 ]
   store i64 %2, ptr %.06.i.i.i.i, align 8
-  %7 = getelementptr inbounds i8, ptr %.06.i.i.i.i, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i, i64 8
   %.not.i.i.i.i = icmp eq ptr %7, %6
   br i1 %.not.i.i.i.i, label %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !6
 

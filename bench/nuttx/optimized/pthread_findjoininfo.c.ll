@@ -11,11 +11,11 @@ define range(i32 0, 23) i32 @pthread_createjoininfo(ptr nocapture noundef %0, pt
   br i1 %4, label %26, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load i32, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 12
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 %7, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %3, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %10 = tail call i32 @nxsem_init(ptr noundef nonnull %9, i32 noundef 0, i32 noundef 0) #5
   %11 = icmp slt i32 %10, 0
   br i1 %11, label %12, label %14
@@ -26,20 +26,20 @@ define range(i32 0, 23) i32 @pthread_createjoininfo(ptr nocapture noundef %0, pt
   br label %26
 
 14:                                               ; preds = %5
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load ptr, ptr %15, align 16
   %17 = load ptr, ptr %1, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 1024
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 1024
   store ptr %17, ptr %18, align 16
   store ptr null, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %16, i64 96
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 96
   %20 = load ptr, ptr %19, align 8
   %.not = icmp eq ptr %20, null
   %21 = load ptr, ptr %1, align 8
   br i1 %.not, label %22, label %24
 
 22:                                               ; preds = %14
-  %23 = getelementptr inbounds i8, ptr %16, i64 88
+  %23 = getelementptr inbounds nuw i8, ptr %16, i64 88
   store ptr %21, ptr %23, align 8
   br label %25
 
@@ -66,7 +66,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 23) i32 @pthread_findjoininfo(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef initializes((0, 8)) %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 88
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
   br label %5
 
 5:                                                ; preds = %6, %3
@@ -77,7 +77,7 @@ define range(i32 0, 23) i32 @pthread_findjoininfo(ptr nocapture noundef readonly
   br i1 %.not, label %9, label %6
 
 6:                                                ; preds = %5
-  %7 = getelementptr inbounds i8, ptr %storemerge, i64 12
+  %7 = getelementptr inbounds nuw i8, ptr %storemerge, i64 12
   %8 = load i32, ptr %7, align 4
   %.not18 = icmp eq i32 %8, %1
   br i1 %.not18, label %.critedge, label %5, !llvm.loop !6
@@ -88,14 +88,14 @@ define range(i32 0, 23) i32 @pthread_findjoininfo(ptr nocapture noundef readonly
   br i1 %11, label %.critedge, label %12
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %10, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 64
   %14 = load i16, ptr %13, align 16
   %15 = and i16 %14, 4099
   %or.cond = icmp eq i16 %15, 1
   br i1 %or.cond, label %16, label %.critedge
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %10, i64 1032
+  %17 = getelementptr inbounds nuw i8, ptr %10, i64 1032
   %18 = load i8, ptr %17, align 8
   %19 = trunc i8 %18 to i1
   br i1 %19, label %.critedge, label %20
@@ -107,11 +107,11 @@ define range(i32 0, 23) i32 @pthread_findjoininfo(ptr nocapture noundef readonly
   br i1 %22, label %.critedge, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds i8, ptr %10, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %25 = load i32, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %21, i64 12
+  %26 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 %25, ptr %26, align 4
-  %27 = getelementptr inbounds i8, ptr %21, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %28 = tail call i32 @nxsem_init(ptr noundef nonnull %27, i32 noundef 0, i32 noundef 0) #5
   %29 = icmp slt i32 %28, 0
   br i1 %29, label %30, label %32
@@ -122,20 +122,20 @@ define range(i32 0, 23) i32 @pthread_findjoininfo(ptr nocapture noundef readonly
   br label %.critedge
 
 32:                                               ; preds = %23
-  %33 = getelementptr inbounds i8, ptr %10, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %34 = load ptr, ptr %33, align 16
   %35 = load ptr, ptr %2, align 8
-  %36 = getelementptr inbounds i8, ptr %10, i64 1024
+  %36 = getelementptr inbounds nuw i8, ptr %10, i64 1024
   store ptr %35, ptr %36, align 16
   store ptr null, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %34, i64 96
+  %37 = getelementptr inbounds nuw i8, ptr %34, i64 96
   %38 = load ptr, ptr %37, align 8
   %.not.i = icmp eq ptr %38, null
   %39 = load ptr, ptr %2, align 8
   br i1 %.not.i, label %40, label %42
 
 40:                                               ; preds = %32
-  %41 = getelementptr inbounds i8, ptr %34, i64 88
+  %41 = getelementptr inbounds nuw i8, ptr %34, i64 88
   store ptr %39, ptr %41, align 8
   br label %43
 

@@ -8,14 +8,14 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define i32 @file_fchstat(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = and i32 %2, 1
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %10, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load i32, ptr %8, align 8
   %.not41 = icmp ult i32 %9, 65536
   br i1 %.not41, label %10, label %63
@@ -26,7 +26,7 @@ define i32 @file_fchstat(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_u
   br i1 %.not42, label %17, label %12
 
 12:                                               ; preds = %10
-  %13 = getelementptr inbounds i8, ptr %1, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %14 = load i32, ptr %13, align 8
   %15 = icmp eq i32 %14, -1
   %16 = and i32 %2, -3
@@ -40,7 +40,7 @@ define i32 @file_fchstat(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_u
   br i1 %.not43, label %24, label %19
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %1, i64 20
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %21 = load i32, ptr %20, align 4
   %22 = icmp eq i32 %21, -1
   %23 = and i32 %.036, -5
@@ -49,14 +49,14 @@ define i32 @file_fchstat(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_u
 
 24:                                               ; preds = %19, %17
   %.1 = phi i32 [ %.036, %17 ], [ %spec.select48, %19 ]
-  %25 = getelementptr inbounds i8, ptr %1, i64 64
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %26 = tail call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %25) #4
   %27 = and i32 %.1, 8
   %.not44 = icmp eq i32 %27, 0
   br i1 %.not44, label %37, label %28
 
 28:                                               ; preds = %24
-  %29 = getelementptr inbounds i8, ptr %1, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %30 = load i64, ptr %29, align 8
   switch i64 %30, label %35 [
     i64 1073741822, label %31
@@ -68,7 +68,7 @@ define i32 @file_fchstat(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_u
   br label %37
 
 33:                                               ; preds = %28
-  %34 = getelementptr inbounds i8, ptr %1, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef nonnull align 8 dereferenceable(16) %25, i64 16, i1 false)
   br label %37
 
@@ -83,7 +83,7 @@ define i32 @file_fchstat(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_u
   br i1 %.not45, label %48, label %39
 
 39:                                               ; preds = %37
-  %40 = getelementptr inbounds i8, ptr %1, i64 56
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %41 = load i64, ptr %40, align 8
   switch i64 %41, label %46 [
     i64 1073741822, label %42
@@ -95,7 +95,7 @@ define i32 @file_fchstat(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_u
   br label %48
 
 44:                                               ; preds = %39
-  %45 = getelementptr inbounds i8, ptr %1, i64 48
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %45, ptr noundef nonnull align 8 dereferenceable(16) %25, i64 16, i1 false)
   br label %48
 
@@ -105,20 +105,20 @@ define i32 @file_fchstat(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_u
 
 48:                                               ; preds = %42, %46, %44, %37
   %.3 = phi i32 [ %43, %42 ], [ %.2, %44 ], [ %.2, %46 ], [ %.2, %37 ]
-  %49 = getelementptr inbounds i8, ptr %5, i64 26
+  %49 = getelementptr inbounds nuw i8, ptr %5, i64 26
   %50 = load i16, ptr %49, align 2
   %51 = and i16 %50, 15
   %52 = icmp eq i16 %51, 3
   br i1 %52, label %53, label %61
 
 53:                                               ; preds = %48
-  %54 = getelementptr inbounds i8, ptr %5, i64 32
+  %54 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %55 = load ptr, ptr %54, align 8
   %.not46 = icmp eq ptr %55, null
   br i1 %.not46, label %63, label %56
 
 56:                                               ; preds = %53
-  %57 = getelementptr inbounds i8, ptr %55, i64 96
+  %57 = getelementptr inbounds nuw i8, ptr %55, i64 96
   %58 = load ptr, ptr %57, align 8
   %.not47 = icmp eq ptr %58, null
   br i1 %.not47, label %63, label %59
@@ -147,7 +147,7 @@ declare i32 @inode_chstat(ptr noundef, ptr noundef, i32 noundef, i32 noundef) lo
 define range(i32 -1, 1) i32 @fchmod(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca %struct.stat, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %1, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %6 = call i32 @fs_getfilep(i32 noundef %0, ptr noundef nonnull %3) #4
@@ -156,28 +156,28 @@ define range(i32 -1, 1) i32 @fchmod(i32 noundef %0, i32 noundef %1) local_unname
 
 8:                                                ; preds = %2
   %9 = load ptr, ptr %3, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   %.not41.i = icmp ult i32 %1, 65536
   br i1 %.not41.i, label %12, label %file_fchstat.exit.thread
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %4, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %14 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %13) #4
-  %15 = getelementptr inbounds i8, ptr %11, i64 26
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 26
   %16 = load i16, ptr %15, align 2
   %17 = and i16 %16, 15
   %18 = icmp eq i16 %17, 3
   br i1 %18, label %19, label %27
 
 19:                                               ; preds = %12
-  %20 = getelementptr inbounds i8, ptr %11, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %21 = load ptr, ptr %20, align 8
   %.not46.i = icmp eq ptr %21, null
   br i1 %.not46.i, label %file_fchstat.exit.thread, label %22
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %21, i64 96
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 96
   %24 = load ptr, ptr %23, align 8
   %.not47.i = icmp eq ptr %24, null
   br i1 %.not47.i, label %file_fchstat.exit.thread, label %25
@@ -212,9 +212,9 @@ fchstat.exit:                                     ; preds = %file_fchstat.exit, 
 define range(i32 -1, 1) i32 @fchown(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca %struct.stat, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 %1, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 20
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i32 %2, ptr %7, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %8 = call i32 @fs_getfilep(i32 noundef %0, ptr noundef nonnull %4) #4
@@ -248,17 +248,17 @@ define range(i32 -1, 1) i32 @futimens(i32 noundef %0, ptr noundef readonly %1) l
   br i1 %.not, label %9, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %4, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
-  %7 = getelementptr inbounds i8, ptr %4, i64 48
-  %8 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)
   br label %12
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %4, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i64 1073741823, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 56
   store i64 1073741823, ptr %11, align 8
   br label %12
 
@@ -270,11 +270,11 @@ define range(i32 -1, 1) i32 @futimens(i32 noundef %0, ptr noundef readonly %1) l
 
 15:                                               ; preds = %12
   %16 = load ptr, ptr %3, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %4, i64 64
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %20 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %19) #4
-  %21 = getelementptr inbounds i8, ptr %4, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %22 = load i64, ptr %21, align 8
   switch i64 %22, label %25 [
     i64 1073741822, label %27
@@ -282,7 +282,7 @@ define range(i32 -1, 1) i32 @futimens(i32 noundef %0, ptr noundef readonly %1) l
   ]
 
 23:                                               ; preds = %15
-  %24 = getelementptr inbounds i8, ptr %4, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull align 8 dereferenceable(16) %19, i64 16, i1 false)
   br label %27
 
@@ -292,7 +292,7 @@ define range(i32 -1, 1) i32 @futimens(i32 noundef %0, ptr noundef readonly %1) l
 
 27:                                               ; preds = %15, %25, %23
   %.2.i = phi i32 [ 24, %23 ], [ 24, %25 ], [ 16, %15 ]
-  %28 = getelementptr inbounds i8, ptr %4, i64 56
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %29 = load i64, ptr %28, align 8
   switch i64 %29, label %34 [
     i64 1073741822, label %30
@@ -304,7 +304,7 @@ define range(i32 -1, 1) i32 @futimens(i32 noundef %0, ptr noundef readonly %1) l
   br label %36
 
 32:                                               ; preds = %27
-  %33 = getelementptr inbounds i8, ptr %4, i64 48
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %33, ptr noundef nonnull align 8 dereferenceable(16) %19, i64 16, i1 false)
   br label %36
 
@@ -314,20 +314,20 @@ define range(i32 -1, 1) i32 @futimens(i32 noundef %0, ptr noundef readonly %1) l
 
 36:                                               ; preds = %34, %32, %30
   %.3.i = phi i32 [ %31, %30 ], [ %.2.i, %32 ], [ %.2.i, %34 ]
-  %37 = getelementptr inbounds i8, ptr %18, i64 26
+  %37 = getelementptr inbounds nuw i8, ptr %18, i64 26
   %38 = load i16, ptr %37, align 2
   %39 = and i16 %38, 15
   %40 = icmp eq i16 %39, 3
   br i1 %40, label %41, label %49
 
 41:                                               ; preds = %36
-  %42 = getelementptr inbounds i8, ptr %18, i64 32
+  %42 = getelementptr inbounds nuw i8, ptr %18, i64 32
   %43 = load ptr, ptr %42, align 8
   %.not46.i = icmp eq ptr %43, null
   br i1 %.not46.i, label %file_fchstat.exit.thread, label %44
 
 44:                                               ; preds = %41
-  %45 = getelementptr inbounds i8, ptr %43, i64 96
+  %45 = getelementptr inbounds nuw i8, ptr %43, i64 96
   %46 = load ptr, ptr %45, align 8
   %.not47.i = icmp eq ptr %46, null
   br i1 %.not47.i, label %file_fchstat.exit.thread, label %47

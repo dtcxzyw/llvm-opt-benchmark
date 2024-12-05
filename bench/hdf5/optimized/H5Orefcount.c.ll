@@ -46,7 +46,7 @@ define internal ptr @H5O__refcount_decode(ptr nocapture readnone %0, ptr nocaptu
   br label %.thread
 
 18:                                               ; preds = %9
-  %19 = getelementptr inbounds i8, ptr %5, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %20 = load i8, ptr %5, align 1
   %.not = icmp eq i8 %20, 0
   br i1 %.not, label %25, label %21
@@ -82,17 +82,17 @@ define internal ptr @H5O__refcount_decode(ptr nocapture readnone %0, ptr nocaptu
 38:                                               ; preds = %34
   %39 = load i8, ptr %19, align 1
   %40 = zext i8 %39 to i32
-  %41 = getelementptr inbounds i8, ptr %5, i64 2
+  %41 = getelementptr inbounds nuw i8, ptr %5, i64 2
   %42 = load i8, ptr %41, align 1
   %43 = zext i8 %42 to i32
   %44 = shl nuw nsw i32 %43, 8
   %45 = or disjoint i32 %44, %40
-  %46 = getelementptr inbounds i8, ptr %5, i64 3
+  %46 = getelementptr inbounds nuw i8, ptr %5, i64 3
   %47 = load i8, ptr %46, align 1
   %48 = zext i8 %47 to i32
   %49 = shl nuw nsw i32 %48, 16
   %50 = or disjoint i32 %49, %45
-  %51 = getelementptr inbounds i8, ptr %5, i64 4
+  %51 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %52 = load i8, ptr %51, align 1
   %53 = zext i8 %52 to i32
   %54 = shl nuw i32 %53, 24
@@ -114,22 +114,22 @@ define internal ptr @H5O__refcount_decode(ptr nocapture readnone %0, ptr nocaptu
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef i32 @H5O__refcount_encode(ptr nocapture readnone %0, i1 zeroext %1, i64 %2, ptr nocapture noundef writeonly initializes((0, 5)) %3, ptr nocapture noundef readonly %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %3, i64 1
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 0, ptr %3, align 1
   %7 = load i32, ptr %4, align 4
   %8 = trunc i32 %7 to i8
   store i8 %8, ptr %6, align 1
-  %9 = getelementptr inbounds i8, ptr %3, i64 2
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 2
   %10 = load i32, ptr %4, align 4
   %11 = lshr i32 %10, 8
   %12 = trunc i32 %11 to i8
   store i8 %12, ptr %9, align 1
-  %13 = getelementptr inbounds i8, ptr %3, i64 3
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 3
   %14 = load i32, ptr %4, align 4
   %15 = lshr i32 %14, 16
   %16 = trunc i32 %15 to i8
   store i8 %16, ptr %13, align 1
-  %17 = getelementptr inbounds i8, ptr %3, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %18 = load i32, ptr %4, align 4
   %19 = lshr i32 %18, 24
   %20 = trunc nuw i32 %19 to i8

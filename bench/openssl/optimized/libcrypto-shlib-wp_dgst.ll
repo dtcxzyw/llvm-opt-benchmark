@@ -29,7 +29,7 @@ while.body:                                       ; preds = %entry, %while.body
   %bytes.addr.011 = phi i64 [ %sub, %while.body ], [ %bytes, %entry ]
   tail call void @WHIRLPOOL_BitUpdate(ptr noundef %c, ptr noundef %inp.012, i64 noundef -9223372036854775808)
   %sub = add i64 %bytes.addr.011, -1152921504606846976
-  %add.ptr = getelementptr inbounds i8, ptr %inp.012, i64 1152921504606846976
+  %add.ptr = getelementptr inbounds nuw i8, ptr %inp.012, i64 1152921504606846976
   %cmp = icmp ugt i64 %sub, 1152921504606846975
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !4
 
@@ -51,13 +51,13 @@ if.end:                                           ; preds = %if.then, %while.end
 ; Function Attrs: nounwind uwtable
 define void @WHIRLPOOL_BitUpdate(ptr noundef %c, ptr noundef %_inp, i64 noundef %bits) local_unnamed_addr #2 {
 entry:
-  %bitoff1 = getelementptr inbounds i8, ptr %c, i64 128
+  %bitoff1 = getelementptr inbounds nuw i8, ptr %c, i64 128
   %0 = load i32, ptr %bitoff1, align 8
   %rem = and i32 %0, 7
   %conv = trunc i64 %bits to i32
   %sub = sub i32 0, %conv
   %and = and i32 %sub, 7
-  %bitlen = getelementptr inbounds i8, ptr %c, i64 136
+  %bitlen = getelementptr inbounds nuw i8, ptr %c, i64 136
   %1 = load i64, ptr %bitlen, align 8
   %add = add i64 %1, %bits
   store i64 %add, ptr %bitlen, align 8
@@ -66,7 +66,7 @@ entry:
 
 do.body:                                          ; preds = %entry, %do.body
   %n.0 = phi i64 [ %inc12, %do.body ], [ 1, %entry ]
-  %arrayidx7 = getelementptr inbounds [4 x i64], ptr %bitlen, i64 0, i64 %n.0
+  %arrayidx7 = getelementptr inbounds nuw [4 x i64], ptr %bitlen, i64 0, i64 %n.0
   %2 = load i64, ptr %arrayidx7, align 8
   %inc = add i64 %2, 1
   store i64 %inc, ptr %arrayidx7, align 8
@@ -83,7 +83,7 @@ if.end:                                           ; preds = %do.body, %entry
   br i1 %or.cond145, label %while.cond.preheader, label %while.cond54.preheader.us
 
 while.cond54.preheader.us:                        ; preds = %if.end
-  %data65 = getelementptr inbounds i8, ptr %c, i64 64
+  %data65 = getelementptr inbounds nuw i8, ptr %c, i64 64
   %tobool55.not120.us = icmp eq i64 %bits, 0
   br i1 %tobool55.not120.us, label %if.end179, label %while.body56.lr.ph.us
 
@@ -105,7 +105,7 @@ while.body56.lr.ph.split.us.us:                   ; preds = %while.body56.lr.ph.
   %3 = load i8, ptr %_inp, align 1
   %shr.us = lshr i32 255, %rem
   %idxprom.us = zext nneg i32 %div58105.us.us to i64
-  %arrayidx67.us = getelementptr inbounds [64 x i8], ptr %data65, i64 0, i64 %idxprom.us
+  %arrayidx67.us = getelementptr inbounds nuw [64 x i8], ptr %data65, i64 0, i64 %idxprom.us
   %4 = load i8, ptr %arrayidx67.us, align 1
   %5 = trunc nuw i32 %shr.us to i8
   %6 = and i8 %3, %5
@@ -115,7 +115,7 @@ while.body56.lr.ph.split.us.us:                   ; preds = %while.body56.lr.ph.
   %add71.us = add i32 %0, %sub70.us
   %conv72.us = zext nneg i32 %sub70.us to i64
   %sub73.us = sub i64 %bits, %conv72.us
-  %incdec.ptr.us = getelementptr inbounds i8, ptr %_inp, i64 1
+  %incdec.ptr.us = getelementptr inbounds nuw i8, ptr %_inp, i64 1
   %cmp74.us = icmp eq i32 %add71.us, 512
   br i1 %cmp74.us, label %if.then76.us, label %if.end79.us
 
@@ -134,7 +134,7 @@ while.cond.preheader:                             ; preds = %if.end79.us, %if.en
   br i1 %tobool.not172, label %if.end179, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %while.cond.preheader
-  %data = getelementptr inbounds i8, ptr %c, i64 64
+  %data = getelementptr inbounds nuw i8, ptr %c, i64 64
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end52
@@ -151,7 +151,7 @@ if.then24:                                        ; preds = %while.body
   tail call void @whirlpool_block(ptr noundef %c, ptr noundef %inp.1174, i64 noundef %div106) #6
   %mul = lshr i64 %bits.addr.1175, 3
   %div25110 = and i64 %mul, 2305843009213693888
-  %add.ptr = getelementptr inbounds i8, ptr %inp.1174, i64 %div25110
+  %add.ptr = getelementptr inbounds nuw i8, ptr %inp.1174, i64 %div25110
   %rem26 = and i64 %bits.addr.1175, 511
   br label %if.end52
 
@@ -166,16 +166,16 @@ if.then32:                                        ; preds = %if.else
   %sub34 = sub nuw i64 %bits.addr.1175, %conv29
   %div35109 = lshr i32 %sub28, 3
   %idx.ext = zext nneg i32 %div27107 to i64
-  %add.ptr36 = getelementptr inbounds i8, ptr %data, i64 %idx.ext
+  %add.ptr36 = getelementptr inbounds nuw i8, ptr %data, i64 %idx.ext
   %conv37 = zext nneg i32 %div35109 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr36, ptr align 1 %inp.1174, i64 %conv37, i1 false)
-  %add.ptr39 = getelementptr inbounds i8, ptr %inp.1174, i64 %conv37
+  %add.ptr39 = getelementptr inbounds nuw i8, ptr %inp.1174, i64 %conv37
   tail call void @whirlpool_block(ptr noundef %c, ptr noundef nonnull %data, i64 noundef 1) #6
   br label %if.end50
 
 if.else42:                                        ; preds = %if.else
   %idx.ext45 = zext nneg i32 %div27107 to i64
-  %add.ptr46 = getelementptr inbounds i8, ptr %data, i64 %idx.ext45
+  %add.ptr46 = getelementptr inbounds nuw i8, ptr %data, i64 %idx.ext45
   %div47108 = lshr i64 %bits.addr.1175, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr46, ptr align 1 %inp.1174, i64 %div47108, i1 false)
   %conv48 = trunc nuw i64 %bits.addr.1175 to i32
@@ -202,7 +202,7 @@ if.then84:                                        ; preds = %while.body56.lr.ph.
   %inp.4122185 = phi ptr [ %arrayidx87, %if.end176 ], [ %_inp, %while.body56.lr.ph.split ]
   %bits.addr.4123184 = phi i64 [ %sub114, %if.end176 ], [ %bits, %while.body56.lr.ph.split ]
   %8 = load i8, ptr %inp.4122185, align 1
-  %arrayidx87 = getelementptr inbounds i8, ptr %inp.4122185, i64 1
+  %arrayidx87 = getelementptr inbounds nuw i8, ptr %inp.4122185, i64 1
   %9 = load i8, ptr %arrayidx87, align 1
   %conv92 = tail call i8 @llvm.fshl.i8(i8 %8, i8 %9, i8 %7)
   br i1 %cmp17144, label %if.else107, label %if.then97
@@ -211,7 +211,7 @@ if.then97:                                        ; preds = %if.then84
   %conv98 = zext i8 %conv92 to i32
   %shr99 = lshr i32 %conv98, %rem
   %idxprom102 = zext nneg i32 %div58105187 to i64
-  %arrayidx103 = getelementptr inbounds [64 x i8], ptr %data65, i64 0, i64 %idxprom102
+  %arrayidx103 = getelementptr inbounds nuw [64 x i8], ptr %data65, i64 0, i64 %idxprom102
   %10 = load i8, ptr %arrayidx103, align 1
   %11 = trunc nuw nsw i32 %shr99 to i8
   %conv106 = or i8 %10, %11
@@ -220,7 +220,7 @@ if.then97:                                        ; preds = %if.then84
 
 if.else107:                                       ; preds = %if.then84
   %idxprom110 = zext nneg i32 %div58105187 to i64
-  %arrayidx111 = getelementptr inbounds [64 x i8], ptr %data65, i64 0, i64 %idxprom110
+  %arrayidx111 = getelementptr inbounds nuw [64 x i8], ptr %data65, i64 0, i64 %idxprom110
   store i8 %conv92, ptr %arrayidx111, align 1
   br label %if.end112
 
@@ -246,7 +246,7 @@ if.then124:                                       ; preds = %if.end122
   %shl127 = shl nuw nsw i32 %conv125, %sub168.le
   %conv128 = trunc i32 %shl127 to i8
   %idxprom130 = zext nneg i32 %byteoff57.1 to i64
-  %arrayidx131 = getelementptr inbounds [64 x i8], ptr %data65, i64 0, i64 %idxprom130
+  %arrayidx131 = getelementptr inbounds nuw [64 x i8], ptr %data65, i64 0, i64 %idxprom130
   store i8 %conv128, ptr %arrayidx131, align 1
   br label %if.end176
 
@@ -264,7 +264,7 @@ if.then140:                                       ; preds = %if.else133
   %conv141 = and i32 %shl136, 255
   %shr142 = lshr i32 %conv141, %rem
   %idxprom145 = zext nneg i32 %div58105.lcssa to i64
-  %arrayidx146 = getelementptr inbounds [64 x i8], ptr %data65, i64 0, i64 %idxprom145
+  %arrayidx146 = getelementptr inbounds nuw [64 x i8], ptr %data65, i64 0, i64 %idxprom145
   %13 = load i8, ptr %arrayidx146, align 1
   %14 = trunc nuw nsw i32 %shr142 to i8
   %conv149 = or i8 %13, %14
@@ -274,7 +274,7 @@ if.then140:                                       ; preds = %if.else133
 if.else150:                                       ; preds = %if.else133
   %conv138 = trunc i32 %shl136 to i8
   %idxprom153 = zext nneg i32 %div58105.lcssa to i64
-  %arrayidx154 = getelementptr inbounds [64 x i8], ptr %data65, i64 0, i64 %idxprom153
+  %arrayidx154 = getelementptr inbounds nuw [64 x i8], ptr %data65, i64 0, i64 %idxprom153
   store i8 %conv138, ptr %arrayidx154, align 1
   br label %if.end155
 
@@ -298,7 +298,7 @@ if.then166:                                       ; preds = %if.end164
   %shl169 = shl nuw nsw i32 %shl136, %sub168.le
   %conv170 = trunc i32 %shl169 to i8
   %idxprom172 = zext nneg i32 %byteoff57.3 to i64
-  %arrayidx173 = getelementptr inbounds [64 x i8], ptr %data65, i64 0, i64 %idxprom172
+  %arrayidx173 = getelementptr inbounds nuw [64 x i8], ptr %data65, i64 0, i64 %idxprom172
   store i8 %conv170, ptr %arrayidx173, align 1
   br label %if.end179.loopexit176
 
@@ -324,7 +324,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @WHIRLPOOL_Final(ptr noundef writeonly %md, ptr noundef %c) local_unnamed_addr #2 {
 entry:
-  %bitoff1 = getelementptr inbounds i8, ptr %c, i64 128
+  %bitoff1 = getelementptr inbounds nuw i8, ptr %c, i64 128
   %0 = load i32, ptr %bitoff1, align 8
   %div30 = lshr i32 %0, 3
   %rem = and i32 %0, 7
@@ -333,9 +333,9 @@ entry:
 
 if.then:                                          ; preds = %entry
   %shr = lshr exact i32 128, %rem
-  %data = getelementptr inbounds i8, ptr %c, i64 64
+  %data = getelementptr inbounds nuw i8, ptr %c, i64 64
   %idxprom = zext nneg i32 %div30 to i64
-  %arrayidx = getelementptr inbounds [64 x i8], ptr %data, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [64 x i8], ptr %data, i64 0, i64 %idxprom
   %1 = load i8, ptr %arrayidx, align 1
   %2 = trunc nuw nsw i32 %shr to i8
   %conv2 = or i8 %1, %2
@@ -343,9 +343,9 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %data3 = getelementptr inbounds i8, ptr %c, i64 64
+  %data3 = getelementptr inbounds nuw i8, ptr %c, i64 64
   %idxprom4 = zext nneg i32 %div30 to i64
-  %arrayidx5 = getelementptr inbounds [64 x i8], ptr %data3, i64 0, i64 %idxprom4
+  %arrayidx5 = getelementptr inbounds nuw [64 x i8], ptr %data3, i64 0, i64 %idxprom4
   store i8 -128, ptr %arrayidx5, align 1
   br label %if.end
 
@@ -359,16 +359,16 @@ if.then7:                                         ; preds = %if.end
   br i1 %cmp8, label %if.then10, label %if.end17.thread
 
 if.then10:                                        ; preds = %if.then7
-  %data11 = getelementptr inbounds i8, ptr %c, i64 64
+  %data11 = getelementptr inbounds nuw i8, ptr %c, i64 64
   %idxprom12 = zext nneg i32 %inc to i64
-  %arrayidx13 = getelementptr inbounds [64 x i8], ptr %data11, i64 0, i64 %idxprom12
+  %arrayidx13 = getelementptr inbounds nuw [64 x i8], ptr %data11, i64 0, i64 %idxprom12
   %sub = sub nuw nsw i32 63, %div30
   %conv14 = zext nneg i32 %sub to i64
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %arrayidx13, i8 0, i64 %conv14, i1 false)
   br label %if.end17.thread
 
 if.end17.thread:                                  ; preds = %if.then7, %if.then10
-  %data16 = getelementptr inbounds i8, ptr %c, i64 64
+  %data16 = getelementptr inbounds nuw i8, ptr %c, i64 64
   tail call void @whirlpool_block(ptr noundef nonnull %c, ptr noundef nonnull %data16, i64 noundef 1) #6
   br label %if.then20
 
@@ -378,23 +378,23 @@ if.end17:                                         ; preds = %if.end
 
 if.then20:                                        ; preds = %if.end17.thread, %if.end17
   %byteoff.033 = phi i32 [ 0, %if.end17.thread ], [ %inc, %if.end17 ]
-  %data21 = getelementptr inbounds i8, ptr %c, i64 64
+  %data21 = getelementptr inbounds nuw i8, ptr %c, i64 64
   %idxprom22 = zext nneg i32 %byteoff.033 to i64
-  %arrayidx23 = getelementptr inbounds [64 x i8], ptr %data21, i64 0, i64 %idxprom22
+  %arrayidx23 = getelementptr inbounds nuw [64 x i8], ptr %data21, i64 0, i64 %idxprom22
   %sub24 = sub nuw nsw i32 32, %byteoff.033
   %conv25 = zext nneg i32 %sub24 to i64
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %arrayidx23, i8 0, i64 %conv25, i1 false)
   br label %if.end26
 
 if.end26:                                         ; preds = %if.then20, %if.end17
-  %arrayidx28 = getelementptr inbounds i8, ptr %c, i64 127
-  %bitlen = getelementptr inbounds i8, ptr %c, i64 136
+  %arrayidx28 = getelementptr inbounds nuw i8, ptr %c, i64 127
+  %bitlen = getelementptr inbounds nuw i8, ptr %c, i64 136
   br label %for.body
 
 for.body:                                         ; preds = %if.end26, %for.inc39
   %p.038 = phi ptr [ %arrayidx28, %if.end26 ], [ %incdec.ptr, %for.inc39 ]
   %i.037 = phi i64 [ 0, %if.end26 ], [ %inc40, %for.inc39 ]
-  %arrayidx31 = getelementptr inbounds [4 x i64], ptr %bitlen, i64 0, i64 %i.037
+  %arrayidx31 = getelementptr inbounds nuw [4 x i64], ptr %bitlen, i64 0, i64 %i.037
   %3 = load i64, ptr %arrayidx31, align 8
   br label %for.body35
 
@@ -416,7 +416,7 @@ for.inc39:                                        ; preds = %for.body35
   br i1 %exitcond39.not, label %for.end41, label %for.body, !llvm.loop !10
 
 for.end41:                                        ; preds = %for.inc39
-  %data27 = getelementptr inbounds i8, ptr %c, i64 64
+  %data27 = getelementptr inbounds nuw i8, ptr %c, i64 64
   tail call void @whirlpool_block(ptr noundef %c, ptr noundef nonnull %data27, i64 noundef 1) #6
   %tobool44.not = icmp eq ptr %md, null
   br i1 %tobool44.not, label %return, label %if.then45
@@ -446,7 +446,7 @@ while.body.i:                                     ; preds = %entry, %while.body.
   %bytes.addr.011.i = phi i64 [ %sub.i, %while.body.i ], [ %bytes, %entry ]
   call void @WHIRLPOOL_BitUpdate(ptr noundef nonnull %ctx, ptr noundef %inp.012.i, i64 noundef -9223372036854775808)
   %sub.i = add i64 %bytes.addr.011.i, -1152921504606846976
-  %add.ptr.i = getelementptr inbounds i8, ptr %inp.012.i, i64 1152921504606846976
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %inp.012.i, i64 1152921504606846976
   %cmp.i = icmp ugt i64 %sub.i, 1152921504606846975
   br i1 %cmp.i, label %while.body.i, label %while.end.i, !llvm.loop !4
 
@@ -462,7 +462,7 @@ if.then.i:                                        ; preds = %while.end.i
   br label %WHIRLPOOL_Update.exit
 
 WHIRLPOOL_Update.exit:                            ; preds = %while.end.i, %if.then.i
-  %bitoff1.i = getelementptr inbounds i8, ptr %ctx, i64 128
+  %bitoff1.i = getelementptr inbounds nuw i8, ptr %ctx, i64 128
   %0 = load i32, ptr %bitoff1.i, align 8
   %div30.i = lshr i32 %0, 3
   %rem.i = and i32 %0, 7
@@ -471,9 +471,9 @@ WHIRLPOOL_Update.exit:                            ; preds = %while.end.i, %if.th
 
 if.then.i4:                                       ; preds = %WHIRLPOOL_Update.exit
   %shr.i = lshr exact i32 128, %rem.i
-  %data.i = getelementptr inbounds i8, ptr %ctx, i64 64
+  %data.i = getelementptr inbounds nuw i8, ptr %ctx, i64 64
   %idxprom.i = zext nneg i32 %div30.i to i64
-  %arrayidx.i = getelementptr inbounds [64 x i8], ptr %data.i, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [64 x i8], ptr %data.i, i64 0, i64 %idxprom.i
   %1 = load i8, ptr %arrayidx.i, align 1
   %2 = trunc nuw nsw i32 %shr.i to i8
   %conv2.i = or i8 %1, %2
@@ -481,9 +481,9 @@ if.then.i4:                                       ; preds = %WHIRLPOOL_Update.ex
   br label %if.end.i
 
 if.else.i:                                        ; preds = %WHIRLPOOL_Update.exit
-  %data3.i = getelementptr inbounds i8, ptr %ctx, i64 64
+  %data3.i = getelementptr inbounds nuw i8, ptr %ctx, i64 64
   %idxprom4.i = zext nneg i32 %div30.i to i64
-  %arrayidx5.i = getelementptr inbounds [64 x i8], ptr %data3.i, i64 0, i64 %idxprom4.i
+  %arrayidx5.i = getelementptr inbounds nuw [64 x i8], ptr %data3.i, i64 0, i64 %idxprom4.i
   store i8 -128, ptr %arrayidx5.i, align 1
   br label %if.end.i
 
@@ -497,16 +497,16 @@ if.then7.i:                                       ; preds = %if.end.i
   br i1 %cmp8.i, label %if.then10.i, label %if.end17.thread.i
 
 if.then10.i:                                      ; preds = %if.then7.i
-  %data11.i = getelementptr inbounds i8, ptr %ctx, i64 64
+  %data11.i = getelementptr inbounds nuw i8, ptr %ctx, i64 64
   %idxprom12.i = zext nneg i32 %inc.i to i64
-  %arrayidx13.i = getelementptr inbounds [64 x i8], ptr %data11.i, i64 0, i64 %idxprom12.i
+  %arrayidx13.i = getelementptr inbounds nuw [64 x i8], ptr %data11.i, i64 0, i64 %idxprom12.i
   %sub.i6 = sub nuw nsw i32 63, %div30.i
   %conv14.i = zext nneg i32 %sub.i6 to i64
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %arrayidx13.i, i8 0, i64 %conv14.i, i1 false)
   br label %if.end17.thread.i
 
 if.end17.thread.i:                                ; preds = %if.then10.i, %if.then7.i
-  %data16.i = getelementptr inbounds i8, ptr %ctx, i64 64
+  %data16.i = getelementptr inbounds nuw i8, ptr %ctx, i64 64
   call void @whirlpool_block(ptr noundef nonnull %ctx, ptr noundef nonnull %data16.i, i64 noundef 1) #6
   br label %if.then20.i
 
@@ -516,23 +516,23 @@ if.end17.i:                                       ; preds = %if.end.i
 
 if.then20.i:                                      ; preds = %if.end17.i, %if.end17.thread.i
   %byteoff.033.i = phi i32 [ 0, %if.end17.thread.i ], [ %inc.i, %if.end17.i ]
-  %data21.i = getelementptr inbounds i8, ptr %ctx, i64 64
+  %data21.i = getelementptr inbounds nuw i8, ptr %ctx, i64 64
   %idxprom22.i = zext nneg i32 %byteoff.033.i to i64
-  %arrayidx23.i = getelementptr inbounds [64 x i8], ptr %data21.i, i64 0, i64 %idxprom22.i
+  %arrayidx23.i = getelementptr inbounds nuw [64 x i8], ptr %data21.i, i64 0, i64 %idxprom22.i
   %sub24.i = sub nuw nsw i32 32, %byteoff.033.i
   %conv25.i = zext nneg i32 %sub24.i to i64
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %arrayidx23.i, i8 0, i64 %conv25.i, i1 false)
   br label %if.end26.i
 
 if.end26.i:                                       ; preds = %if.then20.i, %if.end17.i
-  %arrayidx28.i = getelementptr inbounds i8, ptr %ctx, i64 127
-  %bitlen.i = getelementptr inbounds i8, ptr %ctx, i64 136
+  %arrayidx28.i = getelementptr inbounds nuw i8, ptr %ctx, i64 127
+  %bitlen.i = getelementptr inbounds nuw i8, ptr %ctx, i64 136
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc39.i, %if.end26.i
   %p.038.i = phi ptr [ %arrayidx28.i, %if.end26.i ], [ %incdec.ptr.i, %for.inc39.i ]
   %i.037.i = phi i64 [ 0, %if.end26.i ], [ %inc40.i, %for.inc39.i ]
-  %arrayidx31.i = getelementptr inbounds [4 x i64], ptr %bitlen.i, i64 0, i64 %i.037.i
+  %arrayidx31.i = getelementptr inbounds nuw [4 x i64], ptr %bitlen.i, i64 0, i64 %i.037.i
   %3 = load i64, ptr %arrayidx31.i, align 8
   br label %for.body35.i
 
@@ -556,7 +556,7 @@ for.inc39.i:                                      ; preds = %for.body35.i
 WHIRLPOOL_Final.exit:                             ; preds = %for.inc39.i
   %cmp = icmp eq ptr %md, null
   %spec.store.select = select i1 %cmp, ptr @WHIRLPOOL.m, ptr %md
-  %data27.i = getelementptr inbounds i8, ptr %ctx, i64 64
+  %data27.i = getelementptr inbounds nuw i8, ptr %ctx, i64 64
   call void @whirlpool_block(ptr noundef nonnull %ctx, ptr noundef nonnull %data27.i, i64 noundef 1) #6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %spec.store.select, ptr noundef nonnull align 8 dereferenceable(64) %ctx, i64 64, i1 false)
   call void @OPENSSL_cleanse(ptr noundef nonnull %ctx, i64 noundef 168) #6

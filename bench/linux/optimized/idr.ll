@@ -41,11 +41,11 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_ida_destroy:
 define dso_local i32 @idr_alloc_u32(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, i64 noundef %3, i32 noundef %4) #0 align 16 {
   %6 = alloca %struct.radix_tree_iter, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #7
-  %7 = getelementptr inbounds i8, ptr %6, i64 16
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i32, ptr %8, align 8
   %10 = load i32, ptr %2, align 4
-  %11 = getelementptr inbounds i8, ptr %0, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %12 = load i32, ptr %11, align 4
   %13 = and i32 %12, 4
   %14 = icmp eq i32 %13, 0
@@ -65,7 +65,7 @@ define dso_local i32 @idr_alloc_u32(ptr noundef %0, ptr noundef %1, ptr nocaptur
   %19 = tail call i32 @llvm.usub.sat.i32(i32 %10, i32 %9)
   %20 = zext i32 %19 to i64
   store i64 0, ptr %6, align 8
-  %21 = getelementptr inbounds i8, ptr %6, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %20, ptr %21, align 8
   %22 = zext i32 %9 to i64
   %23 = sub i64 %3, %22
@@ -129,10 +129,10 @@ define dso_local i32 @idr_alloc(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
   %12 = select i1 %10, i32 %11, i32 2147483647
   %13 = zext nneg i32 %12 to i64
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #7
-  %14 = getelementptr inbounds i8, ptr %6, i64 16
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load i32, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %18 = load i32, ptr %17, align 4
   %19 = and i32 %18, 4
   %20 = icmp eq i32 %19, 0
@@ -152,7 +152,7 @@ define dso_local i32 @idr_alloc(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
   %25 = tail call i32 @llvm.usub.sat.i32(i32 %2, i32 %16)
   %26 = zext nneg i32 %25 to i64
   store i64 0, ptr %6, align 8
-  %27 = getelementptr inbounds i8, ptr %6, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %26, ptr %27, align 8
   %28 = zext i32 %16 to i64
   %29 = sub nsw i64 %13, %28
@@ -187,7 +187,7 @@ idr_alloc_u32.exit:                               ; preds = %24
 define dso_local i32 @idr_alloc_cyclic(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #0 align 16 {
   %6 = alloca %struct.radix_tree_iter, align 8
   %7 = alloca %struct.radix_tree_iter, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 20
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %9 = load i32, ptr %8, align 4
   %10 = icmp sgt i32 %3, 0
   %11 = add nsw i32 %3, -1
@@ -195,10 +195,10 @@ define dso_local i32 @idr_alloc_cyclic(ptr noundef %0, ptr noundef %1, i32 nound
   %13 = tail call i32 @llvm.smax.i32(i32 %9, i32 %2)
   %14 = zext nneg i32 %12 to i64
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #7
-  %15 = getelementptr inbounds i8, ptr %7, i64 16
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = load i32, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %19 = load i32, ptr %18, align 4
   %20 = and i32 %19, 4
   %21 = icmp eq i32 %20, 0
@@ -218,7 +218,7 @@ define dso_local i32 @idr_alloc_cyclic(ptr noundef %0, ptr noundef %1, i32 nound
   %26 = tail call i32 @llvm.usub.sat.i32(i32 %13, i32 %17)
   %27 = zext i32 %26 to i64
   store i64 0, ptr %7, align 8
-  %28 = getelementptr inbounds i8, ptr %7, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %27, ptr %28, align 8
   %29 = zext i32 %17 to i64
   %30 = sub nsw i64 %14, %29
@@ -248,7 +248,7 @@ idr_alloc_u32.exit:                               ; preds = %25
 
 41:                                               ; preds = %39
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #7
-  %42 = getelementptr inbounds i8, ptr %6, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %43 = load i32, ptr %16, align 8
   %44 = load i32, ptr %18, align 4
   %45 = and i32 %44, 4
@@ -269,7 +269,7 @@ idr_alloc_u32.exit:                               ; preds = %25
   %51 = call i32 @llvm.usub.sat.i32(i32 %2, i32 %43)
   %52 = zext i32 %51 to i64
   store i64 0, ptr %6, align 8
-  %53 = getelementptr inbounds i8, ptr %6, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %52, ptr %53, align 8
   %54 = zext i32 %43 to i64
   %55 = sub nsw i64 %14, %54
@@ -315,7 +315,7 @@ idr_alloc_u32.exit3:                              ; preds = %58, %61
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @idr_remove(ptr noundef %0, i64 noundef %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = zext i32 %4 to i64
   %6 = sub i64 %1, %5
@@ -328,7 +328,7 @@ declare dso_local ptr @radix_tree_delete_item(ptr noundef, i64 noundef, ptr noun
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @idr_find(ptr noundef %0, i64 noundef %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = zext i32 %4 to i64
   %6 = sub i64 %1, %5
@@ -343,11 +343,11 @@ declare dso_local ptr @radix_tree_lookup(ptr noundef, i64 noundef) local_unnamed
 define dso_local i32 @idr_for_each(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
   %4 = alloca %struct.radix_tree_iter, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #7
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 16, i1 false), !annotation !9
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i32, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %9 = sext i32 %7 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   br label %10
@@ -427,18 +427,18 @@ declare dso_local ptr @radix_tree_next_chunk(ptr noundef, ptr noundef, i32 nound
 define dso_local ptr @idr_get_next_ul(ptr noundef %0, ptr nocapture noundef %1) #0 align 16 {
   %3 = alloca %struct.radix_tree_iter, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #7
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 16, i1 false), !annotation !9
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i32, ptr %5, align 8
   %7 = zext i32 %6 to i64
   %8 = load i64, ptr %1, align 8
   %9 = tail call i64 @llvm.usub.sat.i64(i64 %8, i64 %7)
   store i64 0, ptr %3, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %9, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
-  %12 = getelementptr inbounds i8, ptr %3, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 16
   br label %13
 
 .loopexit10:                                      ; preds = %43, %37
@@ -529,17 +529,17 @@ define dso_local ptr @idr_get_next(ptr noundef %0, ptr nocapture noundef %1) #0 
   %4 = load i32, ptr %1, align 4
   %5 = sext i32 %4 to i64
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #7
-  %6 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 16, i1 false), !annotation !9
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i32, ptr %7, align 8
   %9 = zext i32 %8 to i64
   %10 = tail call i64 @llvm.usub.sat.i64(i64 %5, i64 %9)
   store i64 0, ptr %3, align 8
-  %11 = getelementptr inbounds i8, ptr %3, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %10, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
-  %13 = getelementptr inbounds i8, ptr %3, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 16
   br label %14
 
 .loopexit10:                                      ; preds = %44, %38
@@ -648,7 +648,7 @@ define dso_local ptr @idr_replace(ptr noundef %0, ptr noundef %1, i64 noundef %2
   store ptr null, ptr %4, align 8, !annotation !9
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #7
   store ptr null, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i32, ptr %6, align 8
   %8 = zext i32 %7 to i64
   %9 = sub i64 %2, %8
@@ -688,19 +688,19 @@ declare dso_local void @__radix_tree_replace(ptr noundef, ptr noundef, ptr nound
 define dso_local i32 @ida_alloc_range(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) #0 align 16 {
   %5 = alloca %struct.xa_state, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #7
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 0, ptr %6, align 8, !annotation !9
   store ptr %0, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %8 = lshr i32 %1, 10
   %9 = zext nneg i32 %8 to i64
   store i64 %9, ptr %7, align 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr inttoptr (i64 3 to ptr), ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %12 = and i32 %1, 1023
   %13 = icmp slt i32 %1, 0
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(24) %11, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, i8 0, i64 24, i1 false)
   br i1 %13, label %.loopexit, label %14
 
 14:                                               ; preds = %4
@@ -980,20 +980,20 @@ define dso_local void @ida_free(ptr noundef %0, i32 noundef %1) #0 align 16 {
   %3 = alloca %struct.xa_state, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3) #7
   store ptr %0, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = lshr i32 %1, 10
   %6 = zext nneg i32 %5 to i64
   store i64 %6, ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr inttoptr (i64 3 to ptr), ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %9 = and i32 %1, 1023
   %10 = icmp slt i32 %1, 0
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
   br i1 %10, label %48, label %11
 
 11:                                               ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %3, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 0, ptr %12, align 8, !annotation !9
   %13 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %0) #7
   %14 = call ptr @xas_load(ptr noundef nonnull %3) #7
@@ -1088,16 +1088,16 @@ declare dso_local void @__warn_printk(ptr noundef, ...) local_unnamed_addr #3
 define dso_local void @ida_destroy(ptr noundef %0) #0 align 16 {
   %2 = alloca %struct.xa_state, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2) #7
-  %3 = getelementptr inbounds i8, ptr %2, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 0, ptr %3, align 8, !annotation !9
   store ptr %0, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 18
-  %6 = getelementptr inbounds i8, ptr %2, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(12) %4, i8 0, i64 12, i1 false)
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 18
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %4, i8 0, i64 12, i1 false)
   store ptr inttoptr (i64 3 to ptr), ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   %8 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %0) #7
   %9 = call ptr @xas_find(ptr noundef nonnull %2, i64 noundef -1) #7
   %10 = icmp eq ptr %9, null
@@ -1138,7 +1138,7 @@ define dso_local void @ida_destroy(ptr noundef %0) #0 align 16 {
   br i1 %32, label %33, label %.loopexit, !prof !28
 
 33:                                               ; preds = %27
-  %34 = getelementptr inbounds i8, ptr %18, i64 40
+  %34 = getelementptr inbounds nuw i8, ptr %18, i64 40
   br label %35
 
 35:                                               ; preds = %49, %33

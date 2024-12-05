@@ -39,11 +39,11 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_drm_compat_i
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i64 @drm_compat_ioctl(ptr noundef %0, i32 noundef %1, i64 noundef %2) #0 align 16 {
   %4 = and i32 %1, 255
-  %5 = getelementptr inbounds i8, ptr %0, i64 200
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 72
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load ptr, ptr %9, align 8
   %11 = icmp samesign ugt i32 %4, 184
   br i1 %11, label %12, label %14
@@ -68,7 +68,7 @@ define dso_local i64 @drm_compat_ioctl(ptr noundef %0, i32 noundef %1, i64 nound
   br i1 %22, label %26, label %23
 
 23:                                               ; preds = %21
-  %24 = getelementptr inbounds i8, ptr %10, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %25 = load ptr, ptr %24, align 8
   br label %26
 
@@ -76,12 +76,12 @@ define dso_local i64 @drm_compat_ioctl(ptr noundef %0, i32 noundef %1, i64 nound
   %27 = phi ptr [ %25, %23 ], [ null, %21 ]
   %28 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #8, !srcloc !6
   %29 = inttoptr i64 %28 to ptr
-  %30 = getelementptr inbounds i8, ptr %29, i64 1800
-  %31 = getelementptr inbounds i8, ptr %29, i64 1320
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 1800
+  %31 = getelementptr inbounds nuw i8, ptr %29, i64 1320
   %32 = load i32, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %8, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 644
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 644
   %36 = load i32, ptr %35, align 4
   %37 = lshr i32 %36, 12
   %38 = and i32 %37, 65280
@@ -90,9 +90,9 @@ define dso_local i64 @drm_compat_ioctl(ptr noundef %0, i32 noundef %1, i64 nound
   %41 = zext nneg i32 %40 to i64
   %42 = load i8, ptr %6, align 8, !range !7, !noundef !8
   %43 = zext nneg i8 %42 to i32
-  %44 = getelementptr inbounds i8, ptr %16, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %45 = load ptr, ptr %44, align 8
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %27, i32 noundef 0, ptr noundef nonnull @.str, ptr noundef %30, i32 noundef %32, i64 noundef %41, i32 noundef %43, ptr noundef %45) #7
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %27, i32 noundef 0, ptr noundef nonnull @.str, ptr noundef nonnull %30, i32 noundef %32, i64 noundef %41, i32 noundef %43, ptr noundef %45) #7
   %46 = tail call i32 %17(ptr noundef %0, i32 noundef %1, i64 noundef %2) #7
   %47 = icmp eq i32 %46, 0
   br i1 %47, label %54, label %48
@@ -101,7 +101,7 @@ define dso_local i64 @drm_compat_ioctl(ptr noundef %0, i32 noundef %1, i64 nound
   br i1 %22, label %52, label %49
 
 49:                                               ; preds = %48
-  %50 = getelementptr inbounds i8, ptr %10, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %51 = load ptr, ptr %50, align 8
   br label %52
 
@@ -144,43 +144,43 @@ define internal i32 @compat_drm_version(ptr noundef %0, i32 %1, i64 noundef %2) 
   br i1 %8, label %9, label %58
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %5, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %12 = load i32, ptr %11, align 4
   %13 = zext i32 %12 to i64
-  %14 = getelementptr inbounds i8, ptr %4, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %15 = load i32, ptr %14, align 4
   %16 = zext i32 %15 to i64
   %17 = inttoptr i64 %16 to ptr
-  %18 = getelementptr inbounds i8, ptr %4, i64 20
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 20
   %19 = load i32, ptr %18, align 4
   %20 = zext i32 %19 to i64
-  %21 = getelementptr inbounds i8, ptr %4, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %22 = load i32, ptr %21, align 4
   %23 = zext i32 %22 to i64
   %24 = inttoptr i64 %23 to ptr
-  %25 = getelementptr inbounds i8, ptr %4, i64 28
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %26 = load i32, ptr %25, align 4
   %27 = zext i32 %26 to i64
-  %28 = getelementptr inbounds i8, ptr %4, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %29 = load i32, ptr %28, align 4
   %30 = zext i32 %29 to i64
   %31 = inttoptr i64 %30 to ptr
   store i32 0, ptr %5, align 8
-  %32 = getelementptr inbounds i8, ptr %5, i64 4
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 0, ptr %32, align 4
-  %33 = getelementptr inbounds i8, ptr %5, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 %13, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %5, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %17, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %5, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i64 %20, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %5, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store ptr %24, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %5, i64 48
+  %37 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store i64 %27, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %5, i64 56
+  %38 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store ptr %31, ptr %38, align 8
   %39 = call i64 @drm_ioctl_kernel(ptr noundef %0, ptr noundef nonnull @drm_version, ptr noundef nonnull %5, i32 noundef 32) #7
   %40 = trunc i64 %39 to i32
@@ -188,14 +188,14 @@ define internal i32 @compat_drm_version(ptr noundef %0, i32 %1, i64 noundef %2) 
   br i1 %41, label %42, label %58
 
 42:                                               ; preds = %9
-  %43 = getelementptr inbounds i8, ptr %5, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %44 = load i32, ptr %5, align 8
   store i32 %44, ptr %4, align 4
   %45 = load i32, ptr %32, align 4
-  %46 = getelementptr inbounds i8, ptr %4, i64 4
+  %46 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %45, ptr %46, align 4
   %47 = load i32, ptr %43, align 8
-  %48 = getelementptr inbounds i8, ptr %4, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %47, ptr %48, align 4
   %49 = load i64, ptr %33, align 8
   %50 = trunc i64 %49 to i32
@@ -233,12 +233,12 @@ define internal i32 @compat_drm_getunique(ptr noundef %0, i32 %1, i64 noundef %2
 9:                                                ; preds = %3
   %10 = load i32, ptr %4, align 8
   %11 = zext i32 %10 to i64
-  %12 = getelementptr inbounds i8, ptr %4, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %13 = load i32, ptr %12, align 4
   %14 = zext i32 %13 to i64
   %15 = inttoptr i64 %14 to ptr
   store i64 %11, ptr %5, align 8
-  %16 = getelementptr inbounds i8, ptr %5, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %15, ptr %16, align 8
   %17 = call i64 @drm_ioctl_kernel(ptr noundef %0, ptr noundef nonnull @drm_getunique, ptr noundef nonnull %5, i32 noundef 0) #7
   %18 = trunc i64 %17 to i32
@@ -285,29 +285,29 @@ define internal i32 @compat_drm_getclient(ptr noundef %0, i32 %1, i64 noundef %2
 14:                                               ; preds = %9
   %15 = load i32, ptr %5, align 8
   store i32 %15, ptr %4, align 4
-  %16 = getelementptr inbounds i8, ptr %5, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %17 = load i32, ptr %16, align 4
-  %18 = getelementptr inbounds i8, ptr %4, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %17, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %5, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %20 = load i64, ptr %19, align 8
   %21 = trunc i64 %20 to i32
-  %22 = getelementptr inbounds i8, ptr %4, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %21, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %5, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %24 = load i64, ptr %23, align 8
   %25 = trunc i64 %24 to i32
-  %26 = getelementptr inbounds i8, ptr %4, i64 12
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 %25, ptr %26, align 4
-  %27 = getelementptr inbounds i8, ptr %5, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %28 = load i64, ptr %27, align 8
   %29 = trunc i64 %28 to i32
-  %30 = getelementptr inbounds i8, ptr %4, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 %29, ptr %30, align 4
-  %31 = getelementptr inbounds i8, ptr %5, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %32 = load i64, ptr %31, align 8
   %33 = trunc i64 %32 to i32
-  %34 = getelementptr inbounds i8, ptr %4, i64 20
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i32 %33, ptr %34, align 4
   %35 = call i64 @_copy_to_user(ptr noundef %6, ptr noundef nonnull %4, i64 noundef 24) #7
   %36 = icmp eq i64 %35, 0
@@ -362,18 +362,18 @@ define internal i32 @compat_drm_wait_vblank(ptr noundef %0, i32 %1, i64 noundef 
   br i1 %8, label %9, label %32
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %5, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 0, ptr %10, align 8
   %11 = load i32, ptr %4, align 4
   store i32 %11, ptr %5, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %13 = load i32, ptr %12, align 4
-  %14 = getelementptr inbounds i8, ptr %5, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %13, ptr %14, align 4
-  %15 = getelementptr inbounds i8, ptr %4, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %16 = load i32, ptr %15, align 4
   %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds i8, ptr %5, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %17, ptr %18, align 8
   %19 = call i64 @drm_ioctl_kernel(ptr noundef %0, ptr noundef nonnull @drm_wait_vblank_ioctl, ptr noundef nonnull %5, i32 noundef 0) #7
   %20 = load i32, ptr %5, align 8
@@ -383,10 +383,10 @@ define internal i32 @compat_drm_wait_vblank(ptr noundef %0, i32 %1, i64 noundef 
   %22 = load i64, ptr %18, align 8
   %23 = trunc i64 %22 to i32
   store i32 %23, ptr %15, align 4
-  %24 = getelementptr inbounds i8, ptr %5, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %25 = load i64, ptr %24, align 8
   %26 = trunc i64 %25 to i32
-  %27 = getelementptr inbounds i8, ptr %4, i64 12
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 %26, ptr %27, align 4
   %28 = call i64 @_copy_to_user(ptr noundef %6, ptr noundef nonnull %4, i64 noundef 16) #7
   %29 = icmp eq i64 %28, 0
@@ -417,9 +417,9 @@ define internal i32 @compat_drm_mode_addfb2(ptr noundef %0, i32 %1, i64 noundef 
   br i1 %7, label %8, label %27
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
-  %10 = getelementptr inbounds i8, ptr %5, i64 68
-  %11 = call i64 @_copy_from_user(ptr noundef %9, ptr noundef %10, i64 noundef 32) #7
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 68
+  %11 = call i64 @_copy_from_user(ptr noundef nonnull %9, ptr noundef nonnull %10, i64 noundef 32) #7
   %12 = icmp eq i64 %11, 0
   br i1 %12, label %13, label %27
 

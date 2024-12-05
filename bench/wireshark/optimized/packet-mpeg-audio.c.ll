@@ -315,7 +315,7 @@ define internal i32 @dissect_mpeg_audio(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %14, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %16
 
 16:                                               ; preds = %.lr.ph, %106

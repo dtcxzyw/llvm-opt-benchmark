@@ -17,10 +17,10 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define hidden void @lj_profile_interpreter(ptr noundef %L) local_unnamed_addr #0 {
 entry:
-  %glref = getelementptr inbounds i8, ptr %L, i64 16
+  %glref = getelementptr inbounds nuw i8, ptr %L, i64 16
   %0 = load i64, ptr %glref, align 8
   %1 = inttoptr i64 %0 to ptr
-  %hookmask = getelementptr inbounds i8, ptr %1, i64 145
+  %hookmask = getelementptr inbounds nuw i8, ptr %1, i64 145
   %2 = load i8, ptr %hookmask, align 1
   %3 = and i8 %2, 127
   %4 = and i8 %2, 32
@@ -60,14 +60,14 @@ entry:
   br i1 %tobool.not27, label %while.end13, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
-  %glref = getelementptr inbounds i8, ptr %L, i64 16
+  %glref = getelementptr inbounds nuw i8, ptr %L, i64 16
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %sw.epilog
   %1 = phi i8 [ %0, %while.body.lr.ph ], [ %9, %sw.epilog ]
   %mode.addr.029 = phi ptr [ %mode, %while.body.lr.ph ], [ %mode.addr.2, %sw.epilog ]
   %interval.028 = phi i32 [ 10, %while.body.lr.ph ], [ %interval.2, %sw.epilog ]
-  %incdec.ptr = getelementptr inbounds i8, ptr %mode.addr.029, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %mode.addr.029, i64 1
   switch i8 %1, label %sw.epilog [
     i8 105, label %while.cond1.preheader
     i8 108, label %sw.bb12
@@ -85,7 +85,7 @@ while.body7:                                      ; preds = %while.cond1.prehead
   %mode.addr.125 = phi ptr [ %incdec.ptr8, %while.body7 ], [ %incdec.ptr, %while.cond1.preheader ]
   %interval.124 = phi i32 [ %add, %while.body7 ], [ 0, %while.cond1.preheader ]
   %mul = mul nsw i32 %interval.124, 10
-  %incdec.ptr8 = getelementptr inbounds i8, ptr %mode.addr.125, i64 1
+  %incdec.ptr8 = getelementptr inbounds nuw i8, ptr %mode.addr.125, i64 1
   %narrow = add nsw i8 %4, -48
   %sub = zext nneg i8 %narrow to i32
   %add = add nsw i32 %mul, %sub
@@ -104,7 +104,7 @@ sw.bb12:                                          ; preds = %while.body, %while.
   %conv = zext nneg i8 %1 to i32
   %7 = load i64, ptr %glref, align 8
   %8 = inttoptr i64 %7 to ptr
-  %prof_mode = getelementptr inbounds i8, ptr %8, i64 3836
+  %prof_mode = getelementptr inbounds nuw i8, ptr %8, i64 3836
   store i32 %conv, ptr %prof_mode, align 4
   %call = tail call i32 @lj_trace_flushall(ptr noundef %L) #7
   br label %sw.epilog
@@ -129,7 +129,7 @@ if.then15:                                        ; preds = %while.end13
   br i1 %tobool17.not, label %if.end20, label %return
 
 if.end20:                                         ; preds = %if.then15, %while.end13
-  %glref21 = getelementptr inbounds i8, ptr %L, i64 16
+  %glref21 = getelementptr inbounds nuw i8, ptr %L, i64 16
   %12 = load i64, ptr %glref21, align 8
   %13 = inttoptr i64 %12 to ptr
   store ptr %13, ptr @profile_state, align 8
@@ -145,20 +145,20 @@ if.end20:                                         ; preds = %if.then15, %while.e
   %div.i = sdiv i32 %interval.0.lcssa, 1000
   %conv.i = sext i32 %div.i to i64
   store i64 %conv.i, ptr %tm.i, align 8
-  %it_value.i = getelementptr inbounds i8, ptr %tm.i, i64 16
+  %it_value.i = getelementptr inbounds nuw i8, ptr %tm.i, i64 16
   store i64 %conv.i, ptr %it_value.i, align 8
   %rem.i = srem i32 %interval.0.lcssa, 1000
   %mul.i = mul nsw i32 %rem.i, 1000
   %conv3.i = sext i32 %mul.i to i64
-  %tv_usec.i = getelementptr inbounds i8, ptr %tm.i, i64 8
+  %tv_usec.i = getelementptr inbounds nuw i8, ptr %tm.i, i64 8
   store i64 %conv3.i, ptr %tv_usec.i, align 8
-  %tv_usec6.i = getelementptr inbounds i8, ptr %tm.i, i64 24
+  %tv_usec6.i = getelementptr inbounds nuw i8, ptr %tm.i, i64 24
   store i64 %conv3.i, ptr %tv_usec6.i, align 8
   %call.i = call i32 @setitimer(i32 noundef 2, ptr noundef nonnull %tm.i, ptr noundef null) #7
-  %sa_flags.i = getelementptr inbounds i8, ptr %sa.i, i64 136
+  %sa_flags.i = getelementptr inbounds nuw i8, ptr %sa.i, i64 136
   store i32 268435456, ptr %sa_flags.i, align 8
   store ptr @profile_signal, ptr %sa.i, align 8
-  %sa_mask.i = getelementptr inbounds i8, ptr %sa.i, i64 8
+  %sa_mask.i = getelementptr inbounds nuw i8, ptr %sa.i, i64 8
   %call7.i = call i32 @sigemptyset(ptr noundef nonnull %sa_mask.i) #7
   %call8.i = call i32 @sigaction(i32 noundef 27, ptr noundef nonnull %sa.i, ptr noundef nonnull getelementptr inbounds (i8, ptr @profile_state, i64 72)) #7
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %tm.i)
@@ -176,7 +176,7 @@ define void @luaJIT_profile_stop(ptr noundef %L) local_unnamed_addr #0 {
 entry:
   %tm.i = alloca %struct.itimerval, align 8
   %0 = load ptr, ptr @profile_state, align 8
-  %glref = getelementptr inbounds i8, ptr %L, i64 16
+  %glref = getelementptr inbounds nuw i8, ptr %L, i64 16
   %1 = load i64, ptr %glref, align 8
   %2 = inttoptr i64 %1 to ptr
   %cmp = icmp eq ptr %0, %2
@@ -188,12 +188,12 @@ if.then:                                          ; preds = %entry
   %call.i16 = call i32 @setitimer(i32 noundef 2, ptr noundef nonnull %tm.i, ptr noundef null) #7
   %call5.i = tail call i32 @sigaction(i32 noundef 27, ptr noundef nonnull getelementptr inbounds (i8, ptr @profile_state, i64 72), ptr noundef null) #7
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %tm.i)
-  %hookmask = getelementptr inbounds i8, ptr %0, i64 145
+  %hookmask = getelementptr inbounds nuw i8, ptr %0, i64 145
   %3 = load i8, ptr %hookmask, align 1
   %4 = and i8 %3, 127
   store i8 %4, ptr %hookmask, align 1
   tail call void @lj_dispatch_update(ptr noundef %0) #7
-  %prof_mode = getelementptr inbounds i8, ptr %0, i64 3836
+  %prof_mode = getelementptr inbounds nuw i8, ptr %0, i64 3836
   store i32 0, ptr %prof_mode, align 4
   %call = tail call i32 @lj_trace_flushall(ptr noundef nonnull %L) #7
   %5 = load ptr, ptr getelementptr inbounds (i8, ptr @profile_state, i64 40), align 8
@@ -202,12 +202,12 @@ if.then:                                          ; preds = %entry
   %sub.ptr.rhs.cast.i = ptrtoint ptr %5 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %conv2.i = and i64 %sub.ptr.sub.i, 4294967295
-  %gc.i = getelementptr inbounds i8, ptr %0, i64 16
+  %gc.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i64, ptr %gc.i, align 8
   %sub.i = sub i64 %7, %conv2.i
   store i64 %sub.i, ptr %gc.i, align 8
   %8 = load ptr, ptr %0, align 8
-  %allocd.i = getelementptr inbounds i8, ptr %0, i64 8
+  %allocd.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %allocd.i, align 8
   %call.i = tail call ptr %8(ptr noundef %9, ptr noundef %5, i64 noundef %conv2.i, i64 noundef 0) #7
   store ptr null, ptr @profile_state, align 8
@@ -249,13 +249,13 @@ entry:
   %1 = load i32, ptr getelementptr inbounds (i8, ptr @profile_state, i64 60), align 4
   %inc.i = add nsw i32 %1, 1
   store i32 %inc.i, ptr getelementptr inbounds (i8, ptr @profile_state, i64 60), align 4
-  %hookmask.i = getelementptr inbounds i8, ptr %0, i64 145
+  %hookmask.i = getelementptr inbounds nuw i8, ptr %0, i64 145
   %2 = load i8, ptr %hookmask.i, align 1
   %tobool.not.i = icmp ult i8 %2, 32
   br i1 %tobool.not.i, label %if.then.i, label %profile_trigger.exit
 
 if.then.i:                                        ; preds = %entry
-  %vmstate.i = getelementptr inbounds i8, ptr %0, i64 184
+  %vmstate.i = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = load volatile i32, ptr %vmstate.i, align 8
   %cmp.i = icmp sgt i32 %3, -1
   br i1 %cmp.i, label %cond.end16.i, label %cond.false.i

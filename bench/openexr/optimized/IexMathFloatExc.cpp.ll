@@ -137,7 +137,7 @@ define void @_ZN7Iex_3_29MathExcOnC2Ei(ptr nocapture noundef nonnull writeonly a
 entry:
   store i8 0, ptr %this, align 4
   %call.i = tail call noundef i32 @_ZN7Iex_3_212fpExceptionsEv()
-  %_saved = getelementptr inbounds i8, ptr %this, i64 4
+  %_saved = getelementptr inbounds nuw i8, ptr %this, i64 4
   store i32 %call.i, ptr %_saved, align 4
   %cmp.not = icmp eq i32 %call.i, %when
   br i1 %cmp.not, label %if.end, label %if.then
@@ -160,7 +160,7 @@ entry:
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %_saved = getelementptr inbounds i8, ptr %this, i64 4
+  %_saved = getelementptr inbounds nuw i8, ptr %this, i64 4
   %1 = load i32, ptr %_saved, align 4
   invoke void @_ZN7Iex_3_215setFpExceptionsEi(i32 noundef %1)
           to label %.noexc unwind label %terminate.lpad

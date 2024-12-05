@@ -19,7 +19,7 @@ define ptr @wcschr(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #
   %.not11 = icmp eq i32 %6, 0
   %.not12 = icmp eq i32 %6, %1
   %or.cond = or i1 %.not11, %.not12
-  %7 = getelementptr inbounds i8, ptr %.09, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %.09, i64 4
   br i1 %or.cond, label %.critedge, label %.preheader, !llvm.loop !6
 
 .critedge:                                        ; preds = %.preheader

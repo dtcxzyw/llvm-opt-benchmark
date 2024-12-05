@@ -20,7 +20,7 @@ define hidden noalias noundef ptr @_ZN2cv5aruco15zmaxheap_createEm(i64 noundef %
   store i64 %0, ptr %2, align 8
   %3 = icmp eq i64 %0, 8
   %spec.select = select i1 %3, ptr @_ZN2cv5arucoL13_swap_pointerEPNS0_8zmaxheapEii, ptr @_ZN2cv5arucoL13_swap_defaultEPNS0_8zmaxheapEii
-  %4 = getelementptr inbounds i8, ptr %2, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store ptr %spec.select, ptr %4, align 8
   ret ptr %2
 }
@@ -31,7 +31,7 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN2cv5arucoL13_swap_defaultEPNS0_8zmaxheapEii(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) #2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.cv::AutoBuffer", align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = sext i32 %1 to i64
   %8 = getelementptr inbounds float, ptr %6, i64 %7
@@ -44,9 +44,9 @@ define internal void @_ZN2cv5arucoL13_swap_defaultEPNS0_8zmaxheapEii(ptr nocaptu
   %14 = getelementptr inbounds float, ptr %13, i64 %10
   store float %9, ptr %14, align 4
   %15 = load i64, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %4, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %16, ptr %4, align 8
-  %17 = getelementptr inbounds i8, ptr %4, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.not.i.i = icmp ugt i64 %15, 1032
   store i64 %15, ptr %17, align 8
   br i1 %.not.i.i, label %18, label %_ZN2cv10AutoBufferIcLm1032EEC2Em.exit
@@ -58,7 +58,7 @@ define internal void @_ZN2cv5arucoL13_swap_defaultEPNS0_8zmaxheapEii(ptr nocaptu
 
 _ZN2cv10AutoBufferIcLm1032EEC2Em.exit:            ; preds = %3, %18
   %20 = phi ptr [ %16, %3 ], [ %19, %18 ]
-  %21 = getelementptr inbounds i8, ptr %0, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %22 = load ptr, ptr %21, align 8
   %23 = mul i64 %15, %7
   %24 = getelementptr inbounds i8, ptr %22, i64 %23
@@ -88,7 +88,7 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit:            ; preds = %34, %_ZN2cv10AutoBu
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @_ZN2cv5arucoL13_swap_pointerEPNS0_8zmaxheapEii(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) #3 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = sext i32 %1 to i64
   %7 = getelementptr inbounds float, ptr %5, i64 %6
@@ -100,7 +100,7 @@ define internal void @_ZN2cv5arucoL13_swap_pointerEPNS0_8zmaxheapEii(ptr nocaptu
   %12 = load ptr, ptr %4, align 8
   %13 = getelementptr inbounds float, ptr %12, i64 %9
   store float %8, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %0, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds ptr, ptr %15, i64 %6
   %17 = load ptr, ptr %16, align 8
@@ -113,10 +113,10 @@ define internal void @_ZN2cv5arucoL13_swap_pointerEPNS0_8zmaxheapEii(ptr nocaptu
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define hidden void @_ZN2cv5aruco16zmaxheap_destroyEPNS0_8zmaxheapE(ptr nocapture noundef %0) local_unnamed_addr #4 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   tail call void @free(ptr noundef %3) #17
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   tail call void @free(ptr noundef %5) #17
   tail call void @free(ptr noundef %0) #17
@@ -128,9 +128,9 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN2cv5aruco12zmaxheap_addEPNS0_8zmaxheapEPvf(ptr noundef %0, ptr nocapture noundef readonly %1, float noundef %2) local_unnamed_addr #2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 12
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %7 = load i32, ptr %6, align 4
   %.not.i.not = icmp sgt i32 %7, %5
   br i1 %.not.i.not, label %_ZN2cv5arucoL25_zmaxheap_ensure_capacityEPNS0_8zmaxheapEi.exit, label %.preheader.i
@@ -144,13 +144,13 @@ define hidden void @_ZN2cv5aruco12zmaxheap_addEPNS0_8zmaxheapEPvf(ptr noundef %0
   br i1 %.not, label %10, label %.preheader.i, !llvm.loop !4
 
 10:                                               ; preds = %.preheader.i
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = zext nneg i32 %spec.select.i to i64
   %14 = shl nuw nsw i64 %13, 2
   %15 = tail call ptr @realloc(ptr noundef %12, i64 noundef %14) #18
   store ptr %15, ptr %11, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %17 = load ptr, ptr %16, align 8
   %18 = load i64, ptr %0, align 8
   %19 = mul i64 %18, %13
@@ -162,12 +162,12 @@ define hidden void @_ZN2cv5aruco12zmaxheap_addEPNS0_8zmaxheapEPvf(ptr noundef %0
 
 _ZN2cv5arucoL25_zmaxheap_ensure_capacityEPNS0_8zmaxheapEi.exit: ; preds = %3, %10
   %21 = phi i32 [ %5, %3 ], [ %.pre, %10 ]
-  %22 = getelementptr inbounds i8, ptr %0, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %23 = load ptr, ptr %22, align 8
   %24 = sext i32 %21 to i64
   %25 = getelementptr inbounds float, ptr %23, i64 %24
   store float %2, ptr %25, align 4
-  %26 = getelementptr inbounds i8, ptr %0, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %27 = load ptr, ptr %26, align 8
   %28 = load i64, ptr %0, align 8
   %29 = mul i64 %28, %24
@@ -180,7 +180,7 @@ _ZN2cv5arucoL25_zmaxheap_ensure_capacityEPNS0_8zmaxheapEi.exit: ; preds = %3, %1
   br i1 %33, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZN2cv5arucoL25_zmaxheap_ensure_capacityEPNS0_8zmaxheapEi.exit
-  %34 = getelementptr inbounds i8, ptr %0, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %35
 
 35:                                               ; preds = %.lr.ph, %43
@@ -189,7 +189,7 @@ _ZN2cv5arucoL25_zmaxheap_ensure_capacityEPNS0_8zmaxheapEi.exit: ; preds = %3, %1
   %37 = lshr i32 %36, 1
   %38 = load ptr, ptr %22, align 8
   %39 = zext nneg i32 %37 to i64
-  %40 = getelementptr inbounds float, ptr %38, i64 %39
+  %40 = getelementptr inbounds nuw float, ptr %38, i64 %39
   %41 = load float, ptr %40, align 4
   %42 = fcmp ult float %41, %2
   br i1 %42, label %43, label %._crit_edge
@@ -217,7 +217,7 @@ define hidden noundef range(i32 0, 2) i32 @_ZN2cv5aruco19zmaxheap_remove_maxEPNS
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7)
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i32, ptr %8, align 8
   %10 = icmp slt i32 %9, 1
   br i1 %10, label %_ZN2cv5arucoL21zmaxheap_remove_indexEPNS0_8zmaxheapEiPvPf.exit, label %11
@@ -227,7 +227,7 @@ define hidden noundef range(i32 0, 2) i32 @_ZN2cv5aruco19zmaxheap_remove_maxEPNS
   br i1 %.not.i, label %16, label %12
 
 12:                                               ; preds = %11
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = load float, ptr %14, align 4
   store float %15, ptr %2, align 4
@@ -238,7 +238,7 @@ define hidden noundef range(i32 0, 2) i32 @_ZN2cv5aruco19zmaxheap_remove_maxEPNS
   br i1 %.not79.i, label %21, label %17
 
 17:                                               ; preds = %16
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = load ptr, ptr %18, align 8
   %20 = load i64, ptr %0, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1, ptr align 1 %19, i64 %20, i1 false)
@@ -252,13 +252,13 @@ define hidden noundef range(i32 0, 2) i32 @_ZN2cv5aruco19zmaxheap_remove_maxEPNS
   br i1 %24, label %_ZN2cv5arucoL21zmaxheap_remove_indexEPNS0_8zmaxheapEiPvPf.exit, label %25
 
 25:                                               ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %0, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %27 = load ptr, ptr %26, align 8
   %28 = sext i32 %23 to i64
   %29 = getelementptr inbounds float, ptr %27, i64 %28
   %30 = load float, ptr %29, align 4
   store float %30, ptr %27, align 4
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8
   %33 = load i64, ptr %0, align 8
   %34 = load i32, ptr %8, align 8
@@ -273,7 +273,7 @@ define hidden noundef range(i32 0, 2) i32 @_ZN2cv5aruco19zmaxheap_remove_maxEPNS
   br i1 %41, label %.lr.ph.i, label %_ZN2cv5arucoL21zmaxheap_remove_indexEPNS0_8zmaxheapEiPvPf.exit
 
 .lr.ph.i:                                         ; preds = %25
-  %42 = getelementptr inbounds i8, ptr %0, i64 32
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %43
 
 43:                                               ; preds = %84, %.lr.ph.i

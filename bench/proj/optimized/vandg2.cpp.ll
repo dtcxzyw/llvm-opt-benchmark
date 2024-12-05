@@ -25,9 +25,9 @@ define hidden noundef ptr @pj_vandg2(ptr noundef %0) local_unnamed_addr #0 {
   br label %_Z35pj_projection_specific_setup_vandg2P8PJconsts.exit
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 88
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr %3, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 104
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr @_ZL16vandg2_s_forward5PJ_LPP8PJconsts, ptr %9, align 8
   br label %_Z35pj_projection_specific_setup_vandg2P8PJconsts.exit
 
@@ -37,15 +37,15 @@ define hidden noundef ptr @pj_vandg2(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %12, label %_Z35pj_projection_specific_setup_vandg2P8PJconsts.exit, label %13
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %11, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr @.str, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %11, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr @_ZL10des_vandg2, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %11, i64 360
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 360
   store i32 1, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %11, i64 380
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 380
   store i32 4, ptr %17, align 4
-  %18 = getelementptr inbounds i8, ptr %11, i64 384
+  %18 = getelementptr inbounds nuw i8, ptr %11, i64 384
   store i32 1, ptr %18, align 8
   br label %_Z35pj_projection_specific_setup_vandg2P8PJconsts.exit
 
@@ -65,9 +65,9 @@ define hidden noundef ptr @_Z35pj_projection_specific_setup_vandg2P8PJconsts(ptr
   br label %9
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 88
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr %2, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 104
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr @_ZL16vandg2_s_forward5PJ_LPP8PJconsts, ptr %8, align 8
   br label %9
 
@@ -85,7 +85,7 @@ declare noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef, i32 nound
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
 define internal { double, double } @_ZL16vandg2_s_forward5PJ_LPP8PJconsts(double %0, double %1, ptr nocapture noundef readonly %2) #3 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 88
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %5 = load ptr, ptr %4, align 8
   %6 = fmul double %1, 0x3FE45F306DC9C883
   %7 = tail call double @llvm.fabs.f64(double %6)
@@ -188,12 +188,12 @@ define hidden noundef ptr @pj_vandg3(ptr noundef %0) local_unnamed_addr #0 {
   br label %_Z35pj_projection_specific_setup_vandg3P8PJconsts.exit
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 88
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr %3, ptr %8, align 8
   store i32 1, ptr %3, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 216
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 216
   store double 0.000000e+00, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 104
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr @_ZL16vandg2_s_forward5PJ_LPP8PJconsts, ptr %10, align 8
   br label %_Z35pj_projection_specific_setup_vandg3P8PJconsts.exit
 
@@ -203,15 +203,15 @@ define hidden noundef ptr @pj_vandg3(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %13, label %_Z35pj_projection_specific_setup_vandg3P8PJconsts.exit, label %14
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %12, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr @.str.1, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %12, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store ptr @_ZL10des_vandg3, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %12, i64 360
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 360
   store i32 1, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %12, i64 380
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 380
   store i32 4, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %12, i64 384
+  %19 = getelementptr inbounds nuw i8, ptr %12, i64 384
   store i32 1, ptr %19, align 8
   br label %_Z35pj_projection_specific_setup_vandg3P8PJconsts.exit
 
@@ -231,12 +231,12 @@ define hidden noundef ptr @_Z35pj_projection_specific_setup_vandg3P8PJconsts(ptr
   br label %10
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 88
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr %2, ptr %7, align 8
   store i32 1, ptr %2, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 216
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 216
   store double 0.000000e+00, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 104
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr @_ZL16vandg2_s_forward5PJ_LPP8PJconsts, ptr %9, align 8
   br label %10
 

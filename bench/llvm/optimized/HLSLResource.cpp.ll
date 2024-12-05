@@ -81,7 +81,7 @@ define dso_local noundef i32 @_ZN4llvm4hlsl16FrontendResource15getResourceKindEv
 
 _ZNK4llvm6MDNode10getOperandEj.exit:              ; preds = %6, %10
   %.sroa.0.0.i.i = phi ptr [ %14, %10 ], [ %8, %6 ]
-  %15 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 128
   %18 = load ptr, ptr %17, align 8
@@ -133,7 +133,7 @@ define dso_local noundef i32 @_ZN4llvm4hlsl16FrontendResource14getElementTypeEv(
 
 _ZNK4llvm6MDNode10getOperandEj.exit:              ; preds = %6, %10
   %.sroa.0.0.i.i = phi ptr [ %14, %10 ], [ %8, %6 ]
-  %15 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 128
   %18 = load ptr, ptr %17, align 8
@@ -185,7 +185,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm4hlsl16FrontendResource8getIsROVEv(
 
 _ZNK4llvm6MDNode10getOperandEj.exit:              ; preds = %6, %10
   %.sroa.0.0.i.i = phi ptr [ %14, %10 ], [ %8, %6 ]
-  %15 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 24
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 128
   %18 = load ptr, ptr %17, align 8
@@ -237,7 +237,7 @@ define dso_local noundef i32 @_ZN4llvm4hlsl16FrontendResource16getResourceIndexE
 
 _ZNK4llvm6MDNode10getOperandEj.exit:              ; preds = %6, %10
   %.sroa.0.0.i.i = phi ptr [ %14, %10 ], [ %8, %6 ]
-  %15 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 32
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 128
   %18 = load ptr, ptr %17, align 8
@@ -289,7 +289,7 @@ define dso_local noundef i32 @_ZN4llvm4hlsl16FrontendResource8getSpaceEv(ptr noc
 
 _ZNK4llvm6MDNode10getOperandEj.exit:              ; preds = %6, %10
   %.sroa.0.0.i.i = phi ptr [ %14, %10 ], [ %8, %6 ]
-  %15 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 40
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 128
   %18 = load ptr, ptr %17, align 8
@@ -330,7 +330,7 @@ define dso_local void @_ZN4llvm4hlsl16FrontendResourceC2EPNS_14GlobalVariableENS
   %10 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm5Value10getContextEv(ptr noundef nonnull align 8 dereferenceable(24) %1) #7
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 128
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 136
-  %13 = getelementptr inbounds i8, ptr %8, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %8, ptr noundef nonnull %13, i64 noundef 2) #7
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 72
   store ptr %10, ptr %14, align 8
@@ -356,35 +356,35 @@ define dso_local void @_ZN4llvm4hlsl16FrontendResourceC2EPNS_14GlobalVariableENS
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4llvm24IRBuilderDefaultInserterE, i64 16), ptr %12, align 8
   %24 = call noundef ptr @_ZN4llvm15ValueAsMetadata3getEPNS_5ValueE(ptr noundef nonnull %1) #7
   store ptr %24, ptr %9, align 8
-  %25 = getelementptr inbounds i8, ptr %9, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %26 = load ptr, ptr %14, align 8
   %27 = call noundef ptr @_ZN4llvm4Type10getInt32TyERNS_11LLVMContextE(ptr noundef nonnull align 8 dereferenceable(8) %26) #7
   %28 = zext i32 %2 to i64
   %29 = call noundef ptr @_ZN4llvm11ConstantInt3getEPNS_11IntegerTypeEmb(ptr noundef %27, i64 noundef %28, i1 noundef zeroext false) #7
   %30 = call noundef ptr @_ZN4llvm15ValueAsMetadata3getEPNS_5ValueE(ptr noundef %29) #7
   store ptr %30, ptr %25, align 8
-  %31 = getelementptr inbounds i8, ptr %9, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %32 = load ptr, ptr %14, align 8
   %33 = call noundef ptr @_ZN4llvm4Type10getInt32TyERNS_11LLVMContextE(ptr noundef nonnull align 8 dereferenceable(8) %32) #7
   %34 = zext i32 %3 to i64
   %35 = call noundef ptr @_ZN4llvm11ConstantInt3getEPNS_11IntegerTypeEmb(ptr noundef %33, i64 noundef %34, i1 noundef zeroext false) #7
   %36 = call noundef ptr @_ZN4llvm15ValueAsMetadata3getEPNS_5ValueE(ptr noundef %35) #7
   store ptr %36, ptr %31, align 8
-  %37 = getelementptr inbounds i8, ptr %9, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %38 = load ptr, ptr %14, align 8
   %39 = call noundef ptr @_ZN4llvm4Type9getInt1TyERNS_11LLVMContextE(ptr noundef nonnull align 8 dereferenceable(8) %38) #7
   %40 = zext i1 %4 to i64
   %41 = call noundef ptr @_ZN4llvm11ConstantInt3getEPNS_11IntegerTypeEmb(ptr noundef %39, i64 noundef %40, i1 noundef zeroext false) #7
   %42 = call noundef ptr @_ZN4llvm15ValueAsMetadata3getEPNS_5ValueE(ptr noundef %41) #7
   store ptr %42, ptr %37, align 8
-  %43 = getelementptr inbounds i8, ptr %9, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %44 = load ptr, ptr %14, align 8
   %45 = call noundef ptr @_ZN4llvm4Type10getInt32TyERNS_11LLVMContextE(ptr noundef nonnull align 8 dereferenceable(8) %44) #7
   %46 = zext i32 %5 to i64
   %47 = call noundef ptr @_ZN4llvm11ConstantInt3getEPNS_11IntegerTypeEmb(ptr noundef %45, i64 noundef %46, i1 noundef zeroext false) #7
   %48 = call noundef ptr @_ZN4llvm15ValueAsMetadata3getEPNS_5ValueE(ptr noundef %47) #7
   store ptr %48, ptr %43, align 8
-  %49 = getelementptr inbounds i8, ptr %9, i64 40
+  %49 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %50 = load ptr, ptr %14, align 8
   %51 = call noundef ptr @_ZN4llvm4Type10getInt32TyERNS_11LLVMContextE(ptr noundef nonnull align 8 dereferenceable(8) %50) #7
   %52 = zext i32 %6 to i64

@@ -217,11 +217,11 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -2147483648, 2) i32 @hungarian_ISO_8859_2_stem(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 12
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %5 = load i32, ptr %4, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8
   store i32 %5, ptr %7, align 4
   %8 = load i32, ptr %2, align 8
@@ -299,11 +299,11 @@ define hidden range(i32 -2147483648, 2) i32 @hungarian_ISO_8859_2_stem(ptr nound
   br label %r_mark_regions.exit
 
 r_mark_regions.exit:                              ; preds = %31, %33, %.sink.split.i
-  %40 = getelementptr inbounds i8, ptr %0, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %3, ptr %40, align 8
   %41 = load i32, ptr %4, align 4
   store i32 %41, ptr %2, align 8
-  %42 = getelementptr inbounds i8, ptr %0, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %41, ptr %42, align 8
   %43 = add i32 %41, -1
   %.not.i94 = icmp sgt i32 %43, %3
@@ -324,7 +324,7 @@ r_mark_regions.exit:                              ; preds = %31, %33, %.sink.spl
 
 51:                                               ; preds = %49
   %52 = load i32, ptr %2, align 8
-  %53 = getelementptr inbounds i8, ptr %0, i64 20
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %52, ptr %53, align 4
   %.val30.i = load ptr, ptr %6, align 8
   %.val30.val.i = load i32, ptr %.val30.i, align 4
@@ -399,7 +399,7 @@ r_mark_regions.exit:                              ; preds = %31, %33, %.sink.spl
 
 88:                                               ; preds = %85
   %89 = load i32, ptr %2, align 8
-  %90 = getelementptr inbounds i8, ptr %0, i64 20
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %89, ptr %90, align 4
   %.val18.i = load ptr, ptr %6, align 8
   %.val18.val.i = load i32, ptr %.val18.i, align 4
@@ -484,7 +484,7 @@ r_case.exit.thread:                               ; preds = %97, %94, %103, %105
 
 124:                                              ; preds = %122
   %125 = load i32, ptr %2, align 8
-  %126 = getelementptr inbounds i8, ptr %0, i64 20
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %125, ptr %126, align 4
   %.val32.i = load ptr, ptr %6, align 8
   %.val32.val.i = load i32, ptr %.val32.i, align 4
@@ -532,7 +532,7 @@ r_case.exit.thread:                               ; preds = %97, %94, %103, %105
 
 146:                                              ; preds = %144
   %147 = load i32, ptr %2, align 8
-  %148 = getelementptr inbounds i8, ptr %0, i64 20
+  %148 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %147, ptr %148, align 4
   %.val31.i = load ptr, ptr %6, align 8
   %.val31.val.i = load i32, ptr %.val31.i, align 4
@@ -587,7 +587,7 @@ r_case.exit.thread:                               ; preds = %97, %94, %103, %105
 
 170:                                              ; preds = %168
   %171 = load i32, ptr %2, align 8
-  %172 = getelementptr inbounds i8, ptr %0, i64 20
+  %172 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %171, ptr %172, align 4
   %.val34.i = load ptr, ptr %6, align 8
   %.val34.val.i = load i32, ptr %.val34.i, align 4
@@ -678,7 +678,7 @@ r_case.exit.thread:                               ; preds = %97, %94, %103, %105
 
 215:                                              ; preds = %213
   %216 = load i32, ptr %2, align 8
-  %217 = getelementptr inbounds i8, ptr %0, i64 20
+  %217 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %216, ptr %217, align 4
   %.val36.i = load ptr, ptr %6, align 8
   %.val36.val.i = load i32, ptr %.val36.i, align 4
@@ -717,7 +717,7 @@ r_case.exit.thread:                               ; preds = %97, %94, %103, %105
 
 231:                                              ; preds = %228
   %232 = load i32, ptr %2, align 8
-  %233 = getelementptr inbounds i8, ptr %0, i64 20
+  %233 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %232, ptr %233, align 4
   %.val25.i = load ptr, ptr %6, align 8
   %.val25.val.i = load i32, ptr %.val25.i, align 4
@@ -779,7 +779,7 @@ r_sing_owner.exit:                                ; preds = %234, %235, %238, %2
 
 259:                                              ; preds = %257
   %260 = load i32, ptr %2, align 8
-  %261 = getelementptr inbounds i8, ptr %0, i64 20
+  %261 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %260, ptr %261, align 4
   %.val35.i = load ptr, ptr %6, align 8
   %.val35.val.i = load i32, ptr %.val35.i, align 4
@@ -832,7 +832,7 @@ r_sing_owner.exit:                                ; preds = %234, %235, %238, %2
 
 283:                                              ; preds = %281
   %284 = load i32, ptr %2, align 8
-  %285 = getelementptr inbounds i8, ptr %0, i64 20
+  %285 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %284, ptr %285, align 4
   %.val32.i133 = load ptr, ptr %6, align 8
   %.val32.val.i134 = load i32, ptr %.val32.i133, align 4

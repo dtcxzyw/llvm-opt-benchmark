@@ -65,13 +65,13 @@ define dso_local noundef zeroext i1 @_ZN23cmCTestRunScriptCommand11InitialPassER
   %5 = alloca i32, align 4
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = load ptr, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %7, %9
   br i1 %10, label %11, label %15
 
 11:                                               ; preds = %3
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %13 = load ptr, ptr %12, align 8
   %14 = tail call noundef i32 @_ZN20cmCTestScriptHandler16RunCurrentScriptEv(ptr noundef nonnull align 8 dereferenceable(824) %13)
   br label %91
@@ -98,8 +98,8 @@ define dso_local noundef zeroext i1 @_ZN23cmCTestRunScriptCommand11InitialPassER
   br i1 %27, label %.lr.ph38, label %._crit_edge
 
 .lr.ph38:                                         ; preds = %.preheader
-  %28 = getelementptr inbounds i8, ptr %0, i64 24
-  %29 = getelementptr inbounds i8, ptr %0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %30 = xor i1 %17, true
   br label %57
 
@@ -107,7 +107,7 @@ define dso_local noundef zeroext i1 @_ZN23cmCTestRunScriptCommand11InitialPassER
   %31 = phi ptr [ %48, %47 ], [ %20, %15 ]
   %32 = phi i64 [ %51, %47 ], [ %18, %15 ]
   %.136 = phi i32 [ %50, %47 ], [ %spec.select, %15 ]
-  %33 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %31, i64 %32
+  %33 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %31, i64 %32
   %34 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %33, ptr noundef nonnull @.str.1) #12
   %35 = icmp eq i32 %34, 0
   %.pre40 = load ptr, ptr %8, align 8
@@ -125,7 +125,7 @@ define dso_local noundef zeroext i1 @_ZN23cmCTestRunScriptCommand11InitialPassER
   br i1 %43, label %44, label %47
 
 44:                                               ; preds = %36
-  %45 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.pre42, i64 %38
+  %45 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.pre42, i64 %38
   %46 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %45)
           to label %._crit_edge39 unwind label %.loopexit.split-lp
 
@@ -161,7 +161,7 @@ define dso_local noundef zeroext i1 @_ZN23cmCTestRunScriptCommand11InitialPassER
   %58 = phi ptr [ %26, %.lr.ph38 ], [ %84, %80 ]
   %59 = phi i64 [ %18, %.lr.ph38 ], [ %82, %80 ]
   %.337 = phi i32 [ %spec.select, %.lr.ph38 ], [ %81, %80 ]
-  %60 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %58, i64 %59
+  %60 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %58, i64 %59
   %61 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %60, ptr noundef nonnull @.str.1) #12
   %62 = icmp eq i32 %61, 0
   br i1 %62, label %63, label %65
@@ -174,7 +174,7 @@ define dso_local noundef zeroext i1 @_ZN23cmCTestRunScriptCommand11InitialPassER
   %66 = load ptr, ptr %28, align 8
   %67 = load ptr, ptr %29, align 8
   %68 = load ptr, ptr %1, align 8
-  %69 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %68, i64 %59
+  %69 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %68, i64 %59
   %70 = invoke noundef zeroext i1 @_ZN20cmCTestScriptHandler9RunScriptEP7cmCTestP10cmMakefileRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbPi(ptr noundef %66, ptr noundef %67, ptr noundef nonnull align 8 dereferenceable(32) %69, i1 noundef zeroext %30, ptr noundef nonnull %5)
           to label %71 unwind label %.loopexit
 
@@ -321,17 +321,17 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
   %33 = udiv i32 %.020.i, 100
   %34 = or disjoint i32 %32, 1
   %35 = zext nneg i32 %34 to i64
-  %36 = getelementptr inbounds [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %35
   %37 = load i8, ptr %36, align 1
   %38 = zext i32 %.01819.i to i64
-  %39 = getelementptr inbounds i8, ptr %27, i64 %38
+  %39 = getelementptr inbounds nuw i8, ptr %27, i64 %38
   store i8 %37, ptr %39, align 1
   %40 = zext nneg i32 %32 to i64
-  %41 = getelementptr inbounds [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %40
   %42 = load i8, ptr %41, align 2
   %43 = add i32 %.01819.i, -1
   %44 = zext i32 %43 to i64
-  %45 = getelementptr inbounds i8, ptr %27, i64 %44
+  %45 = getelementptr inbounds nuw i8, ptr %27, i64 %44
   store i8 %42, ptr %45, align 1
   %46 = add i32 %.01819.i, -2
   %47 = icmp ugt i32 %.020.i, 9999
@@ -346,12 +346,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
   %50 = shl nuw nsw i32 %.0.lcssa.i, 1
   %51 = or disjoint i32 %50, 1
   %52 = zext nneg i32 %51 to i64
-  %53 = getelementptr inbounds [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %52
+  %53 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %52
   %54 = load i8, ptr %53, align 1
-  %55 = getelementptr inbounds i8, ptr %27, i64 1
+  %55 = getelementptr inbounds nuw i8, ptr %27, i64 1
   store i8 %54, ptr %55, align 1
   %56 = zext nneg i32 %50 to i64
-  %57 = getelementptr inbounds [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %56
+  %57 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %56
   %58 = load i8, ptr %57, align 2
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
@@ -398,16 +398,16 @@ define linkonce_odr dso_local void @_ZN23cmCTestRunScriptCommandD0Ev(ptr noundef
 define linkonce_odr dso_local void @_ZN23cmCTestRunScriptCommand5CloneEv(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.181") align 8 %0, ptr noundef nonnull align 8 dereferenceable(40) %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt10unique_ptrI23cmCTestRunScriptCommandSt14default_deleteIS0_EED2Ev.exit:
   %2 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #15, !noalias !10
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 16, i1 false), !noalias !10
   store ptr getelementptr inbounds (i8, ptr @_ZTV23cmCTestRunScriptCommand, i64 16), ptr %2, align 8, !noalias !10
-  %4 = getelementptr inbounds i8, ptr %1, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %5, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store ptr %8, ptr %9, align 8
   store ptr %2, ptr %0, align 8
   ret void

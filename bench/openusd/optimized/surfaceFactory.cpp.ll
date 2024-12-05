@@ -339,7 +339,7 @@ define noundef zeroext i1 @_ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory24faceHasL
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 216
   store ptr null, ptr %23, align 8
   %24 = load ptr, ptr %0, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %26 = load ptr, ptr %25, align 8
   %27 = invoke noundef i32 %26(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %1)
           to label %.preheader unwind label %.loopexit.split-lp
@@ -368,7 +368,7 @@ define noundef zeroext i1 @_ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory24faceHasL
 
 37:                                               ; preds = %35
   %38 = load ptr, ptr %0, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 48
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 48
   %40 = load ptr, ptr %39, align 8
   %41 = invoke noundef i32 %40(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %1, i32 noundef %.01734, ptr noundef nonnull %4)
           to label %42 unwind label %.loopexit
@@ -444,7 +444,7 @@ define noundef zeroext i1 @_ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory24faceHasL
   %65 = phi ptr [ %.pre, %._crit_edge ], [ %63, %.noexc ], [ %5, %54 ]
   store i32 %52, ptr %6, align 8
   %66 = load ptr, ptr %0, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 56
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 56
   %68 = load ptr, ptr %67, align 8
   %69 = invoke noundef i32 %68(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %1, i32 noundef %.01734, ptr noundef %65)
           to label %70 unwind label %72
@@ -563,7 +563,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #12
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory19FaceHasLimitSurfaceEi(ptr noundef nonnull align 8 dereferenceable(56) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noundef i32 %5(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %1)
   %7 = add i32 %6, -65536
@@ -572,7 +572,7 @@ define noundef zeroext i1 @_ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory19FaceHasL
 
 _ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory18faceHasLimitSimpleEii.exit: ; preds = %2
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load ptr, ptr %9, align 8
   %11 = tail call noundef zeroext i1 %10(ptr noundef nonnull align 8 dereferenceable(56) %0, i32 noundef %1)
   br i1 %11, label %_ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory18faceHasLimitSimpleEii.exit.thread, label %12
@@ -586,7 +586,7 @@ _ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory18faceHasLimitSimpleEii.exit: ; preds
 
 16:                                               ; preds = %12
   %17 = load ptr, ptr %0, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 72
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 72
   %19 = load ptr, ptr %18, align 8
   %20 = tail call noundef zeroext i1 %19(ptr noundef nonnull align 8 dereferenceable(56) %0, i32 noundef %1, ptr noundef null)
   br i1 %20, label %_ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory18faceHasLimitSimpleEii.exit.thread, label %21
@@ -607,7 +607,7 @@ define noundef zeroext i1 @_ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory25isFaceNe
 
 6:                                                ; preds = %4
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 72
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %9 = load ptr, ptr %8, align 8
   %10 = tail call noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %1, ptr noundef %3)
   br label %17
@@ -615,7 +615,7 @@ define noundef zeroext i1 @_ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory25isFaceNe
 11:                                               ; preds = %4
   %12 = load i64, ptr %2, align 8
   %13 = load ptr, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 80
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 80
   %15 = load ptr, ptr %14, align 8
   %16 = tail call noundef zeroext i1 %15(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %1, i64 noundef %12, ptr noundef %3)
   br label %17
@@ -631,7 +631,7 @@ define i32 @_ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory23GetFaceParameterization
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noundef i32 %8(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %1)
   call void @_ZN10OpenSubdiv6v3_6_03Bfr16ParameterizationC1ENS0_3Sdc10SchemeTypeEi(ptr noundef nonnull align 2 dereferenceable(4) %3, i32 noundef %5, i32 noundef %9)
@@ -645,7 +645,7 @@ declare void @_ZN10OpenSubdiv6v3_6_03Bfr16ParameterizationC1ENS0_3Sdc10SchemeTyp
 define void @_ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory19assignLinearSurfaceEPNS1_8internal11SurfaceDataEiPKl(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef initializes((104, 108), (109, 111)) %1, i32 noundef %2, ptr noundef readonly %3) local_unnamed_addr #2 align 2 {
   %5 = alloca %"class.OpenSubdiv::v3_6_0::Bfr::Parameterization", align 4
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noundef i32 %8(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %2)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -717,7 +717,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr8internal11SurfaceData9resizeCVsEi.exit: ; preds = %27
 
 46:                                               ; preds = %_ZN10OpenSubdiv6v3_6_03Bfr8internal11SurfaceData9resizeCVsEi.exit
   %47 = load ptr, ptr %0, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 32
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 32
   %49 = load ptr, ptr %48, align 8
   %50 = call noundef i32 %49(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %2, ptr noundef %43)
   br label %57
@@ -725,7 +725,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr8internal11SurfaceData9resizeCVsEi.exit: ; preds = %27
 51:                                               ; preds = %_ZN10OpenSubdiv6v3_6_03Bfr8internal11SurfaceData9resizeCVsEi.exit
   %52 = load i64, ptr %3, align 8
   %53 = load ptr, ptr %0, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 40
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 40
   %55 = load ptr, ptr %54, align 8
   %56 = call noundef i32 %55(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %2, i64 noundef %52, ptr noundef %43)
   br label %57
@@ -814,18 +814,18 @@ _ZN10OpenSubdiv6v3_6_03Bfr8internal11SurfaceData9resizeCVsEi.exit: ; preds = %._
   br label %.loopexit
 
 43:                                               ; preds = %_ZN10OpenSubdiv6v3_6_03Bfr8internal11SurfaceData9resizeCVsEi.exit
-  %44 = getelementptr inbounds i8, ptr %2, i64 20
+  %44 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %45 = load i32, ptr %44, align 4
   %wide.trip.count = zext nneg i32 %25 to i64
   br label %46
 
 46:                                               ; preds = %43, %46
   %indvars.iv = phi i64 [ 0, %43 ], [ %indvars.iv.next, %46 ]
-  %47 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
   %48 = load i32, ptr %47, align 4
   %49 = icmp slt i32 %48, 0
   %. = select i1 %49, i32 %45, i32 %48
-  %50 = getelementptr inbounds i32, ptr %37, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw i32, ptr %37, i64 %indvars.iv
   store i32 %., ptr %50, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1023,7 +1023,7 @@ _ZNSt10shared_ptrIKN10OpenSubdiv6v3_6_03Bfr9PatchTreeEEaSEOS5_.exit: ; preds = %
 56:                                               ; preds = %76, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %76 ]
   %.087145.i = phi i64 [ 8, %.lr.ph.i ], [ %78, %76 ]
-  %57 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Bfr::FaceVertexSubset", ptr %55, i64 %indvars.iv.i
+  %57 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Bfr::FaceVertexSubset", ptr %55, i64 %indvars.iv.i
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 6
   %59 = load i16, ptr %58, align 2
   %60 = add i64 %.087145.i, 6
@@ -1151,7 +1151,7 @@ _ZNSt10shared_ptrIKN10OpenSubdiv6v3_6_03Bfr9PatchTreeEEaSEOS5_.exit: ; preds = %
   br i1 %53, label %.lr.ph157.i, label %._crit_edge158.i
 
 .lr.ph157.i:                                      ; preds = %.thread.i
-  %103 = getelementptr inbounds i8, ptr %93, i64 8
+  %103 = getelementptr inbounds nuw i8, ptr %93, i64 8
   %104 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %wide.trip.count173.i = zext nneg i32 %52 to i64
   br label %105
@@ -1162,9 +1162,9 @@ _ZNSt10shared_ptrIKN10OpenSubdiv6v3_6_03Bfr9PatchTreeEEaSEOS5_.exit: ; preds = %
   %106 = load ptr, ptr %2, align 8
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 24
   %108 = load ptr, ptr %107, align 8
-  %109 = getelementptr inbounds %"class.OpenSubdiv::v3_6_0::Bfr::FaceVertex", ptr %108, i64 %indvars.iv170.i
+  %109 = getelementptr inbounds nuw %"class.OpenSubdiv::v3_6_0::Bfr::FaceVertex", ptr %108, i64 %indvars.iv170.i
   %110 = load ptr, ptr %104, align 8
-  %111 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Bfr::FaceVertexSubset", ptr %110, i64 %indvars.iv170.i
+  %111 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Bfr::FaceVertexSubset", ptr %110, i64 %indvars.iv170.i
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 6
   %113 = load i16, ptr %112, align 2
   %114 = getelementptr inbounds nuw i8, ptr %111, i64 2
@@ -1183,13 +1183,13 @@ _ZNSt10shared_ptrIKN10OpenSubdiv6v3_6_03Bfr9PatchTreeEEaSEOS5_.exit: ; preds = %
   %126 = or disjoint i8 %125, %122
   %127 = or disjoint i8 %126, %120
   store i16 %113, ptr %.091155.i, align 1
-  %.sroa.3.0..091.sroa_idx.i = getelementptr inbounds i8, ptr %.091155.i, i64 2
+  %.sroa.3.0..091.sroa_idx.i = getelementptr inbounds nuw i8, ptr %.091155.i, i64 2
   store i16 %115, ptr %.sroa.3.0..091.sroa_idx.i, align 1
-  %.sroa.4.0..091.sroa_idx.i = getelementptr inbounds i8, ptr %.091155.i, i64 4
+  %.sroa.4.0..091.sroa_idx.i = getelementptr inbounds nuw i8, ptr %.091155.i, i64 4
   store i8 %127, ptr %.sroa.4.0..091.sroa_idx.i, align 1
-  %.sroa.17.0..091.sroa_idx.i = getelementptr inbounds i8, ptr %.091155.i, i64 5
+  %.sroa.17.0..091.sroa_idx.i = getelementptr inbounds nuw i8, ptr %.091155.i, i64 5
   store i8 0, ptr %.sroa.17.0..091.sroa_idx.i, align 1
-  %128 = getelementptr inbounds i8, ptr %.091155.i, i64 6
+  %128 = getelementptr inbounds nuw i8, ptr %.091155.i, i64 6
   %.not.i = icmp eq i8 %120, 0
   br i1 %.not.i, label %139, label %129
 
@@ -1207,7 +1207,7 @@ _ZNSt10shared_ptrIKN10OpenSubdiv6v3_6_03Bfr9PatchTreeEEaSEOS5_.exit: ; preds = %
 136:                                              ; preds = %133, %129
   %137 = phi float [ %135, %133 ], [ %131, %129 ]
   store float %137, ptr %128, align 1
-  %138 = getelementptr inbounds i8, ptr %.091155.i, i64 10
+  %138 = getelementptr inbounds nuw i8, ptr %.091155.i, i64 10
   br label %139
 
 139:                                              ; preds = %136, %105
@@ -1360,7 +1360,7 @@ _ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex12GetFaceFirstERKNS1_16FaceVertexSubsetE.
 _ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceSizeEi.exit.i: ; preds = %209, %207
   %218 = phi i16 [ %217, %209 ], [ %208, %207 ]
   %219 = load ptr, ptr %5, align 8
-  %220 = getelementptr inbounds i16, ptr %219, i64 %indvars.iv160.i
+  %220 = getelementptr inbounds nuw i16, ptr %219, i64 %indvars.iv160.i
   store i16 %218, ptr %220, align 2
   %221 = load i16, ptr %157, align 2
   %222 = and i16 %221, 256
@@ -1550,7 +1550,7 @@ _ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex12GetFaceFirstERKNS1_16FaceVertexSubsetE.
   %320 = getelementptr inbounds float, ptr %316, i64 %319
   %321 = load float, ptr %320, align 4
   %322 = load ptr, ptr %4, align 8
-  %323 = getelementptr inbounds float, ptr %322, i64 %indvars.iv165.i
+  %323 = getelementptr inbounds nuw float, ptr %322, i64 %indvars.iv165.i
   store float %321, ptr %323, align 4
   %324 = load i16, ptr %266, align 2
   %325 = and i16 %324, 256
@@ -1627,7 +1627,7 @@ _ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceNextEi.exit114.i: ; preds = %338
   store i64 %347, ptr %11, align 8
   %352 = load ptr, ptr %27, align 8
   %353 = load ptr, ptr %352, align 8
-  %354 = getelementptr inbounds i8, ptr %353, i64 16
+  %354 = getelementptr inbounds nuw i8, ptr %353, i64 16
   %355 = load ptr, ptr %354, align 8
   invoke void %355(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %12, ptr noundef nonnull align 8 dereferenceable(56) %352, ptr noundef nonnull align 8 dereferenceable(8) %11)
           to label %356 unwind label %35
@@ -1656,7 +1656,7 @@ _ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceNextEi.exit114.i: ; preds = %338
   %368 = getelementptr inbounds nuw i8, ptr %361, i64 12
   store i32 0, ptr %368, align 4
   %369 = load ptr, ptr %361, align 8
-  %370 = getelementptr inbounds i8, ptr %369, i64 16
+  %370 = getelementptr inbounds nuw i8, ptr %369, i64 16
   %371 = load ptr, ptr %370, align 8
   call void %371(ptr noundef nonnull align 8 dereferenceable(16) %361) #16
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i25
@@ -1682,7 +1682,7 @@ _ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceNextEi.exit114.i: ; preds = %338
 
 380:                                              ; preds = %378
   %381 = load ptr, ptr %361, align 8
-  %382 = getelementptr inbounds i8, ptr %381, i64 16
+  %382 = getelementptr inbounds nuw i8, ptr %381, i64 16
   %383 = load ptr, ptr %382, align 8
   call void %383(ptr noundef nonnull align 8 dereferenceable(16) %361) #16
   %384 = getelementptr inbounds nuw i8, ptr %361, i64 12
@@ -1707,7 +1707,7 @@ _ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceNextEi.exit114.i: ; preds = %338
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i25: ; preds = %391, %367
   %393 = load ptr, ptr %361, align 8
-  %394 = getelementptr inbounds i8, ptr %393, i64 24
+  %394 = getelementptr inbounds nuw i8, ptr %393, i64 24
   %395 = load ptr, ptr %394, align 8
   call void %395(ptr noundef nonnull align 8 dereferenceable(16) %361) #16
   br label %_ZNSt10shared_ptrIKN10OpenSubdiv6v3_6_03Bfr9PatchTreeEEaSEOS5_.exit26
@@ -1729,7 +1729,7 @@ _ZNSt10shared_ptrIKN10OpenSubdiv6v3_6_03Bfr9PatchTreeEEaSEOS5_.exit26: ; preds =
   %403 = getelementptr inbounds nuw i8, ptr %396, i64 12
   store i32 0, ptr %403, align 4
   %404 = load ptr, ptr %396, align 8
-  %405 = getelementptr inbounds i8, ptr %404, i64 16
+  %405 = getelementptr inbounds nuw i8, ptr %404, i64 16
   %406 = load ptr, ptr %405, align 8
   call void %406(ptr noundef nonnull align 8 dereferenceable(16) %396) #16
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i32
@@ -1755,7 +1755,7 @@ _ZNSt10shared_ptrIKN10OpenSubdiv6v3_6_03Bfr9PatchTreeEEaSEOS5_.exit26: ; preds =
 
 415:                                              ; preds = %413
   %416 = load ptr, ptr %396, align 8
-  %417 = getelementptr inbounds i8, ptr %416, i64 16
+  %417 = getelementptr inbounds nuw i8, ptr %416, i64 16
   %418 = load ptr, ptr %417, align 8
   call void %418(ptr noundef nonnull align 8 dereferenceable(16) %396) #16
   %419 = getelementptr inbounds nuw i8, ptr %396, i64 12
@@ -1780,7 +1780,7 @@ _ZNSt10shared_ptrIKN10OpenSubdiv6v3_6_03Bfr9PatchTreeEEaSEOS5_.exit26: ; preds =
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i32: ; preds = %426, %402
   %428 = load ptr, ptr %396, align 8
-  %429 = getelementptr inbounds i8, ptr %428, i64 24
+  %429 = getelementptr inbounds nuw i8, ptr %428, i64 24
   %430 = load ptr, ptr %429, align 8
   call void %430(ptr noundef nonnull align 8 dereferenceable(16) %396) #16
   br label %_ZNSt10shared_ptrIKN10OpenSubdiv6v3_6_03Bfr9PatchTreeEED2Ev.exit33
@@ -1797,7 +1797,7 @@ _ZNSt10shared_ptrIKN10OpenSubdiv6v3_6_03Bfr9PatchTreeEED2Ev.exit33: ; preds = %_
 
 434:                                              ; preds = %432
   %435 = load ptr, ptr %433, align 8
-  %436 = getelementptr inbounds i8, ptr %435, i64 24
+  %436 = getelementptr inbounds nuw i8, ptr %435, i64 24
   %437 = load ptr, ptr %436, align 8
   invoke void %437(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %13, ptr noundef nonnull align 8 dereferenceable(56) %433, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(16) %14)
           to label %438 unwind label %548
@@ -1825,7 +1825,7 @@ _ZNSt10shared_ptrIKN10OpenSubdiv6v3_6_03Bfr9PatchTreeEED2Ev.exit33: ; preds = %_
   %449 = getelementptr inbounds nuw i8, ptr %442, i64 12
   store i32 0, ptr %449, align 4
   %450 = load ptr, ptr %442, align 8
-  %451 = getelementptr inbounds i8, ptr %450, i64 16
+  %451 = getelementptr inbounds nuw i8, ptr %450, i64 16
   %452 = load ptr, ptr %451, align 8
   call void %452(ptr noundef nonnull align 8 dereferenceable(16) %442) #16
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i40
@@ -1851,7 +1851,7 @@ _ZNSt10shared_ptrIKN10OpenSubdiv6v3_6_03Bfr9PatchTreeEED2Ev.exit33: ; preds = %_
 
 461:                                              ; preds = %459
   %462 = load ptr, ptr %442, align 8
-  %463 = getelementptr inbounds i8, ptr %462, i64 16
+  %463 = getelementptr inbounds nuw i8, ptr %462, i64 16
   %464 = load ptr, ptr %463, align 8
   call void %464(ptr noundef nonnull align 8 dereferenceable(16) %442) #16
   %465 = getelementptr inbounds nuw i8, ptr %442, i64 12
@@ -1876,7 +1876,7 @@ _ZNSt10shared_ptrIKN10OpenSubdiv6v3_6_03Bfr9PatchTreeEED2Ev.exit33: ; preds = %_
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i40: ; preds = %472, %448
   %474 = load ptr, ptr %442, align 8
-  %475 = getelementptr inbounds i8, ptr %474, i64 24
+  %475 = getelementptr inbounds nuw i8, ptr %474, i64 24
   %476 = load ptr, ptr %475, align 8
   call void %476(ptr noundef nonnull align 8 dereferenceable(16) %442) #16
   br label %_ZNSt10shared_ptrIKN10OpenSubdiv6v3_6_03Bfr9PatchTreeEEaSEOS5_.exit41
@@ -1898,7 +1898,7 @@ _ZNSt10shared_ptrIKN10OpenSubdiv6v3_6_03Bfr9PatchTreeEEaSEOS5_.exit41: ; preds =
   %484 = getelementptr inbounds nuw i8, ptr %477, i64 12
   store i32 0, ptr %484, align 4
   %485 = load ptr, ptr %477, align 8
-  %486 = getelementptr inbounds i8, ptr %485, i64 16
+  %486 = getelementptr inbounds nuw i8, ptr %485, i64 16
   %487 = load ptr, ptr %486, align 8
   call void %487(ptr noundef nonnull align 8 dereferenceable(16) %477) #16
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i47
@@ -1924,7 +1924,7 @@ _ZNSt10shared_ptrIKN10OpenSubdiv6v3_6_03Bfr9PatchTreeEEaSEOS5_.exit41: ; preds =
 
 496:                                              ; preds = %494
   %497 = load ptr, ptr %477, align 8
-  %498 = getelementptr inbounds i8, ptr %497, i64 16
+  %498 = getelementptr inbounds nuw i8, ptr %497, i64 16
   %499 = load ptr, ptr %498, align 8
   call void %499(ptr noundef nonnull align 8 dereferenceable(16) %477) #16
   %500 = getelementptr inbounds nuw i8, ptr %477, i64 12
@@ -1949,7 +1949,7 @@ _ZNSt10shared_ptrIKN10OpenSubdiv6v3_6_03Bfr9PatchTreeEEaSEOS5_.exit41: ; preds =
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i47: ; preds = %507, %483
   %509 = load ptr, ptr %477, align 8
-  %510 = getelementptr inbounds i8, ptr %509, i64 24
+  %510 = getelementptr inbounds nuw i8, ptr %509, i64 24
   %511 = load ptr, ptr %510, align 8
   call void %511(ptr noundef nonnull align 8 dereferenceable(16) %477) #16
   br label %_ZNSt10shared_ptrIKN10OpenSubdiv6v3_6_03Bfr9PatchTreeEED2Ev.exit48
@@ -1972,7 +1972,7 @@ _ZNSt10shared_ptrIKN10OpenSubdiv6v3_6_03Bfr9PatchTreeEED2Ev.exit48: ; preds = %_
   %520 = getelementptr inbounds nuw i8, ptr %513, i64 12
   store i32 0, ptr %520, align 4
   %521 = load ptr, ptr %513, align 8
-  %522 = getelementptr inbounds i8, ptr %521, i64 16
+  %522 = getelementptr inbounds nuw i8, ptr %521, i64 16
   %523 = load ptr, ptr %522, align 8
   call void %523(ptr noundef nonnull align 8 dereferenceable(16) %513) #16
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i54
@@ -1998,7 +1998,7 @@ _ZNSt10shared_ptrIKN10OpenSubdiv6v3_6_03Bfr9PatchTreeEED2Ev.exit48: ; preds = %_
 
 532:                                              ; preds = %530
   %533 = load ptr, ptr %513, align 8
-  %534 = getelementptr inbounds i8, ptr %533, i64 16
+  %534 = getelementptr inbounds nuw i8, ptr %533, i64 16
   %535 = load ptr, ptr %534, align 8
   call void %535(ptr noundef nonnull align 8 dereferenceable(16) %513) #16
   %536 = getelementptr inbounds nuw i8, ptr %513, i64 12
@@ -2023,7 +2023,7 @@ _ZNSt10shared_ptrIKN10OpenSubdiv6v3_6_03Bfr9PatchTreeEED2Ev.exit48: ; preds = %_
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i54: ; preds = %543, %519
   %545 = load ptr, ptr %513, align 8
-  %546 = getelementptr inbounds i8, ptr %545, i64 24
+  %546 = getelementptr inbounds nuw i8, ptr %545, i64 24
   %547 = load ptr, ptr %546, align 8
   call void %547(ptr noundef nonnull align 8 dereferenceable(16) %513) #16
   br label %550
@@ -2101,7 +2101,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i
   %583 = getelementptr inbounds nuw i8, ptr %576, i64 12
   store i32 0, ptr %583, align 4
   %584 = load ptr, ptr %576, align 8
-  %585 = getelementptr inbounds i8, ptr %584, i64 16
+  %585 = getelementptr inbounds nuw i8, ptr %584, i64 16
   %586 = load ptr, ptr %585, align 8
   call void %586(ptr noundef nonnull align 8 dereferenceable(16) %576) #16
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i61
@@ -2127,7 +2127,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i
 
 595:                                              ; preds = %593
   %596 = load ptr, ptr %576, align 8
-  %597 = getelementptr inbounds i8, ptr %596, i64 16
+  %597 = getelementptr inbounds nuw i8, ptr %596, i64 16
   %598 = load ptr, ptr %597, align 8
   call void %598(ptr noundef nonnull align 8 dereferenceable(16) %576) #16
   %599 = getelementptr inbounds nuw i8, ptr %576, i64 12
@@ -2152,7 +2152,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i61: ; preds = %606, %582
   %608 = load ptr, ptr %576, align 8
-  %609 = getelementptr inbounds i8, ptr %608, i64 24
+  %609 = getelementptr inbounds nuw i8, ptr %608, i64 24
   %610 = load ptr, ptr %609, align 8
   call void %610(ptr noundef nonnull align 8 dereferenceable(16) %576) #16
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i
@@ -2234,7 +2234,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr8internal11SurfaceData16setIrregPatchPtrERKSt10shared_
   %645 = getelementptr inbounds nuw i8, ptr %638, i64 12
   store i32 0, ptr %645, align 4
   %646 = load ptr, ptr %638, align 8
-  %647 = getelementptr inbounds i8, ptr %646, i64 16
+  %647 = getelementptr inbounds nuw i8, ptr %646, i64 16
   %648 = load ptr, ptr %647, align 8
   call void %648(ptr noundef nonnull align 8 dereferenceable(16) %638) #16
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i68
@@ -2260,7 +2260,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr8internal11SurfaceData16setIrregPatchPtrERKSt10shared_
 
 657:                                              ; preds = %655
   %658 = load ptr, ptr %638, align 8
-  %659 = getelementptr inbounds i8, ptr %658, i64 16
+  %659 = getelementptr inbounds nuw i8, ptr %658, i64 16
   %660 = load ptr, ptr %659, align 8
   call void %660(ptr noundef nonnull align 8 dereferenceable(16) %638) #16
   %661 = getelementptr inbounds nuw i8, ptr %638, i64 12
@@ -2285,7 +2285,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr8internal11SurfaceData16setIrregPatchPtrERKSt10shared_
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i68: ; preds = %668, %644
   %670 = load ptr, ptr %638, align 8
-  %671 = getelementptr inbounds i8, ptr %670, i64 24
+  %671 = getelementptr inbounds nuw i8, ptr %670, i64 24
   %672 = load ptr, ptr %671, align 8
   call void %672(ptr noundef nonnull align 8 dereferenceable(16) %638) #16
   br label %_ZNSt10shared_ptrIKN10OpenSubdiv6v3_6_03Bfr9PatchTreeEED2Ev.exit69
@@ -2307,7 +2307,7 @@ _ZNSt10shared_ptrIKN10OpenSubdiv6v3_6_03Bfr9PatchTreeEED2Ev.exit69: ; preds = %6
 
 _ZNSt6vectorIiSaIiEED2Ev.exit.i:                  ; preds = %675, %_ZNSt10shared_ptrIKN10OpenSubdiv6v3_6_03Bfr9PatchTreeEED2Ev.exit69
   %681 = getelementptr inbounds nuw i8, ptr %8, i64 224
-  %682 = getelementptr inbounds i8, ptr %8, i64 240
+  %682 = getelementptr inbounds nuw i8, ptr %8, i64 240
   %683 = load ptr, ptr %682, align 8
   invoke void @_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef nonnull align 8 dereferenceable(48) %681, ptr noundef %683)
           to label %_ZN10OpenSubdiv6v3_6_03Bfr21IrregularPatchBuilderD2Ev.exit unwind label %684
@@ -2355,7 +2355,7 @@ define linkonce_odr void @_ZNSt10shared_ptrIKN10OpenSubdiv6v3_6_03Bfr9PatchTreeE
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 0, ptr %10, align 4
   %11 = load ptr, ptr %3, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #16
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i
@@ -2381,7 +2381,7 @@ define linkonce_odr void @_ZNSt10shared_ptrIKN10OpenSubdiv6v3_6_03Bfr9PatchTreeE
 
 22:                                               ; preds = %20
   %23 = load ptr, ptr %3, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load ptr, ptr %24, align 8
   tail call void %25(ptr noundef nonnull align 8 dereferenceable(16) %3) #16
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 12
@@ -2406,7 +2406,7 @@ define linkonce_odr void @_ZNSt10shared_ptrIKN10OpenSubdiv6v3_6_03Bfr9PatchTreeE
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i: ; preds = %33, %9
   %35 = load ptr, ptr %3, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %37 = load ptr, ptr %36, align 8
   tail call void %37(ptr noundef nonnull align 8 dereferenceable(16) %3) #16
   br label %_ZNSt12__shared_ptrIKN10OpenSubdiv6v3_6_03Bfr9PatchTreeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
@@ -2435,7 +2435,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Bfr21IrregularPatchBuilderD2Ev(
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %1, %4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  %11 = getelementptr inbounds i8, ptr %0, i64 240
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %12 = load ptr, ptr %11, align 8
   invoke void @_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef %12)
           to label %_ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEED2Ev.exit unwind label %13
@@ -2645,7 +2645,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i
   %85 = getelementptr inbounds nuw i8, ptr %78, i64 12
   store i32 0, ptr %85, align 4
   %86 = load ptr, ptr %78, align 8
-  %87 = getelementptr inbounds i8, ptr %86, i64 16
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 16
   %88 = load ptr, ptr %87, align 8
   tail call void %88(ptr noundef nonnull align 8 dereferenceable(16) %78) #16
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
@@ -2671,7 +2671,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i
 
 97:                                               ; preds = %95
   %98 = load ptr, ptr %78, align 8
-  %99 = getelementptr inbounds i8, ptr %98, i64 16
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 16
   %100 = load ptr, ptr %99, align 8
   tail call void %100(ptr noundef nonnull align 8 dereferenceable(16) %78) #16
   %101 = getelementptr inbounds nuw i8, ptr %78, i64 12
@@ -2696,7 +2696,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i: ; preds = %108, %84
   %110 = load ptr, ptr %78, align 8
-  %111 = getelementptr inbounds i8, ptr %110, i64 24
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 24
   %112 = load ptr, ptr %111, align 8
   tail call void %112(ptr noundef nonnull align 8 dereferenceable(16) %78) #16
   br label %_ZN10OpenSubdiv6v3_6_03Bfr8internal11SurfaceData16setIrregPatchPtrERKSt10shared_ptrIKNS1_9PatchTreeEE.exit
@@ -2717,7 +2717,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr8internal11SurfaceData16setIrregPatchPtrERKSt10shared_
   %118 = getelementptr inbounds nuw i8, ptr %56, i64 12
   store i32 0, ptr %118, align 4
   %119 = load ptr, ptr %56, align 8
-  %120 = getelementptr inbounds i8, ptr %119, i64 16
+  %120 = getelementptr inbounds nuw i8, ptr %119, i64 16
   %121 = load ptr, ptr %120, align 8
   tail call void %121(ptr noundef nonnull align 8 dereferenceable(16) %56) #16
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
@@ -2743,7 +2743,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr8internal11SurfaceData16setIrregPatchPtrERKSt10shared_
 
 130:                                              ; preds = %128
   %131 = load ptr, ptr %56, align 8
-  %132 = getelementptr inbounds i8, ptr %131, i64 16
+  %132 = getelementptr inbounds nuw i8, ptr %131, i64 16
   %133 = load ptr, ptr %132, align 8
   tail call void %133(ptr noundef nonnull align 8 dereferenceable(16) %56) #16
   %134 = getelementptr inbounds nuw i8, ptr %56, i64 12
@@ -2768,7 +2768,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr8internal11SurfaceData16setIrregPatchPtrERKSt10shared_
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i: ; preds = %141, %117
   %143 = load ptr, ptr %56, align 8
-  %144 = getelementptr inbounds i8, ptr %143, i64 24
+  %144 = getelementptr inbounds nuw i8, ptr %143, i64 24
   %145 = load ptr, ptr %144, align 8
   tail call void %145(ptr noundef nonnull align 8 dereferenceable(16) %56) #16
   br label %_ZNSt10shared_ptrIKN10OpenSubdiv6v3_6_03Bfr9PatchTreeEED2Ev.exit
@@ -2801,7 +2801,7 @@ _ZNSt10shared_ptrIKN10OpenSubdiv6v3_6_03Bfr9PatchTreeEED2Ev.exit: ; preds = %_ZN
 
 _ZNSt6vectorIiSaIiEED2Ev.exit.i:                  ; preds = %153, %150
   %159 = getelementptr inbounds nuw i8, ptr %6, i64 224
-  %160 = getelementptr inbounds i8, ptr %6, i64 240
+  %160 = getelementptr inbounds nuw i8, ptr %6, i64 240
   %161 = load ptr, ptr %160, align 8
   invoke void @_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef nonnull align 8 dereferenceable(48) %159, ptr noundef %161)
           to label %_ZN10OpenSubdiv6v3_6_03Bfr21IrregularPatchBuilderD2Ev.exit unwind label %162
@@ -2836,7 +2836,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr21IrregularPatchBuilderD2Ev.exit: ; preds = %_ZNSt6vec
 define noundef zeroext i1 @_ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory28initFaceNeighborhoodTopologyEiPNS1_12FaceTopologyE(ptr noundef nonnull align 8 dereferenceable(56) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.OpenSubdiv::v3_6_0::Vtr::internal::StackBuffer.37", align 8
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef i32 %7(ptr noundef nonnull align 8 dereferenceable(56) %0, i32 noundef %1)
   tail call void @_ZN10OpenSubdiv6v3_6_03Bfr12FaceTopology10InitializeEi(ptr noundef nonnull align 8 dereferenceable(944) %2, i32 noundef %8)
@@ -2852,11 +2852,11 @@ define noundef zeroext i1 @_ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory28initFace
 12:                                               ; preds = %22, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %22 ]
   %13 = load ptr, ptr %10, align 8
-  %14 = getelementptr inbounds %"class.OpenSubdiv::v3_6_0::Bfr::FaceVertex", ptr %13, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw %"class.OpenSubdiv::v3_6_0::Bfr::FaceVertex", ptr %13, i64 %indvars.iv.i
   %15 = load i32, ptr %11, align 4
   tail call void @_ZN10OpenSubdiv6v3_6_03Bfr10FaceVertex10InitializeEii(ptr noundef nonnull align 8 dereferenceable(224) %14, i32 noundef %8, i32 noundef %15)
   %16 = load ptr, ptr %0, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 48
   %18 = load ptr, ptr %17, align 8
   %19 = trunc nuw nsw i64 %indvars.iv.i to i32
   %20 = tail call noundef i32 %18(ptr noundef nonnull align 8 dereferenceable(56) %0, i32 noundef %1, i32 noundef %19, ptr noundef nonnull %14)
@@ -2917,7 +2917,7 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj72ELb1EEC2Ej.exit: ; preds =
   %.02328.us.i = phi i32 [ %54, %51 ], [ 0, %.lr.ph.i12 ]
   %.02427.us.i = phi ptr [ %53, %51 ], [ %38, %.lr.ph.i12 ]
   %43 = load ptr, ptr %0, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 56
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 56
   %45 = load ptr, ptr %44, align 8
   %46 = trunc nuw nsw i64 %indvars.iv36.i to i32
   %47 = invoke noundef i32 %45(ptr noundef nonnull align 8 dereferenceable(56) %0, i32 noundef %1, i32 noundef %46, ptr noundef %.02427.us.i)
@@ -2925,7 +2925,7 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj72ELb1EEC2Ej.exit: ; preds =
 
 .noexc:                                           ; preds = %.lr.ph.split.us.i
   %48 = load ptr, ptr %42, align 8
-  %49 = getelementptr inbounds %"class.OpenSubdiv::v3_6_0::Bfr::FaceVertex", ptr %48, i64 %indvars.iv36.i, i32 6
+  %49 = getelementptr inbounds nuw %"class.OpenSubdiv::v3_6_0::Bfr::FaceVertex", ptr %48, i64 %indvars.iv36.i, i32 6
   %50 = load i32, ptr %49, align 8
   %.not.us.i = icmp eq i32 %47, %50
   br i1 %.not.us.i, label %51, label %_ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory29gatherFaceNeighborhoodIndicesEiRKNS1_12FaceTopologyEPKlPi.exit.thread14
@@ -2981,7 +2981,7 @@ _ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory30gatherFaceNeighborhoodTopologyEiPNS
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory30gatherFaceNeighborhoodTopologyEiPNS1_12FaceTopologyE(ptr noundef nonnull align 8 dereferenceable(56) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #2 align 2 {
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef i32 %6(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %1)
   tail call void @_ZN10OpenSubdiv6v3_6_03Bfr12FaceTopology10InitializeEi(ptr noundef nonnull align 8 dereferenceable(944) %2, i32 noundef %7)
@@ -2997,11 +2997,11 @@ define noundef zeroext i1 @_ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory30gatherFa
 11:                                               ; preds = %.lr.ph, %21
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %21 ]
   %12 = load ptr, ptr %9, align 8
-  %13 = getelementptr inbounds %"class.OpenSubdiv::v3_6_0::Bfr::FaceVertex", ptr %12, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw %"class.OpenSubdiv::v3_6_0::Bfr::FaceVertex", ptr %12, i64 %indvars.iv
   %14 = load i32, ptr %10, align 4
   tail call void @_ZN10OpenSubdiv6v3_6_03Bfr10FaceVertex10InitializeEii(ptr noundef nonnull align 8 dereferenceable(224) %13, i32 noundef %7, i32 noundef %14)
   %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 48
   %17 = load ptr, ptr %16, align 8
   %18 = trunc nuw nsw i64 %indvars.iv to i32
   %19 = tail call noundef i32 %17(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %1, i32 noundef %18, ptr noundef nonnull %13)
@@ -3041,12 +3041,12 @@ define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory29gatherFaceNeigh
   %.02328.us = phi i32 [ %22, %19 ], [ 0, %.lr.ph ]
   %.02427.us = phi ptr [ %21, %19 ], [ %4, %.lr.ph ]
   %11 = load ptr, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 56
   %13 = load ptr, ptr %12, align 8
   %14 = trunc nuw nsw i64 %indvars.iv36 to i32
   %15 = tail call noundef i32 %13(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %1, i32 noundef %14, ptr noundef %.02427.us)
   %16 = load ptr, ptr %10, align 8
-  %17 = getelementptr inbounds %"class.OpenSubdiv::v3_6_0::Bfr::FaceVertex", ptr %16, i64 %indvars.iv36, i32 6
+  %17 = getelementptr inbounds nuw %"class.OpenSubdiv::v3_6_0::Bfr::FaceVertex", ptr %16, i64 %indvars.iv36, i32 6
   %18 = load i32, ptr %17, align 8
   %.not.us = icmp eq i32 %15, %18
   br i1 %.not.us, label %19, label %._crit_edge
@@ -3065,12 +3065,12 @@ define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory29gatherFaceNeigh
   %.02427 = phi ptr [ %34, %32 ], [ %4, %.lr.ph ]
   %23 = load i64, ptr %3, align 8
   %24 = load ptr, ptr %0, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 64
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 64
   %26 = load ptr, ptr %25, align 8
   %27 = trunc nuw nsw i64 %indvars.iv to i32
   %28 = tail call noundef i32 %26(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %1, i32 noundef %27, i64 noundef %23, ptr noundef %.02427)
   %29 = load ptr, ptr %10, align 8
-  %30 = getelementptr inbounds %"class.OpenSubdiv::v3_6_0::Bfr::FaceVertex", ptr %29, i64 %indvars.iv, i32 6
+  %30 = getelementptr inbounds nuw %"class.OpenSubdiv::v3_6_0::Bfr::FaceVertex", ptr %29, i64 %indvars.iv, i32 6
   %31 = load i32, ptr %30, align 8
   %.not = icmp eq i32 %28, %31
   br i1 %.not, label %32, label %._crit_edge
@@ -3153,12 +3153,12 @@ _ZN10OpenSubdiv6v3_6_03Bfr8internal11SurfaceData12reinitializeEv.exit7.i: ; pred
   br i1 %.not.i8.i, label %31, label %29
 
 29:                                               ; preds = %26
-  %30 = getelementptr inbounds %"class.OpenSubdiv::v3_6_0::Bfr::internal::SurfaceData", ptr %28, i64 %indvars.iv.i
+  %30 = getelementptr inbounds nuw %"class.OpenSubdiv::v3_6_0::Bfr::internal::SurfaceData", ptr %28, i64 %indvars.iv.i
   br label %_ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory10SurfaceSet14GetFVarSurfaceEi.exit.i
 
 31:                                               ; preds = %26
   %32 = load ptr, ptr %25, align 8
-  %33 = getelementptr inbounds ptr, ptr %32, i64 %indvars.iv.i
+  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv.i
   %34 = load ptr, ptr %33, align 8
   br label %_ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory10SurfaceSet14GetFVarSurfaceEi.exit.i
 
@@ -3184,7 +3184,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr8internal11SurfaceData12reinitializeEv.exit10.i: ; pre
 
 _ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory10SurfaceSet18InitializeSurfacesEv.exit: ; preds = %_ZN10OpenSubdiv6v3_6_03Bfr8internal11SurfaceData12reinitializeEv.exit10.i, %_ZN10OpenSubdiv6v3_6_03Bfr8internal11SurfaceData12reinitializeEv.exit7.i
   %43 = load ptr, ptr %0, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 24
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 24
   %45 = load ptr, ptr %44, align 8
   %46 = tail call noundef i32 %45(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %1)
   %47 = add i32 %46, -65536
@@ -3193,7 +3193,7 @@ _ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory10SurfaceSet18InitializeSurfacesEv.ex
 
 _ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory18faceHasLimitSimpleEii.exit: ; preds = %_ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory10SurfaceSet18InitializeSurfacesEv.exit
   %48 = load ptr, ptr %0, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %50 = load ptr, ptr %49, align 8
   %51 = tail call noundef zeroext i1 %50(ptr noundef nonnull align 8 dereferenceable(56) %0, i32 noundef %1)
   br i1 %51, label %_ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory18faceHasLimitSimpleEii.exit.thread, label %52
@@ -3336,7 +3336,7 @@ define noundef zeroext i1 @_ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory25populate
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 141
   store i8 0, ptr %36, align 1
   %37 = load ptr, ptr %0, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 72
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 72
   %39 = load ptr, ptr %38, align 8
   %40 = invoke noundef zeroext i1 %39(ptr noundef nonnull align 8 dereferenceable(56) %0, i32 noundef %1, ptr noundef nonnull %24)
           to label %_ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory25isFaceNeighborhoodRegularEiPKlPi.exit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
@@ -3378,7 +3378,7 @@ _ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory25isFaceNeighborhoodRegularEiPKlPi.ex
 
 44:                                               ; preds = %_ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory25isFaceNeighborhoodRegularEiPKlPi.exit
   %45 = load ptr, ptr %0, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 24
   %47 = load ptr, ptr %46, align 8
   %48 = invoke noundef i32 %47(ptr noundef nonnull align 8 dereferenceable(56) %0, i32 noundef %1)
           to label %.noexc unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
@@ -3400,14 +3400,14 @@ _ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory25isFaceNeighborhoodRegularEiPKlPi.ex
 52:                                               ; preds = %.noexc67, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %.noexc67 ]
   %53 = load ptr, ptr %50, align 8
-  %54 = getelementptr inbounds %"class.OpenSubdiv::v3_6_0::Bfr::FaceVertex", ptr %53, i64 %indvars.iv.i
+  %54 = getelementptr inbounds nuw %"class.OpenSubdiv::v3_6_0::Bfr::FaceVertex", ptr %53, i64 %indvars.iv.i
   %55 = load i32, ptr %51, align 4
   invoke void @_ZN10OpenSubdiv6v3_6_03Bfr10FaceVertex10InitializeEii(ptr noundef nonnull align 8 dereferenceable(224) %54, i32 noundef %48, i32 noundef %55)
           to label %.noexc65 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc65:                                         ; preds = %52
   %56 = load ptr, ptr %0, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 48
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 48
   %58 = load ptr, ptr %57, align 8
   %59 = trunc nuw nsw i64 %indvars.iv.i to i32
   %60 = invoke noundef i32 %58(ptr noundef nonnull align 8 dereferenceable(56) %0, i32 noundef %1, i32 noundef %59, ptr noundef nonnull %54)
@@ -3495,7 +3495,7 @@ _ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory25isFaceNeighborhoodRegularEiPKlPi.ex
   %.02328.us.i = phi i32 [ %99, %96 ], [ 0, %.lr.ph.i71 ]
   %.02427.us.i = phi ptr [ %98, %96 ], [ %86, %.lr.ph.i71 ]
   %88 = load ptr, ptr %0, align 8
-  %89 = getelementptr inbounds i8, ptr %88, i64 56
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 56
   %90 = load ptr, ptr %89, align 8
   %91 = trunc nuw nsw i64 %indvars.iv36.i to i32
   %92 = invoke noundef i32 %90(ptr noundef nonnull align 8 dereferenceable(56) %0, i32 noundef %1, i32 noundef %91, ptr noundef %.02427.us.i)
@@ -3503,7 +3503,7 @@ _ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory25isFaceNeighborhoodRegularEiPKlPi.ex
 
 .noexc72:                                         ; preds = %.lr.ph.split.us.i
   %93 = load ptr, ptr %87, align 8
-  %94 = getelementptr inbounds %"class.OpenSubdiv::v3_6_0::Bfr::FaceVertex", ptr %93, i64 %indvars.iv36.i, i32 6
+  %94 = getelementptr inbounds nuw %"class.OpenSubdiv::v3_6_0::Bfr::FaceVertex", ptr %93, i64 %indvars.iv36.i, i32 6
   %95 = load i32, ptr %94, align 8
   %.not.us.i = icmp eq i32 %92, %95
   br i1 %.not.us.i, label %96, label %_ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory30gatherFaceNeighborhoodTopologyEiPNS1_12FaceTopologyE.exit
@@ -3634,12 +3634,12 @@ _ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory24faceHasLimitNeighborhoodERKNS1_12Fa
   br i1 %.not.i74, label %160, label %158
 
 158:                                              ; preds = %156
-  %159 = getelementptr inbounds %"class.OpenSubdiv::v3_6_0::Bfr::internal::SurfaceData", ptr %157, i64 %indvars.iv
+  %159 = getelementptr inbounds nuw %"class.OpenSubdiv::v3_6_0::Bfr::internal::SurfaceData", ptr %157, i64 %indvars.iv
   br label %_ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory10SurfaceSet14GetFVarSurfaceEi.exit
 
 160:                                              ; preds = %156
   %161 = load ptr, ptr %141, align 8
-  %162 = getelementptr inbounds ptr, ptr %161, i64 %indvars.iv
+  %162 = getelementptr inbounds nuw ptr, ptr %161, i64 %indvars.iv
   %163 = load ptr, ptr %162, align 8
   br label %_ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory10SurfaceSet14GetFVarSurfaceEi.exit
 
@@ -3650,7 +3650,7 @@ _ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory10SurfaceSet14GetFVarSurfaceEi.exit: 
   br i1 %.not.i75, label %_ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory10SurfaceSet16GetFVarSurfaceIDEi.exit, label %166
 
 166:                                              ; preds = %_ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory10SurfaceSet14GetFVarSurfaceEi.exit
-  %167 = getelementptr inbounds i64, ptr %165, i64 %indvars.iv
+  %167 = getelementptr inbounds nuw i64, ptr %165, i64 %indvars.iv
   %168 = load i64, ptr %167, align 8
   br label %_ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory10SurfaceSet16GetFVarSurfaceIDEi.exit
 
@@ -3661,7 +3661,7 @@ _ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory10SurfaceSet16GetFVarSurfaceIDEi.exit
 170:                                              ; preds = %_ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory10SurfaceSet16GetFVarSurfaceIDEi.exit
   %171 = load ptr, ptr %5, align 8
   %172 = load ptr, ptr %0, align 8
-  %173 = getelementptr inbounds i8, ptr %172, i64 80
+  %173 = getelementptr inbounds nuw i8, ptr %172, i64 80
   %174 = load ptr, ptr %173, align 8
   %175 = invoke noundef zeroext i1 %174(ptr noundef nonnull align 8 dereferenceable(56) %0, i32 noundef %1, i64 noundef %169, ptr noundef %171)
           to label %_ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory25isFaceNeighborhoodRegularEiPKlPi.exit77 unwind label %.loopexit.split-lp.loopexit
@@ -3743,7 +3743,7 @@ _ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory25isFaceNeighborhoodRegularEiPKlPi.ex
   %.02328.i = phi i32 [ %210, %207 ], [ 0, %.lr.ph.i82 ]
   %.02427.i = phi ptr [ %209, %207 ], [ %.pre148, %.lr.ph.i82 ]
   %199 = load ptr, ptr %0, align 8
-  %200 = getelementptr inbounds i8, ptr %199, i64 64
+  %200 = getelementptr inbounds nuw i8, ptr %199, i64 64
   %201 = load ptr, ptr %200, align 8
   %202 = trunc nuw nsw i64 %indvars.iv.i84 to i32
   %203 = invoke noundef i32 %201(ptr noundef nonnull align 8 dereferenceable(56) %0, i32 noundef %1, i32 noundef %202, i64 noundef %169, ptr noundef %.02427.i)
@@ -3751,7 +3751,7 @@ _ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory25isFaceNeighborhoodRegularEiPKlPi.ex
 
 .noexc95:                                         ; preds = %.lr.ph.split.i
   %204 = load ptr, ptr %145, align 8
-  %205 = getelementptr inbounds %"class.OpenSubdiv::v3_6_0::Bfr::FaceVertex", ptr %204, i64 %indvars.iv.i84, i32 6
+  %205 = getelementptr inbounds nuw %"class.OpenSubdiv::v3_6_0::Bfr::FaceVertex", ptr %204, i64 %indvars.iv.i84, i32 6
   %206 = load i32, ptr %205, align 8
   %.not.i85 = icmp eq i32 %203, %206
   br i1 %.not.i85, label %207, label %_ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory30gatherFaceNeighborhoodTopologyEiPNS1_12FaceTopologyE.exit
@@ -3859,7 +3859,7 @@ _ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory30gatherFaceNeighborhoodTopologyEiPNS
 .lr.ph.i.i.i:                                     ; preds = %_ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory30gatherFaceNeighborhoodTopologyEiPNS1_12FaceTopologyE.exit, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %.lr.ph.i.i.i ], [ 0, %_ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory30gatherFaceNeighborhoodTopologyEiPNS1_12FaceTopologyE.exit ]
   %235 = load ptr, ptr %232, align 8
-  %236 = getelementptr inbounds %"class.OpenSubdiv::v3_6_0::Bfr::FaceVertex", ptr %235, i64 %indvars.iv.i.i.i
+  %236 = getelementptr inbounds nuw %"class.OpenSubdiv::v3_6_0::Bfr::FaceVertex", ptr %235, i64 %indvars.iv.i.i.i
   %237 = getelementptr inbounds nuw i8, ptr %236, i64 168
   %238 = getelementptr inbounds nuw i8, ptr %236, i64 216
   %239 = load ptr, ptr %238, align 8
@@ -3966,7 +3966,7 @@ define noundef zeroext i1 @_ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory22populate
   br i1 %.not.i, label %_ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory10SurfaceSet16GetFVarSurfaceIDEi.exit, label %28
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds i64, ptr %27, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw i64, ptr %27, i64 %indvars.iv
   %30 = load i64, ptr %29, align 8
   br label %_ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory10SurfaceSet16GetFVarSurfaceIDEi.exit
 
@@ -3978,12 +3978,12 @@ _ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory10SurfaceSet16GetFVarSurfaceIDEi.exit
   br i1 %.not.i17, label %35, label %33
 
 33:                                               ; preds = %_ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory10SurfaceSet16GetFVarSurfaceIDEi.exit
-  %34 = getelementptr inbounds %"class.OpenSubdiv::v3_6_0::Bfr::internal::SurfaceData", ptr %32, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw %"class.OpenSubdiv::v3_6_0::Bfr::internal::SurfaceData", ptr %32, i64 %indvars.iv
   br label %_ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory10SurfaceSet14GetFVarSurfaceEi.exit
 
 35:                                               ; preds = %_ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory10SurfaceSet16GetFVarSurfaceIDEi.exit
   %36 = load ptr, ptr %25, align 8
-  %37 = getelementptr inbounds ptr, ptr %36, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv
   %38 = load ptr, ptr %37, align 8
   br label %_ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory10SurfaceSet14GetFVarSurfaceEi.exit
 
@@ -4015,7 +4015,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Bfr12FaceTopologyD2Ev(ptr nound
 .lr.ph.i.i:                                       ; preds = %1, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 0, %1 ]
   %5 = load ptr, ptr %2, align 8
-  %6 = getelementptr inbounds %"class.OpenSubdiv::v3_6_0::Bfr::FaceVertex", ptr %5, i64 %indvars.iv.i.i
+  %6 = getelementptr inbounds nuw %"class.OpenSubdiv::v3_6_0::Bfr::FaceVertex", ptr %5, i64 %indvars.iv.i.i
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 168
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 216
   %9 = load ptr, ptr %8, align 8
@@ -4062,7 +4062,7 @@ declare void @_ZN10OpenSubdiv6v3_6_03Bfr11FaceSurface10InitializeERKS2_PKi(ptr n
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZNK10OpenSubdiv6v3_6_03Bfr14SurfaceFactory12initSurfacesEiPNS1_8internal11SurfaceDataES5_S5_iPKl(ptr noundef nonnull align 8 dereferenceable(56) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %6) local_unnamed_addr #2 align 2 {
   %8 = alloca %"class.OpenSubdiv::v3_6_0::Bfr::SurfaceFactory::SurfaceSet", align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store i64 0, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %2, ptr %10, align 8

@@ -54,14 +54,14 @@ define internal range(i32 0, 78) i32 @bzip2_reader_bid(ptr nocapture readnone %0
   br i1 %.not, label %7, label %17
 
 7:                                                ; preds = %6
-  %8 = getelementptr inbounds i8, ptr %4, i64 3
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 3
   %9 = load i8, ptr %8, align 1
   %10 = add i8 %9, -58
   %or.cond = icmp ult i8 %10, -9
   br i1 %or.cond, label %17, label %11
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %4, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %bcmp15 = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %12, ptr noundef nonnull dereferenceable(6) @.str.2, i64 6)
   %13 = icmp eq i32 %bcmp15, 0
   br i1 %13, label %16, label %14
@@ -81,9 +81,9 @@ define internal range(i32 0, 78) i32 @bzip2_reader_bid(ptr nocapture readnone %0
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -30, 1) i32 @bzip2_reader_init(ptr nocapture noundef initializes((48, 60)) %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 2, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr @.str, ptr %3, align 8
   %4 = tail call noalias dereferenceable_or_null(104) ptr @calloc(i64 noundef 104, i64 noundef 1) #8
   %5 = tail call noalias dereferenceable_or_null(65536) ptr @malloc(i64 noundef 65536) #9
@@ -93,7 +93,7 @@ define internal range(i32 -30, 1) i32 @bzip2_reader_init(ptr nocapture noundef i
   br i1 %or.cond, label %8, label %11
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %10, i32 noundef 12, ptr noundef nonnull @.str.4) #7
   tail call void @free(ptr noundef %5) #7
@@ -101,13 +101,13 @@ define internal range(i32 -30, 1) i32 @bzip2_reader_init(ptr nocapture noundef i
   br label %16
 
 11:                                               ; preds = %1
-  %12 = getelementptr inbounds i8, ptr %0, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %4, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %4, i64 88
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 88
   store i64 65536, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %4, i64 80
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr %5, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr @bzip2_reader_vtable, ptr %15, align 8
   br label %16
 
@@ -133,9 +133,9 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
 define internal i64 @bzip2_filter_read(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 97
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 97
   %8 = load i8, ptr %7, align 1
   %.not = icmp eq i8 %8, 0
   br i1 %.not, label %10, label %9
@@ -145,18 +145,18 @@ define internal i64 @bzip2_filter_read(ptr nocapture noundef readonly %0, ptr no
   br label %101
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %6, i64 80
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 80
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %6, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %12, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %6, i64 88
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 88
   %15 = load i64, ptr %14, align 8
   %16 = trunc i64 %15 to i32
-  %17 = getelementptr inbounds i8, ptr %6, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i32 %16, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %6, i64 96
-  %19 = getelementptr inbounds i8, ptr %0, i64 16
-  %20 = getelementptr inbounds i8, ptr %6, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 96
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 8
   br label %21
 
 21:                                               ; preds = %89, %10
@@ -177,14 +177,14 @@ define internal i64 @bzip2_filter_read(ptr nocapture noundef readonly %0, ptr no
   br i1 %.not.i, label %28, label %37
 
 28:                                               ; preds = %27
-  %29 = getelementptr inbounds i8, ptr %25, i64 3
+  %29 = getelementptr inbounds nuw i8, ptr %25, i64 3
   %30 = load i8, ptr %29, align 1
   %31 = add i8 %30, -58
   %or.cond.i = icmp ult i8 %31, -9
   br i1 %or.cond.i, label %37, label %32
 
 32:                                               ; preds = %28
-  %33 = getelementptr inbounds i8, ptr %25, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %25, i64 4
   %bcmp15.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %33, ptr noundef nonnull dereferenceable(6) @.str.2, i64 6)
   %34 = icmp eq i32 %bcmp15.i, 0
   br i1 %34, label %43, label %35
@@ -241,7 +241,7 @@ define internal i64 @bzip2_filter_read(ptr nocapture noundef readonly %0, ptr no
   %52 = phi ptr [ @.str.10, %.loopexit57 ], [ @.str.10, %.loopexit58 ], [ @.str.9, %.loopexit.loopexit ], [ @.str.10, %50 ]
   %.049 = phi ptr [ @.str.6, %.loopexit57 ], [ @.str.7, %.loopexit58 ], [ null, %.loopexit.loopexit ], [ @.str.5, %50 ]
   %.0 = phi i32 [ 12, %.loopexit57 ], [ -1, %.loopexit58 ], [ -1, %.loopexit.loopexit ], [ -1, %50 ]
-  %53 = getelementptr inbounds i8, ptr %0, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %54 = load ptr, ptr %53, align 8
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %54, i32 noundef %.0, ptr noundef nonnull @.str.8, ptr noundef nonnull %52, ptr noundef %.049) #7
   br label %101
@@ -257,7 +257,7 @@ define internal i64 @bzip2_filter_read(ptr nocapture noundef readonly %0, ptr no
   br i1 %59, label %60, label %63
 
 60:                                               ; preds = %56
-  %61 = getelementptr inbounds i8, ptr %0, i64 24
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %62 = load ptr, ptr %61, align 8
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %62, i32 noundef -1, ptr noundef nonnull @.str.11) #7
   br label %101
@@ -302,7 +302,7 @@ define internal i64 @bzip2_filter_read(ptr nocapture noundef readonly %0, ptr no
   br i1 %cond, label %88, label %85
 
 85:                                               ; preds = %83
-  %86 = getelementptr inbounds i8, ptr %0, i64 24
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %87 = load ptr, ptr %86, align 8
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %87, i32 noundef -1, ptr noundef nonnull @.str.12) #7
   br label %101
@@ -326,7 +326,7 @@ define internal i64 @bzip2_filter_read(ptr nocapture noundef readonly %0, ptr no
   br label %101
 
 98:                                               ; preds = %73
-  %99 = getelementptr inbounds i8, ptr %0, i64 24
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %100 = load ptr, ptr %99, align 8
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %100, i32 noundef -1, ptr noundef nonnull @.str.13) #7
   br label %101
@@ -338,9 +338,9 @@ define internal i64 @bzip2_filter_read(ptr nocapture noundef readonly %0, ptr no
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -30, 1) i32 @bzip2_filter_close(ptr nocapture noundef readonly %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 96
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 96
   %5 = load i8, ptr %4, align 8
   %.not = icmp eq i8 %5, 0
   br i1 %.not, label %12, label %6
@@ -351,7 +351,7 @@ define internal range(i32 -30, 1) i32 @bzip2_filter_close(ptr nocapture noundef 
   br i1 %cond, label %11, label %8
 
 8:                                                ; preds = %6
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %10, i32 noundef -1, ptr noundef nonnull @.str.12) #7
   br label %11
@@ -363,7 +363,7 @@ define internal range(i32 -30, 1) i32 @bzip2_filter_close(ptr nocapture noundef 
 
 12:                                               ; preds = %11, %1
   %.0 = phi i32 [ %.1, %11 ], [ 0, %1 ]
-  %13 = getelementptr inbounds i8, ptr %3, i64 80
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %14 = load ptr, ptr %13, align 8
   tail call void @free(ptr noundef %14) #7
   tail call void @free(ptr noundef nonnull %3) #7

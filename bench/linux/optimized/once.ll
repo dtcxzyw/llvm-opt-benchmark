@@ -61,15 +61,15 @@ define dso_local void @__do_once_done(ptr nocapture noundef writeonly initialize
 
 9:                                                ; preds = %4
   store i64 68719476704, ptr %7, align 8
-  %10 = getelementptr inbounds i8, ptr %7, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store volatile ptr %10, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %7, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store volatile ptr %10, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %7, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr @once_deferred, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %7, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr %1, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %7, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store ptr %3, ptr %14, align 8
   tail call void @__module_get(ptr noundef %3) #3
   %15 = load ptr, ptr @system_wq, align 8
@@ -112,15 +112,15 @@ define dso_local void @__do_once_sleepable_done(ptr nocapture noundef writeonly 
 
 7:                                                ; preds = %3
   store i64 68719476704, ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store volatile ptr %8, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %5, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store volatile ptr %8, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr @once_deferred, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr %1, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %5, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store ptr %2, ptr %12, align 8
   tail call void @__module_get(ptr noundef %2) #3
   %13 = load ptr, ptr @system_wq, align 8
@@ -136,7 +136,7 @@ declare dso_local void @_raw_spin_unlock_irqrestore(ptr noundef, i64 noundef) lo
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @once_deferred(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i32 @static_key_count(ptr noundef %3) #3
   %5 = icmp slt i32 %4, 1
@@ -150,7 +150,7 @@ define internal void @once_deferred(ptr noundef %0) #0 align 16 {
 7:                                                ; preds = %1
   %8 = load ptr, ptr %2, align 8
   tail call void @static_key_disable(ptr noundef %8) #3
-  %9 = getelementptr inbounds i8, ptr %0, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load ptr, ptr %9, align 8
   tail call void @module_put(ptr noundef %10) #3
   tail call void @kfree(ptr noundef %0) #3

@@ -130,9 +130,9 @@ define hidden void @proto_register_mcpe() local_unnamed_addr #0 {
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr [4 x %struct._value_string], ptr @mcpe_packet_names, i64 0, i64 %indvars.iv.i
   store i32 %3, ptr %4, align 16
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %6, ptr %7, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
@@ -184,7 +184,7 @@ define internal i32 @dissect_mcpe(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %10 = tail call ptr @wmem_file_scope() #3
   %11 = tail call noalias ptr @wmem_alloc(ptr noundef %10, i64 noundef 8) #3
   store i32 0, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %11, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
   store i32 0, ptr %12, align 4
   %13 = load i32, ptr @proto_mcpe, align 4
   tail call void @conversation_add_proto_data(ptr noundef nonnull %5, i32 noundef %13, ptr noundef nonnull %11) #3
@@ -197,15 +197,15 @@ mcpe_get_session_state.exit:                      ; preds = %4, %9
   br i1 %.not, label %29, label %15
 
 15:                                               ; preds = %mcpe_get_session_state.exit
-  %16 = getelementptr inbounds i8, ptr %1, i64 20
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %17 = load i32, ptr %16, align 4
-  %18 = getelementptr inbounds i8, ptr %.0.i, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
   %19 = load i32, ptr %18, align 4
   %20 = icmp ugt i32 %17, %19
   br i1 %20, label %21, label %29
 
 21:                                               ; preds = %15
-  %22 = getelementptr inbounds i8, ptr %1, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %23 = load ptr, ptr %22, align 8
   tail call void @col_set_str(ptr noundef %23, i32 noundef 34, ptr noundef nonnull @.str.43) #3
   %24 = load ptr, ptr %22, align 8
@@ -250,7 +250,7 @@ define hidden void @proto_reg_handoff_mcpe() #0 {
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %0 ]
   %4 = getelementptr [3 x %struct.mcpe_handler_entry], ptr @mcpe_packet_handlers, i64 0, i64 %indvars.iv
   %5 = load i32, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = load i32, ptr @proto_mcpe, align 4
   %9 = tail call ptr @create_dissector_handle(ptr noundef %7, i32 noundef %8) #3
@@ -307,7 +307,7 @@ define internal range(i32 0, 2) i32 @dissect_mcpe_heur(ptr noundef %0, ptr nound
 test_mcpe_heur.exit:                              ; preds = %12
   %17 = load ptr, ptr @mcpe_handle, align 8
   tail call void @raknet_conversation_set_dissector(ptr noundef %1, ptr noundef %17) #3
-  %18 = getelementptr inbounds i8, ptr %1, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %19 = load ptr, ptr %18, align 8
   tail call void @col_set_str(ptr noundef %19, i32 noundef 34, ptr noundef nonnull @.str.43) #3
   %20 = load ptr, ptr %18, align 8
@@ -404,13 +404,13 @@ define internal i32 @mcpe_dissect_login(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %.not.i, label %proto_item_set_generated.exit, label %22
 
 22:                                               ; preds = %16
-  %23 = getelementptr inbounds i8, ptr %19, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %19, i64 32
   %24 = load ptr, ptr %23, align 8
   %.not5.i = icmp eq ptr %24, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %25
 
 25:                                               ; preds = %22
-  %26 = getelementptr inbounds i8, ptr %24, i64 28
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 28
   %27 = load i32, ptr %26, align 4
   %28 = or i32 %27, 2
   store i32 %28, ptr %26, align 4
@@ -419,7 +419,7 @@ define internal i32 @mcpe_dissect_login(ptr noundef %0, ptr noundef %1, ptr noun
 proto_item_set_generated.exit:                    ; preds = %16, %22, %25
   %29 = load i32, ptr @hf_mcpe_chain_JSON, align 4
   %30 = call i32 @tvb_get_letohl(ptr noundef nonnull %15, i32 noundef 0) #3
-  %31 = getelementptr inbounds i8, ptr %1, i64 408
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %32 = load ptr, ptr %31, align 8
   %33 = call ptr @tvb_get_string_enc(ptr noundef %32, ptr noundef nonnull %15, i32 noundef 4, i32 noundef %30, i32 noundef 2) #3
   %34 = add i32 %30, 4
@@ -463,7 +463,7 @@ define internal i32 @mcpe_dissect_server_to_client_handshake(ptr noundef %0, ptr
   %6 = load i32, ptr @hf_mcpe_public_key, align 4
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 1) #3
   %8 = zext i16 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %1, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = tail call ptr @tvb_get_string_enc(ptr noundef %10, ptr noundef %0, i32 noundef 3, i32 noundef %8, i32 noundef 2) #3
   %12 = add nuw nsw i32 %8, 2
@@ -500,7 +500,7 @@ define internal i32 @mcpe_dissect_server_to_client_handshake(ptr noundef %0, ptr
   %40 = tail call ptr @wmem_file_scope() #3
   %41 = tail call noalias ptr @wmem_alloc(ptr noundef %40, i64 noundef 8) #3
   store i32 0, ptr %41, align 4
-  %42 = getelementptr inbounds i8, ptr %41, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 4
   store i32 0, ptr %42, align 4
   %43 = load i32, ptr @proto_mcpe, align 4
   tail call void @conversation_add_proto_data(ptr noundef nonnull %35, i32 noundef %43, ptr noundef nonnull %41) #3
@@ -509,9 +509,9 @@ define internal i32 @mcpe_dissect_server_to_client_handshake(ptr noundef %0, ptr
 mcpe_get_session_state.exit:                      ; preds = %5, %39
   %.0.i = phi ptr [ %41, %39 ], [ %37, %5 ]
   store i32 1, ptr %.0.i, align 4
-  %44 = getelementptr inbounds i8, ptr %1, i64 20
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %45 = load i32, ptr %44, align 4
-  %46 = getelementptr inbounds i8, ptr %.0.i, i64 4
+  %46 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
   store i32 %45, ptr %46, align 4
   br label %47
 
@@ -551,20 +551,20 @@ define internal i32 @mcpe_dissect_batch(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %.not.i, label %proto_item_set_generated.exit, label %22
 
 22:                                               ; preds = %16
-  %23 = getelementptr inbounds i8, ptr %19, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %19, i64 32
   %24 = load ptr, ptr %23, align 8
   %.not5.i = icmp eq ptr %24, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %25
 
 25:                                               ; preds = %22
-  %26 = getelementptr inbounds i8, ptr %24, i64 28
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 28
   %27 = load i32, ptr %26, align 4
   %28 = or i32 %27, 2
   store i32 %28, ptr %26, align 4
   br label %proto_item_set_generated.exit
 
 proto_item_set_generated.exit:                    ; preds = %16, %22, %25
-  %29 = getelementptr inbounds i8, ptr %1, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %30
 
 30:                                               ; preds = %55, %proto_item_set_generated.exit

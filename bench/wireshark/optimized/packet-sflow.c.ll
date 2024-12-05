@@ -1137,7 +1137,7 @@ define internal i32 @dissect_sflow_245(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %switch, label %13, label %436
 
 13:                                               ; preds = %11
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load ptr, ptr %14, align 8
   tail call void @col_set_str(ptr noundef %15, i32 noundef 34, ptr noundef nonnull @.str.583) #7
   %16 = load i32, ptr @proto_sflow, align 4
@@ -1169,11 +1169,11 @@ define internal i32 @dissect_sflow_245(ptr noundef %0, ptr noundef %1, ptr nound
   %30 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %8, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef 0) #7
   %31 = tail call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef 8, i32 noundef 4) #7
   store i32 2, ptr %7, align 8
-  %32 = getelementptr inbounds i8, ptr %7, i64 4
+  %32 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 4, ptr %32, align 4
-  %33 = getelementptr inbounds i8, ptr %7, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %31, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %7, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr null, ptr %34, align 8
   br label %dissect_sflow_245_address_type.exit
 
@@ -1181,11 +1181,11 @@ define internal i32 @dissect_sflow_245(ptr noundef %0, ptr noundef %1, ptr nound
   %36 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %9, ptr noundef %0, i32 noundef 8, i32 noundef 16, i32 noundef 0) #7
   %37 = tail call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef 8, i32 noundef 16) #7
   store i32 3, ptr %7, align 8
-  %38 = getelementptr inbounds i8, ptr %7, i64 4
+  %38 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 16, ptr %38, align 4
-  %39 = getelementptr inbounds i8, ptr %7, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %37, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %7, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr null, ptr %40, align 8
   br label %dissect_sflow_245_address_type.exit
 
@@ -1197,7 +1197,7 @@ dissect_sflow_245_address_type.exit:              ; preds = %28, %29, %35
 
 41:                                               ; preds = %dissect_sflow_245_address_type.exit
   %42 = load ptr, ptr %14, align 8
-  %43 = getelementptr inbounds i8, ptr %1, i64 408
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %44 = load ptr, ptr %43, align 8
   %45 = call ptr @address_to_str(ptr noundef %44, ptr noundef nonnull %7) #7
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %42, i32 noundef 25, ptr noundef nonnull @.str.714, ptr noundef %45) #7
@@ -1226,7 +1226,7 @@ dissect_sflow_245_address_type.exit:              ; preds = %28, %29, %35
   %59 = add nuw nsw i32 %.078, 4
   %60 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %59) #7
   %61 = load i32, ptr @hf_sflow_245_sysuptime, align 4
-  %62 = getelementptr inbounds i8, ptr %1, i64 408
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %63 = load ptr, ptr %62, align 8
   %64 = udiv i32 %60, 1000
   %65 = call ptr @unsigned_time_secs_to_str(ptr noundef %63, i32 noundef %64) #7
@@ -2586,10 +2586,10 @@ define internal fastcc i32 @dissect_sflow_245_sampled_header(ptr noundef %0, ptr
   %.0..0..0..0.36 = load volatile i32, ptr %5, align 4
   %39 = load i32, ptr %6, align 4
   %40 = call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %.0..0..0..0.36, i32 noundef %39, i32 noundef %16) #7
-  %41 = getelementptr inbounds i8, ptr %1, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %42 = load ptr, ptr %41, align 8
   %43 = call i32 @col_get_writable(ptr noundef %42, i32 noundef -1) #7
-  %44 = getelementptr inbounds i8, ptr %1, i64 276
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 276
   %45 = load i8, ptr %44, align 4
   %46 = load i32, ptr @global_analyze_samp_ip_headers, align 4
   %.not73 = icmp eq i32 %46, 0
@@ -2603,48 +2603,48 @@ define internal fastcc i32 @dissect_sflow_245_sampled_header(ptr noundef %0, ptr
 49:                                               ; preds = %47, %33
   %50 = load ptr, ptr %41, align 8
   call void @col_set_writable(ptr noundef %50, i32 noundef -1, i32 noundef 0) #7
-  %51 = getelementptr inbounds i8, ptr %1, i64 112
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %52 = load i32, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %1, i64 116
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 116
   %54 = load i32, ptr %53, align 4
-  %55 = getelementptr inbounds i8, ptr %1, i64 120
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %1, i64 136
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %58 = load i32, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %1, i64 140
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 140
   %60 = load i32, ptr %59, align 4
-  %61 = getelementptr inbounds i8, ptr %1, i64 144
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %1, i64 160
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %64 = load i32, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %1, i64 164
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 164
   %66 = load i32, ptr %65, align 4
-  %67 = getelementptr inbounds i8, ptr %1, i64 168
+  %67 = getelementptr inbounds nuw i8, ptr %1, i64 168
   %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %1, i64 184
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 184
   %70 = load i32, ptr %69, align 8
-  %71 = getelementptr inbounds i8, ptr %1, i64 188
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 188
   %72 = load i32, ptr %71, align 4
-  %73 = getelementptr inbounds i8, ptr %1, i64 192
+  %73 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %1, i64 208
+  %75 = getelementptr inbounds nuw i8, ptr %1, i64 208
   %76 = load i32, ptr %75, align 8
-  %77 = getelementptr inbounds i8, ptr %1, i64 212
+  %77 = getelementptr inbounds nuw i8, ptr %1, i64 212
   %78 = load i32, ptr %77, align 4
-  %79 = getelementptr inbounds i8, ptr %1, i64 216
+  %79 = getelementptr inbounds nuw i8, ptr %1, i64 216
   %80 = load ptr, ptr %79, align 8
-  %81 = getelementptr inbounds i8, ptr %1, i64 232
+  %81 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %82 = load i32, ptr %81, align 8
-  %83 = getelementptr inbounds i8, ptr %1, i64 236
+  %83 = getelementptr inbounds nuw i8, ptr %1, i64 236
   %84 = load i32, ptr %83, align 4
-  %85 = getelementptr inbounds i8, ptr %1, i64 240
+  %85 = getelementptr inbounds nuw i8, ptr %1, i64 240
   %86 = load ptr, ptr %85, align 8
   store volatile i32 0, ptr %8, align 4
   call void @except_setup_try(ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull @dissect_sflow_245_sampled_header.catch_spec, i64 noundef 1) #7
-  %87 = getelementptr inbounds i8, ptr %10, i64 48
+  %87 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %88 = call i32 @_setjmp(ptr noundef nonnull %87) #8
   %.not74 = icmp eq i32 %88, 0
-  %89 = getelementptr inbounds i8, ptr %10, i64 16
+  %89 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %.sink = select i1 %.not74, ptr null, ptr %89
   store volatile ptr %.sink, ptr %7, align 8
   %.0..0..0..0. = load volatile i32, ptr %8, align 4
@@ -2698,35 +2698,35 @@ define internal fastcc i32 @dissect_sflow_245_sampled_header(ptr noundef %0, ptr
 
 109:                                              ; preds = %108
   %.0..0..0..0.9 = load volatile ptr, ptr %7, align 8
-  %110 = getelementptr inbounds i8, ptr %.0..0..0..0.9, i64 8
+  %110 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.9, i64 8
   %111 = load volatile i64, ptr %110, align 8
   %112 = icmp eq i64 %111, 1
   br i1 %112, label %129, label %113
 
 113:                                              ; preds = %109
   %.0..0..0..0.10 = load volatile ptr, ptr %7, align 8
-  %114 = getelementptr inbounds i8, ptr %.0..0..0..0.10, i64 8
+  %114 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.10, i64 8
   %115 = load volatile i64, ptr %114, align 8
   %116 = icmp eq i64 %115, 4
   br i1 %116, label %129, label %117
 
 117:                                              ; preds = %113
   %.0..0..0..0.11 = load volatile ptr, ptr %7, align 8
-  %118 = getelementptr inbounds i8, ptr %.0..0..0..0.11, i64 8
+  %118 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.11, i64 8
   %119 = load volatile i64, ptr %118, align 8
   %120 = icmp eq i64 %119, 3
   br i1 %120, label %129, label %121
 
 121:                                              ; preds = %117
   %.0..0..0..0.12 = load volatile ptr, ptr %7, align 8
-  %122 = getelementptr inbounds i8, ptr %.0..0..0..0.12, i64 8
+  %122 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.12, i64 8
   %123 = load volatile i64, ptr %122, align 8
   %124 = icmp eq i64 %123, 2
   br i1 %124, label %129, label %125
 
 125:                                              ; preds = %121
   %.0..0..0..0.13 = load volatile ptr, ptr %7, align 8
-  %126 = getelementptr inbounds i8, ptr %.0..0..0..0.13, i64 8
+  %126 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.13, i64 8
   %127 = load volatile i64, ptr %126, align 8
   %128 = icmp eq i64 %127, 7
   br i1 %128, label %129, label %131
@@ -2755,7 +2755,7 @@ define internal fastcc i32 @dissect_sflow_245_sampled_header(ptr noundef %0, ptr
 
 135:                                              ; preds = %133, %131
   %136 = and i8 %45, 1
-  %137 = getelementptr inbounds i8, ptr %10, i64 40
+  %137 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %138 = load volatile ptr, ptr %137, align 8
   call void @except_free(ptr noundef %138) #7
   %139 = call ptr @except_pop() #7
@@ -2768,32 +2768,32 @@ define internal fastcc i32 @dissect_sflow_245_sampled_header(ptr noundef %0, ptr
   store i32 %52, ptr %51, align 8
   store i32 %54, ptr %53, align 4
   store ptr %56, ptr %55, align 8
-  %144 = getelementptr inbounds i8, ptr %1, i64 128
+  %144 = getelementptr inbounds nuw i8, ptr %1, i64 128
   store ptr null, ptr %144, align 8
   store i32 %58, ptr %57, align 8
   store i32 %60, ptr %59, align 4
   store ptr %62, ptr %61, align 8
-  %145 = getelementptr inbounds i8, ptr %1, i64 152
+  %145 = getelementptr inbounds nuw i8, ptr %1, i64 152
   store ptr null, ptr %145, align 8
   store i32 %64, ptr %63, align 8
   store i32 %66, ptr %65, align 4
   store ptr %68, ptr %67, align 8
-  %146 = getelementptr inbounds i8, ptr %1, i64 176
+  %146 = getelementptr inbounds nuw i8, ptr %1, i64 176
   store ptr null, ptr %146, align 8
   store i32 %70, ptr %69, align 8
   store i32 %72, ptr %71, align 4
   store ptr %74, ptr %73, align 8
-  %147 = getelementptr inbounds i8, ptr %1, i64 200
+  %147 = getelementptr inbounds nuw i8, ptr %1, i64 200
   store ptr null, ptr %147, align 8
   store i32 %76, ptr %75, align 8
   store i32 %78, ptr %77, align 4
   store ptr %80, ptr %79, align 8
-  %148 = getelementptr inbounds i8, ptr %1, i64 224
+  %148 = getelementptr inbounds nuw i8, ptr %1, i64 224
   store ptr null, ptr %148, align 8
   store i32 %82, ptr %81, align 8
   store i32 %84, ptr %83, align 4
   store ptr %86, ptr %85, align 8
-  %149 = getelementptr inbounds i8, ptr %1, i64 248
+  %149 = getelementptr inbounds nuw i8, ptr %1, i64 248
   store ptr null, ptr %149, align 8
   %150 = load i32, ptr %6, align 4
   %.0..0..0..0.37 = load volatile i32, ptr %5, align 4

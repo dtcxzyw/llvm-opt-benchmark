@@ -16,10 +16,10 @@ define hidden noundef i64 @pm_buffer_sizeof() local_unnamed_addr #0 {
 ; Function Attrs: mustprogress nofree nounwind sspstrong willreturn memory(argmem: write, inaccessiblemem: readwrite) uwtable
 define hidden noundef zeroext i1 @pm_buffer_init_capacity(ptr nocapture noundef writeonly initializes((0, 24)) %0, i64 noundef %1) local_unnamed_addr #1 {
   store i64 0, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %1, ptr %3, align 8
   %4 = tail call noalias ptr @malloc(i64 noundef %1) #14
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %4, ptr %5, align 8
   %6 = icmp ne ptr %4, null
   ret i1 %6
@@ -31,10 +31,10 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress nofree nounwind sspstrong willreturn memory(argmem: write, inaccessiblemem: readwrite) uwtable
 define hidden noundef zeroext i1 @pm_buffer_init(ptr nocapture noundef writeonly initializes((0, 24)) %0) local_unnamed_addr #1 {
   store i64 0, ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 1024, ptr %2, align 8
   %3 = tail call noalias dereferenceable_or_null(1024) ptr @malloc(i64 noundef 1024) #14
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %3, ptr %4, align 8
   %5 = icmp ne ptr %3, null
   ret i1 %5
@@ -42,7 +42,7 @@ define hidden noundef zeroext i1 @pm_buffer_init(ptr nocapture noundef writeonly
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define hidden ptr @pm_buffer_value(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
@@ -57,13 +57,13 @@ define hidden i64 @pm_buffer_length(ptr nocapture noundef readonly %0) local_unn
 define hidden void @pm_buffer_append_zeroes(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #4 {
   %3 = load i64, ptr %0, align 8
   %4 = add i64 %3, %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = icmp ugt i64 %4, %6
   br i1 %7, label %8, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %2
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 16
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br label %21
 
@@ -92,7 +92,7 @@ define hidden void @pm_buffer_append_zeroes(ptr nocapture noundef %0, i64 nounde
 
 16:                                               ; preds = %._crit_edge.i, %11
   %.lcssa.i = phi i64 [ %14, %._crit_edge.i ], [ %.promoted.i, %11 ]
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load ptr, ptr %17, align 8
   %19 = tail call ptr @realloc(ptr noundef %18, i64 noundef %.lcssa.i) #15
   store ptr %19, ptr %17, align 8
@@ -127,7 +127,7 @@ define hidden void @pm_buffer_append_format(ptr nocapture noundef %0, ptr nocapt
   %8 = sext i32 %7 to i64
   %9 = load i64, ptr %0, align 8
   %10 = add i64 %9, %8
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load i64, ptr %11, align 8
   %13 = icmp ugt i64 %10, %12
   br i1 %13, label %14, label %27
@@ -157,7 +157,7 @@ define hidden void @pm_buffer_append_format(ptr nocapture noundef %0, ptr nocapt
 
 22:                                               ; preds = %._crit_edge.i, %17
   %.lcssa.i = phi i64 [ %20, %._crit_edge.i ], [ %.promoted.i, %17 ]
-  %23 = getelementptr inbounds i8, ptr %0, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %24 = load ptr, ptr %23, align 8
   %25 = call ptr @realloc(ptr noundef %24, i64 noundef %.lcssa.i) #15
   store ptr %25, ptr %23, align 8
@@ -167,7 +167,7 @@ define hidden void @pm_buffer_append_format(ptr nocapture noundef %0, ptr nocapt
 27:                                               ; preds = %6, %22
   store i64 %10, ptr %0, align 8
   call void @llvm.va_start.p0(ptr nonnull %3)
-  %28 = getelementptr inbounds i8, ptr %0, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr i8, ptr %29, i64 %9
   %31 = call i32 @vsnprintf(ptr noundef %30, i64 noundef %8, ptr noundef %1, ptr noundef nonnull %3) #16
@@ -188,13 +188,13 @@ declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture
 define hidden void @pm_buffer_append_string(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #4 {
   %4 = load i64, ptr %0, align 8
   %5 = add i64 %4, %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8
   %8 = icmp ugt i64 %5, %7
   br i1 %8, label %9, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %3
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %0, i64 16
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
   br label %22
 
@@ -223,7 +223,7 @@ define hidden void @pm_buffer_append_string(ptr nocapture noundef %0, ptr nocapt
 
 17:                                               ; preds = %._crit_edge.i.i, %12
   %.lcssa.i.i = phi i64 [ %15, %._crit_edge.i.i ], [ %.promoted.i.i, %12 ]
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load ptr, ptr %18, align 8
   %20 = tail call ptr @realloc(ptr noundef %19, i64 noundef %.lcssa.i.i) #15
   store ptr %20, ptr %18, align 8
@@ -245,13 +245,13 @@ pm_buffer_append.exit:                            ; preds = %17, %22
 define hidden void @pm_buffer_append_bytes(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #4 {
   %4 = load i64, ptr %0, align 8
   %5 = add i64 %4, %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8
   %8 = icmp ugt i64 %5, %7
   br i1 %8, label %9, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %3
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %0, i64 16
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
   br label %22
 
@@ -280,7 +280,7 @@ define hidden void @pm_buffer_append_bytes(ptr nocapture noundef %0, ptr nocaptu
 
 17:                                               ; preds = %._crit_edge.i.i, %12
   %.lcssa.i.i = phi i64 [ %15, %._crit_edge.i.i ], [ %.promoted.i.i, %12 ]
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load ptr, ptr %18, align 8
   %20 = tail call ptr @realloc(ptr noundef %19, i64 noundef %.lcssa.i.i) #15
   store ptr %20, ptr %18, align 8
@@ -302,13 +302,13 @@ pm_buffer_append.exit:                            ; preds = %17, %22
 define hidden void @pm_buffer_append_byte(ptr nocapture noundef %0, i8 noundef zeroext %1) local_unnamed_addr #4 {
   %3 = load i64, ptr %0, align 8
   %4 = add i64 %3, 1
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = icmp ugt i64 %4, %6
   br i1 %7, label %8, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %2
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %0, i64 16
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
   br label %21
 
@@ -337,7 +337,7 @@ define hidden void @pm_buffer_append_byte(ptr nocapture noundef %0, i8 noundef z
 
 16:                                               ; preds = %._crit_edge.i.i, %11
   %.lcssa.i.i = phi i64 [ %14, %._crit_edge.i.i ], [ %.promoted.i.i, %11 ]
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load ptr, ptr %17, align 8
   %19 = tail call ptr @realloc(ptr noundef %18, i64 noundef %.lcssa.i.i) #15
   store ptr %19, ptr %17, align 8
@@ -361,21 +361,21 @@ define hidden void @pm_buffer_append_varuint(ptr nocapture noundef %0, i32 nound
   br i1 %3, label %5, label %.preheader
 
 .preheader:                                       ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %.phi.trans.insert.i.i11 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.phi.trans.insert.i.i11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %28
 
 5:                                                ; preds = %2
   %6 = trunc nuw nsw i32 %1 to i8
   %7 = load i64, ptr %0, align 8
   %8 = add i64 %7, 1
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8
   %11 = icmp ugt i64 %8, %10
   br i1 %11, label %12, label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %5
-  %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %0, i64 16
+  %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.pre.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8
   br label %25
 
@@ -404,7 +404,7 @@ define hidden void @pm_buffer_append_varuint(ptr nocapture noundef %0, i32 nound
 
 20:                                               ; preds = %._crit_edge.i.i.i, %15
   %.lcssa.i.i.i = phi i64 [ %18, %._crit_edge.i.i.i ], [ %.promoted.i.i.i, %15 ]
-  %21 = getelementptr inbounds i8, ptr %0, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load ptr, ptr %21, align 8
   %23 = tail call ptr @realloc(ptr noundef %22, i64 noundef %.lcssa.i.i.i) #15
   store ptr %23, ptr %21, align 8
@@ -542,13 +542,13 @@ define hidden void @pm_buffer_append_varsint(ptr nocapture noundef %0, i32 nound
 define hidden void @pm_buffer_append_double(ptr nocapture noundef %0, double noundef %1) local_unnamed_addr #4 {
   %3 = load i64, ptr %0, align 8
   %4 = add i64 %3, 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = icmp ugt i64 %4, %6
   br i1 %7, label %8, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %2
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %0, i64 16
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
   br label %21
 
@@ -577,7 +577,7 @@ define hidden void @pm_buffer_append_double(ptr nocapture noundef %0, double nou
 
 16:                                               ; preds = %._crit_edge.i.i, %11
   %.lcssa.i.i = phi i64 [ %14, %._crit_edge.i.i ], [ %.promoted.i.i, %11 ]
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load ptr, ptr %17, align 8
   %19 = tail call ptr @realloc(ptr noundef %18, i64 noundef %.lcssa.i.i) #15
   store ptr %19, ptr %17, align 8
@@ -601,8 +601,8 @@ define hidden void @pm_buffer_append_source(ptr noundef %0, ptr nocapture nounde
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
-  %.phi.trans.insert.i.i127 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.phi.trans.insert.i.i127 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = icmp eq i32 %3, 0
   br label %7
 
@@ -1278,13 +1278,13 @@ pm_buffer_append_string.exit:                     ; preds = %266, %262, %246, %2
 define hidden void @pm_buffer_prepend_string(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #4 {
   %4 = load i64, ptr %0, align 8
   %5 = add i64 %4, %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8
   %8 = icmp ugt i64 %5, %7
   br i1 %8, label %9, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %3
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 16
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br label %22
 
@@ -1313,7 +1313,7 @@ define hidden void @pm_buffer_prepend_string(ptr nocapture noundef %0, ptr nocap
 
 17:                                               ; preds = %._crit_edge.i, %12
   %.lcssa.i = phi i64 [ %15, %._crit_edge.i ], [ %.promoted.i, %12 ]
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load ptr, ptr %18, align 8
   %20 = tail call ptr @realloc(ptr noundef %19, i64 noundef %.lcssa.i) #15
   store ptr %20, ptr %18, align 8
@@ -1323,7 +1323,7 @@ define hidden void @pm_buffer_prepend_string(ptr nocapture noundef %0, ptr nocap
 22:                                               ; preds = %._crit_edge, %17
   %23 = phi ptr [ %.pre, %._crit_edge ], [ %20, %17 ]
   store i64 %5, ptr %0, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %25 = getelementptr i8, ptr %23, i64 %2
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %25, ptr align 1 %23, i64 %4, i1 false)
   %26 = load ptr, ptr %24, align 8
@@ -1347,17 +1347,17 @@ define hidden void @pm_buffer_concat(ptr nocapture noundef %0, ptr nocapture nou
   br i1 %.not, label %pm_buffer_append.exit, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = load i64, ptr %0, align 8
   %8 = add i64 %7, %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8
   %11 = icmp ugt i64 %8, %10
   br i1 %11, label %12, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %4
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %0, i64 16
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
   br label %25
 
@@ -1386,7 +1386,7 @@ define hidden void @pm_buffer_concat(ptr nocapture noundef %0, ptr nocapture nou
 
 20:                                               ; preds = %._crit_edge.i.i, %15
   %.lcssa.i.i = phi i64 [ %18, %._crit_edge.i.i ], [ %.promoted.i.i, %15 ]
-  %21 = getelementptr inbounds i8, ptr %0, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load ptr, ptr %21, align 8
   %23 = tail call ptr @realloc(ptr noundef %22, i64 noundef %.lcssa.i.i) #15
   store ptr %23, ptr %21, align 8
@@ -1417,7 +1417,7 @@ define hidden void @pm_buffer_rstrip(ptr nocapture noundef %0) local_unnamed_add
   br i1 %.not4, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %3
 
 3:                                                ; preds = %.lr.ph, %10
@@ -1444,7 +1444,7 @@ declare zeroext i1 @pm_char_is_whitespace(i8 noundef zeroext) local_unnamed_addr
 
 ; Function Attrs: mustprogress nounwind sspstrong willreturn uwtable
 define hidden void @pm_buffer_free(ptr nocapture noundef readonly %0) local_unnamed_addr #10 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   tail call void @free(ptr noundef %3) #16
   ret void

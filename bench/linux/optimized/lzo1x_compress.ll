@@ -120,8 +120,8 @@ define internal fastcc void @lzogeneric1x_1_compress(ptr noundef %0, i64 noundef
   %71 = phi ptr [ %75, %56 ], [ %36, %.lr.ph.split.us.i ]
   %72 = sub i64 %70, %40
   %73 = ashr i64 %72, 5
-  %74 = add nsw i64 %73, 1
-  %75 = getelementptr i8, ptr %71, i64 %74
+  %74 = getelementptr i8, ptr %71, i64 %73
+  %75 = getelementptr i8, ptr %74, i64 1
   %76 = icmp ult ptr %75, %30
   br i1 %76, label %56, label %.loopexit12, !prof !8
 
@@ -135,8 +135,8 @@ define internal fastcc void @lzogeneric1x_1_compress(ptr noundef %0, i64 noundef
 78:                                               ; preds = %.lr.ph.split.i
   %79 = sub i64 %142, %40
   %80 = ashr i64 %79, 5
-  %81 = add nsw i64 %80, 1
-  %82 = getelementptr i8, ptr %134, i64 %81
+  %81 = getelementptr i8, ptr %134, i64 %80
+  %82 = getelementptr i8, ptr %81, i64 1
   %83 = icmp ult ptr %82, %30
   br i1 %83, label %84, label %.loopexit12, !prof !8
 
@@ -677,17 +677,17 @@ define internal fastcc void @lzogeneric1x_1_compress(ptr noundef %0, i64 noundef
   %425 = udiv i64 %424, 255
   %426 = add nuw nsw i64 %425, 1
   tail call void @llvm.memset.p0.i64(ptr noundef align 1 %416, i8 0, i64 %426, i1 false)
-  %427 = add nuw nsw i64 %425, 2
-  %428 = mul i64 %425, -255
-  %429 = getelementptr i8, ptr %.lcssa59, i64 %426
-  %430 = add i64 %395, -273
-  %431 = add i64 %430, %428
-  %432 = getelementptr i8, ptr %.lcssa59, i64 %427
+  %427 = mul i64 %425, -255
+  %428 = getelementptr i8, ptr %.lcssa59, i64 %426
+  %429 = add i64 %395, -273
+  %430 = add i64 %429, %427
+  %431 = getelementptr i8, ptr %.lcssa59, i64 %425
+  %432 = getelementptr i8, ptr %431, i64 2
   br label %.thread120
 
 .thread120:                                       ; preds = %420, %423
-  %433 = phi i64 [ %421, %420 ], [ %431, %423 ]
-  %434 = phi ptr [ %.lcssa59, %420 ], [ %429, %423 ]
+  %433 = phi i64 [ %421, %420 ], [ %430, %423 ]
+  %434 = phi ptr [ %.lcssa59, %420 ], [ %428, %423 ]
   %435 = phi ptr [ %416, %420 ], [ %432, %423 ]
   %436 = trunc i64 %433 to i8
   %437 = getelementptr i8, ptr %434, i64 2

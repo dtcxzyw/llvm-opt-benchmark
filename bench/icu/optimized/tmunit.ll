@@ -82,7 +82,7 @@ define void @_ZN6icu_758TimeUnitC2ENS0_15UTimeUnitFieldsE(ptr noundef nonnull al
 entry:
   tail call void @_ZN6icu_7511MeasureUnitC2Ev(ptr noundef nonnull align 8 dereferenceable(19) %this)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_758TimeUnitE, i64 16), ptr %this, align 8
-  %fTimeUnitField = getelementptr inbounds i8, ptr %this, i64 20
+  %fTimeUnitField = getelementptr inbounds nuw i8, ptr %this, i64 20
   store i32 %timeUnitField, ptr %fTimeUnitField, align 4
   %0 = icmp ult i32 %timeUnitField, 7
   br i1 %0, label %switch.lookup, label %sw.default
@@ -95,7 +95,7 @@ lpad:                                             ; preds = %switch.lookup
 
 switch.lookup:                                    ; preds = %entry
   %2 = zext nneg i32 %timeUnitField to i64
-  %switch.gep = getelementptr inbounds [7 x ptr], ptr @switch.table._ZN6icu_758TimeUnitC2ENS0_15UTimeUnitFieldsE, i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @switch.table._ZN6icu_758TimeUnitC2ENS0_15UTimeUnitFieldsE, i64 0, i64 %2
   %switch.load = load ptr, ptr %switch.gep, align 8
   invoke void @_ZN6icu_7511MeasureUnit8initTimeEPKc(ptr noundef nonnull align 8 dereferenceable(19) %this, ptr noundef nonnull %switch.load)
           to label %sw.epilog unwind label %lpad
@@ -123,8 +123,8 @@ define void @_ZN6icu_758TimeUnitC2ERKS0_(ptr noundef nonnull align 8 dereference
 entry:
   tail call void @_ZN6icu_7511MeasureUnitC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(19) %this, ptr noundef nonnull align 8 dereferenceable(19) %other)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_758TimeUnitE, i64 16), ptr %this, align 8
-  %fTimeUnitField = getelementptr inbounds i8, ptr %this, i64 20
-  %fTimeUnitField2 = getelementptr inbounds i8, ptr %other, i64 20
+  %fTimeUnitField = getelementptr inbounds nuw i8, ptr %this, i64 20
+  %fTimeUnitField2 = getelementptr inbounds nuw i8, ptr %other, i64 20
   %0 = load i32, ptr %fTimeUnitField2, align 4
   store i32 %0, ptr %fTimeUnitField, align 4
   ret void
@@ -161,9 +161,9 @@ entry:
 
 if.end:                                           ; preds = %entry
   %call = tail call noundef nonnull align 8 dereferenceable(19) ptr @_ZN6icu_7511MeasureUnitaSERKS0_(ptr noundef nonnull align 8 dereferenceable(19) %this, ptr noundef nonnull align 8 dereferenceable(19) %other)
-  %fTimeUnitField = getelementptr inbounds i8, ptr %other, i64 20
+  %fTimeUnitField = getelementptr inbounds nuw i8, ptr %other, i64 20
   %0 = load i32, ptr %fTimeUnitField, align 4
-  %fTimeUnitField2 = getelementptr inbounds i8, ptr %this, i64 20
+  %fTimeUnitField2 = getelementptr inbounds nuw i8, ptr %this, i64 20
   store i32 %0, ptr %fTimeUnitField2, align 4
   br label %return
 
@@ -176,7 +176,7 @@ declare noundef nonnull align 8 dereferenceable(19) ptr @_ZN6icu_7511MeasureUnit
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i32 @_ZNK6icu_758TimeUnit16getTimeUnitFieldEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #5 align 2 {
 entry:
-  %fTimeUnitField = getelementptr inbounds i8, ptr %this, i64 20
+  %fTimeUnitField = getelementptr inbounds nuw i8, ptr %this, i64 20
   %0 = load i32, ptr %fTimeUnitField, align 4
   ret i32 %0
 }

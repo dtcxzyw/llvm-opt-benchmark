@@ -171,7 +171,7 @@ for.cond.i.i.i:                                   ; preds = %land.lhs.true.i6.i,
 
 for.body.i.i.i:                                   ; preds = %for.cond.i.i.i, %for.body.preheader.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %for.body.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %for.cond.i.i.i ]
-  %add.ptr.i.i.i = getelementptr inbounds %struct.userdiff_driver, ptr %2, i64 %indvars.iv.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw %struct.userdiff_driver, ptr %2, i64 %indvars.iv.i.i.i
   %4 = load ptr, ptr %add.ptr.i.i.i, align 8
   %call.i3.i = call i32 @strncmp(ptr noundef %4, ptr noundef nonnull readonly %0, i64 noundef %1) #9
   %tobool.not.i4.i = icmp eq i32 %call.i3.i, 0
@@ -185,7 +185,7 @@ land.lhs.true.i6.i:                               ; preds = %for.body.i.i.i
 
 for.body.i7.i.i:                                  ; preds = %for.body.i7.i.i.preheader, %userdiff_find_by_namelen_cb.exit.i
   %indvars.iv.i8.i.i = phi i64 [ %indvars.iv.next.i14.i.i, %userdiff_find_by_namelen_cb.exit.i ], [ 0, %for.body.i7.i.i.preheader ]
-  %add.ptr.i9.i.i = getelementptr inbounds %struct.userdiff_driver, ptr @builtin_drivers, i64 %indvars.iv.i8.i.i
+  %add.ptr.i9.i.i = getelementptr inbounds nuw %struct.userdiff_driver, ptr @builtin_drivers, i64 %indvars.iv.i8.i.i
   %6 = load ptr, ptr %add.ptr.i9.i.i, align 8
   %call.i.i = call i32 @strncmp(ptr noundef %6, ptr noundef nonnull readonly %0, i64 noundef %1) #9
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
@@ -244,7 +244,7 @@ do.end:                                           ; preds = %do.body, %st_mult.e
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %arrayidx, i8 0, i64 88, i1 false)
   %call18 = call ptr @xmemdupz(ptr noundef %11, i64 noundef %10) #8
   store ptr %call18, ptr %arrayidx, align 8
-  %binary = getelementptr inbounds i8, ptr %arrayidx, i64 24
+  %binary = getelementptr inbounds nuw i8, ptr %arrayidx, i64 24
   store i32 -1, ptr %binary, align 8
   br label %if.end20
 
@@ -256,13 +256,13 @@ if.end20:                                         ; preds = %land.lhs.true.i6.i,
   br i1 %tobool22.not, label %if.then23, label %if.end25
 
 if.then23:                                        ; preds = %if.end20
-  %funcname = getelementptr inbounds i8, ptr %drv.0, i64 32
+  %funcname = getelementptr inbounds nuw i8, ptr %drv.0, i64 32
   %call.i = call i32 @git_config_string(ptr noundef nonnull %funcname, ptr noundef %k, ptr noundef %v) #8
   %cmp.i28 = icmp slt i32 %call.i, 0
   br i1 %cmp.i28, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then23
-  %cflags1.i = getelementptr inbounds i8, ptr %drv.0, i64 40
+  %cflags1.i = getelementptr inbounds nuw i8, ptr %drv.0, i64 40
   store i32 0, ptr %cflags1.i, align 8
   br label %return
 
@@ -272,13 +272,13 @@ if.end25:                                         ; preds = %if.end20
   br i1 %tobool27.not, label %if.then28, label %if.end31
 
 if.then28:                                        ; preds = %if.end25
-  %funcname29 = getelementptr inbounds i8, ptr %drv.0, i64 32
+  %funcname29 = getelementptr inbounds nuw i8, ptr %drv.0, i64 32
   %call.i29 = call i32 @git_config_string(ptr noundef nonnull %funcname29, ptr noundef %k, ptr noundef %v) #8
   %cmp.i30 = icmp slt i32 %call.i29, 0
   br i1 %cmp.i30, label %return, label %if.end.i31
 
 if.end.i31:                                       ; preds = %if.then28
-  %cflags1.i32 = getelementptr inbounds i8, ptr %drv.0, i64 40
+  %cflags1.i32 = getelementptr inbounds nuw i8, ptr %drv.0, i64 40
   store i32 1, ptr %cflags1.i32, align 8
   br label %return
 
@@ -288,7 +288,7 @@ if.end31:                                         ; preds = %if.end25
   br i1 %tobool33.not, label %if.then34, label %if.end37
 
 if.then34:                                        ; preds = %if.end31
-  %binary35 = getelementptr inbounds i8, ptr %drv.0, i64 24
+  %binary35 = getelementptr inbounds nuw i8, ptr %drv.0, i64 24
   %tobool.not.i = icmp eq ptr %v, null
   br i1 %tobool.not.i, label %if.else.i, label %land.lhs.true.i
 
@@ -312,7 +312,7 @@ if.end37:                                         ; preds = %if.end31
   br i1 %tobool39.not, label %if.then40, label %if.end42
 
 if.then40:                                        ; preds = %if.end37
-  %external = getelementptr inbounds i8, ptr %drv.0, i64 8
+  %external = getelementptr inbounds nuw i8, ptr %drv.0, i64 8
   %call41 = call i32 @git_config_string(ptr noundef nonnull %external, ptr noundef %k, ptr noundef %v) #8
   br label %return
 
@@ -322,7 +322,7 @@ if.end42:                                         ; preds = %if.end37
   br i1 %tobool44.not, label %if.then45, label %if.end47
 
 if.then45:                                        ; preds = %if.end42
-  %textconv = getelementptr inbounds i8, ptr %drv.0, i64 64
+  %textconv = getelementptr inbounds nuw i8, ptr %drv.0, i64 64
   %call46 = call i32 @git_config_string(ptr noundef nonnull %textconv, ptr noundef %k, ptr noundef %v) #8
   br label %return
 
@@ -332,7 +332,7 @@ if.end47:                                         ; preds = %if.end42
   br i1 %tobool49.not, label %if.then50, label %if.end52
 
 if.then50:                                        ; preds = %if.end47
-  %textconv_want_cache = getelementptr inbounds i8, ptr %drv.0, i64 80
+  %textconv_want_cache = getelementptr inbounds nuw i8, ptr %drv.0, i64 80
   %call.i37 = call i32 @git_config_bool(ptr noundef %k, ptr noundef %v) #8
   store i32 %call.i37, ptr %textconv_want_cache, align 4
   br label %return
@@ -343,7 +343,7 @@ if.end52:                                         ; preds = %if.end47
   br i1 %tobool54.not, label %if.then55, label %if.end57
 
 if.then55:                                        ; preds = %if.end52
-  %word_regex = getelementptr inbounds i8, ptr %drv.0, i64 48
+  %word_regex = getelementptr inbounds nuw i8, ptr %drv.0, i64 48
   %call56 = call i32 @git_config_string(ptr noundef nonnull %word_regex, ptr noundef %k, ptr noundef %v) #8
   br label %return
 
@@ -353,7 +353,7 @@ if.end57:                                         ; preds = %if.end52
   br i1 %tobool59.not, label %if.then60, label %return
 
 if.then60:                                        ; preds = %if.end57
-  %algorithm = getelementptr inbounds i8, ptr %drv.0, i64 16
+  %algorithm = getelementptr inbounds nuw i8, ptr %drv.0, i64 16
   %call61 = call i32 @git_config_string(ptr noundef nonnull %algorithm, ptr noundef %k, ptr noundef %v) #8
   br label %return
 
@@ -403,7 +403,7 @@ for.cond.i.i.i:                                   ; preds = %land.lhs.true.i6.i,
 
 for.body.i.i.i:                                   ; preds = %for.cond.i.i.i, %for.body.preheader.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %for.body.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %for.cond.i.i.i ]
-  %add.ptr.i.i.i = getelementptr inbounds %struct.userdiff_driver, ptr %0, i64 %indvars.iv.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw %struct.userdiff_driver, ptr %0, i64 %indvars.iv.i.i.i
   %2 = load ptr, ptr %add.ptr.i.i.i, align 8
   %call.i3.i = tail call i32 @strncmp(ptr noundef %2, ptr noundef readonly %name, i64 noundef %conv1) #9
   %tobool.not.i4.i = icmp eq i32 %call.i3.i, 0
@@ -417,7 +417,7 @@ land.lhs.true.i6.i:                               ; preds = %for.body.i.i.i
 
 for.body.i7.i.i:                                  ; preds = %for.body.i7.i.i.preheader, %userdiff_find_by_namelen_cb.exit.i
   %indvars.iv.i8.i.i = phi i64 [ %indvars.iv.next.i14.i.i, %userdiff_find_by_namelen_cb.exit.i ], [ 0, %for.body.i7.i.i.preheader ]
-  %add.ptr.i9.i.i = getelementptr inbounds %struct.userdiff_driver, ptr @builtin_drivers, i64 %indvars.iv.i8.i.i
+  %add.ptr.i9.i.i = getelementptr inbounds nuw %struct.userdiff_driver, ptr @builtin_drivers, i64 %indvars.iv.i8.i.i
   %4 = load ptr, ptr %add.ptr.i9.i.i, align 8
   %call.i.i = tail call i32 @strncmp(ptr noundef %4, ptr noundef readonly %name, i64 noundef %conv1) #9
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
@@ -436,7 +436,7 @@ userdiff_find_by_namelen_cb.exit.i:               ; preds = %land.lhs.true.i.i, 
 
 land.lhs.true:                                    ; preds = %land.lhs.true.i6.i, %land.lhs.true.i.i
   %udcbdata.sroa.6.3.i.ph = phi ptr [ %add.ptr.i9.i.i, %land.lhs.true.i.i ], [ %add.ptr.i.i.i, %land.lhs.true.i6.i ]
-  %word_regex_multi_byte = getelementptr inbounds i8, ptr %udcbdata.sroa.6.3.i.ph, i64 56
+  %word_regex_multi_byte = getelementptr inbounds nuw i8, ptr %udcbdata.sroa.6.3.i.ph, i64 56
   %6 = load ptr, ptr %word_regex_multi_byte, align 8
   %tobool3.not = icmp eq ptr %6, null
   br i1 %tobool3.not, label %if.end9, label %if.then
@@ -463,7 +463,7 @@ if.end2.i:                                        ; preds = %if.end.i
   %8 = load i32, ptr %match.i, align 4
   %cmp5.i = icmp eq i32 %8, 0
   %or.cond.i = select i1 %tobool4.i, i1 %cmp5.i, i1 false
-  %rm_eo.i = getelementptr inbounds i8, ptr %match.i, i64 4
+  %rm_eo.i = getelementptr inbounds nuw i8, ptr %match.i, i64 4
   %9 = load i32, ptr %rm_eo.i, align 4
   %cmp6.i = icmp eq i32 %9, 2
   %narrow.i = select i1 %or.cond.i, i1 %cmp6.i, i1 false
@@ -482,7 +482,7 @@ regexec_supports_multi_byte_chars.exit:           ; preds = %if.then, %if.end2.i
 
 if.then6:                                         ; preds = %regexec_supports_multi_byte_chars.exit
   %11 = load ptr, ptr %word_regex_multi_byte, align 8
-  %word_regex = getelementptr inbounds i8, ptr %udcbdata.sroa.6.3.i.ph, i64 48
+  %word_regex = getelementptr inbounds nuw i8, ptr %udcbdata.sroa.6.3.i.ph, i64 48
   store ptr %11, ptr %word_regex, align 8
   br label %if.end
 
@@ -518,9 +518,9 @@ if.end:                                           ; preds = %if.then, %entry
 if.end3:                                          ; preds = %if.end
   tail call void @git_check_attr(ptr noundef %istate, ptr noundef nonnull %path, ptr noundef %1) #8
   %2 = load ptr, ptr @userdiff_find_by_path.check, align 8
-  %items = getelementptr inbounds i8, ptr %2, i64 8
+  %items = getelementptr inbounds nuw i8, ptr %2, i64 8
   %3 = load ptr, ptr %items, align 8
-  %value = getelementptr inbounds i8, ptr %3, i64 8
+  %value = getelementptr inbounds nuw i8, ptr %3, i64 8
   %4 = load ptr, ptr %value, align 8
   %cmp = icmp eq ptr %4, @git_attr__true
   br i1 %cmp, label %return, label %if.end5
@@ -550,19 +550,19 @@ declare void @git_check_attr(ptr noundef, ptr noundef, ptr noundef) local_unname
 define dso_local noundef ptr @userdiff_get_textconv(ptr noundef %r, ptr noundef %driver) local_unnamed_addr #0 {
 entry:
   %name = alloca %struct.strbuf, align 8
-  %textconv = getelementptr inbounds i8, ptr %driver, i64 64
+  %textconv = getelementptr inbounds nuw i8, ptr %driver, i64 64
   %0 = load ptr, ptr %textconv, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %textconv_want_cache = getelementptr inbounds i8, ptr %driver, i64 80
+  %textconv_want_cache = getelementptr inbounds nuw i8, ptr %driver, i64 80
   %1 = load i32, ptr %textconv_want_cache, align 8
   %tobool1.not = icmp eq i32 %1, 0
   br i1 %tobool1.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %textconv_cache = getelementptr inbounds i8, ptr %driver, i64 72
+  %textconv_cache = getelementptr inbounds nuw i8, ptr %driver, i64 72
   %2 = load ptr, ptr %textconv_cache, align 8
   %tobool2.not = icmp eq ptr %2, null
   br i1 %tobool2.not, label %if.then3, label %return
@@ -572,7 +572,7 @@ if.then3:                                         ; preds = %land.lhs.true
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %name, ptr noundef nonnull align 8 dereferenceable(24) @__const.userdiff_get_textconv.name, i64 24, i1 false)
   %3 = load ptr, ptr %driver, align 8
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %name, ptr noundef nonnull @.str.9, ptr noundef %3) #8
-  %buf = getelementptr inbounds i8, ptr %name, i64 16
+  %buf = getelementptr inbounds nuw i8, ptr %name, i64 16
   %4 = load ptr, ptr %buf, align 8
   %5 = load ptr, ptr %textconv, align 8
   call void @notes_cache_init(ptr noundef %r, ptr noundef %call, ptr noundef %4, ptr noundef %5) #8
@@ -618,14 +618,14 @@ for.cond.i:                                       ; preds = %for.body.i
 
 for.body.i:                                       ; preds = %for.cond.i, %for.body.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.cond.i ]
-  %add.ptr.i = getelementptr inbounds %struct.userdiff_driver, ptr %0, i64 %indvars.iv.i
+  %add.ptr.i = getelementptr inbounds nuw %struct.userdiff_driver, ptr %0, i64 %indvars.iv.i
   %call.i = tail call i32 %fn(ptr noundef %add.ptr.i, i32 noundef 2, ptr noundef %cb_data) #8
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %for.cond.i, label %return
 
 for.body.i7:                                      ; preds = %for.body.i7.preheader, %for.body.i7
   %indvars.iv.i8 = phi i64 [ %indvars.iv.next.i14, %for.body.i7 ], [ 0, %for.body.i7.preheader ]
-  %add.ptr.i9 = getelementptr inbounds %struct.userdiff_driver, ptr @builtin_drivers, i64 %indvars.iv.i8
+  %add.ptr.i9 = getelementptr inbounds nuw %struct.userdiff_driver, ptr @builtin_drivers, i64 %indvars.iv.i8
   %call.i10 = tail call i32 %fn(ptr noundef nonnull %add.ptr.i9, i32 noundef 1, ptr noundef %cb_data) #8
   %tobool.not.i11 = icmp ne i32 %call.i10, 0
   %indvars.iv.next.i14 = add nuw nsw i64 %indvars.iv.i8, 1

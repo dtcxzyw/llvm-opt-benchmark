@@ -123,7 +123,7 @@ sub_0:                                            ; preds = %3
   br i1 %.not43, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_0
-  %6 = getelementptr inbounds i8, ptr %0, i64 1
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %7 = load i8, ptr %6, align 1
   %8 = icmp eq i8 %7, 0
   br i1 %8, label %.critedge, label %.tail.thread
@@ -234,7 +234,7 @@ sub_0:                                            ; preds = %6
   br i1 %.not18, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_0
-  %8 = getelementptr inbounds i8, ptr %0, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %9 = load i8, ptr %8, align 1
   %10 = icmp eq i8 %9, 0
   br i1 %10, label %.thread17, label %.tail.thread

@@ -157,20 +157,20 @@ define dso_local void @arch_crash_handle_hotplug_event(ptr noundef %0) local_unn
   store ptr null, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #7
   store i64 0, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 632
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 632
   %6 = load i8, ptr %5, align 8
   %7 = and i8 %6, 4
   %8 = icmp eq i8 %7, 0
   br i1 %8, label %9, label %13
 
 9:                                                ; preds = %1
-  %10 = getelementptr inbounds i8, ptr %0, i64 680
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 680
   %11 = load i8, ptr %10, align 8, !range !7, !noundef !8
   %12 = icmp eq i8 %11, 0
   br i1 %12, label %18, label %13
 
 13:                                               ; preds = %9, %1
-  %14 = getelementptr inbounds i8, ptr %0, i64 672
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 672
   %15 = load i32, ptr %14, align 8
   %16 = add i32 %15, -1
   %17 = icmp ult i32 %16, 2
@@ -201,7 +201,7 @@ define dso_local void @arch_crash_handle_hotplug_event(ptr noundef %0) local_unn
 29:                                               ; preds = %22
   %30 = load i32, ptr %2, align 4
   store i32 %30, ptr %27, align 8
-  %31 = getelementptr inbounds i8, ptr %27, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %27, i64 4
   store i32 0, ptr %31, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #7
   %32 = call i32 @walk_system_ram_res(i64 noundef 0, i64 noundef -1, ptr noundef nonnull %27, ptr noundef nonnull @prepare_elf64_ram_headers_callback) #7
@@ -246,12 +246,12 @@ define dso_local void @arch_crash_handle_hotplug_event(ptr noundef %0) local_unn
   br label %81
 
 55:                                               ; preds = %49
-  %56 = getelementptr inbounds i8, ptr %0, i64 64
-  %57 = getelementptr inbounds i8, ptr %0, i64 676
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 676
   %58 = load i32, ptr %57, align 4
   %59 = sext i32 %58 to i64
   %60 = getelementptr [16 x %struct.kexec_segment], ptr %56, i64 0, i64 %59
-  %61 = getelementptr inbounds i8, ptr %60, i64 24
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 24
   %62 = load i64, ptr %61, align 8
   %63 = load i64, ptr %4, align 8
   %64 = icmp ugt i64 %63, %62
@@ -262,7 +262,7 @@ define dso_local void @arch_crash_handle_hotplug_event(ptr noundef %0) local_unn
   br label %81
 
 67:                                               ; preds = %55
-  %68 = getelementptr inbounds i8, ptr %60, i64 16
+  %68 = getelementptr inbounds nuw i8, ptr %60, i64 16
   %69 = load i64, ptr %68, align 8
   %.idx = and i64 %69, -4096
   %70 = load i64, ptr @page_offset_base, align 8
@@ -306,13 +306,13 @@ declare dso_local i32 @walk_system_ram_res(i64 noundef, i64 noundef, ptr noundef
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
 define internal noundef i32 @prepare_elf64_ram_headers_callback(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #5 align 16 {
   %3 = load i64, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4
   %7 = zext i32 %6 to i64
   %8 = getelementptr [0 x %struct.range], ptr %4, i64 0, i64 %7
   store i64 %3, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8
   %.idx = shl nuw nsw i64 %7, 4
   %.offs = or disjoint i64 %.idx, 8

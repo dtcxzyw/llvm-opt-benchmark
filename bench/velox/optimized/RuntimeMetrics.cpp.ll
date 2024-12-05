@@ -16,19 +16,19 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN8facebook5velox13RuntimeMetric8addValueEl(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this, i64 noundef %value) local_unnamed_addr #0 align 2 {
 entry:
-  %sum = getelementptr inbounds i8, ptr %this, i64 8
+  %sum = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i64, ptr %sum, align 8
   %add = add nsw i64 %0, %value
   store i64 %add, ptr %sum, align 8
-  %count = getelementptr inbounds i8, ptr %this, i64 16
+  %count = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load i64, ptr %count, align 8
   %inc = add nsw i64 %1, 1
   store i64 %inc, ptr %count, align 8
-  %min = getelementptr inbounds i8, ptr %this, i64 24
+  %min = getelementptr inbounds nuw i8, ptr %this, i64 24
   %2 = load i64, ptr %min, align 8
   %.sroa.speculated6 = tail call i64 @llvm.smin.i64(i64 %value, i64 %2)
   store i64 %.sroa.speculated6, ptr %min, align 8
-  %max = getelementptr inbounds i8, ptr %this, i64 32
+  %max = getelementptr inbounds nuw i8, ptr %this, i64 32
   %3 = load i64, ptr %max, align 8
   %.sroa.speculated = tail call i64 @llvm.smax.i64(i64 %3, i64 %value)
   store i64 %.sroa.speculated, ptr %max, align 8
@@ -38,15 +38,15 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN8facebook5velox13RuntimeMetric9aggregateEv(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((24, 40)) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %count = getelementptr inbounds i8, ptr %this, i64 16
+  %count = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i64, ptr %count, align 8
   %.sroa.speculated = tail call i64 @llvm.smin.i64(i64 %0, i64 1)
   store i64 %.sroa.speculated, ptr %count, align 8
-  %sum = getelementptr inbounds i8, ptr %this, i64 8
+  %sum = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i64, ptr %sum, align 8
-  %max = getelementptr inbounds i8, ptr %this, i64 32
+  %max = getelementptr inbounds nuw i8, ptr %this, i64 32
   store i64 %1, ptr %max, align 8
-  %min = getelementptr inbounds i8, ptr %this, i64 24
+  %min = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i64 %1, ptr %min, align 8
   ret void
 }
@@ -54,26 +54,26 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN8facebook5velox13RuntimeMetric5mergeERKS1_(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %other) local_unnamed_addr #0 align 2 {
 entry:
-  %sum = getelementptr inbounds i8, ptr %other, i64 8
+  %sum = getelementptr inbounds nuw i8, ptr %other, i64 8
   %0 = load i64, ptr %sum, align 8
-  %sum2 = getelementptr inbounds i8, ptr %this, i64 8
+  %sum2 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i64, ptr %sum2, align 8
   %add = add nsw i64 %1, %0
   store i64 %add, ptr %sum2, align 8
-  %count = getelementptr inbounds i8, ptr %other, i64 16
+  %count = getelementptr inbounds nuw i8, ptr %other, i64 16
   %2 = load i64, ptr %count, align 8
-  %count3 = getelementptr inbounds i8, ptr %this, i64 16
+  %count3 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %3 = load i64, ptr %count3, align 8
   %add4 = add nsw i64 %3, %2
   store i64 %add4, ptr %count3, align 8
-  %min = getelementptr inbounds i8, ptr %this, i64 24
-  %min5 = getelementptr inbounds i8, ptr %other, i64 24
+  %min = getelementptr inbounds nuw i8, ptr %this, i64 24
+  %min5 = getelementptr inbounds nuw i8, ptr %other, i64 24
   %4 = load i64, ptr %min5, align 8
   %5 = load i64, ptr %min, align 8
   %6 = tail call i64 @llvm.smin.i64(i64 %4, i64 %5)
   store i64 %6, ptr %min, align 8
-  %max = getelementptr inbounds i8, ptr %this, i64 32
-  %max7 = getelementptr inbounds i8, ptr %other, i64 32
+  %max = getelementptr inbounds nuw i8, ptr %this, i64 32
+  %max7 = getelementptr inbounds nuw i8, ptr %other, i64 32
   %7 = load i64, ptr %max, align 8
   %8 = load i64, ptr %max7, align 8
   %9 = tail call i64 @llvm.smax.i64(i64 %7, i64 %8)
@@ -91,9 +91,9 @@ entry:
   %ref.tmp37 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp45 = alloca %"class.std::__cxx11::basic_string", align 8
   %0 = load i32, ptr %this, align 8
-  %add.ptr55 = getelementptr inbounds i8, ptr %stream, i64 16
+  %add.ptr55 = getelementptr inbounds nuw i8, ptr %stream, i64 16
   %call56 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr55, ptr noundef nonnull @.str)
-  %sum57 = getelementptr inbounds i8, ptr %this, i64 8
+  %sum57 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i64, ptr %sum57, align 8
   switch i32 %0, label %sw.default [
     i32 1, label %sw.bb
@@ -110,7 +110,7 @@ invoke.cont:                                      ; preds = %sw.bb
           to label %invoke.cont3 unwind label %lpad
 
 invoke.cont3:                                     ; preds = %invoke.cont
-  %count = getelementptr inbounds i8, ptr %this, i64 16
+  %count = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load i64, ptr %count, align 8
   %call6 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEl(ptr noundef nonnull align 8 dereferenceable(8) %call4, i64 noundef %2)
           to label %invoke.cont5 unwind label %lpad
@@ -120,7 +120,7 @@ invoke.cont5:                                     ; preds = %invoke.cont3
           to label %invoke.cont7 unwind label %lpad
 
 invoke.cont7:                                     ; preds = %invoke.cont5
-  %min = getelementptr inbounds i8, ptr %this, i64 24
+  %min = getelementptr inbounds nuw i8, ptr %this, i64 24
   %3 = load i64, ptr %min, align 8
   invoke void @_ZN8facebook5velox13succinctNanosB5cxx11Emi(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp9, i64 noundef %3, i32 noundef 2)
           to label %invoke.cont10 unwind label %lpad
@@ -134,7 +134,7 @@ invoke.cont12:                                    ; preds = %invoke.cont10
           to label %invoke.cont14 unwind label %lpad11
 
 invoke.cont14:                                    ; preds = %invoke.cont12
-  %max = getelementptr inbounds i8, ptr %this, i64 32
+  %max = getelementptr inbounds nuw i8, ptr %this, i64 32
   %4 = load i64, ptr %max, align 8
   invoke void @_ZN8facebook5velox13succinctNanosB5cxx11Emi(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp16, i64 noundef %4, i32 noundef 2)
           to label %invoke.cont17 unwind label %lpad11
@@ -180,7 +180,7 @@ invoke.cont28:                                    ; preds = %sw.bb22
           to label %invoke.cont30 unwind label %lpad27
 
 invoke.cont30:                                    ; preds = %invoke.cont28
-  %count32 = getelementptr inbounds i8, ptr %this, i64 16
+  %count32 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %8 = load i64, ptr %count32, align 8
   %call34 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEl(ptr noundef nonnull align 8 dereferenceable(8) %call31, i64 noundef %8)
           to label %invoke.cont33 unwind label %lpad27
@@ -190,7 +190,7 @@ invoke.cont33:                                    ; preds = %invoke.cont30
           to label %invoke.cont35 unwind label %lpad27
 
 invoke.cont35:                                    ; preds = %invoke.cont33
-  %min38 = getelementptr inbounds i8, ptr %this, i64 24
+  %min38 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %9 = load i64, ptr %min38, align 8
   invoke void @_ZN8facebook5velox13succinctBytesB5cxx11Emi(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp37, i64 noundef %9, i32 noundef 2)
           to label %invoke.cont39 unwind label %lpad27
@@ -204,7 +204,7 @@ invoke.cont41:                                    ; preds = %invoke.cont39
           to label %invoke.cont43 unwind label %lpad40
 
 invoke.cont43:                                    ; preds = %invoke.cont41
-  %max46 = getelementptr inbounds i8, ptr %this, i64 32
+  %max46 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %10 = load i64, ptr %max46, align 8
   invoke void @_ZN8facebook5velox13succinctBytesB5cxx11Emi(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp45, i64 noundef %10, i32 noundef 2)
           to label %invoke.cont47 unwind label %lpad40
@@ -243,15 +243,15 @@ ehcleanup52:                                      ; preds = %lpad48, %lpad40
 sw.default:                                       ; preds = %entry
   %call58 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEl(ptr noundef nonnull align 8 dereferenceable(8) %call56, i64 noundef %1)
   %call59 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call58, ptr noundef nonnull @.str.1)
-  %count60 = getelementptr inbounds i8, ptr %this, i64 16
+  %count60 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %14 = load i64, ptr %count60, align 8
   %call61 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEl(ptr noundef nonnull align 8 dereferenceable(8) %call59, i64 noundef %14)
   %call62 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call61, ptr noundef nonnull @.str.2)
-  %min63 = getelementptr inbounds i8, ptr %this, i64 24
+  %min63 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %15 = load i64, ptr %min63, align 8
   %call64 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEl(ptr noundef nonnull align 8 dereferenceable(8) %call62, i64 noundef %15)
   %call65 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call64, ptr noundef nonnull @.str.3)
-  %max66 = getelementptr inbounds i8, ptr %this, i64 32
+  %max66 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %16 = load i64, ptr %max66, align 8
   %call67 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEl(ptr noundef nonnull align 8 dereferenceable(8) %call65, i64 noundef %16)
   br label %sw.epilog
@@ -310,7 +310,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %2 = load ptr, ptr %vfn, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(12) %value)
   br label %if.end

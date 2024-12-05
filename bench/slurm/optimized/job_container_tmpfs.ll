@@ -128,7 +128,7 @@ define range(i32 -1, 1) i32 @init() local_unnamed_addr #0 {
   br label %21
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %9 = load ptr, ptr %8, align 8
   %.not.i = icmp eq ptr %9, null
   br i1 %.not.i, label %_is_plugin_disabled.exit, label %10
@@ -217,7 +217,7 @@ define range(i32 -1, 1) i32 @container_p_restore(ptr nocapture noundef readnone 
 11:                                               ; preds = %7
   %12 = tail call i32 @umask(i32 noundef 18) #12
   %13 = load ptr, ptr @jc_conf, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = load i8, ptr %15, align 1
   %.not = icmp eq i8 %16, 47
@@ -230,7 +230,7 @@ define range(i32 -1, 1) i32 @container_p_restore(ptr nocapture noundef readnone 
 
 20:                                               ; preds = %17
   %21 = load ptr, ptr @jc_conf, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load ptr, ptr %22, align 8
   tail call void (i32, ptr, ...) @slurm_log_var(i32 noundef 5, ptr noundef nonnull @.str.4, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.container_p_restore, ptr noundef nonnull @__func__.container_p_restore, ptr noundef %23) #12
   br label %24
@@ -251,7 +251,7 @@ define range(i32 -1, 1) i32 @container_p_restore(ptr nocapture noundef readnone 
 
 31:                                               ; preds = %28
   %32 = load ptr, ptr @jc_conf, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %34 = load ptr, ptr %33, align 8
   %35 = tail call ptr @slurm_strerror(i32 noundef %27) #12
   tail call void (i32, ptr, ...) @slurm_log_var(i32 noundef 5, ptr noundef nonnull @.str.5, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.container_p_restore, ptr noundef nonnull @__func__.container_p_restore, ptr noundef %34, ptr noundef %35) #12
@@ -267,13 +267,13 @@ define range(i32 -1, 1) i32 @container_p_restore(ptr nocapture noundef readnone 
 
 40:                                               ; preds = %38, %7
   %41 = load ptr, ptr @conf, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 4360
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 4360
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %41, i64 4272
+  %44 = getelementptr inbounds nuw i8, ptr %41, i64 4272
   %45 = load ptr, ptr %44, align 8
   %46 = tail call ptr @slurm_stepd_available(ptr noundef %43, ptr noundef %45) #12
   %47 = load ptr, ptr @jc_conf, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %49 = load ptr, ptr %48, align 8
   %50 = tail call ptr @opendir(ptr noundef %49)
   %.not20 = icmp eq ptr %50, null
@@ -286,7 +286,7 @@ define range(i32 -1, 1) i32 @container_p_restore(ptr nocapture noundef readnone 
 
 52:                                               ; preds = %40
   %53 = load ptr, ptr @jc_conf, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %55 = load ptr, ptr %54, align 8
   %56 = tail call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.6, ptr noundef nonnull @__func__.container_p_restore, ptr noundef %55) #12
   br label %112
@@ -294,7 +294,7 @@ define range(i32 -1, 1) i32 @container_p_restore(ptr nocapture noundef readnone 
 .lr.ph:                                           ; preds = %.preheader, %105
   %57 = phi ptr [ %106, %105 ], [ %51, %.preheader ]
   %.01429 = phi i32 [ %.1, %105 ], [ 0, %.preheader ]
-  %58 = getelementptr inbounds i8, ptr %57, i64 18
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 18
   %59 = load i8, ptr %58, align 2
   switch i8 %59, label %105 [
     i8 4, label %60
@@ -302,7 +302,7 @@ define range(i32 -1, 1) i32 @container_p_restore(ptr nocapture noundef readnone 
   ]
 
 60:                                               ; preds = %.lr.ph, %.lr.ph
-  %61 = getelementptr inbounds i8, ptr %57, i64 19
+  %61 = getelementptr inbounds nuw i8, ptr %57, i64 19
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %62 = tail call ptr @__errno_location() #13
@@ -362,10 +362,10 @@ define range(i32 -1, 1) i32 @container_p_restore(ptr nocapture noundef readnone 
 
 88:                                               ; preds = %81
   %89 = load ptr, ptr %82, align 8
-  %90 = getelementptr inbounds i8, ptr %82, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %91 = load ptr, ptr %90, align 8
-  %92 = getelementptr inbounds i8, ptr %82, i64 20
-  %93 = getelementptr inbounds i8, ptr %82, i64 16
+  %92 = getelementptr inbounds nuw i8, ptr %82, i64 20
+  %93 = getelementptr inbounds nuw i8, ptr %82, i64 16
   %94 = call i32 @slurm_stepd_connect(ptr noundef %89, ptr noundef %91, ptr noundef nonnull %92, ptr noundef nonnull %93) #12
   %95 = icmp eq i32 %94, -1
   br i1 %95, label %96, label %99
@@ -457,7 +457,7 @@ define i32 @container_p_join_external(i32 noundef %0) local_unnamed_addr #0 {
 
 6:                                                ; preds = %1
   %7 = load ptr, ptr @jc_conf, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8
   call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %2, ptr noundef nonnull @.str.25, ptr noundef %9, i32 noundef %0) #12
   %10 = load ptr, ptr %2, align 8
@@ -507,7 +507,7 @@ define range(i32 -1, 1) i32 @container_p_join(i32 noundef %0, i32 noundef %1) lo
 
 8:                                                ; preds = %2
   %9 = load ptr, ptr @jc_conf, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.25, ptr noundef %11, i32 noundef %0) #12
   %12 = load ptr, ptr %3, align 8
@@ -595,7 +595,7 @@ define i32 @container_p_stepd_create(i32 noundef %0, ptr nocapture noundef reado
   store ptr null, ptr %6, align 8
   store i32 0, ptr %7, align 4
   %14 = load ptr, ptr @jc_conf, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.25, ptr noundef %16, i32 noundef %0) #12
   %17 = load ptr, ptr %3, align 8
@@ -648,33 +648,33 @@ define i32 @container_p_stepd_create(i32 noundef %0, ptr nocapture noundef reado
 40:                                               ; preds = %33
   %41 = call i32 @close(i32 noundef %35) #12
   %42 = load ptr, ptr @jc_conf, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 24
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 24
   %44 = load ptr, ptr %43, align 8
   %.not47.i = icmp eq ptr %44, null
   br i1 %.not47.i, label %101, label %45
 
 45:                                               ; preds = %40
   store ptr null, ptr %8, align 8
-  %46 = getelementptr inbounds i8, ptr %8, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 0, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %8, i64 12
+  %47 = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i32 10000, ptr %47, align 4
-  %48 = getelementptr inbounds i8, ptr %8, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i8 0, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %8, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr null, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %8, i64 32
+  %50 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %51 = load ptr, ptr %43, align 8
   store ptr %51, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %8, i64 40
+  %52 = getelementptr inbounds nuw i8, ptr %8, i64 40
   store ptr @.str.31, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %8, i64 48
+  %53 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store ptr %7, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %8, i64 56
+  %54 = getelementptr inbounds nuw i8, ptr %8, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %54, i8 0, i64 17, i1 false)
   %55 = call ptr @slurm_env_array_create() #12
   store ptr %55, ptr %8, align 8
-  %56 = getelementptr inbounds i8, ptr %1, i64 168
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 168
   %57 = load i32, ptr %56, align 8
   switch i32 %57, label %58 [
     i32 0, label %60
@@ -686,19 +686,19 @@ define i32 @container_p_stepd_create(i32 noundef %0, ptr nocapture noundef reado
   br label %60
 
 60:                                               ; preds = %58, %45, %45
-  %61 = getelementptr inbounds i8, ptr %1, i64 408
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %62 = load i32, ptr %61, align 8
   %63 = call i32 (ptr, ptr, ptr, ...) @slurm_env_array_overwrite_fmt(ptr noundef nonnull %8, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.33, i32 noundef %62) #12
   %64 = call i32 (ptr, ptr, ptr, ...) @slurm_env_array_overwrite_fmt(ptr noundef nonnull %8, ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.33, i32 noundef %0) #12
   %65 = load ptr, ptr %5, align 8
   %66 = call i32 (ptr, ptr, ptr, ...) @slurm_env_array_overwrite_fmt(ptr noundef nonnull %8, ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.37, ptr noundef %65) #12
-  %67 = getelementptr inbounds i8, ptr %1, i64 368
+  %67 = getelementptr inbounds nuw i8, ptr %1, i64 368
   %68 = load i32, ptr %67, align 8
   %69 = call i32 (ptr, ptr, ptr, ...) @slurm_env_array_overwrite_fmt(ptr noundef nonnull %8, ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.33, i32 noundef %68) #12
-  %70 = getelementptr inbounds i8, ptr %1, i64 376
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 376
   %71 = load ptr, ptr %70, align 8
   %72 = call i32 (ptr, ptr, ptr, ...) @slurm_env_array_overwrite_fmt(ptr noundef nonnull %8, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.37, ptr noundef %71) #12
-  %73 = getelementptr inbounds i8, ptr %1, i64 288
+  %73 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %74 = load ptr, ptr %73, align 8
   %.not50.i = icmp eq ptr %74, null
   br i1 %.not50.i, label %77, label %75
@@ -711,7 +711,7 @@ define i32 @container_p_stepd_create(i32 noundef %0, ptr nocapture noundef reado
   %78 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1144), align 8
   %79 = call i32 (ptr, ptr, ptr, ...) @slurm_env_array_overwrite_fmt(ptr noundef nonnull %8, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.37, ptr noundef %78) #12
   %80 = load ptr, ptr @conf, align 8
-  %81 = getelementptr inbounds i8, ptr %80, i64 4272
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 4272
   %82 = load ptr, ptr %81, align 8
   %83 = call i32 (ptr, ptr, ptr, ...) @slurm_env_array_overwrite_fmt(ptr noundef nonnull %8, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.37, ptr noundef %82) #12
   %84 = call ptr @run_command(ptr noundef nonnull %8) #12
@@ -724,7 +724,7 @@ define i32 @container_p_stepd_create(i32 noundef %0, ptr nocapture noundef reado
 
 87:                                               ; preds = %77
   %88 = load ptr, ptr @jc_conf, align 8
-  %89 = getelementptr inbounds i8, ptr %88, i64 24
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 24
   %90 = load ptr, ptr %89, align 8
   %91 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.43, ptr noundef nonnull @__func__._create_ns, ptr noundef %90) #12
   call void @slurm_xfree(ptr noundef nonnull %6) #12
@@ -852,7 +852,7 @@ define i32 @container_p_stepd_create(i32 noundef %0, ptr nocapture noundef reado
 
 148:                                              ; preds = %143
   %149 = load ptr, ptr @jc_conf, align 8
-  %150 = getelementptr inbounds i8, ptr %149, i64 32
+  %150 = getelementptr inbounds nuw i8, ptr %149, i64 32
   %151 = load i8, ptr %150, align 8
   %152 = trunc i8 %151 to i1
   br i1 %152, label %157, label %153
@@ -889,7 +889,7 @@ define i32 @container_p_stepd_create(i32 noundef %0, ptr nocapture noundef reado
 
 165:                                              ; preds = %161, %153
   %166 = load ptr, ptr %5, align 8
-  %167 = getelementptr inbounds i8, ptr %1, i64 368
+  %167 = getelementptr inbounds nuw i8, ptr %1, i64 368
   %168 = load i32, ptr %167, align 8
   %169 = call fastcc i32 @_mount_private_dirs(ptr noundef %166, i32 noundef %168)
   %170 = icmp eq i32 %169, -1
@@ -915,7 +915,7 @@ define i32 @container_p_stepd_create(i32 noundef %0, ptr nocapture noundef reado
 
 179:                                              ; preds = %172
   %180 = load ptr, ptr @jc_conf, align 8
-  %181 = getelementptr inbounds i8, ptr %180, i64 32
+  %181 = getelementptr inbounds nuw i8, ptr %180, i64 32
   %182 = load i8, ptr %181, align 8
   %183 = trunc i8 %182 to i1
   br i1 %183, label %184, label %186
@@ -1116,7 +1116,7 @@ define internal fastcc range(i32 -1, 1) i32 @_delete_ns(i32 noundef %0) unnamed_
   store ptr null, ptr %2, align 8
   store ptr null, ptr %3, align 8
   %4 = load ptr, ptr @jc_conf, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
   call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %2, ptr noundef nonnull @.str.25, ptr noundef %6, i32 noundef %0) #12
   %7 = load ptr, ptr %2, align 8
@@ -1241,7 +1241,7 @@ define internal fastcc range(i32 -1, 1) i32 @_delete_ns(i32 noundef %0) unnamed_
 define range(i32 -1, 1) i32 @container_p_send_stepd(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = tail call ptr @get_slurm_jc_conf_buf() #12
-  %4 = getelementptr inbounds i8, ptr %3, i64 20
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 20
   %5 = load i32, ptr %4, align 4
   store i32 %5, ptr %2, align 4
   br label %.lr.ph.split.us
@@ -1285,7 +1285,7 @@ define range(i32 -1, 1) i32 @container_p_send_stepd(i32 noundef %0) local_unname
   %.us-phi = phi i64 [ %7, %.lr.ph.split.us ], [ %14, %13 ]
   %.us-phi46 = phi i32 [ %8, %.lr.ph.split.us ], [ %15, %13 ]
   %20 = and i64 %.us-phi, 2147483647
-  %21 = getelementptr inbounds i8, ptr %.029.ph55, i64 %20
+  %21 = getelementptr inbounds nuw i8, ptr %.029.ph55, i64 %20
   %22 = sub nsw i32 %.028.ph57, %.us-phi46
   %23 = icmp sgt i32 %22, 0
   br i1 %23, label %24, label %.outer36._crit_edge
@@ -1307,7 +1307,7 @@ define range(i32 -1, 1) i32 @container_p_send_stepd(i32 noundef %0) local_unname
   br i1 %28, label %.lr.ph59.preheader, label %.loopexit
 
 .lr.ph59.preheader:                               ; preds = %.outer36._crit_edge
-  %29 = getelementptr inbounds i8, ptr %3, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %30 = load ptr, ptr %29, align 8
   br label %.lr.ph59.split.us
 
@@ -1350,7 +1350,7 @@ define range(i32 -1, 1) i32 @container_p_send_stepd(i32 noundef %0) local_unname
   %.us-phi62 = phi i64 [ %32, %.lr.ph59.split.us ], [ %39, %38 ]
   %.us-phi63 = phi i32 [ %33, %.lr.ph59.split.us ], [ %40, %38 ]
   %45 = and i64 %.us-phi62, 2147483647
-  %46 = getelementptr inbounds i8, ptr %.026.ph75, i64 %45
+  %46 = getelementptr inbounds nuw i8, ptr %.026.ph75, i64 %45
   %47 = sub nsw i32 %.027.ph73, %.us-phi63
   %48 = icmp sgt i32 %47, 0
   br i1 %48, label %49, label %.loopexit
@@ -1487,7 +1487,7 @@ define range(i32 -1, 1) i32 @container_p_recv_stepd(i32 noundef %0) local_unname
   %.us-phi72 = phi i64 [ %5, %.lr.ph96.preheader.preheader ], [ %5, %.lr.ph112.preheader ], [ %21, %.lr.ph96.preheader ], [ %13, %.lr.ph112 ]
   %.us-phi73 = phi i32 [ %6, %.lr.ph96.preheader.preheader ], [ %6, %.lr.ph112.preheader ], [ %22, %.lr.ph96.preheader ], [ %14, %.lr.ph112 ]
   %33 = and i64 %.us-phi72, 2147483647
-  %34 = getelementptr inbounds i8, ptr %.039.ph114, i64 %33
+  %34 = getelementptr inbounds nuw i8, ptr %.039.ph114, i64 %33
   %35 = sub nsw i32 %.038.ph116, %.us-phi73
   %36 = icmp sgt i32 %35, 0
   br i1 %36, label %37, label %.outer49._crit_edge
@@ -1511,7 +1511,7 @@ define range(i32 -1, 1) i32 @container_p_recv_stepd(i32 noundef %0) local_unname
   br i1 %43, label %.lr.ph118.preheader, label %.outer._crit_edge
 
 .lr.ph118.preheader:                              ; preds = %.outer49._crit_edge
-  %44 = getelementptr inbounds i8, ptr %42, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %45 = load ptr, ptr %44, align 8
   br label %.lr.ph118
 
@@ -1613,7 +1613,7 @@ define range(i32 -1, 1) i32 @container_p_recv_stepd(i32 noundef %0) local_unname
   %.us-phi125 = phi i64 [ %48, %.lr.ph150.preheader.preheader ], [ %48, %.lr.ph166.preheader ], [ %64, %.lr.ph150.preheader ], [ %56, %.lr.ph166 ]
   %.us-phi126 = phi i32 [ %49, %.lr.ph150.preheader.preheader ], [ %49, %.lr.ph166.preheader ], [ %65, %.lr.ph150.preheader ], [ %57, %.lr.ph166 ]
   %76 = and i64 %.us-phi125, 2147483647
-  %77 = getelementptr inbounds i8, ptr %.036.ph171, i64 %76
+  %77 = getelementptr inbounds nuw i8, ptr %.036.ph171, i64 %76
   %78 = sub nsw i32 %.037.ph169, %.us-phi126
   %79 = icmp sgt i32 %78, 0
   br i1 %79, label %80, label %.outer._crit_edge
@@ -1637,7 +1637,7 @@ define range(i32 -1, 1) i32 @container_p_recv_stepd(i32 noundef %0) local_unname
   br i1 %.not, label %92, label %85
 
 85:                                               ; preds = %.outer._crit_edge
-  %86 = getelementptr inbounds i8, ptr %84, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %84, i64 8
   %87 = load ptr, ptr %86, align 8
   %.not.i = icmp eq ptr %87, null
   br i1 %.not.i, label %_is_plugin_disabled.exit, label %88
@@ -1678,7 +1678,7 @@ declare ptr @slurm_list_find_first(ptr noundef, ptr noundef, ptr noundef) local_
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal range(i32 0, 2) i32 @_find_step_in_list(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #7 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 20
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %4 = load i32, ptr %3, align 4
   %5 = load i32, ptr %1, align 4
   %6 = icmp eq i32 %4, %5
@@ -1743,7 +1743,7 @@ define internal fastcc noundef i32 @_mount_private_dirs(ptr noundef %0, i32 noun
 
 8:                                                ; preds = %2
   %9 = load ptr, ptr @jc_conf, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8
   %12 = tail call ptr @slurm_xstrdup(ptr noundef %11) #12
   store ptr %12, ptr %3, align 8
@@ -1775,7 +1775,7 @@ define internal fastcc noundef i32 @_mount_private_dirs(ptr noundef %0, i32 noun
 
 21:                                               ; preds = %.backedge61, %17
   %.pn = phi ptr [ %20, %17 ], [ %.0, %.backedge61 ]
-  %.0 = getelementptr inbounds i8, ptr %.pn, i64 1
+  %.0 = getelementptr inbounds nuw i8, ptr %.pn, i64 1
   %22 = load i8, ptr %.0, align 1
   switch i8 %22, label %.backedge61 [
     i8 0, label %24
@@ -1850,7 +1850,7 @@ define internal fastcc range(i32 -1, 1) i32 @_clean_job_basepath(i32 noundef %0)
   %2 = alloca ptr, align 8
   store ptr null, ptr %2, align 8
   %3 = load ptr, ptr @jc_conf, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr @opendir(ptr noundef %5)
   %.not = icmp eq ptr %6, null
@@ -1863,14 +1863,14 @@ define internal fastcc range(i32 -1, 1) i32 @_clean_job_basepath(i32 noundef %0)
 
 8:                                                ; preds = %1
   %9 = load ptr, ptr @jc_conf, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.6, ptr noundef nonnull @__func__._clean_job_basepath, ptr noundef %11) #12
   br label %38
 
 .lr.ph:                                           ; preds = %.preheader, %.backedge
   %13 = phi ptr [ %18, %.backedge ], [ %7, %.preheader ]
-  %14 = getelementptr inbounds i8, ptr %13, i64 19
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 19
   %15 = call i32 @slurm_xstrcmp(ptr noundef nonnull %14, ptr noundef nonnull @.str.73) #12
   %.not11 = icmp eq i32 %15, 0
   br i1 %.not11, label %.backedge, label %16
@@ -1886,7 +1886,7 @@ define internal fastcc range(i32 -1, 1) i32 @_clean_job_basepath(i32 noundef %0)
   br i1 %.not10, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %13, i64 18
+  %20 = getelementptr inbounds nuw i8, ptr %13, i64 18
   %21 = load i8, ptr %20, align 2
   switch i8 %21, label %.backedge [
     i8 4, label %22
@@ -1895,7 +1895,7 @@ define internal fastcc range(i32 -1, 1) i32 @_clean_job_basepath(i32 noundef %0)
 
 22:                                               ; preds = %19, %19
   %23 = load ptr, ptr @jc_conf, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load ptr, ptr %24, align 8
   call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %2, ptr noundef nonnull @.str.69, ptr noundef %25, ptr noundef nonnull %14) #12
   %26 = load ptr, ptr %2, align 8
@@ -1938,14 +1938,14 @@ declare i32 @umount2(ptr noundef, i32 noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @_mount_private_shm() unnamed_addr #0 {
   %1 = load ptr, ptr @jc_conf, align 8
-  %2 = getelementptr inbounds i8, ptr %1, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = tail call ptr @slurm_xstrcasestr(ptr noundef %3, ptr noundef nonnull @.str.68) #12
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %21, label %5
 
 5:                                                ; preds = %0
-  %6 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %7 = load i8, ptr %6, align 1
   switch i8 %7, label %21 [
     i8 44, label %8
@@ -1954,7 +1954,7 @@ define internal fastcc i32 @_mount_private_shm() unnamed_addr #0 {
 
 8:                                                ; preds = %5, %5
   %9 = load ptr, ptr @jc_conf, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %11 = load i8, ptr %10, align 8
   %12 = trunc i8 %11 to i1
   br i1 %12, label %18, label %13

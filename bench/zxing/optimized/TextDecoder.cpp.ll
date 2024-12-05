@@ -173,13 +173,13 @@ define noundef zeroext i8 @_ZN5ZXing11TextDecoder13GuessEncodingEPKhmNS_12Charac
   br i1 %7, label %8, label %.lr.ph.preheader
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %10 = load i8, ptr %9, align 1
   %11 = icmp eq i8 %10, -69
   br i1 %11, label %12, label %.lr.ph.preheader
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %0, i64 2
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %14 = load i8, ptr %13, align 1
   %15 = icmp eq i8 %14, -65
   br label %.lr.ph.preheader

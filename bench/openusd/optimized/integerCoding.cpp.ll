@@ -223,7 +223,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_GetEncodedBufferSizeIiEEmm
   %.135.i.i = phi i64 [ %37, %39 ], [ %.034113.i.i, %43 ], [ %.034113.i.i, %45 ]
   %.1.i.i = phi i32 [ %40, %39 ], [ %.033114.i.i, %43 ], [ %spec.select.i.i, %45 ]
   %48 = load i32, ptr %.037111.i.i, align 4
-  %49 = getelementptr inbounds i8, ptr %.037111.i.i, i64 4
+  %49 = getelementptr inbounds nuw i8, ptr %.037111.i.i, i64 4
   %.not.i6.i = icmp eq ptr %49, %30
   br i1 %.not.i6.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !8
 
@@ -246,7 +246,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_GetEncodedBufferSizeIiEEmm
   br label %_ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash12bucket_entryISt4pairIimELb0EEEEvPT_.exit.i.i.i.i.i.i.i.i
 
 _ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash12bucket_entryISt4pairIimELb0EEEEvPT_.exit.i.i.i.i.i.i.i.i: ; preds = %56, %.lr.ph.i.i.i.i.i.i.i.i
-  %57 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i.i.i, i64 24
+  %57 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i.i.i, i64 24
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %57, %53
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash12bucket_entryISt4pairIimELb0EEES6_EvT_S8_RSaIT0_E.exitthread-pre-split.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !10
 
@@ -270,8 +270,8 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash12b
 
 _ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl9robin_mapIimSt4hashIiESt8equal_toIiESaISt4pairIimEELb0ENS0_2rh26power_of_two_growth_policyILm2EEEED2Ev.exit.i.i: ; preds = %59, %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash12bucket_entryISt4pairIimELb0EEES6_EvT_S8_RSaIT0_E.exit.i.i.i.i.i
   store i32 %.1.i.i, ptr %16, align 1
-  %65 = getelementptr inbounds i8, ptr %16, i64 4
-  %66 = getelementptr inbounds i8, ptr %65, i64 %12
+  %65 = getelementptr inbounds nuw i8, ptr %16, i64 4
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 %12
   %67 = icmp ugt i64 %1, 3
   br i1 %67, label %.preheader104.i.i, label %._crit_edge120.i.i
 
@@ -291,7 +291,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl9robin_mapIimSt4hashIiESt8equal_toI
   %.02329.i.i.i = phi i32 [ %90, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.i.i.i ], [ 0, %.preheader104.i.i ]
   %69 = load i32, ptr %.195.i.i, align 4
   %70 = sub nsw i32 %69, %.193.i.i
-  %71 = getelementptr inbounds i8, ptr %.195.i.i, i64 4
+  %71 = getelementptr inbounds nuw i8, ptr %.195.i.i, i64 4
   %72 = icmp eq i32 %70, %.1.i.i
   br i1 %72, label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.i.i.i, label %73
 
@@ -334,7 +334,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl9robin_mapIimSt4hashIiESt8equal_toI
 _ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.sink.split.i.i.i: ; preds = %85, %81, %77
   %.sink.i.i = phi i64 [ 4, %85 ], [ 2, %81 ], [ 1, %77 ]
   %.pn.in.i.i.i = phi i32 [ %87, %85 ], [ %83, %81 ], [ %79, %77 ]
-  %88 = getelementptr inbounds i8, ptr %.2100.i.i, i64 %.sink.i.i
+  %88 = getelementptr inbounds nuw i8, ptr %.2100.i.i, i64 %.sink.i.i
   %.pn.i.i.i = trunc i32 %.pn.in.i.i.i to i8
   %.ph.i.i.i = or i8 %.030.i.i.i, %.pn.i.i.i
   br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.i.i.i
@@ -348,7 +348,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKiEEvR
 
 _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_.exit.i.i: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.i.i.i
   store i8 %89, ptr %.0102115.i.i, align 1
-  %91 = getelementptr inbounds i8, ptr %.0102115.i.i, i64 1
+  %91 = getelementptr inbounds nuw i8, ptr %.0102115.i.i, i64 1
   %92 = add i64 %.032119.i.i, -4
   %93 = icmp ugt i64 %92, 3
   br i1 %93, label %.preheader104.i.i, label %._crit_edge120.i.i, !llvm.loop !12
@@ -391,18 +391,18 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKiEEvRT
 102:                                              ; preds = %99
   %103 = trunc i32 %96 to i8
   store i8 %103, ptr %.098.lcssa.i.i, align 1
-  %104 = getelementptr inbounds i8, ptr %.098.lcssa.i.i, i64 1
+  %104 = getelementptr inbounds nuw i8, ptr %.098.lcssa.i.i, i64 1
   br label %.sink.split.i.i
 
 105:                                              ; preds = %101, %100
   %106 = trunc i32 %96 to i16
   store i16 %106, ptr %.098.lcssa.i.i, align 1
-  %107 = getelementptr inbounds i8, ptr %.098.lcssa.i.i, i64 2
+  %107 = getelementptr inbounds nuw i8, ptr %.098.lcssa.i.i, i64 2
   br label %.sink.split.i.i
 
 108:                                              ; preds = %101, %100
   store i32 %96, ptr %.098.lcssa.i.i, align 1
-  %109 = getelementptr inbounds i8, ptr %.098.lcssa.i.i, i64 4
+  %109 = getelementptr inbounds nuw i8, ptr %.098.lcssa.i.i, i64 4
   br label %.sink.split.i.i
 
 .preheader103.i.i:                                ; preds = %._crit_edge120.i.i, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.i.i.i
@@ -413,7 +413,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKiEEvRT
   %.02329.i48.i.i = phi i32 [ %131, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.i.i.i ], [ 0, %._crit_edge120.i.i ]
   %110 = load i32, ptr %.296.i.i, align 4
   %111 = sub nsw i32 %110, %.2.i.i
-  %112 = getelementptr inbounds i8, ptr %.296.i.i, i64 4
+  %112 = getelementptr inbounds nuw i8, ptr %.296.i.i, i64 4
   %113 = icmp eq i32 %111, %.1.i.i
   br i1 %113, label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.i.i.i, label %114
 
@@ -456,7 +456,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKiEEvRT
 _ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.sink.split.i.i.i: ; preds = %126, %122, %118
   %.sink138.i.i = phi i64 [ 4, %126 ], [ 2, %122 ], [ 1, %118 ]
   %.pn.in.i52.i.i = phi i32 [ %128, %126 ], [ %124, %122 ], [ %120, %118 ]
-  %129 = getelementptr inbounds i8, ptr %.5.i.i, i64 %.sink138.i.i
+  %129 = getelementptr inbounds nuw i8, ptr %.5.i.i, i64 %.sink138.i.i
   %.pn.i53.i.i = trunc i32 %.pn.in.i52.i.i to i8
   %.ph.i54.i.i = or i8 %.030.i47.i.i, %.pn.i53.i.i
   br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.i.i.i
@@ -476,7 +476,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKiEEvR
   %.02329.i59.i.i = phi i32 [ %153, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.i.i.i ], [ 0, %._crit_edge120.i.i ]
   %132 = load i32, ptr %.397.i.i, align 4
   %133 = sub nsw i32 %132, %.3.i.i
-  %134 = getelementptr inbounds i8, ptr %.397.i.i, i64 4
+  %134 = getelementptr inbounds nuw i8, ptr %.397.i.i, i64 4
   %135 = icmp eq i32 %133, %.1.i.i
   br i1 %135, label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.i.i.i, label %136
 
@@ -519,7 +519,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKiEEvR
 _ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.sink.split.i.i.i: ; preds = %148, %144, %140
   %.sink139.i.i = phi i64 [ 4, %148 ], [ 2, %144 ], [ 1, %140 ]
   %.pn.in.i63.i.i = phi i32 [ %150, %148 ], [ %146, %144 ], [ %142, %140 ]
-  %151 = getelementptr inbounds i8, ptr %.7.i.i, i64 %.sink139.i.i
+  %151 = getelementptr inbounds nuw i8, ptr %.7.i.i, i64 %.sink139.i.i
   %.pn.i64.i.i = trunc i32 %.pn.in.i63.i.i to i8
   %.ph.i65.i.i = or i8 %.030.i58.i.i, %.pn.i64.i.i
   br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.i.i.i
@@ -679,7 +679,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_GetEncodedBufferSizeIjEEmm
   %.135.i.i = phi i64 [ %37, %39 ], [ %.034113.i.i, %43 ], [ %.034113.i.i, %45 ]
   %.1.i.i = phi i32 [ %40, %39 ], [ %.033114.i.i, %43 ], [ %spec.select.i.i, %45 ]
   %48 = load i32, ptr %.037111.i.i, align 4
-  %49 = getelementptr inbounds i8, ptr %.037111.i.i, i64 4
+  %49 = getelementptr inbounds nuw i8, ptr %.037111.i.i, i64 4
   %.not.i6.i = icmp eq ptr %49, %30
   br i1 %.not.i6.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !18
 
@@ -702,7 +702,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_GetEncodedBufferSizeIjEEmm
   br label %_ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash12bucket_entryISt4pairIimELb0EEEEvPT_.exit.i.i.i.i.i.i.i.i
 
 _ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash12bucket_entryISt4pairIimELb0EEEEvPT_.exit.i.i.i.i.i.i.i.i: ; preds = %56, %.lr.ph.i.i.i.i.i.i.i.i
-  %57 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i.i.i, i64 24
+  %57 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i.i.i, i64 24
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %57, %53
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash12bucket_entryISt4pairIimELb0EEES6_EvT_S8_RSaIT0_E.exitthread-pre-split.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !10
 
@@ -726,8 +726,8 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash12b
 
 _ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl9robin_mapIimSt4hashIiESt8equal_toIiESaISt4pairIimEELb0ENS0_2rh26power_of_two_growth_policyILm2EEEED2Ev.exit.i.i: ; preds = %59, %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash12bucket_entryISt4pairIimELb0EEES6_EvT_S8_RSaIT0_E.exit.i.i.i.i.i
   store i32 %.1.i.i, ptr %16, align 1
-  %65 = getelementptr inbounds i8, ptr %16, i64 4
-  %66 = getelementptr inbounds i8, ptr %65, i64 %12
+  %65 = getelementptr inbounds nuw i8, ptr %16, i64 4
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 %12
   %67 = icmp ugt i64 %1, 3
   br i1 %67, label %.preheader104.i.i, label %._crit_edge120.i.i
 
@@ -747,7 +747,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl9robin_mapIimSt4hashIiESt8equal_toI
   %.02329.i.i.i = phi i32 [ %90, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.i.i.i ], [ 0, %.preheader104.i.i ]
   %69 = load i32, ptr %.195.i.i, align 4
   %70 = sub nsw i32 %69, %.193.i.i
-  %71 = getelementptr inbounds i8, ptr %.195.i.i, i64 4
+  %71 = getelementptr inbounds nuw i8, ptr %.195.i.i, i64 4
   %72 = icmp eq i32 %70, %.1.i.i
   br i1 %72, label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.i.i.i, label %73
 
@@ -790,7 +790,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl9robin_mapIimSt4hashIiESt8equal_toI
 _ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.sink.split.i.i.i: ; preds = %85, %81, %77
   %.sink.i.i = phi i64 [ 4, %85 ], [ 2, %81 ], [ 1, %77 ]
   %.pn.in.i.i.i = phi i32 [ %87, %85 ], [ %83, %81 ], [ %79, %77 ]
-  %88 = getelementptr inbounds i8, ptr %.2100.i.i, i64 %.sink.i.i
+  %88 = getelementptr inbounds nuw i8, ptr %.2100.i.i, i64 %.sink.i.i
   %.pn.i.i.i = trunc i32 %.pn.in.i.i.i to i8
   %.ph.i.i.i = or i8 %.030.i.i.i, %.pn.i.i.i
   br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.i.i.i
@@ -804,7 +804,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKjEEvR
 
 _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_.exit.i.i: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.i.i.i
   store i8 %89, ptr %.0102115.i.i, align 1
-  %91 = getelementptr inbounds i8, ptr %.0102115.i.i, i64 1
+  %91 = getelementptr inbounds nuw i8, ptr %.0102115.i.i, i64 1
   %92 = add i64 %.032119.i.i, -4
   %93 = icmp ugt i64 %92, 3
   br i1 %93, label %.preheader104.i.i, label %._crit_edge120.i.i, !llvm.loop !20
@@ -847,18 +847,18 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKjEEvRT
 102:                                              ; preds = %99
   %103 = trunc i32 %96 to i8
   store i8 %103, ptr %.098.lcssa.i.i, align 1
-  %104 = getelementptr inbounds i8, ptr %.098.lcssa.i.i, i64 1
+  %104 = getelementptr inbounds nuw i8, ptr %.098.lcssa.i.i, i64 1
   br label %.sink.split.i.i
 
 105:                                              ; preds = %101, %100
   %106 = trunc i32 %96 to i16
   store i16 %106, ptr %.098.lcssa.i.i, align 1
-  %107 = getelementptr inbounds i8, ptr %.098.lcssa.i.i, i64 2
+  %107 = getelementptr inbounds nuw i8, ptr %.098.lcssa.i.i, i64 2
   br label %.sink.split.i.i
 
 108:                                              ; preds = %101, %100
   store i32 %96, ptr %.098.lcssa.i.i, align 1
-  %109 = getelementptr inbounds i8, ptr %.098.lcssa.i.i, i64 4
+  %109 = getelementptr inbounds nuw i8, ptr %.098.lcssa.i.i, i64 4
   br label %.sink.split.i.i
 
 .preheader103.i.i:                                ; preds = %._crit_edge120.i.i, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.i.i.i
@@ -869,7 +869,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKjEEvRT
   %.02329.i48.i.i = phi i32 [ %131, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.i.i.i ], [ 0, %._crit_edge120.i.i ]
   %110 = load i32, ptr %.296.i.i, align 4
   %111 = sub nsw i32 %110, %.2.i.i
-  %112 = getelementptr inbounds i8, ptr %.296.i.i, i64 4
+  %112 = getelementptr inbounds nuw i8, ptr %.296.i.i, i64 4
   %113 = icmp eq i32 %111, %.1.i.i
   br i1 %113, label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.i.i.i, label %114
 
@@ -912,7 +912,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKjEEvRT
 _ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.sink.split.i.i.i: ; preds = %126, %122, %118
   %.sink138.i.i = phi i64 [ 4, %126 ], [ 2, %122 ], [ 1, %118 ]
   %.pn.in.i52.i.i = phi i32 [ %128, %126 ], [ %124, %122 ], [ %120, %118 ]
-  %129 = getelementptr inbounds i8, ptr %.5.i.i, i64 %.sink138.i.i
+  %129 = getelementptr inbounds nuw i8, ptr %.5.i.i, i64 %.sink138.i.i
   %.pn.i53.i.i = trunc i32 %.pn.in.i52.i.i to i8
   %.ph.i54.i.i = or i8 %.030.i47.i.i, %.pn.i53.i.i
   br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.i.i.i
@@ -932,7 +932,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKjEEvR
   %.02329.i59.i.i = phi i32 [ %153, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.i.i.i ], [ 0, %._crit_edge120.i.i ]
   %132 = load i32, ptr %.397.i.i, align 4
   %133 = sub nsw i32 %132, %.3.i.i
-  %134 = getelementptr inbounds i8, ptr %.397.i.i, i64 4
+  %134 = getelementptr inbounds nuw i8, ptr %.397.i.i, i64 4
   %135 = icmp eq i32 %133, %.1.i.i
   br i1 %135, label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.i.i.i, label %136
 
@@ -975,7 +975,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKjEEvR
 _ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.sink.split.i.i.i: ; preds = %148, %144, %140
   %.sink139.i.i = phi i64 [ 4, %148 ], [ 2, %144 ], [ 1, %140 ]
   %.pn.in.i63.i.i = phi i32 [ %150, %148 ], [ %146, %144 ], [ %142, %140 ]
-  %151 = getelementptr inbounds i8, ptr %.7.i.i, i64 %.sink139.i.i
+  %151 = getelementptr inbounds nuw i8, ptr %.7.i.i, i64 %.sink139.i.i
   %.pn.i64.i.i = trunc i32 %.pn.in.i63.i.i to i8
   %.ph.i65.i.i = or i8 %.030.i58.i.i, %.pn.i64.i.i
   br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.i.i.i
@@ -1075,11 +1075,11 @@ _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EE5resetIPcvEEvT_.exit.i: ; preds = %
 
 21:                                               ; preds = %19
   %.0.copyload.i.i.i = load i32, ptr %.013.i, align 1
-  %22 = getelementptr inbounds i8, ptr %.013.i, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %.013.i, i64 4
   %23 = shl i64 %3, 1
   %24 = add i64 %23, 7
   %25 = lshr i64 %24, 3
-  %26 = getelementptr inbounds i8, ptr %22, i64 %25
+  %26 = getelementptr inbounds nuw i8, ptr %22, i64 %25
   %27 = icmp ugt i64 %3, 3
   br i1 %27, label %.lr.ph.preheader.i.i, label %._crit_edge.i.i
 
@@ -1096,7 +1096,7 @@ _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EE5resetIPcvEEvT_.exit.i: ; preds = %
   %.05472.i.i = phi ptr [ %.256.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi4EPiEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i ], [ %26, %.lr.ph.preheader.i.i ]
   %.05871.i.i = phi ptr [ %31, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi4EPiEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i ], [ %22, %.lr.ph.preheader.i.i ]
   %.05970.i.i = phi ptr [ %48, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi4EPiEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i ], [ %2, %.lr.ph.preheader.i.i ]
-  %31 = getelementptr inbounds i8, ptr %.05871.i.i, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %.05871.i.i, i64 1
   %32 = load i8, ptr %.05871.i.i, align 1
   %33 = zext i8 %32 to i32
   br label %34
@@ -1124,26 +1124,26 @@ default.unreachable:                              ; preds = %64, %83, %52
 
 38:                                               ; preds = %34
   %.0.copyload.i.i.i.i = load i8, ptr %.155.i.i, align 1
-  %39 = getelementptr inbounds i8, ptr %.155.i.i, i64 1
+  %39 = getelementptr inbounds nuw i8, ptr %.155.i.i, i64 1
   %40 = sext i8 %.0.copyload.i.i.i.i to i32
   br label %46
 
 41:                                               ; preds = %34
   %.0.copyload.i14.i.i.i = load i16, ptr %.155.i.i, align 1
-  %42 = getelementptr inbounds i8, ptr %.155.i.i, i64 2
+  %42 = getelementptr inbounds nuw i8, ptr %.155.i.i, i64 2
   %43 = sext i16 %.0.copyload.i14.i.i.i to i32
   br label %46
 
 44:                                               ; preds = %34
   %.0.copyload.i15.i.i.i = load i32, ptr %.155.i.i, align 1
-  %45 = getelementptr inbounds i8, ptr %.155.i.i, i64 4
+  %45 = getelementptr inbounds nuw i8, ptr %.155.i.i, i64 4
   br label %46
 
 46:                                               ; preds = %44, %41, %38, %34
   %.256.i.i = phi ptr [ %45, %44 ], [ %42, %41 ], [ %39, %38 ], [ %.155.i.i, %34 ]
   %.0.copyload.i15.sink.i.i.i = phi i32 [ %.0.copyload.i15.i.i.i, %44 ], [ %43, %41 ], [ %40, %38 ], [ %.0.copyload.i.i.i, %34 ]
   %47 = add nsw i32 %.0.copyload.i15.sink.i.i.i, %.1.i.i
-  %48 = getelementptr inbounds i8, ptr %.160.i.i, i64 4
+  %48 = getelementptr inbounds nuw i8, ptr %.160.i.i, i64 4
   store i32 %47, ptr %.160.i.i, align 4
   %49 = add nuw nsw i32 %.016.i.i.i, 1
   %.not.i.i16.i = icmp eq i32 %49, 4
@@ -1219,26 +1219,26 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi1EPiEEvRPK
 
 68:                                               ; preds = %64
   %.0.copyload.i.i20.i.i = load i8, ptr %.357.i.i, align 1
-  %69 = getelementptr inbounds i8, ptr %.357.i.i, i64 1
+  %69 = getelementptr inbounds nuw i8, ptr %.357.i.i, i64 1
   %70 = sext i8 %.0.copyload.i.i20.i.i to i32
   br label %76
 
 71:                                               ; preds = %64
   %.0.copyload.i14.i19.i.i = load i16, ptr %.357.i.i, align 1
-  %72 = getelementptr inbounds i8, ptr %.357.i.i, i64 2
+  %72 = getelementptr inbounds nuw i8, ptr %.357.i.i, i64 2
   %73 = sext i16 %.0.copyload.i14.i19.i.i to i32
   br label %76
 
 74:                                               ; preds = %64
   %.0.copyload.i15.i16.i.i = load i32, ptr %.357.i.i, align 1
-  %75 = getelementptr inbounds i8, ptr %.357.i.i, i64 4
+  %75 = getelementptr inbounds nuw i8, ptr %.357.i.i, i64 4
   br label %76
 
 76:                                               ; preds = %74, %71, %68, %64
   %.4.i.i = phi ptr [ %75, %74 ], [ %72, %71 ], [ %69, %68 ], [ %.357.i.i, %64 ]
   %.0.copyload.i15.sink.i17.i.i = phi i32 [ %.0.copyload.i15.i16.i.i, %74 ], [ %73, %71 ], [ %70, %68 ], [ %.0.copyload.i.i.i, %64 ]
   %77 = add nsw i32 %.0.copyload.i15.sink.i17.i.i, %.2.i.i
-  %78 = getelementptr inbounds i8, ptr %.261.i.i, i64 4
+  %78 = getelementptr inbounds nuw i8, ptr %.261.i.i, i64 4
   store i32 %77, ptr %.261.i.i, align 4
   %79 = add nuw nsw i32 %.016.i15.i.i, 1
   %.not.i18.i.i = icmp eq i32 %79, 2
@@ -1266,26 +1266,26 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi1EPiEEvRPK
 
 87:                                               ; preds = %83
   %.0.copyload.i.i27.i.i = load i8, ptr %.5.i.i, align 1
-  %88 = getelementptr inbounds i8, ptr %.5.i.i, i64 1
+  %88 = getelementptr inbounds nuw i8, ptr %.5.i.i, i64 1
   %89 = sext i8 %.0.copyload.i.i27.i.i to i32
   br label %95
 
 90:                                               ; preds = %83
   %.0.copyload.i14.i26.i.i = load i16, ptr %.5.i.i, align 1
-  %91 = getelementptr inbounds i8, ptr %.5.i.i, i64 2
+  %91 = getelementptr inbounds nuw i8, ptr %.5.i.i, i64 2
   %92 = sext i16 %.0.copyload.i14.i26.i.i to i32
   br label %95
 
 93:                                               ; preds = %83
   %.0.copyload.i15.i23.i.i = load i32, ptr %.5.i.i, align 1
-  %94 = getelementptr inbounds i8, ptr %.5.i.i, i64 4
+  %94 = getelementptr inbounds nuw i8, ptr %.5.i.i, i64 4
   br label %95
 
 95:                                               ; preds = %93, %90, %87, %83
   %.6.i.i = phi ptr [ %94, %93 ], [ %91, %90 ], [ %88, %87 ], [ %.5.i.i, %83 ]
   %.0.copyload.i15.sink.i24.i.i = phi i32 [ %.0.copyload.i15.i23.i.i, %93 ], [ %92, %90 ], [ %89, %87 ], [ %.0.copyload.i.i.i, %83 ]
   %96 = add nsw i32 %.0.copyload.i15.sink.i24.i.i, %.3.i.i
-  %97 = getelementptr inbounds i8, ptr %.362.i.i, i64 4
+  %97 = getelementptr inbounds nuw i8, ptr %.362.i.i, i64 4
   store i32 %96, ptr %.362.i.i, align 4
   %98 = add nuw nsw i32 %.016.i22.i.i, 1
   %.not.i25.i.i = icmp eq i32 %98, 3
@@ -1355,11 +1355,11 @@ _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EE5resetIPcvEEvT_.exit.i: ; preds = %
 
 21:                                               ; preds = %19
   %.0.copyload.i.i.i = load i32, ptr %.013.i, align 1
-  %22 = getelementptr inbounds i8, ptr %.013.i, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %.013.i, i64 4
   %23 = shl i64 %3, 1
   %24 = add i64 %23, 7
   %25 = lshr i64 %24, 3
-  %26 = getelementptr inbounds i8, ptr %22, i64 %25
+  %26 = getelementptr inbounds nuw i8, ptr %22, i64 %25
   %27 = icmp ugt i64 %3, 3
   br i1 %27, label %.lr.ph.preheader.i.i, label %._crit_edge.i.i
 
@@ -1376,7 +1376,7 @@ _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EE5resetIPcvEEvT_.exit.i: ; preds = %
   %.05472.i.i = phi ptr [ %.256.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi4EPjEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i ], [ %26, %.lr.ph.preheader.i.i ]
   %.05871.i.i = phi ptr [ %31, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi4EPjEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i ], [ %22, %.lr.ph.preheader.i.i ]
   %.05970.i.i = phi ptr [ %48, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi4EPjEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i ], [ %2, %.lr.ph.preheader.i.i ]
-  %31 = getelementptr inbounds i8, ptr %.05871.i.i, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %.05871.i.i, i64 1
   %32 = load i8, ptr %.05871.i.i, align 1
   %33 = zext i8 %32 to i32
   br label %34
@@ -1404,26 +1404,26 @@ default.unreachable:                              ; preds = %64, %83, %52
 
 38:                                               ; preds = %34
   %.0.copyload.i.i.i.i = load i8, ptr %.155.i.i, align 1
-  %39 = getelementptr inbounds i8, ptr %.155.i.i, i64 1
+  %39 = getelementptr inbounds nuw i8, ptr %.155.i.i, i64 1
   %40 = sext i8 %.0.copyload.i.i.i.i to i32
   br label %46
 
 41:                                               ; preds = %34
   %.0.copyload.i14.i.i.i = load i16, ptr %.155.i.i, align 1
-  %42 = getelementptr inbounds i8, ptr %.155.i.i, i64 2
+  %42 = getelementptr inbounds nuw i8, ptr %.155.i.i, i64 2
   %43 = sext i16 %.0.copyload.i14.i.i.i to i32
   br label %46
 
 44:                                               ; preds = %34
   %.0.copyload.i15.i.i.i = load i32, ptr %.155.i.i, align 1
-  %45 = getelementptr inbounds i8, ptr %.155.i.i, i64 4
+  %45 = getelementptr inbounds nuw i8, ptr %.155.i.i, i64 4
   br label %46
 
 46:                                               ; preds = %44, %41, %38, %34
   %.256.i.i = phi ptr [ %45, %44 ], [ %42, %41 ], [ %39, %38 ], [ %.155.i.i, %34 ]
   %.0.copyload.i15.sink.i.i.i = phi i32 [ %.0.copyload.i15.i.i.i, %44 ], [ %43, %41 ], [ %40, %38 ], [ %.0.copyload.i.i.i, %34 ]
   %47 = add i32 %.0.copyload.i15.sink.i.i.i, %.1.i.i
-  %48 = getelementptr inbounds i8, ptr %.160.i.i, i64 4
+  %48 = getelementptr inbounds nuw i8, ptr %.160.i.i, i64 4
   store i32 %47, ptr %.160.i.i, align 4
   %49 = add nuw nsw i32 %.016.i.i.i, 1
   %.not.i.i16.i = icmp eq i32 %49, 4
@@ -1499,26 +1499,26 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi1EPjEEvRPK
 
 68:                                               ; preds = %64
   %.0.copyload.i.i20.i.i = load i8, ptr %.357.i.i, align 1
-  %69 = getelementptr inbounds i8, ptr %.357.i.i, i64 1
+  %69 = getelementptr inbounds nuw i8, ptr %.357.i.i, i64 1
   %70 = sext i8 %.0.copyload.i.i20.i.i to i32
   br label %76
 
 71:                                               ; preds = %64
   %.0.copyload.i14.i19.i.i = load i16, ptr %.357.i.i, align 1
-  %72 = getelementptr inbounds i8, ptr %.357.i.i, i64 2
+  %72 = getelementptr inbounds nuw i8, ptr %.357.i.i, i64 2
   %73 = sext i16 %.0.copyload.i14.i19.i.i to i32
   br label %76
 
 74:                                               ; preds = %64
   %.0.copyload.i15.i16.i.i = load i32, ptr %.357.i.i, align 1
-  %75 = getelementptr inbounds i8, ptr %.357.i.i, i64 4
+  %75 = getelementptr inbounds nuw i8, ptr %.357.i.i, i64 4
   br label %76
 
 76:                                               ; preds = %74, %71, %68, %64
   %.4.i.i = phi ptr [ %75, %74 ], [ %72, %71 ], [ %69, %68 ], [ %.357.i.i, %64 ]
   %.0.copyload.i15.sink.i17.i.i = phi i32 [ %.0.copyload.i15.i16.i.i, %74 ], [ %73, %71 ], [ %70, %68 ], [ %.0.copyload.i.i.i, %64 ]
   %77 = add i32 %.0.copyload.i15.sink.i17.i.i, %.2.i.i
-  %78 = getelementptr inbounds i8, ptr %.261.i.i, i64 4
+  %78 = getelementptr inbounds nuw i8, ptr %.261.i.i, i64 4
   store i32 %77, ptr %.261.i.i, align 4
   %79 = add nuw nsw i32 %.016.i15.i.i, 1
   %.not.i18.i.i = icmp eq i32 %79, 2
@@ -1546,26 +1546,26 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi1EPjEEvRPK
 
 87:                                               ; preds = %83
   %.0.copyload.i.i27.i.i = load i8, ptr %.5.i.i, align 1
-  %88 = getelementptr inbounds i8, ptr %.5.i.i, i64 1
+  %88 = getelementptr inbounds nuw i8, ptr %.5.i.i, i64 1
   %89 = sext i8 %.0.copyload.i.i27.i.i to i32
   br label %95
 
 90:                                               ; preds = %83
   %.0.copyload.i14.i26.i.i = load i16, ptr %.5.i.i, align 1
-  %91 = getelementptr inbounds i8, ptr %.5.i.i, i64 2
+  %91 = getelementptr inbounds nuw i8, ptr %.5.i.i, i64 2
   %92 = sext i16 %.0.copyload.i14.i26.i.i to i32
   br label %95
 
 93:                                               ; preds = %83
   %.0.copyload.i15.i23.i.i = load i32, ptr %.5.i.i, align 1
-  %94 = getelementptr inbounds i8, ptr %.5.i.i, i64 4
+  %94 = getelementptr inbounds nuw i8, ptr %.5.i.i, i64 4
   br label %95
 
 95:                                               ; preds = %93, %90, %87, %83
   %.6.i.i = phi ptr [ %94, %93 ], [ %91, %90 ], [ %88, %87 ], [ %.5.i.i, %83 ]
   %.0.copyload.i15.sink.i24.i.i = phi i32 [ %.0.copyload.i15.i23.i.i, %93 ], [ %92, %90 ], [ %89, %87 ], [ %.0.copyload.i.i.i, %83 ]
   %96 = add i32 %.0.copyload.i15.sink.i24.i.i, %.3.i.i
-  %97 = getelementptr inbounds i8, ptr %.362.i.i, i64 4
+  %97 = getelementptr inbounds nuw i8, ptr %.362.i.i, i64 4
   store i32 %96, ptr %.362.i.i, align 4
   %98 = add nuw nsw i32 %.016.i22.i.i, 1
   %.not.i25.i.i = icmp eq i32 %98, 3
@@ -1734,7 +1734,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_GetEncodedBufferSizeIlEEmm
   %.135.i.i = phi i64 [ %37, %39 ], [ %.034113.i.i, %43 ], [ %.034113.i.i, %45 ]
   %.1.i.i = phi i64 [ %40, %39 ], [ %.033114.i.i, %43 ], [ %spec.select.i.i, %45 ]
   %48 = load i64, ptr %.037111.i.i, align 8
-  %49 = getelementptr inbounds i8, ptr %.037111.i.i, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %.037111.i.i, i64 8
   %.not.i6.i = icmp eq ptr %49, %30
   br i1 %.not.i6.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !34
 
@@ -1757,7 +1757,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_GetEncodedBufferSizeIlEEmm
   br label %_ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash12bucket_entryISt4pairIlmELb0EEEEvPT_.exit.i.i.i.i.i.i.i.i
 
 _ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash12bucket_entryISt4pairIlmELb0EEEEvPT_.exit.i.i.i.i.i.i.i.i: ; preds = %56, %.lr.ph.i.i.i.i.i.i.i.i
-  %57 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i.i.i, i64 24
+  %57 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i.i.i, i64 24
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %57, %53
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash12bucket_entryISt4pairIlmELb0EEES6_EvT_S8_RSaIT0_E.exitthread-pre-split.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !35
 
@@ -1781,8 +1781,8 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash12b
 
 _ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl9robin_mapIlmSt4hashIlESt8equal_toIlESaISt4pairIlmEELb0ENS0_2rh26power_of_two_growth_policyILm2EEEED2Ev.exit.i.i: ; preds = %59, %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash12bucket_entryISt4pairIlmELb0EEES6_EvT_S8_RSaIT0_E.exit.i.i.i.i.i
   store i64 %.1.i.i, ptr %16, align 1
-  %65 = getelementptr inbounds i8, ptr %16, i64 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 %12
+  %65 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 %12
   %67 = icmp ugt i64 %1, 3
   br i1 %67, label %.preheader104.i.i, label %._crit_edge120.i.i
 
@@ -1802,7 +1802,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl9robin_mapIlmSt4hashIlESt8equal_toI
   %.02329.i.i.i = phi i32 [ %90, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.i.i.i ], [ 0, %.preheader104.i.i ]
   %69 = load i64, ptr %.195.i.i, align 8
   %70 = sub nsw i64 %69, %.193.i.i
-  %71 = getelementptr inbounds i8, ptr %.195.i.i, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %.195.i.i, i64 8
   %72 = icmp eq i64 %70, %.1.i.i
   br i1 %72, label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.i.i.i, label %73
 
@@ -1845,7 +1845,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl9robin_mapIlmSt4hashIlESt8equal_toI
 _ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.sink.split.i.i.i: ; preds = %85, %81, %77
   %.sink.i.i = phi i64 [ 8, %85 ], [ 4, %81 ], [ 2, %77 ]
   %.pn.in.i.i.i = phi i32 [ %87, %85 ], [ %83, %81 ], [ %79, %77 ]
-  %88 = getelementptr inbounds i8, ptr %.2100.i.i, i64 %.sink.i.i
+  %88 = getelementptr inbounds nuw i8, ptr %.2100.i.i, i64 %.sink.i.i
   %.pn.i.i.i = trunc i32 %.pn.in.i.i.i to i8
   %.ph.i.i.i = or i8 %.030.i.i.i, %.pn.i.i.i
   br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.i.i.i
@@ -1859,7 +1859,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKlEEvR
 
 _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_.exit.i.i: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.i.i.i
   store i8 %89, ptr %.0102115.i.i, align 1
-  %91 = getelementptr inbounds i8, ptr %.0102115.i.i, i64 1
+  %91 = getelementptr inbounds nuw i8, ptr %.0102115.i.i, i64 1
   %92 = add i64 %.032119.i.i, -4
   %93 = icmp ugt i64 %92, 3
   br i1 %93, label %.preheader104.i.i, label %._crit_edge120.i.i, !llvm.loop !37
@@ -1902,18 +1902,18 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKlEEvRT
 102:                                              ; preds = %99
   %103 = trunc i64 %96 to i16
   store i16 %103, ptr %.098.lcssa.i.i, align 1
-  %104 = getelementptr inbounds i8, ptr %.098.lcssa.i.i, i64 2
+  %104 = getelementptr inbounds nuw i8, ptr %.098.lcssa.i.i, i64 2
   br label %.sink.split.i.i
 
 105:                                              ; preds = %101, %100
   %106 = trunc i64 %96 to i32
   store i32 %106, ptr %.098.lcssa.i.i, align 1
-  %107 = getelementptr inbounds i8, ptr %.098.lcssa.i.i, i64 4
+  %107 = getelementptr inbounds nuw i8, ptr %.098.lcssa.i.i, i64 4
   br label %.sink.split.i.i
 
 108:                                              ; preds = %101, %100
   store i64 %96, ptr %.098.lcssa.i.i, align 1
-  %109 = getelementptr inbounds i8, ptr %.098.lcssa.i.i, i64 8
+  %109 = getelementptr inbounds nuw i8, ptr %.098.lcssa.i.i, i64 8
   br label %.sink.split.i.i
 
 .preheader103.i.i:                                ; preds = %._crit_edge120.i.i, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.i.i.i
@@ -1924,7 +1924,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKlEEvRT
   %.02329.i48.i.i = phi i32 [ %131, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.i.i.i ], [ 0, %._crit_edge120.i.i ]
   %110 = load i64, ptr %.296.i.i, align 8
   %111 = sub nsw i64 %110, %.2.i.i
-  %112 = getelementptr inbounds i8, ptr %.296.i.i, i64 8
+  %112 = getelementptr inbounds nuw i8, ptr %.296.i.i, i64 8
   %113 = icmp eq i64 %111, %.1.i.i
   br i1 %113, label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.i.i.i, label %114
 
@@ -1967,7 +1967,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKlEEvRT
 _ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.sink.split.i.i.i: ; preds = %126, %122, %118
   %.sink138.i.i = phi i64 [ 8, %126 ], [ 4, %122 ], [ 2, %118 ]
   %.pn.in.i52.i.i = phi i32 [ %128, %126 ], [ %124, %122 ], [ %120, %118 ]
-  %129 = getelementptr inbounds i8, ptr %.5.i.i, i64 %.sink138.i.i
+  %129 = getelementptr inbounds nuw i8, ptr %.5.i.i, i64 %.sink138.i.i
   %.pn.i53.i.i = trunc i32 %.pn.in.i52.i.i to i8
   %.ph.i54.i.i = or i8 %.030.i47.i.i, %.pn.i53.i.i
   br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.i.i.i
@@ -1987,7 +1987,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKlEEvR
   %.02329.i59.i.i = phi i32 [ %153, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.i.i.i ], [ 0, %._crit_edge120.i.i ]
   %132 = load i64, ptr %.397.i.i, align 8
   %133 = sub nsw i64 %132, %.3.i.i
-  %134 = getelementptr inbounds i8, ptr %.397.i.i, i64 8
+  %134 = getelementptr inbounds nuw i8, ptr %.397.i.i, i64 8
   %135 = icmp eq i64 %133, %.1.i.i
   br i1 %135, label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.i.i.i, label %136
 
@@ -2030,7 +2030,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKlEEvR
 _ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.sink.split.i.i.i: ; preds = %148, %144, %140
   %.sink139.i.i = phi i64 [ 8, %148 ], [ 4, %144 ], [ 2, %140 ]
   %.pn.in.i63.i.i = phi i32 [ %150, %148 ], [ %146, %144 ], [ %142, %140 ]
-  %151 = getelementptr inbounds i8, ptr %.7.i.i, i64 %.sink139.i.i
+  %151 = getelementptr inbounds nuw i8, ptr %.7.i.i, i64 %.sink139.i.i
   %.pn.i64.i.i = trunc i32 %.pn.in.i63.i.i to i8
   %.ph.i65.i.i = or i8 %.030.i58.i.i, %.pn.i64.i.i
   br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.i.i.i
@@ -2190,7 +2190,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_GetEncodedBufferSizeImEEmm
   %.135.i.i = phi i64 [ %37, %39 ], [ %.034113.i.i, %43 ], [ %.034113.i.i, %45 ]
   %.1.i.i = phi i64 [ %40, %39 ], [ %.033114.i.i, %43 ], [ %spec.select.i.i, %45 ]
   %48 = load i64, ptr %.037111.i.i, align 8
-  %49 = getelementptr inbounds i8, ptr %.037111.i.i, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %.037111.i.i, i64 8
   %.not.i6.i = icmp eq ptr %49, %30
   br i1 %.not.i6.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !43
 
@@ -2213,7 +2213,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_GetEncodedBufferSizeImEEmm
   br label %_ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash12bucket_entryISt4pairIlmELb0EEEEvPT_.exit.i.i.i.i.i.i.i.i
 
 _ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash12bucket_entryISt4pairIlmELb0EEEEvPT_.exit.i.i.i.i.i.i.i.i: ; preds = %56, %.lr.ph.i.i.i.i.i.i.i.i
-  %57 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i.i.i, i64 24
+  %57 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i.i.i, i64 24
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %57, %53
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash12bucket_entryISt4pairIlmELb0EEES6_EvT_S8_RSaIT0_E.exitthread-pre-split.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !35
 
@@ -2237,8 +2237,8 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash12b
 
 _ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl9robin_mapIlmSt4hashIlESt8equal_toIlESaISt4pairIlmEELb0ENS0_2rh26power_of_two_growth_policyILm2EEEED2Ev.exit.i.i: ; preds = %59, %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash12bucket_entryISt4pairIlmELb0EEES6_EvT_S8_RSaIT0_E.exit.i.i.i.i.i
   store i64 %.1.i.i, ptr %16, align 1
-  %65 = getelementptr inbounds i8, ptr %16, i64 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 %12
+  %65 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 %12
   %67 = icmp ugt i64 %1, 3
   br i1 %67, label %.preheader104.i.i, label %._crit_edge120.i.i
 
@@ -2258,7 +2258,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl9robin_mapIlmSt4hashIlESt8equal_toI
   %.02329.i.i.i = phi i32 [ %90, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.i.i.i ], [ 0, %.preheader104.i.i ]
   %69 = load i64, ptr %.195.i.i, align 8
   %70 = sub nsw i64 %69, %.193.i.i
-  %71 = getelementptr inbounds i8, ptr %.195.i.i, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %.195.i.i, i64 8
   %72 = icmp eq i64 %70, %.1.i.i
   br i1 %72, label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.i.i.i, label %73
 
@@ -2301,7 +2301,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl9robin_mapIlmSt4hashIlESt8equal_toI
 _ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.sink.split.i.i.i: ; preds = %85, %81, %77
   %.sink.i.i = phi i64 [ 8, %85 ], [ 4, %81 ], [ 2, %77 ]
   %.pn.in.i.i.i = phi i32 [ %87, %85 ], [ %83, %81 ], [ %79, %77 ]
-  %88 = getelementptr inbounds i8, ptr %.2100.i.i, i64 %.sink.i.i
+  %88 = getelementptr inbounds nuw i8, ptr %.2100.i.i, i64 %.sink.i.i
   %.pn.i.i.i = trunc i32 %.pn.in.i.i.i to i8
   %.ph.i.i.i = or i8 %.030.i.i.i, %.pn.i.i.i
   br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.i.i.i
@@ -2315,7 +2315,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKmEEvR
 
 _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_.exit.i.i: ; preds = %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.i.i.i
   store i8 %89, ptr %.0102115.i.i, align 1
-  %91 = getelementptr inbounds i8, ptr %.0102115.i.i, i64 1
+  %91 = getelementptr inbounds nuw i8, ptr %.0102115.i.i, i64 1
   %92 = add i64 %.032119.i.i, -4
   %93 = icmp ugt i64 %92, 3
   br i1 %93, label %.preheader104.i.i, label %._crit_edge120.i.i, !llvm.loop !45
@@ -2358,18 +2358,18 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKmEEvRT
 102:                                              ; preds = %99
   %103 = trunc i64 %96 to i16
   store i16 %103, ptr %.098.lcssa.i.i, align 1
-  %104 = getelementptr inbounds i8, ptr %.098.lcssa.i.i, i64 2
+  %104 = getelementptr inbounds nuw i8, ptr %.098.lcssa.i.i, i64 2
   br label %.sink.split.i.i
 
 105:                                              ; preds = %101, %100
   %106 = trunc i64 %96 to i32
   store i32 %106, ptr %.098.lcssa.i.i, align 1
-  %107 = getelementptr inbounds i8, ptr %.098.lcssa.i.i, i64 4
+  %107 = getelementptr inbounds nuw i8, ptr %.098.lcssa.i.i, i64 4
   br label %.sink.split.i.i
 
 108:                                              ; preds = %101, %100
   store i64 %96, ptr %.098.lcssa.i.i, align 1
-  %109 = getelementptr inbounds i8, ptr %.098.lcssa.i.i, i64 8
+  %109 = getelementptr inbounds nuw i8, ptr %.098.lcssa.i.i, i64 8
   br label %.sink.split.i.i
 
 .preheader103.i.i:                                ; preds = %._crit_edge120.i.i, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.i.i.i
@@ -2380,7 +2380,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKmEEvRT
   %.02329.i48.i.i = phi i32 [ %131, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.i.i.i ], [ 0, %._crit_edge120.i.i ]
   %110 = load i64, ptr %.296.i.i, align 8
   %111 = sub nsw i64 %110, %.2.i.i
-  %112 = getelementptr inbounds i8, ptr %.296.i.i, i64 8
+  %112 = getelementptr inbounds nuw i8, ptr %.296.i.i, i64 8
   %113 = icmp eq i64 %111, %.1.i.i
   br i1 %113, label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.i.i.i, label %114
 
@@ -2423,7 +2423,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKmEEvRT
 _ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.sink.split.i.i.i: ; preds = %126, %122, %118
   %.sink138.i.i = phi i64 [ 8, %126 ], [ 4, %122 ], [ 2, %118 ]
   %.pn.in.i52.i.i = phi i32 [ %128, %126 ], [ %124, %122 ], [ %120, %118 ]
-  %129 = getelementptr inbounds i8, ptr %.5.i.i, i64 %.sink138.i.i
+  %129 = getelementptr inbounds nuw i8, ptr %.5.i.i, i64 %.sink138.i.i
   %.pn.i53.i.i = trunc i32 %.pn.in.i52.i.i to i8
   %.ph.i54.i.i = or i8 %.030.i47.i.i, %.pn.i53.i.i
   br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.i.i.i
@@ -2443,7 +2443,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKmEEvR
   %.02329.i59.i.i = phi i32 [ %153, %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.i.i.i ], [ 0, %._crit_edge120.i.i ]
   %132 = load i64, ptr %.397.i.i, align 8
   %133 = sub nsw i64 %132, %.3.i.i
-  %134 = getelementptr inbounds i8, ptr %.397.i.i, i64 8
+  %134 = getelementptr inbounds nuw i8, ptr %.397.i.i, i64 8
   %135 = icmp eq i64 %133, %.1.i.i
   br i1 %135, label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.i.i.i, label %136
 
@@ -2486,7 +2486,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKmEEvR
 _ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.sink.split.i.i.i: ; preds = %148, %144, %140
   %.sink139.i.i = phi i64 [ 8, %148 ], [ 4, %144 ], [ 2, %140 ]
   %.pn.in.i63.i.i = phi i32 [ %150, %148 ], [ %146, %144 ], [ %142, %140 ]
-  %151 = getelementptr inbounds i8, ptr %.7.i.i, i64 %.sink139.i.i
+  %151 = getelementptr inbounds nuw i8, ptr %.7.i.i, i64 %.sink139.i.i
   %.pn.i64.i.i = trunc i32 %.pn.in.i63.i.i to i8
   %.ph.i65.i.i = or i8 %.030.i58.i.i, %.pn.i64.i.i
   br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.i.i.i
@@ -2586,11 +2586,11 @@ _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EE5resetIPcvEEvT_.exit.i: ; preds = %
 
 21:                                               ; preds = %19
   %.0.copyload.i.i.i = load i64, ptr %.013.i, align 1
-  %22 = getelementptr inbounds i8, ptr %.013.i, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %.013.i, i64 8
   %23 = shl i64 %3, 1
   %24 = add i64 %23, 7
   %25 = lshr i64 %24, 3
-  %26 = getelementptr inbounds i8, ptr %22, i64 %25
+  %26 = getelementptr inbounds nuw i8, ptr %22, i64 %25
   %27 = icmp ugt i64 %3, 3
   br i1 %27, label %.lr.ph.preheader.i.i, label %._crit_edge.i.i
 
@@ -2607,7 +2607,7 @@ _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EE5resetIPcvEEvT_.exit.i: ; preds = %
   %.05472.i.i = phi ptr [ %.256.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi4EPlEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i ], [ %26, %.lr.ph.preheader.i.i ]
   %.05871.i.i = phi ptr [ %31, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi4EPlEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i ], [ %22, %.lr.ph.preheader.i.i ]
   %.05970.i.i = phi ptr [ %48, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi4EPlEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i ], [ %2, %.lr.ph.preheader.i.i ]
-  %31 = getelementptr inbounds i8, ptr %.05871.i.i, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %.05871.i.i, i64 1
   %32 = load i8, ptr %.05871.i.i, align 1
   %33 = zext i8 %32 to i32
   br label %34
@@ -2635,26 +2635,26 @@ default.unreachable:                              ; preds = %64, %83, %52
 
 38:                                               ; preds = %34
   %.0.copyload.i.i.i.i = load i16, ptr %.155.i.i, align 1
-  %39 = getelementptr inbounds i8, ptr %.155.i.i, i64 2
+  %39 = getelementptr inbounds nuw i8, ptr %.155.i.i, i64 2
   %40 = sext i16 %.0.copyload.i.i.i.i to i64
   br label %46
 
 41:                                               ; preds = %34
   %.0.copyload.i14.i.i.i = load i32, ptr %.155.i.i, align 1
-  %42 = getelementptr inbounds i8, ptr %.155.i.i, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %.155.i.i, i64 4
   %43 = sext i32 %.0.copyload.i14.i.i.i to i64
   br label %46
 
 44:                                               ; preds = %34
   %.0.copyload.i15.i.i.i = load i64, ptr %.155.i.i, align 1
-  %45 = getelementptr inbounds i8, ptr %.155.i.i, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %.155.i.i, i64 8
   br label %46
 
 46:                                               ; preds = %44, %41, %38, %34
   %.256.i.i = phi ptr [ %45, %44 ], [ %42, %41 ], [ %39, %38 ], [ %.155.i.i, %34 ]
   %.0.copyload.i15.sink.i.i.i = phi i64 [ %.0.copyload.i15.i.i.i, %44 ], [ %43, %41 ], [ %40, %38 ], [ %.0.copyload.i.i.i, %34 ]
   %47 = add nsw i64 %.0.copyload.i15.sink.i.i.i, %.1.i.i
-  %48 = getelementptr inbounds i8, ptr %.160.i.i, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %.160.i.i, i64 8
   store i64 %47, ptr %.160.i.i, align 8
   %49 = add nuw nsw i32 %.016.i.i.i, 1
   %.not.i.i16.i = icmp eq i32 %49, 4
@@ -2730,26 +2730,26 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi1EPlEEvRPK
 
 68:                                               ; preds = %64
   %.0.copyload.i.i20.i.i = load i16, ptr %.357.i.i, align 1
-  %69 = getelementptr inbounds i8, ptr %.357.i.i, i64 2
+  %69 = getelementptr inbounds nuw i8, ptr %.357.i.i, i64 2
   %70 = sext i16 %.0.copyload.i.i20.i.i to i64
   br label %76
 
 71:                                               ; preds = %64
   %.0.copyload.i14.i19.i.i = load i32, ptr %.357.i.i, align 1
-  %72 = getelementptr inbounds i8, ptr %.357.i.i, i64 4
+  %72 = getelementptr inbounds nuw i8, ptr %.357.i.i, i64 4
   %73 = sext i32 %.0.copyload.i14.i19.i.i to i64
   br label %76
 
 74:                                               ; preds = %64
   %.0.copyload.i15.i16.i.i = load i64, ptr %.357.i.i, align 1
-  %75 = getelementptr inbounds i8, ptr %.357.i.i, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %.357.i.i, i64 8
   br label %76
 
 76:                                               ; preds = %74, %71, %68, %64
   %.4.i.i = phi ptr [ %75, %74 ], [ %72, %71 ], [ %69, %68 ], [ %.357.i.i, %64 ]
   %.0.copyload.i15.sink.i17.i.i = phi i64 [ %.0.copyload.i15.i16.i.i, %74 ], [ %73, %71 ], [ %70, %68 ], [ %.0.copyload.i.i.i, %64 ]
   %77 = add nsw i64 %.0.copyload.i15.sink.i17.i.i, %.2.i.i
-  %78 = getelementptr inbounds i8, ptr %.261.i.i, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %.261.i.i, i64 8
   store i64 %77, ptr %.261.i.i, align 8
   %79 = add nuw nsw i32 %.016.i15.i.i, 1
   %.not.i18.i.i = icmp eq i32 %79, 2
@@ -2777,26 +2777,26 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi1EPlEEvRPK
 
 87:                                               ; preds = %83
   %.0.copyload.i.i27.i.i = load i16, ptr %.5.i.i, align 1
-  %88 = getelementptr inbounds i8, ptr %.5.i.i, i64 2
+  %88 = getelementptr inbounds nuw i8, ptr %.5.i.i, i64 2
   %89 = sext i16 %.0.copyload.i.i27.i.i to i64
   br label %95
 
 90:                                               ; preds = %83
   %.0.copyload.i14.i26.i.i = load i32, ptr %.5.i.i, align 1
-  %91 = getelementptr inbounds i8, ptr %.5.i.i, i64 4
+  %91 = getelementptr inbounds nuw i8, ptr %.5.i.i, i64 4
   %92 = sext i32 %.0.copyload.i14.i26.i.i to i64
   br label %95
 
 93:                                               ; preds = %83
   %.0.copyload.i15.i23.i.i = load i64, ptr %.5.i.i, align 1
-  %94 = getelementptr inbounds i8, ptr %.5.i.i, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %.5.i.i, i64 8
   br label %95
 
 95:                                               ; preds = %93, %90, %87, %83
   %.6.i.i = phi ptr [ %94, %93 ], [ %91, %90 ], [ %88, %87 ], [ %.5.i.i, %83 ]
   %.0.copyload.i15.sink.i24.i.i = phi i64 [ %.0.copyload.i15.i23.i.i, %93 ], [ %92, %90 ], [ %89, %87 ], [ %.0.copyload.i.i.i, %83 ]
   %96 = add nsw i64 %.0.copyload.i15.sink.i24.i.i, %.3.i.i
-  %97 = getelementptr inbounds i8, ptr %.362.i.i, i64 8
+  %97 = getelementptr inbounds nuw i8, ptr %.362.i.i, i64 8
   store i64 %96, ptr %.362.i.i, align 8
   %98 = add nuw nsw i32 %.016.i22.i.i, 1
   %.not.i25.i.i = icmp eq i32 %98, 3
@@ -2866,11 +2866,11 @@ _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EE5resetIPcvEEvT_.exit.i: ; preds = %
 
 21:                                               ; preds = %19
   %.0.copyload.i.i.i = load i64, ptr %.013.i, align 1
-  %22 = getelementptr inbounds i8, ptr %.013.i, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %.013.i, i64 8
   %23 = shl i64 %3, 1
   %24 = add i64 %23, 7
   %25 = lshr i64 %24, 3
-  %26 = getelementptr inbounds i8, ptr %22, i64 %25
+  %26 = getelementptr inbounds nuw i8, ptr %22, i64 %25
   %27 = icmp ugt i64 %3, 3
   br i1 %27, label %.lr.ph.preheader.i.i, label %._crit_edge.i.i
 
@@ -2887,7 +2887,7 @@ _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EE5resetIPcvEEvT_.exit.i: ; preds = %
   %.05472.i.i = phi ptr [ %.256.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi4EPmEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i ], [ %26, %.lr.ph.preheader.i.i ]
   %.05871.i.i = phi ptr [ %31, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi4EPmEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i ], [ %22, %.lr.ph.preheader.i.i ]
   %.05970.i.i = phi ptr [ %48, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi4EPmEEvRPKcS5_NSt15iterator_traitsIT0_E10value_typeERNSt11make_signedIS9_E4typeERS7_.exit.i.i ], [ %2, %.lr.ph.preheader.i.i ]
-  %31 = getelementptr inbounds i8, ptr %.05871.i.i, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %.05871.i.i, i64 1
   %32 = load i8, ptr %.05871.i.i, align 1
   %33 = zext i8 %32 to i32
   br label %34
@@ -2915,26 +2915,26 @@ default.unreachable:                              ; preds = %64, %83, %52
 
 38:                                               ; preds = %34
   %.0.copyload.i.i.i.i = load i16, ptr %.155.i.i, align 1
-  %39 = getelementptr inbounds i8, ptr %.155.i.i, i64 2
+  %39 = getelementptr inbounds nuw i8, ptr %.155.i.i, i64 2
   %40 = sext i16 %.0.copyload.i.i.i.i to i64
   br label %46
 
 41:                                               ; preds = %34
   %.0.copyload.i14.i.i.i = load i32, ptr %.155.i.i, align 1
-  %42 = getelementptr inbounds i8, ptr %.155.i.i, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %.155.i.i, i64 4
   %43 = sext i32 %.0.copyload.i14.i.i.i to i64
   br label %46
 
 44:                                               ; preds = %34
   %.0.copyload.i15.i.i.i = load i64, ptr %.155.i.i, align 1
-  %45 = getelementptr inbounds i8, ptr %.155.i.i, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %.155.i.i, i64 8
   br label %46
 
 46:                                               ; preds = %44, %41, %38, %34
   %.256.i.i = phi ptr [ %45, %44 ], [ %42, %41 ], [ %39, %38 ], [ %.155.i.i, %34 ]
   %.0.copyload.i15.sink.i.i.i = phi i64 [ %.0.copyload.i15.i.i.i, %44 ], [ %43, %41 ], [ %40, %38 ], [ %.0.copyload.i.i.i, %34 ]
   %47 = add i64 %.0.copyload.i15.sink.i.i.i, %.1.i.i
-  %48 = getelementptr inbounds i8, ptr %.160.i.i, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %.160.i.i, i64 8
   store i64 %47, ptr %.160.i.i, align 8
   %49 = add nuw nsw i32 %.016.i.i.i, 1
   %.not.i.i16.i = icmp eq i32 %49, 4
@@ -3010,26 +3010,26 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi1EPmEEvRPK
 
 68:                                               ; preds = %64
   %.0.copyload.i.i20.i.i = load i16, ptr %.357.i.i, align 1
-  %69 = getelementptr inbounds i8, ptr %.357.i.i, i64 2
+  %69 = getelementptr inbounds nuw i8, ptr %.357.i.i, i64 2
   %70 = sext i16 %.0.copyload.i.i20.i.i to i64
   br label %76
 
 71:                                               ; preds = %64
   %.0.copyload.i14.i19.i.i = load i32, ptr %.357.i.i, align 1
-  %72 = getelementptr inbounds i8, ptr %.357.i.i, i64 4
+  %72 = getelementptr inbounds nuw i8, ptr %.357.i.i, i64 4
   %73 = sext i32 %.0.copyload.i14.i19.i.i to i64
   br label %76
 
 74:                                               ; preds = %64
   %.0.copyload.i15.i16.i.i = load i64, ptr %.357.i.i, align 1
-  %75 = getelementptr inbounds i8, ptr %.357.i.i, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %.357.i.i, i64 8
   br label %76
 
 76:                                               ; preds = %74, %71, %68, %64
   %.4.i.i = phi ptr [ %75, %74 ], [ %72, %71 ], [ %69, %68 ], [ %.357.i.i, %64 ]
   %.0.copyload.i15.sink.i17.i.i = phi i64 [ %.0.copyload.i15.i16.i.i, %74 ], [ %73, %71 ], [ %70, %68 ], [ %.0.copyload.i.i.i, %64 ]
   %77 = add i64 %.0.copyload.i15.sink.i17.i.i, %.2.i.i
-  %78 = getelementptr inbounds i8, ptr %.261.i.i, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %.261.i.i, i64 8
   store i64 %77, ptr %.261.i.i, align 8
   %79 = add nuw nsw i32 %.016.i15.i.i, 1
   %.not.i18.i.i = icmp eq i32 %79, 2
@@ -3057,26 +3057,26 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_DecodeNHelperILi1EPmEEvRPK
 
 87:                                               ; preds = %83
   %.0.copyload.i.i27.i.i = load i16, ptr %.5.i.i, align 1
-  %88 = getelementptr inbounds i8, ptr %.5.i.i, i64 2
+  %88 = getelementptr inbounds nuw i8, ptr %.5.i.i, i64 2
   %89 = sext i16 %.0.copyload.i.i27.i.i to i64
   br label %95
 
 90:                                               ; preds = %83
   %.0.copyload.i14.i26.i.i = load i32, ptr %.5.i.i, align 1
-  %91 = getelementptr inbounds i8, ptr %.5.i.i, i64 4
+  %91 = getelementptr inbounds nuw i8, ptr %.5.i.i, i64 4
   %92 = sext i32 %.0.copyload.i14.i26.i.i to i64
   br label %95
 
 93:                                               ; preds = %83
   %.0.copyload.i15.i23.i.i = load i64, ptr %.5.i.i, align 1
-  %94 = getelementptr inbounds i8, ptr %.5.i.i, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %.5.i.i, i64 8
   br label %95
 
 95:                                               ; preds = %93, %90, %87, %83
   %.6.i.i = phi ptr [ %94, %93 ], [ %91, %90 ], [ %88, %87 ], [ %.5.i.i, %83 ]
   %.0.copyload.i15.sink.i24.i.i = phi i64 [ %.0.copyload.i15.i23.i.i, %93 ], [ %92, %90 ], [ %89, %87 ], [ %.0.copyload.i.i.i, %83 ]
   %96 = add i64 %.0.copyload.i15.sink.i24.i.i, %.3.i.i
-  %97 = getelementptr inbounds i8, ptr %.362.i.i, i64 8
+  %97 = getelementptr inbounds nuw i8, ptr %.362.i.i, i64 8
   store i64 %96, ptr %.362.i.i, align 8
   %98 = add nuw nsw i32 %.016.i22.i.i, 1
   %.not.i25.i.i = icmp eq i32 %98, 3
@@ -3125,7 +3125,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl9robin_ma
   br label %_ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash12bucket_entryISt4pairIimELb0EEEEvPT_.exit.i.i.i.i.i
 
 _ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash12bucket_entryISt4pairIimELb0EEEEvPT_.exit.i.i.i.i.i: ; preds = %8, %.lr.ph.i.i.i.i.i
-  %9 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 24
   %.not.i.i.i.i.i = icmp eq ptr %9, %5
   br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash12bucket_entryISt4pairIimELb0EEES6_EvT_S8_RSaIT0_E.exitthread-pre-split.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !10
 
@@ -3238,7 +3238,7 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_ha
   %35 = mul nuw nsw i64 %.012.i.i, 24
   %36 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %35) #14
   store ptr %36, ptr %28, align 8
-  %37 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::pxr_tsl::detail_robin_hash::bucket_entry", ptr %36, i64 %.012.i.i
+  %37 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::pxr_tsl::detail_robin_hash::bucket_entry", ptr %36, i64 %.012.i.i
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %37, ptr %38, align 8
   br label %.lr.ph.i.i.i.i.i
@@ -3250,7 +3250,7 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_ha
   %39 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 2
   store i8 0, ptr %39, align 2
   %40 = add i64 %.057.i.i.i.i.i, -1
-  %41 = getelementptr inbounds i8, ptr %.08.i.i.i.i.i, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 24
   %.not.i.i.i.i.i = icmp eq i64 %40, 0
   br i1 %.not.i.i.i.i.i, label %54, label %.lr.ph.i.i.i.i.i, !llvm.loop !57
 
@@ -3530,7 +3530,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4
   %.lcssa.i.i = phi ptr [ %52, %40 ], [ %76, %71 ]
   %79 = getelementptr inbounds nuw i8, ptr %.lcssa.i.i, i64 8
   store i32 %.sroa.04.2.i, ptr %79, align 8
-  %.sroa.66.0..sroa_idx.i = getelementptr inbounds i8, ptr %.lcssa.i.i, i64 16
+  %.sroa.66.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.lcssa.i.i, i64 16
   store i64 %.sroa.66.2.i, ptr %.sroa.66.0..sroa_idx.i, align 8
   store i16 %storemerge.lcssa.i.i, ptr %.lcssa.i.i, align 8
   br label %80
@@ -3719,7 +3719,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4
   br label %46
 
 46:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4pairIimENS0_9robin_mapIimSt4hashIiESt8equal_toIiESaIS4_ELb0ENS0_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSE_11ValueSelectES7_S9_SA_Lb0ESD_E22insert_value_on_rehashEmsjOS4_.exit, %15
-  %47 = getelementptr inbounds i8, ptr %.sroa.014.018, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %.sroa.014.018, i64 24
   %.not = icmp eq ptr %47, %13
   br i1 %.not, label %._crit_edge.loopexit, label %15
 
@@ -3810,7 +3810,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4
   br label %_ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash12bucket_entryISt4pairIimELb0EEEEvPT_.exit.i.i.i.i.i
 
 _ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash12bucket_entryISt4pairIimELb0EEEEvPT_.exit.i.i.i.i.i: ; preds = %93, %.lr.ph.i.i.i.i.i
-  %94 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 24
+  %94 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 24
   %.not.i.i.i.i.i = icmp eq ptr %94, %48
   br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash12bucket_entryISt4pairIimELb0EEES6_EvT_S8_RSaIT0_E.exitthread-pre-split.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !10
 
@@ -3866,7 +3866,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl9robin_ma
   br label %_ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash12bucket_entryISt4pairIlmELb0EEEEvPT_.exit.i.i.i.i.i
 
 _ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash12bucket_entryISt4pairIlmELb0EEEEvPT_.exit.i.i.i.i.i: ; preds = %8, %.lr.ph.i.i.i.i.i
-  %9 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 24
   %.not.i.i.i.i.i = icmp eq ptr %9, %5
   br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash12bucket_entryISt4pairIlmELb0EEES6_EvT_S8_RSaIT0_E.exitthread-pre-split.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !35
 
@@ -3979,7 +3979,7 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_ha
   %35 = mul nuw nsw i64 %.012.i.i, 24
   %36 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %35) #14
   store ptr %36, ptr %28, align 8
-  %37 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::pxr_tsl::detail_robin_hash::bucket_entry.38", ptr %36, i64 %.012.i.i
+  %37 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::pxr_tsl::detail_robin_hash::bucket_entry.38", ptr %36, i64 %.012.i.i
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %37, ptr %38, align 8
   br label %.lr.ph.i.i.i.i.i
@@ -3991,7 +3991,7 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_ha
   %39 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 2
   store i8 0, ptr %39, align 2
   %40 = add i64 %.057.i.i.i.i.i, -1
-  %41 = getelementptr inbounds i8, ptr %.08.i.i.i.i.i, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 24
   %.not.i.i.i.i.i = icmp eq i64 %40, 0
   br i1 %.not.i.i.i.i.i, label %54, label %.lr.ph.i.i.i.i.i, !llvm.loop !62
 
@@ -4240,7 +4240,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4
   %.lcssa.i.i = phi ptr [ %51, %39 ], [ %75, %70 ]
   %78 = getelementptr inbounds nuw i8, ptr %.lcssa.i.i, i64 8
   store i64 %.sroa.04.2.i, ptr %78, align 8
-  %.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %.lcssa.i.i, i64 16
+  %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.lcssa.i.i, i64 16
   store i64 %.sroa.6.2.i, ptr %.sroa.6.0..sroa_idx.i, align 8
   store i16 %storemerge.lcssa.i.i, ptr %.lcssa.i.i, align 8
   br label %79
@@ -4428,7 +4428,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4
   br label %45
 
 45:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4pairIlmENS0_9robin_mapIlmSt4hashIlESt8equal_toIlESaIS4_ELb0ENS0_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSE_11ValueSelectES7_S9_SA_Lb0ESD_E22insert_value_on_rehashEmsjOS4_.exit, %15
-  %46 = getelementptr inbounds i8, ptr %.sroa.014.018, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %.sroa.014.018, i64 24
   %.not = icmp eq ptr %46, %13
   br i1 %.not, label %._crit_edge.loopexit, label %15
 
@@ -4519,7 +4519,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4
   br label %_ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash12bucket_entryISt4pairIlmELb0EEEEvPT_.exit.i.i.i.i.i
 
 _ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash12bucket_entryISt4pairIlmELb0EEEEvPT_.exit.i.i.i.i.i: ; preds = %92, %.lr.ph.i.i.i.i.i
-  %93 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 24
+  %93 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 24
   %.not.i.i.i.i.i = icmp eq ptr %93, %47
   br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash12bucket_entryISt4pairIlmELb0EEES6_EvT_S8_RSaIT0_E.exitthread-pre-split.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !35
 

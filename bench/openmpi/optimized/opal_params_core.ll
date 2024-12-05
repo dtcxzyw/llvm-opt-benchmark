@@ -112,7 +112,7 @@ define range(i32 -2147483648, 1) i32 @opal_register_util_params() local_unnamed_
 
 5:                                                ; preds = %16, %4
   %indvars.iv = phi i64 [ %indvars.iv.next, %16 ], [ 0, %4 ]
-  %6 = getelementptr inbounds [5 x i32], ptr @__const.opal_register_util_params.signals, i64 0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [5 x i32], ptr @__const.opal_register_util_params.signals, i64 0, i64 %indvars.iv
   %7 = load i32, ptr %6, align 4
   %8 = trunc nuw nsw i64 %indvars.iv to i32
   switch i32 %8, label %11 [
@@ -320,7 +320,7 @@ define internal fastcc range(i32 -2, 1) i32 @parse_color_string(ptr noundef %0) 
 .lr.ph5:                                          ; preds = %.lr.ph.preheader, %.lr.ph
   %6 = phi ptr [ %37, %.lr.ph ], [ %5, %.lr.ph.preheader ]
   %indvars.iv144 = phi i64 [ %indvars.iv.next15, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %7 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv144
+  %7 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv144
   %8 = tail call noalias ptr @opal_argv_split(ptr noundef nonnull %6, i32 noundef 61) #6
   %9 = icmp eq ptr %8, null
   br i1 %9, label %.loopexit1, label %10
@@ -347,15 +347,15 @@ define internal fastcc range(i32 -2, 1) i32 @parse_color_string(ptr noundef %0) 
 
 18:                                               ; preds = %.preheader2, %17
   %indvars.iv = phi i64 [ 0, %.preheader2 ], [ %indvars.iv.next, %17 ]
-  %19 = getelementptr inbounds ptr, ptr @opal_var_dump_color_keys, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw ptr, ptr @opal_var_dump_color_keys, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8
   %21 = tail call i32 @strcasecmp(ptr noundef %20, ptr noundef %12) #7
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %23, label %17
 
 23:                                               ; preds = %18
-  %24 = getelementptr inbounds ptr, ptr @opal_var_dump_color, i64 %indvars.iv
-  %25 = getelementptr inbounds i8, ptr %8, i64 8
+  %24 = getelementptr inbounds nuw ptr, ptr @opal_var_dump_color, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = tail call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull %24, ptr noundef nonnull @.str.56, ptr noundef %26) #6
   %28 = icmp slt i32 %27, 0
@@ -377,7 +377,7 @@ define internal fastcc range(i32 -2, 1) i32 @parse_color_string(ptr noundef %0) 
 .lr.ph:                                           ; preds = %23, %31, %13
   tail call void @opal_argv_free(ptr noundef nonnull %8) #6
   %indvars.iv.next15 = add nuw nsw i64 %indvars.iv144, 1
-  %36 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv.next15
+  %36 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv.next15
   %37 = load ptr, ptr %36, align 8
   %.not75 = icmp eq ptr %37, null
   br i1 %.not75, label %.critedge, label %.lr.ph5
@@ -388,7 +388,7 @@ define internal fastcc range(i32 -2, 1) i32 @parse_color_string(ptr noundef %0) 
 
 38:                                               ; preds = %.critedge, %45
   %indvars.iv17 = phi i64 [ 0, %.critedge ], [ %indvars.iv.next18, %45 ]
-  %39 = getelementptr inbounds ptr, ptr @opal_var_dump_color, i64 %indvars.iv17
+  %39 = getelementptr inbounds nuw ptr, ptr @opal_var_dump_color, i64 %indvars.iv17
   %40 = load ptr, ptr %39, align 8
   %41 = icmp eq ptr %40, null
   br i1 %41, label %42, label %45
@@ -415,7 +415,7 @@ define internal fastcc range(i32 -2, 1) i32 @parse_color_string(ptr noundef %0) 
 
 .preheader:                                       ; preds = %.loopexit1, %.preheader
   %indvars.iv21 = phi i64 [ %indvars.iv.next22, %.preheader ], [ 0, %.loopexit1 ]
-  %46 = getelementptr inbounds ptr, ptr @opal_var_dump_color, i64 %indvars.iv21
+  %46 = getelementptr inbounds nuw ptr, ptr @opal_var_dump_color, i64 %indvars.iv21
   %47 = load ptr, ptr %46, align 8
   tail call void @free(ptr noundef %47) #6
   store ptr null, ptr %46, align 8
@@ -441,7 +441,7 @@ define internal void @opal_deregister_util_params() #0 {
 
 1:                                                ; preds = %0, %1
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %1 ]
-  %2 = getelementptr inbounds [3 x ptr], ptr @opal_var_dump_color, i64 0, i64 %indvars.iv
+  %2 = getelementptr inbounds nuw [3 x ptr], ptr @opal_var_dump_color, i64 0, i64 %indvars.iv
   %3 = load ptr, ptr %2, align 8
   tail call void @free(ptr noundef %3) #6
   store ptr null, ptr %2, align 8

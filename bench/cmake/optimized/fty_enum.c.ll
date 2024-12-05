@@ -21,7 +21,7 @@ define internal noalias noundef ptr @Make_Enum_Type(ptr nocapture noundef %0) #0
   br i1 %5, label %10, label %.thread
 
 .thread:                                          ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr i8, ptr %7, i64 8
   store ptr %8, ptr %6, align 8
@@ -30,7 +30,7 @@ define internal noalias noundef ptr @Make_Enum_Type(ptr nocapture noundef %0) #0
   br label %.thread30
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = zext nneg i32 %4 to i64
   %14 = getelementptr i8, ptr %12, i64 %13
@@ -43,7 +43,7 @@ define internal noalias noundef ptr @Make_Enum_Type(ptr nocapture noundef %0) #0
 
 .thread30:                                        ; preds = %10, %.thread
   %18 = phi ptr [ %9, %.thread ], [ %16, %10 ]
-  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr i8, ptr %20, i64 8
   store ptr %21, ptr %19, align 8
@@ -51,7 +51,7 @@ define internal noalias noundef ptr @Make_Enum_Type(ptr nocapture noundef %0) #0
   br label %37
 
 23:                                               ; preds = %10
-  %24 = getelementptr inbounds i8, ptr %0, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %25 = load ptr, ptr %24, align 8
   %26 = zext nneg i32 %15 to i64
   %27 = getelementptr i8, ptr %25, i64 %26
@@ -62,7 +62,7 @@ define internal noalias noundef ptr @Make_Enum_Type(ptr nocapture noundef %0) #0
   br i1 %30, label %31, label %37
 
 31:                                               ; preds = %23
-  %32 = getelementptr inbounds i8, ptr %0, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %33 = load ptr, ptr %32, align 8
   %34 = zext nneg i32 %28 to i64
   %35 = getelementptr i8, ptr %33, i64 %34
@@ -73,7 +73,7 @@ define internal noalias noundef ptr @Make_Enum_Type(ptr nocapture noundef %0) #0
 37:                                               ; preds = %.thread30, %23
   %38 = phi i32 [ %22, %.thread30 ], [ %29, %23 ]
   %39 = phi ptr [ %18, %.thread30 ], [ %16, %23 ]
-  %40 = getelementptr inbounds i8, ptr %0, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr i8, ptr %41, i64 8
   store ptr %42, ptr %40, align 8
@@ -85,11 +85,11 @@ define internal noalias noundef ptr @Make_Enum_Type(ptr nocapture noundef %0) #0
   %46 = phi ptr [ %35, %31 ], [ %41, %37 ]
   %47 = load i32, ptr %46, align 4
   %48 = icmp ne i32 %44, 0
-  %49 = getelementptr inbounds i8, ptr %2, i64 12
+  %49 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %50 = zext i1 %48 to i8
   store i8 %50, ptr %49, align 4
   %51 = icmp ne i32 %47, 0
-  %52 = getelementptr inbounds i8, ptr %2, i64 13
+  %52 = getelementptr inbounds nuw i8, ptr %2, i64 13
   %53 = zext i1 %51 to i8
   store i8 %53, ptr %52, align 1
   %.not2023 = icmp eq ptr %45, null
@@ -103,7 +103,7 @@ define internal noalias noundef ptr @Make_Enum_Type(ptr nocapture noundef %0) #0
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.0152433 = phi ptr [ %55, %.lr.ph ], [ %45, %.lr.ph.preheader ]
   %.02532 = phi i32 [ %56, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %55 = getelementptr inbounds i8, ptr %.0152433, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %.0152433, i64 8
   %56 = add nuw nsw i32 %.02532, 1
   %57 = load ptr, ptr %55, align 8
   %.not21 = icmp eq ptr %57, null
@@ -111,7 +111,7 @@ define internal noalias noundef ptr @Make_Enum_Type(ptr nocapture noundef %0) #0
 
 .critedge:                                        ; preds = %.lr.ph, %.lr.ph.preheader, %43
   %.0.lcssa = phi i32 [ 0, %43 ], [ 0, %.lr.ph.preheader ], [ %56, %.lr.ph ]
-  %58 = getelementptr inbounds i8, ptr %2, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %.0.lcssa, ptr %58, align 8
   br label %59
 
@@ -154,11 +154,11 @@ define internal void @Free_Enum_Type(ptr noundef %0) #2 {
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i1 @Check_Enum_Field(ptr noundef %0, ptr nocapture noundef readonly %1) #3 {
   %3 = load ptr, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 12
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %5 = load i8, ptr %4, align 4
   %.fr145 = freeze i8 %5
   %6 = trunc i8 %.fr145 to i1
-  %7 = getelementptr inbounds i8, ptr %1, i64 13
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 13
   %8 = load i8, ptr %7, align 1
   %9 = trunc i8 %8 to i1
   %10 = tail call ptr @field_buffer(ptr noundef %0, i32 noundef 0) #10
@@ -179,21 +179,21 @@ define internal noundef zeroext i1 @Check_Enum_Field(ptr noundef %0, ptr nocaptu
 .preheader91.us.preheader:                        ; preds = %.lr.ph.split.us.preheader, %Compare.exit.us
   %12 = phi ptr [ %31, %Compare.exit.us ], [ %11, %.lr.ph.split.us.preheader ]
   %.pn325 = phi ptr [ %13, %Compare.exit.us ], [ %3, %.lr.ph.split.us.preheader ]
-  %13 = getelementptr inbounds i8, ptr %.pn325, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %.pn325, i64 8
   br label %.preheader91.us
 
 .preheader91.us:                                  ; preds = %.preheader91.us.preheader, %.preheader91.us
   %.024.i.us = phi ptr [ %15, %.preheader91.us ], [ %10, %.preheader91.us.preheader ]
   %14 = load i8, ptr %.024.i.us, align 1
   %cond.i.us = icmp eq i8 %14, 32
-  %15 = getelementptr inbounds i8, ptr %.024.i.us, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %.024.i.us, i64 1
   br i1 %cond.i.us, label %.preheader91.us, label %.critedge.i.us, !llvm.loop !5
 
 .critedge.i.us:                                   ; preds = %.preheader91.us, %.critedge.i.us
   %.025.i.us = phi ptr [ %17, %.critedge.i.us ], [ %12, %.preheader91.us ]
   %16 = load i8, ptr %.025.i.us, align 1
   %cond36.i.us = icmp eq i8 %16, 32
-  %17 = getelementptr inbounds i8, ptr %.025.i.us, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %.025.i.us, i64 1
   br i1 %cond36.i.us, label %.critedge.i.us, label %.critedge2.i.us, !llvm.loop !7
 
 .critedge2.i.us:                                  ; preds = %.critedge.i.us
@@ -217,13 +217,13 @@ define internal noundef zeroext i1 @Check_Enum_Field(ptr noundef %0, ptr nocaptu
   ]
 
 23:                                               ; preds = %.loopexit38.i.loopexit.us
-  %24 = getelementptr inbounds i8, ptr %.4.i.us, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %.4.i.us, i64 1
   %.pre.i.us = load i8, ptr %24, align 1
   br label %.loopexit38.i.loopexit.us, !llvm.loop !8
 
 25:                                               ; preds = %.preheader.i.us
-  %26 = getelementptr inbounds i8, ptr %.126.i.us, i64 1
-  %27 = getelementptr inbounds i8, ptr %.1.i.us, i64 1
+  %26 = getelementptr inbounds nuw i8, ptr %.126.i.us, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %.1.i.us, i64 1
   %28 = icmp eq i8 %19, 0
   br i1 %28, label %.critedge3, label %.preheader.i.us, !llvm.loop !9
 
@@ -239,21 +239,21 @@ Compare.exit.us:                                  ; preds = %.loopexit38.i.loope
 .preheader91.preheader:                           ; preds = %.lr.ph.split.preheader, %Compare.exit
   %32 = phi ptr [ %111, %Compare.exit ], [ %11, %.lr.ph.split.preheader ]
   %.pn = phi ptr [ %33, %Compare.exit ], [ %3, %.lr.ph.split.preheader ]
-  %33 = getelementptr inbounds i8, ptr %.pn, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %.pn, i64 8
   br label %.preheader91
 
 .preheader91:                                     ; preds = %.preheader91.preheader, %.preheader91
   %.024.i = phi ptr [ %35, %.preheader91 ], [ %10, %.preheader91.preheader ]
   %34 = load i8, ptr %.024.i, align 1
   %cond.i = icmp eq i8 %34, 32
-  %35 = getelementptr inbounds i8, ptr %.024.i, i64 1
+  %35 = getelementptr inbounds nuw i8, ptr %.024.i, i64 1
   br i1 %cond.i, label %.preheader91, label %.critedge.i, !llvm.loop !5
 
 .critedge.i:                                      ; preds = %.preheader91, %.critedge.i
   %.025.i = phi ptr [ %37, %.critedge.i ], [ %32, %.preheader91 ]
   %36 = load i8, ptr %.025.i, align 1
   %cond36.i = icmp eq i8 %36, 32
-  %37 = getelementptr inbounds i8, ptr %.025.i, i64 1
+  %37 = getelementptr inbounds nuw i8, ptr %.025.i, i64 1
   br i1 %cond36.i, label %.critedge.i, label %.critedge2.i, !llvm.loop !7
 
 .critedge2.i:                                     ; preds = %.critedge.i
@@ -277,8 +277,8 @@ Compare.exit.us:                                  ; preds = %.loopexit38.i.loope
   br i1 %47, label %48, label %.loopexit38.i.loopexit89
 
 48:                                               ; preds = %.preheader40.i
-  %49 = getelementptr inbounds i8, ptr %.227.i, i64 1
-  %50 = getelementptr inbounds i8, ptr %.2.i, i64 1
+  %49 = getelementptr inbounds nuw i8, ptr %.227.i, i64 1
+  %50 = getelementptr inbounds nuw i8, ptr %.2.i, i64 1
   %51 = icmp eq i8 %44, 0
   br i1 %51, label %.critedge3, label %.preheader40.i, !llvm.loop !11
 
@@ -291,7 +291,7 @@ Compare.exit.us:                                  ; preds = %.loopexit38.i.loope
   ]
 
 53:                                               ; preds = %.loopexit38.i.loopexit89
-  %54 = getelementptr inbounds i8, ptr %.4.i, i64 1
+  %54 = getelementptr inbounds nuw i8, ptr %.4.i, i64 1
   %.pre.i = load i8, ptr %54, align 1
   br label %.loopexit38.i.loopexit89, !llvm.loop !8
 
@@ -309,7 +309,7 @@ Compare.exit.us:                                  ; preds = %.loopexit38.i.loope
   br i1 %.not40139, label %.critedge3.thread, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %.preheader86
-  %57 = getelementptr inbounds i8, ptr %.us-phi, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 8
   br i1 %6, label %.preheader.us, label %.preheader
 
 .preheader.us:                                    ; preds = %.preheader.lr.ph, %Compare.exit62.us
@@ -322,14 +322,14 @@ Compare.exit.us:                                  ; preds = %.loopexit38.i.loope
   %.024.i44.us = phi ptr [ %62, %60 ], [ %10, %.preheader.us ]
   %61 = load i8, ptr %.024.i44.us, align 1
   %cond.i45.us = icmp eq i8 %61, 32
-  %62 = getelementptr inbounds i8, ptr %.024.i44.us, i64 1
+  %62 = getelementptr inbounds nuw i8, ptr %.024.i44.us, i64 1
   br i1 %cond.i45.us, label %60, label %.critedge.i47.us, !llvm.loop !5
 
 .critedge.i47.us:                                 ; preds = %60, %.critedge.i47.us
   %.025.i48.us = phi ptr [ %64, %.critedge.i47.us ], [ %58, %60 ]
   %63 = load i8, ptr %.025.i48.us, align 1
   %cond36.i49.us = icmp eq i8 %63, 32
-  %64 = getelementptr inbounds i8, ptr %.025.i48.us, i64 1
+  %64 = getelementptr inbounds nuw i8, ptr %.025.i48.us, i64 1
   br i1 %cond36.i49.us, label %.critedge.i47.us, label %.critedge2.i50.us, !llvm.loop !7
 
 .critedge2.i50.us:                                ; preds = %.critedge.i47.us
@@ -357,13 +357,13 @@ Compare.exit.us:                                  ; preds = %.loopexit38.i.loope
   br i1 %71, label %.critedge3, label %Compare.exit62.us
 
 72:                                               ; preds = %.loopexit38.i54.loopexit.us
-  %73 = getelementptr inbounds i8, ptr %.4.i56.us, i64 1
+  %73 = getelementptr inbounds nuw i8, ptr %.4.i56.us, i64 1
   %.pre.i58.us = load i8, ptr %73, align 1
   br label %.loopexit38.i54.loopexit.us, !llvm.loop !8
 
 74:                                               ; preds = %.preheader.i59.us
-  %75 = getelementptr inbounds i8, ptr %.126.i60.us, i64 1
-  %76 = getelementptr inbounds i8, ptr %.1.i61.us, i64 1
+  %75 = getelementptr inbounds nuw i8, ptr %.126.i60.us, i64 1
+  %76 = getelementptr inbounds nuw i8, ptr %.1.i61.us, i64 1
   %77 = icmp eq i8 %66, 0
   br i1 %77, label %.critedge3, label %.preheader.i59.us, !llvm.loop !9
 
@@ -373,7 +373,7 @@ Compare.exit.us:                                  ; preds = %.loopexit38.i.loope
 
 Compare.exit62.us:                                ; preds = %.loopexit38.i54.loopexit.us, %78, %70
   %.2.us = phi ptr [ null, %70 ], [ %.1140.us, %78 ], [ %.1140.us, %.loopexit38.i54.loopexit.us ]
-  %80 = getelementptr inbounds i8, ptr %59, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %81 = load ptr, ptr %59, align 8
   %.not40.us = icmp eq ptr %81, null
   br i1 %.not40.us, label %.critedge3.thread, label %.preheader.us
@@ -388,14 +388,14 @@ Compare.exit62.us:                                ; preds = %.loopexit38.i54.loo
   %.024.i44 = phi ptr [ %86, %84 ], [ %10, %.preheader ]
   %85 = load i8, ptr %.024.i44, align 1
   %cond.i45 = icmp eq i8 %85, 32
-  %86 = getelementptr inbounds i8, ptr %.024.i44, i64 1
+  %86 = getelementptr inbounds nuw i8, ptr %.024.i44, i64 1
   br i1 %cond.i45, label %84, label %.critedge.i47, !llvm.loop !5
 
 .critedge.i47:                                    ; preds = %84, %.critedge.i47
   %.025.i48 = phi ptr [ %88, %.critedge.i47 ], [ %82, %84 ]
   %87 = load i8, ptr %.025.i48, align 1
   %cond36.i49 = icmp eq i8 %87, 32
-  %88 = getelementptr inbounds i8, ptr %.025.i48, i64 1
+  %88 = getelementptr inbounds nuw i8, ptr %.025.i48, i64 1
   br i1 %cond36.i49, label %.critedge.i47, label %.critedge2.i50, !llvm.loop !7
 
 .critedge2.i50:                                   ; preds = %.critedge.i47
@@ -419,8 +419,8 @@ Compare.exit62.us:                                ; preds = %.loopexit38.i54.loo
   br i1 %98, label %99, label %.loopexit38.i54.loopexit84
 
 99:                                               ; preds = %.preheader40.i51
-  %100 = getelementptr inbounds i8, ptr %.227.i52, i64 1
-  %101 = getelementptr inbounds i8, ptr %.2.i53, i64 1
+  %100 = getelementptr inbounds nuw i8, ptr %.227.i52, i64 1
+  %101 = getelementptr inbounds nuw i8, ptr %.2.i53, i64 1
   %102 = icmp eq i8 %95, 0
   br i1 %102, label %.critedge3, label %.preheader40.i51, !llvm.loop !11
 
@@ -433,7 +433,7 @@ Compare.exit62.us:                                ; preds = %.loopexit38.i54.loo
   ]
 
 104:                                              ; preds = %.loopexit38.i54.loopexit84
-  %105 = getelementptr inbounds i8, ptr %.4.i56, i64 1
+  %105 = getelementptr inbounds nuw i8, ptr %.4.i56, i64 1
   %.pre.i58 = load i8, ptr %105, align 1
   br label %.loopexit38.i54.loopexit84, !llvm.loop !8
 
@@ -443,7 +443,7 @@ Compare.exit62.us:                                ; preds = %.loopexit38.i54.loo
 
 Compare.exit62:                                   ; preds = %.loopexit38.i54.loopexit84, %90, %106
   %.2 = phi ptr [ null, %106 ], [ %.1140, %90 ], [ %.1140, %.loopexit38.i54.loopexit84 ]
-  %108 = getelementptr inbounds i8, ptr %83, i64 8
+  %108 = getelementptr inbounds nuw i8, ptr %83, i64 8
   %109 = load ptr, ptr %83, align 8
   %.not40 = icmp eq ptr %109, null
   br i1 %.not40, label %.critedge3.thread, label %.preheader
@@ -471,10 +471,10 @@ Compare.exit:                                     ; preds = %.loopexit38.i.loope
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i1 @Next_Enum(ptr noundef %0, ptr nocapture noundef readonly %1) #3 {
   %3 = load ptr, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 12
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %5 = load i8, ptr %4, align 4
   %6 = trunc i8 %5 to i1
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i32, ptr %7, align 8
   %9 = tail call ptr @field_buffer(ptr noundef %0, i32 noundef 0) #10
   %.not = icmp eq ptr %3, null
@@ -499,18 +499,18 @@ define internal noundef zeroext i1 @Next_Enum(ptr noundef %0, ptr nocapture noun
   %.024.i = phi ptr [ %9, %.lr.ph ], [ %15, %13 ]
   %14 = load i8, ptr %.024.i, align 1
   %cond.i = icmp eq i8 %14, 32
-  %15 = getelementptr inbounds i8, ptr %.024.i, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %.024.i, i64 1
   br i1 %cond.i, label %13, label %.critedge.i, !llvm.loop !5
 
 .critedge.i:                                      ; preds = %13, %.critedge.i
   %.025.i = phi ptr [ %17, %.critedge.i ], [ %12, %13 ]
   %16 = load i8, ptr %.025.i, align 1
   %cond36.i = icmp eq i8 %16, 32
-  %17 = getelementptr inbounds i8, ptr %.025.i, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %.025.i, i64 1
   br i1 %cond36.i, label %.critedge.i, label %.critedge2.i, !llvm.loop !7
 
 .critedge2.i:                                     ; preds = %.critedge.i
-  %18 = getelementptr inbounds i8, ptr %.01886, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %.01886, i64 8
   %19 = icmp eq i8 %14, 0
   br i1 %19, label %20, label %22
 
@@ -530,8 +530,8 @@ define internal noundef zeroext i1 @Next_Enum(ptr noundef %0, ptr nocapture noun
   br i1 %25, label %26, label %.loopexit38.i
 
 26:                                               ; preds = %.preheader.i
-  %27 = getelementptr inbounds i8, ptr %.126.i, i64 1
-  %28 = getelementptr inbounds i8, ptr %.1.i, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %.126.i, i64 1
+  %28 = getelementptr inbounds nuw i8, ptr %.1.i, i64 1
   %29 = icmp eq i8 %23, 0
   br i1 %29, label %select.unfold, label %.preheader.i, !llvm.loop !9
 
@@ -548,8 +548,8 @@ define internal noundef zeroext i1 @Next_Enum(ptr noundef %0, ptr nocapture noun
   br i1 %36, label %37, label %.loopexit38.i
 
 37:                                               ; preds = %.preheader40.i
-  %38 = getelementptr inbounds i8, ptr %.227.i, i64 1
-  %39 = getelementptr inbounds i8, ptr %.2.i, i64 1
+  %38 = getelementptr inbounds nuw i8, ptr %.227.i, i64 1
+  %39 = getelementptr inbounds nuw i8, ptr %.2.i, i64 1
   %40 = icmp eq i8 %33, 0
   br i1 %40, label %select.unfold, label %.preheader40.i, !llvm.loop !11
 
@@ -568,7 +568,7 @@ define internal noundef zeroext i1 @Next_Enum(ptr noundef %0, ptr nocapture noun
   ]
 
 45:                                               ; preds = %43
-  %46 = getelementptr inbounds i8, ptr %.4.i, i64 1
+  %46 = getelementptr inbounds nuw i8, ptr %.4.i, i64 1
   %.pre.i = load i8, ptr %46, align 1
   br label %43, !llvm.loop !8
 
@@ -596,7 +596,7 @@ select.unfold:                                    ; preds = %47, %20, %37, %26
 55:                                               ; preds = %55, %53
   %.024.i21 = phi ptr [ %9, %53 ], [ %57, %55 ]
   %56 = load i8, ptr %.024.i21, align 1
-  %57 = getelementptr inbounds i8, ptr %.024.i21, i64 1
+  %57 = getelementptr inbounds nuw i8, ptr %.024.i21, i64 1
   switch i8 %56, label %58 [
     i8 32, label %55
     i8 0, label %.thread43
@@ -614,8 +614,8 @@ select.unfold:                                    ; preds = %47, %20, %37, %26
   br i1 %61, label %62, label %.loopexit38.i31
 
 62:                                               ; preds = %.preheader.i36
-  %63 = getelementptr inbounds i8, ptr %.126.i37, i64 1
-  %64 = getelementptr inbounds i8, ptr %.1.i38, i64 1
+  %63 = getelementptr inbounds nuw i8, ptr %.126.i37, i64 1
+  %64 = getelementptr inbounds nuw i8, ptr %.1.i38, i64 1
   %65 = icmp eq i8 %59, 0
   br i1 %65, label %.thread43, label %.preheader.i36, !llvm.loop !9
 
@@ -632,8 +632,8 @@ select.unfold:                                    ; preds = %47, %20, %37, %26
   br i1 %72, label %73, label %.loopexit38.i31
 
 73:                                               ; preds = %.preheader40.i28
-  %74 = getelementptr inbounds i8, ptr %.227.i29, i64 1
-  %75 = getelementptr inbounds i8, ptr %.2.i30, i64 1
+  %74 = getelementptr inbounds nuw i8, ptr %.227.i29, i64 1
+  %75 = getelementptr inbounds nuw i8, ptr %.2.i30, i64 1
   %76 = icmp eq i8 %69, 0
   br i1 %76, label %.thread43, label %.preheader40.i28, !llvm.loop !11
 
@@ -652,7 +652,7 @@ select.unfold:                                    ; preds = %47, %20, %37, %26
   ]
 
 81:                                               ; preds = %79
-  %82 = getelementptr inbounds i8, ptr %.4.i33, i64 1
+  %82 = getelementptr inbounds nuw i8, ptr %.4.i33, i64 1
   %.pre.i35 = load i8, ptr %82, align 1
   br label %79, !llvm.loop !8
 
@@ -673,13 +673,13 @@ Compare.exit39:                                   ; preds = %79, %83, %2, %.thre
 
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i1 @Previous_Enum(ptr noundef %0, ptr nocapture noundef readonly %1) #3 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = load ptr, ptr %1, align 8
   %6 = sext i32 %4 to i64
   %7 = getelementptr ptr, ptr %5, i64 %6
   %8 = getelementptr i8, ptr %7, i64 -8
-  %9 = getelementptr inbounds i8, ptr %1, i64 12
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %10 = load i8, ptr %9, align 4
   %11 = trunc i8 %10 to i1
   %12 = tail call ptr @field_buffer(ptr noundef %0, i32 noundef 0) #10
@@ -709,14 +709,14 @@ define internal noundef zeroext i1 @Previous_Enum(ptr noundef %0, ptr nocapture 
   %.024.i = phi ptr [ %12, %.lr.ph ], [ %22, %20 ]
   %21 = load i8, ptr %.024.i, align 1
   %cond.i = icmp eq i8 %21, 32
-  %22 = getelementptr inbounds i8, ptr %.024.i, i64 1
+  %22 = getelementptr inbounds nuw i8, ptr %.024.i, i64 1
   br i1 %cond.i, label %20, label %.critedge.i, !llvm.loop !5
 
 .critedge.i:                                      ; preds = %20, %.critedge.i
   %.025.i = phi ptr [ %24, %.critedge.i ], [ %19, %20 ]
   %23 = load i8, ptr %.025.i, align 1
   %cond36.i = icmp eq i8 %23, 32
-  %24 = getelementptr inbounds i8, ptr %.025.i, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %.025.i, i64 1
   br i1 %cond36.i, label %.critedge.i, label %.critedge2.i, !llvm.loop !7
 
 .critedge2.i:                                     ; preds = %.critedge.i
@@ -740,8 +740,8 @@ define internal noundef zeroext i1 @Previous_Enum(ptr noundef %0, ptr nocapture 
   br i1 %32, label %33, label %.loopexit38.i
 
 33:                                               ; preds = %.preheader.i
-  %34 = getelementptr inbounds i8, ptr %.126.i, i64 1
-  %35 = getelementptr inbounds i8, ptr %.1.i, i64 1
+  %34 = getelementptr inbounds nuw i8, ptr %.126.i, i64 1
+  %35 = getelementptr inbounds nuw i8, ptr %.1.i, i64 1
   %36 = icmp eq i8 %30, 0
   br i1 %36, label %select.unfold, label %.preheader.i, !llvm.loop !9
 
@@ -758,8 +758,8 @@ define internal noundef zeroext i1 @Previous_Enum(ptr noundef %0, ptr nocapture 
   br i1 %43, label %44, label %.loopexit38.i
 
 44:                                               ; preds = %.preheader40.i
-  %45 = getelementptr inbounds i8, ptr %.227.i, i64 1
-  %46 = getelementptr inbounds i8, ptr %.2.i, i64 1
+  %45 = getelementptr inbounds nuw i8, ptr %.227.i, i64 1
+  %46 = getelementptr inbounds nuw i8, ptr %.2.i, i64 1
   %47 = icmp eq i8 %40, 0
   br i1 %47, label %select.unfold, label %.preheader40.i, !llvm.loop !11
 
@@ -778,7 +778,7 @@ define internal noundef zeroext i1 @Previous_Enum(ptr noundef %0, ptr nocapture 
   ]
 
 52:                                               ; preds = %50
-  %53 = getelementptr inbounds i8, ptr %.4.i, i64 1
+  %53 = getelementptr inbounds nuw i8, ptr %.4.i, i64 1
   %.pre.i = load i8, ptr %53, align 1
   br label %50, !llvm.loop !8
 
@@ -810,7 +810,7 @@ select.unfold:                                    ; preds = %54, %27, %44, %33
 66:                                               ; preds = %66, %64
   %.024.i23 = phi ptr [ %12, %64 ], [ %68, %66 ]
   %67 = load i8, ptr %.024.i23, align 1
-  %68 = getelementptr inbounds i8, ptr %.024.i23, i64 1
+  %68 = getelementptr inbounds nuw i8, ptr %.024.i23, i64 1
   switch i8 %67, label %69 [
     i8 32, label %66
     i8 0, label %.thread45
@@ -828,8 +828,8 @@ select.unfold:                                    ; preds = %54, %27, %44, %33
   br i1 %72, label %73, label %.loopexit38.i33
 
 73:                                               ; preds = %.preheader.i38
-  %74 = getelementptr inbounds i8, ptr %.126.i39, i64 1
-  %75 = getelementptr inbounds i8, ptr %.1.i40, i64 1
+  %74 = getelementptr inbounds nuw i8, ptr %.126.i39, i64 1
+  %75 = getelementptr inbounds nuw i8, ptr %.1.i40, i64 1
   %76 = icmp eq i8 %70, 0
   br i1 %76, label %.thread45, label %.preheader.i38, !llvm.loop !9
 
@@ -846,8 +846,8 @@ select.unfold:                                    ; preds = %54, %27, %44, %33
   br i1 %83, label %84, label %.loopexit38.i33
 
 84:                                               ; preds = %.preheader40.i30
-  %85 = getelementptr inbounds i8, ptr %.227.i31, i64 1
-  %86 = getelementptr inbounds i8, ptr %.2.i32, i64 1
+  %85 = getelementptr inbounds nuw i8, ptr %.227.i31, i64 1
+  %86 = getelementptr inbounds nuw i8, ptr %.2.i32, i64 1
   %87 = icmp eq i8 %80, 0
   br i1 %87, label %.thread45, label %.preheader40.i30, !llvm.loop !11
 
@@ -866,7 +866,7 @@ select.unfold:                                    ; preds = %54, %27, %44, %33
   ]
 
 92:                                               ; preds = %90
-  %93 = getelementptr inbounds i8, ptr %.4.i35, i64 1
+  %93 = getelementptr inbounds nuw i8, ptr %.4.i35, i64 1
   %.pre.i37 = load i8, ptr %93, align 1
   br label %90, !llvm.loop !8
 

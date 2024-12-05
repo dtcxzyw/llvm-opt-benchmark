@@ -148,37 +148,37 @@ define hidden void @nghttp2_hd_entry_init(ptr nocapture noundef initializes((0, 
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ent, ptr noundef nonnull align 8 dereferenceable(24) %nv, i64 24, i1 false)
   %0 = load ptr, ptr %nv, align 8
-  %base = getelementptr inbounds i8, ptr %0, i64 16
+  %base = getelementptr inbounds nuw i8, ptr %0, i64 16
   %1 = load ptr, ptr %base, align 8
-  %cnv = getelementptr inbounds i8, ptr %ent, i64 24
+  %cnv = getelementptr inbounds nuw i8, ptr %ent, i64 24
   store ptr %1, ptr %cnv, align 8
   %2 = load ptr, ptr %nv, align 8
-  %len = getelementptr inbounds i8, ptr %2, i64 24
+  %len = getelementptr inbounds nuw i8, ptr %2, i64 24
   %3 = load i64, ptr %len, align 8
-  %namelen = getelementptr inbounds i8, ptr %ent, i64 40
+  %namelen = getelementptr inbounds nuw i8, ptr %ent, i64 40
   store i64 %3, ptr %namelen, align 8
-  %value = getelementptr inbounds i8, ptr %nv, i64 8
+  %value = getelementptr inbounds nuw i8, ptr %nv, i64 8
   %4 = load ptr, ptr %value, align 8
-  %base5 = getelementptr inbounds i8, ptr %4, i64 16
+  %base5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %5 = load ptr, ptr %base5, align 8
-  %value7 = getelementptr inbounds i8, ptr %ent, i64 32
+  %value7 = getelementptr inbounds nuw i8, ptr %ent, i64 32
   store ptr %5, ptr %value7, align 8
   %6 = load ptr, ptr %value, align 8
-  %len9 = getelementptr inbounds i8, ptr %6, i64 24
+  %len9 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %7 = load i64, ptr %len9, align 8
-  %valuelen = getelementptr inbounds i8, ptr %ent, i64 48
+  %valuelen = getelementptr inbounds nuw i8, ptr %ent, i64 48
   store i64 %7, ptr %valuelen, align 8
-  %flags = getelementptr inbounds i8, ptr %nv, i64 20
+  %flags = getelementptr inbounds nuw i8, ptr %nv, i64 20
   %8 = load i8, ptr %flags, align 4
-  %flags12 = getelementptr inbounds i8, ptr %ent, i64 56
+  %flags12 = getelementptr inbounds nuw i8, ptr %ent, i64 56
   store i8 %8, ptr %flags12, align 8
-  %next = getelementptr inbounds i8, ptr %ent, i64 64
+  %next = getelementptr inbounds nuw i8, ptr %ent, i64 64
   store ptr null, ptr %next, align 8
-  %hash = getelementptr inbounds i8, ptr %ent, i64 76
+  %hash = getelementptr inbounds nuw i8, ptr %ent, i64 76
   store i32 0, ptr %hash, align 4
   %9 = load ptr, ptr %ent, align 8
   tail call void @nghttp2_rcbuf_incref(ptr noundef %9) #12
-  %value16 = getelementptr inbounds i8, ptr %ent, i64 8
+  %value16 = getelementptr inbounds nuw i8, ptr %ent, i64 8
   %10 = load ptr, ptr %value16, align 8
   tail call void @nghttp2_rcbuf_incref(ptr noundef %10) #12
   ret void
@@ -192,7 +192,7 @@ declare void @nghttp2_rcbuf_incref(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define hidden void @nghttp2_hd_entry_free(ptr nocapture noundef readonly %ent) local_unnamed_addr #0 {
 entry:
-  %value = getelementptr inbounds i8, ptr %ent, i64 8
+  %value = getelementptr inbounds nuw i8, ptr %ent, i64 8
   %0 = load ptr, ptr %value, align 8
   tail call void @nghttp2_rcbuf_decref(ptr noundef %0) #12
   %1 = load ptr, ptr %ent, align 8
@@ -205,11 +205,11 @@ declare void @nghttp2_rcbuf_decref(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -901, 1) i32 @nghttp2_hd_deflate_init(ptr nocapture noundef writeonly initializes((0, 8), (32, 40), (48, 56), (60, 61)) %deflater, ptr noundef %mem) local_unnamed_addr #0 {
 entry:
-  %mem1.i.i = getelementptr inbounds i8, ptr %deflater, i64 32
+  %mem1.i.i = getelementptr inbounds nuw i8, ptr %deflater, i64 32
   store ptr %mem, ptr %mem1.i.i, align 8
-  %bad.i.i = getelementptr inbounds i8, ptr %deflater, i64 60
+  %bad.i.i = getelementptr inbounds nuw i8, ptr %deflater, i64 60
   store i8 0, ptr %bad.i.i, align 4
-  %hd_table_bufsize_max.i.i = getelementptr inbounds i8, ptr %deflater, i64 48
+  %hd_table_bufsize_max.i.i = getelementptr inbounds nuw i8, ptr %deflater, i64 48
   store i64 4096, ptr %hd_table_bufsize_max.i.i, align 8
   %call.i.i.i = tail call ptr @nghttp2_mem_malloc(ptr noundef %mem, i64 noundef 1024) #12
   store ptr %call.i.i.i, ptr %deflater, align 8
@@ -217,21 +217,21 @@ entry:
   br i1 %cmp2.i.i.i, label %nghttp2_hd_deflate_init2.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %mask.i.i.i = getelementptr inbounds i8, ptr %deflater, i64 8
+  %mask.i.i.i = getelementptr inbounds nuw i8, ptr %deflater, i64 8
   store i64 127, ptr %mask.i.i.i, align 8
-  %first.i.i.i = getelementptr inbounds i8, ptr %deflater, i64 16
+  %first.i.i.i = getelementptr inbounds nuw i8, ptr %deflater, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %first.i.i.i, i8 0, i64 16, i1 false)
-  %hd_table_bufsize.i.i = getelementptr inbounds i8, ptr %deflater, i64 40
+  %hd_table_bufsize.i.i = getelementptr inbounds nuw i8, ptr %deflater, i64 40
   store i64 0, ptr %hd_table_bufsize.i.i, align 8
-  %next_seq.i.i = getelementptr inbounds i8, ptr %deflater, i64 56
+  %next_seq.i.i = getelementptr inbounds nuw i8, ptr %deflater, i64 56
   store i32 0, ptr %next_seq.i.i, align 8
-  %map.i = getelementptr inbounds i8, ptr %deflater, i64 64
+  %map.i = getelementptr inbounds nuw i8, ptr %deflater, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %map.i, i8 0, i64 1024, i1 false)
-  %0 = getelementptr inbounds i8, ptr %deflater, i64 1104
+  %0 = getelementptr inbounds nuw i8, ptr %deflater, i64 1104
   store i8 0, ptr %0, align 8
-  %deflate_hd_table_bufsize_max.i = getelementptr inbounds i8, ptr %deflater, i64 1088
+  %deflate_hd_table_bufsize_max.i = getelementptr inbounds nuw i8, ptr %deflater, i64 1088
   store i64 4096, ptr %deflate_hd_table_bufsize_max.i, align 8
-  %min_hd_table_bufsize_max.i = getelementptr inbounds i8, ptr %deflater, i64 1096
+  %min_hd_table_bufsize_max.i = getelementptr inbounds nuw i8, ptr %deflater, i64 1096
   store i64 4294967295, ptr %min_hd_table_bufsize_max.i, align 8
   br label %nghttp2_hd_deflate_init2.exit
 
@@ -243,11 +243,11 @@ nghttp2_hd_deflate_init2.exit:                    ; preds = %entry, %if.end.i
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -901, 1) i32 @nghttp2_hd_deflate_init2(ptr nocapture noundef writeonly initializes((0, 8), (32, 40), (48, 56), (60, 61)) %deflater, i64 noundef %max_deflate_dynamic_table_size, ptr noundef %mem) local_unnamed_addr #0 {
 entry:
-  %mem1.i = getelementptr inbounds i8, ptr %deflater, i64 32
+  %mem1.i = getelementptr inbounds nuw i8, ptr %deflater, i64 32
   store ptr %mem, ptr %mem1.i, align 8
-  %bad.i = getelementptr inbounds i8, ptr %deflater, i64 60
+  %bad.i = getelementptr inbounds nuw i8, ptr %deflater, i64 60
   store i8 0, ptr %bad.i, align 4
-  %hd_table_bufsize_max.i = getelementptr inbounds i8, ptr %deflater, i64 48
+  %hd_table_bufsize_max.i = getelementptr inbounds nuw i8, ptr %deflater, i64 48
   store i64 4096, ptr %hd_table_bufsize_max.i, align 8
   %call.i.i = tail call ptr @nghttp2_mem_malloc(ptr noundef %mem, i64 noundef 1024) #12
   store ptr %call.i.i, ptr %deflater, align 8
@@ -255,15 +255,15 @@ entry:
   br i1 %cmp2.i.i, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %mask.i.i = getelementptr inbounds i8, ptr %deflater, i64 8
+  %mask.i.i = getelementptr inbounds nuw i8, ptr %deflater, i64 8
   store i64 127, ptr %mask.i.i, align 8
-  %first.i.i = getelementptr inbounds i8, ptr %deflater, i64 16
+  %first.i.i = getelementptr inbounds nuw i8, ptr %deflater, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %first.i.i, i8 0, i64 16, i1 false)
-  %hd_table_bufsize.i = getelementptr inbounds i8, ptr %deflater, i64 40
+  %hd_table_bufsize.i = getelementptr inbounds nuw i8, ptr %deflater, i64 40
   store i64 0, ptr %hd_table_bufsize.i, align 8
-  %next_seq.i = getelementptr inbounds i8, ptr %deflater, i64 56
+  %next_seq.i = getelementptr inbounds nuw i8, ptr %deflater, i64 56
   store i32 0, ptr %next_seq.i, align 8
-  %map = getelementptr inbounds i8, ptr %deflater, i64 64
+  %map = getelementptr inbounds nuw i8, ptr %deflater, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %map, i8 0, i64 1024, i1 false)
   %cmp1 = icmp ult i64 %max_deflate_dynamic_table_size, 4096
   br i1 %cmp1, label %if.then2, label %if.end5
@@ -274,11 +274,11 @@ if.then2:                                         ; preds = %if.end
 
 if.end5:                                          ; preds = %if.end, %if.then2
   %.sink = phi i8 [ 1, %if.then2 ], [ 0, %if.end ]
-  %0 = getelementptr inbounds i8, ptr %deflater, i64 1104
+  %0 = getelementptr inbounds nuw i8, ptr %deflater, i64 1104
   store i8 %.sink, ptr %0, align 8
-  %deflate_hd_table_bufsize_max = getelementptr inbounds i8, ptr %deflater, i64 1088
+  %deflate_hd_table_bufsize_max = getelementptr inbounds nuw i8, ptr %deflater, i64 1088
   store i64 %max_deflate_dynamic_table_size, ptr %deflate_hd_table_bufsize_max, align 8
-  %min_hd_table_bufsize_max = getelementptr inbounds i8, ptr %deflater, i64 1096
+  %min_hd_table_bufsize_max = getelementptr inbounds nuw i8, ptr %deflater, i64 1096
   store i64 4294967295, ptr %min_hd_table_bufsize_max, align 8
   br label %return
 
@@ -290,11 +290,11 @@ return:                                           ; preds = %entry, %if.end5
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -901, 1) i32 @nghttp2_hd_inflate_init(ptr noundef initializes((0, 8), (32, 40), (48, 56), (60, 61)) %inflater, ptr noundef %mem) local_unnamed_addr #0 {
 entry:
-  %mem1.i = getelementptr inbounds i8, ptr %inflater, i64 32
+  %mem1.i = getelementptr inbounds nuw i8, ptr %inflater, i64 32
   store ptr %mem, ptr %mem1.i, align 8
-  %bad.i = getelementptr inbounds i8, ptr %inflater, i64 60
+  %bad.i = getelementptr inbounds nuw i8, ptr %inflater, i64 60
   store i8 0, ptr %bad.i, align 4
-  %hd_table_bufsize_max.i = getelementptr inbounds i8, ptr %inflater, i64 48
+  %hd_table_bufsize_max.i = getelementptr inbounds nuw i8, ptr %inflater, i64 48
   store i64 4096, ptr %hd_table_bufsize_max.i, align 8
   %call.i.i = tail call ptr @nghttp2_mem_malloc(ptr noundef %mem, i64 noundef 1024) #12
   store ptr %call.i.i, ptr %inflater, align 8
@@ -302,37 +302,37 @@ entry:
   br i1 %cmp2.i.i, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %mask.i.i = getelementptr inbounds i8, ptr %inflater, i64 8
+  %mask.i.i = getelementptr inbounds nuw i8, ptr %inflater, i64 8
   store i64 127, ptr %mask.i.i, align 8
-  %first.i.i = getelementptr inbounds i8, ptr %inflater, i64 16
+  %first.i.i = getelementptr inbounds nuw i8, ptr %inflater, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %first.i.i, i8 0, i64 16, i1 false)
-  %hd_table_bufsize.i = getelementptr inbounds i8, ptr %inflater, i64 40
+  %hd_table_bufsize.i = getelementptr inbounds nuw i8, ptr %inflater, i64 40
   store i64 0, ptr %hd_table_bufsize.i, align 8
-  %next_seq.i = getelementptr inbounds i8, ptr %inflater, i64 56
+  %next_seq.i = getelementptr inbounds nuw i8, ptr %inflater, i64 56
   store i32 0, ptr %next_seq.i, align 8
-  %settings_hd_table_bufsize_max = getelementptr inbounds i8, ptr %inflater, i64 200
+  %settings_hd_table_bufsize_max = getelementptr inbounds nuw i8, ptr %inflater, i64 200
   store i64 4096, ptr %settings_hd_table_bufsize_max, align 8
-  %min_hd_table_bufsize_max = getelementptr inbounds i8, ptr %inflater, i64 208
+  %min_hd_table_bufsize_max = getelementptr inbounds nuw i8, ptr %inflater, i64 208
   store i64 4294967295, ptr %min_hd_table_bufsize_max, align 8
-  %nv_name_keep = getelementptr inbounds i8, ptr %inflater, i64 168
-  %opcode = getelementptr inbounds i8, ptr %inflater, i64 224
+  %nv_name_keep = getelementptr inbounds nuw i8, ptr %inflater, i64 168
+  %opcode = getelementptr inbounds nuw i8, ptr %inflater, i64 224
   store i32 0, ptr %opcode, align 8
-  %state = getelementptr inbounds i8, ptr %inflater, i64 228
+  %state = getelementptr inbounds nuw i8, ptr %inflater, i64 228
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %nv_name_keep, i8 0, i64 16, i1 false)
   store i32 1, ptr %state, align 4
-  %namebuf = getelementptr inbounds i8, ptr %inflater, i64 72
+  %namebuf = getelementptr inbounds nuw i8, ptr %inflater, i64 72
   tail call void @nghttp2_buf_init(ptr noundef nonnull %namebuf) #12
-  %valuebuf = getelementptr inbounds i8, ptr %inflater, i64 112
+  %valuebuf = getelementptr inbounds nuw i8, ptr %inflater, i64 112
   tail call void @nghttp2_buf_init(ptr noundef nonnull %valuebuf) #12
-  %namercbuf = getelementptr inbounds i8, ptr %inflater, i64 152
-  %huffman_encoded = getelementptr inbounds i8, ptr %inflater, i64 232
+  %namercbuf = getelementptr inbounds nuw i8, ptr %inflater, i64 152
+  %huffman_encoded = getelementptr inbounds nuw i8, ptr %inflater, i64 232
   store i8 0, ptr %huffman_encoded, align 8
-  %left = getelementptr inbounds i8, ptr %inflater, i64 184
-  %shift = getelementptr inbounds i8, ptr %inflater, i64 216
+  %left = getelementptr inbounds nuw i8, ptr %inflater, i64 184
+  %shift = getelementptr inbounds nuw i8, ptr %inflater, i64 216
   store i64 0, ptr %shift, align 8
-  %index_required = getelementptr inbounds i8, ptr %inflater, i64 233
+  %index_required = getelementptr inbounds nuw i8, ptr %inflater, i64 233
   store i8 0, ptr %index_required, align 1
-  %no_index = getelementptr inbounds i8, ptr %inflater, i64 234
+  %no_index = getelementptr inbounds nuw i8, ptr %inflater, i64 234
   store i8 0, ptr %no_index, align 2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %namercbuf, i8 0, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %left, i8 0, i64 16, i1 false)
@@ -348,16 +348,16 @@ declare void @nghttp2_buf_init(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define hidden void @nghttp2_hd_deflate_free(ptr nocapture noundef readonly %deflater) local_unnamed_addr #0 {
 entry:
-  %mem.i = getelementptr inbounds i8, ptr %deflater, i64 32
+  %mem.i = getelementptr inbounds nuw i8, ptr %deflater, i64 32
   %0 = load ptr, ptr %mem.i, align 8
-  %len.i.i = getelementptr inbounds i8, ptr %deflater, i64 24
+  %len.i.i = getelementptr inbounds nuw i8, ptr %deflater, i64 24
   %1 = load i64, ptr %len.i.i, align 8
   %cmp18.not.i.i = icmp eq i64 %1, 0
   br i1 %cmp18.not.i.i, label %hd_context_free.exit, label %hd_ringbuf_get.exit.lr.ph.i.i
 
 hd_ringbuf_get.exit.lr.ph.i.i:                    ; preds = %entry
-  %first.i.i.i = getelementptr inbounds i8, ptr %deflater, i64 16
-  %mask.i.i.i = getelementptr inbounds i8, ptr %deflater, i64 8
+  %first.i.i.i = getelementptr inbounds nuw i8, ptr %deflater, i64 16
+  %mask.i.i.i = getelementptr inbounds nuw i8, ptr %deflater, i64 8
   br label %hd_ringbuf_get.exit.i.i
 
 hd_ringbuf_get.exit.i.i:                          ; preds = %hd_ringbuf_get.exit.i.i, %hd_ringbuf_get.exit.lr.ph.i.i
@@ -369,7 +369,7 @@ hd_ringbuf_get.exit.i.i:                          ; preds = %hd_ringbuf_get.exit
   %and.i.i.i = and i64 %add.i.i.i, %4
   %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %2, i64 %and.i.i.i
   %5 = load ptr, ptr %arrayidx.i.i.i, align 8
-  %value.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
+  %value.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   %6 = load ptr, ptr %value.i.i.i, align 8
   tail call void @nghttp2_rcbuf_decref(ptr noundef %6) #12
   %7 = load ptr, ptr %5, align 8
@@ -389,29 +389,29 @@ hd_context_free.exit:                             ; preds = %hd_ringbuf_get.exit
 ; Function Attrs: nounwind uwtable
 define hidden void @nghttp2_hd_inflate_free(ptr nocapture noundef %inflater) local_unnamed_addr #0 {
 entry:
-  %nv_value_keep.i = getelementptr inbounds i8, ptr %inflater, i64 176
+  %nv_value_keep.i = getelementptr inbounds nuw i8, ptr %inflater, i64 176
   %0 = load ptr, ptr %nv_value_keep.i, align 8
   tail call void @nghttp2_rcbuf_decref(ptr noundef %0) #12
-  %nv_name_keep.i = getelementptr inbounds i8, ptr %inflater, i64 168
+  %nv_name_keep.i = getelementptr inbounds nuw i8, ptr %inflater, i64 168
   %1 = load ptr, ptr %nv_name_keep.i, align 8
   tail call void @nghttp2_rcbuf_decref(ptr noundef %1) #12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %nv_name_keep.i, i8 0, i64 16, i1 false)
-  %valuercbuf = getelementptr inbounds i8, ptr %inflater, i64 160
+  %valuercbuf = getelementptr inbounds nuw i8, ptr %inflater, i64 160
   %2 = load ptr, ptr %valuercbuf, align 8
   tail call void @nghttp2_rcbuf_decref(ptr noundef %2) #12
-  %namercbuf = getelementptr inbounds i8, ptr %inflater, i64 152
+  %namercbuf = getelementptr inbounds nuw i8, ptr %inflater, i64 152
   %3 = load ptr, ptr %namercbuf, align 8
   tail call void @nghttp2_rcbuf_decref(ptr noundef %3) #12
-  %mem.i = getelementptr inbounds i8, ptr %inflater, i64 32
+  %mem.i = getelementptr inbounds nuw i8, ptr %inflater, i64 32
   %4 = load ptr, ptr %mem.i, align 8
-  %len.i.i = getelementptr inbounds i8, ptr %inflater, i64 24
+  %len.i.i = getelementptr inbounds nuw i8, ptr %inflater, i64 24
   %5 = load i64, ptr %len.i.i, align 8
   %cmp18.not.i.i = icmp eq i64 %5, 0
   br i1 %cmp18.not.i.i, label %hd_context_free.exit, label %hd_ringbuf_get.exit.lr.ph.i.i
 
 hd_ringbuf_get.exit.lr.ph.i.i:                    ; preds = %entry
-  %first.i.i.i = getelementptr inbounds i8, ptr %inflater, i64 16
-  %mask.i.i.i = getelementptr inbounds i8, ptr %inflater, i64 8
+  %first.i.i.i = getelementptr inbounds nuw i8, ptr %inflater, i64 16
+  %mask.i.i.i = getelementptr inbounds nuw i8, ptr %inflater, i64 8
   br label %hd_ringbuf_get.exit.i.i
 
 hd_ringbuf_get.exit.i.i:                          ; preds = %hd_ringbuf_get.exit.i.i, %hd_ringbuf_get.exit.lr.ph.i.i
@@ -423,7 +423,7 @@ hd_ringbuf_get.exit.i.i:                          ; preds = %hd_ringbuf_get.exit
   %and.i.i.i = and i64 %add.i.i.i, %8
   %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %6, i64 %and.i.i.i
   %9 = load ptr, ptr %arrayidx.i.i.i, align 8
-  %value.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
+  %value.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 8
   %10 = load ptr, ptr %value.i.i.i, align 8
   tail call void @nghttp2_rcbuf_decref(ptr noundef %10) #12
   %11 = load ptr, ptr %9, align 8
@@ -443,18 +443,18 @@ hd_context_free.exit:                             ; preds = %hd_ringbuf_get.exit
 ; Function Attrs: nounwind uwtable
 define noundef i32 @nghttp2_hd_deflate_change_table_size(ptr noundef initializes((48, 56), (1104, 1105)) %deflater, i64 noundef %settings_max_dynamic_table_size) local_unnamed_addr #0 {
 entry:
-  %deflate_hd_table_bufsize_max = getelementptr inbounds i8, ptr %deflater, i64 1088
+  %deflate_hd_table_bufsize_max = getelementptr inbounds nuw i8, ptr %deflater, i64 1088
   %0 = load i64, ptr %deflate_hd_table_bufsize_max, align 8
   %settings_max_dynamic_table_size. = tail call i64 @llvm.umin.i64(i64 %settings_max_dynamic_table_size, i64 %0)
-  %hd_table_bufsize_max = getelementptr inbounds i8, ptr %deflater, i64 48
+  %hd_table_bufsize_max = getelementptr inbounds nuw i8, ptr %deflater, i64 48
   store i64 %settings_max_dynamic_table_size., ptr %hd_table_bufsize_max, align 8
-  %min_hd_table_bufsize_max = getelementptr inbounds i8, ptr %deflater, i64 1096
+  %min_hd_table_bufsize_max = getelementptr inbounds nuw i8, ptr %deflater, i64 1096
   %1 = load i64, ptr %min_hd_table_bufsize_max, align 8
   %cond7 = tail call i64 @llvm.umin.i64(i64 %1, i64 %settings_max_dynamic_table_size.)
   store i64 %cond7, ptr %min_hd_table_bufsize_max, align 8
-  %notify_table_size_change = getelementptr inbounds i8, ptr %deflater, i64 1104
+  %notify_table_size_change = getelementptr inbounds nuw i8, ptr %deflater, i64 1104
   store i8 1, ptr %notify_table_size_change, align 8
-  %map = getelementptr inbounds i8, ptr %deflater, i64 64
+  %map = getelementptr inbounds nuw i8, ptr %deflater, i64 64
   tail call fastcc void @hd_context_shrink_table_size(ptr noundef %deflater, ptr noundef nonnull %map)
   ret i32 0
 }
@@ -462,19 +462,19 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @hd_context_shrink_table_size(ptr nocapture noundef %context, ptr noundef %map) unnamed_addr #0 {
 entry:
-  %mem1 = getelementptr inbounds i8, ptr %context, i64 32
+  %mem1 = getelementptr inbounds nuw i8, ptr %context, i64 32
   %0 = load ptr, ptr %mem1, align 8
-  %len = getelementptr inbounds i8, ptr %context, i64 24
-  %hd_table_bufsize = getelementptr inbounds i8, ptr %context, i64 40
-  %hd_table_bufsize_max = getelementptr inbounds i8, ptr %context, i64 48
+  %len = getelementptr inbounds nuw i8, ptr %context, i64 24
+  %hd_table_bufsize = getelementptr inbounds nuw i8, ptr %context, i64 40
+  %hd_table_bufsize_max = getelementptr inbounds nuw i8, ptr %context, i64 48
   %1 = load i64, ptr %hd_table_bufsize, align 8
   %2 = load i64, ptr %hd_table_bufsize_max, align 8
   %cmp22 = icmp ugt i64 %1, %2
   br i1 %cmp22, label %land.rhs.lr.ph, label %while.end
 
 land.rhs.lr.ph:                                   ; preds = %entry
-  %first.i = getelementptr inbounds i8, ptr %context, i64 16
-  %mask.i = getelementptr inbounds i8, ptr %context, i64 8
+  %first.i = getelementptr inbounds nuw i8, ptr %context, i64 16
+  %mask.i = getelementptr inbounds nuw i8, ptr %context, i64 8
   %tobool.not = icmp eq ptr %map, null
   br i1 %tobool.not, label %land.rhs.us, label %land.rhs
 
@@ -494,11 +494,11 @@ hd_ringbuf_pop_back.exit.us:                      ; preds = %land.rhs.us
   %arrayidx.i.us = getelementptr inbounds ptr, ptr %5, i64 %and.i.us
   %8 = load ptr, ptr %arrayidx.i.us, align 8
   %9 = load ptr, ptr %8, align 8
-  %len6.us = getelementptr inbounds i8, ptr %9, i64 24
+  %len6.us = getelementptr inbounds nuw i8, ptr %9, i64 24
   %10 = load i64, ptr %len6.us, align 8
-  %value.us = getelementptr inbounds i8, ptr %8, i64 8
+  %value.us = getelementptr inbounds nuw i8, ptr %8, i64 8
   %11 = load ptr, ptr %value.us, align 8
-  %len8.us = getelementptr inbounds i8, ptr %11, i64 24
+  %len8.us = getelementptr inbounds nuw i8, ptr %11, i64 24
   %12 = load i64, ptr %len8.us, align 8
   %add.i13.neg.us = add i64 %3, -32
   %13 = add i64 %10, %12
@@ -531,22 +531,22 @@ hd_ringbuf_pop_back.exit:                         ; preds = %land.rhs
   %arrayidx.i = getelementptr inbounds ptr, ptr %20, i64 %and.i
   %23 = load ptr, ptr %arrayidx.i, align 8
   %24 = load ptr, ptr %23, align 8
-  %len6 = getelementptr inbounds i8, ptr %24, i64 24
+  %len6 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %25 = load i64, ptr %len6, align 8
-  %value = getelementptr inbounds i8, ptr %23, i64 8
+  %value = getelementptr inbounds nuw i8, ptr %23, i64 8
   %26 = load ptr, ptr %value, align 8
-  %len8 = getelementptr inbounds i8, ptr %26, i64 24
+  %len8 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %27 = load i64, ptr %len8, align 8
   %add.i13.neg = add i64 %18, -32
   %28 = add i64 %25, %27
   %sub11 = sub i64 %add.i13.neg, %28
   store i64 %sub11, ptr %hd_table_bufsize, align 8
   store i64 %sub, ptr %len, align 8
-  %hash.i = getelementptr inbounds i8, ptr %23, i64 76
+  %hash.i = getelementptr inbounds nuw i8, ptr %23, i64 76
   %29 = load i32, ptr %hash.i, align 4
   %and.i16 = and i32 %29, 127
   %idxprom.i = zext nneg i32 %and.i16 to i64
-  %arrayidx.i17 = getelementptr inbounds [128 x ptr], ptr %map, i64 0, i64 %idxprom.i
+  %arrayidx.i17 = getelementptr inbounds nuw [128 x ptr], ptr %map, i64 0, i64 %idxprom.i
   %30 = load ptr, ptr %arrayidx.i17, align 8
   %tobool.not8.i = icmp eq ptr %30, null
   br i1 %tobool.not8.i, label %if.end, label %for.body.i.preheader
@@ -557,7 +557,7 @@ for.body.i.preheader:                             ; preds = %hd_ringbuf_pop_back
 
 for.cond.i:                                       ; preds = %for.body.i.preheader, %for.body.i
   %31 = phi ptr [ %32, %for.body.i ], [ %30, %for.body.i.preheader ]
-  %next2.i = getelementptr inbounds i8, ptr %31, i64 64
+  %next2.i = getelementptr inbounds nuw i8, ptr %31, i64 64
   %32 = load ptr, ptr %next2.i, align 8
   %tobool.not.i = icmp eq ptr %32, null
   br i1 %tobool.not.i, label %if.end, label %for.body.i, !llvm.loop !7
@@ -567,12 +567,12 @@ for.body.i:                                       ; preds = %for.cond.i
   br i1 %cmp.not.i18, label %if.end.i.loopexit, label %for.cond.i, !llvm.loop !7
 
 if.end.i.loopexit:                                ; preds = %for.body.i
-  %next2.i.le = getelementptr inbounds i8, ptr %31, i64 64
+  %next2.i.le = getelementptr inbounds nuw i8, ptr %31, i64 64
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.end.i.loopexit, %for.body.i.preheader
   %dst.09.i.lcssa = phi ptr [ %arrayidx.i17, %for.body.i.preheader ], [ %next2.i.le, %if.end.i.loopexit ]
-  %next.i = getelementptr inbounds i8, ptr %23, i64 64
+  %next.i = getelementptr inbounds nuw i8, ptr %23, i64 64
   %33 = load ptr, ptr %next.i, align 8
   store ptr %33, ptr %dst.09.i.lcssa, align 8
   store ptr null, ptr %next.i, align 8
@@ -596,35 +596,35 @@ while.end:                                        ; preds = %land.rhs, %if.end, 
 ; Function Attrs: nounwind uwtable
 define range(i32 -519, 1) i32 @nghttp2_hd_inflate_change_table_size(ptr nocapture noundef %inflater, i64 noundef %settings_max_dynamic_table_size) local_unnamed_addr #0 {
 entry:
-  %state = getelementptr inbounds i8, ptr %inflater, i64 228
+  %state = getelementptr inbounds nuw i8, ptr %inflater, i64 228
   %0 = load i32, ptr %state, align 4
   %switch = icmp ult i32 %0, 2
   br i1 %switch, label %sw.epilog, label %return
 
 sw.epilog:                                        ; preds = %entry
-  %settings_hd_table_bufsize_max = getelementptr inbounds i8, ptr %inflater, i64 200
+  %settings_hd_table_bufsize_max = getelementptr inbounds nuw i8, ptr %inflater, i64 200
   store i64 %settings_max_dynamic_table_size, ptr %settings_hd_table_bufsize_max, align 8
-  %hd_table_bufsize_max = getelementptr inbounds i8, ptr %inflater, i64 48
+  %hd_table_bufsize_max = getelementptr inbounds nuw i8, ptr %inflater, i64 48
   %1 = load i64, ptr %hd_table_bufsize_max, align 8
   %cmp = icmp ugt i64 %1, %settings_max_dynamic_table_size
   br i1 %cmp, label %if.then, label %return
 
 if.then:                                          ; preds = %sw.epilog
   store i32 0, ptr %state, align 4
-  %min_hd_table_bufsize_max = getelementptr inbounds i8, ptr %inflater, i64 208
+  %min_hd_table_bufsize_max = getelementptr inbounds nuw i8, ptr %inflater, i64 208
   store i64 %settings_max_dynamic_table_size, ptr %min_hd_table_bufsize_max, align 8
   store i64 %settings_max_dynamic_table_size, ptr %hd_table_bufsize_max, align 8
-  %mem1.i = getelementptr inbounds i8, ptr %inflater, i64 32
+  %mem1.i = getelementptr inbounds nuw i8, ptr %inflater, i64 32
   %2 = load ptr, ptr %mem1.i, align 8
-  %len.i = getelementptr inbounds i8, ptr %inflater, i64 24
-  %hd_table_bufsize.i = getelementptr inbounds i8, ptr %inflater, i64 40
+  %len.i = getelementptr inbounds nuw i8, ptr %inflater, i64 24
+  %hd_table_bufsize.i = getelementptr inbounds nuw i8, ptr %inflater, i64 40
   %3 = load i64, ptr %hd_table_bufsize.i, align 8
   %cmp22.i = icmp ugt i64 %3, %settings_max_dynamic_table_size
   br i1 %cmp22.i, label %land.rhs.lr.ph.i, label %return
 
 land.rhs.lr.ph.i:                                 ; preds = %if.then
-  %first.i.i = getelementptr inbounds i8, ptr %inflater, i64 16
-  %mask.i.i = getelementptr inbounds i8, ptr %inflater, i64 8
+  %first.i.i = getelementptr inbounds nuw i8, ptr %inflater, i64 16
+  %mask.i.i = getelementptr inbounds nuw i8, ptr %inflater, i64 8
   br label %land.rhs.us.i
 
 land.rhs.us.i:                                    ; preds = %hd_ringbuf_pop_back.exit.us.i, %land.rhs.lr.ph.i
@@ -643,11 +643,11 @@ hd_ringbuf_pop_back.exit.us.i:                    ; preds = %land.rhs.us.i
   %arrayidx.i.us.i = getelementptr inbounds ptr, ptr %6, i64 %and.i.us.i
   %9 = load ptr, ptr %arrayidx.i.us.i, align 8
   %10 = load ptr, ptr %9, align 8
-  %len6.us.i = getelementptr inbounds i8, ptr %10, i64 24
+  %len6.us.i = getelementptr inbounds nuw i8, ptr %10, i64 24
   %11 = load i64, ptr %len6.us.i, align 8
-  %value.us.i = getelementptr inbounds i8, ptr %9, i64 8
+  %value.us.i = getelementptr inbounds nuw i8, ptr %9, i64 8
   %12 = load ptr, ptr %value.us.i, align 8
-  %len8.us.i = getelementptr inbounds i8, ptr %12, i64 24
+  %len8.us.i = getelementptr inbounds nuw i8, ptr %12, i64 24
   %13 = load i64, ptr %len8.us.i, align 8
   %.neg11 = add i64 %4, -32
   %14 = add i64 %11, %13
@@ -672,7 +672,7 @@ return:                                           ; preds = %hd_ringbuf_pop_back
 ; Function Attrs: nounwind uwtable
 define hidden void @nghttp2_hd_table_get(ptr noalias nocapture writeonly sret(%struct.nghttp2_hd_nv) align 8 %agg.result, ptr nocapture noundef readonly %context, i64 noundef %idx) local_unnamed_addr #0 {
 entry:
-  %len = getelementptr inbounds i8, ptr %context, i64 24
+  %len = getelementptr inbounds nuw i8, ptr %context, i64 24
   %0 = load i64, ptr %len, align 8
   %add = add i64 %0, 61
   %cmp = icmp ult i64 %idx, %add
@@ -697,10 +697,10 @@ if.else.i:                                        ; preds = %if.then2
 
 hd_ringbuf_get.exit:                              ; preds = %if.then2
   %1 = load ptr, ptr %context, align 8
-  %first.i = getelementptr inbounds i8, ptr %context, i64 16
+  %first.i = getelementptr inbounds nuw i8, ptr %context, i64 16
   %2 = load i64, ptr %first.i, align 8
   %add.i = add i64 %2, %sub
-  %mask.i = getelementptr inbounds i8, ptr %context, i64 8
+  %mask.i = getelementptr inbounds nuw i8, ptr %context, i64 8
   %3 = load i64, ptr %mask.i, align 8
   %and.i = and i64 %add.i, %3
   %arrayidx.i = getelementptr inbounds ptr, ptr %1, i64 %and.i
@@ -709,16 +709,16 @@ hd_ringbuf_get.exit:                              ; preds = %if.then2
   br label %return
 
 if.else4:                                         ; preds = %if.end
-  %arrayidx = getelementptr inbounds [61 x %struct.nghttp2_hd_static_entry], ptr @static_table, i64 0, i64 %idx
+  %arrayidx = getelementptr inbounds nuw [61 x %struct.nghttp2_hd_static_entry], ptr @static_table, i64 0, i64 %idx
   store ptr %arrayidx, ptr %agg.result, align 8
-  %value = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %value6 = getelementptr inbounds i8, ptr %arrayidx, i64 40
+  %value = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
+  %value6 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 40
   store ptr %value6, ptr %value, align 8
-  %token = getelementptr inbounds i8, ptr %agg.result, i64 16
-  %token7 = getelementptr inbounds i8, ptr %arrayidx, i64 120
+  %token = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
+  %token7 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 120
   %5 = load i32, ptr %token7, align 8
   store i32 %5, ptr %token, align 8
-  %flags = getelementptr inbounds i8, ptr %agg.result, i64 20
+  %flags = getelementptr inbounds nuw i8, ptr %agg.result, i64 20
   store i8 0, ptr %flags, align 4
   br label %return
 
@@ -736,23 +736,23 @@ entry:
   %hd_nv.i = alloca %struct.nghttp2_hd_nv, align 8
   %sb.i17 = alloca [16 x i8], align 16
   %sb.i = alloca [16 x i8], align 16
-  %bad = getelementptr inbounds i8, ptr %deflater, i64 60
+  %bad = getelementptr inbounds nuw i8, ptr %deflater, i64 60
   %0 = load i8, ptr %bad, align 4
   %tobool.not = icmp eq i8 %0, 0
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %notify_table_size_change = getelementptr inbounds i8, ptr %deflater, i64 1104
+  %notify_table_size_change = getelementptr inbounds nuw i8, ptr %deflater, i64 1104
   %1 = load i8, ptr %notify_table_size_change, align 8
   %tobool1.not = icmp eq i8 %1, 0
   br i1 %tobool1.not, label %if.end18, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  %min_hd_table_bufsize_max3 = getelementptr inbounds i8, ptr %deflater, i64 1096
+  %min_hd_table_bufsize_max3 = getelementptr inbounds nuw i8, ptr %deflater, i64 1096
   %2 = load i64, ptr %min_hd_table_bufsize_max3, align 8
   store i8 0, ptr %notify_table_size_change, align 8
   store i64 4294967295, ptr %min_hd_table_bufsize_max3, align 8
-  %hd_table_bufsize_max = getelementptr inbounds i8, ptr %deflater, i64 48
+  %hd_table_bufsize_max = getelementptr inbounds nuw i8, ptr %deflater, i64 48
   %3 = load i64, ptr %hd_table_bufsize_max, align 8
   %cmp = icmp ugt i64 %3, %2
   br i1 %cmp, label %if.then7, label %if.end11
@@ -775,7 +775,7 @@ if.end.i.i:                                       ; preds = %if.then7
 
 if.end.i6.thread.i:                               ; preds = %if.end.i.i
   store i8 63, ptr %sb.i, align 16
-  %buf.addr.020.i19.i = getelementptr inbounds i8, ptr %sb.i, i64 1
+  %buf.addr.020.i19.i = getelementptr inbounds nuw i8, ptr %sb.i, i64 1
   br label %for.end.i.i
 
 for.inc.i.i:                                      ; preds = %if.end.i.i, %for.inc.i.i
@@ -796,7 +796,7 @@ emit_table_size.exit.thread:                      ; preds = %count_encoded_lengt
 
 if.end.i6.i:                                      ; preds = %count_encoded_length.exit.i
   store i8 63, ptr %sb.i, align 16
-  %buf.addr.020.i.i = getelementptr inbounds i8, ptr %sb.i, i64 1
+  %buf.addr.020.i.i = getelementptr inbounds nuw i8, ptr %sb.i, i64 1
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %if.end.i6.i
@@ -806,7 +806,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %if.e
   %conv14.i.i = or i8 %5, -128
   store i8 %conv14.i.i, ptr %buf.addr.023.i.i, align 1
   %shr.i8.i = lshr i64 %n.addr.022.i.i, 7
-  %buf.addr.0.i.i = getelementptr inbounds i8, ptr %buf.addr.023.i.i, i64 1
+  %buf.addr.0.i.i = getelementptr inbounds nuw i8, ptr %buf.addr.023.i.i, i64 1
   %cmp10.i.i = icmp ugt i64 %n.addr.022.i.i, 16383
   br i1 %cmp10.i.i, label %for.body.i.i, label %for.end.i.i.loopexit, !llvm.loop !9
 
@@ -852,7 +852,7 @@ if.end.i.i19:                                     ; preds = %if.end11
 
 if.end.i6.thread.i22:                             ; preds = %if.end.i.i19
   store i8 63, ptr %sb.i17, align 16
-  %buf.addr.020.i19.i23 = getelementptr inbounds i8, ptr %sb.i17, i64 1
+  %buf.addr.020.i19.i23 = getelementptr inbounds nuw i8, ptr %sb.i17, i64 1
   br label %for.end.i.i24
 
 for.inc.i.i33:                                    ; preds = %if.end.i.i19, %for.inc.i.i33
@@ -873,7 +873,7 @@ emit_table_size.exit52.thread:                    ; preds = %count_encoded_lengt
 
 if.end.i6.i41:                                    ; preds = %count_encoded_length.exit.i39
   store i8 63, ptr %sb.i17, align 16
-  %buf.addr.020.i.i42 = getelementptr inbounds i8, ptr %sb.i17, i64 1
+  %buf.addr.020.i.i42 = getelementptr inbounds nuw i8, ptr %sb.i17, i64 1
   br label %for.body.i.i43
 
 for.body.i.i43:                                   ; preds = %for.body.i.i43, %if.end.i6.i41
@@ -883,7 +883,7 @@ for.body.i.i43:                                   ; preds = %for.body.i.i43, %if
   %conv14.i.i46 = or i8 %9, -128
   store i8 %conv14.i.i46, ptr %buf.addr.023.i.i44, align 1
   %shr.i8.i47 = lshr i64 %n.addr.022.i.i45, 7
-  %buf.addr.0.i.i48 = getelementptr inbounds i8, ptr %buf.addr.023.i.i44, i64 1
+  %buf.addr.0.i.i48 = getelementptr inbounds nuw i8, ptr %buf.addr.023.i.i44, i64 1
   %cmp10.i.i49 = icmp ugt i64 %n.addr.022.i.i45, 16383
   br i1 %cmp10.i.i49, label %for.body.i.i43, label %for.end.i.i24.loopexit, !llvm.loop !9
 
@@ -911,17 +911,17 @@ if.end18:                                         ; preds = %emit_table_size.exi
   br i1 %cmp1972.not, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end18
-  %mem1.i = getelementptr inbounds i8, ptr %deflater, i64 32
-  %hd_table_bufsize_max.i.i = getelementptr inbounds i8, ptr %deflater, i64 48
-  %map.i = getelementptr inbounds i8, ptr %deflater, i64 64
-  %next_seq.i116.i = getelementptr inbounds i8, ptr %deflater, i64 56
-  %len.i.i = getelementptr inbounds i8, ptr %deflater, i64 24
-  %first.i.i.i = getelementptr inbounds i8, ptr %deflater, i64 16
-  %mask.i.i.i = getelementptr inbounds i8, ptr %deflater, i64 8
-  %value.i = getelementptr inbounds i8, ptr %hd_nv.i, i64 8
-  %token60.i = getelementptr inbounds i8, ptr %hd_nv.i, i64 16
-  %flags61.i = getelementptr inbounds i8, ptr %hd_nv.i, i64 20
-  %buf.addr.020.i19.i.i = getelementptr inbounds i8, ptr %sb.i.i, i64 1
+  %mem1.i = getelementptr inbounds nuw i8, ptr %deflater, i64 32
+  %hd_table_bufsize_max.i.i = getelementptr inbounds nuw i8, ptr %deflater, i64 48
+  %map.i = getelementptr inbounds nuw i8, ptr %deflater, i64 64
+  %next_seq.i116.i = getelementptr inbounds nuw i8, ptr %deflater, i64 56
+  %len.i.i = getelementptr inbounds nuw i8, ptr %deflater, i64 24
+  %first.i.i.i = getelementptr inbounds nuw i8, ptr %deflater, i64 16
+  %mask.i.i.i = getelementptr inbounds nuw i8, ptr %deflater, i64 8
+  %value.i = getelementptr inbounds nuw i8, ptr %hd_nv.i, i64 8
+  %token60.i = getelementptr inbounds nuw i8, ptr %hd_nv.i, i64 16
+  %flags61.i = getelementptr inbounds nuw i8, ptr %hd_nv.i, i64 20
+  %buf.addr.020.i19.i.i = getelementptr inbounds nuw i8, ptr %sb.i.i, i64 1
   br label %for.body
 
 for.cond:                                         ; preds = %deflate_nv.exit
@@ -935,7 +935,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %hd_nv.i)
   %11 = load ptr, ptr %mem1.i, align 8
   %12 = load ptr, ptr %arrayidx, align 8
-  %namelen.i = getelementptr inbounds i8, ptr %arrayidx, i64 16
+  %namelen.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 16
   %13 = load i64, ptr %namelen.i, align 8
   %call.i = call fastcc i32 @lookup_token(ptr noundef %12, i64 noundef %13)
   %cmp.i53 = icmp eq i32 %call.i, -1
@@ -963,7 +963,7 @@ if.else.i:                                        ; preds = %for.body
 
 if.then4.i:                                       ; preds = %if.else.i
   %idxprom.i = zext nneg i32 %call.i to i64
-  %hash5.i = getelementptr inbounds [61 x %struct.nghttp2_hd_static_entry], ptr @static_table, i64 0, i64 %idxprom.i, i32 4
+  %hash5.i = getelementptr inbounds nuw [61 x %struct.nghttp2_hd_static_entry], ptr @static_table, i64 0, i64 %idxprom.i, i32 4
   %15 = load i32, ptr %hash5.i, align 4
   br label %if.end6.i
 
@@ -975,14 +975,14 @@ if.end6.i:                                        ; preds = %for.body.i.i57, %if
   ]
 
 land.lhs.true.i:                                  ; preds = %if.end6.i
-  %valuelen.i = getelementptr inbounds i8, ptr %arrayidx, i64 24
+  %valuelen.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 24
   %16 = load i64, ptr %valuelen.i, align 8
   %cmp9.i = icmp ult i64 %16, 20
   br i1 %cmp9.i, label %cond.end.i, label %lor.lhs.false10.i
 
 lor.lhs.false10.i:                                ; preds = %land.lhs.true.i, %if.end6.i, %if.then.i
   %hash.067.i = phi i32 [ %hash.0.i, %if.end6.i ], [ %hash.0.i, %land.lhs.true.i ], [ -2128831035, %if.then.i ]
-  %flags.i = getelementptr inbounds i8, ptr %arrayidx, i64 32
+  %flags.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 32
   %17 = load i8, ptr %flags.i, align 8
   %18 = and i8 %17, 1
   %tobool.not.i = icmp eq i8 %18, 0
@@ -1001,7 +1001,7 @@ cond.false.i:                                     ; preds = %lor.lhs.false10.i
   ]
 
 lor.lhs.false14.i.i:                              ; preds = %cond.false.i
-  %valuelen.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 24
+  %valuelen.i.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 24
   %19 = load i64, ptr %valuelen.i.i, align 8
   %add.i.i.i = add i64 %13, 32
   %add1.i.i.i = add i64 %add.i.i.i, %19
@@ -1018,14 +1018,14 @@ cond.end.i:                                       ; preds = %lor.lhs.false14.i.i
   %cmp.not.i.i = icmp eq i32 %cond.i, 2
   %and.i.i.i = and i32 %hash.066.i, 127
   %idxprom.i.i.i = zext nneg i32 %and.i.i.i to i64
-  %arrayidx.i.i.i = getelementptr inbounds [128 x ptr], ptr %map.i, i64 0, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [128 x ptr], ptr %map.i, i64 0, i64 %idxprom.i.i.i
   %p.027.i.i.i = load ptr, ptr %arrayidx.i.i.i, align 8
   %tobool.not28.i.i.i = icmp eq ptr %p.027.i.i.i, null
   br i1 %tobool.not28.i.i.i, label %hd_map_find.exit.i.i, label %for.body.lr.ph.i.i.i
 
 for.body.lr.ph.i.i.i:                             ; preds = %cond.end.i
-  %valuelen.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 24
-  %value2.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %valuelen.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 24
+  %value2.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   br i1 %cmp.i53, label %for.body.lr.ph.split.us.i.i.i, label %for.body.lr.ph.split.i.i.i
 
 for.body.lr.ph.split.us.i.i.i:                    ; preds = %for.body.lr.ph.i.i.i
@@ -1034,26 +1034,26 @@ for.body.lr.ph.split.us.i.i.i:                    ; preds = %for.body.lr.ph.i.i.
 for.body.us.us.i.i.i:                             ; preds = %for.body.lr.ph.split.us.i.i.i, %for.inc.us.us.i.i.i
   %p.030.us.us.i.i.i = phi ptr [ %p.0.us.us.i.i.i, %for.inc.us.us.i.i.i ], [ %p.027.i.i.i, %for.body.lr.ph.split.us.i.i.i ]
   %res.029.us.us.i.i.i = phi ptr [ %res.2.us.us.i.i.i, %for.inc.us.us.i.i.i ], [ null, %for.body.lr.ph.split.us.i.i.i ]
-  %token2.us.us.i.i.i = getelementptr inbounds i8, ptr %p.030.us.us.i.i.i, i64 16
+  %token2.us.us.i.i.i = getelementptr inbounds nuw i8, ptr %p.030.us.us.i.i.i, i64 16
   %21 = load i32, ptr %token2.us.us.i.i.i, align 8
   %cmp.not.us.us.i.i.i = icmp eq i32 %21, -1
   br i1 %cmp.not.us.us.i.i.i, label %lor.lhs.false.us.us.i.i.i, label %for.inc.us.us.i.i.i
 
 lor.lhs.false.us.us.i.i.i:                        ; preds = %for.body.us.us.i.i.i
-  %hash4.us.us.i.i.i = getelementptr inbounds i8, ptr %p.030.us.us.i.i.i, i64 76
+  %hash4.us.us.i.i.i = getelementptr inbounds nuw i8, ptr %p.030.us.us.i.i.i, i64 76
   %22 = load i32, ptr %hash4.us.us.i.i.i, align 4
   %cmp5.not.us.us.i.i.i = icmp eq i32 %hash.066.i, %22
   br i1 %cmp5.not.us.us.i.i.i, label %lor.lhs.false6.us.us.i.i.i, label %for.inc.us.us.i.i.i
 
 lor.lhs.false6.us.us.i.i.i:                       ; preds = %lor.lhs.false.us.us.i.i.i
   %p.0.val.us.us.i.i.i = load ptr, ptr %p.030.us.us.i.i.i, align 8
-  %len.i.us.us.i.i.i = getelementptr inbounds i8, ptr %p.0.val.us.us.i.i.i, i64 24
+  %len.i.us.us.i.i.i = getelementptr inbounds nuw i8, ptr %p.0.val.us.us.i.i.i, i64 24
   %23 = load i64, ptr %len.i.us.us.i.i.i, align 8
   %cmp.i.us.us.i.i.i = icmp eq i64 %23, %13
   br i1 %cmp.i.us.us.i.i.i, label %name_eq.exit.us.us.i.i.i, label %for.inc.us.us.i.i.i
 
 name_eq.exit.us.us.i.i.i:                         ; preds = %lor.lhs.false6.us.us.i.i.i
-  %base.i.us.us.i.i.i = getelementptr inbounds i8, ptr %p.0.val.us.us.i.i.i, i64 16
+  %base.i.us.us.i.i.i = getelementptr inbounds nuw i8, ptr %p.0.val.us.us.i.i.i, i64 16
   %24 = load ptr, ptr %base.i.us.us.i.i.i, align 8
   %bcmp.i.i.us.us.i.i.i = call i32 @bcmp(ptr readonly %24, ptr readonly %12, i64 %13)
   %cmp.i.i.not.us.us.i.i.i = icmp eq i32 %bcmp.i.i.us.us.i.i.i, 0
@@ -1064,14 +1064,14 @@ if.end.us.us.i.i.i:                               ; preds = %name_eq.exit.us.us.
   %spec.select.i.i.i = select i1 %tobool9.not.us.us.i.i.i, ptr %p.030.us.us.i.i.i, ptr %res.029.us.us.i.i.i
   %25 = getelementptr i8, ptr %p.030.us.us.i.i.i, i64 8
   %p.0.val13.us.us.i.i.i = load ptr, ptr %25, align 8
-  %len.i14.us.us.i.i.i = getelementptr inbounds i8, ptr %p.0.val13.us.us.i.i.i, i64 24
+  %len.i14.us.us.i.i.i = getelementptr inbounds nuw i8, ptr %p.0.val13.us.us.i.i.i, i64 24
   %26 = load i64, ptr %len.i14.us.us.i.i.i, align 8
   %27 = load i64, ptr %valuelen.i.i.i.i, align 8
   %cmp.i15.us.us.i.i.i = icmp eq i64 %26, %27
   br i1 %cmp.i15.us.us.i.i.i, label %value_eq.exit.us.us.i.i.i, label %for.inc.us.us.i.i.i
 
 value_eq.exit.us.us.i.i.i:                        ; preds = %if.end.us.us.i.i.i
-  %base.i18.us.us.i.i.i = getelementptr inbounds i8, ptr %p.0.val13.us.us.i.i.i, i64 16
+  %base.i18.us.us.i.i.i = getelementptr inbounds nuw i8, ptr %p.0.val13.us.us.i.i.i, i64 16
   %28 = load ptr, ptr %base.i18.us.us.i.i.i, align 8
   %29 = load ptr, ptr %value2.i.i.i.i, align 8
   %bcmp.i.i19.us.us.i.i.i = call i32 @bcmp(ptr readonly %28, ptr readonly %29, i64 %26)
@@ -1080,40 +1080,40 @@ value_eq.exit.us.us.i.i.i:                        ; preds = %if.end.us.us.i.i.i
 
 for.inc.us.us.i.i.i:                              ; preds = %value_eq.exit.us.us.i.i.i, %if.end.us.us.i.i.i, %name_eq.exit.us.us.i.i.i, %lor.lhs.false6.us.us.i.i.i, %lor.lhs.false.us.us.i.i.i, %for.body.us.us.i.i.i
   %res.2.us.us.i.i.i = phi ptr [ %res.029.us.us.i.i.i, %for.body.us.us.i.i.i ], [ %res.029.us.us.i.i.i, %lor.lhs.false.us.us.i.i.i ], [ %spec.select.i.i.i, %value_eq.exit.us.us.i.i.i ], [ %res.029.us.us.i.i.i, %name_eq.exit.us.us.i.i.i ], [ %res.029.us.us.i.i.i, %lor.lhs.false6.us.us.i.i.i ], [ %spec.select.i.i.i, %if.end.us.us.i.i.i ]
-  %next.us.us.i.i.i = getelementptr inbounds i8, ptr %p.030.us.us.i.i.i, i64 64
+  %next.us.us.i.i.i = getelementptr inbounds nuw i8, ptr %p.030.us.us.i.i.i, i64 64
   %p.0.us.us.i.i.i = load ptr, ptr %next.us.us.i.i.i, align 8
   %tobool.not.us.us.i.i.i = icmp eq ptr %p.0.us.us.i.i.i, null
   br i1 %tobool.not.us.us.i.i.i, label %hd_map_find.exit.i.i, label %for.body.us.us.i.i.i, !llvm.loop !12
 
 for.body.us.i.i.i:                                ; preds = %for.body.lr.ph.split.us.i.i.i, %for.inc.us.i.i.i
   %p.030.us.i.i.i = phi ptr [ %p.0.us.i.i.i, %for.inc.us.i.i.i ], [ %p.027.i.i.i, %for.body.lr.ph.split.us.i.i.i ]
-  %token2.us.i.i.i = getelementptr inbounds i8, ptr %p.030.us.i.i.i, i64 16
+  %token2.us.i.i.i = getelementptr inbounds nuw i8, ptr %p.030.us.i.i.i, i64 16
   %30 = load i32, ptr %token2.us.i.i.i, align 8
   %cmp.not.us.i.i.i = icmp eq i32 %30, -1
   br i1 %cmp.not.us.i.i.i, label %lor.lhs.false.us.i.i.i, label %for.inc.us.i.i.i
 
 lor.lhs.false.us.i.i.i:                           ; preds = %for.body.us.i.i.i
-  %hash4.us.i.i.i = getelementptr inbounds i8, ptr %p.030.us.i.i.i, i64 76
+  %hash4.us.i.i.i = getelementptr inbounds nuw i8, ptr %p.030.us.i.i.i, i64 76
   %31 = load i32, ptr %hash4.us.i.i.i, align 4
   %cmp5.not.us.i.i.i = icmp eq i32 %hash.066.i, %31
   br i1 %cmp5.not.us.i.i.i, label %lor.lhs.false6.us.i.i.i, label %for.inc.us.i.i.i
 
 lor.lhs.false6.us.i.i.i:                          ; preds = %lor.lhs.false.us.i.i.i
   %p.0.val.us.i.i.i = load ptr, ptr %p.030.us.i.i.i, align 8
-  %len.i.us.i.i.i = getelementptr inbounds i8, ptr %p.0.val.us.i.i.i, i64 24
+  %len.i.us.i.i.i = getelementptr inbounds nuw i8, ptr %p.0.val.us.i.i.i, i64 24
   %32 = load i64, ptr %len.i.us.i.i.i, align 8
   %cmp.i.us.i.i.i = icmp eq i64 %32, %13
   br i1 %cmp.i.us.i.i.i, label %name_eq.exit.us.i.i.i, label %for.inc.us.i.i.i
 
 name_eq.exit.us.i.i.i:                            ; preds = %lor.lhs.false6.us.i.i.i
-  %base.i.us.i.i.i = getelementptr inbounds i8, ptr %p.0.val.us.i.i.i, i64 16
+  %base.i.us.i.i.i = getelementptr inbounds nuw i8, ptr %p.0.val.us.i.i.i, i64 16
   %33 = load ptr, ptr %base.i.us.i.i.i, align 8
   %bcmp.i.i.us.i.i.i = call i32 @bcmp(ptr readonly %33, ptr readonly %12, i64 %13)
   %cmp.i.i.not.us.i.i.i = icmp eq i32 %bcmp.i.i.us.i.i.i, 0
   br i1 %cmp.i.i.not.us.i.i.i, label %hd_map_find.exit.i.i, label %for.inc.us.i.i.i
 
 for.inc.us.i.i.i:                                 ; preds = %name_eq.exit.us.i.i.i, %lor.lhs.false6.us.i.i.i, %lor.lhs.false.us.i.i.i, %for.body.us.i.i.i
-  %next.us.i.i.i = getelementptr inbounds i8, ptr %p.030.us.i.i.i, i64 64
+  %next.us.i.i.i = getelementptr inbounds nuw i8, ptr %p.030.us.i.i.i, i64 64
   %p.0.us.i.i.i = load ptr, ptr %next.us.i.i.i, align 8
   %tobool.not.us.i.i.i = icmp eq ptr %p.0.us.i.i.i, null
   br i1 %tobool.not.us.i.i.i, label %hd_map_find.exit.i.i, label %for.body.us.i.i.i, !llvm.loop !12
@@ -1124,7 +1124,7 @@ for.body.lr.ph.split.i.i.i:                       ; preds = %for.body.lr.ph.i.i.
 for.body.us34.i.i.i:                              ; preds = %for.body.lr.ph.split.i.i.i, %for.inc.us51.i.i.i
   %p.030.us35.i.i.i = phi ptr [ %p.0.us54.i.i.i, %for.inc.us51.i.i.i ], [ %p.027.i.i.i, %for.body.lr.ph.split.i.i.i ]
   %res.029.us36.i.i.i = phi ptr [ %res.2.us52.i.i.i, %for.inc.us51.i.i.i ], [ null, %for.body.lr.ph.split.i.i.i ]
-  %token2.us37.i.i.i = getelementptr inbounds i8, ptr %p.030.us35.i.i.i, i64 16
+  %token2.us37.i.i.i = getelementptr inbounds nuw i8, ptr %p.030.us35.i.i.i, i64 16
   %34 = load i32, ptr %token2.us37.i.i.i, align 8
   %cmp.not.us38.i.i.i = icmp eq i32 %call.i, %34
   br i1 %cmp.not.us38.i.i.i, label %lor.lhs.false.us39.i.i.i, label %for.inc.us51.i.i.i
@@ -1134,14 +1134,14 @@ lor.lhs.false.us39.i.i.i:                         ; preds = %for.body.us34.i.i.i
   %spec.select66.i.i.i = select i1 %tobool9.not.us40.i.i.i, ptr %p.030.us35.i.i.i, ptr %res.029.us36.i.i.i
   %35 = getelementptr i8, ptr %p.030.us35.i.i.i, i64 8
   %p.0.val13.us44.i.i.i = load ptr, ptr %35, align 8
-  %len.i14.us45.i.i.i = getelementptr inbounds i8, ptr %p.0.val13.us44.i.i.i, i64 24
+  %len.i14.us45.i.i.i = getelementptr inbounds nuw i8, ptr %p.0.val13.us44.i.i.i, i64 24
   %36 = load i64, ptr %len.i14.us45.i.i.i, align 8
   %37 = load i64, ptr %valuelen.i.i.i.i, align 8
   %cmp.i15.us46.i.i.i = icmp eq i64 %36, %37
   br i1 %cmp.i15.us46.i.i.i, label %value_eq.exit.us47.i.i.i, label %for.inc.us51.i.i.i
 
 value_eq.exit.us47.i.i.i:                         ; preds = %lor.lhs.false.us39.i.i.i
-  %base.i18.us48.i.i.i = getelementptr inbounds i8, ptr %p.0.val13.us44.i.i.i, i64 16
+  %base.i18.us48.i.i.i = getelementptr inbounds nuw i8, ptr %p.0.val13.us44.i.i.i, i64 16
   %38 = load ptr, ptr %base.i18.us48.i.i.i, align 8
   %39 = load ptr, ptr %value2.i.i.i.i, align 8
   %bcmp.i.i19.us49.i.i.i = call i32 @bcmp(ptr readonly %38, ptr readonly %39, i64 %36)
@@ -1150,20 +1150,20 @@ value_eq.exit.us47.i.i.i:                         ; preds = %lor.lhs.false.us39.
 
 for.inc.us51.i.i.i:                               ; preds = %value_eq.exit.us47.i.i.i, %lor.lhs.false.us39.i.i.i, %for.body.us34.i.i.i
   %res.2.us52.i.i.i = phi ptr [ %res.029.us36.i.i.i, %for.body.us34.i.i.i ], [ %spec.select66.i.i.i, %value_eq.exit.us47.i.i.i ], [ %spec.select66.i.i.i, %lor.lhs.false.us39.i.i.i ]
-  %next.us53.i.i.i = getelementptr inbounds i8, ptr %p.030.us35.i.i.i, i64 64
+  %next.us53.i.i.i = getelementptr inbounds nuw i8, ptr %p.030.us35.i.i.i, i64 64
   %p.0.us54.i.i.i = load ptr, ptr %next.us53.i.i.i, align 8
   %tobool.not.us55.i.i.i = icmp eq ptr %p.0.us54.i.i.i, null
   br i1 %tobool.not.us55.i.i.i, label %hd_map_find.exit.i.i, label %for.body.us34.i.i.i, !llvm.loop !12
 
 for.body.i.i.i:                                   ; preds = %for.body.lr.ph.split.i.i.i, %for.inc.i.i.i
   %p.030.i.i.i = phi ptr [ %p.0.i.i.i, %for.inc.i.i.i ], [ %p.027.i.i.i, %for.body.lr.ph.split.i.i.i ]
-  %token2.i.i.i = getelementptr inbounds i8, ptr %p.030.i.i.i, i64 16
+  %token2.i.i.i = getelementptr inbounds nuw i8, ptr %p.030.i.i.i, i64 16
   %40 = load i32, ptr %token2.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq i32 %call.i, %40
   br i1 %cmp.not.i.i.i, label %hd_map_find.exit.i.i, label %for.inc.i.i.i
 
 for.inc.i.i.i:                                    ; preds = %for.body.i.i.i
-  %next.i.i.i = getelementptr inbounds i8, ptr %p.030.i.i.i, i64 64
+  %next.i.i.i = getelementptr inbounds nuw i8, ptr %p.030.i.i.i, i64 64
   %p.0.i.i.i = load ptr, ptr %next.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %p.0.i.i.i, null
   br i1 %tobool.not.i.i.i, label %hd_map_find.exit.i.i, label %for.body.i.i.i, !llvm.loop !12
@@ -1178,27 +1178,27 @@ if.then.i.i:                                      ; preds = %hd_map_find.exit.i.
   br i1 %cmp.not.i.i, label %if.else76.i, label %for.cond.preheader.i.i.i
 
 for.cond.preheader.i.i.i:                         ; preds = %if.then.i.i
-  %valuelen.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 24
-  %value10.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %valuelen.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 24
+  %value10.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   br label %land.rhs.i.i.i
 
 land.rhs.i.i.i:                                   ; preds = %for.inc.i21.i.i, %for.cond.preheader.i.i.i
   %indvars.iv.i.i.i = phi i64 [ %conv.i.i.i, %for.cond.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %for.inc.i21.i.i ]
-  %arrayidx.i17.i.i = getelementptr inbounds [61 x %struct.nghttp2_hd_static_entry], ptr @static_table, i64 0, i64 %indvars.iv.i.i.i
-  %token2.i18.i.i = getelementptr inbounds i8, ptr %arrayidx.i17.i.i, i64 120
+  %arrayidx.i17.i.i = getelementptr inbounds nuw [61 x %struct.nghttp2_hd_static_entry], ptr @static_table, i64 0, i64 %indvars.iv.i.i.i
+  %token2.i18.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i17.i.i, i64 120
   %42 = load i32, ptr %token2.i18.i.i, align 8
   %cmp3.i19.i.i = icmp eq i32 %42, %call.i
   br i1 %cmp3.i19.i.i, label %for.body.i20.i.i, label %if.end23.i
 
 for.body.i20.i.i:                                 ; preds = %land.rhs.i.i.i
-  %len.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i17.i.i, i64 64
+  %len.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i17.i.i, i64 64
   %43 = load i64, ptr %len.i.i.i, align 16
   %44 = load i64, ptr %valuelen.i.i.i, align 8
   %cmp7.i.i.i = icmp eq i64 %43, %44
   br i1 %cmp7.i.i.i, label %land.lhs.true.i.i.i, label %for.inc.i21.i.i
 
 land.lhs.true.i.i.i:                              ; preds = %for.body.i20.i.i
-  %base.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i17.i.i, i64 56
+  %base.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i17.i.i, i64 56
   %45 = load ptr, ptr %base.i.i.i, align 8
   %46 = load ptr, ptr %value10.i.i.i, align 8
   %bcmp.i.i.i = call i32 @bcmp(ptr %45, ptr %46, i64 %43)
@@ -1217,7 +1217,7 @@ if.end.i.i54:                                     ; preds = %hd_map_find.exit.i.
 search_hd_table.exit.thread.i:                    ; preds = %value_eq.exit.us47.i.i.i, %value_eq.exit.us.us.i.i.i
   %res.1.i2731.i.ph.i = phi ptr [ %p.030.us.us.i.i.i, %value_eq.exit.us.us.i.i.i ], [ %p.030.us35.i.i.i, %value_eq.exit.us47.i.i.i ]
   %47 = load i32, ptr %next_seq.i116.i, align 8
-  %seq.i117.i = getelementptr inbounds i8, ptr %res.1.i2731.i.ph.i, i64 72
+  %seq.i117.i = getelementptr inbounds nuw i8, ptr %res.1.i2731.i.ph.i, i64 72
   %48 = load i32, ptr %seq.i117.i, align 8
   %49 = xor i32 %48, -1
   %sub11.i118.i = add i32 %47, 61
@@ -1227,7 +1227,7 @@ search_hd_table.exit.thread.i:                    ; preds = %value_eq.exit.us47.
 
 search_hd_table.exit.i:                           ; preds = %if.end.i.i54
   %50 = load i32, ptr %next_seq.i116.i, align 8
-  %seq.i.i = getelementptr inbounds i8, ptr %res.1.i.i.i, i64 72
+  %seq.i.i = getelementptr inbounds nuw i8, ptr %res.1.i.i.i, i64 72
   %51 = load i32, ptr %seq.i.i, align 8
   %52 = xor i32 %51, -1
   %sub11.i.i = add i32 %50, 61
@@ -1280,7 +1280,7 @@ for.body.i.i50.i:                                 ; preds = %for.body.i.i50.i, %
   %conv14.i.i.i = or i8 %55, -128
   store i8 %conv14.i.i.i, ptr %buf.addr.023.i.i.i, align 1
   %shr.i8.i.i = lshr i64 %n.addr.022.i.i.i, 7
-  %buf.addr.0.i.i.i = getelementptr inbounds i8, ptr %buf.addr.023.i.i.i, i64 1
+  %buf.addr.0.i.i.i = getelementptr inbounds nuw i8, ptr %buf.addr.023.i.i.i, i64 1
   %cmp10.i.i.i = icmp ugt i64 %n.addr.022.i.i.i, 16383
   br i1 %cmp10.i.i.i, label %for.body.i.i50.i, label %for.end.i.i.loopexit.i, !llvm.loop !9
 
@@ -1353,7 +1353,7 @@ hd_ringbuf_get.exit.i.i:                          ; preds = %if.then2.i.i
   br label %nghttp2_hd_table_get.exit.i
 
 if.else4.i.i:                                     ; preds = %if.end.i53.i
-  %arrayidx.i54.i = getelementptr inbounds [61 x %struct.nghttp2_hd_static_entry], ptr @static_table, i64 0, i64 %retval.sroa.0.0.i73.i
+  %arrayidx.i54.i = getelementptr inbounds nuw [61 x %struct.nghttp2_hd_static_entry], ptr @static_table, i64 0, i64 %retval.sroa.0.0.i73.i
   br label %nghttp2_hd_table_get.exit.i
 
 nghttp2_hd_table_get.exit.i:                      ; preds = %if.else4.i.i, %hd_ringbuf_get.exit.i.i
@@ -1369,9 +1369,9 @@ if.else42.i:                                      ; preds = %if.end23.thread85.i
 
 if.end51.i:                                       ; preds = %if.else42.i, %nghttp2_hd_table_get.exit.i
   %retval.sroa.0.0.i75.i = phi i64 [ -1, %if.else42.i ], [ %retval.sroa.0.0.i73.i, %nghttp2_hd_table_get.exit.i ]
-  %value52.i = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %value52.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %62 = load ptr, ptr %value52.i, align 8
-  %valuelen53.i = getelementptr inbounds i8, ptr %arrayidx, i64 24
+  %valuelen53.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 24
   %63 = load i64, ptr %valuelen53.i, align 8
   %call54.i = call i32 @nghttp2_rcbuf_new2(ptr noundef nonnull %value.i, ptr noundef %62, i64 noundef %63, ptr noundef %11) #12
   %cmp55.not.i = icmp eq i32 %call54.i, 0
@@ -1417,9 +1417,9 @@ if.end.i61.i:                                     ; preds = %pack_first_byte.exi
   br i1 %cmp3.not.i.i, label %if.end5.i.i, label %deflate_nv.exit.thread
 
 if.end5.i.i:                                      ; preds = %if.end.i61.i
-  %value.i63.i = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %value.i63.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %69 = load ptr, ptr %value.i63.i, align 8
-  %valuelen.i64.i = getelementptr inbounds i8, ptr %arrayidx, i64 24
+  %valuelen.i64.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 24
   %70 = load i64, ptr %valuelen.i64.i, align 8
   %call6.i.i = call fastcc i32 @emit_string(ptr noundef %bufs, ptr noundef %69, i64 noundef %70)
   br label %deflate_nv.exit
@@ -1454,7 +1454,7 @@ return:                                           ; preds = %for.cond, %if.end18
 define i64 @nghttp2_hd_deflate_hd(ptr noundef %deflater, ptr noundef %buf, i64 noundef %buflen, ptr nocapture noundef readonly %nv, i64 noundef %nvlen) local_unnamed_addr #0 {
 entry:
   %bufs = alloca %struct.nghttp2_bufs, align 8
-  %mem1 = getelementptr inbounds i8, ptr %deflater, i64 32
+  %mem1 = getelementptr inbounds nuw i8, ptr %deflater, i64 32
   %0 = load ptr, ptr %mem1, align 8
   %call = call i32 @nghttp2_bufs_wrap_init(ptr noundef nonnull %bufs, ptr noundef %buf, i64 noundef %buflen, ptr noundef %0) #12
   %cmp.not = icmp eq i32 %call, 0
@@ -1495,7 +1495,7 @@ declare void @nghttp2_bufs_wrap_free(ptr noundef) local_unnamed_addr #2
 define i64 @nghttp2_hd_deflate_hd_vec(ptr noundef %deflater, ptr noundef %vec, i64 noundef %veclen, ptr nocapture noundef readonly %nv, i64 noundef %nvlen) local_unnamed_addr #0 {
 entry:
   %bufs = alloca %struct.nghttp2_bufs, align 8
-  %mem1 = getelementptr inbounds i8, ptr %deflater, i64 32
+  %mem1 = getelementptr inbounds nuw i8, ptr %deflater, i64 32
   %0 = load ptr, ptr %mem1, align 8
   %call = call i32 @nghttp2_bufs_wrap_init2(ptr noundef nonnull %bufs, ptr noundef %vec, i64 noundef %veclen, ptr noundef %0) #12
   %cmp.not = icmp eq i32 %call, 0
@@ -1540,9 +1540,9 @@ for.body:                                         ; preds = %entry, %for.body
   %i.011 = phi i64 [ %inc, %for.body ], [ 0, %entry ]
   %n.010 = phi i64 [ %add4, %for.body ], [ %add1, %entry ]
   %arrayidx = getelementptr inbounds %struct.nghttp2_nv, ptr %nva, i64 %i.011
-  %namelen = getelementptr inbounds i8, ptr %arrayidx, i64 16
+  %namelen = getelementptr inbounds nuw i8, ptr %arrayidx, i64 16
   %0 = load i64, ptr %namelen, align 8
-  %valuelen = getelementptr inbounds i8, ptr %arrayidx, i64 24
+  %valuelen = getelementptr inbounds nuw i8, ptr %arrayidx, i64 24
   %1 = load i64, ptr %valuelen, align 8
   %add3 = add i64 %0, %n.010
   %add4 = add i64 %add3, %1
@@ -1564,11 +1564,11 @@ entry:
   br i1 %cmp2.i, label %nghttp2_hd_deflate_new2.exit, label %if.end4.i
 
 if.end4.i:                                        ; preds = %entry
-  %mem1.i.i.i = getelementptr inbounds i8, ptr %call1.i, i64 32
+  %mem1.i.i.i = getelementptr inbounds nuw i8, ptr %call1.i, i64 32
   store ptr %call.i, ptr %mem1.i.i.i, align 8
-  %bad.i.i.i = getelementptr inbounds i8, ptr %call1.i, i64 60
+  %bad.i.i.i = getelementptr inbounds nuw i8, ptr %call1.i, i64 60
   store i8 0, ptr %bad.i.i.i, align 4
-  %hd_table_bufsize_max.i.i.i = getelementptr inbounds i8, ptr %call1.i, i64 48
+  %hd_table_bufsize_max.i.i.i = getelementptr inbounds nuw i8, ptr %call1.i, i64 48
   store i64 4096, ptr %hd_table_bufsize_max.i.i.i, align 8
   %call.i.i.i.i = tail call ptr @nghttp2_mem_malloc(ptr noundef %call.i, i64 noundef 1024) #12
   store ptr %call.i.i.i.i, ptr %call1.i, align 8
@@ -1576,15 +1576,15 @@ if.end4.i:                                        ; preds = %entry
   br i1 %cmp2.i.i.i.i, label %if.then7.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.end4.i
-  %mask.i.i.i.i = getelementptr inbounds i8, ptr %call1.i, i64 8
+  %mask.i.i.i.i = getelementptr inbounds nuw i8, ptr %call1.i, i64 8
   store i64 127, ptr %mask.i.i.i.i, align 8
-  %first.i.i.i.i = getelementptr inbounds i8, ptr %call1.i, i64 16
+  %first.i.i.i.i = getelementptr inbounds nuw i8, ptr %call1.i, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %first.i.i.i.i, i8 0, i64 16, i1 false)
-  %hd_table_bufsize.i.i.i = getelementptr inbounds i8, ptr %call1.i, i64 40
+  %hd_table_bufsize.i.i.i = getelementptr inbounds nuw i8, ptr %call1.i, i64 40
   store i64 0, ptr %hd_table_bufsize.i.i.i, align 8
-  %next_seq.i.i.i = getelementptr inbounds i8, ptr %call1.i, i64 56
+  %next_seq.i.i.i = getelementptr inbounds nuw i8, ptr %call1.i, i64 56
   store i32 0, ptr %next_seq.i.i.i, align 8
-  %map.i.i = getelementptr inbounds i8, ptr %call1.i, i64 64
+  %map.i.i = getelementptr inbounds nuw i8, ptr %call1.i, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %map.i.i, i8 0, i64 1024, i1 false)
   %cmp1.i.i = icmp ult i64 %deflate_hd_table_bufsize_max, 4096
   br i1 %cmp1.i.i, label %if.then2.i.i, label %if.end8.i
@@ -1599,11 +1599,11 @@ if.then7.i:                                       ; preds = %if.end4.i
 
 if.end8.i:                                        ; preds = %if.then2.i.i, %if.end.i.i
   %.sink.i.i = phi i8 [ 1, %if.then2.i.i ], [ 0, %if.end.i.i ]
-  %0 = getelementptr inbounds i8, ptr %call1.i, i64 1104
+  %0 = getelementptr inbounds nuw i8, ptr %call1.i, i64 1104
   store i8 %.sink.i.i, ptr %0, align 8
-  %deflate_hd_table_bufsize_max.i.i = getelementptr inbounds i8, ptr %call1.i, i64 1088
+  %deflate_hd_table_bufsize_max.i.i = getelementptr inbounds nuw i8, ptr %call1.i, i64 1088
   store i64 %deflate_hd_table_bufsize_max, ptr %deflate_hd_table_bufsize_max.i.i, align 8
-  %min_hd_table_bufsize_max.i.i = getelementptr inbounds i8, ptr %call1.i, i64 1096
+  %min_hd_table_bufsize_max.i.i = getelementptr inbounds nuw i8, ptr %call1.i, i64 1096
   store i64 4294967295, ptr %min_hd_table_bufsize_max.i.i, align 8
   store ptr %call1.i, ptr %deflater_ptr, align 8
   br label %nghttp2_hd_deflate_new2.exit
@@ -1630,11 +1630,11 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %cmp2, label %return, label %if.end4
 
 if.end4:                                          ; preds = %if.end
-  %mem1.i.i = getelementptr inbounds i8, ptr %call1, i64 32
+  %mem1.i.i = getelementptr inbounds nuw i8, ptr %call1, i64 32
   store ptr %mem.addr.0, ptr %mem1.i.i, align 8
-  %bad.i.i = getelementptr inbounds i8, ptr %call1, i64 60
+  %bad.i.i = getelementptr inbounds nuw i8, ptr %call1, i64 60
   store i8 0, ptr %bad.i.i, align 4
-  %hd_table_bufsize_max.i.i = getelementptr inbounds i8, ptr %call1, i64 48
+  %hd_table_bufsize_max.i.i = getelementptr inbounds nuw i8, ptr %call1, i64 48
   store i64 4096, ptr %hd_table_bufsize_max.i.i, align 8
   %call.i.i.i = tail call ptr @nghttp2_mem_malloc(ptr noundef %mem.addr.0, i64 noundef 1024) #12
   store ptr %call.i.i.i, ptr %call1, align 8
@@ -1642,15 +1642,15 @@ if.end4:                                          ; preds = %if.end
   br i1 %cmp2.i.i.i, label %if.then7, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end4
-  %mask.i.i.i = getelementptr inbounds i8, ptr %call1, i64 8
+  %mask.i.i.i = getelementptr inbounds nuw i8, ptr %call1, i64 8
   store i64 127, ptr %mask.i.i.i, align 8
-  %first.i.i.i = getelementptr inbounds i8, ptr %call1, i64 16
+  %first.i.i.i = getelementptr inbounds nuw i8, ptr %call1, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %first.i.i.i, i8 0, i64 16, i1 false)
-  %hd_table_bufsize.i.i = getelementptr inbounds i8, ptr %call1, i64 40
+  %hd_table_bufsize.i.i = getelementptr inbounds nuw i8, ptr %call1, i64 40
   store i64 0, ptr %hd_table_bufsize.i.i, align 8
-  %next_seq.i.i = getelementptr inbounds i8, ptr %call1, i64 56
+  %next_seq.i.i = getelementptr inbounds nuw i8, ptr %call1, i64 56
   store i32 0, ptr %next_seq.i.i, align 8
-  %map.i = getelementptr inbounds i8, ptr %call1, i64 64
+  %map.i = getelementptr inbounds nuw i8, ptr %call1, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %map.i, i8 0, i64 1024, i1 false)
   %cmp1.i = icmp ult i64 %deflate_hd_table_bufsize_max, 4096
   br i1 %cmp1.i, label %if.then2.i, label %if.end8
@@ -1665,11 +1665,11 @@ if.then7:                                         ; preds = %if.end4
 
 if.end8:                                          ; preds = %if.end.i, %if.then2.i
   %.sink.i = phi i8 [ 1, %if.then2.i ], [ 0, %if.end.i ]
-  %0 = getelementptr inbounds i8, ptr %call1, i64 1104
+  %0 = getelementptr inbounds nuw i8, ptr %call1, i64 1104
   store i8 %.sink.i, ptr %0, align 8
-  %deflate_hd_table_bufsize_max.i = getelementptr inbounds i8, ptr %call1, i64 1088
+  %deflate_hd_table_bufsize_max.i = getelementptr inbounds nuw i8, ptr %call1, i64 1088
   store i64 %deflate_hd_table_bufsize_max, ptr %deflate_hd_table_bufsize_max.i, align 8
-  %min_hd_table_bufsize_max.i = getelementptr inbounds i8, ptr %call1, i64 1096
+  %min_hd_table_bufsize_max.i = getelementptr inbounds nuw i8, ptr %call1, i64 1096
   store i64 4294967295, ptr %min_hd_table_bufsize_max.i, align 8
   store ptr %call1, ptr %deflater_ptr, align 8
   br label %return
@@ -1688,16 +1688,16 @@ declare void @nghttp2_mem_free(ptr noundef, ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define void @nghttp2_hd_deflate_del(ptr noundef %deflater) local_unnamed_addr #0 {
 entry:
-  %mem1 = getelementptr inbounds i8, ptr %deflater, i64 32
+  %mem1 = getelementptr inbounds nuw i8, ptr %deflater, i64 32
   %0 = load ptr, ptr %mem1, align 8
-  %len.i.i.i = getelementptr inbounds i8, ptr %deflater, i64 24
+  %len.i.i.i = getelementptr inbounds nuw i8, ptr %deflater, i64 24
   %1 = load i64, ptr %len.i.i.i, align 8
   %cmp18.not.i.i.i = icmp eq i64 %1, 0
   br i1 %cmp18.not.i.i.i, label %nghttp2_hd_deflate_free.exit, label %hd_ringbuf_get.exit.lr.ph.i.i.i
 
 hd_ringbuf_get.exit.lr.ph.i.i.i:                  ; preds = %entry
-  %first.i.i.i.i = getelementptr inbounds i8, ptr %deflater, i64 16
-  %mask.i.i.i.i = getelementptr inbounds i8, ptr %deflater, i64 8
+  %first.i.i.i.i = getelementptr inbounds nuw i8, ptr %deflater, i64 16
+  %mask.i.i.i.i = getelementptr inbounds nuw i8, ptr %deflater, i64 8
   br label %hd_ringbuf_get.exit.i.i.i
 
 hd_ringbuf_get.exit.i.i.i:                        ; preds = %hd_ringbuf_get.exit.i.i.i, %hd_ringbuf_get.exit.lr.ph.i.i.i
@@ -1709,7 +1709,7 @@ hd_ringbuf_get.exit.i.i.i:                        ; preds = %hd_ringbuf_get.exit
   %and.i.i.i.i = and i64 %add.i.i.i.i, %4
   %arrayidx.i.i.i.i = getelementptr inbounds ptr, ptr %2, i64 %and.i.i.i.i
   %5 = load ptr, ptr %arrayidx.i.i.i.i, align 8
-  %value.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
+  %value.i.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   %6 = load ptr, ptr %value.i.i.i.i, align 8
   tail call void @nghttp2_rcbuf_decref(ptr noundef %6) #12
   %7 = load ptr, ptr %5, align 8
@@ -1744,26 +1744,26 @@ if.end.i:                                         ; preds = %entry
 
 if.then1.i:                                       ; preds = %if.end.i
   %1 = load ptr, ptr %hd_nv.i, align 8
-  %base.i = getelementptr inbounds i8, ptr %1, i64 16
+  %base.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   %2 = load ptr, ptr %base.i, align 8
   store ptr %2, ptr %nv_out, align 8
-  %len.i = getelementptr inbounds i8, ptr %1, i64 24
+  %len.i = getelementptr inbounds nuw i8, ptr %1, i64 24
   %3 = load i64, ptr %len.i, align 8
-  %namelen.i = getelementptr inbounds i8, ptr %nv_out, i64 16
+  %namelen.i = getelementptr inbounds nuw i8, ptr %nv_out, i64 16
   store i64 %3, ptr %namelen.i, align 8
-  %value.i = getelementptr inbounds i8, ptr %hd_nv.i, i64 8
+  %value.i = getelementptr inbounds nuw i8, ptr %hd_nv.i, i64 8
   %4 = load ptr, ptr %value.i, align 8
-  %base4.i = getelementptr inbounds i8, ptr %4, i64 16
+  %base4.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   %5 = load ptr, ptr %base4.i, align 8
-  %value5.i = getelementptr inbounds i8, ptr %nv_out, i64 8
+  %value5.i = getelementptr inbounds nuw i8, ptr %nv_out, i64 8
   store ptr %5, ptr %value5.i, align 8
-  %len7.i = getelementptr inbounds i8, ptr %4, i64 24
+  %len7.i = getelementptr inbounds nuw i8, ptr %4, i64 24
   %6 = load i64, ptr %len7.i, align 8
-  %valuelen.i = getelementptr inbounds i8, ptr %nv_out, i64 24
+  %valuelen.i = getelementptr inbounds nuw i8, ptr %nv_out, i64 24
   store i64 %6, ptr %valuelen.i, align 8
-  %flags.i = getelementptr inbounds i8, ptr %hd_nv.i, i64 20
+  %flags.i = getelementptr inbounds nuw i8, ptr %hd_nv.i, i64 20
   %7 = load i8, ptr %flags.i, align 4
-  %flags8.i = getelementptr inbounds i8, ptr %nv_out, i64 32
+  %flags8.i = getelementptr inbounds nuw i8, ptr %nv_out, i64 32
   store i8 %7, ptr %flags8.i, align 8
   br label %nghttp2_hd_inflate_hd2.exit
 
@@ -1788,26 +1788,26 @@ if.end:                                           ; preds = %entry
 
 if.then1:                                         ; preds = %if.end
   %1 = load ptr, ptr %hd_nv, align 8
-  %base = getelementptr inbounds i8, ptr %1, i64 16
+  %base = getelementptr inbounds nuw i8, ptr %1, i64 16
   %2 = load ptr, ptr %base, align 8
   store ptr %2, ptr %nv_out, align 8
-  %len = getelementptr inbounds i8, ptr %1, i64 24
+  %len = getelementptr inbounds nuw i8, ptr %1, i64 24
   %3 = load i64, ptr %len, align 8
-  %namelen = getelementptr inbounds i8, ptr %nv_out, i64 16
+  %namelen = getelementptr inbounds nuw i8, ptr %nv_out, i64 16
   store i64 %3, ptr %namelen, align 8
-  %value = getelementptr inbounds i8, ptr %hd_nv, i64 8
+  %value = getelementptr inbounds nuw i8, ptr %hd_nv, i64 8
   %4 = load ptr, ptr %value, align 8
-  %base4 = getelementptr inbounds i8, ptr %4, i64 16
+  %base4 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %5 = load ptr, ptr %base4, align 8
-  %value5 = getelementptr inbounds i8, ptr %nv_out, i64 8
+  %value5 = getelementptr inbounds nuw i8, ptr %nv_out, i64 8
   store ptr %5, ptr %value5, align 8
-  %len7 = getelementptr inbounds i8, ptr %4, i64 24
+  %len7 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %6 = load i64, ptr %len7, align 8
-  %valuelen = getelementptr inbounds i8, ptr %nv_out, i64 24
+  %valuelen = getelementptr inbounds nuw i8, ptr %nv_out, i64 24
   store i64 %6, ptr %valuelen, align 8
-  %flags = getelementptr inbounds i8, ptr %hd_nv, i64 20
+  %flags = getelementptr inbounds nuw i8, ptr %hd_nv, i64 20
   %7 = load i8, ptr %flags, align 4
-  %flags8 = getelementptr inbounds i8, ptr %nv_out, i64 32
+  %flags8 = getelementptr inbounds nuw i8, ptr %nv_out, i64 32
   store i8 %7, ptr %flags8, align 8
   br label %return
 
@@ -1819,18 +1819,18 @@ return:                                           ; preds = %if.end, %if.then1, 
 define hidden i64 @nghttp2_hd_inflate_hd_nv(ptr noundef %inflater, ptr nocapture noundef writeonly %nv_out, ptr nocapture noundef %inflate_flags, ptr noundef %in, i64 noundef %inlen, i32 noundef %in_final) local_unnamed_addr #0 {
 entry:
   %add.ptr = getelementptr inbounds i8, ptr %in, i64 %inlen
-  %mem1 = getelementptr inbounds i8, ptr %inflater, i64 32
+  %mem1 = getelementptr inbounds nuw i8, ptr %inflater, i64 32
   %0 = load ptr, ptr %mem1, align 8
-  %bad = getelementptr inbounds i8, ptr %inflater, i64 60
+  %bad = getelementptr inbounds nuw i8, ptr %inflater, i64 60
   %1 = load i8, ptr %bad, align 4
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %do.end, label %return
 
 do.end:                                           ; preds = %entry
-  %nv_value_keep.i = getelementptr inbounds i8, ptr %inflater, i64 176
+  %nv_value_keep.i = getelementptr inbounds nuw i8, ptr %inflater, i64 176
   %2 = load ptr, ptr %nv_value_keep.i, align 8
   tail call void @nghttp2_rcbuf_decref(ptr noundef %2) #12
-  %nv_name_keep.i = getelementptr inbounds i8, ptr %inflater, i64 168
+  %nv_name_keep.i = getelementptr inbounds nuw i8, ptr %inflater, i64 168
   %3 = load ptr, ptr %nv_name_keep.i, align 8
   tail call void @nghttp2_rcbuf_decref(ptr noundef %3) #12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %nv_name_keep.i, i8 0, i64 16, i1 false)
@@ -1839,29 +1839,29 @@ do.end:                                           ; preds = %entry
   br i1 %cmp490.not, label %do.end376, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %do.end
-  %state = getelementptr inbounds i8, ptr %inflater, i64 228
-  %huffman_encoded.i324 = getelementptr inbounds i8, ptr %inflater, i64 232
-  %left234 = getelementptr inbounds i8, ptr %inflater, i64 184
-  %shift235 = getelementptr inbounds i8, ptr %inflater, i64 216
-  %huff_decode_ctx253 = getelementptr inbounds i8, ptr %inflater, i64 64
-  %valuercbuf = getelementptr inbounds i8, ptr %inflater, i64 160
-  %valuebuf = getelementptr inbounds i8, ptr %inflater, i64 112
+  %state = getelementptr inbounds nuw i8, ptr %inflater, i64 228
+  %huffman_encoded.i324 = getelementptr inbounds nuw i8, ptr %inflater, i64 232
+  %left234 = getelementptr inbounds nuw i8, ptr %inflater, i64 184
+  %shift235 = getelementptr inbounds nuw i8, ptr %inflater, i64 216
+  %huff_decode_ctx253 = getelementptr inbounds nuw i8, ptr %inflater, i64 64
+  %valuercbuf = getelementptr inbounds nuw i8, ptr %inflater, i64 160
+  %valuebuf = getelementptr inbounds nuw i8, ptr %inflater, i64 112
   %sub.ptr.lhs.cast.i317 = ptrtoint ptr %add.ptr to i64
-  %last5.i = getelementptr inbounds i8, ptr %inflater, i64 96
-  %pos225 = getelementptr inbounds i8, ptr %inflater, i64 88
-  %namercbuf229 = getelementptr inbounds i8, ptr %inflater, i64 152
-  %namebuf178 = getelementptr inbounds i8, ptr %inflater, i64 72
-  %opcode96 = getelementptr inbounds i8, ptr %inflater, i64 224
-  %index_required101 = getelementptr inbounds i8, ptr %inflater, i64 233
+  %last5.i = getelementptr inbounds nuw i8, ptr %inflater, i64 96
+  %pos225 = getelementptr inbounds nuw i8, ptr %inflater, i64 88
+  %namercbuf229 = getelementptr inbounds nuw i8, ptr %inflater, i64 152
+  %namebuf178 = getelementptr inbounds nuw i8, ptr %inflater, i64 72
+  %opcode96 = getelementptr inbounds nuw i8, ptr %inflater, i64 224
+  %index_required101 = getelementptr inbounds nuw i8, ptr %inflater, i64 233
   %4 = getelementptr i8, ptr %inflater, i64 24
-  %index134 = getelementptr inbounds i8, ptr %inflater, i64 192
-  %min_hd_table_bufsize_max = getelementptr inbounds i8, ptr %inflater, i64 208
-  %settings_hd_table_bufsize_max = getelementptr inbounds i8, ptr %inflater, i64 200
-  %hd_table_bufsize_max = getelementptr inbounds i8, ptr %inflater, i64 48
-  %hd_table_bufsize.i = getelementptr inbounds i8, ptr %inflater, i64 40
-  %first.i.i = getelementptr inbounds i8, ptr %inflater, i64 16
-  %mask.i.i = getelementptr inbounds i8, ptr %inflater, i64 8
-  %no_index = getelementptr inbounds i8, ptr %inflater, i64 234
+  %index134 = getelementptr inbounds nuw i8, ptr %inflater, i64 192
+  %min_hd_table_bufsize_max = getelementptr inbounds nuw i8, ptr %inflater, i64 208
+  %settings_hd_table_bufsize_max = getelementptr inbounds nuw i8, ptr %inflater, i64 200
+  %hd_table_bufsize_max = getelementptr inbounds nuw i8, ptr %inflater, i64 48
+  %hd_table_bufsize.i = getelementptr inbounds nuw i8, ptr %inflater, i64 40
+  %first.i.i = getelementptr inbounds nuw i8, ptr %inflater, i64 16
+  %mask.i.i = getelementptr inbounds nuw i8, ptr %inflater, i64 8
+  %no_index = getelementptr inbounds nuw i8, ptr %inflater, i64 234
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %sw.epilog
@@ -1938,7 +1938,7 @@ if.end55:                                         ; preds = %if.else34, %if.else
   %cmp63 = icmp eq i8 %13, 16
   %conv65 = zext i1 %cmp63 to i8
   store i8 %conv65, ptr %no_index, align 2
-  %spec.select = getelementptr inbounds i8, ptr %in.addr.0491, i64 %cmp69
+  %spec.select = getelementptr inbounds nuw i8, ptr %in.addr.0491, i64 %cmp69
   br label %if.end74
 
 if.end74:                                         ; preds = %if.end55, %do.end31, %if.end24
@@ -1966,7 +1966,7 @@ if.then.i.i:                                      ; preds = %sw.bb75
   br i1 %cmp4.not.i.i, label %if.end.i.i, label %if.end.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %in.addr.0491, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %in.addr.0491, i64 1
   %cmp9.i.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr
   br i1 %cmp9.i.i, label %if.end.i, label %if.end13.i.i
 
@@ -2004,7 +2004,7 @@ if.end37.i.i:                                     ; preds = %if.end28.i.i
   br i1 %cmp41.i.i, label %if.end53.i.i, label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %if.end37.i.i
-  %incdec.ptr45.i.i = getelementptr inbounds i8, ptr %in.addr.146.i.i, i64 1
+  %incdec.ptr45.i.i = getelementptr inbounds nuw i8, ptr %in.addr.146.i.i, i64 1
   %add46.i.i = add nuw nsw i64 %shift.addr.047.i.i, 7
   %cmp14.not.i.i = icmp eq ptr %incdec.ptr45.i.i, %add.ptr
   br i1 %cmp14.not.i.i, label %if.then49.i.i, label %for.body.i.i, !llvm.loop !18
@@ -2017,16 +2017,16 @@ if.then49.i.i:                                    ; preds = %for.inc.i.i, %if.en
 
 if.end53.i.i:                                     ; preds = %if.end37.i.i
   store i64 %shift.addr.047.i.i, ptr %shift235, align 8
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %in.addr.146.i.i, i64 1
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %in.addr.146.i.i, i64 1
   %.pre530 = ptrtoint ptr %add.ptr.i.i to i64
   br label %decode_length.exit.i
 
 decode_length.exit.i:                             ; preds = %if.end53.i.i, %if.then49.i.i
-  %last56.i.sink.i.pre-phi = phi i64 [ %.pre530, %if.end53.i.i ], [ %sub.ptr.lhs.cast.i317, %if.then49.i.i ]
+  %sub.ptr.lhs.cast50.pre-phi.i.sink.i.pre-phi = phi i64 [ %.pre530, %if.end53.i.i ], [ %sub.ptr.lhs.cast.i317, %if.then49.i.i ]
   %rfin.0 = phi i32 [ 1, %if.end53.i.i ], [ 0, %if.then49.i.i ]
   %out.0.i = phi i32 [ %add38.i.i, %if.end53.i.i ], [ %n.1.lcssa.i.i, %if.then49.i.i ]
   %sub.ptr.rhs.cast51.i.i = ptrtoint ptr %in.addr.0491 to i64
-  %sub.ptr.sub52.i.i = sub i64 %last56.i.sink.i.pre-phi, %sub.ptr.rhs.cast51.i.i
+  %sub.ptr.sub52.i.i = sub i64 %sub.ptr.lhs.cast50.pre-phi.i.sink.i.pre-phi, %sub.ptr.rhs.cast51.i.i
   %cmp.i = icmp eq i64 %sub.ptr.sub52.i.i, -1
   br i1 %cmp.i, label %do.end405, label %if.end.i
 
@@ -2044,7 +2044,7 @@ hd_inflate_read_len.exit:                         ; preds = %if.end.i
   br i1 %cmp80, label %do.end405, label %if.end83
 
 if.end83:                                         ; preds = %hd_inflate_read_len.exit
-  %add.ptr84 = getelementptr inbounds i8, ptr %in.addr.0491, i64 %retval.0.i15.i
+  %add.ptr84 = getelementptr inbounds nuw i8, ptr %in.addr.0491, i64 %retval.0.i15.i
   %tobool85.not = icmp eq i32 %rfin.1, 0
   br i1 %tobool85.not, label %almost_ok, label %do.end89
 
@@ -2072,11 +2072,11 @@ hd_ringbuf_pop_back.exit.us.i:                    ; preds = %land.rhs.us.i
   %arrayidx.i.us.i = getelementptr inbounds ptr, ptr %26, i64 %and.i.us.i
   %29 = load ptr, ptr %arrayidx.i.us.i, align 8
   %30 = load ptr, ptr %29, align 8
-  %len6.us.i = getelementptr inbounds i8, ptr %30, i64 24
+  %len6.us.i = getelementptr inbounds nuw i8, ptr %30, i64 24
   %31 = load i64, ptr %len6.us.i, align 8
-  %value.us.i = getelementptr inbounds i8, ptr %29, i64 8
+  %value.us.i = getelementptr inbounds nuw i8, ptr %29, i64 8
   %32 = load ptr, ptr %value.us.i, align 8
-  %len8.us.i = getelementptr inbounds i8, ptr %32, i64 24
+  %len8.us.i = getelementptr inbounds nuw i8, ptr %32, i64 24
   %33 = load i64, ptr %len8.us.i, align 8
   %.neg410 = add i64 %24, -32
   %34 = add i64 %31, %33
@@ -2130,7 +2130,7 @@ if.then.i.i249:                                   ; preds = %if.end106
   br i1 %cmp4.not.i.i252, label %if.end.i.i254, label %if.end.i240
 
 if.end.i.i254:                                    ; preds = %if.then.i.i249
-  %incdec.ptr.i.i255 = getelementptr inbounds i8, ptr %in.addr.0491, i64 1
+  %incdec.ptr.i.i255 = getelementptr inbounds nuw i8, ptr %in.addr.0491, i64 1
   %cmp9.i.i256 = icmp eq ptr %incdec.ptr.i.i255, %add.ptr
   br i1 %cmp9.i.i256, label %if.end.i240, label %if.end13.i.i205
 
@@ -2168,7 +2168,7 @@ if.end37.i.i223:                                  ; preds = %if.end28.i.i219
   br i1 %cmp41.i.i225, label %if.end53.i.i247, label %for.inc.i.i226
 
 for.inc.i.i226:                                   ; preds = %if.end37.i.i223
-  %incdec.ptr45.i.i227 = getelementptr inbounds i8, ptr %in.addr.146.i.i212, i64 1
+  %incdec.ptr45.i.i227 = getelementptr inbounds nuw i8, ptr %in.addr.146.i.i212, i64 1
   %add46.i.i228 = add nuw nsw i64 %shift.addr.047.i.i211, 7
   %cmp14.not.i.i229 = icmp eq ptr %incdec.ptr45.i.i227, %add.ptr
   br i1 %cmp14.not.i.i229, label %if.then49.i.i230, label %for.body.i.i209, !llvm.loop !18
@@ -2181,16 +2181,16 @@ if.then49.i.i230:                                 ; preds = %for.inc.i.i226, %if
 
 if.end53.i.i247:                                  ; preds = %if.end37.i.i223
   store i64 %shift.addr.047.i.i211, ptr %shift235, align 8
-  %add.ptr.i.i248 = getelementptr inbounds i8, ptr %in.addr.146.i.i212, i64 1
+  %add.ptr.i.i248 = getelementptr inbounds nuw i8, ptr %in.addr.146.i.i212, i64 1
   %.pre531 = ptrtoint ptr %add.ptr.i.i248 to i64
   br label %decode_length.exit.i233
 
 decode_length.exit.i233:                          ; preds = %if.end53.i.i247, %if.then49.i.i230
-  %last56.i.sink.i236.pre-phi = phi i64 [ %.pre531, %if.end53.i.i247 ], [ %sub.ptr.lhs.cast.i317, %if.then49.i.i230 ]
+  %sub.ptr.lhs.cast50.pre-phi.i.sink.i236.pre-phi = phi i64 [ %.pre531, %if.end53.i.i247 ], [ %sub.ptr.lhs.cast.i317, %if.then49.i.i230 ]
   %rfin.3 = phi i32 [ 1, %if.end53.i.i247 ], [ 0, %if.then49.i.i230 ]
   %out.0.i235 = phi i32 [ %add38.i.i224, %if.end53.i.i247 ], [ %n.1.lcssa.i.i232, %if.then49.i.i230 ]
   %sub.ptr.rhs.cast51.i.i237 = ptrtoint ptr %in.addr.0491 to i64
-  %sub.ptr.sub52.i.i238 = sub i64 %last56.i.sink.i236.pre-phi, %sub.ptr.rhs.cast51.i.i237
+  %sub.ptr.sub52.i.i238 = sub i64 %sub.ptr.lhs.cast50.pre-phi.i.sink.i236.pre-phi, %sub.ptr.rhs.cast51.i.i237
   %cmp.i239 = icmp eq i64 %sub.ptr.sub52.i.i238, -1
   br i1 %cmp.i239, label %do.end405, label %if.end.i240
 
@@ -2208,7 +2208,7 @@ hd_inflate_read_len.exit257:                      ; preds = %if.end.i240
   br i1 %cmp110, label %do.end405, label %if.end113
 
 if.end113:                                        ; preds = %hd_inflate_read_len.exit257
-  %add.ptr114 = getelementptr inbounds i8, ptr %in.addr.0491, i64 %retval.0.i15.i241
+  %add.ptr114 = getelementptr inbounds nuw i8, ptr %in.addr.0491, i64 %retval.0.i15.i241
   %tobool115.not = icmp eq i32 %rfin.4, 0
   br i1 %tobool115.not, label %almost_ok, label %if.end117
 
@@ -2262,7 +2262,7 @@ if.then.i.i306:                                   ; preds = %sw.bb145.thread, %s
   br i1 %cmp4.not.i.i309, label %if.end.i.i311, label %hd_inflate_read_len.exit314.thread
 
 if.end.i.i311:                                    ; preds = %if.then.i.i306
-  %incdec.ptr.i.i312 = getelementptr inbounds i8, ptr %in.addr.0491, i64 1
+  %incdec.ptr.i.i312 = getelementptr inbounds nuw i8, ptr %in.addr.0491, i64 1
   %cmp9.i.i313 = icmp eq ptr %incdec.ptr.i.i312, %add.ptr
   br i1 %cmp9.i.i313, label %hd_inflate_read_len.exit314.thread, label %if.end13.i.i262
 
@@ -2301,7 +2301,7 @@ if.end37.i.i280:                                  ; preds = %if.end28.i.i276
   br i1 %cmp41.i.i282, label %if.end53.i.i304, label %for.inc.i.i283
 
 for.inc.i.i283:                                   ; preds = %if.end37.i.i280
-  %incdec.ptr45.i.i284 = getelementptr inbounds i8, ptr %in.addr.146.i.i269, i64 1
+  %incdec.ptr45.i.i284 = getelementptr inbounds nuw i8, ptr %in.addr.146.i.i269, i64 1
   %add46.i.i285 = add nuw nsw i64 %shift.addr.047.i.i268, 7
   %cmp14.not.i.i286 = icmp eq ptr %incdec.ptr45.i.i284, %add.ptr
   br i1 %cmp14.not.i.i286, label %if.then49.i.i287, label %for.body.i.i266, !llvm.loop !18
@@ -2314,16 +2314,16 @@ if.then49.i.i287:                                 ; preds = %for.inc.i.i283, %if
 
 if.end53.i.i304:                                  ; preds = %if.end37.i.i280
   store i64 %shift.addr.047.i.i268, ptr %shift235, align 8
-  %add.ptr.i.i305 = getelementptr inbounds i8, ptr %in.addr.146.i.i269, i64 1
+  %add.ptr.i.i305 = getelementptr inbounds nuw i8, ptr %in.addr.146.i.i269, i64 1
   %.pre532 = ptrtoint ptr %add.ptr.i.i305 to i64
   br label %decode_length.exit.i290
 
 decode_length.exit.i290:                          ; preds = %if.end53.i.i304, %if.then49.i.i287
-  %last56.i.sink.i293.pre-phi = phi i64 [ %.pre532, %if.end53.i.i304 ], [ %sub.ptr.lhs.cast.i317, %if.then49.i.i287 ]
+  %sub.ptr.lhs.cast50.pre-phi.i.sink.i293.pre-phi = phi i64 [ %.pre532, %if.end53.i.i304 ], [ %sub.ptr.lhs.cast.i317, %if.then49.i.i287 ]
   %rfin.6 = phi i32 [ 1, %if.end53.i.i304 ], [ 0, %if.then49.i.i287 ]
   %out.0.i292 = phi i32 [ %add38.i.i281, %if.end53.i.i304 ], [ %n.1.lcssa.i.i289, %if.then49.i.i287 ]
   %sub.ptr.rhs.cast51.i.i294 = ptrtoint ptr %in.addr.0491 to i64
-  %sub.ptr.sub52.i.i295 = sub i64 %last56.i.sink.i293.pre-phi, %sub.ptr.rhs.cast51.i.i294
+  %sub.ptr.sub52.i.i295 = sub i64 %sub.ptr.lhs.cast50.pre-phi.i.sink.i293.pre-phi, %sub.ptr.rhs.cast51.i.i294
   %cmp.i296 = icmp eq i64 %sub.ptr.sub52.i.i295, -1
   %cmp4.i301 = icmp ugt i32 %out.0.i292, 65536
   %or.cond = select i1 %cmp.i296, i1 true, i1 %cmp4.i301
@@ -2345,7 +2345,7 @@ if.end150:                                        ; preds = %hd_inflate_read_len
   %conv3.i300551 = phi i64 [ %out.014.i299.ph, %hd_inflate_read_len.exit314.thread ], [ %conv3.i300, %hd_inflate_read_len.exit314 ]
   %rfin.7541550 = phi i32 [ %rfin.7.ph, %hd_inflate_read_len.exit314.thread ], [ %rfin.6, %hd_inflate_read_len.exit314 ]
   %retval.0.i15.i298542549 = phi i64 [ 1, %hd_inflate_read_len.exit314.thread ], [ %sub.ptr.sub52.i.i295, %hd_inflate_read_len.exit314 ]
-  %add.ptr151 = getelementptr inbounds i8, ptr %in.addr.0491, i64 %retval.0.i15.i298542549
+  %add.ptr151 = getelementptr inbounds nuw i8, ptr %in.addr.0491, i64 %retval.0.i15.i298542549
   %tobool152.not = icmp eq i32 %rfin.7541550, 0
   br i1 %tobool152.not, label %almost_ok, label %if.end156
 
@@ -2375,9 +2375,9 @@ if.end170:                                        ; preds = %if.else163, %if.the
 
 if.end174:                                        ; preds = %if.end170
   %58 = load ptr, ptr %namercbuf229, align 8
-  %base = getelementptr inbounds i8, ptr %58, i64 16
+  %base = getelementptr inbounds nuw i8, ptr %58, i64 16
   %59 = load ptr, ptr %base, align 8
-  %len = getelementptr inbounds i8, ptr %58, i64 24
+  %len = getelementptr inbounds nuw i8, ptr %58, i64 24
   %60 = load i64, ptr %len, align 8
   tail call void @nghttp2_buf_wrap_init(ptr noundef nonnull %namebuf178, ptr noundef %59, i64 noundef %60) #12
   br label %sw.epilog
@@ -2405,7 +2405,7 @@ if.end183:                                        ; preds = %if.end7.i
   %62 = load i64, ptr %left234, align 8
   %sub.i = sub i64 %62, %call.i
   store i64 %sub.i, ptr %left234, align 8
-  %add.ptr184 = getelementptr inbounds i8, ptr %in.addr.0491, i64 %call.i
+  %add.ptr184 = getelementptr inbounds nuw i8, ptr %in.addr.0491, i64 %call.i
   %tobool188.not = icmp eq i64 %62, %call.i
   br i1 %tobool188.not, label %if.end192, label %almost_ok
 
@@ -2418,7 +2418,7 @@ if.end192:                                        ; preds = %if.end183
   %sub.ptr.rhs.cast199 = ptrtoint ptr %65 to i64
   %sub.ptr.sub200 = sub i64 %sub.ptr.lhs.cast198, %sub.ptr.rhs.cast199
   %66 = load ptr, ptr %namercbuf229, align 8
-  %len202 = getelementptr inbounds i8, ptr %66, i64 24
+  %len202 = getelementptr inbounds nuw i8, ptr %66, i64 24
   store i64 %sub.ptr.sub200, ptr %len202, align 8
   store i32 9, ptr %state, align 4
   br label %sw.epilog
@@ -2438,7 +2438,7 @@ sw.bb204:                                         ; preds = %for.body
   br i1 %cmp207, label %do.end405, label %if.end210
 
 if.end210:                                        ; preds = %sw.bb204
-  %add.ptr211 = getelementptr inbounds i8, ptr %in.addr.0491, i64 %sub.ptr.sub..i
+  %add.ptr211 = getelementptr inbounds nuw i8, ptr %in.addr.0491, i64 %sub.ptr.sub..i
   %tobool215.not = icmp eq i64 %69, %sub.ptr.sub..i
   br i1 %tobool215.not, label %if.end219, label %almost_ok
 
@@ -2450,7 +2450,7 @@ if.end219:                                        ; preds = %if.end210
   %sub.ptr.rhs.cast227 = ptrtoint ptr %71 to i64
   %sub.ptr.sub228 = sub i64 %sub.ptr.lhs.cast226, %sub.ptr.rhs.cast227
   %72 = load ptr, ptr %namercbuf229, align 8
-  %len230 = getelementptr inbounds i8, ptr %72, i64 24
+  %len230 = getelementptr inbounds nuw i8, ptr %72, i64 24
   store i64 %sub.ptr.sub228, ptr %len230, align 8
   store i32 9, ptr %state, align 4
   br label %sw.epilog
@@ -2481,7 +2481,7 @@ if.then.i.i373:                                   ; preds = %sw.bb238.thread, %s
   br i1 %cmp4.not.i.i376, label %if.end.i.i378, label %hd_inflate_read_len.exit381.thread
 
 if.end.i.i378:                                    ; preds = %if.then.i.i373
-  %incdec.ptr.i.i379 = getelementptr inbounds i8, ptr %in.addr.0491, i64 1
+  %incdec.ptr.i.i379 = getelementptr inbounds nuw i8, ptr %in.addr.0491, i64 1
   %cmp9.i.i380 = icmp eq ptr %incdec.ptr.i.i379, %add.ptr
   br i1 %cmp9.i.i380, label %hd_inflate_read_len.exit381.thread, label %if.end13.i.i329
 
@@ -2520,7 +2520,7 @@ if.end37.i.i347:                                  ; preds = %if.end28.i.i343
   br i1 %cmp41.i.i349, label %if.end53.i.i371, label %for.inc.i.i350
 
 for.inc.i.i350:                                   ; preds = %if.end37.i.i347
-  %incdec.ptr45.i.i351 = getelementptr inbounds i8, ptr %in.addr.146.i.i336, i64 1
+  %incdec.ptr45.i.i351 = getelementptr inbounds nuw i8, ptr %in.addr.146.i.i336, i64 1
   %add46.i.i352 = add nuw nsw i64 %shift.addr.047.i.i335, 7
   %cmp14.not.i.i353 = icmp eq ptr %incdec.ptr45.i.i351, %add.ptr
   br i1 %cmp14.not.i.i353, label %if.then49.i.i354, label %for.body.i.i333, !llvm.loop !18
@@ -2533,16 +2533,16 @@ if.then49.i.i354:                                 ; preds = %for.inc.i.i350, %if
 
 if.end53.i.i371:                                  ; preds = %if.end37.i.i347
   store i64 %shift.addr.047.i.i335, ptr %shift235, align 8
-  %add.ptr.i.i372 = getelementptr inbounds i8, ptr %in.addr.146.i.i336, i64 1
+  %add.ptr.i.i372 = getelementptr inbounds nuw i8, ptr %in.addr.146.i.i336, i64 1
   %.pre533 = ptrtoint ptr %add.ptr.i.i372 to i64
   br label %decode_length.exit.i357
 
 decode_length.exit.i357:                          ; preds = %if.end53.i.i371, %if.then49.i.i354
-  %last56.i.sink.i360.pre-phi = phi i64 [ %.pre533, %if.end53.i.i371 ], [ %sub.ptr.lhs.cast.i317, %if.then49.i.i354 ]
+  %sub.ptr.lhs.cast50.pre-phi.i.sink.i360.pre-phi = phi i64 [ %.pre533, %if.end53.i.i371 ], [ %sub.ptr.lhs.cast.i317, %if.then49.i.i354 ]
   %rfin.9 = phi i32 [ 1, %if.end53.i.i371 ], [ 0, %if.then49.i.i354 ]
   %out.0.i359 = phi i32 [ %add38.i.i348, %if.end53.i.i371 ], [ %n.1.lcssa.i.i356, %if.then49.i.i354 ]
   %sub.ptr.rhs.cast51.i.i361 = ptrtoint ptr %in.addr.0491 to i64
-  %sub.ptr.sub52.i.i362 = sub i64 %last56.i.sink.i360.pre-phi, %sub.ptr.rhs.cast51.i.i361
+  %sub.ptr.sub52.i.i362 = sub i64 %sub.ptr.lhs.cast50.pre-phi.i.sink.i360.pre-phi, %sub.ptr.rhs.cast51.i.i361
   %cmp.i363 = icmp eq i64 %sub.ptr.sub52.i.i362, -1
   %cmp4.i368 = icmp ugt i32 %out.0.i359, 65536
   %or.cond604 = select i1 %cmp.i363, i1 true, i1 %cmp4.i368
@@ -2564,7 +2564,7 @@ if.end243:                                        ; preds = %hd_inflate_read_len
   %conv3.i367568 = phi i64 [ %out.014.i366.ph, %hd_inflate_read_len.exit381.thread ], [ %conv3.i367, %hd_inflate_read_len.exit381 ]
   %rfin.10558567 = phi i32 [ %rfin.10.ph, %hd_inflate_read_len.exit381.thread ], [ %rfin.9, %hd_inflate_read_len.exit381 ]
   %retval.0.i15.i365559566 = phi i64 [ 1, %hd_inflate_read_len.exit381.thread ], [ %sub.ptr.sub52.i.i362, %hd_inflate_read_len.exit381 ]
-  %add.ptr244 = getelementptr inbounds i8, ptr %in.addr.0491, i64 %retval.0.i15.i365559566
+  %add.ptr244 = getelementptr inbounds nuw i8, ptr %in.addr.0491, i64 %retval.0.i15.i365559566
   %tobool245.not = icmp eq i32 %rfin.10558567, 0
   br i1 %tobool245.not, label %almost_ok, label %do.end249
 
@@ -2594,9 +2594,9 @@ if.end267:                                        ; preds = %if.else260, %if.the
 
 if.end271:                                        ; preds = %if.end267
   %82 = load ptr, ptr %valuercbuf, align 8
-  %base273 = getelementptr inbounds i8, ptr %82, i64 16
+  %base273 = getelementptr inbounds nuw i8, ptr %82, i64 16
   %83 = load ptr, ptr %base273, align 8
-  %len275 = getelementptr inbounds i8, ptr %82, i64 24
+  %len275 = getelementptr inbounds nuw i8, ptr %82, i64 24
   %84 = load i64, ptr %len275, align 8
   tail call void @nghttp2_buf_wrap_init(ptr noundef nonnull %valuebuf, ptr noundef %83, i64 noundef %84) #12
   br label %sw.epilog
@@ -2607,23 +2607,23 @@ sw.bb276:                                         ; preds = %for.body
   br i1 %cmp279, label %do.end405, label %if.end282
 
 if.end282:                                        ; preds = %sw.bb276
-  %add.ptr283 = getelementptr inbounds i8, ptr %in.addr.0491, i64 %call278
+  %add.ptr283 = getelementptr inbounds nuw i8, ptr %in.addr.0491, i64 %call278
   %85 = load i64, ptr %left234, align 8
   %tobool287.not = icmp eq i64 %85, 0
   br i1 %tobool287.not, label %if.end291, label %almost_ok
 
 if.end291:                                        ; preds = %if.end282
-  %last293 = getelementptr inbounds i8, ptr %inflater, i64 136
+  %last293 = getelementptr inbounds nuw i8, ptr %inflater, i64 136
   %86 = load ptr, ptr %last293, align 8
   store i8 0, ptr %86, align 1
   %87 = load ptr, ptr %last293, align 8
-  %pos297 = getelementptr inbounds i8, ptr %inflater, i64 128
+  %pos297 = getelementptr inbounds nuw i8, ptr %inflater, i64 128
   %88 = load ptr, ptr %pos297, align 8
   %sub.ptr.lhs.cast298 = ptrtoint ptr %87 to i64
   %sub.ptr.rhs.cast299 = ptrtoint ptr %88 to i64
   %sub.ptr.sub300 = sub i64 %sub.ptr.lhs.cast298, %sub.ptr.rhs.cast299
   %89 = load ptr, ptr %valuercbuf, align 8
-  %len302 = getelementptr inbounds i8, ptr %89, i64 24
+  %len302 = getelementptr inbounds nuw i8, ptr %89, i64 24
   store i64 %sub.ptr.sub300, ptr %len302, align 8
   %90 = load i32, ptr %opcode96, align 8
   %cmp304 = icmp eq i32 %90, 2
@@ -2658,7 +2658,7 @@ sw.bb322:                                         ; preds = %for.body
   %sub.ptr.sub.i384 = sub i64 %sub.ptr.lhs.cast.i317, %sub.ptr.rhs.cast.i383
   %92 = load i64, ptr %left234, align 8
   %sub.ptr.sub..i386 = tail call i64 @llvm.umin.i64(i64 %sub.ptr.sub.i384, i64 %92)
-  %last5.i387 = getelementptr inbounds i8, ptr %inflater, i64 136
+  %last5.i387 = getelementptr inbounds nuw i8, ptr %inflater, i64 136
   %93 = load ptr, ptr %last5.i387, align 8
   %call.i388 = tail call ptr @nghttp2_cpymem(ptr noundef %93, ptr noundef %in.addr.0491, i64 noundef %sub.ptr.sub..i386) #12
   store ptr %call.i388, ptr %last5.i387, align 8
@@ -2669,20 +2669,20 @@ sw.bb322:                                         ; preds = %for.body
   br i1 %cmp325, label %do.end405, label %if.end330
 
 if.end330:                                        ; preds = %sw.bb322
-  %add.ptr331 = getelementptr inbounds i8, ptr %in.addr.0491, i64 %sub.ptr.sub..i386
+  %add.ptr331 = getelementptr inbounds nuw i8, ptr %in.addr.0491, i64 %sub.ptr.sub..i386
   %tobool335.not = icmp eq i64 %94, %sub.ptr.sub..i386
   br i1 %tobool335.not, label %if.end339, label %almost_ok
 
 if.end339:                                        ; preds = %if.end330
   store i8 0, ptr %call.i388, align 1
   %95 = load ptr, ptr %last5.i387, align 8
-  %pos345 = getelementptr inbounds i8, ptr %inflater, i64 128
+  %pos345 = getelementptr inbounds nuw i8, ptr %inflater, i64 128
   %96 = load ptr, ptr %pos345, align 8
   %sub.ptr.lhs.cast346 = ptrtoint ptr %95 to i64
   %sub.ptr.rhs.cast347 = ptrtoint ptr %96 to i64
   %sub.ptr.sub348 = sub i64 %sub.ptr.lhs.cast346, %sub.ptr.rhs.cast347
   %97 = load ptr, ptr %valuercbuf, align 8
-  %len350 = getelementptr inbounds i8, ptr %97, i64 24
+  %len350 = getelementptr inbounds nuw i8, ptr %97, i64 24
   store i64 %sub.ptr.sub348, ptr %len350, align 8
   %98 = load i32, ptr %opcode96, align 8
   %cmp352 = icmp eq i32 %98, 2
@@ -2725,7 +2725,7 @@ do.end376:                                        ; preds = %sw.epilog, %do.end
   br i1 %tobool377.not, label %if.end392, label %do.end380
 
 do.end380:                                        ; preds = %do.end376
-  %state381 = getelementptr inbounds i8, ptr %inflater, i64 228
+  %state381 = getelementptr inbounds nuw i8, ptr %inflater, i64 228
   %101 = load i32, ptr %state381, align 4
   %.off = add i32 %101, -1
   %switch = icmp ult i32 %.off, 2
@@ -2776,9 +2776,9 @@ return:                                           ; preds = %entry, %do.end405, 
 define internal fastcc void @hd_inflate_commit_indexed(ptr nocapture noundef readonly %inflater, ptr nocapture noundef writeonly %nv_out) unnamed_addr #0 {
 entry:
   %nv.sroa.6 = alloca [3 x i8], align 1
-  %index = getelementptr inbounds i8, ptr %inflater, i64 192
+  %index = getelementptr inbounds nuw i8, ptr %inflater, i64 192
   %0 = load i64, ptr %index, align 8
-  %len.i = getelementptr inbounds i8, ptr %inflater, i64 24
+  %len.i = getelementptr inbounds nuw i8, ptr %inflater, i64 24
   %1 = load i64, ptr %len.i, align 8, !noalias !20
   %add.i = add i64 %1, 61
   %cmp.i = icmp ult i64 %0, %add.i
@@ -2803,29 +2803,29 @@ if.else.i.i:                                      ; preds = %if.then2.i
 
 hd_ringbuf_get.exit.i:                            ; preds = %if.then2.i
   %2 = load ptr, ptr %inflater, align 8, !noalias !20
-  %first.i.i = getelementptr inbounds i8, ptr %inflater, i64 16
+  %first.i.i = getelementptr inbounds nuw i8, ptr %inflater, i64 16
   %3 = load i64, ptr %first.i.i, align 8, !noalias !20
   %add.i.i = add i64 %3, %sub.i
-  %mask.i.i = getelementptr inbounds i8, ptr %inflater, i64 8
+  %mask.i.i = getelementptr inbounds nuw i8, ptr %inflater, i64 8
   %4 = load i64, ptr %mask.i.i, align 8, !noalias !20
   %and.i.i = and i64 %add.i.i, %4
   %arrayidx.i.i = getelementptr inbounds ptr, ptr %2, i64 %and.i.i
   %5 = load ptr, ptr %arrayidx.i.i, align 8, !noalias !20
   %nv.sroa.0.0.copyload = load ptr, ptr %5, align 8
-  %nv.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
+  %nv.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   %nv.sroa.3.0.copyload = load ptr, ptr %nv.sroa.3.0..sroa_idx, align 8
-  %nv.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 16
+  %nv.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
   %nv.sroa.4.0.copyload = load i32, ptr %nv.sroa.4.0..sroa_idx, align 8
-  %nv.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 20
+  %nv.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 20
   %nv.sroa.5.0.copyload = load i8, ptr %nv.sroa.5.0..sroa_idx, align 4
-  %nv.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 21
+  %nv.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %nv.sroa.6, ptr noundef nonnull align 1 dereferenceable(3) %nv.sroa.6.0..sroa_idx, i64 3, i1 false)
   br label %nghttp2_hd_table_get.exit
 
 if.else4.i:                                       ; preds = %if.end.i
-  %arrayidx.i = getelementptr inbounds [61 x %struct.nghttp2_hd_static_entry], ptr @static_table, i64 0, i64 %0
-  %value6.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 40
-  %token7.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 120
+  %arrayidx.i = getelementptr inbounds nuw [61 x %struct.nghttp2_hd_static_entry], ptr @static_table, i64 0, i64 %0
+  %value6.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 40
+  %token7.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 120
   %6 = load i32, ptr %token7.i, align 8, !noalias !20
   br label %nghttp2_hd_table_get.exit
 
@@ -2835,13 +2835,13 @@ nghttp2_hd_table_get.exit:                        ; preds = %hd_ringbuf_get.exit
   %nv.sroa.3.0 = phi ptr [ %nv.sroa.3.0.copyload, %hd_ringbuf_get.exit.i ], [ %value6.i, %if.else4.i ]
   %nv.sroa.0.0 = phi ptr [ %nv.sroa.0.0.copyload, %hd_ringbuf_get.exit.i ], [ %arrayidx.i, %if.else4.i ]
   store ptr %nv.sroa.0.0, ptr %nv_out, align 8
-  %nv.sroa.3.0.nv_out.sroa_idx = getelementptr inbounds i8, ptr %nv_out, i64 8
+  %nv.sroa.3.0.nv_out.sroa_idx = getelementptr inbounds nuw i8, ptr %nv_out, i64 8
   store ptr %nv.sroa.3.0, ptr %nv.sroa.3.0.nv_out.sroa_idx, align 8
-  %nv.sroa.4.0.nv_out.sroa_idx = getelementptr inbounds i8, ptr %nv_out, i64 16
+  %nv.sroa.4.0.nv_out.sroa_idx = getelementptr inbounds nuw i8, ptr %nv_out, i64 16
   store i32 %nv.sroa.4.0, ptr %nv.sroa.4.0.nv_out.sroa_idx, align 8
-  %nv.sroa.5.0.nv_out.sroa_idx = getelementptr inbounds i8, ptr %nv_out, i64 20
+  %nv.sroa.5.0.nv_out.sroa_idx = getelementptr inbounds nuw i8, ptr %nv_out, i64 20
   store i8 %nv.sroa.5.0, ptr %nv.sroa.5.0.nv_out.sroa_idx, align 4
-  %nv.sroa.6.0.nv_out.sroa_idx = getelementptr inbounds i8, ptr %nv_out, i64 21
+  %nv.sroa.6.0.nv_out.sroa_idx = getelementptr inbounds nuw i8, ptr %nv_out, i64 21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %nv.sroa.6.0.nv_out.sroa_idx, ptr noundef nonnull align 1 dereferenceable(3) %nv.sroa.6, i64 3, i1 false)
   ret void
 }
@@ -2858,13 +2858,13 @@ entry:
   %sub.ptr.lhs.cast = ptrtoint ptr %last to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %in to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %left = getelementptr inbounds i8, ptr %inflater, i64 184
+  %left = getelementptr inbounds nuw i8, ptr %inflater, i64 184
   %0 = load i64, ptr %left, align 8
   %cmp.not = icmp uge i64 %sub.ptr.sub, %0
   %add.ptr = getelementptr inbounds i8, ptr %in, i64 %0
   %spec.select = select i1 %cmp.not, ptr %add.ptr, ptr %last
   %spec.select12 = zext i1 %cmp.not to i32
-  %huff_decode_ctx = getelementptr inbounds i8, ptr %inflater, i64 64
+  %huff_decode_ctx = getelementptr inbounds nuw i8, ptr %inflater, i64 64
   %sub.ptr.lhs.cast2 = ptrtoint ptr %spec.select to i64
   %sub.ptr.sub4 = sub i64 %sub.ptr.lhs.cast2, %sub.ptr.rhs.cast
   %call = tail call i64 @nghttp2_hd_huff_decode(ptr noundef nonnull %huff_decode_ctx, ptr noundef %buf, ptr noundef %in, i64 noundef %sub.ptr.sub4, i32 noundef %spec.select12) #12
@@ -2891,27 +2891,27 @@ return:                                           ; preds = %if.end7, %entry, %i
 define internal fastcc range(i32 -901, 1) i32 @hd_inflate_commit_newname(ptr nocapture noundef %inflater, ptr nocapture noundef writeonly %nv_out) unnamed_addr #0 {
 entry:
   %nv = alloca %struct.nghttp2_hd_nv, align 8
-  %no_index = getelementptr inbounds i8, ptr %inflater, i64 234
+  %no_index = getelementptr inbounds nuw i8, ptr %inflater, i64 234
   %0 = load i8, ptr %no_index, align 2
   %tobool.not = icmp ne i8 %0, 0
   %spec.select = zext i1 %tobool.not to i8
-  %1 = getelementptr inbounds i8, ptr %nv, i64 20
+  %1 = getelementptr inbounds nuw i8, ptr %nv, i64 20
   store i8 %spec.select, ptr %1, align 4
-  %namercbuf = getelementptr inbounds i8, ptr %inflater, i64 152
+  %namercbuf = getelementptr inbounds nuw i8, ptr %inflater, i64 152
   %2 = load ptr, ptr %namercbuf, align 8
   store ptr %2, ptr %nv, align 8
-  %valuercbuf = getelementptr inbounds i8, ptr %inflater, i64 160
+  %valuercbuf = getelementptr inbounds nuw i8, ptr %inflater, i64 160
   %3 = load ptr, ptr %valuercbuf, align 8
-  %value = getelementptr inbounds i8, ptr %nv, i64 8
+  %value = getelementptr inbounds nuw i8, ptr %nv, i64 8
   store ptr %3, ptr %value, align 8
-  %base = getelementptr inbounds i8, ptr %2, i64 16
+  %base = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load ptr, ptr %base, align 8
-  %len = getelementptr inbounds i8, ptr %2, i64 24
+  %len = getelementptr inbounds nuw i8, ptr %2, i64 24
   %5 = load i64, ptr %len, align 8
   %call = tail call fastcc i32 @lookup_token(ptr noundef %4, i64 noundef %5)
-  %token = getelementptr inbounds i8, ptr %nv, i64 16
+  %token = getelementptr inbounds nuw i8, ptr %nv, i64 16
   store i32 %call, ptr %token, align 8
-  %index_required = getelementptr inbounds i8, ptr %inflater, i64 233
+  %index_required = getelementptr inbounds nuw i8, ptr %inflater, i64 233
   %6 = load i8, ptr %index_required, align 1
   %tobool4.not = icmp eq i8 %6, 0
   br i1 %tobool4.not, label %if.end9, label %if.then5
@@ -2923,9 +2923,9 @@ if.then5:                                         ; preds = %entry
 
 if.end9:                                          ; preds = %if.then5, %entry
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %nv_out, ptr noundef nonnull readonly align 8 dereferenceable(24) %nv, i64 24, i1 false)
-  %nv_name_keep = getelementptr inbounds i8, ptr %inflater, i64 168
+  %nv_name_keep = getelementptr inbounds nuw i8, ptr %inflater, i64 168
   store ptr %2, ptr %nv_name_keep, align 8
-  %nv_value_keep = getelementptr inbounds i8, ptr %inflater, i64 176
+  %nv_value_keep = getelementptr inbounds nuw i8, ptr %inflater, i64 176
   store ptr %3, ptr %nv_value_keep, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %namercbuf, i8 0, i64 16, i1 false)
   br label %return
@@ -2940,9 +2940,9 @@ define internal fastcc range(i32 -901, 1) i32 @hd_inflate_commit_indname(ptr noc
 entry:
   %nv = alloca %struct.nghttp2_hd_nv, align 8
   %tmp.sroa.6 = alloca [3 x i8], align 1
-  %index = getelementptr inbounds i8, ptr %inflater, i64 192
+  %index = getelementptr inbounds nuw i8, ptr %inflater, i64 192
   %0 = load i64, ptr %index, align 8
-  %len.i = getelementptr inbounds i8, ptr %inflater, i64 24
+  %len.i = getelementptr inbounds nuw i8, ptr %inflater, i64 24
   %1 = load i64, ptr %len.i, align 8, !noalias !23
   %add.i = add i64 %1, 61
   %cmp.i = icmp ult i64 %0, %add.i
@@ -2967,24 +2967,24 @@ if.else.i.i:                                      ; preds = %if.then2.i
 
 hd_ringbuf_get.exit.i:                            ; preds = %if.then2.i
   %2 = load ptr, ptr %inflater, align 8, !noalias !23
-  %first.i.i = getelementptr inbounds i8, ptr %inflater, i64 16
+  %first.i.i = getelementptr inbounds nuw i8, ptr %inflater, i64 16
   %3 = load i64, ptr %first.i.i, align 8, !noalias !23
   %add.i.i = add i64 %3, %sub.i
-  %mask.i.i = getelementptr inbounds i8, ptr %inflater, i64 8
+  %mask.i.i = getelementptr inbounds nuw i8, ptr %inflater, i64 8
   %4 = load i64, ptr %mask.i.i, align 8, !noalias !23
   %and.i.i = and i64 %add.i.i, %4
   %arrayidx.i.i = getelementptr inbounds ptr, ptr %2, i64 %and.i.i
   %5 = load ptr, ptr %arrayidx.i.i, align 8, !noalias !23
   %tmp.sroa.0.0.copyload9 = load ptr, ptr %5, align 8
-  %tmp.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 16
+  %tmp.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
   %tmp.sroa.4.0.copyload11 = load i32, ptr %tmp.sroa.4.0..sroa_idx, align 8
-  %tmp.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 21
+  %tmp.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %tmp.sroa.6, ptr noundef nonnull align 1 dereferenceable(3) %tmp.sroa.6.0..sroa_idx, i64 3, i1 false)
   br label %nghttp2_hd_table_get.exit
 
 if.else4.i:                                       ; preds = %if.end.i
-  %arrayidx.i = getelementptr inbounds [61 x %struct.nghttp2_hd_static_entry], ptr @static_table, i64 0, i64 %0
-  %token7.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 120
+  %arrayidx.i = getelementptr inbounds nuw [61 x %struct.nghttp2_hd_static_entry], ptr @static_table, i64 0, i64 %0
+  %token7.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 120
   %6 = load i32, ptr %token7.i, align 8, !noalias !23
   br label %nghttp2_hd_table_get.exit
 
@@ -2992,22 +2992,22 @@ nghttp2_hd_table_get.exit:                        ; preds = %hd_ringbuf_get.exit
   %tmp.sroa.4.0 = phi i32 [ %tmp.sroa.4.0.copyload11, %hd_ringbuf_get.exit.i ], [ %6, %if.else4.i ]
   %tmp.sroa.0.0 = phi ptr [ %tmp.sroa.0.0.copyload9, %hd_ringbuf_get.exit.i ], [ %arrayidx.i, %if.else4.i ]
   store ptr %tmp.sroa.0.0, ptr %nv, align 8
-  %tmp.sroa.3.0.nv.sroa_idx = getelementptr inbounds i8, ptr %nv, i64 8
-  %tmp.sroa.4.0.nv.sroa_idx = getelementptr inbounds i8, ptr %nv, i64 16
+  %tmp.sroa.3.0.nv.sroa_idx = getelementptr inbounds nuw i8, ptr %nv, i64 8
+  %tmp.sroa.4.0.nv.sroa_idx = getelementptr inbounds nuw i8, ptr %nv, i64 16
   store i32 %tmp.sroa.4.0, ptr %tmp.sroa.4.0.nv.sroa_idx, align 8
-  %tmp.sroa.5.0.nv.sroa_idx = getelementptr inbounds i8, ptr %nv, i64 20
-  %tmp.sroa.6.0.nv.sroa_idx = getelementptr inbounds i8, ptr %nv, i64 21
+  %tmp.sroa.5.0.nv.sroa_idx = getelementptr inbounds nuw i8, ptr %nv, i64 20
+  %tmp.sroa.6.0.nv.sroa_idx = getelementptr inbounds nuw i8, ptr %nv, i64 21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %tmp.sroa.6.0.nv.sroa_idx, ptr noundef nonnull align 1 dereferenceable(3) %tmp.sroa.6, i64 3, i1 false)
-  %no_index = getelementptr inbounds i8, ptr %inflater, i64 234
+  %no_index = getelementptr inbounds nuw i8, ptr %inflater, i64 234
   %7 = load i8, ptr %no_index, align 2
   %tobool.not = icmp ne i8 %7, 0
   %. = zext i1 %tobool.not to i8
   store i8 %., ptr %tmp.sroa.5.0.nv.sroa_idx, align 4
   tail call void @nghttp2_rcbuf_incref(ptr noundef %tmp.sroa.0.0) #12
-  %valuercbuf = getelementptr inbounds i8, ptr %inflater, i64 160
+  %valuercbuf = getelementptr inbounds nuw i8, ptr %inflater, i64 160
   %8 = load ptr, ptr %valuercbuf, align 8
   store ptr %8, ptr %tmp.sroa.3.0.nv.sroa_idx, align 8
-  %index_required = getelementptr inbounds i8, ptr %inflater, i64 233
+  %index_required = getelementptr inbounds nuw i8, ptr %inflater, i64 233
   %9 = load i8, ptr %index_required, align 1
   %tobool2.not = icmp eq i8 %9, 0
   br i1 %tobool2.not, label %if.end8, label %if.then3
@@ -3023,9 +3023,9 @@ if.then5:                                         ; preds = %if.then3
 
 if.end8:                                          ; preds = %if.then3, %nghttp2_hd_table_get.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %nv_out, ptr noundef nonnull readonly align 8 dereferenceable(24) %nv, i64 24, i1 false)
-  %nv_name_keep = getelementptr inbounds i8, ptr %inflater, i64 168
+  %nv_name_keep = getelementptr inbounds nuw i8, ptr %inflater, i64 168
   store ptr %tmp.sroa.0.0, ptr %nv_name_keep, align 8
-  %nv_value_keep = getelementptr inbounds i8, ptr %inflater, i64 176
+  %nv_value_keep = getelementptr inbounds nuw i8, ptr %inflater, i64 176
   store ptr %8, ptr %nv_value_keep, align 8
   store ptr null, ptr %valuercbuf, align 8
   br label %return
@@ -3038,14 +3038,14 @@ return:                                           ; preds = %if.end8, %if.then5
 ; Function Attrs: nounwind uwtable
 define noundef i32 @nghttp2_hd_inflate_end_headers(ptr nocapture noundef initializes((228, 232)) %inflater) local_unnamed_addr #0 {
 entry:
-  %nv_value_keep.i = getelementptr inbounds i8, ptr %inflater, i64 176
+  %nv_value_keep.i = getelementptr inbounds nuw i8, ptr %inflater, i64 176
   %0 = load ptr, ptr %nv_value_keep.i, align 8
   tail call void @nghttp2_rcbuf_decref(ptr noundef %0) #12
-  %nv_name_keep.i = getelementptr inbounds i8, ptr %inflater, i64 168
+  %nv_name_keep.i = getelementptr inbounds nuw i8, ptr %inflater, i64 168
   %1 = load ptr, ptr %nv_name_keep.i, align 8
   tail call void @nghttp2_rcbuf_decref(ptr noundef %1) #12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %nv_name_keep.i, i8 0, i64 16, i1 false)
-  %state = getelementptr inbounds i8, ptr %inflater, i64 228
+  %state = getelementptr inbounds nuw i8, ptr %inflater, i64 228
   store i32 1, ptr %state, align 4
   ret i32 0
 }
@@ -3074,11 +3074,11 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %cmp2, label %return, label %if.end4
 
 if.end4:                                          ; preds = %if.end
-  %mem1.i.i = getelementptr inbounds i8, ptr %call1, i64 32
+  %mem1.i.i = getelementptr inbounds nuw i8, ptr %call1, i64 32
   store ptr %mem.addr.0, ptr %mem1.i.i, align 8
-  %bad.i.i = getelementptr inbounds i8, ptr %call1, i64 60
+  %bad.i.i = getelementptr inbounds nuw i8, ptr %call1, i64 60
   store i8 0, ptr %bad.i.i, align 4
-  %hd_table_bufsize_max.i.i = getelementptr inbounds i8, ptr %call1, i64 48
+  %hd_table_bufsize_max.i.i = getelementptr inbounds nuw i8, ptr %call1, i64 48
   store i64 4096, ptr %hd_table_bufsize_max.i.i, align 8
   %call.i.i.i = tail call ptr @nghttp2_mem_malloc(ptr noundef %mem.addr.0, i64 noundef 1024) #12
   store ptr %call.i.i.i, ptr %call1, align 8
@@ -3090,37 +3090,37 @@ if.then7:                                         ; preds = %if.end4
   br label %return
 
 if.end8:                                          ; preds = %if.end4
-  %mask.i.i.i = getelementptr inbounds i8, ptr %call1, i64 8
+  %mask.i.i.i = getelementptr inbounds nuw i8, ptr %call1, i64 8
   store i64 127, ptr %mask.i.i.i, align 8
-  %first.i.i.i = getelementptr inbounds i8, ptr %call1, i64 16
+  %first.i.i.i = getelementptr inbounds nuw i8, ptr %call1, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %first.i.i.i, i8 0, i64 16, i1 false)
-  %hd_table_bufsize.i.i = getelementptr inbounds i8, ptr %call1, i64 40
+  %hd_table_bufsize.i.i = getelementptr inbounds nuw i8, ptr %call1, i64 40
   store i64 0, ptr %hd_table_bufsize.i.i, align 8
-  %next_seq.i.i = getelementptr inbounds i8, ptr %call1, i64 56
+  %next_seq.i.i = getelementptr inbounds nuw i8, ptr %call1, i64 56
   store i32 0, ptr %next_seq.i.i, align 8
-  %settings_hd_table_bufsize_max.i = getelementptr inbounds i8, ptr %call1, i64 200
+  %settings_hd_table_bufsize_max.i = getelementptr inbounds nuw i8, ptr %call1, i64 200
   store i64 4096, ptr %settings_hd_table_bufsize_max.i, align 8
-  %min_hd_table_bufsize_max.i = getelementptr inbounds i8, ptr %call1, i64 208
+  %min_hd_table_bufsize_max.i = getelementptr inbounds nuw i8, ptr %call1, i64 208
   store i64 4294967295, ptr %min_hd_table_bufsize_max.i, align 8
-  %nv_name_keep.i = getelementptr inbounds i8, ptr %call1, i64 168
-  %opcode.i = getelementptr inbounds i8, ptr %call1, i64 224
+  %nv_name_keep.i = getelementptr inbounds nuw i8, ptr %call1, i64 168
+  %opcode.i = getelementptr inbounds nuw i8, ptr %call1, i64 224
   store i32 0, ptr %opcode.i, align 8
-  %state.i = getelementptr inbounds i8, ptr %call1, i64 228
+  %state.i = getelementptr inbounds nuw i8, ptr %call1, i64 228
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %nv_name_keep.i, i8 0, i64 16, i1 false)
   store i32 1, ptr %state.i, align 4
-  %namebuf.i = getelementptr inbounds i8, ptr %call1, i64 72
+  %namebuf.i = getelementptr inbounds nuw i8, ptr %call1, i64 72
   tail call void @nghttp2_buf_init(ptr noundef nonnull %namebuf.i) #12
-  %valuebuf.i = getelementptr inbounds i8, ptr %call1, i64 112
+  %valuebuf.i = getelementptr inbounds nuw i8, ptr %call1, i64 112
   tail call void @nghttp2_buf_init(ptr noundef nonnull %valuebuf.i) #12
-  %namercbuf.i = getelementptr inbounds i8, ptr %call1, i64 152
-  %huffman_encoded.i = getelementptr inbounds i8, ptr %call1, i64 232
+  %namercbuf.i = getelementptr inbounds nuw i8, ptr %call1, i64 152
+  %huffman_encoded.i = getelementptr inbounds nuw i8, ptr %call1, i64 232
   store i8 0, ptr %huffman_encoded.i, align 8
-  %left.i = getelementptr inbounds i8, ptr %call1, i64 184
-  %shift.i = getelementptr inbounds i8, ptr %call1, i64 216
+  %left.i = getelementptr inbounds nuw i8, ptr %call1, i64 184
+  %shift.i = getelementptr inbounds nuw i8, ptr %call1, i64 216
   store i64 0, ptr %shift.i, align 8
-  %index_required.i = getelementptr inbounds i8, ptr %call1, i64 233
+  %index_required.i = getelementptr inbounds nuw i8, ptr %call1, i64 233
   store i8 0, ptr %index_required.i, align 1
-  %no_index.i = getelementptr inbounds i8, ptr %call1, i64 234
+  %no_index.i = getelementptr inbounds nuw i8, ptr %call1, i64 234
   store i8 0, ptr %no_index.i, align 2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %namercbuf.i, i8 0, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %left.i, i8 0, i64 16, i1 false)
@@ -3135,7 +3135,7 @@ return:                                           ; preds = %if.end, %if.end8, %
 ; Function Attrs: nounwind uwtable
 define void @nghttp2_hd_inflate_del(ptr noundef %inflater) local_unnamed_addr #0 {
 entry:
-  %mem1 = getelementptr inbounds i8, ptr %inflater, i64 32
+  %mem1 = getelementptr inbounds nuw i8, ptr %inflater, i64 32
   %0 = load ptr, ptr %mem1, align 8
   tail call void @nghttp2_hd_inflate_free(ptr noundef %inflater)
   tail call void @nghttp2_mem_free(ptr noundef %0, ptr noundef %inflater) #12
@@ -3208,7 +3208,7 @@ if.end.i17:                                       ; preds = %switch.lookup
   %conv8.i = or i8 %conv2.i, %4
   store i8 %conv8.i, ptr %sb, align 16
   %sub9.i = sub nuw i64 %add, %conv.i
-  %buf.addr.020.i = getelementptr inbounds i8, ptr %sb, i64 1
+  %buf.addr.020.i = getelementptr inbounds nuw i8, ptr %sb, i64 1
   %cmp1021.i = icmp ugt i64 %sub9.i, 127
   br i1 %cmp1021.i, label %for.body.i, label %for.end.i
 
@@ -3219,7 +3219,7 @@ for.body.i:                                       ; preds = %if.end.i17, %for.bo
   %conv14.i = or i8 %5, -128
   store i8 %conv14.i, ptr %buf.addr.023.i, align 1
   %shr.i19 = lshr i64 %n.addr.022.i, 7
-  %buf.addr.0.i = getelementptr inbounds i8, ptr %buf.addr.023.i, i64 1
+  %buf.addr.0.i = getelementptr inbounds nuw i8, ptr %buf.addr.023.i, i64 1
   %cmp10.i = icmp ugt i64 %n.addr.022.i, 16383
   br i1 %cmp10.i, label %for.body.i, label %for.end.i, !llvm.loop !9
 
@@ -3236,9 +3236,9 @@ encode_length.exit:                               ; preds = %if.then.i, %for.end
   br i1 %cmp9.not, label %if.end11, label %return
 
 if.end11:                                         ; preds = %encode_length.exit
-  %value = getelementptr inbounds i8, ptr %nv, i64 8
+  %value = getelementptr inbounds nuw i8, ptr %nv, i64 8
   %6 = load ptr, ptr %value, align 8
-  %valuelen = getelementptr inbounds i8, ptr %nv, i64 24
+  %valuelen = getelementptr inbounds nuw i8, ptr %nv, i64 24
   %7 = load i64, ptr %valuelen, align 8
   %call12 = call fastcc i32 @emit_string(ptr noundef %bufs, ptr noundef %6, i64 noundef %7)
   br label %return
@@ -3269,16 +3269,16 @@ switch.lookup:                                    ; preds = %entry
 
 if.end.i:                                         ; preds = %switch.lookup
   %1 = load ptr, ptr %nv, align 8
-  %namelen.i = getelementptr inbounds i8, ptr %nv, i64 16
+  %namelen.i = getelementptr inbounds nuw i8, ptr %nv, i64 16
   %2 = load i64, ptr %namelen.i, align 8
   %call2.i = tail call fastcc i32 @emit_string(ptr noundef %bufs, ptr noundef %1, i64 noundef %2)
   %cmp3.not.i = icmp eq i32 %call2.i, 0
   br i1 %cmp3.not.i, label %if.end5.i, label %emit_newname_block.exit
 
 if.end5.i:                                        ; preds = %if.end.i
-  %value.i = getelementptr inbounds i8, ptr %nv, i64 8
+  %value.i = getelementptr inbounds nuw i8, ptr %nv, i64 8
   %3 = load ptr, ptr %value.i, align 8
-  %valuelen.i = getelementptr inbounds i8, ptr %nv, i64 24
+  %valuelen.i = getelementptr inbounds nuw i8, ptr %nv, i64 24
   %4 = load i64, ptr %valuelen.i, align 8
   %call6.i = tail call fastcc i32 @emit_string(ptr noundef %bufs, ptr noundef %3, i64 noundef %4)
   br label %emit_newname_block.exit
@@ -3309,7 +3309,7 @@ if.end.i.i:                                       ; preds = %entry
 
 if.end.i6.thread.i:                               ; preds = %if.end.i.i
   store i8 63, ptr %sb.i, align 16
-  %buf.addr.020.i19.i = getelementptr inbounds i8, ptr %sb.i, i64 1
+  %buf.addr.020.i19.i = getelementptr inbounds nuw i8, ptr %sb.i, i64 1
   br label %for.end.i.i
 
 for.inc.i.i:                                      ; preds = %if.end.i.i, %for.inc.i.i
@@ -3326,7 +3326,7 @@ count_encoded_length.exit.i:                      ; preds = %for.inc.i.i
 
 if.end.i6.i:                                      ; preds = %count_encoded_length.exit.i
   store i8 63, ptr %sb.i, align 16
-  %buf.addr.020.i.i = getelementptr inbounds i8, ptr %sb.i, i64 1
+  %buf.addr.020.i.i = getelementptr inbounds nuw i8, ptr %sb.i, i64 1
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %if.end.i6.i
@@ -3336,7 +3336,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %if.e
   %conv14.i.i = or i8 %1, -128
   store i8 %conv14.i.i, ptr %buf.addr.023.i.i, align 1
   %shr.i8.i = lshr i64 %n.addr.022.i.i, 7
-  %buf.addr.0.i.i = getelementptr inbounds i8, ptr %buf.addr.023.i.i, i64 1
+  %buf.addr.0.i.i = getelementptr inbounds nuw i8, ptr %buf.addr.023.i.i, i64 1
   %cmp10.i.i = icmp ugt i64 %n.addr.022.i.i, 16383
   br i1 %cmp10.i.i, label %for.body.i.i, label %for.end.i.i.loopexit, !llvm.loop !9
 
@@ -3366,7 +3366,6 @@ emit_table_size.exit:                             ; preds = %count_encoded_lengt
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden i64 @nghttp2_hd_decode_length(ptr nocapture noundef writeonly %res, ptr nocapture noundef writeonly initializes((0, 8)) %shift_ptr, ptr nocapture noundef writeonly initializes((0, 4)) %fin, i32 noundef %initial, i64 noundef %shift, ptr noundef %in, ptr noundef %last, i64 noundef %prefix) local_unnamed_addr #5 {
 entry:
-  %last56.i = ptrtoint ptr %last to i64
   %sh_prom.i = trunc i64 %prefix to i32
   %notmask.i = shl nsw i32 -1, %sh_prom.i
   %conv.i = and i32 %notmask.i, 255
@@ -3389,7 +3388,7 @@ if.then6.i:                                       ; preds = %if.then.i
   br label %decode_length.exit
 
 if.end.i:                                         ; preds = %if.then.i
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %in, i64 1
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %in, i64 1
   %cmp9.i = icmp eq ptr %incdec.ptr.i, %last
   br i1 %cmp9.i, label %if.then11.i, label %if.end13.i
 
@@ -3431,7 +3430,7 @@ if.end37.i:                                       ; preds = %if.end28.i
   br i1 %cmp41.i, label %if.end53.i, label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.end37.i
-  %incdec.ptr45.i = getelementptr inbounds i8, ptr %in.addr.146.i, i64 1
+  %incdec.ptr45.i = getelementptr inbounds nuw i8, ptr %in.addr.146.i, i64 1
   %add46.i = add nuw nsw i64 %shift.addr.047.i, 7
   %cmp14.not.i = icmp eq ptr %incdec.ptr45.i, %last
   br i1 %cmp14.not.i, label %if.then49.i, label %for.body.i, !llvm.loop !18
@@ -3439,17 +3438,18 @@ for.inc.i:                                        ; preds = %if.end37.i
 if.then49.i:                                      ; preds = %for.inc.i, %if.end13.i
   %shift.addr.0.lcssa.i = phi i64 [ %shift, %if.end13.i ], [ %add46.i, %for.inc.i ]
   %n.1.lcssa.i = phi i32 [ %n.0.i, %if.end13.i ], [ %add38.i, %for.inc.i ]
+  %sub.ptr.lhs.cast50.pre-phi.i = ptrtoint ptr %last to i64
   store i64 %shift.addr.0.lcssa.i, ptr %shift_ptr, align 8
   store i32 %n.1.lcssa.i, ptr %res, align 4
   %sub.ptr.rhs.cast51.i = ptrtoint ptr %in to i64
-  %sub.ptr.sub52.i = sub i64 %last56.i, %sub.ptr.rhs.cast51.i
+  %sub.ptr.sub52.i = sub i64 %sub.ptr.lhs.cast50.pre-phi.i, %sub.ptr.rhs.cast51.i
   br label %decode_length.exit
 
 if.end53.i:                                       ; preds = %if.end37.i
   store i64 %shift.addr.047.i, ptr %shift_ptr, align 8
   store i32 %add38.i, ptr %res, align 4
   store i32 1, ptr %fin, align 4
-  %add.ptr.i = getelementptr inbounds i8, ptr %in.addr.146.i, i64 1
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %in.addr.146.i, i64 1
   %sub.ptr.lhs.cast54.i = ptrtoint ptr %add.ptr.i to i64
   %sub.ptr.rhs.cast55.i = ptrtoint ptr %in to i64
   %sub.ptr.sub56.i = sub i64 %sub.ptr.lhs.cast54.i, %sub.ptr.rhs.cast55.i
@@ -3477,7 +3477,7 @@ entry:
 
 if.end.i:                                         ; preds = %entry
   %dec.i = add i64 %idx, -1
-  %len.i = getelementptr inbounds i8, ptr %deflater, i64 24
+  %len.i = getelementptr inbounds nuw i8, ptr %deflater, i64 24
   %0 = load i64, ptr %len.i, align 8
   %add.i = add i64 %0, 61
   %cmp1.i = icmp ult i64 %dec.i, %add.i
@@ -3498,19 +3498,19 @@ if.else.i.i.i:                                    ; preds = %if.then2.i.i
 
 hd_ringbuf_get.exit.i.i:                          ; preds = %if.then2.i.i
   %1 = load ptr, ptr %deflater, align 8
-  %first.i.i.i = getelementptr inbounds i8, ptr %deflater, i64 16
+  %first.i.i.i = getelementptr inbounds nuw i8, ptr %deflater, i64 16
   %2 = load i64, ptr %first.i.i.i, align 8
   %add.i.i.i = add i64 %2, %sub.i.i
-  %mask.i.i.i = getelementptr inbounds i8, ptr %deflater, i64 8
+  %mask.i.i.i = getelementptr inbounds nuw i8, ptr %deflater, i64 8
   %3 = load i64, ptr %mask.i.i.i, align 8
   %and.i.i.i = and i64 %add.i.i.i, %3
   %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %1, i64 %and.i.i.i
   %4 = load ptr, ptr %arrayidx.i.i.i, align 8
-  %cnv.i.i = getelementptr inbounds i8, ptr %4, i64 24
+  %cnv.i.i = getelementptr inbounds nuw i8, ptr %4, i64 24
   br label %hd_get_table_entry.exit
 
 if.end4.i.i:                                      ; preds = %if.end.i.i
-  %cnv5.i.i = getelementptr inbounds [61 x %struct.nghttp2_hd_static_entry], ptr @static_table, i64 0, i64 %dec.i, i32 2
+  %cnv5.i.i = getelementptr inbounds nuw [61 x %struct.nghttp2_hd_static_entry], ptr @static_table, i64 0, i64 %dec.i, i32 2
   br label %hd_get_table_entry.exit
 
 hd_get_table_entry.exit:                          ; preds = %entry, %if.end.i, %hd_ringbuf_get.exit.i.i, %if.end4.i.i
@@ -3521,7 +3521,7 @@ hd_get_table_entry.exit:                          ; preds = %entry, %if.end.i, %
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i64 @nghttp2_hd_deflate_get_dynamic_table_size(ptr nocapture noundef readonly %deflater) local_unnamed_addr #6 {
 entry:
-  %hd_table_bufsize = getelementptr inbounds i8, ptr %deflater, i64 40
+  %hd_table_bufsize = getelementptr inbounds nuw i8, ptr %deflater, i64 40
   %0 = load i64, ptr %hd_table_bufsize, align 8
   ret i64 %0
 }
@@ -3529,7 +3529,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i64 @nghttp2_hd_deflate_get_max_dynamic_table_size(ptr nocapture noundef readonly %deflater) local_unnamed_addr #6 {
 entry:
-  %hd_table_bufsize_max = getelementptr inbounds i8, ptr %deflater, i64 48
+  %hd_table_bufsize_max = getelementptr inbounds nuw i8, ptr %deflater, i64 48
   %0 = load i64, ptr %hd_table_bufsize_max, align 8
   ret i64 %0
 }
@@ -3551,7 +3551,7 @@ entry:
 
 if.end.i:                                         ; preds = %entry
   %dec.i = add i64 %idx, -1
-  %len.i = getelementptr inbounds i8, ptr %inflater, i64 24
+  %len.i = getelementptr inbounds nuw i8, ptr %inflater, i64 24
   %0 = load i64, ptr %len.i, align 8
   %add.i = add i64 %0, 61
   %cmp1.i = icmp ult i64 %dec.i, %add.i
@@ -3572,19 +3572,19 @@ if.else.i.i.i:                                    ; preds = %if.then2.i.i
 
 hd_ringbuf_get.exit.i.i:                          ; preds = %if.then2.i.i
   %1 = load ptr, ptr %inflater, align 8
-  %first.i.i.i = getelementptr inbounds i8, ptr %inflater, i64 16
+  %first.i.i.i = getelementptr inbounds nuw i8, ptr %inflater, i64 16
   %2 = load i64, ptr %first.i.i.i, align 8
   %add.i.i.i = add i64 %2, %sub.i.i
-  %mask.i.i.i = getelementptr inbounds i8, ptr %inflater, i64 8
+  %mask.i.i.i = getelementptr inbounds nuw i8, ptr %inflater, i64 8
   %3 = load i64, ptr %mask.i.i.i, align 8
   %and.i.i.i = and i64 %add.i.i.i, %3
   %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %1, i64 %and.i.i.i
   %4 = load ptr, ptr %arrayidx.i.i.i, align 8
-  %cnv.i.i = getelementptr inbounds i8, ptr %4, i64 24
+  %cnv.i.i = getelementptr inbounds nuw i8, ptr %4, i64 24
   br label %hd_get_table_entry.exit
 
 if.end4.i.i:                                      ; preds = %if.end.i.i
-  %cnv5.i.i = getelementptr inbounds [61 x %struct.nghttp2_hd_static_entry], ptr @static_table, i64 0, i64 %dec.i, i32 2
+  %cnv5.i.i = getelementptr inbounds nuw [61 x %struct.nghttp2_hd_static_entry], ptr @static_table, i64 0, i64 %dec.i, i32 2
   br label %hd_get_table_entry.exit
 
 hd_get_table_entry.exit:                          ; preds = %entry, %if.end.i, %hd_ringbuf_get.exit.i.i, %if.end4.i.i
@@ -3595,7 +3595,7 @@ hd_get_table_entry.exit:                          ; preds = %entry, %if.end.i, %
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i64 @nghttp2_hd_inflate_get_dynamic_table_size(ptr nocapture noundef readonly %inflater) local_unnamed_addr #6 {
 entry:
-  %hd_table_bufsize = getelementptr inbounds i8, ptr %inflater, i64 40
+  %hd_table_bufsize = getelementptr inbounds nuw i8, ptr %inflater, i64 40
   %0 = load i64, ptr %hd_table_bufsize, align 8
   ret i64 %0
 }
@@ -3603,7 +3603,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i64 @nghttp2_hd_inflate_get_max_dynamic_table_size(ptr nocapture noundef readonly %inflater) local_unnamed_addr #6 {
 entry:
-  %hd_table_bufsize_max = getelementptr inbounds i8, ptr %inflater, i64 48
+  %hd_table_bufsize_max = getelementptr inbounds nuw i8, ptr %inflater, i64 48
   %0 = load i64, ptr %hd_table_bufsize_max, align 8
   ret i64 %0
 }
@@ -3640,7 +3640,7 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %arrayidx = getelementptr inbounds i8, ptr %name, i64 1
+  %arrayidx = getelementptr inbounds nuw i8, ptr %name, i64 1
   %0 = load i8, ptr %arrayidx, align 1
   %cond5 = icmp eq i8 %0, 101
   br i1 %cond5, label %sw.bb1, label %sw.epilog361
@@ -3651,7 +3651,7 @@ sw.bb1:                                           ; preds = %sw.bb
   br i1 %cmp.i.not, label %return, label %sw.epilog361
 
 sw.bb2:                                           ; preds = %entry
-  %arrayidx3 = getelementptr inbounds i8, ptr %name, i64 2
+  %arrayidx3 = getelementptr inbounds nuw i8, ptr %name, i64 2
   %1 = load i8, ptr %arrayidx3, align 1
   switch i8 %1, label %sw.epilog361 [
     i8 97, label %sw.bb5
@@ -3669,7 +3669,7 @@ sw.bb10:                                          ; preds = %sw.bb2
   br i1 %cmp.i88.not, label %return, label %sw.epilog361
 
 sw.bb16:                                          ; preds = %entry
-  %arrayidx17 = getelementptr inbounds i8, ptr %name, i64 3
+  %arrayidx17 = getelementptr inbounds nuw i8, ptr %name, i64 3
   %2 = load i8, ptr %arrayidx17, align 1
   switch i8 %2, label %sw.epilog361 [
     i8 101, label %sw.bb19
@@ -3711,7 +3711,7 @@ sw.bb44:                                          ; preds = %sw.bb16
   br i1 %cmp.i106.not, label %return, label %sw.epilog361
 
 sw.bb50:                                          ; preds = %entry
-  %arrayidx51 = getelementptr inbounds i8, ptr %name, i64 4
+  %arrayidx51 = getelementptr inbounds nuw i8, ptr %name, i64 4
   %3 = load i8, ptr %arrayidx51, align 1
   switch i8 %3, label %sw.epilog361 [
     i8 101, label %sw.bb53
@@ -3735,7 +3735,7 @@ sw.bb63:                                          ; preds = %sw.bb50
   br i1 %cmp.i115.not, label %return, label %sw.epilog361
 
 sw.bb69:                                          ; preds = %entry
-  %arrayidx70 = getelementptr inbounds i8, ptr %name, i64 5
+  %arrayidx70 = getelementptr inbounds nuw i8, ptr %name, i64 5
   %4 = load i8, ptr %arrayidx70, align 1
   switch i8 %4, label %sw.epilog361 [
     i8 101, label %sw.bb72
@@ -3764,7 +3764,7 @@ if.end86:                                         ; preds = %sw.bb82
   br i1 %cmp.i127.not, label %return, label %sw.epilog361
 
 sw.bb92:                                          ; preds = %entry
-  %arrayidx93 = getelementptr inbounds i8, ptr %name, i64 6
+  %arrayidx93 = getelementptr inbounds nuw i8, ptr %name, i64 6
   %5 = load i8, ptr %arrayidx93, align 1
   switch i8 %5, label %sw.epilog361 [
     i8 100, label %sw.bb95
@@ -3810,7 +3810,7 @@ if.end123:                                        ; preds = %sw.bb119
   br i1 %cmp.i148.not, label %return, label %sw.epilog361
 
 sw.bb129:                                         ; preds = %entry
-  %arrayidx130 = getelementptr inbounds i8, ptr %name, i64 7
+  %arrayidx130 = getelementptr inbounds nuw i8, ptr %name, i64 7
   %6 = load i8, ptr %arrayidx130, align 1
   switch i8 %6, label %sw.epilog361 [
     i8 101, label %sw.bb132
@@ -3840,7 +3840,7 @@ sw.bb147:                                         ; preds = %sw.bb129
   br i1 %cmp.i160.not, label %return, label %sw.epilog361
 
 sw.bb153:                                         ; preds = %entry
-  %arrayidx154 = getelementptr inbounds i8, ptr %name, i64 8
+  %arrayidx154 = getelementptr inbounds nuw i8, ptr %name, i64 8
   %7 = load i8, ptr %arrayidx154, align 1
   %cond4 = icmp eq i8 %7, 108
   br i1 %cond4, label %sw.bb156, label %sw.epilog361
@@ -3851,7 +3851,7 @@ sw.bb156:                                         ; preds = %sw.bb153
   br i1 %cmp.i163.not, label %return, label %sw.epilog361
 
 sw.bb162:                                         ; preds = %entry
-  %arrayidx163 = getelementptr inbounds i8, ptr %name, i64 9
+  %arrayidx163 = getelementptr inbounds nuw i8, ptr %name, i64 9
   %8 = load i8, ptr %arrayidx163, align 1
   switch i8 %8, label %sw.epilog361 [
     i8 101, label %sw.bb165
@@ -3886,7 +3886,7 @@ sw.bb184:                                         ; preds = %sw.bb162
   br i1 %cmp.i178.not, label %return, label %sw.epilog361
 
 sw.bb190:                                         ; preds = %entry
-  %arrayidx191 = getelementptr inbounds i8, ptr %name, i64 10
+  %arrayidx191 = getelementptr inbounds nuw i8, ptr %name, i64 10
   %9 = load i8, ptr %arrayidx191, align 1
   %cond3 = icmp eq i8 %9, 114
   br i1 %cond3, label %sw.bb193, label %sw.epilog361
@@ -3897,7 +3897,7 @@ sw.bb193:                                         ; preds = %sw.bb190
   br i1 %cmp.i181.not, label %return, label %sw.epilog361
 
 sw.bb199:                                         ; preds = %entry
-  %arrayidx200 = getelementptr inbounds i8, ptr %name, i64 11
+  %arrayidx200 = getelementptr inbounds nuw i8, ptr %name, i64 11
   %10 = load i8, ptr %arrayidx200, align 1
   switch i8 %10, label %sw.epilog361 [
     i8 101, label %sw.bb202
@@ -3915,7 +3915,7 @@ sw.bb207:                                         ; preds = %sw.bb199
   br i1 %cmp.i187.not, label %return, label %sw.epilog361
 
 sw.bb213:                                         ; preds = %entry
-  %arrayidx214 = getelementptr inbounds i8, ptr %name, i64 12
+  %arrayidx214 = getelementptr inbounds nuw i8, ptr %name, i64 12
   %11 = load i8, ptr %arrayidx214, align 1
   switch i8 %11, label %sw.epilog361 [
     i8 100, label %sw.bb216
@@ -3957,7 +3957,7 @@ sw.bb241:                                         ; preds = %sw.bb213
   br i1 %cmp.i205.not, label %return, label %sw.epilog361
 
 sw.bb247:                                         ; preds = %entry
-  %arrayidx248 = getelementptr inbounds i8, ptr %name, i64 13
+  %arrayidx248 = getelementptr inbounds nuw i8, ptr %name, i64 13
   %12 = load i8, ptr %arrayidx248, align 1
   switch i8 %12, label %sw.epilog361 [
     i8 104, label %sw.bb250
@@ -3975,7 +3975,7 @@ sw.bb255:                                         ; preds = %sw.bb247
   br i1 %cmp.i211.not, label %return, label %sw.epilog361
 
 sw.bb261:                                         ; preds = %entry
-  %arrayidx262 = getelementptr inbounds i8, ptr %name, i64 14
+  %arrayidx262 = getelementptr inbounds nuw i8, ptr %name, i64 14
   %13 = load i8, ptr %arrayidx262, align 1
   switch i8 %13, label %sw.epilog361 [
     i8 101, label %sw.bb264
@@ -3993,7 +3993,7 @@ sw.bb269:                                         ; preds = %sw.bb261
   br i1 %cmp.i217.not, label %return, label %sw.epilog361
 
 sw.bb275:                                         ; preds = %entry
-  %arrayidx276 = getelementptr inbounds i8, ptr %name, i64 15
+  %arrayidx276 = getelementptr inbounds nuw i8, ptr %name, i64 15
   %14 = load i8, ptr %arrayidx276, align 1
   switch i8 %14, label %sw.epilog361 [
     i8 101, label %sw.bb278
@@ -4027,7 +4027,7 @@ if.end296:                                        ; preds = %sw.bb292
   br i1 %cmp.i232.not, label %return, label %sw.epilog361
 
 sw.bb302:                                         ; preds = %entry
-  %arrayidx303 = getelementptr inbounds i8, ptr %name, i64 16
+  %arrayidx303 = getelementptr inbounds nuw i8, ptr %name, i64 16
   %15 = load i8, ptr %arrayidx303, align 1
   switch i8 %15, label %sw.epilog361 [
     i8 101, label %sw.bb305
@@ -4045,7 +4045,7 @@ sw.bb310:                                         ; preds = %sw.bb302
   br i1 %cmp.i238.not, label %return, label %sw.epilog361
 
 sw.bb316:                                         ; preds = %entry
-  %arrayidx317 = getelementptr inbounds i8, ptr %name, i64 17
+  %arrayidx317 = getelementptr inbounds nuw i8, ptr %name, i64 17
   %16 = load i8, ptr %arrayidx317, align 1
   %cond2 = icmp eq i8 %16, 101
   br i1 %cond2, label %sw.bb319, label %sw.epilog361
@@ -4056,7 +4056,7 @@ sw.bb319:                                         ; preds = %sw.bb316
   br i1 %cmp.i241.not, label %return, label %sw.epilog361
 
 sw.bb325:                                         ; preds = %entry
-  %arrayidx326 = getelementptr inbounds i8, ptr %name, i64 18
+  %arrayidx326 = getelementptr inbounds nuw i8, ptr %name, i64 18
   %17 = load i8, ptr %arrayidx326, align 1
   switch i8 %17, label %sw.epilog361 [
     i8 101, label %sw.bb328
@@ -4079,7 +4079,7 @@ if.end337:                                        ; preds = %sw.bb333
   br i1 %cmp.i250.not, label %return, label %sw.epilog361
 
 sw.bb343:                                         ; preds = %entry
-  %arrayidx344 = getelementptr inbounds i8, ptr %name, i64 24
+  %arrayidx344 = getelementptr inbounds nuw i8, ptr %name, i64 24
   %18 = load i8, ptr %arrayidx344, align 1
   %cond1 = icmp eq i8 %18, 121
   br i1 %cond1, label %sw.bb346, label %sw.epilog361
@@ -4090,7 +4090,7 @@ sw.bb346:                                         ; preds = %sw.bb343
   br i1 %cmp.i253.not, label %return, label %sw.epilog361
 
 sw.bb352:                                         ; preds = %entry
-  %arrayidx353 = getelementptr inbounds i8, ptr %name, i64 26
+  %arrayidx353 = getelementptr inbounds nuw i8, ptr %name, i64 26
   %19 = load i8, ptr %arrayidx353, align 1
   %cond = icmp eq i8 %19, 110
   br i1 %cond, label %sw.bb355, label %sw.epilog361
@@ -4113,20 +4113,20 @@ declare i32 @nghttp2_rcbuf_new2(ptr noundef, ptr noundef, i64 noundef, ptr nound
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -901, 1) i32 @add_hd_table_incremental(ptr nocapture noundef %context, ptr nocapture noundef nonnull readonly %nv, ptr noundef %map, i32 noundef %hash) unnamed_addr #0 {
 entry:
-  %mem1 = getelementptr inbounds i8, ptr %context, i64 32
+  %mem1 = getelementptr inbounds nuw i8, ptr %context, i64 32
   %0 = load ptr, ptr %mem1, align 8
   %1 = load ptr, ptr %nv, align 8
-  %len = getelementptr inbounds i8, ptr %1, i64 24
+  %len = getelementptr inbounds nuw i8, ptr %1, i64 24
   %2 = load i64, ptr %len, align 8
-  %value = getelementptr inbounds i8, ptr %nv, i64 8
+  %value = getelementptr inbounds nuw i8, ptr %nv, i64 8
   %3 = load ptr, ptr %value, align 8
-  %len2 = getelementptr inbounds i8, ptr %3, i64 24
+  %len2 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %4 = load i64, ptr %len2, align 8
   %add.i = add i64 %2, 32
   %add1.i = add i64 %add.i, %4
-  %len3 = getelementptr inbounds i8, ptr %context, i64 24
-  %hd_table_bufsize = getelementptr inbounds i8, ptr %context, i64 40
-  %hd_table_bufsize_max = getelementptr inbounds i8, ptr %context, i64 48
+  %len3 = getelementptr inbounds nuw i8, ptr %context, i64 24
+  %hd_table_bufsize = getelementptr inbounds nuw i8, ptr %context, i64 40
+  %hd_table_bufsize_max = getelementptr inbounds nuw i8, ptr %context, i64 48
   %5 = load i64, ptr %hd_table_bufsize, align 8
   %add66 = add i64 %5, %add1.i
   %6 = load i64, ptr %hd_table_bufsize_max, align 8
@@ -4134,8 +4134,8 @@ entry:
   br i1 %cmp67, label %land.rhs.lr.ph, label %while.end
 
 land.rhs.lr.ph:                                   ; preds = %entry
-  %first.i = getelementptr inbounds i8, ptr %context, i64 16
-  %mask.i = getelementptr inbounds i8, ptr %context, i64 8
+  %first.i = getelementptr inbounds nuw i8, ptr %context, i64 16
+  %mask.i = getelementptr inbounds nuw i8, ptr %context, i64 8
   %tobool.not = icmp eq ptr %map, null
   %7 = load i64, ptr %len3, align 8
   %cmp4.not.us78 = icmp eq i64 %7, 0
@@ -4161,11 +4161,11 @@ hd_ringbuf_pop_back.exit.us:                      ; preds = %land.rhs.lr.ph.spli
   %arrayidx.i.us = getelementptr inbounds ptr, ptr %11, i64 %and.i.us
   %14 = load ptr, ptr %arrayidx.i.us, align 8
   %15 = load ptr, ptr %14, align 8
-  %len11.us = getelementptr inbounds i8, ptr %15, i64 24
+  %len11.us = getelementptr inbounds nuw i8, ptr %15, i64 24
   %16 = load i64, ptr %len11.us, align 8
-  %value13.us = getelementptr inbounds i8, ptr %14, i64 8
+  %value13.us = getelementptr inbounds nuw i8, ptr %14, i64 8
   %17 = load ptr, ptr %value13.us, align 8
-  %len14.us = getelementptr inbounds i8, ptr %17, i64 24
+  %len14.us = getelementptr inbounds nuw i8, ptr %17, i64 24
   %18 = load i64, ptr %len14.us, align 8
   %add.i35.neg.us = add i64 %10, -32
   %19 = add i64 %16, %18
@@ -4203,22 +4203,22 @@ hd_ringbuf_pop_back.exit:                         ; preds = %land.rhs.lr.ph.spli
   %arrayidx.i = getelementptr inbounds ptr, ptr %27, i64 %and.i
   %30 = load ptr, ptr %arrayidx.i, align 8
   %31 = load ptr, ptr %30, align 8
-  %len11 = getelementptr inbounds i8, ptr %31, i64 24
+  %len11 = getelementptr inbounds nuw i8, ptr %31, i64 24
   %32 = load i64, ptr %len11, align 8
-  %value13 = getelementptr inbounds i8, ptr %30, i64 8
+  %value13 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %33 = load ptr, ptr %value13, align 8
-  %len14 = getelementptr inbounds i8, ptr %33, i64 24
+  %len14 = getelementptr inbounds nuw i8, ptr %33, i64 24
   %34 = load i64, ptr %len14, align 8
   %add.i35.neg = add i64 %26, -32
   %35 = add i64 %32, %34
   %sub17 = sub i64 %add.i35.neg, %35
   store i64 %sub17, ptr %hd_table_bufsize, align 8
   store i64 %sub, ptr %len3, align 8
-  %hash.i = getelementptr inbounds i8, ptr %30, i64 76
+  %hash.i = getelementptr inbounds nuw i8, ptr %30, i64 76
   %36 = load i32, ptr %hash.i, align 4
   %and.i39 = and i32 %36, 127
   %idxprom.i = zext nneg i32 %and.i39 to i64
-  %arrayidx.i40 = getelementptr inbounds [128 x ptr], ptr %map, i64 0, i64 %idxprom.i
+  %arrayidx.i40 = getelementptr inbounds nuw [128 x ptr], ptr %map, i64 0, i64 %idxprom.i
   %37 = load ptr, ptr %arrayidx.i40, align 8
   %tobool.not8.i = icmp eq ptr %37, null
   br i1 %tobool.not8.i, label %if.end, label %for.body.i.preheader
@@ -4229,7 +4229,7 @@ for.body.i.preheader:                             ; preds = %hd_ringbuf_pop_back
 
 for.cond.i:                                       ; preds = %for.body.i.preheader, %for.body.i
   %38 = phi ptr [ %39, %for.body.i ], [ %37, %for.body.i.preheader ]
-  %next2.i = getelementptr inbounds i8, ptr %38, i64 64
+  %next2.i = getelementptr inbounds nuw i8, ptr %38, i64 64
   %39 = load ptr, ptr %next2.i, align 8
   %tobool.not.i = icmp eq ptr %39, null
   br i1 %tobool.not.i, label %if.end, label %for.body.i, !llvm.loop !7
@@ -4239,12 +4239,12 @@ for.body.i:                                       ; preds = %for.cond.i
   br i1 %cmp.not.i41, label %if.end.i.loopexit, label %for.cond.i, !llvm.loop !7
 
 if.end.i.loopexit:                                ; preds = %for.body.i
-  %next2.i.le = getelementptr inbounds i8, ptr %38, i64 64
+  %next2.i.le = getelementptr inbounds nuw i8, ptr %38, i64 64
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.end.i.loopexit, %for.body.i.preheader
   %dst.09.i.lcssa = phi ptr [ %arrayidx.i40, %for.body.i.preheader ], [ %next2.i.le, %if.end.i.loopexit ]
-  %next.i = getelementptr inbounds i8, ptr %30, i64 64
+  %next.i = getelementptr inbounds nuw i8, ptr %30, i64 64
   %40 = load ptr, ptr %next.i, align 8
   store ptr %40, ptr %dst.09.i.lcssa, align 8
   store ptr null, ptr %next.i, align 8
@@ -4275,41 +4275,41 @@ if.end22:                                         ; preds = %while.end
 if.end26:                                         ; preds = %if.end22
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %call23, ptr noundef nonnull readonly align 8 dereferenceable(24) %nv, i64 24, i1 false)
   %45 = load ptr, ptr %nv, align 8
-  %base.i = getelementptr inbounds i8, ptr %45, i64 16
+  %base.i = getelementptr inbounds nuw i8, ptr %45, i64 16
   %46 = load ptr, ptr %base.i, align 8
-  %cnv.i = getelementptr inbounds i8, ptr %call23, i64 24
+  %cnv.i = getelementptr inbounds nuw i8, ptr %call23, i64 24
   store ptr %46, ptr %cnv.i, align 8
   %47 = load ptr, ptr %nv, align 8
-  %len.i42 = getelementptr inbounds i8, ptr %47, i64 24
+  %len.i42 = getelementptr inbounds nuw i8, ptr %47, i64 24
   %48 = load i64, ptr %len.i42, align 8
-  %namelen.i = getelementptr inbounds i8, ptr %call23, i64 40
+  %namelen.i = getelementptr inbounds nuw i8, ptr %call23, i64 40
   store i64 %48, ptr %namelen.i, align 8
   %49 = load ptr, ptr %value, align 8
-  %base5.i = getelementptr inbounds i8, ptr %49, i64 16
+  %base5.i = getelementptr inbounds nuw i8, ptr %49, i64 16
   %50 = load ptr, ptr %base5.i, align 8
-  %value7.i = getelementptr inbounds i8, ptr %call23, i64 32
+  %value7.i = getelementptr inbounds nuw i8, ptr %call23, i64 32
   store ptr %50, ptr %value7.i, align 8
   %51 = load ptr, ptr %value, align 8
-  %len9.i = getelementptr inbounds i8, ptr %51, i64 24
+  %len9.i = getelementptr inbounds nuw i8, ptr %51, i64 24
   %52 = load i64, ptr %len9.i, align 8
-  %valuelen.i = getelementptr inbounds i8, ptr %call23, i64 48
+  %valuelen.i = getelementptr inbounds nuw i8, ptr %call23, i64 48
   store i64 %52, ptr %valuelen.i, align 8
-  %flags.i = getelementptr inbounds i8, ptr %nv, i64 20
+  %flags.i = getelementptr inbounds nuw i8, ptr %nv, i64 20
   %53 = load i8, ptr %flags.i, align 4
-  %flags12.i = getelementptr inbounds i8, ptr %call23, i64 56
+  %flags12.i = getelementptr inbounds nuw i8, ptr %call23, i64 56
   store i8 %53, ptr %flags12.i, align 8
-  %next.i44 = getelementptr inbounds i8, ptr %call23, i64 64
+  %next.i44 = getelementptr inbounds nuw i8, ptr %call23, i64 64
   store ptr null, ptr %next.i44, align 8
-  %hash.i45 = getelementptr inbounds i8, ptr %call23, i64 76
+  %hash.i45 = getelementptr inbounds nuw i8, ptr %call23, i64 76
   store i32 0, ptr %hash.i45, align 4
   %54 = load ptr, ptr %call23, align 8
   tail call void @nghttp2_rcbuf_incref(ptr noundef %54) #12
-  %value16.i = getelementptr inbounds i8, ptr %call23, i64 8
+  %value16.i = getelementptr inbounds nuw i8, ptr %call23, i64 8
   %55 = load ptr, ptr %value16.i, align 8
   tail call void @nghttp2_rcbuf_incref(ptr noundef %55) #12
   %56 = load i64, ptr %len3, align 8
   %add.i47 = add i64 %56, 1
-  %mask.i.i = getelementptr inbounds i8, ptr %context, i64 8
+  %mask.i.i = getelementptr inbounds nuw i8, ptr %context, i64 8
   %57 = load i64, ptr %mask.i.i, align 8
   %add.i.i = add i64 %57, 1
   %cmp.not.i.i = icmp ult i64 %add.i.i, %add.i47
@@ -4317,7 +4317,7 @@ if.end26:                                         ; preds = %if.end22
 
 entry.if.end_crit_edge.i:                         ; preds = %if.end26
   %.pre.i = load ptr, ptr %context, align 8
-  %first.phi.trans.insert.i = getelementptr inbounds i8, ptr %context, i64 16
+  %first.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %context, i64 16
   %.pre9.i = load i64, ptr %first.phi.trans.insert.i, align 8
   %58 = add i64 %.pre9.i, -1
   br label %if.end31
@@ -4340,7 +4340,7 @@ for.cond5.preheader.i.i:                          ; preds = %for.end.i.i
   br i1 %cmp617.not.i.i, label %for.end10.i.i, label %hd_ringbuf_get.exit.lr.ph.i.i
 
 hd_ringbuf_get.exit.lr.ph.i.i:                    ; preds = %for.cond5.preheader.i.i
-  %first.i.i.i = getelementptr inbounds i8, ptr %context, i64 16
+  %first.i.i.i = getelementptr inbounds nuw i8, ptr %context, i64 16
   br label %hd_ringbuf_get.exit.i.i
 
 hd_ringbuf_get.exit.i.i:                          ; preds = %hd_ringbuf_get.exit.i.i, %hd_ringbuf_get.exit.lr.ph.i.i
@@ -4379,7 +4379,7 @@ if.end31:                                         ; preds = %entry.if.end_crit_e
   %68 = phi i64 [ %57, %entry.if.end_crit_edge.i ], [ %sub.i.i, %for.end10.i.i ]
   %dec.i49 = phi i64 [ %58, %entry.if.end_crit_edge.i ], [ -1, %for.end10.i.i ]
   %69 = phi ptr [ %.pre.i, %entry.if.end_crit_edge.i ], [ %call.i.i, %for.end10.i.i ]
-  %first.i50 = getelementptr inbounds i8, ptr %context, i64 16
+  %first.i50 = getelementptr inbounds nuw i8, ptr %context, i64 16
   store i64 %dec.i49, ptr %first.i50, align 8
   %and.i51 = and i64 %dec.i49, %68
   %arrayidx.i52 = getelementptr inbounds ptr, ptr %69, i64 %and.i51
@@ -4387,11 +4387,11 @@ if.end31:                                         ; preds = %entry.if.end_crit_e
   %70 = load i64, ptr %len3, align 8
   %inc.i = add i64 %70, 1
   store i64 %inc.i, ptr %len3, align 8
-  %next_seq = getelementptr inbounds i8, ptr %context, i64 56
+  %next_seq = getelementptr inbounds nuw i8, ptr %context, i64 56
   %71 = load i32, ptr %next_seq, align 8
   %inc = add i32 %71, 1
   store i32 %inc, ptr %next_seq, align 8
-  %seq = getelementptr inbounds i8, ptr %call23, i64 72
+  %seq = getelementptr inbounds nuw i8, ptr %call23, i64 72
   store i32 %71, ptr %seq, align 8
   store i32 %hash, ptr %hash.i45, align 4
   %tobool33.not = icmp eq ptr %map, null
@@ -4400,7 +4400,7 @@ if.end31:                                         ; preds = %entry.if.end_crit_e
 if.then34:                                        ; preds = %if.end31
   %and.i55 = and i32 %hash, 127
   %idxprom.i56 = zext nneg i32 %and.i55 to i64
-  %arrayidx.i57 = getelementptr inbounds [128 x ptr], ptr %map, i64 0, i64 %idxprom.i56
+  %arrayidx.i57 = getelementptr inbounds nuw [128 x ptr], ptr %map, i64 0, i64 %idxprom.i56
   %72 = load ptr, ptr %arrayidx.i57, align 8
   %cmp.i58 = icmp eq ptr %72, null
   br i1 %cmp.i58, label %hd_map_insert.exit, label %if.end.i59
@@ -4455,7 +4455,7 @@ if.end.i:                                         ; preds = %entry
 if.end.i19.thread:                                ; preds = %if.end.i
   %conv8.i37 = select i1 %cmp.not, i8 -1, i8 127
   store i8 %conv8.i37, ptr %sb, align 16
-  %buf.addr.020.i38 = getelementptr inbounds i8, ptr %sb, i64 1
+  %buf.addr.020.i38 = getelementptr inbounds nuw i8, ptr %sb, i64 1
   br label %for.end.i
 
 for.inc.i:                                        ; preds = %if.end.i, %for.inc.i
@@ -4474,7 +4474,7 @@ if.end.i19:                                       ; preds = %count_encoded_lengt
   %1 = add nuw nsw i64 %len.09.i, 2
   %conv8.i = select i1 %cmp.not, i8 -1, i8 127
   store i8 %conv8.i, ptr %sb, align 16
-  %buf.addr.020.i = getelementptr inbounds i8, ptr %sb, i64 1
+  %buf.addr.020.i = getelementptr inbounds nuw i8, ptr %sb, i64 1
   br label %for.body.i
 
 for.body.i:                                       ; preds = %if.end.i19, %for.body.i
@@ -4484,7 +4484,7 @@ for.body.i:                                       ; preds = %if.end.i19, %for.bo
   %conv14.i = or i8 %2, -128
   store i8 %conv14.i, ptr %buf.addr.023.i, align 1
   %shr.i21 = lshr i64 %n.addr.022.i, 7
-  %buf.addr.0.i = getelementptr inbounds i8, ptr %buf.addr.023.i, i64 1
+  %buf.addr.0.i = getelementptr inbounds nuw i8, ptr %buf.addr.023.i, i64 1
   %cmp10.i = icmp ugt i64 %n.addr.022.i, 16383
   br i1 %cmp10.i, label %for.body.i, label %for.end.i, !llvm.loop !9
 

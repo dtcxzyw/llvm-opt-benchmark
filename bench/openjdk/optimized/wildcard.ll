@@ -17,7 +17,7 @@ define hidden ptr @JLI_WildcardExpandClasspath(ptr noundef %0) local_unnamed_add
 
 4:                                                ; preds = %1
   %5 = tail call ptr @JLI_List_split(ptr noundef %0, i8 noundef signext 58) #7
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i64, ptr %6, align 8
   %.not.i = icmp eq i64 %7, 0
   br i1 %.not.i, label %FileList_expandWildcards.exit.thread, label %.lr.ph61.i
@@ -36,7 +36,7 @@ define hidden ptr @JLI_WildcardExpandClasspath(ptr noundef %0) local_unnamed_add
 14:                                               ; preds = %.lr.ph61.i
   %15 = add i64 %11, 4294967295
   %16 = and i64 %15, 4294967295
-  %17 = getelementptr inbounds i8, ptr %10, i64 %16
+  %17 = getelementptr inbounds nuw i8, ptr %10, i64 %16
   %18 = load i8, ptr %17, align 1
   %19 = icmp eq i8 %18, 42
   br i1 %19, label %20, label %isWildcard.exit.thread.i
@@ -48,7 +48,7 @@ define hidden ptr @JLI_WildcardExpandClasspath(ptr noundef %0) local_unnamed_add
 22:                                               ; preds = %20
   %23 = add i64 %11, 4294967294
   %24 = and i64 %23, 4294967295
-  %25 = getelementptr inbounds i8, ptr %10, i64 %24
+  %25 = getelementptr inbounds nuw i8, ptr %10, i64 %24
   %26 = load i8, ptr %25, align 1
   %27 = icmp eq i8 %26, 47
   br i1 %27, label %isWildcard.exit.i, label %isWildcard.exit.thread.i
@@ -76,7 +76,7 @@ isWildcard.exit.i:                                ; preds = %22, %20
   %40 = tail call ptr @JLI_StringDup(ptr noundef %32) #7
   %41 = add i64 %34, 4294967295
   %42 = and i64 %41, 4294967295
-  %43 = getelementptr inbounds i8, ptr %40, i64 %42
+  %43 = getelementptr inbounds nuw i8, ptr %40, i64 %42
   store i8 0, ptr %43, align 1
   %44 = tail call ptr @opendir(ptr noundef %40)
   tail call void @JLI_MemFree(ptr noundef %40) #7
@@ -100,7 +100,7 @@ wildcardFileList.exit.thread.i:                   ; preds = %45
 
 .lr.ph.i.i:                                       ; preds = %.split11.i.i, %.split.i.i
   %.pn.i.i = phi ptr [ %78, %.split.i.i ], [ %48, %.split11.i.i ]
-  %phi.call22.i.i = getelementptr inbounds i8, ptr %.pn.i.i, i64 19
+  %phi.call22.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 19
   %49 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %phi.call22.i.i) #6
   %50 = trunc i64 %49 to i32
   %51 = icmp sgt i32 %50, 3
@@ -109,14 +109,14 @@ wildcardFileList.exit.thread.i:                   ; preds = %45
 52:                                               ; preds = %.lr.ph.i.i
   %53 = add i64 %49, 4294967292
   %54 = and i64 %53, 4294967295
-  %55 = getelementptr inbounds i8, ptr %phi.call22.i.i, i64 %54
+  %55 = getelementptr inbounds nuw i8, ptr %phi.call22.i.i, i64 %54
   %56 = load i8, ptr %55, align 1
   %57 = icmp eq i8 %56, 46
   br i1 %57, label %58, label %.split.i.i
 
 58:                                               ; preds = %52
   %59 = and i64 %49, 2147483647
-  %60 = getelementptr inbounds i8, ptr %phi.call22.i.i, i64 %59
+  %60 = getelementptr inbounds nuw i8, ptr %phi.call22.i.i, i64 %59
   %61 = getelementptr inbounds i8, ptr %60, i64 -3
   %62 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %61, ptr noundef nonnull dereferenceable(4) @.str.3) #6
   %.not.i15.i.i = icmp eq i32 %62, 0
@@ -166,7 +166,7 @@ wildcardFileList.exit.i:                          ; preds = %.split.i.i, %.split
   br i1 %.not45.i, label %114, label %81
 
 81:                                               ; preds = %wildcardFileList.exit.i
-  %82 = getelementptr inbounds i8, ptr %33, i64 8
+  %82 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %83 = load i64, ptr %82, align 8
   %.not46.i = icmp eq i64 %83, 0
   br i1 %.not46.i, label %114, label %84

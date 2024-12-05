@@ -37,20 +37,20 @@ entry:
   br i1 %cmp, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
-  %arrayidx = getelementptr inbounds i8, ptr %argv, i64 8
+  %arrayidx = getelementptr inbounds nuw i8, ptr %argv, i64 8
   %0 = load ptr, ptr %arrayidx, align 8
   %1 = load i8, ptr %0, align 1
   %.not = icmp eq i8 %1, 45
   br i1 %.not, label %sub_1, label %if.end
 
 sub_1:                                            ; preds = %land.lhs.true
-  %2 = getelementptr inbounds i8, ptr %0, i64 1
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %3 = load i8, ptr %2, align 1
   %.not27 = icmp eq i8 %3, 104
   br i1 %.not27, label %land.lhs.true.tail, label %if.end
 
 land.lhs.true.tail:                               ; preds = %sub_1
-  %4 = getelementptr inbounds i8, ptr %0, i64 2
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %5 = load i8, ptr %4, align 1
   %6 = icmp eq i8 %5, 0
   br i1 %6, label %if.then, label %if.end
@@ -64,26 +64,26 @@ if.end:                                           ; preds = %sub_1, %land.lhs.tr
   %7 = load ptr, ptr @the_repository, align 8
   tail call void @prepare_repo_settings(ptr noundef %7) #5
   %8 = load ptr, ptr @the_repository, align 8
-  %command_requires_full_index = getelementptr inbounds i8, ptr %8, i64 168
+  %command_requires_full_index = getelementptr inbounds nuw i8, ptr %8, i64 168
   store i32 0, ptr %command_requires_full_index, align 8
   call void @repo_init_revisions(ptr noundef %8, ptr noundef nonnull %rev, ptr noundef %prefix) #5
-  %abbrev = getelementptr inbounds i8, ptr %rev, i64 328
+  %abbrev = getelementptr inbounds nuw i8, ptr %rev, i64 328
   store i32 0, ptr %abbrev, align 8
-  %ita_invisible_in_index = getelementptr inbounds i8, ptr %rev, i64 1796
+  %ita_invisible_in_index = getelementptr inbounds nuw i8, ptr %rev, i64 1796
   store i32 1, ptr %ita_invisible_in_index, align 4
   %call2 = call i32 @setup_revisions(i32 noundef %argc, ptr noundef %argv, ptr noundef nonnull %rev, ptr noundef null) #5
   %cmp322 = icmp sgt i32 %call2, 1
   br i1 %cmp322, label %land.rhs.lr.ph, label %while.end
 
 land.rhs.lr.ph:                                   ; preds = %if.end
-  %max_count22 = getelementptr inbounds i8, ptr %rev, i64 1412
+  %max_count22 = getelementptr inbounds nuw i8, ptr %rev, i64 1412
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %if.end32
   %options.025 = phi i32 [ 0, %land.rhs.lr.ph ], [ %options.1, %if.end32 ]
   %argc.addr.024 = phi i32 [ %call2, %land.rhs.lr.ph ], [ %dec, %if.end32 ]
   %argv.addr.023 = phi ptr [ %argv, %land.rhs.lr.ph ], [ %arrayidx4, %if.end32 ]
-  %arrayidx4 = getelementptr inbounds i8, ptr %argv.addr.023, i64 8
+  %arrayidx4 = getelementptr inbounds nuw i8, ptr %argv.addr.023, i64 8
   %9 = load ptr, ptr %arrayidx4, align 8
   %10 = load i8, ptr %9, align 1
   %cmp6 = icmp eq i8 %10, 45
@@ -105,13 +105,13 @@ if.else17:                                        ; preds = %if.else
   br i1 %tobool20.not, label %if.end32.sink.split, label %sub_118
 
 sub_118:                                          ; preds = %if.else17
-  %11 = getelementptr inbounds i8, ptr %9, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 1
   %12 = load i8, ptr %11, align 1
   %.not29 = icmp eq i8 %12, 113
   br i1 %.not29, label %if.else23.tail, label %if.else28
 
 if.else23.tail:                                   ; preds = %sub_118
-  %13 = getelementptr inbounds i8, ptr %9, i64 2
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 2
   %14 = load i8, ptr %13, align 1
   %15 = icmp eq i8 %14, 0
   br i1 %15, label %if.end32, label %if.else28
@@ -133,7 +133,7 @@ if.end32:                                         ; preds = %if.end32.sink.split
 
 while.end:                                        ; preds = %land.rhs, %if.end32, %if.end
   %options.0.lcssa = phi i32 [ 0, %if.end ], [ %options.1, %if.end32 ], [ %options.025, %land.rhs ]
-  %output_format = getelementptr inbounds i8, ptr %rev, i64 1756
+  %output_format = getelementptr inbounds nuw i8, ptr %rev, i64 1756
   %16 = load i32, ptr %output_format, align 4
   %tobool34.not = icmp eq i32 %16, 0
   br i1 %tobool34.not, label %if.then35, label %if.end38
@@ -144,20 +144,20 @@ if.then35:                                        ; preds = %while.end
 
 if.end38:                                         ; preds = %if.then35, %while.end
   %17 = phi i32 [ 1, %if.then35 ], [ %16, %while.end ]
-  %rotate_to_strict = getelementptr inbounds i8, ptr %rev, i64 1492
+  %rotate_to_strict = getelementptr inbounds nuw i8, ptr %rev, i64 1492
   store i32 1, ptr %rotate_to_strict, align 4
-  %pending = getelementptr inbounds i8, ptr %rev, i64 8
+  %pending = getelementptr inbounds nuw i8, ptr %rev, i64 8
   %18 = load i32, ptr %pending, align 8
   %tobool40 = icmp ne i32 %18, 0
-  %min_age = getelementptr inbounds i8, ptr %rev, i64 1432
+  %min_age = getelementptr inbounds nuw i8, ptr %rev, i64 1432
   %19 = load i64, ptr %min_age, align 8
   %cmp41 = icmp ne i64 %19, -1
   %or.cond = select i1 %tobool40, i1 true, i1 %cmp41
-  %max_age = getelementptr inbounds i8, ptr %rev, i64 1416
+  %max_age = getelementptr inbounds nuw i8, ptr %rev, i64 1416
   %20 = load i64, ptr %max_age, align 8
   %cmp44 = icmp ne i64 %20, -1
   %or.cond1 = select i1 %or.cond, i1 true, i1 %cmp44
-  %max_count47 = getelementptr inbounds i8, ptr %rev, i64 1412
+  %max_count47 = getelementptr inbounds nuw i8, ptr %rev, i64 1412
   %21 = load i32, ptr %max_count47, align 4
   %cmp48 = icmp sgt i32 %21, 3
   %or.cond2 = select i1 %or.cond1, i1 true, i1 %cmp48
@@ -180,7 +180,7 @@ if.then59:                                        ; preds = %if.end51
 
 if.end60:                                         ; preds = %if.then59, %if.end51
   %22 = load ptr, ptr @the_repository, align 8
-  %pathspec = getelementptr inbounds i8, ptr %rev, i64 1936
+  %pathspec = getelementptr inbounds nuw i8, ptr %rev, i64 1936
   %call62 = call i32 @repo_read_index_preload(ptr noundef %22, ptr noundef nonnull %pathspec, i32 noundef 0) #5
   %cmp63 = icmp slt i32 %call62, 0
   br i1 %cmp63, label %if.then65, label %if.end66
@@ -190,7 +190,7 @@ if.then65:                                        ; preds = %if.end60
   unreachable
 
 if.end66:                                         ; preds = %if.end60
-  %diffopt = getelementptr inbounds i8, ptr %rev, i64 1472
+  %diffopt = getelementptr inbounds nuw i8, ptr %rev, i64 1472
   call void @run_diff_files(ptr noundef nonnull %rev, i32 noundef %options.0.lcssa) #5
   %call68 = call i32 @diff_result_code(ptr noundef nonnull %diffopt) #5
   call void @release_revisions(ptr noundef nonnull %rev) #5

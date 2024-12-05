@@ -34,7 +34,7 @@ declare void @_ZN4ncnn5ScaleC2Ev(ptr noundef nonnull align 8 dereferenceable(360
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden noundef i32 @_ZNK4ncnn16Scale_x86_avx51215forward_inplaceERSt6vectorINS_3MatESaIS2_EERKNS_6OptionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(360) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nocapture nonnull readnone align 8 %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %4 = load ptr, ptr %1, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 72
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 44
   %7 = load i32, ptr %6, align 4
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -75,11 +75,11 @@ define hidden noundef i32 @_ZNK4ncnn16Scale_x86_avx51215forward_inplaceERSt6vect
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv801 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next802, %.lr.ph ]
   %29 = shl nsw i64 %indvars.iv801, 4
-  %30 = getelementptr inbounds float, ptr %22, i64 %29
+  %30 = getelementptr inbounds nuw float, ptr %22, i64 %29
   %31 = load <16 x float>, ptr %30, align 1
-  %32 = getelementptr inbounds float, ptr %18, i64 %29
+  %32 = getelementptr inbounds nuw float, ptr %18, i64 %29
   %33 = load <16 x float>, ptr %32, align 1
-  %34 = getelementptr inbounds float, ptr %20, i64 %29
+  %34 = getelementptr inbounds nuw float, ptr %20, i64 %29
   %35 = load <16 x float>, ptr %34, align 1
   %36 = tail call fast noundef <16 x float> @llvm.fma.v16f32(<16 x float> %31, <16 x float> %33, <16 x float> %35)
   store <16 x float> %36, ptr %30, align 1
@@ -180,9 +180,9 @@ define hidden noundef i32 @_ZNK4ncnn16Scale_x86_avx51215forward_inplaceERSt6vect
 .lr.ph675:                                        ; preds = %.lr.ph675.preheader, %.lr.ph675
   %indvars.iv819 = phi i64 [ 0, %.lr.ph675.preheader ], [ %indvars.iv.next820, %.lr.ph675 ]
   %81 = shl nsw i64 %indvars.iv819, 4
-  %82 = getelementptr inbounds float, ptr %22, i64 %81
+  %82 = getelementptr inbounds nuw float, ptr %22, i64 %81
   %83 = load <16 x float>, ptr %82, align 1
-  %84 = getelementptr inbounds float, ptr %18, i64 %81
+  %84 = getelementptr inbounds nuw float, ptr %18, i64 %81
   %85 = load <16 x float>, ptr %84, align 1
   %86 = fmul fast <16 x float> %85, %83
   store <16 x float> %86, ptr %82, align 1
@@ -291,7 +291,7 @@ define hidden noundef i32 @_ZNK4ncnn16Scale_x86_avx51215forward_inplaceERSt6vect
   %138 = load i64, ptr %126, align 8
   %139 = mul i64 %137, %138
   %140 = getelementptr inbounds i8, ptr %134, i64 %139
-  %141 = getelementptr inbounds float, ptr %18, i64 %indvars.iv
+  %141 = getelementptr inbounds nuw float, ptr %18, i64 %indvars.iv
   %142 = load float, ptr %141, align 4
   br i1 %127, label %.thread630, label %143
 
@@ -307,7 +307,7 @@ define hidden noundef i32 @_ZNK4ncnn16Scale_x86_avx51215forward_inplaceERSt6vect
 
 148:                                              ; preds = %143
   %.idx = shl nsw i64 %indvars.iv, 5
-  %149 = getelementptr inbounds i8, ptr %18, i64 %.idx
+  %149 = getelementptr inbounds nuw i8, ptr %18, i64 %.idx
   %150 = load <8 x float>, ptr %149, align 1
   %.pre = load i32, ptr %130, align 4
   %151 = shufflevector <8 x float> %150, <8 x float> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
@@ -321,7 +321,7 @@ define hidden noundef i32 @_ZNK4ncnn16Scale_x86_avx51215forward_inplaceERSt6vect
 
 .thread630:                                       ; preds = %133
   %153 = shl nsw i64 %indvars.iv, 2
-  %154 = getelementptr inbounds float, ptr %18, i64 %153
+  %154 = getelementptr inbounds nuw float, ptr %18, i64 %153
   %155 = load <4 x float>, ptr %154, align 1
   %156 = shufflevector <4 x float> %155, <4 x float> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3>
   %157 = shufflevector <8 x float> %156, <8 x float> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
@@ -336,42 +336,42 @@ define hidden noundef i32 @_ZNK4ncnn16Scale_x86_avx51215forward_inplaceERSt6vect
   br i1 %131, label %.lr.ph708, label %.preheader649
 
 .thread632:                                       ; preds = %.thread630
-  %159 = getelementptr inbounds float, ptr %20, i64 %indvars.iv
+  %159 = getelementptr inbounds nuw float, ptr %20, i64 %indvars.iv
   %160 = load float, ptr %159, align 4
-  %161 = getelementptr inbounds float, ptr %20, i64 %153
+  %161 = getelementptr inbounds nuw float, ptr %20, i64 %153
   %162 = load <4 x float>, ptr %161, align 1
   %163 = shufflevector <4 x float> %162, <4 x float> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3>
   br label %187
 
 .thread617:                                       ; preds = %146
   %164 = shl nsw i64 %indvars.iv, 4
-  %165 = getelementptr inbounds float, ptr %18, i64 %164
+  %165 = getelementptr inbounds nuw float, ptr %18, i64 %164
   %166 = load <16 x float>, ptr %165, align 1
   %.not614618 = icmp eq i32 %.pre844, 0
   br i1 %.not614618, label %.preheader650, label %.thread621
 
 .thread621:                                       ; preds = %.thread617
-  %167 = getelementptr inbounds float, ptr %20, i64 %indvars.iv
+  %167 = getelementptr inbounds nuw float, ptr %20, i64 %indvars.iv
   %168 = load float, ptr %167, align 4
   %169 = insertelement <4 x float> poison, float %168, i64 0
   %170 = shufflevector <4 x float> %169, <4 x float> poison, <4 x i32> zeroinitializer
   %171 = shufflevector <4 x float> %169, <4 x float> poison, <8 x i32> zeroinitializer
-  %172 = getelementptr inbounds float, ptr %20, i64 %164
+  %172 = getelementptr inbounds nuw float, ptr %20, i64 %164
   %173 = load <16 x float>, ptr %172, align 1
   br label %195
 
 174:                                              ; preds = %148
-  %175 = getelementptr inbounds float, ptr %20, i64 %indvars.iv
+  %175 = getelementptr inbounds nuw float, ptr %20, i64 %indvars.iv
   %176 = load float, ptr %175, align 4
   %177 = insertelement <4 x float> poison, float %176, i64 0
   %178 = shufflevector <4 x float> %177, <4 x float> poison, <4 x i32> zeroinitializer
   %.idx847 = shl nsw i64 %indvars.iv, 5
-  %179 = getelementptr inbounds i8, ptr %20, i64 %.idx847
+  %179 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx847
   %180 = load <8 x float>, ptr %179, align 1
   br label %187
 
 181:                                              ; preds = %.thread
-  %182 = getelementptr inbounds float, ptr %20, i64 %indvars.iv
+  %182 = getelementptr inbounds nuw float, ptr %20, i64 %indvars.iv
   %183 = load float, ptr %182, align 4
   %184 = insertelement <4 x float> poison, float %183, i64 0
   %185 = shufflevector <4 x float> %184, <4 x float> poison, <4 x i32> zeroinitializer
@@ -411,7 +411,7 @@ define hidden noundef i32 @_ZNK4ncnn16Scale_x86_avx51215forward_inplaceERSt6vect
   %205 = load <16 x float>, ptr %.0548688, align 1
   %206 = tail call fast noundef <16 x float> @llvm.fma.v16f32(<16 x float> %205, <16 x float> %200, <16 x float> %202)
   store <16 x float> %206, ptr %.0548688, align 1
-  %207 = getelementptr inbounds i8, ptr %.0548688, i64 64
+  %207 = getelementptr inbounds nuw i8, ptr %.0548688, i64 64
   %208 = add nuw nsw i32 %.0543689, 16
   %209 = or disjoint i32 %208, 15
   %210 = icmp slt i32 %209, %124
@@ -430,7 +430,7 @@ define hidden noundef i32 @_ZNK4ncnn16Scale_x86_avx51215forward_inplaceERSt6vect
   %213 = load <8 x float>, ptr %.1549693, align 1
   %214 = tail call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> %213, <8 x float> %198, <8 x float> %196)
   store <8 x float> %214, ptr %.1549693, align 1
-  %215 = getelementptr inbounds i8, ptr %.1549693, i64 32
+  %215 = getelementptr inbounds nuw i8, ptr %.1549693, i64 32
   %216 = add nuw nsw i32 %.1544694, 8
   %217 = or disjoint i32 %216, 7
   %218 = icmp slt i32 %217, %124
@@ -448,7 +448,7 @@ define hidden noundef i32 @_ZNK4ncnn16Scale_x86_avx51215forward_inplaceERSt6vect
   %220 = load <4 x float>, ptr %.2550698, align 1
   %221 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> %220, <4 x float> %199, <4 x float> %201)
   store <4 x float> %221, ptr %.2550698, align 1
-  %222 = getelementptr inbounds i8, ptr %.2550698, i64 16
+  %222 = getelementptr inbounds nuw i8, ptr %.2550698, i64 16
   %223 = add nuw nsw i32 %.2545699, 4
   %224 = or disjoint i32 %223, 3
   %225 = icmp slt i32 %224, %124
@@ -461,7 +461,7 @@ define hidden noundef i32 @_ZNK4ncnn16Scale_x86_avx51215forward_inplaceERSt6vect
   %227 = fmul fast float %226, %142
   %228 = fadd fast float %227, %197
   store float %228, ptr %.3551703, align 4
-  %229 = getelementptr inbounds i8, ptr %.3551703, i64 4
+  %229 = getelementptr inbounds nuw i8, ptr %.3551703, i64 4
   %230 = add nuw nsw i32 %.3546704, 1
   %exitcond.not = icmp eq i32 %230, %124
   br i1 %exitcond.not, label %.loopexit647, label %.lr.ph705, !llvm.loop !16
@@ -479,7 +479,7 @@ define hidden noundef i32 @_ZNK4ncnn16Scale_x86_avx51215forward_inplaceERSt6vect
   %233 = load <16 x float>, ptr %.4552706, align 1
   %234 = fmul fast <16 x float> %233, %.ph651
   store <16 x float> %234, ptr %.4552706, align 1
-  %235 = getelementptr inbounds i8, ptr %.4552706, i64 64
+  %235 = getelementptr inbounds nuw i8, ptr %.4552706, i64 64
   %236 = add nuw nsw i32 %.0538707, 16
   %237 = or disjoint i32 %236, 15
   %238 = icmp slt i32 %237, %124
@@ -498,7 +498,7 @@ define hidden noundef i32 @_ZNK4ncnn16Scale_x86_avx51215forward_inplaceERSt6vect
   %241 = load <8 x float>, ptr %.5553711, align 1
   %242 = fmul fast <8 x float> %241, %.ph653
   store <8 x float> %242, ptr %.5553711, align 1
-  %243 = getelementptr inbounds i8, ptr %.5553711, i64 32
+  %243 = getelementptr inbounds nuw i8, ptr %.5553711, i64 32
   %244 = add nuw nsw i32 %.1539712, 8
   %245 = or disjoint i32 %244, 7
   %246 = icmp slt i32 %245, %124
@@ -516,7 +516,7 @@ define hidden noundef i32 @_ZNK4ncnn16Scale_x86_avx51215forward_inplaceERSt6vect
   %248 = load <4 x float>, ptr %.6554716, align 1
   %249 = fmul fast <4 x float> %248, %.ph652
   store <4 x float> %249, ptr %.6554716, align 1
-  %250 = getelementptr inbounds i8, ptr %.6554716, i64 16
+  %250 = getelementptr inbounds nuw i8, ptr %.6554716, i64 16
   %251 = add nuw nsw i32 %.2540717, 4
   %252 = or disjoint i32 %251, 3
   %253 = icmp slt i32 %252, %124
@@ -528,7 +528,7 @@ define hidden noundef i32 @_ZNK4ncnn16Scale_x86_avx51215forward_inplaceERSt6vect
   %254 = load float, ptr %.7555721, align 4
   %255 = fmul fast float %254, %142
   store float %255, ptr %.7555721, align 4
-  %256 = getelementptr inbounds i8, ptr %.7555721, i64 4
+  %256 = getelementptr inbounds nuw i8, ptr %.7555721, i64 4
   %257 = add nuw nsw i32 %.3541722, 1
   %exitcond798.not = icmp eq i32 %257, %124
   br i1 %exitcond798.not, label %.loopexit647, label %.lr.ph723, !llvm.loop !20
@@ -570,7 +570,7 @@ define hidden noundef i32 @_ZNK4ncnn16Scale_x86_avx51215forward_inplaceERSt6vect
   %276 = load i64, ptr %265, align 8
   %277 = mul i64 %275, %276
   %278 = getelementptr inbounds i8, ptr %273, i64 %277
-  %279 = getelementptr inbounds float, ptr %18, i64 %indvars.iv839
+  %279 = getelementptr inbounds nuw float, ptr %18, i64 %indvars.iv839
   %280 = load float, ptr %279, align 4
   br i1 %266, label %.thread633, label %281
 
@@ -586,7 +586,7 @@ define hidden noundef i32 @_ZNK4ncnn16Scale_x86_avx51215forward_inplaceERSt6vect
 
 286:                                              ; preds = %281
   %.idx848 = shl nsw i64 %indvars.iv839, 5
-  %287 = getelementptr inbounds i8, ptr %18, i64 %.idx848
+  %287 = getelementptr inbounds nuw i8, ptr %18, i64 %.idx848
   %288 = load <8 x float>, ptr %287, align 1
   %.pre845 = load i32, ptr %269, align 4
   %289 = shufflevector <8 x float> %288, <8 x float> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
@@ -600,7 +600,7 @@ define hidden noundef i32 @_ZNK4ncnn16Scale_x86_avx51215forward_inplaceERSt6vect
 
 .thread633:                                       ; preds = %272
   %291 = shl nsw i64 %indvars.iv839, 2
-  %292 = getelementptr inbounds float, ptr %18, i64 %291
+  %292 = getelementptr inbounds nuw float, ptr %18, i64 %291
   %293 = load <4 x float>, ptr %292, align 1
   %294 = shufflevector <4 x float> %293, <4 x float> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3>
   %295 = shufflevector <8 x float> %294, <8 x float> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
@@ -615,42 +615,42 @@ define hidden noundef i32 @_ZNK4ncnn16Scale_x86_avx51215forward_inplaceERSt6vect
   br i1 %270, label %.lr.ph750, label %.preheader637
 
 .thread635:                                       ; preds = %.thread633
-  %297 = getelementptr inbounds float, ptr %20, i64 %indvars.iv839
+  %297 = getelementptr inbounds nuw float, ptr %20, i64 %indvars.iv839
   %298 = load float, ptr %297, align 4
-  %299 = getelementptr inbounds float, ptr %20, i64 %291
+  %299 = getelementptr inbounds nuw float, ptr %20, i64 %291
   %300 = load <4 x float>, ptr %299, align 1
   %301 = shufflevector <4 x float> %300, <4 x float> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3>
   br label %325
 
 .thread625:                                       ; preds = %284
   %302 = shl nsw i64 %indvars.iv839, 4
-  %303 = getelementptr inbounds float, ptr %18, i64 %302
+  %303 = getelementptr inbounds nuw float, ptr %18, i64 %302
   %304 = load <16 x float>, ptr %303, align 1
   %.not613626 = icmp eq i32 %.pre846, 0
   br i1 %.not613626, label %.preheader638, label %.thread629
 
 .thread629:                                       ; preds = %.thread625
-  %305 = getelementptr inbounds float, ptr %20, i64 %indvars.iv839
+  %305 = getelementptr inbounds nuw float, ptr %20, i64 %indvars.iv839
   %306 = load float, ptr %305, align 4
   %307 = insertelement <4 x float> poison, float %306, i64 0
   %308 = shufflevector <4 x float> %307, <4 x float> poison, <4 x i32> zeroinitializer
   %309 = shufflevector <4 x float> %307, <4 x float> poison, <8 x i32> zeroinitializer
-  %310 = getelementptr inbounds float, ptr %20, i64 %302
+  %310 = getelementptr inbounds nuw float, ptr %20, i64 %302
   %311 = load <16 x float>, ptr %310, align 1
   br label %333
 
 312:                                              ; preds = %286
-  %313 = getelementptr inbounds float, ptr %20, i64 %indvars.iv839
+  %313 = getelementptr inbounds nuw float, ptr %20, i64 %indvars.iv839
   %314 = load float, ptr %313, align 4
   %315 = insertelement <4 x float> poison, float %314, i64 0
   %316 = shufflevector <4 x float> %315, <4 x float> poison, <4 x i32> zeroinitializer
   %.idx849 = shl nsw i64 %indvars.iv839, 5
-  %317 = getelementptr inbounds i8, ptr %20, i64 %.idx849
+  %317 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx849
   %318 = load <8 x float>, ptr %317, align 1
   br label %325
 
 319:                                              ; preds = %.thread853
-  %320 = getelementptr inbounds float, ptr %20, i64 %indvars.iv839
+  %320 = getelementptr inbounds nuw float, ptr %20, i64 %indvars.iv839
   %321 = load float, ptr %320, align 4
   %322 = insertelement <4 x float> poison, float %321, i64 0
   %323 = shufflevector <4 x float> %322, <4 x float> poison, <4 x i32> zeroinitializer
@@ -690,7 +690,7 @@ define hidden noundef i32 @_ZNK4ncnn16Scale_x86_avx51215forward_inplaceERSt6vect
   %343 = load <16 x float>, ptr %.0530729, align 1
   %344 = tail call fast noundef <16 x float> @llvm.fma.v16f32(<16 x float> %343, <16 x float> %338, <16 x float> %340)
   store <16 x float> %344, ptr %.0530729, align 1
-  %345 = getelementptr inbounds i8, ptr %.0530729, i64 64
+  %345 = getelementptr inbounds nuw i8, ptr %.0530729, i64 64
   %346 = add nuw nsw i32 %.0523730, 16
   %347 = or disjoint i32 %346, 15
   %348 = icmp slt i32 %347, %262
@@ -709,7 +709,7 @@ define hidden noundef i32 @_ZNK4ncnn16Scale_x86_avx51215forward_inplaceERSt6vect
   %351 = load <8 x float>, ptr %.1531735, align 1
   %352 = tail call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> %351, <8 x float> %336, <8 x float> %334)
   store <8 x float> %352, ptr %.1531735, align 1
-  %353 = getelementptr inbounds i8, ptr %.1531735, i64 32
+  %353 = getelementptr inbounds nuw i8, ptr %.1531735, i64 32
   %354 = add nuw nsw i32 %.1524736, 8
   %355 = or disjoint i32 %354, 7
   %356 = icmp slt i32 %355, %262
@@ -727,7 +727,7 @@ define hidden noundef i32 @_ZNK4ncnn16Scale_x86_avx51215forward_inplaceERSt6vect
   %358 = load <4 x float>, ptr %.2532740, align 1
   %359 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> %358, <4 x float> %337, <4 x float> %339)
   store <4 x float> %359, ptr %.2532740, align 1
-  %360 = getelementptr inbounds i8, ptr %.2532740, i64 16
+  %360 = getelementptr inbounds nuw i8, ptr %.2532740, i64 16
   %361 = add nuw nsw i32 %.2525741, 4
   %362 = or disjoint i32 %361, 3
   %363 = icmp slt i32 %362, %262
@@ -740,7 +740,7 @@ define hidden noundef i32 @_ZNK4ncnn16Scale_x86_avx51215forward_inplaceERSt6vect
   %365 = fmul fast float %364, %280
   %366 = fadd fast float %365, %335
   store float %366, ptr %.3533745, align 4
-  %367 = getelementptr inbounds i8, ptr %.3533745, i64 4
+  %367 = getelementptr inbounds nuw i8, ptr %.3533745, i64 4
   %368 = add nuw nsw i32 %.3526746, 1
   %exitcond837.not = icmp eq i32 %368, %262
   br i1 %exitcond837.not, label %.loopexit, label %.lr.ph747, !llvm.loop !25
@@ -758,7 +758,7 @@ define hidden noundef i32 @_ZNK4ncnn16Scale_x86_avx51215forward_inplaceERSt6vect
   %371 = load <16 x float>, ptr %.4748, align 1
   %372 = fmul fast <16 x float> %371, %.ph
   store <16 x float> %372, ptr %.4748, align 1
-  %373 = getelementptr inbounds i8, ptr %.4748, i64 64
+  %373 = getelementptr inbounds nuw i8, ptr %.4748, i64 64
   %374 = add nuw nsw i32 %.0749, 16
   %375 = or disjoint i32 %374, 15
   %376 = icmp slt i32 %375, %262
@@ -777,7 +777,7 @@ define hidden noundef i32 @_ZNK4ncnn16Scale_x86_avx51215forward_inplaceERSt6vect
   %379 = load <8 x float>, ptr %.5753, align 1
   %380 = fmul fast <8 x float> %379, %.ph640
   store <8 x float> %380, ptr %.5753, align 1
-  %381 = getelementptr inbounds i8, ptr %.5753, i64 32
+  %381 = getelementptr inbounds nuw i8, ptr %.5753, i64 32
   %382 = add nuw nsw i32 %.1754, 8
   %383 = or disjoint i32 %382, 7
   %384 = icmp slt i32 %383, %262
@@ -795,7 +795,7 @@ define hidden noundef i32 @_ZNK4ncnn16Scale_x86_avx51215forward_inplaceERSt6vect
   %386 = load <4 x float>, ptr %.6758, align 1
   %387 = fmul fast <4 x float> %386, %.ph639
   store <4 x float> %387, ptr %.6758, align 1
-  %388 = getelementptr inbounds i8, ptr %.6758, i64 16
+  %388 = getelementptr inbounds nuw i8, ptr %.6758, i64 16
   %389 = add nuw nsw i32 %.2759, 4
   %390 = or disjoint i32 %389, 3
   %391 = icmp slt i32 %390, %262
@@ -807,7 +807,7 @@ define hidden noundef i32 @_ZNK4ncnn16Scale_x86_avx51215forward_inplaceERSt6vect
   %392 = load float, ptr %.7763, align 4
   %393 = fmul fast float %392, %280
   store float %393, ptr %.7763, align 4
-  %394 = getelementptr inbounds i8, ptr %.7763, i64 4
+  %394 = getelementptr inbounds nuw i8, ptr %.7763, i64 4
   %395 = add nuw nsw i32 %.3764, 1
   %exitcond838.not = icmp eq i32 %395, %262
   br i1 %exitcond838.not, label %.loopexit, label %.lr.ph765, !llvm.loop !29
@@ -897,7 +897,7 @@ define linkonce_odr hidden void @_ZN4ncnn5ScaleD2Ev(ptr noundef nonnull align 8 
 
 12:                                               ; preds = %8
   %13 = load ptr, ptr %10, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = load ptr, ptr %14, align 8
   invoke void %15(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef %11)
           to label %18 unwind label %24
@@ -943,7 +943,7 @@ define linkonce_odr hidden void @_ZN4ncnn5ScaleD2Ev(ptr noundef nonnull align 8 
 
 34:                                               ; preds = %30
   %35 = load ptr, ptr %32, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %37 = load ptr, ptr %36, align 8
   invoke void %37(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef %33)
           to label %40 unwind label %43

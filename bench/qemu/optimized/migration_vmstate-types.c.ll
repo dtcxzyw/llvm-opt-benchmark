@@ -196,7 +196,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.23, i32 noundef %0, i32 noundef %call.i.i) #6
-  %err_hint = getelementptr inbounds i8, ptr %field, i64 8
+  %err_hint = getelementptr inbounds nuw i8, ptr %field, i64 8
   %1 = load ptr, ptr %err_hint, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %return, label %if.then1
@@ -311,7 +311,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.23, i32 noundef %0, i32 noundef %call.i) #6
-  %err_hint = getelementptr inbounds i8, ptr %field, i64 8
+  %err_hint = getelementptr inbounds nuw i8, ptr %field, i64 8
   %1 = load ptr, ptr %err_hint, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %return, label %if.then1
@@ -386,7 +386,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.28, i64 noundef %0, i64 noundef %call.i) #6
-  %err_hint = getelementptr inbounds i8, ptr %field, i64 8
+  %err_hint = getelementptr inbounds nuw i8, ptr %field, i64 8
   %1 = load ptr, ptr %err_hint, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %return, label %if.then1
@@ -413,7 +413,7 @@ if.end:                                           ; preds = %entry
   %conv1 = and i32 %call.i, 255
   %conv = zext i8 %0 to i32
   tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.23, i32 noundef %conv, i32 noundef %conv1) #6
-  %err_hint = getelementptr inbounds i8, ptr %field, i64 8
+  %err_hint = getelementptr inbounds nuw i8, ptr %field, i64 8
   %1 = load ptr, ptr %err_hint, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %return, label %if.then5
@@ -440,7 +440,7 @@ if.end:                                           ; preds = %entry
   %conv1 = and i32 %call.i, 65535
   %conv = zext i16 %0 to i32
   tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.23, i32 noundef %conv, i32 noundef %conv1) #6
-  %err_hint = getelementptr inbounds i8, ptr %field, i64 8
+  %err_hint = getelementptr inbounds nuw i8, ptr %field, i64 8
   %1 = load ptr, ptr %err_hint, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %return, label %if.then5
@@ -457,7 +457,7 @@ return:                                           ; preds = %if.end, %if.then5, 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i32 @get_cpudouble(ptr noundef %f, ptr nocapture noundef writeonly initializes((0, 8)) %pv, i64 %size, ptr nocapture readnone %field) #0 {
 entry:
-  %upper = getelementptr inbounds i8, ptr %pv, i64 4
+  %upper = getelementptr inbounds nuw i8, ptr %pv, i64 4
   %call.i = tail call i32 @qemu_get_be32(ptr noundef %f) #6
   store i32 %call.i, ptr %upper, align 4
   %call.i3 = tail call i32 @qemu_get_be32(ptr noundef %f) #6
@@ -468,7 +468,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i32 @put_cpudouble(ptr noundef %f, ptr nocapture noundef readonly %pv, i64 %size, ptr nocapture readnone %field, ptr nocapture readnone %vmdesc) #0 {
 entry:
-  %upper = getelementptr inbounds i8, ptr %pv, i64 4
+  %upper = getelementptr inbounds nuw i8, ptr %pv, i64 4
   %upper.val = load i32, ptr %upper, align 4
   tail call void @qemu_put_be32(ptr noundef %f, i32 noundef %upper.val) #6
   %pv.val = load i32, ptr %pv, align 4
@@ -530,9 +530,9 @@ while.end:                                        ; preds = %while.body, %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @get_tmp(ptr noundef %f, ptr noundef %pv, i64 noundef %size, ptr nocapture noundef readonly %field) #0 {
 entry:
-  %vmsd1 = getelementptr inbounds i8, ptr %field, i64 80
+  %vmsd1 = getelementptr inbounds nuw i8, ptr %field, i64 80
   %0 = load ptr, ptr %vmsd1, align 8
-  %version_id2 = getelementptr inbounds i8, ptr %field, i64 88
+  %version_id2 = getelementptr inbounds nuw i8, ptr %field, i64 88
   %1 = load i32, ptr %version_id2, align 8
   %call = tail call noalias ptr @g_malloc(i64 noundef %size) #7
   store ptr %pv, ptr %call, align 8
@@ -544,7 +544,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @put_tmp(ptr noundef %f, ptr noundef %pv, i64 noundef %size, ptr nocapture noundef readonly %field, ptr noundef %vmdesc) #0 {
 entry:
-  %vmsd1 = getelementptr inbounds i8, ptr %field, i64 80
+  %vmsd1 = getelementptr inbounds nuw i8, ptr %field, i64 80
   %0 = load ptr, ptr %vmsd1, align 8
   %call = tail call noalias ptr @g_malloc(i64 noundef %size) #7
   store ptr %pv, ptr %call, align 8
@@ -606,13 +606,13 @@ entry:
   %_now.i.i41 = alloca %struct.timeval, align 8
   %_now.i.i27 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
-  %vmsd1 = getelementptr inbounds i8, ptr %field, i64 80
+  %vmsd1 = getelementptr inbounds nuw i8, ptr %field, i64 80
   %0 = load ptr, ptr %vmsd1, align 8
-  %size2 = getelementptr inbounds i8, ptr %field, i64 24
+  %size2 = getelementptr inbounds nuw i8, ptr %field, i64 24
   %1 = load i64, ptr %size2, align 8
-  %start = getelementptr inbounds i8, ptr %field, i64 32
+  %start = getelementptr inbounds nuw i8, ptr %field, i64 32
   %2 = load i64, ptr %start, align 8
-  %version_id3 = getelementptr inbounds i8, ptr %field, i64 88
+  %version_id3 = getelementptr inbounds nuw i8, ptr %field, i64 88
   %3 = load i32, ptr %version_id3, align 8
   %4 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
@@ -638,7 +638,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #6
   %call10.i.i = tail call i32 @qemu_get_thread_id() #6
   %9 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %10 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.33, i32 noundef %call10.i.i, i64 noundef %9, i64 noundef %10, ptr noundef %4, i32 noundef %3) #6
   br label %trace_get_qtailq.exit
@@ -649,7 +649,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_get_qtailq.exit:                            ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %version_id4 = getelementptr inbounds i8, ptr %0, i64 12
+  %version_id4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %11 = load i32, ptr %version_id4, align 4
   %cmp = icmp sgt i32 %3, %11
   br i1 %cmp, label %if.then, label %if.end
@@ -681,7 +681,7 @@ if.then8.i.i37:                                   ; preds = %if.then.i.i34
   %call9.i.i38 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i27, ptr noundef null) #6
   %call10.i.i39 = tail call i32 @qemu_get_thread_id() #6
   %18 = load i64, ptr %_now.i.i27, align 8
-  %tv_usec.i.i40 = getelementptr inbounds i8, ptr %_now.i.i27, i64 8
+  %tv_usec.i.i40 = getelementptr inbounds nuw i8, ptr %_now.i.i27, i64 8
   %19 = load i64, ptr %tv_usec.i.i40, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.35, i32 noundef %call10.i.i39, i64 noundef %18, i64 noundef %19, ptr noundef %13, ptr noundef nonnull @.str.30, i32 noundef range(i32 -22, 1) -22) #6
   br label %trace_get_qtailq_end.exit
@@ -695,7 +695,7 @@ trace_get_qtailq_end.exit:                        ; preds = %if.then, %land.lhs.
   br label %return
 
 if.end:                                           ; preds = %trace_get_qtailq.exit
-  %minimum_version_id = getelementptr inbounds i8, ptr %0, i64 16
+  %minimum_version_id = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = load i32, ptr %minimum_version_id, align 8
   %cmp7 = icmp slt i32 %3, %20
   br i1 %cmp7, label %if.then8, label %while.cond.preheader
@@ -706,7 +706,7 @@ while.cond.preheader:                             ; preds = %if.end
   br i1 %tobool.not72, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %while.cond.preheader
-  %tql_prev = getelementptr inbounds i8, ptr %pv, i64 8
+  %tql_prev = getelementptr inbounds nuw i8, ptr %pv, i64 8
   br label %while.body
 
 if.then8:                                         ; preds = %if.end
@@ -736,7 +736,7 @@ if.then8.i.i51:                                   ; preds = %if.then.i.i48
   %call9.i.i52 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i41, ptr noundef null) #6
   %call10.i.i53 = tail call i32 @qemu_get_thread_id() #6
   %27 = load i64, ptr %_now.i.i41, align 8
-  %tv_usec.i.i54 = getelementptr inbounds i8, ptr %_now.i.i41, i64 8
+  %tv_usec.i.i54 = getelementptr inbounds nuw i8, ptr %_now.i.i41, i64 8
   %28 = load i64, ptr %tv_usec.i.i54, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.35, i32 noundef %call10.i.i53, i64 noundef %27, i64 noundef %28, ptr noundef %22, ptr noundef nonnull @.str.31, i32 noundef range(i32 -22, 1) -22) #6
   br label %trace_get_qtailq_end.exit55
@@ -759,7 +759,7 @@ do.body:                                          ; preds = %while.body
   %add.ptr = getelementptr i8, ptr %call12, i64 %2
   store ptr null, ptr %add.ptr, align 8
   %29 = load ptr, ptr %tql_prev, align 8
-  %tql_prev19 = getelementptr inbounds i8, ptr %add.ptr, i64 8
+  %tql_prev19 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 8
   store ptr %29, ptr %tql_prev19, align 8
   store ptr %call12, ptr %29, align 8
   store ptr %add.ptr, ptr %tql_prev, align 8
@@ -792,7 +792,7 @@ if.then8.i.i66:                                   ; preds = %if.then.i.i63
   %call9.i.i67 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i56, ptr noundef null) #6
   %call10.i.i68 = tail call i32 @qemu_get_thread_id() #6
   %35 = load i64, ptr %_now.i.i56, align 8
-  %tv_usec.i.i69 = getelementptr inbounds i8, ptr %_now.i.i56, i64 8
+  %tv_usec.i.i69 = getelementptr inbounds nuw i8, ptr %_now.i.i56, i64 8
   %36 = load i64, ptr %tv_usec.i.i69, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.35, i32 noundef %call10.i.i68, i64 noundef %35, i64 noundef %36, ptr noundef %30, ptr noundef nonnull @.str.32, i32 noundef range(i32 -22, 1) 0) #6
   br label %trace_get_qtailq_end.exit70
@@ -815,12 +815,12 @@ define internal i32 @put_qtailq(ptr noundef %f, ptr nocapture noundef readonly %
 entry:
   %_now.i.i10 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
-  %vmsd1 = getelementptr inbounds i8, ptr %field, i64 80
+  %vmsd1 = getelementptr inbounds nuw i8, ptr %field, i64 80
   %0 = load ptr, ptr %vmsd1, align 8
-  %start = getelementptr inbounds i8, ptr %field, i64 32
+  %start = getelementptr inbounds nuw i8, ptr %field, i64 32
   %1 = load i64, ptr %start, align 8
   %2 = load ptr, ptr %0, align 8
-  %version_id = getelementptr inbounds i8, ptr %0, i64 12
+  %version_id = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load i32, ptr %version_id, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %4 = load i32, ptr @trace_events_enabled_count, align 4
@@ -845,7 +845,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #6
   %call10.i.i = tail call i32 @qemu_get_thread_id() #6
   %8 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %9 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.37, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, ptr noundef %2, i32 noundef %3) #6
   br label %trace_put_qtailq.exit
@@ -899,7 +899,7 @@ if.then8.i.i20:                                   ; preds = %if.then.i.i17
   %call9.i.i21 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i10, ptr noundef null) #6
   %call10.i.i22 = tail call i32 @qemu_get_thread_id() #6
   %15 = load i64, ptr %_now.i.i10, align 8
-  %tv_usec.i.i23 = getelementptr inbounds i8, ptr %_now.i.i10, i64 8
+  %tv_usec.i.i23 = getelementptr inbounds nuw i8, ptr %_now.i.i10, i64 8
   %16 = load i64, ptr %tv_usec.i.i23, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.39, i32 noundef %call10.i.i22, i64 noundef %15, i64 noundef %16, ptr noundef %10, ptr noundef nonnull @.str.32) #6
   br label %trace_put_qtailq_end.exit
@@ -923,23 +923,23 @@ entry:
   %_now.i.i70 = alloca %struct.timeval, align 8
   %_now.i.i56 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
-  %start = getelementptr inbounds i8, ptr %field, i64 32
+  %start = getelementptr inbounds nuw i8, ptr %field, i64 32
   %0 = load i64, ptr %start, align 8
   %tobool.not = icmp eq i64 %0, 0
   br i1 %tobool.not, label %cond.end7.thread, label %land.lhs.true
 
 cond.end7.thread:                                 ; preds = %entry
-  %version_id990 = getelementptr inbounds i8, ptr %field, i64 88
+  %version_id990 = getelementptr inbounds nuw i8, ptr %field, i64 88
   %1 = load i32, ptr %version_id990, align 8
-  %.in99.phi.trans.insert = getelementptr inbounds i8, ptr %field, i64 80
+  %.in99.phi.trans.insert = getelementptr inbounds nuw i8, ptr %field, i64 80
   %.pre = load ptr, ptr %.in99.phi.trans.insert, align 8
   br label %if.end19
 
 land.lhs.true:                                    ; preds = %entry
-  %vmsd = getelementptr inbounds i8, ptr %field, i64 80
+  %vmsd = getelementptr inbounds nuw i8, ptr %field, i64 80
   %2 = load ptr, ptr %vmsd, align 8
   %arrayidx = getelementptr i8, ptr %2, i64 88
-  %version_id9 = getelementptr inbounds i8, ptr %field, i64 88
+  %version_id9 = getelementptr inbounds nuw i8, ptr %field, i64 88
   %3 = load i32, ptr %version_id9, align 8
   %version_id12 = getelementptr i8, ptr %2, i64 100
   %4 = load i32, ptr %version_id12, align 4
@@ -966,10 +966,10 @@ if.end19:                                         ; preds = %cond.end7.thread, %
   %8 = phi i32 [ %1, %cond.end7.thread ], [ %3, %land.lhs.true15 ]
   %cond893 = phi ptr [ @.str.41, %cond.end7.thread ], [ %5, %land.lhs.true15 ]
   %cond8792 = phi ptr [ null, %cond.end7.thread ], [ %arrayidx, %land.lhs.true15 ]
-  %.in = getelementptr inbounds i8, ptr %field, i64 24
+  %.in = getelementptr inbounds nuw i8, ptr %field, i64 24
   %9 = load i64, ptr %.in, align 8
   %10 = load ptr, ptr %pv, align 8
-  %version_id20 = getelementptr inbounds i8, ptr %7, i64 12
+  %version_id20 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %11 = load i32, ptr %version_id20, align 4
   %cmp21 = icmp sgt i32 %8, %11
   br i1 %cmp21, label %if.then22, label %if.end24
@@ -980,7 +980,7 @@ if.then22:                                        ; preds = %if.end19
   br label %return
 
 if.end24:                                         ; preds = %if.end19
-  %minimum_version_id25 = getelementptr inbounds i8, ptr %7, i64 16
+  %minimum_version_id25 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %13 = load i32, ptr %minimum_version_id25, align 8
   %cmp26 = icmp slt i32 %8, %13
   br i1 %cmp26, label %if.then27, label %if.end29
@@ -1017,7 +1017,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #6
   %call10.i.i = tail call i32 @qemu_get_thread_id() #6
   %21 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %22 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.44, i32 noundef %call10.i.i, i64 noundef %21, i64 noundef %22, ptr noundef %15, ptr noundef %cond893, ptr noundef %16, i32 noundef %call) #6
   br label %trace_get_gtree.exit
@@ -1121,7 +1121,7 @@ if.then8.i.i66:                                   ; preds = %if.then.i.i63
   %call9.i.i67 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i56, ptr noundef null) #6
   %call10.i.i68 = tail call i32 @qemu_get_thread_id() #6
   %32 = load i64, ptr %_now.i.i56, align 8
-  %tv_usec.i.i69 = getelementptr inbounds i8, ptr %_now.i.i56, i64 8
+  %tv_usec.i.i69 = getelementptr inbounds nuw i8, ptr %_now.i.i56, i64 8
   %33 = load i64, ptr %tv_usec.i.i69, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.46, i32 noundef %call10.i.i68, i64 noundef %32, i64 noundef %33, ptr noundef %26, ptr noundef %cond893, ptr noundef %27, i32 noundef %ret.1) #6
   br label %trace_get_gtree_end.exit
@@ -1177,7 +1177,7 @@ if.then8.i.i80:                                   ; preds = %if.then.i.i77
   %call9.i.i81 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i70, ptr noundef null) #6
   %call10.i.i82 = tail call i32 @qemu_get_thread_id() #6
   %42 = load i64, ptr %_now.i.i70, align 8
-  %tv_usec.i.i83 = getelementptr inbounds i8, ptr %_now.i.i70, i64 8
+  %tv_usec.i.i83 = getelementptr inbounds nuw i8, ptr %_now.i.i70, i64 8
   %43 = load i64, ptr %tv_usec.i.i83, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.46, i32 noundef %call10.i.i82, i64 noundef %42, i64 noundef %43, ptr noundef %36, ptr noundef %cond893, ptr noundef %37, i32 noundef %ret.298) #6
   br label %trace_get_gtree_end.exit84
@@ -1202,10 +1202,10 @@ entry:
   %_now.i.i18 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
   %capsule = alloca %struct.put_gtree_data, align 8
-  %start = getelementptr inbounds i8, ptr %field, i64 32
+  %start = getelementptr inbounds nuw i8, ptr %field, i64 32
   %0 = load i64, ptr %start, align 8
   %tobool.not = icmp eq i64 %0, 0
-  %vmsd248 = getelementptr inbounds i8, ptr %field, i64 80
+  %vmsd248 = getelementptr inbounds nuw i8, ptr %field, i64 80
   %1 = load ptr, ptr %vmsd248, align 8
   br i1 %tobool.not, label %cond.end7, label %cond.false6
 
@@ -1218,13 +1218,13 @@ cond.end7:                                        ; preds = %entry, %cond.false6
   %cond49 = phi ptr [ %arrayidx, %cond.false6 ], [ null, %entry ]
   %cond8 = phi ptr [ %2, %cond.false6 ], [ @.str.41, %entry ]
   store ptr %f, ptr %capsule, align 8
-  %key_vmsd10 = getelementptr inbounds i8, ptr %capsule, i64 8
+  %key_vmsd10 = getelementptr inbounds nuw i8, ptr %capsule, i64 8
   store ptr %cond49, ptr %key_vmsd10, align 8
-  %val_vmsd11 = getelementptr inbounds i8, ptr %capsule, i64 16
+  %val_vmsd11 = getelementptr inbounds nuw i8, ptr %capsule, i64 16
   store ptr %1, ptr %val_vmsd11, align 8
-  %vmdesc12 = getelementptr inbounds i8, ptr %capsule, i64 24
+  %vmdesc12 = getelementptr inbounds nuw i8, ptr %capsule, i64 24
   store ptr %vmdesc, ptr %vmdesc12, align 8
-  %ret = getelementptr inbounds i8, ptr %capsule, i64 32
+  %ret = getelementptr inbounds nuw i8, ptr %capsule, i64 32
   store i32 0, ptr %ret, align 8
   %3 = load ptr, ptr %pv, align 8
   %call = tail call i32 @g_tree_nnodes(ptr noundef %3) #6
@@ -1253,7 +1253,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #6
   %call10.i.i = tail call i32 @qemu_get_thread_id() #6
   %10 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %11 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.49, i32 noundef %call10.i.i, i64 noundef %10, i64 noundef %11, ptr noundef %4, ptr noundef %cond8, ptr noundef %5, i32 noundef %call) #6
   br label %trace_put_gtree.exit
@@ -1297,7 +1297,7 @@ if.then8.i.i28:                                   ; preds = %if.then.i.i25
   %call9.i.i29 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i18, ptr noundef null) #6
   %call10.i.i30 = call i32 @qemu_get_thread_id() #6
   %19 = load i64, ptr %_now.i.i18, align 8
-  %tv_usec.i.i31 = getelementptr inbounds i8, ptr %_now.i.i18, i64 8
+  %tv_usec.i.i31 = getelementptr inbounds nuw i8, ptr %_now.i.i18, i64 8
   %20 = load i64, ptr %tv_usec.i.i31, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.51, i32 noundef %call10.i.i30, i64 noundef %19, i64 noundef %20, ptr noundef %13, ptr noundef %cond8, ptr noundef %14, i32 noundef 0) #6
   br label %trace_put_gtree_end.exit
@@ -1337,7 +1337,7 @@ if.then8.i.i42:                                   ; preds = %if.then.i.i39
   %call9.i.i43 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i32, ptr noundef null) #6
   %call10.i.i44 = call i32 @qemu_get_thread_id() #6
   %27 = load i64, ptr %_now.i.i32, align 8
-  %tv_usec.i.i45 = getelementptr inbounds i8, ptr %_now.i.i32, i64 8
+  %tv_usec.i.i45 = getelementptr inbounds nuw i8, ptr %_now.i.i32, i64 8
   %28 = load i64, ptr %tv_usec.i.i45, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.51, i32 noundef %call10.i.i44, i64 noundef %27, i64 noundef %28, ptr noundef %21, ptr noundef %cond8, ptr noundef %22, i32 noundef %12) #6
   br label %trace_put_gtree_end.exit46
@@ -1359,17 +1359,17 @@ define internal i32 @get_qlist(ptr noundef %f, ptr noundef %pv, i64 %unused_size
 entry:
   %_now.i.i46 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
-  %vmsd1 = getelementptr inbounds i8, ptr %field, i64 80
+  %vmsd1 = getelementptr inbounds nuw i8, ptr %field, i64 80
   %0 = load ptr, ptr %vmsd1, align 8
-  %size2 = getelementptr inbounds i8, ptr %field, i64 24
+  %size2 = getelementptr inbounds nuw i8, ptr %field, i64 24
   %1 = load i64, ptr %size2, align 8
-  %start = getelementptr inbounds i8, ptr %field, i64 32
+  %start = getelementptr inbounds nuw i8, ptr %field, i64 32
   %2 = load i64, ptr %start, align 8
-  %version_id3 = getelementptr inbounds i8, ptr %field, i64 88
+  %version_id3 = getelementptr inbounds nuw i8, ptr %field, i64 88
   %3 = load i32, ptr %version_id3, align 8
   %4 = load ptr, ptr %field, align 8
   %5 = load ptr, ptr %0, align 8
-  %version_id5 = getelementptr inbounds i8, ptr %0, i64 12
+  %version_id5 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %6 = load i32, ptr %version_id5, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %7 = load i32, ptr @trace_events_enabled_count, align 4
@@ -1394,7 +1394,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #6
   %call10.i.i = tail call i32 @qemu_get_thread_id() #6
   %11 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %12 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.54, i32 noundef %call10.i.i, i64 noundef %11, i64 noundef %12, ptr noundef %4, ptr noundef %5, i32 noundef %6) #6
   br label %trace_get_qlist.exit
@@ -1415,7 +1415,7 @@ if.then:                                          ; preds = %trace_get_qlist.exi
   br label %return
 
 if.end:                                           ; preds = %trace_get_qlist.exit
-  %minimum_version_id = getelementptr inbounds i8, ptr %0, i64 16
+  %minimum_version_id = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load i32, ptr %minimum_version_id, align 8
   %cmp8 = icmp slt i32 %3, %15
   br i1 %cmp8, label %if.then9, label %while.cond.preheader
@@ -1511,7 +1511,7 @@ if.then8.i.i56:                                   ; preds = %if.then.i.i53
   %call9.i.i57 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i46, ptr noundef null) #6
   %call10.i.i58 = tail call i32 @qemu_get_thread_id() #6
   %27 = load i64, ptr %_now.i.i46, align 8
-  %tv_usec.i.i59 = getelementptr inbounds i8, ptr %_now.i.i46, i64 8
+  %tv_usec.i.i59 = getelementptr inbounds nuw i8, ptr %_now.i.i46, i64 8
   %28 = load i64, ptr %tv_usec.i.i59, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.56, i32 noundef %call10.i.i58, i64 noundef %27, i64 noundef %28, ptr noundef %21, ptr noundef %22) #6
   br label %trace_get_qlist_end.exit
@@ -1534,13 +1534,13 @@ define internal i32 @put_qlist(ptr noundef %f, ptr nocapture noundef readonly %p
 entry:
   %_now.i.i15 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
-  %vmsd1 = getelementptr inbounds i8, ptr %field, i64 80
+  %vmsd1 = getelementptr inbounds nuw i8, ptr %field, i64 80
   %0 = load ptr, ptr %vmsd1, align 8
-  %start = getelementptr inbounds i8, ptr %field, i64 32
+  %start = getelementptr inbounds nuw i8, ptr %field, i64 32
   %1 = load i64, ptr %start, align 8
   %2 = load ptr, ptr %field, align 8
   %3 = load ptr, ptr %0, align 8
-  %version_id = getelementptr inbounds i8, ptr %0, i64 12
+  %version_id = getelementptr inbounds nuw i8, ptr %0, i64 12
   %4 = load i32, ptr %version_id, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %5 = load i32, ptr @trace_events_enabled_count, align 4
@@ -1565,7 +1565,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #6
   %call10.i.i = tail call i32 @qemu_get_thread_id() #6
   %9 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %10 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.59, i32 noundef %call10.i.i, i64 noundef %9, i64 noundef %10, ptr noundef %2, ptr noundef %3, i32 noundef %4) #6
   br label %trace_put_qlist.exit
@@ -1626,7 +1626,7 @@ if.then8.i.i25:                                   ; preds = %if.then.i.i22
   %call9.i.i26 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i15, ptr noundef null) #6
   %call10.i.i27 = tail call i32 @qemu_get_thread_id() #6
   %19 = load i64, ptr %_now.i.i15, align 8
-  %tv_usec.i.i28 = getelementptr inbounds i8, ptr %_now.i.i15, i64 8
+  %tv_usec.i.i28 = getelementptr inbounds nuw i8, ptr %_now.i.i15, i64 8
   %20 = load i64, ptr %tv_usec.i.i28, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.61, i32 noundef %call10.i.i27, i64 noundef %19, i64 noundef %20, ptr noundef %13, ptr noundef %14) #6
   br label %trace_put_qlist_end.exit
@@ -1698,7 +1698,7 @@ define internal range(i32 0, 2) i32 @put_gtree_elem(ptr noundef %key, ptr nounde
 entry:
   %0 = load ptr, ptr %data, align 8
   tail call void @qemu_put_byte(ptr noundef %0, i32 noundef 1) #6
-  %key_vmsd = getelementptr inbounds i8, ptr %data, i64 8
+  %key_vmsd = getelementptr inbounds nuw i8, ptr %data, i64 8
   %1 = load ptr, ptr %key_vmsd, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.then, label %if.else
@@ -1709,16 +1709,16 @@ if.then:                                          ; preds = %entry
   br label %if.end6
 
 if.else:                                          ; preds = %entry
-  %vmdesc = getelementptr inbounds i8, ptr %data, i64 24
+  %vmdesc = getelementptr inbounds nuw i8, ptr %data, i64 24
   %3 = load ptr, ptr %vmdesc, align 8
   %call = tail call i32 @vmstate_save_state(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %key, ptr noundef %3) #6
   %tobool3.not = icmp eq i32 %call, 0
   br i1 %tobool3.not, label %if.end6, label %return.sink.split
 
 if.end6:                                          ; preds = %if.else, %if.then
-  %val_vmsd = getelementptr inbounds i8, ptr %data, i64 16
+  %val_vmsd = getelementptr inbounds nuw i8, ptr %data, i64 16
   %4 = load ptr, ptr %val_vmsd, align 8
-  %vmdesc7 = getelementptr inbounds i8, ptr %data, i64 24
+  %vmdesc7 = getelementptr inbounds nuw i8, ptr %data, i64 24
   %5 = load ptr, ptr %vmdesc7, align 8
   %call8 = tail call i32 @vmstate_save_state(ptr noundef %0, ptr noundef %4, ptr noundef %value, ptr noundef %5) #6
   %tobool9.not = icmp eq i32 %call8, 0
@@ -1726,7 +1726,7 @@ if.end6:                                          ; preds = %if.else, %if.then
 
 return.sink.split:                                ; preds = %if.end6, %if.else
   %call8.sink = phi i32 [ %call, %if.else ], [ %call8, %if.end6 ]
-  %ret11 = getelementptr inbounds i8, ptr %data, i64 32
+  %ret11 = getelementptr inbounds nuw i8, ptr %data, i64 32
   store i32 %call8.sink, ptr %ret11, align 8
   br label %return
 

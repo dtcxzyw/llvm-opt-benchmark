@@ -20,20 +20,20 @@ define void @make_uns_ordered_dither_array(ptr nocapture noundef initializes((0,
 
 5:                                                ; preds = %.preheader51, %5
   %indvars.iv = phi i64 [ 0, %.preheader51 ], [ %indvars.iv.next, %5 ]
-  %6 = getelementptr inbounds [8 x i8], ptr %0, i64 %indvars.iv59, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv59, i64 %indvars.iv
   %7 = load i8, ptr %6, align 1
   %8 = shl i8 %7, 2
   store i8 %8, ptr %6, align 1
   %9 = or disjoint i8 %8, 1
   %10 = add nuw nsw i64 %indvars.iv, %3
-  %11 = getelementptr inbounds [8 x i8], ptr %0, i64 %4, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %4, i64 %10
   store i8 %9, ptr %11, align 1
   %12 = load i8, ptr %6, align 1
   %13 = add i8 %12, 2
-  %14 = getelementptr inbounds [8 x i8], ptr %0, i64 %indvars.iv59, i64 %10
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv59, i64 %10
   store i8 %13, ptr %14, align 1
   %15 = add i8 %12, 3
-  %16 = getelementptr inbounds [8 x i8], ptr %0, i64 %4, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %4, i64 %indvars.iv
   store i8 %15, ptr %16, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %3
@@ -55,7 +55,7 @@ define void @make_uns_ordered_dither_array(ptr nocapture noundef initializes((0,
 
 21:                                               ; preds = %.preheader, %21
   %indvars.iv64 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next65, %21 ]
-  %22 = getelementptr inbounds [8 x i8], ptr %0, i64 %indvars.iv68, i64 %indvars.iv64
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv68, i64 %indvars.iv64
   %23 = load i8, ptr %22, align 1
   %24 = zext i8 %23 to i32
   %25 = mul nsw i32 %1, %24

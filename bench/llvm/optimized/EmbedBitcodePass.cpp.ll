@@ -150,11 +150,11 @@ _ZN4llvm17PreservedAnalysesD2Ev.exit:             ; preds = %_ZN4llvm17Preserved
   %60 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #6
   %61 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #6
   store ptr %60, ptr %13, align 8
-  %.sroa.22.0..sroa_idx.i = getelementptr inbounds i8, ptr %13, i64 8
+  %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i64 %61, ptr %.sroa.22.0..sroa_idx.i, align 8
   %62 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr @.str.3, ptr %62, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %13, i64 24
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %13, i64 24
   store i64 10, ptr %.sroa.2.0..sroa_idx.i, align 8
   call void @_ZN4llvm19embedBufferInModuleERNS_6ModuleENS_15MemoryBufferRefENS_9StringRefENS_5AlignE(ptr noundef nonnull align 8 dereferenceable(857) %2, ptr noundef nonnull byval(%"class.llvm::MemoryBufferRef") align 8 %13, ptr nonnull @.str.4, i64 9, i8 0) #6
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 32

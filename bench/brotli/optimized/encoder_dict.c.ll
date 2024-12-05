@@ -17,57 +17,57 @@ target triple = "x86_64-unknown-linux-gnu"
 define hidden void @BrotliInitSharedEncoderDictionary(ptr noundef initializes((0, 4), (8, 24), (280, 288), (408, 416), (544, 549), (1128, 1136), (1304, 1312)) %dict) local_unnamed_addr #0 {
 entry:
   store i32 -558043679, ptr %dict, align 8
-  %compound = getelementptr inbounds i8, ptr %dict, i64 8
-  %chunk_offsets = getelementptr inbounds i8, ptr %dict, i64 280
+  %compound = getelementptr inbounds nuw i8, ptr %dict, i64 8
+  %chunk_offsets = getelementptr inbounds nuw i8, ptr %dict, i64 280
   store i64 0, ptr %chunk_offsets, align 8
-  %num_prepared_instances_ = getelementptr inbounds i8, ptr %dict, i64 408
+  %num_prepared_instances_ = getelementptr inbounds nuw i8, ptr %dict, i64 408
   store i64 0, ptr %num_prepared_instances_, align 8
-  %contextual = getelementptr inbounds i8, ptr %dict, i64 544
+  %contextual = getelementptr inbounds nuw i8, ptr %dict, i64 544
   store i32 0, ptr %contextual, align 8
-  %num_dictionaries = getelementptr inbounds i8, ptr %dict, i64 548
+  %num_dictionaries = getelementptr inbounds nuw i8, ptr %dict, i64 548
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %compound, i8 0, i64 16, i1 false)
   store i8 1, ptr %num_dictionaries, align 4
-  %instances_ = getelementptr inbounds i8, ptr %dict, i64 1304
+  %instances_ = getelementptr inbounds nuw i8, ptr %dict, i64 1304
   store ptr null, ptr %instances_, align 8
-  %num_instances_ = getelementptr inbounds i8, ptr %dict, i64 1128
+  %num_instances_ = getelementptr inbounds nuw i8, ptr %dict, i64 1128
   store i64 1, ptr %num_instances_, align 8
-  %instance_ = getelementptr inbounds i8, ptr %dict, i64 1136
-  %dict9 = getelementptr inbounds i8, ptr %dict, i64 616
+  %instance_ = getelementptr inbounds nuw i8, ptr %dict, i64 1136
+  %dict9 = getelementptr inbounds nuw i8, ptr %dict, i64 616
   store ptr %instance_, ptr %dict9, align 8
   %call.i = tail call ptr @BrotliGetDictionary() #3
   store ptr %call.i, ptr %instance_, align 8
   %call1.i = tail call ptr @BrotliGetTransforms() #3
-  %num_transforms.i = getelementptr inbounds i8, ptr %call1.i, i64 24
+  %num_transforms.i = getelementptr inbounds nuw i8, ptr %call1.i, i64 24
   %0 = load i32, ptr %num_transforms.i, align 8
-  %num_transforms2.i = getelementptr inbounds i8, ptr %dict, i64 1144
+  %num_transforms2.i = getelementptr inbounds nuw i8, ptr %dict, i64 1144
   store i32 %0, ptr %num_transforms2.i, align 8
-  %hash_table_words.i = getelementptr inbounds i8, ptr %dict, i64 1160
+  %hash_table_words.i = getelementptr inbounds nuw i8, ptr %dict, i64 1160
   store ptr @kStaticDictionaryHashWords, ptr %hash_table_words.i, align 8
-  %hash_table_lengths.i = getelementptr inbounds i8, ptr %dict, i64 1168
+  %hash_table_lengths.i = getelementptr inbounds nuw i8, ptr %dict, i64 1168
   store ptr @kStaticDictionaryHashLengths, ptr %hash_table_lengths.i, align 8
-  %buckets.i = getelementptr inbounds i8, ptr %dict, i64 1176
+  %buckets.i = getelementptr inbounds nuw i8, ptr %dict, i64 1176
   store ptr @kStaticDictionaryBuckets, ptr %buckets.i, align 8
-  %dict_words.i = getelementptr inbounds i8, ptr %dict, i64 1184
+  %dict_words.i = getelementptr inbounds nuw i8, ptr %dict, i64 1184
   store ptr @kStaticDictionaryWords, ptr %dict_words.i, align 8
-  %cutoffTransformsCount.i = getelementptr inbounds i8, ptr %dict, i64 1148
+  %cutoffTransformsCount.i = getelementptr inbounds nuw i8, ptr %dict, i64 1148
   store i32 10, ptr %cutoffTransformsCount.i, align 4
-  %cutoffTransforms.i = getelementptr inbounds i8, ptr %dict, i64 1152
+  %cutoffTransforms.i = getelementptr inbounds nuw i8, ptr %dict, i64 1152
   store i64 512093189200228864, ptr %cutoffTransforms.i, align 8
-  %parent.i = getelementptr inbounds i8, ptr %dict, i64 1240
-  %has_words_heavy.i = getelementptr inbounds i8, ptr %dict, i64 1232
+  %parent.i = getelementptr inbounds nuw i8, ptr %dict, i64 1240
+  %has_words_heavy.i = getelementptr inbounds nuw i8, ptr %dict, i64 1232
   store i32 0, ptr %has_words_heavy.i, align 8
-  %trie.i = getelementptr inbounds i8, ptr %dict, i64 1192
-  %len_.i.i = getelementptr inbounds i8, ptr %dict, i64 1218
+  %trie.i = getelementptr inbounds nuw i8, ptr %dict, i64 1192
+  %len_.i.i = getelementptr inbounds nuw i8, ptr %dict, i64 1218
   store i8 0, ptr %len_.i.i, align 2
-  %idx_.i.i = getelementptr inbounds i8, ptr %dict, i64 1220
+  %idx_.i.i = getelementptr inbounds nuw i8, ptr %dict, i64 1220
   store i32 0, ptr %idx_.i.i, align 4
-  %sub.i.i = getelementptr inbounds i8, ptr %dict, i64 1224
+  %sub.i.i = getelementptr inbounds nuw i8, ptr %dict, i64 1224
   store i32 0, ptr %sub.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %trie.i, i8 0, i64 25, i1 false)
-  %1 = getelementptr inbounds i8, ptr %dict, i64 1248
+  %1 = getelementptr inbounds nuw i8, ptr %dict, i64 1248
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %1, i8 0, i64 56, i1 false)
   store ptr %contextual, ptr %parent.i, align 8
-  %max_quality = getelementptr inbounds i8, ptr %dict, i64 1312
+  %max_quality = getelementptr inbounds nuw i8, ptr %dict, i64 1312
   store i32 11, ptr %max_quality, align 8
   ret void
 }
@@ -75,13 +75,13 @@ entry:
 ; Function Attrs: nounwind uwtable
 define hidden void @BrotliCleanupSharedEncoderDictionary(ptr noundef %m, ptr nocapture noundef readonly %dict) local_unnamed_addr #0 {
 entry:
-  %num_prepared_instances_ = getelementptr inbounds i8, ptr %dict, i64 408
+  %num_prepared_instances_ = getelementptr inbounds nuw i8, ptr %dict, i64 408
   %0 = load i64, ptr %num_prepared_instances_, align 8
   %cmp23.not = icmp eq i64 %0, 0
   br i1 %cmp23.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %prepared_instances_ = getelementptr inbounds i8, ptr %dict, i64 416
+  %prepared_instances_ = getelementptr inbounds nuw i8, ptr %dict, i64 416
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -95,7 +95,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !4
 
 for.end:                                          ; preds = %for.body, %entry
-  %num_instances_ = getelementptr inbounds i8, ptr %dict, i64 1128
+  %num_instances_ = getelementptr inbounds nuw i8, ptr %dict, i64 1128
   %3 = load i64, ptr %num_instances_, align 8
   switch i64 %3, label %for.body12.lr.ph [
     i64 1, label %if.then
@@ -103,23 +103,23 @@ for.end:                                          ; preds = %for.body, %entry
   ]
 
 for.body12.lr.ph:                                 ; preds = %for.end
-  %instances_ = getelementptr inbounds i8, ptr %dict, i64 1304
+  %instances_ = getelementptr inbounds nuw i8, ptr %dict, i64 1304
   br label %for.body12
 
 if.then:                                          ; preds = %for.end
-  %hash_table_data_words_.i = getelementptr inbounds i8, ptr %dict, i64 1248
+  %hash_table_data_words_.i = getelementptr inbounds nuw i8, ptr %dict, i64 1248
   %4 = load ptr, ptr %hash_table_data_words_.i, align 8
   tail call void @BrotliFree(ptr noundef %m, ptr noundef %4) #3
-  %hash_table_data_lengths_.i = getelementptr inbounds i8, ptr %dict, i64 1256
+  %hash_table_data_lengths_.i = getelementptr inbounds nuw i8, ptr %dict, i64 1256
   %5 = load ptr, ptr %hash_table_data_lengths_.i, align 8
   tail call void @BrotliFree(ptr noundef %m, ptr noundef %5) #3
-  %buckets_data_.i = getelementptr inbounds i8, ptr %dict, i64 1272
+  %buckets_data_.i = getelementptr inbounds nuw i8, ptr %dict, i64 1272
   %6 = load ptr, ptr %buckets_data_.i, align 8
   tail call void @BrotliFree(ptr noundef %m, ptr noundef %6) #3
-  %dict_words_data_.i = getelementptr inbounds i8, ptr %dict, i64 1288
+  %dict_words_data_.i = getelementptr inbounds nuw i8, ptr %dict, i64 1288
   %7 = load ptr, ptr %dict_words_data_.i, align 8
   tail call void @BrotliFree(ptr noundef %m, ptr noundef %7) #3
-  %words_instance_.i = getelementptr inbounds i8, ptr %dict, i64 1296
+  %words_instance_.i = getelementptr inbounds nuw i8, ptr %dict, i64 1296
   %8 = load ptr, ptr %words_instance_.i, align 8
   tail call void @BrotliFree(ptr noundef %m, ptr noundef %8) #3
   br label %if.end20.sink.split
@@ -128,22 +128,22 @@ for.body12:                                       ; preds = %for.body12.lr.ph, %
   %i.126 = phi i64 [ 0, %for.body12.lr.ph ], [ %inc16, %for.body12 ]
   %9 = load ptr, ptr %instances_, align 8
   %arrayidx14 = getelementptr inbounds %struct.BrotliEncoderDictionary, ptr %9, i64 %i.126
-  %hash_table_data_words_.i16 = getelementptr inbounds i8, ptr %arrayidx14, i64 112
+  %hash_table_data_words_.i16 = getelementptr inbounds nuw i8, ptr %arrayidx14, i64 112
   %10 = load ptr, ptr %hash_table_data_words_.i16, align 8
   tail call void @BrotliFree(ptr noundef %m, ptr noundef %10) #3
-  %hash_table_data_lengths_.i17 = getelementptr inbounds i8, ptr %arrayidx14, i64 120
+  %hash_table_data_lengths_.i17 = getelementptr inbounds nuw i8, ptr %arrayidx14, i64 120
   %11 = load ptr, ptr %hash_table_data_lengths_.i17, align 8
   tail call void @BrotliFree(ptr noundef %m, ptr noundef %11) #3
-  %buckets_data_.i18 = getelementptr inbounds i8, ptr %arrayidx14, i64 136
+  %buckets_data_.i18 = getelementptr inbounds nuw i8, ptr %arrayidx14, i64 136
   %12 = load ptr, ptr %buckets_data_.i18, align 8
   tail call void @BrotliFree(ptr noundef %m, ptr noundef %12) #3
-  %dict_words_data_.i19 = getelementptr inbounds i8, ptr %arrayidx14, i64 152
+  %dict_words_data_.i19 = getelementptr inbounds nuw i8, ptr %arrayidx14, i64 152
   %13 = load ptr, ptr %dict_words_data_.i19, align 8
   tail call void @BrotliFree(ptr noundef %m, ptr noundef %13) #3
-  %words_instance_.i20 = getelementptr inbounds i8, ptr %arrayidx14, i64 160
+  %words_instance_.i20 = getelementptr inbounds nuw i8, ptr %arrayidx14, i64 160
   %14 = load ptr, ptr %words_instance_.i20, align 8
   tail call void @BrotliFree(ptr noundef %m, ptr noundef %14) #3
-  %trie.i21 = getelementptr inbounds i8, ptr %arrayidx14, i64 56
+  %trie.i21 = getelementptr inbounds nuw i8, ptr %arrayidx14, i64 56
   %trie.val.i22 = load ptr, ptr %trie.i21, align 8
   tail call void @BrotliFree(ptr noundef %m, ptr noundef %trie.val.i22) #3
   %inc16 = add nuw i64 %i.126, 1
@@ -153,7 +153,7 @@ for.body12:                                       ; preds = %for.body12.lr.ph, %
 
 if.end20.sink.split:                              ; preds = %for.body12, %if.then
   %.sink = phi i64 [ 1192, %if.then ], [ 1304, %for.body12 ]
-  %instances_19 = getelementptr inbounds i8, ptr %dict, i64 %.sink
+  %instances_19 = getelementptr inbounds nuw i8, ptr %dict, i64 %.sink
   %16 = load ptr, ptr %instances_19, align 8
   tail call void @BrotliFree(ptr noundef %m, ptr noundef %16) #3
   br label %if.end20
@@ -175,9 +175,9 @@ entry:
 
 if.end:                                           ; preds = %entry
   store i32 -558043678, ptr %call, align 8
-  %memory_manager_ = getelementptr inbounds i8, ptr %call, i64 8
+  %memory_manager_ = getelementptr inbounds nuw i8, ptr %call, i64 8
   tail call void @BrotliInitMemoryManager(ptr noundef nonnull %memory_manager_, ptr noundef %alloc_func, ptr noundef %free_func, ptr noundef %opaque) #3
-  %dictionary = getelementptr inbounds i8, ptr %call, i64 32
+  %dictionary = getelementptr inbounds nuw i8, ptr %call, i64 32
   store ptr null, ptr %dictionary, align 8
   br label %return
 
@@ -196,7 +196,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %memory_manager_ = getelementptr inbounds i8, ptr %dictionary, i64 8
+  %memory_manager_ = getelementptr inbounds nuw i8, ptr %dictionary, i64 8
   tail call void @BrotliBootstrapFree(ptr noundef nonnull %dictionary, ptr noundef nonnull %memory_manager_) #3
   br label %return
 

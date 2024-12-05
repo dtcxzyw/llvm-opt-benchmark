@@ -68,72 +68,72 @@ define hidden void @cdf_swap_header(ptr nocapture noundef %0) local_unnamed_addr
 define hidden void @cdf_unpack_header(ptr nocapture noundef writeonly initializes((0, 76)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
   %3 = load i64, ptr %1, align 1
   store i64 %3, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 1 dereferenceable(16) %5, i64 16, i1 false)
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
-  %7 = getelementptr inbounds i8, ptr %1, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load i16, ptr %7, align 1
   store i16 %8, ptr %6, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 26
-  %10 = getelementptr inbounds i8, ptr %1, i64 26
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 26
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 26
   %11 = load i16, ptr %10, align 1
   store i16 %11, ptr %9, align 2
-  %12 = getelementptr inbounds i8, ptr %0, i64 28
-  %13 = getelementptr inbounds i8, ptr %1, i64 28
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %14 = load i16, ptr %13, align 1
   store i16 %14, ptr %12, align 4
-  %15 = getelementptr inbounds i8, ptr %0, i64 30
-  %16 = getelementptr inbounds i8, ptr %1, i64 30
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 30
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 30
   %17 = load i16, ptr %16, align 1
   store i16 %17, ptr %15, align 2
-  %18 = getelementptr inbounds i8, ptr %0, i64 32
-  %19 = getelementptr inbounds i8, ptr %1, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %20 = load i16, ptr %19, align 1
   store i16 %20, ptr %18, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 34
-  %22 = getelementptr inbounds i8, ptr %1, i64 34
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 34
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 34
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) %21, ptr noundef nonnull align 1 dereferenceable(10) %22, i64 10, i1 false)
-  %23 = getelementptr inbounds i8, ptr %0, i64 44
-  %24 = getelementptr inbounds i8, ptr %1, i64 44
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %25 = load i32, ptr %24, align 1
   store i32 %25, ptr %23, align 4
-  %26 = getelementptr inbounds i8, ptr %0, i64 48
-  %27 = getelementptr inbounds i8, ptr %1, i64 48
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %28 = load i32, ptr %27, align 1
   store i32 %28, ptr %26, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 52
-  %30 = getelementptr inbounds i8, ptr %1, i64 52
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %31 = load i32, ptr %30, align 1
   store i32 %31, ptr %29, align 4
-  %32 = getelementptr inbounds i8, ptr %0, i64 56
-  %33 = getelementptr inbounds i8, ptr %1, i64 56
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %34 = load i32, ptr %33, align 1
   store i32 %34, ptr %32, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 60
-  %36 = getelementptr inbounds i8, ptr %1, i64 60
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 60
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %37 = load i32, ptr %36, align 1
   store i32 %37, ptr %35, align 4
-  %38 = getelementptr inbounds i8, ptr %0, i64 64
-  %39 = getelementptr inbounds i8, ptr %1, i64 64
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %40 = load i32, ptr %39, align 1
   store i32 %40, ptr %38, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 68
-  %42 = getelementptr inbounds i8, ptr %1, i64 68
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 68
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %43 = load i32, ptr %42, align 1
   store i32 %43, ptr %41, align 4
-  %44 = getelementptr inbounds i8, ptr %0, i64 72
-  %45 = getelementptr inbounds i8, ptr %1, i64 72
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %46 = load i32, ptr %45, align 1
   store i32 %46, ptr %44, align 8
-  %47 = getelementptr inbounds i8, ptr %0, i64 76
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 76
   br label %48
 
 48:                                               ; preds = %2, %48
   %.072 = phi i64 [ 76, %2 ], [ %52, %48 ]
   %.07071 = phi i64 [ 0, %2 ], [ %53, %48 ]
-  %49 = getelementptr inbounds [109 x i32], ptr %47, i64 0, i64 %.07071
-  %50 = getelementptr inbounds i8, ptr %1, i64 %.072
+  %49 = getelementptr inbounds nuw [109 x i32], ptr %47, i64 0, i64 %.07071
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 %.072
   %51 = load i32, ptr %50, align 1
   store i32 %51, ptr %49, align 4
   %52 = add nuw nsw i64 %.072, 4
@@ -161,55 +161,55 @@ define hidden void @cdf_swap_class(ptr nocapture noundef %0) local_unnamed_addr 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @cdf_unpack_dir(ptr nocapture noundef writeonly initializes((0, 100), (104, 132)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #5 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 1 dereferenceable(64) %1, i64 64, i1 false)
-  %3 = getelementptr inbounds i8, ptr %0, i64 64
-  %4 = getelementptr inbounds i8, ptr %1, i64 64
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %5 = load i16, ptr %4, align 1
   store i16 %5, ptr %3, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 66
-  %7 = getelementptr inbounds i8, ptr %1, i64 66
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 66
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 66
   %8 = load i8, ptr %7, align 1
   store i8 %8, ptr %6, align 2
-  %9 = getelementptr inbounds i8, ptr %0, i64 67
-  %10 = getelementptr inbounds i8, ptr %1, i64 67
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 67
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 67
   %11 = load i8, ptr %10, align 1
   store i8 %11, ptr %9, align 1
-  %12 = getelementptr inbounds i8, ptr %0, i64 68
-  %13 = getelementptr inbounds i8, ptr %1, i64 68
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 68
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %14 = load i32, ptr %13, align 1
   store i32 %14, ptr %12, align 4
-  %15 = getelementptr inbounds i8, ptr %0, i64 72
-  %16 = getelementptr inbounds i8, ptr %1, i64 72
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %17 = load i32, ptr %16, align 1
   store i32 %17, ptr %15, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 76
-  %19 = getelementptr inbounds i8, ptr %1, i64 76
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 76
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 76
   %20 = load i32, ptr %19, align 1
   store i32 %20, ptr %18, align 4
-  %21 = getelementptr inbounds i8, ptr %0, i64 80
-  %22 = getelementptr inbounds i8, ptr %1, i64 80
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 80
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef nonnull align 1 dereferenceable(16) %22, i64 16, i1 false)
-  %23 = getelementptr inbounds i8, ptr %0, i64 96
-  %24 = getelementptr inbounds i8, ptr %1, i64 96
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %25 = load i32, ptr %24, align 1
   store i32 %25, ptr %23, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 104
-  %27 = getelementptr inbounds i8, ptr %1, i64 100
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 100
   %28 = load i64, ptr %27, align 1
   store i64 %28, ptr %26, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 112
-  %30 = getelementptr inbounds i8, ptr %1, i64 108
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 108
   %31 = load i64, ptr %30, align 1
   store i64 %31, ptr %29, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 120
-  %33 = getelementptr inbounds i8, ptr %1, i64 116
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 116
   %34 = load i32, ptr %33, align 1
   store i32 %34, ptr %32, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 124
-  %36 = getelementptr inbounds i8, ptr %1, i64 120
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 124
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %37 = load i32, ptr %36, align 1
   store i32 %37, ptr %35, align 4
-  %38 = getelementptr inbounds i8, ptr %0, i64 128
-  %39 = getelementptr inbounds i8, ptr %1, i64 124
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 124
   %40 = load i32, ptr %39, align 1
   store i32 %40, ptr %38, align 8
   ret void
@@ -217,7 +217,7 @@ define hidden void @cdf_unpack_dir(ptr nocapture noundef writeonly initializes((
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @cdf_zero_stream(ptr nocapture noundef initializes((8, 32)) %0) local_unnamed_addr #6 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   %3 = load ptr, ptr %0, align 8
   tail call void @_efree(ptr noundef %3) #20
@@ -231,13 +231,13 @@ declare void @_efree(ptr noundef) local_unnamed_addr #7
 define hidden range(i32 -1, 1) i32 @cdf_read_header(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #6 {
   %3 = alloca [512 x i8], align 16
   store i1 true, ptr @cdf_bo.0, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %10, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8
   %.not24.i = icmp ult i64 %8, 512
   br i1 %.not24.i, label %10, label %9
@@ -265,66 +265,66 @@ define hidden range(i32 -1, 1) i32 @cdf_read_header(ptr nocapture noundef readon
 cdf_read.exit:                                    ; preds = %16, %9
   %19 = load i64, ptr %3, align 16
   store i64 %19, ptr %1, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 8
-  %21 = getelementptr inbounds i8, ptr %3, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull readonly align 8 dereferenceable(16) %21, i64 16, i1 false)
-  %22 = getelementptr inbounds i8, ptr %1, i64 24
-  %23 = getelementptr inbounds i8, ptr %3, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %24 = load i16, ptr %23, align 8
   store i16 %24, ptr %22, align 8
-  %25 = getelementptr inbounds i8, ptr %1, i64 26
-  %26 = getelementptr inbounds i8, ptr %3, i64 26
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 26
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 26
   %27 = load i16, ptr %26, align 2
   store i16 %27, ptr %25, align 2
-  %28 = getelementptr inbounds i8, ptr %1, i64 28
-  %29 = getelementptr inbounds i8, ptr %3, i64 28
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 28
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 28
   %30 = load i16, ptr %29, align 4
   store i16 %30, ptr %28, align 4
-  %31 = getelementptr inbounds i8, ptr %1, i64 30
-  %32 = getelementptr inbounds i8, ptr %3, i64 30
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 30
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 30
   %33 = load i16, ptr %32, align 2
   store i16 %33, ptr %31, align 2
-  %34 = getelementptr inbounds i8, ptr %1, i64 32
-  %35 = getelementptr inbounds i8, ptr %3, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %36 = load i16, ptr %35, align 16
   store i16 %36, ptr %34, align 8
-  %37 = getelementptr inbounds i8, ptr %1, i64 34
-  %38 = getelementptr inbounds i8, ptr %3, i64 34
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 34
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 34
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) %37, ptr noundef nonnull readonly align 2 dereferenceable(10) %38, i64 10, i1 false)
-  %39 = getelementptr inbounds i8, ptr %1, i64 44
-  %40 = getelementptr inbounds i8, ptr %3, i64 44
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 44
+  %40 = getelementptr inbounds nuw i8, ptr %3, i64 44
   %41 = load i32, ptr %40, align 4
   store i32 %41, ptr %39, align 4
-  %42 = getelementptr inbounds i8, ptr %1, i64 48
-  %43 = getelementptr inbounds i8, ptr %3, i64 48
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %43 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %44 = load i32, ptr %43, align 16
   store i32 %44, ptr %42, align 8
-  %45 = getelementptr inbounds i8, ptr %1, i64 52
-  %46 = getelementptr inbounds i8, ptr %3, i64 52
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 52
+  %46 = getelementptr inbounds nuw i8, ptr %3, i64 52
   %47 = load i32, ptr %46, align 4
   store i32 %47, ptr %45, align 4
-  %48 = getelementptr inbounds i8, ptr %1, i64 56
-  %49 = getelementptr inbounds i8, ptr %3, i64 56
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %49 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %50 = load i32, ptr %49, align 8
   store i32 %50, ptr %48, align 8
-  %51 = getelementptr inbounds i8, ptr %1, i64 60
-  %52 = getelementptr inbounds i8, ptr %3, i64 60
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 60
+  %52 = getelementptr inbounds nuw i8, ptr %3, i64 60
   %53 = load i32, ptr %52, align 4
   store i32 %53, ptr %51, align 4
-  %54 = getelementptr inbounds i8, ptr %1, i64 64
-  %55 = getelementptr inbounds i8, ptr %3, i64 64
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %55 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %56 = load i32, ptr %55, align 16
   store i32 %56, ptr %54, align 8
-  %57 = getelementptr inbounds i8, ptr %1, i64 68
-  %58 = getelementptr inbounds i8, ptr %3, i64 68
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 68
+  %58 = getelementptr inbounds nuw i8, ptr %3, i64 68
   %59 = load i32, ptr %58, align 4
   store i32 %59, ptr %57, align 4
-  %60 = getelementptr inbounds i8, ptr %1, i64 72
-  %61 = getelementptr inbounds i8, ptr %3, i64 72
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %61 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %62 = load i32, ptr %61, align 8
   store i32 %62, ptr %60, align 8
-  %63 = getelementptr inbounds i8, ptr %1, i64 76
-  %scevgep = getelementptr inbounds i8, ptr %3, i64 76
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 76
+  %scevgep = getelementptr inbounds nuw i8, ptr %3, i64 76
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(436) %63, ptr noundef nonnull align 4 dereferenceable(436) %scevgep, i64 436, i1 false)
   tail call void @cdf_swap_header(ptr noundef nonnull %1)
   %64 = load i64, ptr %1, align 8
@@ -356,7 +356,7 @@ declare ptr @__errno_location() local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef i64 @cdf_read_sector(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i64 noundef %2, i64 noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5) local_unnamed_addr #6 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 30
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 30
   %8 = load i16, ptr %7, align 2
   %9 = zext nneg i16 %8 to i32
   %10 = shl nuw i32 1, %9
@@ -370,14 +370,14 @@ define hidden noundef i64 @cdf_read_sector(ptr nocapture noundef readonly %0, pt
   %14 = add nsw i64 %12, 1
   %15 = mul nsw i64 %14, %11
   %16 = getelementptr inbounds i8, ptr %1, i64 %2
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load ptr, ptr %17, align 8
   %.not.i = icmp eq ptr %18, null
   br i1 %.not.i, label %25, label %19
 
 19:                                               ; preds = %13
   %20 = add i64 %15, %3
-  %21 = getelementptr inbounds i8, ptr %0, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load i64, ptr %21, align 8
   %.not24.i = icmp ult i64 %22, %20
   br i1 %.not24.i, label %25, label %23
@@ -416,7 +416,7 @@ cdf_read.exit:                                    ; preds = %34, %31, %28, %23, 
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define hidden noundef i64 @cdf_read_short_sector(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i64 noundef %2, i64 noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5) local_unnamed_addr #9 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %8 = load i16, ptr %7, align 8
   %9 = zext nneg i16 %8 to i32
   %10 = shl nuw i32 1, %9
@@ -429,12 +429,12 @@ define hidden noundef i64 @cdf_read_short_sector(ptr nocapture noundef readonly 
 13:                                               ; preds = %6
   %14 = mul nsw i64 %11, %12
   %15 = add i64 %14, %3
-  %16 = getelementptr inbounds i8, ptr %4, i64 30
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 30
   %17 = load i16, ptr %16, align 2
   %18 = zext nneg i16 %17 to i32
   %19 = shl nuw i32 1, %18
   %20 = sext i32 %19 to i64
-  %21 = getelementptr inbounds i8, ptr %0, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = load i64, ptr %21, align 8
   %23 = mul i64 %22, %20
   %24 = icmp ugt i64 %15, %23
@@ -459,19 +459,19 @@ define hidden noundef i64 @cdf_read_short_sector(ptr nocapture noundef readonly 
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -1, 1) i32 @cdf_read_sat(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) local_unnamed_addr #6 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 30
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 30
   %5 = load i16, ptr %4, align 2
   %6 = zext nneg i16 %5 to i32
   %7 = shl nuw i32 1, %6
   %8 = sext i32 %7 to i64
   %9 = lshr i64 %8, 2
   %10 = add nsw i64 %9, -1
-  %11 = getelementptr inbounds i8, ptr %1, i64 76
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 76
   br label %12
 
 12:                                               ; preds = %3, %16
   %.074135 = phi i64 [ 0, %3 ], [ %17, %16 ]
-  %13 = getelementptr inbounds [109 x i32], ptr %11, i64 0, i64 %.074135
+  %13 = getelementptr inbounds nuw [109 x i32], ptr %11, i64 0, i64 %.074135
   %14 = load i32, ptr %13, align 4
   %15 = icmp eq i32 %14, -1
   br i1 %15, label %18, label %16
@@ -492,7 +492,7 @@ define hidden range(i32 -1, 1) i32 @cdf_read_sat(ptr nocapture noundef readonly 
   br label %27
 
 19:                                               ; preds = %18
-  %20 = getelementptr inbounds i8, ptr %1, i64 72
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %21 = load i32, ptr %20, align 8
   %22 = zext i32 %21 to i64
   %23 = shl nsw i64 %8, 6
@@ -512,12 +512,12 @@ define hidden range(i32 -1, 1) i32 @cdf_read_sat(ptr nocapture noundef readonly 
   br label %156
 
 31:                                               ; preds = %27
-  %32 = getelementptr inbounds i8, ptr %1, i64 72
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %33 = load i32, ptr %32, align 8
   %34 = zext i32 %33 to i64
   %35 = mul i64 %10, %34
   %36 = add i64 %35, %.074.lcssa
-  %37 = getelementptr inbounds i8, ptr %2, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %36, ptr %37, align 8
   %38 = tail call noalias ptr @_ecalloc(i64 noundef %36, i64 noundef %8) #22
   store ptr %38, ptr %2, align 8
@@ -525,13 +525,13 @@ define hidden range(i32 -1, 1) i32 @cdf_read_sat(ptr nocapture noundef readonly 
   br i1 %39, label %156, label %.preheader121
 
 .preheader121:                                    ; preds = %31
-  %40 = getelementptr inbounds i8, ptr %0, i64 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %42
 
 42:                                               ; preds = %.preheader121, %73
   %.1136 = phi i64 [ 0, %.preheader121 ], [ %74, %73 ]
-  %43 = getelementptr inbounds [109 x i32], ptr %11, i64 0, i64 %.1136
+  %43 = getelementptr inbounds nuw [109 x i32], ptr %11, i64 0, i64 %.1136
   %44 = load i32, ptr %43, align 4
   %45 = icmp slt i32 %44, 0
   br i1 %45, label %75, label %46
@@ -600,7 +600,7 @@ cdf_read_sector.exit:                             ; preds = %66
   br i1 %77, label %cdf_read_sector.exit.thread, label %78
 
 78:                                               ; preds = %75
-  %79 = getelementptr inbounds i8, ptr %1, i64 68
+  %79 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %80 = load i32, ptr %79, align 4
   %81 = load i32, ptr %32, align 8
   %82 = icmp eq i32 %81, 0
@@ -792,7 +792,7 @@ declare noalias ptr @_ecalloc(i64 noundef, i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden range(i64 -1, 10001) i64 @cdf_count_chain(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #11 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = mul i64 %5, %2
   %7 = lshr i64 %6, 2
@@ -815,7 +815,7 @@ define hidden range(i64 -1, 10001) i64 @cdf_count_chain(ptr nocapture noundef re
 12:                                               ; preds = %.lr.ph.split
   %13 = load ptr, ptr %0, align 8
   %14 = zext nneg i32 %.01720 to i64
-  %15 = getelementptr inbounds i32, ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw i32, ptr %13, i64 %14
   %16 = load i32, ptr %15, align 4
   %17 = add nuw nsw i64 %.01522, 1
   %18 = icmp sgt i32 %16, -1
@@ -833,13 +833,13 @@ define hidden range(i64 -1, 10001) i64 @cdf_count_chain(ptr nocapture noundef re
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -1, 1) i32 @cdf_read_long_sector_chain(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, i64 noundef %4, ptr nocapture noundef initializes((0, 8)) %5) local_unnamed_addr #6 {
-  %7 = getelementptr inbounds i8, ptr %1, i64 30
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 30
   %8 = load i16, ptr %7, align 2
   %9 = zext nneg i16 %8 to i32
   %10 = shl nuw i32 1, %9
   %11 = sext i32 %10 to i64
   store ptr null, ptr %5, align 8
-  %12 = getelementptr inbounds i8, ptr %2, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %13 = load i64, ptr %12, align 8
   %14 = mul i64 %13, %11
   %15 = lshr i64 %14, 2
@@ -862,7 +862,7 @@ define hidden range(i32 -1, 1) i32 @cdf_read_long_sector_chain(ptr nocapture nou
 20:                                               ; preds = %.lr.ph.split.i
   %21 = load ptr, ptr %2, align 8
   %22 = zext nneg i32 %.01720.i to i64
-  %23 = getelementptr inbounds i32, ptr %21, i64 %22
+  %23 = getelementptr inbounds nuw i32, ptr %21, i64 %22
   %24 = load i32, ptr %23, align 4
   %25 = add nuw nsw i64 %.01522.i, 1
   %26 = icmp sgt i32 %24, -1
@@ -875,15 +875,15 @@ define hidden range(i32 -1, 1) i32 @cdf_read_long_sector_chain(ptr nocapture nou
 
 cdf_count_chain.exit:                             ; preds = %20, %6, %.loopexit.i
   %.0.i = phi i64 [ -1, %.loopexit.i ], [ 0, %6 ], [ %25, %20 ]
-  %28 = getelementptr inbounds i8, ptr %5, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %.0.i, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %1, i64 56
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %30 = load i32, ptr %29, align 8
   %31 = zext i32 %30 to i64
   %. = tail call i64 @llvm.umax.i64(i64 %4, i64 %31)
-  %32 = getelementptr inbounds i8, ptr %5, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 %., ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %5, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 %11, ptr %33, align 8
   %34 = icmp eq i64 %4, 0
   %or.cond = or i1 %17, %34
@@ -909,8 +909,8 @@ cdf_count_chain.exit:                             ; preds = %20, %6, %.loopexit.
   br i1 %42, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader
-  %43 = getelementptr inbounds i8, ptr %0, i64 8
-  %44 = getelementptr inbounds i8, ptr %0, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %46
 
 45:                                               ; preds = %39
@@ -982,7 +982,7 @@ cdf_read_sector.exit:                             ; preds = %69
 
 76:                                               ; preds = %cdf_read_sector.exit.thread60, %cdf_read_sector.exit
   %77 = load ptr, ptr %2, align 8
-  %78 = getelementptr inbounds i32, ptr %77, i64 %54
+  %78 = getelementptr inbounds nuw i32, ptr %77, i64 %54
   %79 = load i32, ptr %78, align 4
   %80 = add nuw nsw i64 %.04770, 1
   %81 = icmp sgt i32 %79, -1
@@ -1008,18 +1008,18 @@ cdf_read_sector.exit:                             ; preds = %69
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -1, 1) i32 @cdf_read_short_sector_chain(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, i64 noundef %4, ptr nocapture noundef initializes((0, 8)) %5) local_unnamed_addr #6 {
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load i16, ptr %7, align 8
   %9 = zext nneg i16 %8 to i32
   %10 = shl nuw i32 1, %9
   %11 = sext i32 %10 to i64
   store ptr null, ptr %5, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 30
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 30
   %13 = load i16, ptr %12, align 2
   %14 = zext nneg i16 %13 to i32
   %15 = shl nuw i32 1, %14
   %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load i64, ptr %17, align 8
   %19 = mul i64 %18, %16
   %20 = lshr i64 %19, 2
@@ -1042,7 +1042,7 @@ define hidden range(i32 -1, 1) i32 @cdf_read_short_sector_chain(ptr nocapture no
 25:                                               ; preds = %.lr.ph.split.i
   %26 = load ptr, ptr %1, align 8
   %27 = zext nneg i32 %.01720.i to i64
-  %28 = getelementptr inbounds i32, ptr %26, i64 %27
+  %28 = getelementptr inbounds nuw i32, ptr %26, i64 %27
   %29 = load i32, ptr %28, align 4
   %30 = add nuw nsw i64 %.01522.i, 1
   %31 = icmp sgt i32 %29, -1
@@ -1051,16 +1051,16 @@ define hidden range(i32 -1, 1) i32 @cdf_read_short_sector_chain(ptr nocapture no
 cdf_count_chain.exit:                             ; preds = %.lr.ph.split.i, %.preheader.i
   %32 = tail call ptr @__errno_location() #21
   store i32 22, ptr %32, align 4
-  %33 = getelementptr inbounds i8, ptr %5, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %cdf_read_short_sector.exit.thread
 
 .loopexit45:                                      ; preds = %25, %6
   %.0.i.ph = phi i64 [ 0, %6 ], [ %30, %25 ]
-  %34 = getelementptr inbounds i8, ptr %5, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %.0.i.ph, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %5, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 %4, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %5, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 %11, ptr %36, align 8
   %37 = tail call noalias ptr @_ecalloc(i64 noundef %.0.i.ph, i64 noundef %11) #22
   store ptr %37, ptr %5, align 8
@@ -1072,7 +1072,7 @@ cdf_count_chain.exit:                             ; preds = %.lr.ph.split.i, %.p
   br i1 %39, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader
-  %40 = getelementptr inbounds i8, ptr %2, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %.lr.ph.split
 
 41:                                               ; preds = %.loopexit45
@@ -1125,7 +1125,7 @@ cdf_read_short_sector.exit:                       ; preds = %52
   %65 = getelementptr inbounds i8, ptr %64, i64 %53
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %63, ptr noundef nonnull align 1 dereferenceable(1) %65, i64 %11, i1 false)
   %66 = load ptr, ptr %1, align 8
-  %67 = getelementptr inbounds i32, ptr %66, i64 %51
+  %67 = getelementptr inbounds nuw i32, ptr %66, i64 %51
   %68 = load i32, ptr %67, align 4
   %69 = add nuw nsw i64 %.051, 1
   %70 = icmp sgt i32 %68, -1
@@ -1152,7 +1152,7 @@ cdf_read_short_sector.exit.thread:                ; preds = %.lr.ph.split, %42, 
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -1, 1) i32 @cdf_read_sector_chain(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5, i64 noundef %6, ptr nocapture noundef initializes((0, 8)) %7) local_unnamed_addr #6 {
-  %9 = getelementptr inbounds i8, ptr %1, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %10 = load i32, ptr %9, align 8
   %11 = zext i32 %10 to i64
   %12 = icmp ult i64 %6, %11
@@ -1178,14 +1178,14 @@ define hidden range(i32 -1, 1) i32 @cdf_read_sector_chain(ptr nocapture noundef 
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -1, 1) i32 @cdf_read_dir(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3) local_unnamed_addr #6 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 30
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 30
   %6 = load i16, ptr %5, align 2
   %7 = zext nneg i16 %6 to i32
   %8 = shl nuw i32 1, %7
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds i8, ptr %1, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %11 = load i32, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %2, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %13 = load i64, ptr %12, align 8
   %14 = mul i64 %13, %9
   %15 = lshr i64 %14, 2
@@ -1208,7 +1208,7 @@ define hidden range(i32 -1, 1) i32 @cdf_read_dir(ptr nocapture noundef readonly 
 20:                                               ; preds = %.lr.ph.split.i
   %21 = load ptr, ptr %2, align 8
   %22 = zext nneg i32 %.01720.i to i64
-  %23 = getelementptr inbounds i32, ptr %21, i64 %22
+  %23 = getelementptr inbounds nuw i32, ptr %21, i64 %22
   %24 = load i32, ptr %23, align 4
   %25 = add nuw nsw i64 %.01522.i, 1
   %26 = icmp sgt i32 %24, -1
@@ -1223,7 +1223,7 @@ cdf_count_chain.exit:                             ; preds = %.lr.ph.split.i, %.p
   %.0.i.ph = phi i64 [ 0, %4 ], [ %25, %20 ]
   %28 = lshr i64 %9, 7
   %29 = mul i64 %.0.i.ph, %28
-  %30 = getelementptr inbounds i8, ptr %3, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %29, ptr %30, align 8
   %31 = tail call noalias ptr @_ecalloc(i64 noundef %29, i64 noundef 136) #22
   store ptr %31, ptr %3, align 8
@@ -1240,8 +1240,8 @@ cdf_count_chain.exit:                             ; preds = %.lr.ph.split.i, %.p
   br i1 %.not107, label %.loopexit, label %.lr.ph104
 
 .lr.ph104:                                        ; preds = %.preheader95
-  %36 = getelementptr inbounds i8, ptr %0, i64 8
-  %37 = getelementptr inbounds i8, ptr %0, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.not108 = icmp ult i16 %6, 7
   %umax = tail call i64 @llvm.umax.i64(i64 %28, i64 1)
   %38 = add nuw nsw i64 %umax, 1
@@ -1323,55 +1323,55 @@ cdf_read_sector.exit:                             ; preds = %60
   %72 = shl nuw i64 %.184100, 7
   %73 = getelementptr inbounds i8, ptr %34, i64 %72
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %71, ptr noundef nonnull readonly align 1 dereferenceable(64) %73, i64 64, i1 false)
-  %74 = getelementptr inbounds i8, ptr %71, i64 64
-  %75 = getelementptr inbounds i8, ptr %73, i64 64
+  %74 = getelementptr inbounds nuw i8, ptr %71, i64 64
+  %75 = getelementptr inbounds nuw i8, ptr %73, i64 64
   %76 = load i16, ptr %75, align 1
   store i16 %76, ptr %74, align 8
-  %77 = getelementptr inbounds i8, ptr %71, i64 66
-  %78 = getelementptr inbounds i8, ptr %73, i64 66
+  %77 = getelementptr inbounds nuw i8, ptr %71, i64 66
+  %78 = getelementptr inbounds nuw i8, ptr %73, i64 66
   %79 = load i8, ptr %78, align 1
   store i8 %79, ptr %77, align 2
-  %80 = getelementptr inbounds i8, ptr %71, i64 67
-  %81 = getelementptr inbounds i8, ptr %73, i64 67
+  %80 = getelementptr inbounds nuw i8, ptr %71, i64 67
+  %81 = getelementptr inbounds nuw i8, ptr %73, i64 67
   %82 = load i8, ptr %81, align 1
   store i8 %82, ptr %80, align 1
-  %83 = getelementptr inbounds i8, ptr %71, i64 68
-  %84 = getelementptr inbounds i8, ptr %73, i64 68
+  %83 = getelementptr inbounds nuw i8, ptr %71, i64 68
+  %84 = getelementptr inbounds nuw i8, ptr %73, i64 68
   %85 = load i32, ptr %84, align 1
   store i32 %85, ptr %83, align 4
-  %86 = getelementptr inbounds i8, ptr %71, i64 72
-  %87 = getelementptr inbounds i8, ptr %73, i64 72
+  %86 = getelementptr inbounds nuw i8, ptr %71, i64 72
+  %87 = getelementptr inbounds nuw i8, ptr %73, i64 72
   %88 = load i32, ptr %87, align 1
   store i32 %88, ptr %86, align 8
-  %89 = getelementptr inbounds i8, ptr %71, i64 76
-  %90 = getelementptr inbounds i8, ptr %73, i64 76
+  %89 = getelementptr inbounds nuw i8, ptr %71, i64 76
+  %90 = getelementptr inbounds nuw i8, ptr %73, i64 76
   %91 = load i32, ptr %90, align 1
   store i32 %91, ptr %89, align 4
-  %92 = getelementptr inbounds i8, ptr %71, i64 80
-  %93 = getelementptr inbounds i8, ptr %73, i64 80
+  %92 = getelementptr inbounds nuw i8, ptr %71, i64 80
+  %93 = getelementptr inbounds nuw i8, ptr %73, i64 80
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %92, ptr noundef nonnull readonly align 1 dereferenceable(16) %93, i64 16, i1 false)
-  %94 = getelementptr inbounds i8, ptr %71, i64 96
-  %95 = getelementptr inbounds i8, ptr %73, i64 96
+  %94 = getelementptr inbounds nuw i8, ptr %71, i64 96
+  %95 = getelementptr inbounds nuw i8, ptr %73, i64 96
   %96 = load i32, ptr %95, align 1
   store i32 %96, ptr %94, align 8
-  %97 = getelementptr inbounds i8, ptr %71, i64 104
-  %98 = getelementptr inbounds i8, ptr %73, i64 100
+  %97 = getelementptr inbounds nuw i8, ptr %71, i64 104
+  %98 = getelementptr inbounds nuw i8, ptr %73, i64 100
   %99 = load i64, ptr %98, align 1
   store i64 %99, ptr %97, align 8
-  %100 = getelementptr inbounds i8, ptr %71, i64 112
-  %101 = getelementptr inbounds i8, ptr %73, i64 108
+  %100 = getelementptr inbounds nuw i8, ptr %71, i64 112
+  %101 = getelementptr inbounds nuw i8, ptr %73, i64 108
   %102 = load i64, ptr %101, align 1
   store i64 %102, ptr %100, align 8
-  %103 = getelementptr inbounds i8, ptr %71, i64 120
-  %104 = getelementptr inbounds i8, ptr %73, i64 116
+  %103 = getelementptr inbounds nuw i8, ptr %71, i64 120
+  %104 = getelementptr inbounds nuw i8, ptr %73, i64 116
   %105 = load i32, ptr %104, align 1
   store i32 %105, ptr %103, align 8
-  %106 = getelementptr inbounds i8, ptr %71, i64 124
-  %107 = getelementptr inbounds i8, ptr %73, i64 120
+  %106 = getelementptr inbounds nuw i8, ptr %71, i64 124
+  %107 = getelementptr inbounds nuw i8, ptr %73, i64 120
   %108 = load i32, ptr %107, align 1
   store i32 %108, ptr %106, align 4
-  %109 = getelementptr inbounds i8, ptr %71, i64 128
-  %110 = getelementptr inbounds i8, ptr %73, i64 124
+  %109 = getelementptr inbounds nuw i8, ptr %71, i64 128
+  %110 = getelementptr inbounds nuw i8, ptr %73, i64 124
   %111 = load i32, ptr %110, align 1
   store i32 %111, ptr %109, align 8
   %112 = add nuw nsw i64 %.184100, 1
@@ -1409,15 +1409,15 @@ declare noalias ptr @_emalloc(i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -1, 1) i32 @cdf_read_ssat(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef initializes((0, 8)) %3) local_unnamed_addr #6 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 30
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 30
   %6 = load i16, ptr %5, align 2
   %7 = zext nneg i16 %6 to i32
   %8 = shl nuw i32 1, %7
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds i8, ptr %1, i64 60
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %11 = load i32, ptr %10, align 4
   store ptr null, ptr %3, align 8
-  %12 = getelementptr inbounds i8, ptr %2, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %13 = load i64, ptr %12, align 8
   %14 = mul i64 %13, %9
   %15 = lshr i64 %14, 2
@@ -1440,7 +1440,7 @@ define hidden range(i32 -1, 1) i32 @cdf_read_ssat(ptr nocapture noundef readonly
 20:                                               ; preds = %.lr.ph.split.i
   %21 = load ptr, ptr %2, align 8
   %22 = zext nneg i32 %.01720.i to i64
-  %23 = getelementptr inbounds i32, ptr %21, i64 %22
+  %23 = getelementptr inbounds nuw i32, ptr %21, i64 %22
   %24 = load i32, ptr %23, align 4
   %25 = add nuw nsw i64 %.01522.i, 1
   %26 = icmp sgt i32 %24, -1
@@ -1449,13 +1449,13 @@ define hidden range(i32 -1, 1) i32 @cdf_read_ssat(ptr nocapture noundef readonly
 cdf_count_chain.exit:                             ; preds = %.lr.ph.split.i, %.preheader.i
   %27 = tail call ptr @__errno_location() #21
   store i32 22, ptr %27, align 4
-  %28 = getelementptr inbounds i8, ptr %3, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 -1, ptr %28, align 8
   br label %cdf_read_sector.exit.thread.sink.split
 
 .loopexit45:                                      ; preds = %20, %4
   %.0.i.ph = phi i64 [ 0, %4 ], [ %25, %20 ]
-  %29 = getelementptr inbounds i8, ptr %3, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %.0.i.ph, ptr %29, align 8
   %30 = tail call noalias ptr @_ecalloc(i64 noundef %.0.i.ph, i64 noundef %9) #22
   store ptr %30, ptr %3, align 8
@@ -1467,8 +1467,8 @@ cdf_count_chain.exit:                             ; preds = %.lr.ph.split.i, %.p
   br i1 %32, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader
-  %33 = getelementptr inbounds i8, ptr %0, i64 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %35
 
 35:                                               ; preds = %.lr.ph, %65
@@ -1535,7 +1535,7 @@ cdf_read_sector.exit:                             ; preds = %58
 
 65:                                               ; preds = %cdf_read_sector.exit.thread41, %cdf_read_sector.exit
   %66 = load ptr, ptr %2, align 8
-  %67 = getelementptr inbounds i32, ptr %66, i64 %43
+  %67 = getelementptr inbounds nuw i32, ptr %66, i64 %43
   %68 = load i32, ptr %67, align 4
   %69 = add nuw nsw i64 %.03250, 1
   %70 = icmp sgt i32 %68, -1
@@ -1563,7 +1563,7 @@ cdf_read_sector.exit.thread:                      ; preds = %58, %38, %cdf_read_
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -1, 1) i32 @cdf_read_short_stream(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef %4, ptr nocapture noundef writeonly initializes((0, 8)) %5) local_unnamed_addr #6 {
   store ptr null, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %8 = load i64, ptr %7, align 8
   %.not = icmp eq i64 %8, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -1593,13 +1593,13 @@ define hidden range(i32 -1, 1) i32 @cdf_read_short_stream(ptr nocapture noundef 
   %18 = load ptr, ptr %3, align 8
   %19 = getelementptr inbounds %struct.cdf_directory_t, ptr %18, i64 %.021.lcssa
   store ptr %19, ptr %5, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 120
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 120
   %21 = load i32, ptr %20, align 8
   %22 = icmp slt i32 %21, 0
   br i1 %22, label %._crit_edge.thread, label %23
 
 23:                                               ; preds = %17
-  %24 = getelementptr inbounds i8, ptr %19, i64 124
+  %24 = getelementptr inbounds nuw i8, ptr %19, i64 124
   %25 = load i32, ptr %24, align 4
   %26 = zext i32 %25 to i64
   %27 = tail call i32 @cdf_read_long_sector_chain(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %21, i64 noundef %26, ptr noundef %4)
@@ -1635,7 +1635,7 @@ define hidden range(i32 -1, 1) i32 @cdf_read_doc_summary_info(ptr nocapture noun
   %17 = getelementptr i8, ptr %14, i64 -12
   %18 = load i32, ptr %17, align 4
   %19 = zext i32 %18 to i64
-  %20 = getelementptr inbounds i8, ptr %1, i64 56
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %21 = load i32, ptr %20, align 8
   %22 = icmp ult i32 %18, %21
   br i1 %22, label %23, label %27
@@ -1677,7 +1677,7 @@ define hidden range(i32 -1, 1) i32 @cdf_read_user_stream(ptr nocapture noundef r
   %18 = getelementptr i8, ptr %15, i64 -12
   %19 = load i32, ptr %18, align 4
   %20 = zext i32 %19 to i64
-  %21 = getelementptr inbounds i8, ptr %1, i64 56
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %22 = load i32, ptr %21, align 8
   %23 = icmp ult i32 %19, %22
   br i1 %23, label %24, label %28
@@ -1719,7 +1719,7 @@ define hidden range(i32 -1, 1) i32 @cdf_read_summary_info(ptr nocapture noundef 
   %17 = getelementptr i8, ptr %14, i64 -12
   %18 = load i32, ptr %17, align 4
   %19 = zext i32 %18 to i64
-  %20 = getelementptr inbounds i8, ptr %1, i64 56
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %21 = load i32, ptr %20, align 8
   %22 = icmp ult i32 %18, %21
   br i1 %22, label %23, label %27
@@ -1746,7 +1746,7 @@ cdf_read_user_stream.exit:                        ; preds = %10, %25, %27
 define hidden i32 @cdf_find_stream(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #13 {
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #24
   %.fr37 = freeze i64 %4
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   %.not29 = icmp eq i64 %6, 0
   br i1 %.not29, label %.critedge, label %.lr.ph
@@ -1798,8 +1798,8 @@ define hidden i32 @cdf_find_stream(ptr nocapture noundef readonly %0, ptr nocapt
   br i1 %.not1216.i, label %25, label %cdf_namecmp.exit.loopexit15
 
 25:                                               ; preds = %.thread.i
-  %26 = getelementptr inbounds i8, ptr %.01022.i, i64 1
-  %27 = getelementptr inbounds i8, ptr %.0923.i, i64 2
+  %26 = getelementptr inbounds nuw i8, ptr %.01022.i, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %.0923.i, i64 2
   %28 = add i64 %20, -1
   %.not.i = icmp eq i64 %20, 0
   br i1 %.not.i, label %cdf_namecmp.exit.thread, label %.thread.i
@@ -1848,14 +1848,14 @@ define hidden range(i32 -1, 1) i32 @cdf_read_property_info(ptr nocapture noundef
 10:                                               ; preds = %6
   %11 = load ptr, ptr %0, align 8
   %12 = zext nneg i32 %2 to i64
-  %13 = getelementptr inbounds i8, ptr %11, i64 %12
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 %12
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = getelementptr i8, ptr %0, i64 24
   %.val.i = load i64, ptr %15, align 8
   %16 = ptrtoint ptr %11 to i64
   %17 = ptrtoint ptr %14 to i64
   %18 = sub i64 %17, %16
-  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = load i64, ptr %19, align 8
   %21 = mul i64 %20, %.val.i
   %.not12.i = icmp ugt i64 %18, %21
@@ -1878,7 +1878,7 @@ cdf_check_stream_offset.exit:                     ; preds = %10
 
 27:                                               ; preds = %cdf_check_stream_offset.exit
   %28 = zext nneg i32 %23 to i64
-  %29 = getelementptr inbounds i8, ptr %13, i64 %28
+  %29 = getelementptr inbounds nuw i8, ptr %13, i64 %28
   %.not.i148 = icmp ult ptr %29, %11
   br i1 %.not.i148, label %cdf_check_stream_offset.exit152.thread, label %30
 
@@ -1894,7 +1894,7 @@ cdf_check_stream_offset.exit152.thread:           ; preds = %27, %30
   br label %cdf_get_property_info_pos.exit.thread
 
 cdf_check_stream_offset.exit152:                  ; preds = %30
-  %34 = getelementptr inbounds i8, ptr %13, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %35 = load i32, ptr %34, align 4
   %36 = zext i32 %35 to i64
   %37 = icmp ugt i32 %35, 2796202
@@ -1928,8 +1928,8 @@ cdf_grow_info.exit.thread:                        ; preds = %38, %42
   %51 = add i64 %49, %36
   store i64 %51, ptr %4, align 8
   %52 = load ptr, ptr %0, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 %12
-  %54 = getelementptr inbounds i8, ptr %53, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 %12
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %.not = icmp ult ptr %54, %29
   br i1 %.not, label %55, label %cdf_get_property_info_pos.exit.thread
 
@@ -1943,7 +1943,7 @@ cdf_grow_info.exit.thread:                        ; preds = %38, %42
   br i1 %.not12.i157, label %cdf_check_stream_offset.exit159.thread, label %cdf_check_stream_offset.exit159.preheader
 
 cdf_check_stream_offset.exit159.preheader:        ; preds = %55
-  %invariant.gep = getelementptr inbounds i8, ptr %53, i64 16
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %53, i64 16
   %.not203 = icmp eq i32 %35, 0
   br i1 %.not203, label %.loopexit, label %.lr.ph202
 
@@ -1963,7 +1963,7 @@ cdf_check_stream_offset.exit159.thread:           ; preds = %55
   %64 = shl i64 %.0122200, 3
   %65 = or disjoint i64 %64, 4
   %66 = load ptr, ptr %0, align 8
-  %gep = getelementptr inbounds i8, ptr %invariant.gep, i64 %64
+  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %64
   %.not.i.i = icmp ult ptr %gep, %66
   br i1 %.not.i.i, label %cdf_check_stream_offset.exit.thread.i, label %67
 
@@ -1983,7 +1983,7 @@ cdf_check_stream_offset.exit.thread.i:            ; preds = %67, %63
   br label %cdf_get_property_info_pos.exit.thread
 
 cdf_check_stream_offset.exit.i:                   ; preds = %67
-  %74 = getelementptr inbounds i8, ptr %54, i64 %65
+  %74 = getelementptr inbounds nuw i8, ptr %54, i64 %65
   %.0.copyload.i.i = load i32, ptr %74, align 1
   %75 = icmp ult i32 %.0.copyload.i.i, 8
   br i1 %75, label %cdf_get_property_info_pos.exit.thread, label %76
@@ -2007,7 +2007,7 @@ cdf_get_property_info_pos.exit:                   ; preds = %76
 
 86:                                               ; preds = %cdf_get_property_info_pos.exit
   %.0.copyload.i163 = load i32, ptr %80, align 1
-  %87 = getelementptr inbounds i8, ptr %82, i64 4
+  %87 = getelementptr inbounds nuw i8, ptr %82, i64 4
   store i32 %.0.copyload.i163, ptr %87, align 4
   %88 = and i32 %.0.copyload.i163, 4096
   %.not141 = icmp eq i32 %88, 0
@@ -2018,7 +2018,7 @@ cdf_get_property_info_pos.exit:                   ; preds = %76
   br i1 %90, label %cdf_get_property_info_pos.exit.thread, label %91
 
 91:                                               ; preds = %89
-  %92 = getelementptr inbounds i8, ptr %80, i64 4
+  %92 = getelementptr inbounds nuw i8, ptr %80, i64 4
   %.0.copyload.i166 = load i32, ptr %92, align 1
   %93 = add i32 %.0.copyload.i166, -100001
   %or.cond = icmp ult i32 %93, -100000
@@ -2056,7 +2056,7 @@ cdf_get_property_info_pos.exit:                   ; preds = %76
   ]
 
 101:                                              ; preds = %99
-  %102 = getelementptr inbounds i8, ptr %80, i64 %97
+  %102 = getelementptr inbounds nuw i8, ptr %80, i64 %97
   %.not.i169 = icmp ne i32 %88, 0
   %103 = ptrtoint ptr %102 to i64
   %104 = sub i64 %31, %103
@@ -2065,13 +2065,13 @@ cdf_get_property_info_pos.exit:                   ; preds = %76
   br i1 %or.cond.i, label %cdf_copy_info.exit.thread, label %cdf_copy_info.exit
 
 cdf_copy_info.exit:                               ; preds = %101
-  %106 = getelementptr inbounds i8, ptr %82, i64 8
+  %106 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %107 = load i16, ptr %102, align 1
   store i16 %107, ptr %106, align 8
   br label %cdf_check_stream_offset.exit159
 
 108:                                              ; preds = %99, %99, %99, %99
-  %109 = getelementptr inbounds i8, ptr %80, i64 %97
+  %109 = getelementptr inbounds nuw i8, ptr %80, i64 %97
   %.not.i172 = icmp ne i32 %88, 0
   %110 = ptrtoint ptr %109 to i64
   %111 = sub i64 %31, %110
@@ -2080,13 +2080,13 @@ cdf_copy_info.exit:                               ; preds = %101
   br i1 %or.cond.i173, label %cdf_copy_info.exit.thread, label %cdf_copy_info.exit175
 
 cdf_copy_info.exit175:                            ; preds = %108
-  %113 = getelementptr inbounds i8, ptr %82, i64 8
+  %113 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %114 = load i32, ptr %109, align 1
   store i32 %114, ptr %113, align 8
   br label %cdf_check_stream_offset.exit159
 
 115:                                              ; preds = %99, %99, %99, %99
-  %116 = getelementptr inbounds i8, ptr %80, i64 %97
+  %116 = getelementptr inbounds nuw i8, ptr %80, i64 %97
   %.not.i176 = icmp ne i32 %88, 0
   %117 = ptrtoint ptr %116 to i64
   %118 = sub i64 %31, %117
@@ -2095,7 +2095,7 @@ cdf_copy_info.exit175:                            ; preds = %108
   br i1 %or.cond.i177, label %cdf_copy_info.exit.thread, label %cdf_copy_info.exit179
 
 cdf_copy_info.exit179:                            ; preds = %115
-  %120 = getelementptr inbounds i8, ptr %82, i64 8
+  %120 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %121 = load i64, ptr %116, align 1
   store i64 %121, ptr %120, align 8
   br label %cdf_check_stream_offset.exit159
@@ -2144,7 +2144,7 @@ cdf_copy_info.exit179:                            ; preds = %115
   %144 = getelementptr inbounds %struct.cdf_property_info_t, ptr %.1, i64 %.1123199, i32 2
   store i32 %.0.copyload.i180, ptr %144, align 8
   %145 = getelementptr inbounds i8, ptr %80, i64 %135
-  %146 = getelementptr inbounds i8, ptr %144, i64 8
+  %146 = getelementptr inbounds nuw i8, ptr %144, i64 8
   store ptr %145, ptr %146, align 8
   %147 = and i32 %.0.copyload.i180, 1
   %spec.select = add i32 %147, %.0.copyload.i180
@@ -2168,7 +2168,7 @@ cdf_copy_info.exit179:                            ; preds = %115
   br i1 %.not141, label %cdf_check_stream_offset.exit159, label %cdf_copy_info.exit.thread
 
 cdf_copy_info.exit.thread:                        ; preds = %115, %108, %101, %99, %158, %96
-  %159 = getelementptr inbounds i8, ptr %82, i64 8
+  %159 = getelementptr inbounds nuw i8, ptr %82, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %159, i8 0, i64 16, i1 false)
   br label %cdf_check_stream_offset.exit159
 
@@ -2231,7 +2231,7 @@ define hidden range(i32 -1, 1) i32 @cdf_unpack_summary_info(ptr nocapture nounde
   %7 = load ptr, ptr %0, align 8
   %8 = getelementptr i8, ptr %0, i64 24
   %.val.i = load i64, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8
   %11 = mul i64 %10, %.val.i
   %.not12.i = icmp ult i64 %11, 28
@@ -2254,24 +2254,24 @@ cdf_check_stream_offset.exit37.thread:            ; preds = %cdf_check_stream_of
 cdf_check_stream_offset.exit37:                   ; preds = %cdf_check_stream_offset.exit
   %14 = load i16, ptr %7, align 4
   store i16 %14, ptr %2, align 4
-  %15 = getelementptr inbounds i8, ptr %7, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %16 = load i16, ptr %15, align 4
-  %17 = getelementptr inbounds i8, ptr %2, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i16 %16, ptr %17, align 4
-  %18 = getelementptr inbounds i8, ptr %7, i64 6
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 6
   %19 = load i16, ptr %18, align 2
-  %20 = getelementptr inbounds i8, ptr %2, i64 6
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 6
   store i16 %19, ptr %20, align 2
-  %21 = getelementptr inbounds i8, ptr %2, i64 8
-  %22 = getelementptr inbounds i8, ptr %7, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %21, ptr noundef nonnull align 4 dereferenceable(16) %22, i64 16, i1 false)
-  %23 = getelementptr inbounds i8, ptr %7, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %24 = load i32, ptr %23, align 4
-  %25 = getelementptr inbounds i8, ptr %2, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 %24, ptr %25, align 4
   store i64 0, ptr %4, align 8
   store ptr null, ptr %3, align 8
-  %26 = getelementptr inbounds i8, ptr %7, i64 44
+  %26 = getelementptr inbounds nuw i8, ptr %7, i64 44
   %27 = load i32, ptr %26, align 4
   store i64 0, ptr %6, align 8
   %28 = call i32 @cdf_read_property_info(ptr noundef nonnull %0, ptr poison, i32 noundef %27, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %6)
@@ -2289,7 +2289,7 @@ define hidden range(i32 -1, 1) i32 @cdf_unpack_catalog(ptr nocapture noundef rea
   %4 = getelementptr i8, ptr %1, i64 24
   %.val = load i64, ptr %4, align 8
   %5 = load ptr, ptr %1, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i64, ptr %6, align 8
   %8 = mul i64 %7, %.val
   %9 = getelementptr inbounds i8, ptr %5, i64 %8
@@ -2302,7 +2302,7 @@ define hidden range(i32 -1, 1) i32 @cdf_unpack_catalog(ptr nocapture noundef rea
   %.0119155 = phi ptr [ %12, %14 ], [ %5, %3 ]
   %.0120154 = phi i64 [ %15, %14 ], [ 0, %3 ]
   %11 = zext i16 %spec.select141156 to i64
-  %12 = getelementptr inbounds i8, ptr %.0119155, i64 %11
+  %12 = getelementptr inbounds nuw i8, ptr %.0119155, i64 %11
   %13 = icmp ugt ptr %12, %9
   br i1 %13, label %._crit_edge, label %14
 
@@ -2327,7 +2327,7 @@ define hidden range(i32 -1, 1) i32 @cdf_unpack_catalog(ptr nocapture noundef rea
   br i1 %23, label %._crit_edge.thread, label %24
 
 24:                                               ; preds = %18
-  %25 = getelementptr inbounds i8, ptr %22, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %22, i64 8
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %25, i8 0, i64 %20, i1 false)
   %.not = icmp eq i64 %19, 0
   br i1 %.not, label %.loopexit, label %.lr.ph169.split.preheader
@@ -2341,7 +2341,7 @@ define hidden range(i32 -1, 1) i32 @cdf_unpack_catalog(ptr nocapture noundef rea
   %.0121165 = phi i64 [ %.1122, %64 ], [ 0, %.lr.ph169.split.preheader ]
   %.0124164 = phi i64 [ %.1125, %64 ], [ 0, %.lr.ph169.split.preheader ]
   %27 = getelementptr inbounds %struct.cdf_catalog_entry_t, ptr %25, i64 %.0124164
-  %28 = getelementptr inbounds i8, ptr %.1166, i64 2
+  %28 = getelementptr inbounds nuw i8, ptr %.1166, i64 2
   %29 = icmp ugt ptr %28, %9
   br i1 %29, label %.loopexit.sink.split, label %.thread
 
@@ -2350,24 +2350,24 @@ define hidden range(i32 -1, 1) i32 @cdf_unpack_catalog(ptr nocapture noundef rea
   store i16 %30, ptr %27, align 8
   %31 = getelementptr inbounds %struct.cdf_catalog_entry_t, ptr %25, i64 %.0121165
   store i16 %30, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %.1166, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %.1166, i64 8
   %33 = icmp ugt ptr %32, %9
   br i1 %33, label %.loopexit.sink.split, label %34
 
 34:                                               ; preds = %.thread
-  %35 = getelementptr inbounds i8, ptr %.1166, i64 4
-  %36 = getelementptr inbounds i8, ptr %27, i64 4
+  %35 = getelementptr inbounds nuw i8, ptr %.1166, i64 4
+  %36 = getelementptr inbounds nuw i8, ptr %27, i64 4
   %37 = load i32, ptr %35, align 1
   store i32 %37, ptr %36, align 4
   %38 = and i32 %37, 65535
-  %39 = getelementptr inbounds i8, ptr %31, i64 4
+  %39 = getelementptr inbounds nuw i8, ptr %31, i64 4
   store i32 %38, ptr %39, align 4
-  %40 = getelementptr inbounds i8, ptr %.1166, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %.1166, i64 16
   %41 = icmp ugt ptr %40, %9
   br i1 %41, label %.loopexit.sink.split, label %42
 
 42:                                               ; preds = %34
-  %43 = getelementptr inbounds i8, ptr %27, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %44 = load i64, ptr %32, align 1
   store i64 %44, ptr %43, align 8
   %.idx = mul nsw i64 %.0121165, 528
@@ -2387,7 +2387,7 @@ define hidden range(i32 -1, 1) i32 @cdf_unpack_catalog(ptr nocapture noundef rea
   %spec.select = tail call i16 @llvm.umin.i16(i16 %50, i16 255)
   store i16 %spec.select, ptr %27, align 8
   %51 = zext nneg i16 %spec.select to i64
-  %52 = getelementptr inbounds i16, ptr %40, i64 %51
+  %52 = getelementptr inbounds nuw i16, ptr %40, i64 %51
   %53 = icmp ugt ptr %52, %9
   br i1 %53, label %.loopexit.sink.split, label %.preheader
 
@@ -2396,22 +2396,22 @@ define hidden range(i32 -1, 1) i32 @cdf_unpack_catalog(ptr nocapture noundef rea
   br i1 %.not197, label %._crit_edge162, label %.lr.ph161
 
 .lr.ph161:                                        ; preds = %.preheader
-  %54 = getelementptr inbounds i8, ptr %27, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %27, i64 16
   br label %55
 
 55:                                               ; preds = %.lr.ph161, %55
   %.0123160 = phi i64 [ 0, %.lr.ph161 ], [ %59, %55 ]
-  %56 = getelementptr inbounds i16, ptr %40, i64 %.0123160
+  %56 = getelementptr inbounds nuw i16, ptr %40, i64 %.0123160
   %57 = load i16, ptr %56, align 2
-  %58 = getelementptr inbounds [256 x i16], ptr %54, i64 0, i64 %.0123160
+  %58 = getelementptr inbounds nuw [256 x i16], ptr %54, i64 0, i64 %.0123160
   store i16 %57, ptr %58, align 2
   %59 = add nuw nsw i64 %.0123160, 1
   %60 = icmp samesign ult i64 %59, %51
   br i1 %60, label %55, label %._crit_edge162
 
 ._crit_edge162:                                   ; preds = %55, %.preheader
-  %61 = getelementptr inbounds i8, ptr %27, i64 16
-  %62 = getelementptr inbounds [256 x i16], ptr %61, i64 0, i64 %51
+  %61 = getelementptr inbounds nuw i8, ptr %27, i64 16
+  %62 = getelementptr inbounds nuw [256 x i16], ptr %61, i64 0, i64 %51
   store i16 0, ptr %62, align 2
   %63 = add nuw i64 %.0121165, 1
   br label %64
@@ -2420,7 +2420,7 @@ define hidden range(i32 -1, 1) i32 @cdf_unpack_catalog(ptr nocapture noundef rea
   %.1125 = phi i64 [ %.0124164, %48 ], [ %.0121165, %._crit_edge162 ]
   %.1122 = phi i64 [ %.0121165, %48 ], [ %63, %._crit_edge162 ]
   %65 = zext i16 %46 to i64
-  %66 = getelementptr inbounds i8, ptr %.1166, i64 %65
+  %66 = getelementptr inbounds nuw i8, ptr %.1166, i64 %65
   %67 = icmp ult i64 %.1122, %19
   br i1 %67, label %.lr.ph169.split, label %.loopexit
 
@@ -2441,34 +2441,34 @@ define hidden range(i32 -1, 1) i32 @cdf_unpack_catalog(ptr nocapture noundef rea
 ; Function Attrs: nounwind uwtable
 define hidden i32 @cdf_print_classid(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #6 {
   %4 = load i32, ptr %2, align 4
-  %5 = getelementptr inbounds i8, ptr %2, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %6 = load i16, ptr %5, align 4
   %7 = zext i16 %6 to i32
-  %8 = getelementptr inbounds i8, ptr %2, i64 6
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 6
   %9 = load i16, ptr %8, align 2
   %10 = zext i16 %9 to i32
-  %11 = getelementptr inbounds i8, ptr %2, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %12 = load i8, ptr %11, align 4
   %13 = zext i8 %12 to i32
-  %14 = getelementptr inbounds i8, ptr %2, i64 9
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 9
   %15 = load i8, ptr %14, align 1
   %16 = zext i8 %15 to i32
-  %17 = getelementptr inbounds i8, ptr %2, i64 10
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 10
   %18 = load i8, ptr %17, align 2
   %19 = zext i8 %18 to i32
-  %20 = getelementptr inbounds i8, ptr %2, i64 11
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 11
   %21 = load i8, ptr %20, align 1
   %22 = zext i8 %21 to i32
-  %23 = getelementptr inbounds i8, ptr %2, i64 12
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %24 = load i8, ptr %23, align 2
   %25 = zext i8 %24 to i32
-  %26 = getelementptr inbounds i8, ptr %2, i64 13
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 13
   %27 = load i8, ptr %26, align 1
   %28 = zext i8 %27 to i32
-  %29 = getelementptr inbounds i8, ptr %2, i64 14
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 14
   %30 = load i8, ptr %29, align 2
   %31 = zext i8 %30 to i32
-  %32 = getelementptr inbounds i8, ptr %2, i64 15
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 15
   %33 = load i8, ptr %32, align 1
   %34 = zext i8 %33 to i32
   %35 = tail call i32 (ptr, i64, ptr, ...) @ap_php_snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.3, i32 noundef %4, i32 noundef %7, i32 noundef %10, i32 noundef %13, i32 noundef %16, i32 noundef %19, i32 noundef %22, i32 noundef %25, i32 noundef %28, i32 noundef %31, i32 noundef %34) #20
@@ -2488,13 +2488,13 @@ define hidden i32 @cdf_print_property_name(ptr noundef %0, i64 noundef %1, i32 n
 
 6:                                                ; preds = %3, %4
   %.011 = phi i64 [ 0, %3 ], [ %5, %4 ]
-  %7 = getelementptr inbounds [20 x %struct.anon.1], ptr @vn, i64 0, i64 %.011
+  %7 = getelementptr inbounds nuw [20 x %struct.anon.1], ptr @vn, i64 0, i64 %.011
   %8 = load i32, ptr %7, align 16
   %9 = icmp eq i32 %8, %2
   br i1 %9, label %10, label %4
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %7, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i32 (ptr, i64, ptr, ...) @ap_php_snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.4, ptr noundef %12) #20
   br label %16

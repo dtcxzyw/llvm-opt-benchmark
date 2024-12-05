@@ -12,7 +12,7 @@ define dso_local void @_ZN4Luau7CodeGen3X6412emitInstCallERNS1_18AssemblyBuilder
   %8 = alloca %"struct.Luau::CodeGen::Label", align 4
   %9 = alloca %"struct.Luau::CodeGen::Label", align 4
   %10 = alloca %"struct.Luau::CodeGen::Label", align 4
-  %11 = getelementptr inbounds i8, ptr %0, i64 84
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %12 = load i32, ptr %11, align 4
   %13 = icmp eq i32 %12, 0
   %.sroa.0161.0.copyload = select i1 %13, i8 20, i8 52
@@ -59,7 +59,7 @@ define dso_local void @_ZN4Luau7CodeGen3X6412emitInstCallERNS1_18AssemblyBuilder
   tail call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX644callENS1_10OperandX64E(ptr noundef nonnull align 8 dereferenceable(252) %0, i64 1958847741953)
   tail call void @_ZN4Luau7CodeGen3X6414emitUpdateBaseERNS1_18AssemblyBuilderX64E(ptr noundef nonnull align 8 dereferenceable(252) %0)
   store i32 0, ptr %6, align 4
-  %22 = getelementptr inbounds i8, ptr %6, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 -1, ptr %22, align 4
   tail call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX644testENS1_10OperandX64ES3_(ptr noundef nonnull align 8 dereferenceable(252) %0, i64 13170409473, i64 4571824130)
   call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX643jccENS0_12ConditionX64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(252) %0, i8 noundef zeroext 23, ptr noundef nonnull align 4 dereferenceable(8) %6)
@@ -67,10 +67,10 @@ define dso_local void @_ZN4Luau7CodeGen3X6412emitInstCallERNS1_18AssemblyBuilder
   call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX643movENS1_10OperandX64ES3_(ptr noundef nonnull align 8 dereferenceable(252) %0, i64 206496366593, i64 268730368)
   call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX643movENS1_10OperandX64ES3_(ptr noundef nonnull align 8 dereferenceable(252) %0, i64 269778944, i64 137782657025)
   store i32 0, ptr %7, align 4
-  %23 = getelementptr inbounds i8, ptr %7, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 -1, ptr %23, align 4
   store i32 0, ptr %8, align 4
-  %24 = getelementptr inbounds i8, ptr %8, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 -1, ptr %24, align 4
   call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX643movENS1_10OperandX64ES3_(ptr noundef nonnull align 8 dereferenceable(252) %0, i64 271876096, i64 34703441921)
   call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX645movzxENS1_11RegisterX64ENS1_10OperandX64E(ptr noundef nonnull align 8 dereferenceable(252) %0, i8 3, i64 17465901057)
@@ -85,7 +85,7 @@ define dso_local void @_ZN4Luau7CodeGen3X6412emitInstCallERNS1_18AssemblyBuilder
   call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX648setLabelERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(252) %0, ptr noundef nonnull align 4 dereferenceable(8) %8)
   call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX643movENS1_10OperandX64ES3_(ptr noundef nonnull align 8 dereferenceable(252) %0, i64 268730368, i64 69056364545)
   store i32 0, ptr %9, align 4
-  %25 = getelementptr inbounds i8, ptr %9, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 -1, ptr %25, align 4
   call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX644testENS1_10OperandX64ES3_(ptr noundef nonnull align 8 dereferenceable(252) %0, i64 21760868353, i64 4571824130)
   call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX643jccENS0_12ConditionX64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(252) %0, i8 noundef zeroext 22, ptr noundef nonnull align 4 dereferenceable(8) %9)
@@ -105,7 +105,7 @@ define dso_local void @_ZN4Luau7CodeGen3X6412emitInstCallERNS1_18AssemblyBuilder
   call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX643movENS1_10OperandX64ES3_(ptr noundef nonnull align 8 dereferenceable(252) %0, i64 %.sroa.2688.0.insert.insert, i64 276594688)
   call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX644callENS1_10OperandX64E(ptr noundef nonnull align 8 dereferenceable(252) %0, i64 103415054337)
   call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX644testENS1_10OperandX64ES3_(ptr noundef nonnull align 8 dereferenceable(252) %0, i64 268664832, i64 268664832)
-  %26 = getelementptr inbounds i8, ptr %1, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 8
   call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX643jccENS0_12ConditionX64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(252) %0, i8 noundef zeroext 9, ptr noundef nonnull align 4 dereferenceable(8) %26)
   %or.cond = icmp ugt i32 %4, 1
   br i1 %or.cond, label %27, label %32
@@ -144,7 +144,7 @@ define dso_local void @_ZN4Luau7CodeGen3X6412emitInstCallERNS1_18AssemblyBuilder
   %.sroa.0.0.insert.insert.i275 = or disjoint i64 %.sroa.5.0.insert.shift.i, 359956481
   call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX647vmovupsENS1_10OperandX64ES3_(ptr noundef nonnull align 8 dereferenceable(252) %0, i64 %.sroa.0.0.insert.insert.i275, i64 268795904)
   store i32 0, ptr %10, align 4
-  %35 = getelementptr inbounds i8, ptr %10, i64 4
+  %35 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store i32 -1, ptr %35, align 4
   call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX644testENS1_10OperandX64ES3_(ptr noundef nonnull align 8 dereferenceable(252) %0, i64 268664832, i64 268664832)
   call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX643jccENS0_12ConditionX64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(252) %0, i8 noundef zeroext 23, ptr noundef nonnull align 4 dereferenceable(8) %10)
@@ -223,7 +223,7 @@ define dso_local void @_ZN4Luau7CodeGen3X6414emitInstReturnERNS1_18AssemblyBuild
 
 12:                                               ; preds = %11
   tail call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX644xor_ENS1_10OperandX64ES3_(ptr noundef nonnull align 8 dereferenceable(252) %0, i64 269189120, i64 269189120)
-  %13 = getelementptr inbounds i8, ptr %1, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 32
   tail call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX643jmpERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(252) %0, ptr noundef nonnull align 4 dereferenceable(8) %13)
   br label %37
 
@@ -239,7 +239,7 @@ define dso_local void @_ZN4Luau7CodeGen3X6414emitInstReturnERNS1_18AssemblyBuild
   tail call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX647vmovupsENS1_10OperandX64ES3_(ptr noundef nonnull align 8 dereferenceable(252) %0, i64 -68359520255, i64 268795904)
   tail call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX643movENS1_10OperandX64ES3_(ptr noundef nonnull align 8 dereferenceable(252) %0, i64 272400384, i64 276070400)
   tail call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX643movENS1_10OperandX64ES3_(ptr noundef nonnull align 8 dereferenceable(252) %0, i64 269189120, i64 4571824130)
-  %16 = getelementptr inbounds i8, ptr %1, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 32
   tail call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX643jmpERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(252) %0, ptr noundef nonnull align 4 dereferenceable(8) %16)
   br label %37
 
@@ -276,7 +276,7 @@ define dso_local void @_ZN4Luau7CodeGen3X6414emitInstReturnERNS1_18AssemblyBuild
   %.sroa.5240.0.insert.shift = shl nuw nsw i64 %wide.trip.count, 32
   %.sroa.0236.0.insert.insert = or disjoint i64 %.sroa.5240.0.insert.shift, 276856834
   tail call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX643movENS1_10OperandX64ES3_(ptr noundef nonnull align 8 dereferenceable(252) %0, i64 269189120, i64 %.sroa.0236.0.insert.insert)
-  %23 = getelementptr inbounds i8, ptr %1, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 32
   tail call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX643jmpERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(252) %0, ptr noundef nonnull align 4 dereferenceable(8) %23)
   br label %37
 
@@ -305,10 +305,10 @@ define dso_local void @_ZN4Luau7CodeGen3X6414emitInstReturnERNS1_18AssemblyBuild
 31:                                               ; preds = %28, %27
   tail call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX644xor_ENS1_10OperandX64ES3_(ptr noundef nonnull align 8 dereferenceable(252) %0, i64 269189120, i64 269189120)
   store i32 0, ptr %6, align 4
-  %32 = getelementptr inbounds i8, ptr %6, i64 4
+  %32 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 -1, ptr %32, align 4
   store i32 0, ptr %7, align 4
-  %33 = getelementptr inbounds i8, ptr %7, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 -1, ptr %33, align 4
   br i1 %26, label %34, label %35
 
@@ -327,7 +327,7 @@ define dso_local void @_ZN4Luau7CodeGen3X6414emitInstReturnERNS1_18AssemblyBuild
   call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX643cmpENS1_10OperandX64ES3_(ptr noundef nonnull align 8 dereferenceable(252) %0, i64 268730368, i64 269778944)
   call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX643jccENS0_12ConditionX64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(252) %0, i8 noundef zeroext 4, ptr noundef nonnull align 4 dereferenceable(8) %6)
   call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX648setLabelERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(252) %0, ptr noundef nonnull align 4 dereferenceable(8) %7)
-  %36 = getelementptr inbounds i8, ptr %1, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 32
   call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX643jmpERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(252) %0, ptr noundef nonnull align 4 dereferenceable(8) %36)
   br label %37
 
@@ -344,7 +344,7 @@ define dso_local void @_ZN4Luau7CodeGen3X6415emitInstSetListERNS1_13IrRegAllocX6
   %8 = alloca %"struct.Luau::CodeGen::Label", align 4
   %9 = alloca %"struct.Luau::CodeGen::Label", align 4
   %10 = alloca %"struct.Luau::CodeGen::Label", align 4
-  %11 = getelementptr inbounds i8, ptr %1, i64 84
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 84
   %12 = load i32, ptr %11, align 4
   %13 = icmp eq i32 %12, 0
   %14 = add i32 %5, -1
@@ -392,7 +392,7 @@ define dso_local void @_ZN4Luau7CodeGen3X6415emitInstSetListERNS1_13IrRegAllocX6
 
 25:                                               ; preds = %19
   store i32 0, ptr %8, align 4
-  %26 = getelementptr inbounds i8, ptr %8, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 -1, ptr %26, align 4
   %.sroa.0324.0.insert.insert = or disjoint i64 %.sroa.3330.0.insert.shift, 34678538241
   %.sroa.9.0.insert.ext452 = zext i32 %.sroa.9.0 to i64
@@ -466,10 +466,10 @@ define dso_local void @_ZN4Luau7CodeGen3X6415emitInstSetListERNS1_13IrRegAllocX6
 
 42:                                               ; preds = %39, %38
   store i32 0, ptr %9, align 4
-  %43 = getelementptr inbounds i8, ptr %9, i64 4
+  %43 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 -1, ptr %43, align 4
   store i32 0, ptr %10, align 4
-  %44 = getelementptr inbounds i8, ptr %10, i64 4
+  %44 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store i32 -1, ptr %44, align 4
   br i1 %16, label %50, label %45
 
@@ -520,7 +520,7 @@ define dso_local void @_ZN4Luau7CodeGen3X6416emitInstForGLoopERNS1_18AssemblyBui
   %5 = alloca %"struct.Luau::CodeGen::Label", align 4
   %6 = alloca %"struct.Luau::CodeGen::Label", align 4
   %7 = alloca %"struct.Luau::CodeGen::Label", align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 84
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %9 = load i32, ptr %8, align 4
   %10 = icmp eq i32 %9, 0
   %.sroa.060.0.copyload = select i1 %10, i8 68, i8 20
@@ -573,10 +573,10 @@ define dso_local void @_ZN4Luau7CodeGen3X6416emitInstForGLoopERNS1_18AssemblyBui
 
 ._crit_edge:                                      ; preds = %18, %4
   store i32 0, ptr %5, align 4
-  %23 = getelementptr inbounds i8, ptr %5, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 -1, ptr %23, align 4
   store i32 0, ptr %6, align 4
-  %24 = getelementptr inbounds i8, ptr %6, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 -1, ptr %24, align 4
   %25 = tail call i64 @_ZN4Luau7CodeGen3X6418AssemblyBuilderX648setLabelEv(ptr noundef nonnull align 8 dereferenceable(252) %0)
   store i64 %25, ptr %7, align 8

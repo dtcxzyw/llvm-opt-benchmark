@@ -19,13 +19,13 @@ for.cond:                                         ; preds = %for.body
 
 for.body:                                         ; preds = %entry, %for.cond
   %__begin2.0.idx5 = phi i64 [ 0, %entry ], [ %__begin2.0.add, %for.cond ]
-  %__begin2.0.ptr6 = getelementptr inbounds i8, ptr @_ZN4base8internal29kThreadPriorityToNiceValueMapE, i64 %__begin2.0.idx5
+  %__begin2.0.ptr6 = getelementptr inbounds nuw i8, ptr @_ZN4base8internal29kThreadPriorityToNiceValueMapE, i64 %__begin2.0.idx5
   %0 = load i32, ptr %__begin2.0.ptr6, align 8
   %cmp2 = icmp eq i32 %0, %priority
   br i1 %cmp2, label %if.then, label %for.cond
 
 if.then:                                          ; preds = %for.body
-  %nice_value = getelementptr inbounds i8, ptr %__begin2.0.ptr6, i64 4
+  %nice_value = getelementptr inbounds nuw i8, ptr %__begin2.0.ptr6, i64 4
   %1 = load i32, ptr %nice_value, align 4
   br label %return
 
@@ -40,7 +40,7 @@ entry:
   br label %for.cond
 
 for.cond:                                         ; preds = %for.body, %entry
-  %__begin2.sroa.0.0 = phi ptr [ getelementptr inbounds (i8, ptr @_ZN4base8internal29kThreadPriorityToNiceValueMapE, i64 32), %entry ], [ %incdec.ptr.i, %for.body ]
+  %__begin2.sroa.0.0 = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZN4base8internal29kThreadPriorityToNiceValueMapE, i64 32), %entry ], [ %incdec.ptr.i, %for.body ]
   %cmp.i.i.not = icmp eq ptr %__begin2.sroa.0.0, @_ZN4base8internal29kThreadPriorityToNiceValueMapE
   br i1 %cmp.i.i.not, label %return, label %for.body
 

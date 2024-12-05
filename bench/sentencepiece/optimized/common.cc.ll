@@ -103,7 +103,7 @@ define void @_ZN6google8protobuf8internal13VerifyVersionEiiPKc(i32 noundef %0, i
 
 11:                                               ; preds = %3
   call void @_ZN6google8protobuf8internal10LogMessageC1ENS0_8LogLevelEPKci(ptr noundef nonnull align 8 dereferenceable(56) %4, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 76)
-  %12 = getelementptr inbounds i8, ptr %4, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %13 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull @.str.1)
           to label %_ZN6google8protobuf8internal10LogMessagelsEPKc.exit unwind label %43
 
@@ -156,9 +156,9 @@ _ZN6google8protobuf8internal10LogMessagelsEPKc.exit24: ; preds = %_ZN6google8pro
 .critedge.i.i:                                    ; preds = %..critedge_crit_edge.i.i, %_ZN6google8protobuf8internal10LogMessagelsEPKc.exit24
   %26 = phi i32 [ %.pre.i.i, %..critedge_crit_edge.i.i ], [ 3, %_ZN6google8protobuf8internal10LogMessagelsEPKc.exit24 ]
   %27 = load ptr, ptr @_ZN6google8protobuf8internalL12log_handler_B5cxx11E, align 8
-  %28 = getelementptr inbounds i8, ptr %4, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %4, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %31 = load i32, ptr %30, align 8
   invoke void %27(i32 noundef %26, ptr noundef %29, i32 noundef %31, ptr noundef nonnull align 8 dereferenceable(32) %12)
           to label %.noexc unwind label %47
@@ -170,9 +170,9 @@ _ZN6google8protobuf8internal10LogMessagelsEPKc.exit24: ; preds = %_ZN6google8pro
 
 34:                                               ; preds = %.noexc
   %35 = call ptr @__cxa_allocate_exception(i64 56) #18
-  %36 = getelementptr inbounds i8, ptr %4, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %4, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %39 = load i32, ptr %38, align 8
   invoke void @_ZN6google8protobuf14FatalExceptionC2EPKciRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(56) %35, ptr noundef %37, i32 noundef %39, ptr noundef nonnull align 8 dereferenceable(32) %12)
           to label %40 unwind label %41
@@ -227,7 +227,7 @@ _ZN6google8protobuf8internal11LogFinisheraSERNS1_10LogMessageE.exit: ; preds = %
 
 52:                                               ; preds = %50
   call void @_ZN6google8protobuf8internal10LogMessageC1ENS0_8LogLevelEPKci(ptr noundef nonnull align 8 dereferenceable(56) %7, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 87)
-  %53 = getelementptr inbounds i8, ptr %7, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %54 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %53, ptr noundef nonnull @.str.5)
           to label %_ZN6google8protobuf8internal10LogMessagelsEPKc.exit27 unwind label %84
 
@@ -280,9 +280,9 @@ _ZN6google8protobuf8internal10LogMessagelsEPKc.exit39: ; preds = %_ZN6google8pro
 .critedge.i.i43:                                  ; preds = %..critedge_crit_edge.i.i41, %_ZN6google8protobuf8internal10LogMessagelsEPKc.exit39
   %67 = phi i32 [ %.pre.i.i42, %..critedge_crit_edge.i.i41 ], [ 3, %_ZN6google8protobuf8internal10LogMessagelsEPKc.exit39 ]
   %68 = load ptr, ptr @_ZN6google8protobuf8internalL12log_handler_B5cxx11E, align 8
-  %69 = getelementptr inbounds i8, ptr %7, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %70 = load ptr, ptr %69, align 8
-  %71 = getelementptr inbounds i8, ptr %7, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %72 = load i32, ptr %71, align 8
   invoke void %68(i32 noundef %67, ptr noundef %70, i32 noundef %72, ptr noundef nonnull align 8 dereferenceable(32) %53)
           to label %.noexc44 unwind label %88
@@ -294,9 +294,9 @@ _ZN6google8protobuf8internal10LogMessagelsEPKc.exit39: ; preds = %_ZN6google8pro
 
 75:                                               ; preds = %.noexc44
   %76 = call ptr @__cxa_allocate_exception(i64 56) #18
-  %77 = getelementptr inbounds i8, ptr %7, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %7, i64 16
+  %79 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %80 = load i32, ptr %79, align 8
   invoke void @_ZN6google8protobuf14FatalExceptionC2EPKciRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(56) %76, ptr noundef %78, i32 noundef %80, ptr noundef nonnull align 8 dereferenceable(32) %53)
           to label %81 unwind label %82
@@ -357,7 +357,7 @@ _ZN6google8protobuf8internal11LogFinisheraSERNS1_10LogMessageE.exit48: ; preds =
 
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEPKc(ptr noundef nonnull returned align 8 dereferenceable(56) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef %1)
   ret ptr %0
 }
@@ -366,7 +366,7 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull returned align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #3 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %1)
   ret ptr %0
 }
@@ -380,7 +380,7 @@ define void @_ZN6google8protobuf8internal13VersionStringB5cxx11Ei(ptr dead_on_un
   %7 = srem i32 %6, 1000
   %8 = srem i32 %1, 1000
   %9 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 128, ptr noundef nonnull @.str.8, i32 noundef %5, i32 noundef %7, i32 noundef %8) #18
-  %10 = getelementptr inbounds i8, ptr %3, i64 127
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 127
   store i8 0, ptr %10, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #18
   %11 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -435,11 +435,11 @@ define void @_ZN6google8protobuf8internal11LogFinisheraSERNS1_10LogMessageE(ptr 
 .critedge.i:                                      ; preds = %..critedge_crit_edge.i, %2
   %7 = phi i32 [ %.pre.i, %..critedge_crit_edge.i ], [ 3, %2 ]
   %8 = load ptr, ptr @_ZN6google8protobuf8internalL12log_handler_B5cxx11E, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load i32, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 24
   tail call void %8(i32 noundef %7, ptr noundef %10, i32 noundef %12, ptr noundef nonnull align 8 dereferenceable(32) %13)
   br label %14
 
@@ -450,11 +450,11 @@ define void @_ZN6google8protobuf8internal11LogFinisheraSERNS1_10LogMessageE(ptr 
 
 17:                                               ; preds = %14
   %18 = tail call ptr @__cxa_allocate_exception(i64 56) #18
-  %19 = getelementptr inbounds i8, ptr %1, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %22 = load i32, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 24
   invoke void @_ZN6google8protobuf14FatalExceptionC2EPKciRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(56) %18, ptr noundef %20, i32 noundef %22, ptr noundef nonnull align 8 dereferenceable(32) %23)
           to label %24 unwind label %25
 
@@ -492,7 +492,7 @@ define void @_ZN6google8protobuf8internal17DefaultLogHandlerENS0_8LogLevelEPKciR
 6:                                                ; preds = %4
   %7 = load ptr, ptr @stderr, align 8
   %8 = zext nneg i32 %0 to i64
-  %9 = getelementptr inbounds [4 x ptr], ptr @_ZZN6google8protobuf8internal17DefaultLogHandlerENS0_8LogLevelEPKciRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11level_names, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw [4 x ptr], ptr @_ZZN6google8protobuf8internal17DefaultLogHandlerENS0_8LogLevelEPKciRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11level_names, i64 0, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
   %12 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.13, ptr noundef %10, ptr noundef %1, i32 noundef %2, ptr noundef %11) #20
@@ -526,7 +526,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 define noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsERKNS0_11StringPieceE(ptr noundef nonnull returned align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNK6google8protobuf11StringPiece8ToStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr noundef nonnull align 8 dereferenceable(16) %1)
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %6 unwind label %7
 
@@ -574,7 +574,7 @@ define linkonce_odr void @_ZNK6google8protobuf11StringPiece8ToStringB5cxx11Ev(pt
   br label %.body
 
 13:                                               ; preds = %2
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load i64, ptr %14, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #18
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %5, i64 noundef %15, ptr noundef nonnull align 1 dereferenceable(1) %4)
@@ -601,7 +601,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 define noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsERKNS0_4util6StatusE(ptr noundef nonnull returned align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNK6google8protobuf4util6Status8ToStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr noundef nonnull align 8 dereferenceable(40) %1)
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %6 unwind label %7
 
@@ -631,7 +631,7 @@ define noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8inte
           to label %7 unwind label %11
 
 7:                                                ; preds = %6
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %4)
           to label %10 unwind label %13
 
@@ -670,11 +670,11 @@ declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(p
 define noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEc(ptr noundef nonnull returned align 8 dereferenceable(56) %0, i8 noundef signext %1) local_unnamed_addr #3 align 2 {
   %3 = alloca [128 x i8], align 16
   store i8 %1, ptr %3, align 16
-  %nul = getelementptr inbounds i8, ptr %3, i64 1
+  %nul = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 0, ptr %nul, align 1
-  %4 = getelementptr inbounds i8, ptr %3, i64 127
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 127
   store i8 0, ptr %4, align 1
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull %3)
   ret ptr %0
 }
@@ -683,9 +683,9 @@ define noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8inte
 define noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEi(ptr noundef nonnull returned align 8 dereferenceable(56) %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
   %3 = alloca [128 x i8], align 16
   %4 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 128, ptr noundef nonnull @.str.15, i32 noundef %1) #18
-  %5 = getelementptr inbounds i8, ptr %3, i64 127
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 127
   store i8 0, ptr %5, align 1
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull %3)
   ret ptr %0
 }
@@ -694,9 +694,9 @@ define noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8inte
 define noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEj(ptr noundef nonnull returned align 8 dereferenceable(56) %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
   %3 = alloca [128 x i8], align 16
   %4 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 128, ptr noundef nonnull @.str.16, i32 noundef %1) #18
-  %5 = getelementptr inbounds i8, ptr %3, i64 127
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 127
   store i8 0, ptr %5, align 1
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull %3)
   ret ptr %0
 }
@@ -705,9 +705,9 @@ define noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8inte
 define noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEl(ptr noundef nonnull returned align 8 dereferenceable(56) %0, i64 noundef %1) local_unnamed_addr #3 align 2 {
   %3 = alloca [128 x i8], align 16
   %4 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 128, ptr noundef nonnull @.str.17, i64 noundef %1) #18
-  %5 = getelementptr inbounds i8, ptr %3, i64 127
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 127
   store i8 0, ptr %5, align 1
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull %3)
   ret ptr %0
 }
@@ -716,9 +716,9 @@ define noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8inte
 define noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEm(ptr noundef nonnull returned align 8 dereferenceable(56) %0, i64 noundef %1) local_unnamed_addr #3 align 2 {
   %3 = alloca [128 x i8], align 16
   %4 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 128, ptr noundef nonnull @.str.18, i64 noundef %1) #18
-  %5 = getelementptr inbounds i8, ptr %3, i64 127
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 127
   store i8 0, ptr %5, align 1
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull %3)
   ret ptr %0
 }
@@ -727,9 +727,9 @@ define noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8inte
 define noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEd(ptr noundef nonnull returned align 8 dereferenceable(56) %0, double noundef %1) local_unnamed_addr #3 align 2 {
   %3 = alloca [128 x i8], align 16
   %4 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 128, ptr noundef nonnull @.str.19, double noundef %1) #18
-  %5 = getelementptr inbounds i8, ptr %3, i64 127
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 127
   store i8 0, ptr %5, align 1
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull %3)
   ret ptr %0
 }
@@ -738,9 +738,9 @@ define noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8inte
 define noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEPv(ptr noundef nonnull returned align 8 dereferenceable(56) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
   %3 = alloca [128 x i8], align 16
   %4 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 128, ptr noundef nonnull @.str.20, ptr noundef %1) #18
-  %5 = getelementptr inbounds i8, ptr %3, i64 127
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 127
   store i8 0, ptr %5, align 1
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull %3)
   ret ptr %0
 }
@@ -749,9 +749,9 @@ define noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8inte
 define noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEx(ptr noundef nonnull returned align 8 dereferenceable(56) %0, i64 noundef %1) local_unnamed_addr #3 align 2 {
   %3 = alloca [128 x i8], align 16
   %4 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 128, ptr noundef nonnull @.str.21, i64 noundef %1) #18
-  %5 = getelementptr inbounds i8, ptr %3, i64 127
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 127
   store i8 0, ptr %5, align 1
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull %3)
   ret ptr %0
 }
@@ -760,9 +760,9 @@ define noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8inte
 define noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEy(ptr noundef nonnull returned align 8 dereferenceable(56) %0, i64 noundef %1) local_unnamed_addr #3 align 2 {
   %3 = alloca [128 x i8], align 16
   %4 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 128, ptr noundef nonnull @.str.22, i64 noundef %1) #18
-  %5 = getelementptr inbounds i8, ptr %3, i64 127
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 127
   store i8 0, ptr %5, align 1
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull %3)
   ret ptr %0
 }
@@ -770,11 +770,11 @@ define noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8inte
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6google8protobuf8internal10LogMessageC2ENS0_8LogLevelEPKci(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 4), (8, 20)) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #5 align 2 {
   store i32 %1, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %3, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #18
   ret void
 }
@@ -784,7 +784,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noun
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6google8protobuf8internal10LogMessageD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #5 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
   ret void
 }
@@ -807,11 +807,11 @@ define void @_ZN6google8protobuf8internal10LogMessage6FinishEv(ptr noundef nonnu
 .critedge:                                        ; preds = %..critedge_crit_edge, %1
   %6 = phi i32 [ %.pre, %..critedge_crit_edge ], [ 3, %1 ]
   %7 = load ptr, ptr @_ZN6google8protobuf8internalL12log_handler_B5cxx11E, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load i32, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void %7(i32 noundef %6, ptr noundef %9, i32 noundef %11, ptr noundef nonnull align 8 dereferenceable(32) %12)
   br label %13
 
@@ -822,11 +822,11 @@ define void @_ZN6google8protobuf8internal10LogMessage6FinishEv(ptr noundef nonnu
 
 16:                                               ; preds = %13
   %17 = tail call ptr @__cxa_allocate_exception(i64 56) #18
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %21 = load i32, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
   invoke void @_ZN6google8protobuf14FatalExceptionC2EPKciRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(56) %17, ptr noundef %19, i32 noundef %21, ptr noundef nonnull align 8 dereferenceable(32) %22)
           to label %23 unwind label %24
 
@@ -849,11 +849,11 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN6google8protobuf14FatalExceptionC2EPKciRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %3) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf14FatalExceptionE, i64 16), ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %2, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %8 unwind label %9
 
@@ -938,7 +938,7 @@ define noundef i32 @_ZN6google8protobuf6ghtonlEj(i32 noundef %0) local_unnamed_a
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6google8protobuf14FatalExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %0) unnamed_addr #5 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf14FatalExceptionE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #18
   ret void
@@ -956,7 +956,7 @@ define void @_ZN6google8protobuf14FatalExceptionD0Ev(ptr noundef nonnull align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef ptr @_ZNK6google8protobuf14FatalException4whatEv(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #5 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
   ret ptr %3
 }
@@ -965,17 +965,17 @@ declare void @__cxa_pure_virtual() unnamed_addr
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN6google8protobuf8internal16FunctionClosure03RunEv(ptr noundef nonnull align 8 dereferenceable(17) %0) unnamed_addr #3 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void %6()
   br i1 %4, label %7, label %11
 
 7:                                                ; preds = %1
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(17) %0) #18
   br label %11

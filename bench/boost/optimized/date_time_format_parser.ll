@@ -307,7 +307,7 @@ _ZSt4findIPKccET_S2_S2_RKT0_.exit:                ; preds = %14, %_ZSt4findIPKcc
   %67 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %66, ptr %67, align 8, !tbaa !18
   %68 = load ptr, ptr %3, align 8, !tbaa !19
-  %69 = getelementptr inbounds i8, ptr %68, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 16
   %70 = load ptr, ptr %69, align 8
   call void %70(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(16) %5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #10
@@ -529,7 +529,7 @@ _ZSt4findIPKccET_S2_S2_RKT0_.exit:                ; preds = %14, %_ZSt4findIPKcc
   %67 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %66, ptr %67, align 8, !tbaa !18
   %68 = load ptr, ptr %3, align 8, !tbaa !19
-  %69 = getelementptr inbounds i8, ptr %68, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 16
   %70 = load ptr, ptr %69, align 8
   call void %70(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(16) %5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #10
@@ -746,7 +746,7 @@ _ZSt4findIPKccET_S2_S2_RKT0_.exit:                ; preds = %14, %_ZSt4findIPKcc
   %67 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %66, ptr %67, align 8, !tbaa !18
   %68 = load ptr, ptr %3, align 8, !tbaa !19
-  %69 = getelementptr inbounds i8, ptr %68, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 16
   %70 = load ptr, ptr %69, align 8
   call void %70(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #10
@@ -1062,7 +1062,7 @@ _ZSt4findIPKwwET_S2_S2_RKT0_.exit:                ; preds = %14, %_ZSt4findIPKww
   %69 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %68, ptr %69, align 8, !tbaa !50
   %70 = load ptr, ptr %3, align 8, !tbaa !19
-  %71 = getelementptr inbounds i8, ptr %70, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 16
   %72 = load ptr, ptr %71, align 8
   call void %72(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(16) %5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #10
@@ -1284,7 +1284,7 @@ _ZSt4findIPKwwET_S2_S2_RKT0_.exit:                ; preds = %14, %_ZSt4findIPKww
   %69 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %68, ptr %69, align 8, !tbaa !50
   %70 = load ptr, ptr %3, align 8, !tbaa !19
-  %71 = getelementptr inbounds i8, ptr %70, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 16
   %72 = load ptr, ptr %71, align 8
   call void %72(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(16) %5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #10
@@ -1506,7 +1506,7 @@ _ZSt4findIPKwwET_S2_S2_RKT0_.exit:                ; preds = %14, %_ZSt4findIPKww
   %69 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %68, ptr %69, align 8, !tbaa !50
   %70 = load ptr, ptr %3, align 8, !tbaa !19
-  %71 = getelementptr inbounds i8, ptr %70, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 16
   %72 = load ptr, ptr %71, align 8
   call void %72(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #10
@@ -1629,7 +1629,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost3log11v2_mt_posix3aux9anonymous
   %14 = alloca %"class.boost::iterator_range", align 8
   %15 = alloca %"class.boost::iterator_range", align 8
   %16 = alloca %"class.boost::iterator_range", align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %18 = load i8, ptr %17, align 1, !tbaa !11
   switch i8 %18, label %187 [
     i8 89, label %19
@@ -1658,7 +1658,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost3log11v2_mt_posix3aux9anonymous
   %26 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %25, ptr %26, align 8, !tbaa !18
   %27 = load ptr, ptr %3, align 8, !tbaa !19
-  %28 = getelementptr inbounds i8, ptr %27, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %29 = load ptr, ptr %28, align 8
   call void %29(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(16) %16)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16) #10
@@ -1681,7 +1681,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_
 
 37:                                               ; preds = %35
   %38 = load ptr, ptr %3, align 8, !tbaa !19
-  %39 = getelementptr inbounds i8, ptr %38, i64 112
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 112
   %40 = load ptr, ptr %39, align 8
   call void %40(ptr noundef nonnull align 8 dereferenceable(8) %3)
   br label %.thread48
@@ -1697,14 +1697,14 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_
 
 44:                                               ; preds = %.thread
   %45 = load ptr, ptr %3, align 8, !tbaa !19
-  %46 = getelementptr inbounds i8, ptr %45, i64 104
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 104
   %47 = load ptr, ptr %46, align 8
   call void %47(ptr noundef nonnull align 8 dereferenceable(8) %3)
   br label %.thread48
 
 48:                                               ; preds = %41, %.thread
   %49 = load ptr, ptr %3, align 8, !tbaa !19
-  %50 = getelementptr inbounds i8, ptr %49, i64 40
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 40
   %51 = load ptr, ptr %50, align 8
   call void %51(ptr noundef nonnull align 8 dereferenceable(8) %3)
   br label %.thread48
@@ -1723,7 +1723,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_
   %59 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %58, ptr %59, align 8, !tbaa !18
   %60 = load ptr, ptr %3, align 8, !tbaa !19
-  %61 = getelementptr inbounds i8, ptr %60, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 16
   %62 = load ptr, ptr %61, align 8
   call void %62(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(16) %15)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #10
@@ -1734,7 +1734,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_
 
 _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_callbackIcEEE5flushERS6_.exit39: ; preds = %52, %56
   %64 = load ptr, ptr %3, align 8, !tbaa !19
-  %65 = getelementptr inbounds i8, ptr %64, i64 32
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 32
   %66 = load ptr, ptr %65, align 8
   call void %66(ptr noundef nonnull align 8 dereferenceable(8) %3)
   br label %.thread48
@@ -1753,7 +1753,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_
   %74 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %73, ptr %74, align 8, !tbaa !18
   %75 = load ptr, ptr %3, align 8, !tbaa !19
-  %76 = getelementptr inbounds i8, ptr %75, i64 16
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 16
   %77 = load ptr, ptr %76, align 8
   call void %77(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(16) %14)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #10
@@ -1764,7 +1764,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_
 
 _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_callbackIcEEE5flushERS6_.exit40: ; preds = %67, %71
   %79 = load ptr, ptr %3, align 8, !tbaa !19
-  %80 = getelementptr inbounds i8, ptr %79, i64 48
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 48
   %81 = load ptr, ptr %80, align 8
   call void %81(ptr noundef nonnull align 8 dereferenceable(8) %3)
   br label %.thread48
@@ -1783,7 +1783,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_
   %89 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %88, ptr %89, align 8, !tbaa !18
   %90 = load ptr, ptr %3, align 8, !tbaa !19
-  %91 = getelementptr inbounds i8, ptr %90, i64 16
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 16
   %92 = load ptr, ptr %91, align 8
   call void %92(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(16) %13)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #10
@@ -1794,7 +1794,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_
 
 _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_callbackIcEEE5flushERS6_.exit41: ; preds = %82, %86
   %94 = load ptr, ptr %3, align 8, !tbaa !19
-  %95 = getelementptr inbounds i8, ptr %94, i64 64
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 64
   %96 = load ptr, ptr %95, align 8
   call void %96(ptr noundef nonnull align 8 dereferenceable(8) %3)
   br label %.thread48
@@ -1813,7 +1813,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_
   %104 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %103, ptr %104, align 8, !tbaa !18
   %105 = load ptr, ptr %3, align 8, !tbaa !19
-  %106 = getelementptr inbounds i8, ptr %105, i64 16
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 16
   %107 = load ptr, ptr %106, align 8
   call void %107(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(16) %12)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #10
@@ -1824,7 +1824,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_
 
 _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_callbackIcEEE5flushERS6_.exit42: ; preds = %97, %101
   %109 = load ptr, ptr %3, align 8, !tbaa !19
-  %110 = getelementptr inbounds i8, ptr %109, i64 56
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 56
   %111 = load ptr, ptr %110, align 8
   call void %111(ptr noundef nonnull align 8 dereferenceable(8) %3)
   br label %.thread48
@@ -1843,7 +1843,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_
   %119 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %118, ptr %119, align 8, !tbaa !18
   %120 = load ptr, ptr %3, align 8, !tbaa !19
-  %121 = getelementptr inbounds i8, ptr %120, i64 16
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 16
   %122 = load ptr, ptr %121, align 8
   call void %122(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(16) %11)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #10
@@ -1854,7 +1854,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_
 
 _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_callbackIcEEE5flushERS6_.exit43: ; preds = %112, %116
   %124 = load ptr, ptr %3, align 8, !tbaa !19
-  %125 = getelementptr inbounds i8, ptr %124, i64 72
+  %125 = getelementptr inbounds nuw i8, ptr %124, i64 72
   %126 = load ptr, ptr %125, align 8
   call void %126(ptr noundef nonnull align 8 dereferenceable(8) %3, i1 noundef zeroext true)
   br label %.thread48
@@ -1873,7 +1873,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_
   %134 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %133, ptr %134, align 8, !tbaa !18
   %135 = load ptr, ptr %3, align 8, !tbaa !19
-  %136 = getelementptr inbounds i8, ptr %135, i64 16
+  %136 = getelementptr inbounds nuw i8, ptr %135, i64 16
   %137 = load ptr, ptr %136, align 8
   call void %137(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(16) %10)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #10
@@ -1884,7 +1884,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_
 
 _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_callbackIcEEE5flushERS6_.exit44: ; preds = %127, %131
   %139 = load ptr, ptr %3, align 8, !tbaa !19
-  %140 = getelementptr inbounds i8, ptr %139, i64 72
+  %140 = getelementptr inbounds nuw i8, ptr %139, i64 72
   %141 = load ptr, ptr %140, align 8
   call void %141(ptr noundef nonnull align 8 dereferenceable(8) %3, i1 noundef zeroext false)
   br label %.thread48
@@ -1903,7 +1903,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_
   %149 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %148, ptr %149, align 8, !tbaa !18
   %150 = load ptr, ptr %3, align 8, !tbaa !19
-  %151 = getelementptr inbounds i8, ptr %150, i64 16
+  %151 = getelementptr inbounds nuw i8, ptr %150, i64 16
   %152 = load ptr, ptr %151, align 8
   call void %152(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(16) %9)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #10
@@ -1914,7 +1914,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_
 
 _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_callbackIcEEE5flushERS6_.exit45: ; preds = %142, %146
   %154 = load ptr, ptr %3, align 8, !tbaa !19
-  %155 = getelementptr inbounds i8, ptr %154, i64 80
+  %155 = getelementptr inbounds nuw i8, ptr %154, i64 80
   %156 = load ptr, ptr %155, align 8
   call void %156(ptr noundef nonnull align 8 dereferenceable(8) %3)
   br label %.thread48
@@ -1933,7 +1933,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_
   %164 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %163, ptr %164, align 8, !tbaa !18
   %165 = load ptr, ptr %3, align 8, !tbaa !19
-  %166 = getelementptr inbounds i8, ptr %165, i64 16
+  %166 = getelementptr inbounds nuw i8, ptr %165, i64 16
   %167 = load ptr, ptr %166, align 8
   call void %167(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(16) %8)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #10
@@ -1944,7 +1944,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_
 
 _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_callbackIcEEE5flushERS6_.exit46: ; preds = %157, %161
   %169 = load ptr, ptr %3, align 8, !tbaa !19
-  %170 = getelementptr inbounds i8, ptr %169, i64 96
+  %170 = getelementptr inbounds nuw i8, ptr %169, i64 96
   %171 = load ptr, ptr %170, align 8
   call void %171(ptr noundef nonnull align 8 dereferenceable(8) %3)
   br label %.thread48
@@ -1963,7 +1963,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_
   %179 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %178, ptr %179, align 8, !tbaa !18
   %180 = load ptr, ptr %3, align 8, !tbaa !19
-  %181 = getelementptr inbounds i8, ptr %180, i64 16
+  %181 = getelementptr inbounds nuw i8, ptr %180, i64 16
   %182 = load ptr, ptr %181, align 8
   call void %182(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(16) %7)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #10
@@ -1974,7 +1974,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_
 
 _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_callbackIcEEE5flushERS6_.exit47: ; preds = %172, %176
   %184 = load ptr, ptr %3, align 8, !tbaa !19
-  %185 = getelementptr inbounds i8, ptr %184, i64 88
+  %185 = getelementptr inbounds nuw i8, ptr %184, i64 88
   %186 = load ptr, ptr %185, align 8
   call void %186(ptr noundef nonnull align 8 dereferenceable(8) %3)
   br label %.thread48
@@ -2030,7 +2030,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit.i: ; pred
   %210 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %209, ptr %210, align 8, !tbaa !18
   %211 = load ptr, ptr %3, align 8, !tbaa !19
-  %212 = getelementptr inbounds i8, ptr %211, i64 16
+  %212 = getelementptr inbounds nuw i8, ptr %211, i64 16
   %213 = load ptr, ptr %212, align 8
   call void %213(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(16) %5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #10
@@ -2041,12 +2041,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit.i: ; pred
 
 _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_callbackIcEEE5flushERS6_.exit.i: ; preds = %207, %205
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #10
-  %215 = getelementptr inbounds i8, ptr %1, i64 2
+  %215 = getelementptr inbounds nuw i8, ptr %1, i64 2
   store ptr %1, ptr %6, align 8, !tbaa !16
   %216 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %215, ptr %216, align 8, !tbaa !18
   %217 = load ptr, ptr %3, align 8, !tbaa !19
-  %218 = getelementptr inbounds i8, ptr %217, i64 24
+  %218 = getelementptr inbounds nuw i8, ptr %217, i64 24
   %219 = load ptr, ptr %218, align 8
   call void %219(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(16) %6)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #10
@@ -2054,7 +2054,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_
 
 .thread48:                                        ; preds = %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_callbackIcEEE5flushERS6_.exit39, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_callbackIcEEE5flushERS6_.exit40, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_callbackIcEEE5flushERS6_.exit41, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_callbackIcEEE5flushERS6_.exit42, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_callbackIcEEE5flushERS6_.exit43, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_callbackIcEEE5flushERS6_.exit44, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_callbackIcEEE5flushERS6_.exit45, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_callbackIcEEE5flushERS6_.exit46, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_callbackIcEEE5flushERS6_.exit47, %48, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_callbackIcEEE5flushERS6_.exit.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit.i, %44, %37
   %.sink = phi i64 [ 6, %44 ], [ 8, %37 ], [ 2, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit.i ], [ 2, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_callbackIcEEE5flushERS6_.exit.i ], [ 2, %48 ], [ 2, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_callbackIcEEE5flushERS6_.exit47 ], [ 2, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_callbackIcEEE5flushERS6_.exit46 ], [ 2, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_callbackIcEEE5flushERS6_.exit45 ], [ 2, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_callbackIcEEE5flushERS6_.exit44 ], [ 2, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_callbackIcEEE5flushERS6_.exit43 ], [ 2, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_callbackIcEEE5flushERS6_.exit42 ], [ 2, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_callbackIcEEE5flushERS6_.exit41 ], [ 2, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_callbackIcEEE5flushERS6_.exit40 ], [ 2, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_callbackIcEEE5flushERS6_.exit39 ]
-  %220 = getelementptr inbounds i8, ptr %1, i64 %.sink
+  %220 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink
   ret ptr %220
 }
 
@@ -2080,7 +2080,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost3log11v2_mt_posix3aux9anonymous
   %18 = alloca %"class.boost::iterator_range", align 8
   %19 = alloca %"class.boost::iterator_range", align 8
   %20 = alloca %"class.boost::iterator_range", align 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 1
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %22 = load i8, ptr %21, align 1, !tbaa !11
   switch i8 %22, label %258 [
     i8 79, label %23
@@ -2114,7 +2114,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost3log11v2_mt_posix3aux9anonymous
   %30 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store ptr %29, ptr %30, align 8, !tbaa !18
   %31 = load ptr, ptr %3, align 8, !tbaa !19
-  %32 = getelementptr inbounds i8, ptr %31, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %33 = load ptr, ptr %32, align 8
   call void %33(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(16) %20)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20) #10
@@ -2137,7 +2137,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_
 
 41:                                               ; preds = %39
   %42 = load ptr, ptr %3, align 8, !tbaa !19
-  %43 = getelementptr inbounds i8, ptr %42, i64 120
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 120
   %44 = load ptr, ptr %43, align 8
   call void %44(ptr noundef nonnull align 8 dereferenceable(8) %3)
   br label %.thread66
@@ -2153,7 +2153,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_
 
 48:                                               ; preds = %.thread
   %49 = load ptr, ptr %3, align 8, !tbaa !19
-  %50 = getelementptr inbounds i8, ptr %49, i64 112
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 112
   %51 = load ptr, ptr %50, align 8
   call void %51(ptr noundef nonnull align 8 dereferenceable(8) %3)
   br label %.thread66
@@ -2169,14 +2169,14 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_
 
 55:                                               ; preds = %.thread65
   %56 = load ptr, ptr %3, align 8, !tbaa !19
-  %57 = getelementptr inbounds i8, ptr %56, i64 104
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 104
   %58 = load ptr, ptr %57, align 8
   call void %58(ptr noundef nonnull align 8 dereferenceable(8) %3)
   br label %.thread66
 
 59:                                               ; preds = %52, %.thread65
   %60 = load ptr, ptr %3, align 8, !tbaa !19
-  %61 = getelementptr inbounds i8, ptr %60, i64 32
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 32
   %62 = load ptr, ptr %61, align 8
   call void %62(ptr noundef nonnull align 8 dereferenceable(8) %3, i1 noundef zeroext true)
   br label %.thread66
@@ -2195,7 +2195,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_
   %70 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr %69, ptr %70, align 8, !tbaa !18
   %71 = load ptr, ptr %3, align 8, !tbaa !19
-  %72 = getelementptr inbounds i8, ptr %71, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 16
   %73 = load ptr, ptr %72, align 8
   call void %73(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(16) %19)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %19) #10
@@ -2206,7 +2206,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_
 
 _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_callbackIcEEE5flushERS6_.exit52: ; preds = %63, %67
   %75 = load ptr, ptr %3, align 8, !tbaa !19
-  %76 = getelementptr inbounds i8, ptr %75, i64 112
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 112
   %77 = load ptr, ptr %76, align 8
   call void %77(ptr noundef nonnull align 8 dereferenceable(8) %3)
   br label %.thread66
@@ -2225,7 +2225,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_
   %85 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr %84, ptr %85, align 8, !tbaa !18
   %86 = load ptr, ptr %3, align 8, !tbaa !19
-  %87 = getelementptr inbounds i8, ptr %86, i64 16
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 16
   %88 = load ptr, ptr %87, align 8
   call void %88(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(16) %18)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18) #10
@@ -2236,7 +2236,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_
 
 _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_callbackIcEEE5flushERS6_.exit53: ; preds = %78, %82
   %90 = load ptr, ptr %3, align 8, !tbaa !19
-  %91 = getelementptr inbounds i8, ptr %90, i64 32
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 32
   %92 = load ptr, ptr %91, align 8
   call void %92(ptr noundef nonnull align 8 dereferenceable(8) %3, i1 noundef zeroext false)
   br label %.thread66
@@ -2255,7 +2255,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_
   %100 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %99, ptr %100, align 8, !tbaa !18
   %101 = load ptr, ptr %3, align 8, !tbaa !19
-  %102 = getelementptr inbounds i8, ptr %101, i64 16
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 16
   %103 = load ptr, ptr %102, align 8
   call void %103(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(16) %17)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17) #10
@@ -2266,7 +2266,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_
 
 _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_callbackIcEEE5flushERS6_.exit54: ; preds = %93, %97
   %105 = load ptr, ptr %3, align 8, !tbaa !19
-  %106 = getelementptr inbounds i8, ptr %105, i64 40
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 40
   %107 = load ptr, ptr %106, align 8
   call void %107(ptr noundef nonnull align 8 dereferenceable(8) %3, i1 noundef zeroext true)
   br label %.thread66
@@ -2285,7 +2285,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_
   %115 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %114, ptr %115, align 8, !tbaa !18
   %116 = load ptr, ptr %3, align 8, !tbaa !19
-  %117 = getelementptr inbounds i8, ptr %116, i64 16
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 16
   %118 = load ptr, ptr %117, align 8
   call void %118(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(16) %16)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16) #10
@@ -2296,7 +2296,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_
 
 _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_callbackIcEEE5flushERS6_.exit55: ; preds = %108, %112
   %120 = load ptr, ptr %3, align 8, !tbaa !19
-  %121 = getelementptr inbounds i8, ptr %120, i64 40
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 40
   %122 = load ptr, ptr %121, align 8
   call void %122(ptr noundef nonnull align 8 dereferenceable(8) %3, i1 noundef zeroext false)
   br label %.thread66
@@ -2315,7 +2315,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_
   %130 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %129, ptr %130, align 8, !tbaa !18
   %131 = load ptr, ptr %3, align 8, !tbaa !19
-  %132 = getelementptr inbounds i8, ptr %131, i64 16
+  %132 = getelementptr inbounds nuw i8, ptr %131, i64 16
   %133 = load ptr, ptr %132, align 8
   call void %133(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(16) %15)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #10
@@ -2326,7 +2326,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_
 
 _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_callbackIcEEE5flushERS6_.exit56: ; preds = %123, %127
   %135 = load ptr, ptr %3, align 8, !tbaa !19
-  %136 = getelementptr inbounds i8, ptr %135, i64 48
+  %136 = getelementptr inbounds nuw i8, ptr %135, i64 48
   %137 = load ptr, ptr %136, align 8
   call void %137(ptr noundef nonnull align 8 dereferenceable(8) %3)
   br label %.thread66
@@ -2345,7 +2345,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_
   %145 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %144, ptr %145, align 8, !tbaa !18
   %146 = load ptr, ptr %3, align 8, !tbaa !19
-  %147 = getelementptr inbounds i8, ptr %146, i64 16
+  %147 = getelementptr inbounds nuw i8, ptr %146, i64 16
   %148 = load ptr, ptr %147, align 8
   call void %148(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(16) %14)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #10
@@ -2356,7 +2356,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_
 
 _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_callbackIcEEE5flushERS6_.exit57: ; preds = %138, %142
   %150 = load ptr, ptr %3, align 8, !tbaa !19
-  %151 = getelementptr inbounds i8, ptr %150, i64 56
+  %151 = getelementptr inbounds nuw i8, ptr %150, i64 56
   %152 = load ptr, ptr %151, align 8
   call void %152(ptr noundef nonnull align 8 dereferenceable(8) %3)
   br label %.thread66
@@ -2375,7 +2375,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_
   %160 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %159, ptr %160, align 8, !tbaa !18
   %161 = load ptr, ptr %3, align 8, !tbaa !19
-  %162 = getelementptr inbounds i8, ptr %161, i64 16
+  %162 = getelementptr inbounds nuw i8, ptr %161, i64 16
   %163 = load ptr, ptr %162, align 8
   call void %163(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(16) %13)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #10
@@ -2386,7 +2386,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_
 
 _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_callbackIcEEE5flushERS6_.exit58: ; preds = %153, %157
   %165 = load ptr, ptr %3, align 8, !tbaa !19
-  %166 = getelementptr inbounds i8, ptr %165, i64 64
+  %166 = getelementptr inbounds nuw i8, ptr %165, i64 64
   %167 = load ptr, ptr %166, align 8
   call void %167(ptr noundef nonnull align 8 dereferenceable(8) %3)
   br label %.thread66
@@ -2405,7 +2405,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_
   %175 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %174, ptr %175, align 8, !tbaa !18
   %176 = load ptr, ptr %3, align 8, !tbaa !19
-  %177 = getelementptr inbounds i8, ptr %176, i64 16
+  %177 = getelementptr inbounds nuw i8, ptr %176, i64 16
   %178 = load ptr, ptr %177, align 8
   call void %178(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(16) %12)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #10
@@ -2416,7 +2416,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_
 
 _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_callbackIcEEE5flushERS6_.exit59: ; preds = %168, %172
   %180 = load ptr, ptr %3, align 8, !tbaa !19
-  %181 = getelementptr inbounds i8, ptr %180, i64 72
+  %181 = getelementptr inbounds nuw i8, ptr %180, i64 72
   %182 = load ptr, ptr %181, align 8
   call void %182(ptr noundef nonnull align 8 dereferenceable(8) %3, i1 noundef zeroext false)
   br label %.thread66
@@ -2435,7 +2435,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_
   %190 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %189, ptr %190, align 8, !tbaa !18
   %191 = load ptr, ptr %3, align 8, !tbaa !19
-  %192 = getelementptr inbounds i8, ptr %191, i64 16
+  %192 = getelementptr inbounds nuw i8, ptr %191, i64 16
   %193 = load ptr, ptr %192, align 8
   call void %193(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(16) %11)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #10
@@ -2446,7 +2446,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_
 
 _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_callbackIcEEE5flushERS6_.exit60: ; preds = %183, %187
   %195 = load ptr, ptr %3, align 8, !tbaa !19
-  %196 = getelementptr inbounds i8, ptr %195, i64 72
+  %196 = getelementptr inbounds nuw i8, ptr %195, i64 72
   %197 = load ptr, ptr %196, align 8
   call void %197(ptr noundef nonnull align 8 dereferenceable(8) %3, i1 noundef zeroext true)
   br label %.thread66
@@ -2465,7 +2465,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_
   %205 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %204, ptr %205, align 8, !tbaa !18
   %206 = load ptr, ptr %3, align 8, !tbaa !19
-  %207 = getelementptr inbounds i8, ptr %206, i64 16
+  %207 = getelementptr inbounds nuw i8, ptr %206, i64 16
   %208 = load ptr, ptr %207, align 8
   call void %208(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(16) %10)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #10
@@ -2476,7 +2476,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_
 
 _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_callbackIcEEE5flushERS6_.exit61: ; preds = %198, %202
   %210 = load ptr, ptr %3, align 8, !tbaa !19
-  %211 = getelementptr inbounds i8, ptr %210, i64 96
+  %211 = getelementptr inbounds nuw i8, ptr %210, i64 96
   %212 = load ptr, ptr %211, align 8
   call void %212(ptr noundef nonnull align 8 dereferenceable(8) %3)
   br label %.thread66
@@ -2495,7 +2495,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_
   %220 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %219, ptr %220, align 8, !tbaa !18
   %221 = load ptr, ptr %3, align 8, !tbaa !19
-  %222 = getelementptr inbounds i8, ptr %221, i64 16
+  %222 = getelementptr inbounds nuw i8, ptr %221, i64 16
   %223 = load ptr, ptr %222, align 8
   call void %223(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(16) %9)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #10
@@ -2506,7 +2506,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_
 
 _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_callbackIcEEE5flushERS6_.exit62: ; preds = %213, %217
   %225 = load ptr, ptr %3, align 8, !tbaa !19
-  %226 = getelementptr inbounds i8, ptr %225, i64 88
+  %226 = getelementptr inbounds nuw i8, ptr %225, i64 88
   %227 = load ptr, ptr %226, align 8
   call void %227(ptr noundef nonnull align 8 dereferenceable(8) %3)
   br label %.thread66
@@ -2525,7 +2525,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_
   %235 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %234, ptr %235, align 8, !tbaa !18
   %236 = load ptr, ptr %3, align 8, !tbaa !19
-  %237 = getelementptr inbounds i8, ptr %236, i64 16
+  %237 = getelementptr inbounds nuw i8, ptr %236, i64 16
   %238 = load ptr, ptr %237, align 8
   call void %238(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(16) %8)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #10
@@ -2536,7 +2536,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_
 
 _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_callbackIcEEE5flushERS6_.exit63: ; preds = %228, %232
   %240 = load ptr, ptr %3, align 8, !tbaa !19
-  %241 = getelementptr inbounds i8, ptr %240, i64 80
+  %241 = getelementptr inbounds nuw i8, ptr %240, i64 80
   %242 = load ptr, ptr %241, align 8
   call void %242(ptr noundef nonnull align 8 dereferenceable(8) %3, i1 noundef zeroext false)
   br label %.thread66
@@ -2555,7 +2555,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_
   %250 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %249, ptr %250, align 8, !tbaa !18
   %251 = load ptr, ptr %3, align 8, !tbaa !19
-  %252 = getelementptr inbounds i8, ptr %251, i64 16
+  %252 = getelementptr inbounds nuw i8, ptr %251, i64 16
   %253 = load ptr, ptr %252, align 8
   call void %253(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(16) %7)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #10
@@ -2566,7 +2566,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_
 
 _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_callbackIcEEE5flushERS6_.exit64: ; preds = %243, %247
   %255 = load ptr, ptr %3, align 8, !tbaa !19
-  %256 = getelementptr inbounds i8, ptr %255, i64 80
+  %256 = getelementptr inbounds nuw i8, ptr %255, i64 80
   %257 = load ptr, ptr %256, align 8
   call void %257(ptr noundef nonnull align 8 dereferenceable(8) %3, i1 noundef zeroext true)
   br label %.thread66
@@ -2622,7 +2622,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit.i: ; pred
   %281 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %280, ptr %281, align 8, !tbaa !18
   %282 = load ptr, ptr %3, align 8, !tbaa !19
-  %283 = getelementptr inbounds i8, ptr %282, i64 16
+  %283 = getelementptr inbounds nuw i8, ptr %282, i64 16
   %284 = load ptr, ptr %283, align 8
   call void %284(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(16) %5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #10
@@ -2633,12 +2633,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit.i: ; pred
 
 _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_callbackIcEEE5flushERS6_.exit.i: ; preds = %278, %276
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #10
-  %286 = getelementptr inbounds i8, ptr %1, i64 2
+  %286 = getelementptr inbounds nuw i8, ptr %1, i64 2
   store ptr %1, ptr %6, align 8, !tbaa !16
   %287 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %286, ptr %287, align 8, !tbaa !18
   %288 = load ptr, ptr %3, align 8, !tbaa !19
-  %289 = getelementptr inbounds i8, ptr %288, i64 24
+  %289 = getelementptr inbounds nuw i8, ptr %288, i64 24
   %290 = load ptr, ptr %289, align 8
   call void %290(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(16) %6)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #10
@@ -2646,7 +2646,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_
 
 .thread66:                                        ; preds = %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_callbackIcEEE5flushERS6_.exit52, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_callbackIcEEE5flushERS6_.exit53, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_callbackIcEEE5flushERS6_.exit54, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_callbackIcEEE5flushERS6_.exit55, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_callbackIcEEE5flushERS6_.exit56, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_callbackIcEEE5flushERS6_.exit57, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_callbackIcEEE5flushERS6_.exit58, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_callbackIcEEE5flushERS6_.exit59, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_callbackIcEEE5flushERS6_.exit60, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_callbackIcEEE5flushERS6_.exit61, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_callbackIcEEE5flushERS6_.exit62, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_callbackIcEEE5flushERS6_.exit63, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_callbackIcEEE5flushERS6_.exit64, %59, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_callbackIcEEE5flushERS6_.exit.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit.i, %55, %48, %41
   %.sink = phi i64 [ 6, %55 ], [ 8, %48 ], [ 11, %41 ], [ 2, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit.i ], [ 2, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_callbackIcEEE5flushERS6_.exit.i ], [ 2, %59 ], [ 2, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_callbackIcEEE5flushERS6_.exit64 ], [ 2, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_callbackIcEEE5flushERS6_.exit63 ], [ 2, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_callbackIcEEE5flushERS6_.exit62 ], [ 2, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_callbackIcEEE5flushERS6_.exit61 ], [ 2, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_callbackIcEEE5flushERS6_.exit60 ], [ 2, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_callbackIcEEE5flushERS6_.exit59 ], [ 2, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_callbackIcEEE5flushERS6_.exit58 ], [ 2, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_callbackIcEEE5flushERS6_.exit57 ], [ 2, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_callbackIcEEE5flushERS6_.exit56 ], [ 2, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_callbackIcEEE5flushERS6_.exit55 ], [ 2, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_callbackIcEEE5flushERS6_.exit54 ], [ 2, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_callbackIcEEE5flushERS6_.exit53 ], [ 2, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_callbackIcEEE5flushERS6_.exit52 ]
-  %291 = getelementptr inbounds i8, ptr %1, i64 %.sink
+  %291 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink
   ret ptr %291
 }
 
@@ -2662,7 +2662,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost3log11v2_mt_posix3aux9anonymous
   %12 = alloca %"class.boost::iterator_range", align 8
   %13 = alloca %"class.boost::iterator_range", align 8
   %14 = alloca %"class.boost::iterator_range", align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %16 = load i8, ptr %15, align 1, !tbaa !11
   switch i8 %16, label %187 [
     i8 89, label %17
@@ -2691,7 +2691,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost3log11v2_mt_posix3aux9anonymous
   %24 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %23, ptr %24, align 8, !tbaa !18
   %25 = load ptr, ptr %3, align 8, !tbaa !19
-  %26 = getelementptr inbounds i8, ptr %25, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load ptr, ptr %26, align 8
   call void %27(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %14)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #10
@@ -2714,10 +2714,10 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
 
 35:                                               ; preds = %33
   %36 = load ptr, ptr %3, align 8, !tbaa !19
-  %37 = getelementptr inbounds i8, ptr %36, i64 112
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 112
   %38 = load ptr, ptr %37, align 8
   call void %38(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  %39 = getelementptr inbounds i8, ptr %1, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %.thread48
 
 40:                                               ; preds = %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIcEEE5flushERS6_.exit
@@ -2731,15 +2731,15 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
 
 43:                                               ; preds = %.thread
   %44 = load ptr, ptr %3, align 8, !tbaa !19
-  %45 = getelementptr inbounds i8, ptr %44, i64 104
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 104
   %46 = load ptr, ptr %45, align 8
   call void %46(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  %47 = getelementptr inbounds i8, ptr %1, i64 6
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 6
   br label %.thread48
 
 48:                                               ; preds = %40, %.thread
   %49 = load ptr, ptr %3, align 8, !tbaa !19
-  %50 = getelementptr inbounds i8, ptr %49, i64 40
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 40
   %51 = load ptr, ptr %50, align 8
   call void %51(ptr noundef nonnull align 8 dereferenceable(8) %3)
   br label %189
@@ -2758,7 +2758,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
   %59 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %58, ptr %59, align 8, !tbaa !18
   %60 = load ptr, ptr %3, align 8, !tbaa !19
-  %61 = getelementptr inbounds i8, ptr %60, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 16
   %62 = load ptr, ptr %61, align 8
   call void %62(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %13)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #10
@@ -2769,7 +2769,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
 
 _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIcEEE5flushERS6_.exit39: ; preds = %52, %56
   %64 = load ptr, ptr %3, align 8, !tbaa !19
-  %65 = getelementptr inbounds i8, ptr %64, i64 32
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 32
   %66 = load ptr, ptr %65, align 8
   call void %66(ptr noundef nonnull align 8 dereferenceable(8) %3)
   br label %189
@@ -2788,7 +2788,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
   %74 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %73, ptr %74, align 8, !tbaa !18
   %75 = load ptr, ptr %3, align 8, !tbaa !19
-  %76 = getelementptr inbounds i8, ptr %75, i64 16
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 16
   %77 = load ptr, ptr %76, align 8
   call void %77(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %12)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #10
@@ -2799,7 +2799,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
 
 _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIcEEE5flushERS6_.exit40: ; preds = %67, %71
   %79 = load ptr, ptr %3, align 8, !tbaa !19
-  %80 = getelementptr inbounds i8, ptr %79, i64 48
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 48
   %81 = load ptr, ptr %80, align 8
   call void %81(ptr noundef nonnull align 8 dereferenceable(8) %3)
   br label %189
@@ -2818,7 +2818,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
   %89 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %88, ptr %89, align 8, !tbaa !18
   %90 = load ptr, ptr %3, align 8, !tbaa !19
-  %91 = getelementptr inbounds i8, ptr %90, i64 16
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 16
   %92 = load ptr, ptr %91, align 8
   call void %92(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %11)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #10
@@ -2829,7 +2829,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
 
 _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIcEEE5flushERS6_.exit41: ; preds = %82, %86
   %94 = load ptr, ptr %3, align 8, !tbaa !19
-  %95 = getelementptr inbounds i8, ptr %94, i64 64
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 64
   %96 = load ptr, ptr %95, align 8
   call void %96(ptr noundef nonnull align 8 dereferenceable(8) %3)
   br label %189
@@ -2848,7 +2848,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
   %104 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %103, ptr %104, align 8, !tbaa !18
   %105 = load ptr, ptr %3, align 8, !tbaa !19
-  %106 = getelementptr inbounds i8, ptr %105, i64 16
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 16
   %107 = load ptr, ptr %106, align 8
   call void %107(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %10)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #10
@@ -2859,7 +2859,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
 
 _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIcEEE5flushERS6_.exit42: ; preds = %97, %101
   %109 = load ptr, ptr %3, align 8, !tbaa !19
-  %110 = getelementptr inbounds i8, ptr %109, i64 56
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 56
   %111 = load ptr, ptr %110, align 8
   call void %111(ptr noundef nonnull align 8 dereferenceable(8) %3)
   br label %189
@@ -2878,7 +2878,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
   %119 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %118, ptr %119, align 8, !tbaa !18
   %120 = load ptr, ptr %3, align 8, !tbaa !19
-  %121 = getelementptr inbounds i8, ptr %120, i64 16
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 16
   %122 = load ptr, ptr %121, align 8
   call void %122(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %9)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #10
@@ -2889,7 +2889,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
 
 _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIcEEE5flushERS6_.exit43: ; preds = %112, %116
   %124 = load ptr, ptr %3, align 8, !tbaa !19
-  %125 = getelementptr inbounds i8, ptr %124, i64 72
+  %125 = getelementptr inbounds nuw i8, ptr %124, i64 72
   %126 = load ptr, ptr %125, align 8
   call void %126(ptr noundef nonnull align 8 dereferenceable(8) %3, i1 noundef zeroext true)
   br label %189
@@ -2908,7 +2908,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
   %134 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %133, ptr %134, align 8, !tbaa !18
   %135 = load ptr, ptr %3, align 8, !tbaa !19
-  %136 = getelementptr inbounds i8, ptr %135, i64 16
+  %136 = getelementptr inbounds nuw i8, ptr %135, i64 16
   %137 = load ptr, ptr %136, align 8
   call void %137(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %8)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #10
@@ -2919,7 +2919,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
 
 _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIcEEE5flushERS6_.exit44: ; preds = %127, %131
   %139 = load ptr, ptr %3, align 8, !tbaa !19
-  %140 = getelementptr inbounds i8, ptr %139, i64 72
+  %140 = getelementptr inbounds nuw i8, ptr %139, i64 72
   %141 = load ptr, ptr %140, align 8
   call void %141(ptr noundef nonnull align 8 dereferenceable(8) %3, i1 noundef zeroext false)
   br label %189
@@ -2938,7 +2938,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
   %149 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %148, ptr %149, align 8, !tbaa !18
   %150 = load ptr, ptr %3, align 8, !tbaa !19
-  %151 = getelementptr inbounds i8, ptr %150, i64 16
+  %151 = getelementptr inbounds nuw i8, ptr %150, i64 16
   %152 = load ptr, ptr %151, align 8
   call void %152(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %7)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #10
@@ -2949,7 +2949,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
 
 _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIcEEE5flushERS6_.exit45: ; preds = %142, %146
   %154 = load ptr, ptr %3, align 8, !tbaa !19
-  %155 = getelementptr inbounds i8, ptr %154, i64 80
+  %155 = getelementptr inbounds nuw i8, ptr %154, i64 80
   %156 = load ptr, ptr %155, align 8
   call void %156(ptr noundef nonnull align 8 dereferenceable(8) %3)
   br label %189
@@ -2968,7 +2968,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
   %164 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %163, ptr %164, align 8, !tbaa !18
   %165 = load ptr, ptr %3, align 8, !tbaa !19
-  %166 = getelementptr inbounds i8, ptr %165, i64 16
+  %166 = getelementptr inbounds nuw i8, ptr %165, i64 16
   %167 = load ptr, ptr %166, align 8
   call void %167(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %6)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #10
@@ -2979,7 +2979,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
 
 _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIcEEE5flushERS6_.exit46: ; preds = %157, %161
   %169 = load ptr, ptr %3, align 8, !tbaa !19
-  %170 = getelementptr inbounds i8, ptr %169, i64 96
+  %170 = getelementptr inbounds nuw i8, ptr %169, i64 96
   %171 = load ptr, ptr %170, align 8
   call void %171(ptr noundef nonnull align 8 dereferenceable(8) %3)
   br label %189
@@ -2998,7 +2998,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
   %179 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %178, ptr %179, align 8, !tbaa !18
   %180 = load ptr, ptr %3, align 8, !tbaa !19
-  %181 = getelementptr inbounds i8, ptr %180, i64 16
+  %181 = getelementptr inbounds nuw i8, ptr %180, i64 16
   %182 = load ptr, ptr %181, align 8
   call void %182(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #10
@@ -3009,7 +3009,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
 
 _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIcEEE5flushERS6_.exit47: ; preds = %172, %176
   %184 = load ptr, ptr %3, align 8, !tbaa !19
-  %185 = getelementptr inbounds i8, ptr %184, i64 88
+  %185 = getelementptr inbounds nuw i8, ptr %184, i64 88
   %186 = load ptr, ptr %185, align 8
   call void %186(ptr noundef nonnull align 8 dereferenceable(8) %3)
   br label %189
@@ -3019,7 +3019,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
   br label %.thread48
 
 189:                                              ; preds = %48, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIcEEE5flushERS6_.exit47, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIcEEE5flushERS6_.exit46, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIcEEE5flushERS6_.exit45, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIcEEE5flushERS6_.exit44, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIcEEE5flushERS6_.exit43, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIcEEE5flushERS6_.exit42, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIcEEE5flushERS6_.exit41, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIcEEE5flushERS6_.exit40, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIcEEE5flushERS6_.exit39
-  %190 = getelementptr inbounds i8, ptr %1, i64 2
+  %190 = getelementptr inbounds nuw i8, ptr %1, i64 2
   br label %.thread48
 
 .thread48:                                        ; preds = %43, %35, %189, %187
@@ -3045,7 +3045,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost3log11v2_mt_posix3aux9anonymous
   %18 = alloca %"class.boost::iterator_range", align 8
   %19 = alloca %"class.boost::iterator_range", align 8
   %20 = alloca %"class.boost::iterator_range", align 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 1
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %22 = load i8, ptr %21, align 1, !tbaa !11
   switch i8 %22, label %275 [
     i8 79, label %23
@@ -3079,7 +3079,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost3log11v2_mt_posix3aux9anonymous
   %30 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store ptr %29, ptr %30, align 8, !tbaa !18
   %31 = load ptr, ptr %3, align 8, !tbaa !19
-  %32 = getelementptr inbounds i8, ptr %31, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %33 = load ptr, ptr %32, align 8
   call void %33(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %20)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20) #10
@@ -3101,9 +3101,9 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
   br i1 %40, label %41, label %.thread
 
 41:                                               ; preds = %39
-  %42 = getelementptr inbounds i8, ptr %3, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %43 = load ptr, ptr %42, align 8, !tbaa !19
-  %44 = getelementptr inbounds i8, ptr %43, i64 120
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 120
   %45 = load ptr, ptr %44, align 8
   call void %45(ptr noundef nonnull align 8 dereferenceable(8) %42)
   br label %.thread66
@@ -3118,9 +3118,9 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
   br i1 %48, label %49, label %.thread65
 
 49:                                               ; preds = %.thread
-  %50 = getelementptr inbounds i8, ptr %3, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %51 = load ptr, ptr %50, align 8, !tbaa !19
-  %52 = getelementptr inbounds i8, ptr %51, i64 112
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 112
   %53 = load ptr, ptr %52, align 8
   call void %53(ptr noundef nonnull align 8 dereferenceable(8) %50)
   br label %.thread66
@@ -3135,17 +3135,17 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
   br i1 %56, label %57, label %62
 
 57:                                               ; preds = %.thread65
-  %58 = getelementptr inbounds i8, ptr %3, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %59 = load ptr, ptr %58, align 8, !tbaa !19
-  %60 = getelementptr inbounds i8, ptr %59, i64 104
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 104
   %61 = load ptr, ptr %60, align 8
   call void %61(ptr noundef nonnull align 8 dereferenceable(8) %58)
   br label %.thread66
 
 62:                                               ; preds = %54, %.thread65
-  %63 = getelementptr inbounds i8, ptr %3, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %64 = load ptr, ptr %63, align 8, !tbaa !19
-  %65 = getelementptr inbounds i8, ptr %64, i64 32
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 32
   %66 = load ptr, ptr %65, align 8
   call void %66(ptr noundef nonnull align 8 dereferenceable(8) %63, i1 noundef zeroext true)
   br label %.thread66
@@ -3164,7 +3164,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
   %74 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr %73, ptr %74, align 8, !tbaa !18
   %75 = load ptr, ptr %3, align 8, !tbaa !19
-  %76 = getelementptr inbounds i8, ptr %75, i64 16
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 16
   %77 = load ptr, ptr %76, align 8
   call void %77(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %19)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %19) #10
@@ -3174,9 +3174,9 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
   br label %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIcEEE5flushERS6_.exit52
 
 _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIcEEE5flushERS6_.exit52: ; preds = %67, %71
-  %79 = getelementptr inbounds i8, ptr %3, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %80 = load ptr, ptr %79, align 8, !tbaa !19
-  %81 = getelementptr inbounds i8, ptr %80, i64 112
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 112
   %82 = load ptr, ptr %81, align 8
   call void %82(ptr noundef nonnull align 8 dereferenceable(8) %79)
   br label %.thread66
@@ -3195,7 +3195,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
   %90 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr %89, ptr %90, align 8, !tbaa !18
   %91 = load ptr, ptr %3, align 8, !tbaa !19
-  %92 = getelementptr inbounds i8, ptr %91, i64 16
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 16
   %93 = load ptr, ptr %92, align 8
   call void %93(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %18)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18) #10
@@ -3205,9 +3205,9 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
   br label %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIcEEE5flushERS6_.exit53
 
 _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIcEEE5flushERS6_.exit53: ; preds = %83, %87
-  %95 = getelementptr inbounds i8, ptr %3, i64 8
+  %95 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %96 = load ptr, ptr %95, align 8, !tbaa !19
-  %97 = getelementptr inbounds i8, ptr %96, i64 32
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 32
   %98 = load ptr, ptr %97, align 8
   call void %98(ptr noundef nonnull align 8 dereferenceable(8) %95, i1 noundef zeroext false)
   br label %.thread66
@@ -3226,7 +3226,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
   %106 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %105, ptr %106, align 8, !tbaa !18
   %107 = load ptr, ptr %3, align 8, !tbaa !19
-  %108 = getelementptr inbounds i8, ptr %107, i64 16
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 16
   %109 = load ptr, ptr %108, align 8
   call void %109(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %17)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17) #10
@@ -3236,9 +3236,9 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
   br label %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIcEEE5flushERS6_.exit54
 
 _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIcEEE5flushERS6_.exit54: ; preds = %99, %103
-  %111 = getelementptr inbounds i8, ptr %3, i64 8
+  %111 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %112 = load ptr, ptr %111, align 8, !tbaa !19
-  %113 = getelementptr inbounds i8, ptr %112, i64 40
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 40
   %114 = load ptr, ptr %113, align 8
   call void %114(ptr noundef nonnull align 8 dereferenceable(8) %111, i1 noundef zeroext true)
   br label %.thread66
@@ -3257,7 +3257,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
   %122 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %121, ptr %122, align 8, !tbaa !18
   %123 = load ptr, ptr %3, align 8, !tbaa !19
-  %124 = getelementptr inbounds i8, ptr %123, i64 16
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 16
   %125 = load ptr, ptr %124, align 8
   call void %125(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %16)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16) #10
@@ -3267,9 +3267,9 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
   br label %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIcEEE5flushERS6_.exit55
 
 _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIcEEE5flushERS6_.exit55: ; preds = %115, %119
-  %127 = getelementptr inbounds i8, ptr %3, i64 8
+  %127 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %128 = load ptr, ptr %127, align 8, !tbaa !19
-  %129 = getelementptr inbounds i8, ptr %128, i64 40
+  %129 = getelementptr inbounds nuw i8, ptr %128, i64 40
   %130 = load ptr, ptr %129, align 8
   call void %130(ptr noundef nonnull align 8 dereferenceable(8) %127, i1 noundef zeroext false)
   br label %.thread66
@@ -3288,7 +3288,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
   %138 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %137, ptr %138, align 8, !tbaa !18
   %139 = load ptr, ptr %3, align 8, !tbaa !19
-  %140 = getelementptr inbounds i8, ptr %139, i64 16
+  %140 = getelementptr inbounds nuw i8, ptr %139, i64 16
   %141 = load ptr, ptr %140, align 8
   call void %141(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %15)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #10
@@ -3298,9 +3298,9 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
   br label %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIcEEE5flushERS6_.exit56
 
 _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIcEEE5flushERS6_.exit56: ; preds = %131, %135
-  %143 = getelementptr inbounds i8, ptr %3, i64 8
+  %143 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %144 = load ptr, ptr %143, align 8, !tbaa !19
-  %145 = getelementptr inbounds i8, ptr %144, i64 48
+  %145 = getelementptr inbounds nuw i8, ptr %144, i64 48
   %146 = load ptr, ptr %145, align 8
   call void %146(ptr noundef nonnull align 8 dereferenceable(8) %143)
   br label %.thread66
@@ -3319,7 +3319,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
   %154 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %153, ptr %154, align 8, !tbaa !18
   %155 = load ptr, ptr %3, align 8, !tbaa !19
-  %156 = getelementptr inbounds i8, ptr %155, i64 16
+  %156 = getelementptr inbounds nuw i8, ptr %155, i64 16
   %157 = load ptr, ptr %156, align 8
   call void %157(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %14)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #10
@@ -3329,9 +3329,9 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
   br label %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIcEEE5flushERS6_.exit57
 
 _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIcEEE5flushERS6_.exit57: ; preds = %147, %151
-  %159 = getelementptr inbounds i8, ptr %3, i64 8
+  %159 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %160 = load ptr, ptr %159, align 8, !tbaa !19
-  %161 = getelementptr inbounds i8, ptr %160, i64 56
+  %161 = getelementptr inbounds nuw i8, ptr %160, i64 56
   %162 = load ptr, ptr %161, align 8
   call void %162(ptr noundef nonnull align 8 dereferenceable(8) %159)
   br label %.thread66
@@ -3350,7 +3350,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
   %170 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %169, ptr %170, align 8, !tbaa !18
   %171 = load ptr, ptr %3, align 8, !tbaa !19
-  %172 = getelementptr inbounds i8, ptr %171, i64 16
+  %172 = getelementptr inbounds nuw i8, ptr %171, i64 16
   %173 = load ptr, ptr %172, align 8
   call void %173(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %13)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #10
@@ -3360,9 +3360,9 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
   br label %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIcEEE5flushERS6_.exit58
 
 _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIcEEE5flushERS6_.exit58: ; preds = %163, %167
-  %175 = getelementptr inbounds i8, ptr %3, i64 8
+  %175 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %176 = load ptr, ptr %175, align 8, !tbaa !19
-  %177 = getelementptr inbounds i8, ptr %176, i64 64
+  %177 = getelementptr inbounds nuw i8, ptr %176, i64 64
   %178 = load ptr, ptr %177, align 8
   call void %178(ptr noundef nonnull align 8 dereferenceable(8) %175)
   br label %.thread66
@@ -3381,7 +3381,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
   %186 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %185, ptr %186, align 8, !tbaa !18
   %187 = load ptr, ptr %3, align 8, !tbaa !19
-  %188 = getelementptr inbounds i8, ptr %187, i64 16
+  %188 = getelementptr inbounds nuw i8, ptr %187, i64 16
   %189 = load ptr, ptr %188, align 8
   call void %189(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %12)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #10
@@ -3391,9 +3391,9 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
   br label %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIcEEE5flushERS6_.exit59
 
 _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIcEEE5flushERS6_.exit59: ; preds = %179, %183
-  %191 = getelementptr inbounds i8, ptr %3, i64 8
+  %191 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %192 = load ptr, ptr %191, align 8, !tbaa !19
-  %193 = getelementptr inbounds i8, ptr %192, i64 72
+  %193 = getelementptr inbounds nuw i8, ptr %192, i64 72
   %194 = load ptr, ptr %193, align 8
   call void %194(ptr noundef nonnull align 8 dereferenceable(8) %191, i1 noundef zeroext false)
   br label %.thread66
@@ -3412,7 +3412,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
   %202 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %201, ptr %202, align 8, !tbaa !18
   %203 = load ptr, ptr %3, align 8, !tbaa !19
-  %204 = getelementptr inbounds i8, ptr %203, i64 16
+  %204 = getelementptr inbounds nuw i8, ptr %203, i64 16
   %205 = load ptr, ptr %204, align 8
   call void %205(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %11)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #10
@@ -3422,9 +3422,9 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
   br label %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIcEEE5flushERS6_.exit60
 
 _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIcEEE5flushERS6_.exit60: ; preds = %195, %199
-  %207 = getelementptr inbounds i8, ptr %3, i64 8
+  %207 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %208 = load ptr, ptr %207, align 8, !tbaa !19
-  %209 = getelementptr inbounds i8, ptr %208, i64 72
+  %209 = getelementptr inbounds nuw i8, ptr %208, i64 72
   %210 = load ptr, ptr %209, align 8
   call void %210(ptr noundef nonnull align 8 dereferenceable(8) %207, i1 noundef zeroext true)
   br label %.thread66
@@ -3443,7 +3443,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
   %218 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %217, ptr %218, align 8, !tbaa !18
   %219 = load ptr, ptr %3, align 8, !tbaa !19
-  %220 = getelementptr inbounds i8, ptr %219, i64 16
+  %220 = getelementptr inbounds nuw i8, ptr %219, i64 16
   %221 = load ptr, ptr %220, align 8
   call void %221(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %10)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #10
@@ -3453,9 +3453,9 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
   br label %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIcEEE5flushERS6_.exit61
 
 _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIcEEE5flushERS6_.exit61: ; preds = %211, %215
-  %223 = getelementptr inbounds i8, ptr %3, i64 8
+  %223 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %224 = load ptr, ptr %223, align 8, !tbaa !19
-  %225 = getelementptr inbounds i8, ptr %224, i64 96
+  %225 = getelementptr inbounds nuw i8, ptr %224, i64 96
   %226 = load ptr, ptr %225, align 8
   call void %226(ptr noundef nonnull align 8 dereferenceable(8) %223)
   br label %.thread66
@@ -3474,7 +3474,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
   %234 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %233, ptr %234, align 8, !tbaa !18
   %235 = load ptr, ptr %3, align 8, !tbaa !19
-  %236 = getelementptr inbounds i8, ptr %235, i64 16
+  %236 = getelementptr inbounds nuw i8, ptr %235, i64 16
   %237 = load ptr, ptr %236, align 8
   call void %237(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %9)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #10
@@ -3484,9 +3484,9 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
   br label %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIcEEE5flushERS6_.exit62
 
 _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIcEEE5flushERS6_.exit62: ; preds = %227, %231
-  %239 = getelementptr inbounds i8, ptr %3, i64 8
+  %239 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %240 = load ptr, ptr %239, align 8, !tbaa !19
-  %241 = getelementptr inbounds i8, ptr %240, i64 88
+  %241 = getelementptr inbounds nuw i8, ptr %240, i64 88
   %242 = load ptr, ptr %241, align 8
   call void %242(ptr noundef nonnull align 8 dereferenceable(8) %239)
   br label %.thread66
@@ -3505,7 +3505,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
   %250 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %249, ptr %250, align 8, !tbaa !18
   %251 = load ptr, ptr %3, align 8, !tbaa !19
-  %252 = getelementptr inbounds i8, ptr %251, i64 16
+  %252 = getelementptr inbounds nuw i8, ptr %251, i64 16
   %253 = load ptr, ptr %252, align 8
   call void %253(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %8)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #10
@@ -3515,9 +3515,9 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
   br label %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIcEEE5flushERS6_.exit63
 
 _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIcEEE5flushERS6_.exit63: ; preds = %243, %247
-  %255 = getelementptr inbounds i8, ptr %3, i64 8
+  %255 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %256 = load ptr, ptr %255, align 8, !tbaa !19
-  %257 = getelementptr inbounds i8, ptr %256, i64 80
+  %257 = getelementptr inbounds nuw i8, ptr %256, i64 80
   %258 = load ptr, ptr %257, align 8
   call void %258(ptr noundef nonnull align 8 dereferenceable(8) %255, i1 noundef zeroext false)
   br label %.thread66
@@ -3536,7 +3536,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
   %266 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %265, ptr %266, align 8, !tbaa !18
   %267 = load ptr, ptr %3, align 8, !tbaa !19
-  %268 = getelementptr inbounds i8, ptr %267, i64 16
+  %268 = getelementptr inbounds nuw i8, ptr %267, i64 16
   %269 = load ptr, ptr %268, align 8
   call void %269(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %7)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #10
@@ -3546,9 +3546,9 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
   br label %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIcEEE5flushERS6_.exit64
 
 _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIcEEE5flushERS6_.exit64: ; preds = %259, %263
-  %271 = getelementptr inbounds i8, ptr %3, i64 8
+  %271 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %272 = load ptr, ptr %271, align 8, !tbaa !19
-  %273 = getelementptr inbounds i8, ptr %272, i64 80
+  %273 = getelementptr inbounds nuw i8, ptr %272, i64 80
   %274 = load ptr, ptr %273, align 8
   call void %274(ptr noundef nonnull align 8 dereferenceable(8) %271, i1 noundef zeroext true)
   br label %.thread66
@@ -3604,7 +3604,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit.i: ; pred
   %298 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %297, ptr %298, align 8, !tbaa !18
   %299 = load ptr, ptr %3, align 8, !tbaa !19
-  %300 = getelementptr inbounds i8, ptr %299, i64 16
+  %300 = getelementptr inbounds nuw i8, ptr %299, i64 16
   %301 = load ptr, ptr %300, align 8
   call void %301(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #10
@@ -3615,12 +3615,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit.i: ; pred
 
 _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIcEEE5flushERS6_.exit.i: ; preds = %295, %293
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #10
-  %303 = getelementptr inbounds i8, ptr %1, i64 2
+  %303 = getelementptr inbounds nuw i8, ptr %1, i64 2
   store ptr %1, ptr %6, align 8, !tbaa !16
   %304 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %303, ptr %304, align 8, !tbaa !18
   %305 = load ptr, ptr %3, align 8, !tbaa !19
-  %306 = getelementptr inbounds i8, ptr %305, i64 24
+  %306 = getelementptr inbounds nuw i8, ptr %305, i64 24
   %307 = load ptr, ptr %306, align 8
   call void %307(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %6)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #10
@@ -3628,7 +3628,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
 
 .thread66:                                        ; preds = %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIcEEE5flushERS6_.exit52, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIcEEE5flushERS6_.exit53, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIcEEE5flushERS6_.exit54, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIcEEE5flushERS6_.exit55, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIcEEE5flushERS6_.exit56, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIcEEE5flushERS6_.exit57, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIcEEE5flushERS6_.exit58, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIcEEE5flushERS6_.exit59, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIcEEE5flushERS6_.exit60, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIcEEE5flushERS6_.exit61, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIcEEE5flushERS6_.exit62, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIcEEE5flushERS6_.exit63, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIcEEE5flushERS6_.exit64, %62, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIcEEE5flushERS6_.exit.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit.i, %57, %49, %41
   %.sink = phi i64 [ 6, %57 ], [ 8, %49 ], [ 11, %41 ], [ 2, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit.i ], [ 2, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIcEEE5flushERS6_.exit.i ], [ 2, %62 ], [ 2, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIcEEE5flushERS6_.exit64 ], [ 2, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIcEEE5flushERS6_.exit63 ], [ 2, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIcEEE5flushERS6_.exit62 ], [ 2, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIcEEE5flushERS6_.exit61 ], [ 2, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIcEEE5flushERS6_.exit60 ], [ 2, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIcEEE5flushERS6_.exit59 ], [ 2, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIcEEE5flushERS6_.exit58 ], [ 2, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIcEEE5flushERS6_.exit57 ], [ 2, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIcEEE5flushERS6_.exit56 ], [ 2, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIcEEE5flushERS6_.exit55 ], [ 2, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIcEEE5flushERS6_.exit54 ], [ 2, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIcEEE5flushERS6_.exit53 ], [ 2, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIcEEE5flushERS6_.exit52 ]
-  %308 = getelementptr inbounds i8, ptr %1, i64 %.sink
+  %308 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink
   ret ptr %308
 }
 
@@ -3787,7 +3787,7 @@ define linkonce_odr hidden noundef i64 @_ZNK5boost3log11v2_mt_posix3aux22basic_o
   store i64 0, ptr %6, align 8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 %3
   %11 = load ptr, ptr %8, align 8, !tbaa !19
-  %12 = getelementptr inbounds i8, ptr %11, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 56
   %13 = load ptr, ptr %12, align 8
   %14 = invoke noundef i32 %13(ptr noundef nonnull align 8 dereferenceable(12) %8, ptr noundef nonnull align 4 dereferenceable(8) %6, ptr noundef %1, ptr noundef %10, i64 noundef %2)
           to label %_ZNK5boost3log11v2_mt_posix3aux22basic_ostringstreambufIcSt11char_traitsIcESaIcEE21length_until_boundaryEPKcmmNS_17integral_constantImLm1EEE.exit unwind label %17
@@ -3844,7 +3844,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost3log11v2_mt_posix3aux9anonymous
   %14 = alloca %"class.boost::iterator_range.212", align 8
   %15 = alloca %"class.boost::iterator_range.212", align 8
   %16 = alloca %"class.boost::iterator_range.212", align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %18 = load i32, ptr %17, align 4, !tbaa !43
   switch i32 %18, label %189 [
     i32 89, label %19
@@ -3873,7 +3873,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost3log11v2_mt_posix3aux9anonymous
   %26 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %25, ptr %26, align 8, !tbaa !50
   %27 = load ptr, ptr %3, align 8, !tbaa !19
-  %28 = getelementptr inbounds i8, ptr %27, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %29 = load ptr, ptr %28, align 8
   call void %29(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(16) %16)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16) #10
@@ -3897,7 +3897,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_
 
 38:                                               ; preds = %36
   %39 = load ptr, ptr %3, align 8, !tbaa !19
-  %40 = getelementptr inbounds i8, ptr %39, i64 112
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 112
   %41 = load ptr, ptr %40, align 8
   call void %41(ptr noundef nonnull align 8 dereferenceable(8) %3)
   br label %.thread
@@ -3913,14 +3913,14 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_
 
 46:                                               ; preds = %44
   %47 = load ptr, ptr %3, align 8, !tbaa !19
-  %48 = getelementptr inbounds i8, ptr %47, i64 104
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 104
   %49 = load ptr, ptr %48, align 8
   call void %49(ptr noundef nonnull align 8 dereferenceable(8) %3)
   br label %.thread
 
 50:                                               ; preds = %42, %44
   %51 = load ptr, ptr %3, align 8, !tbaa !19
-  %52 = getelementptr inbounds i8, ptr %51, i64 40
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 40
   %53 = load ptr, ptr %52, align 8
   call void %53(ptr noundef nonnull align 8 dereferenceable(8) %3)
   br label %.thread
@@ -3939,7 +3939,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_
   %61 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %60, ptr %61, align 8, !tbaa !50
   %62 = load ptr, ptr %3, align 8, !tbaa !19
-  %63 = getelementptr inbounds i8, ptr %62, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %64 = load ptr, ptr %63, align 8
   call void %64(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(16) %15)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #10
@@ -3950,7 +3950,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_
 
 _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_callbackIwEEE5flushERS6_.exit39: ; preds = %54, %58
   %66 = load ptr, ptr %3, align 8, !tbaa !19
-  %67 = getelementptr inbounds i8, ptr %66, i64 32
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 32
   %68 = load ptr, ptr %67, align 8
   call void %68(ptr noundef nonnull align 8 dereferenceable(8) %3)
   br label %.thread
@@ -3969,7 +3969,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_
   %76 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %75, ptr %76, align 8, !tbaa !50
   %77 = load ptr, ptr %3, align 8, !tbaa !19
-  %78 = getelementptr inbounds i8, ptr %77, i64 16
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 16
   %79 = load ptr, ptr %78, align 8
   call void %79(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(16) %14)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #10
@@ -3980,7 +3980,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_
 
 _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_callbackIwEEE5flushERS6_.exit40: ; preds = %69, %73
   %81 = load ptr, ptr %3, align 8, !tbaa !19
-  %82 = getelementptr inbounds i8, ptr %81, i64 48
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 48
   %83 = load ptr, ptr %82, align 8
   call void %83(ptr noundef nonnull align 8 dereferenceable(8) %3)
   br label %.thread
@@ -3999,7 +3999,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_
   %91 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %90, ptr %91, align 8, !tbaa !50
   %92 = load ptr, ptr %3, align 8, !tbaa !19
-  %93 = getelementptr inbounds i8, ptr %92, i64 16
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 16
   %94 = load ptr, ptr %93, align 8
   call void %94(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(16) %13)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #10
@@ -4010,7 +4010,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_
 
 _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_callbackIwEEE5flushERS6_.exit41: ; preds = %84, %88
   %96 = load ptr, ptr %3, align 8, !tbaa !19
-  %97 = getelementptr inbounds i8, ptr %96, i64 64
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 64
   %98 = load ptr, ptr %97, align 8
   call void %98(ptr noundef nonnull align 8 dereferenceable(8) %3)
   br label %.thread
@@ -4029,7 +4029,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_
   %106 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %105, ptr %106, align 8, !tbaa !50
   %107 = load ptr, ptr %3, align 8, !tbaa !19
-  %108 = getelementptr inbounds i8, ptr %107, i64 16
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 16
   %109 = load ptr, ptr %108, align 8
   call void %109(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(16) %12)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #10
@@ -4040,7 +4040,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_
 
 _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_callbackIwEEE5flushERS6_.exit42: ; preds = %99, %103
   %111 = load ptr, ptr %3, align 8, !tbaa !19
-  %112 = getelementptr inbounds i8, ptr %111, i64 56
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 56
   %113 = load ptr, ptr %112, align 8
   call void %113(ptr noundef nonnull align 8 dereferenceable(8) %3)
   br label %.thread
@@ -4059,7 +4059,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_
   %121 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %120, ptr %121, align 8, !tbaa !50
   %122 = load ptr, ptr %3, align 8, !tbaa !19
-  %123 = getelementptr inbounds i8, ptr %122, i64 16
+  %123 = getelementptr inbounds nuw i8, ptr %122, i64 16
   %124 = load ptr, ptr %123, align 8
   call void %124(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(16) %11)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #10
@@ -4070,7 +4070,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_
 
 _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_callbackIwEEE5flushERS6_.exit43: ; preds = %114, %118
   %126 = load ptr, ptr %3, align 8, !tbaa !19
-  %127 = getelementptr inbounds i8, ptr %126, i64 72
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 72
   %128 = load ptr, ptr %127, align 8
   call void %128(ptr noundef nonnull align 8 dereferenceable(8) %3, i1 noundef zeroext true)
   br label %.thread
@@ -4089,7 +4089,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_
   %136 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %135, ptr %136, align 8, !tbaa !50
   %137 = load ptr, ptr %3, align 8, !tbaa !19
-  %138 = getelementptr inbounds i8, ptr %137, i64 16
+  %138 = getelementptr inbounds nuw i8, ptr %137, i64 16
   %139 = load ptr, ptr %138, align 8
   call void %139(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(16) %10)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #10
@@ -4100,7 +4100,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_
 
 _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_callbackIwEEE5flushERS6_.exit44: ; preds = %129, %133
   %141 = load ptr, ptr %3, align 8, !tbaa !19
-  %142 = getelementptr inbounds i8, ptr %141, i64 72
+  %142 = getelementptr inbounds nuw i8, ptr %141, i64 72
   %143 = load ptr, ptr %142, align 8
   call void %143(ptr noundef nonnull align 8 dereferenceable(8) %3, i1 noundef zeroext false)
   br label %.thread
@@ -4119,7 +4119,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_
   %151 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %150, ptr %151, align 8, !tbaa !50
   %152 = load ptr, ptr %3, align 8, !tbaa !19
-  %153 = getelementptr inbounds i8, ptr %152, i64 16
+  %153 = getelementptr inbounds nuw i8, ptr %152, i64 16
   %154 = load ptr, ptr %153, align 8
   call void %154(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(16) %9)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #10
@@ -4130,7 +4130,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_
 
 _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_callbackIwEEE5flushERS6_.exit45: ; preds = %144, %148
   %156 = load ptr, ptr %3, align 8, !tbaa !19
-  %157 = getelementptr inbounds i8, ptr %156, i64 80
+  %157 = getelementptr inbounds nuw i8, ptr %156, i64 80
   %158 = load ptr, ptr %157, align 8
   call void %158(ptr noundef nonnull align 8 dereferenceable(8) %3)
   br label %.thread
@@ -4149,7 +4149,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_
   %166 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %165, ptr %166, align 8, !tbaa !50
   %167 = load ptr, ptr %3, align 8, !tbaa !19
-  %168 = getelementptr inbounds i8, ptr %167, i64 16
+  %168 = getelementptr inbounds nuw i8, ptr %167, i64 16
   %169 = load ptr, ptr %168, align 8
   call void %169(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(16) %8)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #10
@@ -4160,7 +4160,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_
 
 _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_callbackIwEEE5flushERS6_.exit46: ; preds = %159, %163
   %171 = load ptr, ptr %3, align 8, !tbaa !19
-  %172 = getelementptr inbounds i8, ptr %171, i64 96
+  %172 = getelementptr inbounds nuw i8, ptr %171, i64 96
   %173 = load ptr, ptr %172, align 8
   call void %173(ptr noundef nonnull align 8 dereferenceable(8) %3)
   br label %.thread
@@ -4179,7 +4179,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_
   %181 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %180, ptr %181, align 8, !tbaa !50
   %182 = load ptr, ptr %3, align 8, !tbaa !19
-  %183 = getelementptr inbounds i8, ptr %182, i64 16
+  %183 = getelementptr inbounds nuw i8, ptr %182, i64 16
   %184 = load ptr, ptr %183, align 8
   call void %184(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(16) %7)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #10
@@ -4190,7 +4190,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_
 
 _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_callbackIwEEE5flushERS6_.exit47: ; preds = %174, %178
   %186 = load ptr, ptr %3, align 8, !tbaa !19
-  %187 = getelementptr inbounds i8, ptr %186, i64 88
+  %187 = getelementptr inbounds nuw i8, ptr %186, i64 88
   %188 = load ptr, ptr %187, align 8
   call void %188(ptr noundef nonnull align 8 dereferenceable(8) %3)
   br label %.thread
@@ -4245,7 +4245,7 @@ _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE9push_backEw.exit.i: ; pred
   %211 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %210, ptr %211, align 8, !tbaa !50
   %212 = load ptr, ptr %3, align 8, !tbaa !19
-  %213 = getelementptr inbounds i8, ptr %212, i64 16
+  %213 = getelementptr inbounds nuw i8, ptr %212, i64 16
   %214 = load ptr, ptr %213, align 8
   call void %214(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(16) %5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #10
@@ -4256,12 +4256,12 @@ _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE9push_backEw.exit.i: ; pred
 
 _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_callbackIwEEE5flushERS6_.exit.i: ; preds = %208, %206
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #10
-  %216 = getelementptr inbounds i8, ptr %1, i64 8
+  %216 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %1, ptr %6, align 8, !tbaa !48
   %217 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %216, ptr %217, align 8, !tbaa !50
   %218 = load ptr, ptr %3, align 8, !tbaa !19
-  %219 = getelementptr inbounds i8, ptr %218, i64 24
+  %219 = getelementptr inbounds nuw i8, ptr %218, i64 24
   %220 = load ptr, ptr %219, align 8
   call void %220(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(16) %6)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #10
@@ -4269,7 +4269,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_
 
 .thread:                                          ; preds = %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_callbackIwEEE5flushERS6_.exit39, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_callbackIwEEE5flushERS6_.exit40, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_callbackIwEEE5flushERS6_.exit41, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_callbackIwEEE5flushERS6_.exit42, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_callbackIwEEE5flushERS6_.exit43, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_callbackIwEEE5flushERS6_.exit44, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_callbackIwEEE5flushERS6_.exit45, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_callbackIwEEE5flushERS6_.exit46, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_callbackIwEEE5flushERS6_.exit47, %50, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_callbackIwEEE5flushERS6_.exit.i, %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE9push_backEw.exit.i, %46, %38
   %.sink = phi i64 [ 24, %46 ], [ 32, %38 ], [ 8, %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE9push_backEw.exit.i ], [ 8, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_callbackIwEEE5flushERS6_.exit.i ], [ 8, %50 ], [ 8, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_callbackIwEEE5flushERS6_.exit47 ], [ 8, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_callbackIwEEE5flushERS6_.exit46 ], [ 8, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_callbackIwEEE5flushERS6_.exit45 ], [ 8, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_callbackIwEEE5flushERS6_.exit44 ], [ 8, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_callbackIwEEE5flushERS6_.exit43 ], [ 8, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_callbackIwEEE5flushERS6_.exit42 ], [ 8, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_callbackIwEEE5flushERS6_.exit41 ], [ 8, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_callbackIwEEE5flushERS6_.exit40 ], [ 8, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_callbackIwEEE5flushERS6_.exit39 ]
-  %221 = getelementptr inbounds i8, ptr %1, i64 %.sink
+  %221 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink
   ret ptr %221
 }
 
@@ -4295,7 +4295,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost3log11v2_mt_posix3aux9anonymous
   %18 = alloca %"class.boost::iterator_range.212", align 8
   %19 = alloca %"class.boost::iterator_range.212", align 8
   %20 = alloca %"class.boost::iterator_range.212", align 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %22 = load i32, ptr %21, align 4, !tbaa !43
   switch i32 %22, label %261 [
     i32 79, label %23
@@ -4329,7 +4329,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost3log11v2_mt_posix3aux9anonymous
   %30 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store ptr %29, ptr %30, align 8, !tbaa !50
   %31 = load ptr, ptr %3, align 8, !tbaa !19
-  %32 = getelementptr inbounds i8, ptr %31, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %33 = load ptr, ptr %32, align 8
   call void %33(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(16) %20)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20) #10
@@ -4353,7 +4353,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_
 
 42:                                               ; preds = %40
   %43 = load ptr, ptr %3, align 8, !tbaa !19
-  %44 = getelementptr inbounds i8, ptr %43, i64 120
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 120
   %45 = load ptr, ptr %44, align 8
   call void %45(ptr noundef nonnull align 8 dereferenceable(8) %3)
   br label %.thread
@@ -4369,7 +4369,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_
 
 50:                                               ; preds = %48
   %51 = load ptr, ptr %3, align 8, !tbaa !19
-  %52 = getelementptr inbounds i8, ptr %51, i64 112
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 112
   %53 = load ptr, ptr %52, align 8
   call void %53(ptr noundef nonnull align 8 dereferenceable(8) %3)
   br label %.thread
@@ -4385,14 +4385,14 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_
 
 58:                                               ; preds = %56
   %59 = load ptr, ptr %3, align 8, !tbaa !19
-  %60 = getelementptr inbounds i8, ptr %59, i64 104
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 104
   %61 = load ptr, ptr %60, align 8
   call void %61(ptr noundef nonnull align 8 dereferenceable(8) %3)
   br label %.thread
 
 62:                                               ; preds = %54, %56
   %63 = load ptr, ptr %3, align 8, !tbaa !19
-  %64 = getelementptr inbounds i8, ptr %63, i64 32
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 32
   %65 = load ptr, ptr %64, align 8
   call void %65(ptr noundef nonnull align 8 dereferenceable(8) %3, i1 noundef zeroext true)
   br label %.thread
@@ -4411,7 +4411,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_
   %73 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr %72, ptr %73, align 8, !tbaa !50
   %74 = load ptr, ptr %3, align 8, !tbaa !19
-  %75 = getelementptr inbounds i8, ptr %74, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 16
   %76 = load ptr, ptr %75, align 8
   call void %76(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(16) %19)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %19) #10
@@ -4422,7 +4422,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_
 
 _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_callbackIwEEE5flushERS6_.exit52: ; preds = %66, %70
   %78 = load ptr, ptr %3, align 8, !tbaa !19
-  %79 = getelementptr inbounds i8, ptr %78, i64 112
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 112
   %80 = load ptr, ptr %79, align 8
   call void %80(ptr noundef nonnull align 8 dereferenceable(8) %3)
   br label %.thread
@@ -4441,7 +4441,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_
   %88 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr %87, ptr %88, align 8, !tbaa !50
   %89 = load ptr, ptr %3, align 8, !tbaa !19
-  %90 = getelementptr inbounds i8, ptr %89, i64 16
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 16
   %91 = load ptr, ptr %90, align 8
   call void %91(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(16) %18)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18) #10
@@ -4452,7 +4452,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_
 
 _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_callbackIwEEE5flushERS6_.exit53: ; preds = %81, %85
   %93 = load ptr, ptr %3, align 8, !tbaa !19
-  %94 = getelementptr inbounds i8, ptr %93, i64 32
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 32
   %95 = load ptr, ptr %94, align 8
   call void %95(ptr noundef nonnull align 8 dereferenceable(8) %3, i1 noundef zeroext false)
   br label %.thread
@@ -4471,7 +4471,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_
   %103 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %102, ptr %103, align 8, !tbaa !50
   %104 = load ptr, ptr %3, align 8, !tbaa !19
-  %105 = getelementptr inbounds i8, ptr %104, i64 16
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 16
   %106 = load ptr, ptr %105, align 8
   call void %106(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(16) %17)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17) #10
@@ -4482,7 +4482,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_
 
 _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_callbackIwEEE5flushERS6_.exit54: ; preds = %96, %100
   %108 = load ptr, ptr %3, align 8, !tbaa !19
-  %109 = getelementptr inbounds i8, ptr %108, i64 40
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 40
   %110 = load ptr, ptr %109, align 8
   call void %110(ptr noundef nonnull align 8 dereferenceable(8) %3, i1 noundef zeroext true)
   br label %.thread
@@ -4501,7 +4501,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_
   %118 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %117, ptr %118, align 8, !tbaa !50
   %119 = load ptr, ptr %3, align 8, !tbaa !19
-  %120 = getelementptr inbounds i8, ptr %119, i64 16
+  %120 = getelementptr inbounds nuw i8, ptr %119, i64 16
   %121 = load ptr, ptr %120, align 8
   call void %121(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(16) %16)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16) #10
@@ -4512,7 +4512,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_
 
 _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_callbackIwEEE5flushERS6_.exit55: ; preds = %111, %115
   %123 = load ptr, ptr %3, align 8, !tbaa !19
-  %124 = getelementptr inbounds i8, ptr %123, i64 40
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 40
   %125 = load ptr, ptr %124, align 8
   call void %125(ptr noundef nonnull align 8 dereferenceable(8) %3, i1 noundef zeroext false)
   br label %.thread
@@ -4531,7 +4531,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_
   %133 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %132, ptr %133, align 8, !tbaa !50
   %134 = load ptr, ptr %3, align 8, !tbaa !19
-  %135 = getelementptr inbounds i8, ptr %134, i64 16
+  %135 = getelementptr inbounds nuw i8, ptr %134, i64 16
   %136 = load ptr, ptr %135, align 8
   call void %136(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(16) %15)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #10
@@ -4542,7 +4542,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_
 
 _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_callbackIwEEE5flushERS6_.exit56: ; preds = %126, %130
   %138 = load ptr, ptr %3, align 8, !tbaa !19
-  %139 = getelementptr inbounds i8, ptr %138, i64 48
+  %139 = getelementptr inbounds nuw i8, ptr %138, i64 48
   %140 = load ptr, ptr %139, align 8
   call void %140(ptr noundef nonnull align 8 dereferenceable(8) %3)
   br label %.thread
@@ -4561,7 +4561,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_
   %148 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %147, ptr %148, align 8, !tbaa !50
   %149 = load ptr, ptr %3, align 8, !tbaa !19
-  %150 = getelementptr inbounds i8, ptr %149, i64 16
+  %150 = getelementptr inbounds nuw i8, ptr %149, i64 16
   %151 = load ptr, ptr %150, align 8
   call void %151(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(16) %14)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #10
@@ -4572,7 +4572,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_
 
 _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_callbackIwEEE5flushERS6_.exit57: ; preds = %141, %145
   %153 = load ptr, ptr %3, align 8, !tbaa !19
-  %154 = getelementptr inbounds i8, ptr %153, i64 56
+  %154 = getelementptr inbounds nuw i8, ptr %153, i64 56
   %155 = load ptr, ptr %154, align 8
   call void %155(ptr noundef nonnull align 8 dereferenceable(8) %3)
   br label %.thread
@@ -4591,7 +4591,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_
   %163 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %162, ptr %163, align 8, !tbaa !50
   %164 = load ptr, ptr %3, align 8, !tbaa !19
-  %165 = getelementptr inbounds i8, ptr %164, i64 16
+  %165 = getelementptr inbounds nuw i8, ptr %164, i64 16
   %166 = load ptr, ptr %165, align 8
   call void %166(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(16) %13)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #10
@@ -4602,7 +4602,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_
 
 _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_callbackIwEEE5flushERS6_.exit58: ; preds = %156, %160
   %168 = load ptr, ptr %3, align 8, !tbaa !19
-  %169 = getelementptr inbounds i8, ptr %168, i64 64
+  %169 = getelementptr inbounds nuw i8, ptr %168, i64 64
   %170 = load ptr, ptr %169, align 8
   call void %170(ptr noundef nonnull align 8 dereferenceable(8) %3)
   br label %.thread
@@ -4621,7 +4621,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_
   %178 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %177, ptr %178, align 8, !tbaa !50
   %179 = load ptr, ptr %3, align 8, !tbaa !19
-  %180 = getelementptr inbounds i8, ptr %179, i64 16
+  %180 = getelementptr inbounds nuw i8, ptr %179, i64 16
   %181 = load ptr, ptr %180, align 8
   call void %181(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(16) %12)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #10
@@ -4632,7 +4632,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_
 
 _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_callbackIwEEE5flushERS6_.exit59: ; preds = %171, %175
   %183 = load ptr, ptr %3, align 8, !tbaa !19
-  %184 = getelementptr inbounds i8, ptr %183, i64 72
+  %184 = getelementptr inbounds nuw i8, ptr %183, i64 72
   %185 = load ptr, ptr %184, align 8
   call void %185(ptr noundef nonnull align 8 dereferenceable(8) %3, i1 noundef zeroext false)
   br label %.thread
@@ -4651,7 +4651,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_
   %193 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %192, ptr %193, align 8, !tbaa !50
   %194 = load ptr, ptr %3, align 8, !tbaa !19
-  %195 = getelementptr inbounds i8, ptr %194, i64 16
+  %195 = getelementptr inbounds nuw i8, ptr %194, i64 16
   %196 = load ptr, ptr %195, align 8
   call void %196(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(16) %11)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #10
@@ -4662,7 +4662,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_
 
 _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_callbackIwEEE5flushERS6_.exit60: ; preds = %186, %190
   %198 = load ptr, ptr %3, align 8, !tbaa !19
-  %199 = getelementptr inbounds i8, ptr %198, i64 72
+  %199 = getelementptr inbounds nuw i8, ptr %198, i64 72
   %200 = load ptr, ptr %199, align 8
   call void %200(ptr noundef nonnull align 8 dereferenceable(8) %3, i1 noundef zeroext true)
   br label %.thread
@@ -4681,7 +4681,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_
   %208 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %207, ptr %208, align 8, !tbaa !50
   %209 = load ptr, ptr %3, align 8, !tbaa !19
-  %210 = getelementptr inbounds i8, ptr %209, i64 16
+  %210 = getelementptr inbounds nuw i8, ptr %209, i64 16
   %211 = load ptr, ptr %210, align 8
   call void %211(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(16) %10)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #10
@@ -4692,7 +4692,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_
 
 _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_callbackIwEEE5flushERS6_.exit61: ; preds = %201, %205
   %213 = load ptr, ptr %3, align 8, !tbaa !19
-  %214 = getelementptr inbounds i8, ptr %213, i64 96
+  %214 = getelementptr inbounds nuw i8, ptr %213, i64 96
   %215 = load ptr, ptr %214, align 8
   call void %215(ptr noundef nonnull align 8 dereferenceable(8) %3)
   br label %.thread
@@ -4711,7 +4711,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_
   %223 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %222, ptr %223, align 8, !tbaa !50
   %224 = load ptr, ptr %3, align 8, !tbaa !19
-  %225 = getelementptr inbounds i8, ptr %224, i64 16
+  %225 = getelementptr inbounds nuw i8, ptr %224, i64 16
   %226 = load ptr, ptr %225, align 8
   call void %226(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(16) %9)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #10
@@ -4722,7 +4722,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_
 
 _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_callbackIwEEE5flushERS6_.exit62: ; preds = %216, %220
   %228 = load ptr, ptr %3, align 8, !tbaa !19
-  %229 = getelementptr inbounds i8, ptr %228, i64 88
+  %229 = getelementptr inbounds nuw i8, ptr %228, i64 88
   %230 = load ptr, ptr %229, align 8
   call void %230(ptr noundef nonnull align 8 dereferenceable(8) %3)
   br label %.thread
@@ -4741,7 +4741,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_
   %238 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %237, ptr %238, align 8, !tbaa !50
   %239 = load ptr, ptr %3, align 8, !tbaa !19
-  %240 = getelementptr inbounds i8, ptr %239, i64 16
+  %240 = getelementptr inbounds nuw i8, ptr %239, i64 16
   %241 = load ptr, ptr %240, align 8
   call void %241(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(16) %8)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #10
@@ -4752,7 +4752,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_
 
 _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_callbackIwEEE5flushERS6_.exit63: ; preds = %231, %235
   %243 = load ptr, ptr %3, align 8, !tbaa !19
-  %244 = getelementptr inbounds i8, ptr %243, i64 80
+  %244 = getelementptr inbounds nuw i8, ptr %243, i64 80
   %245 = load ptr, ptr %244, align 8
   call void %245(ptr noundef nonnull align 8 dereferenceable(8) %3, i1 noundef zeroext false)
   br label %.thread
@@ -4771,7 +4771,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_
   %253 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %252, ptr %253, align 8, !tbaa !50
   %254 = load ptr, ptr %3, align 8, !tbaa !19
-  %255 = getelementptr inbounds i8, ptr %254, i64 16
+  %255 = getelementptr inbounds nuw i8, ptr %254, i64 16
   %256 = load ptr, ptr %255, align 8
   call void %256(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(16) %7)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #10
@@ -4782,7 +4782,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_
 
 _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_callbackIwEEE5flushERS6_.exit64: ; preds = %246, %250
   %258 = load ptr, ptr %3, align 8, !tbaa !19
-  %259 = getelementptr inbounds i8, ptr %258, i64 80
+  %259 = getelementptr inbounds nuw i8, ptr %258, i64 80
   %260 = load ptr, ptr %259, align 8
   call void %260(ptr noundef nonnull align 8 dereferenceable(8) %3, i1 noundef zeroext true)
   br label %.thread
@@ -4837,7 +4837,7 @@ _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE9push_backEw.exit.i: ; pred
   %283 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %282, ptr %283, align 8, !tbaa !50
   %284 = load ptr, ptr %3, align 8, !tbaa !19
-  %285 = getelementptr inbounds i8, ptr %284, i64 16
+  %285 = getelementptr inbounds nuw i8, ptr %284, i64 16
   %286 = load ptr, ptr %285, align 8
   call void %286(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(16) %5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #10
@@ -4848,12 +4848,12 @@ _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE9push_backEw.exit.i: ; pred
 
 _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_callbackIwEEE5flushERS6_.exit.i: ; preds = %280, %278
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #10
-  %288 = getelementptr inbounds i8, ptr %1, i64 8
+  %288 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %1, ptr %6, align 8, !tbaa !48
   %289 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %288, ptr %289, align 8, !tbaa !50
   %290 = load ptr, ptr %3, align 8, !tbaa !19
-  %291 = getelementptr inbounds i8, ptr %290, i64 24
+  %291 = getelementptr inbounds nuw i8, ptr %290, i64 24
   %292 = load ptr, ptr %291, align 8
   call void %292(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(16) %6)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #10
@@ -4861,7 +4861,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_
 
 .thread:                                          ; preds = %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_callbackIwEEE5flushERS6_.exit52, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_callbackIwEEE5flushERS6_.exit53, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_callbackIwEEE5flushERS6_.exit54, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_callbackIwEEE5flushERS6_.exit55, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_callbackIwEEE5flushERS6_.exit56, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_callbackIwEEE5flushERS6_.exit57, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_callbackIwEEE5flushERS6_.exit58, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_callbackIwEEE5flushERS6_.exit59, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_callbackIwEEE5flushERS6_.exit60, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_callbackIwEEE5flushERS6_.exit61, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_callbackIwEEE5flushERS6_.exit62, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_callbackIwEEE5flushERS6_.exit63, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_callbackIwEEE5flushERS6_.exit64, %62, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_callbackIwEEE5flushERS6_.exit.i, %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE9push_backEw.exit.i, %58, %50, %42
   %.sink = phi i64 [ 24, %58 ], [ 32, %50 ], [ 44, %42 ], [ 8, %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE9push_backEw.exit.i ], [ 8, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_callbackIwEEE5flushERS6_.exit.i ], [ 8, %62 ], [ 8, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_callbackIwEEE5flushERS6_.exit64 ], [ 8, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_callbackIwEEE5flushERS6_.exit63 ], [ 8, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_callbackIwEEE5flushERS6_.exit62 ], [ 8, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_callbackIwEEE5flushERS6_.exit61 ], [ 8, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_callbackIwEEE5flushERS6_.exit60 ], [ 8, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_callbackIwEEE5flushERS6_.exit59 ], [ 8, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_callbackIwEEE5flushERS6_.exit58 ], [ 8, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_callbackIwEEE5flushERS6_.exit57 ], [ 8, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_callbackIwEEE5flushERS6_.exit56 ], [ 8, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_callbackIwEEE5flushERS6_.exit55 ], [ 8, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_callbackIwEEE5flushERS6_.exit54 ], [ 8, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_callbackIwEEE5flushERS6_.exit53 ], [ 8, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_callbackIwEEE5flushERS6_.exit52 ]
-  %293 = getelementptr inbounds i8, ptr %1, i64 %.sink
+  %293 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink
   ret ptr %293
 }
 
@@ -4877,7 +4877,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost3log11v2_mt_posix3aux9anonymous
   %12 = alloca %"class.boost::iterator_range.212", align 8
   %13 = alloca %"class.boost::iterator_range.212", align 8
   %14 = alloca %"class.boost::iterator_range.212", align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %16 = load i32, ptr %15, align 4, !tbaa !43
   switch i32 %16, label %189 [
     i32 89, label %17
@@ -4906,7 +4906,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost3log11v2_mt_posix3aux9anonymous
   %24 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %23, ptr %24, align 8, !tbaa !50
   %25 = load ptr, ptr %3, align 8, !tbaa !19
-  %26 = getelementptr inbounds i8, ptr %25, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load ptr, ptr %26, align 8
   call void %27(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %14)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #10
@@ -4930,10 +4930,10 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
 
 36:                                               ; preds = %34
   %37 = load ptr, ptr %3, align 8, !tbaa !19
-  %38 = getelementptr inbounds i8, ptr %37, i64 112
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 112
   %39 = load ptr, ptr %38, align 8
   call void %39(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  %40 = getelementptr inbounds i8, ptr %1, i64 32
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 32
   br label %.thread
 
 41:                                               ; preds = %34, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIwEEE5flushERS6_.exit
@@ -4947,15 +4947,15 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
 
 45:                                               ; preds = %43
   %46 = load ptr, ptr %3, align 8, !tbaa !19
-  %47 = getelementptr inbounds i8, ptr %46, i64 104
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 104
   %48 = load ptr, ptr %47, align 8
   call void %48(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  %49 = getelementptr inbounds i8, ptr %1, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 24
   br label %.thread
 
 50:                                               ; preds = %41, %43
   %51 = load ptr, ptr %3, align 8, !tbaa !19
-  %52 = getelementptr inbounds i8, ptr %51, i64 40
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 40
   %53 = load ptr, ptr %52, align 8
   call void %53(ptr noundef nonnull align 8 dereferenceable(8) %3)
   br label %191
@@ -4974,7 +4974,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
   %61 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %60, ptr %61, align 8, !tbaa !50
   %62 = load ptr, ptr %3, align 8, !tbaa !19
-  %63 = getelementptr inbounds i8, ptr %62, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %64 = load ptr, ptr %63, align 8
   call void %64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %13)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #10
@@ -4985,7 +4985,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
 
 _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIwEEE5flushERS6_.exit39: ; preds = %54, %58
   %66 = load ptr, ptr %3, align 8, !tbaa !19
-  %67 = getelementptr inbounds i8, ptr %66, i64 32
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 32
   %68 = load ptr, ptr %67, align 8
   call void %68(ptr noundef nonnull align 8 dereferenceable(8) %3)
   br label %191
@@ -5004,7 +5004,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
   %76 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %75, ptr %76, align 8, !tbaa !50
   %77 = load ptr, ptr %3, align 8, !tbaa !19
-  %78 = getelementptr inbounds i8, ptr %77, i64 16
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 16
   %79 = load ptr, ptr %78, align 8
   call void %79(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %12)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #10
@@ -5015,7 +5015,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
 
 _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIwEEE5flushERS6_.exit40: ; preds = %69, %73
   %81 = load ptr, ptr %3, align 8, !tbaa !19
-  %82 = getelementptr inbounds i8, ptr %81, i64 48
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 48
   %83 = load ptr, ptr %82, align 8
   call void %83(ptr noundef nonnull align 8 dereferenceable(8) %3)
   br label %191
@@ -5034,7 +5034,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
   %91 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %90, ptr %91, align 8, !tbaa !50
   %92 = load ptr, ptr %3, align 8, !tbaa !19
-  %93 = getelementptr inbounds i8, ptr %92, i64 16
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 16
   %94 = load ptr, ptr %93, align 8
   call void %94(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %11)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #10
@@ -5045,7 +5045,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
 
 _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIwEEE5flushERS6_.exit41: ; preds = %84, %88
   %96 = load ptr, ptr %3, align 8, !tbaa !19
-  %97 = getelementptr inbounds i8, ptr %96, i64 64
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 64
   %98 = load ptr, ptr %97, align 8
   call void %98(ptr noundef nonnull align 8 dereferenceable(8) %3)
   br label %191
@@ -5064,7 +5064,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
   %106 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %105, ptr %106, align 8, !tbaa !50
   %107 = load ptr, ptr %3, align 8, !tbaa !19
-  %108 = getelementptr inbounds i8, ptr %107, i64 16
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 16
   %109 = load ptr, ptr %108, align 8
   call void %109(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %10)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #10
@@ -5075,7 +5075,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
 
 _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIwEEE5flushERS6_.exit42: ; preds = %99, %103
   %111 = load ptr, ptr %3, align 8, !tbaa !19
-  %112 = getelementptr inbounds i8, ptr %111, i64 56
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 56
   %113 = load ptr, ptr %112, align 8
   call void %113(ptr noundef nonnull align 8 dereferenceable(8) %3)
   br label %191
@@ -5094,7 +5094,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
   %121 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %120, ptr %121, align 8, !tbaa !50
   %122 = load ptr, ptr %3, align 8, !tbaa !19
-  %123 = getelementptr inbounds i8, ptr %122, i64 16
+  %123 = getelementptr inbounds nuw i8, ptr %122, i64 16
   %124 = load ptr, ptr %123, align 8
   call void %124(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %9)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #10
@@ -5105,7 +5105,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
 
 _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIwEEE5flushERS6_.exit43: ; preds = %114, %118
   %126 = load ptr, ptr %3, align 8, !tbaa !19
-  %127 = getelementptr inbounds i8, ptr %126, i64 72
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 72
   %128 = load ptr, ptr %127, align 8
   call void %128(ptr noundef nonnull align 8 dereferenceable(8) %3, i1 noundef zeroext true)
   br label %191
@@ -5124,7 +5124,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
   %136 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %135, ptr %136, align 8, !tbaa !50
   %137 = load ptr, ptr %3, align 8, !tbaa !19
-  %138 = getelementptr inbounds i8, ptr %137, i64 16
+  %138 = getelementptr inbounds nuw i8, ptr %137, i64 16
   %139 = load ptr, ptr %138, align 8
   call void %139(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %8)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #10
@@ -5135,7 +5135,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
 
 _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIwEEE5flushERS6_.exit44: ; preds = %129, %133
   %141 = load ptr, ptr %3, align 8, !tbaa !19
-  %142 = getelementptr inbounds i8, ptr %141, i64 72
+  %142 = getelementptr inbounds nuw i8, ptr %141, i64 72
   %143 = load ptr, ptr %142, align 8
   call void %143(ptr noundef nonnull align 8 dereferenceable(8) %3, i1 noundef zeroext false)
   br label %191
@@ -5154,7 +5154,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
   %151 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %150, ptr %151, align 8, !tbaa !50
   %152 = load ptr, ptr %3, align 8, !tbaa !19
-  %153 = getelementptr inbounds i8, ptr %152, i64 16
+  %153 = getelementptr inbounds nuw i8, ptr %152, i64 16
   %154 = load ptr, ptr %153, align 8
   call void %154(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %7)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #10
@@ -5165,7 +5165,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
 
 _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIwEEE5flushERS6_.exit45: ; preds = %144, %148
   %156 = load ptr, ptr %3, align 8, !tbaa !19
-  %157 = getelementptr inbounds i8, ptr %156, i64 80
+  %157 = getelementptr inbounds nuw i8, ptr %156, i64 80
   %158 = load ptr, ptr %157, align 8
   call void %158(ptr noundef nonnull align 8 dereferenceable(8) %3)
   br label %191
@@ -5184,7 +5184,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
   %166 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %165, ptr %166, align 8, !tbaa !50
   %167 = load ptr, ptr %3, align 8, !tbaa !19
-  %168 = getelementptr inbounds i8, ptr %167, i64 16
+  %168 = getelementptr inbounds nuw i8, ptr %167, i64 16
   %169 = load ptr, ptr %168, align 8
   call void %169(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %6)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #10
@@ -5195,7 +5195,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
 
 _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIwEEE5flushERS6_.exit46: ; preds = %159, %163
   %171 = load ptr, ptr %3, align 8, !tbaa !19
-  %172 = getelementptr inbounds i8, ptr %171, i64 96
+  %172 = getelementptr inbounds nuw i8, ptr %171, i64 96
   %173 = load ptr, ptr %172, align 8
   call void %173(ptr noundef nonnull align 8 dereferenceable(8) %3)
   br label %191
@@ -5214,7 +5214,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
   %181 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %180, ptr %181, align 8, !tbaa !50
   %182 = load ptr, ptr %3, align 8, !tbaa !19
-  %183 = getelementptr inbounds i8, ptr %182, i64 16
+  %183 = getelementptr inbounds nuw i8, ptr %182, i64 16
   %184 = load ptr, ptr %183, align 8
   call void %184(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #10
@@ -5225,7 +5225,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
 
 _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIwEEE5flushERS6_.exit47: ; preds = %174, %178
   %186 = load ptr, ptr %3, align 8, !tbaa !19
-  %187 = getelementptr inbounds i8, ptr %186, i64 88
+  %187 = getelementptr inbounds nuw i8, ptr %186, i64 88
   %188 = load ptr, ptr %187, align 8
   call void %188(ptr noundef nonnull align 8 dereferenceable(8) %3)
   br label %191
@@ -5235,7 +5235,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
   br label %.thread
 
 191:                                              ; preds = %50, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIwEEE5flushERS6_.exit47, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIwEEE5flushERS6_.exit46, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIwEEE5flushERS6_.exit45, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIwEEE5flushERS6_.exit44, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIwEEE5flushERS6_.exit43, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIwEEE5flushERS6_.exit42, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIwEEE5flushERS6_.exit41, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIwEEE5flushERS6_.exit40, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIwEEE5flushERS6_.exit39
-  %192 = getelementptr inbounds i8, ptr %1, i64 8
+  %192 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %.thread
 
 .thread:                                          ; preds = %45, %36, %191, %189
@@ -5261,7 +5261,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost3log11v2_mt_posix3aux9anonymous
   %18 = alloca %"class.boost::iterator_range.212", align 8
   %19 = alloca %"class.boost::iterator_range.212", align 8
   %20 = alloca %"class.boost::iterator_range.212", align 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %22 = load i32, ptr %21, align 4, !tbaa !43
   switch i32 %22, label %278 [
     i32 79, label %23
@@ -5295,7 +5295,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost3log11v2_mt_posix3aux9anonymous
   %30 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store ptr %29, ptr %30, align 8, !tbaa !50
   %31 = load ptr, ptr %3, align 8, !tbaa !19
-  %32 = getelementptr inbounds i8, ptr %31, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %33 = load ptr, ptr %32, align 8
   call void %33(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %20)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20) #10
@@ -5318,9 +5318,9 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
   br i1 %41, label %42, label %47
 
 42:                                               ; preds = %40
-  %43 = getelementptr inbounds i8, ptr %3, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %44 = load ptr, ptr %43, align 8, !tbaa !19
-  %45 = getelementptr inbounds i8, ptr %44, i64 120
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 120
   %46 = load ptr, ptr %45, align 8
   call void %46(ptr noundef nonnull align 8 dereferenceable(8) %43)
   br label %.thread
@@ -5335,9 +5335,9 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
   br i1 %50, label %51, label %56
 
 51:                                               ; preds = %49
-  %52 = getelementptr inbounds i8, ptr %3, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %53 = load ptr, ptr %52, align 8, !tbaa !19
-  %54 = getelementptr inbounds i8, ptr %53, i64 112
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 112
   %55 = load ptr, ptr %54, align 8
   call void %55(ptr noundef nonnull align 8 dereferenceable(8) %52)
   br label %.thread
@@ -5352,17 +5352,17 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
   br i1 %59, label %60, label %65
 
 60:                                               ; preds = %58
-  %61 = getelementptr inbounds i8, ptr %3, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %62 = load ptr, ptr %61, align 8, !tbaa !19
-  %63 = getelementptr inbounds i8, ptr %62, i64 104
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 104
   %64 = load ptr, ptr %63, align 8
   call void %64(ptr noundef nonnull align 8 dereferenceable(8) %61)
   br label %.thread
 
 65:                                               ; preds = %56, %58
-  %66 = getelementptr inbounds i8, ptr %3, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %67 = load ptr, ptr %66, align 8, !tbaa !19
-  %68 = getelementptr inbounds i8, ptr %67, i64 32
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 32
   %69 = load ptr, ptr %68, align 8
   call void %69(ptr noundef nonnull align 8 dereferenceable(8) %66, i1 noundef zeroext true)
   br label %.thread
@@ -5381,7 +5381,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
   %77 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr %76, ptr %77, align 8, !tbaa !50
   %78 = load ptr, ptr %3, align 8, !tbaa !19
-  %79 = getelementptr inbounds i8, ptr %78, i64 16
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 16
   %80 = load ptr, ptr %79, align 8
   call void %80(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %19)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %19) #10
@@ -5391,9 +5391,9 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
   br label %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIwEEE5flushERS6_.exit52
 
 _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIwEEE5flushERS6_.exit52: ; preds = %70, %74
-  %82 = getelementptr inbounds i8, ptr %3, i64 8
+  %82 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %83 = load ptr, ptr %82, align 8, !tbaa !19
-  %84 = getelementptr inbounds i8, ptr %83, i64 112
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 112
   %85 = load ptr, ptr %84, align 8
   call void %85(ptr noundef nonnull align 8 dereferenceable(8) %82)
   br label %.thread
@@ -5412,7 +5412,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
   %93 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr %92, ptr %93, align 8, !tbaa !50
   %94 = load ptr, ptr %3, align 8, !tbaa !19
-  %95 = getelementptr inbounds i8, ptr %94, i64 16
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 16
   %96 = load ptr, ptr %95, align 8
   call void %96(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %18)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18) #10
@@ -5422,9 +5422,9 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
   br label %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIwEEE5flushERS6_.exit53
 
 _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIwEEE5flushERS6_.exit53: ; preds = %86, %90
-  %98 = getelementptr inbounds i8, ptr %3, i64 8
+  %98 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %99 = load ptr, ptr %98, align 8, !tbaa !19
-  %100 = getelementptr inbounds i8, ptr %99, i64 32
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 32
   %101 = load ptr, ptr %100, align 8
   call void %101(ptr noundef nonnull align 8 dereferenceable(8) %98, i1 noundef zeroext false)
   br label %.thread
@@ -5443,7 +5443,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
   %109 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %108, ptr %109, align 8, !tbaa !50
   %110 = load ptr, ptr %3, align 8, !tbaa !19
-  %111 = getelementptr inbounds i8, ptr %110, i64 16
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 16
   %112 = load ptr, ptr %111, align 8
   call void %112(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %17)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17) #10
@@ -5453,9 +5453,9 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
   br label %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIwEEE5flushERS6_.exit54
 
 _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIwEEE5flushERS6_.exit54: ; preds = %102, %106
-  %114 = getelementptr inbounds i8, ptr %3, i64 8
+  %114 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %115 = load ptr, ptr %114, align 8, !tbaa !19
-  %116 = getelementptr inbounds i8, ptr %115, i64 40
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 40
   %117 = load ptr, ptr %116, align 8
   call void %117(ptr noundef nonnull align 8 dereferenceable(8) %114, i1 noundef zeroext true)
   br label %.thread
@@ -5474,7 +5474,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
   %125 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %124, ptr %125, align 8, !tbaa !50
   %126 = load ptr, ptr %3, align 8, !tbaa !19
-  %127 = getelementptr inbounds i8, ptr %126, i64 16
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 16
   %128 = load ptr, ptr %127, align 8
   call void %128(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %16)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16) #10
@@ -5484,9 +5484,9 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
   br label %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIwEEE5flushERS6_.exit55
 
 _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIwEEE5flushERS6_.exit55: ; preds = %118, %122
-  %130 = getelementptr inbounds i8, ptr %3, i64 8
+  %130 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %131 = load ptr, ptr %130, align 8, !tbaa !19
-  %132 = getelementptr inbounds i8, ptr %131, i64 40
+  %132 = getelementptr inbounds nuw i8, ptr %131, i64 40
   %133 = load ptr, ptr %132, align 8
   call void %133(ptr noundef nonnull align 8 dereferenceable(8) %130, i1 noundef zeroext false)
   br label %.thread
@@ -5505,7 +5505,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
   %141 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %140, ptr %141, align 8, !tbaa !50
   %142 = load ptr, ptr %3, align 8, !tbaa !19
-  %143 = getelementptr inbounds i8, ptr %142, i64 16
+  %143 = getelementptr inbounds nuw i8, ptr %142, i64 16
   %144 = load ptr, ptr %143, align 8
   call void %144(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %15)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #10
@@ -5515,9 +5515,9 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
   br label %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIwEEE5flushERS6_.exit56
 
 _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIwEEE5flushERS6_.exit56: ; preds = %134, %138
-  %146 = getelementptr inbounds i8, ptr %3, i64 8
+  %146 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %147 = load ptr, ptr %146, align 8, !tbaa !19
-  %148 = getelementptr inbounds i8, ptr %147, i64 48
+  %148 = getelementptr inbounds nuw i8, ptr %147, i64 48
   %149 = load ptr, ptr %148, align 8
   call void %149(ptr noundef nonnull align 8 dereferenceable(8) %146)
   br label %.thread
@@ -5536,7 +5536,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
   %157 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %156, ptr %157, align 8, !tbaa !50
   %158 = load ptr, ptr %3, align 8, !tbaa !19
-  %159 = getelementptr inbounds i8, ptr %158, i64 16
+  %159 = getelementptr inbounds nuw i8, ptr %158, i64 16
   %160 = load ptr, ptr %159, align 8
   call void %160(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %14)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #10
@@ -5546,9 +5546,9 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
   br label %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIwEEE5flushERS6_.exit57
 
 _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIwEEE5flushERS6_.exit57: ; preds = %150, %154
-  %162 = getelementptr inbounds i8, ptr %3, i64 8
+  %162 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %163 = load ptr, ptr %162, align 8, !tbaa !19
-  %164 = getelementptr inbounds i8, ptr %163, i64 56
+  %164 = getelementptr inbounds nuw i8, ptr %163, i64 56
   %165 = load ptr, ptr %164, align 8
   call void %165(ptr noundef nonnull align 8 dereferenceable(8) %162)
   br label %.thread
@@ -5567,7 +5567,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
   %173 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %172, ptr %173, align 8, !tbaa !50
   %174 = load ptr, ptr %3, align 8, !tbaa !19
-  %175 = getelementptr inbounds i8, ptr %174, i64 16
+  %175 = getelementptr inbounds nuw i8, ptr %174, i64 16
   %176 = load ptr, ptr %175, align 8
   call void %176(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %13)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #10
@@ -5577,9 +5577,9 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
   br label %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIwEEE5flushERS6_.exit58
 
 _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIwEEE5flushERS6_.exit58: ; preds = %166, %170
-  %178 = getelementptr inbounds i8, ptr %3, i64 8
+  %178 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %179 = load ptr, ptr %178, align 8, !tbaa !19
-  %180 = getelementptr inbounds i8, ptr %179, i64 64
+  %180 = getelementptr inbounds nuw i8, ptr %179, i64 64
   %181 = load ptr, ptr %180, align 8
   call void %181(ptr noundef nonnull align 8 dereferenceable(8) %178)
   br label %.thread
@@ -5598,7 +5598,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
   %189 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %188, ptr %189, align 8, !tbaa !50
   %190 = load ptr, ptr %3, align 8, !tbaa !19
-  %191 = getelementptr inbounds i8, ptr %190, i64 16
+  %191 = getelementptr inbounds nuw i8, ptr %190, i64 16
   %192 = load ptr, ptr %191, align 8
   call void %192(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %12)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #10
@@ -5608,9 +5608,9 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
   br label %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIwEEE5flushERS6_.exit59
 
 _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIwEEE5flushERS6_.exit59: ; preds = %182, %186
-  %194 = getelementptr inbounds i8, ptr %3, i64 8
+  %194 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %195 = load ptr, ptr %194, align 8, !tbaa !19
-  %196 = getelementptr inbounds i8, ptr %195, i64 72
+  %196 = getelementptr inbounds nuw i8, ptr %195, i64 72
   %197 = load ptr, ptr %196, align 8
   call void %197(ptr noundef nonnull align 8 dereferenceable(8) %194, i1 noundef zeroext false)
   br label %.thread
@@ -5629,7 +5629,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
   %205 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %204, ptr %205, align 8, !tbaa !50
   %206 = load ptr, ptr %3, align 8, !tbaa !19
-  %207 = getelementptr inbounds i8, ptr %206, i64 16
+  %207 = getelementptr inbounds nuw i8, ptr %206, i64 16
   %208 = load ptr, ptr %207, align 8
   call void %208(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %11)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #10
@@ -5639,9 +5639,9 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
   br label %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIwEEE5flushERS6_.exit60
 
 _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIwEEE5flushERS6_.exit60: ; preds = %198, %202
-  %210 = getelementptr inbounds i8, ptr %3, i64 8
+  %210 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %211 = load ptr, ptr %210, align 8, !tbaa !19
-  %212 = getelementptr inbounds i8, ptr %211, i64 72
+  %212 = getelementptr inbounds nuw i8, ptr %211, i64 72
   %213 = load ptr, ptr %212, align 8
   call void %213(ptr noundef nonnull align 8 dereferenceable(8) %210, i1 noundef zeroext true)
   br label %.thread
@@ -5660,7 +5660,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
   %221 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %220, ptr %221, align 8, !tbaa !50
   %222 = load ptr, ptr %3, align 8, !tbaa !19
-  %223 = getelementptr inbounds i8, ptr %222, i64 16
+  %223 = getelementptr inbounds nuw i8, ptr %222, i64 16
   %224 = load ptr, ptr %223, align 8
   call void %224(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %10)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #10
@@ -5670,9 +5670,9 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
   br label %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIwEEE5flushERS6_.exit61
 
 _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIwEEE5flushERS6_.exit61: ; preds = %214, %218
-  %226 = getelementptr inbounds i8, ptr %3, i64 8
+  %226 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %227 = load ptr, ptr %226, align 8, !tbaa !19
-  %228 = getelementptr inbounds i8, ptr %227, i64 96
+  %228 = getelementptr inbounds nuw i8, ptr %227, i64 96
   %229 = load ptr, ptr %228, align 8
   call void %229(ptr noundef nonnull align 8 dereferenceable(8) %226)
   br label %.thread
@@ -5691,7 +5691,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
   %237 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %236, ptr %237, align 8, !tbaa !50
   %238 = load ptr, ptr %3, align 8, !tbaa !19
-  %239 = getelementptr inbounds i8, ptr %238, i64 16
+  %239 = getelementptr inbounds nuw i8, ptr %238, i64 16
   %240 = load ptr, ptr %239, align 8
   call void %240(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %9)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #10
@@ -5701,9 +5701,9 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
   br label %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIwEEE5flushERS6_.exit62
 
 _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIwEEE5flushERS6_.exit62: ; preds = %230, %234
-  %242 = getelementptr inbounds i8, ptr %3, i64 8
+  %242 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %243 = load ptr, ptr %242, align 8, !tbaa !19
-  %244 = getelementptr inbounds i8, ptr %243, i64 88
+  %244 = getelementptr inbounds nuw i8, ptr %243, i64 88
   %245 = load ptr, ptr %244, align 8
   call void %245(ptr noundef nonnull align 8 dereferenceable(8) %242)
   br label %.thread
@@ -5722,7 +5722,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
   %253 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %252, ptr %253, align 8, !tbaa !50
   %254 = load ptr, ptr %3, align 8, !tbaa !19
-  %255 = getelementptr inbounds i8, ptr %254, i64 16
+  %255 = getelementptr inbounds nuw i8, ptr %254, i64 16
   %256 = load ptr, ptr %255, align 8
   call void %256(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %8)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #10
@@ -5732,9 +5732,9 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
   br label %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIwEEE5flushERS6_.exit63
 
 _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIwEEE5flushERS6_.exit63: ; preds = %246, %250
-  %258 = getelementptr inbounds i8, ptr %3, i64 8
+  %258 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %259 = load ptr, ptr %258, align 8, !tbaa !19
-  %260 = getelementptr inbounds i8, ptr %259, i64 80
+  %260 = getelementptr inbounds nuw i8, ptr %259, i64 80
   %261 = load ptr, ptr %260, align 8
   call void %261(ptr noundef nonnull align 8 dereferenceable(8) %258, i1 noundef zeroext false)
   br label %.thread
@@ -5753,7 +5753,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
   %269 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %268, ptr %269, align 8, !tbaa !50
   %270 = load ptr, ptr %3, align 8, !tbaa !19
-  %271 = getelementptr inbounds i8, ptr %270, i64 16
+  %271 = getelementptr inbounds nuw i8, ptr %270, i64 16
   %272 = load ptr, ptr %271, align 8
   call void %272(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %7)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #10
@@ -5763,9 +5763,9 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
   br label %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIwEEE5flushERS6_.exit64
 
 _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIwEEE5flushERS6_.exit64: ; preds = %262, %266
-  %274 = getelementptr inbounds i8, ptr %3, i64 8
+  %274 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %275 = load ptr, ptr %274, align 8, !tbaa !19
-  %276 = getelementptr inbounds i8, ptr %275, i64 80
+  %276 = getelementptr inbounds nuw i8, ptr %275, i64 80
   %277 = load ptr, ptr %276, align 8
   call void %277(ptr noundef nonnull align 8 dereferenceable(8) %274, i1 noundef zeroext true)
   br label %.thread
@@ -5820,7 +5820,7 @@ _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE9push_backEw.exit.i: ; pred
   %300 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %299, ptr %300, align 8, !tbaa !50
   %301 = load ptr, ptr %3, align 8, !tbaa !19
-  %302 = getelementptr inbounds i8, ptr %301, i64 16
+  %302 = getelementptr inbounds nuw i8, ptr %301, i64 16
   %303 = load ptr, ptr %302, align 8
   call void %303(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #10
@@ -5831,12 +5831,12 @@ _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE9push_backEw.exit.i: ; pred
 
 _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIwEEE5flushERS6_.exit.i: ; preds = %297, %295
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #10
-  %305 = getelementptr inbounds i8, ptr %1, i64 8
+  %305 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %1, ptr %6, align 8, !tbaa !48
   %306 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %305, ptr %306, align 8, !tbaa !50
   %307 = load ptr, ptr %3, align 8, !tbaa !19
-  %308 = getelementptr inbounds i8, ptr %307, i64 24
+  %308 = getelementptr inbounds nuw i8, ptr %307, i64 24
   %309 = load ptr, ptr %308, align 8
   call void %309(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %6)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #10
@@ -5844,7 +5844,7 @@ _ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_pa
 
 .thread:                                          ; preds = %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIwEEE5flushERS6_.exit52, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIwEEE5flushERS6_.exit53, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIwEEE5flushERS6_.exit54, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIwEEE5flushERS6_.exit55, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIwEEE5flushERS6_.exit56, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIwEEE5flushERS6_.exit57, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIwEEE5flushERS6_.exit58, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIwEEE5flushERS6_.exit59, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIwEEE5flushERS6_.exit60, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIwEEE5flushERS6_.exit61, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIwEEE5flushERS6_.exit62, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIwEEE5flushERS6_.exit63, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIwEEE5flushERS6_.exit64, %65, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIwEEE5flushERS6_.exit.i, %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE9push_backEw.exit.i, %60, %51, %42
   %.sink = phi i64 [ 24, %60 ], [ 32, %51 ], [ 44, %42 ], [ 8, %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE9push_backEw.exit.i ], [ 8, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIwEEE5flushERS6_.exit.i ], [ 8, %65 ], [ 8, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIwEEE5flushERS6_.exit64 ], [ 8, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIwEEE5flushERS6_.exit63 ], [ 8, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIwEEE5flushERS6_.exit62 ], [ 8, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIwEEE5flushERS6_.exit61 ], [ 8, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIwEEE5flushERS6_.exit60 ], [ 8, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIwEEE5flushERS6_.exit59 ], [ 8, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIwEEE5flushERS6_.exit58 ], [ 8, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIwEEE5flushERS6_.exit57 ], [ 8, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIwEEE5flushERS6_.exit56 ], [ 8, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIwEEE5flushERS6_.exit55 ], [ 8, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIwEEE5flushERS6_.exit54 ], [ 8, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIwEEE5flushERS6_.exit53 ], [ 8, %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIwEEE5flushERS6_.exit52 ]
-  %310 = getelementptr inbounds i8, ptr %1, i64 %.sink
+  %310 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink
   ret ptr %310
 }
 

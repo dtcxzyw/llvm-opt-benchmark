@@ -15,14 +15,14 @@ define i32 @pthread_mutex_take(ptr noundef %0, ptr noundef %1) local_unnamed_add
 
 4:                                                ; preds = %2
   %5 = tail call i32 @sched_lock() #3
-  %6 = getelementptr inbounds i8, ptr %0, i64 44
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %7 = load i8, ptr %6, align 4
   %8 = and i8 %7, 2
   %.not10 = icmp eq i8 %8, 0
   br i1 %.not10, label %9, label %pthread_mutex_add.exit
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = tail call i32 @pthread_sem_take(ptr noundef nonnull %10, ptr noundef %1) #3
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %13, label %pthread_mutex_add.exit
@@ -40,7 +40,7 @@ define i32 @pthread_mutex_take(ptr noundef %0, ptr noundef %1) local_unnamed_add
   %18 = load i64, ptr %3, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !7
-  %19 = getelementptr inbounds i8, ptr %17, i64 216
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 216
   %20 = load ptr, ptr %19, align 8
   store ptr %20, ptr %0, align 8
   store ptr %0, ptr %19, align 8
@@ -76,14 +76,14 @@ define range(i32 0, -2147483648) i32 @pthread_mutex_trytake(ptr noundef %0) loca
 
 3:                                                ; preds = %1
   %4 = tail call i32 @sched_lock() #3
-  %5 = getelementptr inbounds i8, ptr %0, i64 44
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %6 = load i8, ptr %5, align 4
   %7 = and i8 %6, 2
   %.not9 = icmp eq i8 %7, 0
   br i1 %.not9, label %8, label %pthread_mutex_add.exit
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = tail call i32 @nxsem_trywait(ptr noundef nonnull %9) #3
   %11 = icmp slt i32 %10, 0
   br i1 %11, label %12, label %14
@@ -99,7 +99,7 @@ define range(i32 0, -2147483648) i32 @pthread_mutex_trytake(ptr noundef %0) loca
   %16 = load i64, ptr %2, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !7
-  %17 = getelementptr inbounds i8, ptr %15, i64 216
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 216
   %18 = load ptr, ptr %17, align 8
   store ptr %18, ptr %0, align 8
   store ptr %0, ptr %17, align 8
@@ -136,7 +136,7 @@ define i32 @pthread_mutex_give(ptr noundef %0) local_unnamed_addr #0 {
   %5 = load i64, ptr %2, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !7
-  %6 = getelementptr inbounds i8, ptr %4, i64 216
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 216
   br label %7
 
 7:                                                ; preds = %7, %3
@@ -172,7 +172,7 @@ define i32 @pthread_mutex_give(ptr noundef %0) local_unnamed_addr #0 {
   br label %pthread_mutex_remove.exit
 
 pthread_mutex_remove.exit:                        ; preds = %16, %18
-  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = call i32 @pthread_sem_give(ptr noundef nonnull %19) #3
   br label %21
 

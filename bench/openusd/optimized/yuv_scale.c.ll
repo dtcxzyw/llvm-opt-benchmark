@@ -1417,7 +1417,7 @@ define internal void @ScaleAddCols2_C(i32 noundef %0, i32 noundef %1, i32 nounde
   %13 = add nuw nsw i32 %12, 1
   %14 = mul nsw i32 %13, %1
   %15 = sdiv i32 65536, %14
-  %16 = getelementptr inbounds i8, ptr %7, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 %15, ptr %16, align 4
   %17 = icmp sgt i32 %0, 0
   br i1 %17, label %.lr.ph, label %._crit_edge
@@ -1439,7 +1439,7 @@ define internal void @ScaleAddCols2_C(i32 noundef %0, i32 noundef %1, i32 nounde
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph
   %indvars.iv.i = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.067.i = phi i32 [ 0, %.lr.ph ], [ %28, %.lr.ph.i ]
-  %25 = getelementptr inbounds i16, ptr %24, i64 %indvars.iv.i
+  %25 = getelementptr inbounds nuw i16, ptr %24, i64 %indvars.iv.i
   %26 = load i16, ptr %25, align 2
   %27 = zext i16 %26 to i32
   %28 = add i32 %.067.i, %27
@@ -1455,7 +1455,7 @@ SumPixels.exit:                                   ; preds = %.lr.ph.i
   %33 = mul i32 %32, %28
   %34 = lshr i32 %33, 16
   %35 = trunc i32 %34 to i8
-  %36 = getelementptr inbounds i8, ptr %.02326, i64 1
+  %36 = getelementptr inbounds nuw i8, ptr %.02326, i64 1
   store i8 %35, ptr %.02326, align 1
   %37 = add nuw nsw i32 %.02425, 1
   %exitcond.not = icmp eq i32 %37, %0
@@ -1490,7 +1490,7 @@ define internal void @ScaleAddCols1_C(i32 noundef %0, i32 noundef %1, i32 nounde
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %14
   %indvars.iv.i = phi i64 [ 0, %14 ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.067.i = phi i32 [ 0, %14 ], [ %19, %.lr.ph.i ]
-  %16 = getelementptr inbounds i16, ptr %15, i64 %indvars.iv.i
+  %16 = getelementptr inbounds nuw i16, ptr %15, i64 %indvars.iv.i
   %17 = load i16, ptr %16, align 2
   %18 = zext i16 %17 to i32
   %19 = add i32 %.067.i, %18
@@ -1502,7 +1502,7 @@ SumPixels.exit:                                   ; preds = %.lr.ph.i
   %20 = mul i32 %19, %10
   %21 = lshr i32 %20, 16
   %22 = trunc i32 %21 to i8
-  %23 = getelementptr inbounds i8, ptr %.01516, i64 1
+  %23 = getelementptr inbounds nuw i8, ptr %.01516, i64 1
   store i8 %22, ptr %.01516, align 1
   %indvars.iv.next = add nsw i64 %indvars.iv, %wide.trip.count.i
   %24 = add nuw nsw i32 %.018, 1
@@ -1529,13 +1529,13 @@ define internal void @ScaleAddCols0_C(i32 noundef %0, i32 noundef %1, i32 nounde
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.0910 = phi ptr [ %5, %.lr.ph.preheader ], [ %18, %.lr.ph ]
-  %12 = getelementptr inbounds i16, ptr %10, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw i16, ptr %10, i64 %indvars.iv
   %13 = load i16, ptr %12, align 2
   %14 = zext i16 %13 to i32
   %15 = mul nsw i32 %7, %14
   %16 = lshr i32 %15, 16
   %17 = trunc i32 %16 to i8
-  %18 = getelementptr inbounds i8, ptr %.0910, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %.0910, i64 1
   store i8 %17, ptr %.0910, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1579,7 +1579,7 @@ define internal void @ScaleAddCols2_16_C(i32 noundef %0, i32 noundef %1, i32 nou
   %13 = add nuw nsw i32 %12, 1
   %14 = mul nsw i32 %13, %1
   %15 = sdiv i32 65536, %14
-  %16 = getelementptr inbounds i8, ptr %7, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 %15, ptr %16, align 4
   %17 = icmp sgt i32 %0, 0
   br i1 %17, label %.lr.ph, label %._crit_edge
@@ -1601,7 +1601,7 @@ define internal void @ScaleAddCols2_16_C(i32 noundef %0, i32 noundef %1, i32 nou
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph
   %indvars.iv.i = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.067.i = phi i32 [ 0, %.lr.ph ], [ %27, %.lr.ph.i ]
-  %25 = getelementptr inbounds i32, ptr %24, i64 %indvars.iv.i
+  %25 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv.i
   %26 = load i32, ptr %25, align 4
   %27 = add i32 %26, %.067.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1616,7 +1616,7 @@ SumPixels_16.exit:                                ; preds = %.lr.ph.i
   %32 = mul i32 %31, %27
   %33 = lshr i32 %32, 16
   %34 = trunc nuw i32 %33 to i16
-  %35 = getelementptr inbounds i8, ptr %.02326, i64 2
+  %35 = getelementptr inbounds nuw i8, ptr %.02326, i64 2
   store i16 %34, ptr %.02326, align 2
   %36 = add nuw nsw i32 %.02425, 1
   %exitcond.not = icmp eq i32 %36, %0
@@ -1650,7 +1650,7 @@ define internal void @ScaleAddCols1_16_C(i32 noundef %0, i32 noundef %1, i32 nou
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %13
   %indvars.iv.i = phi i64 [ 0, %13 ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.067.i = phi i32 [ 0, %13 ], [ %17, %.lr.ph.i ]
-  %15 = getelementptr inbounds i32, ptr %14, i64 %indvars.iv.i
+  %15 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv.i
   %16 = load i32, ptr %15, align 4
   %17 = add i32 %16, %.067.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1661,7 +1661,7 @@ SumPixels_16.exit:                                ; preds = %.lr.ph.i
   %18 = mul i32 %17, %10
   %19 = lshr i32 %18, 16
   %20 = trunc nuw i32 %19 to i16
-  %21 = getelementptr inbounds i8, ptr %.01415, i64 2
+  %21 = getelementptr inbounds nuw i8, ptr %.01415, i64 2
   store i16 %20, ptr %.01415, align 2
   %indvars.iv.next = add nsw i64 %indvars.iv, %wide.trip.count.i
   %22 = add nuw nsw i32 %.017, 1

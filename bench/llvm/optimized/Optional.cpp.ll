@@ -24,7 +24,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvmlsERNS
 12:                                               ; preds = %1
   store i32 1701736270, ptr %5, align 1
   %13 = load ptr, ptr %4, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
   store ptr %14, ptr %4, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 

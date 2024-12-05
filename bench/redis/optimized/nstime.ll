@@ -150,7 +150,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ts.i.i)
   %call.i.i = call i32 @clock_gettime(i32 noundef 6, ptr noundef nonnull %ts.i.i) #8
   %1 = load i64, ptr %ts.i.i, align 8
-  %tv_nsec.i.i = getelementptr inbounds i8, ptr %ts.i.i, i64 8
+  %tv_nsec.i.i = getelementptr inbounds nuw i8, ptr %ts.i.i, i64 8
   %2 = load i64, ptr %tv_nsec.i.i, align 8
   %mul.i.i.i = mul i64 %1, 1000000000
   %add.i.i.i = add i64 %mul.i.i.i, %2
@@ -180,7 +180,7 @@ if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ts.i)
   %call.i = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %ts.i) #8
   %1 = load i64, ptr %ts.i, align 8
-  %tv_nsec.i = getelementptr inbounds i8, ptr %ts.i, i64 8
+  %tv_nsec.i = getelementptr inbounds nuw i8, ptr %ts.i, i64 8
   %2 = load i64, ptr %tv_nsec.i, align 8
   %mul.i.i = mul i64 %1, 1000000000
   %add.i.i = add i64 %mul.i.i, %2
@@ -191,7 +191,7 @@ if.else:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ts.i3)
   %call.i4 = call i32 @clock_gettime(i32 noundef 6, ptr noundef nonnull %ts.i3) #8
   %3 = load i64, ptr %ts.i3, align 8
-  %tv_nsec.i5 = getelementptr inbounds i8, ptr %ts.i3, i64 8
+  %tv_nsec.i5 = getelementptr inbounds nuw i8, ptr %ts.i3, i64 8
   %4 = load i64, ptr %tv_nsec.i5, align 8
   %mul.i.i6 = mul i64 %3, 1000000000
   %add.i.i7 = add i64 %mul.i.i6, %4
@@ -212,7 +212,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ts.i)
   %call.i = call i32 @clock_gettime(i32 noundef 6, ptr noundef nonnull %ts.i) #8
   %1 = load i64, ptr %ts.i, align 8
-  %tv_nsec.i = getelementptr inbounds i8, ptr %ts.i, i64 8
+  %tv_nsec.i = getelementptr inbounds nuw i8, ptr %ts.i, i64 8
   %2 = load i64, ptr %tv_nsec.i, align 8
   %mul.i.i = mul i64 %1, 1000000000
   %add.i.i = add i64 %mul.i.i, %2
@@ -237,7 +237,7 @@ nstime_update_impl.exit:
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ts.i.i)
   %call.i.i = call i32 @clock_gettime(i32 noundef 6, ptr noundef nonnull %ts.i.i) #8
   %0 = load i64, ptr %ts.i.i, align 8
-  %tv_nsec.i.i = getelementptr inbounds i8, ptr %ts.i.i, i64 8
+  %tv_nsec.i.i = getelementptr inbounds nuw i8, ptr %ts.i.i, i64 8
   %1 = load i64, ptr %tv_nsec.i.i, align 8
   %mul.i.i.i = mul i64 %0, 1000000000
   %add.i.i.i = add i64 %mul.i.i.i, %1
@@ -260,7 +260,7 @@ if.then.i:                                        ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ts.i.i)
   %call.i.i = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %ts.i.i) #8
   %1 = load i64, ptr %ts.i.i, align 8
-  %tv_nsec.i.i = getelementptr inbounds i8, ptr %ts.i.i, i64 8
+  %tv_nsec.i.i = getelementptr inbounds nuw i8, ptr %ts.i.i, i64 8
   %2 = load i64, ptr %tv_nsec.i.i, align 8
   %mul.i.i.i = mul i64 %1, 1000000000
   %add.i.i.i = add i64 %mul.i.i.i, %2
@@ -271,7 +271,7 @@ if.else.i:                                        ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ts.i3.i)
   %call.i4.i = call i32 @clock_gettime(i32 noundef 6, ptr noundef nonnull %ts.i3.i) #8
   %3 = load i64, ptr %ts.i3.i, align 8
-  %tv_nsec.i5.i = getelementptr inbounds i8, ptr %ts.i3.i, i64 8
+  %tv_nsec.i5.i = getelementptr inbounds nuw i8, ptr %ts.i3.i, i64 8
   %4 = load i64, ptr %tv_nsec.i5.i, align 8
   %mul.i.i6.i = mul i64 %3, 1000000000
   %add.i.i7.i = add i64 %mul.i.i6.i, %4

@@ -93,7 +93,7 @@ define internal fastcc void @print_error(i64 %0, ptr noundef %1, i32 noundef ran
   br i1 %trunc102, label %74, label %18
 
 18:                                               ; preds = %17
-  %19 = getelementptr inbounds i8, ptr %11, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %20 = load ptr, ptr %19, align 8
   tail call void (ptr, ...) @eprintf(ptr noundef nonnull @.str.3, ptr noundef %20, i32 noundef %.sroa.5.0.extract.trunc, ptr noundef %1) #8
   br label %74
@@ -109,7 +109,7 @@ define internal fastcc void @print_error(i64 %0, ptr noundef %1, i32 noundef ran
   %29 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 20, ptr noundef nonnull @.str.9, i32 noundef %26) #8
   %30 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 20, ptr noundef nonnull @.str.8, i32 noundef %26) #8
   %31 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 20, ptr noundef nonnull @.str.9, i32 noundef %26) #8
-  %32 = getelementptr inbounds i8, ptr %11, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %33 = load ptr, ptr %32, align 8
   %34 = tail call i64 @llvm.umax.i64(i64 %.sroa.5.0.extract.shift, i64 4)
   %spec.store.select = add nsw i64 %34, -3
@@ -129,7 +129,7 @@ define internal fastcc void @print_error(i64 %0, ptr noundef %1, i32 noundef ran
 .lr.ph:                                           ; preds = %21, %.lr.ph
   %.088110 = phi ptr [ %37, %.lr.ph ], [ %33, %21 ]
   %.090109 = phi i64 [ %spec.select, %.lr.ph ], [ 1, %21 ]
-  %37 = getelementptr inbounds i8, ptr %.088110, i64 1
+  %37 = getelementptr inbounds nuw i8, ptr %.088110, i64 1
   %38 = load i8, ptr %.088110, align 1
   %39 = icmp eq i8 %38, 10
   %40 = zext i1 %39 to i64
@@ -141,15 +141,15 @@ define internal fastcc void @print_error(i64 %0, ptr noundef %1, i32 noundef ran
   %.087115 = phi i64 [ -1, %.lr.ph116 ], [ %indvars.iv, %54 ]
   %.189114 = phi ptr [ %.088.lcssa, %.lr.ph116 ], [ %45, %54 ]
   %.2113 = phi i64 [ %.090.lcssa, %.lr.ph116 ], [ %55, %54 ]
-  %43 = shl i64 %.087115, 32
-  %sext = add i64 %43, 4294967296
-  %44 = ashr exact i64 %sext, 32
-  %45 = getelementptr inbounds i8, ptr %.189114, i64 %44
+  %sext = shl i64 %.087115, 32
+  %43 = ashr exact i64 %sext, 32
+  %44 = getelementptr i8, ptr %.189114, i64 %43
+  %45 = getelementptr i8, ptr %44, i64 1
   br label %46
 
 46:                                               ; preds = %49, %42
   %indvars.iv = phi i64 [ %indvars.iv.next, %49 ], [ 0, %42 ]
-  %47 = getelementptr inbounds i8, ptr %45, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw i8, ptr %45, i64 %indvars.iv
   %48 = load i8, ptr %47, align 1
   switch i8 %48, label %49 [
     i8 10, label %.critedge
@@ -166,11 +166,11 @@ define internal fastcc void @print_error(i64 %0, ptr noundef %1, i32 noundef ran
   br i1 %51, label %52, label %53
 
 52:                                               ; preds = %.critedge
-  call void (ptr, ...) @eprintf(ptr noundef nonnull %5, i64 noundef %.2113, i32 noundef %36, ptr noundef nonnull %45) #8
+  call void (ptr, ...) @eprintf(ptr noundef nonnull %5, i64 noundef %.2113, i32 noundef %36, ptr noundef %45) #8
   br label %54
 
 53:                                               ; preds = %.critedge
-  call void (ptr, ...) @eprintf(ptr noundef nonnull %4, i64 noundef %.2113, i32 noundef %50, ptr noundef nonnull %45) #8
+  call void (ptr, ...) @eprintf(ptr noundef nonnull %4, i64 noundef %.2113, i32 noundef %50, ptr noundef %45) #8
   br label %54
 
 54:                                               ; preds = %53, %52
@@ -209,7 +209,7 @@ define internal fastcc void @print_error(i64 %0, ptr noundef %1, i32 noundef ran
 
 .lr.ph124:                                        ; preds = %.lr.ph124.preheader, %.lr.ph124
   %indvars.iv131 = phi i64 [ 0, %.lr.ph124.preheader ], [ %indvars.iv.next132, %.lr.ph124 ]
-  %61 = getelementptr inbounds i8, ptr %.189.lcssa, i64 %indvars.iv131
+  %61 = getelementptr inbounds nuw i8, ptr %.189.lcssa, i64 %indvars.iv131
   %62 = load i8, ptr %61, align 1
   %cond = icmp eq i8 %62, 9
   %.str.12..str.11 = select i1 %cond, ptr @.str.12, ptr @.str.11
@@ -236,7 +236,7 @@ define internal fastcc void @print_error(i64 %0, ptr noundef %1, i32 noundef ran
 65:                                               ; preds = %.preheader
   call void (ptr, ...) @eprintf(ptr noundef nonnull @.str.1) #8
   %trunc99 = trunc nuw i32 %2 to i1
-  %66 = getelementptr inbounds i8, ptr %11, i64 40
+  %66 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %67 = load ptr, ptr %66, align 8
   br i1 %trunc99, label %69, label %68
 
@@ -251,7 +251,7 @@ define internal fastcc void @print_error(i64 %0, ptr noundef %1, i32 noundef ran
 .critedge104:                                     ; preds = %._crit_edge125
   call void (ptr, ...) @eprintf(ptr noundef nonnull @.str.1) #8
   %trunc = trunc nuw i32 %2 to i1
-  %70 = getelementptr inbounds i8, ptr %11, i64 40
+  %70 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %71 = load ptr, ptr %70, align 8
   br i1 %trunc, label %73, label %72
 
@@ -332,12 +332,12 @@ define dso_local void @sema_error(ptr nocapture noundef readonly %0, ptr noundef
   %4 = load i32, ptr getelementptr inbounds (i8, ptr @global_context, i64 84), align 4
   %5 = add i32 %4, 1
   store i32 %5, ptr getelementptr inbounds (i8, ptr @global_context, i64 84), align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8
   call void @llvm.va_start.p0(ptr nonnull %3)
-  %10 = getelementptr inbounds i8, ptr %9, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %11 = load ptr, ptr %10, align 8
   call void (ptr, ...) @eprintf(ptr noundef nonnull @.str, ptr noundef %11) #8
   call void @evprintf(ptr noundef %1, ptr noundef nonnull %3) #8
@@ -369,7 +369,7 @@ define dso_local void @span_to_scratch(i64 %0) local_unnamed_addr #0 {
   br i1 %or.cond3, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %1
-  %11 = getelementptr inbounds i8, ptr %5, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = icmp ugt i64 %0, 8589934591
   br i1 %13, label %.lr.ph, label %._crit_edge
@@ -377,7 +377,7 @@ define dso_local void @span_to_scratch(i64 %0) local_unnamed_addr #0 {
 .lr.ph:                                           ; preds = %.preheader, %18
   %.030 = phi ptr [ %14, %18 ], [ %12, %.preheader ]
   %.02229 = phi i32 [ %.123, %18 ], [ 1, %.preheader ]
-  %14 = getelementptr inbounds i8, ptr %.030, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %.030, i64 1
   %15 = load i8, ptr %.030, align 1
   switch i8 %15, label %18 [
     i8 0, label %.loopexit
@@ -396,7 +396,7 @@ define dso_local void @span_to_scratch(i64 %0) local_unnamed_addr #0 {
 ._crit_edge:                                      ; preds = %18, %.preheader
   %.0.lcssa = phi ptr [ %12, %.preheader ], [ %14, %18 ]
   %20 = and i64 %4, 255
-  %21 = getelementptr inbounds i8, ptr %.0.lcssa, i64 %20
+  %21 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 %20
   %22 = getelementptr inbounds i8, ptr %21, i64 -1
   %umax = tail call i32 @llvm.umax.i32(i32 %6, i32 1)
   %wide.trip.count = zext nneg i32 %umax to i64
@@ -405,7 +405,7 @@ define dso_local void @span_to_scratch(i64 %0) local_unnamed_addr #0 {
 23:                                               ; preds = %._crit_edge, %28
   %indvars.iv = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next, %28 ]
   %.02131 = phi i1 [ false, %._crit_edge ], [ %.0.i25, %28 ]
-  %24 = getelementptr inbounds i8, ptr %22, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 %indvars.iv
   %25 = load i8, ptr %24, align 1
   switch i8 %25, label %.sink.split [
     i8 32, label %27
@@ -460,7 +460,7 @@ define dso_local ptr @span_to_string(i64 %0) local_unnamed_addr #0 {
   br i1 %or.cond3, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %1
-  %11 = getelementptr inbounds i8, ptr %5, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = icmp ugt i64 %0, 8589934591
   br i1 %13, label %.lr.ph, label %._crit_edge
@@ -468,7 +468,7 @@ define dso_local ptr @span_to_string(i64 %0) local_unnamed_addr #0 {
 .lr.ph:                                           ; preds = %.preheader, %18
   %.01519 = phi ptr [ %14, %18 ], [ %12, %.preheader ]
   %.01618 = phi i32 [ %.1, %18 ], [ 1, %.preheader ]
-  %14 = getelementptr inbounds i8, ptr %.01519, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %.01519, i64 1
   %15 = load i8, ptr %.01519, align 1
   switch i8 %15, label %18 [
     i8 0, label %.loopexit
@@ -487,7 +487,7 @@ define dso_local ptr @span_to_string(i64 %0) local_unnamed_addr #0 {
 ._crit_edge:                                      ; preds = %18, %.preheader
   %.015.lcssa = phi ptr [ %12, %.preheader ], [ %14, %18 ]
   %20 = and i64 %4, 255
-  %21 = getelementptr inbounds i8, ptr %.015.lcssa, i64 %20
+  %21 = getelementptr inbounds nuw i8, ptr %.015.lcssa, i64 %20
   %22 = getelementptr inbounds i8, ptr %21, i64 -1
   %23 = zext nneg i32 %6 to i64
   %24 = tail call ptr @str_copy(ptr noundef nonnull %22, i64 noundef %23) #8

@@ -19,15 +19,15 @@ define range(i32 -1, 2) i32 @Ssw_NodesAreEquiv(ptr nocapture noundef %0, ptr nou
   %13 = alloca %struct.timespec, align 8
   %14 = alloca [3 x i32], align 4
   %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %17 = load i32, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 268
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 268
   %19 = load i32, ptr %18, align 4
   %20 = add nsw i32 %19, 1
   store i32 %20, ptr %18, align 4
-  %21 = getelementptr inbounds i8, ptr %0, i64 64
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 56
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 56
   %24 = load i32, ptr %23, align 8
   %25 = add nsw i32 %24, 1
   store i32 %25, ptr %23, align 8
@@ -49,9 +49,9 @@ define range(i32 -1, 2) i32 @Ssw_NodesAreEquiv(ptr nocapture noundef %0, ptr nou
   %35 = getelementptr i8, ptr %2, i64 36
   %.val92 = load i32, ptr %35, align 4
   %36 = tail call fastcc i32 @Ssw_ObjSatNum(ptr %.val91, i32 %.val92)
-  %37 = getelementptr inbounds i8, ptr %1, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %38 = load i64, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %2, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %40 = load i64, ptr %39, align 8
   %41 = xor i64 %40, %38
   %42 = and i64 %41, 8
@@ -59,13 +59,13 @@ define range(i32 -1, 2) i32 @Ssw_NodesAreEquiv(ptr nocapture noundef %0, ptr nou
   %44 = zext i1 %43 to i32
   %45 = shl nsw i32 %36, 1
   %46 = or disjoint i32 %45, %44
-  %47 = getelementptr inbounds i8, ptr %14, i64 4
+  %47 = getelementptr inbounds nuw i8, ptr %14, i64 4
   store i32 %46, ptr %47, align 4
-  %48 = getelementptr inbounds i8, ptr %0, i64 136
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %49 = load i32, ptr %48, align 8
   %50 = icmp slt i32 %49, 0
-  %.0.sroa.gep = getelementptr inbounds i8, ptr %14, i64 12
-  %.0.sroa.gep116 = getelementptr inbounds i8, ptr %14, i64 8
+  %.0.sroa.gep = getelementptr inbounds nuw i8, ptr %14, i64 12
+  %.0.sroa.gep116 = getelementptr inbounds nuw i8, ptr %14, i64 8
   br i1 %50, label %52, label %51
 
 51:                                               ; preds = %3
@@ -75,7 +75,7 @@ define range(i32 -1, 2) i32 @Ssw_NodesAreEquiv(ptr nocapture noundef %0, ptr nou
 52:                                               ; preds = %51, %3
   %.0.sroa.phi = phi ptr [ %.0.sroa.gep, %51 ], [ %.0.sroa.gep116, %3 ]
   %53 = load ptr, ptr %0, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 68
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 68
   %55 = load i32, ptr %54, align 4
   %.not = icmp eq i32 %55, 0
   br i1 %.not, label %64, label %56
@@ -102,11 +102,11 @@ define range(i32 -1, 2) i32 @Ssw_NodesAreEquiv(ptr nocapture noundef %0, ptr nou
 
 64:                                               ; preds = %60, %62, %52
   %65 = load ptr, ptr %21, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 16
   %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds i8, ptr %67, i64 12
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 12
   %69 = load i32, ptr %68, align 4
-  %70 = getelementptr inbounds i8, ptr %67, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %71 = load i32, ptr %70, align 8
   %.not85 = icmp eq i32 %69, %71
   br i1 %.not85, label %74, label %72
@@ -124,7 +124,7 @@ define range(i32 -1, 2) i32 @Ssw_NodesAreEquiv(ptr nocapture noundef %0, ptr nou
 77:                                               ; preds = %74
   %78 = load i64, ptr %13, align 8
   %.neg118 = mul i64 %78, -1000000
-  %79 = getelementptr inbounds i8, ptr %13, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %80 = load i64, ptr %79, align 8
   %.neg = sdiv i64 %80, -1000
   %.neg119 = add i64 %.neg, %.neg118
@@ -134,7 +134,7 @@ Abc_Clock.exit:                                   ; preds = %74, %77
   %.0.i.neg120 = phi i64 [ %.neg119, %77 ], [ 1, %74 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
   %81 = load ptr, ptr %21, align 8
-  %82 = getelementptr inbounds i8, ptr %81, i64 16
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 16
   %83 = load ptr, ptr %82, align 8
   %84 = sext i32 %17 to i64
   %85 = call i32 @sat_solver_solve(ptr noundef %83, ptr noundef nonnull %14, ptr noundef nonnull %.0.sroa.phi, i64 noundef %84, i64 noundef 0, i64 noundef 0, i64 noundef 0) #6
@@ -146,7 +146,7 @@ Abc_Clock.exit:                                   ; preds = %74, %77
 88:                                               ; preds = %Abc_Clock.exit
   %89 = load i64, ptr %12, align 8
   %90 = mul nsw i64 %89, 1000000
-  %91 = getelementptr inbounds i8, ptr %12, i64 8
+  %91 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %92 = load i64, ptr %91, align 8
   %93 = sdiv i64 %92, 1000
   %94 = add nsw i64 %93, %90
@@ -156,7 +156,7 @@ Abc_Clock.exit99:                                 ; preds = %Abc_Clock.exit, %88
   %.0.i98 = phi i64 [ %94, %88 ], [ -1, %Abc_Clock.exit ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
   %95 = add i64 %.0.i98, %.0.i.neg120
-  %96 = getelementptr inbounds i8, ptr %0, i64 376
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %97 = load i64, ptr %96, align 8
   %98 = add nsw i64 %95, %97
   store i64 %98, ptr %96, align 8
@@ -174,7 +174,7 @@ Abc_Clock.exit99:                                 ; preds = %Abc_Clock.exit, %88
 102:                                              ; preds = %99
   %103 = load i64, ptr %11, align 8
   %104 = mul nsw i64 %103, 1000000
-  %105 = getelementptr inbounds i8, ptr %11, i64 8
+  %105 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %106 = load i64, ptr %105, align 8
   %107 = sdiv i64 %106, 1000
   %108 = add nsw i64 %107, %104
@@ -184,7 +184,7 @@ Abc_Clock.exit101:                                ; preds = %99, %102
   %.0.i100 = phi i64 [ %108, %102 ], [ -1, %99 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
   %109 = add i64 %.0.i100, %.0.i.neg120
-  %110 = getelementptr inbounds i8, ptr %0, i64 392
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %111 = load i64, ptr %110, align 8
   %112 = add nsw i64 %109, %111
   store i64 %112, ptr %110, align 8
@@ -198,17 +198,17 @@ Abc_Clock.exit101:                                ; preds = %99, %102
   %117 = xor i32 %116, 1
   store i32 %117, ptr %47, align 4
   %118 = load ptr, ptr %21, align 8
-  %119 = getelementptr inbounds i8, ptr %118, i64 16
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 16
   %120 = load ptr, ptr %119, align 8
   %121 = call i32 @sat_solver_addclause(ptr noundef %120, ptr noundef nonnull %14, ptr noundef nonnull %.0.sroa.gep116) #6
   br label %122
 
 122:                                              ; preds = %113, %Abc_Clock.exit101
-  %123 = getelementptr inbounds i8, ptr %0, i64 280
+  %123 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %124 = load i32, ptr %123, align 8
   %125 = add nsw i32 %124, 1
   store i32 %125, ptr %123, align 8
-  %126 = getelementptr inbounds i8, ptr %0, i64 24
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %127 = load ptr, ptr %126, align 8
   %128 = getelementptr i8, ptr %127, i64 48
   %.val97 = load ptr, ptr %128, align 8
@@ -224,7 +224,7 @@ Abc_Clock.exit101:                                ; preds = %99, %102
 133:                                              ; preds = %130
   %134 = load i64, ptr %10, align 8
   %135 = mul nsw i64 %134, 1000000
-  %136 = getelementptr inbounds i8, ptr %10, i64 8
+  %136 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %137 = load i64, ptr %136, align 8
   %138 = sdiv i64 %137, 1000
   %139 = add nsw i64 %138, %135
@@ -234,11 +234,11 @@ Abc_Clock.exit103:                                ; preds = %130, %133
   %.0.i102 = phi i64 [ %139, %133 ], [ -1, %130 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
   %140 = add i64 %.0.i102, %.0.i.neg120
-  %141 = getelementptr inbounds i8, ptr %0, i64 384
+  %141 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %142 = load i64, ptr %141, align 8
   %143 = add nsw i64 %140, %142
   store i64 %143, ptr %141, align 8
-  %144 = getelementptr inbounds i8, ptr %0, i64 284
+  %144 = getelementptr inbounds nuw i8, ptr %0, i64 284
   %145 = load i32, ptr %144, align 4
   %146 = add nsw i32 %145, 1
   store i32 %146, ptr %144, align 4
@@ -253,7 +253,7 @@ Abc_Clock.exit103:                                ; preds = %130, %133
 150:                                              ; preds = %147
   %151 = load i64, ptr %9, align 8
   %152 = mul nsw i64 %151, 1000000
-  %153 = getelementptr inbounds i8, ptr %9, i64 8
+  %153 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %154 = load i64, ptr %153, align 8
   %155 = sdiv i64 %154, 1000
   %156 = add nsw i64 %155, %152
@@ -263,18 +263,18 @@ Abc_Clock.exit105:                                ; preds = %147, %150
   %.0.i104 = phi i64 [ %156, %150 ], [ -1, %147 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
   %157 = add i64 %.0.i104, %.0.i.neg120
-  %158 = getelementptr inbounds i8, ptr %0, i64 400
+  %158 = getelementptr inbounds nuw i8, ptr %0, i64 400
   %159 = load i64, ptr %158, align 8
   %160 = add nsw i64 %157, %159
   store i64 %160, ptr %158, align 8
-  %161 = getelementptr inbounds i8, ptr %0, i64 276
+  %161 = getelementptr inbounds nuw i8, ptr %0, i64 276
   %162 = load i32, ptr %161, align 4
   %163 = add nsw i32 %162, 1
   store i32 %163, ptr %161, align 4
   br label %296
 
 164:                                              ; preds = %122
-  %165 = getelementptr inbounds i8, ptr %0, i64 272
+  %165 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %166 = load i32, ptr %165, align 8
   %167 = add nsw i32 %166, 1
   store i32 %167, ptr %165, align 8
@@ -314,7 +314,7 @@ Abc_Clock.exit105:                                ; preds = %147, %150
 188:                                              ; preds = %187, %168
   %.1.sroa.phi = phi ptr [ %.0.sroa.gep, %187 ], [ %.0.sroa.gep116, %168 ]
   %189 = load ptr, ptr %0, align 8
-  %190 = getelementptr inbounds i8, ptr %189, i64 68
+  %190 = getelementptr inbounds nuw i8, ptr %189, i64 68
   %191 = load i32, ptr %190, align 4
   %.not86 = icmp eq i32 %191, 0
   br i1 %.not86, label %201, label %192
@@ -342,11 +342,11 @@ Abc_Clock.exit105:                                ; preds = %147, %150
 
 201:                                              ; preds = %197, %199, %188
   %202 = load ptr, ptr %21, align 8
-  %203 = getelementptr inbounds i8, ptr %202, i64 16
+  %203 = getelementptr inbounds nuw i8, ptr %202, i64 16
   %204 = load ptr, ptr %203, align 8
-  %205 = getelementptr inbounds i8, ptr %204, i64 12
+  %205 = getelementptr inbounds nuw i8, ptr %204, i64 12
   %206 = load i32, ptr %205, align 4
-  %207 = getelementptr inbounds i8, ptr %204, i64 8
+  %207 = getelementptr inbounds nuw i8, ptr %204, i64 8
   %208 = load i32, ptr %207, align 8
   %.not89 = icmp eq i32 %206, %208
   br i1 %.not89, label %211, label %209
@@ -364,7 +364,7 @@ Abc_Clock.exit105:                                ; preds = %147, %150
 214:                                              ; preds = %211
   %215 = load i64, ptr %8, align 8
   %.neg122 = mul i64 %215, -1000000
-  %216 = getelementptr inbounds i8, ptr %8, i64 8
+  %216 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %217 = load i64, ptr %216, align 8
   %.neg121 = sdiv i64 %217, -1000
   %.neg123 = add i64 %.neg121, %.neg122
@@ -374,7 +374,7 @@ Abc_Clock.exit107:                                ; preds = %211, %214
   %.0.i106.neg124 = phi i64 [ %.neg123, %214 ], [ 1, %211 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   %218 = load ptr, ptr %21, align 8
-  %219 = getelementptr inbounds i8, ptr %218, i64 16
+  %219 = getelementptr inbounds nuw i8, ptr %218, i64 16
   %220 = load ptr, ptr %219, align 8
   %221 = call i32 @sat_solver_solve(ptr noundef %220, ptr noundef nonnull %14, ptr noundef nonnull %.1.sroa.phi, i64 noundef %84, i64 noundef 0, i64 noundef 0, i64 noundef 0) #6
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
@@ -385,7 +385,7 @@ Abc_Clock.exit107:                                ; preds = %211, %214
 224:                                              ; preds = %Abc_Clock.exit107
   %225 = load i64, ptr %7, align 8
   %226 = mul nsw i64 %225, 1000000
-  %227 = getelementptr inbounds i8, ptr %7, i64 8
+  %227 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %228 = load i64, ptr %227, align 8
   %229 = sdiv i64 %228, 1000
   %230 = add nsw i64 %229, %226
@@ -412,7 +412,7 @@ Abc_Clock.exit109:                                ; preds = %Abc_Clock.exit107, 
 237:                                              ; preds = %234
   %238 = load i64, ptr %6, align 8
   %239 = mul nsw i64 %238, 1000000
-  %240 = getelementptr inbounds i8, ptr %6, i64 8
+  %240 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %241 = load i64, ptr %240, align 8
   %242 = sdiv i64 %241, 1000
   %243 = add nsw i64 %242, %239
@@ -435,7 +435,7 @@ Abc_Clock.exit111:                                ; preds = %234, %237
   %251 = xor i32 %250, 1
   store i32 %251, ptr %47, align 4
   %252 = load ptr, ptr %21, align 8
-  %253 = getelementptr inbounds i8, ptr %252, i64 16
+  %253 = getelementptr inbounds nuw i8, ptr %252, i64 16
   %254 = load ptr, ptr %253, align 8
   %255 = call i32 @sat_solver_addclause(ptr noundef %254, ptr noundef nonnull %14, ptr noundef nonnull %.0.sroa.gep116) #6
   br label %256
@@ -444,7 +444,7 @@ Abc_Clock.exit111:                                ; preds = %234, %237
   %257 = load i32, ptr %123, align 8
   %258 = add nsw i32 %257, 1
   store i32 %258, ptr %123, align 8
-  %259 = getelementptr inbounds i8, ptr %0, i64 272
+  %259 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %260 = load i32, ptr %259, align 8
   %261 = add nsw i32 %260, 1
   store i32 %261, ptr %259, align 8
@@ -459,7 +459,7 @@ Abc_Clock.exit111:                                ; preds = %234, %237
 265:                                              ; preds = %262
   %266 = load i64, ptr %5, align 8
   %267 = mul nsw i64 %266, 1000000
-  %268 = getelementptr inbounds i8, ptr %5, i64 8
+  %268 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %269 = load i64, ptr %268, align 8
   %270 = sdiv i64 %269, 1000
   %271 = add nsw i64 %270, %267
@@ -469,11 +469,11 @@ Abc_Clock.exit113:                                ; preds = %262, %265
   %.0.i112 = phi i64 [ %271, %265 ], [ -1, %262 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   %272 = add i64 %.0.i112, %.0.i106.neg124
-  %273 = getelementptr inbounds i8, ptr %0, i64 384
+  %273 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %274 = load i64, ptr %273, align 8
   %275 = add nsw i64 %272, %274
   store i64 %275, ptr %273, align 8
-  %276 = getelementptr inbounds i8, ptr %0, i64 284
+  %276 = getelementptr inbounds nuw i8, ptr %0, i64 284
   %277 = load i32, ptr %276, align 4
   %278 = add nsw i32 %277, 1
   store i32 %278, ptr %276, align 4
@@ -488,7 +488,7 @@ Abc_Clock.exit113:                                ; preds = %262, %265
 282:                                              ; preds = %279
   %283 = load i64, ptr %4, align 8
   %284 = mul nsw i64 %283, 1000000
-  %285 = getelementptr inbounds i8, ptr %4, i64 8
+  %285 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %286 = load i64, ptr %285, align 8
   %287 = sdiv i64 %286, 1000
   %288 = add nsw i64 %287, %284
@@ -498,11 +498,11 @@ Abc_Clock.exit115:                                ; preds = %279, %282
   %.0.i114 = phi i64 [ %288, %282 ], [ -1, %279 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   %289 = add i64 %.0.i114, %.0.i106.neg124
-  %290 = getelementptr inbounds i8, ptr %0, i64 400
+  %290 = getelementptr inbounds nuw i8, ptr %0, i64 400
   %291 = load i64, ptr %290, align 8
   %292 = add nsw i64 %289, %291
   store i64 %292, ptr %290, align 8
-  %293 = getelementptr inbounds i8, ptr %0, i64 276
+  %293 = getelementptr inbounds nuw i8, ptr %0, i64 276
   %294 = load i32, ptr %293, align 4
   %295 = add nsw i32 %294, 1
   store i32 %295, ptr %293, align 4
@@ -518,7 +518,7 @@ declare void @Ssw_CnfNodeAddToSolver(ptr noundef, ptr noundef) local_unnamed_add
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @Ssw_ObjSatNum(ptr nocapture %.32.val, i32 %.36.val) unnamed_addr #0 {
   %1 = add nsw i32 %.36.val, 1
-  %2 = getelementptr inbounds i8, ptr %.32.val, i64 4
+  %2 = getelementptr inbounds nuw i8, ptr %.32.val, i64 4
   %3 = load i32, ptr %2, align 4
   %.not.i.not.i = icmp slt i32 %.36.val, %3
   br i1 %.not.i.not.i, label %Vec_IntGetEntry.exit, label %4
@@ -534,7 +534,7 @@ define internal fastcc i32 @Ssw_ObjSatNum(ptr nocapture %.32.val, i32 %.36.val) 
   br i1 %.not.i.i.not.i, label %Vec_IntGrow.exit.i.i, label %8
 
 8:                                                ; preds = %7
-  %9 = getelementptr inbounds i8, ptr %.32.val, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %.32.val, i64 8
   %10 = load ptr, ptr %9, align 8
   %.not9.i.i.i = icmp eq ptr %10, null
   %11 = sext i32 %1 to i64
@@ -558,7 +558,7 @@ define internal fastcc i32 @Ssw_ObjSatNum(ptr nocapture %.32.val, i32 %.36.val) 
   br i1 %.not.i.i.not.i, label %Vec_IntGrow.exit.i.i, label %20
 
 20:                                               ; preds = %19
-  %21 = getelementptr inbounds i8, ptr %.32.val, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %.32.val, i64 8
   %22 = load ptr, ptr %21, align 8
   %.not9.i21.i.i = icmp eq ptr %22, null
   %23 = sext i32 %6 to i64
@@ -590,7 +590,7 @@ Vec_IntGrow.exit.i.i:                             ; preds = %Vec_IntGrow.exit.si
   br i1 %.not3.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %Vec_IntGrow.exit.i.i
-  %32 = getelementptr inbounds i8, ptr %.32.val, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %.32.val, i64 8
   %33 = sext i32 %31 to i64
   %wide.trip.count.i.i = sext i32 %1 to i64
   br label %34
@@ -629,7 +629,7 @@ define noundef i32 @Ssw_NodesAreConstrained(ptr nocapture noundef readonly %0, p
   %5 = ptrtoint ptr %2 to i64
   %6 = and i64 %5, -2
   %7 = inttoptr i64 %6 to ptr
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr i8, ptr %9, i64 48
   %.val60 = load ptr, ptr %10, align 8
@@ -643,7 +643,7 @@ define noundef i32 @Ssw_NodesAreConstrained(ptr nocapture noundef readonly %0, p
   %15 = inttoptr i64 %14 to ptr
   %16 = ptrtoint ptr %spec.select to i64
   %.1 = select i1 %.not, ptr %spec.select50, ptr %15
-  %17 = getelementptr inbounds i8, ptr %0, i64 64
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %18 = load ptr, ptr %17, align 8
   tail call void @Ssw_CnfNodeAddToSolver(ptr noundef %18, ptr noundef %.1) #6
   %19 = load ptr, ptr %17, align 8
@@ -670,13 +670,13 @@ define noundef i32 @Ssw_NodesAreConstrained(ptr nocapture noundef readonly %0, p
   %34 = or disjoint i32 %33, %24
   store i32 %34, ptr %4, align 4
   %35 = load ptr, ptr %0, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 68
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 68
   %37 = load i32, ptr %36, align 4
   %.not48 = icmp eq i32 %37, 0
   br i1 %.not48, label %44, label %38
 
 38:                                               ; preds = %30
-  %39 = getelementptr inbounds i8, ptr %22, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %40 = load i64, ptr %39, align 8
   %41 = and i64 %40, 8
   %.not49 = icmp eq i64 %41, 0
@@ -689,9 +689,9 @@ define noundef i32 @Ssw_NodesAreConstrained(ptr nocapture noundef readonly %0, p
 
 44:                                               ; preds = %38, %42, %30
   %45 = load ptr, ptr %17, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %4, i64 4
+  %48 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %49 = call i32 @sat_solver_addclause(ptr noundef %47, ptr noundef nonnull %4, ptr noundef nonnull %48) #6
   br label %119
 
@@ -709,21 +709,21 @@ define noundef i32 @Ssw_NodesAreConstrained(ptr nocapture noundef readonly %0, p
   %57 = tail call fastcc i32 @Ssw_ObjSatNum(ptr %.val53, i32 %.val54)
   %58 = shl nsw i32 %57, 1
   %59 = or disjoint i32 %58, %24
-  %60 = getelementptr inbounds i8, ptr %4, i64 4
+  %60 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %61 = load ptr, ptr %0, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 68
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 68
   %63 = load i32, ptr %62, align 4
   %.not42 = icmp eq i32 %63, 0
   br i1 %.not42, label %75, label %64
 
 64:                                               ; preds = %50
-  %65 = getelementptr inbounds i8, ptr %.1, i64 24
+  %65 = getelementptr inbounds nuw i8, ptr %.1, i64 24
   %66 = load i64, ptr %65, align 8
   %67 = trunc i64 %66 to i32
   %68 = lshr i32 %67, 3
   %69 = and i32 %68, 1
   %spec.select61 = or disjoint i32 %53, %69
-  %70 = getelementptr inbounds i8, ptr %22, i64 24
+  %70 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %71 = load i64, ptr %70, align 8
   %72 = trunc i64 %71 to i32
   %73 = lshr i32 %72, 3
@@ -738,9 +738,9 @@ define noundef i32 @Ssw_NodesAreConstrained(ptr nocapture noundef readonly %0, p
   store i32 %78, ptr %4, align 4
   store i32 %76, ptr %60, align 4
   %79 = load ptr, ptr %17, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 16
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 16
   %81 = load ptr, ptr %80, align 8
-  %82 = getelementptr inbounds i8, ptr %4, i64 8
+  %82 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %83 = call i32 @sat_solver_addclause(ptr noundef %81, ptr noundef nonnull %4, ptr noundef nonnull %82) #6
   %84 = load ptr, ptr %17, align 8
   %85 = getelementptr i8, ptr %84, i64 32
@@ -758,13 +758,13 @@ define noundef i32 @Ssw_NodesAreConstrained(ptr nocapture noundef readonly %0, p
   %92 = shl nsw i32 %91, 1
   %93 = or disjoint i32 %92, %24
   %94 = load ptr, ptr %0, align 8
-  %95 = getelementptr inbounds i8, ptr %94, i64 68
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 68
   %96 = load i32, ptr %95, align 4
   %.not45 = icmp eq i32 %96, 0
   br i1 %.not45, label %110, label %97
 
 97:                                               ; preds = %75
-  %98 = getelementptr inbounds i8, ptr %.1, i64 24
+  %98 = getelementptr inbounds nuw i8, ptr %.1, i64 24
   %99 = load i64, ptr %98, align 8
   %100 = and i64 %99, 8
   %.not46 = icmp eq i64 %100, 0
@@ -777,7 +777,7 @@ define noundef i32 @Ssw_NodesAreConstrained(ptr nocapture noundef readonly %0, p
   br label %104
 
 104:                                              ; preds = %101, %97
-  %105 = getelementptr inbounds i8, ptr %22, i64 24
+  %105 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %106 = load i64, ptr %105, align 8
   %107 = trunc i64 %106 to i32
   %108 = lshr i32 %107, 3
@@ -793,7 +793,7 @@ define noundef i32 @Ssw_NodesAreConstrained(ptr nocapture noundef readonly %0, p
   %114 = xor i32 %111, 1
   store i32 %114, ptr %60, align 4
   %115 = load ptr, ptr %17, align 8
-  %116 = getelementptr inbounds i8, ptr %115, i64 16
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 16
   %117 = load ptr, ptr %116, align 8
   %118 = call i32 @sat_solver_addclause(ptr noundef %117, ptr noundef nonnull %4, ptr noundef nonnull %82) #6
   br label %119
@@ -805,7 +805,7 @@ define noundef i32 @Ssw_NodesAreConstrained(ptr nocapture noundef readonly %0, p
 ; Function Attrs: nounwind uwtable
 define noundef i32 @Ssw_NodeIsConstrained(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %1, i64 8
   %.val10 = load ptr, ptr %6, align 8
@@ -832,7 +832,7 @@ define noundef i32 @Ssw_NodeIsConstrained(ptr nocapture noundef readonly %0, ptr
   %22 = xor i32 %21, 1
   store i32 %22, ptr %3, align 4
   %23 = load ptr, ptr %0, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 68
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 68
   %25 = load i32, ptr %24, align 4
   %.not = icmp eq i32 %25, 0
   br i1 %.not, label %33, label %26
@@ -840,7 +840,7 @@ define noundef i32 @Ssw_NodeIsConstrained(ptr nocapture noundef readonly %0, ptr
 26:                                               ; preds = %2
   %27 = and i64 %17, -2
   %28 = inttoptr i64 %27 to ptr
-  %29 = getelementptr inbounds i8, ptr %28, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %30 = load i64, ptr %29, align 8
   %31 = and i64 %30, 8
   %.not8 = icmp eq i64 %31, 0
@@ -852,9 +852,9 @@ define noundef i32 @Ssw_NodeIsConstrained(ptr nocapture noundef readonly %0, ptr
 
 33:                                               ; preds = %26, %32, %2
   %34 = load ptr, ptr %4, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %3, i64 4
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %38 = call i32 @sat_solver_addclause(ptr noundef %36, ptr noundef nonnull %3, ptr noundef nonnull %37) #6
   ret i32 1
 }

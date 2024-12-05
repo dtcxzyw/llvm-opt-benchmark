@@ -22,71 +22,71 @@ define dso_local noundef ptr @link_field(ptr noundef %0, i32 noundef %1, i32 nou
   %10 = load ptr, ptr @_nc_Default_Field, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %8, ptr noundef nonnull align 8 dereferenceable(120) %10, i64 104, i1 false)
   %11 = trunc i32 %1 to i16
-  %12 = getelementptr inbounds i8, ptr %8, i64 6
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 6
   store i16 %11, ptr %12, align 2
   %13 = trunc i32 %2 to i16
-  %14 = getelementptr inbounds i8, ptr %8, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i16 %13, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 72
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %8, i64 72
+  %17 = getelementptr inbounds nuw i8, ptr %8, i64 72
   store ptr %16, ptr %17, align 8
   store ptr %8, ptr %15, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 104
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %8, i64 104
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 104
   store ptr %19, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 2
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %22 = load i16, ptr %21, align 2
-  %23 = getelementptr inbounds i8, ptr %8, i64 2
+  %23 = getelementptr inbounds nuw i8, ptr %8, i64 2
   store i16 %22, ptr %23, align 2
-  %24 = getelementptr inbounds i8, ptr %0, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %25 = load i16, ptr %24, align 4
-  %26 = getelementptr inbounds i8, ptr %8, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i16 %25, ptr %26, align 4
-  %27 = getelementptr inbounds i8, ptr %0, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %28 = load i32, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %8, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i32 %28, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 28
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %31 = load i16, ptr %30, align 4
-  %32 = getelementptr inbounds i8, ptr %8, i64 28
+  %32 = getelementptr inbounds nuw i8, ptr %8, i64 28
   store i16 %31, ptr %32, align 4
-  %33 = getelementptr inbounds i8, ptr %0, i64 12
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %34 = load i32, ptr %33, align 4
-  %35 = getelementptr inbounds i8, ptr %8, i64 12
+  %35 = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i32 %34, ptr %35, align 4
-  %36 = getelementptr inbounds i8, ptr %0, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %37 = load i32, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %8, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 %37, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 20
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %40 = load i32, ptr %39, align 4
-  %41 = getelementptr inbounds i8, ptr %8, i64 20
+  %41 = getelementptr inbounds nuw i8, ptr %8, i64 20
   store i32 %40, ptr %41, align 4
-  %42 = getelementptr inbounds i8, ptr %0, i64 30
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 30
   %43 = load i16, ptr %42, align 2
-  %44 = getelementptr inbounds i8, ptr %8, i64 30
+  %44 = getelementptr inbounds nuw i8, ptr %8, i64 30
   store i16 %43, ptr %44, align 2
-  %45 = getelementptr inbounds i8, ptr %0, i64 40
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %46 = load i32, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %8, i64 40
+  %47 = getelementptr inbounds nuw i8, ptr %8, i64 40
   store i32 %46, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %0, i64 44
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %49 = load i32, ptr %48, align 4
-  %50 = getelementptr inbounds i8, ptr %8, i64 44
+  %50 = getelementptr inbounds nuw i8, ptr %8, i64 44
   store i32 %49, ptr %50, align 4
-  %51 = getelementptr inbounds i8, ptr %0, i64 36
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %52 = load i32, ptr %51, align 4
-  %53 = getelementptr inbounds i8, ptr %8, i64 36
+  %53 = getelementptr inbounds nuw i8, ptr %8, i64 36
   store i32 %52, ptr %53, align 4
-  %54 = getelementptr inbounds i8, ptr %0, i64 48
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %55 = load i32, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %8, i64 48
+  %56 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store i32 %55, ptr %56, align 8
-  %57 = getelementptr inbounds i8, ptr %0, i64 112
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %8, i64 112
+  %59 = getelementptr inbounds nuw i8, ptr %8, i64 112
   store ptr %58, ptr %59, align 8
   %60 = tail call zeroext i1 @_nc_Copy_Type(ptr noundef nonnull %8, ptr noundef nonnull %0) #6
   br i1 %60, label %64, label %61

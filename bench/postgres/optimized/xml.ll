@@ -259,7 +259,7 @@ declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_add
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @xml_out(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #12
@@ -282,7 +282,7 @@ define dso_local noundef i64 @xml_recv(ptr nocapture noundef readnone %0) local_
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @xml_send(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
   %2 = alloca %struct.StringInfoData, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
   %5 = inttoptr i64 %4 to ptr
   %6 = tail call ptr @pg_detoast_datum(ptr noundef %5) #12
@@ -346,8 +346,8 @@ define dso_local noalias noundef nonnull ptr @xmlconcat(ptr nocapture readnone %
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @xmlconcat2(ptr nocapture noundef %0) local_unnamed_addr #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
   %6 = getelementptr i8, ptr %0, i64 56
@@ -359,7 +359,7 @@ define dso_local i64 @xmlconcat2(ptr nocapture noundef %0) local_unnamed_addr #3
   br i1 %8, label %10, label %12
 
 10:                                               ; preds = %9
-  %11 = getelementptr inbounds i8, ptr %0, i64 28
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 1, ptr %11, align 4
   br label %34
 
@@ -402,7 +402,7 @@ declare ptr @list_make2_impl(i32 noundef, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: cold noreturn nounwind uwtable
 define dso_local noundef i64 @texttoxml(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #12
@@ -425,7 +425,7 @@ define dso_local noalias noundef nonnull ptr @xmlparse(ptr nocapture readnone %0
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @xmltotext(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #12
@@ -655,7 +655,7 @@ define dso_local ptr @map_sql_value_to_xml_value(i64 noundef %0, i32 noundef %1,
 24:                                               ; preds = %3
   %25 = inttoptr i64 %0 to ptr
   %26 = tail call ptr @pg_detoast_datum(ptr noundef %25) #12
-  %27 = getelementptr inbounds i8, ptr %26, i64 12
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 12
   %28 = load i32, ptr %27, align 4
   call void @get_typlenbyvalalign(i32 noundef %28, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6) #12
   %29 = load i16, ptr %4, align 2
@@ -735,9 +735,9 @@ define dso_local ptr @map_sql_value_to_xml_value(i64 noundef %0, i32 noundef %1,
 
 64:                                               ; preds = %56
   %65 = add i32 %57, 2451545
-  %66 = getelementptr inbounds i8, ptr %13, i64 20
-  %67 = getelementptr inbounds i8, ptr %13, i64 16
-  %68 = getelementptr inbounds i8, ptr %13, i64 12
+  %66 = getelementptr inbounds nuw i8, ptr %13, i64 20
+  %67 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %68 = getelementptr inbounds nuw i8, ptr %13, i64 12
   call void @j2date(i32 noundef %65, ptr noundef nonnull %66, ptr noundef nonnull %67, ptr noundef nonnull %68) #12
   call void @EncodeDateOnly(ptr noundef nonnull %13, i32 noundef 4, ptr noundef nonnull %14) #12
   %69 = call ptr @pstrdup(ptr noundef nonnull %14) #12
@@ -857,8 +857,8 @@ declare ptr @OidOutputFunctionCall(i32 noundef, i64 noundef) local_unnamed_addr 
 define dso_local ptr @escape_xml(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
   %2 = alloca %struct.StringInfoData, align 8
   call void @initStringInfo(ptr noundef nonnull %2) #12
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
-  %4 = getelementptr inbounds i8, ptr %2, i64 12
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 12
   br label %5
 
 5:                                                ; preds = %25, %1
@@ -927,7 +927,7 @@ declare void @appendStringInfoChar(ptr noundef, i8 noundef signext) local_unname
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @table_to_xml(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
   %2 = alloca %struct.StringInfoData, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
   %5 = trunc i64 %4 to i32
   %6 = getelementptr i8, ptr %0, i64 64
@@ -960,7 +960,7 @@ declare ptr @text_to_cstring(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @query_to_xml(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #12
@@ -1081,7 +1081,7 @@ xmldata_root_element_start.exit:                  ; preds = %21, %23, %24
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @cursor_to_xml(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
   %2 = alloca %struct.StringInfoData, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
   %5 = inttoptr i64 %4 to ptr
   %6 = tail call ptr @pg_detoast_datum_packed(ptr noundef %5) #12
@@ -1155,7 +1155,7 @@ xmldata_root_element_start.exit:                  ; preds = %18, %19
 
 36:                                               ; preds = %35, %._crit_edge
   %.val = load ptr, ptr %2, align 8
-  %37 = getelementptr inbounds i8, ptr %2, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val19 = load i32, ptr %37, align 8
   %38 = call ptr @cstring_to_text_with_len(ptr noundef %.val, i32 noundef %.val19) #12
   %39 = ptrtoint ptr %38 to i64
@@ -1233,7 +1233,7 @@ declare i32 @SPI_finish() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @table_to_xmlschema(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
   %5 = getelementptr i8, ptr %0, i64 64
@@ -1245,7 +1245,7 @@ define dso_local i64 @table_to_xmlschema(ptr nocapture noundef readonly %0) loca
   %11 = tail call ptr @pg_detoast_datum_packed(ptr noundef %10) #12
   %12 = tail call ptr @text_to_cstring(ptr noundef %11) #12
   %13 = tail call ptr @table_open(i32 noundef %4, i32 noundef 1) #12
-  %14 = getelementptr inbounds i8, ptr %13, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 64
   %15 = load ptr, ptr %14, align 8
   %16 = tail call fastcc ptr @map_sql_table_to_xmlschema(ptr noundef %15, i32 noundef %4, i1 noundef zeroext %7, ptr noundef %12)
   tail call void @table_close(ptr noundef %13, i32 noundef 0) #12
@@ -1345,7 +1345,7 @@ declare void @table_close(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @query_to_xmlschema(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #12
@@ -1383,7 +1383,7 @@ define dso_local i64 @query_to_xmlschema(ptr nocapture noundef readonly %0) loca
 
 26:                                               ; preds = %20
   %27 = icmp ne i64 %8, 0
-  %28 = getelementptr inbounds i8, ptr %21, i64 152
+  %28 = getelementptr inbounds nuw i8, ptr %21, i64 152
   %29 = load ptr, ptr %28, align 8
   %30 = tail call fastcc ptr @map_sql_table_to_xmlschema(ptr noundef %29, i32 noundef 0, i1 noundef zeroext %27, ptr noundef %13)
   %31 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %30) #13
@@ -1407,7 +1407,7 @@ declare void @SPI_cursor_close(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @cursor_to_xmlschema(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #12
@@ -1433,7 +1433,7 @@ define dso_local i64 @cursor_to_xmlschema(ptr nocapture noundef readonly %0) loc
   unreachable
 
 21:                                               ; preds = %1
-  %22 = getelementptr inbounds i8, ptr %15, i64 152
+  %22 = getelementptr inbounds nuw i8, ptr %15, i64 152
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, null
   br i1 %24, label %25, label %29
@@ -1462,7 +1462,7 @@ define dso_local i64 @cursor_to_xmlschema(ptr nocapture noundef readonly %0) loc
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @table_to_xml_and_xmlschema(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
   %2 = alloca %struct.StringInfoData, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
   %5 = trunc i64 %4 to i32
   %6 = getelementptr i8, ptr %0, i64 64
@@ -1474,7 +1474,7 @@ define dso_local i64 @table_to_xml_and_xmlschema(ptr nocapture noundef readonly 
   %12 = tail call ptr @pg_detoast_datum_packed(ptr noundef %11) #12
   %13 = tail call ptr @text_to_cstring(ptr noundef %12) #12
   %14 = tail call ptr @table_open(i32 noundef %5, i32 noundef 1) #12
-  %15 = getelementptr inbounds i8, ptr %14, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 64
   %16 = load ptr, ptr %15, align 8
   %17 = tail call fastcc ptr @map_sql_table_to_xmlschema(ptr noundef %16, i32 noundef %5, i1 noundef zeroext %8, ptr noundef %13)
   tail call void @table_close(ptr noundef %14, i32 noundef 0) #12
@@ -1498,7 +1498,7 @@ define dso_local i64 @table_to_xml_and_xmlschema(ptr nocapture noundef readonly 
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @query_to_xml_and_xmlschema(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #12
@@ -1536,7 +1536,7 @@ define dso_local i64 @query_to_xml_and_xmlschema(ptr nocapture noundef readonly 
 
 26:                                               ; preds = %20
   %27 = icmp ne i64 %8, 0
-  %28 = getelementptr inbounds i8, ptr %21, i64 152
+  %28 = getelementptr inbounds nuw i8, ptr %21, i64 152
   %29 = load ptr, ptr %28, align 8
   %30 = tail call fastcc ptr @map_sql_table_to_xmlschema(ptr noundef %29, i32 noundef 0, i1 noundef zeroext %27, ptr noundef %13)
   %31 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %30) #13
@@ -1556,7 +1556,7 @@ define dso_local i64 @query_to_xml_and_xmlschema(ptr nocapture noundef readonly 
 
 ; Function Attrs: cold noreturn nounwind uwtable
 define dso_local noundef i64 @schema_to_xml(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = getelementptr i8, ptr %0, i64 80
@@ -1574,7 +1574,7 @@ declare i32 @LookupExplicitNamespace(ptr noundef, i1 noundef zeroext) local_unna
 
 ; Function Attrs: noreturn nounwind uwtable
 define dso_local noundef i64 @schema_to_xmlschema(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = getelementptr i8, ptr %0, i64 80
@@ -1609,12 +1609,12 @@ xsd_schema_element_start.exit:                    ; preds = %2, %6
   %8 = load ptr, ptr %3, align 8
   %9 = call fastcc ptr @query_to_oid_list(ptr noundef %8)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  %10 = getelementptr inbounds i8, ptr %9, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %xsd_schema_element_start.exit
-  %11 = getelementptr inbounds i8, ptr %9, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %12 = load i32, ptr %10, align 4
   %13 = icmp sgt i32 %12, 0
   br i1 %13, label %.lr.ph34, label %._crit_edge
@@ -1626,7 +1626,7 @@ xsd_schema_element_start.exit:                    ; preds = %2, %6
   %15 = getelementptr %union.ListCell, ptr %14, i64 %indvars.iv
   %16 = load i32, ptr %15, align 8
   %17 = call ptr @table_open(i32 noundef %16, i32 noundef 1) #12
-  %18 = getelementptr inbounds i8, ptr %17, i64 64
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 64
   %19 = load ptr, ptr %18, align 8
   %20 = call ptr @CreateTupleDescCopy(ptr noundef %19) #12
   %21 = call ptr @lappend(ptr noundef %.02832, ptr noundef %20) #12
@@ -1647,7 +1647,7 @@ xsd_schema_element_start.exit:                    ; preds = %2, %6
 
 ; Function Attrs: noreturn nounwind uwtable
 define dso_local noundef i64 @schema_to_xml_and_xmlschema(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = getelementptr i8, ptr %0, i64 80
@@ -1701,12 +1701,12 @@ xsd_schema_element_start.exit:                    ; preds = %1, %3
   %4 = tail call i32 @SPI_connect() #12
   %5 = tail call fastcc ptr @query_to_oid_list(ptr noundef nonnull @.str.104)
   %6 = tail call fastcc ptr @query_to_oid_list(ptr noundef nonnull @.str.103)
-  %7 = getelementptr inbounds i8, ptr %5, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %xsd_schema_element_start.exit
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load i32, ptr %7, align 4
   %10 = icmp sgt i32 %9, 0
   br i1 %10, label %.lr.ph31, label %._crit_edge
@@ -1718,7 +1718,7 @@ xsd_schema_element_start.exit:                    ; preds = %1, %3
   %12 = getelementptr %union.ListCell, ptr %11, i64 %indvars.iv
   %13 = load i32, ptr %12, align 8
   %14 = tail call ptr @table_open(i32 noundef %13, i32 noundef 1) #12
-  %15 = getelementptr inbounds i8, ptr %14, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 64
   %16 = load ptr, ptr %15, align 8
   %17 = tail call ptr @CreateTupleDescCopy(ptr noundef %16) #12
   %18 = tail call ptr @lappend(ptr noundef %.02529, ptr noundef %17) #12
@@ -1861,7 +1861,7 @@ define internal fastcc ptr @query_to_oid_list(ptr noundef %0) unnamed_addr #3 {
   %.012 = phi i64 [ %22, %21 ], [ 0, %.preheader ]
   %.0911 = phi ptr [ %.1, %21 ], [ null, %.preheader ]
   %9 = load ptr, ptr @SPI_tuptable, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr ptr, ptr %11, i64 %.012
   %13 = load ptr, ptr %12, align 8
@@ -1903,23 +1903,23 @@ define internal fastcc ptr @map_sql_typecoll_to_xmlschema_types(ptr noundef read
   %2 = alloca %struct.StringInfoData, align 8
   %3 = alloca i32, align 4
   %4 = alloca %struct.StringInfoData, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %._crit_edge75.thread, label %.lr.ph61
 
 .lr.ph61:                                         ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i32, ptr %5, align 4
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %.lr.ph69, label %._crit_edge75.thread
 
 ._crit_edge64:                                    ; preds = %._crit_edge
-  %9 = getelementptr inbounds i8, ptr %.1.lcssa, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %.1.lcssa, i64 4
   %.not41 = icmp eq ptr %.1.lcssa, null
   br i1 %.not41, label %._crit_edge75.thread, label %.lr.ph74
 
 .lr.ph74:                                         ; preds = %._crit_edge64
-  %10 = getelementptr inbounds i8, ptr %.1.lcssa, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %.1.lcssa, i64 16
   %11 = load i32, ptr %9, align 4
   %12 = icmp sgt i32 %11, 0
   br i1 %12, label %.lr.ph83, label %._crit_edge75.thread105
@@ -1940,7 +1940,7 @@ define internal fastcc ptr @map_sql_typecoll_to_xmlschema_types(ptr noundef read
   br i1 %18, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.lr.ph69
-  %19 = getelementptr inbounds i8, ptr %16, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 24
   br label %20
 
 20:                                               ; preds = %.lr.ph, %30
@@ -1948,13 +1948,13 @@ define internal fastcc ptr @map_sql_typecoll_to_xmlschema_types(ptr noundef read
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %30 ]
   %.157 = phi ptr [ %.05967, %.lr.ph ], [ %.2, %30 ]
   %22 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %19, i64 0, i64 %indvars.iv
-  %23 = getelementptr inbounds i8, ptr %22, i64 95
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 95
   %24 = load i8, ptr %23, align 1
   %25 = trunc i8 %24 to i1
   br i1 %25, label %30, label %26
 
 26:                                               ; preds = %20
-  %27 = getelementptr inbounds i8, ptr %22, i64 68
+  %27 = getelementptr inbounds nuw i8, ptr %22, i64 68
   %28 = load i32, ptr %27, align 4
   %29 = tail call ptr @list_append_unique_oid(ptr noundef %.157, i32 noundef %28) #12
   %.pre = load i32, ptr %16, align 8
@@ -2013,8 +2013,8 @@ define internal fastcc ptr @map_sql_typecoll_to_xmlschema_types(ptr noundef read
 
 .lr.ph87:                                         ; preds = %._crit_edge75.thread105, %._crit_edge75
   %.3.lcssa108 = phi ptr [ %.1.lcssa, %._crit_edge75.thread105 ], [ %.4, %._crit_edge75 ]
-  %47 = getelementptr inbounds i8, ptr %.3.lcssa108, i64 4
-  %48 = getelementptr inbounds i8, ptr %.3.lcssa108, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %.3.lcssa108, i64 4
+  %48 = getelementptr inbounds nuw i8, ptr %.3.lcssa108, i64 16
   %49 = load i32, ptr %47, align 4
   %50 = icmp sgt i32 %49, 0
   br i1 %50, label %.lr.ph110, label %._crit_edge88
@@ -2306,15 +2306,15 @@ define internal fastcc ptr @map_sql_type_to_xml_name(i32 noundef %0, i32 noundef
   unreachable
 
 52:                                               ; preds = %46
-  %53 = getelementptr inbounds i8, ptr %48, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 22
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 22
   %56 = load i8, ptr %55, align 2
   %57 = zext i8 %56 to i64
   %58 = getelementptr i8, ptr %54, i64 %57
   %59 = load i32, ptr @MyDatabaseId, align 4
   %60 = call ptr @get_database_name(i32 noundef %59) #12
-  %61 = getelementptr inbounds i8, ptr %58, i64 68
+  %61 = getelementptr inbounds nuw i8, ptr %58, i64 68
   %62 = load i32, ptr %61, align 4
   %63 = call ptr @get_namespace_name(i32 noundef %62) #12
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)

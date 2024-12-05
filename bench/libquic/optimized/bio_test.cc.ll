@@ -104,7 +104,7 @@ _ZL17TestSocketConnectv.exit.thread:              ; preds = %entry
 if.end.i:                                         ; preds = %entry
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %sin.i, i8 0, i64 16, i1 false)
   store i16 2, ptr %sin.i, align 4
-  %sin_addr.i = getelementptr inbounds i8, ptr %sin.i, i64 4
+  %sin_addr.i = getelementptr inbounds nuw i8, ptr %sin.i, i64 4
   %call1.i = call i32 @inet_pton(i32 noundef 2, ptr noundef nonnull @.str.2, ptr noundef nonnull %sin_addr.i) #17
   %tobool.not.i = icmp eq i32 %call1.i, 0
   br i1 %tobool.not.i, label %if.then2.i, label %if.end3.i
@@ -150,7 +150,7 @@ if.then17.i:                                      ; preds = %if.end13.i
   br label %cleanup64.i
 
 if.end19.i:                                       ; preds = %if.end13.i
-  %sin_port.i = getelementptr inbounds i8, ptr %sin.i, i64 2
+  %sin_port.i = getelementptr inbounds nuw i8, ptr %sin.i, i64 2
   %2 = load i16, ptr %sin_port.i, align 2
   %call20.i = call zeroext i16 @ntohs(i16 noundef zeroext %2) #19
   %conv21.i = zext i16 %call20.i to i32
@@ -336,7 +336,7 @@ for.cond.i:                                       ; preds = %invoke.cont46.i
 
 for.body.i:                                       ; preds = %lor.lhs.false, %for.cond.i
   %i.013.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %lor.lhs.false ]
-  %arrayidx.i = getelementptr inbounds [7 x i64], ptr @_ZZL10TestPrintfvE8kLengths, i64 0, i64 %i.013.i
+  %arrayidx.i = getelementptr inbounds nuw [7 x i64], ptr @_ZZL10TestPrintfvE8kLengths, i64 0, i64 %i.013.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) %string.i, i8 97, i64 1024, i1 false)
   %23 = load i64, ptr %arrayidx.i, align 8
   %arrayidx10.i = getelementptr inbounds [1024 x i8], ptr %string.i, i64 0, i64 %23
@@ -384,7 +384,7 @@ lor.lhs.false32.i:                                ; preds = %if.end28.i
   br i1 %cmp34.not.i, label %lor.lhs.false35.i, label %if.then40.i
 
 lor.lhs.false35.i:                                ; preds = %lor.lhs.false32.i
-  %add.ptr.i = getelementptr inbounds i8, ptr %.pre.i, i64 5
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %.pre.i, i64 5
   %call38.i = call i32 @strncmp(ptr noundef nonnull %add.ptr.i, ptr noundef nonnull %string.i, i64 noundef %23) #21
   %cmp39.not.i = icmp eq i32 %call38.i, 0
   br i1 %cmp39.not.i, label %if.end44.i, label %if.then40.i
@@ -445,7 +445,7 @@ for.body.i14:                                     ; preds = %for.body.i14, %lor.
   %i.093.i = phi i64 [ 0, %lor.lhs.false2 ], [ %inc.i18, %for.body.i14 ]
   %call.i15 = call i32 @rand() #17
   %conv.i16 = trunc i32 %call.i15 to i8
-  %arrayidx.i17 = getelementptr inbounds [1024 x i8], ptr %bio1_application_send_buffer.i, i64 0, i64 %i.093.i
+  %arrayidx.i17 = getelementptr inbounds nuw [1024 x i8], ptr %bio1_application_send_buffer.i, i64 0, i64 %i.093.i
   store i8 %conv.i16, ptr %arrayidx.i17, align 1
   %inc.i18 = add nuw nsw i64 %i.093.i, 1
   %exitcond.not.i19 = icmp eq i64 %inc.i18, 1024
@@ -453,7 +453,7 @@ for.body.i14:                                     ; preds = %for.body.i14, %lor.
 
 for.cond5.preheader.i:                            ; preds = %for.body.i14, %for.inc79.i
   %i1.095.i = phi i64 [ %inc80.i, %for.inc79.i ], [ 0, %for.body.i14 ]
-  %arrayidx9.i = getelementptr inbounds [8 x i64], ptr @__const._ZL20TestZeroCopyBioPairsv.kLengths, i64 0, i64 %i1.095.i
+  %arrayidx9.i = getelementptr inbounds nuw [8 x i64], ptr @__const._ZL20TestZeroCopyBioPairsv.kLengths, i64 0, i64 %i1.095.i
   %conv50.i = trunc nuw nsw i64 %i1.095.i to i32
   br label %for.body7.i
 
@@ -551,7 +551,7 @@ lpad.i22:                                         ; preds = %lpad.loopexit.split
 
 if.end15.i:                                       ; preds = %invoke.cont11.i
   %43 = load ptr, ptr %bio2.i, align 8
-  %arrayidx17.i = getelementptr inbounds [10 x i64], ptr @__const._ZL20TestZeroCopyBioPairsv.kPartialLengths, i64 0, i64 %j.094.i
+  %arrayidx17.i = getelementptr inbounds nuw [10 x i64], ptr @__const._ZL20TestZeroCopyBioPairsv.kPartialLengths, i64 0, i64 %j.094.i
   %44 = load i64, ptr %arrayidx17.i, align 8
   %conv18.i = trunc i64 %44 to i32
   %call20.i23 = invoke i32 @BIO_read(ptr noundef %43, ptr noundef nonnull %bio2_application_recv_buffer.i, i32 noundef %conv18.i)
@@ -771,7 +771,7 @@ if.end.i34:                                       ; preds = %lor.lhs.false4.i
   br i1 %cmp.i.not.i35, label %return, label %if.end9.i
 
 if.end9.i:                                        ; preds = %if.end.i34
-  %add.ptr.i36 = getelementptr inbounds i8, ptr %call6.i, i64 4
+  %add.ptr.i36 = getelementptr inbounds nuw i8, ptr %call6.i, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(8000) %add.ptr.i36, i8 0, i64 8000, i1 false)
   store i32 1075806768, ptr %call6.i, align 1
   %call13.i = invoke fastcc noundef zeroext i1 @_ZL8ReadASN1bPKhmmm(i1 noundef zeroext true, ptr noundef nonnull %call6.i, i64 noundef 8004, i64 noundef 8004, i64 noundef 16000)

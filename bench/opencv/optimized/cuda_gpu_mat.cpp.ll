@@ -40,17 +40,17 @@ $__clang_call_terminate = comdat any
 define void @_ZN2cv4cuda6GpuMat20updateContinuityFlagEv(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca [2 x i32], align 4
   %3 = alloca [2 x i64], align 16
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   store i32 %5, ptr %2, align 4
-  %6 = getelementptr inbounds i8, ptr %2, i64 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i32, ptr %7, align 8
   store i32 %8, ptr %6, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i64, ptr %9, align 8
   store i64 %10, ptr %3, align 16
-  %11 = getelementptr inbounds i8, ptr %3, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %12 = load i32, ptr %0, align 8
   %13 = lshr i32 %12, 3
   %14 = and i32 %13, 511
@@ -76,19 +76,19 @@ define void @_ZN2cv4cuda6GpuMatC2EiiiPvm(ptr nocapture noundef nonnull writeonly
   %9 = and i32 %3, 4095
   %10 = or disjoint i32 %9, 1124007936
   store i32 %10, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %1, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %2, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %5, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %4, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr null, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %4, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 56
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr null, ptr %17, align 8
   %18 = sext i32 %2 to i64
   %19 = lshr i32 %3, 3
@@ -112,7 +112,7 @@ define void @_ZN2cv4cuda6GpuMatC2EiiiPvm(ptr nocapture noundef nonnull writeonly
 
 31:                                               ; preds = %6, %.sink.split
   %32 = phi i64 [ %28, %.sink.split ], [ %5, %6 ]
-  %33 = getelementptr inbounds i8, ptr %0, i64 48
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %34 = add nsw i32 %1, -1
   %35 = sext i32 %34 to i64
   %36 = mul i64 %32, %35
@@ -122,10 +122,10 @@ define void @_ZN2cv4cuda6GpuMatC2EiiiPvm(ptr nocapture noundef nonnull writeonly
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   store i32 %1, ptr %7, align 4
-  %39 = getelementptr inbounds i8, ptr %7, i64 4
+  %39 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 %2, ptr %39, align 4
   store i64 %32, ptr %8, align 16
-  %40 = getelementptr inbounds i8, ptr %8, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 %27, ptr %40, align 8
   %41 = call noundef i32 @_ZN2cv20updateContinuityFlagEiiPKiPKm(i32 noundef %10, i32 noundef 2, ptr noundef nonnull %7, ptr noundef nonnull %8)
   store i32 %41, ptr %0, align 8
@@ -149,19 +149,19 @@ define void @_ZN2cv4cuda6GpuMatC2ENS_5Size_IiEEiPvm(ptr nocapture noundef nonnul
   %8 = and i32 %2, 4095
   %9 = or disjoint i32 %8, 1124007936
   store i32 %9, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sroa.2.0.extract.trunc, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.sroa.0.0.extract.trunc, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %4, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %3, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr null, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %3, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr null, ptr %16, align 8
   %sext = shl i64 %1, 32
   %17 = ashr exact i64 %sext, 32
@@ -186,7 +186,7 @@ define void @_ZN2cv4cuda6GpuMatC2ENS_5Size_IiEEiPvm(ptr nocapture noundef nonnul
 
 30:                                               ; preds = %5, %.sink.split
   %31 = phi i64 [ %27, %.sink.split ], [ %4, %5 ]
-  %32 = getelementptr inbounds i8, ptr %0, i64 48
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %sext8 = add i64 %1, -4294967296
   %33 = ashr i64 %sext8, 32
   %34 = mul i64 %31, %33
@@ -196,10 +196,10 @@ define void @_ZN2cv4cuda6GpuMatC2ENS_5Size_IiEEiPvm(ptr nocapture noundef nonnul
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   store i32 %.sroa.2.0.extract.trunc, ptr %6, align 4
-  %37 = getelementptr inbounds i8, ptr %6, i64 4
+  %37 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 %.sroa.0.0.extract.trunc, ptr %37, align 4
   store i64 %31, ptr %7, align 16
-  %38 = getelementptr inbounds i8, ptr %7, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %26, ptr %38, align 8
   %39 = call noundef i32 @_ZN2cv20updateContinuityFlagEiiPKiPKm(i32 noundef %9, i32 noundef 2, ptr noundef nonnull %6, ptr noundef nonnull %7)
   store i32 %39, ptr %0, align 8
@@ -224,29 +224,29 @@ define void @_ZN2cv4cuda6GpuMatC2ERKS1_NS_5RangeES4_(ptr nocapture noundef nonnu
   %.sroa.5.0.extract.trunc = trunc nuw i64 %.sroa.5.0.extract.shift to i32
   %11 = load i32, ptr %1, align 8
   store i32 %11, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %13 = load i64, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %13, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %16, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %1, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %19, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %22, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %1, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 48
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %25, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %1, i64 56
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 56
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %28, ptr %29, align 8
   %30 = icmp eq i32 %.sroa.049.0.extract.trunc, -2147483648
   %31 = icmp eq i64 %.sroa.552.0.extract.shift, 2147483647
@@ -254,9 +254,9 @@ define void @_ZN2cv4cuda6GpuMatC2ERKS1_NS_5RangeES4_(ptr nocapture noundef nonnu
   br i1 %32, label %33, label %37
 
 33:                                               ; preds = %4
-  %34 = getelementptr inbounds i8, ptr %1, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %35 = load i32, ptr %34, align 4
-  %36 = getelementptr inbounds i8, ptr %0, i64 4
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %35, ptr %36, align 4
   br label %55
 
@@ -266,7 +266,7 @@ define void @_ZN2cv4cuda6GpuMatC2ERKS1_NS_5RangeES4_(ptr nocapture noundef nonnu
 
 39:                                               ; preds = %37
   %.not = icmp sgt i32 %.sroa.049.0.extract.trunc, %.sroa.552.0.extract.trunc
-  %40 = getelementptr inbounds i8, ptr %1, i64 4
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %41 = load i32, ptr %40, align 4
   %.not22 = icmp slt i32 %41, %.sroa.552.0.extract.trunc
   %or.cond = select i1 %.not, i1 true, i1 %.not22
@@ -297,7 +297,7 @@ define void @_ZN2cv4cuda6GpuMatC2ERKS1_NS_5RangeES4_(ptr nocapture noundef nonnu
 
 49:                                               ; preds = %39
   %50 = sub nsw i32 %.sroa.552.0.extract.trunc, %.sroa.049.0.extract.trunc
-  %51 = getelementptr inbounds i8, ptr %0, i64 4
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %50, ptr %51, align 4
   %52 = and i64 %2, 2147483647
   %53 = mul i64 %13, %52
@@ -314,9 +314,9 @@ define void @_ZN2cv4cuda6GpuMatC2ERKS1_NS_5RangeES4_(ptr nocapture noundef nonnu
   br i1 %60, label %61, label %65
 
 61:                                               ; preds = %55
-  %62 = getelementptr inbounds i8, ptr %1, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %63 = load i32, ptr %62, align 8
-  %64 = getelementptr inbounds i8, ptr %0, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %63, ptr %64, align 8
   br label %92
 
@@ -326,7 +326,7 @@ define void @_ZN2cv4cuda6GpuMatC2ERKS1_NS_5RangeES4_(ptr nocapture noundef nonnu
 
 67:                                               ; preds = %65
   %.not24 = icmp sgt i32 %.sroa.045.0.extract.trunc, %.sroa.5.0.extract.trunc
-  %68 = getelementptr inbounds i8, ptr %1, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %69 = load i32, ptr %68, align 8
   %.not25 = icmp slt i32 %69, %.sroa.5.0.extract.trunc
   %or.cond32 = select i1 %.not24, i1 true, i1 %.not25
@@ -357,7 +357,7 @@ define void @_ZN2cv4cuda6GpuMatC2ERKS1_NS_5RangeES4_(ptr nocapture noundef nonnu
 
 77:                                               ; preds = %67
   %78 = sub nsw i32 %.sroa.5.0.extract.trunc, %.sroa.045.0.extract.trunc
-  %79 = getelementptr inbounds i8, ptr %0, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %78, ptr %79, align 8
   %80 = and i64 %3, 2147483647
   %81 = lshr i32 %11, 3
@@ -370,7 +370,7 @@ define void @_ZN2cv4cuda6GpuMatC2ERKS1_NS_5RangeES4_(ptr nocapture noundef nonnu
   %88 = mul nuw nsw i32 %87, %83
   %89 = zext nneg i32 %88 to i64
   %90 = mul nuw nsw i64 %80, %89
-  %91 = getelementptr inbounds i8, ptr %57, i64 %90
+  %91 = getelementptr inbounds nuw i8, ptr %57, i64 %90
   store ptr %91, ptr %20, align 8
   br label %92
 
@@ -381,9 +381,9 @@ define void @_ZN2cv4cuda6GpuMatC2ERKS1_NS_5RangeES4_(ptr nocapture noundef nonnu
 
 94:                                               ; preds = %92
   %95 = atomicrmw add ptr %16, i32 1 acq_rel, align 4
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 4
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.pre = load i32, ptr %.phi.trans.insert, align 4
-  %.phi.trans.insert54 = getelementptr inbounds i8, ptr %0, i64 8
+  %.phi.trans.insert54 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre55 = load i32, ptr %.phi.trans.insert54, align 8
   br label %96
 
@@ -396,8 +396,8 @@ define void @_ZN2cv4cuda6GpuMatC2ERKS1_NS_5RangeES4_(ptr nocapture noundef nonnu
   br i1 %or.cond35, label %99, label %._crit_edge
 
 99:                                               ; preds = %96
-  %100 = getelementptr inbounds i8, ptr %0, i64 8
-  %101 = getelementptr inbounds i8, ptr %0, i64 4
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %100, align 8
   store i32 0, ptr %101, align 4
   br label %._crit_edge
@@ -408,11 +408,11 @@ define void @_ZN2cv4cuda6GpuMatC2ERKS1_NS_5RangeES4_(ptr nocapture noundef nonnu
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   store i32 %103, ptr %5, align 4
-  %104 = getelementptr inbounds i8, ptr %5, i64 4
+  %104 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %102, ptr %104, align 4
   %105 = load i64, ptr %14, align 8
   store i64 %105, ptr %6, align 16
-  %106 = getelementptr inbounds i8, ptr %6, i64 8
+  %106 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %107 = load i32, ptr %0, align 8
   %108 = lshr i32 %107, 3
   %109 = and i32 %108, 511
@@ -467,35 +467,35 @@ define void @_ZN2cv4cuda6GpuMatC2ERKS1_NS_5Rect_IiEE(ptr nocapture noundef nonnu
   %.sroa.11.8.extract.trunc = trunc nuw i64 %.sroa.11.8.extract.shift to i32
   %9 = load i32, ptr %1, align 8
   store i32 %9, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sroa.11.8.extract.trunc, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.sroa.7.8.extract.trunc, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
-  %13 = getelementptr inbounds i8, ptr %1, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %14 = load i64, ptr %13, align 8
   store i64 %14, ptr %12, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
-  %16 = getelementptr inbounds i8, ptr %1, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %17 = load ptr, ptr %16, align 8
   %18 = ashr i64 %2, 32
   %19 = mul i64 %14, %18
   %20 = getelementptr inbounds i8, ptr %17, i64 %19
   store ptr %20, ptr %15, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 32
-  %22 = getelementptr inbounds i8, ptr %1, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %23 = load ptr, ptr %22, align 8
   store ptr %23, ptr %21, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 40
-  %25 = getelementptr inbounds i8, ptr %1, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %26 = load ptr, ptr %25, align 8
   store ptr %26, ptr %24, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 48
-  %28 = getelementptr inbounds i8, ptr %1, i64 48
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %29 = load ptr, ptr %28, align 8
   store ptr %29, ptr %27, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 56
-  %31 = getelementptr inbounds i8, ptr %1, i64 56
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %32 = load ptr, ptr %31, align 8
   store ptr %32, ptr %30, align 8
   %sext = shl i64 %2, 32
@@ -519,7 +519,7 @@ define void @_ZN2cv4cuda6GpuMatC2ERKS1_NS_5Rect_IiEE(ptr nocapture noundef nonnu
 
 47:                                               ; preds = %4
   %48 = add nuw nsw i32 %.sroa.7.8.extract.trunc, %.sroa.0.0.extract.trunc
-  %49 = getelementptr inbounds i8, ptr %1, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %50 = load i32, ptr %49, align 8
   %51 = icmp sle i32 %48, %50
   %52 = icmp sgt i64 %2, -1
@@ -530,7 +530,7 @@ define void @_ZN2cv4cuda6GpuMatC2ERKS1_NS_5Rect_IiEE(ptr nocapture noundef nonnu
 
 54:                                               ; preds = %47
   %55 = add nuw nsw i32 %.sroa.11.8.extract.trunc, %.sroa.4.0.extract.trunc
-  %56 = getelementptr inbounds i8, ptr %1, i64 4
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %57 = load i32, ptr %56, align 4
   %.not = icmp sgt i32 %55, %57
   br i1 %.not, label %58, label %66
@@ -592,11 +592,11 @@ define void @_ZN2cv4cuda6GpuMatC2ERKS1_NS_5Rect_IiEE(ptr nocapture noundef nonnu
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   store i32 %77, ptr %5, align 4
-  %78 = getelementptr inbounds i8, ptr %5, i64 4
+  %78 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %76, ptr %78, align 4
   %79 = load i64, ptr %12, align 8
   store i64 %79, ptr %6, align 16
-  %80 = getelementptr inbounds i8, ptr %6, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %81 = load i32, ptr %0, align 8
   %82 = lshr i32 %81, 3
   %83 = and i32 %82, 511
@@ -627,36 +627,36 @@ define void @_ZNK2cv4cuda6GpuMat7reshapeEii(ptr dead_on_unwind noalias nocapture
   %12 = alloca %"class.std::allocator", align 1
   %13 = load i32, ptr %1, align 8
   store i32 %13, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 4
-  %15 = getelementptr inbounds i8, ptr %1, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %16 = load i32, ptr %15, align 4
   store i32 %16, ptr %14, align 4
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
-  %18 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %19 = load i32, ptr %18, align 8
   store i32 %19, ptr %17, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 16
-  %21 = getelementptr inbounds i8, ptr %1, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %22 = load i64, ptr %21, align 8
   store i64 %22, ptr %20, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 24
-  %24 = getelementptr inbounds i8, ptr %1, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %25 = load ptr, ptr %24, align 8
   store ptr %25, ptr %23, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 32
-  %27 = getelementptr inbounds i8, ptr %1, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %28 = load ptr, ptr %27, align 8
   store ptr %28, ptr %26, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 40
-  %30 = getelementptr inbounds i8, ptr %1, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %31 = load ptr, ptr %30, align 8
   store ptr %31, ptr %29, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 48
-  %33 = getelementptr inbounds i8, ptr %1, i64 48
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %34 = load ptr, ptr %33, align 8
   store ptr %34, ptr %32, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 56
-  %36 = getelementptr inbounds i8, ptr %1, i64 56
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %37 = load ptr, ptr %36, align 8
   store ptr %37, ptr %35, align 8
   %.not.i = icmp eq ptr %28, null
@@ -864,29 +864,29 @@ define void @_ZNK2cv4cuda6GpuMat9locateROIERNS_5Size_IiEERNS_6Point_IiEE(ptr noc
   %11 = and i32 %10, 15
   %12 = mul nuw nsw i32 %11, %7
   %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr inbounds i8, ptr %0, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %17 = load ptr, ptr %16, align 8
   %18 = ptrtoint ptr %17 to i64
-  %19 = getelementptr inbounds i8, ptr %0, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %15, %17
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %3
-  %23 = getelementptr inbounds i8, ptr %2, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 0, ptr %23, align 4
   br label %38
 
 24:                                               ; preds = %3
   %25 = ptrtoint ptr %15 to i64
   %26 = sub i64 %25, %18
-  %27 = getelementptr inbounds i8, ptr %0, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %28 = load i64, ptr %27, align 8
   %29 = udiv i64 %26, %28
   %30 = trunc i64 %29 to i32
-  %31 = getelementptr inbounds i8, ptr %2, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %30, ptr %31, align 4
   %32 = load i64, ptr %27, align 8
   %sext = shl i64 %29, 32
@@ -903,22 +903,22 @@ define void @_ZNK2cv4cuda6GpuMat9locateROIERNS_5Size_IiEERNS_6Point_IiEE(ptr noc
   store i32 %storemerge, ptr %2, align 4
   %40 = ptrtoint ptr %20 to i64
   %41 = sub i64 %40, %18
-  %42 = getelementptr inbounds i8, ptr %0, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %43 = load i32, ptr %42, align 8
   %44 = add nsw i32 %43, %storemerge
   %45 = sext i32 %44 to i64
   %46 = mul nsw i64 %45, %13
   %47 = sub i64 %41, %46
-  %48 = getelementptr inbounds i8, ptr %0, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %49 = load i64, ptr %48, align 8
   %50 = udiv i64 %47, %49
   %51 = trunc i64 %50 to i32
   %52 = add i32 %51, 1
-  %53 = getelementptr inbounds i8, ptr %0, i64 4
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %54 = load i32, ptr %53, align 4
   %55 = add nsw i32 %54, %39
   %.sroa.speculated24 = tail call i32 @llvm.smax.i32(i32 %52, i32 %55)
-  %56 = getelementptr inbounds i8, ptr %1, i64 4
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 %.sroa.speculated24, ptr %56, align 4
   %57 = load i64, ptr %48, align 8
   %58 = add nsw i32 %.sroa.speculated24, -1
@@ -949,25 +949,25 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZN2cv4cuda6GpuMat9adjus
   %15 = and i32 %14, 15
   %16 = mul nuw nsw i32 %15, %11
   %17 = zext nneg i32 %16 to i64
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %21 = load ptr, ptr %20, align 8
   %22 = ptrtoint ptr %21 to i64
-  %23 = getelementptr inbounds i8, ptr %0, i64 48
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %24 = load ptr, ptr %23, align 8
   %25 = icmp eq ptr %19, %21
   br i1 %25, label %._ZNK2cv4cuda6GpuMat9locateROIERNS_5Size_IiEERNS_6Point_IiEE.exit_crit_edge, label %26
 
 ._ZNK2cv4cuda6GpuMat9locateROIERNS_5Size_IiEERNS_6Point_IiEE.exit_crit_edge: ; preds = %5
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 16
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.pre = load i64, ptr %.phi.trans.insert, align 8
   br label %_ZNK2cv4cuda6GpuMat9locateROIERNS_5Size_IiEERNS_6Point_IiEE.exit
 
 26:                                               ; preds = %5
   %27 = ptrtoint ptr %19 to i64
   %28 = sub i64 %27, %22
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load i64, ptr %29, align 8
   %31 = udiv i64 %28, %30
   %32 = trunc i64 %31 to i32
@@ -985,7 +985,7 @@ _ZNK2cv4cuda6GpuMat9locateROIERNS_5Size_IiEERNS_6Point_IiEE.exit: ; preds = %._Z
   %storemerge.i = phi i32 [ %37, %26 ], [ 0, %._ZNK2cv4cuda6GpuMat9locateROIERNS_5Size_IiEERNS_6Point_IiEE.exit_crit_edge ]
   %39 = ptrtoint ptr %24 to i64
   %40 = sub i64 %39, %22
-  %41 = getelementptr inbounds i8, ptr %0, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %42 = load i32, ptr %41, align 8
   %43 = add nsw i32 %42, %storemerge.i
   %44 = sext i32 %43 to i64
@@ -994,7 +994,7 @@ _ZNK2cv4cuda6GpuMat9locateROIERNS_5Size_IiEERNS_6Point_IiEE.exit: ; preds = %._Z
   %47 = udiv i64 %46, %38
   %48 = trunc i64 %47 to i32
   %49 = add i32 %48, 1
-  %50 = getelementptr inbounds i8, ptr %0, i64 4
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %51 = load i32, ptr %50, align 4
   %52 = add nsw i32 %51, %.sroa.6.0
   %.sroa.speculated24.i = tail call i32 @llvm.smax.i32(i32 %49, i32 %52)
@@ -1029,10 +1029,10 @@ _ZNK2cv4cuda6GpuMat9locateROIERNS_5Size_IiEERNS_6Point_IiEE.exit: ; preds = %._Z
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   store i32 %71, ptr %6, align 4
-  %73 = getelementptr inbounds i8, ptr %6, i64 4
+  %73 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 %72, ptr %73, align 4
   store i64 %38, ptr %7, align 16
-  %74 = getelementptr inbounds i8, ptr %7, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %17, ptr %74, align 8
   %75 = call noundef i32 @_ZN2cv20updateContinuityFlagEiiPKiPKm(i32 noundef %8, i32 noundef 2, ptr noundef nonnull %6, ptr noundef nonnull %7)
   store i32 %75, ptr %0, align 8
@@ -1070,9 +1070,9 @@ define void @_ZN2cv4cuda16createContinuousEiiiRKNS_12_OutputArrayE(i32 noundef %
   br i1 %or.cond.i, label %18, label %.critedge.i
 
 18:                                               ; preds = %13
-  %19 = getelementptr inbounds i8, ptr %10, i64 64
+  %19 = getelementptr inbounds nuw i8, ptr %10, i64 64
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
   %22 = load i32, ptr %21, align 4
   %23 = load i32, ptr %20, align 4
   %24 = mul nsw i32 %23, %22
@@ -1112,7 +1112,7 @@ _ZN12_GLOBAL__N_120createContinuousImplIN2cv3MatEEEviiiRT_.exit: ; preds = %25
   %34 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZNK2cv12_OutputArray12getGpuMatRefEv(ptr noundef nonnull align 8 dereferenceable(24) %3)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6)
   %35 = mul nsw i32 %1, %0
-  %36 = getelementptr inbounds i8, ptr %34, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %34, i64 24
   %37 = load ptr, ptr %36, align 8
   %38 = icmp eq ptr %37, null
   br i1 %38, label %.critedge.i18, label %39
@@ -1127,9 +1127,9 @@ _ZN12_GLOBAL__N_120createContinuousImplIN2cv3MatEEEviiiRT_.exit: ; preds = %25
   br i1 %or.cond.i17, label %44, label %.critedge.i18
 
 44:                                               ; preds = %39
-  %45 = getelementptr inbounds i8, ptr %34, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %46 = load i32, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %34, i64 4
+  %47 = getelementptr inbounds nuw i8, ptr %34, i64 4
   %48 = load i32, ptr %47, align 4
   %49 = mul nsw i32 %48, %46
   %.not16.i19 = icmp eq i32 %49, %35
@@ -1145,21 +1145,21 @@ _ZN12_GLOBAL__N_120createContinuousImplIN2cv3MatEEEviiiRT_.exit: ; preds = %25
   %53 = add nuw nsw i32 %52, 1
   call void @_ZNK2cv4cuda6GpuMat7reshapeEii(ptr dead_on_unwind nonnull writable sret(%"class.cv::cuda::GpuMat") align 8 %6, ptr noundef nonnull align 8 dereferenceable(64) %34, i32 noundef %53, i32 noundef %0)
   %54 = load i32, ptr %6, align 8
-  %55 = getelementptr inbounds i8, ptr %6, i64 4
+  %55 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %56 = load i32, ptr %55, align 4
-  %57 = getelementptr inbounds i8, ptr %6, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %58 = load i32, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %6, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %60 = load i64, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %6, i64 24
+  %61 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %6, i64 32
+  %63 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %6, i64 40
+  %65 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %6, i64 48
+  %67 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %6, i64 56
+  %69 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %70 = load ptr, ptr %69, align 8
   %.not.i.i.i = icmp eq ptr %64, null
   br i1 %.not.i.i.i, label %_ZN12_GLOBAL__N_120createContinuousImplIN2cv4cuda6GpuMatEEEviiiRT_.exit, label %71
@@ -1172,16 +1172,16 @@ _ZN12_GLOBAL__N_120createContinuousImplIN2cv4cuda6GpuMatEEEviiiRT_.exit: ; preds
   store i32 %54, ptr %34, align 8
   store i32 %56, ptr %47, align 4
   store i32 %58, ptr %45, align 8
-  %73 = getelementptr inbounds i8, ptr %34, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %34, i64 16
   store i64 %60, ptr %73, align 8
   store ptr %62, ptr %36, align 8
-  %74 = getelementptr inbounds i8, ptr %34, i64 40
+  %74 = getelementptr inbounds nuw i8, ptr %34, i64 40
   store ptr %66, ptr %74, align 8
-  %75 = getelementptr inbounds i8, ptr %34, i64 48
+  %75 = getelementptr inbounds nuw i8, ptr %34, i64 48
   store ptr %68, ptr %75, align 8
-  %76 = getelementptr inbounds i8, ptr %34, i64 32
+  %76 = getelementptr inbounds nuw i8, ptr %34, i64 32
   store ptr %64, ptr %76, align 8
-  %77 = getelementptr inbounds i8, ptr %34, i64 56
+  %77 = getelementptr inbounds nuw i8, ptr %34, i64 56
   store ptr %70, ptr %77, align 8
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6)
   br label %111
@@ -1190,7 +1190,7 @@ _ZN12_GLOBAL__N_120createContinuousImplIN2cv4cuda6GpuMatEEEviiiRT_.exit: ; preds
   %79 = tail call noundef nonnull align 8 dereferenceable(60) ptr @_ZNK2cv12_OutputArray13getHostMemRefEv(ptr noundef nonnull align 8 dereferenceable(24) %3)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5)
   %80 = mul nsw i32 %1, %0
-  %81 = getelementptr inbounds i8, ptr %79, i64 24
+  %81 = getelementptr inbounds nuw i8, ptr %79, i64 24
   %82 = load ptr, ptr %81, align 8
   %83 = icmp eq ptr %82, null
   br i1 %83, label %.critedge.i22, label %84
@@ -1205,9 +1205,9 @@ _ZN12_GLOBAL__N_120createContinuousImplIN2cv4cuda6GpuMatEEEviiiRT_.exit: ; preds
   br i1 %or.cond.i21, label %89, label %.critedge.i22
 
 89:                                               ; preds = %84
-  %90 = getelementptr inbounds i8, ptr %79, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %79, i64 8
   %91 = load i32, ptr %90, align 8
-  %92 = getelementptr inbounds i8, ptr %79, i64 4
+  %92 = getelementptr inbounds nuw i8, ptr %79, i64 4
   %93 = load i32, ptr %92, align 4
   %94 = mul nsw i32 %93, %91
   %.not16.i24 = icmp eq i32 %94, %80
@@ -1294,9 +1294,9 @@ define void @_ZN2cv4cuda18ensureSizeIsEnoughEiiiRKNS_12_OutputArrayE(i32 noundef
   br i1 %.not.i, label %12, label %17
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %7, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %7, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %16 = load ptr, ptr %15, align 8
   %.not33.i = icmp eq ptr %14, %16
   br i1 %.not33.i, label %_ZNK2cv3Mat8elemSizeEv.exit.i, label %17
@@ -1306,32 +1306,32 @@ define void @_ZN2cv4cuda18ensureSizeIsEnoughEiiiRKNS_12_OutputArrayE(i32 noundef
   br label %_ZN12_GLOBAL__N_122ensureSizeIsEnoughImplIN2cv3MatEEEviiiRT_.exit
 
 _ZNK2cv3Mat8elemSizeEv.exit.i:                    ; preds = %12
-  %18 = getelementptr inbounds i8, ptr %7, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %19 = load i32, ptr %18, align 4
   %20 = icmp sgt i32 %19, 0
   tail call void @llvm.assume(i1 %20)
-  %21 = getelementptr inbounds i8, ptr %7, i64 72
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %22 = load ptr, ptr %21, align 8
   %23 = zext nneg i32 %19 to i64
   %24 = getelementptr i64, ptr %22, i64 %23
   %25 = getelementptr i8, ptr %24, i64 -8
   %26 = load i64, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %7, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %28 = load ptr, ptr %27, align 8
   %29 = ptrtoint ptr %28 to i64
   %30 = ptrtoint ptr %14 to i64
   %31 = sub i64 %29, %30
-  %32 = getelementptr inbounds i8, ptr %7, i64 12
+  %32 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %33 = load i32, ptr %32, align 4
   %34 = sext i32 %33 to i64
   %35 = mul i64 %26, %34
   %36 = sub i64 %31, %35
-  %37 = getelementptr inbounds i8, ptr %7, i64 80
+  %37 = getelementptr inbounds nuw i8, ptr %7, i64 80
   %38 = load i64, ptr %37, align 8
   %39 = udiv i64 %36, %38
   %40 = trunc i64 %39 to i32
   %41 = add i32 %40, 1
-  %42 = getelementptr inbounds i8, ptr %7, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %43 = load i32, ptr %42, align 8
   %.sroa.speculated37.i = tail call i32 @llvm.smax.i32(i32 %41, i32 %43)
   %44 = add nsw i32 %.sroa.speculated37.i, -1
@@ -1357,7 +1357,7 @@ _ZNK2cv3Mat8elemSizeEv.exit.i:                    ; preds = %12
 
 54:                                               ; preds = %4
   %55 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZNK2cv12_OutputArray12getGpuMatRefEv(ptr noundef nonnull align 8 dereferenceable(24) %3)
-  %56 = getelementptr inbounds i8, ptr %55, i64 24
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 24
   %57 = load ptr, ptr %56, align 8
   %58 = icmp eq ptr %57, null
   br i1 %58, label %64, label %59
@@ -1366,7 +1366,7 @@ _ZNK2cv3Mat8elemSizeEv.exit.i:                    ; preds = %12
   %60 = load i32, ptr %55, align 8
   %61 = and i32 %60, 4095
   %.not.i16 = icmp eq i32 %61, %2
-  %62 = getelementptr inbounds i8, ptr %55, i64 40
+  %62 = getelementptr inbounds nuw i8, ptr %55, i64 40
   %63 = load ptr, ptr %62, align 8
   %.not33.i17 = icmp eq ptr %57, %63
   %or.cond42.i = select i1 %.not.i16, i1 %.not33.i17, i1 false
@@ -1386,22 +1386,22 @@ _ZNK2cv3Mat8elemSizeEv.exit.i:                    ; preds = %12
   %72 = and i32 %71, 15
   %73 = mul nuw nsw i32 %72, %68
   %74 = zext nneg i32 %73 to i64
-  %75 = getelementptr inbounds i8, ptr %55, i64 48
+  %75 = getelementptr inbounds nuw i8, ptr %55, i64 48
   %76 = load ptr, ptr %75, align 8
   %77 = ptrtoint ptr %76 to i64
   %78 = ptrtoint ptr %57 to i64
   %79 = sub i64 %77, %78
-  %80 = getelementptr inbounds i8, ptr %55, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %81 = load i32, ptr %80, align 8
   %82 = sext i32 %81 to i64
   %83 = mul nsw i64 %82, %74
   %84 = sub i64 %79, %83
-  %85 = getelementptr inbounds i8, ptr %55, i64 16
+  %85 = getelementptr inbounds nuw i8, ptr %55, i64 16
   %86 = load i64, ptr %85, align 8
   %87 = udiv i64 %84, %86
   %88 = trunc i64 %87 to i32
   %89 = add i32 %88, 1
-  %90 = getelementptr inbounds i8, ptr %55, i64 4
+  %90 = getelementptr inbounds nuw i8, ptr %55, i64 4
   %91 = load i32, ptr %90, align 4
   %.sroa.speculated38.i = tail call i32 @llvm.smax.i32(i32 %89, i32 %91)
   %92 = add nsw i32 %.sroa.speculated38.i, -1
@@ -1427,7 +1427,7 @@ _ZN12_GLOBAL__N_122ensureSizeIsEnoughImplIN2cv4cuda6GpuMatEEEviiiRT_.exit: ; pre
 
 101:                                              ; preds = %4
   %102 = tail call noundef nonnull align 8 dereferenceable(60) ptr @_ZNK2cv12_OutputArray13getHostMemRefEv(ptr noundef nonnull align 8 dereferenceable(24) %3)
-  %103 = getelementptr inbounds i8, ptr %102, i64 24
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 24
   %104 = load ptr, ptr %103, align 8
   %105 = icmp eq ptr %104, null
   br i1 %105, label %111, label %106
@@ -1436,7 +1436,7 @@ _ZN12_GLOBAL__N_122ensureSizeIsEnoughImplIN2cv4cuda6GpuMatEEEviiiRT_.exit: ; pre
   %107 = load i32, ptr %102, align 8
   %108 = and i32 %107, 4095
   %.not.i20 = icmp eq i32 %108, %2
-  %109 = getelementptr inbounds i8, ptr %102, i64 40
+  %109 = getelementptr inbounds nuw i8, ptr %102, i64 40
   %110 = load ptr, ptr %109, align 8
   %.not33.i21 = icmp eq ptr %104, %110
   %or.cond41.i = select i1 %.not.i20, i1 %.not33.i21, i1 false
@@ -1456,22 +1456,22 @@ _ZN12_GLOBAL__N_122ensureSizeIsEnoughImplIN2cv4cuda6GpuMatEEEviiiRT_.exit: ; pre
   %119 = and i32 %118, 15
   %120 = mul nuw nsw i32 %119, %115
   %121 = zext nneg i32 %120 to i64
-  %122 = getelementptr inbounds i8, ptr %102, i64 48
+  %122 = getelementptr inbounds nuw i8, ptr %102, i64 48
   %123 = load ptr, ptr %122, align 8
   %124 = ptrtoint ptr %123 to i64
   %125 = ptrtoint ptr %104 to i64
   %126 = sub i64 %124, %125
-  %127 = getelementptr inbounds i8, ptr %102, i64 8
+  %127 = getelementptr inbounds nuw i8, ptr %102, i64 8
   %128 = load i32, ptr %127, align 8
   %129 = sext i32 %128 to i64
   %130 = mul nsw i64 %129, %121
   %131 = sub i64 %126, %130
-  %132 = getelementptr inbounds i8, ptr %102, i64 16
+  %132 = getelementptr inbounds nuw i8, ptr %102, i64 16
   %133 = load i64, ptr %132, align 8
   %134 = udiv i64 %131, %133
   %135 = trunc i64 %134 to i32
   %136 = add i32 %135, 1
-  %137 = getelementptr inbounds i8, ptr %102, i64 4
+  %137 = getelementptr inbounds nuw i8, ptr %102, i64 4
   %138 = load i32, ptr %137, align 4
   %.sroa.speculated37.i22 = tail call i32 @llvm.smax.i32(i32 %136, i32 %138)
   %139 = add nsw i32 %.sroa.speculated37.i22, -1
@@ -1660,36 +1660,36 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(60) ptr @_ZN2
 4:                                                ; preds = %2
   %5 = load i32, ptr %1, align 8
   store i32 %5, ptr %3, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 4
-  %7 = getelementptr inbounds i8, ptr %1, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %8 = load i32, ptr %7, align 4
   store i32 %8, ptr %6, align 4
-  %9 = getelementptr inbounds i8, ptr %3, i64 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load i32, ptr %10, align 8
   store i32 %11, ptr %9, align 8
-  %12 = getelementptr inbounds i8, ptr %3, i64 16
-  %13 = getelementptr inbounds i8, ptr %1, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %14 = load i64, ptr %13, align 8
   store i64 %14, ptr %12, align 8
-  %15 = getelementptr inbounds i8, ptr %3, i64 24
-  %16 = getelementptr inbounds i8, ptr %1, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %17 = load ptr, ptr %16, align 8
   store ptr %17, ptr %15, align 8
-  %18 = getelementptr inbounds i8, ptr %3, i64 32
-  %19 = getelementptr inbounds i8, ptr %1, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %20 = load ptr, ptr %19, align 8
   store ptr %20, ptr %18, align 8
-  %21 = getelementptr inbounds i8, ptr %3, i64 40
-  %22 = getelementptr inbounds i8, ptr %1, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %23 = load ptr, ptr %22, align 8
   store ptr %23, ptr %21, align 8
-  %24 = getelementptr inbounds i8, ptr %3, i64 48
-  %25 = getelementptr inbounds i8, ptr %1, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %26 = load ptr, ptr %25, align 8
   store ptr %26, ptr %24, align 8
-  %27 = getelementptr inbounds i8, ptr %3, i64 56
-  %28 = getelementptr inbounds i8, ptr %1, i64 56
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %29 = load i32, ptr %28, align 8
   store i32 %29, ptr %27, align 8
   %.not.i = icmp eq ptr %20, null
@@ -1721,35 +1721,35 @@ _ZN2cv4cuda7HostMemC2ERKS1_.exit:                 ; preds = %4, %30
   %41 = load i32, ptr %0, align 8
   store i32 %40, ptr %0, align 8
   store i32 %41, ptr %3, align 8
-  %42 = getelementptr inbounds i8, ptr %0, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %43 = load i32, ptr %42, align 4
   store i32 %39, ptr %42, align 4
   store i32 %43, ptr %6, align 4
-  %44 = getelementptr inbounds i8, ptr %0, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %45 = load i32, ptr %44, align 8
   store i32 %38, ptr %44, align 8
   store i32 %45, ptr %9, align 8
-  %46 = getelementptr inbounds i8, ptr %0, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %47 = load i64, ptr %46, align 8
   store i64 %37, ptr %46, align 8
   store i64 %47, ptr %12, align 8
-  %48 = getelementptr inbounds i8, ptr %0, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %49 = load ptr, ptr %48, align 8
   store ptr %36, ptr %48, align 8
   store ptr %49, ptr %15, align 8
-  %50 = getelementptr inbounds i8, ptr %0, i64 40
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %51 = load ptr, ptr %50, align 8
   store ptr %35, ptr %50, align 8
   store ptr %51, ptr %21, align 8
-  %52 = getelementptr inbounds i8, ptr %0, i64 48
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %53 = load ptr, ptr %52, align 8
   store ptr %34, ptr %52, align 8
   store ptr %53, ptr %24, align 8
-  %54 = getelementptr inbounds i8, ptr %0, i64 32
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %55 = load ptr, ptr %54, align 8
   store ptr %33, ptr %54, align 8
   store ptr %55, ptr %18, align 8
-  %56 = getelementptr inbounds i8, ptr %0, i64 56
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %57 = load i32, ptr %56, align 8
   store i32 %32, ptr %56, align 8
   store i32 %57, ptr %27, align 8

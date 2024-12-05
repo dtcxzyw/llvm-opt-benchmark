@@ -149,7 +149,7 @@ _ZL19shouldRunOnFunctionRN4llvm8FunctionERNS_18ProfileSummaryInfoERNS_15Analysis
   br i1 %.1, label %53, label %.critedge
 
 53:                                               ; preds = %._crit_edge
-  %54 = getelementptr inbounds i8, ptr %0, i64 24
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %54, i8 0, i64 72, i1 false), !alias.scope !10
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %55, ptr %0, align 8, !alias.scope !10

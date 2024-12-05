@@ -51,17 +51,17 @@ define dso_local noundef range(i32 -12, 1) i32 @drm_plane_create_alpha_property(
   br i1 %4, label %13, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 88
-  tail call void @drm_object_attach_property(ptr noundef %6, ptr noundef nonnull %3, i64 noundef 65535) #6
-  %7 = getelementptr inbounds i8, ptr %0, i64 1248
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  tail call void @drm_object_attach_property(ptr noundef nonnull %6, ptr noundef nonnull %3, i64 noundef 65535) #6
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1248
   store ptr %3, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 1240
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1240
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %13, label %11
 
 11:                                               ; preds = %5
-  %12 = getelementptr inbounds i8, ptr %9, i64 72
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 72
   store i16 -1, ptr %12, align 8
   br label %13
 
@@ -120,21 +120,21 @@ define dso_local noundef range(i32 -12, 1) i32 @drm_plane_create_rotation_proper
   br i1 %21, label %32, label %22
 
 22:                                               ; preds = %17
-  %23 = getelementptr inbounds i8, ptr %0, i64 88
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %24 = zext i32 %1 to i64
-  tail call void @drm_object_attach_property(ptr noundef %23, ptr noundef nonnull %20, i64 noundef %24) #6
-  %25 = getelementptr inbounds i8, ptr %0, i64 1240
+  tail call void @drm_object_attach_property(ptr noundef nonnull %23, ptr noundef nonnull %20, i64 noundef %24) #6
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 1240
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, null
   br i1 %27, label %30, label %28
 
 28:                                               ; preds = %22
-  %29 = getelementptr inbounds i8, ptr %26, i64 76
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 76
   store i32 %1, ptr %29, align 4
   br label %30
 
 30:                                               ; preds = %28, %22
-  %31 = getelementptr inbounds i8, ptr %0, i64 1264
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 1264
   store ptr %20, ptr %31, align 8
   br label %32
 
@@ -181,21 +181,21 @@ define dso_local noundef range(i32 -12, 1) i32 @drm_plane_create_zpos_property(p
   br i1 %9, label %21, label %10
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %0, i64 88
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %12 = zext i32 %1 to i64
-  tail call void @drm_object_attach_property(ptr noundef %11, ptr noundef nonnull %8, i64 noundef %12) #6
-  %13 = getelementptr inbounds i8, ptr %0, i64 1256
+  tail call void @drm_object_attach_property(ptr noundef nonnull %11, ptr noundef nonnull %8, i64 noundef %12) #6
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 1256
   store ptr %8, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 1240
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 1240
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %21, label %17
 
 17:                                               ; preds = %10
-  %18 = getelementptr inbounds i8, ptr %15, i64 80
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 80
   store i32 %1, ptr %18, align 8
   %19 = load ptr, ptr %14, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 84
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 84
   store i32 %1, ptr %20, align 4
   br label %21
 
@@ -213,20 +213,20 @@ define dso_local noundef range(i32 -12, 1) i32 @drm_plane_create_zpos_immutable_
   br i1 %6, label %17, label %7
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 88
-  tail call void @drm_object_attach_property(ptr noundef %8, ptr noundef nonnull %5, i64 noundef %4) #6
-  %9 = getelementptr inbounds i8, ptr %0, i64 1256
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  tail call void @drm_object_attach_property(ptr noundef nonnull %8, ptr noundef nonnull %5, i64 noundef %4) #6
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1256
   store ptr %5, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 1240
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 1240
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %17, label %13
 
 13:                                               ; preds = %7
-  %14 = getelementptr inbounds i8, ptr %11, i64 80
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 80
   store i32 %1, ptr %14, align 8
   %15 = load ptr, ptr %10, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 84
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 84
   store i32 %1, ptr %16, align 4
   br label %17
 
@@ -237,27 +237,27 @@ define dso_local noundef range(i32 -12, 1) i32 @drm_plane_create_zpos_immutable_
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @drm_atomic_normalize_zpos(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 704
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 704
   %6 = load i32, ptr %5, align 8
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %8, label %.loopexit
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %1, i64 24
-  %10 = getelementptr inbounds i8, ptr %1, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 32
   br label %17
 
 .loopexit:                                        ; preds = %48, %2
   %11 = phi ptr [ %4, %2 ], [ %49, %48 ]
-  %12 = getelementptr inbounds i8, ptr %11, i64 728
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 728
   %13 = load i32, ptr %12, align 8
   %14 = icmp sgt i32 %13, 0
   br i1 %14, label %15, label %.thread16
 
 15:                                               ; preds = %.loopexit
-  %16 = getelementptr inbounds i8, ptr %1, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 32
   br label %55
 
 17:                                               ; preds = %48, %8
@@ -270,31 +270,31 @@ define dso_local i32 @drm_atomic_normalize_zpos(ptr nocapture readnone %0, ptr n
   br i1 %23, label %48, label %24
 
 24:                                               ; preds = %17
-  %25 = getelementptr inbounds i8, ptr %21, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load ptr, ptr %27, align 8
   %29 = icmp eq ptr %28, null
   br i1 %29, label %48, label %30
 
 30:                                               ; preds = %24
-  %31 = getelementptr inbounds i8, ptr %21, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 80
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 80
   %34 = load i32, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %26, i64 80
+  %35 = getelementptr inbounds nuw i8, ptr %26, i64 80
   %36 = load i32, ptr %35, align 8
   %37 = icmp eq i32 %34, %36
   br i1 %37, label %48, label %38
 
 38:                                               ; preds = %30
   %39 = load ptr, ptr %10, align 8
-  %40 = getelementptr inbounds i8, ptr %28, i64 144
+  %40 = getelementptr inbounds nuw i8, ptr %28, i64 144
   %41 = load i32, ptr %40, align 8
   %42 = zext i32 %41 to i64
   %43 = getelementptr %struct.__drm_crtcs_state, ptr %39, i64 %42, i32 3
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 10
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 10
   %46 = load i8, ptr %45, align 2
   %47 = or i8 %46, 16
   store i8 %47, ptr %45, align 2
@@ -304,7 +304,7 @@ define dso_local i32 @drm_atomic_normalize_zpos(ptr nocapture readnone %0, ptr n
 48:                                               ; preds = %38, %30, %24, %17
   %49 = phi ptr [ %.pre, %38 ], [ %18, %30 ], [ %18, %24 ], [ %18, %17 ]
   %50 = add nuw nsw i64 %19, 1
-  %51 = getelementptr inbounds i8, ptr %49, i64 704
+  %51 = getelementptr inbounds nuw i8, ptr %49, i64 704
   %52 = load i32, ptr %51, align 8
   %53 = sext i32 %52 to i64
   %54 = icmp slt i64 %50, %53
@@ -319,43 +319,43 @@ define dso_local i32 @drm_atomic_normalize_zpos(ptr nocapture readnone %0, ptr n
   br i1 %60, label %171, label %61
 
 61:                                               ; preds = %55
-  %62 = getelementptr inbounds i8, ptr %58, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %58, i64 16
   %63 = load ptr, ptr %62, align 8
-  %64 = getelementptr inbounds i8, ptr %58, i64 24
+  %64 = getelementptr inbounds nuw i8, ptr %58, i64 24
   %65 = load ptr, ptr %64, align 8
-  %66 = getelementptr inbounds i8, ptr %63, i64 12
+  %66 = getelementptr inbounds nuw i8, ptr %63, i64 12
   %67 = load i32, ptr %66, align 4
-  %68 = getelementptr inbounds i8, ptr %65, i64 12
+  %68 = getelementptr inbounds nuw i8, ptr %65, i64 12
   %69 = load i32, ptr %68, align 4
   %70 = icmp eq i32 %67, %69
   br i1 %70, label %71, label %76
 
 71:                                               ; preds = %61
-  %72 = getelementptr inbounds i8, ptr %65, i64 10
+  %72 = getelementptr inbounds nuw i8, ptr %65, i64 10
   %73 = load i8, ptr %72, align 2
   %74 = and i8 %73, 16
   %75 = icmp eq i8 %74, 0
   br i1 %75, label %171, label %76
 
 76:                                               ; preds = %71, %61
-  %77 = getelementptr inbounds i8, ptr %65, i64 328
+  %77 = getelementptr inbounds nuw i8, ptr %65, i64 328
   %78 = load ptr, ptr %77, align 8
   %79 = load ptr, ptr %59, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 704
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 704
   %81 = load i32, ptr %80, align 8
   %82 = icmp eq ptr %79, null
   br i1 %82, label %86, label %83
 
 83:                                               ; preds = %76
-  %84 = getelementptr inbounds i8, ptr %79, i64 8
+  %84 = getelementptr inbounds nuw i8, ptr %79, i64 8
   %85 = load ptr, ptr %84, align 8
   br label %86
 
 86:                                               ; preds = %83, %76
   %87 = phi ptr [ %85, %83 ], [ null, %76 ]
-  %88 = getelementptr inbounds i8, ptr %59, i64 96
+  %88 = getelementptr inbounds nuw i8, ptr %59, i64 96
   %89 = load i32, ptr %88, align 8
-  %90 = getelementptr inbounds i8, ptr %59, i64 32
+  %90 = getelementptr inbounds nuw i8, ptr %59, i64 32
   %91 = load ptr, ptr %90, align 8
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %87, i32 noundef 4, ptr noundef nonnull @.str.14, i32 noundef %89, ptr noundef %91) #6
   %92 = icmp slt i32 %81, 0
@@ -369,7 +369,7 @@ define dso_local i32 @drm_atomic_normalize_zpos(ptr nocapture readnone %0, ptr n
   br i1 %97, label %.thread16, label %98
 
 98:                                               ; preds = %93
-  %99 = getelementptr inbounds i8, ptr %79, i64 712
+  %99 = getelementptr inbounds nuw i8, ptr %79, i64 712
   %100 = load ptr, ptr %99, align 8
   %101 = icmp eq ptr %100, %99
   br i1 %101, label %.thread15, label %102
@@ -379,7 +379,7 @@ define dso_local i32 @drm_atomic_normalize_zpos(ptr nocapture readnone %0, ptr n
   br label %.thread17
 
 102:                                              ; preds = %98
-  %103 = getelementptr inbounds i8, ptr %79, i64 8
+  %103 = getelementptr inbounds nuw i8, ptr %79, i64 8
   br label %104
 
 104:                                              ; preds = %130, %102
@@ -416,7 +416,7 @@ define dso_local i32 @drm_atomic_normalize_zpos(ptr nocapture readnone %0, ptr n
   %125 = load i32, ptr %124, align 8
   %126 = getelementptr i8, ptr %105, i64 16
   %127 = load ptr, ptr %126, align 8
-  %128 = getelementptr inbounds i8, ptr %115, i64 80
+  %128 = getelementptr inbounds nuw i8, ptr %115, i64 80
   %129 = load i32, ptr %128, align 8
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %123, i32 noundef 4, ptr noundef nonnull @.str.15, i32 noundef %125, ptr noundef %127, i32 noundef %129) #6
   br label %130
@@ -442,12 +442,12 @@ define dso_local i32 @drm_atomic_normalize_zpos(ptr nocapture readnone %0, ptr n
   %140 = getelementptr ptr, ptr %96, i64 %139
   %141 = load ptr, ptr %140, align 8
   %142 = load ptr, ptr %141, align 8
-  %143 = getelementptr inbounds i8, ptr %141, i64 84
+  %143 = getelementptr inbounds nuw i8, ptr %141, i64 84
   %144 = trunc i64 %139 to i32
   store i32 %144, ptr %143, align 4
-  %145 = getelementptr inbounds i8, ptr %142, i64 88
+  %145 = getelementptr inbounds nuw i8, ptr %142, i64 88
   %146 = load i32, ptr %145, align 8
-  %147 = getelementptr inbounds i8, ptr %142, i64 24
+  %147 = getelementptr inbounds nuw i8, ptr %142, i64 24
   %148 = load ptr, ptr %147, align 8
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef null, i32 noundef 4, ptr noundef nonnull @.str.16, i32 noundef %146, ptr noundef %148, i32 noundef %144) #6
   %149 = add nuw nsw i64 %139, 1
@@ -459,13 +459,13 @@ define dso_local i32 @drm_atomic_normalize_zpos(ptr nocapture readnone %0, ptr n
   %152 = getelementptr ptr, ptr %96, i64 %151
   %153 = load ptr, ptr %152, align 8
   %154 = load ptr, ptr %153, align 8
-  %155 = getelementptr inbounds i8, ptr %153, i64 84
+  %155 = getelementptr inbounds nuw i8, ptr %153, i64 84
   %156 = trunc i64 %151 to i32
   store i32 %156, ptr %155, align 4
   %157 = load ptr, ptr %103, align 8
-  %158 = getelementptr inbounds i8, ptr %154, i64 88
+  %158 = getelementptr inbounds nuw i8, ptr %154, i64 88
   %159 = load i32, ptr %158, align 8
-  %160 = getelementptr inbounds i8, ptr %154, i64 24
+  %160 = getelementptr inbounds nuw i8, ptr %154, i64 24
   %161 = load ptr, ptr %160, align 8
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %157, i32 noundef 4, ptr noundef nonnull @.str.16, i32 noundef %159, ptr noundef %161, i32 noundef %156) #6
   %162 = add nuw nsw i64 %151, 1
@@ -473,7 +473,7 @@ define dso_local i32 @drm_atomic_normalize_zpos(ptr nocapture readnone %0, ptr n
   br i1 %163, label %.thread17, label %.split, !llvm.loop !23
 
 .thread17:                                        ; preds = %.split, %.split.us, %134, %.thread15
-  %164 = getelementptr inbounds i8, ptr %65, i64 10
+  %164 = getelementptr inbounds nuw i8, ptr %65, i64 10
   %165 = load i8, ptr %164, align 2
   %166 = or i8 %165, 16
   store i8 %166, ptr %164, align 2
@@ -490,7 +490,7 @@ define dso_local i32 @drm_atomic_normalize_zpos(ptr nocapture readnone %0, ptr n
 171:                                              ; preds = %.thread17, %167, %71, %55
   %172 = add nuw nsw i64 %56, 1
   %173 = load ptr, ptr %3, align 8
-  %174 = getelementptr inbounds i8, ptr %173, i64 728
+  %174 = getelementptr inbounds nuw i8, ptr %173, i64 728
   %175 = load i32, ptr %174, align 8
   %176 = sext i32 %175 to i64
   %177 = icmp slt i64 %172, %176
@@ -535,7 +535,7 @@ define dso_local i32 @drm_plane_create_blend_mode_property(ptr noundef %0, i32 n
 
 21:                                               ; preds = %.preheader
   %22 = sext i32 %16 to i64
-  %23 = getelementptr inbounds i8, ptr %15, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %24 = load ptr, ptr %23, align 8
   %25 = tail call i32 @drm_property_add_enum(ptr noundef nonnull %12, i64 noundef %22, ptr noundef %24) #6
   %26 = icmp eq i32 %25, 0
@@ -551,9 +551,9 @@ define dso_local i32 @drm_plane_create_blend_mode_property(ptr noundef %0, i32 n
   br i1 %30, label %31, label %.preheader, !llvm.loop !29
 
 31:                                               ; preds = %28
-  %32 = getelementptr inbounds i8, ptr %0, i64 88
-  tail call void @drm_object_attach_property(ptr noundef %32, ptr noundef nonnull %12, i64 noundef 0) #6
-  %33 = getelementptr inbounds i8, ptr %0, i64 1272
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  tail call void @drm_object_attach_property(ptr noundef nonnull %32, ptr noundef nonnull %12, i64 noundef 0) #6
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 1272
   store ptr %12, ptr %33, align 8
   br label %34
 
@@ -584,9 +584,9 @@ declare dso_local void @sort(ptr noundef, i64 noundef, i64 noundef, ptr noundef,
 define internal i32 @drm_atomic_state_zpos_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 80
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %6 = load i32, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %6, %8
   br i1 %9, label %12, label %10
@@ -597,10 +597,10 @@ define internal i32 @drm_atomic_state_zpos_cmp(ptr nocapture noundef readonly %0
 
 12:                                               ; preds = %2
   %13 = load ptr, ptr %3, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 88
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 88
   %15 = load i32, ptr %14, align 8
   %16 = load ptr, ptr %4, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 88
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 88
   %18 = load i32, ptr %17, align 8
   %19 = sub i32 %15, %18
   br label %20

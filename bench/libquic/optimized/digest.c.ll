@@ -17,7 +17,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden i32 @EVP_MD_flags(ptr nocapture noundef readonly %md) local_unnamed_addr #0 {
 entry:
-  %flags = getelementptr inbounds i8, ptr %md, i64 8
+  %flags = getelementptr inbounds nuw i8, ptr %md, i64 8
   %0 = load i32, ptr %flags, align 8
   ret i32 %0
 }
@@ -25,7 +25,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden range(i64 0, 4294967296) i64 @EVP_MD_size(ptr nocapture noundef readonly %md) local_unnamed_addr #0 {
 entry:
-  %md_size = getelementptr inbounds i8, ptr %md, i64 4
+  %md_size = getelementptr inbounds nuw i8, ptr %md, i64 4
   %0 = load i32, ptr %md_size, align 4
   %conv = zext i32 %0 to i64
   ret i64 %conv
@@ -34,7 +34,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden range(i64 0, 4294967296) i64 @EVP_MD_block_size(ptr nocapture noundef readonly %md) local_unnamed_addr #0 {
 entry:
-  %block_size = getelementptr inbounds i8, ptr %md, i64 40
+  %block_size = getelementptr inbounds nuw i8, ptr %md, i64 40
   %0 = load i32, ptr %block_size, align 8
   %conv = zext i32 %0 to i64
   ret i64 %conv
@@ -68,13 +68,13 @@ entry:
   br i1 %tobool.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %ctx_size = getelementptr inbounds i8, ptr %0, i64 44
+  %ctx_size = getelementptr inbounds nuw i8, ptr %0, i64 44
   %1 = load i32, ptr %ctx_size, align 4
   %tobool2.not = icmp eq i32 %1, 0
   br i1 %tobool2.not, label %if.end, label %land.lhs.true3
 
 land.lhs.true3:                                   ; preds = %land.lhs.true
-  %md_data = getelementptr inbounds i8, ptr %ctx, i64 8
+  %md_data = getelementptr inbounds nuw i8, ptr %ctx, i64 8
   %2 = load ptr, ptr %md_data, align 8
   %tobool4.not = icmp eq ptr %2, null
   br i1 %tobool4.not, label %if.end, label %if.then
@@ -87,14 +87,14 @@ if.then:                                          ; preds = %land.lhs.true3
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %land.lhs.true3, %land.lhs.true, %entry
-  %pctx_ops = getelementptr inbounds i8, ptr %ctx, i64 24
+  %pctx_ops = getelementptr inbounds nuw i8, ptr %ctx, i64 24
   %4 = load ptr, ptr %pctx_ops, align 8
   %tobool9.not = icmp eq ptr %4, null
   br i1 %tobool9.not, label %if.end12, label %if.then10
 
 if.then10:                                        ; preds = %if.end
   %5 = load ptr, ptr %4, align 8
-  %pctx = getelementptr inbounds i8, ptr %ctx, i64 16
+  %pctx = getelementptr inbounds nuw i8, ptr %ctx, i64 16
   %6 = load ptr, ptr %pctx, align 8
   tail call void %5(ptr noundef %6) #13
   br label %if.end12
@@ -121,13 +121,13 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not.i, label %if.end.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end
-  %ctx_size.i = getelementptr inbounds i8, ptr %0, i64 44
+  %ctx_size.i = getelementptr inbounds nuw i8, ptr %0, i64 44
   %1 = load i32, ptr %ctx_size.i, align 4
   %tobool2.not.i = icmp eq i32 %1, 0
   br i1 %tobool2.not.i, label %if.end.i, label %land.lhs.true3.i
 
 land.lhs.true3.i:                                 ; preds = %land.lhs.true.i
-  %md_data.i = getelementptr inbounds i8, ptr %ctx, i64 8
+  %md_data.i = getelementptr inbounds nuw i8, ptr %ctx, i64 8
   %2 = load ptr, ptr %md_data.i, align 8
   %tobool4.not.i = icmp eq ptr %2, null
   br i1 %tobool4.not.i, label %if.end.i, label %if.then.i
@@ -140,14 +140,14 @@ if.then.i:                                        ; preds = %land.lhs.true3.i
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %land.lhs.true3.i, %land.lhs.true.i, %if.end
-  %pctx_ops.i = getelementptr inbounds i8, ptr %ctx, i64 24
+  %pctx_ops.i = getelementptr inbounds nuw i8, ptr %ctx, i64 24
   %4 = load ptr, ptr %pctx_ops.i, align 8
   %tobool9.not.i = icmp eq ptr %4, null
   br i1 %tobool9.not.i, label %EVP_MD_CTX_cleanup.exit, label %if.then10.i
 
 if.then10.i:                                      ; preds = %if.end.i
   %5 = load ptr, ptr %4, align 8
-  %pctx.i = getelementptr inbounds i8, ptr %ctx, i64 16
+  %pctx.i = getelementptr inbounds nuw i8, ptr %ctx, i64 16
   %6 = load ptr, ptr %pctx.i, align 8
   tail call void %5(ptr noundef %6) #13
   br label %EVP_MD_CTX_cleanup.exit
@@ -181,7 +181,7 @@ if.end:                                           ; preds = %lor.lhs.false
   br i1 %cmp4, label %if.then5, label %if.end7
 
 if.then5:                                         ; preds = %if.end
-  %md_data = getelementptr inbounds i8, ptr %out, i64 8
+  %md_data = getelementptr inbounds nuw i8, ptr %out, i64 8
   %2 = load ptr, ptr %md_data, align 8
   store ptr null, ptr %md_data, align 8
   br label %if.end7
@@ -192,13 +192,13 @@ if.end7:                                          ; preds = %if.then5, %if.end
   br i1 %tobool.not.i, label %if.end.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end7
-  %ctx_size.i = getelementptr inbounds i8, ptr %1, i64 44
+  %ctx_size.i = getelementptr inbounds nuw i8, ptr %1, i64 44
   %3 = load i32, ptr %ctx_size.i, align 4
   %tobool2.not.i = icmp eq i32 %3, 0
   br i1 %tobool2.not.i, label %if.end.i, label %land.lhs.true3.i
 
 land.lhs.true3.i:                                 ; preds = %land.lhs.true.i
-  %md_data.i = getelementptr inbounds i8, ptr %out, i64 8
+  %md_data.i = getelementptr inbounds nuw i8, ptr %out, i64 8
   %4 = load ptr, ptr %md_data.i, align 8
   %tobool4.not.i = icmp eq ptr %4, null
   br i1 %tobool4.not.i, label %if.end.i, label %if.then.i
@@ -211,14 +211,14 @@ if.then.i:                                        ; preds = %land.lhs.true3.i
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %land.lhs.true3.i, %land.lhs.true.i, %if.end7
-  %pctx_ops.i = getelementptr inbounds i8, ptr %out, i64 24
+  %pctx_ops.i = getelementptr inbounds nuw i8, ptr %out, i64 24
   %6 = load ptr, ptr %pctx_ops.i, align 8
   %tobool9.not.i = icmp eq ptr %6, null
   br i1 %tobool9.not.i, label %EVP_MD_CTX_cleanup.exit, label %if.then10.i
 
 if.then10.i:                                      ; preds = %if.end.i
   %7 = load ptr, ptr %6, align 8
-  %pctx.i = getelementptr inbounds i8, ptr %out, i64 16
+  %pctx.i = getelementptr inbounds nuw i8, ptr %out, i64 16
   %8 = load ptr, ptr %pctx.i, align 8
   tail call void %7(ptr noundef %8) #13
   br label %EVP_MD_CTX_cleanup.exit
@@ -227,13 +227,13 @@ EVP_MD_CTX_cleanup.exit:                          ; preds = %if.end.i, %if.then1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %out, i8 0, i64 32, i1 false)
   %9 = load ptr, ptr %in, align 8
   store ptr %9, ptr %out, align 8
-  %md_data10 = getelementptr inbounds i8, ptr %in, i64 8
+  %md_data10 = getelementptr inbounds nuw i8, ptr %in, i64 8
   %10 = load ptr, ptr %md_data10, align 8
   %tobool.not = icmp eq ptr %10, null
   br i1 %tobool.not, label %if.end31, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %EVP_MD_CTX_cleanup.exit
-  %ctx_size = getelementptr inbounds i8, ptr %9, i64 44
+  %ctx_size = getelementptr inbounds nuw i8, ptr %9, i64 44
   %11 = load i32, ptr %ctx_size, align 4
   %tobool12.not = icmp eq i32 %11, 0
   br i1 %tobool12.not, label %if.end31, label %if.then13
@@ -243,14 +243,14 @@ if.then13:                                        ; preds = %land.lhs.true
   br i1 %tobool14.not, label %if.else, label %if.then15
 
 if.then15:                                        ; preds = %if.then13
-  %md_data16 = getelementptr inbounds i8, ptr %out, i64 8
+  %md_data16 = getelementptr inbounds nuw i8, ptr %out, i64 8
   store ptr %tmp_buf.0, ptr %md_data16, align 8
   br label %if.end25
 
 if.else:                                          ; preds = %if.then13
   %conv = zext i32 %11 to i64
   %call19 = tail call noalias ptr @malloc(i64 noundef %conv) #14
-  %md_data20 = getelementptr inbounds i8, ptr %out, i64 8
+  %md_data20 = getelementptr inbounds nuw i8, ptr %out, i64 8
   store ptr %call19, ptr %md_data20, align 8
   %tobool22.not = icmp eq ptr %call19, null
   br i1 %tobool22.not, label %if.then23, label %if.end25
@@ -263,17 +263,17 @@ if.end25:                                         ; preds = %if.else, %if.then15
   %12 = phi ptr [ %call19, %if.else ], [ %tmp_buf.0, %if.then15 ]
   %13 = load ptr, ptr %md_data10, align 8
   %14 = load ptr, ptr %in, align 8
-  %ctx_size29 = getelementptr inbounds i8, ptr %14, i64 44
+  %ctx_size29 = getelementptr inbounds nuw i8, ptr %14, i64 44
   %15 = load i32, ptr %ctx_size29, align 4
   %conv30 = zext i32 %15 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %12, ptr align 1 %13, i64 %conv30, i1 false)
   br label %if.end31
 
 if.end31:                                         ; preds = %if.end25, %land.lhs.true, %EVP_MD_CTX_cleanup.exit
-  %pctx_ops = getelementptr inbounds i8, ptr %in, i64 24
+  %pctx_ops = getelementptr inbounds nuw i8, ptr %in, i64 24
   %16 = load ptr, ptr %pctx_ops, align 8
   store ptr %16, ptr %pctx_ops.i, align 8
-  %pctx = getelementptr inbounds i8, ptr %in, i64 16
+  %pctx = getelementptr inbounds nuw i8, ptr %in, i64 16
   %17 = load ptr, ptr %pctx, align 8
   %tobool33.not = icmp eq ptr %17, null
   %tobool36.not = icmp eq ptr %16, null
@@ -281,10 +281,10 @@ if.end31:                                         ; preds = %if.end25, %land.lhs
   br i1 %or.cond, label %return, label %if.then37
 
 if.then37:                                        ; preds = %if.end31
-  %dup = getelementptr inbounds i8, ptr %16, i64 8
+  %dup = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load ptr, ptr %dup, align 8
   %call40 = tail call ptr %18(ptr noundef nonnull %17) #13
-  %pctx41 = getelementptr inbounds i8, ptr %out, i64 16
+  %pctx41 = getelementptr inbounds nuw i8, ptr %out, i64 16
   store ptr %call40, ptr %pctx41, align 8
   %tobool43.not = icmp eq ptr %call40, null
   br i1 %tobool43.not, label %if.then44, label %return
@@ -295,13 +295,13 @@ if.then44:                                        ; preds = %if.then37
   br i1 %tobool.not.i30, label %if.end.i39, label %land.lhs.true.i31
 
 land.lhs.true.i31:                                ; preds = %if.then44
-  %ctx_size.i32 = getelementptr inbounds i8, ptr %19, i64 44
+  %ctx_size.i32 = getelementptr inbounds nuw i8, ptr %19, i64 44
   %20 = load i32, ptr %ctx_size.i32, align 4
   %tobool2.not.i33 = icmp eq i32 %20, 0
   br i1 %tobool2.not.i33, label %if.end.i39, label %land.lhs.true3.i34
 
 land.lhs.true3.i34:                               ; preds = %land.lhs.true.i31
-  %md_data.i35 = getelementptr inbounds i8, ptr %out, i64 8
+  %md_data.i35 = getelementptr inbounds nuw i8, ptr %out, i64 8
   %21 = load ptr, ptr %md_data.i35, align 8
   %tobool4.not.i36 = icmp eq ptr %21, null
   br i1 %tobool4.not.i36, label %if.end.i39, label %if.then.i37
@@ -358,13 +358,13 @@ if.then:                                          ; preds = %entry
   br i1 %tobool.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.then
-  %ctx_size = getelementptr inbounds i8, ptr %0, i64 44
+  %ctx_size = getelementptr inbounds nuw i8, ptr %0, i64 44
   %1 = load i32, ptr %ctx_size, align 4
   %cmp3.not = icmp eq i32 %1, 0
   br i1 %cmp3.not, label %if.end, label %if.then4
 
 if.then4:                                         ; preds = %land.lhs.true
-  %md_data = getelementptr inbounds i8, ptr %ctx, i64 8
+  %md_data = getelementptr inbounds nuw i8, ptr %ctx, i64 8
   %2 = load ptr, ptr %md_data, align 8
   tail call void @free(ptr noundef %2) #13
   store ptr null, ptr %md_data, align 8
@@ -372,7 +372,7 @@ if.then4:                                         ; preds = %land.lhs.true
 
 if.end:                                           ; preds = %if.then4, %land.lhs.true, %if.then
   store ptr %type, ptr %ctx, align 8
-  %ctx_size7 = getelementptr inbounds i8, ptr %type, i64 44
+  %ctx_size7 = getelementptr inbounds nuw i8, ptr %type, i64 44
   %3 = load i32, ptr %ctx_size7, align 4
   %cmp8.not = icmp eq i32 %3, 0
   br i1 %cmp8.not, label %if.end18, label %if.then9
@@ -380,7 +380,7 @@ if.end:                                           ; preds = %if.then4, %land.lhs
 if.then9:                                         ; preds = %if.end
   %conv = zext i32 %3 to i64
   %call = tail call noalias ptr @malloc(i64 noundef %conv) #14
-  %md_data11 = getelementptr inbounds i8, ptr %ctx, i64 8
+  %md_data11 = getelementptr inbounds nuw i8, ptr %ctx, i64 8
   store ptr %call, ptr %md_data11, align 8
   %cmp13 = icmp eq ptr %call, null
   br i1 %cmp13, label %if.then15, label %if.end18
@@ -391,7 +391,7 @@ if.then15:                                        ; preds = %if.then9
 
 if.end18:                                         ; preds = %if.end, %if.then9, %entry
   %4 = phi ptr [ %type, %if.end ], [ %type, %if.then9 ], [ %0, %entry ]
-  %init = getelementptr inbounds i8, ptr %4, i64 16
+  %init = getelementptr inbounds nuw i8, ptr %4, i64 16
   %5 = load ptr, ptr %init, align 8
   tail call void %5(ptr noundef nonnull %ctx) #13
   br label %return
@@ -404,12 +404,12 @@ return:                                           ; preds = %if.end18, %if.then1
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @EVP_DigestInit(ptr noundef initializes((0, 32)) %ctx, ptr noundef %type) local_unnamed_addr #5 {
 entry:
-  %0 = getelementptr inbounds i8, ptr %ctx, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %ctx, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false)
   %cmp.not.i = icmp ne ptr %type, null
   tail call void @llvm.assume(i1 %cmp.not.i)
   store ptr %type, ptr %ctx, align 8
-  %ctx_size7.i = getelementptr inbounds i8, ptr %type, i64 44
+  %ctx_size7.i = getelementptr inbounds nuw i8, ptr %type, i64 44
   %1 = load i32, ptr %ctx_size7.i, align 4
   %cmp8.not.i = icmp eq i32 %1, 0
   br i1 %cmp8.not.i, label %if.end18.i, label %if.then9.i
@@ -417,7 +417,7 @@ entry:
 if.then9.i:                                       ; preds = %entry
   %conv.i = zext i32 %1 to i64
   %call.i = tail call noalias ptr @malloc(i64 noundef %conv.i) #14
-  %md_data11.i = getelementptr inbounds i8, ptr %ctx, i64 8
+  %md_data11.i = getelementptr inbounds nuw i8, ptr %ctx, i64 8
   store ptr %call.i, ptr %md_data11.i, align 8
   %cmp13.i = icmp eq ptr %call.i, null
   br i1 %cmp13.i, label %if.then15.i, label %if.end18.i
@@ -427,7 +427,7 @@ if.then15.i:                                      ; preds = %if.then9.i
   br label %EVP_DigestInit_ex.exit
 
 if.end18.i:                                       ; preds = %if.then9.i, %entry
-  %init.i = getelementptr inbounds i8, ptr %type, i64 16
+  %init.i = getelementptr inbounds nuw i8, ptr %type, i64 16
   %2 = load ptr, ptr %init.i, align 8
   tail call void %2(ptr noundef nonnull %ctx) #13
   br label %EVP_DigestInit_ex.exit
@@ -441,7 +441,7 @@ EVP_DigestInit_ex.exit:                           ; preds = %if.then15.i, %if.en
 define hidden noundef i32 @EVP_DigestUpdate(ptr noundef %ctx, ptr noundef %data, i64 noundef %len) local_unnamed_addr #5 {
 entry:
   %0 = load ptr, ptr %ctx, align 8
-  %update = getelementptr inbounds i8, ptr %0, i64 24
+  %update = getelementptr inbounds nuw i8, ptr %0, i64 24
   %1 = load ptr, ptr %update, align 8
   tail call void %1(ptr noundef nonnull %ctx, ptr noundef %data, i64 noundef %len) #13
   ret i32 1
@@ -451,7 +451,7 @@ entry:
 define hidden noundef i32 @EVP_DigestFinal_ex(ptr noundef %ctx, ptr noundef %md_out, ptr noundef writeonly %size) local_unnamed_addr #5 {
 entry:
   %0 = load ptr, ptr %ctx, align 8
-  %final = getelementptr inbounds i8, ptr %0, i64 32
+  %final = getelementptr inbounds nuw i8, ptr %0, i64 32
   %1 = load ptr, ptr %final, align 8
   tail call void %1(ptr noundef nonnull %ctx, ptr noundef %md_out) #13
   %cmp.not = icmp eq ptr %size, null
@@ -459,16 +459,16 @@ entry:
 
 if.then:                                          ; preds = %entry
   %2 = load ptr, ptr %ctx, align 8
-  %md_size = getelementptr inbounds i8, ptr %2, i64 4
+  %md_size = getelementptr inbounds nuw i8, ptr %2, i64 4
   %3 = load i32, ptr %md_size, align 4
   store i32 %3, ptr %size, align 4
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %md_data = getelementptr inbounds i8, ptr %ctx, i64 8
+  %md_data = getelementptr inbounds nuw i8, ptr %ctx, i64 8
   %4 = load ptr, ptr %md_data, align 8
   %5 = load ptr, ptr %ctx, align 8
-  %ctx_size = getelementptr inbounds i8, ptr %5, i64 44
+  %ctx_size = getelementptr inbounds nuw i8, ptr %5, i64 44
   %6 = load i32, ptr %ctx_size, align 4
   %conv = zext i32 %6 to i64
   tail call void @OPENSSL_cleanse(ptr noundef %4, i64 noundef %conv) #13
@@ -479,7 +479,7 @@ if.end:                                           ; preds = %if.then, %entry
 define hidden noundef i32 @EVP_DigestFinal(ptr noundef %ctx, ptr noundef %md, ptr noundef writeonly %size) local_unnamed_addr #5 {
 entry:
   %0 = load ptr, ptr %ctx, align 8
-  %final.i = getelementptr inbounds i8, ptr %0, i64 32
+  %final.i = getelementptr inbounds nuw i8, ptr %0, i64 32
   %1 = load ptr, ptr %final.i, align 8
   tail call void %1(ptr noundef nonnull %ctx, ptr noundef %md) #13
   %cmp.not.i = icmp eq ptr %size, null
@@ -487,16 +487,16 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %2 = load ptr, ptr %ctx, align 8
-  %md_size.i = getelementptr inbounds i8, ptr %2, i64 4
+  %md_size.i = getelementptr inbounds nuw i8, ptr %2, i64 4
   %3 = load i32, ptr %md_size.i, align 4
   store i32 %3, ptr %size, align 4
   br label %EVP_DigestFinal_ex.exit
 
 EVP_DigestFinal_ex.exit:                          ; preds = %entry, %if.then.i
-  %md_data.i = getelementptr inbounds i8, ptr %ctx, i64 8
+  %md_data.i = getelementptr inbounds nuw i8, ptr %ctx, i64 8
   %4 = load ptr, ptr %md_data.i, align 8
   %5 = load ptr, ptr %ctx, align 8
-  %ctx_size.i = getelementptr inbounds i8, ptr %5, i64 44
+  %ctx_size.i = getelementptr inbounds nuw i8, ptr %5, i64 44
   %6 = load i32, ptr %ctx_size.i, align 4
   %conv.i = zext i32 %6 to i64
   tail call void @OPENSSL_cleanse(ptr noundef %4, i64 noundef %conv.i) #13
@@ -505,7 +505,7 @@ EVP_DigestFinal_ex.exit:                          ; preds = %entry, %if.then.i
   br i1 %tobool.not.i, label %if.end.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %EVP_DigestFinal_ex.exit
-  %ctx_size.i2 = getelementptr inbounds i8, ptr %7, i64 44
+  %ctx_size.i2 = getelementptr inbounds nuw i8, ptr %7, i64 44
   %8 = load i32, ptr %ctx_size.i2, align 4
   %tobool2.not.i = icmp eq i32 %8, 0
   br i1 %tobool2.not.i, label %if.end.i, label %land.lhs.true3.i
@@ -523,14 +523,14 @@ if.then.i4:                                       ; preds = %land.lhs.true3.i
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i4, %land.lhs.true3.i, %land.lhs.true.i, %EVP_DigestFinal_ex.exit
-  %pctx_ops.i = getelementptr inbounds i8, ptr %ctx, i64 24
+  %pctx_ops.i = getelementptr inbounds nuw i8, ptr %ctx, i64 24
   %11 = load ptr, ptr %pctx_ops.i, align 8
   %tobool9.not.i = icmp eq ptr %11, null
   br i1 %tobool9.not.i, label %EVP_MD_CTX_cleanup.exit, label %if.then10.i
 
 if.then10.i:                                      ; preds = %if.end.i
   %12 = load ptr, ptr %11, align 8
-  %pctx.i = getelementptr inbounds i8, ptr %ctx, i64 16
+  %pctx.i = getelementptr inbounds nuw i8, ptr %ctx, i64 16
   %13 = load ptr, ptr %pctx.i, align 8
   tail call void %12(ptr noundef %13) #13
   br label %EVP_MD_CTX_cleanup.exit
@@ -544,12 +544,12 @@ EVP_MD_CTX_cleanup.exit:                          ; preds = %if.end.i, %if.then1
 define hidden range(i32 0, 2) i32 @EVP_Digest(ptr noundef %data, i64 noundef %count, ptr noundef %out_md, ptr noundef writeonly %out_size, ptr noundef %type, ptr nocapture noundef readnone %impl) local_unnamed_addr #5 {
 entry:
   %ctx = alloca %struct.env_md_ctx_st, align 8
-  %0 = getelementptr inbounds i8, ptr %ctx, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %ctx, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false)
   %cmp.not.i = icmp ne ptr %type, null
   tail call void @llvm.assume(i1 %cmp.not.i)
   store ptr %type, ptr %ctx, align 8
-  %ctx_size7.i = getelementptr inbounds i8, ptr %type, i64 44
+  %ctx_size7.i = getelementptr inbounds nuw i8, ptr %type, i64 44
   %1 = load i32, ptr %ctx_size7.i, align 4
   %cmp8.not.i = icmp eq i32 %1, 0
   br i1 %cmp8.not.i, label %land.lhs.true, label %if.then9.i
@@ -557,7 +557,7 @@ entry:
 if.then9.i:                                       ; preds = %entry
   %conv.i = zext i32 %1 to i64
   %call.i = tail call noalias ptr @malloc(i64 noundef %conv.i) #14
-  %md_data11.i = getelementptr inbounds i8, ptr %ctx, i64 8
+  %md_data11.i = getelementptr inbounds nuw i8, ptr %ctx, i64 8
   store ptr %call.i, ptr %md_data11.i, align 8
   %cmp13.i = icmp eq ptr %call.i, null
   br i1 %cmp13.i, label %land.end.thread, label %land.lhs.true
@@ -567,15 +567,15 @@ land.end.thread:                                  ; preds = %if.then9.i
   br label %land.lhs.true.i8
 
 land.lhs.true:                                    ; preds = %if.then9.i, %entry
-  %init.i = getelementptr inbounds i8, ptr %type, i64 16
+  %init.i = getelementptr inbounds nuw i8, ptr %type, i64 16
   %2 = load ptr, ptr %init.i, align 8
   call void %2(ptr noundef nonnull %ctx) #13
   %3 = load ptr, ptr %ctx, align 8
-  %update.i = getelementptr inbounds i8, ptr %3, i64 24
+  %update.i = getelementptr inbounds nuw i8, ptr %3, i64 24
   %4 = load ptr, ptr %update.i, align 8
   call void %4(ptr noundef nonnull %ctx, ptr noundef %data, i64 noundef %count) #13
   %5 = load ptr, ptr %ctx, align 8
-  %final.i = getelementptr inbounds i8, ptr %5, i64 32
+  %final.i = getelementptr inbounds nuw i8, ptr %5, i64 32
   %6 = load ptr, ptr %final.i, align 8
   call void %6(ptr noundef nonnull %ctx, ptr noundef %out_md) #13
   %cmp.not.i1 = icmp eq ptr %out_size, null
@@ -583,15 +583,15 @@ land.lhs.true:                                    ; preds = %if.then9.i, %entry
   br i1 %cmp.not.i1, label %land.end, label %if.then.i2
 
 if.then.i2:                                       ; preds = %land.lhs.true
-  %md_size.i = getelementptr inbounds i8, ptr %.pre, i64 4
+  %md_size.i = getelementptr inbounds nuw i8, ptr %.pre, i64 4
   %7 = load i32, ptr %md_size.i, align 4
   store i32 %7, ptr %out_size, align 4
   br label %land.end
 
 land.end:                                         ; preds = %if.then.i2, %land.lhs.true
-  %md_data.i4 = getelementptr inbounds i8, ptr %ctx, i64 8
+  %md_data.i4 = getelementptr inbounds nuw i8, ptr %ctx, i64 8
   %8 = load ptr, ptr %md_data.i4, align 8
-  %ctx_size.i5 = getelementptr inbounds i8, ptr %.pre, i64 44
+  %ctx_size.i5 = getelementptr inbounds nuw i8, ptr %.pre, i64 44
   %9 = load i32, ptr %ctx_size.i5, align 4
   %conv.i6 = zext i32 %9 to i64
   call void @OPENSSL_cleanse(ptr noundef %8, i64 noundef %conv.i6) #13
@@ -602,13 +602,13 @@ land.end:                                         ; preds = %if.then.i2, %land.l
 land.lhs.true.i8:                                 ; preds = %land.end.thread, %land.end
   %retval.0.i1620 = phi i32 [ 0, %land.end.thread ], [ 1, %land.end ]
   %10 = phi ptr [ %type, %land.end.thread ], [ %.pre17, %land.end ]
-  %ctx_size.i9 = getelementptr inbounds i8, ptr %10, i64 44
+  %ctx_size.i9 = getelementptr inbounds nuw i8, ptr %10, i64 44
   %11 = load i32, ptr %ctx_size.i9, align 4
   %tobool2.not.i = icmp eq i32 %11, 0
   br i1 %tobool2.not.i, label %if.end.i13, label %land.lhs.true3.i
 
 land.lhs.true3.i:                                 ; preds = %land.lhs.true.i8
-  %md_data.i10 = getelementptr inbounds i8, ptr %ctx, i64 8
+  %md_data.i10 = getelementptr inbounds nuw i8, ptr %ctx, i64 8
   %12 = load ptr, ptr %md_data.i10, align 8
   %tobool4.not.i = icmp eq ptr %12, null
   br i1 %tobool4.not.i, label %if.end.i13, label %if.then.i11
@@ -622,14 +622,14 @@ if.then.i11:                                      ; preds = %land.lhs.true3.i
 
 if.end.i13:                                       ; preds = %if.then.i11, %land.lhs.true3.i, %land.lhs.true.i8, %land.end
   %retval.0.i1621 = phi i32 [ %retval.0.i1620, %if.then.i11 ], [ %retval.0.i1620, %land.lhs.true3.i ], [ %retval.0.i1620, %land.lhs.true.i8 ], [ 1, %land.end ]
-  %pctx_ops.i = getelementptr inbounds i8, ptr %ctx, i64 24
+  %pctx_ops.i = getelementptr inbounds nuw i8, ptr %ctx, i64 24
   %14 = load ptr, ptr %pctx_ops.i, align 8
   %tobool9.not.i = icmp eq ptr %14, null
   br i1 %tobool9.not.i, label %EVP_MD_CTX_cleanup.exit, label %if.then10.i
 
 if.then10.i:                                      ; preds = %if.end.i13
   %15 = load ptr, ptr %14, align 8
-  %pctx.i = getelementptr inbounds i8, ptr %ctx, i64 16
+  %pctx.i = getelementptr inbounds nuw i8, ptr %ctx, i64 16
   %16 = load ptr, ptr %pctx.i, align 8
   call void %15(ptr noundef %16) #13
   br label %EVP_MD_CTX_cleanup.exit
@@ -659,7 +659,7 @@ entry:
   %cmp.i = icmp ne ptr %ctx, null
   tail call void @llvm.assume(i1 %cmp.i)
   %0 = load ptr, ptr %ctx, align 8
-  %md_size.i = getelementptr inbounds i8, ptr %0, i64 4
+  %md_size.i = getelementptr inbounds nuw i8, ptr %0, i64 4
   %1 = load i32, ptr %md_size.i, align 4
   %conv.i = zext i32 %1 to i64
   ret i64 %conv.i
@@ -671,7 +671,7 @@ entry:
   %cmp.i = icmp ne ptr %ctx, null
   tail call void @llvm.assume(i1 %cmp.i)
   %0 = load ptr, ptr %ctx, align 8
-  %block_size.i = getelementptr inbounds i8, ptr %0, i64 40
+  %block_size.i = getelementptr inbounds nuw i8, ptr %0, i64 40
   %1 = load i32, ptr %block_size.i, align 8
   %conv.i = zext i32 %1 to i64
   ret i64 %conv.i

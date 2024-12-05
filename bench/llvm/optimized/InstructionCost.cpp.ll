@@ -35,7 +35,7 @@ define dso_local void @_ZNK4llvm15InstructionCost5printERNS_11raw_ostreamE(ptr n
 20:                                               ; preds = %9
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %13, ptr noundef nonnull align 1 dereferenceable(7) @.str, i64 7, i1 false)
   %21 = load ptr, ptr %12, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 7
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 7
   store ptr %22, ptr %12, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 

@@ -493,7 +493,7 @@ define noundef i8 @"_ZN9softposit4p8e04math4ceil39_$LT$impl$u20$softposit..p8e0.
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define noundef i8 @"_ZN9softposit4p8e04math3exp39_$LT$impl$u20$softposit..p8e0..P8E0$GT$3exp17ha75a7933d425059dE"(i8 noundef %0) unnamed_addr #0 {
   %2 = zext i8 %0 to i64
-  %3 = getelementptr inbounds [256 x i8], ptr @anon.fae3fd479009f0e17524a001ea6680ff.5, i64 0, i64 %2
+  %3 = getelementptr inbounds nuw [256 x i8], ptr @anon.fae3fd479009f0e17524a001ea6680ff.5, i64 0, i64 %2
   %4 = load i8, ptr %3, align 1, !noundef !4
   ret i8 %4
 }
@@ -590,7 +590,7 @@ define noundef i8 @"_ZN9softposit4p8e04math2ln39_$LT$impl$u20$softposit..p8e0..P
 
 3:                                                ; preds = %1
   %4 = zext nneg i8 %0 to i64
-  %5 = getelementptr inbounds [128 x i8], ptr @anon.fae3fd479009f0e17524a001ea6680ff.8, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw [128 x i8], ptr @anon.fae3fd479009f0e17524a001ea6680ff.8, i64 0, i64 %4
   %6 = load i8, ptr %5, align 1, !noundef !4
   br label %7
 
@@ -1537,21 +1537,21 @@ _ZN4core3fmt9Formatter9write_fmt17h40252474da72b710E.exit: ; preds = %2, %7, %_Z
   %.0.i = phi double [ %33, %_ZN9softposit4p8e04P8E017separate_bits_tmp17h7142056595c711ecE.llvm.7290317390364524356.exit.i ], [ 0x7FF8000000000000, %7 ], [ 0.000000e+00, %2 ]
   store double %.0.i, ptr %4, align 8
   store ptr %4, ptr %5, align 8
-  %34 = getelementptr inbounds i8, ptr %5, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @"_ZN4core3fmt5float52_$LT$impl$u20$core..fmt..Display$u20$for$u20$f64$GT$3fmt17h2ea2ae54310fbdaeE", ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %1, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.val = load ptr, ptr %35, align 8, !nonnull !4, !noundef !4
-  %36 = getelementptr inbounds i8, ptr %1, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.val1 = load ptr, ptr %36, align 8, !nonnull !4, !noundef !4
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3), !noalias !5
   store ptr @anon.fae3fd479009f0e17524a001ea6680ff.11, ptr %3, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 1, ptr %.sroa.5.0..sroa_idx, align 8
-  %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 16
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %5, ptr %.sroa.7.0..sroa_idx, align 8
-  %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 24
+  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 1, ptr %.sroa.8.0..sroa_idx, align 8
-  %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 32
+  %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr null, ptr %.sroa.10.0..sroa_idx, align 8
   %37 = call noundef zeroext i1 @_ZN4core3fmt5write17hd9a8d7d029f9ea1aE(ptr noundef nonnull align 1 %.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.val1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %3), !noalias !5
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3), !noalias !5
@@ -1567,21 +1567,21 @@ _ZN4core3fmt9Arguments12as_const_str17h12e0cdd0f797b759E.exit.i:
   %3 = alloca [1 x { ptr, ptr }], align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   store ptr %0, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @"_ZN4core3fmt3num3imp51_$LT$impl$u20$core..fmt..Display$u20$for$u20$i8$GT$3fmt17h1a1f1fb553a4193cE", ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.val = load ptr, ptr %5, align 8, !nonnull !4, !noundef !4
-  %6 = getelementptr inbounds i8, ptr %1, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.val1 = load ptr, ptr %6, align 8, !nonnull !4, !noundef !4
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2), !noalias !8
   store ptr @anon.fae3fd479009f0e17524a001ea6680ff.14, ptr %2, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 2, ptr %.sroa.5.0..sroa_idx, align 8
-  %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 16
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %3, ptr %.sroa.7.0..sroa_idx, align 8
-  %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 24
+  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 1, ptr %.sroa.8.0..sroa_idx, align 8
-  %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 32
+  %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 32
   store ptr null, ptr %.sroa.10.0..sroa_idx, align 8
   %7 = call noundef zeroext i1 @_ZN4core3fmt5write17hd9a8d7d029f9ea1aE(ptr noundef nonnull align 1 %.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.val1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %2), !noalias !8
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2), !noalias !8
@@ -2061,7 +2061,7 @@ define { i1, i8 } @"_ZN57_$LT$softposit..p8e0..P8E0$u20$as$u20$num_traits..Num$G
   br i1 %trunc, label %52, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load double, ptr %7, align 8, !noundef !4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   %9 = bitcast double %8 to i64
@@ -2137,7 +2137,7 @@ define { i1, i8 } @"_ZN57_$LT$softposit..p8e0..P8E0$u20$as$u20$num_traits..Num$G
   br label %"_ZN9softposit4p8e07convert39_$LT$impl$u20$softposit..p8e0..P8E0$GT$8from_f6417h5294965219ea5e34E.exit"
 
 52:                                               ; preds = %3
-  %53 = getelementptr inbounds i8, ptr %4, i64 1
+  %53 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %54 = load i8, ptr %53, align 1, !range !11, !noundef !4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %"_ZN9softposit4p8e07convert39_$LT$impl$u20$softposit..p8e0..P8E0$GT$8from_f6417h5294965219ea5e34E.exit"
@@ -3104,7 +3104,7 @@ define noundef i8 @"_ZN66_$LT$softposit..p8e0..P8E0$u20$as$u20$num_traits..float
 
 3:                                                ; preds = %1
   %4 = zext nneg i8 %0 to i64
-  %5 = getelementptr inbounds [128 x i8], ptr @anon.fae3fd479009f0e17524a001ea6680ff.2, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw [128 x i8], ptr @anon.fae3fd479009f0e17524a001ea6680ff.2, i64 0, i64 %4
   %6 = load i8, ptr %5, align 1, !noundef !4
   br label %7
 
@@ -3116,7 +3116,7 @@ define noundef i8 @"_ZN66_$LT$softposit..p8e0..P8E0$u20$as$u20$num_traits..float
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define noundef i8 @"_ZN66_$LT$softposit..p8e0..P8E0$u20$as$u20$num_traits..float..Float$GT$3exp17hb3c3e174192be6f0E"(i8 noundef %0) unnamed_addr #0 {
   %2 = zext i8 %0 to i64
-  %3 = getelementptr inbounds [256 x i8], ptr @anon.fae3fd479009f0e17524a001ea6680ff.5, i64 0, i64 %2
+  %3 = getelementptr inbounds nuw [256 x i8], ptr @anon.fae3fd479009f0e17524a001ea6680ff.5, i64 0, i64 %2
   %4 = load i8, ptr %3, align 1, !noundef !4
   ret i8 %4
 }
@@ -3134,7 +3134,7 @@ define noundef i8 @"_ZN66_$LT$softposit..p8e0..P8E0$u20$as$u20$num_traits..float
 
 3:                                                ; preds = %1
   %4 = zext nneg i8 %0 to i64
-  %5 = getelementptr inbounds [128 x i8], ptr @anon.fae3fd479009f0e17524a001ea6680ff.8, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw [128 x i8], ptr @anon.fae3fd479009f0e17524a001ea6680ff.8, i64 0, i64 %4
   %6 = load i8, ptr %5, align 1, !noundef !4
   br label %"_ZN9softposit4p8e04math2ln39_$LT$impl$u20$softposit..p8e0..P8E0$GT$2ln17h3d34c7bbc3fda657E.exit"
 
@@ -3301,7 +3301,7 @@ define noundef i8 @"_ZN66_$LT$softposit..p8e0..P8E0$u20$as$u20$num_traits..float
 "_ZN9softposit4p8e03ops39_$LT$impl$u20$softposit..p8e0..P8E0$GT$3add17h763d54d386d7c349E.exit.thread9.i": ; preds = %"_ZN9softposit4p8e03ops39_$LT$impl$u20$softposit..p8e0..P8E0$GT$3add17h763d54d386d7c349E.exit.i", %3
   %.0.i11.i = phi i8 [ %.0.i.i, %"_ZN9softposit4p8e03ops39_$LT$impl$u20$softposit..p8e0..P8E0$GT$3add17h763d54d386d7c349E.exit.i" ], [ 64, %3 ]
   %12 = zext nneg i8 %.0.i11.i to i64
-  %13 = getelementptr inbounds [128 x i8], ptr @anon.fae3fd479009f0e17524a001ea6680ff.2, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw [128 x i8], ptr @anon.fae3fd479009f0e17524a001ea6680ff.2, i64 0, i64 %12
   %14 = load i8, ptr %13, align 1, !noundef !4
   br label %"_ZN9softposit4p8e03ops39_$LT$impl$u20$softposit..p8e0..P8E0$GT$3add17h763d54d386d7c349E.exit.thread.i"
 
@@ -3340,7 +3340,7 @@ define noundef i8 @"_ZN66_$LT$softposit..p8e0..P8E0$u20$as$u20$num_traits..float
 
 29:                                               ; preds = %"_ZN9softposit4p8e03ops39_$LT$impl$u20$softposit..p8e0..P8E0$GT$3add17h763d54d386d7c349E.exit6.i"
   %30 = zext nneg i8 %.0.i5.i to i64
-  %31 = getelementptr inbounds [128 x i8], ptr @anon.fae3fd479009f0e17524a001ea6680ff.8, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw [128 x i8], ptr @anon.fae3fd479009f0e17524a001ea6680ff.8, i64 0, i64 %30
   %32 = load i8, ptr %31, align 1, !noundef !4
   br label %"_ZN9softposit4p8e04math39_$LT$impl$u20$softposit..p8e0..P8E0$GT$5asinh17h9f1215cce5230550E.exit"
 
@@ -3380,7 +3380,7 @@ define noundef i8 @"_ZN66_$LT$softposit..p8e0..P8E0$u20$as$u20$num_traits..float
 
 12:                                               ; preds = %"_ZN9softposit4p8e03ops39_$LT$impl$u20$softposit..p8e0..P8E0$GT$3sub17h2a4fcfa8e6c784dcE.exit.i"
   %13 = zext nneg i8 %.0.i.i to i64
-  %14 = getelementptr inbounds [128 x i8], ptr @anon.fae3fd479009f0e17524a001ea6680ff.2, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw [128 x i8], ptr @anon.fae3fd479009f0e17524a001ea6680ff.2, i64 0, i64 %13
   %15 = load i8, ptr %14, align 1, !noundef !4
   switch i8 %15, label %16 [
     i8 0, label %"_ZN9softposit4p8e03ops39_$LT$impl$u20$softposit..p8e0..P8E0$GT$3add17h763d54d386d7c349E.exit.thread16.i"
@@ -3408,7 +3408,7 @@ define noundef i8 @"_ZN66_$LT$softposit..p8e0..P8E0$u20$as$u20$num_traits..float
 "_ZN9softposit4p8e03ops39_$LT$impl$u20$softposit..p8e0..P8E0$GT$3add17h763d54d386d7c349E.exit.thread16.i": ; preds = %"_ZN9softposit4p8e03ops39_$LT$impl$u20$softposit..p8e0..P8E0$GT$3add17h763d54d386d7c349E.exit.i", %12
   %.0.i718.i = phi i8 [ %.0.i7.i, %"_ZN9softposit4p8e03ops39_$LT$impl$u20$softposit..p8e0..P8E0$GT$3add17h763d54d386d7c349E.exit.i" ], [ %0, %12 ]
   %24 = zext nneg i8 %.0.i718.i to i64
-  %25 = getelementptr inbounds [128 x i8], ptr @anon.fae3fd479009f0e17524a001ea6680ff.8, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw [128 x i8], ptr @anon.fae3fd479009f0e17524a001ea6680ff.8, i64 0, i64 %24
   %26 = load i8, ptr %25, align 1, !noundef !4
   br label %"_ZN9softposit4p8e04math39_$LT$impl$u20$softposit..p8e0..P8E0$GT$5acosh17hf6d4627be8a1f5fbE.exit"
 

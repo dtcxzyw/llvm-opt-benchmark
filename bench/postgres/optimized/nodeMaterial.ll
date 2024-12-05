@@ -13,30 +13,30 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local noundef ptr @ExecInitMaterial(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call noundef ptr @palloc0(i64 noundef 240) #2
   store i32 408, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %0, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %1, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr @ExecMaterial, ptr %7, align 8
   %8 = and i32 %2, 28
   %9 = lshr i32 %2, 1
   %10 = and i32 %9, 4
   %spec.select = or i32 %10, %8
-  %11 = getelementptr inbounds i8, ptr %4, i64 224
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 224
   store i32 %spec.select, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 228
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 228
   store i8 0, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %4, i64 232
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 232
   store ptr null, ptr %13, align 8
   %14 = and i32 %2, -29
-  %15 = getelementptr inbounds i8, ptr %0, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %16 = load ptr, ptr %15, align 8
   %17 = tail call ptr @ExecInitNode(ptr noundef %16, ptr noundef %1, i32 noundef %14) #2
-  %18 = getelementptr inbounds i8, ptr %4, i64 72
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr %17, ptr %18, align 8
   tail call void @ExecInitResultTupleSlotTL(ptr noundef nonnull %4, ptr noundef nonnull @TTSOpsMinimalTuple) #2
-  %19 = getelementptr inbounds i8, ptr %4, i64 136
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 136
   store ptr null, ptr %19, align 8
   tail call void @ExecCreateScanSlotFromOuterPlan(ptr noundef %1, ptr noundef nonnull %4, ptr noundef nonnull @TTSOpsMinimalTuple) #2
   ret ptr %4
@@ -53,18 +53,18 @@ define internal ptr @ExecMaterial(ptr nocapture noundef %0) #0 {
   br label %4
 
 4:                                                ; preds = %1, %3
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %8 = load i32, ptr %7, align 4
   %9 = icmp eq i32 %8, 1
-  %10 = getelementptr inbounds i8, ptr %0, i64 232
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %13, label %.thread55
 
 13:                                               ; preds = %4
-  %14 = getelementptr inbounds i8, ptr %0, i64 224
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %15 = load i32, ptr %14, align 8
   %.not48 = icmp eq i32 %15, 0
   br i1 %.not48, label %.thread, label %16
@@ -102,7 +102,7 @@ define internal ptr @ExecMaterial(ptr nocapture noundef %0) #0 {
   br i1 %brmerge, label %37, label %29
 
 29:                                               ; preds = %.thread
-  %30 = getelementptr inbounds i8, ptr %0, i64 228
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 228
   %31 = load i8, ptr %30, align 4
   %32 = trunc i8 %31 to i1
   br i1 %32, label %.thread58, label %33
@@ -112,12 +112,12 @@ define internal ptr @ExecMaterial(ptr nocapture noundef %0) #0 {
   br i1 %34, label %.thread58, label %76
 
 .thread58:                                        ; preds = %33, %29
-  %35 = getelementptr inbounds i8, ptr %0, i64 120
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %36 = load ptr, ptr %35, align 8
   br label %40
 
 37:                                               ; preds = %.thread
-  %38 = getelementptr inbounds i8, ptr %0, i64 120
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %39 = load ptr, ptr %38, align 8
   br i1 %28, label %.thread61, label %40
 
@@ -131,15 +131,15 @@ define internal ptr @ExecMaterial(ptr nocapture noundef %0) #0 {
 
 .thread61:                                        ; preds = %37, %43
   %44 = phi ptr [ %41, %43 ], [ %39, %37 ]
-  %45 = getelementptr inbounds i8, ptr %0, i64 228
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 228
   %46 = load i8, ptr %45, align 4
   %47 = trunc i8 %46 to i1
   br i1 %47, label %70, label %48
 
 48:                                               ; preds = %.thread61
-  %49 = getelementptr inbounds i8, ptr %0, i64 72
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 104
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 104
   %52 = load ptr, ptr %51, align 8
   %.not.i = icmp eq ptr %52, null
   br i1 %.not.i, label %ExecProcNode.exit, label %53
@@ -149,14 +149,14 @@ define internal ptr @ExecMaterial(ptr nocapture noundef %0) #0 {
   br label %ExecProcNode.exit
 
 ExecProcNode.exit:                                ; preds = %48, %53
-  %54 = getelementptr inbounds i8, ptr %50, i64 24
+  %54 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %55 = load ptr, ptr %54, align 8
   %56 = tail call ptr %55(ptr noundef nonnull %50) #2
   %57 = icmp eq ptr %56, null
   br i1 %57, label %62, label %58
 
 58:                                               ; preds = %ExecProcNode.exit
-  %59 = getelementptr inbounds i8, ptr %56, i64 4
+  %59 = getelementptr inbounds nuw i8, ptr %56, i64 4
   %60 = load i16, ptr %59, align 4
   %61 = and i16 %60, 2
   %.not50 = icmp eq i16 %61, 0
@@ -174,18 +174,18 @@ ExecProcNode.exit:                                ; preds = %48, %53
   br label %65
 
 65:                                               ; preds = %64, %63
-  %66 = getelementptr inbounds i8, ptr %44, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds i8, ptr %67, i64 56
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 56
   %69 = load ptr, ptr %68, align 8
   tail call void %69(ptr noundef %44, ptr noundef nonnull %56) #2
   br label %76
 
 70:                                               ; preds = %.thread61, %43
   %71 = phi ptr [ %44, %.thread61 ], [ %41, %43 ]
-  %72 = getelementptr inbounds i8, ptr %71, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %73 = load ptr, ptr %72, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i64 24
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 24
   %75 = load ptr, ptr %74, align 8
   tail call void %75(ptr noundef %71) #2
   br label %76
@@ -203,7 +203,7 @@ declare void @ExecCreateScanSlotFromOuterPlan(ptr noundef, ptr noundef, ptr noun
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ExecEndMaterial(ptr nocapture noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 232
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %4
@@ -214,7 +214,7 @@ define dso_local void @ExecEndMaterial(ptr nocapture noundef %0) local_unnamed_a
 
 5:                                                ; preds = %4, %1
   store ptr null, ptr %2, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 72
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %7 = load ptr, ptr %6, align 8
   tail call void @ExecEndNode(ptr noundef %7) #2
   ret void
@@ -226,7 +226,7 @@ declare void @ExecEndNode(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ExecMaterialMarkPos(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 232
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %6, label %4
@@ -247,7 +247,7 @@ declare void @tuplestore_trim(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ExecMaterialRestrPos(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 232
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %4
@@ -262,28 +262,28 @@ define dso_local void @ExecMaterialRestrPos(ptr nocapture noundef readonly %0) l
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ExecReScanMaterial(ptr nocapture noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 72
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 120
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %9 = load ptr, ptr %8, align 8
   tail call void %9(ptr noundef %5) #2
-  %10 = getelementptr inbounds i8, ptr %0, i64 224
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %11 = load i32, ptr %10, align 8
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %27, label %12
 
 12:                                               ; preds = %1
-  %13 = getelementptr inbounds i8, ptr %0, i64 232
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %14 = load ptr, ptr %13, align 8
   %.not16 = icmp eq ptr %14, null
   br i1 %.not16, label %34, label %15
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %3, i64 104
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 104
   %17 = load ptr, ptr %16, align 8
   %.not17 = icmp ne ptr %17, null
   %18 = and i32 %11, 4
@@ -303,7 +303,7 @@ define dso_local void @ExecReScanMaterial(ptr nocapture noundef %0) local_unname
   br label %24
 
 24:                                               ; preds = %23, %20
-  %25 = getelementptr inbounds i8, ptr %0, i64 228
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 228
   store i8 0, ptr %25, align 4
   br label %34
 
@@ -312,7 +312,7 @@ define dso_local void @ExecReScanMaterial(ptr nocapture noundef %0) local_unname
   br label %34
 
 27:                                               ; preds = %1
-  %28 = getelementptr inbounds i8, ptr %3, i64 104
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 104
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq ptr %29, null
   br i1 %30, label %31, label %32
@@ -322,7 +322,7 @@ define dso_local void @ExecReScanMaterial(ptr nocapture noundef %0) local_unname
   br label %32
 
 32:                                               ; preds = %31, %27
-  %33 = getelementptr inbounds i8, ptr %0, i64 228
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 228
   store i8 0, ptr %33, align 4
   br label %34
 

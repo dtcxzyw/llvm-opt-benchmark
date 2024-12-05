@@ -52,7 +52,7 @@ define dso_local void @_ZN4llvm25StructuralHashPrinterPass3runERNS_6ModuleERNS_1
 18:                                               ; preds = %4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %11, ptr noundef nonnull align 1 dereferenceable(13) @.str, i64 13, i1 false)
   %19 = load ptr, ptr %10, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 13
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 13
   store ptr %20, ptr %10, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -82,7 +82,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %16, %18
 35:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit
   store i8 10, ptr %31, align 1
   %36 = load ptr, ptr %30, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 1
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 1
   store ptr %37, ptr %30, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit10
 
@@ -125,7 +125,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit10:               ; preds = %33, %35
 59:                                               ; preds = %47
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %52, ptr noundef nonnull align 1 dereferenceable(9) @.str.3, i64 9, i1 false)
   %60 = load ptr, ptr %51, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 9
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 9
   store ptr %61, ptr %51, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit13
 
@@ -180,7 +180,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %73, %75, %76
   %89 = getelementptr inbounds nuw i8, ptr %.0.i, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %79, ptr noundef nonnull align 1 dereferenceable(7) @.str.4, i64 7, i1 false)
   %90 = load ptr, ptr %89, align 8
-  %91 = getelementptr inbounds i8, ptr %90, i64 7
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 7
   store ptr %91, ptr %89, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit16
 
@@ -207,7 +207,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit16:               ; preds = %86, %88
 103:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit16
   store i8 10, ptr %99, align 1
   %104 = load ptr, ptr %98, align 8
-  %105 = getelementptr inbounds i8, ptr %104, i64 1
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 1
   store ptr %105, ptr %98, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit19
 

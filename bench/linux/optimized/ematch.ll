@@ -37,7 +37,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol___tcf_em_tre
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -22, 1) i32 @tcf_em_register(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %20, label %5
@@ -60,11 +60,11 @@ define dso_local noundef range(i32 -22, 1) i32 @tcf_em_register(ptr noundef %0) 
   br i1 %14, label %.loopexit, label %6, !llvm.loop !5
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %0, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %17 = load ptr, ptr getelementptr inbounds (i8, ptr @ematch_ops, i64 8), align 8
   store ptr %16, ptr getelementptr inbounds (i8, ptr @ematch_ops, i64 8), align 8
   store ptr @ematch_ops, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %17, ptr %18, align 8
   store volatile ptr %16, ptr %17, align 8
   br label %.loopexit
@@ -94,11 +94,11 @@ declare dso_local void @_raw_write_unlock(ptr noundef) local_unnamed_addr #2 sec
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @tcf_em_unregister(ptr nocapture noundef %0) #0 align 16 {
   tail call void @_raw_write_lock(ptr noundef nonnull @ematch_mod_lock) #7
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
-  %3 = getelementptr inbounds i8, ptr %0, i64 56
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %2, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %4, ptr %6, align 8
   store volatile ptr %5, ptr %4, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %2, align 8
@@ -126,9 +126,9 @@ define dso_local range(i32 -2147483648, 1) i32 @tcf_em_tree_validate(ptr nocaptu
   br i1 %12, label %220, label %13
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %4, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %4, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %17 = load ptr, ptr %16, align 16
   %18 = icmp eq ptr %15, null
   %19 = icmp eq ptr %17, null
@@ -144,14 +144,14 @@ define dso_local range(i32 -2147483648, 1) i32 @tcf_em_tree_validate(ptr nocaptu
   %26 = zext i16 %25 to i64
   %27 = shl nuw nsw i64 %26, 5
   %28 = call noalias align 8 ptr @__kmalloc(i64 noundef %27, i32 noundef 3520) #8
-  %29 = getelementptr inbounds i8, ptr %2, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %28, ptr %29, align 8
   %30 = icmp eq ptr %28, null
   br i1 %30, label %220, label %31
 
 31:                                               ; preds = %21
   %32 = add i16 %24, -4
-  %33 = getelementptr inbounds i8, ptr %0, i64 48
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %34 = icmp ugt i16 %32, 3
   br i1 %34, label %.lr.ph.preheader, label %.critedge
 
@@ -172,7 +172,7 @@ define dso_local range(i32 -2147483648, 1) i32 @tcf_em_tree_validate(ptr nocaptu
   br i1 %or.cond, label %.critedge.loopexit, label %43
 
 43:                                               ; preds = %.lr.ph
-  %44 = getelementptr inbounds i8, ptr %37, i64 2
+  %44 = getelementptr inbounds nuw i8, ptr %37, i64 2
   %45 = load i16, ptr %44, align 2
   %46 = add nuw nsw i64 %39, 1
   %47 = zext i16 %45 to i64
@@ -199,9 +199,9 @@ define dso_local range(i32 -2147483648, 1) i32 @tcf_em_tree_validate(ptr nocaptu
   %62 = add nsw i32 %61, -8
   %63 = getelementptr i8, ptr %37, i64 12
   %64 = load ptr, ptr %33, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 56
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 56
   %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 80
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 80
   %68 = load ptr, ptr %67, align 8
   %69 = getelementptr i8, ptr %37, i64 8
   %70 = load i16, ptr %69, align 2
@@ -228,7 +228,7 @@ define dso_local range(i32 -2147483648, 1) i32 @tcf_em_tree_validate(ptr nocaptu
   br i1 %84, label %85, label %.thread27
 
 85:                                               ; preds = %79
-  %86 = getelementptr inbounds i8, ptr %59, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %59, i64 8
   store i64 %82, ptr %86, align 8
   br label %166
 
@@ -371,20 +371,20 @@ define dso_local range(i32 -2147483648, 1) i32 @tcf_em_tree_validate(ptr nocaptu
 
 163:                                              ; preds = %161, %154
   %.sink = phi i64 [ %162, %161 ], [ %156, %154 ]
-  %164 = getelementptr inbounds i8, ptr %59, i64 8
+  %164 = getelementptr inbounds nuw i8, ptr %59, i64 8
   store i64 %.sink, ptr %164, align 8
-  %165 = getelementptr inbounds i8, ptr %59, i64 16
+  %165 = getelementptr inbounds nuw i8, ptr %59, i64 16
   store i32 %62, ptr %165, align 8
   br label %166
 
 166:                                              ; preds = %163, %144, %141, %85
   %167 = load i16, ptr %60, align 2
-  %168 = getelementptr inbounds i8, ptr %59, i64 20
+  %168 = getelementptr inbounds nuw i8, ptr %59, i64 20
   store i16 %167, ptr %168, align 4
   %169 = load i16, ptr %69, align 2
-  %170 = getelementptr inbounds i8, ptr %59, i64 22
+  %170 = getelementptr inbounds nuw i8, ptr %59, i64 22
   store i16 %169, ptr %170, align 2
-  %171 = getelementptr inbounds i8, ptr %59, i64 24
+  %171 = getelementptr inbounds nuw i8, ptr %59, i64 24
   store ptr %68, ptr %171, align 8
   %172 = load i16, ptr %37, align 2
   %173 = zext i16 %172 to i32
@@ -434,7 +434,7 @@ define dso_local range(i32 -2147483648, 1) i32 @tcf_em_tree_validate(ptr nocaptu
   br i1 %195, label %214, label %196
 
 196:                                              ; preds = %.preheader
-  %197 = getelementptr inbounds i8, ptr %194, i64 24
+  %197 = getelementptr inbounds nuw i8, ptr %194, i64 24
   %198 = load ptr, ptr %197, align 8
   %199 = icmp eq ptr %198, null
   br i1 %199, label %201, label %200
@@ -444,14 +444,14 @@ define dso_local range(i32 -2147483648, 1) i32 @tcf_em_tree_validate(ptr nocaptu
   br label %210
 
 201:                                              ; preds = %196
-  %202 = getelementptr inbounds i8, ptr %193, i64 22
+  %202 = getelementptr inbounds nuw i8, ptr %193, i64 22
   %203 = load i16, ptr %202, align 2
   %204 = and i16 %203, 8
   %205 = icmp eq i16 %204, 0
   br i1 %205, label %206, label %210
 
 206:                                              ; preds = %201
-  %207 = getelementptr inbounds i8, ptr %193, i64 8
+  %207 = getelementptr inbounds nuw i8, ptr %193, i64 8
   %208 = load i64, ptr %207, align 8
   %209 = inttoptr i64 %208 to ptr
   call void @kfree(ptr noundef %209) #7
@@ -459,7 +459,7 @@ define dso_local range(i32 -2147483648, 1) i32 @tcf_em_tree_validate(ptr nocaptu
 
 210:                                              ; preds = %206, %201, %200
   %211 = load ptr, ptr %193, align 8
-  %212 = getelementptr inbounds i8, ptr %211, i64 40
+  %212 = getelementptr inbounds nuw i8, ptr %211, i64 40
   %213 = load ptr, ptr %212, align 8
   call void @module_put(ptr noundef %213) #7
   %.pre = load i16, ptr %2, align 8
@@ -494,7 +494,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @tcf_em_tree_destroy(ptr nocapture noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %38, label %5
@@ -514,7 +514,7 @@ define dso_local void @tcf_em_tree_destroy(ptr nocapture noundef %0) #0 align 16
   br i1 %13, label %32, label %14
 
 14:                                               ; preds = %.preheader
-  %15 = getelementptr inbounds i8, ptr %12, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
   br i1 %17, label %19, label %18
@@ -524,14 +524,14 @@ define dso_local void @tcf_em_tree_destroy(ptr nocapture noundef %0) #0 align 16
   br label %28
 
 19:                                               ; preds = %14
-  %20 = getelementptr inbounds i8, ptr %11, i64 22
+  %20 = getelementptr inbounds nuw i8, ptr %11, i64 22
   %21 = load i16, ptr %20, align 2
   %22 = and i16 %21, 8
   %23 = icmp eq i16 %22, 0
   br i1 %23, label %24, label %28
 
 24:                                               ; preds = %19
-  %25 = getelementptr inbounds i8, ptr %11, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %26 = load i64, ptr %25, align 8
   %27 = inttoptr i64 %26 to ptr
   tail call void @kfree(ptr noundef %27) #7
@@ -539,7 +539,7 @@ define dso_local void @tcf_em_tree_destroy(ptr nocapture noundef %0) #0 align 16
 
 28:                                               ; preds = %24, %19, %18
   %29 = load ptr, ptr %11, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 40
   %31 = load ptr, ptr %30, align 8
   tail call void @module_put(ptr noundef %31) #7
   %.pre = load i16, ptr %0, align 8
@@ -577,9 +577,9 @@ declare dso_local void @module_put(ptr noundef) local_unnamed_addr #2
 define dso_local noundef range(i32 -1, 1) i32 @tcf_em_tree_dump(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 align 16 {
   %4 = alloca %struct.tcf_ematch_hdr, align 8
   %5 = alloca i32, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 192
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 184
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %9 = load i32, ptr %8, align 8
   %10 = zext i32 %9 to i64
   %11 = getelementptr i8, ptr %7, i64 %10
@@ -609,10 +609,10 @@ define dso_local noundef range(i32 -1, 1) i32 @tcf_em_tree_dump(ptr noundef %0, 
   %29 = load ptr, ptr %6, align 8
   %30 = load i32, ptr %8, align 8
   %31 = zext i32 %30 to i64
-  %32 = getelementptr inbounds i8, ptr %1, i64 8
-  %33 = getelementptr inbounds i8, ptr %4, i64 2
-  %34 = getelementptr inbounds i8, ptr %4, i64 4
-  %35 = getelementptr inbounds i8, ptr %4, i64 6
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 2
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %35 = getelementptr inbounds nuw i8, ptr %4, i64 6
   %36 = load i16, ptr %1, align 8
   %.not = icmp eq i16 %36, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
@@ -628,7 +628,7 @@ define dso_local noundef range(i32 -1, 1) i32 @tcf_em_tree_dump(ptr noundef %0, 
   %41 = getelementptr %struct.tcf_ematch, ptr %40, i64 %39
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #7
   store i64 0, ptr %4, align 8, !annotation !8
-  %42 = getelementptr inbounds i8, ptr %41, i64 20
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 20
   %43 = load i16, ptr %42, align 4
   store i16 %43, ptr %4, align 8
   %44 = load ptr, ptr %41, align 8
@@ -643,7 +643,7 @@ define dso_local noundef range(i32 -1, 1) i32 @tcf_em_tree_dump(ptr noundef %0, 
 49:                                               ; preds = %46, %.lr.ph
   %50 = phi i16 [ %48, %46 ], [ 0, %.lr.ph ]
   store i16 %50, ptr %33, align 2
-  %51 = getelementptr inbounds i8, ptr %41, i64 22
+  %51 = getelementptr inbounds nuw i8, ptr %41, i64 22
   %52 = load i16, ptr %51, align 2
   store i16 %52, ptr %34, align 4
   store i16 0, ptr %35, align 2
@@ -659,7 +659,7 @@ define dso_local noundef range(i32 -1, 1) i32 @tcf_em_tree_dump(ptr noundef %0, 
   br i1 %59, label %71, label %60
 
 60:                                               ; preds = %57
-  %61 = getelementptr inbounds i8, ptr %58, i64 32
+  %61 = getelementptr inbounds nuw i8, ptr %58, i64 32
   %62 = load ptr, ptr %61, align 8
   %63 = icmp eq ptr %62, null
   br i1 %63, label %67, label %64
@@ -677,7 +677,7 @@ define dso_local noundef range(i32 -1, 1) i32 @tcf_em_tree_dump(ptr noundef %0, 
 
 71:                                               ; preds = %67, %57
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #7
-  %72 = getelementptr inbounds i8, ptr %41, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %73 = load i64, ptr %72, align 8
   %74 = trunc i64 %73 to i32
   store i32 %74, ptr %5, align 4
@@ -686,13 +686,13 @@ define dso_local noundef range(i32 -1, 1) i32 @tcf_em_tree_dump(ptr noundef %0, 
   br label %85
 
 76:                                               ; preds = %67
-  %77 = getelementptr inbounds i8, ptr %41, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %78 = load i32, ptr %77, align 8
   %79 = icmp eq i32 %78, 0
   br i1 %79, label %85, label %80
 
 80:                                               ; preds = %76
-  %81 = getelementptr inbounds i8, ptr %41, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %82 = load i64, ptr %81, align 8
   %83 = inttoptr i64 %82 to ptr
   %84 = call i32 @nla_put_nohdr(ptr noundef %0, i32 noundef %78, ptr noundef %83) #7
@@ -760,7 +760,7 @@ define dso_local i32 @__tcf_em_tree_match(ptr noundef %0, ptr nocapture noundef 
   %4 = alloca [32 x i32], align 16
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %4, i8 0, i64 128, i1 false), !annotation !8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %6
 
 6:                                                ; preds = %.backedge, %3
@@ -803,7 +803,7 @@ define dso_local i32 @__tcf_em_tree_match(ptr noundef %0, ptr nocapture noundef 
   %31 = sext i32 %7 to i64
   %32 = getelementptr [32 x i32], ptr %4, i64 0, i64 %31
   store i32 %25, ptr %32, align 4
-  %33 = getelementptr inbounds i8, ptr %27, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %34 = load i64, ptr %33, align 8
   %35 = trunc i64 %34 to i32
   br label %.backedge
@@ -812,10 +812,10 @@ define dso_local i32 @__tcf_em_tree_match(ptr noundef %0, ptr nocapture noundef 
   %36 = phi ptr [ %22, %19 ], [ %17, %13 ]
   %37 = phi ptr [ %21, %19 ], [ %16, %13 ]
   %38 = phi i64 [ %60, %19 ], [ %14, %13 ]
-  %39 = getelementptr inbounds i8, ptr %36, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %40 = load ptr, ptr %39, align 8
   %41 = tail call i32 %40(ptr noundef %0, ptr noundef %37, ptr noundef %2) #7
-  %42 = getelementptr inbounds i8, ptr %37, i64 22
+  %42 = getelementptr inbounds nuw i8, ptr %37, i64 22
   %43 = load i16, ptr %42, align 2
   %44 = and i16 %43, 4
   %45 = icmp eq i16 %44, 0

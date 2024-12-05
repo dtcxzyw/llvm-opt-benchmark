@@ -56,17 +56,17 @@ define dso_local nonnull ptr @SlabContextCreate(ptr noundef %0, ptr noundef %1, 
 
 24:                                               ; preds = %15
   %25 = trunc i64 %spec.store.select to i32
-  %26 = getelementptr inbounds i8, ptr %16, i64 80
+  %26 = getelementptr inbounds nuw i8, ptr %16, i64 80
   store i32 %25, ptr %26, align 8
   %27 = trunc i64 %7 to i32
-  %28 = getelementptr inbounds i8, ptr %16, i64 84
+  %28 = getelementptr inbounds nuw i8, ptr %16, i64 84
   store i32 %27, ptr %28, align 4
   %29 = trunc i64 %2 to i32
-  %30 = getelementptr inbounds i8, ptr %16, i64 88
+  %30 = getelementptr inbounds nuw i8, ptr %16, i64 88
   store i32 %29, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %16, i64 92
+  %31 = getelementptr inbounds nuw i8, ptr %16, i64 92
   store i32 %10, ptr %31, align 4
-  %32 = getelementptr inbounds i8, ptr %16, i64 96
+  %32 = getelementptr inbounds nuw i8, ptr %16, i64 96
   store i32 0, ptr %32, align 8
   br label %33
 
@@ -78,22 +78,22 @@ define dso_local nonnull ptr @SlabContextCreate(ptr noundef %0, ptr noundef %1, 
   br i1 %35, label %33, label %37, !llvm.loop !5
 
 37:                                               ; preds = %33
-  %38 = getelementptr inbounds i8, ptr %16, i64 100
+  %38 = getelementptr inbounds nuw i8, ptr %16, i64 100
   store i32 %storemerge, ptr %38, align 4
-  %39 = getelementptr inbounds i8, ptr %16, i64 104
+  %39 = getelementptr inbounds nuw i8, ptr %16, i64 104
   store ptr %39, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %16, i64 112
+  %40 = getelementptr inbounds nuw i8, ptr %16, i64 112
   store ptr %39, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %16, i64 120
+  %41 = getelementptr inbounds nuw i8, ptr %16, i64 120
   store i32 0, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %16, i64 128
+  %42 = getelementptr inbounds nuw i8, ptr %16, i64 128
   br label %43
 
 43:                                               ; preds = %37, %43
   %indvars.iv = phi i64 [ 0, %37 ], [ %indvars.iv.next, %43 ]
   %44 = getelementptr [3 x %struct.dlist_head], ptr %42, i64 0, i64 %indvars.iv
   store ptr %44, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   store ptr %44, ptr %45, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -126,8 +126,8 @@ declare void @MemoryContextCreate(ptr noundef, i32 noundef, i32 noundef, ptr nou
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @SlabReset(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 104
-  %3 = getelementptr inbounds i8, ptr %0, i64 112
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   %.not333743 = icmp eq ptr %4, %2
@@ -135,24 +135,24 @@ define dso_local void @SlabReset(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not3337, label %.preheader, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 120
-  %6 = getelementptr inbounds i8, ptr %0, i64 88
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %11
 
 .preheader:                                       ; preds = %11, %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 128
-  %9 = getelementptr inbounds i8, ptr %0, i64 88
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %22
 
 11:                                               ; preds = %.lr.ph, %11
   %.sroa.0.038 = phi ptr [ %4, %.lr.ph ], [ %.sroa.14.0, %11 ]
-  %.sroa.14.0.in = getelementptr inbounds i8, ptr %.sroa.0.038, i64 8
+  %.sroa.14.0.in = getelementptr inbounds nuw i8, ptr %.sroa.0.038, i64 8
   %.sroa.14.0 = load ptr, ptr %.sroa.14.0.in, align 8
   %12 = getelementptr i8, ptr %.sroa.0.038, i64 -32
   %13 = load ptr, ptr %.sroa.0.038, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %.sroa.14.0, ptr %14, align 8
   %15 = load ptr, ptr %.sroa.0.038, align 8
   store ptr %15, ptr %.sroa.14.0, align 8
@@ -171,7 +171,7 @@ define dso_local void @SlabReset(ptr noundef %0) local_unnamed_addr #0 {
 22:                                               ; preds = %.preheader, %._crit_edge
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %._crit_edge ]
   %23 = getelementptr [3 x %struct.dlist_head], ptr %8, i64 0, i64 %indvars.iv
-  %24 = getelementptr inbounds i8, ptr %23, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load ptr, ptr %24, align 8
   %.not34 = icmp eq ptr %25, null
   %.not353945 = icmp eq ptr %25, %23
@@ -180,11 +180,11 @@ define dso_local void @SlabReset(ptr noundef %0) local_unnamed_addr #0 {
 
 .lr.ph41:                                         ; preds = %22, %.lr.ph41
   %.sroa.0.140 = phi ptr [ %.sroa.14.1, %.lr.ph41 ], [ %25, %22 ]
-  %.sroa.14.1.in = getelementptr inbounds i8, ptr %.sroa.0.140, i64 8
+  %.sroa.14.1.in = getelementptr inbounds nuw i8, ptr %.sroa.0.140, i64 8
   %.sroa.14.1 = load ptr, ptr %.sroa.14.1.in, align 8
   %26 = getelementptr i8, ptr %.sroa.0.140, i64 -32
   %27 = load ptr, ptr %.sroa.0.140, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store ptr %.sroa.14.1, ptr %28, align 8
   %29 = load ptr, ptr %.sroa.0.140, align 8
   store ptr %29, ptr %.sroa.14.1, align 8
@@ -203,7 +203,7 @@ define dso_local void @SlabReset(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %exitcond.not, label %34, label %22, !llvm.loop !10
 
 34:                                               ; preds = %._crit_edge
-  %35 = getelementptr inbounds i8, ptr %0, i64 96
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i32 0, ptr %35, align 8
   ret void
 }
@@ -213,8 +213,8 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @SlabDelete(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 104
-  %3 = getelementptr inbounds i8, ptr %0, i64 112
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %4, null
   %.not333743.i = icmp eq ptr %4, %2
@@ -222,24 +222,24 @@ define dso_local void @SlabDelete(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not3337.i, label %.preheader.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 120
-  %6 = getelementptr inbounds i8, ptr %0, i64 88
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %11
 
 .preheader.i:                                     ; preds = %11, %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 128
-  %9 = getelementptr inbounds i8, ptr %0, i64 88
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %22
 
 11:                                               ; preds = %11, %.lr.ph.i
   %.sroa.0.038.i = phi ptr [ %4, %.lr.ph.i ], [ %.sroa.14.0.i, %11 ]
-  %.sroa.14.0.in.i = getelementptr inbounds i8, ptr %.sroa.0.038.i, i64 8
+  %.sroa.14.0.in.i = getelementptr inbounds nuw i8, ptr %.sroa.0.038.i, i64 8
   %.sroa.14.0.i = load ptr, ptr %.sroa.14.0.in.i, align 8
   %12 = getelementptr i8, ptr %.sroa.0.038.i, i64 -32
   %13 = load ptr, ptr %.sroa.0.038.i, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %.sroa.14.0.i, ptr %14, align 8
   %15 = load ptr, ptr %.sroa.0.038.i, align 8
   store ptr %15, ptr %.sroa.14.0.i, align 8
@@ -258,7 +258,7 @@ define dso_local void @SlabDelete(ptr noundef %0) local_unnamed_addr #0 {
 22:                                               ; preds = %._crit_edge.i, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %._crit_edge.i ]
   %23 = getelementptr [3 x %struct.dlist_head], ptr %8, i64 0, i64 %indvars.iv.i
-  %24 = getelementptr inbounds i8, ptr %23, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load ptr, ptr %24, align 8
   %.not34.i = icmp eq ptr %25, null
   %.not353945.i = icmp eq ptr %25, %23
@@ -267,11 +267,11 @@ define dso_local void @SlabDelete(ptr noundef %0) local_unnamed_addr #0 {
 
 .lr.ph41.i:                                       ; preds = %22, %.lr.ph41.i
   %.sroa.0.140.i = phi ptr [ %.sroa.14.1.i, %.lr.ph41.i ], [ %25, %22 ]
-  %.sroa.14.1.in.i = getelementptr inbounds i8, ptr %.sroa.0.140.i, i64 8
+  %.sroa.14.1.in.i = getelementptr inbounds nuw i8, ptr %.sroa.0.140.i, i64 8
   %.sroa.14.1.i = load ptr, ptr %.sroa.14.1.in.i, align 8
   %26 = getelementptr i8, ptr %.sroa.0.140.i, i64 -32
   %27 = load ptr, ptr %.sroa.0.140.i, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store ptr %.sroa.14.1.i, ptr %28, align 8
   %29 = load ptr, ptr %.sroa.0.140.i, align 8
   store ptr %29, ptr %.sroa.14.1.i, align 8
@@ -296,7 +296,7 @@ SlabReset.exit:                                   ; preds = %._crit_edge.i
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @SlabAlloc(ptr noundef %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 80
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %5 = load i32, ptr %4, align 8
   %6 = zext i32 %5 to i64
   %.not = icmp eq i64 %1, %6
@@ -307,7 +307,7 @@ define dso_local ptr @SlabAlloc(ptr noundef %0, i64 noundef %1, i32 noundef %2) 
   unreachable
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 96
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %10 = load i32, ptr %9, align 8
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %12, label %93
@@ -321,10 +321,10 @@ define dso_local ptr @SlabAlloc(ptr noundef %0, i64 noundef %1, i32 noundef %2) 
 14:                                               ; preds = %12
   %15 = getelementptr i8, ptr %0, i64 112
   %.val.i.i = load ptr, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %.val.i.i, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr %.val.i.i, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr %17, ptr %19, align 8
   %20 = load ptr, ptr %.val.i.i, align 8
   store ptr %20, ptr %17, align 8
@@ -346,7 +346,7 @@ define dso_local ptr @SlabAlloc(ptr noundef %0, i64 noundef %1, i32 noundef %2) 
 29:                                               ; preds = %14
   %30 = getelementptr i8, ptr %.val.i.i, i64 -8
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 84
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %33 = load i32, ptr %32, align 4
   %34 = zext i32 %33 to i64
   %35 = getelementptr i8, ptr %31, i64 %34
@@ -366,7 +366,7 @@ SlabGetNextFreeChunk.exit.i:                      ; preds = %29, %26
   br label %66
 
 42:                                               ; preds = %12
-  %43 = getelementptr inbounds i8, ptr %0, i64 88
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %44 = load i32, ptr %43, align 8
   %45 = zext i32 %44 to i64
   %46 = tail call noalias ptr @malloc(i64 noundef %45) #12
@@ -379,25 +379,25 @@ SlabGetNextFreeChunk.exit.i:                      ; preds = %29, %26
 
 50:                                               ; preds = %42
   store ptr %0, ptr %46, align 8
-  %51 = getelementptr inbounds i8, ptr %0, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %52 = load i64, ptr %51, align 8
   %53 = add i64 %52, %45
   store i64 %53, ptr %51, align 8
   %54 = getelementptr i8, ptr %46, i64 48
-  %55 = getelementptr inbounds i8, ptr %0, i64 84
-  %56 = getelementptr inbounds i8, ptr %0, i64 92
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 84
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %57 = load i32, ptr %56, align 4
   %58 = add i32 %57, -1
-  %59 = getelementptr inbounds i8, ptr %46, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %46, i64 8
   store i32 %58, ptr %59, align 8
   %60 = load i32, ptr %55, align 4
   %61 = zext i32 %60 to i64
   %62 = getelementptr i8, ptr %54, i64 %61
-  %63 = getelementptr inbounds i8, ptr %46, i64 24
+  %63 = getelementptr inbounds nuw i8, ptr %46, i64 24
   store ptr %62, ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %46, i64 16
+  %64 = getelementptr inbounds nuw i8, ptr %46, i64 16
   store ptr null, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %46, i64 12
+  %65 = getelementptr inbounds nuw i8, ptr %46, i64 12
   store i32 %58, ptr %65, align 4
   br label %66
 
@@ -410,11 +410,11 @@ SlabGetNextFreeChunk.exit.i:                      ; preds = %29, %26
   %69 = sub i32 0, %67
   %70 = ashr i32 %69, %.val40.i
   %71 = sub i32 0, %70
-  %72 = getelementptr inbounds i8, ptr %0, i64 128
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %73 = sext i32 %71 to i64
   %74 = getelementptr [3 x %struct.dlist_head], ptr %72, i64 0, i64 %73
-  %75 = getelementptr inbounds i8, ptr %.037.i, i64 32
-  %76 = getelementptr inbounds i8, ptr %74, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %.037.i, i64 32
+  %76 = getelementptr inbounds nuw i8, ptr %74, i64 8
   %77 = load ptr, ptr %76, align 8
   %78 = icmp eq ptr %77, null
   br i1 %78, label %79, label %dlist_push_head.exit.i
@@ -425,7 +425,7 @@ SlabGetNextFreeChunk.exit.i:                      ; preds = %29, %26
 
 dlist_push_head.exit.i:                           ; preds = %79, %66
   %80 = phi ptr [ %74, %79 ], [ %77, %66 ]
-  %81 = getelementptr inbounds i8, ptr %.037.i, i64 40
+  %81 = getelementptr inbounds nuw i8, ptr %.037.i, i64 40
   store ptr %80, ptr %81, align 8
   store ptr %74, ptr %75, align 8
   store ptr %75, ptr %80, align 8
@@ -447,7 +447,7 @@ dlist_push_head.exit.i:                           ; preds = %79, %66
   br label %SlabAllocFromNewBlock.exit
 
 93:                                               ; preds = %8
-  %94 = getelementptr inbounds i8, ptr %0, i64 128
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %95 = sext i32 %10 to i64
   %96 = getelementptr [3 x %struct.dlist_head], ptr %94, i64 0, i64 %95
   %97 = getelementptr i8, ptr %96, i64 8
@@ -467,7 +467,7 @@ dlist_push_head.exit.i:                           ; preds = %79, %66
 104:                                              ; preds = %93
   %105 = getelementptr i8, ptr %.val35, i64 -8
   %106 = load ptr, ptr %105, align 8
-  %107 = getelementptr inbounds i8, ptr %0, i64 84
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %108 = load i32, ptr %107, align 4
   %109 = zext i32 %108 to i64
   %110 = getelementptr i8, ptr %106, i64 %109
@@ -494,16 +494,16 @@ SlabGetNextFreeChunk.exit:                        ; preds = %101, %104
   br i1 %.not33, label %145, label %122
 
 122:                                              ; preds = %SlabGetNextFreeChunk.exit
-  %123 = getelementptr inbounds i8, ptr %.val35, i64 8
+  %123 = getelementptr inbounds nuw i8, ptr %.val35, i64 8
   %124 = load ptr, ptr %123, align 8
   %125 = load ptr, ptr %.val35, align 8
-  %126 = getelementptr inbounds i8, ptr %125, i64 8
+  %126 = getelementptr inbounds nuw i8, ptr %125, i64 8
   store ptr %124, ptr %126, align 8
   %127 = load ptr, ptr %.val35, align 8
   store ptr %127, ptr %124, align 8
   %128 = sext i32 %120 to i64
   %129 = getelementptr [3 x %struct.dlist_head], ptr %94, i64 0, i64 %128
-  %130 = getelementptr inbounds i8, ptr %129, i64 8
+  %130 = getelementptr inbounds nuw i8, ptr %129, i64 8
   %131 = load ptr, ptr %130, align 8
   %132 = icmp eq ptr %131, null
   br i1 %132, label %133, label %dlist_push_head.exit
@@ -527,7 +527,7 @@ dlist_push_head.exit:                             ; preds = %122, %133
 .preheader:                                       ; preds = %dlist_push_head.exit, %143
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %143 ], [ 1, %dlist_push_head.exit ]
   %138 = getelementptr [3 x %struct.dlist_head], ptr %94, i64 0, i64 %indvars.iv.i
-  %139 = getelementptr inbounds i8, ptr %138, i64 8
+  %139 = getelementptr inbounds nuw i8, ptr %138, i64 8
   %140 = load ptr, ptr %139, align 8
   %141 = icmp eq ptr %140, null
   %142 = icmp eq ptr %140, %138
@@ -573,7 +573,7 @@ SlabAllocFromNewBlock.exit:                       ; preds = %dlist_push_head.exi
 define internal fastcc void @SlabAllocInvalidSize(ptr nocapture noundef readonly %0, i64 noundef %1) unnamed_addr #5 {
   %3 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
   tail call void @llvm.assume(i1 %3)
-  %4 = getelementptr inbounds i8, ptr %0, i64 80
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %5 = load i32, ptr %4, align 8
   %6 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7, i64 noundef %1, i32 noundef %5) #11
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 611, ptr noundef nonnull @__func__.SlabAllocInvalidSize) #11
@@ -588,11 +588,11 @@ define dso_local void @SlabFree(ptr noundef %0) local_unnamed_addr #0 {
   %5 = sub nsw i64 0, %4
   %6 = getelementptr i8, ptr %2, i64 %5
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %6, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %9 = load ptr, ptr %8, align 8
   store ptr %9, ptr %0, align 8
   store ptr %2, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %6, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %11 = load i32, ptr %10, align 8
   %12 = add i32 %11, 1
   store i32 %12, ptr %10, align 8
@@ -607,18 +607,18 @@ define dso_local void @SlabFree(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %41, label %17
 
 17:                                               ; preds = %1
-  %18 = getelementptr inbounds i8, ptr %7, i64 128
-  %19 = getelementptr inbounds i8, ptr %6, i64 32
-  %20 = getelementptr inbounds i8, ptr %6, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 128
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %21 = load ptr, ptr %20, align 8
   %22 = load ptr, ptr %19, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr %21, ptr %23, align 8
   %24 = load ptr, ptr %19, align 8
   store ptr %24, ptr %21, align 8
   %25 = sext i32 %.neg to i64
   %26 = getelementptr [3 x %struct.dlist_head], ptr %18, i64 0, i64 %25
-  %27 = getelementptr inbounds i8, ptr %26, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load ptr, ptr %27, align 8
   %29 = icmp eq ptr %28, null
   br i1 %29, label %30, label %dlist_push_head.exit
@@ -633,7 +633,7 @@ dlist_push_head.exit:                             ; preds = %17, %30
   store ptr %26, ptr %19, align 8
   store ptr %19, ptr %31, align 8
   store ptr %19, ptr %27, align 8
-  %32 = getelementptr inbounds i8, ptr %7, i64 96
+  %32 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %33 = load i32, ptr %32, align 8
   %.not41 = icmp slt i32 %33, %16
   br i1 %.not41, label %41, label %.preheader52
@@ -641,7 +641,7 @@ dlist_push_head.exit:                             ; preds = %17, %30
 .preheader52:                                     ; preds = %dlist_push_head.exit, %39
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %39 ], [ 1, %dlist_push_head.exit ]
   %34 = getelementptr [3 x %struct.dlist_head], ptr %18, i64 0, i64 %indvars.iv.i
-  %35 = getelementptr inbounds i8, ptr %34, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load ptr, ptr %35, align 8
   %37 = icmp eq ptr %36, null
   %38 = icmp eq ptr %36, %34
@@ -664,31 +664,31 @@ SlabFindNextBlockListIndex.exit:                  ; preds = %39, %.split.loop.ex
 
 41:                                               ; preds = %dlist_push_head.exit, %SlabFindNextBlockListIndex.exit, %1
   %42 = load i32, ptr %10, align 8
-  %43 = getelementptr inbounds i8, ptr %7, i64 92
+  %43 = getelementptr inbounds nuw i8, ptr %7, i64 92
   %44 = load i32, ptr %43, align 4
   %45 = icmp eq i32 %42, %44
   br i1 %45, label %46, label %90
 
 46:                                               ; preds = %41
-  %47 = getelementptr inbounds i8, ptr %7, i64 128
+  %47 = getelementptr inbounds nuw i8, ptr %7, i64 128
   %48 = sext i32 %.neg to i64
   %49 = getelementptr [3 x %struct.dlist_head], ptr %47, i64 0, i64 %48
-  %50 = getelementptr inbounds i8, ptr %6, i64 32
-  %51 = getelementptr inbounds i8, ptr %6, i64 40
+  %50 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %51 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %52 = load ptr, ptr %51, align 8
   %53 = load ptr, ptr %50, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
   store ptr %52, ptr %54, align 8
   %55 = load ptr, ptr %50, align 8
   store ptr %55, ptr %52, align 8
-  %56 = getelementptr inbounds i8, ptr %7, i64 104
+  %56 = getelementptr inbounds nuw i8, ptr %7, i64 104
   %57 = getelementptr i8, ptr %7, i64 120
   %.val = load i32, ptr %57, align 8
   %58 = icmp ult i32 %.val, 10
   br i1 %58, label %59, label %67
 
 59:                                               ; preds = %46
-  %60 = getelementptr inbounds i8, ptr %7, i64 112
+  %60 = getelementptr inbounds nuw i8, ptr %7, i64 112
   %61 = load ptr, ptr %60, align 8
   %62 = icmp eq ptr %61, null
   br i1 %62, label %63, label %dclist_push_head.exit
@@ -711,23 +711,23 @@ dclist_push_head.exit:                            ; preds = %59, %63
 
 67:                                               ; preds = %46
   tail call void @free(ptr noundef %6) #11
-  %68 = getelementptr inbounds i8, ptr %7, i64 88
+  %68 = getelementptr inbounds nuw i8, ptr %7, i64 88
   %69 = load i32, ptr %68, align 8
   %70 = zext i32 %69 to i64
-  %71 = getelementptr inbounds i8, ptr %7, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %72 = load i64, ptr %71, align 8
   %73 = sub i64 %72, %70
   store i64 %73, ptr %71, align 8
   br label %74
 
 74:                                               ; preds = %67, %dclist_push_head.exit
-  %75 = getelementptr inbounds i8, ptr %7, i64 96
+  %75 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %76 = load i32, ptr %75, align 8
   %77 = icmp eq i32 %76, %.neg
   br i1 %77, label %78, label %90
 
 78:                                               ; preds = %74
-  %79 = getelementptr inbounds i8, ptr %49, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %80 = load ptr, ptr %79, align 8
   %81 = icmp eq ptr %80, null
   %82 = icmp eq ptr %80, %49
@@ -737,7 +737,7 @@ dclist_push_head.exit:                            ; preds = %59, %63
 .preheader:                                       ; preds = %78, %88
   %indvars.iv.i44 = phi i64 [ %indvars.iv.next.i48, %88 ], [ 1, %78 ]
   %83 = getelementptr [3 x %struct.dlist_head], ptr %47, i64 0, i64 %indvars.iv.i44
-  %84 = getelementptr inbounds i8, ptr %83, i64 8
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 8
   %85 = load ptr, ptr %84, align 8
   %86 = icmp eq ptr %85, null
   %87 = icmp eq ptr %85, %83
@@ -790,7 +790,7 @@ define dso_local noundef ptr @SlabRealloc(ptr noundef returned %0, i64 noundef %
   unreachable
 
 17:                                               ; preds = %11
-  %18 = getelementptr inbounds i8, ptr %10, i64 80
+  %18 = getelementptr inbounds nuw i8, ptr %10, i64 80
   %19 = load i32, ptr %18, align 8
   %20 = zext i32 %19 to i64
   %21 = icmp eq i64 %1, %20
@@ -826,7 +826,7 @@ define dso_local range(i64 0, 4294967296) i64 @SlabGetChunkSpace(ptr nocapture n
   %5 = sub nsw i64 0, %4
   %6 = getelementptr i8, ptr %2, i64 %5
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 84
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 84
   %9 = load i32, ptr %8, align 4
   %10 = zext i32 %9 to i64
   ret i64 %10
@@ -834,7 +834,7 @@ define dso_local range(i64 0, 4294967296) i64 @SlabGetChunkSpace(ptr nocapture n
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local zeroext i1 @SlabIsEmpty(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %4 = icmp eq i64 %3, 0
   ret i1 %4
@@ -845,14 +845,14 @@ define dso_local void @SlabStats(ptr noundef %0, ptr noundef readonly %1, ptr no
   %6 = alloca [200 x i8], align 16
   %7 = getelementptr i8, ptr %0, i64 120
   %.val54 = load i32, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 88
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %9 = load i32, ptr %8, align 8
   %10 = mul i32 %9, %.val54
   %11 = zext i32 %10 to i64
   %12 = add nuw nsw i64 %11, 176
-  %13 = getelementptr inbounds i8, ptr %0, i64 128
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %14 = zext i32 %9 to i64
-  %15 = getelementptr inbounds i8, ptr %0, i64 84
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 84
   br label %16
 
 16:                                               ; preds = %5, %._crit_edge
@@ -862,7 +862,7 @@ define dso_local void @SlabStats(ptr noundef %0, ptr noundef readonly %1, ptr no
   %.04366 = phi i64 [ %12, %5 ], [ %.144.lcssa, %._crit_edge ]
   %.04565 = phi i64 [ 0, %5 ], [ %.146.lcssa, %._crit_edge ]
   %17 = getelementptr [3 x %struct.dlist_head], ptr %13, i64 0, i64 %indvars.iv
-  %18 = getelementptr inbounds i8, ptr %17, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8
   %.not52 = icmp eq ptr %19, null
   %.not535569 = icmp eq ptr %19, %17
@@ -888,7 +888,7 @@ define dso_local void @SlabStats(ptr noundef %0, ptr noundef readonly %1, ptr no
   %28 = add i64 %.14657, %27
   %29 = sext i32 %25 to i64
   %30 = add i64 %.14259, %29
-  %31 = getelementptr inbounds i8, ptr %.sroa.0.056, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %.sroa.0.056, i64 8
   %32 = load ptr, ptr %31, align 8
   %.not53 = icmp eq ptr %32, %17
   br i1 %.not53, label %._crit_edge, label %21, !llvm.loop !12
@@ -920,15 +920,15 @@ define dso_local void @SlabStats(ptr noundef %0, ptr noundef readonly %1, ptr no
   %39 = load i64, ptr %3, align 8
   %40 = add i64 %39, %.1.lcssa
   store i64 %40, ptr %3, align 8
-  %41 = getelementptr inbounds i8, ptr %3, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %42 = load i64, ptr %41, align 8
   %43 = add i64 %42, %.142.lcssa
   store i64 %43, ptr %41, align 8
-  %44 = getelementptr inbounds i8, ptr %3, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %45 = load i64, ptr %44, align 8
   %46 = add i64 %45, %.144.lcssa
   store i64 %46, ptr %44, align 8
-  %47 = getelementptr inbounds i8, ptr %3, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %48 = load i64, ptr %47, align 8
   %49 = add i64 %48, %.146.lcssa
   store i64 %49, ptr %47, align 8

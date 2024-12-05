@@ -36,15 +36,15 @@ define internal void @process3(ptr noundef %0) #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @process(ptr noundef %0, i32 noundef range(i32 3, 25) %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 264
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 572
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 572
   %6 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %._crit_edge70, label %.preheader67.lr.ph
 
 .preheader67.lr.ph:                               ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 568
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 568
   %8 = icmp eq i32 %1, 3
   br label %.preheader67
 
@@ -66,16 +66,16 @@ define internal fastcc void @process(ptr noundef %0, i32 noundef range(i32 3, 25
   %15 = shl i32 %14, 2
   %16 = or disjoint i32 %15, 2
   %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds i8, ptr %4, i64 %17
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 %17
   %19 = load i8, ptr %18, align 1
   %20 = zext i8 %19 to i32
   %21 = or disjoint i32 %15, 1
   %22 = zext i32 %21 to i64
-  %23 = getelementptr inbounds i8, ptr %4, i64 %22
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 %22
   %24 = load i8, ptr %23, align 1
   %25 = zext i8 %24 to i32
   %26 = zext i32 %15 to i64
-  %27 = getelementptr inbounds i8, ptr %4, i64 %26
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 %26
   %28 = load i8, ptr %27, align 1
   %29 = zext i8 %28 to i32
   br i1 %8, label %.preheader66, label %51
@@ -84,9 +84,9 @@ define internal fastcc void @process(ptr noundef %0, i32 noundef range(i32 3, 25
   %.017.i = phi i32 [ %spec.select18.i, %.preheader66 ], [ 0, %11 ]
   %.01116.i = phi i64 [ %50, %.preheader66 ], [ 0, %11 ]
   %.01215.i = phi i32 [ %spec.select.i, %.preheader66 ], [ -1, %11 ]
-  %30 = getelementptr inbounds [8 x %struct.color_t], ptr @COLORS, i64 0, i64 %.01116.i
+  %30 = getelementptr inbounds nuw [8 x %struct.color_t], ptr @COLORS, i64 0, i64 %.01116.i
   %31 = load i64, ptr %30, align 16
-  %32 = getelementptr inbounds i8, ptr %30, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %33 = load i64, ptr %32, align 8
   %.sroa.1.0.extract.shift.i.i = lshr i64 %31, 32
   %.sroa.1.0.extract.trunc.i.i = trunc nuw i64 %.sroa.1.0.extract.shift.i.i to i32
@@ -135,16 +135,16 @@ get_color.exit:                                   ; preds = %.preheader66
   %59 = shl i32 %58, 2
   %60 = or disjoint i32 %59, 2
   %61 = zext i32 %60 to i64
-  %62 = getelementptr inbounds i8, ptr %4, i64 %61
+  %62 = getelementptr inbounds nuw i8, ptr %4, i64 %61
   %63 = load i8, ptr %62, align 1
   %64 = zext i8 %63 to i32
   %65 = or disjoint i32 %59, 1
   %66 = zext i32 %65 to i64
-  %67 = getelementptr inbounds i8, ptr %4, i64 %66
+  %67 = getelementptr inbounds nuw i8, ptr %4, i64 %66
   %68 = load i8, ptr %67, align 1
   %69 = zext i8 %68 to i32
   %70 = zext i32 %59 to i64
-  %71 = getelementptr inbounds i8, ptr %4, i64 %70
+  %71 = getelementptr inbounds nuw i8, ptr %4, i64 %70
   %72 = load i8, ptr %71, align 1
   %73 = zext i8 %72 to i32
   br label %74
@@ -159,9 +159,9 @@ get_color.exit:                                   ; preds = %.preheader66
   %.017.i54 = phi i32 [ %spec.select18.i63, %.preheader ], [ 0, %74 ]
   %.01116.i55 = phi i64 [ %95, %.preheader ], [ 0, %74 ]
   %.01215.i56 = phi i32 [ %spec.select.i62, %.preheader ], [ -1, %74 ]
-  %75 = getelementptr inbounds [8 x %struct.color_t], ptr @COLORS, i64 0, i64 %.01116.i55
+  %75 = getelementptr inbounds nuw [8 x %struct.color_t], ptr @COLORS, i64 0, i64 %.01116.i55
   %76 = load i64, ptr %75, align 16
-  %77 = getelementptr inbounds i8, ptr %75, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %75, i64 8
   %78 = load i64, ptr %77, align 8
   %.sroa.1.0.extract.shift.i.i57 = lshr i64 %76, 32
   %.sroa.1.0.extract.trunc.i.i58 = trunc nuw i64 %.sroa.1.0.extract.shift.i.i57 to i32

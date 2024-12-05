@@ -78,13 +78,13 @@ entry:
   %call = tail call ptr @EVP_aes_128_gcm() #5
   store ptr null, ptr %rrl, align 8
   store ptr null, ptr %wrl, align 8
-  %data = getelementptr inbounds i8, ptr %rec, i64 32
+  %data = getelementptr inbounds nuw i8, ptr %rec, i64 32
   store ptr null, ptr %data, align 8
-  %type = getelementptr inbounds i8, ptr %rec, i64 4
+  %type = getelementptr inbounds nuw i8, ptr %rec, i64 4
   store i32 23, ptr %type, align 4
   store i32 771, ptr %rec, align 8
-  %input.i = getelementptr inbounds i8, ptr %rec, i64 40
-  %length.i = getelementptr inbounds i8, ptr %rec, i64 8
+  %input.i = getelementptr inbounds nuw i8, ptr %rec, i64 40
+  %length.i = getelementptr inbounds nuw i8, ptr %rec, i64 8
   %0 = load ptr, ptr @ossl_tls_record_method, align 8
   %1 = load ptr, ptr getelementptr inbounds (i8, ptr @ossl_tls_record_method, i64 8), align 8
   br label %for.body
@@ -93,15 +93,15 @@ for.body:                                         ; preds = %entry, %if.end55
   %ctr.067 = phi i64 [ 0, %entry ], [ %inc, %if.end55 ]
   %call1 = call i32 @EVP_CIPHER_get_iv_length(ptr noundef %call) #5
   %conv = sext i32 %call1 to i64
-  %arrayidx = getelementptr inbounds [7 x %struct.RECORD_DATA], ptr @refdata, i64 0, i64 %ctr.067
+  %arrayidx = getelementptr inbounds nuw [7 x %struct.RECORD_DATA], ptr @refdata, i64 0, i64 %ctr.067
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ptlen.i)
-  %key1.i = getelementptr inbounds i8, ptr %arrayidx, i64 48
+  %key1.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 48
   %2 = load ptr, ptr %key1.i, align 8
   %call.i = call ptr @OPENSSL_hexstr2buf(ptr noundef %2, ptr noundef null) #5
-  %iv2.i = getelementptr inbounds i8, ptr %arrayidx, i64 56
+  %iv2.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 56
   %3 = load ptr, ptr %iv2.i, align 8
   %call3.i = call ptr @OPENSSL_hexstr2buf(ptr noundef %3, ptr noundef null) #5
-  %seq4.i = getelementptr inbounds i8, ptr %arrayidx, i64 64
+  %seq4.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 64
   %4 = load ptr, ptr %seq4.i, align 8
   %call5.i = call ptr @OPENSSL_hexstr2buf(ptr noundef %4, ptr noundef null) #5
   %call6.i = call fastcc ptr @multihexstr2buf(ptr noundef nonnull readonly %arrayidx, ptr noundef %ptlen.i)
@@ -151,11 +151,11 @@ if.end:                                           ; preds = %if.end.i
 
 if.end12:                                         ; preds = %if.end
   %7 = load ptr, ptr %wrl, align 8
-  %sequence = getelementptr inbounds i8, ptr %7, i64 4096
+  %sequence = getelementptr inbounds nuw i8, ptr %7, i64 4096
   store i64 %6, ptr %sequence, align 8
-  %funcs = getelementptr inbounds i8, ptr %7, i64 4424
+  %funcs = getelementptr inbounds nuw i8, ptr %7, i64 4424
   %8 = load ptr, ptr %funcs, align 8
-  %cipher = getelementptr inbounds i8, ptr %8, i64 8
+  %cipher = getelementptr inbounds nuw i8, ptr %8, i64 8
   %9 = load ptr, ptr %cipher, align 8
   %call15 = call i32 %9(ptr noundef %7, ptr noundef nonnull %rec, i64 noundef 1, i32 noundef 1, ptr noundef null, i64 noundef 0) #5
   %conv16 = sext i32 %call15 to i64
@@ -170,7 +170,7 @@ if.then19:                                        ; preds = %if.end12
 if.end20:                                         ; preds = %if.end12
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %refdatalen.i)
   store i64 0, ptr %refdatalen.i, align 8
-  %recd.sink.i = getelementptr inbounds i8, ptr %arrayidx, i64 24
+  %recd.sink.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 24
   %call2.i = call fastcc ptr @multihexstr2buf(ptr noundef nonnull readonly %recd.sink.i, ptr noundef %refdatalen.i)
   %call3.i12 = call i32 @test_ptr(ptr noundef nonnull @.str.1, i32 noundef 290, ptr noundef nonnull @.str.43, ptr noundef %call2.i) #5
   %tobool4.not.i = icmp eq i32 %call3.i12, 0
@@ -212,11 +212,11 @@ if.end28:                                         ; preds = %test_record.exit
 
 if.end37:                                         ; preds = %if.end28
   %13 = load ptr, ptr %rrl, align 8
-  %sequence38 = getelementptr inbounds i8, ptr %13, i64 4096
+  %sequence38 = getelementptr inbounds nuw i8, ptr %13, i64 4096
   store i64 %6, ptr %sequence38, align 8
-  %funcs41 = getelementptr inbounds i8, ptr %13, i64 4424
+  %funcs41 = getelementptr inbounds nuw i8, ptr %13, i64 4424
   %14 = load ptr, ptr %funcs41, align 8
-  %cipher42 = getelementptr inbounds i8, ptr %14, i64 8
+  %cipher42 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %15 = load ptr, ptr %cipher42, align 8
   %call43 = call i32 %15(ptr noundef %13, ptr noundef nonnull %rec, i64 noundef 1, i32 noundef 0, ptr noundef null, i64 noundef 0) #5
   %call44 = call i32 @test_int_eq(ptr noundef nonnull @.str.1, i32 noundef 370, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.5, i32 noundef %call43, i32 noundef 1) #5
@@ -328,7 +328,7 @@ for.cond:                                         ; preds = %for.body
 for.body:                                         ; preds = %entry, %for.cond
   %outer.027 = phi i64 [ 0, %entry ], [ %inc, %for.cond ]
   %totlen.026 = phi i64 [ 0, %entry ], [ %add, %for.cond ]
-  %arrayidx = getelementptr inbounds ptr, ptr %str, i64 %outer.027
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %str, i64 %outer.027
   %0 = load ptr, ptr %arrayidx, align 8
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #6
   %add = add i64 %call, %totlen.026
@@ -345,7 +345,7 @@ for.end:                                          ; preds = %for.cond
 for.cond9.preheader:                              ; preds = %for.end, %for.inc34
   %outer.132 = phi i64 [ %inc35, %for.inc34 ], [ 0, %for.end ]
   %curr.031 = phi i64 [ %curr.1.lcssa, %for.inc34 ], [ 0, %for.end ]
-  %arrayidx10 = getelementptr inbounds ptr, ptr %str, i64 %outer.132
+  %arrayidx10 = getelementptr inbounds nuw ptr, ptr %str, i64 %outer.132
   %1 = load ptr, ptr %arrayidx10, align 8
   %2 = load i8, ptr %1, align 1
   %cmp12.not28 = icmp eq i8 %2, 0

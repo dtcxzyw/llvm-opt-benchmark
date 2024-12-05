@@ -1012,7 +1012,7 @@ if.end37:                                         ; preds = %if.else
   store i32 %inc.i, ptr @rand_neg.neg, align 4
   %rem.i = and i32 %3, 7
   %idxprom.i = zext nneg i32 %rem.i to i64
-  %arrayidx.i = getelementptr inbounds [8 x i32], ptr @rand_neg.sign, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [8 x i32], ptr @rand_neg.sign, i64 0, i64 %idxprom.i
   %4 = load i32, ptr %arrayidx.i, align 4
   tail call void @BN_set_negative(ptr noundef %call, i32 noundef %4) #7
   %5 = load i32, ptr @rand_neg.neg, align 4
@@ -1020,7 +1020,7 @@ if.end37:                                         ; preds = %if.else
   store i32 %inc.i24, ptr @rand_neg.neg, align 4
   %rem.i25 = and i32 %5, 7
   %idxprom.i26 = zext nneg i32 %rem.i25 to i64
-  %arrayidx.i27 = getelementptr inbounds [8 x i32], ptr @rand_neg.sign, i64 0, i64 %idxprom.i26
+  %arrayidx.i27 = getelementptr inbounds nuw [8 x i32], ptr @rand_neg.sign, i64 0, i64 %idxprom.i26
   %6 = load i32, ptr %arrayidx.i27, align 4
   tail call void @BN_set_negative(ptr noundef %call2, i32 noundef %6) #7
   br label %if.end40
@@ -1160,7 +1160,7 @@ if.end52:                                         ; preds = %if.else, %land.lhs.
   store i32 %inc.i, ptr @rand_neg.neg, align 4
   %rem.i = and i32 %4, 7
   %idxprom.i = zext nneg i32 %rem.i to i64
-  %arrayidx.i = getelementptr inbounds [8 x i32], ptr @rand_neg.sign, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [8 x i32], ptr @rand_neg.sign, i64 0, i64 %idxprom.i
   %5 = load i32, ptr %arrayidx.i, align 4
   tail call void @BN_set_negative(ptr noundef %call, i32 noundef %5) #7
   %6 = load i32, ptr @rand_neg.neg, align 4
@@ -1168,7 +1168,7 @@ if.end52:                                         ; preds = %if.else, %land.lhs.
   store i32 %inc.i31, ptr @rand_neg.neg, align 4
   %rem.i32 = and i32 %6, 7
   %idxprom.i33 = zext nneg i32 %rem.i32 to i64
-  %arrayidx.i34 = getelementptr inbounds [8 x i32], ptr @rand_neg.sign, i64 0, i64 %idxprom.i33
+  %arrayidx.i34 = getelementptr inbounds nuw [8 x i32], ptr @rand_neg.sign, i64 0, i64 %idxprom.i33
   %7 = load i32, ptr %arrayidx.i34, align 4
   tail call void @BN_set_negative(ptr noundef %call2, i32 noundef %7) #7
   %8 = load ptr, ptr @ctx, align 8
@@ -1269,7 +1269,7 @@ set_signed_bn.exit:                               ; preds = %entry, %if.then3.i,
   br i1 %tobool.not, label %err, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %set_signed_bn.exit
-  %divisor = getelementptr inbounds i8, ptr %arrayidx, i64 4
+  %divisor = getelementptr inbounds nuw i8, ptr %arrayidx, i64 4
   %1 = load i32, ptr %divisor, align 4
   %call.i12 = tail call ptr @BN_new() #7
   %cmp.i13 = icmp eq ptr %call.i12, null
@@ -1298,7 +1298,7 @@ set_signed_bn.exit23:                             ; preds = %lor.lhs.false, %if.
   br i1 %tobool7.not, label %err, label %lor.lhs.false8
 
 lor.lhs.false8:                                   ; preds = %set_signed_bn.exit23
-  %result = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %result = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %2 = load i32, ptr %result, align 8
   %call.i24 = tail call ptr @BN_new() #7
   %cmp.i25 = icmp eq ptr %call.i24, null
@@ -1327,7 +1327,7 @@ set_signed_bn.exit35:                             ; preds = %lor.lhs.false8, %if
   br i1 %tobool13.not, label %err, label %lor.lhs.false14
 
 lor.lhs.false14:                                  ; preds = %set_signed_bn.exit35
-  %remainder = getelementptr inbounds i8, ptr %arrayidx, i64 12
+  %remainder = getelementptr inbounds nuw i8, ptr %arrayidx, i64 12
   %3 = load i32, ptr %remainder, align 4
   %call.i36 = tail call ptr @BN_new() #7
   %cmp.i37 = icmp eq ptr %call.i36, null
@@ -1420,7 +1420,7 @@ set_signed_bn.exit:                               ; preds = %entry, %if.then3.i,
   br i1 %tobool.not, label %err, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %set_signed_bn.exit
-  %divisor = getelementptr inbounds i8, ptr %arrayidx, i64 4
+  %divisor = getelementptr inbounds nuw i8, ptr %arrayidx, i64 4
   %1 = load i32, ptr %divisor, align 4
   %call.i12 = tail call ptr @BN_new() #7
   %cmp.i13 = icmp eq ptr %call.i12, null
@@ -1449,7 +1449,7 @@ set_signed_bn.exit23:                             ; preds = %lor.lhs.false, %if.
   br i1 %tobool7.not, label %err, label %lor.lhs.false8
 
 lor.lhs.false8:                                   ; preds = %set_signed_bn.exit23
-  %result = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %result = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %2 = load i32, ptr %result, align 8
   %call.i24 = tail call ptr @BN_new() #7
   %cmp.i25 = icmp eq ptr %call.i24, null
@@ -1478,7 +1478,7 @@ set_signed_bn.exit35:                             ; preds = %lor.lhs.false8, %if
   br i1 %tobool13.not, label %err, label %lor.lhs.false14
 
 lor.lhs.false14:                                  ; preds = %set_signed_bn.exit35
-  %remainder = getelementptr inbounds i8, ptr %arrayidx, i64 12
+  %remainder = getelementptr inbounds nuw i8, ptr %arrayidx, i64 12
   %3 = load i32, ptr %remainder, align 4
   %call.i36 = tail call ptr @BN_new() #7
   %cmp.i37 = icmp eq ptr %call.i36, null
@@ -1600,7 +1600,7 @@ if.end30:                                         ; preds = %for.body
   store i32 %inc.i, ptr @rand_neg.neg, align 4
   %rem.i = and i32 %0, 7
   %idxprom.i = zext nneg i32 %rem.i to i64
-  %arrayidx.i = getelementptr inbounds [8 x i32], ptr @rand_neg.sign, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [8 x i32], ptr @rand_neg.sign, i64 0, i64 %idxprom.i
   %1 = load i32, ptr %arrayidx.i, align 4
   tail call void @BN_set_negative(ptr noundef %call, i32 noundef %1) #7
   %2 = load i32, ptr @rand_neg.neg, align 4
@@ -1608,7 +1608,7 @@ if.end30:                                         ; preds = %for.body
   store i32 %inc.i24, ptr @rand_neg.neg, align 4
   %rem.i25 = and i32 %2, 7
   %idxprom.i26 = zext nneg i32 %rem.i25 to i64
-  %arrayidx.i27 = getelementptr inbounds [8 x i32], ptr @rand_neg.sign, i64 0, i64 %idxprom.i26
+  %arrayidx.i27 = getelementptr inbounds nuw [8 x i32], ptr @rand_neg.sign, i64 0, i64 %idxprom.i26
   %3 = load i32, ptr %arrayidx.i27, align 4
   tail call void @BN_set_negative(ptr noundef %call2, i32 noundef %3) #7
   %4 = load ptr, ptr @ctx, align 8
@@ -2564,7 +2564,7 @@ if.end17:                                         ; preds = %if.end
   store i32 %inc.i, ptr @rand_neg.neg, align 4
   %rem.i = and i32 %0, 7
   %idxprom.i = zext nneg i32 %rem.i to i64
-  %arrayidx.i = getelementptr inbounds [8 x i32], ptr @rand_neg.sign, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [8 x i32], ptr @rand_neg.sign, i64 0, i64 %idxprom.i
   %1 = load i32, ptr %arrayidx.i, align 4
   tail call void @BN_set_negative(ptr noundef %call2, i32 noundef %1) #7
   br label %for.body
@@ -2589,7 +2589,7 @@ if.end27:                                         ; preds = %for.body
   store i32 %inc.i28, ptr @rand_neg.neg, align 4
   %rem.i29 = and i32 %2, 7
   %idxprom.i30 = zext nneg i32 %rem.i29 to i64
-  %arrayidx.i31 = getelementptr inbounds [8 x i32], ptr @rand_neg.sign, i64 0, i64 %idxprom.i30
+  %arrayidx.i31 = getelementptr inbounds nuw [8 x i32], ptr @rand_neg.sign, i64 0, i64 %idxprom.i30
   %3 = load i32, ptr %arrayidx.i31, align 4
   tail call void @BN_set_negative(ptr noundef %call, i32 noundef %3) #7
   %call29 = tail call ptr @BN_copy(ptr noundef %call10, ptr noundef %call2) #7
@@ -2806,8 +2806,8 @@ if.end12:                                         ; preds = %if.end6
   br i1 %tobool17.not, label %err, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.end12
-  %add.ptr = getelementptr inbounds i8, ptr %out, i64 1
-  %add.ptr89 = getelementptr inbounds i8, ptr %out, i64 256
+  %add.ptr = getelementptr inbounds nuw i8, ptr %out, i64 1
+  %add.ptr89 = getelementptr inbounds nuw i8, ptr %out, i64 256
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.preheader, %lor.lhs.false94
@@ -3961,9 +3961,9 @@ if.end10:                                         ; preds = %if.end
   br i1 %tobool14.not, label %err, label %lor.lhs.false15
 
 lor.lhs.false15:                                  ; preds = %if.end10
-  %mpi = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %mpi = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %3 = load ptr, ptr %mpi, align 8
-  %mpi_len16 = getelementptr inbounds i8, ptr %arrayidx, i64 16
+  %mpi_len16 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 16
   %4 = load i64, ptr %mpi_len16, align 8
   %call18 = call i32 @test_mem_eq(ptr noundef nonnull @.str.17, i32 noundef 2212, ptr noundef nonnull @.str.342, ptr noundef nonnull @.str.343, ptr noundef %3, i64 noundef %4, ptr noundef nonnull %scratch, i64 noundef %conv6) #7
   %tobool19.not = icmp eq i32 %call18, 0
@@ -4014,7 +4014,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %tobool4.not, label %err, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %mpi_len = getelementptr inbounds i8, ptr %arrayidx, i64 16
+  %mpi_len = getelementptr inbounds nuw i8, ptr %arrayidx, i64 16
   %1 = load i64, ptr %mpi_len, align 8
   %2 = load ptr, ptr %bn, align 8
   %call6 = call i32 @BN_signed_bn2bin(ptr noundef %2, ptr noundef nonnull %scratch, i32 noundef 10) #7
@@ -4023,7 +4023,7 @@ if.end:                                           ; preds = %lor.lhs.false
   br i1 %tobool8.not, label %err, label %lor.lhs.false9
 
 lor.lhs.false9:                                   ; preds = %if.end
-  %add.ptr.i = getelementptr inbounds i8, ptr %reversed, i64 9
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %reversed, i64 9
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %lor.lhs.false9
@@ -4032,7 +4032,7 @@ for.body.i:                                       ; preds = %for.body.i, %lor.lh
   %dst.addr.06.i = phi ptr [ %add.ptr.i, %lor.lhs.false9 ], [ %incdec.ptr1.i, %for.body.i ]
   %3 = load i8, ptr %src.addr.07.i, align 1
   store i8 %3, ptr %dst.addr.06.i, align 1
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %src.addr.07.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %src.addr.07.i, i64 1
   %incdec.ptr1.i = getelementptr inbounds i8, ptr %dst.addr.06.i, i64 -1
   %dec.i = add nsw i64 %len.addr.08.i, -1
   %cmp.not.i = icmp eq i64 %dec.i, 0
@@ -4044,7 +4044,7 @@ copy_reversed.exit:                               ; preds = %for.body.i
   br i1 %tobool16.not, label %err, label %lor.lhs.false17
 
 lor.lhs.false17:                                  ; preds = %copy_reversed.exit
-  %mpi = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %mpi = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %4 = load ptr, ptr %mpi, align 8
   %5 = shl i64 %1, 32
   %sext = sub i64 42949672960, %5
@@ -4093,7 +4093,7 @@ for.body.i20:                                     ; preds = %if.end42, %for.body
   %dst.addr.06.i23 = phi ptr [ %incdec.ptr1.i25, %for.body.i20 ], [ %add.ptr.i, %if.end42 ]
   %9 = load i8, ptr %src.addr.07.i22, align 1
   store i8 %9, ptr %dst.addr.06.i23, align 1
-  %incdec.ptr.i24 = getelementptr inbounds i8, ptr %src.addr.07.i22, i64 1
+  %incdec.ptr.i24 = getelementptr inbounds nuw i8, ptr %src.addr.07.i22, i64 1
   %incdec.ptr1.i25 = getelementptr inbounds i8, ptr %dst.addr.06.i23, i64 -1
   %dec.i26 = add nsw i64 %len.addr.08.i21, -1
   %cmp.not.i27 = icmp eq i64 %dec.i26, 0
@@ -5140,7 +5140,7 @@ if.end18:                                         ; preds = %land.lhs.true
   store i32 %inc.i, ptr @rand_neg.neg, align 4
   %rem.i = and i32 %0, 7
   %idxprom.i = zext nneg i32 %rem.i to i64
-  %arrayidx.i = getelementptr inbounds [8 x i32], ptr @rand_neg.sign, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [8 x i32], ptr @rand_neg.sign, i64 0, i64 %idxprom.i
   %1 = load i32, ptr %arrayidx.i, align 4
   tail call void @BN_set_negative(ptr noundef %call, i32 noundef %1) #7
   %2 = load i32, ptr @rand_neg.neg, align 4
@@ -5148,7 +5148,7 @@ if.end18:                                         ; preds = %land.lhs.true
   store i32 %inc.i17, ptr @rand_neg.neg, align 4
   %rem.i18 = and i32 %2, 7
   %idxprom.i19 = zext nneg i32 %rem.i18 to i64
-  %arrayidx.i20 = getelementptr inbounds [8 x i32], ptr @rand_neg.sign, i64 0, i64 %idxprom.i19
+  %arrayidx.i20 = getelementptr inbounds nuw [8 x i32], ptr @rand_neg.sign, i64 0, i64 %idxprom.i19
   %3 = load i32, ptr %arrayidx.i20, align 4
   tail call void @BN_set_negative(ptr noundef %call2, i32 noundef %3) #7
   %call21 = tail call i32 @BN_GF2m_add(ptr noundef %call6, ptr noundef %call, ptr noundef %call2) #7
@@ -6616,7 +6616,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %tobool5.not, label %err, label %lor.lhs.false6
 
 lor.lhs.false6:                                   ; preds = %lor.lhs.false
-  %exp = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %exp = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %1 = load ptr, ptr %exp, align 8
   %call7 = call i32 @BN_dec2bn(ptr noundef nonnull %exponent, ptr noundef %1) #7
   %cmp8 = icmp ne i32 %call7, 0
@@ -6626,7 +6626,7 @@ lor.lhs.false6:                                   ; preds = %lor.lhs.false
   br i1 %tobool11.not, label %err, label %lor.lhs.false12
 
 lor.lhs.false12:                                  ; preds = %lor.lhs.false6
-  %mod = getelementptr inbounds i8, ptr %arrayidx, i64 16
+  %mod = getelementptr inbounds nuw i8, ptr %arrayidx, i64 16
   %2 = load ptr, ptr %mod, align 16
   %call13 = call i32 @BN_dec2bn(ptr noundef nonnull %modulo, ptr noundef %2) #7
   %cmp14 = icmp ne i32 %call13, 0
@@ -6653,7 +6653,7 @@ if.end22:                                         ; preds = %if.end
 
 if.end27:                                         ; preds = %if.end22
   %call28 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call23) #8
-  %res29 = getelementptr inbounds i8, ptr %arrayidx, i64 24
+  %res29 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 24
   %7 = load ptr, ptr %res29, align 8
   %call31 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #8
   %call32 = call i32 @test_mem_eq(ptr noundef nonnull @.str.17, i32 noundef 3080, ptr noundef nonnull @.str.551, ptr noundef nonnull @.str.572, ptr noundef %call23, i64 noundef %call28, ptr noundef %7, i64 noundef %call31) #7
@@ -6701,7 +6701,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %tobool5.not, label %err, label %lor.lhs.false6
 
 lor.lhs.false6:                                   ; preds = %lor.lhs.false
-  %exp = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %exp = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %1 = load ptr, ptr %exp, align 8
   %call7 = call i32 @BN_dec2bn(ptr noundef nonnull %exponent, ptr noundef %1) #7
   %cmp8 = icmp ne i32 %call7, 0
@@ -6711,7 +6711,7 @@ lor.lhs.false6:                                   ; preds = %lor.lhs.false
   br i1 %tobool11.not, label %err, label %lor.lhs.false12
 
 lor.lhs.false12:                                  ; preds = %lor.lhs.false6
-  %mod = getelementptr inbounds i8, ptr %arrayidx, i64 16
+  %mod = getelementptr inbounds nuw i8, ptr %arrayidx, i64 16
   %2 = load ptr, ptr %mod, align 16
   %call13 = call i32 @BN_dec2bn(ptr noundef nonnull %modulo, ptr noundef %2) #7
   %cmp14 = icmp ne i32 %call13, 0
@@ -6744,7 +6744,7 @@ if.end22:                                         ; preds = %if.end
 
 if.end27:                                         ; preds = %if.end22
   %call28 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call23) #8
-  %res29 = getelementptr inbounds i8, ptr %arrayidx, i64 24
+  %res29 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 24
   %10 = load ptr, ptr %res29, align 8
   %call31 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #8
   %call32 = call i32 @test_mem_eq(ptr noundef nonnull @.str.17, i32 noundef 3118, ptr noundef nonnull @.str.551, ptr noundef nonnull @.str.572, ptr noundef %call23, i64 noundef %call28, ptr noundef %10, i64 noundef %call31) #7
@@ -6869,11 +6869,11 @@ entry:
 for.body:                                         ; preds = %entry, %test_rand_range_single.exit
   %i.05 = phi i64 [ 0, %entry ], [ %inc, %test_rand_range_single.exit ]
   %n_success.04 = phi i32 [ 0, %entry ], [ %add, %test_rand_range_single.exit ]
-  %arrayidx.i = getelementptr inbounds [37 x %struct.anon.0], ptr @rand_range_cases, i64 0, i64 %i.05
+  %arrayidx.i = getelementptr inbounds nuw [37 x %struct.anon.0], ptr @rand_range_cases, i64 0, i64 %i.05
   %0 = load i32, ptr %arrayidx.i, align 16
-  %iterations3.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
+  %iterations3.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 4
   %1 = load i32, ptr %iterations3.i, align 4
-  %critical5.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  %critical5.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   %2 = load double, ptr %critical5.i, align 8
   %conv.i = uitofp i32 %1 to double
   %conv6.i = uitofp i32 %0 to double
@@ -6931,7 +6931,7 @@ lor.lhs.false29.i:                                ; preds = %for.body.i
 
 if.end35.i:                                       ; preds = %lor.lhs.false29.i
   %idxprom.i = and i64 %call30.i, 4294967295
-  %arrayidx36.i = getelementptr inbounds i64, ptr %call.i, i64 %idxprom.i
+  %arrayidx36.i = getelementptr inbounds nuw i64, ptr %call.i, i64 %idxprom.i
   %3 = load i64, ptr %arrayidx36.i, align 8
   %inc.i = add i64 %3, 1
   store i64 %inc.i, ptr %arrayidx36.i, align 8
@@ -6942,7 +6942,7 @@ if.end35.i:                                       ; preds = %lor.lhs.false29.i
 for.body41.i:                                     ; preds = %for.cond38.preheader.i, %for.body41.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body41.i ], [ 0, %for.cond38.preheader.i ]
   %sum.033.i = phi double [ %5, %for.body41.i ], [ 0.000000e+00, %for.cond38.preheader.i ]
-  %arrayidx43.i = getelementptr inbounds i64, ptr %call.i, i64 %indvars.iv.i
+  %arrayidx43.i = getelementptr inbounds nuw i64, ptr %call.i, i64 %indvars.iv.i
   %4 = load i64, ptr %arrayidx43.i, align 8
   %conv44.i = uitofp i64 %4 to double
   %sub.i = fsub double %conv44.i, %div.i
@@ -7005,7 +7005,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool4.not, label %if.then5, label %while.cond.preheader
 
 while.cond.preheader:                             ; preds = %if.end
-  %fp = getelementptr inbounds i8, ptr %call1, i64 8
+  %fp = getelementptr inbounds nuw i8, ptr %call1, i64 8
   %0 = load ptr, ptr %fp, align 8
   %call717 = tail call i64 @BIO_ctrl(ptr noundef %0, i32 noundef 2, i64 noundef 0, ptr noundef null) #7
   %1 = and i64 %call717, 4294967295
@@ -7013,11 +7013,11 @@ while.cond.preheader:                             ; preds = %if.end
   br i1 %tobool9.not18, label %land.rhs.lr.ph, label %while.end
 
 land.rhs.lr.ph:                                   ; preds = %while.cond.preheader
-  %numpairs = getelementptr inbounds i8, ptr %call1, i64 36
-  %pairs.i.i = getelementptr inbounds i8, ptr %call1, i64 40
-  %start.i = getelementptr inbounds i8, ptr %call1, i64 20
-  %errors = getelementptr inbounds i8, ptr %call1, i64 24
-  %numtests = getelementptr inbounds i8, ptr %call1, i64 28
+  %numpairs = getelementptr inbounds nuw i8, ptr %call1, i64 36
+  %pairs.i.i = getelementptr inbounds nuw i8, ptr %call1, i64 40
+  %start.i = getelementptr inbounds nuw i8, ptr %call1, i64 20
+  %errors = getelementptr inbounds nuw i8, ptr %call1, i64 24
+  %numtests = getelementptr inbounds nuw i8, ptr %call1, i64 28
   br label %land.rhs
 
 if.then5:                                         ; preds = %if.end
@@ -7040,7 +7040,7 @@ if.end14:                                         ; preds = %while.body
 
 for.bodythread-pre-split.i:                       ; preds = %for.inc.i
   %dec.i = add nsw i32 %dec14.i, -1
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %tp.013.i, i64 16
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %tp.013.i, i64 16
   %.pr.i = load i32, ptr %numpairs, align 4
   br label %for.body.i
 
@@ -7062,18 +7062,18 @@ for.body.i.i:                                     ; preds = %for.body.i, %for.in
 
 for.inc.i.i:                                      ; preds = %for.body.i.i
   %dec8.i.i = add nsw i32 %dec8.in.i.i, -1
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %pp.07.i.i, i64 16
+  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %pp.07.i.i, i64 16
   %cmp.i.i = icmp sgt i32 %dec8.in.i.i, 1
   br i1 %cmp.i.i, label %for.body.i.i, label %for.inc.i, !llvm.loop !39
 
 findattr.exit.i:                                  ; preds = %for.body.i.i
-  %value.i.i = getelementptr inbounds i8, ptr %pp.07.i.i, i64 8
+  %value.i.i = getelementptr inbounds nuw i8, ptr %pp.07.i.i, i64 8
   %7 = load ptr, ptr %value.i.i, align 8
   %cmp1.not.i = icmp eq ptr %7, null
   br i1 %cmp1.not.i, label %for.inc.i, label %if.then.i
 
 if.then.i:                                        ; preds = %findattr.exit.i
-  %func.i = getelementptr inbounds i8, ptr %tp.013.i, i64 8
+  %func.i = getelementptr inbounds nuw i8, ptr %tp.013.i, i64 8
   %8 = load ptr, ptr %func.i, align 8
   %call2.i = tail call i32 %8(ptr noundef %call1) #7
   %tobool.not.i = icmp eq i32 %call2.i, 0
@@ -7117,7 +7117,7 @@ while.cond.backedge:                              ; preds = %if.end18, %while.bo
 
 while.end:                                        ; preds = %land.rhs, %while.cond.backedge, %while.cond.preheader
   %call20 = tail call i32 @test_end_file(ptr noundef nonnull %call1) #7
-  %errors21 = getelementptr inbounds i8, ptr %call1, i64 24
+  %errors21 = getelementptr inbounds nuw i8, ptr %call1, i64 24
   %17 = load i32, ptr %errors21, align 8
   tail call void @CRYPTO_free(ptr noundef nonnull %call1, ptr noundef nonnull @.str.17, i32 noundef 3335) #7
   %cmp22 = icmp eq i32 %17, 0
@@ -9140,13 +9140,13 @@ err:                                              ; preds = %1, %lor.lhs.false16
 define internal fastcc ptr @getBN(ptr nocapture noundef readonly %s, ptr noundef %attribute) unnamed_addr #1 {
 entry:
   %ret = alloca ptr, align 8
-  %numpairs.i = getelementptr inbounds i8, ptr %s, i64 36
+  %numpairs.i = getelementptr inbounds nuw i8, ptr %s, i64 36
   %0 = load i32, ptr %numpairs.i, align 4
   %cmp6.i = icmp sgt i32 %0, 0
   br i1 %cmp6.i, label %for.body.preheader.i, label %if.then
 
 for.body.preheader.i:                             ; preds = %entry
-  %pairs.i = getelementptr inbounds i8, ptr %s, i64 40
+  %pairs.i = getelementptr inbounds nuw i8, ptr %s, i64 40
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.preheader.i
@@ -9159,19 +9159,19 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
 
 for.inc.i:                                        ; preds = %for.body.i
   %dec8.i = add nsw i32 %dec8.in.i, -1
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %pp.07.i, i64 16
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %pp.07.i, i64 16
   %cmp.i = icmp sgt i32 %dec8.in.i, 1
   br i1 %cmp.i, label %for.body.i, label %if.then, !llvm.loop !39
 
 findattr.exit:                                    ; preds = %for.body.i
-  %value.i = getelementptr inbounds i8, ptr %pp.07.i, i64 8
+  %value.i = getelementptr inbounds nuw i8, ptr %pp.07.i, i64 8
   %2 = load ptr, ptr %value.i, align 8
   %cmp = icmp eq ptr %2, null
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %for.inc.i, %entry, %findattr.exit
   %3 = load ptr, ptr %s, align 8
-  %start = getelementptr inbounds i8, ptr %s, i64 20
+  %start = getelementptr inbounds nuw i8, ptr %s, i64 20
   %4 = load i32, ptr %start, align 4
   tail call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.17, i32 noundef 102, ptr noundef nonnull @.str.686, ptr noundef %3, i32 noundef %4, ptr noundef %attribute) #7
   br label %return

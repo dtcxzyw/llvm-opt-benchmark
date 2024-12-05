@@ -190,7 +190,7 @@ define void @dlasd3_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
 
 128:                                              ; preds = %.preheader34, %128
   %129 = phi i64 [ %134, %128 ], [ 1, %.preheader34 ]
-  %130 = getelementptr inbounds double, ptr %35, i64 %129
+  %130 = getelementptr inbounds nuw double, ptr %35, i64 %129
   %131 = tail call double @dlamc3_(ptr noundef nonnull %130, ptr noundef nonnull %130) #4
   %132 = load double, ptr %130, align 8, !tbaa !7
   %133 = fsub double %131, %132
@@ -263,13 +263,13 @@ define void @dlasd3_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
   %175 = getelementptr double, ptr %174, i64 %173
   %176 = load double, ptr %175, align 8, !tbaa !7
   %177 = fmul double %171, %176
-  %178 = getelementptr inbounds double, ptr %53, i64 %165
+  %178 = getelementptr inbounds nuw double, ptr %53, i64 %165
   store double %177, ptr %178, align 8, !tbaa !7
   %179 = icmp samesign ugt i64 %165, 1
   br i1 %179, label %180, label %.loopexit58
 
 180:                                              ; preds = %164
-  %181 = getelementptr inbounds double, ptr %35, i64 %165
+  %181 = getelementptr inbounds nuw double, ptr %35, i64 %165
   br label %188
 
 .loopexit58:                                      ; preds = %188, %164
@@ -279,7 +279,7 @@ define void @dlasd3_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
   br i1 %184, label %185, label %.loopexit31
 
 185:                                              ; preds = %.loopexit58
-  %186 = getelementptr inbounds double, ptr %35, i64 %165
+  %186 = getelementptr inbounds nuw double, ptr %35, i64 %165
   %187 = zext i32 %166 to i64
   br label %208
 
@@ -294,7 +294,7 @@ define void @dlasd3_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
   %196 = load double, ptr %195, align 8, !tbaa !7
   %197 = fmul double %193, %196
   %198 = load double, ptr %181, align 8, !tbaa !7
-  %199 = getelementptr inbounds double, ptr %35, i64 %190
+  %199 = getelementptr inbounds nuw double, ptr %35, i64 %190
   %200 = load double, ptr %199, align 8, !tbaa !7
   %201 = fsub double %198, %200
   %202 = fdiv double %197, %201
@@ -386,7 +386,7 @@ define void @dlasd3_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
 
 267:                                              ; preds = %267, %262
   %268 = phi i64 [ 2, %262 ], [ %280, %267 ]
-  %269 = getelementptr inbounds double, ptr %53, i64 %268
+  %269 = getelementptr inbounds nuw double, ptr %53, i64 %268
   %270 = load double, ptr %269, align 8, !tbaa !7
   %271 = getelementptr double, ptr %265, i64 %268
   %272 = load double, ptr %271, align 8, !tbaa !7
@@ -395,7 +395,7 @@ define void @dlasd3_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
   %275 = load double, ptr %274, align 8, !tbaa !7
   %276 = fdiv double %273, %275
   store double %276, ptr %274, align 8, !tbaa !7
-  %277 = getelementptr inbounds double, ptr %35, i64 %268
+  %277 = getelementptr inbounds nuw double, ptr %35, i64 %268
   %278 = load double, ptr %277, align 8, !tbaa !7
   %279 = fmul double %276, %278
   store double %279, ptr %271, align 8, !tbaa !7
@@ -425,7 +425,7 @@ define void @dlasd3_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
 
 295:                                              ; preds = %295, %290
   %296 = phi i64 [ 2, %290 ], [ %304, %295 ]
-  %297 = getelementptr inbounds i32, ptr %52, i64 %296
+  %297 = getelementptr inbounds nuw i32, ptr %52, i64 %296
   %298 = load i32, ptr %297, align 4, !tbaa !3
   %299 = sext i32 %298 to i64
   %300 = getelementptr double, ptr %293, i64 %299
@@ -466,7 +466,7 @@ define void @dlasd3_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
   %320 = getelementptr double, ptr %34, i64 %319
   %321 = getelementptr i8, ptr %320, i64 16
   call void @dgemm_(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.2, ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef nonnull %17, ptr noundef nonnull @c_b13, ptr noundef nonnull %318, ptr noundef nonnull %11, ptr noundef %321, ptr noundef nonnull %6, ptr noundef nonnull @c_b26, ptr noundef %8, ptr noundef nonnull %9) #4
-  %322 = getelementptr inbounds i8, ptr %17, i64 8
+  %322 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %323 = load i32, ptr %322, align 4, !tbaa !3
   %324 = icmp sgt i32 %323, 0
   br i1 %324, label %325, label %355
@@ -474,7 +474,7 @@ define void @dlasd3_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
 325:                                              ; preds = %314
   %326 = load i32, ptr %17, align 4, !tbaa !3
   %327 = add nsw i32 %326, 2
-  %328 = getelementptr inbounds i8, ptr %17, i64 4
+  %328 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %329 = load i32, ptr %328, align 4, !tbaa !3
   %330 = add nsw i32 %327, %329
   store i32 %330, ptr %26, align 4, !tbaa !3
@@ -489,14 +489,14 @@ define void @dlasd3_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
   br label %355
 
 338:                                              ; preds = %.thread25
-  %339 = getelementptr inbounds i8, ptr %17, i64 8
+  %339 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %340 = load i32, ptr %339, align 4, !tbaa !3
   %341 = icmp sgt i32 %340, 0
   br i1 %341, label %342, label %354
 
 342:                                              ; preds = %338
   %343 = add nsw i32 %312, 2
-  %344 = getelementptr inbounds i8, ptr %17, i64 4
+  %344 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %345 = load i32, ptr %344, align 4, !tbaa !3
   %346 = add nsw i32 %343, %345
   store i32 %346, ptr %26, align 4, !tbaa !3
@@ -521,9 +521,9 @@ define void @dlasd3_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
   call void @dcopy_(ptr noundef nonnull %3, ptr noundef %5, ptr noundef nonnull %6, ptr noundef %358, ptr noundef nonnull %9) #4
   %359 = load i32, ptr %17, align 4, !tbaa !3
   %360 = add nsw i32 %359, 2
-  %361 = getelementptr inbounds i8, ptr %17, i64 4
+  %361 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %362 = load i32, ptr %361, align 4, !tbaa !3
-  %363 = getelementptr inbounds i8, ptr %17, i64 8
+  %363 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %364 = load i32, ptr %363, align 4, !tbaa !3
   %365 = add nsw i32 %364, %362
   store i32 %365, ptr %25, align 4, !tbaa !3
@@ -574,7 +574,7 @@ define void @dlasd3_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
 
 399:                                              ; preds = %399, %394
   %400 = phi i64 [ 2, %394 ], [ %409, %399 ]
-  %401 = getelementptr inbounds i32, ptr %52, i64 %400
+  %401 = getelementptr inbounds nuw i32, ptr %52, i64 %400
   %402 = load i32, ptr %401, align 4, !tbaa !3
   %403 = sext i32 %402 to i64
   %404 = getelementptr double, ptr %397, i64 %403
@@ -609,7 +609,7 @@ define void @dlasd3_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
   call void @dgemm_(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.2, ptr noundef nonnull %3, ptr noundef nonnull %28, ptr noundef nonnull %26, ptr noundef nonnull @c_b13, ptr noundef %5, ptr noundef nonnull %6, ptr noundef %14, ptr noundef nonnull %15, ptr noundef nonnull @c_b26, ptr noundef %12, ptr noundef nonnull %13) #4
   %419 = load i32, ptr %17, align 4, !tbaa !3
   %420 = add nsw i32 %419, 2
-  %421 = getelementptr inbounds i8, ptr %17, i64 4
+  %421 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %422 = load i32, ptr %421, align 4, !tbaa !3
   %423 = add nsw i32 %420, %422
   store i32 %423, ptr %26, align 4, !tbaa !3
@@ -618,7 +618,7 @@ define void @dlasd3_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
   br i1 %425, label %435, label %426
 
 426:                                              ; preds = %.thread28
-  %427 = getelementptr inbounds i8, ptr %17, i64 8
+  %427 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %428 = mul nsw i32 %423, %31
   %429 = sext i32 %428 to i64
   %430 = getelementptr double, ptr %34, i64 %429
@@ -695,7 +695,7 @@ define void @dlasd3_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
 .loopexit29:                                      ; preds = %469, %.loopexit30, %435
   %478 = load i32, ptr %421, align 4, !tbaa !3
   %479 = add nsw i32 %478, 1
-  %480 = getelementptr inbounds i8, ptr %17, i64 8
+  %480 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %481 = load i32, ptr %480, align 4, !tbaa !3
   %482 = add nsw i32 %479, %481
   store i32 %482, ptr %25, align 4, !tbaa !3

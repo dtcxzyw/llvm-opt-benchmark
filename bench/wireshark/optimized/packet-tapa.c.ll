@@ -191,7 +191,7 @@ test_tapa_discover.exit:                          ; preds = %8
   %19 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 2) #3
   %20 = zext i16 %19 to i32
   %21 = add nsw i32 %20, -4
-  %22 = getelementptr inbounds i8, ptr %1, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %23 = load ptr, ptr %22, align 8
   tail call void @col_set_str(ptr noundef %23, i32 noundef 34, ptr noundef nonnull @.str.58) #3
   %24 = load ptr, ptr %22, align 8
@@ -228,7 +228,7 @@ test_tapa_discover.exit:                          ; preds = %8
   ]
 
 42:                                               ; preds = %41
-  %43 = getelementptr inbounds i8, ptr %1, i64 408
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %44
 
 44:                                               ; preds = %44, %42
@@ -266,7 +266,7 @@ test_tapa_discover.exit:                          ; preds = %8
   %71 = load i32, ptr @hf_tapa_discover_reply_switchip, align 4
   %72 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %71, ptr noundef %0, i32 noundef 4, i32 noundef 4, i32 noundef 0) #3
   %73 = load ptr, ptr %22, align 8
-  %74 = getelementptr inbounds i8, ptr %1, i64 408
+  %74 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %75 = load ptr, ptr %74, align 8
   %76 = tail call ptr @tvb_address_to_str(ptr noundef %75, ptr noundef %0, i32 noundef 2, i32 noundef 4) #3
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %73, i32 noundef 25, ptr noundef nonnull @.str.77, ptr noundef %76) #3
@@ -285,7 +285,7 @@ test_tapa_discover.exit:                          ; preds = %8
   br i1 %85, label %.lr.ph.i.i, label %dissect_tapa_discover_unknown_new_tlv.exit.i
 
 .lr.ph.i.i:                                       ; preds = %84
-  %86 = getelementptr inbounds i8, ptr %1, i64 408
+  %86 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %87
 
 87:                                               ; preds = %.critedge.i.i, %.lr.ph.i.i
@@ -383,7 +383,7 @@ test_tapa_tunnel.exit:                            ; preds = %131
   %136 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #3
   %137 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #3
   %138 = tail call i32 @tvb_reported_length(ptr noundef %0) #3
-  %139 = getelementptr inbounds i8, ptr %1, i64 8
+  %139 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %140 = load ptr, ptr %139, align 8
   tail call void @col_set_str(ptr noundef %140, i32 noundef 34, ptr noundef nonnull @.str.58) #3
   %141 = load ptr, ptr %139, align 8
@@ -473,7 +473,7 @@ define internal range(i32 0, 2) i32 @dissect_tapa_heur(ptr noundef %0, ptr nound
 
 ws_ip_protocol.exit:                              ; preds = %5, %7
   %.sink = phi i64 [ 12, %7 ], [ 13, %5 ]
-  %8 = getelementptr inbounds i8, ptr %3, i64 %.sink
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink
   %.0.i.in = load i8, ptr %8, align 1
   %9 = icmp eq i8 %.0.i.in, 4
   br i1 %9, label %10, label %ws_ip_protocol.exit.thread

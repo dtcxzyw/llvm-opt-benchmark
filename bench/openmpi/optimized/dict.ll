@@ -56,8 +56,8 @@ define range(i32 -1, 2) i32 @ompi_coll_libnbc_dict_str_cmp(ptr nocapture noundef
   %4 = load i8, ptr %.0, align 1
   %5 = load i8, ptr %.010, align 1
   %6 = icmp ne i8 %4, 0
-  %7 = getelementptr inbounds i8, ptr %.010, i64 1
-  %8 = getelementptr inbounds i8, ptr %.0, i64 1
+  %7 = getelementptr inbounds nuw i8, ptr %.010, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %.0, i64 1
   %.not = icmp eq i8 %4, %5
   %or.cond = select i1 %6, i1 %.not, i1 false
   br i1 %or.cond, label %3, label %9
@@ -69,7 +69,7 @@ define range(i32 -1, 2) i32 @ompi_coll_libnbc_dict_str_cmp(ptr nocapture noundef
 
 ; Function Attrs: nounwind uwtable
 define void @ompi_coll_libnbc_dict_destroy(ptr noundef %0, i32 noundef %1) local_unnamed_addr #5 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 64
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8
   tail call void %4(ptr noundef %5, i32 noundef %1) #7
@@ -80,7 +80,7 @@ define void @ompi_coll_libnbc_dict_destroy(ptr noundef %0, i32 noundef %1) local
 
 ; Function Attrs: nounwind uwtable
 define void @ompi_coll_libnbc_dict_itor_destroy(ptr noundef %0) local_unnamed_addr #5 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 128
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %0, align 8
   tail call void %3(ptr noundef %4) #7
